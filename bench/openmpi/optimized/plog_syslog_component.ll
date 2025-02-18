@@ -3,11 +3,10 @@ source_filename = "bench/openmpi/original/plog_syslog_component.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.pmix_plog_syslog_component_t = type { %struct.pmix_mca_base_component_2_1_0_t, i32, i32, i32 }
 %struct.pmix_mca_base_component_2_1_0_t = type { i32, i32, i32, [16 x i8], i32, i32, i32, [32 x i8], i32, i32, i32, [64 x i8], i32, i32, i32, ptr, ptr, ptr, ptr, [32 x i8] }
 %struct.pmix_plog_module_t = type { ptr, ptr, ptr, ptr, ptr }
 
-@pmix_mca_plog_syslog_component = global %struct.pmix_plog_syslog_component_t { %struct.pmix_mca_base_component_2_1_0_t { i32 2, i32 1, i32 0, [16 x i8] c"pmix\00\00\00\00\00\00\00\00\00\00\00\00", i32 6, i32 0, i32 0, [32 x i8] c"plog\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00", i32 1, i32 0, i32 0, [64 x i8] c"syslog\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00", i32 6, i32 0, i32 0, ptr null, ptr null, ptr @component_query, ptr @syslog_register, [32 x i8] zeroinitializer }, i32 0, i32 3, i32 8 }, align 8
+@pmix_mca_plog_syslog_component = global { %struct.pmix_mca_base_component_2_1_0_t, i32, i32, i32, [4 x i8] } { %struct.pmix_mca_base_component_2_1_0_t { i32 2, i32 1, i32 0, [16 x i8] c"pmix\00\00\00\00\00\00\00\00\00\00\00\00", i32 6, i32 0, i32 0, [32 x i8] c"plog\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00", i32 1, i32 0, i32 0, [64 x i8] c"syslog\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00", i32 6, i32 0, i32 0, ptr null, ptr null, ptr @component_query, ptr @syslog_register, [32 x i8] zeroinitializer }, i32 0, i32 3, i32 8, [4 x i8] zeroinitializer }, align 8
 @.str = private unnamed_addr constant [8 x i8] c"console\00", align 1
 @.str.1 = private unnamed_addr constant [85 x i8] c"Write directly to system console if there is an error while sending to system logger\00", align 1
 @.str.2 = private unnamed_addr constant [5 x i8] c"info\00", align 1
@@ -36,23 +35,23 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @component_query(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) #0 {
-  store i32 10, ptr %1, align 4
-  store ptr @pmix_plog_syslog_module, ptr %0, align 8
+  store i32 10, ptr %1, align 4, !tbaa !3
+  store ptr @pmix_plog_syslog_module, ptr %0, align 8, !tbaa !7
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -47, 1) i32 @syslog_register() #1 {
   %1 = tail call i32 @pmix_mca_base_component_var_register(ptr noundef nonnull @pmix_mca_plog_syslog_component, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pmix_mca_plog_syslog_component, i64 224)) #4
-  store ptr @.str.2, ptr @level, align 8
+  store ptr @.str.2, ptr @level, align 8, !tbaa !10
   %2 = tail call i32 @pmix_mca_base_component_var_register(ptr noundef nonnull @pmix_mca_plog_syslog_component, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 5, ptr noundef nonnull @level) #4
-  %3 = load ptr, ptr @level, align 8
+  %3 = load ptr, ptr @level, align 8, !tbaa !10
   %4 = tail call i32 @strncasecmp(ptr noundef %3, ptr noundef nonnull @.str.5, i64 noundef 3) #5
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %0
-  store i32 3, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_plog_syslog_component, i64 228), align 4
+  store i32 3, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_plog_syslog_component, i64 228), align 4, !tbaa !12
   br label %40
 
 7:                                                ; preds = %0
@@ -61,7 +60,7 @@ define internal range(i32 -47, 1) i32 @syslog_register() #1 {
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %7
-  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_plog_syslog_component, i64 228), align 4
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_plog_syslog_component, i64 228), align 4, !tbaa !12
   br label %40
 
 11:                                               ; preds = %7
@@ -70,7 +69,7 @@ define internal range(i32 -47, 1) i32 @syslog_register() #1 {
   br i1 %13, label %14, label %15
 
 14:                                               ; preds = %11
-  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_plog_syslog_component, i64 228), align 4
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_plog_syslog_component, i64 228), align 4, !tbaa !12
   br label %40
 
 15:                                               ; preds = %11
@@ -79,7 +78,7 @@ define internal range(i32 -47, 1) i32 @syslog_register() #1 {
   br i1 %17, label %18, label %19
 
 18:                                               ; preds = %15
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_plog_syslog_component, i64 228), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_plog_syslog_component, i64 228), align 4, !tbaa !12
   br label %40
 
 19:                                               ; preds = %15
@@ -88,7 +87,7 @@ define internal range(i32 -47, 1) i32 @syslog_register() #1 {
   br i1 %21, label %22, label %23
 
 22:                                               ; preds = %19
-  store i32 4, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_plog_syslog_component, i64 228), align 4
+  store i32 4, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_plog_syslog_component, i64 228), align 4, !tbaa !12
   br label %40
 
 23:                                               ; preds = %19
@@ -97,7 +96,7 @@ define internal range(i32 -47, 1) i32 @syslog_register() #1 {
   br i1 %25, label %26, label %27
 
 26:                                               ; preds = %23
-  store i32 5, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_plog_syslog_component, i64 228), align 4
+  store i32 5, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_plog_syslog_component, i64 228), align 4, !tbaa !12
   br label %40
 
 27:                                               ; preds = %23
@@ -106,7 +105,7 @@ define internal range(i32 -47, 1) i32 @syslog_register() #1 {
   br i1 %29, label %30, label %31
 
 30:                                               ; preds = %27
-  store i32 6, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_plog_syslog_component, i64 228), align 4
+  store i32 6, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_plog_syslog_component, i64 228), align 4, !tbaa !12
   br label %40
 
 31:                                               ; preds = %27
@@ -120,7 +119,7 @@ define internal range(i32 -47, 1) i32 @syslog_register() #1 {
   br i1 %36, label %37, label %38
 
 37:                                               ; preds = %34, %31
-  store i32 7, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_plog_syslog_component, i64 228), align 4
+  store i32 7, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_plog_syslog_component, i64 228), align 4, !tbaa !12
   br label %40
 
 38:                                               ; preds = %34
@@ -129,15 +128,15 @@ define internal range(i32 -47, 1) i32 @syslog_register() #1 {
 
 40:                                               ; preds = %10, %18, %26, %37, %38, %30, %22, %14, %6
   %.0 = phi i32 [ 0, %6 ], [ 0, %10 ], [ 0, %14 ], [ 0, %18 ], [ 0, %22 ], [ 0, %26 ], [ 0, %30 ], [ 0, %37 ], [ -47, %38 ]
-  store ptr @.str.15, ptr @facility, align 8
+  store ptr @.str.15, ptr @facility, align 8, !tbaa !10
   %41 = tail call i32 @pmix_mca_base_component_var_register(ptr noundef nonnull @pmix_mca_plog_syslog_component, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, i32 noundef 5, ptr noundef nonnull @facility) #4
-  %42 = load ptr, ptr @facility, align 8
+  %42 = load ptr, ptr @facility, align 8, !tbaa !10
   %43 = tail call i32 @strncasecmp(ptr noundef %42, ptr noundef nonnull @.str.18, i64 noundef 4) #5
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %45, label %46
 
 45:                                               ; preds = %40
-  store i32 32, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_plog_syslog_component, i64 232), align 8
+  store i32 32, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_plog_syslog_component, i64 232), align 8, !tbaa !15
   br label %60
 
 46:                                               ; preds = %40
@@ -146,7 +145,7 @@ define internal range(i32 -47, 1) i32 @syslog_register() #1 {
   br i1 %48, label %49, label %50
 
 49:                                               ; preds = %46
-  store i32 80, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_plog_syslog_component, i64 232), align 8
+  store i32 80, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_plog_syslog_component, i64 232), align 8, !tbaa !15
   br label %60
 
 50:                                               ; preds = %46
@@ -155,7 +154,7 @@ define internal range(i32 -47, 1) i32 @syslog_register() #1 {
   br i1 %52, label %53, label %54
 
 53:                                               ; preds = %50
-  store i32 24, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_plog_syslog_component, i64 232), align 8
+  store i32 24, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_plog_syslog_component, i64 232), align 8, !tbaa !15
   br label %60
 
 54:                                               ; preds = %50
@@ -164,7 +163,7 @@ define internal range(i32 -47, 1) i32 @syslog_register() #1 {
   br i1 %56, label %57, label %58
 
 57:                                               ; preds = %54
-  store i32 8, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_plog_syslog_component, i64 232), align 8
+  store i32 8, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_plog_syslog_component, i64 232), align 8, !tbaa !15
   br label %60
 
 58:                                               ; preds = %54
@@ -186,16 +185,28 @@ declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) 
 
 declare i32 @pmix_show_help(ptr noundef, ptr noundef, i32 noundef, ...) local_unnamed_addr #2
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nounwind }
 attributes #5 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"int", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"p1 _ZTS28pmix_mca_base_module_2_0_0_t", !9, i64 0}
+!9 = !{!"any pointer", !5, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"p1 omnipotent char", !9, i64 0}
+!12 = !{!13, !4, i64 228}
+!13 = !{!"", !14, i64 0, !4, i64 224, !4, i64 228, !4, i64 232}
+!14 = !{!"pmix_mca_base_component_2_1_0_t", !4, i64 0, !4, i64 4, !4, i64 8, !5, i64 12, !4, i64 28, !4, i64 32, !4, i64 36, !5, i64 40, !4, i64 72, !4, i64 76, !4, i64 80, !5, i64 84, !4, i64 148, !4, i64 152, !4, i64 156, !9, i64 160, !9, i64 168, !9, i64 176, !9, i64 184, !5, i64 192}
+!15 = !{!13, !4, i64 232}

@@ -10,124 +10,142 @@ define i32 @pmix_util_check_context_cwd(ptr noundef %0, i1 noundef zeroext %1, i
   %8 = alloca i8, align 1
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  %11 = zext i1 %1 to i8
-  store i8 %11, ptr %6, align 1
-  %12 = zext i1 %2 to i8
-  store i8 %12, ptr %7, align 1
-  store i8 1, ptr %8, align 1
-  store ptr null, ptr %10, align 8
-  %13 = load ptr, ptr %5, align 8
-  %14 = icmp eq ptr null, %13
-  br i1 %14, label %15, label %16
-
-15:                                               ; preds = %3
-  store i32 -27, ptr %4, align 4
-  br label %61
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  %12 = zext i1 %1 to i8
+  store i8 %12, ptr %6, align 1, !tbaa !8
+  %13 = zext i1 %2 to i8
+  store i8 %13, ptr %7, align 1, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %8) #5
+  store i8 1, ptr %8, align 1, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
+  store ptr null, ptr %10, align 8, !tbaa !10
+  %14 = load ptr, ptr %5, align 8, !tbaa !3
+  %15 = icmp eq ptr null, %14
+  br i1 %15, label %16, label %17
 
 16:                                               ; preds = %3
-  %17 = load ptr, ptr %5, align 8
-  %18 = load ptr, ptr %17, align 8
-  %19 = icmp eq ptr null, %18
-  br i1 %19, label %20, label %21
+  store i32 -27, ptr %4, align 4
+  store i32 1, ptr %11, align 4
+  br label %62
 
-20:                                               ; preds = %16
+17:                                               ; preds = %3
+  %18 = load ptr, ptr %5, align 8, !tbaa !3
+  %19 = load ptr, ptr %18, align 8, !tbaa !10
+  %20 = icmp eq ptr null, %19
+  br i1 %20, label %21, label %22
+
+21:                                               ; preds = %17
   store i32 0, ptr %4, align 4
-  br label %61
+  store i32 1, ptr %11, align 4
+  br label %62
 
-21:                                               ; preds = %16
-  %22 = load ptr, ptr %5, align 8
-  %23 = load ptr, ptr %22, align 8
-  store ptr %23, ptr %10, align 8
-  %24 = load i8, ptr %6, align 1
-  %25 = trunc i8 %24 to i1
-  br i1 %25, label %26, label %31
+22:                                               ; preds = %17
+  %23 = load ptr, ptr %5, align 8, !tbaa !3
+  %24 = load ptr, ptr %23, align 8, !tbaa !10
+  store ptr %24, ptr %10, align 8, !tbaa !10
+  %25 = load i8, ptr %6, align 1, !tbaa !8, !range !12, !noundef !13
+  %26 = trunc i8 %25 to i1
+  br i1 %26, label %27, label %32
 
-26:                                               ; preds = %21
-  %27 = load ptr, ptr %10, align 8
-  %28 = call i32 @chdir(ptr noundef %27) #4
-  %29 = icmp ne i32 0, %28
-  br i1 %29, label %30, label %31
+27:                                               ; preds = %22
+  %28 = load ptr, ptr %10, align 8, !tbaa !10
+  %29 = call i32 @chdir(ptr noundef %28) #5
+  %30 = icmp ne i32 0, %29
+  br i1 %30, label %31, label %32
 
-30:                                               ; preds = %26
-  store i8 0, ptr %8, align 1
-  br label %31
+31:                                               ; preds = %27
+  store i8 0, ptr %8, align 1, !tbaa !8
+  br label %32
 
-31:                                               ; preds = %30, %26, %21
-  %32 = load i8, ptr %8, align 1
-  %33 = trunc i8 %32 to i1
-  br i1 %33, label %60, label %34
+32:                                               ; preds = %31, %27, %22
+  %33 = load i8, ptr %8, align 1, !tbaa !8, !range !12, !noundef !13
+  %34 = trunc i8 %33 to i1
+  br i1 %34, label %61, label %35
 
-34:                                               ; preds = %31
-  %35 = load i8, ptr %7, align 1
-  %36 = trunc i8 %35 to i1
-  br i1 %36, label %37, label %38
+35:                                               ; preds = %32
+  %36 = load i8, ptr %7, align 1, !tbaa !8, !range !12, !noundef !13
+  %37 = trunc i8 %36 to i1
+  br i1 %37, label %38, label %39
 
-37:                                               ; preds = %34
+38:                                               ; preds = %35
   store i32 -74, ptr %4, align 4
-  br label %61
+  store i32 1, ptr %11, align 4
+  br label %62
 
-38:                                               ; preds = %34
-  %39 = call ptr @pmix_home_directory(i32 noundef -1)
-  store ptr %39, ptr %9, align 8
-  %40 = load ptr, ptr %9, align 8
-  %41 = icmp ne ptr null, %40
-  br i1 %41, label %42, label %59
+39:                                               ; preds = %35
+  %40 = call ptr @pmix_home_directory(i32 noundef -1)
+  store ptr %40, ptr %9, align 8, !tbaa !10
+  %41 = load ptr, ptr %9, align 8, !tbaa !10
+  %42 = icmp ne ptr null, %41
+  br i1 %42, label %43, label %60
 
-42:                                               ; preds = %38
-  %43 = load i8, ptr %6, align 1
-  %44 = trunc i8 %43 to i1
-  br i1 %44, label %45, label %50
+43:                                               ; preds = %39
+  %44 = load i8, ptr %6, align 1, !tbaa !8, !range !12, !noundef !13
+  %45 = trunc i8 %44 to i1
+  br i1 %45, label %46, label %51
 
-45:                                               ; preds = %42
-  %46 = load ptr, ptr %9, align 8
-  %47 = call i32 @chdir(ptr noundef %46) #4
-  %48 = icmp ne i32 0, %47
-  br i1 %48, label %49, label %50
+46:                                               ; preds = %43
+  %47 = load ptr, ptr %9, align 8, !tbaa !10
+  %48 = call i32 @chdir(ptr noundef %47) #5
+  %49 = icmp ne i32 0, %48
+  br i1 %49, label %50, label %51
 
-49:                                               ; preds = %45
+50:                                               ; preds = %46
   store i32 -74, ptr %4, align 4
-  br label %61
+  store i32 1, ptr %11, align 4
+  br label %62
 
-50:                                               ; preds = %45, %42
-  %51 = load ptr, ptr %10, align 8
-  %52 = icmp ne ptr null, %51
-  br i1 %52, label %53, label %55
+51:                                               ; preds = %46, %43
+  %52 = load ptr, ptr %10, align 8, !tbaa !10
+  %53 = icmp ne ptr null, %52
+  br i1 %53, label %54, label %56
 
-53:                                               ; preds = %50
-  %54 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %54) #4
-  br label %55
+54:                                               ; preds = %51
+  %55 = load ptr, ptr %10, align 8, !tbaa !10
+  call void @free(ptr noundef %55) #5
+  br label %56
 
-55:                                               ; preds = %53, %50
-  %56 = load ptr, ptr %9, align 8
-  %57 = call noalias ptr @strdup(ptr noundef %56) #4
-  %58 = load ptr, ptr %5, align 8
-  store ptr %57, ptr %58, align 8
-  br label %59
-
-59:                                               ; preds = %55, %38
+56:                                               ; preds = %54, %51
+  %57 = load ptr, ptr %9, align 8, !tbaa !10
+  %58 = call noalias ptr @strdup(ptr noundef %57) #5
+  %59 = load ptr, ptr %5, align 8, !tbaa !3
+  store ptr %58, ptr %59, align 8, !tbaa !10
   br label %60
 
-60:                                               ; preds = %59, %31
-  store i32 0, ptr %4, align 4
+60:                                               ; preds = %56, %39
   br label %61
 
-61:                                               ; preds = %60, %49, %37, %20, %15
-  %62 = load i32, ptr %4, align 4
-  ret i32 %62
+61:                                               ; preds = %60, %32
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %11, align 4
+  br label %62
+
+62:                                               ; preds = %61, %50, %38, %21, %16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 1, ptr %8) #5
+  %63 = load i32, ptr %4, align 4
+  ret i32 %63
 }
 
-; Function Attrs: nounwind
-declare i32 @chdir(ptr noundef) #1
-
-declare ptr @pmix_home_directory(i32 noundef) #2
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind
-declare void @free(ptr noundef) #1
+declare i32 @chdir(ptr noundef) #2
+
+declare ptr @pmix_home_directory(i32 noundef) #3
 
 ; Function Attrs: nounwind
-declare noalias ptr @strdup(ptr noundef) #1
+declare void @free(ptr noundef) #2
+
+; Function Attrs: nounwind
+declare noalias ptr @strdup(ptr noundef) #2
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @pmix_util_check_context_app(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
@@ -137,90 +155,109 @@ define i32 @pmix_util_check_context_app(ptr noundef %0, ptr noundef %1, ptr noun
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  %10 = load ptr, ptr %5, align 8
-  %11 = load ptr, ptr %10, align 8
-  store ptr %11, ptr %9, align 8
-  %12 = load ptr, ptr %9, align 8
-  %13 = call noalias ptr @pmix_basename(ptr noundef %12)
-  store ptr %13, ptr %8, align 8
-  %14 = load ptr, ptr %8, align 8
-  %15 = call i64 @strlen(ptr noundef %14) #5
-  %16 = load ptr, ptr %9, align 8
-  %17 = call i64 @strlen(ptr noundef %16) #5
-  %18 = icmp eq i64 %15, %17
-  br i1 %18, label %19, label %32
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !10
+  store ptr %2, ptr %7, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
+  %11 = load ptr, ptr %5, align 8, !tbaa !3
+  %12 = load ptr, ptr %11, align 8, !tbaa !10
+  store ptr %12, ptr %9, align 8, !tbaa !10
+  %13 = load ptr, ptr %9, align 8, !tbaa !10
+  %14 = call noalias ptr @pmix_basename(ptr noundef %13)
+  store ptr %14, ptr %8, align 8, !tbaa !10
+  %15 = load ptr, ptr %8, align 8, !tbaa !10
+  %16 = call i64 @strlen(ptr noundef %15) #6
+  %17 = load ptr, ptr %9, align 8, !tbaa !10
+  %18 = call i64 @strlen(ptr noundef %17) #6
+  %19 = icmp eq i64 %16, %18
+  br i1 %19, label %20, label %33
 
-19:                                               ; preds = %3
-  %20 = load ptr, ptr %8, align 8
-  call void @free(ptr noundef %20) #4
-  %21 = load ptr, ptr %9, align 8
-  %22 = load ptr, ptr %7, align 8
-  %23 = load ptr, ptr %6, align 8
-  %24 = call noalias ptr @pmix_path_findv(ptr noundef %21, i32 noundef 1, ptr noundef %22, ptr noundef %23)
-  store ptr %24, ptr %8, align 8
-  %25 = load ptr, ptr %8, align 8
-  %26 = icmp eq ptr null, %25
-  br i1 %26, label %27, label %28
+20:                                               ; preds = %3
+  %21 = load ptr, ptr %8, align 8, !tbaa !10
+  call void @free(ptr noundef %21) #5
+  %22 = load ptr, ptr %9, align 8, !tbaa !10
+  %23 = load ptr, ptr %7, align 8, !tbaa !3
+  %24 = load ptr, ptr %6, align 8, !tbaa !10
+  %25 = call noalias ptr @pmix_path_findv(ptr noundef %22, i32 noundef 1, ptr noundef %23, ptr noundef %24)
+  store ptr %25, ptr %8, align 8, !tbaa !10
+  %26 = load ptr, ptr %8, align 8, !tbaa !10
+  %27 = icmp eq ptr null, %26
+  br i1 %27, label %28, label %29
 
-27:                                               ; preds = %19
+28:                                               ; preds = %20
   store i32 -190, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %41
+
+29:                                               ; preds = %20
+  %30 = load ptr, ptr %9, align 8, !tbaa !10
+  call void @free(ptr noundef %30) #5
+  %31 = load ptr, ptr %8, align 8, !tbaa !10
+  %32 = load ptr, ptr %5, align 8, !tbaa !3
+  store ptr %31, ptr %32, align 8, !tbaa !10
   br label %40
 
-28:                                               ; preds = %19
-  %29 = load ptr, ptr %9, align 8
-  call void @free(ptr noundef %29) #4
-  %30 = load ptr, ptr %8, align 8
-  %31 = load ptr, ptr %5, align 8
-  store ptr %30, ptr %31, align 8
-  br label %39
+33:                                               ; preds = %3
+  %34 = load ptr, ptr %8, align 8, !tbaa !10
+  call void @free(ptr noundef %34) #5
+  %35 = load ptr, ptr %9, align 8, !tbaa !10
+  %36 = call i32 @access(ptr noundef %35, i32 noundef 1) #5
+  %37 = icmp ne i32 0, %36
+  br i1 %37, label %38, label %39
 
-32:                                               ; preds = %3
-  %33 = load ptr, ptr %8, align 8
-  call void @free(ptr noundef %33) #4
-  %34 = load ptr, ptr %9, align 8
-  %35 = call i32 @access(ptr noundef %34, i32 noundef 1) #4
-  %36 = icmp ne i32 0, %35
-  br i1 %36, label %37, label %38
-
-37:                                               ; preds = %32
+38:                                               ; preds = %33
   store i32 -73, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %41
+
+39:                                               ; preds = %33
   br label %40
 
-38:                                               ; preds = %32
-  br label %39
-
-39:                                               ; preds = %38, %28
+40:                                               ; preds = %39, %29
   store i32 0, ptr %4, align 4
-  br label %40
+  store i32 1, ptr %10, align 4
+  br label %41
 
-40:                                               ; preds = %39, %37, %27
-  %41 = load i32, ptr %4, align 4
-  ret i32 %41
+41:                                               ; preds = %40, %38, %28
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #5
+  %42 = load i32, ptr %4, align 4
+  ret i32 %42
 }
 
-declare noalias ptr @pmix_basename(ptr noundef) #2
+declare noalias ptr @pmix_basename(ptr noundef) #3
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #3
+declare i64 @strlen(ptr noundef) #4
 
-declare noalias ptr @pmix_path_findv(ptr noundef, i32 noundef, ptr noundef, ptr noundef) #2
+declare noalias ptr @pmix_path_findv(ptr noundef, i32 noundef, ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind
-declare i32 @access(ptr noundef, i32 noundef) #1
+declare i32 @access(ptr noundef, i32 noundef) #2
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind }
-attributes #5 = { nounwind willreturn memory(read) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind }
+attributes #6 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p2 omnipotent char", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"_Bool", !6, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"p1 omnipotent char", !5, i64 0}
+!12 = !{i8 0, i8 2}
+!13 = !{}

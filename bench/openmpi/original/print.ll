@@ -140,98 +140,115 @@ define i32 @pmix20_bfrop_print(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
   %8 = alloca ptr, align 8
   %9 = alloca i16, align 2
   %10 = alloca ptr, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store i16 %3, ptr %9, align 2
-  %11 = load ptr, ptr %6, align 8
-  %12 = icmp eq ptr null, %11
-  br i1 %12, label %13, label %14
-
-13:                                               ; preds = %4
-  store i32 -27, ptr %5, align 4
-  br label %30
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store ptr %1, ptr %7, align 8, !tbaa !8
+  store ptr %2, ptr %8, align 8, !tbaa !10
+  store i16 %3, ptr %9, align 2, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  %12 = load ptr, ptr %6, align 8, !tbaa !3
+  %13 = icmp eq ptr null, %12
+  br i1 %13, label %14, label %15
 
 14:                                               ; preds = %4
-  %15 = load i16, ptr %9, align 2
-  %16 = zext i16 %15 to i32
-  %17 = getelementptr inbounds %struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i32 0, i32 2
-  %18 = call ptr @pmix_pointer_array_get_item(ptr noundef %17, i32 noundef %16)
-  store ptr %18, ptr %10, align 8
+  store i32 -27, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %30
+
+15:                                               ; preds = %4
+  %16 = load i16, ptr %9, align 2, !tbaa !11
+  %17 = zext i16 %16 to i32
+  %18 = call ptr @pmix_pointer_array_get_item(ptr noundef getelementptr inbounds nuw (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i32 0, i32 2), i32 noundef %17)
+  store ptr %18, ptr %10, align 8, !tbaa !10
   %19 = icmp eq ptr null, %18
   br i1 %19, label %20, label %21
 
-20:                                               ; preds = %14
+20:                                               ; preds = %15
   store i32 -16, ptr %5, align 4
+  store i32 1, ptr %11, align 4
   br label %30
 
-21:                                               ; preds = %14
-  %22 = load ptr, ptr %10, align 8
-  %23 = getelementptr inbounds %struct.pmix_bfrop_type_info_t, ptr %22, i32 0, i32 6
-  %24 = load ptr, ptr %23, align 8
-  %25 = load ptr, ptr %6, align 8
-  %26 = load ptr, ptr %7, align 8
-  %27 = load ptr, ptr %8, align 8
-  %28 = load i16, ptr %9, align 2
+21:                                               ; preds = %15
+  %22 = load ptr, ptr %10, align 8, !tbaa !10
+  %23 = getelementptr inbounds nuw %struct.pmix_bfrop_type_info_t, ptr %22, i32 0, i32 6
+  %24 = load ptr, ptr %23, align 8, !tbaa !13
+  %25 = load ptr, ptr %6, align 8, !tbaa !3
+  %26 = load ptr, ptr %7, align 8, !tbaa !8
+  %27 = load ptr, ptr %8, align 8, !tbaa !10
+  %28 = load i16, ptr %9, align 2, !tbaa !11
   %29 = call i32 %24(ptr noundef %25, ptr noundef %26, ptr noundef %27, i16 noundef zeroext %28)
   store i32 %29, ptr %5, align 4
+  store i32 1, ptr %11, align 4
   br label %30
 
-30:                                               ; preds = %21, %20, %13
+30:                                               ; preds = %21, %20, %14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
   %31 = load i32, ptr %5, align 4
   ret i32 %31
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @pmix_pointer_array_get_item(ptr noundef %0, i32 noundef %1) #0 {
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @pmix_pointer_array_get_item(ptr noundef %0, i32 noundef %1) #2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  %7 = load i32, ptr %5, align 4
-  %8 = icmp sgt i32 0, %7
-  br i1 %8, label %15, label %9
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !19
+  store i32 %1, ptr %5, align 4, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #7
+  %8 = load i32, ptr %5, align 4, !tbaa !21
+  %9 = icmp sgt i32 0, %8
+  br i1 %9, label %16, label %10
 
-9:                                                ; preds = %2
-  %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %struct.pmix_pointer_array_t, ptr %10, i32 0, i32 3
-  %12 = load i32, ptr %11, align 8
-  %13 = load i32, ptr %5, align 4
-  %14 = icmp sle i32 %12, %13
-  br label %15
+10:                                               ; preds = %2
+  %11 = load ptr, ptr %4, align 8, !tbaa !19
+  %12 = getelementptr inbounds nuw %struct.pmix_pointer_array_t, ptr %11, i32 0, i32 3
+  %13 = load i32, ptr %12, align 8, !tbaa !22
+  %14 = load i32, ptr %5, align 4, !tbaa !21
+  %15 = icmp sle i32 %13, %14
+  br label %16
 
-15:                                               ; preds = %9, %2
-  %16 = phi i1 [ true, %2 ], [ %14, %9 ]
-  %17 = xor i1 %16, true
+16:                                               ; preds = %10, %2
+  %17 = phi i1 [ true, %2 ], [ %15, %10 ]
   %18 = xor i1 %17, true
-  %19 = zext i1 %18 to i32
-  %20 = sext i32 %19 to i64
-  %21 = icmp ne i64 %20, 0
-  br i1 %21, label %22, label %23
+  %19 = xor i1 %18, true
+  %20 = zext i1 %19 to i32
+  %21 = sext i32 %20 to i64
+  %22 = call i64 @llvm.expect.i64(i64 %21, i64 0)
+  %23 = icmp ne i64 %22, 0
+  br i1 %23, label %24, label %25
 
-22:                                               ; preds = %15
+24:                                               ; preds = %16
   store ptr null, ptr %3, align 8
-  br label %32
+  store i32 1, ptr %7, align 4
+  br label %34
 
-23:                                               ; preds = %15
-  %24 = load ptr, ptr %4, align 8
-  %25 = getelementptr inbounds %struct.pmix_pointer_array_t, ptr %24, i32 0, i32 7
-  %26 = load ptr, ptr %25, align 8
-  %27 = load i32, ptr %5, align 4
-  %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds ptr, ptr %26, i64 %28
-  %30 = load ptr, ptr %29, align 8
-  store ptr %30, ptr %6, align 8
-  %31 = load ptr, ptr %6, align 8
-  store ptr %31, ptr %3, align 8
-  br label %32
+25:                                               ; preds = %16
+  %26 = load ptr, ptr %4, align 8, !tbaa !19
+  %27 = getelementptr inbounds nuw %struct.pmix_pointer_array_t, ptr %26, i32 0, i32 7
+  %28 = load ptr, ptr %27, align 8, !tbaa !25
+  %29 = load i32, ptr %5, align 4, !tbaa !21
+  %30 = sext i32 %29 to i64
+  %31 = getelementptr inbounds ptr, ptr %28, i64 %30
+  %32 = load ptr, ptr %31, align 8, !tbaa !10
+  store ptr %32, ptr %6, align 8, !tbaa !10
+  %33 = load ptr, ptr %6, align 8, !tbaa !10
+  store ptr %33, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %34
 
-32:                                               ; preds = %23, %22
-  %33 = load ptr, ptr %3, align 8
-  ret ptr %33
+34:                                               ; preds = %25, %24
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #7
+  %35 = load ptr, ptr %3, align 8
+  ret ptr %35
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @pmix20_bfrop_print_bool(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3) #0 {
@@ -241,102 +258,110 @@ define i32 @pmix20_bfrop_print_bool(ptr noundef %0, ptr noundef %1, ptr noundef 
   %8 = alloca ptr, align 8
   %9 = alloca i16, align 2
   %10 = alloca ptr, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store i16 %3, ptr %9, align 2
-  %11 = load ptr, ptr %7, align 8
-  %12 = icmp eq ptr null, %11
-  br i1 %12, label %13, label %18
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store ptr %1, ptr %7, align 8, !tbaa !8
+  store ptr %2, ptr %8, align 8, !tbaa !26
+  store i16 %3, ptr %9, align 2, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  %12 = load ptr, ptr %7, align 8, !tbaa !8
+  %13 = icmp eq ptr null, %12
+  br i1 %13, label %14, label %19
 
-13:                                               ; preds = %4
-  %14 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %10, ptr noundef @.str) #4
-  %15 = icmp sgt i32 0, %14
-  br i1 %15, label %16, label %17
+14:                                               ; preds = %4
+  %15 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %10, ptr noundef @.str) #7
+  %16 = icmp sgt i32 0, %15
+  br i1 %16, label %17, label %18
 
-16:                                               ; preds = %13
+17:                                               ; preds = %14
   store i32 -32, ptr %5, align 4
-  br label %53
+  store i32 1, ptr %11, align 4
+  br label %54
 
-17:                                               ; preds = %13
-  br label %20
+18:                                               ; preds = %14
+  br label %21
 
-18:                                               ; preds = %4
-  %19 = load ptr, ptr %7, align 8
-  store ptr %19, ptr %10, align 8
-  br label %20
+19:                                               ; preds = %4
+  %20 = load ptr, ptr %7, align 8, !tbaa !8
+  store ptr %20, ptr %10, align 8, !tbaa !8
+  br label %21
 
-20:                                               ; preds = %18, %17
-  %21 = load ptr, ptr %8, align 8
-  %22 = icmp eq ptr null, %21
-  br i1 %22, label %23, label %36
+21:                                               ; preds = %19, %18
+  %22 = load ptr, ptr %8, align 8, !tbaa !26
+  %23 = icmp eq ptr null, %22
+  br i1 %23, label %24, label %37
 
-23:                                               ; preds = %20
-  %24 = load ptr, ptr %6, align 8
-  %25 = load ptr, ptr %10, align 8
-  %26 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %24, ptr noundef @.str.1, ptr noundef %25) #4
-  %27 = icmp sgt i32 0, %26
-  br i1 %27, label %28, label %29
+24:                                               ; preds = %21
+  %25 = load ptr, ptr %6, align 8, !tbaa !3
+  %26 = load ptr, ptr %10, align 8, !tbaa !8
+  %27 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %25, ptr noundef @.str.1, ptr noundef %26) #7
+  %28 = icmp sgt i32 0, %27
+  br i1 %28, label %29, label %30
 
-28:                                               ; preds = %23
+29:                                               ; preds = %24
   store i32 -32, ptr %5, align 4
-  br label %53
+  store i32 1, ptr %11, align 4
+  br label %54
 
-29:                                               ; preds = %23
-  %30 = load ptr, ptr %10, align 8
-  %31 = load ptr, ptr %7, align 8
-  %32 = icmp ne ptr %30, %31
-  br i1 %32, label %33, label %35
+30:                                               ; preds = %24
+  %31 = load ptr, ptr %10, align 8, !tbaa !8
+  %32 = load ptr, ptr %7, align 8, !tbaa !8
+  %33 = icmp ne ptr %31, %32
+  br i1 %33, label %34, label %36
 
-33:                                               ; preds = %29
-  %34 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %34) #4
-  br label %35
+34:                                               ; preds = %30
+  %35 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %35) #7
+  br label %36
 
-35:                                               ; preds = %33, %29
+36:                                               ; preds = %34, %30
   store i32 0, ptr %5, align 4
-  br label %53
+  store i32 1, ptr %11, align 4
+  br label %54
 
-36:                                               ; preds = %20
-  %37 = load ptr, ptr %6, align 8
-  %38 = load ptr, ptr %7, align 8
-  %39 = load ptr, ptr %8, align 8
-  %40 = load i8, ptr %39, align 1
-  %41 = trunc i8 %40 to i1
-  %42 = select i1 %41, ptr @.str.3, ptr @.str.4
-  %43 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %37, ptr noundef @.str.2, ptr noundef %38, ptr noundef %42) #4
-  %44 = icmp sgt i32 0, %43
-  br i1 %44, label %45, label %46
+37:                                               ; preds = %21
+  %38 = load ptr, ptr %6, align 8, !tbaa !3
+  %39 = load ptr, ptr %7, align 8, !tbaa !8
+  %40 = load ptr, ptr %8, align 8, !tbaa !26
+  %41 = load i8, ptr %40, align 1, !tbaa !28, !range !30, !noundef !31
+  %42 = trunc i8 %41 to i1
+  %43 = select i1 %42, ptr @.str.3, ptr @.str.4
+  %44 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %38, ptr noundef @.str.2, ptr noundef %39, ptr noundef %43) #7
+  %45 = icmp sgt i32 0, %44
+  br i1 %45, label %46, label %47
 
-45:                                               ; preds = %36
+46:                                               ; preds = %37
   store i32 -32, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %54
+
+47:                                               ; preds = %37
+  %48 = load ptr, ptr %10, align 8, !tbaa !8
+  %49 = load ptr, ptr %7, align 8, !tbaa !8
+  %50 = icmp ne ptr %48, %49
+  br i1 %50, label %51, label %53
+
+51:                                               ; preds = %47
+  %52 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %52) #7
   br label %53
 
-46:                                               ; preds = %36
-  %47 = load ptr, ptr %10, align 8
-  %48 = load ptr, ptr %7, align 8
-  %49 = icmp ne ptr %47, %48
-  br i1 %49, label %50, label %52
-
-50:                                               ; preds = %46
-  %51 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %51) #4
-  br label %52
-
-52:                                               ; preds = %50, %46
+53:                                               ; preds = %51, %47
   store i32 0, ptr %5, align 4
-  br label %53
+  store i32 1, ptr %11, align 4
+  br label %54
 
-53:                                               ; preds = %52, %45, %35, %28, %16
-  %54 = load i32, ptr %5, align 4
-  ret i32 %54
+54:                                               ; preds = %53, %46, %36, %29, %17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  %55 = load i32, ptr %5, align 4
+  ret i32 %55
 }
 
 ; Function Attrs: nounwind
-declare i32 @asprintf(ptr noundef, ptr noundef, ...) #1
+declare i32 @asprintf(ptr noundef, ptr noundef, ...) #3
 
 ; Function Attrs: nounwind
-declare void @free(ptr noundef) #1
+declare void @free(ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define i32 @pmix20_bfrop_print_byte(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3) #0 {
@@ -346,94 +371,102 @@ define i32 @pmix20_bfrop_print_byte(ptr noundef %0, ptr noundef %1, ptr noundef 
   %8 = alloca ptr, align 8
   %9 = alloca i16, align 2
   %10 = alloca ptr, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store i16 %3, ptr %9, align 2
-  %11 = load ptr, ptr %7, align 8
-  %12 = icmp eq ptr null, %11
-  br i1 %12, label %13, label %18
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store ptr %1, ptr %7, align 8, !tbaa !8
+  store ptr %2, ptr %8, align 8, !tbaa !8
+  store i16 %3, ptr %9, align 2, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  %12 = load ptr, ptr %7, align 8, !tbaa !8
+  %13 = icmp eq ptr null, %12
+  br i1 %13, label %14, label %19
 
-13:                                               ; preds = %4
-  %14 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %10, ptr noundef @.str) #4
-  %15 = icmp sgt i32 0, %14
-  br i1 %15, label %16, label %17
+14:                                               ; preds = %4
+  %15 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %10, ptr noundef @.str) #7
+  %16 = icmp sgt i32 0, %15
+  br i1 %16, label %17, label %18
 
-16:                                               ; preds = %13
+17:                                               ; preds = %14
   store i32 -32, ptr %5, align 4
-  br label %52
+  store i32 1, ptr %11, align 4
+  br label %53
 
-17:                                               ; preds = %13
-  br label %20
+18:                                               ; preds = %14
+  br label %21
 
-18:                                               ; preds = %4
-  %19 = load ptr, ptr %7, align 8
-  store ptr %19, ptr %10, align 8
-  br label %20
+19:                                               ; preds = %4
+  %20 = load ptr, ptr %7, align 8, !tbaa !8
+  store ptr %20, ptr %10, align 8, !tbaa !8
+  br label %21
 
-20:                                               ; preds = %18, %17
-  %21 = load ptr, ptr %8, align 8
-  %22 = icmp eq ptr null, %21
-  br i1 %22, label %23, label %36
+21:                                               ; preds = %19, %18
+  %22 = load ptr, ptr %8, align 8, !tbaa !8
+  %23 = icmp eq ptr null, %22
+  br i1 %23, label %24, label %37
 
-23:                                               ; preds = %20
-  %24 = load ptr, ptr %6, align 8
-  %25 = load ptr, ptr %10, align 8
-  %26 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %24, ptr noundef @.str.5, ptr noundef %25) #4
-  %27 = icmp sgt i32 0, %26
-  br i1 %27, label %28, label %29
+24:                                               ; preds = %21
+  %25 = load ptr, ptr %6, align 8, !tbaa !3
+  %26 = load ptr, ptr %10, align 8, !tbaa !8
+  %27 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %25, ptr noundef @.str.5, ptr noundef %26) #7
+  %28 = icmp sgt i32 0, %27
+  br i1 %28, label %29, label %30
 
-28:                                               ; preds = %23
+29:                                               ; preds = %24
   store i32 -32, ptr %5, align 4
-  br label %52
+  store i32 1, ptr %11, align 4
+  br label %53
 
-29:                                               ; preds = %23
-  %30 = load ptr, ptr %10, align 8
-  %31 = load ptr, ptr %7, align 8
-  %32 = icmp ne ptr %30, %31
-  br i1 %32, label %33, label %35
+30:                                               ; preds = %24
+  %31 = load ptr, ptr %10, align 8, !tbaa !8
+  %32 = load ptr, ptr %7, align 8, !tbaa !8
+  %33 = icmp ne ptr %31, %32
+  br i1 %33, label %34, label %36
 
-33:                                               ; preds = %29
-  %34 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %34) #4
-  br label %35
+34:                                               ; preds = %30
+  %35 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %35) #7
+  br label %36
 
-35:                                               ; preds = %33, %29
+36:                                               ; preds = %34, %30
   store i32 0, ptr %5, align 4
-  br label %52
+  store i32 1, ptr %11, align 4
+  br label %53
 
-36:                                               ; preds = %20
-  %37 = load ptr, ptr %6, align 8
-  %38 = load ptr, ptr %7, align 8
-  %39 = load ptr, ptr %8, align 8
-  %40 = load i8, ptr %39, align 1
-  %41 = zext i8 %40 to i32
-  %42 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %37, ptr noundef @.str.6, ptr noundef %38, i32 noundef %41) #4
-  %43 = icmp sgt i32 0, %42
-  br i1 %43, label %44, label %45
+37:                                               ; preds = %21
+  %38 = load ptr, ptr %6, align 8, !tbaa !3
+  %39 = load ptr, ptr %7, align 8, !tbaa !8
+  %40 = load ptr, ptr %8, align 8, !tbaa !8
+  %41 = load i8, ptr %40, align 1, !tbaa !32
+  %42 = zext i8 %41 to i32
+  %43 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %38, ptr noundef @.str.6, ptr noundef %39, i32 noundef %42) #7
+  %44 = icmp sgt i32 0, %43
+  br i1 %44, label %45, label %46
 
-44:                                               ; preds = %36
+45:                                               ; preds = %37
   store i32 -32, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %53
+
+46:                                               ; preds = %37
+  %47 = load ptr, ptr %10, align 8, !tbaa !8
+  %48 = load ptr, ptr %7, align 8, !tbaa !8
+  %49 = icmp ne ptr %47, %48
+  br i1 %49, label %50, label %52
+
+50:                                               ; preds = %46
+  %51 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %51) #7
   br label %52
 
-45:                                               ; preds = %36
-  %46 = load ptr, ptr %10, align 8
-  %47 = load ptr, ptr %7, align 8
-  %48 = icmp ne ptr %46, %47
-  br i1 %48, label %49, label %51
-
-49:                                               ; preds = %45
-  %50 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %50) #4
-  br label %51
-
-51:                                               ; preds = %49, %45
+52:                                               ; preds = %50, %46
   store i32 0, ptr %5, align 4
-  br label %52
+  store i32 1, ptr %11, align 4
+  br label %53
 
-52:                                               ; preds = %51, %44, %35, %28, %16
-  %53 = load i32, ptr %5, align 4
-  ret i32 %53
+53:                                               ; preds = %52, %45, %36, %29, %17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  %54 = load i32, ptr %5, align 4
+  ret i32 %54
 }
 
 ; Function Attrs: nounwind uwtable
@@ -444,92 +477,100 @@ define i32 @pmix20_bfrop_print_string(ptr noundef %0, ptr noundef %1, ptr nounde
   %8 = alloca ptr, align 8
   %9 = alloca i16, align 2
   %10 = alloca ptr, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store i16 %3, ptr %9, align 2
-  %11 = load ptr, ptr %7, align 8
-  %12 = icmp eq ptr null, %11
-  br i1 %12, label %13, label %18
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store ptr %1, ptr %7, align 8, !tbaa !8
+  store ptr %2, ptr %8, align 8, !tbaa !8
+  store i16 %3, ptr %9, align 2, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  %12 = load ptr, ptr %7, align 8, !tbaa !8
+  %13 = icmp eq ptr null, %12
+  br i1 %13, label %14, label %19
 
-13:                                               ; preds = %4
-  %14 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %10, ptr noundef @.str) #4
-  %15 = icmp sgt i32 0, %14
-  br i1 %15, label %16, label %17
+14:                                               ; preds = %4
+  %15 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %10, ptr noundef @.str) #7
+  %16 = icmp sgt i32 0, %15
+  br i1 %16, label %17, label %18
 
-16:                                               ; preds = %13
+17:                                               ; preds = %14
   store i32 -32, ptr %5, align 4
-  br label %50
+  store i32 1, ptr %11, align 4
+  br label %51
 
-17:                                               ; preds = %13
-  br label %20
+18:                                               ; preds = %14
+  br label %21
 
-18:                                               ; preds = %4
-  %19 = load ptr, ptr %7, align 8
-  store ptr %19, ptr %10, align 8
-  br label %20
+19:                                               ; preds = %4
+  %20 = load ptr, ptr %7, align 8, !tbaa !8
+  store ptr %20, ptr %10, align 8, !tbaa !8
+  br label %21
 
-20:                                               ; preds = %18, %17
-  %21 = load ptr, ptr %8, align 8
-  %22 = icmp eq ptr null, %21
-  br i1 %22, label %23, label %36
+21:                                               ; preds = %19, %18
+  %22 = load ptr, ptr %8, align 8, !tbaa !8
+  %23 = icmp eq ptr null, %22
+  br i1 %23, label %24, label %37
 
-23:                                               ; preds = %20
-  %24 = load ptr, ptr %6, align 8
-  %25 = load ptr, ptr %10, align 8
-  %26 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %24, ptr noundef @.str.7, ptr noundef %25) #4
-  %27 = icmp sgt i32 0, %26
-  br i1 %27, label %28, label %29
+24:                                               ; preds = %21
+  %25 = load ptr, ptr %6, align 8, !tbaa !3
+  %26 = load ptr, ptr %10, align 8, !tbaa !8
+  %27 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %25, ptr noundef @.str.7, ptr noundef %26) #7
+  %28 = icmp sgt i32 0, %27
+  br i1 %28, label %29, label %30
 
-28:                                               ; preds = %23
+29:                                               ; preds = %24
   store i32 -32, ptr %5, align 4
-  br label %50
+  store i32 1, ptr %11, align 4
+  br label %51
 
-29:                                               ; preds = %23
-  %30 = load ptr, ptr %10, align 8
-  %31 = load ptr, ptr %7, align 8
-  %32 = icmp ne ptr %30, %31
-  br i1 %32, label %33, label %35
+30:                                               ; preds = %24
+  %31 = load ptr, ptr %10, align 8, !tbaa !8
+  %32 = load ptr, ptr %7, align 8, !tbaa !8
+  %33 = icmp ne ptr %31, %32
+  br i1 %33, label %34, label %36
 
-33:                                               ; preds = %29
-  %34 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %34) #4
-  br label %35
+34:                                               ; preds = %30
+  %35 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %35) #7
+  br label %36
 
-35:                                               ; preds = %33, %29
+36:                                               ; preds = %34, %30
   store i32 0, ptr %5, align 4
-  br label %50
+  store i32 1, ptr %11, align 4
+  br label %51
 
-36:                                               ; preds = %20
-  %37 = load ptr, ptr %6, align 8
-  %38 = load ptr, ptr %10, align 8
-  %39 = load ptr, ptr %8, align 8
-  %40 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %37, ptr noundef @.str.8, ptr noundef %38, ptr noundef %39) #4
-  %41 = icmp sgt i32 0, %40
-  br i1 %41, label %42, label %43
+37:                                               ; preds = %21
+  %38 = load ptr, ptr %6, align 8, !tbaa !3
+  %39 = load ptr, ptr %10, align 8, !tbaa !8
+  %40 = load ptr, ptr %8, align 8, !tbaa !8
+  %41 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %38, ptr noundef @.str.8, ptr noundef %39, ptr noundef %40) #7
+  %42 = icmp sgt i32 0, %41
+  br i1 %42, label %43, label %44
 
-42:                                               ; preds = %36
+43:                                               ; preds = %37
   store i32 -32, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %51
+
+44:                                               ; preds = %37
+  %45 = load ptr, ptr %10, align 8, !tbaa !8
+  %46 = load ptr, ptr %7, align 8, !tbaa !8
+  %47 = icmp ne ptr %45, %46
+  br i1 %47, label %48, label %50
+
+48:                                               ; preds = %44
+  %49 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %49) #7
   br label %50
 
-43:                                               ; preds = %36
-  %44 = load ptr, ptr %10, align 8
-  %45 = load ptr, ptr %7, align 8
-  %46 = icmp ne ptr %44, %45
-  br i1 %46, label %47, label %49
-
-47:                                               ; preds = %43
-  %48 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %48) #4
-  br label %49
-
-49:                                               ; preds = %47, %43
+50:                                               ; preds = %48, %44
   store i32 0, ptr %5, align 4
-  br label %50
+  store i32 1, ptr %11, align 4
+  br label %51
 
-50:                                               ; preds = %49, %42, %35, %28, %16
-  %51 = load i32, ptr %5, align 4
-  ret i32 %51
+51:                                               ; preds = %50, %43, %36, %29, %17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  %52 = load i32, ptr %5, align 4
+  ret i32 %52
 }
 
 ; Function Attrs: nounwind uwtable
@@ -540,93 +581,101 @@ define i32 @pmix20_bfrop_print_size(ptr noundef %0, ptr noundef %1, ptr noundef 
   %8 = alloca ptr, align 8
   %9 = alloca i16, align 2
   %10 = alloca ptr, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store i16 %3, ptr %9, align 2
-  %11 = load ptr, ptr %7, align 8
-  %12 = icmp eq ptr null, %11
-  br i1 %12, label %13, label %18
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store ptr %1, ptr %7, align 8, !tbaa !8
+  store ptr %2, ptr %8, align 8, !tbaa !33
+  store i16 %3, ptr %9, align 2, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  %12 = load ptr, ptr %7, align 8, !tbaa !8
+  %13 = icmp eq ptr null, %12
+  br i1 %13, label %14, label %19
 
-13:                                               ; preds = %4
-  %14 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %10, ptr noundef @.str) #4
-  %15 = icmp sgt i32 0, %14
-  br i1 %15, label %16, label %17
+14:                                               ; preds = %4
+  %15 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %10, ptr noundef @.str) #7
+  %16 = icmp sgt i32 0, %15
+  br i1 %16, label %17, label %18
 
-16:                                               ; preds = %13
+17:                                               ; preds = %14
   store i32 -32, ptr %5, align 4
-  br label %51
+  store i32 1, ptr %11, align 4
+  br label %52
 
-17:                                               ; preds = %13
-  br label %20
+18:                                               ; preds = %14
+  br label %21
 
-18:                                               ; preds = %4
-  %19 = load ptr, ptr %7, align 8
-  store ptr %19, ptr %10, align 8
-  br label %20
+19:                                               ; preds = %4
+  %20 = load ptr, ptr %7, align 8, !tbaa !8
+  store ptr %20, ptr %10, align 8, !tbaa !8
+  br label %21
 
-20:                                               ; preds = %18, %17
-  %21 = load ptr, ptr %8, align 8
-  %22 = icmp eq ptr null, %21
-  br i1 %22, label %23, label %36
+21:                                               ; preds = %19, %18
+  %22 = load ptr, ptr %8, align 8, !tbaa !33
+  %23 = icmp eq ptr null, %22
+  br i1 %23, label %24, label %37
 
-23:                                               ; preds = %20
-  %24 = load ptr, ptr %6, align 8
-  %25 = load ptr, ptr %10, align 8
-  %26 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %24, ptr noundef @.str.9, ptr noundef %25) #4
-  %27 = icmp sgt i32 0, %26
-  br i1 %27, label %28, label %29
+24:                                               ; preds = %21
+  %25 = load ptr, ptr %6, align 8, !tbaa !3
+  %26 = load ptr, ptr %10, align 8, !tbaa !8
+  %27 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %25, ptr noundef @.str.9, ptr noundef %26) #7
+  %28 = icmp sgt i32 0, %27
+  br i1 %28, label %29, label %30
 
-28:                                               ; preds = %23
+29:                                               ; preds = %24
   store i32 -32, ptr %5, align 4
-  br label %51
+  store i32 1, ptr %11, align 4
+  br label %52
 
-29:                                               ; preds = %23
-  %30 = load ptr, ptr %10, align 8
-  %31 = load ptr, ptr %7, align 8
-  %32 = icmp ne ptr %30, %31
-  br i1 %32, label %33, label %35
+30:                                               ; preds = %24
+  %31 = load ptr, ptr %10, align 8, !tbaa !8
+  %32 = load ptr, ptr %7, align 8, !tbaa !8
+  %33 = icmp ne ptr %31, %32
+  br i1 %33, label %34, label %36
 
-33:                                               ; preds = %29
-  %34 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %34) #4
-  br label %35
+34:                                               ; preds = %30
+  %35 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %35) #7
+  br label %36
 
-35:                                               ; preds = %33, %29
+36:                                               ; preds = %34, %30
   store i32 0, ptr %5, align 4
-  br label %51
+  store i32 1, ptr %11, align 4
+  br label %52
 
-36:                                               ; preds = %20
-  %37 = load ptr, ptr %6, align 8
-  %38 = load ptr, ptr %10, align 8
-  %39 = load ptr, ptr %8, align 8
-  %40 = load i64, ptr %39, align 8
-  %41 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %37, ptr noundef @.str.10, ptr noundef %38, i64 noundef %40) #4
-  %42 = icmp sgt i32 0, %41
-  br i1 %42, label %43, label %44
+37:                                               ; preds = %21
+  %38 = load ptr, ptr %6, align 8, !tbaa !3
+  %39 = load ptr, ptr %10, align 8, !tbaa !8
+  %40 = load ptr, ptr %8, align 8, !tbaa !33
+  %41 = load i64, ptr %40, align 8, !tbaa !34
+  %42 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %38, ptr noundef @.str.10, ptr noundef %39, i64 noundef %41) #7
+  %43 = icmp sgt i32 0, %42
+  br i1 %43, label %44, label %45
 
-43:                                               ; preds = %36
+44:                                               ; preds = %37
   store i32 -32, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %52
+
+45:                                               ; preds = %37
+  %46 = load ptr, ptr %10, align 8, !tbaa !8
+  %47 = load ptr, ptr %7, align 8, !tbaa !8
+  %48 = icmp ne ptr %46, %47
+  br i1 %48, label %49, label %51
+
+49:                                               ; preds = %45
+  %50 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %50) #7
   br label %51
 
-44:                                               ; preds = %36
-  %45 = load ptr, ptr %10, align 8
-  %46 = load ptr, ptr %7, align 8
-  %47 = icmp ne ptr %45, %46
-  br i1 %47, label %48, label %50
-
-48:                                               ; preds = %44
-  %49 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %49) #4
-  br label %50
-
-50:                                               ; preds = %48, %44
+51:                                               ; preds = %49, %45
   store i32 0, ptr %5, align 4
-  br label %51
+  store i32 1, ptr %11, align 4
+  br label %52
 
-51:                                               ; preds = %50, %43, %35, %28, %16
-  %52 = load i32, ptr %5, align 4
-  ret i32 %52
+52:                                               ; preds = %51, %44, %36, %29, %17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  %53 = load i32, ptr %5, align 4
+  ret i32 %53
 }
 
 ; Function Attrs: nounwind uwtable
@@ -637,94 +686,102 @@ define i32 @pmix20_bfrop_print_pid(ptr noundef %0, ptr noundef %1, ptr noundef %
   %8 = alloca ptr, align 8
   %9 = alloca i16, align 2
   %10 = alloca ptr, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store i16 %3, ptr %9, align 2
-  %11 = load ptr, ptr %7, align 8
-  %12 = icmp eq ptr null, %11
-  br i1 %12, label %13, label %18
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store ptr %1, ptr %7, align 8, !tbaa !8
+  store ptr %2, ptr %8, align 8, !tbaa !36
+  store i16 %3, ptr %9, align 2, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  %12 = load ptr, ptr %7, align 8, !tbaa !8
+  %13 = icmp eq ptr null, %12
+  br i1 %13, label %14, label %19
 
-13:                                               ; preds = %4
-  %14 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %10, ptr noundef @.str) #4
-  %15 = icmp sgt i32 0, %14
-  br i1 %15, label %16, label %17
+14:                                               ; preds = %4
+  %15 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %10, ptr noundef @.str) #7
+  %16 = icmp sgt i32 0, %15
+  br i1 %16, label %17, label %18
 
-16:                                               ; preds = %13
+17:                                               ; preds = %14
   store i32 -32, ptr %5, align 4
-  br label %52
+  store i32 1, ptr %11, align 4
+  br label %53
 
-17:                                               ; preds = %13
-  br label %20
+18:                                               ; preds = %14
+  br label %21
 
-18:                                               ; preds = %4
-  %19 = load ptr, ptr %7, align 8
-  store ptr %19, ptr %10, align 8
-  br label %20
+19:                                               ; preds = %4
+  %20 = load ptr, ptr %7, align 8, !tbaa !8
+  store ptr %20, ptr %10, align 8, !tbaa !8
+  br label %21
 
-20:                                               ; preds = %18, %17
-  %21 = load ptr, ptr %8, align 8
-  %22 = icmp eq ptr null, %21
-  br i1 %22, label %23, label %36
+21:                                               ; preds = %19, %18
+  %22 = load ptr, ptr %8, align 8, !tbaa !36
+  %23 = icmp eq ptr null, %22
+  br i1 %23, label %24, label %37
 
-23:                                               ; preds = %20
-  %24 = load ptr, ptr %6, align 8
-  %25 = load ptr, ptr %10, align 8
-  %26 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %24, ptr noundef @.str.11, ptr noundef %25) #4
-  %27 = icmp sgt i32 0, %26
-  br i1 %27, label %28, label %29
+24:                                               ; preds = %21
+  %25 = load ptr, ptr %6, align 8, !tbaa !3
+  %26 = load ptr, ptr %10, align 8, !tbaa !8
+  %27 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %25, ptr noundef @.str.11, ptr noundef %26) #7
+  %28 = icmp sgt i32 0, %27
+  br i1 %28, label %29, label %30
 
-28:                                               ; preds = %23
+29:                                               ; preds = %24
   store i32 -32, ptr %5, align 4
-  br label %52
+  store i32 1, ptr %11, align 4
+  br label %53
 
-29:                                               ; preds = %23
-  %30 = load ptr, ptr %10, align 8
-  %31 = load ptr, ptr %7, align 8
-  %32 = icmp ne ptr %30, %31
-  br i1 %32, label %33, label %35
+30:                                               ; preds = %24
+  %31 = load ptr, ptr %10, align 8, !tbaa !8
+  %32 = load ptr, ptr %7, align 8, !tbaa !8
+  %33 = icmp ne ptr %31, %32
+  br i1 %33, label %34, label %36
 
-33:                                               ; preds = %29
-  %34 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %34) #4
-  br label %35
+34:                                               ; preds = %30
+  %35 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %35) #7
+  br label %36
 
-35:                                               ; preds = %33, %29
+36:                                               ; preds = %34, %30
   store i32 0, ptr %5, align 4
-  br label %52
+  store i32 1, ptr %11, align 4
+  br label %53
 
-36:                                               ; preds = %20
-  %37 = load ptr, ptr %6, align 8
-  %38 = load ptr, ptr %10, align 8
-  %39 = load ptr, ptr %8, align 8
-  %40 = load i32, ptr %39, align 4
-  %41 = sext i32 %40 to i64
-  %42 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %37, ptr noundef @.str.12, ptr noundef %38, i64 noundef %41) #4
-  %43 = icmp sgt i32 0, %42
-  br i1 %43, label %44, label %45
+37:                                               ; preds = %21
+  %38 = load ptr, ptr %6, align 8, !tbaa !3
+  %39 = load ptr, ptr %10, align 8, !tbaa !8
+  %40 = load ptr, ptr %8, align 8, !tbaa !36
+  %41 = load i32, ptr %40, align 4, !tbaa !21
+  %42 = sext i32 %41 to i64
+  %43 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %38, ptr noundef @.str.12, ptr noundef %39, i64 noundef %42) #7
+  %44 = icmp sgt i32 0, %43
+  br i1 %44, label %45, label %46
 
-44:                                               ; preds = %36
+45:                                               ; preds = %37
   store i32 -32, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %53
+
+46:                                               ; preds = %37
+  %47 = load ptr, ptr %10, align 8, !tbaa !8
+  %48 = load ptr, ptr %7, align 8, !tbaa !8
+  %49 = icmp ne ptr %47, %48
+  br i1 %49, label %50, label %52
+
+50:                                               ; preds = %46
+  %51 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %51) #7
   br label %52
 
-45:                                               ; preds = %36
-  %46 = load ptr, ptr %10, align 8
-  %47 = load ptr, ptr %7, align 8
-  %48 = icmp ne ptr %46, %47
-  br i1 %48, label %49, label %51
-
-49:                                               ; preds = %45
-  %50 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %50) #4
-  br label %51
-
-51:                                               ; preds = %49, %45
+52:                                               ; preds = %50, %46
   store i32 0, ptr %5, align 4
-  br label %52
+  store i32 1, ptr %11, align 4
+  br label %53
 
-52:                                               ; preds = %51, %44, %35, %28, %16
-  %53 = load i32, ptr %5, align 4
-  ret i32 %53
+53:                                               ; preds = %52, %45, %36, %29, %17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  %54 = load i32, ptr %5, align 4
+  ret i32 %54
 }
 
 ; Function Attrs: nounwind uwtable
@@ -735,94 +792,102 @@ define i32 @pmix20_bfrop_print_int(ptr noundef %0, ptr noundef %1, ptr noundef %
   %8 = alloca ptr, align 8
   %9 = alloca i16, align 2
   %10 = alloca ptr, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store i16 %3, ptr %9, align 2
-  %11 = load ptr, ptr %7, align 8
-  %12 = icmp eq ptr null, %11
-  br i1 %12, label %13, label %18
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store ptr %1, ptr %7, align 8, !tbaa !8
+  store ptr %2, ptr %8, align 8, !tbaa !36
+  store i16 %3, ptr %9, align 2, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  %12 = load ptr, ptr %7, align 8, !tbaa !8
+  %13 = icmp eq ptr null, %12
+  br i1 %13, label %14, label %19
 
-13:                                               ; preds = %4
-  %14 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %10, ptr noundef @.str) #4
-  %15 = icmp sgt i32 0, %14
-  br i1 %15, label %16, label %17
+14:                                               ; preds = %4
+  %15 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %10, ptr noundef @.str) #7
+  %16 = icmp sgt i32 0, %15
+  br i1 %16, label %17, label %18
 
-16:                                               ; preds = %13
+17:                                               ; preds = %14
   store i32 -32, ptr %5, align 4
-  br label %52
+  store i32 1, ptr %11, align 4
+  br label %53
 
-17:                                               ; preds = %13
-  br label %20
+18:                                               ; preds = %14
+  br label %21
 
-18:                                               ; preds = %4
-  %19 = load ptr, ptr %7, align 8
-  store ptr %19, ptr %10, align 8
-  br label %20
+19:                                               ; preds = %4
+  %20 = load ptr, ptr %7, align 8, !tbaa !8
+  store ptr %20, ptr %10, align 8, !tbaa !8
+  br label %21
 
-20:                                               ; preds = %18, %17
-  %21 = load ptr, ptr %8, align 8
-  %22 = icmp eq ptr null, %21
-  br i1 %22, label %23, label %36
+21:                                               ; preds = %19, %18
+  %22 = load ptr, ptr %8, align 8, !tbaa !36
+  %23 = icmp eq ptr null, %22
+  br i1 %23, label %24, label %37
 
-23:                                               ; preds = %20
-  %24 = load ptr, ptr %6, align 8
-  %25 = load ptr, ptr %10, align 8
-  %26 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %24, ptr noundef @.str.13, ptr noundef %25) #4
-  %27 = icmp sgt i32 0, %26
-  br i1 %27, label %28, label %29
+24:                                               ; preds = %21
+  %25 = load ptr, ptr %6, align 8, !tbaa !3
+  %26 = load ptr, ptr %10, align 8, !tbaa !8
+  %27 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %25, ptr noundef @.str.13, ptr noundef %26) #7
+  %28 = icmp sgt i32 0, %27
+  br i1 %28, label %29, label %30
 
-28:                                               ; preds = %23
+29:                                               ; preds = %24
   store i32 -32, ptr %5, align 4
-  br label %52
+  store i32 1, ptr %11, align 4
+  br label %53
 
-29:                                               ; preds = %23
-  %30 = load ptr, ptr %10, align 8
-  %31 = load ptr, ptr %7, align 8
-  %32 = icmp ne ptr %30, %31
-  br i1 %32, label %33, label %35
+30:                                               ; preds = %24
+  %31 = load ptr, ptr %10, align 8, !tbaa !8
+  %32 = load ptr, ptr %7, align 8, !tbaa !8
+  %33 = icmp ne ptr %31, %32
+  br i1 %33, label %34, label %36
 
-33:                                               ; preds = %29
-  %34 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %34) #4
-  br label %35
+34:                                               ; preds = %30
+  %35 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %35) #7
+  br label %36
 
-35:                                               ; preds = %33, %29
+36:                                               ; preds = %34, %30
   store i32 0, ptr %5, align 4
-  br label %52
+  store i32 1, ptr %11, align 4
+  br label %53
 
-36:                                               ; preds = %20
-  %37 = load ptr, ptr %6, align 8
-  %38 = load ptr, ptr %10, align 8
-  %39 = load ptr, ptr %8, align 8
-  %40 = load i32, ptr %39, align 4
-  %41 = sext i32 %40 to i64
-  %42 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %37, ptr noundef @.str.14, ptr noundef %38, i64 noundef %41) #4
-  %43 = icmp sgt i32 0, %42
-  br i1 %43, label %44, label %45
+37:                                               ; preds = %21
+  %38 = load ptr, ptr %6, align 8, !tbaa !3
+  %39 = load ptr, ptr %10, align 8, !tbaa !8
+  %40 = load ptr, ptr %8, align 8, !tbaa !36
+  %41 = load i32, ptr %40, align 4, !tbaa !21
+  %42 = sext i32 %41 to i64
+  %43 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %38, ptr noundef @.str.14, ptr noundef %39, i64 noundef %42) #7
+  %44 = icmp sgt i32 0, %43
+  br i1 %44, label %45, label %46
 
-44:                                               ; preds = %36
+45:                                               ; preds = %37
   store i32 -32, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %53
+
+46:                                               ; preds = %37
+  %47 = load ptr, ptr %10, align 8, !tbaa !8
+  %48 = load ptr, ptr %7, align 8, !tbaa !8
+  %49 = icmp ne ptr %47, %48
+  br i1 %49, label %50, label %52
+
+50:                                               ; preds = %46
+  %51 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %51) #7
   br label %52
 
-45:                                               ; preds = %36
-  %46 = load ptr, ptr %10, align 8
-  %47 = load ptr, ptr %7, align 8
-  %48 = icmp ne ptr %46, %47
-  br i1 %48, label %49, label %51
-
-49:                                               ; preds = %45
-  %50 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %50) #4
-  br label %51
-
-51:                                               ; preds = %49, %45
+52:                                               ; preds = %50, %46
   store i32 0, ptr %5, align 4
-  br label %52
+  store i32 1, ptr %11, align 4
+  br label %53
 
-52:                                               ; preds = %51, %44, %35, %28, %16
-  %53 = load i32, ptr %5, align 4
-  ret i32 %53
+53:                                               ; preds = %52, %45, %36, %29, %17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  %54 = load i32, ptr %5, align 4
+  ret i32 %54
 }
 
 ; Function Attrs: nounwind uwtable
@@ -833,94 +898,102 @@ define i32 @pmix20_bfrop_print_uint(ptr noundef %0, ptr noundef %1, ptr noundef 
   %8 = alloca ptr, align 8
   %9 = alloca i16, align 2
   %10 = alloca ptr, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store i16 %3, ptr %9, align 2
-  %11 = load ptr, ptr %7, align 8
-  %12 = icmp eq ptr null, %11
-  br i1 %12, label %13, label %18
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store ptr %1, ptr %7, align 8, !tbaa !8
+  store ptr %2, ptr %8, align 8, !tbaa !36
+  store i16 %3, ptr %9, align 2, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  %12 = load ptr, ptr %7, align 8, !tbaa !8
+  %13 = icmp eq ptr null, %12
+  br i1 %13, label %14, label %19
 
-13:                                               ; preds = %4
-  %14 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %10, ptr noundef @.str) #4
-  %15 = icmp sgt i32 0, %14
-  br i1 %15, label %16, label %17
+14:                                               ; preds = %4
+  %15 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %10, ptr noundef @.str) #7
+  %16 = icmp sgt i32 0, %15
+  br i1 %16, label %17, label %18
 
-16:                                               ; preds = %13
+17:                                               ; preds = %14
   store i32 -32, ptr %5, align 4
-  br label %52
+  store i32 1, ptr %11, align 4
+  br label %53
 
-17:                                               ; preds = %13
-  br label %20
+18:                                               ; preds = %14
+  br label %21
 
-18:                                               ; preds = %4
-  %19 = load ptr, ptr %7, align 8
-  store ptr %19, ptr %10, align 8
-  br label %20
+19:                                               ; preds = %4
+  %20 = load ptr, ptr %7, align 8, !tbaa !8
+  store ptr %20, ptr %10, align 8, !tbaa !8
+  br label %21
 
-20:                                               ; preds = %18, %17
-  %21 = load ptr, ptr %8, align 8
-  %22 = icmp eq ptr null, %21
-  br i1 %22, label %23, label %36
+21:                                               ; preds = %19, %18
+  %22 = load ptr, ptr %8, align 8, !tbaa !36
+  %23 = icmp eq ptr null, %22
+  br i1 %23, label %24, label %37
 
-23:                                               ; preds = %20
-  %24 = load ptr, ptr %6, align 8
-  %25 = load ptr, ptr %10, align 8
-  %26 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %24, ptr noundef @.str.15, ptr noundef %25) #4
-  %27 = icmp sgt i32 0, %26
-  br i1 %27, label %28, label %29
+24:                                               ; preds = %21
+  %25 = load ptr, ptr %6, align 8, !tbaa !3
+  %26 = load ptr, ptr %10, align 8, !tbaa !8
+  %27 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %25, ptr noundef @.str.15, ptr noundef %26) #7
+  %28 = icmp sgt i32 0, %27
+  br i1 %28, label %29, label %30
 
-28:                                               ; preds = %23
+29:                                               ; preds = %24
   store i32 -32, ptr %5, align 4
-  br label %52
+  store i32 1, ptr %11, align 4
+  br label %53
 
-29:                                               ; preds = %23
-  %30 = load ptr, ptr %10, align 8
-  %31 = load ptr, ptr %7, align 8
-  %32 = icmp ne ptr %30, %31
-  br i1 %32, label %33, label %35
+30:                                               ; preds = %24
+  %31 = load ptr, ptr %10, align 8, !tbaa !8
+  %32 = load ptr, ptr %7, align 8, !tbaa !8
+  %33 = icmp ne ptr %31, %32
+  br i1 %33, label %34, label %36
 
-33:                                               ; preds = %29
-  %34 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %34) #4
-  br label %35
+34:                                               ; preds = %30
+  %35 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %35) #7
+  br label %36
 
-35:                                               ; preds = %33, %29
+36:                                               ; preds = %34, %30
   store i32 0, ptr %5, align 4
-  br label %52
+  store i32 1, ptr %11, align 4
+  br label %53
 
-36:                                               ; preds = %20
-  %37 = load ptr, ptr %6, align 8
-  %38 = load ptr, ptr %10, align 8
-  %39 = load ptr, ptr %8, align 8
-  %40 = load i32, ptr %39, align 4
-  %41 = zext i32 %40 to i64
-  %42 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %37, ptr noundef @.str.16, ptr noundef %38, i64 noundef %41) #4
-  %43 = icmp sgt i32 0, %42
-  br i1 %43, label %44, label %45
+37:                                               ; preds = %21
+  %38 = load ptr, ptr %6, align 8, !tbaa !3
+  %39 = load ptr, ptr %10, align 8, !tbaa !8
+  %40 = load ptr, ptr %8, align 8, !tbaa !36
+  %41 = load i32, ptr %40, align 4, !tbaa !21
+  %42 = zext i32 %41 to i64
+  %43 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %38, ptr noundef @.str.16, ptr noundef %39, i64 noundef %42) #7
+  %44 = icmp sgt i32 0, %43
+  br i1 %44, label %45, label %46
 
-44:                                               ; preds = %36
+45:                                               ; preds = %37
   store i32 -32, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %53
+
+46:                                               ; preds = %37
+  %47 = load ptr, ptr %10, align 8, !tbaa !8
+  %48 = load ptr, ptr %7, align 8, !tbaa !8
+  %49 = icmp ne ptr %47, %48
+  br i1 %49, label %50, label %52
+
+50:                                               ; preds = %46
+  %51 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %51) #7
   br label %52
 
-45:                                               ; preds = %36
-  %46 = load ptr, ptr %10, align 8
-  %47 = load ptr, ptr %7, align 8
-  %48 = icmp ne ptr %46, %47
-  br i1 %48, label %49, label %51
-
-49:                                               ; preds = %45
-  %50 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %50) #4
-  br label %51
-
-51:                                               ; preds = %49, %45
+52:                                               ; preds = %50, %46
   store i32 0, ptr %5, align 4
-  br label %52
+  store i32 1, ptr %11, align 4
+  br label %53
 
-52:                                               ; preds = %51, %44, %35, %28, %16
-  %53 = load i32, ptr %5, align 4
-  ret i32 %53
+53:                                               ; preds = %52, %45, %36, %29, %17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  %54 = load i32, ptr %5, align 4
+  ret i32 %54
 }
 
 ; Function Attrs: nounwind uwtable
@@ -931,116 +1004,124 @@ define i32 @pmix20_bfrop_print_uint8(ptr noundef %0, ptr noundef %1, ptr noundef
   %8 = alloca ptr, align 8
   %9 = alloca i16, align 2
   %10 = alloca ptr, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store i16 %3, ptr %9, align 2
-  %11 = load ptr, ptr %7, align 8
-  %12 = icmp eq ptr null, %11
-  br i1 %12, label %13, label %18
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store ptr %1, ptr %7, align 8, !tbaa !8
+  store ptr %2, ptr %8, align 8, !tbaa !8
+  store i16 %3, ptr %9, align 2, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  %12 = load ptr, ptr %7, align 8, !tbaa !8
+  %13 = icmp eq ptr null, %12
+  br i1 %13, label %14, label %19
 
-13:                                               ; preds = %4
-  %14 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %10, ptr noundef @.str) #4
-  %15 = icmp sgt i32 0, %14
-  br i1 %15, label %16, label %17
+14:                                               ; preds = %4
+  %15 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %10, ptr noundef @.str) #7
+  %16 = icmp sgt i32 0, %15
+  br i1 %16, label %17, label %18
 
-16:                                               ; preds = %13
+17:                                               ; preds = %14
   store i32 -32, ptr %5, align 4
-  br label %64
+  store i32 1, ptr %11, align 4
+  br label %65
 
-17:                                               ; preds = %13
-  br label %20
+18:                                               ; preds = %14
+  br label %21
 
-18:                                               ; preds = %4
-  %19 = load ptr, ptr %7, align 8
-  store ptr %19, ptr %10, align 8
-  br label %20
+19:                                               ; preds = %4
+  %20 = load ptr, ptr %7, align 8, !tbaa !8
+  store ptr %20, ptr %10, align 8, !tbaa !8
+  br label %21
 
-20:                                               ; preds = %18, %17
-  %21 = load ptr, ptr %8, align 8
-  %22 = icmp eq ptr null, %21
-  br i1 %22, label %23, label %42
+21:                                               ; preds = %19, %18
+  %22 = load ptr, ptr %8, align 8, !tbaa !8
+  %23 = icmp eq ptr null, %22
+  br i1 %23, label %24, label %43
 
-23:                                               ; preds = %20
-  %24 = load ptr, ptr %6, align 8
-  %25 = load ptr, ptr %10, align 8
-  %26 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %24, ptr noundef @.str.17, ptr noundef %25) #4
-  %27 = icmp sgt i32 0, %26
-  br i1 %27, label %28, label %35
+24:                                               ; preds = %21
+  %25 = load ptr, ptr %6, align 8, !tbaa !3
+  %26 = load ptr, ptr %10, align 8, !tbaa !8
+  %27 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %25, ptr noundef @.str.17, ptr noundef %26) #7
+  %28 = icmp sgt i32 0, %27
+  br i1 %28, label %29, label %36
 
-28:                                               ; preds = %23
-  %29 = load ptr, ptr %10, align 8
-  %30 = load ptr, ptr %7, align 8
-  %31 = icmp ne ptr %29, %30
-  br i1 %31, label %32, label %34
+29:                                               ; preds = %24
+  %30 = load ptr, ptr %10, align 8, !tbaa !8
+  %31 = load ptr, ptr %7, align 8, !tbaa !8
+  %32 = icmp ne ptr %30, %31
+  br i1 %32, label %33, label %35
 
-32:                                               ; preds = %28
-  %33 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %33) #4
-  br label %34
+33:                                               ; preds = %29
+  %34 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %34) #7
+  br label %35
 
-34:                                               ; preds = %32, %28
+35:                                               ; preds = %33, %29
   store i32 -32, ptr %5, align 4
-  br label %64
+  store i32 1, ptr %11, align 4
+  br label %65
 
-35:                                               ; preds = %23
-  %36 = load ptr, ptr %10, align 8
-  %37 = load ptr, ptr %7, align 8
-  %38 = icmp ne ptr %36, %37
-  br i1 %38, label %39, label %41
+36:                                               ; preds = %24
+  %37 = load ptr, ptr %10, align 8, !tbaa !8
+  %38 = load ptr, ptr %7, align 8, !tbaa !8
+  %39 = icmp ne ptr %37, %38
+  br i1 %39, label %40, label %42
 
-39:                                               ; preds = %35
-  %40 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %40) #4
-  br label %41
+40:                                               ; preds = %36
+  %41 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %41) #7
+  br label %42
 
-41:                                               ; preds = %39, %35
+42:                                               ; preds = %40, %36
   store i32 0, ptr %5, align 4
-  br label %64
+  store i32 1, ptr %11, align 4
+  br label %65
 
-42:                                               ; preds = %20
-  %43 = load ptr, ptr %6, align 8
-  %44 = load ptr, ptr %10, align 8
-  %45 = load ptr, ptr %8, align 8
-  %46 = load i8, ptr %45, align 1
-  %47 = zext i8 %46 to i32
-  %48 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %43, ptr noundef @.str.18, ptr noundef %44, i32 noundef %47) #4
-  %49 = icmp sgt i32 0, %48
-  br i1 %49, label %50, label %57
+43:                                               ; preds = %21
+  %44 = load ptr, ptr %6, align 8, !tbaa !3
+  %45 = load ptr, ptr %10, align 8, !tbaa !8
+  %46 = load ptr, ptr %8, align 8, !tbaa !8
+  %47 = load i8, ptr %46, align 1, !tbaa !32
+  %48 = zext i8 %47 to i32
+  %49 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %44, ptr noundef @.str.18, ptr noundef %45, i32 noundef %48) #7
+  %50 = icmp sgt i32 0, %49
+  br i1 %50, label %51, label %58
 
-50:                                               ; preds = %42
-  %51 = load ptr, ptr %10, align 8
-  %52 = load ptr, ptr %7, align 8
-  %53 = icmp ne ptr %51, %52
-  br i1 %53, label %54, label %56
+51:                                               ; preds = %43
+  %52 = load ptr, ptr %10, align 8, !tbaa !8
+  %53 = load ptr, ptr %7, align 8, !tbaa !8
+  %54 = icmp ne ptr %52, %53
+  br i1 %54, label %55, label %57
 
-54:                                               ; preds = %50
-  %55 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %55) #4
-  br label %56
+55:                                               ; preds = %51
+  %56 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %56) #7
+  br label %57
 
-56:                                               ; preds = %54, %50
+57:                                               ; preds = %55, %51
   store i32 -32, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %65
+
+58:                                               ; preds = %43
+  %59 = load ptr, ptr %10, align 8, !tbaa !8
+  %60 = load ptr, ptr %7, align 8, !tbaa !8
+  %61 = icmp ne ptr %59, %60
+  br i1 %61, label %62, label %64
+
+62:                                               ; preds = %58
+  %63 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %63) #7
   br label %64
 
-57:                                               ; preds = %42
-  %58 = load ptr, ptr %10, align 8
-  %59 = load ptr, ptr %7, align 8
-  %60 = icmp ne ptr %58, %59
-  br i1 %60, label %61, label %63
-
-61:                                               ; preds = %57
-  %62 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %62) #4
-  br label %63
-
-63:                                               ; preds = %61, %57
+64:                                               ; preds = %62, %58
   store i32 0, ptr %5, align 4
-  br label %64
+  store i32 1, ptr %11, align 4
+  br label %65
 
-64:                                               ; preds = %63, %56, %41, %34, %16
-  %65 = load i32, ptr %5, align 4
-  ret i32 %65
+65:                                               ; preds = %64, %57, %42, %35, %17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  %66 = load i32, ptr %5, align 4
+  ret i32 %66
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1051,116 +1132,124 @@ define i32 @pmix20_bfrop_print_uint16(ptr noundef %0, ptr noundef %1, ptr nounde
   %8 = alloca ptr, align 8
   %9 = alloca i16, align 2
   %10 = alloca ptr, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store i16 %3, ptr %9, align 2
-  %11 = load ptr, ptr %7, align 8
-  %12 = icmp eq ptr null, %11
-  br i1 %12, label %13, label %18
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store ptr %1, ptr %7, align 8, !tbaa !8
+  store ptr %2, ptr %8, align 8, !tbaa !38
+  store i16 %3, ptr %9, align 2, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  %12 = load ptr, ptr %7, align 8, !tbaa !8
+  %13 = icmp eq ptr null, %12
+  br i1 %13, label %14, label %19
 
-13:                                               ; preds = %4
-  %14 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %10, ptr noundef @.str) #4
-  %15 = icmp sgt i32 0, %14
-  br i1 %15, label %16, label %17
+14:                                               ; preds = %4
+  %15 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %10, ptr noundef @.str) #7
+  %16 = icmp sgt i32 0, %15
+  br i1 %16, label %17, label %18
 
-16:                                               ; preds = %13
+17:                                               ; preds = %14
   store i32 -32, ptr %5, align 4
-  br label %64
+  store i32 1, ptr %11, align 4
+  br label %65
 
-17:                                               ; preds = %13
-  br label %20
+18:                                               ; preds = %14
+  br label %21
 
-18:                                               ; preds = %4
-  %19 = load ptr, ptr %7, align 8
-  store ptr %19, ptr %10, align 8
-  br label %20
+19:                                               ; preds = %4
+  %20 = load ptr, ptr %7, align 8, !tbaa !8
+  store ptr %20, ptr %10, align 8, !tbaa !8
+  br label %21
 
-20:                                               ; preds = %18, %17
-  %21 = load ptr, ptr %8, align 8
-  %22 = icmp eq ptr null, %21
-  br i1 %22, label %23, label %42
+21:                                               ; preds = %19, %18
+  %22 = load ptr, ptr %8, align 8, !tbaa !38
+  %23 = icmp eq ptr null, %22
+  br i1 %23, label %24, label %43
 
-23:                                               ; preds = %20
-  %24 = load ptr, ptr %6, align 8
-  %25 = load ptr, ptr %10, align 8
-  %26 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %24, ptr noundef @.str.19, ptr noundef %25) #4
-  %27 = icmp sgt i32 0, %26
-  br i1 %27, label %28, label %35
+24:                                               ; preds = %21
+  %25 = load ptr, ptr %6, align 8, !tbaa !3
+  %26 = load ptr, ptr %10, align 8, !tbaa !8
+  %27 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %25, ptr noundef @.str.19, ptr noundef %26) #7
+  %28 = icmp sgt i32 0, %27
+  br i1 %28, label %29, label %36
 
-28:                                               ; preds = %23
-  %29 = load ptr, ptr %10, align 8
-  %30 = load ptr, ptr %7, align 8
-  %31 = icmp ne ptr %29, %30
-  br i1 %31, label %32, label %34
+29:                                               ; preds = %24
+  %30 = load ptr, ptr %10, align 8, !tbaa !8
+  %31 = load ptr, ptr %7, align 8, !tbaa !8
+  %32 = icmp ne ptr %30, %31
+  br i1 %32, label %33, label %35
 
-32:                                               ; preds = %28
-  %33 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %33) #4
-  br label %34
+33:                                               ; preds = %29
+  %34 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %34) #7
+  br label %35
 
-34:                                               ; preds = %32, %28
+35:                                               ; preds = %33, %29
   store i32 -32, ptr %5, align 4
-  br label %64
+  store i32 1, ptr %11, align 4
+  br label %65
 
-35:                                               ; preds = %23
-  %36 = load ptr, ptr %10, align 8
-  %37 = load ptr, ptr %7, align 8
-  %38 = icmp ne ptr %36, %37
-  br i1 %38, label %39, label %41
+36:                                               ; preds = %24
+  %37 = load ptr, ptr %10, align 8, !tbaa !8
+  %38 = load ptr, ptr %7, align 8, !tbaa !8
+  %39 = icmp ne ptr %37, %38
+  br i1 %39, label %40, label %42
 
-39:                                               ; preds = %35
-  %40 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %40) #4
-  br label %41
+40:                                               ; preds = %36
+  %41 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %41) #7
+  br label %42
 
-41:                                               ; preds = %39, %35
+42:                                               ; preds = %40, %36
   store i32 0, ptr %5, align 4
-  br label %64
+  store i32 1, ptr %11, align 4
+  br label %65
 
-42:                                               ; preds = %20
-  %43 = load ptr, ptr %6, align 8
-  %44 = load ptr, ptr %10, align 8
-  %45 = load ptr, ptr %8, align 8
-  %46 = load i16, ptr %45, align 2
-  %47 = zext i16 %46 to i32
-  %48 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %43, ptr noundef @.str.20, ptr noundef %44, i32 noundef %47) #4
-  %49 = icmp sgt i32 0, %48
-  br i1 %49, label %50, label %57
+43:                                               ; preds = %21
+  %44 = load ptr, ptr %6, align 8, !tbaa !3
+  %45 = load ptr, ptr %10, align 8, !tbaa !8
+  %46 = load ptr, ptr %8, align 8, !tbaa !38
+  %47 = load i16, ptr %46, align 2, !tbaa !11
+  %48 = zext i16 %47 to i32
+  %49 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %44, ptr noundef @.str.20, ptr noundef %45, i32 noundef %48) #7
+  %50 = icmp sgt i32 0, %49
+  br i1 %50, label %51, label %58
 
-50:                                               ; preds = %42
-  %51 = load ptr, ptr %10, align 8
-  %52 = load ptr, ptr %7, align 8
-  %53 = icmp ne ptr %51, %52
-  br i1 %53, label %54, label %56
+51:                                               ; preds = %43
+  %52 = load ptr, ptr %10, align 8, !tbaa !8
+  %53 = load ptr, ptr %7, align 8, !tbaa !8
+  %54 = icmp ne ptr %52, %53
+  br i1 %54, label %55, label %57
 
-54:                                               ; preds = %50
-  %55 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %55) #4
-  br label %56
+55:                                               ; preds = %51
+  %56 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %56) #7
+  br label %57
 
-56:                                               ; preds = %54, %50
+57:                                               ; preds = %55, %51
   store i32 -32, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %65
+
+58:                                               ; preds = %43
+  %59 = load ptr, ptr %10, align 8, !tbaa !8
+  %60 = load ptr, ptr %7, align 8, !tbaa !8
+  %61 = icmp ne ptr %59, %60
+  br i1 %61, label %62, label %64
+
+62:                                               ; preds = %58
+  %63 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %63) #7
   br label %64
 
-57:                                               ; preds = %42
-  %58 = load ptr, ptr %10, align 8
-  %59 = load ptr, ptr %7, align 8
-  %60 = icmp ne ptr %58, %59
-  br i1 %60, label %61, label %63
-
-61:                                               ; preds = %57
-  %62 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %62) #4
-  br label %63
-
-63:                                               ; preds = %61, %57
+64:                                               ; preds = %62, %58
   store i32 0, ptr %5, align 4
-  br label %64
+  store i32 1, ptr %11, align 4
+  br label %65
 
-64:                                               ; preds = %63, %56, %41, %34, %16
-  %65 = load i32, ptr %5, align 4
-  ret i32 %65
+65:                                               ; preds = %64, %57, %42, %35, %17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  %66 = load i32, ptr %5, align 4
+  ret i32 %66
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1171,115 +1260,123 @@ define i32 @pmix20_bfrop_print_uint32(ptr noundef %0, ptr noundef %1, ptr nounde
   %8 = alloca ptr, align 8
   %9 = alloca i16, align 2
   %10 = alloca ptr, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store i16 %3, ptr %9, align 2
-  %11 = load ptr, ptr %7, align 8
-  %12 = icmp eq ptr null, %11
-  br i1 %12, label %13, label %18
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store ptr %1, ptr %7, align 8, !tbaa !8
+  store ptr %2, ptr %8, align 8, !tbaa !36
+  store i16 %3, ptr %9, align 2, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  %12 = load ptr, ptr %7, align 8, !tbaa !8
+  %13 = icmp eq ptr null, %12
+  br i1 %13, label %14, label %19
 
-13:                                               ; preds = %4
-  %14 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %10, ptr noundef @.str) #4
-  %15 = icmp sgt i32 0, %14
-  br i1 %15, label %16, label %17
+14:                                               ; preds = %4
+  %15 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %10, ptr noundef @.str) #7
+  %16 = icmp sgt i32 0, %15
+  br i1 %16, label %17, label %18
 
-16:                                               ; preds = %13
+17:                                               ; preds = %14
   store i32 -32, ptr %5, align 4
-  br label %63
+  store i32 1, ptr %11, align 4
+  br label %64
 
-17:                                               ; preds = %13
-  br label %20
+18:                                               ; preds = %14
+  br label %21
 
-18:                                               ; preds = %4
-  %19 = load ptr, ptr %7, align 8
-  store ptr %19, ptr %10, align 8
-  br label %20
+19:                                               ; preds = %4
+  %20 = load ptr, ptr %7, align 8, !tbaa !8
+  store ptr %20, ptr %10, align 8, !tbaa !8
+  br label %21
 
-20:                                               ; preds = %18, %17
-  %21 = load ptr, ptr %8, align 8
-  %22 = icmp eq ptr null, %21
-  br i1 %22, label %23, label %42
+21:                                               ; preds = %19, %18
+  %22 = load ptr, ptr %8, align 8, !tbaa !36
+  %23 = icmp eq ptr null, %22
+  br i1 %23, label %24, label %43
 
-23:                                               ; preds = %20
-  %24 = load ptr, ptr %6, align 8
-  %25 = load ptr, ptr %10, align 8
-  %26 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %24, ptr noundef @.str.21, ptr noundef %25) #4
-  %27 = icmp sgt i32 0, %26
-  br i1 %27, label %28, label %35
+24:                                               ; preds = %21
+  %25 = load ptr, ptr %6, align 8, !tbaa !3
+  %26 = load ptr, ptr %10, align 8, !tbaa !8
+  %27 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %25, ptr noundef @.str.21, ptr noundef %26) #7
+  %28 = icmp sgt i32 0, %27
+  br i1 %28, label %29, label %36
 
-28:                                               ; preds = %23
-  %29 = load ptr, ptr %10, align 8
-  %30 = load ptr, ptr %7, align 8
-  %31 = icmp ne ptr %29, %30
-  br i1 %31, label %32, label %34
+29:                                               ; preds = %24
+  %30 = load ptr, ptr %10, align 8, !tbaa !8
+  %31 = load ptr, ptr %7, align 8, !tbaa !8
+  %32 = icmp ne ptr %30, %31
+  br i1 %32, label %33, label %35
 
-32:                                               ; preds = %28
-  %33 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %33) #4
-  br label %34
+33:                                               ; preds = %29
+  %34 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %34) #7
+  br label %35
 
-34:                                               ; preds = %32, %28
+35:                                               ; preds = %33, %29
   store i32 -32, ptr %5, align 4
-  br label %63
+  store i32 1, ptr %11, align 4
+  br label %64
 
-35:                                               ; preds = %23
-  %36 = load ptr, ptr %10, align 8
-  %37 = load ptr, ptr %7, align 8
-  %38 = icmp ne ptr %36, %37
-  br i1 %38, label %39, label %41
+36:                                               ; preds = %24
+  %37 = load ptr, ptr %10, align 8, !tbaa !8
+  %38 = load ptr, ptr %7, align 8, !tbaa !8
+  %39 = icmp ne ptr %37, %38
+  br i1 %39, label %40, label %42
 
-39:                                               ; preds = %35
-  %40 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %40) #4
-  br label %41
+40:                                               ; preds = %36
+  %41 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %41) #7
+  br label %42
 
-41:                                               ; preds = %39, %35
+42:                                               ; preds = %40, %36
   store i32 0, ptr %5, align 4
-  br label %63
+  store i32 1, ptr %11, align 4
+  br label %64
 
-42:                                               ; preds = %20
-  %43 = load ptr, ptr %6, align 8
-  %44 = load ptr, ptr %10, align 8
-  %45 = load ptr, ptr %8, align 8
-  %46 = load i32, ptr %45, align 4
-  %47 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %43, ptr noundef @.str.22, ptr noundef %44, i32 noundef %46) #4
-  %48 = icmp sgt i32 0, %47
-  br i1 %48, label %49, label %56
+43:                                               ; preds = %21
+  %44 = load ptr, ptr %6, align 8, !tbaa !3
+  %45 = load ptr, ptr %10, align 8, !tbaa !8
+  %46 = load ptr, ptr %8, align 8, !tbaa !36
+  %47 = load i32, ptr %46, align 4, !tbaa !21
+  %48 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %44, ptr noundef @.str.22, ptr noundef %45, i32 noundef %47) #7
+  %49 = icmp sgt i32 0, %48
+  br i1 %49, label %50, label %57
 
-49:                                               ; preds = %42
-  %50 = load ptr, ptr %10, align 8
-  %51 = load ptr, ptr %7, align 8
-  %52 = icmp ne ptr %50, %51
-  br i1 %52, label %53, label %55
+50:                                               ; preds = %43
+  %51 = load ptr, ptr %10, align 8, !tbaa !8
+  %52 = load ptr, ptr %7, align 8, !tbaa !8
+  %53 = icmp ne ptr %51, %52
+  br i1 %53, label %54, label %56
 
-53:                                               ; preds = %49
-  %54 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %54) #4
-  br label %55
+54:                                               ; preds = %50
+  %55 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %55) #7
+  br label %56
 
-55:                                               ; preds = %53, %49
+56:                                               ; preds = %54, %50
   store i32 -32, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %64
+
+57:                                               ; preds = %43
+  %58 = load ptr, ptr %10, align 8, !tbaa !8
+  %59 = load ptr, ptr %7, align 8, !tbaa !8
+  %60 = icmp ne ptr %58, %59
+  br i1 %60, label %61, label %63
+
+61:                                               ; preds = %57
+  %62 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %62) #7
   br label %63
 
-56:                                               ; preds = %42
-  %57 = load ptr, ptr %10, align 8
-  %58 = load ptr, ptr %7, align 8
-  %59 = icmp ne ptr %57, %58
-  br i1 %59, label %60, label %62
-
-60:                                               ; preds = %56
-  %61 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %61) #4
-  br label %62
-
-62:                                               ; preds = %60, %56
+63:                                               ; preds = %61, %57
   store i32 0, ptr %5, align 4
-  br label %63
+  store i32 1, ptr %11, align 4
+  br label %64
 
-63:                                               ; preds = %62, %55, %41, %34, %16
-  %64 = load i32, ptr %5, align 4
-  ret i32 %64
+64:                                               ; preds = %63, %56, %42, %35, %17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  %65 = load i32, ptr %5, align 4
+  ret i32 %65
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1290,116 +1387,124 @@ define i32 @pmix20_bfrop_print_int8(ptr noundef %0, ptr noundef %1, ptr noundef 
   %8 = alloca ptr, align 8
   %9 = alloca i16, align 2
   %10 = alloca ptr, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store i16 %3, ptr %9, align 2
-  %11 = load ptr, ptr %7, align 8
-  %12 = icmp eq ptr null, %11
-  br i1 %12, label %13, label %18
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store ptr %1, ptr %7, align 8, !tbaa !8
+  store ptr %2, ptr %8, align 8, !tbaa !8
+  store i16 %3, ptr %9, align 2, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  %12 = load ptr, ptr %7, align 8, !tbaa !8
+  %13 = icmp eq ptr null, %12
+  br i1 %13, label %14, label %19
 
-13:                                               ; preds = %4
-  %14 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %10, ptr noundef @.str) #4
-  %15 = icmp sgt i32 0, %14
-  br i1 %15, label %16, label %17
+14:                                               ; preds = %4
+  %15 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %10, ptr noundef @.str) #7
+  %16 = icmp sgt i32 0, %15
+  br i1 %16, label %17, label %18
 
-16:                                               ; preds = %13
+17:                                               ; preds = %14
   store i32 -32, ptr %5, align 4
-  br label %64
+  store i32 1, ptr %11, align 4
+  br label %65
 
-17:                                               ; preds = %13
-  br label %20
+18:                                               ; preds = %14
+  br label %21
 
-18:                                               ; preds = %4
-  %19 = load ptr, ptr %7, align 8
-  store ptr %19, ptr %10, align 8
-  br label %20
+19:                                               ; preds = %4
+  %20 = load ptr, ptr %7, align 8, !tbaa !8
+  store ptr %20, ptr %10, align 8, !tbaa !8
+  br label %21
 
-20:                                               ; preds = %18, %17
-  %21 = load ptr, ptr %8, align 8
-  %22 = icmp eq ptr null, %21
-  br i1 %22, label %23, label %42
+21:                                               ; preds = %19, %18
+  %22 = load ptr, ptr %8, align 8, !tbaa !8
+  %23 = icmp eq ptr null, %22
+  br i1 %23, label %24, label %43
 
-23:                                               ; preds = %20
-  %24 = load ptr, ptr %6, align 8
-  %25 = load ptr, ptr %10, align 8
-  %26 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %24, ptr noundef @.str.23, ptr noundef %25) #4
-  %27 = icmp sgt i32 0, %26
-  br i1 %27, label %28, label %35
+24:                                               ; preds = %21
+  %25 = load ptr, ptr %6, align 8, !tbaa !3
+  %26 = load ptr, ptr %10, align 8, !tbaa !8
+  %27 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %25, ptr noundef @.str.23, ptr noundef %26) #7
+  %28 = icmp sgt i32 0, %27
+  br i1 %28, label %29, label %36
 
-28:                                               ; preds = %23
-  %29 = load ptr, ptr %10, align 8
-  %30 = load ptr, ptr %7, align 8
-  %31 = icmp ne ptr %29, %30
-  br i1 %31, label %32, label %34
+29:                                               ; preds = %24
+  %30 = load ptr, ptr %10, align 8, !tbaa !8
+  %31 = load ptr, ptr %7, align 8, !tbaa !8
+  %32 = icmp ne ptr %30, %31
+  br i1 %32, label %33, label %35
 
-32:                                               ; preds = %28
-  %33 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %33) #4
-  br label %34
+33:                                               ; preds = %29
+  %34 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %34) #7
+  br label %35
 
-34:                                               ; preds = %32, %28
+35:                                               ; preds = %33, %29
   store i32 -32, ptr %5, align 4
-  br label %64
+  store i32 1, ptr %11, align 4
+  br label %65
 
-35:                                               ; preds = %23
-  %36 = load ptr, ptr %10, align 8
-  %37 = load ptr, ptr %7, align 8
-  %38 = icmp ne ptr %36, %37
-  br i1 %38, label %39, label %41
+36:                                               ; preds = %24
+  %37 = load ptr, ptr %10, align 8, !tbaa !8
+  %38 = load ptr, ptr %7, align 8, !tbaa !8
+  %39 = icmp ne ptr %37, %38
+  br i1 %39, label %40, label %42
 
-39:                                               ; preds = %35
-  %40 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %40) #4
-  br label %41
+40:                                               ; preds = %36
+  %41 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %41) #7
+  br label %42
 
-41:                                               ; preds = %39, %35
+42:                                               ; preds = %40, %36
   store i32 0, ptr %5, align 4
-  br label %64
+  store i32 1, ptr %11, align 4
+  br label %65
 
-42:                                               ; preds = %20
-  %43 = load ptr, ptr %6, align 8
-  %44 = load ptr, ptr %10, align 8
-  %45 = load ptr, ptr %8, align 8
-  %46 = load i8, ptr %45, align 1
-  %47 = sext i8 %46 to i32
-  %48 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %43, ptr noundef @.str.24, ptr noundef %44, i32 noundef %47) #4
-  %49 = icmp sgt i32 0, %48
-  br i1 %49, label %50, label %57
+43:                                               ; preds = %21
+  %44 = load ptr, ptr %6, align 8, !tbaa !3
+  %45 = load ptr, ptr %10, align 8, !tbaa !8
+  %46 = load ptr, ptr %8, align 8, !tbaa !8
+  %47 = load i8, ptr %46, align 1, !tbaa !32
+  %48 = sext i8 %47 to i32
+  %49 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %44, ptr noundef @.str.24, ptr noundef %45, i32 noundef %48) #7
+  %50 = icmp sgt i32 0, %49
+  br i1 %50, label %51, label %58
 
-50:                                               ; preds = %42
-  %51 = load ptr, ptr %10, align 8
-  %52 = load ptr, ptr %7, align 8
-  %53 = icmp ne ptr %51, %52
-  br i1 %53, label %54, label %56
+51:                                               ; preds = %43
+  %52 = load ptr, ptr %10, align 8, !tbaa !8
+  %53 = load ptr, ptr %7, align 8, !tbaa !8
+  %54 = icmp ne ptr %52, %53
+  br i1 %54, label %55, label %57
 
-54:                                               ; preds = %50
-  %55 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %55) #4
-  br label %56
+55:                                               ; preds = %51
+  %56 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %56) #7
+  br label %57
 
-56:                                               ; preds = %54, %50
+57:                                               ; preds = %55, %51
   store i32 -32, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %65
+
+58:                                               ; preds = %43
+  %59 = load ptr, ptr %10, align 8, !tbaa !8
+  %60 = load ptr, ptr %7, align 8, !tbaa !8
+  %61 = icmp ne ptr %59, %60
+  br i1 %61, label %62, label %64
+
+62:                                               ; preds = %58
+  %63 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %63) #7
   br label %64
 
-57:                                               ; preds = %42
-  %58 = load ptr, ptr %10, align 8
-  %59 = load ptr, ptr %7, align 8
-  %60 = icmp ne ptr %58, %59
-  br i1 %60, label %61, label %63
-
-61:                                               ; preds = %57
-  %62 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %62) #4
-  br label %63
-
-63:                                               ; preds = %61, %57
+64:                                               ; preds = %62, %58
   store i32 0, ptr %5, align 4
-  br label %64
+  store i32 1, ptr %11, align 4
+  br label %65
 
-64:                                               ; preds = %63, %56, %41, %34, %16
-  %65 = load i32, ptr %5, align 4
-  ret i32 %65
+65:                                               ; preds = %64, %57, %42, %35, %17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  %66 = load i32, ptr %5, align 4
+  ret i32 %66
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1410,116 +1515,124 @@ define i32 @pmix20_bfrop_print_int16(ptr noundef %0, ptr noundef %1, ptr noundef
   %8 = alloca ptr, align 8
   %9 = alloca i16, align 2
   %10 = alloca ptr, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store i16 %3, ptr %9, align 2
-  %11 = load ptr, ptr %7, align 8
-  %12 = icmp eq ptr null, %11
-  br i1 %12, label %13, label %18
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store ptr %1, ptr %7, align 8, !tbaa !8
+  store ptr %2, ptr %8, align 8, !tbaa !38
+  store i16 %3, ptr %9, align 2, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  %12 = load ptr, ptr %7, align 8, !tbaa !8
+  %13 = icmp eq ptr null, %12
+  br i1 %13, label %14, label %19
 
-13:                                               ; preds = %4
-  %14 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %10, ptr noundef @.str) #4
-  %15 = icmp sgt i32 0, %14
-  br i1 %15, label %16, label %17
+14:                                               ; preds = %4
+  %15 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %10, ptr noundef @.str) #7
+  %16 = icmp sgt i32 0, %15
+  br i1 %16, label %17, label %18
 
-16:                                               ; preds = %13
+17:                                               ; preds = %14
   store i32 -32, ptr %5, align 4
-  br label %64
+  store i32 1, ptr %11, align 4
+  br label %65
 
-17:                                               ; preds = %13
-  br label %20
+18:                                               ; preds = %14
+  br label %21
 
-18:                                               ; preds = %4
-  %19 = load ptr, ptr %7, align 8
-  store ptr %19, ptr %10, align 8
-  br label %20
+19:                                               ; preds = %4
+  %20 = load ptr, ptr %7, align 8, !tbaa !8
+  store ptr %20, ptr %10, align 8, !tbaa !8
+  br label %21
 
-20:                                               ; preds = %18, %17
-  %21 = load ptr, ptr %8, align 8
-  %22 = icmp eq ptr null, %21
-  br i1 %22, label %23, label %42
+21:                                               ; preds = %19, %18
+  %22 = load ptr, ptr %8, align 8, !tbaa !38
+  %23 = icmp eq ptr null, %22
+  br i1 %23, label %24, label %43
 
-23:                                               ; preds = %20
-  %24 = load ptr, ptr %6, align 8
-  %25 = load ptr, ptr %10, align 8
-  %26 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %24, ptr noundef @.str.25, ptr noundef %25) #4
-  %27 = icmp sgt i32 0, %26
-  br i1 %27, label %28, label %35
+24:                                               ; preds = %21
+  %25 = load ptr, ptr %6, align 8, !tbaa !3
+  %26 = load ptr, ptr %10, align 8, !tbaa !8
+  %27 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %25, ptr noundef @.str.25, ptr noundef %26) #7
+  %28 = icmp sgt i32 0, %27
+  br i1 %28, label %29, label %36
 
-28:                                               ; preds = %23
-  %29 = load ptr, ptr %10, align 8
-  %30 = load ptr, ptr %7, align 8
-  %31 = icmp ne ptr %29, %30
-  br i1 %31, label %32, label %34
+29:                                               ; preds = %24
+  %30 = load ptr, ptr %10, align 8, !tbaa !8
+  %31 = load ptr, ptr %7, align 8, !tbaa !8
+  %32 = icmp ne ptr %30, %31
+  br i1 %32, label %33, label %35
 
-32:                                               ; preds = %28
-  %33 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %33) #4
-  br label %34
+33:                                               ; preds = %29
+  %34 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %34) #7
+  br label %35
 
-34:                                               ; preds = %32, %28
+35:                                               ; preds = %33, %29
   store i32 -32, ptr %5, align 4
-  br label %64
+  store i32 1, ptr %11, align 4
+  br label %65
 
-35:                                               ; preds = %23
-  %36 = load ptr, ptr %10, align 8
-  %37 = load ptr, ptr %7, align 8
-  %38 = icmp ne ptr %36, %37
-  br i1 %38, label %39, label %41
+36:                                               ; preds = %24
+  %37 = load ptr, ptr %10, align 8, !tbaa !8
+  %38 = load ptr, ptr %7, align 8, !tbaa !8
+  %39 = icmp ne ptr %37, %38
+  br i1 %39, label %40, label %42
 
-39:                                               ; preds = %35
-  %40 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %40) #4
-  br label %41
+40:                                               ; preds = %36
+  %41 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %41) #7
+  br label %42
 
-41:                                               ; preds = %39, %35
+42:                                               ; preds = %40, %36
   store i32 0, ptr %5, align 4
-  br label %64
+  store i32 1, ptr %11, align 4
+  br label %65
 
-42:                                               ; preds = %20
-  %43 = load ptr, ptr %6, align 8
-  %44 = load ptr, ptr %10, align 8
-  %45 = load ptr, ptr %8, align 8
-  %46 = load i16, ptr %45, align 2
-  %47 = sext i16 %46 to i32
-  %48 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %43, ptr noundef @.str.26, ptr noundef %44, i32 noundef %47) #4
-  %49 = icmp sgt i32 0, %48
-  br i1 %49, label %50, label %57
+43:                                               ; preds = %21
+  %44 = load ptr, ptr %6, align 8, !tbaa !3
+  %45 = load ptr, ptr %10, align 8, !tbaa !8
+  %46 = load ptr, ptr %8, align 8, !tbaa !38
+  %47 = load i16, ptr %46, align 2, !tbaa !11
+  %48 = sext i16 %47 to i32
+  %49 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %44, ptr noundef @.str.26, ptr noundef %45, i32 noundef %48) #7
+  %50 = icmp sgt i32 0, %49
+  br i1 %50, label %51, label %58
 
-50:                                               ; preds = %42
-  %51 = load ptr, ptr %10, align 8
-  %52 = load ptr, ptr %7, align 8
-  %53 = icmp ne ptr %51, %52
-  br i1 %53, label %54, label %56
+51:                                               ; preds = %43
+  %52 = load ptr, ptr %10, align 8, !tbaa !8
+  %53 = load ptr, ptr %7, align 8, !tbaa !8
+  %54 = icmp ne ptr %52, %53
+  br i1 %54, label %55, label %57
 
-54:                                               ; preds = %50
-  %55 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %55) #4
-  br label %56
+55:                                               ; preds = %51
+  %56 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %56) #7
+  br label %57
 
-56:                                               ; preds = %54, %50
+57:                                               ; preds = %55, %51
   store i32 -32, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %65
+
+58:                                               ; preds = %43
+  %59 = load ptr, ptr %10, align 8, !tbaa !8
+  %60 = load ptr, ptr %7, align 8, !tbaa !8
+  %61 = icmp ne ptr %59, %60
+  br i1 %61, label %62, label %64
+
+62:                                               ; preds = %58
+  %63 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %63) #7
   br label %64
 
-57:                                               ; preds = %42
-  %58 = load ptr, ptr %10, align 8
-  %59 = load ptr, ptr %7, align 8
-  %60 = icmp ne ptr %58, %59
-  br i1 %60, label %61, label %63
-
-61:                                               ; preds = %57
-  %62 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %62) #4
-  br label %63
-
-63:                                               ; preds = %61, %57
+64:                                               ; preds = %62, %58
   store i32 0, ptr %5, align 4
-  br label %64
+  store i32 1, ptr %11, align 4
+  br label %65
 
-64:                                               ; preds = %63, %56, %41, %34, %16
-  %65 = load i32, ptr %5, align 4
-  ret i32 %65
+65:                                               ; preds = %64, %57, %42, %35, %17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  %66 = load i32, ptr %5, align 4
+  ret i32 %66
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1530,115 +1643,123 @@ define i32 @pmix20_bfrop_print_int32(ptr noundef %0, ptr noundef %1, ptr noundef
   %8 = alloca ptr, align 8
   %9 = alloca i16, align 2
   %10 = alloca ptr, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store i16 %3, ptr %9, align 2
-  %11 = load ptr, ptr %7, align 8
-  %12 = icmp eq ptr null, %11
-  br i1 %12, label %13, label %18
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store ptr %1, ptr %7, align 8, !tbaa !8
+  store ptr %2, ptr %8, align 8, !tbaa !36
+  store i16 %3, ptr %9, align 2, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  %12 = load ptr, ptr %7, align 8, !tbaa !8
+  %13 = icmp eq ptr null, %12
+  br i1 %13, label %14, label %19
 
-13:                                               ; preds = %4
-  %14 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %10, ptr noundef @.str) #4
-  %15 = icmp sgt i32 0, %14
-  br i1 %15, label %16, label %17
+14:                                               ; preds = %4
+  %15 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %10, ptr noundef @.str) #7
+  %16 = icmp sgt i32 0, %15
+  br i1 %16, label %17, label %18
 
-16:                                               ; preds = %13
+17:                                               ; preds = %14
   store i32 -32, ptr %5, align 4
-  br label %63
+  store i32 1, ptr %11, align 4
+  br label %64
 
-17:                                               ; preds = %13
-  br label %20
+18:                                               ; preds = %14
+  br label %21
 
-18:                                               ; preds = %4
-  %19 = load ptr, ptr %7, align 8
-  store ptr %19, ptr %10, align 8
-  br label %20
+19:                                               ; preds = %4
+  %20 = load ptr, ptr %7, align 8, !tbaa !8
+  store ptr %20, ptr %10, align 8, !tbaa !8
+  br label %21
 
-20:                                               ; preds = %18, %17
-  %21 = load ptr, ptr %8, align 8
-  %22 = icmp eq ptr null, %21
-  br i1 %22, label %23, label %42
+21:                                               ; preds = %19, %18
+  %22 = load ptr, ptr %8, align 8, !tbaa !36
+  %23 = icmp eq ptr null, %22
+  br i1 %23, label %24, label %43
 
-23:                                               ; preds = %20
-  %24 = load ptr, ptr %6, align 8
-  %25 = load ptr, ptr %10, align 8
-  %26 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %24, ptr noundef @.str.27, ptr noundef %25) #4
-  %27 = icmp sgt i32 0, %26
-  br i1 %27, label %28, label %35
+24:                                               ; preds = %21
+  %25 = load ptr, ptr %6, align 8, !tbaa !3
+  %26 = load ptr, ptr %10, align 8, !tbaa !8
+  %27 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %25, ptr noundef @.str.27, ptr noundef %26) #7
+  %28 = icmp sgt i32 0, %27
+  br i1 %28, label %29, label %36
 
-28:                                               ; preds = %23
-  %29 = load ptr, ptr %10, align 8
-  %30 = load ptr, ptr %7, align 8
-  %31 = icmp ne ptr %29, %30
-  br i1 %31, label %32, label %34
+29:                                               ; preds = %24
+  %30 = load ptr, ptr %10, align 8, !tbaa !8
+  %31 = load ptr, ptr %7, align 8, !tbaa !8
+  %32 = icmp ne ptr %30, %31
+  br i1 %32, label %33, label %35
 
-32:                                               ; preds = %28
-  %33 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %33) #4
-  br label %34
+33:                                               ; preds = %29
+  %34 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %34) #7
+  br label %35
 
-34:                                               ; preds = %32, %28
+35:                                               ; preds = %33, %29
   store i32 -32, ptr %5, align 4
-  br label %63
+  store i32 1, ptr %11, align 4
+  br label %64
 
-35:                                               ; preds = %23
-  %36 = load ptr, ptr %10, align 8
-  %37 = load ptr, ptr %7, align 8
-  %38 = icmp ne ptr %36, %37
-  br i1 %38, label %39, label %41
+36:                                               ; preds = %24
+  %37 = load ptr, ptr %10, align 8, !tbaa !8
+  %38 = load ptr, ptr %7, align 8, !tbaa !8
+  %39 = icmp ne ptr %37, %38
+  br i1 %39, label %40, label %42
 
-39:                                               ; preds = %35
-  %40 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %40) #4
-  br label %41
+40:                                               ; preds = %36
+  %41 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %41) #7
+  br label %42
 
-41:                                               ; preds = %39, %35
+42:                                               ; preds = %40, %36
   store i32 0, ptr %5, align 4
-  br label %63
+  store i32 1, ptr %11, align 4
+  br label %64
 
-42:                                               ; preds = %20
-  %43 = load ptr, ptr %6, align 8
-  %44 = load ptr, ptr %10, align 8
-  %45 = load ptr, ptr %8, align 8
-  %46 = load i32, ptr %45, align 4
-  %47 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %43, ptr noundef @.str.28, ptr noundef %44, i32 noundef %46) #4
-  %48 = icmp sgt i32 0, %47
-  br i1 %48, label %49, label %56
+43:                                               ; preds = %21
+  %44 = load ptr, ptr %6, align 8, !tbaa !3
+  %45 = load ptr, ptr %10, align 8, !tbaa !8
+  %46 = load ptr, ptr %8, align 8, !tbaa !36
+  %47 = load i32, ptr %46, align 4, !tbaa !21
+  %48 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %44, ptr noundef @.str.28, ptr noundef %45, i32 noundef %47) #7
+  %49 = icmp sgt i32 0, %48
+  br i1 %49, label %50, label %57
 
-49:                                               ; preds = %42
-  %50 = load ptr, ptr %10, align 8
-  %51 = load ptr, ptr %7, align 8
-  %52 = icmp ne ptr %50, %51
-  br i1 %52, label %53, label %55
+50:                                               ; preds = %43
+  %51 = load ptr, ptr %10, align 8, !tbaa !8
+  %52 = load ptr, ptr %7, align 8, !tbaa !8
+  %53 = icmp ne ptr %51, %52
+  br i1 %53, label %54, label %56
 
-53:                                               ; preds = %49
-  %54 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %54) #4
-  br label %55
+54:                                               ; preds = %50
+  %55 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %55) #7
+  br label %56
 
-55:                                               ; preds = %53, %49
+56:                                               ; preds = %54, %50
   store i32 -32, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %64
+
+57:                                               ; preds = %43
+  %58 = load ptr, ptr %10, align 8, !tbaa !8
+  %59 = load ptr, ptr %7, align 8, !tbaa !8
+  %60 = icmp ne ptr %58, %59
+  br i1 %60, label %61, label %63
+
+61:                                               ; preds = %57
+  %62 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %62) #7
   br label %63
 
-56:                                               ; preds = %42
-  %57 = load ptr, ptr %10, align 8
-  %58 = load ptr, ptr %7, align 8
-  %59 = icmp ne ptr %57, %58
-  br i1 %59, label %60, label %62
-
-60:                                               ; preds = %56
-  %61 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %61) #4
-  br label %62
-
-62:                                               ; preds = %60, %56
+63:                                               ; preds = %61, %57
   store i32 0, ptr %5, align 4
-  br label %63
+  store i32 1, ptr %11, align 4
+  br label %64
 
-63:                                               ; preds = %62, %55, %41, %34, %16
-  %64 = load i32, ptr %5, align 4
-  ret i32 %64
+64:                                               ; preds = %63, %56, %42, %35, %17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  %65 = load i32, ptr %5, align 4
+  ret i32 %65
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1649,115 +1770,123 @@ define i32 @pmix20_bfrop_print_uint64(ptr noundef %0, ptr noundef %1, ptr nounde
   %8 = alloca ptr, align 8
   %9 = alloca i16, align 2
   %10 = alloca ptr, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store i16 %3, ptr %9, align 2
-  %11 = load ptr, ptr %7, align 8
-  %12 = icmp eq ptr null, %11
-  br i1 %12, label %13, label %18
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store ptr %1, ptr %7, align 8, !tbaa !8
+  store ptr %2, ptr %8, align 8, !tbaa !33
+  store i16 %3, ptr %9, align 2, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  %12 = load ptr, ptr %7, align 8, !tbaa !8
+  %13 = icmp eq ptr null, %12
+  br i1 %13, label %14, label %19
 
-13:                                               ; preds = %4
-  %14 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %10, ptr noundef @.str) #4
-  %15 = icmp sgt i32 0, %14
-  br i1 %15, label %16, label %17
+14:                                               ; preds = %4
+  %15 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %10, ptr noundef @.str) #7
+  %16 = icmp sgt i32 0, %15
+  br i1 %16, label %17, label %18
 
-16:                                               ; preds = %13
+17:                                               ; preds = %14
   store i32 -32, ptr %5, align 4
-  br label %63
+  store i32 1, ptr %11, align 4
+  br label %64
 
-17:                                               ; preds = %13
-  br label %20
+18:                                               ; preds = %14
+  br label %21
 
-18:                                               ; preds = %4
-  %19 = load ptr, ptr %7, align 8
-  store ptr %19, ptr %10, align 8
-  br label %20
+19:                                               ; preds = %4
+  %20 = load ptr, ptr %7, align 8, !tbaa !8
+  store ptr %20, ptr %10, align 8, !tbaa !8
+  br label %21
 
-20:                                               ; preds = %18, %17
-  %21 = load ptr, ptr %8, align 8
-  %22 = icmp eq ptr null, %21
-  br i1 %22, label %23, label %42
+21:                                               ; preds = %19, %18
+  %22 = load ptr, ptr %8, align 8, !tbaa !33
+  %23 = icmp eq ptr null, %22
+  br i1 %23, label %24, label %43
 
-23:                                               ; preds = %20
-  %24 = load ptr, ptr %6, align 8
-  %25 = load ptr, ptr %10, align 8
-  %26 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %24, ptr noundef @.str.29, ptr noundef %25) #4
-  %27 = icmp sgt i32 0, %26
-  br i1 %27, label %28, label %35
+24:                                               ; preds = %21
+  %25 = load ptr, ptr %6, align 8, !tbaa !3
+  %26 = load ptr, ptr %10, align 8, !tbaa !8
+  %27 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %25, ptr noundef @.str.29, ptr noundef %26) #7
+  %28 = icmp sgt i32 0, %27
+  br i1 %28, label %29, label %36
 
-28:                                               ; preds = %23
-  %29 = load ptr, ptr %10, align 8
-  %30 = load ptr, ptr %7, align 8
-  %31 = icmp ne ptr %29, %30
-  br i1 %31, label %32, label %34
+29:                                               ; preds = %24
+  %30 = load ptr, ptr %10, align 8, !tbaa !8
+  %31 = load ptr, ptr %7, align 8, !tbaa !8
+  %32 = icmp ne ptr %30, %31
+  br i1 %32, label %33, label %35
 
-32:                                               ; preds = %28
-  %33 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %33) #4
-  br label %34
+33:                                               ; preds = %29
+  %34 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %34) #7
+  br label %35
 
-34:                                               ; preds = %32, %28
+35:                                               ; preds = %33, %29
   store i32 -32, ptr %5, align 4
-  br label %63
+  store i32 1, ptr %11, align 4
+  br label %64
 
-35:                                               ; preds = %23
-  %36 = load ptr, ptr %10, align 8
-  %37 = load ptr, ptr %7, align 8
-  %38 = icmp ne ptr %36, %37
-  br i1 %38, label %39, label %41
+36:                                               ; preds = %24
+  %37 = load ptr, ptr %10, align 8, !tbaa !8
+  %38 = load ptr, ptr %7, align 8, !tbaa !8
+  %39 = icmp ne ptr %37, %38
+  br i1 %39, label %40, label %42
 
-39:                                               ; preds = %35
-  %40 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %40) #4
-  br label %41
+40:                                               ; preds = %36
+  %41 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %41) #7
+  br label %42
 
-41:                                               ; preds = %39, %35
+42:                                               ; preds = %40, %36
   store i32 0, ptr %5, align 4
-  br label %63
+  store i32 1, ptr %11, align 4
+  br label %64
 
-42:                                               ; preds = %20
-  %43 = load ptr, ptr %6, align 8
-  %44 = load ptr, ptr %10, align 8
-  %45 = load ptr, ptr %8, align 8
-  %46 = load i64, ptr %45, align 8
-  %47 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %43, ptr noundef @.str.30, ptr noundef %44, i64 noundef %46) #4
-  %48 = icmp sgt i32 0, %47
-  br i1 %48, label %49, label %56
+43:                                               ; preds = %21
+  %44 = load ptr, ptr %6, align 8, !tbaa !3
+  %45 = load ptr, ptr %10, align 8, !tbaa !8
+  %46 = load ptr, ptr %8, align 8, !tbaa !33
+  %47 = load i64, ptr %46, align 8, !tbaa !34
+  %48 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %44, ptr noundef @.str.30, ptr noundef %45, i64 noundef %47) #7
+  %49 = icmp sgt i32 0, %48
+  br i1 %49, label %50, label %57
 
-49:                                               ; preds = %42
-  %50 = load ptr, ptr %10, align 8
-  %51 = load ptr, ptr %7, align 8
-  %52 = icmp ne ptr %50, %51
-  br i1 %52, label %53, label %55
+50:                                               ; preds = %43
+  %51 = load ptr, ptr %10, align 8, !tbaa !8
+  %52 = load ptr, ptr %7, align 8, !tbaa !8
+  %53 = icmp ne ptr %51, %52
+  br i1 %53, label %54, label %56
 
-53:                                               ; preds = %49
-  %54 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %54) #4
-  br label %55
+54:                                               ; preds = %50
+  %55 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %55) #7
+  br label %56
 
-55:                                               ; preds = %53, %49
+56:                                               ; preds = %54, %50
   store i32 -32, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %64
+
+57:                                               ; preds = %43
+  %58 = load ptr, ptr %10, align 8, !tbaa !8
+  %59 = load ptr, ptr %7, align 8, !tbaa !8
+  %60 = icmp ne ptr %58, %59
+  br i1 %60, label %61, label %63
+
+61:                                               ; preds = %57
+  %62 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %62) #7
   br label %63
 
-56:                                               ; preds = %42
-  %57 = load ptr, ptr %10, align 8
-  %58 = load ptr, ptr %7, align 8
-  %59 = icmp ne ptr %57, %58
-  br i1 %59, label %60, label %62
-
-60:                                               ; preds = %56
-  %61 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %61) #4
-  br label %62
-
-62:                                               ; preds = %60, %56
+63:                                               ; preds = %61, %57
   store i32 0, ptr %5, align 4
-  br label %63
+  store i32 1, ptr %11, align 4
+  br label %64
 
-63:                                               ; preds = %62, %55, %41, %34, %16
-  %64 = load i32, ptr %5, align 4
-  ret i32 %64
+64:                                               ; preds = %63, %56, %42, %35, %17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  %65 = load i32, ptr %5, align 4
+  ret i32 %65
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1768,115 +1897,123 @@ define i32 @pmix20_bfrop_print_int64(ptr noundef %0, ptr noundef %1, ptr noundef
   %8 = alloca ptr, align 8
   %9 = alloca i16, align 2
   %10 = alloca ptr, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store i16 %3, ptr %9, align 2
-  %11 = load ptr, ptr %7, align 8
-  %12 = icmp eq ptr null, %11
-  br i1 %12, label %13, label %18
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store ptr %1, ptr %7, align 8, !tbaa !8
+  store ptr %2, ptr %8, align 8, !tbaa !33
+  store i16 %3, ptr %9, align 2, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  %12 = load ptr, ptr %7, align 8, !tbaa !8
+  %13 = icmp eq ptr null, %12
+  br i1 %13, label %14, label %19
 
-13:                                               ; preds = %4
-  %14 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %10, ptr noundef @.str) #4
-  %15 = icmp sgt i32 0, %14
-  br i1 %15, label %16, label %17
+14:                                               ; preds = %4
+  %15 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %10, ptr noundef @.str) #7
+  %16 = icmp sgt i32 0, %15
+  br i1 %16, label %17, label %18
 
-16:                                               ; preds = %13
+17:                                               ; preds = %14
   store i32 -32, ptr %5, align 4
-  br label %63
+  store i32 1, ptr %11, align 4
+  br label %64
 
-17:                                               ; preds = %13
-  br label %20
+18:                                               ; preds = %14
+  br label %21
 
-18:                                               ; preds = %4
-  %19 = load ptr, ptr %7, align 8
-  store ptr %19, ptr %10, align 8
-  br label %20
+19:                                               ; preds = %4
+  %20 = load ptr, ptr %7, align 8, !tbaa !8
+  store ptr %20, ptr %10, align 8, !tbaa !8
+  br label %21
 
-20:                                               ; preds = %18, %17
-  %21 = load ptr, ptr %8, align 8
-  %22 = icmp eq ptr null, %21
-  br i1 %22, label %23, label %42
+21:                                               ; preds = %19, %18
+  %22 = load ptr, ptr %8, align 8, !tbaa !33
+  %23 = icmp eq ptr null, %22
+  br i1 %23, label %24, label %43
 
-23:                                               ; preds = %20
-  %24 = load ptr, ptr %6, align 8
-  %25 = load ptr, ptr %10, align 8
-  %26 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %24, ptr noundef @.str.31, ptr noundef %25) #4
-  %27 = icmp sgt i32 0, %26
-  br i1 %27, label %28, label %35
+24:                                               ; preds = %21
+  %25 = load ptr, ptr %6, align 8, !tbaa !3
+  %26 = load ptr, ptr %10, align 8, !tbaa !8
+  %27 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %25, ptr noundef @.str.31, ptr noundef %26) #7
+  %28 = icmp sgt i32 0, %27
+  br i1 %28, label %29, label %36
 
-28:                                               ; preds = %23
-  %29 = load ptr, ptr %10, align 8
-  %30 = load ptr, ptr %7, align 8
-  %31 = icmp ne ptr %29, %30
-  br i1 %31, label %32, label %34
+29:                                               ; preds = %24
+  %30 = load ptr, ptr %10, align 8, !tbaa !8
+  %31 = load ptr, ptr %7, align 8, !tbaa !8
+  %32 = icmp ne ptr %30, %31
+  br i1 %32, label %33, label %35
 
-32:                                               ; preds = %28
-  %33 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %33) #4
-  br label %34
+33:                                               ; preds = %29
+  %34 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %34) #7
+  br label %35
 
-34:                                               ; preds = %32, %28
+35:                                               ; preds = %33, %29
   store i32 -32, ptr %5, align 4
-  br label %63
+  store i32 1, ptr %11, align 4
+  br label %64
 
-35:                                               ; preds = %23
-  %36 = load ptr, ptr %10, align 8
-  %37 = load ptr, ptr %7, align 8
-  %38 = icmp ne ptr %36, %37
-  br i1 %38, label %39, label %41
+36:                                               ; preds = %24
+  %37 = load ptr, ptr %10, align 8, !tbaa !8
+  %38 = load ptr, ptr %7, align 8, !tbaa !8
+  %39 = icmp ne ptr %37, %38
+  br i1 %39, label %40, label %42
 
-39:                                               ; preds = %35
-  %40 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %40) #4
-  br label %41
+40:                                               ; preds = %36
+  %41 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %41) #7
+  br label %42
 
-41:                                               ; preds = %39, %35
+42:                                               ; preds = %40, %36
   store i32 0, ptr %5, align 4
-  br label %63
+  store i32 1, ptr %11, align 4
+  br label %64
 
-42:                                               ; preds = %20
-  %43 = load ptr, ptr %6, align 8
-  %44 = load ptr, ptr %10, align 8
-  %45 = load ptr, ptr %8, align 8
-  %46 = load i64, ptr %45, align 8
-  %47 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %43, ptr noundef @.str.32, ptr noundef %44, i64 noundef %46) #4
-  %48 = icmp sgt i32 0, %47
-  br i1 %48, label %49, label %56
+43:                                               ; preds = %21
+  %44 = load ptr, ptr %6, align 8, !tbaa !3
+  %45 = load ptr, ptr %10, align 8, !tbaa !8
+  %46 = load ptr, ptr %8, align 8, !tbaa !33
+  %47 = load i64, ptr %46, align 8, !tbaa !34
+  %48 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %44, ptr noundef @.str.32, ptr noundef %45, i64 noundef %47) #7
+  %49 = icmp sgt i32 0, %48
+  br i1 %49, label %50, label %57
 
-49:                                               ; preds = %42
-  %50 = load ptr, ptr %10, align 8
-  %51 = load ptr, ptr %7, align 8
-  %52 = icmp ne ptr %50, %51
-  br i1 %52, label %53, label %55
+50:                                               ; preds = %43
+  %51 = load ptr, ptr %10, align 8, !tbaa !8
+  %52 = load ptr, ptr %7, align 8, !tbaa !8
+  %53 = icmp ne ptr %51, %52
+  br i1 %53, label %54, label %56
 
-53:                                               ; preds = %49
-  %54 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %54) #4
-  br label %55
+54:                                               ; preds = %50
+  %55 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %55) #7
+  br label %56
 
-55:                                               ; preds = %53, %49
+56:                                               ; preds = %54, %50
   store i32 -32, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %64
+
+57:                                               ; preds = %43
+  %58 = load ptr, ptr %10, align 8, !tbaa !8
+  %59 = load ptr, ptr %7, align 8, !tbaa !8
+  %60 = icmp ne ptr %58, %59
+  br i1 %60, label %61, label %63
+
+61:                                               ; preds = %57
+  %62 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %62) #7
   br label %63
 
-56:                                               ; preds = %42
-  %57 = load ptr, ptr %10, align 8
-  %58 = load ptr, ptr %7, align 8
-  %59 = icmp ne ptr %57, %58
-  br i1 %59, label %60, label %62
-
-60:                                               ; preds = %56
-  %61 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %61) #4
-  br label %62
-
-62:                                               ; preds = %60, %56
+63:                                               ; preds = %61, %57
   store i32 0, ptr %5, align 4
-  br label %63
+  store i32 1, ptr %11, align 4
+  br label %64
 
-63:                                               ; preds = %62, %55, %41, %34, %16
-  %64 = load i32, ptr %5, align 4
-  ret i32 %64
+64:                                               ; preds = %63, %56, %42, %35, %17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  %65 = load i32, ptr %5, align 4
+  ret i32 %65
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1887,116 +2024,124 @@ define i32 @pmix20_bfrop_print_float(ptr noundef %0, ptr noundef %1, ptr noundef
   %8 = alloca ptr, align 8
   %9 = alloca i16, align 2
   %10 = alloca ptr, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store i16 %3, ptr %9, align 2
-  %11 = load ptr, ptr %7, align 8
-  %12 = icmp eq ptr null, %11
-  br i1 %12, label %13, label %18
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store ptr %1, ptr %7, align 8, !tbaa !8
+  store ptr %2, ptr %8, align 8, !tbaa !40
+  store i16 %3, ptr %9, align 2, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  %12 = load ptr, ptr %7, align 8, !tbaa !8
+  %13 = icmp eq ptr null, %12
+  br i1 %13, label %14, label %19
 
-13:                                               ; preds = %4
-  %14 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %10, ptr noundef @.str) #4
-  %15 = icmp sgt i32 0, %14
-  br i1 %15, label %16, label %17
+14:                                               ; preds = %4
+  %15 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %10, ptr noundef @.str) #7
+  %16 = icmp sgt i32 0, %15
+  br i1 %16, label %17, label %18
 
-16:                                               ; preds = %13
+17:                                               ; preds = %14
   store i32 -32, ptr %5, align 4
-  br label %64
+  store i32 1, ptr %11, align 4
+  br label %65
 
-17:                                               ; preds = %13
-  br label %20
+18:                                               ; preds = %14
+  br label %21
 
-18:                                               ; preds = %4
-  %19 = load ptr, ptr %7, align 8
-  store ptr %19, ptr %10, align 8
-  br label %20
+19:                                               ; preds = %4
+  %20 = load ptr, ptr %7, align 8, !tbaa !8
+  store ptr %20, ptr %10, align 8, !tbaa !8
+  br label %21
 
-20:                                               ; preds = %18, %17
-  %21 = load ptr, ptr %8, align 8
-  %22 = icmp eq ptr null, %21
-  br i1 %22, label %23, label %42
+21:                                               ; preds = %19, %18
+  %22 = load ptr, ptr %8, align 8, !tbaa !40
+  %23 = icmp eq ptr null, %22
+  br i1 %23, label %24, label %43
 
-23:                                               ; preds = %20
-  %24 = load ptr, ptr %6, align 8
-  %25 = load ptr, ptr %10, align 8
-  %26 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %24, ptr noundef @.str.33, ptr noundef %25) #4
-  %27 = icmp sgt i32 0, %26
-  br i1 %27, label %28, label %35
+24:                                               ; preds = %21
+  %25 = load ptr, ptr %6, align 8, !tbaa !3
+  %26 = load ptr, ptr %10, align 8, !tbaa !8
+  %27 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %25, ptr noundef @.str.33, ptr noundef %26) #7
+  %28 = icmp sgt i32 0, %27
+  br i1 %28, label %29, label %36
 
-28:                                               ; preds = %23
-  %29 = load ptr, ptr %10, align 8
-  %30 = load ptr, ptr %7, align 8
-  %31 = icmp ne ptr %29, %30
-  br i1 %31, label %32, label %34
+29:                                               ; preds = %24
+  %30 = load ptr, ptr %10, align 8, !tbaa !8
+  %31 = load ptr, ptr %7, align 8, !tbaa !8
+  %32 = icmp ne ptr %30, %31
+  br i1 %32, label %33, label %35
 
-32:                                               ; preds = %28
-  %33 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %33) #4
-  br label %34
+33:                                               ; preds = %29
+  %34 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %34) #7
+  br label %35
 
-34:                                               ; preds = %32, %28
+35:                                               ; preds = %33, %29
   store i32 -32, ptr %5, align 4
-  br label %64
+  store i32 1, ptr %11, align 4
+  br label %65
 
-35:                                               ; preds = %23
-  %36 = load ptr, ptr %10, align 8
-  %37 = load ptr, ptr %7, align 8
-  %38 = icmp ne ptr %36, %37
-  br i1 %38, label %39, label %41
+36:                                               ; preds = %24
+  %37 = load ptr, ptr %10, align 8, !tbaa !8
+  %38 = load ptr, ptr %7, align 8, !tbaa !8
+  %39 = icmp ne ptr %37, %38
+  br i1 %39, label %40, label %42
 
-39:                                               ; preds = %35
-  %40 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %40) #4
-  br label %41
+40:                                               ; preds = %36
+  %41 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %41) #7
+  br label %42
 
-41:                                               ; preds = %39, %35
+42:                                               ; preds = %40, %36
   store i32 0, ptr %5, align 4
-  br label %64
+  store i32 1, ptr %11, align 4
+  br label %65
 
-42:                                               ; preds = %20
-  %43 = load ptr, ptr %6, align 8
-  %44 = load ptr, ptr %10, align 8
-  %45 = load ptr, ptr %8, align 8
-  %46 = load float, ptr %45, align 4
-  %47 = fpext float %46 to double
-  %48 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %43, ptr noundef @.str.34, ptr noundef %44, double noundef %47) #4
-  %49 = icmp sgt i32 0, %48
-  br i1 %49, label %50, label %57
+43:                                               ; preds = %21
+  %44 = load ptr, ptr %6, align 8, !tbaa !3
+  %45 = load ptr, ptr %10, align 8, !tbaa !8
+  %46 = load ptr, ptr %8, align 8, !tbaa !40
+  %47 = load float, ptr %46, align 4, !tbaa !42
+  %48 = fpext float %47 to double
+  %49 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %44, ptr noundef @.str.34, ptr noundef %45, double noundef %48) #7
+  %50 = icmp sgt i32 0, %49
+  br i1 %50, label %51, label %58
 
-50:                                               ; preds = %42
-  %51 = load ptr, ptr %10, align 8
-  %52 = load ptr, ptr %7, align 8
-  %53 = icmp ne ptr %51, %52
-  br i1 %53, label %54, label %56
+51:                                               ; preds = %43
+  %52 = load ptr, ptr %10, align 8, !tbaa !8
+  %53 = load ptr, ptr %7, align 8, !tbaa !8
+  %54 = icmp ne ptr %52, %53
+  br i1 %54, label %55, label %57
 
-54:                                               ; preds = %50
-  %55 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %55) #4
-  br label %56
+55:                                               ; preds = %51
+  %56 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %56) #7
+  br label %57
 
-56:                                               ; preds = %54, %50
+57:                                               ; preds = %55, %51
   store i32 -32, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %65
+
+58:                                               ; preds = %43
+  %59 = load ptr, ptr %10, align 8, !tbaa !8
+  %60 = load ptr, ptr %7, align 8, !tbaa !8
+  %61 = icmp ne ptr %59, %60
+  br i1 %61, label %62, label %64
+
+62:                                               ; preds = %58
+  %63 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %63) #7
   br label %64
 
-57:                                               ; preds = %42
-  %58 = load ptr, ptr %10, align 8
-  %59 = load ptr, ptr %7, align 8
-  %60 = icmp ne ptr %58, %59
-  br i1 %60, label %61, label %63
-
-61:                                               ; preds = %57
-  %62 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %62) #4
-  br label %63
-
-63:                                               ; preds = %61, %57
+64:                                               ; preds = %62, %58
   store i32 0, ptr %5, align 4
-  br label %64
+  store i32 1, ptr %11, align 4
+  br label %65
 
-64:                                               ; preds = %63, %56, %41, %34, %16
-  %65 = load i32, ptr %5, align 4
-  ret i32 %65
+65:                                               ; preds = %64, %57, %42, %35, %17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  %66 = load i32, ptr %5, align 4
+  ret i32 %66
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2007,115 +2152,123 @@ define i32 @pmix20_bfrop_print_double(ptr noundef %0, ptr noundef %1, ptr nounde
   %8 = alloca ptr, align 8
   %9 = alloca i16, align 2
   %10 = alloca ptr, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store i16 %3, ptr %9, align 2
-  %11 = load ptr, ptr %7, align 8
-  %12 = icmp eq ptr null, %11
-  br i1 %12, label %13, label %18
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store ptr %1, ptr %7, align 8, !tbaa !8
+  store ptr %2, ptr %8, align 8, !tbaa !44
+  store i16 %3, ptr %9, align 2, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  %12 = load ptr, ptr %7, align 8, !tbaa !8
+  %13 = icmp eq ptr null, %12
+  br i1 %13, label %14, label %19
 
-13:                                               ; preds = %4
-  %14 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %10, ptr noundef @.str) #4
-  %15 = icmp sgt i32 0, %14
-  br i1 %15, label %16, label %17
+14:                                               ; preds = %4
+  %15 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %10, ptr noundef @.str) #7
+  %16 = icmp sgt i32 0, %15
+  br i1 %16, label %17, label %18
 
-16:                                               ; preds = %13
+17:                                               ; preds = %14
   store i32 -32, ptr %5, align 4
-  br label %63
+  store i32 1, ptr %11, align 4
+  br label %64
 
-17:                                               ; preds = %13
-  br label %20
+18:                                               ; preds = %14
+  br label %21
 
-18:                                               ; preds = %4
-  %19 = load ptr, ptr %7, align 8
-  store ptr %19, ptr %10, align 8
-  br label %20
+19:                                               ; preds = %4
+  %20 = load ptr, ptr %7, align 8, !tbaa !8
+  store ptr %20, ptr %10, align 8, !tbaa !8
+  br label %21
 
-20:                                               ; preds = %18, %17
-  %21 = load ptr, ptr %8, align 8
-  %22 = icmp eq ptr null, %21
-  br i1 %22, label %23, label %42
+21:                                               ; preds = %19, %18
+  %22 = load ptr, ptr %8, align 8, !tbaa !44
+  %23 = icmp eq ptr null, %22
+  br i1 %23, label %24, label %43
 
-23:                                               ; preds = %20
-  %24 = load ptr, ptr %6, align 8
-  %25 = load ptr, ptr %10, align 8
-  %26 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %24, ptr noundef @.str.35, ptr noundef %25) #4
-  %27 = icmp sgt i32 0, %26
-  br i1 %27, label %28, label %35
+24:                                               ; preds = %21
+  %25 = load ptr, ptr %6, align 8, !tbaa !3
+  %26 = load ptr, ptr %10, align 8, !tbaa !8
+  %27 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %25, ptr noundef @.str.35, ptr noundef %26) #7
+  %28 = icmp sgt i32 0, %27
+  br i1 %28, label %29, label %36
 
-28:                                               ; preds = %23
-  %29 = load ptr, ptr %10, align 8
-  %30 = load ptr, ptr %7, align 8
-  %31 = icmp ne ptr %29, %30
-  br i1 %31, label %32, label %34
+29:                                               ; preds = %24
+  %30 = load ptr, ptr %10, align 8, !tbaa !8
+  %31 = load ptr, ptr %7, align 8, !tbaa !8
+  %32 = icmp ne ptr %30, %31
+  br i1 %32, label %33, label %35
 
-32:                                               ; preds = %28
-  %33 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %33) #4
-  br label %34
+33:                                               ; preds = %29
+  %34 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %34) #7
+  br label %35
 
-34:                                               ; preds = %32, %28
+35:                                               ; preds = %33, %29
   store i32 -32, ptr %5, align 4
-  br label %63
+  store i32 1, ptr %11, align 4
+  br label %64
 
-35:                                               ; preds = %23
-  %36 = load ptr, ptr %10, align 8
-  %37 = load ptr, ptr %7, align 8
-  %38 = icmp ne ptr %36, %37
-  br i1 %38, label %39, label %41
+36:                                               ; preds = %24
+  %37 = load ptr, ptr %10, align 8, !tbaa !8
+  %38 = load ptr, ptr %7, align 8, !tbaa !8
+  %39 = icmp ne ptr %37, %38
+  br i1 %39, label %40, label %42
 
-39:                                               ; preds = %35
-  %40 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %40) #4
-  br label %41
+40:                                               ; preds = %36
+  %41 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %41) #7
+  br label %42
 
-41:                                               ; preds = %39, %35
+42:                                               ; preds = %40, %36
   store i32 0, ptr %5, align 4
-  br label %63
+  store i32 1, ptr %11, align 4
+  br label %64
 
-42:                                               ; preds = %20
-  %43 = load ptr, ptr %6, align 8
-  %44 = load ptr, ptr %10, align 8
-  %45 = load ptr, ptr %8, align 8
-  %46 = load double, ptr %45, align 8
-  %47 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %43, ptr noundef @.str.36, ptr noundef %44, double noundef %46) #4
-  %48 = icmp sgt i32 0, %47
-  br i1 %48, label %49, label %56
+43:                                               ; preds = %21
+  %44 = load ptr, ptr %6, align 8, !tbaa !3
+  %45 = load ptr, ptr %10, align 8, !tbaa !8
+  %46 = load ptr, ptr %8, align 8, !tbaa !44
+  %47 = load double, ptr %46, align 8, !tbaa !46
+  %48 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %44, ptr noundef @.str.36, ptr noundef %45, double noundef %47) #7
+  %49 = icmp sgt i32 0, %48
+  br i1 %49, label %50, label %57
 
-49:                                               ; preds = %42
-  %50 = load ptr, ptr %10, align 8
-  %51 = load ptr, ptr %7, align 8
-  %52 = icmp ne ptr %50, %51
-  br i1 %52, label %53, label %55
+50:                                               ; preds = %43
+  %51 = load ptr, ptr %10, align 8, !tbaa !8
+  %52 = load ptr, ptr %7, align 8, !tbaa !8
+  %53 = icmp ne ptr %51, %52
+  br i1 %53, label %54, label %56
 
-53:                                               ; preds = %49
-  %54 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %54) #4
-  br label %55
+54:                                               ; preds = %50
+  %55 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %55) #7
+  br label %56
 
-55:                                               ; preds = %53, %49
+56:                                               ; preds = %54, %50
   store i32 -32, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %64
+
+57:                                               ; preds = %43
+  %58 = load ptr, ptr %10, align 8, !tbaa !8
+  %59 = load ptr, ptr %7, align 8, !tbaa !8
+  %60 = icmp ne ptr %58, %59
+  br i1 %60, label %61, label %63
+
+61:                                               ; preds = %57
+  %62 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %62) #7
   br label %63
 
-56:                                               ; preds = %42
-  %57 = load ptr, ptr %10, align 8
-  %58 = load ptr, ptr %7, align 8
-  %59 = icmp ne ptr %57, %58
-  br i1 %59, label %60, label %62
-
-60:                                               ; preds = %56
-  %61 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %61) #4
-  br label %62
-
-62:                                               ; preds = %60, %56
+63:                                               ; preds = %61, %57
   store i32 0, ptr %5, align 4
-  br label %63
+  store i32 1, ptr %11, align 4
+  br label %64
 
-63:                                               ; preds = %62, %55, %41, %34, %16
-  %64 = load i32, ptr %5, align 4
-  ret i32 %64
+64:                                               ; preds = %63, %56, %42, %35, %17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  %65 = load i32, ptr %5, align 4
+  ret i32 %65
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2127,130 +2280,140 @@ define i32 @pmix20_bfrop_print_time(ptr noundef %0, ptr noundef %1, ptr noundef 
   %9 = alloca i16, align 2
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store i16 %3, ptr %9, align 2
-  %12 = load ptr, ptr %7, align 8
-  %13 = icmp eq ptr null, %12
-  br i1 %13, label %14, label %19
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store ptr %1, ptr %7, align 8, !tbaa !8
+  store ptr %2, ptr %8, align 8, !tbaa !33
+  store i16 %3, ptr %9, align 2, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
+  %13 = load ptr, ptr %7, align 8, !tbaa !8
+  %14 = icmp eq ptr null, %13
+  br i1 %14, label %15, label %20
 
-14:                                               ; preds = %4
-  %15 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %10, ptr noundef @.str) #4
-  %16 = icmp sgt i32 0, %15
-  br i1 %16, label %17, label %18
+15:                                               ; preds = %4
+  %16 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %10, ptr noundef @.str) #7
+  %17 = icmp sgt i32 0, %16
+  br i1 %17, label %18, label %19
 
-17:                                               ; preds = %14
+18:                                               ; preds = %15
   store i32 -32, ptr %5, align 4
-  br label %70
+  store i32 1, ptr %12, align 4
+  br label %71
 
-18:                                               ; preds = %14
-  br label %21
+19:                                               ; preds = %15
+  br label %22
 
-19:                                               ; preds = %4
-  %20 = load ptr, ptr %7, align 8
-  store ptr %20, ptr %10, align 8
-  br label %21
+20:                                               ; preds = %4
+  %21 = load ptr, ptr %7, align 8, !tbaa !8
+  store ptr %21, ptr %10, align 8, !tbaa !8
+  br label %22
 
-21:                                               ; preds = %19, %18
-  %22 = load ptr, ptr %8, align 8
-  %23 = icmp eq ptr null, %22
-  br i1 %23, label %24, label %43
+22:                                               ; preds = %20, %19
+  %23 = load ptr, ptr %8, align 8, !tbaa !33
+  %24 = icmp eq ptr null, %23
+  br i1 %24, label %25, label %44
 
-24:                                               ; preds = %21
-  %25 = load ptr, ptr %6, align 8
-  %26 = load ptr, ptr %10, align 8
-  %27 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %25, ptr noundef @.str.37, ptr noundef %26) #4
-  %28 = icmp sgt i32 0, %27
-  br i1 %28, label %29, label %36
+25:                                               ; preds = %22
+  %26 = load ptr, ptr %6, align 8, !tbaa !3
+  %27 = load ptr, ptr %10, align 8, !tbaa !8
+  %28 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %26, ptr noundef @.str.37, ptr noundef %27) #7
+  %29 = icmp sgt i32 0, %28
+  br i1 %29, label %30, label %37
 
-29:                                               ; preds = %24
-  %30 = load ptr, ptr %10, align 8
-  %31 = load ptr, ptr %7, align 8
-  %32 = icmp ne ptr %30, %31
-  br i1 %32, label %33, label %35
+30:                                               ; preds = %25
+  %31 = load ptr, ptr %10, align 8, !tbaa !8
+  %32 = load ptr, ptr %7, align 8, !tbaa !8
+  %33 = icmp ne ptr %31, %32
+  br i1 %33, label %34, label %36
 
-33:                                               ; preds = %29
-  %34 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %34) #4
-  br label %35
+34:                                               ; preds = %30
+  %35 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %35) #7
+  br label %36
 
-35:                                               ; preds = %33, %29
+36:                                               ; preds = %34, %30
   store i32 -32, ptr %5, align 4
-  br label %70
+  store i32 1, ptr %12, align 4
+  br label %71
 
-36:                                               ; preds = %24
-  %37 = load ptr, ptr %10, align 8
-  %38 = load ptr, ptr %7, align 8
-  %39 = icmp ne ptr %37, %38
-  br i1 %39, label %40, label %42
+37:                                               ; preds = %25
+  %38 = load ptr, ptr %10, align 8, !tbaa !8
+  %39 = load ptr, ptr %7, align 8, !tbaa !8
+  %40 = icmp ne ptr %38, %39
+  br i1 %40, label %41, label %43
 
-40:                                               ; preds = %36
-  %41 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %41) #4
-  br label %42
+41:                                               ; preds = %37
+  %42 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %42) #7
+  br label %43
 
-42:                                               ; preds = %40, %36
+43:                                               ; preds = %41, %37
   store i32 0, ptr %5, align 4
-  br label %70
+  store i32 1, ptr %12, align 4
+  br label %71
 
-43:                                               ; preds = %21
-  %44 = load ptr, ptr %8, align 8
-  %45 = call ptr @ctime(ptr noundef %44) #4
-  store ptr %45, ptr %11, align 8
-  %46 = load ptr, ptr %11, align 8
-  %47 = load ptr, ptr %11, align 8
-  %48 = call i64 @strlen(ptr noundef %47) #5
-  %49 = sub i64 %48, 1
-  %50 = getelementptr inbounds i8, ptr %46, i64 %49
-  store i8 0, ptr %50, align 1
-  %51 = load ptr, ptr %6, align 8
-  %52 = load ptr, ptr %10, align 8
-  %53 = load ptr, ptr %11, align 8
-  %54 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %51, ptr noundef @.str.38, ptr noundef %52, ptr noundef %53) #4
-  %55 = icmp sgt i32 0, %54
-  br i1 %55, label %56, label %63
+44:                                               ; preds = %22
+  %45 = load ptr, ptr %8, align 8, !tbaa !33
+  %46 = call ptr @ctime(ptr noundef %45) #7
+  store ptr %46, ptr %11, align 8, !tbaa !8
+  %47 = load ptr, ptr %11, align 8, !tbaa !8
+  %48 = load ptr, ptr %11, align 8, !tbaa !8
+  %49 = call i64 @strlen(ptr noundef %48) #8
+  %50 = sub i64 %49, 1
+  %51 = getelementptr inbounds nuw i8, ptr %47, i64 %50
+  store i8 0, ptr %51, align 1, !tbaa !32
+  %52 = load ptr, ptr %6, align 8, !tbaa !3
+  %53 = load ptr, ptr %10, align 8, !tbaa !8
+  %54 = load ptr, ptr %11, align 8, !tbaa !8
+  %55 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %52, ptr noundef @.str.38, ptr noundef %53, ptr noundef %54) #7
+  %56 = icmp sgt i32 0, %55
+  br i1 %56, label %57, label %64
 
-56:                                               ; preds = %43
-  %57 = load ptr, ptr %10, align 8
-  %58 = load ptr, ptr %7, align 8
-  %59 = icmp ne ptr %57, %58
-  br i1 %59, label %60, label %62
+57:                                               ; preds = %44
+  %58 = load ptr, ptr %10, align 8, !tbaa !8
+  %59 = load ptr, ptr %7, align 8, !tbaa !8
+  %60 = icmp ne ptr %58, %59
+  br i1 %60, label %61, label %63
 
-60:                                               ; preds = %56
-  %61 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %61) #4
-  br label %62
+61:                                               ; preds = %57
+  %62 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %62) #7
+  br label %63
 
-62:                                               ; preds = %60, %56
+63:                                               ; preds = %61, %57
   store i32 -32, ptr %5, align 4
+  store i32 1, ptr %12, align 4
+  br label %71
+
+64:                                               ; preds = %44
+  %65 = load ptr, ptr %10, align 8, !tbaa !8
+  %66 = load ptr, ptr %7, align 8, !tbaa !8
+  %67 = icmp ne ptr %65, %66
+  br i1 %67, label %68, label %70
+
+68:                                               ; preds = %64
+  %69 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %69) #7
   br label %70
 
-63:                                               ; preds = %43
-  %64 = load ptr, ptr %10, align 8
-  %65 = load ptr, ptr %7, align 8
-  %66 = icmp ne ptr %64, %65
-  br i1 %66, label %67, label %69
-
-67:                                               ; preds = %63
-  %68 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %68) #4
-  br label %69
-
-69:                                               ; preds = %67, %63
+70:                                               ; preds = %68, %64
   store i32 0, ptr %5, align 4
-  br label %70
+  store i32 1, ptr %12, align 4
+  br label %71
 
-70:                                               ; preds = %69, %62, %42, %35, %17
-  %71 = load i32, ptr %5, align 4
-  ret i32 %71
+71:                                               ; preds = %70, %63, %43, %36, %18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  %72 = load i32, ptr %5, align 4
+  ret i32 %72
 }
 
 ; Function Attrs: nounwind
-declare ptr @ctime(ptr noundef) #1
+declare ptr @ctime(ptr noundef) #3
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #2
+declare i64 @strlen(ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
 define i32 @pmix20_bfrop_print_timeval(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3) #0 {
@@ -2260,119 +2423,127 @@ define i32 @pmix20_bfrop_print_timeval(ptr noundef %0, ptr noundef %1, ptr nound
   %8 = alloca ptr, align 8
   %9 = alloca i16, align 2
   %10 = alloca ptr, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store i16 %3, ptr %9, align 2
-  %11 = load ptr, ptr %7, align 8
-  %12 = icmp eq ptr null, %11
-  br i1 %12, label %13, label %18
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store ptr %1, ptr %7, align 8, !tbaa !8
+  store ptr %2, ptr %8, align 8, !tbaa !48
+  store i16 %3, ptr %9, align 2, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  %12 = load ptr, ptr %7, align 8, !tbaa !8
+  %13 = icmp eq ptr null, %12
+  br i1 %13, label %14, label %19
 
-13:                                               ; preds = %4
-  %14 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %10, ptr noundef @.str) #4
-  %15 = icmp sgt i32 0, %14
-  br i1 %15, label %16, label %17
+14:                                               ; preds = %4
+  %15 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %10, ptr noundef @.str) #7
+  %16 = icmp sgt i32 0, %15
+  br i1 %16, label %17, label %18
 
-16:                                               ; preds = %13
+17:                                               ; preds = %14
   store i32 -32, ptr %5, align 4
-  br label %67
+  store i32 1, ptr %11, align 4
+  br label %68
 
-17:                                               ; preds = %13
-  br label %20
+18:                                               ; preds = %14
+  br label %21
 
-18:                                               ; preds = %4
-  %19 = load ptr, ptr %7, align 8
-  store ptr %19, ptr %10, align 8
-  br label %20
+19:                                               ; preds = %4
+  %20 = load ptr, ptr %7, align 8, !tbaa !8
+  store ptr %20, ptr %10, align 8, !tbaa !8
+  br label %21
 
-20:                                               ; preds = %18, %17
-  %21 = load ptr, ptr %8, align 8
-  %22 = icmp eq ptr null, %21
-  br i1 %22, label %23, label %42
+21:                                               ; preds = %19, %18
+  %22 = load ptr, ptr %8, align 8, !tbaa !48
+  %23 = icmp eq ptr null, %22
+  br i1 %23, label %24, label %43
 
-23:                                               ; preds = %20
-  %24 = load ptr, ptr %6, align 8
-  %25 = load ptr, ptr %10, align 8
-  %26 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %24, ptr noundef @.str.39, ptr noundef %25) #4
-  %27 = icmp sgt i32 0, %26
-  br i1 %27, label %28, label %35
+24:                                               ; preds = %21
+  %25 = load ptr, ptr %6, align 8, !tbaa !3
+  %26 = load ptr, ptr %10, align 8, !tbaa !8
+  %27 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %25, ptr noundef @.str.39, ptr noundef %26) #7
+  %28 = icmp sgt i32 0, %27
+  br i1 %28, label %29, label %36
 
-28:                                               ; preds = %23
-  %29 = load ptr, ptr %10, align 8
-  %30 = load ptr, ptr %7, align 8
-  %31 = icmp ne ptr %29, %30
-  br i1 %31, label %32, label %34
+29:                                               ; preds = %24
+  %30 = load ptr, ptr %10, align 8, !tbaa !8
+  %31 = load ptr, ptr %7, align 8, !tbaa !8
+  %32 = icmp ne ptr %30, %31
+  br i1 %32, label %33, label %35
 
-32:                                               ; preds = %28
-  %33 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %33) #4
-  br label %34
+33:                                               ; preds = %29
+  %34 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %34) #7
+  br label %35
 
-34:                                               ; preds = %32, %28
+35:                                               ; preds = %33, %29
   store i32 -32, ptr %5, align 4
-  br label %67
+  store i32 1, ptr %11, align 4
+  br label %68
 
-35:                                               ; preds = %23
-  %36 = load ptr, ptr %10, align 8
-  %37 = load ptr, ptr %7, align 8
-  %38 = icmp ne ptr %36, %37
-  br i1 %38, label %39, label %41
+36:                                               ; preds = %24
+  %37 = load ptr, ptr %10, align 8, !tbaa !8
+  %38 = load ptr, ptr %7, align 8, !tbaa !8
+  %39 = icmp ne ptr %37, %38
+  br i1 %39, label %40, label %42
 
-39:                                               ; preds = %35
-  %40 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %40) #4
-  br label %41
+40:                                               ; preds = %36
+  %41 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %41) #7
+  br label %42
 
-41:                                               ; preds = %39, %35
+42:                                               ; preds = %40, %36
   store i32 0, ptr %5, align 4
-  br label %67
+  store i32 1, ptr %11, align 4
+  br label %68
 
-42:                                               ; preds = %20
-  %43 = load ptr, ptr %6, align 8
-  %44 = load ptr, ptr %10, align 8
-  %45 = load ptr, ptr %8, align 8
-  %46 = getelementptr inbounds %struct.timeval, ptr %45, i32 0, i32 0
-  %47 = load i64, ptr %46, align 8
-  %48 = load ptr, ptr %8, align 8
-  %49 = getelementptr inbounds %struct.timeval, ptr %48, i32 0, i32 1
-  %50 = load i64, ptr %49, align 8
-  %51 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %43, ptr noundef @.str.40, ptr noundef %44, i64 noundef %47, i64 noundef %50) #4
-  %52 = icmp sgt i32 0, %51
-  br i1 %52, label %53, label %60
+43:                                               ; preds = %21
+  %44 = load ptr, ptr %6, align 8, !tbaa !3
+  %45 = load ptr, ptr %10, align 8, !tbaa !8
+  %46 = load ptr, ptr %8, align 8, !tbaa !48
+  %47 = getelementptr inbounds nuw %struct.timeval, ptr %46, i32 0, i32 0
+  %48 = load i64, ptr %47, align 8, !tbaa !50
+  %49 = load ptr, ptr %8, align 8, !tbaa !48
+  %50 = getelementptr inbounds nuw %struct.timeval, ptr %49, i32 0, i32 1
+  %51 = load i64, ptr %50, align 8, !tbaa !52
+  %52 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %44, ptr noundef @.str.40, ptr noundef %45, i64 noundef %48, i64 noundef %51) #7
+  %53 = icmp sgt i32 0, %52
+  br i1 %53, label %54, label %61
 
-53:                                               ; preds = %42
-  %54 = load ptr, ptr %10, align 8
-  %55 = load ptr, ptr %7, align 8
-  %56 = icmp ne ptr %54, %55
-  br i1 %56, label %57, label %59
+54:                                               ; preds = %43
+  %55 = load ptr, ptr %10, align 8, !tbaa !8
+  %56 = load ptr, ptr %7, align 8, !tbaa !8
+  %57 = icmp ne ptr %55, %56
+  br i1 %57, label %58, label %60
 
-57:                                               ; preds = %53
-  %58 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %58) #4
-  br label %59
+58:                                               ; preds = %54
+  %59 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %59) #7
+  br label %60
 
-59:                                               ; preds = %57, %53
+60:                                               ; preds = %58, %54
   store i32 -32, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %68
+
+61:                                               ; preds = %43
+  %62 = load ptr, ptr %10, align 8, !tbaa !8
+  %63 = load ptr, ptr %7, align 8, !tbaa !8
+  %64 = icmp ne ptr %62, %63
+  br i1 %64, label %65, label %67
+
+65:                                               ; preds = %61
+  %66 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %66) #7
   br label %67
 
-60:                                               ; preds = %42
-  %61 = load ptr, ptr %10, align 8
-  %62 = load ptr, ptr %7, align 8
-  %63 = icmp ne ptr %61, %62
-  br i1 %63, label %64, label %66
-
-64:                                               ; preds = %60
-  %65 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %65) #4
-  br label %66
-
-66:                                               ; preds = %64, %60
+67:                                               ; preds = %65, %61
   store i32 0, ptr %5, align 4
-  br label %67
+  store i32 1, ptr %11, align 4
+  br label %68
 
-67:                                               ; preds = %66, %59, %41, %34, %16
-  %68 = load i32, ptr %5, align 4
-  ret i32 %68
+68:                                               ; preds = %67, %60, %42, %35, %17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  %69 = load i32, ptr %5, align 4
+  ret i32 %69
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2383,119 +2554,127 @@ define i32 @pmix20_bfrop_print_status(ptr noundef %0, ptr noundef %1, ptr nounde
   %8 = alloca ptr, align 8
   %9 = alloca i16, align 2
   %10 = alloca ptr, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store i16 %3, ptr %9, align 2
-  %11 = load ptr, ptr %7, align 8
-  %12 = icmp eq ptr null, %11
-  br i1 %12, label %13, label %18
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store ptr %1, ptr %7, align 8, !tbaa !8
+  store ptr %2, ptr %8, align 8, !tbaa !36
+  store i16 %3, ptr %9, align 2, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  %12 = load ptr, ptr %7, align 8, !tbaa !8
+  %13 = icmp eq ptr null, %12
+  br i1 %13, label %14, label %19
 
-13:                                               ; preds = %4
-  %14 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %10, ptr noundef @.str) #4
-  %15 = icmp sgt i32 0, %14
-  br i1 %15, label %16, label %17
+14:                                               ; preds = %4
+  %15 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %10, ptr noundef @.str) #7
+  %16 = icmp sgt i32 0, %15
+  br i1 %16, label %17, label %18
 
-16:                                               ; preds = %13
+17:                                               ; preds = %14
   store i32 -32, ptr %5, align 4
-  br label %64
+  store i32 1, ptr %11, align 4
+  br label %65
 
-17:                                               ; preds = %13
-  br label %20
+18:                                               ; preds = %14
+  br label %21
 
-18:                                               ; preds = %4
-  %19 = load ptr, ptr %7, align 8
-  store ptr %19, ptr %10, align 8
-  br label %20
+19:                                               ; preds = %4
+  %20 = load ptr, ptr %7, align 8, !tbaa !8
+  store ptr %20, ptr %10, align 8, !tbaa !8
+  br label %21
 
-20:                                               ; preds = %18, %17
-  %21 = load ptr, ptr %8, align 8
-  %22 = icmp eq ptr null, %21
-  br i1 %22, label %23, label %42
+21:                                               ; preds = %19, %18
+  %22 = load ptr, ptr %8, align 8, !tbaa !36
+  %23 = icmp eq ptr null, %22
+  br i1 %23, label %24, label %43
 
-23:                                               ; preds = %20
-  %24 = load ptr, ptr %6, align 8
-  %25 = load ptr, ptr %10, align 8
-  %26 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %24, ptr noundef @.str.41, ptr noundef %25) #4
-  %27 = icmp sgt i32 0, %26
-  br i1 %27, label %28, label %35
+24:                                               ; preds = %21
+  %25 = load ptr, ptr %6, align 8, !tbaa !3
+  %26 = load ptr, ptr %10, align 8, !tbaa !8
+  %27 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %25, ptr noundef @.str.41, ptr noundef %26) #7
+  %28 = icmp sgt i32 0, %27
+  br i1 %28, label %29, label %36
 
-28:                                               ; preds = %23
-  %29 = load ptr, ptr %10, align 8
-  %30 = load ptr, ptr %7, align 8
-  %31 = icmp ne ptr %29, %30
-  br i1 %31, label %32, label %34
+29:                                               ; preds = %24
+  %30 = load ptr, ptr %10, align 8, !tbaa !8
+  %31 = load ptr, ptr %7, align 8, !tbaa !8
+  %32 = icmp ne ptr %30, %31
+  br i1 %32, label %33, label %35
 
-32:                                               ; preds = %28
-  %33 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %33) #4
-  br label %34
+33:                                               ; preds = %29
+  %34 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %34) #7
+  br label %35
 
-34:                                               ; preds = %32, %28
+35:                                               ; preds = %33, %29
   store i32 -32, ptr %5, align 4
-  br label %64
+  store i32 1, ptr %11, align 4
+  br label %65
 
-35:                                               ; preds = %23
-  %36 = load ptr, ptr %10, align 8
-  %37 = load ptr, ptr %7, align 8
-  %38 = icmp ne ptr %36, %37
-  br i1 %38, label %39, label %41
+36:                                               ; preds = %24
+  %37 = load ptr, ptr %10, align 8, !tbaa !8
+  %38 = load ptr, ptr %7, align 8, !tbaa !8
+  %39 = icmp ne ptr %37, %38
+  br i1 %39, label %40, label %42
 
-39:                                               ; preds = %35
-  %40 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %40) #4
-  br label %41
+40:                                               ; preds = %36
+  %41 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %41) #7
+  br label %42
 
-41:                                               ; preds = %39, %35
+42:                                               ; preds = %40, %36
   store i32 0, ptr %5, align 4
-  br label %64
+  store i32 1, ptr %11, align 4
+  br label %65
 
-42:                                               ; preds = %20
-  %43 = load ptr, ptr %6, align 8
-  %44 = load ptr, ptr %10, align 8
-  %45 = load ptr, ptr %8, align 8
-  %46 = load i32, ptr %45, align 4
-  %47 = call ptr @PMIx_Error_string(i32 noundef %46)
-  %48 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %43, ptr noundef @.str.42, ptr noundef %44, ptr noundef %47) #4
-  %49 = icmp sgt i32 0, %48
-  br i1 %49, label %50, label %57
+43:                                               ; preds = %21
+  %44 = load ptr, ptr %6, align 8, !tbaa !3
+  %45 = load ptr, ptr %10, align 8, !tbaa !8
+  %46 = load ptr, ptr %8, align 8, !tbaa !36
+  %47 = load i32, ptr %46, align 4, !tbaa !21
+  %48 = call ptr @PMIx_Error_string(i32 noundef %47)
+  %49 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %44, ptr noundef @.str.42, ptr noundef %45, ptr noundef %48) #7
+  %50 = icmp sgt i32 0, %49
+  br i1 %50, label %51, label %58
 
-50:                                               ; preds = %42
-  %51 = load ptr, ptr %10, align 8
-  %52 = load ptr, ptr %7, align 8
-  %53 = icmp ne ptr %51, %52
-  br i1 %53, label %54, label %56
+51:                                               ; preds = %43
+  %52 = load ptr, ptr %10, align 8, !tbaa !8
+  %53 = load ptr, ptr %7, align 8, !tbaa !8
+  %54 = icmp ne ptr %52, %53
+  br i1 %54, label %55, label %57
 
-54:                                               ; preds = %50
-  %55 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %55) #4
-  br label %56
+55:                                               ; preds = %51
+  %56 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %56) #7
+  br label %57
 
-56:                                               ; preds = %54, %50
+57:                                               ; preds = %55, %51
   store i32 -32, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %65
+
+58:                                               ; preds = %43
+  %59 = load ptr, ptr %10, align 8, !tbaa !8
+  %60 = load ptr, ptr %7, align 8, !tbaa !8
+  %61 = icmp ne ptr %59, %60
+  br i1 %61, label %62, label %64
+
+62:                                               ; preds = %58
+  %63 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %63) #7
   br label %64
 
-57:                                               ; preds = %42
-  %58 = load ptr, ptr %10, align 8
-  %59 = load ptr, ptr %7, align 8
-  %60 = icmp ne ptr %58, %59
-  br i1 %60, label %61, label %63
-
-61:                                               ; preds = %57
-  %62 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %62) #4
-  br label %63
-
-63:                                               ; preds = %61, %57
+64:                                               ; preds = %62, %58
   store i32 0, ptr %5, align 4
-  br label %64
+  store i32 1, ptr %11, align 4
+  br label %65
 
-64:                                               ; preds = %63, %56, %41, %34, %16
-  %65 = load i32, ptr %5, align 4
-  ret i32 %65
+65:                                               ; preds = %64, %57, %42, %35, %17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  %66 = load i32, ptr %5, align 4
+  ret i32 %66
 }
 
-declare ptr @PMIx_Error_string(i32 noundef) #3
+declare ptr @PMIx_Error_string(i32 noundef) #5
 
 ; Function Attrs: nounwind uwtable
 define i32 @pmix20_bfrop_print_value(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3) #0 {
@@ -2506,490 +2685,500 @@ define i32 @pmix20_bfrop_print_value(ptr noundef %0, ptr noundef %1, ptr noundef
   %9 = alloca i16, align 2
   %10 = alloca ptr, align 8
   %11 = alloca i32, align 4
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store i16 %3, ptr %9, align 2
-  %12 = load ptr, ptr %7, align 8
-  %13 = icmp eq ptr null, %12
-  br i1 %13, label %14, label %19
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store ptr %1, ptr %7, align 8, !tbaa !8
+  store ptr %2, ptr %8, align 8, !tbaa !53
+  store i16 %3, ptr %9, align 2, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #7
+  %13 = load ptr, ptr %7, align 8, !tbaa !8
+  %14 = icmp eq ptr null, %13
+  br i1 %14, label %15, label %20
 
-14:                                               ; preds = %4
-  %15 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %10, ptr noundef @.str) #4
-  %16 = icmp sgt i32 0, %15
-  br i1 %16, label %17, label %18
+15:                                               ; preds = %4
+  %16 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %10, ptr noundef @.str) #7
+  %17 = icmp sgt i32 0, %16
+  br i1 %17, label %18, label %19
 
-17:                                               ; preds = %14
+18:                                               ; preds = %15
   store i32 -32, ptr %5, align 4
-  br label %315
+  store i32 1, ptr %12, align 4
+  br label %316
 
-18:                                               ; preds = %14
-  br label %21
+19:                                               ; preds = %15
+  br label %22
 
-19:                                               ; preds = %4
-  %20 = load ptr, ptr %7, align 8
-  store ptr %20, ptr %10, align 8
-  br label %21
+20:                                               ; preds = %4
+  %21 = load ptr, ptr %7, align 8, !tbaa !8
+  store ptr %21, ptr %10, align 8, !tbaa !8
+  br label %22
 
-21:                                               ; preds = %19, %18
-  %22 = load ptr, ptr %8, align 8
-  %23 = icmp eq ptr null, %22
-  br i1 %23, label %24, label %37
+22:                                               ; preds = %20, %19
+  %23 = load ptr, ptr %8, align 8, !tbaa !53
+  %24 = icmp eq ptr null, %23
+  br i1 %24, label %25, label %38
 
-24:                                               ; preds = %21
-  %25 = load ptr, ptr %6, align 8
-  %26 = load ptr, ptr %10, align 8
-  %27 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %25, ptr noundef @.str.43, ptr noundef %26) #4
-  %28 = icmp sgt i32 0, %27
-  br i1 %28, label %29, label %30
+25:                                               ; preds = %22
+  %26 = load ptr, ptr %6, align 8, !tbaa !3
+  %27 = load ptr, ptr %10, align 8, !tbaa !8
+  %28 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %26, ptr noundef @.str.43, ptr noundef %27) #7
+  %29 = icmp sgt i32 0, %28
+  br i1 %29, label %30, label %31
 
-29:                                               ; preds = %24
+30:                                               ; preds = %25
   store i32 -32, ptr %5, align 4
-  br label %315
+  store i32 1, ptr %12, align 4
+  br label %316
 
-30:                                               ; preds = %24
-  %31 = load ptr, ptr %10, align 8
-  %32 = load ptr, ptr %7, align 8
-  %33 = icmp ne ptr %31, %32
-  br i1 %33, label %34, label %36
+31:                                               ; preds = %25
+  %32 = load ptr, ptr %10, align 8, !tbaa !8
+  %33 = load ptr, ptr %7, align 8, !tbaa !8
+  %34 = icmp ne ptr %32, %33
+  br i1 %34, label %35, label %37
 
-34:                                               ; preds = %30
-  %35 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %35) #4
-  br label %36
+35:                                               ; preds = %31
+  %36 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %36) #7
+  br label %37
 
-36:                                               ; preds = %34, %30
+37:                                               ; preds = %35, %31
   store i32 0, ptr %5, align 4
-  br label %315
+  store i32 1, ptr %12, align 4
+  br label %316
 
-37:                                               ; preds = %21
-  %38 = load ptr, ptr %8, align 8
-  %39 = getelementptr inbounds %struct.pmix_value, ptr %38, i32 0, i32 0
-  %40 = load i16, ptr %39, align 8
-  %41 = zext i16 %40 to i32
-  switch i32 %41, label %300 [
-    i32 0, label %42
-    i32 2, label %46
-    i32 3, label %54
-    i32 4, label %61
-    i32 5, label %68
-    i32 6, label %76
-    i32 7, label %83
-    i32 8, label %91
-    i32 9, label %99
-    i32 10, label %106
-    i32 11, label %113
-    i32 12, label %120
-    i32 13, label %128
-    i32 14, label %136
-    i32 15, label %143
-    i32 16, label %150
-    i32 17, label %158
-    i32 18, label %165
-    i32 19, label %177
-    i32 20, label %184
-    i32 22, label %192
-    i32 27, label %217
-    i32 30, label %225
-    i32 32, label %233
-    i32 33, label %241
-    i32 37, label %249
-    i32 38, label %257
-    i32 39, label %291
+38:                                               ; preds = %22
+  %39 = load ptr, ptr %8, align 8, !tbaa !53
+  %40 = getelementptr inbounds nuw %struct.pmix_value, ptr %39, i32 0, i32 0
+  %41 = load i16, ptr %40, align 8, !tbaa !55
+  %42 = zext i16 %41 to i32
+  switch i32 %42, label %301 [
+    i32 0, label %43
+    i32 2, label %47
+    i32 3, label %55
+    i32 4, label %62
+    i32 5, label %69
+    i32 6, label %77
+    i32 7, label %84
+    i32 8, label %92
+    i32 9, label %100
+    i32 10, label %107
+    i32 11, label %114
+    i32 12, label %121
+    i32 13, label %129
+    i32 14, label %137
+    i32 15, label %144
+    i32 16, label %151
+    i32 17, label %159
+    i32 18, label %166
+    i32 19, label %178
+    i32 20, label %185
+    i32 22, label %193
+    i32 27, label %218
+    i32 30, label %226
+    i32 32, label %234
+    i32 33, label %242
+    i32 37, label %250
+    i32 38, label %258
+    i32 39, label %292
   ]
 
-42:                                               ; preds = %37
-  %43 = load ptr, ptr %6, align 8
-  %44 = load ptr, ptr %10, align 8
-  %45 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %43, ptr noundef @.str.44, ptr noundef %44) #4
-  store i32 %45, ptr %11, align 4
-  br label %304
+43:                                               ; preds = %38
+  %44 = load ptr, ptr %6, align 8, !tbaa !3
+  %45 = load ptr, ptr %10, align 8, !tbaa !8
+  %46 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %44, ptr noundef @.str.44, ptr noundef %45) #7
+  store i32 %46, ptr %11, align 4, !tbaa !21
+  br label %305
 
-46:                                               ; preds = %37
-  %47 = load ptr, ptr %6, align 8
-  %48 = load ptr, ptr %10, align 8
-  %49 = load ptr, ptr %8, align 8
-  %50 = getelementptr inbounds %struct.pmix_value, ptr %49, i32 0, i32 1
-  %51 = load i8, ptr %50, align 8
-  %52 = zext i8 %51 to i32
-  %53 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %47, ptr noundef @.str.45, ptr noundef %48, i32 noundef %52) #4
-  store i32 %53, ptr %11, align 4
-  br label %304
+47:                                               ; preds = %38
+  %48 = load ptr, ptr %6, align 8, !tbaa !3
+  %49 = load ptr, ptr %10, align 8, !tbaa !8
+  %50 = load ptr, ptr %8, align 8, !tbaa !53
+  %51 = getelementptr inbounds nuw %struct.pmix_value, ptr %50, i32 0, i32 1
+  %52 = load i8, ptr %51, align 8, !tbaa !32
+  %53 = zext i8 %52 to i32
+  %54 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %48, ptr noundef @.str.45, ptr noundef %49, i32 noundef %53) #7
+  store i32 %54, ptr %11, align 4, !tbaa !21
+  br label %305
 
-54:                                               ; preds = %37
-  %55 = load ptr, ptr %6, align 8
-  %56 = load ptr, ptr %10, align 8
-  %57 = load ptr, ptr %8, align 8
-  %58 = getelementptr inbounds %struct.pmix_value, ptr %57, i32 0, i32 1
-  %59 = load ptr, ptr %58, align 8
-  %60 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %55, ptr noundef @.str.46, ptr noundef %56, ptr noundef %59) #4
-  store i32 %60, ptr %11, align 4
-  br label %304
+55:                                               ; preds = %38
+  %56 = load ptr, ptr %6, align 8, !tbaa !3
+  %57 = load ptr, ptr %10, align 8, !tbaa !8
+  %58 = load ptr, ptr %8, align 8, !tbaa !53
+  %59 = getelementptr inbounds nuw %struct.pmix_value, ptr %58, i32 0, i32 1
+  %60 = load ptr, ptr %59, align 8, !tbaa !32
+  %61 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %56, ptr noundef @.str.46, ptr noundef %57, ptr noundef %60) #7
+  store i32 %61, ptr %11, align 4, !tbaa !21
+  br label %305
 
-61:                                               ; preds = %37
-  %62 = load ptr, ptr %6, align 8
-  %63 = load ptr, ptr %10, align 8
-  %64 = load ptr, ptr %8, align 8
-  %65 = getelementptr inbounds %struct.pmix_value, ptr %64, i32 0, i32 1
-  %66 = load i64, ptr %65, align 8
-  %67 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %62, ptr noundef @.str.47, ptr noundef %63, i64 noundef %66) #4
-  store i32 %67, ptr %11, align 4
-  br label %304
+62:                                               ; preds = %38
+  %63 = load ptr, ptr %6, align 8, !tbaa !3
+  %64 = load ptr, ptr %10, align 8, !tbaa !8
+  %65 = load ptr, ptr %8, align 8, !tbaa !53
+  %66 = getelementptr inbounds nuw %struct.pmix_value, ptr %65, i32 0, i32 1
+  %67 = load i64, ptr %66, align 8, !tbaa !32
+  %68 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %63, ptr noundef @.str.47, ptr noundef %64, i64 noundef %67) #7
+  store i32 %68, ptr %11, align 4, !tbaa !21
+  br label %305
 
-68:                                               ; preds = %37
-  %69 = load ptr, ptr %6, align 8
-  %70 = load ptr, ptr %10, align 8
-  %71 = load ptr, ptr %8, align 8
-  %72 = getelementptr inbounds %struct.pmix_value, ptr %71, i32 0, i32 1
-  %73 = load i32, ptr %72, align 8
-  %74 = sext i32 %73 to i64
-  %75 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %69, ptr noundef @.str.48, ptr noundef %70, i64 noundef %74) #4
-  store i32 %75, ptr %11, align 4
-  br label %304
+69:                                               ; preds = %38
+  %70 = load ptr, ptr %6, align 8, !tbaa !3
+  %71 = load ptr, ptr %10, align 8, !tbaa !8
+  %72 = load ptr, ptr %8, align 8, !tbaa !53
+  %73 = getelementptr inbounds nuw %struct.pmix_value, ptr %72, i32 0, i32 1
+  %74 = load i32, ptr %73, align 8, !tbaa !32
+  %75 = sext i32 %74 to i64
+  %76 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %70, ptr noundef @.str.48, ptr noundef %71, i64 noundef %75) #7
+  store i32 %76, ptr %11, align 4, !tbaa !21
+  br label %305
 
-76:                                               ; preds = %37
-  %77 = load ptr, ptr %6, align 8
-  %78 = load ptr, ptr %10, align 8
-  %79 = load ptr, ptr %8, align 8
-  %80 = getelementptr inbounds %struct.pmix_value, ptr %79, i32 0, i32 1
-  %81 = load i32, ptr %80, align 8
-  %82 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %77, ptr noundef @.str.49, ptr noundef %78, i32 noundef %81) #4
-  store i32 %82, ptr %11, align 4
-  br label %304
+77:                                               ; preds = %38
+  %78 = load ptr, ptr %6, align 8, !tbaa !3
+  %79 = load ptr, ptr %10, align 8, !tbaa !8
+  %80 = load ptr, ptr %8, align 8, !tbaa !53
+  %81 = getelementptr inbounds nuw %struct.pmix_value, ptr %80, i32 0, i32 1
+  %82 = load i32, ptr %81, align 8, !tbaa !32
+  %83 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %78, ptr noundef @.str.49, ptr noundef %79, i32 noundef %82) #7
+  store i32 %83, ptr %11, align 4, !tbaa !21
+  br label %305
 
-83:                                               ; preds = %37
-  %84 = load ptr, ptr %6, align 8
-  %85 = load ptr, ptr %10, align 8
-  %86 = load ptr, ptr %8, align 8
-  %87 = getelementptr inbounds %struct.pmix_value, ptr %86, i32 0, i32 1
-  %88 = load i8, ptr %87, align 8
-  %89 = sext i8 %88 to i32
-  %90 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %84, ptr noundef @.str.50, ptr noundef %85, i32 noundef %89) #4
-  store i32 %90, ptr %11, align 4
-  br label %304
+84:                                               ; preds = %38
+  %85 = load ptr, ptr %6, align 8, !tbaa !3
+  %86 = load ptr, ptr %10, align 8, !tbaa !8
+  %87 = load ptr, ptr %8, align 8, !tbaa !53
+  %88 = getelementptr inbounds nuw %struct.pmix_value, ptr %87, i32 0, i32 1
+  %89 = load i8, ptr %88, align 8, !tbaa !32
+  %90 = sext i8 %89 to i32
+  %91 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %85, ptr noundef @.str.50, ptr noundef %86, i32 noundef %90) #7
+  store i32 %91, ptr %11, align 4, !tbaa !21
+  br label %305
 
-91:                                               ; preds = %37
-  %92 = load ptr, ptr %6, align 8
-  %93 = load ptr, ptr %10, align 8
-  %94 = load ptr, ptr %8, align 8
-  %95 = getelementptr inbounds %struct.pmix_value, ptr %94, i32 0, i32 1
-  %96 = load i16, ptr %95, align 8
-  %97 = sext i16 %96 to i32
-  %98 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %92, ptr noundef @.str.51, ptr noundef %93, i32 noundef %97) #4
-  store i32 %98, ptr %11, align 4
-  br label %304
+92:                                               ; preds = %38
+  %93 = load ptr, ptr %6, align 8, !tbaa !3
+  %94 = load ptr, ptr %10, align 8, !tbaa !8
+  %95 = load ptr, ptr %8, align 8, !tbaa !53
+  %96 = getelementptr inbounds nuw %struct.pmix_value, ptr %95, i32 0, i32 1
+  %97 = load i16, ptr %96, align 8, !tbaa !32
+  %98 = sext i16 %97 to i32
+  %99 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %93, ptr noundef @.str.51, ptr noundef %94, i32 noundef %98) #7
+  store i32 %99, ptr %11, align 4, !tbaa !21
+  br label %305
 
-99:                                               ; preds = %37
-  %100 = load ptr, ptr %6, align 8
-  %101 = load ptr, ptr %10, align 8
-  %102 = load ptr, ptr %8, align 8
-  %103 = getelementptr inbounds %struct.pmix_value, ptr %102, i32 0, i32 1
-  %104 = load i32, ptr %103, align 8
-  %105 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %100, ptr noundef @.str.52, ptr noundef %101, i32 noundef %104) #4
-  store i32 %105, ptr %11, align 4
-  br label %304
+100:                                              ; preds = %38
+  %101 = load ptr, ptr %6, align 8, !tbaa !3
+  %102 = load ptr, ptr %10, align 8, !tbaa !8
+  %103 = load ptr, ptr %8, align 8, !tbaa !53
+  %104 = getelementptr inbounds nuw %struct.pmix_value, ptr %103, i32 0, i32 1
+  %105 = load i32, ptr %104, align 8, !tbaa !32
+  %106 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %101, ptr noundef @.str.52, ptr noundef %102, i32 noundef %105) #7
+  store i32 %106, ptr %11, align 4, !tbaa !21
+  br label %305
 
-106:                                              ; preds = %37
-  %107 = load ptr, ptr %6, align 8
-  %108 = load ptr, ptr %10, align 8
-  %109 = load ptr, ptr %8, align 8
-  %110 = getelementptr inbounds %struct.pmix_value, ptr %109, i32 0, i32 1
-  %111 = load i64, ptr %110, align 8
-  %112 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %107, ptr noundef @.str.53, ptr noundef %108, i64 noundef %111) #4
-  store i32 %112, ptr %11, align 4
-  br label %304
+107:                                              ; preds = %38
+  %108 = load ptr, ptr %6, align 8, !tbaa !3
+  %109 = load ptr, ptr %10, align 8, !tbaa !8
+  %110 = load ptr, ptr %8, align 8, !tbaa !53
+  %111 = getelementptr inbounds nuw %struct.pmix_value, ptr %110, i32 0, i32 1
+  %112 = load i64, ptr %111, align 8, !tbaa !32
+  %113 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %108, ptr noundef @.str.53, ptr noundef %109, i64 noundef %112) #7
+  store i32 %113, ptr %11, align 4, !tbaa !21
+  br label %305
 
-113:                                              ; preds = %37
-  %114 = load ptr, ptr %6, align 8
-  %115 = load ptr, ptr %10, align 8
-  %116 = load ptr, ptr %8, align 8
-  %117 = getelementptr inbounds %struct.pmix_value, ptr %116, i32 0, i32 1
-  %118 = load i32, ptr %117, align 8
-  %119 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %114, ptr noundef @.str.54, ptr noundef %115, i32 noundef %118) #4
-  store i32 %119, ptr %11, align 4
-  br label %304
+114:                                              ; preds = %38
+  %115 = load ptr, ptr %6, align 8, !tbaa !3
+  %116 = load ptr, ptr %10, align 8, !tbaa !8
+  %117 = load ptr, ptr %8, align 8, !tbaa !53
+  %118 = getelementptr inbounds nuw %struct.pmix_value, ptr %117, i32 0, i32 1
+  %119 = load i32, ptr %118, align 8, !tbaa !32
+  %120 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %115, ptr noundef @.str.54, ptr noundef %116, i32 noundef %119) #7
+  store i32 %120, ptr %11, align 4, !tbaa !21
+  br label %305
 
-120:                                              ; preds = %37
-  %121 = load ptr, ptr %6, align 8
-  %122 = load ptr, ptr %10, align 8
-  %123 = load ptr, ptr %8, align 8
-  %124 = getelementptr inbounds %struct.pmix_value, ptr %123, i32 0, i32 1
-  %125 = load i8, ptr %124, align 8
-  %126 = zext i8 %125 to i32
-  %127 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %121, ptr noundef @.str.55, ptr noundef %122, i32 noundef %126) #4
-  store i32 %127, ptr %11, align 4
-  br label %304
+121:                                              ; preds = %38
+  %122 = load ptr, ptr %6, align 8, !tbaa !3
+  %123 = load ptr, ptr %10, align 8, !tbaa !8
+  %124 = load ptr, ptr %8, align 8, !tbaa !53
+  %125 = getelementptr inbounds nuw %struct.pmix_value, ptr %124, i32 0, i32 1
+  %126 = load i8, ptr %125, align 8, !tbaa !32
+  %127 = zext i8 %126 to i32
+  %128 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %122, ptr noundef @.str.55, ptr noundef %123, i32 noundef %127) #7
+  store i32 %128, ptr %11, align 4, !tbaa !21
+  br label %305
 
-128:                                              ; preds = %37
-  %129 = load ptr, ptr %6, align 8
-  %130 = load ptr, ptr %10, align 8
-  %131 = load ptr, ptr %8, align 8
-  %132 = getelementptr inbounds %struct.pmix_value, ptr %131, i32 0, i32 1
-  %133 = load i16, ptr %132, align 8
-  %134 = zext i16 %133 to i32
-  %135 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %129, ptr noundef @.str.56, ptr noundef %130, i32 noundef %134) #4
-  store i32 %135, ptr %11, align 4
-  br label %304
+129:                                              ; preds = %38
+  %130 = load ptr, ptr %6, align 8, !tbaa !3
+  %131 = load ptr, ptr %10, align 8, !tbaa !8
+  %132 = load ptr, ptr %8, align 8, !tbaa !53
+  %133 = getelementptr inbounds nuw %struct.pmix_value, ptr %132, i32 0, i32 1
+  %134 = load i16, ptr %133, align 8, !tbaa !32
+  %135 = zext i16 %134 to i32
+  %136 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %130, ptr noundef @.str.56, ptr noundef %131, i32 noundef %135) #7
+  store i32 %136, ptr %11, align 4, !tbaa !21
+  br label %305
 
-136:                                              ; preds = %37
-  %137 = load ptr, ptr %6, align 8
-  %138 = load ptr, ptr %10, align 8
-  %139 = load ptr, ptr %8, align 8
-  %140 = getelementptr inbounds %struct.pmix_value, ptr %139, i32 0, i32 1
-  %141 = load i32, ptr %140, align 8
-  %142 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %137, ptr noundef @.str.57, ptr noundef %138, i32 noundef %141) #4
-  store i32 %142, ptr %11, align 4
-  br label %304
+137:                                              ; preds = %38
+  %138 = load ptr, ptr %6, align 8, !tbaa !3
+  %139 = load ptr, ptr %10, align 8, !tbaa !8
+  %140 = load ptr, ptr %8, align 8, !tbaa !53
+  %141 = getelementptr inbounds nuw %struct.pmix_value, ptr %140, i32 0, i32 1
+  %142 = load i32, ptr %141, align 8, !tbaa !32
+  %143 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %138, ptr noundef @.str.57, ptr noundef %139, i32 noundef %142) #7
+  store i32 %143, ptr %11, align 4, !tbaa !21
+  br label %305
 
-143:                                              ; preds = %37
-  %144 = load ptr, ptr %6, align 8
-  %145 = load ptr, ptr %10, align 8
-  %146 = load ptr, ptr %8, align 8
-  %147 = getelementptr inbounds %struct.pmix_value, ptr %146, i32 0, i32 1
-  %148 = load i64, ptr %147, align 8
-  %149 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %144, ptr noundef @.str.58, ptr noundef %145, i64 noundef %148) #4
-  store i32 %149, ptr %11, align 4
-  br label %304
+144:                                              ; preds = %38
+  %145 = load ptr, ptr %6, align 8, !tbaa !3
+  %146 = load ptr, ptr %10, align 8, !tbaa !8
+  %147 = load ptr, ptr %8, align 8, !tbaa !53
+  %148 = getelementptr inbounds nuw %struct.pmix_value, ptr %147, i32 0, i32 1
+  %149 = load i64, ptr %148, align 8, !tbaa !32
+  %150 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %145, ptr noundef @.str.58, ptr noundef %146, i64 noundef %149) #7
+  store i32 %150, ptr %11, align 4, !tbaa !21
+  br label %305
 
-150:                                              ; preds = %37
-  %151 = load ptr, ptr %6, align 8
-  %152 = load ptr, ptr %10, align 8
-  %153 = load ptr, ptr %8, align 8
-  %154 = getelementptr inbounds %struct.pmix_value, ptr %153, i32 0, i32 1
-  %155 = load float, ptr %154, align 8
-  %156 = fpext float %155 to double
-  %157 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %151, ptr noundef @.str.59, ptr noundef %152, double noundef %156) #4
-  store i32 %157, ptr %11, align 4
-  br label %304
+151:                                              ; preds = %38
+  %152 = load ptr, ptr %6, align 8, !tbaa !3
+  %153 = load ptr, ptr %10, align 8, !tbaa !8
+  %154 = load ptr, ptr %8, align 8, !tbaa !53
+  %155 = getelementptr inbounds nuw %struct.pmix_value, ptr %154, i32 0, i32 1
+  %156 = load float, ptr %155, align 8, !tbaa !32
+  %157 = fpext float %156 to double
+  %158 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %152, ptr noundef @.str.59, ptr noundef %153, double noundef %157) #7
+  store i32 %158, ptr %11, align 4, !tbaa !21
+  br label %305
 
-158:                                              ; preds = %37
-  %159 = load ptr, ptr %6, align 8
-  %160 = load ptr, ptr %10, align 8
-  %161 = load ptr, ptr %8, align 8
-  %162 = getelementptr inbounds %struct.pmix_value, ptr %161, i32 0, i32 1
-  %163 = load double, ptr %162, align 8
-  %164 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %159, ptr noundef @.str.60, ptr noundef %160, double noundef %163) #4
-  store i32 %164, ptr %11, align 4
-  br label %304
+159:                                              ; preds = %38
+  %160 = load ptr, ptr %6, align 8, !tbaa !3
+  %161 = load ptr, ptr %10, align 8, !tbaa !8
+  %162 = load ptr, ptr %8, align 8, !tbaa !53
+  %163 = getelementptr inbounds nuw %struct.pmix_value, ptr %162, i32 0, i32 1
+  %164 = load double, ptr %163, align 8, !tbaa !32
+  %165 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %160, ptr noundef @.str.60, ptr noundef %161, double noundef %164) #7
+  store i32 %165, ptr %11, align 4, !tbaa !21
+  br label %305
 
-165:                                              ; preds = %37
-  %166 = load ptr, ptr %6, align 8
-  %167 = load ptr, ptr %10, align 8
-  %168 = load ptr, ptr %8, align 8
-  %169 = getelementptr inbounds %struct.pmix_value, ptr %168, i32 0, i32 1
-  %170 = getelementptr inbounds %struct.timeval, ptr %169, i32 0, i32 0
-  %171 = load i64, ptr %170, align 8
-  %172 = load ptr, ptr %8, align 8
-  %173 = getelementptr inbounds %struct.pmix_value, ptr %172, i32 0, i32 1
-  %174 = getelementptr inbounds %struct.timeval, ptr %173, i32 0, i32 1
-  %175 = load i64, ptr %174, align 8
-  %176 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %166, ptr noundef @.str.61, ptr noundef %167, i64 noundef %171, i64 noundef %175) #4
-  store i32 %176, ptr %11, align 4
-  br label %304
+166:                                              ; preds = %38
+  %167 = load ptr, ptr %6, align 8, !tbaa !3
+  %168 = load ptr, ptr %10, align 8, !tbaa !8
+  %169 = load ptr, ptr %8, align 8, !tbaa !53
+  %170 = getelementptr inbounds nuw %struct.pmix_value, ptr %169, i32 0, i32 1
+  %171 = getelementptr inbounds nuw %struct.timeval, ptr %170, i32 0, i32 0
+  %172 = load i64, ptr %171, align 8, !tbaa !32
+  %173 = load ptr, ptr %8, align 8, !tbaa !53
+  %174 = getelementptr inbounds nuw %struct.pmix_value, ptr %173, i32 0, i32 1
+  %175 = getelementptr inbounds nuw %struct.timeval, ptr %174, i32 0, i32 1
+  %176 = load i64, ptr %175, align 8, !tbaa !32
+  %177 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %167, ptr noundef @.str.61, ptr noundef %168, i64 noundef %172, i64 noundef %176) #7
+  store i32 %177, ptr %11, align 4, !tbaa !21
+  br label %305
 
-177:                                              ; preds = %37
-  %178 = load ptr, ptr %6, align 8
-  %179 = load ptr, ptr %10, align 8
-  %180 = load ptr, ptr %8, align 8
-  %181 = getelementptr inbounds %struct.pmix_value, ptr %180, i32 0, i32 1
-  %182 = call ptr @ctime(ptr noundef %181) #4
-  %183 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %178, ptr noundef @.str.62, ptr noundef %179, ptr noundef %182) #4
-  store i32 %183, ptr %11, align 4
-  br label %304
+178:                                              ; preds = %38
+  %179 = load ptr, ptr %6, align 8, !tbaa !3
+  %180 = load ptr, ptr %10, align 8, !tbaa !8
+  %181 = load ptr, ptr %8, align 8, !tbaa !53
+  %182 = getelementptr inbounds nuw %struct.pmix_value, ptr %181, i32 0, i32 1
+  %183 = call ptr @ctime(ptr noundef %182) #7
+  %184 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %179, ptr noundef @.str.62, ptr noundef %180, ptr noundef %183) #7
+  store i32 %184, ptr %11, align 4, !tbaa !21
+  br label %305
 
-184:                                              ; preds = %37
-  %185 = load ptr, ptr %6, align 8
-  %186 = load ptr, ptr %10, align 8
-  %187 = load ptr, ptr %8, align 8
-  %188 = getelementptr inbounds %struct.pmix_value, ptr %187, i32 0, i32 1
-  %189 = load i32, ptr %188, align 8
-  %190 = call ptr @PMIx_Error_string(i32 noundef %189)
-  %191 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %185, ptr noundef @.str.63, ptr noundef %186, ptr noundef %190) #4
-  store i32 %191, ptr %11, align 4
-  br label %304
+185:                                              ; preds = %38
+  %186 = load ptr, ptr %6, align 8, !tbaa !3
+  %187 = load ptr, ptr %10, align 8, !tbaa !8
+  %188 = load ptr, ptr %8, align 8, !tbaa !53
+  %189 = getelementptr inbounds nuw %struct.pmix_value, ptr %188, i32 0, i32 1
+  %190 = load i32, ptr %189, align 8, !tbaa !32
+  %191 = call ptr @PMIx_Error_string(i32 noundef %190)
+  %192 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %186, ptr noundef @.str.63, ptr noundef %187, ptr noundef %191) #7
+  store i32 %192, ptr %11, align 4, !tbaa !21
+  br label %305
 
-192:                                              ; preds = %37
-  %193 = load ptr, ptr %8, align 8
-  %194 = getelementptr inbounds %struct.pmix_value, ptr %193, i32 0, i32 1
-  %195 = load ptr, ptr %194, align 8
-  %196 = icmp eq ptr null, %195
-  br i1 %196, label %197, label %201
+193:                                              ; preds = %38
+  %194 = load ptr, ptr %8, align 8, !tbaa !53
+  %195 = getelementptr inbounds nuw %struct.pmix_value, ptr %194, i32 0, i32 1
+  %196 = load ptr, ptr %195, align 8, !tbaa !32
+  %197 = icmp eq ptr null, %196
+  br i1 %197, label %198, label %202
 
-197:                                              ; preds = %192
-  %198 = load ptr, ptr %6, align 8
-  %199 = load ptr, ptr %10, align 8
-  %200 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %198, ptr noundef @.str.64, ptr noundef %199) #4
-  store i32 %200, ptr %11, align 4
-  br label %216
+198:                                              ; preds = %193
+  %199 = load ptr, ptr %6, align 8, !tbaa !3
+  %200 = load ptr, ptr %10, align 8, !tbaa !8
+  %201 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %199, ptr noundef @.str.64, ptr noundef %200) #7
+  store i32 %201, ptr %11, align 4, !tbaa !21
+  br label %217
 
-201:                                              ; preds = %192
-  %202 = load ptr, ptr %6, align 8
-  %203 = load ptr, ptr %10, align 8
-  %204 = load ptr, ptr %8, align 8
-  %205 = getelementptr inbounds %struct.pmix_value, ptr %204, i32 0, i32 1
-  %206 = load ptr, ptr %205, align 8
-  %207 = getelementptr inbounds %struct.pmix_proc, ptr %206, i32 0, i32 0
-  %208 = getelementptr inbounds [256 x i8], ptr %207, i64 0, i64 0
-  %209 = load ptr, ptr %8, align 8
-  %210 = getelementptr inbounds %struct.pmix_value, ptr %209, i32 0, i32 1
-  %211 = load ptr, ptr %210, align 8
-  %212 = getelementptr inbounds %struct.pmix_proc, ptr %211, i32 0, i32 1
-  %213 = load i32, ptr %212, align 4
-  %214 = zext i32 %213 to i64
-  %215 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %202, ptr noundef @.str.65, ptr noundef %203, ptr noundef %208, i64 noundef %214) #4
-  store i32 %215, ptr %11, align 4
-  br label %216
+202:                                              ; preds = %193
+  %203 = load ptr, ptr %6, align 8, !tbaa !3
+  %204 = load ptr, ptr %10, align 8, !tbaa !8
+  %205 = load ptr, ptr %8, align 8, !tbaa !53
+  %206 = getelementptr inbounds nuw %struct.pmix_value, ptr %205, i32 0, i32 1
+  %207 = load ptr, ptr %206, align 8, !tbaa !32
+  %208 = getelementptr inbounds nuw %struct.pmix_proc, ptr %207, i32 0, i32 0
+  %209 = getelementptr inbounds [256 x i8], ptr %208, i64 0, i64 0
+  %210 = load ptr, ptr %8, align 8, !tbaa !53
+  %211 = getelementptr inbounds nuw %struct.pmix_value, ptr %210, i32 0, i32 1
+  %212 = load ptr, ptr %211, align 8, !tbaa !32
+  %213 = getelementptr inbounds nuw %struct.pmix_proc, ptr %212, i32 0, i32 1
+  %214 = load i32, ptr %213, align 4, !tbaa !57
+  %215 = zext i32 %214 to i64
+  %216 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %203, ptr noundef @.str.65, ptr noundef %204, ptr noundef %209, i64 noundef %215) #7
+  store i32 %216, ptr %11, align 4, !tbaa !21
+  br label %217
 
-216:                                              ; preds = %201, %197
-  br label %304
+217:                                              ; preds = %202, %198
+  br label %305
 
-217:                                              ; preds = %37
-  %218 = load ptr, ptr %6, align 8
-  %219 = load ptr, ptr %10, align 8
-  %220 = load ptr, ptr %8, align 8
-  %221 = getelementptr inbounds %struct.pmix_value, ptr %220, i32 0, i32 1
-  %222 = getelementptr inbounds %struct.pmix_byte_object, ptr %221, i32 0, i32 1
-  %223 = load i64, ptr %222, align 8
-  %224 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %218, ptr noundef @.str.66, ptr noundef %219, i64 noundef %223) #4
-  store i32 %224, ptr %11, align 4
-  br label %304
+218:                                              ; preds = %38
+  %219 = load ptr, ptr %6, align 8, !tbaa !3
+  %220 = load ptr, ptr %10, align 8, !tbaa !8
+  %221 = load ptr, ptr %8, align 8, !tbaa !53
+  %222 = getelementptr inbounds nuw %struct.pmix_value, ptr %221, i32 0, i32 1
+  %223 = getelementptr inbounds nuw %struct.pmix_byte_object, ptr %222, i32 0, i32 1
+  %224 = load i64, ptr %223, align 8, !tbaa !32
+  %225 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %219, ptr noundef @.str.66, ptr noundef %220, i64 noundef %224) #7
+  store i32 %225, ptr %11, align 4, !tbaa !21
+  br label %305
 
-225:                                              ; preds = %37
-  %226 = load ptr, ptr %6, align 8
-  %227 = load ptr, ptr %10, align 8
-  %228 = load ptr, ptr %8, align 8
-  %229 = getelementptr inbounds %struct.pmix_value, ptr %228, i32 0, i32 1
-  %230 = load i8, ptr %229, align 8
-  %231 = call ptr @PMIx_Persistence_string(i8 noundef zeroext %230)
-  %232 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %226, ptr noundef @.str.67, ptr noundef %227, ptr noundef %231) #4
-  store i32 %232, ptr %11, align 4
-  br label %304
+226:                                              ; preds = %38
+  %227 = load ptr, ptr %6, align 8, !tbaa !3
+  %228 = load ptr, ptr %10, align 8, !tbaa !8
+  %229 = load ptr, ptr %8, align 8, !tbaa !53
+  %230 = getelementptr inbounds nuw %struct.pmix_value, ptr %229, i32 0, i32 1
+  %231 = load i8, ptr %230, align 8, !tbaa !32
+  %232 = call ptr @PMIx_Persistence_string(i8 noundef zeroext %231)
+  %233 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %227, ptr noundef @.str.67, ptr noundef %228, ptr noundef %232) #7
+  store i32 %233, ptr %11, align 4, !tbaa !21
+  br label %305
 
-233:                                              ; preds = %37
-  %234 = load ptr, ptr %6, align 8
-  %235 = load ptr, ptr %10, align 8
-  %236 = load ptr, ptr %8, align 8
-  %237 = getelementptr inbounds %struct.pmix_value, ptr %236, i32 0, i32 1
-  %238 = load i8, ptr %237, align 8
-  %239 = call ptr @PMIx_Scope_string(i8 noundef zeroext %238)
-  %240 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %234, ptr noundef @.str.68, ptr noundef %235, ptr noundef %239) #4
-  store i32 %240, ptr %11, align 4
-  br label %304
+234:                                              ; preds = %38
+  %235 = load ptr, ptr %6, align 8, !tbaa !3
+  %236 = load ptr, ptr %10, align 8, !tbaa !8
+  %237 = load ptr, ptr %8, align 8, !tbaa !53
+  %238 = getelementptr inbounds nuw %struct.pmix_value, ptr %237, i32 0, i32 1
+  %239 = load i8, ptr %238, align 8, !tbaa !32
+  %240 = call ptr @PMIx_Scope_string(i8 noundef zeroext %239)
+  %241 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %235, ptr noundef @.str.68, ptr noundef %236, ptr noundef %240) #7
+  store i32 %241, ptr %11, align 4, !tbaa !21
+  br label %305
 
-241:                                              ; preds = %37
-  %242 = load ptr, ptr %6, align 8
-  %243 = load ptr, ptr %10, align 8
-  %244 = load ptr, ptr %8, align 8
-  %245 = getelementptr inbounds %struct.pmix_value, ptr %244, i32 0, i32 1
-  %246 = load i8, ptr %245, align 8
-  %247 = call ptr @PMIx_Data_range_string(i8 noundef zeroext %246)
-  %248 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %242, ptr noundef @.str.69, ptr noundef %243, ptr noundef %247) #4
-  store i32 %248, ptr %11, align 4
-  br label %304
+242:                                              ; preds = %38
+  %243 = load ptr, ptr %6, align 8, !tbaa !3
+  %244 = load ptr, ptr %10, align 8, !tbaa !8
+  %245 = load ptr, ptr %8, align 8, !tbaa !53
+  %246 = getelementptr inbounds nuw %struct.pmix_value, ptr %245, i32 0, i32 1
+  %247 = load i8, ptr %246, align 8, !tbaa !32
+  %248 = call ptr @PMIx_Data_range_string(i8 noundef zeroext %247)
+  %249 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %243, ptr noundef @.str.69, ptr noundef %244, ptr noundef %248) #7
+  store i32 %249, ptr %11, align 4, !tbaa !21
+  br label %305
 
-249:                                              ; preds = %37
-  %250 = load ptr, ptr %6, align 8
-  %251 = load ptr, ptr %10, align 8
-  %252 = load ptr, ptr %8, align 8
-  %253 = getelementptr inbounds %struct.pmix_value, ptr %252, i32 0, i32 1
-  %254 = load i8, ptr %253, align 8
-  %255 = call ptr @PMIx_Proc_state_string(i8 noundef zeroext %254)
-  %256 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %250, ptr noundef @.str.70, ptr noundef %251, ptr noundef %255) #4
-  store i32 %256, ptr %11, align 4
-  br label %304
+250:                                              ; preds = %38
+  %251 = load ptr, ptr %6, align 8, !tbaa !3
+  %252 = load ptr, ptr %10, align 8, !tbaa !8
+  %253 = load ptr, ptr %8, align 8, !tbaa !53
+  %254 = getelementptr inbounds nuw %struct.pmix_value, ptr %253, i32 0, i32 1
+  %255 = load i8, ptr %254, align 8, !tbaa !32
+  %256 = call ptr @PMIx_Proc_state_string(i8 noundef zeroext %255)
+  %257 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %251, ptr noundef @.str.70, ptr noundef %252, ptr noundef %256) #7
+  store i32 %257, ptr %11, align 4, !tbaa !21
+  br label %305
 
-257:                                              ; preds = %37
-  %258 = load ptr, ptr %6, align 8
-  %259 = load ptr, ptr %10, align 8
-  %260 = load ptr, ptr %8, align 8
-  %261 = getelementptr inbounds %struct.pmix_value, ptr %260, i32 0, i32 1
-  %262 = load ptr, ptr %261, align 8
-  %263 = getelementptr inbounds %struct.pmix_proc_info, ptr %262, i32 0, i32 0
-  %264 = getelementptr inbounds %struct.pmix_proc, ptr %263, i32 0, i32 0
-  %265 = getelementptr inbounds [256 x i8], ptr %264, i64 0, i64 0
-  %266 = load ptr, ptr %8, align 8
-  %267 = getelementptr inbounds %struct.pmix_value, ptr %266, i32 0, i32 1
-  %268 = load ptr, ptr %267, align 8
-  %269 = getelementptr inbounds %struct.pmix_proc_info, ptr %268, i32 0, i32 0
-  %270 = getelementptr inbounds %struct.pmix_proc, ptr %269, i32 0, i32 1
-  %271 = load i32, ptr %270, align 8
-  %272 = zext i32 %271 to i64
-  %273 = load ptr, ptr %10, align 8
-  %274 = load ptr, ptr %8, align 8
-  %275 = getelementptr inbounds %struct.pmix_value, ptr %274, i32 0, i32 1
-  %276 = load ptr, ptr %275, align 8
-  %277 = getelementptr inbounds %struct.pmix_proc_info, ptr %276, i32 0, i32 1
-  %278 = load ptr, ptr %277, align 8
-  %279 = load ptr, ptr %8, align 8
-  %280 = getelementptr inbounds %struct.pmix_value, ptr %279, i32 0, i32 1
-  %281 = load ptr, ptr %280, align 8
-  %282 = getelementptr inbounds %struct.pmix_proc_info, ptr %281, i32 0, i32 2
-  %283 = load ptr, ptr %282, align 8
-  %284 = load ptr, ptr %8, align 8
-  %285 = getelementptr inbounds %struct.pmix_value, ptr %284, i32 0, i32 1
-  %286 = load ptr, ptr %285, align 8
-  %287 = getelementptr inbounds %struct.pmix_proc_info, ptr %286, i32 0, i32 3
-  %288 = load i32, ptr %287, align 8
-  %289 = sext i32 %288 to i64
-  %290 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %258, ptr noundef @.str.71, ptr noundef %259, ptr noundef %265, i64 noundef %272, ptr noundef %273, ptr noundef %278, ptr noundef %283, i64 noundef %289) #4
-  store i32 %290, ptr %11, align 4
-  br label %304
+258:                                              ; preds = %38
+  %259 = load ptr, ptr %6, align 8, !tbaa !3
+  %260 = load ptr, ptr %10, align 8, !tbaa !8
+  %261 = load ptr, ptr %8, align 8, !tbaa !53
+  %262 = getelementptr inbounds nuw %struct.pmix_value, ptr %261, i32 0, i32 1
+  %263 = load ptr, ptr %262, align 8, !tbaa !32
+  %264 = getelementptr inbounds nuw %struct.pmix_proc_info, ptr %263, i32 0, i32 0
+  %265 = getelementptr inbounds nuw %struct.pmix_proc, ptr %264, i32 0, i32 0
+  %266 = getelementptr inbounds [256 x i8], ptr %265, i64 0, i64 0
+  %267 = load ptr, ptr %8, align 8, !tbaa !53
+  %268 = getelementptr inbounds nuw %struct.pmix_value, ptr %267, i32 0, i32 1
+  %269 = load ptr, ptr %268, align 8, !tbaa !32
+  %270 = getelementptr inbounds nuw %struct.pmix_proc_info, ptr %269, i32 0, i32 0
+  %271 = getelementptr inbounds nuw %struct.pmix_proc, ptr %270, i32 0, i32 1
+  %272 = load i32, ptr %271, align 8, !tbaa !59
+  %273 = zext i32 %272 to i64
+  %274 = load ptr, ptr %10, align 8, !tbaa !8
+  %275 = load ptr, ptr %8, align 8, !tbaa !53
+  %276 = getelementptr inbounds nuw %struct.pmix_value, ptr %275, i32 0, i32 1
+  %277 = load ptr, ptr %276, align 8, !tbaa !32
+  %278 = getelementptr inbounds nuw %struct.pmix_proc_info, ptr %277, i32 0, i32 1
+  %279 = load ptr, ptr %278, align 8, !tbaa !61
+  %280 = load ptr, ptr %8, align 8, !tbaa !53
+  %281 = getelementptr inbounds nuw %struct.pmix_value, ptr %280, i32 0, i32 1
+  %282 = load ptr, ptr %281, align 8, !tbaa !32
+  %283 = getelementptr inbounds nuw %struct.pmix_proc_info, ptr %282, i32 0, i32 2
+  %284 = load ptr, ptr %283, align 8, !tbaa !62
+  %285 = load ptr, ptr %8, align 8, !tbaa !53
+  %286 = getelementptr inbounds nuw %struct.pmix_value, ptr %285, i32 0, i32 1
+  %287 = load ptr, ptr %286, align 8, !tbaa !32
+  %288 = getelementptr inbounds nuw %struct.pmix_proc_info, ptr %287, i32 0, i32 3
+  %289 = load i32, ptr %288, align 8, !tbaa !63
+  %290 = sext i32 %289 to i64
+  %291 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %259, ptr noundef @.str.71, ptr noundef %260, ptr noundef %266, i64 noundef %273, ptr noundef %274, ptr noundef %279, ptr noundef %284, i64 noundef %290) #7
+  store i32 %291, ptr %11, align 4, !tbaa !21
+  br label %305
 
-291:                                              ; preds = %37
-  %292 = load ptr, ptr %6, align 8
-  %293 = load ptr, ptr %10, align 8
-  %294 = load ptr, ptr %8, align 8
-  %295 = getelementptr inbounds %struct.pmix_value, ptr %294, i32 0, i32 1
-  %296 = load ptr, ptr %295, align 8
-  %297 = getelementptr inbounds %struct.pmix_data_array, ptr %296, i32 0, i32 1
-  %298 = load i64, ptr %297, align 8
-  %299 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %292, ptr noundef @.str.72, ptr noundef %293, i64 noundef %298) #4
-  store i32 %299, ptr %11, align 4
-  br label %304
+292:                                              ; preds = %38
+  %293 = load ptr, ptr %6, align 8, !tbaa !3
+  %294 = load ptr, ptr %10, align 8, !tbaa !8
+  %295 = load ptr, ptr %8, align 8, !tbaa !53
+  %296 = getelementptr inbounds nuw %struct.pmix_value, ptr %295, i32 0, i32 1
+  %297 = load ptr, ptr %296, align 8, !tbaa !32
+  %298 = getelementptr inbounds nuw %struct.pmix_data_array, ptr %297, i32 0, i32 1
+  %299 = load i64, ptr %298, align 8, !tbaa !64
+  %300 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %293, ptr noundef @.str.72, ptr noundef %294, i64 noundef %299) #7
+  store i32 %300, ptr %11, align 4, !tbaa !21
+  br label %305
 
-300:                                              ; preds = %37
-  %301 = load ptr, ptr %6, align 8
-  %302 = load ptr, ptr %10, align 8
-  %303 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %301, ptr noundef @.str.73, ptr noundef %302) #4
-  store i32 %303, ptr %11, align 4
-  br label %304
+301:                                              ; preds = %38
+  %302 = load ptr, ptr %6, align 8, !tbaa !3
+  %303 = load ptr, ptr %10, align 8, !tbaa !8
+  %304 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %302, ptr noundef @.str.73, ptr noundef %303) #7
+  store i32 %304, ptr %11, align 4, !tbaa !21
+  br label %305
 
-304:                                              ; preds = %300, %291, %257, %249, %241, %233, %225, %217, %216, %184, %177, %165, %158, %150, %143, %136, %128, %120, %113, %106, %99, %91, %83, %76, %68, %61, %54, %46, %42
-  %305 = load ptr, ptr %10, align 8
-  %306 = load ptr, ptr %7, align 8
-  %307 = icmp ne ptr %305, %306
-  br i1 %307, label %308, label %310
+305:                                              ; preds = %301, %292, %258, %250, %242, %234, %226, %218, %217, %185, %178, %166, %159, %151, %144, %137, %129, %121, %114, %107, %100, %92, %84, %77, %69, %62, %55, %47, %43
+  %306 = load ptr, ptr %10, align 8, !tbaa !8
+  %307 = load ptr, ptr %7, align 8, !tbaa !8
+  %308 = icmp ne ptr %306, %307
+  br i1 %308, label %309, label %311
 
-308:                                              ; preds = %304
-  %309 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %309) #4
-  br label %310
+309:                                              ; preds = %305
+  %310 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %310) #7
+  br label %311
 
-310:                                              ; preds = %308, %304
-  %311 = load i32, ptr %11, align 4
-  %312 = icmp sgt i32 0, %311
-  br i1 %312, label %313, label %314
+311:                                              ; preds = %309, %305
+  %312 = load i32, ptr %11, align 4, !tbaa !21
+  %313 = icmp sgt i32 0, %312
+  br i1 %313, label %314, label %315
 
-313:                                              ; preds = %310
+314:                                              ; preds = %311
   store i32 -32, ptr %5, align 4
-  br label %315
+  store i32 1, ptr %12, align 4
+  br label %316
 
-314:                                              ; preds = %310
+315:                                              ; preds = %311
   store i32 0, ptr %5, align 4
-  br label %315
+  store i32 1, ptr %12, align 4
+  br label %316
 
-315:                                              ; preds = %314, %313, %36, %29, %17
-  %316 = load i32, ptr %5, align 4
-  ret i32 %316
+316:                                              ; preds = %315, %314, %37, %30, %18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  %317 = load i32, ptr %5, align 4
+  ret i32 %317
 }
 
-declare ptr @PMIx_Persistence_string(i8 noundef zeroext) #3
+declare ptr @PMIx_Persistence_string(i8 noundef zeroext) #5
 
-declare ptr @PMIx_Scope_string(i8 noundef zeroext) #3
+declare ptr @PMIx_Scope_string(i8 noundef zeroext) #5
 
-declare ptr @PMIx_Data_range_string(i8 noundef zeroext) #3
+declare ptr @PMIx_Data_range_string(i8 noundef zeroext) #5
 
-declare ptr @PMIx_Proc_state_string(i8 noundef zeroext) #3
+declare ptr @PMIx_Proc_state_string(i8 noundef zeroext) #5
 
 ; Function Attrs: nounwind uwtable
 define i32 @pmix20_bfrop_print_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3) #0 {
@@ -3000,61 +3189,68 @@ define i32 @pmix20_bfrop_print_info(ptr noundef %0, ptr noundef %1, ptr noundef 
   %9 = alloca i16, align 2
   %10 = alloca ptr, align 8
   %11 = alloca i32, align 4
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store i16 %3, ptr %9, align 2
-  %12 = load ptr, ptr %8, align 8
-  %13 = getelementptr inbounds %struct.pmix_info, ptr %12, i32 0, i32 2
-  %14 = call i32 @pmix20_bfrop_print_value(ptr noundef %10, ptr noundef null, ptr noundef %13, i16 noundef zeroext 21)
-  %15 = load ptr, ptr %6, align 8
-  %16 = load ptr, ptr %7, align 8
-  %17 = load ptr, ptr %8, align 8
-  %18 = getelementptr inbounds %struct.pmix_info, ptr %17, i32 0, i32 0
-  %19 = getelementptr inbounds [512 x i8], ptr %18, i64 0, i64 0
-  %20 = load ptr, ptr %8, align 8
-  %21 = getelementptr inbounds %struct.pmix_info, ptr %20, i32 0, i32 1
-  %22 = load i32, ptr %21, align 8
-  %23 = load ptr, ptr %10, align 8
-  %24 = icmp eq ptr null, %23
-  br i1 %24, label %25, label %26
-
-25:                                               ; preds = %4
-  br label %28
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store ptr %1, ptr %7, align 8, !tbaa !8
+  store ptr %2, ptr %8, align 8, !tbaa !66
+  store i16 %3, ptr %9, align 2, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #7
+  %13 = load ptr, ptr %8, align 8, !tbaa !66
+  %14 = getelementptr inbounds nuw %struct.pmix_info, ptr %13, i32 0, i32 2
+  %15 = call i32 @pmix20_bfrop_print_value(ptr noundef %10, ptr noundef null, ptr noundef %14, i16 noundef zeroext 21)
+  %16 = load ptr, ptr %6, align 8, !tbaa !3
+  %17 = load ptr, ptr %7, align 8, !tbaa !8
+  %18 = load ptr, ptr %8, align 8, !tbaa !66
+  %19 = getelementptr inbounds nuw %struct.pmix_info, ptr %18, i32 0, i32 0
+  %20 = getelementptr inbounds [512 x i8], ptr %19, i64 0, i64 0
+  %21 = load ptr, ptr %8, align 8, !tbaa !66
+  %22 = getelementptr inbounds nuw %struct.pmix_info, ptr %21, i32 0, i32 1
+  %23 = load i32, ptr %22, align 8, !tbaa !68
+  %24 = load ptr, ptr %10, align 8, !tbaa !8
+  %25 = icmp eq ptr null, %24
+  br i1 %25, label %26, label %27
 
 26:                                               ; preds = %4
-  %27 = load ptr, ptr %10, align 8
-  br label %28
+  br label %29
 
-28:                                               ; preds = %26, %25
-  %29 = phi ptr [ @.str.75, %25 ], [ %27, %26 ]
-  %30 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %15, ptr noundef @.str.74, ptr noundef %16, ptr noundef %19, i32 noundef %22, ptr noundef %29) #4
-  store i32 %30, ptr %11, align 4
-  %31 = load ptr, ptr %10, align 8
-  %32 = icmp ne ptr null, %31
-  br i1 %32, label %33, label %35
+27:                                               ; preds = %4
+  %28 = load ptr, ptr %10, align 8, !tbaa !8
+  br label %29
 
-33:                                               ; preds = %28
-  %34 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %34) #4
-  br label %35
+29:                                               ; preds = %27, %26
+  %30 = phi ptr [ @.str.75, %26 ], [ %28, %27 ]
+  %31 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %16, ptr noundef @.str.74, ptr noundef %17, ptr noundef %20, i32 noundef %23, ptr noundef %30) #7
+  store i32 %31, ptr %11, align 4, !tbaa !21
+  %32 = load ptr, ptr %10, align 8, !tbaa !8
+  %33 = icmp ne ptr null, %32
+  br i1 %33, label %34, label %36
 
-35:                                               ; preds = %33, %28
-  %36 = load i32, ptr %11, align 4
-  %37 = icmp sgt i32 0, %36
-  br i1 %37, label %38, label %39
+34:                                               ; preds = %29
+  %35 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %35) #7
+  br label %36
 
-38:                                               ; preds = %35
+36:                                               ; preds = %34, %29
+  %37 = load i32, ptr %11, align 4, !tbaa !21
+  %38 = icmp sgt i32 0, %37
+  br i1 %38, label %39, label %40
+
+39:                                               ; preds = %36
   store i32 -32, ptr %5, align 4
-  br label %40
+  store i32 1, ptr %12, align 4
+  br label %41
 
-39:                                               ; preds = %35
+40:                                               ; preds = %36
   store i32 0, ptr %5, align 4
-  br label %40
+  store i32 1, ptr %12, align 4
+  br label %41
 
-40:                                               ; preds = %39, %38
-  %41 = load i32, ptr %5, align 4
-  ret i32 %41
+41:                                               ; preds = %40, %39
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  %42 = load i32, ptr %5, align 4
+  ret i32 %42
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3067,72 +3263,81 @@ define i32 @pmix20_bfrop_print_pdata(ptr noundef %0, ptr noundef %1, ptr noundef
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
   %12 = alloca i32, align 4
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store i16 %3, ptr %9, align 2
-  %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds %struct.pmix_pdata, ptr %13, i32 0, i32 0
-  %15 = call i32 @pmix20_bfrop_print_proc(ptr noundef %10, ptr noundef null, ptr noundef %14, i16 noundef zeroext 22)
-  %16 = load ptr, ptr %8, align 8
-  %17 = getelementptr inbounds %struct.pmix_pdata, ptr %16, i32 0, i32 2
-  %18 = call i32 @pmix20_bfrop_print_value(ptr noundef %11, ptr noundef null, ptr noundef %17, i16 noundef zeroext 21)
-  %19 = load ptr, ptr %6, align 8
-  %20 = load ptr, ptr %7, align 8
-  %21 = load ptr, ptr %10, align 8
-  %22 = load ptr, ptr %8, align 8
-  %23 = getelementptr inbounds %struct.pmix_pdata, ptr %22, i32 0, i32 1
-  %24 = getelementptr inbounds [512 x i8], ptr %23, i64 0, i64 0
-  %25 = load ptr, ptr %11, align 8
-  %26 = icmp eq ptr null, %25
-  br i1 %26, label %27, label %28
-
-27:                                               ; preds = %4
-  br label %30
+  %13 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store ptr %1, ptr %7, align 8, !tbaa !8
+  store ptr %2, ptr %8, align 8, !tbaa !70
+  store i16 %3, ptr %9, align 2, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #7
+  %14 = load ptr, ptr %8, align 8, !tbaa !70
+  %15 = getelementptr inbounds nuw %struct.pmix_pdata, ptr %14, i32 0, i32 0
+  %16 = call i32 @pmix20_bfrop_print_proc(ptr noundef %10, ptr noundef null, ptr noundef %15, i16 noundef zeroext 22)
+  %17 = load ptr, ptr %8, align 8, !tbaa !70
+  %18 = getelementptr inbounds nuw %struct.pmix_pdata, ptr %17, i32 0, i32 2
+  %19 = call i32 @pmix20_bfrop_print_value(ptr noundef %11, ptr noundef null, ptr noundef %18, i16 noundef zeroext 21)
+  %20 = load ptr, ptr %6, align 8, !tbaa !3
+  %21 = load ptr, ptr %7, align 8, !tbaa !8
+  %22 = load ptr, ptr %10, align 8, !tbaa !8
+  %23 = load ptr, ptr %8, align 8, !tbaa !70
+  %24 = getelementptr inbounds nuw %struct.pmix_pdata, ptr %23, i32 0, i32 1
+  %25 = getelementptr inbounds [512 x i8], ptr %24, i64 0, i64 0
+  %26 = load ptr, ptr %11, align 8, !tbaa !8
+  %27 = icmp eq ptr null, %26
+  br i1 %27, label %28, label %29
 
 28:                                               ; preds = %4
-  %29 = load ptr, ptr %11, align 8
-  br label %30
+  br label %31
 
-30:                                               ; preds = %28, %27
-  %31 = phi ptr [ @.str.77, %27 ], [ %29, %28 ]
-  %32 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %19, ptr noundef @.str.76, ptr noundef %20, ptr noundef %21, ptr noundef %24, ptr noundef %31) #4
-  store i32 %32, ptr %12, align 4
-  %33 = load ptr, ptr %10, align 8
-  %34 = icmp ne ptr null, %33
-  br i1 %34, label %35, label %37
+29:                                               ; preds = %4
+  %30 = load ptr, ptr %11, align 8, !tbaa !8
+  br label %31
 
-35:                                               ; preds = %30
-  %36 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %36) #4
-  br label %37
+31:                                               ; preds = %29, %28
+  %32 = phi ptr [ @.str.77, %28 ], [ %30, %29 ]
+  %33 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %20, ptr noundef @.str.76, ptr noundef %21, ptr noundef %22, ptr noundef %25, ptr noundef %32) #7
+  store i32 %33, ptr %12, align 4, !tbaa !21
+  %34 = load ptr, ptr %10, align 8, !tbaa !8
+  %35 = icmp ne ptr null, %34
+  br i1 %35, label %36, label %38
 
-37:                                               ; preds = %35, %30
-  %38 = load ptr, ptr %11, align 8
-  %39 = icmp ne ptr null, %38
-  br i1 %39, label %40, label %42
+36:                                               ; preds = %31
+  %37 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %37) #7
+  br label %38
 
-40:                                               ; preds = %37
-  %41 = load ptr, ptr %11, align 8
-  call void @free(ptr noundef %41) #4
-  br label %42
+38:                                               ; preds = %36, %31
+  %39 = load ptr, ptr %11, align 8, !tbaa !8
+  %40 = icmp ne ptr null, %39
+  br i1 %40, label %41, label %43
 
-42:                                               ; preds = %40, %37
-  %43 = load i32, ptr %12, align 4
-  %44 = icmp sgt i32 0, %43
-  br i1 %44, label %45, label %46
+41:                                               ; preds = %38
+  %42 = load ptr, ptr %11, align 8, !tbaa !8
+  call void @free(ptr noundef %42) #7
+  br label %43
 
-45:                                               ; preds = %42
+43:                                               ; preds = %41, %38
+  %44 = load i32, ptr %12, align 4, !tbaa !21
+  %45 = icmp sgt i32 0, %44
+  br i1 %45, label %46, label %47
+
+46:                                               ; preds = %43
   store i32 -32, ptr %5, align 4
-  br label %47
+  store i32 1, ptr %13, align 4
+  br label %48
 
-46:                                               ; preds = %42
+47:                                               ; preds = %43
   store i32 0, ptr %5, align 4
-  br label %47
+  store i32 1, ptr %13, align 4
+  br label %48
 
-47:                                               ; preds = %46, %45
-  %48 = load i32, ptr %5, align 4
-  ret i32 %48
+48:                                               ; preds = %47, %46
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  %49 = load i32, ptr %5, align 4
+  ret i32 %49
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3144,112 +3349,120 @@ define i32 @pmix20_bfrop_print_proc(ptr noundef %0, ptr noundef %1, ptr noundef 
   %9 = alloca i16, align 2
   %10 = alloca ptr, align 8
   %11 = alloca i32, align 4
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store i16 %3, ptr %9, align 2
-  %12 = load ptr, ptr %7, align 8
-  %13 = icmp eq ptr null, %12
-  br i1 %13, label %14, label %19
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store ptr %1, ptr %7, align 8, !tbaa !8
+  store ptr %2, ptr %8, align 8, !tbaa !72
+  store i16 %3, ptr %9, align 2, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #7
+  %13 = load ptr, ptr %7, align 8, !tbaa !8
+  %14 = icmp eq ptr null, %13
+  br i1 %14, label %15, label %20
 
-14:                                               ; preds = %4
-  %15 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %10, ptr noundef @.str) #4
-  %16 = icmp sgt i32 0, %15
-  br i1 %16, label %17, label %18
+15:                                               ; preds = %4
+  %16 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %10, ptr noundef @.str) #7
+  %17 = icmp sgt i32 0, %16
+  br i1 %17, label %18, label %19
 
-17:                                               ; preds = %14
+18:                                               ; preds = %15
   store i32 -32, ptr %5, align 4
-  br label %68
+  store i32 1, ptr %12, align 4
+  br label %69
 
-18:                                               ; preds = %14
-  br label %21
+19:                                               ; preds = %15
+  br label %22
 
-19:                                               ; preds = %4
-  %20 = load ptr, ptr %7, align 8
-  store ptr %20, ptr %10, align 8
-  br label %21
+20:                                               ; preds = %4
+  %21 = load ptr, ptr %7, align 8, !tbaa !8
+  store ptr %21, ptr %10, align 8, !tbaa !8
+  br label %22
 
-21:                                               ; preds = %19, %18
-  %22 = load ptr, ptr %8, align 8
-  %23 = getelementptr inbounds %struct.pmix_proc, ptr %22, i32 0, i32 1
-  %24 = load i32, ptr %23, align 4
-  switch i32 %24, label %46 [
-    i32 -1, label %25
-    i32 -2, label %32
-    i32 -3, label %39
+22:                                               ; preds = %20, %19
+  %23 = load ptr, ptr %8, align 8, !tbaa !72
+  %24 = getelementptr inbounds nuw %struct.pmix_proc, ptr %23, i32 0, i32 1
+  %25 = load i32, ptr %24, align 4, !tbaa !57
+  switch i32 %25, label %47 [
+    i32 -1, label %26
+    i32 -2, label %33
+    i32 -3, label %40
   ]
 
-25:                                               ; preds = %21
-  %26 = load ptr, ptr %6, align 8
-  %27 = load ptr, ptr %10, align 8
-  %28 = load ptr, ptr %8, align 8
-  %29 = getelementptr inbounds %struct.pmix_proc, ptr %28, i32 0, i32 0
-  %30 = getelementptr inbounds [256 x i8], ptr %29, i64 0, i64 0
-  %31 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %26, ptr noundef @.str.78, ptr noundef %27, ptr noundef %30) #4
-  store i32 %31, ptr %11, align 4
-  br label %57
+26:                                               ; preds = %22
+  %27 = load ptr, ptr %6, align 8, !tbaa !3
+  %28 = load ptr, ptr %10, align 8, !tbaa !8
+  %29 = load ptr, ptr %8, align 8, !tbaa !72
+  %30 = getelementptr inbounds nuw %struct.pmix_proc, ptr %29, i32 0, i32 0
+  %31 = getelementptr inbounds [256 x i8], ptr %30, i64 0, i64 0
+  %32 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %27, ptr noundef @.str.78, ptr noundef %28, ptr noundef %31) #7
+  store i32 %32, ptr %11, align 4, !tbaa !21
+  br label %58
 
-32:                                               ; preds = %21
-  %33 = load ptr, ptr %6, align 8
-  %34 = load ptr, ptr %10, align 8
-  %35 = load ptr, ptr %8, align 8
-  %36 = getelementptr inbounds %struct.pmix_proc, ptr %35, i32 0, i32 0
-  %37 = getelementptr inbounds [256 x i8], ptr %36, i64 0, i64 0
-  %38 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %33, ptr noundef @.str.79, ptr noundef %34, ptr noundef %37) #4
-  store i32 %38, ptr %11, align 4
-  br label %57
+33:                                               ; preds = %22
+  %34 = load ptr, ptr %6, align 8, !tbaa !3
+  %35 = load ptr, ptr %10, align 8, !tbaa !8
+  %36 = load ptr, ptr %8, align 8, !tbaa !72
+  %37 = getelementptr inbounds nuw %struct.pmix_proc, ptr %36, i32 0, i32 0
+  %38 = getelementptr inbounds [256 x i8], ptr %37, i64 0, i64 0
+  %39 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %34, ptr noundef @.str.79, ptr noundef %35, ptr noundef %38) #7
+  store i32 %39, ptr %11, align 4, !tbaa !21
+  br label %58
 
-39:                                               ; preds = %21
-  %40 = load ptr, ptr %6, align 8
-  %41 = load ptr, ptr %10, align 8
-  %42 = load ptr, ptr %8, align 8
-  %43 = getelementptr inbounds %struct.pmix_proc, ptr %42, i32 0, i32 0
-  %44 = getelementptr inbounds [256 x i8], ptr %43, i64 0, i64 0
-  %45 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %40, ptr noundef @.str.80, ptr noundef %41, ptr noundef %44) #4
-  store i32 %45, ptr %11, align 4
-  br label %57
+40:                                               ; preds = %22
+  %41 = load ptr, ptr %6, align 8, !tbaa !3
+  %42 = load ptr, ptr %10, align 8, !tbaa !8
+  %43 = load ptr, ptr %8, align 8, !tbaa !72
+  %44 = getelementptr inbounds nuw %struct.pmix_proc, ptr %43, i32 0, i32 0
+  %45 = getelementptr inbounds [256 x i8], ptr %44, i64 0, i64 0
+  %46 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %41, ptr noundef @.str.80, ptr noundef %42, ptr noundef %45) #7
+  store i32 %46, ptr %11, align 4, !tbaa !21
+  br label %58
 
-46:                                               ; preds = %21
-  %47 = load ptr, ptr %6, align 8
-  %48 = load ptr, ptr %10, align 8
-  %49 = load ptr, ptr %8, align 8
-  %50 = getelementptr inbounds %struct.pmix_proc, ptr %49, i32 0, i32 0
-  %51 = getelementptr inbounds [256 x i8], ptr %50, i64 0, i64 0
-  %52 = load ptr, ptr %8, align 8
-  %53 = getelementptr inbounds %struct.pmix_proc, ptr %52, i32 0, i32 1
-  %54 = load i32, ptr %53, align 4
-  %55 = zext i32 %54 to i64
-  %56 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %47, ptr noundef @.str.81, ptr noundef %48, ptr noundef %51, i64 noundef %55) #4
-  store i32 %56, ptr %11, align 4
-  br label %57
+47:                                               ; preds = %22
+  %48 = load ptr, ptr %6, align 8, !tbaa !3
+  %49 = load ptr, ptr %10, align 8, !tbaa !8
+  %50 = load ptr, ptr %8, align 8, !tbaa !72
+  %51 = getelementptr inbounds nuw %struct.pmix_proc, ptr %50, i32 0, i32 0
+  %52 = getelementptr inbounds [256 x i8], ptr %51, i64 0, i64 0
+  %53 = load ptr, ptr %8, align 8, !tbaa !72
+  %54 = getelementptr inbounds nuw %struct.pmix_proc, ptr %53, i32 0, i32 1
+  %55 = load i32, ptr %54, align 4, !tbaa !57
+  %56 = zext i32 %55 to i64
+  %57 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %48, ptr noundef @.str.81, ptr noundef %49, ptr noundef %52, i64 noundef %56) #7
+  store i32 %57, ptr %11, align 4, !tbaa !21
+  br label %58
 
-57:                                               ; preds = %46, %39, %32, %25
-  %58 = load ptr, ptr %10, align 8
-  %59 = load ptr, ptr %7, align 8
-  %60 = icmp ne ptr %58, %59
-  br i1 %60, label %61, label %63
+58:                                               ; preds = %47, %40, %33, %26
+  %59 = load ptr, ptr %10, align 8, !tbaa !8
+  %60 = load ptr, ptr %7, align 8, !tbaa !8
+  %61 = icmp ne ptr %59, %60
+  br i1 %61, label %62, label %64
 
-61:                                               ; preds = %57
-  %62 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %62) #4
-  br label %63
+62:                                               ; preds = %58
+  %63 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %63) #7
+  br label %64
 
-63:                                               ; preds = %61, %57
-  %64 = load i32, ptr %11, align 4
-  %65 = icmp sgt i32 0, %64
-  br i1 %65, label %66, label %67
+64:                                               ; preds = %62, %58
+  %65 = load i32, ptr %11, align 4, !tbaa !21
+  %66 = icmp sgt i32 0, %65
+  br i1 %66, label %67, label %68
 
-66:                                               ; preds = %63
+67:                                               ; preds = %64
   store i32 -32, ptr %5, align 4
-  br label %68
+  store i32 1, ptr %12, align 4
+  br label %69
 
-67:                                               ; preds = %63
+68:                                               ; preds = %64
   store i32 0, ptr %5, align 4
-  br label %68
+  store i32 1, ptr %12, align 4
+  br label %69
 
-68:                                               ; preds = %67, %66, %17
-  %69 = load i32, ptr %5, align 4
-  ret i32 %69
+69:                                               ; preds = %68, %67, %18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  %70 = load i32, ptr %5, align 4
+  ret i32 %70
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3258,10 +3471,10 @@ define i32 @pmix20_bfrop_print_buf(ptr noundef %0, ptr noundef %1, ptr noundef %
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca i16, align 2
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store i16 %3, ptr %8, align 2
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !8
+  store ptr %2, ptr %7, align 8, !tbaa !10
+  store i16 %3, ptr %8, align 2, !tbaa !11
   ret i32 0
 }
 
@@ -3271,10 +3484,10 @@ define i32 @pmix20_bfrop_print_app(ptr noundef %0, ptr noundef %1, ptr noundef %
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca i16, align 2
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store i16 %3, ptr %8, align 2
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !8
+  store ptr %2, ptr %7, align 8, !tbaa !74
+  store i16 %3, ptr %8, align 2, !tbaa !11
   ret i32 0
 }
 
@@ -3284,10 +3497,10 @@ define i32 @pmix20_bfrop_print_kval(ptr noundef %0, ptr noundef %1, ptr noundef 
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca i16, align 2
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store i16 %3, ptr %8, align 2
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !8
+  store ptr %2, ptr %7, align 8, !tbaa !10
+  store i16 %3, ptr %8, align 2, !tbaa !11
   ret i32 0
 }
 
@@ -3297,10 +3510,10 @@ define i32 @pmix20_bfrop_print_modex(ptr noundef %0, ptr noundef %1, ptr noundef
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca i16, align 2
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store i16 %3, ptr %8, align 2
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !8
+  store ptr %2, ptr %7, align 8, !tbaa !76
+  store i16 %3, ptr %8, align 2, !tbaa !11
   ret i32 0
 }
 
@@ -3312,116 +3525,124 @@ define i32 @pmix20_bfrop_print_persist(ptr noundef %0, ptr noundef %1, ptr nound
   %8 = alloca ptr, align 8
   %9 = alloca i16, align 2
   %10 = alloca ptr, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store i16 %3, ptr %9, align 2
-  %11 = load ptr, ptr %7, align 8
-  %12 = icmp eq ptr null, %11
-  br i1 %12, label %13, label %18
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store ptr %1, ptr %7, align 8, !tbaa !8
+  store ptr %2, ptr %8, align 8, !tbaa !8
+  store i16 %3, ptr %9, align 2, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  %12 = load ptr, ptr %7, align 8, !tbaa !8
+  %13 = icmp eq ptr null, %12
+  br i1 %13, label %14, label %19
 
-13:                                               ; preds = %4
-  %14 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %10, ptr noundef @.str) #4
-  %15 = icmp sgt i32 0, %14
-  br i1 %15, label %16, label %17
+14:                                               ; preds = %4
+  %15 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %10, ptr noundef @.str) #7
+  %16 = icmp sgt i32 0, %15
+  br i1 %16, label %17, label %18
 
-16:                                               ; preds = %13
+17:                                               ; preds = %14
   store i32 -32, ptr %5, align 4
-  br label %64
+  store i32 1, ptr %11, align 4
+  br label %65
 
-17:                                               ; preds = %13
-  br label %20
+18:                                               ; preds = %14
+  br label %21
 
-18:                                               ; preds = %4
-  %19 = load ptr, ptr %7, align 8
-  store ptr %19, ptr %10, align 8
-  br label %20
+19:                                               ; preds = %4
+  %20 = load ptr, ptr %7, align 8, !tbaa !8
+  store ptr %20, ptr %10, align 8, !tbaa !8
+  br label %21
 
-20:                                               ; preds = %18, %17
-  %21 = load ptr, ptr %8, align 8
-  %22 = icmp eq ptr null, %21
-  br i1 %22, label %23, label %42
+21:                                               ; preds = %19, %18
+  %22 = load ptr, ptr %8, align 8, !tbaa !8
+  %23 = icmp eq ptr null, %22
+  br i1 %23, label %24, label %43
 
-23:                                               ; preds = %20
-  %24 = load ptr, ptr %6, align 8
-  %25 = load ptr, ptr %10, align 8
-  %26 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %24, ptr noundef @.str.82, ptr noundef %25) #4
-  %27 = icmp sgt i32 0, %26
-  br i1 %27, label %28, label %35
+24:                                               ; preds = %21
+  %25 = load ptr, ptr %6, align 8, !tbaa !3
+  %26 = load ptr, ptr %10, align 8, !tbaa !8
+  %27 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %25, ptr noundef @.str.82, ptr noundef %26) #7
+  %28 = icmp sgt i32 0, %27
+  br i1 %28, label %29, label %36
 
-28:                                               ; preds = %23
-  %29 = load ptr, ptr %10, align 8
-  %30 = load ptr, ptr %7, align 8
-  %31 = icmp ne ptr %29, %30
-  br i1 %31, label %32, label %34
+29:                                               ; preds = %24
+  %30 = load ptr, ptr %10, align 8, !tbaa !8
+  %31 = load ptr, ptr %7, align 8, !tbaa !8
+  %32 = icmp ne ptr %30, %31
+  br i1 %32, label %33, label %35
 
-32:                                               ; preds = %28
-  %33 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %33) #4
-  br label %34
+33:                                               ; preds = %29
+  %34 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %34) #7
+  br label %35
 
-34:                                               ; preds = %32, %28
+35:                                               ; preds = %33, %29
   store i32 -32, ptr %5, align 4
-  br label %64
+  store i32 1, ptr %11, align 4
+  br label %65
 
-35:                                               ; preds = %23
-  %36 = load ptr, ptr %10, align 8
-  %37 = load ptr, ptr %7, align 8
-  %38 = icmp ne ptr %36, %37
-  br i1 %38, label %39, label %41
+36:                                               ; preds = %24
+  %37 = load ptr, ptr %10, align 8, !tbaa !8
+  %38 = load ptr, ptr %7, align 8, !tbaa !8
+  %39 = icmp ne ptr %37, %38
+  br i1 %39, label %40, label %42
 
-39:                                               ; preds = %35
-  %40 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %40) #4
-  br label %41
+40:                                               ; preds = %36
+  %41 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %41) #7
+  br label %42
 
-41:                                               ; preds = %39, %35
+42:                                               ; preds = %40, %36
   store i32 0, ptr %5, align 4
-  br label %64
+  store i32 1, ptr %11, align 4
+  br label %65
 
-42:                                               ; preds = %20
-  %43 = load ptr, ptr %6, align 8
-  %44 = load ptr, ptr %10, align 8
-  %45 = load ptr, ptr %8, align 8
-  %46 = load i8, ptr %45, align 1
-  %47 = zext i8 %46 to i64
-  %48 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %43, ptr noundef @.str.83, ptr noundef %44, i64 noundef %47) #4
-  %49 = icmp sgt i32 0, %48
-  br i1 %49, label %50, label %57
+43:                                               ; preds = %21
+  %44 = load ptr, ptr %6, align 8, !tbaa !3
+  %45 = load ptr, ptr %10, align 8, !tbaa !8
+  %46 = load ptr, ptr %8, align 8, !tbaa !8
+  %47 = load i8, ptr %46, align 1, !tbaa !32
+  %48 = zext i8 %47 to i64
+  %49 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %44, ptr noundef @.str.83, ptr noundef %45, i64 noundef %48) #7
+  %50 = icmp sgt i32 0, %49
+  br i1 %50, label %51, label %58
 
-50:                                               ; preds = %42
-  %51 = load ptr, ptr %10, align 8
-  %52 = load ptr, ptr %7, align 8
-  %53 = icmp ne ptr %51, %52
-  br i1 %53, label %54, label %56
+51:                                               ; preds = %43
+  %52 = load ptr, ptr %10, align 8, !tbaa !8
+  %53 = load ptr, ptr %7, align 8, !tbaa !8
+  %54 = icmp ne ptr %52, %53
+  br i1 %54, label %55, label %57
 
-54:                                               ; preds = %50
-  %55 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %55) #4
-  br label %56
+55:                                               ; preds = %51
+  %56 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %56) #7
+  br label %57
 
-56:                                               ; preds = %54, %50
+57:                                               ; preds = %55, %51
   store i32 -32, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %65
+
+58:                                               ; preds = %43
+  %59 = load ptr, ptr %10, align 8, !tbaa !8
+  %60 = load ptr, ptr %7, align 8, !tbaa !8
+  %61 = icmp ne ptr %59, %60
+  br i1 %61, label %62, label %64
+
+62:                                               ; preds = %58
+  %63 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %63) #7
   br label %64
 
-57:                                               ; preds = %42
-  %58 = load ptr, ptr %10, align 8
-  %59 = load ptr, ptr %7, align 8
-  %60 = icmp ne ptr %58, %59
-  br i1 %60, label %61, label %63
-
-61:                                               ; preds = %57
-  %62 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %62) #4
-  br label %63
-
-63:                                               ; preds = %61, %57
+64:                                               ; preds = %62, %58
   store i32 0, ptr %5, align 4
-  br label %64
+  store i32 1, ptr %11, align 4
+  br label %65
 
-64:                                               ; preds = %63, %56, %41, %34, %16
-  %65 = load i32, ptr %5, align 4
-  ret i32 %65
+65:                                               ; preds = %64, %57, %42, %35, %17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  %66 = load i32, ptr %5, align 4
+  ret i32 %66
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3432,74 +3653,80 @@ define i32 @pmix20_bfrop_print_scope(ptr noundef %0, ptr noundef %1, ptr noundef
   %8 = alloca ptr, align 8
   %9 = alloca i16, align 2
   %10 = alloca ptr, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store i16 %3, ptr %9, align 2
-  %11 = load ptr, ptr %7, align 8
-  %12 = icmp eq ptr null, %11
-  br i1 %12, label %13, label %18
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store ptr %1, ptr %7, align 8, !tbaa !8
+  store ptr %2, ptr %8, align 8, !tbaa !8
+  store i16 %3, ptr %9, align 2, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  %12 = load ptr, ptr %7, align 8, !tbaa !8
+  %13 = icmp eq ptr null, %12
+  br i1 %13, label %14, label %19
 
-13:                                               ; preds = %4
-  %14 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %10, ptr noundef @.str) #4
-  %15 = icmp sgt i32 0, %14
-  br i1 %15, label %16, label %17
+14:                                               ; preds = %4
+  %15 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %10, ptr noundef @.str) #7
+  %16 = icmp sgt i32 0, %15
+  br i1 %16, label %17, label %18
 
-16:                                               ; preds = %13
+17:                                               ; preds = %14
   store i32 -32, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %43
+
+18:                                               ; preds = %14
+  br label %21
+
+19:                                               ; preds = %4
+  %20 = load ptr, ptr %7, align 8, !tbaa !8
+  store ptr %20, ptr %10, align 8, !tbaa !8
+  br label %21
+
+21:                                               ; preds = %19, %18
+  %22 = load ptr, ptr %6, align 8, !tbaa !3
+  %23 = load ptr, ptr %10, align 8, !tbaa !8
+  %24 = load ptr, ptr %8, align 8, !tbaa !8
+  %25 = load i8, ptr %24, align 1, !tbaa !32
+  %26 = call ptr @PMIx_Scope_string(i8 noundef zeroext %25)
+  %27 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %22, ptr noundef @.str.84, ptr noundef %23, ptr noundef %26) #7
+  %28 = icmp sgt i32 0, %27
+  br i1 %28, label %29, label %36
+
+29:                                               ; preds = %21
+  %30 = load ptr, ptr %10, align 8, !tbaa !8
+  %31 = load ptr, ptr %7, align 8, !tbaa !8
+  %32 = icmp ne ptr %30, %31
+  br i1 %32, label %33, label %35
+
+33:                                               ; preds = %29
+  %34 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %34) #7
+  br label %35
+
+35:                                               ; preds = %33, %29
+  store i32 -32, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %43
+
+36:                                               ; preds = %21
+  %37 = load ptr, ptr %10, align 8, !tbaa !8
+  %38 = load ptr, ptr %7, align 8, !tbaa !8
+  %39 = icmp ne ptr %37, %38
+  br i1 %39, label %40, label %42
+
+40:                                               ; preds = %36
+  %41 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %41) #7
   br label %42
 
-17:                                               ; preds = %13
-  br label %20
-
-18:                                               ; preds = %4
-  %19 = load ptr, ptr %7, align 8
-  store ptr %19, ptr %10, align 8
-  br label %20
-
-20:                                               ; preds = %18, %17
-  %21 = load ptr, ptr %6, align 8
-  %22 = load ptr, ptr %10, align 8
-  %23 = load ptr, ptr %8, align 8
-  %24 = load i8, ptr %23, align 1
-  %25 = call ptr @PMIx_Scope_string(i8 noundef zeroext %24)
-  %26 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %21, ptr noundef @.str.84, ptr noundef %22, ptr noundef %25) #4
-  %27 = icmp sgt i32 0, %26
-  br i1 %27, label %28, label %35
-
-28:                                               ; preds = %20
-  %29 = load ptr, ptr %10, align 8
-  %30 = load ptr, ptr %7, align 8
-  %31 = icmp ne ptr %29, %30
-  br i1 %31, label %32, label %34
-
-32:                                               ; preds = %28
-  %33 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %33) #4
-  br label %34
-
-34:                                               ; preds = %32, %28
-  store i32 -32, ptr %5, align 4
-  br label %42
-
-35:                                               ; preds = %20
-  %36 = load ptr, ptr %10, align 8
-  %37 = load ptr, ptr %7, align 8
-  %38 = icmp ne ptr %36, %37
-  br i1 %38, label %39, label %41
-
-39:                                               ; preds = %35
-  %40 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %40) #4
-  br label %41
-
-41:                                               ; preds = %39, %35
+42:                                               ; preds = %40, %36
   store i32 0, ptr %5, align 4
-  br label %42
+  store i32 1, ptr %11, align 4
+  br label %43
 
-42:                                               ; preds = %41, %34, %16
-  %43 = load i32, ptr %5, align 4
-  ret i32 %43
+43:                                               ; preds = %42, %35, %17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  %44 = load i32, ptr %5, align 4
+  ret i32 %44
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3510,74 +3737,80 @@ define i32 @pmix20_bfrop_print_range(ptr noundef %0, ptr noundef %1, ptr noundef
   %8 = alloca ptr, align 8
   %9 = alloca i16, align 2
   %10 = alloca ptr, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store i16 %3, ptr %9, align 2
-  %11 = load ptr, ptr %7, align 8
-  %12 = icmp eq ptr null, %11
-  br i1 %12, label %13, label %18
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store ptr %1, ptr %7, align 8, !tbaa !8
+  store ptr %2, ptr %8, align 8, !tbaa !8
+  store i16 %3, ptr %9, align 2, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  %12 = load ptr, ptr %7, align 8, !tbaa !8
+  %13 = icmp eq ptr null, %12
+  br i1 %13, label %14, label %19
 
-13:                                               ; preds = %4
-  %14 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %10, ptr noundef @.str) #4
-  %15 = icmp sgt i32 0, %14
-  br i1 %15, label %16, label %17
+14:                                               ; preds = %4
+  %15 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %10, ptr noundef @.str) #7
+  %16 = icmp sgt i32 0, %15
+  br i1 %16, label %17, label %18
 
-16:                                               ; preds = %13
+17:                                               ; preds = %14
   store i32 -32, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %43
+
+18:                                               ; preds = %14
+  br label %21
+
+19:                                               ; preds = %4
+  %20 = load ptr, ptr %7, align 8, !tbaa !8
+  store ptr %20, ptr %10, align 8, !tbaa !8
+  br label %21
+
+21:                                               ; preds = %19, %18
+  %22 = load ptr, ptr %6, align 8, !tbaa !3
+  %23 = load ptr, ptr %10, align 8, !tbaa !8
+  %24 = load ptr, ptr %8, align 8, !tbaa !8
+  %25 = load i8, ptr %24, align 1, !tbaa !32
+  %26 = call ptr @PMIx_Data_range_string(i8 noundef zeroext %25)
+  %27 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %22, ptr noundef @.str.85, ptr noundef %23, ptr noundef %26) #7
+  %28 = icmp sgt i32 0, %27
+  br i1 %28, label %29, label %36
+
+29:                                               ; preds = %21
+  %30 = load ptr, ptr %10, align 8, !tbaa !8
+  %31 = load ptr, ptr %7, align 8, !tbaa !8
+  %32 = icmp ne ptr %30, %31
+  br i1 %32, label %33, label %35
+
+33:                                               ; preds = %29
+  %34 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %34) #7
+  br label %35
+
+35:                                               ; preds = %33, %29
+  store i32 -32, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %43
+
+36:                                               ; preds = %21
+  %37 = load ptr, ptr %10, align 8, !tbaa !8
+  %38 = load ptr, ptr %7, align 8, !tbaa !8
+  %39 = icmp ne ptr %37, %38
+  br i1 %39, label %40, label %42
+
+40:                                               ; preds = %36
+  %41 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %41) #7
   br label %42
 
-17:                                               ; preds = %13
-  br label %20
-
-18:                                               ; preds = %4
-  %19 = load ptr, ptr %7, align 8
-  store ptr %19, ptr %10, align 8
-  br label %20
-
-20:                                               ; preds = %18, %17
-  %21 = load ptr, ptr %6, align 8
-  %22 = load ptr, ptr %10, align 8
-  %23 = load ptr, ptr %8, align 8
-  %24 = load i8, ptr %23, align 1
-  %25 = call ptr @PMIx_Data_range_string(i8 noundef zeroext %24)
-  %26 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %21, ptr noundef @.str.85, ptr noundef %22, ptr noundef %25) #4
-  %27 = icmp sgt i32 0, %26
-  br i1 %27, label %28, label %35
-
-28:                                               ; preds = %20
-  %29 = load ptr, ptr %10, align 8
-  %30 = load ptr, ptr %7, align 8
-  %31 = icmp ne ptr %29, %30
-  br i1 %31, label %32, label %34
-
-32:                                               ; preds = %28
-  %33 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %33) #4
-  br label %34
-
-34:                                               ; preds = %32, %28
-  store i32 -32, ptr %5, align 4
-  br label %42
-
-35:                                               ; preds = %20
-  %36 = load ptr, ptr %10, align 8
-  %37 = load ptr, ptr %7, align 8
-  %38 = icmp ne ptr %36, %37
-  br i1 %38, label %39, label %41
-
-39:                                               ; preds = %35
-  %40 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %40) #4
-  br label %41
-
-41:                                               ; preds = %39, %35
+42:                                               ; preds = %40, %36
   store i32 0, ptr %5, align 4
-  br label %42
+  store i32 1, ptr %11, align 4
+  br label %43
 
-42:                                               ; preds = %41, %34, %16
-  %43 = load i32, ptr %5, align 4
-  ret i32 %43
+43:                                               ; preds = %42, %35, %17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  %44 = load i32, ptr %5, align 4
+  ret i32 %44
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3588,77 +3821,83 @@ define i32 @pmix20_bfrop_print_cmd(ptr noundef %0, ptr noundef %1, ptr noundef %
   %8 = alloca ptr, align 8
   %9 = alloca i16, align 2
   %10 = alloca ptr, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store i16 %3, ptr %9, align 2
-  %11 = load ptr, ptr %7, align 8
-  %12 = icmp eq ptr null, %11
-  br i1 %12, label %13, label %18
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store ptr %1, ptr %7, align 8, !tbaa !8
+  store ptr %2, ptr %8, align 8, !tbaa !8
+  store i16 %3, ptr %9, align 2, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  %12 = load ptr, ptr %7, align 8, !tbaa !8
+  %13 = icmp eq ptr null, %12
+  br i1 %13, label %14, label %19
 
-13:                                               ; preds = %4
-  %14 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %10, ptr noundef @.str) #4
-  %15 = icmp sgt i32 0, %14
-  br i1 %15, label %16, label %17
+14:                                               ; preds = %4
+  %15 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %10, ptr noundef @.str) #7
+  %16 = icmp sgt i32 0, %15
+  br i1 %16, label %17, label %18
 
-16:                                               ; preds = %13
+17:                                               ; preds = %14
   store i32 -32, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %43
+
+18:                                               ; preds = %14
+  br label %21
+
+19:                                               ; preds = %4
+  %20 = load ptr, ptr %7, align 8, !tbaa !8
+  store ptr %20, ptr %10, align 8, !tbaa !8
+  br label %21
+
+21:                                               ; preds = %19, %18
+  %22 = load ptr, ptr %6, align 8, !tbaa !3
+  %23 = load ptr, ptr %10, align 8, !tbaa !8
+  %24 = load ptr, ptr %8, align 8, !tbaa !8
+  %25 = load i8, ptr %24, align 1, !tbaa !32
+  %26 = call ptr @pmix_command_string(i8 noundef zeroext %25)
+  %27 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %22, ptr noundef @.str.86, ptr noundef %23, ptr noundef %26) #7
+  %28 = icmp sgt i32 0, %27
+  br i1 %28, label %29, label %36
+
+29:                                               ; preds = %21
+  %30 = load ptr, ptr %10, align 8, !tbaa !8
+  %31 = load ptr, ptr %7, align 8, !tbaa !8
+  %32 = icmp ne ptr %30, %31
+  br i1 %32, label %33, label %35
+
+33:                                               ; preds = %29
+  %34 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %34) #7
+  br label %35
+
+35:                                               ; preds = %33, %29
+  store i32 -32, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %43
+
+36:                                               ; preds = %21
+  %37 = load ptr, ptr %10, align 8, !tbaa !8
+  %38 = load ptr, ptr %7, align 8, !tbaa !8
+  %39 = icmp ne ptr %37, %38
+  br i1 %39, label %40, label %42
+
+40:                                               ; preds = %36
+  %41 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %41) #7
   br label %42
 
-17:                                               ; preds = %13
-  br label %20
-
-18:                                               ; preds = %4
-  %19 = load ptr, ptr %7, align 8
-  store ptr %19, ptr %10, align 8
-  br label %20
-
-20:                                               ; preds = %18, %17
-  %21 = load ptr, ptr %6, align 8
-  %22 = load ptr, ptr %10, align 8
-  %23 = load ptr, ptr %8, align 8
-  %24 = load i8, ptr %23, align 1
-  %25 = call ptr @pmix_command_string(i8 noundef zeroext %24)
-  %26 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %21, ptr noundef @.str.86, ptr noundef %22, ptr noundef %25) #4
-  %27 = icmp sgt i32 0, %26
-  br i1 %27, label %28, label %35
-
-28:                                               ; preds = %20
-  %29 = load ptr, ptr %10, align 8
-  %30 = load ptr, ptr %7, align 8
-  %31 = icmp ne ptr %29, %30
-  br i1 %31, label %32, label %34
-
-32:                                               ; preds = %28
-  %33 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %33) #4
-  br label %34
-
-34:                                               ; preds = %32, %28
-  store i32 -32, ptr %5, align 4
-  br label %42
-
-35:                                               ; preds = %20
-  %36 = load ptr, ptr %10, align 8
-  %37 = load ptr, ptr %7, align 8
-  %38 = icmp ne ptr %36, %37
-  br i1 %38, label %39, label %41
-
-39:                                               ; preds = %35
-  %40 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %40) #4
-  br label %41
-
-41:                                               ; preds = %39, %35
+42:                                               ; preds = %40, %36
   store i32 0, ptr %5, align 4
-  br label %42
+  store i32 1, ptr %11, align 4
+  br label %43
 
-42:                                               ; preds = %41, %34, %16
-  %43 = load i32, ptr %5, align 4
-  ret i32 %43
+43:                                               ; preds = %42, %35, %17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  %44 = load i32, ptr %5, align 4
+  ret i32 %44
 }
 
-declare ptr @pmix_command_string(i8 noundef zeroext) #3
+declare ptr @pmix_command_string(i8 noundef zeroext) #5
 
 ; Function Attrs: nounwind uwtable
 define i32 @pmix20_bfrop_print_infodirs(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3) #0 {
@@ -3669,83 +3908,91 @@ define i32 @pmix20_bfrop_print_infodirs(ptr noundef %0, ptr noundef %1, ptr noun
   %9 = alloca i16, align 2
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store i16 %3, ptr %9, align 2
-  %12 = load ptr, ptr %7, align 8
-  %13 = icmp eq ptr null, %12
-  br i1 %13, label %14, label %19
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store ptr %1, ptr %7, align 8, !tbaa !8
+  store ptr %2, ptr %8, align 8, !tbaa !36
+  store i16 %3, ptr %9, align 2, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
+  %13 = load ptr, ptr %7, align 8, !tbaa !8
+  %14 = icmp eq ptr null, %13
+  br i1 %14, label %15, label %20
 
-14:                                               ; preds = %4
-  %15 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %10, ptr noundef @.str) #4
-  %16 = icmp sgt i32 0, %15
-  br i1 %16, label %17, label %18
+15:                                               ; preds = %4
+  %16 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %10, ptr noundef @.str) #7
+  %17 = icmp sgt i32 0, %16
+  br i1 %17, label %18, label %19
 
-17:                                               ; preds = %14
+18:                                               ; preds = %15
   store i32 -32, ptr %5, align 4
+  store i32 1, ptr %12, align 4
+  br label %47
+
+19:                                               ; preds = %15
+  br label %22
+
+20:                                               ; preds = %4
+  %21 = load ptr, ptr %7, align 8, !tbaa !8
+  store ptr %21, ptr %10, align 8, !tbaa !8
+  br label %22
+
+22:                                               ; preds = %20, %19
+  %23 = load ptr, ptr %8, align 8, !tbaa !36
+  %24 = load i32, ptr %23, align 4, !tbaa !21
+  %25 = call ptr @PMIx_Info_directives_string(i32 noundef %24)
+  store ptr %25, ptr %11, align 8, !tbaa !8
+  %26 = load ptr, ptr %6, align 8, !tbaa !3
+  %27 = load ptr, ptr %10, align 8, !tbaa !8
+  %28 = load ptr, ptr %11, align 8, !tbaa !8
+  %29 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %26, ptr noundef @.str.87, ptr noundef %27, ptr noundef %28) #7
+  %30 = icmp sgt i32 0, %29
+  br i1 %30, label %31, label %39
+
+31:                                               ; preds = %22
+  %32 = load ptr, ptr %11, align 8, !tbaa !8
+  call void @free(ptr noundef %32) #7
+  %33 = load ptr, ptr %10, align 8, !tbaa !8
+  %34 = load ptr, ptr %7, align 8, !tbaa !8
+  %35 = icmp ne ptr %33, %34
+  br i1 %35, label %36, label %38
+
+36:                                               ; preds = %31
+  %37 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %37) #7
+  br label %38
+
+38:                                               ; preds = %36, %31
+  store i32 -32, ptr %5, align 4
+  store i32 1, ptr %12, align 4
+  br label %47
+
+39:                                               ; preds = %22
+  %40 = load ptr, ptr %11, align 8, !tbaa !8
+  call void @free(ptr noundef %40) #7
+  %41 = load ptr, ptr %10, align 8, !tbaa !8
+  %42 = load ptr, ptr %7, align 8, !tbaa !8
+  %43 = icmp ne ptr %41, %42
+  br i1 %43, label %44, label %46
+
+44:                                               ; preds = %39
+  %45 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %45) #7
   br label %46
 
-18:                                               ; preds = %14
-  br label %21
-
-19:                                               ; preds = %4
-  %20 = load ptr, ptr %7, align 8
-  store ptr %20, ptr %10, align 8
-  br label %21
-
-21:                                               ; preds = %19, %18
-  %22 = load ptr, ptr %8, align 8
-  %23 = load i32, ptr %22, align 4
-  %24 = call ptr @PMIx_Info_directives_string(i32 noundef %23)
-  store ptr %24, ptr %11, align 8
-  %25 = load ptr, ptr %6, align 8
-  %26 = load ptr, ptr %10, align 8
-  %27 = load ptr, ptr %11, align 8
-  %28 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %25, ptr noundef @.str.87, ptr noundef %26, ptr noundef %27) #4
-  %29 = icmp sgt i32 0, %28
-  br i1 %29, label %30, label %38
-
-30:                                               ; preds = %21
-  %31 = load ptr, ptr %11, align 8
-  call void @free(ptr noundef %31) #4
-  %32 = load ptr, ptr %10, align 8
-  %33 = load ptr, ptr %7, align 8
-  %34 = icmp ne ptr %32, %33
-  br i1 %34, label %35, label %37
-
-35:                                               ; preds = %30
-  %36 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %36) #4
-  br label %37
-
-37:                                               ; preds = %35, %30
-  store i32 -32, ptr %5, align 4
-  br label %46
-
-38:                                               ; preds = %21
-  %39 = load ptr, ptr %11, align 8
-  call void @free(ptr noundef %39) #4
-  %40 = load ptr, ptr %10, align 8
-  %41 = load ptr, ptr %7, align 8
-  %42 = icmp ne ptr %40, %41
-  br i1 %42, label %43, label %45
-
-43:                                               ; preds = %38
-  %44 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %44) #4
-  br label %45
-
-45:                                               ; preds = %43, %38
+46:                                               ; preds = %44, %39
   store i32 0, ptr %5, align 4
-  br label %46
+  store i32 1, ptr %12, align 4
+  br label %47
 
-46:                                               ; preds = %45, %37, %17
-  %47 = load i32, ptr %5, align 4
-  ret i32 %47
+47:                                               ; preds = %46, %38, %18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  %48 = load i32, ptr %5, align 4
+  ret i32 %48
 }
 
-declare ptr @PMIx_Info_directives_string(i32 noundef) #3
+declare ptr @PMIx_Info_directives_string(i32 noundef) #5
 
 ; Function Attrs: nounwind uwtable
 define i32 @pmix20_bfrop_print_bo(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3) #0 {
@@ -3755,116 +4002,124 @@ define i32 @pmix20_bfrop_print_bo(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %8 = alloca ptr, align 8
   %9 = alloca i16, align 2
   %10 = alloca ptr, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store i16 %3, ptr %9, align 2
-  %11 = load ptr, ptr %7, align 8
-  %12 = icmp eq ptr null, %11
-  br i1 %12, label %13, label %18
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store ptr %1, ptr %7, align 8, !tbaa !8
+  store ptr %2, ptr %8, align 8, !tbaa !78
+  store i16 %3, ptr %9, align 2, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  %12 = load ptr, ptr %7, align 8, !tbaa !8
+  %13 = icmp eq ptr null, %12
+  br i1 %13, label %14, label %19
 
-13:                                               ; preds = %4
-  %14 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %10, ptr noundef @.str) #4
-  %15 = icmp sgt i32 0, %14
-  br i1 %15, label %16, label %17
+14:                                               ; preds = %4
+  %15 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %10, ptr noundef @.str) #7
+  %16 = icmp sgt i32 0, %15
+  br i1 %16, label %17, label %18
 
-16:                                               ; preds = %13
+17:                                               ; preds = %14
   store i32 -32, ptr %5, align 4
-  br label %64
+  store i32 1, ptr %11, align 4
+  br label %65
 
-17:                                               ; preds = %13
-  br label %20
+18:                                               ; preds = %14
+  br label %21
 
-18:                                               ; preds = %4
-  %19 = load ptr, ptr %7, align 8
-  store ptr %19, ptr %10, align 8
-  br label %20
+19:                                               ; preds = %4
+  %20 = load ptr, ptr %7, align 8, !tbaa !8
+  store ptr %20, ptr %10, align 8, !tbaa !8
+  br label %21
 
-20:                                               ; preds = %18, %17
-  %21 = load ptr, ptr %8, align 8
-  %22 = icmp eq ptr null, %21
-  br i1 %22, label %23, label %42
+21:                                               ; preds = %19, %18
+  %22 = load ptr, ptr %8, align 8, !tbaa !78
+  %23 = icmp eq ptr null, %22
+  br i1 %23, label %24, label %43
 
-23:                                               ; preds = %20
-  %24 = load ptr, ptr %6, align 8
-  %25 = load ptr, ptr %10, align 8
-  %26 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %24, ptr noundef @.str.88, ptr noundef %25) #4
-  %27 = icmp sgt i32 0, %26
-  br i1 %27, label %28, label %35
+24:                                               ; preds = %21
+  %25 = load ptr, ptr %6, align 8, !tbaa !3
+  %26 = load ptr, ptr %10, align 8, !tbaa !8
+  %27 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %25, ptr noundef @.str.88, ptr noundef %26) #7
+  %28 = icmp sgt i32 0, %27
+  br i1 %28, label %29, label %36
 
-28:                                               ; preds = %23
-  %29 = load ptr, ptr %10, align 8
-  %30 = load ptr, ptr %7, align 8
-  %31 = icmp ne ptr %29, %30
-  br i1 %31, label %32, label %34
+29:                                               ; preds = %24
+  %30 = load ptr, ptr %10, align 8, !tbaa !8
+  %31 = load ptr, ptr %7, align 8, !tbaa !8
+  %32 = icmp ne ptr %30, %31
+  br i1 %32, label %33, label %35
 
-32:                                               ; preds = %28
-  %33 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %33) #4
-  br label %34
+33:                                               ; preds = %29
+  %34 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %34) #7
+  br label %35
 
-34:                                               ; preds = %32, %28
+35:                                               ; preds = %33, %29
   store i32 -32, ptr %5, align 4
-  br label %64
+  store i32 1, ptr %11, align 4
+  br label %65
 
-35:                                               ; preds = %23
-  %36 = load ptr, ptr %10, align 8
-  %37 = load ptr, ptr %7, align 8
-  %38 = icmp ne ptr %36, %37
-  br i1 %38, label %39, label %41
+36:                                               ; preds = %24
+  %37 = load ptr, ptr %10, align 8, !tbaa !8
+  %38 = load ptr, ptr %7, align 8, !tbaa !8
+  %39 = icmp ne ptr %37, %38
+  br i1 %39, label %40, label %42
 
-39:                                               ; preds = %35
-  %40 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %40) #4
-  br label %41
+40:                                               ; preds = %36
+  %41 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %41) #7
+  br label %42
 
-41:                                               ; preds = %39, %35
+42:                                               ; preds = %40, %36
   store i32 0, ptr %5, align 4
-  br label %64
+  store i32 1, ptr %11, align 4
+  br label %65
 
-42:                                               ; preds = %20
-  %43 = load ptr, ptr %6, align 8
-  %44 = load ptr, ptr %10, align 8
-  %45 = load ptr, ptr %8, align 8
-  %46 = getelementptr inbounds %struct.pmix_byte_object, ptr %45, i32 0, i32 1
-  %47 = load i64, ptr %46, align 8
-  %48 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %43, ptr noundef @.str.89, ptr noundef %44, i64 noundef %47) #4
-  %49 = icmp sgt i32 0, %48
-  br i1 %49, label %50, label %57
+43:                                               ; preds = %21
+  %44 = load ptr, ptr %6, align 8, !tbaa !3
+  %45 = load ptr, ptr %10, align 8, !tbaa !8
+  %46 = load ptr, ptr %8, align 8, !tbaa !78
+  %47 = getelementptr inbounds nuw %struct.pmix_byte_object, ptr %46, i32 0, i32 1
+  %48 = load i64, ptr %47, align 8, !tbaa !80
+  %49 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %44, ptr noundef @.str.89, ptr noundef %45, i64 noundef %48) #7
+  %50 = icmp sgt i32 0, %49
+  br i1 %50, label %51, label %58
 
-50:                                               ; preds = %42
-  %51 = load ptr, ptr %10, align 8
-  %52 = load ptr, ptr %7, align 8
-  %53 = icmp ne ptr %51, %52
-  br i1 %53, label %54, label %56
+51:                                               ; preds = %43
+  %52 = load ptr, ptr %10, align 8, !tbaa !8
+  %53 = load ptr, ptr %7, align 8, !tbaa !8
+  %54 = icmp ne ptr %52, %53
+  br i1 %54, label %55, label %57
 
-54:                                               ; preds = %50
-  %55 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %55) #4
-  br label %56
+55:                                               ; preds = %51
+  %56 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %56) #7
+  br label %57
 
-56:                                               ; preds = %54, %50
+57:                                               ; preds = %55, %51
   store i32 -32, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %65
+
+58:                                               ; preds = %43
+  %59 = load ptr, ptr %10, align 8, !tbaa !8
+  %60 = load ptr, ptr %7, align 8, !tbaa !8
+  %61 = icmp ne ptr %59, %60
+  br i1 %61, label %62, label %64
+
+62:                                               ; preds = %58
+  %63 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %63) #7
   br label %64
 
-57:                                               ; preds = %42
-  %58 = load ptr, ptr %10, align 8
-  %59 = load ptr, ptr %7, align 8
-  %60 = icmp ne ptr %58, %59
-  br i1 %60, label %61, label %63
-
-61:                                               ; preds = %57
-  %62 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %62) #4
-  br label %63
-
-63:                                               ; preds = %61, %57
+64:                                               ; preds = %62, %58
   store i32 0, ptr %5, align 4
-  br label %64
+  store i32 1, ptr %11, align 4
+  br label %65
 
-64:                                               ; preds = %63, %56, %41, %34, %16
-  %65 = load i32, ptr %5, align 4
-  ret i32 %65
+65:                                               ; preds = %64, %57, %42, %35, %17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  %66 = load i32, ptr %5, align 4
+  ret i32 %66
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3875,72 +4130,78 @@ define i32 @pmix20_bfrop_print_ptr(ptr noundef %0, ptr noundef %1, ptr noundef %
   %8 = alloca ptr, align 8
   %9 = alloca i16, align 2
   %10 = alloca ptr, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store i16 %3, ptr %9, align 2
-  %11 = load ptr, ptr %7, align 8
-  %12 = icmp eq ptr null, %11
-  br i1 %12, label %13, label %18
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store ptr %1, ptr %7, align 8, !tbaa !8
+  store ptr %2, ptr %8, align 8, !tbaa !10
+  store i16 %3, ptr %9, align 2, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  %12 = load ptr, ptr %7, align 8, !tbaa !8
+  %13 = icmp eq ptr null, %12
+  br i1 %13, label %14, label %19
 
-13:                                               ; preds = %4
-  %14 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %10, ptr noundef @.str) #4
-  %15 = icmp sgt i32 0, %14
-  br i1 %15, label %16, label %17
+14:                                               ; preds = %4
+  %15 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %10, ptr noundef @.str) #7
+  %16 = icmp sgt i32 0, %15
+  br i1 %16, label %17, label %18
 
-16:                                               ; preds = %13
+17:                                               ; preds = %14
   store i32 -32, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %41
+
+18:                                               ; preds = %14
+  br label %21
+
+19:                                               ; preds = %4
+  %20 = load ptr, ptr %7, align 8, !tbaa !8
+  store ptr %20, ptr %10, align 8, !tbaa !8
+  br label %21
+
+21:                                               ; preds = %19, %18
+  %22 = load ptr, ptr %6, align 8, !tbaa !3
+  %23 = load ptr, ptr %10, align 8, !tbaa !8
+  %24 = load ptr, ptr %8, align 8, !tbaa !10
+  %25 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %22, ptr noundef @.str.90, ptr noundef %23, ptr noundef %24) #7
+  %26 = icmp sgt i32 0, %25
+  br i1 %26, label %27, label %34
+
+27:                                               ; preds = %21
+  %28 = load ptr, ptr %10, align 8, !tbaa !8
+  %29 = load ptr, ptr %7, align 8, !tbaa !8
+  %30 = icmp ne ptr %28, %29
+  br i1 %30, label %31, label %33
+
+31:                                               ; preds = %27
+  %32 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %32) #7
+  br label %33
+
+33:                                               ; preds = %31, %27
+  store i32 -32, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %41
+
+34:                                               ; preds = %21
+  %35 = load ptr, ptr %10, align 8, !tbaa !8
+  %36 = load ptr, ptr %7, align 8, !tbaa !8
+  %37 = icmp ne ptr %35, %36
+  br i1 %37, label %38, label %40
+
+38:                                               ; preds = %34
+  %39 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %39) #7
   br label %40
 
-17:                                               ; preds = %13
-  br label %20
-
-18:                                               ; preds = %4
-  %19 = load ptr, ptr %7, align 8
-  store ptr %19, ptr %10, align 8
-  br label %20
-
-20:                                               ; preds = %18, %17
-  %21 = load ptr, ptr %6, align 8
-  %22 = load ptr, ptr %10, align 8
-  %23 = load ptr, ptr %8, align 8
-  %24 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %21, ptr noundef @.str.90, ptr noundef %22, ptr noundef %23) #4
-  %25 = icmp sgt i32 0, %24
-  br i1 %25, label %26, label %33
-
-26:                                               ; preds = %20
-  %27 = load ptr, ptr %10, align 8
-  %28 = load ptr, ptr %7, align 8
-  %29 = icmp ne ptr %27, %28
-  br i1 %29, label %30, label %32
-
-30:                                               ; preds = %26
-  %31 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %31) #4
-  br label %32
-
-32:                                               ; preds = %30, %26
-  store i32 -32, ptr %5, align 4
-  br label %40
-
-33:                                               ; preds = %20
-  %34 = load ptr, ptr %10, align 8
-  %35 = load ptr, ptr %7, align 8
-  %36 = icmp ne ptr %34, %35
-  br i1 %36, label %37, label %39
-
-37:                                               ; preds = %33
-  %38 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %38) #4
-  br label %39
-
-39:                                               ; preds = %37, %33
+40:                                               ; preds = %38, %34
   store i32 0, ptr %5, align 4
-  br label %40
+  store i32 1, ptr %11, align 4
+  br label %41
 
-40:                                               ; preds = %39, %32, %16
-  %41 = load i32, ptr %5, align 4
-  ret i32 %41
+41:                                               ; preds = %40, %33, %17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  %42 = load i32, ptr %5, align 4
+  ret i32 %42
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3951,74 +4212,80 @@ define i32 @pmix20_bfrop_print_pstate(ptr noundef %0, ptr noundef %1, ptr nounde
   %8 = alloca ptr, align 8
   %9 = alloca i16, align 2
   %10 = alloca ptr, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store i16 %3, ptr %9, align 2
-  %11 = load ptr, ptr %7, align 8
-  %12 = icmp eq ptr null, %11
-  br i1 %12, label %13, label %18
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store ptr %1, ptr %7, align 8, !tbaa !8
+  store ptr %2, ptr %8, align 8, !tbaa !8
+  store i16 %3, ptr %9, align 2, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  %12 = load ptr, ptr %7, align 8, !tbaa !8
+  %13 = icmp eq ptr null, %12
+  br i1 %13, label %14, label %19
 
-13:                                               ; preds = %4
-  %14 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %10, ptr noundef @.str) #4
-  %15 = icmp sgt i32 0, %14
-  br i1 %15, label %16, label %17
+14:                                               ; preds = %4
+  %15 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %10, ptr noundef @.str) #7
+  %16 = icmp sgt i32 0, %15
+  br i1 %16, label %17, label %18
 
-16:                                               ; preds = %13
+17:                                               ; preds = %14
   store i32 -32, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %43
+
+18:                                               ; preds = %14
+  br label %21
+
+19:                                               ; preds = %4
+  %20 = load ptr, ptr %7, align 8, !tbaa !8
+  store ptr %20, ptr %10, align 8, !tbaa !8
+  br label %21
+
+21:                                               ; preds = %19, %18
+  %22 = load ptr, ptr %6, align 8, !tbaa !3
+  %23 = load ptr, ptr %10, align 8, !tbaa !8
+  %24 = load ptr, ptr %8, align 8, !tbaa !8
+  %25 = load i8, ptr %24, align 1, !tbaa !32
+  %26 = call ptr @PMIx_Proc_state_string(i8 noundef zeroext %25)
+  %27 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %22, ptr noundef @.str.91, ptr noundef %23, ptr noundef %26) #7
+  %28 = icmp sgt i32 0, %27
+  br i1 %28, label %29, label %36
+
+29:                                               ; preds = %21
+  %30 = load ptr, ptr %10, align 8, !tbaa !8
+  %31 = load ptr, ptr %7, align 8, !tbaa !8
+  %32 = icmp ne ptr %30, %31
+  br i1 %32, label %33, label %35
+
+33:                                               ; preds = %29
+  %34 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %34) #7
+  br label %35
+
+35:                                               ; preds = %33, %29
+  store i32 -32, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %43
+
+36:                                               ; preds = %21
+  %37 = load ptr, ptr %10, align 8, !tbaa !8
+  %38 = load ptr, ptr %7, align 8, !tbaa !8
+  %39 = icmp ne ptr %37, %38
+  br i1 %39, label %40, label %42
+
+40:                                               ; preds = %36
+  %41 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %41) #7
   br label %42
 
-17:                                               ; preds = %13
-  br label %20
-
-18:                                               ; preds = %4
-  %19 = load ptr, ptr %7, align 8
-  store ptr %19, ptr %10, align 8
-  br label %20
-
-20:                                               ; preds = %18, %17
-  %21 = load ptr, ptr %6, align 8
-  %22 = load ptr, ptr %10, align 8
-  %23 = load ptr, ptr %8, align 8
-  %24 = load i8, ptr %23, align 1
-  %25 = call ptr @PMIx_Proc_state_string(i8 noundef zeroext %24)
-  %26 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %21, ptr noundef @.str.91, ptr noundef %22, ptr noundef %25) #4
-  %27 = icmp sgt i32 0, %26
-  br i1 %27, label %28, label %35
-
-28:                                               ; preds = %20
-  %29 = load ptr, ptr %10, align 8
-  %30 = load ptr, ptr %7, align 8
-  %31 = icmp ne ptr %29, %30
-  br i1 %31, label %32, label %34
-
-32:                                               ; preds = %28
-  %33 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %33) #4
-  br label %34
-
-34:                                               ; preds = %32, %28
-  store i32 -32, ptr %5, align 4
-  br label %42
-
-35:                                               ; preds = %20
-  %36 = load ptr, ptr %10, align 8
-  %37 = load ptr, ptr %7, align 8
-  %38 = icmp ne ptr %36, %37
-  br i1 %38, label %39, label %41
-
-39:                                               ; preds = %35
-  %40 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %40) #4
-  br label %41
-
-41:                                               ; preds = %39, %35
+42:                                               ; preds = %40, %36
   store i32 0, ptr %5, align 4
-  br label %42
+  store i32 1, ptr %11, align 4
+  br label %43
 
-42:                                               ; preds = %41, %34, %16
-  %43 = load i32, ptr %5, align 4
-  ret i32 %43
+43:                                               ; preds = %42, %35, %17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  %44 = load i32, ptr %5, align 4
+  ret i32 %44
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4032,111 +4299,122 @@ define i32 @pmix20_bfrop_print_pinfo(ptr noundef %0, ptr noundef %1, ptr noundef
   %11 = alloca i32, align 4
   %12 = alloca ptr, align 8
   %13 = alloca ptr, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store i16 %3, ptr %9, align 2
-  store i32 0, ptr %11, align 4
-  %14 = load ptr, ptr %7, align 8
-  %15 = icmp eq ptr null, %14
-  br i1 %15, label %16, label %21
+  %14 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store ptr %1, ptr %7, align 8, !tbaa !8
+  store ptr %2, ptr %8, align 8, !tbaa !82
+  store i16 %3, ptr %9, align 2, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #7
+  store i32 0, ptr %11, align 4, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #7
+  %15 = load ptr, ptr %7, align 8, !tbaa !8
+  %16 = icmp eq ptr null, %15
+  br i1 %16, label %17, label %22
 
-16:                                               ; preds = %4
-  %17 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %10, ptr noundef @.str) #4
-  %18 = icmp sgt i32 0, %17
-  br i1 %18, label %19, label %20
+17:                                               ; preds = %4
+  %18 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %10, ptr noundef @.str) #7
+  %19 = icmp sgt i32 0, %18
+  br i1 %19, label %20, label %21
 
-19:                                               ; preds = %16
+20:                                               ; preds = %17
   store i32 -32, ptr %5, align 4
-  br label %72
+  store i32 1, ptr %14, align 4
+  br label %73
 
-20:                                               ; preds = %16
-  br label %23
+21:                                               ; preds = %17
+  br label %24
 
-21:                                               ; preds = %4
-  %22 = load ptr, ptr %7, align 8
-  store ptr %22, ptr %10, align 8
-  br label %23
+22:                                               ; preds = %4
+  %23 = load ptr, ptr %7, align 8, !tbaa !8
+  store ptr %23, ptr %10, align 8, !tbaa !8
+  br label %24
 
-23:                                               ; preds = %21, %20
-  %24 = load ptr, ptr %10, align 8
-  %25 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %12, ptr noundef @.str.92, ptr noundef %24) #4
-  %26 = icmp sgt i32 0, %25
-  br i1 %26, label %27, label %28
+24:                                               ; preds = %22, %21
+  %25 = load ptr, ptr %10, align 8, !tbaa !8
+  %26 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %12, ptr noundef @.str.92, ptr noundef %25) #7
+  %27 = icmp sgt i32 0, %26
+  br i1 %27, label %28, label %29
 
-27:                                               ; preds = %23
-  store i32 -32, ptr %11, align 4
+28:                                               ; preds = %24
+  store i32 -32, ptr %11, align 4, !tbaa !21
+  br label %65
+
+29:                                               ; preds = %24
+  %30 = load ptr, ptr %12, align 8, !tbaa !8
+  %31 = load ptr, ptr %8, align 8, !tbaa !82
+  %32 = getelementptr inbounds nuw %struct.pmix_proc_info, ptr %31, i32 0, i32 0
+  %33 = call i32 @pmix20_bfrop_print_proc(ptr noundef %13, ptr noundef %30, ptr noundef %32, i16 noundef zeroext 22)
+  store i32 %33, ptr %11, align 4, !tbaa !21
+  %34 = icmp ne i32 0, %33
+  br i1 %34, label %35, label %37
+
+35:                                               ; preds = %29
+  %36 = load ptr, ptr %12, align 8, !tbaa !8
+  call void @free(ptr noundef %36) #7
+  br label %65
+
+37:                                               ; preds = %29
+  %38 = load ptr, ptr %6, align 8, !tbaa !3
+  %39 = load ptr, ptr %10, align 8, !tbaa !8
+  %40 = load ptr, ptr %13, align 8, !tbaa !8
+  %41 = load ptr, ptr %12, align 8, !tbaa !8
+  %42 = load ptr, ptr %8, align 8, !tbaa !82
+  %43 = getelementptr inbounds nuw %struct.pmix_proc_info, ptr %42, i32 0, i32 1
+  %44 = load ptr, ptr %43, align 8, !tbaa !61
+  %45 = load ptr, ptr %8, align 8, !tbaa !82
+  %46 = getelementptr inbounds nuw %struct.pmix_proc_info, ptr %45, i32 0, i32 2
+  %47 = load ptr, ptr %46, align 8, !tbaa !62
+  %48 = load ptr, ptr %12, align 8, !tbaa !8
+  %49 = load ptr, ptr %8, align 8, !tbaa !82
+  %50 = getelementptr inbounds nuw %struct.pmix_proc_info, ptr %49, i32 0, i32 3
+  %51 = load i32, ptr %50, align 8, !tbaa !63
+  %52 = sext i32 %51 to i64
+  %53 = load ptr, ptr %8, align 8, !tbaa !82
+  %54 = getelementptr inbounds nuw %struct.pmix_proc_info, ptr %53, i32 0, i32 4
+  %55 = load i32, ptr %54, align 4, !tbaa !84
+  %56 = load ptr, ptr %8, align 8, !tbaa !82
+  %57 = getelementptr inbounds nuw %struct.pmix_proc_info, ptr %56, i32 0, i32 5
+  %58 = load i8, ptr %57, align 8, !tbaa !85
+  %59 = call ptr @PMIx_Proc_state_string(i8 noundef zeroext %58)
+  %60 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %38, ptr noundef @.str.93, ptr noundef %39, ptr noundef %40, ptr noundef %41, ptr noundef %44, ptr noundef %47, ptr noundef %48, i64 noundef %52, i32 noundef %55, ptr noundef %59) #7
+  %61 = icmp sgt i32 0, %60
+  br i1 %61, label %62, label %64
+
+62:                                               ; preds = %37
+  %63 = load ptr, ptr %12, align 8, !tbaa !8
+  call void @free(ptr noundef %63) #7
+  store i32 -32, ptr %11, align 4, !tbaa !21
   br label %64
 
-28:                                               ; preds = %23
-  %29 = load ptr, ptr %12, align 8
-  %30 = load ptr, ptr %8, align 8
-  %31 = getelementptr inbounds %struct.pmix_proc_info, ptr %30, i32 0, i32 0
-  %32 = call i32 @pmix20_bfrop_print_proc(ptr noundef %13, ptr noundef %29, ptr noundef %31, i16 noundef zeroext 22)
-  store i32 %32, ptr %11, align 4
-  %33 = icmp ne i32 0, %32
-  br i1 %33, label %34, label %36
+64:                                               ; preds = %62, %37
+  br label %65
 
-34:                                               ; preds = %28
-  %35 = load ptr, ptr %12, align 8
-  call void @free(ptr noundef %35) #4
-  br label %64
+65:                                               ; preds = %64, %35, %28
+  %66 = load ptr, ptr %10, align 8, !tbaa !8
+  %67 = load ptr, ptr %7, align 8, !tbaa !8
+  %68 = icmp ne ptr %66, %67
+  br i1 %68, label %69, label %71
 
-36:                                               ; preds = %28
-  %37 = load ptr, ptr %6, align 8
-  %38 = load ptr, ptr %10, align 8
-  %39 = load ptr, ptr %13, align 8
-  %40 = load ptr, ptr %12, align 8
-  %41 = load ptr, ptr %8, align 8
-  %42 = getelementptr inbounds %struct.pmix_proc_info, ptr %41, i32 0, i32 1
-  %43 = load ptr, ptr %42, align 8
-  %44 = load ptr, ptr %8, align 8
-  %45 = getelementptr inbounds %struct.pmix_proc_info, ptr %44, i32 0, i32 2
-  %46 = load ptr, ptr %45, align 8
-  %47 = load ptr, ptr %12, align 8
-  %48 = load ptr, ptr %8, align 8
-  %49 = getelementptr inbounds %struct.pmix_proc_info, ptr %48, i32 0, i32 3
-  %50 = load i32, ptr %49, align 8
-  %51 = sext i32 %50 to i64
-  %52 = load ptr, ptr %8, align 8
-  %53 = getelementptr inbounds %struct.pmix_proc_info, ptr %52, i32 0, i32 4
-  %54 = load i32, ptr %53, align 4
-  %55 = load ptr, ptr %8, align 8
-  %56 = getelementptr inbounds %struct.pmix_proc_info, ptr %55, i32 0, i32 5
-  %57 = load i8, ptr %56, align 8
-  %58 = call ptr @PMIx_Proc_state_string(i8 noundef zeroext %57)
-  %59 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %37, ptr noundef @.str.93, ptr noundef %38, ptr noundef %39, ptr noundef %40, ptr noundef %43, ptr noundef %46, ptr noundef %47, i64 noundef %51, i32 noundef %54, ptr noundef %58) #4
-  %60 = icmp sgt i32 0, %59
-  br i1 %60, label %61, label %63
+69:                                               ; preds = %65
+  %70 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %70) #7
+  br label %71
 
-61:                                               ; preds = %36
-  %62 = load ptr, ptr %12, align 8
-  call void @free(ptr noundef %62) #4
-  store i32 -32, ptr %11, align 4
-  br label %63
+71:                                               ; preds = %69, %65
+  %72 = load i32, ptr %11, align 4, !tbaa !21
+  store i32 %72, ptr %5, align 4
+  store i32 1, ptr %14, align 4
+  br label %73
 
-63:                                               ; preds = %61, %36
-  br label %64
-
-64:                                               ; preds = %63, %34, %27
-  %65 = load ptr, ptr %10, align 8
-  %66 = load ptr, ptr %7, align 8
-  %67 = icmp ne ptr %65, %66
-  br i1 %67, label %68, label %70
-
-68:                                               ; preds = %64
-  %69 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %69) #4
-  br label %70
-
-70:                                               ; preds = %68, %64
-  %71 = load i32, ptr %11, align 4
-  store i32 %71, ptr %5, align 4
-  br label %72
-
-72:                                               ; preds = %70, %19
-  %73 = load i32, ptr %5, align 4
-  ret i32 %73
+73:                                               ; preds = %71, %20
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  %74 = load i32, ptr %5, align 4
+  ret i32 %74
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4147,74 +4425,80 @@ define i32 @pmix20_bfrop_print_darray(ptr noundef %0, ptr noundef %1, ptr nounde
   %8 = alloca ptr, align 8
   %9 = alloca i16, align 2
   %10 = alloca ptr, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store i16 %3, ptr %9, align 2
-  %11 = load ptr, ptr %7, align 8
-  %12 = icmp eq ptr null, %11
-  br i1 %12, label %13, label %18
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store ptr %1, ptr %7, align 8, !tbaa !8
+  store ptr %2, ptr %8, align 8, !tbaa !86
+  store i16 %3, ptr %9, align 2, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  %12 = load ptr, ptr %7, align 8, !tbaa !8
+  %13 = icmp eq ptr null, %12
+  br i1 %13, label %14, label %19
 
-13:                                               ; preds = %4
-  %14 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %10, ptr noundef @.str) #4
-  %15 = icmp sgt i32 0, %14
-  br i1 %15, label %16, label %17
+14:                                               ; preds = %4
+  %15 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %10, ptr noundef @.str) #7
+  %16 = icmp sgt i32 0, %15
+  br i1 %16, label %17, label %18
 
-16:                                               ; preds = %13
+17:                                               ; preds = %14
   store i32 -32, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %43
+
+18:                                               ; preds = %14
+  br label %21
+
+19:                                               ; preds = %4
+  %20 = load ptr, ptr %7, align 8, !tbaa !8
+  store ptr %20, ptr %10, align 8, !tbaa !8
+  br label %21
+
+21:                                               ; preds = %19, %18
+  %22 = load ptr, ptr %6, align 8, !tbaa !3
+  %23 = load ptr, ptr %10, align 8, !tbaa !8
+  %24 = load ptr, ptr %8, align 8, !tbaa !86
+  %25 = getelementptr inbounds nuw %struct.pmix_data_array, ptr %24, i32 0, i32 1
+  %26 = load i64, ptr %25, align 8, !tbaa !64
+  %27 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %22, ptr noundef @.str.94, ptr noundef %23, i64 noundef %26) #7
+  %28 = icmp sgt i32 0, %27
+  br i1 %28, label %29, label %36
+
+29:                                               ; preds = %21
+  %30 = load ptr, ptr %10, align 8, !tbaa !8
+  %31 = load ptr, ptr %7, align 8, !tbaa !8
+  %32 = icmp ne ptr %30, %31
+  br i1 %32, label %33, label %35
+
+33:                                               ; preds = %29
+  %34 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %34) #7
+  br label %35
+
+35:                                               ; preds = %33, %29
+  store i32 -32, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %43
+
+36:                                               ; preds = %21
+  %37 = load ptr, ptr %10, align 8, !tbaa !8
+  %38 = load ptr, ptr %7, align 8, !tbaa !8
+  %39 = icmp ne ptr %37, %38
+  br i1 %39, label %40, label %42
+
+40:                                               ; preds = %36
+  %41 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %41) #7
   br label %42
 
-17:                                               ; preds = %13
-  br label %20
-
-18:                                               ; preds = %4
-  %19 = load ptr, ptr %7, align 8
-  store ptr %19, ptr %10, align 8
-  br label %20
-
-20:                                               ; preds = %18, %17
-  %21 = load ptr, ptr %6, align 8
-  %22 = load ptr, ptr %10, align 8
-  %23 = load ptr, ptr %8, align 8
-  %24 = getelementptr inbounds %struct.pmix_data_array, ptr %23, i32 0, i32 1
-  %25 = load i64, ptr %24, align 8
-  %26 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %21, ptr noundef @.str.94, ptr noundef %22, i64 noundef %25) #4
-  %27 = icmp sgt i32 0, %26
-  br i1 %27, label %28, label %35
-
-28:                                               ; preds = %20
-  %29 = load ptr, ptr %10, align 8
-  %30 = load ptr, ptr %7, align 8
-  %31 = icmp ne ptr %29, %30
-  br i1 %31, label %32, label %34
-
-32:                                               ; preds = %28
-  %33 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %33) #4
-  br label %34
-
-34:                                               ; preds = %32, %28
-  store i32 -32, ptr %5, align 4
-  br label %42
-
-35:                                               ; preds = %20
-  %36 = load ptr, ptr %10, align 8
-  %37 = load ptr, ptr %7, align 8
-  %38 = icmp ne ptr %36, %37
-  br i1 %38, label %39, label %41
-
-39:                                               ; preds = %35
-  %40 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %40) #4
-  br label %41
-
-41:                                               ; preds = %39, %35
+42:                                               ; preds = %40, %36
   store i32 0, ptr %5, align 4
-  br label %42
+  store i32 1, ptr %11, align 4
+  br label %43
 
-42:                                               ; preds = %41, %34, %16
-  %43 = load i32, ptr %5, align 4
-  ret i32 %43
+43:                                               ; preds = %42, %35, %17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  %44 = load i32, ptr %5, align 4
+  ret i32 %44
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4231,208 +4515,225 @@ define i32 @pmix20_bfrop_print_query(ptr noundef %0, ptr noundef %1, ptr noundef
   %14 = alloca ptr, align 8
   %15 = alloca ptr, align 8
   %16 = alloca i64, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store i16 %3, ptr %9, align 2
-  store i32 0, ptr %12, align 4
-  %17 = load ptr, ptr %7, align 8
-  %18 = icmp eq ptr null, %17
-  br i1 %18, label %19, label %24
+  %17 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store ptr %1, ptr %7, align 8, !tbaa !8
+  store ptr %2, ptr %8, align 8, !tbaa !88
+  store i16 %3, ptr %9, align 2, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #7
+  store i32 0, ptr %12, align 4, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #7
+  %18 = load ptr, ptr %7, align 8, !tbaa !8
+  %19 = icmp eq ptr null, %18
+  br i1 %19, label %20, label %25
 
-19:                                               ; preds = %4
-  %20 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %10, ptr noundef @.str) #4
-  %21 = icmp sgt i32 0, %20
-  br i1 %21, label %22, label %23
+20:                                               ; preds = %4
+  %21 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %10, ptr noundef @.str) #7
+  %22 = icmp sgt i32 0, %21
+  br i1 %22, label %23, label %24
 
-22:                                               ; preds = %19
+23:                                               ; preds = %20
   store i32 -32, ptr %5, align 4
-  br label %123
+  store i32 1, ptr %17, align 4
+  br label %124
 
-23:                                               ; preds = %19
-  br label %26
+24:                                               ; preds = %20
+  br label %27
 
-24:                                               ; preds = %4
-  %25 = load ptr, ptr %7, align 8
-  store ptr %25, ptr %10, align 8
-  br label %26
+25:                                               ; preds = %4
+  %26 = load ptr, ptr %7, align 8, !tbaa !8
+  store ptr %26, ptr %10, align 8, !tbaa !8
+  br label %27
 
-26:                                               ; preds = %24, %23
-  %27 = load ptr, ptr %10, align 8
-  %28 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %11, ptr noundef @.str.92, ptr noundef %27) #4
-  %29 = icmp sgt i32 0, %28
-  br i1 %29, label %30, label %31
+27:                                               ; preds = %25, %24
+  %28 = load ptr, ptr %10, align 8, !tbaa !8
+  %29 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %11, ptr noundef @.str.92, ptr noundef %28) #7
+  %30 = icmp sgt i32 0, %29
+  br i1 %30, label %31, label %32
 
-30:                                               ; preds = %26
-  store i32 -32, ptr %12, align 4
-  br label %115
+31:                                               ; preds = %27
+  store i32 -32, ptr %12, align 4, !tbaa !21
+  br label %116
 
-31:                                               ; preds = %26
-  %32 = load ptr, ptr %10, align 8
-  %33 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %13, ptr noundef @.str.95, ptr noundef %32) #4
-  %34 = icmp sgt i32 0, %33
-  br i1 %34, label %35, label %37
+32:                                               ; preds = %27
+  %33 = load ptr, ptr %10, align 8, !tbaa !8
+  %34 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %13, ptr noundef @.str.95, ptr noundef %33) #7
+  %35 = icmp sgt i32 0, %34
+  br i1 %35, label %36, label %38
 
-35:                                               ; preds = %31
-  %36 = load ptr, ptr %11, align 8
-  call void @free(ptr noundef %36) #4
-  store i32 -32, ptr %12, align 4
-  br label %115
+36:                                               ; preds = %32
+  %37 = load ptr, ptr %11, align 8, !tbaa !8
+  call void @free(ptr noundef %37) #7
+  store i32 -32, ptr %12, align 4, !tbaa !21
+  br label %116
 
-37:                                               ; preds = %31
-  %38 = load ptr, ptr %8, align 8
-  %39 = getelementptr inbounds %struct.pmix_query, ptr %38, i32 0, i32 0
-  %40 = load ptr, ptr %39, align 8
-  %41 = icmp ne ptr null, %40
-  br i1 %41, label %42, label %72
+38:                                               ; preds = %32
+  %39 = load ptr, ptr %8, align 8, !tbaa !88
+  %40 = getelementptr inbounds nuw %struct.pmix_query, ptr %39, i32 0, i32 0
+  %41 = load ptr, ptr %40, align 8, !tbaa !90
+  %42 = icmp ne ptr null, %41
+  br i1 %42, label %43, label %73
 
-42:                                               ; preds = %37
-  store i64 0, ptr %16, align 8
-  br label %43
+43:                                               ; preds = %38
+  store i64 0, ptr %16, align 8, !tbaa !34
+  br label %44
 
-43:                                               ; preds = %68, %42
-  %44 = load ptr, ptr %8, align 8
-  %45 = getelementptr inbounds %struct.pmix_query, ptr %44, i32 0, i32 0
-  %46 = load ptr, ptr %45, align 8
-  %47 = load i64, ptr %16, align 8
-  %48 = getelementptr inbounds ptr, ptr %46, i64 %47
-  %49 = load ptr, ptr %48, align 8
-  %50 = icmp ne ptr null, %49
-  br i1 %50, label %51, label %71
+44:                                               ; preds = %69, %43
+  %45 = load ptr, ptr %8, align 8, !tbaa !88
+  %46 = getelementptr inbounds nuw %struct.pmix_query, ptr %45, i32 0, i32 0
+  %47 = load ptr, ptr %46, align 8, !tbaa !90
+  %48 = load i64, ptr %16, align 8, !tbaa !34
+  %49 = getelementptr inbounds nuw ptr, ptr %47, i64 %48
+  %50 = load ptr, ptr %49, align 8, !tbaa !8
+  %51 = icmp ne ptr null, %50
+  br i1 %51, label %52, label %72
 
-51:                                               ; preds = %43
-  %52 = load ptr, ptr %13, align 8
-  %53 = load ptr, ptr %11, align 8
-  %54 = load ptr, ptr %8, align 8
-  %55 = getelementptr inbounds %struct.pmix_query, ptr %54, i32 0, i32 0
-  %56 = load ptr, ptr %55, align 8
-  %57 = load i64, ptr %16, align 8
-  %58 = getelementptr inbounds ptr, ptr %56, i64 %57
-  %59 = load ptr, ptr %58, align 8
-  %60 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %14, ptr noundef @.str.96, ptr noundef %52, ptr noundef %53, ptr noundef %59) #4
-  %61 = icmp sgt i32 0, %60
-  br i1 %61, label %62, label %65
+52:                                               ; preds = %44
+  %53 = load ptr, ptr %13, align 8, !tbaa !8
+  %54 = load ptr, ptr %11, align 8, !tbaa !8
+  %55 = load ptr, ptr %8, align 8, !tbaa !88
+  %56 = getelementptr inbounds nuw %struct.pmix_query, ptr %55, i32 0, i32 0
+  %57 = load ptr, ptr %56, align 8, !tbaa !90
+  %58 = load i64, ptr %16, align 8, !tbaa !34
+  %59 = getelementptr inbounds nuw ptr, ptr %57, i64 %58
+  %60 = load ptr, ptr %59, align 8, !tbaa !8
+  %61 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %14, ptr noundef @.str.96, ptr noundef %53, ptr noundef %54, ptr noundef %60) #7
+  %62 = icmp sgt i32 0, %61
+  br i1 %62, label %63, label %66
 
-62:                                               ; preds = %51
-  %63 = load ptr, ptr %11, align 8
-  call void @free(ptr noundef %63) #4
-  %64 = load ptr, ptr %13, align 8
-  call void @free(ptr noundef %64) #4
-  store i32 -32, ptr %12, align 4
-  br label %115
+63:                                               ; preds = %52
+  %64 = load ptr, ptr %11, align 8, !tbaa !8
+  call void @free(ptr noundef %64) #7
+  %65 = load ptr, ptr %13, align 8, !tbaa !8
+  call void @free(ptr noundef %65) #7
+  store i32 -32, ptr %12, align 4, !tbaa !21
+  br label %116
 
-65:                                               ; preds = %51
-  %66 = load ptr, ptr %13, align 8
-  call void @free(ptr noundef %66) #4
-  %67 = load ptr, ptr %14, align 8
-  store ptr %67, ptr %13, align 8
-  br label %68
+66:                                               ; preds = %52
+  %67 = load ptr, ptr %13, align 8, !tbaa !8
+  call void @free(ptr noundef %67) #7
+  %68 = load ptr, ptr %14, align 8, !tbaa !8
+  store ptr %68, ptr %13, align 8, !tbaa !8
+  br label %69
 
-68:                                               ; preds = %65
-  %69 = load i64, ptr %16, align 8
-  %70 = add i64 %69, 1
-  store i64 %70, ptr %16, align 8
-  br label %43, !llvm.loop !4
+69:                                               ; preds = %66
+  %70 = load i64, ptr %16, align 8, !tbaa !34
+  %71 = add i64 %70, 1
+  store i64 %71, ptr %16, align 8, !tbaa !34
+  br label %44, !llvm.loop !92
 
-71:                                               ; preds = %43
-  br label %72
+72:                                               ; preds = %44
+  br label %73
 
-72:                                               ; preds = %71, %37
-  %73 = load ptr, ptr %8, align 8
-  %74 = getelementptr inbounds %struct.pmix_query, ptr %73, i32 0, i32 2
-  %75 = load i64, ptr %74, align 8
-  %76 = icmp ult i64 0, %75
-  br i1 %76, label %77, label %112
+73:                                               ; preds = %72, %38
+  %74 = load ptr, ptr %8, align 8, !tbaa !88
+  %75 = getelementptr inbounds nuw %struct.pmix_query, ptr %74, i32 0, i32 2
+  %76 = load i64, ptr %75, align 8, !tbaa !94
+  %77 = icmp ult i64 0, %76
+  br i1 %77, label %78, label %113
 
-77:                                               ; preds = %72
-  store i64 0, ptr %16, align 8
-  br label %78
+78:                                               ; preds = %73
+  store i64 0, ptr %16, align 8, !tbaa !34
+  br label %79
 
-78:                                               ; preds = %108, %77
-  %79 = load i64, ptr %16, align 8
-  %80 = load ptr, ptr %8, align 8
-  %81 = getelementptr inbounds %struct.pmix_query, ptr %80, i32 0, i32 2
-  %82 = load i64, ptr %81, align 8
-  %83 = icmp ult i64 %79, %82
-  br i1 %83, label %84, label %111
+79:                                               ; preds = %109, %78
+  %80 = load i64, ptr %16, align 8, !tbaa !34
+  %81 = load ptr, ptr %8, align 8, !tbaa !88
+  %82 = getelementptr inbounds nuw %struct.pmix_query, ptr %81, i32 0, i32 2
+  %83 = load i64, ptr %82, align 8, !tbaa !94
+  %84 = icmp ult i64 %80, %83
+  br i1 %84, label %85, label %112
 
-84:                                               ; preds = %78
-  %85 = load ptr, ptr %11, align 8
-  %86 = load ptr, ptr %8, align 8
-  %87 = getelementptr inbounds %struct.pmix_query, ptr %86, i32 0, i32 1
-  %88 = load ptr, ptr %87, align 8
-  %89 = load i64, ptr %16, align 8
-  %90 = getelementptr inbounds %struct.pmix_info, ptr %88, i64 %89
-  %91 = call i32 @pmix20_bfrop_print_info(ptr noundef %14, ptr noundef %85, ptr noundef %90, i16 noundef zeroext 22)
-  store i32 %91, ptr %12, align 4
-  %92 = icmp ne i32 0, %91
-  br i1 %92, label %93, label %95
+85:                                               ; preds = %79
+  %86 = load ptr, ptr %11, align 8, !tbaa !8
+  %87 = load ptr, ptr %8, align 8, !tbaa !88
+  %88 = getelementptr inbounds nuw %struct.pmix_query, ptr %87, i32 0, i32 1
+  %89 = load ptr, ptr %88, align 8, !tbaa !95
+  %90 = load i64, ptr %16, align 8, !tbaa !34
+  %91 = getelementptr inbounds nuw %struct.pmix_info, ptr %89, i64 %90
+  %92 = call i32 @pmix20_bfrop_print_info(ptr noundef %14, ptr noundef %86, ptr noundef %91, i16 noundef zeroext 22)
+  store i32 %92, ptr %12, align 4, !tbaa !21
+  %93 = icmp ne i32 0, %92
+  br i1 %93, label %94, label %96
 
-93:                                               ; preds = %84
-  %94 = load ptr, ptr %11, align 8
-  call void @free(ptr noundef %94) #4
-  br label %115
+94:                                               ; preds = %85
+  %95 = load ptr, ptr %11, align 8, !tbaa !8
+  call void @free(ptr noundef %95) #7
+  br label %116
 
-95:                                               ; preds = %84
-  %96 = load ptr, ptr %13, align 8
-  %97 = load ptr, ptr %14, align 8
-  %98 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %15, ptr noundef @.str.97, ptr noundef %96, ptr noundef %97) #4
-  %99 = icmp sgt i32 0, %98
-  br i1 %99, label %100, label %104
+96:                                               ; preds = %85
+  %97 = load ptr, ptr %13, align 8, !tbaa !8
+  %98 = load ptr, ptr %14, align 8, !tbaa !8
+  %99 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %15, ptr noundef @.str.97, ptr noundef %97, ptr noundef %98) #7
+  %100 = icmp sgt i32 0, %99
+  br i1 %100, label %101, label %105
 
-100:                                              ; preds = %95
-  %101 = load ptr, ptr %11, align 8
-  call void @free(ptr noundef %101) #4
-  %102 = load ptr, ptr %13, align 8
-  call void @free(ptr noundef %102) #4
-  %103 = load ptr, ptr %14, align 8
-  call void @free(ptr noundef %103) #4
-  store i32 -32, ptr %12, align 4
-  br label %115
+101:                                              ; preds = %96
+  %102 = load ptr, ptr %11, align 8, !tbaa !8
+  call void @free(ptr noundef %102) #7
+  %103 = load ptr, ptr %13, align 8, !tbaa !8
+  call void @free(ptr noundef %103) #7
+  %104 = load ptr, ptr %14, align 8, !tbaa !8
+  call void @free(ptr noundef %104) #7
+  store i32 -32, ptr %12, align 4, !tbaa !21
+  br label %116
 
-104:                                              ; preds = %95
-  %105 = load ptr, ptr %13, align 8
-  call void @free(ptr noundef %105) #4
-  %106 = load ptr, ptr %14, align 8
-  call void @free(ptr noundef %106) #4
-  %107 = load ptr, ptr %15, align 8
-  store ptr %107, ptr %13, align 8
-  br label %108
+105:                                              ; preds = %96
+  %106 = load ptr, ptr %13, align 8, !tbaa !8
+  call void @free(ptr noundef %106) #7
+  %107 = load ptr, ptr %14, align 8, !tbaa !8
+  call void @free(ptr noundef %107) #7
+  %108 = load ptr, ptr %15, align 8, !tbaa !8
+  store ptr %108, ptr %13, align 8, !tbaa !8
+  br label %109
 
-108:                                              ; preds = %104
-  %109 = load i64, ptr %16, align 8
-  %110 = add i64 %109, 1
-  store i64 %110, ptr %16, align 8
-  br label %78, !llvm.loop !6
+109:                                              ; preds = %105
+  %110 = load i64, ptr %16, align 8, !tbaa !34
+  %111 = add i64 %110, 1
+  store i64 %111, ptr %16, align 8, !tbaa !34
+  br label %79, !llvm.loop !96
 
-111:                                              ; preds = %78
-  br label %112
+112:                                              ; preds = %79
+  br label %113
 
-112:                                              ; preds = %111, %72
-  %113 = load ptr, ptr %13, align 8
-  %114 = load ptr, ptr %6, align 8
-  store ptr %113, ptr %114, align 8
-  br label %115
+113:                                              ; preds = %112, %73
+  %114 = load ptr, ptr %13, align 8, !tbaa !8
+  %115 = load ptr, ptr %6, align 8, !tbaa !3
+  store ptr %114, ptr %115, align 8, !tbaa !8
+  br label %116
 
-115:                                              ; preds = %112, %100, %93, %62, %35, %30
-  %116 = load ptr, ptr %10, align 8
-  %117 = load ptr, ptr %7, align 8
-  %118 = icmp ne ptr %116, %117
-  br i1 %118, label %119, label %121
+116:                                              ; preds = %113, %101, %94, %63, %36, %31
+  %117 = load ptr, ptr %10, align 8, !tbaa !8
+  %118 = load ptr, ptr %7, align 8, !tbaa !8
+  %119 = icmp ne ptr %117, %118
+  br i1 %119, label %120, label %122
 
-119:                                              ; preds = %115
-  %120 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %120) #4
-  br label %121
+120:                                              ; preds = %116
+  %121 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %121) #7
+  br label %122
 
-121:                                              ; preds = %119, %115
-  %122 = load i32, ptr %12, align 4
-  store i32 %122, ptr %5, align 4
-  br label %123
+122:                                              ; preds = %120, %116
+  %123 = load i32, ptr %12, align 4, !tbaa !21
+  store i32 %123, ptr %5, align 4
+  store i32 1, ptr %17, align 4
+  br label %124
 
-123:                                              ; preds = %121, %22
-  %124 = load i32, ptr %5, align 4
-  ret i32 %124
+124:                                              ; preds = %122, %23
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  %125 = load i32, ptr %5, align 4
+  ret i32 %125
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4444,98 +4745,106 @@ define i32 @pmix20_bfrop_print_rank(ptr noundef %0, ptr noundef %1, ptr noundef 
   %9 = alloca i16, align 2
   %10 = alloca ptr, align 8
   %11 = alloca i32, align 4
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store i16 %3, ptr %9, align 2
-  %12 = load ptr, ptr %7, align 8
-  %13 = icmp eq ptr null, %12
-  br i1 %13, label %14, label %19
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store ptr %1, ptr %7, align 8, !tbaa !8
+  store ptr %2, ptr %8, align 8, !tbaa !36
+  store i16 %3, ptr %9, align 2, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #7
+  %13 = load ptr, ptr %7, align 8, !tbaa !8
+  %14 = icmp eq ptr null, %13
+  br i1 %14, label %15, label %20
 
-14:                                               ; preds = %4
-  %15 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %10, ptr noundef @.str) #4
-  %16 = icmp sgt i32 0, %15
-  br i1 %16, label %17, label %18
+15:                                               ; preds = %4
+  %16 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %10, ptr noundef @.str) #7
+  %17 = icmp sgt i32 0, %16
+  br i1 %17, label %18, label %19
 
-17:                                               ; preds = %14
+18:                                               ; preds = %15
   store i32 -32, ptr %5, align 4
-  br label %54
+  store i32 1, ptr %12, align 4
+  br label %55
 
-18:                                               ; preds = %14
-  br label %21
+19:                                               ; preds = %15
+  br label %22
 
-19:                                               ; preds = %4
-  %20 = load ptr, ptr %7, align 8
-  store ptr %20, ptr %10, align 8
-  br label %21
+20:                                               ; preds = %4
+  %21 = load ptr, ptr %7, align 8, !tbaa !8
+  store ptr %21, ptr %10, align 8, !tbaa !8
+  br label %22
 
-21:                                               ; preds = %19, %18
-  %22 = load ptr, ptr %8, align 8
-  %23 = load i32, ptr %22, align 4
-  switch i32 %23, label %36 [
-    i32 -1, label %24
-    i32 -2, label %28
-    i32 -3, label %32
+22:                                               ; preds = %20, %19
+  %23 = load ptr, ptr %8, align 8, !tbaa !36
+  %24 = load i32, ptr %23, align 4, !tbaa !21
+  switch i32 %24, label %37 [
+    i32 -1, label %25
+    i32 -2, label %29
+    i32 -3, label %33
   ]
 
-24:                                               ; preds = %21
-  %25 = load ptr, ptr %6, align 8
-  %26 = load ptr, ptr %10, align 8
-  %27 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %25, ptr noundef @.str.98, ptr noundef %26) #4
-  store i32 %27, ptr %11, align 4
-  br label %43
+25:                                               ; preds = %22
+  %26 = load ptr, ptr %6, align 8, !tbaa !3
+  %27 = load ptr, ptr %10, align 8, !tbaa !8
+  %28 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %26, ptr noundef @.str.98, ptr noundef %27) #7
+  store i32 %28, ptr %11, align 4, !tbaa !21
+  br label %44
 
-28:                                               ; preds = %21
-  %29 = load ptr, ptr %6, align 8
-  %30 = load ptr, ptr %10, align 8
-  %31 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %29, ptr noundef @.str.99, ptr noundef %30) #4
-  store i32 %31, ptr %11, align 4
-  br label %43
+29:                                               ; preds = %22
+  %30 = load ptr, ptr %6, align 8, !tbaa !3
+  %31 = load ptr, ptr %10, align 8, !tbaa !8
+  %32 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %30, ptr noundef @.str.99, ptr noundef %31) #7
+  store i32 %32, ptr %11, align 4, !tbaa !21
+  br label %44
 
-32:                                               ; preds = %21
-  %33 = load ptr, ptr %6, align 8
-  %34 = load ptr, ptr %10, align 8
-  %35 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %33, ptr noundef @.str.100, ptr noundef %34) #4
-  store i32 %35, ptr %11, align 4
-  br label %43
+33:                                               ; preds = %22
+  %34 = load ptr, ptr %6, align 8, !tbaa !3
+  %35 = load ptr, ptr %10, align 8, !tbaa !8
+  %36 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %34, ptr noundef @.str.100, ptr noundef %35) #7
+  store i32 %36, ptr %11, align 4, !tbaa !21
+  br label %44
 
-36:                                               ; preds = %21
-  %37 = load ptr, ptr %6, align 8
-  %38 = load ptr, ptr %10, align 8
-  %39 = load ptr, ptr %8, align 8
-  %40 = load i32, ptr %39, align 4
-  %41 = zext i32 %40 to i64
-  %42 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %37, ptr noundef @.str.101, ptr noundef %38, i64 noundef %41) #4
-  store i32 %42, ptr %11, align 4
-  br label %43
+37:                                               ; preds = %22
+  %38 = load ptr, ptr %6, align 8, !tbaa !3
+  %39 = load ptr, ptr %10, align 8, !tbaa !8
+  %40 = load ptr, ptr %8, align 8, !tbaa !36
+  %41 = load i32, ptr %40, align 4, !tbaa !21
+  %42 = zext i32 %41 to i64
+  %43 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %38, ptr noundef @.str.101, ptr noundef %39, i64 noundef %42) #7
+  store i32 %43, ptr %11, align 4, !tbaa !21
+  br label %44
 
-43:                                               ; preds = %36, %32, %28, %24
-  %44 = load ptr, ptr %10, align 8
-  %45 = load ptr, ptr %7, align 8
-  %46 = icmp ne ptr %44, %45
-  br i1 %46, label %47, label %49
+44:                                               ; preds = %37, %33, %29, %25
+  %45 = load ptr, ptr %10, align 8, !tbaa !8
+  %46 = load ptr, ptr %7, align 8, !tbaa !8
+  %47 = icmp ne ptr %45, %46
+  br i1 %47, label %48, label %50
 
-47:                                               ; preds = %43
-  %48 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %48) #4
-  br label %49
+48:                                               ; preds = %44
+  %49 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %49) #7
+  br label %50
 
-49:                                               ; preds = %47, %43
-  %50 = load i32, ptr %11, align 4
-  %51 = icmp sgt i32 0, %50
-  br i1 %51, label %52, label %53
+50:                                               ; preds = %48, %44
+  %51 = load i32, ptr %11, align 4, !tbaa !21
+  %52 = icmp sgt i32 0, %51
+  br i1 %52, label %53, label %54
 
-52:                                               ; preds = %49
+53:                                               ; preds = %50
   store i32 -32, ptr %5, align 4
-  br label %54
+  store i32 1, ptr %12, align 4
+  br label %55
 
-53:                                               ; preds = %49
+54:                                               ; preds = %50
   store i32 0, ptr %5, align 4
-  br label %54
+  store i32 1, ptr %12, align 4
+  br label %55
 
-54:                                               ; preds = %53, %52, %17
-  %55 = load i32, ptr %5, align 4
-  ret i32 %55
+55:                                               ; preds = %54, %53, %18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  %56 = load i32, ptr %5, align 4
+  ret i32 %56
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4546,77 +4855,83 @@ define i32 @pmix20_bfrop_print_alloc_directive(ptr noundef %0, ptr noundef %1, p
   %8 = alloca ptr, align 8
   %9 = alloca i16, align 2
   %10 = alloca ptr, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store i16 %3, ptr %9, align 2
-  %11 = load ptr, ptr %7, align 8
-  %12 = icmp eq ptr null, %11
-  br i1 %12, label %13, label %18
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store ptr %1, ptr %7, align 8, !tbaa !8
+  store ptr %2, ptr %8, align 8, !tbaa !8
+  store i16 %3, ptr %9, align 2, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  %12 = load ptr, ptr %7, align 8, !tbaa !8
+  %13 = icmp eq ptr null, %12
+  br i1 %13, label %14, label %19
 
-13:                                               ; preds = %4
-  %14 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %10, ptr noundef @.str) #4
-  %15 = icmp sgt i32 0, %14
-  br i1 %15, label %16, label %17
+14:                                               ; preds = %4
+  %15 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %10, ptr noundef @.str) #7
+  %16 = icmp sgt i32 0, %15
+  br i1 %16, label %17, label %18
 
-16:                                               ; preds = %13
+17:                                               ; preds = %14
   store i32 -32, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %43
+
+18:                                               ; preds = %14
+  br label %21
+
+19:                                               ; preds = %4
+  %20 = load ptr, ptr %7, align 8, !tbaa !8
+  store ptr %20, ptr %10, align 8, !tbaa !8
+  br label %21
+
+21:                                               ; preds = %19, %18
+  %22 = load ptr, ptr %6, align 8, !tbaa !3
+  %23 = load ptr, ptr %10, align 8, !tbaa !8
+  %24 = load ptr, ptr %8, align 8, !tbaa !8
+  %25 = load i8, ptr %24, align 1, !tbaa !32
+  %26 = call ptr @PMIx_Alloc_directive_string(i8 noundef zeroext %25)
+  %27 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %22, ptr noundef @.str.102, ptr noundef %23, ptr noundef %26) #7
+  %28 = icmp sgt i32 0, %27
+  br i1 %28, label %29, label %36
+
+29:                                               ; preds = %21
+  %30 = load ptr, ptr %10, align 8, !tbaa !8
+  %31 = load ptr, ptr %7, align 8, !tbaa !8
+  %32 = icmp ne ptr %30, %31
+  br i1 %32, label %33, label %35
+
+33:                                               ; preds = %29
+  %34 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %34) #7
+  br label %35
+
+35:                                               ; preds = %33, %29
+  store i32 -32, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %43
+
+36:                                               ; preds = %21
+  %37 = load ptr, ptr %10, align 8, !tbaa !8
+  %38 = load ptr, ptr %7, align 8, !tbaa !8
+  %39 = icmp ne ptr %37, %38
+  br i1 %39, label %40, label %42
+
+40:                                               ; preds = %36
+  %41 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @free(ptr noundef %41) #7
   br label %42
 
-17:                                               ; preds = %13
-  br label %20
-
-18:                                               ; preds = %4
-  %19 = load ptr, ptr %7, align 8
-  store ptr %19, ptr %10, align 8
-  br label %20
-
-20:                                               ; preds = %18, %17
-  %21 = load ptr, ptr %6, align 8
-  %22 = load ptr, ptr %10, align 8
-  %23 = load ptr, ptr %8, align 8
-  %24 = load i8, ptr %23, align 1
-  %25 = call ptr @PMIx_Alloc_directive_string(i8 noundef zeroext %24)
-  %26 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %21, ptr noundef @.str.102, ptr noundef %22, ptr noundef %25) #4
-  %27 = icmp sgt i32 0, %26
-  br i1 %27, label %28, label %35
-
-28:                                               ; preds = %20
-  %29 = load ptr, ptr %10, align 8
-  %30 = load ptr, ptr %7, align 8
-  %31 = icmp ne ptr %29, %30
-  br i1 %31, label %32, label %34
-
-32:                                               ; preds = %28
-  %33 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %33) #4
-  br label %34
-
-34:                                               ; preds = %32, %28
-  store i32 -32, ptr %5, align 4
-  br label %42
-
-35:                                               ; preds = %20
-  %36 = load ptr, ptr %10, align 8
-  %37 = load ptr, ptr %7, align 8
-  %38 = icmp ne ptr %36, %37
-  br i1 %38, label %39, label %41
-
-39:                                               ; preds = %35
-  %40 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %40) #4
-  br label %41
-
-41:                                               ; preds = %39, %35
+42:                                               ; preds = %40, %36
   store i32 0, ptr %5, align 4
-  br label %42
+  store i32 1, ptr %11, align 4
+  br label %43
 
-42:                                               ; preds = %41, %34, %16
-  %43 = load i32, ptr %5, align 4
-  ret i32 %43
+43:                                               ; preds = %42, %35, %17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  %44 = load i32, ptr %5, align 4
+  ret i32 %44
 }
 
-declare ptr @PMIx_Alloc_directive_string(i8 noundef zeroext) #3
+declare ptr @PMIx_Alloc_directive_string(i8 noundef zeroext) #5
 
 ; Function Attrs: nounwind uwtable
 define i32 @pmix20_bfrop_print_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3) #0 {
@@ -4631,123 +4946,241 @@ define i32 @pmix20_bfrop_print_array(ptr noundef %0, ptr noundef %1, ptr noundef
   %13 = alloca ptr, align 8
   %14 = alloca ptr, align 8
   %15 = alloca ptr, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store i16 %3, ptr %9, align 2
-  %16 = load ptr, ptr %7, align 8
-  %17 = load ptr, ptr %8, align 8
-  %18 = getelementptr inbounds %struct.pmix_info_array, ptr %17, i32 0, i32 0
-  %19 = load i64, ptr %18, align 8
-  %20 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %11, ptr noundef @.str.103, ptr noundef %16, i64 noundef %19) #4
-  %21 = icmp sgt i32 0, %20
-  br i1 %21, label %22, label %23
-
-22:                                               ; preds = %4
-  store i32 -32, ptr %5, align 4
-  br label %68
+  %16 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store ptr %1, ptr %7, align 8, !tbaa !8
+  store ptr %2, ptr %8, align 8, !tbaa !97
+  store i16 %3, ptr %9, align 2, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #7
+  %17 = load ptr, ptr %7, align 8, !tbaa !8
+  %18 = load ptr, ptr %8, align 8, !tbaa !97
+  %19 = getelementptr inbounds nuw %struct.pmix_info_array, ptr %18, i32 0, i32 0
+  %20 = load i64, ptr %19, align 8, !tbaa !99
+  %21 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %11, ptr noundef @.str.103, ptr noundef %17, i64 noundef %20) #7
+  %22 = icmp sgt i32 0, %21
+  br i1 %22, label %23, label %24
 
 23:                                               ; preds = %4
-  %24 = load ptr, ptr %7, align 8
-  %25 = icmp eq ptr null, %24
-  br i1 %25, label %26, label %27
-
-26:                                               ; preds = %23
-  br label %29
-
-27:                                               ; preds = %23
-  %28 = load ptr, ptr %7, align 8
-  br label %29
-
-29:                                               ; preds = %27, %26
-  %30 = phi ptr [ @.str.105, %26 ], [ %28, %27 ]
-  %31 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %14, ptr noundef @.str.104, ptr noundef %30) #4
-  %32 = icmp sgt i32 0, %31
-  br i1 %32, label %33, label %35
-
-33:                                               ; preds = %29
-  %34 = load ptr, ptr %11, align 8
-  call void @free(ptr noundef %34) #4
   store i32 -32, ptr %5, align 4
-  br label %68
+  store i32 1, ptr %16, align 4
+  br label %69
 
-35:                                               ; preds = %29
-  %36 = load ptr, ptr %8, align 8
-  %37 = getelementptr inbounds %struct.pmix_info_array, ptr %36, i32 0, i32 1
-  %38 = load ptr, ptr %37, align 8
-  store ptr %38, ptr %15, align 8
-  store i64 0, ptr %10, align 8
-  br label %39
+24:                                               ; preds = %4
+  %25 = load ptr, ptr %7, align 8, !tbaa !8
+  %26 = icmp eq ptr null, %25
+  br i1 %26, label %27, label %28
 
-39:                                               ; preds = %62, %35
-  %40 = load i64, ptr %10, align 8
-  %41 = load ptr, ptr %8, align 8
-  %42 = getelementptr inbounds %struct.pmix_info_array, ptr %41, i32 0, i32 0
-  %43 = load i64, ptr %42, align 8
-  %44 = icmp ult i64 %40, %43
-  br i1 %44, label %45, label %65
+27:                                               ; preds = %24
+  br label %30
 
-45:                                               ; preds = %39
-  %46 = load ptr, ptr %14, align 8
-  %47 = load ptr, ptr %15, align 8
-  %48 = load i64, ptr %10, align 8
-  %49 = getelementptr inbounds %struct.pmix_info, ptr %47, i64 %48
-  %50 = call i32 @pmix20_bfrop_print_info(ptr noundef %12, ptr noundef %46, ptr noundef %49, i16 noundef zeroext 24)
-  %51 = load ptr, ptr %11, align 8
-  %52 = load ptr, ptr %12, align 8
-  %53 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %13, ptr noundef @.str.106, ptr noundef %51, ptr noundef %52) #4
-  %54 = icmp sgt i32 0, %53
-  br i1 %54, label %55, label %58
+28:                                               ; preds = %24
+  %29 = load ptr, ptr %7, align 8, !tbaa !8
+  br label %30
 
-55:                                               ; preds = %45
-  %56 = load ptr, ptr %11, align 8
-  call void @free(ptr noundef %56) #4
-  %57 = load ptr, ptr %12, align 8
-  call void @free(ptr noundef %57) #4
+30:                                               ; preds = %28, %27
+  %31 = phi ptr [ @.str.105, %27 ], [ %29, %28 ]
+  %32 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %14, ptr noundef @.str.104, ptr noundef %31) #7
+  %33 = icmp sgt i32 0, %32
+  br i1 %33, label %34, label %36
+
+34:                                               ; preds = %30
+  %35 = load ptr, ptr %11, align 8, !tbaa !8
+  call void @free(ptr noundef %35) #7
   store i32 -32, ptr %5, align 4
-  br label %68
+  store i32 1, ptr %16, align 4
+  br label %69
 
-58:                                               ; preds = %45
-  %59 = load ptr, ptr %11, align 8
-  call void @free(ptr noundef %59) #4
-  %60 = load ptr, ptr %12, align 8
-  call void @free(ptr noundef %60) #4
-  %61 = load ptr, ptr %13, align 8
-  store ptr %61, ptr %11, align 8
-  br label %62
+36:                                               ; preds = %30
+  %37 = load ptr, ptr %8, align 8, !tbaa !97
+  %38 = getelementptr inbounds nuw %struct.pmix_info_array, ptr %37, i32 0, i32 1
+  %39 = load ptr, ptr %38, align 8, !tbaa !101
+  store ptr %39, ptr %15, align 8, !tbaa !66
+  store i64 0, ptr %10, align 8, !tbaa !34
+  br label %40
 
-62:                                               ; preds = %58
-  %63 = load i64, ptr %10, align 8
-  %64 = add i64 %63, 1
-  store i64 %64, ptr %10, align 8
-  br label %39, !llvm.loop !7
+40:                                               ; preds = %63, %36
+  %41 = load i64, ptr %10, align 8, !tbaa !34
+  %42 = load ptr, ptr %8, align 8, !tbaa !97
+  %43 = getelementptr inbounds nuw %struct.pmix_info_array, ptr %42, i32 0, i32 0
+  %44 = load i64, ptr %43, align 8, !tbaa !99
+  %45 = icmp ult i64 %41, %44
+  br i1 %45, label %46, label %66
 
-65:                                               ; preds = %39
-  %66 = load ptr, ptr %11, align 8
-  %67 = load ptr, ptr %6, align 8
-  store ptr %66, ptr %67, align 8
+46:                                               ; preds = %40
+  %47 = load ptr, ptr %14, align 8, !tbaa !8
+  %48 = load ptr, ptr %15, align 8, !tbaa !66
+  %49 = load i64, ptr %10, align 8, !tbaa !34
+  %50 = getelementptr inbounds nuw %struct.pmix_info, ptr %48, i64 %49
+  %51 = call i32 @pmix20_bfrop_print_info(ptr noundef %12, ptr noundef %47, ptr noundef %50, i16 noundef zeroext 24)
+  %52 = load ptr, ptr %11, align 8, !tbaa !8
+  %53 = load ptr, ptr %12, align 8, !tbaa !8
+  %54 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %13, ptr noundef @.str.106, ptr noundef %52, ptr noundef %53) #7
+  %55 = icmp sgt i32 0, %54
+  br i1 %55, label %56, label %59
+
+56:                                               ; preds = %46
+  %57 = load ptr, ptr %11, align 8, !tbaa !8
+  call void @free(ptr noundef %57) #7
+  %58 = load ptr, ptr %12, align 8, !tbaa !8
+  call void @free(ptr noundef %58) #7
+  store i32 -32, ptr %5, align 4
+  store i32 1, ptr %16, align 4
+  br label %69
+
+59:                                               ; preds = %46
+  %60 = load ptr, ptr %11, align 8, !tbaa !8
+  call void @free(ptr noundef %60) #7
+  %61 = load ptr, ptr %12, align 8, !tbaa !8
+  call void @free(ptr noundef %61) #7
+  %62 = load ptr, ptr %13, align 8, !tbaa !8
+  store ptr %62, ptr %11, align 8, !tbaa !8
+  br label %63
+
+63:                                               ; preds = %59
+  %64 = load i64, ptr %10, align 8, !tbaa !34
+  %65 = add i64 %64, 1
+  store i64 %65, ptr %10, align 8, !tbaa !34
+  br label %40, !llvm.loop !102
+
+66:                                               ; preds = %40
+  %67 = load ptr, ptr %11, align 8, !tbaa !8
+  %68 = load ptr, ptr %6, align 8, !tbaa !3
+  store ptr %67, ptr %68, align 8, !tbaa !8
   store i32 0, ptr %5, align 4
-  br label %68
+  store i32 1, ptr %16, align 4
+  br label %69
 
-68:                                               ; preds = %65, %55, %33, %22
-  %69 = load i32, ptr %5, align 4
-  ret i32 %69
+69:                                               ; preds = %66, %56, %34, %23
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  %70 = load i32, ptr %5, align 4
+  ret i32 %70
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind }
-attributes #5 = { nounwind willreturn memory(read) }
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
+declare i64 @llvm.expect.i64(i64, i64) #6
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #7 = { nounwind }
+attributes #8 = { nounwind willreturn memory(read) }
+
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p2 omnipotent char", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"p1 omnipotent char", !5, i64 0}
+!10 = !{!5, !5, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"short", !6, i64 0}
+!13 = !{!14, !5, i64 160}
+!14 = !{!"", !15, i64 0, !12, i64 120, !9, i64 128, !5, i64 136, !5, i64 144, !5, i64 152, !5, i64 160}
+!15 = !{!"pmix_object_t", !6, i64 0, !16, i64 40, !17, i64 48, !18, i64 56}
+!16 = !{!"p1 _ZTS12pmix_class_t", !5, i64 0}
+!17 = !{!"int", !6, i64 0}
+!18 = !{!"pmix_tma", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !5, i64 40, !5, i64 48, !5, i64 56}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"p1 _ZTS20pmix_pointer_array_t", !5, i64 0}
+!21 = !{!17, !17, i64 0}
+!22 = !{!23, !17, i64 128}
+!23 = !{!"pmix_pointer_array_t", !15, i64 0, !17, i64 120, !17, i64 124, !17, i64 128, !17, i64 132, !17, i64 136, !24, i64 144, !5, i64 152}
+!24 = !{!"p1 long", !5, i64 0}
+!25 = !{!23, !5, i64 152}
+!26 = !{!27, !27, i64 0}
+!27 = !{!"p1 _Bool", !5, i64 0}
+!28 = !{!29, !29, i64 0}
+!29 = !{!"_Bool", !6, i64 0}
+!30 = !{i8 0, i8 2}
+!31 = !{}
+!32 = !{!6, !6, i64 0}
+!33 = !{!24, !24, i64 0}
+!34 = !{!35, !35, i64 0}
+!35 = !{!"long", !6, i64 0}
+!36 = !{!37, !37, i64 0}
+!37 = !{!"p1 int", !5, i64 0}
+!38 = !{!39, !39, i64 0}
+!39 = !{!"p1 short", !5, i64 0}
+!40 = !{!41, !41, i64 0}
+!41 = !{!"p1 float", !5, i64 0}
+!42 = !{!43, !43, i64 0}
+!43 = !{!"float", !6, i64 0}
+!44 = !{!45, !45, i64 0}
+!45 = !{!"p1 double", !5, i64 0}
+!46 = !{!47, !47, i64 0}
+!47 = !{!"double", !6, i64 0}
+!48 = !{!49, !49, i64 0}
+!49 = !{!"p1 _ZTS7timeval", !5, i64 0}
+!50 = !{!51, !35, i64 0}
+!51 = !{!"timeval", !35, i64 0, !35, i64 8}
+!52 = !{!51, !35, i64 8}
+!53 = !{!54, !54, i64 0}
+!54 = !{!"p1 _ZTS10pmix_value", !5, i64 0}
+!55 = !{!56, !12, i64 0}
+!56 = !{!"pmix_value", !12, i64 0, !6, i64 8}
+!57 = !{!58, !17, i64 256}
+!58 = !{!"pmix_proc", !6, i64 0, !17, i64 256}
+!59 = !{!60, !17, i64 256}
+!60 = !{!"pmix_proc_info", !58, i64 0, !9, i64 264, !9, i64 272, !17, i64 280, !17, i64 284, !6, i64 288}
+!61 = !{!60, !9, i64 264}
+!62 = !{!60, !9, i64 272}
+!63 = !{!60, !17, i64 280}
+!64 = !{!65, !35, i64 8}
+!65 = !{!"pmix_data_array", !12, i64 0, !35, i64 8, !5, i64 16}
+!66 = !{!67, !67, i64 0}
+!67 = !{!"p1 _ZTS9pmix_info", !5, i64 0}
+!68 = !{!69, !17, i64 512}
+!69 = !{!"pmix_info", !6, i64 0, !17, i64 512, !56, i64 520}
+!70 = !{!71, !71, i64 0}
+!71 = !{!"p1 _ZTS10pmix_pdata", !5, i64 0}
+!72 = !{!73, !73, i64 0}
+!73 = !{!"p1 _ZTS9pmix_proc", !5, i64 0}
+!74 = !{!75, !75, i64 0}
+!75 = !{!"p1 _ZTS8pmix_app", !5, i64 0}
+!76 = !{!77, !77, i64 0}
+!77 = !{!"p1 _ZTS15pmix_modex_data", !5, i64 0}
+!78 = !{!79, !79, i64 0}
+!79 = !{!"p1 _ZTS16pmix_byte_object", !5, i64 0}
+!80 = !{!81, !35, i64 8}
+!81 = !{!"pmix_byte_object", !9, i64 0, !35, i64 8}
+!82 = !{!83, !83, i64 0}
+!83 = !{!"p1 _ZTS14pmix_proc_info", !5, i64 0}
+!84 = !{!60, !17, i64 284}
+!85 = !{!60, !6, i64 288}
+!86 = !{!87, !87, i64 0}
+!87 = !{!"p1 _ZTS15pmix_data_array", !5, i64 0}
+!88 = !{!89, !89, i64 0}
+!89 = !{!"p1 _ZTS10pmix_query", !5, i64 0}
+!90 = !{!91, !4, i64 0}
+!91 = !{!"pmix_query", !4, i64 0, !67, i64 8, !35, i64 16}
+!92 = distinct !{!92, !93}
+!93 = !{!"llvm.loop.mustprogress"}
+!94 = !{!91, !35, i64 16}
+!95 = !{!91, !67, i64 8}
+!96 = distinct !{!96, !93}
+!97 = !{!98, !98, i64 0}
+!98 = !{!"p1 _ZTS15pmix_info_array", !5, i64 0}
+!99 = !{!100, !35, i64 0}
+!100 = !{!"pmix_info_array", !35, i64 0, !67, i64 8}
+!101 = !{!100, !67, i64 8}
+!102 = distinct !{!102, !93}

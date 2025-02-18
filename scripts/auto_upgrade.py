@@ -42,6 +42,7 @@ supported_project = [
     "miniaudio",
     "nanosvg",
     "nuklear",
+    "openmpi",
 ]
 
 modify_only = [
@@ -51,6 +52,7 @@ modify_only = [
     "graphviz",
     "libquic",
     "libsodium",
+    "openmpi",
 ]
 
 

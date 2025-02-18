@@ -26,17 +26,17 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define internal noundef i32 @netlink_init() #0 {
-  %1 = load i32, ptr @init_counter, align 4
+  %1 = load i32, ptr @init_counter, align 4, !tbaa !3
   %2 = add nsw i32 %1, 1
-  store i32 %2, ptr @init_counter, align 4
+  store i32 %2, ptr @init_counter, align 4, !tbaa !3
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define internal noundef i32 @netlink_fini() #0 {
-  %1 = load i32, ptr @init_counter, align 4
+  %1 = load i32, ptr @init_counter, align 4, !tbaa !3
   %2 = add nsw i32 %1, -1
-  store i32 %2, ptr @init_counter, align 4
+  store i32 %2, ptr @init_counter, align 4, !tbaa !3
   ret i32 0
 }
 
@@ -46,10 +46,10 @@ define internal ptr @netlink_reachable(ptr noundef %0, ptr noundef %1) #1 {
   %4 = alloca [128 x i8], align 16
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %7 = load volatile i64, ptr %6, align 8
+  %7 = load volatile i64, ptr %6, align 8, !tbaa !7
   %8 = trunc i64 %7 to i32
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 264
-  %10 = load volatile i64, ptr %9, align 8
+  %10 = load volatile i64, ptr %9, align 8, !tbaa !7
   %11 = trunc i64 %10 to i32
   %12 = tail call ptr @prte_reachable_allocate(i32 noundef %8, i32 noundef %11) #6
   %13 = icmp eq ptr %12, null
@@ -58,7 +58,7 @@ define internal ptr @netlink_reachable(ptr noundef %0, ptr noundef %1) #1 {
 14:                                               ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %.01929 = load ptr, ptr %16, align 8
+  %.01929 = load ptr, ptr %16, align 8, !tbaa !16
   %.not30 = icmp eq ptr %.01929, %15
   br i1 %.not30, label %.loopexit, label %.lr.ph34
 
@@ -68,14 +68,14 @@ define internal ptr @netlink_reachable(ptr noundef %0, ptr noundef %1) #1 {
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 127
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 127
   %21 = getelementptr inbounds nuw i8, ptr %12, i64 128
-  %22 = load ptr, ptr %18, align 8
+  %22 = load ptr, ptr %18, align 8, !tbaa !16
   %23 = icmp eq ptr %22, %17
   br i1 %23, label %.loopexit, label %.lr.ph34.split
 
 .lr.ph34.split:                                   ; preds = %.lr.ph34, %._crit_edge
   %indvars.iv37 = phi i64 [ %indvars.iv.next38, %._crit_edge ], [ 0, %.lr.ph34 ]
   %.01932 = phi ptr [ %.019, %._crit_edge ], [ %.01929, %.lr.ph34 ]
-  %.025 = load ptr, ptr %18, align 8
+  %.025 = load ptr, ptr %18, align 8, !tbaa !16
   %.not2426 = icmp eq ptr %.025, %17
   br i1 %.not2426, label %._crit_edge, label %.lr.ph
 
@@ -90,37 +90,37 @@ define internal ptr @netlink_reachable(ptr noundef %0, ptr noundef %1) #1 {
 29:                                               ; preds = %.lr.ph, %get_weights.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %get_weights.exit ]
   %.028 = phi ptr [ %.025, %.lr.ph ], [ %.0, %get_weights.exit ]
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #6
   %30 = call ptr @pmix_net_get_hostname(ptr noundef nonnull %24) #6
   call void @pmix_string_copy(ptr noundef nonnull %3, ptr noundef %30, i64 noundef 128) #6
-  store i8 0, ptr %19, align 1
+  store i8 0, ptr %19, align 1, !tbaa !17
   %31 = getelementptr inbounds nuw i8, ptr %.028, i64 424
   %32 = call ptr @pmix_net_get_hostname(ptr noundef nonnull %31) #6
   call void @pmix_string_copy(ptr noundef nonnull %4, ptr noundef %32, i64 noundef 128) #6
-  store i8 0, ptr %20, align 1
-  %33 = load i16, ptr %25, align 2
+  store i8 0, ptr %20, align 1, !tbaa !17
+  %33 = load i16, ptr %25, align 2, !tbaa !18
   %34 = icmp eq i16 %33, 2
   br i1 %34, label %35, label %83
 
 35:                                               ; preds = %29
   %36 = getelementptr inbounds nuw i8, ptr %.028, i64 410
-  %37 = load i16, ptr %36, align 2
+  %37 = load i16, ptr %36, align 2, !tbaa !18
   %38 = icmp eq i16 %37, 2
   br i1 %38, label %39, label %83
 
 39:                                               ; preds = %35
-  %40 = load i32, ptr %26, align 4
+  %40 = load i32, ptr %26, align 4, !tbaa !22
   %41 = getelementptr inbounds nuw i8, ptr %.028, i64 428
-  %42 = load i32, ptr %41, align 4
+  %42 = load i32, ptr %41, align 4, !tbaa !22
   %43 = icmp eq i32 %40, %42
   br i1 %43, label %44, label %58
 
 44:                                               ; preds = %39
-  %45 = load i32, ptr %28, align 4
+  %45 = load i32, ptr %28, align 4, !tbaa !25
   %46 = getelementptr inbounds nuw i8, ptr %.028, i64 556
-  %47 = load i32, ptr %46, align 4
+  %47 = load i32, ptr %46, align 4, !tbaa !25
   %48 = call i32 @llvm.smin.i32(i32 %45, i32 %47)
   %49 = sitofp i32 %48 to double
   %50 = sub nsw i32 %45, %47
@@ -134,18 +134,18 @@ define internal ptr @netlink_reachable(ptr noundef %0, ptr noundef %1) #1 {
   br label %83
 
 58:                                               ; preds = %39
-  %59 = load i16, ptr %27, align 8
+  %59 = load i16, ptr %27, align 8, !tbaa !26
   %60 = zext i16 %59 to i32
   %61 = call i32 @prte_reachable_netlink_rt_lookup(i32 noundef %40, i32 noundef %42, i32 noundef %60, ptr noundef nonnull %5) #6
   %62 = icmp eq i32 %61, 0
   br i1 %62, label %63, label %83
 
 63:                                               ; preds = %58
-  %64 = load i32, ptr %5, align 4
+  %64 = load i32, ptr %5, align 4, !tbaa !3
   %65 = icmp eq i32 %64, 0
-  %66 = load i32, ptr %28, align 4
+  %66 = load i32, ptr %28, align 4, !tbaa !25
   %67 = getelementptr inbounds nuw i8, ptr %.028, i64 556
-  %68 = load i32, ptr %67, align 4
+  %68 = load i32, ptr %67, align 4, !tbaa !25
   %69 = call i32 @llvm.smin.i32(i32 %66, i32 %68)
   %70 = sitofp i32 %69 to double
   %71 = sub nsw i32 %66, %68
@@ -167,86 +167,121 @@ define internal ptr @netlink_reachable(ptr noundef %0, ptr noundef %1) #1 {
   br label %83
 
 83:                                               ; preds = %80, %77, %58, %44, %35, %29
-  %.020.i = phi i32 [ %57, %44 ], [ %79, %77 ], [ %82, %80 ], [ 0, %58 ], [ 0, %35 ], [ 0, %29 ]
-  %.0.i = phi ptr [ @.str, %44 ], [ @.str, %77 ], [ @.str.1, %80 ], [ @.str.2, %58 ], [ @.str.3, %35 ], [ @.str.3, %29 ]
-  %84 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_prtereachable_base_framework, i64 76), align 4
+  %.227.i = phi i32 [ %57, %44 ], [ %79, %77 ], [ %82, %80 ], [ 0, %58 ], [ 0, %35 ], [ 0, %29 ]
+  %.2.i = phi ptr [ @.str, %44 ], [ @.str, %77 ], [ @.str.1, %80 ], [ @.str.2, %58 ], [ @.str.3, %35 ], [ @.str.3, %29 ]
+  %84 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_prtereachable_base_framework, i64 76), align 4, !tbaa !27
   %or.cond.i = icmp ult i32 %84, 64
   br i1 %or.cond.i, label %85, label %get_weights.exit
 
 85:                                               ; preds = %83
   %86 = zext nneg i32 %84 to i64
   %87 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %86, i32 2
-  %88 = load i32, ptr %87, align 4
+  %88 = load i32, ptr %87, align 4, !tbaa !31
   %89 = icmp sgt i32 %88, 19
   br i1 %89, label %90, label %get_weights.exit
 
 90:                                               ; preds = %85
-  call void (i32, ptr, ...) @pmix_output(i32 noundef %84, ptr noundef nonnull @.str.4, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %.0.i) #6
+  call void (i32, ptr, ...) @pmix_output(i32 noundef %84, ptr noundef nonnull @.str.4, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %.2.i) #6
   br label %get_weights.exit
 
 get_weights.exit:                                 ; preds = %83, %85, %90
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  %91 = load ptr, ptr %21, align 8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #6
+  %91 = load ptr, ptr %21, align 8, !tbaa !34
   %92 = getelementptr inbounds nuw ptr, ptr %91, i64 %indvars.iv37
-  %93 = load ptr, ptr %92, align 8
+  %93 = load ptr, ptr %92, align 8, !tbaa !37
   %94 = getelementptr inbounds nuw i32, ptr %93, i64 %indvars.iv
-  store i32 %.020.i, ptr %94, align 4
+  store i32 %.227.i, ptr %94, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %95 = getelementptr inbounds nuw i8, ptr %.028, i64 120
-  %.0 = load ptr, ptr %95, align 8
+  %.0 = load ptr, ptr %95, align 8, !tbaa !16
   %.not24 = icmp eq ptr %.0, %17
-  br i1 %.not24, label %._crit_edge, label %29, !llvm.loop !4
+  br i1 %.not24, label %._crit_edge, label %29, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %get_weights.exit, %.lr.ph34.split
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
   %96 = getelementptr inbounds nuw i8, ptr %.01932, i64 120
-  %.019 = load ptr, ptr %96, align 8
+  %.019 = load ptr, ptr %96, align 8, !tbaa !16
   %.not = icmp eq ptr %.019, %15
-  br i1 %.not, label %.loopexit, label %.lr.ph34.split, !llvm.loop !6
+  br i1 %.not, label %.loopexit, label %.lr.ph34.split, !llvm.loop !41
 
 .loopexit:                                        ; preds = %._crit_edge, %.lr.ph34, %14, %2
   ret ptr %12
 }
 
-declare ptr @prte_reachable_allocate(i32 noundef, i32 noundef) local_unnamed_addr #2
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
-declare void @pmix_string_copy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @prte_reachable_allocate(i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare ptr @pmix_net_get_hostname(ptr noundef) local_unnamed_addr #2
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
-declare i32 @prte_reachable_netlink_rt_lookup(i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @pmix_string_copy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare void @pmix_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare ptr @pmix_net_get_hostname(ptr noundef) local_unnamed_addr #3
+
+declare i32 @prte_reachable_netlink_rt_lookup(i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+
+declare void @pmix_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #3
+declare i32 @llvm.abs.i32(i32, i1 immarg) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #4
+declare i32 @llvm.smin.i32(i32, i32) #5
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
-
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5, !7}
-!7 = !{!"llvm.loop.unswitch.partial.disable"}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"int", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}
+!7 = !{!8, !15, i64 264}
+!8 = !{!"pmix_list_t", !9, i64 0, !13, i64 120, !15, i64 264}
+!9 = !{!"pmix_object_t", !5, i64 0, !10, i64 40, !4, i64 48, !12, i64 56}
+!10 = !{!"p1 _ZTS12pmix_class_t", !11, i64 0}
+!11 = !{!"any pointer", !5, i64 0}
+!12 = !{!"pmix_tma", !11, i64 0, !11, i64 8, !11, i64 16, !11, i64 24, !11, i64 32, !11, i64 40, !11, i64 48, !11, i64 56}
+!13 = !{!"pmix_list_item_t", !9, i64 0, !14, i64 120, !14, i64 128, !4, i64 136}
+!14 = !{!"p1 _ZTS16pmix_list_item_t", !11, i64 0}
+!15 = !{!"long", !5, i64 0}
+!16 = !{!13, !14, i64 120}
+!17 = !{!5, !5, i64 0}
+!18 = !{!19, !20, i64 410}
+!19 = !{!"pmix_pif_t", !13, i64 0, !5, i64 144, !4, i64 404, !20, i64 408, !20, i64 410, !4, i64 412, !4, i64 416, !21, i64 424, !4, i64 552, !4, i64 556, !5, i64 560, !4, i64 568}
+!20 = !{!"short", !5, i64 0}
+!21 = !{!"sockaddr_storage", !20, i64 0, !5, i64 2, !15, i64 120}
+!22 = !{!23, !4, i64 4}
+!23 = !{!"sockaddr_in", !20, i64 0, !20, i64 2, !24, i64 4, !5, i64 8}
+!24 = !{!"in_addr", !4, i64 0}
+!25 = !{!19, !4, i64 556}
+!26 = !{!19, !20, i64 408}
+!27 = !{!28, !4, i64 76}
+!28 = !{!"pmix_mca_base_framework_t", !29, i64 0, !29, i64 8, !29, i64 16, !11, i64 24, !11, i64 32, !11, i64 40, !4, i64 48, !4, i64 52, !30, i64 56, !29, i64 64, !4, i64 72, !4, i64 76, !8, i64 80, !8, i64 352}
+!29 = !{!"p1 omnipotent char", !11, i64 0}
+!30 = !{!"p2 _ZTS31pmix_mca_base_component_2_1_0_t", !11, i64 0}
+!31 = !{!32, !4, i64 4}
+!32 = !{!"", !33, i64 0, !33, i64 1, !4, i64 4, !33, i64 8, !4, i64 12, !29, i64 16, !29, i64 24, !4, i64 32, !29, i64 40, !4, i64 48, !33, i64 52, !33, i64 53, !33, i64 54, !33, i64 55, !29, i64 56, !4, i64 64, !4, i64 68}
+!33 = !{!"_Bool", !5, i64 0}
+!34 = !{!35, !36, i64 128}
+!35 = !{!"prte_reachable_t", !9, i64 0, !4, i64 120, !4, i64 124, !36, i64 128, !11, i64 136}
+!36 = !{!"p2 int", !11, i64 0}
+!37 = !{!38, !38, i64 0}
+!38 = !{!"p1 int", !11, i64 0}
+!39 = distinct !{!39, !40}
+!40 = !{!"llvm.loop.mustprogress"}
+!41 = distinct !{!41, !40, !42}
+!42 = !{!"llvm.loop.unswitch.partial.disable"}

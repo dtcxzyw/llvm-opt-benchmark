@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.prte_ess_base_module_3_0_0_t = type { ptr, ptr }
-%struct.prte_process_info_t = type { %struct.pmix_proc, %struct.pmix_proc, ptr, %struct.pmix_proc, i32, i32, i32, ptr, ptr, i32, i8, i16, ptr, ptr, i8, ptr, i8 }
+%struct.prte_process_info_t = type { %struct.pmix_proc, %struct.pmix_proc, ptr, %struct.pmix_proc, i32, i32, i32, ptr, ptr, i32, i8, ptr, i16, ptr, ptr, i8, ptr, i8 }
 %struct.pmix_proc = type { [256 x i8], i32 }
 %struct.pmix_mca_base_framework_t = type { ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, i32, i32, %struct.pmix_list_t, %struct.pmix_list_t }
 %struct.pmix_list_t = type { %struct.pmix_object_t, %struct.pmix_list_item_t, i64 }
@@ -41,7 +41,7 @@ define internal noundef i32 @rte_init(i32 %0, ptr readnone captures(none) %1) #0
   ]
 
 4:                                                ; preds = %2
-  %5 = load ptr, ptr @prte_ess_base_nspace, align 8
+  %5 = load ptr, ptr @prte_ess_base_nspace, align 8, !tbaa !3
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %9
 
@@ -52,7 +52,7 @@ define internal noundef i32 @rte_init(i32 %0, ptr readnone captures(none) %1) #0
 
 9:                                                ; preds = %4
   tail call void @PMIx_Load_nspace(ptr noundef nonnull @prte_process_info, ptr noundef nonnull %5) #3
-  %10 = load ptr, ptr @prte_ess_base_vpid, align 8
+  %10 = load ptr, ptr @prte_ess_base_vpid, align 8, !tbaa !3
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %14
 
@@ -64,15 +64,15 @@ define internal noundef i32 @rte_init(i32 %0, ptr readnone captures(none) %1) #0
 14:                                               ; preds = %9
   %15 = tail call i64 @strtoul(ptr noundef nonnull captures(none) %10, ptr noundef null, i32 noundef 10) #3
   %16 = trunc i64 %15 to i32
-  store i32 %16, ptr getelementptr inbounds nuw (i8, ptr @prte_process_info, i64 256), align 8
-  %17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_ess_base_framework, i64 76), align 4
+  store i32 %16, ptr getelementptr inbounds nuw (i8, ptr @prte_process_info, i64 256), align 8, !tbaa !8
+  %17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_ess_base_framework, i64 76), align 4, !tbaa !15
   %or.cond.i = icmp ult i32 %17, 64
   br i1 %or.cond.i, label %18, label %25
 
 18:                                               ; preds = %14
   %19 = zext nneg i32 %17 to i64
   %20 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %19, i32 2
-  %21 = load i32, ptr %20, align 4
+  %21 = load i32, ptr %20, align 4, !tbaa !25
   %22 = icmp sgt i32 %21, 0
   br i1 %22, label %23, label %25
 
@@ -82,8 +82,8 @@ define internal noundef i32 @rte_init(i32 %0, ptr readnone captures(none) %1) #0
   br label %25
 
 25:                                               ; preds = %23, %18, %14
-  %26 = load i32, ptr @prte_ess_base_num_procs, align 4
-  store i32 %26, ptr getelementptr inbounds nuw (i8, ptr @prte_process_info, i64 792), align 8
+  %26 = load i32, ptr @prte_ess_base_num_procs, align 4, !tbaa !27
+  store i32 %26, ptr getelementptr inbounds nuw (i8, ptr @prte_process_info, i64 792), align 8, !tbaa !28
   br label %env_set_name.exit
 
 env_set_name.exit:                                ; preds = %7, %12, %25
@@ -101,8 +101,8 @@ env_set_name.exit:                                ; preds = %7, %12, %25
 29:                                               ; preds = %2, %.thread17
   %.022 = phi ptr [ @.str.3, %.thread17 ], [ @.str, %2 ]
   %.0721 = phi i32 [ %27, %.thread17 ], [ %3, %2 ]
-  %30 = load i8, ptr @prte_report_silent_errors, align 1
-  %31 = trunc i8 %30 to i1
+  %30 = load i8, ptr @prte_report_silent_errors, align 1, !tbaa !29, !range !30, !noundef !31
+  %31 = trunc nuw i8 %30 to i1
   br i1 %31, label %.thread, label %32
 
 32:                                               ; preds = %29
@@ -151,14 +151,42 @@ declare ptr @prte_util_print_name_args(ptr noundef) local_unnamed_addr #1
 
 declare i32 @prte_ess_base_prted_finalize() local_unnamed_addr #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 omnipotent char", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !11, i64 256}
+!9 = !{!"prte_process_info_t", !10, i64 0, !10, i64 260, !4, i64 520, !10, i64 528, !11, i64 788, !11, i64 792, !11, i64 796, !4, i64 800, !12, i64 808, !11, i64 816, !6, i64 820, !4, i64 824, !13, i64 832, !4, i64 840, !4, i64 848, !14, i64 856, !4, i64 864, !14, i64 872}
+!10 = !{!"pmix_proc", !6, i64 0, !11, i64 256}
+!11 = !{!"int", !6, i64 0}
+!12 = !{!"p2 omnipotent char", !5, i64 0}
+!13 = !{!"short", !6, i64 0}
+!14 = !{!"_Bool", !6, i64 0}
+!15 = !{!16, !11, i64 76}
+!16 = !{!"pmix_mca_base_framework_t", !4, i64 0, !4, i64 8, !4, i64 16, !5, i64 24, !5, i64 32, !5, i64 40, !11, i64 48, !11, i64 52, !17, i64 56, !4, i64 64, !11, i64 72, !11, i64 76, !18, i64 80, !18, i64 352}
+!17 = !{!"p2 _ZTS31pmix_mca_base_component_2_1_0_t", !5, i64 0}
+!18 = !{!"pmix_list_t", !19, i64 0, !22, i64 120, !24, i64 264}
+!19 = !{!"pmix_object_t", !6, i64 0, !20, i64 40, !11, i64 48, !21, i64 56}
+!20 = !{!"p1 _ZTS12pmix_class_t", !5, i64 0}
+!21 = !{!"pmix_tma", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !5, i64 40, !5, i64 48, !5, i64 56}
+!22 = !{!"pmix_list_item_t", !19, i64 0, !23, i64 120, !23, i64 128, !11, i64 136}
+!23 = !{!"p1 _ZTS16pmix_list_item_t", !5, i64 0}
+!24 = !{!"long", !6, i64 0}
+!25 = !{!26, !11, i64 4}
+!26 = !{!"", !14, i64 0, !14, i64 1, !11, i64 4, !14, i64 8, !11, i64 12, !4, i64 16, !4, i64 24, !11, i64 32, !4, i64 40, !11, i64 48, !14, i64 52, !14, i64 53, !14, i64 54, !14, i64 55, !4, i64 56, !11, i64 64, !11, i64 68}
+!27 = !{!11, !11, i64 0}
+!28 = !{!9, !11, i64 792}
+!29 = !{!14, !14, i64 0}
+!30 = !{i8 0, i8 2}
+!31 = !{}

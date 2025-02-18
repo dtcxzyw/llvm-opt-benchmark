@@ -13,27 +13,29 @@ target triple = "x86_64-pc-linux-gnu"
 define i32 @prte_ethtool_get_speed(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.ifreq, align 8
   %3 = alloca %struct.ethtool_cmd, align 4
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(i64 44, ptr nonnull %3) #5
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %4, i8 0, i64 40, i1 false)
   store i32 1, ptr %3, align 4
-  %5 = tail call i32 @socket(i32 noundef 2, i32 noundef 2, i32 noundef 0) #4
+  %5 = tail call i32 @socket(i32 noundef 2, i32 noundef 2, i32 noundef 0) #5
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %21, label %7
 
 7:                                                ; preds = %1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, i8 0, i64 40, i1 false)
-  call void @pmix_string_copy(ptr noundef nonnull %2, ptr noundef %0, i64 noundef 256) #4
+  call void @pmix_string_copy(ptr noundef nonnull %2, ptr noundef %0, i64 noundef 256) #5
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store ptr %3, ptr %8, align 8
-  %9 = call i32 (i32, i64, ...) @ioctl(i32 noundef %5, i64 noundef 35142, ptr noundef nonnull %2) #4
+  store ptr %3, ptr %8, align 8, !tbaa !3
+  %9 = call i32 (i32, i64, ...) @ioctl(i32 noundef %5, i64 noundef 35142, ptr noundef nonnull %2) #5
   %10 = icmp slt i32 %9, 0
   br i1 %10, label %19, label %11
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %.val = load i16, ptr %12, align 4
+  %.val = load i16, ptr %12, align 4, !tbaa !6
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %.val8 = load i16, ptr %13, align 4
+  %.val8 = load i16, ptr %13, align 4, !tbaa !10
   %14 = zext i16 %.val8 to i32
   %15 = shl nuw i32 %14, 16
   %16 = zext i16 %.val to i32
@@ -44,36 +46,52 @@ define i32 @prte_ethtool_get_speed(ptr noundef %0) local_unnamed_addr #0 {
 
 19:                                               ; preds = %7, %11
   %.06 = phi i32 [ 0, %7 ], [ %spec.store.select, %11 ]
-  %20 = call i32 @close(i32 noundef %5) #4
+  %20 = call i32 @close(i32 noundef %5) #5
   br label %21
 
 21:                                               ; preds = %1, %19
   %.0 = phi i32 [ %.06, %19 ], [ 0, %1 ]
+  call void @llvm.lifetime.end.p0(i64 44, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #5
   ret i32 %.0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind
-declare i32 @socket(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @socket(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @pmix_string_copy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @pmix_string_copy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare i32 @ioctl(i32 noundef, i64 noundef, ...) local_unnamed_addr #2
+declare i32 @ioctl(i32 noundef, i64 noundef, ...) local_unnamed_addr #3
 
-declare i32 @close(i32 noundef) local_unnamed_addr #3
+declare i32 @close(i32 noundef) local_unnamed_addr #4
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind }
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind }
+
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"omnipotent char", !5, i64 0}
+!5 = !{!"Simple C/C++ TBAA"}
+!6 = !{!7, !9, i64 12}
+!7 = !{!"ethtool_cmd", !8, i64 0, !8, i64 4, !8, i64 8, !9, i64 12, !4, i64 14, !4, i64 15, !4, i64 16, !4, i64 17, !4, i64 18, !4, i64 19, !8, i64 20, !8, i64 24, !9, i64 28, !4, i64 30, !4, i64 31, !8, i64 32, !4, i64 36}
+!8 = !{!"int", !4, i64 0}
+!9 = !{!"short", !4, i64 0}
+!10 = !{!7, !9, i64 28}

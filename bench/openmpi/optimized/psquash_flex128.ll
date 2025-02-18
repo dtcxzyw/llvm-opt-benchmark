@@ -3,7 +3,6 @@ source_filename = "bench/openmpi/original/psquash_flex128.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.pmix_psquash_base_module_t = type { ptr, i8, ptr, ptr, ptr, ptr, ptr }
 %struct.pmix_globals_t = type { i32, %struct.pmix_proc, %struct.pmix_value, %struct.pmix_value, ptr, i32, i32, ptr, i32, i32, i32, i32, i32, ptr, ptr, i32, %struct.pmix_events_t, i8, i8, %struct.timeval, %struct.pmix_list_t, %struct.pmix_pointer_array_t, i32, i32, %struct.pmix_hotel_t, i8, %struct.pmix_list_t, i8, i8, i8, i64, %struct.pmix_list_t, %struct.pmix_topology_t, %struct.pmix_cpuset_t, i8, i8, %struct.pmix_iof_flags_t, %struct.pmix_keyindex_t }
 %struct.pmix_proc = type { [256 x i8], i32 }
 %struct.pmix_value = type { i16, %union.anon }
@@ -27,7 +26,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.pmix_output_desc_t = type { i8, i8, i32, i8, i32, ptr, ptr, i32, ptr, i32, i8, i8, i8, i8, ptr, i32, i32 }
 
 @.str = private unnamed_addr constant [8 x i8] c"flex128\00", align 1
-@pmix_flex128_module = local_unnamed_addr global %struct.pmix_psquash_base_module_t { ptr @.str, i8 1, ptr @flex128_init, ptr @flex128_finalize, ptr @flex128_get_max_size, ptr @flex128_encode_int, ptr @flex128_decode_int }, align 8
+@pmix_flex128_module = local_unnamed_addr global { ptr, i8, [7 x i8], ptr, ptr, ptr, ptr, ptr } { ptr @.str, i8 1, [7 x i8] zeroinitializer, ptr @flex128_init, ptr @flex128_finalize, ptr @flex128_get_max_size, ptr @flex128_encode_int, ptr @flex128_decode_int }, align 8
 @pmix_globals = external local_unnamed_addr global %struct.pmix_globals_t, align 8
 @pmix_output_info = external local_unnamed_addr global [0 x %struct.pmix_output_desc_t], align 8
 @.str.1 = private unnamed_addr constant [22 x i8] c"psquash: flex128 init\00", align 1
@@ -39,19 +38,19 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @flex128_init() #0 {
-  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 392), align 8
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 392), align 8, !tbaa !3
   %or.cond = icmp ult i32 %1, 64
   br i1 %or.cond, label %2, label %8
 
 2:                                                ; preds = %0
   %3 = zext nneg i32 %1 to i64
   %4 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %3, i32 2
-  %5 = load i32, ptr %4, align 4
+  %5 = load i32, ptr %4, align 4, !tbaa !33
   %6 = icmp sgt i32 %5, 1
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %2
-  tail call void (i32, ptr, ...) @pmix_output(i32 noundef %1, ptr noundef nonnull @.str.1) #5
+  tail call void (i32, ptr, ...) @pmix_output(i32 noundef %1, ptr noundef nonnull @.str.1) #6
   br label %8
 
 8:                                                ; preds = %7, %2, %0
@@ -60,19 +59,19 @@ define internal noundef i32 @flex128_init() #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal void @flex128_finalize() #0 {
-  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 392), align 8
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 392), align 8, !tbaa !3
   %or.cond = icmp ult i32 %1, 64
   br i1 %or.cond, label %2, label %8
 
 2:                                                ; preds = %0
   %3 = zext nneg i32 %1 to i64
   %4 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %3, i32 2
-  %5 = load i32, ptr %4, align 4
+  %5 = load i32, ptr %4, align 4, !tbaa !33
   %6 = icmp sgt i32 %5, 1
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %2
-  tail call void (i32, ptr, ...) @pmix_output(i32 noundef %1, ptr noundef nonnull @.str.2) #5
+  tail call void (i32, ptr, ...) @pmix_output(i32 noundef %1, ptr noundef nonnull @.str.2) #6
   br label %8
 
 8:                                                ; preds = %7, %2, %0
@@ -86,7 +85,7 @@ define internal range(i32 -27, 1) i32 @flex128_get_max_size(i16 noundef zeroext 
   br i1 %3, label %switch.hole_check, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %switch.hole_check, %2
-  %.pre = load i64, ptr %1, align 8
+  %.pre = load i64, ptr %1, align 8, !tbaa !35
   %4 = add i64 %.pre, 1
   br label %6
 
@@ -104,13 +103,14 @@ switch.lookup:                                    ; preds = %switch.hole_check
 6:                                                ; preds = %switch.lookup, %._crit_edge
   %7 = phi i64 [ %4, %._crit_edge ], [ %switch.load, %switch.lookup ]
   %.0 = phi i32 [ -27, %._crit_edge ], [ 0, %switch.lookup ]
-  store i64 %7, ptr %1, align 8
+  store i64 %7, ptr %1, align 8, !tbaa !35
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -27, 1) i32 @flex128_encode_int(i16 noundef zeroext %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) #0 {
   %5 = alloca [9 x i8], align 1
+  call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %5) #6
   switch i16 %0, label %20 [
     i16 8, label %6
     i16 13, label %9
@@ -175,45 +175,47 @@ define internal range(i32 -27, 1) i32 @flex128_encode_int(i16 noundef zeroext %0
   br label %.preheader
 
 20:                                               ; preds = %4
-  %21 = tail call ptr @PMIx_Error_string(i32 noundef -27) #5
-  tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef %21, ptr noundef nonnull @.str.4, i32 noundef 262) #5
-  br label %37
+  %21 = tail call ptr @PMIx_Error_string(i32 noundef -27) #6
+  tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef %21, ptr noundef nonnull @.str.4, i32 noundef 262) #6
+  br label %34
 
-22:                                               ; preds = %.preheader, %22
-  %.016.i = phi i64 [ %25, %22 ], [ %.016.i.ph, %.preheader ]
-  %.015.i = phi i64 [ %27, %22 ], [ 0, %.preheader ]
+22:                                               ; preds = %.preheader, %26
+  %.016.i = phi i64 [ %27, %26 ], [ %.016.i.ph, %.preheader ]
+  %.015.i = phi i64 [ %29, %26 ], [ 0, %.preheader ]
   %23 = trunc i64 %.016.i to i8
-  %24 = and i8 %23, 127
-  %25 = lshr i64 %.016.i, 7
-  %26 = icmp ugt i64 %.016.i, 127
-  %masksel.i = select i1 %26, i8 -128, i8 0
-  %.0.i = or disjoint i8 %24, %masksel.i
-  %27 = add nuw nsw i64 %.015.i, 1
-  %28 = getelementptr inbounds nuw i8, ptr %5, i64 %.015.i
-  store i8 %.0.i, ptr %28, align 1
-  %29 = icmp samesign ult i64 %.015.i, 7
-  %30 = select i1 %26, i1 %29, i1 false
-  br i1 %30, label %22, label %31, !llvm.loop !4
+  %24 = icmp ugt i64 %.016.i, 127
+  br i1 %24, label %26, label %.thread22.i, !prof !36
 
-31:                                               ; preds = %22
-  %32 = icmp eq i64 %27, 8
-  %33 = and i1 %26, %32
-  br i1 %33, label %34, label %flex_pack_integer.exit
-
-34:                                               ; preds = %31
-  %35 = trunc i64 %25 to i8
-  %36 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i8 %35, ptr %36, align 1
+.thread22.i:                                      ; preds = %22
+  %25 = add nuw nsw i64 %.015.i, 1
   br label %flex_pack_integer.exit
 
-flex_pack_integer.exit:                           ; preds = %31, %34
-  %.1.i = phi i64 [ 9, %34 ], [ %27, %31 ]
-  store i64 %.1.i, ptr %3, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %5, i64 %.1.i, i1 false)
-  br label %37
+26:                                               ; preds = %22
+  %27 = lshr i64 %.016.i, 7
+  %28 = or i8 %23, -128
+  %29 = add nuw nsw i64 %.015.i, 1
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 %.015.i
+  store i8 %28, ptr %30, align 1, !tbaa !37
+  %exitcond.not.i = icmp eq i64 %29, 8
+  br i1 %exitcond.not.i, label %31, label %22, !llvm.loop !38
 
-37:                                               ; preds = %flex_pack_integer.exit, %20
+31:                                               ; preds = %26
+  %32 = trunc i64 %27 to i8
+  br label %flex_pack_integer.exit
+
+flex_pack_integer.exit:                           ; preds = %.thread22.i, %31
+  %.015.lcssa.sink.i = phi i64 [ %.015.i, %.thread22.i ], [ 8, %31 ]
+  %.lcssa.sink.i = phi i8 [ %23, %.thread22.i ], [ %32, %31 ]
+  %.1.i = phi i64 [ %25, %.thread22.i ], [ 9, %31 ]
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 %.015.lcssa.sink.i
+  store i8 %.lcssa.sink.i, ptr %33, align 1, !tbaa !37
+  store i64 %.1.i, ptr %3, align 8, !tbaa !35
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %5, i64 %.1.i, i1 false)
+  br label %34
+
+34:                                               ; preds = %flex_pack_integer.exit, %20
   %.04562 = phi i32 [ 0, %flex_pack_integer.exit ], [ -27, %20 ]
+  call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %5) #6
   ret i32 %.04562
 }
 
@@ -224,8 +226,8 @@ define internal range(i32 -27, 1) i32 @flex128_decode_int(i16 noundef zeroext %0
   br i1 %6, label %switch.hole_check, label %7
 
 7:                                                ; preds = %switch.hole_check, %5
-  %8 = tail call ptr @PMIx_Error_string(i32 noundef -27) #5
-  tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef %8, ptr noundef nonnull @.str.4, i32 noundef 280) #5
+  %8 = tail call ptr @PMIx_Error_string(i32 noundef -27) #6
+  tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef %8, ptr noundef nonnull @.str.4, i32 noundef 280) #6
   br label %.thread69
 
 switch.hole_check:                                ; preds = %5
@@ -246,8 +248,8 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %.037.i = phi i64 [ 0, %switch.lookup ], [ %19, %11 ]
   %.034.i = phi i64 [ 0, %switch.lookup ], [ %12, %11 ]
   %12 = add nuw i64 %.034.i, 1
-  %13 = getelementptr inbounds i8, ptr %1, i64 %.034.i
-  %14 = load i8, ptr %13, align 1
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 %.034.i
+  %14 = load i8, ptr %13, align 1, !tbaa !37
   %15 = and i8 %14, 127
   %16 = zext nneg i8 %15 to i64
   %17 = shl i64 %16, %.037.i
@@ -256,17 +258,17 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %20 = icmp slt i8 %14, 0
   %21 = icmp ult i64 %12, %10
   %22 = select i1 %20, i1 %21, i1 false
-  br i1 %22, label %11, label %23, !llvm.loop !6
+  br i1 %22, label %11, label %23, !prof !36, !llvm.loop !40
 
 23:                                               ; preds = %11
   %24 = icmp eq i64 %10, %12
   %25 = and i1 %24, %20
-  br i1 %25, label %26, label %33
+  br i1 %25, label %26, label %33, !prof !36
 
 26:                                               ; preds = %23
   %27 = add i64 %.034.i, 2
-  %28 = getelementptr inbounds i8, ptr %1, i64 %10
-  %29 = load i8, ptr %28, align 1
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 %10
+  %29 = load i8, ptr %28, align 1, !tbaa !37
   %30 = zext i8 %29 to i64
   %31 = shl i64 %30, %19
   %32 = add i64 %31, %18
@@ -294,13 +296,13 @@ flex_unpack_integer.exit:                         ; preds = %33, %.lr.ph.prehead
   %40 = icmp ne i64 %39, 0
   %41 = zext i1 %40 to i64
   %42 = add nuw nsw i64 %38, %41
-  store i64 %.135.i, ptr %4, align 8
+  store i64 %.135.i, ptr %4, align 8, !tbaa !35
   %43 = icmp samesign ult i64 %switch.load, %42
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %flex_unpack_integer.exit
-  %45 = tail call ptr @PMIx_Error_string(i32 noundef -20) #5
-  tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef %45, ptr noundef nonnull @.str.4, i32 noundef 287) #5
+  %45 = tail call ptr @PMIx_Error_string(i32 noundef -20) #6
+  tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef %45, ptr noundef nonnull @.str.4, i32 noundef 287) #6
   br label %.thread69
 
 46:                                               ; preds = %flex_unpack_integer.exit
@@ -361,8 +363,8 @@ flex_unpack_integer.exit:                         ; preds = %33, %.lr.ph.prehead
   br label %.thread69
 
 64:                                               ; preds = %46
-  %65 = tail call ptr @PMIx_Error_string(i32 noundef -27) #5
-  tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef %65, ptr noundef nonnull @.str.4, i32 noundef 292) #5
+  %65 = tail call ptr @PMIx_Error_string(i32 noundef -27) #6
+  tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef %65, ptr noundef nonnull @.str.4, i32 noundef 292) #6
   br label %.thread69
 
 .thread69:                                        ; preds = %47, %51, %53, %57, %59, %62, %63, %64, %44, %7
@@ -372,33 +374,74 @@ flex_unpack_integer.exit:                         ; preds = %33, %.lr.ph.prehead
 
 declare void @pmix_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare ptr @PMIx_Error_string(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #4
+declare i64 @llvm.umin.i64(i64, i64) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ctlz.i8(i8, i1 immarg) #4
+declare i8 @llvm.ctlz.i8(i8, i1 immarg) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #4
+declare i64 @llvm.fshl.i64(i64, i64, i64) #5
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nounwind }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!3 = !{!4, !5, i64 392}
+!4 = !{!"", !5, i64 0, !8, i64 4, !9, i64 264, !9, i64 296, !11, i64 328, !5, i64 336, !5, i64 340, !13, i64 344, !5, i64 352, !5, i64 356, !5, i64 360, !5, i64 364, !5, i64 368, !14, i64 376, !14, i64 384, !5, i64 392, !15, i64 400, !23, i64 1632, !23, i64 1633, !24, i64 1640, !20, i64 1656, !25, i64 1928, !5, i64 2088, !5, i64 2092, !27, i64 2096, !23, i64 2288, !20, i64 2296, !23, i64 2568, !23, i64 2569, !23, i64 2570, !19, i64 2576, !20, i64 2584, !29, i64 2856, !29, i64 2872, !23, i64 2888, !23, i64 2889, !30, i64 2896, !31, i64 2928}
+!5 = !{!"int", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!"pmix_proc", !6, i64 0, !5, i64 256}
+!9 = !{!"pmix_value", !10, i64 0, !6, i64 8}
+!10 = !{!"short", !6, i64 0}
+!11 = !{!"p1 _ZTS11pmix_peer_t", !12, i64 0}
+!12 = !{!"any pointer", !6, i64 0}
+!13 = !{!"p1 omnipotent char", !12, i64 0}
+!14 = !{!"p1 _ZTS10event_base", !12, i64 0}
+!15 = !{!"", !16, i64 0, !19, i64 120, !12, i64 128, !12, i64 136, !20, i64 144, !20, i64 416, !20, i64 688, !20, i64 960}
+!16 = !{!"pmix_object_t", !6, i64 0, !17, i64 40, !5, i64 48, !18, i64 56}
+!17 = !{!"p1 _ZTS12pmix_class_t", !12, i64 0}
+!18 = !{!"pmix_tma", !12, i64 0, !12, i64 8, !12, i64 16, !12, i64 24, !12, i64 32, !12, i64 40, !12, i64 48, !12, i64 56}
+!19 = !{!"long", !6, i64 0}
+!20 = !{!"pmix_list_t", !16, i64 0, !21, i64 120, !19, i64 264}
+!21 = !{!"pmix_list_item_t", !16, i64 0, !22, i64 120, !22, i64 128, !5, i64 136}
+!22 = !{!"p1 _ZTS16pmix_list_item_t", !12, i64 0}
+!23 = !{!"_Bool", !6, i64 0}
+!24 = !{!"timeval", !19, i64 0, !19, i64 8}
+!25 = !{!"pmix_pointer_array_t", !16, i64 0, !5, i64 120, !5, i64 124, !5, i64 128, !5, i64 132, !5, i64 136, !26, i64 144, !12, i64 152}
+!26 = !{!"p1 long", !12, i64 0}
+!27 = !{!"pmix_hotel_t", !16, i64 0, !5, i64 120, !14, i64 128, !24, i64 136, !12, i64 152, !12, i64 160, !12, i64 168, !28, i64 176, !5, i64 184}
+!28 = !{!"p1 int", !12, i64 0}
+!29 = !{!"", !13, i64 0, !12, i64 8}
+!30 = !{!"", !23, i64 0, !23, i64 1, !23, i64 2, !23, i64 3, !23, i64 4, !23, i64 5, !23, i64 6, !13, i64 8, !13, i64 16, !23, i64 24, !23, i64 25, !23, i64 26, !23, i64 27, !23, i64 28, !23, i64 29}
+!31 = !{!"", !16, i64 0, !32, i64 120, !5, i64 128}
+!32 = !{!"p1 _ZTS20pmix_pointer_array_t", !12, i64 0}
+!33 = !{!34, !5, i64 4}
+!34 = !{!"", !23, i64 0, !23, i64 1, !5, i64 4, !23, i64 8, !5, i64 12, !13, i64 16, !13, i64 24, !5, i64 32, !13, i64 40, !5, i64 48, !23, i64 52, !23, i64 53, !23, i64 54, !23, i64 55, !13, i64 56, !5, i64 64, !5, i64 68}
+!35 = !{!19, !19, i64 0}
+!36 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!37 = !{!6, !6, i64 0}
+!38 = distinct !{!38, !39}
+!39 = !{!"llvm.loop.mustprogress"}
+!40 = distinct !{!40, !39}

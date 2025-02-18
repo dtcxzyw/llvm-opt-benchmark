@@ -4,7 +4,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.prte_sys_limits_t = type { i8, i32, i32, i64 }
 %struct.rlimit = type { i64, i64 }
 
-@prte_sys_limits = global %struct.prte_sys_limits_t { i8 0, i32 -1, i32 -1, i64 0 }, align 8
+@prte_sys_limits = global { i8, [3 x i8], i32, i32, [4 x i8], i64 } { i8 0, [3 x i8] zeroinitializer, i32 -1, i32 -1, [4 x i8] zeroinitializer, i64 0 }, align 8
 @prte_set_max_sys_limits = external global ptr, align 8
 @.str = private unnamed_addr constant [4 x i8] c"max\00", align 1
 @.str.1 = private unnamed_addr constant [2 x i8] c"1\00", align 1
@@ -31,360 +31,373 @@ define i32 @prte_util_init_sys_limits(ptr noundef %0) #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr null, ptr %5, align 8
-  store i32 -1, ptr %8, align 4
-  %10 = load ptr, ptr @prte_set_max_sys_limits, align 8
-  %11 = icmp eq ptr null, %10
-  br i1 %11, label %12, label %13
-
-12:                                               ; preds = %1
-  store i32 0, ptr %2, align 4
-  br label %207
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #5
+  store ptr null, ptr %5, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #5
+  store i32 -1, ptr %8, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
+  %11 = load ptr, ptr @prte_set_max_sys_limits, align 8, !tbaa !10
+  %12 = icmp eq ptr null, %11
+  br i1 %12, label %13, label %14
 
 13:                                               ; preds = %1
-  %14 = load ptr, ptr @prte_set_max_sys_limits, align 8
-  %15 = call ptr @PMIx_Argv_split(ptr noundef %14, i32 noundef 44)
-  store ptr %15, ptr %4, align 8
-  %16 = load ptr, ptr %4, align 8
-  %17 = icmp eq ptr null, %16
-  br i1 %17, label %18, label %19
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %10, align 4
+  br label %202
 
-18:                                               ; preds = %13
+14:                                               ; preds = %1
+  %15 = load ptr, ptr @prte_set_max_sys_limits, align 8, !tbaa !10
+  %16 = call ptr @PMIx_Argv_split(ptr noundef %15, i32 noundef 44)
+  store ptr %16, ptr %4, align 8, !tbaa !3
+  %17 = load ptr, ptr %4, align 8, !tbaa !3
+  %18 = icmp eq ptr null, %17
+  br i1 %18, label %19, label %20
+
+19:                                               ; preds = %14
   store i32 -2, ptr %2, align 4
-  br label %207
+  store i32 1, ptr %10, align 4
+  br label %202
 
-19:                                               ; preds = %13
-  store i32 0, ptr %7, align 4
-  br label %20
+20:                                               ; preds = %14
+  store i32 0, ptr %7, align 4, !tbaa !8
+  br label %21
 
-20:                                               ; preds = %195, %19
-  %21 = load ptr, ptr %4, align 8
-  %22 = load i32, ptr %7, align 4
-  %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds ptr, ptr %21, i64 %23
-  %25 = load ptr, ptr %24, align 8
-  %26 = icmp ne ptr null, %25
-  br i1 %26, label %27, label %198
+21:                                               ; preds = %190, %20
+  %22 = load ptr, ptr %4, align 8, !tbaa !3
+  %23 = load i32, ptr %7, align 4, !tbaa !8
+  %24 = sext i32 %23 to i64
+  %25 = getelementptr inbounds ptr, ptr %22, i64 %24
+  %26 = load ptr, ptr %25, align 8, !tbaa !10
+  %27 = icmp ne ptr null, %26
+  br i1 %27, label %28, label %193
 
-27:                                               ; preds = %20
-  %28 = load ptr, ptr %4, align 8
-  %29 = load i32, ptr %7, align 4
-  %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds ptr, ptr %28, i64 %30
-  %32 = load ptr, ptr %31, align 8
-  %33 = call ptr @PMIx_Argv_split(ptr noundef %32, i32 noundef 58)
-  store ptr %33, ptr %5, align 8
-  %34 = load ptr, ptr %5, align 8
-  %35 = call i32 @PMIx_Argv_count(ptr noundef %34)
-  %36 = icmp eq i32 1, %35
-  br i1 %36, label %37, label %38
+28:                                               ; preds = %21
+  %29 = load ptr, ptr %4, align 8, !tbaa !3
+  %30 = load i32, ptr %7, align 4, !tbaa !8
+  %31 = sext i32 %30 to i64
+  %32 = getelementptr inbounds ptr, ptr %29, i64 %31
+  %33 = load ptr, ptr %32, align 8, !tbaa !10
+  %34 = call ptr @PMIx_Argv_split(ptr noundef %33, i32 noundef 58)
+  store ptr %34, ptr %5, align 8, !tbaa !3
+  %35 = load ptr, ptr %5, align 8, !tbaa !3
+  %36 = call i32 @PMIx_Argv_count(ptr noundef %35)
+  %37 = icmp eq i32 1, %36
+  br i1 %37, label %38, label %39
 
-37:                                               ; preds = %27
-  store ptr @.str, ptr %6, align 8
-  br label %42
+38:                                               ; preds = %28
+  store ptr @.str, ptr %6, align 8, !tbaa !10
+  br label %43
 
-38:                                               ; preds = %27
-  %39 = load ptr, ptr %5, align 8
-  %40 = getelementptr inbounds ptr, ptr %39, i64 1
-  %41 = load ptr, ptr %40, align 8
-  store ptr %41, ptr %6, align 8
-  br label %42
+39:                                               ; preds = %28
+  %40 = load ptr, ptr %5, align 8, !tbaa !3
+  %41 = getelementptr inbounds ptr, ptr %40, i64 1
+  %42 = load ptr, ptr %41, align 8, !tbaa !10
+  store ptr %42, ptr %6, align 8, !tbaa !10
+  br label %43
 
-42:                                               ; preds = %38, %37
-  %43 = load ptr, ptr %5, align 8
-  %44 = getelementptr inbounds ptr, ptr %43, i64 0
-  %45 = load ptr, ptr %44, align 8
-  %46 = call i32 @strcmp(ptr noundef %45, ptr noundef @.str.1) #4
-  %47 = icmp eq i32 0, %46
-  br i1 %47, label %48, label %75
+43:                                               ; preds = %39, %38
+  %44 = load ptr, ptr %5, align 8, !tbaa !3
+  %45 = getelementptr inbounds ptr, ptr %44, i64 0
+  %46 = load ptr, ptr %45, align 8, !tbaa !10
+  %47 = call i32 @strcmp(ptr noundef %46, ptr noundef @.str.1) #6
+  %48 = icmp eq i32 0, %47
+  br i1 %48, label %49, label %73
 
-48:                                               ; preds = %42
-  %49 = call i32 @prte_setlimit(i32 noundef 7, ptr noundef @.str, ptr noundef %9)
-  %50 = icmp ne i32 0, %49
-  br i1 %50, label %51, label %54
+49:                                               ; preds = %43
+  %50 = call i32 @prte_setlimit(i32 noundef 7, ptr noundef @.str, ptr noundef %9)
+  %51 = icmp ne i32 0, %50
+  br i1 %51, label %52, label %55
 
-51:                                               ; preds = %48
-  %52 = call ptr (ptr, ptr, i32, ...) @pmix_show_help_string(ptr noundef @.str.2, ptr noundef @.str.3, i32 noundef 1, ptr noundef @.str.4, ptr noundef @.str)
-  %53 = load ptr, ptr %3, align 8
-  store ptr %52, ptr %53, align 8
-  br label %199
+52:                                               ; preds = %49
+  %53 = call ptr (ptr, ptr, i32, ...) @pmix_show_help_string(ptr noundef @.str.2, ptr noundef @.str.3, i32 noundef 1, ptr noundef @.str.4, ptr noundef @.str)
+  %54 = load ptr, ptr %3, align 8, !tbaa !3
+  store ptr %53, ptr %54, align 8, !tbaa !10
+  br label %194
 
-54:                                               ; preds = %48
-  %55 = load i64, ptr %9, align 8
-  %56 = trunc i64 %55 to i32
-  %57 = getelementptr inbounds %struct.prte_sys_limits_t, ptr @prte_sys_limits, i32 0, i32 1
-  store i32 %56, ptr %57, align 4
+55:                                               ; preds = %49
+  %56 = load i64, ptr %9, align 8, !tbaa !12
+  %57 = trunc i64 %56 to i32
+  store i32 %57, ptr getelementptr inbounds nuw (%struct.prte_sys_limits_t, ptr @prte_sys_limits, i32 0, i32 1), align 4, !tbaa !14
   %58 = call i32 @prte_setlimit(i32 noundef 6, ptr noundef @.str, ptr noundef %9)
   %59 = icmp ne i32 0, %58
   br i1 %59, label %60, label %63
 
-60:                                               ; preds = %54
+60:                                               ; preds = %55
   %61 = call ptr (ptr, ptr, i32, ...) @pmix_show_help_string(ptr noundef @.str.2, ptr noundef @.str.3, i32 noundef 1, ptr noundef @.str.5, ptr noundef @.str)
-  %62 = load ptr, ptr %3, align 8
-  store ptr %61, ptr %62, align 8
-  br label %199
+  %62 = load ptr, ptr %3, align 8, !tbaa !3
+  store ptr %61, ptr %62, align 8, !tbaa !10
+  br label %194
 
-63:                                               ; preds = %54
-  %64 = load i64, ptr %9, align 8
+63:                                               ; preds = %55
+  %64 = load i64, ptr %9, align 8, !tbaa !12
   %65 = trunc i64 %64 to i32
-  %66 = getelementptr inbounds %struct.prte_sys_limits_t, ptr @prte_sys_limits, i32 0, i32 2
-  store i32 %65, ptr %66, align 8
-  %67 = call i32 @prte_setlimit(i32 noundef 1, ptr noundef @.str, ptr noundef %9)
-  %68 = icmp ne i32 0, %67
-  br i1 %68, label %69, label %72
+  store i32 %65, ptr getelementptr inbounds nuw (%struct.prte_sys_limits_t, ptr @prte_sys_limits, i32 0, i32 2), align 8, !tbaa !17
+  %66 = call i32 @prte_setlimit(i32 noundef 1, ptr noundef @.str, ptr noundef %9)
+  %67 = icmp ne i32 0, %66
+  br i1 %67, label %68, label %71
 
-69:                                               ; preds = %63
-  %70 = call ptr (ptr, ptr, i32, ...) @pmix_show_help_string(ptr noundef @.str.2, ptr noundef @.str.3, i32 noundef 1, ptr noundef @.str.6, ptr noundef @.str)
-  %71 = load ptr, ptr %3, align 8
-  store ptr %70, ptr %71, align 8
-  br label %199
+68:                                               ; preds = %63
+  %69 = call ptr (ptr, ptr, i32, ...) @pmix_show_help_string(ptr noundef @.str.2, ptr noundef @.str.3, i32 noundef 1, ptr noundef @.str.6, ptr noundef @.str)
+  %70 = load ptr, ptr %3, align 8, !tbaa !3
+  store ptr %69, ptr %70, align 8, !tbaa !10
+  br label %194
 
-72:                                               ; preds = %63
-  %73 = load i64, ptr %9, align 8
-  %74 = getelementptr inbounds %struct.prte_sys_limits_t, ptr @prte_sys_limits, i32 0, i32 3
-  store i64 %73, ptr %74, align 8
-  br label %198
-
-75:                                               ; preds = %42
-  %76 = load ptr, ptr %5, align 8
-  %77 = getelementptr inbounds ptr, ptr %76, i64 0
-  %78 = load ptr, ptr %77, align 8
-  %79 = call i32 @strcmp(ptr noundef %78, ptr noundef @.str.7) #4
-  %80 = icmp eq i32 0, %79
-  br i1 %80, label %81, label %82
-
-81:                                               ; preds = %75
-  br label %198
-
-82:                                               ; preds = %75
-  br label %83
-
-83:                                               ; preds = %82
-  %84 = load ptr, ptr %5, align 8
-  %85 = getelementptr inbounds ptr, ptr %84, i64 0
-  %86 = load ptr, ptr %85, align 8
-  %87 = call i32 @strcmp(ptr noundef %86, ptr noundef @.str.8) #4
-  %88 = icmp eq i32 0, %87
-  br i1 %88, label %89, label %98
-
-89:                                               ; preds = %83
-  %90 = load ptr, ptr %6, align 8
-  %91 = call i32 @prte_setlimit(i32 noundef 4, ptr noundef %90, ptr noundef %9)
-  %92 = icmp ne i32 0, %91
-  br i1 %92, label %93, label %97
-
-93:                                               ; preds = %89
-  %94 = load ptr, ptr %6, align 8
-  %95 = call ptr (ptr, ptr, i32, ...) @pmix_show_help_string(ptr noundef @.str.2, ptr noundef @.str.3, i32 noundef 1, ptr noundef @.str.4, ptr noundef %94)
-  %96 = load ptr, ptr %3, align 8
-  store ptr %95, ptr %96, align 8
-  br label %199
-
-97:                                               ; preds = %89
+71:                                               ; preds = %63
+  %72 = load i64, ptr %9, align 8, !tbaa !12
+  store i64 %72, ptr getelementptr inbounds nuw (%struct.prte_sys_limits_t, ptr @prte_sys_limits, i32 0, i32 3), align 8, !tbaa !18
   br label %193
 
-98:                                               ; preds = %83
-  %99 = load ptr, ptr %5, align 8
-  %100 = getelementptr inbounds ptr, ptr %99, i64 0
-  %101 = load ptr, ptr %100, align 8
-  %102 = call i32 @strcmp(ptr noundef %101, ptr noundef @.str.6) #4
-  %103 = icmp eq i32 0, %102
-  br i1 %103, label %104, label %115
+73:                                               ; preds = %43
+  %74 = load ptr, ptr %5, align 8, !tbaa !3
+  %75 = getelementptr inbounds ptr, ptr %74, i64 0
+  %76 = load ptr, ptr %75, align 8, !tbaa !10
+  %77 = call i32 @strcmp(ptr noundef %76, ptr noundef @.str.7) #6
+  %78 = icmp eq i32 0, %77
+  br i1 %78, label %79, label %80
 
-104:                                              ; preds = %98
-  %105 = load ptr, ptr %6, align 8
-  %106 = call i32 @prte_setlimit(i32 noundef 1, ptr noundef %105, ptr noundef %9)
-  %107 = icmp ne i32 0, %106
-  br i1 %107, label %108, label %112
+79:                                               ; preds = %73
+  br label %193
 
-108:                                              ; preds = %104
-  %109 = load ptr, ptr %6, align 8
-  %110 = call ptr (ptr, ptr, i32, ...) @pmix_show_help_string(ptr noundef @.str.2, ptr noundef @.str.3, i32 noundef 1, ptr noundef @.str.6, ptr noundef %109)
-  %111 = load ptr, ptr %3, align 8
-  store ptr %110, ptr %111, align 8
-  br label %199
+80:                                               ; preds = %73
+  br label %81
 
-112:                                              ; preds = %104
-  %113 = load i64, ptr %9, align 8
-  %114 = getelementptr inbounds %struct.prte_sys_limits_t, ptr @prte_sys_limits, i32 0, i32 3
-  store i64 %113, ptr %114, align 8
-  br label %192
+81:                                               ; preds = %80
+  %82 = load ptr, ptr %5, align 8, !tbaa !3
+  %83 = getelementptr inbounds ptr, ptr %82, i64 0
+  %84 = load ptr, ptr %83, align 8, !tbaa !10
+  %85 = call i32 @strcmp(ptr noundef %84, ptr noundef @.str.8) #6
+  %86 = icmp eq i32 0, %85
+  br i1 %86, label %87, label %96
 
-115:                                              ; preds = %98
-  %116 = load ptr, ptr %5, align 8
-  %117 = getelementptr inbounds ptr, ptr %116, i64 0
-  %118 = load ptr, ptr %117, align 8
-  %119 = call i32 @strcmp(ptr noundef %118, ptr noundef @.str.9) #4
-  %120 = icmp eq i32 0, %119
-  br i1 %120, label %121, label %130
+87:                                               ; preds = %81
+  %88 = load ptr, ptr %6, align 8, !tbaa !10
+  %89 = call i32 @prte_setlimit(i32 noundef 4, ptr noundef %88, ptr noundef %9)
+  %90 = icmp ne i32 0, %89
+  br i1 %90, label %91, label %95
 
-121:                                              ; preds = %115
-  %122 = load ptr, ptr %6, align 8
-  %123 = call i32 @prte_setlimit(i32 noundef 9, ptr noundef %122, ptr noundef %9)
-  %124 = icmp ne i32 0, %123
-  br i1 %124, label %125, label %129
+91:                                               ; preds = %87
+  %92 = load ptr, ptr %6, align 8, !tbaa !10
+  %93 = call ptr (ptr, ptr, i32, ...) @pmix_show_help_string(ptr noundef @.str.2, ptr noundef @.str.3, i32 noundef 1, ptr noundef @.str.4, ptr noundef %92)
+  %94 = load ptr, ptr %3, align 8, !tbaa !3
+  store ptr %93, ptr %94, align 8, !tbaa !10
+  br label %194
 
-125:                                              ; preds = %121
-  %126 = load ptr, ptr %6, align 8
-  %127 = call ptr (ptr, ptr, i32, ...) @pmix_show_help_string(ptr noundef @.str.2, ptr noundef @.str.3, i32 noundef 1, ptr noundef @.str.9, ptr noundef %126)
-  %128 = load ptr, ptr %3, align 8
-  store ptr %127, ptr %128, align 8
-  br label %199
-
-129:                                              ; preds = %121
-  br label %191
-
-130:                                              ; preds = %115
-  %131 = load ptr, ptr %5, align 8
-  %132 = getelementptr inbounds ptr, ptr %131, i64 0
-  %133 = load ptr, ptr %132, align 8
-  %134 = call i32 @strcmp(ptr noundef %133, ptr noundef @.str.4) #4
-  %135 = icmp eq i32 0, %134
-  br i1 %135, label %136, label %148
-
-136:                                              ; preds = %130
-  %137 = load ptr, ptr %6, align 8
-  %138 = call i32 @prte_setlimit(i32 noundef 7, ptr noundef %137, ptr noundef %9)
-  %139 = icmp ne i32 0, %138
-  br i1 %139, label %140, label %144
-
-140:                                              ; preds = %136
-  %141 = load ptr, ptr %6, align 8
-  %142 = call ptr (ptr, ptr, i32, ...) @pmix_show_help_string(ptr noundef @.str.2, ptr noundef @.str.3, i32 noundef 1, ptr noundef @.str.4, ptr noundef %141)
-  %143 = load ptr, ptr %3, align 8
-  store ptr %142, ptr %143, align 8
-  br label %199
-
-144:                                              ; preds = %136
-  %145 = load i64, ptr %9, align 8
-  %146 = trunc i64 %145 to i32
-  %147 = getelementptr inbounds %struct.prte_sys_limits_t, ptr @prte_sys_limits, i32 0, i32 1
-  store i32 %146, ptr %147, align 4
-  br label %190
-
-148:                                              ; preds = %130
-  %149 = load ptr, ptr %5, align 8
-  %150 = getelementptr inbounds ptr, ptr %149, i64 0
-  %151 = load ptr, ptr %150, align 8
-  %152 = call i32 @strcmp(ptr noundef %151, ptr noundef @.str.10) #4
-  %153 = icmp eq i32 0, %152
-  br i1 %153, label %154, label %163
-
-154:                                              ; preds = %148
-  %155 = load ptr, ptr %6, align 8
-  %156 = call i32 @prte_setlimit(i32 noundef 3, ptr noundef %155, ptr noundef %9)
-  %157 = icmp ne i32 0, %156
-  br i1 %157, label %158, label %162
-
-158:                                              ; preds = %154
-  %159 = load ptr, ptr %6, align 8
-  %160 = call ptr (ptr, ptr, i32, ...) @pmix_show_help_string(ptr noundef @.str.2, ptr noundef @.str.3, i32 noundef 1, ptr noundef @.str.10, ptr noundef %159)
-  %161 = load ptr, ptr %3, align 8
-  store ptr %160, ptr %161, align 8
-  br label %199
-
-162:                                              ; preds = %154
-  br label %189
-
-163:                                              ; preds = %148
-  %164 = load ptr, ptr %5, align 8
-  %165 = getelementptr inbounds ptr, ptr %164, i64 0
-  %166 = load ptr, ptr %165, align 8
-  %167 = call i32 @strcmp(ptr noundef %166, ptr noundef @.str.5) #4
-  %168 = icmp eq i32 0, %167
-  br i1 %168, label %169, label %181
-
-169:                                              ; preds = %163
-  %170 = load ptr, ptr %6, align 8
-  %171 = call i32 @prte_setlimit(i32 noundef 6, ptr noundef %170, ptr noundef %9)
-  %172 = icmp ne i32 0, %171
-  br i1 %172, label %173, label %177
-
-173:                                              ; preds = %169
-  %174 = load ptr, ptr %6, align 8
-  %175 = call ptr (ptr, ptr, i32, ...) @pmix_show_help_string(ptr noundef @.str.2, ptr noundef @.str.3, i32 noundef 1, ptr noundef @.str.5, ptr noundef %174)
-  %176 = load ptr, ptr %3, align 8
-  store ptr %175, ptr %176, align 8
-  br label %199
-
-177:                                              ; preds = %169
-  %178 = load i64, ptr %9, align 8
-  %179 = trunc i64 %178 to i32
-  %180 = getelementptr inbounds %struct.prte_sys_limits_t, ptr @prte_sys_limits, i32 0, i32 2
-  store i32 %179, ptr %180, align 8
+95:                                               ; preds = %87
   br label %188
 
-181:                                              ; preds = %163
-  %182 = load ptr, ptr %5, align 8
-  %183 = getelementptr inbounds ptr, ptr %182, i64 0
-  %184 = load ptr, ptr %183, align 8
-  %185 = load ptr, ptr %6, align 8
-  %186 = call ptr (ptr, ptr, i32, ...) @pmix_show_help_string(ptr noundef @.str.2, ptr noundef @.str.11, i32 noundef 1, ptr noundef %184, ptr noundef %185)
-  %187 = load ptr, ptr %3, align 8
-  store ptr %186, ptr %187, align 8
-  br label %199
+96:                                               ; preds = %81
+  %97 = load ptr, ptr %5, align 8, !tbaa !3
+  %98 = getelementptr inbounds ptr, ptr %97, i64 0
+  %99 = load ptr, ptr %98, align 8, !tbaa !10
+  %100 = call i32 @strcmp(ptr noundef %99, ptr noundef @.str.6) #6
+  %101 = icmp eq i32 0, %100
+  br i1 %101, label %102, label %112
 
-188:                                              ; preds = %177
-  br label %189
+102:                                              ; preds = %96
+  %103 = load ptr, ptr %6, align 8, !tbaa !10
+  %104 = call i32 @prte_setlimit(i32 noundef 1, ptr noundef %103, ptr noundef %9)
+  %105 = icmp ne i32 0, %104
+  br i1 %105, label %106, label %110
 
-189:                                              ; preds = %188, %162
+106:                                              ; preds = %102
+  %107 = load ptr, ptr %6, align 8, !tbaa !10
+  %108 = call ptr (ptr, ptr, i32, ...) @pmix_show_help_string(ptr noundef @.str.2, ptr noundef @.str.3, i32 noundef 1, ptr noundef @.str.6, ptr noundef %107)
+  %109 = load ptr, ptr %3, align 8, !tbaa !3
+  store ptr %108, ptr %109, align 8, !tbaa !10
+  br label %194
+
+110:                                              ; preds = %102
+  %111 = load i64, ptr %9, align 8, !tbaa !12
+  store i64 %111, ptr getelementptr inbounds nuw (%struct.prte_sys_limits_t, ptr @prte_sys_limits, i32 0, i32 3), align 8, !tbaa !18
+  br label %187
+
+112:                                              ; preds = %96
+  %113 = load ptr, ptr %5, align 8, !tbaa !3
+  %114 = getelementptr inbounds ptr, ptr %113, i64 0
+  %115 = load ptr, ptr %114, align 8, !tbaa !10
+  %116 = call i32 @strcmp(ptr noundef %115, ptr noundef @.str.9) #6
+  %117 = icmp eq i32 0, %116
+  br i1 %117, label %118, label %127
+
+118:                                              ; preds = %112
+  %119 = load ptr, ptr %6, align 8, !tbaa !10
+  %120 = call i32 @prte_setlimit(i32 noundef 9, ptr noundef %119, ptr noundef %9)
+  %121 = icmp ne i32 0, %120
+  br i1 %121, label %122, label %126
+
+122:                                              ; preds = %118
+  %123 = load ptr, ptr %6, align 8, !tbaa !10
+  %124 = call ptr (ptr, ptr, i32, ...) @pmix_show_help_string(ptr noundef @.str.2, ptr noundef @.str.3, i32 noundef 1, ptr noundef @.str.9, ptr noundef %123)
+  %125 = load ptr, ptr %3, align 8, !tbaa !3
+  store ptr %124, ptr %125, align 8, !tbaa !10
+  br label %194
+
+126:                                              ; preds = %118
+  br label %186
+
+127:                                              ; preds = %112
+  %128 = load ptr, ptr %5, align 8, !tbaa !3
+  %129 = getelementptr inbounds ptr, ptr %128, i64 0
+  %130 = load ptr, ptr %129, align 8, !tbaa !10
+  %131 = call i32 @strcmp(ptr noundef %130, ptr noundef @.str.4) #6
+  %132 = icmp eq i32 0, %131
+  br i1 %132, label %133, label %144
+
+133:                                              ; preds = %127
+  %134 = load ptr, ptr %6, align 8, !tbaa !10
+  %135 = call i32 @prte_setlimit(i32 noundef 7, ptr noundef %134, ptr noundef %9)
+  %136 = icmp ne i32 0, %135
+  br i1 %136, label %137, label %141
+
+137:                                              ; preds = %133
+  %138 = load ptr, ptr %6, align 8, !tbaa !10
+  %139 = call ptr (ptr, ptr, i32, ...) @pmix_show_help_string(ptr noundef @.str.2, ptr noundef @.str.3, i32 noundef 1, ptr noundef @.str.4, ptr noundef %138)
+  %140 = load ptr, ptr %3, align 8, !tbaa !3
+  store ptr %139, ptr %140, align 8, !tbaa !10
+  br label %194
+
+141:                                              ; preds = %133
+  %142 = load i64, ptr %9, align 8, !tbaa !12
+  %143 = trunc i64 %142 to i32
+  store i32 %143, ptr getelementptr inbounds nuw (%struct.prte_sys_limits_t, ptr @prte_sys_limits, i32 0, i32 1), align 4, !tbaa !14
+  br label %185
+
+144:                                              ; preds = %127
+  %145 = load ptr, ptr %5, align 8, !tbaa !3
+  %146 = getelementptr inbounds ptr, ptr %145, i64 0
+  %147 = load ptr, ptr %146, align 8, !tbaa !10
+  %148 = call i32 @strcmp(ptr noundef %147, ptr noundef @.str.10) #6
+  %149 = icmp eq i32 0, %148
+  br i1 %149, label %150, label %159
+
+150:                                              ; preds = %144
+  %151 = load ptr, ptr %6, align 8, !tbaa !10
+  %152 = call i32 @prte_setlimit(i32 noundef 3, ptr noundef %151, ptr noundef %9)
+  %153 = icmp ne i32 0, %152
+  br i1 %153, label %154, label %158
+
+154:                                              ; preds = %150
+  %155 = load ptr, ptr %6, align 8, !tbaa !10
+  %156 = call ptr (ptr, ptr, i32, ...) @pmix_show_help_string(ptr noundef @.str.2, ptr noundef @.str.3, i32 noundef 1, ptr noundef @.str.10, ptr noundef %155)
+  %157 = load ptr, ptr %3, align 8, !tbaa !3
+  store ptr %156, ptr %157, align 8, !tbaa !10
+  br label %194
+
+158:                                              ; preds = %150
+  br label %184
+
+159:                                              ; preds = %144
+  %160 = load ptr, ptr %5, align 8, !tbaa !3
+  %161 = getelementptr inbounds ptr, ptr %160, i64 0
+  %162 = load ptr, ptr %161, align 8, !tbaa !10
+  %163 = call i32 @strcmp(ptr noundef %162, ptr noundef @.str.5) #6
+  %164 = icmp eq i32 0, %163
+  br i1 %164, label %165, label %176
+
+165:                                              ; preds = %159
+  %166 = load ptr, ptr %6, align 8, !tbaa !10
+  %167 = call i32 @prte_setlimit(i32 noundef 6, ptr noundef %166, ptr noundef %9)
+  %168 = icmp ne i32 0, %167
+  br i1 %168, label %169, label %173
+
+169:                                              ; preds = %165
+  %170 = load ptr, ptr %6, align 8, !tbaa !10
+  %171 = call ptr (ptr, ptr, i32, ...) @pmix_show_help_string(ptr noundef @.str.2, ptr noundef @.str.3, i32 noundef 1, ptr noundef @.str.5, ptr noundef %170)
+  %172 = load ptr, ptr %3, align 8, !tbaa !3
+  store ptr %171, ptr %172, align 8, !tbaa !10
+  br label %194
+
+173:                                              ; preds = %165
+  %174 = load i64, ptr %9, align 8, !tbaa !12
+  %175 = trunc i64 %174 to i32
+  store i32 %175, ptr getelementptr inbounds nuw (%struct.prte_sys_limits_t, ptr @prte_sys_limits, i32 0, i32 2), align 8, !tbaa !17
+  br label %183
+
+176:                                              ; preds = %159
+  %177 = load ptr, ptr %5, align 8, !tbaa !3
+  %178 = getelementptr inbounds ptr, ptr %177, i64 0
+  %179 = load ptr, ptr %178, align 8, !tbaa !10
+  %180 = load ptr, ptr %6, align 8, !tbaa !10
+  %181 = call ptr (ptr, ptr, i32, ...) @pmix_show_help_string(ptr noundef @.str.2, ptr noundef @.str.11, i32 noundef 1, ptr noundef %179, ptr noundef %180)
+  %182 = load ptr, ptr %3, align 8, !tbaa !3
+  store ptr %181, ptr %182, align 8, !tbaa !10
+  br label %194
+
+183:                                              ; preds = %173
+  br label %184
+
+184:                                              ; preds = %183, %158
+  br label %185
+
+185:                                              ; preds = %184, %141
+  br label %186
+
+186:                                              ; preds = %185, %126
+  br label %187
+
+187:                                              ; preds = %186, %110
+  br label %188
+
+188:                                              ; preds = %187, %95
+  %189 = load ptr, ptr %5, align 8, !tbaa !3
+  call void @PMIx_Argv_free(ptr noundef %189)
+  store ptr null, ptr %5, align 8, !tbaa !3
   br label %190
 
-190:                                              ; preds = %189, %144
-  br label %191
+190:                                              ; preds = %188
+  %191 = load i32, ptr %7, align 4, !tbaa !8
+  %192 = add nsw i32 %191, 1
+  store i32 %192, ptr %7, align 4, !tbaa !8
+  br label %21, !llvm.loop !19
 
-191:                                              ; preds = %190, %129
-  br label %192
+193:                                              ; preds = %79, %71, %21
+  store i8 1, ptr @prte_sys_limits, align 8, !tbaa !21
+  store i32 0, ptr %8, align 4, !tbaa !8
+  br label %194
 
-192:                                              ; preds = %191, %112
-  br label %193
+194:                                              ; preds = %193, %176, %169, %154, %137, %122, %106, %91, %68, %60, %52
+  %195 = load ptr, ptr %4, align 8, !tbaa !3
+  call void @PMIx_Argv_free(ptr noundef %195)
+  %196 = load ptr, ptr %5, align 8, !tbaa !3
+  %197 = icmp ne ptr null, %196
+  br i1 %197, label %198, label %200
 
-193:                                              ; preds = %192, %97
-  %194 = load ptr, ptr %5, align 8
-  call void @PMIx_Argv_free(ptr noundef %194)
-  store ptr null, ptr %5, align 8
-  br label %195
+198:                                              ; preds = %194
+  %199 = load ptr, ptr %5, align 8, !tbaa !3
+  call void @PMIx_Argv_free(ptr noundef %199)
+  br label %200
 
-195:                                              ; preds = %193
-  %196 = load i32, ptr %7, align 4
-  %197 = add nsw i32 %196, 1
-  store i32 %197, ptr %7, align 4
-  br label %20, !llvm.loop !4
+200:                                              ; preds = %198, %194
+  %201 = load i32, ptr %8, align 4, !tbaa !8
+  store i32 %201, ptr %2, align 4
+  store i32 1, ptr %10, align 4
+  br label %202
 
-198:                                              ; preds = %81, %72, %20
-  store i8 1, ptr @prte_sys_limits, align 8
-  store i32 0, ptr %8, align 4
-  br label %199
-
-199:                                              ; preds = %198, %181, %173, %158, %140, %125, %108, %93, %69, %60, %51
-  %200 = load ptr, ptr %4, align 8
-  call void @PMIx_Argv_free(ptr noundef %200)
-  %201 = load ptr, ptr %5, align 8
-  %202 = icmp ne ptr null, %201
-  br i1 %202, label %203, label %205
-
-203:                                              ; preds = %199
-  %204 = load ptr, ptr %5, align 8
-  call void @PMIx_Argv_free(ptr noundef %204)
-  br label %205
-
-205:                                              ; preds = %203, %199
-  %206 = load i32, ptr %8, align 4
-  store i32 %206, ptr %2, align 4
-  br label %207
-
-207:                                              ; preds = %205, %18, %12
-  %208 = load i32, ptr %2, align 4
-  ret i32 %208
+202:                                              ; preds = %200, %19, %13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #5
+  %203 = load i32, ptr %2, align 4
+  ret i32 %203
 }
 
-declare ptr @PMIx_Argv_split(ptr noundef, i32 noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare i32 @PMIx_Argv_count(ptr noundef) #1
+declare ptr @PMIx_Argv_split(ptr noundef, i32 noundef) #2
+
+declare i32 @PMIx_Argv_count(ptr noundef) #2
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strcmp(ptr noundef, ptr noundef) #2
+declare i32 @strcmp(ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @prte_setlimit(i32 noundef %0, ptr noundef %1, ptr noundef %2) #0 {
@@ -395,167 +408,181 @@ define internal i32 @prte_setlimit(i32 noundef %0, ptr noundef %1, ptr noundef %
   %8 = alloca %struct.rlimit, align 8
   %9 = alloca %struct.rlimit, align 8
   %10 = alloca i64, align 8
-  store i32 %0, ptr %5, align 4
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  %11 = getelementptr inbounds %struct.rlimit, ptr %8, i32 0, i32 0
-  store i64 0, ptr %11, align 8
-  %12 = load ptr, ptr %6, align 8
-  %13 = call i32 @strcmp(ptr noundef %12, ptr noundef @.str) #4
-  %14 = icmp eq i32 0, %13
-  br i1 %14, label %15, label %16
-
-15:                                               ; preds = %3
-  store i64 -1, ptr %10, align 8
-  br label %27
+  %11 = alloca i32, align 4
+  store i32 %0, ptr %5, align 4, !tbaa !8
+  store ptr %1, ptr %6, align 8, !tbaa !10
+  store ptr %2, ptr %7, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 16, ptr %8) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %9) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
+  %12 = getelementptr inbounds nuw %struct.rlimit, ptr %8, i32 0, i32 0
+  store i64 0, ptr %12, align 8, !tbaa !24
+  %13 = load ptr, ptr %6, align 8, !tbaa !10
+  %14 = call i32 @strcmp(ptr noundef %13, ptr noundef @.str) #6
+  %15 = icmp eq i32 0, %14
+  br i1 %15, label %16, label %17
 
 16:                                               ; preds = %3
-  %17 = load ptr, ptr %6, align 8
-  %18 = load ptr, ptr %6, align 8
-  %19 = call i64 @strlen(ptr noundef %18) #4
-  %20 = call i32 @strncmp(ptr noundef %17, ptr noundef @.str.12, i64 noundef %19) #4
-  %21 = icmp eq i32 0, %20
-  br i1 %21, label %22, label %23
+  store i64 -1, ptr %10, align 8, !tbaa !12
+  br label %28
 
-22:                                               ; preds = %16
-  store i64 -1, ptr %10, align 8
-  br label %26
+17:                                               ; preds = %3
+  %18 = load ptr, ptr %6, align 8, !tbaa !10
+  %19 = load ptr, ptr %6, align 8, !tbaa !10
+  %20 = call i64 @strlen(ptr noundef %19) #6
+  %21 = call i32 @strncmp(ptr noundef %18, ptr noundef @.str.12, i64 noundef %20) #6
+  %22 = icmp eq i32 0, %21
+  br i1 %22, label %23, label %24
 
-23:                                               ; preds = %16
-  %24 = load ptr, ptr %6, align 8
-  %25 = call i64 @strtol(ptr noundef %24, ptr noundef null, i32 noundef 10) #5
-  store i64 %25, ptr %10, align 8
-  br label %26
-
-26:                                               ; preds = %23, %22
+23:                                               ; preds = %17
+  store i64 -1, ptr %10, align 8, !tbaa !12
   br label %27
 
-27:                                               ; preds = %26, %15
-  %28 = load i32, ptr %5, align 4
-  %29 = call i32 @getrlimit(i32 noundef %28, ptr noundef %8) #5
-  %30 = icmp sle i32 0, %29
-  br i1 %30, label %31, label %78
+24:                                               ; preds = %17
+  %25 = load ptr, ptr %6, align 8, !tbaa !10
+  %26 = call i64 @strtol(ptr noundef %25, ptr noundef null, i32 noundef 10) #5
+  store i64 %26, ptr %10, align 8, !tbaa !12
+  br label %27
 
-31:                                               ; preds = %27
-  %32 = getelementptr inbounds %struct.rlimit, ptr %8, i32 0, i32 1
-  %33 = load i64, ptr %32, align 8
-  %34 = load i64, ptr %10, align 8
-  %35 = icmp ult i64 %33, %34
-  br i1 %35, label %36, label %43
+27:                                               ; preds = %24, %23
+  br label %28
 
-36:                                               ; preds = %31
-  %37 = getelementptr inbounds %struct.rlimit, ptr %8, i32 0, i32 1
-  %38 = load i64, ptr %37, align 8
-  %39 = getelementptr inbounds %struct.rlimit, ptr %9, i32 0, i32 0
-  store i64 %38, ptr %39, align 8
-  %40 = getelementptr inbounds %struct.rlimit, ptr %8, i32 0, i32 1
-  %41 = load i64, ptr %40, align 8
-  %42 = getelementptr inbounds %struct.rlimit, ptr %9, i32 0, i32 1
-  store i64 %41, ptr %42, align 8
-  br label %48
+28:                                               ; preds = %27, %16
+  %29 = load i32, ptr %5, align 4, !tbaa !8
+  %30 = call i32 @getrlimit(i32 noundef %29, ptr noundef %8) #5
+  %31 = icmp sle i32 0, %30
+  br i1 %31, label %32, label %79
 
-43:                                               ; preds = %31
-  %44 = load i64, ptr %10, align 8
-  %45 = getelementptr inbounds %struct.rlimit, ptr %9, i32 0, i32 0
-  store i64 %44, ptr %45, align 8
-  %46 = load i64, ptr %10, align 8
-  %47 = getelementptr inbounds %struct.rlimit, ptr %9, i32 0, i32 1
-  store i64 %46, ptr %47, align 8
-  br label %48
+32:                                               ; preds = %28
+  %33 = getelementptr inbounds nuw %struct.rlimit, ptr %8, i32 0, i32 1
+  %34 = load i64, ptr %33, align 8, !tbaa !26
+  %35 = load i64, ptr %10, align 8, !tbaa !12
+  %36 = icmp ult i64 %34, %35
+  br i1 %36, label %37, label %44
 
-48:                                               ; preds = %43, %36
-  %49 = load i32, ptr %5, align 4
-  %50 = call i32 @setrlimit(i32 noundef %49, ptr noundef %9) #5
-  %51 = icmp sle i32 0, %50
-  br i1 %51, label %52, label %56
+37:                                               ; preds = %32
+  %38 = getelementptr inbounds nuw %struct.rlimit, ptr %8, i32 0, i32 1
+  %39 = load i64, ptr %38, align 8, !tbaa !26
+  %40 = getelementptr inbounds nuw %struct.rlimit, ptr %9, i32 0, i32 0
+  store i64 %39, ptr %40, align 8, !tbaa !24
+  %41 = getelementptr inbounds nuw %struct.rlimit, ptr %8, i32 0, i32 1
+  %42 = load i64, ptr %41, align 8, !tbaa !26
+  %43 = getelementptr inbounds nuw %struct.rlimit, ptr %9, i32 0, i32 1
+  store i64 %42, ptr %43, align 8, !tbaa !26
+  br label %49
 
-52:                                               ; preds = %48
-  %53 = getelementptr inbounds %struct.rlimit, ptr %9, i32 0, i32 0
-  %54 = load i64, ptr %53, align 8
-  %55 = getelementptr inbounds %struct.rlimit, ptr %8, i32 0, i32 0
-  store i64 %54, ptr %55, align 8
+44:                                               ; preds = %32
+  %45 = load i64, ptr %10, align 8, !tbaa !12
+  %46 = getelementptr inbounds nuw %struct.rlimit, ptr %9, i32 0, i32 0
+  store i64 %45, ptr %46, align 8, !tbaa !24
+  %47 = load i64, ptr %10, align 8, !tbaa !12
+  %48 = getelementptr inbounds nuw %struct.rlimit, ptr %9, i32 0, i32 1
+  store i64 %47, ptr %48, align 8, !tbaa !26
+  br label %49
+
+49:                                               ; preds = %44, %37
+  %50 = load i32, ptr %5, align 4, !tbaa !8
+  %51 = call i32 @setrlimit(i32 noundef %50, ptr noundef %9) #5
+  %52 = icmp sle i32 0, %51
+  br i1 %52, label %53, label %57
+
+53:                                               ; preds = %49
+  %54 = getelementptr inbounds nuw %struct.rlimit, ptr %9, i32 0, i32 0
+  %55 = load i64, ptr %54, align 8, !tbaa !24
+  %56 = getelementptr inbounds nuw %struct.rlimit, ptr %8, i32 0, i32 0
+  store i64 %55, ptr %56, align 8, !tbaa !24
+  br label %78
+
+57:                                               ; preds = %49
+  %58 = load i64, ptr %10, align 8, !tbaa !12
+  %59 = icmp eq i64 -1, %58
+  br i1 %59, label %60, label %76
+
+60:                                               ; preds = %57
+  %61 = getelementptr inbounds nuw %struct.rlimit, ptr %8, i32 0, i32 1
+  %62 = load i64, ptr %61, align 8, !tbaa !26
+  %63 = getelementptr inbounds nuw %struct.rlimit, ptr %9, i32 0, i32 0
+  store i64 %62, ptr %63, align 8, !tbaa !24
+  %64 = getelementptr inbounds nuw %struct.rlimit, ptr %8, i32 0, i32 1
+  %65 = load i64, ptr %64, align 8, !tbaa !26
+  %66 = getelementptr inbounds nuw %struct.rlimit, ptr %9, i32 0, i32 1
+  store i64 %65, ptr %66, align 8, !tbaa !26
+  %67 = load i32, ptr %5, align 4, !tbaa !8
+  %68 = call i32 @setrlimit(i32 noundef %67, ptr noundef %9) #5
+  %69 = icmp sle i32 0, %68
+  br i1 %69, label %70, label %74
+
+70:                                               ; preds = %60
+  %71 = getelementptr inbounds nuw %struct.rlimit, ptr %9, i32 0, i32 0
+  %72 = load i64, ptr %71, align 8, !tbaa !24
+  %73 = getelementptr inbounds nuw %struct.rlimit, ptr %8, i32 0, i32 0
+  store i64 %72, ptr %73, align 8, !tbaa !24
+  br label %75
+
+74:                                               ; preds = %60
+  store i32 -1, ptr %4, align 4
+  store i32 1, ptr %11, align 4
+  br label %84
+
+75:                                               ; preds = %70
   br label %77
 
-56:                                               ; preds = %48
-  %57 = load i64, ptr %10, align 8
-  %58 = icmp eq i64 -1, %57
-  br i1 %58, label %59, label %75
-
-59:                                               ; preds = %56
-  %60 = getelementptr inbounds %struct.rlimit, ptr %8, i32 0, i32 1
-  %61 = load i64, ptr %60, align 8
-  %62 = getelementptr inbounds %struct.rlimit, ptr %9, i32 0, i32 0
-  store i64 %61, ptr %62, align 8
-  %63 = getelementptr inbounds %struct.rlimit, ptr %8, i32 0, i32 1
-  %64 = load i64, ptr %63, align 8
-  %65 = getelementptr inbounds %struct.rlimit, ptr %9, i32 0, i32 1
-  store i64 %64, ptr %65, align 8
-  %66 = load i32, ptr %5, align 4
-  %67 = call i32 @setrlimit(i32 noundef %66, ptr noundef %9) #5
-  %68 = icmp sle i32 0, %67
-  br i1 %68, label %69, label %73
-
-69:                                               ; preds = %59
-  %70 = getelementptr inbounds %struct.rlimit, ptr %9, i32 0, i32 0
-  %71 = load i64, ptr %70, align 8
-  %72 = getelementptr inbounds %struct.rlimit, ptr %8, i32 0, i32 0
-  store i64 %71, ptr %72, align 8
-  br label %74
-
-73:                                               ; preds = %59
+76:                                               ; preds = %57
   store i32 -1, ptr %4, align 4
-  br label %83
+  store i32 1, ptr %11, align 4
+  br label %84
 
-74:                                               ; preds = %69
-  br label %76
+77:                                               ; preds = %75
+  br label %78
 
-75:                                               ; preds = %56
+78:                                               ; preds = %77, %53
+  br label %80
+
+79:                                               ; preds = %28
   store i32 -1, ptr %4, align 4
-  br label %83
+  store i32 1, ptr %11, align 4
+  br label %84
 
-76:                                               ; preds = %74
-  br label %77
-
-77:                                               ; preds = %76, %52
-  br label %79
-
-78:                                               ; preds = %27
-  store i32 -1, ptr %4, align 4
-  br label %83
-
-79:                                               ; preds = %77
-  %80 = getelementptr inbounds %struct.rlimit, ptr %8, i32 0, i32 0
-  %81 = load i64, ptr %80, align 8
-  %82 = load ptr, ptr %7, align 8
-  store i64 %81, ptr %82, align 8
+80:                                               ; preds = %78
+  %81 = getelementptr inbounds nuw %struct.rlimit, ptr %8, i32 0, i32 0
+  %82 = load i64, ptr %81, align 8, !tbaa !24
+  %83 = load ptr, ptr %7, align 8, !tbaa !22
+  store i64 %82, ptr %83, align 8, !tbaa !12
   store i32 0, ptr %4, align 4
-  br label %83
+  store i32 1, ptr %11, align 4
+  br label %84
 
-83:                                               ; preds = %79, %78, %75, %73
-  %84 = load i32, ptr %4, align 4
-  ret i32 %84
+84:                                               ; preds = %80, %79, %76, %74
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %8) #5
+  %85 = load i32, ptr %4, align 4
+  ret i32 %85
 }
 
-declare ptr @pmix_show_help_string(ptr noundef, ptr noundef, i32 noundef, ...) #1
+declare ptr @pmix_show_help_string(ptr noundef, ptr noundef, i32 noundef, ...) #2
 
-declare void @PMIx_Argv_free(ptr noundef) #1
+declare void @PMIx_Argv_free(ptr noundef) #2
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @prte_getpagesize() #0 {
   %1 = alloca i32, align 4
-  %2 = load i32, ptr @prte_getpagesize.page_size, align 4
+  %2 = load i32, ptr @prte_getpagesize.page_size, align 4, !tbaa !8
   %3 = icmp ne i32 %2, -1
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %0
-  %5 = load i32, ptr @prte_getpagesize.page_size, align 4
+  %5 = load i32, ptr @prte_getpagesize.page_size, align 4, !tbaa !8
   store i32 %5, ptr %1, align 4
   br label %9
 
 6:                                                ; preds = %0
   %7 = call i64 @sysconf(i32 noundef 30) #5
   %8 = trunc i64 %7 to i32
-  store i32 %8, ptr @prte_getpagesize.page_size, align 4
+  store i32 %8, ptr @prte_getpagesize.page_size, align 4, !tbaa !8
   store i32 %8, ptr %1, align 4
   br label %9
 
@@ -565,35 +592,57 @@ define i32 @prte_getpagesize() #0 {
 }
 
 ; Function Attrs: nounwind
-declare i64 @sysconf(i32 noundef) #3
+declare i64 @sysconf(i32 noundef) #4
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strncmp(ptr noundef, ptr noundef, i64 noundef) #2
+declare i32 @strncmp(ptr noundef, ptr noundef, i64 noundef) #3
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #2
+declare i64 @strlen(ptr noundef) #3
 
 ; Function Attrs: nounwind
-declare i64 @strtol(ptr noundef, ptr noundef, i32 noundef) #3
+declare i64 @strtol(ptr noundef, ptr noundef, i32 noundef) #4
 
 ; Function Attrs: nounwind
-declare i32 @getrlimit(i32 noundef, ptr noundef) #3
+declare i32 @getrlimit(i32 noundef, ptr noundef) #4
 
 ; Function Attrs: nounwind
-declare i32 @setrlimit(i32 noundef, ptr noundef) #3
+declare i32 @setrlimit(i32 noundef, ptr noundef) #4
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind willreturn memory(read) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nounwind }
+attributes #6 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p2 omnipotent char", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"int", !6, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"p1 omnipotent char", !5, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"long", !6, i64 0}
+!14 = !{!15, !9, i64 4}
+!15 = !{!"prte_sys_limits_t", !16, i64 0, !9, i64 4, !9, i64 8, !13, i64 16}
+!16 = !{!"_Bool", !6, i64 0}
+!17 = !{!15, !9, i64 8}
+!18 = !{!15, !13, i64 16}
+!19 = distinct !{!19, !20}
+!20 = !{!"llvm.loop.mustprogress"}
+!21 = !{!15, !16, i64 0}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"p1 long", !5, i64 0}
+!24 = !{!25, !13, i64 0}
+!25 = !{!"rlimit", !13, i64 0, !13, i64 8}
+!26 = !{!25, !13, i64 8}

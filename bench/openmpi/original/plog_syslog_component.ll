@@ -1,11 +1,11 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.pmix_plog_syslog_component_t = type { %struct.pmix_mca_base_component_2_1_0_t, i32, i32, i32 }
 %struct.pmix_mca_base_component_2_1_0_t = type { i32, i32, i32, [16 x i8], i32, i32, i32, [32 x i8], i32, i32, i32, [64 x i8], i32, i32, i32, ptr, ptr, ptr, ptr, [32 x i8] }
 %struct.pmix_plog_module_t = type { ptr, ptr, ptr, ptr, ptr }
+%struct.pmix_plog_syslog_component_t = type { %struct.pmix_mca_base_component_2_1_0_t, i32, i32, i32 }
 
-@pmix_mca_plog_syslog_component = global %struct.pmix_plog_syslog_component_t { %struct.pmix_mca_base_component_2_1_0_t { i32 2, i32 1, i32 0, [16 x i8] c"pmix\00\00\00\00\00\00\00\00\00\00\00\00", i32 6, i32 0, i32 0, [32 x i8] c"plog\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00", i32 1, i32 0, i32 0, [64 x i8] c"syslog\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00", i32 6, i32 0, i32 0, ptr null, ptr null, ptr @component_query, ptr @syslog_register, [32 x i8] zeroinitializer }, i32 0, i32 3, i32 8 }, align 8
+@pmix_mca_plog_syslog_component = global { %struct.pmix_mca_base_component_2_1_0_t, i32, i32, i32, [4 x i8] } { %struct.pmix_mca_base_component_2_1_0_t { i32 2, i32 1, i32 0, [16 x i8] c"pmix\00\00\00\00\00\00\00\00\00\00\00\00", i32 6, i32 0, i32 0, [32 x i8] c"plog\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00", i32 1, i32 0, i32 0, [64 x i8] c"syslog\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00", i32 6, i32 0, i32 0, ptr null, ptr null, ptr @component_query, ptr @syslog_register, [32 x i8] zeroinitializer }, i32 0, i32 3, i32 8, [4 x i8] zeroinitializer }, align 8
 @.str = private unnamed_addr constant [8 x i8] c"console\00", align 1
 @.str.1 = private unnamed_addr constant [85 x i8] c"Write directly to system console if there is an error while sending to system logger\00", align 1
 @.str.2 = private unnamed_addr constant [5 x i8] c"info\00", align 1
@@ -36,227 +36,240 @@ target triple = "x86_64-pc-linux-gnu"
 define internal i32 @component_query(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %4, align 8
-  store i32 10, ptr %5, align 4
-  %6 = load ptr, ptr %3, align 8
-  store ptr @pmix_plog_syslog_module, ptr %6, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !8
+  %5 = load ptr, ptr %4, align 8, !tbaa !8
+  store i32 10, ptr %5, align 4, !tbaa !10
+  %6 = load ptr, ptr %3, align 8, !tbaa !3
+  store ptr @pmix_plog_syslog_module, ptr %6, align 8, !tbaa !12
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @syslog_register() #0 {
   %1 = alloca i32, align 4
-  store i32 0, ptr %1, align 4
-  %2 = getelementptr inbounds %struct.pmix_plog_syslog_component_t, ptr @pmix_mca_plog_syslog_component, i32 0, i32 1
-  %3 = call i32 @pmix_mca_base_component_var_register(ptr noundef @pmix_mca_plog_syslog_component, ptr noundef @.str, ptr noundef @.str.1, i32 noundef 7, ptr noundef %2)
-  store ptr @.str.2, ptr @level, align 8
-  %4 = call i32 @pmix_mca_base_component_var_register(ptr noundef @pmix_mca_plog_syslog_component, ptr noundef @.str.3, ptr noundef @.str.4, i32 noundef 5, ptr noundef @level)
-  %5 = load ptr, ptr @level, align 8
-  %6 = call i32 @strncasecmp(ptr noundef %5, ptr noundef @.str.5, i64 noundef 3) #3
-  %7 = icmp eq i32 0, %6
-  br i1 %7, label %8, label %10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %1) #4
+  store i32 0, ptr %1, align 4, !tbaa !10
+  %2 = call i32 @pmix_mca_base_component_var_register(ptr noundef @pmix_mca_plog_syslog_component, ptr noundef @.str, ptr noundef @.str.1, i32 noundef 7, ptr noundef getelementptr inbounds nuw (%struct.pmix_plog_syslog_component_t, ptr @pmix_mca_plog_syslog_component, i32 0, i32 1))
+  store ptr @.str.2, ptr @level, align 8, !tbaa !14
+  %3 = call i32 @pmix_mca_base_component_var_register(ptr noundef @pmix_mca_plog_syslog_component, ptr noundef @.str.3, ptr noundef @.str.4, i32 noundef 5, ptr noundef @level)
+  %4 = load ptr, ptr @level, align 8, !tbaa !14
+  %5 = call i32 @strncasecmp(ptr noundef %4, ptr noundef @.str.5, i64 noundef 3) #5
+  %6 = icmp eq i32 0, %5
+  br i1 %6, label %7, label %8
+
+7:                                                ; preds = %0
+  store i32 3, ptr getelementptr inbounds nuw (%struct.pmix_plog_syslog_component_t, ptr @pmix_mca_plog_syslog_component, i32 0, i32 2), align 4, !tbaa !16
+  br label %57
 
 8:                                                ; preds = %0
-  %9 = getelementptr inbounds %struct.pmix_plog_syslog_component_t, ptr @pmix_mca_plog_syslog_component, i32 0, i32 2
-  store i32 3, ptr %9, align 4
-  br label %66
+  %9 = load ptr, ptr @level, align 8, !tbaa !14
+  %10 = call i32 @strcasecmp(ptr noundef %9, ptr noundef @.str.6) #5
+  %11 = icmp eq i32 0, %10
+  br i1 %11, label %12, label %13
 
-10:                                               ; preds = %0
-  %11 = load ptr, ptr @level, align 8
-  %12 = call i32 @strcasecmp(ptr noundef %11, ptr noundef @.str.6) #3
-  %13 = icmp eq i32 0, %12
-  br i1 %13, label %14, label %16
+12:                                               ; preds = %8
+  store i32 1, ptr getelementptr inbounds nuw (%struct.pmix_plog_syslog_component_t, ptr @pmix_mca_plog_syslog_component, i32 0, i32 2), align 4, !tbaa !16
+  br label %56
 
-14:                                               ; preds = %10
-  %15 = getelementptr inbounds %struct.pmix_plog_syslog_component_t, ptr @pmix_mca_plog_syslog_component, i32 0, i32 2
-  store i32 1, ptr %15, align 4
-  br label %65
+13:                                               ; preds = %8
+  %14 = load ptr, ptr @level, align 8, !tbaa !14
+  %15 = call i32 @strncasecmp(ptr noundef %14, ptr noundef @.str.7, i64 noundef 4) #5
+  %16 = icmp eq i32 0, %15
+  br i1 %16, label %17, label %18
 
-16:                                               ; preds = %10
-  %17 = load ptr, ptr @level, align 8
-  %18 = call i32 @strncasecmp(ptr noundef %17, ptr noundef @.str.7, i64 noundef 4) #3
-  %19 = icmp eq i32 0, %18
-  br i1 %19, label %20, label %22
+17:                                               ; preds = %13
+  store i32 2, ptr getelementptr inbounds nuw (%struct.pmix_plog_syslog_component_t, ptr @pmix_mca_plog_syslog_component, i32 0, i32 2), align 4, !tbaa !16
+  br label %55
 
-20:                                               ; preds = %16
-  %21 = getelementptr inbounds %struct.pmix_plog_syslog_component_t, ptr @pmix_mca_plog_syslog_component, i32 0, i32 2
-  store i32 2, ptr %21, align 4
-  br label %64
+18:                                               ; preds = %13
+  %19 = load ptr, ptr @level, align 8, !tbaa !14
+  %20 = call i32 @strncasecmp(ptr noundef %19, ptr noundef @.str.8, i64 noundef 5) #5
+  %21 = icmp eq i32 0, %20
+  br i1 %21, label %22, label %23
 
-22:                                               ; preds = %16
-  %23 = load ptr, ptr @level, align 8
-  %24 = call i32 @strncasecmp(ptr noundef %23, ptr noundef @.str.8, i64 noundef 5) #3
-  %25 = icmp eq i32 0, %24
-  br i1 %25, label %26, label %28
+22:                                               ; preds = %18
+  store i32 0, ptr getelementptr inbounds nuw (%struct.pmix_plog_syslog_component_t, ptr @pmix_mca_plog_syslog_component, i32 0, i32 2), align 4, !tbaa !16
+  br label %54
 
-26:                                               ; preds = %22
-  %27 = getelementptr inbounds %struct.pmix_plog_syslog_component_t, ptr @pmix_mca_plog_syslog_component, i32 0, i32 2
-  store i32 0, ptr %27, align 4
-  br label %63
+23:                                               ; preds = %18
+  %24 = load ptr, ptr @level, align 8, !tbaa !14
+  %25 = call i32 @strncasecmp(ptr noundef %24, ptr noundef @.str.9, i64 noundef 4) #5
+  %26 = icmp eq i32 0, %25
+  br i1 %26, label %27, label %28
 
-28:                                               ; preds = %22
-  %29 = load ptr, ptr @level, align 8
-  %30 = call i32 @strncasecmp(ptr noundef %29, ptr noundef @.str.9, i64 noundef 4) #3
+27:                                               ; preds = %23
+  store i32 4, ptr getelementptr inbounds nuw (%struct.pmix_plog_syslog_component_t, ptr @pmix_mca_plog_syslog_component, i32 0, i32 2), align 4, !tbaa !16
+  br label %53
+
+28:                                               ; preds = %23
+  %29 = load ptr, ptr @level, align 8, !tbaa !14
+  %30 = call i32 @strncasecmp(ptr noundef %29, ptr noundef @.str.10, i64 noundef 3) #5
   %31 = icmp eq i32 0, %30
-  br i1 %31, label %32, label %34
+  br i1 %31, label %32, label %33
 
 32:                                               ; preds = %28
-  %33 = getelementptr inbounds %struct.pmix_plog_syslog_component_t, ptr @pmix_mca_plog_syslog_component, i32 0, i32 2
-  store i32 4, ptr %33, align 4
-  br label %62
+  store i32 5, ptr getelementptr inbounds nuw (%struct.pmix_plog_syslog_component_t, ptr @pmix_mca_plog_syslog_component, i32 0, i32 2), align 4, !tbaa !16
+  br label %52
 
-34:                                               ; preds = %28
-  %35 = load ptr, ptr @level, align 8
-  %36 = call i32 @strncasecmp(ptr noundef %35, ptr noundef @.str.10, i64 noundef 3) #3
-  %37 = icmp eq i32 0, %36
-  br i1 %37, label %38, label %40
+33:                                               ; preds = %28
+  %34 = load ptr, ptr @level, align 8, !tbaa !14
+  %35 = call i32 @strcasecmp(ptr noundef %34, ptr noundef @.str.2) #5
+  %36 = icmp eq i32 0, %35
+  br i1 %36, label %37, label %38
 
-38:                                               ; preds = %34
-  %39 = getelementptr inbounds %struct.pmix_plog_syslog_component_t, ptr @pmix_mca_plog_syslog_component, i32 0, i32 2
-  store i32 5, ptr %39, align 4
-  br label %61
+37:                                               ; preds = %33
+  store i32 6, ptr getelementptr inbounds nuw (%struct.pmix_plog_syslog_component_t, ptr @pmix_mca_plog_syslog_component, i32 0, i32 2), align 4, !tbaa !16
+  br label %51
 
-40:                                               ; preds = %34
-  %41 = load ptr, ptr @level, align 8
-  %42 = call i32 @strcasecmp(ptr noundef %41, ptr noundef @.str.2) #3
-  %43 = icmp eq i32 0, %42
-  br i1 %43, label %44, label %46
+38:                                               ; preds = %33
+  %39 = load ptr, ptr @level, align 8, !tbaa !14
+  %40 = call i32 @strcasecmp(ptr noundef %39, ptr noundef @.str.11) #5
+  %41 = icmp eq i32 0, %40
+  br i1 %41, label %46, label %42
 
-44:                                               ; preds = %40
-  %45 = getelementptr inbounds %struct.pmix_plog_syslog_component_t, ptr @pmix_mca_plog_syslog_component, i32 0, i32 2
-  store i32 6, ptr %45, align 4
-  br label %60
+42:                                               ; preds = %38
+  %43 = load ptr, ptr @level, align 8, !tbaa !14
+  %44 = call i32 @strcasecmp(ptr noundef %43, ptr noundef @.str.12) #5
+  %45 = icmp eq i32 0, %44
+  br i1 %45, label %46, label %47
 
-46:                                               ; preds = %40
-  %47 = load ptr, ptr @level, align 8
-  %48 = call i32 @strcasecmp(ptr noundef %47, ptr noundef @.str.11) #3
-  %49 = icmp eq i32 0, %48
-  br i1 %49, label %54, label %50
+46:                                               ; preds = %42, %38
+  store i32 7, ptr getelementptr inbounds nuw (%struct.pmix_plog_syslog_component_t, ptr @pmix_mca_plog_syslog_component, i32 0, i32 2), align 4, !tbaa !16
+  br label %50
 
-50:                                               ; preds = %46
-  %51 = load ptr, ptr @level, align 8
-  %52 = call i32 @strcasecmp(ptr noundef %51, ptr noundef @.str.12) #3
-  %53 = icmp eq i32 0, %52
-  br i1 %53, label %54, label %56
+47:                                               ; preds = %42
+  %48 = load ptr, ptr @level, align 8, !tbaa !14
+  %49 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef @.str.13, ptr noundef @.str.14, i32 noundef 1, ptr noundef %48)
+  store i32 -47, ptr %1, align 4, !tbaa !10
+  br label %50
 
-54:                                               ; preds = %50, %46
-  %55 = getelementptr inbounds %struct.pmix_plog_syslog_component_t, ptr @pmix_mca_plog_syslog_component, i32 0, i32 2
-  store i32 7, ptr %55, align 4
-  br label %59
+50:                                               ; preds = %47, %46
+  br label %51
 
-56:                                               ; preds = %50
-  %57 = load ptr, ptr @level, align 8
-  %58 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef @.str.13, ptr noundef @.str.14, i32 noundef 1, ptr noundef %57)
-  store i32 -47, ptr %1, align 4
-  br label %59
+51:                                               ; preds = %50, %37
+  br label %52
 
-59:                                               ; preds = %56, %54
-  br label %60
+52:                                               ; preds = %51, %32
+  br label %53
 
-60:                                               ; preds = %59, %44
-  br label %61
+53:                                               ; preds = %52, %27
+  br label %54
 
-61:                                               ; preds = %60, %38
-  br label %62
+54:                                               ; preds = %53, %22
+  br label %55
 
-62:                                               ; preds = %61, %32
-  br label %63
+55:                                               ; preds = %54, %17
+  br label %56
 
-63:                                               ; preds = %62, %26
-  br label %64
+56:                                               ; preds = %55, %12
+  br label %57
 
-64:                                               ; preds = %63, %20
-  br label %65
+57:                                               ; preds = %56, %7
+  store ptr @.str.15, ptr @facility, align 8, !tbaa !14
+  %58 = call i32 @pmix_mca_base_component_var_register(ptr noundef @pmix_mca_plog_syslog_component, ptr noundef @.str.16, ptr noundef @.str.17, i32 noundef 5, ptr noundef @facility)
+  %59 = load ptr, ptr @facility, align 8, !tbaa !14
+  %60 = call i32 @strncasecmp(ptr noundef %59, ptr noundef @.str.18, i64 noundef 4) #5
+  %61 = icmp eq i32 0, %60
+  br i1 %61, label %62, label %63
 
-65:                                               ; preds = %64, %14
-  br label %66
+62:                                               ; preds = %57
+  store i32 32, ptr getelementptr inbounds nuw (%struct.pmix_plog_syslog_component_t, ptr @pmix_mca_plog_syslog_component, i32 0, i32 3), align 8, !tbaa !19
+  br label %84
 
-66:                                               ; preds = %65, %8
-  store ptr @.str.15, ptr @facility, align 8
-  %67 = call i32 @pmix_mca_base_component_var_register(ptr noundef @pmix_mca_plog_syslog_component, ptr noundef @.str.16, ptr noundef @.str.17, i32 noundef 5, ptr noundef @facility)
-  %68 = load ptr, ptr @facility, align 8
-  %69 = call i32 @strncasecmp(ptr noundef %68, ptr noundef @.str.18, i64 noundef 4) #3
-  %70 = icmp eq i32 0, %69
-  br i1 %70, label %71, label %73
+63:                                               ; preds = %57
+  %64 = load ptr, ptr @facility, align 8, !tbaa !14
+  %65 = call i32 @strncasecmp(ptr noundef %64, ptr noundef @.str.19, i64 noundef 4) #5
+  %66 = icmp eq i32 0, %65
+  br i1 %66, label %67, label %68
 
-71:                                               ; preds = %66
-  %72 = getelementptr inbounds %struct.pmix_plog_syslog_component_t, ptr @pmix_mca_plog_syslog_component, i32 0, i32 3
-  store i32 32, ptr %72, align 8
-  br label %97
+67:                                               ; preds = %63
+  store i32 80, ptr getelementptr inbounds nuw (%struct.pmix_plog_syslog_component_t, ptr @pmix_mca_plog_syslog_component, i32 0, i32 3), align 8, !tbaa !19
+  br label %83
 
-73:                                               ; preds = %66
-  %74 = load ptr, ptr @facility, align 8
-  %75 = call i32 @strncasecmp(ptr noundef %74, ptr noundef @.str.19, i64 noundef 4) #3
+68:                                               ; preds = %63
+  %69 = load ptr, ptr @facility, align 8, !tbaa !14
+  %70 = call i32 @strcasecmp(ptr noundef %69, ptr noundef @.str.20) #5
+  %71 = icmp eq i32 0, %70
+  br i1 %71, label %72, label %73
+
+72:                                               ; preds = %68
+  store i32 24, ptr getelementptr inbounds nuw (%struct.pmix_plog_syslog_component_t, ptr @pmix_mca_plog_syslog_component, i32 0, i32 3), align 8, !tbaa !19
+  br label %82
+
+73:                                               ; preds = %68
+  %74 = load ptr, ptr @facility, align 8, !tbaa !14
+  %75 = call i32 @strcasecmp(ptr noundef %74, ptr noundef @.str.15) #5
   %76 = icmp eq i32 0, %75
-  br i1 %76, label %77, label %79
+  br i1 %76, label %77, label %78
 
 77:                                               ; preds = %73
-  %78 = getelementptr inbounds %struct.pmix_plog_syslog_component_t, ptr @pmix_mca_plog_syslog_component, i32 0, i32 3
-  store i32 80, ptr %78, align 8
-  br label %96
+  store i32 8, ptr getelementptr inbounds nuw (%struct.pmix_plog_syslog_component_t, ptr @pmix_mca_plog_syslog_component, i32 0, i32 3), align 8, !tbaa !19
+  br label %81
 
-79:                                               ; preds = %73
-  %80 = load ptr, ptr @facility, align 8
-  %81 = call i32 @strcasecmp(ptr noundef %80, ptr noundef @.str.20) #3
-  %82 = icmp eq i32 0, %81
-  br i1 %82, label %83, label %85
+78:                                               ; preds = %73
+  %79 = load ptr, ptr @facility, align 8, !tbaa !14
+  %80 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef @.str.13, ptr noundef @.str.21, i32 noundef 1, ptr noundef %79)
+  store i32 -47, ptr %1, align 4, !tbaa !10
+  br label %81
 
-83:                                               ; preds = %79
-  %84 = getelementptr inbounds %struct.pmix_plog_syslog_component_t, ptr @pmix_mca_plog_syslog_component, i32 0, i32 3
-  store i32 24, ptr %84, align 8
-  br label %95
+81:                                               ; preds = %78, %77
+  br label %82
 
-85:                                               ; preds = %79
-  %86 = load ptr, ptr @facility, align 8
-  %87 = call i32 @strcasecmp(ptr noundef %86, ptr noundef @.str.15) #3
-  %88 = icmp eq i32 0, %87
-  br i1 %88, label %89, label %91
+82:                                               ; preds = %81, %72
+  br label %83
 
-89:                                               ; preds = %85
-  %90 = getelementptr inbounds %struct.pmix_plog_syslog_component_t, ptr @pmix_mca_plog_syslog_component, i32 0, i32 3
-  store i32 8, ptr %90, align 8
-  br label %94
+83:                                               ; preds = %82, %67
+  br label %84
 
-91:                                               ; preds = %85
-  %92 = load ptr, ptr @facility, align 8
-  %93 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef @.str.13, ptr noundef @.str.21, i32 noundef 1, ptr noundef %92)
-  store i32 -47, ptr %1, align 4
-  br label %94
-
-94:                                               ; preds = %91, %89
-  br label %95
-
-95:                                               ; preds = %94, %83
-  br label %96
-
-96:                                               ; preds = %95, %77
-  br label %97
-
-97:                                               ; preds = %96, %71
-  %98 = load i32, ptr %1, align 4
-  ret i32 %98
+84:                                               ; preds = %83, %62
+  %85 = load i32, ptr %1, align 4, !tbaa !10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %1) #4
+  ret i32 %85
 }
 
-declare i32 @pmix_mca_base_component_var_register(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+declare i32 @pmix_mca_base_component_var_register(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strncasecmp(ptr noundef, ptr noundef, i64 noundef) #2
+declare i32 @strncasecmp(ptr noundef, ptr noundef, i64 noundef) #3
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr noundef, ptr noundef) #2
+declare i32 @strcasecmp(ptr noundef, ptr noundef) #3
 
-declare i32 @pmix_show_help(ptr noundef, ptr noundef, i32 noundef, ...) #1
+declare i32 @pmix_show_help(ptr noundef, ptr noundef, i32 noundef, ...) #2
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind willreturn memory(read) }
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind }
+attributes #5 = { nounwind willreturn memory(read) }
+
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p2 _ZTS28pmix_mca_base_module_2_0_0_t", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"p1 int", !5, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"int", !6, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"p1 _ZTS28pmix_mca_base_module_2_0_0_t", !5, i64 0}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"p1 omnipotent char", !5, i64 0}
+!16 = !{!17, !11, i64 228}
+!17 = !{!"", !18, i64 0, !11, i64 224, !11, i64 228, !11, i64 232}
+!18 = !{!"pmix_mca_base_component_2_1_0_t", !11, i64 0, !11, i64 4, !11, i64 8, !6, i64 12, !11, i64 28, !11, i64 32, !11, i64 36, !6, i64 40, !11, i64 72, !11, i64 76, !11, i64 80, !6, i64 84, !11, i64 148, !11, i64 152, !11, i64 156, !5, i64 160, !5, i64 168, !5, i64 176, !5, i64 184, !6, i64 192}
+!19 = !{!17, !11, i64 232}

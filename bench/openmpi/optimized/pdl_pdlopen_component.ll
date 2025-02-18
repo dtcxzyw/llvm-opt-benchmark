@@ -3,15 +3,13 @@ source_filename = "bench/openmpi/original/pdl_pdlopen_component.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.pmix_pdl_pdlopen_component_t = type { %struct.pmix_pdl_base_component_1_0_0_t, ptr, ptr }
-%struct.pmix_pdl_base_component_1_0_0_t = type { %struct.pmix_mca_base_component_2_1_0_t, i32 }
 %struct.pmix_mca_base_component_2_1_0_t = type { i32, i32, i32, [16 x i8], i32, i32, i32, [32 x i8], i32, i32, i32, [64 x i8], i32, i32, i32, ptr, ptr, ptr, ptr, [32 x i8] }
 %struct.pmix_pdl_base_module_1_0_0_t = type { %struct.pmix_mca_base_module_2_0_0_t, ptr, ptr, ptr, ptr }
 %struct.pmix_mca_base_module_2_0_0_t = type { i32 }
 
 @.str = private unnamed_addr constant [47 x i8] c"PMIX pdl pdlopen MCA component version 6.0.0a1\00", align 1
 @pmix_pdl_pdlopen_component_version_string = local_unnamed_addr global ptr @.str, align 8
-@pmix_mca_pdl_pdlopen_component = global %struct.pmix_pdl_pdlopen_component_t { %struct.pmix_pdl_base_component_1_0_0_t { %struct.pmix_mca_base_component_2_1_0_t { i32 2, i32 1, i32 0, [16 x i8] c"pmix\00\00\00\00\00\00\00\00\00\00\00\00", i32 6, i32 0, i32 0, [32 x i8] c"pdl\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00", i32 1, i32 0, i32 0, [64 x i8] c"pdlopen\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00", i32 6, i32 0, i32 0, ptr @pdlopen_component_open, ptr @pdlopen_component_close, ptr @pdlopen_component_query, ptr @pdlopen_component_register, [32 x i8] zeroinitializer }, i32 80 }, ptr null, ptr null }, align 8
+@pmix_mca_pdl_pdlopen_component = global { { %struct.pmix_mca_base_component_2_1_0_t, i32, [4 x i8] }, ptr, ptr } { { %struct.pmix_mca_base_component_2_1_0_t, i32, [4 x i8] } { %struct.pmix_mca_base_component_2_1_0_t { i32 2, i32 1, i32 0, [16 x i8] c"pmix\00\00\00\00\00\00\00\00\00\00\00\00", i32 6, i32 0, i32 0, [32 x i8] c"pdl\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00", i32 1, i32 0, i32 0, [64 x i8] c"pdlopen\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00", i32 6, i32 0, i32 0, ptr @pdlopen_component_open, ptr @pdlopen_component_close, ptr @pdlopen_component_query, ptr @pdlopen_component_register, [32 x i8] zeroinitializer }, i32 80, [4 x i8] zeroinitializer }, ptr null, ptr null }, align 8
 @.str.1 = private unnamed_addr constant [20 x i8] c".so,.dylib,.dll,.sl\00", align 1
 @.str.2 = private unnamed_addr constant [18 x i8] c"filename_suffixes\00", align 1
 @.str.3 = private unnamed_addr constant [78 x i8] c"Comma-delimited list of filename suffixes that the pdlopen component will try\00", align 1
@@ -24,13 +22,13 @@ define internal noundef i32 @pdlopen_component_open() #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @pdlopen_component_close() #1 {
-  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_pdl_pdlopen_component, i64 240), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_pdl_pdlopen_component, i64 240), align 8, !tbaa !3
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %3, label %2
 
 2:                                                ; preds = %0
   tail call void @PMIx_Argv_free(ptr noundef nonnull %1) #4
-  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_pdl_pdlopen_component, i64 240), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_pdl_pdlopen_component, i64 240), align 8, !tbaa !3
   br label %3
 
 3:                                                ; preds = %2, %0
@@ -39,23 +37,23 @@ define internal noundef i32 @pdlopen_component_close() #1 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
 define internal noundef i32 @pdlopen_component_query(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) #2 {
-  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_pdl_pdlopen_component, i64 224), align 8
-  store i32 %3, ptr %1, align 4
-  store ptr @pmix_pdl_pdlopen_module, ptr %0, align 8
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_pdl_pdlopen_component, i64 224), align 8, !tbaa !13
+  store i32 %3, ptr %1, align 4, !tbaa !14
+  store ptr @pmix_pdl_pdlopen_module, ptr %0, align 8, !tbaa !15
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -2147483648, 1) i32 @pdlopen_component_register() #1 {
-  store ptr @.str.1, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_pdl_pdlopen_component, i64 232), align 8
+  store ptr @.str.1, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_pdl_pdlopen_component, i64 232), align 8, !tbaa !17
   %1 = tail call i32 @pmix_mca_base_component_var_register(ptr noundef nonnull @pmix_mca_pdl_pdlopen_component, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 5, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pmix_mca_pdl_pdlopen_component, i64 232)) #4
   %2 = icmp slt i32 %1, 0
   br i1 %2, label %6, label %3
 
 3:                                                ; preds = %0
-  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_pdl_pdlopen_component, i64 232), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_pdl_pdlopen_component, i64 232), align 8, !tbaa !17
   %5 = tail call ptr @PMIx_Argv_split(ptr noundef %4, i32 noundef 44) #4
-  store ptr %5, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_pdl_pdlopen_component, i64 240), align 8
+  store ptr %5, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_pdl_pdlopen_component, i64 240), align 8, !tbaa !3
   br label %6
 
 6:                                                ; preds = %0, %3
@@ -69,15 +67,29 @@ declare ptr @PMIx_Argv_split(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 declare void @PMIx_Argv_free(ptr noundef) local_unnamed_addr #3
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !12, i64 240}
+!4 = !{!"", !5, i64 0, !11, i64 232, !12, i64 240}
+!5 = !{!"pmix_pdl_base_component_1_0_0_t", !6, i64 0, !7, i64 224}
+!6 = !{!"pmix_mca_base_component_2_1_0_t", !7, i64 0, !7, i64 4, !7, i64 8, !8, i64 12, !7, i64 28, !7, i64 32, !7, i64 36, !8, i64 40, !7, i64 72, !7, i64 76, !7, i64 80, !8, i64 84, !7, i64 148, !7, i64 152, !7, i64 156, !10, i64 160, !10, i64 168, !10, i64 176, !10, i64 184, !8, i64 192}
+!7 = !{!"int", !8, i64 0}
+!8 = !{!"omnipotent char", !9, i64 0}
+!9 = !{!"Simple C/C++ TBAA"}
+!10 = !{!"any pointer", !8, i64 0}
+!11 = !{!"p1 omnipotent char", !10, i64 0}
+!12 = !{!"p2 omnipotent char", !10, i64 0}
+!13 = !{!4, !7, i64 224}
+!14 = !{!7, !7, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"p1 _ZTS28pmix_mca_base_module_2_0_0_t", !10, i64 0}
+!17 = !{!4, !11, i64 232}

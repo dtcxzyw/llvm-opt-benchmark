@@ -2,7 +2,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.pmix_mca_base_component_2_1_0_t = type { i32, i32, i32, [16 x i8], i32, i32, i32, [32 x i8], i32, i32, i32, [64 x i8], i32, i32, i32, ptr, ptr, ptr, ptr, [32 x i8] }
-%struct.prte_process_info_t = type { %struct.pmix_proc, %struct.pmix_proc, ptr, %struct.pmix_proc, i32, i32, i32, ptr, ptr, i32, i8, i16, ptr, ptr, i8, ptr, i8 }
+%struct.prte_process_info_t = type { %struct.pmix_proc, %struct.pmix_proc, ptr, %struct.pmix_proc, i32, i32, i32, ptr, ptr, i32, i8, ptr, i16, ptr, ptr, i8, ptr, i8 }
 %struct.pmix_proc = type { [256 x i8], i32 }
 %struct.prte_ess_base_module_3_0_0_t = type { ptr, ptr }
 
@@ -25,41 +25,57 @@ define i32 @prte_mca_ess_env_component_query(ptr noundef %0, ptr noundef %1) #0 
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %6 = getelementptr inbounds %struct.prte_process_info_t, ptr @prte_process_info, i32 0, i32 10
-  %7 = load i8, ptr %6, align 4
-  %8 = zext i8 %7 to i32
-  %9 = and i32 2, %8
-  %10 = icmp ne i32 %9, 0
-  br i1 %10, label %11, label %14
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !8
+  %6 = load i8, ptr getelementptr inbounds nuw (%struct.prte_process_info_t, ptr @prte_process_info, i32 0, i32 10), align 4, !tbaa !10
+  %7 = zext i8 %6 to i32
+  %8 = and i32 2, %7
+  %9 = icmp ne i32 %8, 0
+  br i1 %9, label %10, label %13
 
-11:                                               ; preds = %2
-  %12 = load ptr, ptr %5, align 8
-  store i32 1, ptr %12, align 4
-  %13 = load ptr, ptr %4, align 8
-  store ptr @prte_ess_env_module, ptr %13, align 8
+10:                                               ; preds = %2
+  %11 = load ptr, ptr %5, align 8, !tbaa !8
+  store i32 1, ptr %11, align 4, !tbaa !18
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr @prte_ess_env_module, ptr %12, align 8, !tbaa !19
   store i32 0, ptr %3, align 4
-  br label %17
+  br label %16
 
-14:                                               ; preds = %2
-  %15 = load ptr, ptr %5, align 8
-  store i32 -1, ptr %15, align 4
-  %16 = load ptr, ptr %4, align 8
-  store ptr null, ptr %16, align 8
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %5, align 8, !tbaa !8
+  store i32 -1, ptr %14, align 4, !tbaa !18
+  %15 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr null, ptr %15, align 8, !tbaa !19
   store i32 -1, ptr %3, align 4
-  br label %17
+  br label %16
 
-17:                                               ; preds = %14, %11
-  %18 = load i32, ptr %3, align 4
-  ret i32 %18
+16:                                               ; preds = %13, %10
+  %17 = load i32, ptr %3, align 4
+  ret i32 %17
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p2 _ZTS28pmix_mca_base_module_2_0_0_t", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"p1 int", !5, i64 0}
+!10 = !{!11, !6, i64 820}
+!11 = !{!"prte_process_info_t", !12, i64 0, !12, i64 260, !14, i64 520, !12, i64 528, !13, i64 788, !13, i64 792, !13, i64 796, !14, i64 800, !15, i64 808, !13, i64 816, !6, i64 820, !14, i64 824, !16, i64 832, !14, i64 840, !14, i64 848, !17, i64 856, !14, i64 864, !17, i64 872}
+!12 = !{!"pmix_proc", !6, i64 0, !13, i64 256}
+!13 = !{!"int", !6, i64 0}
+!14 = !{!"p1 omnipotent char", !5, i64 0}
+!15 = !{!"p2 omnipotent char", !5, i64 0}
+!16 = !{!"short", !6, i64 0}
+!17 = !{!"_Bool", !6, i64 0}
+!18 = !{!13, !13, i64 0}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"p1 _ZTS28pmix_mca_base_module_2_0_0_t", !5, i64 0}

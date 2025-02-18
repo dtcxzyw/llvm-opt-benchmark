@@ -14,33 +14,43 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
 define internal range(i32 -1, 1) i32 @ras_testrm_component_query(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) #0 {
-  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_mca_ras_testrm_component, i64 224), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_mca_ras_testrm_component, i64 224), align 8, !tbaa !3
   %.not = icmp eq ptr %3, null
   %.prte_ras_testrm_module = select i1 %.not, ptr null, ptr @prte_ras_testrm_module
   %. = select i1 %.not, i32 0, i32 1000
   %.5 = sext i1 %.not to i32
-  store ptr %.prte_ras_testrm_module, ptr %0, align 8
-  store i32 %., ptr %1, align 4
+  store ptr %.prte_ras_testrm_module, ptr %0, align 8, !tbaa !11
+  store i32 %., ptr %1, align 4, !tbaa !13
   ret i32 %.5
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @ras_testrm_register() #1 {
-  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @prte_mca_ras_testrm_component, i64 224), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @prte_mca_ras_testrm_component, i64 224), align 8, !tbaa !3
   %1 = tail call i32 @pmix_mca_base_component_var_register(ptr noundef nonnull @prte_mca_ras_testrm_component, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prte_mca_ras_testrm_component, i64 224)) #3
   ret i32 0
 }
 
 declare i32 @pmix_mca_base_component_var_register(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !10, i64 224}
+!4 = !{!"prte_ras_testrm_component_t", !5, i64 0, !10, i64 224}
+!5 = !{!"pmix_mca_base_component_2_1_0_t", !6, i64 0, !6, i64 4, !6, i64 8, !7, i64 12, !6, i64 28, !6, i64 32, !6, i64 36, !7, i64 40, !6, i64 72, !6, i64 76, !6, i64 80, !7, i64 84, !6, i64 148, !6, i64 152, !6, i64 156, !9, i64 160, !9, i64 168, !9, i64 176, !9, i64 184, !7, i64 192}
+!6 = !{!"int", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!"any pointer", !7, i64 0}
+!10 = !{!"p1 omnipotent char", !9, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"p1 _ZTS28pmix_mca_base_module_2_0_0_t", !9, i64 0}
+!13 = !{!6, !6, i64 0}

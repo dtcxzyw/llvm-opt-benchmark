@@ -12,41 +12,42 @@ target triple = "x86_64-pc-linux-gnu"
 define range(i32 -1, 1) i32 @pmix_vmem_find_hole(i32 noundef %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca [96 x i8], align 16
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %5) #6
   %6 = tail call noalias ptr @fopen(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1)
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %use_hole.exit, label %.preheader
+  br i1 %.not, label %use_hole.exit84, label %use_hole.exit
 
-.preheader:                                       ; preds = %3, %92
-  %.040 = phi i64 [ %.141, %92 ], [ 0, %3 ]
-  %.037 = phi i64 [ %.138, %92 ], [ 0, %3 ]
-  %.036 = phi i64 [ %.08694, %92 ], [ 0, %3 ]
-  %.035 = phi i32 [ %.08596, %92 ], [ 4, %3 ]
-  %.034 = phi i32 [ %.1, %92 ], [ 0, %3 ]
+use_hole.exit:                                    ; preds = %3, %92
+  %.047 = phi i64 [ %.148, %92 ], [ 0, %3 ]
+  %.043 = phi i64 [ %.144, %92 ], [ 0, %3 ]
+  %.041 = phi i64 [ %.094102, %92 ], [ 0, %3 ]
+  %.039 = phi i32 [ %.093104, %92 ], [ 4, %3 ]
+  %.036 = phi i32 [ %.137, %92 ], [ 0, %3 ]
   %7 = call ptr @fgets(ptr noundef nonnull %5, i32 noundef 96, ptr noundef nonnull %6)
-  %.not45 = icmp eq ptr %7, null
-  br i1 %.not45, label %.loopexit, label %8
+  %.not53 = icmp eq ptr %7, null
+  br i1 %.not53, label %use_hole.exit.thread114, label %8
 
-8:                                                ; preds = %.preheader
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+8:                                                ; preds = %use_hole.exit
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
   %9 = call i64 @strtoull(ptr noundef nonnull %5, ptr noundef nonnull %4, i32 noundef 16) #6
-  %10 = load ptr, ptr %4, align 8
+  %10 = load ptr, ptr %4, align 8, !tbaa !3
   %11 = icmp eq ptr %10, %5
   br i1 %11, label %parse_map_line.exit, label %12
 
 12:                                               ; preds = %8
-  %13 = load i8, ptr %10, align 1
+  %13 = load i8, ptr %10, align 1, !tbaa !8
   %.not.i = icmp eq i8 %13, 45
   br i1 %.not.i, label %14, label %parse_map_line.exit
 
 14:                                               ; preds = %12
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 1
   %16 = call i64 @strtoull(ptr noundef nonnull %15, ptr noundef nonnull %4, i32 noundef 16) #6
-  %17 = load ptr, ptr %4, align 8
+  %17 = load ptr, ptr %4, align 8, !tbaa !3
   %18 = icmp eq ptr %17, %15
   br i1 %18, label %parse_map_line.exit, label %19
 
 19:                                               ; preds = %14
-  %20 = load i8, ptr %17, align 1
+  %20 = load i8, ptr %17, align 1, !tbaa !8
   %.not19.i = icmp eq i8 %20, 32
   br i1 %.not19.i, label %21, label %parse_map_line.exit
 
@@ -77,19 +78,19 @@ define range(i32 -1, 1) i32 @pmix_vmem_find_hole(i32 noundef %0, ptr noundef wri
   br i1 %.not24.i, label %33, label %32
 
 32:                                               ; preds = %30
-  store i8 0, ptr %31, align 1
+  store i8 0, ptr %31, align 1, !tbaa !8
   br label %33
 
 parse_map_line.exit:                              ; preds = %8, %12, %14, %19
-  %.086 = phi i64 [ 0, %8 ], [ 0, %14 ], [ %16, %19 ], [ 0, %12 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  %.094 = phi i64 [ 0, %8 ], [ 0, %14 ], [ %16, %19 ], [ 0, %12 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
   br label %87
 
 33:                                               ; preds = %32, %30, %28, %26, %24, %21
   %34 = phi i1 [ false, %24 ], [ false, %30 ], [ false, %32 ], [ true, %28 ], [ false, %26 ], [ false, %21 ]
   %35 = phi i1 [ true, %24 ], [ true, %30 ], [ true, %32 ], [ true, %28 ], [ false, %26 ], [ true, %21 ]
-  %.085.ph = phi i32 [ 1, %24 ], [ 4, %30 ], [ 4, %32 ], [ 3, %28 ], [ 2, %26 ], [ 0, %21 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  %.093.ph = phi i32 [ 1, %24 ], [ 4, %30 ], [ 4, %32 ], [ 3, %28 ], [ 2, %26 ], [ 0, %21 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
   switch i32 %0, label %87 [
     i32 0, label %36
     i32 1, label %49
@@ -102,14 +103,14 @@ parse_map_line.exit:                              ; preds = %8, %12, %14, %19
   %37 = call i32 @fclose(ptr noundef nonnull %6)
   %38 = lshr i64 %9, 1
   %39 = icmp ult i64 %9, %2
-  br i1 %39, label %use_hole.exit, label %40
+  br i1 %39, label %use_hole.exit84, label %40
 
 40:                                               ; preds = %36
   %41 = and i64 %38, 9223372036787666944
   %42 = add nuw i64 %41, 67108864
   %43 = add i64 %42, %2
-  %.not.i52 = icmp ugt i64 %43, %9
-  br i1 %.not.i52, label %44, label %use_hole.exit.sink.split
+  %.not.i60 = icmp ugt i64 %43, %9
+  br i1 %.not.i60, label %44, label %use_hole.exit84.sink.split
 
 44:                                               ; preds = %40
   %45 = and i64 %38, 9223372036852678656
@@ -118,184 +119,191 @@ parse_map_line.exit:                              ; preds = %8, %12, %14, %19
   %.not25.i = icmp ugt i64 %47, %9
   %48 = sub i64 %9, %2
   %spec.select.i = select i1 %.not25.i, i64 %48, i64 %46
-  br label %use_hole.exit.sink.split
+  br label %use_hole.exit84.sink.split
 
 49:                                               ; preds = %33
-  %50 = icmp eq i32 %.035, 2
+  %50 = icmp eq i32 %.039, 2
   %or.cond = and i1 %50, %35
   br i1 %or.cond, label %51, label %87
 
 51:                                               ; preds = %49
   %52 = call i32 @fclose(ptr noundef nonnull %6)
-  %53 = sub i64 %9, %.036
+  %53 = sub i64 %9, %.041
   %54 = lshr i64 %53, 1
-  %55 = add i64 %54, %.036
+  %55 = add i64 %54, %.041
   %56 = icmp ult i64 %53, %2
-  br i1 %56, label %use_hole.exit, label %57
+  br i1 %56, label %use_hole.exit84, label %57
 
 57:                                               ; preds = %51
   %58 = and i64 %55, -67108864
   %59 = add i64 %58, 67108864
   %60 = add i64 %59, %2
-  %.not.i56 = icmp ugt i64 %60, %9
-  br i1 %.not.i56, label %61, label %use_hole.exit.sink.split
+  %.not.i64 = icmp ugt i64 %60, %9
+  br i1 %.not.i64, label %61, label %use_hole.exit84.sink.split
 
 61:                                               ; preds = %57
   %62 = and i64 %55, -2097152
   %63 = add i64 %62, 2097152
   %64 = add i64 %63, %2
-  %.not25.i60 = icmp ugt i64 %64, %9
+  %.not25.i68 = icmp ugt i64 %64, %9
   %65 = sub i64 %9, %2
-  %spec.select.i61 = select i1 %.not25.i60, i64 %65, i64 %63
-  br label %use_hole.exit.sink.split
+  %spec.select.i69 = select i1 %.not25.i68, i64 %65, i64 %63
+  br label %use_hole.exit84.sink.split
 
 66:                                               ; preds = %33
   br i1 %34, label %67, label %87
 
 67:                                               ; preds = %66
   %68 = call i32 @fclose(ptr noundef nonnull %6)
-  %69 = sub i64 %9, %.036
+  %69 = sub i64 %9, %.041
   %70 = lshr i64 %69, 1
-  %71 = add i64 %70, %.036
+  %71 = add i64 %70, %.041
   %72 = icmp ult i64 %69, %2
-  br i1 %72, label %use_hole.exit, label %73
+  br i1 %72, label %use_hole.exit84, label %73
 
 73:                                               ; preds = %67
   %74 = and i64 %71, -67108864
   %75 = add i64 %74, 67108864
   %76 = add i64 %75, %2
-  %.not.i63 = icmp ugt i64 %76, %9
-  br i1 %.not.i63, label %77, label %use_hole.exit.sink.split
+  %.not.i71 = icmp ugt i64 %76, %9
+  br i1 %.not.i71, label %77, label %use_hole.exit84.sink.split
 
 77:                                               ; preds = %73
   %78 = and i64 %71, -2097152
   %79 = add i64 %78, 2097152
   %80 = add i64 %79, %2
-  %.not25.i67 = icmp ugt i64 %80, %9
+  %.not25.i75 = icmp ugt i64 %80, %9
   %81 = sub i64 %9, %2
-  %spec.select.i68 = select i1 %.not25.i67, i64 %81, i64 %79
-  br label %use_hole.exit.sink.split
+  %spec.select.i76 = select i1 %.not25.i75, i64 %81, i64 %79
+  br label %use_hole.exit84.sink.split
 
 82:                                               ; preds = %33
-  %83 = icmp ne i32 %.035, 2
-  %.not479899 = icmp eq i32 %.034, 0
-  %.not4798 = select i1 %83, i1 %.not479899, i1 false
-  %.not47 = select i1 %34, i1 true, i1 %.not4798
-  br i1 %.not47, label %87, label %84
+  %83 = icmp ne i32 %.039, 2
+  %.not55122123 = icmp eq i32 %.036, 0
+  %.not55122 = select i1 %83, i1 %.not55122123, i1 false
+  %.not55 = select i1 %34, i1 true, i1 %.not55122
+  br i1 %.not55, label %87, label %84
 
 84:                                               ; preds = %82, %33
-  %.2 = phi i32 [ %.034, %33 ], [ 1, %82 ]
-  %85 = sub i64 %9, %.036
-  %86 = icmp ugt i64 %85, %.037
-  %spec.select50 = select i1 %86, i64 %.036, i64 %.040
-  %spec.select51 = call i64 @llvm.umax.i64(i64 %85, i64 %.037)
+  %.238 = phi i32 [ %.036, %33 ], [ 1, %82 ]
+  %85 = sub i64 %9, %.041
+  %86 = icmp ugt i64 %85, %.043
+  %spec.select58 = select i1 %86, i64 %.041, i64 %.047
+  %spec.select59 = call i64 @llvm.umax.i64(i64 %85, i64 %.043)
   br label %87
 
 87:                                               ; preds = %parse_map_line.exit, %84, %49, %66, %82, %33
-  %.08596 = phi i32 [ 4, %parse_map_line.exit ], [ %.085.ph, %33 ], [ %.085.ph, %82 ], [ %.085.ph, %66 ], [ %.085.ph, %49 ], [ %.085.ph, %84 ]
-  %.08694 = phi i64 [ %.086, %parse_map_line.exit ], [ %16, %33 ], [ %16, %82 ], [ %16, %66 ], [ %16, %49 ], [ %16, %84 ]
-  %.141 = phi i64 [ %.040, %parse_map_line.exit ], [ %.040, %33 ], [ %.040, %82 ], [ %.040, %66 ], [ %.040, %49 ], [ %spec.select50, %84 ]
-  %.138 = phi i64 [ %.037, %parse_map_line.exit ], [ %.037, %33 ], [ %.037, %82 ], [ %.037, %66 ], [ %.037, %49 ], [ %spec.select51, %84 ]
-  %.1 = phi i32 [ %.034, %parse_map_line.exit ], [ %.034, %33 ], [ 0, %82 ], [ %.034, %66 ], [ %.034, %49 ], [ %.2, %84 ]
+  %.093104 = phi i32 [ 4, %parse_map_line.exit ], [ %.093.ph, %33 ], [ %.093.ph, %82 ], [ %.093.ph, %66 ], [ %.093.ph, %49 ], [ %.093.ph, %84 ]
+  %.094102 = phi i64 [ %.094, %parse_map_line.exit ], [ %16, %33 ], [ %16, %82 ], [ %16, %66 ], [ %16, %49 ], [ %16, %84 ]
+  %.148 = phi i64 [ %.047, %parse_map_line.exit ], [ %.047, %33 ], [ %.047, %82 ], [ %.047, %66 ], [ %.047, %49 ], [ %spec.select58, %84 ]
+  %.144 = phi i64 [ %.043, %parse_map_line.exit ], [ %.043, %33 ], [ %.043, %82 ], [ %.043, %66 ], [ %.043, %49 ], [ %spec.select59, %84 ]
+  %.137 = phi i32 [ %.036, %parse_map_line.exit ], [ %.036, %33 ], [ 0, %82 ], [ %.036, %66 ], [ %.036, %49 ], [ %.238, %84 ]
   br label %88
 
 88:                                               ; preds = %90, %87
   %89 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %5, i32 noundef 10) #7
-  %.not48 = icmp eq ptr %89, null
-  br i1 %.not48, label %90, label %92
+  %.not56 = icmp eq ptr %89, null
+  br i1 %.not56, label %90, label %92
 
 90:                                               ; preds = %88
   %91 = call ptr @fgets(ptr noundef nonnull %5, i32 noundef 96, ptr noundef nonnull %6)
-  %.not49 = icmp eq ptr %91, null
-  br i1 %.not49, label %.loopexit, label %88, !llvm.loop !4
+  %.not57 = icmp eq ptr %91, null
+  br i1 %.not57, label %use_hole.exit.thread114, label %88, !llvm.loop !9
 
 92:                                               ; preds = %88
-  %93 = icmp eq i32 %.08596, 3
-  br i1 %93, label %.loopexit, label %.preheader, !llvm.loop !6
+  %93 = icmp eq i32 %.093104, 3
+  br i1 %93, label %use_hole.exit.thread114, label %use_hole.exit
 
-.loopexit:                                        ; preds = %.preheader, %92, %90
-  %.242 = phi i64 [ %.141, %90 ], [ %.040, %.preheader ], [ %.141, %92 ]
-  %.239 = phi i64 [ %.138, %90 ], [ %.037, %.preheader ], [ %.138, %92 ]
+use_hole.exit.thread114:                          ; preds = %92, %use_hole.exit, %90
+  %.350 = phi i64 [ %.148, %90 ], [ %.148, %92 ], [ %.047, %use_hole.exit ]
+  %.346 = phi i64 [ %.144, %90 ], [ %.144, %92 ], [ %.043, %use_hole.exit ]
   %94 = call i32 @fclose(ptr noundef nonnull %6)
   %95 = add i32 %0, -3
   %or.cond3 = icmp ult i32 %95, 2
-  br i1 %or.cond3, label %96, label %use_hole.exit
+  br i1 %or.cond3, label %96, label %use_hole.exit84
 
-96:                                               ; preds = %.loopexit
-  %97 = lshr i64 %.239, 1
-  %98 = add i64 %97, %.242
-  %99 = icmp ult i64 %.239, %2
-  br i1 %99, label %use_hole.exit, label %100
+96:                                               ; preds = %use_hole.exit.thread114
+  %97 = lshr i64 %.346, 1
+  %98 = add i64 %97, %.350
+  %99 = icmp ult i64 %.346, %2
+  br i1 %99, label %use_hole.exit84, label %100
 
 100:                                              ; preds = %96
   %101 = and i64 %98, -67108864
   %102 = add i64 %101, 67108864
   %103 = add i64 %102, %2
-  %104 = add i64 %.239, %.242
-  %.not.i70 = icmp ugt i64 %103, %104
-  br i1 %.not.i70, label %105, label %use_hole.exit.sink.split
+  %104 = add i64 %.346, %.350
+  %.not.i78 = icmp ugt i64 %103, %104
+  br i1 %.not.i78, label %105, label %use_hole.exit84.sink.split
 
 105:                                              ; preds = %100
   %106 = and i64 %98, -2097152
   %107 = add i64 %106, 2097152
   %108 = add i64 %107, %2
-  %.not25.i74 = icmp ugt i64 %108, %104
+  %.not25.i82 = icmp ugt i64 %108, %104
   %109 = sub i64 %104, %2
-  %spec.select.i75 = select i1 %.not25.i74, i64 %109, i64 %107
-  br label %use_hole.exit.sink.split
+  %spec.select.i83 = select i1 %.not25.i82, i64 %109, i64 %107
+  br label %use_hole.exit84.sink.split
 
-use_hole.exit.sink.split:                         ; preds = %100, %105, %73, %77, %57, %61, %40, %44
-  %.sink.i72.sink = phi i64 [ %42, %40 ], [ %spec.select.i, %44 ], [ %59, %57 ], [ %spec.select.i61, %61 ], [ %75, %73 ], [ %spec.select.i68, %77 ], [ %102, %100 ], [ %spec.select.i75, %105 ]
-  store i64 %.sink.i72.sink, ptr %1, align 8
-  br label %use_hole.exit
+use_hole.exit84.sink.split:                       ; preds = %100, %105, %73, %77, %57, %61, %40, %44
+  %.sink.i73.sink = phi i64 [ %42, %40 ], [ %spec.select.i, %44 ], [ %59, %57 ], [ %spec.select.i69, %61 ], [ %75, %73 ], [ %spec.select.i76, %77 ], [ %102, %100 ], [ %spec.select.i83, %105 ]
+  store i64 %.sink.i73.sink, ptr %1, align 8, !tbaa !11
+  br label %use_hole.exit84
 
-use_hole.exit:                                    ; preds = %use_hole.exit.sink.split, %96, %67, %51, %36, %.loopexit, %3
-  %.0 = phi i32 [ -1, %3 ], [ -1, %.loopexit ], [ -1, %36 ], [ -1, %51 ], [ -1, %67 ], [ -1, %96 ], [ 0, %use_hole.exit.sink.split ]
-  ret i32 %.0
+use_hole.exit84:                                  ; preds = %use_hole.exit84.sink.split, %67, %51, %36, %96, %use_hole.exit.thread114, %3
+  %.035 = phi i32 [ -1, %3 ], [ -1, %use_hole.exit.thread114 ], [ -1, %96 ], [ -1, %67 ], [ -1, %51 ], [ -1, %36 ], [ 0, %use_hole.exit84.sink.split ]
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %5) #6
+  ret i32 %.035
 }
 
-; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #1
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #1
+declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #2
+
+; Function Attrs: nofree nounwind
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoull(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #3
+declare i64 @strtoull(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #5
 
-attributes #0 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nounwind }
 attributes #7 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 omnipotent char", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!6, !6, i64 0}
+!9 = distinct !{!9, !10}
+!10 = !{!"llvm.loop.mustprogress"}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"long", !6, i64 0}
