@@ -40979,7 +40979,7 @@ _ZNSt6vectorI15CSC_RowIteratorSaIS0_EED2Ev.exit:  ; preds = %_ZSt8_DestroyIP15CS
   br i1 %165, label %.preheader.us.preheader, label %.preheader.lr.ph.split
 
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph
-  %wide.trip.count = zext nneg i32 %131 to i64
+  %smax = zext nneg i32 %131 to i64
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
@@ -49633,7 +49633,7 @@ _ZNSt6vectorI15CSC_RowIteratorSaIS0_EED2Ev.exit:  ; preds = %_ZSt8_DestroyIP15CS
   br i1 %72, label %.preheader.us.preheader, label %.preheader.lr.ph.split
 
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph
-  %wide.trip.count = zext nneg i32 %38 to i64
+  %smax = zext nneg i32 %38 to i64
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us

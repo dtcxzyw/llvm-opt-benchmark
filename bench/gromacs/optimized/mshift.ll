@@ -2349,88 +2349,88 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %.noexc.i
   %44 = ptrtoint ptr %39 to i64
   br label %.lr.ph.i.i
 
-.lr.ph57.i.us.i:                                  ; preds = %.lr.ph57.i.us.i.backedge, %.lr.ph57.i.preheader.us.i.preheader
-  %.02755.i.us.i = phi i1 [ false, %.lr.ph57.i.preheader.us.i.preheader ], [ %.02755.i.us.i.be, %.lr.ph57.i.us.i.backedge ]
-  %.02854.i.us.i = phi i64 [ 0, %.lr.ph57.i.preheader.us.i.preheader ], [ %.02854.i.us.i.be, %.lr.ph57.i.us.i.backedge ]
+.lr.ph57.i.preheader.us.preheader.i:              ; preds = %.lr.ph57.i.us.i.backedge, %.lr.ph57.i.preheader.us.i.preheader
+  %45 = phi i1 [ false, %.lr.ph57.i.preheader.us.i.preheader ], [ %.02755.i.us.i.be, %.lr.ph57.i.us.i.backedge ]
+  %smax.i = phi i64 [ 0, %.lr.ph57.i.preheader.us.i.preheader ], [ %.02854.i.us.i.be, %.lr.ph57.i.us.i.backedge ]
   %.02953.i.us.i = phi i32 [ 0, %.lr.ph57.i.preheader.us.i.preheader ], [ %.02953.i.us.i.be, %.lr.ph57.i.us.i.backedge ]
   %45 = getelementptr inbounds nuw %"class.std::vector.0", ptr %24, i64 %.02854.i.us.i
   %46 = load ptr, ptr %45, align 8, !noalias !24
-  %47 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  %48 = load ptr, ptr %47, align 8, !noalias !24
-  %.not4749.i.us.i = icmp eq ptr %46, %48
+  %.02755.i.us.i = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %.02854.i.us.i = load ptr, ptr %.02755.i.us.i, align 8, !noalias !24
+  %.02953.i.us.i = icmp eq ptr %46, %.02854.i.us.i
   br i1 %.not4749.i.us.i, label %._crit_edge.i.us.i, label %.lr.ph52.i.us.i
 
 .lr.ph52.i.us.i:                                  ; preds = %.lr.ph57.i.us.i
-  %49 = getelementptr inbounds nuw i32, ptr %39, i64 %.02854.i.us.i
-  br label %50
+  %50 = getelementptr inbounds nuw i32, ptr %39, i64 %.02854.i.us.i
+  br label %51
 
-50:                                               ; preds = %63, %.lr.ph52.i.us.i
-  %.13051.i.us.i = phi i32 [ %.02953.i.us.i, %.lr.ph52.i.us.i ], [ %.2.i.us.i, %63 ]
-  %.sroa.033.050.i.us.i = phi ptr [ %46, %.lr.ph52.i.us.i ], [ %64, %63 ]
-  %51 = load i32, ptr %.sroa.033.050.i.us.i, align 4, !noalias !24
-  %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds i32, ptr %39, i64 %52
-  %54 = load i32, ptr %53, align 4, !noalias !24
-  %55 = load i32, ptr %49, align 4, !noalias !24
-  %56 = icmp sgt i32 %54, %55
-  br i1 %56, label %61, label %57
+51:                                               ; preds = %64, %.lr.ph52.i.us.i
+  %.13051.i.us.i = phi i32 [ %.02953.i.us.i, %.lr.ph52.i.us.i ], [ %.2.i.us.i, %64 ]
+  %.sroa.033.050.i.us.i = phi ptr [ %46, %.lr.ph52.i.us.i ], [ %65, %64 ]
+  %52 = load i32, ptr %.sroa.033.050.i.us.i, align 4, !noalias !24
+  %53 = sext i32 %52 to i64
+  %54 = getelementptr inbounds i32, ptr %39, i64 %53
+  %55 = load i32, ptr %54, align 4, !noalias !24
+  %56 = load i32, ptr %50, align 4, !noalias !24
+  %57 = icmp sgt i32 %55, %56
+  br i1 %57, label %62, label %58
 
-57:                                               ; preds = %50
-  %58 = icmp slt i32 %54, %55
-  br i1 %58, label %59, label %63
+58:                                               ; preds = %51
+  %59 = icmp slt i32 %55, %56
+  br i1 %59, label %60, label %64
 
-59:                                               ; preds = %57
-  store i32 %54, ptr %49, align 4, !noalias !24
-  %60 = add nsw i32 %.13051.i.us.i, 1
-  br label %63
+60:                                               ; preds = %58
+  store i32 %55, ptr %50, align 4, !noalias !24
+  %61 = add nsw i32 %.13051.i.us.i, 1
+  br label %64
 
-61:                                               ; preds = %50
-  store i32 %55, ptr %53, align 4, !noalias !24
-  %62 = add nsw i32 %.13051.i.us.i, 1
-  br label %63
+62:                                               ; preds = %51
+  store i32 %56, ptr %54, align 4, !noalias !24
+  %63 = add nsw i32 %.13051.i.us.i, 1
+  br label %64
 
-63:                                               ; preds = %61, %59, %57
-  %.2.i.us.i = phi i32 [ %62, %61 ], [ %60, %59 ], [ %.13051.i.us.i, %57 ]
-  %64 = getelementptr inbounds nuw i8, ptr %.sroa.033.050.i.us.i, i64 4
-  %.not47.i.us.i = icmp eq ptr %64, %48
-  br i1 %.not47.i.us.i, label %._crit_edge.i.us.i, label %50
+64:                                               ; preds = %62, %60, %58
+  %.2.i.us.i = phi i32 [ %63, %62 ], [ %61, %60 ], [ %.13051.i.us.i, %58 ]
+  %65 = getelementptr inbounds nuw i8, ptr %.sroa.033.050.i.us.i, i64 4
+  %.not47.i.us.i = icmp eq ptr %65, %48
+  br i1 %.not47.i.us.i, label %._crit_edge.i.us.i, label %51
 
-._crit_edge.i.us.i:                               ; preds = %63, %.lr.ph57.i.us.i
-  %.130.lcssa.i.us.i = phi i32 [ %.02953.i.us.i, %.lr.ph57.i.us.i ], [ %.2.i.us.i, %63 ]
-  %65 = getelementptr inbounds nuw i32, ptr %39, i64 %.02854.i.us.i
-  %66 = load i32, ptr %65, align 4, !noalias !24
-  %67 = load i32, ptr %39, align 4, !noalias !24
-  %.not32.i.us.i = icmp ne i32 %66, %67
+._crit_edge.i.us.i:                               ; preds = %64, %.lr.ph57.i.us.i
+  %.130.lcssa.i.us.i = phi i32 [ %.02953.i.us.i, %.lr.ph57.i.us.i ], [ %.2.i.us.i, %64 ]
+  %66 = getelementptr inbounds nuw i32, ptr %39, i64 %.02854.i.us.i
+  %67 = load i32, ptr %66, align 4, !noalias !24
+  %68 = load i32, ptr %39, align 4, !noalias !24
+  %.not32.i.us.i = icmp ne i32 %67, %68
   %spec.select.i.us.i = select i1 %.not32.i.us.i, i1 true, i1 %.02755.i.us.i
-  %68 = add nuw nsw i64 %.02854.i.us.i, 1
-  %exitcond78.not.i = icmp eq i64 %68, %19
+  %69 = add nuw nsw i64 %.02854.i.us.i, 1
+  %exitcond78.not.i = icmp eq i64 %69, %19
   br i1 %exitcond78.not.i, label %._crit_edge58.i.loopexit.us.i, label %.lr.ph57.i.us.i.backedge
 
-.lr.ph57.i.us.i.backedge:                         ; preds = %._crit_edge.i.us.i, %72
-  %.02755.i.us.i.be = phi i1 [ %spec.select.i.us.i, %._crit_edge.i.us.i ], [ false, %72 ]
-  %.02854.i.us.i.be = phi i64 [ %68, %._crit_edge.i.us.i ], [ 0, %72 ]
-  %.02953.i.us.i.be = phi i32 [ %.130.lcssa.i.us.i, %._crit_edge.i.us.i ], [ 0, %72 ]
+.lr.ph57.i.us.i.backedge:                         ; preds = %._crit_edge.i.us.i, %73
+  %.02755.i.us.i.be = phi i1 [ %spec.select.i.us.i, %._crit_edge.i.us.i ], [ false, %73 ]
+  %.02854.i.us.i.be = phi i64 [ %69, %._crit_edge.i.us.i ], [ 0, %73 ]
+  %.02953.i.us.i.be = phi i32 [ %.130.lcssa.i.us.i, %._crit_edge.i.us.i ], [ 0, %73 ]
   br label %.lr.ph57.i.us.i, !llvm.loop !9
 
-69:                                               ; preds = %._crit_edge58.i.loopexit.us.i
-  %70 = select i1 %spec.select.i.us.i, ptr @.str.20, ptr @.str.21
-  %71 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %74, ptr noundef nonnull @.str.19, i32 noundef %.130.lcssa.i.us.i, ptr noundef nonnull %70) #24, !noalias !24
-  br label %72
+70:                                               ; preds = %._crit_edge58.i.loopexit.us.i
+  %71 = select i1 %spec.select.i.us.i, ptr @.str.20, ptr @.str.21
+  %72 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %75, ptr noundef nonnull @.str.19, i32 noundef %.130.lcssa.i.us.i, ptr noundef nonnull %71) #24, !noalias !24
+  br label %73
 
-72:                                               ; preds = %._crit_edge58.i.loopexit.us.i, %69
-  %73 = icmp sgt i32 %.130.lcssa.i.us.i, 0
-  br i1 %73, label %.lr.ph57.i.us.i.backedge, label %_ZL21determine_graph_partsRK14EdgesGeneratorN3gmx8ArrayRefIiEE.exit.i
+73:                                               ; preds = %._crit_edge58.i.loopexit.us.i, %70
+  %74 = icmp sgt i32 %.130.lcssa.i.us.i, 0
+  br i1 %74, label %.lr.ph57.i.us.i.backedge, label %_ZL21determine_graph_partsRK14EdgesGeneratorN3gmx8ArrayRefIiEE.exit.i
 
 ._crit_edge58.i.loopexit.us.i:                    ; preds = %._crit_edge.i.us.i
-  %74 = load ptr, ptr @debug, align 8, !noalias !24
-  %.not.i.us.i = icmp eq ptr %74, null
-  br i1 %.not.i.us.i, label %72, label %69
+  %75 = load ptr, ptr @debug, align 8, !noalias !24
+  %.not.i.us.i = icmp eq ptr %75, null
+  br i1 %.not.i.us.i, label %73, label %70
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
-  %75 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv.i.i
-  %76 = trunc nuw nsw i64 %indvars.iv.i.i to i32
-  store i32 %76, ptr %75, align 4, !noalias !24
+  %76 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv.i.i
+  %77 = trunc nuw nsw i64 %indvars.iv.i.i to i32
+  store i32 %77, ptr %76, align 4, !noalias !24
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %19
   br i1 %exitcond.not.i.i, label %.lr.ph57.i.preheader.us.i.preheader, label %.lr.ph.i.i, !llvm.loop !10
@@ -2439,7 +2439,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %.noexc.i
   %77 = ptrtoint ptr %.0.i.i.i.i.i.i to i64
   br label %.lr.ph57.i.us.i
 
-_ZL21determine_graph_partsRK14EdgesGeneratorN3gmx8ArrayRefIiEE.exit.i: ; preds = %72
+_ZL21determine_graph_partsRK14EdgesGeneratorN3gmx8ArrayRefIiEE.exit.i: ; preds = %73
   br i1 %spec.select.i.us.i, label %.preheader.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit44.i
 
 .preheader.i:                                     ; preds = %_ZL21determine_graph_partsRK14EdgesGeneratorN3gmx8ArrayRefIiEE.exit.i

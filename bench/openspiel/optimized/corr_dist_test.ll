@@ -8109,10 +8109,10 @@ _ZNSt6vectorIN10open_spiel13TabularPolicyESaIS1_EE7reserveEm.exit.i: ; preds = %
           to label %.preheader.i198 unwind label %.loopexit54.i
 
 .preheader.i198:                                  ; preds = %_ZNSt6vectorIN10open_spiel13TabularPolicyESaIS1_EE7reserveEm.exit.i
-  br i1 %.not67.i, label %._crit_edge.i, label %.lr.ph.i
+  br i1 %.not67.i, label %._crit_edge.i, label %.lr.ph.preheader.i
 
-.lr.ph.i:                                         ; preds = %.preheader.i198, %_ZN10open_spiel13TabularPolicyD2Ev.exit.i209
-  %.061.i = phi i32 [ %3049, %_ZN10open_spiel13TabularPolicyD2Ev.exit.i209 ], [ 0, %.preheader.i198 ]
+.lr.ph.preheader.i:                               ; preds = %.preheader.i198, %_ZN10open_spiel13TabularPolicyD2Ev.exit.i209
+  %smax.i = phi i32 [ %3049, %_ZN10open_spiel13TabularPolicyD2Ev.exit.i209 ], [ 0, %.preheader.i198 ]
   invoke void @_ZN10open_spiel10algorithms13CFRSolverBase23EvaluateAndUpdatePolicyEv(ptr noundef nonnull align 8 dereferenceable(5128) %10)
           to label %2942 unwind label %.loopexit.i199
 
