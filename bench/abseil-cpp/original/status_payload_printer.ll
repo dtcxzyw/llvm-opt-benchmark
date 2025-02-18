@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
 %"class.absl::base_internal::AtomicHook" = type { %"struct.std::atomic", ptr }
@@ -39,9 +39,13 @@ $_ZN4absl13base_internal10AtomicHookIPFSt8optionalINSt7__cxx1112basic_stringIcSt
 
 $_ZNSt6atomicIPFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS4_ERKN4absl4CordEEE23compare_exchange_strongERSF_SF_St12memory_orderSI_ = comdat any
 
+$_ZNSt13__atomic_baseIPFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS4_ERKN4absl4CordEEE23compare_exchange_strongERSF_SF_St12memory_orderSI_ = comdat any
+
 $_ZNK4absl13base_internal10AtomicHookIPFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS6_ERKNS_4CordEEE6DoLoadEv = comdat any
 
 $_ZNKSt6atomicIPFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS4_ERKN4absl4CordEEE4loadESt12memory_order = comdat any
+
+$_ZNKSt13__atomic_baseIPFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS4_ERKN4absl4CordEEE4loadESt12memory_order = comdat any
 
 $_ZStanSt12memory_orderSt23__memory_order_modifier = comdat any
 
@@ -54,9 +58,8 @@ $__clang_call_terminate = comdat any
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init() #0 section ".text.startup" {
-entry:
   call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %0 = call i32 @__cxa_atexit(ptr @_ZNSt8ios_base4InitD1Ev, ptr @_ZStL8__ioinit, ptr @__dso_handle) #3
+  %1 = call i32 @__cxa_atexit(ptr @_ZNSt8ios_base4InitD1Ev, ptr @_ZStL8__ioinit, ptr @__dso_handle) #3
   ret void
 }
 
@@ -69,622 +72,665 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl15status_internal23SetStatusPayloadPrinterEPFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS5_ERKNS_4CordEE(ptr noundef %printer) #4 {
-entry:
-  %printer.addr = alloca ptr, align 8
-  store ptr %printer, ptr %printer.addr, align 8
-  %0 = load ptr, ptr %printer.addr, align 8
-  call void @_ZN4absl13base_internal10AtomicHookIPFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS6_ERKNS_4CordEEE5StoreESG_(ptr noundef nonnull align 8 dereferenceable(16) @_ZN4absl15status_internalL7storageB5cxx11E, ptr noundef %0)
+define dso_local void @_ZN4absl15status_internal23SetStatusPayloadPrinterEPFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS5_ERKNS_4CordEE(ptr noundef %0) #4 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  call void @_ZN4absl13base_internal10AtomicHookIPFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS6_ERKNS_4CordEEE5StoreESG_(ptr noundef nonnull align 8 dereferenceable(16) @_ZN4absl15status_internalL7storageB5cxx11E, ptr noundef %3)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN4absl13base_internal10AtomicHookIPFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS6_ERKNS_4CordEEE5StoreESG_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %fn) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %fn.addr = alloca ptr, align 8
-  %success = alloca i8, align 1
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %fn, ptr %fn.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %fn.addr, align 8
-  %call = call noundef zeroext i1 @_ZN4absl13base_internal10AtomicHookIPFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS6_ERKNS_4CordEEE7DoStoreESG_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %0)
-  %frombool = zext i1 %call to i8
-  store i8 %frombool, ptr %success, align 1
+define linkonce_odr dso_local void @_ZN4absl13base_internal10AtomicHookIPFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS6_ERKNS_4CordEEE5StoreESG_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i8, align 1
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store ptr %1, ptr %4, align 8, !tbaa !4
+  %6 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %5) #3
+  %7 = load ptr, ptr %4, align 8, !tbaa !4
+  %8 = call noundef zeroext i1 @_ZN4absl13base_internal10AtomicHookIPFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS6_ERKNS_4CordEEE7DoStoreESG_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef %7)
+  %9 = zext i1 %8 to i8
+  store i8 %9, ptr %5, align 1, !tbaa !10
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #3
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef ptr @_ZN4absl15status_internal23GetStatusPayloadPrinterB5cxx11Ev() #4 {
-entry:
-  %call = call noundef ptr @_ZNK4absl13base_internal10AtomicHookIPFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS6_ERKNS_4CordEEE4LoadEv(ptr noundef nonnull align 8 dereferenceable(16) @_ZN4absl15status_internalL7storageB5cxx11E)
-  ret ptr %call
+  %1 = call noundef ptr @_ZNK4absl13base_internal10AtomicHookIPFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS6_ERKNS_4CordEEE4LoadEv(ptr noundef nonnull align 8 dereferenceable(16) @_ZN4absl15status_internalL7storageB5cxx11E)
+  ret ptr %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK4absl13base_internal10AtomicHookIPFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS6_ERKNS_4CordEEE4LoadEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %ptr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef ptr @_ZNK4absl13base_internal10AtomicHookIPFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS6_ERKNS_4CordEEE6DoLoadEv(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr %call, ptr %ptr, align 8
-  %0 = load ptr, ptr %ptr, align 8
-  %cmp = icmp eq ptr %0, @_ZN4absl13base_internal10AtomicHookIPFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS6_ERKNS_4CordEEE13DummyFunctionESB_SE_
-  br i1 %cmp, label %cond.true, label %cond.false
+define linkonce_odr dso_local noundef ptr @_ZNK4absl13base_internal10AtomicHookIPFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS6_ERKNS_4CordEEE4LoadEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  %4 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #3
+  %5 = call noundef ptr @_ZNK4absl13base_internal10AtomicHookIPFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS6_ERKNS_4CordEEE6DoLoadEv(ptr noundef nonnull align 8 dereferenceable(16) %4)
+  store ptr %5, ptr %3, align 8, !tbaa !4
+  %6 = load ptr, ptr %3, align 8, !tbaa !4
+  %7 = icmp eq ptr %6, @_ZN4absl13base_internal10AtomicHookIPFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS6_ERKNS_4CordEEE13DummyFunctionESB_SE_
+  br i1 %7, label %8, label %9
 
-cond.true:                                        ; preds = %entry
-  br label %cond.end
+8:                                                ; preds = %1
+  br label %11
 
-cond.false:                                       ; preds = %entry
-  %1 = load ptr, ptr %ptr, align 8
-  br label %cond.end
+9:                                                ; preds = %1
+  %10 = load ptr, ptr %3, align 8, !tbaa !4
+  br label %11
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi ptr [ null, %cond.true ], [ %1, %cond.false ]
-  ret ptr %cond
+11:                                               ; preds = %9, %8
+  %12 = phi ptr [ null, %8 ], [ %10, %9 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #3
+  ret ptr %12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN4absl13base_internal10AtomicHookIPFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS6_ERKNS_4CordEEE13DummyFunctionESB_SE_(ptr noalias sret(%"class.std::optional") align 8 %agg.result, i64 %.coerce0, ptr %.coerce1, ptr noundef nonnull align 8 dereferenceable(16) %0) #5 comdat align 2 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %1 = alloca %"class.std::basic_string_view", align 8
-  %.addr = alloca ptr, align 8
-  store ptr %agg.result, ptr %result.ptr, align 8
-  %2 = getelementptr inbounds { i64, ptr }, ptr %1, i32 0, i32 0
-  store i64 %.coerce0, ptr %2, align 8
-  %3 = getelementptr inbounds { i64, ptr }, ptr %1, i32 0, i32 1
-  store ptr %.coerce1, ptr %3, align 8
-  store ptr %0, ptr %.addr, align 8
-  call void @_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %agg.result) #3
+define linkonce_odr dso_local void @_ZN4absl13base_internal10AtomicHookIPFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS6_ERKNS_4CordEEE13DummyFunctionESB_SE_(ptr dead_on_unwind noalias writable sret(%"class.std::optional") align 8 %0, i64 %1, ptr %2, ptr noundef nonnull align 8 dereferenceable(16) %3) #5 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca %"class.std::basic_string_view", align 8
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8
+  %8 = getelementptr inbounds nuw { i64, ptr }, ptr %6, i32 0, i32 0
+  store i64 %1, ptr %8, align 8
+  %9 = getelementptr inbounds nuw { i64, ptr }, ptr %6, i32 0, i32 1
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %7, align 8, !tbaa !12
+  call void @_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #3
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this1) #3
+define linkonce_odr dso_local void @_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !14
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #3
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_payload = getelementptr inbounds %"struct.std::_Optional_base", ptr %this1, i32 0, i32 0
-  call void @_ZNSt17_Optional_payloadINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0ELb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(33) %_M_payload) #3
+define linkonce_odr dso_local void @_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !16
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Optional_base", ptr %3, i32 0, i32 0
+  call void @_ZNSt17_Optional_payloadINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0ELb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(33) %4) #3
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZNSt17_Optional_payloadINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0ELb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(33) %this) unnamed_addr #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZNSt17_Optional_payloadINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1ELb0ELb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(33) %this1) #3
+define linkonce_odr dso_local void @_ZNSt17_Optional_payloadINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0ELb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(33) %0) unnamed_addr #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !18
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt17_Optional_payloadINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1ELb0ELb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(33) %3) #3
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZNSt17_Optional_payloadINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1ELb0ELb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(33) %this) unnamed_addr #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(33) %this1) #3
+define linkonce_odr dso_local void @_ZNSt17_Optional_payloadINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1ELb0ELb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(33) %0) unnamed_addr #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !20
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(33) %3) #3
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(33) %this) unnamed_addr #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_payload = getelementptr inbounds %"struct.std::_Optional_payload_base", ptr %this1, i32 0, i32 0
-  call void @_ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8_StorageIS5_Lb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_payload) #3
-  %_M_engaged = getelementptr inbounds %"struct.std::_Optional_payload_base", ptr %this1, i32 0, i32 1
-  store i8 0, ptr %_M_engaged, align 8
+define linkonce_odr dso_local void @_ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(33) %0) unnamed_addr #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !22
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Optional_payload_base", ptr %3, i32 0, i32 0
+  call void @_ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8_StorageIS5_Lb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
+  %5 = getelementptr inbounds nuw %"struct.std::_Optional_payload_base", ptr %3, i32 0, i32 1
+  store i8 0, ptr %5, align 8, !tbaa !24
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8_StorageIS5_Lb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
+define linkonce_odr dso_local void @_ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8_StorageIS5_Lb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !26
   ret void
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
+
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZN4absl13base_internal10AtomicHookIPFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS6_ERKNS_4CordEEE7DoStoreESG_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %fn) #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %fn.addr = alloca ptr, align 8
-  %expected = alloca ptr, align 8
-  %store_succeeded = alloca i8, align 1
-  %same_value_already_stored = alloca i8, align 1
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %fn, ptr %fn.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %default_fn_ = getelementptr inbounds %"class.absl::base_internal::AtomicHook", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %default_fn_, align 8
-  store ptr %0, ptr %expected, align 8
-  %hook_ = getelementptr inbounds %"class.absl::base_internal::AtomicHook", ptr %this1, i32 0, i32 0
-  %1 = load ptr, ptr %fn.addr, align 8
-  %call = call noundef zeroext i1 @_ZNSt6atomicIPFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS4_ERKN4absl4CordEEE23compare_exchange_strongERSF_SF_St12memory_orderSI_(ptr noundef nonnull align 8 dereferenceable(8) %hook_, ptr noundef nonnull align 8 dereferenceable(8) %expected, ptr noundef %1, i32 noundef 4, i32 noundef 2) #3
-  %frombool = zext i1 %call to i8
-  store i8 %frombool, ptr %store_succeeded, align 1
-  %2 = load ptr, ptr %expected, align 8
-  %3 = load ptr, ptr %fn.addr, align 8
-  %cmp = icmp eq ptr %2, %3
-  %frombool2 = zext i1 %cmp to i8
-  store i8 %frombool2, ptr %same_value_already_stored, align 1
-  %4 = load i8, ptr %store_succeeded, align 1
-  %tobool = trunc i8 %4 to i1
-  br i1 %tobool, label %lor.end, label %lor.rhs
+define linkonce_odr dso_local noundef zeroext i1 @_ZN4absl13base_internal10AtomicHookIPFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS6_ERKNS_4CordEEE7DoStoreESG_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i8, align 1
+  %7 = alloca i8, align 1
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store ptr %1, ptr %4, align 8, !tbaa !4
+  %8 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #3
+  %9 = getelementptr inbounds nuw %"class.absl::base_internal::AtomicHook", ptr %8, i32 0, i32 1
+  %10 = load ptr, ptr %9, align 8, !tbaa !28
+  store ptr %10, ptr %5, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %6) #3
+  %11 = getelementptr inbounds nuw %"class.absl::base_internal::AtomicHook", ptr %8, i32 0, i32 0
+  %12 = load ptr, ptr %4, align 8, !tbaa !4
+  %13 = call noundef zeroext i1 @_ZNSt6atomicIPFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS4_ERKN4absl4CordEEE23compare_exchange_strongERSF_SF_St12memory_orderSI_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %12, i32 noundef 4, i32 noundef 2) #3
+  %14 = zext i1 %13 to i8
+  store i8 %14, ptr %6, align 1, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 1, ptr %7) #3
+  %15 = load ptr, ptr %5, align 8, !tbaa !4
+  %16 = load ptr, ptr %4, align 8, !tbaa !4
+  %17 = icmp eq ptr %15, %16
+  %18 = zext i1 %17 to i8
+  store i8 %18, ptr %7, align 1, !tbaa !10
+  %19 = load i8, ptr %6, align 1, !tbaa !10, !range !32, !noundef !33
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %24, label %21
 
-lor.rhs:                                          ; preds = %entry
-  %5 = load i8, ptr %same_value_already_stored, align 1
-  %tobool3 = trunc i8 %5 to i1
-  br label %lor.end
+21:                                               ; preds = %2
+  %22 = load i8, ptr %7, align 1, !tbaa !10, !range !32, !noundef !33
+  %23 = trunc i8 %22 to i1
+  br label %24
 
-lor.end:                                          ; preds = %lor.rhs, %entry
-  %6 = phi i1 [ true, %entry ], [ %tobool3, %lor.rhs ]
-  ret i1 %6
+24:                                               ; preds = %21, %2
+  %25 = phi i1 [ true, %2 ], [ %23, %21 ]
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %6) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #3
+  ret i1 %25
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
+
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZNSt6atomicIPFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS4_ERKN4absl4CordEEE23compare_exchange_strongERSF_SF_St12memory_orderSI_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %__p1, ptr noundef %__p2, i32 noundef %__m1, i32 noundef %__m2) #5 comdat align 2 {
-entry:
-  %this.addr.i = alloca ptr, align 8
-  %__p1.addr.i = alloca ptr, align 8
-  %__p2.addr.i = alloca ptr, align 8
-  %__m1.addr.i = alloca i32, align 4
-  %__m2.addr.i = alloca i32, align 4
-  %.atomictmp.i = alloca ptr, align 8
-  %cmpxchg.bool.i = alloca i8, align 1
-  %this.addr = alloca ptr, align 8
-  %__p1.addr = alloca ptr, align 8
-  %__p2.addr = alloca ptr, align 8
-  %__m1.addr = alloca i32, align 4
-  %__m2.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__p1, ptr %__p1.addr, align 8
-  store ptr %__p2, ptr %__p2.addr, align 8
-  store i32 %__m1, ptr %__m1.addr, align 4
-  store i32 %__m2, ptr %__m2.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_b = getelementptr inbounds %"struct.std::atomic", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %__p1.addr, align 8
-  %1 = load ptr, ptr %__p2.addr, align 8
-  %2 = load i32, ptr %__m1.addr, align 4
-  %3 = load i32, ptr %__m2.addr, align 4
-  store ptr %_M_b, ptr %this.addr.i, align 8
-  store ptr %0, ptr %__p1.addr.i, align 8
-  store ptr %1, ptr %__p2.addr.i, align 8
-  store i32 %2, ptr %__m1.addr.i, align 4
-  store i32 %3, ptr %__m2.addr.i, align 4
-  %this1.i = load ptr, ptr %this.addr.i, align 8
-  %4 = load i32, ptr %__m1.addr.i, align 4
-  %5 = load ptr, ptr %__p1.addr.i, align 8
-  %6 = load ptr, ptr %__p2.addr.i, align 8
-  store ptr %6, ptr %.atomictmp.i, align 8
-  %7 = load i32, ptr %__m2.addr.i, align 4
-  switch i32 %4, label %monotonic.i [
-    i32 1, label %acquire.i
-    i32 2, label %acquire.i
-    i32 3, label %release.i
-    i32 4, label %acqrel.i
-    i32 5, label %seqcst.i
+define linkonce_odr dso_local noundef zeroext i1 @_ZNSt6atomicIPFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS4_ERKN4absl4CordEEE23compare_exchange_strongERSF_SF_St12memory_orderSI_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #5 comdat align 2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !34
+  store ptr %1, ptr %7, align 8, !tbaa !4
+  store ptr %2, ptr %8, align 8, !tbaa !4
+  store i32 %3, ptr %9, align 4, !tbaa !36
+  store i32 %4, ptr %10, align 4, !tbaa !36
+  %11 = load ptr, ptr %6, align 8
+  %12 = getelementptr inbounds nuw %"struct.std::atomic", ptr %11, i32 0, i32 0
+  %13 = load ptr, ptr %7, align 8, !tbaa !4
+  %14 = load ptr, ptr %8, align 8, !tbaa !4
+  %15 = load i32, ptr %9, align 4, !tbaa !36
+  %16 = load i32, ptr %10, align 4, !tbaa !36
+  %17 = call noundef zeroext i1 @_ZNSt13__atomic_baseIPFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS4_ERKN4absl4CordEEE23compare_exchange_strongERSF_SF_St12memory_orderSI_(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef %14, i32 noundef %15, i32 noundef %16) #3
+  ret i1 %17
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_ZNSt13__atomic_baseIPFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS4_ERKN4absl4CordEEE23compare_exchange_strongERSF_SF_St12memory_orderSI_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #7 comdat align 2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca ptr, align 8
+  %12 = alloca i8, align 1
+  store ptr %0, ptr %6, align 8, !tbaa !38
+  store ptr %1, ptr %7, align 8, !tbaa !4
+  store ptr %2, ptr %8, align 8, !tbaa !4
+  store i32 %3, ptr %9, align 4, !tbaa !36
+  store i32 %4, ptr %10, align 4, !tbaa !36
+  %13 = load ptr, ptr %6, align 8
+  br label %14
+
+14:                                               ; preds = %5
+  br label %15
+
+15:                                               ; preds = %14
+  br label %16
+
+16:                                               ; preds = %15
+  %17 = getelementptr inbounds nuw %"struct.std::__atomic_base", ptr %13, i32 0, i32 0
+  %18 = load i32, ptr %9, align 4, !tbaa !36
+  %19 = load ptr, ptr %7, align 8, !tbaa !4
+  %20 = load ptr, ptr %8, align 8, !tbaa !4
+  store ptr %20, ptr %11, align 8, !tbaa !4
+  %21 = load i32, ptr %10, align 4, !tbaa !36
+  switch i32 %18, label %22 [
+    i32 1, label %23
+    i32 2, label %23
+    i32 3, label %24
+    i32 4, label %25
+    i32 5, label %26
   ]
 
-monotonic.i:                                      ; preds = %entry
-  switch i32 %7, label %monotonic_fail.i [
-    i32 1, label %acquire_fail.i
-    i32 2, label %acquire_fail.i
-    i32 5, label %seqcst_fail.i
+22:                                               ; preds = %16
+  switch i32 %21, label %30 [
+    i32 1, label %36
+    i32 2, label %36
+    i32 5, label %42
   ]
 
-acquire.i:                                        ; preds = %entry, %entry
-  switch i32 %7, label %monotonic_fail9.i [
-    i32 1, label %acquire_fail10.i
-    i32 2, label %acquire_fail10.i
-    i32 5, label %seqcst_fail11.i
+23:                                               ; preds = %16, %16
+  switch i32 %21, label %58 [
+    i32 1, label %64
+    i32 2, label %64
+    i32 5, label %70
   ]
 
-release.i:                                        ; preds = %entry
-  switch i32 %7, label %monotonic_fail22.i [
-    i32 1, label %acquire_fail23.i
-    i32 2, label %acquire_fail23.i
-    i32 5, label %seqcst_fail24.i
+24:                                               ; preds = %16
+  switch i32 %21, label %86 [
+    i32 1, label %92
+    i32 2, label %92
+    i32 5, label %98
   ]
 
-acqrel.i:                                         ; preds = %entry
-  switch i32 %7, label %monotonic_fail35.i [
-    i32 1, label %acquire_fail36.i
-    i32 2, label %acquire_fail36.i
-    i32 5, label %seqcst_fail37.i
+25:                                               ; preds = %16
+  switch i32 %21, label %114 [
+    i32 1, label %120
+    i32 2, label %120
+    i32 5, label %126
   ]
 
-seqcst.i:                                         ; preds = %entry
-  switch i32 %7, label %monotonic_fail48.i [
-    i32 1, label %acquire_fail49.i
-    i32 2, label %acquire_fail49.i
-    i32 5, label %seqcst_fail50.i
+26:                                               ; preds = %16
+  switch i32 %21, label %142 [
+    i32 1, label %148
+    i32 2, label %148
+    i32 5, label %154
   ]
 
-monotonic_fail.i:                                 ; preds = %monotonic.i
-  %8 = load i64, ptr %5, align 8
-  %9 = load i64, ptr %.atomictmp.i, align 8
-  %10 = cmpxchg ptr %this1.i, i64 %8, i64 %9 monotonic monotonic, align 8
-  %11 = extractvalue { i64, i1 } %10, 0
-  %12 = extractvalue { i64, i1 } %10, 1
-  br i1 %12, label %cmpxchg.continue.i, label %cmpxchg.store_expected.i
+27:                                               ; preds = %160, %132, %104, %76, %48
+  %28 = load i8, ptr %12, align 1, !tbaa !10, !range !32, !noundef !33
+  %29 = trunc i8 %28 to i1
+  ret i1 %29
 
-acquire_fail.i:                                   ; preds = %monotonic.i, %monotonic.i
-  %13 = load i64, ptr %5, align 8
-  %14 = load i64, ptr %.atomictmp.i, align 8
-  %15 = cmpxchg ptr %this1.i, i64 %13, i64 %14 monotonic acquire, align 8
-  %16 = extractvalue { i64, i1 } %15, 0
-  %17 = extractvalue { i64, i1 } %15, 1
-  br i1 %17, label %cmpxchg.continue4.i, label %cmpxchg.store_expected3.i
+30:                                               ; preds = %22
+  %31 = load i64, ptr %19, align 8
+  %32 = load i64, ptr %11, align 8
+  %33 = cmpxchg ptr %17, i64 %31, i64 %32 monotonic monotonic, align 8
+  %34 = extractvalue { i64, i1 } %33, 0
+  %35 = extractvalue { i64, i1 } %33, 1
+  br i1 %35, label %50, label %49
 
-seqcst_fail.i:                                    ; preds = %monotonic.i
-  %18 = load i64, ptr %5, align 8
-  %19 = load i64, ptr %.atomictmp.i, align 8
-  %20 = cmpxchg ptr %this1.i, i64 %18, i64 %19 monotonic seq_cst, align 8
-  %21 = extractvalue { i64, i1 } %20, 0
-  %22 = extractvalue { i64, i1 } %20, 1
-  br i1 %22, label %cmpxchg.continue7.i, label %cmpxchg.store_expected6.i
+36:                                               ; preds = %22, %22
+  %37 = load i64, ptr %19, align 8
+  %38 = load i64, ptr %11, align 8
+  %39 = cmpxchg ptr %17, i64 %37, i64 %38 monotonic acquire, align 8
+  %40 = extractvalue { i64, i1 } %39, 0
+  %41 = extractvalue { i64, i1 } %39, 1
+  br i1 %41, label %53, label %52
 
-atomic.continue2.i:                               ; preds = %cmpxchg.continue7.i, %cmpxchg.continue4.i, %cmpxchg.continue.i
-  br label %_ZNSt13__atomic_baseIPFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS4_ERKN4absl4CordEEE23compare_exchange_strongERSF_SF_St12memory_orderSI_.exit
-
-cmpxchg.store_expected.i:                         ; preds = %monotonic_fail.i
-  store i64 %11, ptr %5, align 8
-  br label %cmpxchg.continue.i
-
-cmpxchg.continue.i:                               ; preds = %cmpxchg.store_expected.i, %monotonic_fail.i
-  %frombool.i = zext i1 %12 to i8
-  store i8 %frombool.i, ptr %cmpxchg.bool.i, align 1
-  br label %atomic.continue2.i
-
-cmpxchg.store_expected3.i:                        ; preds = %acquire_fail.i
-  store i64 %16, ptr %5, align 8
-  br label %cmpxchg.continue4.i
-
-cmpxchg.continue4.i:                              ; preds = %cmpxchg.store_expected3.i, %acquire_fail.i
-  %frombool5.i = zext i1 %17 to i8
-  store i8 %frombool5.i, ptr %cmpxchg.bool.i, align 1
-  br label %atomic.continue2.i
-
-cmpxchg.store_expected6.i:                        ; preds = %seqcst_fail.i
-  store i64 %21, ptr %5, align 8
-  br label %cmpxchg.continue7.i
-
-cmpxchg.continue7.i:                              ; preds = %cmpxchg.store_expected6.i, %seqcst_fail.i
-  %frombool8.i = zext i1 %22 to i8
-  store i8 %frombool8.i, ptr %cmpxchg.bool.i, align 1
-  br label %atomic.continue2.i
-
-monotonic_fail9.i:                                ; preds = %acquire.i
-  %23 = load i64, ptr %5, align 8
-  %24 = load i64, ptr %.atomictmp.i, align 8
-  %25 = cmpxchg ptr %this1.i, i64 %23, i64 %24 acquire monotonic, align 8
-  %26 = extractvalue { i64, i1 } %25, 0
-  %27 = extractvalue { i64, i1 } %25, 1
-  br i1 %27, label %cmpxchg.continue14.i, label %cmpxchg.store_expected13.i
-
-acquire_fail10.i:                                 ; preds = %acquire.i, %acquire.i
-  %28 = load i64, ptr %5, align 8
-  %29 = load i64, ptr %.atomictmp.i, align 8
-  %30 = cmpxchg ptr %this1.i, i64 %28, i64 %29 acquire acquire, align 8
-  %31 = extractvalue { i64, i1 } %30, 0
-  %32 = extractvalue { i64, i1 } %30, 1
-  br i1 %32, label %cmpxchg.continue17.i, label %cmpxchg.store_expected16.i
-
-seqcst_fail11.i:                                  ; preds = %acquire.i
-  %33 = load i64, ptr %5, align 8
-  %34 = load i64, ptr %.atomictmp.i, align 8
-  %35 = cmpxchg ptr %this1.i, i64 %33, i64 %34 acquire seq_cst, align 8
-  %36 = extractvalue { i64, i1 } %35, 0
-  %37 = extractvalue { i64, i1 } %35, 1
-  br i1 %37, label %cmpxchg.continue20.i, label %cmpxchg.store_expected19.i
-
-atomic.continue12.i:                              ; preds = %cmpxchg.continue20.i, %cmpxchg.continue17.i, %cmpxchg.continue14.i
-  br label %_ZNSt13__atomic_baseIPFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS4_ERKN4absl4CordEEE23compare_exchange_strongERSF_SF_St12memory_orderSI_.exit
-
-cmpxchg.store_expected13.i:                       ; preds = %monotonic_fail9.i
-  store i64 %26, ptr %5, align 8
-  br label %cmpxchg.continue14.i
-
-cmpxchg.continue14.i:                             ; preds = %cmpxchg.store_expected13.i, %monotonic_fail9.i
-  %frombool15.i = zext i1 %27 to i8
-  store i8 %frombool15.i, ptr %cmpxchg.bool.i, align 1
-  br label %atomic.continue12.i
-
-cmpxchg.store_expected16.i:                       ; preds = %acquire_fail10.i
-  store i64 %31, ptr %5, align 8
-  br label %cmpxchg.continue17.i
-
-cmpxchg.continue17.i:                             ; preds = %cmpxchg.store_expected16.i, %acquire_fail10.i
-  %frombool18.i = zext i1 %32 to i8
-  store i8 %frombool18.i, ptr %cmpxchg.bool.i, align 1
-  br label %atomic.continue12.i
-
-cmpxchg.store_expected19.i:                       ; preds = %seqcst_fail11.i
-  store i64 %36, ptr %5, align 8
-  br label %cmpxchg.continue20.i
-
-cmpxchg.continue20.i:                             ; preds = %cmpxchg.store_expected19.i, %seqcst_fail11.i
-  %frombool21.i = zext i1 %37 to i8
-  store i8 %frombool21.i, ptr %cmpxchg.bool.i, align 1
-  br label %atomic.continue12.i
-
-monotonic_fail22.i:                               ; preds = %release.i
-  %38 = load i64, ptr %5, align 8
-  %39 = load i64, ptr %.atomictmp.i, align 8
-  %40 = cmpxchg ptr %this1.i, i64 %38, i64 %39 release monotonic, align 8
-  %41 = extractvalue { i64, i1 } %40, 0
-  %42 = extractvalue { i64, i1 } %40, 1
-  br i1 %42, label %cmpxchg.continue27.i, label %cmpxchg.store_expected26.i
-
-acquire_fail23.i:                                 ; preds = %release.i, %release.i
-  %43 = load i64, ptr %5, align 8
-  %44 = load i64, ptr %.atomictmp.i, align 8
-  %45 = cmpxchg ptr %this1.i, i64 %43, i64 %44 release acquire, align 8
+42:                                               ; preds = %22
+  %43 = load i64, ptr %19, align 8
+  %44 = load i64, ptr %11, align 8
+  %45 = cmpxchg ptr %17, i64 %43, i64 %44 monotonic seq_cst, align 8
   %46 = extractvalue { i64, i1 } %45, 0
   %47 = extractvalue { i64, i1 } %45, 1
-  br i1 %47, label %cmpxchg.continue30.i, label %cmpxchg.store_expected29.i
+  br i1 %47, label %56, label %55
 
-seqcst_fail24.i:                                  ; preds = %release.i
-  %48 = load i64, ptr %5, align 8
-  %49 = load i64, ptr %.atomictmp.i, align 8
-  %50 = cmpxchg ptr %this1.i, i64 %48, i64 %49 release seq_cst, align 8
-  %51 = extractvalue { i64, i1 } %50, 0
-  %52 = extractvalue { i64, i1 } %50, 1
-  br i1 %52, label %cmpxchg.continue33.i, label %cmpxchg.store_expected32.i
+48:                                               ; preds = %56, %53, %50
+  br label %27
 
-atomic.continue25.i:                              ; preds = %cmpxchg.continue33.i, %cmpxchg.continue30.i, %cmpxchg.continue27.i
-  br label %_ZNSt13__atomic_baseIPFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS4_ERKN4absl4CordEEE23compare_exchange_strongERSF_SF_St12memory_orderSI_.exit
+49:                                               ; preds = %30
+  store i64 %34, ptr %19, align 8
+  br label %50
 
-cmpxchg.store_expected26.i:                       ; preds = %monotonic_fail22.i
-  store i64 %41, ptr %5, align 8
-  br label %cmpxchg.continue27.i
+50:                                               ; preds = %49, %30
+  %51 = zext i1 %35 to i8
+  store i8 %51, ptr %12, align 1, !tbaa !10
+  br label %48
 
-cmpxchg.continue27.i:                             ; preds = %cmpxchg.store_expected26.i, %monotonic_fail22.i
-  %frombool28.i = zext i1 %42 to i8
-  store i8 %frombool28.i, ptr %cmpxchg.bool.i, align 1
-  br label %atomic.continue25.i
+52:                                               ; preds = %36
+  store i64 %40, ptr %19, align 8
+  br label %53
 
-cmpxchg.store_expected29.i:                       ; preds = %acquire_fail23.i
-  store i64 %46, ptr %5, align 8
-  br label %cmpxchg.continue30.i
+53:                                               ; preds = %52, %36
+  %54 = zext i1 %41 to i8
+  store i8 %54, ptr %12, align 1, !tbaa !10
+  br label %48
 
-cmpxchg.continue30.i:                             ; preds = %cmpxchg.store_expected29.i, %acquire_fail23.i
-  %frombool31.i = zext i1 %47 to i8
-  store i8 %frombool31.i, ptr %cmpxchg.bool.i, align 1
-  br label %atomic.continue25.i
+55:                                               ; preds = %42
+  store i64 %46, ptr %19, align 8
+  br label %56
 
-cmpxchg.store_expected32.i:                       ; preds = %seqcst_fail24.i
-  store i64 %51, ptr %5, align 8
-  br label %cmpxchg.continue33.i
+56:                                               ; preds = %55, %42
+  %57 = zext i1 %47 to i8
+  store i8 %57, ptr %12, align 1, !tbaa !10
+  br label %48
 
-cmpxchg.continue33.i:                             ; preds = %cmpxchg.store_expected32.i, %seqcst_fail24.i
-  %frombool34.i = zext i1 %52 to i8
-  store i8 %frombool34.i, ptr %cmpxchg.bool.i, align 1
-  br label %atomic.continue25.i
+58:                                               ; preds = %23
+  %59 = load i64, ptr %19, align 8
+  %60 = load i64, ptr %11, align 8
+  %61 = cmpxchg ptr %17, i64 %59, i64 %60 acquire monotonic, align 8
+  %62 = extractvalue { i64, i1 } %61, 0
+  %63 = extractvalue { i64, i1 } %61, 1
+  br i1 %63, label %78, label %77
 
-monotonic_fail35.i:                               ; preds = %acqrel.i
-  %53 = load i64, ptr %5, align 8
-  %54 = load i64, ptr %.atomictmp.i, align 8
-  %55 = cmpxchg ptr %this1.i, i64 %53, i64 %54 acq_rel monotonic, align 8
-  %56 = extractvalue { i64, i1 } %55, 0
-  %57 = extractvalue { i64, i1 } %55, 1
-  br i1 %57, label %cmpxchg.continue40.i, label %cmpxchg.store_expected39.i
+64:                                               ; preds = %23, %23
+  %65 = load i64, ptr %19, align 8
+  %66 = load i64, ptr %11, align 8
+  %67 = cmpxchg ptr %17, i64 %65, i64 %66 acquire acquire, align 8
+  %68 = extractvalue { i64, i1 } %67, 0
+  %69 = extractvalue { i64, i1 } %67, 1
+  br i1 %69, label %81, label %80
 
-acquire_fail36.i:                                 ; preds = %acqrel.i, %acqrel.i
-  %58 = load i64, ptr %5, align 8
-  %59 = load i64, ptr %.atomictmp.i, align 8
-  %60 = cmpxchg ptr %this1.i, i64 %58, i64 %59 acq_rel acquire, align 8
-  %61 = extractvalue { i64, i1 } %60, 0
-  %62 = extractvalue { i64, i1 } %60, 1
-  br i1 %62, label %cmpxchg.continue43.i, label %cmpxchg.store_expected42.i
+70:                                               ; preds = %23
+  %71 = load i64, ptr %19, align 8
+  %72 = load i64, ptr %11, align 8
+  %73 = cmpxchg ptr %17, i64 %71, i64 %72 acquire seq_cst, align 8
+  %74 = extractvalue { i64, i1 } %73, 0
+  %75 = extractvalue { i64, i1 } %73, 1
+  br i1 %75, label %84, label %83
 
-seqcst_fail37.i:                                  ; preds = %acqrel.i
-  %63 = load i64, ptr %5, align 8
-  %64 = load i64, ptr %.atomictmp.i, align 8
-  %65 = cmpxchg ptr %this1.i, i64 %63, i64 %64 acq_rel seq_cst, align 8
-  %66 = extractvalue { i64, i1 } %65, 0
-  %67 = extractvalue { i64, i1 } %65, 1
-  br i1 %67, label %cmpxchg.continue46.i, label %cmpxchg.store_expected45.i
+76:                                               ; preds = %84, %81, %78
+  br label %27
 
-atomic.continue38.i:                              ; preds = %cmpxchg.continue46.i, %cmpxchg.continue43.i, %cmpxchg.continue40.i
-  br label %_ZNSt13__atomic_baseIPFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS4_ERKN4absl4CordEEE23compare_exchange_strongERSF_SF_St12memory_orderSI_.exit
+77:                                               ; preds = %58
+  store i64 %62, ptr %19, align 8
+  br label %78
 
-cmpxchg.store_expected39.i:                       ; preds = %monotonic_fail35.i
-  store i64 %56, ptr %5, align 8
-  br label %cmpxchg.continue40.i
+78:                                               ; preds = %77, %58
+  %79 = zext i1 %63 to i8
+  store i8 %79, ptr %12, align 1, !tbaa !10
+  br label %76
 
-cmpxchg.continue40.i:                             ; preds = %cmpxchg.store_expected39.i, %monotonic_fail35.i
-  %frombool41.i = zext i1 %57 to i8
-  store i8 %frombool41.i, ptr %cmpxchg.bool.i, align 1
-  br label %atomic.continue38.i
+80:                                               ; preds = %64
+  store i64 %68, ptr %19, align 8
+  br label %81
 
-cmpxchg.store_expected42.i:                       ; preds = %acquire_fail36.i
-  store i64 %61, ptr %5, align 8
-  br label %cmpxchg.continue43.i
+81:                                               ; preds = %80, %64
+  %82 = zext i1 %69 to i8
+  store i8 %82, ptr %12, align 1, !tbaa !10
+  br label %76
 
-cmpxchg.continue43.i:                             ; preds = %cmpxchg.store_expected42.i, %acquire_fail36.i
-  %frombool44.i = zext i1 %62 to i8
-  store i8 %frombool44.i, ptr %cmpxchg.bool.i, align 1
-  br label %atomic.continue38.i
+83:                                               ; preds = %70
+  store i64 %74, ptr %19, align 8
+  br label %84
 
-cmpxchg.store_expected45.i:                       ; preds = %seqcst_fail37.i
-  store i64 %66, ptr %5, align 8
-  br label %cmpxchg.continue46.i
+84:                                               ; preds = %83, %70
+  %85 = zext i1 %75 to i8
+  store i8 %85, ptr %12, align 1, !tbaa !10
+  br label %76
 
-cmpxchg.continue46.i:                             ; preds = %cmpxchg.store_expected45.i, %seqcst_fail37.i
-  %frombool47.i = zext i1 %67 to i8
-  store i8 %frombool47.i, ptr %cmpxchg.bool.i, align 1
-  br label %atomic.continue38.i
+86:                                               ; preds = %24
+  %87 = load i64, ptr %19, align 8
+  %88 = load i64, ptr %11, align 8
+  %89 = cmpxchg ptr %17, i64 %87, i64 %88 release monotonic, align 8
+  %90 = extractvalue { i64, i1 } %89, 0
+  %91 = extractvalue { i64, i1 } %89, 1
+  br i1 %91, label %106, label %105
 
-monotonic_fail48.i:                               ; preds = %seqcst.i
-  %68 = load i64, ptr %5, align 8
-  %69 = load i64, ptr %.atomictmp.i, align 8
-  %70 = cmpxchg ptr %this1.i, i64 %68, i64 %69 seq_cst monotonic, align 8
-  %71 = extractvalue { i64, i1 } %70, 0
-  %72 = extractvalue { i64, i1 } %70, 1
-  br i1 %72, label %cmpxchg.continue53.i, label %cmpxchg.store_expected52.i
+92:                                               ; preds = %24, %24
+  %93 = load i64, ptr %19, align 8
+  %94 = load i64, ptr %11, align 8
+  %95 = cmpxchg ptr %17, i64 %93, i64 %94 release acquire, align 8
+  %96 = extractvalue { i64, i1 } %95, 0
+  %97 = extractvalue { i64, i1 } %95, 1
+  br i1 %97, label %109, label %108
 
-acquire_fail49.i:                                 ; preds = %seqcst.i, %seqcst.i
-  %73 = load i64, ptr %5, align 8
-  %74 = load i64, ptr %.atomictmp.i, align 8
-  %75 = cmpxchg ptr %this1.i, i64 %73, i64 %74 seq_cst acquire, align 8
-  %76 = extractvalue { i64, i1 } %75, 0
-  %77 = extractvalue { i64, i1 } %75, 1
-  br i1 %77, label %cmpxchg.continue56.i, label %cmpxchg.store_expected55.i
+98:                                               ; preds = %24
+  %99 = load i64, ptr %19, align 8
+  %100 = load i64, ptr %11, align 8
+  %101 = cmpxchg ptr %17, i64 %99, i64 %100 release seq_cst, align 8
+  %102 = extractvalue { i64, i1 } %101, 0
+  %103 = extractvalue { i64, i1 } %101, 1
+  br i1 %103, label %112, label %111
 
-seqcst_fail50.i:                                  ; preds = %seqcst.i
-  %78 = load i64, ptr %5, align 8
-  %79 = load i64, ptr %.atomictmp.i, align 8
-  %80 = cmpxchg ptr %this1.i, i64 %78, i64 %79 seq_cst seq_cst, align 8
-  %81 = extractvalue { i64, i1 } %80, 0
-  %82 = extractvalue { i64, i1 } %80, 1
-  br i1 %82, label %cmpxchg.continue59.i, label %cmpxchg.store_expected58.i
+104:                                              ; preds = %112, %109, %106
+  br label %27
 
-atomic.continue51.i:                              ; preds = %cmpxchg.continue59.i, %cmpxchg.continue56.i, %cmpxchg.continue53.i
-  br label %_ZNSt13__atomic_baseIPFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS4_ERKN4absl4CordEEE23compare_exchange_strongERSF_SF_St12memory_orderSI_.exit
+105:                                              ; preds = %86
+  store i64 %90, ptr %19, align 8
+  br label %106
 
-cmpxchg.store_expected52.i:                       ; preds = %monotonic_fail48.i
-  store i64 %71, ptr %5, align 8
-  br label %cmpxchg.continue53.i
+106:                                              ; preds = %105, %86
+  %107 = zext i1 %91 to i8
+  store i8 %107, ptr %12, align 1, !tbaa !10
+  br label %104
 
-cmpxchg.continue53.i:                             ; preds = %cmpxchg.store_expected52.i, %monotonic_fail48.i
-  %frombool54.i = zext i1 %72 to i8
-  store i8 %frombool54.i, ptr %cmpxchg.bool.i, align 1
-  br label %atomic.continue51.i
+108:                                              ; preds = %92
+  store i64 %96, ptr %19, align 8
+  br label %109
 
-cmpxchg.store_expected55.i:                       ; preds = %acquire_fail49.i
-  store i64 %76, ptr %5, align 8
-  br label %cmpxchg.continue56.i
+109:                                              ; preds = %108, %92
+  %110 = zext i1 %97 to i8
+  store i8 %110, ptr %12, align 1, !tbaa !10
+  br label %104
 
-cmpxchg.continue56.i:                             ; preds = %cmpxchg.store_expected55.i, %acquire_fail49.i
-  %frombool57.i = zext i1 %77 to i8
-  store i8 %frombool57.i, ptr %cmpxchg.bool.i, align 1
-  br label %atomic.continue51.i
+111:                                              ; preds = %98
+  store i64 %102, ptr %19, align 8
+  br label %112
 
-cmpxchg.store_expected58.i:                       ; preds = %seqcst_fail50.i
-  store i64 %81, ptr %5, align 8
-  br label %cmpxchg.continue59.i
+112:                                              ; preds = %111, %98
+  %113 = zext i1 %103 to i8
+  store i8 %113, ptr %12, align 1, !tbaa !10
+  br label %104
 
-cmpxchg.continue59.i:                             ; preds = %cmpxchg.store_expected58.i, %seqcst_fail50.i
-  %frombool60.i = zext i1 %82 to i8
-  store i8 %frombool60.i, ptr %cmpxchg.bool.i, align 1
-  br label %atomic.continue51.i
+114:                                              ; preds = %25
+  %115 = load i64, ptr %19, align 8
+  %116 = load i64, ptr %11, align 8
+  %117 = cmpxchg ptr %17, i64 %115, i64 %116 acq_rel monotonic, align 8
+  %118 = extractvalue { i64, i1 } %117, 0
+  %119 = extractvalue { i64, i1 } %117, 1
+  br i1 %119, label %134, label %133
 
-_ZNSt13__atomic_baseIPFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS4_ERKN4absl4CordEEE23compare_exchange_strongERSF_SF_St12memory_orderSI_.exit: ; preds = %atomic.continue51.i, %atomic.continue38.i, %atomic.continue25.i, %atomic.continue12.i, %atomic.continue2.i
-  %83 = load i8, ptr %cmpxchg.bool.i, align 1
-  %tobool.i = trunc i8 %83 to i1
-  ret i1 %tobool.i
+120:                                              ; preds = %25, %25
+  %121 = load i64, ptr %19, align 8
+  %122 = load i64, ptr %11, align 8
+  %123 = cmpxchg ptr %17, i64 %121, i64 %122 acq_rel acquire, align 8
+  %124 = extractvalue { i64, i1 } %123, 0
+  %125 = extractvalue { i64, i1 } %123, 1
+  br i1 %125, label %137, label %136
+
+126:                                              ; preds = %25
+  %127 = load i64, ptr %19, align 8
+  %128 = load i64, ptr %11, align 8
+  %129 = cmpxchg ptr %17, i64 %127, i64 %128 acq_rel seq_cst, align 8
+  %130 = extractvalue { i64, i1 } %129, 0
+  %131 = extractvalue { i64, i1 } %129, 1
+  br i1 %131, label %140, label %139
+
+132:                                              ; preds = %140, %137, %134
+  br label %27
+
+133:                                              ; preds = %114
+  store i64 %118, ptr %19, align 8
+  br label %134
+
+134:                                              ; preds = %133, %114
+  %135 = zext i1 %119 to i8
+  store i8 %135, ptr %12, align 1, !tbaa !10
+  br label %132
+
+136:                                              ; preds = %120
+  store i64 %124, ptr %19, align 8
+  br label %137
+
+137:                                              ; preds = %136, %120
+  %138 = zext i1 %125 to i8
+  store i8 %138, ptr %12, align 1, !tbaa !10
+  br label %132
+
+139:                                              ; preds = %126
+  store i64 %130, ptr %19, align 8
+  br label %140
+
+140:                                              ; preds = %139, %126
+  %141 = zext i1 %131 to i8
+  store i8 %141, ptr %12, align 1, !tbaa !10
+  br label %132
+
+142:                                              ; preds = %26
+  %143 = load i64, ptr %19, align 8
+  %144 = load i64, ptr %11, align 8
+  %145 = cmpxchg ptr %17, i64 %143, i64 %144 seq_cst monotonic, align 8
+  %146 = extractvalue { i64, i1 } %145, 0
+  %147 = extractvalue { i64, i1 } %145, 1
+  br i1 %147, label %162, label %161
+
+148:                                              ; preds = %26, %26
+  %149 = load i64, ptr %19, align 8
+  %150 = load i64, ptr %11, align 8
+  %151 = cmpxchg ptr %17, i64 %149, i64 %150 seq_cst acquire, align 8
+  %152 = extractvalue { i64, i1 } %151, 0
+  %153 = extractvalue { i64, i1 } %151, 1
+  br i1 %153, label %165, label %164
+
+154:                                              ; preds = %26
+  %155 = load i64, ptr %19, align 8
+  %156 = load i64, ptr %11, align 8
+  %157 = cmpxchg ptr %17, i64 %155, i64 %156 seq_cst seq_cst, align 8
+  %158 = extractvalue { i64, i1 } %157, 0
+  %159 = extractvalue { i64, i1 } %157, 1
+  br i1 %159, label %168, label %167
+
+160:                                              ; preds = %168, %165, %162
+  br label %27
+
+161:                                              ; preds = %142
+  store i64 %146, ptr %19, align 8
+  br label %162
+
+162:                                              ; preds = %161, %142
+  %163 = zext i1 %147 to i8
+  store i8 %163, ptr %12, align 1, !tbaa !10
+  br label %160
+
+164:                                              ; preds = %148
+  store i64 %152, ptr %19, align 8
+  br label %165
+
+165:                                              ; preds = %164, %148
+  %166 = zext i1 %153 to i8
+  store i8 %166, ptr %12, align 1, !tbaa !10
+  br label %160
+
+167:                                              ; preds = %154
+  store i64 %158, ptr %19, align 8
+  br label %168
+
+168:                                              ; preds = %167, %154
+  %169 = zext i1 %159 to i8
+  store i8 %169, ptr %12, align 1, !tbaa !10
+  br label %160
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK4absl13base_internal10AtomicHookIPFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS6_ERKNS_4CordEEE6DoLoadEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %hook_ = getelementptr inbounds %"class.absl::base_internal::AtomicHook", ptr %this1, i32 0, i32 0
-  %call = call noundef ptr @_ZNKSt6atomicIPFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS4_ERKN4absl4CordEEE4loadESt12memory_order(ptr noundef nonnull align 8 dereferenceable(8) %hook_, i32 noundef 2) #3
-  ret ptr %call
+define linkonce_odr dso_local noundef ptr @_ZNK4absl13base_internal10AtomicHookIPFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS6_ERKNS_4CordEEE6DoLoadEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.absl::base_internal::AtomicHook", ptr %3, i32 0, i32 0
+  %5 = call noundef ptr @_ZNKSt6atomicIPFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS4_ERKN4absl4CordEEE4loadESt12memory_order(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 2) #3
+  ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef ptr @_ZNKSt6atomicIPFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS4_ERKN4absl4CordEEE4loadESt12memory_order(ptr noundef nonnull align 8 dereferenceable(8) %this, i32 noundef %__m) #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr.i = alloca ptr, align 8
-  %__m.addr.i = alloca i32, align 4
-  %__b.i = alloca i32, align 4
-  %atomic-temp.i = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  %__m.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %__m, ptr %__m.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_b = getelementptr inbounds %"struct.std::atomic", ptr %this1, i32 0, i32 0
-  %0 = load i32, ptr %__m.addr, align 4
-  store ptr %_M_b, ptr %this.addr.i, align 8
-  store i32 %0, ptr %__m.addr.i, align 4
-  %this1.i = load ptr, ptr %this.addr.i, align 8
-  %1 = load i32, ptr %__m.addr.i, align 4
-  %call.i = invoke noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %1, i32 noundef 65535)
-          to label %invoke.cont.i unwind label %terminate.lpad.i
-
-invoke.cont.i:                                    ; preds = %entry
-  store i32 %call.i, ptr %__b.i, align 4
-  %2 = load i32, ptr %__m.addr.i, align 4
-  switch i32 %2, label %monotonic.i [
-    i32 1, label %acquire.i
-    i32 2, label %acquire.i
-    i32 5, label %seqcst.i
-  ]
-
-monotonic.i:                                      ; preds = %invoke.cont.i
-  %3 = load atomic i64, ptr %this1.i monotonic, align 8
-  store i64 %3, ptr %atomic-temp.i, align 8
-  br label %_ZNKSt13__atomic_baseIPFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS4_ERKN4absl4CordEEE4loadESt12memory_order.exit
-
-acquire.i:                                        ; preds = %invoke.cont.i, %invoke.cont.i
-  %4 = load atomic i64, ptr %this1.i acquire, align 8
-  store i64 %4, ptr %atomic-temp.i, align 8
-  br label %_ZNKSt13__atomic_baseIPFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS4_ERKN4absl4CordEEE4loadESt12memory_order.exit
-
-seqcst.i:                                         ; preds = %invoke.cont.i
-  %5 = load atomic i64, ptr %this1.i seq_cst, align 8
-  store i64 %5, ptr %atomic-temp.i, align 8
-  br label %_ZNKSt13__atomic_baseIPFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS4_ERKN4absl4CordEEE4loadESt12memory_order.exit
-
-terminate.lpad.i:                                 ; preds = %entry
-  %6 = landingpad { ptr, i32 }
-          catch ptr null
-  %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #7
-  unreachable
-
-_ZNKSt13__atomic_baseIPFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS4_ERKN4absl4CordEEE4loadESt12memory_order.exit: ; preds = %seqcst.i, %acquire.i, %monotonic.i
-  %8 = load ptr, ptr %atomic-temp.i, align 8
+define linkonce_odr dso_local noundef ptr @_ZNKSt6atomicIPFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS4_ERKN4absl4CordEEE4loadESt12memory_order(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1) #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !34
+  store i32 %1, ptr %4, align 4, !tbaa !36
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"struct.std::atomic", ptr %5, i32 0, i32 0
+  %7 = load i32, ptr %4, align 4, !tbaa !36
+  %8 = call noundef ptr @_ZNKSt13__atomic_baseIPFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS4_ERKN4absl4CordEEE4loadESt12memory_order(ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef %7) #3
   ret ptr %8
 }
 
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef ptr @_ZNKSt13__atomic_baseIPFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS4_ERKN4absl4CordEEE4loadESt12memory_order(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1) #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !38
+  store i32 %1, ptr %4, align 4, !tbaa !36
+  %7 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #3
+  %8 = load i32, ptr %4, align 4, !tbaa !36
+  %9 = invoke noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %8, i32 noundef 65535)
+          to label %10 unwind label %27
+
+10:                                               ; preds = %2
+  store i32 %9, ptr %5, align 4, !tbaa !36
+  br label %11
+
+11:                                               ; preds = %10
+  br label %12
+
+12:                                               ; preds = %11
+  br label %13
+
+13:                                               ; preds = %12
+  br label %14
+
+14:                                               ; preds = %13
+  br label %15
+
+15:                                               ; preds = %14
+  br label %16
+
+16:                                               ; preds = %15
+  %17 = getelementptr inbounds nuw %"struct.std::__atomic_base", ptr %7, i32 0, i32 0
+  %18 = load i32, ptr %4, align 4, !tbaa !36
+  switch i32 %18, label %19 [
+    i32 1, label %21
+    i32 2, label %21
+    i32 5, label %23
+  ]
+
+19:                                               ; preds = %16
+  %20 = load atomic i64, ptr %17 monotonic, align 8
+  store i64 %20, ptr %6, align 8
+  br label %25
+
+21:                                               ; preds = %16, %16
+  %22 = load atomic i64, ptr %17 acquire, align 8
+  store i64 %22, ptr %6, align 8
+  br label %25
+
+23:                                               ; preds = %16
+  %24 = load atomic i64, ptr %17 seq_cst, align 8
+  store i64 %24, ptr %6, align 8
+  br label %25
+
+25:                                               ; preds = %23, %21, %19
+  %26 = load ptr, ptr %6, align 8, !tbaa !4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #3
+  ret ptr %26
+
+27:                                               ; preds = %2
+  %28 = landingpad { ptr, i32 }
+          catch ptr null
+  %29 = extractvalue { ptr, i32 } %28, 0
+  call void @__clang_call_terminate(ptr %29) #9
+  unreachable
+}
+
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %__m, i32 noundef %__mod) #5 comdat {
-entry:
-  %__m.addr = alloca i32, align 4
-  %__mod.addr = alloca i32, align 4
-  store i32 %__m, ptr %__m.addr, align 4
-  store i32 %__mod, ptr %__mod.addr, align 4
-  %0 = load i32, ptr %__m.addr, align 4
-  %1 = load i32, ptr %__mod.addr, align 4
-  %and = and i32 %0, %1
-  ret i32 %and
+define linkonce_odr dso_local noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %0, i32 noundef %1) #5 comdat {
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !36
+  store i32 %1, ptr %4, align 4, !tbaa !40
+  %5 = load i32, ptr %3, align 4, !tbaa !36
+  %6 = load i32, ptr %4, align 4, !tbaa !40
+  %7 = and i32 %5, %6
+  ret i32 %7
 }
 
 declare i32 @__gxx_personality_v0(...)
 
-; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #6 comdat {
+; Function Attrs: noinline noreturn nounwind uwtable
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #8 comdat {
   %2 = call ptr @__cxa_begin_catch(ptr %0) #3
-  call void @_ZSt9terminatev() #7
+  call void @_ZSt9terminatev() #9
   unreachable
 }
 
@@ -694,24 +740,62 @@ declare void @_ZSt9terminatev()
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_status_payload_printer.cc() #0 section ".text.startup" {
-entry:
   call void @__cxx_global_var_init()
   ret void
 }
 
-attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind }
-attributes #4 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { noreturn nounwind }
+attributes #4 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { alwaysinline mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { noreturn nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"p1 _ZTSN4absl13base_internal10AtomicHookIPFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS6_ERKNS_4CordEEEE", !5, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"bool", !6, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"p1 _ZTSN4absl4CordE", !5, i64 0}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"p1 _ZTSSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE", !5, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p1 _ZTSSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EE", !5, i64 0}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"p1 _ZTSSt17_Optional_payloadINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0ELb0EE", !5, i64 0}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"p1 _ZTSSt17_Optional_payloadINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1ELb0ELb0EE", !5, i64 0}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"p1 _ZTSSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE", !5, i64 0}
+!24 = !{!25, !11, i64 32}
+!25 = !{!"_ZTSSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE", !6, i64 0, !11, i64 32}
+!26 = !{!27, !27, i64 0}
+!27 = !{!"p1 _ZTSNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8_StorageIS5_Lb0EEE", !5, i64 0}
+!28 = !{!29, !5, i64 8}
+!29 = !{!"_ZTSN4absl13base_internal10AtomicHookIPFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS6_ERKNS_4CordEEEE", !30, i64 0, !5, i64 8}
+!30 = !{!"_ZTSSt6atomicIPFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS4_ERKN4absl4CordEEE", !31, i64 0}
+!31 = !{!"_ZTSSt13__atomic_baseIPFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS4_ERKN4absl4CordEEE", !5, i64 0}
+!32 = !{i8 0, i8 2}
+!33 = !{}
+!34 = !{!35, !35, i64 0}
+!35 = !{!"p1 _ZTSSt6atomicIPFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS4_ERKN4absl4CordEEE", !5, i64 0}
+!36 = !{!37, !37, i64 0}
+!37 = !{!"_ZTSSt12memory_order", !6, i64 0}
+!38 = !{!39, !39, i64 0}
+!39 = !{!"p1 _ZTSSt13__atomic_baseIPFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS4_ERKN4absl4CordEEE", !5, i64 0}
+!40 = !{!41, !41, i64 0}
+!41 = !{!"_ZTSSt23__memory_order_modifier", !6, i64 0}

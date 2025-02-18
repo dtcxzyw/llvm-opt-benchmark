@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
 %"struct.absl::cord_internal::CordRepBtreeNavigator::Position" = type { ptr, i64 }
@@ -52,7 +52,11 @@ $_ZN4absl13cord_internal12CordRepBtree12InitInstanceEimm = comdat any
 
 $_ZN4absl13cord_internal16RefcountAndFlags27DecrementExpectHighRefcountEv = comdat any
 
+$_ZNSt13__atomic_baseIiE9fetch_subEiSt12memory_order = comdat any
+
 $_ZN4absl13cord_internal16RefcountAndFlags9IncrementEv = comdat any
+
+$_ZNSt13__atomic_baseIiE9fetch_addEiSt12memory_order = comdat any
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
@@ -60,9 +64,8 @@ $_ZN4absl13cord_internal16RefcountAndFlags9IncrementEv = comdat any
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init() #0 section ".text.startup" {
-entry:
   call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %0 = call i32 @__cxa_atexit(ptr @_ZNSt8ios_base4InitD1Ev, ptr @_ZStL8__ioinit, ptr @__dso_handle) #3
+  %1 = call i32 @__cxa_atexit(ptr @_ZNSt8ios_base4InitD1Ev, ptr @_ZStL8__ioinit, ptr @__dso_handle) #3
   ret void
 }
 
@@ -75,1177 +78,1274 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { ptr, i64 } @_ZN4absl13cord_internal21CordRepBtreeNavigator4SkipEm(ptr noundef nonnull align 8 dereferenceable(112) %this, i64 noundef %n) #4 align 2 {
-entry:
-  %retval = alloca %"struct.absl::cord_internal::CordRepBtreeNavigator::Position", align 8
-  %this.addr = alloca ptr, align 8
-  %n.addr = alloca i64, align 8
-  %height = alloca i32, align 4
-  %index = alloca i64, align 8
-  %node = alloca ptr, align 8
-  %edge = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i64 %n, ptr %n.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  store i32 0, ptr %height, align 4
-  %index_ = getelementptr inbounds %"class.absl::cord_internal::CordRepBtreeNavigator", ptr %this1, i32 0, i32 1
-  %arrayidx = getelementptr inbounds [12 x i8], ptr %index_, i64 0, i64 0
-  %0 = load i8, ptr %arrayidx, align 4
-  %conv = zext i8 %0 to i64
-  store i64 %conv, ptr %index, align 8
-  %node_ = getelementptr inbounds %"class.absl::cord_internal::CordRepBtreeNavigator", ptr %this1, i32 0, i32 2
-  %arrayidx2 = getelementptr inbounds [12 x ptr], ptr %node_, i64 0, i64 0
-  %1 = load ptr, ptr %arrayidx2, align 8
-  store ptr %1, ptr %node, align 8
-  %2 = load ptr, ptr %node, align 8
-  %3 = load i64, ptr %index, align 8
-  %call = call noundef ptr @_ZNK4absl13cord_internal12CordRepBtree4EdgeEm(ptr noundef nonnull align 8 dereferenceable(64) %2, i64 noundef %3)
-  store ptr %call, ptr %edge, align 8
-  br label %while.cond
+define dso_local { ptr, i64 } @_ZN4absl13cord_internal21CordRepBtreeNavigator4SkipEm(ptr noundef nonnull align 8 dereferenceable(112) %0, i64 noundef %1) #4 align 2 {
+  %3 = alloca %"struct.absl::cord_internal::CordRepBtreeNavigator::Position", align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i64, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !4
+  store i64 %1, ptr %5, align 8, !tbaa !9
+  %11 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #3
+  store i32 0, ptr %6, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #3
+  %12 = getelementptr inbounds nuw %"class.absl::cord_internal::CordRepBtreeNavigator", ptr %11, i32 0, i32 1
+  %13 = getelementptr inbounds [12 x i8], ptr %12, i64 0, i64 0
+  %14 = load i8, ptr %13, align 4, !tbaa !13
+  %15 = zext i8 %14 to i64
+  store i64 %15, ptr %7, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #3
+  %16 = getelementptr inbounds nuw %"class.absl::cord_internal::CordRepBtreeNavigator", ptr %11, i32 0, i32 2
+  %17 = getelementptr inbounds [12 x ptr], ptr %16, i64 0, i64 0
+  %18 = load ptr, ptr %17, align 8, !tbaa !14
+  store ptr %18, ptr %8, align 8, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #3
+  %19 = load ptr, ptr %8, align 8, !tbaa !14
+  %20 = load i64, ptr %7, align 8, !tbaa !9
+  %21 = call noundef ptr @_ZNK4absl13cord_internal12CordRepBtree4EdgeEm(ptr noundef nonnull align 8 dereferenceable(64) %19, i64 noundef %20)
+  store ptr %21, ptr %9, align 8, !tbaa !16
+  br label %22
 
-while.cond:                                       ; preds = %while.end, %entry
-  %4 = load i64, ptr %n.addr, align 8
-  %5 = load ptr, ptr %edge, align 8
-  %length = getelementptr inbounds %"struct.absl::cord_internal::CordRep", ptr %5, i32 0, i32 0
-  %6 = load i64, ptr %length, align 8
-  %cmp = icmp uge i64 %4, %6
-  br i1 %cmp, label %while.body, label %while.end18
+22:                                               ; preds = %62, %2
+  %23 = load i64, ptr %5, align 8, !tbaa !9
+  %24 = load ptr, ptr %9, align 8, !tbaa !16
+  %25 = getelementptr inbounds nuw %"struct.absl::cord_internal::CordRep", ptr %24, i32 0, i32 0
+  %26 = load i64, ptr %25, align 8, !tbaa !18
+  %27 = icmp uge i64 %23, %26
+  br i1 %27, label %28, label %66
 
-while.body:                                       ; preds = %while.cond
-  %7 = load ptr, ptr %edge, align 8
-  %length3 = getelementptr inbounds %"struct.absl::cord_internal::CordRep", ptr %7, i32 0, i32 0
-  %8 = load i64, ptr %length3, align 8
-  %9 = load i64, ptr %n.addr, align 8
-  %sub = sub i64 %9, %8
-  store i64 %sub, ptr %n.addr, align 8
-  br label %while.cond4
+28:                                               ; preds = %22
+  %29 = load ptr, ptr %9, align 8, !tbaa !16
+  %30 = getelementptr inbounds nuw %"struct.absl::cord_internal::CordRep", ptr %29, i32 0, i32 0
+  %31 = load i64, ptr %30, align 8, !tbaa !18
+  %32 = load i64, ptr %5, align 8, !tbaa !9
+  %33 = sub i64 %32, %31
+  store i64 %33, ptr %5, align 8, !tbaa !9
+  br label %34
 
-while.cond4:                                      ; preds = %if.end, %while.body
-  %10 = load i64, ptr %index, align 8
-  %inc = add i64 %10, 1
-  store i64 %inc, ptr %index, align 8
-  %11 = load ptr, ptr %node, align 8
-  %call5 = call noundef i64 @_ZNK4absl13cord_internal12CordRepBtree3endEv(ptr noundef nonnull align 8 dereferenceable(64) %11)
-  %cmp6 = icmp eq i64 %inc, %call5
-  br i1 %cmp6, label %while.body7, label %while.end
+34:                                               ; preds = %50, %28
+  %35 = load i64, ptr %7, align 8, !tbaa !9
+  %36 = add i64 %35, 1
+  store i64 %36, ptr %7, align 8, !tbaa !9
+  %37 = load ptr, ptr %8, align 8, !tbaa !14
+  %38 = call noundef i64 @_ZNK4absl13cord_internal12CordRepBtree3endEv(ptr noundef nonnull align 8 dereferenceable(64) %37)
+  %39 = icmp eq i64 %36, %38
+  br i1 %39, label %40, label %62
 
-while.body7:                                      ; preds = %while.cond4
-  %12 = load i32, ptr %height, align 4
-  %inc8 = add nsw i32 %12, 1
-  store i32 %inc8, ptr %height, align 4
-  %height_ = getelementptr inbounds %"class.absl::cord_internal::CordRepBtreeNavigator", ptr %this1, i32 0, i32 0
-  %13 = load i32, ptr %height_, align 8
-  %cmp9 = icmp sgt i32 %inc8, %13
-  br i1 %cmp9, label %if.then, label %if.end
+40:                                               ; preds = %34
+  %41 = load i32, ptr %6, align 4, !tbaa !11
+  %42 = add nsw i32 %41, 1
+  store i32 %42, ptr %6, align 4, !tbaa !11
+  %43 = getelementptr inbounds nuw %"class.absl::cord_internal::CordRepBtreeNavigator", ptr %11, i32 0, i32 0
+  %44 = load i32, ptr %43, align 8, !tbaa !23
+  %45 = icmp sgt i32 %42, %44
+  br i1 %45, label %46, label %50
 
-if.then:                                          ; preds = %while.body7
-  %edge10 = getelementptr inbounds %"struct.absl::cord_internal::CordRepBtreeNavigator::Position", ptr %retval, i32 0, i32 0
-  store ptr null, ptr %edge10, align 8
-  %offset = getelementptr inbounds %"struct.absl::cord_internal::CordRepBtreeNavigator::Position", ptr %retval, i32 0, i32 1
-  %14 = load i64, ptr %n.addr, align 8
-  store i64 %14, ptr %offset, align 8
-  br label %return
+46:                                               ; preds = %40
+  %47 = getelementptr inbounds nuw %"struct.absl::cord_internal::CordRepBtreeNavigator::Position", ptr %3, i32 0, i32 0
+  store ptr null, ptr %47, align 8, !tbaa !25
+  %48 = getelementptr inbounds nuw %"struct.absl::cord_internal::CordRepBtreeNavigator::Position", ptr %3, i32 0, i32 1
+  %49 = load i64, ptr %5, align 8, !tbaa !9
+  store i64 %49, ptr %48, align 8, !tbaa !27
+  store i32 1, ptr %10, align 4
+  br label %117
 
-if.end:                                           ; preds = %while.body7
-  %node_11 = getelementptr inbounds %"class.absl::cord_internal::CordRepBtreeNavigator", ptr %this1, i32 0, i32 2
-  %15 = load i32, ptr %height, align 4
-  %idxprom = sext i32 %15 to i64
-  %arrayidx12 = getelementptr inbounds [12 x ptr], ptr %node_11, i64 0, i64 %idxprom
-  %16 = load ptr, ptr %arrayidx12, align 8
-  store ptr %16, ptr %node, align 8
-  %index_13 = getelementptr inbounds %"class.absl::cord_internal::CordRepBtreeNavigator", ptr %this1, i32 0, i32 1
-  %17 = load i32, ptr %height, align 4
-  %idxprom14 = sext i32 %17 to i64
-  %arrayidx15 = getelementptr inbounds [12 x i8], ptr %index_13, i64 0, i64 %idxprom14
-  %18 = load i8, ptr %arrayidx15, align 1
-  %conv16 = zext i8 %18 to i64
-  store i64 %conv16, ptr %index, align 8
-  br label %while.cond4, !llvm.loop !5
+50:                                               ; preds = %40
+  %51 = getelementptr inbounds nuw %"class.absl::cord_internal::CordRepBtreeNavigator", ptr %11, i32 0, i32 2
+  %52 = load i32, ptr %6, align 4, !tbaa !11
+  %53 = sext i32 %52 to i64
+  %54 = getelementptr inbounds [12 x ptr], ptr %51, i64 0, i64 %53
+  %55 = load ptr, ptr %54, align 8, !tbaa !14
+  store ptr %55, ptr %8, align 8, !tbaa !14
+  %56 = getelementptr inbounds nuw %"class.absl::cord_internal::CordRepBtreeNavigator", ptr %11, i32 0, i32 1
+  %57 = load i32, ptr %6, align 4, !tbaa !11
+  %58 = sext i32 %57 to i64
+  %59 = getelementptr inbounds [12 x i8], ptr %56, i64 0, i64 %58
+  %60 = load i8, ptr %59, align 1, !tbaa !13
+  %61 = zext i8 %60 to i64
+  store i64 %61, ptr %7, align 8, !tbaa !9
+  br label %34, !llvm.loop !28
 
-while.end:                                        ; preds = %while.cond4
-  %19 = load ptr, ptr %node, align 8
-  %20 = load i64, ptr %index, align 8
-  %call17 = call noundef ptr @_ZNK4absl13cord_internal12CordRepBtree4EdgeEm(ptr noundef nonnull align 8 dereferenceable(64) %19, i64 noundef %20)
-  store ptr %call17, ptr %edge, align 8
-  br label %while.cond, !llvm.loop !7
+62:                                               ; preds = %34
+  %63 = load ptr, ptr %8, align 8, !tbaa !14
+  %64 = load i64, ptr %7, align 8, !tbaa !9
+  %65 = call noundef ptr @_ZNK4absl13cord_internal12CordRepBtree4EdgeEm(ptr noundef nonnull align 8 dereferenceable(64) %63, i64 noundef %64)
+  store ptr %65, ptr %9, align 8, !tbaa !16
+  br label %22, !llvm.loop !30
 
-while.end18:                                      ; preds = %while.cond
-  br label %while.cond19
+66:                                               ; preds = %22
+  br label %67
 
-while.cond19:                                     ; preds = %while.end40, %while.end18
-  %21 = load i32, ptr %height, align 4
-  %cmp20 = icmp sgt i32 %21, 0
-  br i1 %cmp20, label %while.body21, label %while.end41
+67:                                               ; preds = %107, %66
+  %68 = load i32, ptr %6, align 4, !tbaa !11
+  %69 = icmp sgt i32 %68, 0
+  br i1 %69, label %70, label %108
 
-while.body21:                                     ; preds = %while.cond19
-  %22 = load ptr, ptr %edge, align 8
-  %call22 = call noundef ptr @_ZN4absl13cord_internal7CordRep5btreeEv(ptr noundef nonnull align 8 dereferenceable(16) %22)
-  store ptr %call22, ptr %node, align 8
-  %23 = load i64, ptr %index, align 8
-  %conv23 = trunc i64 %23 to i8
-  %index_24 = getelementptr inbounds %"class.absl::cord_internal::CordRepBtreeNavigator", ptr %this1, i32 0, i32 1
-  %24 = load i32, ptr %height, align 4
-  %idxprom25 = sext i32 %24 to i64
-  %arrayidx26 = getelementptr inbounds [12 x i8], ptr %index_24, i64 0, i64 %idxprom25
-  store i8 %conv23, ptr %arrayidx26, align 1
-  %25 = load ptr, ptr %node, align 8
-  %node_27 = getelementptr inbounds %"class.absl::cord_internal::CordRepBtreeNavigator", ptr %this1, i32 0, i32 2
-  %26 = load i32, ptr %height, align 4
-  %dec = add nsw i32 %26, -1
-  store i32 %dec, ptr %height, align 4
-  %idxprom28 = sext i32 %dec to i64
-  %arrayidx29 = getelementptr inbounds [12 x ptr], ptr %node_27, i64 0, i64 %idxprom28
-  store ptr %25, ptr %arrayidx29, align 8
-  %27 = load ptr, ptr %node, align 8
-  %call30 = call noundef i64 @_ZNK4absl13cord_internal12CordRepBtree5beginEv(ptr noundef nonnull align 8 dereferenceable(64) %27)
-  store i64 %call30, ptr %index, align 8
-  %28 = load ptr, ptr %node, align 8
-  %29 = load i64, ptr %index, align 8
-  %call31 = call noundef ptr @_ZNK4absl13cord_internal12CordRepBtree4EdgeEm(ptr noundef nonnull align 8 dereferenceable(64) %28, i64 noundef %29)
-  store ptr %call31, ptr %edge, align 8
-  br label %while.cond32
+70:                                               ; preds = %67
+  %71 = load ptr, ptr %9, align 8, !tbaa !16
+  %72 = call noundef ptr @_ZN4absl13cord_internal7CordRep5btreeEv(ptr noundef nonnull align 8 dereferenceable(16) %71)
+  store ptr %72, ptr %8, align 8, !tbaa !14
+  %73 = load i64, ptr %7, align 8, !tbaa !9
+  %74 = trunc i64 %73 to i8
+  %75 = getelementptr inbounds nuw %"class.absl::cord_internal::CordRepBtreeNavigator", ptr %11, i32 0, i32 1
+  %76 = load i32, ptr %6, align 4, !tbaa !11
+  %77 = sext i32 %76 to i64
+  %78 = getelementptr inbounds [12 x i8], ptr %75, i64 0, i64 %77
+  store i8 %74, ptr %78, align 1, !tbaa !13
+  %79 = load ptr, ptr %8, align 8, !tbaa !14
+  %80 = getelementptr inbounds nuw %"class.absl::cord_internal::CordRepBtreeNavigator", ptr %11, i32 0, i32 2
+  %81 = load i32, ptr %6, align 4, !tbaa !11
+  %82 = add nsw i32 %81, -1
+  store i32 %82, ptr %6, align 4, !tbaa !11
+  %83 = sext i32 %82 to i64
+  %84 = getelementptr inbounds [12 x ptr], ptr %80, i64 0, i64 %83
+  store ptr %79, ptr %84, align 8, !tbaa !14
+  %85 = load ptr, ptr %8, align 8, !tbaa !14
+  %86 = call noundef i64 @_ZNK4absl13cord_internal12CordRepBtree5beginEv(ptr noundef nonnull align 8 dereferenceable(64) %85)
+  store i64 %86, ptr %7, align 8, !tbaa !9
+  %87 = load ptr, ptr %8, align 8, !tbaa !14
+  %88 = load i64, ptr %7, align 8, !tbaa !9
+  %89 = call noundef ptr @_ZNK4absl13cord_internal12CordRepBtree4EdgeEm(ptr noundef nonnull align 8 dereferenceable(64) %87, i64 noundef %88)
+  store ptr %89, ptr %9, align 8, !tbaa !16
+  br label %90
 
-while.cond32:                                     ; preds = %while.body35, %while.body21
-  %30 = load i64, ptr %n.addr, align 8
-  %31 = load ptr, ptr %edge, align 8
-  %length33 = getelementptr inbounds %"struct.absl::cord_internal::CordRep", ptr %31, i32 0, i32 0
-  %32 = load i64, ptr %length33, align 8
-  %cmp34 = icmp uge i64 %30, %32
-  br i1 %cmp34, label %while.body35, label %while.end40
+90:                                               ; preds = %96, %70
+  %91 = load i64, ptr %5, align 8, !tbaa !9
+  %92 = load ptr, ptr %9, align 8, !tbaa !16
+  %93 = getelementptr inbounds nuw %"struct.absl::cord_internal::CordRep", ptr %92, i32 0, i32 0
+  %94 = load i64, ptr %93, align 8, !tbaa !18
+  %95 = icmp uge i64 %91, %94
+  br i1 %95, label %96, label %107
 
-while.body35:                                     ; preds = %while.cond32
-  %33 = load ptr, ptr %edge, align 8
-  %length36 = getelementptr inbounds %"struct.absl::cord_internal::CordRep", ptr %33, i32 0, i32 0
-  %34 = load i64, ptr %length36, align 8
-  %35 = load i64, ptr %n.addr, align 8
-  %sub37 = sub i64 %35, %34
-  store i64 %sub37, ptr %n.addr, align 8
-  %36 = load i64, ptr %index, align 8
-  %inc38 = add i64 %36, 1
-  store i64 %inc38, ptr %index, align 8
-  %37 = load ptr, ptr %node, align 8
-  %38 = load i64, ptr %index, align 8
-  %call39 = call noundef ptr @_ZNK4absl13cord_internal12CordRepBtree4EdgeEm(ptr noundef nonnull align 8 dereferenceable(64) %37, i64 noundef %38)
-  store ptr %call39, ptr %edge, align 8
-  br label %while.cond32, !llvm.loop !8
+96:                                               ; preds = %90
+  %97 = load ptr, ptr %9, align 8, !tbaa !16
+  %98 = getelementptr inbounds nuw %"struct.absl::cord_internal::CordRep", ptr %97, i32 0, i32 0
+  %99 = load i64, ptr %98, align 8, !tbaa !18
+  %100 = load i64, ptr %5, align 8, !tbaa !9
+  %101 = sub i64 %100, %99
+  store i64 %101, ptr %5, align 8, !tbaa !9
+  %102 = load i64, ptr %7, align 8, !tbaa !9
+  %103 = add i64 %102, 1
+  store i64 %103, ptr %7, align 8, !tbaa !9
+  %104 = load ptr, ptr %8, align 8, !tbaa !14
+  %105 = load i64, ptr %7, align 8, !tbaa !9
+  %106 = call noundef ptr @_ZNK4absl13cord_internal12CordRepBtree4EdgeEm(ptr noundef nonnull align 8 dereferenceable(64) %104, i64 noundef %105)
+  store ptr %106, ptr %9, align 8, !tbaa !16
+  br label %90, !llvm.loop !31
 
-while.end40:                                      ; preds = %while.cond32
-  br label %while.cond19, !llvm.loop !9
+107:                                              ; preds = %90
+  br label %67, !llvm.loop !32
 
-while.end41:                                      ; preds = %while.cond19
-  %39 = load i64, ptr %index, align 8
-  %conv42 = trunc i64 %39 to i8
-  %index_43 = getelementptr inbounds %"class.absl::cord_internal::CordRepBtreeNavigator", ptr %this1, i32 0, i32 1
-  %arrayidx44 = getelementptr inbounds [12 x i8], ptr %index_43, i64 0, i64 0
-  store i8 %conv42, ptr %arrayidx44, align 4
-  %edge45 = getelementptr inbounds %"struct.absl::cord_internal::CordRepBtreeNavigator::Position", ptr %retval, i32 0, i32 0
-  %40 = load ptr, ptr %edge, align 8
-  store ptr %40, ptr %edge45, align 8
-  %offset46 = getelementptr inbounds %"struct.absl::cord_internal::CordRepBtreeNavigator::Position", ptr %retval, i32 0, i32 1
-  %41 = load i64, ptr %n.addr, align 8
-  store i64 %41, ptr %offset46, align 8
-  br label %return
+108:                                              ; preds = %67
+  %109 = load i64, ptr %7, align 8, !tbaa !9
+  %110 = trunc i64 %109 to i8
+  %111 = getelementptr inbounds nuw %"class.absl::cord_internal::CordRepBtreeNavigator", ptr %11, i32 0, i32 1
+  %112 = getelementptr inbounds [12 x i8], ptr %111, i64 0, i64 0
+  store i8 %110, ptr %112, align 4, !tbaa !13
+  %113 = getelementptr inbounds nuw %"struct.absl::cord_internal::CordRepBtreeNavigator::Position", ptr %3, i32 0, i32 0
+  %114 = load ptr, ptr %9, align 8, !tbaa !16
+  store ptr %114, ptr %113, align 8, !tbaa !25
+  %115 = getelementptr inbounds nuw %"struct.absl::cord_internal::CordRepBtreeNavigator::Position", ptr %3, i32 0, i32 1
+  %116 = load i64, ptr %5, align 8, !tbaa !9
+  store i64 %116, ptr %115, align 8, !tbaa !27
+  store i32 1, ptr %10, align 4
+  br label %117
 
-return:                                           ; preds = %while.end41, %if.then
-  %42 = load { ptr, i64 }, ptr %retval, align 8
-  ret { ptr, i64 } %42
+117:                                              ; preds = %108, %46
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #3
+  %118 = load { ptr, i64 }, ptr %3, align 8
+  ret { ptr, i64 } %118
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK4absl13cord_internal12CordRepBtree4EdgeEm(ptr noundef nonnull align 8 dereferenceable(64) %this, i64 noundef %index) #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %index.addr = alloca i64, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i64 %index, ptr %index.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %edges_ = getelementptr inbounds %"class.absl::cord_internal::CordRepBtree", ptr %this1, i32 0, i32 1
-  %0 = load i64, ptr %index.addr, align 8
-  %arrayidx = getelementptr inbounds [6 x ptr], ptr %edges_, i64 0, i64 %0
-  %1 = load ptr, ptr %arrayidx, align 8
-  ret ptr %1
-}
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i64 @_ZNK4absl13cord_internal12CordRepBtree3endEv(ptr noundef nonnull align 8 dereferenceable(64) %this) #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %storage = getelementptr inbounds %"struct.absl::cord_internal::CordRep", ptr %this1, i32 0, i32 3
-  %arrayidx = getelementptr inbounds [3 x i8], ptr %storage, i64 0, i64 2
-  %0 = load i8, ptr %arrayidx, align 1
-  %conv = zext i8 %0 to i64
-  ret i64 %conv
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef ptr @_ZN4absl13cord_internal7CordRep5btreeEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  ret ptr %this1
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i64 @_ZNK4absl13cord_internal12CordRepBtree5beginEv(ptr noundef nonnull align 8 dereferenceable(64) %this) #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %storage = getelementptr inbounds %"struct.absl::cord_internal::CordRep", ptr %this1, i32 0, i32 3
-  %arrayidx = getelementptr inbounds [3 x i8], ptr %storage, i64 0, i64 1
-  %0 = load i8, ptr %arrayidx, align 1
-  %conv = zext i8 %0 to i64
-  ret i64 %conv
-}
-
-; Function Attrs: mustprogress uwtable
-define dso_local { ptr, i64 } @_ZN4absl13cord_internal21CordRepBtreeNavigator4ReadEmm(ptr noundef nonnull align 8 dereferenceable(112) %this, i64 noundef %edge_offset, i64 noundef %n) #4 align 2 {
-entry:
-  %retval = alloca %"struct.absl::cord_internal::CordRepBtreeNavigator::ReadResult", align 8
-  %this.addr = alloca ptr, align 8
-  %edge_offset.addr = alloca i64, align 8
-  %n.addr = alloca i64, align 8
-  %height = alloca i32, align 4
-  %length = alloca i64, align 8
-  %index = alloca i64, align 8
-  %node = alloca ptr, align 8
-  %edge = alloca ptr, align 8
-  %subtree = alloca ptr, align 8
-  %subtree_end = alloca i64, align 8
-  %tree49 = alloca ptr, align 8
-  %right = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i64 %edge_offset, ptr %edge_offset.addr, align 8
-  store i64 %n, ptr %n.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  store i32 0, ptr %height, align 4
-  %0 = load i64, ptr %edge_offset.addr, align 8
-  %1 = load i64, ptr %n.addr, align 8
-  %add = add i64 %0, %1
-  store i64 %add, ptr %length, align 8
-  %index_ = getelementptr inbounds %"class.absl::cord_internal::CordRepBtreeNavigator", ptr %this1, i32 0, i32 1
-  %arrayidx = getelementptr inbounds [12 x i8], ptr %index_, i64 0, i64 0
-  %2 = load i8, ptr %arrayidx, align 4
-  %conv = zext i8 %2 to i64
-  store i64 %conv, ptr %index, align 8
-  %node_ = getelementptr inbounds %"class.absl::cord_internal::CordRepBtreeNavigator", ptr %this1, i32 0, i32 2
-  %arrayidx2 = getelementptr inbounds [12 x ptr], ptr %node_, i64 0, i64 0
-  %3 = load ptr, ptr %arrayidx2, align 8
-  store ptr %3, ptr %node, align 8
-  %4 = load ptr, ptr %node, align 8
-  %5 = load i64, ptr %index, align 8
-  %call = call noundef ptr @_ZNK4absl13cord_internal12CordRepBtree4EdgeEm(ptr noundef nonnull align 8 dereferenceable(64) %4, i64 noundef %5)
-  store ptr %call, ptr %edge, align 8
-  %6 = load i64, ptr %length, align 8
-  %7 = load ptr, ptr %edge, align 8
-  %length3 = getelementptr inbounds %"struct.absl::cord_internal::CordRep", ptr %7, i32 0, i32 0
-  %8 = load i64, ptr %length3, align 8
-  %cmp = icmp ult i64 %6, %8
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %tree = getelementptr inbounds %"struct.absl::cord_internal::CordRepBtreeNavigator::ReadResult", ptr %retval, i32 0, i32 0
-  %9 = load ptr, ptr %edge, align 8
-  %10 = load i64, ptr %edge_offset.addr, align 8
-  %11 = load i64, ptr %n.addr, align 8
-  %call4 = call noundef ptr @_ZN4absl13cord_internal12_GLOBAL__N_19SubstringEPNS0_7CordRepEmm(ptr noundef %9, i64 noundef %10, i64 noundef %11)
-  store ptr %call4, ptr %tree, align 8
-  %n5 = getelementptr inbounds %"struct.absl::cord_internal::CordRepBtreeNavigator::ReadResult", ptr %retval, i32 0, i32 1
-  %12 = load i64, ptr %length, align 8
-  store i64 %12, ptr %n5, align 8
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %13 = load ptr, ptr %edge, align 8
-  %14 = load i64, ptr %edge_offset.addr, align 8
-  %call6 = call noundef ptr @_ZN4absl13cord_internal12_GLOBAL__N_19SubstringEPNS0_7CordRepEm(ptr noundef %13, i64 noundef %14)
-  %call7 = call noundef ptr @_ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE(ptr noundef %call6)
-  store ptr %call7, ptr %subtree, align 8
-  store i64 1, ptr %subtree_end, align 8
-  br label %do.body
-
-do.body:                                          ; preds = %do.cond, %if.end
-  %15 = load ptr, ptr %edge, align 8
-  %length8 = getelementptr inbounds %"struct.absl::cord_internal::CordRep", ptr %15, i32 0, i32 0
-  %16 = load i64, ptr %length8, align 8
-  %17 = load i64, ptr %length, align 8
-  %sub = sub i64 %17, %16
-  store i64 %sub, ptr %length, align 8
-  br label %while.cond
-
-while.cond:                                       ; preds = %if.end28, %do.body
-  %18 = load i64, ptr %index, align 8
-  %inc = add i64 %18, 1
-  store i64 %inc, ptr %index, align 8
-  %19 = load ptr, ptr %node, align 8
-  %call9 = call noundef i64 @_ZNK4absl13cord_internal12CordRepBtree3endEv(ptr noundef nonnull align 8 dereferenceable(64) %19)
-  %cmp10 = icmp eq i64 %inc, %call9
-  br i1 %cmp10, label %while.body, label %while.end
-
-while.body:                                       ; preds = %while.cond
-  %20 = load i64, ptr %index, align 8
-  %conv11 = trunc i64 %20 to i8
-  %index_12 = getelementptr inbounds %"class.absl::cord_internal::CordRepBtreeNavigator", ptr %this1, i32 0, i32 1
-  %21 = load i32, ptr %height, align 4
-  %idxprom = sext i32 %21 to i64
-  %arrayidx13 = getelementptr inbounds [12 x i8], ptr %index_12, i64 0, i64 %idxprom
-  store i8 %conv11, ptr %arrayidx13, align 1
-  %22 = load i32, ptr %height, align 4
-  %inc14 = add nsw i32 %22, 1
-  store i32 %inc14, ptr %height, align 4
-  %height_ = getelementptr inbounds %"class.absl::cord_internal::CordRepBtreeNavigator", ptr %this1, i32 0, i32 0
-  %23 = load i32, ptr %height_, align 8
-  %cmp15 = icmp sgt i32 %inc14, %23
-  br i1 %cmp15, label %if.then16, label %if.end24
-
-if.then16:                                        ; preds = %while.body
-  %24 = load ptr, ptr %subtree, align 8
-  %25 = load i64, ptr %subtree_end, align 8
-  call void @_ZN4absl13cord_internal12CordRepBtree7set_endEm(ptr noundef nonnull align 8 dereferenceable(64) %24, i64 noundef %25)
-  %26 = load i64, ptr %length, align 8
-  %cmp17 = icmp eq i64 %26, 0
-  br i1 %cmp17, label %if.then18, label %if.end21
-
-if.then18:                                        ; preds = %if.then16
-  %tree19 = getelementptr inbounds %"struct.absl::cord_internal::CordRepBtreeNavigator::ReadResult", ptr %retval, i32 0, i32 0
-  %27 = load ptr, ptr %subtree, align 8
-  store ptr %27, ptr %tree19, align 8
-  %n20 = getelementptr inbounds %"struct.absl::cord_internal::CordRepBtreeNavigator::ReadResult", ptr %retval, i32 0, i32 1
-  store i64 0, ptr %n20, align 8
-  br label %return
-
-if.end21:                                         ; preds = %if.then16
-  %28 = load ptr, ptr %subtree, align 8
-  call void @_ZN4absl13cord_internal7CordRep5UnrefEPS1_(ptr noundef %28)
-  %tree22 = getelementptr inbounds %"struct.absl::cord_internal::CordRepBtreeNavigator::ReadResult", ptr %retval, i32 0, i32 0
-  store ptr null, ptr %tree22, align 8
-  %n23 = getelementptr inbounds %"struct.absl::cord_internal::CordRepBtreeNavigator::ReadResult", ptr %retval, i32 0, i32 1
-  %29 = load i64, ptr %length, align 8
-  store i64 %29, ptr %n23, align 8
-  br label %return
-
-if.end24:                                         ; preds = %while.body
-  %30 = load i64, ptr %length, align 8
-  %cmp25 = icmp ne i64 %30, 0
-  br i1 %cmp25, label %if.then26, label %if.end28
-
-if.then26:                                        ; preds = %if.end24
-  %31 = load ptr, ptr %subtree, align 8
-  %32 = load i64, ptr %subtree_end, align 8
-  call void @_ZN4absl13cord_internal12CordRepBtree7set_endEm(ptr noundef nonnull align 8 dereferenceable(64) %31, i64 noundef %32)
-  %33 = load ptr, ptr %subtree, align 8
-  %call27 = call noundef ptr @_ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE(ptr noundef %33)
-  store ptr %call27, ptr %subtree, align 8
-  store i64 1, ptr %subtree_end, align 8
-  br label %if.end28
-
-if.end28:                                         ; preds = %if.then26, %if.end24
-  %node_29 = getelementptr inbounds %"class.absl::cord_internal::CordRepBtreeNavigator", ptr %this1, i32 0, i32 2
-  %34 = load i32, ptr %height, align 4
-  %idxprom30 = sext i32 %34 to i64
-  %arrayidx31 = getelementptr inbounds [12 x ptr], ptr %node_29, i64 0, i64 %idxprom30
-  %35 = load ptr, ptr %arrayidx31, align 8
-  store ptr %35, ptr %node, align 8
-  %index_32 = getelementptr inbounds %"class.absl::cord_internal::CordRepBtreeNavigator", ptr %this1, i32 0, i32 1
-  %36 = load i32, ptr %height, align 4
-  %idxprom33 = sext i32 %36 to i64
-  %arrayidx34 = getelementptr inbounds [12 x i8], ptr %index_32, i64 0, i64 %idxprom33
-  %37 = load i8, ptr %arrayidx34, align 1
-  %conv35 = zext i8 %37 to i64
-  store i64 %conv35, ptr %index, align 8
-  br label %while.cond, !llvm.loop !10
-
-while.end:                                        ; preds = %while.cond
-  %38 = load ptr, ptr %node, align 8
-  %39 = load i64, ptr %index, align 8
-  %call36 = call noundef ptr @_ZNK4absl13cord_internal12CordRepBtree4EdgeEm(ptr noundef nonnull align 8 dereferenceable(64) %38, i64 noundef %39)
-  store ptr %call36, ptr %edge, align 8
-  %40 = load i64, ptr %length, align 8
-  %41 = load ptr, ptr %edge, align 8
-  %length37 = getelementptr inbounds %"struct.absl::cord_internal::CordRep", ptr %41, i32 0, i32 0
-  %42 = load i64, ptr %length37, align 8
-  %cmp38 = icmp uge i64 %40, %42
-  br i1 %cmp38, label %if.then39, label %if.end46
-
-if.then39:                                        ; preds = %while.end
-  %43 = load ptr, ptr %edge, align 8
-  %length40 = getelementptr inbounds %"struct.absl::cord_internal::CordRep", ptr %43, i32 0, i32 0
-  %44 = load i64, ptr %length40, align 8
-  %45 = load ptr, ptr %subtree, align 8
-  %length41 = getelementptr inbounds %"struct.absl::cord_internal::CordRep", ptr %45, i32 0, i32 0
-  %46 = load i64, ptr %length41, align 8
-  %add42 = add i64 %46, %44
-  store i64 %add42, ptr %length41, align 8
-  %47 = load ptr, ptr %edge, align 8
-  %call43 = call noundef ptr @_ZN4absl13cord_internal7CordRep3RefEPS1_(ptr noundef %47)
-  %48 = load ptr, ptr %subtree, align 8
-  %edges_ = getelementptr inbounds %"class.absl::cord_internal::CordRepBtree", ptr %48, i32 0, i32 1
-  %49 = load i64, ptr %subtree_end, align 8
-  %inc44 = add i64 %49, 1
-  store i64 %inc44, ptr %subtree_end, align 8
-  %arrayidx45 = getelementptr inbounds [6 x ptr], ptr %edges_, i64 0, i64 %49
-  store ptr %call43, ptr %arrayidx45, align 8
-  br label %if.end46
-
-if.end46:                                         ; preds = %if.then39, %while.end
-  br label %do.cond
-
-do.cond:                                          ; preds = %if.end46
-  %50 = load i64, ptr %length, align 8
-  %51 = load ptr, ptr %edge, align 8
-  %length47 = getelementptr inbounds %"struct.absl::cord_internal::CordRep", ptr %51, i32 0, i32 0
-  %52 = load i64, ptr %length47, align 8
-  %cmp48 = icmp uge i64 %50, %52
-  br i1 %cmp48, label %do.body, label %do.end, !llvm.loop !11
-
-do.end:                                           ; preds = %do.cond
-  %53 = load ptr, ptr %subtree, align 8
-  store ptr %53, ptr %tree49, align 8
-  %54 = load i64, ptr %length, align 8
-  %55 = load ptr, ptr %subtree, align 8
-  %length50 = getelementptr inbounds %"struct.absl::cord_internal::CordRep", ptr %55, i32 0, i32 0
-  %56 = load i64, ptr %length50, align 8
-  %add51 = add i64 %56, %54
-  store i64 %add51, ptr %length50, align 8
-  br label %while.cond52
-
-while.cond52:                                     ; preds = %if.end85, %do.end
-  %57 = load i32, ptr %height, align 4
-  %cmp53 = icmp sgt i32 %57, 0
-  br i1 %cmp53, label %while.body54, label %while.end86
-
-while.body54:                                     ; preds = %while.cond52
-  %58 = load ptr, ptr %edge, align 8
-  %call55 = call noundef ptr @_ZN4absl13cord_internal7CordRep5btreeEv(ptr noundef nonnull align 8 dereferenceable(16) %58)
-  store ptr %call55, ptr %node, align 8
-  %59 = load i64, ptr %index, align 8
-  %conv56 = trunc i64 %59 to i8
-  %index_57 = getelementptr inbounds %"class.absl::cord_internal::CordRepBtreeNavigator", ptr %this1, i32 0, i32 1
-  %60 = load i32, ptr %height, align 4
-  %idxprom58 = sext i32 %60 to i64
-  %arrayidx59 = getelementptr inbounds [12 x i8], ptr %index_57, i64 0, i64 %idxprom58
-  store i8 %conv56, ptr %arrayidx59, align 1
-  %61 = load ptr, ptr %node, align 8
-  %node_60 = getelementptr inbounds %"class.absl::cord_internal::CordRepBtreeNavigator", ptr %this1, i32 0, i32 2
-  %62 = load i32, ptr %height, align 4
-  %dec = add nsw i32 %62, -1
-  store i32 %dec, ptr %height, align 4
-  %idxprom61 = sext i32 %dec to i64
-  %arrayidx62 = getelementptr inbounds [12 x ptr], ptr %node_60, i64 0, i64 %idxprom61
-  store ptr %61, ptr %arrayidx62, align 8
-  %63 = load ptr, ptr %node, align 8
-  %call63 = call noundef i64 @_ZNK4absl13cord_internal12CordRepBtree5beginEv(ptr noundef nonnull align 8 dereferenceable(64) %63)
-  store i64 %call63, ptr %index, align 8
-  %64 = load ptr, ptr %node, align 8
-  %65 = load i64, ptr %index, align 8
-  %call64 = call noundef ptr @_ZNK4absl13cord_internal12CordRepBtree4EdgeEm(ptr noundef nonnull align 8 dereferenceable(64) %64, i64 noundef %65)
-  store ptr %call64, ptr %edge, align 8
-  %66 = load i64, ptr %length, align 8
-  %cmp65 = icmp ne i64 %66, 0
-  br i1 %cmp65, label %if.then66, label %if.end85
-
-if.then66:                                        ; preds = %while.body54
-  %67 = load i32, ptr %height, align 4
-  %call67 = call noundef ptr @_ZN4absl13cord_internal12CordRepBtree3NewEi(i32 noundef %67)
-  store ptr %call67, ptr %right, align 8
-  %68 = load i64, ptr %length, align 8
-  %69 = load ptr, ptr %right, align 8
-  %length68 = getelementptr inbounds %"struct.absl::cord_internal::CordRep", ptr %69, i32 0, i32 0
-  store i64 %68, ptr %length68, align 8
-  %70 = load ptr, ptr %right, align 8
-  %71 = load ptr, ptr %subtree, align 8
-  %edges_69 = getelementptr inbounds %"class.absl::cord_internal::CordRepBtree", ptr %71, i32 0, i32 1
-  %72 = load i64, ptr %subtree_end, align 8
-  %inc70 = add i64 %72, 1
-  store i64 %inc70, ptr %subtree_end, align 8
-  %arrayidx71 = getelementptr inbounds [6 x ptr], ptr %edges_69, i64 0, i64 %72
-  store ptr %70, ptr %arrayidx71, align 8
-  %73 = load ptr, ptr %subtree, align 8
-  %74 = load i64, ptr %subtree_end, align 8
-  call void @_ZN4absl13cord_internal12CordRepBtree7set_endEm(ptr noundef nonnull align 8 dereferenceable(64) %73, i64 noundef %74)
-  %75 = load ptr, ptr %right, align 8
-  store ptr %75, ptr %subtree, align 8
-  store i64 0, ptr %subtree_end, align 8
-  br label %while.cond72
-
-while.cond72:                                     ; preds = %while.body75, %if.then66
-  %76 = load i64, ptr %length, align 8
-  %77 = load ptr, ptr %edge, align 8
-  %length73 = getelementptr inbounds %"struct.absl::cord_internal::CordRep", ptr %77, i32 0, i32 0
-  %78 = load i64, ptr %length73, align 8
-  %cmp74 = icmp uge i64 %76, %78
-  br i1 %cmp74, label %while.body75, label %while.end84
-
-while.body75:                                     ; preds = %while.cond72
-  %79 = load ptr, ptr %edge, align 8
-  %call76 = call noundef ptr @_ZN4absl13cord_internal7CordRep3RefEPS1_(ptr noundef %79)
-  %80 = load ptr, ptr %subtree, align 8
-  %edges_77 = getelementptr inbounds %"class.absl::cord_internal::CordRepBtree", ptr %80, i32 0, i32 1
-  %81 = load i64, ptr %subtree_end, align 8
-  %inc78 = add i64 %81, 1
-  store i64 %inc78, ptr %subtree_end, align 8
-  %arrayidx79 = getelementptr inbounds [6 x ptr], ptr %edges_77, i64 0, i64 %81
-  store ptr %call76, ptr %arrayidx79, align 8
-  %82 = load ptr, ptr %edge, align 8
-  %length80 = getelementptr inbounds %"struct.absl::cord_internal::CordRep", ptr %82, i32 0, i32 0
-  %83 = load i64, ptr %length80, align 8
-  %84 = load i64, ptr %length, align 8
-  %sub81 = sub i64 %84, %83
-  store i64 %sub81, ptr %length, align 8
-  %85 = load ptr, ptr %node, align 8
-  %86 = load i64, ptr %index, align 8
-  %inc82 = add i64 %86, 1
-  store i64 %inc82, ptr %index, align 8
-  %call83 = call noundef ptr @_ZNK4absl13cord_internal12CordRepBtree4EdgeEm(ptr noundef nonnull align 8 dereferenceable(64) %85, i64 noundef %inc82)
-  store ptr %call83, ptr %edge, align 8
-  br label %while.cond72, !llvm.loop !12
-
-while.end84:                                      ; preds = %while.cond72
-  br label %if.end85
-
-if.end85:                                         ; preds = %while.end84, %while.body54
-  br label %while.cond52, !llvm.loop !13
-
-while.end86:                                      ; preds = %while.cond52
-  %87 = load i64, ptr %length, align 8
-  %cmp87 = icmp ne i64 %87, 0
-  br i1 %cmp87, label %if.then88, label %if.end93
-
-if.then88:                                        ; preds = %while.end86
-  %88 = load ptr, ptr %edge, align 8
-  %89 = load i64, ptr %length, align 8
-  %call89 = call noundef ptr @_ZN4absl13cord_internal12_GLOBAL__N_19SubstringEPNS0_7CordRepEmm(ptr noundef %88, i64 noundef 0, i64 noundef %89)
-  %90 = load ptr, ptr %subtree, align 8
-  %edges_90 = getelementptr inbounds %"class.absl::cord_internal::CordRepBtree", ptr %90, i32 0, i32 1
-  %91 = load i64, ptr %subtree_end, align 8
-  %inc91 = add i64 %91, 1
-  store i64 %inc91, ptr %subtree_end, align 8
-  %arrayidx92 = getelementptr inbounds [6 x ptr], ptr %edges_90, i64 0, i64 %91
-  store ptr %call89, ptr %arrayidx92, align 8
-  br label %if.end93
-
-if.end93:                                         ; preds = %if.then88, %while.end86
-  %92 = load ptr, ptr %subtree, align 8
-  %93 = load i64, ptr %subtree_end, align 8
-  call void @_ZN4absl13cord_internal12CordRepBtree7set_endEm(ptr noundef nonnull align 8 dereferenceable(64) %92, i64 noundef %93)
-  %94 = load i64, ptr %index, align 8
-  %conv94 = trunc i64 %94 to i8
-  %index_95 = getelementptr inbounds %"class.absl::cord_internal::CordRepBtreeNavigator", ptr %this1, i32 0, i32 1
-  %arrayidx96 = getelementptr inbounds [12 x i8], ptr %index_95, i64 0, i64 0
-  store i8 %conv94, ptr %arrayidx96, align 4
-  %tree97 = getelementptr inbounds %"struct.absl::cord_internal::CordRepBtreeNavigator::ReadResult", ptr %retval, i32 0, i32 0
-  %95 = load ptr, ptr %tree49, align 8
-  store ptr %95, ptr %tree97, align 8
-  %n98 = getelementptr inbounds %"struct.absl::cord_internal::CordRepBtreeNavigator::ReadResult", ptr %retval, i32 0, i32 1
-  %96 = load i64, ptr %length, align 8
-  store i64 %96, ptr %n98, align 8
-  br label %return
-
-return:                                           ; preds = %if.end93, %if.end21, %if.then18, %if.then
-  %97 = load { ptr, i64 }, ptr %retval, align 8
-  ret { ptr, i64 } %97
-}
-
-; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZN4absl13cord_internal12_GLOBAL__N_19SubstringEPNS0_7CordRepEmm(ptr noundef %rep, i64 noundef %offset, i64 noundef %n) #4 personality ptr @__gxx_personality_v0 {
-entry:
-  %retval = alloca ptr, align 8
-  %rep.addr = alloca ptr, align 8
-  %offset.addr = alloca i64, align 8
-  %n.addr = alloca i64, align 8
-  %substring = alloca ptr, align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %rep, ptr %rep.addr, align 8
-  store i64 %offset, ptr %offset.addr, align 8
-  store i64 %n, ptr %n.addr, align 8
-  %0 = load i64, ptr %n.addr, align 8
-  %cmp = icmp eq i64 %0, 0
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %1 = load i64, ptr %n.addr, align 8
-  %2 = load ptr, ptr %rep.addr, align 8
-  %length = getelementptr inbounds %"struct.absl::cord_internal::CordRep", ptr %2, i32 0, i32 0
-  %3 = load i64, ptr %length, align 8
-  %cmp1 = icmp eq i64 %1, %3
-  br i1 %cmp1, label %if.then2, label %if.end3
-
-if.then2:                                         ; preds = %if.end
-  %4 = load ptr, ptr %rep.addr, align 8
-  %call = call noundef ptr @_ZN4absl13cord_internal7CordRep3RefEPS1_(ptr noundef %4)
-  store ptr %call, ptr %retval, align 8
-  br label %return
-
-if.end3:                                          ; preds = %if.end
-  %5 = load ptr, ptr %rep.addr, align 8
-  %tag = getelementptr inbounds %"struct.absl::cord_internal::CordRep", ptr %5, i32 0, i32 2
-  %6 = load i8, ptr %tag, align 4
-  %conv = zext i8 %6 to i32
-  %cmp4 = icmp eq i32 %conv, 1
-  br i1 %cmp4, label %if.then5, label %if.end8
-
-if.then5:                                         ; preds = %if.end3
-  %7 = load ptr, ptr %rep.addr, align 8
-  %call6 = call noundef ptr @_ZN4absl13cord_internal7CordRep9substringEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
-  %start = getelementptr inbounds %"struct.absl::cord_internal::CordRepSubstring", ptr %call6, i32 0, i32 1
-  %8 = load i64, ptr %start, align 8
-  %9 = load i64, ptr %offset.addr, align 8
-  %add = add i64 %9, %8
-  store i64 %add, ptr %offset.addr, align 8
-  %10 = load ptr, ptr %rep.addr, align 8
-  %call7 = call noundef ptr @_ZN4absl13cord_internal7CordRep9substringEv(ptr noundef nonnull align 8 dereferenceable(16) %10)
-  %child = getelementptr inbounds %"struct.absl::cord_internal::CordRepSubstring", ptr %call7, i32 0, i32 2
-  %11 = load ptr, ptr %child, align 8
-  store ptr %11, ptr %rep.addr, align 8
-  br label %if.end8
-
-if.end8:                                          ; preds = %if.then5, %if.end3
-  %call9 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 32) #10
-  call void @llvm.memset.p0.i64(ptr align 16 %call9, i8 0, i64 32, i1 false)
-  invoke void @_ZN4absl13cord_internal16CordRepSubstringC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %call9)
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %if.end8
-  store ptr %call9, ptr %substring, align 8
-  %12 = load i64, ptr %n.addr, align 8
-  %13 = load ptr, ptr %substring, align 8
-  %length10 = getelementptr inbounds %"struct.absl::cord_internal::CordRep", ptr %13, i32 0, i32 0
-  store i64 %12, ptr %length10, align 8
-  %14 = load ptr, ptr %substring, align 8
-  %tag11 = getelementptr inbounds %"struct.absl::cord_internal::CordRep", ptr %14, i32 0, i32 2
-  store i8 1, ptr %tag11, align 4
-  %15 = load i64, ptr %offset.addr, align 8
-  %16 = load ptr, ptr %substring, align 8
-  %start12 = getelementptr inbounds %"struct.absl::cord_internal::CordRepSubstring", ptr %16, i32 0, i32 1
-  store i64 %15, ptr %start12, align 8
-  %17 = load ptr, ptr %rep.addr, align 8
-  %call13 = call noundef ptr @_ZN4absl13cord_internal7CordRep3RefEPS1_(ptr noundef %17)
-  %18 = load ptr, ptr %substring, align 8
-  %child14 = getelementptr inbounds %"struct.absl::cord_internal::CordRepSubstring", ptr %18, i32 0, i32 2
-  store ptr %call13, ptr %child14, align 8
-  %19 = load ptr, ptr %substring, align 8
-  store ptr %19, ptr %retval, align 8
-  br label %return
-
-lpad:                                             ; preds = %if.end8
-  %20 = landingpad { ptr, i32 }
-          cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %exn.slot, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %ehselector.slot, align 4
-  call void @_ZdlPv(ptr noundef %call9) #11
-  br label %eh.resume
-
-return:                                           ; preds = %invoke.cont, %if.then2, %if.then
-  %23 = load ptr, ptr %retval, align 8
-  ret ptr %23
-
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val15 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val15
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE(ptr noundef %rep) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %rep.addr = alloca ptr, align 8
-  %tree = alloca ptr, align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  %height = alloca i32, align 4
-  store ptr %rep, ptr %rep.addr, align 8
-  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 64) #10
-  invoke void @_ZN4absl13cord_internal12CordRepBtreeC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %call)
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %entry
-  store ptr %call, ptr %tree, align 8
-  %0 = load ptr, ptr %rep.addr, align 8
-  %call1 = call noundef zeroext i1 @_ZNK4absl13cord_internal7CordRep7IsBtreeEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
-  br i1 %call1, label %cond.true, label %cond.false
-
-cond.true:                                        ; preds = %invoke.cont
-  %1 = load ptr, ptr %rep.addr, align 8
-  %call2 = call noundef ptr @_ZN4absl13cord_internal7CordRep5btreeEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
-  %call3 = call noundef i32 @_ZNK4absl13cord_internal12CordRepBtree6heightEv(ptr noundef nonnull align 8 dereferenceable(64) %call2)
-  %add = add nsw i32 %call3, 1
-  br label %cond.end
-
-cond.false:                                       ; preds = %invoke.cont
-  br label %cond.end
-
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ %add, %cond.true ], [ 0, %cond.false ]
-  store i32 %cond, ptr %height, align 4
-  %2 = load ptr, ptr %rep.addr, align 8
-  %length = getelementptr inbounds %"struct.absl::cord_internal::CordRep", ptr %2, i32 0, i32 0
-  %3 = load i64, ptr %length, align 8
-  %4 = load ptr, ptr %tree, align 8
-  %length4 = getelementptr inbounds %"struct.absl::cord_internal::CordRep", ptr %4, i32 0, i32 0
-  store i64 %3, ptr %length4, align 8
-  %5 = load ptr, ptr %tree, align 8
-  %6 = load i32, ptr %height, align 4
-  call void @_ZN4absl13cord_internal12CordRepBtree12InitInstanceEimm(ptr noundef nonnull align 8 dereferenceable(64) %5, i32 noundef %6, i64 noundef 0, i64 noundef 1)
-  %7 = load ptr, ptr %rep.addr, align 8
-  %8 = load ptr, ptr %tree, align 8
-  %edges_ = getelementptr inbounds %"class.absl::cord_internal::CordRepBtree", ptr %8, i32 0, i32 1
-  %arrayidx = getelementptr inbounds [6 x ptr], ptr %edges_, i64 0, i64 0
-  store ptr %7, ptr %arrayidx, align 8
-  %9 = load ptr, ptr %tree, align 8
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef ptr @_ZNK4absl13cord_internal12CordRepBtree4EdgeEm(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %1) #6 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !14
+  store i64 %1, ptr %4, align 8, !tbaa !9
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.absl::cord_internal::CordRepBtree", ptr %5, i32 0, i32 1
+  %7 = load i64, ptr %4, align 8, !tbaa !9
+  %8 = getelementptr inbounds nuw [6 x ptr], ptr %6, i64 0, i64 %7
+  %9 = load ptr, ptr %8, align 8, !tbaa !16
   ret ptr %9
-
-lpad:                                             ; preds = %entry
-  %10 = landingpad { ptr, i32 }
-          cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %exn.slot, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %ehselector.slot, align 4
-  call void @_ZdlPv(ptr noundef %call) #11
-  br label %eh.resume
-
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val5 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val5
-}
-
-; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZN4absl13cord_internal12_GLOBAL__N_19SubstringEPNS0_7CordRepEm(ptr noundef %rep, i64 noundef %offset) #4 {
-entry:
-  %rep.addr = alloca ptr, align 8
-  %offset.addr = alloca i64, align 8
-  store ptr %rep, ptr %rep.addr, align 8
-  store i64 %offset, ptr %offset.addr, align 8
-  %0 = load ptr, ptr %rep.addr, align 8
-  %1 = load i64, ptr %offset.addr, align 8
-  %2 = load ptr, ptr %rep.addr, align 8
-  %length = getelementptr inbounds %"struct.absl::cord_internal::CordRep", ptr %2, i32 0, i32 0
-  %3 = load i64, ptr %length, align 8
-  %4 = load i64, ptr %offset.addr, align 8
-  %sub = sub i64 %3, %4
-  %call = call noundef ptr @_ZN4absl13cord_internal12_GLOBAL__N_19SubstringEPNS0_7CordRepEmm(ptr noundef %0, i64 noundef %1, i64 noundef %sub)
-  ret ptr %call
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN4absl13cord_internal12CordRepBtree7set_endEm(ptr noundef nonnull align 8 dereferenceable(64) %this, i64 noundef %end) #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %end.addr = alloca i64, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i64 %end, ptr %end.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i64, ptr %end.addr, align 8
-  %conv = trunc i64 %0 to i8
-  %storage = getelementptr inbounds %"struct.absl::cord_internal::CordRep", ptr %this1, i32 0, i32 3
-  %arrayidx = getelementptr inbounds [3 x i8], ptr %storage, i64 0, i64 2
-  store i8 %conv, ptr %arrayidx, align 1
-  ret void
+define linkonce_odr dso_local noundef i64 @_ZNK4absl13cord_internal12CordRepBtree3endEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !14
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.absl::cord_internal::CordRep", ptr %3, i32 0, i32 3
+  %5 = getelementptr inbounds [3 x i8], ptr %4, i64 0, i64 2
+  %6 = load i8, ptr %5, align 1, !tbaa !13
+  %7 = zext i8 %6 to i64
+  ret i64 %7
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN4absl13cord_internal7CordRep5UnrefEPS1_(ptr noundef %rep) #4 comdat align 2 {
-entry:
-  %rep.addr = alloca ptr, align 8
-  store ptr %rep, ptr %rep.addr, align 8
-  %0 = load ptr, ptr %rep.addr, align 8
-  %refcount = getelementptr inbounds %"struct.absl::cord_internal::CordRep", ptr %0, i32 0, i32 1
-  %call = call noundef zeroext i1 @_ZN4absl13cord_internal16RefcountAndFlags27DecrementExpectHighRefcountEv(ptr noundef nonnull align 4 dereferenceable(4) %refcount)
-  %lnot = xor i1 %call, true
-  br i1 %lnot, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %rep.addr, align 8
-  call void @_ZN4absl13cord_internal7CordRep7DestroyEPS1_(ptr noundef %1)
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %entry
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZN4absl13cord_internal7CordRep3RefEPS1_(ptr noundef %rep) #4 comdat align 2 {
-entry:
-  %rep.addr = alloca ptr, align 8
-  store ptr %rep, ptr %rep.addr, align 8
-  %0 = load ptr, ptr %rep.addr, align 8
-  %cmp = icmp ne ptr %0, null
-  call void @llvm.assume(i1 %cmp)
-  %1 = load ptr, ptr %rep.addr, align 8
-  %refcount = getelementptr inbounds %"struct.absl::cord_internal::CordRep", ptr %1, i32 0, i32 1
-  call void @_ZN4absl13cord_internal16RefcountAndFlags9IncrementEv(ptr noundef nonnull align 4 dereferenceable(4) %refcount)
-  %2 = load ptr, ptr %rep.addr, align 8
-  ret ptr %2
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZN4absl13cord_internal12CordRepBtree3NewEi(i32 noundef %height) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %height.addr = alloca i32, align 4
-  %tree = alloca ptr, align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store i32 %height, ptr %height.addr, align 4
-  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 64) #10
-  invoke void @_ZN4absl13cord_internal12CordRepBtreeC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %call)
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %entry
-  store ptr %call, ptr %tree, align 8
-  %0 = load ptr, ptr %tree, align 8
-  %length = getelementptr inbounds %"struct.absl::cord_internal::CordRep", ptr %0, i32 0, i32 0
-  store i64 0, ptr %length, align 8
-  %1 = load ptr, ptr %tree, align 8
-  %2 = load i32, ptr %height.addr, align 4
-  call void @_ZN4absl13cord_internal12CordRepBtree12InitInstanceEimm(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %2, i64 noundef 0, i64 noundef 0)
-  %3 = load ptr, ptr %tree, align 8
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef ptr @_ZN4absl13cord_internal7CordRep5btreeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !16
+  %3 = load ptr, ptr %2, align 8
   ret ptr %3
-
-lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
-          cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
-  call void @_ZdlPv(ptr noundef %call) #11
-  br label %eh.resume
-
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val1 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef ptr @_ZN4absl13cord_internal7CordRep9substringEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  ret ptr %this1
+define linkonce_odr dso_local noundef i64 @_ZNK4absl13cord_internal12CordRepBtree5beginEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !14
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.absl::cord_internal::CordRep", ptr %3, i32 0, i32 3
+  %5 = getelementptr inbounds [3 x i8], ptr %4, i64 0, i64 1
+  %6 = load i8, ptr %5, align 1, !tbaa !13
+  %7 = zext i8 %6 to i64
+  ret i64 %7
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
+
+; Function Attrs: mustprogress uwtable
+define dso_local { ptr, i64 } @_ZN4absl13cord_internal21CordRepBtreeNavigator4ReadEmm(ptr noundef nonnull align 8 dereferenceable(112) %0, i64 noundef %1, i64 noundef %2) #4 align 2 {
+  %4 = alloca %"struct.absl::cord_internal::CordRepBtreeNavigator::ReadResult", align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  %14 = alloca ptr, align 8
+  %15 = alloca i64, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !4
+  store i64 %1, ptr %6, align 8, !tbaa !9
+  store i64 %2, ptr %7, align 8, !tbaa !9
+  %18 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #3
+  store i32 0, ptr %8, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #3
+  %19 = load i64, ptr %6, align 8, !tbaa !9
+  %20 = load i64, ptr %7, align 8, !tbaa !9
+  %21 = add i64 %19, %20
+  store i64 %21, ptr %9, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #3
+  %22 = getelementptr inbounds nuw %"class.absl::cord_internal::CordRepBtreeNavigator", ptr %18, i32 0, i32 1
+  %23 = getelementptr inbounds [12 x i8], ptr %22, i64 0, i64 0
+  %24 = load i8, ptr %23, align 4, !tbaa !13
+  %25 = zext i8 %24 to i64
+  store i64 %25, ptr %10, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #3
+  %26 = getelementptr inbounds nuw %"class.absl::cord_internal::CordRepBtreeNavigator", ptr %18, i32 0, i32 2
+  %27 = getelementptr inbounds [12 x ptr], ptr %26, i64 0, i64 0
+  %28 = load ptr, ptr %27, align 8, !tbaa !14
+  store ptr %28, ptr %11, align 8, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #3
+  %29 = load ptr, ptr %11, align 8, !tbaa !14
+  %30 = load i64, ptr %10, align 8, !tbaa !9
+  %31 = call noundef ptr @_ZNK4absl13cord_internal12CordRepBtree4EdgeEm(ptr noundef nonnull align 8 dereferenceable(64) %29, i64 noundef %30)
+  store ptr %31, ptr %12, align 8, !tbaa !16
+  %32 = load i64, ptr %9, align 8, !tbaa !9
+  %33 = load ptr, ptr %12, align 8, !tbaa !16
+  %34 = getelementptr inbounds nuw %"struct.absl::cord_internal::CordRep", ptr %33, i32 0, i32 0
+  %35 = load i64, ptr %34, align 8, !tbaa !18
+  %36 = icmp ult i64 %32, %35
+  br i1 %36, label %37, label %45
+
+37:                                               ; preds = %3
+  %38 = getelementptr inbounds nuw %"struct.absl::cord_internal::CordRepBtreeNavigator::ReadResult", ptr %4, i32 0, i32 0
+  %39 = load ptr, ptr %12, align 8, !tbaa !16
+  %40 = load i64, ptr %6, align 8, !tbaa !9
+  %41 = load i64, ptr %7, align 8, !tbaa !9
+  %42 = call noundef ptr @_ZN4absl13cord_internal12_GLOBAL__N_19SubstringEPNS0_7CordRepEmm(ptr noundef %39, i64 noundef %40, i64 noundef %41)
+  store ptr %42, ptr %38, align 8, !tbaa !33
+  %43 = getelementptr inbounds nuw %"struct.absl::cord_internal::CordRepBtreeNavigator::ReadResult", ptr %4, i32 0, i32 1
+  %44 = load i64, ptr %9, align 8, !tbaa !9
+  store i64 %44, ptr %43, align 8, !tbaa !35
+  store i32 1, ptr %13, align 4
+  br label %235
+
+45:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #3
+  %46 = load ptr, ptr %12, align 8, !tbaa !16
+  %47 = load i64, ptr %6, align 8, !tbaa !9
+  %48 = call noundef ptr @_ZN4absl13cord_internal12_GLOBAL__N_19SubstringEPNS0_7CordRepEm(ptr noundef %46, i64 noundef %47)
+  %49 = call noundef ptr @_ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE(ptr noundef %48)
+  store ptr %49, ptr %14, align 8, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #3
+  store i64 1, ptr %15, align 8, !tbaa !9
+  br label %50
+
+50:                                               ; preds = %133, %45
+  %51 = load ptr, ptr %12, align 8, !tbaa !16
+  %52 = getelementptr inbounds nuw %"struct.absl::cord_internal::CordRep", ptr %51, i32 0, i32 0
+  %53 = load i64, ptr %52, align 8, !tbaa !18
+  %54 = load i64, ptr %9, align 8, !tbaa !9
+  %55 = sub i64 %54, %53
+  store i64 %55, ptr %9, align 8, !tbaa !9
+  br label %56
+
+56:                                               ; preds = %96, %50
+  %57 = load i64, ptr %10, align 8, !tbaa !9
+  %58 = add i64 %57, 1
+  store i64 %58, ptr %10, align 8, !tbaa !9
+  %59 = load ptr, ptr %11, align 8, !tbaa !14
+  %60 = call noundef i64 @_ZNK4absl13cord_internal12CordRepBtree3endEv(ptr noundef nonnull align 8 dereferenceable(64) %59)
+  %61 = icmp eq i64 %58, %60
+  br i1 %61, label %62, label %108
+
+62:                                               ; preds = %56
+  %63 = load i64, ptr %10, align 8, !tbaa !9
+  %64 = trunc i64 %63 to i8
+  %65 = getelementptr inbounds nuw %"class.absl::cord_internal::CordRepBtreeNavigator", ptr %18, i32 0, i32 1
+  %66 = load i32, ptr %8, align 4, !tbaa !11
+  %67 = sext i32 %66 to i64
+  %68 = getelementptr inbounds [12 x i8], ptr %65, i64 0, i64 %67
+  store i8 %64, ptr %68, align 1, !tbaa !13
+  %69 = load i32, ptr %8, align 4, !tbaa !11
+  %70 = add nsw i32 %69, 1
+  store i32 %70, ptr %8, align 4, !tbaa !11
+  %71 = getelementptr inbounds nuw %"class.absl::cord_internal::CordRepBtreeNavigator", ptr %18, i32 0, i32 0
+  %72 = load i32, ptr %71, align 8, !tbaa !23
+  %73 = icmp sgt i32 %70, %72
+  br i1 %73, label %74, label %88
+
+74:                                               ; preds = %62
+  %75 = load ptr, ptr %14, align 8, !tbaa !14
+  %76 = load i64, ptr %15, align 8, !tbaa !9
+  call void @_ZN4absl13cord_internal12CordRepBtree7set_endEm(ptr noundef nonnull align 8 dereferenceable(64) %75, i64 noundef %76)
+  %77 = load i64, ptr %9, align 8, !tbaa !9
+  %78 = icmp eq i64 %77, 0
+  br i1 %78, label %79, label %83
+
+79:                                               ; preds = %74
+  %80 = getelementptr inbounds nuw %"struct.absl::cord_internal::CordRepBtreeNavigator::ReadResult", ptr %4, i32 0, i32 0
+  %81 = load ptr, ptr %14, align 8, !tbaa !14
+  store ptr %81, ptr %80, align 8, !tbaa !33
+  %82 = getelementptr inbounds nuw %"struct.absl::cord_internal::CordRepBtreeNavigator::ReadResult", ptr %4, i32 0, i32 1
+  store i64 0, ptr %82, align 8, !tbaa !35
+  store i32 1, ptr %13, align 4
+  br label %234
+
+83:                                               ; preds = %74
+  %84 = load ptr, ptr %14, align 8, !tbaa !14
+  call void @_ZN4absl13cord_internal7CordRep5UnrefEPS1_(ptr noundef %84)
+  %85 = getelementptr inbounds nuw %"struct.absl::cord_internal::CordRepBtreeNavigator::ReadResult", ptr %4, i32 0, i32 0
+  store ptr null, ptr %85, align 8, !tbaa !33
+  %86 = getelementptr inbounds nuw %"struct.absl::cord_internal::CordRepBtreeNavigator::ReadResult", ptr %4, i32 0, i32 1
+  %87 = load i64, ptr %9, align 8, !tbaa !9
+  store i64 %87, ptr %86, align 8, !tbaa !35
+  store i32 1, ptr %13, align 4
+  br label %234
+
+88:                                               ; preds = %62
+  %89 = load i64, ptr %9, align 8, !tbaa !9
+  %90 = icmp ne i64 %89, 0
+  br i1 %90, label %91, label %96
+
+91:                                               ; preds = %88
+  %92 = load ptr, ptr %14, align 8, !tbaa !14
+  %93 = load i64, ptr %15, align 8, !tbaa !9
+  call void @_ZN4absl13cord_internal12CordRepBtree7set_endEm(ptr noundef nonnull align 8 dereferenceable(64) %92, i64 noundef %93)
+  %94 = load ptr, ptr %14, align 8, !tbaa !14
+  %95 = call noundef ptr @_ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE(ptr noundef %94)
+  store ptr %95, ptr %14, align 8, !tbaa !14
+  store i64 1, ptr %15, align 8, !tbaa !9
+  br label %96
+
+96:                                               ; preds = %91, %88
+  %97 = getelementptr inbounds nuw %"class.absl::cord_internal::CordRepBtreeNavigator", ptr %18, i32 0, i32 2
+  %98 = load i32, ptr %8, align 4, !tbaa !11
+  %99 = sext i32 %98 to i64
+  %100 = getelementptr inbounds [12 x ptr], ptr %97, i64 0, i64 %99
+  %101 = load ptr, ptr %100, align 8, !tbaa !14
+  store ptr %101, ptr %11, align 8, !tbaa !14
+  %102 = getelementptr inbounds nuw %"class.absl::cord_internal::CordRepBtreeNavigator", ptr %18, i32 0, i32 1
+  %103 = load i32, ptr %8, align 4, !tbaa !11
+  %104 = sext i32 %103 to i64
+  %105 = getelementptr inbounds [12 x i8], ptr %102, i64 0, i64 %104
+  %106 = load i8, ptr %105, align 1, !tbaa !13
+  %107 = zext i8 %106 to i64
+  store i64 %107, ptr %10, align 8, !tbaa !9
+  br label %56, !llvm.loop !36
+
+108:                                              ; preds = %56
+  %109 = load ptr, ptr %11, align 8, !tbaa !14
+  %110 = load i64, ptr %10, align 8, !tbaa !9
+  %111 = call noundef ptr @_ZNK4absl13cord_internal12CordRepBtree4EdgeEm(ptr noundef nonnull align 8 dereferenceable(64) %109, i64 noundef %110)
+  store ptr %111, ptr %12, align 8, !tbaa !16
+  %112 = load i64, ptr %9, align 8, !tbaa !9
+  %113 = load ptr, ptr %12, align 8, !tbaa !16
+  %114 = getelementptr inbounds nuw %"struct.absl::cord_internal::CordRep", ptr %113, i32 0, i32 0
+  %115 = load i64, ptr %114, align 8, !tbaa !18
+  %116 = icmp uge i64 %112, %115
+  br i1 %116, label %117, label %132
+
+117:                                              ; preds = %108
+  %118 = load ptr, ptr %12, align 8, !tbaa !16
+  %119 = getelementptr inbounds nuw %"struct.absl::cord_internal::CordRep", ptr %118, i32 0, i32 0
+  %120 = load i64, ptr %119, align 8, !tbaa !18
+  %121 = load ptr, ptr %14, align 8, !tbaa !14
+  %122 = getelementptr inbounds nuw %"struct.absl::cord_internal::CordRep", ptr %121, i32 0, i32 0
+  %123 = load i64, ptr %122, align 8, !tbaa !18
+  %124 = add i64 %123, %120
+  store i64 %124, ptr %122, align 8, !tbaa !18
+  %125 = load ptr, ptr %12, align 8, !tbaa !16
+  %126 = call noundef ptr @_ZN4absl13cord_internal7CordRep3RefEPS1_(ptr noundef %125)
+  %127 = load ptr, ptr %14, align 8, !tbaa !14
+  %128 = getelementptr inbounds nuw %"class.absl::cord_internal::CordRepBtree", ptr %127, i32 0, i32 1
+  %129 = load i64, ptr %15, align 8, !tbaa !9
+  %130 = add i64 %129, 1
+  store i64 %130, ptr %15, align 8, !tbaa !9
+  %131 = getelementptr inbounds nuw [6 x ptr], ptr %128, i64 0, i64 %129
+  store ptr %126, ptr %131, align 8, !tbaa !16
+  br label %132
+
+132:                                              ; preds = %117, %108
+  br label %133
+
+133:                                              ; preds = %132
+  %134 = load i64, ptr %9, align 8, !tbaa !9
+  %135 = load ptr, ptr %12, align 8, !tbaa !16
+  %136 = getelementptr inbounds nuw %"struct.absl::cord_internal::CordRep", ptr %135, i32 0, i32 0
+  %137 = load i64, ptr %136, align 8, !tbaa !18
+  %138 = icmp uge i64 %134, %137
+  br i1 %138, label %50, label %139, !llvm.loop !37
+
+139:                                              ; preds = %133
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #3
+  %140 = load ptr, ptr %14, align 8, !tbaa !14
+  store ptr %140, ptr %16, align 8, !tbaa !14
+  %141 = load i64, ptr %9, align 8, !tbaa !9
+  %142 = load ptr, ptr %14, align 8, !tbaa !14
+  %143 = getelementptr inbounds nuw %"struct.absl::cord_internal::CordRep", ptr %142, i32 0, i32 0
+  %144 = load i64, ptr %143, align 8, !tbaa !18
+  %145 = add i64 %144, %141
+  store i64 %145, ptr %143, align 8, !tbaa !18
+  br label %146
+
+146:                                              ; preds = %210, %139
+  %147 = load i32, ptr %8, align 4, !tbaa !11
+  %148 = icmp sgt i32 %147, 0
+  br i1 %148, label %149, label %211
+
+149:                                              ; preds = %146
+  %150 = load ptr, ptr %12, align 8, !tbaa !16
+  %151 = call noundef ptr @_ZN4absl13cord_internal7CordRep5btreeEv(ptr noundef nonnull align 8 dereferenceable(16) %150)
+  store ptr %151, ptr %11, align 8, !tbaa !14
+  %152 = load i64, ptr %10, align 8, !tbaa !9
+  %153 = trunc i64 %152 to i8
+  %154 = getelementptr inbounds nuw %"class.absl::cord_internal::CordRepBtreeNavigator", ptr %18, i32 0, i32 1
+  %155 = load i32, ptr %8, align 4, !tbaa !11
+  %156 = sext i32 %155 to i64
+  %157 = getelementptr inbounds [12 x i8], ptr %154, i64 0, i64 %156
+  store i8 %153, ptr %157, align 1, !tbaa !13
+  %158 = load ptr, ptr %11, align 8, !tbaa !14
+  %159 = getelementptr inbounds nuw %"class.absl::cord_internal::CordRepBtreeNavigator", ptr %18, i32 0, i32 2
+  %160 = load i32, ptr %8, align 4, !tbaa !11
+  %161 = add nsw i32 %160, -1
+  store i32 %161, ptr %8, align 4, !tbaa !11
+  %162 = sext i32 %161 to i64
+  %163 = getelementptr inbounds [12 x ptr], ptr %159, i64 0, i64 %162
+  store ptr %158, ptr %163, align 8, !tbaa !14
+  %164 = load ptr, ptr %11, align 8, !tbaa !14
+  %165 = call noundef i64 @_ZNK4absl13cord_internal12CordRepBtree5beginEv(ptr noundef nonnull align 8 dereferenceable(64) %164)
+  store i64 %165, ptr %10, align 8, !tbaa !9
+  %166 = load ptr, ptr %11, align 8, !tbaa !14
+  %167 = load i64, ptr %10, align 8, !tbaa !9
+  %168 = call noundef ptr @_ZNK4absl13cord_internal12CordRepBtree4EdgeEm(ptr noundef nonnull align 8 dereferenceable(64) %166, i64 noundef %167)
+  store ptr %168, ptr %12, align 8, !tbaa !16
+  %169 = load i64, ptr %9, align 8, !tbaa !9
+  %170 = icmp ne i64 %169, 0
+  br i1 %170, label %171, label %210
+
+171:                                              ; preds = %149
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #3
+  %172 = load i32, ptr %8, align 4, !tbaa !11
+  %173 = call noundef ptr @_ZN4absl13cord_internal12CordRepBtree3NewEi(i32 noundef %172)
+  store ptr %173, ptr %17, align 8, !tbaa !14
+  %174 = load i64, ptr %9, align 8, !tbaa !9
+  %175 = load ptr, ptr %17, align 8, !tbaa !14
+  %176 = getelementptr inbounds nuw %"struct.absl::cord_internal::CordRep", ptr %175, i32 0, i32 0
+  store i64 %174, ptr %176, align 8, !tbaa !18
+  %177 = load ptr, ptr %17, align 8, !tbaa !14
+  %178 = load ptr, ptr %14, align 8, !tbaa !14
+  %179 = getelementptr inbounds nuw %"class.absl::cord_internal::CordRepBtree", ptr %178, i32 0, i32 1
+  %180 = load i64, ptr %15, align 8, !tbaa !9
+  %181 = add i64 %180, 1
+  store i64 %181, ptr %15, align 8, !tbaa !9
+  %182 = getelementptr inbounds nuw [6 x ptr], ptr %179, i64 0, i64 %180
+  store ptr %177, ptr %182, align 8, !tbaa !16
+  %183 = load ptr, ptr %14, align 8, !tbaa !14
+  %184 = load i64, ptr %15, align 8, !tbaa !9
+  call void @_ZN4absl13cord_internal12CordRepBtree7set_endEm(ptr noundef nonnull align 8 dereferenceable(64) %183, i64 noundef %184)
+  %185 = load ptr, ptr %17, align 8, !tbaa !14
+  store ptr %185, ptr %14, align 8, !tbaa !14
+  store i64 0, ptr %15, align 8, !tbaa !9
+  br label %186
+
+186:                                              ; preds = %192, %171
+  %187 = load i64, ptr %9, align 8, !tbaa !9
+  %188 = load ptr, ptr %12, align 8, !tbaa !16
+  %189 = getelementptr inbounds nuw %"struct.absl::cord_internal::CordRep", ptr %188, i32 0, i32 0
+  %190 = load i64, ptr %189, align 8, !tbaa !18
+  %191 = icmp uge i64 %187, %190
+  br i1 %191, label %192, label %209
+
+192:                                              ; preds = %186
+  %193 = load ptr, ptr %12, align 8, !tbaa !16
+  %194 = call noundef ptr @_ZN4absl13cord_internal7CordRep3RefEPS1_(ptr noundef %193)
+  %195 = load ptr, ptr %14, align 8, !tbaa !14
+  %196 = getelementptr inbounds nuw %"class.absl::cord_internal::CordRepBtree", ptr %195, i32 0, i32 1
+  %197 = load i64, ptr %15, align 8, !tbaa !9
+  %198 = add i64 %197, 1
+  store i64 %198, ptr %15, align 8, !tbaa !9
+  %199 = getelementptr inbounds nuw [6 x ptr], ptr %196, i64 0, i64 %197
+  store ptr %194, ptr %199, align 8, !tbaa !16
+  %200 = load ptr, ptr %12, align 8, !tbaa !16
+  %201 = getelementptr inbounds nuw %"struct.absl::cord_internal::CordRep", ptr %200, i32 0, i32 0
+  %202 = load i64, ptr %201, align 8, !tbaa !18
+  %203 = load i64, ptr %9, align 8, !tbaa !9
+  %204 = sub i64 %203, %202
+  store i64 %204, ptr %9, align 8, !tbaa !9
+  %205 = load ptr, ptr %11, align 8, !tbaa !14
+  %206 = load i64, ptr %10, align 8, !tbaa !9
+  %207 = add i64 %206, 1
+  store i64 %207, ptr %10, align 8, !tbaa !9
+  %208 = call noundef ptr @_ZNK4absl13cord_internal12CordRepBtree4EdgeEm(ptr noundef nonnull align 8 dereferenceable(64) %205, i64 noundef %207)
+  store ptr %208, ptr %12, align 8, !tbaa !16
+  br label %186, !llvm.loop !38
+
+209:                                              ; preds = %186
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #3
+  br label %210
+
+210:                                              ; preds = %209, %149
+  br label %146, !llvm.loop !39
+
+211:                                              ; preds = %146
+  %212 = load i64, ptr %9, align 8, !tbaa !9
+  %213 = icmp ne i64 %212, 0
+  br i1 %213, label %214, label %223
+
+214:                                              ; preds = %211
+  %215 = load ptr, ptr %12, align 8, !tbaa !16
+  %216 = load i64, ptr %9, align 8, !tbaa !9
+  %217 = call noundef ptr @_ZN4absl13cord_internal12_GLOBAL__N_19SubstringEPNS0_7CordRepEmm(ptr noundef %215, i64 noundef 0, i64 noundef %216)
+  %218 = load ptr, ptr %14, align 8, !tbaa !14
+  %219 = getelementptr inbounds nuw %"class.absl::cord_internal::CordRepBtree", ptr %218, i32 0, i32 1
+  %220 = load i64, ptr %15, align 8, !tbaa !9
+  %221 = add i64 %220, 1
+  store i64 %221, ptr %15, align 8, !tbaa !9
+  %222 = getelementptr inbounds nuw [6 x ptr], ptr %219, i64 0, i64 %220
+  store ptr %217, ptr %222, align 8, !tbaa !16
+  br label %223
+
+223:                                              ; preds = %214, %211
+  %224 = load ptr, ptr %14, align 8, !tbaa !14
+  %225 = load i64, ptr %15, align 8, !tbaa !9
+  call void @_ZN4absl13cord_internal12CordRepBtree7set_endEm(ptr noundef nonnull align 8 dereferenceable(64) %224, i64 noundef %225)
+  %226 = load i64, ptr %10, align 8, !tbaa !9
+  %227 = trunc i64 %226 to i8
+  %228 = getelementptr inbounds nuw %"class.absl::cord_internal::CordRepBtreeNavigator", ptr %18, i32 0, i32 1
+  %229 = getelementptr inbounds [12 x i8], ptr %228, i64 0, i64 0
+  store i8 %227, ptr %229, align 4, !tbaa !13
+  %230 = getelementptr inbounds nuw %"struct.absl::cord_internal::CordRepBtreeNavigator::ReadResult", ptr %4, i32 0, i32 0
+  %231 = load ptr, ptr %16, align 8, !tbaa !14
+  store ptr %231, ptr %230, align 8, !tbaa !33
+  %232 = getelementptr inbounds nuw %"struct.absl::cord_internal::CordRepBtreeNavigator::ReadResult", ptr %4, i32 0, i32 1
+  %233 = load i64, ptr %9, align 8, !tbaa !9
+  store i64 %233, ptr %232, align 8, !tbaa !35
+  store i32 1, ptr %13, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #3
+  br label %234
+
+234:                                              ; preds = %223, %83, %79
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #3
+  br label %235
+
+235:                                              ; preds = %234, %37
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #3
+  %236 = load { ptr, i64 }, ptr %4, align 8
+  ret { ptr, i64 } %236
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define internal noundef ptr @_ZN4absl13cord_internal12_GLOBAL__N_19SubstringEPNS0_7CordRepEmm(ptr noundef %0, i64 noundef %1, i64 noundef %2) #8 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !16
+  store i64 %1, ptr %6, align 8, !tbaa !9
+  store i64 %2, ptr %7, align 8, !tbaa !9
+  %11 = load i64, ptr %7, align 8, !tbaa !9
+  %12 = icmp eq i64 %11, 0
+  br i1 %12, label %13, label %14
+
+13:                                               ; preds = %3
+  store ptr null, ptr %4, align 8
+  br label %60
+
+14:                                               ; preds = %3
+  %15 = load i64, ptr %7, align 8, !tbaa !9
+  %16 = load ptr, ptr %5, align 8, !tbaa !16
+  %17 = getelementptr inbounds nuw %"struct.absl::cord_internal::CordRep", ptr %16, i32 0, i32 0
+  %18 = load i64, ptr %17, align 8, !tbaa !18
+  %19 = icmp eq i64 %15, %18
+  br i1 %19, label %20, label %23
+
+20:                                               ; preds = %14
+  %21 = load ptr, ptr %5, align 8, !tbaa !16
+  %22 = call noundef ptr @_ZN4absl13cord_internal7CordRep3RefEPS1_(ptr noundef %21)
+  store ptr %22, ptr %4, align 8
+  br label %60
+
+23:                                               ; preds = %14
+  %24 = load ptr, ptr %5, align 8, !tbaa !16
+  %25 = getelementptr inbounds nuw %"struct.absl::cord_internal::CordRep", ptr %24, i32 0, i32 2
+  %26 = load i8, ptr %25, align 4, !tbaa !40
+  %27 = zext i8 %26 to i32
+  %28 = icmp eq i32 %27, 1
+  br i1 %28, label %29, label %40
+
+29:                                               ; preds = %23
+  %30 = load ptr, ptr %5, align 8, !tbaa !16
+  %31 = call noundef ptr @_ZN4absl13cord_internal7CordRep9substringEv(ptr noundef nonnull align 8 dereferenceable(16) %30)
+  %32 = getelementptr inbounds nuw %"struct.absl::cord_internal::CordRepSubstring", ptr %31, i32 0, i32 1
+  %33 = load i64, ptr %32, align 8, !tbaa !41
+  %34 = load i64, ptr %6, align 8, !tbaa !9
+  %35 = add i64 %34, %33
+  store i64 %35, ptr %6, align 8, !tbaa !9
+  %36 = load ptr, ptr %5, align 8, !tbaa !16
+  %37 = call noundef ptr @_ZN4absl13cord_internal7CordRep9substringEv(ptr noundef nonnull align 8 dereferenceable(16) %36)
+  %38 = getelementptr inbounds nuw %"struct.absl::cord_internal::CordRepSubstring", ptr %37, i32 0, i32 2
+  %39 = load ptr, ptr %38, align 8, !tbaa !43
+  store ptr %39, ptr %5, align 8, !tbaa !16
+  br label %40
+
+40:                                               ; preds = %29, %23
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #3
+  %41 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 32) #15
+  call void @llvm.memset.p0.i64(ptr align 16 %41, i8 0, i64 32, i1 false)
+  invoke void @_ZN4absl13cord_internal16CordRepSubstringC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %41)
+          to label %42 unwind label %56
+
+42:                                               ; preds = %40
+  store ptr %41, ptr %8, align 8, !tbaa !44
+  %43 = load i64, ptr %7, align 8, !tbaa !9
+  %44 = load ptr, ptr %8, align 8, !tbaa !44
+  %45 = getelementptr inbounds nuw %"struct.absl::cord_internal::CordRep", ptr %44, i32 0, i32 0
+  store i64 %43, ptr %45, align 8, !tbaa !18
+  %46 = load ptr, ptr %8, align 8, !tbaa !44
+  %47 = getelementptr inbounds nuw %"struct.absl::cord_internal::CordRep", ptr %46, i32 0, i32 2
+  store i8 1, ptr %47, align 4, !tbaa !40
+  %48 = load i64, ptr %6, align 8, !tbaa !9
+  %49 = load ptr, ptr %8, align 8, !tbaa !44
+  %50 = getelementptr inbounds nuw %"struct.absl::cord_internal::CordRepSubstring", ptr %49, i32 0, i32 1
+  store i64 %48, ptr %50, align 8, !tbaa !41
+  %51 = load ptr, ptr %5, align 8, !tbaa !16
+  %52 = call noundef ptr @_ZN4absl13cord_internal7CordRep3RefEPS1_(ptr noundef %51)
+  %53 = load ptr, ptr %8, align 8, !tbaa !44
+  %54 = getelementptr inbounds nuw %"struct.absl::cord_internal::CordRepSubstring", ptr %53, i32 0, i32 2
+  store ptr %52, ptr %54, align 8, !tbaa !43
+  %55 = load ptr, ptr %8, align 8, !tbaa !44
+  store ptr %55, ptr %4, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #3
+  br label %60
+
+56:                                               ; preds = %40
+  %57 = landingpad { ptr, i32 }
+          cleanup
+  %58 = extractvalue { ptr, i32 } %57, 0
+  store ptr %58, ptr %9, align 8
+  %59 = extractvalue { ptr, i32 } %57, 1
+  store i32 %59, ptr %10, align 4
+  call void @_ZdlPvm(ptr noundef %41, i64 noundef 32) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #3
+  br label %62
+
+60:                                               ; preds = %42, %20, %13
+  %61 = load ptr, ptr %4, align 8
+  ret ptr %61
+
+62:                                               ; preds = %56
+  %63 = load ptr, ptr %9, align 8
+  %64 = load i32, ptr %10, align 4
+  %65 = insertvalue { ptr, i32 } poison, ptr %63, 0
+  %66 = insertvalue { ptr, i32 } %65, i32 %64, 1
+  resume { ptr, i32 } %66
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE(ptr noundef %0) #8 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #3
+  %7 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 64) #15
+  invoke void @_ZN4absl13cord_internal12CordRepBtreeC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %7)
+          to label %8 unwind label %31
+
+8:                                                ; preds = %1
+  store ptr %7, ptr %3, align 8, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #3
+  %9 = load ptr, ptr %2, align 8, !tbaa !16
+  %10 = call noundef zeroext i1 @_ZNK4absl13cord_internal7CordRep7IsBtreeEv(ptr noundef nonnull align 8 dereferenceable(16) %9)
+  br i1 %10, label %11, label %16
+
+11:                                               ; preds = %8
+  %12 = load ptr, ptr %2, align 8, !tbaa !16
+  %13 = call noundef ptr @_ZN4absl13cord_internal7CordRep5btreeEv(ptr noundef nonnull align 8 dereferenceable(16) %12)
+  %14 = call noundef i32 @_ZNK4absl13cord_internal12CordRepBtree6heightEv(ptr noundef nonnull align 8 dereferenceable(64) %13)
+  %15 = add nsw i32 %14, 1
+  br label %17
+
+16:                                               ; preds = %8
+  br label %17
+
+17:                                               ; preds = %16, %11
+  %18 = phi i32 [ %15, %11 ], [ 0, %16 ]
+  store i32 %18, ptr %6, align 4, !tbaa !11
+  %19 = load ptr, ptr %2, align 8, !tbaa !16
+  %20 = getelementptr inbounds nuw %"struct.absl::cord_internal::CordRep", ptr %19, i32 0, i32 0
+  %21 = load i64, ptr %20, align 8, !tbaa !18
+  %22 = load ptr, ptr %3, align 8, !tbaa !14
+  %23 = getelementptr inbounds nuw %"struct.absl::cord_internal::CordRep", ptr %22, i32 0, i32 0
+  store i64 %21, ptr %23, align 8, !tbaa !18
+  %24 = load ptr, ptr %3, align 8, !tbaa !14
+  %25 = load i32, ptr %6, align 4, !tbaa !11
+  call void @_ZN4absl13cord_internal12CordRepBtree12InitInstanceEimm(ptr noundef nonnull align 8 dereferenceable(64) %24, i32 noundef %25, i64 noundef 0, i64 noundef 1)
+  %26 = load ptr, ptr %2, align 8, !tbaa !16
+  %27 = load ptr, ptr %3, align 8, !tbaa !14
+  %28 = getelementptr inbounds nuw %"class.absl::cord_internal::CordRepBtree", ptr %27, i32 0, i32 1
+  %29 = getelementptr inbounds [6 x ptr], ptr %28, i64 0, i64 0
+  store ptr %26, ptr %29, align 8, !tbaa !16
+  %30 = load ptr, ptr %3, align 8, !tbaa !14
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #3
+  ret ptr %30
+
+31:                                               ; preds = %1
+  %32 = landingpad { ptr, i32 }
+          cleanup
+  %33 = extractvalue { ptr, i32 } %32, 0
+  store ptr %33, ptr %4, align 8
+  %34 = extractvalue { ptr, i32 } %32, 1
+  store i32 %34, ptr %5, align 4
+  call void @_ZdlPvm(ptr noundef %7, i64 noundef 64) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #3
+  br label %35
+
+35:                                               ; preds = %31
+  %36 = load ptr, ptr %4, align 8
+  %37 = load i32, ptr %5, align 4
+  %38 = insertvalue { ptr, i32 } poison, ptr %36, 0
+  %39 = insertvalue { ptr, i32 } %38, i32 %37, 1
+  resume { ptr, i32 } %39
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define internal noundef ptr @_ZN4absl13cord_internal12_GLOBAL__N_19SubstringEPNS0_7CordRepEm(ptr noundef %0, i64 noundef %1) #8 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !16
+  store i64 %1, ptr %4, align 8, !tbaa !9
+  %5 = load ptr, ptr %3, align 8, !tbaa !16
+  %6 = load i64, ptr %4, align 8, !tbaa !9
+  %7 = load ptr, ptr %3, align 8, !tbaa !16
+  %8 = getelementptr inbounds nuw %"struct.absl::cord_internal::CordRep", ptr %7, i32 0, i32 0
+  %9 = load i64, ptr %8, align 8, !tbaa !18
+  %10 = load i64, ptr %4, align 8, !tbaa !9
+  %11 = sub i64 %9, %10
+  %12 = call noundef ptr @_ZN4absl13cord_internal12_GLOBAL__N_19SubstringEPNS0_7CordRepEmm(ptr noundef %5, i64 noundef %6, i64 noundef %11)
+  ret ptr %12
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN4absl13cord_internal12CordRepBtree7set_endEm(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %1) #7 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !14
+  store i64 %1, ptr %4, align 8, !tbaa !9
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8, !tbaa !9
+  %7 = trunc i64 %6 to i8
+  %8 = getelementptr inbounds nuw %"struct.absl::cord_internal::CordRep", ptr %5, i32 0, i32 3
+  %9 = getelementptr inbounds [3 x i8], ptr %8, i64 0, i64 2
+  store i8 %7, ptr %9, align 1, !tbaa !13
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN4absl13cord_internal7CordRep5UnrefEPS1_(ptr noundef %0) #8 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !16
+  %3 = load ptr, ptr %2, align 8, !tbaa !16
+  %4 = getelementptr inbounds nuw %"struct.absl::cord_internal::CordRep", ptr %3, i32 0, i32 1
+  %5 = call noundef zeroext i1 @_ZN4absl13cord_internal16RefcountAndFlags27DecrementExpectHighRefcountEv(ptr noundef nonnull align 4 dereferenceable(4) %4)
+  %6 = xor i1 %5, true
+  %7 = zext i1 %6 to i64
+  %8 = call i64 @llvm.expect.i64(i64 %7, i64 0)
+  %9 = icmp ne i64 %8, 0
+  br i1 %9, label %10, label %12
+
+10:                                               ; preds = %1
+  %11 = load ptr, ptr %2, align 8, !tbaa !16
+  call void @_ZN4absl13cord_internal7CordRep7DestroyEPS1_(ptr noundef %11)
+  br label %12
+
+12:                                               ; preds = %10, %1
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN4absl13cord_internal7CordRep3RefEPS1_(ptr noundef %0) #8 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !16
+  %3 = load ptr, ptr %2, align 8, !tbaa !16
+  %4 = icmp ne ptr %3, null
+  call void @llvm.assume(i1 %4)
+  %5 = load ptr, ptr %2, align 8, !tbaa !16
+  %6 = getelementptr inbounds nuw %"struct.absl::cord_internal::CordRep", ptr %5, i32 0, i32 1
+  call void @_ZN4absl13cord_internal16RefcountAndFlags9IncrementEv(ptr noundef nonnull align 4 dereferenceable(4) %6)
+  %7 = load ptr, ptr %2, align 8, !tbaa !16
+  ret ptr %7
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN4absl13cord_internal12CordRepBtree3NewEi(i32 noundef %0) #8 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #3
+  %6 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 64) #15
+  invoke void @_ZN4absl13cord_internal12CordRepBtreeC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6)
+          to label %7 unwind label %13
+
+7:                                                ; preds = %1
+  store ptr %6, ptr %3, align 8, !tbaa !14
+  %8 = load ptr, ptr %3, align 8, !tbaa !14
+  %9 = getelementptr inbounds nuw %"struct.absl::cord_internal::CordRep", ptr %8, i32 0, i32 0
+  store i64 0, ptr %9, align 8, !tbaa !18
+  %10 = load ptr, ptr %3, align 8, !tbaa !14
+  %11 = load i32, ptr %2, align 4, !tbaa !11
+  call void @_ZN4absl13cord_internal12CordRepBtree12InitInstanceEimm(ptr noundef nonnull align 8 dereferenceable(64) %10, i32 noundef %11, i64 noundef 0, i64 noundef 0)
+  %12 = load ptr, ptr %3, align 8, !tbaa !14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #3
+  ret ptr %12
+
+13:                                               ; preds = %1
+  %14 = landingpad { ptr, i32 }
+          cleanup
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %4, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %5, align 4
+  call void @_ZdlPvm(ptr noundef %6, i64 noundef 64) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #3
+  br label %17
+
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %4, align 8
+  %19 = load i32, ptr %5, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef ptr @_ZN4absl13cord_internal7CordRep9substringEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !16
+  %3 = load ptr, ptr %2, align 8
+  ret ptr %3
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) #6
+declare noundef nonnull ptr @_Znwm(i64 noundef) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN4absl13cord_internal16CordRepSubstringC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN4absl13cord_internal7CordRepC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN4absl13cord_internal16CordRepSubstringC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #8 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !44
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN4absl13cord_internal7CordRepC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
   ret void
 }
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) #8
+declare void @_ZdlPvm(ptr noundef, i64 noundef) #11
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN4absl13cord_internal7CordRepC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %refcount = getelementptr inbounds %"struct.absl::cord_internal::CordRep", ptr %this1, i32 0, i32 1
-  call void @_ZN4absl13cord_internal16RefcountAndFlagsC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %refcount)
+define linkonce_odr dso_local void @_ZN4absl13cord_internal7CordRepC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !16
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.absl::cord_internal::CordRep", ptr %3, i32 0, i32 1
+  call void @_ZN4absl13cord_internal16RefcountAndFlagsC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %4)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN4absl13cord_internal16RefcountAndFlagsC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %this) unnamed_addr #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %count_ = getelementptr inbounds %"class.absl::cord_internal::RefcountAndFlags", ptr %this1, i32 0, i32 0
-  call void @_ZNSt6atomicIiEC2Ei(ptr noundef nonnull align 4 dereferenceable(4) %count_, i32 noundef 2) #3
+define linkonce_odr dso_local void @_ZN4absl13cord_internal16RefcountAndFlagsC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !46
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.absl::cord_internal::RefcountAndFlags", ptr %3, i32 0, i32 0
+  call void @_ZNSt6atomicIiEC2Ei(ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef 2) #3
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZNSt6atomicIiEC2Ei(ptr noundef nonnull align 4 dereferenceable(4) %this, i32 noundef %__i) unnamed_addr #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__i.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %__i, ptr %__i.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i32, ptr %__i.addr, align 4
-  call void @_ZNSt13__atomic_baseIiEC2Ei(ptr noundef nonnull align 4 dereferenceable(4) %this1, i32 noundef %0) #3
+define linkonce_odr dso_local void @_ZNSt6atomicIiEC2Ei(ptr noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %1) unnamed_addr #7 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !48
+  store i32 %1, ptr %4, align 4, !tbaa !11
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i32, ptr %4, align 4, !tbaa !11
+  call void @_ZNSt13__atomic_baseIiEC2Ei(ptr noundef nonnull align 4 dereferenceable(4) %5, i32 noundef %6) #3
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZNSt13__atomic_baseIiEC2Ei(ptr noundef nonnull align 4 dereferenceable(4) %this, i32 noundef %__i) unnamed_addr #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__i.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %__i, ptr %__i.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_i = getelementptr inbounds %"struct.std::__atomic_base", ptr %this1, i32 0, i32 0
-  %0 = load i32, ptr %__i.addr, align 4
-  store i32 %0, ptr %_M_i, align 4
+define linkonce_odr dso_local void @_ZNSt13__atomic_baseIiEC2Ei(ptr noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %1) unnamed_addr #7 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !50
+  store i32 %1, ptr %4, align 4, !tbaa !11
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"struct.std::__atomic_base", ptr %5, i32 0, i32 0
+  %7 = load i32, ptr %4, align 4, !tbaa !11
+  store i32 %7, ptr %6, align 4, !tbaa !52
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN4absl13cord_internal12CordRepBtreeC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN4absl13cord_internal7CordRepC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
+define linkonce_odr dso_local void @_ZN4absl13cord_internal12CordRepBtreeC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !14
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN4absl13cord_internal7CordRepC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZNK4absl13cord_internal7CordRep7IsBtreeEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %tag = getelementptr inbounds %"struct.absl::cord_internal::CordRep", ptr %this1, i32 0, i32 2
-  %0 = load i8, ptr %tag, align 4
-  %conv = zext i8 %0 to i32
-  %cmp = icmp eq i32 %conv, 3
-  ret i1 %cmp
+define linkonce_odr dso_local noundef zeroext i1 @_ZNK4absl13cord_internal7CordRep7IsBtreeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !16
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.absl::cord_internal::CordRep", ptr %3, i32 0, i32 2
+  %5 = load i8, ptr %4, align 4, !tbaa !40
+  %6 = zext i8 %5 to i32
+  %7 = icmp eq i32 %6, 3
+  ret i1 %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZNK4absl13cord_internal12CordRepBtree6heightEv(ptr noundef nonnull align 8 dereferenceable(64) %this) #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %storage = getelementptr inbounds %"struct.absl::cord_internal::CordRep", ptr %this1, i32 0, i32 3
-  %arrayidx = getelementptr inbounds [3 x i8], ptr %storage, i64 0, i64 0
-  %0 = load i8, ptr %arrayidx, align 1
-  %conv = zext i8 %0 to i32
-  ret i32 %conv
+define linkonce_odr dso_local noundef i32 @_ZNK4absl13cord_internal12CordRepBtree6heightEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !14
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.absl::cord_internal::CordRep", ptr %3, i32 0, i32 3
+  %5 = getelementptr inbounds [3 x i8], ptr %4, i64 0, i64 0
+  %6 = load i8, ptr %5, align 1, !tbaa !13
+  %7 = zext i8 %6 to i32
+  ret i32 %7
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN4absl13cord_internal12CordRepBtree12InitInstanceEimm(ptr noundef nonnull align 8 dereferenceable(64) %this, i32 noundef %height, i64 noundef %begin, i64 noundef %end) #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %height.addr = alloca i32, align 4
-  %begin.addr = alloca i64, align 8
-  %end.addr = alloca i64, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %height, ptr %height.addr, align 4
-  store i64 %begin, ptr %begin.addr, align 8
-  store i64 %end, ptr %end.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %tag = getelementptr inbounds %"struct.absl::cord_internal::CordRep", ptr %this1, i32 0, i32 2
-  store i8 3, ptr %tag, align 4
-  %0 = load i32, ptr %height.addr, align 4
-  %conv = trunc i32 %0 to i8
-  %storage = getelementptr inbounds %"struct.absl::cord_internal::CordRep", ptr %this1, i32 0, i32 3
-  %arrayidx = getelementptr inbounds [3 x i8], ptr %storage, i64 0, i64 0
-  store i8 %conv, ptr %arrayidx, align 1
-  %1 = load i64, ptr %begin.addr, align 8
-  %conv2 = trunc i64 %1 to i8
-  %storage3 = getelementptr inbounds %"struct.absl::cord_internal::CordRep", ptr %this1, i32 0, i32 3
-  %arrayidx4 = getelementptr inbounds [3 x i8], ptr %storage3, i64 0, i64 1
-  store i8 %conv2, ptr %arrayidx4, align 1
-  %2 = load i64, ptr %end.addr, align 8
-  %conv5 = trunc i64 %2 to i8
-  %storage6 = getelementptr inbounds %"struct.absl::cord_internal::CordRep", ptr %this1, i32 0, i32 3
-  %arrayidx7 = getelementptr inbounds [3 x i8], ptr %storage6, i64 0, i64 2
-  store i8 %conv5, ptr %arrayidx7, align 1
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN4absl13cord_internal12CordRepBtree12InitInstanceEimm(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %1, i64 noundef %2, i64 noundef %3) #6 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !14
+  store i32 %1, ptr %6, align 4, !tbaa !11
+  store i64 %2, ptr %7, align 8, !tbaa !9
+  store i64 %3, ptr %8, align 8, !tbaa !9
+  %9 = load ptr, ptr %5, align 8
+  %10 = getelementptr inbounds nuw %"struct.absl::cord_internal::CordRep", ptr %9, i32 0, i32 2
+  store i8 3, ptr %10, align 4, !tbaa !40
+  %11 = load i32, ptr %6, align 4, !tbaa !11
+  %12 = trunc i32 %11 to i8
+  %13 = getelementptr inbounds nuw %"struct.absl::cord_internal::CordRep", ptr %9, i32 0, i32 3
+  %14 = getelementptr inbounds [3 x i8], ptr %13, i64 0, i64 0
+  store i8 %12, ptr %14, align 1, !tbaa !13
+  %15 = load i64, ptr %7, align 8, !tbaa !9
+  %16 = trunc i64 %15 to i8
+  %17 = getelementptr inbounds nuw %"struct.absl::cord_internal::CordRep", ptr %9, i32 0, i32 3
+  %18 = getelementptr inbounds [3 x i8], ptr %17, i64 0, i64 1
+  store i8 %16, ptr %18, align 1, !tbaa !13
+  %19 = load i64, ptr %8, align 8, !tbaa !9
+  %20 = trunc i64 %19 to i8
+  %21 = getelementptr inbounds nuw %"struct.absl::cord_internal::CordRep", ptr %9, i32 0, i32 3
+  %22 = getelementptr inbounds [3 x i8], ptr %21, i64 0, i64 2
+  store i8 %20, ptr %22, align 1, !tbaa !13
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZN4absl13cord_internal16RefcountAndFlags27DecrementExpectHighRefcountEv(ptr noundef nonnull align 4 dereferenceable(4) %this) #5 comdat align 2 {
-entry:
-  %this.addr.i = alloca ptr, align 8
-  %__i.addr.i = alloca i32, align 4
-  %__m.addr.i = alloca i32, align 4
-  %.atomictmp.i = alloca i32, align 4
-  %atomic-temp.i = alloca i32, align 4
-  %this.addr = alloca ptr, align 8
-  %refcount = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %count_ = getelementptr inbounds %"class.absl::cord_internal::RefcountAndFlags", ptr %this1, i32 0, i32 0
-  store ptr %count_, ptr %this.addr.i, align 8
-  store i32 2, ptr %__i.addr.i, align 4
-  store i32 4, ptr %__m.addr.i, align 4
-  %this1.i = load ptr, ptr %this.addr.i, align 8
-  %0 = load i32, ptr %__m.addr.i, align 4
-  %1 = load i32, ptr %__i.addr.i, align 4
-  store i32 %1, ptr %.atomictmp.i, align 4
-  switch i32 %0, label %monotonic.i [
-    i32 1, label %acquire.i
-    i32 2, label %acquire.i
-    i32 3, label %release.i
-    i32 4, label %acqrel.i
-    i32 5, label %seqcst.i
-  ]
-
-monotonic.i:                                      ; preds = %entry
-  %2 = load i32, ptr %.atomictmp.i, align 4
-  %3 = atomicrmw sub ptr %this1.i, i32 %2 monotonic, align 4
-  store i32 %3, ptr %atomic-temp.i, align 4
-  br label %_ZNSt13__atomic_baseIiE9fetch_subEiSt12memory_order.exit
-
-acquire.i:                                        ; preds = %entry, %entry
-  %4 = load i32, ptr %.atomictmp.i, align 4
-  %5 = atomicrmw sub ptr %this1.i, i32 %4 acquire, align 4
-  store i32 %5, ptr %atomic-temp.i, align 4
-  br label %_ZNSt13__atomic_baseIiE9fetch_subEiSt12memory_order.exit
-
-release.i:                                        ; preds = %entry
-  %6 = load i32, ptr %.atomictmp.i, align 4
-  %7 = atomicrmw sub ptr %this1.i, i32 %6 release, align 4
-  store i32 %7, ptr %atomic-temp.i, align 4
-  br label %_ZNSt13__atomic_baseIiE9fetch_subEiSt12memory_order.exit
-
-acqrel.i:                                         ; preds = %entry
-  %8 = load i32, ptr %.atomictmp.i, align 4
-  %9 = atomicrmw sub ptr %this1.i, i32 %8 acq_rel, align 4
-  store i32 %9, ptr %atomic-temp.i, align 4
-  br label %_ZNSt13__atomic_baseIiE9fetch_subEiSt12memory_order.exit
-
-seqcst.i:                                         ; preds = %entry
-  %10 = load i32, ptr %.atomictmp.i, align 4
-  %11 = atomicrmw sub ptr %this1.i, i32 %10 seq_cst, align 4
-  store i32 %11, ptr %atomic-temp.i, align 4
-  br label %_ZNSt13__atomic_baseIiE9fetch_subEiSt12memory_order.exit
-
-_ZNSt13__atomic_baseIiE9fetch_subEiSt12memory_order.exit: ; preds = %seqcst.i, %acqrel.i, %release.i, %acquire.i, %monotonic.i
-  %12 = load i32, ptr %atomic-temp.i, align 4
-  store i32 %12, ptr %refcount, align 4
-  %13 = load i32, ptr %refcount, align 4
-  %cmp = icmp ne i32 %13, 2
-  ret i1 %cmp
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_ZN4absl13cord_internal16RefcountAndFlags27DecrementExpectHighRefcountEv(ptr noundef nonnull align 4 dereferenceable(4) %0) #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !46
+  %4 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #3
+  %5 = getelementptr inbounds nuw %"class.absl::cord_internal::RefcountAndFlags", ptr %4, i32 0, i32 0
+  %6 = call noundef i32 @_ZNSt13__atomic_baseIiE9fetch_subEiSt12memory_order(ptr noundef nonnull align 4 dereferenceable(4) %5, i32 noundef 2, i32 noundef 4) #3
+  store i32 %6, ptr %3, align 4, !tbaa !11
+  %7 = load i32, ptr %3, align 4, !tbaa !11
+  %8 = icmp ne i32 %7, 2
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #3
+  ret i1 %8
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
+declare i64 @llvm.expect.i64(i64, i64) #12
 
 declare void @_ZN4absl13cord_internal7CordRep7DestroyEPS1_(ptr noundef) #1
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #9
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN4absl13cord_internal16RefcountAndFlags9IncrementEv(ptr noundef nonnull align 4 dereferenceable(4) %this) #5 comdat align 2 {
-entry:
-  %this.addr.i = alloca ptr, align 8
-  %__i.addr.i = alloca i32, align 4
-  %__m.addr.i = alloca i32, align 4
-  %.atomictmp.i = alloca i32, align 4
-  %atomic-temp.i = alloca i32, align 4
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %count_ = getelementptr inbounds %"class.absl::cord_internal::RefcountAndFlags", ptr %this1, i32 0, i32 0
-  store ptr %count_, ptr %this.addr.i, align 8
-  store i32 2, ptr %__i.addr.i, align 4
-  store i32 0, ptr %__m.addr.i, align 4
-  %this1.i = load ptr, ptr %this.addr.i, align 8
-  %0 = load i32, ptr %__m.addr.i, align 4
-  %1 = load i32, ptr %__i.addr.i, align 4
-  store i32 %1, ptr %.atomictmp.i, align 4
-  switch i32 %0, label %monotonic.i [
-    i32 1, label %acquire.i
-    i32 2, label %acquire.i
-    i32 3, label %release.i
-    i32 4, label %acqrel.i
-    i32 5, label %seqcst.i
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i32 @_ZNSt13__atomic_baseIiE9fetch_subEiSt12memory_order(ptr noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %1, i32 noundef %2) #13 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !50
+  store i32 %1, ptr %5, align 4, !tbaa !11
+  store i32 %2, ptr %6, align 4, !tbaa !53
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds nuw %"struct.std::__atomic_base", ptr %9, i32 0, i32 0
+  %11 = load i32, ptr %6, align 4, !tbaa !53
+  %12 = load i32, ptr %5, align 4, !tbaa !11
+  store i32 %12, ptr %7, align 4, !tbaa !11
+  switch i32 %11, label %13 [
+    i32 1, label %16
+    i32 2, label %16
+    i32 3, label %19
+    i32 4, label %22
+    i32 5, label %25
   ]
 
-monotonic.i:                                      ; preds = %entry
-  %2 = load i32, ptr %.atomictmp.i, align 4
-  %3 = atomicrmw add ptr %this1.i, i32 %2 monotonic, align 4
-  store i32 %3, ptr %atomic-temp.i, align 4
-  br label %_ZNSt13__atomic_baseIiE9fetch_addEiSt12memory_order.exit
+13:                                               ; preds = %3
+  %14 = load i32, ptr %7, align 4
+  %15 = atomicrmw sub ptr %10, i32 %14 monotonic, align 4
+  store i32 %15, ptr %8, align 4
+  br label %28
 
-acquire.i:                                        ; preds = %entry, %entry
-  %4 = load i32, ptr %.atomictmp.i, align 4
-  %5 = atomicrmw add ptr %this1.i, i32 %4 acquire, align 4
-  store i32 %5, ptr %atomic-temp.i, align 4
-  br label %_ZNSt13__atomic_baseIiE9fetch_addEiSt12memory_order.exit
+16:                                               ; preds = %3, %3
+  %17 = load i32, ptr %7, align 4
+  %18 = atomicrmw sub ptr %10, i32 %17 acquire, align 4
+  store i32 %18, ptr %8, align 4
+  br label %28
 
-release.i:                                        ; preds = %entry
-  %6 = load i32, ptr %.atomictmp.i, align 4
-  %7 = atomicrmw add ptr %this1.i, i32 %6 release, align 4
-  store i32 %7, ptr %atomic-temp.i, align 4
-  br label %_ZNSt13__atomic_baseIiE9fetch_addEiSt12memory_order.exit
+19:                                               ; preds = %3
+  %20 = load i32, ptr %7, align 4
+  %21 = atomicrmw sub ptr %10, i32 %20 release, align 4
+  store i32 %21, ptr %8, align 4
+  br label %28
 
-acqrel.i:                                         ; preds = %entry
-  %8 = load i32, ptr %.atomictmp.i, align 4
-  %9 = atomicrmw add ptr %this1.i, i32 %8 acq_rel, align 4
-  store i32 %9, ptr %atomic-temp.i, align 4
-  br label %_ZNSt13__atomic_baseIiE9fetch_addEiSt12memory_order.exit
+22:                                               ; preds = %3
+  %23 = load i32, ptr %7, align 4
+  %24 = atomicrmw sub ptr %10, i32 %23 acq_rel, align 4
+  store i32 %24, ptr %8, align 4
+  br label %28
 
-seqcst.i:                                         ; preds = %entry
-  %10 = load i32, ptr %.atomictmp.i, align 4
-  %11 = atomicrmw add ptr %this1.i, i32 %10 seq_cst, align 4
-  store i32 %11, ptr %atomic-temp.i, align 4
-  br label %_ZNSt13__atomic_baseIiE9fetch_addEiSt12memory_order.exit
+25:                                               ; preds = %3
+  %26 = load i32, ptr %7, align 4
+  %27 = atomicrmw sub ptr %10, i32 %26 seq_cst, align 4
+  store i32 %27, ptr %8, align 4
+  br label %28
 
-_ZNSt13__atomic_baseIiE9fetch_addEiSt12memory_order.exit: ; preds = %seqcst.i, %acqrel.i, %release.i, %acquire.i, %monotonic.i
+28:                                               ; preds = %25, %22, %19, %16, %13
+  %29 = load i32, ptr %8, align 4, !tbaa !11
+  ret i32 %29
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #14
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN4absl13cord_internal16RefcountAndFlags9IncrementEv(ptr noundef nonnull align 4 dereferenceable(4) %0) #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !46
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.absl::cord_internal::RefcountAndFlags", ptr %3, i32 0, i32 0
+  %5 = call noundef i32 @_ZNSt13__atomic_baseIiE9fetch_addEiSt12memory_order(ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef 2, i32 noundef 0) #3
   ret void
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i32 @_ZNSt13__atomic_baseIiE9fetch_addEiSt12memory_order(ptr noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %1, i32 noundef %2) #13 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !50
+  store i32 %1, ptr %5, align 4, !tbaa !11
+  store i32 %2, ptr %6, align 4, !tbaa !53
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds nuw %"struct.std::__atomic_base", ptr %9, i32 0, i32 0
+  %11 = load i32, ptr %6, align 4, !tbaa !53
+  %12 = load i32, ptr %5, align 4, !tbaa !11
+  store i32 %12, ptr %7, align 4, !tbaa !11
+  switch i32 %11, label %13 [
+    i32 1, label %16
+    i32 2, label %16
+    i32 3, label %19
+    i32 4, label %22
+    i32 5, label %25
+  ]
+
+13:                                               ; preds = %3
+  %14 = load i32, ptr %7, align 4
+  %15 = atomicrmw add ptr %10, i32 %14 monotonic, align 4
+  store i32 %15, ptr %8, align 4
+  br label %28
+
+16:                                               ; preds = %3, %3
+  %17 = load i32, ptr %7, align 4
+  %18 = atomicrmw add ptr %10, i32 %17 acquire, align 4
+  store i32 %18, ptr %8, align 4
+  br label %28
+
+19:                                               ; preds = %3
+  %20 = load i32, ptr %7, align 4
+  %21 = atomicrmw add ptr %10, i32 %20 release, align 4
+  store i32 %21, ptr %8, align 4
+  br label %28
+
+22:                                               ; preds = %3
+  %23 = load i32, ptr %7, align 4
+  %24 = atomicrmw add ptr %10, i32 %23 acq_rel, align 4
+  store i32 %24, ptr %8, align 4
+  br label %28
+
+25:                                               ; preds = %3
+  %26 = load i32, ptr %7, align 4
+  %27 = atomicrmw add ptr %10, i32 %26 seq_cst, align 4
+  store i32 %27, ptr %8, align 4
+  br label %28
+
+28:                                               ; preds = %25, %22, %19, %16, %13
+  %29 = load i32, ptr %8, align 4, !tbaa !11
+  ret i32 %29
 }
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_cord_rep_btree_navigator.cc() #0 section ".text.startup" {
-entry:
   call void @__cxx_global_var_init()
   ret void
 }
 
-attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind }
-attributes #4 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #10 = { builtin allocsize(0) }
-attributes #11 = { builtin nounwind }
+attributes #4 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #11 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #13 = { alwaysinline mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #15 = { builtin allocsize(0) }
+attributes #16 = { builtin nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"p1 _ZTSN4absl13cord_internal21CordRepBtreeNavigatorE", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C++ TBAA"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"long", !7, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"int", !7, i64 0}
+!13 = !{!7, !7, i64 0}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"p1 _ZTSN4absl13cord_internal12CordRepBtreeE", !6, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p1 _ZTSN4absl13cord_internal7CordRepE", !6, i64 0}
+!18 = !{!19, !10, i64 0}
+!19 = !{!"_ZTSN4absl13cord_internal7CordRepE", !10, i64 0, !20, i64 8, !7, i64 12, !7, i64 13}
+!20 = !{!"_ZTSN4absl13cord_internal16RefcountAndFlagsE", !21, i64 0}
+!21 = !{!"_ZTSSt6atomicIiE", !22, i64 0}
+!22 = !{!"_ZTSSt13__atomic_baseIiE", !12, i64 0}
+!23 = !{!24, !12, i64 0}
+!24 = !{!"_ZTSN4absl13cord_internal21CordRepBtreeNavigatorE", !12, i64 0, !7, i64 4, !7, i64 16}
+!25 = !{!26, !17, i64 0}
+!26 = !{!"_ZTSN4absl13cord_internal21CordRepBtreeNavigator8PositionE", !17, i64 0, !10, i64 8}
+!27 = !{!26, !10, i64 8}
+!28 = distinct !{!28, !29}
+!29 = !{!"llvm.loop.mustprogress"}
+!30 = distinct !{!30, !29}
+!31 = distinct !{!31, !29}
+!32 = distinct !{!32, !29}
+!33 = !{!34, !17, i64 0}
+!34 = !{!"_ZTSN4absl13cord_internal21CordRepBtreeNavigator10ReadResultE", !17, i64 0, !10, i64 8}
+!35 = !{!34, !10, i64 8}
+!36 = distinct !{!36, !29}
+!37 = distinct !{!37, !29}
+!38 = distinct !{!38, !29}
+!39 = distinct !{!39, !29}
+!40 = !{!19, !7, i64 12}
+!41 = !{!42, !10, i64 16}
+!42 = !{!"_ZTSN4absl13cord_internal16CordRepSubstringE", !19, i64 0, !10, i64 16, !17, i64 24}
+!43 = !{!42, !17, i64 24}
+!44 = !{!45, !45, i64 0}
+!45 = !{!"p1 _ZTSN4absl13cord_internal16CordRepSubstringE", !6, i64 0}
+!46 = !{!47, !47, i64 0}
+!47 = !{!"p1 _ZTSN4absl13cord_internal16RefcountAndFlagsE", !6, i64 0}
+!48 = !{!49, !49, i64 0}
+!49 = !{!"p1 _ZTSSt6atomicIiE", !6, i64 0}
+!50 = !{!51, !51, i64 0}
+!51 = !{!"p1 _ZTSSt13__atomic_baseIiE", !6, i64 0}
+!52 = !{!22, !12, i64 0}
+!53 = !{!54, !54, i64 0}
+!54 = !{!"_ZTSSt12memory_order", !7, i64 0}

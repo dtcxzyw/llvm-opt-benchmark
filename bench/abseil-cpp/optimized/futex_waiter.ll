@@ -1,7 +1,7 @@
 ; ModuleID = 'bench/abseil-cpp/original/futex_waiter.ll'
 source_filename = "bench/abseil-cpp/original/futex_waiter.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %"struct.absl::synchronization_internal::FutexTimespec" = type { i64, i64 }
 %"class.absl::synchronization_internal::KernelTimeout" = type { i64 }
@@ -10,217 +10,223 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.1 = private unnamed_addr constant [38 x i8] c"Futex operation failed with error %d\0A\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 -2147483647, -2147483648) i32 @_ZN4absl24synchronization_internal11FutexWaiter9WaitUntilEPSt6atomicIiEiNS0_13KernelTimeoutE(ptr noundef %v, i32 noundef %val, i64 %t.coerce) local_unnamed_addr #0 align 2 {
-entry:
-  %ts.i7 = alloca %"struct.absl::synchronization_internal::FutexTimespec", align 8
-  %ts.i = alloca %"struct.absl::synchronization_internal::FutexTimespec", align 8
-  %t = alloca %"class.absl::synchronization_internal::KernelTimeout", align 8
-  store i64 %t.coerce, ptr %t, align 8
-  %cmp.i.not = icmp eq i64 %t.coerce, -1
-  br i1 %cmp.i.not, label %if.then, label %if.else
+define dso_local noundef range(i32 -2147483647, -2147483648) i32 @_ZN4absl24synchronization_internal11FutexWaiter9WaitUntilEPSt6atomicIiEiNS0_13KernelTimeoutE(ptr noundef %0, i32 noundef %1, i64 %2) local_unnamed_addr #0 align 2 {
+  %4 = alloca %"struct.absl::synchronization_internal::FutexTimespec", align 8
+  %5 = alloca %"struct.absl::synchronization_internal::FutexTimespec", align 8
+  %6 = alloca %"class.absl::synchronization_internal::KernelTimeout", align 8
+  store i64 %2, ptr %6, align 8
+  %.not = icmp eq i64 %2, -1
+  br i1 %.not, label %7, label %13
 
-if.then:                                          ; preds = %entry
-  %call1.i.i = tail call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef %v, i32 noundef 393, i32 noundef %val, ptr noundef null, ptr null, i32 noundef -1) #5
-  %cmp.not.i.i = icmp eq i64 %call1.i.i, 0
-  br i1 %cmp.not.i.i, label %return, label %if.then.i.i
+7:                                                ; preds = %3
+  %8 = tail call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef %0, i32 noundef 393, i32 noundef %1, ptr noundef null, ptr noundef null, i32 noundef -1) #5
+  %.not.i.i = icmp eq i64 %8, 0
+  br i1 %.not.i.i, label %_ZN4absl24synchronization_internal9FutexImpl4WaitEPSt6atomicIiEi.exit, label %9
 
-if.then.i.i:                                      ; preds = %if.then
-  %call2.i.i = tail call ptr @__errno_location() #6
-  %0 = load i32, ptr %call2.i.i, align 4
-  %sub.i.i = sub nsw i32 0, %0
-  br label %return
+9:                                                ; preds = %7
+  %10 = tail call ptr @__errno_location() #6
+  %11 = load i32, ptr %10, align 4, !tbaa !4
+  %12 = sub nsw i32 0, %11
+  br label %_ZN4absl24synchronization_internal9FutexImpl4WaitEPSt6atomicIiEi.exit
 
-if.else:                                          ; preds = %entry
-  %and.i = and i64 %t.coerce, 1
-  %cmp.i5.not = icmp eq i64 %and.i, 0
-  br i1 %cmp.i5.not, label %if.else6, label %if.then3
+13:                                               ; preds = %3
+  %14 = and i64 %2, 1
+  %.not12 = icmp eq i64 %14, 0
+  br i1 %.not12, label %25, label %15
 
-if.then3:                                         ; preds = %if.else
-  %call4 = call { i64, i64 } @_ZNK4absl24synchronization_internal13KernelTimeout20MakeRelativeTimespecEv(ptr noundef nonnull align 8 dereferenceable(8) %t)
-  %1 = extractvalue { i64, i64 } %call4, 0
-  %2 = extractvalue { i64, i64 } %call4, 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ts.i)
-  store i64 %1, ptr %ts.i, align 8
-  %tv_nsec7.i.i = getelementptr inbounds nuw i8, ptr %ts.i, i64 8
-  store i64 %2, ptr %tv_nsec7.i.i, align 8
-  %call1.i = call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef %v, i32 noundef 128, i32 noundef %val, ptr noundef nonnull %ts.i) #5
-  %cmp.not.i = icmp eq i64 %call1.i, 0
-  br i1 %cmp.not.i, label %_ZN4absl24synchronization_internal9FutexImpl19WaitRelativeTimeoutEPSt6atomicIiEiPK8timespec.exit, label %if.then.i
+15:                                               ; preds = %13
+  %16 = call { i64, i64 } @_ZNK4absl24synchronization_internal13KernelTimeout20MakeRelativeTimespecEv(ptr noundef nonnull align 8 dereferenceable(8) %6)
+  %17 = extractvalue { i64, i64 } %16, 0
+  %18 = extractvalue { i64, i64 } %16, 1
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #5
+  store i64 %17, ptr %5, align 8, !tbaa !8
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 %18, ptr %19, align 8, !tbaa !11
+  %20 = call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef %0, i32 noundef 128, i32 noundef %1, ptr noundef nonnull %5) #5
+  %.not.i = icmp eq i64 %20, 0
+  br i1 %.not.i, label %_ZN4absl24synchronization_internal9FutexImpl19WaitRelativeTimeoutEPSt6atomicIiEiPK8timespec.exit, label %21
 
-if.then.i:                                        ; preds = %if.then3
-  %call2.i = tail call ptr @__errno_location() #6
-  %3 = load i32, ptr %call2.i, align 4
-  %sub.i = sub nsw i32 0, %3
+21:                                               ; preds = %15
+  %22 = tail call ptr @__errno_location() #6
+  %23 = load i32, ptr %22, align 4, !tbaa !4
+  %24 = sub nsw i32 0, %23
   br label %_ZN4absl24synchronization_internal9FutexImpl19WaitRelativeTimeoutEPSt6atomicIiEiPK8timespec.exit
 
-_ZN4absl24synchronization_internal9FutexImpl19WaitRelativeTimeoutEPSt6atomicIiEiPK8timespec.exit: ; preds = %if.then3, %if.then.i
-  %retval.0.i = phi i32 [ %sub.i, %if.then.i ], [ 0, %if.then3 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ts.i)
-  br label %return
+_ZN4absl24synchronization_internal9FutexImpl19WaitRelativeTimeoutEPSt6atomicIiEiPK8timespec.exit: ; preds = %15, %21
+  %.0.i = phi i32 [ %24, %21 ], [ 0, %15 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #5
+  br label %_ZN4absl24synchronization_internal9FutexImpl4WaitEPSt6atomicIiEi.exit
 
-if.else6:                                         ; preds = %if.else
-  %call7 = call { i64, i64 } @_ZNK4absl24synchronization_internal13KernelTimeout15MakeAbsTimespecEv(ptr noundef nonnull align 8 dereferenceable(8) %t)
-  %4 = extractvalue { i64, i64 } %call7, 0
-  %5 = extractvalue { i64, i64 } %call7, 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ts.i7)
-  store i64 %4, ptr %ts.i7, align 8
-  %tv_nsec7.i.i9 = getelementptr inbounds nuw i8, ptr %ts.i7, i64 8
-  store i64 %5, ptr %tv_nsec7.i.i9, align 8
-  %call1.i11 = call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef %v, i32 noundef 393, i32 noundef %val, ptr noundef nonnull %ts.i7, ptr null, i32 noundef -1) #5
-  %cmp.not.i12 = icmp eq i64 %call1.i11, 0
-  br i1 %cmp.not.i12, label %_ZN4absl24synchronization_internal9FutexImpl19WaitAbsoluteTimeoutEPSt6atomicIiEiPK8timespec.exit, label %if.then.i13
+25:                                               ; preds = %13
+  %26 = call { i64, i64 } @_ZNK4absl24synchronization_internal13KernelTimeout15MakeAbsTimespecEv(ptr noundef nonnull align 8 dereferenceable(8) %6)
+  %27 = extractvalue { i64, i64 } %26, 0
+  %28 = extractvalue { i64, i64 } %26, 1
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #5
+  store i64 %27, ptr %4, align 8, !tbaa !8
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i64 %28, ptr %29, align 8, !tbaa !11
+  %30 = call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef %0, i32 noundef 393, i32 noundef %1, ptr noundef nonnull %4, ptr noundef null, i32 noundef -1) #5
+  %.not.i8 = icmp eq i64 %30, 0
+  br i1 %.not.i8, label %_ZN4absl24synchronization_internal9FutexImpl19WaitAbsoluteTimeoutEPSt6atomicIiEiPK8timespec.exit, label %31
 
-if.then.i13:                                      ; preds = %if.else6
-  %call2.i14 = tail call ptr @__errno_location() #6
-  %6 = load i32, ptr %call2.i14, align 4
-  %sub.i15 = sub nsw i32 0, %6
+31:                                               ; preds = %25
+  %32 = tail call ptr @__errno_location() #6
+  %33 = load i32, ptr %32, align 4, !tbaa !4
+  %34 = sub nsw i32 0, %33
   br label %_ZN4absl24synchronization_internal9FutexImpl19WaitAbsoluteTimeoutEPSt6atomicIiEiPK8timespec.exit
 
-_ZN4absl24synchronization_internal9FutexImpl19WaitAbsoluteTimeoutEPSt6atomicIiEiPK8timespec.exit: ; preds = %if.else6, %if.then.i13
-  %retval.0.i16 = phi i32 [ %sub.i15, %if.then.i13 ], [ 0, %if.else6 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ts.i7)
-  br label %return
+_ZN4absl24synchronization_internal9FutexImpl19WaitAbsoluteTimeoutEPSt6atomicIiEiPK8timespec.exit: ; preds = %25, %31
+  %.0.i9 = phi i32 [ %34, %31 ], [ 0, %25 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #5
+  br label %_ZN4absl24synchronization_internal9FutexImpl4WaitEPSt6atomicIiEi.exit
 
-return:                                           ; preds = %if.then.i.i, %if.then, %_ZN4absl24synchronization_internal9FutexImpl19WaitAbsoluteTimeoutEPSt6atomicIiEiPK8timespec.exit, %_ZN4absl24synchronization_internal9FutexImpl19WaitRelativeTimeoutEPSt6atomicIiEiPK8timespec.exit
-  %retval.0 = phi i32 [ %retval.0.i, %_ZN4absl24synchronization_internal9FutexImpl19WaitRelativeTimeoutEPSt6atomicIiEiPK8timespec.exit ], [ %retval.0.i16, %_ZN4absl24synchronization_internal9FutexImpl19WaitAbsoluteTimeoutEPSt6atomicIiEiPK8timespec.exit ], [ %sub.i.i, %if.then.i.i ], [ 0, %if.then ]
-  ret i32 %retval.0
+_ZN4absl24synchronization_internal9FutexImpl4WaitEPSt6atomicIiEi.exit: ; preds = %9, %7, %_ZN4absl24synchronization_internal9FutexImpl19WaitAbsoluteTimeoutEPSt6atomicIiEiPK8timespec.exit, %_ZN4absl24synchronization_internal9FutexImpl19WaitRelativeTimeoutEPSt6atomicIiEiPK8timespec.exit
+  %.0 = phi i32 [ %.0.i, %_ZN4absl24synchronization_internal9FutexImpl19WaitRelativeTimeoutEPSt6atomicIiEiPK8timespec.exit ], [ %.0.i9, %_ZN4absl24synchronization_internal9FutexImpl19WaitAbsoluteTimeoutEPSt6atomicIiEiPK8timespec.exit ], [ %12, %9 ], [ 0, %7 ]
+  ret i32 %.0
 }
 
-declare { i64, i64 } @_ZNK4absl24synchronization_internal13KernelTimeout20MakeRelativeTimespecEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare { i64, i64 } @_ZNK4absl24synchronization_internal13KernelTimeout15MakeAbsTimespecEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
+declare { i64, i64 } @_ZNK4absl24synchronization_internal13KernelTimeout20MakeRelativeTimespecEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+declare { i64, i64 } @_ZNK4absl24synchronization_internal13KernelTimeout15MakeAbsTimespecEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4absl24synchronization_internal11FutexWaiter4WaitENS0_13KernelTimeoutE(ptr noundef nonnull align 4 dereferenceable(4) %this, i64 %t.coerce) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  br label %while.body
+define dso_local noundef zeroext i1 @_ZN4absl24synchronization_internal11FutexWaiter4WaitENS0_13KernelTimeoutE(ptr noundef nonnull align 4 dereferenceable(4) %0, i64 %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+  br label %3
 
-while.body:                                       ; preds = %while.body.backedge, %entry
-  %first_pass.0 = phi i1 [ true, %entry ], [ false, %while.body.backedge ]
-  %0 = load atomic i32, ptr %this monotonic, align 4
-  br label %while.cond2
+3:                                                ; preds = %.backedge, %2
+  %.010 = phi i1 [ true, %2 ], [ false, %.backedge ]
+  %4 = load atomic i32, ptr %0 monotonic, align 4
+  %.not31.not = icmp eq i32 %4, 0
+  br i1 %.not31.not, label %._crit_edge, label %.lr.ph
 
-while.cond2:                                      ; preds = %while.body3, %while.body
-  %x.0 = phi i32 [ %0, %while.body ], [ %3, %while.body3 ]
-  %cmp.not.not.not.not.not.not = icmp ne i32 %x.0, 0
-  br i1 %cmp.not.not.not.not.not.not, label %while.body3, label %while.end
+.lr.ph:                                           ; preds = %3, %_ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit
+  %.01932 = phi i32 [ %8, %_ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit ], [ %4, %3 ]
+  %5 = add nsw i32 %.01932, -1
+  %6 = cmpxchg weak ptr %0, i32 %.01932, i32 %5 acquire monotonic, align 4
+  %7 = extractvalue { i32, i1 } %6, 1
+  br i1 %7, label %_ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit.thread, label %_ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit
 
-while.body3:                                      ; preds = %while.cond2
-  %sub = add nsw i32 %x.0, -1
-  %1 = cmpxchg weak ptr %this, i32 %x.0, i32 %sub acquire monotonic, align 4
-  %2 = extractvalue { i32, i1 } %1, 1
-  %3 = extractvalue { i32, i1 } %1, 0
-  br i1 %2, label %return, label %while.cond2, !llvm.loop !5
+_ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit: ; preds = %.lr.ph
+  %8 = extractvalue { i32, i1 } %6, 0
+  %.not.not = icmp eq i32 %8, 0
+  br i1 %.not.not, label %._crit_edge, label %.lr.ph
 
-while.end:                                        ; preds = %while.cond2
-  br i1 %first_pass.0, label %if.end7, label %if.then6
+._crit_edge:                                      ; preds = %_ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit, %3
+  br i1 %.010, label %10, label %9
 
-if.then6:                                         ; preds = %while.end
+9:                                                ; preds = %._crit_edge
   tail call void @_ZN4absl24synchronization_internal10WaiterBase15MaybeBecomeIdleEv()
-  br label %if.end7
+  br label %10
 
-if.end7:                                          ; preds = %if.then6, %while.end
-  %call10 = tail call noundef i32 @_ZN4absl24synchronization_internal11FutexWaiter9WaitUntilEPSt6atomicIiEiNS0_13KernelTimeoutE(ptr noundef nonnull %this, i32 noundef 0, i64 %t.coerce)
-  switch i32 %call10, label %do.body [
-    i32 0, label %while.body.backedge
-    i32 -4, label %while.body.backedge
-    i32 -11, label %while.body.backedge
-    i32 -110, label %return
+10:                                               ; preds = %9, %._crit_edge
+  %11 = tail call noundef i32 @_ZN4absl24synchronization_internal11FutexWaiter9WaitUntilEPSt6atomicIiEiNS0_13KernelTimeoutE(ptr noundef nonnull %0, i32 noundef 0, i64 %1)
+  switch i32 %11, label %12 [
+    i32 0, label %.backedge
+    i32 -4, label %.backedge
+    i32 -11, label %.backedge
+    i32 -110, label %_ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit.thread
   ]
 
-while.body.backedge:                              ; preds = %if.end7, %if.end7, %if.end7
-  br label %while.body, !llvm.loop !7
+.backedge:                                        ; preds = %10, %10, %10
+  br label %3, !llvm.loop !12
 
-do.body:                                          ; preds = %if.end7
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 129), i32 noundef 85, ptr noundef nonnull @.str.1, i32 noundef %call10)
+12:                                               ; preds = %10
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 129), i32 noundef 85, ptr noundef nonnull @.str.1, i32 noundef %11)
   unreachable
 
-return:                                           ; preds = %if.end7, %while.body3
-  ret i1 %cmp.not.not.not.not.not.not
+_ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit.thread: ; preds = %10, %.lr.ph
+  %.not28 = phi i1 [ true, %.lr.ph ], [ false, %10 ]
+  ret i1 %.not28
 }
 
-declare void @_ZN4absl24synchronization_internal10WaiterBase15MaybeBecomeIdleEv() local_unnamed_addr #1
+declare void @_ZN4absl24synchronization_internal10WaiterBase15MaybeBecomeIdleEv() local_unnamed_addr #2
 
-declare void @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
+declare void @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl24synchronization_internal11FutexWaiter4PostEv(ptr noundef nonnull align 4 dereferenceable(4) %this) local_unnamed_addr #0 align 2 {
-entry:
-  %0 = atomicrmw add ptr %this, i32 1 release, align 4
-  %cmp = icmp eq i32 %0, 0
-  br i1 %cmp, label %if.then, label %if.end
+define dso_local void @_ZN4absl24synchronization_internal11FutexWaiter4PostEv(ptr noundef nonnull align 4 dereferenceable(4) %0) local_unnamed_addr #0 align 2 {
+  %2 = atomicrmw add ptr %0, i32 1 release, align 4
+  %3 = icmp eq i32 %2, 0
+  br i1 %3, label %4, label %_ZN4absl24synchronization_internal11FutexWaiter4PokeEv.exit
 
-if.then:                                          ; preds = %entry
-  %call.i.i = tail call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull align 4 dereferenceable(4) %this, i32 noundef 129, i32 noundef 1) #5
-  %cmp.i.i = icmp slt i64 %call.i.i, 0
-  br i1 %cmp.i.i, label %_ZN4absl24synchronization_internal9FutexImpl4WakeEPSt6atomicIiEi.exit.i, label %if.end
+4:                                                ; preds = %1
+  %5 = tail call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull align 4 dereferenceable(4) %0, i32 noundef 129, i32 noundef 1) #5
+  %6 = icmp slt i64 %5, 0
+  br i1 %6, label %_ZN4absl24synchronization_internal9FutexImpl4WakeEPSt6atomicIiEi.exit.i, label %_ZN4absl24synchronization_internal11FutexWaiter4PokeEv.exit, !prof !14
 
-_ZN4absl24synchronization_internal9FutexImpl4WakeEPSt6atomicIiEi.exit.i: ; preds = %if.then
-  %call1.i.i = tail call ptr @__errno_location() #6
-  %1 = load i32, ptr %call1.i.i, align 4
-  %cmp.i = icmp sgt i32 %1, 0
-  br i1 %cmp.i, label %do.body.i, label %if.end
+_ZN4absl24synchronization_internal9FutexImpl4WakeEPSt6atomicIiEi.exit.i: ; preds = %4
+  %7 = tail call ptr @__errno_location() #6
+  %8 = load i32, ptr %7, align 4, !tbaa !4
+  %9 = icmp sgt i32 %8, 0
+  br i1 %9, label %10, label %_ZN4absl24synchronization_internal11FutexWaiter4PokeEv.exit, !prof !15
 
-do.body.i:                                        ; preds = %_ZN4absl24synchronization_internal9FutexImpl4WakeEPSt6atomicIiEi.exit.i
-  %sub.i.i = sub nsw i32 0, %1
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 129), i32 noundef 103, ptr noundef nonnull @.str.1, i32 noundef %sub.i.i)
+10:                                               ; preds = %_ZN4absl24synchronization_internal9FutexImpl4WakeEPSt6atomicIiEi.exit.i
+  %11 = sub nsw i32 0, %8
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 129), i32 noundef 103, ptr noundef nonnull @.str.1, i32 noundef %11)
   unreachable
 
-if.end:                                           ; preds = %_ZN4absl24synchronization_internal9FutexImpl4WakeEPSt6atomicIiEi.exit.i, %if.then, %entry
+_ZN4absl24synchronization_internal11FutexWaiter4PokeEv.exit: ; preds = %_ZN4absl24synchronization_internal9FutexImpl4WakeEPSt6atomicIiEi.exit.i, %4, %1
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl24synchronization_internal11FutexWaiter4PokeEv(ptr noundef nonnull align 4 dereferenceable(4) %this) local_unnamed_addr #0 align 2 {
-entry:
-  %call.i = tail call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull %this, i32 noundef 129, i32 noundef 1) #5
-  %cmp.i = icmp slt i64 %call.i, 0
-  br i1 %cmp.i, label %_ZN4absl24synchronization_internal9FutexImpl4WakeEPSt6atomicIiEi.exit, label %if.end
+define dso_local void @_ZN4absl24synchronization_internal11FutexWaiter4PokeEv(ptr noundef nonnull align 4 dereferenceable(4) %0) local_unnamed_addr #0 align 2 {
+  %2 = tail call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull %0, i32 noundef 129, i32 noundef 1) #5
+  %3 = icmp slt i64 %2, 0
+  br i1 %3, label %_ZN4absl24synchronization_internal9FutexImpl4WakeEPSt6atomicIiEi.exit, label %_ZN4absl24synchronization_internal9FutexImpl4WakeEPSt6atomicIiEi.exit.thread, !prof !14
 
-_ZN4absl24synchronization_internal9FutexImpl4WakeEPSt6atomicIiEi.exit: ; preds = %entry
-  %call1.i = tail call ptr @__errno_location() #6
-  %0 = load i32, ptr %call1.i, align 4
-  %cmp = icmp sgt i32 %0, 0
-  br i1 %cmp, label %do.body, label %if.end
+_ZN4absl24synchronization_internal9FutexImpl4WakeEPSt6atomicIiEi.exit: ; preds = %1
+  %4 = tail call ptr @__errno_location() #6
+  %5 = load i32, ptr %4, align 4, !tbaa !4
+  %6 = icmp sgt i32 %5, 0
+  br i1 %6, label %7, label %_ZN4absl24synchronization_internal9FutexImpl4WakeEPSt6atomicIiEi.exit.thread, !prof !15
 
-do.body:                                          ; preds = %_ZN4absl24synchronization_internal9FutexImpl4WakeEPSt6atomicIiEi.exit
-  %sub.i = sub nsw i32 0, %0
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 129), i32 noundef 103, ptr noundef nonnull @.str.1, i32 noundef %sub.i)
+7:                                                ; preds = %_ZN4absl24synchronization_internal9FutexImpl4WakeEPSt6atomicIiEi.exit
+  %8 = sub nsw i32 0, %5
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 129), i32 noundef 103, ptr noundef nonnull @.str.1, i32 noundef %8)
   unreachable
 
-if.end:                                           ; preds = %entry, %_ZN4absl24synchronization_internal9FutexImpl4WakeEPSt6atomicIiEi.exit
+_ZN4absl24synchronization_internal9FutexImpl4WakeEPSt6atomicIiEi.exit.thread: ; preds = %1, %_ZN4absl24synchronization_internal9FutexImpl4WakeEPSt6atomicIiEi.exit
   ret void
 }
 
 ; Function Attrs: nounwind
-declare i64 @syscall(i64 noundef, ...) local_unnamed_addr #2
+declare i64 @syscall(i64 noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #3
+declare ptr @__errno_location() local_unnamed_addr #4
 
 declare i32 @__gxx_personality_v0(...)
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
-
-attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nounwind }
 attributes #6 = { nounwind willreturn memory(none) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"int", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = !{!9, !10, i64 0}
+!9 = !{!"_ZTSN4absl24synchronization_internal13FutexTimespecE", !10, i64 0, !10, i64 8}
+!10 = !{!"long", !6, i64 0}
+!11 = !{!9, !10, i64 8}
+!12 = distinct !{!12, !13}
+!13 = !{!"llvm.loop.mustprogress"}
+!14 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!15 = !{!"branch_weights", !"expected", i32 2001, i32 2147481647}

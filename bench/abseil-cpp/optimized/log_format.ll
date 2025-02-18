@@ -1,7 +1,7 @@
 ; ModuleID = 'bench/abseil-cpp/original/log_format.ll'
 source_filename = "bench/abseil-cpp/original/log_format.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
@@ -9,11 +9,16 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::basic_string_view" = type { i64, ptr }
 %"class.absl::str_format_internal::FormatArgImpl" = type { %"union.absl::str_format_internal::FormatArgImpl::Data", ptr }
 %"union.absl::str_format_internal::FormatArgImpl::Data" = type { ptr }
+%"class.absl::Duration" = type { %"class.absl::Duration::HiRep", i32 }
+%"class.absl::Duration::HiRep" = type { i32, i32 }
+%"class.absl::str_format_internal::FormatSpecTemplate.0" = type { %"class.absl::UntypedFormatSpec" }
+%"class.absl::UntypedFormatSpec" = type { %"class.absl::str_format_internal::UntypedFormatSpecImpl" }
+%"class.absl::str_format_internal::UntypedFormatSpecImpl" = type { ptr, i64 }
 %"struct.absl::TimeZone::CivilInfo" = type { %"class.absl::time_internal::cctz::detail::civil_time", %"class.absl::Duration", i32, i8, ptr }
 %"class.absl::time_internal::cctz::detail::civil_time" = type { %"struct.absl::time_internal::cctz::detail::fields" }
 %"struct.absl::time_internal::cctz::detail::fields" = type <{ i64, i8, i8, i8, i8, i8, [3 x i8] }>
-%"class.absl::Duration" = type { %"class.absl::Duration::HiRep", i32 }
-%"class.absl::Duration::HiRep" = type { i32, i32 }
+
+$_ZN4absl8SNPrintFIJciiiEEEiPcmRKNS_19str_format_internal18FormatSpecTemplateIJXspclsr19str_format_internalE14ArgumentToConvIT_EEEEEEDpRKS4_ = comdat any
 
 @.str = private unnamed_addr constant [47 x i8] c"%c%02d%02d %02d:%02d:%02d.%06d %7d %s:%d] %s%s\00", align 1
 @.str.1 = private unnamed_addr constant [6 x i8] c"RAW: \00", align 1
@@ -27,410 +32,482 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table._ZN4absl12log_internal15FormatLogPrefixENS_11LogSeverityENS_4TimeEiSt17basic_string_viewIcSt11char_traitsIcEEiNS0_12PrefixFormatERNS_4SpanIcEE.1 = private unnamed_addr constant [4 x ptr] [ptr @.str.3, ptr @.str.4, ptr @.str.5, ptr @.str.6], align 8
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl12log_internal16FormatLogMessageB5cxx11ENS_11LogSeverityENS_13time_internal4cctz6detail10civil_timeINS2_10second_tagEEENS_8DurationEiSt17basic_string_viewIcSt11char_traitsIcEEiNS0_12PrefixFormatESC_(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, i32 noundef %severity, i64 %civil_second.coerce0, i64 %civil_second.coerce1, i64 %subsecond.coerce0, i32 %subsecond.coerce1, i32 noundef %tid, ptr noundef byval(%"class.std::basic_string_view") align 8 %basename, i32 noundef %line, i32 noundef %format, ptr noundef byval(%"class.std::basic_string_view") align 8 %message) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
-entry:
-  %ref.tmp.i = alloca [12 x %"class.absl::str_format_internal::FormatArgImpl"], align 8
-  %0 = icmp ult i32 %severity, 4
-  br i1 %0, label %switch.lookup, label %_ZN4absl15LogSeverityNameENS_11LogSeverityE.exit
+define dso_local void @_ZN4absl12log_internal16FormatLogMessageB5cxx11ENS_11LogSeverityENS_13time_internal4cctz6detail10civil_timeINS2_10second_tagEEENS_8DurationEiSt17basic_string_viewIcSt11char_traitsIcEEiNS0_12PrefixFormatESC_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, i32 noundef %1, i64 %2, i64 %3, i64 %4, i32 %5, i32 noundef %6, ptr noundef byval(%"class.std::basic_string_view") align 8 %7, i32 noundef %8, i32 noundef %9, ptr noundef byval(%"class.std::basic_string_view") align 8 %10) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+  %12 = alloca [12 x %"class.absl::str_format_internal::FormatArgImpl"], align 8
+  %13 = alloca %"class.absl::Duration", align 8
+  %14 = icmp ult i32 %1, 4
+  br i1 %14, label %switch.lookup, label %_ZN4absl15LogSeverityNameENS_11LogSeverityE.exit
 
-switch.lookup:                                    ; preds = %entry
-  %1 = zext nneg i32 %severity to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN4absl12log_internal15FormatLogPrefixENS_11LogSeverityENS_4TimeEiSt17basic_string_viewIcSt11char_traitsIcEEiNS0_12PrefixFormatERNS_4SpanIcEE.1, i64 0, i64 %1
+switch.lookup:                                    ; preds = %11
+  %15 = zext nneg i32 %1 to i64
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN4absl12log_internal15FormatLogPrefixENS_11LogSeverityENS_4TimeEiSt17basic_string_viewIcSt11char_traitsIcEEiNS0_12PrefixFormatERNS_4SpanIcEE.1, i64 0, i64 %15
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN4absl15LogSeverityNameENS_11LogSeverityE.exit
 
-_ZN4absl15LogSeverityNameENS_11LogSeverityE.exit: ; preds = %entry, %switch.lookup
-  %retval.0.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.7, %entry ]
-  %2 = trunc i64 %civil_second.coerce1 to i32
-  %sext = shl i32 %2, 24
-  %conv.i = ashr exact i32 %sext, 24
-  %3 = shl i32 %2, 16
-  %conv.i1 = ashr i32 %3, 24
-  %4 = shl i32 %2, 8
-  %conv.i2 = ashr i32 %4, 24
-  %conv.i3 = ashr i32 %2, 24
-  %sh.diff = lshr i64 %civil_second.coerce1, 8
+_ZN4absl15LogSeverityNameENS_11LogSeverityE.exit: ; preds = %11, %switch.lookup
+  %.0.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.7, %11 ]
+  %16 = icmp ult i64 %4, 8796093022208
+  br i1 %16, label %17, label %22
+
+17:                                               ; preds = %_ZN4absl15LogSeverityNameENS_11LogSeverityE.exit
+  %18 = mul nuw nsw i64 %4, 1000000
+  %19 = udiv i32 %5, 4000
+  %20 = zext nneg i32 %19 to i64
+  %21 = add nuw nsw i64 %18, %20
+  br label %_ZN4absl19ToInt64MicrosecondsENS_8DurationE.exit
+
+22:                                               ; preds = %_ZN4absl15LogSeverityNameENS_11LogSeverityE.exit
+  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %13)
+  store i64 %4, ptr %13, align 8
+  %.sroa.212.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %13, i64 8
+  store i32 %5, ptr %.sroa.212.0..sroa_idx.i.i, align 8
+  %23 = call noundef i64 @_ZN4absl12IDivDurationENS_8DurationES0_PS0_(i64 %4, i32 %5, i64 0, i32 4000, ptr noundef nonnull %13) #6
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %13)
+  br label %_ZN4absl19ToInt64MicrosecondsENS_8DurationE.exit
+
+_ZN4absl19ToInt64MicrosecondsENS_8DurationE.exit: ; preds = %17, %22
+  %.0.i8 = phi i64 [ %21, %17 ], [ %23, %22 ]
+  %sh.diff = lshr i64 %3, 8
   %tr.sh.diff = trunc i64 %sh.diff to i32
-  %conv.i4 = ashr i32 %tr.sh.diff, 24
-  %call12 = tail call noundef i64 @_ZN4absl19ToInt64MicrosecondsENS_8DurationE(i64 %subsecond.coerce0, i32 %subsecond.coerce1) #6
-  %cmp = icmp eq i32 %format, 1
-  %cond = select i1 %cmp, ptr @.str.1, ptr @.str.2
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %ref.tmp.i)
-  %retval.sroa.0.0.copyload.i.i.i.i = load i8, ptr %retval.0.i, align 1, !noalias !5
-  %retval.sroa.0.0.insert.ext.i.i.i.i = zext i8 %retval.sroa.0.0.copyload.i.i.i.i to i64
-  %5 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i.i to ptr
-  store ptr %5, ptr %ref.tmp.i, align 8, !noalias !5
-  %dispatcher_.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
-  store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIcEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i, align 8, !noalias !5
-  %arrayinit.element.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
-  %retval.sroa.0.0.insert.ext.i.i.i2.i = zext i32 %conv.i to i64
-  %6 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i2.i to ptr
-  store ptr %6, ptr %arrayinit.element.i, align 8, !noalias !5
-  %dispatcher_.i.i3.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 24
-  store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIiEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i3.i, align 8, !noalias !5
-  %arrayinit.element25.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 32
-  %retval.sroa.0.0.insert.ext.i.i.i5.i = zext i32 %conv.i1 to i64
-  %7 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i5.i to ptr
-  store ptr %7, ptr %arrayinit.element25.i, align 8, !noalias !5
-  %dispatcher_.i.i6.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 40
-  store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIiEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i6.i, align 8, !noalias !5
-  %arrayinit.element26.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 48
-  %retval.sroa.0.0.insert.ext.i.i.i8.i = zext i32 %conv.i2 to i64
-  %8 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i8.i to ptr
-  store ptr %8, ptr %arrayinit.element26.i, align 8, !noalias !5
-  %dispatcher_.i.i9.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 56
-  store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIiEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i9.i, align 8, !noalias !5
-  %arrayinit.element27.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 64
-  %retval.sroa.0.0.insert.ext.i.i.i11.i = zext i32 %conv.i3 to i64
-  %9 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i11.i to ptr
-  store ptr %9, ptr %arrayinit.element27.i, align 8, !noalias !5
-  %dispatcher_.i.i12.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 72
-  store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIiEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i12.i, align 8, !noalias !5
-  %arrayinit.element28.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 80
-  %retval.sroa.0.0.insert.ext.i.i.i14.i = zext i32 %conv.i4 to i64
-  %10 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i14.i to ptr
-  store ptr %10, ptr %arrayinit.element28.i, align 8, !noalias !5
-  %dispatcher_.i.i15.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 88
-  store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIiEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i15.i, align 8, !noalias !5
-  %arrayinit.element29.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 96
-  %11 = inttoptr i64 %call12 to ptr
-  store ptr %11, ptr %arrayinit.element29.i, align 8, !noalias !5
-  %dispatcher_.i.i17.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 104
-  store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIlEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i17.i, align 8, !noalias !5
-  %arrayinit.element30.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 112
-  %retval.sroa.0.0.insert.ext.i.i.i19.i = zext i32 %tid to i64
-  %12 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i19.i to ptr
-  store ptr %12, ptr %arrayinit.element30.i, align 8, !noalias !5
-  %dispatcher_.i.i20.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 120
-  store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIiEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i20.i, align 8, !noalias !5
-  %arrayinit.element31.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 128
-  store ptr %basename, ptr %arrayinit.element31.i, align 8, !noalias !5
-  %dispatcher_.i.i21.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 136
-  store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchISt17basic_string_viewIcSt11char_traitsIcEEEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i21.i, align 8, !noalias !5
-  %arrayinit.element32.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 144
-  %retval.sroa.0.0.insert.ext.i.i.i23.i = zext i32 %line to i64
-  %13 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i23.i to ptr
-  store ptr %13, ptr %arrayinit.element32.i, align 8, !noalias !5
-  %dispatcher_.i.i24.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 152
-  store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIiEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i24.i, align 8, !noalias !5
-  %arrayinit.element33.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 160
-  store ptr %cond, ptr %arrayinit.element33.i, align 8, !noalias !5
-  %dispatcher_.i.i25.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 168
-  store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIPKcEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i25.i, align 8, !noalias !5
-  %arrayinit.element34.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 176
-  store ptr %message, ptr %arrayinit.element34.i, align 8, !noalias !5
-  %dispatcher_.i.i26.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 184
-  store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchISt17basic_string_viewIcSt11char_traitsIcEEEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i26.i, align 8, !noalias !5
-  call void @_ZN4absl19str_format_internal10FormatPackB5cxx11ENS0_21UntypedFormatSpecImplENS_4SpanIKNS0_13FormatArgImplEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull @.str, i64 46, ptr nonnull %ref.tmp.i, i64 12)
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %ref.tmp.i)
+  %24 = ashr i32 %tr.sh.diff, 24
+  %25 = trunc i64 %3 to i32
+  %26 = ashr i32 %25, 24
+  %27 = shl i32 %25, 8
+  %28 = ashr i32 %27, 24
+  %29 = shl i32 %25, 16
+  %30 = ashr i32 %29, 24
+  %sext = shl i32 %25, 24
+  %31 = ashr exact i32 %sext, 24
+  %32 = icmp eq i32 %9, 1
+  %33 = select i1 %32, ptr @.str.1, ptr @.str.2
+  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %12) #6, !noalias !4
+  %.sroa.0.0.copyload.i.i.i.i = load i8, ptr %.0.i, align 1, !noalias !4
+  %.sroa.0.0.insert.ext.i.i.i.i = zext i8 %.sroa.0.0.copyload.i.i.i.i to i64
+  %34 = inttoptr i64 %.sroa.0.0.insert.ext.i.i.i.i to ptr
+  store ptr %34, ptr %12, align 8, !tbaa !7, !noalias !4
+  %35 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIcEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %35, align 8, !tbaa !10, !noalias !4
+  %36 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %.sroa.0.0.insert.ext.i.i.i16.i = zext i32 %31 to i64
+  %37 = inttoptr i64 %.sroa.0.0.insert.ext.i.i.i16.i to ptr
+  store ptr %37, ptr %36, align 8, !tbaa !7, !noalias !4
+  %38 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIiEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %38, align 8, !tbaa !10, !noalias !4
+  %39 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %.sroa.0.0.insert.ext.i.i.i18.i = zext i32 %30 to i64
+  %40 = inttoptr i64 %.sroa.0.0.insert.ext.i.i.i18.i to ptr
+  store ptr %40, ptr %39, align 8, !tbaa !7, !noalias !4
+  %41 = getelementptr inbounds nuw i8, ptr %12, i64 40
+  store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIiEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %41, align 8, !tbaa !10, !noalias !4
+  %42 = getelementptr inbounds nuw i8, ptr %12, i64 48
+  %.sroa.0.0.insert.ext.i.i.i20.i = zext i32 %28 to i64
+  %43 = inttoptr i64 %.sroa.0.0.insert.ext.i.i.i20.i to ptr
+  store ptr %43, ptr %42, align 8, !tbaa !7, !noalias !4
+  %44 = getelementptr inbounds nuw i8, ptr %12, i64 56
+  store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIiEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %44, align 8, !tbaa !10, !noalias !4
+  %45 = getelementptr inbounds nuw i8, ptr %12, i64 64
+  %.sroa.0.0.insert.ext.i.i.i22.i = zext i32 %26 to i64
+  %46 = inttoptr i64 %.sroa.0.0.insert.ext.i.i.i22.i to ptr
+  store ptr %46, ptr %45, align 8, !tbaa !7, !noalias !4
+  %47 = getelementptr inbounds nuw i8, ptr %12, i64 72
+  store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIiEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %47, align 8, !tbaa !10, !noalias !4
+  %48 = getelementptr inbounds nuw i8, ptr %12, i64 80
+  %.sroa.0.0.insert.ext.i.i.i24.i = zext i32 %24 to i64
+  %49 = inttoptr i64 %.sroa.0.0.insert.ext.i.i.i24.i to ptr
+  store ptr %49, ptr %48, align 8, !tbaa !7, !noalias !4
+  %50 = getelementptr inbounds nuw i8, ptr %12, i64 88
+  store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIiEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %50, align 8, !tbaa !10, !noalias !4
+  %51 = getelementptr inbounds nuw i8, ptr %12, i64 96
+  %52 = inttoptr i64 %.0.i8 to ptr
+  store ptr %52, ptr %51, align 8, !tbaa !7, !noalias !4
+  %53 = getelementptr inbounds nuw i8, ptr %12, i64 104
+  store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIlEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %53, align 8, !tbaa !10, !noalias !4
+  %54 = getelementptr inbounds nuw i8, ptr %12, i64 112
+  %.sroa.0.0.insert.ext.i.i.i27.i = zext i32 %6 to i64
+  %55 = inttoptr i64 %.sroa.0.0.insert.ext.i.i.i27.i to ptr
+  store ptr %55, ptr %54, align 8, !tbaa !7, !noalias !4
+  %56 = getelementptr inbounds nuw i8, ptr %12, i64 120
+  store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIiEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %56, align 8, !tbaa !10, !noalias !4
+  %57 = getelementptr inbounds nuw i8, ptr %12, i64 128
+  store ptr %7, ptr %57, align 8, !tbaa !7, !noalias !4
+  %58 = getelementptr inbounds nuw i8, ptr %12, i64 136
+  store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchISt17basic_string_viewIcSt11char_traitsIcEEEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %58, align 8, !tbaa !10, !noalias !4
+  %59 = getelementptr inbounds nuw i8, ptr %12, i64 144
+  %.sroa.0.0.insert.ext.i.i.i29.i = zext i32 %8 to i64
+  %60 = inttoptr i64 %.sroa.0.0.insert.ext.i.i.i29.i to ptr
+  store ptr %60, ptr %59, align 8, !tbaa !7, !noalias !4
+  %61 = getelementptr inbounds nuw i8, ptr %12, i64 152
+  store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIiEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %61, align 8, !tbaa !10, !noalias !4
+  %62 = getelementptr inbounds nuw i8, ptr %12, i64 160
+  store ptr %33, ptr %62, align 8, !tbaa !7, !noalias !4
+  %63 = getelementptr inbounds nuw i8, ptr %12, i64 168
+  store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIPKcEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %63, align 8, !tbaa !10, !noalias !4
+  %64 = getelementptr inbounds nuw i8, ptr %12, i64 176
+  store ptr %10, ptr %64, align 8, !tbaa !7, !noalias !4
+  %65 = getelementptr inbounds nuw i8, ptr %12, i64 184
+  store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchISt17basic_string_viewIcSt11char_traitsIcEEEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %65, align 8, !tbaa !10, !noalias !4
+  call void @_ZN4absl19str_format_internal10FormatPackB5cxx11ENS0_21UntypedFormatSpecImplENS_4SpanIKNS0_13FormatArgImplEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull @.str, i64 46, ptr nonnull %12, i64 12)
+  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %12) #6, !noalias !4
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare noundef i64 @_ZN4absl19ToInt64MicrosecondsENS_8DurationE(i64, i32) local_unnamed_addr #2
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZN4absl12log_internal15FormatLogPrefixENS_11LogSeverityENS_4TimeEiSt17basic_string_viewIcSt11char_traitsIcEEiNS0_12PrefixFormatERNS_4SpanIcEE(i32 noundef %severity, i64 %timestamp.coerce0, i32 %timestamp.coerce1, i32 noundef %tid, i64 %basename.coerce0, ptr readonly captures(none) %basename.coerce1, i32 noundef %line, i32 noundef %format, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %buf) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
-entry:
-  %ref.tmp.i.i = alloca [4 x %"class.absl::str_format_internal::FormatArgImpl"], align 8
-  %ci.i = alloca %"struct.absl::TimeZone::CivilInfo", align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ci.i)
-  %len_.i.i = getelementptr inbounds nuw i8, ptr %buf, i64 8
-  %0 = load i64, ptr %len_.i.i, align 8
-  %cmp.i = icmp ult i64 %0, 34
-  br i1 %cmp.i, label %return.sink.split.i, label %if.end.i
+define dso_local noundef i64 @_ZN4absl12log_internal15FormatLogPrefixENS_11LogSeverityENS_4TimeEiSt17basic_string_viewIcSt11char_traitsIcEEiNS0_12PrefixFormatERNS_4SpanIcEE(i32 noundef %0, i64 %1, i32 %2, i32 noundef %3, i64 %4, ptr readonly captures(none) %5, i32 noundef %6, i32 noundef %7, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %8) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+  %10 = alloca %"class.absl::Duration", align 8
+  %11 = alloca %"class.absl::str_format_internal::FormatSpecTemplate.0", align 8
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca %"struct.absl::TimeZone::CivilInfo", align 8
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %17 = load i64, ptr %16, align 8, !tbaa !13
+  %18 = icmp ult i64 %17, 34
+  br i1 %18, label %19, label %20, !prof !17
 
-if.end.i:                                         ; preds = %entry
-  %call2.i = tail call noundef ptr @_ZN4absl12log_internal8TimeZoneEv()
-  %cmp3.i = icmp eq ptr %call2.i, null
-  br i1 %cmp3.i, label %if.then4.i, label %if.end19.i
+19:                                               ; preds = %9
+  store i64 0, ptr %16, align 8, !tbaa !13
+  %.pre23 = load ptr, ptr %8, align 8, !tbaa !18
+  br label %_ZN4absl12log_internal12_GLOBAL__N_119FormatBoundedFieldsENS_11LogSeverityENS_4TimeEiRNS_4SpanIcEE.exit
 
-if.then4.i:                                       ; preds = %if.end.i
-  %call5.i = tail call { i64, i64 } @_ZN4absl9ToTimevalENS_4TimeE(i64 %timestamp.coerce0, i32 %timestamp.coerce1) #6
-  %1 = extractvalue { i64, i64 } %call5.i, 0
-  %2 = extractvalue { i64, i64 } %call5.i, 1
-  %3 = load ptr, ptr %buf, align 8
-  %4 = load i64, ptr %len_.i.i, align 8
-  %5 = icmp ult i32 %severity, 4
-  br i1 %5, label %switch.lookup, label %_ZN4absl15LogSeverityNameENS_11LogSeverityE.exit.i
+20:                                               ; preds = %9
+  %21 = tail call noundef ptr @_ZN4absl12log_internal8TimeZoneEv()
+  %22 = icmp eq ptr %21, null
+  br i1 %22, label %23, label %40, !prof !17
 
-switch.lookup:                                    ; preds = %if.then4.i
-  %6 = zext nneg i32 %severity to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN4absl12log_internal15FormatLogPrefixENS_11LogSeverityENS_4TimeEiSt17basic_string_viewIcSt11char_traitsIcEEiNS0_12PrefixFormatERNS_4SpanIcEE.1, i64 0, i64 %6
+23:                                               ; preds = %20
+  %24 = tail call { i64, i64 } @_ZN4absl9ToTimevalENS_4TimeE(i64 %1, i32 %2) #7
+  %25 = extractvalue { i64, i64 } %24, 0
+  %26 = extractvalue { i64, i64 } %24, 1
+  %27 = load ptr, ptr %8, align 8, !tbaa !18
+  %28 = load i64, ptr %16, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #6
+  store ptr @.str.8, ptr %11, align 8, !tbaa !19
+  %29 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store i64 27, ptr %29, align 8, !tbaa !21
+  %30 = icmp ult i32 %0, 4
+  br i1 %30, label %switch.lookup, label %_ZN4absl15LogSeverityNameENS_11LogSeverityE.exit.i
+
+switch.lookup:                                    ; preds = %23
+  %31 = zext nneg i32 %0 to i64
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN4absl12log_internal15FormatLogPrefixENS_11LogSeverityENS_4TimeEiSt17basic_string_viewIcSt11char_traitsIcEEiNS0_12PrefixFormatERNS_4SpanIcEE.1, i64 0, i64 %31
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN4absl15LogSeverityNameENS_11LogSeverityE.exit.i
 
-_ZN4absl15LogSeverityNameENS_11LogSeverityE.exit.i: ; preds = %if.then4.i, %switch.lookup
-  %retval.0.i.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.7, %if.then4.i ]
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %ref.tmp.i.i)
-  %retval.sroa.0.0.copyload.i.i.i.i.i = load i8, ptr %retval.0.i.i, align 1
-  %retval.sroa.0.0.insert.ext.i.i.i.i.i = zext i8 %retval.sroa.0.0.copyload.i.i.i.i.i to i64
-  %7 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i.i.i to ptr
-  store ptr %7, ptr %ref.tmp.i.i, align 8
-  %dispatcher_.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 8
-  store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIcEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i.i, align 8
-  %arrayinit.element.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 16
-  %retval.sroa.0.0.insert.ext.i.i.i2.i.i = and i64 %1, 4294967295
-  %8 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i2.i.i to ptr
-  store ptr %8, ptr %arrayinit.element.i.i, align 8
-  %dispatcher_.i.i3.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 24
-  store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIiEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i3.i.i, align 8
-  %arrayinit.element9.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 32
-  %retval.sroa.0.0.insert.ext.i.i.i5.i.i = and i64 %2, 4294967295
-  %9 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i5.i.i to ptr
-  store ptr %9, ptr %arrayinit.element9.i.i, align 8
-  %dispatcher_.i.i6.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 40
-  store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIiEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i6.i.i, align 8
-  %arrayinit.element10.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 48
-  %retval.sroa.0.0.insert.ext.i.i.i8.i.i = zext i32 %tid to i64
-  %10 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i8.i.i to ptr
-  store ptr %10, ptr %arrayinit.element10.i.i, align 8
-  %dispatcher_.i.i9.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 56
-  store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIiEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i9.i.i, align 8
-  %call11.i.i = call noundef i32 @_ZN4absl19str_format_internal8SnprintFEPcmNS0_21UntypedFormatSpecImplENS_4SpanIKNS0_13FormatArgImplEEE(ptr noundef %3, i64 noundef %4, ptr nonnull @.str.8, i64 27, ptr nonnull %ref.tmp.i.i, i64 4)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %ref.tmp.i.i)
-  %cmp14.i = icmp sgt i32 %call11.i.i, -1
-  br i1 %cmp14.i, label %if.then15.i, label %_ZN4absl15LogSeverityNameENS_11LogSeverityE.exit.i._ZN4absl12log_internal12_GLOBAL__N_119FormatBoundedFieldsENS_11LogSeverityENS_4TimeEiRNS_4SpanIcEE.exit_crit_edge
+_ZN4absl15LogSeverityNameENS_11LogSeverityE.exit.i: ; preds = %23, %switch.lookup
+  %.0.i.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.7, %23 ]
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #6
+  %32 = trunc i64 %25 to i32
+  store i32 %32, ptr %12, align 4, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #6
+  %33 = trunc i64 %26 to i32
+  store i32 %33, ptr %13, align 4, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #6
+  store i32 %3, ptr %14, align 4, !tbaa !22
+  %34 = call noundef i32 @_ZN4absl8SNPrintFIJciiiEEEiPcmRKNS_19str_format_internal18FormatSpecTemplateIJXspclsr19str_format_internalE14ArgumentToConvIT_EEEEEEDpRKS4_(ptr noundef %27, i64 noundef %28, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 1 dereferenceable(1) %.0.i.i, ptr noundef nonnull align 4 dereferenceable(4) %12, ptr noundef nonnull align 4 dereferenceable(4) %13, ptr noundef nonnull align 4 dereferenceable(4) %14)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #6
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #6
+  %35 = icmp sgt i32 %34, -1
+  %.pre = load i64, ptr %16, align 8, !tbaa !13
+  %.pre24 = load ptr, ptr %8, align 8, !tbaa !18
+  br i1 %35, label %36, label %_ZN4absl12log_internal12_GLOBAL__N_119FormatBoundedFieldsENS_11LogSeverityENS_4TimeEiRNS_4SpanIcEE.exit
 
-_ZN4absl15LogSeverityNameENS_11LogSeverityE.exit.i._ZN4absl12log_internal12_GLOBAL__N_119FormatBoundedFieldsENS_11LogSeverityENS_4TimeEiRNS_4SpanIcEE.exit_crit_edge: ; preds = %_ZN4absl15LogSeverityNameENS_11LogSeverityE.exit.i
-  %.pre = load i64, ptr %len_.i.i, align 8
+36:                                               ; preds = %_ZN4absl15LogSeverityNameENS_11LogSeverityE.exit.i
+  %37 = zext nneg i32 %34 to i64
+  %38 = getelementptr inbounds nuw i8, ptr %.pre24, i64 %37
+  store ptr %38, ptr %8, align 8, !tbaa !18
+  %39 = sub i64 %.pre, %37
+  store i64 %39, ptr %16, align 8, !tbaa !13
   br label %_ZN4absl12log_internal12_GLOBAL__N_119FormatBoundedFieldsENS_11LogSeverityENS_4TimeEiRNS_4SpanIcEE.exit
 
-if.then15.i:                                      ; preds = %_ZN4absl15LogSeverityNameENS_11LogSeverityE.exit.i
-  %conv16.i = zext nneg i32 %call11.i.i to i64
-  %11 = load ptr, ptr %buf, align 8
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %11, i64 %conv16.i
-  br label %return.sink.split.sink.split.i
+40:                                               ; preds = %20
+  %41 = load ptr, ptr %8, align 8, !tbaa !18
+  %42 = icmp ult i32 %0, 4
+  br i1 %42, label %switch.lookup25, label %_ZN4absl15LogSeverityNameENS_11LogSeverityE.exit43.i
 
-if.end19.i:                                       ; preds = %if.end.i
-  %12 = load ptr, ptr %buf, align 8
-  %13 = icmp ult i32 %severity, 4
-  br i1 %13, label %switch.lookup22, label %_ZN4absl15LogSeverityNameENS_11LogSeverityE.exit30.i
+switch.lookup25:                                  ; preds = %40
+  %43 = zext nneg i32 %0 to i64
+  %switch.gep26 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN4absl12log_internal15FormatLogPrefixENS_11LogSeverityENS_4TimeEiSt17basic_string_viewIcSt11char_traitsIcEEiNS0_12PrefixFormatERNS_4SpanIcEE.1, i64 0, i64 %43
+  %switch.load27 = load ptr, ptr %switch.gep26, align 8
+  br label %_ZN4absl15LogSeverityNameENS_11LogSeverityE.exit43.i
 
-switch.lookup22:                                  ; preds = %if.end19.i
-  %14 = zext nneg i32 %severity to i64
-  %switch.gep23 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN4absl12log_internal15FormatLogPrefixENS_11LogSeverityENS_4TimeEiSt17basic_string_viewIcSt11char_traitsIcEEiNS0_12PrefixFormatERNS_4SpanIcEE.1, i64 0, i64 %14
-  %switch.load24 = load ptr, ptr %switch.gep23, align 8
-  br label %_ZN4absl15LogSeverityNameENS_11LogSeverityE.exit30.i
+_ZN4absl15LogSeverityNameENS_11LogSeverityE.exit43.i: ; preds = %40, %switch.lookup25
+  %.0.i42.i = phi ptr [ %switch.load27, %switch.lookup25 ], [ @.str.7, %40 ]
+  %44 = load i8, ptr %.0.i42.i, align 1, !tbaa !7
+  %45 = getelementptr inbounds nuw i8, ptr %41, i64 1
+  store i8 %44, ptr %41, align 1, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %15) #6
+  call void @_ZNK4absl8TimeZone2AtENS_4TimeE(ptr dead_on_unwind nonnull writable sret(%"struct.absl::TimeZone::CivilInfo") align 8 %15, ptr noundef nonnull align 8 dereferenceable(8) %21, i64 %1, i32 %2)
+  %46 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %47 = load i8, ptr %46, align 8, !tbaa !24
+  %48 = sext i8 %47 to i32
+  call void @_ZN4absl16numbers_internal12PutTwoDigitsEjPc(i32 noundef %48, ptr noundef nonnull %45)
+  %49 = getelementptr inbounds nuw i8, ptr %41, i64 3
+  %50 = getelementptr inbounds nuw i8, ptr %15, i64 9
+  %51 = load i8, ptr %50, align 1, !tbaa !27
+  %52 = sext i8 %51 to i32
+  call void @_ZN4absl16numbers_internal12PutTwoDigitsEjPc(i32 noundef %52, ptr noundef nonnull %49)
+  %53 = getelementptr inbounds nuw i8, ptr %41, i64 5
+  %54 = getelementptr inbounds nuw i8, ptr %41, i64 6
+  store i8 32, ptr %53, align 1, !tbaa !7
+  %55 = getelementptr inbounds nuw i8, ptr %15, i64 10
+  %56 = load i8, ptr %55, align 2, !tbaa !28
+  %57 = sext i8 %56 to i32
+  call void @_ZN4absl16numbers_internal12PutTwoDigitsEjPc(i32 noundef %57, ptr noundef nonnull %54)
+  %58 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %41, i64 9
+  store i8 58, ptr %58, align 1, !tbaa !7
+  %60 = getelementptr inbounds nuw i8, ptr %15, i64 11
+  %61 = load i8, ptr %60, align 1, !tbaa !29
+  %62 = sext i8 %61 to i32
+  call void @_ZN4absl16numbers_internal12PutTwoDigitsEjPc(i32 noundef %62, ptr noundef nonnull %59)
+  %63 = getelementptr inbounds nuw i8, ptr %41, i64 11
+  %64 = getelementptr inbounds nuw i8, ptr %41, i64 12
+  store i8 58, ptr %63, align 1, !tbaa !7
+  %65 = getelementptr inbounds nuw i8, ptr %15, i64 12
+  %66 = load i8, ptr %65, align 4, !tbaa !30
+  %67 = sext i8 %66 to i32
+  call void @_ZN4absl16numbers_internal12PutTwoDigitsEjPc(i32 noundef %67, ptr noundef nonnull %64)
+  %68 = getelementptr inbounds nuw i8, ptr %41, i64 14
+  %69 = getelementptr inbounds nuw i8, ptr %41, i64 15
+  store i8 46, ptr %68, align 1, !tbaa !7
+  %70 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %.sroa.02.0.copyload.i = load i64, ptr %70, align 8
+  %.sroa.23.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 24
+  %.sroa.23.0.copyload.i = load i32, ptr %.sroa.23.0..sroa_idx.i, align 8, !tbaa !22
+  %71 = icmp ult i64 %.sroa.02.0.copyload.i, 8796093022208
+  br i1 %71, label %72, label %77
 
-_ZN4absl15LogSeverityNameENS_11LogSeverityE.exit30.i: ; preds = %if.end19.i, %switch.lookup22
-  %retval.0.i26.i = phi ptr [ %switch.load24, %switch.lookup22 ], [ @.str.7, %if.end19.i ]
-  %15 = load i8, ptr %retval.0.i26.i, align 1
-  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %12, i64 1
-  store i8 %15, ptr %12, align 1
-  call void @_ZNK4absl8TimeZone2AtENS_4TimeE(ptr nonnull sret(%"struct.absl::TimeZone::CivilInfo") align 8 %ci.i, ptr noundef nonnull align 8 dereferenceable(8) %call2.i, i64 %timestamp.coerce0, i32 %timestamp.coerce1)
-  %m.i.i = getelementptr inbounds nuw i8, ptr %ci.i, i64 8
-  %16 = load i8, ptr %m.i.i, align 8
-  %conv.i.i = sext i8 %16 to i32
-  call void @_ZN4absl16numbers_internal12PutTwoDigitsEjPc(i32 noundef %conv.i.i, ptr noundef nonnull %incdec.ptr.i)
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %12, i64 3
-  %d.i.i = getelementptr inbounds nuw i8, ptr %ci.i, i64 9
-  %17 = load i8, ptr %d.i.i, align 1
-  %conv.i31.i = sext i8 %17 to i32
-  call void @_ZN4absl16numbers_internal12PutTwoDigitsEjPc(i32 noundef %conv.i31.i, ptr noundef nonnull %add.ptr.i)
-  %add.ptr27.i = getelementptr inbounds nuw i8, ptr %12, i64 5
-  %incdec.ptr28.i = getelementptr inbounds nuw i8, ptr %12, i64 6
-  store i8 32, ptr %add.ptr27.i, align 1
-  %hh.i.i = getelementptr inbounds nuw i8, ptr %ci.i, i64 10
-  %18 = load i8, ptr %hh.i.i, align 2
-  %conv.i32.i = sext i8 %18 to i32
-  call void @_ZN4absl16numbers_internal12PutTwoDigitsEjPc(i32 noundef %conv.i32.i, ptr noundef nonnull %incdec.ptr28.i)
-  %add.ptr31.i = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %incdec.ptr32.i = getelementptr inbounds nuw i8, ptr %12, i64 9
-  store i8 58, ptr %add.ptr31.i, align 1
-  %mm.i.i = getelementptr inbounds nuw i8, ptr %ci.i, i64 11
-  %19 = load i8, ptr %mm.i.i, align 1
-  %conv.i33.i = sext i8 %19 to i32
-  call void @_ZN4absl16numbers_internal12PutTwoDigitsEjPc(i32 noundef %conv.i33.i, ptr noundef nonnull %incdec.ptr32.i)
-  %add.ptr35.i = getelementptr inbounds nuw i8, ptr %12, i64 11
-  %incdec.ptr36.i = getelementptr inbounds nuw i8, ptr %12, i64 12
-  store i8 58, ptr %add.ptr35.i, align 1
-  %ss.i.i = getelementptr inbounds nuw i8, ptr %ci.i, i64 12
-  %20 = load i8, ptr %ss.i.i, align 4
-  %conv.i34.i = sext i8 %20 to i32
-  call void @_ZN4absl16numbers_internal12PutTwoDigitsEjPc(i32 noundef %conv.i34.i, ptr noundef nonnull %incdec.ptr36.i)
-  %add.ptr39.i = getelementptr inbounds nuw i8, ptr %12, i64 14
-  %incdec.ptr40.i = getelementptr inbounds nuw i8, ptr %12, i64 15
-  store i8 46, ptr %add.ptr39.i, align 1
-  %subsecond.i = getelementptr inbounds nuw i8, ptr %ci.i, i64 16
-  %agg.tmp41.sroa.0.0.copyload.i = load i64, ptr %subsecond.i, align 8
-  %agg.tmp41.sroa.2.0.subsecond.sroa_idx.i = getelementptr inbounds nuw i8, ptr %ci.i, i64 24
-  %agg.tmp41.sroa.2.0.copyload.i = load i32, ptr %agg.tmp41.sroa.2.0.subsecond.sroa_idx.i, align 8
-  %call42.i = call noundef i64 @_ZN4absl19ToInt64MicrosecondsENS_8DurationE(i64 %agg.tmp41.sroa.0.0.copyload.i, i32 %agg.tmp41.sroa.2.0.copyload.i) #6
-  %div.i = sdiv i64 %call42.i, 10000
-  %conv43.i = trunc i64 %div.i to i32
-  call void @_ZN4absl16numbers_internal12PutTwoDigitsEjPc(i32 noundef %conv43.i, ptr noundef nonnull %incdec.ptr40.i)
-  %add.ptr44.i = getelementptr inbounds nuw i8, ptr %12, i64 17
-  %div45.i = sdiv i64 %call42.i, 100
-  %rem.i = srem i64 %div45.i, 100
-  %conv46.i = trunc nsw i64 %rem.i to i32
-  call void @_ZN4absl16numbers_internal12PutTwoDigitsEjPc(i32 noundef %conv46.i, ptr noundef nonnull %add.ptr44.i)
-  %add.ptr47.i = getelementptr inbounds nuw i8, ptr %12, i64 19
-  %rem48.i = srem i64 %call42.i, 100
-  %conv49.i = trunc nsw i64 %rem48.i to i32
-  call void @_ZN4absl16numbers_internal12PutTwoDigitsEjPc(i32 noundef %conv49.i, ptr noundef nonnull %add.ptr47.i)
-  %add.ptr50.i = getelementptr inbounds nuw i8, ptr %12, i64 21
-  %incdec.ptr51.i = getelementptr inbounds nuw i8, ptr %12, i64 22
-  store i8 32, ptr %add.ptr50.i, align 1
-  %or.cond.i.i = icmp ult i32 %tid, 10
-  br i1 %or.cond.i.i, label %if.end.thread.i.i, label %if.end.i.i
+72:                                               ; preds = %_ZN4absl15LogSeverityNameENS_11LogSeverityE.exit43.i
+  %73 = mul nuw nsw i64 %.sroa.02.0.copyload.i, 1000000
+  %74 = udiv i32 %.sroa.23.0.copyload.i, 4000
+  %75 = zext nneg i32 %74 to i64
+  %76 = add nuw nsw i64 %73, %75
+  br label %_ZN4absl19ToInt64MicrosecondsENS_8DurationE.exit.i
 
-if.end.thread.i.i:                                ; preds = %_ZN4absl15LogSeverityNameENS_11LogSeverityE.exit30.i
-  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %12, i64 23
-  store i8 32, ptr %incdec.ptr51.i, align 1
-  br label %if.end7.thread.i.i
+77:                                               ; preds = %_ZN4absl15LogSeverityNameENS_11LogSeverityE.exit43.i
+  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %10)
+  store i64 %.sroa.02.0.copyload.i, ptr %10, align 8
+  %.sroa.212.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store i32 %.sroa.23.0.copyload.i, ptr %.sroa.212.0..sroa_idx.i.i.i, align 8
+  %78 = call noundef i64 @_ZN4absl12IDivDurationENS_8DurationES0_PS0_(i64 %.sroa.02.0.copyload.i, i32 %.sroa.23.0.copyload.i, i64 0, i32 4000, ptr noundef nonnull %10) #6
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %10)
+  br label %_ZN4absl19ToInt64MicrosecondsENS_8DurationE.exit.i
 
-if.end.i.i:                                       ; preds = %_ZN4absl15LogSeverityNameENS_11LogSeverityE.exit30.i
-  %21 = add i32 %tid, 9
-  %or.cond1.i.i = icmp ult i32 %21, 109
-  br i1 %or.cond1.i.i, label %if.end7.thread.i.i, label %if.end7.i.i
+_ZN4absl19ToInt64MicrosecondsENS_8DurationE.exit.i: ; preds = %77, %72
+  %.0.i44.i = phi i64 [ %76, %72 ], [ %78, %77 ]
+  %79 = sdiv i64 %.0.i44.i, 10000
+  %80 = trunc i64 %79 to i32
+  call void @_ZN4absl16numbers_internal12PutTwoDigitsEjPc(i32 noundef %80, ptr noundef nonnull %69)
+  %81 = getelementptr inbounds nuw i8, ptr %41, i64 17
+  %82 = sdiv i64 %.0.i44.i, 100
+  %83 = srem i64 %82, 100
+  %84 = trunc nsw i64 %83 to i32
+  call void @_ZN4absl16numbers_internal12PutTwoDigitsEjPc(i32 noundef %84, ptr noundef nonnull %81)
+  %85 = getelementptr inbounds nuw i8, ptr %41, i64 19
+  %86 = srem i64 %.0.i44.i, 100
+  %87 = trunc nsw i64 %86 to i32
+  call void @_ZN4absl16numbers_internal12PutTwoDigitsEjPc(i32 noundef %87, ptr noundef nonnull %85)
+  %88 = getelementptr inbounds nuw i8, ptr %41, i64 21
+  %89 = getelementptr inbounds nuw i8, ptr %41, i64 22
+  store i8 32, ptr %88, align 1, !tbaa !7
+  %or.cond.i.i = icmp ult i32 %3, 10
+  br i1 %or.cond.i.i, label %.thread.i.i, label %91
 
-if.end7.thread.i.i:                               ; preds = %if.end.i.i, %if.end.thread.i.i
-  %p.4.i = phi ptr [ %incdec.ptr.i.i, %if.end.thread.i.i ], [ %incdec.ptr51.i, %if.end.i.i ]
-  %incdec.ptr6.i.i = getelementptr inbounds nuw i8, ptr %p.4.i, i64 1
-  store i8 32, ptr %p.4.i, align 1
-  br label %if.end13.thread.i.i
+.thread.i.i:                                      ; preds = %_ZN4absl19ToInt64MicrosecondsENS_8DurationE.exit.i
+  %90 = getelementptr inbounds nuw i8, ptr %41, i64 23
+  store i8 32, ptr %89, align 1, !tbaa !7
+  br label %.thread29.i.i
 
-if.end7.i.i:                                      ; preds = %if.end.i.i
-  %22 = add i32 %tid, 99
-  %or.cond2.i.i = icmp ult i32 %22, 1099
-  br i1 %or.cond2.i.i, label %if.end13.thread.i.i, label %if.end13.i.i
+91:                                               ; preds = %_ZN4absl19ToInt64MicrosecondsENS_8DurationE.exit.i
+  %92 = add i32 %3, 9
+  %or.cond3.i.i = icmp ult i32 %92, 109
+  br i1 %or.cond3.i.i, label %.thread29.i.i, label %94
 
-if.end13.thread.i.i:                              ; preds = %if.end7.i.i, %if.end7.thread.i.i
-  %p.3.i = phi ptr [ %incdec.ptr6.i.i, %if.end7.thread.i.i ], [ %incdec.ptr51.i, %if.end7.i.i ]
-  %incdec.ptr12.i.i = getelementptr inbounds nuw i8, ptr %p.3.i, i64 1
-  store i8 32, ptr %p.3.i, align 1
-  br label %if.end19.thread.i.i
+.thread29.i.i:                                    ; preds = %91, %.thread.i.i
+  %.4.i = phi ptr [ %90, %.thread.i.i ], [ %89, %91 ]
+  %93 = getelementptr inbounds nuw i8, ptr %.4.i, i64 1
+  store i8 32, ptr %.4.i, align 1, !tbaa !7
+  br label %.thread31.i.i
 
-if.end13.i.i:                                     ; preds = %if.end7.i.i
-  %23 = add i32 %tid, 999
-  %or.cond3.i.i = icmp ult i32 %23, 10999
-  br i1 %or.cond3.i.i, label %if.end19.thread.i.i, label %if.end19.i.i
+94:                                               ; preds = %91
+  %95 = add i32 %3, 99
+  %or.cond5.i.i = icmp ult i32 %95, 1099
+  br i1 %or.cond5.i.i, label %.thread31.i.i, label %97
 
-if.end19.thread.i.i:                              ; preds = %if.end13.i.i, %if.end13.thread.i.i
-  %p.2.i = phi ptr [ %incdec.ptr12.i.i, %if.end13.thread.i.i ], [ %incdec.ptr51.i, %if.end13.i.i ]
-  %incdec.ptr18.i.i = getelementptr inbounds nuw i8, ptr %p.2.i, i64 1
-  store i8 32, ptr %p.2.i, align 1
-  br label %if.end25.thread.i.i
+.thread31.i.i:                                    ; preds = %94, %.thread29.i.i
+  %.3.i = phi ptr [ %93, %.thread29.i.i ], [ %89, %94 ]
+  %96 = getelementptr inbounds nuw i8, ptr %.3.i, i64 1
+  store i8 32, ptr %.3.i, align 1, !tbaa !7
+  br label %.thread33.i.i
 
-if.end19.i.i:                                     ; preds = %if.end13.i.i
-  %24 = add i32 %tid, 9999
-  %or.cond4.i.i = icmp ult i32 %24, 109999
-  br i1 %or.cond4.i.i, label %if.end25.thread.i.i, label %if.end25.i.i
+97:                                               ; preds = %94
+  %98 = add i32 %3, 999
+  %or.cond7.i.i = icmp ult i32 %98, 10999
+  br i1 %or.cond7.i.i, label %.thread33.i.i, label %100
 
-if.end25.thread.i.i:                              ; preds = %if.end19.i.i, %if.end19.thread.i.i
-  %p.1.i = phi ptr [ %incdec.ptr18.i.i, %if.end19.thread.i.i ], [ %incdec.ptr51.i, %if.end19.i.i ]
-  %incdec.ptr24.i.i = getelementptr inbounds nuw i8, ptr %p.1.i, i64 1
-  store i8 32, ptr %p.1.i, align 1
-  br label %if.then29.i.i
+.thread33.i.i:                                    ; preds = %97, %.thread31.i.i
+  %.2.i = phi ptr [ %96, %.thread31.i.i ], [ %89, %97 ]
+  %99 = getelementptr inbounds nuw i8, ptr %.2.i, i64 1
+  store i8 32, ptr %.2.i, align 1, !tbaa !7
+  br label %.thread35.i.i
 
-if.end25.i.i:                                     ; preds = %if.end19.i.i
-  %25 = add i32 %tid, 99999
-  %or.cond5.i.i = icmp ult i32 %25, 1099999
-  br i1 %or.cond5.i.i, label %if.then29.i.i, label %_ZN4absl12log_internal12_GLOBAL__N_120PutLeadingWhitespaceIiEENSt9enable_ifIXsr3std9is_signedIT_EE5valueEvE4typeES4_RPc.exit.i
+100:                                              ; preds = %97
+  %101 = add i32 %3, 9999
+  %or.cond9.i.i = icmp ult i32 %101, 109999
+  br i1 %or.cond9.i.i, label %.thread35.i.i, label %103
 
-if.then29.i.i:                                    ; preds = %if.end25.i.i, %if.end25.thread.i.i
-  %p.0.i = phi ptr [ %incdec.ptr24.i.i, %if.end25.thread.i.i ], [ %incdec.ptr51.i, %if.end25.i.i ]
-  %incdec.ptr30.i.i = getelementptr inbounds nuw i8, ptr %p.0.i, i64 1
-  store i8 32, ptr %p.0.i, align 1
+.thread35.i.i:                                    ; preds = %100, %.thread33.i.i
+  %.1.i = phi ptr [ %99, %.thread33.i.i ], [ %89, %100 ]
+  %102 = getelementptr inbounds nuw i8, ptr %.1.i, i64 1
+  store i8 32, ptr %.1.i, align 1, !tbaa !7
+  br label %105
+
+103:                                              ; preds = %100
+  %104 = add i32 %3, 99999
+  %or.cond11.i.i = icmp ult i32 %104, 1099999
+  br i1 %or.cond11.i.i, label %105, label %_ZN4absl12log_internal12_GLOBAL__N_120PutLeadingWhitespaceIiEENSt9enable_ifIXsr3std9is_signedIT_EE5valueEvE4typeES4_RPc.exit.i
+
+105:                                              ; preds = %103, %.thread35.i.i
+  %.067.i = phi ptr [ %102, %.thread35.i.i ], [ %89, %103 ]
+  %106 = getelementptr inbounds nuw i8, ptr %.067.i, i64 1
+  store i8 32, ptr %.067.i, align 1, !tbaa !7
   br label %_ZN4absl12log_internal12_GLOBAL__N_120PutLeadingWhitespaceIiEENSt9enable_ifIXsr3std9is_signedIT_EE5valueEvE4typeES4_RPc.exit.i
 
-_ZN4absl12log_internal12_GLOBAL__N_120PutLeadingWhitespaceIiEENSt9enable_ifIXsr3std9is_signedIT_EE5valueEvE4typeES4_RPc.exit.i: ; preds = %if.then29.i.i, %if.end25.i.i
-  %p.5.i = phi ptr [ %incdec.ptr30.i.i, %if.then29.i.i ], [ %incdec.ptr51.i, %if.end25.i.i ]
-  %call52.i = call noundef ptr @_ZN4absl16numbers_internal15FastIntToBufferEiPc(i32 noundef %tid, ptr noundef nonnull %p.5.i)
-  %incdec.ptr53.i = getelementptr inbounds nuw i8, ptr %call52.i, i64 1
-  store i8 32, ptr %call52.i, align 1
-  %26 = load ptr, ptr %buf, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %incdec.ptr53.i to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %26 to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %add.ptr.i35.i = getelementptr inbounds i8, ptr %26, i64 %sub.ptr.sub.i
-  br label %return.sink.split.sink.split.i
-
-return.sink.split.sink.split.i:                   ; preds = %_ZN4absl12log_internal12_GLOBAL__N_120PutLeadingWhitespaceIiEENSt9enable_ifIXsr3std9is_signedIT_EE5valueEvE4typeES4_RPc.exit.i, %if.then15.i
-  %add.ptr.i.sink.i = phi ptr [ %add.ptr.i.i, %if.then15.i ], [ %add.ptr.i35.i, %_ZN4absl12log_internal12_GLOBAL__N_120PutLeadingWhitespaceIiEENSt9enable_ifIXsr3std9is_signedIT_EE5valueEvE4typeES4_RPc.exit.i ]
-  %conv16.sink.i = phi i64 [ %conv16.i, %if.then15.i ], [ %sub.ptr.sub.i, %_ZN4absl12log_internal12_GLOBAL__N_120PutLeadingWhitespaceIiEENSt9enable_ifIXsr3std9is_signedIT_EE5valueEvE4typeES4_RPc.exit.i ]
-  store ptr %add.ptr.i.sink.i, ptr %buf, align 8
-  %27 = load i64, ptr %len_.i.i, align 8
-  %sub.i24.i = sub i64 %27, %conv16.sink.i
-  br label %return.sink.split.i
-
-return.sink.split.i:                              ; preds = %return.sink.split.sink.split.i, %entry
-  %sub.i37.sink.i = phi i64 [ 0, %entry ], [ %sub.i24.i, %return.sink.split.sink.split.i ]
-  %retval.0.ph.i = phi i64 [ 0, %entry ], [ %conv16.sink.i, %return.sink.split.sink.split.i ]
-  store i64 %sub.i37.sink.i, ptr %len_.i.i, align 8
+_ZN4absl12log_internal12_GLOBAL__N_120PutLeadingWhitespaceIiEENSt9enable_ifIXsr3std9is_signedIT_EE5valueEvE4typeES4_RPc.exit.i: ; preds = %105, %103
+  %.5.i = phi ptr [ %106, %105 ], [ %89, %103 ]
+  %107 = call noundef ptr @_ZN4absl16numbers_internal15FastIntToBufferEiPc(i32 noundef %3, ptr noundef nonnull %.5.i)
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 1
+  store i8 32, ptr %107, align 1, !tbaa !7
+  %109 = load ptr, ptr %8, align 8, !tbaa !18
+  %110 = ptrtoint ptr %108 to i64
+  %111 = ptrtoint ptr %109 to i64
+  %112 = sub i64 %110, %111
+  %113 = getelementptr inbounds nuw i8, ptr %109, i64 %112
+  store ptr %113, ptr %8, align 8, !tbaa !18
+  %114 = load i64, ptr %16, align 8, !tbaa !13
+  %115 = sub i64 %114, %112
+  store i64 %115, ptr %16, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %15) #6
   br label %_ZN4absl12log_internal12_GLOBAL__N_119FormatBoundedFieldsENS_11LogSeverityENS_4TimeEiRNS_4SpanIcEE.exit
 
-_ZN4absl12log_internal12_GLOBAL__N_119FormatBoundedFieldsENS_11LogSeverityENS_4TimeEiRNS_4SpanIcEE.exit: ; preds = %_ZN4absl15LogSeverityNameENS_11LogSeverityE.exit.i._ZN4absl12log_internal12_GLOBAL__N_119FormatBoundedFieldsENS_11LogSeverityENS_4TimeEiRNS_4SpanIcEE.exit_crit_edge, %return.sink.split.i
-  %28 = phi i64 [ %.pre, %_ZN4absl15LogSeverityNameENS_11LogSeverityE.exit.i._ZN4absl12log_internal12_GLOBAL__N_119FormatBoundedFieldsENS_11LogSeverityENS_4TimeEiRNS_4SpanIcEE.exit_crit_edge ], [ %sub.i37.sink.i, %return.sink.split.i ]
-  %retval.0.i = phi i64 [ 0, %_ZN4absl15LogSeverityNameENS_11LogSeverityE.exit.i._ZN4absl12log_internal12_GLOBAL__N_119FormatBoundedFieldsENS_11LogSeverityENS_4TimeEiRNS_4SpanIcEE.exit_crit_edge ], [ %retval.0.ph.i, %return.sink.split.i ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ci.i)
-  %spec.select.i = call i64 @llvm.umin.i64(i64 %basename.coerce0, i64 %28)
-  %29 = load ptr, ptr %buf, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %29, ptr align 1 %basename.coerce1, i64 %spec.select.i, i1 false)
-  %30 = load ptr, ptr %buf, align 8
-  %add.ptr.i.i8 = getelementptr inbounds i8, ptr %30, i64 %spec.select.i
-  store ptr %add.ptr.i.i8, ptr %buf, align 8
-  %31 = load i64, ptr %len_.i.i, align 8
-  %sub.i.i = sub i64 %31, %spec.select.i
-  store i64 %sub.i.i, ptr %len_.i.i, align 8
-  %add = add i64 %spec.select.i, %retval.0.i
-  %cmp.i10 = icmp ult i64 %sub.i.i, 14
-  br i1 %cmp.i10, label %_ZN4absl12log_internal12_GLOBAL__N_116FormatLineNumberEiRNS_4SpanIcEE.exit, label %if.end.i11
+_ZN4absl12log_internal12_GLOBAL__N_119FormatBoundedFieldsENS_11LogSeverityENS_4TimeEiRNS_4SpanIcEE.exit: ; preds = %19, %_ZN4absl15LogSeverityNameENS_11LogSeverityE.exit.i, %36, %_ZN4absl12log_internal12_GLOBAL__N_120PutLeadingWhitespaceIiEENSt9enable_ifIXsr3std9is_signedIT_EE5valueEvE4typeES4_RPc.exit.i
+  %116 = phi ptr [ %.pre23, %19 ], [ %113, %_ZN4absl12log_internal12_GLOBAL__N_120PutLeadingWhitespaceIiEENSt9enable_ifIXsr3std9is_signedIT_EE5valueEvE4typeES4_RPc.exit.i ], [ %38, %36 ], [ %.pre24, %_ZN4absl15LogSeverityNameENS_11LogSeverityE.exit.i ]
+  %117 = phi i64 [ 0, %19 ], [ %115, %_ZN4absl12log_internal12_GLOBAL__N_120PutLeadingWhitespaceIiEENSt9enable_ifIXsr3std9is_signedIT_EE5valueEvE4typeES4_RPc.exit.i ], [ %39, %36 ], [ %.pre, %_ZN4absl15LogSeverityNameENS_11LogSeverityE.exit.i ]
+  %.0.i = phi i64 [ 0, %19 ], [ %112, %_ZN4absl12log_internal12_GLOBAL__N_120PutLeadingWhitespaceIiEENSt9enable_ifIXsr3std9is_signedIT_EE5valueEvE4typeES4_RPc.exit.i ], [ %37, %36 ], [ 0, %_ZN4absl15LogSeverityNameENS_11LogSeverityE.exit.i ]
+  %spec.select.i = call i64 @llvm.umin.i64(i64 %4, i64 %117)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %116, ptr align 1 %5, i64 %spec.select.i, i1 false)
+  %118 = load ptr, ptr %8, align 8, !tbaa !18
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 %spec.select.i
+  store ptr %119, ptr %8, align 8, !tbaa !18
+  %120 = load i64, ptr %16, align 8, !tbaa !13
+  %121 = sub i64 %120, %spec.select.i
+  store i64 %121, ptr %16, align 8, !tbaa !13
+  %122 = add i64 %spec.select.i, %.0.i
+  %123 = icmp ult i64 %121, 14
+  br i1 %123, label %_ZN4absl12log_internal12_GLOBAL__N_116FormatLineNumberEiRNS_4SpanIcEE.exit, label %124, !prof !17
 
-if.end.i11:                                       ; preds = %_ZN4absl12log_internal12_GLOBAL__N_119FormatBoundedFieldsENS_11LogSeverityENS_4TimeEiRNS_4SpanIcEE.exit
-  %incdec.ptr.i12 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i8, i64 1
-  store i8 58, ptr %add.ptr.i.i8, align 1
-  %call3.i = call noundef ptr @_ZN4absl16numbers_internal15FastIntToBufferEiPc(i32 noundef %line, ptr noundef nonnull %incdec.ptr.i12)
-  %incdec.ptr4.i = getelementptr inbounds nuw i8, ptr %call3.i, i64 1
-  store i8 93, ptr %call3.i, align 1
-  %incdec.ptr5.i = getelementptr inbounds nuw i8, ptr %call3.i, i64 2
-  store i8 32, ptr %incdec.ptr4.i, align 1
-  %32 = load ptr, ptr %buf, align 8
-  %sub.ptr.lhs.cast.i13 = ptrtoint ptr %incdec.ptr5.i to i64
-  %sub.ptr.rhs.cast.i14 = ptrtoint ptr %32 to i64
-  %sub.ptr.sub.i15 = sub i64 %sub.ptr.lhs.cast.i13, %sub.ptr.rhs.cast.i14
-  %add.ptr.i.i16 = getelementptr inbounds i8, ptr %32, i64 %sub.ptr.sub.i15
-  store ptr %add.ptr.i.i16, ptr %buf, align 8
-  %33 = load i64, ptr %len_.i.i, align 8
-  %sub.i14.i = sub i64 %33, %sub.ptr.sub.i15
+124:                                              ; preds = %_ZN4absl12log_internal12_GLOBAL__N_119FormatBoundedFieldsENS_11LogSeverityENS_4TimeEiRNS_4SpanIcEE.exit
+  %125 = getelementptr inbounds nuw i8, ptr %119, i64 1
+  store i8 58, ptr %119, align 1, !tbaa !7
+  %126 = call noundef ptr @_ZN4absl16numbers_internal15FastIntToBufferEiPc(i32 noundef %6, ptr noundef nonnull %125)
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 1
+  store i8 93, ptr %126, align 1, !tbaa !7
+  %128 = getelementptr inbounds nuw i8, ptr %126, i64 2
+  store i8 32, ptr %127, align 1, !tbaa !7
+  %129 = load ptr, ptr %8, align 8, !tbaa !18
+  %130 = ptrtoint ptr %128 to i64
+  %131 = ptrtoint ptr %129 to i64
+  %132 = sub i64 %130, %131
+  %133 = getelementptr inbounds nuw i8, ptr %129, i64 %132
+  store ptr %133, ptr %8, align 8, !tbaa !18
+  %134 = load i64, ptr %16, align 8, !tbaa !13
+  %135 = sub i64 %134, %132
   br label %_ZN4absl12log_internal12_GLOBAL__N_116FormatLineNumberEiRNS_4SpanIcEE.exit
 
-_ZN4absl12log_internal12_GLOBAL__N_116FormatLineNumberEiRNS_4SpanIcEE.exit: ; preds = %_ZN4absl12log_internal12_GLOBAL__N_119FormatBoundedFieldsENS_11LogSeverityENS_4TimeEiRNS_4SpanIcEE.exit, %if.end.i11
-  %34 = phi ptr [ %add.ptr.i.i16, %if.end.i11 ], [ %add.ptr.i.i8, %_ZN4absl12log_internal12_GLOBAL__N_119FormatBoundedFieldsENS_11LogSeverityENS_4TimeEiRNS_4SpanIcEE.exit ]
-  %storemerge.i = phi i64 [ %sub.i14.i, %if.end.i11 ], [ 0, %_ZN4absl12log_internal12_GLOBAL__N_119FormatBoundedFieldsENS_11LogSeverityENS_4TimeEiRNS_4SpanIcEE.exit ]
-  %retval.0.i17 = phi i64 [ %sub.ptr.sub.i15, %if.end.i11 ], [ 0, %_ZN4absl12log_internal12_GLOBAL__N_119FormatBoundedFieldsENS_11LogSeverityENS_4TimeEiRNS_4SpanIcEE.exit ]
-  store i64 %storemerge.i, ptr %len_.i.i, align 8
-  %add4 = add i64 %add, %retval.0.i17
-  %cmp = icmp eq i32 %format, 1
-  br i1 %cmp, label %if.then, label %if.end
+_ZN4absl12log_internal12_GLOBAL__N_116FormatLineNumberEiRNS_4SpanIcEE.exit: ; preds = %_ZN4absl12log_internal12_GLOBAL__N_119FormatBoundedFieldsENS_11LogSeverityENS_4TimeEiRNS_4SpanIcEE.exit, %124
+  %136 = phi ptr [ %133, %124 ], [ %119, %_ZN4absl12log_internal12_GLOBAL__N_119FormatBoundedFieldsENS_11LogSeverityENS_4TimeEiRNS_4SpanIcEE.exit ]
+  %storemerge.i = phi i64 [ %135, %124 ], [ 0, %_ZN4absl12log_internal12_GLOBAL__N_119FormatBoundedFieldsENS_11LogSeverityENS_4TimeEiRNS_4SpanIcEE.exit ]
+  %.0.i21 = phi i64 [ %132, %124 ], [ 0, %_ZN4absl12log_internal12_GLOBAL__N_119FormatBoundedFieldsENS_11LogSeverityENS_4TimeEiRNS_4SpanIcEE.exit ]
+  store i64 %storemerge.i, ptr %16, align 8, !tbaa !13
+  %137 = add i64 %122, %.0.i21
+  %138 = icmp eq i32 %7, 1
+  br i1 %138, label %139, label %145
 
-if.then:                                          ; preds = %_ZN4absl12log_internal12_GLOBAL__N_116FormatLineNumberEiRNS_4SpanIcEE.exit
-  %spec.select.i19 = call i64 @llvm.umin.i64(i64 %storemerge.i, i64 5)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %34, ptr nonnull align 1 @.str.1, i64 %spec.select.i19, i1 false)
-  %35 = load ptr, ptr %buf, align 8
-  %add.ptr.i.i20 = getelementptr inbounds nuw i8, ptr %35, i64 %spec.select.i19
-  store ptr %add.ptr.i.i20, ptr %buf, align 8
-  %36 = load i64, ptr %len_.i.i, align 8
-  %sub.i.i21 = sub i64 %36, %spec.select.i19
-  store i64 %sub.i.i21, ptr %len_.i.i, align 8
-  %add7 = add i64 %add4, %spec.select.i19
-  br label %if.end
+139:                                              ; preds = %_ZN4absl12log_internal12_GLOBAL__N_116FormatLineNumberEiRNS_4SpanIcEE.exit
+  %spec.select.i22 = call i64 @llvm.umin.i64(i64 %storemerge.i, i64 5)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %136, ptr nonnull align 1 @.str.1, i64 %spec.select.i22, i1 false)
+  %140 = load ptr, ptr %8, align 8, !tbaa !18
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 %spec.select.i22
+  store ptr %141, ptr %8, align 8, !tbaa !18
+  %142 = load i64, ptr %16, align 8, !tbaa !13
+  %143 = sub i64 %142, %spec.select.i22
+  store i64 %143, ptr %16, align 8, !tbaa !13
+  %144 = add i64 %137, %spec.select.i22
+  br label %145
 
-if.end:                                           ; preds = %if.then, %_ZN4absl12log_internal12_GLOBAL__N_116FormatLineNumberEiRNS_4SpanIcEE.exit
-  %prefix_size.0 = phi i64 [ %add7, %if.then ], [ %add4, %_ZN4absl12log_internal12_GLOBAL__N_116FormatLineNumberEiRNS_4SpanIcEE.exit ]
-  ret i64 %prefix_size.0
+145:                                              ; preds = %139, %_ZN4absl12log_internal12_GLOBAL__N_116FormatLineNumberEiRNS_4SpanIcEE.exit
+  %.0 = phi i64 [ %144, %139 ], [ %137, %_ZN4absl12log_internal12_GLOBAL__N_116FormatLineNumberEiRNS_4SpanIcEE.exit ]
+  ret i64 %.0
 }
+
+declare noundef i64 @_ZN4absl12IDivDurationENS_8DurationES0_PS0_(i64, i32, i64, i32, ptr noundef) local_unnamed_addr #3
 
 declare noundef ptr @_ZN4absl12log_internal8TimeZoneEv() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare { i64, i64 } @_ZN4absl9ToTimevalENS_4TimeE(i64, i32) local_unnamed_addr #2
+declare { i64, i64 } @_ZN4absl9ToTimevalENS_4TimeE(i64, i32) local_unnamed_addr #4
 
-declare void @_ZNK4absl8TimeZone2AtENS_4TimeE(ptr sret(%"struct.absl::TimeZone::CivilInfo") align 8, ptr noundef nonnull align 8 dereferenceable(8), i64, i32) local_unnamed_addr #3
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local noundef i32 @_ZN4absl8SNPrintFIJciiiEEEiPcmRKNS_19str_format_internal18FormatSpecTemplateIJXspclsr19str_format_internalE14ArgumentToConvIT_EEEEEEDpRKS4_(ptr noundef %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 4 dereferenceable(4) %6) local_unnamed_addr #0 comdat {
+  %8 = alloca [4 x %"class.absl::str_format_internal::FormatArgImpl"], align 8
+  %.sroa.01.0.copyload = load ptr, ptr %2, align 8, !tbaa !31
+  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %.sroa.22.0.copyload = load i64, ptr %.sroa.22.0..sroa_idx, align 8, !tbaa !32
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #6
+  %.sroa.0.0.copyload.i.i.i = load i8, ptr %3, align 1
+  %.sroa.0.0.insert.ext.i.i.i = zext i8 %.sroa.0.0.copyload.i.i.i to i64
+  %9 = inttoptr i64 %.sroa.0.0.insert.ext.i.i.i to ptr
+  store ptr %9, ptr %8, align 8, !tbaa !7
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIcEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %10, align 8, !tbaa !10
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %.sroa.0.0.copyload.i.i.i8 = load i32, ptr %4, align 4
+  %.sroa.0.0.insert.ext.i.i.i9 = zext i32 %.sroa.0.0.copyload.i.i.i8 to i64
+  %12 = inttoptr i64 %.sroa.0.0.insert.ext.i.i.i9 to ptr
+  store ptr %12, ptr %11, align 8, !tbaa !7
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIiEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %13, align 8, !tbaa !10
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %.sroa.0.0.copyload.i.i.i10 = load i32, ptr %5, align 4
+  %.sroa.0.0.insert.ext.i.i.i11 = zext i32 %.sroa.0.0.copyload.i.i.i10 to i64
+  %15 = inttoptr i64 %.sroa.0.0.insert.ext.i.i.i11 to ptr
+  store ptr %15, ptr %14, align 8, !tbaa !7
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIiEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %16, align 8, !tbaa !10
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 48
+  %.sroa.0.0.copyload.i.i.i12 = load i32, ptr %6, align 4
+  %.sroa.0.0.insert.ext.i.i.i13 = zext i32 %.sroa.0.0.copyload.i.i.i12 to i64
+  %18 = inttoptr i64 %.sroa.0.0.insert.ext.i.i.i13 to ptr
+  store ptr %18, ptr %17, align 8, !tbaa !7
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 56
+  store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIiEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %19, align 8, !tbaa !10
+  %20 = call noundef i32 @_ZN4absl19str_format_internal8SnprintFEPcmNS0_21UntypedFormatSpecImplENS_4SpanIKNS0_13FormatArgImplEEE(ptr noundef %0, i64 noundef %1, ptr %.sroa.01.0.copyload, i64 %.sroa.22.0.copyload, ptr nonnull %8, i64 4)
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #6
+  ret i32 %20
+}
+
+declare void @_ZNK4absl8TimeZone2AtENS_4TimeE(ptr dead_on_unwind writable sret(%"struct.absl::TimeZone::CivilInfo") align 8, ptr noundef nonnull align 8 dereferenceable(8), i64, i32) local_unnamed_addr #3
 
 declare void @_ZN4absl16numbers_internal12PutTwoDigitsEjPc(i32 noundef, ptr noundef) local_unnamed_addr #3
 
@@ -438,44 +515,69 @@ declare noundef ptr @_ZN4absl16numbers_internal15FastIntToBufferEiPc(i32 noundef
 
 declare noundef i32 @_ZN4absl19str_format_internal8SnprintFEPcmNS0_21UntypedFormatSpecImplENS_4SpanIKNS0_13FormatArgImplEEE(ptr noundef, i64 noundef, ptr, i64, ptr, i64) local_unnamed_addr #3
 
-declare noundef zeroext i1 @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIcEEbNS1_4DataENS0_24FormatConversionSpecImplEPv(ptr, i64, i32, ptr noundef) #3
+; Function Attrs: mustprogress uwtable
+declare noundef zeroext i1 @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIcEEbNS1_4DataENS0_24FormatConversionSpecImplEPv(ptr, i64, i32, ptr noundef) #0 align 2
 
-declare noundef zeroext i1 @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIiEEbNS1_4DataENS0_24FormatConversionSpecImplEPv(ptr, i64, i32, ptr noundef) #3
+; Function Attrs: mustprogress uwtable
+declare noundef zeroext i1 @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIiEEbNS1_4DataENS0_24FormatConversionSpecImplEPv(ptr, i64, i32, ptr noundef) #0 align 2
 
 declare i32 @__gxx_personality_v0(...)
 
-declare void @_ZN4absl19str_format_internal10FormatPackB5cxx11ENS0_21UntypedFormatSpecImplENS_4SpanIKNS0_13FormatArgImplEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr, i64, ptr, i64) local_unnamed_addr #3
+declare void @_ZN4absl19str_format_internal10FormatPackB5cxx11ENS0_21UntypedFormatSpecImplENS_4SpanIKNS0_13FormatArgImplEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr, i64, ptr, i64) local_unnamed_addr #3
 
-declare noundef zeroext i1 @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIlEEbNS1_4DataENS0_24FormatConversionSpecImplEPv(ptr, i64, i32, ptr noundef) #3
+; Function Attrs: mustprogress uwtable
+declare noundef zeroext i1 @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIlEEbNS1_4DataENS0_24FormatConversionSpecImplEPv(ptr, i64, i32, ptr noundef) #0 align 2
 
-declare noundef zeroext i1 @_ZN4absl19str_format_internal13FormatArgImpl8DispatchISt17basic_string_viewIcSt11char_traitsIcEEEEbNS1_4DataENS0_24FormatConversionSpecImplEPv(ptr, i64, i32, ptr noundef) #3
+; Function Attrs: mustprogress uwtable
+declare noundef zeroext i1 @_ZN4absl19str_format_internal13FormatArgImpl8DispatchISt17basic_string_viewIcSt11char_traitsIcEEEEbNS1_4DataENS0_24FormatConversionSpecImplEPv(ptr, i64, i32, ptr noundef) #0 align 2
 
-declare noundef zeroext i1 @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIPKcEEbNS1_4DataENS0_24FormatConversionSpecImplEPv(ptr, i64, i32, ptr noundef) #3
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
+; Function Attrs: mustprogress uwtable
+declare noundef zeroext i1 @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIPKcEEbNS1_4DataENS0_24FormatConversionSpecImplEPv(ptr, i64, i32, ptr noundef) #0 align 2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #5
 
-attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nounwind willreturn memory(none) }
+attributes #6 = { nounwind }
+attributes #7 = { nounwind willreturn memory(none) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{!6}
-!6 = distinct !{!6, !7, !"_ZN4absl9StrFormatIJciiiiiliSt17basic_string_viewIcSt11char_traitsIcEEiPKcS4_EEENSt7__cxx1112basic_stringIcS3_SaIcEEERKNS_19str_format_internal18FormatSpecTemplateIJXspclsr19str_format_internalE14ArgumentToConvIT_EEEEEEDpRKSD_: %agg.result"}
-!7 = distinct !{!7, !"_ZN4absl9StrFormatIJciiiiiliSt17basic_string_viewIcSt11char_traitsIcEEiPKcS4_EEENSt7__cxx1112basic_stringIcS3_SaIcEEERKNS_19str_format_internal18FormatSpecTemplateIJXspclsr19str_format_internalE14ArgumentToConvIT_EEEEEEDpRKSD_"}
+!4 = !{!5}
+!5 = distinct !{!5, !6, !"_ZN4absl9StrFormatIJciiiiiliSt17basic_string_viewIcSt11char_traitsIcEEiPKcS4_EEENSt7__cxx1112basic_stringIcS3_SaIcEEERKNS_19str_format_internal18FormatSpecTemplateIJXspclsr19str_format_internalE14ArgumentToConvIT_EEEEEEDpRKSD_: argument 0"}
+!6 = distinct !{!6, !"_ZN4absl9StrFormatIJciiiiiliSt17basic_string_viewIcSt11char_traitsIcEEiPKcS4_EEENSt7__cxx1112basic_stringIcS3_SaIcEEERKNS_19str_format_internal18FormatSpecTemplateIJXspclsr19str_format_internalE14ArgumentToConvIT_EEEEEEDpRKSD_"}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"omnipotent char", !9, i64 0}
+!9 = !{!"Simple C++ TBAA"}
+!10 = !{!11, !12, i64 8}
+!11 = !{!"_ZTSN4absl19str_format_internal13FormatArgImplE", !8, i64 0, !12, i64 8}
+!12 = !{!"any pointer", !8, i64 0}
+!13 = !{!14, !16, i64 8}
+!14 = !{!"_ZTSN4absl4SpanIcEE", !15, i64 0, !16, i64 8}
+!15 = !{!"p1 omnipotent char", !12, i64 0}
+!16 = !{!"long", !8, i64 0}
+!17 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!18 = !{!14, !15, i64 0}
+!19 = !{!20, !12, i64 0}
+!20 = !{!"_ZTSN4absl19str_format_internal21UntypedFormatSpecImplE", !12, i64 0, !16, i64 8}
+!21 = !{!20, !16, i64 8}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"int", !8, i64 0}
+!24 = !{!25, !8, i64 8}
+!25 = !{!"_ZTSN4absl13time_internal4cctz6detail10civil_timeINS0_10second_tagEEE", !26, i64 0}
+!26 = !{!"_ZTSN4absl13time_internal4cctz6detail6fieldsE", !16, i64 0, !8, i64 8, !8, i64 9, !8, i64 10, !8, i64 11, !8, i64 12}
+!27 = !{!25, !8, i64 9}
+!28 = !{!25, !8, i64 10}
+!29 = !{!25, !8, i64 11}
+!30 = !{!25, !8, i64 12}
+!31 = !{!12, !12, i64 0}
+!32 = !{!16, !16, i64 0}

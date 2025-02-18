@@ -1,7 +1,7 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
-%"class.absl::debugging_internal::ElfMemImage" = type { ptr, ptr, ptr, ptr, ptr, ptr, i64, i64, i64 }
+%"class.absl::debugging_internal::ElfMemImage" = type { ptr, ptr, ptr, ptr, ptr, i32, i64, i64, i64 }
 %struct.Elf64_Ehdr = type { [16 x i8], i16, i16, i32, i64, i64, i64, i32, i16, i16, i16, i16, i16, i16 }
 %struct.Elf64_Phdr = type { i32, i32, i64, i64, i64, i64, i64, i64 }
 %struct.Elf64_Dyn = type { i64, %union.anon }
@@ -34,1587 +34,2013 @@ $_ZNK4absl18debugging_internal11ElfMemImage9IsPresentEv = comdat any
 @.str.16 = private unnamed_addr constant [24 x i8] c"wrong number of entries\00", align 1
 
 @_ZN4absl18debugging_internal11ElfMemImageC1EPKv = dso_local unnamed_addr alias void (ptr, ptr), ptr @_ZN4absl18debugging_internal11ElfMemImageC2EPKv
-@_ZN4absl18debugging_internal11ElfMemImage14SymbolIteratorC1EPKvi = dso_local unnamed_addr alias void (ptr, ptr, i32), ptr @_ZN4absl18debugging_internal11ElfMemImage14SymbolIteratorC2EPKvi
+@_ZN4absl18debugging_internal11ElfMemImage14SymbolIteratorC1EPKvj = dso_local unnamed_addr alias void (ptr, ptr, i32), ptr @_ZN4absl18debugging_internal11ElfMemImage14SymbolIteratorC2EPKvj
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl18debugging_internal11ElfMemImageC2EPKv(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %base) unnamed_addr #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %base.addr = alloca ptr, align 8
-  %absl_raw_log_internal_basename = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %base, ptr %base.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  br label %do.body
+define dso_local void @_ZN4absl18debugging_internal11ElfMemImageC2EPKv(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !9
+  %6 = load ptr, ptr %3, align 8
+  br label %7
 
-do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %base.addr, align 8
-  %cmp = icmp ne ptr %0, @_ZN4absl18debugging_internal11ElfMemImage20kInvalidBaseSentinelE
-  %lnot = xor i1 %cmp, true
-  br i1 %lnot, label %if.then, label %if.end
+7:                                                ; preds = %2
+  %8 = load ptr, ptr %4, align 8, !tbaa !9
+  %9 = icmp ne ptr %8, @_ZN4absl18debugging_internal11ElfMemImage20kInvalidBaseSentinelE
+  %10 = xor i1 %9, true
+  %11 = zext i1 %10 to i64
+  %12 = call i64 @llvm.expect.i64(i64 %11, i64 0)
+  %13 = icmp ne i64 %12, 0
+  br i1 %13, label %14, label %20
 
-if.then:                                          ; preds = %do.body
-  br label %do.body2
+14:                                               ; preds = %7
+  br label %15
 
-do.body2:                                         ; preds = %if.then
-  %1 = getelementptr i8, ptr @.str, i64 123
-  store ptr %1, ptr %absl_raw_log_internal_basename, align 8
-  %2 = getelementptr i8, ptr @.str, i64 123
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %2, i32 noundef 85, ptr noundef @.str.1, ptr noundef @.str.2, ptr noundef @.str.3)
-  br label %do.body3
+15:                                               ; preds = %14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  store ptr getelementptr (i8, ptr @.str, i64 123), ptr %5, align 8, !tbaa !10
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 123), i32 noundef 88, ptr noundef @.str.1, ptr noundef @.str.2, ptr noundef @.str.3)
+  br label %16
 
-do.body3:                                         ; preds = %do.body2
+16:                                               ; preds = %15
   unreachable
 
-do.end:                                           ; No predecessors!
-  br label %do.end4
+17:                                               ; No predecessors!
+  br label %18
 
-do.end4:                                          ; preds = %do.end
-  br label %if.end
+18:                                               ; preds = %17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  br label %19
 
-if.end:                                           ; preds = %do.end4, %do.body
-  br label %do.end5
+19:                                               ; preds = %18
+  br label %20
 
-do.end5:                                          ; preds = %if.end
-  %3 = load ptr, ptr %base.addr, align 8
-  call void @_ZN4absl18debugging_internal11ElfMemImage4InitEPKv(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %3)
+20:                                               ; preds = %19, %7
+  br label %21
+
+21:                                               ; preds = %20
+  %22 = load ptr, ptr %4, align 8, !tbaa !9
+  call void @_ZN4absl18debugging_internal11ElfMemImage4InitEPKv(ptr noundef nonnull align 8 dereferenceable(72) %6, ptr noundef %22)
   ret void
 }
 
-declare void @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
+declare i64 @llvm.expect.i64(i64, i64) #1
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
+declare void @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) #3
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl18debugging_internal11ElfMemImage4InitEPKv(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %base) #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %base.addr = alloca ptr, align 8
-  %base_as_char = alloca ptr, align 8
-  %elf_class = alloca i32, align 4
-  %dynamic_program_header = alloca ptr, align 8
-  %i = alloca i32, align 4
-  %program_header = alloca ptr, align 8
-  %relocation = alloca i64, align 8
-  %dynamic_entry = alloca ptr, align 8
-  %value = alloca i64, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %base, ptr %base.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %ehdr_ = getelementptr inbounds %"class.absl::debugging_internal::ElfMemImage", ptr %this1, i32 0, i32 0
-  store ptr null, ptr %ehdr_, align 8
-  %dynsym_ = getelementptr inbounds %"class.absl::debugging_internal::ElfMemImage", ptr %this1, i32 0, i32 1
-  store ptr null, ptr %dynsym_, align 8
-  %dynstr_ = getelementptr inbounds %"class.absl::debugging_internal::ElfMemImage", ptr %this1, i32 0, i32 5
-  store ptr null, ptr %dynstr_, align 8
-  %versym_ = getelementptr inbounds %"class.absl::debugging_internal::ElfMemImage", ptr %this1, i32 0, i32 2
-  store ptr null, ptr %versym_, align 8
-  %verdef_ = getelementptr inbounds %"class.absl::debugging_internal::ElfMemImage", ptr %this1, i32 0, i32 3
-  store ptr null, ptr %verdef_, align 8
-  %hash_ = getelementptr inbounds %"class.absl::debugging_internal::ElfMemImage", ptr %this1, i32 0, i32 4
-  store ptr null, ptr %hash_, align 8
-  %strsize_ = getelementptr inbounds %"class.absl::debugging_internal::ElfMemImage", ptr %this1, i32 0, i32 6
-  store i64 0, ptr %strsize_, align 8
-  %verdefnum_ = getelementptr inbounds %"class.absl::debugging_internal::ElfMemImage", ptr %this1, i32 0, i32 7
-  store i64 0, ptr %verdefnum_, align 8
-  %link_base_ = getelementptr inbounds %"class.absl::debugging_internal::ElfMemImage", ptr %this1, i32 0, i32 8
-  store i64 -1, ptr %link_base_, align 8
-  %0 = load ptr, ptr %base.addr, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %if.end, label %if.then
+define dso_local void @_ZN4absl18debugging_internal11ElfMemImage4InitEPKv(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1) #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca i64, align 8
+  %16 = alloca i32, align 4
+  %17 = alloca ptr, align 8
+  %18 = alloca i32, align 4
+  %19 = alloca i32, align 4
+  %20 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !9
+  %21 = load ptr, ptr %3, align 8
+  %22 = getelementptr inbounds nuw %"class.absl::debugging_internal::ElfMemImage", ptr %21, i32 0, i32 0
+  store ptr null, ptr %22, align 8, !tbaa !12
+  %23 = getelementptr inbounds nuw %"class.absl::debugging_internal::ElfMemImage", ptr %21, i32 0, i32 1
+  store ptr null, ptr %23, align 8, !tbaa !17
+  %24 = getelementptr inbounds nuw %"class.absl::debugging_internal::ElfMemImage", ptr %21, i32 0, i32 4
+  store ptr null, ptr %24, align 8, !tbaa !18
+  %25 = getelementptr inbounds nuw %"class.absl::debugging_internal::ElfMemImage", ptr %21, i32 0, i32 2
+  store ptr null, ptr %25, align 8, !tbaa !19
+  %26 = getelementptr inbounds nuw %"class.absl::debugging_internal::ElfMemImage", ptr %21, i32 0, i32 3
+  store ptr null, ptr %26, align 8, !tbaa !20
+  %27 = getelementptr inbounds nuw %"class.absl::debugging_internal::ElfMemImage", ptr %21, i32 0, i32 5
+  store i32 0, ptr %27, align 8, !tbaa !21
+  %28 = getelementptr inbounds nuw %"class.absl::debugging_internal::ElfMemImage", ptr %21, i32 0, i32 6
+  store i64 0, ptr %28, align 8, !tbaa !22
+  %29 = getelementptr inbounds nuw %"class.absl::debugging_internal::ElfMemImage", ptr %21, i32 0, i32 7
+  store i64 0, ptr %29, align 8, !tbaa !23
+  %30 = getelementptr inbounds nuw %"class.absl::debugging_internal::ElfMemImage", ptr %21, i32 0, i32 8
+  store i64 -1, ptr %30, align 8, !tbaa !24
+  %31 = load ptr, ptr %4, align 8, !tbaa !9
+  %32 = icmp ne ptr %31, null
+  br i1 %32, label %34, label %33
 
-if.then:                                          ; preds = %entry
-  br label %if.end90
+33:                                               ; preds = %2
+  br label %287
 
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %base.addr, align 8
-  store ptr %1, ptr %base_as_char, align 8
-  %2 = load ptr, ptr %base_as_char, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %2, i64 0
-  %3 = load i8, ptr %arrayidx, align 1
-  %conv = sext i8 %3 to i32
-  %cmp = icmp ne i32 %conv, 127
-  br i1 %cmp, label %if.then13, label %lor.lhs.false
+34:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  %35 = load ptr, ptr %4, align 8, !tbaa !9
+  store ptr %35, ptr %5, align 8, !tbaa !10
+  %36 = load ptr, ptr %5, align 8, !tbaa !10
+  %37 = getelementptr inbounds i8, ptr %36, i64 0
+  %38 = load i8, ptr %37, align 1, !tbaa !25
+  %39 = sext i8 %38 to i32
+  %40 = icmp ne i32 %39, 127
+  br i1 %40, label %59, label %41
 
-lor.lhs.false:                                    ; preds = %if.end
-  %4 = load ptr, ptr %base_as_char, align 8
-  %arrayidx2 = getelementptr inbounds i8, ptr %4, i64 1
-  %5 = load i8, ptr %arrayidx2, align 1
-  %conv3 = sext i8 %5 to i32
-  %cmp4 = icmp ne i32 %conv3, 69
-  br i1 %cmp4, label %if.then13, label %lor.lhs.false5
+41:                                               ; preds = %34
+  %42 = load ptr, ptr %5, align 8, !tbaa !10
+  %43 = getelementptr inbounds i8, ptr %42, i64 1
+  %44 = load i8, ptr %43, align 1, !tbaa !25
+  %45 = sext i8 %44 to i32
+  %46 = icmp ne i32 %45, 69
+  br i1 %46, label %59, label %47
 
-lor.lhs.false5:                                   ; preds = %lor.lhs.false
-  %6 = load ptr, ptr %base_as_char, align 8
-  %arrayidx6 = getelementptr inbounds i8, ptr %6, i64 2
-  %7 = load i8, ptr %arrayidx6, align 1
-  %conv7 = sext i8 %7 to i32
-  %cmp8 = icmp ne i32 %conv7, 76
-  br i1 %cmp8, label %if.then13, label %lor.lhs.false9
+47:                                               ; preds = %41
+  %48 = load ptr, ptr %5, align 8, !tbaa !10
+  %49 = getelementptr inbounds i8, ptr %48, i64 2
+  %50 = load i8, ptr %49, align 1, !tbaa !25
+  %51 = sext i8 %50 to i32
+  %52 = icmp ne i32 %51, 76
+  br i1 %52, label %59, label %53
 
-lor.lhs.false9:                                   ; preds = %lor.lhs.false5
-  %8 = load ptr, ptr %base_as_char, align 8
-  %arrayidx10 = getelementptr inbounds i8, ptr %8, i64 3
-  %9 = load i8, ptr %arrayidx10, align 1
-  %conv11 = sext i8 %9 to i32
-  %cmp12 = icmp ne i32 %conv11, 70
-  br i1 %cmp12, label %if.then13, label %if.end14
+53:                                               ; preds = %47
+  %54 = load ptr, ptr %5, align 8, !tbaa !10
+  %55 = getelementptr inbounds i8, ptr %54, i64 3
+  %56 = load i8, ptr %55, align 1, !tbaa !25
+  %57 = sext i8 %56 to i32
+  %58 = icmp ne i32 %57, 70
+  br i1 %58, label %59, label %60
 
-if.then13:                                        ; preds = %lor.lhs.false9, %lor.lhs.false5, %lor.lhs.false, %if.end
-  br label %if.end90
+59:                                               ; preds = %53, %47, %41, %34
+  store i32 1, ptr %6, align 4
+  br label %285
 
-if.end14:                                         ; preds = %lor.lhs.false9
-  %10 = load ptr, ptr %base_as_char, align 8
-  %arrayidx15 = getelementptr inbounds i8, ptr %10, i64 4
-  %11 = load i8, ptr %arrayidx15, align 1
-  %conv16 = sext i8 %11 to i32
-  store i32 %conv16, ptr %elf_class, align 4
-  %12 = load i32, ptr %elf_class, align 4
-  %cmp17 = icmp ne i32 %12, 2
-  br i1 %cmp17, label %if.then18, label %if.end19
+60:                                               ; preds = %53
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #7
+  %61 = load ptr, ptr %5, align 8, !tbaa !10
+  %62 = getelementptr inbounds i8, ptr %61, i64 4
+  %63 = load i8, ptr %62, align 1, !tbaa !25
+  %64 = sext i8 %63 to i32
+  store i32 %64, ptr %7, align 4, !tbaa !26
+  %65 = load i32, ptr %7, align 4, !tbaa !26
+  %66 = icmp ne i32 %65, 2
+  br i1 %66, label %67, label %68
 
-if.then18:                                        ; preds = %if.end14
-  br label %if.end90
+67:                                               ; preds = %60
+  store i32 1, ptr %6, align 4
+  br label %284
 
-if.end19:                                         ; preds = %if.end14
-  %13 = load ptr, ptr %base_as_char, align 8
-  %arrayidx20 = getelementptr inbounds i8, ptr %13, i64 5
-  %14 = load i8, ptr %arrayidx20, align 1
-  %conv21 = sext i8 %14 to i32
-  switch i32 %conv21, label %sw.default [
-    i32 1, label %sw.bb
-    i32 2, label %sw.bb22
+68:                                               ; preds = %60
+  %69 = load ptr, ptr %5, align 8, !tbaa !10
+  %70 = getelementptr inbounds i8, ptr %69, i64 5
+  %71 = load i8, ptr %70, align 1, !tbaa !25
+  %72 = sext i8 %71 to i32
+  switch i32 %72, label %75 [
+    i32 1, label %73
+    i32 2, label %74
   ]
 
-sw.bb:                                            ; preds = %if.end19
-  br label %sw.epilog
+73:                                               ; preds = %68
+  br label %76
 
-sw.bb22:                                          ; preds = %if.end19
-  br label %if.end90
+74:                                               ; preds = %68
+  store i32 1, ptr %6, align 4
+  br label %284
 
-sw.default:                                       ; preds = %if.end19
-  br label %if.end90
+75:                                               ; preds = %68
+  store i32 1, ptr %6, align 4
+  br label %284
 
-sw.epilog:                                        ; preds = %sw.bb
-  %15 = load ptr, ptr %base.addr, align 8
-  %ehdr_23 = getelementptr inbounds %"class.absl::debugging_internal::ElfMemImage", ptr %this1, i32 0, i32 0
-  store ptr %15, ptr %ehdr_23, align 8
-  store ptr null, ptr %dynamic_program_header, align 8
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+76:                                               ; preds = %73
+  %77 = load ptr, ptr %4, align 8, !tbaa !9
+  %78 = getelementptr inbounds nuw %"class.absl::debugging_internal::ElfMemImage", ptr %21, i32 0, i32 0
+  store ptr %77, ptr %78, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #7
+  store ptr null, ptr %8, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #7
+  store i32 0, ptr %9, align 4, !tbaa !26
+  br label %79
 
-for.cond:                                         ; preds = %for.inc, %sw.epilog
-  %16 = load i32, ptr %i, align 4
-  %ehdr_24 = getelementptr inbounds %"class.absl::debugging_internal::ElfMemImage", ptr %this1, i32 0, i32 0
-  %17 = load ptr, ptr %ehdr_24, align 8
-  %e_phnum = getelementptr inbounds %struct.Elf64_Ehdr, ptr %17, i32 0, i32 10
-  %18 = load i16, ptr %e_phnum, align 8
-  %conv25 = zext i16 %18 to i32
-  %cmp26 = icmp slt i32 %16, %conv25
-  br i1 %cmp26, label %for.body, label %for.end
+79:                                               ; preds = %108, %76
+  %80 = load i32, ptr %9, align 4, !tbaa !26
+  %81 = getelementptr inbounds nuw %"class.absl::debugging_internal::ElfMemImage", ptr %21, i32 0, i32 0
+  %82 = load ptr, ptr %81, align 8, !tbaa !12
+  %83 = getelementptr inbounds nuw %struct.Elf64_Ehdr, ptr %82, i32 0, i32 10
+  %84 = load i16, ptr %83, align 8, !tbaa !27
+  %85 = zext i16 %84 to i32
+  %86 = icmp slt i32 %80, %85
+  br i1 %86, label %88, label %87
 
-for.body:                                         ; preds = %for.cond
-  %19 = load i32, ptr %i, align 4
-  %call = call noundef ptr @_ZNK4absl18debugging_internal11ElfMemImage7GetPhdrEi(ptr noundef nonnull align 8 dereferenceable(72) %this1, i32 noundef %19)
-  store ptr %call, ptr %program_header, align 8
-  %20 = load ptr, ptr %program_header, align 8
-  %p_type = getelementptr inbounds %struct.Elf64_Phdr, ptr %20, i32 0, i32 0
-  %21 = load i32, ptr %p_type, align 8
-  switch i32 %21, label %sw.epilog34 [
-    i32 1, label %sw.bb27
-    i32 2, label %sw.bb33
+87:                                               ; preds = %79
+  store i32 3, ptr %6, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #7
+  br label %111
+
+88:                                               ; preds = %79
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  %89 = load i32, ptr %9, align 4, !tbaa !26
+  %90 = call noundef ptr @_ZNK4absl18debugging_internal11ElfMemImage7GetPhdrEi(ptr noundef nonnull align 8 dereferenceable(72) %21, i32 noundef %89)
+  store ptr %90, ptr %10, align 8, !tbaa !9
+  %91 = load ptr, ptr %10, align 8, !tbaa !9
+  %92 = getelementptr inbounds nuw %struct.Elf64_Phdr, ptr %91, i32 0, i32 0
+  %93 = load i32, ptr %92, align 8, !tbaa !30
+  switch i32 %93, label %107 [
+    i32 1, label %94
+    i32 2, label %105
   ]
 
-sw.bb27:                                          ; preds = %for.body
-  %link_base_28 = getelementptr inbounds %"class.absl::debugging_internal::ElfMemImage", ptr %this1, i32 0, i32 8
-  %22 = load i64, ptr %link_base_28, align 8
-  %not = xor i64 %22, -1
-  %tobool29 = icmp ne i64 %not, 0
-  br i1 %tobool29, label %if.end32, label %if.then30
+94:                                               ; preds = %88
+  %95 = getelementptr inbounds nuw %"class.absl::debugging_internal::ElfMemImage", ptr %21, i32 0, i32 8
+  %96 = load i64, ptr %95, align 8, !tbaa !24
+  %97 = xor i64 %96, -1
+  %98 = icmp ne i64 %97, 0
+  br i1 %98, label %104, label %99
 
-if.then30:                                        ; preds = %sw.bb27
-  %23 = load ptr, ptr %program_header, align 8
-  %p_vaddr = getelementptr inbounds %struct.Elf64_Phdr, ptr %23, i32 0, i32 3
-  %24 = load i64, ptr %p_vaddr, align 8
-  %link_base_31 = getelementptr inbounds %"class.absl::debugging_internal::ElfMemImage", ptr %this1, i32 0, i32 8
-  store i64 %24, ptr %link_base_31, align 8
-  br label %if.end32
+99:                                               ; preds = %94
+  %100 = load ptr, ptr %10, align 8, !tbaa !9
+  %101 = getelementptr inbounds nuw %struct.Elf64_Phdr, ptr %100, i32 0, i32 3
+  %102 = load i64, ptr %101, align 8, !tbaa !32
+  %103 = getelementptr inbounds nuw %"class.absl::debugging_internal::ElfMemImage", ptr %21, i32 0, i32 8
+  store i64 %102, ptr %103, align 8, !tbaa !24
+  br label %104
 
-if.end32:                                         ; preds = %if.then30, %sw.bb27
-  br label %sw.epilog34
+104:                                              ; preds = %99, %94
+  br label %107
 
-sw.bb33:                                          ; preds = %for.body
-  %25 = load ptr, ptr %program_header, align 8
-  store ptr %25, ptr %dynamic_program_header, align 8
-  br label %sw.epilog34
+105:                                              ; preds = %88
+  %106 = load ptr, ptr %10, align 8, !tbaa !9
+  store ptr %106, ptr %8, align 8, !tbaa !9
+  br label %107
 
-sw.epilog34:                                      ; preds = %sw.bb33, %if.end32, %for.body
-  br label %for.inc
+107:                                              ; preds = %88, %105, %104
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  br label %108
 
-for.inc:                                          ; preds = %sw.epilog34
-  %26 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %26, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !5
+108:                                              ; preds = %107
+  %109 = load i32, ptr %9, align 4, !tbaa !26
+  %110 = add nsw i32 %109, 1
+  store i32 %110, ptr %9, align 4, !tbaa !26
+  br label %79, !llvm.loop !33
 
-for.end:                                          ; preds = %for.cond
-  %link_base_35 = getelementptr inbounds %"class.absl::debugging_internal::ElfMemImage", ptr %this1, i32 0, i32 8
-  %27 = load i64, ptr %link_base_35, align 8
-  %not36 = xor i64 %27, -1
-  %tobool37 = icmp ne i64 %not36, 0
-  br i1 %tobool37, label %lor.lhs.false38, label %if.then40
+111:                                              ; preds = %87
+  %112 = getelementptr inbounds nuw %"class.absl::debugging_internal::ElfMemImage", ptr %21, i32 0, i32 8
+  %113 = load i64, ptr %112, align 8, !tbaa !24
+  %114 = xor i64 %113, -1
+  %115 = icmp ne i64 %114, 0
+  br i1 %115, label %116, label %119
 
-lor.lhs.false38:                                  ; preds = %for.end
-  %28 = load ptr, ptr %dynamic_program_header, align 8
-  %tobool39 = icmp ne ptr %28, null
-  br i1 %tobool39, label %if.end41, label %if.then40
+116:                                              ; preds = %111
+  %117 = load ptr, ptr %8, align 8, !tbaa !9
+  %118 = icmp ne ptr %117, null
+  br i1 %118, label %120, label %119
 
-if.then40:                                        ; preds = %lor.lhs.false38, %for.end
-  call void @_ZN4absl18debugging_internal11ElfMemImage4InitEPKv(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef null)
-  br label %if.end90
+119:                                              ; preds = %116, %111
+  call void @_ZN4absl18debugging_internal11ElfMemImage4InitEPKv(ptr noundef nonnull align 8 dereferenceable(72) %21, ptr noundef null)
+  store i32 1, ptr %6, align 4
+  br label %283
 
-if.end41:                                         ; preds = %lor.lhs.false38
-  %29 = load ptr, ptr %base_as_char, align 8
-  %link_base_42 = getelementptr inbounds %"class.absl::debugging_internal::ElfMemImage", ptr %this1, i32 0, i32 8
-  %30 = load i64, ptr %link_base_42, align 8
-  %31 = inttoptr i64 %30 to ptr
-  %sub.ptr.lhs.cast = ptrtoint ptr %29 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %31 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  store i64 %sub.ptr.sub, ptr %relocation, align 8
-  %32 = load ptr, ptr %dynamic_program_header, align 8
-  %p_vaddr43 = getelementptr inbounds %struct.Elf64_Phdr, ptr %32, i32 0, i32 3
-  %33 = load i64, ptr %p_vaddr43, align 8
-  %34 = load i64, ptr %relocation, align 8
-  %add = add nsw i64 %33, %34
-  %35 = inttoptr i64 %add to ptr
-  store ptr %35, ptr %dynamic_entry, align 8
-  br label %for.cond44
+120:                                              ; preds = %116
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
+  %121 = load ptr, ptr %5, align 8, !tbaa !10
+  %122 = getelementptr inbounds nuw %"class.absl::debugging_internal::ElfMemImage", ptr %21, i32 0, i32 8
+  %123 = load i64, ptr %122, align 8, !tbaa !24
+  %124 = inttoptr i64 %123 to ptr
+  %125 = ptrtoint ptr %121 to i64
+  %126 = ptrtoint ptr %124 to i64
+  %127 = sub i64 %125, %126
+  store i64 %127, ptr %11, align 8, !tbaa !35
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #7
+  %128 = load ptr, ptr %8, align 8, !tbaa !9
+  %129 = getelementptr inbounds nuw %struct.Elf64_Phdr, ptr %128, i32 0, i32 3
+  %130 = load i64, ptr %129, align 8, !tbaa !32
+  %131 = load i64, ptr %11, align 8, !tbaa !35
+  %132 = add nsw i64 %130, %131
+  %133 = inttoptr i64 %132 to ptr
+  store ptr %133, ptr %12, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #7
+  store ptr null, ptr %13, align 8, !tbaa !36
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #7
+  store ptr null, ptr %14, align 8, !tbaa !36
+  br label %134
 
-for.cond44:                                       ; preds = %for.inc67, %if.end41
-  %36 = load ptr, ptr %dynamic_entry, align 8
-  %d_tag = getelementptr inbounds %struct.Elf64_Dyn, ptr %36, i32 0, i32 0
-  %37 = load i64, ptr %d_tag, align 8
-  %cmp45 = icmp ne i64 %37, 0
-  br i1 %cmp45, label %for.body46, label %for.end68
+134:                                              ; preds = %182, %120
+  %135 = load ptr, ptr %12, align 8, !tbaa !9
+  %136 = getelementptr inbounds nuw %struct.Elf64_Dyn, ptr %135, i32 0, i32 0
+  %137 = load i64, ptr %136, align 8, !tbaa !38
+  %138 = icmp ne i64 %137, 0
+  br i1 %138, label %139, label %185
 
-for.body46:                                       ; preds = %for.cond44
-  %38 = load ptr, ptr %dynamic_entry, align 8
-  %d_un = getelementptr inbounds %struct.Elf64_Dyn, ptr %38, i32 0, i32 1
-  %39 = load i64, ptr %d_un, align 8
-  %40 = load i64, ptr %relocation, align 8
-  %add47 = add nsw i64 %39, %40
-  store i64 %add47, ptr %value, align 8
-  %41 = load ptr, ptr %dynamic_entry, align 8
-  %d_tag48 = getelementptr inbounds %struct.Elf64_Dyn, ptr %41, i32 0, i32 0
-  %42 = load i64, ptr %d_tag48, align 8
-  switch i64 %42, label %sw.default65 [
-    i64 4, label %sw.bb49
-    i64 6, label %sw.bb51
-    i64 5, label %sw.bb53
-    i64 1879048176, label %sw.bb55
-    i64 1879048188, label %sw.bb57
-    i64 1879048189, label %sw.bb59
-    i64 10, label %sw.bb62
+139:                                              ; preds = %134
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #7
+  %140 = load ptr, ptr %12, align 8, !tbaa !9
+  %141 = getelementptr inbounds nuw %struct.Elf64_Dyn, ptr %140, i32 0, i32 1
+  %142 = load i64, ptr %141, align 8, !tbaa !25
+  %143 = load i64, ptr %11, align 8, !tbaa !35
+  %144 = add nsw i64 %142, %143
+  store i64 %144, ptr %15, align 8, !tbaa !35
+  %145 = load ptr, ptr %12, align 8, !tbaa !9
+  %146 = getelementptr inbounds nuw %struct.Elf64_Dyn, ptr %145, i32 0, i32 0
+  %147 = load i64, ptr %146, align 8, !tbaa !38
+  switch i64 %147, label %180 [
+    i64 4, label %148
+    i64 1879047925, label %151
+    i64 6, label %154
+    i64 5, label %158
+    i64 1879048176, label %162
+    i64 1879048188, label %166
+    i64 1879048189, label %170
+    i64 10, label %175
   ]
 
-sw.bb49:                                          ; preds = %for.body46
-  %43 = load i64, ptr %value, align 8
-  %44 = inttoptr i64 %43 to ptr
-  %hash_50 = getelementptr inbounds %"class.absl::debugging_internal::ElfMemImage", ptr %this1, i32 0, i32 4
-  store ptr %44, ptr %hash_50, align 8
-  br label %sw.epilog66
+148:                                              ; preds = %139
+  %149 = load i64, ptr %15, align 8, !tbaa !35
+  %150 = inttoptr i64 %149 to ptr
+  store ptr %150, ptr %13, align 8, !tbaa !36
+  br label %181
 
-sw.bb51:                                          ; preds = %for.body46
-  %45 = load i64, ptr %value, align 8
-  %46 = inttoptr i64 %45 to ptr
-  %dynsym_52 = getelementptr inbounds %"class.absl::debugging_internal::ElfMemImage", ptr %this1, i32 0, i32 1
-  store ptr %46, ptr %dynsym_52, align 8
-  br label %sw.epilog66
+151:                                              ; preds = %139
+  %152 = load i64, ptr %15, align 8, !tbaa !35
+  %153 = inttoptr i64 %152 to ptr
+  store ptr %153, ptr %14, align 8, !tbaa !36
+  br label %181
 
-sw.bb53:                                          ; preds = %for.body46
-  %47 = load i64, ptr %value, align 8
-  %48 = inttoptr i64 %47 to ptr
-  %dynstr_54 = getelementptr inbounds %"class.absl::debugging_internal::ElfMemImage", ptr %this1, i32 0, i32 5
-  store ptr %48, ptr %dynstr_54, align 8
-  br label %sw.epilog66
+154:                                              ; preds = %139
+  %155 = load i64, ptr %15, align 8, !tbaa !35
+  %156 = inttoptr i64 %155 to ptr
+  %157 = getelementptr inbounds nuw %"class.absl::debugging_internal::ElfMemImage", ptr %21, i32 0, i32 1
+  store ptr %156, ptr %157, align 8, !tbaa !17
+  br label %181
 
-sw.bb55:                                          ; preds = %for.body46
-  %49 = load i64, ptr %value, align 8
-  %50 = inttoptr i64 %49 to ptr
-  %versym_56 = getelementptr inbounds %"class.absl::debugging_internal::ElfMemImage", ptr %this1, i32 0, i32 2
-  store ptr %50, ptr %versym_56, align 8
-  br label %sw.epilog66
+158:                                              ; preds = %139
+  %159 = load i64, ptr %15, align 8, !tbaa !35
+  %160 = inttoptr i64 %159 to ptr
+  %161 = getelementptr inbounds nuw %"class.absl::debugging_internal::ElfMemImage", ptr %21, i32 0, i32 4
+  store ptr %160, ptr %161, align 8, !tbaa !18
+  br label %181
 
-sw.bb57:                                          ; preds = %for.body46
-  %51 = load i64, ptr %value, align 8
-  %52 = inttoptr i64 %51 to ptr
-  %verdef_58 = getelementptr inbounds %"class.absl::debugging_internal::ElfMemImage", ptr %this1, i32 0, i32 3
-  store ptr %52, ptr %verdef_58, align 8
-  br label %sw.epilog66
+162:                                              ; preds = %139
+  %163 = load i64, ptr %15, align 8, !tbaa !35
+  %164 = inttoptr i64 %163 to ptr
+  %165 = getelementptr inbounds nuw %"class.absl::debugging_internal::ElfMemImage", ptr %21, i32 0, i32 2
+  store ptr %164, ptr %165, align 8, !tbaa !19
+  br label %181
 
-sw.bb59:                                          ; preds = %for.body46
-  %53 = load ptr, ptr %dynamic_entry, align 8
-  %d_un60 = getelementptr inbounds %struct.Elf64_Dyn, ptr %53, i32 0, i32 1
-  %54 = load i64, ptr %d_un60, align 8
-  %verdefnum_61 = getelementptr inbounds %"class.absl::debugging_internal::ElfMemImage", ptr %this1, i32 0, i32 7
-  store i64 %54, ptr %verdefnum_61, align 8
-  br label %sw.epilog66
+166:                                              ; preds = %139
+  %167 = load i64, ptr %15, align 8, !tbaa !35
+  %168 = inttoptr i64 %167 to ptr
+  %169 = getelementptr inbounds nuw %"class.absl::debugging_internal::ElfMemImage", ptr %21, i32 0, i32 3
+  store ptr %168, ptr %169, align 8, !tbaa !20
+  br label %181
 
-sw.bb62:                                          ; preds = %for.body46
-  %55 = load ptr, ptr %dynamic_entry, align 8
-  %d_un63 = getelementptr inbounds %struct.Elf64_Dyn, ptr %55, i32 0, i32 1
-  %56 = load i64, ptr %d_un63, align 8
-  %strsize_64 = getelementptr inbounds %"class.absl::debugging_internal::ElfMemImage", ptr %this1, i32 0, i32 6
-  store i64 %56, ptr %strsize_64, align 8
-  br label %sw.epilog66
+170:                                              ; preds = %139
+  %171 = load ptr, ptr %12, align 8, !tbaa !9
+  %172 = getelementptr inbounds nuw %struct.Elf64_Dyn, ptr %171, i32 0, i32 1
+  %173 = load i64, ptr %172, align 8, !tbaa !25
+  %174 = getelementptr inbounds nuw %"class.absl::debugging_internal::ElfMemImage", ptr %21, i32 0, i32 7
+  store i64 %173, ptr %174, align 8, !tbaa !23
+  br label %181
 
-sw.default65:                                     ; preds = %for.body46
-  br label %sw.epilog66
+175:                                              ; preds = %139
+  %176 = load ptr, ptr %12, align 8, !tbaa !9
+  %177 = getelementptr inbounds nuw %struct.Elf64_Dyn, ptr %176, i32 0, i32 1
+  %178 = load i64, ptr %177, align 8, !tbaa !25
+  %179 = getelementptr inbounds nuw %"class.absl::debugging_internal::ElfMemImage", ptr %21, i32 0, i32 6
+  store i64 %178, ptr %179, align 8, !tbaa !22
+  br label %181
 
-sw.epilog66:                                      ; preds = %sw.default65, %sw.bb62, %sw.bb59, %sw.bb57, %sw.bb55, %sw.bb53, %sw.bb51, %sw.bb49
-  br label %for.inc67
+180:                                              ; preds = %139
+  br label %181
 
-for.inc67:                                        ; preds = %sw.epilog66
-  %57 = load ptr, ptr %dynamic_entry, align 8
-  %incdec.ptr = getelementptr inbounds %struct.Elf64_Dyn, ptr %57, i32 1
-  store ptr %incdec.ptr, ptr %dynamic_entry, align 8
-  br label %for.cond44, !llvm.loop !7
+181:                                              ; preds = %180, %175, %170, %166, %162, %158, %154, %151, %148
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #7
+  br label %182
 
-for.end68:                                        ; preds = %for.cond44
-  %hash_69 = getelementptr inbounds %"class.absl::debugging_internal::ElfMemImage", ptr %this1, i32 0, i32 4
-  %58 = load ptr, ptr %hash_69, align 8
-  %tobool70 = icmp ne ptr %58, null
-  br i1 %tobool70, label %lor.lhs.false71, label %if.then89
+182:                                              ; preds = %181
+  %183 = load ptr, ptr %12, align 8, !tbaa !9
+  %184 = getelementptr inbounds nuw %struct.Elf64_Dyn, ptr %183, i32 1
+  store ptr %184, ptr %12, align 8, !tbaa !9
+  br label %134, !llvm.loop !40
 
-lor.lhs.false71:                                  ; preds = %for.end68
-  %dynsym_72 = getelementptr inbounds %"class.absl::debugging_internal::ElfMemImage", ptr %this1, i32 0, i32 1
-  %59 = load ptr, ptr %dynsym_72, align 8
-  %tobool73 = icmp ne ptr %59, null
-  br i1 %tobool73, label %lor.lhs.false74, label %if.then89
+185:                                              ; preds = %134
+  %186 = load ptr, ptr %13, align 8, !tbaa !36
+  %187 = icmp ne ptr %186, null
+  br i1 %187, label %191, label %188
 
-lor.lhs.false74:                                  ; preds = %lor.lhs.false71
-  %dynstr_75 = getelementptr inbounds %"class.absl::debugging_internal::ElfMemImage", ptr %this1, i32 0, i32 5
-  %60 = load ptr, ptr %dynstr_75, align 8
-  %tobool76 = icmp ne ptr %60, null
-  br i1 %tobool76, label %lor.lhs.false77, label %if.then89
+188:                                              ; preds = %185
+  %189 = load ptr, ptr %14, align 8, !tbaa !36
+  %190 = icmp ne ptr %189, null
+  br i1 %190, label %191, label %215
 
-lor.lhs.false77:                                  ; preds = %lor.lhs.false74
-  %versym_78 = getelementptr inbounds %"class.absl::debugging_internal::ElfMemImage", ptr %this1, i32 0, i32 2
-  %61 = load ptr, ptr %versym_78, align 8
-  %tobool79 = icmp ne ptr %61, null
-  br i1 %tobool79, label %lor.lhs.false80, label %if.then89
+191:                                              ; preds = %188, %185
+  %192 = getelementptr inbounds nuw %"class.absl::debugging_internal::ElfMemImage", ptr %21, i32 0, i32 1
+  %193 = load ptr, ptr %192, align 8, !tbaa !17
+  %194 = icmp ne ptr %193, null
+  br i1 %194, label %195, label %215
 
-lor.lhs.false80:                                  ; preds = %lor.lhs.false77
-  %verdef_81 = getelementptr inbounds %"class.absl::debugging_internal::ElfMemImage", ptr %this1, i32 0, i32 3
-  %62 = load ptr, ptr %verdef_81, align 8
-  %tobool82 = icmp ne ptr %62, null
-  br i1 %tobool82, label %lor.lhs.false83, label %if.then89
+195:                                              ; preds = %191
+  %196 = getelementptr inbounds nuw %"class.absl::debugging_internal::ElfMemImage", ptr %21, i32 0, i32 4
+  %197 = load ptr, ptr %196, align 8, !tbaa !18
+  %198 = icmp ne ptr %197, null
+  br i1 %198, label %199, label %215
 
-lor.lhs.false83:                                  ; preds = %lor.lhs.false80
-  %verdefnum_84 = getelementptr inbounds %"class.absl::debugging_internal::ElfMemImage", ptr %this1, i32 0, i32 7
-  %63 = load i64, ptr %verdefnum_84, align 8
-  %tobool85 = icmp ne i64 %63, 0
-  br i1 %tobool85, label %lor.lhs.false86, label %if.then89
+199:                                              ; preds = %195
+  %200 = getelementptr inbounds nuw %"class.absl::debugging_internal::ElfMemImage", ptr %21, i32 0, i32 2
+  %201 = load ptr, ptr %200, align 8, !tbaa !19
+  %202 = icmp ne ptr %201, null
+  br i1 %202, label %203, label %215
 
-lor.lhs.false86:                                  ; preds = %lor.lhs.false83
-  %strsize_87 = getelementptr inbounds %"class.absl::debugging_internal::ElfMemImage", ptr %this1, i32 0, i32 6
-  %64 = load i64, ptr %strsize_87, align 8
-  %tobool88 = icmp ne i64 %64, 0
-  br i1 %tobool88, label %if.end90, label %if.then89
+203:                                              ; preds = %199
+  %204 = getelementptr inbounds nuw %"class.absl::debugging_internal::ElfMemImage", ptr %21, i32 0, i32 3
+  %205 = load ptr, ptr %204, align 8, !tbaa !20
+  %206 = icmp ne ptr %205, null
+  br i1 %206, label %207, label %215
 
-if.then89:                                        ; preds = %lor.lhs.false86, %lor.lhs.false83, %lor.lhs.false80, %lor.lhs.false77, %lor.lhs.false74, %lor.lhs.false71, %for.end68
-  call void @_ZN4absl18debugging_internal11ElfMemImage4InitEPKv(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef null)
-  br label %if.end90
+207:                                              ; preds = %203
+  %208 = getelementptr inbounds nuw %"class.absl::debugging_internal::ElfMemImage", ptr %21, i32 0, i32 7
+  %209 = load i64, ptr %208, align 8, !tbaa !23
+  %210 = icmp ne i64 %209, 0
+  br i1 %210, label %211, label %215
 
-if.end90:                                         ; preds = %if.then89, %lor.lhs.false86, %if.then40, %sw.default, %sw.bb22, %if.then18, %if.then13, %if.then
+211:                                              ; preds = %207
+  %212 = getelementptr inbounds nuw %"class.absl::debugging_internal::ElfMemImage", ptr %21, i32 0, i32 6
+  %213 = load i64, ptr %212, align 8, !tbaa !22
+  %214 = icmp ne i64 %213, 0
+  br i1 %214, label %216, label %215
+
+215:                                              ; preds = %211, %207, %203, %199, %195, %191, %188
+  call void @_ZN4absl18debugging_internal11ElfMemImage4InitEPKv(ptr noundef nonnull align 8 dereferenceable(72) %21, ptr noundef null)
+  store i32 1, ptr %6, align 4
+  br label %282
+
+216:                                              ; preds = %211
+  %217 = load ptr, ptr %13, align 8, !tbaa !36
+  %218 = icmp ne ptr %217, null
+  br i1 %218, label %219, label %224
+
+219:                                              ; preds = %216
+  %220 = load ptr, ptr %13, align 8, !tbaa !36
+  %221 = getelementptr inbounds i32, ptr %220, i64 1
+  %222 = load i32, ptr %221, align 4, !tbaa !26
+  %223 = getelementptr inbounds nuw %"class.absl::debugging_internal::ElfMemImage", ptr %21, i32 0, i32 5
+  store i32 %222, ptr %223, align 8, !tbaa !21
+  br label %281
+
+224:                                              ; preds = %216
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #7
+  %225 = load ptr, ptr %14, align 8, !tbaa !36
+  %226 = getelementptr inbounds i32, ptr %225, i64 0
+  %227 = load i32, ptr %226, align 4, !tbaa !26
+  store i32 %227, ptr %16, align 4, !tbaa !26
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #7
+  %228 = load ptr, ptr %14, align 8, !tbaa !36
+  %229 = getelementptr inbounds i32, ptr %228, i64 4
+  %230 = load ptr, ptr %14, align 8, !tbaa !36
+  %231 = getelementptr inbounds i32, ptr %230, i64 2
+  %232 = load i32, ptr %231, align 4, !tbaa !26
+  %233 = zext i32 %232 to i64
+  %234 = mul i64 2, %233
+  %235 = getelementptr inbounds nuw i32, ptr %229, i64 %234
+  store ptr %235, ptr %17, align 8, !tbaa !36
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #7
+  store i32 0, ptr %18, align 4, !tbaa !26
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #7
+  %236 = load i32, ptr %16, align 4, !tbaa !26
+  store i32 %236, ptr %19, align 4, !tbaa !26
+  br label %237
+
+237:                                              ; preds = %251, %224
+  %238 = load i32, ptr %19, align 4, !tbaa !26
+  %239 = icmp ugt i32 %238, 0
+  br i1 %239, label %241, label %240
+
+240:                                              ; preds = %237
+  store i32 11, ptr %6, align 4
+  br label %252
+
+241:                                              ; preds = %237
+  %242 = load ptr, ptr %17, align 8, !tbaa !36
+  %243 = load i32, ptr %19, align 4, !tbaa !26
+  %244 = add i32 %243, -1
+  store i32 %244, ptr %19, align 4, !tbaa !26
+  %245 = zext i32 %244 to i64
+  %246 = getelementptr inbounds nuw i32, ptr %242, i64 %245
+  %247 = load i32, ptr %246, align 4, !tbaa !26
+  store i32 %247, ptr %18, align 4, !tbaa !26
+  %248 = load i32, ptr %18, align 4, !tbaa !26
+  %249 = icmp ne i32 %248, 0
+  br i1 %249, label %250, label %251
+
+250:                                              ; preds = %241
+  store i32 11, ptr %6, align 4
+  br label %252
+
+251:                                              ; preds = %241
+  br label %237, !llvm.loop !41
+
+252:                                              ; preds = %250, %240
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #7
+  br label %253
+
+253:                                              ; preds = %252
+  %254 = load i32, ptr %18, align 4, !tbaa !26
+  %255 = icmp ne i32 %254, 0
+  br i1 %255, label %256, label %278
+
+256:                                              ; preds = %253
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #7
+  %257 = load ptr, ptr %17, align 8, !tbaa !36
+  %258 = load i32, ptr %16, align 4, !tbaa !26
+  %259 = zext i32 %258 to i64
+  %260 = getelementptr inbounds nuw i32, ptr %257, i64 %259
+  %261 = load ptr, ptr %14, align 8, !tbaa !36
+  %262 = getelementptr inbounds i32, ptr %261, i64 1
+  %263 = load i32, ptr %262, align 4, !tbaa !26
+  %264 = zext i32 %263 to i64
+  %265 = sub i64 0, %264
+  %266 = getelementptr inbounds i32, ptr %260, i64 %265
+  store ptr %266, ptr %20, align 8, !tbaa !36
+  br label %267
+
+267:                                              ; preds = %276, %256
+  %268 = load ptr, ptr %20, align 8, !tbaa !36
+  %269 = load i32, ptr %18, align 4, !tbaa !26
+  %270 = add i32 %269, 1
+  store i32 %270, ptr %18, align 4, !tbaa !26
+  %271 = zext i32 %269 to i64
+  %272 = getelementptr inbounds nuw i32, ptr %268, i64 %271
+  %273 = load i32, ptr %272, align 4, !tbaa !26
+  %274 = urem i32 %273, 2
+  %275 = icmp eq i32 %274, 0
+  br i1 %275, label %276, label %277
+
+276:                                              ; preds = %267
+  br label %267, !llvm.loop !42
+
+277:                                              ; preds = %267
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #7
+  br label %278
+
+278:                                              ; preds = %277, %253
+  %279 = load i32, ptr %18, align 4, !tbaa !26
+  %280 = getelementptr inbounds nuw %"class.absl::debugging_internal::ElfMemImage", ptr %21, i32 0, i32 5
+  store i32 %279, ptr %280, align 8, !tbaa !21
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #7
+  br label %281
+
+281:                                              ; preds = %278, %219
+  store i32 0, ptr %6, align 4
+  br label %282
+
+282:                                              ; preds = %281, %215
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  br label %283
+
+283:                                              ; preds = %282, %119
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #7
+  br label %284
+
+284:                                              ; preds = %283, %75, %74, %67
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #7
+  br label %285
+
+285:                                              ; preds = %284, %59
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  %286 = load i32, ptr %6, align 4
+  switch i32 %286, label %288 [
+    i32 0, label %287
+    i32 1, label %287
+  ]
+
+287:                                              ; preds = %33, %285, %285
   ret void
+
+288:                                              ; preds = %285
+  unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZNK4absl18debugging_internal11ElfMemImage13GetNumSymbolsEv(ptr noundef nonnull align 8 dereferenceable(72) %this) #2 align 2 {
-entry:
-  %retval = alloca i32, align 4
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %hash_ = getelementptr inbounds %"class.absl::debugging_internal::ElfMemImage", ptr %this1, i32 0, i32 4
-  %0 = load ptr, ptr %hash_, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %if.end, label %if.then
-
-if.then:                                          ; preds = %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %hash_2 = getelementptr inbounds %"class.absl::debugging_internal::ElfMemImage", ptr %this1, i32 0, i32 4
-  %1 = load ptr, ptr %hash_2, align 8
-  %arrayidx = getelementptr inbounds i32, ptr %1, i64 1
-  %2 = load i32, ptr %arrayidx, align 4
-  store i32 %2, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end, %if.then
-  %3 = load i32, ptr %retval, align 4
-  ret i32 %3
+define dso_local noundef i32 @_ZNK4absl18debugging_internal11ElfMemImage13GetNumSymbolsEv(ptr noundef nonnull align 8 dereferenceable(72) %0) #4 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.absl::debugging_internal::ElfMemImage", ptr %3, i32 0, i32 5
+  %5 = load i32, ptr %4, align 8, !tbaa !21
+  ret i32 %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZNK4absl18debugging_internal11ElfMemImage9GetDynsymEi(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef %index) #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %index.addr = alloca i32, align 4
-  %absl_raw_log_internal_basename = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %index, ptr %index.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  br label %do.body
+define dso_local noundef ptr @_ZNK4absl18debugging_internal11ElfMemImage9GetDynsymEj(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef %1) #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store i32 %1, ptr %4, align 4, !tbaa !26
+  %6 = load ptr, ptr %3, align 8
+  br label %7
 
-do.body:                                          ; preds = %entry
-  %0 = load i32, ptr %index.addr, align 4
-  %call = call noundef i32 @_ZNK4absl18debugging_internal11ElfMemImage13GetNumSymbolsEv(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  %cmp = icmp slt i32 %0, %call
-  %lnot = xor i1 %cmp, true
-  br i1 %lnot, label %if.then, label %if.end
+7:                                                ; preds = %2
+  %8 = load i32, ptr %4, align 4, !tbaa !26
+  %9 = call noundef i32 @_ZNK4absl18debugging_internal11ElfMemImage13GetNumSymbolsEv(ptr noundef nonnull align 8 dereferenceable(72) %6)
+  %10 = icmp ult i32 %8, %9
+  %11 = xor i1 %10, true
+  %12 = zext i1 %11 to i64
+  %13 = call i64 @llvm.expect.i64(i64 %12, i64 0)
+  %14 = icmp ne i64 %13, 0
+  br i1 %14, label %15, label %21
 
-if.then:                                          ; preds = %do.body
-  br label %do.body2
+15:                                               ; preds = %7
+  br label %16
 
-do.body2:                                         ; preds = %if.then
-  %1 = getelementptr i8, ptr @.str, i64 123
-  store ptr %1, ptr %absl_raw_log_internal_basename, align 8
-  %2 = getelementptr i8, ptr @.str, i64 123
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %2, i32 noundef 98, ptr noundef @.str.1, ptr noundef @.str.4, ptr noundef @.str.5)
-  br label %do.body3
+16:                                               ; preds = %15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  store ptr getelementptr (i8, ptr @.str, i64 123), ptr %5, align 8, !tbaa !10
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 123), i32 noundef 95, ptr noundef @.str.1, ptr noundef @.str.4, ptr noundef @.str.5)
+  br label %17
 
-do.body3:                                         ; preds = %do.body2
+17:                                               ; preds = %16
   unreachable
 
-do.end:                                           ; No predecessors!
-  br label %do.end4
+18:                                               ; No predecessors!
+  br label %19
 
-do.end4:                                          ; preds = %do.end
-  br label %if.end
+19:                                               ; preds = %18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  br label %20
 
-if.end:                                           ; preds = %do.end4, %do.body
-  br label %do.end5
+20:                                               ; preds = %19
+  br label %21
 
-do.end5:                                          ; preds = %if.end
-  %dynsym_ = getelementptr inbounds %"class.absl::debugging_internal::ElfMemImage", ptr %this1, i32 0, i32 1
-  %3 = load ptr, ptr %dynsym_, align 8
-  %4 = load i32, ptr %index.addr, align 4
-  %idx.ext = sext i32 %4 to i64
-  %add.ptr = getelementptr inbounds %struct.Elf64_Sym, ptr %3, i64 %idx.ext
-  ret ptr %add.ptr
+21:                                               ; preds = %20, %7
+  br label %22
+
+22:                                               ; preds = %21
+  %23 = getelementptr inbounds nuw %"class.absl::debugging_internal::ElfMemImage", ptr %6, i32 0, i32 1
+  %24 = load ptr, ptr %23, align 8, !tbaa !17
+  %25 = load i32, ptr %4, align 4, !tbaa !26
+  %26 = zext i32 %25 to i64
+  %27 = getelementptr inbounds nuw %struct.Elf64_Sym, ptr %24, i64 %26
+  ret ptr %27
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZNK4absl18debugging_internal11ElfMemImage9GetVersymEi(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef %index) #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %index.addr = alloca i32, align 4
-  %absl_raw_log_internal_basename = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %index, ptr %index.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  br label %do.body
+define dso_local noundef ptr @_ZNK4absl18debugging_internal11ElfMemImage9GetVersymEj(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef %1) #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store i32 %1, ptr %4, align 4, !tbaa !26
+  %6 = load ptr, ptr %3, align 8
+  br label %7
 
-do.body:                                          ; preds = %entry
-  %0 = load i32, ptr %index.addr, align 4
-  %call = call noundef i32 @_ZNK4absl18debugging_internal11ElfMemImage13GetNumSymbolsEv(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  %cmp = icmp slt i32 %0, %call
-  %lnot = xor i1 %cmp, true
-  br i1 %lnot, label %if.then, label %if.end
+7:                                                ; preds = %2
+  %8 = load i32, ptr %4, align 4, !tbaa !26
+  %9 = call noundef i32 @_ZNK4absl18debugging_internal11ElfMemImage13GetNumSymbolsEv(ptr noundef nonnull align 8 dereferenceable(72) %6)
+  %10 = icmp ult i32 %8, %9
+  %11 = xor i1 %10, true
+  %12 = zext i1 %11 to i64
+  %13 = call i64 @llvm.expect.i64(i64 %12, i64 0)
+  %14 = icmp ne i64 %13, 0
+  br i1 %14, label %15, label %21
 
-if.then:                                          ; preds = %do.body
-  br label %do.body2
+15:                                               ; preds = %7
+  br label %16
 
-do.body2:                                         ; preds = %if.then
-  %1 = getelementptr i8, ptr @.str, i64 123
-  store ptr %1, ptr %absl_raw_log_internal_basename, align 8
-  %2 = getelementptr i8, ptr @.str, i64 123
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %2, i32 noundef 103, ptr noundef @.str.1, ptr noundef @.str.4, ptr noundef @.str.5)
-  br label %do.body3
+16:                                               ; preds = %15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  store ptr getelementptr (i8, ptr @.str, i64 123), ptr %5, align 8, !tbaa !10
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 123), i32 noundef 100, ptr noundef @.str.1, ptr noundef @.str.4, ptr noundef @.str.5)
+  br label %17
 
-do.body3:                                         ; preds = %do.body2
+17:                                               ; preds = %16
   unreachable
 
-do.end:                                           ; No predecessors!
-  br label %do.end4
+18:                                               ; No predecessors!
+  br label %19
 
-do.end4:                                          ; preds = %do.end
-  br label %if.end
+19:                                               ; preds = %18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  br label %20
 
-if.end:                                           ; preds = %do.end4, %do.body
-  br label %do.end5
+20:                                               ; preds = %19
+  br label %21
 
-do.end5:                                          ; preds = %if.end
-  %versym_ = getelementptr inbounds %"class.absl::debugging_internal::ElfMemImage", ptr %this1, i32 0, i32 2
-  %3 = load ptr, ptr %versym_, align 8
-  %4 = load i32, ptr %index.addr, align 4
-  %idx.ext = sext i32 %4 to i64
-  %add.ptr = getelementptr inbounds i16, ptr %3, i64 %idx.ext
-  ret ptr %add.ptr
+21:                                               ; preds = %20, %7
+  br label %22
+
+22:                                               ; preds = %21
+  %23 = getelementptr inbounds nuw %"class.absl::debugging_internal::ElfMemImage", ptr %6, i32 0, i32 2
+  %24 = load ptr, ptr %23, align 8, !tbaa !19
+  %25 = load i32, ptr %4, align 4, !tbaa !26
+  %26 = zext i32 %25 to i64
+  %27 = getelementptr inbounds nuw i16, ptr %24, i64 %26
+  ret ptr %27
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZNK4absl18debugging_internal11ElfMemImage7GetPhdrEi(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef %index) #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %index.addr = alloca i32, align 4
-  %absl_raw_log_internal_basename = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %index, ptr %index.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  br label %do.body
+define dso_local noundef ptr @_ZNK4absl18debugging_internal11ElfMemImage7GetPhdrEi(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef %1) #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store i32 %1, ptr %4, align 4, !tbaa !26
+  %6 = load ptr, ptr %3, align 8
+  br label %7
 
-do.body:                                          ; preds = %entry
-  %0 = load i32, ptr %index.addr, align 4
-  %cmp = icmp sge i32 %0, 0
-  br i1 %cmp, label %land.rhs, label %land.end
+7:                                                ; preds = %2
+  %8 = load i32, ptr %4, align 4, !tbaa !26
+  %9 = icmp sge i32 %8, 0
+  br i1 %9, label %10, label %18
 
-land.rhs:                                         ; preds = %do.body
-  %1 = load i32, ptr %index.addr, align 4
-  %ehdr_ = getelementptr inbounds %"class.absl::debugging_internal::ElfMemImage", ptr %this1, i32 0, i32 0
-  %2 = load ptr, ptr %ehdr_, align 8
-  %e_phnum = getelementptr inbounds %struct.Elf64_Ehdr, ptr %2, i32 0, i32 10
-  %3 = load i16, ptr %e_phnum, align 8
-  %conv = zext i16 %3 to i32
-  %cmp2 = icmp slt i32 %1, %conv
-  br label %land.end
+10:                                               ; preds = %7
+  %11 = load i32, ptr %4, align 4, !tbaa !26
+  %12 = getelementptr inbounds nuw %"class.absl::debugging_internal::ElfMemImage", ptr %6, i32 0, i32 0
+  %13 = load ptr, ptr %12, align 8, !tbaa !12
+  %14 = getelementptr inbounds nuw %struct.Elf64_Ehdr, ptr %13, i32 0, i32 10
+  %15 = load i16, ptr %14, align 8, !tbaa !27
+  %16 = zext i16 %15 to i32
+  %17 = icmp slt i32 %11, %16
+  br label %18
 
-land.end:                                         ; preds = %land.rhs, %do.body
-  %4 = phi i1 [ false, %do.body ], [ %cmp2, %land.rhs ]
-  %lnot = xor i1 %4, true
-  br i1 %lnot, label %if.then, label %if.end
+18:                                               ; preds = %10, %7
+  %19 = phi i1 [ false, %7 ], [ %17, %10 ]
+  %20 = xor i1 %19, true
+  %21 = zext i1 %20 to i64
+  %22 = call i64 @llvm.expect.i64(i64 %21, i64 0)
+  %23 = icmp ne i64 %22, 0
+  br i1 %23, label %24, label %30
 
-if.then:                                          ; preds = %land.end
-  br label %do.body4
+24:                                               ; preds = %18
+  br label %25
 
-do.body4:                                         ; preds = %if.then
-  %5 = getelementptr i8, ptr @.str, i64 123
-  store ptr %5, ptr %absl_raw_log_internal_basename, align 8
-  %6 = getelementptr i8, ptr @.str, i64 123
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %6, i32 noundef 108, ptr noundef @.str.1, ptr noundef @.str.6, ptr noundef @.str.5)
-  br label %do.body5
+25:                                               ; preds = %24
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  store ptr getelementptr (i8, ptr @.str, i64 123), ptr %5, align 8, !tbaa !10
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 123), i32 noundef 105, ptr noundef @.str.1, ptr noundef @.str.6, ptr noundef @.str.5)
+  br label %26
 
-do.body5:                                         ; preds = %do.body4
+26:                                               ; preds = %25
   unreachable
 
-do.end:                                           ; No predecessors!
-  br label %do.end6
+27:                                               ; No predecessors!
+  br label %28
 
-do.end6:                                          ; preds = %do.end
-  br label %if.end
+28:                                               ; preds = %27
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  br label %29
 
-if.end:                                           ; preds = %do.end6, %land.end
-  br label %do.end7
+29:                                               ; preds = %28
+  br label %30
 
-do.end7:                                          ; preds = %if.end
-  %ehdr_8 = getelementptr inbounds %"class.absl::debugging_internal::ElfMemImage", ptr %this1, i32 0, i32 0
-  %7 = load ptr, ptr %ehdr_8, align 8
-  %ehdr_9 = getelementptr inbounds %"class.absl::debugging_internal::ElfMemImage", ptr %this1, i32 0, i32 0
-  %8 = load ptr, ptr %ehdr_9, align 8
-  %e_phoff = getelementptr inbounds %struct.Elf64_Ehdr, ptr %8, i32 0, i32 5
-  %9 = load i64, ptr %e_phoff, align 8
-  %ehdr_10 = getelementptr inbounds %"class.absl::debugging_internal::ElfMemImage", ptr %this1, i32 0, i32 0
-  %10 = load ptr, ptr %ehdr_10, align 8
-  %e_phentsize = getelementptr inbounds %struct.Elf64_Ehdr, ptr %10, i32 0, i32 9
-  %11 = load i16, ptr %e_phentsize, align 2
-  %conv11 = zext i16 %11 to i32
-  %12 = load i32, ptr %index.addr, align 4
-  %conv12 = sext i32 %12 to i64
-  %call = call noundef ptr @_ZN4absl18debugging_internal12_GLOBAL__N_115GetTableElementI10Elf64_PhdrEEPKT_PK10Elf64_Ehdrmjm(ptr noundef %7, i64 noundef %9, i32 noundef %conv11, i64 noundef %conv12)
-  ret ptr %call
+30:                                               ; preds = %29, %18
+  br label %31
+
+31:                                               ; preds = %30
+  %32 = getelementptr inbounds nuw %"class.absl::debugging_internal::ElfMemImage", ptr %6, i32 0, i32 0
+  %33 = load ptr, ptr %32, align 8, !tbaa !12
+  %34 = getelementptr inbounds nuw %"class.absl::debugging_internal::ElfMemImage", ptr %6, i32 0, i32 0
+  %35 = load ptr, ptr %34, align 8, !tbaa !12
+  %36 = getelementptr inbounds nuw %struct.Elf64_Ehdr, ptr %35, i32 0, i32 5
+  %37 = load i64, ptr %36, align 8, !tbaa !43
+  %38 = getelementptr inbounds nuw %"class.absl::debugging_internal::ElfMemImage", ptr %6, i32 0, i32 0
+  %39 = load ptr, ptr %38, align 8, !tbaa !12
+  %40 = getelementptr inbounds nuw %struct.Elf64_Ehdr, ptr %39, i32 0, i32 9
+  %41 = load i16, ptr %40, align 2, !tbaa !44
+  %42 = zext i16 %41 to i32
+  %43 = load i32, ptr %4, align 4, !tbaa !26
+  %44 = sext i32 %43 to i64
+  %45 = call noundef ptr @_ZN4absl18debugging_internal12_GLOBAL__N_115GetTableElementI10Elf64_PhdrEEPKT_PK10Elf64_Ehdrmjm(ptr noundef %33, i64 noundef %37, i32 noundef %42, i64 noundef %44)
+  ret ptr %45
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef ptr @_ZN4absl18debugging_internal12_GLOBAL__N_115GetTableElementI10Elf64_PhdrEEPKT_PK10Elf64_Ehdrmjm(ptr noundef %ehdr, i64 noundef %table_offset, i32 noundef %element_size, i64 noundef %index) #2 {
-entry:
-  %ehdr.addr = alloca ptr, align 8
-  %table_offset.addr = alloca i64, align 8
-  %element_size.addr = alloca i32, align 4
-  %index.addr = alloca i64, align 8
-  store ptr %ehdr, ptr %ehdr.addr, align 8
-  store i64 %table_offset, ptr %table_offset.addr, align 8
-  store i32 %element_size, ptr %element_size.addr, align 4
-  store i64 %index, ptr %index.addr, align 8
-  %0 = load ptr, ptr %ehdr.addr, align 8
-  %1 = load i64, ptr %table_offset.addr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %0, i64 %1
-  %2 = load i64, ptr %index.addr, align 8
-  %3 = load i32, ptr %element_size.addr, align 4
-  %conv = zext i32 %3 to i64
-  %mul = mul i64 %2, %conv
-  %add.ptr1 = getelementptr inbounds i8, ptr %add.ptr, i64 %mul
-  ret ptr %add.ptr1
-}
-
-; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZNK4absl18debugging_internal11ElfMemImage9GetDynstrEj(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef %offset) #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %offset.addr = alloca i32, align 4
-  %absl_raw_log_internal_basename = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %offset, ptr %offset.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  br label %do.body
-
-do.body:                                          ; preds = %entry
-  %0 = load i32, ptr %offset.addr, align 4
-  %conv = zext i32 %0 to i64
-  %strsize_ = getelementptr inbounds %"class.absl::debugging_internal::ElfMemImage", ptr %this1, i32 0, i32 6
-  %1 = load i64, ptr %strsize_, align 8
-  %cmp = icmp ult i64 %conv, %1
-  %lnot = xor i1 %cmp, true
-  br i1 %lnot, label %if.then, label %if.end
-
-if.then:                                          ; preds = %do.body
-  br label %do.body3
-
-do.body3:                                         ; preds = %if.then
-  %2 = getelementptr i8, ptr @.str, i64 123
-  store ptr %2, ptr %absl_raw_log_internal_basename, align 8
-  %3 = getelementptr i8, ptr @.str, i64 123
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %3, i32 noundef 114, ptr noundef @.str.1, ptr noundef @.str.7, ptr noundef @.str.8)
-  br label %do.body4
-
-do.body4:                                         ; preds = %do.body3
-  unreachable
-
-do.end:                                           ; No predecessors!
-  br label %do.end5
-
-do.end5:                                          ; preds = %do.end
-  br label %if.end
-
-if.end:                                           ; preds = %do.end5, %do.body
-  br label %do.end6
-
-do.end6:                                          ; preds = %if.end
-  %dynstr_ = getelementptr inbounds %"class.absl::debugging_internal::ElfMemImage", ptr %this1, i32 0, i32 5
-  %4 = load ptr, ptr %dynstr_, align 8
-  %5 = load i32, ptr %offset.addr, align 4
-  %idx.ext = zext i32 %5 to i64
-  %add.ptr = getelementptr inbounds i8, ptr %4, i64 %idx.ext
-  ret ptr %add.ptr
-}
-
-; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZNK4absl18debugging_internal11ElfMemImage10GetSymAddrEPK9Elf64_Sym(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %sym) #0 align 2 {
-entry:
-  %retval = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  %sym.addr = alloca ptr, align 8
-  %absl_raw_log_internal_basename = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %sym, ptr %sym.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %sym.addr, align 8
-  %st_shndx = getelementptr inbounds %struct.Elf64_Sym, ptr %0, i32 0, i32 3
-  %1 = load i16, ptr %st_shndx, align 2
-  %conv = zext i16 %1 to i32
-  %cmp = icmp eq i32 %conv, 0
-  br i1 %cmp, label %if.then, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %entry
-  %2 = load ptr, ptr %sym.addr, align 8
-  %st_shndx2 = getelementptr inbounds %struct.Elf64_Sym, ptr %2, i32 0, i32 3
-  %3 = load i16, ptr %st_shndx2, align 2
-  %conv3 = zext i16 %3 to i32
-  %cmp4 = icmp sge i32 %conv3, 65280
-  br i1 %cmp4, label %if.then, label %if.end
-
-if.then:                                          ; preds = %lor.lhs.false, %entry
-  %4 = load ptr, ptr %sym.addr, align 8
-  %st_value = getelementptr inbounds %struct.Elf64_Sym, ptr %4, i32 0, i32 4
-  %5 = load i64, ptr %st_value, align 8
-  %6 = inttoptr i64 %5 to ptr
-  store ptr %6, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %lor.lhs.false
-  br label %do.body
-
-do.body:                                          ; preds = %if.end
-  %link_base_ = getelementptr inbounds %"class.absl::debugging_internal::ElfMemImage", ptr %this1, i32 0, i32 8
-  %7 = load i64, ptr %link_base_, align 8
-  %8 = load ptr, ptr %sym.addr, align 8
-  %st_value5 = getelementptr inbounds %struct.Elf64_Sym, ptr %8, i32 0, i32 4
-  %9 = load i64, ptr %st_value5, align 8
-  %cmp6 = icmp ult i64 %7, %9
-  %lnot = xor i1 %cmp6, true
-  br i1 %lnot, label %if.then8, label %if.end12
-
-if.then8:                                         ; preds = %do.body
-  br label %do.body9
-
-do.body9:                                         ; preds = %if.then8
-  %10 = getelementptr i8, ptr @.str, i64 123
-  store ptr %10, ptr %absl_raw_log_internal_basename, align 8
-  %11 = getelementptr i8, ptr @.str, i64 123
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %11, i32 noundef 123, ptr noundef @.str.1, ptr noundef @.str.9, ptr noundef @.str.10)
-  br label %do.body10
-
-do.body10:                                        ; preds = %do.body9
-  unreachable
-
-do.end:                                           ; No predecessors!
-  br label %do.end11
-
-do.end11:                                         ; preds = %do.end
-  br label %if.end12
-
-if.end12:                                         ; preds = %do.end11, %do.body
-  br label %do.end13
-
-do.end13:                                         ; preds = %if.end12
-  %ehdr_ = getelementptr inbounds %"class.absl::debugging_internal::ElfMemImage", ptr %this1, i32 0, i32 0
-  %12 = load ptr, ptr %ehdr_, align 8
-  %13 = load ptr, ptr %sym.addr, align 8
-  %st_value14 = getelementptr inbounds %struct.Elf64_Sym, ptr %13, i32 0, i32 4
-  %14 = load i64, ptr %st_value14, align 8
-  %link_base_15 = getelementptr inbounds %"class.absl::debugging_internal::ElfMemImage", ptr %this1, i32 0, i32 8
-  %15 = load i64, ptr %link_base_15, align 8
-  %sub = sub i64 %14, %15
-  %call = call noundef ptr @_ZN4absl18debugging_internal12_GLOBAL__N_115GetTableElementIcEEPKT_PK10Elf64_Ehdrmjm(ptr noundef %12, i64 noundef 0, i32 noundef 1, i64 noundef %sub)
-  store ptr %call, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %do.end13, %if.then
-  %16 = load ptr, ptr %retval, align 8
+define internal noundef ptr @_ZN4absl18debugging_internal12_GLOBAL__N_115GetTableElementI10Elf64_PhdrEEPKT_PK10Elf64_Ehdrmjm(ptr noundef %0, i64 noundef %1, i32 noundef %2, i64 noundef %3) #4 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !9
+  store i64 %1, ptr %6, align 8, !tbaa !35
+  store i32 %2, ptr %7, align 4, !tbaa !26
+  store i64 %3, ptr %8, align 8, !tbaa !35
+  %9 = load ptr, ptr %5, align 8, !tbaa !9
+  %10 = load i64, ptr %6, align 8, !tbaa !35
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 %10
+  %12 = load i64, ptr %8, align 8, !tbaa !35
+  %13 = load i32, ptr %7, align 4, !tbaa !26
+  %14 = zext i32 %13 to i64
+  %15 = mul i64 %12, %14
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 %15
   ret ptr %16
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal noundef ptr @_ZN4absl18debugging_internal12_GLOBAL__N_115GetTableElementIcEEPKT_PK10Elf64_Ehdrmjm(ptr noundef %ehdr, i64 noundef %table_offset, i32 noundef %element_size, i64 noundef %index) #2 {
-entry:
-  %ehdr.addr = alloca ptr, align 8
-  %table_offset.addr = alloca i64, align 8
-  %element_size.addr = alloca i32, align 4
-  %index.addr = alloca i64, align 8
-  store ptr %ehdr, ptr %ehdr.addr, align 8
-  store i64 %table_offset, ptr %table_offset.addr, align 8
-  store i32 %element_size, ptr %element_size.addr, align 4
-  store i64 %index, ptr %index.addr, align 8
-  %0 = load ptr, ptr %ehdr.addr, align 8
-  %1 = load i64, ptr %table_offset.addr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %0, i64 %1
-  %2 = load i64, ptr %index.addr, align 8
-  %3 = load i32, ptr %element_size.addr, align 4
-  %conv = zext i32 %3 to i64
-  %mul = mul i64 %2, %conv
-  %add.ptr1 = getelementptr inbounds i8, ptr %add.ptr, i64 %mul
-  ret ptr %add.ptr1
-}
-
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZNK4absl18debugging_internal11ElfMemImage9GetVerdefEi(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef %index) #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %index.addr = alloca i32, align 4
-  %absl_raw_log_internal_basename = alloca ptr, align 8
-  %version_definition = alloca ptr, align 8
-  %version_definition_as_char = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %index, ptr %index.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  br label %do.body
+define dso_local noundef ptr @_ZNK4absl18debugging_internal11ElfMemImage9GetDynstrEj(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef %1) #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store i32 %1, ptr %4, align 4, !tbaa !26
+  %6 = load ptr, ptr %3, align 8
+  br label %7
 
-do.body:                                          ; preds = %entry
-  %0 = load i32, ptr %index.addr, align 4
-  %cmp = icmp sle i32 0, %0
-  br i1 %cmp, label %land.rhs, label %land.end
+7:                                                ; preds = %2
+  %8 = load i32, ptr %4, align 4, !tbaa !26
+  %9 = zext i32 %8 to i64
+  %10 = getelementptr inbounds nuw %"class.absl::debugging_internal::ElfMemImage", ptr %6, i32 0, i32 6
+  %11 = load i64, ptr %10, align 8, !tbaa !22
+  %12 = icmp ult i64 %9, %11
+  %13 = xor i1 %12, true
+  %14 = zext i1 %13 to i64
+  %15 = call i64 @llvm.expect.i64(i64 %14, i64 0)
+  %16 = icmp ne i64 %15, 0
+  br i1 %16, label %17, label %23
 
-land.rhs:                                         ; preds = %do.body
-  %1 = load i32, ptr %index.addr, align 4
-  %conv = sext i32 %1 to i64
-  %verdefnum_ = getelementptr inbounds %"class.absl::debugging_internal::ElfMemImage", ptr %this1, i32 0, i32 7
-  %2 = load i64, ptr %verdefnum_, align 8
-  %cmp2 = icmp ule i64 %conv, %2
-  br label %land.end
+17:                                               ; preds = %7
+  br label %18
 
-land.end:                                         ; preds = %land.rhs, %do.body
-  %3 = phi i1 [ false, %do.body ], [ %cmp2, %land.rhs ]
-  %lnot = xor i1 %3, true
-  br i1 %lnot, label %if.then, label %if.end
+18:                                               ; preds = %17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  store ptr getelementptr (i8, ptr @.str, i64 123), ptr %5, align 8, !tbaa !10
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 123), i32 noundef 111, ptr noundef @.str.1, ptr noundef @.str.7, ptr noundef @.str.8)
+  br label %19
 
-if.then:                                          ; preds = %land.end
-  br label %do.body4
-
-do.body4:                                         ; preds = %if.then
-  %4 = getelementptr i8, ptr @.str, i64 123
-  store ptr %4, ptr %absl_raw_log_internal_basename, align 8
-  %5 = getelementptr i8, ptr @.str, i64 123
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %5, i32 noundef 129, ptr noundef @.str.1, ptr noundef @.str.11, ptr noundef @.str.5)
-  br label %do.body5
-
-do.body5:                                         ; preds = %do.body4
+19:                                               ; preds = %18
   unreachable
 
-do.end:                                           ; No predecessors!
-  br label %do.end6
+20:                                               ; No predecessors!
+  br label %21
 
-do.end6:                                          ; preds = %do.end
-  br label %if.end
+21:                                               ; preds = %20
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  br label %22
 
-if.end:                                           ; preds = %do.end6, %land.end
-  br label %do.end7
+22:                                               ; preds = %21
+  br label %23
 
-do.end7:                                          ; preds = %if.end
-  %verdef_ = getelementptr inbounds %"class.absl::debugging_internal::ElfMemImage", ptr %this1, i32 0, i32 3
-  %6 = load ptr, ptr %verdef_, align 8
-  store ptr %6, ptr %version_definition, align 8
-  br label %while.cond
+23:                                               ; preds = %22, %7
+  br label %24
 
-while.cond:                                       ; preds = %while.body, %do.end7
-  %7 = load ptr, ptr %version_definition, align 8
-  %vd_ndx = getelementptr inbounds %struct.Elf64_Verdef, ptr %7, i32 0, i32 2
-  %8 = load i16, ptr %vd_ndx, align 4
-  %conv8 = zext i16 %8 to i32
-  %9 = load i32, ptr %index.addr, align 4
-  %cmp9 = icmp slt i32 %conv8, %9
-  br i1 %cmp9, label %land.rhs10, label %land.end11
+24:                                               ; preds = %23
+  %25 = getelementptr inbounds nuw %"class.absl::debugging_internal::ElfMemImage", ptr %6, i32 0, i32 4
+  %26 = load ptr, ptr %25, align 8, !tbaa !18
+  %27 = load i32, ptr %4, align 4, !tbaa !26
+  %28 = zext i32 %27 to i64
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 %28
+  ret ptr %29
+}
 
-land.rhs10:                                       ; preds = %while.cond
-  %10 = load ptr, ptr %version_definition, align 8
-  %vd_next = getelementptr inbounds %struct.Elf64_Verdef, ptr %10, i32 0, i32 6
-  %11 = load i32, ptr %vd_next, align 4
-  %tobool = icmp ne i32 %11, 0
-  br label %land.end11
+; Function Attrs: mustprogress uwtable
+define dso_local noundef ptr @_ZNK4absl18debugging_internal11ElfMemImage10GetSymAddrEPK9Elf64_Sym(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1) #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !4
+  store ptr %1, ptr %5, align 8, !tbaa !9
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !9
+  %9 = getelementptr inbounds nuw %struct.Elf64_Sym, ptr %8, i32 0, i32 3
+  %10 = load i16, ptr %9, align 2, !tbaa !45
+  %11 = zext i16 %10 to i32
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %19, label %13
 
-land.end11:                                       ; preds = %land.rhs10, %while.cond
-  %12 = phi i1 [ false, %while.cond ], [ %tobool, %land.rhs10 ]
-  br i1 %12, label %while.body, label %while.end
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %5, align 8, !tbaa !9
+  %15 = getelementptr inbounds nuw %struct.Elf64_Sym, ptr %14, i32 0, i32 3
+  %16 = load i16, ptr %15, align 2, !tbaa !45
+  %17 = zext i16 %16 to i32
+  %18 = icmp sge i32 %17, 65280
+  br i1 %18, label %19, label %24
 
-while.body:                                       ; preds = %land.end11
-  %13 = load ptr, ptr %version_definition, align 8
-  store ptr %13, ptr %version_definition_as_char, align 8
-  %14 = load ptr, ptr %version_definition_as_char, align 8
-  %15 = load ptr, ptr %version_definition, align 8
-  %vd_next12 = getelementptr inbounds %struct.Elf64_Verdef, ptr %15, i32 0, i32 6
-  %16 = load i32, ptr %vd_next12, align 4
-  %idx.ext = zext i32 %16 to i64
-  %add.ptr = getelementptr inbounds i8, ptr %14, i64 %idx.ext
-  store ptr %add.ptr, ptr %version_definition, align 8
-  br label %while.cond, !llvm.loop !8
+19:                                               ; preds = %13, %2
+  %20 = load ptr, ptr %5, align 8, !tbaa !9
+  %21 = getelementptr inbounds nuw %struct.Elf64_Sym, ptr %20, i32 0, i32 4
+  %22 = load i64, ptr %21, align 8, !tbaa !47
+  %23 = inttoptr i64 %22 to ptr
+  store ptr %23, ptr %3, align 8
+  br label %53
 
-while.end:                                        ; preds = %land.end11
-  %17 = load ptr, ptr %version_definition, align 8
-  %vd_ndx13 = getelementptr inbounds %struct.Elf64_Verdef, ptr %17, i32 0, i32 2
-  %18 = load i16, ptr %vd_ndx13, align 4
-  %conv14 = zext i16 %18 to i32
-  %19 = load i32, ptr %index.addr, align 4
-  %cmp15 = icmp eq i32 %conv14, %19
-  br i1 %cmp15, label %cond.true, label %cond.false
+24:                                               ; preds = %13
+  br label %25
 
-cond.true:                                        ; preds = %while.end
-  %20 = load ptr, ptr %version_definition, align 8
-  br label %cond.end
+25:                                               ; preds = %24
+  %26 = getelementptr inbounds nuw %"class.absl::debugging_internal::ElfMemImage", ptr %7, i32 0, i32 8
+  %27 = load i64, ptr %26, align 8, !tbaa !24
+  %28 = load ptr, ptr %5, align 8, !tbaa !9
+  %29 = getelementptr inbounds nuw %struct.Elf64_Sym, ptr %28, i32 0, i32 4
+  %30 = load i64, ptr %29, align 8, !tbaa !47
+  %31 = icmp ult i64 %27, %30
+  %32 = xor i1 %31, true
+  %33 = zext i1 %32 to i64
+  %34 = call i64 @llvm.expect.i64(i64 %33, i64 0)
+  %35 = icmp ne i64 %34, 0
+  br i1 %35, label %36, label %42
 
-cond.false:                                       ; preds = %while.end
-  br label %cond.end
+36:                                               ; preds = %25
+  br label %37
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi ptr [ %20, %cond.true ], [ null, %cond.false ]
-  ret ptr %cond
+37:                                               ; preds = %36
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #7
+  store ptr getelementptr (i8, ptr @.str, i64 123), ptr %6, align 8, !tbaa !10
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 123), i32 noundef 120, ptr noundef @.str.1, ptr noundef @.str.9, ptr noundef @.str.10)
+  br label %38
+
+38:                                               ; preds = %37
+  unreachable
+
+39:                                               ; No predecessors!
+  br label %40
+
+40:                                               ; preds = %39
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #7
+  br label %41
+
+41:                                               ; preds = %40
+  br label %42
+
+42:                                               ; preds = %41, %25
+  br label %43
+
+43:                                               ; preds = %42
+  %44 = getelementptr inbounds nuw %"class.absl::debugging_internal::ElfMemImage", ptr %7, i32 0, i32 0
+  %45 = load ptr, ptr %44, align 8, !tbaa !12
+  %46 = load ptr, ptr %5, align 8, !tbaa !9
+  %47 = getelementptr inbounds nuw %struct.Elf64_Sym, ptr %46, i32 0, i32 4
+  %48 = load i64, ptr %47, align 8, !tbaa !47
+  %49 = getelementptr inbounds nuw %"class.absl::debugging_internal::ElfMemImage", ptr %7, i32 0, i32 8
+  %50 = load i64, ptr %49, align 8, !tbaa !24
+  %51 = sub i64 %48, %50
+  %52 = call noundef ptr @_ZN4absl18debugging_internal12_GLOBAL__N_115GetTableElementIcEEPKT_PK10Elf64_Ehdrmjm(ptr noundef %45, i64 noundef 0, i32 noundef 1, i64 noundef %51)
+  store ptr %52, ptr %3, align 8
+  br label %53
+
+53:                                               ; preds = %43, %19
+  %54 = load ptr, ptr %3, align 8
+  ret ptr %54
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZNK4absl18debugging_internal11ElfMemImage12GetVerdefAuxEPK12Elf64_Verdef(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %verdef) #2 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %verdef.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %verdef, ptr %verdef.addr, align 8
-  %0 = load ptr, ptr %verdef.addr, align 8
-  %add.ptr = getelementptr inbounds %struct.Elf64_Verdef, ptr %0, i64 1
-  ret ptr %add.ptr
+define internal noundef ptr @_ZN4absl18debugging_internal12_GLOBAL__N_115GetTableElementIcEEPKT_PK10Elf64_Ehdrmjm(ptr noundef %0, i64 noundef %1, i32 noundef %2, i64 noundef %3) #4 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !9
+  store i64 %1, ptr %6, align 8, !tbaa !35
+  store i32 %2, ptr %7, align 4, !tbaa !26
+  store i64 %3, ptr %8, align 8, !tbaa !35
+  %9 = load ptr, ptr %5, align 8, !tbaa !9
+  %10 = load i64, ptr %6, align 8, !tbaa !35
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 %10
+  %12 = load i64, ptr %8, align 8, !tbaa !35
+  %13 = load i32, ptr %7, align 4, !tbaa !26
+  %14 = zext i32 %13 to i64
+  %15 = mul i64 %12, %14
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 %15
+  ret ptr %16
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZNK4absl18debugging_internal11ElfMemImage9GetVerstrEj(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef %offset) #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %offset.addr = alloca i32, align 4
-  %absl_raw_log_internal_basename = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %offset, ptr %offset.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  br label %do.body
+define dso_local noundef ptr @_ZNK4absl18debugging_internal11ElfMemImage9GetVerdefEi(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef %1) #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store i32 %1, ptr %4, align 4, !tbaa !26
+  %8 = load ptr, ptr %3, align 8
+  br label %9
 
-do.body:                                          ; preds = %entry
-  %0 = load i32, ptr %offset.addr, align 4
-  %conv = zext i32 %0 to i64
-  %strsize_ = getelementptr inbounds %"class.absl::debugging_internal::ElfMemImage", ptr %this1, i32 0, i32 6
-  %1 = load i64, ptr %strsize_, align 8
-  %cmp = icmp ult i64 %conv, %1
-  %lnot = xor i1 %cmp, true
-  br i1 %lnot, label %if.then, label %if.end
+9:                                                ; preds = %2
+  %10 = load i32, ptr %4, align 4, !tbaa !26
+  %11 = icmp sle i32 0, %10
+  br i1 %11, label %12, label %18
 
-if.then:                                          ; preds = %do.body
-  br label %do.body3
+12:                                               ; preds = %9
+  %13 = load i32, ptr %4, align 4, !tbaa !26
+  %14 = sext i32 %13 to i64
+  %15 = getelementptr inbounds nuw %"class.absl::debugging_internal::ElfMemImage", ptr %8, i32 0, i32 7
+  %16 = load i64, ptr %15, align 8, !tbaa !23
+  %17 = icmp ule i64 %14, %16
+  br label %18
 
-do.body3:                                         ; preds = %if.then
-  %2 = getelementptr i8, ptr @.str, i64 123
-  store ptr %2, ptr %absl_raw_log_internal_basename, align 8
-  %3 = getelementptr i8, ptr @.str, i64 123
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %3, i32 noundef 147, ptr noundef @.str.1, ptr noundef @.str.7, ptr noundef @.str.8)
-  br label %do.body4
+18:                                               ; preds = %12, %9
+  %19 = phi i1 [ false, %9 ], [ %17, %12 ]
+  %20 = xor i1 %19, true
+  %21 = zext i1 %20 to i64
+  %22 = call i64 @llvm.expect.i64(i64 %21, i64 0)
+  %23 = icmp ne i64 %22, 0
+  br i1 %23, label %24, label %30
 
-do.body4:                                         ; preds = %do.body3
+24:                                               ; preds = %18
+  br label %25
+
+25:                                               ; preds = %24
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  store ptr getelementptr (i8, ptr @.str, i64 123), ptr %5, align 8, !tbaa !10
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 123), i32 noundef 126, ptr noundef @.str.1, ptr noundef @.str.11, ptr noundef @.str.5)
+  br label %26
+
+26:                                               ; preds = %25
   unreachable
 
-do.end:                                           ; No predecessors!
-  br label %do.end5
+27:                                               ; No predecessors!
+  br label %28
 
-do.end5:                                          ; preds = %do.end
-  br label %if.end
+28:                                               ; preds = %27
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  br label %29
 
-if.end:                                           ; preds = %do.end5, %do.body
-  br label %do.end6
+29:                                               ; preds = %28
+  br label %30
 
-do.end6:                                          ; preds = %if.end
-  %dynstr_ = getelementptr inbounds %"class.absl::debugging_internal::ElfMemImage", ptr %this1, i32 0, i32 5
-  %4 = load ptr, ptr %dynstr_, align 8
-  %5 = load i32, ptr %offset.addr, align 4
-  %idx.ext = zext i32 %5 to i64
-  %add.ptr = getelementptr inbounds i8, ptr %4, i64 %idx.ext
-  ret ptr %add.ptr
+30:                                               ; preds = %29, %18
+  br label %31
+
+31:                                               ; preds = %30
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #7
+  %32 = getelementptr inbounds nuw %"class.absl::debugging_internal::ElfMemImage", ptr %8, i32 0, i32 3
+  %33 = load ptr, ptr %32, align 8, !tbaa !20
+  store ptr %33, ptr %6, align 8, !tbaa !9
+  br label %34
+
+34:                                               ; preds = %48, %31
+  %35 = load ptr, ptr %6, align 8, !tbaa !9
+  %36 = getelementptr inbounds nuw %struct.Elf64_Verdef, ptr %35, i32 0, i32 2
+  %37 = load i16, ptr %36, align 4, !tbaa !48
+  %38 = zext i16 %37 to i32
+  %39 = load i32, ptr %4, align 4, !tbaa !26
+  %40 = icmp slt i32 %38, %39
+  br i1 %40, label %41, label %46
+
+41:                                               ; preds = %34
+  %42 = load ptr, ptr %6, align 8, !tbaa !9
+  %43 = getelementptr inbounds nuw %struct.Elf64_Verdef, ptr %42, i32 0, i32 6
+  %44 = load i32, ptr %43, align 4, !tbaa !50
+  %45 = icmp ne i32 %44, 0
+  br label %46
+
+46:                                               ; preds = %41, %34
+  %47 = phi i1 [ false, %34 ], [ %45, %41 ]
+  br i1 %47, label %48, label %56
+
+48:                                               ; preds = %46
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #7
+  %49 = load ptr, ptr %6, align 8, !tbaa !9
+  store ptr %49, ptr %7, align 8, !tbaa !10
+  %50 = load ptr, ptr %7, align 8, !tbaa !10
+  %51 = load ptr, ptr %6, align 8, !tbaa !9
+  %52 = getelementptr inbounds nuw %struct.Elf64_Verdef, ptr %51, i32 0, i32 6
+  %53 = load i32, ptr %52, align 4, !tbaa !50
+  %54 = zext i32 %53 to i64
+  %55 = getelementptr inbounds nuw i8, ptr %50, i64 %54
+  store ptr %55, ptr %6, align 8, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #7
+  br label %34, !llvm.loop !51
+
+56:                                               ; preds = %46
+  %57 = load ptr, ptr %6, align 8, !tbaa !9
+  %58 = getelementptr inbounds nuw %struct.Elf64_Verdef, ptr %57, i32 0, i32 2
+  %59 = load i16, ptr %58, align 4, !tbaa !48
+  %60 = zext i16 %59 to i32
+  %61 = load i32, ptr %4, align 4, !tbaa !26
+  %62 = icmp eq i32 %60, %61
+  br i1 %62, label %63, label %65
+
+63:                                               ; preds = %56
+  %64 = load ptr, ptr %6, align 8, !tbaa !9
+  br label %66
+
+65:                                               ; preds = %56
+  br label %66
+
+66:                                               ; preds = %65, %63
+  %67 = phi ptr [ %64, %63 ], [ null, %65 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #7
+  ret ptr %67
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define dso_local noundef ptr @_ZNK4absl18debugging_internal11ElfMemImage12GetVerdefAuxEPK12Elf64_Verdef(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1) #4 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !9
+  %5 = load ptr, ptr %4, align 8, !tbaa !9
+  %6 = getelementptr inbounds %struct.Elf64_Verdef, ptr %5, i64 1
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZNK4absl18debugging_internal11ElfMemImage12LookupSymbolEPKcS3_iPNS1_10SymbolInfoE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %name, ptr noundef %version, i32 noundef %type, ptr noundef %info_out) #0 align 2 {
-entry:
-  %retval = alloca i1, align 1
-  %this.addr = alloca ptr, align 8
-  %name.addr = alloca ptr, align 8
-  %version.addr = alloca ptr, align 8
-  %type.addr = alloca i32, align 4
-  %info_out.addr = alloca ptr, align 8
-  %__range2 = alloca ptr, align 8
-  %__begin2 = alloca %"class.absl::debugging_internal::ElfMemImage::SymbolIterator", align 8
-  %__end2 = alloca %"class.absl::debugging_internal::ElfMemImage::SymbolIterator", align 8
-  %info = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %name, ptr %name.addr, align 8
-  store ptr %version, ptr %version.addr, align 8
-  store i32 %type, ptr %type.addr, align 4
-  store ptr %info_out, ptr %info_out.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  store ptr %this1, ptr %__range2, align 8
-  %0 = load ptr, ptr %__range2, align 8
-  call void @_ZNK4absl18debugging_internal11ElfMemImage5beginEv(ptr sret(%"class.absl::debugging_internal::ElfMemImage::SymbolIterator") align 8 %__begin2, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  %1 = load ptr, ptr %__range2, align 8
-  call void @_ZNK4absl18debugging_internal11ElfMemImage3endEv(ptr sret(%"class.absl::debugging_internal::ElfMemImage::SymbolIterator") align 8 %__end2, ptr noundef nonnull align 8 dereferenceable(72) %1)
-  br label %for.cond
+define dso_local noundef ptr @_ZNK4absl18debugging_internal11ElfMemImage9GetVerstrEj(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef %1) #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store i32 %1, ptr %4, align 4, !tbaa !26
+  %6 = load ptr, ptr %3, align 8
+  br label %7
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %call = call noundef zeroext i1 @_ZNK4absl18debugging_internal11ElfMemImage14SymbolIteratorneERKS2_(ptr noundef nonnull align 8 dereferenceable(48) %__begin2, ptr noundef nonnull align 8 dereferenceable(48) %__end2)
-  br i1 %call, label %for.body, label %for.end
+7:                                                ; preds = %2
+  %8 = load i32, ptr %4, align 4, !tbaa !26
+  %9 = zext i32 %8 to i64
+  %10 = getelementptr inbounds nuw %"class.absl::debugging_internal::ElfMemImage", ptr %6, i32 0, i32 6
+  %11 = load i64, ptr %10, align 8, !tbaa !22
+  %12 = icmp ult i64 %9, %11
+  %13 = xor i1 %12, true
+  %14 = zext i1 %13 to i64
+  %15 = call i64 @llvm.expect.i64(i64 %14, i64 0)
+  %16 = icmp ne i64 %15, 0
+  br i1 %16, label %17, label %23
 
-for.body:                                         ; preds = %for.cond
-  %call2 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4absl18debugging_internal11ElfMemImage14SymbolIteratordeEv(ptr noundef nonnull align 8 dereferenceable(48) %__begin2)
-  store ptr %call2, ptr %info, align 8
-  %2 = load ptr, ptr %info, align 8
-  %name3 = getelementptr inbounds %"struct.absl::debugging_internal::ElfMemImage::SymbolInfo", ptr %2, i32 0, i32 0
-  %3 = load ptr, ptr %name3, align 8
-  %4 = load ptr, ptr %name.addr, align 8
-  %call4 = call i32 @strcmp(ptr noundef %3, ptr noundef %4) #5
-  %cmp = icmp eq i32 %call4, 0
-  br i1 %cmp, label %land.lhs.true, label %if.end12
+17:                                               ; preds = %7
+  br label %18
 
-land.lhs.true:                                    ; preds = %for.body
-  %5 = load ptr, ptr %info, align 8
-  %version5 = getelementptr inbounds %"struct.absl::debugging_internal::ElfMemImage::SymbolInfo", ptr %5, i32 0, i32 1
-  %6 = load ptr, ptr %version5, align 8
-  %7 = load ptr, ptr %version.addr, align 8
-  %call6 = call i32 @strcmp(ptr noundef %6, ptr noundef %7) #5
-  %cmp7 = icmp eq i32 %call6, 0
-  br i1 %cmp7, label %land.lhs.true8, label %if.end12
+18:                                               ; preds = %17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  store ptr getelementptr (i8, ptr @.str, i64 123), ptr %5, align 8, !tbaa !10
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 123), i32 noundef 144, ptr noundef @.str.1, ptr noundef @.str.7, ptr noundef @.str.8)
+  br label %19
 
-land.lhs.true8:                                   ; preds = %land.lhs.true
-  %8 = load ptr, ptr %info, align 8
-  %symbol = getelementptr inbounds %"struct.absl::debugging_internal::ElfMemImage::SymbolInfo", ptr %8, i32 0, i32 3
-  %9 = load ptr, ptr %symbol, align 8
-  %call9 = call noundef i32 @_ZN4absl18debugging_internal12_GLOBAL__N_17ElfTypeEPK9Elf64_Sym(ptr noundef %9)
-  %10 = load i32, ptr %type.addr, align 4
-  %cmp10 = icmp eq i32 %call9, %10
-  br i1 %cmp10, label %if.then, label %if.end12
+19:                                               ; preds = %18
+  unreachable
 
-if.then:                                          ; preds = %land.lhs.true8
-  %11 = load ptr, ptr %info_out.addr, align 8
-  %tobool = icmp ne ptr %11, null
-  br i1 %tobool, label %if.then11, label %if.end
+20:                                               ; No predecessors!
+  br label %21
 
-if.then11:                                        ; preds = %if.then
-  %12 = load ptr, ptr %info, align 8
-  %13 = load ptr, ptr %info_out.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr align 8 %12, i64 32, i1 false)
-  br label %if.end
+21:                                               ; preds = %20
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  br label %22
 
-if.end:                                           ; preds = %if.then11, %if.then
-  store i1 true, ptr %retval, align 1
-  br label %return
+22:                                               ; preds = %21
+  br label %23
 
-if.end12:                                         ; preds = %land.lhs.true8, %land.lhs.true, %for.body
-  br label %for.inc
+23:                                               ; preds = %22, %7
+  br label %24
 
-for.inc:                                          ; preds = %if.end12
-  %call13 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4absl18debugging_internal11ElfMemImage14SymbolIteratorppEv(ptr noundef nonnull align 8 dereferenceable(48) %__begin2)
-  br label %for.cond
-
-for.end:                                          ; preds = %for.cond
-  store i1 false, ptr %retval, align 1
-  br label %return
-
-return:                                           ; preds = %for.end, %if.end
-  %14 = load i1, ptr %retval, align 1
-  ret i1 %14
+24:                                               ; preds = %23
+  %25 = getelementptr inbounds nuw %"class.absl::debugging_internal::ElfMemImage", ptr %6, i32 0, i32 4
+  %26 = load ptr, ptr %25, align 8, !tbaa !18
+  %27 = load i32, ptr %4, align 4, !tbaa !26
+  %28 = zext i32 %27 to i64
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 %28
+  ret ptr %29
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4absl18debugging_internal11ElfMemImage5beginEv(ptr noalias sret(%"class.absl::debugging_internal::ElfMemImage::SymbolIterator") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %this) #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN4absl18debugging_internal11ElfMemImage14SymbolIteratorC1EPKvi(ptr noundef nonnull align 8 dereferenceable(48) %agg.result, ptr noundef %this1, i32 noundef 0)
-  call void @_ZN4absl18debugging_internal11ElfMemImage14SymbolIterator6UpdateEi(ptr noundef nonnull align 8 dereferenceable(48) %agg.result, i32 noundef 0)
+define dso_local noundef zeroext i1 @_ZNK4absl18debugging_internal11ElfMemImage12LookupSymbolEPKcS3_iPNS1_10SymbolInfoE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) #0 align 2 {
+  %6 = alloca i1, align 1
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca %"class.absl::debugging_internal::ElfMemImage::SymbolIterator", align 8
+  %14 = alloca %"class.absl::debugging_internal::ElfMemImage::SymbolIterator", align 8
+  %15 = alloca i32, align 4
+  %16 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8, !tbaa !4
+  store ptr %1, ptr %8, align 8, !tbaa !10
+  store ptr %2, ptr %9, align 8, !tbaa !10
+  store i32 %3, ptr %10, align 4, !tbaa !26
+  store ptr %4, ptr %11, align 8, !tbaa !52
+  %17 = load ptr, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #7
+  store ptr %17, ptr %12, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 48, ptr %13) #7
+  %18 = load ptr, ptr %12, align 8, !tbaa !4
+  call void @_ZNK4absl18debugging_internal11ElfMemImage5beginEv(ptr dead_on_unwind writable sret(%"class.absl::debugging_internal::ElfMemImage::SymbolIterator") align 8 %13, ptr noundef nonnull align 8 dereferenceable(72) %18)
+  call void @llvm.lifetime.start.p0(i64 48, ptr %14) #7
+  %19 = load ptr, ptr %12, align 8, !tbaa !4
+  call void @_ZNK4absl18debugging_internal11ElfMemImage3endEv(ptr dead_on_unwind writable sret(%"class.absl::debugging_internal::ElfMemImage::SymbolIterator") align 8 %14, ptr noundef nonnull align 8 dereferenceable(72) %19)
+  br label %20
+
+20:                                               ; preds = %56, %5
+  %21 = call noundef zeroext i1 @_ZNK4absl18debugging_internal11ElfMemImage14SymbolIteratorneERKS2_(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef nonnull align 8 dereferenceable(48) %14)
+  br i1 %21, label %23, label %22
+
+22:                                               ; preds = %20
+  store i32 2, ptr %15, align 4
+  br label %58
+
+23:                                               ; preds = %20
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #7
+  %24 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4absl18debugging_internal11ElfMemImage14SymbolIteratordeEv(ptr noundef nonnull align 8 dereferenceable(48) %13)
+  store ptr %24, ptr %16, align 8, !tbaa !52
+  %25 = load ptr, ptr %16, align 8, !tbaa !52
+  %26 = getelementptr inbounds nuw %"struct.absl::debugging_internal::ElfMemImage::SymbolInfo", ptr %25, i32 0, i32 0
+  %27 = load ptr, ptr %26, align 8, !tbaa !54
+  %28 = load ptr, ptr %8, align 8, !tbaa !10
+  %29 = call i32 @strcmp(ptr noundef %27, ptr noundef %28) #8
+  %30 = icmp eq i32 %29, 0
+  br i1 %30, label %31, label %52
+
+31:                                               ; preds = %23
+  %32 = load ptr, ptr %16, align 8, !tbaa !52
+  %33 = getelementptr inbounds nuw %"struct.absl::debugging_internal::ElfMemImage::SymbolInfo", ptr %32, i32 0, i32 1
+  %34 = load ptr, ptr %33, align 8, !tbaa !56
+  %35 = load ptr, ptr %9, align 8, !tbaa !10
+  %36 = call i32 @strcmp(ptr noundef %34, ptr noundef %35) #8
+  %37 = icmp eq i32 %36, 0
+  br i1 %37, label %38, label %52
+
+38:                                               ; preds = %31
+  %39 = load ptr, ptr %16, align 8, !tbaa !52
+  %40 = getelementptr inbounds nuw %"struct.absl::debugging_internal::ElfMemImage::SymbolInfo", ptr %39, i32 0, i32 3
+  %41 = load ptr, ptr %40, align 8, !tbaa !57
+  %42 = call noundef i32 @_ZN4absl18debugging_internal12_GLOBAL__N_17ElfTypeEPK9Elf64_Sym(ptr noundef %41)
+  %43 = load i32, ptr %10, align 4, !tbaa !26
+  %44 = icmp eq i32 %42, %43
+  br i1 %44, label %45, label %52
+
+45:                                               ; preds = %38
+  %46 = load ptr, ptr %11, align 8, !tbaa !52
+  %47 = icmp ne ptr %46, null
+  br i1 %47, label %48, label %51
+
+48:                                               ; preds = %45
+  %49 = load ptr, ptr %16, align 8, !tbaa !52
+  %50 = load ptr, ptr %11, align 8, !tbaa !52
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %50, ptr align 8 %49, i64 32, i1 false), !tbaa.struct !58
+  br label %51
+
+51:                                               ; preds = %48, %45
+  store i1 true, ptr %6, align 1
+  store i32 1, ptr %15, align 4
+  br label %53
+
+52:                                               ; preds = %38, %31, %23
+  store i32 0, ptr %15, align 4
+  br label %53
+
+53:                                               ; preds = %52, %51
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #7
+  %54 = load i32, ptr %15, align 4
+  switch i32 %54, label %58 [
+    i32 0, label %55
+  ]
+
+55:                                               ; preds = %53
+  br label %56
+
+56:                                               ; preds = %55
+  %57 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4absl18debugging_internal11ElfMemImage14SymbolIteratorppEv(ptr noundef nonnull align 8 dereferenceable(48) %13)
+  br label %20
+
+58:                                               ; preds = %53, %22
+  call void @llvm.lifetime.end.p0(i64 48, ptr %14) #7
+  call void @llvm.lifetime.end.p0(i64 48, ptr %13) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #7
+  %59 = load i32, ptr %15, align 4
+  switch i32 %59, label %63 [
+    i32 2, label %60
+    i32 1, label %61
+  ]
+
+60:                                               ; preds = %58
+  store i1 false, ptr %6, align 1
+  br label %61
+
+61:                                               ; preds = %60, %58
+  %62 = load i1, ptr %6, align 1
+  ret i1 %62
+
+63:                                               ; preds = %58
+  unreachable
+}
+
+; Function Attrs: mustprogress uwtable
+define dso_local void @_ZNK4absl18debugging_internal11ElfMemImage5beginEv(ptr dead_on_unwind noalias writable sret(%"class.absl::debugging_internal::ElfMemImage::SymbolIterator") align 8 %0, ptr noundef nonnull align 8 dereferenceable(72) %1) #0 align 2 {
+  %3 = alloca ptr, align 8
+  store ptr %1, ptr %3, align 8, !tbaa !4
+  %4 = load ptr, ptr %3, align 8
+  call void @_ZN4absl18debugging_internal11ElfMemImage14SymbolIteratorC1EPKvj(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %4, i32 noundef 0)
+  call void @_ZN4absl18debugging_internal11ElfMemImage14SymbolIterator6UpdateEj(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 0)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4absl18debugging_internal11ElfMemImage3endEv(ptr noalias sret(%"class.absl::debugging_internal::ElfMemImage::SymbolIterator") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %this) #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef i32 @_ZNK4absl18debugging_internal11ElfMemImage13GetNumSymbolsEv(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  call void @_ZN4absl18debugging_internal11ElfMemImage14SymbolIteratorC1EPKvi(ptr noundef nonnull align 8 dereferenceable(48) %agg.result, ptr noundef %this1, i32 noundef %call)
+define dso_local void @_ZNK4absl18debugging_internal11ElfMemImage3endEv(ptr dead_on_unwind noalias writable sret(%"class.absl::debugging_internal::ElfMemImage::SymbolIterator") align 8 %0, ptr noundef nonnull align 8 dereferenceable(72) %1) #0 align 2 {
+  %3 = alloca ptr, align 8
+  store ptr %1, ptr %3, align 8, !tbaa !4
+  %4 = load ptr, ptr %3, align 8
+  %5 = call noundef i32 @_ZNK4absl18debugging_internal11ElfMemImage13GetNumSymbolsEv(ptr noundef nonnull align 8 dereferenceable(72) %4)
+  call void @_ZN4absl18debugging_internal11ElfMemImage14SymbolIteratorC1EPKvj(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %4, i32 noundef %5)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZNK4absl18debugging_internal11ElfMemImage14SymbolIteratorneERKS2_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(48) %rhs) #2 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %rhs.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %rhs, ptr %rhs.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %rhs.addr, align 8
-  %call = call noundef zeroext i1 @_ZNK4absl18debugging_internal11ElfMemImage14SymbolIteratoreqERKS2_(ptr noundef nonnull align 8 dereferenceable(48) %this1, ptr noundef nonnull align 8 dereferenceable(48) %0)
-  %lnot = xor i1 %call, true
-  ret i1 %lnot
+define dso_local noundef zeroext i1 @_ZNK4absl18debugging_internal11ElfMemImage14SymbolIteratorneERKS2_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) #4 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !59
+  store ptr %1, ptr %4, align 8, !tbaa !59
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !59
+  %7 = call noundef zeroext i1 @_ZNK4absl18debugging_internal11ElfMemImage14SymbolIteratoreqERKS2_(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(48) %6)
+  %8 = xor i1 %7, true
+  ret i1 %8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4absl18debugging_internal11ElfMemImage14SymbolIteratordeEv(ptr noundef nonnull align 8 dereferenceable(48) %this) #2 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %info_ = getelementptr inbounds %"class.absl::debugging_internal::ElfMemImage::SymbolIterator", ptr %this1, i32 0, i32 0
-  ret ptr %info_
+define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4absl18debugging_internal11ElfMemImage14SymbolIteratordeEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #4 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !59
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.absl::debugging_internal::ElfMemImage::SymbolIterator", ptr %3, i32 0, i32 0
+  ret ptr %4
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strcmp(ptr noundef, ptr noundef) #3
+declare i32 @strcmp(ptr noundef, ptr noundef) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef i32 @_ZN4absl18debugging_internal12_GLOBAL__N_17ElfTypeEPK9Elf64_Sym(ptr noundef %symbol) #2 {
-entry:
-  %symbol.addr = alloca ptr, align 8
-  store ptr %symbol, ptr %symbol.addr, align 8
-  %0 = load ptr, ptr %symbol.addr, align 8
-  %st_info = getelementptr inbounds %struct.Elf64_Sym, ptr %0, i32 0, i32 1
-  %1 = load i8, ptr %st_info, align 4
-  %conv = zext i8 %1 to i32
-  %and = and i32 %conv, 15
-  ret i32 %and
+define internal noundef i32 @_ZN4absl18debugging_internal12_GLOBAL__N_17ElfTypeEPK9Elf64_Sym(ptr noundef %0) #4 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !9
+  %3 = load ptr, ptr %2, align 8, !tbaa !9
+  %4 = getelementptr inbounds nuw %struct.Elf64_Sym, ptr %3, i32 0, i32 1
+  %5 = load i8, ptr %4, align 4, !tbaa !61
+  %6 = zext i8 %5 to i32
+  %7 = and i32 %6, 15
+  ret i32 %7
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4absl18debugging_internal11ElfMemImage14SymbolIteratorppEv(ptr noundef nonnull align 8 dereferenceable(48) %this) #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN4absl18debugging_internal11ElfMemImage14SymbolIterator6UpdateEi(ptr noundef nonnull align 8 dereferenceable(48) %this1, i32 noundef 1)
-  ret ptr %this1
+define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4absl18debugging_internal11ElfMemImage14SymbolIteratorppEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !59
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN4absl18debugging_internal11ElfMemImage14SymbolIterator6UpdateEj(ptr noundef nonnull align 8 dereferenceable(48) %3, i32 noundef 1)
+  ret ptr %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZNK4absl18debugging_internal11ElfMemImage21LookupSymbolByAddressEPKvPNS1_10SymbolInfoE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %address, ptr noundef %info_out) #0 align 2 {
-entry:
-  %retval = alloca i1, align 1
-  %this.addr = alloca ptr, align 8
-  %address.addr = alloca ptr, align 8
-  %info_out.addr = alloca ptr, align 8
-  %__range2 = alloca ptr, align 8
-  %__begin2 = alloca %"class.absl::debugging_internal::ElfMemImage::SymbolIterator", align 8
-  %__end2 = alloca %"class.absl::debugging_internal::ElfMemImage::SymbolIterator", align 8
-  %info = alloca ptr, align 8
-  %symbol_start = alloca ptr, align 8
-  %symbol_end = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %address, ptr %address.addr, align 8
-  store ptr %info_out, ptr %info_out.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  store ptr %this1, ptr %__range2, align 8
-  %0 = load ptr, ptr %__range2, align 8
-  call void @_ZNK4absl18debugging_internal11ElfMemImage5beginEv(ptr sret(%"class.absl::debugging_internal::ElfMemImage::SymbolIterator") align 8 %__begin2, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  %1 = load ptr, ptr %__range2, align 8
-  call void @_ZNK4absl18debugging_internal11ElfMemImage3endEv(ptr sret(%"class.absl::debugging_internal::ElfMemImage::SymbolIterator") align 8 %__end2, ptr noundef nonnull align 8 dereferenceable(72) %1)
-  br label %for.cond
+define dso_local noundef zeroext i1 @_ZNK4absl18debugging_internal11ElfMemImage21LookupSymbolByAddressEPKvPNS1_10SymbolInfoE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1, ptr noundef %2) #0 align 2 {
+  %4 = alloca i1, align 1
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca %"class.absl::debugging_internal::ElfMemImage::SymbolIterator", align 8
+  %10 = alloca %"class.absl::debugging_internal::ElfMemImage::SymbolIterator", align 8
+  %11 = alloca i32, align 4
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !4
+  store ptr %1, ptr %6, align 8, !tbaa !9
+  store ptr %2, ptr %7, align 8, !tbaa !52
+  %15 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #7
+  store ptr %15, ptr %8, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 48, ptr %9) #7
+  %16 = load ptr, ptr %8, align 8, !tbaa !4
+  call void @_ZNK4absl18debugging_internal11ElfMemImage5beginEv(ptr dead_on_unwind writable sret(%"class.absl::debugging_internal::ElfMemImage::SymbolIterator") align 8 %9, ptr noundef nonnull align 8 dereferenceable(72) %16)
+  call void @llvm.lifetime.start.p0(i64 48, ptr %10) #7
+  %17 = load ptr, ptr %8, align 8, !tbaa !4
+  call void @_ZNK4absl18debugging_internal11ElfMemImage3endEv(ptr dead_on_unwind writable sret(%"class.absl::debugging_internal::ElfMemImage::SymbolIterator") align 8 %10, ptr noundef nonnull align 8 dereferenceable(72) %17)
+  br label %18
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %call = call noundef zeroext i1 @_ZNK4absl18debugging_internal11ElfMemImage14SymbolIteratorneERKS2_(ptr noundef nonnull align 8 dereferenceable(48) %__begin2, ptr noundef nonnull align 8 dereferenceable(48) %__end2)
-  br i1 %call, label %for.body, label %for.end
+18:                                               ; preds = %65, %3
+  %19 = call noundef zeroext i1 @_ZNK4absl18debugging_internal11ElfMemImage14SymbolIteratorneERKS2_(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(48) %10)
+  br i1 %19, label %21, label %20
 
-for.body:                                         ; preds = %for.cond
-  %call2 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4absl18debugging_internal11ElfMemImage14SymbolIteratordeEv(ptr noundef nonnull align 8 dereferenceable(48) %__begin2)
-  store ptr %call2, ptr %info, align 8
-  %2 = load ptr, ptr %info, align 8
-  %address3 = getelementptr inbounds %"struct.absl::debugging_internal::ElfMemImage::SymbolInfo", ptr %2, i32 0, i32 2
-  %3 = load ptr, ptr %address3, align 8
-  store ptr %3, ptr %symbol_start, align 8
-  %4 = load ptr, ptr %symbol_start, align 8
-  %5 = load ptr, ptr %info, align 8
-  %symbol = getelementptr inbounds %"struct.absl::debugging_internal::ElfMemImage::SymbolInfo", ptr %5, i32 0, i32 3
-  %6 = load ptr, ptr %symbol, align 8
-  %st_size = getelementptr inbounds %struct.Elf64_Sym, ptr %6, i32 0, i32 5
-  %7 = load i64, ptr %st_size, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %4, i64 %7
-  store ptr %add.ptr, ptr %symbol_end, align 8
-  %8 = load ptr, ptr %symbol_start, align 8
-  %9 = load ptr, ptr %address.addr, align 8
-  %cmp = icmp ule ptr %8, %9
-  br i1 %cmp, label %land.lhs.true, label %if.end12
+20:                                               ; preds = %18
+  store i32 2, ptr %11, align 4
+  br label %67
 
-land.lhs.true:                                    ; preds = %for.body
-  %10 = load ptr, ptr %address.addr, align 8
-  %11 = load ptr, ptr %symbol_end, align 8
-  %cmp4 = icmp ult ptr %10, %11
-  br i1 %cmp4, label %if.then, label %if.end12
+21:                                               ; preds = %18
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #7
+  %22 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4absl18debugging_internal11ElfMemImage14SymbolIteratordeEv(ptr noundef nonnull align 8 dereferenceable(48) %9)
+  store ptr %22, ptr %12, align 8, !tbaa !52
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #7
+  %23 = load ptr, ptr %12, align 8, !tbaa !52
+  %24 = getelementptr inbounds nuw %"struct.absl::debugging_internal::ElfMemImage::SymbolInfo", ptr %23, i32 0, i32 2
+  %25 = load ptr, ptr %24, align 8, !tbaa !62
+  store ptr %25, ptr %13, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #7
+  %26 = load ptr, ptr %13, align 8, !tbaa !10
+  %27 = load ptr, ptr %12, align 8, !tbaa !52
+  %28 = getelementptr inbounds nuw %"struct.absl::debugging_internal::ElfMemImage::SymbolInfo", ptr %27, i32 0, i32 3
+  %29 = load ptr, ptr %28, align 8, !tbaa !57
+  %30 = getelementptr inbounds nuw %struct.Elf64_Sym, ptr %29, i32 0, i32 5
+  %31 = load i64, ptr %30, align 8, !tbaa !63
+  %32 = getelementptr inbounds nuw i8, ptr %26, i64 %31
+  store ptr %32, ptr %14, align 8, !tbaa !10
+  %33 = load ptr, ptr %13, align 8, !tbaa !10
+  %34 = load ptr, ptr %6, align 8, !tbaa !9
+  %35 = icmp ule ptr %33, %34
+  br i1 %35, label %36, label %58
 
-if.then:                                          ; preds = %land.lhs.true
-  %12 = load ptr, ptr %info_out.addr, align 8
-  %tobool = icmp ne ptr %12, null
-  br i1 %tobool, label %if.then5, label %if.else10
+36:                                               ; preds = %21
+  %37 = load ptr, ptr %6, align 8, !tbaa !9
+  %38 = load ptr, ptr %14, align 8, !tbaa !10
+  %39 = icmp ult ptr %37, %38
+  br i1 %39, label %40, label %58
 
-if.then5:                                         ; preds = %if.then
-  %13 = load ptr, ptr %info, align 8
-  %symbol6 = getelementptr inbounds %"struct.absl::debugging_internal::ElfMemImage::SymbolInfo", ptr %13, i32 0, i32 3
-  %14 = load ptr, ptr %symbol6, align 8
-  %call7 = call noundef i32 @_ZN4absl18debugging_internal12_GLOBAL__N_17ElfBindEPK9Elf64_Sym(ptr noundef %14)
-  %cmp8 = icmp eq i32 %call7, 1
-  br i1 %cmp8, label %if.then9, label %if.else
+40:                                               ; preds = %36
+  %41 = load ptr, ptr %7, align 8, !tbaa !52
+  %42 = icmp ne ptr %41, null
+  br i1 %42, label %43, label %56
 
-if.then9:                                         ; preds = %if.then5
-  %15 = load ptr, ptr %info, align 8
-  %16 = load ptr, ptr %info_out.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %16, ptr align 8 %15, i64 32, i1 false)
-  store i1 true, ptr %retval, align 1
-  br label %return
+43:                                               ; preds = %40
+  %44 = load ptr, ptr %12, align 8, !tbaa !52
+  %45 = getelementptr inbounds nuw %"struct.absl::debugging_internal::ElfMemImage::SymbolInfo", ptr %44, i32 0, i32 3
+  %46 = load ptr, ptr %45, align 8, !tbaa !57
+  %47 = call noundef i32 @_ZN4absl18debugging_internal12_GLOBAL__N_17ElfBindEPK9Elf64_Sym(ptr noundef %46)
+  %48 = icmp eq i32 %47, 1
+  br i1 %48, label %49, label %52
 
-if.else:                                          ; preds = %if.then5
-  %17 = load ptr, ptr %info, align 8
-  %18 = load ptr, ptr %info_out.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %18, ptr align 8 %17, i64 32, i1 false)
-  br label %if.end
+49:                                               ; preds = %43
+  %50 = load ptr, ptr %12, align 8, !tbaa !52
+  %51 = load ptr, ptr %7, align 8, !tbaa !52
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %51, ptr align 8 %50, i64 32, i1 false), !tbaa.struct !58
+  store i1 true, ptr %4, align 1
+  store i32 1, ptr %11, align 4
+  br label %59
 
-if.end:                                           ; preds = %if.else
-  br label %if.end11
+52:                                               ; preds = %43
+  %53 = load ptr, ptr %12, align 8, !tbaa !52
+  %54 = load ptr, ptr %7, align 8, !tbaa !52
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %54, ptr align 8 %53, i64 32, i1 false), !tbaa.struct !58
+  br label %55
 
-if.else10:                                        ; preds = %if.then
-  store i1 true, ptr %retval, align 1
-  br label %return
+55:                                               ; preds = %52
+  br label %57
 
-if.end11:                                         ; preds = %if.end
-  br label %if.end12
+56:                                               ; preds = %40
+  store i1 true, ptr %4, align 1
+  store i32 1, ptr %11, align 4
+  br label %59
 
-if.end12:                                         ; preds = %if.end11, %land.lhs.true, %for.body
-  br label %for.inc
+57:                                               ; preds = %55
+  br label %58
 
-for.inc:                                          ; preds = %if.end12
-  %call13 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4absl18debugging_internal11ElfMemImage14SymbolIteratorppEv(ptr noundef nonnull align 8 dereferenceable(48) %__begin2)
-  br label %for.cond
+58:                                               ; preds = %57, %36, %21
+  store i32 0, ptr %11, align 4
+  br label %59
 
-for.end:                                          ; preds = %for.cond
-  store i1 false, ptr %retval, align 1
-  br label %return
+59:                                               ; preds = %58, %56, %49
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #7
+  %60 = load i32, ptr %11, align 4
+  switch i32 %60, label %62 [
+    i32 0, label %61
+  ]
 
-return:                                           ; preds = %for.end, %if.else10, %if.then9
-  %19 = load i1, ptr %retval, align 1
-  ret i1 %19
+61:                                               ; preds = %59
+  store i32 0, ptr %11, align 4
+  br label %62
+
+62:                                               ; preds = %61, %59
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #7
+  %63 = load i32, ptr %11, align 4
+  switch i32 %63, label %67 [
+    i32 0, label %64
+  ]
+
+64:                                               ; preds = %62
+  br label %65
+
+65:                                               ; preds = %64
+  %66 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4absl18debugging_internal11ElfMemImage14SymbolIteratorppEv(ptr noundef nonnull align 8 dereferenceable(48) %9)
+  br label %18
+
+67:                                               ; preds = %62, %20
+  call void @llvm.lifetime.end.p0(i64 48, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 48, ptr %9) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #7
+  %68 = load i32, ptr %11, align 4
+  switch i32 %68, label %72 [
+    i32 2, label %69
+    i32 1, label %70
+  ]
+
+69:                                               ; preds = %67
+  store i1 false, ptr %4, align 1
+  br label %70
+
+70:                                               ; preds = %69, %67
+  %71 = load i1, ptr %4, align 1
+  ret i1 %71
+
+72:                                               ; preds = %67
+  unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef i32 @_ZN4absl18debugging_internal12_GLOBAL__N_17ElfBindEPK9Elf64_Sym(ptr noundef %symbol) #2 {
-entry:
-  %symbol.addr = alloca ptr, align 8
-  store ptr %symbol, ptr %symbol.addr, align 8
-  %0 = load ptr, ptr %symbol.addr, align 8
-  %st_info = getelementptr inbounds %struct.Elf64_Sym, ptr %0, i32 0, i32 1
-  %1 = load i8, ptr %st_info, align 4
-  %conv = zext i8 %1 to i32
-  %shr = ashr i32 %conv, 4
-  ret i32 %shr
+define internal noundef i32 @_ZN4absl18debugging_internal12_GLOBAL__N_17ElfBindEPK9Elf64_Sym(ptr noundef %0) #4 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !9
+  %3 = load ptr, ptr %2, align 8, !tbaa !9
+  %4 = getelementptr inbounds nuw %struct.Elf64_Sym, ptr %3, i32 0, i32 1
+  %5 = load i8, ptr %4, align 4, !tbaa !61
+  %6 = zext i8 %5 to i32
+  %7 = ashr i32 %6, 4
+  ret i32 %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4absl18debugging_internal11ElfMemImage14SymbolIteratorC2EPKvi(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %image, i32 noundef %index) unnamed_addr #2 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %image.addr = alloca ptr, align 8
-  %index.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %image, ptr %image.addr, align 8
-  store i32 %index, ptr %index.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %index_ = getelementptr inbounds %"class.absl::debugging_internal::ElfMemImage::SymbolIterator", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %index.addr, align 4
-  store i32 %0, ptr %index_, align 8
-  %image_ = getelementptr inbounds %"class.absl::debugging_internal::ElfMemImage::SymbolIterator", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %image.addr, align 8
-  store ptr %1, ptr %image_, align 8
+define dso_local void @_ZN4absl18debugging_internal11ElfMemImage14SymbolIteratorC2EPKvj(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #4 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !59
+  store ptr %1, ptr %5, align 8, !tbaa !9
+  store i32 %2, ptr %6, align 4, !tbaa !26
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %"class.absl::debugging_internal::ElfMemImage::SymbolIterator", ptr %7, i32 0, i32 1
+  %9 = load i32, ptr %6, align 4, !tbaa !26
+  store i32 %9, ptr %8, align 8, !tbaa !64
+  %10 = getelementptr inbounds nuw %"class.absl::debugging_internal::ElfMemImage::SymbolIterator", ptr %7, i32 0, i32 2
+  %11 = load ptr, ptr %5, align 8, !tbaa !9
+  store ptr %11, ptr %10, align 8, !tbaa !66
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZNK4absl18debugging_internal11ElfMemImage14SymbolIteratorptEv(ptr noundef nonnull align 8 dereferenceable(48) %this) #2 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %info_ = getelementptr inbounds %"class.absl::debugging_internal::ElfMemImage::SymbolIterator", ptr %this1, i32 0, i32 0
-  ret ptr %info_
+define dso_local noundef ptr @_ZNK4absl18debugging_internal11ElfMemImage14SymbolIteratorptEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #4 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !59
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.absl::debugging_internal::ElfMemImage::SymbolIterator", ptr %3, i32 0, i32 0
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZNK4absl18debugging_internal11ElfMemImage14SymbolIteratoreqERKS2_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(48) %rhs) #2 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %rhs.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %rhs, ptr %rhs.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %image_ = getelementptr inbounds %"class.absl::debugging_internal::ElfMemImage::SymbolIterator", ptr %this1, i32 0, i32 2
-  %0 = load ptr, ptr %image_, align 8
-  %1 = load ptr, ptr %rhs.addr, align 8
-  %image_2 = getelementptr inbounds %"class.absl::debugging_internal::ElfMemImage::SymbolIterator", ptr %1, i32 0, i32 2
-  %2 = load ptr, ptr %image_2, align 8
-  %cmp = icmp eq ptr %0, %2
-  br i1 %cmp, label %land.rhs, label %land.end
+define dso_local noundef zeroext i1 @_ZNK4absl18debugging_internal11ElfMemImage14SymbolIteratoreqERKS2_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) #4 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !59
+  store ptr %1, ptr %4, align 8, !tbaa !59
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.absl::debugging_internal::ElfMemImage::SymbolIterator", ptr %5, i32 0, i32 2
+  %7 = load ptr, ptr %6, align 8, !tbaa !66
+  %8 = load ptr, ptr %4, align 8, !tbaa !59
+  %9 = getelementptr inbounds nuw %"class.absl::debugging_internal::ElfMemImage::SymbolIterator", ptr %8, i32 0, i32 2
+  %10 = load ptr, ptr %9, align 8, !tbaa !66
+  %11 = icmp eq ptr %7, %10
+  br i1 %11, label %12, label %19
 
-land.rhs:                                         ; preds = %entry
-  %index_ = getelementptr inbounds %"class.absl::debugging_internal::ElfMemImage::SymbolIterator", ptr %this1, i32 0, i32 1
-  %3 = load i32, ptr %index_, align 8
-  %4 = load ptr, ptr %rhs.addr, align 8
-  %index_3 = getelementptr inbounds %"class.absl::debugging_internal::ElfMemImage::SymbolIterator", ptr %4, i32 0, i32 1
-  %5 = load i32, ptr %index_3, align 8
-  %cmp4 = icmp eq i32 %3, %5
-  br label %land.end
+12:                                               ; preds = %2
+  %13 = getelementptr inbounds nuw %"class.absl::debugging_internal::ElfMemImage::SymbolIterator", ptr %5, i32 0, i32 1
+  %14 = load i32, ptr %13, align 8, !tbaa !64
+  %15 = load ptr, ptr %4, align 8, !tbaa !59
+  %16 = getelementptr inbounds nuw %"class.absl::debugging_internal::ElfMemImage::SymbolIterator", ptr %15, i32 0, i32 1
+  %17 = load i32, ptr %16, align 8, !tbaa !64
+  %18 = icmp eq i32 %14, %17
+  br label %19
 
-land.end:                                         ; preds = %land.rhs, %entry
-  %6 = phi i1 [ false, %entry ], [ %cmp4, %land.rhs ]
+19:                                               ; preds = %12, %2
+  %20 = phi i1 [ false, %2 ], [ %18, %12 ]
+  ret i1 %20
+}
+
+; Function Attrs: mustprogress uwtable
+define dso_local void @_ZN4absl18debugging_internal11ElfMemImage14SymbolIterator6UpdateEj(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %1) #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i16, align 2
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !59
+  store i32 %1, ptr %4, align 4, !tbaa !26
+  %17 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  %18 = getelementptr inbounds nuw %"class.absl::debugging_internal::ElfMemImage::SymbolIterator", ptr %17, i32 0, i32 2
+  %19 = load ptr, ptr %18, align 8, !tbaa !66
+  store ptr %19, ptr %5, align 8, !tbaa !4
+  br label %20
+
+20:                                               ; preds = %2
+  %21 = load ptr, ptr %5, align 8, !tbaa !4
+  %22 = call noundef zeroext i1 @_ZNK4absl18debugging_internal11ElfMemImage9IsPresentEv(ptr noundef nonnull align 8 dereferenceable(72) %21)
+  br i1 %22, label %26, label %23
+
+23:                                               ; preds = %20
+  %24 = load i32, ptr %4, align 4, !tbaa !26
+  %25 = icmp eq i32 %24, 0
+  br label %26
+
+26:                                               ; preds = %23, %20
+  %27 = phi i1 [ true, %20 ], [ %25, %23 ]
+  %28 = xor i1 %27, true
+  %29 = zext i1 %28 to i64
+  %30 = call i64 @llvm.expect.i64(i64 %29, i64 0)
+  %31 = icmp ne i64 %30, 0
+  br i1 %31, label %32, label %39
+
+32:                                               ; preds = %26
+  br label %33
+
+33:                                               ; preds = %32
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #7
+  store ptr getelementptr (i8, ptr @.str, i64 123), ptr %6, align 8, !tbaa !10
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 123), i32 noundef 367, ptr noundef @.str.1, ptr noundef @.str.12, ptr noundef @.str.13)
+  br label %34
+
+34:                                               ; preds = %33
+  unreachable
+
+35:                                               ; No predecessors!
+  br label %36
+
+36:                                               ; preds = %35
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #7
+  br label %37
+
+37:                                               ; preds = %36
+  br label %38
+
+38:                                               ; preds = %37
+  br label %39
+
+39:                                               ; preds = %38, %26
+  br label %40
+
+40:                                               ; preds = %39
+  br label %41
+
+41:                                               ; preds = %40
+  %42 = load ptr, ptr %5, align 8, !tbaa !4
+  %43 = call noundef zeroext i1 @_ZNK4absl18debugging_internal11ElfMemImage9IsPresentEv(ptr noundef nonnull align 8 dereferenceable(72) %42)
+  br i1 %43, label %45, label %44
+
+44:                                               ; preds = %41
+  store i32 1, ptr %7, align 4
+  br label %167
+
+45:                                               ; preds = %41
+  %46 = load i32, ptr %4, align 4, !tbaa !26
+  %47 = getelementptr inbounds nuw %"class.absl::debugging_internal::ElfMemImage::SymbolIterator", ptr %17, i32 0, i32 1
+  %48 = load i32, ptr %47, align 8, !tbaa !64
+  %49 = add i32 %48, %46
+  store i32 %49, ptr %47, align 8, !tbaa !64
+  %50 = getelementptr inbounds nuw %"class.absl::debugging_internal::ElfMemImage::SymbolIterator", ptr %17, i32 0, i32 1
+  %51 = load i32, ptr %50, align 8, !tbaa !64
+  %52 = load ptr, ptr %5, align 8, !tbaa !4
+  %53 = call noundef i32 @_ZNK4absl18debugging_internal11ElfMemImage13GetNumSymbolsEv(ptr noundef nonnull align 8 dereferenceable(72) %52)
+  %54 = icmp uge i32 %51, %53
+  br i1 %54, label %55, label %59
+
+55:                                               ; preds = %45
+  %56 = load ptr, ptr %5, align 8, !tbaa !4
+  %57 = call noundef i32 @_ZNK4absl18debugging_internal11ElfMemImage13GetNumSymbolsEv(ptr noundef nonnull align 8 dereferenceable(72) %56)
+  %58 = getelementptr inbounds nuw %"class.absl::debugging_internal::ElfMemImage::SymbolIterator", ptr %17, i32 0, i32 1
+  store i32 %57, ptr %58, align 8, !tbaa !64
+  store i32 1, ptr %7, align 4
+  br label %167
+
+59:                                               ; preds = %45
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #7
+  %60 = load ptr, ptr %5, align 8, !tbaa !4
+  %61 = getelementptr inbounds nuw %"class.absl::debugging_internal::ElfMemImage::SymbolIterator", ptr %17, i32 0, i32 1
+  %62 = load i32, ptr %61, align 8, !tbaa !64
+  %63 = call noundef ptr @_ZNK4absl18debugging_internal11ElfMemImage9GetDynsymEj(ptr noundef nonnull align 8 dereferenceable(72) %60, i32 noundef %62)
+  store ptr %63, ptr %8, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
+  %64 = load ptr, ptr %5, align 8, !tbaa !4
+  %65 = getelementptr inbounds nuw %"class.absl::debugging_internal::ElfMemImage::SymbolIterator", ptr %17, i32 0, i32 1
+  %66 = load i32, ptr %65, align 8, !tbaa !64
+  %67 = call noundef ptr @_ZNK4absl18debugging_internal11ElfMemImage9GetVersymEj(ptr noundef nonnull align 8 dereferenceable(72) %64, i32 noundef %66)
+  store ptr %67, ptr %9, align 8, !tbaa !67
+  br label %68
+
+68:                                               ; preds = %59
+  %69 = load ptr, ptr %8, align 8, !tbaa !9
+  %70 = icmp ne ptr %69, null
+  br i1 %70, label %71, label %74
+
+71:                                               ; preds = %68
+  %72 = load ptr, ptr %9, align 8, !tbaa !67
+  %73 = icmp ne ptr %72, null
+  br label %74
+
+74:                                               ; preds = %71, %68
+  %75 = phi i1 [ false, %68 ], [ %73, %71 ]
+  %76 = xor i1 %75, true
+  %77 = zext i1 %76 to i64
+  %78 = call i64 @llvm.expect.i64(i64 %77, i64 0)
+  %79 = icmp ne i64 %78, 0
+  br i1 %79, label %80, label %87
+
+80:                                               ; preds = %74
+  br label %81
+
+81:                                               ; preds = %80
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  store ptr getelementptr (i8, ptr @.str, i64 123), ptr %10, align 8, !tbaa !10
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 123), i32 noundef 378, ptr noundef @.str.1, ptr noundef @.str.14, ptr noundef @.str.13)
+  br label %82
+
+82:                                               ; preds = %81
+  unreachable
+
+83:                                               ; No predecessors!
+  br label %84
+
+84:                                               ; preds = %83
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  br label %85
+
+85:                                               ; preds = %84
+  br label %86
+
+86:                                               ; preds = %85
+  br label %87
+
+87:                                               ; preds = %86, %74
+  br label %88
+
+88:                                               ; preds = %87
+  br label %89
+
+89:                                               ; preds = %88
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
+  %90 = load ptr, ptr %5, align 8, !tbaa !4
+  %91 = load ptr, ptr %8, align 8, !tbaa !9
+  %92 = getelementptr inbounds nuw %struct.Elf64_Sym, ptr %91, i32 0, i32 0
+  %93 = load i32, ptr %92, align 8, !tbaa !68
+  %94 = call noundef ptr @_ZNK4absl18debugging_internal11ElfMemImage9GetDynstrEj(ptr noundef nonnull align 8 dereferenceable(72) %90, i32 noundef %93)
+  store ptr %94, ptr %11, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 2, ptr %12) #7
+  %95 = load ptr, ptr %9, align 8, !tbaa !67
+  %96 = getelementptr inbounds i16, ptr %95, i64 0
+  %97 = load i16, ptr %96, align 2, !tbaa !69
+  %98 = zext i16 %97 to i32
+  %99 = and i32 %98, 32767
+  %100 = trunc i32 %99 to i16
+  store i16 %100, ptr %12, align 2, !tbaa !69
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #7
+  store ptr null, ptr %13, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #7
+  store ptr @.str.13, ptr %14, align 8, !tbaa !10
+  %101 = load ptr, ptr %8, align 8, !tbaa !9
+  %102 = getelementptr inbounds nuw %struct.Elf64_Sym, ptr %101, i32 0, i32 3
+  %103 = load i16, ptr %102, align 2, !tbaa !45
+  %104 = zext i16 %103 to i32
+  %105 = icmp eq i32 %104, 0
+  br i1 %105, label %106, label %107
+
+106:                                              ; preds = %89
+  br label %112
+
+107:                                              ; preds = %89
+  %108 = load ptr, ptr %5, align 8, !tbaa !4
+  %109 = load i16, ptr %12, align 2, !tbaa !69
+  %110 = zext i16 %109 to i32
+  %111 = call noundef ptr @_ZNK4absl18debugging_internal11ElfMemImage9GetVerdefEi(ptr noundef nonnull align 8 dereferenceable(72) %108, i32 noundef %110)
+  store ptr %111, ptr %13, align 8, !tbaa !9
+  br label %112
+
+112:                                              ; preds = %107, %106
+  %113 = load ptr, ptr %13, align 8, !tbaa !9
+  %114 = icmp ne ptr %113, null
+  br i1 %114, label %115, label %152
+
+115:                                              ; preds = %112
+  br label %116
+
+116:                                              ; preds = %115
+  %117 = load ptr, ptr %13, align 8, !tbaa !9
+  %118 = getelementptr inbounds nuw %struct.Elf64_Verdef, ptr %117, i32 0, i32 3
+  %119 = load i16, ptr %118, align 2, !tbaa !70
+  %120 = zext i16 %119 to i32
+  %121 = icmp eq i32 %120, 1
+  br i1 %121, label %128, label %122
+
+122:                                              ; preds = %116
+  %123 = load ptr, ptr %13, align 8, !tbaa !9
+  %124 = getelementptr inbounds nuw %struct.Elf64_Verdef, ptr %123, i32 0, i32 3
+  %125 = load i16, ptr %124, align 2, !tbaa !70
+  %126 = zext i16 %125 to i32
+  %127 = icmp eq i32 %126, 2
+  br label %128
+
+128:                                              ; preds = %122, %116
+  %129 = phi i1 [ true, %116 ], [ %127, %122 ]
+  %130 = xor i1 %129, true
+  %131 = zext i1 %130 to i64
+  %132 = call i64 @llvm.expect.i64(i64 %131, i64 0)
+  %133 = icmp ne i64 %132, 0
+  br i1 %133, label %134, label %141
+
+134:                                              ; preds = %128
+  br label %135
+
+135:                                              ; preds = %134
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #7
+  store ptr getelementptr (i8, ptr @.str, i64 123), ptr %15, align 8, !tbaa !10
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 123), i32 noundef 399, ptr noundef @.str.1, ptr noundef @.str.15, ptr noundef @.str.16)
+  br label %136
+
+136:                                              ; preds = %135
+  unreachable
+
+137:                                              ; No predecessors!
+  br label %138
+
+138:                                              ; preds = %137
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #7
+  br label %139
+
+139:                                              ; preds = %138
+  br label %140
+
+140:                                              ; preds = %139
+  br label %141
+
+141:                                              ; preds = %140, %128
+  br label %142
+
+142:                                              ; preds = %141
+  br label %143
+
+143:                                              ; preds = %142
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #7
+  %144 = load ptr, ptr %5, align 8, !tbaa !4
+  %145 = load ptr, ptr %13, align 8, !tbaa !9
+  %146 = call noundef ptr @_ZNK4absl18debugging_internal11ElfMemImage12GetVerdefAuxEPK12Elf64_Verdef(ptr noundef nonnull align 8 dereferenceable(72) %144, ptr noundef %145)
+  store ptr %146, ptr %16, align 8, !tbaa !9
+  %147 = load ptr, ptr %5, align 8, !tbaa !4
+  %148 = load ptr, ptr %16, align 8, !tbaa !9
+  %149 = getelementptr inbounds nuw %struct.Elf64_Verdaux, ptr %148, i32 0, i32 0
+  %150 = load i32, ptr %149, align 4, !tbaa !71
+  %151 = call noundef ptr @_ZNK4absl18debugging_internal11ElfMemImage9GetVerstrEj(ptr noundef nonnull align 8 dereferenceable(72) %147, i32 noundef %150)
+  store ptr %151, ptr %14, align 8, !tbaa !10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #7
+  br label %152
+
+152:                                              ; preds = %143, %112
+  %153 = load ptr, ptr %11, align 8, !tbaa !10
+  %154 = getelementptr inbounds nuw %"class.absl::debugging_internal::ElfMemImage::SymbolIterator", ptr %17, i32 0, i32 0
+  %155 = getelementptr inbounds nuw %"struct.absl::debugging_internal::ElfMemImage::SymbolInfo", ptr %154, i32 0, i32 0
+  store ptr %153, ptr %155, align 8, !tbaa !73
+  %156 = load ptr, ptr %14, align 8, !tbaa !10
+  %157 = getelementptr inbounds nuw %"class.absl::debugging_internal::ElfMemImage::SymbolIterator", ptr %17, i32 0, i32 0
+  %158 = getelementptr inbounds nuw %"struct.absl::debugging_internal::ElfMemImage::SymbolInfo", ptr %157, i32 0, i32 1
+  store ptr %156, ptr %158, align 8, !tbaa !74
+  %159 = load ptr, ptr %5, align 8, !tbaa !4
+  %160 = load ptr, ptr %8, align 8, !tbaa !9
+  %161 = call noundef ptr @_ZNK4absl18debugging_internal11ElfMemImage10GetSymAddrEPK9Elf64_Sym(ptr noundef nonnull align 8 dereferenceable(72) %159, ptr noundef %160)
+  %162 = getelementptr inbounds nuw %"class.absl::debugging_internal::ElfMemImage::SymbolIterator", ptr %17, i32 0, i32 0
+  %163 = getelementptr inbounds nuw %"struct.absl::debugging_internal::ElfMemImage::SymbolInfo", ptr %162, i32 0, i32 2
+  store ptr %161, ptr %163, align 8, !tbaa !75
+  %164 = load ptr, ptr %8, align 8, !tbaa !9
+  %165 = getelementptr inbounds nuw %"class.absl::debugging_internal::ElfMemImage::SymbolIterator", ptr %17, i32 0, i32 0
+  %166 = getelementptr inbounds nuw %"struct.absl::debugging_internal::ElfMemImage::SymbolInfo", ptr %165, i32 0, i32 3
+  store ptr %164, ptr %166, align 8, !tbaa !76
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #7
+  call void @llvm.lifetime.end.p0(i64 2, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #7
+  store i32 0, ptr %7, align 4
+  br label %167
+
+167:                                              ; preds = %152, %55, %44
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  %168 = load i32, ptr %7, align 4
+  switch i32 %168, label %170 [
+    i32 0, label %169
+    i32 1, label %169
+  ]
+
+169:                                              ; preds = %167, %167
+  ret void
+
+170:                                              ; preds = %167
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_ZNK4absl18debugging_internal11ElfMemImage9IsPresentEv(ptr noundef nonnull align 8 dereferenceable(72) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.absl::debugging_internal::ElfMemImage", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !12
+  %6 = icmp ne ptr %5, null
   ret i1 %6
 }
 
-; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl18debugging_internal11ElfMemImage14SymbolIterator6UpdateEi(ptr noundef nonnull align 8 dereferenceable(48) %this, i32 noundef %increment) #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %increment.addr = alloca i32, align 4
-  %image = alloca ptr, align 8
-  %absl_raw_log_internal_basename = alloca ptr, align 8
-  %symbol = alloca ptr, align 8
-  %version_symbol = alloca ptr, align 8
-  %absl_raw_log_internal_basename25 = alloca ptr, align 8
-  %symbol_name = alloca ptr, align 8
-  %version_index = alloca i16, align 2
-  %version_definition = alloca ptr, align 8
-  %version_name = alloca ptr, align 8
-  %absl_raw_log_internal_basename53 = alloca ptr, align 8
-  %version_aux = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %increment, ptr %increment.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %image_ = getelementptr inbounds %"class.absl::debugging_internal::ElfMemImage::SymbolIterator", ptr %this1, i32 0, i32 2
-  %0 = load ptr, ptr %image_, align 8
-  store ptr %0, ptr %image, align 8
-  br label %do.body
+attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { nounwind }
+attributes #8 = { nounwind willreturn memory(read) }
 
-do.body:                                          ; preds = %entry
-  %1 = load ptr, ptr %image, align 8
-  %call = call noundef zeroext i1 @_ZNK4absl18debugging_internal11ElfMemImage9IsPresentEv(ptr noundef nonnull align 8 dereferenceable(72) %1)
-  br i1 %call, label %lor.end, label %lor.rhs
-
-lor.rhs:                                          ; preds = %do.body
-  %2 = load i32, ptr %increment.addr, align 4
-  %cmp = icmp eq i32 %2, 0
-  br label %lor.end
-
-lor.end:                                          ; preds = %lor.rhs, %do.body
-  %3 = phi i1 [ true, %do.body ], [ %cmp, %lor.rhs ]
-  %lnot = xor i1 %3, true
-  br i1 %lnot, label %if.then, label %if.end
-
-if.then:                                          ; preds = %lor.end
-  br label %do.body2
-
-do.body2:                                         ; preds = %if.then
-  %4 = getelementptr i8, ptr @.str, i64 123
-  store ptr %4, ptr %absl_raw_log_internal_basename, align 8
-  %5 = getelementptr i8, ptr @.str, i64 123
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %5, i32 noundef 340, ptr noundef @.str.1, ptr noundef @.str.12, ptr noundef @.str.13)
-  br label %do.body3
-
-do.body3:                                         ; preds = %do.body2
-  unreachable
-
-do.end:                                           ; No predecessors!
-  br label %do.end4
-
-do.end4:                                          ; preds = %do.end
-  br label %if.end
-
-if.end:                                           ; preds = %do.end4, %lor.end
-  br label %do.end5
-
-do.end5:                                          ; preds = %if.end
-  %6 = load ptr, ptr %image, align 8
-  %call6 = call noundef zeroext i1 @_ZNK4absl18debugging_internal11ElfMemImage9IsPresentEv(ptr noundef nonnull align 8 dereferenceable(72) %6)
-  br i1 %call6, label %if.end8, label %if.then7
-
-if.then7:                                         ; preds = %do.end5
-  br label %return
-
-if.end8:                                          ; preds = %do.end5
-  %7 = load i32, ptr %increment.addr, align 4
-  %index_ = getelementptr inbounds %"class.absl::debugging_internal::ElfMemImage::SymbolIterator", ptr %this1, i32 0, i32 1
-  %8 = load i32, ptr %index_, align 8
-  %add = add nsw i32 %8, %7
-  store i32 %add, ptr %index_, align 8
-  %index_9 = getelementptr inbounds %"class.absl::debugging_internal::ElfMemImage::SymbolIterator", ptr %this1, i32 0, i32 1
-  %9 = load i32, ptr %index_9, align 8
-  %10 = load ptr, ptr %image, align 8
-  %call10 = call noundef i32 @_ZNK4absl18debugging_internal11ElfMemImage13GetNumSymbolsEv(ptr noundef nonnull align 8 dereferenceable(72) %10)
-  %cmp11 = icmp sge i32 %9, %call10
-  br i1 %cmp11, label %if.then12, label %if.end15
-
-if.then12:                                        ; preds = %if.end8
-  %11 = load ptr, ptr %image, align 8
-  %call13 = call noundef i32 @_ZNK4absl18debugging_internal11ElfMemImage13GetNumSymbolsEv(ptr noundef nonnull align 8 dereferenceable(72) %11)
-  %index_14 = getelementptr inbounds %"class.absl::debugging_internal::ElfMemImage::SymbolIterator", ptr %this1, i32 0, i32 1
-  store i32 %call13, ptr %index_14, align 8
-  br label %return
-
-if.end15:                                         ; preds = %if.end8
-  %12 = load ptr, ptr %image, align 8
-  %index_16 = getelementptr inbounds %"class.absl::debugging_internal::ElfMemImage::SymbolIterator", ptr %this1, i32 0, i32 1
-  %13 = load i32, ptr %index_16, align 8
-  %call17 = call noundef ptr @_ZNK4absl18debugging_internal11ElfMemImage9GetDynsymEi(ptr noundef nonnull align 8 dereferenceable(72) %12, i32 noundef %13)
-  store ptr %call17, ptr %symbol, align 8
-  %14 = load ptr, ptr %image, align 8
-  %index_18 = getelementptr inbounds %"class.absl::debugging_internal::ElfMemImage::SymbolIterator", ptr %this1, i32 0, i32 1
-  %15 = load i32, ptr %index_18, align 8
-  %call19 = call noundef ptr @_ZNK4absl18debugging_internal11ElfMemImage9GetVersymEi(ptr noundef nonnull align 8 dereferenceable(72) %14, i32 noundef %15)
-  store ptr %call19, ptr %version_symbol, align 8
-  br label %do.body20
-
-do.body20:                                        ; preds = %if.end15
-  %16 = load ptr, ptr %symbol, align 8
-  %tobool = icmp ne ptr %16, null
-  br i1 %tobool, label %land.rhs, label %land.end
-
-land.rhs:                                         ; preds = %do.body20
-  %17 = load ptr, ptr %version_symbol, align 8
-  %tobool21 = icmp ne ptr %17, null
-  br label %land.end
-
-land.end:                                         ; preds = %land.rhs, %do.body20
-  %18 = phi i1 [ false, %do.body20 ], [ %tobool21, %land.rhs ]
-  %lnot22 = xor i1 %18, true
-  br i1 %lnot22, label %if.then23, label %if.end29
-
-if.then23:                                        ; preds = %land.end
-  br label %do.body24
-
-do.body24:                                        ; preds = %if.then23
-  %19 = getelementptr i8, ptr @.str, i64 123
-  store ptr %19, ptr %absl_raw_log_internal_basename25, align 8
-  %20 = getelementptr i8, ptr @.str, i64 123
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %20, i32 noundef 351, ptr noundef @.str.1, ptr noundef @.str.14, ptr noundef @.str.13)
-  br label %do.body26
-
-do.body26:                                        ; preds = %do.body24
-  unreachable
-
-do.end27:                                         ; No predecessors!
-  br label %do.end28
-
-do.end28:                                         ; preds = %do.end27
-  br label %if.end29
-
-if.end29:                                         ; preds = %do.end28, %land.end
-  br label %do.end30
-
-do.end30:                                         ; preds = %if.end29
-  %21 = load ptr, ptr %image, align 8
-  %22 = load ptr, ptr %symbol, align 8
-  %st_name = getelementptr inbounds %struct.Elf64_Sym, ptr %22, i32 0, i32 0
-  %23 = load i32, ptr %st_name, align 8
-  %call31 = call noundef ptr @_ZNK4absl18debugging_internal11ElfMemImage9GetDynstrEj(ptr noundef nonnull align 8 dereferenceable(72) %21, i32 noundef %23)
-  store ptr %call31, ptr %symbol_name, align 8
-  %24 = load ptr, ptr %version_symbol, align 8
-  %arrayidx = getelementptr inbounds i16, ptr %24, i64 0
-  %25 = load i16, ptr %arrayidx, align 2
-  %conv = zext i16 %25 to i32
-  %and = and i32 %conv, 32767
-  %conv32 = trunc i32 %and to i16
-  store i16 %conv32, ptr %version_index, align 2
-  store ptr null, ptr %version_definition, align 8
-  store ptr @.str.13, ptr %version_name, align 8
-  %26 = load ptr, ptr %symbol, align 8
-  %st_shndx = getelementptr inbounds %struct.Elf64_Sym, ptr %26, i32 0, i32 3
-  %27 = load i16, ptr %st_shndx, align 2
-  %conv33 = zext i16 %27 to i32
-  %cmp34 = icmp eq i32 %conv33, 0
-  br i1 %cmp34, label %if.then35, label %if.else
-
-if.then35:                                        ; preds = %do.end30
-  br label %if.end38
-
-if.else:                                          ; preds = %do.end30
-  %28 = load ptr, ptr %image, align 8
-  %29 = load i16, ptr %version_index, align 2
-  %conv36 = zext i16 %29 to i32
-  %call37 = call noundef ptr @_ZNK4absl18debugging_internal11ElfMemImage9GetVerdefEi(ptr noundef nonnull align 8 dereferenceable(72) %28, i32 noundef %conv36)
-  store ptr %call37, ptr %version_definition, align 8
-  br label %if.end38
-
-if.end38:                                         ; preds = %if.else, %if.then35
-  %30 = load ptr, ptr %version_definition, align 8
-  %tobool39 = icmp ne ptr %30, null
-  br i1 %tobool39, label %if.then40, label %if.end61
-
-if.then40:                                        ; preds = %if.end38
-  br label %do.body41
-
-do.body41:                                        ; preds = %if.then40
-  %31 = load ptr, ptr %version_definition, align 8
-  %vd_cnt = getelementptr inbounds %struct.Elf64_Verdef, ptr %31, i32 0, i32 3
-  %32 = load i16, ptr %vd_cnt, align 2
-  %conv42 = zext i16 %32 to i32
-  %cmp43 = icmp eq i32 %conv42, 1
-  br i1 %cmp43, label %lor.end48, label %lor.rhs44
-
-lor.rhs44:                                        ; preds = %do.body41
-  %33 = load ptr, ptr %version_definition, align 8
-  %vd_cnt45 = getelementptr inbounds %struct.Elf64_Verdef, ptr %33, i32 0, i32 3
-  %34 = load i16, ptr %vd_cnt45, align 2
-  %conv46 = zext i16 %34 to i32
-  %cmp47 = icmp eq i32 %conv46, 2
-  br label %lor.end48
-
-lor.end48:                                        ; preds = %lor.rhs44, %do.body41
-  %35 = phi i1 [ true, %do.body41 ], [ %cmp47, %lor.rhs44 ]
-  %lnot49 = xor i1 %35, true
-  br i1 %lnot49, label %if.then51, label %if.end57
-
-if.then51:                                        ; preds = %lor.end48
-  br label %do.body52
-
-do.body52:                                        ; preds = %if.then51
-  %36 = getelementptr i8, ptr @.str, i64 123
-  store ptr %36, ptr %absl_raw_log_internal_basename53, align 8
-  %37 = getelementptr i8, ptr @.str, i64 123
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %37, i32 noundef 372, ptr noundef @.str.1, ptr noundef @.str.15, ptr noundef @.str.16)
-  br label %do.body54
-
-do.body54:                                        ; preds = %do.body52
-  unreachable
-
-do.end55:                                         ; No predecessors!
-  br label %do.end56
-
-do.end56:                                         ; preds = %do.end55
-  br label %if.end57
-
-if.end57:                                         ; preds = %do.end56, %lor.end48
-  br label %do.end58
-
-do.end58:                                         ; preds = %if.end57
-  %38 = load ptr, ptr %image, align 8
-  %39 = load ptr, ptr %version_definition, align 8
-  %call59 = call noundef ptr @_ZNK4absl18debugging_internal11ElfMemImage12GetVerdefAuxEPK12Elf64_Verdef(ptr noundef nonnull align 8 dereferenceable(72) %38, ptr noundef %39)
-  store ptr %call59, ptr %version_aux, align 8
-  %40 = load ptr, ptr %image, align 8
-  %41 = load ptr, ptr %version_aux, align 8
-  %vda_name = getelementptr inbounds %struct.Elf64_Verdaux, ptr %41, i32 0, i32 0
-  %42 = load i32, ptr %vda_name, align 4
-  %call60 = call noundef ptr @_ZNK4absl18debugging_internal11ElfMemImage9GetVerstrEj(ptr noundef nonnull align 8 dereferenceable(72) %40, i32 noundef %42)
-  store ptr %call60, ptr %version_name, align 8
-  br label %if.end61
-
-if.end61:                                         ; preds = %do.end58, %if.end38
-  %43 = load ptr, ptr %symbol_name, align 8
-  %info_ = getelementptr inbounds %"class.absl::debugging_internal::ElfMemImage::SymbolIterator", ptr %this1, i32 0, i32 0
-  %name = getelementptr inbounds %"struct.absl::debugging_internal::ElfMemImage::SymbolInfo", ptr %info_, i32 0, i32 0
-  store ptr %43, ptr %name, align 8
-  %44 = load ptr, ptr %version_name, align 8
-  %info_62 = getelementptr inbounds %"class.absl::debugging_internal::ElfMemImage::SymbolIterator", ptr %this1, i32 0, i32 0
-  %version = getelementptr inbounds %"struct.absl::debugging_internal::ElfMemImage::SymbolInfo", ptr %info_62, i32 0, i32 1
-  store ptr %44, ptr %version, align 8
-  %45 = load ptr, ptr %image, align 8
-  %46 = load ptr, ptr %symbol, align 8
-  %call63 = call noundef ptr @_ZNK4absl18debugging_internal11ElfMemImage10GetSymAddrEPK9Elf64_Sym(ptr noundef nonnull align 8 dereferenceable(72) %45, ptr noundef %46)
-  %info_64 = getelementptr inbounds %"class.absl::debugging_internal::ElfMemImage::SymbolIterator", ptr %this1, i32 0, i32 0
-  %address = getelementptr inbounds %"struct.absl::debugging_internal::ElfMemImage::SymbolInfo", ptr %info_64, i32 0, i32 2
-  store ptr %call63, ptr %address, align 8
-  %47 = load ptr, ptr %symbol, align 8
-  %info_65 = getelementptr inbounds %"class.absl::debugging_internal::ElfMemImage::SymbolIterator", ptr %this1, i32 0, i32 0
-  %symbol66 = getelementptr inbounds %"struct.absl::debugging_internal::ElfMemImage::SymbolInfo", ptr %info_65, i32 0, i32 3
-  store ptr %47, ptr %symbol66, align 8
-  br label %return
-
-return:                                           ; preds = %if.end61, %if.then12, %if.then7
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZNK4absl18debugging_internal11ElfMemImage9IsPresentEv(ptr noundef nonnull align 8 dereferenceable(72) %this) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %ehdr_ = getelementptr inbounds %"class.absl::debugging_internal::ElfMemImage", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %ehdr_, align 8
-  %cmp = icmp ne ptr %0, null
-  ret i1 %cmp
-}
-
-attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nounwind willreturn memory(read) }
-
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"p1 _ZTSN4absl18debugging_internal11ElfMemImageE", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C++ TBAA"}
+!9 = !{!6, !6, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"p1 omnipotent char", !6, i64 0}
+!12 = !{!13, !6, i64 0}
+!13 = !{!"_ZTSN4absl18debugging_internal11ElfMemImageE", !6, i64 0, !6, i64 8, !14, i64 16, !6, i64 24, !11, i64 32, !15, i64 40, !16, i64 48, !16, i64 56, !16, i64 64}
+!14 = !{!"p1 short", !6, i64 0}
+!15 = !{!"int", !7, i64 0}
+!16 = !{!"long", !7, i64 0}
+!17 = !{!13, !6, i64 8}
+!18 = !{!13, !11, i64 32}
+!19 = !{!13, !14, i64 16}
+!20 = !{!13, !6, i64 24}
+!21 = !{!13, !15, i64 40}
+!22 = !{!13, !16, i64 48}
+!23 = !{!13, !16, i64 56}
+!24 = !{!13, !16, i64 64}
+!25 = !{!7, !7, i64 0}
+!26 = !{!15, !15, i64 0}
+!27 = !{!28, !29, i64 56}
+!28 = !{!"_ZTS10Elf64_Ehdr", !7, i64 0, !29, i64 16, !29, i64 18, !15, i64 20, !16, i64 24, !16, i64 32, !16, i64 40, !15, i64 48, !29, i64 52, !29, i64 54, !29, i64 56, !29, i64 58, !29, i64 60, !29, i64 62}
+!29 = !{!"short", !7, i64 0}
+!30 = !{!31, !15, i64 0}
+!31 = !{!"_ZTS10Elf64_Phdr", !15, i64 0, !15, i64 4, !16, i64 8, !16, i64 16, !16, i64 24, !16, i64 32, !16, i64 40, !16, i64 48}
+!32 = !{!31, !16, i64 16}
+!33 = distinct !{!33, !34}
+!34 = !{!"llvm.loop.mustprogress"}
+!35 = !{!16, !16, i64 0}
+!36 = !{!37, !37, i64 0}
+!37 = !{!"p1 int", !6, i64 0}
+!38 = !{!39, !16, i64 0}
+!39 = !{!"_ZTS9Elf64_Dyn", !16, i64 0, !7, i64 8}
+!40 = distinct !{!40, !34}
+!41 = distinct !{!41, !34}
+!42 = distinct !{!42, !34}
+!43 = !{!28, !16, i64 32}
+!44 = !{!28, !29, i64 54}
+!45 = !{!46, !29, i64 6}
+!46 = !{!"_ZTS9Elf64_Sym", !15, i64 0, !7, i64 4, !7, i64 5, !29, i64 6, !16, i64 8, !16, i64 16}
+!47 = !{!46, !16, i64 8}
+!48 = !{!49, !29, i64 4}
+!49 = !{!"_ZTS12Elf64_Verdef", !29, i64 0, !29, i64 2, !29, i64 4, !29, i64 6, !15, i64 8, !15, i64 12, !15, i64 16}
+!50 = !{!49, !15, i64 16}
+!51 = distinct !{!51, !34}
+!52 = !{!53, !53, i64 0}
+!53 = !{!"p1 _ZTSN4absl18debugging_internal11ElfMemImage10SymbolInfoE", !6, i64 0}
+!54 = !{!55, !11, i64 0}
+!55 = !{!"_ZTSN4absl18debugging_internal11ElfMemImage10SymbolInfoE", !11, i64 0, !11, i64 8, !6, i64 16, !6, i64 24}
+!56 = !{!55, !11, i64 8}
+!57 = !{!55, !6, i64 24}
+!58 = !{i64 0, i64 8, !10, i64 8, i64 8, !10, i64 16, i64 8, !9, i64 24, i64 8, !9}
+!59 = !{!60, !60, i64 0}
+!60 = !{!"p1 _ZTSN4absl18debugging_internal11ElfMemImage14SymbolIteratorE", !6, i64 0}
+!61 = !{!46, !7, i64 4}
+!62 = !{!55, !6, i64 16}
+!63 = !{!46, !16, i64 16}
+!64 = !{!65, !15, i64 32}
+!65 = !{!"_ZTSN4absl18debugging_internal11ElfMemImage14SymbolIteratorE", !55, i64 0, !15, i64 32, !6, i64 40}
+!66 = !{!65, !6, i64 40}
+!67 = !{!14, !14, i64 0}
+!68 = !{!46, !15, i64 0}
+!69 = !{!29, !29, i64 0}
+!70 = !{!49, !29, i64 6}
+!71 = !{!72, !15, i64 0}
+!72 = !{!"_ZTS13Elf64_Verdaux", !15, i64 0, !15, i64 4}
+!73 = !{!65, !11, i64 0}
+!74 = !{!65, !11, i64 8}
+!75 = !{!65, !6, i64 16}
+!76 = !{!65, !6, i64 24}

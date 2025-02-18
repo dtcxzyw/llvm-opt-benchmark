@@ -1,13 +1,15 @@
 ; ModuleID = 'bench/abseil-cpp/original/low_level_alloc.ll'
 source_filename = "bench/abseil-cpp/original/low_level_alloc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %"struct.absl::base_internal::SpinLockWaitTransition" = type { i32, i32, i8 }
 %struct.__sigset_t = type { [16 x i64] }
 %"class.absl::base_internal::(anonymous namespace)::ArenaLock" = type { i8, i8, %struct.__sigset_t, ptr }
 
 $__clang_call_terminate = comdat any
+
+$_ZN4absl13base_internal12CallOnceImplIRFvvEJEEEvPSt6atomicIjENS0_14SchedulingModeEOT_DpOT0_ = comdat any
 
 $_ZZN4absl13base_internal12CallOnceImplIRFvvEJEEEvPSt6atomicIjENS0_14SchedulingModeEOT_DpOT0_E5trans = comdat any
 
@@ -64,102 +66,90 @@ $_ZZN4absl13base_internal12CallOnceImplIRFvvEJEEEvPSt6atomicIjENS0_14SchedulingM
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull ptr @_ZN4absl13base_internal13LowLevelAlloc12DefaultArenaEv() local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %0 = load atomic i32, ptr @_ZN4absl13base_internal12_GLOBAL__N_119create_globals_onceE acquire, align 4
-  %cmp.not.i = icmp eq i32 %0, 221
-  br i1 %cmp.not.i, label %_ZN4absl13base_internal16LowLevelCallOnceIRFvvEJEEEvPNS_9once_flagEOT_DpOT0_.exit, label %if.then.i
+  %1 = load atomic i32, ptr @_ZN4absl13base_internal12_GLOBAL__N_119create_globals_onceE acquire, align 4
+  %.not.i = icmp eq i32 %1, 221
+  br i1 %.not.i, label %_ZN4absl13base_internal16LowLevelCallOnceIRFvvEJEEEvPNS_9once_flagEOT_DpOT0_.exit, label %2, !prof !4
 
-if.then.i:                                        ; preds = %entry
-  %1 = cmpxchg ptr @_ZN4absl13base_internal12_GLOBAL__N_119create_globals_onceE, i32 0, i32 1707250555 monotonic monotonic, align 4
-  %2 = extractvalue { i32, i1 } %1, 1
-  br i1 %2, label %if.then.i.i, label %lor.lhs.false.i.i
-
-lor.lhs.false.i.i:                                ; preds = %if.then.i
-  %call1.i.i = tail call noundef i32 @_ZN4absl13base_internal12SpinLockWaitEPSt6atomicIjEiPKNS0_22SpinLockWaitTransitionENS0_14SchedulingModeE(ptr noundef nonnull @_ZN4absl13base_internal12_GLOBAL__N_119create_globals_onceE, i32 noundef 3, ptr noundef nonnull @_ZZN4absl13base_internal12CallOnceImplIRFvvEJEEEvPSt6atomicIjENS0_14SchedulingModeEOT_DpOT0_E5trans, i32 noundef 0)
-  %cmp.i.i = icmp eq i32 %call1.i.i, 0
-  br i1 %cmp.i.i, label %if.then.i.i, label %_ZN4absl13base_internal16LowLevelCallOnceIRFvvEJEEEvPNS_9once_flagEOT_DpOT0_.exit
-
-if.then.i.i:                                      ; preds = %lor.lhs.false.i.i, %if.then.i
-  tail call void @_ZN4absl13base_internal8SpinLockC1ENS0_14SchedulingModeE(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i32 noundef 0)
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 288), align 8
-  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 292), align 4
-  %call.i.i.i = tail call noundef i64 @sysconf(i32 noundef 30) #11
-  store i64 %call.i.i.i, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 296), align 8
-  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 304), align 8
-  store i64 64, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 312), align 8
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 320), align 8
-  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 8), align 8
-  store i64 xor (i64 ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 8) to i64), i64 -1283669654), ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 16), align 8
-  store ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 24), align 8
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 40), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 48), i8 0, i64 240, i1 false)
-  tail call void @_ZN4absl13base_internal8SpinLockC1ENS0_14SchedulingModeE(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i32 noundef 0)
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 288), align 8
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 292), align 4
-  %call.i.i1.i = tail call noundef i64 @sysconf(i32 noundef 30) #11
-  store i64 %call.i.i1.i, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 296), align 8
-  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 304), align 8
-  store i64 64, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 312), align 8
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 320), align 8
-  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 8), align 8
-  store i64 xor (i64 ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 8) to i64), i64 -1283669654), ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 16), align 8
-  store ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 24), align 8
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 40), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 48), i8 0, i64 240, i1 false)
-  tail call void @_ZN4absl13base_internal8SpinLockC1ENS0_14SchedulingModeE(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i32 noundef 0)
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 288), align 8
-  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 292), align 4
-  %call.i.i2.i = tail call noundef i64 @sysconf(i32 noundef 30) #11
-  store i64 %call.i.i2.i, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 296), align 8
-  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 304), align 8
-  store i64 64, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 312), align 8
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 320), align 8
-  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 8), align 8
-  store i64 xor (i64 ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 8) to i64), i64 -1283669654), ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 16), align 8
-  store ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 24), align 8
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 40), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 48), i8 0, i64 240, i1 false)
-  %3 = atomicrmw xchg ptr @_ZN4absl13base_internal12_GLOBAL__N_119create_globals_onceE, i32 221 release, align 4
-  %cmp4.i.i = icmp eq i32 %3, 94570706
-  br i1 %cmp4.i.i, label %if.then5.i.i, label %_ZN4absl13base_internal16LowLevelCallOnceIRFvvEJEEEvPNS_9once_flagEOT_DpOT0_.exit
-
-if.then5.i.i:                                     ; preds = %if.then.i.i
-  tail call void @AbslInternalSpinLockWake(ptr noundef nonnull @_ZN4absl13base_internal12_GLOBAL__N_119create_globals_onceE, i1 noundef zeroext true)
+2:                                                ; preds = %0
+  tail call void @_ZN4absl13base_internal12CallOnceImplIRFvvEJEEEvPSt6atomicIjENS0_14SchedulingModeEOT_DpOT0_(ptr noundef nonnull @_ZN4absl13base_internal12_GLOBAL__N_119create_globals_onceE, i32 noundef 0, ptr noundef nonnull @_ZN4absl13base_internal12_GLOBAL__N_118CreateGlobalArenasEv)
   br label %_ZN4absl13base_internal16LowLevelCallOnceIRFvvEJEEEvPNS_9once_flagEOT_DpOT0_.exit
 
-_ZN4absl13base_internal16LowLevelCallOnceIRFvvEJEEEvPNS_9once_flagEOT_DpOT0_.exit: ; preds = %entry, %lor.lhs.false.i.i, %if.then.i.i, %if.then5.i.i
+_ZN4absl13base_internal16LowLevelCallOnceIRFvvEJEEEvPNS_9once_flagEOT_DpOT0_.exit: ; preds = %0, %2
   ret ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl13base_internal13LowLevelAlloc5ArenaC2Ej(ptr noundef nonnull align 8 dereferenceable(324) %this, i32 noundef %flags_value) unnamed_addr #0 align 2 {
-entry:
-  tail call void @_ZN4absl13base_internal8SpinLockC1ENS0_14SchedulingModeE(ptr noundef nonnull align 4 dereferenceable(4) %this, i32 noundef 0)
-  %allocation_count = getelementptr inbounds nuw i8, ptr %this, i64 288
-  store i32 0, ptr %allocation_count, align 8
-  %flags = getelementptr inbounds nuw i8, ptr %this, i64 292
-  store i32 %flags_value, ptr %flags, align 4
-  %pagesize = getelementptr inbounds nuw i8, ptr %this, i64 296
-  %call.i = tail call noundef i64 @sysconf(i32 noundef 30) #11
-  store i64 %call.i, ptr %pagesize, align 8
-  %round_up = getelementptr inbounds nuw i8, ptr %this, i64 304
-  store i64 32, ptr %round_up, align 8
-  %min_size = getelementptr inbounds nuw i8, ptr %this, i64 312
-  store i64 64, ptr %min_size, align 8
-  %random = getelementptr inbounds nuw i8, ptr %this, i64 320
-  store i32 0, ptr %random, align 8
-  %freelist4 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store i64 0, ptr %freelist4, align 8
-  %0 = ptrtoint ptr %freelist4 to i64
-  %xor.i = xor i64 %0, -1283669654
-  %magic = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store i64 %xor.i, ptr %magic, align 8
-  %arena = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store ptr %this, ptr %arena, align 8
-  %levels = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store i32 0, ptr %levels, align 8
-  %next = getelementptr inbounds nuw i8, ptr %this, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %next, i8 0, i64 240, i1 false)
+define internal void @_ZN4absl13base_internal12_GLOBAL__N_118CreateGlobalArenasEv() #0 {
+  tail call void @_ZN4absl13base_internal8SpinLockC1ENS0_14SchedulingModeE(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i32 noundef 0)
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 288), align 8, !tbaa !5
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 292), align 4, !tbaa !18
+  %1 = tail call noundef i64 @sysconf(i32 noundef 30) #12
+  store i64 %1, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 296), align 8, !tbaa !19
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 304), align 8, !tbaa !20
+  store i64 64, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 312), align 8, !tbaa !21
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 320), align 8, !tbaa !22
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 8), align 8, !tbaa !23
+  store i64 xor (i64 ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 8) to i64), i64 -1283669654), ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 16), align 8, !tbaa !24
+  store ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 24), align 8, !tbaa !25
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 40), align 8, !tbaa !26
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 48), i8 0, i64 240, i1 false)
+  tail call void @_ZN4absl13base_internal8SpinLockC1ENS0_14SchedulingModeE(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i32 noundef 0)
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 288), align 8, !tbaa !5
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 292), align 4, !tbaa !18
+  %2 = tail call noundef i64 @sysconf(i32 noundef 30) #12
+  store i64 %2, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 296), align 8, !tbaa !19
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 304), align 8, !tbaa !20
+  store i64 64, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 312), align 8, !tbaa !21
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 320), align 8, !tbaa !22
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 8), align 8, !tbaa !23
+  store i64 xor (i64 ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 8) to i64), i64 -1283669654), ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 16), align 8, !tbaa !24
+  store ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 24), align 8, !tbaa !25
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 40), align 8, !tbaa !26
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 48), i8 0, i64 240, i1 false)
+  tail call void @_ZN4absl13base_internal8SpinLockC1ENS0_14SchedulingModeE(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i32 noundef 0)
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 288), align 8, !tbaa !5
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 292), align 4, !tbaa !18
+  %3 = tail call noundef i64 @sysconf(i32 noundef 30) #12
+  store i64 %3, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 296), align 8, !tbaa !19
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 304), align 8, !tbaa !20
+  store i64 64, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 312), align 8, !tbaa !21
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 320), align 8, !tbaa !22
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 8), align 8, !tbaa !23
+  store i64 xor (i64 ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 8) to i64), i64 -1283669654), ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 16), align 8, !tbaa !24
+  store ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 24), align 8, !tbaa !25
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 40), align 8, !tbaa !26
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 48), i8 0, i64 240, i1 false)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define dso_local void @_ZN4absl13base_internal13LowLevelAlloc5ArenaC2Ej(ptr noundef nonnull align 8 dereferenceable(324) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+  tail call void @_ZN4absl13base_internal8SpinLockC1ENS0_14SchedulingModeE(ptr noundef nonnull align 4 dereferenceable(4) %0, i32 noundef 0)
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  store i32 0, ptr %3, align 8, !tbaa !5
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 292
+  store i32 %1, ptr %4, align 4, !tbaa !18
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %6 = tail call noundef i64 @sysconf(i32 noundef 30) #12
+  store i64 %6, ptr %5, align 8, !tbaa !19
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 304
+  store i64 32, ptr %7, align 8, !tbaa !20
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  store i64 64, ptr %8, align 8, !tbaa !21
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  store i32 0, ptr %9, align 8, !tbaa !22
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 0, ptr %10, align 8, !tbaa !23
+  %11 = ptrtoint ptr %10 to i64
+  %12 = xor i64 %11, -1283669654
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %12, ptr %13, align 8, !tbaa !24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %0, ptr %14, align 8, !tbaa !25
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i32 0, ptr %15, align 8, !tbaa !26
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %16, i8 0, i64 240, i1 false)
   ret void
 }
 
@@ -169,435 +159,410 @@ declare void @_ZN4absl13base_internal8SpinLockC1ENS0_14SchedulingModeE(ptr nound
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN4absl13base_internal13LowLevelAlloc8NewArenaEj(i32 noundef %flags) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %call = tail call noundef ptr @_ZN4absl13base_internal13LowLevelAlloc12DefaultArenaEv()
-  %and = and i32 %flags, 2
-  %cmp.not = icmp eq i32 %and, 0
-  br i1 %cmp.not, label %if.else, label %if.then
+define dso_local noundef ptr @_ZN4absl13base_internal13LowLevelAlloc8NewArenaEj(i32 noundef %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = load atomic i32, ptr @_ZN4absl13base_internal12_GLOBAL__N_119create_globals_onceE acquire, align 4
+  %.not.i.i = icmp eq i32 %2, 221
+  br i1 %.not.i.i, label %_ZN4absl13base_internal13LowLevelAlloc12DefaultArenaEv.exit, label %3, !prof !4
 
-if.then:                                          ; preds = %entry
-  %0 = load atomic i32, ptr @_ZN4absl13base_internal12_GLOBAL__N_119create_globals_onceE acquire, align 4
-  %cmp.not.i.i = icmp eq i32 %0, 221
-  br i1 %cmp.not.i.i, label %if.end6, label %if.then.i.i
+3:                                                ; preds = %1
+  tail call void @_ZN4absl13base_internal12CallOnceImplIRFvvEJEEEvPSt6atomicIjENS0_14SchedulingModeEOT_DpOT0_(ptr noundef nonnull @_ZN4absl13base_internal12_GLOBAL__N_119create_globals_onceE, i32 noundef 0, ptr noundef nonnull @_ZN4absl13base_internal12_GLOBAL__N_118CreateGlobalArenasEv)
+  br label %_ZN4absl13base_internal13LowLevelAlloc12DefaultArenaEv.exit
 
-if.then.i.i:                                      ; preds = %if.then
-  %1 = cmpxchg ptr @_ZN4absl13base_internal12_GLOBAL__N_119create_globals_onceE, i32 0, i32 1707250555 monotonic monotonic, align 4
-  %2 = extractvalue { i32, i1 } %1, 1
-  br i1 %2, label %if.then.i.i.i, label %lor.lhs.false.i.i.i
+_ZN4absl13base_internal13LowLevelAlloc12DefaultArenaEv.exit: ; preds = %1, %3
+  %4 = and i32 %0, 2
+  %.not = icmp eq i32 %4, 0
+  br i1 %.not, label %7, label %5
 
-lor.lhs.false.i.i.i:                              ; preds = %if.then.i.i
-  %call1.i.i.i = tail call noundef i32 @_ZN4absl13base_internal12SpinLockWaitEPSt6atomicIjEiPKNS0_22SpinLockWaitTransitionENS0_14SchedulingModeE(ptr noundef nonnull @_ZN4absl13base_internal12_GLOBAL__N_119create_globals_onceE, i32 noundef 3, ptr noundef nonnull @_ZZN4absl13base_internal12CallOnceImplIRFvvEJEEEvPSt6atomicIjENS0_14SchedulingModeEOT_DpOT0_E5trans, i32 noundef 0)
-  %cmp.i.i.i = icmp eq i32 %call1.i.i.i, 0
-  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end6
+5:                                                ; preds = %_ZN4absl13base_internal13LowLevelAlloc12DefaultArenaEv.exit
+  %6 = load atomic i32, ptr @_ZN4absl13base_internal12_GLOBAL__N_119create_globals_onceE acquire, align 4
+  %.not.i.i4 = icmp eq i32 %6, 221
+  br i1 %.not.i.i4, label %_ZN4absl13base_internal12_GLOBAL__N_125UnhookedAsyncSigSafeArenaEv.exit, label %_ZN4absl13base_internal12_GLOBAL__N_125UnhookedAsyncSigSafeArenaEv.exit.sink.split, !prof !4
 
-if.then.i.i.i:                                    ; preds = %lor.lhs.false.i.i.i, %if.then.i.i
-  tail call void @_ZN4absl13base_internal8SpinLockC1ENS0_14SchedulingModeE(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i32 noundef 0)
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 288), align 8
-  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 292), align 4
-  %call.i.i.i.i = tail call noundef i64 @sysconf(i32 noundef 30) #11
-  store i64 %call.i.i.i.i, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 296), align 8
-  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 304), align 8
-  store i64 64, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 312), align 8
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 320), align 8
-  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 8), align 8
-  store i64 xor (i64 ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 8) to i64), i64 -1283669654), ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 16), align 8
-  store ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 24), align 8
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 40), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 48), i8 0, i64 240, i1 false)
-  tail call void @_ZN4absl13base_internal8SpinLockC1ENS0_14SchedulingModeE(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i32 noundef 0)
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 288), align 8
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 292), align 4
-  %call.i.i1.i.i = tail call noundef i64 @sysconf(i32 noundef 30) #11
-  store i64 %call.i.i1.i.i, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 296), align 8
-  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 304), align 8
-  store i64 64, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 312), align 8
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 320), align 8
-  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 8), align 8
-  store i64 xor (i64 ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 8) to i64), i64 -1283669654), ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 16), align 8
-  store ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 24), align 8
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 40), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 48), i8 0, i64 240, i1 false)
-  tail call void @_ZN4absl13base_internal8SpinLockC1ENS0_14SchedulingModeE(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i32 noundef 0)
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 288), align 8
-  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 292), align 4
-  %call.i.i2.i.i = tail call noundef i64 @sysconf(i32 noundef 30) #11
-  store i64 %call.i.i2.i.i, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 296), align 8
-  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 304), align 8
-  store i64 64, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 312), align 8
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 320), align 8
-  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 8), align 8
-  store i64 xor (i64 ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 8) to i64), i64 -1283669654), ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 16), align 8
-  store ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 24), align 8
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 40), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 48), i8 0, i64 240, i1 false)
-  %3 = atomicrmw xchg ptr @_ZN4absl13base_internal12_GLOBAL__N_119create_globals_onceE, i32 221 release, align 4
-  %cmp4.i.i.i = icmp eq i32 %3, 94570706
-  br i1 %cmp4.i.i.i, label %if.then5.i.i.i, label %if.end6
+7:                                                ; preds = %_ZN4absl13base_internal13LowLevelAlloc12DefaultArenaEv.exit
+  %8 = and i32 %0, 1
+  %9 = icmp eq i32 %8, 0
+  br i1 %9, label %10, label %_ZN4absl13base_internal12_GLOBAL__N_125UnhookedAsyncSigSafeArenaEv.exit
 
-if.then5.i.i.i:                                   ; preds = %if.then.i.i.i
-  tail call void @AbslInternalSpinLockWake(ptr noundef nonnull @_ZN4absl13base_internal12_GLOBAL__N_119create_globals_onceE, i1 noundef zeroext true)
-  br label %if.end6
+10:                                               ; preds = %7
+  %11 = load atomic i32, ptr @_ZN4absl13base_internal12_GLOBAL__N_119create_globals_onceE acquire, align 4
+  %.not.i.i5 = icmp eq i32 %11, 221
+  br i1 %.not.i.i5, label %_ZN4absl13base_internal12_GLOBAL__N_125UnhookedAsyncSigSafeArenaEv.exit, label %_ZN4absl13base_internal12_GLOBAL__N_125UnhookedAsyncSigSafeArenaEv.exit.sink.split, !prof !4
 
-if.else:                                          ; preds = %entry
-  %and2 = and i32 %flags, 1
-  %cmp3 = icmp eq i32 %and2, 0
-  br i1 %cmp3, label %if.then4, label %if.end6
+_ZN4absl13base_internal12_GLOBAL__N_125UnhookedAsyncSigSafeArenaEv.exit.sink.split: ; preds = %10, %5
+  %.0.ph = phi ptr [ @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, %5 ], [ @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, %10 ]
+  tail call void @_ZN4absl13base_internal12CallOnceImplIRFvvEJEEEvPSt6atomicIjENS0_14SchedulingModeEOT_DpOT0_(ptr noundef nonnull @_ZN4absl13base_internal12_GLOBAL__N_119create_globals_onceE, i32 noundef 0, ptr noundef nonnull @_ZN4absl13base_internal12_GLOBAL__N_118CreateGlobalArenasEv)
+  br label %_ZN4absl13base_internal12_GLOBAL__N_125UnhookedAsyncSigSafeArenaEv.exit
 
-if.then4:                                         ; preds = %if.else
-  tail call fastcc void @_ZN4absl13base_internal12_GLOBAL__N_113UnhookedArenaEv()
-  br label %if.end6
-
-if.end6:                                          ; preds = %if.then5.i.i.i, %if.then.i.i.i, %lor.lhs.false.i.i.i, %if.then, %if.else, %if.then4
-  %meta_data_arena.0 = phi ptr [ @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, %if.then4 ], [ @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, %if.else ], [ @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, %if.then ], [ @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, %lor.lhs.false.i.i.i ], [ @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, %if.then.i.i.i ], [ @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, %if.then5.i.i.i ]
-  %call.i = tail call fastcc noundef ptr @_ZN4absl13base_internalL16DoAllocWithArenaEmPNS0_13LowLevelAlloc5ArenaE(i64 noundef 328, ptr noundef nonnull %meta_data_arena.0)
-  tail call void @_ZN4absl13base_internal8SpinLockC1ENS0_14SchedulingModeE(ptr noundef nonnull align 8 dereferenceable(324) %call.i, i32 noundef 0)
-  %allocation_count.i = getelementptr inbounds nuw i8, ptr %call.i, i64 288
-  store i32 0, ptr %allocation_count.i, align 8
-  %flags.i = getelementptr inbounds nuw i8, ptr %call.i, i64 292
-  store i32 %flags, ptr %flags.i, align 4
-  %pagesize.i = getelementptr inbounds nuw i8, ptr %call.i, i64 296
-  %call.i.i = tail call noundef i64 @sysconf(i32 noundef 30) #11
-  store i64 %call.i.i, ptr %pagesize.i, align 8
-  %round_up.i = getelementptr inbounds nuw i8, ptr %call.i, i64 304
-  store i64 32, ptr %round_up.i, align 8
-  %min_size.i = getelementptr inbounds nuw i8, ptr %call.i, i64 312
-  store i64 64, ptr %min_size.i, align 8
-  %random.i = getelementptr inbounds nuw i8, ptr %call.i, i64 320
-  store i32 0, ptr %random.i, align 8
-  %freelist4.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
-  store i64 0, ptr %freelist4.i, align 8
-  %4 = ptrtoint ptr %freelist4.i to i64
-  %xor.i.i = xor i64 %4, -1283669654
-  %magic.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
-  store i64 %xor.i.i, ptr %magic.i, align 8
-  %arena.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
-  store ptr %call.i, ptr %arena.i, align 8
-  %levels.i = getelementptr inbounds nuw i8, ptr %call.i, i64 40
-  store i32 0, ptr %levels.i, align 8
-  %next.i = getelementptr inbounds nuw i8, ptr %call.i, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %next.i, i8 0, i64 240, i1 false)
-  ret ptr %call.i
+_ZN4absl13base_internal12_GLOBAL__N_125UnhookedAsyncSigSafeArenaEv.exit: ; preds = %_ZN4absl13base_internal12_GLOBAL__N_125UnhookedAsyncSigSafeArenaEv.exit.sink.split, %10, %5, %7
+  %.0 = phi ptr [ @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, %7 ], [ @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, %5 ], [ @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, %10 ], [ %.0.ph, %_ZN4absl13base_internal12_GLOBAL__N_125UnhookedAsyncSigSafeArenaEv.exit.sink.split ]
+  %12 = tail call noundef ptr @_ZN4absl13base_internal13LowLevelAlloc14AllocWithArenaEmPNS1_5ArenaE(i64 noundef 328, ptr noundef nonnull %.0)
+  tail call void @_ZN4absl13base_internal8SpinLockC1ENS0_14SchedulingModeE(ptr noundef nonnull align 8 dereferenceable(324) %12, i32 noundef 0)
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 288
+  store i32 0, ptr %13, align 8, !tbaa !5
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 292
+  store i32 %0, ptr %14, align 4, !tbaa !18
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 296
+  %16 = tail call noundef i64 @sysconf(i32 noundef 30) #12
+  store i64 %16, ptr %15, align 8, !tbaa !19
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 304
+  store i64 32, ptr %17, align 8, !tbaa !20
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 312
+  store i64 64, ptr %18, align 8, !tbaa !21
+  %19 = getelementptr inbounds nuw i8, ptr %12, i64 320
+  store i32 0, ptr %19, align 8, !tbaa !22
+  %20 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store i64 0, ptr %20, align 8, !tbaa !23
+  %21 = ptrtoint ptr %20 to i64
+  %22 = xor i64 %21, -1283669654
+  %23 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store i64 %22, ptr %23, align 8, !tbaa !24
+  %24 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  store ptr %12, ptr %24, align 8, !tbaa !25
+  %25 = getelementptr inbounds nuw i8, ptr %12, i64 40
+  store i32 0, ptr %25, align 8, !tbaa !26
+  %26 = getelementptr inbounds nuw i8, ptr %12, i64 48
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %26, i8 0, i64 240, i1 false)
+  ret ptr %12
 }
 
-; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4absl13base_internal12_GLOBAL__N_113UnhookedArenaEv() unnamed_addr #0 personality ptr @__gxx_personality_v0 {
-entry:
-  %0 = load atomic i32, ptr @_ZN4absl13base_internal12_GLOBAL__N_119create_globals_onceE acquire, align 4
-  %cmp.not.i = icmp eq i32 %0, 221
-  br i1 %cmp.not.i, label %_ZN4absl13base_internal16LowLevelCallOnceIRFvvEJEEEvPNS_9once_flagEOT_DpOT0_.exit, label %if.then.i
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
-if.then.i:                                        ; preds = %entry
-  %1 = cmpxchg ptr @_ZN4absl13base_internal12_GLOBAL__N_119create_globals_onceE, i32 0, i32 1707250555 monotonic monotonic, align 4
-  %2 = extractvalue { i32, i1 } %1, 1
-  br i1 %2, label %if.then.i.i, label %lor.lhs.false.i.i
+; Function Attrs: mustprogress noinline uwtable
+define dso_local noundef ptr @_ZN4absl13base_internal13LowLevelAlloc14AllocWithArenaEmPNS1_5ArenaE(i64 noundef %0, ptr noundef %1) local_unnamed_addr #4 section "malloc_hook" align 2 {
+  %.not = icmp eq ptr %1, null
+  br i1 %.not, label %3, label %4, !prof !27
 
-lor.lhs.false.i.i:                                ; preds = %if.then.i
-  %call1.i.i = tail call noundef i32 @_ZN4absl13base_internal12SpinLockWaitEPSt6atomicIjEiPKNS0_22SpinLockWaitTransitionENS0_14SchedulingModeE(ptr noundef nonnull @_ZN4absl13base_internal12_GLOBAL__N_119create_globals_onceE, i32 noundef 3, ptr noundef nonnull @_ZZN4absl13base_internal12CallOnceImplIRFvvEJEEEvPSt6atomicIjENS0_14SchedulingModeEOT_DpOT0_E5trans, i32 noundef 0)
-  %cmp.i.i = icmp eq i32 %call1.i.i, 0
-  br i1 %cmp.i.i, label %if.then.i.i, label %_ZN4absl13base_internal16LowLevelCallOnceIRFvvEJEEEvPNS_9once_flagEOT_DpOT0_.exit
-
-if.then.i.i:                                      ; preds = %lor.lhs.false.i.i, %if.then.i
-  tail call void @_ZN4absl13base_internal8SpinLockC1ENS0_14SchedulingModeE(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i32 noundef 0)
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 288), align 8
-  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 292), align 4
-  %call.i.i.i = tail call noundef i64 @sysconf(i32 noundef 30) #11
-  store i64 %call.i.i.i, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 296), align 8
-  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 304), align 8
-  store i64 64, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 312), align 8
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 320), align 8
-  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 8), align 8
-  store i64 xor (i64 ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 8) to i64), i64 -1283669654), ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 16), align 8
-  store ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 24), align 8
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 40), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 48), i8 0, i64 240, i1 false)
-  tail call void @_ZN4absl13base_internal8SpinLockC1ENS0_14SchedulingModeE(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i32 noundef 0)
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 288), align 8
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 292), align 4
-  %call.i.i1.i = tail call noundef i64 @sysconf(i32 noundef 30) #11
-  store i64 %call.i.i1.i, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 296), align 8
-  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 304), align 8
-  store i64 64, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 312), align 8
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 320), align 8
-  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 8), align 8
-  store i64 xor (i64 ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 8) to i64), i64 -1283669654), ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 16), align 8
-  store ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 24), align 8
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 40), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 48), i8 0, i64 240, i1 false)
-  tail call void @_ZN4absl13base_internal8SpinLockC1ENS0_14SchedulingModeE(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i32 noundef 0)
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 288), align 8
-  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 292), align 4
-  %call.i.i2.i = tail call noundef i64 @sysconf(i32 noundef 30) #11
-  store i64 %call.i.i2.i, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 296), align 8
-  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 304), align 8
-  store i64 64, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 312), align 8
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 320), align 8
-  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 8), align 8
-  store i64 xor (i64 ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 8) to i64), i64 -1283669654), ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 16), align 8
-  store ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 24), align 8
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 40), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 48), i8 0, i64 240, i1 false)
-  %3 = atomicrmw xchg ptr @_ZN4absl13base_internal12_GLOBAL__N_119create_globals_onceE, i32 221 release, align 4
-  %cmp4.i.i = icmp eq i32 %3, 94570706
-  br i1 %cmp4.i.i, label %if.then5.i.i, label %_ZN4absl13base_internal16LowLevelCallOnceIRFvvEJEEEvPNS_9once_flagEOT_DpOT0_.exit
-
-if.then5.i.i:                                     ; preds = %if.then.i.i
-  tail call void @AbslInternalSpinLockWake(ptr noundef nonnull @_ZN4absl13base_internal12_GLOBAL__N_119create_globals_onceE, i1 noundef zeroext true)
-  br label %_ZN4absl13base_internal16LowLevelCallOnceIRFvvEJEEEvPNS_9once_flagEOT_DpOT0_.exit
-
-_ZN4absl13base_internal16LowLevelCallOnceIRFvvEJEEEvPNS_9once_flagEOT_DpOT0_.exit: ; preds = %entry, %lor.lhs.false.i.i, %if.then.i.i, %if.then5.i.i
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN4absl13base_internal13LowLevelAlloc14AllocWithArenaEmPNS1_5ArenaE(i64 noundef %request, ptr noundef %arena) local_unnamed_addr #0 section "malloc_hook" align 2 {
-entry:
-  %cmp.not = icmp eq ptr %arena, null
-  br i1 %cmp.not, label %do.body1, label %do.end4
-
-do.body1:                                         ; preds = %entry
+3:                                                ; preds = %2
   tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 118), i32 noundef 622, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16)
   unreachable
 
-do.end4:                                          ; preds = %entry
-  %call = tail call fastcc noundef ptr @_ZN4absl13base_internalL16DoAllocWithArenaEmPNS0_13LowLevelAlloc5ArenaE(i64 noundef %request, ptr noundef nonnull %arena)
-  ret ptr %call
+4:                                                ; preds = %2
+  %5 = tail call fastcc noundef ptr @_ZN4absl13base_internalL16DoAllocWithArenaEmPNS0_13LowLevelAlloc5ArenaE(i64 noundef %0, ptr noundef nonnull %1)
+  ret ptr %5
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4absl13base_internal13LowLevelAlloc11DeleteArenaEPNS1_5ArenaE(ptr noundef %arena) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %all.i = alloca %struct.__sigset_t, align 8
-  %section = alloca %"class.absl::base_internal::(anonymous namespace)::ArenaLock", align 8
-  %cmp.not = icmp eq ptr %arena, null
-  br i1 %cmp.not, label %do.body4, label %land.lhs.true
+define dso_local noundef zeroext i1 @_ZN4absl13base_internal13LowLevelAlloc11DeleteArenaEPNS1_5ArenaE(ptr noundef %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca %struct.__sigset_t, align 8
+  %3 = alloca %"class.absl::base_internal::(anonymous namespace)::ArenaLock", align 8
+  %.not = icmp eq ptr %0, null
+  br i1 %.not, label %.critedge, label %4, !prof !27
 
-land.lhs.true:                                    ; preds = %entry
-  %call = tail call noundef ptr @_ZN4absl13base_internal13LowLevelAlloc12DefaultArenaEv()
-  %cmp1.not = icmp eq ptr %arena, @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE
-  br i1 %cmp1.not, label %do.body4, label %land.rhs
+4:                                                ; preds = %1
+  %5 = load atomic i32, ptr @_ZN4absl13base_internal12_GLOBAL__N_119create_globals_onceE acquire, align 4
+  %.not.i.i = icmp eq i32 %5, 221
+  br i1 %.not.i.i, label %_ZN4absl13base_internal13LowLevelAlloc12DefaultArenaEv.exit, label %6, !prof !4
 
-land.rhs:                                         ; preds = %land.lhs.true
-  tail call fastcc void @_ZN4absl13base_internal12_GLOBAL__N_113UnhookedArenaEv()
-  %cmp3 = icmp eq ptr %arena, @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE
-  br i1 %cmp3, label %do.body4, label %do.end7
+6:                                                ; preds = %4
+  tail call void @_ZN4absl13base_internal12CallOnceImplIRFvvEJEEEvPSt6atomicIjENS0_14SchedulingModeEOT_DpOT0_(ptr noundef nonnull @_ZN4absl13base_internal12_GLOBAL__N_119create_globals_onceE, i32 noundef 0, ptr noundef nonnull @_ZN4absl13base_internal12_GLOBAL__N_118CreateGlobalArenasEv)
+  br label %_ZN4absl13base_internal13LowLevelAlloc12DefaultArenaEv.exit
 
-do.body4:                                         ; preds = %land.lhs.true, %entry, %land.rhs
+_ZN4absl13base_internal13LowLevelAlloc12DefaultArenaEv.exit: ; preds = %4, %6
+  %.not33 = icmp eq ptr %0, @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE
+  br i1 %.not33, label %.critedge, label %7, !prof !27
+
+7:                                                ; preds = %_ZN4absl13base_internal13LowLevelAlloc12DefaultArenaEv.exit
+  %8 = load atomic i32, ptr @_ZN4absl13base_internal12_GLOBAL__N_119create_globals_onceE acquire, align 4
+  %.not.i.i45 = icmp eq i32 %8, 221
+  br i1 %.not.i.i45, label %_ZN4absl13base_internal12_GLOBAL__N_113UnhookedArenaEv.exit, label %9, !prof !4
+
+9:                                                ; preds = %7
+  tail call void @_ZN4absl13base_internal12CallOnceImplIRFvvEJEEEvPSt6atomicIjENS0_14SchedulingModeEOT_DpOT0_(ptr noundef nonnull @_ZN4absl13base_internal12_GLOBAL__N_119create_globals_onceE, i32 noundef 0, ptr noundef nonnull @_ZN4absl13base_internal12_GLOBAL__N_118CreateGlobalArenasEv)
+  br label %_ZN4absl13base_internal12_GLOBAL__N_113UnhookedArenaEv.exit
+
+_ZN4absl13base_internal12_GLOBAL__N_113UnhookedArenaEv.exit: ; preds = %7, %9
+  %10 = icmp eq ptr %0, @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE
+  br i1 %10, label %.critedge, label %11, !prof !27
+
+.critedge:                                        ; preds = %_ZN4absl13base_internal13LowLevelAlloc12DefaultArenaEv.exit, %1, %_ZN4absl13base_internal12_GLOBAL__N_113UnhookedArenaEv.exit
   tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 118), i32 noundef 385, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3)
   unreachable
 
-do.end7:                                          ; preds = %land.rhs
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %all.i)
-  store i8 0, ptr %section, align 8
-  %mask_valid_.i = getelementptr inbounds nuw i8, ptr %section, i64 1
-  store i8 0, ptr %mask_valid_.i, align 1
-  %arena_.i = getelementptr inbounds nuw i8, ptr %section, i64 136
-  store ptr %arena, ptr %arena_.i, align 8
-  %flags.i = getelementptr inbounds nuw i8, ptr %arena, i64 292
-  %0 = load i32, ptr %flags.i, align 4
-  %and.i = and i32 %0, 2
-  %cmp.not.i = icmp eq i32 %and.i, 0
-  br i1 %cmp.not.i, label %if.end.i, label %if.then.i
+11:                                               ; preds = %_ZN4absl13base_internal12_GLOBAL__N_113UnhookedArenaEv.exit
+  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #12
+  store i8 0, ptr %3, align 8, !tbaa !28
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 1
+  store i8 0, ptr %12, align 1, !tbaa !32
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 136
+  store ptr %0, ptr %13, align 8, !tbaa !33
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 292
+  %15 = load i32, ptr %14, align 4, !tbaa !18
+  %16 = and i32 %15, 2
+  %.not.i = icmp eq i32 %16, 0
+  br i1 %.not.i, label %23, label %17
 
-if.then.i:                                        ; preds = %do.end7
-  %call.i = call i32 @sigfillset(ptr noundef nonnull %all.i) #11
-  %mask_2.i = getelementptr inbounds nuw i8, ptr %section, i64 8
-  %call3.i = call i32 @pthread_sigmask(i32 noundef 0, ptr noundef nonnull %all.i, ptr noundef nonnull %mask_2.i) #11
-  %cmp4.i = icmp eq i32 %call3.i, 0
-  %frombool.i = zext i1 %cmp4.i to i8
-  store i8 %frombool.i, ptr %mask_valid_.i, align 1
-  %.pre.i = load ptr, ptr %arena_.i, align 8
-  br label %if.end.i
+17:                                               ; preds = %11
+  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2) #12
+  %18 = call i32 @sigfillset(ptr noundef nonnull %2) #12
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %20 = call i32 @pthread_sigmask(i32 noundef 0, ptr noundef nonnull %2, ptr noundef nonnull %19) #12
+  %21 = icmp eq i32 %20, 0
+  %22 = zext i1 %21 to i8
+  store i8 %22, ptr %12, align 1, !tbaa !32
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2) #12
+  %.pre.i = load ptr, ptr %13, align 8, !tbaa !33
+  br label %23
 
-if.end.i:                                         ; preds = %if.then.i, %do.end7
-  %1 = phi ptr [ %.pre.i, %if.then.i ], [ %arena, %do.end7 ]
-  %2 = load atomic i32, ptr %1 monotonic, align 4
-  %and.i.i.i.i = and i32 %2, 1
-  %cmp.not.i.i.i.i = icmp eq i32 %and.i.i.i.i, 0
-  br i1 %cmp.not.i.i.i.i, label %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i, label %if.then.i.i
+23:                                               ; preds = %17, %11
+  %24 = phi ptr [ %.pre.i, %17 ], [ %0, %11 ]
+  %25 = load atomic i32, ptr %24 monotonic, align 4
+  %26 = and i32 %25, 1
+  %.not.i.i.i.i = icmp eq i32 %26, 0
+  br i1 %.not.i.i.i.i, label %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i, label %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.thread.i.i
 
-_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i: ; preds = %if.end.i
-  %or9.i.i.i.i = or disjoint i32 %2, 1
-  %3 = cmpxchg ptr %1, i32 %2, i32 %or9.i.i.i.i acquire monotonic, align 4
-  %4 = extractvalue { i32, i1 } %3, 0
-  %.pre.i.i.i = and i32 %4, 1
-  %5 = icmp eq i32 %.pre.i.i.i, 0
-  br i1 %5, label %_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockC2EPNS0_13LowLevelAlloc5ArenaE.exit, label %if.then.i.i
+_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i: ; preds = %23
+  %27 = or disjoint i32 %25, 1
+  %28 = cmpxchg ptr %24, i32 %25, i32 %27 acquire monotonic, align 4
+  %29 = extractvalue { i32, i1 } %28, 0
+  %.pre.i.i.i = and i32 %29, 1
+  %30 = icmp eq i32 %.pre.i.i.i, 0
+  br i1 %30, label %_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockC2EPNS0_13LowLevelAlloc5ArenaE.exit, label %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.thread.i.i
 
-if.then.i.i:                                      ; preds = %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i, %if.end.i
-  call void @_ZN4absl13base_internal8SpinLock8SlowLockEv(ptr noundef nonnull align 4 dereferenceable(4) %1) #12
+_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.thread.i.i: ; preds = %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i, %23
+  call void @_ZN4absl13base_internal8SpinLock8SlowLockEv(ptr noundef nonnull align 4 dereferenceable(4) %24) #13
   br label %_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockC2EPNS0_13LowLevelAlloc5ArenaE.exit
 
-_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockC2EPNS0_13LowLevelAlloc5ArenaE.exit: ; preds = %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i, %if.then.i.i
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %all.i)
-  %allocation_count = getelementptr inbounds nuw i8, ptr %arena, i64 288
-  %6 = load i32, ptr %allocation_count, align 8
-  %cmp8.not = icmp eq i32 %6, 0
-  br i1 %cmp8.not, label %while.cond.preheader, label %if.then9
+_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockC2EPNS0_13LowLevelAlloc5ArenaE.exit: ; preds = %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i, %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.thread.i.i
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  %32 = load i32, ptr %31, align 8, !tbaa !5
+  %.not34 = icmp eq i32 %32, 0
+  br i1 %.not34, label %.preheader, label %35
 
-while.cond.preheader:                             ; preds = %_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockC2EPNS0_13LowLevelAlloc5ArenaE.exit
-  %next = getelementptr inbounds nuw i8, ptr %arena, i64 48
-  %pagesize = getelementptr inbounds nuw i8, ptr %arena, i64 296
-  br label %while.cond
+.preheader:                                       ; preds = %_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockC2EPNS0_13LowLevelAlloc5ArenaE.exit
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  br label %48
 
-if.then9:                                         ; preds = %_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockC2EPNS0_13LowLevelAlloc5ArenaE.exit
-  %7 = load ptr, ptr %arena_.i, align 8
-  %8 = load atomic i32, ptr %7 monotonic, align 4
-  %and.i.i = and i32 %8, 2
-  %9 = atomicrmw xchg ptr %7, i32 %and.i.i release, align 4
-  %cmp6.not.i.i = icmp ult i32 %9, 8
-  br i1 %cmp6.not.i.i, label %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i, label %if.then7.i.i
+35:                                               ; preds = %_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockC2EPNS0_13LowLevelAlloc5ArenaE.exit
+  %36 = load ptr, ptr %13, align 8, !tbaa !33
+  %37 = load atomic i32, ptr %36 monotonic, align 4
+  %38 = and i32 %37, 2
+  %39 = atomicrmw xchg ptr %36, i32 %38 release, align 4
+  %.not4.i.i = icmp ult i32 %39, 8
+  br i1 %.not4.i.i, label %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i, label %40
 
-if.then7.i.i:                                     ; preds = %if.then9
-  invoke void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) %7, i32 noundef %9) #12
-          to label %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i unwind label %lpad
+40:                                               ; preds = %35
+  invoke void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) %36, i32 noundef %39) #13
+          to label %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i unwind label %46
 
-_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i: ; preds = %if.then7.i.i, %if.then9
-  %10 = load i8, ptr %mask_valid_.i, align 1
-  %tobool.i = trunc i8 %10 to i1
-  br i1 %tobool.i, label %if.then.i25, label %_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockD2Ev.exit
+_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i: ; preds = %40, %35
+  %41 = load i8, ptr %12, align 1, !tbaa !32, !range !34, !noundef !35
+  %42 = trunc nuw i8 %41 to i1
+  br i1 %42, label %43, label %_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockD2Ev.exit
 
-if.then.i25:                                      ; preds = %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i
-  %mask_.i = getelementptr inbounds nuw i8, ptr %section, i64 8
-  %call.i26 = call i32 @pthread_sigmask(i32 noundef 2, ptr noundef nonnull %mask_.i, ptr noundef null) #11
-  %cmp.not.i27 = icmp eq i32 %call.i26, 0
-  br i1 %cmp.not.i27, label %_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockD2Ev.exit, label %do.body.i41.invoke
+43:                                               ; preds = %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %45 = call i32 @pthread_sigmask(i32 noundef 2, ptr noundef nonnull %44, ptr noundef null) #12
+  %.not.i46 = icmp eq i32 %45, 0
+  br i1 %.not.i46, label %_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockD2Ev.exit, label %.invoke
 
-lpad:                                             ; preds = %do.body77.invoke, %do.body.i41.invoke, %if.then7.i.i33, %if.then7.i.i, %invoke.cont106
-  %11 = landingpad { ptr, i32 }
+46:                                               ; preds = %.invoke, %103, %40, %110
+  %47 = landingpad { ptr, i32 }
           cleanup
-  %section.val = load i8, ptr %section, align 8
-  call fastcc void @_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockD2Ev(i8 %section.val) #11
-  resume { ptr, i32 } %11
+  br label %118
 
-while.cond:                                       ; preds = %while.cond.preheader, %if.end93
-  %12 = load ptr, ptr %next, align 8
-  %cmp11.not = icmp eq ptr %12, null
-  br i1 %cmp11.not, label %while.end, label %while.body
+48:                                               ; preds = %.preheader, %91
+  %49 = load ptr, ptr %33, align 8, !tbaa !36
+  %.not35 = icmp eq ptr %49, null
+  br i1 %.not35, label %98, label %50
 
-while.body:                                       ; preds = %while.cond
-  %13 = load i64, ptr %12, align 8
-  %next16 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  %14 = load ptr, ptr %next16, align 8
-  store ptr %14, ptr %next, align 8
-  %magic = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %15 = load i64, ptr %magic, align 8
-  %16 = ptrtoint ptr %12 to i64
-  %17 = xor i64 %15, %16
-  %cmp26.not = icmp eq i64 %17, -1283669654
-  br i1 %cmp26.not, label %do.body39, label %do.body77.invoke
+50:                                               ; preds = %48
+  %51 = load i64, ptr %49, align 8, !tbaa !38
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 40
+  %53 = load ptr, ptr %52, align 8, !tbaa !36
+  store ptr %53, ptr %33, align 8, !tbaa !36
+  %54 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  %55 = load i64, ptr %54, align 8, !tbaa !39
+  %56 = ptrtoint ptr %49 to i64
+  %57 = xor i64 %55, %56
+  %.not36 = icmp eq i64 %57, -1283669654
+  br i1 %.not36, label %62, label %58, !prof !4
 
-do.body39:                                        ; preds = %while.body
-  %arena41 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %18 = load ptr, ptr %arena41, align 8
-  %cmp42.not = icmp eq ptr %18, %arena
-  br i1 %cmp42.not, label %do.body56, label %do.body77.invoke
+58:                                               ; preds = %50
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 118), i32 noundef 397, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5)
+          to label %59 unwind label %60
 
-do.body56:                                        ; preds = %do.body39
-  %19 = load i64, ptr %pagesize, align 8
-  %rem = urem i64 %13, %19
-  %cmp57.not = icmp eq i64 %rem, 0
-  br i1 %cmp57.not, label %do.body71, label %do.body77.invoke
-
-do.body71:                                        ; preds = %do.body56
-  %rem73 = urem i64 %16, %19
-  %cmp74.not = icmp eq i64 %rem73, 0
-  br i1 %cmp74.not, label %do.end87, label %do.body77.invoke
-
-do.body77.invoke:                                 ; preds = %do.body71, %do.body56, %do.body39, %while.body
-  %20 = phi i32 [ 397, %while.body ], [ 399, %do.body39 ], [ 401, %do.body56 ], [ 403, %do.body71 ]
-  %21 = phi ptr [ @.str.4, %while.body ], [ @.str.6, %do.body39 ], [ @.str.8, %do.body56 ], [ @.str.10, %do.body71 ]
-  %22 = phi ptr [ @.str.5, %while.body ], [ @.str.7, %do.body39 ], [ @.str.9, %do.body56 ], [ @.str.11, %do.body71 ]
-  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 118), i32 noundef %20, ptr noundef nonnull @.str.1, ptr noundef nonnull %21, ptr noundef nonnull %22)
-          to label %do.body77.cont unwind label %lpad
-
-do.body77.cont:                                   ; preds = %do.body77.invoke
+59:                                               ; preds = %58
   unreachable
 
-do.end87:                                         ; preds = %do.body71
-  %23 = load i32, ptr %flags.i, align 4
-  %and = and i32 %23, 2
-  %cmp88 = icmp eq i32 %and, 0
-  br i1 %cmp88, label %if.then89, label %if.else
+60:                                               ; preds = %58
+  %61 = landingpad { ptr, i32 }
+          cleanup
+  br label %118
 
-if.then89:                                        ; preds = %do.end87
-  %call90 = call i32 @munmap(ptr noundef nonnull %12, i64 noundef %13) #11
-  br label %if.end93
+62:                                               ; preds = %50
+  %63 = getelementptr inbounds nuw i8, ptr %49, i64 16
+  %64 = load ptr, ptr %63, align 8, !tbaa !40
+  %.not37 = icmp eq ptr %64, %0
+  br i1 %.not37, label %69, label %65, !prof !4
 
-if.else:                                          ; preds = %do.end87
-  %call.i29 = call i64 (i64, ...) @syscall(i64 noundef 11, ptr noundef nonnull %12, i64 noundef %13) #11
-  %conv.i = trunc i64 %call.i29 to i32
-  br label %if.end93
+65:                                               ; preds = %62
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 118), i32 noundef 399, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7)
+          to label %66 unwind label %67
 
-if.end93:                                         ; preds = %if.else, %if.then89
-  %munmap_result.0 = phi i32 [ %call90, %if.then89 ], [ %conv.i, %if.else ]
-  %cmp94.not = icmp eq i32 %munmap_result.0, 0
-  br i1 %cmp94.not, label %while.cond, label %do.body96, !llvm.loop !5
-
-do.body96:                                        ; preds = %if.end93
-  %call98 = tail call ptr @__errno_location() #13
-  %24 = load i32, ptr %call98, align 4
-  br label %do.body.i41.invoke
-
-while.end:                                        ; preds = %while.cond
-  %25 = load ptr, ptr %arena_.i, align 8
-  %26 = load atomic i32, ptr %25 monotonic, align 4
-  %and.i.i31 = and i32 %26, 2
-  %27 = atomicrmw xchg ptr %25, i32 %and.i.i31 release, align 4
-  %cmp6.not.i.i32 = icmp ult i32 %27, 8
-  br i1 %cmp6.not.i.i32, label %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i34, label %if.then7.i.i33
-
-if.then7.i.i33:                                   ; preds = %while.end
-  invoke void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) %25, i32 noundef %27) #12
-          to label %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i34 unwind label %lpad
-
-_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i34: ; preds = %if.then7.i.i33, %while.end
-  %28 = load i8, ptr %mask_valid_.i, align 1
-  %tobool.i36 = trunc i8 %28 to i1
-  br i1 %tobool.i36, label %if.then.i37, label %invoke.cont106
-
-if.then.i37:                                      ; preds = %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i34
-  %mask_.i38 = getelementptr inbounds nuw i8, ptr %section, i64 8
-  %call.i39 = call i32 @pthread_sigmask(i32 noundef 2, ptr noundef nonnull %mask_.i38, ptr noundef null) #11
-  %cmp.not.i40 = icmp eq i32 %call.i39, 0
-  br i1 %cmp.not.i40, label %invoke.cont106, label %do.body.i41.invoke
-
-do.body.i41.invoke:                               ; preds = %if.then.i25, %if.then.i37, %do.body96
-  %29 = phi i32 [ 421, %do.body96 ], [ 301, %if.then.i37 ], [ 301, %if.then.i25 ]
-  %30 = phi ptr [ @.str.12, %do.body96 ], [ @.str.18, %if.then.i37 ], [ @.str.18, %if.then.i25 ]
-  %31 = phi i32 [ %24, %do.body96 ], [ %call.i39, %if.then.i37 ], [ %call.i26, %if.then.i25 ]
-  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 118), i32 noundef %29, ptr noundef nonnull %30, i32 noundef %31)
-          to label %do.body.i41.cont unwind label %lpad
-
-do.body.i41.cont:                                 ; preds = %do.body.i41.invoke
+66:                                               ; preds = %65
   unreachable
 
-invoke.cont106:                                   ; preds = %if.then.i37, %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i34
-  store i8 1, ptr %section, align 8
-  invoke void @_ZN4absl13base_internal13LowLevelAlloc4FreeEPv(ptr noundef nonnull %arena)
-          to label %cleanup unwind label %lpad
+67:                                               ; preds = %65
+  %68 = landingpad { ptr, i32 }
+          cleanup
+  br label %118
 
-cleanup:                                          ; preds = %invoke.cont106
-  %section.val22.pre = load i8, ptr %section, align 8
-  %32 = trunc i8 %section.val22.pre to i1
-  br i1 %32, label %_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockD2Ev.exit, label %do.body2.i
+69:                                               ; preds = %62
+  %70 = load i64, ptr %34, align 8, !tbaa !19
+  %71 = urem i64 %51, %70
+  %.not38 = icmp eq i64 %71, 0
+  br i1 %.not38, label %76, label %72, !prof !4
 
-do.body2.i:                                       ; preds = %cleanup
+72:                                               ; preds = %69
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 118), i32 noundef 401, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9)
+          to label %73 unwind label %74
+
+73:                                               ; preds = %72
+  unreachable
+
+74:                                               ; preds = %72
+  %75 = landingpad { ptr, i32 }
+          cleanup
+  br label %118
+
+76:                                               ; preds = %69
+  %77 = urem i64 %56, %70
+  %.not39 = icmp eq i64 %77, 0
+  br i1 %.not39, label %82, label %78, !prof !4
+
+78:                                               ; preds = %76
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 118), i32 noundef 403, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11)
+          to label %79 unwind label %80
+
+79:                                               ; preds = %78
+  unreachable
+
+80:                                               ; preds = %78
+  %81 = landingpad { ptr, i32 }
+          cleanup
+  br label %118
+
+82:                                               ; preds = %76
+  %83 = load i32, ptr %14, align 4, !tbaa !18
+  %84 = and i32 %83, 2
+  %85 = icmp eq i32 %84, 0
+  br i1 %85, label %86, label %88
+
+86:                                               ; preds = %82
+  %87 = call i32 @munmap(ptr noundef nonnull %49, i64 noundef %51) #12
+  br label %91
+
+88:                                               ; preds = %82
+  %89 = call i64 (i64, ...) @syscall(i64 noundef 11, ptr noundef nonnull %49, i64 noundef %51) #12
+  %90 = trunc i64 %89 to i32
+  br label %91
+
+91:                                               ; preds = %88, %86
+  %.027 = phi i32 [ %87, %86 ], [ %90, %88 ]
+  %.not40 = icmp eq i32 %.027, 0
+  br i1 %.not40, label %48, label %92, !llvm.loop !41
+
+92:                                               ; preds = %91
+  %93 = tail call ptr @__errno_location() #14
+  %94 = load i32, ptr %93, align 4, !tbaa !43
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 118), i32 noundef 421, ptr noundef nonnull @.str.12, i32 noundef %94)
+          to label %95 unwind label %96
+
+95:                                               ; preds = %92
+  unreachable
+
+96:                                               ; preds = %92
+  %97 = landingpad { ptr, i32 }
+          cleanup
+  br label %118
+
+98:                                               ; preds = %48
+  %99 = load ptr, ptr %13, align 8, !tbaa !33
+  %100 = load atomic i32, ptr %99 monotonic, align 4
+  %101 = and i32 %100, 2
+  %102 = atomicrmw xchg ptr %99, i32 %101 release, align 4
+  %.not4.i.i48 = icmp ult i32 %102, 8
+  br i1 %.not4.i.i48, label %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i49, label %103
+
+103:                                              ; preds = %98
+  invoke void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) %99, i32 noundef %102) #13
+          to label %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i49 unwind label %46
+
+_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i49: ; preds = %103, %98
+  %104 = load i8, ptr %12, align 1, !tbaa !32, !range !34, !noundef !35
+  %105 = trunc nuw i8 %104 to i1
+  br i1 %105, label %106, label %110
+
+106:                                              ; preds = %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i49
+  %107 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %108 = call i32 @pthread_sigmask(i32 noundef 2, ptr noundef nonnull %107, ptr noundef null) #12
+  %.not.i50 = icmp eq i32 %108, 0
+  br i1 %.not.i50, label %110, label %.invoke
+
+.invoke:                                          ; preds = %43, %106
+  %109 = phi i32 [ %108, %106 ], [ %45, %43 ]
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 118), i32 noundef 301, ptr noundef nonnull @.str.18, i32 noundef %109)
+          to label %.cont unwind label %46
+
+.cont:                                            ; preds = %.invoke
+  unreachable
+
+110:                                              ; preds = %106, %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i49
+  store i8 1, ptr %3, align 8, !tbaa !28
+  invoke void @_ZN4absl13base_internal13LowLevelAlloc4FreeEPv(ptr noundef nonnull %0)
+          to label %111 unwind label %46
+
+111:                                              ; preds = %110
+  %.val.pre = load i8, ptr %3, align 8, !tbaa !28, !range !34
+  %112 = trunc nuw i8 %.val.pre to i1
+  br i1 %112, label %_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockD2Ev.exit, label %113, !prof !44
+
+113:                                              ; preds = %111
   invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 118), i32 noundef 294, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20)
-          to label %do.body3.i unwind label %terminate.lpad.i
+          to label %114 unwind label %115
 
-do.body3.i:                                       ; preds = %do.body2.i
+114:                                              ; preds = %113
   unreachable
 
-terminate.lpad.i:                                 ; preds = %do.body2.i
-  %33 = landingpad { ptr, i32 }
+115:                                              ; preds = %113
+  %116 = landingpad { ptr, i32 }
           catch ptr null
-  %34 = extractvalue { ptr, i32 } %33, 0
-  call void @__clang_call_terminate(ptr %34) #14
+  %117 = extractvalue { ptr, i32 } %116, 0
+  call void @__clang_call_terminate(ptr %117) #15
   unreachable
 
-_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockD2Ev.exit: ; preds = %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i, %if.then.i25, %cleanup
-  ret i1 %cmp8.not
+_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockD2Ev.exit: ; preds = %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i, %43, %111
+  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #12
+  ret i1 %.not34
+
+118:                                              ; preds = %60, %67, %74, %80, %96, %46
+  %.pn42 = phi { ptr, i32 } [ %47, %46 ], [ %61, %60 ], [ %68, %67 ], [ %75, %74 ], [ %81, %80 ], [ %97, %96 ]
+  %.val44 = load i8, ptr %3, align 8, !tbaa !28, !range !34, !noundef !35
+  %119 = trunc nuw i8 %.val44 to i1
+  br i1 %119, label %_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockD2Ev.exit54, label %120, !prof !4
+
+120:                                              ; preds = %118
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 118), i32 noundef 294, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20)
+          to label %121 unwind label %122
+
+121:                                              ; preds = %120
+  unreachable
+
+122:                                              ; preds = %120
+  %123 = landingpad { ptr, i32 }
+          catch ptr null
+  %124 = extractvalue { ptr, i32 } %123, 0
+  call void @__clang_call_terminate(ptr %124) #15
+  unreachable
+
+_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockD2Ev.exit54: ; preds = %118
+  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #12
+  resume { ptr, i32 } %.pn42
 }
 
 declare void @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
@@ -605,1196 +570,1372 @@ declare void @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 no
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: nounwind
-declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #4
+declare ptr @__errno_location() local_unnamed_addr #6
 
-; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl13base_internal13LowLevelAlloc4FreeEPv(ptr noundef %v) local_unnamed_addr #0 section "malloc_hook" align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %all.i = alloca %struct.__sigset_t, align 8
-  %section = alloca %"class.absl::base_internal::(anonymous namespace)::ArenaLock", align 8
-  %cmp.not = icmp eq ptr %v, null
-  br i1 %cmp.not, label %if.end13, label %if.then
+; Function Attrs: mustprogress noinline uwtable
+define dso_local void @_ZN4absl13base_internal13LowLevelAlloc4FreeEPv(ptr noundef %0) local_unnamed_addr #4 section "malloc_hook" align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca %struct.__sigset_t, align 8
+  %3 = alloca %"class.absl::base_internal::(anonymous namespace)::ArenaLock", align 8
+  %.not = icmp eq ptr %0, null
+  br i1 %.not, label %50, label %4
 
-if.then:                                          ; preds = %entry
-  %arena1 = getelementptr inbounds i8, ptr %v, i64 -16
-  %0 = load ptr, ptr %arena1, align 8
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %all.i)
-  store i8 0, ptr %section, align 8
-  %mask_valid_.i = getelementptr inbounds nuw i8, ptr %section, i64 1
-  store i8 0, ptr %mask_valid_.i, align 1
-  %arena_.i = getelementptr inbounds nuw i8, ptr %section, i64 136
-  store ptr %0, ptr %arena_.i, align 8
-  %flags.i = getelementptr inbounds nuw i8, ptr %0, i64 292
-  %1 = load i32, ptr %flags.i, align 4
-  %and.i = and i32 %1, 2
-  %cmp.not.i = icmp eq i32 %and.i, 0
-  br i1 %cmp.not.i, label %if.end.i, label %if.then.i
+4:                                                ; preds = %1
+  %5 = getelementptr inbounds i8, ptr %0, i64 -16
+  %6 = load ptr, ptr %5, align 8, !tbaa !40
+  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #12
+  store i8 0, ptr %3, align 8, !tbaa !28
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 1
+  store i8 0, ptr %7, align 1, !tbaa !32
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 136
+  store ptr %6, ptr %8, align 8, !tbaa !33
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 292
+  %10 = load i32, ptr %9, align 4, !tbaa !18
+  %11 = and i32 %10, 2
+  %.not.i = icmp eq i32 %11, 0
+  br i1 %.not.i, label %18, label %12
 
-if.then.i:                                        ; preds = %if.then
-  %call.i = call i32 @sigfillset(ptr noundef nonnull %all.i) #11
-  %mask_2.i = getelementptr inbounds nuw i8, ptr %section, i64 8
-  %call3.i = call i32 @pthread_sigmask(i32 noundef 0, ptr noundef nonnull %all.i, ptr noundef nonnull %mask_2.i) #11
-  %cmp4.i = icmp eq i32 %call3.i, 0
-  %frombool.i = zext i1 %cmp4.i to i8
-  store i8 %frombool.i, ptr %mask_valid_.i, align 1
-  %.pre.i = load ptr, ptr %arena_.i, align 8
-  br label %if.end.i
+12:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2) #12
+  %13 = call i32 @sigfillset(ptr noundef nonnull %2) #12
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %15 = call i32 @pthread_sigmask(i32 noundef 0, ptr noundef nonnull %2, ptr noundef nonnull %14) #12
+  %16 = icmp eq i32 %15, 0
+  %17 = zext i1 %16 to i8
+  store i8 %17, ptr %7, align 1, !tbaa !32
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2) #12
+  %.pre.i = load ptr, ptr %8, align 8, !tbaa !33
+  br label %18
 
-if.end.i:                                         ; preds = %if.then.i, %if.then
-  %2 = phi ptr [ %.pre.i, %if.then.i ], [ %0, %if.then ]
-  %3 = load atomic i32, ptr %2 monotonic, align 4
-  %and.i.i.i.i = and i32 %3, 1
-  %cmp.not.i.i.i.i = icmp eq i32 %and.i.i.i.i, 0
-  br i1 %cmp.not.i.i.i.i, label %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i, label %if.then.i.i
+18:                                               ; preds = %12, %4
+  %19 = phi ptr [ %.pre.i, %12 ], [ %6, %4 ]
+  %20 = load atomic i32, ptr %19 monotonic, align 4
+  %21 = and i32 %20, 1
+  %.not.i.i.i.i = icmp eq i32 %21, 0
+  br i1 %.not.i.i.i.i, label %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i, label %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.thread.i.i
 
-_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i: ; preds = %if.end.i
-  %or9.i.i.i.i = or disjoint i32 %3, 1
-  %4 = cmpxchg ptr %2, i32 %3, i32 %or9.i.i.i.i acquire monotonic, align 4
-  %5 = extractvalue { i32, i1 } %4, 0
-  %.pre.i.i.i = and i32 %5, 1
-  %6 = icmp eq i32 %.pre.i.i.i, 0
-  br i1 %6, label %_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockC2EPNS0_13LowLevelAlloc5ArenaE.exit, label %if.then.i.i
+_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i: ; preds = %18
+  %22 = or disjoint i32 %20, 1
+  %23 = cmpxchg ptr %19, i32 %20, i32 %22 acquire monotonic, align 4
+  %24 = extractvalue { i32, i1 } %23, 0
+  %.pre.i.i.i = and i32 %24, 1
+  %25 = icmp eq i32 %.pre.i.i.i, 0
+  br i1 %25, label %_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockC2EPNS0_13LowLevelAlloc5ArenaE.exit, label %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.thread.i.i
 
-if.then.i.i:                                      ; preds = %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i, %if.end.i
-  call void @_ZN4absl13base_internal8SpinLock8SlowLockEv(ptr noundef nonnull align 4 dereferenceable(4) %2) #12
+_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.thread.i.i: ; preds = %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i, %18
+  call void @_ZN4absl13base_internal8SpinLock8SlowLockEv(ptr noundef nonnull align 4 dereferenceable(4) %19) #13
   br label %_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockC2EPNS0_13LowLevelAlloc5ArenaE.exit
 
-_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockC2EPNS0_13LowLevelAlloc5ArenaE.exit: ; preds = %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i, %if.then.i.i
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %all.i)
-  invoke fastcc void @_ZN4absl13base_internalL13AddToFreelistEPvPNS0_13LowLevelAlloc5ArenaE(ptr noundef nonnull %v, ptr noundef nonnull %0)
-          to label %do.body unwind label %lpad
+_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockC2EPNS0_13LowLevelAlloc5ArenaE.exit: ; preds = %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i, %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.thread.i.i
+  invoke fastcc void @_ZN4absl13base_internalL13AddToFreelistEPvPNS0_13LowLevelAlloc5ArenaE(ptr noundef nonnull %0, ptr noundef nonnull %6)
+          to label %26 unwind label %32
 
-do.body:                                          ; preds = %_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockC2EPNS0_13LowLevelAlloc5ArenaE.exit
-  %allocation_count = getelementptr inbounds nuw i8, ptr %0, i64 288
-  %7 = load i32, ptr %allocation_count, align 8
-  %cmp2 = icmp slt i32 %7, 1
-  br i1 %cmp2, label %do.body4, label %do.end10
+26:                                               ; preds = %_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockC2EPNS0_13LowLevelAlloc5ArenaE.exit
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 288
+  %28 = load i32, ptr %27, align 8, !tbaa !5
+  %29 = icmp slt i32 %28, 1
+  br i1 %29, label %30, label %36, !prof !27
 
-do.body4:                                         ; preds = %do.body
+30:                                               ; preds = %26
   invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 118), i32 noundef 515, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14)
-          to label %do.body6 unwind label %lpad
+          to label %31 unwind label %34
 
-do.body6:                                         ; preds = %do.body4
+31:                                               ; preds = %30
   unreachable
 
-lpad:                                             ; preds = %do.body.i, %if.then7.i.i, %do.body4, %_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockC2EPNS0_13LowLevelAlloc5ArenaE.exit
-  %8 = landingpad { ptr, i32 }
+32:                                               ; preds = %48, %42, %_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockC2EPNS0_13LowLevelAlloc5ArenaE.exit
+  %33 = landingpad { ptr, i32 }
           cleanup
-  %section.val = load i8, ptr %section, align 8
-  call fastcc void @_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockD2Ev(i8 %section.val) #11
-  resume { ptr, i32 } %8
+  br label %49
 
-do.end10:                                         ; preds = %do.body
-  %dec = add nsw i32 %7, -1
-  store i32 %dec, ptr %allocation_count, align 8
-  %9 = load ptr, ptr %arena_.i, align 8
-  %10 = load atomic i32, ptr %9 monotonic, align 4
-  %and.i.i = and i32 %10, 2
-  %11 = atomicrmw xchg ptr %9, i32 %and.i.i release, align 4
-  %cmp6.not.i.i = icmp ult i32 %11, 8
-  br i1 %cmp6.not.i.i, label %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i, label %if.then7.i.i
+34:                                               ; preds = %30
+  %35 = landingpad { ptr, i32 }
+          cleanup
+  br label %49
 
-if.then7.i.i:                                     ; preds = %do.end10
-  invoke void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) %9, i32 noundef %11) #12
-          to label %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i unwind label %lpad
+36:                                               ; preds = %26
+  %37 = add nsw i32 %28, -1
+  store i32 %37, ptr %27, align 8, !tbaa !5
+  %38 = load ptr, ptr %8, align 8, !tbaa !33
+  %39 = load atomic i32, ptr %38 monotonic, align 4
+  %40 = and i32 %39, 2
+  %41 = atomicrmw xchg ptr %38, i32 %40 release, align 4
+  %.not4.i.i = icmp ult i32 %41, 8
+  br i1 %.not4.i.i, label %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i, label %42
 
-_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i: ; preds = %if.then7.i.i, %do.end10
-  %12 = load i8, ptr %mask_valid_.i, align 1
-  %tobool.i = trunc i8 %12 to i1
-  br i1 %tobool.i, label %if.then.i9, label %if.end13
+42:                                               ; preds = %36
+  invoke void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) %38, i32 noundef %41) #13
+          to label %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i unwind label %32
 
-if.then.i9:                                       ; preds = %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i
-  %mask_.i = getelementptr inbounds nuw i8, ptr %section, i64 8
-  %call.i10 = call i32 @pthread_sigmask(i32 noundef 2, ptr noundef nonnull %mask_.i, ptr noundef null) #11
-  %cmp.not.i11 = icmp eq i32 %call.i10, 0
-  br i1 %cmp.not.i11, label %if.end13, label %do.body.i
+_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i: ; preds = %42, %36
+  %43 = load i8, ptr %7, align 1, !tbaa !32, !range !34, !noundef !35
+  %44 = trunc nuw i8 %43 to i1
+  br i1 %44, label %45, label %_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockD2Ev.exit
 
-do.body.i:                                        ; preds = %if.then.i9
-  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 118), i32 noundef 301, ptr noundef nonnull @.str.18, i32 noundef %call.i10)
-          to label %.noexc12 unwind label %lpad
+45:                                               ; preds = %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i
+  %46 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %47 = call i32 @pthread_sigmask(i32 noundef 2, ptr noundef nonnull %46, ptr noundef null) #12
+  %.not.i13 = icmp eq i32 %47, 0
+  br i1 %.not.i13, label %_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockD2Ev.exit, label %48
 
-.noexc12:                                         ; preds = %do.body.i
+48:                                               ; preds = %45
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 118), i32 noundef 301, ptr noundef nonnull @.str.18, i32 noundef %47)
+          to label %.noexc14 unwind label %32
+
+.noexc14:                                         ; preds = %48
   unreachable
 
-if.end13:                                         ; preds = %if.then.i9, %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i, %entry
+_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockD2Ev.exit: ; preds = %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i, %45
+  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #12
+  br label %50
+
+49:                                               ; preds = %34, %32
+  %.pn = phi { ptr, i32 } [ %35, %34 ], [ %33, %32 ]
+  %.val12 = load i8, ptr %3, align 8, !tbaa !28, !range !34, !noundef !35
+  call fastcc void @_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockD2Ev(i8 %.val12) #12
+  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #12
+  resume { ptr, i32 } %.pn
+
+50:                                               ; preds = %_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockD2Ev.exit, %1
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockD2Ev(i8 %this.0.val) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %tobool = trunc i8 %this.0.val to i1
-  br i1 %tobool, label %do.end7, label %do.body2
+define internal fastcc void @_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockD2Ev(i8 %.0.val) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+  %1 = trunc nuw i8 %.0.val to i1
+  br i1 %1, label %4, label %2, !prof !4
 
-do.body2:                                         ; preds = %entry
+2:                                                ; preds = %0
   invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 118), i32 noundef 294, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20)
-          to label %do.body3 unwind label %terminate.lpad
+          to label %3 unwind label %5
 
-do.body3:                                         ; preds = %do.body2
+3:                                                ; preds = %2
   unreachable
 
-do.end7:                                          ; preds = %entry
+4:                                                ; preds = %0
   ret void
 
-terminate.lpad:                                   ; preds = %do.body2
-  %0 = landingpad { ptr, i32 }
+5:                                                ; preds = %2
+  %6 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  tail call void @__clang_call_terminate(ptr %1) #14
+  %7 = extractvalue { ptr, i32 } %6, 0
+  tail call void @__clang_call_terminate(ptr %7) #15
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4absl13base_internalL13AddToFreelistEPvPNS0_13LowLevelAlloc5ArenaE(ptr noundef %v, ptr noundef %arena) unnamed_addr #0 {
-entry:
-  %prev = alloca [30 x ptr], align 16
-  %add.ptr = getelementptr inbounds i8, ptr %v, i64 -32
-  %magic = getelementptr inbounds i8, ptr %v, i64 -24
-  %0 = load i64, ptr %magic, align 8
-  %1 = ptrtoint ptr %add.ptr to i64
-  %2 = xor i64 %0, %1
-  %cmp.not = icmp eq i64 %2, 1283669653
-  br i1 %cmp.not, label %do.body6, label %do.body2
+define internal fastcc void @_ZN4absl13base_internalL13AddToFreelistEPvPNS0_13LowLevelAlloc5ArenaE(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+  %3 = alloca [30 x ptr], align 16
+  %4 = getelementptr inbounds i8, ptr %0, i64 -32
+  %5 = getelementptr inbounds i8, ptr %0, i64 -24
+  %6 = load i64, ptr %5, align 8, !tbaa !39
+  %7 = ptrtoint ptr %4 to i64
+  %8 = xor i64 %6, %7
+  %.not = icmp eq i64 %8, 1283669653
+  br i1 %.not, label %10, label %9, !prof !4
 
-do.body2:                                         ; preds = %entry
+9:                                                ; preds = %2
   tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 118), i32 noundef 494, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22)
   unreachable
 
-do.body6:                                         ; preds = %entry
-  %arena8 = getelementptr inbounds i8, ptr %v, i64 -16
-  %3 = load ptr, ptr %arena8, align 8
-  %cmp9.not = icmp eq ptr %3, %arena
-  br i1 %cmp9.not, label %do.end18, label %do.body12
+10:                                               ; preds = %2
+  %11 = getelementptr inbounds i8, ptr %0, i64 -16
+  %12 = load ptr, ptr %11, align 8, !tbaa !40
+  %.not14 = icmp eq ptr %12, %1
+  br i1 %.not14, label %14, label %13, !prof !4
 
-do.body12:                                        ; preds = %do.body6
+13:                                               ; preds = %10
   tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 118), i32 noundef 496, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24)
   unreachable
 
-do.end18:                                         ; preds = %do.body6
-  %4 = load i64, ptr %add.ptr, align 8
-  %min_size = getelementptr inbounds nuw i8, ptr %arena, i64 312
-  %5 = load i64, ptr %min_size, align 8
-  %random = getelementptr inbounds nuw i8, ptr %arena, i64 320
-  %sub.i = add i64 %4, -40
-  %div7.i = lshr i64 %sub.i, 3
-  %cmp3.i.i = icmp ugt i64 %4, %5
-  br i1 %cmp3.i.i, label %for.body.i.i, label %_ZN4absl13base_internalL7IntLog2Emm.exit.i
+14:                                               ; preds = %10
+  %15 = load i64, ptr %4, align 8, !tbaa !38
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 312
+  %17 = load i64, ptr %16, align 8, !tbaa !21
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 320
+  %19 = add i64 %15, -40
+  %20 = lshr i64 %19, 3
+  %21 = icmp ugt i64 %15, %17
+  br i1 %21, label %.lr.ph.i.i, label %_ZN4absl13base_internalL7IntLog2Emm.exit.i
 
-for.body.i.i:                                     ; preds = %do.end18, %for.body.i.i
-  %i.05.i.i = phi i64 [ %shr.i.i, %for.body.i.i ], [ %4, %do.end18 ]
-  %result.04.i.i = phi i32 [ %inc.i.i, %for.body.i.i ], [ 0, %do.end18 ]
-  %inc.i.i = add nuw nsw i32 %result.04.i.i, 1
-  %shr.i.i = lshr i64 %i.05.i.i, 1
-  %cmp.i.i = icmp ugt i64 %shr.i.i, %5
-  br i1 %cmp.i.i, label %for.body.i.i, label %_ZN4absl13base_internalL7IntLog2Emm.exit.i, !llvm.loop !7
+.lr.ph.i.i:                                       ; preds = %14, %.lr.ph.i.i
+  %.08.i.i = phi i64 [ %23, %.lr.ph.i.i ], [ %15, %14 ]
+  %.067.i.i = phi i32 [ %22, %.lr.ph.i.i ], [ 0, %14 ]
+  %22 = add nuw nsw i32 %.067.i.i, 1
+  %23 = lshr i64 %.08.i.i, 1
+  %24 = icmp ugt i64 %23, %17
+  br i1 %24, label %.lr.ph.i.i, label %_ZN4absl13base_internalL7IntLog2Emm.exit.i, !llvm.loop !45
 
-_ZN4absl13base_internalL7IntLog2Emm.exit.i:       ; preds = %for.body.i.i, %do.end18
-  %result.0.lcssa.i.i = phi i32 [ 0, %do.end18 ], [ %inc.i.i, %for.body.i.i ]
-  %6 = load i32, ptr %random, align 4
-  br label %while.cond.i.i
+_ZN4absl13base_internalL7IntLog2Emm.exit.i:       ; preds = %.lr.ph.i.i, %14
+  %.06.lcssa.i.i = phi i32 [ 0, %14 ], [ %22, %.lr.ph.i.i ]
+  %25 = load i32, ptr %18, align 4, !tbaa !43
+  br label %26
 
-while.cond.i.i:                                   ; preds = %while.cond.i.i, %_ZN4absl13base_internalL7IntLog2Emm.exit.i
-  %r.0.i.i = phi i32 [ %6, %_ZN4absl13base_internalL7IntLog2Emm.exit.i ], [ %add.i.i, %while.cond.i.i ]
-  %result.0.i.i = phi i32 [ 1, %_ZN4absl13base_internalL7IntLog2Emm.exit.i ], [ %inc.i9.i, %while.cond.i.i ]
-  %mul.i.i = mul i32 %r.0.i.i, 1103515245
-  %add.i.i = add i32 %mul.i.i, 12345
-  %7 = and i32 %add.i.i, 1073741824
-  %cmp.i8.i = icmp eq i32 %7, 0
-  %inc.i9.i = add nuw nsw i32 %result.0.i.i, 1
-  br i1 %cmp.i8.i, label %while.cond.i.i, label %_ZN4absl13base_internalL6RandomEPj.exit.i, !llvm.loop !8
+26:                                               ; preds = %26, %_ZN4absl13base_internalL7IntLog2Emm.exit.i
+  %.05.i.i = phi i32 [ %25, %_ZN4absl13base_internalL7IntLog2Emm.exit.i ], [ %28, %26 ]
+  %.0.i.i = phi i32 [ 1, %_ZN4absl13base_internalL7IntLog2Emm.exit.i ], [ %31, %26 ]
+  %27 = mul i32 %.05.i.i, 1103515245
+  %28 = add i32 %27, 12345
+  %29 = and i32 %28, 1073741824
+  %30 = icmp eq i32 %29, 0
+  %31 = add nuw nsw i32 %.0.i.i, 1
+  br i1 %30, label %26, label %_ZN4absl13base_internalL6RandomEPj.exit.i, !llvm.loop !46
 
-_ZN4absl13base_internalL6RandomEPj.exit.i:        ; preds = %while.cond.i.i
-  store i32 %add.i.i, ptr %random, align 4
-  %add.i = add nsw i32 %result.0.i.i, %result.0.lcssa.i.i
-  %conv.i = sext i32 %add.i to i64
-  %spec.select10.i = tail call i64 @llvm.umin.i64(i64 %div7.i, i64 %conv.i)
-  %spec.select.i = trunc i64 %spec.select10.i to i32
-  %cmp7.i = icmp slt i32 %spec.select.i, 1
-  br i1 %cmp7.i, label %do.body10.i, label %_ZN4absl13base_internalL18LLA_SkiplistLevelsEmmPj.exit
+_ZN4absl13base_internalL6RandomEPj.exit.i:        ; preds = %26
+  store i32 %28, ptr %18, align 4, !tbaa !43
+  %32 = add nsw i32 %.0.i.i, %.06.lcssa.i.i
+  %33 = sext i32 %32 to i64
+  %spec.select12.i = tail call i64 @llvm.umin.i64(i64 %20, i64 %33)
+  %spec.select.i = trunc i64 %spec.select12.i to i32
+  %34 = icmp slt i32 %spec.select.i, 1
+  br i1 %34, label %35, label %_ZN4absl13base_internalL18LLA_SkiplistLevelsEmmPj.exit, !prof !27
 
-do.body10.i:                                      ; preds = %_ZN4absl13base_internalL6RandomEPj.exit.i
+35:                                               ; preds = %_ZN4absl13base_internalL6RandomEPj.exit.i
   tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 118), i32 noundef 148, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.26)
   unreachable
 
 _ZN4absl13base_internalL18LLA_SkiplistLevelsEmmPj.exit: ; preds = %_ZN4absl13base_internalL6RandomEPj.exit.i
-  %8 = tail call noundef range(i32 1, 30) i32 @llvm.umin.i32(i32 %spec.select.i, i32 29)
-  store i32 %8, ptr %v, align 8
-  %freelist = getelementptr inbounds nuw i8, ptr %arena, i64 8
-  %levels.i.i = getelementptr inbounds nuw i8, ptr %arena, i64 40
-  %9 = load i32, ptr %levels.i.i, align 8
-  %cmp11.i.i = icmp sgt i32 %9, 0
-  br i1 %cmp11.i.i, label %for.cond1.preheader.preheader.i.i, label %for.end8.i.i
+  %36 = tail call noundef range(i32 1, 30) i32 @llvm.umin.i32(i32 %spec.select.i, i32 29)
+  store i32 %36, ptr %0, align 8, !tbaa !47
+  call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %3) #12
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %39 = load i32, ptr %38, align 8, !tbaa !47
+  %40 = icmp sgt i32 %39, 0
+  br i1 %40, label %.preheader.preheader.i.i, label %._crit_edge.i.i
 
-for.cond1.preheader.preheader.i.i:                ; preds = %_ZN4absl13base_internalL18LLA_SkiplistLevelsEmmPj.exit
-  %10 = zext nneg i32 %9 to i64
-  br label %for.cond1.preheader.i.i
+.preheader.preheader.i.i:                         ; preds = %_ZN4absl13base_internalL18LLA_SkiplistLevelsEmmPj.exit
+  %41 = zext nneg i32 %39 to i64
+  br label %.preheader.i.i
 
-for.cond1.preheader.i.i:                          ; preds = %for.end.i.i, %for.cond1.preheader.preheader.i.i
-  %indvars.iv.i.i = phi i64 [ %10, %for.cond1.preheader.preheader.i.i ], [ %indvars.iv.next.i.i, %for.end.i.i ]
-  %p.012.i.i = phi ptr [ %freelist, %for.cond1.preheader.preheader.i.i ], [ %p.1.i.i, %for.end.i.i ]
+.preheader.i.i:                                   ; preds = %51, %.preheader.preheader.i.i
+  %indvars.iv.i.i = phi i64 [ %41, %.preheader.preheader.i.i ], [ %indvars.iv.next.i.i, %51 ]
+  %.016.i.i = phi ptr [ %37, %.preheader.preheader.i.i ], [ %.1.i.i, %51 ]
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
-  br label %for.cond1.i.i
+  br label %44
 
-for.cond1.i.i:                                    ; preds = %for.cond1.i.i, %for.cond1.preheader.i.i
-  %p.1.i.i = phi ptr [ %11, %for.cond1.i.i ], [ %p.012.i.i, %for.cond1.preheader.i.i ]
-  %next.i.i = getelementptr inbounds nuw i8, ptr %p.1.i.i, i64 40
-  %arrayidx.i.i = getelementptr inbounds [30 x ptr], ptr %next.i.i, i64 0, i64 %indvars.iv.next.i.i
-  %11 = load ptr, ptr %arrayidx.i.i, align 8
-  %cmp2.i.i = icmp ne ptr %11, null
-  %cmp3.i.i12 = icmp ult ptr %11, %add.ptr
-  %12 = and i1 %cmp2.i.i, %cmp3.i.i12
-  br i1 %12, label %for.cond1.i.i, label %for.end.i.i, !llvm.loop !9
+._crit_edge.i.i:                                  ; preds = %51, %_ZN4absl13base_internalL18LLA_SkiplistLevelsEmmPj.exit
+  %42 = icmp slt i32 %39, %36
+  br i1 %42, label %.lr.ph.preheader.i, label %.lr.ph23.i
 
-for.end.i.i:                                      ; preds = %for.cond1.i.i
-  %arrayidx6.i.i = getelementptr inbounds ptr, ptr %prev, i64 %indvars.iv.next.i.i
-  store ptr %p.1.i.i, ptr %arrayidx6.i.i, align 8
-  %cmp.i.i13 = icmp sgt i64 %indvars.iv.i.i, 1
-  br i1 %cmp.i.i13, label %for.cond1.preheader.i.i, label %for.end8.i.i, !llvm.loop !10
+.lr.ph.preheader.i:                               ; preds = %._crit_edge.i.i
+  %43 = sext i32 %39 to i64
+  br label %.lr.ph.i
 
-for.end8.i.i:                                     ; preds = %for.end.i.i, %_ZN4absl13base_internalL18LLA_SkiplistLevelsEmmPj.exit
-  %cmp18.i = icmp slt i32 %9, %8
-  br i1 %cmp18.i, label %for.body.i, label %for.body7.lr.ph.i
+44:                                               ; preds = %44, %.preheader.i.i
+  %.1.i.i = phi ptr [ %47, %44 ], [ %.016.i.i, %.preheader.i.i ]
+  %45 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 40
+  %46 = getelementptr inbounds nuw [30 x ptr], ptr %45, i64 0, i64 %indvars.iv.next.i.i
+  %47 = load ptr, ptr %46, align 8, !tbaa !36
+  %48 = icmp ne ptr %47, null
+  %49 = icmp ult ptr %47, %4
+  %50 = and i1 %48, %49
+  br i1 %50, label %44, label %51, !llvm.loop !48
 
-for.cond4.preheader.i:                            ; preds = %for.body.i
-  %13 = icmp eq i32 %15, 0
-  br i1 %13, label %_ZN4absl13base_internalL18LLA_SkiplistInsertEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit, label %for.body7.lr.ph.i
+51:                                               ; preds = %44
+  %52 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.next.i.i
+  store ptr %.1.i.i, ptr %52, align 8, !tbaa !36
+  %53 = icmp sgt i64 %indvars.iv.i.i, 1
+  br i1 %53, label %.preheader.i.i, label %._crit_edge.i.i, !llvm.loop !49
 
-for.body7.lr.ph.i:                                ; preds = %for.end8.i.i, %for.cond4.preheader.i
-  %next12.i = getelementptr inbounds nuw i8, ptr %v, i64 8
-  br label %for.body7.i
+.preheader.i:                                     ; preds = %.lr.ph.i
+  %.not21.i = icmp eq i32 %58, 0
+  br i1 %.not21.i, label %_ZN4absl13base_internalL18LLA_SkiplistInsertEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit, label %.lr.ph23.i
 
-for.body.i:                                       ; preds = %for.end8.i.i, %for.body.i
-  %14 = phi i32 [ %inc.i, %for.body.i ], [ %9, %for.end8.i.i ]
-  %idxprom.i = sext i32 %14 to i64
-  %arrayidx.i = getelementptr inbounds ptr, ptr %prev, i64 %idxprom.i
-  store ptr %freelist, ptr %arrayidx.i, align 8
-  %inc.i = add nsw i32 %14, 1
-  store i32 %inc.i, ptr %levels.i.i, align 8
-  %15 = load i32, ptr %v, align 8
-  %cmp.i = icmp slt i32 %inc.i, %15
-  br i1 %cmp.i, label %for.body.i, label %for.cond4.preheader.i, !llvm.loop !11
+.lr.ph23.i:                                       ; preds = %._crit_edge.i.i, %.preheader.i
+  %.lcssa.i21 = phi i32 [ %58, %.preheader.i ], [ %36, %._crit_edge.i.i ]
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %55 = zext i32 %.lcssa.i21 to i64
+  br label %61
 
-for.body7.i:                                      ; preds = %for.body7.i, %for.body7.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %for.body7.lr.ph.i ], [ %indvars.iv.next.i, %for.body7.i ]
-  %arrayidx9.i = getelementptr inbounds nuw ptr, ptr %prev, i64 %indvars.iv.i
-  %16 = load ptr, ptr %arrayidx9.i, align 8
-  %next.i = getelementptr inbounds nuw i8, ptr %16, i64 40
-  %arrayidx11.i = getelementptr inbounds nuw [30 x ptr], ptr %next.i, i64 0, i64 %indvars.iv.i
-  %17 = load ptr, ptr %arrayidx11.i, align 8
-  %arrayidx14.i = getelementptr inbounds nuw [30 x ptr], ptr %next12.i, i64 0, i64 %indvars.iv.i
-  store ptr %17, ptr %arrayidx14.i, align 8
-  store ptr %add.ptr, ptr %arrayidx11.i, align 8
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %18 = load i32, ptr %v, align 8
-  %19 = zext i32 %18 to i64
-  %cmp6.not.i = icmp eq i64 %indvars.iv.next.i, %19
-  br i1 %cmp6.not.i, label %_ZN4absl13base_internalL18LLA_SkiplistInsertEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit, label %for.body7.i, !llvm.loop !12
+.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
+  %indvars.iv.i = phi i64 [ %43, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
+  %56 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv.i
+  store ptr %37, ptr %56, align 8, !tbaa !36
+  %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
+  %57 = trunc nsw i64 %indvars.iv.next.i to i32
+  store i32 %57, ptr %38, align 8, !tbaa !47
+  %58 = load i32, ptr %0, align 8, !tbaa !47
+  %59 = sext i32 %58 to i64
+  %60 = icmp slt i64 %indvars.iv.next.i, %59
+  br i1 %60, label %.lr.ph.i, label %.preheader.i, !llvm.loop !50
 
-_ZN4absl13base_internalL18LLA_SkiplistInsertEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit: ; preds = %for.body7.i, %for.cond4.preheader.i
-  %xor.i14 = xor i64 %1, -1283669654
-  store i64 %xor.i14, ptr %magic, align 8
-  tail call fastcc void @_ZN4absl13base_internalL8CoalesceEPNS0_12_GLOBAL__N_19AllocListE(ptr noundef nonnull %add.ptr)
-  %20 = load ptr, ptr %prev, align 16
-  tail call fastcc void @_ZN4absl13base_internalL8CoalesceEPNS0_12_GLOBAL__N_19AllocListE(ptr noundef %20)
+61:                                               ; preds = %61, %.lr.ph23.i
+  %indvars.iv26.i = phi i64 [ 0, %.lr.ph23.i ], [ %indvars.iv.next27.i, %61 ]
+  %62 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv26.i
+  %63 = load ptr, ptr %62, align 8, !tbaa !36
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 40
+  %65 = getelementptr inbounds nuw [30 x ptr], ptr %64, i64 0, i64 %indvars.iv26.i
+  %66 = load ptr, ptr %65, align 8, !tbaa !36
+  %67 = getelementptr inbounds nuw [30 x ptr], ptr %54, i64 0, i64 %indvars.iv26.i
+  store ptr %66, ptr %67, align 8, !tbaa !36
+  store ptr %4, ptr %65, align 8, !tbaa !36
+  %indvars.iv.next27.i = add nuw nsw i64 %indvars.iv26.i, 1
+  %.not.i = icmp eq i64 %indvars.iv.next27.i, %55
+  br i1 %.not.i, label %_ZN4absl13base_internalL18LLA_SkiplistInsertEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit, label %61, !llvm.loop !51
+
+_ZN4absl13base_internalL18LLA_SkiplistInsertEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit: ; preds = %61, %.preheader.i
+  %68 = xor i64 %7, -1283669654
+  store i64 %68, ptr %5, align 8, !tbaa !39
+  tail call fastcc void @_ZN4absl13base_internalL8CoalesceEPNS0_12_GLOBAL__N_19AllocListE(ptr noundef nonnull %4)
+  %69 = load ptr, ptr %3, align 16, !tbaa !36
+  tail call fastcc void @_ZN4absl13base_internalL8CoalesceEPNS0_12_GLOBAL__N_19AllocListE(ptr noundef %69)
+  call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %3) #12
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN4absl13base_internal13LowLevelAlloc5AllocEm(i64 noundef %request) local_unnamed_addr #0 section "malloc_hook" align 2 {
-entry:
-  %call = tail call noundef ptr @_ZN4absl13base_internal13LowLevelAlloc12DefaultArenaEv()
-  %call1 = tail call fastcc noundef ptr @_ZN4absl13base_internalL16DoAllocWithArenaEmPNS0_13LowLevelAlloc5ArenaE(i64 noundef %request, ptr noundef nonnull @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE)
-  ret ptr %call1
+; Function Attrs: mustprogress noinline uwtable
+define dso_local noundef ptr @_ZN4absl13base_internal13LowLevelAlloc5AllocEm(i64 noundef %0) local_unnamed_addr #4 section "malloc_hook" align 2 personality ptr @__gxx_personality_v0 {
+  %2 = load atomic i32, ptr @_ZN4absl13base_internal12_GLOBAL__N_119create_globals_onceE acquire, align 4
+  %.not.i.i = icmp eq i32 %2, 221
+  br i1 %.not.i.i, label %_ZN4absl13base_internal13LowLevelAlloc12DefaultArenaEv.exit, label %3, !prof !4
+
+3:                                                ; preds = %1
+  tail call void @_ZN4absl13base_internal12CallOnceImplIRFvvEJEEEvPSt6atomicIjENS0_14SchedulingModeEOT_DpOT0_(ptr noundef nonnull @_ZN4absl13base_internal12_GLOBAL__N_119create_globals_onceE, i32 noundef 0, ptr noundef nonnull @_ZN4absl13base_internal12_GLOBAL__N_118CreateGlobalArenasEv)
+  br label %_ZN4absl13base_internal13LowLevelAlloc12DefaultArenaEv.exit
+
+_ZN4absl13base_internal13LowLevelAlloc12DefaultArenaEv.exit: ; preds = %1, %3
+  %4 = tail call fastcc noundef ptr @_ZN4absl13base_internalL16DoAllocWithArenaEmPNS0_13LowLevelAlloc5ArenaE(i64 noundef %0, ptr noundef nonnull @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE)
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN4absl13base_internalL16DoAllocWithArenaEmPNS0_13LowLevelAlloc5ArenaE(i64 noundef %request, ptr noundef %arena) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
-entry:
-  %all.i = alloca %struct.__sigset_t, align 8
-  %section = alloca %"class.absl::base_internal::(anonymous namespace)::ArenaLock", align 8
-  %prev = alloca [30 x ptr], align 16
-  %cmp.not = icmp eq i64 %request, 0
-  br i1 %cmp.not, label %if.end89, label %if.then
+define internal fastcc noundef ptr @_ZN4absl13base_internalL16DoAllocWithArenaEmPNS0_13LowLevelAlloc5ArenaE(i64 noundef %0, ptr noundef %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+  %3 = alloca %struct.__sigset_t, align 8
+  %4 = alloca %"class.absl::base_internal::(anonymous namespace)::ArenaLock", align 8
+  %5 = alloca [30 x ptr], align 16
+  %.not = icmp eq i64 %0, 0
+  br i1 %.not, label %209, label %6
 
-if.then:                                          ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %all.i)
-  store i8 0, ptr %section, align 8
-  %mask_valid_.i = getelementptr inbounds nuw i8, ptr %section, i64 1
-  store i8 0, ptr %mask_valid_.i, align 1
-  %arena_.i = getelementptr inbounds nuw i8, ptr %section, i64 136
-  store ptr %arena, ptr %arena_.i, align 8
-  %flags.i = getelementptr inbounds nuw i8, ptr %arena, i64 292
-  %0 = load i32, ptr %flags.i, align 4
-  %and.i = and i32 %0, 2
-  %cmp.not.i = icmp eq i32 %and.i, 0
-  br i1 %cmp.not.i, label %if.end.i, label %if.then.i
+6:                                                ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4) #12
+  store i8 0, ptr %4, align 8, !tbaa !28
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  store i8 0, ptr %7, align 1, !tbaa !32
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 136
+  store ptr %1, ptr %8, align 8, !tbaa !33
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 292
+  %10 = load i32, ptr %9, align 4, !tbaa !18
+  %11 = and i32 %10, 2
+  %.not.i = icmp eq i32 %11, 0
+  br i1 %.not.i, label %18, label %12
 
-if.then.i:                                        ; preds = %if.then
-  %call.i = call i32 @sigfillset(ptr noundef nonnull %all.i) #11
-  %mask_2.i = getelementptr inbounds nuw i8, ptr %section, i64 8
-  %call3.i = call i32 @pthread_sigmask(i32 noundef 0, ptr noundef nonnull %all.i, ptr noundef nonnull %mask_2.i) #11
-  %cmp4.i = icmp eq i32 %call3.i, 0
-  %frombool.i = zext i1 %cmp4.i to i8
-  store i8 %frombool.i, ptr %mask_valid_.i, align 1
-  %.pre.i = load ptr, ptr %arena_.i, align 8
-  br label %if.end.i
+12:                                               ; preds = %6
+  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #12
+  %13 = call i32 @sigfillset(ptr noundef nonnull %3) #12
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %15 = call i32 @pthread_sigmask(i32 noundef 0, ptr noundef nonnull %3, ptr noundef nonnull %14) #12
+  %16 = icmp eq i32 %15, 0
+  %17 = zext i1 %16 to i8
+  store i8 %17, ptr %7, align 1, !tbaa !32
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #12
+  %.pre.i = load ptr, ptr %8, align 8, !tbaa !33
+  br label %18
 
-if.end.i:                                         ; preds = %if.then.i, %if.then
-  %1 = phi ptr [ %.pre.i, %if.then.i ], [ %arena, %if.then ]
-  %2 = load atomic i32, ptr %1 monotonic, align 4
-  %and.i.i.i.i = and i32 %2, 1
-  %cmp.not.i.i.i.i = icmp eq i32 %and.i.i.i.i, 0
-  br i1 %cmp.not.i.i.i.i, label %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i, label %if.then.i.i
+18:                                               ; preds = %12, %6
+  %19 = phi ptr [ %.pre.i, %12 ], [ %1, %6 ]
+  %20 = load atomic i32, ptr %19 monotonic, align 4
+  %21 = and i32 %20, 1
+  %.not.i.i.i.i = icmp eq i32 %21, 0
+  br i1 %.not.i.i.i.i, label %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i, label %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.thread.i.i
 
-_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i: ; preds = %if.end.i
-  %or9.i.i.i.i = or disjoint i32 %2, 1
-  %3 = cmpxchg ptr %1, i32 %2, i32 %or9.i.i.i.i acquire monotonic, align 4
-  %4 = extractvalue { i32, i1 } %3, 0
-  %.pre.i.i.i = and i32 %4, 1
-  %5 = icmp eq i32 %.pre.i.i.i, 0
-  br i1 %5, label %_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockC2EPNS0_13LowLevelAlloc5ArenaE.exit, label %if.then.i.i
+_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i: ; preds = %18
+  %22 = or disjoint i32 %20, 1
+  %23 = cmpxchg ptr %19, i32 %20, i32 %22 acquire monotonic, align 4
+  %24 = extractvalue { i32, i1 } %23, 0
+  %.pre.i.i.i = and i32 %24, 1
+  %25 = icmp eq i32 %.pre.i.i.i, 0
+  br i1 %25, label %_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockC2EPNS0_13LowLevelAlloc5ArenaE.exit, label %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.thread.i.i
 
-if.then.i.i:                                      ; preds = %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i, %if.end.i
-  call void @_ZN4absl13base_internal8SpinLock8SlowLockEv(ptr noundef nonnull align 4 dereferenceable(4) %1) #12
+_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.thread.i.i: ; preds = %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i, %18
+  call void @_ZN4absl13base_internal8SpinLock8SlowLockEv(ptr noundef nonnull align 4 dereferenceable(4) %19) #13
   br label %_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockC2EPNS0_13LowLevelAlloc5ArenaE.exit
 
-_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockC2EPNS0_13LowLevelAlloc5ArenaE.exit: ; preds = %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i, %if.then.i.i
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %all.i)
-  %cmp.not.i50 = icmp ugt i64 %request, -33
-  br i1 %cmp.not.i50, label %do.body76.invoke, label %invoke.cont
+_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockC2EPNS0_13LowLevelAlloc5ArenaE.exit: ; preds = %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i, %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.thread.i.i
+  %.not.i88 = icmp ugt i64 %0, -33
+  br i1 %.not.i88, label %.invoke, label %_ZN4absl13base_internalL10CheckedAddEmm.exit, !prof !27
 
-invoke.cont:                                      ; preds = %_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockC2EPNS0_13LowLevelAlloc5ArenaE.exit
-  %add.i = add nuw i64 %request, 32
-  %round_up = getelementptr inbounds nuw i8, ptr %arena, i64 304
-  %6 = load i64, ptr %round_up, align 8
-  %sub.i = add nuw i64 %request, 31
-  %add.i.i = add i64 %sub.i, %6
-  %cmp.not.i.i = icmp ult i64 %add.i.i, %add.i
-  br i1 %cmp.not.i.i, label %do.body76.invoke, label %_ZN4absl13base_internalL7RoundUpEmm.exit
+_ZN4absl13base_internalL10CheckedAddEmm.exit:     ; preds = %_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockC2EPNS0_13LowLevelAlloc5ArenaE.exit
+  %26 = add nuw i64 %0, 32
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 304
+  %28 = load i64, ptr %27, align 8, !tbaa !20
+  %29 = add nuw i64 %0, 31
+  %30 = add i64 %29, %28
+  %.not.i.i = icmp ult i64 %30, %26
+  br i1 %.not.i.i, label %.invoke, label %_ZN4absl13base_internalL7RoundUpEmm.exit, !prof !27
 
-_ZN4absl13base_internalL7RoundUpEmm.exit:         ; preds = %invoke.cont
-  %not.i = sub i64 0, %6
-  %and.i51 = and i64 %add.i.i, %not.i
-  %min_size = getelementptr inbounds nuw i8, ptr %arena, i64 312
-  %sub.i53 = add i64 %and.i51, -40
-  %div7.i = lshr i64 %sub.i53, 3
-  %freelist = getelementptr inbounds nuw i8, ptr %arena, i64 8
-  %levels = getelementptr inbounds nuw i8, ptr %arena, i64 40
-  %pagesize = getelementptr inbounds nuw i8, ptr %arena, i64 296
-  %sub.i66 = add i64 %and.i51, -1
-  %cmp7.i = icmp ult i64 %sub.i53, 8
-  br label %for.cond
+.invoke:                                          ; preds = %_ZN4absl13base_internalL10CheckedAddEmm.exit, %_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockC2EPNS0_13LowLevelAlloc5ArenaE.exit
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 118), i32 noundef 437, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33)
+          to label %.cont unwind label %81
 
-for.cond:                                         ; preds = %_ZN4absl13base_internalL7RoundUpEmm.exit, %invoke.cont32
-  %7 = load i64, ptr %min_size, align 8
-  %cmp3.i.i = icmp ugt i64 %and.i51, %7
-  br i1 %cmp3.i.i, label %for.body.i.i, label %_ZN4absl13base_internalL7IntLog2Emm.exit.i
+.cont:                                            ; preds = %.invoke
+  unreachable
 
-for.body.i.i:                                     ; preds = %for.cond, %for.body.i.i
-  %i.05.i.i = phi i64 [ %shr.i.i, %for.body.i.i ], [ %and.i51, %for.cond ]
-  %result.04.i.i = phi i32 [ %inc.i.i, %for.body.i.i ], [ 0, %for.cond ]
-  %inc.i.i = add nuw nsw i32 %result.04.i.i, 1
-  %shr.i.i = lshr i64 %i.05.i.i, 1
-  %cmp.i.i = icmp ugt i64 %shr.i.i, %7
-  br i1 %cmp.i.i, label %for.body.i.i, label %_ZN4absl13base_internalL7IntLog2Emm.exit.i.loopexit, !llvm.loop !7
+_ZN4absl13base_internalL7RoundUpEmm.exit:         ; preds = %_ZN4absl13base_internalL10CheckedAddEmm.exit
+  %31 = sub i64 0, %28
+  %32 = and i64 %30, %31
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 312
+  %34 = add i64 %32, -40
+  %35 = lshr i64 %34, 3
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 296
+  %39 = add i64 %32, -1
+  %40 = icmp ult i64 %34, 8
+  br label %41
 
-_ZN4absl13base_internalL7IntLog2Emm.exit.i.loopexit: ; preds = %for.body.i.i
-  %8 = add nuw nsw i32 %result.04.i.i, 2
-  %9 = zext nneg i32 %8 to i64
+41:                                               ; preds = %_ZN4absl13base_internal8SpinLock4LockEv.exit, %_ZN4absl13base_internalL7RoundUpEmm.exit
+  %42 = load i64, ptr %33, align 8, !tbaa !21
+  %43 = icmp ugt i64 %32, %42
+  br i1 %43, label %.lr.ph.i.i, label %_ZN4absl13base_internalL7IntLog2Emm.exit.i
+
+.lr.ph.i.i:                                       ; preds = %41, %.lr.ph.i.i
+  %.08.i.i = phi i64 [ %45, %.lr.ph.i.i ], [ %32, %41 ]
+  %.067.i.i = phi i32 [ %44, %.lr.ph.i.i ], [ 0, %41 ]
+  %44 = add nuw nsw i32 %.067.i.i, 1
+  %45 = lshr i64 %.08.i.i, 1
+  %46 = icmp ugt i64 %45, %42
+  br i1 %46, label %.lr.ph.i.i, label %_ZN4absl13base_internalL7IntLog2Emm.exit.i.loopexit, !llvm.loop !45
+
+_ZN4absl13base_internalL7IntLog2Emm.exit.i.loopexit: ; preds = %.lr.ph.i.i
+  %47 = add nuw nsw i32 %.067.i.i, 2
+  %48 = zext nneg i32 %47 to i64
   br label %_ZN4absl13base_internalL7IntLog2Emm.exit.i
 
-_ZN4absl13base_internalL7IntLog2Emm.exit.i:       ; preds = %_ZN4absl13base_internalL7IntLog2Emm.exit.i.loopexit, %for.cond
-  %result.0.lcssa.i.i = phi i64 [ 1, %for.cond ], [ %9, %_ZN4absl13base_internalL7IntLog2Emm.exit.i.loopexit ]
-  br i1 %cmp7.i, label %do.body76.invoke, label %invoke.cont3
+_ZN4absl13base_internalL7IntLog2Emm.exit.i:       ; preds = %_ZN4absl13base_internalL7IntLog2Emm.exit.i.loopexit, %41
+  %.06.lcssa.i.i = phi i64 [ 1, %41 ], [ %48, %_ZN4absl13base_internalL7IntLog2Emm.exit.i.loopexit ]
+  br i1 %40, label %49, label %50, !prof !27
 
-invoke.cont3:                                     ; preds = %_ZN4absl13base_internalL7IntLog2Emm.exit.i
-  %spec.select10.i = call i64 @llvm.umin.i64(i64 %div7.i, i64 %result.0.lcssa.i.i)
-  %spec.select.i = trunc nuw nsw i64 %spec.select10.i to i32
-  %10 = call noundef range(i32 1, 30) i32 @llvm.umin.i32(i32 %spec.select.i, i32 29)
-  %11 = load i32, ptr %levels, align 8
-  %cmp5.not = icmp sgt i32 %10, %11
-  br i1 %cmp5.not, label %if.end14, label %while.cond.preheader
+49:                                               ; preds = %_ZN4absl13base_internalL7IntLog2Emm.exit.i
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 118), i32 noundef 148, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.26)
+          to label %.noexc90 unwind label %.loopexit.split-lp
 
-while.cond.preheader:                             ; preds = %invoke.cont3
-  %sub = add nsw i32 %10, -1
-  %idxprom.i = zext nneg i32 %sub to i64
-  br label %while.cond
-
-while.cond:                                       ; preds = %while.cond.preheader, %land.rhs
-  %before.0 = phi ptr [ %13, %land.rhs ], [ %freelist, %while.cond.preheader ]
-  %levels.i = getelementptr inbounds nuw i8, ptr %before.0, i64 32
-  %12 = load i32, ptr %levels.i, align 8
-  %cmp.not.i56.not = icmp sgt i32 %10, %12
-  br i1 %cmp.not.i56.not, label %do.body76.invoke, label %do.end4.i
-
-do.end4.i:                                        ; preds = %while.cond
-  %next5.i = getelementptr inbounds nuw i8, ptr %before.0, i64 40
-  %arrayidx.i = getelementptr inbounds nuw [30 x ptr], ptr %next5.i, i64 0, i64 %idxprom.i
-  %13 = load ptr, ptr %arrayidx.i, align 8
-  %cmp6.not.i = icmp eq ptr %13, null
-  br i1 %cmp6.not.i, label %if.end14, label %do.body8.i
-
-do.body8.i:                                       ; preds = %do.end4.i
-  %magic.i = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %14 = load i64, ptr %magic.i, align 8
-  %15 = ptrtoint ptr %13 to i64
-  %16 = xor i64 %14, %15
-  %cmp10.not.i = icmp eq i64 %16, -1283669654
-  br i1 %cmp10.not.i, label %do.body20.i, label %do.body76.invoke
-
-do.body20.i:                                      ; preds = %do.body8.i
-  %arena22.i = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %17 = load ptr, ptr %arena22.i, align 8
-  %cmp23.not.i = icmp eq ptr %17, %arena
-  br i1 %cmp23.not.i, label %do.end32.i, label %do.body76.invoke
-
-do.end32.i:                                       ; preds = %do.body20.i
-  %cmp33.not.i = icmp eq ptr %before.0, %freelist
-  br i1 %cmp33.not.i, label %land.rhs, label %do.body35.i
-
-do.body35.i:                                      ; preds = %do.end32.i
-  %cmp36.not.i = icmp ult ptr %before.0, %13
-  br i1 %cmp36.not.i, label %do.body46.i, label %do.body76.invoke
-
-do.body46.i:                                      ; preds = %do.body35.i
-  %18 = load i64, ptr %before.0, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %before.0, i64 %18
-  %cmp48.not.i = icmp ult ptr %add.ptr.i, %13
-  br i1 %cmp48.not.i, label %land.rhs, label %do.body76.invoke
-
-land.rhs:                                         ; preds = %do.body46.i, %do.end32.i
-  %19 = load i64, ptr %13, align 8
-  %cmp11 = icmp ult i64 %19, %and.i51
-  br i1 %cmp11, label %while.cond, label %for.end, !llvm.loop !13
-
-lpad.loopexit:                                    ; preds = %invoke.cont32, %if.then7.i, %if.then.i75
-  %lpad.loopexit102 = landingpad { ptr, i32 }
-          cleanup
-  br label %lpad
-
-lpad.loopexit.split-lp:                           ; preds = %do.body76.invoke, %do.body.invoke, %if.then50, %if.then7.i.i
-  %lpad.loopexit.split-lp103 = landingpad { ptr, i32 }
-          cleanup
-  br label %lpad
-
-lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit102, %lpad.loopexit ], [ %lpad.loopexit.split-lp103, %lpad.loopexit.split-lp ]
-  %section.val49 = load i8, ptr %section, align 8
-  call fastcc void @_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockD2Ev(i8 %section.val49) #11
-  resume { ptr, i32 } %lpad.phi
-
-if.end14:                                         ; preds = %do.end4.i, %invoke.cont3
-  %20 = load atomic i32, ptr %arena monotonic, align 4
-  %and.i63 = and i32 %20, 2
-  %21 = atomicrmw xchg ptr %arena, i32 %and.i63 release, align 4
-  %cmp6.not.i64 = icmp ult i32 %21, 8
-  br i1 %cmp6.not.i64, label %invoke.cont15, label %if.then7.i
-
-if.then7.i:                                       ; preds = %if.end14
-  invoke void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) %arena, i32 noundef %21) #12
-          to label %invoke.cont15 unwind label %lpad.loopexit
-
-invoke.cont15:                                    ; preds = %if.end14, %if.then7.i
-  %22 = load i64, ptr %pagesize, align 8
-  %mul = shl i64 %22, 4
-  %add.i.i67 = add i64 %sub.i66, %mul
-  %cmp.not.i.i68 = icmp ult i64 %add.i.i67, %and.i51
-  br i1 %cmp.not.i.i68, label %do.body76.invoke, label %invoke.cont16
-
-invoke.cont16:                                    ; preds = %invoke.cont15
-  %not.i69 = sub i64 0, %mul
-  %and.i70 = and i64 %add.i.i67, %not.i69
-  %23 = load i32, ptr %flags.i, align 4
-  %and = and i32 %23, 2
-  %cmp18.not = icmp eq i32 %and, 0
-  br i1 %cmp18.not, label %if.else, label %if.then19
-
-if.then19:                                        ; preds = %invoke.cont16
-  %call.i74 = call i64 (i64, ...) @syscall(i64 noundef 9, i64 noundef 0, i64 noundef %and.i70, i64 noundef 3, i64 noundef 34, i64 noundef -1, i64 noundef 0) #11
-  %24 = inttoptr i64 %call.i74 to ptr
-  br label %if.end22
-
-if.else:                                          ; preds = %invoke.cont16
-  %call21 = call ptr @mmap(ptr noundef null, i64 noundef %and.i70, i32 noundef 3, i32 noundef 34, i32 noundef -1, i64 noundef 0) #11
-  br label %if.end22
-
-if.end22:                                         ; preds = %if.else, %if.then19
-  %new_pages.0 = phi ptr [ %24, %if.then19 ], [ %call21, %if.else ]
-  %cmp23 = icmp eq ptr %new_pages.0, inttoptr (i64 -1 to ptr)
-  br i1 %cmp23, label %do.body, label %if.end30
-
-do.body:                                          ; preds = %if.end22
-  %call25 = tail call ptr @__errno_location() #13
-  %25 = load i32, ptr %call25, align 4
-  br label %do.body.invoke
-
-do.body.invoke:                                   ; preds = %if.then.i96, %do.body
-  %26 = phi i32 [ 569, %do.body ], [ 301, %if.then.i96 ]
-  %27 = phi ptr [ @.str.29, %do.body ], [ @.str.18, %if.then.i96 ]
-  %28 = phi i32 [ %25, %do.body ], [ %call.i97, %if.then.i96 ]
-  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 118), i32 noundef %26, ptr noundef nonnull %27, i32 noundef %28)
-          to label %do.body.cont unwind label %lpad.loopexit.split-lp
-
-do.body.cont:                                     ; preds = %do.body.invoke
+.noexc90:                                         ; preds = %49
   unreachable
 
-if.end30:                                         ; preds = %if.end22
-  %29 = load atomic i32, ptr %arena monotonic, align 4
-  %and.i.i.i = and i32 %29, 1
-  %cmp.not.i.i.i = icmp eq i32 %and.i.i.i, 0
-  br i1 %cmp.not.i.i.i, label %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i, label %if.then.i75
+50:                                               ; preds = %_ZN4absl13base_internalL7IntLog2Emm.exit.i
+  %spec.select12.i = call i64 @llvm.umin.i64(i64 %35, i64 %.06.lcssa.i.i)
+  %spec.select.i = trunc nuw nsw i64 %spec.select12.i to i32
+  %51 = call noundef range(i32 1, 30) i32 @llvm.umin.i32(i32 %spec.select.i, i32 29)
+  %52 = load i32, ptr %37, align 8, !tbaa !26
+  %.not76 = icmp sgt i32 %51, %52
+  br i1 %.not76, label %.critedge.thread, label %.preheader
 
-_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i: ; preds = %if.end30
-  %or9.i.i.i = or disjoint i32 %29, 1
-  %30 = cmpxchg ptr %arena, i32 %29, i32 %or9.i.i.i acquire monotonic, align 4
-  %31 = extractvalue { i32, i1 } %30, 0
-  %.pre.i.i = and i32 %31, 1
-  %32 = icmp eq i32 %.pre.i.i, 0
-  br i1 %32, label %invoke.cont32, label %if.then.i75
+.preheader:                                       ; preds = %50
+  %53 = add nsw i32 %51, -1
+  %54 = zext nneg i32 %53 to i64
+  br label %55
 
-if.then.i75:                                      ; preds = %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i, %if.end30
-  invoke void @_ZN4absl13base_internal8SpinLock8SlowLockEv(ptr noundef nonnull align 4 dereferenceable(4) %arena) #12
-          to label %invoke.cont32 unwind label %lpad.loopexit
+55:                                               ; preds = %.preheader, %78
+  %.071 = phi ptr [ %61, %78 ], [ %36, %.preheader ]
+  %56 = getelementptr inbounds nuw i8, ptr %.071, i64 32
+  %57 = load i32, ptr %56, align 8, !tbaa !47
+  %.not.i91.not = icmp sgt i32 %51, %57
+  br i1 %.not.i91.not, label %.invoke190, label %58, !prof !27
 
-invoke.cont32:                                    ; preds = %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i, %if.then.i75
-  store i64 %and.i70, ptr %new_pages.0, align 8
-  %33 = ptrtoint ptr %new_pages.0 to i64
-  %xor.i = xor i64 %33, 1283669653
-  %magic = getelementptr inbounds nuw i8, ptr %new_pages.0, i64 8
-  store i64 %xor.i, ptr %magic, align 8
-  %arena39 = getelementptr inbounds nuw i8, ptr %new_pages.0, i64 16
-  store ptr %arena, ptr %arena39, align 8
-  %levels40 = getelementptr inbounds nuw i8, ptr %new_pages.0, i64 32
-  invoke fastcc void @_ZN4absl13base_internalL13AddToFreelistEPvPNS0_13LowLevelAlloc5ArenaE(ptr noundef nonnull %levels40, ptr noundef nonnull %arena)
-          to label %for.cond unwind label %lpad.loopexit, !llvm.loop !14
+58:                                               ; preds = %55
+  %59 = getelementptr inbounds nuw i8, ptr %.071, i64 40
+  %60 = getelementptr inbounds nuw [30 x ptr], ptr %59, i64 0, i64 %54
+  %61 = load ptr, ptr %60, align 8, !tbaa !36
+  %.not17.i = icmp eq ptr %61, null
+  br i1 %.not17.i, label %.critedge.thread, label %62
 
-for.end:                                          ; preds = %land.rhs
-  %magic.i.le = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %arena22.i.le = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %cmp11.i.i = icmp sgt i32 %11, 0
-  br i1 %cmp11.i.i, label %for.cond1.preheader.preheader.i.i, label %for.end8.i.i
+62:                                               ; preds = %58
+  %63 = getelementptr inbounds nuw i8, ptr %61, i64 8
+  %64 = load i64, ptr %63, align 8, !tbaa !39
+  %65 = ptrtoint ptr %61 to i64
+  %66 = xor i64 %64, %65
+  %.not18.i = icmp eq i64 %66, -1283669654
+  br i1 %.not18.i, label %67, label %.invoke190, !prof !4
 
-for.cond1.preheader.preheader.i.i:                ; preds = %for.end
-  %34 = zext nneg i32 %11 to i64
-  br label %for.cond1.preheader.i.i
+67:                                               ; preds = %62
+  %68 = getelementptr inbounds nuw i8, ptr %61, i64 16
+  %69 = load ptr, ptr %68, align 8, !tbaa !40
+  %.not19.i = icmp eq ptr %69, %1
+  br i1 %.not19.i, label %70, label %.invoke190, !prof !4
 
-for.cond1.preheader.i.i:                          ; preds = %for.end.i.i, %for.cond1.preheader.preheader.i.i
-  %indvars.iv.i.i = phi i64 [ %34, %for.cond1.preheader.preheader.i.i ], [ %indvars.iv.next.i.i, %for.end.i.i ]
-  %p.012.i.i = phi ptr [ %freelist, %for.cond1.preheader.preheader.i.i ], [ %p.1.i.i, %for.end.i.i ]
+70:                                               ; preds = %67
+  %.not20.i = icmp eq ptr %.071, %36
+  br i1 %.not20.i, label %78, label %71
+
+71:                                               ; preds = %70
+  %.not21.i = icmp ult ptr %.071, %61
+  br i1 %.not21.i, label %72, label %.invoke190, !prof !4
+
+72:                                               ; preds = %71
+  %73 = load i64, ptr %.071, align 8, !tbaa !38
+  %74 = getelementptr inbounds nuw i8, ptr %.071, i64 %73
+  %.not22.i = icmp ult ptr %74, %61
+  br i1 %.not22.i, label %78, label %.invoke190, !prof !4
+
+.invoke190:                                       ; preds = %72, %71, %67, %62, %55
+  %75 = phi i32 [ 453, %55 ], [ 458, %62 ], [ 459, %67 ], [ 461, %71 ], [ 464, %72 ]
+  %76 = phi ptr [ @.str.34, %55 ], [ @.str.36, %62 ], [ @.str.38, %67 ], [ @.str.40, %71 ], [ @.str.42, %72 ]
+  %77 = phi ptr [ @.str.35, %55 ], [ @.str.37, %62 ], [ @.str.39, %67 ], [ @.str.41, %71 ], [ @.str.43, %72 ]
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 118), i32 noundef %75, ptr noundef nonnull @.str.1, ptr noundef nonnull %76, ptr noundef nonnull %77)
+          to label %.cont191 unwind label %83
+
+.cont191:                                         ; preds = %.invoke190
+  unreachable
+
+78:                                               ; preds = %72, %70
+  %79 = load i64, ptr %61, align 8, !tbaa !38
+  %80 = icmp ult i64 %79, %32
+  br i1 %80, label %55, label %.critedge, !llvm.loop !52
+
+81:                                               ; preds = %.invoke
+  %82 = landingpad { ptr, i32 }
+          cleanup
+  br label %208
+
+.loopexit:                                        ; preds = %88
+  %lpad.loopexit = landingpad { ptr, i32 }
+          cleanup
+  br label %208
+
+.loopexit.split-lp:                               ; preds = %49
+  %lpad.loopexit.split-lp = landingpad { ptr, i32 }
+          cleanup
+  br label %208
+
+83:                                               ; preds = %.invoke190
+  %84 = landingpad { ptr, i32 }
+          cleanup
+  br label %208
+
+.critedge.thread:                                 ; preds = %58, %50
+  %85 = load atomic i32, ptr %1 monotonic, align 4
+  %86 = and i32 %85, 2
+  %87 = atomicrmw xchg ptr %1, i32 %86 release, align 4
+  %.not4.i = icmp ult i32 %87, 8
+  br i1 %.not4.i, label %_ZN4absl13base_internal8SpinLock6UnlockEv.exit, label %88
+
+88:                                               ; preds = %.critedge.thread
+  invoke void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) %1, i32 noundef %87) #13
+          to label %_ZN4absl13base_internal8SpinLock6UnlockEv.exit unwind label %.loopexit
+
+_ZN4absl13base_internal8SpinLock6UnlockEv.exit:   ; preds = %.critedge.thread, %88
+  %89 = load i64, ptr %38, align 8, !tbaa !19
+  %90 = shl i64 %89, 4
+  %91 = add i64 %39, %90
+  %.not.i.i98 = icmp ult i64 %91, %32
+  br i1 %.not.i.i98, label %92, label %93, !prof !27
+
+92:                                               ; preds = %_ZN4absl13base_internal8SpinLock6UnlockEv.exit
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 118), i32 noundef 437, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33)
+          to label %.noexc99 unwind label %101
+
+.noexc99:                                         ; preds = %92
+  unreachable
+
+93:                                               ; preds = %_ZN4absl13base_internal8SpinLock6UnlockEv.exit
+  %94 = sub i64 0, %90
+  %95 = and i64 %91, %94
+  %96 = load i32, ptr %9, align 4, !tbaa !18
+  %97 = and i32 %96, 2
+  %.not78 = icmp eq i32 %97, 0
+  br i1 %.not78, label %103, label %98
+
+98:                                               ; preds = %93
+  %99 = call i64 (i64, ...) @syscall(i64 noundef 9, i64 noundef 0, i64 noundef %95, i64 noundef 3, i64 noundef 34, i64 noundef -1, i64 noundef 0) #12
+  %100 = inttoptr i64 %99 to ptr
+  br label %105
+
+101:                                              ; preds = %92
+  %102 = landingpad { ptr, i32 }
+          cleanup
+  br label %208
+
+103:                                              ; preds = %93
+  %104 = call ptr @mmap(ptr noundef null, i64 noundef %95, i32 noundef 3, i32 noundef 34, i32 noundef -1, i64 noundef 0) #12
+  br label %105
+
+105:                                              ; preds = %103, %98
+  %.063 = phi ptr [ %100, %98 ], [ %104, %103 ]
+  %106 = icmp eq ptr %.063, inttoptr (i64 -1 to ptr)
+  br i1 %106, label %107, label %113
+
+107:                                              ; preds = %105
+  %108 = tail call ptr @__errno_location() #14
+  %109 = load i32, ptr %108, align 4, !tbaa !43
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 118), i32 noundef 569, ptr noundef nonnull @.str.29, i32 noundef %109)
+          to label %110 unwind label %111
+
+110:                                              ; preds = %107
+  unreachable
+
+111:                                              ; preds = %107
+  %112 = landingpad { ptr, i32 }
+          cleanup
+  br label %208
+
+113:                                              ; preds = %105
+  %114 = load atomic i32, ptr %1 monotonic, align 4
+  %115 = and i32 %114, 1
+  %.not.i.i.i = icmp eq i32 %115, 0
+  br i1 %.not.i.i.i, label %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i, label %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.thread.i
+
+_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i: ; preds = %113
+  %116 = or disjoint i32 %114, 1
+  %117 = cmpxchg ptr %1, i32 %114, i32 %116 acquire monotonic, align 4
+  %118 = extractvalue { i32, i1 } %117, 0
+  %.pre.i.i = and i32 %118, 1
+  %119 = icmp eq i32 %.pre.i.i, 0
+  br i1 %119, label %_ZN4absl13base_internal8SpinLock4LockEv.exit, label %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.thread.i
+
+_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.thread.i: ; preds = %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i, %113
+  invoke void @_ZN4absl13base_internal8SpinLock8SlowLockEv(ptr noundef nonnull align 4 dereferenceable(4) %1) #13
+          to label %_ZN4absl13base_internal8SpinLock4LockEv.exit unwind label %125
+
+_ZN4absl13base_internal8SpinLock4LockEv.exit:     ; preds = %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i, %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.thread.i
+  store i64 %95, ptr %.063, align 8, !tbaa !38
+  %120 = ptrtoint ptr %.063 to i64
+  %121 = xor i64 %120, 1283669653
+  %122 = getelementptr inbounds nuw i8, ptr %.063, i64 8
+  store i64 %121, ptr %122, align 8, !tbaa !39
+  %123 = getelementptr inbounds nuw i8, ptr %.063, i64 16
+  store ptr %1, ptr %123, align 8, !tbaa !40
+  %124 = getelementptr inbounds nuw i8, ptr %.063, i64 32
+  invoke fastcc void @_ZN4absl13base_internalL13AddToFreelistEPvPNS0_13LowLevelAlloc5ArenaE(ptr noundef nonnull %124, ptr noundef nonnull %1)
+          to label %41 unwind label %125
+
+125:                                              ; preds = %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.thread.i, %_ZN4absl13base_internal8SpinLock4LockEv.exit
+  %126 = landingpad { ptr, i32 }
+          cleanup
+  br label %208
+
+.critedge:                                        ; preds = %78
+  %127 = getelementptr inbounds nuw i8, ptr %61, i64 8
+  %128 = getelementptr inbounds nuw i8, ptr %61, i64 16
+  call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %5) #12
+  %129 = icmp sgt i32 %52, 0
+  br i1 %129, label %.preheader.preheader.i.i, label %._crit_edge.i.i
+
+.preheader.preheader.i.i:                         ; preds = %.critedge
+  %130 = zext nneg i32 %52 to i64
+  br label %.preheader.i.i
+
+.preheader.i.i:                                   ; preds = %139, %.preheader.preheader.i.i
+  %indvars.iv.i.i = phi i64 [ %130, %.preheader.preheader.i.i ], [ %indvars.iv.next.i.i, %139 ]
+  %.016.i.i = phi ptr [ %36, %.preheader.preheader.i.i ], [ %.1.i.i, %139 ]
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
-  br label %for.cond1.i.i
+  br label %132
 
-for.cond1.i.i:                                    ; preds = %for.cond1.i.i, %for.cond1.preheader.i.i
-  %p.1.i.i = phi ptr [ %35, %for.cond1.i.i ], [ %p.012.i.i, %for.cond1.preheader.i.i ]
-  %next.i.i = getelementptr inbounds nuw i8, ptr %p.1.i.i, i64 40
-  %arrayidx.i.i = getelementptr inbounds [30 x ptr], ptr %next.i.i, i64 0, i64 %indvars.iv.next.i.i
-  %35 = load ptr, ptr %arrayidx.i.i, align 8
-  %cmp2.i.i = icmp ne ptr %35, null
-  %cmp3.i.i82 = icmp ult ptr %35, %13
-  %36 = and i1 %cmp2.i.i, %cmp3.i.i82
-  br i1 %36, label %for.cond1.i.i, label %for.end.i.i, !llvm.loop !9
+._crit_edge.i.i:                                  ; preds = %139, %.critedge
+  %131 = icmp eq i32 %52, 0
+  br i1 %131, label %_ZN4absl13base_internalL18LLA_SkiplistSearchEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit.i, label %142
 
-for.end.i.i:                                      ; preds = %for.cond1.i.i
-  %arrayidx6.i.i = getelementptr inbounds ptr, ptr %prev, i64 %indvars.iv.next.i.i
-  store ptr %p.1.i.i, ptr %arrayidx6.i.i, align 8
-  %cmp.i.i83 = icmp sgt i64 %indvars.iv.i.i, 1
-  br i1 %cmp.i.i83, label %for.cond1.preheader.i.i, label %for.end8.i.i, !llvm.loop !10
+132:                                              ; preds = %132, %.preheader.i.i
+  %.1.i.i = phi ptr [ %135, %132 ], [ %.016.i.i, %.preheader.i.i ]
+  %133 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 40
+  %134 = getelementptr inbounds nuw [30 x ptr], ptr %133, i64 0, i64 %indvars.iv.next.i.i
+  %135 = load ptr, ptr %134, align 8, !tbaa !36
+  %136 = icmp ne ptr %135, null
+  %137 = icmp ult ptr %135, %61
+  %138 = and i1 %136, %137
+  br i1 %138, label %132, label %139, !llvm.loop !48
 
-for.end8.i.i:                                     ; preds = %for.end.i.i, %for.end
-  %cmp10.i.i = icmp eq i32 %11, 0
-  br i1 %cmp10.i.i, label %_ZN4absl13base_internalL18LLA_SkiplistSearchEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit.i, label %cond.false.i.i
+139:                                              ; preds = %132
+  %140 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv.next.i.i
+  store ptr %.1.i.i, ptr %140, align 8, !tbaa !36
+  %141 = icmp sgt i64 %indvars.iv.i.i, 1
+  br i1 %141, label %.preheader.i.i, label %._crit_edge.i.i, !llvm.loop !49
 
-cond.false.i.i:                                   ; preds = %for.end8.i.i
-  %37 = load ptr, ptr %prev, align 16
-  %next12.i.i = getelementptr inbounds nuw i8, ptr %37, i64 40
-  %38 = load ptr, ptr %next12.i.i, align 8
+142:                                              ; preds = %._crit_edge.i.i
+  %143 = load ptr, ptr %5, align 16, !tbaa !36
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 40
+  %145 = load ptr, ptr %144, align 8, !tbaa !36
   br label %_ZN4absl13base_internalL18LLA_SkiplistSearchEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit.i
 
-_ZN4absl13base_internalL18LLA_SkiplistSearchEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit.i: ; preds = %cond.false.i.i, %for.end8.i.i
-  %cond.i.i = phi ptr [ %38, %cond.false.i.i ], [ null, %for.end8.i.i ]
-  %cmp.not.i78 = icmp eq ptr %13, %cond.i.i
-  br i1 %cmp.not.i78, label %for.cond.preheader.i, label %do.body76.invoke
+_ZN4absl13base_internalL18LLA_SkiplistSearchEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit.i: ; preds = %142, %._crit_edge.i.i
+  %146 = phi ptr [ %145, %142 ], [ null, %._crit_edge.i.i ]
+  %.not.i102 = icmp eq ptr %61, %146
+  br i1 %.not.i102, label %.preheader.i, label %.invoke192, !prof !4
 
-for.cond.preheader.i:                             ; preds = %_ZN4absl13base_internalL18LLA_SkiplistSearchEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit.i
-  %levels.i80 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %39 = load i32, ptr %levels.i80, align 8
-  %cmp5.not17.i = icmp eq i32 %39, 0
-  br i1 %cmp5.not17.i, label %for.end.i, label %land.rhs.lr.ph.i
+.preheader.i:                                     ; preds = %_ZN4absl13base_internalL18LLA_SkiplistSearchEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit.i
+  %147 = getelementptr inbounds nuw i8, ptr %61, i64 32
+  %148 = load i32, ptr %147, align 8, !tbaa !47
+  %.not2425.i = icmp eq i32 %148, 0
+  br i1 %.not2425.i, label %.critedge.i, label %.lr.ph.i
 
-land.rhs.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %next9.i = getelementptr inbounds nuw i8, ptr %13, i64 40
-  br label %land.rhs.i
+.lr.ph.i:                                         ; preds = %.preheader.i
+  %149 = getelementptr inbounds nuw i8, ptr %61, i64 40
+  %150 = zext i32 %148 to i64
+  br label %151
 
-land.rhs.i:                                       ; preds = %for.body.i, %land.rhs.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %land.rhs.lr.ph.i ], [ %indvars.iv.next.i, %for.body.i ]
-  %arrayidx.i81 = getelementptr inbounds nuw ptr, ptr %prev, i64 %indvars.iv.i
-  %40 = load ptr, ptr %arrayidx.i81, align 8
-  %next.i = getelementptr inbounds nuw i8, ptr %40, i64 40
-  %arrayidx7.i = getelementptr inbounds nuw [30 x ptr], ptr %next.i, i64 0, i64 %indvars.iv.i
-  %41 = load ptr, ptr %arrayidx7.i, align 8
-  %cmp8.i = icmp eq ptr %41, %13
-  br i1 %cmp8.i, label %for.body.i, label %for.end.loopexit.i
+151:                                              ; preds = %160, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %160 ]
+  %152 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv.i
+  %153 = load ptr, ptr %152, align 8, !tbaa !36
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 40
+  %155 = getelementptr inbounds nuw [30 x ptr], ptr %154, i64 0, i64 %indvars.iv.i
+  %156 = load ptr, ptr %155, align 8, !tbaa !36
+  %157 = icmp eq ptr %156, %61
+  br i1 %157, label %160, label %.critedge.i
 
-for.body.i:                                       ; preds = %land.rhs.i
-  %arrayidx11.i = getelementptr inbounds nuw [30 x ptr], ptr %next9.i, i64 0, i64 %indvars.iv.i
-  %42 = load ptr, ptr %arrayidx11.i, align 8
-  store ptr %42, ptr %arrayidx7.i, align 8
+.critedge.i:                                      ; preds = %160, %151, %.preheader.i
+  %158 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  br i1 %129, label %.lr.ph28.preheader.i, label %_ZN4absl13base_internalL18LLA_SkiplistDeleteEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit
+
+.lr.ph28.preheader.i:                             ; preds = %.critedge.i
+  %159 = zext nneg i32 %52 to i64
+  br label %.lr.ph28.i
+
+160:                                              ; preds = %151
+  %161 = getelementptr inbounds nuw [30 x ptr], ptr %149, i64 0, i64 %indvars.iv.i
+  %162 = load ptr, ptr %161, align 8, !tbaa !36
+  store ptr %162, ptr %155, align 8, !tbaa !36
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %43 = load i32, ptr %levels.i80, align 8
-  %44 = zext i32 %43 to i64
-  %cmp5.not.i = icmp eq i64 %indvars.iv.next.i, %44
-  br i1 %cmp5.not.i, label %for.end.loopexit.i, label %land.rhs.i, !llvm.loop !15
+  %.not24.i = icmp eq i64 %indvars.iv.next.i, %150
+  br i1 %.not24.i, label %.critedge.i, label %151, !llvm.loop !53
 
-for.end.loopexit.i:                               ; preds = %for.body.i, %land.rhs.i
-  %.pr.pre.i = load i32, ptr %levels, align 8
-  br label %for.end.i
+.lr.ph28.i:                                       ; preds = %166, %.lr.ph28.preheader.i
+  %indvars.iv31.i = phi i64 [ %159, %.lr.ph28.preheader.i ], [ %indvars.iv.next32.i, %166 ]
+  %indvars.iv.next32.i = add nsw i64 %indvars.iv31.i, -1
+  %163 = getelementptr inbounds nuw [30 x ptr], ptr %158, i64 0, i64 %indvars.iv.next32.i
+  %164 = load ptr, ptr %163, align 8, !tbaa !36
+  %165 = icmp eq ptr %164, null
+  br i1 %165, label %166, label %_ZN4absl13base_internalL18LLA_SkiplistDeleteEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit
 
-for.end.i:                                        ; preds = %for.end.loopexit.i, %for.cond.preheader.i
-  %.pr.i = phi i32 [ %.pr.pre.i, %for.end.loopexit.i ], [ %11, %for.cond.preheader.i ]
-  %next20.i = getelementptr inbounds nuw i8, ptr %arena, i64 48
-  %cmp1819.i = icmp sgt i32 %.pr.i, 0
-  br i1 %cmp1819.i, label %land.rhs19.preheader.i, label %invoke.cont43
+166:                                              ; preds = %.lr.ph28.i
+  %167 = trunc nuw nsw i64 %indvars.iv.next32.i to i32
+  store i32 %167, ptr %37, align 8, !tbaa !47
+  %168 = icmp samesign ugt i64 %indvars.iv31.i, 1
+  br i1 %168, label %.lr.ph28.i, label %_ZN4absl13base_internalL18LLA_SkiplistDeleteEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit, !llvm.loop !54
 
-land.rhs19.preheader.i:                           ; preds = %for.end.i
-  %45 = zext nneg i32 %.pr.i to i64
-  br label %land.rhs19.i
+_ZN4absl13base_internalL18LLA_SkiplistDeleteEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit: ; preds = %166, %.lr.ph28.i, %.critedge.i
+  %169 = add i64 %42, %32
+  %.not.i104 = icmp ult i64 %169, %32
+  br i1 %.not.i104, label %.invoke192, label %_ZN4absl13base_internalL10CheckedAddEmm.exit106, !prof !27
 
-land.rhs19.i:                                     ; preds = %while.body.i, %land.rhs19.preheader.i
-  %indvars.iv21.i = phi i64 [ %45, %land.rhs19.preheader.i ], [ %indvars.iv.next22.i, %while.body.i ]
-  %indvars.iv.next22.i = add nsw i64 %indvars.iv21.i, -1
-  %arrayidx23.i = getelementptr inbounds nuw [30 x ptr], ptr %next20.i, i64 0, i64 %indvars.iv.next22.i
-  %46 = load ptr, ptr %arrayidx23.i, align 8
-  %cmp24.i = icmp eq ptr %46, null
-  br i1 %cmp24.i, label %while.body.i, label %invoke.cont43
+.invoke192:                                       ; preds = %_ZN4absl13base_internalL18LLA_SkiplistDeleteEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit, %_ZN4absl13base_internalL18LLA_SkiplistSearchEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit.i
+  %170 = phi i32 [ 188, %_ZN4absl13base_internalL18LLA_SkiplistSearchEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit.i ], [ 437, %_ZN4absl13base_internalL18LLA_SkiplistDeleteEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit ]
+  %171 = phi ptr [ @.str.27, %_ZN4absl13base_internalL18LLA_SkiplistSearchEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit.i ], [ @.str.32, %_ZN4absl13base_internalL18LLA_SkiplistDeleteEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit ]
+  %172 = phi ptr [ @.str.28, %_ZN4absl13base_internalL18LLA_SkiplistSearchEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit.i ], [ @.str.33, %_ZN4absl13base_internalL18LLA_SkiplistDeleteEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit ]
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 118), i32 noundef %170, ptr noundef nonnull @.str.1, ptr noundef nonnull %171, ptr noundef nonnull %172)
+          to label %.cont193 unwind label %182
 
-while.body.i:                                     ; preds = %land.rhs19.i
-  %47 = trunc nuw nsw i64 %indvars.iv.next22.i to i32
-  store i32 %47, ptr %levels, align 8
-  %cmp18.i = icmp samesign ugt i64 %indvars.iv21.i, 1
-  br i1 %cmp18.i, label %land.rhs19.i, label %invoke.cont43, !llvm.loop !16
-
-invoke.cont43:                                    ; preds = %while.body.i, %land.rhs19.i, %for.end.i
-  %48 = load i64, ptr %min_size, align 8
-  %add.i86 = add i64 %48, %and.i51
-  %cmp.not.i87 = icmp ult i64 %add.i86, %and.i51
-  br i1 %cmp.not.i87, label %do.body76.invoke, label %invoke.cont45
-
-invoke.cont45:                                    ; preds = %invoke.cont43
-  %49 = load i64, ptr %13, align 8
-  %cmp49.not = icmp ugt i64 %add.i86, %49
-  br i1 %cmp49.not, label %if.end66, label %if.then50
-
-if.then50:                                        ; preds = %invoke.cont45
-  %add.ptr = getelementptr inbounds i8, ptr %13, i64 %and.i51
-  %sub53 = sub i64 %49, %and.i51
-  store i64 %sub53, ptr %add.ptr, align 8
-  %50 = ptrtoint ptr %add.ptr to i64
-  %xor.i92 = xor i64 %50, 1283669653
-  %magic59 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
-  store i64 %xor.i92, ptr %magic59, align 8
-  %arena61 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 16
-  store ptr %arena, ptr %arena61, align 8
-  store i64 %and.i51, ptr %13, align 8
-  %levels64 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 32
-  invoke fastcc void @_ZN4absl13base_internalL13AddToFreelistEPvPNS0_13LowLevelAlloc5ArenaE(ptr noundef nonnull %levels64, ptr noundef nonnull %arena)
-          to label %if.end66 unwind label %lpad.loopexit.split-lp
-
-if.end66:                                         ; preds = %if.then50, %invoke.cont45
-  %xor.i93 = xor i64 %15, 1283669653
-  store i64 %xor.i93, ptr %magic.i.le, align 8
-  %51 = load ptr, ptr %arena22.i.le, align 8
-  %cmp74.not = icmp eq ptr %51, %arena
-  br i1 %cmp74.not, label %do.end86, label %do.body76.invoke
-
-do.body76.invoke:                                 ; preds = %_ZN4absl13base_internalL7IntLog2Emm.exit.i, %invoke.cont15, %do.body46.i, %do.body35.i, %do.body20.i, %do.body8.i, %while.cond, %invoke.cont, %_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockC2EPNS0_13LowLevelAlloc5ArenaE.exit, %if.end66, %invoke.cont43, %_ZN4absl13base_internalL18LLA_SkiplistSearchEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit.i
-  %52 = phi i32 [ 188, %_ZN4absl13base_internalL18LLA_SkiplistSearchEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit.i ], [ 437, %invoke.cont43 ], [ 607, %if.end66 ], [ 437, %_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockC2EPNS0_13LowLevelAlloc5ArenaE.exit ], [ 437, %invoke.cont ], [ 453, %while.cond ], [ 458, %do.body8.i ], [ 459, %do.body20.i ], [ 461, %do.body35.i ], [ 464, %do.body46.i ], [ 437, %invoke.cont15 ], [ 148, %_ZN4absl13base_internalL7IntLog2Emm.exit.i ]
-  %53 = phi ptr [ @.str.27, %_ZN4absl13base_internalL18LLA_SkiplistSearchEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit.i ], [ @.str.32, %invoke.cont43 ], [ @.str.30, %if.end66 ], [ @.str.32, %_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockC2EPNS0_13LowLevelAlloc5ArenaE.exit ], [ @.str.32, %invoke.cont ], [ @.str.34, %while.cond ], [ @.str.36, %do.body8.i ], [ @.str.38, %do.body20.i ], [ @.str.40, %do.body35.i ], [ @.str.42, %do.body46.i ], [ @.str.32, %invoke.cont15 ], [ @.str.25, %_ZN4absl13base_internalL7IntLog2Emm.exit.i ]
-  %54 = phi ptr [ @.str.28, %_ZN4absl13base_internalL18LLA_SkiplistSearchEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit.i ], [ @.str.33, %invoke.cont43 ], [ @.str.31, %if.end66 ], [ @.str.33, %_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockC2EPNS0_13LowLevelAlloc5ArenaE.exit ], [ @.str.33, %invoke.cont ], [ @.str.35, %while.cond ], [ @.str.37, %do.body8.i ], [ @.str.39, %do.body20.i ], [ @.str.41, %do.body35.i ], [ @.str.43, %do.body46.i ], [ @.str.33, %invoke.cont15 ], [ @.str.26, %_ZN4absl13base_internalL7IntLog2Emm.exit.i ]
-  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 118), i32 noundef %52, ptr noundef nonnull @.str.1, ptr noundef nonnull %53, ptr noundef nonnull %54)
-          to label %do.body76.cont unwind label %lpad.loopexit.split-lp
-
-do.body76.cont:                                   ; preds = %do.body76.invoke
+.cont193:                                         ; preds = %.invoke192
   unreachable
 
-do.end86:                                         ; preds = %if.end66
-  %allocation_count = getelementptr inbounds nuw i8, ptr %arena, i64 288
-  %55 = load i32, ptr %allocation_count, align 8
-  %inc = add nsw i32 %55, 1
-  store i32 %inc, ptr %allocation_count, align 8
-  %56 = load ptr, ptr %arena_.i, align 8
-  %57 = load atomic i32, ptr %56 monotonic, align 4
-  %and.i.i = and i32 %57, 2
-  %58 = atomicrmw xchg ptr %56, i32 %and.i.i release, align 4
-  %cmp6.not.i.i = icmp ult i32 %58, 8
-  br i1 %cmp6.not.i.i, label %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i, label %if.then7.i.i
+_ZN4absl13base_internalL10CheckedAddEmm.exit106:  ; preds = %_ZN4absl13base_internalL18LLA_SkiplistDeleteEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit
+  %.not79 = icmp ugt i64 %169, %79
+  br i1 %.not79, label %.thread, label %174
 
-if.then7.i.i:                                     ; preds = %do.end86
-  invoke void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) %56, i32 noundef %58) #12
-          to label %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i unwind label %lpad.loopexit.split-lp
+.thread:                                          ; preds = %_ZN4absl13base_internalL10CheckedAddEmm.exit106
+  %173 = xor i64 %65, 1283669653
+  store i64 %173, ptr %127, align 8, !tbaa !39
+  br label %192
 
-_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i: ; preds = %if.then7.i.i, %do.end86
-  %59 = load i8, ptr %mask_valid_.i, align 1
-  %tobool.i = trunc i8 %59 to i1
-  br i1 %tobool.i, label %if.then.i96, label %if.end89
+174:                                              ; preds = %_ZN4absl13base_internalL10CheckedAddEmm.exit106
+  %175 = getelementptr inbounds nuw i8, ptr %61, i64 %32
+  %176 = sub i64 %79, %32
+  store i64 %176, ptr %175, align 8, !tbaa !38
+  %177 = ptrtoint ptr %175 to i64
+  %178 = xor i64 %177, 1283669653
+  %179 = getelementptr inbounds nuw i8, ptr %175, i64 8
+  store i64 %178, ptr %179, align 8, !tbaa !39
+  %180 = getelementptr inbounds nuw i8, ptr %175, i64 16
+  store ptr %1, ptr %180, align 8, !tbaa !40
+  store i64 %32, ptr %61, align 8, !tbaa !38
+  %181 = getelementptr inbounds nuw i8, ptr %175, i64 32
+  invoke fastcc void @_ZN4absl13base_internalL13AddToFreelistEPvPNS0_13LowLevelAlloc5ArenaE(ptr noundef nonnull %181, ptr noundef nonnull %1)
+          to label %186 unwind label %184
 
-if.then.i96:                                      ; preds = %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i
-  %mask_.i = getelementptr inbounds nuw i8, ptr %section, i64 8
-  %call.i97 = call i32 @pthread_sigmask(i32 noundef 2, ptr noundef nonnull %mask_.i, ptr noundef null) #11
-  %cmp.not.i98 = icmp eq i32 %call.i97, 0
-  br i1 %cmp.not.i98, label %if.end89, label %do.body.invoke
+182:                                              ; preds = %.invoke192, %206, %200
+  %183 = landingpad { ptr, i32 }
+          cleanup
+  br label %207
 
-if.end89:                                         ; preds = %if.then.i96, %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i, %entry
-  %result.0 = phi ptr [ null, %entry ], [ %levels.i80, %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i ], [ %levels.i80, %if.then.i96 ]
-  ret ptr %result.0
+184:                                              ; preds = %174
+  %185 = landingpad { ptr, i32 }
+          cleanup
+  br label %207
+
+186:                                              ; preds = %174
+  %.pre = load ptr, ptr %128, align 8, !tbaa !40
+  %187 = xor i64 %65, 1283669653
+  store i64 %187, ptr %127, align 8, !tbaa !39
+  %.not80 = icmp eq ptr %.pre, %1
+  br i1 %.not80, label %192, label %188, !prof !55
+
+188:                                              ; preds = %186
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 118), i32 noundef 607, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31)
+          to label %189 unwind label %190
+
+189:                                              ; preds = %188
+  unreachable
+
+190:                                              ; preds = %188
+  %191 = landingpad { ptr, i32 }
+          cleanup
+  br label %207
+
+192:                                              ; preds = %.thread, %186
+  %193 = getelementptr inbounds nuw i8, ptr %1, i64 288
+  %194 = load i32, ptr %193, align 8, !tbaa !5
+  %195 = add nsw i32 %194, 1
+  store i32 %195, ptr %193, align 8, !tbaa !5
+  %196 = load ptr, ptr %8, align 8, !tbaa !33
+  %197 = load atomic i32, ptr %196 monotonic, align 4
+  %198 = and i32 %197, 2
+  %199 = atomicrmw xchg ptr %196, i32 %198 release, align 4
+  %.not4.i.i = icmp ult i32 %199, 8
+  br i1 %.not4.i.i, label %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i, label %200
+
+200:                                              ; preds = %192
+  invoke void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) %196, i32 noundef %199) #13
+          to label %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i unwind label %182
+
+_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i: ; preds = %200, %192
+  %201 = load i8, ptr %7, align 1, !tbaa !32, !range !34, !noundef !35
+  %202 = trunc nuw i8 %201 to i1
+  br i1 %202, label %203, label %_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockD2Ev.exit
+
+203:                                              ; preds = %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i
+  %204 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %205 = call i32 @pthread_sigmask(i32 noundef 2, ptr noundef nonnull %204, ptr noundef null) #12
+  %.not.i107 = icmp eq i32 %205, 0
+  br i1 %.not.i107, label %_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockD2Ev.exit, label %206
+
+206:                                              ; preds = %203
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 118), i32 noundef 301, ptr noundef nonnull @.str.18, i32 noundef %205)
+          to label %.noexc109 unwind label %182
+
+.noexc109:                                        ; preds = %206
+  unreachable
+
+_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockD2Ev.exit: ; preds = %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i, %203
+  call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #12
+  br label %209
+
+207:                                              ; preds = %190, %184, %182
+  %.pn = phi { ptr, i32 } [ %191, %190 ], [ %183, %182 ], [ %185, %184 ]
+  call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %5) #12
+  br label %208
+
+208:                                              ; preds = %.loopexit, %.loopexit.split-lp, %83, %111, %125, %101, %207, %81
+  %.pn82.pn.pn.pn = phi { ptr, i32 } [ %.pn, %207 ], [ %82, %81 ], [ %84, %83 ], [ %102, %101 ], [ %112, %111 ], [ %126, %125 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.val = load i8, ptr %4, align 8, !tbaa !28, !range !34, !noundef !35
+  call fastcc void @_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockD2Ev(i8 %.val) #12
+  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #12
+  resume { ptr, i32 } %.pn82.pn.pn.pn
+
+209:                                              ; preds = %_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockD2Ev.exit, %2
+  %.0 = phi ptr [ %147, %_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockD2Ev.exit ], [ null, %2 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind
-declare i64 @sysconf(i32 noundef) local_unnamed_addr #3
+declare i64 @sysconf(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare i32 @sigfillset(ptr noundef) local_unnamed_addr #3
+declare i32 @sigfillset(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare i32 @pthread_sigmask(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @pthread_sigmask(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: cold
-declare void @_ZN4absl13base_internal8SpinLock8SlowLockEv(ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #6
+declare void @_ZN4absl13base_internal8SpinLock8SlowLockEv(ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #8
 
-; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #7 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #11
-  tail call void @_ZSt9terminatev() #14
+; Function Attrs: noinline noreturn nounwind uwtable
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #9 comdat {
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #12
+  tail call void @_ZSt9terminatev() #15
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #8
+declare void @_ZSt9terminatev() local_unnamed_addr #10
 
 ; Function Attrs: cold
-declare void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4), i32 noundef) local_unnamed_addr #6
+declare void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4), i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind
-declare i64 @syscall(i64 noundef, ...) local_unnamed_addr #3
+declare i64 @syscall(i64 noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4absl13base_internalL8CoalesceEPNS0_12_GLOBAL__N_19AllocListE(ptr noundef %a) unnamed_addr #0 {
-entry:
-  %prev = alloca [30 x ptr], align 16
-  %next = getelementptr inbounds nuw i8, ptr %a, i64 40
-  %0 = load ptr, ptr %next, align 8
-  %cmp.not = icmp eq ptr %0, null
-  br i1 %cmp.not, label %if.end, label %land.lhs.true
+define internal fastcc void @_ZN4absl13base_internalL8CoalesceEPNS0_12_GLOBAL__N_19AllocListE(ptr noundef %0) unnamed_addr #0 {
+  %2 = alloca [30 x ptr], align 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %4 = load ptr, ptr %3, align 8, !tbaa !36
+  %.not = icmp eq ptr %4, null
+  br i1 %.not, label %151, label %5
 
-land.lhs.true:                                    ; preds = %entry
-  %1 = load i64, ptr %a, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %a, i64 %1
-  %cmp1 = icmp eq ptr %add.ptr, %0
-  br i1 %cmp1, label %if.then, label %if.end
+5:                                                ; preds = %1
+  %6 = load i64, ptr %0, align 8, !tbaa !38
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 %6
+  %8 = icmp eq ptr %7, %4
+  br i1 %8, label %9, label %151
 
-if.then:                                          ; preds = %land.lhs.true
-  %arena3 = getelementptr inbounds nuw i8, ptr %a, i64 16
-  %2 = load ptr, ptr %arena3, align 8
-  %3 = load i64, ptr %0, align 8
-  %add = add i64 %3, %1
-  store i64 %add, ptr %a, align 8
-  %magic = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %freelist = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %levels.i.i = getelementptr inbounds nuw i8, ptr %2, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %magic, i8 0, i64 16, i1 false)
-  %4 = load i32, ptr %levels.i.i, align 8
-  %cmp11.i.i = icmp sgt i32 %4, 0
-  br i1 %cmp11.i.i, label %for.cond1.preheader.preheader.i.i, label %for.end8.i.i
+9:                                                ; preds = %5
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %11 = load ptr, ptr %10, align 8, !tbaa !40
+  %12 = load i64, ptr %4, align 8, !tbaa !38
+  %13 = add i64 %12, %6
+  store i64 %13, ptr %0, align 8, !tbaa !38
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
+  call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %2) #12
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 40
+  %17 = load i32, ptr %16, align 8, !tbaa !47
+  %18 = icmp sgt i32 %17, 0
+  br i1 %18, label %.preheader.preheader.i.i, label %._crit_edge.i.i
 
-for.cond1.preheader.preheader.i.i:                ; preds = %if.then
-  %5 = zext nneg i32 %4 to i64
-  br label %for.cond1.preheader.i.i
+.preheader.preheader.i.i:                         ; preds = %9
+  %19 = zext nneg i32 %17 to i64
+  br label %.preheader.i.i
 
-for.cond1.preheader.i.i:                          ; preds = %for.end.i.i, %for.cond1.preheader.preheader.i.i
-  %indvars.iv.i.i = phi i64 [ %5, %for.cond1.preheader.preheader.i.i ], [ %indvars.iv.next.i.i, %for.end.i.i ]
-  %p.012.i.i = phi ptr [ %freelist, %for.cond1.preheader.preheader.i.i ], [ %p.1.i.i, %for.end.i.i ]
+.preheader.i.i:                                   ; preds = %28, %.preheader.preheader.i.i
+  %indvars.iv.i.i = phi i64 [ %19, %.preheader.preheader.i.i ], [ %indvars.iv.next.i.i, %28 ]
+  %.016.i.i = phi ptr [ %15, %.preheader.preheader.i.i ], [ %.1.i.i, %28 ]
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
-  br label %for.cond1.i.i
+  br label %21
 
-for.cond1.i.i:                                    ; preds = %for.cond1.i.i, %for.cond1.preheader.i.i
-  %p.1.i.i = phi ptr [ %6, %for.cond1.i.i ], [ %p.012.i.i, %for.cond1.preheader.i.i ]
-  %next.i.i = getelementptr inbounds nuw i8, ptr %p.1.i.i, i64 40
-  %arrayidx.i.i = getelementptr inbounds [30 x ptr], ptr %next.i.i, i64 0, i64 %indvars.iv.next.i.i
-  %6 = load ptr, ptr %arrayidx.i.i, align 8
-  %cmp2.i.i = icmp ne ptr %6, null
-  %cmp3.i.i = icmp ult ptr %6, %0
-  %7 = and i1 %cmp2.i.i, %cmp3.i.i
-  br i1 %7, label %for.cond1.i.i, label %for.end.i.i, !llvm.loop !9
+._crit_edge.i.i:                                  ; preds = %28, %9
+  %20 = icmp eq i32 %17, 0
+  br i1 %20, label %_ZN4absl13base_internalL18LLA_SkiplistSearchEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit.i, label %31
 
-for.end.i.i:                                      ; preds = %for.cond1.i.i
-  %arrayidx6.i.i = getelementptr inbounds ptr, ptr %prev, i64 %indvars.iv.next.i.i
-  store ptr %p.1.i.i, ptr %arrayidx6.i.i, align 8
-  %cmp.i.i = icmp sgt i64 %indvars.iv.i.i, 1
-  br i1 %cmp.i.i, label %for.cond1.preheader.i.i, label %for.end8.i.i, !llvm.loop !10
+21:                                               ; preds = %21, %.preheader.i.i
+  %.1.i.i = phi ptr [ %24, %21 ], [ %.016.i.i, %.preheader.i.i ]
+  %22 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 40
+  %23 = getelementptr inbounds nuw [30 x ptr], ptr %22, i64 0, i64 %indvars.iv.next.i.i
+  %24 = load ptr, ptr %23, align 8, !tbaa !36
+  %25 = icmp ne ptr %24, null
+  %26 = icmp ult ptr %24, %4
+  %27 = and i1 %25, %26
+  br i1 %27, label %21, label %28, !llvm.loop !48
 
-for.end8.i.i:                                     ; preds = %for.end.i.i, %if.then
-  %cmp10.i.i = icmp eq i32 %4, 0
-  br i1 %cmp10.i.i, label %_ZN4absl13base_internalL18LLA_SkiplistSearchEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit.i, label %cond.false.i.i
+28:                                               ; preds = %21
+  %29 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.next.i.i
+  store ptr %.1.i.i, ptr %29, align 8, !tbaa !36
+  %30 = icmp sgt i64 %indvars.iv.i.i, 1
+  br i1 %30, label %.preheader.i.i, label %._crit_edge.i.i, !llvm.loop !49
 
-cond.false.i.i:                                   ; preds = %for.end8.i.i
-  %8 = load ptr, ptr %prev, align 16
-  %next12.i.i = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %9 = load ptr, ptr %next12.i.i, align 8
+31:                                               ; preds = %._crit_edge.i.i
+  %32 = load ptr, ptr %2, align 16, !tbaa !36
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 40
+  %34 = load ptr, ptr %33, align 8, !tbaa !36
   br label %_ZN4absl13base_internalL18LLA_SkiplistSearchEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit.i
 
-_ZN4absl13base_internalL18LLA_SkiplistSearchEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit.i: ; preds = %cond.false.i.i, %for.end8.i.i
-  %cond.i.i = phi ptr [ %9, %cond.false.i.i ], [ null, %for.end8.i.i ]
-  %cmp.not.i = icmp eq ptr %0, %cond.i.i
-  br i1 %cmp.not.i, label %for.cond.preheader.i, label %do.body1.i
+_ZN4absl13base_internalL18LLA_SkiplistSearchEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit.i: ; preds = %31, %._crit_edge.i.i
+  %35 = phi ptr [ %34, %31 ], [ null, %._crit_edge.i.i ]
+  %.not.i = icmp eq ptr %4, %35
+  br i1 %.not.i, label %.preheader.i, label %40, !prof !4
 
-for.cond.preheader.i:                             ; preds = %_ZN4absl13base_internalL18LLA_SkiplistSearchEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit.i
-  %levels.i = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %10 = load i32, ptr %levels.i, align 8
-  %cmp5.not17.i = icmp eq i32 %10, 0
-  br i1 %cmp5.not17.i, label %for.end.i, label %land.rhs.lr.ph.i
+.preheader.i:                                     ; preds = %_ZN4absl13base_internalL18LLA_SkiplistSearchEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit.i
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %37 = load i32, ptr %36, align 8, !tbaa !47
+  %.not2425.i = icmp eq i32 %37, 0
+  br i1 %.not2425.i, label %.critedge.i, label %.lr.ph.i
 
-land.rhs.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %next9.i = getelementptr inbounds nuw i8, ptr %0, i64 40
-  br label %land.rhs.i
+.lr.ph.i:                                         ; preds = %.preheader.i
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %39 = zext i32 %37 to i64
+  br label %41
 
-do.body1.i:                                       ; preds = %_ZN4absl13base_internalL18LLA_SkiplistSearchEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit.i
+40:                                               ; preds = %_ZN4absl13base_internalL18LLA_SkiplistSearchEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit.i
   tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 118), i32 noundef 188, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28)
   unreachable
 
-land.rhs.i:                                       ; preds = %for.body.i, %land.rhs.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %land.rhs.lr.ph.i ], [ %indvars.iv.next.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %prev, i64 %indvars.iv.i
-  %11 = load ptr, ptr %arrayidx.i, align 8
-  %next.i = getelementptr inbounds nuw i8, ptr %11, i64 40
-  %arrayidx7.i = getelementptr inbounds nuw [30 x ptr], ptr %next.i, i64 0, i64 %indvars.iv.i
-  %12 = load ptr, ptr %arrayidx7.i, align 8
-  %cmp8.i = icmp eq ptr %12, %0
-  br i1 %cmp8.i, label %for.body.i, label %for.end.loopexit.i
+41:                                               ; preds = %53, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %53 ]
+  %42 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.i
+  %43 = load ptr, ptr %42, align 8, !tbaa !36
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 40
+  %45 = getelementptr inbounds nuw [30 x ptr], ptr %44, i64 0, i64 %indvars.iv.i
+  %46 = load ptr, ptr %45, align 8, !tbaa !36
+  %47 = icmp eq ptr %46, %4
+  br i1 %47, label %53, label %.critedge.i
 
-for.body.i:                                       ; preds = %land.rhs.i
-  %arrayidx11.i = getelementptr inbounds nuw [30 x ptr], ptr %next9.i, i64 0, i64 %indvars.iv.i
-  %13 = load ptr, ptr %arrayidx11.i, align 8
-  store ptr %13, ptr %arrayidx7.i, align 8
+.critedge.i:                                      ; preds = %53, %41, %.preheader.i
+  %48 = getelementptr inbounds nuw i8, ptr %11, i64 48
+  br i1 %18, label %.lr.ph28.preheader.i, label %._crit_edge.i.i20
+
+.lr.ph28.preheader.i:                             ; preds = %.critedge.i
+  %49 = zext nneg i32 %17 to i64
+  %indvars.iv.next32.i72 = add nsw i64 %49, -1
+  %50 = getelementptr inbounds nuw [30 x ptr], ptr %48, i64 0, i64 %indvars.iv.next32.i72
+  %51 = load ptr, ptr %50, align 8, !tbaa !36
+  %52 = icmp eq ptr %51, null
+  br i1 %52, label %.lr.ph, label %_ZN4absl13base_internalL18LLA_SkiplistDeleteEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit
+
+53:                                               ; preds = %41
+  %54 = getelementptr inbounds nuw [30 x ptr], ptr %38, i64 0, i64 %indvars.iv.i
+  %55 = load ptr, ptr %54, align 8, !tbaa !36
+  store ptr %55, ptr %45, align 8, !tbaa !36
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %14 = load i32, ptr %levels.i, align 8
-  %15 = zext i32 %14 to i64
-  %cmp5.not.i = icmp eq i64 %indvars.iv.next.i, %15
-  br i1 %cmp5.not.i, label %for.end.loopexit.i, label %land.rhs.i, !llvm.loop !15
+  %.not24.i = icmp eq i64 %indvars.iv.next.i, %39
+  br i1 %.not24.i, label %.critedge.i, label %41, !llvm.loop !53
 
-for.end.loopexit.i:                               ; preds = %for.body.i, %land.rhs.i
-  %.pr.pre.i = load i32, ptr %levels.i.i, align 8
-  br label %for.end.i
+.lr.ph28.i:                                       ; preds = %.lr.ph
+  %indvars.iv.next32.i = add nsw i64 %indvars.iv.next32.i74, -1
+  %56 = getelementptr inbounds nuw [30 x ptr], ptr %48, i64 0, i64 %indvars.iv.next32.i
+  %57 = load ptr, ptr %56, align 8, !tbaa !36
+  %58 = icmp eq ptr %57, null
+  br i1 %58, label %.lr.ph, label %_ZN4absl13base_internalL18LLA_SkiplistDeleteEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit.loopexit, !llvm.loop !54
 
-for.end.i:                                        ; preds = %for.end.loopexit.i, %for.cond.preheader.i
-  %.pr.i = phi i32 [ %.pr.pre.i, %for.end.loopexit.i ], [ %4, %for.cond.preheader.i ]
-  %next20.i = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %cmp1819.i = icmp sgt i32 %.pr.i, 0
-  br i1 %cmp1819.i, label %land.rhs19.preheader.i, label %for.end8.i.i20
+.lr.ph:                                           ; preds = %.lr.ph28.preheader.i, %.lr.ph28.i
+  %indvars.iv.next32.i74 = phi i64 [ %indvars.iv.next32.i, %.lr.ph28.i ], [ %indvars.iv.next32.i72, %.lr.ph28.preheader.i ]
+  %indvars.iv31.i73 = phi i64 [ %indvars.iv.next32.i74, %.lr.ph28.i ], [ %49, %.lr.ph28.preheader.i ]
+  %59 = trunc nuw nsw i64 %indvars.iv.next32.i74 to i32
+  %60 = icmp samesign ugt i64 %indvars.iv31.i73, 1
+  br i1 %60, label %.lr.ph28.i, label %._crit_edge.i.i20.loopexit77, !llvm.loop !54
 
-land.rhs19.preheader.i:                           ; preds = %for.end.i
-  %16 = zext nneg i32 %.pr.i to i64
-  %indvars.iv.next22.i110 = add nsw i64 %16, -1
-  %arrayidx23.i111 = getelementptr inbounds nuw [30 x ptr], ptr %next20.i, i64 0, i64 %indvars.iv.next22.i110
-  %17 = load ptr, ptr %arrayidx23.i111, align 8
-  %cmp24.i112 = icmp eq ptr %17, null
-  br i1 %cmp24.i112, label %while.body.i, label %_ZN4absl13base_internalL18LLA_SkiplistDeleteEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit
+_ZN4absl13base_internalL18LLA_SkiplistDeleteEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit.loopexit: ; preds = %.lr.ph28.i
+  store i32 %59, ptr %16, align 8, !tbaa !47
+  br label %_ZN4absl13base_internalL18LLA_SkiplistDeleteEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit
 
-land.rhs19.i:                                     ; preds = %while.body.i
-  %indvars.iv.next22.i = add nsw i64 %indvars.iv.next22.i114, -1
-  %arrayidx23.i = getelementptr inbounds nuw [30 x ptr], ptr %next20.i, i64 0, i64 %indvars.iv.next22.i
-  %18 = load ptr, ptr %arrayidx23.i, align 8
-  %cmp24.i = icmp eq ptr %18, null
-  br i1 %cmp24.i, label %while.body.i, label %_ZN4absl13base_internalL18LLA_SkiplistDeleteEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit, !llvm.loop !16
+_ZN4absl13base_internalL18LLA_SkiplistDeleteEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit: ; preds = %_ZN4absl13base_internalL18LLA_SkiplistDeleteEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit.loopexit, %.lr.ph28.preheader.i
+  %.pr64.lcssa = phi i32 [ %17, %.lr.ph28.preheader.i ], [ %59, %_ZN4absl13base_internalL18LLA_SkiplistDeleteEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit.loopexit ]
+  %61 = icmp sgt i32 %.pr64.lcssa, 0
+  br i1 %61, label %.preheader.preheader.i.i34, label %._crit_edge.i.i20
 
-while.body.i:                                     ; preds = %land.rhs19.preheader.i, %land.rhs19.i
-  %indvars.iv.next22.i114 = phi i64 [ %indvars.iv.next22.i, %land.rhs19.i ], [ %indvars.iv.next22.i110, %land.rhs19.preheader.i ]
-  %indvars.iv21.i113 = phi i64 [ %indvars.iv.next22.i114, %land.rhs19.i ], [ %16, %land.rhs19.preheader.i ]
-  %19 = trunc nuw nsw i64 %indvars.iv.next22.i114 to i32
-  store i32 %19, ptr %levels.i.i, align 8
-  %cmp18.i = icmp samesign ugt i64 %indvars.iv21.i113, 1
-  br i1 %cmp18.i, label %land.rhs19.i, label %_ZN4absl13base_internalL18LLA_SkiplistSearchEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit.i24, !llvm.loop !16
+.preheader.preheader.i.i34:                       ; preds = %_ZN4absl13base_internalL18LLA_SkiplistDeleteEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit
+  %62 = zext nneg i32 %.pr64.lcssa to i64
+  br label %.preheader.i.i35
 
-_ZN4absl13base_internalL18LLA_SkiplistDeleteEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit: ; preds = %land.rhs19.i, %land.rhs19.preheader.i
-  %.pr105.lcssa = phi i32 [ %.pr.i, %land.rhs19.preheader.i ], [ %19, %land.rhs19.i ]
-  %cmp11.i.i19 = icmp sgt i32 %.pr105.lcssa, 0
-  br i1 %cmp11.i.i19, label %for.cond1.preheader.preheader.i.i57, label %for.end8.i.i20
+.preheader.i.i35:                                 ; preds = %73, %.preheader.preheader.i.i34
+  %indvars.iv.i.i36 = phi i64 [ %62, %.preheader.preheader.i.i34 ], [ %indvars.iv.next.i.i38, %73 ]
+  %.016.i.i37 = phi ptr [ %15, %.preheader.preheader.i.i34 ], [ %.1.i.i39, %73 ]
+  %indvars.iv.next.i.i38 = add nsw i64 %indvars.iv.i.i36, -1
+  br label %66
 
-for.cond1.preheader.preheader.i.i57:              ; preds = %_ZN4absl13base_internalL18LLA_SkiplistDeleteEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit
-  %20 = zext nneg i32 %.pr105.lcssa to i64
-  br label %for.cond1.preheader.i.i58
+._crit_edge.i.i20.loopexit77:                     ; preds = %.lr.ph
+  store i32 %59, ptr %16, align 8, !tbaa !47
+  br label %._crit_edge.i.i20
 
-for.cond1.preheader.i.i58:                        ; preds = %for.end.i.i68, %for.cond1.preheader.preheader.i.i57
-  %indvars.iv.i.i59 = phi i64 [ %20, %for.cond1.preheader.preheader.i.i57 ], [ %indvars.iv.next.i.i61, %for.end.i.i68 ]
-  %p.012.i.i60 = phi ptr [ %freelist, %for.cond1.preheader.preheader.i.i57 ], [ %p.1.i.i63, %for.end.i.i68 ]
-  %indvars.iv.next.i.i61 = add nsw i64 %indvars.iv.i.i59, -1
-  br label %for.cond1.i.i62
+._crit_edge.i.i20:                                ; preds = %73, %._crit_edge.i.i20.loopexit77, %.critedge.i, %_ZN4absl13base_internalL18LLA_SkiplistDeleteEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit
+  %63 = phi i1 [ false, %_ZN4absl13base_internalL18LLA_SkiplistDeleteEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit ], [ false, %.critedge.i ], [ false, %._crit_edge.i.i20.loopexit77 ], [ true, %73 ]
+  %64 = phi i32 [ %.pr64.lcssa, %_ZN4absl13base_internalL18LLA_SkiplistDeleteEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit ], [ %17, %.critedge.i ], [ 0, %._crit_edge.i.i20.loopexit77 ], [ %.pr64.lcssa, %73 ]
+  %65 = icmp eq i32 %64, 0
+  br i1 %65, label %_ZN4absl13base_internalL18LLA_SkiplistSearchEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit.i21, label %76
 
-for.cond1.i.i62:                                  ; preds = %for.cond1.i.i62, %for.cond1.preheader.i.i58
-  %p.1.i.i63 = phi ptr [ %21, %for.cond1.i.i62 ], [ %p.012.i.i60, %for.cond1.preheader.i.i58 ]
-  %next.i.i64 = getelementptr inbounds nuw i8, ptr %p.1.i.i63, i64 40
-  %arrayidx.i.i65 = getelementptr inbounds [30 x ptr], ptr %next.i.i64, i64 0, i64 %indvars.iv.next.i.i61
-  %21 = load ptr, ptr %arrayidx.i.i65, align 8
-  %cmp2.i.i66 = icmp ne ptr %21, null
-  %cmp3.i.i67 = icmp ult ptr %21, %a
-  %22 = and i1 %cmp2.i.i66, %cmp3.i.i67
-  br i1 %22, label %for.cond1.i.i62, label %for.end.i.i68, !llvm.loop !9
+66:                                               ; preds = %66, %.preheader.i.i35
+  %.1.i.i39 = phi ptr [ %69, %66 ], [ %.016.i.i37, %.preheader.i.i35 ]
+  %67 = getelementptr inbounds nuw i8, ptr %.1.i.i39, i64 40
+  %68 = getelementptr inbounds nuw [30 x ptr], ptr %67, i64 0, i64 %indvars.iv.next.i.i38
+  %69 = load ptr, ptr %68, align 8, !tbaa !36
+  %70 = icmp ne ptr %69, null
+  %71 = icmp ult ptr %69, %0
+  %72 = and i1 %70, %71
+  br i1 %72, label %66, label %73, !llvm.loop !48
 
-for.end.i.i68:                                    ; preds = %for.cond1.i.i62
-  %arrayidx6.i.i69 = getelementptr inbounds ptr, ptr %prev, i64 %indvars.iv.next.i.i61
-  store ptr %p.1.i.i63, ptr %arrayidx6.i.i69, align 8
-  %cmp.i.i70 = icmp sgt i64 %indvars.iv.i.i59, 1
-  br i1 %cmp.i.i70, label %for.cond1.preheader.i.i58, label %for.end8.i.i20, !llvm.loop !10
+73:                                               ; preds = %66
+  %74 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.next.i.i38
+  store ptr %.1.i.i39, ptr %74, align 8, !tbaa !36
+  %75 = icmp sgt i64 %indvars.iv.i.i36, 1
+  br i1 %75, label %.preheader.i.i35, label %._crit_edge.i.i20, !llvm.loop !49
 
-for.end8.i.i20:                                   ; preds = %for.end.i.i68, %for.end.i, %_ZN4absl13base_internalL18LLA_SkiplistDeleteEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit
-  %23 = phi i32 [ %.pr105.lcssa, %_ZN4absl13base_internalL18LLA_SkiplistDeleteEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit ], [ %.pr.i, %for.end.i ], [ %.pr105.lcssa, %for.end.i.i68 ]
-  %cmp10.i.i21 = icmp eq i32 %23, 0
-  br i1 %cmp10.i.i21, label %_ZN4absl13base_internalL18LLA_SkiplistSearchEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit.i24, label %cond.false.i.i22
+76:                                               ; preds = %._crit_edge.i.i20
+  %77 = load ptr, ptr %2, align 16, !tbaa !36
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 40
+  %79 = load ptr, ptr %78, align 8, !tbaa !36
+  br label %_ZN4absl13base_internalL18LLA_SkiplistSearchEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit.i21
 
-cond.false.i.i22:                                 ; preds = %for.end8.i.i20
-  %24 = load ptr, ptr %prev, align 16
-  %next12.i.i23 = getelementptr inbounds nuw i8, ptr %24, i64 40
-  %25 = load ptr, ptr %next12.i.i23, align 8
-  br label %_ZN4absl13base_internalL18LLA_SkiplistSearchEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit.i24
+_ZN4absl13base_internalL18LLA_SkiplistSearchEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit.i21: ; preds = %76, %._crit_edge.i.i20
+  %80 = phi ptr [ %79, %76 ], [ null, %._crit_edge.i.i20 ]
+  %.not.i22 = icmp eq ptr %0, %80
+  br i1 %.not.i22, label %.preheader.i23, label %84, !prof !4
 
-_ZN4absl13base_internalL18LLA_SkiplistSearchEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit.i24: ; preds = %while.body.i, %cond.false.i.i22, %for.end8.i.i20
-  %26 = phi i32 [ %23, %cond.false.i.i22 ], [ 0, %for.end8.i.i20 ], [ 0, %while.body.i ]
-  %cond.i.i25 = phi ptr [ %25, %cond.false.i.i22 ], [ null, %for.end8.i.i20 ], [ null, %while.body.i ]
-  %cmp.not.i26 = icmp eq ptr %a, %cond.i.i25
-  br i1 %cmp.not.i26, label %for.cond.preheader.i28, label %do.body1.i27
+.preheader.i23:                                   ; preds = %_ZN4absl13base_internalL18LLA_SkiplistSearchEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit.i21
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %82 = load i32, ptr %81, align 8, !tbaa !47
+  %.not2425.i24 = icmp eq i32 %82, 0
+  br i1 %.not2425.i24, label %.critedge.i27, label %.lr.ph.i25
 
-for.cond.preheader.i28:                           ; preds = %_ZN4absl13base_internalL18LLA_SkiplistSearchEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit.i24
-  %levels.i29 = getelementptr inbounds nuw i8, ptr %a, i64 32
-  %27 = load i32, ptr %levels.i29, align 8
-  %cmp5.not17.i30 = icmp eq i32 %27, 0
-  br i1 %cmp5.not17.i30, label %for.end.i41, label %land.rhs.i33
+.lr.ph.i25:                                       ; preds = %.preheader.i23
+  %83 = zext i32 %82 to i64
+  br label %85
 
-do.body1.i27:                                     ; preds = %_ZN4absl13base_internalL18LLA_SkiplistSearchEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit.i24
+84:                                               ; preds = %_ZN4absl13base_internalL18LLA_SkiplistSearchEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit.i21
   tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 118), i32 noundef 188, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28)
   unreachable
 
-land.rhs.i33:                                     ; preds = %for.cond.preheader.i28, %for.body.i53
-  %indvars.iv.i34 = phi i64 [ %indvars.iv.next.i55, %for.body.i53 ], [ 0, %for.cond.preheader.i28 ]
-  %arrayidx.i35 = getelementptr inbounds nuw ptr, ptr %prev, i64 %indvars.iv.i34
-  %28 = load ptr, ptr %arrayidx.i35, align 8
-  %next.i36 = getelementptr inbounds nuw i8, ptr %28, i64 40
-  %arrayidx7.i37 = getelementptr inbounds nuw [30 x ptr], ptr %next.i36, i64 0, i64 %indvars.iv.i34
-  %29 = load ptr, ptr %arrayidx7.i37, align 8
-  %cmp8.i38 = icmp eq ptr %29, %a
-  br i1 %cmp8.i38, label %for.body.i53, label %for.end.loopexit.i39
+85:                                               ; preds = %93, %.lr.ph.i25
+  %indvars.iv.i26 = phi i64 [ 0, %.lr.ph.i25 ], [ %indvars.iv.next.i32, %93 ]
+  %86 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.i26
+  %87 = load ptr, ptr %86, align 8, !tbaa !36
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 40
+  %89 = getelementptr inbounds nuw [30 x ptr], ptr %88, i64 0, i64 %indvars.iv.i26
+  %90 = load ptr, ptr %89, align 8, !tbaa !36
+  %91 = icmp eq ptr %90, %0
+  br i1 %91, label %93, label %.critedge.i27
 
-for.body.i53:                                     ; preds = %land.rhs.i33
-  %arrayidx11.i54 = getelementptr inbounds nuw [30 x ptr], ptr %next, i64 0, i64 %indvars.iv.i34
-  %30 = load ptr, ptr %arrayidx11.i54, align 8
-  store ptr %30, ptr %arrayidx7.i37, align 8
-  %indvars.iv.next.i55 = add nuw nsw i64 %indvars.iv.i34, 1
-  %31 = load i32, ptr %levels.i29, align 8
-  %32 = zext i32 %31 to i64
-  %cmp5.not.i56 = icmp eq i64 %indvars.iv.next.i55, %32
-  br i1 %cmp5.not.i56, label %for.end.loopexit.i39, label %land.rhs.i33, !llvm.loop !15
+.critedge.i27:                                    ; preds = %93, %85, %.preheader.i23
+  br i1 %63, label %.lr.ph28.preheader.i28, label %_ZN4absl13base_internalL18LLA_SkiplistDeleteEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit40
 
-for.end.loopexit.i39:                             ; preds = %for.body.i53, %land.rhs.i33
-  %.pr.pre.i40 = load i32, ptr %levels.i.i, align 8
-  br label %for.end.i41
+.lr.ph28.preheader.i28:                           ; preds = %.critedge.i27
+  %92 = zext nneg i32 %64 to i64
+  br label %.lr.ph28.i29
 
-for.end.i41:                                      ; preds = %for.end.loopexit.i39, %for.cond.preheader.i28
-  %.pr.i42 = phi i32 [ %.pr.pre.i40, %for.end.loopexit.i39 ], [ %26, %for.cond.preheader.i28 ]
-  %cmp1819.i44 = icmp sgt i32 %.pr.i42, 0
-  br i1 %cmp1819.i44, label %land.rhs19.preheader.i45, label %_ZN4absl13base_internalL18LLA_SkiplistDeleteEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit73
+93:                                               ; preds = %85
+  %94 = getelementptr inbounds nuw [30 x ptr], ptr %3, i64 0, i64 %indvars.iv.i26
+  %95 = load ptr, ptr %94, align 8, !tbaa !36
+  store ptr %95, ptr %89, align 8, !tbaa !36
+  %indvars.iv.next.i32 = add nuw nsw i64 %indvars.iv.i26, 1
+  %.not24.i33 = icmp eq i64 %indvars.iv.next.i32, %83
+  br i1 %.not24.i33, label %.critedge.i27, label %85, !llvm.loop !53
 
-land.rhs19.preheader.i45:                         ; preds = %for.end.i41
-  %33 = zext nneg i32 %.pr.i42 to i64
-  br label %land.rhs19.i46
+.lr.ph28.i29:                                     ; preds = %99, %.lr.ph28.preheader.i28
+  %indvars.iv31.i30 = phi i64 [ %92, %.lr.ph28.preheader.i28 ], [ %indvars.iv.next32.i31, %99 ]
+  %indvars.iv.next32.i31 = add nsw i64 %indvars.iv31.i30, -1
+  %96 = getelementptr inbounds nuw [30 x ptr], ptr %48, i64 0, i64 %indvars.iv.next32.i31
+  %97 = load ptr, ptr %96, align 8, !tbaa !36
+  %98 = icmp eq ptr %97, null
+  br i1 %98, label %99, label %_ZN4absl13base_internalL18LLA_SkiplistDeleteEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit40
 
-land.rhs19.i46:                                   ; preds = %while.body.i51, %land.rhs19.preheader.i45
-  %indvars.iv21.i47 = phi i64 [ %33, %land.rhs19.preheader.i45 ], [ %indvars.iv.next22.i48, %while.body.i51 ]
-  %indvars.iv.next22.i48 = add nsw i64 %indvars.iv21.i47, -1
-  %arrayidx23.i49 = getelementptr inbounds nuw [30 x ptr], ptr %next20.i, i64 0, i64 %indvars.iv.next22.i48
-  %34 = load ptr, ptr %arrayidx23.i49, align 8
-  %cmp24.i50 = icmp eq ptr %34, null
-  br i1 %cmp24.i50, label %while.body.i51, label %_ZN4absl13base_internalL18LLA_SkiplistDeleteEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit73
+99:                                               ; preds = %.lr.ph28.i29
+  %100 = trunc nuw nsw i64 %indvars.iv.next32.i31 to i32
+  store i32 %100, ptr %16, align 8, !tbaa !47
+  %101 = icmp samesign ugt i64 %indvars.iv31.i30, 1
+  br i1 %101, label %.lr.ph28.i29, label %_ZN4absl13base_internalL18LLA_SkiplistDeleteEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit40, !llvm.loop !54
 
-while.body.i51:                                   ; preds = %land.rhs19.i46
-  %35 = trunc nuw nsw i64 %indvars.iv.next22.i48 to i32
-  store i32 %35, ptr %levels.i.i, align 8
-  %cmp18.i52 = icmp samesign ugt i64 %indvars.iv21.i47, 1
-  br i1 %cmp18.i52, label %land.rhs19.i46, label %_ZN4absl13base_internalL18LLA_SkiplistDeleteEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit73, !llvm.loop !16
+_ZN4absl13base_internalL18LLA_SkiplistDeleteEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit40: ; preds = %.lr.ph28.i29, %99, %.critedge.i27
+  %102 = getelementptr inbounds nuw i8, ptr %11, i64 312
+  %103 = load i64, ptr %102, align 8, !tbaa !21
+  %104 = getelementptr inbounds nuw i8, ptr %11, i64 320
+  %105 = add i64 %13, -40
+  %106 = lshr i64 %105, 3
+  %107 = icmp ugt i64 %13, %103
+  br i1 %107, label %.lr.ph.i.i, label %_ZN4absl13base_internalL7IntLog2Emm.exit.i
 
-_ZN4absl13base_internalL18LLA_SkiplistDeleteEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit73: ; preds = %land.rhs19.i46, %while.body.i51, %for.end.i41
-  %36 = load i64, ptr %a, align 8
-  %min_size = getelementptr inbounds nuw i8, ptr %2, i64 312
-  %37 = load i64, ptr %min_size, align 8
-  %random = getelementptr inbounds nuw i8, ptr %2, i64 320
-  %sub.i = add i64 %36, -40
-  %div7.i = lshr i64 %sub.i, 3
-  %cmp3.i.i74 = icmp ugt i64 %36, %37
-  br i1 %cmp3.i.i74, label %for.body.i.i, label %_ZN4absl13base_internalL7IntLog2Emm.exit.i
+.lr.ph.i.i:                                       ; preds = %_ZN4absl13base_internalL18LLA_SkiplistDeleteEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit40, %.lr.ph.i.i
+  %.08.i.i = phi i64 [ %109, %.lr.ph.i.i ], [ %13, %_ZN4absl13base_internalL18LLA_SkiplistDeleteEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit40 ]
+  %.067.i.i = phi i32 [ %108, %.lr.ph.i.i ], [ 0, %_ZN4absl13base_internalL18LLA_SkiplistDeleteEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit40 ]
+  %108 = add nuw nsw i32 %.067.i.i, 1
+  %109 = lshr i64 %.08.i.i, 1
+  %110 = icmp ugt i64 %109, %103
+  br i1 %110, label %.lr.ph.i.i, label %_ZN4absl13base_internalL7IntLog2Emm.exit.i, !llvm.loop !45
 
-for.body.i.i:                                     ; preds = %_ZN4absl13base_internalL18LLA_SkiplistDeleteEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit73, %for.body.i.i
-  %i.05.i.i = phi i64 [ %shr.i.i, %for.body.i.i ], [ %36, %_ZN4absl13base_internalL18LLA_SkiplistDeleteEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit73 ]
-  %result.04.i.i = phi i32 [ %inc.i.i, %for.body.i.i ], [ 0, %_ZN4absl13base_internalL18LLA_SkiplistDeleteEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit73 ]
-  %inc.i.i = add nuw nsw i32 %result.04.i.i, 1
-  %shr.i.i = lshr i64 %i.05.i.i, 1
-  %cmp.i.i76 = icmp ugt i64 %shr.i.i, %37
-  br i1 %cmp.i.i76, label %for.body.i.i, label %_ZN4absl13base_internalL7IntLog2Emm.exit.i, !llvm.loop !7
+_ZN4absl13base_internalL7IntLog2Emm.exit.i:       ; preds = %.lr.ph.i.i, %_ZN4absl13base_internalL18LLA_SkiplistDeleteEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit40
+  %.06.lcssa.i.i = phi i32 [ 0, %_ZN4absl13base_internalL18LLA_SkiplistDeleteEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit40 ], [ %108, %.lr.ph.i.i ]
+  %111 = load i32, ptr %104, align 4, !tbaa !43
+  br label %112
 
-_ZN4absl13base_internalL7IntLog2Emm.exit.i:       ; preds = %for.body.i.i, %_ZN4absl13base_internalL18LLA_SkiplistDeleteEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit73
-  %result.0.lcssa.i.i = phi i32 [ 0, %_ZN4absl13base_internalL18LLA_SkiplistDeleteEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit73 ], [ %inc.i.i, %for.body.i.i ]
-  %38 = load i32, ptr %random, align 4
-  br label %while.cond.i.i
+112:                                              ; preds = %112, %_ZN4absl13base_internalL7IntLog2Emm.exit.i
+  %.05.i.i = phi i32 [ %111, %_ZN4absl13base_internalL7IntLog2Emm.exit.i ], [ %114, %112 ]
+  %.0.i.i = phi i32 [ 1, %_ZN4absl13base_internalL7IntLog2Emm.exit.i ], [ %117, %112 ]
+  %113 = mul i32 %.05.i.i, 1103515245
+  %114 = add i32 %113, 12345
+  %115 = and i32 %114, 1073741824
+  %116 = icmp eq i32 %115, 0
+  %117 = add nuw nsw i32 %.0.i.i, 1
+  br i1 %116, label %112, label %_ZN4absl13base_internalL6RandomEPj.exit.i, !llvm.loop !46
 
-while.cond.i.i:                                   ; preds = %while.cond.i.i, %_ZN4absl13base_internalL7IntLog2Emm.exit.i
-  %r.0.i.i = phi i32 [ %38, %_ZN4absl13base_internalL7IntLog2Emm.exit.i ], [ %add.i.i, %while.cond.i.i ]
-  %result.0.i.i = phi i32 [ 1, %_ZN4absl13base_internalL7IntLog2Emm.exit.i ], [ %inc.i9.i, %while.cond.i.i ]
-  %mul.i.i = mul i32 %r.0.i.i, 1103515245
-  %add.i.i = add i32 %mul.i.i, 12345
-  %39 = and i32 %add.i.i, 1073741824
-  %cmp.i8.i = icmp eq i32 %39, 0
-  %inc.i9.i = add nuw nsw i32 %result.0.i.i, 1
-  br i1 %cmp.i8.i, label %while.cond.i.i, label %_ZN4absl13base_internalL6RandomEPj.exit.i, !llvm.loop !8
+_ZN4absl13base_internalL6RandomEPj.exit.i:        ; preds = %112
+  store i32 %114, ptr %104, align 4, !tbaa !43
+  %118 = add nsw i32 %.0.i.i, %.06.lcssa.i.i
+  %119 = sext i32 %118 to i64
+  %spec.select12.i = tail call i64 @llvm.umin.i64(i64 %106, i64 %119)
+  %spec.select.i = trunc i64 %spec.select12.i to i32
+  %120 = icmp slt i32 %spec.select.i, 1
+  br i1 %120, label %121, label %_ZN4absl13base_internalL18LLA_SkiplistLevelsEmmPj.exit, !prof !27
 
-_ZN4absl13base_internalL6RandomEPj.exit.i:        ; preds = %while.cond.i.i
-  store i32 %add.i.i, ptr %random, align 4
-  %add.i = add nsw i32 %result.0.i.i, %result.0.lcssa.i.i
-  %conv.i = sext i32 %add.i to i64
-  %spec.select10.i = tail call i64 @llvm.umin.i64(i64 %div7.i, i64 %conv.i)
-  %spec.select.i = trunc i64 %spec.select10.i to i32
-  %cmp7.i = icmp slt i32 %spec.select.i, 1
-  br i1 %cmp7.i, label %do.body10.i, label %_ZN4absl13base_internalL18LLA_SkiplistLevelsEmmPj.exit
-
-do.body10.i:                                      ; preds = %_ZN4absl13base_internalL6RandomEPj.exit.i
+121:                                              ; preds = %_ZN4absl13base_internalL6RandomEPj.exit.i
   tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 118), i32 noundef 148, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.26)
   unreachable
 
 _ZN4absl13base_internalL18LLA_SkiplistLevelsEmmPj.exit: ; preds = %_ZN4absl13base_internalL6RandomEPj.exit.i
-  %40 = tail call noundef range(i32 1, 30) i32 @llvm.umin.i32(i32 %spec.select.i, i32 29)
-  store i32 %40, ptr %levels.i29, align 8
-  %41 = load i32, ptr %levels.i.i, align 8
-  %cmp11.i.i78 = icmp sgt i32 %41, 0
-  br i1 %cmp11.i.i78, label %for.cond1.preheader.preheader.i.i87, label %for.end8.i.i79
+  %122 = tail call noundef range(i32 1, 30) i32 @llvm.umin.i32(i32 %spec.select.i, i32 29)
+  store i32 %122, ptr %81, align 8, !tbaa !47
+  %123 = load i32, ptr %16, align 8, !tbaa !47
+  %124 = icmp sgt i32 %123, 0
+  br i1 %124, label %.preheader.preheader.i.i48, label %._crit_edge.i.i42
 
-for.cond1.preheader.preheader.i.i87:              ; preds = %_ZN4absl13base_internalL18LLA_SkiplistLevelsEmmPj.exit
-  %42 = zext nneg i32 %41 to i64
-  br label %for.cond1.preheader.i.i88
+.preheader.preheader.i.i48:                       ; preds = %_ZN4absl13base_internalL18LLA_SkiplistLevelsEmmPj.exit
+  %125 = zext nneg i32 %123 to i64
+  br label %.preheader.i.i49
 
-for.cond1.preheader.i.i88:                        ; preds = %for.end.i.i98, %for.cond1.preheader.preheader.i.i87
-  %indvars.iv.i.i89 = phi i64 [ %42, %for.cond1.preheader.preheader.i.i87 ], [ %indvars.iv.next.i.i91, %for.end.i.i98 ]
-  %p.012.i.i90 = phi ptr [ %freelist, %for.cond1.preheader.preheader.i.i87 ], [ %p.1.i.i93, %for.end.i.i98 ]
-  %indvars.iv.next.i.i91 = add nsw i64 %indvars.iv.i.i89, -1
-  br label %for.cond1.i.i92
+.preheader.i.i49:                                 ; preds = %135, %.preheader.preheader.i.i48
+  %indvars.iv.i.i50 = phi i64 [ %125, %.preheader.preheader.i.i48 ], [ %indvars.iv.next.i.i52, %135 ]
+  %.016.i.i51 = phi ptr [ %15, %.preheader.preheader.i.i48 ], [ %.1.i.i53, %135 ]
+  %indvars.iv.next.i.i52 = add nsw i64 %indvars.iv.i.i50, -1
+  br label %128
 
-for.cond1.i.i92:                                  ; preds = %for.cond1.i.i92, %for.cond1.preheader.i.i88
-  %p.1.i.i93 = phi ptr [ %43, %for.cond1.i.i92 ], [ %p.012.i.i90, %for.cond1.preheader.i.i88 ]
-  %next.i.i94 = getelementptr inbounds nuw i8, ptr %p.1.i.i93, i64 40
-  %arrayidx.i.i95 = getelementptr inbounds [30 x ptr], ptr %next.i.i94, i64 0, i64 %indvars.iv.next.i.i91
-  %43 = load ptr, ptr %arrayidx.i.i95, align 8
-  %cmp2.i.i96 = icmp ne ptr %43, null
-  %cmp3.i.i97 = icmp ult ptr %43, %a
-  %44 = and i1 %cmp2.i.i96, %cmp3.i.i97
-  br i1 %44, label %for.cond1.i.i92, label %for.end.i.i98, !llvm.loop !9
+._crit_edge.i.i42:                                ; preds = %135, %_ZN4absl13base_internalL18LLA_SkiplistLevelsEmmPj.exit
+  %126 = icmp slt i32 %123, %122
+  br i1 %126, label %.lr.ph.preheader.i, label %.lr.ph23.i
 
-for.end.i.i98:                                    ; preds = %for.cond1.i.i92
-  %arrayidx6.i.i99 = getelementptr inbounds ptr, ptr %prev, i64 %indvars.iv.next.i.i91
-  store ptr %p.1.i.i93, ptr %arrayidx6.i.i99, align 8
-  %cmp.i.i100 = icmp sgt i64 %indvars.iv.i.i89, 1
-  br i1 %cmp.i.i100, label %for.cond1.preheader.i.i88, label %for.end8.i.i79, !llvm.loop !10
+.lr.ph.preheader.i:                               ; preds = %._crit_edge.i.i42
+  %127 = sext i32 %123 to i64
+  br label %.lr.ph.i45
 
-for.end8.i.i79:                                   ; preds = %for.end.i.i98, %_ZN4absl13base_internalL18LLA_SkiplistLevelsEmmPj.exit
-  %cmp18.i80 = icmp slt i32 %41, %40
-  br i1 %cmp18.i80, label %for.body.i85, label %for.body7.i.preheader
+128:                                              ; preds = %128, %.preheader.i.i49
+  %.1.i.i53 = phi ptr [ %131, %128 ], [ %.016.i.i51, %.preheader.i.i49 ]
+  %129 = getelementptr inbounds nuw i8, ptr %.1.i.i53, i64 40
+  %130 = getelementptr inbounds nuw [30 x ptr], ptr %129, i64 0, i64 %indvars.iv.next.i.i52
+  %131 = load ptr, ptr %130, align 8, !tbaa !36
+  %132 = icmp ne ptr %131, null
+  %133 = icmp ult ptr %131, %0
+  %134 = and i1 %132, %133
+  br i1 %134, label %128, label %135, !llvm.loop !48
 
-for.cond4.preheader.i:                            ; preds = %for.body.i85
-  %cmp6.not19.i = icmp eq i32 %46, 0
-  br i1 %cmp6.not19.i, label %if.end, label %for.body7.i.preheader
+135:                                              ; preds = %128
+  %136 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.next.i.i52
+  store ptr %.1.i.i53, ptr %136, align 8, !tbaa !36
+  %137 = icmp sgt i64 %indvars.iv.i.i50, 1
+  br i1 %137, label %.preheader.i.i49, label %._crit_edge.i.i42, !llvm.loop !49
 
-for.body7.i.preheader:                            ; preds = %for.end8.i.i79, %for.cond4.preheader.i
-  br label %for.body7.i
+.preheader.i43:                                   ; preds = %.lr.ph.i45
+  %.not21.i = icmp eq i32 %141, 0
+  br i1 %.not21.i, label %_ZN4absl13base_internalL18LLA_SkiplistInsertEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit, label %.lr.ph23.i
 
-for.body.i85:                                     ; preds = %for.end8.i.i79, %for.body.i85
-  %45 = phi i32 [ %inc.i, %for.body.i85 ], [ %41, %for.end8.i.i79 ]
-  %idxprom.i = sext i32 %45 to i64
-  %arrayidx.i86 = getelementptr inbounds ptr, ptr %prev, i64 %idxprom.i
-  store ptr %freelist, ptr %arrayidx.i86, align 8
-  %inc.i = add nsw i32 %45, 1
-  store i32 %inc.i, ptr %levels.i.i, align 8
-  %46 = load i32, ptr %levels.i29, align 8
-  %cmp.i = icmp slt i32 %inc.i, %46
-  br i1 %cmp.i, label %for.body.i85, label %for.cond4.preheader.i, !llvm.loop !11
+.lr.ph23.i:                                       ; preds = %._crit_edge.i.i42, %.preheader.i43
+  %.lcssa.i56 = phi i32 [ %141, %.preheader.i43 ], [ %122, %._crit_edge.i.i42 ]
+  %138 = zext i32 %.lcssa.i56 to i64
+  br label %144
 
-for.body7.i:                                      ; preds = %for.body7.i.preheader, %for.body7.i
-  %indvars.iv.i81 = phi i64 [ %indvars.iv.next.i84, %for.body7.i ], [ 0, %for.body7.i.preheader ]
-  %arrayidx9.i = getelementptr inbounds nuw ptr, ptr %prev, i64 %indvars.iv.i81
-  %47 = load ptr, ptr %arrayidx9.i, align 8
-  %next.i82 = getelementptr inbounds nuw i8, ptr %47, i64 40
-  %arrayidx11.i83 = getelementptr inbounds nuw [30 x ptr], ptr %next.i82, i64 0, i64 %indvars.iv.i81
-  %48 = load ptr, ptr %arrayidx11.i83, align 8
-  %arrayidx14.i = getelementptr inbounds nuw [30 x ptr], ptr %next, i64 0, i64 %indvars.iv.i81
-  store ptr %48, ptr %arrayidx14.i, align 8
-  store ptr %a, ptr %arrayidx11.i83, align 8
-  %indvars.iv.next.i84 = add nuw nsw i64 %indvars.iv.i81, 1
-  %49 = load i32, ptr %levels.i29, align 8
-  %50 = zext i32 %49 to i64
-  %cmp6.not.i = icmp eq i64 %indvars.iv.next.i84, %50
-  br i1 %cmp6.not.i, label %if.end, label %for.body7.i, !llvm.loop !12
+.lr.ph.i45:                                       ; preds = %.lr.ph.i45, %.lr.ph.preheader.i
+  %indvars.iv.i46 = phi i64 [ %127, %.lr.ph.preheader.i ], [ %indvars.iv.next.i47, %.lr.ph.i45 ]
+  %139 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv.i46
+  store ptr %15, ptr %139, align 8, !tbaa !36
+  %indvars.iv.next.i47 = add nsw i64 %indvars.iv.i46, 1
+  %140 = trunc nsw i64 %indvars.iv.next.i47 to i32
+  store i32 %140, ptr %16, align 8, !tbaa !47
+  %141 = load i32, ptr %81, align 8, !tbaa !47
+  %142 = sext i32 %141 to i64
+  %143 = icmp slt i64 %indvars.iv.next.i47, %142
+  br i1 %143, label %.lr.ph.i45, label %.preheader.i43, !llvm.loop !50
 
-if.end:                                           ; preds = %for.body7.i, %for.cond4.preheader.i, %land.lhs.true, %entry
+144:                                              ; preds = %144, %.lr.ph23.i
+  %indvars.iv26.i = phi i64 [ 0, %.lr.ph23.i ], [ %indvars.iv.next27.i, %144 ]
+  %145 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv26.i
+  %146 = load ptr, ptr %145, align 8, !tbaa !36
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 40
+  %148 = getelementptr inbounds nuw [30 x ptr], ptr %147, i64 0, i64 %indvars.iv26.i
+  %149 = load ptr, ptr %148, align 8, !tbaa !36
+  %150 = getelementptr inbounds nuw [30 x ptr], ptr %3, i64 0, i64 %indvars.iv26.i
+  store ptr %149, ptr %150, align 8, !tbaa !36
+  store ptr %0, ptr %148, align 8, !tbaa !36
+  %indvars.iv.next27.i = add nuw nsw i64 %indvars.iv26.i, 1
+  %.not.i44 = icmp eq i64 %indvars.iv.next27.i, %138
+  br i1 %.not.i44, label %_ZN4absl13base_internalL18LLA_SkiplistInsertEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit, label %144, !llvm.loop !51
+
+_ZN4absl13base_internalL18LLA_SkiplistInsertEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit: ; preds = %144, %.preheader.i43
+  call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %2) #12
+  br label %151
+
+151:                                              ; preds = %_ZN4absl13base_internalL18LLA_SkiplistInsertEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit, %5, %1
   ret void
 }
 
 ; Function Attrs: nounwind
-declare ptr @mmap(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
+declare ptr @mmap(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #5
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN4absl13base_internal12CallOnceImplIRFvvEJEEEvPSt6atomicIjENS0_14SchedulingModeEOT_DpOT0_(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
+  %4 = cmpxchg ptr %0, i32 0, i32 1707250555 monotonic monotonic, align 4
+  %5 = extractvalue { i32, i1 } %4, 1
+  br i1 %5, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_order.exit.thread, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_order.exit
+
+_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_order.exit: ; preds = %3
+  %6 = tail call noundef i32 @_ZN4absl13base_internal12SpinLockWaitEPSt6atomicIjEiPKNS0_22SpinLockWaitTransitionENS0_14SchedulingModeE(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @_ZZN4absl13base_internal12CallOnceImplIRFvvEJEEEvPSt6atomicIjENS0_14SchedulingModeEOT_DpOT0_E5trans, i32 noundef %1)
+  %7 = icmp eq i32 %6, 0
+  br i1 %7, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_order.exit.thread, label %_ZN4absl13base_internal12SpinLockWakeEPSt6atomicIjEb.exit
+
+_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_order.exit.thread: ; preds = %3, %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_order.exit
+  tail call void %2()
+  %8 = atomicrmw xchg ptr %0, i32 221 release, align 4
+  %9 = icmp eq i32 %8, 94570706
+  br i1 %9, label %10, label %_ZN4absl13base_internal12SpinLockWakeEPSt6atomicIjEb.exit
+
+10:                                               ; preds = %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_order.exit.thread
+  tail call void @AbslInternalSpinLockWake(ptr noundef nonnull %0, i1 noundef zeroext true)
+  br label %_ZN4absl13base_internal12SpinLockWakeEPSt6atomicIjEb.exit
+
+_ZN4absl13base_internal12SpinLockWakeEPSt6atomicIjEb.exit: ; preds = %10, %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_order.exit.thread, %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_order.exit
+  ret void
+}
 
 declare noundef i32 @_ZN4absl13base_internal12SpinLockWaitEPSt6atomicIjEiPKNS0_22SpinLockWaitTransitionENS0_14SchedulingModeE(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 declare void @AbslInternalSpinLockWake(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #9
+declare i32 @llvm.umin.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #9
+declare i64 @llvm.umin.i64(i64, i64) #11
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
-
-attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { cold nofree noreturn }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nounwind }
-attributes #12 = { cold }
-attributes #13 = { nounwind willreturn memory(none) }
-attributes #14 = { noreturn nounwind }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress noinline uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { cold nofree noreturn }
+attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nounwind }
+attributes #13 = { cold }
+attributes #14 = { nounwind willreturn memory(none) }
+attributes #15 = { noreturn nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
+!4 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!5 = !{!6, !10, i64 288}
+!6 = !{!"_ZTSN4absl13base_internal13LowLevelAlloc5ArenaE", !7, i64 0, !13, i64 8, !10, i64 288, !10, i64 292, !15, i64 296, !15, i64 304, !15, i64 312, !10, i64 320}
+!7 = !{!"_ZTSN4absl13base_internal8SpinLockE", !8, i64 0}
+!8 = !{!"_ZTSSt6atomicIjE", !9, i64 0}
+!9 = !{!"_ZTSSt13__atomic_baseIjE", !10, i64 0}
+!10 = !{!"int", !11, i64 0}
+!11 = !{!"omnipotent char", !12, i64 0}
+!12 = !{!"Simple C++ TBAA"}
+!13 = !{!"_ZTSN4absl13base_internal12_GLOBAL__N_19AllocListE", !14, i64 0, !10, i64 32, !11, i64 40}
+!14 = !{!"_ZTSN4absl13base_internal12_GLOBAL__N_19AllocList6HeaderE", !15, i64 0, !15, i64 8, !16, i64 16, !17, i64 24}
+!15 = !{!"long", !11, i64 0}
+!16 = !{!"p1 _ZTSN4absl13base_internal13LowLevelAlloc5ArenaE", !17, i64 0}
+!17 = !{!"any pointer", !11, i64 0}
+!18 = !{!6, !10, i64 292}
+!19 = !{!6, !15, i64 296}
+!20 = !{!6, !15, i64 304}
+!21 = !{!6, !15, i64 312}
+!22 = !{!6, !10, i64 320}
+!23 = !{!6, !15, i64 8}
+!24 = !{!6, !15, i64 16}
+!25 = !{!6, !16, i64 24}
+!26 = !{!6, !10, i64 40}
+!27 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!28 = !{!29, !30, i64 0}
+!29 = !{!"_ZTSN4absl13base_internal12_GLOBAL__N_19ArenaLockE", !30, i64 0, !30, i64 1, !31, i64 8, !16, i64 136}
+!30 = !{!"bool", !11, i64 0}
+!31 = !{!"_ZTS10__sigset_t", !11, i64 0}
+!32 = !{!29, !30, i64 1}
+!33 = !{!29, !16, i64 136}
+!34 = !{i8 0, i8 2}
+!35 = !{}
+!36 = !{!37, !37, i64 0}
+!37 = !{!"p1 _ZTSN4absl13base_internal12_GLOBAL__N_19AllocListE", !17, i64 0}
+!38 = !{!13, !15, i64 0}
+!39 = !{!13, !15, i64 8}
+!40 = !{!13, !16, i64 16}
+!41 = distinct !{!41, !42}
+!42 = !{!"llvm.loop.mustprogress"}
+!43 = !{!10, !10, i64 0}
+!44 = !{!"branch_weights", !"expected", i32 2144510955, i32 2972693}
+!45 = distinct !{!45, !42}
+!46 = distinct !{!46, !42}
+!47 = !{!13, !10, i64 32}
+!48 = distinct !{!48, !42}
+!49 = distinct !{!49, !42}
+!50 = distinct !{!50, !42}
+!51 = distinct !{!51, !42}
+!52 = distinct !{!52, !42}
+!53 = distinct !{!53, !42}
+!54 = distinct !{!54, !42}
+!55 = !{!"branch_weights", !"expected", i32 2145337237, i32 2146411}

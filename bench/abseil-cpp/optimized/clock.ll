@@ -1,7 +1,7 @@
 ; ModuleID = 'bench/abseil-cpp/original/clock.ll'
 source_filename = "bench/abseil-cpp/original/clock.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.timespec = type { i64, i64 }
 %"class.absl::Duration" = type { %"class.absl::Duration::HiRep", i32 }
@@ -14,179 +14,179 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress uwtable
 define dso_local { i64, i32 } @_ZN4absl3NowEv() local_unnamed_addr #0 {
-entry:
-  %ts.i.i = alloca %struct.timespec, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ts.i.i)
-  %call.i.i = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %ts.i.i) #5
-  %cmp.not.i.i = icmp eq i32 %call.i.i, 0
-  br i1 %cmp.not.i.i, label %_ZN4absl19GetCurrentTimeNanosEv.exit, label %do.body1.i.i
+  %1 = alloca %struct.timespec, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1) #5
+  %2 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %1) #5
+  %.not.i.i = icmp eq i32 %2, 0
+  br i1 %.not.i.i, label %_ZN4absl19GetCurrentTimeNanosEv.exit, label %3, !prof !4
 
-do.body1.i.i:                                     ; preds = %entry
+3:                                                ; preds = %0
   call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 118), i32 noundef 17, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3)
   unreachable
 
-_ZN4absl19GetCurrentTimeNanosEv.exit:             ; preds = %entry
-  %0 = load i64, ptr %ts.i.i, align 8
-  %mul.i.i = mul nsw i64 %0, 1000000000
-  %tv_nsec.i.i = getelementptr inbounds nuw i8, ptr %ts.i.i, i64 8
-  %1 = load i64, ptr %tv_nsec.i.i, align 8
-  %add.i.i = add nsw i64 %mul.i.i, %1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ts.i.i)
-  %cmp = icmp sgt i64 %add.i.i, -1
-  br i1 %cmp, label %if.then, label %if.end
+_ZN4absl19GetCurrentTimeNanosEv.exit:             ; preds = %0
+  %4 = load i64, ptr %1, align 8, !tbaa !5
+  %5 = mul nsw i64 %4, 1000000000
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %7 = load i64, ptr %6, align 8, !tbaa !10
+  %8 = add nsw i64 %5, %7
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #5
+  %9 = icmp sgt i64 %8, -1
+  br i1 %9, label %10, label %14
 
-if.then:                                          ; preds = %_ZN4absl19GetCurrentTimeNanosEv.exit
-  %div = udiv i64 %add.i.i, 1000000000
-  %rem = urem i64 %add.i.i, 1000000000
-  %rem.tr = trunc nuw nsw i64 %rem to i32
-  %conv.i = shl nuw i32 %rem.tr, 2
-  br label %return
+10:                                               ; preds = %_ZN4absl19GetCurrentTimeNanosEv.exit
+  %11 = udiv i64 %8, 1000000000
+  %12 = urem i64 %8, 1000000000
+  %.tr = trunc nuw nsw i64 %12 to i32
+  %13 = shl nuw i32 %.tr, 2
+  br label %19
 
-if.end:                                           ; preds = %_ZN4absl19GetCurrentTimeNanosEv.exit
-  %add.i.i.nonneg = sub i64 0, %add.i.i
-  %div.i.i5 = udiv i64 %add.i.i.nonneg, 1000000000
-  %rem.i.i7 = urem i64 %add.i.i.nonneg, 1000000000
-  %rem.i.i7.neg = sub nsw i64 0, %rem.i.i7
-  %cmp.i.i.i.not = icmp eq i64 %rem.i.i7, 0
-  %rem.tr.i.i = trunc nsw i64 %rem.i.i7.neg to i32
-  %2 = shl i32 %rem.tr.i.i, 2
-  %conv.i.i.i.i = add i32 %2, -294967296
-  %ticks.lobit.i.i.i = ashr i64 %rem.i.i7.neg, 61
-  %sub.pn.i.i.i = sub nsw i64 %ticks.lobit.i.i.i, %div.i.i5
-  %conv.i.pn.i.i.i = select i1 %cmp.i.i.i.not, i32 0, i32 %conv.i.i.i.i
-  br label %return
+14:                                               ; preds = %_ZN4absl19GetCurrentTimeNanosEv.exit
+  %.nonneg = sub i64 0, %8
+  %15 = udiv i64 %.nonneg, 1000000000
+  %16 = urem i64 %.nonneg, 1000000000
+  %.neg29 = sub nsw i64 0, %16
+  %.not = icmp eq i64 %16, 0
+  %.tr.i.i = trunc nsw i64 %.neg29 to i32
+  %17 = shl i32 %.tr.i.i, 2
+  %18 = add i32 %17, -294967296
+  %.lobit.i.i.i = ashr i64 %.neg29, 61
+  %.pn17.i.i.i = sub nsw i64 %.lobit.i.i.i, %15
+  %.pn15.i.i.i = select i1 %.not, i32 0, i32 %18
+  br label %19
 
-return:                                           ; preds = %if.end, %if.then
-  %div.pn = phi i64 [ %div, %if.then ], [ %sub.pn.i.i.i, %if.end ]
-  %conv.i.pn = phi i32 [ %conv.i, %if.then ], [ %conv.i.pn.i.i.i, %if.end ]
-  %.fca.0.insert.i.i.pn = insertvalue { i64, i32 } poison, i64 %div.pn, 0
-  %call2.pn = insertvalue { i64, i32 } %.fca.0.insert.i.i.pn, i32 %conv.i.pn, 1
-  ret { i64, i32 } %call2.pn
+19:                                               ; preds = %14, %10
+  %.pn32 = phi i64 [ %11, %10 ], [ %.pn17.i.i.i, %14 ]
+  %.pn30 = phi i32 [ %13, %10 ], [ %.pn15.i.i.i, %14 ]
+  %.fca.0.insert.i.i.pn = insertvalue { i64, i32 } poison, i64 %.pn32, 0
+  %.pn = insertvalue { i64, i32 } %.fca.0.insert.i.i.pn, i32 %.pn30, 1
+  ret { i64, i32 } %.pn
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i64 @_ZN4absl19GetCurrentTimeNanosEv() local_unnamed_addr #0 {
-entry:
-  %ts.i = alloca %struct.timespec, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ts.i)
-  %call.i = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %ts.i) #5
-  %cmp.not.i = icmp eq i32 %call.i, 0
-  br i1 %cmp.not.i, label %_ZN4absl13time_internalL29GetCurrentTimeNanosFromSystemEv.exit, label %do.body1.i
+  %1 = alloca %struct.timespec, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1) #5
+  %2 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %1) #5
+  %.not.i = icmp eq i32 %2, 0
+  br i1 %.not.i, label %_ZN4absl13time_internalL29GetCurrentTimeNanosFromSystemEv.exit, label %3, !prof !4
 
-do.body1.i:                                       ; preds = %entry
+3:                                                ; preds = %0
   call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 118), i32 noundef 17, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3)
   unreachable
 
-_ZN4absl13time_internalL29GetCurrentTimeNanosFromSystemEv.exit: ; preds = %entry
-  %0 = load i64, ptr %ts.i, align 8
-  %mul.i = mul nsw i64 %0, 1000000000
-  %tv_nsec.i = getelementptr inbounds nuw i8, ptr %ts.i, i64 8
-  %1 = load i64, ptr %tv_nsec.i, align 8
-  %add.i = add nsw i64 %mul.i, %1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ts.i)
-  ret i64 %add.i
+_ZN4absl13time_internalL29GetCurrentTimeNanosFromSystemEv.exit: ; preds = %0
+  %4 = load i64, ptr %1, align 8, !tbaa !5
+  %5 = mul nsw i64 %4, 1000000000
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %7 = load i64, ptr %6, align 8, !tbaa !10
+  %8 = add nsw i64 %5, %7
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #5
+  ret i64 %8
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: mustprogress uwtable
-define weak dso_local void @AbslInternalSleepFor(i64 %duration.coerce0, i32 %duration.coerce1) local_unnamed_addr #0 {
-entry:
-  %sleep_time.i = alloca %struct.timespec, align 8
-  %duration = alloca %"class.absl::Duration", align 8
-  store i64 %duration.coerce0, ptr %duration, align 8
-  %coerce.sroa.2.0.duration.sroa_idx = getelementptr inbounds nuw i8, ptr %duration, i64 8
-  store i32 %duration.coerce1, ptr %coerce.sroa.2.0.duration.sroa_idx, align 8
-  %0 = getelementptr inbounds nuw i8, ptr %sleep_time.i, i64 8
-  br label %while.cond
+define weak dso_local void @AbslInternalSleepFor(i64 %0, i32 %1) local_unnamed_addr #0 {
+  %3 = alloca %struct.timespec, align 8
+  %4 = alloca %"class.absl::Duration", align 8
+  store i64 %0, ptr %4, align 8
+  %.sroa.224.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i32 %1, ptr %.sroa.224.0..sroa_idx, align 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  br label %6
 
-while.cond:                                       ; preds = %_ZN4absl12_GLOBAL__N_19SleepOnceENS_8DurationE.exit, %entry
-  %agg.tmp.sroa.2.0.copyload = phi i32 [ %agg.tmp.sroa.2.0.copyload.pre, %_ZN4absl12_GLOBAL__N_19SleepOnceENS_8DurationE.exit ], [ %duration.coerce1, %entry ]
-  %to_sleep.sroa.0.0.copyload = phi i64 [ %agg.tmp.sroa.0.0.copyload.pre, %_ZN4absl12_GLOBAL__N_19SleepOnceENS_8DurationE.exit ], [ %duration.coerce0, %entry ]
-  %agg.tmp.sroa.2.0.copyload.fr = freeze i32 %agg.tmp.sroa.2.0.copyload
-  %cmp.not.i.i = icmp eq i64 %to_sleep.sroa.0.0.copyload, 0
-  br i1 %cmp.not.i.i, label %_ZN4abslgtENS_8DurationES0_.exit, label %cond.true.i.i
+6:                                                ; preds = %_ZN4absl12_GLOBAL__N_19SleepOnceENS_8DurationE.exit, %2
+  %.sroa.222.0.copyload = phi i32 [ %.sroa.222.0.copyload.pre, %_ZN4absl12_GLOBAL__N_19SleepOnceENS_8DurationE.exit ], [ %1, %2 ]
+  %.val37 = phi i64 [ %.sroa.021.0.copyload.pre, %_ZN4absl12_GLOBAL__N_19SleepOnceENS_8DurationE.exit ], [ %0, %2 ]
+  %.sroa.222.0.copyload.fr = freeze i32 %.sroa.222.0.copyload
+  %.not.i.i = icmp eq i64 %.val37, 0
+  br i1 %.not.i.i, label %_ZN4abslgtENS_8DurationES0_.exit, label %7
 
-cond.true.i.i:                                    ; preds = %while.cond
-  %cmp8.i.i = icmp sgt i64 %to_sleep.sroa.0.0.copyload, 0
-  br i1 %cmp8.i.i, label %while.body, label %while.end
+7:                                                ; preds = %6
+  %8 = icmp sgt i64 %.val37, 0
+  br i1 %8, label %.thread, label %20
 
-_ZN4abslgtENS_8DurationES0_.exit:                 ; preds = %while.cond
-  %cmp25.i.i.not = icmp eq i32 %agg.tmp.sroa.2.0.copyload.fr, 0
-  br i1 %cmp25.i.i.not, label %while.end, label %.thread
+_ZN4abslgtENS_8DurationES0_.exit:                 ; preds = %6
+  %.not = icmp eq i32 %.sroa.222.0.copyload.fr, 0
+  br i1 %.not, label %20, label %.thread
 
-while.body:                                       ; preds = %cond.true.i.i
-  %cmp.not.i.i2 = icmp eq i64 %to_sleep.sroa.0.0.copyload, 9223372036854775807
-  %spec.select31 = select i1 %cmp.not.i.i2, i32 0, i32 %agg.tmp.sroa.2.0.copyload.fr
-  br label %.thread
+.thread:                                          ; preds = %7, %_ZN4abslgtENS_8DurationES0_.exit
+  %.not.i.i25 = icmp eq i64 %.val37, 9223372036854775807
+  %9 = select i1 %.not.i.i25, i32 0, i32 %.sroa.222.0.copyload.fr
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #5
+  %10 = call { i64, i64 } @_ZN4absl10ToTimespecENS_8DurationE(i64 %.val37, i32 %9) #6
+  %11 = extractvalue { i64, i64 } %10, 0
+  store i64 %11, ptr %3, align 8
+  %12 = extractvalue { i64, i64 } %10, 1
+  store i64 %12, ptr %5, align 8
+  br label %13
 
-.thread:                                          ; preds = %while.body, %_ZN4abslgtENS_8DurationES0_.exit
-  %to_sleep.sroa.0.0.copyload22 = phi i64 [ 0, %_ZN4abslgtENS_8DurationES0_.exit ], [ %to_sleep.sroa.0.0.copyload, %while.body ]
-  %1 = phi i32 [ %agg.tmp.sroa.2.0.copyload.fr, %_ZN4abslgtENS_8DurationES0_.exit ], [ %spec.select31, %while.body ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %sleep_time.i)
-  %call.i = call { i64, i64 } @_ZN4absl10ToTimespecENS_8DurationE(i64 %to_sleep.sroa.0.0.copyload22, i32 %1) #6
-  %2 = extractvalue { i64, i64 } %call.i, 0
-  store i64 %2, ptr %sleep_time.i, align 8
-  %3 = extractvalue { i64, i64 } %call.i, 1
-  store i64 %3, ptr %0, align 8
-  br label %while.cond.i
+13:                                               ; preds = %15, %.thread
+  %14 = call i32 @nanosleep(ptr noundef nonnull %3, ptr noundef nonnull %3)
+  %.not.i = icmp eq i32 %14, 0
+  br i1 %.not.i, label %_ZN4absl12_GLOBAL__N_19SleepOnceENS_8DurationE.exit, label %15
 
-while.cond.i:                                     ; preds = %land.rhs.i, %.thread
-  %call1.i = call i32 @nanosleep(ptr noundef nonnull %sleep_time.i, ptr noundef nonnull %sleep_time.i)
-  %cmp.not.i = icmp eq i32 %call1.i, 0
-  br i1 %cmp.not.i, label %_ZN4absl12_GLOBAL__N_19SleepOnceENS_8DurationE.exit, label %land.rhs.i
+15:                                               ; preds = %13
+  %16 = tail call ptr @__errno_location() #6
+  %17 = load i32, ptr %16, align 4, !tbaa !11
+  %18 = icmp eq i32 %17, 4
+  br i1 %18, label %13, label %_ZN4absl12_GLOBAL__N_19SleepOnceENS_8DurationE.exit, !llvm.loop !13
 
-land.rhs.i:                                       ; preds = %while.cond.i
-  %call2.i = tail call ptr @__errno_location() #6
-  %4 = load i32, ptr %call2.i, align 4
-  %cmp3.i = icmp eq i32 %4, 4
-  br i1 %cmp3.i, label %while.cond.i, label %_ZN4absl12_GLOBAL__N_19SleepOnceENS_8DurationE.exit, !llvm.loop !5
+_ZN4absl12_GLOBAL__N_19SleepOnceENS_8DurationE.exit: ; preds = %13, %15
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #5
+  %19 = call noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8DurationmIES0_(ptr noundef nonnull align 4 dereferenceable(12) %4, i64 %.val37, i32 %9)
+  %.sroa.021.0.copyload.pre = load i64, ptr %4, align 8
+  %.sroa.222.0.copyload.pre = load i32, ptr %.sroa.224.0..sroa_idx, align 8, !tbaa !11
+  br label %6, !llvm.loop !15
 
-_ZN4absl12_GLOBAL__N_19SleepOnceENS_8DurationE.exit: ; preds = %while.cond.i, %land.rhs.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %sleep_time.i)
-  %call8 = call noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8DurationmIES0_(ptr noundef nonnull align 4 dereferenceable(12) %duration, i64 %to_sleep.sroa.0.0.copyload22, i32 %1)
-  %agg.tmp.sroa.0.0.copyload.pre = load i64, ptr %duration, align 8
-  %agg.tmp.sroa.2.0.copyload.pre = load i32, ptr %coerce.sroa.2.0.duration.sroa_idx, align 8
-  br label %while.cond, !llvm.loop !7
-
-while.end:                                        ; preds = %cond.true.i.i, %_ZN4abslgtENS_8DurationES0_.exit
+20:                                               ; preds = %7, %_ZN4abslgtENS_8DurationES0_.exit
   ret void
 }
 
-declare noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8DurationmIES0_(ptr noundef nonnull align 4 dereferenceable(12), i64, i32) local_unnamed_addr #1
+declare noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8DurationmIES0_(ptr noundef nonnull align 4 dereferenceable(12), i64, i32) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare { i64, i64 } @_ZN4absl10ToTimespecENS_8DurationE(i64, i32) local_unnamed_addr #3
-
-declare i32 @nanosleep(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare void @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #3
+declare { i64, i64 } @_ZN4absl10ToTimespecENS_8DurationE(i64, i32) local_unnamed_addr #4
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
+declare i32 @nanosleep(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
+; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
+declare ptr @__errno_location() local_unnamed_addr #4
 
-attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nounwind }
 attributes #6 = { nounwind willreturn memory(none) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!4 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!5 = !{!6, !7, i64 0}
+!6 = !{!"_ZTS8timespec", !7, i64 0, !7, i64 8}
+!7 = !{!"long", !8, i64 0}
+!8 = !{!"omnipotent char", !9, i64 0}
+!9 = !{!"Simple C++ TBAA"}
+!10 = !{!6, !7, i64 8}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"int", !8, i64 0}
+!13 = distinct !{!13, !14}
+!14 = !{!"llvm.loop.mustprogress"}
+!15 = distinct !{!15, !14}

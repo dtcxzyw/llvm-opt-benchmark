@@ -1,261 +1,276 @@
 ; ModuleID = 'bench/abseil-cpp/original/damerau_levenshtein_distance.ll'
 source_filename = "bench/abseil-cpp/original/damerau_levenshtein_distance.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %"struct.std::array" = type { [102 x %"struct.std::array.0"] }
 %"struct.std::array.0" = type { [102 x i8] }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i8 @_ZN4absl16strings_internal32CappedDamerauLevenshteinDistanceESt17basic_string_viewIcSt11char_traitsIcEES4_h(i64 %s1.coerce0, ptr readonly captures(none) %s1.coerce1, i64 %s2.coerce0, ptr readonly captures(none) %s2.coerce1, i8 noundef zeroext %cutoff) local_unnamed_addr #0 {
-entry:
-  %d = alloca %"struct.std::array", align 1
-  %ref.tmp = alloca [5 x i8], align 1
-  %.sroa.speculated = tail call i8 @llvm.umin.i8(i8 %cutoff, i8 100)
-  %add = add nuw nsw i8 %.sroa.speculated, 1
-  %cmp = icmp ugt i64 %s1.coerce0, %s2.coerce0
-  br i1 %cmp, label %if.then, label %if.end
+define dso_local noundef zeroext i8 @_ZN4absl16strings_internal32CappedDamerauLevenshteinDistanceESt17basic_string_viewIcSt11char_traitsIcEES4_h(i64 %0, ptr readonly captures(none) %1, i64 %2, ptr readonly captures(none) %3, i8 noundef zeroext %4) local_unnamed_addr #0 {
+  %6 = alloca %"struct.std::array", align 1
+  %7 = alloca [5 x i8], align 1
+  %.sroa.speculated = tail call i8 @llvm.umin.i8(i8 %4, i8 100)
+  %8 = add nuw nsw i8 %.sroa.speculated, 1
+  %9 = icmp ugt i64 %0, %2
+  br i1 %9, label %10, label %11
 
-if.then:                                          ; preds = %entry
-  br label %if.end
+10:                                               ; preds = %5
+  br label %11
 
-if.end:                                           ; preds = %if.then, %entry
-  %s2.sroa.11.0 = phi ptr [ %s1.coerce1, %if.then ], [ %s2.coerce1, %entry ]
-  %s2.sroa.0.0 = phi i64 [ %s1.coerce0, %if.then ], [ %s2.coerce0, %entry ]
-  %s1.sroa.0.0 = phi i64 [ %s2.coerce0, %if.then ], [ %s1.coerce0, %entry ]
-  %s1.sroa.9.0 = phi ptr [ %s2.coerce1, %if.then ], [ %s1.coerce1, %entry ]
-  %conv5 = zext nneg i8 %.sroa.speculated to i64
-  %add6 = add i64 %s1.sroa.0.0, %conv5
-  %cmp8 = icmp ult i64 %add6, %s2.sroa.0.0
-  %cmp10 = icmp ugt i64 %s2.sroa.0.0, 100
-  %or.cond91 = or i1 %cmp10, %cmp8
-  br i1 %or.cond91, label %return, label %if.end12
+11:                                               ; preds = %10, %5
+  %.sroa.11.0 = phi ptr [ %1, %10 ], [ %3, %5 ]
+  %.sroa.0.0 = phi i64 [ %0, %10 ], [ %2, %5 ]
+  %.sroa.080.0 = phi i64 [ %2, %10 ], [ %0, %5 ]
+  %.sroa.9.0 = phi ptr [ %3, %10 ], [ %1, %5 ]
+  %12 = zext nneg i8 %.sroa.speculated to i64
+  %13 = add i64 %.sroa.080.0, %12
+  %14 = icmp ult i64 %13, %.sroa.0.0
+  %15 = icmp ugt i64 %.sroa.0.0, 100
+  %or.cond89 = or i1 %15, %14
+  br i1 %or.cond89, label %115, label %16
 
-if.end12:                                         ; preds = %if.end
-  %cmp.i42 = icmp eq i64 %s1.sroa.0.0, 0
-  br i1 %cmp.i42, label %if.then14, label %if.end17
+16:                                               ; preds = %11
+  %17 = icmp eq i64 %.sroa.080.0, 0
+  br i1 %17, label %18, label %.lr.ph.i.preheader
 
-if.then14:                                        ; preds = %if.end12
-  %conv16 = trunc nuw i64 %s2.sroa.0.0 to i8
-  br label %return
+18:                                               ; preds = %16
+  %19 = trunc nuw i64 %.sroa.0.0 to i8
+  br label %115
 
-if.end17:                                         ; preds = %if.end12
-  %sub.neg = sub i64 %s1.sroa.0.0, %s2.sroa.0.0
-  %conv21.neg = trunc i64 %sub.neg to i8
-  %add.ptr = getelementptr inbounds nuw i8, ptr %d, i64 %conv5
-  br label %for.body.i
+.lr.ph.i.preheader:                               ; preds = %16
+  %.neg = sub i64 %.sroa.080.0, %.sroa.0.0
+  %.neg63 = trunc i64 %.neg to i8
+  call void @llvm.lifetime.start.p0(i64 10404, ptr nonnull %6) #3
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 %12
+  br label %.lr.ph.i
 
-for.body.i:                                       ; preds = %if.end17, %for.body.i
-  %__value.addr.06.i = phi i8 [ %inc.i, %for.body.i ], [ 0, %if.end17 ]
-  %__first.addr.05.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %d, %if.end17 ]
-  store i8 %__value.addr.06.i, ptr %__first.addr.05.i, align 1
-  %inc.i = add nuw nsw i8 %__value.addr.06.i, 1
-  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__first.addr.05.i, i64 1
-  %cmp.not.i = icmp eq ptr %__first.addr.05.i, %add.ptr
-  br i1 %cmp.not.i, label %for.body.lr.ph, label %for.body.i, !llvm.loop !5
+.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
+  %.08.i = phi i8 [ %21, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
+  %.057.i = phi ptr [ %22, %.lr.ph.i ], [ %6, %.lr.ph.i.preheader ]
+  store i8 %.08.i, ptr %.057.i, align 1, !tbaa !4
+  %21 = add nuw nsw i8 %.08.i, 1
+  %22 = getelementptr inbounds nuw i8, ptr %.057.i, i64 1
+  %.not.i = icmp eq ptr %.057.i, %20
+  br i1 %.not.i, label %.lr.ph96, label %.lr.ph.i, !llvm.loop !7
 
-for.body.lr.ph:                                   ; preds = %for.body.i
-  %conv32 = zext nneg i8 %add to i64
-  %arrayidx.i.i = getelementptr inbounds nuw [102 x i8], ptr %d, i64 0, i64 %conv32
-  store i8 %add, ptr %arrayidx.i.i, align 1
-  %sub23 = add i8 %.sroa.speculated, %conv21.neg
-  %conv36 = zext i8 %sub23 to i64
-  %arrayinit.element.ptr = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 1
-  %arrayinit.element120 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 2
-  %arrayinit.element121 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 3
-  %arrayinit.element122 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 4
-  br label %for.body
+.lr.ph96:                                         ; preds = %.lr.ph.i
+  %23 = zext nneg i8 %8 to i64
+  %24 = getelementptr inbounds nuw [102 x i8], ptr %6, i64 0, i64 %23
+  store i8 %8, ptr %24, align 1, !tbaa !4
+  %25 = add i8 %.sroa.speculated, %.neg63
+  %26 = zext i8 %25 to i64
+  %.ptr91 = getelementptr inbounds nuw i8, ptr %7, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %7, i64 2
+  %28 = getelementptr inbounds nuw i8, ptr %7, i64 3
+  %29 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  br label %33
 
-for.body:                                         ; preds = %for.body.lr.ph, %for.inc126
-  %i.095 = phi i64 [ 1, %for.body.lr.ph ], [ %inc127, %for.inc126 ]
-  %cmp37 = icmp ugt i64 %i.095, %conv36
-  %arrayidx.i.i43 = getelementptr inbounds [102 x %"struct.std::array.0"], ptr %d, i64 0, i64 %i.095
-  br i1 %cmp37, label %if.then38, label %if.else
+._crit_edge97:                                    ; preds = %._crit_edge
+  %30 = getelementptr inbounds nuw [102 x %"struct.std::array.0"], ptr %6, i64 0, i64 %.sroa.080.0
+  %31 = getelementptr inbounds nuw [102 x i8], ptr %30, i64 0, i64 %.sroa.0.0
+  %32 = load i8, ptr %31, align 1, !tbaa !4
+  call void @llvm.lifetime.end.p0(i64 10404, ptr nonnull %6) #3
+  br label %115
 
-if.then38:                                        ; preds = %for.body
-  %sub40 = sub nuw i64 %i.095, %conv36
-  %sub42 = add i64 %sub40, -1
-  %arrayidx.i.i44 = getelementptr inbounds [102 x i8], ptr %arrayidx.i.i43, i64 0, i64 %sub42
-  store i8 %add, ptr %arrayidx.i.i44, align 1
-  br label %if.end47
+33:                                               ; preds = %.lr.ph96, %._crit_edge
+  %.05795 = phi i64 [ 1, %.lr.ph96 ], [ %79, %._crit_edge ]
+  %34 = icmp ugt i64 %.05795, %26
+  %35 = getelementptr inbounds nuw [102 x %"struct.std::array.0"], ptr %6, i64 0, i64 %.05795
+  br i1 %34, label %36, label %40
 
-if.else:                                          ; preds = %for.body
-  %conv44 = trunc nuw i64 %i.095 to i8
-  store i8 %conv44, ptr %arrayidx.i.i43, align 1
-  br label %if.end47
+36:                                               ; preds = %33
+  %37 = sub nuw i64 %.05795, %26
+  %38 = add i64 %37, -1
+  %39 = getelementptr inbounds nuw [102 x i8], ptr %35, i64 0, i64 %38
+  store i8 %8, ptr %39, align 1, !tbaa !4
+  br label %42
 
-if.end47:                                         ; preds = %if.else, %if.then38
-  %j_begin.0 = phi i64 [ %sub40, %if.then38 ], [ 1, %if.else ]
-  %add49 = add i64 %i.095, %conv5
-  %cmp51 = icmp ugt i64 %add49, %s2.sroa.0.0
-  br i1 %cmp51, label %if.end58, label %if.else54
+40:                                               ; preds = %33
+  %41 = trunc nuw i64 %.05795 to i8
+  store i8 %41, ptr %35, align 1, !tbaa !4
+  br label %42
 
-if.else54:                                        ; preds = %if.end47
-  %arrayidx.i.i47 = getelementptr inbounds [102 x %"struct.std::array.0"], ptr %d, i64 0, i64 %i.095
-  %add56 = add i64 %add49, 1
-  %arrayidx.i.i48 = getelementptr inbounds [102 x i8], ptr %arrayidx.i.i47, i64 0, i64 %add56
-  store i8 %add, ptr %arrayidx.i.i48, align 1
-  br label %if.end58
+42:                                               ; preds = %40, %36
+  %.058 = phi i64 [ %37, %36 ], [ 1, %40 ]
+  %43 = add i64 %.05795, %12
+  %44 = icmp ugt i64 %43, %.sroa.0.0
+  br i1 %44, label %49, label %45
 
-if.end58:                                         ; preds = %if.end47, %if.else54
-  %j_end.0 = phi i64 [ %add49, %if.else54 ], [ %s2.sroa.0.0, %if.end47 ]
-  %cmp60.not92 = icmp ugt i64 %j_begin.0, %j_end.0
-  br i1 %cmp60.not92, label %for.inc126, label %for.body61.lr.ph
+45:                                               ; preds = %42
+  %46 = getelementptr inbounds nuw [102 x %"struct.std::array.0"], ptr %6, i64 0, i64 %.05795
+  %47 = add i64 %43, 1
+  %48 = getelementptr inbounds nuw [102 x i8], ptr %46, i64 0, i64 %47
+  store i8 %8, ptr %48, align 1, !tbaa !4
+  br label %49
 
-for.body61.lr.ph:                                 ; preds = %if.end58
-  %sub62 = add i64 %i.095, -1
-  %arrayidx.i.i49 = getelementptr inbounds [102 x %"struct.std::array.0"], ptr %d, i64 0, i64 %sub62
-  %arrayidx.i.i51 = getelementptr inbounds [102 x %"struct.std::array.0"], ptr %d, i64 0, i64 %i.095
-  %add.ptr.i = getelementptr inbounds i8, ptr %s1.sroa.9.0, i64 %sub62
-  %cmp93 = icmp ugt i64 %i.095, 1
-  %sub104 = add i64 %i.095, -2
-  %add.ptr.i62 = getelementptr inbounds i8, ptr %s1.sroa.9.0, i64 %sub104
-  %arrayidx.i.i65 = getelementptr inbounds [102 x %"struct.std::array.0"], ptr %d, i64 0, i64 %sub104
-  %.pre97 = load i8, ptr %add.ptr.i, align 1
-  br i1 %cmp93, label %for.body61, label %for.body61.us
+49:                                               ; preds = %42, %45
+  %.059 = phi i64 [ %43, %45 ], [ %.sroa.0.0, %42 ]
+  %.not6492 = icmp ugt i64 %.058, %.059
+  br i1 %.not6492, label %._crit_edge, label %.lr.ph
 
-for.body61.us:                                    ; preds = %for.body61.lr.ph, %_ZSt3minIhET_St16initializer_listIS0_E.exit.us
-  %j.093.us = phi i64 [ %inc.us, %_ZSt3minIhET_St16initializer_listIS0_E.exit.us ], [ %j_begin.0, %for.body61.lr.ph ]
-  %arrayidx.i.i50.us = getelementptr inbounds [102 x i8], ptr %arrayidx.i.i49, i64 0, i64 %j.093.us
-  %0 = load i8, ptr %arrayidx.i.i50.us, align 1
-  %add66.us = add i8 %0, 1
-  %sub69.us = add i64 %j.093.us, -1
-  %arrayidx.i.i52.us = getelementptr inbounds [102 x i8], ptr %arrayidx.i.i51, i64 0, i64 %sub69.us
-  %1 = load i8, ptr %arrayidx.i.i52.us, align 1
-  %add72.us = add i8 %1, 1
-  %add.ptr.i54.us = getelementptr inbounds i8, ptr %s2.sroa.11.0, i64 %sub69.us
-  %2 = load i8, ptr %add.ptr.i54.us, align 1
-  %cmp80.us = icmp ne i8 %.pre97, %2
-  %arrayidx.i.i56.us = getelementptr inbounds [102 x i8], ptr %arrayidx.i.i49, i64 0, i64 %sub69.us
-  %3 = load i8, ptr %arrayidx.i.i56.us, align 1
-  %conv87.us = zext i1 %cmp80.us to i8
-  %add88.us = add i8 %3, %conv87.us
-  store i8 %add, ptr %ref.tmp, align 1
-  store i8 %add66.us, ptr %arrayinit.element.ptr, align 1
-  store i8 %add72.us, ptr %arrayinit.element120, align 1
-  store i8 %add88.us, ptr %arrayinit.element121, align 1
-  store i8 %add, ptr %arrayinit.element122, align 1
-  br label %while.body.i.i.us
+.lr.ph:                                           ; preds = %49
+  %50 = add i64 %.05795, -1
+  %51 = getelementptr inbounds nuw [102 x %"struct.std::array.0"], ptr %6, i64 0, i64 %50
+  %52 = getelementptr inbounds nuw [102 x %"struct.std::array.0"], ptr %6, i64 0, i64 %.05795
+  %53 = getelementptr inbounds nuw i8, ptr %.sroa.9.0, i64 %50
+  %54 = icmp ugt i64 %.05795, 1
+  %55 = add i64 %.05795, -2
+  %56 = getelementptr inbounds nuw i8, ptr %.sroa.9.0, i64 %55
+  %57 = getelementptr inbounds nuw [102 x %"struct.std::array.0"], ptr %6, i64 0, i64 %55
+  %.pre99 = load i8, ptr %53, align 1, !tbaa !4
+  br i1 %54, label %.lr.ph.split, label %.lr.ph.split.us
 
-while.body.i.i.us:                                ; preds = %while.body.i.i.us, %for.body61.us
-  %4 = phi i8 [ %6, %while.body.i.i.us ], [ %add, %for.body61.us ]
-  %incdec.ptr11.i.i.idx.us = phi i64 [ %incdec.ptr11.i.i.add.us, %while.body.i.i.us ], [ 1, %for.body61.us ]
-  %__result.010.i.i.us = phi ptr [ %spec.select.i.i.us, %while.body.i.i.us ], [ %ref.tmp, %for.body61.us ]
-  %incdec.ptr11.i.i.ptr.us = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 %incdec.ptr11.i.i.idx.us
-  %5 = load i8, ptr %incdec.ptr11.i.i.ptr.us, align 1
-  %cmp.i.i.i.us = icmp ult i8 %5, %4
-  %6 = call i8 @llvm.umin.i8(i8 %5, i8 %4)
-  %spec.select.i.i.us = select i1 %cmp.i.i.i.us, ptr %incdec.ptr11.i.i.ptr.us, ptr %__result.010.i.i.us
-  %incdec.ptr11.i.i.add.us = add nuw nsw i64 %incdec.ptr11.i.i.idx.us, 1
-  %cmp1.not.i.i.us = icmp eq i64 %incdec.ptr11.i.i.add.us, 5
-  br i1 %cmp1.not.i.i.us, label %_ZSt3minIhET_St16initializer_listIS0_E.exit.us, label %while.body.i.i.us, !llvm.loop !7
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZSt3minIhET_St16initializer_listIS0_E.exit.us
+  %.06093.us = phi i64 [ %78, %_ZSt3minIhET_St16initializer_listIS0_E.exit.us ], [ %.058, %.lr.ph ]
+  %58 = getelementptr inbounds nuw [102 x i8], ptr %51, i64 0, i64 %.06093.us
+  %59 = load i8, ptr %58, align 1, !tbaa !4
+  %60 = add i8 %59, 1
+  %61 = add i64 %.06093.us, -1
+  %62 = getelementptr inbounds nuw [102 x i8], ptr %52, i64 0, i64 %61
+  %63 = load i8, ptr %62, align 1, !tbaa !4
+  %64 = add i8 %63, 1
+  %65 = getelementptr inbounds nuw i8, ptr %.sroa.11.0, i64 %61
+  %66 = load i8, ptr %65, align 1, !tbaa !4
+  %67 = icmp ne i8 %.pre99, %66
+  %68 = getelementptr inbounds nuw [102 x i8], ptr %51, i64 0, i64 %61
+  %69 = load i8, ptr %68, align 1, !tbaa !4
+  %70 = zext i1 %67 to i8
+  %71 = add i8 %69, %70
+  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %7) #3
+  store i8 %8, ptr %7, align 1, !tbaa !4
+  store i8 %60, ptr %.ptr91, align 1, !tbaa !4
+  store i8 %64, ptr %27, align 1, !tbaa !4
+  store i8 %71, ptr %28, align 1, !tbaa !4
+  store i8 %8, ptr %29, align 1, !tbaa !4
+  br label %.lr.ph.i.i.us
 
-_ZSt3minIhET_St16initializer_listIS0_E.exit.us:   ; preds = %while.body.i.i.us
-  %7 = load i8, ptr %spec.select.i.i.us, align 1
-  %arrayidx.i.i68.us = getelementptr inbounds [102 x i8], ptr %arrayidx.i.i51, i64 0, i64 %j.093.us
-  store i8 %7, ptr %arrayidx.i.i68.us, align 1
-  %inc.us = add i64 %j.093.us, 1
-  %cmp60.not.us = icmp ugt i64 %inc.us, %j_end.0
-  br i1 %cmp60.not.us, label %for.inc126, label %for.body61.us, !llvm.loop !8
+.lr.ph.i.i.us:                                    ; preds = %.lr.ph.i.i.us, %.lr.ph.split.us
+  %72 = phi i8 [ %75, %.lr.ph.i.i.us ], [ %8, %.lr.ph.split.us ]
+  %.idx.us = phi i64 [ %.add.us, %.lr.ph.i.i.us ], [ 1, %.lr.ph.split.us ]
+  %.018.i.i.us = phi ptr [ %spec.select.i.i.us, %.lr.ph.i.i.us ], [ %7, %.lr.ph.split.us ]
+  %.ptr.us = getelementptr inbounds nuw i8, ptr %7, i64 %.idx.us
+  %73 = load i8, ptr %.ptr.us, align 1, !tbaa !4
+  %74 = icmp ult i8 %73, %72
+  %75 = call i8 @llvm.umin.i8(i8 %73, i8 %72)
+  %spec.select.i.i.us = select i1 %74, ptr %.ptr.us, ptr %.018.i.i.us
+  %.add.us = add nuw nsw i64 %.idx.us, 1
+  %.not.i.i.us = icmp eq i64 %.add.us, 5
+  br i1 %.not.i.i.us, label %_ZSt3minIhET_St16initializer_listIS0_E.exit.us, label %.lr.ph.i.i.us, !llvm.loop !9
 
-for.body61:                                       ; preds = %for.body61.lr.ph, %_ZSt3minIhET_St16initializer_listIS0_E.exit
-  %j.093 = phi i64 [ %inc, %_ZSt3minIhET_St16initializer_listIS0_E.exit ], [ %j_begin.0, %for.body61.lr.ph ]
-  %arrayidx.i.i50 = getelementptr inbounds [102 x i8], ptr %arrayidx.i.i49, i64 0, i64 %j.093
-  %8 = load i8, ptr %arrayidx.i.i50, align 1
-  %add66 = add i8 %8, 1
-  %sub69 = add i64 %j.093, -1
-  %arrayidx.i.i52 = getelementptr inbounds [102 x i8], ptr %arrayidx.i.i51, i64 0, i64 %sub69
-  %9 = load i8, ptr %arrayidx.i.i52, align 1
-  %add72 = add i8 %9, 1
-  %add.ptr.i54 = getelementptr inbounds i8, ptr %s2.sroa.11.0, i64 %sub69
-  %10 = load i8, ptr %add.ptr.i54, align 1
-  %cmp80 = icmp ne i8 %.pre97, %10
-  %arrayidx.i.i56 = getelementptr inbounds [102 x i8], ptr %arrayidx.i.i49, i64 0, i64 %sub69
-  %11 = load i8, ptr %arrayidx.i.i56, align 1
-  %conv87 = zext i1 %cmp80 to i8
-  %add88 = add i8 %11, %conv87
-  %cmp94 = icmp ugt i64 %j.093, 1
-  br i1 %cmp94, label %land.lhs.true95, label %if.end119
+_ZSt3minIhET_St16initializer_listIS0_E.exit.us:   ; preds = %.lr.ph.i.i.us
+  %76 = load i8, ptr %spec.select.i.i.us, align 1, !tbaa !4
+  %77 = getelementptr inbounds nuw [102 x i8], ptr %52, i64 0, i64 %.06093.us
+  store i8 %76, ptr %77, align 1, !tbaa !4
+  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %7) #3
+  %78 = add i64 %.06093.us, 1
+  %.not64.us = icmp ugt i64 %78, %.059
+  br i1 %.not64.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !10
 
-land.lhs.true95:                                  ; preds = %for.body61
-  %sub99 = add i64 %j.093, -2
-  %add.ptr.i60 = getelementptr inbounds i8, ptr %s2.sroa.11.0, i64 %sub99
-  %12 = load i8, ptr %add.ptr.i60, align 1
-  %cmp102 = icmp eq i8 %.pre97, %12
-  br i1 %cmp102, label %land.lhs.true103, label %if.end119
+._crit_edge:                                      ; preds = %_ZSt3minIhET_St16initializer_listIS0_E.exit.us, %_ZSt3minIhET_St16initializer_listIS0_E.exit, %49
+  %79 = add nuw i64 %.05795, 1
+  %.not.not = icmp ult i64 %.05795, %.sroa.080.0
+  br i1 %.not.not, label %33, label %._crit_edge97, !llvm.loop !11
 
-land.lhs.true103:                                 ; preds = %land.lhs.true95
-  %13 = load i8, ptr %add.ptr.i62, align 1
-  %cmp110 = icmp eq i8 %13, %10
-  br i1 %cmp110, label %if.then111, label %if.end119
+.lr.ph.split:                                     ; preds = %.lr.ph, %_ZSt3minIhET_St16initializer_listIS0_E.exit
+  %.06093 = phi i64 [ %114, %_ZSt3minIhET_St16initializer_listIS0_E.exit ], [ %.058, %.lr.ph ]
+  %80 = getelementptr inbounds nuw [102 x i8], ptr %51, i64 0, i64 %.06093
+  %81 = load i8, ptr %80, align 1, !tbaa !4
+  %82 = add i8 %81, 1
+  %83 = add i64 %.06093, -1
+  %84 = getelementptr inbounds nuw [102 x i8], ptr %52, i64 0, i64 %83
+  %85 = load i8, ptr %84, align 1, !tbaa !4
+  %86 = add i8 %85, 1
+  %87 = getelementptr inbounds nuw i8, ptr %.sroa.11.0, i64 %83
+  %88 = load i8, ptr %87, align 1, !tbaa !4
+  %89 = icmp ne i8 %.pre99, %88
+  %90 = getelementptr inbounds nuw [102 x i8], ptr %51, i64 0, i64 %83
+  %91 = load i8, ptr %90, align 1, !tbaa !4
+  %92 = zext i1 %89 to i8
+  %93 = add i8 %91, %92
+  %94 = icmp ugt i64 %.06093, 1
+  br i1 %94, label %95, label %107
 
-if.then111:                                       ; preds = %land.lhs.true103
-  %arrayidx.i.i66 = getelementptr inbounds [102 x i8], ptr %arrayidx.i.i65, i64 0, i64 %sub99
-  %14 = load i8, ptr %arrayidx.i.i66, align 1
-  %add117 = add i8 %14, 1
-  br label %if.end119
+95:                                               ; preds = %.lr.ph.split
+  %96 = add i64 %.06093, -2
+  %97 = getelementptr inbounds nuw i8, ptr %.sroa.11.0, i64 %96
+  %98 = load i8, ptr %97, align 1, !tbaa !4
+  %99 = icmp eq i8 %.pre99, %98
+  br i1 %99, label %100, label %107
 
-if.end119:                                        ; preds = %if.then111, %land.lhs.true103, %land.lhs.true95, %for.body61
-  %transposition_distance.0 = phi i8 [ %add117, %if.then111 ], [ %add, %land.lhs.true103 ], [ %add, %land.lhs.true95 ], [ %add, %for.body61 ]
-  store i8 %add, ptr %ref.tmp, align 1
-  store i8 %add66, ptr %arrayinit.element.ptr, align 1
-  store i8 %add72, ptr %arrayinit.element120, align 1
-  store i8 %add88, ptr %arrayinit.element121, align 1
-  store i8 %transposition_distance.0, ptr %arrayinit.element122, align 1
-  br label %while.body.i.i
+100:                                              ; preds = %95
+  %101 = load i8, ptr %56, align 1, !tbaa !4
+  %102 = icmp eq i8 %101, %88
+  br i1 %102, label %103, label %107
 
-while.body.i.i:                                   ; preds = %while.body.i.i, %if.end119
-  %15 = phi i8 [ %17, %while.body.i.i ], [ %add, %if.end119 ]
-  %incdec.ptr11.i.i.idx = phi i64 [ %incdec.ptr11.i.i.add, %while.body.i.i ], [ 1, %if.end119 ]
-  %__result.010.i.i = phi ptr [ %spec.select.i.i, %while.body.i.i ], [ %ref.tmp, %if.end119 ]
-  %incdec.ptr11.i.i.ptr = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 %incdec.ptr11.i.i.idx
-  %16 = load i8, ptr %incdec.ptr11.i.i.ptr, align 1
-  %cmp.i.i.i = icmp ult i8 %16, %15
-  %17 = call i8 @llvm.umin.i8(i8 %16, i8 %15)
-  %spec.select.i.i = select i1 %cmp.i.i.i, ptr %incdec.ptr11.i.i.ptr, ptr %__result.010.i.i
-  %incdec.ptr11.i.i.add = add nuw nsw i64 %incdec.ptr11.i.i.idx, 1
-  %cmp1.not.i.i = icmp eq i64 %incdec.ptr11.i.i.add, 5
-  br i1 %cmp1.not.i.i, label %_ZSt3minIhET_St16initializer_listIS0_E.exit, label %while.body.i.i, !llvm.loop !7
+103:                                              ; preds = %100
+  %104 = getelementptr inbounds nuw [102 x i8], ptr %57, i64 0, i64 %96
+  %105 = load i8, ptr %104, align 1, !tbaa !4
+  %106 = add i8 %105, 1
+  br label %107
 
-_ZSt3minIhET_St16initializer_listIS0_E.exit:      ; preds = %while.body.i.i
-  %18 = load i8, ptr %spec.select.i.i, align 1
-  %arrayidx.i.i68 = getelementptr inbounds [102 x i8], ptr %arrayidx.i.i51, i64 0, i64 %j.093
-  store i8 %18, ptr %arrayidx.i.i68, align 1
-  %inc = add i64 %j.093, 1
-  %cmp60.not = icmp ugt i64 %inc, %j_end.0
-  br i1 %cmp60.not, label %for.inc126, label %for.body61, !llvm.loop !8
+107:                                              ; preds = %103, %100, %95, %.lr.ph.split
+  %.056 = phi i8 [ %106, %103 ], [ %8, %100 ], [ %8, %95 ], [ %8, %.lr.ph.split ]
+  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %7) #3
+  store i8 %8, ptr %7, align 1, !tbaa !4
+  store i8 %82, ptr %.ptr91, align 1, !tbaa !4
+  store i8 %86, ptr %27, align 1, !tbaa !4
+  store i8 %93, ptr %28, align 1, !tbaa !4
+  store i8 %.056, ptr %29, align 1, !tbaa !4
+  br label %.lr.ph.i.i
 
-for.inc126:                                       ; preds = %_ZSt3minIhET_St16initializer_listIS0_E.exit.us, %_ZSt3minIhET_St16initializer_listIS0_E.exit, %if.end58
-  %inc127 = add nuw i64 %i.095, 1
-  %exitcond = icmp eq i64 %i.095, %s1.sroa.0.0
-  br i1 %exitcond, label %for.end128, label %for.body, !llvm.loop !9
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %107
+  %108 = phi i8 [ %111, %.lr.ph.i.i ], [ %8, %107 ]
+  %.idx = phi i64 [ %.add, %.lr.ph.i.i ], [ 1, %107 ]
+  %.018.i.i = phi ptr [ %spec.select.i.i, %.lr.ph.i.i ], [ %7, %107 ]
+  %.ptr = getelementptr inbounds nuw i8, ptr %7, i64 %.idx
+  %109 = load i8, ptr %.ptr, align 1, !tbaa !4
+  %110 = icmp ult i8 %109, %108
+  %111 = call i8 @llvm.umin.i8(i8 %109, i8 %108)
+  %spec.select.i.i = select i1 %110, ptr %.ptr, ptr %.018.i.i
+  %.add = add nuw nsw i64 %.idx, 1
+  %.not.i.i = icmp eq i64 %.add, 5
+  br i1 %.not.i.i, label %_ZSt3minIhET_St16initializer_listIS0_E.exit, label %.lr.ph.i.i, !llvm.loop !9
 
-for.end128:                                       ; preds = %for.inc126
-  %arrayidx.i.i69 = getelementptr inbounds [102 x %"struct.std::array.0"], ptr %d, i64 0, i64 %s1.sroa.0.0
-  %arrayidx.i.i70 = getelementptr inbounds nuw [102 x i8], ptr %arrayidx.i.i69, i64 0, i64 %s2.sroa.0.0
-  %19 = load i8, ptr %arrayidx.i.i70, align 1
-  br label %return
+_ZSt3minIhET_St16initializer_listIS0_E.exit:      ; preds = %.lr.ph.i.i
+  %112 = load i8, ptr %spec.select.i.i, align 1, !tbaa !4
+  %113 = getelementptr inbounds nuw [102 x i8], ptr %52, i64 0, i64 %.06093
+  store i8 %112, ptr %113, align 1, !tbaa !4
+  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %7) #3
+  %114 = add i64 %.06093, 1
+  %.not64 = icmp ugt i64 %114, %.059
+  br i1 %.not64, label %._crit_edge, label %.lr.ph.split, !llvm.loop !10
 
-return:                                           ; preds = %if.end, %for.end128, %if.then14
-  %retval.0 = phi i8 [ %conv16, %if.then14 ], [ %19, %for.end128 ], [ %add, %if.end ]
-  ret i8 %retval.0
+115:                                              ; preds = %11, %._crit_edge97, %18
+  %.0 = phi i8 [ %19, %18 ], [ %32, %._crit_edge97 ], [ %8, %11 ]
+  ret i8 %.0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.umin.i8(i8, i8) #1
+declare i8 @llvm.umin.i8(i8, i8) #2
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C++ TBAA"}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.mustprogress"}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !8}

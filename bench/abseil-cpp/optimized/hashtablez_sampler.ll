@@ -1,19 +1,22 @@
 ; ModuleID = 'bench/abseil-cpp/original/hashtablez_sampler.ll'
 source_filename = "bench/abseil-cpp/original/hashtablez_sampler.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
-$_ZN4absl18profiling_internal14SampleRecorderINS_18container_internal14HashtablezInfoEEC2Ev = comdat any
+%"class.absl::NoDestructor" = type { %"class.absl::NoDestructor<absl::profiling_internal::SampleRecorder<absl::container_internal::HashtablezInfo>>::PlacementImpl" }
+%"class.absl::NoDestructor<absl::profiling_internal::SampleRecorder<absl::container_internal::HashtablezInfo>>::PlacementImpl" = type { [712 x i8] }
 
-$_ZN4absl18profiling_internal14SampleRecorderINS_18container_internal14HashtablezInfoEE8RegisterIJRKlRmEEEPS3_DpOT_ = comdat any
+$_ZN4absl12NoDestructorINS_18profiling_internal14SampleRecorderINS_18container_internal14HashtablezInfoEEEEC2IJETnNSt9enable_ifIXntsr3std7is_sameIFvDpRNSt5decayIT_E4typeEEFvRS6_EEE5valueEiE4typeELi0EEEDpOSA_ = comdat any
+
+$_ZN4absl18profiling_internal14SampleRecorderINS_18container_internal14HashtablezInfoEE8RegisterIJRKlRmS8_S8_RtEEEPS3_DpOT_ = comdat any
 
 $__clang_call_terminate = comdat any
 
-$_ZN4absl18profiling_internal14SampleRecorderINS_18container_internal14HashtablezInfoEE7PopDeadIJlmEEEPS3_DpT_ = comdat any
+$_ZN4absl18profiling_internal14SampleRecorderINS_18container_internal14HashtablezInfoEE7PopDeadIJlmmmtEEEPS3_DpT_ = comdat any
 
 $_ZN4absl18profiling_internal14SampleRecorderINS_18container_internal14HashtablezInfoEE8PushDeadEPS3_ = comdat any
 
-@_ZZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler = internal unnamed_addr global ptr null, align 8
+@_ZZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler = internal global %"class.absl::NoDestructor" zeroinitializer, align 8
 @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler = internal global i64 0, align 8
 @_ZN4absl18container_internal12_GLOBAL__N_128g_hashtablez_config_listenerE.0 = internal unnamed_addr global i64 0, align 8
 @_ZN4absl18container_internal12_GLOBAL__N_120g_hashtablez_enabledE.0 = internal unnamed_addr global i8 0, align 1
@@ -27,95 +30,71 @@ $_ZN4absl18profiling_internal14SampleRecorderINS_18container_internal14Hashtable
 @_ZN4absl18container_internal14HashtablezInfoD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN4absl18container_internal14HashtablezInfoD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(688) ptr @_ZN4absl18container_internal23GlobalHashtablezSamplerEv() local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
-entry:
-  %0 = load atomic i8, ptr @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler acquire, align 8
-  %guard.uninitialized = icmp eq i8 %0, 0
-  br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !5
+define dso_local noundef nonnull align 8 dereferenceable(712) ptr @_ZN4absl18container_internal23GlobalHashtablezSamplerEv() local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+  %1 = load atomic i8, ptr @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler acquire, align 8
+  %2 = icmp eq i8 %1, 0
+  br i1 %2, label %3, label %7, !prof !4
 
-init.check:                                       ; preds = %entry
-  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler) #13
-  %tobool.not = icmp eq i32 %1, 0
-  br i1 %tobool.not, label %init.end, label %init
+3:                                                ; preds = %0
+  %4 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler) #13
+  %.not = icmp eq i32 %4, 0
+  br i1 %.not, label %7, label %5
 
-init:                                             ; preds = %init.check
-  %call = invoke noalias noundef nonnull dereferenceable(688) ptr @_Znwm(i64 noundef 688) #14
-          to label %invoke.cont unwind label %lpad
+5:                                                ; preds = %3
+  invoke void @_ZN4absl12NoDestructorINS_18profiling_internal14SampleRecorderINS_18container_internal14HashtablezInfoEEEEC2IJETnNSt9enable_ifIXntsr3std7is_sameIFvDpRNSt5decayIT_E4typeEEFvRS6_EEE5valueEiE4typeELi0EEEDpOSA_(ptr noundef nonnull align 8 dereferenceable(712) @_ZZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler)
+          to label %6 unwind label %8
 
-invoke.cont:                                      ; preds = %init
-  invoke void @_ZN4absl18profiling_internal14SampleRecorderINS_18container_internal14HashtablezInfoEEC2Ev(ptr noundef nonnull align 8 dereferenceable(688) %call)
-          to label %invoke.cont2 unwind label %lpad1
-
-invoke.cont2:                                     ; preds = %invoke.cont
-  store ptr %call, ptr @_ZZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler, align 8
+6:                                                ; preds = %5
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler) #13
-  br label %init.end
+  br label %7
 
-init.end:                                         ; preds = %invoke.cont2, %init.check, %entry
-  %2 = load ptr, ptr @_ZZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler, align 8
-  ret ptr %2
+7:                                                ; preds = %6, %3, %0
+  ret ptr @_ZZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler
 
-lpad:                                             ; preds = %init
-  %3 = landingpad { ptr, i32 }
+8:                                                ; preds = %5
+  %9 = landingpad { ptr, i32 }
           cleanup
-  br label %ehcleanup
-
-lpad1:                                            ; preds = %invoke.cont
-  %4 = landingpad { ptr, i32 }
-          cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %call) #15
-  br label %ehcleanup
-
-ehcleanup:                                        ; preds = %lpad1, %lpad
-  %.pn = phi { ptr, i32 } [ %4, %lpad1 ], [ %3, %lpad ]
   tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler) #13
-  resume { ptr, i32 } %.pn
+  resume { ptr, i32 } %9
 }
 
 ; Function Attrs: nofree nounwind
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #1
 
-; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #2
-
-declare i32 @__gxx_personality_v0(...)
-
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN4absl18profiling_internal14SampleRecorderINS_18container_internal14HashtablezInfoEEC2Ev(ptr noundef nonnull align 8 dereferenceable(688) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %max_samples_ = getelementptr inbounds nuw i8, ptr %this, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
-  store i64 1048576, ptr %max_samples_, align 8
-  %all_ = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %graveyard_ = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %create_time.i = getelementptr inbounds nuw i8, ptr %this, i64 144
-  %hi_.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 148
-  store i32 0, ptr %hi_.i.i.i.i, align 4
-  store i32 0, ptr %create_time.i, align 8
-  %rep_lo_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 152
-  store i32 0, ptr %rep_lo_.i.i.i, align 8
-  %dispose_ = getelementptr inbounds nuw i8, ptr %this, i64 680
-  store ptr null, ptr %dispose_, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %all_, i8 0, i64 32, i1 false)
-  tail call void @_ZN4absl5Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %graveyard_)
-  %dead = getelementptr inbounds nuw i8, ptr %this, i64 48
-  store ptr %graveyard_, ptr %dead, align 8
-  invoke void @_ZN4absl5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %graveyard_)
-          to label %_ZN4absl9MutexLockD2Ev.exit unwind label %terminate.lpad.i
+define linkonce_odr dso_local void @_ZN4absl12NoDestructorINS_18profiling_internal14SampleRecorderINS_18container_internal14HashtablezInfoEEEEC2IJETnNSt9enable_ifIXntsr3std7is_sameIFvDpRNSt5decayIT_E4typeEEFvRS6_EEE5valueEiE4typeELi0EEEDpOSA_(ptr noundef nonnull align 8 dereferenceable(712) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(712) %0, i8 0, i64 16, i1 false)
+  store i64 1048576, ptr %2, align 8, !tbaa !5
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 148
+  store i32 0, ptr %6, align 4, !tbaa !10
+  store i32 0, ptr %5, align 8, !tbaa !13
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  store i32 0, ptr %7, align 8, !tbaa !14
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 704
+  store ptr null, ptr %8, align 8, !tbaa !16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
+  tail call void @_ZN4absl5Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store ptr %4, ptr %9, align 8, !tbaa !19
+  invoke void @_ZN4absl5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %4)
+          to label %_ZN4absl12NoDestructorINS_18profiling_internal14SampleRecorderINS_18container_internal14HashtablezInfoEEEE13PlacementImplC2IJEEEDpOT_.exit unwind label %10
 
-terminate.lpad.i:                                 ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+10:                                               ; preds = %1
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  tail call void @__clang_call_terminate(ptr %1) #16
+  %12 = extractvalue { ptr, i32 } %11, 0
+  tail call void @__clang_call_terminate(ptr %12) #14
   unreachable
 
-_ZN4absl9MutexLockD2Ev.exit:                      ; preds = %entry
+_ZN4absl12NoDestructorINS_18profiling_internal14SampleRecorderINS_18container_internal14HashtablezInfoEEEE13PlacementImplC2IJEEEDpOT_.exit: ; preds = %1
   ret void
 }
 
-; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #3
+declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: nofree nounwind
 declare void @__cxa_guard_abort(ptr) local_unnamed_addr #1
@@ -124,842 +103,814 @@ declare void @__cxa_guard_abort(ptr) local_unnamed_addr #1
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4absl18container_internal14HashtablezInfoC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(648) initializes((0, 24), (112, 124)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-invoke.cont:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %this, i8 0, i64 24, i1 false)
-  %create_time = getelementptr inbounds nuw i8, ptr %this, i64 112
-  %hi_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 116
-  store i32 0, ptr %hi_.i.i.i, align 4
-  store i32 0, ptr %create_time, align 8
-  %rep_lo_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 120
-  store i32 0, ptr %rep_lo_.i.i, align 8
+define dso_local void @_ZN4absl18container_internal14HashtablezInfoC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(672) initializes((0, 24), (112, 124)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 116
+  store i32 0, ptr %3, align 4, !tbaa !10
+  store i32 0, ptr %2, align 8, !tbaa !13
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  store i32 0, ptr %4, align 8, !tbaa !14
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN4absl18container_internal14HashtablezInfoD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-entry:
+define dso_local void @_ZN4absl18container_internal14HashtablezInfoD2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl18container_internal14HashtablezInfo18PrepareForSamplingElm(ptr noundef nonnull align 8 dereferenceable(648) %this, i64 noundef %stride, i64 noundef %inline_element_size_value) local_unnamed_addr #0 align 2 {
-entry:
-  %capacity = getelementptr inbounds nuw i8, ptr %this, i64 32
-  store atomic i64 0, ptr %capacity monotonic, align 8
-  %size = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store atomic i64 0, ptr %size monotonic, align 8
-  %num_erases = getelementptr inbounds nuw i8, ptr %this, i64 48
-  store atomic i64 0, ptr %num_erases monotonic, align 8
-  %num_rehashes = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store atomic i64 0, ptr %num_rehashes monotonic, align 8
-  %max_probe_length = getelementptr inbounds nuw i8, ptr %this, i64 64
-  store atomic i64 0, ptr %max_probe_length monotonic, align 8
-  %total_probe_length = getelementptr inbounds nuw i8, ptr %this, i64 72
-  store atomic i64 0, ptr %total_probe_length monotonic, align 8
-  %hashes_bitwise_or = getelementptr inbounds nuw i8, ptr %this, i64 80
-  store atomic i64 0, ptr %hashes_bitwise_or monotonic, align 8
-  %hashes_bitwise_and = getelementptr inbounds nuw i8, ptr %this, i64 88
-  store atomic i64 -1, ptr %hashes_bitwise_and monotonic, align 8
-  %hashes_bitwise_xor = getelementptr inbounds nuw i8, ptr %this, i64 96
-  store atomic i64 0, ptr %hashes_bitwise_xor monotonic, align 8
-  %max_reserve = getelementptr inbounds nuw i8, ptr %this, i64 104
-  store atomic i64 0, ptr %max_reserve monotonic, align 8
-  %call = tail call { i64, i32 } @_ZN4absl3NowEv()
-  %call.fca.0.extract = extractvalue { i64, i32 } %call, 0
-  %call.fca.1.extract = extractvalue { i64, i32 } %call, 1
-  %create_time = getelementptr inbounds nuw i8, ptr %this, i64 112
-  store i64 %call.fca.0.extract, ptr %create_time, align 8
-  %ref.tmp.sroa.2.0.create_time.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 120
-  store i32 %call.fca.1.extract, ptr %ref.tmp.sroa.2.0.create_time.sroa_idx, align 8
-  %weight = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store i64 %stride, ptr %weight, align 8
-  %stack = getelementptr inbounds nuw i8, ptr %this, i64 128
-  %call2 = tail call noundef i32 @_ZN4absl13GetStackTraceEPPvii(ptr noundef nonnull %stack, i32 noundef 64, i32 noundef 0)
-  %depth = getelementptr inbounds nuw i8, ptr %this, i64 124
-  store i32 %call2, ptr %depth, align 4
-  %inline_element_size = getelementptr inbounds nuw i8, ptr %this, i64 640
-  store i64 %inline_element_size_value, ptr %inline_element_size, align 8
+define dso_local void @_ZN4absl18container_internal14HashtablezInfo18PrepareForSamplingElmmmt(ptr noundef nonnull align 8 dereferenceable(672) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i16 noundef zeroext %5) local_unnamed_addr #0 align 2 {
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store atomic i64 0, ptr %7 monotonic, align 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store atomic i64 0, ptr %8 monotonic, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store atomic i64 0, ptr %9 monotonic, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store atomic i64 0, ptr %10 monotonic, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store atomic i64 0, ptr %11 monotonic, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store atomic i64 0, ptr %12 monotonic, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store atomic i64 0, ptr %13 monotonic, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store atomic i64 -1, ptr %14 monotonic, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  store atomic i64 0, ptr %15 monotonic, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  store atomic i64 0, ptr %16 monotonic, align 8
+  %17 = tail call { i64, i32 } @_ZN4absl3NowEv()
+  %.fca.0.extract = extractvalue { i64, i32 } %17, 0
+  %.fca.1.extract = extractvalue { i64, i32 } %17, 1
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  store i64 %.fca.0.extract, ptr %18, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 120
+  store i32 %.fca.1.extract, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !25
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %1, ptr %19, align 8, !tbaa !26
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %21 = tail call noundef i32 @_ZN4absl13GetStackTraceEPPvii(ptr noundef nonnull %20, i32 noundef 64, i32 noundef 0)
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 124
+  store i32 %21, ptr %22, align 4, !tbaa !27
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 648
+  store i64 %2, ptr %23, align 8, !tbaa !32
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 656
+  store i64 %3, ptr %24, align 8, !tbaa !33
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 664
+  store i64 %4, ptr %25, align 8, !tbaa !34
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  store i16 %5, ptr %26, align 8, !tbaa !35
   ret void
 }
 
-declare { i64, i32 } @_ZN4absl3NowEv() local_unnamed_addr #6
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
-declare noundef i32 @_ZN4absl13GetStackTraceEPPvii(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #6
+declare { i64, i32 } @_ZN4absl3NowEv() local_unnamed_addr #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
+
+declare noundef i32 @_ZN4absl13GetStackTraceEPPvii(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
+define dso_local void @_ZN4absl18container_internal15ForcedTrySampleEmmmt(i64 noundef %0, i64 noundef %1, i64 noundef %2, i16 noundef zeroext %3) local_unnamed_addr #3 {
+  ret void
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
+define dso_local void @_ZN4absl18container_internal44TestOnlyRefreshSamplingStateForCurrentThreadEv() local_unnamed_addr #3 {
+  ret void
+}
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN4absl18container_internal10SampleSlowERNS0_13SamplingStateEm(ptr noundef nonnull align 8 captures(none) dereferenceable(16) initializes((0, 8)) %next_sample, i64 noundef %inline_element_size) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
-entry:
-  %inline_element_size.addr = alloca i64, align 8
-  %old_stride = alloca i64, align 8
-  store i64 %inline_element_size, ptr %inline_element_size.addr, align 8
-  %0 = load atomic i32, ptr @_ZZN4absl18container_internalL19ShouldForceSamplingEvE12global_state.0 monotonic, align 4
-  switch i32 %0, label %_ZN4absl18container_internalL19ShouldForceSamplingEv.exit [
-    i32 0, label %if.end
-    i32 2, label %if.then2.i
-  ]
+define dso_local noundef ptr @_ZN4absl18container_internal10SampleSlowERNS0_13SamplingStateEmmmt(ptr noundef nonnull align 8 captures(none) dereferenceable(16) initializes((0, 8)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i16, align 2
+  %10 = alloca i64, align 8
+  store i64 %1, ptr %6, align 8, !tbaa !36
+  store i64 %2, ptr %7, align 8, !tbaa !36
+  store i64 %3, ptr %8, align 8, !tbaa !36
+  store i16 %4, ptr %9, align 2, !tbaa !37
+  %11 = load atomic i32, ptr @_ZZN4absl18container_internalL19ShouldForceSamplingEvE12global_state.0 monotonic, align 4
+  switch i32 %11, label %_ZN4absl18container_internalL19ShouldForceSamplingEv.exit [
+    i32 0, label %_ZN4absl18container_internalL19ShouldForceSamplingEv.exit.thread
+    i32 2, label %12
+  ], !prof !38
 
-if.then2.i:                                       ; preds = %entry
-  %call3.i = tail call zeroext i1 @AbslContainerInternalSampleEverything()
-  %cond.i = zext i1 %call3.i to i32
-  store atomic i32 %cond.i, ptr @_ZZN4absl18container_internalL19ShouldForceSamplingEvE12global_state.0 monotonic, align 4
+12:                                               ; preds = %5
+  %13 = tail call zeroext i1 @AbslContainerInternalSampleEverything()
+  %14 = zext i1 %13 to i32
+  store atomic i32 %14, ptr @_ZZN4absl18container_internalL19ShouldForceSamplingEvE12global_state.0 monotonic, align 4
   br label %_ZN4absl18container_internalL19ShouldForceSamplingEv.exit
 
-_ZN4absl18container_internalL19ShouldForceSamplingEv.exit: ; preds = %entry, %if.then2.i
-  %state.0.i = phi i32 [ %cond.i, %if.then2.i ], [ %0, %entry ]
-  %cmp5.i = icmp eq i32 %state.0.i, 1
-  br i1 %cmp5.i, label %if.then, label %if.end
+_ZN4absl18container_internalL19ShouldForceSamplingEv.exit: ; preds = %5, %12
+  %.0.i = phi i32 [ %14, %12 ], [ %11, %5 ]
+  %15 = icmp eq i32 %.0.i, 1
+  br i1 %15, label %16, label %_ZN4absl18container_internalL19ShouldForceSamplingEv.exit.thread, !prof !39
 
-if.then:                                          ; preds = %_ZN4absl18container_internalL19ShouldForceSamplingEv.exit
-  store i64 1, ptr %next_sample, align 8
-  %sample_stride = getelementptr inbounds nuw i8, ptr %next_sample, i64 8
-  %1 = load i64, ptr %sample_stride, align 8
-  store i64 1, ptr %sample_stride, align 8
-  store i64 %1, ptr %old_stride, align 8
-  %2 = load atomic i8, ptr @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler acquire, align 8
-  %guard.uninitialized.i = icmp eq i8 %2, 0
-  br i1 %guard.uninitialized.i, label %init.check.i, label %_ZN4absl18container_internal23GlobalHashtablezSamplerEv.exit, !prof !5
+16:                                               ; preds = %_ZN4absl18container_internalL19ShouldForceSamplingEv.exit
+  store i64 1, ptr %0, align 8, !tbaa !40
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #13
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %18 = load i64, ptr %17, align 8, !tbaa !36
+  store i64 1, ptr %17, align 8, !tbaa !36
+  store i64 %18, ptr %10, align 8, !tbaa !36
+  %19 = tail call noundef nonnull align 8 dereferenceable(712) ptr @_ZN4absl18container_internal23GlobalHashtablezSamplerEv()
+  %20 = call noundef ptr @_ZN4absl18profiling_internal14SampleRecorderINS_18container_internal14HashtablezInfoEE8RegisterIJRKlRmS8_S8_RtEEEPS3_DpOT_(ptr noundef nonnull align 8 dereferenceable(712) %19, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 2 dereferenceable(2) %9)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #13
+  br label %21
 
-init.check.i:                                     ; preds = %if.then
-  %3 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler) #13
-  %tobool.not.i = icmp eq i32 %3, 0
-  br i1 %tobool.not.i, label %_ZN4absl18container_internal23GlobalHashtablezSamplerEv.exit, label %init.i
+_ZN4absl18container_internalL19ShouldForceSamplingEv.exit.thread: ; preds = %5, %_ZN4absl18container_internalL19ShouldForceSamplingEv.exit
+  store i64 9223372036854775807, ptr %0, align 8, !tbaa !36
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 9223372036854775807, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !36
+  br label %21
 
-init.i:                                           ; preds = %init.check.i
-  %call.i = invoke noalias noundef nonnull dereferenceable(688) ptr @_Znwm(i64 noundef 688) #14
-          to label %invoke.cont.i unwind label %lpad.i
-
-invoke.cont.i:                                    ; preds = %init.i
-  invoke void @_ZN4absl18profiling_internal14SampleRecorderINS_18container_internal14HashtablezInfoEEC2Ev(ptr noundef nonnull align 8 dereferenceable(688) %call.i)
-          to label %invoke.cont2.i unwind label %lpad1.i
-
-invoke.cont2.i:                                   ; preds = %invoke.cont.i
-  store ptr %call.i, ptr @_ZZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler, align 8
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler) #13
-  br label %_ZN4absl18container_internal23GlobalHashtablezSamplerEv.exit
-
-lpad.i:                                           ; preds = %init.i
-  %4 = landingpad { ptr, i32 }
-          cleanup
-  br label %ehcleanup.i
-
-lpad1.i:                                          ; preds = %invoke.cont.i
-  %5 = landingpad { ptr, i32 }
-          cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %call.i) #15
-  br label %ehcleanup.i
-
-ehcleanup.i:                                      ; preds = %lpad1.i, %lpad.i
-  %.pn.i = phi { ptr, i32 } [ %5, %lpad1.i ], [ %4, %lpad.i ]
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler) #13
-  resume { ptr, i32 } %.pn.i
-
-_ZN4absl18container_internal23GlobalHashtablezSamplerEv.exit: ; preds = %if.then, %init.check.i, %invoke.cont2.i
-  %6 = load ptr, ptr @_ZZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler, align 8
-  %call4 = call noundef ptr @_ZN4absl18profiling_internal14SampleRecorderINS_18container_internal14HashtablezInfoEE8RegisterIJRKlRmEEEPS3_DpOT_(ptr noundef nonnull align 8 dereferenceable(688) %6, ptr noundef nonnull align 8 dereferenceable(8) %old_stride, ptr noundef nonnull align 8 dereferenceable(8) %inline_element_size.addr)
-  br label %return
-
-if.end:                                           ; preds = %entry, %_ZN4absl18container_internalL19ShouldForceSamplingEv.exit
-  store i64 9223372036854775807, ptr %next_sample, align 8
-  %ref.tmp5.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %next_sample, i64 8
-  store i64 9223372036854775807, ptr %ref.tmp5.sroa.2.0..sroa_idx, align 8
-  br label %return
-
-return:                                           ; preds = %if.end, %_ZN4absl18container_internal23GlobalHashtablezSamplerEv.exit
-  %retval.0 = phi ptr [ %call4, %_ZN4absl18container_internal23GlobalHashtablezSamplerEv.exit ], [ null, %if.end ]
-  ret ptr %retval.0
+21:                                               ; preds = %_ZN4absl18container_internalL19ShouldForceSamplingEv.exit.thread, %16
+  %.0 = phi ptr [ %20, %16 ], [ null, %_ZN4absl18container_internalL19ShouldForceSamplingEv.exit.thread ]
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZN4absl18profiling_internal14SampleRecorderINS_18container_internal14HashtablezInfoEE8RegisterIJRKlRmEEEPS3_DpOT_(ptr noundef nonnull align 8 dereferenceable(688) %this, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr noundef nonnull align 8 dereferenceable(8) %args1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %size_estimate_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = atomicrmw add ptr %size_estimate_, i64 1 monotonic, align 8
-  %max_samples_ = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %1 = load atomic i64, ptr %max_samples_ monotonic, align 8
-  %cmp = icmp ugt i64 %0, %1
-  br i1 %cmp, label %monotonic.i47, label %if.end
+define linkonce_odr dso_local noundef ptr @_ZN4absl18profiling_internal14SampleRecorderINS_18container_internal14HashtablezInfoEE8RegisterIJRKlRmS8_S8_RtEEEPS3_DpOT_(ptr noundef nonnull align 8 dereferenceable(712) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 2 dereferenceable(2) %5) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %8 = atomicrmw add ptr %7, i64 1 monotonic, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %10 = load atomic i64, ptr %9 monotonic, align 8
+  %11 = icmp ugt i64 %8, %10
+  br i1 %11, label %12, label %15
 
-monotonic.i47:                                    ; preds = %entry
-  %2 = atomicrmw sub ptr %size_estimate_, i64 1 monotonic, align 8
-  %3 = atomicrmw add ptr %this, i64 1 monotonic, align 8
-  br label %return
+12:                                               ; preds = %6
+  %13 = atomicrmw sub ptr %7, i64 1 monotonic, align 8
+  %14 = atomicrmw add ptr %0, i64 1 monotonic, align 8
+  br label %_ZN4absl18profiling_internal14SampleRecorderINS_18container_internal14HashtablezInfoEE7PushNewEPS3_.exit
 
-if.end:                                           ; preds = %entry
-  %4 = load i64, ptr %args, align 8
-  %5 = load i64, ptr %args1, align 8
-  %call8 = tail call noundef ptr @_ZN4absl18profiling_internal14SampleRecorderINS_18container_internal14HashtablezInfoEE7PopDeadIJlmEEEPS3_DpT_(ptr noundef nonnull align 8 dereferenceable(688) %this, i64 noundef %4, i64 noundef %5)
-  %cmp9 = icmp eq ptr %call8, null
-  br i1 %cmp9, label %invoke.cont, label %return
+15:                                               ; preds = %6
+  %16 = load i64, ptr %1, align 8, !tbaa !36
+  %17 = load i64, ptr %2, align 8, !tbaa !36
+  %18 = load i64, ptr %3, align 8, !tbaa !36
+  %19 = load i64, ptr %4, align 8, !tbaa !36
+  %20 = load i16, ptr %5, align 2, !tbaa !37
+  %21 = tail call noundef ptr @_ZN4absl18profiling_internal14SampleRecorderINS_18container_internal14HashtablezInfoEE7PopDeadIJlmmmtEEEPS3_DpT_(ptr noundef nonnull align 8 dereferenceable(712) %0, i64 noundef %16, i64 noundef %17, i64 noundef %18, i64 noundef %19, i16 noundef zeroext %20)
+  %22 = icmp eq ptr %21, null
+  br i1 %22, label %23, label %_ZN4absl18profiling_internal14SampleRecorderINS_18container_internal14HashtablezInfoEE7PushNewEPS3_.exit
 
-invoke.cont:                                      ; preds = %if.end
-  %call11 = tail call noalias noundef nonnull dereferenceable(648) ptr @_Znwm(i64 noundef 648) #14
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(648) %call11, i8 0, i64 24, i1 false)
-  %create_time.i = getelementptr inbounds nuw i8, ptr %call11, i64 112
-  %hi_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call11, i64 116
-  store i32 0, ptr %hi_.i.i.i.i, align 4
-  store i32 0, ptr %create_time.i, align 4
-  %rep_lo_.i.i.i = getelementptr inbounds nuw i8, ptr %call11, i64 120
-  store i32 0, ptr %rep_lo_.i.i.i, align 4
-  tail call void @_ZN4absl5Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %call11)
-  invoke void @_ZN4absl5Mutex18ForgetDeadlockInfoEv(ptr noundef nonnull align 8 dereferenceable(8) %call11)
-          to label %invoke.cont14 unwind label %lpad13
+23:                                               ; preds = %15
+  %24 = tail call noalias noundef nonnull dereferenceable(672) ptr @_Znwm(i64 noundef 672) #15
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(672) %24, i8 0, i64 24, i1 false)
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 112
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 116
+  store i32 0, ptr %26, align 4, !tbaa !10
+  store i32 0, ptr %25, align 4, !tbaa !13
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 120
+  store i32 0, ptr %27, align 4, !tbaa !14
+  tail call void @_ZN4absl5Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %24)
+  invoke void @_ZN4absl5Mutex18ForgetDeadlockInfoEv(ptr noundef nonnull align 8 dereferenceable(8) %24)
+          to label %28 unwind label %67
 
-invoke.cont14:                                    ; preds = %invoke.cont
-  %6 = load i64, ptr %args, align 8
-  %7 = load i64, ptr %args1, align 8
-  %capacity.i = getelementptr inbounds nuw i8, ptr %call11, i64 32
-  store atomic i64 0, ptr %capacity.i monotonic, align 8
-  %size.i = getelementptr inbounds nuw i8, ptr %call11, i64 40
-  store atomic i64 0, ptr %size.i monotonic, align 8
-  %num_erases.i = getelementptr inbounds nuw i8, ptr %call11, i64 48
-  store atomic i64 0, ptr %num_erases.i monotonic, align 8
-  %num_rehashes.i = getelementptr inbounds nuw i8, ptr %call11, i64 56
-  store atomic i64 0, ptr %num_rehashes.i monotonic, align 8
-  %max_probe_length.i = getelementptr inbounds nuw i8, ptr %call11, i64 64
-  store atomic i64 0, ptr %max_probe_length.i monotonic, align 8
-  %total_probe_length.i = getelementptr inbounds nuw i8, ptr %call11, i64 72
-  store atomic i64 0, ptr %total_probe_length.i monotonic, align 8
-  %hashes_bitwise_or.i = getelementptr inbounds nuw i8, ptr %call11, i64 80
-  store atomic i64 0, ptr %hashes_bitwise_or.i monotonic, align 8
-  %hashes_bitwise_and.i = getelementptr inbounds nuw i8, ptr %call11, i64 88
-  store atomic i64 -1, ptr %hashes_bitwise_and.i monotonic, align 8
-  %hashes_bitwise_xor.i = getelementptr inbounds nuw i8, ptr %call11, i64 96
-  store atomic i64 0, ptr %hashes_bitwise_xor.i monotonic, align 8
-  %max_reserve.i = getelementptr inbounds nuw i8, ptr %call11, i64 104
-  store atomic i64 0, ptr %max_reserve.i monotonic, align 8
-  %call.i23 = invoke { i64, i32 } @_ZN4absl3NowEv()
-          to label %call.i.noexc unwind label %lpad13
+28:                                               ; preds = %23
+  %29 = load i64, ptr %1, align 8, !tbaa !36
+  %30 = load i64, ptr %2, align 8, !tbaa !36
+  %31 = load i64, ptr %3, align 8, !tbaa !36
+  %32 = load i64, ptr %4, align 8, !tbaa !36
+  %33 = load i16, ptr %5, align 2, !tbaa !37
+  %34 = getelementptr inbounds nuw i8, ptr %24, i64 32
+  store atomic i64 0, ptr %34 monotonic, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %24, i64 40
+  store atomic i64 0, ptr %35 monotonic, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %24, i64 48
+  store atomic i64 0, ptr %36 monotonic, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %24, i64 56
+  store atomic i64 0, ptr %37 monotonic, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %24, i64 64
+  store atomic i64 0, ptr %38 monotonic, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %24, i64 72
+  store atomic i64 0, ptr %39 monotonic, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %24, i64 80
+  store atomic i64 0, ptr %40 monotonic, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %24, i64 88
+  store atomic i64 -1, ptr %41 monotonic, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %24, i64 96
+  store atomic i64 0, ptr %42 monotonic, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %24, i64 104
+  store atomic i64 0, ptr %43 monotonic, align 8
+  %44 = invoke { i64, i32 } @_ZN4absl3NowEv()
+          to label %.noexc unwind label %67
 
-call.i.noexc:                                     ; preds = %invoke.cont14
-  %call.fca.0.extract.i = extractvalue { i64, i32 } %call.i23, 0
-  %call.fca.1.extract.i = extractvalue { i64, i32 } %call.i23, 1
-  store i64 %call.fca.0.extract.i, ptr %create_time.i, align 8
-  store i32 %call.fca.1.extract.i, ptr %rep_lo_.i.i.i, align 8
-  %weight.i = getelementptr inbounds nuw i8, ptr %call11, i64 24
-  store i64 %6, ptr %weight.i, align 8
-  %stack.i = getelementptr inbounds nuw i8, ptr %call11, i64 128
-  %call2.i24 = invoke noundef i32 @_ZN4absl13GetStackTraceEPPvii(ptr noundef nonnull %stack.i, i32 noundef 64, i32 noundef 0)
-          to label %invoke.cont15 unwind label %lpad13
+.noexc:                                           ; preds = %28
+  %.fca.0.extract.i = extractvalue { i64, i32 } %44, 0
+  %.fca.1.extract.i = extractvalue { i64, i32 } %44, 1
+  store i64 %.fca.0.extract.i, ptr %25, align 8
+  store i32 %.fca.1.extract.i, ptr %27, align 8, !tbaa !25
+  %45 = getelementptr inbounds nuw i8, ptr %24, i64 24
+  store i64 %29, ptr %45, align 8, !tbaa !26
+  %46 = getelementptr inbounds nuw i8, ptr %24, i64 136
+  %47 = invoke noundef i32 @_ZN4absl13GetStackTraceEPPvii(ptr noundef nonnull %46, i32 noundef 64, i32 noundef 0)
+          to label %48 unwind label %67
 
-invoke.cont15:                                    ; preds = %call.i.noexc
-  %depth.i = getelementptr inbounds nuw i8, ptr %call11, i64 124
-  store i32 %call2.i24, ptr %depth.i, align 4
-  %inline_element_size.i = getelementptr inbounds nuw i8, ptr %call11, i64 640
-  store i64 %7, ptr %inline_element_size.i, align 8
-  invoke void @_ZN4absl5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %call11)
-          to label %_ZN4absl9MutexLockD2Ev.exit unwind label %terminate.lpad.i
+48:                                               ; preds = %.noexc
+  %49 = getelementptr inbounds nuw i8, ptr %24, i64 124
+  store i32 %47, ptr %49, align 4, !tbaa !27
+  %50 = getelementptr inbounds nuw i8, ptr %24, i64 648
+  store i64 %30, ptr %50, align 8, !tbaa !32
+  %51 = getelementptr inbounds nuw i8, ptr %24, i64 656
+  store i64 %31, ptr %51, align 8, !tbaa !33
+  %52 = getelementptr inbounds nuw i8, ptr %24, i64 664
+  store i64 %32, ptr %52, align 8, !tbaa !34
+  %53 = getelementptr inbounds nuw i8, ptr %24, i64 128
+  store i16 %33, ptr %53, align 8, !tbaa !35
+  invoke void @_ZN4absl5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %24)
+          to label %_ZN4absl9MutexLockD2Ev.exit unwind label %54
 
-terminate.lpad.i:                                 ; preds = %invoke.cont15
-  %8 = landingpad { ptr, i32 }
+54:                                               ; preds = %48
+  %55 = landingpad { ptr, i32 }
           catch ptr null
-  %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #16
+  %56 = extractvalue { ptr, i32 } %55, 0
+  tail call void @__clang_call_terminate(ptr %56) #14
   unreachable
 
-_ZN4absl9MutexLockD2Ev.exit:                      ; preds = %invoke.cont15
-  %all_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %10 = load atomic i64, ptr %all_.i monotonic, align 8
-  %next.i = getelementptr inbounds nuw i8, ptr %call11, i64 8
-  %11 = ptrtoint ptr %call11 to i64
-  %storemerge4.i = inttoptr i64 %10 to ptr
-  store ptr %storemerge4.i, ptr %next.i, align 8
-  %12 = cmpxchg weak ptr %all_.i, i64 %10, i64 %11 release monotonic, align 8
-  %13 = extractvalue { i64, i1 } %12, 1
-  br i1 %13, label %return, label %_ZNSt6atomicIPN4absl18container_internal14HashtablezInfoEE21compare_exchange_weakERS3_S3_St12memory_orderS6_.exit.i
+_ZN4absl9MutexLockD2Ev.exit:                      ; preds = %48
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %58 = load atomic i64, ptr %57 monotonic, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %60 = ptrtoint ptr %24 to i64
+  %storemerge5.i = inttoptr i64 %58 to ptr
+  store ptr %storemerge5.i, ptr %59, align 8
+  %61 = cmpxchg weak ptr %57, i64 %58, i64 %60 release monotonic, align 8
+  %62 = extractvalue { i64, i1 } %61, 1
+  br i1 %62, label %_ZN4absl18profiling_internal14SampleRecorderINS_18container_internal14HashtablezInfoEE7PushNewEPS3_.exit, label %_ZNSt6atomicIPN4absl18container_internal14HashtablezInfoEE21compare_exchange_weakERS3_S3_St12memory_orderS6_.exit.i
 
 _ZNSt6atomicIPN4absl18container_internal14HashtablezInfoEE21compare_exchange_weakERS3_S3_St12memory_orderS6_.exit.i: ; preds = %_ZN4absl9MutexLockD2Ev.exit, %_ZNSt6atomicIPN4absl18container_internal14HashtablezInfoEE21compare_exchange_weakERS3_S3_St12memory_orderS6_.exit.i
-  %14 = phi { i64, i1 } [ %16, %_ZNSt6atomicIPN4absl18container_internal14HashtablezInfoEE21compare_exchange_weakERS3_S3_St12memory_orderS6_.exit.i ], [ %12, %_ZN4absl9MutexLockD2Ev.exit ]
-  %15 = extractvalue { i64, i1 } %14, 0
-  %storemerge.i = inttoptr i64 %15 to ptr
-  store ptr %storemerge.i, ptr %next.i, align 8
-  %16 = cmpxchg weak ptr %all_.i, i64 %15, i64 %11 release monotonic, align 8
-  %17 = extractvalue { i64, i1 } %16, 1
-  br i1 %17, label %return, label %_ZNSt6atomicIPN4absl18container_internal14HashtablezInfoEE21compare_exchange_weakERS3_S3_St12memory_orderS6_.exit.i, !llvm.loop !6
+  %63 = phi { i64, i1 } [ %65, %_ZNSt6atomicIPN4absl18container_internal14HashtablezInfoEE21compare_exchange_weakERS3_S3_St12memory_orderS6_.exit.i ], [ %61, %_ZN4absl9MutexLockD2Ev.exit ]
+  %64 = extractvalue { i64, i1 } %63, 0
+  %storemerge.i = inttoptr i64 %64 to ptr
+  store ptr %storemerge.i, ptr %59, align 8
+  %65 = cmpxchg weak ptr %57, i64 %64, i64 %60 release monotonic, align 8
+  %66 = extractvalue { i64, i1 } %65, 1
+  br i1 %66, label %_ZN4absl18profiling_internal14SampleRecorderINS_18container_internal14HashtablezInfoEE7PushNewEPS3_.exit, label %_ZNSt6atomicIPN4absl18container_internal14HashtablezInfoEE21compare_exchange_weakERS3_S3_St12memory_orderS6_.exit.i, !llvm.loop !42
 
-lpad13:                                           ; preds = %call.i.noexc, %invoke.cont14, %invoke.cont
-  %18 = landingpad { ptr, i32 }
+67:                                               ; preds = %.noexc, %28, %23
+  %68 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_ZN4absl5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %call11)
-          to label %eh.resume unwind label %terminate.lpad.i25
+  invoke void @_ZN4absl5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %24)
+          to label %_ZN4absl9MutexLockD2Ev.exit26 unwind label %69
 
-terminate.lpad.i25:                               ; preds = %lpad13
-  %19 = landingpad { ptr, i32 }
+69:                                               ; preds = %67
+  %70 = landingpad { ptr, i32 }
           catch ptr null
-  %20 = extractvalue { ptr, i32 } %19, 0
-  tail call void @__clang_call_terminate(ptr %20) #16
+  %71 = extractvalue { ptr, i32 } %70, 0
+  tail call void @__clang_call_terminate(ptr %71) #14
   unreachable
 
-return:                                           ; preds = %_ZNSt6atomicIPN4absl18container_internal14HashtablezInfoEE21compare_exchange_weakERS3_S3_St12memory_orderS6_.exit.i, %_ZN4absl9MutexLockD2Ev.exit, %if.end, %monotonic.i47
-  %retval.0 = phi ptr [ null, %monotonic.i47 ], [ %call8, %if.end ], [ %call11, %_ZN4absl9MutexLockD2Ev.exit ], [ %call11, %_ZNSt6atomicIPN4absl18container_internal14HashtablezInfoEE21compare_exchange_weakERS3_S3_St12memory_orderS6_.exit.i ]
-  ret ptr %retval.0
+_ZN4absl9MutexLockD2Ev.exit26:                    ; preds = %67
+  resume { ptr, i32 } %68
 
-eh.resume:                                        ; preds = %lpad13
-  resume { ptr, i32 } %18
+_ZN4absl18profiling_internal14SampleRecorderINS_18container_internal14HashtablezInfoEE7PushNewEPS3_.exit: ; preds = %_ZNSt6atomicIPN4absl18container_internal14HashtablezInfoEE21compare_exchange_weakERS3_S3_St12memory_orderS6_.exit.i, %_ZN4absl9MutexLockD2Ev.exit, %15, %12
+  %.022 = phi ptr [ null, %12 ], [ %21, %15 ], [ %24, %_ZN4absl9MutexLockD2Ev.exit ], [ %24, %_ZNSt6atomicIPN4absl18container_internal14HashtablezInfoEE21compare_exchange_weakERS3_S3_St12memory_orderS6_.exit.i ]
+  ret ptr %.022
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl18container_internal12UnsampleSlowEPNS0_14HashtablezInfoE(ptr noundef %info) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
-entry:
-  %0 = load atomic i8, ptr @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler acquire, align 8
-  %guard.uninitialized.i = icmp eq i8 %0, 0
-  br i1 %guard.uninitialized.i, label %init.check.i, label %_ZN4absl18container_internal23GlobalHashtablezSamplerEv.exit, !prof !5
+define dso_local void @_ZN4absl18container_internal12UnsampleSlowEPNS0_14HashtablezInfoE(ptr noundef %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+  %2 = load atomic i8, ptr @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler acquire, align 8
+  %3 = icmp eq i8 %2, 0
+  br i1 %3, label %4, label %_ZN4absl18container_internal23GlobalHashtablezSamplerEv.exit, !prof !4
 
-init.check.i:                                     ; preds = %entry
-  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler) #13
-  %tobool.not.i = icmp eq i32 %1, 0
-  br i1 %tobool.not.i, label %_ZN4absl18container_internal23GlobalHashtablezSamplerEv.exit, label %init.i
+4:                                                ; preds = %1
+  %5 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler) #13
+  %.not.i = icmp eq i32 %5, 0
+  br i1 %.not.i, label %_ZN4absl18container_internal23GlobalHashtablezSamplerEv.exit, label %6
 
-init.i:                                           ; preds = %init.check.i
-  %call.i = invoke noalias noundef nonnull dereferenceable(688) ptr @_Znwm(i64 noundef 688) #14
-          to label %invoke.cont.i unwind label %lpad.i
+6:                                                ; preds = %4
+  invoke void @_ZN4absl12NoDestructorINS_18profiling_internal14SampleRecorderINS_18container_internal14HashtablezInfoEEEEC2IJETnNSt9enable_ifIXntsr3std7is_sameIFvDpRNSt5decayIT_E4typeEEFvRS6_EEE5valueEiE4typeELi0EEEDpOSA_(ptr noundef nonnull align 8 dereferenceable(712) @_ZZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler)
+          to label %7 unwind label %8
 
-invoke.cont.i:                                    ; preds = %init.i
-  invoke void @_ZN4absl18profiling_internal14SampleRecorderINS_18container_internal14HashtablezInfoEEC2Ev(ptr noundef nonnull align 8 dereferenceable(688) %call.i)
-          to label %invoke.cont2.i unwind label %lpad1.i
-
-invoke.cont2.i:                                   ; preds = %invoke.cont.i
-  store ptr %call.i, ptr @_ZZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler, align 8
+7:                                                ; preds = %6
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler) #13
   br label %_ZN4absl18container_internal23GlobalHashtablezSamplerEv.exit
 
-lpad.i:                                           ; preds = %init.i
-  %2 = landingpad { ptr, i32 }
+8:                                                ; preds = %6
+  %9 = landingpad { ptr, i32 }
           cleanup
-  br label %ehcleanup.i
-
-lpad1.i:                                          ; preds = %invoke.cont.i
-  %3 = landingpad { ptr, i32 }
-          cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %call.i) #15
-  br label %ehcleanup.i
-
-ehcleanup.i:                                      ; preds = %lpad1.i, %lpad.i
-  %.pn.i = phi { ptr, i32 } [ %3, %lpad1.i ], [ %2, %lpad.i ]
   tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler) #13
-  resume { ptr, i32 } %.pn.i
+  resume { ptr, i32 } %9
 
-_ZN4absl18container_internal23GlobalHashtablezSamplerEv.exit: ; preds = %entry, %init.check.i, %invoke.cont2.i
-  %4 = load ptr, ptr @_ZZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler, align 8
-  tail call void @_ZN4absl18profiling_internal14SampleRecorderINS_18container_internal14HashtablezInfoEE8PushDeadEPS3_(ptr noundef nonnull align 8 dereferenceable(688) %4, ptr noundef %info)
-  %size_estimate_.i = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %5 = atomicrmw sub ptr %size_estimate_.i, i64 1 monotonic, align 8
+_ZN4absl18container_internal23GlobalHashtablezSamplerEv.exit: ; preds = %1, %4, %7
+  tail call void @_ZN4absl18profiling_internal14SampleRecorderINS_18container_internal14HashtablezInfoEE8PushDeadEPS3_(ptr noundef nonnull align 8 dereferenceable(712) @_ZZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler, ptr noundef %0)
+  %10 = atomicrmw sub ptr getelementptr inbounds nuw (i8, ptr @_ZZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler, i64 8), i64 1 monotonic, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4absl18container_internal16RecordRehashSlowEPNS0_14HashtablezInfoEm(ptr noundef captures(none) %info, i64 noundef %total_probe_length) local_unnamed_addr #7 {
-entry:
-  %total_probe_length1 = getelementptr inbounds nuw i8, ptr %info, i64 72
-  %div15 = lshr i64 %total_probe_length, 4
-  store atomic i64 %div15, ptr %total_probe_length1 monotonic, align 8
-  %num_erases = getelementptr inbounds nuw i8, ptr %info, i64 48
-  store atomic i64 0, ptr %num_erases monotonic, align 8
-  %num_rehashes = getelementptr inbounds nuw i8, ptr %info, i64 56
-  %0 = load atomic i64, ptr %num_rehashes monotonic, align 8
-  %add = add i64 %0, 1
-  store atomic i64 %add, ptr %num_rehashes monotonic, align 8
+define dso_local void @_ZN4absl18container_internal16RecordRehashSlowEPNS0_14HashtablezInfoEm(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #6 {
+  %3 = lshr i64 %1, 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store atomic i64 %3, ptr %4 monotonic, align 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store atomic i64 0, ptr %5 monotonic, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %7 = load atomic i64, ptr %6 monotonic, align 8
+  %8 = add i64 %7, 1
+  store atomic i64 %8, ptr %6 monotonic, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4absl18container_internal21RecordReservationSlowEPNS0_14HashtablezInfoEm(ptr noundef captures(none) %info, i64 noundef %target_capacity) local_unnamed_addr #7 {
-entry:
-  %max_reserve = getelementptr inbounds nuw i8, ptr %info, i64 104
-  %0 = load atomic i64, ptr %max_reserve monotonic, align 8
-  %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %0, i64 %target_capacity)
-  store atomic i64 %.sroa.speculated, ptr %max_reserve monotonic, align 8
+define dso_local void @_ZN4absl18container_internal21RecordReservationSlowEPNS0_14HashtablezInfoEm(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #6 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %4 = load atomic i64, ptr %3 monotonic, align 8
+  %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %4, i64 %1)
+  store atomic i64 %.sroa.speculated, ptr %3 monotonic, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4absl18container_internal28RecordClearedReservationSlowEPNS0_14HashtablezInfoE(ptr noundef writeonly captures(none) %info) local_unnamed_addr #7 {
-entry:
-  %max_reserve = getelementptr inbounds nuw i8, ptr %info, i64 104
-  store atomic i64 0, ptr %max_reserve monotonic, align 8
+define dso_local void @_ZN4absl18container_internal28RecordClearedReservationSlowEPNS0_14HashtablezInfoE(ptr noundef writeonly captures(none) %0) local_unnamed_addr #6 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  store atomic i64 0, ptr %2 monotonic, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4absl18container_internal24RecordStorageChangedSlowEPNS0_14HashtablezInfoEmm(ptr noundef writeonly captures(none) %info, i64 noundef %size, i64 noundef %capacity) local_unnamed_addr #7 {
-entry:
-  %size1 = getelementptr inbounds nuw i8, ptr %info, i64 40
-  store atomic i64 %size, ptr %size1 monotonic, align 8
-  %capacity2 = getelementptr inbounds nuw i8, ptr %info, i64 32
-  store atomic i64 %capacity, ptr %capacity2 monotonic, align 8
-  %cmp = icmp eq i64 %size, 0
-  br i1 %cmp, label %if.then, label %if.end
+define dso_local void @_ZN4absl18container_internal24RecordStorageChangedSlowEPNS0_14HashtablezInfoEmm(ptr noundef writeonly captures(none) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #6 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store atomic i64 %1, ptr %4 monotonic, align 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store atomic i64 %2, ptr %5 monotonic, align 8
+  %6 = icmp eq i64 %1, 0
+  br i1 %6, label %7, label %10
 
-if.then:                                          ; preds = %entry
-  %total_probe_length = getelementptr inbounds nuw i8, ptr %info, i64 72
-  store atomic i64 0, ptr %total_probe_length monotonic, align 8
-  %num_erases = getelementptr inbounds nuw i8, ptr %info, i64 48
-  store atomic i64 0, ptr %num_erases monotonic, align 8
-  br label %if.end
+7:                                                ; preds = %3
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store atomic i64 0, ptr %8 monotonic, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store atomic i64 0, ptr %9 monotonic, align 8
+  br label %10
 
-if.end:                                           ; preds = %if.then, %entry
+10:                                               ; preds = %7, %3
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4absl18container_internal16RecordInsertSlowEPNS0_14HashtablezInfoEmm(ptr noundef captures(none) %info, i64 noundef %hash, i64 noundef %distance_from_desired) local_unnamed_addr #7 {
-entry:
-  %div33 = lshr i64 %distance_from_desired, 4
-  %hashes_bitwise_and = getelementptr inbounds nuw i8, ptr %info, i64 88
-  %0 = atomicrmw and ptr %hashes_bitwise_and, i64 %hash monotonic, align 8
-  %hashes_bitwise_or = getelementptr inbounds nuw i8, ptr %info, i64 80
-  %1 = atomicrmw or ptr %hashes_bitwise_or, i64 %hash monotonic, align 8
-  %hashes_bitwise_xor = getelementptr inbounds nuw i8, ptr %info, i64 96
-  %2 = atomicrmw xor ptr %hashes_bitwise_xor, i64 %hash monotonic, align 8
-  %max_probe_length = getelementptr inbounds nuw i8, ptr %info, i64 64
-  %3 = load atomic i64, ptr %max_probe_length monotonic, align 8
-  %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %3, i64 %div33)
-  store atomic i64 %.sroa.speculated, ptr %max_probe_length monotonic, align 8
-  %total_probe_length = getelementptr inbounds nuw i8, ptr %info, i64 72
-  %4 = atomicrmw add ptr %total_probe_length, i64 %div33 monotonic, align 8
-  %size = getelementptr inbounds nuw i8, ptr %info, i64 40
-  %5 = atomicrmw add ptr %size, i64 1 monotonic, align 8
+define dso_local void @_ZN4absl18container_internal16RecordInsertSlowEPNS0_14HashtablezInfoEmm(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #6 {
+  %4 = lshr i64 %2, 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %6 = atomicrmw and ptr %5, i64 %1 monotonic, align 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %8 = atomicrmw or ptr %7, i64 %1 monotonic, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %10 = atomicrmw xor ptr %9, i64 %1 monotonic, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %12 = load atomic i64, ptr %11 monotonic, align 8
+  %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %12, i64 %4)
+  store atomic i64 %.sroa.speculated, ptr %11 monotonic, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %14 = atomicrmw add ptr %13, i64 %4 monotonic, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %16 = atomicrmw add ptr %15, i64 1 monotonic, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4absl18container_internal15RecordEraseSlowEPNS0_14HashtablezInfoE(ptr noundef captures(none) %info) local_unnamed_addr #7 {
-entry:
-  %size = getelementptr inbounds nuw i8, ptr %info, i64 40
-  %0 = atomicrmw sub ptr %size, i64 1 monotonic, align 8
-  %num_erases = getelementptr inbounds nuw i8, ptr %info, i64 48
-  %1 = load atomic i64, ptr %num_erases monotonic, align 8
-  %add = add i64 %1, 1
-  store atomic i64 %add, ptr %num_erases monotonic, align 8
+define dso_local void @_ZN4absl18container_internal15RecordEraseSlowEPNS0_14HashtablezInfoE(ptr noundef captures(none) %0) local_unnamed_addr #6 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %3 = atomicrmw sub ptr %2, i64 1 monotonic, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %5 = load atomic i64, ptr %4 monotonic, align 8
+  %6 = add i64 %5, 1
+  store atomic i64 %6, ptr %4 monotonic, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4absl18container_internal27SetHashtablezConfigListenerEPFvvE(ptr noundef %l) local_unnamed_addr #8 {
-entry:
-  %0 = ptrtoint ptr %l to i64
-  store atomic i64 %0, ptr @_ZN4absl18container_internal12_GLOBAL__N_128g_hashtablez_config_listenerE.0 release, align 8
+define dso_local void @_ZN4absl18container_internal27SetHashtablezConfigListenerEPFvvE(ptr noundef %0) local_unnamed_addr #7 {
+  %2 = ptrtoint ptr %0 to i64
+  store atomic i64 %2, ptr @_ZN4absl18container_internal12_GLOBAL__N_128g_hashtablez_config_listenerE.0 release, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4absl18container_internal19IsHashtablezEnabledEv() local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
-entry:
-  %0 = load atomic i8, ptr @_ZN4absl18container_internal12_GLOBAL__N_120g_hashtablez_enabledE.0 acquire, align 1
-  %tobool.i.i = trunc i8 %0 to i1
-  ret i1 %tobool.i.i
+define dso_local noundef zeroext i1 @_ZN4absl18container_internal19IsHashtablezEnabledEv() local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+  %1 = load atomic i8, ptr @_ZN4absl18container_internal12_GLOBAL__N_120g_hashtablez_enabledE.0 acquire, align 1
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl18container_internal20SetHashtablezEnabledEb(i1 noundef zeroext %enabled) local_unnamed_addr #0 {
-entry:
-  %frombool.i.i = zext i1 %enabled to i8
-  store atomic i8 %frombool.i.i, ptr @_ZN4absl18container_internal12_GLOBAL__N_120g_hashtablez_enabledE.0 release, align 1
-  %0 = load atomic i64, ptr @_ZN4absl18container_internal12_GLOBAL__N_128g_hashtablez_config_listenerE.0 acquire, align 8
-  %cmp.not.i = icmp eq i64 %0, 0
-  br i1 %cmp.not.i, label %_ZN4absl18container_internal12_GLOBAL__N_131TriggerHashtablezConfigListenerEv.exit, label %if.then.i
+define dso_local void @_ZN4absl18container_internal20SetHashtablezEnabledEb(i1 noundef zeroext %0) local_unnamed_addr #0 {
+  %2 = zext i1 %0 to i8
+  store atomic i8 %2, ptr @_ZN4absl18container_internal12_GLOBAL__N_120g_hashtablez_enabledE.0 release, align 1
+  %3 = load atomic i64, ptr @_ZN4absl18container_internal12_GLOBAL__N_128g_hashtablez_config_listenerE.0 acquire, align 8
+  %.not.i = icmp eq i64 %3, 0
+  br i1 %.not.i, label %_ZN4absl18container_internal12_GLOBAL__N_131TriggerHashtablezConfigListenerEv.exit, label %4
 
-if.then.i:                                        ; preds = %entry
-  %atomic-temp.i.0.i.i = inttoptr i64 %0 to ptr
-  tail call void %atomic-temp.i.0.i.i()
+4:                                                ; preds = %1
+  %.0.i.i.i = inttoptr i64 %3 to ptr
+  tail call void %.0.i.i.i()
   br label %_ZN4absl18container_internal12_GLOBAL__N_131TriggerHashtablezConfigListenerEv.exit
 
-_ZN4absl18container_internal12_GLOBAL__N_131TriggerHashtablezConfigListenerEv.exit: ; preds = %entry, %if.then.i
+_ZN4absl18container_internal12_GLOBAL__N_131TriggerHashtablezConfigListenerEv.exit: ; preds = %1, %4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4absl18container_internal28SetHashtablezEnabledInternalEb(i1 noundef zeroext %enabled) local_unnamed_addr #8 {
-entry:
-  %frombool.i = zext i1 %enabled to i8
-  store atomic i8 %frombool.i, ptr @_ZN4absl18container_internal12_GLOBAL__N_120g_hashtablez_enabledE.0 release, align 1
+define dso_local void @_ZN4absl18container_internal28SetHashtablezEnabledInternalEb(i1 noundef zeroext %0) local_unnamed_addr #7 {
+  %2 = zext i1 %0 to i8
+  store atomic i8 %2, ptr @_ZN4absl18container_internal12_GLOBAL__N_120g_hashtablez_enabledE.0 release, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZN4absl18container_internal28GetHashtablezSampleParameterEv() local_unnamed_addr #8 {
-entry:
-  %0 = load atomic i32, ptr @_ZN4absl18container_internal12_GLOBAL__N_129g_hashtablez_sample_parameterE.0 acquire, align 4
-  ret i32 %0
+define dso_local noundef i32 @_ZN4absl18container_internal28GetHashtablezSampleParameterEv() local_unnamed_addr #7 {
+  %1 = load atomic i32, ptr @_ZN4absl18container_internal12_GLOBAL__N_129g_hashtablez_sample_parameterE.0 acquire, align 4
+  ret i32 %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl18container_internal28SetHashtablezSampleParameterEi(i32 noundef %rate) local_unnamed_addr #0 {
-entry:
-  %cmp.i = icmp sgt i32 %rate, 0
-  br i1 %cmp.i, label %if.then.i, label %do.body.i
+define dso_local void @_ZN4absl18container_internal28SetHashtablezSampleParameterEi(i32 noundef %0) local_unnamed_addr #0 {
+  %2 = icmp sgt i32 %0, 0
+  br i1 %2, label %3, label %4
 
-if.then.i:                                        ; preds = %entry
-  store atomic i32 %rate, ptr @_ZN4absl18container_internal12_GLOBAL__N_129g_hashtablez_sample_parameterE.0 release, align 4
+3:                                                ; preds = %1
+  store atomic i32 %0, ptr @_ZN4absl18container_internal12_GLOBAL__N_129g_hashtablez_sample_parameterE.0 release, align 4
   br label %_ZN4absl18container_internal36SetHashtablezSampleParameterInternalEi.exit
 
-do.body.i:                                        ; preds = %entry
-  %conv.i = sext i32 %rate to i64
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 123), i32 noundef 262, ptr noundef nonnull @.str.1, i64 noundef %conv.i)
+4:                                                ; preds = %1
+  %5 = sext i32 %0 to i64
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 123), i32 noundef 297, ptr noundef nonnull @.str.1, i64 noundef %5)
   br label %_ZN4absl18container_internal36SetHashtablezSampleParameterInternalEi.exit
 
-_ZN4absl18container_internal36SetHashtablezSampleParameterInternalEi.exit: ; preds = %if.then.i, %do.body.i
-  %0 = load atomic i64, ptr @_ZN4absl18container_internal12_GLOBAL__N_128g_hashtablez_config_listenerE.0 acquire, align 8
-  %cmp.not.i = icmp eq i64 %0, 0
-  br i1 %cmp.not.i, label %_ZN4absl18container_internal12_GLOBAL__N_131TriggerHashtablezConfigListenerEv.exit, label %if.then.i1
+_ZN4absl18container_internal36SetHashtablezSampleParameterInternalEi.exit: ; preds = %3, %4
+  %6 = load atomic i64, ptr @_ZN4absl18container_internal12_GLOBAL__N_128g_hashtablez_config_listenerE.0 acquire, align 8
+  %.not.i = icmp eq i64 %6, 0
+  br i1 %.not.i, label %_ZN4absl18container_internal12_GLOBAL__N_131TriggerHashtablezConfigListenerEv.exit, label %7
 
-if.then.i1:                                       ; preds = %_ZN4absl18container_internal36SetHashtablezSampleParameterInternalEi.exit
-  %atomic-temp.i.0.i.i = inttoptr i64 %0 to ptr
-  tail call void %atomic-temp.i.0.i.i()
+7:                                                ; preds = %_ZN4absl18container_internal36SetHashtablezSampleParameterInternalEi.exit
+  %.0.i.i.i = inttoptr i64 %6 to ptr
+  tail call void %.0.i.i.i()
   br label %_ZN4absl18container_internal12_GLOBAL__N_131TriggerHashtablezConfigListenerEv.exit
 
-_ZN4absl18container_internal12_GLOBAL__N_131TriggerHashtablezConfigListenerEv.exit: ; preds = %_ZN4absl18container_internal36SetHashtablezSampleParameterInternalEi.exit, %if.then.i1
+_ZN4absl18container_internal12_GLOBAL__N_131TriggerHashtablezConfigListenerEv.exit: ; preds = %_ZN4absl18container_internal36SetHashtablezSampleParameterInternalEi.exit, %7
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl18container_internal36SetHashtablezSampleParameterInternalEi(i32 noundef %rate) local_unnamed_addr #0 {
-entry:
-  %cmp = icmp sgt i32 %rate, 0
-  br i1 %cmp, label %if.then, label %do.body
+define dso_local void @_ZN4absl18container_internal36SetHashtablezSampleParameterInternalEi(i32 noundef %0) local_unnamed_addr #0 {
+  %2 = icmp sgt i32 %0, 0
+  br i1 %2, label %3, label %4
 
-if.then:                                          ; preds = %entry
-  store atomic i32 %rate, ptr @_ZN4absl18container_internal12_GLOBAL__N_129g_hashtablez_sample_parameterE.0 release, align 4
-  br label %if.end
+3:                                                ; preds = %1
+  store atomic i32 %0, ptr @_ZN4absl18container_internal12_GLOBAL__N_129g_hashtablez_sample_parameterE.0 release, align 4
+  br label %6
 
-do.body:                                          ; preds = %entry
-  %conv = sext i32 %rate to i64
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 123), i32 noundef 262, ptr noundef nonnull @.str.1, i64 noundef %conv)
-  br label %if.end
+4:                                                ; preds = %1
+  %5 = sext i32 %0 to i64
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 123), i32 noundef 297, ptr noundef nonnull @.str.1, i64 noundef %5)
+  br label %6
 
-if.end:                                           ; preds = %if.then, %do.body
+6:                                                ; preds = %4, %3
   ret void
 }
 
-declare void @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #6
+declare void @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i64 @_ZN4absl18container_internal23GetHashtablezMaxSamplesEv() local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
-entry:
-  %0 = load atomic i8, ptr @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler acquire, align 8
-  %guard.uninitialized.i = icmp eq i8 %0, 0
-  br i1 %guard.uninitialized.i, label %init.check.i, label %_ZN4absl18container_internal23GlobalHashtablezSamplerEv.exit, !prof !5
+  %1 = load atomic i8, ptr @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler acquire, align 8
+  %2 = icmp eq i8 %1, 0
+  br i1 %2, label %3, label %_ZN4absl18container_internal23GlobalHashtablezSamplerEv.exit, !prof !4
 
-init.check.i:                                     ; preds = %entry
-  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler) #13
-  %tobool.not.i = icmp eq i32 %1, 0
-  br i1 %tobool.not.i, label %_ZN4absl18container_internal23GlobalHashtablezSamplerEv.exit, label %init.i
+3:                                                ; preds = %0
+  %4 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler) #13
+  %.not.i = icmp eq i32 %4, 0
+  br i1 %.not.i, label %_ZN4absl18container_internal23GlobalHashtablezSamplerEv.exit, label %5
 
-init.i:                                           ; preds = %init.check.i
-  %call.i = invoke noalias noundef nonnull dereferenceable(688) ptr @_Znwm(i64 noundef 688) #14
-          to label %invoke.cont.i unwind label %lpad.i
+5:                                                ; preds = %3
+  invoke void @_ZN4absl12NoDestructorINS_18profiling_internal14SampleRecorderINS_18container_internal14HashtablezInfoEEEEC2IJETnNSt9enable_ifIXntsr3std7is_sameIFvDpRNSt5decayIT_E4typeEEFvRS6_EEE5valueEiE4typeELi0EEEDpOSA_(ptr noundef nonnull align 8 dereferenceable(712) @_ZZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler)
+          to label %6 unwind label %7
 
-invoke.cont.i:                                    ; preds = %init.i
-  invoke void @_ZN4absl18profiling_internal14SampleRecorderINS_18container_internal14HashtablezInfoEEC2Ev(ptr noundef nonnull align 8 dereferenceable(688) %call.i)
-          to label %invoke.cont2.i unwind label %lpad1.i
-
-invoke.cont2.i:                                   ; preds = %invoke.cont.i
-  store ptr %call.i, ptr @_ZZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler, align 8
+6:                                                ; preds = %5
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler) #13
   br label %_ZN4absl18container_internal23GlobalHashtablezSamplerEv.exit
 
-lpad.i:                                           ; preds = %init.i
-  %2 = landingpad { ptr, i32 }
+7:                                                ; preds = %5
+  %8 = landingpad { ptr, i32 }
           cleanup
-  br label %ehcleanup.i
-
-lpad1.i:                                          ; preds = %invoke.cont.i
-  %3 = landingpad { ptr, i32 }
-          cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %call.i) #15
-  br label %ehcleanup.i
-
-ehcleanup.i:                                      ; preds = %lpad1.i, %lpad.i
-  %.pn.i = phi { ptr, i32 } [ %3, %lpad1.i ], [ %2, %lpad.i ]
   tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler) #13
-  resume { ptr, i32 } %.pn.i
+  resume { ptr, i32 } %8
 
-_ZN4absl18container_internal23GlobalHashtablezSamplerEv.exit: ; preds = %entry, %init.check.i, %invoke.cont2.i
-  %4 = load ptr, ptr @_ZZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler, align 8
-  %max_samples_.i = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %5 = load atomic i64, ptr %max_samples_.i acquire, align 8
-  ret i64 %5
+_ZN4absl18container_internal23GlobalHashtablezSamplerEv.exit: ; preds = %0, %3, %6
+  %9 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler, i64 16) acquire, align 8
+  ret i64 %9
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl18container_internal23SetHashtablezMaxSamplesEm(i64 noundef %max) local_unnamed_addr #0 {
-entry:
-  tail call void @_ZN4absl18container_internal31SetHashtablezMaxSamplesInternalEm(i64 noundef %max)
-  %0 = load atomic i64, ptr @_ZN4absl18container_internal12_GLOBAL__N_128g_hashtablez_config_listenerE.0 acquire, align 8
-  %cmp.not.i = icmp eq i64 %0, 0
-  br i1 %cmp.not.i, label %_ZN4absl18container_internal12_GLOBAL__N_131TriggerHashtablezConfigListenerEv.exit, label %if.then.i
+define dso_local void @_ZN4absl18container_internal23SetHashtablezMaxSamplesEm(i64 noundef %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+  %.not.i = icmp eq i64 %0, 0
+  br i1 %.not.i, label %11, label %2
 
-if.then.i:                                        ; preds = %entry
-  %atomic-temp.i.0.i.i = inttoptr i64 %0 to ptr
-  tail call void %atomic-temp.i.0.i.i()
+2:                                                ; preds = %1
+  %3 = load atomic i8, ptr @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler acquire, align 8
+  %4 = icmp eq i8 %3, 0
+  br i1 %4, label %5, label %_ZN4absl18container_internal23GlobalHashtablezSamplerEv.exit.i, !prof !4
+
+5:                                                ; preds = %2
+  %6 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler) #13
+  %.not.i.i = icmp eq i32 %6, 0
+  br i1 %.not.i.i, label %_ZN4absl18container_internal23GlobalHashtablezSamplerEv.exit.i, label %7
+
+7:                                                ; preds = %5
+  invoke void @_ZN4absl12NoDestructorINS_18profiling_internal14SampleRecorderINS_18container_internal14HashtablezInfoEEEEC2IJETnNSt9enable_ifIXntsr3std7is_sameIFvDpRNSt5decayIT_E4typeEEFvRS6_EEE5valueEiE4typeELi0EEEDpOSA_(ptr noundef nonnull align 8 dereferenceable(712) @_ZZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler)
+          to label %8 unwind label %9
+
+8:                                                ; preds = %7
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler) #13
+  br label %_ZN4absl18container_internal23GlobalHashtablezSamplerEv.exit.i
+
+9:                                                ; preds = %7
+  %10 = landingpad { ptr, i32 }
+          cleanup
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler) #13
+  resume { ptr, i32 } %10
+
+_ZN4absl18container_internal23GlobalHashtablezSamplerEv.exit.i: ; preds = %8, %5, %2
+  store atomic i64 %0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler, i64 16) release, align 8
+  br label %_ZN4absl18container_internal31SetHashtablezMaxSamplesInternalEm.exit
+
+11:                                               ; preds = %1
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 123), i32 noundef 314, ptr noundef nonnull @.str.2)
+  br label %_ZN4absl18container_internal31SetHashtablezMaxSamplesInternalEm.exit
+
+_ZN4absl18container_internal31SetHashtablezMaxSamplesInternalEm.exit: ; preds = %_ZN4absl18container_internal23GlobalHashtablezSamplerEv.exit.i, %11
+  %12 = load atomic i64, ptr @_ZN4absl18container_internal12_GLOBAL__N_128g_hashtablez_config_listenerE.0 acquire, align 8
+  %.not.i1 = icmp eq i64 %12, 0
+  br i1 %.not.i1, label %_ZN4absl18container_internal12_GLOBAL__N_131TriggerHashtablezConfigListenerEv.exit, label %13
+
+13:                                               ; preds = %_ZN4absl18container_internal31SetHashtablezMaxSamplesInternalEm.exit
+  %.0.i.i.i = inttoptr i64 %12 to ptr
+  tail call void %.0.i.i.i()
   br label %_ZN4absl18container_internal12_GLOBAL__N_131TriggerHashtablezConfigListenerEv.exit
 
-_ZN4absl18container_internal12_GLOBAL__N_131TriggerHashtablezConfigListenerEv.exit: ; preds = %entry, %if.then.i
+_ZN4absl18container_internal12_GLOBAL__N_131TriggerHashtablezConfigListenerEv.exit: ; preds = %_ZN4absl18container_internal31SetHashtablezMaxSamplesInternalEm.exit, %13
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl18container_internal31SetHashtablezMaxSamplesInternalEm(i64 noundef %max) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
-entry:
-  %cmp.not = icmp eq i64 %max, 0
-  br i1 %cmp.not, label %do.body, label %if.then
+define dso_local void @_ZN4absl18container_internal31SetHashtablezMaxSamplesInternalEm(i64 noundef %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+  %.not = icmp eq i64 %0, 0
+  br i1 %.not, label %11, label %2
 
-if.then:                                          ; preds = %entry
-  %0 = load atomic i8, ptr @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler acquire, align 8
-  %guard.uninitialized.i = icmp eq i8 %0, 0
-  br i1 %guard.uninitialized.i, label %init.check.i, label %_ZN4absl18container_internal23GlobalHashtablezSamplerEv.exit, !prof !5
+2:                                                ; preds = %1
+  %3 = load atomic i8, ptr @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler acquire, align 8
+  %4 = icmp eq i8 %3, 0
+  br i1 %4, label %5, label %_ZN4absl18container_internal23GlobalHashtablezSamplerEv.exit, !prof !4
 
-init.check.i:                                     ; preds = %if.then
-  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler) #13
-  %tobool.not.i = icmp eq i32 %1, 0
-  br i1 %tobool.not.i, label %_ZN4absl18container_internal23GlobalHashtablezSamplerEv.exit, label %init.i
+5:                                                ; preds = %2
+  %6 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler) #13
+  %.not.i = icmp eq i32 %6, 0
+  br i1 %.not.i, label %_ZN4absl18container_internal23GlobalHashtablezSamplerEv.exit, label %7
 
-init.i:                                           ; preds = %init.check.i
-  %call.i = invoke noalias noundef nonnull dereferenceable(688) ptr @_Znwm(i64 noundef 688) #14
-          to label %invoke.cont.i unwind label %lpad.i
+7:                                                ; preds = %5
+  invoke void @_ZN4absl12NoDestructorINS_18profiling_internal14SampleRecorderINS_18container_internal14HashtablezInfoEEEEC2IJETnNSt9enable_ifIXntsr3std7is_sameIFvDpRNSt5decayIT_E4typeEEFvRS6_EEE5valueEiE4typeELi0EEEDpOSA_(ptr noundef nonnull align 8 dereferenceable(712) @_ZZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler)
+          to label %8 unwind label %9
 
-invoke.cont.i:                                    ; preds = %init.i
-  invoke void @_ZN4absl18profiling_internal14SampleRecorderINS_18container_internal14HashtablezInfoEEC2Ev(ptr noundef nonnull align 8 dereferenceable(688) %call.i)
-          to label %invoke.cont2.i unwind label %lpad1.i
-
-invoke.cont2.i:                                   ; preds = %invoke.cont.i
-  store ptr %call.i, ptr @_ZZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler, align 8
+8:                                                ; preds = %7
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler) #13
   br label %_ZN4absl18container_internal23GlobalHashtablezSamplerEv.exit
 
-lpad.i:                                           ; preds = %init.i
-  %2 = landingpad { ptr, i32 }
+9:                                                ; preds = %7
+  %10 = landingpad { ptr, i32 }
           cleanup
-  br label %ehcleanup.i
-
-lpad1.i:                                          ; preds = %invoke.cont.i
-  %3 = landingpad { ptr, i32 }
-          cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %call.i) #15
-  br label %ehcleanup.i
-
-ehcleanup.i:                                      ; preds = %lpad1.i, %lpad.i
-  %.pn.i = phi { ptr, i32 } [ %3, %lpad1.i ], [ %2, %lpad.i ]
   tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler) #13
-  resume { ptr, i32 } %.pn.i
+  resume { ptr, i32 } %10
 
-_ZN4absl18container_internal23GlobalHashtablezSamplerEv.exit: ; preds = %if.then, %init.check.i, %invoke.cont2.i
-  %4 = load ptr, ptr @_ZZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler, align 8
-  %max_samples_.i = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store atomic i64 %max, ptr %max_samples_.i release, align 8
-  br label %if.end
+_ZN4absl18container_internal23GlobalHashtablezSamplerEv.exit: ; preds = %2, %5, %8
+  store atomic i64 %0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler, i64 16) release, align 8
+  br label %12
 
-do.body:                                          ; preds = %entry
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 123), i32 noundef 279, ptr noundef nonnull @.str.2)
-  br label %if.end
+11:                                               ; preds = %1
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 123), i32 noundef 314, ptr noundef nonnull @.str.2)
+  br label %12
 
-if.end:                                           ; preds = %do.body, %_ZN4absl18container_internal23GlobalHashtablezSamplerEv.exit
+12:                                               ; preds = %11, %_ZN4absl18container_internal23GlobalHashtablezSamplerEv.exit
   ret void
 }
 
-; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #9 comdat {
+declare void @_ZN4absl5Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #5
+
+declare void @_ZN4absl5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #5
+
+; Function Attrs: noinline noreturn nounwind uwtable
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #8 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #13
-  tail call void @_ZSt9terminatev() #16
+  tail call void @_ZSt9terminatev() #14
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #10
+declare void @_ZSt9terminatev() local_unnamed_addr #9
 
-declare zeroext i1 @AbslContainerInternalSampleEverything() local_unnamed_addr #6
-
-declare void @_ZN4absl5Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #6
-
-declare void @_ZN4absl5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #6
+declare zeroext i1 @AbslContainerInternalSampleEverything() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZN4absl18profiling_internal14SampleRecorderINS_18container_internal14HashtablezInfoEE7PopDeadIJlmEEEPS3_DpT_(ptr noundef nonnull align 8 dereferenceable(688) %this, i64 noundef %args, i64 noundef %args1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %graveyard_ = getelementptr inbounds nuw i8, ptr %this, i64 32
-  tail call void @_ZN4absl5Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %graveyard_)
-  %dead = getelementptr inbounds nuw i8, ptr %this, i64 48
-  %0 = load ptr, ptr %dead, align 8
-  %cmp = icmp eq ptr %0, %graveyard_
-  br i1 %cmp, label %cleanup, label %if.end
+define linkonce_odr dso_local noundef ptr @_ZN4absl18profiling_internal14SampleRecorderINS_18container_internal14HashtablezInfoEE7PopDeadIJlmmmtEEEPS3_DpT_(ptr noundef nonnull align 8 dereferenceable(712) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i16 noundef zeroext %5) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  tail call void @_ZN4absl5Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %9 = load ptr, ptr %8, align 8, !tbaa !19
+  %10 = icmp eq ptr %9, %7
+  br i1 %10, label %_ZN4absl9MutexLockD2Ev.exit, label %11
 
-if.end:                                           ; preds = %entry
-  invoke void @_ZN4absl5Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
-          to label %invoke.cont unwind label %lpad
+11:                                               ; preds = %6
+  invoke void @_ZN4absl5Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %9)
+          to label %_ZN4absl9MutexLockC2EPNS_5MutexE.exit unwind label %38
 
-invoke.cont:                                      ; preds = %if.end
-  %dead7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %1 = load ptr, ptr %dead7, align 8
-  store ptr %1, ptr %dead, align 8
-  store ptr null, ptr %dead7, align 8
-  %capacity.i = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store atomic i64 0, ptr %capacity.i monotonic, align 8
-  %size.i = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store atomic i64 0, ptr %size.i monotonic, align 8
-  %num_erases.i = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store atomic i64 0, ptr %num_erases.i monotonic, align 8
-  %num_rehashes.i = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store atomic i64 0, ptr %num_rehashes.i monotonic, align 8
-  %max_probe_length.i = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store atomic i64 0, ptr %max_probe_length.i monotonic, align 8
-  %total_probe_length.i = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store atomic i64 0, ptr %total_probe_length.i monotonic, align 8
-  %hashes_bitwise_or.i = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store atomic i64 0, ptr %hashes_bitwise_or.i monotonic, align 8
-  %hashes_bitwise_and.i = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store atomic i64 -1, ptr %hashes_bitwise_and.i monotonic, align 8
-  %hashes_bitwise_xor.i = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store atomic i64 0, ptr %hashes_bitwise_xor.i monotonic, align 8
-  %max_reserve.i = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store atomic i64 0, ptr %max_reserve.i monotonic, align 8
-  %call.i7 = invoke { i64, i32 } @_ZN4absl3NowEv()
-          to label %call.i.noexc unwind label %lpad11
+_ZN4absl9MutexLockC2EPNS_5MutexE.exit:            ; preds = %11
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %13 = load ptr, ptr %12, align 8, !tbaa !19
+  store ptr %13, ptr %8, align 8, !tbaa !19
+  store ptr null, ptr %12, align 8, !tbaa !19
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  store atomic i64 0, ptr %14 monotonic, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 40
+  store atomic i64 0, ptr %15 monotonic, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 48
+  store atomic i64 0, ptr %16 monotonic, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 56
+  store atomic i64 0, ptr %17 monotonic, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 64
+  store atomic i64 0, ptr %18 monotonic, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 72
+  store atomic i64 0, ptr %19 monotonic, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 80
+  store atomic i64 0, ptr %20 monotonic, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %9, i64 88
+  store atomic i64 -1, ptr %21 monotonic, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %9, i64 96
+  store atomic i64 0, ptr %22 monotonic, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %9, i64 104
+  store atomic i64 0, ptr %23 monotonic, align 8
+  %24 = invoke { i64, i32 } @_ZN4absl3NowEv()
+          to label %.noexc unwind label %40
 
-call.i.noexc:                                     ; preds = %invoke.cont
-  %call.fca.0.extract.i = extractvalue { i64, i32 } %call.i7, 0
-  %call.fca.1.extract.i = extractvalue { i64, i32 } %call.i7, 1
-  %create_time.i = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i64 %call.fca.0.extract.i, ptr %create_time.i, align 8
-  %ref.tmp.sroa.2.0.create_time.sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store i32 %call.fca.1.extract.i, ptr %ref.tmp.sroa.2.0.create_time.sroa_idx.i, align 8
-  %weight.i = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %args, ptr %weight.i, align 8
-  %stack.i = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %call2.i8 = invoke noundef i32 @_ZN4absl13GetStackTraceEPPvii(ptr noundef nonnull %stack.i, i32 noundef 64, i32 noundef 0)
-          to label %invoke.cont12 unwind label %lpad11
+.noexc:                                           ; preds = %_ZN4absl9MutexLockC2EPNS_5MutexE.exit
+  %.fca.0.extract.i = extractvalue { i64, i32 } %24, 0
+  %.fca.1.extract.i = extractvalue { i64, i32 } %24, 1
+  %25 = getelementptr inbounds nuw i8, ptr %9, i64 112
+  store i64 %.fca.0.extract.i, ptr %25, align 8
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 120
+  store i32 %.fca.1.extract.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !25
+  %26 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  store i64 %1, ptr %26, align 8, !tbaa !26
+  %27 = getelementptr inbounds nuw i8, ptr %9, i64 136
+  %28 = invoke noundef i32 @_ZN4absl13GetStackTraceEPPvii(ptr noundef nonnull %27, i32 noundef 64, i32 noundef 0)
+          to label %29 unwind label %40
 
-invoke.cont12:                                    ; preds = %call.i.noexc
-  %depth.i = getelementptr inbounds nuw i8, ptr %0, i64 124
-  store i32 %call2.i8, ptr %depth.i, align 4
-  %inline_element_size.i = getelementptr inbounds nuw i8, ptr %0, i64 640
-  store i64 %args1, ptr %inline_element_size.i, align 8
-  invoke void @_ZN4absl5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
-          to label %cleanup unwind label %terminate.lpad.i
+29:                                               ; preds = %.noexc
+  %30 = getelementptr inbounds nuw i8, ptr %9, i64 124
+  store i32 %28, ptr %30, align 4, !tbaa !27
+  %31 = getelementptr inbounds nuw i8, ptr %9, i64 648
+  store i64 %2, ptr %31, align 8, !tbaa !32
+  %32 = getelementptr inbounds nuw i8, ptr %9, i64 656
+  store i64 %3, ptr %32, align 8, !tbaa !33
+  %33 = getelementptr inbounds nuw i8, ptr %9, i64 664
+  store i64 %4, ptr %33, align 8, !tbaa !34
+  %34 = getelementptr inbounds nuw i8, ptr %9, i64 128
+  store i16 %5, ptr %34, align 8, !tbaa !35
+  invoke void @_ZN4absl5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %9)
+          to label %_ZN4absl9MutexLockD2Ev.exit unwind label %35
 
-terminate.lpad.i:                                 ; preds = %invoke.cont12
-  %2 = landingpad { ptr, i32 }
+35:                                               ; preds = %29
+  %36 = landingpad { ptr, i32 }
           catch ptr null
-  %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #16
+  %37 = extractvalue { ptr, i32 } %36, 0
+  tail call void @__clang_call_terminate(ptr %37) #14
   unreachable
 
-lpad:                                             ; preds = %if.end
-  %4 = landingpad { ptr, i32 }
+38:                                               ; preds = %11
+  %39 = landingpad { ptr, i32 }
           cleanup
-  br label %ehcleanup
+  br label %_ZN4absl9MutexLockD2Ev.exit19
 
-lpad11:                                           ; preds = %call.i.noexc, %invoke.cont
-  %5 = landingpad { ptr, i32 }
+40:                                               ; preds = %.noexc, %_ZN4absl9MutexLockC2EPNS_5MutexE.exit
+  %41 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_ZN4absl5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
-          to label %ehcleanup unwind label %terminate.lpad.i9
+  invoke void @_ZN4absl5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %9)
+          to label %_ZN4absl9MutexLockD2Ev.exit19 unwind label %42
 
-terminate.lpad.i9:                                ; preds = %lpad11
-  %6 = landingpad { ptr, i32 }
+42:                                               ; preds = %40
+  %43 = landingpad { ptr, i32 }
           catch ptr null
-  %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #16
+  %44 = extractvalue { ptr, i32 } %43, 0
+  tail call void @__clang_call_terminate(ptr %44) #14
   unreachable
 
-cleanup:                                          ; preds = %invoke.cont12, %entry
-  %retval.0 = phi ptr [ null, %entry ], [ %0, %invoke.cont12 ]
-  invoke void @_ZN4absl5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %graveyard_)
-          to label %_ZN4absl9MutexLockD2Ev.exit12 unwind label %terminate.lpad.i11
+_ZN4absl9MutexLockD2Ev.exit19:                    ; preds = %40, %38
+  %.pn = phi { ptr, i32 } [ %39, %38 ], [ %41, %40 ]
+  invoke void @_ZN4absl5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
+          to label %_ZN4absl9MutexLockD2Ev.exit20 unwind label %45
 
-terminate.lpad.i11:                               ; preds = %cleanup
-  %8 = landingpad { ptr, i32 }
+45:                                               ; preds = %_ZN4absl9MutexLockD2Ev.exit19
+  %46 = landingpad { ptr, i32 }
           catch ptr null
-  %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #16
+  %47 = extractvalue { ptr, i32 } %46, 0
+  tail call void @__clang_call_terminate(ptr %47) #14
   unreachable
 
-_ZN4absl9MutexLockD2Ev.exit12:                    ; preds = %cleanup
-  ret ptr %retval.0
-
-ehcleanup:                                        ; preds = %lpad11, %lpad
-  %.pn = phi { ptr, i32 } [ %4, %lpad ], [ %5, %lpad11 ]
-  invoke void @_ZN4absl5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %graveyard_)
-          to label %_ZN4absl9MutexLockD2Ev.exit14 unwind label %terminate.lpad.i13
-
-terminate.lpad.i13:                               ; preds = %ehcleanup
-  %10 = landingpad { ptr, i32 }
-          catch ptr null
-  %11 = extractvalue { ptr, i32 } %10, 0
-  tail call void @__clang_call_terminate(ptr %11) #16
-  unreachable
-
-_ZN4absl9MutexLockD2Ev.exit14:                    ; preds = %ehcleanup
+_ZN4absl9MutexLockD2Ev.exit20:                    ; preds = %_ZN4absl9MutexLockD2Ev.exit19
   resume { ptr, i32 } %.pn
+
+_ZN4absl9MutexLockD2Ev.exit:                      ; preds = %29, %6
+  %.015 = phi ptr [ null, %6 ], [ %9, %29 ]
+  invoke void @_ZN4absl5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
+          to label %_ZN4absl9MutexLockD2Ev.exit21 unwind label %48
+
+48:                                               ; preds = %_ZN4absl9MutexLockD2Ev.exit
+  %49 = landingpad { ptr, i32 }
+          catch ptr null
+  %50 = extractvalue { ptr, i32 } %49, 0
+  tail call void @__clang_call_terminate(ptr %50) #14
+  unreachable
+
+_ZN4absl9MutexLockD2Ev.exit21:                    ; preds = %_ZN4absl9MutexLockD2Ev.exit
+  ret ptr %.015
 }
 
-declare void @_ZN4absl5Mutex18ForgetDeadlockInfoEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #6
+; Function Attrs: nobuiltin allocsize(0)
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #10
+
+declare void @_ZN4absl5Mutex18ForgetDeadlockInfoEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN4absl18profiling_internal14SampleRecorderINS_18container_internal14HashtablezInfoEE8PushDeadEPS3_(ptr noundef nonnull align 8 dereferenceable(688) %this, ptr noundef %sample) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %dispose_ = getelementptr inbounds nuw i8, ptr %this, i64 680
-  %0 = load atomic i64, ptr %dispose_ monotonic, align 8
-  %tobool.not = icmp eq i64 %0, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+define linkonce_odr dso_local void @_ZN4absl18profiling_internal14SampleRecorderINS_18container_internal14HashtablezInfoEE8PushDeadEPS3_(ptr noundef nonnull align 8 dereferenceable(712) %0, ptr noundef %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 704
+  %4 = load atomic i64, ptr %3 monotonic, align 8
+  %.not = icmp eq i64 %4, 0
+  br i1 %.not, label %6, label %5
 
-if.then:                                          ; preds = %entry
-  %atomic-temp.i.0.i = inttoptr i64 %0 to ptr
-  tail call void %atomic-temp.i.0.i(ptr noundef nonnull align 8 dereferenceable(648) %sample)
-  br label %if.end
+5:                                                ; preds = %2
+  %.0.i.i = inttoptr i64 %4 to ptr
+  tail call void %.0.i.i(ptr noundef nonnull align 8 dereferenceable(672) %1)
+  br label %6
 
-if.end:                                           ; preds = %if.then, %entry
-  %graveyard_ = getelementptr inbounds nuw i8, ptr %this, i64 32
-  tail call void @_ZN4absl5Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %graveyard_)
-  invoke void @_ZN4absl5Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %sample)
-          to label %invoke.cont unwind label %lpad
+6:                                                ; preds = %5, %2
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  tail call void @_ZN4absl5Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
+  invoke void @_ZN4absl5Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
+          to label %_ZN4absl9MutexLockC2EPNS_5MutexE.exit unwind label %17
 
-invoke.cont:                                      ; preds = %if.end
-  %dead = getelementptr inbounds nuw i8, ptr %this, i64 48
-  %1 = load ptr, ptr %dead, align 8
-  %dead4 = getelementptr inbounds nuw i8, ptr %sample, i64 16
-  store ptr %1, ptr %dead4, align 8
-  store ptr %sample, ptr %dead, align 8
-  invoke void @_ZN4absl5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %sample)
-          to label %_ZN4absl9MutexLockD2Ev.exit unwind label %terminate.lpad.i
+_ZN4absl9MutexLockC2EPNS_5MutexE.exit:            ; preds = %6
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %9 = load ptr, ptr %8, align 8, !tbaa !19
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store ptr %9, ptr %10, align 8, !tbaa !19
+  store ptr %1, ptr %8, align 8, !tbaa !19
+  invoke void @_ZN4absl5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
+          to label %_ZN4absl9MutexLockD2Ev.exit unwind label %11
 
-terminate.lpad.i:                                 ; preds = %invoke.cont
-  %2 = landingpad { ptr, i32 }
+11:                                               ; preds = %_ZN4absl9MutexLockC2EPNS_5MutexE.exit
+  %12 = landingpad { ptr, i32 }
           catch ptr null
-  %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #16
+  %13 = extractvalue { ptr, i32 } %12, 0
+  tail call void @__clang_call_terminate(ptr %13) #14
   unreachable
 
-_ZN4absl9MutexLockD2Ev.exit:                      ; preds = %invoke.cont
-  invoke void @_ZN4absl5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %graveyard_)
-          to label %_ZN4absl9MutexLockD2Ev.exit6 unwind label %terminate.lpad.i5
+_ZN4absl9MutexLockD2Ev.exit:                      ; preds = %_ZN4absl9MutexLockC2EPNS_5MutexE.exit
+  invoke void @_ZN4absl5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
+          to label %_ZN4absl9MutexLockD2Ev.exit8 unwind label %14
 
-terminate.lpad.i5:                                ; preds = %_ZN4absl9MutexLockD2Ev.exit
-  %4 = landingpad { ptr, i32 }
+14:                                               ; preds = %_ZN4absl9MutexLockD2Ev.exit
+  %15 = landingpad { ptr, i32 }
           catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #16
+  %16 = extractvalue { ptr, i32 } %15, 0
+  tail call void @__clang_call_terminate(ptr %16) #14
   unreachable
 
-_ZN4absl9MutexLockD2Ev.exit6:                     ; preds = %_ZN4absl9MutexLockD2Ev.exit
+_ZN4absl9MutexLockD2Ev.exit8:                     ; preds = %_ZN4absl9MutexLockD2Ev.exit
   ret void
 
-lpad:                                             ; preds = %if.end
-  %6 = landingpad { ptr, i32 }
+17:                                               ; preds = %6
+  %18 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_ZN4absl5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %graveyard_)
-          to label %_ZN4absl9MutexLockD2Ev.exit8 unwind label %terminate.lpad.i7
+  invoke void @_ZN4absl5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
+          to label %_ZN4absl9MutexLockD2Ev.exit9 unwind label %19
 
-terminate.lpad.i7:                                ; preds = %lpad
-  %7 = landingpad { ptr, i32 }
+19:                                               ; preds = %17
+  %20 = landingpad { ptr, i32 }
           catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #16
+  %21 = extractvalue { ptr, i32 } %20, 0
+  tail call void @__clang_call_terminate(ptr %21) #14
   unreachable
 
-_ZN4absl9MutexLockD2Ev.exit8:                     ; preds = %lpad
-  resume { ptr, i32 } %6
+_ZN4absl9MutexLockD2Ev.exit9:                     ; preds = %17
+  resume { ptr, i32 } %18
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
@@ -968,31 +919,66 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #12
 
-attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind }
-attributes #2 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { cold nofree noreturn }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { cold nofree noreturn }
+attributes #10 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #13 = { nounwind }
-attributes #14 = { builtin allocsize(0) }
-attributes #15 = { builtin nounwind }
-attributes #16 = { noreturn nounwind }
+attributes #14 = { noreturn nounwind }
+attributes #15 = { builtin allocsize(0) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{!"branch_weights", i32 1, i32 1048575}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
+!4 = !{!"branch_weights", i32 1, i32 1048575}
+!5 = !{!6, !7, i64 0}
+!6 = !{!"_ZTSSt13__atomic_baseImE", !7, i64 0}
+!7 = !{!"long", !8, i64 0}
+!8 = !{!"omnipotent char", !9, i64 0}
+!9 = !{!"Simple C++ TBAA"}
+!10 = !{!11, !12, i64 4}
+!11 = !{!"_ZTSN4absl8Duration5HiRepE", !12, i64 0, !12, i64 4}
+!12 = !{!"int", !8, i64 0}
+!13 = !{!11, !12, i64 0}
+!14 = !{!15, !12, i64 8}
+!15 = !{!"_ZTSN4absl8DurationE", !11, i64 0, !12, i64 8}
+!16 = !{!17, !18, i64 0}
+!17 = !{!"_ZTSSt13__atomic_baseIPFvRKN4absl18container_internal14HashtablezInfoEEE", !18, i64 0}
+!18 = !{!"any pointer", !8, i64 0}
+!19 = !{!20, !24, i64 16}
+!20 = !{!"_ZTSN4absl18profiling_internal6SampleINS_18container_internal14HashtablezInfoEEE", !21, i64 0, !24, i64 8, !24, i64 16, !7, i64 24}
+!21 = !{!"_ZTSN4absl5MutexE", !22, i64 0}
+!22 = !{!"_ZTSSt6atomicIlE", !23, i64 0}
+!23 = !{!"_ZTSSt13__atomic_baseIlE", !7, i64 0}
+!24 = !{!"p1 _ZTSN4absl18container_internal14HashtablezInfoE", !18, i64 0}
+!25 = !{!12, !12, i64 0}
+!26 = !{!20, !7, i64 24}
+!27 = !{!28, !12, i64 124}
+!28 = !{!"_ZTSN4absl18container_internal14HashtablezInfoE", !20, i64 0, !29, i64 32, !29, i64 40, !29, i64 48, !29, i64 56, !29, i64 64, !29, i64 72, !29, i64 80, !29, i64 88, !29, i64 96, !29, i64 104, !30, i64 112, !12, i64 124, !31, i64 128, !8, i64 136, !7, i64 648, !7, i64 656, !7, i64 664}
+!29 = !{!"_ZTSSt6atomicImE", !6, i64 0}
+!30 = !{!"_ZTSN4absl4TimeE", !15, i64 0}
+!31 = !{!"short", !8, i64 0}
+!32 = !{!28, !7, i64 648}
+!33 = !{!28, !7, i64 656}
+!34 = !{!28, !7, i64 664}
+!35 = !{!28, !31, i64 128}
+!36 = !{!7, !7, i64 0}
+!37 = !{!31, !31, i64 0}
+!38 = !{!"branch_weights", i32 1, i32 4000, i32 1}
+!39 = !{!"branch_weights", !"expected", i32 -2147483648, i32 0}
+!40 = !{!41, !7, i64 0}
+!41 = !{!"_ZTSN4absl18container_internal13SamplingStateE", !7, i64 0, !7, i64 8}
+!42 = distinct !{!42, !43}
+!43 = !{!"llvm.loop.mustprogress"}

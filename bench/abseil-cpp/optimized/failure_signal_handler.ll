@@ -1,16 +1,16 @@
 ; ModuleID = 'bench/abseil-cpp/original/failure_signal_handler.ll'
 source_filename = "bench/abseil-cpp/original/failure_signal_handler.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %"struct.absl::FailureSignalData" = type { i32, ptr, %struct.sigaction }
 %struct.sigaction = type { %union.anon, %struct.__sigset_t, i32, ptr }
 %union.anon = type { ptr }
 %struct.__sigset_t = type { [16 x i64] }
 %"struct.absl::FailureSignalHandlerOptions" = type { i8, i8, i32, i8, ptr }
+%"struct.absl::WriterFnStruct" = type { ptr }
 %struct.timespec = type { i64, i64 }
 %struct.stack_t = type { ptr, i32, i64 }
-%"struct.absl::WriterFnStruct" = type { ptr }
 
 @_ZN4abslL19failure_signal_dataE = internal global [7 x %"struct.absl::FailureSignalData"] [%"struct.absl::FailureSignalData" { i32 11, ptr @.str.1, %struct.sigaction zeroinitializer }, %"struct.absl::FailureSignalData" { i32 4, ptr @.str.2, %struct.sigaction zeroinitializer }, %"struct.absl::FailureSignalData" { i32 8, ptr @.str.3, %struct.sigaction zeroinitializer }, %"struct.absl::FailureSignalData" { i32 6, ptr @.str.4, %struct.sigaction zeroinitializer }, %"struct.absl::FailureSignalData" { i32 15, ptr @.str.5, %struct.sigaction zeroinitializer }, %"struct.absl::FailureSignalData" { i32 7, ptr @.str.6, %struct.sigaction zeroinitializer }, %"struct.absl::FailureSignalData" { i32 5, ptr @.str.7, %struct.sigaction zeroinitializer }], align 16
 @.str = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
@@ -26,6 +26,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.9 = private unnamed_addr constant [20 x i8] c"Check %s failed: %s\00", align 1
 @.str.10 = private unnamed_addr constant [58 x i8] c"sigaction(data->signo, &act, &data->previous_action) == 0\00", align 1
 @.str.11 = private unnamed_addr constant [19 x i8] c"sigaction() failed\00", align 1
+@_ZZN4abslL24MaybeSetupAlternateStackEvE5kOnce = internal global i8 0, align 1
 @_ZGVZN4abslL24MaybeSetupAlternateStackEvE5kOnce = internal global i64 0, align 8
 @.str.12 = private unnamed_addr constant [41 x i8] c"mmap() for alternate signal stack failed\00", align 1
 @.str.13 = private unnamed_addr constant [35 x i8] c"sigaltstack() failed with errno=%d\00", align 1
@@ -36,455 +37,547 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.18 = private unnamed_addr constant [42 x i8] c"*** Signal %d received at time=%ld%s ***\0A\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZN4absl18debugging_internal21FailureSignalToStringEi(i32 noundef %signo) local_unnamed_addr #0 {
-entry:
-  br label %for.body
+define dso_local noundef ptr @_ZN4absl18debugging_internal21FailureSignalToStringEi(i32 noundef %0) local_unnamed_addr #0 {
+  br label %3
 
-for.cond:                                         ; preds = %for.body
-  %__begin2.0.add = add nuw nsw i64 %__begin2.0.idx5, 168
-  %cmp.not = icmp eq i64 %__begin2.0.add, 1176
-  br i1 %cmp.not, label %return, label %for.body
+2:                                                ; preds = %3
+  %.011.add = add nuw nsw i64 %.011.idx15, 168
+  %.not = icmp eq i64 %.011.add, 1176
+  br i1 %.not, label %.loopexit, label %3
 
-for.body:                                         ; preds = %entry, %for.cond
-  %__begin2.0.idx5 = phi i64 [ 0, %entry ], [ %__begin2.0.add, %for.cond ]
-  %__begin2.0.ptr6 = getelementptr inbounds nuw i8, ptr @_ZN4abslL19failure_signal_dataE, i64 %__begin2.0.idx5
-  %0 = load i32, ptr %__begin2.0.ptr6, align 8
-  %cmp2 = icmp eq i32 %0, %signo
-  br i1 %cmp2, label %if.then, label %for.cond
+3:                                                ; preds = %1, %2
+  %.011.idx15 = phi i64 [ 0, %1 ], [ %.011.add, %2 ]
+  %.011.ptr16 = getelementptr inbounds nuw i8, ptr @_ZN4abslL19failure_signal_dataE, i64 %.011.idx15
+  %4 = load i32, ptr %.011.ptr16, align 8, !tbaa !4
+  %.not12 = icmp eq i32 %4, %0
+  br i1 %.not12, label %.thread, label %2
 
-if.then:                                          ; preds = %for.body
-  %__begin2.0.ptr6.le = getelementptr inbounds nuw i8, ptr @_ZN4abslL19failure_signal_dataE, i64 %__begin2.0.idx5
-  %as_string = getelementptr inbounds nuw i8, ptr %__begin2.0.ptr6.le, i64 8
-  %1 = load ptr, ptr %as_string, align 8
-  br label %return
+.thread:                                          ; preds = %3
+  %.011.ptr16.le = getelementptr inbounds nuw i8, ptr @_ZN4abslL19failure_signal_dataE, i64 %.011.idx15
+  %5 = getelementptr inbounds nuw i8, ptr %.011.ptr16.le, i64 8
+  %6 = load ptr, ptr %5, align 8, !tbaa !13
+  br label %.loopexit
 
-return:                                           ; preds = %for.cond, %if.then
-  %retval.0 = phi ptr [ %1, %if.then ], [ @.str, %for.cond ]
-  ret ptr %retval.0
+.loopexit:                                        ; preds = %2, %.thread
+  %spec.select = phi ptr [ %6, %.thread ], [ @.str, %2 ]
+  ret ptr %spec.select
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl27InstallFailureSignalHandlerERKNS_27FailureSignalHandlerOptionsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %options) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
-entry:
-  %act.i = alloca %struct.sigaction, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @_ZN4abslL11fsh_optionsE, ptr noundef nonnull align 8 dereferenceable(24) %options, i64 24, i1 false)
-  %sa_mask.i = getelementptr inbounds nuw i8, ptr %act.i, i64 8
-  %sa_flags.i = getelementptr inbounds nuw i8, ptr %act.i, i64 136
-  br label %for.body
+define dso_local void @_ZN4absl27InstallFailureSignalHandlerERKNS_27FailureSignalHandlerOptionsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca %struct.sigaction, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @_ZN4abslL11fsh_optionsE, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false), !tbaa.struct !14
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 136
+  br label %6
 
-for.body:                                         ; preds = %entry, %_ZN4abslL24InstallOneFailureHandlerEPNS_17FailureSignalDataEPFviP9siginfo_tPvE.exit
-  %__begin1.0.idx3 = phi i64 [ 0, %entry ], [ %__begin1.0.add, %_ZN4abslL24InstallOneFailureHandlerEPNS_17FailureSignalDataEPFviP9siginfo_tPvE.exit ]
-  %__begin1.0.ptr = getelementptr inbounds nuw i8, ptr @_ZN4abslL19failure_signal_dataE, i64 %__begin1.0.idx3
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %act.i)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %act.i, i8 0, i64 152, i1 false)
-  %call.i = call i32 @sigemptyset(ptr noundef nonnull %sa_mask.i) #13
-  %0 = load i32, ptr %sa_flags.i, align 8
-  %or2.i = or i32 %0, 1073741828
-  store i32 %or2.i, ptr %sa_flags.i, align 8
-  %1 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4abslL11fsh_optionsE, i64 1), align 1
-  %tobool.i = trunc i8 %1 to i1
-  br i1 %tobool.i, label %if.then.i, label %if.end.i
+5:                                                ; preds = %_ZN4abslL24InstallOneFailureHandlerEPNS_17FailureSignalDataEPFviP9siginfo_tPvE.exit
+  ret void
 
-if.then.i:                                        ; preds = %for.body
-  %2 = load atomic i8, ptr @_ZGVZN4abslL24MaybeSetupAlternateStackEvE5kOnce acquire, align 8
-  %guard.uninitialized.i.i = icmp eq i8 %2, 0
-  br i1 %guard.uninitialized.i.i, label %init.check.i.i, label %_ZN4abslL24MaybeSetupAlternateStackEv.exit.i, !prof !5
+6:                                                ; preds = %1, %_ZN4abslL24InstallOneFailureHandlerEPNS_17FailureSignalDataEPFviP9siginfo_tPvE.exit
+  %.0.idx6 = phi i64 [ 0, %1 ], [ %.0.add, %_ZN4abslL24InstallOneFailureHandlerEPNS_17FailureSignalDataEPFviP9siginfo_tPvE.exit ]
+  %.0.ptr = getelementptr inbounds nuw i8, ptr @_ZN4abslL19failure_signal_dataE, i64 %.0.idx6
+  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %2) #15
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %2, i8 0, i64 152, i1 false)
+  %7 = call i32 @sigemptyset(ptr noundef nonnull %3) #15
+  %8 = load i32, ptr %4, align 8, !tbaa !19
+  %9 = or i32 %8, 1073741828
+  store i32 %9, ptr %4, align 8, !tbaa !19
+  %10 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4abslL11fsh_optionsE, i64 1), align 1, !tbaa !20, !range !22, !noundef !23
+  %11 = trunc nuw i8 %10 to i1
+  br i1 %11, label %12, label %24
 
-init.check.i.i:                                   ; preds = %if.then.i
-  %3 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4abslL24MaybeSetupAlternateStackEvE5kOnce) #13
-  %tobool.not.i.i = icmp eq i32 %3, 0
-  br i1 %tobool.not.i.i, label %_ZN4abslL24MaybeSetupAlternateStackEv.exit.i, label %init.i.i
+12:                                               ; preds = %6
+  %13 = load atomic i8, ptr @_ZGVZN4abslL24MaybeSetupAlternateStackEvE5kOnce acquire, align 8
+  %14 = icmp eq i8 %13, 0
+  br i1 %14, label %15, label %_ZN4abslL24MaybeSetupAlternateStackEv.exit.i, !prof !24
 
-init.i.i:                                         ; preds = %init.check.i.i
+15:                                               ; preds = %12
+  %16 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4abslL24MaybeSetupAlternateStackEvE5kOnce) #15
+  %.not.i.i = icmp eq i32 %16, 0
+  br i1 %.not.i.i, label %_ZN4abslL24MaybeSetupAlternateStackEv.exit.i, label %17
+
+17:                                               ; preds = %15
   invoke fastcc void @_ZN4abslL23SetupAlternateStackOnceEv()
-          to label %invoke.cont.i.i unwind label %lpad.i.i
+          to label %18 unwind label %20
 
-invoke.cont.i.i:                                  ; preds = %init.i.i
-  call void @__cxa_guard_release(ptr nonnull @_ZGVZN4abslL24MaybeSetupAlternateStackEvE5kOnce) #13
+18:                                               ; preds = %17
+  store i8 1, ptr @_ZZN4abslL24MaybeSetupAlternateStackEvE5kOnce, align 1, !tbaa !15
+  %19 = call ptr @llvm.invariant.start.p0(i64 1, ptr nonnull @_ZZN4abslL24MaybeSetupAlternateStackEvE5kOnce)
+  call void @__cxa_guard_release(ptr nonnull @_ZGVZN4abslL24MaybeSetupAlternateStackEvE5kOnce) #15
   br label %_ZN4abslL24MaybeSetupAlternateStackEv.exit.i
 
-lpad.i.i:                                         ; preds = %init.i.i
-  %4 = landingpad { ptr, i32 }
+20:                                               ; preds = %17
+  %21 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_guard_abort(ptr nonnull @_ZGVZN4abslL24MaybeSetupAlternateStackEvE5kOnce) #13
-  resume { ptr, i32 } %4
+  call void @__cxa_guard_abort(ptr nonnull @_ZGVZN4abslL24MaybeSetupAlternateStackEvE5kOnce) #15
+  resume { ptr, i32 } %21
 
-_ZN4abslL24MaybeSetupAlternateStackEv.exit.i:     ; preds = %invoke.cont.i.i, %init.check.i.i, %if.then.i
-  %5 = load i32, ptr %sa_flags.i, align 8
-  %or5.i = or i32 %5, 134217728
-  store i32 %or5.i, ptr %sa_flags.i, align 8
-  br label %if.end.i
+_ZN4abslL24MaybeSetupAlternateStackEv.exit.i:     ; preds = %18, %15, %12
+  %22 = load i32, ptr %4, align 8, !tbaa !19
+  %23 = or i32 %22, 134217728
+  store i32 %23, ptr %4, align 8, !tbaa !19
+  br label %24
 
-if.end.i:                                         ; preds = %_ZN4abslL24MaybeSetupAlternateStackEv.exit.i, %for.body
-  store ptr @_ZN4abslL24AbslFailureSignalHandlerEiP9siginfo_tPv, ptr %act.i, align 8
-  %6 = load i32, ptr %__begin1.0.ptr, align 8
-  %previous_action.i = getelementptr inbounds nuw i8, ptr %__begin1.0.ptr, i64 16
-  %call6.i = call i32 @sigaction(i32 noundef %6, ptr noundef nonnull %act.i, ptr noundef nonnull %previous_action.i) #13
-  %cmp.not.i = icmp eq i32 %call6.i, 0
-  br i1 %cmp.not.i, label %_ZN4abslL24InstallOneFailureHandlerEPNS_17FailureSignalDataEPFviP9siginfo_tPvE.exit, label %do.body8.i
+24:                                               ; preds = %_ZN4abslL24MaybeSetupAlternateStackEv.exit.i, %6
+  store ptr @_ZN4abslL24AbslFailureSignalHandlerEiP9siginfo_tPv, ptr %2, align 8, !tbaa !25
+  %25 = load i32, ptr %.0.ptr, align 8, !tbaa !4
+  %26 = getelementptr inbounds nuw i8, ptr %.0.ptr, i64 16
+  %27 = call i32 @sigaction(i32 noundef %25, ptr noundef nonnull %2, ptr noundef nonnull %26) #15
+  %.not.i = icmp eq i32 %27, 0
+  br i1 %.not.i, label %_ZN4abslL24InstallOneFailureHandlerEPNS_17FailureSignalDataEPFviP9siginfo_tPvE.exit, label %28, !prof !26
 
-do.body8.i:                                       ; preds = %if.end.i
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.8, i64 114), i32 noundef 226, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11)
+28:                                               ; preds = %24
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.8, i64 114), i32 noundef 244, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11)
   unreachable
 
-_ZN4abslL24InstallOneFailureHandlerEPNS_17FailureSignalDataEPFviP9siginfo_tPvE.exit: ; preds = %if.end.i
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %act.i)
-  %__begin1.0.add = add nuw nsw i64 %__begin1.0.idx3, 168
-  %cmp.not = icmp eq i64 %__begin1.0.add, 1176
-  br i1 %cmp.not, label %for.end, label %for.body
-
-for.end:                                          ; preds = %_ZN4abslL24InstallOneFailureHandlerEPNS_17FailureSignalDataEPFviP9siginfo_tPvE.exit
-  ret void
+_ZN4abslL24InstallOneFailureHandlerEPNS_17FailureSignalDataEPFviP9siginfo_tPvE.exit: ; preds = %24
+  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %2) #15
+  %.0.add = add nuw nsw i64 %.0.idx6, 168
+  %.not = icmp eq i64 %.0.add, 1176
+  br i1 %.not, label %5, label %6
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4abslL24AbslFailureSignalHandlerEiP9siginfo_tPv(i32 noundef %signo, ptr readnone captures(none) %0, ptr noundef %ucontext) #1 {
-entry:
-  %sleep_time.i = alloca %struct.timespec, align 8
-  %call = tail call noundef i32 @_ZN4absl13base_internal6GetTIDEv()
-  %1 = cmpxchg ptr @_ZN4abslL10failed_tidE, i32 0, i32 %call acq_rel monotonic, align 4
-  %2 = extractvalue { i32, i1 } %1, 1
-  br i1 %2, label %if.end4, label %do.body
+define internal void @_ZN4abslL24AbslFailureSignalHandlerEiP9siginfo_tPv(i32 noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #2 {
+  %4 = alloca [96 x i8], align 16
+  %5 = alloca [32 x i8], align 16
+  %6 = alloca %"struct.absl::WriterFnStruct", align 8
+  %7 = alloca [96 x i8], align 16
+  %8 = alloca [32 x i8], align 16
+  %9 = alloca %"struct.absl::WriterFnStruct", align 8
+  %10 = alloca %struct.timespec, align 8
+  %11 = tail call noundef i32 @_ZN4absl13base_internal6GetTIDEv()
+  %12 = cmpxchg ptr @_ZN4abslL10failed_tidE, i32 0, i32 %11 acq_rel monotonic, align 4
+  %13 = extractvalue { i32, i1 } %12, 1
+  br i1 %13, label %_ZNSt13__atomic_baseIiE23compare_exchange_strongERiiSt12memory_orderS2_.exit.thread, label %14
 
-do.body:                                          ; preds = %entry
-  %3 = extractvalue { i32, i1 } %1, 0
-  %call2 = tail call noundef ptr @_ZN4absl18debugging_internal17GetProgramCounterEPv(ptr noundef %ucontext)
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.8, i64 114), i32 noundef 348, ptr noundef nonnull @.str.14, i32 noundef %signo, ptr noundef %call2)
-  %cmp.not = icmp eq i32 %call, %3
-  br i1 %cmp.not, label %if.end4, label %if.then3
+14:                                               ; preds = %3
+  %15 = extractvalue { i32, i1 } %12, 0
+  %16 = tail call noundef ptr @_ZN4absl18debugging_internal17GetProgramCounterEPv(ptr noundef %2)
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.8, i64 114), i32 noundef 380, ptr noundef nonnull @.str.14, i32 noundef %0, ptr noundef %16)
+  %.not = icmp eq i32 %11, %15
+  br i1 %.not, label %_ZNSt13__atomic_baseIiE23compare_exchange_strongERiiSt12memory_orderS2_.exit.thread, label %17
 
-if.then3:                                         ; preds = %do.body
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %sleep_time.i)
-  store i64 3, ptr %sleep_time.i, align 8
-  %tv_nsec.i = getelementptr inbounds nuw i8, ptr %sleep_time.i, i64 8
-  store i64 0, ptr %tv_nsec.i, align 8
-  br label %while.cond.i
+17:                                               ; preds = %14
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #15
+  store i64 3, ptr %10, align 8, !tbaa !27
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store i64 0, ptr %18, align 8, !tbaa !30
+  br label %19
 
-while.cond.i:                                     ; preds = %land.rhs.i, %if.then3
-  %call.i = call i32 @nanosleep(ptr noundef nonnull %sleep_time.i, ptr noundef nonnull %sleep_time.i)
-  %cmp.not.i = icmp eq i32 %call.i, 0
-  br i1 %cmp.not.i, label %_ZN4abslL23PortableSleepForSecondsEi.exit, label %land.rhs.i
+19:                                               ; preds = %21, %17
+  %20 = call i32 @nanosleep(ptr noundef nonnull %10, ptr noundef nonnull %10)
+  %.not.i = icmp eq i32 %20, 0
+  br i1 %.not.i, label %_ZN4abslL23PortableSleepForSecondsEi.exit, label %21
 
-land.rhs.i:                                       ; preds = %while.cond.i
-  %call1.i = tail call ptr @__errno_location() #14
-  %4 = load i32, ptr %call1.i, align 4
-  %cmp2.i = icmp eq i32 %4, 4
-  br i1 %cmp2.i, label %while.cond.i, label %_ZN4abslL23PortableSleepForSecondsEi.exit, !llvm.loop !6
+21:                                               ; preds = %19
+  %22 = tail call ptr @__errno_location() #16
+  %23 = load i32, ptr %22, align 4, !tbaa !17
+  %24 = icmp eq i32 %23, 4
+  br i1 %24, label %19, label %_ZN4abslL23PortableSleepForSecondsEi.exit, !llvm.loop !31
 
-_ZN4abslL23PortableSleepForSecondsEi.exit:        ; preds = %while.cond.i, %land.rhs.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %sleep_time.i)
-  %call.i39 = call ptr @signal(i32 noundef %signo, ptr noundef null) #13
-  %call1.i40 = call i32 @raise(i32 noundef %signo) #13
-  br label %if.end17
-
-if.end4:                                          ; preds = %do.body, %entry
-  %call5 = tail call i32 @sched_getcpu() #13
-  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN4abslL11fsh_optionsE, i64 4), align 4
-  %cmp6 = icmp sgt i32 %5, 0
-  br i1 %cmp6, label %if.then7, label %if.end11
-
-if.then7:                                         ; preds = %if.end4
-  %call8 = tail call i32 @alarm(i32 noundef 0) #13
-  %call9 = tail call ptr @signal(i32 noundef 14, ptr noundef nonnull @_ZN4abslL27ImmediateAbortSignalHandlerEi) #13
-  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN4abslL11fsh_optionsE, i64 4), align 4
-  %call10 = tail call i32 @alarm(i32 noundef %6) #13
-  br label %if.end11
-
-if.end11:                                         ; preds = %if.then7, %if.end4
-  tail call fastcc void @_ZN4abslL16WriteFailureInfoEiPviPFvPKcE(i32 noundef %signo, ptr noundef %ucontext, i32 noundef %call5, ptr noundef nonnull @"_ZZN4abslL24AbslFailureSignalHandlerEiP9siginfo_tPvEN3$_08__invokeEPKc")
-  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4abslL11fsh_optionsE, i64 16), align 8
-  %cmp13.not = icmp eq ptr %7, null
-  br i1 %cmp13.not, label %if.end15, label %if.then14
-
-if.then14:                                        ; preds = %if.end11
-  tail call fastcc void @_ZN4abslL16WriteFailureInfoEiPviPFvPKcE(i32 noundef %signo, ptr noundef %ucontext, i32 noundef %call5, ptr noundef nonnull %7)
-  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4abslL11fsh_optionsE, i64 16), align 8
-  tail call void %8(ptr noundef null)
-  br label %if.end15
-
-if.end15:                                         ; preds = %if.then14, %if.end11
-  %9 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4abslL11fsh_optionsE, i64 8), align 8
-  %tobool = trunc i8 %9 to i1
-  br i1 %tobool, label %for.body.i, label %if.else
-
-for.cond.i:                                       ; preds = %for.body.i
-  %__begin1.0.add.i = add nuw nsw i64 %__begin1.0.idx8.i, 168
-  %cmp.not.i42 = icmp eq i64 %__begin1.0.add.i, 1176
-  br i1 %cmp.not.i42, label %for.end.i, label %for.body.i
-
-for.body.i:                                       ; preds = %if.end15, %for.cond.i
-  %__begin1.0.idx8.i = phi i64 [ %__begin1.0.add.i, %for.cond.i ], [ 0, %if.end15 ]
-  %__begin1.0.ptr9.i = getelementptr inbounds nuw i8, ptr @_ZN4abslL19failure_signal_dataE, i64 %__begin1.0.idx8.i
-  %10 = load i32, ptr %__begin1.0.ptr9.i, align 8
-  %cmp2.i41 = icmp eq i32 %10, %signo
-  br i1 %cmp2.i41, label %if.then.i, label %for.cond.i
-
-if.then.i:                                        ; preds = %for.body.i
-  %__begin1.0.ptr9.i.le = getelementptr inbounds nuw i8, ptr @_ZN4abslL19failure_signal_dataE, i64 %__begin1.0.idx8.i
-  %previous_action.i = getelementptr inbounds nuw i8, ptr %__begin1.0.ptr9.i.le, i64 16
-  %call.i43 = tail call i32 @sigaction(i32 noundef %signo, ptr noundef nonnull %previous_action.i, ptr noundef null) #13
+_ZN4abslL23PortableSleepForSecondsEi.exit:        ; preds = %19, %21
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #15
+  %25 = call ptr @signal(i32 noundef %0, ptr noundef null) #15
   br label %_ZN4abslL22RaiseToPreviousHandlerEi.exit
 
-for.end.i:                                        ; preds = %for.cond.i
-  %call.i.i = tail call ptr @signal(i32 noundef %signo, ptr noundef null) #13
+_ZNSt13__atomic_baseIiE23compare_exchange_strongERiiSt12memory_orderS2_.exit.thread: ; preds = %3, %14
+  %26 = tail call noundef i32 @sched_getcpu() #15
+  %27 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN4abslL11fsh_optionsE, i64 4), align 4, !tbaa !33
+  %28 = icmp sgt i32 %27, 0
+  br i1 %28, label %29, label %34
+
+29:                                               ; preds = %_ZNSt13__atomic_baseIiE23compare_exchange_strongERiiSt12memory_orderS2_.exit.thread
+  %30 = tail call i32 @alarm(i32 noundef 0) #15
+  %31 = tail call ptr @signal(i32 noundef 14, ptr noundef nonnull @_ZN4abslL27ImmediateAbortSignalHandlerEi) #15
+  %32 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN4abslL11fsh_optionsE, i64 4), align 4, !tbaa !33
+  %33 = tail call i32 @alarm(i32 noundef %32) #15
+  br label %34
+
+34:                                               ; preds = %29, %_ZNSt13__atomic_baseIiE23compare_exchange_strongERiiSt12memory_orderS2_.exit.thread
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #15
+  store ptr @"_ZZN4abslL24AbslFailureSignalHandlerEiP9siginfo_tPvEN3$_08__invokeEPKc", ptr %9, align 8, !tbaa !34
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #15
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %8, i8 0, i64 32, i1 false)
+  %.not.i.i = icmp eq i32 %26, -1
+  br i1 %.not.i.i, label %.preheader43, label %35
+
+35:                                               ; preds = %34
+  %36 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 32, ptr noundef nonnull @.str.16, i32 noundef %26) #15
+  br label %.preheader43
+
+.preheader43:                                     ; preds = %35, %34
+  br label %38
+
+37:                                               ; preds = %38
+  %.011.add.i.i.i = add nuw nsw i64 %.011.idx15.i.i.i, 168
+  %.not.i.i.i = icmp eq i64 %.011.add.i.i.i, 1176
+  br i1 %.not.i.i.i, label %_ZN4absl18debugging_internal21FailureSignalToStringEi.exit.thread.i.i, label %38
+
+38:                                               ; preds = %.preheader43, %37
+  %.011.idx15.i.i.i = phi i64 [ %.011.add.i.i.i, %37 ], [ 0, %.preheader43 ]
+  %.011.ptr16.i.i.i = getelementptr inbounds nuw i8, ptr @_ZN4abslL19failure_signal_dataE, i64 %.011.idx15.i.i.i
+  %39 = load i32, ptr %.011.ptr16.i.i.i, align 8, !tbaa !4
+  %.not12.i.i.i = icmp eq i32 %39, %0
+  br i1 %.not12.i.i.i, label %_ZN4absl18debugging_internal21FailureSignalToStringEi.exit.i.i, label %37
+
+_ZN4absl18debugging_internal21FailureSignalToStringEi.exit.i.i: ; preds = %38
+  %.011.ptr16.i.i.i.le = getelementptr inbounds nuw i8, ptr @_ZN4abslL19failure_signal_dataE, i64 %.011.idx15.i.i.i
+  %40 = getelementptr inbounds nuw i8, ptr %.011.ptr16.i.i.i.le, i64 8
+  %41 = load ptr, ptr %40, align 8, !tbaa !13
+  %.not8.i.i = icmp eq ptr %41, null
+  br i1 %.not8.i.i, label %46, label %_ZN4absl18debugging_internal21FailureSignalToStringEi.exit.thread.i.i
+
+_ZN4absl18debugging_internal21FailureSignalToStringEi.exit.thread.i.i: ; preds = %37, %_ZN4absl18debugging_internal21FailureSignalToStringEi.exit.i.i
+  %spec.select.i12.i.i = phi ptr [ %41, %_ZN4absl18debugging_internal21FailureSignalToStringEi.exit.i.i ], [ @.str, %37 ]
+  %42 = load i8, ptr %spec.select.i12.i.i, align 1, !tbaa !25
+  %.not9.i.i = icmp eq i8 %42, 0
+  br i1 %.not9.i.i, label %46, label %43
+
+43:                                               ; preds = %_ZN4absl18debugging_internal21FailureSignalToStringEi.exit.thread.i.i
+  %44 = tail call i64 @time(ptr noundef null) #15
+  %45 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 96, ptr noundef nonnull @.str.17, ptr noundef nonnull %spec.select.i12.i.i, i64 noundef %44, ptr noundef nonnull %8) #15
+  br label %_ZN4abslL16WriteFailureInfoEiPviPFvPKcE.exit
+
+46:                                               ; preds = %_ZN4absl18debugging_internal21FailureSignalToStringEi.exit.thread.i.i, %_ZN4absl18debugging_internal21FailureSignalToStringEi.exit.i.i
+  %47 = tail call i64 @time(ptr noundef null) #15
+  %48 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 96, ptr noundef nonnull @.str.18, i32 noundef %0, i64 noundef %47, ptr noundef nonnull %8) #15
+  br label %_ZN4abslL16WriteFailureInfoEiPviPFvPKcE.exit
+
+_ZN4abslL16WriteFailureInfoEiPviPFvPKcE.exit:     ; preds = %43, %46
+  %49 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #17
+  call void @_ZN4absl16raw_log_internal25AsyncSignalSafeWriteErrorEPKcm(ptr noundef nonnull %7, i64 noundef %49)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %7) #15
+  %50 = load i8, ptr @_ZN4abslL11fsh_optionsE, align 8, !tbaa !36, !range !22, !noundef !23
+  %51 = trunc nuw i8 %50 to i1
+  call fastcc void @_ZN4abslL15WriteStackTraceEPvbPFvPKcS0_ES0_(ptr noundef %2, i1 noundef zeroext %51, ptr noundef %9)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #15
+  %52 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4abslL11fsh_optionsE, i64 16), align 8, !tbaa !37
+  %.not12 = icmp eq ptr %52, null
+  br i1 %.not12, label %71, label %53
+
+53:                                               ; preds = %_ZN4abslL16WriteFailureInfoEiPviPFvPKcE.exit
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #15
+  store ptr %52, ptr %6, align 8, !tbaa !34
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #15
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %5, i8 0, i64 32, i1 false)
+  br i1 %.not.i.i, label %.preheader, label %54
+
+54:                                               ; preds = %53
+  %55 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 32, ptr noundef nonnull @.str.16, i32 noundef %26) #15
+  br label %.preheader
+
+.preheader:                                       ; preds = %54, %53
+  br label %57
+
+56:                                               ; preds = %57
+  %.011.add.i.i.i17 = add nuw nsw i64 %.011.idx15.i.i.i14, 168
+  %.not.i.i.i18 = icmp eq i64 %.011.add.i.i.i17, 1176
+  br i1 %.not.i.i.i18, label %_ZN4absl18debugging_internal21FailureSignalToStringEi.exit.thread.i.i19, label %57
+
+57:                                               ; preds = %.preheader, %56
+  %.011.idx15.i.i.i14 = phi i64 [ %.011.add.i.i.i17, %56 ], [ 0, %.preheader ]
+  %.011.ptr16.i.i.i15 = getelementptr inbounds nuw i8, ptr @_ZN4abslL19failure_signal_dataE, i64 %.011.idx15.i.i.i14
+  %58 = load i32, ptr %.011.ptr16.i.i.i15, align 8, !tbaa !4
+  %.not12.i.i.i16 = icmp eq i32 %58, %0
+  br i1 %.not12.i.i.i16, label %_ZN4absl18debugging_internal21FailureSignalToStringEi.exit.i.i22, label %56
+
+_ZN4absl18debugging_internal21FailureSignalToStringEi.exit.i.i22: ; preds = %57
+  %.011.ptr16.i.i.i15.le = getelementptr inbounds nuw i8, ptr @_ZN4abslL19failure_signal_dataE, i64 %.011.idx15.i.i.i14
+  %59 = getelementptr inbounds nuw i8, ptr %.011.ptr16.i.i.i15.le, i64 8
+  %60 = load ptr, ptr %59, align 8, !tbaa !13
+  %.not8.i.i24 = icmp eq ptr %60, null
+  br i1 %.not8.i.i24, label %65, label %_ZN4absl18debugging_internal21FailureSignalToStringEi.exit.thread.i.i19
+
+_ZN4absl18debugging_internal21FailureSignalToStringEi.exit.thread.i.i19: ; preds = %56, %_ZN4absl18debugging_internal21FailureSignalToStringEi.exit.i.i22
+  %spec.select.i12.i.i20 = phi ptr [ %60, %_ZN4absl18debugging_internal21FailureSignalToStringEi.exit.i.i22 ], [ @.str, %56 ]
+  %61 = load i8, ptr %spec.select.i12.i.i20, align 1, !tbaa !25
+  %.not9.i.i21 = icmp eq i8 %61, 0
+  br i1 %.not9.i.i21, label %65, label %62
+
+62:                                               ; preds = %_ZN4absl18debugging_internal21FailureSignalToStringEi.exit.thread.i.i19
+  %63 = call i64 @time(ptr noundef null) #15
+  %64 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 96, ptr noundef nonnull @.str.17, ptr noundef nonnull %spec.select.i12.i.i20, i64 noundef %63, ptr noundef nonnull %5) #15
+  br label %_ZN4abslL16WriteFailureInfoEiPviPFvPKcE.exit25
+
+65:                                               ; preds = %_ZN4absl18debugging_internal21FailureSignalToStringEi.exit.thread.i.i19, %_ZN4absl18debugging_internal21FailureSignalToStringEi.exit.i.i22
+  %66 = call i64 @time(ptr noundef null) #15
+  %67 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 96, ptr noundef nonnull @.str.18, i32 noundef %0, i64 noundef %66, ptr noundef nonnull %5) #15
+  br label %_ZN4abslL16WriteFailureInfoEiPviPFvPKcE.exit25
+
+_ZN4abslL16WriteFailureInfoEiPviPFvPKcE.exit25:   ; preds = %62, %65
+  call void %52(ptr noundef nonnull %4)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #15
+  %68 = load i8, ptr @_ZN4abslL11fsh_optionsE, align 8, !tbaa !36, !range !22, !noundef !23
+  %69 = trunc nuw i8 %68 to i1
+  call fastcc void @_ZN4abslL15WriteStackTraceEPvbPFvPKcS0_ES0_(ptr noundef %2, i1 noundef zeroext %69, ptr noundef %6)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #15
+  %70 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4abslL11fsh_optionsE, i64 16), align 8, !tbaa !37
+  call void %70(ptr noundef null)
+  br label %71
+
+71:                                               ; preds = %_ZN4abslL16WriteFailureInfoEiPviPFvPKcE.exit25, %_ZN4abslL16WriteFailureInfoEiPviPFvPKcE.exit
+  %72 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4abslL11fsh_optionsE, i64 8), align 8, !tbaa !38, !range !22, !noundef !23
+  %73 = trunc nuw i8 %72 to i1
+  br i1 %73, label %.critedge.i, label %81
+
+74:                                               ; preds = %.critedge.i
+  %.0.add.i = add nuw nsw i64 %.0.idx18.i, 168
+  %.not.i26 = icmp eq i64 %.0.add.i, 1176
+  br i1 %.not.i26, label %79, label %.critedge.i
+
+.critedge.i:                                      ; preds = %71, %74
+  %.0.idx18.i = phi i64 [ %.0.add.i, %74 ], [ 0, %71 ]
+  %.0.ptr19.i = getelementptr inbounds nuw i8, ptr @_ZN4abslL19failure_signal_dataE, i64 %.0.idx18.i
+  %75 = load i32, ptr %.0.ptr19.i, align 8, !tbaa !4
+  %.not13.i = icmp eq i32 %75, %0
+  br i1 %.not13.i, label %76, label %74
+
+76:                                               ; preds = %.critedge.i
+  %.0.ptr19.i.le = getelementptr inbounds nuw i8, ptr @_ZN4abslL19failure_signal_dataE, i64 %.0.idx18.i
+  %77 = getelementptr inbounds nuw i8, ptr %.0.ptr19.i.le, i64 16
+  %78 = call i32 @sigaction(i32 noundef %0, ptr noundef nonnull %77, ptr noundef null) #15
   br label %_ZN4abslL22RaiseToPreviousHandlerEi.exit
 
-_ZN4abslL22RaiseToPreviousHandlerEi.exit:         ; preds = %if.then.i, %for.end.i
-  %call1.i.i = tail call i32 @raise(i32 noundef %signo) #13
-  br label %if.end17
+79:                                               ; preds = %74
+  %80 = call ptr @signal(i32 noundef %0, ptr noundef null) #15
+  br label %_ZN4abslL22RaiseToPreviousHandlerEi.exit
 
-if.else:                                          ; preds = %if.end15
-  %call.i44 = tail call ptr @signal(i32 noundef %signo, ptr noundef null) #13
-  %call1.i45 = tail call i32 @raise(i32 noundef %signo) #13
-  br label %if.end17
+81:                                               ; preds = %71
+  %82 = call ptr @signal(i32 noundef %0, ptr noundef null) #15
+  br label %_ZN4abslL22RaiseToPreviousHandlerEi.exit
 
-if.end17:                                         ; preds = %if.else, %_ZN4abslL22RaiseToPreviousHandlerEi.exit, %_ZN4abslL23PortableSleepForSecondsEi.exit
+_ZN4abslL22RaiseToPreviousHandlerEi.exit:         ; preds = %79, %76, %81, %_ZN4abslL23PortableSleepForSecondsEi.exit
+  %83 = call i32 @raise(i32 noundef %0) #15
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind
-declare i32 @sigemptyset(ptr noundef) local_unnamed_addr #4
+declare i32 @sigemptyset(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare i32 @sigaction(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @sigaction(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare void @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #5
+declare void @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #6
+declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4abslL23SetupAlternateStackOnceEv() unnamed_addr #1 {
-entry:
-  %sigstk = alloca %struct.stack_t, align 8
-  %call = tail call i64 @sysconf(i32 noundef 30) #13
-  %sub = add i64 %call, -1
-  %call1 = tail call i64 @sysconf(i32 noundef 250) #13
-  %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %call1, i64 65536)
-  %add = add i64 %sub, %.sroa.speculated
-  %not = sub i64 0, %call
-  %and = and i64 %add, %not
-  %0 = getelementptr inbounds nuw i8, ptr %sigstk, i64 8
-  store i64 0, ptr %0, align 8
-  %ss_size = getelementptr inbounds nuw i8, ptr %sigstk, i64 16
-  store i64 %and, ptr %ss_size, align 8
-  %call5 = tail call ptr @mmap(ptr noundef null, i64 noundef %and, i32 noundef 3, i32 noundef 131106, i32 noundef -1, i64 noundef 0) #13
-  store ptr %call5, ptr %sigstk, align 8
-  %cmp = icmp eq ptr %call5, inttoptr (i64 -1 to ptr)
-  br i1 %cmp, label %do.body, label %if.end
+define internal fastcc void @_ZN4abslL23SetupAlternateStackOnceEv() unnamed_addr #2 {
+  %1 = alloca %struct.stack_t, align 8
+  %2 = tail call i64 @sysconf(i32 noundef 30) #15
+  %3 = add i64 %2, -1
+  %4 = tail call i64 @sysconf(i32 noundef 250) #15
+  %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %4, i64 65536)
+  %5 = add i64 %3, %.sroa.speculated
+  %6 = sub i64 0, %2
+  %7 = and i64 %5, %6
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1) #15
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i64 0, ptr %8, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store i64 %7, ptr %9, align 8, !tbaa !39
+  %10 = tail call ptr @mmap(ptr noundef null, i64 noundef %7, i32 noundef 3, i32 noundef 131106, i32 noundef -1, i64 noundef 0) #15
+  store ptr %10, ptr %1, align 8, !tbaa !41
+  %11 = icmp eq ptr %10, inttoptr (i64 -1 to ptr)
+  br i1 %11, label %12, label %13
 
-do.body:                                          ; preds = %entry
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.8, i64 114), i32 noundef 167, ptr noundef nonnull @.str.12)
+12:                                               ; preds = %0
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.8, i64 114), i32 noundef 185, ptr noundef nonnull @.str.12)
   unreachable
 
-if.end:                                           ; preds = %entry
-  %call9 = call i32 @sigaltstack(ptr noundef nonnull %sigstk, ptr noundef null) #13
-  %cmp10.not = icmp eq i32 %call9, 0
-  br i1 %cmp10.not, label %if.end18, label %do.body12
+13:                                               ; preds = %0
+  %14 = call i32 @sigaltstack(ptr noundef nonnull %1, ptr noundef null) #15
+  %.not = icmp eq i32 %14, 0
+  br i1 %.not, label %18, label %15
 
-do.body12:                                        ; preds = %if.end
-  %call14 = tail call ptr @__errno_location() #14
-  %1 = load i32, ptr %call14, align 4
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.8, i64 114), i32 noundef 177, ptr noundef nonnull @.str.13, i32 noundef %1)
+15:                                               ; preds = %13
+  %16 = tail call ptr @__errno_location() #16
+  %17 = load i32, ptr %16, align 4, !tbaa !17
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.8, i64 114), i32 noundef 195, ptr noundef nonnull @.str.13, i32 noundef %17)
   unreachable
 
-if.end18:                                         ; preds = %if.end
+18:                                               ; preds = %13
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %1) #15
   ret void
 }
 
 declare i32 @__gxx_personality_v0(...)
 
-; Function Attrs: nofree nounwind
-declare void @__cxa_guard_abort(ptr) local_unnamed_addr #6
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare ptr @llvm.invariant.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nofree nounwind
-declare void @__cxa_guard_release(ptr) local_unnamed_addr #6
+declare void @__cxa_guard_abort(ptr) local_unnamed_addr #7
+
+; Function Attrs: nofree nounwind
+declare void @__cxa_guard_release(ptr) local_unnamed_addr #7
 
 ; Function Attrs: nounwind
-declare i64 @sysconf(i32 noundef) local_unnamed_addr #4
+declare i64 @sysconf(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare ptr @mmap(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #4
+declare ptr @mmap(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare i32 @sigaltstack(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @sigaltstack(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #7
+declare ptr @__errno_location() local_unnamed_addr #8
 
-declare noundef i32 @_ZN4absl13base_internal6GetTIDEv() local_unnamed_addr #5
+declare noundef i32 @_ZN4absl13base_internal6GetTIDEv() local_unnamed_addr #6
 
-declare noundef ptr @_ZN4absl18debugging_internal17GetProgramCounterEPv(ptr noundef) local_unnamed_addr #5
-
-; Function Attrs: nounwind
-declare i32 @sched_getcpu() local_unnamed_addr #4
+declare noundef ptr @_ZN4absl18debugging_internal17GetProgramCounterEPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
-declare i32 @alarm(i32 noundef) local_unnamed_addr #4
+declare i32 @alarm(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare ptr @signal(i32 noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @signal(i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4abslL27ImmediateAbortSignalHandlerEi(i32 %0) #8 {
-entry:
-  %call.i = tail call ptr @signal(i32 noundef 6, ptr noundef null) #13
-  %call1.i = tail call i32 @raise(i32 noundef 6) #13
+define internal void @_ZN4abslL27ImmediateAbortSignalHandlerEi(i32 %0) #9 {
+  %2 = tail call ptr @signal(i32 noundef 6, ptr noundef null) #15
+  %3 = tail call i32 @raise(i32 noundef 6) #15
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4abslL16WriteFailureInfoEiPviPFvPKcE(i32 noundef %signo, ptr noundef %ucontext, i32 noundef %cpu, ptr noundef %writerfn) unnamed_addr #1 {
-entry:
-  %stack.i = alloca [32 x ptr], align 16
-  %frame_sizes.i = alloca [32 x i32], align 16
-  %min_dropped_frames.i = alloca i32, align 4
-  %buf.i = alloca [96 x i8], align 16
-  %on_cpu.i = alloca [32 x i8], align 16
-  %writerfn_struct = alloca %"struct.absl::WriterFnStruct", align 8
-  store ptr %writerfn, ptr %writerfn_struct, align 8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %buf.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %on_cpu.i)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %on_cpu.i, i8 0, i64 32, i1 false)
-  %cmp.not.i = icmp eq i32 %cpu, -1
-  br i1 %cmp.not.i, label %for.body.i.i.preheader, label %if.then.i
-
-if.then.i:                                        ; preds = %entry
-  %call.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %on_cpu.i, i64 noundef 32, ptr noundef nonnull @.str.16, i32 noundef %cpu) #13
-  br label %for.body.i.i.preheader
-
-for.body.i.i.preheader:                           ; preds = %if.then.i, %entry
-  br label %for.body.i.i
-
-for.cond.i.i:                                     ; preds = %for.body.i.i
-  %__begin2.0.add.i.i = add nuw nsw i64 %__begin2.0.idx5.i.i, 168
-  %cmp.not.i.i = icmp eq i64 %__begin2.0.add.i.i, 1176
-  br i1 %cmp.not.i.i, label %land.lhs.true.i, label %for.body.i.i
-
-for.body.i.i:                                     ; preds = %for.body.i.i.preheader, %for.cond.i.i
-  %__begin2.0.idx5.i.i = phi i64 [ %__begin2.0.add.i.i, %for.cond.i.i ], [ 0, %for.body.i.i.preheader ]
-  %__begin2.0.ptr6.i.i = getelementptr inbounds nuw i8, ptr @_ZN4abslL19failure_signal_dataE, i64 %__begin2.0.idx5.i.i
-  %0 = load i32, ptr %__begin2.0.ptr6.i.i, align 8
-  %cmp2.i.i = icmp eq i32 %0, %signo
-  br i1 %cmp2.i.i, label %_ZN4absl18debugging_internal21FailureSignalToStringEi.exit.i, label %for.cond.i.i
-
-_ZN4absl18debugging_internal21FailureSignalToStringEi.exit.i: ; preds = %for.body.i.i
-  %__begin2.0.ptr6.i.i.le = getelementptr inbounds nuw i8, ptr @_ZN4abslL19failure_signal_dataE, i64 %__begin2.0.idx5.i.i
-  %as_string.i.i = getelementptr inbounds nuw i8, ptr %__begin2.0.ptr6.i.i.le, i64 8
-  %1 = load ptr, ptr %as_string.i.i, align 8
-  %cmp2.not.i = icmp eq ptr %1, null
-  br i1 %cmp2.not.i, label %if.else.i, label %land.lhs.true.i
-
-land.lhs.true.i:                                  ; preds = %for.cond.i.i, %_ZN4absl18debugging_internal21FailureSignalToStringEi.exit.i
-  %retval.0.i7.i = phi ptr [ %1, %_ZN4absl18debugging_internal21FailureSignalToStringEi.exit.i ], [ @.str, %for.cond.i.i ]
-  %2 = load i8, ptr %retval.0.i7.i, align 1
-  %cmp3.not.i = icmp eq i8 %2, 0
-  br i1 %cmp3.not.i, label %if.else.i, label %if.then4.i
-
-if.then4.i:                                       ; preds = %land.lhs.true.i
-  %call6.i = tail call i64 @time(ptr noundef null) #13
-  %call8.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf.i, i64 noundef 96, ptr noundef nonnull @.str.17, ptr noundef nonnull %retval.0.i7.i, i64 noundef %call6.i, ptr noundef nonnull %on_cpu.i) #13
-  br label %_ZN4abslL18WriteSignalMessageEiiPFvPKcE.exit
-
-if.else.i:                                        ; preds = %land.lhs.true.i, %_ZN4absl18debugging_internal21FailureSignalToStringEi.exit.i
-  %call10.i = tail call i64 @time(ptr noundef null) #13
-  %call12.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf.i, i64 noundef 96, ptr noundef nonnull @.str.18, i32 noundef %signo, i64 noundef %call10.i, ptr noundef nonnull %on_cpu.i) #13
-  br label %_ZN4abslL18WriteSignalMessageEiiPFvPKcE.exit
-
-_ZN4abslL18WriteSignalMessageEiiPFvPKcE.exit:     ; preds = %if.then4.i, %if.else.i
-  call void %writerfn(ptr noundef nonnull %buf.i)
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %buf.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %on_cpu.i)
-  %3 = load i8, ptr @_ZN4abslL11fsh_optionsE, align 8
-  %tobool = trunc i8 %3 to i1
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %stack.i)
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %frame_sizes.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %min_dropped_frames.i)
-  %call.i2 = call noundef i32 @_ZN4absl25GetStackFramesWithContextEPPvPiiiPKvS2_(ptr noundef nonnull %stack.i, ptr noundef nonnull %frame_sizes.i, i32 noundef 32, i32 noundef 1, ptr noundef %ucontext, ptr noundef nonnull %min_dropped_frames.i)
-  %call2.i = call noundef ptr @_ZN4absl18debugging_internal17GetProgramCounterEPv(ptr noundef %ucontext)
-  %4 = load i32, ptr %min_dropped_frames.i, align 4
-  call void @_ZN4absl18debugging_internal32DumpPCAndFrameSizesAndStackTraceEPvPKS1_PiiibPFvPKcS1_ES1_(ptr noundef %call2.i, ptr noundef nonnull %stack.i, ptr noundef nonnull %frame_sizes.i, i32 noundef %call.i2, i32 noundef %4, i1 noundef zeroext %tobool, ptr noundef nonnull @_ZN4abslL15WriterFnWrapperEPKcPv, ptr noundef nonnull %writerfn_struct)
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %stack.i)
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %frame_sizes.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %min_dropped_frames.i)
-  ret void
-}
-
-declare i32 @nanosleep(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @nanosleep(ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
-declare i32 @raise(i32 noundef) local_unnamed_addr #4
+declare i32 @raise(i32 noundef) local_unnamed_addr #5
+
+; Function Attrs: nounwind
+declare i32 @sched_getcpu() local_unnamed_addr #5
+
+; Function Attrs: mustprogress noinline uwtable
+define internal fastcc void @_ZN4abslL15WriteStackTraceEPvbPFvPKcS0_ES0_(ptr noundef %0, i1 noundef zeroext %1, ptr noundef nonnull %2) unnamed_addr #10 {
+  %4 = alloca [32 x ptr], align 16
+  %5 = alloca [32 x i32], align 16
+  %6 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #15
+  %7 = call noundef i32 @_ZN4absl25GetStackFramesWithContextEPPvPiiiPKvS2_(ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 32, i32 noundef 1, ptr noundef %0, ptr noundef nonnull %6)
+  %8 = call noundef ptr @_ZN4absl18debugging_internal17GetProgramCounterEPv(ptr noundef %0)
+  %9 = load i32, ptr %6, align 4, !tbaa !17
+  call void @_ZN4absl18debugging_internal32DumpPCAndFrameSizesAndStackTraceEPvPKS1_PiiibPFvPKcS1_ES1_(ptr noundef %8, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef %7, i32 noundef %9, i1 noundef zeroext %1, ptr noundef nonnull @_ZN4abslL15WriterFnWrapperEPKcPv, ptr noundef nonnull %2)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #15
+  ret void
+}
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4abslL15WriterFnWrapperEPKcPv(ptr noundef %data, ptr noundef readonly captures(none) %arg) #1 {
-entry:
-  %0 = load ptr, ptr %arg, align 8
-  tail call void %0(ptr noundef %data)
+define internal void @_ZN4abslL15WriterFnWrapperEPKcPv(ptr noundef %0, ptr noundef readonly captures(none) %1) #2 {
+  %3 = load ptr, ptr %1, align 8, !tbaa !34
+  tail call void %3(ptr noundef %0)
   ret void
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #9
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #11
 
 ; Function Attrs: nounwind
-declare i64 @time(ptr noundef) local_unnamed_addr #4
+declare i64 @time(ptr noundef) local_unnamed_addr #5
 
-declare noundef i32 @_ZN4absl25GetStackFramesWithContextEPPvPiiiPKvS2_(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare noundef i32 @_ZN4absl25GetStackFramesWithContextEPPvPiiiPKvS2_(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
-declare void @_ZN4absl18debugging_internal32DumpPCAndFrameSizesAndStackTraceEPvPKS1_PiiibPFvPKcS1_ES1_(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @_ZN4absl18debugging_internal32DumpPCAndFrameSizesAndStackTraceEPvPKS1_PiiibPFvPKcS1_ES1_(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #6
 
-; Function Attrs: mustprogress uwtable
-define internal void @"_ZZN4abslL24AbslFailureSignalHandlerEiP9siginfo_tPvEN3$_08__invokeEPKc"(ptr noundef %data) #1 align 2 {
-entry:
-  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %data) #15
-  tail call void @_ZN4absl16raw_log_internal25AsyncSignalSafeWriteErrorEPKcm(ptr noundef nonnull %data, i64 noundef %call.i)
+; Function Attrs: inlinehint mustprogress uwtable
+define internal void @"_ZZN4abslL24AbslFailureSignalHandlerEiP9siginfo_tPvEN3$_08__invokeEPKc"(ptr noundef %0) #12 align 2 {
+  %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #17
+  tail call void @_ZN4absl16raw_log_internal25AsyncSignalSafeWriteErrorEPKcm(ptr noundef nonnull %0, i64 noundef %2)
   ret void
 }
 
-declare void @_ZN4absl16raw_log_internal25AsyncSignalSafeWriteErrorEPKcm(ptr noundef, i64 noundef) local_unnamed_addr #5
+declare void @_ZN4absl16raw_log_internal25AsyncSignalSafeWriteErrorEPKcm(ptr noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #11
+declare i64 @llvm.umax.i64(i64, i64) #14
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree nounwind }
+attributes #8 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress noinline uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { nounwind }
+attributes #16 = { nounwind willreturn memory(none) }
+attributes #17 = { nounwind willreturn memory(read) }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
-
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree nounwind }
-attributes #7 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { nounwind }
-attributes #14 = { nounwind willreturn memory(none) }
-attributes #15 = { nounwind willreturn memory(read) }
-
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{!"branch_weights", i32 1, i32 1048575}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
+!4 = !{!5, !6, i64 0}
+!5 = !{!"_ZTSN4absl17FailureSignalDataE", !6, i64 0, !9, i64 8, !11, i64 16}
+!6 = !{!"int", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C++ TBAA"}
+!9 = !{!"p1 omnipotent char", !10, i64 0}
+!10 = !{!"any pointer", !7, i64 0}
+!11 = !{!"_ZTS9sigaction", !7, i64 0, !12, i64 8, !6, i64 136, !10, i64 144}
+!12 = !{!"_ZTS10__sigset_t", !7, i64 0}
+!13 = !{!5, !9, i64 8}
+!14 = !{i64 0, i64 1, !15, i64 1, i64 1, !15, i64 4, i64 4, !17, i64 8, i64 1, !15, i64 16, i64 8, !18}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"bool", !7, i64 0}
+!17 = !{!6, !6, i64 0}
+!18 = !{!10, !10, i64 0}
+!19 = !{!11, !6, i64 136}
+!20 = !{!21, !16, i64 1}
+!21 = !{!"_ZTSN4absl27FailureSignalHandlerOptionsE", !16, i64 0, !16, i64 1, !6, i64 4, !16, i64 8, !10, i64 16}
+!22 = !{i8 0, i8 2}
+!23 = !{}
+!24 = !{!"branch_weights", i32 1, i32 1048575}
+!25 = !{!7, !7, i64 0}
+!26 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!27 = !{!28, !29, i64 0}
+!28 = !{!"_ZTS8timespec", !29, i64 0, !29, i64 8}
+!29 = !{!"long", !7, i64 0}
+!30 = !{!28, !29, i64 8}
+!31 = distinct !{!31, !32}
+!32 = !{!"llvm.loop.mustprogress"}
+!33 = !{!21, !6, i64 4}
+!34 = !{!35, !10, i64 0}
+!35 = !{!"_ZTSN4absl14WriterFnStructE", !10, i64 0}
+!36 = !{!21, !16, i64 0}
+!37 = !{!21, !10, i64 16}
+!38 = !{!21, !16, i64 8}
+!39 = !{!40, !29, i64 16}
+!40 = !{!"_ZTS7stack_t", !10, i64 0, !6, i64 8, !29, i64 16}
+!41 = !{!40, !10, i64 0}

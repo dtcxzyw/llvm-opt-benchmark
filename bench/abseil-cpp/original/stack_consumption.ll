@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.stack_t = type { ptr, i32, i64 }
 %struct.sigaction = type { %union.anon, %struct.__sigset_t, i32, ptr }
@@ -28,609 +28,820 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.19 = private unnamed_addr constant [17 x i8] c"Unreachable code\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN4absl18debugging_internal32GetSignalHandlerStackConsumptionEPFviE(ptr noundef %signal_handler) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %signal_handler.addr = alloca ptr, align 8
-  %altstack = alloca ptr, align 8
-  %absl_raw_log_internal_basename = alloca ptr, align 8
-  %sigstk = alloca %struct.stack_t, align 8
-  %old_sigstk = alloca %struct.stack_t, align 8
-  %absl_raw_log_internal_basename11 = alloca ptr, align 8
-  %sa = alloca %struct.sigaction, align 8
-  %old_sa1 = alloca %struct.sigaction, align 8
-  %old_sa2 = alloca %struct.sigaction, align 8
-  %absl_raw_log_internal_basename24 = alloca ptr, align 8
-  %absl_raw_log_internal_basename37 = alloca ptr, align 8
-  %absl_raw_log_internal_basename50 = alloca ptr, align 8
-  %absl_raw_log_internal_basename63 = alloca ptr, align 8
-  %base_stack_consumption = alloca i32, align 4
-  %absl_raw_log_internal_basename77 = alloca ptr, align 8
-  %signal_handler_stack_consumption = alloca i32, align 4
-  %absl_raw_log_internal_basename100 = alloca ptr, align 8
-  %absl_raw_log_internal_basename112 = alloca ptr, align 8
-  %absl_raw_log_internal_basename124 = alloca ptr, align 8
-  %absl_raw_log_internal_basename136 = alloca ptr, align 8
-  store ptr %signal_handler, ptr %signal_handler.addr, align 8
-  %call = call ptr @mmap(ptr noundef null, i64 noundef 65536, i32 noundef 3, i32 noundef 34, i32 noundef -1, i64 noundef 0) #5
-  store ptr %call, ptr %altstack, align 8
-  br label %do.body
+define dso_local noundef i32 @_ZN4absl18debugging_internal32GetSignalHandlerStackConsumptionEPFviE(ptr noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca %struct.stack_t, align 8
+  %7 = alloca %struct.stack_t, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca %struct.sigaction, align 8
+  %10 = alloca %struct.sigaction, align 8
+  %11 = alloca %struct.sigaction, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca i32, align 4
+  %17 = alloca ptr, align 8
+  %18 = alloca i32, align 4
+  %19 = alloca ptr, align 8
+  %20 = alloca ptr, align 8
+  %21 = alloca ptr, align 8
+  %22 = alloca ptr, align 8
+  %23 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
+  %24 = call ptr @mmap(ptr noundef null, i64 noundef 65536, i32 noundef 3, i32 noundef 34, i32 noundef -1, i64 noundef 0) #7
+  store ptr %24, ptr %4, align 8, !tbaa !4
+  br label %25
 
-do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %altstack, align 8
-  %1 = inttoptr i64 -1 to ptr
-  %cmp = icmp ne ptr %0, %1
-  %lnot = xor i1 %cmp, true
-  br i1 %lnot, label %if.then, label %if.end
+25:                                               ; preds = %1
+  %26 = load ptr, ptr %4, align 8, !tbaa !4
+  %27 = icmp ne ptr %26, inttoptr (i64 -1 to ptr)
+  %28 = xor i1 %27, true
+  %29 = zext i1 %28 to i64
+  %30 = call i64 @llvm.expect.i64(i64 %29, i64 0)
+  %31 = icmp ne i64 %30, 0
+  br i1 %31, label %32, label %39
 
-if.then:                                          ; preds = %do.body
-  br label %do.body1
+32:                                               ; preds = %25
+  br label %33
 
-do.body1:                                         ; preds = %if.then
-  %2 = getelementptr i8, ptr @.str, i64 123
-  store ptr %2, ptr %absl_raw_log_internal_basename, align 8
-  %3 = getelementptr i8, ptr @.str, i64 123
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %3, i32 noundef 118, ptr noundef @.str.1, ptr noundef @.str.2, ptr noundef @.str.3)
-  br label %do.body2
+33:                                               ; preds = %32
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  store ptr getelementptr (i8, ptr @.str, i64 123), ptr %5, align 8, !tbaa !8
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 123), i32 noundef 118, ptr noundef @.str.1, ptr noundef @.str.2, ptr noundef @.str.3)
+  br label %34
 
-do.body2:                                         ; preds = %do.body1
+34:                                               ; preds = %33
   unreachable
 
-do.end:                                           ; No predecessors!
-  br label %do.end3
+35:                                               ; No predecessors!
+  br label %36
 
-do.end3:                                          ; preds = %do.end
-  br label %if.end
+36:                                               ; preds = %35
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  br label %37
 
-if.end:                                           ; preds = %do.end3, %do.body
-  br label %do.end4
+37:                                               ; preds = %36
+  br label %38
 
-do.end4:                                          ; preds = %if.end
-  call void @llvm.memset.p0.i64(ptr align 8 %sigstk, i8 0, i64 24, i1 false)
-  %4 = load ptr, ptr %altstack, align 8
-  %ss_sp = getelementptr inbounds %struct.stack_t, ptr %sigstk, i32 0, i32 0
-  store ptr %4, ptr %ss_sp, align 8
-  %ss_size = getelementptr inbounds %struct.stack_t, ptr %sigstk, i32 0, i32 2
-  store i64 65536, ptr %ss_size, align 8
-  %ss_flags = getelementptr inbounds %struct.stack_t, ptr %sigstk, i32 0, i32 1
-  store i32 0, ptr %ss_flags, align 8
-  call void @llvm.memset.p0.i64(ptr align 8 %old_sigstk, i8 0, i64 24, i1 false)
-  br label %do.body5
+38:                                               ; preds = %37
+  br label %39
 
-do.body5:                                         ; preds = %do.end4
-  %call6 = call i32 @sigaltstack(ptr noundef %sigstk, ptr noundef %old_sigstk) #5
-  %cmp7 = icmp eq i32 %call6, 0
-  %lnot8 = xor i1 %cmp7, true
-  br i1 %lnot8, label %if.then9, label %if.end15
+39:                                               ; preds = %38, %25
+  br label %40
 
-if.then9:                                         ; preds = %do.body5
-  br label %do.body10
+40:                                               ; preds = %39
+  br label %41
 
-do.body10:                                        ; preds = %if.then9
-  %5 = getelementptr i8, ptr @.str, i64 123
-  store ptr %5, ptr %absl_raw_log_internal_basename11, align 8
-  %6 = getelementptr i8, ptr @.str, i64 123
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %6, i32 noundef 129, ptr noundef @.str.1, ptr noundef @.str.4, ptr noundef @.str.5)
-  br label %do.body12
+41:                                               ; preds = %40
+  call void @llvm.lifetime.start.p0(i64 24, ptr %6) #7
+  call void @llvm.memset.p0.i64(ptr align 8 %6, i8 0, i64 24, i1 false)
+  %42 = load ptr, ptr %4, align 8, !tbaa !4
+  %43 = getelementptr inbounds nuw %struct.stack_t, ptr %6, i32 0, i32 0
+  store ptr %42, ptr %43, align 8, !tbaa !10
+  %44 = getelementptr inbounds nuw %struct.stack_t, ptr %6, i32 0, i32 2
+  store i64 65536, ptr %44, align 8, !tbaa !14
+  %45 = getelementptr inbounds nuw %struct.stack_t, ptr %6, i32 0, i32 1
+  store i32 0, ptr %45, align 8, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 24, ptr %7) #7
+  call void @llvm.memset.p0.i64(ptr align 8 %7, i8 0, i64 24, i1 false)
+  br label %46
 
-do.body12:                                        ; preds = %do.body10
+46:                                               ; preds = %41
+  %47 = call i32 @sigaltstack(ptr noundef %6, ptr noundef %7) #7
+  %48 = icmp eq i32 %47, 0
+  %49 = xor i1 %48, true
+  %50 = zext i1 %49 to i64
+  %51 = call i64 @llvm.expect.i64(i64 %50, i64 0)
+  %52 = icmp ne i64 %51, 0
+  br i1 %52, label %53, label %60
+
+53:                                               ; preds = %46
+  br label %54
+
+54:                                               ; preds = %53
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #7
+  store ptr getelementptr (i8, ptr @.str, i64 123), ptr %8, align 8, !tbaa !8
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 123), i32 noundef 129, ptr noundef @.str.1, ptr noundef @.str.4, ptr noundef @.str.5)
+  br label %55
+
+55:                                               ; preds = %54
   unreachable
 
-do.end13:                                         ; No predecessors!
-  br label %do.end14
+56:                                               ; No predecessors!
+  br label %57
 
-do.end14:                                         ; preds = %do.end13
-  br label %if.end15
+57:                                               ; preds = %56
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #7
+  br label %58
 
-if.end15:                                         ; preds = %do.end14, %do.body5
-  br label %do.end16
+58:                                               ; preds = %57
+  br label %59
 
-do.end16:                                         ; preds = %if.end15
-  call void @llvm.memset.p0.i64(ptr align 8 %sa, i8 0, i64 152, i1 false)
-  %sa_mask = getelementptr inbounds %struct.sigaction, ptr %sa, i32 0, i32 1
-  %call17 = call i32 @sigemptyset(ptr noundef %sa_mask) #5
-  %sa_flags = getelementptr inbounds %struct.sigaction, ptr %sa, i32 0, i32 2
-  store i32 134217728, ptr %sa_flags, align 8
-  %__sigaction_handler = getelementptr inbounds %struct.sigaction, ptr %sa, i32 0, i32 0
-  store ptr @_ZN4absl18debugging_internal12_GLOBAL__N_118EmptySignalHandlerEi, ptr %__sigaction_handler, align 8
-  br label %do.body18
+59:                                               ; preds = %58
+  br label %60
 
-do.body18:                                        ; preds = %do.end16
-  %call19 = call i32 @sigaction(i32 noundef 10, ptr noundef %sa, ptr noundef %old_sa1) #5
-  %cmp20 = icmp eq i32 %call19, 0
-  %lnot21 = xor i1 %cmp20, true
-  br i1 %lnot21, label %if.then22, label %if.end28
+60:                                               ; preds = %59, %46
+  br label %61
 
-if.then22:                                        ; preds = %do.body18
-  br label %do.body23
+61:                                               ; preds = %60
+  br label %62
 
-do.body23:                                        ; preds = %if.then22
-  %7 = getelementptr i8, ptr @.str, i64 123
-  store ptr %7, ptr %absl_raw_log_internal_basename24, align 8
-  %8 = getelementptr i8, ptr @.str, i64 123
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %8, i32 noundef 140, ptr noundef @.str.1, ptr noundef @.str.6, ptr noundef @.str.7)
-  br label %do.body25
+62:                                               ; preds = %61
+  call void @llvm.lifetime.start.p0(i64 152, ptr %9) #7
+  call void @llvm.memset.p0.i64(ptr align 8 %9, i8 0, i64 152, i1 false)
+  call void @llvm.lifetime.start.p0(i64 152, ptr %10) #7
+  call void @llvm.lifetime.start.p0(i64 152, ptr %11) #7
+  %63 = getelementptr inbounds nuw %struct.sigaction, ptr %9, i32 0, i32 1
+  %64 = call i32 @sigemptyset(ptr noundef %63) #7
+  %65 = getelementptr inbounds nuw %struct.sigaction, ptr %9, i32 0, i32 2
+  store i32 134217728, ptr %65, align 8, !tbaa !16
+  %66 = getelementptr inbounds nuw %struct.sigaction, ptr %9, i32 0, i32 0
+  store ptr @_ZN4absl18debugging_internal12_GLOBAL__N_118EmptySignalHandlerEi, ptr %66, align 8, !tbaa !19
+  br label %67
 
-do.body25:                                        ; preds = %do.body23
+67:                                               ; preds = %62
+  %68 = call i32 @sigaction(i32 noundef 10, ptr noundef %9, ptr noundef %10) #7
+  %69 = icmp eq i32 %68, 0
+  %70 = xor i1 %69, true
+  %71 = zext i1 %70 to i64
+  %72 = call i64 @llvm.expect.i64(i64 %71, i64 0)
+  %73 = icmp ne i64 %72, 0
+  br i1 %73, label %74, label %81
+
+74:                                               ; preds = %67
+  br label %75
+
+75:                                               ; preds = %74
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #7
+  store ptr getelementptr (i8, ptr @.str, i64 123), ptr %12, align 8, !tbaa !8
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 123), i32 noundef 140, ptr noundef @.str.1, ptr noundef @.str.6, ptr noundef @.str.7)
+  br label %76
+
+76:                                               ; preds = %75
   unreachable
 
-do.end26:                                         ; No predecessors!
-  br label %do.end27
+77:                                               ; No predecessors!
+  br label %78
 
-do.end27:                                         ; preds = %do.end26
-  br label %if.end28
+78:                                               ; preds = %77
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #7
+  br label %79
 
-if.end28:                                         ; preds = %do.end27, %do.body18
-  br label %do.end29
+79:                                               ; preds = %78
+  br label %80
 
-do.end29:                                         ; preds = %if.end28
-  %9 = load ptr, ptr %signal_handler.addr, align 8
-  %__sigaction_handler30 = getelementptr inbounds %struct.sigaction, ptr %sa, i32 0, i32 0
-  store ptr %9, ptr %__sigaction_handler30, align 8
-  br label %do.body31
+80:                                               ; preds = %79
+  br label %81
 
-do.body31:                                        ; preds = %do.end29
-  %call32 = call i32 @sigaction(i32 noundef 12, ptr noundef %sa, ptr noundef %old_sa2) #5
-  %cmp33 = icmp eq i32 %call32, 0
-  %lnot34 = xor i1 %cmp33, true
-  br i1 %lnot34, label %if.then35, label %if.end41
+81:                                               ; preds = %80, %67
+  br label %82
 
-if.then35:                                        ; preds = %do.body31
-  br label %do.body36
+82:                                               ; preds = %81
+  br label %83
 
-do.body36:                                        ; preds = %if.then35
-  %10 = getelementptr i8, ptr @.str, i64 123
-  store ptr %10, ptr %absl_raw_log_internal_basename37, align 8
-  %11 = getelementptr i8, ptr @.str, i64 123
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %11, i32 noundef 144, ptr noundef @.str.1, ptr noundef @.str.8, ptr noundef @.str.7)
-  br label %do.body38
+83:                                               ; preds = %82
+  %84 = load ptr, ptr %3, align 8, !tbaa !4
+  %85 = getelementptr inbounds nuw %struct.sigaction, ptr %9, i32 0, i32 0
+  store ptr %84, ptr %85, align 8, !tbaa !19
+  br label %86
 
-do.body38:                                        ; preds = %do.body36
+86:                                               ; preds = %83
+  %87 = call i32 @sigaction(i32 noundef 12, ptr noundef %9, ptr noundef %11) #7
+  %88 = icmp eq i32 %87, 0
+  %89 = xor i1 %88, true
+  %90 = zext i1 %89 to i64
+  %91 = call i64 @llvm.expect.i64(i64 %90, i64 0)
+  %92 = icmp ne i64 %91, 0
+  br i1 %92, label %93, label %100
+
+93:                                               ; preds = %86
+  br label %94
+
+94:                                               ; preds = %93
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #7
+  store ptr getelementptr (i8, ptr @.str, i64 123), ptr %13, align 8, !tbaa !8
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 123), i32 noundef 144, ptr noundef @.str.1, ptr noundef @.str.8, ptr noundef @.str.7)
+  br label %95
+
+95:                                               ; preds = %94
   unreachable
 
-do.end39:                                         ; No predecessors!
-  br label %do.end40
+96:                                               ; No predecessors!
+  br label %97
 
-do.end40:                                         ; preds = %do.end39
-  br label %if.end41
+97:                                               ; preds = %96
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #7
+  br label %98
 
-if.end41:                                         ; preds = %do.end40, %do.body31
-  br label %do.end42
+98:                                               ; preds = %97
+  br label %99
 
-do.end42:                                         ; preds = %if.end41
-  br label %do.body43
+99:                                               ; preds = %98
+  br label %100
 
-do.body43:                                        ; preds = %do.end42
-  %call44 = call i32 @getpid() #5
-  %call45 = call i32 @kill(i32 noundef %call44, i32 noundef 10) #5
-  %cmp46 = icmp eq i32 %call45, 0
-  %lnot47 = xor i1 %cmp46, true
-  br i1 %lnot47, label %if.then48, label %if.end54
+100:                                              ; preds = %99, %86
+  br label %101
 
-if.then48:                                        ; preds = %do.body43
-  br label %do.body49
+101:                                              ; preds = %100
+  br label %102
 
-do.body49:                                        ; preds = %if.then48
-  %12 = getelementptr i8, ptr @.str, i64 123
-  store ptr %12, ptr %absl_raw_log_internal_basename50, align 8
-  %13 = getelementptr i8, ptr @.str, i64 123
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %13, i32 noundef 150, ptr noundef @.str.1, ptr noundef @.str.9, ptr noundef @.str.10)
-  br label %do.body51
+102:                                              ; preds = %101
+  br label %103
 
-do.body51:                                        ; preds = %do.body49
+103:                                              ; preds = %102
+  %104 = call i32 @getpid() #7
+  %105 = call i32 @kill(i32 noundef %104, i32 noundef 10) #7
+  %106 = icmp eq i32 %105, 0
+  %107 = xor i1 %106, true
+  %108 = zext i1 %107 to i64
+  %109 = call i64 @llvm.expect.i64(i64 %108, i64 0)
+  %110 = icmp ne i64 %109, 0
+  br i1 %110, label %111, label %118
+
+111:                                              ; preds = %103
+  br label %112
+
+112:                                              ; preds = %111
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #7
+  store ptr getelementptr (i8, ptr @.str, i64 123), ptr %14, align 8, !tbaa !8
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 123), i32 noundef 150, ptr noundef @.str.1, ptr noundef @.str.9, ptr noundef @.str.10)
+  br label %113
+
+113:                                              ; preds = %112
   unreachable
 
-do.end52:                                         ; No predecessors!
-  br label %do.end53
+114:                                              ; No predecessors!
+  br label %115
 
-do.end53:                                         ; preds = %do.end52
-  br label %if.end54
+115:                                              ; preds = %114
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #7
+  br label %116
 
-if.end54:                                         ; preds = %do.end53, %do.body43
-  br label %do.end55
+116:                                              ; preds = %115
+  br label %117
 
-do.end55:                                         ; preds = %if.end54
-  %14 = load ptr, ptr %altstack, align 8
-  call void @llvm.memset.p0.i64(ptr align 1 %14, i8 85, i64 65536, i1 false)
-  br label %do.body56
+117:                                              ; preds = %116
+  br label %118
 
-do.body56:                                        ; preds = %do.end55
-  %call57 = call i32 @getpid() #5
-  %call58 = call i32 @kill(i32 noundef %call57, i32 noundef 10) #5
-  %cmp59 = icmp eq i32 %call58, 0
-  %lnot60 = xor i1 %cmp59, true
-  br i1 %lnot60, label %if.then61, label %if.end67
+118:                                              ; preds = %117, %103
+  br label %119
 
-if.then61:                                        ; preds = %do.body56
-  br label %do.body62
+119:                                              ; preds = %118
+  br label %120
 
-do.body62:                                        ; preds = %if.then61
-  %15 = getelementptr i8, ptr @.str, i64 123
-  store ptr %15, ptr %absl_raw_log_internal_basename63, align 8
-  %16 = getelementptr i8, ptr @.str, i64 123
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %16, i32 noundef 153, ptr noundef @.str.1, ptr noundef @.str.9, ptr noundef @.str.10)
-  br label %do.body64
+120:                                              ; preds = %119
+  %121 = load ptr, ptr %4, align 8, !tbaa !4
+  call void @llvm.memset.p0.i64(ptr align 1 %121, i8 85, i64 65536, i1 false)
+  br label %122
 
-do.body64:                                        ; preds = %do.body62
+122:                                              ; preds = %120
+  %123 = call i32 @getpid() #7
+  %124 = call i32 @kill(i32 noundef %123, i32 noundef 10) #7
+  %125 = icmp eq i32 %124, 0
+  %126 = xor i1 %125, true
+  %127 = zext i1 %126 to i64
+  %128 = call i64 @llvm.expect.i64(i64 %127, i64 0)
+  %129 = icmp ne i64 %128, 0
+  br i1 %129, label %130, label %137
+
+130:                                              ; preds = %122
+  br label %131
+
+131:                                              ; preds = %130
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #7
+  store ptr getelementptr (i8, ptr @.str, i64 123), ptr %15, align 8, !tbaa !8
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 123), i32 noundef 153, ptr noundef @.str.1, ptr noundef @.str.9, ptr noundef @.str.10)
+  br label %132
+
+132:                                              ; preds = %131
   unreachable
 
-do.end65:                                         ; No predecessors!
-  br label %do.end66
+133:                                              ; No predecessors!
+  br label %134
 
-do.end66:                                         ; preds = %do.end65
-  br label %if.end67
+134:                                              ; preds = %133
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #7
+  br label %135
 
-if.end67:                                         ; preds = %do.end66, %do.body56
-  br label %do.end68
+135:                                              ; preds = %134
+  br label %136
 
-do.end68:                                         ; preds = %if.end67
-  %17 = load ptr, ptr %altstack, align 8
-  %call69 = call noundef i32 @_ZN4absl18debugging_internal12_GLOBAL__N_119GetStackConsumptionEPKv(ptr noundef %17)
-  store i32 %call69, ptr %base_stack_consumption, align 4
-  br label %do.body70
+136:                                              ; preds = %135
+  br label %137
 
-do.body70:                                        ; preds = %do.end68
-  %call71 = call i32 @getpid() #5
-  %call72 = call i32 @kill(i32 noundef %call71, i32 noundef 12) #5
-  %cmp73 = icmp eq i32 %call72, 0
-  %lnot74 = xor i1 %cmp73, true
-  br i1 %lnot74, label %if.then75, label %if.end81
+137:                                              ; preds = %136, %122
+  br label %138
 
-if.then75:                                        ; preds = %do.body70
-  br label %do.body76
+138:                                              ; preds = %137
+  br label %139
 
-do.body76:                                        ; preds = %if.then75
-  %18 = getelementptr i8, ptr @.str, i64 123
-  store ptr %18, ptr %absl_raw_log_internal_basename77, align 8
-  %19 = getelementptr i8, ptr @.str, i64 123
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %19, i32 noundef 157, ptr noundef @.str.1, ptr noundef @.str.11, ptr noundef @.str.10)
-  br label %do.body78
+139:                                              ; preds = %138
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #7
+  %140 = load ptr, ptr %4, align 8, !tbaa !4
+  %141 = call noundef i32 @_ZN4absl18debugging_internal12_GLOBAL__N_119GetStackConsumptionEPKv(ptr noundef %140)
+  store i32 %141, ptr %16, align 4, !tbaa !20
+  br label %142
 
-do.body78:                                        ; preds = %do.body76
+142:                                              ; preds = %139
+  %143 = call i32 @getpid() #7
+  %144 = call i32 @kill(i32 noundef %143, i32 noundef 12) #7
+  %145 = icmp eq i32 %144, 0
+  %146 = xor i1 %145, true
+  %147 = zext i1 %146 to i64
+  %148 = call i64 @llvm.expect.i64(i64 %147, i64 0)
+  %149 = icmp ne i64 %148, 0
+  br i1 %149, label %150, label %157
+
+150:                                              ; preds = %142
+  br label %151
+
+151:                                              ; preds = %150
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #7
+  store ptr getelementptr (i8, ptr @.str, i64 123), ptr %17, align 8, !tbaa !8
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 123), i32 noundef 157, ptr noundef @.str.1, ptr noundef @.str.11, ptr noundef @.str.10)
+  br label %152
+
+152:                                              ; preds = %151
   unreachable
 
-do.end79:                                         ; No predecessors!
-  br label %do.end80
+153:                                              ; No predecessors!
+  br label %154
 
-do.end80:                                         ; preds = %do.end79
-  br label %if.end81
+154:                                              ; preds = %153
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #7
+  br label %155
 
-if.end81:                                         ; preds = %do.end80, %do.body70
-  br label %do.end82
+155:                                              ; preds = %154
+  br label %156
 
-do.end82:                                         ; preds = %if.end81
-  %20 = load ptr, ptr %altstack, align 8
-  %call83 = call noundef i32 @_ZN4absl18debugging_internal12_GLOBAL__N_119GetStackConsumptionEPKv(ptr noundef %20)
-  store i32 %call83, ptr %signal_handler_stack_consumption, align 4
-  %ss_sp84 = getelementptr inbounds %struct.stack_t, ptr %old_sigstk, i32 0, i32 0
-  %21 = load ptr, ptr %ss_sp84, align 8
-  %cmp85 = icmp eq ptr %21, null
-  br i1 %cmp85, label %land.lhs.true, label %if.end93
+156:                                              ; preds = %155
+  br label %157
 
-land.lhs.true:                                    ; preds = %do.end82
-  %ss_size86 = getelementptr inbounds %struct.stack_t, ptr %old_sigstk, i32 0, i32 2
-  %22 = load i64, ptr %ss_size86, align 8
-  %cmp87 = icmp eq i64 %22, 0
-  br i1 %cmp87, label %land.lhs.true88, label %if.end93
+157:                                              ; preds = %156, %142
+  br label %158
 
-land.lhs.true88:                                  ; preds = %land.lhs.true
-  %ss_flags89 = getelementptr inbounds %struct.stack_t, ptr %old_sigstk, i32 0, i32 1
-  %23 = load i32, ptr %ss_flags89, align 8
-  %and = and i32 %23, 2
-  %tobool = icmp ne i32 %and, 0
-  br i1 %tobool, label %if.then90, label %if.end93
+158:                                              ; preds = %157
+  br label %159
 
-if.then90:                                        ; preds = %land.lhs.true88
-  %call91 = call i64 @sysconf(i32 noundef 250) #5
-  %ss_size92 = getelementptr inbounds %struct.stack_t, ptr %old_sigstk, i32 0, i32 2
-  store i64 %call91, ptr %ss_size92, align 8
-  br label %if.end93
+159:                                              ; preds = %158
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #7
+  %160 = load ptr, ptr %4, align 8, !tbaa !4
+  %161 = call noundef i32 @_ZN4absl18debugging_internal12_GLOBAL__N_119GetStackConsumptionEPKv(ptr noundef %160)
+  store i32 %161, ptr %18, align 4, !tbaa !20
+  %162 = getelementptr inbounds nuw %struct.stack_t, ptr %7, i32 0, i32 0
+  %163 = load ptr, ptr %162, align 8, !tbaa !10
+  %164 = icmp eq ptr %163, null
+  br i1 %164, label %165, label %177
 
-if.end93:                                         ; preds = %if.then90, %land.lhs.true88, %land.lhs.true, %do.end82
-  br label %do.body94
+165:                                              ; preds = %159
+  %166 = getelementptr inbounds nuw %struct.stack_t, ptr %7, i32 0, i32 2
+  %167 = load i64, ptr %166, align 8, !tbaa !14
+  %168 = icmp eq i64 %167, 0
+  br i1 %168, label %169, label %177
 
-do.body94:                                        ; preds = %if.end93
-  %call95 = call i32 @sigaltstack(ptr noundef %old_sigstk, ptr noundef null) #5
-  %cmp96 = icmp eq i32 %call95, 0
-  %lnot97 = xor i1 %cmp96, true
-  br i1 %lnot97, label %if.then98, label %if.end104
+169:                                              ; preds = %165
+  %170 = getelementptr inbounds nuw %struct.stack_t, ptr %7, i32 0, i32 1
+  %171 = load i32, ptr %170, align 8, !tbaa !15
+  %172 = and i32 %171, 2
+  %173 = icmp ne i32 %172, 0
+  br i1 %173, label %174, label %177
 
-if.then98:                                        ; preds = %do.body94
-  br label %do.body99
+174:                                              ; preds = %169
+  %175 = call i64 @sysconf(i32 noundef 250) #7
+  %176 = getelementptr inbounds nuw %struct.stack_t, ptr %7, i32 0, i32 2
+  store i64 %175, ptr %176, align 8, !tbaa !14
+  br label %177
 
-do.body99:                                        ; preds = %if.then98
-  %24 = getelementptr i8, ptr @.str, i64 123
-  store ptr %24, ptr %absl_raw_log_internal_basename100, align 8
-  %25 = getelementptr i8, ptr @.str, i64 123
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %25, i32 noundef 171, ptr noundef @.str.1, ptr noundef @.str.12, ptr noundef @.str.5)
-  br label %do.body101
+177:                                              ; preds = %174, %169, %165, %159
+  br label %178
 
-do.body101:                                       ; preds = %do.body99
+178:                                              ; preds = %177
+  %179 = call i32 @sigaltstack(ptr noundef %7, ptr noundef null) #7
+  %180 = icmp eq i32 %179, 0
+  %181 = xor i1 %180, true
+  %182 = zext i1 %181 to i64
+  %183 = call i64 @llvm.expect.i64(i64 %182, i64 0)
+  %184 = icmp ne i64 %183, 0
+  br i1 %184, label %185, label %192
+
+185:                                              ; preds = %178
+  br label %186
+
+186:                                              ; preds = %185
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #7
+  store ptr getelementptr (i8, ptr @.str, i64 123), ptr %19, align 8, !tbaa !8
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 123), i32 noundef 171, ptr noundef @.str.1, ptr noundef @.str.12, ptr noundef @.str.5)
+  br label %187
+
+187:                                              ; preds = %186
   unreachable
 
-do.end102:                                        ; No predecessors!
-  br label %do.end103
+188:                                              ; No predecessors!
+  br label %189
 
-do.end103:                                        ; preds = %do.end102
-  br label %if.end104
+189:                                              ; preds = %188
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #7
+  br label %190
 
-if.end104:                                        ; preds = %do.end103, %do.body94
-  br label %do.end105
+190:                                              ; preds = %189
+  br label %191
 
-do.end105:                                        ; preds = %if.end104
-  br label %do.body106
+191:                                              ; preds = %190
+  br label %192
 
-do.body106:                                       ; preds = %do.end105
-  %call107 = call i32 @sigaction(i32 noundef 10, ptr noundef %old_sa1, ptr noundef null) #5
-  %cmp108 = icmp eq i32 %call107, 0
-  %lnot109 = xor i1 %cmp108, true
-  br i1 %lnot109, label %if.then110, label %if.end116
+192:                                              ; preds = %191, %178
+  br label %193
 
-if.then110:                                       ; preds = %do.body106
-  br label %do.body111
+193:                                              ; preds = %192
+  br label %194
 
-do.body111:                                       ; preds = %if.then110
-  %26 = getelementptr i8, ptr @.str, i64 123
-  store ptr %26, ptr %absl_raw_log_internal_basename112, align 8
-  %27 = getelementptr i8, ptr @.str, i64 123
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %27, i32 noundef 173, ptr noundef @.str.1, ptr noundef @.str.13, ptr noundef @.str.7)
-  br label %do.body113
+194:                                              ; preds = %193
+  br label %195
 
-do.body113:                                       ; preds = %do.body111
+195:                                              ; preds = %194
+  %196 = call i32 @sigaction(i32 noundef 10, ptr noundef %10, ptr noundef null) #7
+  %197 = icmp eq i32 %196, 0
+  %198 = xor i1 %197, true
+  %199 = zext i1 %198 to i64
+  %200 = call i64 @llvm.expect.i64(i64 %199, i64 0)
+  %201 = icmp ne i64 %200, 0
+  br i1 %201, label %202, label %209
+
+202:                                              ; preds = %195
+  br label %203
+
+203:                                              ; preds = %202
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #7
+  store ptr getelementptr (i8, ptr @.str, i64 123), ptr %20, align 8, !tbaa !8
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 123), i32 noundef 173, ptr noundef @.str.1, ptr noundef @.str.13, ptr noundef @.str.7)
+  br label %204
+
+204:                                              ; preds = %203
   unreachable
 
-do.end114:                                        ; No predecessors!
-  br label %do.end115
+205:                                              ; No predecessors!
+  br label %206
 
-do.end115:                                        ; preds = %do.end114
-  br label %if.end116
+206:                                              ; preds = %205
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #7
+  br label %207
 
-if.end116:                                        ; preds = %do.end115, %do.body106
-  br label %do.end117
+207:                                              ; preds = %206
+  br label %208
 
-do.end117:                                        ; preds = %if.end116
-  br label %do.body118
+208:                                              ; preds = %207
+  br label %209
 
-do.body118:                                       ; preds = %do.end117
-  %call119 = call i32 @sigaction(i32 noundef 12, ptr noundef %old_sa2, ptr noundef null) #5
-  %cmp120 = icmp eq i32 %call119, 0
-  %lnot121 = xor i1 %cmp120, true
-  br i1 %lnot121, label %if.then122, label %if.end128
+209:                                              ; preds = %208, %195
+  br label %210
 
-if.then122:                                       ; preds = %do.body118
-  br label %do.body123
+210:                                              ; preds = %209
+  br label %211
 
-do.body123:                                       ; preds = %if.then122
-  %28 = getelementptr i8, ptr @.str, i64 123
-  store ptr %28, ptr %absl_raw_log_internal_basename124, align 8
-  %29 = getelementptr i8, ptr @.str, i64 123
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %29, i32 noundef 175, ptr noundef @.str.1, ptr noundef @.str.14, ptr noundef @.str.7)
-  br label %do.body125
+211:                                              ; preds = %210
+  br label %212
 
-do.body125:                                       ; preds = %do.body123
+212:                                              ; preds = %211
+  %213 = call i32 @sigaction(i32 noundef 12, ptr noundef %11, ptr noundef null) #7
+  %214 = icmp eq i32 %213, 0
+  %215 = xor i1 %214, true
+  %216 = zext i1 %215 to i64
+  %217 = call i64 @llvm.expect.i64(i64 %216, i64 0)
+  %218 = icmp ne i64 %217, 0
+  br i1 %218, label %219, label %226
+
+219:                                              ; preds = %212
+  br label %220
+
+220:                                              ; preds = %219
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #7
+  store ptr getelementptr (i8, ptr @.str, i64 123), ptr %21, align 8, !tbaa !8
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 123), i32 noundef 175, ptr noundef @.str.1, ptr noundef @.str.14, ptr noundef @.str.7)
+  br label %221
+
+221:                                              ; preds = %220
   unreachable
 
-do.end126:                                        ; No predecessors!
-  br label %do.end127
+222:                                              ; No predecessors!
+  br label %223
 
-do.end127:                                        ; preds = %do.end126
-  br label %if.end128
+223:                                              ; preds = %222
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #7
+  br label %224
 
-if.end128:                                        ; preds = %do.end127, %do.body118
-  br label %do.end129
+224:                                              ; preds = %223
+  br label %225
 
-do.end129:                                        ; preds = %if.end128
-  br label %do.body130
+225:                                              ; preds = %224
+  br label %226
 
-do.body130:                                       ; preds = %do.end129
-  %30 = load ptr, ptr %altstack, align 8
-  %call131 = call i32 @munmap(ptr noundef %30, i64 noundef 65536) #5
-  %cmp132 = icmp eq i32 %call131, 0
-  %lnot133 = xor i1 %cmp132, true
-  br i1 %lnot133, label %if.then134, label %if.end140
+226:                                              ; preds = %225, %212
+  br label %227
 
-if.then134:                                       ; preds = %do.body130
-  br label %do.body135
+227:                                              ; preds = %226
+  br label %228
 
-do.body135:                                       ; preds = %if.then134
-  %31 = getelementptr i8, ptr @.str, i64 123
-  store ptr %31, ptr %absl_raw_log_internal_basename136, align 8
-  %32 = getelementptr i8, ptr @.str, i64 123
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %32, i32 noundef 177, ptr noundef @.str.1, ptr noundef @.str.15, ptr noundef @.str.16)
-  br label %do.body137
+228:                                              ; preds = %227
+  br label %229
 
-do.body137:                                       ; preds = %do.body135
+229:                                              ; preds = %228
+  %230 = load ptr, ptr %4, align 8, !tbaa !4
+  %231 = call i32 @munmap(ptr noundef %230, i64 noundef 65536) #7
+  %232 = icmp eq i32 %231, 0
+  %233 = xor i1 %232, true
+  %234 = zext i1 %233 to i64
+  %235 = call i64 @llvm.expect.i64(i64 %234, i64 0)
+  %236 = icmp ne i64 %235, 0
+  br i1 %236, label %237, label %244
+
+237:                                              ; preds = %229
+  br label %238
+
+238:                                              ; preds = %237
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #7
+  store ptr getelementptr (i8, ptr @.str, i64 123), ptr %22, align 8, !tbaa !8
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 123), i32 noundef 177, ptr noundef @.str.1, ptr noundef @.str.15, ptr noundef @.str.16)
+  br label %239
+
+239:                                              ; preds = %238
   unreachable
 
-do.end138:                                        ; No predecessors!
-  br label %do.end139
+240:                                              ; No predecessors!
+  br label %241
 
-do.end139:                                        ; preds = %do.end138
-  br label %if.end140
+241:                                              ; preds = %240
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #7
+  br label %242
 
-if.end140:                                        ; preds = %do.end139, %do.body130
-  br label %do.end141
+242:                                              ; preds = %241
+  br label %243
 
-do.end141:                                        ; preds = %if.end140
-  %33 = load i32, ptr %signal_handler_stack_consumption, align 4
-  %cmp142 = icmp ne i32 %33, -1
-  br i1 %cmp142, label %land.lhs.true143, label %if.end146
+243:                                              ; preds = %242
+  br label %244
 
-land.lhs.true143:                                 ; preds = %do.end141
-  %34 = load i32, ptr %base_stack_consumption, align 4
-  %cmp144 = icmp ne i32 %34, -1
-  br i1 %cmp144, label %if.then145, label %if.end146
+244:                                              ; preds = %243, %229
+  br label %245
 
-if.then145:                                       ; preds = %land.lhs.true143
-  %35 = load i32, ptr %signal_handler_stack_consumption, align 4
-  %36 = load i32, ptr %base_stack_consumption, align 4
-  %sub = sub nsw i32 %35, %36
-  store i32 %sub, ptr %retval, align 4
-  br label %return
+245:                                              ; preds = %244
+  br label %246
 
-if.end146:                                        ; preds = %land.lhs.true143, %do.end141
-  store i32 -1, ptr %retval, align 4
-  br label %return
+246:                                              ; preds = %245
+  %247 = load i32, ptr %18, align 4, !tbaa !20
+  %248 = icmp ne i32 %247, -1
+  br i1 %248, label %249, label %256
 
-return:                                           ; preds = %if.end146, %if.then145
-  %37 = load i32, ptr %retval, align 4
-  ret i32 %37
+249:                                              ; preds = %246
+  %250 = load i32, ptr %16, align 4, !tbaa !20
+  %251 = icmp ne i32 %250, -1
+  br i1 %251, label %252, label %256
+
+252:                                              ; preds = %249
+  %253 = load i32, ptr %18, align 4, !tbaa !20
+  %254 = load i32, ptr %16, align 4, !tbaa !20
+  %255 = sub nsw i32 %253, %254
+  store i32 %255, ptr %2, align 4
+  store i32 1, ptr %23, align 4
+  br label %257
+
+256:                                              ; preds = %249, %246
+  store i32 -1, ptr %2, align 4
+  store i32 1, ptr %23, align 4
+  br label %257
+
+257:                                              ; preds = %256, %252
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #7
+  call void @llvm.lifetime.end.p0(i64 152, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 152, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 152, ptr %9) #7
+  call void @llvm.lifetime.end.p0(i64 24, ptr %7) #7
+  call void @llvm.lifetime.end.p0(i64 24, ptr %6) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  %258 = load i32, ptr %2, align 4
+  ret i32 %258
 }
 
-; Function Attrs: nounwind
-declare ptr @mmap(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare void @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) #2
+; Function Attrs: nounwind
+declare ptr @mmap(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) #2
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
+declare i64 @llvm.expect.i64(i64, i64) #3
+
+declare void @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) #4
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind
-declare i32 @sigaltstack(ptr noundef, ptr noundef) #1
+declare i32 @sigaltstack(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind
-declare i32 @sigemptyset(ptr noundef) #1
+declare i32 @sigemptyset(ptr noundef) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18debugging_internal12_GLOBAL__N_118EmptySignalHandlerEi(i32 noundef %0) #4 {
-entry:
-  %.addr = alloca i32, align 4
-  store i32 %0, ptr %.addr, align 4
+define internal void @_ZN4absl18debugging_internal12_GLOBAL__N_118EmptySignalHandlerEi(i32 noundef %0) #6 {
+  %2 = alloca i32, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !20
   ret void
 }
 
 ; Function Attrs: nounwind
-declare i32 @sigaction(i32 noundef, ptr noundef, ptr noundef) #1
+declare i32 @sigaction(i32 noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind
-declare i32 @kill(i32 noundef, i32 noundef) #1
+declare i32 @kill(i32 noundef, i32 noundef) #2
 
 ; Function Attrs: nounwind
-declare i32 @getpid() #1
+declare i32 @getpid() #2
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZN4absl18debugging_internal12_GLOBAL__N_119GetStackConsumptionEPKv(ptr noundef %altstack) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %altstack.addr = alloca ptr, align 8
-  %begin = alloca ptr, align 8
-  %increment = alloca i32, align 4
-  %usage_count = alloca i32, align 4
-  %absl_raw_log_internal_basename = alloca ptr, align 8
-  %absl_raw_log_internal_basename11 = alloca ptr, align 8
-  store ptr %altstack, ptr %altstack.addr, align 8
-  %0 = load ptr, ptr %altstack.addr, align 8
-  store ptr %0, ptr %begin, align 8
-  store i32 1, ptr %increment, align 4
-  store i32 65536, ptr %usage_count, align 4
-  br label %for.cond
+define internal noundef i32 @_ZN4absl18debugging_internal12_GLOBAL__N_119GetStackConsumptionEPKv(ptr noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #7
+  %10 = load ptr, ptr %3, align 8, !tbaa !4
+  store ptr %10, ptr %4, align 8, !tbaa !8
+  store i32 1, ptr %5, align 4, !tbaa !20
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #7
+  store i32 65536, ptr %6, align 4, !tbaa !20
+  br label %11
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %1 = load i32, ptr %usage_count, align 4
-  %cmp = icmp sgt i32 %1, 0
-  br i1 %cmp, label %for.body, label %for.end
+11:                                               ; preds = %44, %1
+  %12 = load i32, ptr %6, align 4, !tbaa !20
+  %13 = icmp sgt i32 %12, 0
+  br i1 %13, label %15, label %14
 
-for.body:                                         ; preds = %for.cond
-  %2 = load ptr, ptr %begin, align 8
-  %3 = load i8, ptr %2, align 1
-  %conv = sext i8 %3 to i32
-  %cmp1 = icmp ne i32 %conv, 85
-  br i1 %cmp1, label %if.then, label %if.end9
+14:                                               ; preds = %11
+  store i32 2, ptr %7, align 4
+  br label %47
 
-if.then:                                          ; preds = %for.body
-  br label %do.body
+15:                                               ; preds = %11
+  %16 = load ptr, ptr %4, align 8, !tbaa !8
+  %17 = load i8, ptr %16, align 1, !tbaa !19
+  %18 = sext i8 %17 to i32
+  %19 = icmp ne i32 %18, 85
+  br i1 %19, label %20, label %39
 
-do.body:                                          ; preds = %if.then
-  %4 = load i32, ptr %usage_count, align 4
-  %cmp2 = icmp sle i32 %4, 65504
-  %lnot = xor i1 %cmp2, true
-  br i1 %lnot, label %if.then4, label %if.end
+20:                                               ; preds = %15
+  br label %21
 
-if.then4:                                         ; preds = %do.body
-  br label %do.body5
+21:                                               ; preds = %20
+  %22 = load i32, ptr %6, align 4, !tbaa !20
+  %23 = icmp sle i32 %22, 65504
+  %24 = xor i1 %23, true
+  %25 = zext i1 %24 to i64
+  %26 = call i64 @llvm.expect.i64(i64 %25, i64 0)
+  %27 = icmp ne i64 %26, 0
+  br i1 %27, label %28, label %35
 
-do.body5:                                         ; preds = %if.then4
-  %5 = getelementptr i8, ptr @.str, i64 123
-  store ptr %5, ptr %absl_raw_log_internal_basename, align 8
-  %6 = getelementptr i8, ptr @.str, i64 123
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %6, i32 noundef 98, ptr noundef @.str.1, ptr noundef @.str.17, ptr noundef @.str.18)
-  br label %do.body6
+28:                                               ; preds = %21
+  br label %29
 
-do.body6:                                         ; preds = %do.body5
+29:                                               ; preds = %28
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #7
+  store ptr getelementptr (i8, ptr @.str, i64 123), ptr %8, align 8, !tbaa !8
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 123), i32 noundef 98, ptr noundef @.str.1, ptr noundef @.str.17, ptr noundef @.str.18)
+  br label %30
+
+30:                                               ; preds = %29
   unreachable
 
-do.end:                                           ; No predecessors!
-  br label %do.end7
+31:                                               ; No predecessors!
+  br label %32
 
-do.end7:                                          ; preds = %do.end
-  br label %if.end
+32:                                               ; preds = %31
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #7
+  br label %33
 
-if.end:                                           ; preds = %do.end7, %do.body
-  br label %do.end8
+33:                                               ; preds = %32
+  br label %34
 
-do.end8:                                          ; preds = %if.end
-  %7 = load i32, ptr %usage_count, align 4
-  store i32 %7, ptr %retval, align 4
-  br label %return
+34:                                               ; preds = %33
+  br label %35
 
-if.end9:                                          ; preds = %for.body
-  %8 = load i32, ptr %increment, align 4
-  %9 = load ptr, ptr %begin, align 8
-  %idx.ext = sext i32 %8 to i64
-  %add.ptr = getelementptr inbounds i8, ptr %9, i64 %idx.ext
-  store ptr %add.ptr, ptr %begin, align 8
-  br label %for.inc
+35:                                               ; preds = %34, %21
+  br label %36
 
-for.inc:                                          ; preds = %if.end9
-  %10 = load i32, ptr %usage_count, align 4
-  %dec = add nsw i32 %10, -1
-  store i32 %dec, ptr %usage_count, align 4
-  br label %for.cond, !llvm.loop !5
+36:                                               ; preds = %35
+  br label %37
 
-for.end:                                          ; preds = %for.cond
-  br label %do.body10
+37:                                               ; preds = %36
+  %38 = load i32, ptr %6, align 4, !tbaa !20
+  store i32 %38, ptr %2, align 4
+  store i32 1, ptr %7, align 4
+  br label %47
 
-do.body10:                                        ; preds = %for.end
-  %11 = getelementptr i8, ptr @.str, i64 123
-  store ptr %11, ptr %absl_raw_log_internal_basename11, align 8
-  %12 = getelementptr i8, ptr @.str, i64 123
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %12, i32 noundef 104, ptr noundef @.str.19)
-  br label %do.body12
+39:                                               ; preds = %15
+  %40 = load i32, ptr %5, align 4, !tbaa !20
+  %41 = load ptr, ptr %4, align 8, !tbaa !8
+  %42 = sext i32 %40 to i64
+  %43 = getelementptr inbounds i8, ptr %41, i64 %42
+  store ptr %43, ptr %4, align 8, !tbaa !8
+  br label %44
 
-do.body12:                                        ; preds = %do.body10
+44:                                               ; preds = %39
+  %45 = load i32, ptr %6, align 4, !tbaa !20
+  %46 = add nsw i32 %45, -1
+  store i32 %46, ptr %6, align 4, !tbaa !20
+  br label %11, !llvm.loop !21
+
+47:                                               ; preds = %37, %14
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #7
+  %48 = load i32, ptr %7, align 4
+  switch i32 %48, label %56 [
+    i32 2, label %49
+  ]
+
+49:                                               ; preds = %47
+  br label %50
+
+50:                                               ; preds = %49
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
+  store ptr getelementptr (i8, ptr @.str, i64 123), ptr %9, align 8, !tbaa !8
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 123), i32 noundef 104, ptr noundef @.str.19)
+  br label %51
+
+51:                                               ; preds = %50
   unreachable
 
-do.end13:                                         ; No predecessors!
-  br label %do.end14
+52:                                               ; No predecessors!
+  br label %53
 
-do.end14:                                         ; preds = %do.end13
-  store i32 -1, ptr %retval, align 4
-  br label %return
+53:                                               ; preds = %52
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
+  br label %54
 
-return:                                           ; preds = %do.end14, %do.end8
-  %13 = load i32, ptr %retval, align 4
-  ret i32 %13
+54:                                               ; preds = %53
+  br label %55
+
+55:                                               ; preds = %54
+  store i32 -1, ptr %2, align 4
+  store i32 1, ptr %7, align 4
+  br label %56
+
+56:                                               ; preds = %55, %47
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  %57 = load i32, ptr %2, align 4
+  ret i32 %57
 }
 
 ; Function Attrs: nounwind
-declare i64 @sysconf(i32 noundef) #1
+declare i64 @sysconf(i32 noundef) #2
 
 ; Function Attrs: nounwind
-declare i32 @munmap(ptr noundef, i64 noundef) #1
+declare i32 @munmap(ptr noundef, i64 noundef) #2
 
-attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind }
+attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"p1 omnipotent char", !5, i64 0}
+!10 = !{!11, !5, i64 0}
+!11 = !{!"_ZTS7stack_t", !5, i64 0, !12, i64 8, !13, i64 16}
+!12 = !{!"int", !6, i64 0}
+!13 = !{!"long", !6, i64 0}
+!14 = !{!11, !13, i64 16}
+!15 = !{!11, !12, i64 8}
+!16 = !{!17, !12, i64 136}
+!17 = !{!"_ZTS9sigaction", !6, i64 0, !18, i64 8, !12, i64 136, !5, i64 144}
+!18 = !{!"_ZTS10__sigset_t", !6, i64 0}
+!19 = !{!6, !6, i64 0}
+!20 = !{!12, !12, i64 0}
+!21 = distinct !{!21, !22}
+!22 = !{!"llvm.loop.mustprogress"}

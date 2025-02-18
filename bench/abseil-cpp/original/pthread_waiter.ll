@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %"class.absl::synchronization_internal::PthreadWaiter" = type { %union.pthread_mutex_t, %union.pthread_cond_t, i32, i32 }
 %union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
@@ -30,611 +30,726 @@ $__clang_call_terminate = comdat any
 @_ZN4absl24synchronization_internal13PthreadWaiterC1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN4absl24synchronization_internal13PthreadWaiterC2Ev
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl24synchronization_internal13PthreadWaiterC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %err = alloca i32, align 4
-  %absl_raw_log_internal_basename = alloca ptr, align 8
-  %err2 = alloca i32, align 4
-  %absl_raw_log_internal_basename10 = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %waiter_count_ = getelementptr inbounds %"class.absl::synchronization_internal::PthreadWaiter", ptr %this1, i32 0, i32 2
-  store i32 0, ptr %waiter_count_, align 8
-  %wakeup_count_ = getelementptr inbounds %"class.absl::synchronization_internal::PthreadWaiter", ptr %this1, i32 0, i32 3
-  store i32 0, ptr %wakeup_count_, align 4
-  %mu_2 = getelementptr inbounds %"class.absl::synchronization_internal::PthreadWaiter", ptr %this1, i32 0, i32 0
-  %call = call i32 @pthread_mutex_init(ptr noundef %mu_2, ptr noundef null) #6
-  store i32 %call, ptr %err, align 4
-  %0 = load i32, ptr %err, align 4
-  %cmp = icmp ne i32 %0, 0
-  br i1 %cmp, label %if.then, label %if.end
+define dso_local void @_ZN4absl24synchronization_internal13PthreadWaiterC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #0 align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %7 = load ptr, ptr %2, align 8
+  %8 = getelementptr inbounds nuw %"class.absl::synchronization_internal::PthreadWaiter", ptr %7, i32 0, i32 2
+  store i32 0, ptr %8, align 8, !tbaa !9
+  %9 = getelementptr inbounds nuw %"class.absl::synchronization_internal::PthreadWaiter", ptr %7, i32 0, i32 3
+  store i32 0, ptr %9, align 4, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #8
+  %10 = getelementptr inbounds nuw %"class.absl::synchronization_internal::PthreadWaiter", ptr %7, i32 0, i32 0
+  %11 = call i32 @pthread_mutex_init(ptr noundef %10, ptr noundef null) #8
+  store i32 %11, ptr %3, align 4, !tbaa !13
+  %12 = load i32, ptr %3, align 4, !tbaa !13
+  %13 = icmp ne i32 %12, 0
+  br i1 %13, label %14, label %22
 
-if.then:                                          ; preds = %entry
-  br label %do.body
+14:                                               ; preds = %1
+  br label %15
 
-do.body:                                          ; preds = %if.then
-  %1 = getelementptr i8, ptr @.str, i64 129
-  store ptr %1, ptr %absl_raw_log_internal_basename, align 8
-  %2 = load i32, ptr %err, align 4
-  %3 = getelementptr i8, ptr @.str, i64 129
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %3, i32 noundef 68, ptr noundef @.str.1, i32 noundef %2)
-  br label %do.body3
+15:                                               ; preds = %14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #8
+  store ptr getelementptr (i8, ptr @.str, i64 129), ptr %4, align 8, !tbaa !14
+  %16 = load i32, ptr %3, align 4, !tbaa !13
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 129), i32 noundef 68, ptr noundef @.str.1, i32 noundef %16)
+  br label %17
 
-do.body3:                                         ; preds = %do.body
+17:                                               ; preds = %15
   unreachable
 
-do.end:                                           ; No predecessors!
-  br label %do.end4
+18:                                               ; No predecessors!
+  br label %19
 
-do.end4:                                          ; preds = %do.end
-  br label %if.end
+19:                                               ; preds = %18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #8
+  br label %20
 
-if.end:                                           ; preds = %do.end4, %entry
-  %cv_5 = getelementptr inbounds %"class.absl::synchronization_internal::PthreadWaiter", ptr %this1, i32 0, i32 1
-  %call6 = call i32 @pthread_cond_init(ptr noundef %cv_5, ptr noundef null) #6
-  store i32 %call6, ptr %err2, align 4
-  %4 = load i32, ptr %err2, align 4
-  %cmp7 = icmp ne i32 %4, 0
-  br i1 %cmp7, label %if.then8, label %if.end14
+20:                                               ; preds = %19
+  br label %21
 
-if.then8:                                         ; preds = %if.end
-  br label %do.body9
+21:                                               ; preds = %20
+  br label %22
 
-do.body9:                                         ; preds = %if.then8
-  %5 = getelementptr i8, ptr @.str, i64 129
-  store ptr %5, ptr %absl_raw_log_internal_basename10, align 8
-  %6 = load i32, ptr %err2, align 4
-  %7 = getelementptr i8, ptr @.str, i64 129
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %7, i32 noundef 73, ptr noundef @.str.2, i32 noundef %6)
-  br label %do.body11
+22:                                               ; preds = %21, %1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #8
+  %23 = getelementptr inbounds nuw %"class.absl::synchronization_internal::PthreadWaiter", ptr %7, i32 0, i32 1
+  %24 = call i32 @pthread_cond_init(ptr noundef %23, ptr noundef null) #8
+  store i32 %24, ptr %5, align 4, !tbaa !13
+  %25 = load i32, ptr %5, align 4, !tbaa !13
+  %26 = icmp ne i32 %25, 0
+  br i1 %26, label %27, label %35
 
-do.body11:                                        ; preds = %do.body9
+27:                                               ; preds = %22
+  br label %28
+
+28:                                               ; preds = %27
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  store ptr getelementptr (i8, ptr @.str, i64 129), ptr %6, align 8, !tbaa !14
+  %29 = load i32, ptr %5, align 4, !tbaa !13
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 129), i32 noundef 73, ptr noundef @.str.2, i32 noundef %29)
+  br label %30
+
+30:                                               ; preds = %28
   unreachable
 
-do.end12:                                         ; No predecessors!
-  br label %do.end13
+31:                                               ; No predecessors!
+  br label %32
 
-do.end13:                                         ; preds = %do.end12
-  br label %if.end14
+32:                                               ; preds = %31
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  br label %33
 
-if.end14:                                         ; preds = %do.end13, %if.end
+33:                                               ; preds = %32
+  br label %34
+
+34:                                               ; preds = %33
+  br label %35
+
+35:                                               ; preds = %34, %22
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #8
   ret void
 }
 
-; Function Attrs: nounwind
-declare i32 @pthread_mutex_init(ptr noundef, ptr noundef) #1
-
-declare void @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) #2
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind
-declare i32 @pthread_cond_init(ptr noundef, ptr noundef) #1
+declare i32 @pthread_mutex_init(ptr noundef, ptr noundef) #2
+
+declare void @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) #3
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: nounwind
+declare i32 @pthread_cond_init(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN4absl24synchronization_internal13PthreadWaiter9TimedWaitENS0_13KernelTimeoutE(ptr noundef nonnull align 8 dereferenceable(96) %this, i64 %t.coerce) #0 align 2 {
-entry:
-  %retval = alloca i32, align 4
-  %t = alloca %"class.absl::synchronization_internal::KernelTimeout", align 8
-  %this.addr = alloca ptr, align 8
-  %abs_clock_timeout = alloca %struct.timespec, align 8
-  %abs_timeout = alloca %struct.timespec, align 8
-  %coerce.dive = getelementptr inbounds %"class.absl::synchronization_internal::KernelTimeout", ptr %t, i32 0, i32 0
-  store i64 %t.coerce, ptr %coerce.dive, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef zeroext i1 @_ZNK4absl24synchronization_internal13KernelTimeout19is_relative_timeoutEv(ptr noundef nonnull align 8 dereferenceable(8) %t)
-  br i1 %call, label %if.then, label %if.end
+define dso_local noundef i32 @_ZN4absl24synchronization_internal13PthreadWaiter9TimedWaitENS0_13KernelTimeoutE(ptr noundef nonnull align 8 dereferenceable(96) %0, i64 %1) #0 align 2 {
+  %3 = alloca i32, align 4
+  %4 = alloca %"class.absl::synchronization_internal::KernelTimeout", align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca %struct.timespec, align 8
+  %7 = alloca %struct.timespec, align 8
+  %8 = getelementptr inbounds nuw %"class.absl::synchronization_internal::KernelTimeout", ptr %4, i32 0, i32 0
+  store i64 %1, ptr %8, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !4
+  %9 = load ptr, ptr %5, align 8
+  %10 = call noundef zeroext i1 @_ZNK4absl24synchronization_internal13KernelTimeout19is_relative_timeoutEv(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  br i1 %10, label %11, label %20
 
-if.then:                                          ; preds = %entry
-  %call2 = call { i64, i64 } @_ZNK4absl24synchronization_internal13KernelTimeout25MakeClockAbsoluteTimespecEi(ptr noundef nonnull align 8 dereferenceable(8) %t, i32 noundef 1)
-  %0 = getelementptr inbounds { i64, i64 }, ptr %abs_clock_timeout, i32 0, i32 0
-  %1 = extractvalue { i64, i64 } %call2, 0
-  store i64 %1, ptr %0, align 8
-  %2 = getelementptr inbounds { i64, i64 }, ptr %abs_clock_timeout, i32 0, i32 1
-  %3 = extractvalue { i64, i64 } %call2, 1
-  store i64 %3, ptr %2, align 8
-  %cv_ = getelementptr inbounds %"class.absl::synchronization_internal::PthreadWaiter", ptr %this1, i32 0, i32 1
-  %mu_ = getelementptr inbounds %"class.absl::synchronization_internal::PthreadWaiter", ptr %this1, i32 0, i32 0
-  %call3 = call i32 @pthread_cond_clockwait(ptr noundef %cv_, ptr noundef %mu_, i32 noundef 1, ptr noundef %abs_clock_timeout)
-  store i32 %call3, ptr %retval, align 4
-  br label %return
+11:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 16, ptr %6) #8
+  %12 = call { i64, i64 } @_ZNK4absl24synchronization_internal13KernelTimeout25MakeClockAbsoluteTimespecEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 1)
+  %13 = getelementptr inbounds nuw { i64, i64 }, ptr %6, i32 0, i32 0
+  %14 = extractvalue { i64, i64 } %12, 0
+  store i64 %14, ptr %13, align 8
+  %15 = getelementptr inbounds nuw { i64, i64 }, ptr %6, i32 0, i32 1
+  %16 = extractvalue { i64, i64 } %12, 1
+  store i64 %16, ptr %15, align 8
+  %17 = getelementptr inbounds nuw %"class.absl::synchronization_internal::PthreadWaiter", ptr %9, i32 0, i32 1
+  %18 = getelementptr inbounds nuw %"class.absl::synchronization_internal::PthreadWaiter", ptr %9, i32 0, i32 0
+  %19 = call i32 @pthread_cond_clockwait(ptr noundef %17, ptr noundef %18, i32 noundef 1, ptr noundef %6)
+  store i32 %19, ptr %3, align 4
+  call void @llvm.lifetime.end.p0(i64 16, ptr %6) #8
+  br label %29
 
-if.end:                                           ; preds = %entry
-  %call4 = call { i64, i64 } @_ZNK4absl24synchronization_internal13KernelTimeout15MakeAbsTimespecEv(ptr noundef nonnull align 8 dereferenceable(8) %t)
-  %4 = getelementptr inbounds { i64, i64 }, ptr %abs_timeout, i32 0, i32 0
-  %5 = extractvalue { i64, i64 } %call4, 0
-  store i64 %5, ptr %4, align 8
-  %6 = getelementptr inbounds { i64, i64 }, ptr %abs_timeout, i32 0, i32 1
-  %7 = extractvalue { i64, i64 } %call4, 1
-  store i64 %7, ptr %6, align 8
-  %cv_5 = getelementptr inbounds %"class.absl::synchronization_internal::PthreadWaiter", ptr %this1, i32 0, i32 1
-  %mu_6 = getelementptr inbounds %"class.absl::synchronization_internal::PthreadWaiter", ptr %this1, i32 0, i32 0
-  %call7 = call i32 @pthread_cond_timedwait(ptr noundef %cv_5, ptr noundef %mu_6, ptr noundef %abs_timeout)
-  store i32 %call7, ptr %retval, align 4
-  br label %return
+20:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 16, ptr %7) #8
+  %21 = call { i64, i64 } @_ZNK4absl24synchronization_internal13KernelTimeout15MakeAbsTimespecEv(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %22 = getelementptr inbounds nuw { i64, i64 }, ptr %7, i32 0, i32 0
+  %23 = extractvalue { i64, i64 } %21, 0
+  store i64 %23, ptr %22, align 8
+  %24 = getelementptr inbounds nuw { i64, i64 }, ptr %7, i32 0, i32 1
+  %25 = extractvalue { i64, i64 } %21, 1
+  store i64 %25, ptr %24, align 8
+  %26 = getelementptr inbounds nuw %"class.absl::synchronization_internal::PthreadWaiter", ptr %9, i32 0, i32 1
+  %27 = getelementptr inbounds nuw %"class.absl::synchronization_internal::PthreadWaiter", ptr %9, i32 0, i32 0
+  %28 = call i32 @pthread_cond_timedwait(ptr noundef %26, ptr noundef %27, ptr noundef %7)
+  store i32 %28, ptr %3, align 4
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #8
+  br label %29
 
-return:                                           ; preds = %if.end, %if.then
-  %8 = load i32, ptr %retval, align 4
-  ret i32 %8
+29:                                               ; preds = %20, %11
+  %30 = load i32, ptr %3, align 4
+  ret i32 %30
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZNK4absl24synchronization_internal13KernelTimeout19is_relative_timeoutEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #3 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %rep_ = getelementptr inbounds %"class.absl::synchronization_internal::KernelTimeout", ptr %this1, i32 0, i32 0
-  %0 = load i64, ptr %rep_, align 8
-  %and = and i64 %0, 1
-  %cmp = icmp eq i64 %and, 1
-  ret i1 %cmp
+define linkonce_odr dso_local noundef zeroext i1 @_ZNK4absl24synchronization_internal13KernelTimeout19is_relative_timeoutEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !16
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.absl::synchronization_internal::KernelTimeout", ptr %3, i32 0, i32 0
+  %5 = load i64, ptr %4, align 8, !tbaa !18
+  %6 = and i64 %5, 1
+  %7 = icmp eq i64 %6, 1
+  ret i1 %7
 }
 
-declare { i64, i64 } @_ZNK4absl24synchronization_internal13KernelTimeout25MakeClockAbsoluteTimespecEi(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) #2
+declare { i64, i64 } @_ZNK4absl24synchronization_internal13KernelTimeout25MakeClockAbsoluteTimespecEi(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) #3
 
-declare i32 @pthread_cond_clockwait(ptr noundef, ptr noundef, i32 noundef, ptr noundef) #2
+declare i32 @pthread_cond_clockwait(ptr noundef, ptr noundef, i32 noundef, ptr noundef) #3
 
-declare { i64, i64 } @_ZNK4absl24synchronization_internal13KernelTimeout15MakeAbsTimespecEv(ptr noundef nonnull align 8 dereferenceable(8)) #2
+declare { i64, i64 } @_ZNK4absl24synchronization_internal13KernelTimeout15MakeAbsTimespecEv(ptr noundef nonnull align 8 dereferenceable(8)) #3
 
-declare i32 @pthread_cond_timedwait(ptr noundef, ptr noundef, ptr noundef) #2
+declare i32 @pthread_cond_timedwait(ptr noundef, ptr noundef, ptr noundef) #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4absl24synchronization_internal13PthreadWaiter4WaitENS0_13KernelTimeoutE(ptr noundef nonnull align 8 dereferenceable(96) %this, i64 %t.coerce) #0 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %retval = alloca i1, align 1
-  %t = alloca %"class.absl::synchronization_internal::KernelTimeout", align 8
-  %this.addr = alloca ptr, align 8
-  %h = alloca %"class.absl::synchronization_internal::(anonymous namespace)::PthreadMutexHolder", align 8
-  %first_pass = alloca i8, align 1
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  %err = alloca i32, align 4
-  %absl_raw_log_internal_basename = alloca ptr, align 8
-  %err14 = alloca i32, align 4
-  %agg.tmp = alloca %"class.absl::synchronization_internal::KernelTimeout", align 8
-  %cleanup.dest.slot = alloca i32, align 4
-  %absl_raw_log_internal_basename25 = alloca ptr, align 8
-  %coerce.dive = getelementptr inbounds %"class.absl::synchronization_internal::KernelTimeout", ptr %t, i32 0, i32 0
-  store i64 %t.coerce, ptr %coerce.dive, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %mu_ = getelementptr inbounds %"class.absl::synchronization_internal::PthreadWaiter", ptr %this1, i32 0, i32 0
-  call void @_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderC2EP15pthread_mutex_t(ptr noundef nonnull align 8 dereferenceable(8) %h, ptr noundef %mu_)
-  %waiter_count_ = getelementptr inbounds %"class.absl::synchronization_internal::PthreadWaiter", ptr %this1, i32 0, i32 2
-  %0 = load i32, ptr %waiter_count_, align 8
-  %inc = add nsw i32 %0, 1
-  store i32 %inc, ptr %waiter_count_, align 8
-  store i8 1, ptr %first_pass, align 1
-  br label %while.cond
+define dso_local noundef zeroext i1 @_ZN4absl24synchronization_internal13PthreadWaiter4WaitENS0_13KernelTimeoutE(ptr noundef nonnull align 8 dereferenceable(96) %0, i64 %1) #0 align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca i1, align 1
+  %4 = alloca %"class.absl::synchronization_internal::KernelTimeout", align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca %"class.absl::synchronization_internal::(anonymous namespace)::PthreadMutexHolder", align 8
+  %7 = alloca i8, align 1
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
+  %13 = alloca %"class.absl::synchronization_internal::KernelTimeout", align 8
+  %14 = alloca i32, align 4
+  %15 = alloca ptr, align 8
+  %16 = getelementptr inbounds nuw %"class.absl::synchronization_internal::KernelTimeout", ptr %4, i32 0, i32 0
+  store i64 %1, ptr %16, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !4
+  %17 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  %18 = getelementptr inbounds nuw %"class.absl::synchronization_internal::PthreadWaiter", ptr %17, i32 0, i32 0
+  call void @_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderC2EP15pthread_mutex_t(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %18)
+  %19 = getelementptr inbounds nuw %"class.absl::synchronization_internal::PthreadWaiter", ptr %17, i32 0, i32 2
+  %20 = load i32, ptr %19, align 8, !tbaa !9
+  %21 = add nsw i32 %20, 1
+  store i32 %21, ptr %19, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 1, ptr %7) #8
+  store i8 1, ptr %7, align 1, !tbaa !21
+  br label %22
 
-while.cond:                                       ; preds = %if.end33, %entry
-  %wakeup_count_ = getelementptr inbounds %"class.absl::synchronization_internal::PthreadWaiter", ptr %this1, i32 0, i32 3
-  %1 = load i32, ptr %wakeup_count_, align 4
-  %cmp = icmp eq i32 %1, 0
-  br i1 %cmp, label %while.body, label %while.end
+22:                                               ; preds = %100, %2
+  %23 = getelementptr inbounds nuw %"class.absl::synchronization_internal::PthreadWaiter", ptr %17, i32 0, i32 3
+  %24 = load i32, ptr %23, align 4, !tbaa !12
+  %25 = icmp eq i32 %24, 0
+  br i1 %25, label %26, label %101
 
-while.body:                                       ; preds = %while.cond
-  %2 = load i8, ptr %first_pass, align 1
-  %tobool = trunc i8 %2 to i1
-  br i1 %tobool, label %if.end, label %if.then
+26:                                               ; preds = %22
+  %27 = load i8, ptr %7, align 1, !tbaa !21, !range !23, !noundef !24
+  %28 = trunc i8 %27 to i1
+  br i1 %28, label %35, label %29
 
-if.then:                                          ; preds = %while.body
+29:                                               ; preds = %26
   invoke void @_ZN4absl24synchronization_internal10WaiterBase15MaybeBecomeIdleEv()
-          to label %invoke.cont unwind label %lpad
+          to label %30 unwind label %31
 
-invoke.cont:                                      ; preds = %if.then
-  br label %if.end
+30:                                               ; preds = %29
+  br label %35
 
-lpad:                                             ; preds = %do.body24, %if.else, %do.body, %if.then3, %if.end, %if.then
-  %3 = landingpad { ptr, i32 }
+31:                                               ; preds = %35, %29
+  %32 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
-  call void @_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %h) #6
-  br label %eh.resume
+  %33 = extractvalue { ptr, i32 } %32, 0
+  store ptr %33, ptr %8, align 8
+  %34 = extractvalue { ptr, i32 } %32, 1
+  store i32 %34, ptr %9, align 4
+  br label %110
 
-if.end:                                           ; preds = %invoke.cont, %while.body
-  %call = invoke noundef zeroext i1 @_ZNK4absl24synchronization_internal13KernelTimeout11has_timeoutEv(ptr noundef nonnull align 8 dereferenceable(8) %t)
-          to label %invoke.cont2 unwind label %lpad
+35:                                               ; preds = %30, %26
+  %36 = invoke noundef zeroext i1 @_ZNK4absl24synchronization_internal13KernelTimeout11has_timeoutEv(ptr noundef nonnull align 8 dereferenceable(8) %4)
+          to label %37 unwind label %31
 
-invoke.cont2:                                     ; preds = %if.end
-  br i1 %call, label %if.else, label %if.then3
+37:                                               ; preds = %35
+  br i1 %36, label %64, label %38
 
-if.then3:                                         ; preds = %invoke.cont2
-  %cv_ = getelementptr inbounds %"class.absl::synchronization_internal::PthreadWaiter", ptr %this1, i32 0, i32 1
-  %mu_4 = getelementptr inbounds %"class.absl::synchronization_internal::PthreadWaiter", ptr %this1, i32 0, i32 0
-  %call6 = invoke i32 @pthread_cond_wait(ptr noundef %cv_, ptr noundef %mu_4)
-          to label %invoke.cont5 unwind label %lpad
+38:                                               ; preds = %37
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #8
+  %39 = getelementptr inbounds nuw %"class.absl::synchronization_internal::PthreadWaiter", ptr %17, i32 0, i32 1
+  %40 = getelementptr inbounds nuw %"class.absl::synchronization_internal::PthreadWaiter", ptr %17, i32 0, i32 0
+  %41 = invoke i32 @pthread_cond_wait(ptr noundef %39, ptr noundef %40)
+          to label %42 unwind label %50
 
-invoke.cont5:                                     ; preds = %if.then3
-  store i32 %call6, ptr %err, align 4
-  %6 = load i32, ptr %err, align 4
-  %cmp7 = icmp ne i32 %6, 0
-  br i1 %cmp7, label %if.then8, label %if.end13
+42:                                               ; preds = %38
+  store i32 %41, ptr %10, align 4, !tbaa !13
+  %43 = load i32, ptr %10, align 4, !tbaa !13
+  %44 = icmp ne i32 %43, 0
+  br i1 %44, label %45, label %62
 
-if.then8:                                         ; preds = %invoke.cont5
-  br label %do.body
+45:                                               ; preds = %42
+  br label %46
 
-do.body:                                          ; preds = %if.then8
-  %7 = getelementptr i8, ptr @.str, i64 129
-  store ptr %7, ptr %absl_raw_log_internal_basename, align 8
-  %8 = load i32, ptr %err, align 4
-  %9 = getelementptr i8, ptr @.str, i64 129
-  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %9, i32 noundef 123, ptr noundef @.str.3, i32 noundef %8)
-          to label %invoke.cont9 unwind label %lpad
+46:                                               ; preds = %45
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #8
+  store ptr getelementptr (i8, ptr @.str, i64 129), ptr %11, align 8, !tbaa !14
+  %47 = load i32, ptr %10, align 4, !tbaa !13
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 129), i32 noundef 123, ptr noundef @.str.3, i32 noundef %47)
+          to label %48 unwind label %54
 
-invoke.cont9:                                     ; preds = %do.body
-  br label %do.body10
+48:                                               ; preds = %46
+  br label %49
 
-do.body10:                                        ; preds = %invoke.cont9
+49:                                               ; preds = %48
   unreachable
 
-do.cond:                                          ; No predecessors!
-  br label %do.end
+50:                                               ; preds = %38
+  %51 = landingpad { ptr, i32 }
+          cleanup
+  %52 = extractvalue { ptr, i32 } %51, 0
+  store ptr %52, ptr %8, align 8
+  %53 = extractvalue { ptr, i32 } %51, 1
+  store i32 %53, ptr %9, align 4
+  br label %63
 
-do.end:                                           ; preds = %do.cond
-  br label %do.cond11
+54:                                               ; preds = %46
+  %55 = landingpad { ptr, i32 }
+          cleanup
+  %56 = extractvalue { ptr, i32 } %55, 0
+  store ptr %56, ptr %8, align 8
+  %57 = extractvalue { ptr, i32 } %55, 1
+  store i32 %57, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #8
+  br label %63
 
-do.cond11:                                        ; preds = %do.end
-  br label %do.end12
+58:                                               ; No predecessors!
+  br label %59
 
-do.end12:                                         ; preds = %do.cond11
-  br label %if.end13
+59:                                               ; preds = %58
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #8
+  br label %60
 
-if.end13:                                         ; preds = %do.end12, %invoke.cont5
-  br label %if.end33
+60:                                               ; preds = %59
+  br label %61
 
-if.else:                                          ; preds = %invoke.cont2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %t, i64 8, i1 false)
-  %coerce.dive15 = getelementptr inbounds %"class.absl::synchronization_internal::KernelTimeout", ptr %agg.tmp, i32 0, i32 0
-  %10 = load i64, ptr %coerce.dive15, align 8
-  %call17 = invoke noundef i32 @_ZN4absl24synchronization_internal13PthreadWaiter9TimedWaitENS0_13KernelTimeoutE(ptr noundef nonnull align 8 dereferenceable(96) %this1, i64 %10)
-          to label %invoke.cont16 unwind label %lpad
+61:                                               ; preds = %60
+  br label %62
 
-invoke.cont16:                                    ; preds = %if.else
-  store i32 %call17, ptr %err14, align 4
-  %11 = load i32, ptr %err14, align 4
-  %cmp18 = icmp eq i32 %11, 110
-  br i1 %cmp18, label %if.then19, label %if.end21
+62:                                               ; preds = %61, %42
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #8
+  br label %100
 
-if.then19:                                        ; preds = %invoke.cont16
-  %waiter_count_20 = getelementptr inbounds %"class.absl::synchronization_internal::PthreadWaiter", ptr %this1, i32 0, i32 2
-  %12 = load i32, ptr %waiter_count_20, align 8
-  %dec = add nsw i32 %12, -1
-  store i32 %dec, ptr %waiter_count_20, align 8
-  store i1 false, ptr %retval, align 1
-  store i32 1, ptr %cleanup.dest.slot, align 4
-  br label %cleanup
+63:                                               ; preds = %54, %50
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #8
+  br label %110
 
-if.end21:                                         ; preds = %invoke.cont16
-  %13 = load i32, ptr %err14, align 4
-  %cmp22 = icmp ne i32 %13, 0
-  br i1 %cmp22, label %if.then23, label %if.end32
+64:                                               ; preds = %37
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr align 8 %4, i64 8, i1 false), !tbaa.struct !25
+  %65 = getelementptr inbounds nuw %"class.absl::synchronization_internal::KernelTimeout", ptr %13, i32 0, i32 0
+  %66 = load i64, ptr %65, align 8
+  %67 = invoke noundef i32 @_ZN4absl24synchronization_internal13PthreadWaiter9TimedWaitENS0_13KernelTimeoutE(ptr noundef nonnull align 8 dereferenceable(96) %17, i64 %66)
+          to label %68 unwind label %75
 
-if.then23:                                        ; preds = %if.end21
-  br label %do.body24
+68:                                               ; preds = %64
+  store i32 %67, ptr %12, align 4, !tbaa !13
+  %69 = load i32, ptr %12, align 4, !tbaa !13
+  %70 = icmp eq i32 %69, 110
+  br i1 %70, label %71, label %79
 
-do.body24:                                        ; preds = %if.then23
-  %14 = getelementptr i8, ptr @.str, i64 129
-  store ptr %14, ptr %absl_raw_log_internal_basename25, align 8
-  %15 = load i32, ptr %err14, align 4
-  %16 = getelementptr i8, ptr @.str, i64 129
-  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %16, i32 noundef 132, ptr noundef @.str.4, i32 noundef %15)
-          to label %invoke.cont26 unwind label %lpad
+71:                                               ; preds = %68
+  %72 = getelementptr inbounds nuw %"class.absl::synchronization_internal::PthreadWaiter", ptr %17, i32 0, i32 2
+  %73 = load i32, ptr %72, align 8, !tbaa !9
+  %74 = add nsw i32 %73, -1
+  store i32 %74, ptr %72, align 8, !tbaa !9
+  store i1 false, ptr %3, align 1
+  store i32 1, ptr %14, align 4
+  br label %96
 
-invoke.cont26:                                    ; preds = %do.body24
-  br label %do.body27
+75:                                               ; preds = %64
+  %76 = landingpad { ptr, i32 }
+          cleanup
+  %77 = extractvalue { ptr, i32 } %76, 0
+  store ptr %77, ptr %8, align 8
+  %78 = extractvalue { ptr, i32 } %76, 1
+  store i32 %78, ptr %9, align 4
+  br label %99
 
-do.body27:                                        ; preds = %invoke.cont26
+79:                                               ; preds = %68
+  %80 = load i32, ptr %12, align 4, !tbaa !13
+  %81 = icmp ne i32 %80, 0
+  br i1 %81, label %82, label %95
+
+82:                                               ; preds = %79
+  br label %83
+
+83:                                               ; preds = %82
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #8
+  store ptr getelementptr (i8, ptr @.str, i64 129), ptr %15, align 8, !tbaa !14
+  %84 = load i32, ptr %12, align 4, !tbaa !13
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 129), i32 noundef 132, ptr noundef @.str.4, i32 noundef %84)
+          to label %85 unwind label %87
+
+85:                                               ; preds = %83
+  br label %86
+
+86:                                               ; preds = %85
   unreachable
 
-do.cond28:                                        ; No predecessors!
-  br label %do.end29
+87:                                               ; preds = %83
+  %88 = landingpad { ptr, i32 }
+          cleanup
+  %89 = extractvalue { ptr, i32 } %88, 0
+  store ptr %89, ptr %8, align 8
+  %90 = extractvalue { ptr, i32 } %88, 1
+  store i32 %90, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #8
+  br label %99
 
-do.end29:                                         ; preds = %do.cond28
-  br label %do.cond30
+91:                                               ; No predecessors!
+  br label %92
 
-do.cond30:                                        ; preds = %do.end29
-  br label %do.end31
+92:                                               ; preds = %91
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #8
+  br label %93
 
-do.end31:                                         ; preds = %do.cond30
-  br label %if.end32
+93:                                               ; preds = %92
+  br label %94
 
-if.end32:                                         ; preds = %do.end31, %if.end21
-  br label %if.end33
+94:                                               ; preds = %93
+  br label %95
 
-if.end33:                                         ; preds = %if.end32, %if.end13
-  store i8 0, ptr %first_pass, align 1
-  br label %while.cond, !llvm.loop !5
+95:                                               ; preds = %94, %79
+  store i32 0, ptr %14, align 4
+  br label %96
 
-while.end:                                        ; preds = %while.cond
-  %wakeup_count_34 = getelementptr inbounds %"class.absl::synchronization_internal::PthreadWaiter", ptr %this1, i32 0, i32 3
-  %17 = load i32, ptr %wakeup_count_34, align 4
-  %dec35 = add nsw i32 %17, -1
-  store i32 %dec35, ptr %wakeup_count_34, align 4
-  %waiter_count_36 = getelementptr inbounds %"class.absl::synchronization_internal::PthreadWaiter", ptr %this1, i32 0, i32 2
-  %18 = load i32, ptr %waiter_count_36, align 8
-  %dec37 = add nsw i32 %18, -1
-  store i32 %dec37, ptr %waiter_count_36, align 8
-  store i1 true, ptr %retval, align 1
-  store i32 1, ptr %cleanup.dest.slot, align 4
-  br label %cleanup
+96:                                               ; preds = %95, %71
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #8
+  %97 = load i32, ptr %14, align 4
+  switch i32 %97, label %108 [
+    i32 0, label %98
+  ]
 
-cleanup:                                          ; preds = %while.end, %if.then19
-  call void @_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %h) #6
-  %19 = load i1, ptr %retval, align 1
-  ret i1 %19
+98:                                               ; preds = %96
+  br label %100
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val38 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val38
+99:                                               ; preds = %87, %75
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #8
+  br label %110
+
+100:                                              ; preds = %98, %62
+  store i8 0, ptr %7, align 1, !tbaa !21
+  br label %22, !llvm.loop !27
+
+101:                                              ; preds = %22
+  %102 = getelementptr inbounds nuw %"class.absl::synchronization_internal::PthreadWaiter", ptr %17, i32 0, i32 3
+  %103 = load i32, ptr %102, align 4, !tbaa !12
+  %104 = add nsw i32 %103, -1
+  store i32 %104, ptr %102, align 4, !tbaa !12
+  %105 = getelementptr inbounds nuw %"class.absl::synchronization_internal::PthreadWaiter", ptr %17, i32 0, i32 2
+  %106 = load i32, ptr %105, align 8, !tbaa !9
+  %107 = add nsw i32 %106, -1
+  store i32 %107, ptr %105, align 8, !tbaa !9
+  store i1 true, ptr %3, align 1
+  store i32 1, ptr %14, align 4
+  br label %108
+
+108:                                              ; preds = %101, %96
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #8
+  call void @_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  %109 = load i1, ptr %3, align 1
+  ret i1 %109
+
+110:                                              ; preds = %99, %63, %31
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #8
+  call void @_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  br label %111
+
+111:                                              ; preds = %110
+  %112 = load ptr, ptr %8, align 8
+  %113 = load i32, ptr %9, align 4
+  %114 = insertvalue { ptr, i32 } poison, ptr %112, 0
+  %115 = insertvalue { ptr, i32 } %114, i32 %113, 1
+  resume { ptr, i32 } %115
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderC2EP15pthread_mutex_t(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %mu) unnamed_addr #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %mu.addr = alloca ptr, align 8
-  %err = alloca i32, align 4
-  %absl_raw_log_internal_basename = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %mu, ptr %mu.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %mu_ = getelementptr inbounds %"class.absl::synchronization_internal::(anonymous namespace)::PthreadMutexHolder", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %mu.addr, align 8
-  store ptr %0, ptr %mu_, align 8
-  %mu_2 = getelementptr inbounds %"class.absl::synchronization_internal::(anonymous namespace)::PthreadMutexHolder", ptr %this1, i32 0, i32 0
-  %1 = load ptr, ptr %mu_2, align 8
-  %call = call i32 @pthread_mutex_lock(ptr noundef %1) #6
-  store i32 %call, ptr %err, align 4
-  %2 = load i32, ptr %err, align 4
-  %cmp = icmp ne i32 %2, 0
-  br i1 %cmp, label %if.then, label %if.end
+define internal void @_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderC2EP15pthread_mutex_t(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !29
+  store ptr %1, ptr %4, align 8, !tbaa !31
+  %7 = load ptr, ptr %3, align 8
+  %8 = getelementptr inbounds nuw %"class.absl::synchronization_internal::(anonymous namespace)::PthreadMutexHolder", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %4, align 8, !tbaa !31
+  store ptr %9, ptr %8, align 8, !tbaa !32
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #8
+  %10 = getelementptr inbounds nuw %"class.absl::synchronization_internal::(anonymous namespace)::PthreadMutexHolder", ptr %7, i32 0, i32 0
+  %11 = load ptr, ptr %10, align 8, !tbaa !32
+  %12 = call i32 @pthread_mutex_lock(ptr noundef %11) #8
+  store i32 %12, ptr %5, align 4, !tbaa !13
+  %13 = load i32, ptr %5, align 4, !tbaa !13
+  %14 = icmp ne i32 %13, 0
+  br i1 %14, label %15, label %23
 
-if.then:                                          ; preds = %entry
-  br label %do.body
+15:                                               ; preds = %2
+  br label %16
 
-do.body:                                          ; preds = %if.then
-  %3 = getelementptr i8, ptr @.str, i64 129
-  store ptr %3, ptr %absl_raw_log_internal_basename, align 8
-  %4 = load i32, ptr %err, align 4
-  %5 = getelementptr i8, ptr @.str, i64 129
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %5, i32 noundef 42, ptr noundef @.str.6, i32 noundef %4)
-  br label %do.body3
+16:                                               ; preds = %15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  store ptr getelementptr (i8, ptr @.str, i64 129), ptr %6, align 8, !tbaa !14
+  %17 = load i32, ptr %5, align 4, !tbaa !13
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 129), i32 noundef 42, ptr noundef @.str.6, i32 noundef %17)
+  br label %18
 
-do.body3:                                         ; preds = %do.body
+18:                                               ; preds = %16
   unreachable
 
-do.end:                                           ; No predecessors!
-  br label %do.end4
+19:                                               ; No predecessors!
+  br label %20
 
-do.end4:                                          ; preds = %do.end
-  br label %if.end
+20:                                               ; preds = %19
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  br label %21
 
-if.end:                                           ; preds = %do.end4, %entry
+21:                                               ; preds = %20
+  br label %22
+
+22:                                               ; preds = %21
+  br label %23
+
+23:                                               ; preds = %22, %2
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #8
   ret void
 }
 
-declare void @_ZN4absl24synchronization_internal10WaiterBase15MaybeBecomeIdleEv() #2
+declare void @_ZN4absl24synchronization_internal10WaiterBase15MaybeBecomeIdleEv() #3
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZNK4absl24synchronization_internal13KernelTimeout11has_timeoutEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #3 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %rep_ = getelementptr inbounds %"class.absl::synchronization_internal::KernelTimeout", ptr %this1, i32 0, i32 0
-  %0 = load i64, ptr %rep_, align 8
-  %cmp = icmp ne i64 %0, -1
-  ret i1 %cmp
+define linkonce_odr dso_local noundef zeroext i1 @_ZNK4absl24synchronization_internal13KernelTimeout11has_timeoutEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !16
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.absl::synchronization_internal::KernelTimeout", ptr %3, i32 0, i32 0
+  %5 = load i64, ptr %4, align 8, !tbaa !18
+  %6 = icmp ne i64 %5, -1
+  ret i1 %6
 }
 
-declare i32 @pthread_cond_wait(ptr noundef, ptr noundef) #2
+declare i32 @pthread_cond_wait(ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %err = alloca i32, align 4
-  %absl_raw_log_internal_basename = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %mu_ = getelementptr inbounds %"class.absl::synchronization_internal::(anonymous namespace)::PthreadMutexHolder", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %mu_, align 8
-  %call = call i32 @pthread_mutex_unlock(ptr noundef %0) #6
-  store i32 %call, ptr %err, align 4
-  %1 = load i32, ptr %err, align 4
-  %cmp = icmp ne i32 %1, 0
-  br i1 %cmp, label %if.then, label %if.end
+define internal void @_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !29
+  %5 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #8
+  %6 = getelementptr inbounds nuw %"class.absl::synchronization_internal::(anonymous namespace)::PthreadMutexHolder", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %6, align 8, !tbaa !32
+  %8 = call i32 @pthread_mutex_unlock(ptr noundef %7) #8
+  store i32 %8, ptr %3, align 4, !tbaa !13
+  %9 = load i32, ptr %3, align 4, !tbaa !13
+  %10 = icmp ne i32 %9, 0
+  br i1 %10, label %11, label %20
 
-if.then:                                          ; preds = %entry
-  br label %do.body
+11:                                               ; preds = %1
+  br label %12
 
-do.body:                                          ; preds = %if.then
-  %2 = getelementptr i8, ptr @.str, i64 129
-  store ptr %2, ptr %absl_raw_log_internal_basename, align 8
-  %3 = load i32, ptr %err, align 4
-  %4 = getelementptr i8, ptr @.str, i64 129
-  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %4, i32 noundef 52, ptr noundef @.str.7, i32 noundef %3)
-          to label %invoke.cont unwind label %terminate.lpad
+12:                                               ; preds = %11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #8
+  store ptr getelementptr (i8, ptr @.str, i64 129), ptr %4, align 8, !tbaa !14
+  %13 = load i32, ptr %3, align 4, !tbaa !13
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 129), i32 noundef 52, ptr noundef @.str.7, i32 noundef %13)
+          to label %14 unwind label %21
 
-invoke.cont:                                      ; preds = %do.body
-  br label %do.body2
+14:                                               ; preds = %12
+  br label %15
 
-do.body2:                                         ; preds = %invoke.cont
+15:                                               ; preds = %14
   unreachable
 
-do.cond:                                          ; No predecessors!
-  br label %do.end
+16:                                               ; No predecessors!
+  br label %17
 
-do.end:                                           ; preds = %do.cond
-  br label %do.cond3
+17:                                               ; preds = %16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #8
+  br label %18
 
-do.cond3:                                         ; preds = %do.end
-  br label %do.end4
+18:                                               ; preds = %17
+  br label %19
 
-do.end4:                                          ; preds = %do.cond3
-  br label %if.end
+19:                                               ; preds = %18
+  br label %20
 
-if.end:                                           ; preds = %do.end4, %entry
+20:                                               ; preds = %19, %1
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #8
   ret void
 
-terminate.lpad:                                   ; preds = %do.body
-  %5 = landingpad { ptr, i32 }
+21:                                               ; preds = %12
+  %22 = landingpad { ptr, i32 }
           catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #7
+  %23 = extractvalue { ptr, i32 } %22, 0
+  call void @__clang_call_terminate(ptr %23) #9
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl24synchronization_internal13PthreadWaiter4PostEv(ptr noundef nonnull align 8 dereferenceable(96) %this) #0 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %h = alloca %"class.absl::synchronization_internal::(anonymous namespace)::PthreadMutexHolder", align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %mu_ = getelementptr inbounds %"class.absl::synchronization_internal::PthreadWaiter", ptr %this1, i32 0, i32 0
-  call void @_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderC2EP15pthread_mutex_t(ptr noundef nonnull align 8 dereferenceable(8) %h, ptr noundef %mu_)
-  %wakeup_count_ = getelementptr inbounds %"class.absl::synchronization_internal::PthreadWaiter", ptr %this1, i32 0, i32 3
-  %0 = load i32, ptr %wakeup_count_, align 4
-  %inc = add nsw i32 %0, 1
-  store i32 %inc, ptr %wakeup_count_, align 4
-  invoke void @_ZN4absl24synchronization_internal13PthreadWaiter19InternalCondVarPokeEv(ptr noundef nonnull align 8 dereferenceable(96) %this1)
-          to label %invoke.cont unwind label %lpad
+define dso_local void @_ZN4absl24synchronization_internal13PthreadWaiter4PostEv(ptr noundef nonnull align 8 dereferenceable(96) %0) #0 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"class.absl::synchronization_internal::(anonymous namespace)::PthreadMutexHolder", align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %6 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #8
+  %7 = getelementptr inbounds nuw %"class.absl::synchronization_internal::PthreadWaiter", ptr %6, i32 0, i32 0
+  call void @_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderC2EP15pthread_mutex_t(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %7)
+  %8 = getelementptr inbounds nuw %"class.absl::synchronization_internal::PthreadWaiter", ptr %6, i32 0, i32 3
+  %9 = load i32, ptr %8, align 4, !tbaa !12
+  %10 = add nsw i32 %9, 1
+  store i32 %10, ptr %8, align 4, !tbaa !12
+  invoke void @_ZN4absl24synchronization_internal13PthreadWaiter19InternalCondVarPokeEv(ptr noundef nonnull align 8 dereferenceable(96) %6)
+          to label %11 unwind label %12
 
-invoke.cont:                                      ; preds = %entry
-  call void @_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %h) #6
+11:                                               ; preds = %1
+  call void @_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #8
   ret void
 
-lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
-  call void @_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %h) #6
-  br label %eh.resume
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %4, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %5, align 4
+  call void @_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #8
+  br label %16
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val2 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val2
+16:                                               ; preds = %12
+  %17 = load ptr, ptr %4, align 8
+  %18 = load i32, ptr %5, align 4
+  %19 = insertvalue { ptr, i32 } poison, ptr %17, 0
+  %20 = insertvalue { ptr, i32 } %19, i32 %18, 1
+  resume { ptr, i32 } %20
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl24synchronization_internal13PthreadWaiter19InternalCondVarPokeEv(ptr noundef nonnull align 8 dereferenceable(96) %this) #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %err = alloca i32, align 4
-  %absl_raw_log_internal_basename = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %waiter_count_ = getelementptr inbounds %"class.absl::synchronization_internal::PthreadWaiter", ptr %this1, i32 0, i32 2
-  %0 = load i32, ptr %waiter_count_, align 8
-  %cmp = icmp ne i32 %0, 0
-  br i1 %cmp, label %if.then, label %if.end6
+define dso_local void @_ZN4absl24synchronization_internal13PthreadWaiter19InternalCondVarPokeEv(ptr noundef nonnull align 8 dereferenceable(96) %0) #0 align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %5 = load ptr, ptr %2, align 8
+  %6 = getelementptr inbounds nuw %"class.absl::synchronization_internal::PthreadWaiter", ptr %5, i32 0, i32 2
+  %7 = load i32, ptr %6, align 8, !tbaa !9
+  %8 = icmp ne i32 %7, 0
+  br i1 %8, label %9, label %26
 
-if.then:                                          ; preds = %entry
-  %cv_ = getelementptr inbounds %"class.absl::synchronization_internal::PthreadWaiter", ptr %this1, i32 0, i32 1
-  %call = call i32 @pthread_cond_signal(ptr noundef %cv_) #6
-  store i32 %call, ptr %err, align 4
-  %1 = load i32, ptr %err, align 4
-  %cmp2 = icmp ne i32 %1, 0
-  br i1 %cmp2, label %if.then3, label %if.end
+9:                                                ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #8
+  %10 = getelementptr inbounds nuw %"class.absl::synchronization_internal::PthreadWaiter", ptr %5, i32 0, i32 1
+  %11 = call i32 @pthread_cond_signal(ptr noundef %10) #8
+  store i32 %11, ptr %3, align 4, !tbaa !13
+  %12 = load i32, ptr %3, align 4, !tbaa !13
+  %13 = icmp ne i32 %12, 0
+  %14 = zext i1 %13 to i64
+  %15 = call i64 @llvm.expect.i64(i64 %14, i64 0)
+  %16 = icmp ne i64 %15, 0
+  br i1 %16, label %17, label %25
 
-if.then3:                                         ; preds = %if.then
-  br label %do.body
+17:                                               ; preds = %9
+  br label %18
 
-do.body:                                          ; preds = %if.then3
-  %2 = getelementptr i8, ptr @.str, i64 129
-  store ptr %2, ptr %absl_raw_log_internal_basename, align 8
-  %3 = load i32, ptr %err, align 4
-  %4 = getelementptr i8, ptr @.str, i64 129
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %4, i32 noundef 158, ptr noundef @.str.5, i32 noundef %3)
-  br label %do.body4
+18:                                               ; preds = %17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #8
+  store ptr getelementptr (i8, ptr @.str, i64 129), ptr %4, align 8, !tbaa !14
+  %19 = load i32, ptr %3, align 4, !tbaa !13
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 129), i32 noundef 158, ptr noundef @.str.5, i32 noundef %19)
+  br label %20
 
-do.body4:                                         ; preds = %do.body
+20:                                               ; preds = %18
   unreachable
 
-do.end:                                           ; No predecessors!
-  br label %do.end5
+21:                                               ; No predecessors!
+  br label %22
 
-do.end5:                                          ; preds = %do.end
-  br label %if.end
+22:                                               ; preds = %21
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #8
+  br label %23
 
-if.end:                                           ; preds = %do.end5, %if.then
-  br label %if.end6
+23:                                               ; preds = %22
+  br label %24
 
-if.end6:                                          ; preds = %if.end, %entry
+24:                                               ; preds = %23
+  br label %25
+
+25:                                               ; preds = %24, %9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #8
+  br label %26
+
+26:                                               ; preds = %25, %1
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl24synchronization_internal13PthreadWaiter4PokeEv(ptr noundef nonnull align 8 dereferenceable(96) %this) #0 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %h = alloca %"class.absl::synchronization_internal::(anonymous namespace)::PthreadMutexHolder", align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %mu_ = getelementptr inbounds %"class.absl::synchronization_internal::PthreadWaiter", ptr %this1, i32 0, i32 0
-  call void @_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderC2EP15pthread_mutex_t(ptr noundef nonnull align 8 dereferenceable(8) %h, ptr noundef %mu_)
-  invoke void @_ZN4absl24synchronization_internal13PthreadWaiter19InternalCondVarPokeEv(ptr noundef nonnull align 8 dereferenceable(96) %this1)
-          to label %invoke.cont unwind label %lpad
+define dso_local void @_ZN4absl24synchronization_internal13PthreadWaiter4PokeEv(ptr noundef nonnull align 8 dereferenceable(96) %0) #0 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"class.absl::synchronization_internal::(anonymous namespace)::PthreadMutexHolder", align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %6 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #8
+  %7 = getelementptr inbounds nuw %"class.absl::synchronization_internal::PthreadWaiter", ptr %6, i32 0, i32 0
+  call void @_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderC2EP15pthread_mutex_t(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %7)
+  invoke void @_ZN4absl24synchronization_internal13PthreadWaiter19InternalCondVarPokeEv(ptr noundef nonnull align 8 dereferenceable(96) %6)
+          to label %8 unwind label %9
 
-invoke.cont:                                      ; preds = %entry
-  call void @_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %h) #6
+8:                                                ; preds = %1
+  call void @_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #8
   ret void
 
-lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+9:                                                ; preds = %1
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
-  call void @_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %h) #6
-  br label %eh.resume
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %4, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %5, align 4
+  call void @_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #8
+  br label %13
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val2 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val2
+13:                                               ; preds = %9
+  %14 = load ptr, ptr %4, align 8
+  %15 = load i32, ptr %5, align 4
+  %16 = insertvalue { ptr, i32 } poison, ptr %14, 0
+  %17 = insertvalue { ptr, i32 } %16, i32 %15, 1
+  resume { ptr, i32 } %17
 }
 
 ; Function Attrs: nounwind
-declare i32 @pthread_cond_signal(ptr noundef) #1
+declare i32 @pthread_cond_signal(ptr noundef) #2
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
+declare i64 @llvm.expect.i64(i64, i64) #6
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_lock(ptr noundef) #1
+declare i32 @pthread_mutex_lock(ptr noundef) #2
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_unlock(ptr noundef) #1
+declare i32 @pthread_mutex_unlock(ptr noundef) #2
 
-; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #5 comdat {
-  %2 = call ptr @__cxa_begin_catch(ptr %0) #6
-  call void @_ZSt9terminatev() #7
+; Function Attrs: noinline noreturn nounwind uwtable
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #7 comdat {
+  %2 = call ptr @__cxa_begin_catch(ptr %0) #8
+  call void @_ZSt9terminatev() #9
   unreachable
 }
 
@@ -642,21 +757,50 @@ declare ptr @__cxa_begin_catch(ptr)
 
 declare void @_ZSt9terminatev()
 
-attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind }
-attributes #7 = { noreturn nounwind }
+attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #7 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nounwind }
+attributes #9 = { noreturn nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"p1 _ZTSN4absl24synchronization_internal13PthreadWaiterE", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C++ TBAA"}
+!9 = !{!10, !11, i64 88}
+!10 = !{!"_ZTSN4absl24synchronization_internal13PthreadWaiterE", !7, i64 0, !7, i64 40, !11, i64 88, !11, i64 92}
+!11 = !{!"int", !7, i64 0}
+!12 = !{!10, !11, i64 92}
+!13 = !{!11, !11, i64 0}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"p1 omnipotent char", !6, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p1 _ZTSN4absl24synchronization_internal13KernelTimeoutE", !6, i64 0}
+!18 = !{!19, !20, i64 0}
+!19 = !{!"_ZTSN4absl24synchronization_internal13KernelTimeoutE", !20, i64 0}
+!20 = !{!"long", !7, i64 0}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"bool", !7, i64 0}
+!23 = !{i8 0, i8 2}
+!24 = !{}
+!25 = !{i64 0, i64 8, !26}
+!26 = !{!20, !20, i64 0}
+!27 = distinct !{!27, !28}
+!28 = !{!"llvm.loop.mustprogress"}
+!29 = !{!30, !30, i64 0}
+!30 = !{!"p1 _ZTSN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderE", !6, i64 0}
+!31 = !{!6, !6, i64 0}
+!32 = !{!33, !6, i64 0}
+!33 = !{!"_ZTSN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderE", !6, i64 0}

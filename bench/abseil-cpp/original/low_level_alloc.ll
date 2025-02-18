@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %"struct.absl::base_internal::SpinLockWaitTransition" = type { i32, i32, i8 }
 %"struct.absl::base_internal::LowLevelAlloc::Arena" = type <{ %"class.absl::base_internal::SpinLock", [4 x i8], %"struct.absl::base_internal::(anonymous namespace)::AllocList", i32, i32, i64, i64, i64, i32, [4 x i8] }>
@@ -21,6 +21,8 @@ $_ZN4absl13base_internal8SpinLock4LockEv = comdat any
 
 $_ZN4absl13base_internal8SpinLock11TryLockImplEv = comdat any
 
+$_ZNKSt13__atomic_baseIjE4loadESt12memory_order = comdat any
+
 $_ZN4absl13base_internal8SpinLock15TryLockInternalEjj = comdat any
 
 $_ZStanSt12memory_orderSt23__memory_order_modifier = comdat any
@@ -29,9 +31,13 @@ $__clang_call_terminate = comdat any
 
 $_ZN4absl13base_internal15SchedulingGuard19DisableReschedulingEv = comdat any
 
+$_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_ = comdat any
+
 $_ZN4absl13base_internal15SchedulingGuard18EnableReschedulingEb = comdat any
 
 $_ZN4absl13base_internal8SpinLock6UnlockEv = comdat any
+
+$_ZNSt13__atomic_baseIjE8exchangeEjSt12memory_order = comdat any
 
 $_ZN4absl13base_internal10DirectMmapEPvmiiil = comdat any
 
@@ -40,6 +46,8 @@ $_ZN4absl13base_internal11ControlWordEPNS_9once_flagE = comdat any
 $_ZN4absl13base_internal12CallOnceImplIRFvvEJEEEvPSt6atomicIjENS0_14SchedulingModeEOT_DpOT0_ = comdat any
 
 $_ZN4absl13base_internal16SchedulingHelperC2ENS0_14SchedulingModeE = comdat any
+
+$_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_order = comdat any
 
 $_ZSt6invokeIRFvvEJEENSt13invoke_resultIT_JDpT0_EE4typeEOS3_DpOS4_ = comdat any
 
@@ -112,86 +120,47 @@ $_ZZN4absl13base_internal12CallOnceImplIRFvvEJEEEvPSt6atomicIjENS0_14SchedulingM
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef ptr @_ZN4absl13base_internal13LowLevelAlloc12DefaultArenaEv() #0 align 2 {
-entry:
   call void @_ZN4absl13base_internal16LowLevelCallOnceIRFvvEJEEEvPNS_9once_flagEOT_DpOT0_(ptr noundef @_ZN4absl13base_internal12_GLOBAL__N_119create_globals_onceE, ptr noundef nonnull @_ZN4absl13base_internal12_GLOBAL__N_118CreateGlobalArenasEv)
   ret ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN4absl13base_internal16LowLevelCallOnceIRFvvEJEEEvPNS_9once_flagEOT_DpOT0_(ptr noundef %flag, ptr noundef nonnull %fn) #0 comdat personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr.i = alloca ptr, align 8
-  %__m.addr.i = alloca i32, align 4
-  %__b.i = alloca i32, align 4
-  %atomic-temp.i = alloca i32, align 4
-  %flag.addr = alloca ptr, align 8
-  %fn.addr = alloca ptr, align 8
-  %once = alloca ptr, align 8
-  %s = alloca i32, align 4
-  store ptr %flag, ptr %flag.addr, align 8
-  store ptr %fn, ptr %fn.addr, align 8
-  %0 = load ptr, ptr %flag.addr, align 8
-  %call = call noundef ptr @_ZN4absl13base_internal11ControlWordEPNS_9once_flagE(ptr noundef %0)
-  store ptr %call, ptr %once, align 8
-  %1 = load ptr, ptr %once, align 8
-  store ptr %1, ptr %this.addr.i, align 8
-  store i32 2, ptr %__m.addr.i, align 4
-  %this1.i = load ptr, ptr %this.addr.i, align 8
-  %2 = load i32, ptr %__m.addr.i, align 4
-  %call.i = invoke noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %2, i32 noundef 65535)
-          to label %invoke.cont.i unwind label %terminate.lpad.i
+define linkonce_odr dso_local void @_ZN4absl13base_internal16LowLevelCallOnceIRFvvEJEEEvPNS_9once_flagEOT_DpOT0_(ptr noundef %0, ptr noundef nonnull %1) #0 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #14
+  %7 = load ptr, ptr %3, align 8, !tbaa !4
+  %8 = call noundef ptr @_ZN4absl13base_internal11ControlWordEPNS_9once_flagE(ptr noundef %7)
+  store ptr %8, ptr %5, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #14
+  %9 = load ptr, ptr %5, align 8, !tbaa !10
+  %10 = call noundef i32 @_ZNKSt13__atomic_baseIjE4loadESt12memory_order(ptr noundef nonnull align 4 dereferenceable(4) %9, i32 noundef 2) #14
+  store i32 %10, ptr %6, align 4, !tbaa !12
+  %11 = load i32, ptr %6, align 4, !tbaa !12
+  %12 = icmp ne i32 %11, 221
+  %13 = zext i1 %12 to i64
+  %14 = call i64 @llvm.expect.i64(i64 %13, i64 0)
+  %15 = icmp ne i64 %14, 0
+  br i1 %15, label %16, label %19
 
-invoke.cont.i:                                    ; preds = %entry
-  store i32 %call.i, ptr %__b.i, align 4
-  %3 = load i32, ptr %__m.addr.i, align 4
-  switch i32 %3, label %monotonic.i [
-    i32 1, label %acquire.i
-    i32 2, label %acquire.i
-    i32 5, label %seqcst.i
-  ]
+16:                                               ; preds = %2
+  %17 = load ptr, ptr %5, align 8, !tbaa !10
+  %18 = load ptr, ptr %4, align 8, !tbaa !9
+  call void @_ZN4absl13base_internal12CallOnceImplIRFvvEJEEEvPSt6atomicIjENS0_14SchedulingModeEOT_DpOT0_(ptr noundef %17, i32 noundef 0, ptr noundef nonnull %18)
+  br label %19
 
-monotonic.i:                                      ; preds = %invoke.cont.i
-  %4 = load atomic i32, ptr %this1.i monotonic, align 4
-  store i32 %4, ptr %atomic-temp.i, align 4
-  br label %_ZNKSt13__atomic_baseIjE4loadESt12memory_order.exit
-
-acquire.i:                                        ; preds = %invoke.cont.i, %invoke.cont.i
-  %5 = load atomic i32, ptr %this1.i acquire, align 4
-  store i32 %5, ptr %atomic-temp.i, align 4
-  br label %_ZNKSt13__atomic_baseIjE4loadESt12memory_order.exit
-
-seqcst.i:                                         ; preds = %invoke.cont.i
-  %6 = load atomic i32, ptr %this1.i seq_cst, align 4
-  store i32 %6, ptr %atomic-temp.i, align 4
-  br label %_ZNKSt13__atomic_baseIjE4loadESt12memory_order.exit
-
-terminate.lpad.i:                                 ; preds = %entry
-  %7 = landingpad { ptr, i32 }
-          catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #8
-  unreachable
-
-_ZNKSt13__atomic_baseIjE4loadESt12memory_order.exit: ; preds = %seqcst.i, %acquire.i, %monotonic.i
-  %9 = load i32, ptr %atomic-temp.i, align 4
-  store i32 %9, ptr %s, align 4
-  %10 = load i32, ptr %s, align 4
-  %cmp = icmp ne i32 %10, 221
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %_ZNKSt13__atomic_baseIjE4loadESt12memory_order.exit
-  %11 = load ptr, ptr %once, align 8
-  %12 = load ptr, ptr %fn.addr, align 8
-  call void @_ZN4absl13base_internal12CallOnceImplIRFvvEJEEEvPSt6atomicIjENS0_14SchedulingModeEOT_DpOT0_(ptr noundef %11, i32 noundef 0, ptr noundef nonnull %12)
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %_ZNKSt13__atomic_baseIjE4loadESt12memory_order.exit
+19:                                               ; preds = %16, %2
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #14
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN4absl13base_internal12_GLOBAL__N_118CreateGlobalArenasEv() #0 {
-entry:
   call void @_ZN4absl13base_internal13LowLevelAlloc5ArenaC1Ej(ptr noundef nonnull align 8 dereferenceable(324) @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i32 noundef 1)
   call void @_ZN4absl13base_internal13LowLevelAlloc5ArenaC1Ej(ptr noundef nonnull align 8 dereferenceable(324) @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i32 noundef 0)
   call void @_ZN4absl13base_internal13LowLevelAlloc5ArenaC1Ej(ptr noundef nonnull align 8 dereferenceable(324) @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i32 noundef 2)
@@ -199,55 +168,54 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl13base_internal13LowLevelAlloc5ArenaC2Ej(ptr noundef nonnull align 8 dereferenceable(324) %this, i32 noundef %flags_value) unnamed_addr #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %flags_value.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %flags_value, ptr %flags_value.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %mu = getelementptr inbounds %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %this1, i32 0, i32 0
-  call void @_ZN4absl13base_internal8SpinLockC1ENS0_14SchedulingModeE(ptr noundef nonnull align 4 dereferenceable(4) %mu, i32 noundef 0)
-  %allocation_count = getelementptr inbounds %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %this1, i32 0, i32 3
-  store i32 0, ptr %allocation_count, align 8
-  %flags = getelementptr inbounds %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %this1, i32 0, i32 4
-  %0 = load i32, ptr %flags_value.addr, align 4
-  store i32 %0, ptr %flags, align 4
-  %pagesize = getelementptr inbounds %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %this1, i32 0, i32 5
-  %call = call noundef i64 @_ZN4absl13base_internal12_GLOBAL__N_111GetPageSizeEv()
-  store i64 %call, ptr %pagesize, align 8
-  %round_up = getelementptr inbounds %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %this1, i32 0, i32 6
-  %call2 = call noundef i64 @_ZN4absl13base_internal12_GLOBAL__N_118RoundedUpBlockSizeEv()
-  store i64 %call2, ptr %round_up, align 8
-  %min_size = getelementptr inbounds %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %this1, i32 0, i32 7
-  %round_up3 = getelementptr inbounds %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %this1, i32 0, i32 6
-  %1 = load i64, ptr %round_up3, align 8
-  %mul = mul i64 2, %1
-  store i64 %mul, ptr %min_size, align 8
-  %random = getelementptr inbounds %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %this1, i32 0, i32 8
-  store i32 0, ptr %random, align 8
-  %freelist4 = getelementptr inbounds %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %this1, i32 0, i32 2
-  %header = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %freelist4, i32 0, i32 0
-  %size = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList::Header", ptr %header, i32 0, i32 0
-  store i64 0, ptr %size, align 8
-  %freelist5 = getelementptr inbounds %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %this1, i32 0, i32 2
-  %header6 = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %freelist5, i32 0, i32 0
-  %call7 = call noundef i64 @_ZN4absl13base_internalL5MagicEmPNS0_12_GLOBAL__N_19AllocList6HeaderE(i64 noundef -1283669654, ptr noundef %header6)
-  %freelist8 = getelementptr inbounds %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %this1, i32 0, i32 2
-  %header9 = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %freelist8, i32 0, i32 0
-  %magic = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList::Header", ptr %header9, i32 0, i32 1
-  store i64 %call7, ptr %magic, align 8
-  %freelist10 = getelementptr inbounds %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %this1, i32 0, i32 2
-  %header11 = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %freelist10, i32 0, i32 0
-  %arena = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList::Header", ptr %header11, i32 0, i32 2
-  store ptr %this1, ptr %arena, align 8
-  %freelist12 = getelementptr inbounds %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %this1, i32 0, i32 2
-  %levels = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %freelist12, i32 0, i32 1
-  store i32 0, ptr %levels, align 8
-  %freelist13 = getelementptr inbounds %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %this1, i32 0, i32 2
-  %next = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %freelist13, i32 0, i32 2
-  %arraydecay = getelementptr inbounds [30 x ptr], ptr %next, i64 0, i64 0
-  call void @llvm.memset.p0.i64(ptr align 8 %arraydecay, i8 0, i64 240, i1 false)
+define dso_local void @_ZN4absl13base_internal13LowLevelAlloc5ArenaC2Ej(ptr noundef nonnull align 8 dereferenceable(324) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !14
+  store i32 %1, ptr %4, align 4, !tbaa !12
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %5, i32 0, i32 0
+  call void @_ZN4absl13base_internal8SpinLockC1ENS0_14SchedulingModeE(ptr noundef nonnull align 4 dereferenceable(4) %6, i32 noundef 0)
+  %7 = getelementptr inbounds nuw %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %5, i32 0, i32 3
+  store i32 0, ptr %7, align 8, !tbaa !16
+  %8 = getelementptr inbounds nuw %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %5, i32 0, i32 4
+  %9 = load i32, ptr %4, align 4, !tbaa !12
+  store i32 %9, ptr %8, align 4, !tbaa !24
+  %10 = getelementptr inbounds nuw %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %5, i32 0, i32 5
+  %11 = call noundef i64 @_ZN4absl13base_internal12_GLOBAL__N_111GetPageSizeEv()
+  store i64 %11, ptr %10, align 8, !tbaa !25
+  %12 = getelementptr inbounds nuw %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %5, i32 0, i32 6
+  %13 = call noundef i64 @_ZN4absl13base_internal12_GLOBAL__N_118RoundedUpBlockSizeEv()
+  store i64 %13, ptr %12, align 8, !tbaa !26
+  %14 = getelementptr inbounds nuw %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %5, i32 0, i32 7
+  %15 = getelementptr inbounds nuw %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %5, i32 0, i32 6
+  %16 = load i64, ptr %15, align 8, !tbaa !26
+  %17 = mul i64 2, %16
+  store i64 %17, ptr %14, align 8, !tbaa !27
+  %18 = getelementptr inbounds nuw %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %5, i32 0, i32 8
+  store i32 0, ptr %18, align 8, !tbaa !28
+  %19 = getelementptr inbounds nuw %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %5, i32 0, i32 2
+  %20 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %19, i32 0, i32 0
+  %21 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList::Header", ptr %20, i32 0, i32 0
+  store i64 0, ptr %21, align 8, !tbaa !29
+  %22 = getelementptr inbounds nuw %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %5, i32 0, i32 2
+  %23 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %22, i32 0, i32 0
+  %24 = call noundef i64 @_ZN4absl13base_internalL5MagicEmPNS0_12_GLOBAL__N_19AllocList6HeaderE(i64 noundef -1283669654, ptr noundef %23)
+  %25 = getelementptr inbounds nuw %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %5, i32 0, i32 2
+  %26 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %25, i32 0, i32 0
+  %27 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList::Header", ptr %26, i32 0, i32 1
+  store i64 %24, ptr %27, align 8, !tbaa !30
+  %28 = getelementptr inbounds nuw %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %5, i32 0, i32 2
+  %29 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %28, i32 0, i32 0
+  %30 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList::Header", ptr %29, i32 0, i32 2
+  store ptr %5, ptr %30, align 8, !tbaa !31
+  %31 = getelementptr inbounds nuw %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %5, i32 0, i32 2
+  %32 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %31, i32 0, i32 1
+  store i32 0, ptr %32, align 8, !tbaa !32
+  %33 = getelementptr inbounds nuw %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %5, i32 0, i32 2
+  %34 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %33, i32 0, i32 2
+  %35 = getelementptr inbounds [30 x ptr], ptr %34, i64 0, i64 0
+  call void @llvm.memset.p0.i64(ptr align 8 %35, i8 0, i64 240, i1 false)
   ret void
 }
 
@@ -255,1869 +223,1893 @@ declare void @_ZN4absl13base_internal8SpinLockC1ENS0_14SchedulingModeE(ptr nound
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef i64 @_ZN4absl13base_internal12_GLOBAL__N_111GetPageSizeEv() #2 {
-entry:
-  %call = call i64 @sysconf(i32 noundef 30) #9
-  ret i64 %call
+  %1 = call i64 @sysconf(i32 noundef 30) #14
+  ret i64 %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef i64 @_ZN4absl13base_internal12_GLOBAL__N_118RoundedUpBlockSizeEv() #2 {
-entry:
-  %round_up = alloca i64, align 8
-  store i64 16, ptr %round_up, align 8
-  br label %while.cond
+  %1 = alloca i64, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #14
+  store i64 16, ptr %1, align 8, !tbaa !33
+  br label %2
 
-while.cond:                                       ; preds = %while.body, %entry
-  %0 = load i64, ptr %round_up, align 8
-  %cmp = icmp ult i64 %0, 32
-  br i1 %cmp, label %while.body, label %while.end
+2:                                                ; preds = %5, %0
+  %3 = load i64, ptr %1, align 8, !tbaa !33
+  %4 = icmp ult i64 %3, 32
+  br i1 %4, label %5, label %9
 
-while.body:                                       ; preds = %while.cond
-  %1 = load i64, ptr %round_up, align 8
-  %2 = load i64, ptr %round_up, align 8
-  %add = add i64 %2, %1
-  store i64 %add, ptr %round_up, align 8
-  br label %while.cond, !llvm.loop !5
+5:                                                ; preds = %2
+  %6 = load i64, ptr %1, align 8, !tbaa !33
+  %7 = load i64, ptr %1, align 8, !tbaa !33
+  %8 = add i64 %7, %6
+  store i64 %8, ptr %1, align 8, !tbaa !33
+  br label %2, !llvm.loop !34
 
-while.end:                                        ; preds = %while.cond
-  %3 = load i64, ptr %round_up, align 8
-  ret i64 %3
+9:                                                ; preds = %2
+  %10 = load i64, ptr %1, align 8, !tbaa !33
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #14
+  ret i64 %10
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal noundef i64 @_ZN4absl13base_internalL5MagicEmPNS0_12_GLOBAL__N_19AllocList6HeaderE(i64 noundef %magic, ptr noundef %ptr) #2 {
-entry:
-  %magic.addr = alloca i64, align 8
-  %ptr.addr = alloca ptr, align 8
-  store i64 %magic, ptr %magic.addr, align 8
-  store ptr %ptr, ptr %ptr.addr, align 8
-  %0 = load i64, ptr %magic.addr, align 8
-  %1 = load ptr, ptr %ptr.addr, align 8
-  %2 = ptrtoint ptr %1 to i64
-  %xor = xor i64 %0, %2
-  ret i64 %xor
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define internal noundef i64 @_ZN4absl13base_internalL5MagicEmPNS0_12_GLOBAL__N_19AllocList6HeaderE(i64 noundef %0, ptr noundef %1) #3 {
+  %3 = alloca i64, align 8
+  %4 = alloca ptr, align 8
+  store i64 %0, ptr %3, align 8, !tbaa !33
+  store ptr %1, ptr %4, align 8, !tbaa !36
+  %5 = load i64, ptr %3, align 8, !tbaa !33
+  %6 = load ptr, ptr %4, align 8, !tbaa !36
+  %7 = ptrtoint ptr %6 to i64
+  %8 = xor i64 %5, %7
+  ret i64 %8
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN4absl13base_internal13LowLevelAlloc8NewArenaEj(i32 noundef %flags) #0 align 2 {
-entry:
-  %flags.addr = alloca i32, align 4
-  %meta_data_arena = alloca ptr, align 8
-  %result = alloca ptr, align 8
-  store i32 %flags, ptr %flags.addr, align 4
-  %call = call noundef ptr @_ZN4absl13base_internal13LowLevelAlloc12DefaultArenaEv()
-  store ptr %call, ptr %meta_data_arena, align 8
-  %0 = load i32, ptr %flags.addr, align 4
-  %and = and i32 %0, 2
-  %cmp = icmp ne i32 %and, 0
-  br i1 %cmp, label %if.then, label %if.else
+define dso_local noundef ptr @_ZN4absl13base_internal13LowLevelAlloc8NewArenaEj(i32 noundef %0) #0 align 2 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store i32 %0, ptr %2, align 4, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #14
+  %5 = call noundef ptr @_ZN4absl13base_internal13LowLevelAlloc12DefaultArenaEv()
+  store ptr %5, ptr %3, align 8, !tbaa !14
+  %6 = load i32, ptr %2, align 4, !tbaa !12
+  %7 = and i32 %6, 2
+  %8 = icmp ne i32 %7, 0
+  br i1 %8, label %9, label %11
 
-if.then:                                          ; preds = %entry
-  %call1 = call noundef ptr @_ZN4absl13base_internal12_GLOBAL__N_125UnhookedAsyncSigSafeArenaEv()
-  store ptr %call1, ptr %meta_data_arena, align 8
-  br label %if.end6
+9:                                                ; preds = %1
+  %10 = call noundef ptr @_ZN4absl13base_internal12_GLOBAL__N_125UnhookedAsyncSigSafeArenaEv()
+  store ptr %10, ptr %3, align 8, !tbaa !14
+  br label %18
 
-if.else:                                          ; preds = %entry
-  %1 = load i32, ptr %flags.addr, align 4
-  %and2 = and i32 %1, 1
-  %cmp3 = icmp eq i32 %and2, 0
-  br i1 %cmp3, label %if.then4, label %if.end
+11:                                               ; preds = %1
+  %12 = load i32, ptr %2, align 4, !tbaa !12
+  %13 = and i32 %12, 1
+  %14 = icmp eq i32 %13, 0
+  br i1 %14, label %15, label %17
 
-if.then4:                                         ; preds = %if.else
-  %call5 = call noundef ptr @_ZN4absl13base_internal12_GLOBAL__N_113UnhookedArenaEv()
-  store ptr %call5, ptr %meta_data_arena, align 8
-  br label %if.end
+15:                                               ; preds = %11
+  %16 = call noundef ptr @_ZN4absl13base_internal12_GLOBAL__N_113UnhookedArenaEv()
+  store ptr %16, ptr %3, align 8, !tbaa !14
+  br label %17
 
-if.end:                                           ; preds = %if.then4, %if.else
-  br label %if.end6
+17:                                               ; preds = %15, %11
+  br label %18
 
-if.end6:                                          ; preds = %if.end, %if.then
-  %2 = load ptr, ptr %meta_data_arena, align 8
-  %call7 = call noundef ptr @_ZN4absl13base_internal13LowLevelAlloc14AllocWithArenaEmPNS1_5ArenaE(i64 noundef 328, ptr noundef %2)
-  %3 = load i32, ptr %flags.addr, align 4
-  call void @_ZN4absl13base_internal13LowLevelAlloc5ArenaC1Ej(ptr noundef nonnull align 8 dereferenceable(324) %call7, i32 noundef %3)
-  store ptr %call7, ptr %result, align 8
-  %4 = load ptr, ptr %result, align 8
-  ret ptr %4
+18:                                               ; preds = %17, %9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #14
+  %19 = load ptr, ptr %3, align 8, !tbaa !14
+  %20 = call noundef ptr @_ZN4absl13base_internal13LowLevelAlloc14AllocWithArenaEmPNS1_5ArenaE(i64 noundef 328, ptr noundef %19)
+  %21 = load i32, ptr %2, align 4, !tbaa !12
+  call void @_ZN4absl13base_internal13LowLevelAlloc5ArenaC1Ej(ptr noundef nonnull align 8 dereferenceable(324) %20, i32 noundef %21)
+  store ptr %20, ptr %4, align 8, !tbaa !14
+  %22 = load ptr, ptr %4, align 8, !tbaa !14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #14
+  ret ptr %22
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef ptr @_ZN4absl13base_internal12_GLOBAL__N_125UnhookedAsyncSigSafeArenaEv() #0 {
-entry:
   call void @_ZN4absl13base_internal16LowLevelCallOnceIRFvvEJEEEvPNS_9once_flagEOT_DpOT0_(ptr noundef @_ZN4absl13base_internal12_GLOBAL__N_119create_globals_onceE, ptr noundef nonnull @_ZN4absl13base_internal12_GLOBAL__N_118CreateGlobalArenasEv)
   ret ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef ptr @_ZN4absl13base_internal12_GLOBAL__N_113UnhookedArenaEv() #0 {
-entry:
   call void @_ZN4absl13base_internal16LowLevelCallOnceIRFvvEJEEEvPNS_9once_flagEOT_DpOT0_(ptr noundef @_ZN4absl13base_internal12_GLOBAL__N_119create_globals_onceE, ptr noundef nonnull @_ZN4absl13base_internal12_GLOBAL__N_118CreateGlobalArenasEv)
   ret ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE
 }
 
-; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN4absl13base_internal13LowLevelAlloc14AllocWithArenaEmPNS1_5ArenaE(i64 noundef %request, ptr noundef %arena) #0 section "malloc_hook" align 2 {
-entry:
-  %request.addr = alloca i64, align 8
-  %arena.addr = alloca ptr, align 8
-  %absl_raw_log_internal_basename = alloca ptr, align 8
-  %result = alloca ptr, align 8
-  store i64 %request, ptr %request.addr, align 8
-  store ptr %arena, ptr %arena.addr, align 8
-  br label %do.body
+; Function Attrs: mustprogress noinline uwtable
+define dso_local noundef ptr @_ZN4absl13base_internal13LowLevelAlloc14AllocWithArenaEmPNS1_5ArenaE(i64 noundef %0, ptr noundef %1) #6 section "malloc_hook" align 2 {
+  %3 = alloca i64, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store i64 %0, ptr %3, align 8, !tbaa !33
+  store ptr %1, ptr %4, align 8, !tbaa !14
+  br label %7
 
-do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %arena.addr, align 8
-  %cmp = icmp ne ptr %0, null
-  %lnot = xor i1 %cmp, true
-  br i1 %lnot, label %if.then, label %if.end
+7:                                                ; preds = %2
+  %8 = load ptr, ptr %4, align 8, !tbaa !14
+  %9 = icmp ne ptr %8, null
+  %10 = xor i1 %9, true
+  %11 = zext i1 %10 to i64
+  %12 = call i64 @llvm.expect.i64(i64 %11, i64 0)
+  %13 = icmp ne i64 %12, 0
+  br i1 %13, label %14, label %20
 
-if.then:                                          ; preds = %do.body
-  br label %do.body1
+14:                                               ; preds = %7
+  br label %15
 
-do.body1:                                         ; preds = %if.then
-  %1 = getelementptr i8, ptr @.str, i64 118
-  store ptr %1, ptr %absl_raw_log_internal_basename, align 8
-  %2 = getelementptr i8, ptr @.str, i64 118
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %2, i32 noundef 622, ptr noundef @.str.1, ptr noundef @.str.15, ptr noundef @.str.16)
-  br label %do.body2
+15:                                               ; preds = %14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #14
+  store ptr getelementptr (i8, ptr @.str, i64 118), ptr %5, align 8, !tbaa !38
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 118), i32 noundef 622, ptr noundef @.str.1, ptr noundef @.str.15, ptr noundef @.str.16)
+  br label %16
 
-do.body2:                                         ; preds = %do.body1
+16:                                               ; preds = %15
   unreachable
 
-do.end:                                           ; No predecessors!
-  br label %do.end3
+17:                                               ; No predecessors!
+  br label %18
 
-do.end3:                                          ; preds = %do.end
-  br label %if.end
+18:                                               ; preds = %17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #14
+  br label %19
 
-if.end:                                           ; preds = %do.end3, %do.body
-  br label %do.end4
+19:                                               ; preds = %18
+  br label %20
 
-do.end4:                                          ; preds = %if.end
-  %3 = load i64, ptr %request.addr, align 8
-  %4 = load ptr, ptr %arena.addr, align 8
-  %call = call noundef ptr @_ZN4absl13base_internalL16DoAllocWithArenaEmPNS0_13LowLevelAlloc5ArenaE(i64 noundef %3, ptr noundef %4)
-  store ptr %call, ptr %result, align 8
-  %5 = load ptr, ptr %result, align 8
-  ret ptr %5
+20:                                               ; preds = %19, %7
+  br label %21
+
+21:                                               ; preds = %20
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #14
+  %22 = load i64, ptr %3, align 8, !tbaa !33
+  %23 = load ptr, ptr %4, align 8, !tbaa !14
+  %24 = call noundef ptr @_ZN4absl13base_internalL16DoAllocWithArenaEmPNS0_13LowLevelAlloc5ArenaE(i64 noundef %22, ptr noundef %23)
+  store ptr %24, ptr %6, align 8, !tbaa !9
+  %25 = load ptr, ptr %6, align 8, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #14
+  ret ptr %25
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
+
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4absl13base_internal13LowLevelAlloc11DeleteArenaEPNS1_5ArenaE(ptr noundef %arena) #0 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %retval = alloca i1, align 1
-  %arena.addr = alloca ptr, align 8
-  %absl_raw_log_internal_basename = alloca ptr, align 8
-  %section = alloca %"class.absl::base_internal::(anonymous namespace)::ArenaLock", align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  %cleanup.dest.slot = alloca i32, align 4
-  %region = alloca ptr, align 8
-  %size = alloca i64, align 8
-  %absl_raw_log_internal_basename30 = alloca ptr, align 8
-  %absl_raw_log_internal_basename46 = alloca ptr, align 8
-  %absl_raw_log_internal_basename61 = alloca ptr, align 8
-  %absl_raw_log_internal_basename78 = alloca ptr, align 8
-  %munmap_result = alloca i32, align 4
-  %absl_raw_log_internal_basename97 = alloca ptr, align 8
-  store ptr %arena, ptr %arena.addr, align 8
-  br label %do.body
+define dso_local noundef zeroext i1 @_ZN4absl13base_internal13LowLevelAlloc11DeleteArenaEPNS1_5ArenaE(ptr noundef %0) #0 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca i1, align 1
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %"class.absl::base_internal::(anonymous namespace)::ArenaLock", align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca i32, align 4
+  %16 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !14
+  br label %17
 
-do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %arena.addr, align 8
-  %cmp = icmp ne ptr %0, null
-  br i1 %cmp, label %land.lhs.true, label %land.end
+17:                                               ; preds = %1
+  %18 = load ptr, ptr %3, align 8, !tbaa !14
+  %19 = icmp ne ptr %18, null
+  br i1 %19, label %20, label %28
 
-land.lhs.true:                                    ; preds = %do.body
-  %1 = load ptr, ptr %arena.addr, align 8
-  %call = call noundef ptr @_ZN4absl13base_internal13LowLevelAlloc12DefaultArenaEv()
-  %cmp1 = icmp ne ptr %1, %call
-  br i1 %cmp1, label %land.rhs, label %land.end
+20:                                               ; preds = %17
+  %21 = load ptr, ptr %3, align 8, !tbaa !14
+  %22 = call noundef ptr @_ZN4absl13base_internal13LowLevelAlloc12DefaultArenaEv()
+  %23 = icmp ne ptr %21, %22
+  br i1 %23, label %24, label %28
 
-land.rhs:                                         ; preds = %land.lhs.true
-  %2 = load ptr, ptr %arena.addr, align 8
-  %call2 = call noundef ptr @_ZN4absl13base_internal12_GLOBAL__N_113UnhookedArenaEv()
-  %cmp3 = icmp ne ptr %2, %call2
-  br label %land.end
+24:                                               ; preds = %20
+  %25 = load ptr, ptr %3, align 8, !tbaa !14
+  %26 = call noundef ptr @_ZN4absl13base_internal12_GLOBAL__N_113UnhookedArenaEv()
+  %27 = icmp ne ptr %25, %26
+  br label %28
 
-land.end:                                         ; preds = %land.rhs, %land.lhs.true, %do.body
-  %3 = phi i1 [ false, %land.lhs.true ], [ false, %do.body ], [ %cmp3, %land.rhs ]
-  %lnot = xor i1 %3, true
-  br i1 %lnot, label %if.then, label %if.end
+28:                                               ; preds = %24, %20, %17
+  %29 = phi i1 [ false, %20 ], [ false, %17 ], [ %27, %24 ]
+  %30 = xor i1 %29, true
+  %31 = zext i1 %30 to i64
+  %32 = call i64 @llvm.expect.i64(i64 %31, i64 0)
+  %33 = icmp ne i64 %32, 0
+  br i1 %33, label %34, label %40
 
-if.then:                                          ; preds = %land.end
-  br label %do.body4
+34:                                               ; preds = %28
+  br label %35
 
-do.body4:                                         ; preds = %if.then
-  %4 = getelementptr i8, ptr @.str, i64 118
-  store ptr %4, ptr %absl_raw_log_internal_basename, align 8
-  %5 = getelementptr i8, ptr @.str, i64 118
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %5, i32 noundef 385, ptr noundef @.str.1, ptr noundef @.str.2, ptr noundef @.str.3)
-  br label %do.body5
+35:                                               ; preds = %34
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #14
+  store ptr getelementptr (i8, ptr @.str, i64 118), ptr %4, align 8, !tbaa !38
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 118), i32 noundef 385, ptr noundef @.str.1, ptr noundef @.str.2, ptr noundef @.str.3)
+  br label %36
 
-do.body5:                                         ; preds = %do.body4
+36:                                               ; preds = %35
   unreachable
 
-do.end:                                           ; No predecessors!
-  br label %do.end6
+37:                                               ; No predecessors!
+  br label %38
 
-do.end6:                                          ; preds = %do.end
-  br label %if.end
+38:                                               ; preds = %37
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #14
+  br label %39
 
-if.end:                                           ; preds = %do.end6, %land.end
-  br label %do.end7
+39:                                               ; preds = %38
+  br label %40
 
-do.end7:                                          ; preds = %if.end
-  %6 = load ptr, ptr %arena.addr, align 8
-  call void @_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockC2EPNS0_13LowLevelAlloc5ArenaE(ptr noundef nonnull align 8 dereferenceable(144) %section, ptr noundef %6)
-  %7 = load ptr, ptr %arena.addr, align 8
-  %allocation_count = getelementptr inbounds %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %7, i32 0, i32 3
-  %8 = load i32, ptr %allocation_count, align 8
-  %cmp8 = icmp ne i32 %8, 0
-  br i1 %cmp8, label %if.then9, label %if.end10
+40:                                               ; preds = %39, %28
+  br label %41
 
-if.then9:                                         ; preds = %do.end7
-  invoke void @_ZN4absl13base_internal12_GLOBAL__N_19ArenaLock5LeaveEv(ptr noundef nonnull align 8 dereferenceable(144) %section)
-          to label %invoke.cont unwind label %lpad
+41:                                               ; preds = %40
+  call void @llvm.lifetime.start.p0(i64 144, ptr %5) #14
+  %42 = load ptr, ptr %3, align 8, !tbaa !14
+  call void @_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockC2EPNS0_13LowLevelAlloc5ArenaE(ptr noundef nonnull align 8 dereferenceable(144) %5, ptr noundef %42)
+  %43 = load ptr, ptr %3, align 8, !tbaa !14
+  %44 = getelementptr inbounds nuw %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %43, i32 0, i32 3
+  %45 = load i32, ptr %44, align 8, !tbaa !16
+  %46 = icmp ne i32 %45, 0
+  br i1 %46, label %47, label %53
 
-invoke.cont:                                      ; preds = %if.then9
-  store i1 false, ptr %retval, align 1
-  store i32 1, ptr %cleanup.dest.slot, align 4
-  br label %cleanup
+47:                                               ; preds = %41
+  invoke void @_ZN4absl13base_internal12_GLOBAL__N_19ArenaLock5LeaveEv(ptr noundef nonnull align 8 dereferenceable(144) %5)
+          to label %48 unwind label %49
 
-lpad:                                             ; preds = %invoke.cont106, %while.end, %do.body96, %if.else, %do.body77, %do.body60, %do.body45, %do.body29, %do.body21, %if.then9
-  %9 = landingpad { ptr, i32 }
+48:                                               ; preds = %47
+  store i1 false, ptr %2, align 1
+  store i32 1, ptr %8, align 4
+  br label %233
+
+49:                                               ; preds = %230, %229, %47
+  %50 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
-  call void @_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %section) #9
-  br label %eh.resume
+  %51 = extractvalue { ptr, i32 } %50, 0
+  store ptr %51, ptr %6, align 8
+  %52 = extractvalue { ptr, i32 } %50, 1
+  store i32 %52, ptr %7, align 4
+  br label %235
 
-if.end10:                                         ; preds = %do.end7
-  br label %while.cond
+53:                                               ; preds = %41
+  br label %54
 
-while.cond:                                       ; preds = %if.end105, %if.end10
-  %12 = load ptr, ptr %arena.addr, align 8
-  %freelist = getelementptr inbounds %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %12, i32 0, i32 2
-  %next = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %freelist, i32 0, i32 2
-  %arrayidx = getelementptr inbounds [30 x ptr], ptr %next, i64 0, i64 0
-  %13 = load ptr, ptr %arrayidx, align 8
-  %cmp11 = icmp ne ptr %13, null
-  br i1 %cmp11, label %while.body, label %while.end
+54:                                               ; preds = %226, %53
+  %55 = load ptr, ptr %3, align 8, !tbaa !14
+  %56 = getelementptr inbounds nuw %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %55, i32 0, i32 2
+  %57 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %56, i32 0, i32 2
+  %58 = getelementptr inbounds [30 x ptr], ptr %57, i64 0, i64 0
+  %59 = load ptr, ptr %58, align 8, !tbaa !40
+  %60 = icmp ne ptr %59, null
+  br i1 %60, label %61, label %229
 
-while.body:                                       ; preds = %while.cond
-  %14 = load ptr, ptr %arena.addr, align 8
-  %freelist12 = getelementptr inbounds %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %14, i32 0, i32 2
-  %next13 = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %freelist12, i32 0, i32 2
-  %arrayidx14 = getelementptr inbounds [30 x ptr], ptr %next13, i64 0, i64 0
-  %15 = load ptr, ptr %arrayidx14, align 8
-  store ptr %15, ptr %region, align 8
-  %16 = load ptr, ptr %region, align 8
-  %header = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %16, i32 0, i32 0
-  %size15 = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList::Header", ptr %header, i32 0, i32 0
-  %17 = load i64, ptr %size15, align 8
-  store i64 %17, ptr %size, align 8
-  %18 = load ptr, ptr %region, align 8
-  %next16 = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %18, i32 0, i32 2
-  %arrayidx17 = getelementptr inbounds [30 x ptr], ptr %next16, i64 0, i64 0
-  %19 = load ptr, ptr %arrayidx17, align 8
-  %20 = load ptr, ptr %arena.addr, align 8
-  %freelist18 = getelementptr inbounds %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %20, i32 0, i32 2
-  %next19 = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %freelist18, i32 0, i32 2
-  %arrayidx20 = getelementptr inbounds [30 x ptr], ptr %next19, i64 0, i64 0
-  store ptr %19, ptr %arrayidx20, align 8
-  br label %do.body21
+61:                                               ; preds = %54
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #14
+  %62 = load ptr, ptr %3, align 8, !tbaa !14
+  %63 = getelementptr inbounds nuw %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %62, i32 0, i32 2
+  %64 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %63, i32 0, i32 2
+  %65 = getelementptr inbounds [30 x ptr], ptr %64, i64 0, i64 0
+  %66 = load ptr, ptr %65, align 8, !tbaa !40
+  store ptr %66, ptr %9, align 8, !tbaa !40
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #14
+  %67 = load ptr, ptr %9, align 8, !tbaa !40
+  %68 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %67, i32 0, i32 0
+  %69 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList::Header", ptr %68, i32 0, i32 0
+  %70 = load i64, ptr %69, align 8, !tbaa !42
+  store i64 %70, ptr %10, align 8, !tbaa !33
+  %71 = load ptr, ptr %9, align 8, !tbaa !40
+  %72 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %71, i32 0, i32 2
+  %73 = getelementptr inbounds [30 x ptr], ptr %72, i64 0, i64 0
+  %74 = load ptr, ptr %73, align 8, !tbaa !40
+  %75 = load ptr, ptr %3, align 8, !tbaa !14
+  %76 = getelementptr inbounds nuw %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %75, i32 0, i32 2
+  %77 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %76, i32 0, i32 2
+  %78 = getelementptr inbounds [30 x ptr], ptr %77, i64 0, i64 0
+  store ptr %74, ptr %78, align 8, !tbaa !40
+  br label %79
 
-do.body21:                                        ; preds = %while.body
-  %21 = load ptr, ptr %region, align 8
-  %header22 = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %21, i32 0, i32 0
-  %magic = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList::Header", ptr %header22, i32 0, i32 1
-  %22 = load i64, ptr %magic, align 8
-  %23 = load ptr, ptr %region, align 8
-  %header23 = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %23, i32 0, i32 0
-  %call25 = invoke noundef i64 @_ZN4absl13base_internalL5MagicEmPNS0_12_GLOBAL__N_19AllocList6HeaderE(i64 noundef -1283669654, ptr noundef %header23)
-          to label %invoke.cont24 unwind label %lpad
+79:                                               ; preds = %61
+  %80 = load ptr, ptr %9, align 8, !tbaa !40
+  %81 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %80, i32 0, i32 0
+  %82 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList::Header", ptr %81, i32 0, i32 1
+  %83 = load i64, ptr %82, align 8, !tbaa !43
+  %84 = load ptr, ptr %9, align 8, !tbaa !40
+  %85 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %84, i32 0, i32 0
+  %86 = invoke noundef i64 @_ZN4absl13base_internalL5MagicEmPNS0_12_GLOBAL__N_19AllocList6HeaderE(i64 noundef -1283669654, ptr noundef %85)
+          to label %87 unwind label %97
 
-invoke.cont24:                                    ; preds = %do.body21
-  %cmp26 = icmp eq i64 %22, %call25
-  %lnot27 = xor i1 %cmp26, true
-  br i1 %lnot27, label %if.then28, label %if.end36
+87:                                               ; preds = %79
+  %88 = icmp eq i64 %83, %86
+  %89 = xor i1 %88, true
+  %90 = zext i1 %89 to i64
+  %91 = call i64 @llvm.expect.i64(i64 %90, i64 0)
+  %92 = icmp ne i64 %91, 0
+  br i1 %92, label %93, label %109
 
-if.then28:                                        ; preds = %invoke.cont24
-  br label %do.body29
+93:                                               ; preds = %87
+  br label %94
 
-do.body29:                                        ; preds = %if.then28
-  %24 = getelementptr i8, ptr @.str, i64 118
-  store ptr %24, ptr %absl_raw_log_internal_basename30, align 8
-  %25 = getelementptr i8, ptr @.str, i64 118
-  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %25, i32 noundef 397, ptr noundef @.str.1, ptr noundef @.str.4, ptr noundef @.str.5)
-          to label %invoke.cont31 unwind label %lpad
+94:                                               ; preds = %93
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #14
+  store ptr getelementptr (i8, ptr @.str, i64 118), ptr %11, align 8, !tbaa !38
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 118), i32 noundef 397, ptr noundef @.str.1, ptr noundef @.str.4, ptr noundef @.str.5)
+          to label %95 unwind label %101
 
-invoke.cont31:                                    ; preds = %do.body29
-  br label %do.body32
+95:                                               ; preds = %94
+  br label %96
 
-do.body32:                                        ; preds = %invoke.cont31
+96:                                               ; preds = %95
   unreachable
 
-do.cond:                                          ; No predecessors!
-  br label %do.end33
+97:                                               ; preds = %79
+  %98 = landingpad { ptr, i32 }
+          cleanup
+  %99 = extractvalue { ptr, i32 } %98, 0
+  store ptr %99, ptr %6, align 8
+  %100 = extractvalue { ptr, i32 } %98, 1
+  store i32 %100, ptr %7, align 4
+  br label %228
 
-do.end33:                                         ; preds = %do.cond
-  br label %do.cond34
+101:                                              ; preds = %94
+  %102 = landingpad { ptr, i32 }
+          cleanup
+  %103 = extractvalue { ptr, i32 } %102, 0
+  store ptr %103, ptr %6, align 8
+  %104 = extractvalue { ptr, i32 } %102, 1
+  store i32 %104, ptr %7, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #14
+  br label %228
 
-do.cond34:                                        ; preds = %do.end33
-  br label %do.end35
+105:                                              ; No predecessors!
+  br label %106
 
-do.end35:                                         ; preds = %do.cond34
-  br label %if.end36
+106:                                              ; preds = %105
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #14
+  br label %107
 
-if.end36:                                         ; preds = %do.end35, %invoke.cont24
-  br label %do.cond37
+107:                                              ; preds = %106
+  br label %108
 
-do.cond37:                                        ; preds = %if.end36
-  br label %do.end38
+108:                                              ; preds = %107
+  br label %109
 
-do.end38:                                         ; preds = %do.cond37
-  br label %do.body39
+109:                                              ; preds = %108, %87
+  br label %110
 
-do.body39:                                        ; preds = %do.end38
-  %26 = load ptr, ptr %region, align 8
-  %header40 = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %26, i32 0, i32 0
-  %arena41 = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList::Header", ptr %header40, i32 0, i32 2
-  %27 = load ptr, ptr %arena41, align 8
-  %28 = load ptr, ptr %arena.addr, align 8
-  %cmp42 = icmp eq ptr %27, %28
-  %lnot43 = xor i1 %cmp42, true
-  br i1 %lnot43, label %if.then44, label %if.end53
+110:                                              ; preds = %109
+  br label %111
 
-if.then44:                                        ; preds = %do.body39
-  br label %do.body45
+111:                                              ; preds = %110
+  br label %112
 
-do.body45:                                        ; preds = %if.then44
-  %29 = getelementptr i8, ptr @.str, i64 118
-  store ptr %29, ptr %absl_raw_log_internal_basename46, align 8
-  %30 = getelementptr i8, ptr @.str, i64 118
-  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %30, i32 noundef 399, ptr noundef @.str.1, ptr noundef @.str.6, ptr noundef @.str.7)
-          to label %invoke.cont47 unwind label %lpad
+112:                                              ; preds = %111
+  %113 = load ptr, ptr %9, align 8, !tbaa !40
+  %114 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %113, i32 0, i32 0
+  %115 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList::Header", ptr %114, i32 0, i32 2
+  %116 = load ptr, ptr %115, align 8, !tbaa !44
+  %117 = load ptr, ptr %3, align 8, !tbaa !14
+  %118 = icmp eq ptr %116, %117
+  %119 = xor i1 %118, true
+  %120 = zext i1 %119 to i64
+  %121 = call i64 @llvm.expect.i64(i64 %120, i64 0)
+  %122 = icmp ne i64 %121, 0
+  br i1 %122, label %123, label %135
 
-invoke.cont47:                                    ; preds = %do.body45
-  br label %do.body48
+123:                                              ; preds = %112
+  br label %124
 
-do.body48:                                        ; preds = %invoke.cont47
+124:                                              ; preds = %123
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #14
+  store ptr getelementptr (i8, ptr @.str, i64 118), ptr %12, align 8, !tbaa !38
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 118), i32 noundef 399, ptr noundef @.str.1, ptr noundef @.str.6, ptr noundef @.str.7)
+          to label %125 unwind label %127
+
+125:                                              ; preds = %124
+  br label %126
+
+126:                                              ; preds = %125
   unreachable
 
-do.cond49:                                        ; No predecessors!
-  br label %do.end50
+127:                                              ; preds = %124
+  %128 = landingpad { ptr, i32 }
+          cleanup
+  %129 = extractvalue { ptr, i32 } %128, 0
+  store ptr %129, ptr %6, align 8
+  %130 = extractvalue { ptr, i32 } %128, 1
+  store i32 %130, ptr %7, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #14
+  br label %228
 
-do.end50:                                         ; preds = %do.cond49
-  br label %do.cond51
+131:                                              ; No predecessors!
+  br label %132
 
-do.cond51:                                        ; preds = %do.end50
-  br label %do.end52
+132:                                              ; preds = %131
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #14
+  br label %133
 
-do.end52:                                         ; preds = %do.cond51
-  br label %if.end53
+133:                                              ; preds = %132
+  br label %134
 
-if.end53:                                         ; preds = %do.end52, %do.body39
-  br label %do.cond54
+134:                                              ; preds = %133
+  br label %135
 
-do.cond54:                                        ; preds = %if.end53
-  br label %do.end55
+135:                                              ; preds = %134, %112
+  br label %136
 
-do.end55:                                         ; preds = %do.cond54
-  br label %do.body56
+136:                                              ; preds = %135
+  br label %137
 
-do.body56:                                        ; preds = %do.end55
-  %31 = load i64, ptr %size, align 8
-  %32 = load ptr, ptr %arena.addr, align 8
-  %pagesize = getelementptr inbounds %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %32, i32 0, i32 5
-  %33 = load i64, ptr %pagesize, align 8
-  %rem = urem i64 %31, %33
-  %cmp57 = icmp eq i64 %rem, 0
-  %lnot58 = xor i1 %cmp57, true
-  br i1 %lnot58, label %if.then59, label %if.end68
+137:                                              ; preds = %136
+  br label %138
 
-if.then59:                                        ; preds = %do.body56
-  br label %do.body60
+138:                                              ; preds = %137
+  %139 = load i64, ptr %10, align 8, !tbaa !33
+  %140 = load ptr, ptr %3, align 8, !tbaa !14
+  %141 = getelementptr inbounds nuw %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %140, i32 0, i32 5
+  %142 = load i64, ptr %141, align 8, !tbaa !25
+  %143 = urem i64 %139, %142
+  %144 = icmp eq i64 %143, 0
+  %145 = xor i1 %144, true
+  %146 = zext i1 %145 to i64
+  %147 = call i64 @llvm.expect.i64(i64 %146, i64 0)
+  %148 = icmp ne i64 %147, 0
+  br i1 %148, label %149, label %161
 
-do.body60:                                        ; preds = %if.then59
-  %34 = getelementptr i8, ptr @.str, i64 118
-  store ptr %34, ptr %absl_raw_log_internal_basename61, align 8
-  %35 = getelementptr i8, ptr @.str, i64 118
-  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %35, i32 noundef 401, ptr noundef @.str.1, ptr noundef @.str.8, ptr noundef @.str.9)
-          to label %invoke.cont62 unwind label %lpad
+149:                                              ; preds = %138
+  br label %150
 
-invoke.cont62:                                    ; preds = %do.body60
-  br label %do.body63
+150:                                              ; preds = %149
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #14
+  store ptr getelementptr (i8, ptr @.str, i64 118), ptr %13, align 8, !tbaa !38
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 118), i32 noundef 401, ptr noundef @.str.1, ptr noundef @.str.8, ptr noundef @.str.9)
+          to label %151 unwind label %153
 
-do.body63:                                        ; preds = %invoke.cont62
+151:                                              ; preds = %150
+  br label %152
+
+152:                                              ; preds = %151
   unreachable
 
-do.cond64:                                        ; No predecessors!
-  br label %do.end65
+153:                                              ; preds = %150
+  %154 = landingpad { ptr, i32 }
+          cleanup
+  %155 = extractvalue { ptr, i32 } %154, 0
+  store ptr %155, ptr %6, align 8
+  %156 = extractvalue { ptr, i32 } %154, 1
+  store i32 %156, ptr %7, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #14
+  br label %228
 
-do.end65:                                         ; preds = %do.cond64
-  br label %do.cond66
+157:                                              ; No predecessors!
+  br label %158
 
-do.cond66:                                        ; preds = %do.end65
-  br label %do.end67
+158:                                              ; preds = %157
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #14
+  br label %159
 
-do.end67:                                         ; preds = %do.cond66
-  br label %if.end68
+159:                                              ; preds = %158
+  br label %160
 
-if.end68:                                         ; preds = %do.end67, %do.body56
-  br label %do.cond69
+160:                                              ; preds = %159
+  br label %161
 
-do.cond69:                                        ; preds = %if.end68
-  br label %do.end70
+161:                                              ; preds = %160, %138
+  br label %162
 
-do.end70:                                         ; preds = %do.cond69
-  br label %do.body71
+162:                                              ; preds = %161
+  br label %163
 
-do.body71:                                        ; preds = %do.end70
-  %36 = load ptr, ptr %region, align 8
-  %37 = ptrtoint ptr %36 to i64
-  %38 = load ptr, ptr %arena.addr, align 8
-  %pagesize72 = getelementptr inbounds %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %38, i32 0, i32 5
-  %39 = load i64, ptr %pagesize72, align 8
-  %rem73 = urem i64 %37, %39
-  %cmp74 = icmp eq i64 %rem73, 0
-  %lnot75 = xor i1 %cmp74, true
-  br i1 %lnot75, label %if.then76, label %if.end85
+163:                                              ; preds = %162
+  br label %164
 
-if.then76:                                        ; preds = %do.body71
-  br label %do.body77
+164:                                              ; preds = %163
+  %165 = load ptr, ptr %9, align 8, !tbaa !40
+  %166 = ptrtoint ptr %165 to i64
+  %167 = load ptr, ptr %3, align 8, !tbaa !14
+  %168 = getelementptr inbounds nuw %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %167, i32 0, i32 5
+  %169 = load i64, ptr %168, align 8, !tbaa !25
+  %170 = urem i64 %166, %169
+  %171 = icmp eq i64 %170, 0
+  %172 = xor i1 %171, true
+  %173 = zext i1 %172 to i64
+  %174 = call i64 @llvm.expect.i64(i64 %173, i64 0)
+  %175 = icmp ne i64 %174, 0
+  br i1 %175, label %176, label %188
 
-do.body77:                                        ; preds = %if.then76
-  %40 = getelementptr i8, ptr @.str, i64 118
-  store ptr %40, ptr %absl_raw_log_internal_basename78, align 8
-  %41 = getelementptr i8, ptr @.str, i64 118
-  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %41, i32 noundef 403, ptr noundef @.str.1, ptr noundef @.str.10, ptr noundef @.str.11)
-          to label %invoke.cont79 unwind label %lpad
+176:                                              ; preds = %164
+  br label %177
 
-invoke.cont79:                                    ; preds = %do.body77
-  br label %do.body80
+177:                                              ; preds = %176
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #14
+  store ptr getelementptr (i8, ptr @.str, i64 118), ptr %14, align 8, !tbaa !38
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 118), i32 noundef 403, ptr noundef @.str.1, ptr noundef @.str.10, ptr noundef @.str.11)
+          to label %178 unwind label %180
 
-do.body80:                                        ; preds = %invoke.cont79
+178:                                              ; preds = %177
+  br label %179
+
+179:                                              ; preds = %178
   unreachable
 
-do.cond81:                                        ; No predecessors!
-  br label %do.end82
+180:                                              ; preds = %177
+  %181 = landingpad { ptr, i32 }
+          cleanup
+  %182 = extractvalue { ptr, i32 } %181, 0
+  store ptr %182, ptr %6, align 8
+  %183 = extractvalue { ptr, i32 } %181, 1
+  store i32 %183, ptr %7, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #14
+  br label %228
 
-do.end82:                                         ; preds = %do.cond81
-  br label %do.cond83
+184:                                              ; No predecessors!
+  br label %185
 
-do.cond83:                                        ; preds = %do.end82
-  br label %do.end84
+185:                                              ; preds = %184
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #14
+  br label %186
 
-do.end84:                                         ; preds = %do.cond83
-  br label %if.end85
+186:                                              ; preds = %185
+  br label %187
 
-if.end85:                                         ; preds = %do.end84, %do.body71
-  br label %do.cond86
+187:                                              ; preds = %186
+  br label %188
 
-do.cond86:                                        ; preds = %if.end85
-  br label %do.end87
+188:                                              ; preds = %187, %164
+  br label %189
 
-do.end87:                                         ; preds = %do.cond86
-  %42 = load ptr, ptr %arena.addr, align 8
-  %flags = getelementptr inbounds %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %42, i32 0, i32 4
-  %43 = load i32, ptr %flags, align 4
-  %and = and i32 %43, 2
-  %cmp88 = icmp eq i32 %and, 0
-  br i1 %cmp88, label %if.then89, label %if.else
+189:                                              ; preds = %188
+  br label %190
 
-if.then89:                                        ; preds = %do.end87
-  %44 = load ptr, ptr %region, align 8
-  %45 = load i64, ptr %size, align 8
-  %call90 = call i32 @munmap(ptr noundef %44, i64 noundef %45) #9
-  store i32 %call90, ptr %munmap_result, align 4
-  br label %if.end93
+190:                                              ; preds = %189
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #14
+  %191 = load ptr, ptr %3, align 8, !tbaa !14
+  %192 = getelementptr inbounds nuw %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %191, i32 0, i32 4
+  %193 = load i32, ptr %192, align 4, !tbaa !24
+  %194 = and i32 %193, 2
+  %195 = icmp eq i32 %194, 0
+  br i1 %195, label %196, label %200
 
-if.else:                                          ; preds = %do.end87
-  %46 = load ptr, ptr %region, align 8
-  %47 = load i64, ptr %size, align 8
-  %call92 = invoke noundef i32 @_ZN4absl13base_internal12DirectMunmapEPvm(ptr noundef %46, i64 noundef %47)
-          to label %invoke.cont91 unwind label %lpad
+196:                                              ; preds = %190
+  %197 = load ptr, ptr %9, align 8, !tbaa !40
+  %198 = load i64, ptr %10, align 8, !tbaa !33
+  %199 = call i32 @munmap(ptr noundef %197, i64 noundef %198) #14
+  store i32 %199, ptr %15, align 4, !tbaa !12
+  br label %209
 
-invoke.cont91:                                    ; preds = %if.else
-  store i32 %call92, ptr %munmap_result, align 4
-  br label %if.end93
+200:                                              ; preds = %190
+  %201 = load ptr, ptr %9, align 8, !tbaa !40
+  %202 = load i64, ptr %10, align 8, !tbaa !33
+  %203 = invoke noundef i32 @_ZN4absl13base_internal12DirectMunmapEPvm(ptr noundef %201, i64 noundef %202)
+          to label %204 unwind label %205
 
-if.end93:                                         ; preds = %invoke.cont91, %if.then89
-  %48 = load i32, ptr %munmap_result, align 4
-  %cmp94 = icmp ne i32 %48, 0
-  br i1 %cmp94, label %if.then95, label %if.end105
+204:                                              ; preds = %200
+  store i32 %203, ptr %15, align 4, !tbaa !12
+  br label %209
 
-if.then95:                                        ; preds = %if.end93
-  br label %do.body96
+205:                                              ; preds = %200
+  %206 = landingpad { ptr, i32 }
+          cleanup
+  %207 = extractvalue { ptr, i32 } %206, 0
+  store ptr %207, ptr %6, align 8
+  %208 = extractvalue { ptr, i32 } %206, 1
+  store i32 %208, ptr %7, align 4
+  br label %227
 
-do.body96:                                        ; preds = %if.then95
-  %49 = getelementptr i8, ptr @.str, i64 118
-  store ptr %49, ptr %absl_raw_log_internal_basename97, align 8
-  %call98 = call ptr @__errno_location() #10
-  %50 = load i32, ptr %call98, align 4
-  %51 = getelementptr i8, ptr @.str, i64 118
-  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %51, i32 noundef 421, ptr noundef @.str.12, i32 noundef %50)
-          to label %invoke.cont99 unwind label %lpad
+209:                                              ; preds = %204, %196
+  %210 = load i32, ptr %15, align 4, !tbaa !12
+  %211 = icmp ne i32 %210, 0
+  br i1 %211, label %212, label %226
 
-invoke.cont99:                                    ; preds = %do.body96
-  br label %do.body100
+212:                                              ; preds = %209
+  br label %213
 
-do.body100:                                       ; preds = %invoke.cont99
+213:                                              ; preds = %212
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #14
+  store ptr getelementptr (i8, ptr @.str, i64 118), ptr %16, align 8, !tbaa !38
+  %214 = call ptr @__errno_location() #15
+  %215 = load i32, ptr %214, align 4, !tbaa !12
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 118), i32 noundef 421, ptr noundef @.str.12, i32 noundef %215)
+          to label %216 unwind label %218
+
+216:                                              ; preds = %213
+  br label %217
+
+217:                                              ; preds = %216
   unreachable
 
-do.cond101:                                       ; No predecessors!
-  br label %do.end102
+218:                                              ; preds = %213
+  %219 = landingpad { ptr, i32 }
+          cleanup
+  %220 = extractvalue { ptr, i32 } %219, 0
+  store ptr %220, ptr %6, align 8
+  %221 = extractvalue { ptr, i32 } %219, 1
+  store i32 %221, ptr %7, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #14
+  br label %227
 
-do.end102:                                        ; preds = %do.cond101
-  br label %do.cond103
+222:                                              ; No predecessors!
+  br label %223
 
-do.cond103:                                       ; preds = %do.end102
-  br label %do.end104
+223:                                              ; preds = %222
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #14
+  br label %224
 
-do.end104:                                        ; preds = %do.cond103
-  br label %if.end105
+224:                                              ; preds = %223
+  br label %225
 
-if.end105:                                        ; preds = %do.end104, %if.end93
-  br label %while.cond, !llvm.loop !7
+225:                                              ; preds = %224
+  br label %226
 
-while.end:                                        ; preds = %while.cond
-  invoke void @_ZN4absl13base_internal12_GLOBAL__N_19ArenaLock5LeaveEv(ptr noundef nonnull align 8 dereferenceable(144) %section)
-          to label %invoke.cont106 unwind label %lpad
+226:                                              ; preds = %225, %209
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #14
+  br label %54, !llvm.loop !45
 
-invoke.cont106:                                   ; preds = %while.end
-  %52 = load ptr, ptr %arena.addr, align 8
-  invoke void @_ZN4absl13base_internal13LowLevelAlloc4FreeEPv(ptr noundef %52)
-          to label %invoke.cont107 unwind label %lpad
+227:                                              ; preds = %218, %205
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #14
+  br label %228
 
-invoke.cont107:                                   ; preds = %invoke.cont106
-  store i1 true, ptr %retval, align 1
-  store i32 1, ptr %cleanup.dest.slot, align 4
-  br label %cleanup
+228:                                              ; preds = %227, %180, %153, %127, %101, %97
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #14
+  br label %235
 
-cleanup:                                          ; preds = %invoke.cont107, %invoke.cont
-  call void @_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %section) #9
-  %53 = load i1, ptr %retval, align 1
-  ret i1 %53
+229:                                              ; preds = %54
+  invoke void @_ZN4absl13base_internal12_GLOBAL__N_19ArenaLock5LeaveEv(ptr noundef nonnull align 8 dereferenceable(144) %5)
+          to label %230 unwind label %49
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val108 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val108
+230:                                              ; preds = %229
+  %231 = load ptr, ptr %3, align 8, !tbaa !14
+  invoke void @_ZN4absl13base_internal13LowLevelAlloc4FreeEPv(ptr noundef %231)
+          to label %232 unwind label %49
+
+232:                                              ; preds = %230
+  store i1 true, ptr %2, align 1
+  store i32 1, ptr %8, align 4
+  br label %233
+
+233:                                              ; preds = %232, %48
+  call void @_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %5) #14
+  call void @llvm.lifetime.end.p0(i64 144, ptr %5) #14
+  %234 = load i1, ptr %2, align 1
+  ret i1 %234
+
+235:                                              ; preds = %228, %49
+  call void @_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %5) #14
+  call void @llvm.lifetime.end.p0(i64 144, ptr %5) #14
+  br label %236
+
+236:                                              ; preds = %235
+  %237 = load ptr, ptr %6, align 8
+  %238 = load i32, ptr %7, align 4
+  %239 = insertvalue { ptr, i32 } poison, ptr %237, 0
+  %240 = insertvalue { ptr, i32 } %239, i32 %238, 1
+  resume { ptr, i32 } %240
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
+declare i64 @llvm.expect.i64(i64, i64) #7
 
 declare void @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockC2EPNS0_13LowLevelAlloc5ArenaE(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef %arena) unnamed_addr #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %arena.addr = alloca ptr, align 8
-  %all = alloca %struct.__sigset_t, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %arena, ptr %arena.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %left_ = getelementptr inbounds %"class.absl::base_internal::(anonymous namespace)::ArenaLock", ptr %this1, i32 0, i32 0
-  store i8 0, ptr %left_, align 8
-  %mask_valid_ = getelementptr inbounds %"class.absl::base_internal::(anonymous namespace)::ArenaLock", ptr %this1, i32 0, i32 1
-  store i8 0, ptr %mask_valid_, align 1
-  %arena_ = getelementptr inbounds %"class.absl::base_internal::(anonymous namespace)::ArenaLock", ptr %this1, i32 0, i32 3
-  %0 = load ptr, ptr %arena.addr, align 8
-  store ptr %0, ptr %arena_, align 8
-  %1 = load ptr, ptr %arena.addr, align 8
-  %flags = getelementptr inbounds %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %1, i32 0, i32 4
-  %2 = load i32, ptr %flags, align 4
-  %and = and i32 %2, 2
-  %cmp = icmp ne i32 %and, 0
-  br i1 %cmp, label %if.then, label %if.end
+define internal void @_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockC2EPNS0_13LowLevelAlloc5ArenaE(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %struct.__sigset_t, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !46
+  store ptr %1, ptr %4, align 8, !tbaa !14
+  %6 = load ptr, ptr %3, align 8
+  %7 = getelementptr inbounds nuw %"class.absl::base_internal::(anonymous namespace)::ArenaLock", ptr %6, i32 0, i32 0
+  store i8 0, ptr %7, align 8, !tbaa !48
+  %8 = getelementptr inbounds nuw %"class.absl::base_internal::(anonymous namespace)::ArenaLock", ptr %6, i32 0, i32 1
+  store i8 0, ptr %8, align 1, !tbaa !52
+  %9 = getelementptr inbounds nuw %"class.absl::base_internal::(anonymous namespace)::ArenaLock", ptr %6, i32 0, i32 3
+  %10 = load ptr, ptr %4, align 8, !tbaa !14
+  store ptr %10, ptr %9, align 8, !tbaa !53
+  %11 = load ptr, ptr %4, align 8, !tbaa !14
+  %12 = getelementptr inbounds nuw %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %11, i32 0, i32 4
+  %13 = load i32, ptr %12, align 4, !tbaa !24
+  %14 = and i32 %13, 2
+  %15 = icmp ne i32 %14, 0
+  br i1 %15, label %16, label %23
 
-if.then:                                          ; preds = %entry
-  %call = call i32 @sigfillset(ptr noundef %all) #9
-  %mask_2 = getelementptr inbounds %"class.absl::base_internal::(anonymous namespace)::ArenaLock", ptr %this1, i32 0, i32 2
-  %call3 = call i32 @pthread_sigmask(i32 noundef 0, ptr noundef %all, ptr noundef %mask_2) #9
-  %cmp4 = icmp eq i32 %call3, 0
-  %mask_valid_5 = getelementptr inbounds %"class.absl::base_internal::(anonymous namespace)::ArenaLock", ptr %this1, i32 0, i32 1
-  %frombool = zext i1 %cmp4 to i8
-  store i8 %frombool, ptr %mask_valid_5, align 1
-  br label %if.end
+16:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 128, ptr %5) #14
+  %17 = call i32 @sigfillset(ptr noundef %5) #14
+  %18 = getelementptr inbounds nuw %"class.absl::base_internal::(anonymous namespace)::ArenaLock", ptr %6, i32 0, i32 2
+  %19 = call i32 @pthread_sigmask(i32 noundef 0, ptr noundef %5, ptr noundef %18) #14
+  %20 = icmp eq i32 %19, 0
+  %21 = getelementptr inbounds nuw %"class.absl::base_internal::(anonymous namespace)::ArenaLock", ptr %6, i32 0, i32 1
+  %22 = zext i1 %20 to i8
+  store i8 %22, ptr %21, align 1, !tbaa !52
+  call void @llvm.lifetime.end.p0(i64 128, ptr %5) #14
+  br label %23
 
-if.end:                                           ; preds = %if.then, %entry
-  %arena_6 = getelementptr inbounds %"class.absl::base_internal::(anonymous namespace)::ArenaLock", ptr %this1, i32 0, i32 3
-  %3 = load ptr, ptr %arena_6, align 8
-  %mu = getelementptr inbounds %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %3, i32 0, i32 0
-  call void @_ZN4absl13base_internal8SpinLock4LockEv(ptr noundef nonnull align 4 dereferenceable(4) %mu)
+23:                                               ; preds = %16, %2
+  %24 = getelementptr inbounds nuw %"class.absl::base_internal::(anonymous namespace)::ArenaLock", ptr %6, i32 0, i32 3
+  %25 = load ptr, ptr %24, align 8, !tbaa !53
+  %26 = getelementptr inbounds nuw %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %25, i32 0, i32 0
+  call void @_ZN4absl13base_internal8SpinLock4LockEv(ptr noundef nonnull align 4 dereferenceable(4) %26)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl13base_internal12_GLOBAL__N_19ArenaLock5LeaveEv(ptr noundef nonnull align 8 dereferenceable(144) %this) #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %err = alloca i32, align 4
-  %absl_raw_log_internal_basename = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %arena_ = getelementptr inbounds %"class.absl::base_internal::(anonymous namespace)::ArenaLock", ptr %this1, i32 0, i32 3
-  %0 = load ptr, ptr %arena_, align 8
-  %mu = getelementptr inbounds %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %0, i32 0, i32 0
-  call void @_ZN4absl13base_internal8SpinLock6UnlockEv(ptr noundef nonnull align 4 dereferenceable(4) %mu)
-  %mask_valid_ = getelementptr inbounds %"class.absl::base_internal::(anonymous namespace)::ArenaLock", ptr %this1, i32 0, i32 1
-  %1 = load i8, ptr %mask_valid_, align 1
-  %tobool = trunc i8 %1 to i1
-  br i1 %tobool, label %if.then, label %if.end5
+define internal void @_ZN4absl13base_internal12_GLOBAL__N_19ArenaLock5LeaveEv(ptr noundef nonnull align 8 dereferenceable(144) %0) #0 align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !46
+  %5 = load ptr, ptr %2, align 8
+  %6 = getelementptr inbounds nuw %"class.absl::base_internal::(anonymous namespace)::ArenaLock", ptr %5, i32 0, i32 3
+  %7 = load ptr, ptr %6, align 8, !tbaa !53
+  %8 = getelementptr inbounds nuw %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %7, i32 0, i32 0
+  call void @_ZN4absl13base_internal8SpinLock6UnlockEv(ptr noundef nonnull align 4 dereferenceable(4) %8)
+  %9 = getelementptr inbounds nuw %"class.absl::base_internal::(anonymous namespace)::ArenaLock", ptr %5, i32 0, i32 1
+  %10 = load i8, ptr %9, align 1, !tbaa !52, !range !54, !noundef !55
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %12, label %26
 
-if.then:                                          ; preds = %entry
-  %mask_ = getelementptr inbounds %"class.absl::base_internal::(anonymous namespace)::ArenaLock", ptr %this1, i32 0, i32 2
-  %call = call i32 @pthread_sigmask(i32 noundef 2, ptr noundef %mask_, ptr noundef null) #9
-  store i32 %call, ptr %err, align 4
-  %2 = load i32, ptr %err, align 4
-  %cmp = icmp ne i32 %2, 0
-  br i1 %cmp, label %if.then2, label %if.end
+12:                                               ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #14
+  %13 = getelementptr inbounds nuw %"class.absl::base_internal::(anonymous namespace)::ArenaLock", ptr %5, i32 0, i32 2
+  %14 = call i32 @pthread_sigmask(i32 noundef 2, ptr noundef %13, ptr noundef null) #14
+  store i32 %14, ptr %3, align 4, !tbaa !12
+  %15 = load i32, ptr %3, align 4, !tbaa !12
+  %16 = icmp ne i32 %15, 0
+  br i1 %16, label %17, label %25
 
-if.then2:                                         ; preds = %if.then
-  br label %do.body
+17:                                               ; preds = %12
+  br label %18
 
-do.body:                                          ; preds = %if.then2
-  %3 = getelementptr i8, ptr @.str, i64 118
-  store ptr %3, ptr %absl_raw_log_internal_basename, align 8
-  %4 = load i32, ptr %err, align 4
-  %5 = getelementptr i8, ptr @.str, i64 118
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %5, i32 noundef 301, ptr noundef @.str.18, i32 noundef %4)
-  br label %do.body3
+18:                                               ; preds = %17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #14
+  store ptr getelementptr (i8, ptr @.str, i64 118), ptr %4, align 8, !tbaa !38
+  %19 = load i32, ptr %3, align 4, !tbaa !12
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 118), i32 noundef 301, ptr noundef @.str.18, i32 noundef %19)
+  br label %20
 
-do.body3:                                         ; preds = %do.body
+20:                                               ; preds = %18
   unreachable
 
-do.end:                                           ; No predecessors!
-  br label %do.end4
+21:                                               ; No predecessors!
+  br label %22
 
-do.end4:                                          ; preds = %do.end
-  br label %if.end
+22:                                               ; preds = %21
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #14
+  br label %23
 
-if.end:                                           ; preds = %do.end4, %if.then
-  br label %if.end5
+23:                                               ; preds = %22
+  br label %24
 
-if.end5:                                          ; preds = %if.end, %entry
-  %left_ = getelementptr inbounds %"class.absl::base_internal::(anonymous namespace)::ArenaLock", ptr %this1, i32 0, i32 0
-  store i8 1, ptr %left_, align 8
+24:                                               ; preds = %23
+  br label %25
+
+25:                                               ; preds = %24, %12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #14
+  br label %26
+
+26:                                               ; preds = %25, %1
+  %27 = getelementptr inbounds nuw %"class.absl::base_internal::(anonymous namespace)::ArenaLock", ptr %5, i32 0, i32 0
+  store i8 1, ptr %27, align 8, !tbaa !48
   ret void
 }
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: nounwind
-declare i32 @munmap(ptr noundef, i64 noundef) #4
+declare i32 @munmap(ptr noundef, i64 noundef) #8
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZN4absl13base_internal12DirectMunmapEPvm(ptr noundef %start, i64 noundef %length) #2 comdat {
-entry:
-  %start.addr = alloca ptr, align 8
-  %length.addr = alloca i64, align 8
-  store ptr %start, ptr %start.addr, align 8
-  store i64 %length, ptr %length.addr, align 8
-  %0 = load ptr, ptr %start.addr, align 8
-  %1 = load i64, ptr %length.addr, align 8
-  %call = call i64 (i64, ...) @syscall(i64 noundef 11, ptr noundef %0, i64 noundef %1) #9
-  %conv = trunc i64 %call to i32
-  ret i32 %conv
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i32 @_ZN4absl13base_internal12DirectMunmapEPvm(ptr noundef %0, i64 noundef %1) #3 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !9
+  store i64 %1, ptr %4, align 8, !tbaa !33
+  %5 = load ptr, ptr %3, align 8, !tbaa !9
+  %6 = load i64, ptr %4, align 8, !tbaa !33
+  %7 = call i64 (i64, ...) @syscall(i64 noundef 11, ptr noundef %5, i64 noundef %6) #14
+  %8 = trunc i64 %7 to i32
+  ret i32 %8
 }
 
 ; Function Attrs: nounwind willreturn memory(none)
-declare ptr @__errno_location() #5
+declare ptr @__errno_location() #9
 
-; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl13base_internal13LowLevelAlloc4FreeEPv(ptr noundef %v) #0 section "malloc_hook" align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %v.addr = alloca ptr, align 8
-  %f = alloca ptr, align 8
-  %arena = alloca ptr, align 8
-  %section = alloca %"class.absl::base_internal::(anonymous namespace)::ArenaLock", align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  %absl_raw_log_internal_basename = alloca ptr, align 8
-  store ptr %v, ptr %v.addr, align 8
-  %0 = load ptr, ptr %v.addr, align 8
-  %cmp = icmp ne ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end13
+; Function Attrs: mustprogress noinline uwtable
+define dso_local void @_ZN4absl13base_internal13LowLevelAlloc4FreeEPv(ptr noundef %0) #6 section "malloc_hook" align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %"class.absl::base_internal::(anonymous namespace)::ArenaLock", align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !9
+  %9 = load ptr, ptr %2, align 8, !tbaa !9
+  %10 = icmp ne ptr %9, null
+  br i1 %10, label %11, label %56
 
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %v.addr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %1, i64 -32
-  store ptr %add.ptr, ptr %f, align 8
-  %2 = load ptr, ptr %f, align 8
-  %header = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %2, i32 0, i32 0
-  %arena1 = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList::Header", ptr %header, i32 0, i32 2
-  %3 = load ptr, ptr %arena1, align 8
-  store ptr %3, ptr %arena, align 8
-  %4 = load ptr, ptr %arena, align 8
-  call void @_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockC2EPNS0_13LowLevelAlloc5ArenaE(ptr noundef nonnull align 8 dereferenceable(144) %section, ptr noundef %4)
-  %5 = load ptr, ptr %v.addr, align 8
-  %6 = load ptr, ptr %arena, align 8
-  invoke void @_ZN4absl13base_internalL13AddToFreelistEPvPNS0_13LowLevelAlloc5ArenaE(ptr noundef %5, ptr noundef %6)
-          to label %invoke.cont unwind label %lpad
+11:                                               ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #14
+  %12 = load ptr, ptr %2, align 8, !tbaa !9
+  %13 = getelementptr inbounds i8, ptr %12, i64 -32
+  store ptr %13, ptr %3, align 8, !tbaa !40
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #14
+  %14 = load ptr, ptr %3, align 8, !tbaa !40
+  %15 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %14, i32 0, i32 0
+  %16 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList::Header", ptr %15, i32 0, i32 2
+  %17 = load ptr, ptr %16, align 8, !tbaa !44
+  store ptr %17, ptr %4, align 8, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 144, ptr %5) #14
+  %18 = load ptr, ptr %4, align 8, !tbaa !14
+  call void @_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockC2EPNS0_13LowLevelAlloc5ArenaE(ptr noundef nonnull align 8 dereferenceable(144) %5, ptr noundef %18)
+  %19 = load ptr, ptr %2, align 8, !tbaa !9
+  %20 = load ptr, ptr %4, align 8, !tbaa !14
+  invoke void @_ZN4absl13base_internalL13AddToFreelistEPvPNS0_13LowLevelAlloc5ArenaE(ptr noundef %19, ptr noundef %20)
+          to label %21 unwind label %35
 
-invoke.cont:                                      ; preds = %if.then
-  br label %do.body
+21:                                               ; preds = %11
+  br label %22
 
-do.body:                                          ; preds = %invoke.cont
-  %7 = load ptr, ptr %arena, align 8
-  %allocation_count = getelementptr inbounds %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %7, i32 0, i32 3
-  %8 = load i32, ptr %allocation_count, align 8
-  %cmp2 = icmp sgt i32 %8, 0
-  %lnot = xor i1 %cmp2, true
-  br i1 %lnot, label %if.then3, label %if.end
+22:                                               ; preds = %21
+  %23 = load ptr, ptr %4, align 8, !tbaa !14
+  %24 = getelementptr inbounds nuw %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %23, i32 0, i32 3
+  %25 = load i32, ptr %24, align 8, !tbaa !16
+  %26 = icmp sgt i32 %25, 0
+  %27 = xor i1 %26, true
+  %28 = zext i1 %27 to i64
+  %29 = call i64 @llvm.expect.i64(i64 %28, i64 0)
+  %30 = icmp ne i64 %29, 0
+  br i1 %30, label %31, label %47
 
-if.then3:                                         ; preds = %do.body
-  br label %do.body4
+31:                                               ; preds = %22
+  br label %32
 
-do.body4:                                         ; preds = %if.then3
-  %9 = getelementptr i8, ptr @.str, i64 118
-  store ptr %9, ptr %absl_raw_log_internal_basename, align 8
-  %10 = getelementptr i8, ptr @.str, i64 118
-  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %10, i32 noundef 515, ptr noundef @.str.1, ptr noundef @.str.13, ptr noundef @.str.14)
-          to label %invoke.cont5 unwind label %lpad
+32:                                               ; preds = %31
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #14
+  store ptr getelementptr (i8, ptr @.str, i64 118), ptr %8, align 8, !tbaa !38
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 118), i32 noundef 515, ptr noundef @.str.1, ptr noundef @.str.13, ptr noundef @.str.14)
+          to label %33 unwind label %39
 
-invoke.cont5:                                     ; preds = %do.body4
-  br label %do.body6
+33:                                               ; preds = %32
+  br label %34
 
-do.body6:                                         ; preds = %invoke.cont5
+34:                                               ; preds = %33
   unreachable
 
-lpad:                                             ; preds = %do.end10, %do.body4, %if.then
-  %11 = landingpad { ptr, i32 }
+35:                                               ; preds = %49, %11
+  %36 = landingpad { ptr, i32 }
           cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %exn.slot, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %ehselector.slot, align 4
-  call void @_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %section) #9
-  br label %eh.resume
+  %37 = extractvalue { ptr, i32 } %36, 0
+  store ptr %37, ptr %6, align 8
+  %38 = extractvalue { ptr, i32 } %36, 1
+  store i32 %38, ptr %7, align 4
+  br label %55
 
-do.cond:                                          ; No predecessors!
-  br label %do.end
+39:                                               ; preds = %32
+  %40 = landingpad { ptr, i32 }
+          cleanup
+  %41 = extractvalue { ptr, i32 } %40, 0
+  store ptr %41, ptr %6, align 8
+  %42 = extractvalue { ptr, i32 } %40, 1
+  store i32 %42, ptr %7, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #14
+  br label %55
 
-do.end:                                           ; preds = %do.cond
-  br label %do.cond7
+43:                                               ; No predecessors!
+  br label %44
 
-do.cond7:                                         ; preds = %do.end
-  br label %do.end8
+44:                                               ; preds = %43
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #14
+  br label %45
 
-do.end8:                                          ; preds = %do.cond7
-  br label %if.end
+45:                                               ; preds = %44
+  br label %46
 
-if.end:                                           ; preds = %do.end8, %do.body
-  br label %do.cond9
+46:                                               ; preds = %45
+  br label %47
 
-do.cond9:                                         ; preds = %if.end
-  br label %do.end10
+47:                                               ; preds = %46, %22
+  br label %48
 
-do.end10:                                         ; preds = %do.cond9
-  %14 = load ptr, ptr %arena, align 8
-  %allocation_count11 = getelementptr inbounds %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %14, i32 0, i32 3
-  %15 = load i32, ptr %allocation_count11, align 8
-  %dec = add nsw i32 %15, -1
-  store i32 %dec, ptr %allocation_count11, align 8
-  invoke void @_ZN4absl13base_internal12_GLOBAL__N_19ArenaLock5LeaveEv(ptr noundef nonnull align 8 dereferenceable(144) %section)
-          to label %invoke.cont12 unwind label %lpad
+48:                                               ; preds = %47
+  br label %49
 
-invoke.cont12:                                    ; preds = %do.end10
-  call void @_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %section) #9
-  br label %if.end13
+49:                                               ; preds = %48
+  %50 = load ptr, ptr %4, align 8, !tbaa !14
+  %51 = getelementptr inbounds nuw %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %50, i32 0, i32 3
+  %52 = load i32, ptr %51, align 8, !tbaa !16
+  %53 = add nsw i32 %52, -1
+  store i32 %53, ptr %51, align 8, !tbaa !16
+  invoke void @_ZN4absl13base_internal12_GLOBAL__N_19ArenaLock5LeaveEv(ptr noundef nonnull align 8 dereferenceable(144) %5)
+          to label %54 unwind label %35
 
-if.end13:                                         ; preds = %invoke.cont12, %entry
+54:                                               ; preds = %49
+  call void @_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %5) #14
+  call void @llvm.lifetime.end.p0(i64 144, ptr %5) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #14
+  br label %56
+
+55:                                               ; preds = %39, %35
+  call void @_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %5) #14
+  call void @llvm.lifetime.end.p0(i64 144, ptr %5) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #14
+  br label %57
+
+56:                                               ; preds = %54, %1
   ret void
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val14 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val14
+57:                                               ; preds = %55
+  %58 = load ptr, ptr %6, align 8
+  %59 = load i32, ptr %7, align 4
+  %60 = insertvalue { ptr, i32 } poison, ptr %58, 0
+  %61 = insertvalue { ptr, i32 } %60, i32 %59, 1
+  resume { ptr, i32 } %61
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %absl_raw_log_internal_basename = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  br label %do.body
+define internal void @_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !46
+  %4 = load ptr, ptr %2, align 8
+  br label %5
 
-do.body:                                          ; preds = %entry
-  %left_ = getelementptr inbounds %"class.absl::base_internal::(anonymous namespace)::ArenaLock", ptr %this1, i32 0, i32 0
-  %0 = load i8, ptr %left_, align 8
-  %tobool = trunc i8 %0 to i1
-  %lnot = xor i1 %tobool, true
-  br i1 %lnot, label %if.then, label %if.end
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds nuw %"class.absl::base_internal::(anonymous namespace)::ArenaLock", ptr %4, i32 0, i32 0
+  %7 = load i8, ptr %6, align 8, !tbaa !48, !range !54, !noundef !55
+  %8 = trunc i8 %7 to i1
+  %9 = xor i1 %8, true
+  %10 = zext i1 %9 to i64
+  %11 = call i64 @llvm.expect.i64(i64 %10, i64 0)
+  %12 = icmp ne i64 %11, 0
+  br i1 %12, label %13, label %21
 
-if.then:                                          ; preds = %do.body
-  br label %do.body2
+13:                                               ; preds = %5
+  br label %14
 
-do.body2:                                         ; preds = %if.then
-  %1 = getelementptr i8, ptr @.str, i64 118
-  store ptr %1, ptr %absl_raw_log_internal_basename, align 8
-  %2 = getelementptr i8, ptr @.str, i64 118
-  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %2, i32 noundef 294, ptr noundef @.str.1, ptr noundef @.str.19, ptr noundef @.str.20)
-          to label %invoke.cont unwind label %terminate.lpad
+14:                                               ; preds = %13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #14
+  store ptr getelementptr (i8, ptr @.str, i64 118), ptr %3, align 8, !tbaa !38
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 118), i32 noundef 294, ptr noundef @.str.1, ptr noundef @.str.19, ptr noundef @.str.20)
+          to label %15 unwind label %24
 
-invoke.cont:                                      ; preds = %do.body2
-  br label %do.body3
+15:                                               ; preds = %14
+  br label %16
 
-do.body3:                                         ; preds = %invoke.cont
+16:                                               ; preds = %15
   unreachable
 
-do.cond:                                          ; No predecessors!
-  br label %do.end
+17:                                               ; No predecessors!
+  br label %18
 
-do.end:                                           ; preds = %do.cond
-  br label %do.cond4
+18:                                               ; preds = %17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #14
+  br label %19
 
-do.cond4:                                         ; preds = %do.end
-  br label %do.end5
+19:                                               ; preds = %18
+  br label %20
 
-do.end5:                                          ; preds = %do.cond4
-  br label %if.end
+20:                                               ; preds = %19
+  br label %21
 
-if.end:                                           ; preds = %do.end5, %do.body
-  br label %do.cond6
+21:                                               ; preds = %20, %5
+  br label %22
 
-do.cond6:                                         ; preds = %if.end
-  br label %do.end7
+22:                                               ; preds = %21
+  br label %23
 
-do.end7:                                          ; preds = %do.cond6
+23:                                               ; preds = %22
   ret void
 
-terminate.lpad:                                   ; preds = %do.body2
-  %3 = landingpad { ptr, i32 }
+24:                                               ; preds = %14
+  %25 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #8
+  %26 = extractvalue { ptr, i32 } %25, 0
+  call void @__clang_call_terminate(ptr %26) #16
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl13base_internalL13AddToFreelistEPvPNS0_13LowLevelAlloc5ArenaE(ptr noundef %v, ptr noundef %arena) #0 {
-entry:
-  %v.addr = alloca ptr, align 8
-  %arena.addr = alloca ptr, align 8
-  %f = alloca ptr, align 8
-  %absl_raw_log_internal_basename = alloca ptr, align 8
-  %absl_raw_log_internal_basename13 = alloca ptr, align 8
-  %prev = alloca [30 x ptr], align 16
-  store ptr %v, ptr %v.addr, align 8
-  store ptr %arena, ptr %arena.addr, align 8
-  %0 = load ptr, ptr %v.addr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %0, i64 -32
-  store ptr %add.ptr, ptr %f, align 8
-  br label %do.body
+define internal void @_ZN4absl13base_internalL13AddToFreelistEPvPNS0_13LowLevelAlloc5ArenaE(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca [30 x ptr], align 16
+  store ptr %0, ptr %3, align 8, !tbaa !9
+  store ptr %1, ptr %4, align 8, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #14
+  %9 = load ptr, ptr %3, align 8, !tbaa !9
+  %10 = getelementptr inbounds i8, ptr %9, i64 -32
+  store ptr %10, ptr %5, align 8, !tbaa !40
+  br label %11
 
-do.body:                                          ; preds = %entry
-  %1 = load ptr, ptr %f, align 8
-  %header = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %1, i32 0, i32 0
-  %magic = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList::Header", ptr %header, i32 0, i32 1
-  %2 = load i64, ptr %magic, align 8
-  %3 = load ptr, ptr %f, align 8
-  %header1 = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %3, i32 0, i32 0
-  %call = call noundef i64 @_ZN4absl13base_internalL5MagicEmPNS0_12_GLOBAL__N_19AllocList6HeaderE(i64 noundef 1283669653, ptr noundef %header1)
-  %cmp = icmp eq i64 %2, %call
-  %lnot = xor i1 %cmp, true
-  br i1 %lnot, label %if.then, label %if.end
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %5, align 8, !tbaa !40
+  %13 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %12, i32 0, i32 0
+  %14 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList::Header", ptr %13, i32 0, i32 1
+  %15 = load i64, ptr %14, align 8, !tbaa !43
+  %16 = load ptr, ptr %5, align 8, !tbaa !40
+  %17 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %16, i32 0, i32 0
+  %18 = call noundef i64 @_ZN4absl13base_internalL5MagicEmPNS0_12_GLOBAL__N_19AllocList6HeaderE(i64 noundef 1283669653, ptr noundef %17)
+  %19 = icmp eq i64 %15, %18
+  %20 = xor i1 %19, true
+  %21 = zext i1 %20 to i64
+  %22 = call i64 @llvm.expect.i64(i64 %21, i64 0)
+  %23 = icmp ne i64 %22, 0
+  br i1 %23, label %24, label %31
 
-if.then:                                          ; preds = %do.body
-  br label %do.body2
+24:                                               ; preds = %11
+  br label %25
 
-do.body2:                                         ; preds = %if.then
-  %4 = getelementptr i8, ptr @.str, i64 118
-  store ptr %4, ptr %absl_raw_log_internal_basename, align 8
-  %5 = getelementptr i8, ptr @.str, i64 118
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %5, i32 noundef 494, ptr noundef @.str.1, ptr noundef @.str.21, ptr noundef @.str.22)
-  br label %do.body3
+25:                                               ; preds = %24
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #14
+  store ptr getelementptr (i8, ptr @.str, i64 118), ptr %6, align 8, !tbaa !38
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 118), i32 noundef 494, ptr noundef @.str.1, ptr noundef @.str.21, ptr noundef @.str.22)
+  br label %26
 
-do.body3:                                         ; preds = %do.body2
+26:                                               ; preds = %25
   unreachable
 
-do.end:                                           ; No predecessors!
-  br label %do.end4
+27:                                               ; No predecessors!
+  br label %28
 
-do.end4:                                          ; preds = %do.end
-  br label %if.end
+28:                                               ; preds = %27
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #14
+  br label %29
 
-if.end:                                           ; preds = %do.end4, %do.body
-  br label %do.end5
+29:                                               ; preds = %28
+  br label %30
 
-do.end5:                                          ; preds = %if.end
-  br label %do.body6
+30:                                               ; preds = %29
+  br label %31
 
-do.body6:                                         ; preds = %do.end5
-  %6 = load ptr, ptr %f, align 8
-  %header7 = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %6, i32 0, i32 0
-  %arena8 = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList::Header", ptr %header7, i32 0, i32 2
-  %7 = load ptr, ptr %arena8, align 8
-  %8 = load ptr, ptr %arena.addr, align 8
-  %cmp9 = icmp eq ptr %7, %8
-  %lnot10 = xor i1 %cmp9, true
-  br i1 %lnot10, label %if.then11, label %if.end17
+31:                                               ; preds = %30, %11
+  br label %32
 
-if.then11:                                        ; preds = %do.body6
-  br label %do.body12
+32:                                               ; preds = %31
+  br label %33
 
-do.body12:                                        ; preds = %if.then11
-  %9 = getelementptr i8, ptr @.str, i64 118
-  store ptr %9, ptr %absl_raw_log_internal_basename13, align 8
-  %10 = getelementptr i8, ptr @.str, i64 118
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %10, i32 noundef 496, ptr noundef @.str.1, ptr noundef @.str.23, ptr noundef @.str.24)
-  br label %do.body14
+33:                                               ; preds = %32
+  br label %34
 
-do.body14:                                        ; preds = %do.body12
+34:                                               ; preds = %33
+  %35 = load ptr, ptr %5, align 8, !tbaa !40
+  %36 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %35, i32 0, i32 0
+  %37 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList::Header", ptr %36, i32 0, i32 2
+  %38 = load ptr, ptr %37, align 8, !tbaa !44
+  %39 = load ptr, ptr %4, align 8, !tbaa !14
+  %40 = icmp eq ptr %38, %39
+  %41 = xor i1 %40, true
+  %42 = zext i1 %41 to i64
+  %43 = call i64 @llvm.expect.i64(i64 %42, i64 0)
+  %44 = icmp ne i64 %43, 0
+  br i1 %44, label %45, label %52
+
+45:                                               ; preds = %34
+  br label %46
+
+46:                                               ; preds = %45
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #14
+  store ptr getelementptr (i8, ptr @.str, i64 118), ptr %7, align 8, !tbaa !38
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 118), i32 noundef 496, ptr noundef @.str.1, ptr noundef @.str.23, ptr noundef @.str.24)
+  br label %47
+
+47:                                               ; preds = %46
   unreachable
 
-do.end15:                                         ; No predecessors!
-  br label %do.end16
+48:                                               ; No predecessors!
+  br label %49
 
-do.end16:                                         ; preds = %do.end15
-  br label %if.end17
+49:                                               ; preds = %48
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #14
+  br label %50
 
-if.end17:                                         ; preds = %do.end16, %do.body6
-  br label %do.end18
+50:                                               ; preds = %49
+  br label %51
 
-do.end18:                                         ; preds = %if.end17
-  %11 = load ptr, ptr %f, align 8
-  %header19 = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %11, i32 0, i32 0
-  %size = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList::Header", ptr %header19, i32 0, i32 0
-  %12 = load i64, ptr %size, align 8
-  %13 = load ptr, ptr %arena.addr, align 8
-  %min_size = getelementptr inbounds %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %13, i32 0, i32 7
-  %14 = load i64, ptr %min_size, align 8
-  %15 = load ptr, ptr %arena.addr, align 8
-  %random = getelementptr inbounds %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %15, i32 0, i32 8
-  %call20 = call noundef i32 @_ZN4absl13base_internalL18LLA_SkiplistLevelsEmmPj(i64 noundef %12, i64 noundef %14, ptr noundef %random)
-  %16 = load ptr, ptr %f, align 8
-  %levels = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %16, i32 0, i32 1
-  store i32 %call20, ptr %levels, align 8
-  %17 = load ptr, ptr %arena.addr, align 8
-  %freelist = getelementptr inbounds %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %17, i32 0, i32 2
-  %18 = load ptr, ptr %f, align 8
-  %arraydecay = getelementptr inbounds [30 x ptr], ptr %prev, i64 0, i64 0
-  call void @_ZN4absl13base_internalL18LLA_SkiplistInsertEPNS0_12_GLOBAL__N_19AllocListES3_PS3_(ptr noundef %freelist, ptr noundef %18, ptr noundef %arraydecay)
-  %19 = load ptr, ptr %f, align 8
-  %header21 = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %19, i32 0, i32 0
-  %call22 = call noundef i64 @_ZN4absl13base_internalL5MagicEmPNS0_12_GLOBAL__N_19AllocList6HeaderE(i64 noundef -1283669654, ptr noundef %header21)
-  %20 = load ptr, ptr %f, align 8
-  %header23 = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %20, i32 0, i32 0
-  %magic24 = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList::Header", ptr %header23, i32 0, i32 1
-  store i64 %call22, ptr %magic24, align 8
-  %21 = load ptr, ptr %f, align 8
-  call void @_ZN4absl13base_internalL8CoalesceEPNS0_12_GLOBAL__N_19AllocListE(ptr noundef %21)
-  %arrayidx = getelementptr inbounds [30 x ptr], ptr %prev, i64 0, i64 0
-  %22 = load ptr, ptr %arrayidx, align 16
-  call void @_ZN4absl13base_internalL8CoalesceEPNS0_12_GLOBAL__N_19AllocListE(ptr noundef %22)
+51:                                               ; preds = %50
+  br label %52
+
+52:                                               ; preds = %51, %34
+  br label %53
+
+53:                                               ; preds = %52
+  br label %54
+
+54:                                               ; preds = %53
+  %55 = load ptr, ptr %5, align 8, !tbaa !40
+  %56 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %55, i32 0, i32 0
+  %57 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList::Header", ptr %56, i32 0, i32 0
+  %58 = load i64, ptr %57, align 8, !tbaa !42
+  %59 = load ptr, ptr %4, align 8, !tbaa !14
+  %60 = getelementptr inbounds nuw %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %59, i32 0, i32 7
+  %61 = load i64, ptr %60, align 8, !tbaa !27
+  %62 = load ptr, ptr %4, align 8, !tbaa !14
+  %63 = getelementptr inbounds nuw %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %62, i32 0, i32 8
+  %64 = call noundef i32 @_ZN4absl13base_internalL18LLA_SkiplistLevelsEmmPj(i64 noundef %58, i64 noundef %61, ptr noundef %63)
+  %65 = load ptr, ptr %5, align 8, !tbaa !40
+  %66 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %65, i32 0, i32 1
+  store i32 %64, ptr %66, align 8, !tbaa !56
+  call void @llvm.lifetime.start.p0(i64 240, ptr %8) #14
+  %67 = load ptr, ptr %4, align 8, !tbaa !14
+  %68 = getelementptr inbounds nuw %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %67, i32 0, i32 2
+  %69 = load ptr, ptr %5, align 8, !tbaa !40
+  %70 = getelementptr inbounds [30 x ptr], ptr %8, i64 0, i64 0
+  call void @_ZN4absl13base_internalL18LLA_SkiplistInsertEPNS0_12_GLOBAL__N_19AllocListES3_PS3_(ptr noundef %68, ptr noundef %69, ptr noundef %70)
+  %71 = load ptr, ptr %5, align 8, !tbaa !40
+  %72 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %71, i32 0, i32 0
+  %73 = call noundef i64 @_ZN4absl13base_internalL5MagicEmPNS0_12_GLOBAL__N_19AllocList6HeaderE(i64 noundef -1283669654, ptr noundef %72)
+  %74 = load ptr, ptr %5, align 8, !tbaa !40
+  %75 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %74, i32 0, i32 0
+  %76 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList::Header", ptr %75, i32 0, i32 1
+  store i64 %73, ptr %76, align 8, !tbaa !43
+  %77 = load ptr, ptr %5, align 8, !tbaa !40
+  call void @_ZN4absl13base_internalL8CoalesceEPNS0_12_GLOBAL__N_19AllocListE(ptr noundef %77)
+  %78 = getelementptr inbounds [30 x ptr], ptr %8, i64 0, i64 0
+  %79 = load ptr, ptr %78, align 16, !tbaa !40
+  call void @_ZN4absl13base_internalL8CoalesceEPNS0_12_GLOBAL__N_19AllocListE(ptr noundef %79)
+  call void @llvm.lifetime.end.p0(i64 240, ptr %8) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #14
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN4absl13base_internal13LowLevelAlloc5AllocEm(i64 noundef %request) #0 section "malloc_hook" align 2 {
-entry:
-  %request.addr = alloca i64, align 8
-  %result = alloca ptr, align 8
-  store i64 %request, ptr %request.addr, align 8
-  %0 = load i64, ptr %request.addr, align 8
-  %call = call noundef ptr @_ZN4absl13base_internal13LowLevelAlloc12DefaultArenaEv()
-  %call1 = call noundef ptr @_ZN4absl13base_internalL16DoAllocWithArenaEmPNS0_13LowLevelAlloc5ArenaE(i64 noundef %0, ptr noundef %call)
-  store ptr %call1, ptr %result, align 8
-  %1 = load ptr, ptr %result, align 8
-  ret ptr %1
+; Function Attrs: mustprogress noinline uwtable
+define dso_local noundef ptr @_ZN4absl13base_internal13LowLevelAlloc5AllocEm(i64 noundef %0) #6 section "malloc_hook" align 2 {
+  %2 = alloca i64, align 8
+  %3 = alloca ptr, align 8
+  store i64 %0, ptr %2, align 8, !tbaa !33
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #14
+  %4 = load i64, ptr %2, align 8, !tbaa !33
+  %5 = call noundef ptr @_ZN4absl13base_internal13LowLevelAlloc12DefaultArenaEv()
+  %6 = call noundef ptr @_ZN4absl13base_internalL16DoAllocWithArenaEmPNS0_13LowLevelAlloc5ArenaE(i64 noundef %4, ptr noundef %5)
+  store ptr %6, ptr %3, align 8, !tbaa !9
+  %7 = load ptr, ptr %3, align 8, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #14
+  ret ptr %7
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZN4absl13base_internalL16DoAllocWithArenaEmPNS0_13LowLevelAlloc5ArenaE(i64 noundef %request, ptr noundef %arena) #0 personality ptr @__gxx_personality_v0 {
-entry:
-  %request.addr = alloca i64, align 8
-  %arena.addr = alloca ptr, align 8
-  %result = alloca ptr, align 8
-  %s = alloca ptr, align 8
-  %section = alloca %"class.absl::base_internal::(anonymous namespace)::ArenaLock", align 8
-  %req_rnd = alloca i64, align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  %i = alloca i32, align 4
-  %before = alloca ptr, align 8
-  %new_pages_size = alloca i64, align 8
-  %new_pages = alloca ptr, align 8
-  %absl_raw_log_internal_basename = alloca ptr, align 8
-  %prev = alloca [30 x ptr], align 16
-  %n = alloca ptr, align 8
-  %absl_raw_log_internal_basename77 = alloca ptr, align 8
-  store i64 %request, ptr %request.addr, align 8
-  store ptr %arena, ptr %arena.addr, align 8
-  store ptr null, ptr %result, align 8
-  %0 = load i64, ptr %request.addr, align 8
-  %cmp = icmp ne i64 %0, 0
-  br i1 %cmp, label %if.then, label %if.end89
+define internal noundef ptr @_ZN4absl13base_internalL16DoAllocWithArenaEmPNS0_13LowLevelAlloc5ArenaE(i64 noundef %0, ptr noundef %1) #0 personality ptr @__gxx_personality_v0 {
+  %3 = alloca i64, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %"class.absl::base_internal::(anonymous namespace)::ArenaLock", align 8
+  %8 = alloca i64, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  %14 = alloca i64, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca [30 x ptr], align 16
+  %18 = alloca ptr, align 8
+  %19 = alloca ptr, align 8
+  store i64 %0, ptr %3, align 8, !tbaa !33
+  store ptr %1, ptr %4, align 8, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #14
+  store ptr null, ptr %5, align 8, !tbaa !9
+  %20 = load i64, ptr %3, align 8, !tbaa !33
+  %21 = icmp ne i64 %20, 0
+  br i1 %21, label %22, label %261
 
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %arena.addr, align 8
-  call void @_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockC2EPNS0_13LowLevelAlloc5ArenaE(ptr noundef nonnull align 8 dereferenceable(144) %section, ptr noundef %1)
-  %2 = load i64, ptr %request.addr, align 8
-  %call = invoke noundef i64 @_ZN4absl13base_internalL10CheckedAddEmm(i64 noundef %2, i64 noundef 32)
-          to label %invoke.cont unwind label %lpad
+22:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #14
+  call void @llvm.lifetime.start.p0(i64 144, ptr %7) #14
+  %23 = load ptr, ptr %4, align 8, !tbaa !14
+  call void @_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockC2EPNS0_13LowLevelAlloc5ArenaE(ptr noundef nonnull align 8 dereferenceable(144) %7, ptr noundef %23)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #14
+  %24 = load i64, ptr %3, align 8, !tbaa !33
+  %25 = invoke noundef i64 @_ZN4absl13base_internalL10CheckedAddEmm(i64 noundef %24, i64 noundef 32)
+          to label %26 unwind label %67
 
-invoke.cont:                                      ; preds = %if.then
-  %3 = load ptr, ptr %arena.addr, align 8
-  %round_up = getelementptr inbounds %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %3, i32 0, i32 6
-  %4 = load i64, ptr %round_up, align 8
-  %call2 = invoke noundef i64 @_ZN4absl13base_internalL7RoundUpEmm(i64 noundef %call, i64 noundef %4)
-          to label %invoke.cont1 unwind label %lpad
+26:                                               ; preds = %22
+  %27 = load ptr, ptr %4, align 8, !tbaa !14
+  %28 = getelementptr inbounds nuw %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %27, i32 0, i32 6
+  %29 = load i64, ptr %28, align 8, !tbaa !26
+  %30 = invoke noundef i64 @_ZN4absl13base_internalL7RoundUpEmm(i64 noundef %25, i64 noundef %29)
+          to label %31 unwind label %67
 
-invoke.cont1:                                     ; preds = %invoke.cont
-  store i64 %call2, ptr %req_rnd, align 8
-  br label %for.cond
+31:                                               ; preds = %26
+  store i64 %30, ptr %8, align 8, !tbaa !33
+  br label %32
 
-for.cond:                                         ; preds = %invoke.cont41, %invoke.cont1
-  %5 = load i64, ptr %req_rnd, align 8
-  %6 = load ptr, ptr %arena.addr, align 8
-  %min_size = getelementptr inbounds %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %6, i32 0, i32 7
-  %7 = load i64, ptr %min_size, align 8
-  %call4 = invoke noundef i32 @_ZN4absl13base_internalL18LLA_SkiplistLevelsEmmPj(i64 noundef %5, i64 noundef %7, ptr noundef null)
-          to label %invoke.cont3 unwind label %lpad
+32:                                               ; preds = %155, %31
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #14
+  %33 = load i64, ptr %8, align 8, !tbaa !33
+  %34 = load ptr, ptr %4, align 8, !tbaa !14
+  %35 = getelementptr inbounds nuw %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %34, i32 0, i32 7
+  %36 = load i64, ptr %35, align 8, !tbaa !27
+  %37 = invoke noundef i32 @_ZN4absl13base_internalL18LLA_SkiplistLevelsEmmPj(i64 noundef %33, i64 noundef %36, ptr noundef null)
+          to label %38 unwind label %71
 
-invoke.cont3:                                     ; preds = %for.cond
-  %sub = sub nsw i32 %call4, 1
-  store i32 %sub, ptr %i, align 4
-  %8 = load i32, ptr %i, align 4
-  %9 = load ptr, ptr %arena.addr, align 8
-  %freelist = getelementptr inbounds %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %9, i32 0, i32 2
-  %levels = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %freelist, i32 0, i32 1
-  %10 = load i32, ptr %levels, align 8
-  %cmp5 = icmp slt i32 %8, %10
-  br i1 %cmp5, label %if.then6, label %if.end14
+38:                                               ; preds = %32
+  %39 = sub nsw i32 %37, 1
+  store i32 %39, ptr %11, align 4, !tbaa !12
+  %40 = load i32, ptr %11, align 4, !tbaa !12
+  %41 = load ptr, ptr %4, align 8, !tbaa !14
+  %42 = getelementptr inbounds nuw %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %41, i32 0, i32 2
+  %43 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %42, i32 0, i32 1
+  %44 = load i32, ptr %43, align 8, !tbaa !32
+  %45 = icmp slt i32 %40, %44
+  br i1 %45, label %46, label %87
 
-if.then6:                                         ; preds = %invoke.cont3
-  %11 = load ptr, ptr %arena.addr, align 8
-  %freelist7 = getelementptr inbounds %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %11, i32 0, i32 2
-  store ptr %freelist7, ptr %before, align 8
-  br label %while.cond
+46:                                               ; preds = %38
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #14
+  %47 = load ptr, ptr %4, align 8, !tbaa !14
+  %48 = getelementptr inbounds nuw %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %47, i32 0, i32 2
+  store ptr %48, ptr %12, align 8, !tbaa !40
+  br label %49
 
-while.cond:                                       ; preds = %while.body, %if.then6
-  %12 = load i32, ptr %i, align 4
-  %13 = load ptr, ptr %before, align 8
-  %14 = load ptr, ptr %arena.addr, align 8
-  %call9 = invoke noundef ptr @_ZN4absl13base_internalL4NextEiPNS0_12_GLOBAL__N_19AllocListEPNS0_13LowLevelAlloc5ArenaE(i32 noundef %12, ptr noundef %13, ptr noundef %14)
-          to label %invoke.cont8 unwind label %lpad
+49:                                               ; preds = %65, %46
+  %50 = load i32, ptr %11, align 4, !tbaa !12
+  %51 = load ptr, ptr %12, align 8, !tbaa !40
+  %52 = load ptr, ptr %4, align 8, !tbaa !14
+  %53 = invoke noundef ptr @_ZN4absl13base_internalL4NextEiPNS0_12_GLOBAL__N_19AllocListEPNS0_13LowLevelAlloc5ArenaE(i32 noundef %50, ptr noundef %51, ptr noundef %52)
+          to label %54 unwind label %75
 
-invoke.cont8:                                     ; preds = %while.cond
-  store ptr %call9, ptr %s, align 8
-  %cmp10 = icmp ne ptr %call9, null
-  br i1 %cmp10, label %land.rhs, label %land.end
+54:                                               ; preds = %49
+  store ptr %53, ptr %6, align 8, !tbaa !40
+  %55 = icmp ne ptr %53, null
+  br i1 %55, label %56, label %63
 
-land.rhs:                                         ; preds = %invoke.cont8
-  %15 = load ptr, ptr %s, align 8
-  %header = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %15, i32 0, i32 0
-  %size = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList::Header", ptr %header, i32 0, i32 0
-  %16 = load i64, ptr %size, align 8
-  %17 = load i64, ptr %req_rnd, align 8
-  %cmp11 = icmp ult i64 %16, %17
-  br label %land.end
+56:                                               ; preds = %54
+  %57 = load ptr, ptr %6, align 8, !tbaa !40
+  %58 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %57, i32 0, i32 0
+  %59 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList::Header", ptr %58, i32 0, i32 0
+  %60 = load i64, ptr %59, align 8, !tbaa !42
+  %61 = load i64, ptr %8, align 8, !tbaa !33
+  %62 = icmp ult i64 %60, %61
+  br label %63
 
-land.end:                                         ; preds = %land.rhs, %invoke.cont8
-  %18 = phi i1 [ false, %invoke.cont8 ], [ %cmp11, %land.rhs ]
-  br i1 %18, label %while.body, label %while.end
+63:                                               ; preds = %56, %54
+  %64 = phi i1 [ false, %54 ], [ %62, %56 ]
+  br i1 %64, label %65, label %79
 
-while.body:                                       ; preds = %land.end
-  %19 = load ptr, ptr %s, align 8
-  store ptr %19, ptr %before, align 8
-  br label %while.cond, !llvm.loop !8
+65:                                               ; preds = %63
+  %66 = load ptr, ptr %6, align 8, !tbaa !40
+  store ptr %66, ptr %12, align 8, !tbaa !40
+  br label %49, !llvm.loop !57
 
-lpad:                                             ; preds = %do.end86, %do.body76, %if.then50, %invoke.cont43, %for.end, %invoke.cont32, %if.end30, %do.body, %invoke.cont15, %if.end14, %while.cond, %for.cond, %invoke.cont, %if.then
-  %20 = landingpad { ptr, i32 }
+67:                                               ; preds = %26, %22
+  %68 = landingpad { ptr, i32 }
           cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %exn.slot, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %ehselector.slot, align 4
-  call void @_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %section) #9
-  br label %eh.resume
+  %69 = extractvalue { ptr, i32 } %68, 0
+  store ptr %69, ptr %9, align 8
+  %70 = extractvalue { ptr, i32 } %68, 1
+  store i32 %70, ptr %10, align 4
+  br label %260
 
-while.end:                                        ; preds = %land.end
-  %23 = load ptr, ptr %s, align 8
-  %cmp12 = icmp ne ptr %23, null
-  br i1 %cmp12, label %if.then13, label %if.end
+71:                                               ; preds = %87, %32
+  %72 = landingpad { ptr, i32 }
+          cleanup
+  %73 = extractvalue { ptr, i32 } %72, 0
+  store ptr %73, ptr %9, align 8
+  %74 = extractvalue { ptr, i32 } %72, 1
+  store i32 %74, ptr %10, align 4
+  br label %162
 
-if.then13:                                        ; preds = %while.end
-  br label %for.end
+75:                                               ; preds = %49
+  %76 = landingpad { ptr, i32 }
+          cleanup
+  %77 = extractvalue { ptr, i32 } %76, 0
+  store ptr %77, ptr %9, align 8
+  %78 = extractvalue { ptr, i32 } %76, 1
+  store i32 %78, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #14
+  br label %162
 
-if.end:                                           ; preds = %while.end
-  br label %if.end14
+79:                                               ; preds = %63
+  %80 = load ptr, ptr %6, align 8, !tbaa !40
+  %81 = icmp ne ptr %80, null
+  br i1 %81, label %82, label %83
 
-if.end14:                                         ; preds = %if.end, %invoke.cont3
-  %24 = load ptr, ptr %arena.addr, align 8
-  %mu = getelementptr inbounds %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %24, i32 0, i32 0
-  invoke void @_ZN4absl13base_internal8SpinLock6UnlockEv(ptr noundef nonnull align 4 dereferenceable(4) %mu)
-          to label %invoke.cont15 unwind label %lpad
+82:                                               ; preds = %79
+  store i32 2, ptr %13, align 4
+  br label %84
 
-invoke.cont15:                                    ; preds = %if.end14
-  %25 = load i64, ptr %req_rnd, align 8
-  %26 = load ptr, ptr %arena.addr, align 8
-  %pagesize = getelementptr inbounds %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %26, i32 0, i32 5
-  %27 = load i64, ptr %pagesize, align 8
-  %mul = mul i64 %27, 16
-  %call17 = invoke noundef i64 @_ZN4absl13base_internalL7RoundUpEmm(i64 noundef %25, i64 noundef %mul)
-          to label %invoke.cont16 unwind label %lpad
+83:                                               ; preds = %79
+  store i32 0, ptr %13, align 4
+  br label %84
 
-invoke.cont16:                                    ; preds = %invoke.cont15
-  store i64 %call17, ptr %new_pages_size, align 8
-  %28 = load ptr, ptr %arena.addr, align 8
-  %flags = getelementptr inbounds %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %28, i32 0, i32 4
-  %29 = load i32, ptr %flags, align 4
-  %and = and i32 %29, 2
-  %cmp18 = icmp ne i32 %and, 0
-  br i1 %cmp18, label %if.then19, label %if.else
-
-if.then19:                                        ; preds = %invoke.cont16
-  %30 = load i64, ptr %new_pages_size, align 8
-  %call20 = call noundef ptr @_ZN4absl13base_internal10DirectMmapEPvmiiil(ptr noundef null, i64 noundef %30, i32 noundef 3, i32 noundef 34, i32 noundef -1, i64 noundef 0) #9
-  store ptr %call20, ptr %new_pages, align 8
-  br label %if.end22
-
-if.else:                                          ; preds = %invoke.cont16
-  %31 = load i64, ptr %new_pages_size, align 8
-  %call21 = call ptr @mmap(ptr noundef null, i64 noundef %31, i32 noundef 3, i32 noundef 34, i32 noundef -1, i64 noundef 0) #9
-  store ptr %call21, ptr %new_pages, align 8
-  br label %if.end22
-
-if.end22:                                         ; preds = %if.else, %if.then19
-  %32 = load ptr, ptr %new_pages, align 8
-  %33 = inttoptr i64 -1 to ptr
-  %cmp23 = icmp eq ptr %32, %33
-  br i1 %cmp23, label %if.then24, label %if.end30
-
-if.then24:                                        ; preds = %if.end22
-  br label %do.body
-
-do.body:                                          ; preds = %if.then24
-  %34 = getelementptr i8, ptr @.str, i64 118
-  store ptr %34, ptr %absl_raw_log_internal_basename, align 8
-  %call25 = call ptr @__errno_location() #10
-  %35 = load i32, ptr %call25, align 4
-  %36 = getelementptr i8, ptr @.str, i64 118
-  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %36, i32 noundef 569, ptr noundef @.str.29, i32 noundef %35)
-          to label %invoke.cont26 unwind label %lpad
-
-invoke.cont26:                                    ; preds = %do.body
-  br label %do.body27
-
-do.body27:                                        ; preds = %invoke.cont26
-  unreachable
-
-do.cond:                                          ; No predecessors!
-  br label %do.end
-
-do.end:                                           ; preds = %do.cond
-  br label %do.cond28
-
-do.cond28:                                        ; preds = %do.end
-  br label %do.end29
-
-do.end29:                                         ; preds = %do.cond28
-  br label %if.end30
-
-if.end30:                                         ; preds = %do.end29, %if.end22
-  %37 = load ptr, ptr %arena.addr, align 8
-  %mu31 = getelementptr inbounds %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %37, i32 0, i32 0
-  invoke void @_ZN4absl13base_internal8SpinLock4LockEv(ptr noundef nonnull align 4 dereferenceable(4) %mu31)
-          to label %invoke.cont32 unwind label %lpad
-
-invoke.cont32:                                    ; preds = %if.end30
-  %38 = load ptr, ptr %new_pages, align 8
-  store ptr %38, ptr %s, align 8
-  %39 = load i64, ptr %new_pages_size, align 8
-  %40 = load ptr, ptr %s, align 8
-  %header33 = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %40, i32 0, i32 0
-  %size34 = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList::Header", ptr %header33, i32 0, i32 0
-  store i64 %39, ptr %size34, align 8
-  %41 = load ptr, ptr %s, align 8
-  %header35 = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %41, i32 0, i32 0
-  %call36 = call noundef i64 @_ZN4absl13base_internalL5MagicEmPNS0_12_GLOBAL__N_19AllocList6HeaderE(i64 noundef 1283669653, ptr noundef %header35)
-  %42 = load ptr, ptr %s, align 8
-  %header37 = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %42, i32 0, i32 0
-  %magic = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList::Header", ptr %header37, i32 0, i32 1
-  store i64 %call36, ptr %magic, align 8
-  %43 = load ptr, ptr %arena.addr, align 8
-  %44 = load ptr, ptr %s, align 8
-  %header38 = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %44, i32 0, i32 0
-  %arena39 = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList::Header", ptr %header38, i32 0, i32 2
-  store ptr %43, ptr %arena39, align 8
-  %45 = load ptr, ptr %s, align 8
-  %levels40 = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %45, i32 0, i32 1
-  %46 = load ptr, ptr %arena.addr, align 8
-  invoke void @_ZN4absl13base_internalL13AddToFreelistEPvPNS0_13LowLevelAlloc5ArenaE(ptr noundef %levels40, ptr noundef %46)
-          to label %invoke.cont41 unwind label %lpad
-
-invoke.cont41:                                    ; preds = %invoke.cont32
-  br label %for.cond, !llvm.loop !9
-
-for.end:                                          ; preds = %if.then13
-  %47 = load ptr, ptr %arena.addr, align 8
-  %freelist42 = getelementptr inbounds %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %47, i32 0, i32 2
-  %48 = load ptr, ptr %s, align 8
-  %arraydecay = getelementptr inbounds [30 x ptr], ptr %prev, i64 0, i64 0
-  invoke void @_ZN4absl13base_internalL18LLA_SkiplistDeleteEPNS0_12_GLOBAL__N_19AllocListES3_PS3_(ptr noundef %freelist42, ptr noundef %48, ptr noundef %arraydecay)
-          to label %invoke.cont43 unwind label %lpad
-
-invoke.cont43:                                    ; preds = %for.end
-  %49 = load i64, ptr %req_rnd, align 8
-  %50 = load ptr, ptr %arena.addr, align 8
-  %min_size44 = getelementptr inbounds %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %50, i32 0, i32 7
-  %51 = load i64, ptr %min_size44, align 8
-  %call46 = invoke noundef i64 @_ZN4absl13base_internalL10CheckedAddEmm(i64 noundef %49, i64 noundef %51)
-          to label %invoke.cont45 unwind label %lpad
-
-invoke.cont45:                                    ; preds = %invoke.cont43
-  %52 = load ptr, ptr %s, align 8
-  %header47 = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %52, i32 0, i32 0
-  %size48 = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList::Header", ptr %header47, i32 0, i32 0
-  %53 = load i64, ptr %size48, align 8
-  %cmp49 = icmp ule i64 %call46, %53
-  br i1 %cmp49, label %if.then50, label %if.end66
-
-if.then50:                                        ; preds = %invoke.cont45
-  %54 = load i64, ptr %req_rnd, align 8
-  %55 = load ptr, ptr %s, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %55, i64 %54
-  store ptr %add.ptr, ptr %n, align 8
-  %56 = load ptr, ptr %s, align 8
-  %header51 = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %56, i32 0, i32 0
-  %size52 = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList::Header", ptr %header51, i32 0, i32 0
-  %57 = load i64, ptr %size52, align 8
-  %58 = load i64, ptr %req_rnd, align 8
-  %sub53 = sub i64 %57, %58
-  %59 = load ptr, ptr %n, align 8
-  %header54 = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %59, i32 0, i32 0
-  %size55 = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList::Header", ptr %header54, i32 0, i32 0
-  store i64 %sub53, ptr %size55, align 8
-  %60 = load ptr, ptr %n, align 8
-  %header56 = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %60, i32 0, i32 0
-  %call57 = call noundef i64 @_ZN4absl13base_internalL5MagicEmPNS0_12_GLOBAL__N_19AllocList6HeaderE(i64 noundef 1283669653, ptr noundef %header56)
-  %61 = load ptr, ptr %n, align 8
-  %header58 = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %61, i32 0, i32 0
-  %magic59 = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList::Header", ptr %header58, i32 0, i32 1
-  store i64 %call57, ptr %magic59, align 8
-  %62 = load ptr, ptr %arena.addr, align 8
-  %63 = load ptr, ptr %n, align 8
-  %header60 = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %63, i32 0, i32 0
-  %arena61 = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList::Header", ptr %header60, i32 0, i32 2
-  store ptr %62, ptr %arena61, align 8
-  %64 = load i64, ptr %req_rnd, align 8
-  %65 = load ptr, ptr %s, align 8
-  %header62 = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %65, i32 0, i32 0
-  %size63 = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList::Header", ptr %header62, i32 0, i32 0
-  store i64 %64, ptr %size63, align 8
-  %66 = load ptr, ptr %n, align 8
-  %levels64 = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %66, i32 0, i32 1
-  %67 = load ptr, ptr %arena.addr, align 8
-  invoke void @_ZN4absl13base_internalL13AddToFreelistEPvPNS0_13LowLevelAlloc5ArenaE(ptr noundef %levels64, ptr noundef %67)
-          to label %invoke.cont65 unwind label %lpad
-
-invoke.cont65:                                    ; preds = %if.then50
-  br label %if.end66
-
-if.end66:                                         ; preds = %invoke.cont65, %invoke.cont45
-  %68 = load ptr, ptr %s, align 8
-  %header67 = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %68, i32 0, i32 0
-  %call68 = call noundef i64 @_ZN4absl13base_internalL5MagicEmPNS0_12_GLOBAL__N_19AllocList6HeaderE(i64 noundef 1283669653, ptr noundef %header67)
-  %69 = load ptr, ptr %s, align 8
-  %header69 = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %69, i32 0, i32 0
-  %magic70 = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList::Header", ptr %header69, i32 0, i32 1
-  store i64 %call68, ptr %magic70, align 8
-  br label %do.body71
-
-do.body71:                                        ; preds = %if.end66
-  %70 = load ptr, ptr %s, align 8
-  %header72 = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %70, i32 0, i32 0
-  %arena73 = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList::Header", ptr %header72, i32 0, i32 2
-  %71 = load ptr, ptr %arena73, align 8
-  %72 = load ptr, ptr %arena.addr, align 8
-  %cmp74 = icmp eq ptr %71, %72
-  %lnot = xor i1 %cmp74, true
-  br i1 %lnot, label %if.then75, label %if.end84
-
-if.then75:                                        ; preds = %do.body71
-  br label %do.body76
-
-do.body76:                                        ; preds = %if.then75
-  %73 = getelementptr i8, ptr @.str, i64 118
-  store ptr %73, ptr %absl_raw_log_internal_basename77, align 8
-  %74 = getelementptr i8, ptr @.str, i64 118
-  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %74, i32 noundef 607, ptr noundef @.str.1, ptr noundef @.str.30, ptr noundef @.str.31)
-          to label %invoke.cont78 unwind label %lpad
-
-invoke.cont78:                                    ; preds = %do.body76
-  br label %do.body79
-
-do.body79:                                        ; preds = %invoke.cont78
-  unreachable
-
-do.cond80:                                        ; No predecessors!
-  br label %do.end81
-
-do.end81:                                         ; preds = %do.cond80
-  br label %do.cond82
-
-do.cond82:                                        ; preds = %do.end81
-  br label %do.end83
-
-do.end83:                                         ; preds = %do.cond82
-  br label %if.end84
-
-if.end84:                                         ; preds = %do.end83, %do.body71
-  br label %do.cond85
-
-do.cond85:                                        ; preds = %if.end84
-  br label %do.end86
-
-do.end86:                                         ; preds = %do.cond85
-  %75 = load ptr, ptr %arena.addr, align 8
-  %allocation_count = getelementptr inbounds %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %75, i32 0, i32 3
-  %76 = load i32, ptr %allocation_count, align 8
-  %inc = add nsw i32 %76, 1
-  store i32 %inc, ptr %allocation_count, align 8
-  invoke void @_ZN4absl13base_internal12_GLOBAL__N_19ArenaLock5LeaveEv(ptr noundef nonnull align 8 dereferenceable(144) %section)
-          to label %invoke.cont87 unwind label %lpad
-
-invoke.cont87:                                    ; preds = %do.end86
-  %77 = load ptr, ptr %s, align 8
-  %levels88 = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %77, i32 0, i32 1
-  store ptr %levels88, ptr %result, align 8
-  call void @_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %section) #9
-  br label %if.end89
-
-if.end89:                                         ; preds = %invoke.cont87, %entry
-  %78 = load ptr, ptr %result, align 8
-  ret ptr %78
-
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val90 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val90
-}
-
-; Function Attrs: nounwind
-declare i64 @sysconf(i32 noundef) #4
-
-; Function Attrs: nounwind
-declare i32 @sigfillset(ptr noundef) #4
-
-; Function Attrs: nounwind
-declare i32 @pthread_sigmask(i32 noundef, ptr noundef, ptr noundef) #4
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN4absl13base_internal8SpinLock4LockEv(ptr noundef nonnull align 4 dereferenceable(4) %this) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef zeroext i1 @_ZN4absl13base_internal8SpinLock11TryLockImplEv(ptr noundef nonnull align 4 dereferenceable(4) %this1)
-  br i1 %call, label %if.end, label %if.then
-
-if.then:                                          ; preds = %entry
-  call void @_ZN4absl13base_internal8SpinLock8SlowLockEv(ptr noundef nonnull align 4 dereferenceable(4) %this1) #11
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %entry
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZN4absl13base_internal8SpinLock11TryLockImplEv(ptr noundef nonnull align 4 dereferenceable(4) %this) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr.i = alloca ptr, align 8
-  %__m.addr.i = alloca i32, align 4
-  %__b.i = alloca i32, align 4
-  %atomic-temp.i = alloca i32, align 4
-  %this.addr = alloca ptr, align 8
-  %lock_value = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %lockword_ = getelementptr inbounds %"class.absl::base_internal::SpinLock", ptr %this1, i32 0, i32 0
-  store ptr %lockword_, ptr %this.addr.i, align 8
-  store i32 0, ptr %__m.addr.i, align 4
-  %this1.i = load ptr, ptr %this.addr.i, align 8
-  %0 = load i32, ptr %__m.addr.i, align 4
-  %call.i = invoke noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %0, i32 noundef 65535)
-          to label %invoke.cont.i unwind label %terminate.lpad.i
-
-invoke.cont.i:                                    ; preds = %entry
-  store i32 %call.i, ptr %__b.i, align 4
-  %1 = load i32, ptr %__m.addr.i, align 4
-  switch i32 %1, label %monotonic.i [
-    i32 1, label %acquire.i
-    i32 2, label %acquire.i
-    i32 5, label %seqcst.i
+84:                                               ; preds = %83, %82
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #14
+  %85 = load i32, ptr %13, align 4
+  switch i32 %85, label %153 [
+    i32 0, label %86
   ]
 
-monotonic.i:                                      ; preds = %invoke.cont.i
-  %2 = load atomic i32, ptr %this1.i monotonic, align 4
-  store i32 %2, ptr %atomic-temp.i, align 4
-  br label %_ZNKSt13__atomic_baseIjE4loadESt12memory_order.exit
+86:                                               ; preds = %84
+  br label %87
 
-acquire.i:                                        ; preds = %invoke.cont.i, %invoke.cont.i
-  %3 = load atomic i32, ptr %this1.i acquire, align 4
-  store i32 %3, ptr %atomic-temp.i, align 4
-  br label %_ZNKSt13__atomic_baseIjE4loadESt12memory_order.exit
+87:                                               ; preds = %86, %38
+  %88 = load ptr, ptr %4, align 8, !tbaa !14
+  %89 = getelementptr inbounds nuw %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %88, i32 0, i32 0
+  invoke void @_ZN4absl13base_internal8SpinLock6UnlockEv(ptr noundef nonnull align 4 dereferenceable(4) %89)
+          to label %90 unwind label %71
 
-seqcst.i:                                         ; preds = %invoke.cont.i
-  %4 = load atomic i32, ptr %this1.i seq_cst, align 4
-  store i32 %4, ptr %atomic-temp.i, align 4
-  br label %_ZNKSt13__atomic_baseIjE4loadESt12memory_order.exit
+90:                                               ; preds = %87
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #14
+  %91 = load i64, ptr %8, align 8, !tbaa !33
+  %92 = load ptr, ptr %4, align 8, !tbaa !14
+  %93 = getelementptr inbounds nuw %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %92, i32 0, i32 5
+  %94 = load i64, ptr %93, align 8, !tbaa !25
+  %95 = mul i64 %94, 16
+  %96 = invoke noundef i64 @_ZN4absl13base_internalL7RoundUpEmm(i64 noundef %91, i64 noundef %95)
+          to label %97 unwind label %106
 
-terminate.lpad.i:                                 ; preds = %entry
-  %5 = landingpad { ptr, i32 }
-          catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #8
+97:                                               ; preds = %90
+  store i64 %96, ptr %14, align 8, !tbaa !33
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #14
+  %98 = load ptr, ptr %4, align 8, !tbaa !14
+  %99 = getelementptr inbounds nuw %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %98, i32 0, i32 4
+  %100 = load i32, ptr %99, align 4, !tbaa !24
+  %101 = and i32 %100, 2
+  %102 = icmp ne i32 %101, 0
+  br i1 %102, label %103, label %110
+
+103:                                              ; preds = %97
+  %104 = load i64, ptr %14, align 8, !tbaa !33
+  %105 = call noundef ptr @_ZN4absl13base_internal10DirectMmapEPvmiiil(ptr noundef null, i64 noundef %104, i32 noundef 3, i32 noundef 34, i32 noundef -1, i64 noundef 0) #14
+  store ptr %105, ptr %15, align 8, !tbaa !9
+  br label %113
+
+106:                                              ; preds = %90
+  %107 = landingpad { ptr, i32 }
+          cleanup
+  %108 = extractvalue { ptr, i32 } %107, 0
+  store ptr %108, ptr %9, align 8
+  %109 = extractvalue { ptr, i32 } %107, 1
+  store i32 %109, ptr %10, align 4
+  br label %161
+
+110:                                              ; preds = %97
+  %111 = load i64, ptr %14, align 8, !tbaa !33
+  %112 = call ptr @mmap(ptr noundef null, i64 noundef %111, i32 noundef 3, i32 noundef 34, i32 noundef -1, i64 noundef 0) #14
+  store ptr %112, ptr %15, align 8, !tbaa !9
+  br label %113
+
+113:                                              ; preds = %110, %103
+  %114 = load ptr, ptr %15, align 8, !tbaa !9
+  %115 = icmp eq ptr %114, inttoptr (i64 -1 to ptr)
+  br i1 %115, label %116, label %130
+
+116:                                              ; preds = %113
+  br label %117
+
+117:                                              ; preds = %116
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #14
+  store ptr getelementptr (i8, ptr @.str, i64 118), ptr %16, align 8, !tbaa !38
+  %118 = call ptr @__errno_location() #15
+  %119 = load i32, ptr %118, align 4, !tbaa !12
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 118), i32 noundef 569, ptr noundef @.str.29, i32 noundef %119)
+          to label %120 unwind label %122
+
+120:                                              ; preds = %117
+  br label %121
+
+121:                                              ; preds = %120
   unreachable
 
-_ZNKSt13__atomic_baseIjE4loadESt12memory_order.exit: ; preds = %seqcst.i, %acquire.i, %monotonic.i
-  %7 = load i32, ptr %atomic-temp.i, align 4
-  store i32 %7, ptr %lock_value, align 4
-  %8 = load i32, ptr %lock_value, align 4
-  %call2 = call noundef i32 @_ZN4absl13base_internal8SpinLock15TryLockInternalEjj(ptr noundef nonnull align 4 dereferenceable(4) %this1, i32 noundef %8, i32 noundef 0)
-  %and = and i32 %call2, 1
-  %cmp = icmp eq i32 %and, 0
-  ret i1 %cmp
+122:                                              ; preds = %117
+  %123 = landingpad { ptr, i32 }
+          cleanup
+  %124 = extractvalue { ptr, i32 } %123, 0
+  store ptr %124, ptr %9, align 8
+  %125 = extractvalue { ptr, i32 } %123, 1
+  store i32 %125, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #14
+  br label %160
+
+126:                                              ; No predecessors!
+  br label %127
+
+127:                                              ; preds = %126
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #14
+  br label %128
+
+128:                                              ; preds = %127
+  br label %129
+
+129:                                              ; preds = %128
+  br label %130
+
+130:                                              ; preds = %129, %113
+  %131 = load ptr, ptr %4, align 8, !tbaa !14
+  %132 = getelementptr inbounds nuw %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %131, i32 0, i32 0
+  invoke void @_ZN4absl13base_internal8SpinLock4LockEv(ptr noundef nonnull align 4 dereferenceable(4) %132)
+          to label %133 unwind label %156
+
+133:                                              ; preds = %130
+  %134 = load ptr, ptr %15, align 8, !tbaa !9
+  store ptr %134, ptr %6, align 8, !tbaa !40
+  %135 = load i64, ptr %14, align 8, !tbaa !33
+  %136 = load ptr, ptr %6, align 8, !tbaa !40
+  %137 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %136, i32 0, i32 0
+  %138 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList::Header", ptr %137, i32 0, i32 0
+  store i64 %135, ptr %138, align 8, !tbaa !42
+  %139 = load ptr, ptr %6, align 8, !tbaa !40
+  %140 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %139, i32 0, i32 0
+  %141 = call noundef i64 @_ZN4absl13base_internalL5MagicEmPNS0_12_GLOBAL__N_19AllocList6HeaderE(i64 noundef 1283669653, ptr noundef %140)
+  %142 = load ptr, ptr %6, align 8, !tbaa !40
+  %143 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %142, i32 0, i32 0
+  %144 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList::Header", ptr %143, i32 0, i32 1
+  store i64 %141, ptr %144, align 8, !tbaa !43
+  %145 = load ptr, ptr %4, align 8, !tbaa !14
+  %146 = load ptr, ptr %6, align 8, !tbaa !40
+  %147 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %146, i32 0, i32 0
+  %148 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList::Header", ptr %147, i32 0, i32 2
+  store ptr %145, ptr %148, align 8, !tbaa !44
+  %149 = load ptr, ptr %6, align 8, !tbaa !40
+  %150 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %149, i32 0, i32 1
+  %151 = load ptr, ptr %4, align 8, !tbaa !14
+  invoke void @_ZN4absl13base_internalL13AddToFreelistEPvPNS0_13LowLevelAlloc5ArenaE(ptr noundef %150, ptr noundef %151)
+          to label %152 unwind label %156
+
+152:                                              ; preds = %133
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #14
+  store i32 0, ptr %13, align 4
+  br label %153
+
+153:                                              ; preds = %152, %84
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #14
+  %154 = load i32, ptr %13, align 4
+  switch i32 %154, label %268 [
+    i32 0, label %155
+    i32 2, label %163
+  ]
+
+155:                                              ; preds = %153
+  br label %32, !llvm.loop !58
+
+156:                                              ; preds = %133, %130
+  %157 = landingpad { ptr, i32 }
+          cleanup
+  %158 = extractvalue { ptr, i32 } %157, 0
+  store ptr %158, ptr %9, align 8
+  %159 = extractvalue { ptr, i32 } %157, 1
+  store i32 %159, ptr %10, align 4
+  br label %160
+
+160:                                              ; preds = %156, %122
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #14
+  br label %161
+
+161:                                              ; preds = %160, %106
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #14
+  br label %162
+
+162:                                              ; preds = %161, %75, %71
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #14
+  br label %260
+
+163:                                              ; preds = %153
+  call void @llvm.lifetime.start.p0(i64 240, ptr %17) #14
+  %164 = load ptr, ptr %4, align 8, !tbaa !14
+  %165 = getelementptr inbounds nuw %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %164, i32 0, i32 2
+  %166 = load ptr, ptr %6, align 8, !tbaa !40
+  %167 = getelementptr inbounds [30 x ptr], ptr %17, i64 0, i64 0
+  invoke void @_ZN4absl13base_internalL18LLA_SkiplistDeleteEPNS0_12_GLOBAL__N_19AllocListES3_PS3_(ptr noundef %165, ptr noundef %166, ptr noundef %167)
+          to label %168 unwind label %211
+
+168:                                              ; preds = %163
+  %169 = load i64, ptr %8, align 8, !tbaa !33
+  %170 = load ptr, ptr %4, align 8, !tbaa !14
+  %171 = getelementptr inbounds nuw %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %170, i32 0, i32 7
+  %172 = load i64, ptr %171, align 8, !tbaa !27
+  %173 = invoke noundef i64 @_ZN4absl13base_internalL10CheckedAddEmm(i64 noundef %169, i64 noundef %172)
+          to label %174 unwind label %211
+
+174:                                              ; preds = %168
+  %175 = load ptr, ptr %6, align 8, !tbaa !40
+  %176 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %175, i32 0, i32 0
+  %177 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList::Header", ptr %176, i32 0, i32 0
+  %178 = load i64, ptr %177, align 8, !tbaa !42
+  %179 = icmp ule i64 %173, %178
+  br i1 %179, label %180, label %219
+
+180:                                              ; preds = %174
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #14
+  %181 = load i64, ptr %8, align 8, !tbaa !33
+  %182 = load ptr, ptr %6, align 8, !tbaa !40
+  %183 = getelementptr inbounds nuw i8, ptr %182, i64 %181
+  store ptr %183, ptr %18, align 8, !tbaa !40
+  %184 = load ptr, ptr %6, align 8, !tbaa !40
+  %185 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %184, i32 0, i32 0
+  %186 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList::Header", ptr %185, i32 0, i32 0
+  %187 = load i64, ptr %186, align 8, !tbaa !42
+  %188 = load i64, ptr %8, align 8, !tbaa !33
+  %189 = sub i64 %187, %188
+  %190 = load ptr, ptr %18, align 8, !tbaa !40
+  %191 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %190, i32 0, i32 0
+  %192 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList::Header", ptr %191, i32 0, i32 0
+  store i64 %189, ptr %192, align 8, !tbaa !42
+  %193 = load ptr, ptr %18, align 8, !tbaa !40
+  %194 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %193, i32 0, i32 0
+  %195 = call noundef i64 @_ZN4absl13base_internalL5MagicEmPNS0_12_GLOBAL__N_19AllocList6HeaderE(i64 noundef 1283669653, ptr noundef %194)
+  %196 = load ptr, ptr %18, align 8, !tbaa !40
+  %197 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %196, i32 0, i32 0
+  %198 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList::Header", ptr %197, i32 0, i32 1
+  store i64 %195, ptr %198, align 8, !tbaa !43
+  %199 = load ptr, ptr %4, align 8, !tbaa !14
+  %200 = load ptr, ptr %18, align 8, !tbaa !40
+  %201 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %200, i32 0, i32 0
+  %202 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList::Header", ptr %201, i32 0, i32 2
+  store ptr %199, ptr %202, align 8, !tbaa !44
+  %203 = load i64, ptr %8, align 8, !tbaa !33
+  %204 = load ptr, ptr %6, align 8, !tbaa !40
+  %205 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %204, i32 0, i32 0
+  %206 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList::Header", ptr %205, i32 0, i32 0
+  store i64 %203, ptr %206, align 8, !tbaa !42
+  %207 = load ptr, ptr %18, align 8, !tbaa !40
+  %208 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %207, i32 0, i32 1
+  %209 = load ptr, ptr %4, align 8, !tbaa !14
+  invoke void @_ZN4absl13base_internalL13AddToFreelistEPvPNS0_13LowLevelAlloc5ArenaE(ptr noundef %208, ptr noundef %209)
+          to label %210 unwind label %215
+
+210:                                              ; preds = %180
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #14
+  br label %219
+
+211:                                              ; preds = %251, %168, %163
+  %212 = landingpad { ptr, i32 }
+          cleanup
+  %213 = extractvalue { ptr, i32 } %212, 0
+  store ptr %213, ptr %9, align 8
+  %214 = extractvalue { ptr, i32 } %212, 1
+  store i32 %214, ptr %10, align 4
+  br label %259
+
+215:                                              ; preds = %180
+  %216 = landingpad { ptr, i32 }
+          cleanup
+  %217 = extractvalue { ptr, i32 } %216, 0
+  store ptr %217, ptr %9, align 8
+  %218 = extractvalue { ptr, i32 } %216, 1
+  store i32 %218, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #14
+  br label %259
+
+219:                                              ; preds = %210, %174
+  %220 = load ptr, ptr %6, align 8, !tbaa !40
+  %221 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %220, i32 0, i32 0
+  %222 = call noundef i64 @_ZN4absl13base_internalL5MagicEmPNS0_12_GLOBAL__N_19AllocList6HeaderE(i64 noundef 1283669653, ptr noundef %221)
+  %223 = load ptr, ptr %6, align 8, !tbaa !40
+  %224 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %223, i32 0, i32 0
+  %225 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList::Header", ptr %224, i32 0, i32 1
+  store i64 %222, ptr %225, align 8, !tbaa !43
+  br label %226
+
+226:                                              ; preds = %219
+  %227 = load ptr, ptr %6, align 8, !tbaa !40
+  %228 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %227, i32 0, i32 0
+  %229 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList::Header", ptr %228, i32 0, i32 2
+  %230 = load ptr, ptr %229, align 8, !tbaa !44
+  %231 = load ptr, ptr %4, align 8, !tbaa !14
+  %232 = icmp eq ptr %230, %231
+  %233 = xor i1 %232, true
+  %234 = zext i1 %233 to i64
+  %235 = call i64 @llvm.expect.i64(i64 %234, i64 0)
+  %236 = icmp ne i64 %235, 0
+  br i1 %236, label %237, label %249
+
+237:                                              ; preds = %226
+  br label %238
+
+238:                                              ; preds = %237
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #14
+  store ptr getelementptr (i8, ptr @.str, i64 118), ptr %19, align 8, !tbaa !38
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 118), i32 noundef 607, ptr noundef @.str.1, ptr noundef @.str.30, ptr noundef @.str.31)
+          to label %239 unwind label %241
+
+239:                                              ; preds = %238
+  br label %240
+
+240:                                              ; preds = %239
+  unreachable
+
+241:                                              ; preds = %238
+  %242 = landingpad { ptr, i32 }
+          cleanup
+  %243 = extractvalue { ptr, i32 } %242, 0
+  store ptr %243, ptr %9, align 8
+  %244 = extractvalue { ptr, i32 } %242, 1
+  store i32 %244, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #14
+  br label %259
+
+245:                                              ; No predecessors!
+  br label %246
+
+246:                                              ; preds = %245
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #14
+  br label %247
+
+247:                                              ; preds = %246
+  br label %248
+
+248:                                              ; preds = %247
+  br label %249
+
+249:                                              ; preds = %248, %226
+  br label %250
+
+250:                                              ; preds = %249
+  br label %251
+
+251:                                              ; preds = %250
+  %252 = load ptr, ptr %4, align 8, !tbaa !14
+  %253 = getelementptr inbounds nuw %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %252, i32 0, i32 3
+  %254 = load i32, ptr %253, align 8, !tbaa !16
+  %255 = add nsw i32 %254, 1
+  store i32 %255, ptr %253, align 8, !tbaa !16
+  invoke void @_ZN4absl13base_internal12_GLOBAL__N_19ArenaLock5LeaveEv(ptr noundef nonnull align 8 dereferenceable(144) %7)
+          to label %256 unwind label %211
+
+256:                                              ; preds = %251
+  %257 = load ptr, ptr %6, align 8, !tbaa !40
+  %258 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %257, i32 0, i32 1
+  store ptr %258, ptr %5, align 8, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 240, ptr %17) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #14
+  call void @_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %7) #14
+  call void @llvm.lifetime.end.p0(i64 144, ptr %7) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #14
+  br label %261
+
+259:                                              ; preds = %241, %215, %211
+  call void @llvm.lifetime.end.p0(i64 240, ptr %17) #14
+  br label %260
+
+260:                                              ; preds = %259, %162, %67
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #14
+  call void @_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %7) #14
+  call void @llvm.lifetime.end.p0(i64 144, ptr %7) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #14
+  br label %263
+
+261:                                              ; preds = %256, %2
+  %262 = load ptr, ptr %5, align 8, !tbaa !9
+  store i32 1, ptr %13, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #14
+  ret ptr %262
+
+263:                                              ; preds = %260
+  %264 = load ptr, ptr %9, align 8
+  %265 = load i32, ptr %10, align 4
+  %266 = insertvalue { ptr, i32 } poison, ptr %264, 0
+  %267 = insertvalue { ptr, i32 } %266, i32 %265, 1
+  resume { ptr, i32 } %267
+
+268:                                              ; preds = %153
+  unreachable
+}
+
+; Function Attrs: nounwind
+declare i64 @sysconf(i32 noundef) #8
+
+; Function Attrs: nounwind
+declare i32 @sigfillset(ptr noundef) #8
+
+; Function Attrs: nounwind
+declare i32 @pthread_sigmask(i32 noundef, ptr noundef, ptr noundef) #8
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN4absl13base_internal8SpinLock4LockEv(ptr noundef nonnull align 4 dereferenceable(4) %0) #10 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !59
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef zeroext i1 @_ZN4absl13base_internal8SpinLock11TryLockImplEv(ptr noundef nonnull align 4 dereferenceable(4) %3)
+  br i1 %4, label %6, label %5
+
+5:                                                ; preds = %1
+  call void @_ZN4absl13base_internal8SpinLock8SlowLockEv(ptr noundef nonnull align 4 dereferenceable(4) %3) #17
+  br label %6
+
+6:                                                ; preds = %5, %1
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_ZN4absl13base_internal8SpinLock11TryLockImplEv(ptr noundef nonnull align 4 dereferenceable(4) %0) #10 comdat align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !59
+  %4 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #14
+  %5 = getelementptr inbounds nuw %"class.absl::base_internal::SpinLock", ptr %4, i32 0, i32 0
+  %6 = call noundef i32 @_ZNKSt13__atomic_baseIjE4loadESt12memory_order(ptr noundef nonnull align 4 dereferenceable(4) %5, i32 noundef 0) #14
+  store i32 %6, ptr %3, align 4, !tbaa !12
+  %7 = load i32, ptr %3, align 4, !tbaa !12
+  %8 = call noundef i32 @_ZN4absl13base_internal8SpinLock15TryLockInternalEjj(ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %7, i32 noundef 0)
+  %9 = and i32 %8, 1
+  %10 = icmp eq i32 %9, 0
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #14
+  ret i1 %10
 }
 
 ; Function Attrs: cold
-declare void @_ZN4absl13base_internal8SpinLock8SlowLockEv(ptr noundef nonnull align 4 dereferenceable(4)) #6
+declare void @_ZN4absl13base_internal8SpinLock8SlowLockEv(ptr noundef nonnull align 4 dereferenceable(4)) #11
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i32 @_ZN4absl13base_internal8SpinLock15TryLockInternalEjj(ptr noundef nonnull align 4 dereferenceable(4) %this, i32 noundef %lock_value, i32 noundef %wait_cycles) #0 comdat align 2 {
-entry:
-  %this.addr.i = alloca ptr, align 8
-  %__i1.addr.i = alloca ptr, align 8
-  %__i2.addr.i = alloca i32, align 4
-  %__m1.addr.i = alloca i32, align 4
-  %__m2.addr.i = alloca i32, align 4
-  %.atomictmp.i = alloca i32, align 4
-  %cmpxchg.bool.i = alloca i8, align 1
-  %retval = alloca i32, align 4
-  %this.addr = alloca ptr, align 8
-  %lock_value.addr = alloca i32, align 4
-  %wait_cycles.addr = alloca i32, align 4
-  %sched_disabled_bit = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %lock_value, ptr %lock_value.addr, align 4
-  store i32 %wait_cycles, ptr %wait_cycles.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i32, ptr %lock_value.addr, align 4
-  %and = and i32 %0, 1
-  %cmp = icmp ne i32 %and, 0
-  br i1 %cmp, label %if.then, label %if.end
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i32 @_ZNKSt13__atomic_baseIjE4loadESt12memory_order(ptr noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %1) #12 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !61
+  store i32 %1, ptr %4, align 4, !tbaa !63
+  %7 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #14
+  %8 = load i32, ptr %4, align 4, !tbaa !63
+  %9 = invoke noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %8, i32 noundef 65535)
+          to label %10 unwind label %27
 
-if.then:                                          ; preds = %entry
-  %1 = load i32, ptr %lock_value.addr, align 4
-  store i32 %1, ptr %retval, align 4
-  br label %return
+10:                                               ; preds = %2
+  store i32 %9, ptr %5, align 4, !tbaa !63
+  br label %11
 
-if.end:                                           ; preds = %entry
-  store i32 0, ptr %sched_disabled_bit, align 4
-  %2 = load i32, ptr %lock_value.addr, align 4
-  %and2 = and i32 %2, 2
-  %cmp3 = icmp eq i32 %and2, 0
-  br i1 %cmp3, label %if.then4, label %if.end7
+11:                                               ; preds = %10
+  br label %12
 
-if.then4:                                         ; preds = %if.end
-  %call = call noundef zeroext i1 @_ZN4absl13base_internal15SchedulingGuard19DisableReschedulingEv()
-  br i1 %call, label %if.then5, label %if.end6
+12:                                               ; preds = %11
+  br label %13
 
-if.then5:                                         ; preds = %if.then4
-  store i32 4, ptr %sched_disabled_bit, align 4
-  br label %if.end6
+13:                                               ; preds = %12
+  br label %14
 
-if.end6:                                          ; preds = %if.then5, %if.then4
-  br label %if.end7
+14:                                               ; preds = %13
+  br label %15
 
-if.end7:                                          ; preds = %if.end6, %if.end
-  %lockword_ = getelementptr inbounds %"class.absl::base_internal::SpinLock", ptr %this1, i32 0, i32 0
-  %3 = load i32, ptr %lock_value.addr, align 4
-  %or = or i32 1, %3
-  %4 = load i32, ptr %wait_cycles.addr, align 4
-  %or8 = or i32 %or, %4
-  %5 = load i32, ptr %sched_disabled_bit, align 4
-  %or9 = or i32 %or8, %5
-  store ptr %lockword_, ptr %this.addr.i, align 8
-  store ptr %lock_value.addr, ptr %__i1.addr.i, align 8
-  store i32 %or9, ptr %__i2.addr.i, align 4
-  store i32 2, ptr %__m1.addr.i, align 4
-  store i32 0, ptr %__m2.addr.i, align 4
-  %this1.i = load ptr, ptr %this.addr.i, align 8
-  %6 = load i32, ptr %__m1.addr.i, align 4
-  %7 = load ptr, ptr %__i1.addr.i, align 8
-  %8 = load i32, ptr %__i2.addr.i, align 4
-  store i32 %8, ptr %.atomictmp.i, align 4
-  %9 = load i32, ptr %__m2.addr.i, align 4
-  switch i32 %6, label %monotonic.i [
-    i32 1, label %acquire.i
-    i32 2, label %acquire.i
-    i32 3, label %release.i
-    i32 4, label %acqrel.i
-    i32 5, label %seqcst.i
+15:                                               ; preds = %14
+  br label %16
+
+16:                                               ; preds = %15
+  %17 = getelementptr inbounds nuw %"struct.std::__atomic_base", ptr %7, i32 0, i32 0
+  %18 = load i32, ptr %4, align 4, !tbaa !63
+  switch i32 %18, label %19 [
+    i32 1, label %21
+    i32 2, label %21
+    i32 5, label %23
   ]
 
-monotonic.i:                                      ; preds = %if.end7
-  switch i32 %9, label %monotonic_fail.i [
-    i32 1, label %acquire_fail.i
-    i32 2, label %acquire_fail.i
-    i32 5, label %seqcst_fail.i
-  ]
+19:                                               ; preds = %16
+  %20 = load atomic i32, ptr %17 monotonic, align 4
+  store i32 %20, ptr %6, align 4
+  br label %25
 
-acquire.i:                                        ; preds = %if.end7, %if.end7
-  switch i32 %9, label %monotonic_fail9.i [
-    i32 1, label %acquire_fail10.i
-    i32 2, label %acquire_fail10.i
-    i32 5, label %seqcst_fail11.i
-  ]
+21:                                               ; preds = %16, %16
+  %22 = load atomic i32, ptr %17 acquire, align 4
+  store i32 %22, ptr %6, align 4
+  br label %25
 
-release.i:                                        ; preds = %if.end7
-  switch i32 %9, label %monotonic_fail22.i [
-    i32 1, label %acquire_fail23.i
-    i32 2, label %acquire_fail23.i
-    i32 5, label %seqcst_fail24.i
-  ]
+23:                                               ; preds = %16
+  %24 = load atomic i32, ptr %17 seq_cst, align 4
+  store i32 %24, ptr %6, align 4
+  br label %25
 
-acqrel.i:                                         ; preds = %if.end7
-  switch i32 %9, label %monotonic_fail35.i [
-    i32 1, label %acquire_fail36.i
-    i32 2, label %acquire_fail36.i
-    i32 5, label %seqcst_fail37.i
-  ]
+25:                                               ; preds = %23, %21, %19
+  %26 = load i32, ptr %6, align 4, !tbaa !12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #14
+  ret i32 %26
 
-seqcst.i:                                         ; preds = %if.end7
-  switch i32 %9, label %monotonic_fail48.i [
-    i32 1, label %acquire_fail49.i
-    i32 2, label %acquire_fail49.i
-    i32 5, label %seqcst_fail50.i
-  ]
+27:                                               ; preds = %2
+  %28 = landingpad { ptr, i32 }
+          catch ptr null
+  %29 = extractvalue { ptr, i32 } %28, 0
+  call void @__clang_call_terminate(ptr %29) #16
+  unreachable
+}
 
-monotonic_fail.i:                                 ; preds = %monotonic.i
-  %10 = load i32, ptr %7, align 4
-  %11 = load i32, ptr %.atomictmp.i, align 4
-  %12 = cmpxchg ptr %this1.i, i32 %10, i32 %11 monotonic monotonic, align 4
-  %13 = extractvalue { i32, i1 } %12, 0
-  %14 = extractvalue { i32, i1 } %12, 1
-  br i1 %14, label %cmpxchg.continue.i, label %cmpxchg.store_expected.i
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef i32 @_ZN4absl13base_internal8SpinLock15TryLockInternalEjj(ptr noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %1, i32 noundef %2) #10 comdat align 2 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !59
+  store i32 %1, ptr %6, align 4, !tbaa !12
+  store i32 %2, ptr %7, align 4, !tbaa !12
+  %9 = load ptr, ptr %5, align 8
+  %10 = load i32, ptr %6, align 4, !tbaa !12
+  %11 = and i32 %10, 1
+  %12 = icmp ne i32 %11, 0
+  br i1 %12, label %13, label %15
 
-acquire_fail.i:                                   ; preds = %monotonic.i, %monotonic.i
-  %15 = load i32, ptr %7, align 4
-  %16 = load i32, ptr %.atomictmp.i, align 4
-  %17 = cmpxchg ptr %this1.i, i32 %15, i32 %16 monotonic acquire, align 4
-  %18 = extractvalue { i32, i1 } %17, 0
-  %19 = extractvalue { i32, i1 } %17, 1
-  br i1 %19, label %cmpxchg.continue4.i, label %cmpxchg.store_expected3.i
+13:                                               ; preds = %3
+  %14 = load i32, ptr %6, align 4, !tbaa !12
+  store i32 %14, ptr %4, align 4
+  br label %37
 
-seqcst_fail.i:                                    ; preds = %monotonic.i
-  %20 = load i32, ptr %7, align 4
-  %21 = load i32, ptr %.atomictmp.i, align 4
-  %22 = cmpxchg ptr %this1.i, i32 %20, i32 %21 monotonic seq_cst, align 4
-  %23 = extractvalue { i32, i1 } %22, 0
-  %24 = extractvalue { i32, i1 } %22, 1
-  br i1 %24, label %cmpxchg.continue7.i, label %cmpxchg.store_expected6.i
+15:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #14
+  store i32 0, ptr %8, align 4, !tbaa !12
+  %16 = load i32, ptr %6, align 4, !tbaa !12
+  %17 = and i32 %16, 2
+  %18 = icmp eq i32 %17, 0
+  br i1 %18, label %19, label %23
 
-atomic.continue2.i:                               ; preds = %cmpxchg.continue7.i, %cmpxchg.continue4.i, %cmpxchg.continue.i
-  br label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit
+19:                                               ; preds = %15
+  %20 = call noundef zeroext i1 @_ZN4absl13base_internal15SchedulingGuard19DisableReschedulingEv()
+  br i1 %20, label %21, label %22
 
-cmpxchg.store_expected.i:                         ; preds = %monotonic_fail.i
-  store i32 %13, ptr %7, align 4
-  br label %cmpxchg.continue.i
+21:                                               ; preds = %19
+  store i32 4, ptr %8, align 4, !tbaa !12
+  br label %22
 
-cmpxchg.continue.i:                               ; preds = %cmpxchg.store_expected.i, %monotonic_fail.i
-  %frombool.i = zext i1 %14 to i8
-  store i8 %frombool.i, ptr %cmpxchg.bool.i, align 1
-  br label %atomic.continue2.i
+22:                                               ; preds = %21, %19
+  br label %23
 
-cmpxchg.store_expected3.i:                        ; preds = %acquire_fail.i
-  store i32 %18, ptr %7, align 4
-  br label %cmpxchg.continue4.i
+23:                                               ; preds = %22, %15
+  %24 = getelementptr inbounds nuw %"class.absl::base_internal::SpinLock", ptr %9, i32 0, i32 0
+  %25 = load i32, ptr %6, align 4, !tbaa !12
+  %26 = or i32 1, %25
+  %27 = load i32, ptr %7, align 4, !tbaa !12
+  %28 = or i32 %26, %27
+  %29 = load i32, ptr %8, align 4, !tbaa !12
+  %30 = or i32 %28, %29
+  %31 = call noundef zeroext i1 @_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_(ptr noundef nonnull align 4 dereferenceable(4) %24, ptr noundef nonnull align 4 dereferenceable(4) %6, i32 noundef %30, i32 noundef 2, i32 noundef 0) #14
+  br i1 %31, label %35, label %32
 
-cmpxchg.continue4.i:                              ; preds = %cmpxchg.store_expected3.i, %acquire_fail.i
-  %frombool5.i = zext i1 %19 to i8
-  store i8 %frombool5.i, ptr %cmpxchg.bool.i, align 1
-  br label %atomic.continue2.i
+32:                                               ; preds = %23
+  %33 = load i32, ptr %8, align 4, !tbaa !12
+  %34 = icmp ne i32 %33, 0
+  call void @_ZN4absl13base_internal15SchedulingGuard18EnableReschedulingEb(i1 noundef zeroext %34)
+  br label %35
 
-cmpxchg.store_expected6.i:                        ; preds = %seqcst_fail.i
-  store i32 %23, ptr %7, align 4
-  br label %cmpxchg.continue7.i
+35:                                               ; preds = %32, %23
+  %36 = load i32, ptr %6, align 4, !tbaa !12
+  store i32 %36, ptr %4, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #14
+  br label %37
 
-cmpxchg.continue7.i:                              ; preds = %cmpxchg.store_expected6.i, %seqcst_fail.i
-  %frombool8.i = zext i1 %24 to i8
-  store i8 %frombool8.i, ptr %cmpxchg.bool.i, align 1
-  br label %atomic.continue2.i
-
-monotonic_fail9.i:                                ; preds = %acquire.i
-  %25 = load i32, ptr %7, align 4
-  %26 = load i32, ptr %.atomictmp.i, align 4
-  %27 = cmpxchg ptr %this1.i, i32 %25, i32 %26 acquire monotonic, align 4
-  %28 = extractvalue { i32, i1 } %27, 0
-  %29 = extractvalue { i32, i1 } %27, 1
-  br i1 %29, label %cmpxchg.continue14.i, label %cmpxchg.store_expected13.i
-
-acquire_fail10.i:                                 ; preds = %acquire.i, %acquire.i
-  %30 = load i32, ptr %7, align 4
-  %31 = load i32, ptr %.atomictmp.i, align 4
-  %32 = cmpxchg ptr %this1.i, i32 %30, i32 %31 acquire acquire, align 4
-  %33 = extractvalue { i32, i1 } %32, 0
-  %34 = extractvalue { i32, i1 } %32, 1
-  br i1 %34, label %cmpxchg.continue17.i, label %cmpxchg.store_expected16.i
-
-seqcst_fail11.i:                                  ; preds = %acquire.i
-  %35 = load i32, ptr %7, align 4
-  %36 = load i32, ptr %.atomictmp.i, align 4
-  %37 = cmpxchg ptr %this1.i, i32 %35, i32 %36 acquire seq_cst, align 4
-  %38 = extractvalue { i32, i1 } %37, 0
-  %39 = extractvalue { i32, i1 } %37, 1
-  br i1 %39, label %cmpxchg.continue20.i, label %cmpxchg.store_expected19.i
-
-atomic.continue12.i:                              ; preds = %cmpxchg.continue20.i, %cmpxchg.continue17.i, %cmpxchg.continue14.i
-  br label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit
-
-cmpxchg.store_expected13.i:                       ; preds = %monotonic_fail9.i
-  store i32 %28, ptr %7, align 4
-  br label %cmpxchg.continue14.i
-
-cmpxchg.continue14.i:                             ; preds = %cmpxchg.store_expected13.i, %monotonic_fail9.i
-  %frombool15.i = zext i1 %29 to i8
-  store i8 %frombool15.i, ptr %cmpxchg.bool.i, align 1
-  br label %atomic.continue12.i
-
-cmpxchg.store_expected16.i:                       ; preds = %acquire_fail10.i
-  store i32 %33, ptr %7, align 4
-  br label %cmpxchg.continue17.i
-
-cmpxchg.continue17.i:                             ; preds = %cmpxchg.store_expected16.i, %acquire_fail10.i
-  %frombool18.i = zext i1 %34 to i8
-  store i8 %frombool18.i, ptr %cmpxchg.bool.i, align 1
-  br label %atomic.continue12.i
-
-cmpxchg.store_expected19.i:                       ; preds = %seqcst_fail11.i
-  store i32 %38, ptr %7, align 4
-  br label %cmpxchg.continue20.i
-
-cmpxchg.continue20.i:                             ; preds = %cmpxchg.store_expected19.i, %seqcst_fail11.i
-  %frombool21.i = zext i1 %39 to i8
-  store i8 %frombool21.i, ptr %cmpxchg.bool.i, align 1
-  br label %atomic.continue12.i
-
-monotonic_fail22.i:                               ; preds = %release.i
-  %40 = load i32, ptr %7, align 4
-  %41 = load i32, ptr %.atomictmp.i, align 4
-  %42 = cmpxchg ptr %this1.i, i32 %40, i32 %41 release monotonic, align 4
-  %43 = extractvalue { i32, i1 } %42, 0
-  %44 = extractvalue { i32, i1 } %42, 1
-  br i1 %44, label %cmpxchg.continue27.i, label %cmpxchg.store_expected26.i
-
-acquire_fail23.i:                                 ; preds = %release.i, %release.i
-  %45 = load i32, ptr %7, align 4
-  %46 = load i32, ptr %.atomictmp.i, align 4
-  %47 = cmpxchg ptr %this1.i, i32 %45, i32 %46 release acquire, align 4
-  %48 = extractvalue { i32, i1 } %47, 0
-  %49 = extractvalue { i32, i1 } %47, 1
-  br i1 %49, label %cmpxchg.continue30.i, label %cmpxchg.store_expected29.i
-
-seqcst_fail24.i:                                  ; preds = %release.i
-  %50 = load i32, ptr %7, align 4
-  %51 = load i32, ptr %.atomictmp.i, align 4
-  %52 = cmpxchg ptr %this1.i, i32 %50, i32 %51 release seq_cst, align 4
-  %53 = extractvalue { i32, i1 } %52, 0
-  %54 = extractvalue { i32, i1 } %52, 1
-  br i1 %54, label %cmpxchg.continue33.i, label %cmpxchg.store_expected32.i
-
-atomic.continue25.i:                              ; preds = %cmpxchg.continue33.i, %cmpxchg.continue30.i, %cmpxchg.continue27.i
-  br label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit
-
-cmpxchg.store_expected26.i:                       ; preds = %monotonic_fail22.i
-  store i32 %43, ptr %7, align 4
-  br label %cmpxchg.continue27.i
-
-cmpxchg.continue27.i:                             ; preds = %cmpxchg.store_expected26.i, %monotonic_fail22.i
-  %frombool28.i = zext i1 %44 to i8
-  store i8 %frombool28.i, ptr %cmpxchg.bool.i, align 1
-  br label %atomic.continue25.i
-
-cmpxchg.store_expected29.i:                       ; preds = %acquire_fail23.i
-  store i32 %48, ptr %7, align 4
-  br label %cmpxchg.continue30.i
-
-cmpxchg.continue30.i:                             ; preds = %cmpxchg.store_expected29.i, %acquire_fail23.i
-  %frombool31.i = zext i1 %49 to i8
-  store i8 %frombool31.i, ptr %cmpxchg.bool.i, align 1
-  br label %atomic.continue25.i
-
-cmpxchg.store_expected32.i:                       ; preds = %seqcst_fail24.i
-  store i32 %53, ptr %7, align 4
-  br label %cmpxchg.continue33.i
-
-cmpxchg.continue33.i:                             ; preds = %cmpxchg.store_expected32.i, %seqcst_fail24.i
-  %frombool34.i = zext i1 %54 to i8
-  store i8 %frombool34.i, ptr %cmpxchg.bool.i, align 1
-  br label %atomic.continue25.i
-
-monotonic_fail35.i:                               ; preds = %acqrel.i
-  %55 = load i32, ptr %7, align 4
-  %56 = load i32, ptr %.atomictmp.i, align 4
-  %57 = cmpxchg ptr %this1.i, i32 %55, i32 %56 acq_rel monotonic, align 4
-  %58 = extractvalue { i32, i1 } %57, 0
-  %59 = extractvalue { i32, i1 } %57, 1
-  br i1 %59, label %cmpxchg.continue40.i, label %cmpxchg.store_expected39.i
-
-acquire_fail36.i:                                 ; preds = %acqrel.i, %acqrel.i
-  %60 = load i32, ptr %7, align 4
-  %61 = load i32, ptr %.atomictmp.i, align 4
-  %62 = cmpxchg ptr %this1.i, i32 %60, i32 %61 acq_rel acquire, align 4
-  %63 = extractvalue { i32, i1 } %62, 0
-  %64 = extractvalue { i32, i1 } %62, 1
-  br i1 %64, label %cmpxchg.continue43.i, label %cmpxchg.store_expected42.i
-
-seqcst_fail37.i:                                  ; preds = %acqrel.i
-  %65 = load i32, ptr %7, align 4
-  %66 = load i32, ptr %.atomictmp.i, align 4
-  %67 = cmpxchg ptr %this1.i, i32 %65, i32 %66 acq_rel seq_cst, align 4
-  %68 = extractvalue { i32, i1 } %67, 0
-  %69 = extractvalue { i32, i1 } %67, 1
-  br i1 %69, label %cmpxchg.continue46.i, label %cmpxchg.store_expected45.i
-
-atomic.continue38.i:                              ; preds = %cmpxchg.continue46.i, %cmpxchg.continue43.i, %cmpxchg.continue40.i
-  br label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit
-
-cmpxchg.store_expected39.i:                       ; preds = %monotonic_fail35.i
-  store i32 %58, ptr %7, align 4
-  br label %cmpxchg.continue40.i
-
-cmpxchg.continue40.i:                             ; preds = %cmpxchg.store_expected39.i, %monotonic_fail35.i
-  %frombool41.i = zext i1 %59 to i8
-  store i8 %frombool41.i, ptr %cmpxchg.bool.i, align 1
-  br label %atomic.continue38.i
-
-cmpxchg.store_expected42.i:                       ; preds = %acquire_fail36.i
-  store i32 %63, ptr %7, align 4
-  br label %cmpxchg.continue43.i
-
-cmpxchg.continue43.i:                             ; preds = %cmpxchg.store_expected42.i, %acquire_fail36.i
-  %frombool44.i = zext i1 %64 to i8
-  store i8 %frombool44.i, ptr %cmpxchg.bool.i, align 1
-  br label %atomic.continue38.i
-
-cmpxchg.store_expected45.i:                       ; preds = %seqcst_fail37.i
-  store i32 %68, ptr %7, align 4
-  br label %cmpxchg.continue46.i
-
-cmpxchg.continue46.i:                             ; preds = %cmpxchg.store_expected45.i, %seqcst_fail37.i
-  %frombool47.i = zext i1 %69 to i8
-  store i8 %frombool47.i, ptr %cmpxchg.bool.i, align 1
-  br label %atomic.continue38.i
-
-monotonic_fail48.i:                               ; preds = %seqcst.i
-  %70 = load i32, ptr %7, align 4
-  %71 = load i32, ptr %.atomictmp.i, align 4
-  %72 = cmpxchg ptr %this1.i, i32 %70, i32 %71 seq_cst monotonic, align 4
-  %73 = extractvalue { i32, i1 } %72, 0
-  %74 = extractvalue { i32, i1 } %72, 1
-  br i1 %74, label %cmpxchg.continue53.i, label %cmpxchg.store_expected52.i
-
-acquire_fail49.i:                                 ; preds = %seqcst.i, %seqcst.i
-  %75 = load i32, ptr %7, align 4
-  %76 = load i32, ptr %.atomictmp.i, align 4
-  %77 = cmpxchg ptr %this1.i, i32 %75, i32 %76 seq_cst acquire, align 4
-  %78 = extractvalue { i32, i1 } %77, 0
-  %79 = extractvalue { i32, i1 } %77, 1
-  br i1 %79, label %cmpxchg.continue56.i, label %cmpxchg.store_expected55.i
-
-seqcst_fail50.i:                                  ; preds = %seqcst.i
-  %80 = load i32, ptr %7, align 4
-  %81 = load i32, ptr %.atomictmp.i, align 4
-  %82 = cmpxchg ptr %this1.i, i32 %80, i32 %81 seq_cst seq_cst, align 4
-  %83 = extractvalue { i32, i1 } %82, 0
-  %84 = extractvalue { i32, i1 } %82, 1
-  br i1 %84, label %cmpxchg.continue59.i, label %cmpxchg.store_expected58.i
-
-atomic.continue51.i:                              ; preds = %cmpxchg.continue59.i, %cmpxchg.continue56.i, %cmpxchg.continue53.i
-  br label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit
-
-cmpxchg.store_expected52.i:                       ; preds = %monotonic_fail48.i
-  store i32 %73, ptr %7, align 4
-  br label %cmpxchg.continue53.i
-
-cmpxchg.continue53.i:                             ; preds = %cmpxchg.store_expected52.i, %monotonic_fail48.i
-  %frombool54.i = zext i1 %74 to i8
-  store i8 %frombool54.i, ptr %cmpxchg.bool.i, align 1
-  br label %atomic.continue51.i
-
-cmpxchg.store_expected55.i:                       ; preds = %acquire_fail49.i
-  store i32 %78, ptr %7, align 4
-  br label %cmpxchg.continue56.i
-
-cmpxchg.continue56.i:                             ; preds = %cmpxchg.store_expected55.i, %acquire_fail49.i
-  %frombool57.i = zext i1 %79 to i8
-  store i8 %frombool57.i, ptr %cmpxchg.bool.i, align 1
-  br label %atomic.continue51.i
-
-cmpxchg.store_expected58.i:                       ; preds = %seqcst_fail50.i
-  store i32 %83, ptr %7, align 4
-  br label %cmpxchg.continue59.i
-
-cmpxchg.continue59.i:                             ; preds = %cmpxchg.store_expected58.i, %seqcst_fail50.i
-  %frombool60.i = zext i1 %84 to i8
-  store i8 %frombool60.i, ptr %cmpxchg.bool.i, align 1
-  br label %atomic.continue51.i
-
-_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit: ; preds = %atomic.continue51.i, %atomic.continue38.i, %atomic.continue25.i, %atomic.continue12.i, %atomic.continue2.i
-  %85 = load i8, ptr %cmpxchg.bool.i, align 1
-  %tobool.i = trunc i8 %85 to i1
-  br i1 %tobool.i, label %if.end13, label %if.then11
-
-if.then11:                                        ; preds = %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit
-  %86 = load i32, ptr %sched_disabled_bit, align 4
-  %cmp12 = icmp ne i32 %86, 0
-  call void @_ZN4absl13base_internal15SchedulingGuard18EnableReschedulingEb(i1 noundef zeroext %cmp12)
-  br label %if.end13
-
-if.end13:                                         ; preds = %if.then11, %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit
-  %87 = load i32, ptr %lock_value.addr, align 4
-  store i32 %87, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end13, %if.then
-  %88 = load i32, ptr %retval, align 4
-  ret i32 %88
+37:                                               ; preds = %35, %13
+  %38 = load i32, ptr %4, align 4
+  ret i32 %38
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %__m, i32 noundef %__mod) #2 comdat {
-entry:
-  %__m.addr = alloca i32, align 4
-  %__mod.addr = alloca i32, align 4
-  store i32 %__m, ptr %__m.addr, align 4
-  store i32 %__mod, ptr %__mod.addr, align 4
-  %0 = load i32, ptr %__m.addr, align 4
-  %1 = load i32, ptr %__mod.addr, align 4
-  %and = and i32 %0, %1
-  ret i32 %and
+define linkonce_odr dso_local noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %0, i32 noundef %1) #2 comdat {
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !63
+  store i32 %1, ptr %4, align 4, !tbaa !65
+  %5 = load i32, ptr %3, align 4, !tbaa !63
+  %6 = load i32, ptr %4, align 4, !tbaa !65
+  %7 = and i32 %5, %6
+  ret i32 %7
 }
 
-; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #7 comdat {
-  %2 = call ptr @__cxa_begin_catch(ptr %0) #9
-  call void @_ZSt9terminatev() #8
+; Function Attrs: noinline noreturn nounwind uwtable
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #13 comdat {
+  %2 = call ptr @__cxa_begin_catch(ptr %0) #14
+  call void @_ZSt9terminatev() #16
   unreachable
 }
 
@@ -2125,1752 +2117,1888 @@ declare ptr @__cxa_begin_catch(ptr)
 
 declare void @_ZSt9terminatev()
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZN4absl13base_internal15SchedulingGuard19DisableReschedulingEv() #2 comdat align 2 {
-entry:
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_ZN4absl13base_internal15SchedulingGuard19DisableReschedulingEv() #3 comdat align 2 {
   ret i1 false
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN4absl13base_internal15SchedulingGuard18EnableReschedulingEb(i1 noundef zeroext %0) #2 comdat align 2 {
-entry:
-  %.addr = alloca i8, align 1
-  %frombool = zext i1 %0 to i8
-  store i8 %frombool, ptr %.addr, align 1
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_(ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #12 comdat align 2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i8, align 1
+  store ptr %0, ptr %6, align 8, !tbaa !61
+  store ptr %1, ptr %7, align 8, !tbaa !67
+  store i32 %2, ptr %8, align 4, !tbaa !12
+  store i32 %3, ptr %9, align 4, !tbaa !63
+  store i32 %4, ptr %10, align 4, !tbaa !63
+  %13 = load ptr, ptr %6, align 8
+  br label %14
+
+14:                                               ; preds = %5
+  br label %15
+
+15:                                               ; preds = %14
+  br label %16
+
+16:                                               ; preds = %15
+  %17 = getelementptr inbounds nuw %"struct.std::__atomic_base", ptr %13, i32 0, i32 0
+  %18 = load i32, ptr %9, align 4, !tbaa !63
+  %19 = load ptr, ptr %7, align 8, !tbaa !67
+  %20 = load i32, ptr %8, align 4, !tbaa !12
+  store i32 %20, ptr %11, align 4, !tbaa !12
+  %21 = load i32, ptr %10, align 4, !tbaa !63
+  switch i32 %18, label %22 [
+    i32 1, label %23
+    i32 2, label %23
+    i32 3, label %24
+    i32 4, label %25
+    i32 5, label %26
+  ]
+
+22:                                               ; preds = %16
+  switch i32 %21, label %30 [
+    i32 1, label %36
+    i32 2, label %36
+    i32 5, label %42
+  ]
+
+23:                                               ; preds = %16, %16
+  switch i32 %21, label %58 [
+    i32 1, label %64
+    i32 2, label %64
+    i32 5, label %70
+  ]
+
+24:                                               ; preds = %16
+  switch i32 %21, label %86 [
+    i32 1, label %92
+    i32 2, label %92
+    i32 5, label %98
+  ]
+
+25:                                               ; preds = %16
+  switch i32 %21, label %114 [
+    i32 1, label %120
+    i32 2, label %120
+    i32 5, label %126
+  ]
+
+26:                                               ; preds = %16
+  switch i32 %21, label %142 [
+    i32 1, label %148
+    i32 2, label %148
+    i32 5, label %154
+  ]
+
+27:                                               ; preds = %160, %132, %104, %76, %48
+  %28 = load i8, ptr %12, align 1, !tbaa !69, !range !54, !noundef !55
+  %29 = trunc i8 %28 to i1
+  ret i1 %29
+
+30:                                               ; preds = %22
+  %31 = load i32, ptr %19, align 4
+  %32 = load i32, ptr %11, align 4
+  %33 = cmpxchg ptr %17, i32 %31, i32 %32 monotonic monotonic, align 4
+  %34 = extractvalue { i32, i1 } %33, 0
+  %35 = extractvalue { i32, i1 } %33, 1
+  br i1 %35, label %50, label %49
+
+36:                                               ; preds = %22, %22
+  %37 = load i32, ptr %19, align 4
+  %38 = load i32, ptr %11, align 4
+  %39 = cmpxchg ptr %17, i32 %37, i32 %38 monotonic acquire, align 4
+  %40 = extractvalue { i32, i1 } %39, 0
+  %41 = extractvalue { i32, i1 } %39, 1
+  br i1 %41, label %53, label %52
+
+42:                                               ; preds = %22
+  %43 = load i32, ptr %19, align 4
+  %44 = load i32, ptr %11, align 4
+  %45 = cmpxchg ptr %17, i32 %43, i32 %44 monotonic seq_cst, align 4
+  %46 = extractvalue { i32, i1 } %45, 0
+  %47 = extractvalue { i32, i1 } %45, 1
+  br i1 %47, label %56, label %55
+
+48:                                               ; preds = %56, %53, %50
+  br label %27
+
+49:                                               ; preds = %30
+  store i32 %34, ptr %19, align 4
+  br label %50
+
+50:                                               ; preds = %49, %30
+  %51 = zext i1 %35 to i8
+  store i8 %51, ptr %12, align 1, !tbaa !69
+  br label %48
+
+52:                                               ; preds = %36
+  store i32 %40, ptr %19, align 4
+  br label %53
+
+53:                                               ; preds = %52, %36
+  %54 = zext i1 %41 to i8
+  store i8 %54, ptr %12, align 1, !tbaa !69
+  br label %48
+
+55:                                               ; preds = %42
+  store i32 %46, ptr %19, align 4
+  br label %56
+
+56:                                               ; preds = %55, %42
+  %57 = zext i1 %47 to i8
+  store i8 %57, ptr %12, align 1, !tbaa !69
+  br label %48
+
+58:                                               ; preds = %23
+  %59 = load i32, ptr %19, align 4
+  %60 = load i32, ptr %11, align 4
+  %61 = cmpxchg ptr %17, i32 %59, i32 %60 acquire monotonic, align 4
+  %62 = extractvalue { i32, i1 } %61, 0
+  %63 = extractvalue { i32, i1 } %61, 1
+  br i1 %63, label %78, label %77
+
+64:                                               ; preds = %23, %23
+  %65 = load i32, ptr %19, align 4
+  %66 = load i32, ptr %11, align 4
+  %67 = cmpxchg ptr %17, i32 %65, i32 %66 acquire acquire, align 4
+  %68 = extractvalue { i32, i1 } %67, 0
+  %69 = extractvalue { i32, i1 } %67, 1
+  br i1 %69, label %81, label %80
+
+70:                                               ; preds = %23
+  %71 = load i32, ptr %19, align 4
+  %72 = load i32, ptr %11, align 4
+  %73 = cmpxchg ptr %17, i32 %71, i32 %72 acquire seq_cst, align 4
+  %74 = extractvalue { i32, i1 } %73, 0
+  %75 = extractvalue { i32, i1 } %73, 1
+  br i1 %75, label %84, label %83
+
+76:                                               ; preds = %84, %81, %78
+  br label %27
+
+77:                                               ; preds = %58
+  store i32 %62, ptr %19, align 4
+  br label %78
+
+78:                                               ; preds = %77, %58
+  %79 = zext i1 %63 to i8
+  store i8 %79, ptr %12, align 1, !tbaa !69
+  br label %76
+
+80:                                               ; preds = %64
+  store i32 %68, ptr %19, align 4
+  br label %81
+
+81:                                               ; preds = %80, %64
+  %82 = zext i1 %69 to i8
+  store i8 %82, ptr %12, align 1, !tbaa !69
+  br label %76
+
+83:                                               ; preds = %70
+  store i32 %74, ptr %19, align 4
+  br label %84
+
+84:                                               ; preds = %83, %70
+  %85 = zext i1 %75 to i8
+  store i8 %85, ptr %12, align 1, !tbaa !69
+  br label %76
+
+86:                                               ; preds = %24
+  %87 = load i32, ptr %19, align 4
+  %88 = load i32, ptr %11, align 4
+  %89 = cmpxchg ptr %17, i32 %87, i32 %88 release monotonic, align 4
+  %90 = extractvalue { i32, i1 } %89, 0
+  %91 = extractvalue { i32, i1 } %89, 1
+  br i1 %91, label %106, label %105
+
+92:                                               ; preds = %24, %24
+  %93 = load i32, ptr %19, align 4
+  %94 = load i32, ptr %11, align 4
+  %95 = cmpxchg ptr %17, i32 %93, i32 %94 release acquire, align 4
+  %96 = extractvalue { i32, i1 } %95, 0
+  %97 = extractvalue { i32, i1 } %95, 1
+  br i1 %97, label %109, label %108
+
+98:                                               ; preds = %24
+  %99 = load i32, ptr %19, align 4
+  %100 = load i32, ptr %11, align 4
+  %101 = cmpxchg ptr %17, i32 %99, i32 %100 release seq_cst, align 4
+  %102 = extractvalue { i32, i1 } %101, 0
+  %103 = extractvalue { i32, i1 } %101, 1
+  br i1 %103, label %112, label %111
+
+104:                                              ; preds = %112, %109, %106
+  br label %27
+
+105:                                              ; preds = %86
+  store i32 %90, ptr %19, align 4
+  br label %106
+
+106:                                              ; preds = %105, %86
+  %107 = zext i1 %91 to i8
+  store i8 %107, ptr %12, align 1, !tbaa !69
+  br label %104
+
+108:                                              ; preds = %92
+  store i32 %96, ptr %19, align 4
+  br label %109
+
+109:                                              ; preds = %108, %92
+  %110 = zext i1 %97 to i8
+  store i8 %110, ptr %12, align 1, !tbaa !69
+  br label %104
+
+111:                                              ; preds = %98
+  store i32 %102, ptr %19, align 4
+  br label %112
+
+112:                                              ; preds = %111, %98
+  %113 = zext i1 %103 to i8
+  store i8 %113, ptr %12, align 1, !tbaa !69
+  br label %104
+
+114:                                              ; preds = %25
+  %115 = load i32, ptr %19, align 4
+  %116 = load i32, ptr %11, align 4
+  %117 = cmpxchg ptr %17, i32 %115, i32 %116 acq_rel monotonic, align 4
+  %118 = extractvalue { i32, i1 } %117, 0
+  %119 = extractvalue { i32, i1 } %117, 1
+  br i1 %119, label %134, label %133
+
+120:                                              ; preds = %25, %25
+  %121 = load i32, ptr %19, align 4
+  %122 = load i32, ptr %11, align 4
+  %123 = cmpxchg ptr %17, i32 %121, i32 %122 acq_rel acquire, align 4
+  %124 = extractvalue { i32, i1 } %123, 0
+  %125 = extractvalue { i32, i1 } %123, 1
+  br i1 %125, label %137, label %136
+
+126:                                              ; preds = %25
+  %127 = load i32, ptr %19, align 4
+  %128 = load i32, ptr %11, align 4
+  %129 = cmpxchg ptr %17, i32 %127, i32 %128 acq_rel seq_cst, align 4
+  %130 = extractvalue { i32, i1 } %129, 0
+  %131 = extractvalue { i32, i1 } %129, 1
+  br i1 %131, label %140, label %139
+
+132:                                              ; preds = %140, %137, %134
+  br label %27
+
+133:                                              ; preds = %114
+  store i32 %118, ptr %19, align 4
+  br label %134
+
+134:                                              ; preds = %133, %114
+  %135 = zext i1 %119 to i8
+  store i8 %135, ptr %12, align 1, !tbaa !69
+  br label %132
+
+136:                                              ; preds = %120
+  store i32 %124, ptr %19, align 4
+  br label %137
+
+137:                                              ; preds = %136, %120
+  %138 = zext i1 %125 to i8
+  store i8 %138, ptr %12, align 1, !tbaa !69
+  br label %132
+
+139:                                              ; preds = %126
+  store i32 %130, ptr %19, align 4
+  br label %140
+
+140:                                              ; preds = %139, %126
+  %141 = zext i1 %131 to i8
+  store i8 %141, ptr %12, align 1, !tbaa !69
+  br label %132
+
+142:                                              ; preds = %26
+  %143 = load i32, ptr %19, align 4
+  %144 = load i32, ptr %11, align 4
+  %145 = cmpxchg ptr %17, i32 %143, i32 %144 seq_cst monotonic, align 4
+  %146 = extractvalue { i32, i1 } %145, 0
+  %147 = extractvalue { i32, i1 } %145, 1
+  br i1 %147, label %162, label %161
+
+148:                                              ; preds = %26, %26
+  %149 = load i32, ptr %19, align 4
+  %150 = load i32, ptr %11, align 4
+  %151 = cmpxchg ptr %17, i32 %149, i32 %150 seq_cst acquire, align 4
+  %152 = extractvalue { i32, i1 } %151, 0
+  %153 = extractvalue { i32, i1 } %151, 1
+  br i1 %153, label %165, label %164
+
+154:                                              ; preds = %26
+  %155 = load i32, ptr %19, align 4
+  %156 = load i32, ptr %11, align 4
+  %157 = cmpxchg ptr %17, i32 %155, i32 %156 seq_cst seq_cst, align 4
+  %158 = extractvalue { i32, i1 } %157, 0
+  %159 = extractvalue { i32, i1 } %157, 1
+  br i1 %159, label %168, label %167
+
+160:                                              ; preds = %168, %165, %162
+  br label %27
+
+161:                                              ; preds = %142
+  store i32 %146, ptr %19, align 4
+  br label %162
+
+162:                                              ; preds = %161, %142
+  %163 = zext i1 %147 to i8
+  store i8 %163, ptr %12, align 1, !tbaa !69
+  br label %160
+
+164:                                              ; preds = %148
+  store i32 %152, ptr %19, align 4
+  br label %165
+
+165:                                              ; preds = %164, %148
+  %166 = zext i1 %153 to i8
+  store i8 %166, ptr %12, align 1, !tbaa !69
+  br label %160
+
+167:                                              ; preds = %154
+  store i32 %158, ptr %19, align 4
+  br label %168
+
+168:                                              ; preds = %167, %154
+  %169 = zext i1 %159 to i8
+  store i8 %169, ptr %12, align 1, !tbaa !69
+  br label %160
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN4absl13base_internal15SchedulingGuard18EnableReschedulingEb(i1 noundef zeroext %0) #3 comdat align 2 {
+  %2 = alloca i8, align 1
+  %3 = zext i1 %0 to i8
+  store i8 %3, ptr %2, align 1, !tbaa !69
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN4absl13base_internal8SpinLock6UnlockEv(ptr noundef nonnull align 4 dereferenceable(4) %this) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr.i9 = alloca ptr, align 8
-  %__i.addr.i = alloca i32, align 4
-  %__m.addr.i10 = alloca i32, align 4
-  %.atomictmp.i = alloca i32, align 4
-  %atomic-temp.i11 = alloca i32, align 4
-  %this.addr.i = alloca ptr, align 8
-  %__m.addr.i = alloca i32, align 4
-  %__b.i = alloca i32, align 4
-  %atomic-temp.i = alloca i32, align 4
-  %this.addr = alloca ptr, align 8
-  %lock_value = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %lockword_ = getelementptr inbounds %"class.absl::base_internal::SpinLock", ptr %this1, i32 0, i32 0
-  store ptr %lockword_, ptr %this.addr.i, align 8
-  store i32 0, ptr %__m.addr.i, align 4
-  %this1.i = load ptr, ptr %this.addr.i, align 8
-  %0 = load i32, ptr %__m.addr.i, align 4
-  %call.i = invoke noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %0, i32 noundef 65535)
-          to label %invoke.cont.i unwind label %terminate.lpad.i
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN4absl13base_internal8SpinLock6UnlockEv(ptr noundef nonnull align 4 dereferenceable(4) %0) #10 comdat align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !59
+  %4 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #14
+  %5 = getelementptr inbounds nuw %"class.absl::base_internal::SpinLock", ptr %4, i32 0, i32 0
+  %6 = call noundef i32 @_ZNKSt13__atomic_baseIjE4loadESt12memory_order(ptr noundef nonnull align 4 dereferenceable(4) %5, i32 noundef 0) #14
+  store i32 %6, ptr %3, align 4, !tbaa !12
+  %7 = getelementptr inbounds nuw %"class.absl::base_internal::SpinLock", ptr %4, i32 0, i32 0
+  %8 = load i32, ptr %3, align 4, !tbaa !12
+  %9 = and i32 %8, 2
+  %10 = call noundef i32 @_ZNSt13__atomic_baseIjE8exchangeEjSt12memory_order(ptr noundef nonnull align 4 dereferenceable(4) %7, i32 noundef %9, i32 noundef 3) #14
+  store i32 %10, ptr %3, align 4, !tbaa !12
+  %11 = load i32, ptr %3, align 4, !tbaa !12
+  %12 = and i32 %11, 4
+  %13 = icmp ne i32 %12, 0
+  br i1 %13, label %14, label %15
 
-invoke.cont.i:                                    ; preds = %entry
-  store i32 %call.i, ptr %__b.i, align 4
-  %1 = load i32, ptr %__m.addr.i, align 4
-  switch i32 %1, label %monotonic.i [
-    i32 1, label %acquire.i
-    i32 2, label %acquire.i
-    i32 5, label %seqcst.i
-  ]
-
-monotonic.i:                                      ; preds = %invoke.cont.i
-  %2 = load atomic i32, ptr %this1.i monotonic, align 4
-  store i32 %2, ptr %atomic-temp.i, align 4
-  br label %_ZNKSt13__atomic_baseIjE4loadESt12memory_order.exit
-
-acquire.i:                                        ; preds = %invoke.cont.i, %invoke.cont.i
-  %3 = load atomic i32, ptr %this1.i acquire, align 4
-  store i32 %3, ptr %atomic-temp.i, align 4
-  br label %_ZNKSt13__atomic_baseIjE4loadESt12memory_order.exit
-
-seqcst.i:                                         ; preds = %invoke.cont.i
-  %4 = load atomic i32, ptr %this1.i seq_cst, align 4
-  store i32 %4, ptr %atomic-temp.i, align 4
-  br label %_ZNKSt13__atomic_baseIjE4loadESt12memory_order.exit
-
-terminate.lpad.i:                                 ; preds = %entry
-  %5 = landingpad { ptr, i32 }
-          catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #8
-  unreachable
-
-_ZNKSt13__atomic_baseIjE4loadESt12memory_order.exit: ; preds = %seqcst.i, %acquire.i, %monotonic.i
-  %7 = load i32, ptr %atomic-temp.i, align 4
-  store i32 %7, ptr %lock_value, align 4
-  %lockword_2 = getelementptr inbounds %"class.absl::base_internal::SpinLock", ptr %this1, i32 0, i32 0
-  %8 = load i32, ptr %lock_value, align 4
-  %and = and i32 %8, 2
-  store ptr %lockword_2, ptr %this.addr.i9, align 8
-  store i32 %and, ptr %__i.addr.i, align 4
-  store i32 3, ptr %__m.addr.i10, align 4
-  %this1.i12 = load ptr, ptr %this.addr.i9, align 8
-  %9 = load i32, ptr %__m.addr.i10, align 4
-  %10 = load i32, ptr %__i.addr.i, align 4
-  store i32 %10, ptr %.atomictmp.i, align 4
-  switch i32 %9, label %monotonic.i15 [
-    i32 1, label %acquire.i14
-    i32 2, label %acquire.i14
-    i32 3, label %release.i
-    i32 4, label %acqrel.i
-    i32 5, label %seqcst.i13
-  ]
-
-monotonic.i15:                                    ; preds = %_ZNKSt13__atomic_baseIjE4loadESt12memory_order.exit
-  %11 = load i32, ptr %.atomictmp.i, align 4
-  %12 = atomicrmw xchg ptr %this1.i12, i32 %11 monotonic, align 4
-  store i32 %12, ptr %atomic-temp.i11, align 4
-  br label %_ZNSt13__atomic_baseIjE8exchangeEjSt12memory_order.exit
-
-acquire.i14:                                      ; preds = %_ZNKSt13__atomic_baseIjE4loadESt12memory_order.exit, %_ZNKSt13__atomic_baseIjE4loadESt12memory_order.exit
-  %13 = load i32, ptr %.atomictmp.i, align 4
-  %14 = atomicrmw xchg ptr %this1.i12, i32 %13 acquire, align 4
-  store i32 %14, ptr %atomic-temp.i11, align 4
-  br label %_ZNSt13__atomic_baseIjE8exchangeEjSt12memory_order.exit
-
-release.i:                                        ; preds = %_ZNKSt13__atomic_baseIjE4loadESt12memory_order.exit
-  %15 = load i32, ptr %.atomictmp.i, align 4
-  %16 = atomicrmw xchg ptr %this1.i12, i32 %15 release, align 4
-  store i32 %16, ptr %atomic-temp.i11, align 4
-  br label %_ZNSt13__atomic_baseIjE8exchangeEjSt12memory_order.exit
-
-acqrel.i:                                         ; preds = %_ZNKSt13__atomic_baseIjE4loadESt12memory_order.exit
-  %17 = load i32, ptr %.atomictmp.i, align 4
-  %18 = atomicrmw xchg ptr %this1.i12, i32 %17 acq_rel, align 4
-  store i32 %18, ptr %atomic-temp.i11, align 4
-  br label %_ZNSt13__atomic_baseIjE8exchangeEjSt12memory_order.exit
-
-seqcst.i13:                                       ; preds = %_ZNKSt13__atomic_baseIjE4loadESt12memory_order.exit
-  %19 = load i32, ptr %.atomictmp.i, align 4
-  %20 = atomicrmw xchg ptr %this1.i12, i32 %19 seq_cst, align 4
-  store i32 %20, ptr %atomic-temp.i11, align 4
-  br label %_ZNSt13__atomic_baseIjE8exchangeEjSt12memory_order.exit
-
-_ZNSt13__atomic_baseIjE8exchangeEjSt12memory_order.exit: ; preds = %seqcst.i13, %acqrel.i, %release.i, %acquire.i14, %monotonic.i15
-  %21 = load i32, ptr %atomic-temp.i11, align 4
-  store i32 %21, ptr %lock_value, align 4
-  %22 = load i32, ptr %lock_value, align 4
-  %and4 = and i32 %22, 4
-  %cmp = icmp ne i32 %and4, 0
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %_ZNSt13__atomic_baseIjE8exchangeEjSt12memory_order.exit
+14:                                               ; preds = %1
   call void @_ZN4absl13base_internal15SchedulingGuard18EnableReschedulingEb(i1 noundef zeroext true)
-  br label %if.end
+  br label %15
 
-if.end:                                           ; preds = %if.then, %_ZNSt13__atomic_baseIjE8exchangeEjSt12memory_order.exit
-  %23 = load i32, ptr %lock_value, align 4
-  %and5 = and i32 %23, -8
-  %cmp6 = icmp ne i32 %and5, 0
-  br i1 %cmp6, label %if.then7, label %if.end8
+15:                                               ; preds = %14, %1
+  %16 = load i32, ptr %3, align 4, !tbaa !12
+  %17 = and i32 %16, -8
+  %18 = icmp ne i32 %17, 0
+  br i1 %18, label %19, label %21
 
-if.then7:                                         ; preds = %if.end
-  %24 = load i32, ptr %lock_value, align 4
-  call void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) %this1, i32 noundef %24) #11
-  br label %if.end8
+19:                                               ; preds = %15
+  %20 = load i32, ptr %3, align 4, !tbaa !12
+  call void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %20) #17
+  br label %21
 
-if.end8:                                          ; preds = %if.then7, %if.end
+21:                                               ; preds = %19, %15
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #14
   ret void
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i32 @_ZNSt13__atomic_baseIjE8exchangeEjSt12memory_order(ptr noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %1, i32 noundef %2) #12 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !61
+  store i32 %1, ptr %5, align 4, !tbaa !12
+  store i32 %2, ptr %6, align 4, !tbaa !63
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds nuw %"struct.std::__atomic_base", ptr %9, i32 0, i32 0
+  %11 = load i32, ptr %6, align 4, !tbaa !63
+  %12 = load i32, ptr %5, align 4, !tbaa !12
+  store i32 %12, ptr %7, align 4, !tbaa !12
+  switch i32 %11, label %13 [
+    i32 1, label %16
+    i32 2, label %16
+    i32 3, label %19
+    i32 4, label %22
+    i32 5, label %25
+  ]
+
+13:                                               ; preds = %3
+  %14 = load i32, ptr %7, align 4
+  %15 = atomicrmw xchg ptr %10, i32 %14 monotonic, align 4
+  store i32 %15, ptr %8, align 4
+  br label %28
+
+16:                                               ; preds = %3, %3
+  %17 = load i32, ptr %7, align 4
+  %18 = atomicrmw xchg ptr %10, i32 %17 acquire, align 4
+  store i32 %18, ptr %8, align 4
+  br label %28
+
+19:                                               ; preds = %3
+  %20 = load i32, ptr %7, align 4
+  %21 = atomicrmw xchg ptr %10, i32 %20 release, align 4
+  store i32 %21, ptr %8, align 4
+  br label %28
+
+22:                                               ; preds = %3
+  %23 = load i32, ptr %7, align 4
+  %24 = atomicrmw xchg ptr %10, i32 %23 acq_rel, align 4
+  store i32 %24, ptr %8, align 4
+  br label %28
+
+25:                                               ; preds = %3
+  %26 = load i32, ptr %7, align 4
+  %27 = atomicrmw xchg ptr %10, i32 %26 seq_cst, align 4
+  store i32 %27, ptr %8, align 4
+  br label %28
+
+28:                                               ; preds = %25, %22, %19, %16, %13
+  %29 = load i32, ptr %8, align 4, !tbaa !12
+  ret i32 %29
 }
 
 ; Function Attrs: cold
-declare void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4), i32 noundef) #6
+declare void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4), i32 noundef) #11
 
 ; Function Attrs: nounwind
-declare i64 @syscall(i64 noundef, ...) #4
+declare i64 @syscall(i64 noundef, ...) #8
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZN4absl13base_internalL18LLA_SkiplistLevelsEmmPj(i64 noundef %size, i64 noundef %base, ptr noundef %random) #0 {
-entry:
-  %size.addr = alloca i64, align 8
-  %base.addr = alloca i64, align 8
-  %random.addr = alloca ptr, align 8
-  %max_fit = alloca i64, align 8
-  %level = alloca i32, align 4
-  %absl_raw_log_internal_basename = alloca ptr, align 8
-  store i64 %size, ptr %size.addr, align 8
-  store i64 %base, ptr %base.addr, align 8
-  store ptr %random, ptr %random.addr, align 8
-  %0 = load i64, ptr %size.addr, align 8
-  %sub = sub i64 %0, 40
-  %div = udiv i64 %sub, 8
-  store i64 %div, ptr %max_fit, align 8
-  %1 = load i64, ptr %size.addr, align 8
-  %2 = load i64, ptr %base.addr, align 8
-  %call = call noundef i32 @_ZN4absl13base_internalL7IntLog2Emm(i64 noundef %1, i64 noundef %2)
-  %3 = load ptr, ptr %random.addr, align 8
-  %cmp = icmp ne ptr %3, null
-  br i1 %cmp, label %cond.true, label %cond.false
+define internal noundef i32 @_ZN4absl13base_internalL18LLA_SkiplistLevelsEmmPj(i64 noundef %0, i64 noundef %1, ptr noundef %2) #0 {
+  %4 = alloca i64, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  store i64 %0, ptr %4, align 8, !tbaa !33
+  store i64 %1, ptr %5, align 8, !tbaa !33
+  store ptr %2, ptr %6, align 8, !tbaa !67
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #14
+  %10 = load i64, ptr %4, align 8, !tbaa !33
+  %11 = sub i64 %10, 40
+  %12 = udiv i64 %11, 8
+  store i64 %12, ptr %7, align 8, !tbaa !33
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #14
+  %13 = load i64, ptr %4, align 8, !tbaa !33
+  %14 = load i64, ptr %5, align 8, !tbaa !33
+  %15 = call noundef i32 @_ZN4absl13base_internalL7IntLog2Emm(i64 noundef %13, i64 noundef %14)
+  %16 = load ptr, ptr %6, align 8, !tbaa !67
+  %17 = icmp ne ptr %16, null
+  br i1 %17, label %18, label %21
 
-cond.true:                                        ; preds = %entry
-  %4 = load ptr, ptr %random.addr, align 8
-  %call1 = call noundef i32 @_ZN4absl13base_internalL6RandomEPj(ptr noundef %4)
-  br label %cond.end
+18:                                               ; preds = %3
+  %19 = load ptr, ptr %6, align 8, !tbaa !67
+  %20 = call noundef i32 @_ZN4absl13base_internalL6RandomEPj(ptr noundef %19)
+  br label %22
 
-cond.false:                                       ; preds = %entry
-  br label %cond.end
+21:                                               ; preds = %3
+  br label %22
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ %call1, %cond.true ], [ 1, %cond.false ]
-  %add = add nsw i32 %call, %cond
-  store i32 %add, ptr %level, align 4
-  %5 = load i32, ptr %level, align 4
-  %conv = sext i32 %5 to i64
-  %6 = load i64, ptr %max_fit, align 8
-  %cmp2 = icmp ugt i64 %conv, %6
-  br i1 %cmp2, label %if.then, label %if.end
+22:                                               ; preds = %21, %18
+  %23 = phi i32 [ %20, %18 ], [ 1, %21 ]
+  %24 = add nsw i32 %15, %23
+  store i32 %24, ptr %8, align 4, !tbaa !12
+  %25 = load i32, ptr %8, align 4, !tbaa !12
+  %26 = sext i32 %25 to i64
+  %27 = load i64, ptr %7, align 8, !tbaa !33
+  %28 = icmp ugt i64 %26, %27
+  br i1 %28, label %29, label %32
 
-if.then:                                          ; preds = %cond.end
-  %7 = load i64, ptr %max_fit, align 8
-  %conv3 = trunc i64 %7 to i32
-  store i32 %conv3, ptr %level, align 4
-  br label %if.end
+29:                                               ; preds = %22
+  %30 = load i64, ptr %7, align 8, !tbaa !33
+  %31 = trunc i64 %30 to i32
+  store i32 %31, ptr %8, align 4, !tbaa !12
+  br label %32
 
-if.end:                                           ; preds = %if.then, %cond.end
-  %8 = load i32, ptr %level, align 4
-  %cmp4 = icmp sgt i32 %8, 29
-  br i1 %cmp4, label %if.then5, label %if.end6
+32:                                               ; preds = %29, %22
+  %33 = load i32, ptr %8, align 4, !tbaa !12
+  %34 = icmp sgt i32 %33, 29
+  br i1 %34, label %35, label %36
 
-if.then5:                                         ; preds = %if.end
-  store i32 29, ptr %level, align 4
-  br label %if.end6
+35:                                               ; preds = %32
+  store i32 29, ptr %8, align 4, !tbaa !12
+  br label %36
 
-if.end6:                                          ; preds = %if.then5, %if.end
-  br label %do.body
+36:                                               ; preds = %35, %32
+  br label %37
 
-do.body:                                          ; preds = %if.end6
-  %9 = load i32, ptr %level, align 4
-  %cmp7 = icmp sge i32 %9, 1
-  %lnot = xor i1 %cmp7, true
-  br i1 %lnot, label %if.then9, label %if.end13
+37:                                               ; preds = %36
+  %38 = load i32, ptr %8, align 4, !tbaa !12
+  %39 = icmp sge i32 %38, 1
+  %40 = xor i1 %39, true
+  %41 = zext i1 %40 to i64
+  %42 = call i64 @llvm.expect.i64(i64 %41, i64 0)
+  %43 = icmp ne i64 %42, 0
+  br i1 %43, label %44, label %51
 
-if.then9:                                         ; preds = %do.body
-  br label %do.body10
+44:                                               ; preds = %37
+  br label %45
 
-do.body10:                                        ; preds = %if.then9
-  %10 = getelementptr i8, ptr @.str, i64 118
-  store ptr %10, ptr %absl_raw_log_internal_basename, align 8
-  %11 = getelementptr i8, ptr @.str, i64 118
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %11, i32 noundef 148, ptr noundef @.str.1, ptr noundef @.str.25, ptr noundef @.str.26)
-  br label %do.body11
+45:                                               ; preds = %44
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #14
+  store ptr getelementptr (i8, ptr @.str, i64 118), ptr %9, align 8, !tbaa !38
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 118), i32 noundef 148, ptr noundef @.str.1, ptr noundef @.str.25, ptr noundef @.str.26)
+  br label %46
 
-do.body11:                                        ; preds = %do.body10
+46:                                               ; preds = %45
   unreachable
 
-do.end:                                           ; No predecessors!
-  br label %do.end12
+47:                                               ; No predecessors!
+  br label %48
 
-do.end12:                                         ; preds = %do.end
-  br label %if.end13
+48:                                               ; preds = %47
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #14
+  br label %49
 
-if.end13:                                         ; preds = %do.end12, %do.body
-  br label %do.end14
+49:                                               ; preds = %48
+  br label %50
 
-do.end14:                                         ; preds = %if.end13
-  %12 = load i32, ptr %level, align 4
-  ret i32 %12
+50:                                               ; preds = %49
+  br label %51
+
+51:                                               ; preds = %50, %37
+  br label %52
+
+52:                                               ; preds = %51
+  br label %53
+
+53:                                               ; preds = %52
+  %54 = load i32, ptr %8, align 4, !tbaa !12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #14
+  ret i32 %54
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl13base_internalL18LLA_SkiplistInsertEPNS0_12_GLOBAL__N_19AllocListES3_PS3_(ptr noundef %head, ptr noundef %e, ptr noundef %prev) #0 {
-entry:
-  %head.addr = alloca ptr, align 8
-  %e.addr = alloca ptr, align 8
-  %prev.addr = alloca ptr, align 8
-  %i = alloca i32, align 4
-  store ptr %head, ptr %head.addr, align 8
-  store ptr %e, ptr %e.addr, align 8
-  store ptr %prev, ptr %prev.addr, align 8
-  %0 = load ptr, ptr %head.addr, align 8
-  %1 = load ptr, ptr %e.addr, align 8
-  %2 = load ptr, ptr %prev.addr, align 8
-  %call = call noundef ptr @_ZN4absl13base_internalL18LLA_SkiplistSearchEPNS0_12_GLOBAL__N_19AllocListES3_PS3_(ptr noundef %0, ptr noundef %1, ptr noundef %2)
-  br label %for.cond
+define internal void @_ZN4absl13base_internalL18LLA_SkiplistInsertEPNS0_12_GLOBAL__N_19AllocListES3_PS3_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !40
+  store ptr %1, ptr %5, align 8, !tbaa !40
+  store ptr %2, ptr %6, align 8, !tbaa !70
+  %8 = load ptr, ptr %4, align 8, !tbaa !40
+  %9 = load ptr, ptr %5, align 8, !tbaa !40
+  %10 = load ptr, ptr %6, align 8, !tbaa !70
+  %11 = call noundef ptr @_ZN4absl13base_internalL18LLA_SkiplistSearchEPNS0_12_GLOBAL__N_19AllocListES3_PS3_(ptr noundef %8, ptr noundef %9, ptr noundef %10)
+  br label %12
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %3 = load ptr, ptr %head.addr, align 8
-  %levels = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %3, i32 0, i32 1
-  %4 = load i32, ptr %levels, align 8
-  %5 = load ptr, ptr %e.addr, align 8
-  %levels1 = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %5, i32 0, i32 1
-  %6 = load i32, ptr %levels1, align 8
-  %cmp = icmp slt i32 %4, %6
-  br i1 %cmp, label %for.body, label %for.end
+12:                                               ; preds = %28, %3
+  %13 = load ptr, ptr %4, align 8, !tbaa !40
+  %14 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %13, i32 0, i32 1
+  %15 = load i32, ptr %14, align 8, !tbaa !56
+  %16 = load ptr, ptr %5, align 8, !tbaa !40
+  %17 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %16, i32 0, i32 1
+  %18 = load i32, ptr %17, align 8, !tbaa !56
+  %19 = icmp slt i32 %15, %18
+  br i1 %19, label %20, label %33
 
-for.body:                                         ; preds = %for.cond
-  %7 = load ptr, ptr %head.addr, align 8
-  %8 = load ptr, ptr %prev.addr, align 8
-  %9 = load ptr, ptr %head.addr, align 8
-  %levels2 = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %9, i32 0, i32 1
-  %10 = load i32, ptr %levels2, align 8
-  %idxprom = sext i32 %10 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %8, i64 %idxprom
-  store ptr %7, ptr %arrayidx, align 8
-  br label %for.inc
+20:                                               ; preds = %12
+  %21 = load ptr, ptr %4, align 8, !tbaa !40
+  %22 = load ptr, ptr %6, align 8, !tbaa !70
+  %23 = load ptr, ptr %4, align 8, !tbaa !40
+  %24 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %23, i32 0, i32 1
+  %25 = load i32, ptr %24, align 8, !tbaa !56
+  %26 = sext i32 %25 to i64
+  %27 = getelementptr inbounds ptr, ptr %22, i64 %26
+  store ptr %21, ptr %27, align 8, !tbaa !40
+  br label %28
 
-for.inc:                                          ; preds = %for.body
-  %11 = load ptr, ptr %head.addr, align 8
-  %levels3 = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %11, i32 0, i32 1
-  %12 = load i32, ptr %levels3, align 8
-  %inc = add nsw i32 %12, 1
-  store i32 %inc, ptr %levels3, align 8
-  br label %for.cond, !llvm.loop !10
+28:                                               ; preds = %20
+  %29 = load ptr, ptr %4, align 8, !tbaa !40
+  %30 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %29, i32 0, i32 1
+  %31 = load i32, ptr %30, align 8, !tbaa !56
+  %32 = add nsw i32 %31, 1
+  store i32 %32, ptr %30, align 8, !tbaa !56
+  br label %12, !llvm.loop !72
 
-for.end:                                          ; preds = %for.cond
-  store i32 0, ptr %i, align 4
-  br label %for.cond4
+33:                                               ; preds = %12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #14
+  store i32 0, ptr %7, align 4, !tbaa !12
+  br label %34
 
-for.cond4:                                        ; preds = %for.inc20, %for.end
-  %13 = load i32, ptr %i, align 4
-  %14 = load ptr, ptr %e.addr, align 8
-  %levels5 = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %14, i32 0, i32 1
-  %15 = load i32, ptr %levels5, align 8
-  %cmp6 = icmp ne i32 %13, %15
-  br i1 %cmp6, label %for.body7, label %for.end22
+34:                                               ; preds = %67, %33
+  %35 = load i32, ptr %7, align 4, !tbaa !12
+  %36 = load ptr, ptr %5, align 8, !tbaa !40
+  %37 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %36, i32 0, i32 1
+  %38 = load i32, ptr %37, align 8, !tbaa !56
+  %39 = icmp ne i32 %35, %38
+  br i1 %39, label %41, label %40
 
-for.body7:                                        ; preds = %for.cond4
-  %16 = load ptr, ptr %prev.addr, align 8
-  %17 = load i32, ptr %i, align 4
-  %idxprom8 = sext i32 %17 to i64
-  %arrayidx9 = getelementptr inbounds ptr, ptr %16, i64 %idxprom8
-  %18 = load ptr, ptr %arrayidx9, align 8
-  %next = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %18, i32 0, i32 2
-  %19 = load i32, ptr %i, align 4
-  %idxprom10 = sext i32 %19 to i64
-  %arrayidx11 = getelementptr inbounds [30 x ptr], ptr %next, i64 0, i64 %idxprom10
-  %20 = load ptr, ptr %arrayidx11, align 8
-  %21 = load ptr, ptr %e.addr, align 8
-  %next12 = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %21, i32 0, i32 2
-  %22 = load i32, ptr %i, align 4
-  %idxprom13 = sext i32 %22 to i64
-  %arrayidx14 = getelementptr inbounds [30 x ptr], ptr %next12, i64 0, i64 %idxprom13
-  store ptr %20, ptr %arrayidx14, align 8
-  %23 = load ptr, ptr %e.addr, align 8
-  %24 = load ptr, ptr %prev.addr, align 8
-  %25 = load i32, ptr %i, align 4
-  %idxprom15 = sext i32 %25 to i64
-  %arrayidx16 = getelementptr inbounds ptr, ptr %24, i64 %idxprom15
-  %26 = load ptr, ptr %arrayidx16, align 8
-  %next17 = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %26, i32 0, i32 2
-  %27 = load i32, ptr %i, align 4
-  %idxprom18 = sext i32 %27 to i64
-  %arrayidx19 = getelementptr inbounds [30 x ptr], ptr %next17, i64 0, i64 %idxprom18
-  store ptr %23, ptr %arrayidx19, align 8
-  br label %for.inc20
+40:                                               ; preds = %34
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #14
+  br label %70
 
-for.inc20:                                        ; preds = %for.body7
-  %28 = load i32, ptr %i, align 4
-  %inc21 = add nsw i32 %28, 1
-  store i32 %inc21, ptr %i, align 4
-  br label %for.cond4, !llvm.loop !11
+41:                                               ; preds = %34
+  %42 = load ptr, ptr %6, align 8, !tbaa !70
+  %43 = load i32, ptr %7, align 4, !tbaa !12
+  %44 = sext i32 %43 to i64
+  %45 = getelementptr inbounds ptr, ptr %42, i64 %44
+  %46 = load ptr, ptr %45, align 8, !tbaa !40
+  %47 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %46, i32 0, i32 2
+  %48 = load i32, ptr %7, align 4, !tbaa !12
+  %49 = sext i32 %48 to i64
+  %50 = getelementptr inbounds [30 x ptr], ptr %47, i64 0, i64 %49
+  %51 = load ptr, ptr %50, align 8, !tbaa !40
+  %52 = load ptr, ptr %5, align 8, !tbaa !40
+  %53 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %52, i32 0, i32 2
+  %54 = load i32, ptr %7, align 4, !tbaa !12
+  %55 = sext i32 %54 to i64
+  %56 = getelementptr inbounds [30 x ptr], ptr %53, i64 0, i64 %55
+  store ptr %51, ptr %56, align 8, !tbaa !40
+  %57 = load ptr, ptr %5, align 8, !tbaa !40
+  %58 = load ptr, ptr %6, align 8, !tbaa !70
+  %59 = load i32, ptr %7, align 4, !tbaa !12
+  %60 = sext i32 %59 to i64
+  %61 = getelementptr inbounds ptr, ptr %58, i64 %60
+  %62 = load ptr, ptr %61, align 8, !tbaa !40
+  %63 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %62, i32 0, i32 2
+  %64 = load i32, ptr %7, align 4, !tbaa !12
+  %65 = sext i32 %64 to i64
+  %66 = getelementptr inbounds [30 x ptr], ptr %63, i64 0, i64 %65
+  store ptr %57, ptr %66, align 8, !tbaa !40
+  br label %67
 
-for.end22:                                        ; preds = %for.cond4
+67:                                               ; preds = %41
+  %68 = load i32, ptr %7, align 4, !tbaa !12
+  %69 = add nsw i32 %68, 1
+  store i32 %69, ptr %7, align 4, !tbaa !12
+  br label %34, !llvm.loop !73
+
+70:                                               ; preds = %40
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl13base_internalL8CoalesceEPNS0_12_GLOBAL__N_19AllocListE(ptr noundef %a) #0 {
-entry:
-  %a.addr = alloca ptr, align 8
-  %n = alloca ptr, align 8
-  %arena = alloca ptr, align 8
-  %prev = alloca [30 x ptr], align 16
-  store ptr %a, ptr %a.addr, align 8
-  %0 = load ptr, ptr %a.addr, align 8
-  %next = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %0, i32 0, i32 2
-  %arrayidx = getelementptr inbounds [30 x ptr], ptr %next, i64 0, i64 0
-  %1 = load ptr, ptr %arrayidx, align 8
-  store ptr %1, ptr %n, align 8
-  %2 = load ptr, ptr %n, align 8
-  %cmp = icmp ne ptr %2, null
-  br i1 %cmp, label %land.lhs.true, label %if.end
+define internal void @_ZN4absl13base_internalL8CoalesceEPNS0_12_GLOBAL__N_19AllocListE(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca [30 x ptr], align 16
+  store ptr %0, ptr %2, align 8, !tbaa !40
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #14
+  %6 = load ptr, ptr %2, align 8, !tbaa !40
+  %7 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %6, i32 0, i32 2
+  %8 = getelementptr inbounds [30 x ptr], ptr %7, i64 0, i64 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !40
+  store ptr %9, ptr %3, align 8, !tbaa !40
+  %10 = load ptr, ptr %3, align 8, !tbaa !40
+  %11 = icmp ne ptr %10, null
+  br i1 %11, label %12, label %65
 
-land.lhs.true:                                    ; preds = %entry
-  %3 = load ptr, ptr %a.addr, align 8
-  %4 = load ptr, ptr %a.addr, align 8
-  %header = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %4, i32 0, i32 0
-  %size = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList::Header", ptr %header, i32 0, i32 0
-  %5 = load i64, ptr %size, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %3, i64 %5
-  %6 = load ptr, ptr %n, align 8
-  %cmp1 = icmp eq ptr %add.ptr, %6
-  br i1 %cmp1, label %if.then, label %if.end
+12:                                               ; preds = %1
+  %13 = load ptr, ptr %2, align 8, !tbaa !40
+  %14 = load ptr, ptr %2, align 8, !tbaa !40
+  %15 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %14, i32 0, i32 0
+  %16 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList::Header", ptr %15, i32 0, i32 0
+  %17 = load i64, ptr %16, align 8, !tbaa !42
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 %17
+  %19 = load ptr, ptr %3, align 8, !tbaa !40
+  %20 = icmp eq ptr %18, %19
+  br i1 %20, label %21, label %65
 
-if.then:                                          ; preds = %land.lhs.true
-  %7 = load ptr, ptr %a.addr, align 8
-  %header2 = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %7, i32 0, i32 0
-  %arena3 = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList::Header", ptr %header2, i32 0, i32 2
-  %8 = load ptr, ptr %arena3, align 8
-  store ptr %8, ptr %arena, align 8
-  %9 = load ptr, ptr %n, align 8
-  %header4 = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %9, i32 0, i32 0
-  %size5 = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList::Header", ptr %header4, i32 0, i32 0
-  %10 = load i64, ptr %size5, align 8
-  %11 = load ptr, ptr %a.addr, align 8
-  %header6 = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %11, i32 0, i32 0
-  %size7 = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList::Header", ptr %header6, i32 0, i32 0
-  %12 = load i64, ptr %size7, align 8
-  %add = add i64 %12, %10
-  store i64 %add, ptr %size7, align 8
-  %13 = load ptr, ptr %n, align 8
-  %header8 = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %13, i32 0, i32 0
-  %magic = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList::Header", ptr %header8, i32 0, i32 1
-  store i64 0, ptr %magic, align 8
-  %14 = load ptr, ptr %n, align 8
-  %header9 = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %14, i32 0, i32 0
-  %arena10 = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList::Header", ptr %header9, i32 0, i32 2
-  store ptr null, ptr %arena10, align 8
-  %15 = load ptr, ptr %arena, align 8
-  %freelist = getelementptr inbounds %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %15, i32 0, i32 2
-  %16 = load ptr, ptr %n, align 8
-  %arraydecay = getelementptr inbounds [30 x ptr], ptr %prev, i64 0, i64 0
-  call void @_ZN4absl13base_internalL18LLA_SkiplistDeleteEPNS0_12_GLOBAL__N_19AllocListES3_PS3_(ptr noundef %freelist, ptr noundef %16, ptr noundef %arraydecay)
-  %17 = load ptr, ptr %arena, align 8
-  %freelist11 = getelementptr inbounds %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %17, i32 0, i32 2
-  %18 = load ptr, ptr %a.addr, align 8
-  %arraydecay12 = getelementptr inbounds [30 x ptr], ptr %prev, i64 0, i64 0
-  call void @_ZN4absl13base_internalL18LLA_SkiplistDeleteEPNS0_12_GLOBAL__N_19AllocListES3_PS3_(ptr noundef %freelist11, ptr noundef %18, ptr noundef %arraydecay12)
-  %19 = load ptr, ptr %a.addr, align 8
-  %header13 = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %19, i32 0, i32 0
-  %size14 = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList::Header", ptr %header13, i32 0, i32 0
-  %20 = load i64, ptr %size14, align 8
-  %21 = load ptr, ptr %arena, align 8
-  %min_size = getelementptr inbounds %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %21, i32 0, i32 7
-  %22 = load i64, ptr %min_size, align 8
-  %23 = load ptr, ptr %arena, align 8
-  %random = getelementptr inbounds %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %23, i32 0, i32 8
-  %call = call noundef i32 @_ZN4absl13base_internalL18LLA_SkiplistLevelsEmmPj(i64 noundef %20, i64 noundef %22, ptr noundef %random)
-  %24 = load ptr, ptr %a.addr, align 8
-  %levels = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %24, i32 0, i32 1
-  store i32 %call, ptr %levels, align 8
-  %25 = load ptr, ptr %arena, align 8
-  %freelist15 = getelementptr inbounds %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %25, i32 0, i32 2
-  %26 = load ptr, ptr %a.addr, align 8
-  %arraydecay16 = getelementptr inbounds [30 x ptr], ptr %prev, i64 0, i64 0
-  call void @_ZN4absl13base_internalL18LLA_SkiplistInsertEPNS0_12_GLOBAL__N_19AllocListES3_PS3_(ptr noundef %freelist15, ptr noundef %26, ptr noundef %arraydecay16)
-  br label %if.end
+21:                                               ; preds = %12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #14
+  %22 = load ptr, ptr %2, align 8, !tbaa !40
+  %23 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %22, i32 0, i32 0
+  %24 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList::Header", ptr %23, i32 0, i32 2
+  %25 = load ptr, ptr %24, align 8, !tbaa !44
+  store ptr %25, ptr %4, align 8, !tbaa !14
+  %26 = load ptr, ptr %3, align 8, !tbaa !40
+  %27 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %26, i32 0, i32 0
+  %28 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList::Header", ptr %27, i32 0, i32 0
+  %29 = load i64, ptr %28, align 8, !tbaa !42
+  %30 = load ptr, ptr %2, align 8, !tbaa !40
+  %31 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %30, i32 0, i32 0
+  %32 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList::Header", ptr %31, i32 0, i32 0
+  %33 = load i64, ptr %32, align 8, !tbaa !42
+  %34 = add i64 %33, %29
+  store i64 %34, ptr %32, align 8, !tbaa !42
+  %35 = load ptr, ptr %3, align 8, !tbaa !40
+  %36 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %35, i32 0, i32 0
+  %37 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList::Header", ptr %36, i32 0, i32 1
+  store i64 0, ptr %37, align 8, !tbaa !43
+  %38 = load ptr, ptr %3, align 8, !tbaa !40
+  %39 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %38, i32 0, i32 0
+  %40 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList::Header", ptr %39, i32 0, i32 2
+  store ptr null, ptr %40, align 8, !tbaa !44
+  call void @llvm.lifetime.start.p0(i64 240, ptr %5) #14
+  %41 = load ptr, ptr %4, align 8, !tbaa !14
+  %42 = getelementptr inbounds nuw %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %41, i32 0, i32 2
+  %43 = load ptr, ptr %3, align 8, !tbaa !40
+  %44 = getelementptr inbounds [30 x ptr], ptr %5, i64 0, i64 0
+  call void @_ZN4absl13base_internalL18LLA_SkiplistDeleteEPNS0_12_GLOBAL__N_19AllocListES3_PS3_(ptr noundef %42, ptr noundef %43, ptr noundef %44)
+  %45 = load ptr, ptr %4, align 8, !tbaa !14
+  %46 = getelementptr inbounds nuw %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %45, i32 0, i32 2
+  %47 = load ptr, ptr %2, align 8, !tbaa !40
+  %48 = getelementptr inbounds [30 x ptr], ptr %5, i64 0, i64 0
+  call void @_ZN4absl13base_internalL18LLA_SkiplistDeleteEPNS0_12_GLOBAL__N_19AllocListES3_PS3_(ptr noundef %46, ptr noundef %47, ptr noundef %48)
+  %49 = load ptr, ptr %2, align 8, !tbaa !40
+  %50 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %49, i32 0, i32 0
+  %51 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList::Header", ptr %50, i32 0, i32 0
+  %52 = load i64, ptr %51, align 8, !tbaa !42
+  %53 = load ptr, ptr %4, align 8, !tbaa !14
+  %54 = getelementptr inbounds nuw %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %53, i32 0, i32 7
+  %55 = load i64, ptr %54, align 8, !tbaa !27
+  %56 = load ptr, ptr %4, align 8, !tbaa !14
+  %57 = getelementptr inbounds nuw %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %56, i32 0, i32 8
+  %58 = call noundef i32 @_ZN4absl13base_internalL18LLA_SkiplistLevelsEmmPj(i64 noundef %52, i64 noundef %55, ptr noundef %57)
+  %59 = load ptr, ptr %2, align 8, !tbaa !40
+  %60 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %59, i32 0, i32 1
+  store i32 %58, ptr %60, align 8, !tbaa !56
+  %61 = load ptr, ptr %4, align 8, !tbaa !14
+  %62 = getelementptr inbounds nuw %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %61, i32 0, i32 2
+  %63 = load ptr, ptr %2, align 8, !tbaa !40
+  %64 = getelementptr inbounds [30 x ptr], ptr %5, i64 0, i64 0
+  call void @_ZN4absl13base_internalL18LLA_SkiplistInsertEPNS0_12_GLOBAL__N_19AllocListES3_PS3_(ptr noundef %62, ptr noundef %63, ptr noundef %64)
+  call void @llvm.lifetime.end.p0(i64 240, ptr %5) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #14
+  br label %65
 
-if.end:                                           ; preds = %if.then, %land.lhs.true, %entry
+65:                                               ; preds = %21, %12, %1
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #14
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef i32 @_ZN4absl13base_internalL7IntLog2Emm(i64 noundef %size, i64 noundef %base) #2 {
-entry:
-  %size.addr = alloca i64, align 8
-  %base.addr = alloca i64, align 8
-  %result = alloca i32, align 4
-  %i = alloca i64, align 8
-  store i64 %size, ptr %size.addr, align 8
-  store i64 %base, ptr %base.addr, align 8
-  store i32 0, ptr %result, align 4
-  %0 = load i64, ptr %size.addr, align 8
-  store i64 %0, ptr %i, align 8
-  br label %for.cond
+define internal noundef i32 @_ZN4absl13base_internalL7IntLog2Emm(i64 noundef %0, i64 noundef %1) #2 {
+  %3 = alloca i64, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i64, align 8
+  store i64 %0, ptr %3, align 8, !tbaa !33
+  store i64 %1, ptr %4, align 8, !tbaa !33
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #14
+  store i32 0, ptr %5, align 4, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #14
+  %7 = load i64, ptr %3, align 8, !tbaa !33
+  store i64 %7, ptr %6, align 8, !tbaa !33
+  br label %8
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %1 = load i64, ptr %i, align 8
-  %2 = load i64, ptr %base.addr, align 8
-  %cmp = icmp ugt i64 %1, %2
-  br i1 %cmp, label %for.body, label %for.end
+8:                                                ; preds = %16, %2
+  %9 = load i64, ptr %6, align 8, !tbaa !33
+  %10 = load i64, ptr %4, align 8, !tbaa !33
+  %11 = icmp ugt i64 %9, %10
+  br i1 %11, label %13, label %12
 
-for.body:                                         ; preds = %for.cond
-  %3 = load i32, ptr %result, align 4
-  %inc = add nsw i32 %3, 1
-  store i32 %inc, ptr %result, align 4
-  br label %for.inc
+12:                                               ; preds = %8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #14
+  br label %19
 
-for.inc:                                          ; preds = %for.body
-  %4 = load i64, ptr %i, align 8
-  %shr = lshr i64 %4, 1
-  store i64 %shr, ptr %i, align 8
-  br label %for.cond, !llvm.loop !12
+13:                                               ; preds = %8
+  %14 = load i32, ptr %5, align 4, !tbaa !12
+  %15 = add nsw i32 %14, 1
+  store i32 %15, ptr %5, align 4, !tbaa !12
+  br label %16
 
-for.end:                                          ; preds = %for.cond
-  %5 = load i32, ptr %result, align 4
-  ret i32 %5
+16:                                               ; preds = %13
+  %17 = load i64, ptr %6, align 8, !tbaa !33
+  %18 = lshr i64 %17, 1
+  store i64 %18, ptr %6, align 8, !tbaa !33
+  br label %8, !llvm.loop !74
+
+19:                                               ; preds = %12
+  %20 = load i32, ptr %5, align 4, !tbaa !12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #14
+  ret i32 %20
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef i32 @_ZN4absl13base_internalL6RandomEPj(ptr noundef %state) #2 {
-entry:
-  %state.addr = alloca ptr, align 8
-  %r = alloca i32, align 4
-  %result = alloca i32, align 4
-  store ptr %state, ptr %state.addr, align 8
-  %0 = load ptr, ptr %state.addr, align 8
-  %1 = load i32, ptr %0, align 4
-  store i32 %1, ptr %r, align 4
-  store i32 1, ptr %result, align 4
-  br label %while.cond
+define internal noundef i32 @_ZN4absl13base_internalL6RandomEPj(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !67
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #14
+  %5 = load ptr, ptr %2, align 8, !tbaa !67
+  %6 = load i32, ptr %5, align 4, !tbaa !12
+  store i32 %6, ptr %3, align 4, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #14
+  store i32 1, ptr %4, align 4, !tbaa !12
+  br label %7
 
-while.cond:                                       ; preds = %while.body, %entry
-  %2 = load i32, ptr %r, align 4
-  %mul = mul i32 %2, 1103515245
-  %add = add i32 %mul, 12345
-  store i32 %add, ptr %r, align 4
-  %shr = lshr i32 %add, 30
-  %and = and i32 %shr, 1
-  %cmp = icmp eq i32 %and, 0
-  br i1 %cmp, label %while.body, label %while.end
+7:                                                ; preds = %14, %1
+  %8 = load i32, ptr %3, align 4, !tbaa !12
+  %9 = mul i32 %8, 1103515245
+  %10 = add i32 %9, 12345
+  store i32 %10, ptr %3, align 4, !tbaa !12
+  %11 = lshr i32 %10, 30
+  %12 = and i32 %11, 1
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %14, label %17
 
-while.body:                                       ; preds = %while.cond
-  %3 = load i32, ptr %result, align 4
-  %inc = add nsw i32 %3, 1
-  store i32 %inc, ptr %result, align 4
-  br label %while.cond, !llvm.loop !13
+14:                                               ; preds = %7
+  %15 = load i32, ptr %4, align 4, !tbaa !12
+  %16 = add nsw i32 %15, 1
+  store i32 %16, ptr %4, align 4, !tbaa !12
+  br label %7, !llvm.loop !75
 
-while.end:                                        ; preds = %while.cond
-  %4 = load i32, ptr %r, align 4
-  %5 = load ptr, ptr %state.addr, align 8
-  store i32 %4, ptr %5, align 4
-  %6 = load i32, ptr %result, align 4
-  ret i32 %6
+17:                                               ; preds = %7
+  %18 = load i32, ptr %3, align 4, !tbaa !12
+  %19 = load ptr, ptr %2, align 8, !tbaa !67
+  store i32 %18, ptr %19, align 4, !tbaa !12
+  %20 = load i32, ptr %4, align 4, !tbaa !12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #14
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #14
+  ret i32 %20
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef ptr @_ZN4absl13base_internalL18LLA_SkiplistSearchEPNS0_12_GLOBAL__N_19AllocListES3_PS3_(ptr noundef %head, ptr noundef %e, ptr noundef %prev) #2 {
-entry:
-  %head.addr = alloca ptr, align 8
-  %e.addr = alloca ptr, align 8
-  %prev.addr = alloca ptr, align 8
-  %p = alloca ptr, align 8
-  %level = alloca i32, align 4
-  %n = alloca ptr, align 8
-  store ptr %head, ptr %head.addr, align 8
-  store ptr %e, ptr %e.addr, align 8
-  store ptr %prev, ptr %prev.addr, align 8
-  %0 = load ptr, ptr %head.addr, align 8
-  store ptr %0, ptr %p, align 8
-  %1 = load ptr, ptr %head.addr, align 8
-  %levels = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %1, i32 0, i32 1
-  %2 = load i32, ptr %levels, align 8
-  %sub = sub nsw i32 %2, 1
-  store i32 %sub, ptr %level, align 4
-  br label %for.cond
+define internal noundef ptr @_ZN4absl13base_internalL18LLA_SkiplistSearchEPNS0_12_GLOBAL__N_19AllocListES3_PS3_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !40
+  store ptr %1, ptr %5, align 8, !tbaa !40
+  store ptr %2, ptr %6, align 8, !tbaa !70
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #14
+  %11 = load ptr, ptr %4, align 8, !tbaa !40
+  store ptr %11, ptr %7, align 8, !tbaa !40
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #14
+  %12 = load ptr, ptr %4, align 8, !tbaa !40
+  %13 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %12, i32 0, i32 1
+  %14 = load i32, ptr %13, align 8, !tbaa !56
+  %15 = sub nsw i32 %14, 1
+  store i32 %15, ptr %8, align 4, !tbaa !12
+  br label %16
 
-for.cond:                                         ; preds = %for.inc7, %entry
-  %3 = load i32, ptr %level, align 4
-  %cmp = icmp sge i32 %3, 0
-  br i1 %cmp, label %for.body, label %for.end8
+16:                                               ; preds = %45, %3
+  %17 = load i32, ptr %8, align 4, !tbaa !12
+  %18 = icmp sge i32 %17, 0
+  br i1 %18, label %20, label %19
 
-for.body:                                         ; preds = %for.cond
-  br label %for.cond1
+19:                                               ; preds = %16
+  store i32 2, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #14
+  br label %48
 
-for.cond1:                                        ; preds = %for.inc, %for.body
-  %4 = load ptr, ptr %p, align 8
-  %next = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %4, i32 0, i32 2
-  %5 = load i32, ptr %level, align 4
-  %idxprom = sext i32 %5 to i64
-  %arrayidx = getelementptr inbounds [30 x ptr], ptr %next, i64 0, i64 %idxprom
-  %6 = load ptr, ptr %arrayidx, align 8
-  store ptr %6, ptr %n, align 8
-  %cmp2 = icmp ne ptr %6, null
-  br i1 %cmp2, label %land.rhs, label %land.end
+20:                                               ; preds = %16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #14
+  br label %21
 
-land.rhs:                                         ; preds = %for.cond1
-  %7 = load ptr, ptr %n, align 8
-  %8 = load ptr, ptr %e.addr, align 8
-  %cmp3 = icmp ult ptr %7, %8
-  br label %land.end
+21:                                               ; preds = %37, %20
+  %22 = load ptr, ptr %7, align 8, !tbaa !40
+  %23 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %22, i32 0, i32 2
+  %24 = load i32, ptr %8, align 4, !tbaa !12
+  %25 = sext i32 %24 to i64
+  %26 = getelementptr inbounds [30 x ptr], ptr %23, i64 0, i64 %25
+  %27 = load ptr, ptr %26, align 8, !tbaa !40
+  store ptr %27, ptr %10, align 8, !tbaa !40
+  %28 = icmp ne ptr %27, null
+  br i1 %28, label %29, label %33
 
-land.end:                                         ; preds = %land.rhs, %for.cond1
-  %9 = phi i1 [ false, %for.cond1 ], [ %cmp3, %land.rhs ]
-  br i1 %9, label %for.body4, label %for.end
+29:                                               ; preds = %21
+  %30 = load ptr, ptr %10, align 8, !tbaa !40
+  %31 = load ptr, ptr %5, align 8, !tbaa !40
+  %32 = icmp ult ptr %30, %31
+  br label %33
 
-for.body4:                                        ; preds = %land.end
-  br label %for.inc
+33:                                               ; preds = %29, %21
+  %34 = phi i1 [ false, %21 ], [ %32, %29 ]
+  br i1 %34, label %36, label %35
 
-for.inc:                                          ; preds = %for.body4
-  %10 = load ptr, ptr %n, align 8
-  store ptr %10, ptr %p, align 8
-  br label %for.cond1, !llvm.loop !14
+35:                                               ; preds = %33
+  store i32 5, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #14
+  br label %39
 
-for.end:                                          ; preds = %land.end
-  %11 = load ptr, ptr %p, align 8
-  %12 = load ptr, ptr %prev.addr, align 8
-  %13 = load i32, ptr %level, align 4
-  %idxprom5 = sext i32 %13 to i64
-  %arrayidx6 = getelementptr inbounds ptr, ptr %12, i64 %idxprom5
-  store ptr %11, ptr %arrayidx6, align 8
-  br label %for.inc7
+36:                                               ; preds = %33
+  br label %37
 
-for.inc7:                                         ; preds = %for.end
-  %14 = load i32, ptr %level, align 4
-  %dec = add nsw i32 %14, -1
-  store i32 %dec, ptr %level, align 4
-  br label %for.cond, !llvm.loop !15
+37:                                               ; preds = %36
+  %38 = load ptr, ptr %10, align 8, !tbaa !40
+  store ptr %38, ptr %7, align 8, !tbaa !40
+  br label %21, !llvm.loop !76
 
-for.end8:                                         ; preds = %for.cond
-  %15 = load ptr, ptr %head.addr, align 8
-  %levels9 = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %15, i32 0, i32 1
-  %16 = load i32, ptr %levels9, align 8
-  %cmp10 = icmp eq i32 %16, 0
-  br i1 %cmp10, label %cond.true, label %cond.false
+39:                                               ; preds = %35
+  %40 = load ptr, ptr %7, align 8, !tbaa !40
+  %41 = load ptr, ptr %6, align 8, !tbaa !70
+  %42 = load i32, ptr %8, align 4, !tbaa !12
+  %43 = sext i32 %42 to i64
+  %44 = getelementptr inbounds ptr, ptr %41, i64 %43
+  store ptr %40, ptr %44, align 8, !tbaa !40
+  br label %45
 
-cond.true:                                        ; preds = %for.end8
-  br label %cond.end
+45:                                               ; preds = %39
+  %46 = load i32, ptr %8, align 4, !tbaa !12
+  %47 = add nsw i32 %46, -1
+  store i32 %47, ptr %8, align 4, !tbaa !12
+  br label %16, !llvm.loop !77
 
-cond.false:                                       ; preds = %for.end8
-  %17 = load ptr, ptr %prev.addr, align 8
-  %arrayidx11 = getelementptr inbounds ptr, ptr %17, i64 0
-  %18 = load ptr, ptr %arrayidx11, align 8
-  %next12 = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %18, i32 0, i32 2
-  %arrayidx13 = getelementptr inbounds [30 x ptr], ptr %next12, i64 0, i64 0
-  %19 = load ptr, ptr %arrayidx13, align 8
-  br label %cond.end
+48:                                               ; preds = %19
+  %49 = load ptr, ptr %4, align 8, !tbaa !40
+  %50 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %49, i32 0, i32 1
+  %51 = load i32, ptr %50, align 8, !tbaa !56
+  %52 = icmp eq i32 %51, 0
+  br i1 %52, label %53, label %54
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi ptr [ null, %cond.true ], [ %19, %cond.false ]
-  ret ptr %cond
+53:                                               ; preds = %48
+  br label %61
+
+54:                                               ; preds = %48
+  %55 = load ptr, ptr %6, align 8, !tbaa !70
+  %56 = getelementptr inbounds ptr, ptr %55, i64 0
+  %57 = load ptr, ptr %56, align 8, !tbaa !40
+  %58 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %57, i32 0, i32 2
+  %59 = getelementptr inbounds [30 x ptr], ptr %58, i64 0, i64 0
+  %60 = load ptr, ptr %59, align 8, !tbaa !40
+  br label %61
+
+61:                                               ; preds = %54, %53
+  %62 = phi ptr [ null, %53 ], [ %60, %54 ]
+  store i32 1, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #14
+  ret ptr %62
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl13base_internalL18LLA_SkiplistDeleteEPNS0_12_GLOBAL__N_19AllocListES3_PS3_(ptr noundef %head, ptr noundef %e, ptr noundef %prev) #0 {
-entry:
-  %head.addr = alloca ptr, align 8
-  %e.addr = alloca ptr, align 8
-  %prev.addr = alloca ptr, align 8
-  %found = alloca ptr, align 8
-  %absl_raw_log_internal_basename = alloca ptr, align 8
-  %i = alloca i32, align 4
-  store ptr %head, ptr %head.addr, align 8
-  store ptr %e, ptr %e.addr, align 8
-  store ptr %prev, ptr %prev.addr, align 8
-  %0 = load ptr, ptr %head.addr, align 8
-  %1 = load ptr, ptr %e.addr, align 8
-  %2 = load ptr, ptr %prev.addr, align 8
-  %call = call noundef ptr @_ZN4absl13base_internalL18LLA_SkiplistSearchEPNS0_12_GLOBAL__N_19AllocListES3_PS3_(ptr noundef %0, ptr noundef %1, ptr noundef %2)
-  store ptr %call, ptr %found, align 8
-  br label %do.body
+define internal void @_ZN4absl13base_internalL18LLA_SkiplistDeleteEPNS0_12_GLOBAL__N_19AllocListES3_PS3_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !40
+  store ptr %1, ptr %5, align 8, !tbaa !40
+  store ptr %2, ptr %6, align 8, !tbaa !70
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #14
+  %10 = load ptr, ptr %4, align 8, !tbaa !40
+  %11 = load ptr, ptr %5, align 8, !tbaa !40
+  %12 = load ptr, ptr %6, align 8, !tbaa !70
+  %13 = call noundef ptr @_ZN4absl13base_internalL18LLA_SkiplistSearchEPNS0_12_GLOBAL__N_19AllocListES3_PS3_(ptr noundef %10, ptr noundef %11, ptr noundef %12)
+  store ptr %13, ptr %7, align 8, !tbaa !40
+  br label %14
 
-do.body:                                          ; preds = %entry
-  %3 = load ptr, ptr %e.addr, align 8
-  %4 = load ptr, ptr %found, align 8
-  %cmp = icmp eq ptr %3, %4
-  %lnot = xor i1 %cmp, true
-  br i1 %lnot, label %if.then, label %if.end
+14:                                               ; preds = %3
+  %15 = load ptr, ptr %5, align 8, !tbaa !40
+  %16 = load ptr, ptr %7, align 8, !tbaa !40
+  %17 = icmp eq ptr %15, %16
+  %18 = xor i1 %17, true
+  %19 = zext i1 %18 to i64
+  %20 = call i64 @llvm.expect.i64(i64 %19, i64 0)
+  %21 = icmp ne i64 %20, 0
+  br i1 %21, label %22, label %29
 
-if.then:                                          ; preds = %do.body
-  br label %do.body1
+22:                                               ; preds = %14
+  br label %23
 
-do.body1:                                         ; preds = %if.then
-  %5 = getelementptr i8, ptr @.str, i64 118
-  store ptr %5, ptr %absl_raw_log_internal_basename, align 8
-  %6 = getelementptr i8, ptr @.str, i64 118
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %6, i32 noundef 188, ptr noundef @.str.1, ptr noundef @.str.27, ptr noundef @.str.28)
-  br label %do.body2
+23:                                               ; preds = %22
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #14
+  store ptr getelementptr (i8, ptr @.str, i64 118), ptr %8, align 8, !tbaa !38
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 118), i32 noundef 188, ptr noundef @.str.1, ptr noundef @.str.27, ptr noundef @.str.28)
+  br label %24
 
-do.body2:                                         ; preds = %do.body1
+24:                                               ; preds = %23
   unreachable
 
-do.end:                                           ; No predecessors!
-  br label %do.end3
+25:                                               ; No predecessors!
+  br label %26
 
-do.end3:                                          ; preds = %do.end
-  br label %if.end
+26:                                               ; preds = %25
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #14
+  br label %27
 
-if.end:                                           ; preds = %do.end3, %do.body
-  br label %do.end4
+27:                                               ; preds = %26
+  br label %28
 
-do.end4:                                          ; preds = %if.end
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+28:                                               ; preds = %27
+  br label %29
 
-for.cond:                                         ; preds = %for.inc, %do.end4
-  %7 = load i32, ptr %i, align 4
-  %8 = load ptr, ptr %e.addr, align 8
-  %levels = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %8, i32 0, i32 1
-  %9 = load i32, ptr %levels, align 8
-  %cmp5 = icmp ne i32 %7, %9
-  br i1 %cmp5, label %land.rhs, label %land.end
+29:                                               ; preds = %28, %14
+  br label %30
 
-land.rhs:                                         ; preds = %for.cond
-  %10 = load ptr, ptr %prev.addr, align 8
-  %11 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %11 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %10, i64 %idxprom
-  %12 = load ptr, ptr %arrayidx, align 8
-  %next = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %12, i32 0, i32 2
-  %13 = load i32, ptr %i, align 4
-  %idxprom6 = sext i32 %13 to i64
-  %arrayidx7 = getelementptr inbounds [30 x ptr], ptr %next, i64 0, i64 %idxprom6
-  %14 = load ptr, ptr %arrayidx7, align 8
-  %15 = load ptr, ptr %e.addr, align 8
-  %cmp8 = icmp eq ptr %14, %15
-  br label %land.end
+30:                                               ; preds = %29
+  br label %31
 
-land.end:                                         ; preds = %land.rhs, %for.cond
-  %16 = phi i1 [ false, %for.cond ], [ %cmp8, %land.rhs ]
-  br i1 %16, label %for.body, label %for.end
+31:                                               ; preds = %30
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #14
+  store i32 0, ptr %9, align 4, !tbaa !12
+  br label %32
 
-for.body:                                         ; preds = %land.end
-  %17 = load ptr, ptr %e.addr, align 8
-  %next9 = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %17, i32 0, i32 2
-  %18 = load i32, ptr %i, align 4
-  %idxprom10 = sext i32 %18 to i64
-  %arrayidx11 = getelementptr inbounds [30 x ptr], ptr %next9, i64 0, i64 %idxprom10
-  %19 = load ptr, ptr %arrayidx11, align 8
-  %20 = load ptr, ptr %prev.addr, align 8
-  %21 = load i32, ptr %i, align 4
-  %idxprom12 = sext i32 %21 to i64
-  %arrayidx13 = getelementptr inbounds ptr, ptr %20, i64 %idxprom12
-  %22 = load ptr, ptr %arrayidx13, align 8
-  %next14 = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %22, i32 0, i32 2
-  %23 = load i32, ptr %i, align 4
-  %idxprom15 = sext i32 %23 to i64
-  %arrayidx16 = getelementptr inbounds [30 x ptr], ptr %next14, i64 0, i64 %idxprom15
-  store ptr %19, ptr %arrayidx16, align 8
-  br label %for.inc
+32:                                               ; preds = %70, %31
+  %33 = load i32, ptr %9, align 4, !tbaa !12
+  %34 = load ptr, ptr %5, align 8, !tbaa !40
+  %35 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %34, i32 0, i32 1
+  %36 = load i32, ptr %35, align 8, !tbaa !56
+  %37 = icmp ne i32 %33, %36
+  br i1 %37, label %38, label %51
 
-for.inc:                                          ; preds = %for.body
-  %24 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %24, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !16
+38:                                               ; preds = %32
+  %39 = load ptr, ptr %6, align 8, !tbaa !70
+  %40 = load i32, ptr %9, align 4, !tbaa !12
+  %41 = sext i32 %40 to i64
+  %42 = getelementptr inbounds ptr, ptr %39, i64 %41
+  %43 = load ptr, ptr %42, align 8, !tbaa !40
+  %44 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %43, i32 0, i32 2
+  %45 = load i32, ptr %9, align 4, !tbaa !12
+  %46 = sext i32 %45 to i64
+  %47 = getelementptr inbounds [30 x ptr], ptr %44, i64 0, i64 %46
+  %48 = load ptr, ptr %47, align 8, !tbaa !40
+  %49 = load ptr, ptr %5, align 8, !tbaa !40
+  %50 = icmp eq ptr %48, %49
+  br label %51
 
-for.end:                                          ; preds = %land.end
-  br label %while.cond
+51:                                               ; preds = %38, %32
+  %52 = phi i1 [ false, %32 ], [ %50, %38 ]
+  br i1 %52, label %54, label %53
 
-while.cond:                                       ; preds = %while.body, %for.end
-  %25 = load ptr, ptr %head.addr, align 8
-  %levels17 = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %25, i32 0, i32 1
-  %26 = load i32, ptr %levels17, align 8
-  %cmp18 = icmp sgt i32 %26, 0
-  br i1 %cmp18, label %land.rhs19, label %land.end25
+53:                                               ; preds = %51
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #14
+  br label %73
 
-land.rhs19:                                       ; preds = %while.cond
-  %27 = load ptr, ptr %head.addr, align 8
-  %next20 = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %27, i32 0, i32 2
-  %28 = load ptr, ptr %head.addr, align 8
-  %levels21 = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %28, i32 0, i32 1
-  %29 = load i32, ptr %levels21, align 8
-  %sub = sub nsw i32 %29, 1
-  %idxprom22 = sext i32 %sub to i64
-  %arrayidx23 = getelementptr inbounds [30 x ptr], ptr %next20, i64 0, i64 %idxprom22
-  %30 = load ptr, ptr %arrayidx23, align 8
-  %cmp24 = icmp eq ptr %30, null
-  br label %land.end25
+54:                                               ; preds = %51
+  %55 = load ptr, ptr %5, align 8, !tbaa !40
+  %56 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %55, i32 0, i32 2
+  %57 = load i32, ptr %9, align 4, !tbaa !12
+  %58 = sext i32 %57 to i64
+  %59 = getelementptr inbounds [30 x ptr], ptr %56, i64 0, i64 %58
+  %60 = load ptr, ptr %59, align 8, !tbaa !40
+  %61 = load ptr, ptr %6, align 8, !tbaa !70
+  %62 = load i32, ptr %9, align 4, !tbaa !12
+  %63 = sext i32 %62 to i64
+  %64 = getelementptr inbounds ptr, ptr %61, i64 %63
+  %65 = load ptr, ptr %64, align 8, !tbaa !40
+  %66 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %65, i32 0, i32 2
+  %67 = load i32, ptr %9, align 4, !tbaa !12
+  %68 = sext i32 %67 to i64
+  %69 = getelementptr inbounds [30 x ptr], ptr %66, i64 0, i64 %68
+  store ptr %60, ptr %69, align 8, !tbaa !40
+  br label %70
 
-land.end25:                                       ; preds = %land.rhs19, %while.cond
-  %31 = phi i1 [ false, %while.cond ], [ %cmp24, %land.rhs19 ]
-  br i1 %31, label %while.body, label %while.end
+70:                                               ; preds = %54
+  %71 = load i32, ptr %9, align 4, !tbaa !12
+  %72 = add nsw i32 %71, 1
+  store i32 %72, ptr %9, align 4, !tbaa !12
+  br label %32, !llvm.loop !78
 
-while.body:                                       ; preds = %land.end25
-  %32 = load ptr, ptr %head.addr, align 8
-  %levels26 = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %32, i32 0, i32 1
-  %33 = load i32, ptr %levels26, align 8
-  %dec = add nsw i32 %33, -1
-  store i32 %dec, ptr %levels26, align 8
-  br label %while.cond, !llvm.loop !17
+73:                                               ; preds = %53
+  br label %74
 
-while.end:                                        ; preds = %land.end25
+74:                                               ; preds = %92, %73
+  %75 = load ptr, ptr %4, align 8, !tbaa !40
+  %76 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %75, i32 0, i32 1
+  %77 = load i32, ptr %76, align 8, !tbaa !56
+  %78 = icmp sgt i32 %77, 0
+  br i1 %78, label %79, label %90
+
+79:                                               ; preds = %74
+  %80 = load ptr, ptr %4, align 8, !tbaa !40
+  %81 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %80, i32 0, i32 2
+  %82 = load ptr, ptr %4, align 8, !tbaa !40
+  %83 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %82, i32 0, i32 1
+  %84 = load i32, ptr %83, align 8, !tbaa !56
+  %85 = sub nsw i32 %84, 1
+  %86 = sext i32 %85 to i64
+  %87 = getelementptr inbounds [30 x ptr], ptr %81, i64 0, i64 %86
+  %88 = load ptr, ptr %87, align 8, !tbaa !40
+  %89 = icmp eq ptr %88, null
+  br label %90
+
+90:                                               ; preds = %79, %74
+  %91 = phi i1 [ false, %74 ], [ %89, %79 ]
+  br i1 %91, label %92, label %97
+
+92:                                               ; preds = %90
+  %93 = load ptr, ptr %4, align 8, !tbaa !40
+  %94 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %93, i32 0, i32 1
+  %95 = load i32, ptr %94, align 8, !tbaa !56
+  %96 = add nsw i32 %95, -1
+  store i32 %96, ptr %94, align 8, !tbaa !56
+  br label %74, !llvm.loop !79
+
+97:                                               ; preds = %90
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #14
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal noundef i64 @_ZN4absl13base_internalL7RoundUpEmm(i64 noundef %addr, i64 noundef %align) #0 {
-entry:
-  %addr.addr = alloca i64, align 8
-  %align.addr = alloca i64, align 8
-  store i64 %addr, ptr %addr.addr, align 8
-  store i64 %align, ptr %align.addr, align 8
-  %0 = load i64, ptr %addr.addr, align 8
-  %1 = load i64, ptr %align.addr, align 8
-  %sub = sub i64 %1, 1
-  %call = call noundef i64 @_ZN4absl13base_internalL10CheckedAddEmm(i64 noundef %0, i64 noundef %sub)
-  %2 = load i64, ptr %align.addr, align 8
-  %sub1 = sub i64 %2, 1
-  %not = xor i64 %sub1, -1
-  %and = and i64 %call, %not
-  ret i64 %and
+; Function Attrs: inlinehint mustprogress uwtable
+define internal noundef i64 @_ZN4absl13base_internalL7RoundUpEmm(i64 noundef %0, i64 noundef %1) #10 {
+  %3 = alloca i64, align 8
+  %4 = alloca i64, align 8
+  store i64 %0, ptr %3, align 8, !tbaa !33
+  store i64 %1, ptr %4, align 8, !tbaa !33
+  %5 = load i64, ptr %3, align 8, !tbaa !33
+  %6 = load i64, ptr %4, align 8, !tbaa !33
+  %7 = sub i64 %6, 1
+  %8 = call noundef i64 @_ZN4absl13base_internalL10CheckedAddEmm(i64 noundef %5, i64 noundef %7)
+  %9 = load i64, ptr %4, align 8, !tbaa !33
+  %10 = sub i64 %9, 1
+  %11 = xor i64 %10, -1
+  %12 = and i64 %8, %11
+  ret i64 %12
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define internal noundef i64 @_ZN4absl13base_internalL10CheckedAddEmm(i64 noundef %0, i64 noundef %1) #10 {
+  %3 = alloca i64, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  store i64 %0, ptr %3, align 8, !tbaa !33
+  store i64 %1, ptr %4, align 8, !tbaa !33
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #14
+  %7 = load i64, ptr %3, align 8, !tbaa !33
+  %8 = load i64, ptr %4, align 8, !tbaa !33
+  %9 = add i64 %7, %8
+  store i64 %9, ptr %5, align 8, !tbaa !33
+  br label %10
+
+10:                                               ; preds = %2
+  %11 = load i64, ptr %5, align 8, !tbaa !33
+  %12 = load i64, ptr %3, align 8, !tbaa !33
+  %13 = icmp uge i64 %11, %12
+  %14 = xor i1 %13, true
+  %15 = zext i1 %14 to i64
+  %16 = call i64 @llvm.expect.i64(i64 %15, i64 0)
+  %17 = icmp ne i64 %16, 0
+  br i1 %17, label %18, label %25
+
+18:                                               ; preds = %10
+  br label %19
+
+19:                                               ; preds = %18
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #14
+  store ptr getelementptr (i8, ptr @.str, i64 118), ptr %6, align 8, !tbaa !38
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 118), i32 noundef 437, ptr noundef @.str.1, ptr noundef @.str.32, ptr noundef @.str.33)
+  br label %20
+
+20:                                               ; preds = %19
+  unreachable
+
+21:                                               ; No predecessors!
+  br label %22
+
+22:                                               ; preds = %21
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #14
+  br label %23
+
+23:                                               ; preds = %22
+  br label %24
+
+24:                                               ; preds = %23
+  br label %25
+
+25:                                               ; preds = %24, %10
+  br label %26
+
+26:                                               ; preds = %25
+  br label %27
+
+27:                                               ; preds = %26
+  %28 = load i64, ptr %5, align 8, !tbaa !33
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #14
+  ret i64 %28
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i64 @_ZN4absl13base_internalL10CheckedAddEmm(i64 noundef %a, i64 noundef %b) #0 {
-entry:
-  %a.addr = alloca i64, align 8
-  %b.addr = alloca i64, align 8
-  %sum = alloca i64, align 8
-  %absl_raw_log_internal_basename = alloca ptr, align 8
-  store i64 %a, ptr %a.addr, align 8
-  store i64 %b, ptr %b.addr, align 8
-  %0 = load i64, ptr %a.addr, align 8
-  %1 = load i64, ptr %b.addr, align 8
-  %add = add i64 %0, %1
-  store i64 %add, ptr %sum, align 8
-  br label %do.body
+define internal noundef ptr @_ZN4absl13base_internalL4NextEiPNS0_12_GLOBAL__N_19AllocListEPNS0_13LowLevelAlloc5ArenaE(i32 noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  store i32 %0, ptr %4, align 4, !tbaa !12
+  store ptr %1, ptr %5, align 8, !tbaa !40
+  store ptr %2, ptr %6, align 8, !tbaa !14
+  br label %13
 
-do.body:                                          ; preds = %entry
-  %2 = load i64, ptr %sum, align 8
-  %3 = load i64, ptr %a.addr, align 8
-  %cmp = icmp uge i64 %2, %3
-  %lnot = xor i1 %cmp, true
-  br i1 %lnot, label %if.then, label %if.end
+13:                                               ; preds = %3
+  %14 = load i32, ptr %4, align 4, !tbaa !12
+  %15 = load ptr, ptr %5, align 8, !tbaa !40
+  %16 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %15, i32 0, i32 1
+  %17 = load i32, ptr %16, align 8, !tbaa !56
+  %18 = icmp slt i32 %14, %17
+  %19 = xor i1 %18, true
+  %20 = zext i1 %19 to i64
+  %21 = call i64 @llvm.expect.i64(i64 %20, i64 0)
+  %22 = icmp ne i64 %21, 0
+  br i1 %22, label %23, label %29
 
-if.then:                                          ; preds = %do.body
-  br label %do.body1
+23:                                               ; preds = %13
+  br label %24
 
-do.body1:                                         ; preds = %if.then
-  %4 = getelementptr i8, ptr @.str, i64 118
-  store ptr %4, ptr %absl_raw_log_internal_basename, align 8
-  %5 = getelementptr i8, ptr @.str, i64 118
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %5, i32 noundef 437, ptr noundef @.str.1, ptr noundef @.str.32, ptr noundef @.str.33)
-  br label %do.body2
+24:                                               ; preds = %23
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #14
+  store ptr getelementptr (i8, ptr @.str, i64 118), ptr %7, align 8, !tbaa !38
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 118), i32 noundef 453, ptr noundef @.str.1, ptr noundef @.str.34, ptr noundef @.str.35)
+  br label %25
 
-do.body2:                                         ; preds = %do.body1
+25:                                               ; preds = %24
   unreachable
 
-do.end:                                           ; No predecessors!
-  br label %do.end3
+26:                                               ; No predecessors!
+  br label %27
 
-do.end3:                                          ; preds = %do.end
-  br label %if.end
+27:                                               ; preds = %26
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #14
+  br label %28
 
-if.end:                                           ; preds = %do.end3, %do.body
-  br label %do.end4
+28:                                               ; preds = %27
+  br label %29
 
-do.end4:                                          ; preds = %if.end
-  %6 = load i64, ptr %sum, align 8
-  ret i64 %6
+29:                                               ; preds = %28, %13
+  br label %30
+
+30:                                               ; preds = %29
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #14
+  %31 = load ptr, ptr %5, align 8, !tbaa !40
+  %32 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %31, i32 0, i32 2
+  %33 = load i32, ptr %4, align 4, !tbaa !12
+  %34 = sext i32 %33 to i64
+  %35 = getelementptr inbounds [30 x ptr], ptr %32, i64 0, i64 %34
+  %36 = load ptr, ptr %35, align 8, !tbaa !40
+  store ptr %36, ptr %8, align 8, !tbaa !40
+  %37 = load ptr, ptr %8, align 8, !tbaa !40
+  %38 = icmp ne ptr %37, null
+  br i1 %38, label %39, label %131
+
+39:                                               ; preds = %30
+  br label %40
+
+40:                                               ; preds = %39
+  %41 = load ptr, ptr %8, align 8, !tbaa !40
+  %42 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %41, i32 0, i32 0
+  %43 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList::Header", ptr %42, i32 0, i32 1
+  %44 = load i64, ptr %43, align 8, !tbaa !43
+  %45 = load ptr, ptr %8, align 8, !tbaa !40
+  %46 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %45, i32 0, i32 0
+  %47 = call noundef i64 @_ZN4absl13base_internalL5MagicEmPNS0_12_GLOBAL__N_19AllocList6HeaderE(i64 noundef -1283669654, ptr noundef %46)
+  %48 = icmp eq i64 %44, %47
+  %49 = xor i1 %48, true
+  %50 = zext i1 %49 to i64
+  %51 = call i64 @llvm.expect.i64(i64 %50, i64 0)
+  %52 = icmp ne i64 %51, 0
+  br i1 %52, label %53, label %60
+
+53:                                               ; preds = %40
+  br label %54
+
+54:                                               ; preds = %53
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #14
+  store ptr getelementptr (i8, ptr @.str, i64 118), ptr %9, align 8, !tbaa !38
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 118), i32 noundef 458, ptr noundef @.str.1, ptr noundef @.str.36, ptr noundef @.str.37)
+  br label %55
+
+55:                                               ; preds = %54
+  unreachable
+
+56:                                               ; No predecessors!
+  br label %57
+
+57:                                               ; preds = %56
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #14
+  br label %58
+
+58:                                               ; preds = %57
+  br label %59
+
+59:                                               ; preds = %58
+  br label %60
+
+60:                                               ; preds = %59, %40
+  br label %61
+
+61:                                               ; preds = %60
+  br label %62
+
+62:                                               ; preds = %61
+  br label %63
+
+63:                                               ; preds = %62
+  %64 = load ptr, ptr %8, align 8, !tbaa !40
+  %65 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %64, i32 0, i32 0
+  %66 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList::Header", ptr %65, i32 0, i32 2
+  %67 = load ptr, ptr %66, align 8, !tbaa !44
+  %68 = load ptr, ptr %6, align 8, !tbaa !14
+  %69 = icmp eq ptr %67, %68
+  %70 = xor i1 %69, true
+  %71 = zext i1 %70 to i64
+  %72 = call i64 @llvm.expect.i64(i64 %71, i64 0)
+  %73 = icmp ne i64 %72, 0
+  br i1 %73, label %74, label %81
+
+74:                                               ; preds = %63
+  br label %75
+
+75:                                               ; preds = %74
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #14
+  store ptr getelementptr (i8, ptr @.str, i64 118), ptr %10, align 8, !tbaa !38
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 118), i32 noundef 459, ptr noundef @.str.1, ptr noundef @.str.38, ptr noundef @.str.39)
+  br label %76
+
+76:                                               ; preds = %75
+  unreachable
+
+77:                                               ; No predecessors!
+  br label %78
+
+78:                                               ; preds = %77
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #14
+  br label %79
+
+79:                                               ; preds = %78
+  br label %80
+
+80:                                               ; preds = %79
+  br label %81
+
+81:                                               ; preds = %80, %63
+  br label %82
+
+82:                                               ; preds = %81
+  br label %83
+
+83:                                               ; preds = %82
+  %84 = load ptr, ptr %5, align 8, !tbaa !40
+  %85 = load ptr, ptr %6, align 8, !tbaa !14
+  %86 = getelementptr inbounds nuw %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %85, i32 0, i32 2
+  %87 = icmp ne ptr %84, %86
+  br i1 %87, label %88, label %130
+
+88:                                               ; preds = %83
+  br label %89
+
+89:                                               ; preds = %88
+  %90 = load ptr, ptr %5, align 8, !tbaa !40
+  %91 = load ptr, ptr %8, align 8, !tbaa !40
+  %92 = icmp ult ptr %90, %91
+  %93 = xor i1 %92, true
+  %94 = zext i1 %93 to i64
+  %95 = call i64 @llvm.expect.i64(i64 %94, i64 0)
+  %96 = icmp ne i64 %95, 0
+  br i1 %96, label %97, label %104
+
+97:                                               ; preds = %89
+  br label %98
+
+98:                                               ; preds = %97
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #14
+  store ptr getelementptr (i8, ptr @.str, i64 118), ptr %11, align 8, !tbaa !38
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 118), i32 noundef 461, ptr noundef @.str.1, ptr noundef @.str.40, ptr noundef @.str.41)
+  br label %99
+
+99:                                               ; preds = %98
+  unreachable
+
+100:                                              ; No predecessors!
+  br label %101
+
+101:                                              ; preds = %100
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #14
+  br label %102
+
+102:                                              ; preds = %101
+  br label %103
+
+103:                                              ; preds = %102
+  br label %104
+
+104:                                              ; preds = %103, %89
+  br label %105
+
+105:                                              ; preds = %104
+  br label %106
+
+106:                                              ; preds = %105
+  br label %107
+
+107:                                              ; preds = %106
+  %108 = load ptr, ptr %5, align 8, !tbaa !40
+  %109 = load ptr, ptr %5, align 8, !tbaa !40
+  %110 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %109, i32 0, i32 0
+  %111 = getelementptr inbounds nuw %"struct.absl::base_internal::(anonymous namespace)::AllocList::Header", ptr %110, i32 0, i32 0
+  %112 = load i64, ptr %111, align 8, !tbaa !42
+  %113 = getelementptr inbounds nuw i8, ptr %108, i64 %112
+  %114 = load ptr, ptr %8, align 8, !tbaa !40
+  %115 = icmp ult ptr %113, %114
+  %116 = xor i1 %115, true
+  %117 = zext i1 %116 to i64
+  %118 = call i64 @llvm.expect.i64(i64 %117, i64 0)
+  %119 = icmp ne i64 %118, 0
+  br i1 %119, label %120, label %127
+
+120:                                              ; preds = %107
+  br label %121
+
+121:                                              ; preds = %120
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #14
+  store ptr getelementptr (i8, ptr @.str, i64 118), ptr %12, align 8, !tbaa !38
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 118), i32 noundef 464, ptr noundef @.str.1, ptr noundef @.str.42, ptr noundef @.str.43)
+  br label %122
+
+122:                                              ; preds = %121
+  unreachable
+
+123:                                              ; No predecessors!
+  br label %124
+
+124:                                              ; preds = %123
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #14
+  br label %125
+
+125:                                              ; preds = %124
+  br label %126
+
+126:                                              ; preds = %125
+  br label %127
+
+127:                                              ; preds = %126, %107
+  br label %128
+
+128:                                              ; preds = %127
+  br label %129
+
+129:                                              ; preds = %128
+  br label %130
+
+130:                                              ; preds = %129, %83
+  br label %131
+
+131:                                              ; preds = %130, %30
+  %132 = load ptr, ptr %8, align 8, !tbaa !40
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #14
+  ret ptr %132
 }
 
-; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZN4absl13base_internalL4NextEiPNS0_12_GLOBAL__N_19AllocListEPNS0_13LowLevelAlloc5ArenaE(i32 noundef %i, ptr noundef %prev, ptr noundef %arena) #0 {
-entry:
-  %i.addr = alloca i32, align 4
-  %prev.addr = alloca ptr, align 8
-  %arena.addr = alloca ptr, align 8
-  %absl_raw_log_internal_basename = alloca ptr, align 8
-  %next = alloca ptr, align 8
-  %absl_raw_log_internal_basename14 = alloca ptr, align 8
-  %absl_raw_log_internal_basename27 = alloca ptr, align 8
-  %absl_raw_log_internal_basename40 = alloca ptr, align 8
-  %absl_raw_log_internal_basename52 = alloca ptr, align 8
-  store i32 %i, ptr %i.addr, align 4
-  store ptr %prev, ptr %prev.addr, align 8
-  store ptr %arena, ptr %arena.addr, align 8
-  br label %do.body
-
-do.body:                                          ; preds = %entry
-  %0 = load i32, ptr %i.addr, align 4
-  %1 = load ptr, ptr %prev.addr, align 8
-  %levels = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %1, i32 0, i32 1
-  %2 = load i32, ptr %levels, align 8
-  %cmp = icmp slt i32 %0, %2
-  %lnot = xor i1 %cmp, true
-  br i1 %lnot, label %if.then, label %if.end
-
-if.then:                                          ; preds = %do.body
-  br label %do.body1
-
-do.body1:                                         ; preds = %if.then
-  %3 = getelementptr i8, ptr @.str, i64 118
-  store ptr %3, ptr %absl_raw_log_internal_basename, align 8
-  %4 = getelementptr i8, ptr @.str, i64 118
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %4, i32 noundef 453, ptr noundef @.str.1, ptr noundef @.str.34, ptr noundef @.str.35)
-  br label %do.body2
-
-do.body2:                                         ; preds = %do.body1
-  unreachable
-
-do.end:                                           ; No predecessors!
-  br label %do.end3
-
-do.end3:                                          ; preds = %do.end
-  br label %if.end
-
-if.end:                                           ; preds = %do.end3, %do.body
-  br label %do.end4
-
-do.end4:                                          ; preds = %if.end
-  %5 = load ptr, ptr %prev.addr, align 8
-  %next5 = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %5, i32 0, i32 2
-  %6 = load i32, ptr %i.addr, align 4
-  %idxprom = sext i32 %6 to i64
-  %arrayidx = getelementptr inbounds [30 x ptr], ptr %next5, i64 0, i64 %idxprom
-  %7 = load ptr, ptr %arrayidx, align 8
-  store ptr %7, ptr %next, align 8
-  %8 = load ptr, ptr %next, align 8
-  %cmp6 = icmp ne ptr %8, null
-  br i1 %cmp6, label %if.then7, label %if.end59
-
-if.then7:                                         ; preds = %do.end4
-  br label %do.body8
-
-do.body8:                                         ; preds = %if.then7
-  %9 = load ptr, ptr %next, align 8
-  %header = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %9, i32 0, i32 0
-  %magic = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList::Header", ptr %header, i32 0, i32 1
-  %10 = load i64, ptr %magic, align 8
-  %11 = load ptr, ptr %next, align 8
-  %header9 = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %11, i32 0, i32 0
-  %call = call noundef i64 @_ZN4absl13base_internalL5MagicEmPNS0_12_GLOBAL__N_19AllocList6HeaderE(i64 noundef -1283669654, ptr noundef %header9)
-  %cmp10 = icmp eq i64 %10, %call
-  %lnot11 = xor i1 %cmp10, true
-  br i1 %lnot11, label %if.then12, label %if.end18
-
-if.then12:                                        ; preds = %do.body8
-  br label %do.body13
-
-do.body13:                                        ; preds = %if.then12
-  %12 = getelementptr i8, ptr @.str, i64 118
-  store ptr %12, ptr %absl_raw_log_internal_basename14, align 8
-  %13 = getelementptr i8, ptr @.str, i64 118
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %13, i32 noundef 458, ptr noundef @.str.1, ptr noundef @.str.36, ptr noundef @.str.37)
-  br label %do.body15
-
-do.body15:                                        ; preds = %do.body13
-  unreachable
-
-do.end16:                                         ; No predecessors!
-  br label %do.end17
-
-do.end17:                                         ; preds = %do.end16
-  br label %if.end18
-
-if.end18:                                         ; preds = %do.end17, %do.body8
-  br label %do.end19
-
-do.end19:                                         ; preds = %if.end18
-  br label %do.body20
-
-do.body20:                                        ; preds = %do.end19
-  %14 = load ptr, ptr %next, align 8
-  %header21 = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %14, i32 0, i32 0
-  %arena22 = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList::Header", ptr %header21, i32 0, i32 2
-  %15 = load ptr, ptr %arena22, align 8
-  %16 = load ptr, ptr %arena.addr, align 8
-  %cmp23 = icmp eq ptr %15, %16
-  %lnot24 = xor i1 %cmp23, true
-  br i1 %lnot24, label %if.then25, label %if.end31
-
-if.then25:                                        ; preds = %do.body20
-  br label %do.body26
-
-do.body26:                                        ; preds = %if.then25
-  %17 = getelementptr i8, ptr @.str, i64 118
-  store ptr %17, ptr %absl_raw_log_internal_basename27, align 8
-  %18 = getelementptr i8, ptr @.str, i64 118
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %18, i32 noundef 459, ptr noundef @.str.1, ptr noundef @.str.38, ptr noundef @.str.39)
-  br label %do.body28
-
-do.body28:                                        ; preds = %do.body26
-  unreachable
-
-do.end29:                                         ; No predecessors!
-  br label %do.end30
-
-do.end30:                                         ; preds = %do.end29
-  br label %if.end31
-
-if.end31:                                         ; preds = %do.end30, %do.body20
-  br label %do.end32
-
-do.end32:                                         ; preds = %if.end31
-  %19 = load ptr, ptr %prev.addr, align 8
-  %20 = load ptr, ptr %arena.addr, align 8
-  %freelist = getelementptr inbounds %"struct.absl::base_internal::LowLevelAlloc::Arena", ptr %20, i32 0, i32 2
-  %cmp33 = icmp ne ptr %19, %freelist
-  br i1 %cmp33, label %if.then34, label %if.end58
-
-if.then34:                                        ; preds = %do.end32
-  br label %do.body35
-
-do.body35:                                        ; preds = %if.then34
-  %21 = load ptr, ptr %prev.addr, align 8
-  %22 = load ptr, ptr %next, align 8
-  %cmp36 = icmp ult ptr %21, %22
-  %lnot37 = xor i1 %cmp36, true
-  br i1 %lnot37, label %if.then38, label %if.end44
-
-if.then38:                                        ; preds = %do.body35
-  br label %do.body39
-
-do.body39:                                        ; preds = %if.then38
-  %23 = getelementptr i8, ptr @.str, i64 118
-  store ptr %23, ptr %absl_raw_log_internal_basename40, align 8
-  %24 = getelementptr i8, ptr @.str, i64 118
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %24, i32 noundef 461, ptr noundef @.str.1, ptr noundef @.str.40, ptr noundef @.str.41)
-  br label %do.body41
-
-do.body41:                                        ; preds = %do.body39
-  unreachable
-
-do.end42:                                         ; No predecessors!
-  br label %do.end43
-
-do.end43:                                         ; preds = %do.end42
-  br label %if.end44
-
-if.end44:                                         ; preds = %do.end43, %do.body35
-  br label %do.end45
-
-do.end45:                                         ; preds = %if.end44
-  br label %do.body46
-
-do.body46:                                        ; preds = %do.end45
-  %25 = load ptr, ptr %prev.addr, align 8
-  %26 = load ptr, ptr %prev.addr, align 8
-  %header47 = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList", ptr %26, i32 0, i32 0
-  %size = getelementptr inbounds %"struct.absl::base_internal::(anonymous namespace)::AllocList::Header", ptr %header47, i32 0, i32 0
-  %27 = load i64, ptr %size, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %25, i64 %27
-  %28 = load ptr, ptr %next, align 8
-  %cmp48 = icmp ult ptr %add.ptr, %28
-  %lnot49 = xor i1 %cmp48, true
-  br i1 %lnot49, label %if.then50, label %if.end56
-
-if.then50:                                        ; preds = %do.body46
-  br label %do.body51
-
-do.body51:                                        ; preds = %if.then50
-  %29 = getelementptr i8, ptr @.str, i64 118
-  store ptr %29, ptr %absl_raw_log_internal_basename52, align 8
-  %30 = getelementptr i8, ptr @.str, i64 118
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %30, i32 noundef 464, ptr noundef @.str.1, ptr noundef @.str.42, ptr noundef @.str.43)
-  br label %do.body53
-
-do.body53:                                        ; preds = %do.body51
-  unreachable
-
-do.end54:                                         ; No predecessors!
-  br label %do.end55
-
-do.end55:                                         ; preds = %do.end54
-  br label %if.end56
-
-if.end56:                                         ; preds = %do.end55, %do.body46
-  br label %do.end57
-
-do.end57:                                         ; preds = %if.end56
-  br label %if.end58
-
-if.end58:                                         ; preds = %do.end57, %do.end32
-  br label %if.end59
-
-if.end59:                                         ; preds = %if.end58, %do.end4
-  %31 = load ptr, ptr %next, align 8
-  ret ptr %31
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef ptr @_ZN4absl13base_internal10DirectMmapEPvmiiil(ptr noundef %start, i64 noundef %length, i32 noundef %prot, i32 noundef %flags, i32 noundef %fd, i64 noundef %offset) #2 comdat {
-entry:
-  %start.addr = alloca ptr, align 8
-  %length.addr = alloca i64, align 8
-  %prot.addr = alloca i32, align 4
-  %flags.addr = alloca i32, align 4
-  %fd.addr = alloca i32, align 4
-  %offset.addr = alloca i64, align 8
-  store ptr %start, ptr %start.addr, align 8
-  store i64 %length, ptr %length.addr, align 8
-  store i32 %prot, ptr %prot.addr, align 4
-  store i32 %flags, ptr %flags.addr, align 4
-  store i32 %fd, ptr %fd.addr, align 4
-  store i64 %offset, ptr %offset.addr, align 8
-  %0 = load ptr, ptr %start.addr, align 8
-  %1 = ptrtoint ptr %0 to i64
-  %2 = load i64, ptr %length.addr, align 8
-  %3 = load i32, ptr %prot.addr, align 4
-  %conv = sext i32 %3 to i64
-  %4 = load i32, ptr %flags.addr, align 4
-  %conv1 = sext i32 %4 to i64
-  %5 = load i32, ptr %fd.addr, align 4
-  %conv2 = sext i32 %5 to i64
-  %6 = load i64, ptr %offset.addr, align 8
-  %call = call i64 (i64, ...) @syscall(i64 noundef 9, i64 noundef %1, i64 noundef %2, i64 noundef %conv, i64 noundef %conv1, i64 noundef %conv2, i64 noundef %6) #9
-  %7 = inttoptr i64 %call to ptr
-  ret ptr %7
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef ptr @_ZN4absl13base_internal10DirectMmapEPvmiiil(ptr noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i64 noundef %5) #3 comdat {
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i64, align 8
+  store ptr %0, ptr %7, align 8, !tbaa !9
+  store i64 %1, ptr %8, align 8, !tbaa !33
+  store i32 %2, ptr %9, align 4, !tbaa !12
+  store i32 %3, ptr %10, align 4, !tbaa !12
+  store i32 %4, ptr %11, align 4, !tbaa !12
+  store i64 %5, ptr %12, align 8, !tbaa !33
+  %13 = load ptr, ptr %7, align 8, !tbaa !9
+  %14 = ptrtoint ptr %13 to i64
+  %15 = load i64, ptr %8, align 8, !tbaa !33
+  %16 = load i32, ptr %9, align 4, !tbaa !12
+  %17 = sext i32 %16 to i64
+  %18 = load i32, ptr %10, align 4, !tbaa !12
+  %19 = sext i32 %18 to i64
+  %20 = load i32, ptr %11, align 4, !tbaa !12
+  %21 = sext i32 %20 to i64
+  %22 = load i64, ptr %12, align 8, !tbaa !33
+  %23 = call i64 (i64, ...) @syscall(i64 noundef 9, i64 noundef %14, i64 noundef %15, i64 noundef %17, i64 noundef %19, i64 noundef %21, i64 noundef %22) #14
+  %24 = inttoptr i64 %23 to ptr
+  ret ptr %24
 }
 
 ; Function Attrs: nounwind
-declare ptr @mmap(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) #4
+declare ptr @mmap(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) #8
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef ptr @_ZN4absl13base_internal11ControlWordEPNS_9once_flagE(ptr noundef %flag) #2 comdat {
-entry:
-  %flag.addr = alloca ptr, align 8
-  store ptr %flag, ptr %flag.addr, align 8
-  %0 = load ptr, ptr %flag.addr, align 8
-  %control_ = getelementptr inbounds %"class.absl::once_flag", ptr %0, i32 0, i32 0
-  ret ptr %control_
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef ptr @_ZN4absl13base_internal11ControlWordEPNS_9once_flagE(ptr noundef %0) #3 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  %4 = getelementptr inbounds nuw %"class.absl::once_flag", ptr %3, i32 0, i32 0
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN4absl13base_internal12CallOnceImplIRFvvEJEEEvPSt6atomicIjENS0_14SchedulingModeEOT_DpOT0_(ptr noundef %control, i32 noundef %scheduling_mode, ptr noundef nonnull %fn) #0 comdat personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr.i.i = alloca ptr, align 8
-  %__i1.addr.i.i = alloca ptr, align 8
-  %__i2.addr.i.i = alloca i32, align 4
-  %__m1.addr.i.i = alloca i32, align 4
-  %__m2.addr.i.i = alloca i32, align 4
-  %.atomictmp.i.i = alloca i32, align 4
-  %cmpxchg.bool.i.i = alloca i8, align 1
-  %this.addr.i9 = alloca ptr, align 8
-  %__i1.addr.i = alloca ptr, align 8
-  %__i2.addr.i = alloca i32, align 4
-  %__m.addr.i10 = alloca i32, align 4
-  %this.addr.i = alloca ptr, align 8
-  %__i.addr.i = alloca i32, align 4
-  %__m.addr.i = alloca i32, align 4
-  %.atomictmp.i = alloca i32, align 4
-  %atomic-temp.i = alloca i32, align 4
-  %control.addr = alloca ptr, align 8
-  %scheduling_mode.addr = alloca i32, align 4
-  %fn.addr = alloca ptr, align 8
-  %maybe_disable_scheduling = alloca %"class.absl::base_internal::SchedulingHelper", align 4
-  %old_control = alloca i32, align 4
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %control, ptr %control.addr, align 8
-  store i32 %scheduling_mode, ptr %scheduling_mode.addr, align 4
-  store ptr %fn, ptr %fn.addr, align 8
-  %0 = load i32, ptr %scheduling_mode.addr, align 4
-  call void @_ZN4absl13base_internal16SchedulingHelperC2ENS0_14SchedulingModeE(ptr noundef nonnull align 4 dereferenceable(5) %maybe_disable_scheduling, i32 noundef %0)
-  store i32 0, ptr %old_control, align 4
-  %1 = load ptr, ptr %control.addr, align 8
-  store ptr %1, ptr %this.addr.i9, align 8
-  store ptr %old_control, ptr %__i1.addr.i, align 8
-  store i32 1707250555, ptr %__i2.addr.i, align 4
-  store i32 0, ptr %__m.addr.i10, align 4
-  %this1.i11 = load ptr, ptr %this.addr.i9, align 8
-  %2 = load ptr, ptr %__i1.addr.i, align 8
-  %3 = load i32, ptr %__i2.addr.i, align 4
-  %4 = load i32, ptr %__m.addr.i10, align 4
-  %5 = load i32, ptr %__m.addr.i10, align 4
-  %call.i = call noundef i32 @_ZSt23__cmpexch_failure_orderSt12memory_order(i32 noundef %5) #9
-  store ptr %this1.i11, ptr %this.addr.i.i, align 8
-  store ptr %2, ptr %__i1.addr.i.i, align 8
-  store i32 %3, ptr %__i2.addr.i.i, align 4
-  store i32 %4, ptr %__m1.addr.i.i, align 4
-  store i32 %call.i, ptr %__m2.addr.i.i, align 4
-  %this1.i.i = load ptr, ptr %this.addr.i.i, align 8
-  %6 = load i32, ptr %__m1.addr.i.i, align 4
-  %7 = load ptr, ptr %__i1.addr.i.i, align 8
-  %8 = load i32, ptr %__i2.addr.i.i, align 4
-  store i32 %8, ptr %.atomictmp.i.i, align 4
-  %9 = load i32, ptr %__m2.addr.i.i, align 4
-  switch i32 %6, label %monotonic.i.i [
-    i32 1, label %acquire.i.i
-    i32 2, label %acquire.i.i
-    i32 3, label %release.i.i
-    i32 4, label %acqrel.i.i
-    i32 5, label %seqcst.i.i
-  ]
-
-monotonic.i.i:                                    ; preds = %entry
-  switch i32 %9, label %monotonic_fail.i.i [
-    i32 1, label %acquire_fail.i.i
-    i32 2, label %acquire_fail.i.i
-    i32 5, label %seqcst_fail.i.i
-  ]
-
-acquire.i.i:                                      ; preds = %entry, %entry
-  switch i32 %9, label %monotonic_fail9.i.i [
-    i32 1, label %acquire_fail10.i.i
-    i32 2, label %acquire_fail10.i.i
-    i32 5, label %seqcst_fail11.i.i
-  ]
-
-release.i.i:                                      ; preds = %entry
-  switch i32 %9, label %monotonic_fail22.i.i [
-    i32 1, label %acquire_fail23.i.i
-    i32 2, label %acquire_fail23.i.i
-    i32 5, label %seqcst_fail24.i.i
-  ]
-
-acqrel.i.i:                                       ; preds = %entry
-  switch i32 %9, label %monotonic_fail35.i.i [
-    i32 1, label %acquire_fail36.i.i
-    i32 2, label %acquire_fail36.i.i
-    i32 5, label %seqcst_fail37.i.i
-  ]
-
-seqcst.i.i:                                       ; preds = %entry
-  switch i32 %9, label %monotonic_fail48.i.i [
-    i32 1, label %acquire_fail49.i.i
-    i32 2, label %acquire_fail49.i.i
-    i32 5, label %seqcst_fail50.i.i
-  ]
-
-monotonic_fail.i.i:                               ; preds = %monotonic.i.i
-  %10 = load i32, ptr %7, align 4
-  %11 = load i32, ptr %.atomictmp.i.i, align 4
-  %12 = cmpxchg ptr %this1.i.i, i32 %10, i32 %11 monotonic monotonic, align 4
-  %13 = extractvalue { i32, i1 } %12, 0
-  %14 = extractvalue { i32, i1 } %12, 1
-  br i1 %14, label %cmpxchg.continue.i.i, label %cmpxchg.store_expected.i.i
-
-acquire_fail.i.i:                                 ; preds = %monotonic.i.i, %monotonic.i.i
-  %15 = load i32, ptr %7, align 4
-  %16 = load i32, ptr %.atomictmp.i.i, align 4
-  %17 = cmpxchg ptr %this1.i.i, i32 %15, i32 %16 monotonic acquire, align 4
-  %18 = extractvalue { i32, i1 } %17, 0
-  %19 = extractvalue { i32, i1 } %17, 1
-  br i1 %19, label %cmpxchg.continue4.i.i, label %cmpxchg.store_expected3.i.i
-
-seqcst_fail.i.i:                                  ; preds = %monotonic.i.i
-  %20 = load i32, ptr %7, align 4
-  %21 = load i32, ptr %.atomictmp.i.i, align 4
-  %22 = cmpxchg ptr %this1.i.i, i32 %20, i32 %21 monotonic seq_cst, align 4
-  %23 = extractvalue { i32, i1 } %22, 0
-  %24 = extractvalue { i32, i1 } %22, 1
-  br i1 %24, label %cmpxchg.continue7.i.i, label %cmpxchg.store_expected6.i.i
-
-atomic.continue2.i.i:                             ; preds = %cmpxchg.continue7.i.i, %cmpxchg.continue4.i.i, %cmpxchg.continue.i.i
-  br label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_order.exit
-
-cmpxchg.store_expected.i.i:                       ; preds = %monotonic_fail.i.i
-  store i32 %13, ptr %7, align 4
-  br label %cmpxchg.continue.i.i
-
-cmpxchg.continue.i.i:                             ; preds = %cmpxchg.store_expected.i.i, %monotonic_fail.i.i
-  %frombool.i.i = zext i1 %14 to i8
-  store i8 %frombool.i.i, ptr %cmpxchg.bool.i.i, align 1
-  br label %atomic.continue2.i.i
-
-cmpxchg.store_expected3.i.i:                      ; preds = %acquire_fail.i.i
-  store i32 %18, ptr %7, align 4
-  br label %cmpxchg.continue4.i.i
-
-cmpxchg.continue4.i.i:                            ; preds = %cmpxchg.store_expected3.i.i, %acquire_fail.i.i
-  %frombool5.i.i = zext i1 %19 to i8
-  store i8 %frombool5.i.i, ptr %cmpxchg.bool.i.i, align 1
-  br label %atomic.continue2.i.i
-
-cmpxchg.store_expected6.i.i:                      ; preds = %seqcst_fail.i.i
-  store i32 %23, ptr %7, align 4
-  br label %cmpxchg.continue7.i.i
-
-cmpxchg.continue7.i.i:                            ; preds = %cmpxchg.store_expected6.i.i, %seqcst_fail.i.i
-  %frombool8.i.i = zext i1 %24 to i8
-  store i8 %frombool8.i.i, ptr %cmpxchg.bool.i.i, align 1
-  br label %atomic.continue2.i.i
-
-monotonic_fail9.i.i:                              ; preds = %acquire.i.i
-  %25 = load i32, ptr %7, align 4
-  %26 = load i32, ptr %.atomictmp.i.i, align 4
-  %27 = cmpxchg ptr %this1.i.i, i32 %25, i32 %26 acquire monotonic, align 4
-  %28 = extractvalue { i32, i1 } %27, 0
-  %29 = extractvalue { i32, i1 } %27, 1
-  br i1 %29, label %cmpxchg.continue14.i.i, label %cmpxchg.store_expected13.i.i
-
-acquire_fail10.i.i:                               ; preds = %acquire.i.i, %acquire.i.i
-  %30 = load i32, ptr %7, align 4
-  %31 = load i32, ptr %.atomictmp.i.i, align 4
-  %32 = cmpxchg ptr %this1.i.i, i32 %30, i32 %31 acquire acquire, align 4
-  %33 = extractvalue { i32, i1 } %32, 0
-  %34 = extractvalue { i32, i1 } %32, 1
-  br i1 %34, label %cmpxchg.continue17.i.i, label %cmpxchg.store_expected16.i.i
-
-seqcst_fail11.i.i:                                ; preds = %acquire.i.i
-  %35 = load i32, ptr %7, align 4
-  %36 = load i32, ptr %.atomictmp.i.i, align 4
-  %37 = cmpxchg ptr %this1.i.i, i32 %35, i32 %36 acquire seq_cst, align 4
-  %38 = extractvalue { i32, i1 } %37, 0
-  %39 = extractvalue { i32, i1 } %37, 1
-  br i1 %39, label %cmpxchg.continue20.i.i, label %cmpxchg.store_expected19.i.i
-
-atomic.continue12.i.i:                            ; preds = %cmpxchg.continue20.i.i, %cmpxchg.continue17.i.i, %cmpxchg.continue14.i.i
-  br label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_order.exit
-
-cmpxchg.store_expected13.i.i:                     ; preds = %monotonic_fail9.i.i
-  store i32 %28, ptr %7, align 4
-  br label %cmpxchg.continue14.i.i
-
-cmpxchg.continue14.i.i:                           ; preds = %cmpxchg.store_expected13.i.i, %monotonic_fail9.i.i
-  %frombool15.i.i = zext i1 %29 to i8
-  store i8 %frombool15.i.i, ptr %cmpxchg.bool.i.i, align 1
-  br label %atomic.continue12.i.i
-
-cmpxchg.store_expected16.i.i:                     ; preds = %acquire_fail10.i.i
-  store i32 %33, ptr %7, align 4
-  br label %cmpxchg.continue17.i.i
-
-cmpxchg.continue17.i.i:                           ; preds = %cmpxchg.store_expected16.i.i, %acquire_fail10.i.i
-  %frombool18.i.i = zext i1 %34 to i8
-  store i8 %frombool18.i.i, ptr %cmpxchg.bool.i.i, align 1
-  br label %atomic.continue12.i.i
-
-cmpxchg.store_expected19.i.i:                     ; preds = %seqcst_fail11.i.i
-  store i32 %38, ptr %7, align 4
-  br label %cmpxchg.continue20.i.i
-
-cmpxchg.continue20.i.i:                           ; preds = %cmpxchg.store_expected19.i.i, %seqcst_fail11.i.i
-  %frombool21.i.i = zext i1 %39 to i8
-  store i8 %frombool21.i.i, ptr %cmpxchg.bool.i.i, align 1
-  br label %atomic.continue12.i.i
-
-monotonic_fail22.i.i:                             ; preds = %release.i.i
-  %40 = load i32, ptr %7, align 4
-  %41 = load i32, ptr %.atomictmp.i.i, align 4
-  %42 = cmpxchg ptr %this1.i.i, i32 %40, i32 %41 release monotonic, align 4
-  %43 = extractvalue { i32, i1 } %42, 0
-  %44 = extractvalue { i32, i1 } %42, 1
-  br i1 %44, label %cmpxchg.continue27.i.i, label %cmpxchg.store_expected26.i.i
-
-acquire_fail23.i.i:                               ; preds = %release.i.i, %release.i.i
-  %45 = load i32, ptr %7, align 4
-  %46 = load i32, ptr %.atomictmp.i.i, align 4
-  %47 = cmpxchg ptr %this1.i.i, i32 %45, i32 %46 release acquire, align 4
-  %48 = extractvalue { i32, i1 } %47, 0
-  %49 = extractvalue { i32, i1 } %47, 1
-  br i1 %49, label %cmpxchg.continue30.i.i, label %cmpxchg.store_expected29.i.i
-
-seqcst_fail24.i.i:                                ; preds = %release.i.i
-  %50 = load i32, ptr %7, align 4
-  %51 = load i32, ptr %.atomictmp.i.i, align 4
-  %52 = cmpxchg ptr %this1.i.i, i32 %50, i32 %51 release seq_cst, align 4
-  %53 = extractvalue { i32, i1 } %52, 0
-  %54 = extractvalue { i32, i1 } %52, 1
-  br i1 %54, label %cmpxchg.continue33.i.i, label %cmpxchg.store_expected32.i.i
-
-atomic.continue25.i.i:                            ; preds = %cmpxchg.continue33.i.i, %cmpxchg.continue30.i.i, %cmpxchg.continue27.i.i
-  br label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_order.exit
-
-cmpxchg.store_expected26.i.i:                     ; preds = %monotonic_fail22.i.i
-  store i32 %43, ptr %7, align 4
-  br label %cmpxchg.continue27.i.i
-
-cmpxchg.continue27.i.i:                           ; preds = %cmpxchg.store_expected26.i.i, %monotonic_fail22.i.i
-  %frombool28.i.i = zext i1 %44 to i8
-  store i8 %frombool28.i.i, ptr %cmpxchg.bool.i.i, align 1
-  br label %atomic.continue25.i.i
-
-cmpxchg.store_expected29.i.i:                     ; preds = %acquire_fail23.i.i
-  store i32 %48, ptr %7, align 4
-  br label %cmpxchg.continue30.i.i
-
-cmpxchg.continue30.i.i:                           ; preds = %cmpxchg.store_expected29.i.i, %acquire_fail23.i.i
-  %frombool31.i.i = zext i1 %49 to i8
-  store i8 %frombool31.i.i, ptr %cmpxchg.bool.i.i, align 1
-  br label %atomic.continue25.i.i
-
-cmpxchg.store_expected32.i.i:                     ; preds = %seqcst_fail24.i.i
-  store i32 %53, ptr %7, align 4
-  br label %cmpxchg.continue33.i.i
-
-cmpxchg.continue33.i.i:                           ; preds = %cmpxchg.store_expected32.i.i, %seqcst_fail24.i.i
-  %frombool34.i.i = zext i1 %54 to i8
-  store i8 %frombool34.i.i, ptr %cmpxchg.bool.i.i, align 1
-  br label %atomic.continue25.i.i
-
-monotonic_fail35.i.i:                             ; preds = %acqrel.i.i
-  %55 = load i32, ptr %7, align 4
-  %56 = load i32, ptr %.atomictmp.i.i, align 4
-  %57 = cmpxchg ptr %this1.i.i, i32 %55, i32 %56 acq_rel monotonic, align 4
-  %58 = extractvalue { i32, i1 } %57, 0
-  %59 = extractvalue { i32, i1 } %57, 1
-  br i1 %59, label %cmpxchg.continue40.i.i, label %cmpxchg.store_expected39.i.i
-
-acquire_fail36.i.i:                               ; preds = %acqrel.i.i, %acqrel.i.i
-  %60 = load i32, ptr %7, align 4
-  %61 = load i32, ptr %.atomictmp.i.i, align 4
-  %62 = cmpxchg ptr %this1.i.i, i32 %60, i32 %61 acq_rel acquire, align 4
-  %63 = extractvalue { i32, i1 } %62, 0
-  %64 = extractvalue { i32, i1 } %62, 1
-  br i1 %64, label %cmpxchg.continue43.i.i, label %cmpxchg.store_expected42.i.i
-
-seqcst_fail37.i.i:                                ; preds = %acqrel.i.i
-  %65 = load i32, ptr %7, align 4
-  %66 = load i32, ptr %.atomictmp.i.i, align 4
-  %67 = cmpxchg ptr %this1.i.i, i32 %65, i32 %66 acq_rel seq_cst, align 4
-  %68 = extractvalue { i32, i1 } %67, 0
-  %69 = extractvalue { i32, i1 } %67, 1
-  br i1 %69, label %cmpxchg.continue46.i.i, label %cmpxchg.store_expected45.i.i
-
-atomic.continue38.i.i:                            ; preds = %cmpxchg.continue46.i.i, %cmpxchg.continue43.i.i, %cmpxchg.continue40.i.i
-  br label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_order.exit
-
-cmpxchg.store_expected39.i.i:                     ; preds = %monotonic_fail35.i.i
-  store i32 %58, ptr %7, align 4
-  br label %cmpxchg.continue40.i.i
-
-cmpxchg.continue40.i.i:                           ; preds = %cmpxchg.store_expected39.i.i, %monotonic_fail35.i.i
-  %frombool41.i.i = zext i1 %59 to i8
-  store i8 %frombool41.i.i, ptr %cmpxchg.bool.i.i, align 1
-  br label %atomic.continue38.i.i
-
-cmpxchg.store_expected42.i.i:                     ; preds = %acquire_fail36.i.i
-  store i32 %63, ptr %7, align 4
-  br label %cmpxchg.continue43.i.i
-
-cmpxchg.continue43.i.i:                           ; preds = %cmpxchg.store_expected42.i.i, %acquire_fail36.i.i
-  %frombool44.i.i = zext i1 %64 to i8
-  store i8 %frombool44.i.i, ptr %cmpxchg.bool.i.i, align 1
-  br label %atomic.continue38.i.i
-
-cmpxchg.store_expected45.i.i:                     ; preds = %seqcst_fail37.i.i
-  store i32 %68, ptr %7, align 4
-  br label %cmpxchg.continue46.i.i
-
-cmpxchg.continue46.i.i:                           ; preds = %cmpxchg.store_expected45.i.i, %seqcst_fail37.i.i
-  %frombool47.i.i = zext i1 %69 to i8
-  store i8 %frombool47.i.i, ptr %cmpxchg.bool.i.i, align 1
-  br label %atomic.continue38.i.i
-
-monotonic_fail48.i.i:                             ; preds = %seqcst.i.i
-  %70 = load i32, ptr %7, align 4
-  %71 = load i32, ptr %.atomictmp.i.i, align 4
-  %72 = cmpxchg ptr %this1.i.i, i32 %70, i32 %71 seq_cst monotonic, align 4
-  %73 = extractvalue { i32, i1 } %72, 0
-  %74 = extractvalue { i32, i1 } %72, 1
-  br i1 %74, label %cmpxchg.continue53.i.i, label %cmpxchg.store_expected52.i.i
-
-acquire_fail49.i.i:                               ; preds = %seqcst.i.i, %seqcst.i.i
-  %75 = load i32, ptr %7, align 4
-  %76 = load i32, ptr %.atomictmp.i.i, align 4
-  %77 = cmpxchg ptr %this1.i.i, i32 %75, i32 %76 seq_cst acquire, align 4
-  %78 = extractvalue { i32, i1 } %77, 0
-  %79 = extractvalue { i32, i1 } %77, 1
-  br i1 %79, label %cmpxchg.continue56.i.i, label %cmpxchg.store_expected55.i.i
-
-seqcst_fail50.i.i:                                ; preds = %seqcst.i.i
-  %80 = load i32, ptr %7, align 4
-  %81 = load i32, ptr %.atomictmp.i.i, align 4
-  %82 = cmpxchg ptr %this1.i.i, i32 %80, i32 %81 seq_cst seq_cst, align 4
-  %83 = extractvalue { i32, i1 } %82, 0
-  %84 = extractvalue { i32, i1 } %82, 1
-  br i1 %84, label %cmpxchg.continue59.i.i, label %cmpxchg.store_expected58.i.i
-
-atomic.continue51.i.i:                            ; preds = %cmpxchg.continue59.i.i, %cmpxchg.continue56.i.i, %cmpxchg.continue53.i.i
-  br label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_order.exit
-
-cmpxchg.store_expected52.i.i:                     ; preds = %monotonic_fail48.i.i
-  store i32 %73, ptr %7, align 4
-  br label %cmpxchg.continue53.i.i
-
-cmpxchg.continue53.i.i:                           ; preds = %cmpxchg.store_expected52.i.i, %monotonic_fail48.i.i
-  %frombool54.i.i = zext i1 %74 to i8
-  store i8 %frombool54.i.i, ptr %cmpxchg.bool.i.i, align 1
-  br label %atomic.continue51.i.i
-
-cmpxchg.store_expected55.i.i:                     ; preds = %acquire_fail49.i.i
-  store i32 %78, ptr %7, align 4
-  br label %cmpxchg.continue56.i.i
-
-cmpxchg.continue56.i.i:                           ; preds = %cmpxchg.store_expected55.i.i, %acquire_fail49.i.i
-  %frombool57.i.i = zext i1 %79 to i8
-  store i8 %frombool57.i.i, ptr %cmpxchg.bool.i.i, align 1
-  br label %atomic.continue51.i.i
-
-cmpxchg.store_expected58.i.i:                     ; preds = %seqcst_fail50.i.i
-  store i32 %83, ptr %7, align 4
-  br label %cmpxchg.continue59.i.i
-
-cmpxchg.continue59.i.i:                           ; preds = %cmpxchg.store_expected58.i.i, %seqcst_fail50.i.i
-  %frombool60.i.i = zext i1 %84 to i8
-  store i8 %frombool60.i.i, ptr %cmpxchg.bool.i.i, align 1
-  br label %atomic.continue51.i.i
-
-_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_order.exit: ; preds = %atomic.continue51.i.i, %atomic.continue38.i.i, %atomic.continue25.i.i, %atomic.continue12.i.i, %atomic.continue2.i.i
-  %85 = load i8, ptr %cmpxchg.bool.i.i, align 1
-  %tobool.i.i = trunc i8 %85 to i1
-  br i1 %tobool.i.i, label %if.then, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_order.exit
-  %86 = load ptr, ptr %control.addr, align 8
-  %87 = load i32, ptr %scheduling_mode.addr, align 4
-  %call1 = invoke noundef i32 @_ZN4absl13base_internal12SpinLockWaitEPSt6atomicIjEiPKNS0_22SpinLockWaitTransitionENS0_14SchedulingModeE(ptr noundef %86, i32 noundef 3, ptr noundef @_ZZN4absl13base_internal12CallOnceImplIRFvvEJEEEvPSt6atomicIjENS0_14SchedulingModeEOT_DpOT0_E5trans, i32 noundef %87)
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %lor.lhs.false
-  %cmp = icmp eq i32 %call1, 0
-  br i1 %cmp, label %if.then, label %if.end7
-
-if.then:                                          ; preds = %invoke.cont, %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_order.exit
-  %88 = load ptr, ptr %fn.addr, align 8
-  invoke void @_ZSt6invokeIRFvvEJEENSt13invoke_resultIT_JDpT0_EE4typeEOS3_DpOS4_(ptr noundef nonnull %88)
-          to label %invoke.cont2 unwind label %lpad
-
-invoke.cont2:                                     ; preds = %if.then
-  %89 = load ptr, ptr %control.addr, align 8
-  store ptr %89, ptr %this.addr.i, align 8
-  store i32 221, ptr %__i.addr.i, align 4
-  store i32 3, ptr %__m.addr.i, align 4
-  %this1.i = load ptr, ptr %this.addr.i, align 8
-  %90 = load i32, ptr %__m.addr.i, align 4
-  %91 = load i32, ptr %__i.addr.i, align 4
-  store i32 %91, ptr %.atomictmp.i, align 4
-  switch i32 %90, label %monotonic.i [
-    i32 1, label %acquire.i
-    i32 2, label %acquire.i
-    i32 3, label %release.i
-    i32 4, label %acqrel.i
-    i32 5, label %seqcst.i
-  ]
-
-monotonic.i:                                      ; preds = %invoke.cont2
-  %92 = load i32, ptr %.atomictmp.i, align 4
-  %93 = atomicrmw xchg ptr %this1.i, i32 %92 monotonic, align 4
-  store i32 %93, ptr %atomic-temp.i, align 4
-  br label %_ZNSt13__atomic_baseIjE8exchangeEjSt12memory_order.exit
-
-acquire.i:                                        ; preds = %invoke.cont2, %invoke.cont2
-  %94 = load i32, ptr %.atomictmp.i, align 4
-  %95 = atomicrmw xchg ptr %this1.i, i32 %94 acquire, align 4
-  store i32 %95, ptr %atomic-temp.i, align 4
-  br label %_ZNSt13__atomic_baseIjE8exchangeEjSt12memory_order.exit
-
-release.i:                                        ; preds = %invoke.cont2
-  %96 = load i32, ptr %.atomictmp.i, align 4
-  %97 = atomicrmw xchg ptr %this1.i, i32 %96 release, align 4
-  store i32 %97, ptr %atomic-temp.i, align 4
-  br label %_ZNSt13__atomic_baseIjE8exchangeEjSt12memory_order.exit
-
-acqrel.i:                                         ; preds = %invoke.cont2
-  %98 = load i32, ptr %.atomictmp.i, align 4
-  %99 = atomicrmw xchg ptr %this1.i, i32 %98 acq_rel, align 4
-  store i32 %99, ptr %atomic-temp.i, align 4
-  br label %_ZNSt13__atomic_baseIjE8exchangeEjSt12memory_order.exit
-
-seqcst.i:                                         ; preds = %invoke.cont2
-  %100 = load i32, ptr %.atomictmp.i, align 4
-  %101 = atomicrmw xchg ptr %this1.i, i32 %100 seq_cst, align 4
-  store i32 %101, ptr %atomic-temp.i, align 4
-  br label %_ZNSt13__atomic_baseIjE8exchangeEjSt12memory_order.exit
-
-_ZNSt13__atomic_baseIjE8exchangeEjSt12memory_order.exit: ; preds = %seqcst.i, %acqrel.i, %release.i, %acquire.i, %monotonic.i
-  %102 = load i32, ptr %atomic-temp.i, align 4
-  store i32 %102, ptr %old_control, align 4
-  %103 = load i32, ptr %old_control, align 4
-  %cmp4 = icmp eq i32 %103, 94570706
-  br i1 %cmp4, label %if.then5, label %if.end
-
-if.then5:                                         ; preds = %_ZNSt13__atomic_baseIjE8exchangeEjSt12memory_order.exit
-  %104 = load ptr, ptr %control.addr, align 8
-  invoke void @_ZN4absl13base_internal12SpinLockWakeEPSt6atomicIjEb(ptr noundef %104, i1 noundef zeroext true)
-          to label %invoke.cont6 unwind label %lpad
-
-invoke.cont6:                                     ; preds = %if.then5
-  br label %if.end
-
-lpad:                                             ; preds = %if.then5, %if.then, %lor.lhs.false
-  %105 = landingpad { ptr, i32 }
+define linkonce_odr dso_local void @_ZN4absl13base_internal12CallOnceImplIRFvvEJEEEvPSt6atomicIjENS0_14SchedulingModeEOT_DpOT0_(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2) #0 comdat personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca %"class.absl::base_internal::SchedulingHelper", align 4
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !10
+  store i32 %1, ptr %5, align 4, !tbaa !80
+  store ptr %2, ptr %6, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #14
+  %11 = load i32, ptr %5, align 4, !tbaa !80
+  call void @_ZN4absl13base_internal16SchedulingHelperC2ENS0_14SchedulingModeE(ptr noundef nonnull align 4 dereferenceable(5) %7, i32 noundef %11)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #14
+  store i32 0, ptr %8, align 4, !tbaa !12
+  %12 = load ptr, ptr %4, align 8, !tbaa !10
+  %13 = call noundef zeroext i1 @_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_order(ptr noundef nonnull align 4 dereferenceable(4) %12, ptr noundef nonnull align 4 dereferenceable(4) %8, i32 noundef 1707250555, i32 noundef 0) #14
+  br i1 %13, label %20, label %14
+
+14:                                               ; preds = %3
+  %15 = load ptr, ptr %4, align 8, !tbaa !10
+  %16 = load i32, ptr %5, align 4, !tbaa !80
+  %17 = invoke noundef i32 @_ZN4absl13base_internal12SpinLockWaitEPSt6atomicIjEiPKNS0_22SpinLockWaitTransitionENS0_14SchedulingModeE(ptr noundef %15, i32 noundef 3, ptr noundef @_ZZN4absl13base_internal12CallOnceImplIRFvvEJEEEvPSt6atomicIjENS0_14SchedulingModeEOT_DpOT0_E5trans, i32 noundef %16)
+          to label %18 unwind label %30
+
+18:                                               ; preds = %14
+  %19 = icmp eq i32 %17, 0
+  br i1 %19, label %20, label %35
+
+20:                                               ; preds = %18, %3
+  %21 = load ptr, ptr %6, align 8, !tbaa !9
+  invoke void @_ZSt6invokeIRFvvEJEENSt13invoke_resultIT_JDpT0_EE4typeEOS3_DpOS4_(ptr noundef nonnull %21)
+          to label %22 unwind label %30
+
+22:                                               ; preds = %20
+  %23 = load ptr, ptr %4, align 8, !tbaa !10
+  %24 = call noundef i32 @_ZNSt13__atomic_baseIjE8exchangeEjSt12memory_order(ptr noundef nonnull align 4 dereferenceable(4) %23, i32 noundef 221, i32 noundef 3) #14
+  store i32 %24, ptr %8, align 4, !tbaa !12
+  %25 = load i32, ptr %8, align 4, !tbaa !12
+  %26 = icmp eq i32 %25, 94570706
+  br i1 %26, label %27, label %34
+
+27:                                               ; preds = %22
+  %28 = load ptr, ptr %4, align 8, !tbaa !10
+  invoke void @_ZN4absl13base_internal12SpinLockWakeEPSt6atomicIjEb(ptr noundef %28, i1 noundef zeroext true)
+          to label %29 unwind label %30
+
+29:                                               ; preds = %27
+  br label %34
+
+30:                                               ; preds = %27, %20, %14
+  %31 = landingpad { ptr, i32 }
           cleanup
-  %106 = extractvalue { ptr, i32 } %105, 0
-  store ptr %106, ptr %exn.slot, align 8
-  %107 = extractvalue { ptr, i32 } %105, 1
-  store i32 %107, ptr %ehselector.slot, align 4
-  call void @_ZN4absl13base_internal16SchedulingHelperD2Ev(ptr noundef nonnull align 4 dereferenceable(5) %maybe_disable_scheduling) #9
-  br label %eh.resume
+  %32 = extractvalue { ptr, i32 } %31, 0
+  store ptr %32, ptr %9, align 8
+  %33 = extractvalue { ptr, i32 } %31, 1
+  store i32 %33, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #14
+  call void @_ZN4absl13base_internal16SchedulingHelperD2Ev(ptr noundef nonnull align 4 dereferenceable(5) %7) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #14
+  br label %36
 
-if.end:                                           ; preds = %invoke.cont6, %_ZNSt13__atomic_baseIjE8exchangeEjSt12memory_order.exit
-  br label %if.end7
+34:                                               ; preds = %29, %22
+  br label %35
 
-if.end7:                                          ; preds = %if.end, %invoke.cont
-  call void @_ZN4absl13base_internal16SchedulingHelperD2Ev(ptr noundef nonnull align 4 dereferenceable(5) %maybe_disable_scheduling) #9
+35:                                               ; preds = %34, %18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #14
+  call void @_ZN4absl13base_internal16SchedulingHelperD2Ev(ptr noundef nonnull align 4 dereferenceable(5) %7) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #14
   ret void
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val8 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val8
+36:                                               ; preds = %30
+  %37 = load ptr, ptr %9, align 8
+  %38 = load i32, ptr %10, align 4
+  %39 = insertvalue { ptr, i32 } poison, ptr %37, 0
+  %40 = insertvalue { ptr, i32 } %39, i32 %38, 1
+  resume { ptr, i32 } %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN4absl13base_internal16SchedulingHelperC2ENS0_14SchedulingModeE(ptr noundef nonnull align 4 dereferenceable(5) %this, i32 noundef %mode) unnamed_addr #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %mode.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %mode, ptr %mode.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %mode_ = getelementptr inbounds %"class.absl::base_internal::SchedulingHelper", ptr %this1, i32 0, i32 0
-  %0 = load i32, ptr %mode.addr, align 4
-  store i32 %0, ptr %mode_, align 4
-  %guard_result_ = getelementptr inbounds %"class.absl::base_internal::SchedulingHelper", ptr %this1, i32 0, i32 1
-  store i8 0, ptr %guard_result_, align 4
-  %mode_2 = getelementptr inbounds %"class.absl::base_internal::SchedulingHelper", ptr %this1, i32 0, i32 0
-  %1 = load i32, ptr %mode_2, align 4
-  %cmp = icmp eq i32 %1, 0
-  br i1 %cmp, label %if.then, label %if.end
+define linkonce_odr dso_local void @_ZN4absl13base_internal16SchedulingHelperC2ENS0_14SchedulingModeE(ptr noundef nonnull align 4 dereferenceable(5) %0, i32 noundef %1) unnamed_addr #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !82
+  store i32 %1, ptr %4, align 4, !tbaa !80
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.absl::base_internal::SchedulingHelper", ptr %5, i32 0, i32 0
+  %7 = load i32, ptr %4, align 4, !tbaa !80
+  store i32 %7, ptr %6, align 4, !tbaa !84
+  %8 = getelementptr inbounds nuw %"class.absl::base_internal::SchedulingHelper", ptr %5, i32 0, i32 1
+  store i8 0, ptr %8, align 4, !tbaa !86
+  %9 = getelementptr inbounds nuw %"class.absl::base_internal::SchedulingHelper", ptr %5, i32 0, i32 0
+  %10 = load i32, ptr %9, align 4, !tbaa !84
+  %11 = icmp eq i32 %10, 0
+  br i1 %11, label %12, label %16
 
-if.then:                                          ; preds = %entry
-  %call = call noundef zeroext i1 @_ZN4absl13base_internal15SchedulingGuard19DisableReschedulingEv()
-  %guard_result_3 = getelementptr inbounds %"class.absl::base_internal::SchedulingHelper", ptr %this1, i32 0, i32 1
-  %frombool = zext i1 %call to i8
-  store i8 %frombool, ptr %guard_result_3, align 4
-  br label %if.end
+12:                                               ; preds = %2
+  %13 = call noundef zeroext i1 @_ZN4absl13base_internal15SchedulingGuard19DisableReschedulingEv()
+  %14 = getelementptr inbounds nuw %"class.absl::base_internal::SchedulingHelper", ptr %5, i32 0, i32 1
+  %15 = zext i1 %13 to i8
+  store i8 %15, ptr %14, align 4, !tbaa !86
+  br label %16
 
-if.end:                                           ; preds = %if.then, %entry
+16:                                               ; preds = %12, %2
   ret void
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_order(ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, i32 noundef %2, i32 noundef %3) #12 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !61
+  store ptr %1, ptr %6, align 8, !tbaa !67
+  store i32 %2, ptr %7, align 4, !tbaa !12
+  store i32 %3, ptr %8, align 4, !tbaa !63
+  %9 = load ptr, ptr %5, align 8
+  %10 = load ptr, ptr %6, align 8, !tbaa !67
+  %11 = load i32, ptr %7, align 4, !tbaa !12
+  %12 = load i32, ptr %8, align 4, !tbaa !63
+  %13 = load i32, ptr %8, align 4, !tbaa !63
+  %14 = call noundef i32 @_ZSt23__cmpexch_failure_orderSt12memory_order(i32 noundef %13) #14
+  %15 = call noundef zeroext i1 @_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_(ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 4 dereferenceable(4) %10, i32 noundef %11, i32 noundef %12, i32 noundef %14) #14
+  ret i1 %15
 }
 
 declare noundef i32 @_ZN4absl13base_internal12SpinLockWaitEPSt6atomicIjEiPKNS0_22SpinLockWaitTransitionENS0_14SchedulingModeE(ptr noundef, i32 noundef, ptr noundef, i32 noundef) #1
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZSt6invokeIRFvvEJEENSt13invoke_resultIT_JDpT0_EE4typeEOS3_DpOS4_(ptr noundef nonnull %__fn) #0 comdat {
-entry:
-  %__fn.addr = alloca ptr, align 8
-  store ptr %__fn, ptr %__fn.addr, align 8
-  %0 = load ptr, ptr %__fn.addr, align 8
-  call void @_ZSt8__invokeIRFvvEJEENSt15__invoke_resultIT_JDpT0_EE4typeEOS3_DpOS4_(ptr noundef nonnull %0)
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZSt6invokeIRFvvEJEENSt13invoke_resultIT_JDpT0_EE4typeEOS3_DpOS4_(ptr noundef nonnull %0) #10 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !9
+  %3 = load ptr, ptr %2, align 8, !tbaa !9
+  call void @_ZSt8__invokeIRFvvEJEENSt15__invoke_resultIT_JDpT0_EE4typeEOS3_DpOS4_(ptr noundef nonnull %3)
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN4absl13base_internal12SpinLockWakeEPSt6atomicIjEb(ptr noundef %w, i1 noundef zeroext %all) #0 comdat {
-entry:
-  %w.addr = alloca ptr, align 8
-  %all.addr = alloca i8, align 1
-  store ptr %w, ptr %w.addr, align 8
-  %frombool = zext i1 %all to i8
-  store i8 %frombool, ptr %all.addr, align 1
-  %0 = load ptr, ptr %w.addr, align 8
-  %1 = load i8, ptr %all.addr, align 1
-  %tobool = trunc i8 %1 to i1
-  call void @AbslInternalSpinLockWake(ptr noundef %0, i1 noundef zeroext %tobool)
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN4absl13base_internal16SchedulingHelperD2Ev(ptr noundef nonnull align 4 dereferenceable(5) %this) unnamed_addr #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %mode_ = getelementptr inbounds %"class.absl::base_internal::SchedulingHelper", ptr %this1, i32 0, i32 0
-  %0 = load i32, ptr %mode_, align 4
-  %cmp = icmp eq i32 %0, 0
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %guard_result_ = getelementptr inbounds %"class.absl::base_internal::SchedulingHelper", ptr %this1, i32 0, i32 1
-  %1 = load i8, ptr %guard_result_, align 4
-  %tobool = trunc i8 %1 to i1
-  call void @_ZN4absl13base_internal15SchedulingGuard18EnableReschedulingEb(i1 noundef zeroext %tobool)
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %entry
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN4absl13base_internal12SpinLockWakeEPSt6atomicIjEb(ptr noundef %0, i1 noundef zeroext %1) #10 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca i8, align 1
+  store ptr %0, ptr %3, align 8, !tbaa !10
+  %5 = zext i1 %1 to i8
+  store i8 %5, ptr %4, align 1, !tbaa !69
+  %6 = load ptr, ptr %3, align 8, !tbaa !10
+  %7 = load i8, ptr %4, align 1, !tbaa !69, !range !54, !noundef !55
+  %8 = trunc i8 %7 to i1
+  call void @AbslInternalSpinLockWake(ptr noundef %6, i1 noundef zeroext %8)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZSt23__cmpexch_failure_orderSt12memory_order(i32 noundef %__m) #2 comdat personality ptr @__gxx_personality_v0 {
-entry:
-  %__m.addr = alloca i32, align 4
-  store i32 %__m, ptr %__m.addr, align 4
-  %0 = load i32, ptr %__m.addr, align 4
-  %call = call noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %0, i32 noundef 65535)
-  %call1 = call noundef i32 @_ZSt24__cmpexch_failure_order2St12memory_order(i32 noundef %call) #9
-  %1 = load i32, ptr %__m.addr, align 4
-  %call2 = call noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %1, i32 noundef -65536)
-  %call3 = invoke noundef i32 @_ZStorSt12memory_orderSt23__memory_order_modifier(i32 noundef %call1, i32 noundef %call2)
-          to label %invoke.cont unwind label %terminate.lpad
+define linkonce_odr dso_local void @_ZN4absl13base_internal16SchedulingHelperD2Ev(ptr noundef nonnull align 4 dereferenceable(5) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !82
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.absl::base_internal::SchedulingHelper", ptr %3, i32 0, i32 0
+  %5 = load i32, ptr %4, align 4, !tbaa !84
+  %6 = icmp eq i32 %5, 0
+  br i1 %6, label %7, label %11
 
-invoke.cont:                                      ; preds = %entry
-  ret i32 %call3
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds nuw %"class.absl::base_internal::SchedulingHelper", ptr %3, i32 0, i32 1
+  %9 = load i8, ptr %8, align 4, !tbaa !86, !range !54, !noundef !55
+  %10 = trunc i8 %9 to i1
+  call void @_ZN4absl13base_internal15SchedulingGuard18EnableReschedulingEb(i1 noundef zeroext %10)
+  br label %11
 
-terminate.lpad:                                   ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+11:                                               ; preds = %7, %1
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i32 @_ZSt23__cmpexch_failure_orderSt12memory_order(i32 noundef %0) #2 comdat personality ptr @__gxx_personality_v0 {
+  %2 = alloca i32, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !63
+  %3 = load i32, ptr %2, align 4, !tbaa !63
+  %4 = call noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %3, i32 noundef 65535)
+  %5 = call noundef i32 @_ZSt24__cmpexch_failure_order2St12memory_order(i32 noundef %4) #14
+  %6 = load i32, ptr %2, align 4, !tbaa !63
+  %7 = call noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %6, i32 noundef -65536)
+  %8 = invoke noundef i32 @_ZStorSt12memory_orderSt23__memory_order_modifier(i32 noundef %5, i32 noundef %7)
+          to label %9 unwind label %10
+
+9:                                                ; preds = %1
+  ret i32 %8
+
+10:                                               ; preds = %1
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #8
+  %12 = extractvalue { ptr, i32 } %11, 0
+  call void @__clang_call_terminate(ptr %12) #16
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZStorSt12memory_orderSt23__memory_order_modifier(i32 noundef %__m, i32 noundef %__mod) #2 comdat {
-entry:
-  %__m.addr = alloca i32, align 4
-  %__mod.addr = alloca i32, align 4
-  store i32 %__m, ptr %__m.addr, align 4
-  store i32 %__mod, ptr %__mod.addr, align 4
-  %0 = load i32, ptr %__m.addr, align 4
-  %1 = load i32, ptr %__mod.addr, align 4
-  %or = or i32 %0, %1
-  ret i32 %or
+define linkonce_odr dso_local noundef i32 @_ZStorSt12memory_orderSt23__memory_order_modifier(i32 noundef %0, i32 noundef %1) #2 comdat {
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !63
+  store i32 %1, ptr %4, align 4, !tbaa !65
+  %5 = load i32, ptr %3, align 4, !tbaa !63
+  %6 = load i32, ptr %4, align 4, !tbaa !65
+  %7 = or i32 %5, %6
+  ret i32 %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZSt24__cmpexch_failure_order2St12memory_order(i32 noundef %__m) #2 comdat {
-entry:
-  %__m.addr = alloca i32, align 4
-  store i32 %__m, ptr %__m.addr, align 4
-  %0 = load i32, ptr %__m.addr, align 4
-  %cmp = icmp eq i32 %0, 4
-  br i1 %cmp, label %cond.true, label %cond.false
+define linkonce_odr dso_local noundef i32 @_ZSt24__cmpexch_failure_order2St12memory_order(i32 noundef %0) #2 comdat {
+  %2 = alloca i32, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !63
+  %3 = load i32, ptr %2, align 4, !tbaa !63
+  %4 = icmp eq i32 %3, 4
+  br i1 %4, label %5, label %6
 
-cond.true:                                        ; preds = %entry
-  br label %cond.end4
+5:                                                ; preds = %1
+  br label %14
 
-cond.false:                                       ; preds = %entry
-  %1 = load i32, ptr %__m.addr, align 4
-  %cmp1 = icmp eq i32 %1, 3
-  br i1 %cmp1, label %cond.true2, label %cond.false3
+6:                                                ; preds = %1
+  %7 = load i32, ptr %2, align 4, !tbaa !63
+  %8 = icmp eq i32 %7, 3
+  br i1 %8, label %9, label %10
 
-cond.true2:                                       ; preds = %cond.false
-  br label %cond.end
+9:                                                ; preds = %6
+  br label %12
 
-cond.false3:                                      ; preds = %cond.false
-  %2 = load i32, ptr %__m.addr, align 4
-  br label %cond.end
+10:                                               ; preds = %6
+  %11 = load i32, ptr %2, align 4, !tbaa !63
+  br label %12
 
-cond.end:                                         ; preds = %cond.false3, %cond.true2
-  %cond = phi i32 [ 0, %cond.true2 ], [ %2, %cond.false3 ]
-  br label %cond.end4
+12:                                               ; preds = %10, %9
+  %13 = phi i32 [ 0, %9 ], [ %11, %10 ]
+  br label %14
 
-cond.end4:                                        ; preds = %cond.end, %cond.true
-  %cond5 = phi i32 [ 2, %cond.true ], [ %cond, %cond.end ]
-  ret i32 %cond5
+14:                                               ; preds = %12, %5
+  %15 = phi i32 [ 2, %5 ], [ %13, %12 ]
+  ret i32 %15
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZSt8__invokeIRFvvEJEENSt15__invoke_resultIT_JDpT0_EE4typeEOS3_DpOS4_(ptr noundef nonnull %__fn) #0 comdat {
-entry:
-  %__fn.addr = alloca ptr, align 8
-  store ptr %__fn, ptr %__fn.addr, align 8
-  %0 = load ptr, ptr %__fn.addr, align 8
-  call void @_ZSt13__invoke_implIvRFvvEJEET_St14__invoke_otherOT0_DpOT1_(ptr noundef nonnull %0)
+define linkonce_odr dso_local void @_ZSt8__invokeIRFvvEJEENSt15__invoke_resultIT_JDpT0_EE4typeEOS3_DpOS4_(ptr noundef nonnull %0) #0 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !9
+  %3 = load ptr, ptr %2, align 8, !tbaa !9
+  call void @_ZSt13__invoke_implIvRFvvEJEET_St14__invoke_otherOT0_DpOT1_(ptr noundef nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZSt13__invoke_implIvRFvvEJEET_St14__invoke_otherOT0_DpOT1_(ptr noundef nonnull %__f) #0 comdat {
-entry:
-  %__f.addr = alloca ptr, align 8
-  store ptr %__f, ptr %__f.addr, align 8
-  %0 = load ptr, ptr %__f.addr, align 8
-  call void %0()
+define linkonce_odr dso_local void @_ZSt13__invoke_implIvRFvvEJEET_St14__invoke_otherOT0_DpOT1_(ptr noundef nonnull %0) #0 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !9
+  %3 = load ptr, ptr %2, align 8, !tbaa !9
+  call void %3()
   ret void
 }
 
 declare void @AbslInternalSpinLockWake(ptr noundef, i1 noundef zeroext) #1
 
-attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { noreturn nounwind }
-attributes #9 = { nounwind }
-attributes #10 = { nounwind willreturn memory(none) }
-attributes #11 = { cold }
+attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress noinline uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #8 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { alwaysinline mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nounwind }
+attributes #15 = { nounwind willreturn memory(none) }
+attributes #16 = { noreturn nounwind }
+attributes #17 = { cold }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"p1 _ZTSN4absl9once_flagE", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C++ TBAA"}
+!9 = !{!6, !6, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"p1 _ZTSSt6atomicIjE", !6, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"int", !7, i64 0}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"p1 _ZTSN4absl13base_internal13LowLevelAlloc5ArenaE", !6, i64 0}
+!16 = !{!17, !13, i64 288}
+!17 = !{!"_ZTSN4absl13base_internal13LowLevelAlloc5ArenaE", !18, i64 0, !21, i64 8, !13, i64 288, !13, i64 292, !23, i64 296, !23, i64 304, !23, i64 312, !13, i64 320}
+!18 = !{!"_ZTSN4absl13base_internal8SpinLockE", !19, i64 0}
+!19 = !{!"_ZTSSt6atomicIjE", !20, i64 0}
+!20 = !{!"_ZTSSt13__atomic_baseIjE", !13, i64 0}
+!21 = !{!"_ZTSN4absl13base_internal12_GLOBAL__N_19AllocListE", !22, i64 0, !13, i64 32, !7, i64 40}
+!22 = !{!"_ZTSN4absl13base_internal12_GLOBAL__N_19AllocList6HeaderE", !23, i64 0, !23, i64 8, !15, i64 16, !6, i64 24}
+!23 = !{!"long", !7, i64 0}
+!24 = !{!17, !13, i64 292}
+!25 = !{!17, !23, i64 296}
+!26 = !{!17, !23, i64 304}
+!27 = !{!17, !23, i64 312}
+!28 = !{!17, !13, i64 320}
+!29 = !{!17, !23, i64 8}
+!30 = !{!17, !23, i64 16}
+!31 = !{!17, !15, i64 24}
+!32 = !{!17, !13, i64 40}
+!33 = !{!23, !23, i64 0}
+!34 = distinct !{!34, !35}
+!35 = !{!"llvm.loop.mustprogress"}
+!36 = !{!37, !37, i64 0}
+!37 = !{!"p1 _ZTSN4absl13base_internal12_GLOBAL__N_19AllocList6HeaderE", !6, i64 0}
+!38 = !{!39, !39, i64 0}
+!39 = !{!"p1 omnipotent char", !6, i64 0}
+!40 = !{!41, !41, i64 0}
+!41 = !{!"p1 _ZTSN4absl13base_internal12_GLOBAL__N_19AllocListE", !6, i64 0}
+!42 = !{!21, !23, i64 0}
+!43 = !{!21, !23, i64 8}
+!44 = !{!21, !15, i64 16}
+!45 = distinct !{!45, !35}
+!46 = !{!47, !47, i64 0}
+!47 = !{!"p1 _ZTSN4absl13base_internal12_GLOBAL__N_19ArenaLockE", !6, i64 0}
+!48 = !{!49, !50, i64 0}
+!49 = !{!"_ZTSN4absl13base_internal12_GLOBAL__N_19ArenaLockE", !50, i64 0, !50, i64 1, !51, i64 8, !15, i64 136}
+!50 = !{!"bool", !7, i64 0}
+!51 = !{!"_ZTS10__sigset_t", !7, i64 0}
+!52 = !{!49, !50, i64 1}
+!53 = !{!49, !15, i64 136}
+!54 = !{i8 0, i8 2}
+!55 = !{}
+!56 = !{!21, !13, i64 32}
+!57 = distinct !{!57, !35}
+!58 = distinct !{!58, !35}
+!59 = !{!60, !60, i64 0}
+!60 = !{!"p1 _ZTSN4absl13base_internal8SpinLockE", !6, i64 0}
+!61 = !{!62, !62, i64 0}
+!62 = !{!"p1 _ZTSSt13__atomic_baseIjE", !6, i64 0}
+!63 = !{!64, !64, i64 0}
+!64 = !{!"_ZTSSt12memory_order", !7, i64 0}
+!65 = !{!66, !66, i64 0}
+!66 = !{!"_ZTSSt23__memory_order_modifier", !7, i64 0}
+!67 = !{!68, !68, i64 0}
+!68 = !{!"p1 int", !6, i64 0}
+!69 = !{!50, !50, i64 0}
+!70 = !{!71, !71, i64 0}
+!71 = !{!"p2 _ZTSN4absl13base_internal12_GLOBAL__N_19AllocListE", !6, i64 0}
+!72 = distinct !{!72, !35}
+!73 = distinct !{!73, !35}
+!74 = distinct !{!74, !35}
+!75 = distinct !{!75, !35}
+!76 = distinct !{!76, !35}
+!77 = distinct !{!77, !35}
+!78 = distinct !{!78, !35}
+!79 = distinct !{!79, !35}
+!80 = !{!81, !81, i64 0}
+!81 = !{!"_ZTSN4absl13base_internal14SchedulingModeE", !7, i64 0}
+!82 = !{!83, !83, i64 0}
+!83 = !{!"p1 _ZTSN4absl13base_internal16SchedulingHelperE", !6, i64 0}
+!84 = !{!85, !81, i64 0}
+!85 = !{!"_ZTSN4absl13base_internal16SchedulingHelperE", !81, i64 0, !50, i64 4}
+!86 = !{!85, !50, i64 4}

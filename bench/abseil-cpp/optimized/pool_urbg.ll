@@ -1,7 +1,7 @@
 ; ModuleID = 'bench/abseil-cpp/original/pool_urbg.ll'
 source_filename = "bench/abseil-cpp/original/pool_urbg.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %"struct.absl::base_internal::SpinLockWaitTransition" = type { i32, i32, i8 }
 %"class.absl::base_internal::SpinLockHolder" = type { ptr }
@@ -58,6 +58,8 @@ $_ZN4absl13base_internal14SpinLockHolderD2Ev = comdat any
 
 $__clang_call_terminate = comdat any
 
+$_ZN4absl13base_internal12CallOnceImplIRFvvEJEEEvPSt6atomicIjENS0_14SchedulingModeEOT_DpOT0_ = comdat any
+
 $_ZZN4absl13base_internal12CallOnceImplIRFvvEJEEEvPSt6atomicIjENS0_14SchedulingModeEOT_DpOT0_E5trans = comdat any
 
 @_ZN4absl15random_internal12_GLOBAL__N_112shared_poolsE = internal unnamed_addr global [8 x ptr] zeroinitializer, align 64
@@ -73,803 +75,980 @@ $_ZZN4absl13base_internal12CallOnceImplIRFvvEJEEEvPSt6atomicIjENS0_14SchedulingM
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef zeroext i8 @_ZN4absl15random_internal10RandenPoolIhE3minEv() local_unnamed_addr #0 comdat align 2 {
-entry:
   ret i8 0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef zeroext i8 @_ZN4absl15random_internal10RandenPoolIhE3maxEv() local_unnamed_addr #0 comdat align 2 {
-entry:
   ret i8 -1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr dso_local void @_ZN4absl15random_internal10RandenPoolIhEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) unnamed_addr #0 comdat($_ZN4absl15random_internal10RandenPoolIhEC5Ev) align 2 {
-entry:
+define weak_odr dso_local void @_ZN4absl15random_internal10RandenPoolIhEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat($_ZN4absl15random_internal10RandenPoolIhEC5Ev) align 2 {
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define weak_odr dso_local noundef zeroext i8 @_ZN4absl15random_internal10RandenPoolIhEclEv(ptr noundef nonnull align 1 dereferenceable(1) %this) local_unnamed_addr #1 comdat align 2 {
-entry:
-  %call = tail call noundef zeroext i8 @_ZN4absl15random_internal10RandenPoolIhE8GenerateEv()
-  ret i8 %call
+; Function Attrs: inlinehint mustprogress uwtable
+define weak_odr dso_local noundef zeroext i8 @_ZN4absl15random_internal10RandenPoolIhEclEv(ptr noundef nonnull align 1 dereferenceable(1) %0) local_unnamed_addr #1 comdat align 2 {
+  %2 = tail call noundef zeroext i8 @_ZN4absl15random_internal10RandenPoolIhE8GenerateEv()
+  ret i8 %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr dso_local noundef zeroext i8 @_ZN4absl15random_internal10RandenPoolIhE8GenerateEv() local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %l.i = alloca %"class.absl::base_internal::SpinLockHolder", align 8
-  %call = tail call fastcc noundef ptr @_ZN4absl15random_internal12_GLOBAL__N_123GetPoolForCurrentThreadEv()
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %l.i)
-  %mu_.i = getelementptr inbounds nuw i8, ptr %call, i64 256
-  store ptr %mu_.i, ptr %l.i, align 8
-  %0 = load atomic i32, ptr %mu_.i monotonic, align 4
-  %and.i.i.i.i.i = and i32 %0, 1
-  %cmp.not.i.i.i.i.i = icmp eq i32 %and.i.i.i.i.i, 0
-  br i1 %cmp.not.i.i.i.i.i, label %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i.i, label %if.then.i.i.i
+define weak_odr dso_local noundef zeroext i8 @_ZN4absl15random_internal10RandenPoolIhE8GenerateEv() local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %1 = alloca %"class.absl::base_internal::SpinLockHolder", align 8
+  %2 = load atomic i32, ptr @_ZN4absl15random_internal12_GLOBAL__N_19pool_onceE acquire, align 4
+  %.not.i.i = icmp eq i32 %2, 221
+  br i1 %.not.i.i, label %_ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit.i, label %3, !prof !4
 
-_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i.i: ; preds = %entry
-  %or9.i.i.i.i.i = or disjoint i32 %0, 1
-  %1 = cmpxchg ptr %mu_.i, i32 %0, i32 %or9.i.i.i.i.i acquire monotonic, align 4
-  %2 = extractvalue { i32, i1 } %1, 0
-  %.pre.i.i.i.i = and i32 %2, 1
-  %3 = icmp eq i32 %.pre.i.i.i.i, 0
-  br i1 %3, label %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit.i, label %if.then.i.i.i
+3:                                                ; preds = %0
+  tail call void @_ZN4absl13base_internal12CallOnceImplIRFvvEJEEEvPSt6atomicIjENS0_14SchedulingModeEOT_DpOT0_(ptr noundef nonnull @_ZN4absl15random_internal12_GLOBAL__N_19pool_onceE, i32 noundef 1, ptr noundef nonnull @_ZN4absl15random_internal12_GLOBAL__N_112InitPoolURBGEv)
+  br label %_ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit.i
 
-if.then.i.i.i:                                    ; preds = %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i.i, %entry
-  tail call void @_ZN4absl13base_internal8SpinLock8SlowLockEv(ptr noundef nonnull align 4 dereferenceable(4) %mu_.i) #13
+_ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit.i: ; preds = %3, %0
+  %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZZN4absl15random_internal12_GLOBAL__N_19GetPoolIDEvE10my_pool_id)
+  %5 = load i64, ptr %4, align 8, !tbaa !5
+  %6 = icmp eq i64 %5, 8
+  br i1 %6, label %7, label %_ZN4absl15random_internal12_GLOBAL__N_123GetPoolForCurrentThreadEv.exit, !prof !9
+
+7:                                                ; preds = %_ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit.i
+  %8 = atomicrmw add ptr @_ZZN4absl15random_internal12_GLOBAL__N_19GetPoolIDEvE8sequence, i64 1 seq_cst, align 8
+  %9 = and i64 %8, 7
+  store i64 %9, ptr %4, align 8, !tbaa !5
+  br label %_ZN4absl15random_internal12_GLOBAL__N_123GetPoolForCurrentThreadEv.exit
+
+_ZN4absl15random_internal12_GLOBAL__N_123GetPoolForCurrentThreadEv.exit: ; preds = %_ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit.i, %7
+  %10 = phi i64 [ %9, %7 ], [ %5, %_ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit.i ]
+  %11 = getelementptr inbounds nuw [8 x ptr], ptr @_ZN4absl15random_internal12_GLOBAL__N_112shared_poolsE, i64 0, i64 %10
+  %12 = load ptr, ptr %11, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #15
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 256
+  store ptr %13, ptr %1, align 8, !tbaa !13
+  %14 = load atomic i32, ptr %13 monotonic, align 4
+  %15 = and i32 %14, 1
+  %.not.i.i.i.i.i = icmp eq i32 %15, 0
+  br i1 %.not.i.i.i.i.i, label %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i.i, label %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.thread.i.i.i
+
+_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i.i: ; preds = %_ZN4absl15random_internal12_GLOBAL__N_123GetPoolForCurrentThreadEv.exit
+  %16 = or disjoint i32 %14, 1
+  %17 = cmpxchg ptr %13, i32 %14, i32 %16 acquire monotonic, align 4
+  %18 = extractvalue { i32, i1 } %17, 0
+  %.pre.i.i.i.i = and i32 %18, 1
+  %19 = icmp eq i32 %.pre.i.i.i.i, 0
+  br i1 %19, label %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit.i, label %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.thread.i.i.i
+
+_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.thread.i.i.i: ; preds = %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i.i, %_ZN4absl15random_internal12_GLOBAL__N_123GetPoolForCurrentThreadEv.exit
+  tail call void @_ZN4absl13base_internal8SpinLock8SlowLockEv(ptr noundef nonnull align 4 dereferenceable(4) %13) #16
   br label %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit.i
 
-_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit.i: ; preds = %if.then.i.i.i, %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i.i
-  %next_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 280
-  %4 = load i64, ptr %next_.i.i, align 8
-  %cmp.i.i = icmp ugt i64 %4, 63
-  br i1 %cmp.i.i, label %if.then.i.i, label %invoke.cont.i
+_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit.i: ; preds = %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.thread.i.i.i, %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i.i
+  %20 = getelementptr inbounds nuw i8, ptr %12, i64 280
+  %21 = load i64, ptr %20, align 8, !tbaa !16
+  %22 = icmp ugt i64 %21, 63
+  br i1 %22, label %23, label %_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry11MaybeRefillEv.exit.i
 
-if.then.i.i:                                      ; preds = %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit.i
-  store i64 4, ptr %next_.i.i, align 8
-  %impl_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 264
-  %has_crypto_.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 272
-  %5 = load i8, ptr %has_crypto_.i.i.i, align 8
-  %tobool.i.i.i = trunc i8 %5 to i1
-  %6 = load ptr, ptr %impl_.i.i, align 8
-  br i1 %tobool.i.i.i, label %if.then.i.i1.i, label %if.else.i.i.i
+23:                                               ; preds = %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit.i
+  store i64 4, ptr %20, align 8, !tbaa !16
+  %24 = getelementptr inbounds nuw i8, ptr %12, i64 264
+  %25 = getelementptr inbounds nuw i8, ptr %12, i64 272
+  %26 = load i8, ptr %25, align 8, !tbaa !24, !range !25, !noundef !26
+  %27 = trunc nuw i8 %26 to i1
+  %28 = load ptr, ptr %24, align 8, !tbaa !27
+  br i1 %27, label %29, label %30
 
-if.then.i.i1.i:                                   ; preds = %if.then.i.i
-  invoke void @_ZN4absl15random_internal11RandenHwAes8GenerateEPKvPv(ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(288) %call)
-          to label %invoke.cont.i unwind label %lpad.i
+29:                                               ; preds = %23
+  invoke void @_ZN4absl15random_internal11RandenHwAes8GenerateEPKvPv(ptr noundef %28, ptr noundef nonnull align 8 dereferenceable(288) %12)
+          to label %_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry11MaybeRefillEv.exit.i unwind label %43
 
-if.else.i.i.i:                                    ; preds = %if.then.i.i
-  invoke void @_ZN4absl15random_internal10RandenSlow8GenerateEPKvPv(ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(288) %call)
-          to label %invoke.cont.i unwind label %lpad.i
+30:                                               ; preds = %23
+  invoke void @_ZN4absl15random_internal10RandenSlow8GenerateEPKvPv(ptr noundef %28, ptr noundef nonnull align 8 dereferenceable(288) %12)
+          to label %_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry11MaybeRefillEv.exit.i unwind label %43
 
-invoke.cont.i:                                    ; preds = %if.else.i.i.i, %if.then.i.i1.i, %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit.i
-  %7 = load i64, ptr %next_.i.i, align 8
-  %inc.i = add i64 %7, 1
-  store i64 %inc.i, ptr %next_.i.i, align 8
-  %arrayidx.i = getelementptr inbounds [64 x i32], ptr %call, i64 0, i64 %7
-  %8 = load i32, ptr %arrayidx.i, align 4
-  %9 = load ptr, ptr %l.i, align 8
-  %10 = load atomic i32, ptr %9 monotonic, align 4
-  %and.i.i.i = and i32 %10, 2
-  %11 = atomicrmw xchg ptr %9, i32 %and.i.i.i release, align 4
-  %cmp6.not.i.i.i = icmp ult i32 %11, 8
-  br i1 %cmp6.not.i.i.i, label %_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry8GenerateIhEET_v.exit, label %if.then7.i.i.i
+_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry11MaybeRefillEv.exit.i: ; preds = %30, %29, %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit.i
+  %31 = load i64, ptr %20, align 8, !tbaa !16
+  %32 = add i64 %31, 1
+  store i64 %32, ptr %20, align 8, !tbaa !16
+  %33 = getelementptr inbounds nuw [64 x i32], ptr %12, i64 0, i64 %31
+  %34 = load i32, ptr %33, align 4, !tbaa !28
+  %35 = load ptr, ptr %1, align 8, !tbaa !13
+  %36 = load atomic i32, ptr %35 monotonic, align 4
+  %37 = and i32 %36, 2
+  %38 = atomicrmw xchg ptr %35, i32 %37 release, align 4
+  %.not4.i.i.i = icmp ult i32 %38, 8
+  br i1 %.not4.i.i.i, label %_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry8GenerateIhEET_v.exit, label %39
 
-if.then7.i.i.i:                                   ; preds = %invoke.cont.i
-  invoke void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) %9, i32 noundef %11) #13
-          to label %_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry8GenerateIhEET_v.exit unwind label %terminate.lpad.i.i
+39:                                               ; preds = %_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry11MaybeRefillEv.exit.i
+  invoke void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) %35, i32 noundef %38) #16
+          to label %_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry8GenerateIhEET_v.exit unwind label %40
 
-terminate.lpad.i.i:                               ; preds = %if.then7.i.i.i
-  %12 = landingpad { ptr, i32 }
+40:                                               ; preds = %39
+  %41 = landingpad { ptr, i32 }
           catch ptr null
-  %13 = extractvalue { ptr, i32 } %12, 0
-  tail call void @__clang_call_terminate(ptr %13) #14
+  %42 = extractvalue { ptr, i32 } %41, 0
+  tail call void @__clang_call_terminate(ptr %42) #17
   unreachable
 
-lpad.i:                                           ; preds = %if.else.i.i.i, %if.then.i.i1.i
-  %14 = landingpad { ptr, i32 }
+43:                                               ; preds = %30, %29
+  %44 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4absl13base_internal14SpinLockHolderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %l.i) #15
-  resume { ptr, i32 } %14
+  call void @_ZN4absl13base_internal14SpinLockHolderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #15
+  resume { ptr, i32 } %44
 
-_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry8GenerateIhEET_v.exit: ; preds = %invoke.cont.i, %if.then7.i.i.i
-  %conv.i = trunc i32 %8 to i8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %l.i)
-  ret i8 %conv.i
+_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry8GenerateIhEET_v.exit: ; preds = %_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry11MaybeRefillEv.exit.i, %39
+  %45 = trunc i32 %34 to i8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #15
+  ret i8 %45
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr dso_local void @_ZN4absl15random_internal10RandenPoolIhE4FillENS_4SpanIhEE(ptr %data.coerce0, i64 %data.coerce1) local_unnamed_addr #1 comdat align 2 {
-entry:
-  %call = tail call fastcc noundef ptr @_ZN4absl15random_internal12_GLOBAL__N_123GetPoolForCurrentThreadEv()
-  tail call fastcc void @_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry4FillEPhm(ptr noundef nonnull align 8 dereferenceable(288) %call, ptr noundef %data.coerce0, i64 noundef %data.coerce1)
+define weak_odr dso_local void @_ZN4absl15random_internal10RandenPoolIhE4FillENS_4SpanIhEE(ptr %0, i64 %1) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = load atomic i32, ptr @_ZN4absl15random_internal12_GLOBAL__N_19pool_onceE acquire, align 4
+  %.not.i.i = icmp eq i32 %3, 221
+  br i1 %.not.i.i, label %_ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit.i, label %4, !prof !4
+
+4:                                                ; preds = %2
+  tail call void @_ZN4absl13base_internal12CallOnceImplIRFvvEJEEEvPSt6atomicIjENS0_14SchedulingModeEOT_DpOT0_(ptr noundef nonnull @_ZN4absl15random_internal12_GLOBAL__N_19pool_onceE, i32 noundef 1, ptr noundef nonnull @_ZN4absl15random_internal12_GLOBAL__N_112InitPoolURBGEv)
+  br label %_ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit.i
+
+_ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit.i: ; preds = %4, %2
+  %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZZN4absl15random_internal12_GLOBAL__N_19GetPoolIDEvE10my_pool_id)
+  %6 = load i64, ptr %5, align 8, !tbaa !5
+  %7 = icmp eq i64 %6, 8
+  br i1 %7, label %8, label %_ZN4absl15random_internal12_GLOBAL__N_123GetPoolForCurrentThreadEv.exit, !prof !9
+
+8:                                                ; preds = %_ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit.i
+  %9 = atomicrmw add ptr @_ZZN4absl15random_internal12_GLOBAL__N_19GetPoolIDEvE8sequence, i64 1 seq_cst, align 8
+  %10 = and i64 %9, 7
+  store i64 %10, ptr %5, align 8, !tbaa !5
+  br label %_ZN4absl15random_internal12_GLOBAL__N_123GetPoolForCurrentThreadEv.exit
+
+_ZN4absl15random_internal12_GLOBAL__N_123GetPoolForCurrentThreadEv.exit: ; preds = %_ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit.i, %8
+  %11 = phi i64 [ %10, %8 ], [ %6, %_ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit.i ]
+  %12 = getelementptr inbounds nuw [8 x ptr], ptr @_ZN4absl15random_internal12_GLOBAL__N_112shared_poolsE, i64 0, i64 %11
+  %13 = load ptr, ptr %12, align 8, !tbaa !10
+  tail call fastcc void @_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry4FillEPhm(ptr noundef nonnull align 8 dereferenceable(288) %13, ptr noundef %0, i64 noundef %1)
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN4absl15random_internal12_GLOBAL__N_123GetPoolForCurrentThreadEv() unnamed_addr #1 personality ptr @__gxx_personality_v0 {
-entry:
-  %seed_material.i = alloca [512 x i32], align 16
-  %0 = load atomic i32, ptr @_ZN4absl15random_internal12_GLOBAL__N_19pool_onceE acquire, align 4
-  %cmp.not.i = icmp eq i32 %0, 221
-  br i1 %cmp.not.i, label %_ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit, label %if.then.i
-
-if.then.i:                                        ; preds = %entry
-  %1 = cmpxchg ptr @_ZN4absl15random_internal12_GLOBAL__N_19pool_onceE, i32 0, i32 1707250555 monotonic monotonic, align 4
-  %2 = extractvalue { i32, i1 } %1, 1
-  br i1 %2, label %if.then.i.i, label %lor.lhs.false.i.i
-
-lor.lhs.false.i.i:                                ; preds = %if.then.i
-  %call1.i.i = tail call noundef i32 @_ZN4absl13base_internal12SpinLockWaitEPSt6atomicIjEiPKNS0_22SpinLockWaitTransitionENS0_14SchedulingModeE(ptr noundef nonnull @_ZN4absl15random_internal12_GLOBAL__N_19pool_onceE, i32 noundef 3, ptr noundef nonnull @_ZZN4absl13base_internal12CallOnceImplIRFvvEJEEEvPSt6atomicIjENS0_14SchedulingModeEOT_DpOT0_E5trans, i32 noundef 1)
-  %cmp.i.i = icmp eq i32 %call1.i.i, 0
-  br i1 %cmp.i.i, label %if.then.i.i, label %_ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit
-
-if.then.i.i:                                      ; preds = %lor.lhs.false.i.i, %if.then.i
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %seed_material.i)
-  %call1.i = call noundef zeroext i1 @_ZN4absl15random_internal29ReadSeedMaterialFromOSEntropyENS_4SpanIjEE(ptr nonnull %seed_material.i, i64 512)
-  br i1 %call1.i, label %for.body.i, label %if.then.i2
-
-if.then.i2:                                       ; preds = %if.then.i.i
-  call void @_ZN4absl15random_internal21ThrowSeedGenExceptionEv() #16
-  unreachable
-
-for.body.i:                                       ; preds = %if.then.i.i, %_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry4InitENS_4SpanIKjEE.exit.i
-  %i.07.i = phi i64 [ %inc.i, %_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry4InitENS_4SpanIKjEE.exit.i ], [ 0, %if.then.i.i ]
-  %call.i.i = call noalias noundef nonnull dereferenceable(352) ptr @_Znam(i64 noundef 352) #17
-  %3 = ptrtoint ptr %call.i.i to i64
-  %rem.i.i = and i64 %3, 63
-  %cmp.i.i3 = icmp eq i64 %rem.i.i, 0
-  %4 = and i64 %3, -64
-  %sub.i.i = add i64 %4, 64
-  %5 = inttoptr i64 %sub.i.i to ptr
-  %cond.i.i = select i1 %cmp.i.i3, ptr %call.i.i, ptr %5
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(288) %cond.i.i, i8 0, i64 288, i1 false)
-  %mu_.i.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i, i64 256
-  store i32 2, ptr %mu_.i.i.i, align 64
-  %impl_.i.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i, i64 264
-  call void @_ZN4absl15random_internal6RandenC1Ev(ptr noundef nonnull align 8 dereferenceable(9) %impl_.i.i.i)
-  %arrayidx.i = getelementptr inbounds nuw [8 x ptr], ptr @_ZN4absl15random_internal12_GLOBAL__N_112shared_poolsE, i64 0, i64 %i.07.i
-  store ptr %cond.i.i, ptr %arrayidx.i, align 8
-  %mul.i = shl nuw nsw i64 %i.07.i, 6
-  %arrayidx5.i = getelementptr inbounds nuw [512 x i32], ptr %seed_material.i, i64 0, i64 %mul.i
-  %6 = load atomic i32, ptr %mu_.i.i.i monotonic, align 64
-  %and.i.i.i.i.i.i = and i32 %6, 1
-  %cmp.not.i.i.i.i.i.i = icmp eq i32 %and.i.i.i.i.i.i, 0
-  br i1 %cmp.not.i.i.i.i.i.i, label %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i.i.i, label %if.then.i.i.i.i
-
-_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i.i.i: ; preds = %for.body.i
-  %or9.i.i.i.i.i.i = or disjoint i32 %6, 1
-  %7 = cmpxchg ptr %mu_.i.i.i, i32 %6, i32 %or9.i.i.i.i.i.i acquire monotonic, align 4
-  %8 = extractvalue { i32, i1 } %7, 0
-  %.pre.i.i.i.i.i = and i32 %8, 1
-  %9 = icmp eq i32 %.pre.i.i.i.i.i, 0
-  br i1 %9, label %invoke.cont.i.i, label %if.then.i.i.i.i
-
-if.then.i.i.i.i:                                  ; preds = %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i.i.i, %for.body.i
-  call void @_ZN4absl13base_internal8SpinLock8SlowLockEv(ptr noundef nonnull align 4 dereferenceable(4) %mu_.i.i.i) #13
-  br label %invoke.cont.i.i
-
-invoke.cont.i.i:                                  ; preds = %if.then.i.i.i.i, %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(288) %cond.i.i, ptr noundef nonnull readonly align 16 dereferenceable(256) %arrayidx5.i, i64 256, i1 false)
-  %next_.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i, i64 280
-  store i64 64, ptr %next_.i.i, align 8
-  %10 = load atomic i32, ptr %mu_.i.i.i monotonic, align 64
-  %and.i.i.i.i = and i32 %10, 2
-  %11 = atomicrmw xchg ptr %mu_.i.i.i, i32 %and.i.i.i.i release, align 4
-  %cmp6.not.i.i.i.i = icmp ult i32 %11, 8
-  br i1 %cmp6.not.i.i.i.i, label %_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry4InitENS_4SpanIKjEE.exit.i, label %if.then7.i.i.i.i
-
-if.then7.i.i.i.i:                                 ; preds = %invoke.cont.i.i
-  invoke void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) %mu_.i.i.i, i32 noundef %11) #13
-          to label %_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry4InitENS_4SpanIKjEE.exit.i unwind label %terminate.lpad.i.i.i
-
-terminate.lpad.i.i.i:                             ; preds = %if.then7.i.i.i.i
-  %12 = landingpad { ptr, i32 }
-          catch ptr null
-  %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #14
-  unreachable
-
-_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry4InitENS_4SpanIKjEE.exit.i: ; preds = %if.then7.i.i.i.i, %invoke.cont.i.i
-  %inc.i = add nuw nsw i64 %i.07.i, 1
-  %exitcond.not.i = icmp eq i64 %inc.i, 8
-  br i1 %exitcond.not.i, label %_ZN4absl15random_internal12_GLOBAL__N_112InitPoolURBGEv.exit, label %for.body.i, !llvm.loop !5
-
-_ZN4absl15random_internal12_GLOBAL__N_112InitPoolURBGEv.exit: ; preds = %_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry4InitENS_4SpanIKjEE.exit.i
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %seed_material.i)
-  %14 = atomicrmw xchg ptr @_ZN4absl15random_internal12_GLOBAL__N_19pool_onceE, i32 221 release, align 4
-  %cmp4.i.i = icmp eq i32 %14, 94570706
-  br i1 %cmp4.i.i, label %if.then5.i.i, label %_ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit
-
-if.then5.i.i:                                     ; preds = %_ZN4absl15random_internal12_GLOBAL__N_112InitPoolURBGEv.exit
-  call void @AbslInternalSpinLockWake(ptr noundef nonnull @_ZN4absl15random_internal12_GLOBAL__N_19pool_onceE, i1 noundef zeroext true)
-  br label %_ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit
-
-_ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit: ; preds = %entry, %lor.lhs.false.i.i, %_ZN4absl15random_internal12_GLOBAL__N_112InitPoolURBGEv.exit, %if.then5.i.i
-  %15 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZZN4absl15random_internal12_GLOBAL__N_19GetPoolIDEvE10my_pool_id)
-  %16 = load i64, ptr %15, align 8
-  %cmp.i = icmp eq i64 %16, 8
-  br i1 %cmp.i, label %if.then.i1, label %_ZN4absl15random_internal12_GLOBAL__N_19GetPoolIDEv.exit
-
-if.then.i1:                                       ; preds = %_ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit
-  %17 = atomicrmw add ptr @_ZZN4absl15random_internal12_GLOBAL__N_19GetPoolIDEvE8sequence, i64 1 seq_cst, align 8
-  %rem.i = and i64 %17, 7
-  store i64 %rem.i, ptr %15, align 8
-  br label %_ZN4absl15random_internal12_GLOBAL__N_19GetPoolIDEv.exit
-
-_ZN4absl15random_internal12_GLOBAL__N_19GetPoolIDEv.exit: ; preds = %_ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit, %if.then.i1
-  %18 = phi i64 [ %rem.i, %if.then.i1 ], [ %16, %_ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit ]
-  %arrayidx = getelementptr inbounds [8 x ptr], ptr @_ZN4absl15random_internal12_GLOBAL__N_112shared_poolsE, i64 0, i64 %18
-  %19 = load ptr, ptr %arrayidx, align 8
-  ret ptr %19
-}
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry4FillEPhm(ptr noundef nonnull align 8 dereferenceable(288) %this, ptr noundef writeonly captures(none) %out, i64 noundef %bytes) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %l = alloca %"class.absl::base_internal::SpinLockHolder", align 8
-  %mu_ = getelementptr inbounds nuw i8, ptr %this, i64 256
-  store ptr %mu_, ptr %l, align 8
-  %0 = load atomic i32, ptr %mu_ monotonic, align 8
-  %and.i.i.i.i = and i32 %0, 1
-  %cmp.not.i.i.i.i = icmp eq i32 %and.i.i.i.i, 0
-  br i1 %cmp.not.i.i.i.i, label %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i, label %if.then.i.i
+define internal fastcc void @_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry4FillEPhm(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca %"class.absl::base_internal::SpinLockHolder", align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #15
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  store ptr %5, ptr %4, align 8, !tbaa !13
+  %6 = load atomic i32, ptr %5 monotonic, align 8
+  %7 = and i32 %6, 1
+  %.not.i.i.i.i = icmp eq i32 %7, 0
+  br i1 %.not.i.i.i.i, label %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i, label %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.thread.i.i
 
-_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i: ; preds = %entry
-  %or9.i.i.i.i = or disjoint i32 %0, 1
-  %1 = cmpxchg ptr %mu_, i32 %0, i32 %or9.i.i.i.i acquire monotonic, align 4
-  %2 = extractvalue { i32, i1 } %1, 0
-  %.pre.i.i.i = and i32 %2, 1
-  %3 = icmp eq i32 %.pre.i.i.i, 0
-  br i1 %3, label %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit, label %if.then.i.i
+_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i: ; preds = %3
+  %8 = or disjoint i32 %6, 1
+  %9 = cmpxchg ptr %5, i32 %6, i32 %8 acquire monotonic, align 4
+  %10 = extractvalue { i32, i1 } %9, 0
+  %.pre.i.i.i = and i32 %10, 1
+  %11 = icmp eq i32 %.pre.i.i.i, 0
+  br i1 %11, label %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit, label %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.thread.i.i
 
-if.then.i.i:                                      ; preds = %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i, %entry
-  tail call void @_ZN4absl13base_internal8SpinLock8SlowLockEv(ptr noundef nonnull align 4 dereferenceable(4) %mu_) #13
+_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.thread.i.i: ; preds = %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i, %3
+  tail call void @_ZN4absl13base_internal8SpinLock8SlowLockEv(ptr noundef nonnull align 4 dereferenceable(4) %5) #16
   br label %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit
 
-_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit: ; preds = %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i, %if.then.i.i
-  %cmp.not13 = icmp eq i64 %bytes, 0
-  br i1 %cmp.not13, label %while.end, label %while.body.lr.ph
+_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit: ; preds = %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i, %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.thread.i.i
+  %.not15 = icmp eq i64 %2, 0
+  br i1 %.not15, label %._crit_edge, label %.lr.ph
 
-while.body.lr.ph:                                 ; preds = %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit
-  %next_.i = getelementptr inbounds nuw i8, ptr %this, i64 280
-  %impl_.i = getelementptr inbounds nuw i8, ptr %this, i64 264
-  %has_crypto_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 272
-  %.pre = load i64, ptr %next_.i, align 8
-  br label %while.body
+.lr.ph:                                           ; preds = %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  %.pre = load i64, ptr %12, align 8, !tbaa !16
+  br label %15
 
-while.body:                                       ; preds = %while.body.lr.ph, %invoke.cont
-  %4 = phi i64 [ %.pre, %while.body.lr.ph ], [ %add7, %invoke.cont ]
-  %out.addr.015 = phi ptr [ %out, %while.body.lr.ph ], [ %add.ptr, %invoke.cont ]
-  %bytes.addr.014 = phi i64 [ %bytes, %while.body.lr.ph ], [ %sub4, %invoke.cont ]
-  %cmp.i = icmp ugt i64 %4, 63
-  br i1 %cmp.i, label %if.then.i, label %invoke.cont
+15:                                               ; preds = %.lr.ph, %_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry11MaybeRefillEv.exit
+  %16 = phi i64 [ %.pre, %.lr.ph ], [ %33, %_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry11MaybeRefillEv.exit ]
+  %.017 = phi ptr [ %1, %.lr.ph ], [ %28, %_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry11MaybeRefillEv.exit ]
+  %.01416 = phi i64 [ %2, %.lr.ph ], [ %29, %_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry11MaybeRefillEv.exit ]
+  %17 = icmp ugt i64 %16, 63
+  br i1 %17, label %18, label %_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry11MaybeRefillEv.exit
 
-if.then.i:                                        ; preds = %while.body
-  store i64 4, ptr %next_.i, align 8
-  %5 = load i8, ptr %has_crypto_.i.i, align 8
-  %tobool.i.i = trunc i8 %5 to i1
-  %6 = load ptr, ptr %impl_.i, align 8
-  br i1 %tobool.i.i, label %if.then.i.i6, label %if.else.i.i
+18:                                               ; preds = %15
+  store i64 4, ptr %12, align 8, !tbaa !16
+  %19 = load i8, ptr %14, align 8, !tbaa !24, !range !25, !noundef !26
+  %20 = trunc nuw i8 %19 to i1
+  %21 = load ptr, ptr %13, align 8, !tbaa !27
+  br i1 %20, label %22, label %23
 
-if.then.i.i6:                                     ; preds = %if.then.i
-  invoke void @_ZN4absl15random_internal11RandenHwAes8GenerateEPKvPv(ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(288) %this)
-          to label %invoke.cont unwind label %lpad
+22:                                               ; preds = %18
+  invoke void @_ZN4absl15random_internal11RandenHwAes8GenerateEPKvPv(ptr noundef %21, ptr noundef nonnull align 8 dereferenceable(288) %0)
+          to label %_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry11MaybeRefillEv.exit unwind label %34
 
-if.else.i.i:                                      ; preds = %if.then.i
-  invoke void @_ZN4absl15random_internal10RandenSlow8GenerateEPKvPv(ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(288) %this)
-          to label %invoke.cont unwind label %lpad
+23:                                               ; preds = %18
+  invoke void @_ZN4absl15random_internal10RandenSlow8GenerateEPKvPv(ptr noundef %21, ptr noundef nonnull align 8 dereferenceable(288) %0)
+          to label %_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry11MaybeRefillEv.exit unwind label %34
 
-invoke.cont:                                      ; preds = %while.body, %if.then.i.i6, %if.else.i.i
-  %7 = load i64, ptr %next_.i, align 8
-  %8 = shl i64 %7, 2
-  %mul = sub i64 256, %8
-  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %mul, i64 %bytes.addr.014)
-  %arrayidx = getelementptr inbounds [64 x i32], ptr %this, i64 0, i64 %7
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %out.addr.015, ptr nonnull align 4 %arrayidx, i64 %.sroa.speculated, i1 false)
-  %add.ptr = getelementptr inbounds i8, ptr %out.addr.015, i64 %.sroa.speculated
-  %sub4 = sub i64 %bytes.addr.014, %.sroa.speculated
-  %sub5 = add i64 %.sroa.speculated, 3
-  %div5 = lshr i64 %sub5, 2
-  %9 = load i64, ptr %next_.i, align 8
-  %add7 = add i64 %div5, %9
-  store i64 %add7, ptr %next_.i, align 8
-  %cmp.not = icmp eq i64 %sub4, 0
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !7
+_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry11MaybeRefillEv.exit: ; preds = %15, %22, %23
+  %24 = load i64, ptr %12, align 8, !tbaa !16
+  %25 = shl i64 %24, 2
+  %26 = sub i64 256, %25
+  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %26, i64 %.01416)
+  %27 = getelementptr inbounds nuw [64 x i32], ptr %0, i64 0, i64 %24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.017, ptr nonnull align 4 %27, i64 %.sroa.speculated, i1 false)
+  %28 = getelementptr inbounds nuw i8, ptr %.017, i64 %.sroa.speculated
+  %29 = sub i64 %.01416, %.sroa.speculated
+  %30 = add i64 %.sroa.speculated, 3
+  %31 = lshr i64 %30, 2
+  %32 = load i64, ptr %12, align 8, !tbaa !16
+  %33 = add i64 %31, %32
+  store i64 %33, ptr %12, align 8, !tbaa !16
+  %.not = icmp eq i64 %29, 0
+  br i1 %.not, label %._crit_edge, label %15, !llvm.loop !29
 
-lpad:                                             ; preds = %if.else.i.i, %if.then.i.i6
-  %10 = landingpad { ptr, i32 }
+34:                                               ; preds = %23, %22
+  %35 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4absl13base_internal14SpinLockHolderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %l) #15
-  resume { ptr, i32 } %10
+  call void @_ZN4absl13base_internal14SpinLockHolderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
+  resume { ptr, i32 } %35
 
-while.end:                                        ; preds = %invoke.cont, %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit
-  %11 = load ptr, ptr %l, align 8
-  %12 = load atomic i32, ptr %11 monotonic, align 4
-  %and.i.i = and i32 %12, 2
-  %13 = atomicrmw xchg ptr %11, i32 %and.i.i release, align 4
-  %cmp6.not.i.i = icmp ult i32 %13, 8
-  br i1 %cmp6.not.i.i, label %_ZN4absl13base_internal14SpinLockHolderD2Ev.exit, label %if.then7.i.i
+._crit_edge:                                      ; preds = %_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry11MaybeRefillEv.exit, %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit
+  %36 = load ptr, ptr %4, align 8, !tbaa !13
+  %37 = load atomic i32, ptr %36 monotonic, align 4
+  %38 = and i32 %37, 2
+  %39 = atomicrmw xchg ptr %36, i32 %38 release, align 4
+  %.not4.i.i = icmp ult i32 %39, 8
+  br i1 %.not4.i.i, label %_ZN4absl13base_internal14SpinLockHolderD2Ev.exit, label %40
 
-if.then7.i.i:                                     ; preds = %while.end
-  invoke void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) %11, i32 noundef %13) #13
-          to label %_ZN4absl13base_internal14SpinLockHolderD2Ev.exit unwind label %terminate.lpad.i
+40:                                               ; preds = %._crit_edge
+  invoke void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) %36, i32 noundef %39) #16
+          to label %_ZN4absl13base_internal14SpinLockHolderD2Ev.exit unwind label %41
 
-terminate.lpad.i:                                 ; preds = %if.then7.i.i
-  %14 = landingpad { ptr, i32 }
+41:                                               ; preds = %40
+  %42 = landingpad { ptr, i32 }
           catch ptr null
-  %15 = extractvalue { ptr, i32 } %14, 0
-  tail call void @__clang_call_terminate(ptr %15) #14
+  %43 = extractvalue { ptr, i32 } %42, 0
+  tail call void @__clang_call_terminate(ptr %43) #17
   unreachable
 
-_ZN4absl13base_internal14SpinLockHolderD2Ev.exit: ; preds = %while.end, %if.then7.i.i
+_ZN4absl13base_internal14SpinLockHolderD2Ev.exit: ; preds = %._crit_edge, %40
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef zeroext i16 @_ZN4absl15random_internal10RandenPoolItE3minEv() local_unnamed_addr #0 comdat align 2 {
-entry:
   ret i16 0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef zeroext i16 @_ZN4absl15random_internal10RandenPoolItE3maxEv() local_unnamed_addr #0 comdat align 2 {
-entry:
   ret i16 -1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr dso_local void @_ZN4absl15random_internal10RandenPoolItEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) unnamed_addr #0 comdat($_ZN4absl15random_internal10RandenPoolItEC5Ev) align 2 {
-entry:
+define weak_odr dso_local void @_ZN4absl15random_internal10RandenPoolItEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat($_ZN4absl15random_internal10RandenPoolItEC5Ev) align 2 {
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define weak_odr dso_local noundef zeroext i16 @_ZN4absl15random_internal10RandenPoolItEclEv(ptr noundef nonnull align 1 dereferenceable(1) %this) local_unnamed_addr #1 comdat align 2 {
-entry:
-  %call = tail call noundef zeroext i16 @_ZN4absl15random_internal10RandenPoolItE8GenerateEv()
-  ret i16 %call
+; Function Attrs: inlinehint mustprogress uwtable
+define weak_odr dso_local noundef zeroext i16 @_ZN4absl15random_internal10RandenPoolItEclEv(ptr noundef nonnull align 1 dereferenceable(1) %0) local_unnamed_addr #1 comdat align 2 {
+  %2 = tail call noundef zeroext i16 @_ZN4absl15random_internal10RandenPoolItE8GenerateEv()
+  ret i16 %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr dso_local noundef zeroext i16 @_ZN4absl15random_internal10RandenPoolItE8GenerateEv() local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %l.i = alloca %"class.absl::base_internal::SpinLockHolder", align 8
-  %call = tail call fastcc noundef ptr @_ZN4absl15random_internal12_GLOBAL__N_123GetPoolForCurrentThreadEv()
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %l.i)
-  %mu_.i = getelementptr inbounds nuw i8, ptr %call, i64 256
-  store ptr %mu_.i, ptr %l.i, align 8
-  %0 = load atomic i32, ptr %mu_.i monotonic, align 4
-  %and.i.i.i.i.i = and i32 %0, 1
-  %cmp.not.i.i.i.i.i = icmp eq i32 %and.i.i.i.i.i, 0
-  br i1 %cmp.not.i.i.i.i.i, label %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i.i, label %if.then.i.i.i
+define weak_odr dso_local noundef zeroext i16 @_ZN4absl15random_internal10RandenPoolItE8GenerateEv() local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %1 = alloca %"class.absl::base_internal::SpinLockHolder", align 8
+  %2 = load atomic i32, ptr @_ZN4absl15random_internal12_GLOBAL__N_19pool_onceE acquire, align 4
+  %.not.i.i = icmp eq i32 %2, 221
+  br i1 %.not.i.i, label %_ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit.i, label %3, !prof !4
 
-_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i.i: ; preds = %entry
-  %or9.i.i.i.i.i = or disjoint i32 %0, 1
-  %1 = cmpxchg ptr %mu_.i, i32 %0, i32 %or9.i.i.i.i.i acquire monotonic, align 4
-  %2 = extractvalue { i32, i1 } %1, 0
-  %.pre.i.i.i.i = and i32 %2, 1
-  %3 = icmp eq i32 %.pre.i.i.i.i, 0
-  br i1 %3, label %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit.i, label %if.then.i.i.i
+3:                                                ; preds = %0
+  tail call void @_ZN4absl13base_internal12CallOnceImplIRFvvEJEEEvPSt6atomicIjENS0_14SchedulingModeEOT_DpOT0_(ptr noundef nonnull @_ZN4absl15random_internal12_GLOBAL__N_19pool_onceE, i32 noundef 1, ptr noundef nonnull @_ZN4absl15random_internal12_GLOBAL__N_112InitPoolURBGEv)
+  br label %_ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit.i
 
-if.then.i.i.i:                                    ; preds = %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i.i, %entry
-  tail call void @_ZN4absl13base_internal8SpinLock8SlowLockEv(ptr noundef nonnull align 4 dereferenceable(4) %mu_.i) #13
+_ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit.i: ; preds = %3, %0
+  %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZZN4absl15random_internal12_GLOBAL__N_19GetPoolIDEvE10my_pool_id)
+  %5 = load i64, ptr %4, align 8, !tbaa !5
+  %6 = icmp eq i64 %5, 8
+  br i1 %6, label %7, label %_ZN4absl15random_internal12_GLOBAL__N_123GetPoolForCurrentThreadEv.exit, !prof !9
+
+7:                                                ; preds = %_ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit.i
+  %8 = atomicrmw add ptr @_ZZN4absl15random_internal12_GLOBAL__N_19GetPoolIDEvE8sequence, i64 1 seq_cst, align 8
+  %9 = and i64 %8, 7
+  store i64 %9, ptr %4, align 8, !tbaa !5
+  br label %_ZN4absl15random_internal12_GLOBAL__N_123GetPoolForCurrentThreadEv.exit
+
+_ZN4absl15random_internal12_GLOBAL__N_123GetPoolForCurrentThreadEv.exit: ; preds = %_ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit.i, %7
+  %10 = phi i64 [ %9, %7 ], [ %5, %_ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit.i ]
+  %11 = getelementptr inbounds nuw [8 x ptr], ptr @_ZN4absl15random_internal12_GLOBAL__N_112shared_poolsE, i64 0, i64 %10
+  %12 = load ptr, ptr %11, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #15
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 256
+  store ptr %13, ptr %1, align 8, !tbaa !13
+  %14 = load atomic i32, ptr %13 monotonic, align 4
+  %15 = and i32 %14, 1
+  %.not.i.i.i.i.i = icmp eq i32 %15, 0
+  br i1 %.not.i.i.i.i.i, label %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i.i, label %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.thread.i.i.i
+
+_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i.i: ; preds = %_ZN4absl15random_internal12_GLOBAL__N_123GetPoolForCurrentThreadEv.exit
+  %16 = or disjoint i32 %14, 1
+  %17 = cmpxchg ptr %13, i32 %14, i32 %16 acquire monotonic, align 4
+  %18 = extractvalue { i32, i1 } %17, 0
+  %.pre.i.i.i.i = and i32 %18, 1
+  %19 = icmp eq i32 %.pre.i.i.i.i, 0
+  br i1 %19, label %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit.i, label %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.thread.i.i.i
+
+_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.thread.i.i.i: ; preds = %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i.i, %_ZN4absl15random_internal12_GLOBAL__N_123GetPoolForCurrentThreadEv.exit
+  tail call void @_ZN4absl13base_internal8SpinLock8SlowLockEv(ptr noundef nonnull align 4 dereferenceable(4) %13) #16
   br label %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit.i
 
-_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit.i: ; preds = %if.then.i.i.i, %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i.i
-  %next_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 280
-  %4 = load i64, ptr %next_.i.i, align 8
-  %cmp.i.i = icmp ugt i64 %4, 63
-  br i1 %cmp.i.i, label %if.then.i.i, label %invoke.cont.i
+_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit.i: ; preds = %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.thread.i.i.i, %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i.i
+  %20 = getelementptr inbounds nuw i8, ptr %12, i64 280
+  %21 = load i64, ptr %20, align 8, !tbaa !16
+  %22 = icmp ugt i64 %21, 63
+  br i1 %22, label %23, label %_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry11MaybeRefillEv.exit.i
 
-if.then.i.i:                                      ; preds = %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit.i
-  store i64 4, ptr %next_.i.i, align 8
-  %impl_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 264
-  %has_crypto_.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 272
-  %5 = load i8, ptr %has_crypto_.i.i.i, align 8
-  %tobool.i.i.i = trunc i8 %5 to i1
-  %6 = load ptr, ptr %impl_.i.i, align 8
-  br i1 %tobool.i.i.i, label %if.then.i.i1.i, label %if.else.i.i.i
+23:                                               ; preds = %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit.i
+  store i64 4, ptr %20, align 8, !tbaa !16
+  %24 = getelementptr inbounds nuw i8, ptr %12, i64 264
+  %25 = getelementptr inbounds nuw i8, ptr %12, i64 272
+  %26 = load i8, ptr %25, align 8, !tbaa !24, !range !25, !noundef !26
+  %27 = trunc nuw i8 %26 to i1
+  %28 = load ptr, ptr %24, align 8, !tbaa !27
+  br i1 %27, label %29, label %30
 
-if.then.i.i1.i:                                   ; preds = %if.then.i.i
-  invoke void @_ZN4absl15random_internal11RandenHwAes8GenerateEPKvPv(ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(288) %call)
-          to label %invoke.cont.i unwind label %lpad.i
+29:                                               ; preds = %23
+  invoke void @_ZN4absl15random_internal11RandenHwAes8GenerateEPKvPv(ptr noundef %28, ptr noundef nonnull align 8 dereferenceable(288) %12)
+          to label %_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry11MaybeRefillEv.exit.i unwind label %43
 
-if.else.i.i.i:                                    ; preds = %if.then.i.i
-  invoke void @_ZN4absl15random_internal10RandenSlow8GenerateEPKvPv(ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(288) %call)
-          to label %invoke.cont.i unwind label %lpad.i
+30:                                               ; preds = %23
+  invoke void @_ZN4absl15random_internal10RandenSlow8GenerateEPKvPv(ptr noundef %28, ptr noundef nonnull align 8 dereferenceable(288) %12)
+          to label %_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry11MaybeRefillEv.exit.i unwind label %43
 
-invoke.cont.i:                                    ; preds = %if.else.i.i.i, %if.then.i.i1.i, %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit.i
-  %7 = load i64, ptr %next_.i.i, align 8
-  %inc.i = add i64 %7, 1
-  store i64 %inc.i, ptr %next_.i.i, align 8
-  %arrayidx.i = getelementptr inbounds [64 x i32], ptr %call, i64 0, i64 %7
-  %8 = load i32, ptr %arrayidx.i, align 4
-  %9 = load ptr, ptr %l.i, align 8
-  %10 = load atomic i32, ptr %9 monotonic, align 4
-  %and.i.i.i = and i32 %10, 2
-  %11 = atomicrmw xchg ptr %9, i32 %and.i.i.i release, align 4
-  %cmp6.not.i.i.i = icmp ult i32 %11, 8
-  br i1 %cmp6.not.i.i.i, label %_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry8GenerateItEET_v.exit, label %if.then7.i.i.i
+_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry11MaybeRefillEv.exit.i: ; preds = %30, %29, %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit.i
+  %31 = load i64, ptr %20, align 8, !tbaa !16
+  %32 = add i64 %31, 1
+  store i64 %32, ptr %20, align 8, !tbaa !16
+  %33 = getelementptr inbounds nuw [64 x i32], ptr %12, i64 0, i64 %31
+  %34 = load i32, ptr %33, align 4, !tbaa !28
+  %35 = load ptr, ptr %1, align 8, !tbaa !13
+  %36 = load atomic i32, ptr %35 monotonic, align 4
+  %37 = and i32 %36, 2
+  %38 = atomicrmw xchg ptr %35, i32 %37 release, align 4
+  %.not4.i.i.i = icmp ult i32 %38, 8
+  br i1 %.not4.i.i.i, label %_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry8GenerateItEET_v.exit, label %39
 
-if.then7.i.i.i:                                   ; preds = %invoke.cont.i
-  invoke void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) %9, i32 noundef %11) #13
-          to label %_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry8GenerateItEET_v.exit unwind label %terminate.lpad.i.i
+39:                                               ; preds = %_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry11MaybeRefillEv.exit.i
+  invoke void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) %35, i32 noundef %38) #16
+          to label %_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry8GenerateItEET_v.exit unwind label %40
 
-terminate.lpad.i.i:                               ; preds = %if.then7.i.i.i
-  %12 = landingpad { ptr, i32 }
+40:                                               ; preds = %39
+  %41 = landingpad { ptr, i32 }
           catch ptr null
-  %13 = extractvalue { ptr, i32 } %12, 0
-  tail call void @__clang_call_terminate(ptr %13) #14
+  %42 = extractvalue { ptr, i32 } %41, 0
+  tail call void @__clang_call_terminate(ptr %42) #17
   unreachable
 
-lpad.i:                                           ; preds = %if.else.i.i.i, %if.then.i.i1.i
-  %14 = landingpad { ptr, i32 }
+43:                                               ; preds = %30, %29
+  %44 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4absl13base_internal14SpinLockHolderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %l.i) #15
-  resume { ptr, i32 } %14
+  call void @_ZN4absl13base_internal14SpinLockHolderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #15
+  resume { ptr, i32 } %44
 
-_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry8GenerateItEET_v.exit: ; preds = %invoke.cont.i, %if.then7.i.i.i
-  %conv.i = trunc i32 %8 to i16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %l.i)
-  ret i16 %conv.i
+_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry8GenerateItEET_v.exit: ; preds = %_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry11MaybeRefillEv.exit.i, %39
+  %45 = trunc i32 %34 to i16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #15
+  ret i16 %45
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr dso_local void @_ZN4absl15random_internal10RandenPoolItE4FillENS_4SpanItEE(ptr %data.coerce0, i64 %data.coerce1) local_unnamed_addr #1 comdat align 2 {
-entry:
-  %call = tail call fastcc noundef ptr @_ZN4absl15random_internal12_GLOBAL__N_123GetPoolForCurrentThreadEv()
-  %mul = shl i64 %data.coerce1, 1
-  tail call fastcc void @_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry4FillEPhm(ptr noundef nonnull align 8 dereferenceable(288) %call, ptr noundef %data.coerce0, i64 noundef %mul)
+define weak_odr dso_local void @_ZN4absl15random_internal10RandenPoolItE4FillENS_4SpanItEE(ptr %0, i64 %1) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = load atomic i32, ptr @_ZN4absl15random_internal12_GLOBAL__N_19pool_onceE acquire, align 4
+  %.not.i.i = icmp eq i32 %3, 221
+  br i1 %.not.i.i, label %_ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit.i, label %4, !prof !4
+
+4:                                                ; preds = %2
+  tail call void @_ZN4absl13base_internal12CallOnceImplIRFvvEJEEEvPSt6atomicIjENS0_14SchedulingModeEOT_DpOT0_(ptr noundef nonnull @_ZN4absl15random_internal12_GLOBAL__N_19pool_onceE, i32 noundef 1, ptr noundef nonnull @_ZN4absl15random_internal12_GLOBAL__N_112InitPoolURBGEv)
+  br label %_ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit.i
+
+_ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit.i: ; preds = %4, %2
+  %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZZN4absl15random_internal12_GLOBAL__N_19GetPoolIDEvE10my_pool_id)
+  %6 = load i64, ptr %5, align 8, !tbaa !5
+  %7 = icmp eq i64 %6, 8
+  br i1 %7, label %8, label %_ZN4absl15random_internal12_GLOBAL__N_123GetPoolForCurrentThreadEv.exit, !prof !9
+
+8:                                                ; preds = %_ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit.i
+  %9 = atomicrmw add ptr @_ZZN4absl15random_internal12_GLOBAL__N_19GetPoolIDEvE8sequence, i64 1 seq_cst, align 8
+  %10 = and i64 %9, 7
+  store i64 %10, ptr %5, align 8, !tbaa !5
+  br label %_ZN4absl15random_internal12_GLOBAL__N_123GetPoolForCurrentThreadEv.exit
+
+_ZN4absl15random_internal12_GLOBAL__N_123GetPoolForCurrentThreadEv.exit: ; preds = %_ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit.i, %8
+  %11 = phi i64 [ %10, %8 ], [ %6, %_ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit.i ]
+  %12 = getelementptr inbounds nuw [8 x ptr], ptr @_ZN4absl15random_internal12_GLOBAL__N_112shared_poolsE, i64 0, i64 %11
+  %13 = load ptr, ptr %12, align 8, !tbaa !10
+  %14 = shl i64 %1, 1
+  tail call fastcc void @_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry4FillEPhm(ptr noundef nonnull align 8 dereferenceable(288) %13, ptr noundef %0, i64 noundef %14)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef i32 @_ZN4absl15random_internal10RandenPoolIjE3minEv() local_unnamed_addr #0 comdat align 2 {
-entry:
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef i32 @_ZN4absl15random_internal10RandenPoolIjE3maxEv() local_unnamed_addr #0 comdat align 2 {
-entry:
   ret i32 -1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr dso_local void @_ZN4absl15random_internal10RandenPoolIjEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) unnamed_addr #0 comdat($_ZN4absl15random_internal10RandenPoolIjEC5Ev) align 2 {
-entry:
+define weak_odr dso_local void @_ZN4absl15random_internal10RandenPoolIjEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat($_ZN4absl15random_internal10RandenPoolIjEC5Ev) align 2 {
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define weak_odr dso_local noundef i32 @_ZN4absl15random_internal10RandenPoolIjEclEv(ptr noundef nonnull align 1 dereferenceable(1) %this) local_unnamed_addr #1 comdat align 2 {
-entry:
-  %call = tail call noundef i32 @_ZN4absl15random_internal10RandenPoolIjE8GenerateEv()
-  ret i32 %call
+; Function Attrs: inlinehint mustprogress uwtable
+define weak_odr dso_local noundef i32 @_ZN4absl15random_internal10RandenPoolIjEclEv(ptr noundef nonnull align 1 dereferenceable(1) %0) local_unnamed_addr #1 comdat align 2 {
+  %2 = tail call noundef i32 @_ZN4absl15random_internal10RandenPoolIjE8GenerateEv()
+  ret i32 %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr dso_local noundef i32 @_ZN4absl15random_internal10RandenPoolIjE8GenerateEv() local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %l.i = alloca %"class.absl::base_internal::SpinLockHolder", align 8
-  %call = tail call fastcc noundef ptr @_ZN4absl15random_internal12_GLOBAL__N_123GetPoolForCurrentThreadEv()
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %l.i)
-  %mu_.i = getelementptr inbounds nuw i8, ptr %call, i64 256
-  store ptr %mu_.i, ptr %l.i, align 8
-  %0 = load atomic i32, ptr %mu_.i monotonic, align 4
-  %and.i.i.i.i.i = and i32 %0, 1
-  %cmp.not.i.i.i.i.i = icmp eq i32 %and.i.i.i.i.i, 0
-  br i1 %cmp.not.i.i.i.i.i, label %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i.i, label %if.then.i.i.i
+define weak_odr dso_local noundef i32 @_ZN4absl15random_internal10RandenPoolIjE8GenerateEv() local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %1 = alloca %"class.absl::base_internal::SpinLockHolder", align 8
+  %2 = load atomic i32, ptr @_ZN4absl15random_internal12_GLOBAL__N_19pool_onceE acquire, align 4
+  %.not.i.i = icmp eq i32 %2, 221
+  br i1 %.not.i.i, label %_ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit.i, label %3, !prof !4
 
-_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i.i: ; preds = %entry
-  %or9.i.i.i.i.i = or disjoint i32 %0, 1
-  %1 = cmpxchg ptr %mu_.i, i32 %0, i32 %or9.i.i.i.i.i acquire monotonic, align 4
-  %2 = extractvalue { i32, i1 } %1, 0
-  %.pre.i.i.i.i = and i32 %2, 1
-  %3 = icmp eq i32 %.pre.i.i.i.i, 0
-  br i1 %3, label %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit.i, label %if.then.i.i.i
+3:                                                ; preds = %0
+  tail call void @_ZN4absl13base_internal12CallOnceImplIRFvvEJEEEvPSt6atomicIjENS0_14SchedulingModeEOT_DpOT0_(ptr noundef nonnull @_ZN4absl15random_internal12_GLOBAL__N_19pool_onceE, i32 noundef 1, ptr noundef nonnull @_ZN4absl15random_internal12_GLOBAL__N_112InitPoolURBGEv)
+  br label %_ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit.i
 
-if.then.i.i.i:                                    ; preds = %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i.i, %entry
-  tail call void @_ZN4absl13base_internal8SpinLock8SlowLockEv(ptr noundef nonnull align 4 dereferenceable(4) %mu_.i) #13
+_ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit.i: ; preds = %3, %0
+  %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZZN4absl15random_internal12_GLOBAL__N_19GetPoolIDEvE10my_pool_id)
+  %5 = load i64, ptr %4, align 8, !tbaa !5
+  %6 = icmp eq i64 %5, 8
+  br i1 %6, label %7, label %_ZN4absl15random_internal12_GLOBAL__N_123GetPoolForCurrentThreadEv.exit, !prof !9
+
+7:                                                ; preds = %_ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit.i
+  %8 = atomicrmw add ptr @_ZZN4absl15random_internal12_GLOBAL__N_19GetPoolIDEvE8sequence, i64 1 seq_cst, align 8
+  %9 = and i64 %8, 7
+  store i64 %9, ptr %4, align 8, !tbaa !5
+  br label %_ZN4absl15random_internal12_GLOBAL__N_123GetPoolForCurrentThreadEv.exit
+
+_ZN4absl15random_internal12_GLOBAL__N_123GetPoolForCurrentThreadEv.exit: ; preds = %_ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit.i, %7
+  %10 = phi i64 [ %9, %7 ], [ %5, %_ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit.i ]
+  %11 = getelementptr inbounds nuw [8 x ptr], ptr @_ZN4absl15random_internal12_GLOBAL__N_112shared_poolsE, i64 0, i64 %10
+  %12 = load ptr, ptr %11, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #15
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 256
+  store ptr %13, ptr %1, align 8, !tbaa !13
+  %14 = load atomic i32, ptr %13 monotonic, align 4
+  %15 = and i32 %14, 1
+  %.not.i.i.i.i.i = icmp eq i32 %15, 0
+  br i1 %.not.i.i.i.i.i, label %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i.i, label %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.thread.i.i.i
+
+_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i.i: ; preds = %_ZN4absl15random_internal12_GLOBAL__N_123GetPoolForCurrentThreadEv.exit
+  %16 = or disjoint i32 %14, 1
+  %17 = cmpxchg ptr %13, i32 %14, i32 %16 acquire monotonic, align 4
+  %18 = extractvalue { i32, i1 } %17, 0
+  %.pre.i.i.i.i = and i32 %18, 1
+  %19 = icmp eq i32 %.pre.i.i.i.i, 0
+  br i1 %19, label %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit.i, label %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.thread.i.i.i
+
+_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.thread.i.i.i: ; preds = %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i.i, %_ZN4absl15random_internal12_GLOBAL__N_123GetPoolForCurrentThreadEv.exit
+  tail call void @_ZN4absl13base_internal8SpinLock8SlowLockEv(ptr noundef nonnull align 4 dereferenceable(4) %13) #16
   br label %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit.i
 
-_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit.i: ; preds = %if.then.i.i.i, %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i.i
-  %next_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 280
-  %4 = load i64, ptr %next_.i.i, align 8
-  %cmp.i.i = icmp ugt i64 %4, 63
-  br i1 %cmp.i.i, label %if.then.i.i, label %invoke.cont.i
+_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit.i: ; preds = %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.thread.i.i.i, %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i.i
+  %20 = getelementptr inbounds nuw i8, ptr %12, i64 280
+  %21 = load i64, ptr %20, align 8, !tbaa !16
+  %22 = icmp ugt i64 %21, 63
+  br i1 %22, label %23, label %_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry11MaybeRefillEv.exit.i
 
-if.then.i.i:                                      ; preds = %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit.i
-  store i64 4, ptr %next_.i.i, align 8
-  %impl_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 264
-  %has_crypto_.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 272
-  %5 = load i8, ptr %has_crypto_.i.i.i, align 8
-  %tobool.i.i.i = trunc i8 %5 to i1
-  %6 = load ptr, ptr %impl_.i.i, align 8
-  br i1 %tobool.i.i.i, label %if.then.i.i1.i, label %if.else.i.i.i
+23:                                               ; preds = %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit.i
+  store i64 4, ptr %20, align 8, !tbaa !16
+  %24 = getelementptr inbounds nuw i8, ptr %12, i64 264
+  %25 = getelementptr inbounds nuw i8, ptr %12, i64 272
+  %26 = load i8, ptr %25, align 8, !tbaa !24, !range !25, !noundef !26
+  %27 = trunc nuw i8 %26 to i1
+  %28 = load ptr, ptr %24, align 8, !tbaa !27
+  br i1 %27, label %29, label %30
 
-if.then.i.i1.i:                                   ; preds = %if.then.i.i
-  invoke void @_ZN4absl15random_internal11RandenHwAes8GenerateEPKvPv(ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(288) %call)
-          to label %invoke.cont.i unwind label %lpad.i
+29:                                               ; preds = %23
+  invoke void @_ZN4absl15random_internal11RandenHwAes8GenerateEPKvPv(ptr noundef %28, ptr noundef nonnull align 8 dereferenceable(288) %12)
+          to label %_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry11MaybeRefillEv.exit.i unwind label %43
 
-if.else.i.i.i:                                    ; preds = %if.then.i.i
-  invoke void @_ZN4absl15random_internal10RandenSlow8GenerateEPKvPv(ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(288) %call)
-          to label %invoke.cont.i unwind label %lpad.i
+30:                                               ; preds = %23
+  invoke void @_ZN4absl15random_internal10RandenSlow8GenerateEPKvPv(ptr noundef %28, ptr noundef nonnull align 8 dereferenceable(288) %12)
+          to label %_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry11MaybeRefillEv.exit.i unwind label %43
 
-invoke.cont.i:                                    ; preds = %if.else.i.i.i, %if.then.i.i1.i, %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit.i
-  %7 = load i64, ptr %next_.i.i, align 8
-  %inc.i = add i64 %7, 1
-  store i64 %inc.i, ptr %next_.i.i, align 8
-  %arrayidx.i = getelementptr inbounds [64 x i32], ptr %call, i64 0, i64 %7
-  %8 = load i32, ptr %arrayidx.i, align 4
-  %9 = load ptr, ptr %l.i, align 8
-  %10 = load atomic i32, ptr %9 monotonic, align 4
-  %and.i.i.i = and i32 %10, 2
-  %11 = atomicrmw xchg ptr %9, i32 %and.i.i.i release, align 4
-  %cmp6.not.i.i.i = icmp ult i32 %11, 8
-  br i1 %cmp6.not.i.i.i, label %_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry8GenerateIjEET_v.exit, label %if.then7.i.i.i
+_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry11MaybeRefillEv.exit.i: ; preds = %30, %29, %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit.i
+  %31 = load i64, ptr %20, align 8, !tbaa !16
+  %32 = add i64 %31, 1
+  store i64 %32, ptr %20, align 8, !tbaa !16
+  %33 = getelementptr inbounds nuw [64 x i32], ptr %12, i64 0, i64 %31
+  %34 = load i32, ptr %33, align 4, !tbaa !28
+  %35 = load ptr, ptr %1, align 8, !tbaa !13
+  %36 = load atomic i32, ptr %35 monotonic, align 4
+  %37 = and i32 %36, 2
+  %38 = atomicrmw xchg ptr %35, i32 %37 release, align 4
+  %.not4.i.i.i = icmp ult i32 %38, 8
+  br i1 %.not4.i.i.i, label %_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry8GenerateIjEET_v.exit, label %39
 
-if.then7.i.i.i:                                   ; preds = %invoke.cont.i
-  invoke void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) %9, i32 noundef %11) #13
-          to label %_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry8GenerateIjEET_v.exit unwind label %terminate.lpad.i.i
+39:                                               ; preds = %_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry11MaybeRefillEv.exit.i
+  invoke void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) %35, i32 noundef %38) #16
+          to label %_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry8GenerateIjEET_v.exit unwind label %40
 
-terminate.lpad.i.i:                               ; preds = %if.then7.i.i.i
-  %12 = landingpad { ptr, i32 }
+40:                                               ; preds = %39
+  %41 = landingpad { ptr, i32 }
           catch ptr null
-  %13 = extractvalue { ptr, i32 } %12, 0
-  tail call void @__clang_call_terminate(ptr %13) #14
+  %42 = extractvalue { ptr, i32 } %41, 0
+  tail call void @__clang_call_terminate(ptr %42) #17
   unreachable
 
-lpad.i:                                           ; preds = %if.else.i.i.i, %if.then.i.i1.i
-  %14 = landingpad { ptr, i32 }
+43:                                               ; preds = %30, %29
+  %44 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4absl13base_internal14SpinLockHolderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %l.i) #15
-  resume { ptr, i32 } %14
+  call void @_ZN4absl13base_internal14SpinLockHolderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #15
+  resume { ptr, i32 } %44
 
-_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry8GenerateIjEET_v.exit: ; preds = %invoke.cont.i, %if.then7.i.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %l.i)
-  ret i32 %8
+_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry8GenerateIjEET_v.exit: ; preds = %_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry11MaybeRefillEv.exit.i, %39
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #15
+  ret i32 %34
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr dso_local void @_ZN4absl15random_internal10RandenPoolIjE4FillENS_4SpanIjEE(ptr %data.coerce0, i64 %data.coerce1) local_unnamed_addr #1 comdat align 2 {
-entry:
-  %call = tail call fastcc noundef ptr @_ZN4absl15random_internal12_GLOBAL__N_123GetPoolForCurrentThreadEv()
-  %mul = shl i64 %data.coerce1, 2
-  tail call fastcc void @_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry4FillEPhm(ptr noundef nonnull align 8 dereferenceable(288) %call, ptr noundef %data.coerce0, i64 noundef %mul)
+define weak_odr dso_local void @_ZN4absl15random_internal10RandenPoolIjE4FillENS_4SpanIjEE(ptr %0, i64 %1) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = load atomic i32, ptr @_ZN4absl15random_internal12_GLOBAL__N_19pool_onceE acquire, align 4
+  %.not.i.i = icmp eq i32 %3, 221
+  br i1 %.not.i.i, label %_ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit.i, label %4, !prof !4
+
+4:                                                ; preds = %2
+  tail call void @_ZN4absl13base_internal12CallOnceImplIRFvvEJEEEvPSt6atomicIjENS0_14SchedulingModeEOT_DpOT0_(ptr noundef nonnull @_ZN4absl15random_internal12_GLOBAL__N_19pool_onceE, i32 noundef 1, ptr noundef nonnull @_ZN4absl15random_internal12_GLOBAL__N_112InitPoolURBGEv)
+  br label %_ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit.i
+
+_ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit.i: ; preds = %4, %2
+  %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZZN4absl15random_internal12_GLOBAL__N_19GetPoolIDEvE10my_pool_id)
+  %6 = load i64, ptr %5, align 8, !tbaa !5
+  %7 = icmp eq i64 %6, 8
+  br i1 %7, label %8, label %_ZN4absl15random_internal12_GLOBAL__N_123GetPoolForCurrentThreadEv.exit, !prof !9
+
+8:                                                ; preds = %_ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit.i
+  %9 = atomicrmw add ptr @_ZZN4absl15random_internal12_GLOBAL__N_19GetPoolIDEvE8sequence, i64 1 seq_cst, align 8
+  %10 = and i64 %9, 7
+  store i64 %10, ptr %5, align 8, !tbaa !5
+  br label %_ZN4absl15random_internal12_GLOBAL__N_123GetPoolForCurrentThreadEv.exit
+
+_ZN4absl15random_internal12_GLOBAL__N_123GetPoolForCurrentThreadEv.exit: ; preds = %_ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit.i, %8
+  %11 = phi i64 [ %10, %8 ], [ %6, %_ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit.i ]
+  %12 = getelementptr inbounds nuw [8 x ptr], ptr @_ZN4absl15random_internal12_GLOBAL__N_112shared_poolsE, i64 0, i64 %11
+  %13 = load ptr, ptr %12, align 8, !tbaa !10
+  %14 = shl i64 %1, 2
+  tail call fastcc void @_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry4FillEPhm(ptr noundef nonnull align 8 dereferenceable(288) %13, ptr noundef %0, i64 noundef %14)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef i64 @_ZN4absl15random_internal10RandenPoolImE3minEv() local_unnamed_addr #0 comdat align 2 {
-entry:
   ret i64 0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef i64 @_ZN4absl15random_internal10RandenPoolImE3maxEv() local_unnamed_addr #0 comdat align 2 {
-entry:
   ret i64 -1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr dso_local void @_ZN4absl15random_internal10RandenPoolImEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) unnamed_addr #0 comdat($_ZN4absl15random_internal10RandenPoolImEC5Ev) align 2 {
-entry:
+define weak_odr dso_local void @_ZN4absl15random_internal10RandenPoolImEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat($_ZN4absl15random_internal10RandenPoolImEC5Ev) align 2 {
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define weak_odr dso_local noundef i64 @_ZN4absl15random_internal10RandenPoolImEclEv(ptr noundef nonnull align 1 dereferenceable(1) %this) local_unnamed_addr #1 comdat align 2 {
-entry:
-  %call = tail call noundef i64 @_ZN4absl15random_internal10RandenPoolImE8GenerateEv()
-  ret i64 %call
+; Function Attrs: inlinehint mustprogress uwtable
+define weak_odr dso_local noundef i64 @_ZN4absl15random_internal10RandenPoolImEclEv(ptr noundef nonnull align 1 dereferenceable(1) %0) local_unnamed_addr #1 comdat align 2 {
+  %2 = tail call noundef i64 @_ZN4absl15random_internal10RandenPoolImE8GenerateEv()
+  ret i64 %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr dso_local noundef i64 @_ZN4absl15random_internal10RandenPoolImE8GenerateEv() local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %l.i = alloca %"class.absl::base_internal::SpinLockHolder", align 8
-  %call = tail call fastcc noundef ptr @_ZN4absl15random_internal12_GLOBAL__N_123GetPoolForCurrentThreadEv()
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %l.i)
-  %mu_.i = getelementptr inbounds nuw i8, ptr %call, i64 256
-  store ptr %mu_.i, ptr %l.i, align 8
-  %0 = load atomic i32, ptr %mu_.i monotonic, align 4
-  %and.i.i.i.i.i = and i32 %0, 1
-  %cmp.not.i.i.i.i.i = icmp eq i32 %and.i.i.i.i.i, 0
-  br i1 %cmp.not.i.i.i.i.i, label %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i.i, label %if.then.i.i.i
+define weak_odr dso_local noundef i64 @_ZN4absl15random_internal10RandenPoolImE8GenerateEv() local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %1 = alloca %"class.absl::base_internal::SpinLockHolder", align 8
+  %2 = load atomic i32, ptr @_ZN4absl15random_internal12_GLOBAL__N_19pool_onceE acquire, align 4
+  %.not.i.i = icmp eq i32 %2, 221
+  br i1 %.not.i.i, label %_ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit.i, label %3, !prof !4
 
-_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i.i: ; preds = %entry
-  %or9.i.i.i.i.i = or disjoint i32 %0, 1
-  %1 = cmpxchg ptr %mu_.i, i32 %0, i32 %or9.i.i.i.i.i acquire monotonic, align 4
-  %2 = extractvalue { i32, i1 } %1, 0
-  %.pre.i.i.i.i = and i32 %2, 1
-  %3 = icmp eq i32 %.pre.i.i.i.i, 0
-  br i1 %3, label %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit.i, label %if.then.i.i.i
+3:                                                ; preds = %0
+  tail call void @_ZN4absl13base_internal12CallOnceImplIRFvvEJEEEvPSt6atomicIjENS0_14SchedulingModeEOT_DpOT0_(ptr noundef nonnull @_ZN4absl15random_internal12_GLOBAL__N_19pool_onceE, i32 noundef 1, ptr noundef nonnull @_ZN4absl15random_internal12_GLOBAL__N_112InitPoolURBGEv)
+  br label %_ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit.i
 
-if.then.i.i.i:                                    ; preds = %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i.i, %entry
-  tail call void @_ZN4absl13base_internal8SpinLock8SlowLockEv(ptr noundef nonnull align 4 dereferenceable(4) %mu_.i) #13
+_ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit.i: ; preds = %3, %0
+  %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZZN4absl15random_internal12_GLOBAL__N_19GetPoolIDEvE10my_pool_id)
+  %5 = load i64, ptr %4, align 8, !tbaa !5
+  %6 = icmp eq i64 %5, 8
+  br i1 %6, label %7, label %_ZN4absl15random_internal12_GLOBAL__N_123GetPoolForCurrentThreadEv.exit, !prof !9
+
+7:                                                ; preds = %_ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit.i
+  %8 = atomicrmw add ptr @_ZZN4absl15random_internal12_GLOBAL__N_19GetPoolIDEvE8sequence, i64 1 seq_cst, align 8
+  %9 = and i64 %8, 7
+  store i64 %9, ptr %4, align 8, !tbaa !5
+  br label %_ZN4absl15random_internal12_GLOBAL__N_123GetPoolForCurrentThreadEv.exit
+
+_ZN4absl15random_internal12_GLOBAL__N_123GetPoolForCurrentThreadEv.exit: ; preds = %_ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit.i, %7
+  %10 = phi i64 [ %9, %7 ], [ %5, %_ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit.i ]
+  %11 = getelementptr inbounds nuw [8 x ptr], ptr @_ZN4absl15random_internal12_GLOBAL__N_112shared_poolsE, i64 0, i64 %10
+  %12 = load ptr, ptr %11, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #15
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 256
+  store ptr %13, ptr %1, align 8, !tbaa !13
+  %14 = load atomic i32, ptr %13 monotonic, align 4
+  %15 = and i32 %14, 1
+  %.not.i.i.i.i.i = icmp eq i32 %15, 0
+  br i1 %.not.i.i.i.i.i, label %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i.i, label %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.thread.i.i.i
+
+_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i.i: ; preds = %_ZN4absl15random_internal12_GLOBAL__N_123GetPoolForCurrentThreadEv.exit
+  %16 = or disjoint i32 %14, 1
+  %17 = cmpxchg ptr %13, i32 %14, i32 %16 acquire monotonic, align 4
+  %18 = extractvalue { i32, i1 } %17, 0
+  %.pre.i.i.i.i = and i32 %18, 1
+  %19 = icmp eq i32 %.pre.i.i.i.i, 0
+  br i1 %19, label %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit.i, label %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.thread.i.i.i
+
+_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.thread.i.i.i: ; preds = %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i.i, %_ZN4absl15random_internal12_GLOBAL__N_123GetPoolForCurrentThreadEv.exit
+  tail call void @_ZN4absl13base_internal8SpinLock8SlowLockEv(ptr noundef nonnull align 4 dereferenceable(4) %13) #16
   br label %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit.i
 
-_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit.i: ; preds = %if.then.i.i.i, %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i.i
-  %next_.i = getelementptr inbounds nuw i8, ptr %call, i64 280
-  %4 = load i64, ptr %next_.i, align 8
-  %cmp.i = icmp ugt i64 %4, 62
-  br i1 %cmp.i, label %if.then.i, label %if.end.i
+_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit.i: ; preds = %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.thread.i.i.i, %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i.i
+  %20 = getelementptr inbounds nuw i8, ptr %12, i64 280
+  %21 = load i64, ptr %20, align 8, !tbaa !16
+  %22 = icmp ugt i64 %21, 62
+  br i1 %22, label %23, label %_ZNK4absl15random_internal6Randen8GenerateEPv.exit.i
 
-if.then.i:                                        ; preds = %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit.i
-  store i64 4, ptr %next_.i, align 8
-  %impl_.i = getelementptr inbounds nuw i8, ptr %call, i64 264
-  %has_crypto_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 272
-  %5 = load i8, ptr %has_crypto_.i.i, align 8
-  %tobool.i.i = trunc i8 %5 to i1
-  %6 = load ptr, ptr %impl_.i, align 8
-  br i1 %tobool.i.i, label %if.then.i.i, label %if.else.i.i
+23:                                               ; preds = %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit.i
+  store i64 4, ptr %20, align 8, !tbaa !16
+  %24 = getelementptr inbounds nuw i8, ptr %12, i64 264
+  %25 = getelementptr inbounds nuw i8, ptr %12, i64 272
+  %26 = load i8, ptr %25, align 8, !tbaa !24, !range !25, !noundef !26
+  %27 = trunc nuw i8 %26 to i1
+  %28 = load ptr, ptr %24, align 8, !tbaa !27
+  br i1 %27, label %29, label %30
 
-if.then.i.i:                                      ; preds = %if.then.i
-  invoke void @_ZN4absl15random_internal11RandenHwAes8GenerateEPKvPv(ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(288) %call)
-          to label %if.end.i unwind label %lpad.i
+29:                                               ; preds = %23
+  invoke void @_ZN4absl15random_internal11RandenHwAes8GenerateEPKvPv(ptr noundef %28, ptr noundef nonnull align 8 dereferenceable(288) %12)
+          to label %_ZNK4absl15random_internal6Randen8GenerateEPv.exit.i unwind label %31
 
-if.else.i.i:                                      ; preds = %if.then.i
-  invoke void @_ZN4absl15random_internal10RandenSlow8GenerateEPKvPv(ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(288) %call)
-          to label %if.end.i unwind label %lpad.i
+30:                                               ; preds = %23
+  invoke void @_ZN4absl15random_internal10RandenSlow8GenerateEPKvPv(ptr noundef %28, ptr noundef nonnull align 8 dereferenceable(288) %12)
+          to label %_ZNK4absl15random_internal6Randen8GenerateEPv.exit.i unwind label %31
 
-lpad.i:                                           ; preds = %if.else.i.i, %if.then.i.i
-  %7 = landingpad { ptr, i32 }
+31:                                               ; preds = %30, %29
+  %32 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4absl13base_internal14SpinLockHolderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %l.i) #15
-  resume { ptr, i32 } %7
+  call void @_ZN4absl13base_internal14SpinLockHolderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #15
+  resume { ptr, i32 } %32
 
-if.end.i:                                         ; preds = %if.else.i.i, %if.then.i.i, %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit.i
-  %8 = load i64, ptr %next_.i, align 8
-  %add.ptr.i = getelementptr inbounds i32, ptr %call, i64 %8
-  %add.i = add i64 %8, 2
-  store i64 %add.i, ptr %next_.i, align 8
-  %result.0.copyload.i = load i64, ptr %add.ptr.i, align 4
-  %9 = load ptr, ptr %l.i, align 8
-  %10 = load atomic i32, ptr %9 monotonic, align 4
-  %and.i.i.i = and i32 %10, 2
-  %11 = atomicrmw xchg ptr %9, i32 %and.i.i.i release, align 4
-  %cmp6.not.i.i.i = icmp ult i32 %11, 8
-  br i1 %cmp6.not.i.i.i, label %_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry8GenerateImEET_v.exit, label %if.then7.i.i.i
+_ZNK4absl15random_internal6Randen8GenerateEPv.exit.i: ; preds = %30, %29, %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit.i
+  %33 = load i64, ptr %20, align 8, !tbaa !16
+  %34 = getelementptr inbounds nuw i32, ptr %12, i64 %33
+  %35 = add i64 %33, 2
+  store i64 %35, ptr %20, align 8, !tbaa !16
+  %.0.copyload.i = load i64, ptr %34, align 4
+  %36 = load ptr, ptr %1, align 8, !tbaa !13
+  %37 = load atomic i32, ptr %36 monotonic, align 4
+  %38 = and i32 %37, 2
+  %39 = atomicrmw xchg ptr %36, i32 %38 release, align 4
+  %.not4.i.i.i = icmp ult i32 %39, 8
+  br i1 %.not4.i.i.i, label %_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry8GenerateImEET_v.exit, label %40
 
-if.then7.i.i.i:                                   ; preds = %if.end.i
-  invoke void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) %9, i32 noundef %11) #13
-          to label %_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry8GenerateImEET_v.exit unwind label %terminate.lpad.i.i
+40:                                               ; preds = %_ZNK4absl15random_internal6Randen8GenerateEPv.exit.i
+  invoke void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) %36, i32 noundef %39) #16
+          to label %_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry8GenerateImEET_v.exit unwind label %41
 
-terminate.lpad.i.i:                               ; preds = %if.then7.i.i.i
-  %12 = landingpad { ptr, i32 }
+41:                                               ; preds = %40
+  %42 = landingpad { ptr, i32 }
           catch ptr null
-  %13 = extractvalue { ptr, i32 } %12, 0
-  tail call void @__clang_call_terminate(ptr %13) #14
+  %43 = extractvalue { ptr, i32 } %42, 0
+  tail call void @__clang_call_terminate(ptr %43) #17
   unreachable
 
-_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry8GenerateImEET_v.exit: ; preds = %if.end.i, %if.then7.i.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %l.i)
-  ret i64 %result.0.copyload.i
+_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry8GenerateImEET_v.exit: ; preds = %_ZNK4absl15random_internal6Randen8GenerateEPv.exit.i, %40
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #15
+  ret i64 %.0.copyload.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr dso_local void @_ZN4absl15random_internal10RandenPoolImE4FillENS_4SpanImEE(ptr %data.coerce0, i64 %data.coerce1) local_unnamed_addr #1 comdat align 2 {
-entry:
-  %call = tail call fastcc noundef ptr @_ZN4absl15random_internal12_GLOBAL__N_123GetPoolForCurrentThreadEv()
-  %mul = shl i64 %data.coerce1, 3
-  tail call fastcc void @_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry4FillEPhm(ptr noundef nonnull align 8 dereferenceable(288) %call, ptr noundef %data.coerce0, i64 noundef %mul)
+define weak_odr dso_local void @_ZN4absl15random_internal10RandenPoolImE4FillENS_4SpanImEE(ptr %0, i64 %1) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = load atomic i32, ptr @_ZN4absl15random_internal12_GLOBAL__N_19pool_onceE acquire, align 4
+  %.not.i.i = icmp eq i32 %3, 221
+  br i1 %.not.i.i, label %_ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit.i, label %4, !prof !4
+
+4:                                                ; preds = %2
+  tail call void @_ZN4absl13base_internal12CallOnceImplIRFvvEJEEEvPSt6atomicIjENS0_14SchedulingModeEOT_DpOT0_(ptr noundef nonnull @_ZN4absl15random_internal12_GLOBAL__N_19pool_onceE, i32 noundef 1, ptr noundef nonnull @_ZN4absl15random_internal12_GLOBAL__N_112InitPoolURBGEv)
+  br label %_ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit.i
+
+_ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit.i: ; preds = %4, %2
+  %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZZN4absl15random_internal12_GLOBAL__N_19GetPoolIDEvE10my_pool_id)
+  %6 = load i64, ptr %5, align 8, !tbaa !5
+  %7 = icmp eq i64 %6, 8
+  br i1 %7, label %8, label %_ZN4absl15random_internal12_GLOBAL__N_123GetPoolForCurrentThreadEv.exit, !prof !9
+
+8:                                                ; preds = %_ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit.i
+  %9 = atomicrmw add ptr @_ZZN4absl15random_internal12_GLOBAL__N_19GetPoolIDEvE8sequence, i64 1 seq_cst, align 8
+  %10 = and i64 %9, 7
+  store i64 %10, ptr %5, align 8, !tbaa !5
+  br label %_ZN4absl15random_internal12_GLOBAL__N_123GetPoolForCurrentThreadEv.exit
+
+_ZN4absl15random_internal12_GLOBAL__N_123GetPoolForCurrentThreadEv.exit: ; preds = %_ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit.i, %8
+  %11 = phi i64 [ %10, %8 ], [ %6, %_ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit.i ]
+  %12 = getelementptr inbounds nuw [8 x ptr], ptr @_ZN4absl15random_internal12_GLOBAL__N_112shared_poolsE, i64 0, i64 %11
+  %13 = load ptr, ptr %12, align 8, !tbaa !10
+  %14 = shl i64 %1, 3
+  tail call fastcc void @_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry4FillEPhm(ptr noundef nonnull align 8 dereferenceable(288) %13, ptr noundef %0, i64 noundef %14)
   ret void
 }
 
 declare i32 @__gxx_personality_v0(...)
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN4absl13base_internal14SpinLockHolderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %0 = load ptr, ptr %this, align 8
-  %1 = load atomic i32, ptr %0 monotonic, align 4
-  %and.i = and i32 %1, 2
-  %2 = atomicrmw xchg ptr %0, i32 %and.i release, align 4
-  %cmp6.not.i = icmp ult i32 %2, 8
-  br i1 %cmp6.not.i, label %invoke.cont, label %if.then7.i
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN4absl13base_internal14SpinLockHolderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = load ptr, ptr %0, align 8, !tbaa !13
+  %3 = load atomic i32, ptr %2 monotonic, align 4
+  %4 = and i32 %3, 2
+  %5 = atomicrmw xchg ptr %2, i32 %4 release, align 4
+  %.not4.i = icmp ult i32 %5, 8
+  br i1 %.not4.i, label %_ZN4absl13base_internal8SpinLock6UnlockEv.exit, label %6
 
-if.then7.i:                                       ; preds = %entry
-  invoke void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %2) #13
-          to label %invoke.cont unwind label %terminate.lpad
+6:                                                ; preds = %1
+  invoke void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) %2, i32 noundef %5) #16
+          to label %_ZN4absl13base_internal8SpinLock6UnlockEv.exit unwind label %7
 
-invoke.cont:                                      ; preds = %entry, %if.then7.i
+_ZN4absl13base_internal8SpinLock6UnlockEv.exit:   ; preds = %1, %6
   ret void
 
-terminate.lpad:                                   ; preds = %if.then7.i
-  %3 = landingpad { ptr, i32 }
+7:                                                ; preds = %6
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #14
+  %9 = extractvalue { ptr, i32 } %8, 0
+  tail call void @__clang_call_terminate(ptr %9) #17
   unreachable
 }
 
 ; Function Attrs: cold
-declare void @_ZN4absl13base_internal8SpinLock8SlowLockEv(ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
+declare void @_ZN4absl13base_internal8SpinLock8SlowLockEv(ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #5
 
-; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #3 comdat {
+; Function Attrs: noinline noreturn nounwind uwtable
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #6 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #15
-  tail call void @_ZSt9terminatev() #14
+  tail call void @_ZSt9terminatev() #17
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #4
+declare void @_ZSt9terminatev() local_unnamed_addr #7
 
-declare void @_ZN4absl15random_internal11RandenHwAes8GenerateEPKvPv(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @_ZN4absl15random_internal11RandenHwAes8GenerateEPKvPv(ptr noundef, ptr noundef) local_unnamed_addr #8
 
-declare void @_ZN4absl15random_internal10RandenSlow8GenerateEPKvPv(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @_ZN4absl15random_internal10RandenSlow8GenerateEPKvPv(ptr noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: cold
-declare void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4), i32 noundef) local_unnamed_addr #2
+declare void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4), i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
-declare noundef i32 @_ZN4absl13base_internal12SpinLockWaitEPSt6atomicIjEiPKNS0_22SpinLockWaitTransitionENS0_14SchedulingModeE(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
+; Function Attrs: mustprogress uwtable
+define internal void @_ZN4absl15random_internal12_GLOBAL__N_112InitPoolURBGEv() #2 personality ptr @__gxx_personality_v0 {
+  %1 = alloca [512 x i32], align 16
+  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %1) #15
+  %2 = call noundef zeroext i1 @_ZN4absl15random_internal29ReadSeedMaterialFromOSEntropyENS_4SpanIjEE(ptr nonnull %1, i64 512)
+  br i1 %2, label %.preheader, label %3
 
-declare void @AbslInternalSpinLockWake(ptr noundef, i1 noundef zeroext) local_unnamed_addr #5
+3:                                                ; preds = %0
+  call void @_ZN4absl15random_internal21ThrowSeedGenExceptionEv() #18
+  unreachable
 
-declare noundef zeroext i1 @_ZN4absl15random_internal29ReadSeedMaterialFromOSEntropyENS_4SpanIjEE(ptr, i64) local_unnamed_addr #5
+4:                                                ; preds = %_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry4InitENS_4SpanIKjEE.exit
+  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %1) #15
+  ret void
+
+.preheader:                                       ; preds = %0, %_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry4InitENS_4SpanIKjEE.exit
+  %.08 = phi i64 [ %32, %_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry4InitENS_4SpanIKjEE.exit ], [ 0, %0 ]
+  %5 = call noalias noundef nonnull dereferenceable(352) ptr @_Znam(i64 noundef 352) #19
+  %6 = ptrtoint ptr %5 to i64
+  %7 = and i64 %6, 63
+  %8 = icmp eq i64 %7, 0
+  %9 = and i64 %6, -64
+  %10 = add i64 %9, 64
+  %11 = inttoptr i64 %10 to ptr
+  %12 = select i1 %8, ptr %5, ptr %11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(288) %12, i8 0, i64 288, i1 false)
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 256
+  store i32 2, ptr %13, align 64, !tbaa !31
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 264
+  call void @_ZN4absl15random_internal6RandenC1Ev(ptr noundef nonnull align 8 dereferenceable(9) %14)
+  %15 = getelementptr inbounds nuw [8 x ptr], ptr @_ZN4absl15random_internal12_GLOBAL__N_112shared_poolsE, i64 0, i64 %.08
+  store ptr %12, ptr %15, align 8, !tbaa !10
+  %16 = shl nuw nsw i64 %.08, 6
+  %17 = getelementptr inbounds nuw [512 x i32], ptr %1, i64 0, i64 %16
+  %18 = load atomic i32, ptr %13 monotonic, align 64
+  %19 = and i32 %18, 1
+  %.not.i.i.i.i.i = icmp eq i32 %19, 0
+  br i1 %.not.i.i.i.i.i, label %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i.i, label %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.thread.i.i.i
+
+_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i.i: ; preds = %.preheader
+  %20 = or disjoint i32 %18, 1
+  %21 = cmpxchg ptr %13, i32 %18, i32 %20 acquire monotonic, align 4
+  %22 = extractvalue { i32, i1 } %21, 0
+  %.pre.i.i.i.i = and i32 %22, 1
+  %23 = icmp eq i32 %.pre.i.i.i.i, 0
+  br i1 %23, label %_ZSt4copyIPKjPjET0_T_S4_S3_.exit.i, label %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.thread.i.i.i
+
+_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.thread.i.i.i: ; preds = %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i.i, %.preheader
+  call void @_ZN4absl13base_internal8SpinLock8SlowLockEv(ptr noundef nonnull align 4 dereferenceable(4) %13) #16
+  br label %_ZSt4copyIPKjPjET0_T_S4_S3_.exit.i
+
+_ZSt4copyIPKjPjET0_T_S4_S3_.exit.i:               ; preds = %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.thread.i.i.i, %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i.i
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(288) %12, ptr noundef nonnull readonly align 16 dereferenceable(256) %17, i64 256, i1 false)
+  %24 = getelementptr inbounds nuw i8, ptr %12, i64 280
+  store i64 64, ptr %24, align 8, !tbaa !16
+  %25 = load atomic i32, ptr %13 monotonic, align 64
+  %26 = and i32 %25, 2
+  %27 = atomicrmw xchg ptr %13, i32 %26 release, align 4
+  %.not4.i.i.i = icmp ult i32 %27, 8
+  br i1 %.not4.i.i.i, label %_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry4InitENS_4SpanIKjEE.exit, label %28
+
+28:                                               ; preds = %_ZSt4copyIPKjPjET0_T_S4_S3_.exit.i
+  invoke void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) %13, i32 noundef %27) #16
+          to label %_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry4InitENS_4SpanIKjEE.exit unwind label %29
+
+29:                                               ; preds = %28
+  %30 = landingpad { ptr, i32 }
+          catch ptr null
+  %31 = extractvalue { ptr, i32 } %30, 0
+  call void @__clang_call_terminate(ptr %31) #17
+  unreachable
+
+_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry4InitENS_4SpanIKjEE.exit: ; preds = %_ZSt4copyIPKjPjET0_T_S4_S3_.exit.i, %28
+  %32 = add nuw nsw i64 %.08, 1
+  %exitcond.not = icmp eq i64 %32, 8
+  br i1 %exitcond.not, label %4, label %.preheader, !llvm.loop !32
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN4absl13base_internal12CallOnceImplIRFvvEJEEEvPSt6atomicIjENS0_14SchedulingModeEOT_DpOT0_(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2) local_unnamed_addr #2 comdat personality ptr @__gxx_personality_v0 {
+  %4 = cmpxchg ptr %0, i32 0, i32 1707250555 monotonic monotonic, align 4
+  %5 = extractvalue { i32, i1 } %4, 1
+  br i1 %5, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_order.exit.thread, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_order.exit
+
+_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_order.exit: ; preds = %3
+  %6 = tail call noundef i32 @_ZN4absl13base_internal12SpinLockWaitEPSt6atomicIjEiPKNS0_22SpinLockWaitTransitionENS0_14SchedulingModeE(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @_ZZN4absl13base_internal12CallOnceImplIRFvvEJEEEvPSt6atomicIjENS0_14SchedulingModeEOT_DpOT0_E5trans, i32 noundef %1)
+  %7 = icmp eq i32 %6, 0
+  br i1 %7, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_order.exit.thread, label %_ZN4absl13base_internal12SpinLockWakeEPSt6atomicIjEb.exit
+
+_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_order.exit.thread: ; preds = %3, %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_order.exit
+  tail call void %2()
+  %8 = atomicrmw xchg ptr %0, i32 221 release, align 4
+  %9 = icmp eq i32 %8, 94570706
+  br i1 %9, label %10, label %_ZN4absl13base_internal12SpinLockWakeEPSt6atomicIjEb.exit
+
+10:                                               ; preds = %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_order.exit.thread
+  tail call void @AbslInternalSpinLockWake(ptr noundef nonnull %0, i1 noundef zeroext true)
+  br label %_ZN4absl13base_internal12SpinLockWakeEPSt6atomicIjEb.exit
+
+_ZN4absl13base_internal12SpinLockWakeEPSt6atomicIjEb.exit: ; preds = %10, %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_order.exit.thread, %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_order.exit
+  ret void
+}
+
+declare noundef i32 @_ZN4absl13base_internal12SpinLockWaitEPSt6atomicIjEiPKNS0_22SpinLockWaitTransitionENS0_14SchedulingModeE(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
+
+declare void @AbslInternalSpinLockWake(ptr noundef, i1 noundef zeroext) local_unnamed_addr #8
+
+declare noundef zeroext i1 @_ZN4absl15random_internal29ReadSeedMaterialFromOSEntropyENS_4SpanIjEE(ptr, i64) local_unnamed_addr #8
 
 ; Function Attrs: noreturn
-declare void @_ZN4absl15random_internal21ThrowSeedGenExceptionEv() local_unnamed_addr #7
+declare void @_ZN4absl15random_internal21ThrowSeedGenExceptionEv() local_unnamed_addr #10
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #8
+declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
-declare void @_ZN4absl15random_internal6RandenC1Ev(ptr noundef nonnull align 8 dereferenceable(9)) unnamed_addr #5
+declare void @_ZN4absl15random_internal6RandenC1Ev(ptr noundef nonnull align 8 dereferenceable(9)) unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #10
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #12
+declare i64 @llvm.umin.i64(i64, i64) #14
 
-attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { cold nofree noreturn }
-attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { cold }
-attributes #14 = { noreturn nounwind }
+attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { cold nofree noreturn }
+attributes #8 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #15 = { nounwind }
-attributes #16 = { noreturn }
-attributes #17 = { builtin allocsize(0) }
+attributes #16 = { cold }
+attributes #17 = { noreturn nounwind }
+attributes #18 = { noreturn }
+attributes #19 = { builtin allocsize(0) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!4 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!5 = !{!6, !6, i64 0}
+!6 = !{!"long", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C++ TBAA"}
+!9 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"p1 _ZTSN4absl15random_internal12_GLOBAL__N_115RandenPoolEntryE", !12, i64 0}
+!12 = !{!"any pointer", !7, i64 0}
+!13 = !{!14, !15, i64 0}
+!14 = !{!"_ZTSN4absl13base_internal14SpinLockHolderE", !15, i64 0}
+!15 = !{!"p1 _ZTSN4absl13base_internal8SpinLockE", !12, i64 0}
+!16 = !{!17, !6, i64 280}
+!17 = !{!"_ZTSN4absl15random_internal12_GLOBAL__N_115RandenPoolEntryE", !7, i64 0, !18, i64 256, !22, i64 264, !6, i64 280}
+!18 = !{!"_ZTSN4absl13base_internal8SpinLockE", !19, i64 0}
+!19 = !{!"_ZTSSt6atomicIjE", !20, i64 0}
+!20 = !{!"_ZTSSt13__atomic_baseIjE", !21, i64 0}
+!21 = !{!"int", !7, i64 0}
+!22 = !{!"_ZTSN4absl15random_internal6RandenE", !12, i64 0, !23, i64 8}
+!23 = !{!"bool", !7, i64 0}
+!24 = !{!22, !23, i64 8}
+!25 = !{i8 0, i8 2}
+!26 = !{}
+!27 = !{!22, !12, i64 0}
+!28 = !{!21, !21, i64 0}
+!29 = distinct !{!29, !30}
+!30 = !{!"llvm.loop.mustprogress"}
+!31 = !{!20, !21, i64 0}
+!32 = distinct !{!32, !30}

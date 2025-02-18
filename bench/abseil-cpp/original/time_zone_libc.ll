@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %"class.absl::time_internal::cctz::detail::civil_time" = type { %"struct.absl::time_internal::cctz::detail::fields" }
 %"struct.absl::time_internal::cctz::detail::fields" = type <{ i64, i8, i8, i8, i8, i8, [3 x i8] }>
@@ -69,8 +69,6 @@ $_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_ = comdat 
 $_ZN4absl13time_internal4cctz10TimeZoneIfC2Ev = comdat any
 
 $_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_ = comdat any
-
-$_ZN4absl13time_internal4cctz12TimeZoneLibCD2Ev = comdat any
 
 $_ZN4absl13time_internal4cctz12TimeZoneLibCD0Ev = comdat any
 
@@ -178,6 +176,8 @@ $_ZN4absl13time_internal4cctz6detail4impl14day_differenceElaalaa = comdat any
 
 $_ZN4absl13time_internal4cctz6detail4impl7ymd_ordElaa = comdat any
 
+$_ZNSt15__new_allocatorIcEC2Ev = comdat any
+
 $_ZNSt15__uniq_ptr_dataIN4absl13time_internal4cctz12TimeZoneLibCESt14default_deleteIS3_ELb1ELb1EECI2St15__uniq_ptr_implIS3_S5_EEPS3_ = comdat any
 
 $_ZNSt15__uniq_ptr_implIN4absl13time_internal4cctz12TimeZoneLibCESt14default_deleteIS3_EEC2EPS3_ = comdat any
@@ -202,11 +202,17 @@ $_ZNSt11_Tuple_implILm0EJPN4absl13time_internal4cctz12TimeZoneLibCESt14default_d
 
 $_ZNSt10_Head_baseILm0EPN4absl13time_internal4cctz12TimeZoneLibCELb0EE7_M_headERS5_ = comdat any
 
+$_ZNSt19__ptr_traits_ptr_toIPccLb0EE10pointer_toERc = comdat any
+
+$_ZNSt15__new_allocatorIcEC2ERKS0_ = comdat any
+
+$_ZNSt11char_traitsIcE6assignERcRKc = comdat any
+
 $_ZNSt11char_traitsIcE6lengthEPKc = comdat any
 
 $_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag = comdat any
 
-$_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderD2Ev = comdat any
+$_ZNSt15__new_allocatorIcED2Ev = comdat any
 
 $_ZSt8distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_ = comdat any
 
@@ -218,6 +224,14 @@ $_ZSt10__distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_St26random
 
 $_ZSt19__iterator_categoryIPKcENSt15iterator_traitsIT_E17iterator_categoryERKS3_ = comdat any
 
+$_ZNSt11char_traitsIcE4copyEPcPKcm = comdat any
+
+$_ZNSt19__ptr_traits_ptr_toIPKcS0_Lb0EE10pointer_toERS0_ = comdat any
+
+$_ZNSt16allocator_traitsISaIcEE10deallocateERS0_Pcm = comdat any
+
+$_ZNSt15__new_allocatorIcE10deallocateEPcm = comdat any
+
 @.str = private unnamed_addr constant [4 x i8] c"-00\00", align 1
 @.str.1 = private unnamed_addr constant [4 x i8] c"UTC\00", align 1
 @_ZZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9min_tp_cs = internal global %"class.absl::time_internal::cctz::detail::civil_time" zeroinitializer, align 8
@@ -225,51 +239,50 @@ $_ZSt19__iterator_categoryIPKcENSt15iterator_traitsIT_E17iterator_categoryERKS3_
 @_ZZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9max_tp_cs = internal global %"class.absl::time_internal::cctz::detail::civil_time" zeroinitializer, align 8
 @_ZGVZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9max_tp_cs = internal global i64 0, align 8
 @.str.2 = private unnamed_addr constant [10 x i8] c"localtime\00", align 1
-@_ZTVN4absl13time_internal4cctz12TimeZoneLibCE = dso_local unnamed_addr constant { [10 x ptr] } { [10 x ptr] [ptr null, ptr @_ZTIN4absl13time_internal4cctz12TimeZoneLibCE, ptr @_ZN4absl13time_internal4cctz12TimeZoneLibCD2Ev, ptr @_ZN4absl13time_internal4cctz12TimeZoneLibCD0Ev, ptr @_ZNK4absl13time_internal4cctz12TimeZoneLibC9BreakTimeERKNSt6chrono10time_pointINS3_3_V212system_clockENS3_8durationIlSt5ratioILl1ELl1EEEEEE, ptr @_ZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEE, ptr @_ZNK4absl13time_internal4cctz12TimeZoneLibC14NextTransitionERKNSt6chrono10time_pointINS3_3_V212system_clockENS3_8durationIlSt5ratioILl1ELl1EEEEEEPNS1_9time_zone16civil_transitionE, ptr @_ZNK4absl13time_internal4cctz12TimeZoneLibC14PrevTransitionERKNSt6chrono10time_pointINS3_3_V212system_clockENS3_8durationIlSt5ratioILl1ELl1EEEEEEPNS1_9time_zone16civil_transitionE, ptr @_ZNK4absl13time_internal4cctz12TimeZoneLibC7VersionB5cxx11Ev, ptr @_ZNK4absl13time_internal4cctz12TimeZoneLibC11DescriptionB5cxx11Ev] }, align 8
+@_ZTVN4absl13time_internal4cctz12TimeZoneLibCE = dso_local unnamed_addr constant { [10 x ptr] } { [10 x ptr] [ptr null, ptr @_ZTIN4absl13time_internal4cctz12TimeZoneLibCE, ptr @_ZN4absl13time_internal4cctz10TimeZoneIfD2Ev, ptr @_ZN4absl13time_internal4cctz12TimeZoneLibCD0Ev, ptr @_ZNK4absl13time_internal4cctz12TimeZoneLibC9BreakTimeERKNSt6chrono10time_pointINS3_3_V212system_clockENS3_8durationIlSt5ratioILl1ELl1EEEEEE, ptr @_ZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEE, ptr @_ZNK4absl13time_internal4cctz12TimeZoneLibC14NextTransitionERKNSt6chrono10time_pointINS3_3_V212system_clockENS3_8durationIlSt5ratioILl1ELl1EEEEEEPNS1_9time_zone16civil_transitionE, ptr @_ZNK4absl13time_internal4cctz12TimeZoneLibC14PrevTransitionERKNSt6chrono10time_pointINS3_3_V212system_clockENS3_8durationIlSt5ratioILl1ELl1EEEEEEPNS1_9time_zone16civil_transitionE, ptr @_ZNK4absl13time_internal4cctz12TimeZoneLibC7VersionB5cxx11Ev, ptr @_ZNK4absl13time_internal4cctz12TimeZoneLibC11DescriptionB5cxx11Ev] }, align 8
+@_ZTIN4absl13time_internal4cctz12TimeZoneLibCE = dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN4absl13time_internal4cctz12TimeZoneLibCE, ptr @_ZTIN4absl13time_internal4cctz10TimeZoneIfE }, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
 @_ZTSN4absl13time_internal4cctz12TimeZoneLibCE = dso_local constant [42 x i8] c"N4absl13time_internal4cctz12TimeZoneLibCE\00", align 1
 @_ZTIN4absl13time_internal4cctz10TimeZoneIfE = external constant ptr
-@_ZTIN4absl13time_internal4cctz12TimeZoneLibCE = dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN4absl13time_internal4cctz12TimeZoneLibCE, ptr @_ZTIN4absl13time_internal4cctz10TimeZoneIfE }, align 8
 @__const._ZN4absl13time_internal4cctz6detail4impl14days_per_monthEla.k_days_per_month = private unnamed_addr constant [13 x i32] [i32 -1, i32 31, i32 28, i32 31, i32 30, i32 31, i32 30, i32 31, i32 31, i32 30, i32 31, i32 30, i32 31], align 16
-@_ZTVN4absl13time_internal4cctz10TimeZoneIfE = external unnamed_addr constant { [10 x ptr] }, align 8
+@_ZTVN4absl13time_internal4cctz10TimeZoneIfE = available_externally unnamed_addr constant { [10 x ptr] } { [10 x ptr] [ptr null, ptr @_ZTIN4absl13time_internal4cctz10TimeZoneIfE, ptr @_ZN4absl13time_internal4cctz10TimeZoneIfD1Ev, ptr @_ZN4absl13time_internal4cctz10TimeZoneIfD0Ev, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual] }, align 8
 @.str.3 = private unnamed_addr constant [50 x i8] c"basic_string: construction from null is not valid\00", align 1
 
 @_ZN4absl13time_internal4cctz12TimeZoneLibCC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE = dso_local unnamed_addr alias void (ptr, ptr), ptr @_ZN4absl13time_internal4cctz12TimeZoneLibCC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl13time_internal4cctz12TimeZoneLibC4MakeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %name) #0 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %name.addr = alloca ptr, align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %name, ptr %name.addr, align 8
-  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #10
-  %0 = load ptr, ptr %name.addr, align 8
-  invoke void @_ZN4absl13time_internal4cctz12TimeZoneLibCC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(9) %call, ptr noundef nonnull align 8 dereferenceable(32) %0)
-          to label %invoke.cont unwind label %lpad
+define dso_local void @_ZN4absl13time_internal4cctz12TimeZoneLibC4MakeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #0 align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8, !tbaa !4
+  %7 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #14
+  %8 = load ptr, ptr %4, align 8, !tbaa !4
+  invoke void @_ZN4absl13time_internal4cctz12TimeZoneLibCC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(9) %7, ptr noundef nonnull align 8 dereferenceable(32) %8)
+          to label %9 unwind label %10
 
-invoke.cont:                                      ; preds = %entry
-  call void @_ZNSt10unique_ptrIN4absl13time_internal4cctz12TimeZoneLibCESt14default_deleteIS3_EEC2IS5_vEEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call) #5
+9:                                                ; preds = %2
+  call void @_ZNSt10unique_ptrIN4absl13time_internal4cctz12TimeZoneLibCESt14default_deleteIS3_EEC2IS5_vEEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7) #8
   ret void
 
-lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+10:                                               ; preds = %2
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
-  call void @_ZdlPv(ptr noundef %call) #11
-  br label %eh.resume
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %5, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %6, align 4
+  call void @_ZdlPvm(ptr noundef %7, i64 noundef 16) #15
+  br label %14
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val1 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val1
+14:                                               ; preds = %10
+  %15 = load ptr, ptr %5, align 8
+  %16 = load i32, ptr %6, align 4
+  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
+  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
+  resume { ptr, i32 } %18
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
@@ -278,1888 +291,2043 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) #1
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) #2
+declare void @_ZdlPvm(ptr noundef, i64 noundef) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZNSt10unique_ptrIN4absl13time_internal4cctz12TimeZoneLibCESt14default_deleteIS3_EEC2IS5_vEEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %__p) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__p.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__p, ptr %__p.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_t = getelementptr inbounds %"class.std::unique_ptr", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %__p.addr, align 8
-  invoke void @_ZNSt15__uniq_ptr_dataIN4absl13time_internal4cctz12TimeZoneLibCESt14default_deleteIS3_ELb1ELb1EECI2St15__uniq_ptr_implIS3_S5_EEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %_M_t, ptr noundef %0)
-          to label %invoke.cont unwind label %terminate.lpad
+define linkonce_odr dso_local void @_ZNSt10unique_ptrIN4absl13time_internal4cctz12TimeZoneLibCESt14default_deleteIS3_EEC2IS5_vEEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !9
+  store ptr %1, ptr %4, align 8, !tbaa !11
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !11
+  invoke void @_ZNSt15__uniq_ptr_dataIN4absl13time_internal4cctz12TimeZoneLibCESt14default_deleteIS3_ELb1ELb1EECI2St15__uniq_ptr_implIS3_S5_EEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %7)
+          to label %8 unwind label %9
 
-invoke.cont:                                      ; preds = %entry
+8:                                                ; preds = %2
   ret void
 
-terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+9:                                                ; preds = %2
+  %10 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #12
+  %11 = extractvalue { ptr, i32 } %10, 0
+  call void @__clang_call_terminate(ptr %11) #16
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4absl13time_internal4cctz12TimeZoneLibC9BreakTimeERKNSt6chrono10time_pointINS3_3_V212system_clockENS3_8durationIlSt5ratioILl1ELl1EEEEEE(ptr noalias sret(%"struct.absl::time_internal::cctz::time_zone::absolute_lookup") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(9) %this, ptr noundef nonnull align 8 dereferenceable(8) %tp) unnamed_addr #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %tp.addr = alloca ptr, align 8
-  %s = alloca i64, align 8
-  %ref.tmp = alloca %"class.absl::time_internal::cctz::detail::civil_time", align 8
-  %ref.tmp7 = alloca %"class.absl::time_internal::cctz::detail::civil_time", align 8
-  %t = alloca i64, align 8
-  %tm = alloca %struct.tm, align 8
-  %tmp = alloca ptr, align 8
-  %ref.tmp16 = alloca %"class.absl::time_internal::cctz::detail::civil_time", align 8
-  %year = alloca i64, align 8
-  %ref.tmp27 = alloca %"class.absl::time_internal::cctz::detail::civil_time", align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %tp, ptr %tp.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN4absl13time_internal4cctz9time_zone15absolute_lookupC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #5
-  %offset = getelementptr inbounds %"struct.absl::time_internal::cctz::time_zone::absolute_lookup", ptr %agg.result, i32 0, i32 1
-  store i32 0, ptr %offset, align 8
-  %is_dst = getelementptr inbounds %"struct.absl::time_internal::cctz::time_zone::absolute_lookup", ptr %agg.result, i32 0, i32 2
-  store i8 0, ptr %is_dst, align 4
-  %abbr = getelementptr inbounds %"struct.absl::time_internal::cctz::time_zone::absolute_lookup", ptr %agg.result, i32 0, i32 3
-  store ptr @.str, ptr %abbr, align 8
-  %0 = load ptr, ptr %tp.addr, align 8
-  %call = call noundef i64 @_ZN4absl13time_internal4cctz13ToUnixSecondsERKNSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1EEEEEE(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  store i64 %call, ptr %s, align 8
-  %1 = load i64, ptr %s, align 8
-  %call2 = call noundef i64 @_ZNSt14numeric_limitsIlE3minEv() #5
-  %cmp = icmp slt i64 %1, %call2
-  br i1 %cmp, label %if.then, label %if.end
+define dso_local void @_ZNK4absl13time_internal4cctz12TimeZoneLibC9BreakTimeERKNSt6chrono10time_pointINS3_3_V212system_clockENS3_8durationIlSt5ratioILl1ELl1EEEEEE(ptr dead_on_unwind noalias writable sret(%"struct.absl::time_internal::cctz::time_zone::absolute_lookup") align 8 %0, ptr noundef nonnull align 8 dereferenceable(9) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #0 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca %"class.absl::time_internal::cctz::detail::civil_time", align 8
+  %8 = alloca i32, align 4
+  %9 = alloca %"class.absl::time_internal::cctz::detail::civil_time", align 8
+  %10 = alloca i64, align 8
+  %11 = alloca %struct.tm, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca %"class.absl::time_internal::cctz::detail::civil_time", align 8
+  %14 = alloca i64, align 8
+  %15 = alloca %"class.absl::time_internal::cctz::detail::civil_time", align 8
+  store ptr %1, ptr %4, align 8, !tbaa !11
+  store ptr %2, ptr %5, align 8, !tbaa !13
+  %16 = load ptr, ptr %4, align 8
+  call void @_ZN4absl13time_internal4cctz9time_zone15absolute_lookupC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #8
+  %17 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::time_zone::absolute_lookup", ptr %0, i32 0, i32 1
+  store i32 0, ptr %17, align 8, !tbaa !15
+  %18 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::time_zone::absolute_lookup", ptr %0, i32 0, i32 2
+  store i8 0, ptr %18, align 4, !tbaa !23
+  %19 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::time_zone::absolute_lookup", ptr %0, i32 0, i32 3
+  store ptr @.str, ptr %19, align 8, !tbaa !24
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  %20 = load ptr, ptr %5, align 8, !tbaa !13
+  %21 = call noundef i64 @_ZN4absl13time_internal4cctz13ToUnixSecondsERKNSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1EEEEEE(ptr noundef nonnull align 8 dereferenceable(8) %20)
+  store i64 %21, ptr %6, align 8, !tbaa !25
+  %22 = load i64, ptr %6, align 8, !tbaa !25
+  %23 = call noundef i64 @_ZNSt14numeric_limitsIlE3minEv() #8
+  %24 = icmp slt i64 %22, %23
+  br i1 %24, label %25, label %33
 
-if.then:                                          ; preds = %entry
-  %call3 = call { i64, i64 } @_ZN4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE3minEv()
-  %coerce.dive = getelementptr inbounds %"class.absl::time_internal::cctz::detail::civil_time", ptr %ref.tmp, i32 0, i32 0
-  %2 = getelementptr inbounds { i64, i64 }, ptr %coerce.dive, i32 0, i32 0
-  %3 = extractvalue { i64, i64 } %call3, 0
-  store i64 %3, ptr %2, align 8
-  %4 = getelementptr inbounds { i64, i64 }, ptr %coerce.dive, i32 0, i32 1
-  %5 = extractvalue { i64, i64 } %call3, 1
-  store i64 %5, ptr %4, align 8
-  %cs = getelementptr inbounds %"struct.absl::time_internal::cctz::time_zone::absolute_lookup", ptr %agg.result, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %cs, ptr align 8 %ref.tmp, i64 16, i1 false)
-  br label %return
+25:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 16, ptr %7) #8
+  %26 = call { i64, i64 } @_ZN4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE3minEv()
+  %27 = getelementptr inbounds nuw %"class.absl::time_internal::cctz::detail::civil_time", ptr %7, i32 0, i32 0
+  %28 = getelementptr inbounds nuw { i64, i64 }, ptr %27, i32 0, i32 0
+  %29 = extractvalue { i64, i64 } %26, 0
+  store i64 %29, ptr %28, align 8
+  %30 = getelementptr inbounds nuw { i64, i64 }, ptr %27, i32 0, i32 1
+  %31 = extractvalue { i64, i64 } %26, 1
+  store i64 %31, ptr %30, align 8
+  %32 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::time_zone::absolute_lookup", ptr %0, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %32, ptr align 8 %7, i64 16, i1 false), !tbaa.struct !26
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #8
+  store i32 1, ptr %8, align 4
+  br label %127
 
-if.end:                                           ; preds = %entry
-  %6 = load i64, ptr %s, align 8
-  %call4 = call noundef i64 @_ZNSt14numeric_limitsIlE3maxEv() #5
-  %cmp5 = icmp sgt i64 %6, %call4
-  br i1 %cmp5, label %if.then6, label %if.end11
+33:                                               ; preds = %3
+  %34 = load i64, ptr %6, align 8, !tbaa !25
+  %35 = call noundef i64 @_ZNSt14numeric_limitsIlE3maxEv() #8
+  %36 = icmp sgt i64 %34, %35
+  br i1 %36, label %37, label %45
 
-if.then6:                                         ; preds = %if.end
-  %call8 = call { i64, i64 } @_ZN4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE3maxEv()
-  %coerce.dive9 = getelementptr inbounds %"class.absl::time_internal::cctz::detail::civil_time", ptr %ref.tmp7, i32 0, i32 0
-  %7 = getelementptr inbounds { i64, i64 }, ptr %coerce.dive9, i32 0, i32 0
-  %8 = extractvalue { i64, i64 } %call8, 0
-  store i64 %8, ptr %7, align 8
-  %9 = getelementptr inbounds { i64, i64 }, ptr %coerce.dive9, i32 0, i32 1
-  %10 = extractvalue { i64, i64 } %call8, 1
-  store i64 %10, ptr %9, align 8
-  %cs10 = getelementptr inbounds %"struct.absl::time_internal::cctz::time_zone::absolute_lookup", ptr %agg.result, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %cs10, ptr align 8 %ref.tmp7, i64 16, i1 false)
-  br label %return
+37:                                               ; preds = %33
+  call void @llvm.lifetime.start.p0(i64 16, ptr %9) #8
+  %38 = call { i64, i64 } @_ZN4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE3maxEv()
+  %39 = getelementptr inbounds nuw %"class.absl::time_internal::cctz::detail::civil_time", ptr %9, i32 0, i32 0
+  %40 = getelementptr inbounds nuw { i64, i64 }, ptr %39, i32 0, i32 0
+  %41 = extractvalue { i64, i64 } %38, 0
+  store i64 %41, ptr %40, align 8
+  %42 = getelementptr inbounds nuw { i64, i64 }, ptr %39, i32 0, i32 1
+  %43 = extractvalue { i64, i64 } %38, 1
+  store i64 %43, ptr %42, align 8
+  %44 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::time_zone::absolute_lookup", ptr %0, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %44, ptr align 8 %9, i64 16, i1 false), !tbaa.struct !26
+  call void @llvm.lifetime.end.p0(i64 16, ptr %9) #8
+  store i32 1, ptr %8, align 4
+  br label %127
 
-if.end11:                                         ; preds = %if.end
-  %11 = load i64, ptr %s, align 8
-  store i64 %11, ptr %t, align 8
-  %local_ = getelementptr inbounds %"class.absl::time_internal::cctz::TimeZoneLibC", ptr %this1, i32 0, i32 1
-  %12 = load i8, ptr %local_, align 8
-  %tobool = trunc i8 %12 to i1
-  br i1 %tobool, label %cond.true, label %cond.false
+45:                                               ; preds = %33
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #8
+  %46 = load i64, ptr %6, align 8, !tbaa !25
+  store i64 %46, ptr %10, align 8, !tbaa !25
+  call void @llvm.lifetime.start.p0(i64 56, ptr %11) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #8
+  %47 = getelementptr inbounds nuw %"class.absl::time_internal::cctz::TimeZoneLibC", ptr %16, i32 0, i32 1
+  %48 = load i8, ptr %47, align 8, !tbaa !28, !range !31, !noundef !32
+  %49 = trunc i8 %48 to i1
+  br i1 %49, label %50, label %52
 
-cond.true:                                        ; preds = %if.end11
-  %call12 = call noundef ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_110local_timeEPKlP2tm(ptr noundef %t, ptr noundef %tm)
-  br label %cond.end
+50:                                               ; preds = %45
+  %51 = call noundef ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_110local_timeEPKlP2tm(ptr noundef %10, ptr noundef %11)
+  br label %54
 
-cond.false:                                       ; preds = %if.end11
-  %call13 = call noundef ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_17gm_timeEPKlP2tm(ptr noundef %t, ptr noundef %tm)
-  br label %cond.end
+52:                                               ; preds = %45
+  %53 = call noundef ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_17gm_timeEPKlP2tm(ptr noundef %10, ptr noundef %11)
+  br label %54
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi ptr [ %call12, %cond.true ], [ %call13, %cond.false ]
-  store ptr %cond, ptr %tmp, align 8
-  %13 = load ptr, ptr %tmp, align 8
-  %cmp14 = icmp eq ptr %13, null
-  br i1 %cmp14, label %if.then15, label %if.end26
+54:                                               ; preds = %52, %50
+  %55 = phi ptr [ %51, %50 ], [ %53, %52 ]
+  store ptr %55, ptr %12, align 8, !tbaa !33
+  %56 = load ptr, ptr %12, align 8, !tbaa !33
+  %57 = icmp eq ptr %56, null
+  br i1 %57, label %58, label %77
 
-if.then15:                                        ; preds = %cond.end
-  %14 = load i64, ptr %s, align 8
-  %cmp17 = icmp slt i64 %14, 0
-  br i1 %cmp17, label %cond.true18, label %cond.false21
+58:                                               ; preds = %54
+  call void @llvm.lifetime.start.p0(i64 16, ptr %13) #8
+  %59 = load i64, ptr %6, align 8, !tbaa !25
+  %60 = icmp slt i64 %59, 0
+  br i1 %60, label %61, label %68
 
-cond.true18:                                      ; preds = %if.then15
-  %call19 = call { i64, i64 } @_ZN4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE3minEv()
-  %coerce.dive20 = getelementptr inbounds %"class.absl::time_internal::cctz::detail::civil_time", ptr %ref.tmp16, i32 0, i32 0
-  %15 = getelementptr inbounds { i64, i64 }, ptr %coerce.dive20, i32 0, i32 0
-  %16 = extractvalue { i64, i64 } %call19, 0
-  store i64 %16, ptr %15, align 8
-  %17 = getelementptr inbounds { i64, i64 }, ptr %coerce.dive20, i32 0, i32 1
-  %18 = extractvalue { i64, i64 } %call19, 1
-  store i64 %18, ptr %17, align 8
-  br label %cond.end24
+61:                                               ; preds = %58
+  %62 = call { i64, i64 } @_ZN4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE3minEv()
+  %63 = getelementptr inbounds nuw %"class.absl::time_internal::cctz::detail::civil_time", ptr %13, i32 0, i32 0
+  %64 = getelementptr inbounds nuw { i64, i64 }, ptr %63, i32 0, i32 0
+  %65 = extractvalue { i64, i64 } %62, 0
+  store i64 %65, ptr %64, align 8
+  %66 = getelementptr inbounds nuw { i64, i64 }, ptr %63, i32 0, i32 1
+  %67 = extractvalue { i64, i64 } %62, 1
+  store i64 %67, ptr %66, align 8
+  br label %75
 
-cond.false21:                                     ; preds = %if.then15
-  %call22 = call { i64, i64 } @_ZN4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE3maxEv()
-  %coerce.dive23 = getelementptr inbounds %"class.absl::time_internal::cctz::detail::civil_time", ptr %ref.tmp16, i32 0, i32 0
-  %19 = getelementptr inbounds { i64, i64 }, ptr %coerce.dive23, i32 0, i32 0
-  %20 = extractvalue { i64, i64 } %call22, 0
-  store i64 %20, ptr %19, align 8
-  %21 = getelementptr inbounds { i64, i64 }, ptr %coerce.dive23, i32 0, i32 1
-  %22 = extractvalue { i64, i64 } %call22, 1
-  store i64 %22, ptr %21, align 8
-  br label %cond.end24
+68:                                               ; preds = %58
+  %69 = call { i64, i64 } @_ZN4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE3maxEv()
+  %70 = getelementptr inbounds nuw %"class.absl::time_internal::cctz::detail::civil_time", ptr %13, i32 0, i32 0
+  %71 = getelementptr inbounds nuw { i64, i64 }, ptr %70, i32 0, i32 0
+  %72 = extractvalue { i64, i64 } %69, 0
+  store i64 %72, ptr %71, align 8
+  %73 = getelementptr inbounds nuw { i64, i64 }, ptr %70, i32 0, i32 1
+  %74 = extractvalue { i64, i64 } %69, 1
+  store i64 %74, ptr %73, align 8
+  br label %75
 
-cond.end24:                                       ; preds = %cond.false21, %cond.true18
-  %cs25 = getelementptr inbounds %"struct.absl::time_internal::cctz::time_zone::absolute_lookup", ptr %agg.result, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %cs25, ptr align 8 %ref.tmp16, i64 16, i1 false)
-  br label %return
+75:                                               ; preds = %68, %61
+  %76 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::time_zone::absolute_lookup", ptr %0, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %76, ptr align 8 %13, i64 16, i1 false), !tbaa.struct !26
+  call void @llvm.lifetime.end.p0(i64 16, ptr %13) #8
+  store i32 1, ptr %8, align 4
+  br label %126
 
-if.end26:                                         ; preds = %cond.end
-  %23 = load ptr, ptr %tmp, align 8
-  %tm_year = getelementptr inbounds %struct.tm, ptr %23, i32 0, i32 5
-  %24 = load i32, ptr %tm_year, align 4
-  %conv = sext i32 %24 to i64
-  %add = add nsw i64 %conv, 1900
-  store i64 %add, ptr %year, align 8
-  %25 = load i64, ptr %year, align 8
-  %26 = load ptr, ptr %tmp, align 8
-  %tm_mon = getelementptr inbounds %struct.tm, ptr %26, i32 0, i32 4
-  %27 = load i32, ptr %tm_mon, align 8
-  %add28 = add nsw i32 %27, 1
-  %conv29 = sext i32 %add28 to i64
-  %28 = load ptr, ptr %tmp, align 8
-  %tm_mday = getelementptr inbounds %struct.tm, ptr %28, i32 0, i32 3
-  %29 = load i32, ptr %tm_mday, align 4
-  %conv30 = sext i32 %29 to i64
-  %30 = load ptr, ptr %tmp, align 8
-  %tm_hour = getelementptr inbounds %struct.tm, ptr %30, i32 0, i32 2
-  %31 = load i32, ptr %tm_hour, align 8
-  %conv31 = sext i32 %31 to i64
-  %32 = load ptr, ptr %tmp, align 8
-  %tm_min = getelementptr inbounds %struct.tm, ptr %32, i32 0, i32 1
-  %33 = load i32, ptr %tm_min, align 4
-  %conv32 = sext i32 %33 to i64
-  %34 = load ptr, ptr %tmp, align 8
-  %tm_sec = getelementptr inbounds %struct.tm, ptr %34, i32 0, i32 0
-  %35 = load i32, ptr %tm_sec, align 8
-  %conv33 = sext i32 %35 to i64
-  call void @_ZN4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEEC2Ellllll(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp27, i64 noundef %25, i64 noundef %conv29, i64 noundef %conv30, i64 noundef %conv31, i64 noundef %conv32, i64 noundef %conv33) #5
-  %cs34 = getelementptr inbounds %"struct.absl::time_internal::cctz::time_zone::absolute_lookup", ptr %agg.result, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %cs34, ptr align 8 %ref.tmp27, i64 16, i1 false)
-  %36 = load ptr, ptr %tmp, align 8
-  %call35 = call noundef i64 @_ZN4absl13time_internal4cctz12_GLOBAL__N_19tm_gmtoffI2tmEEDtdtfp_9tm_gmtoffERKT_(ptr noundef nonnull align 8 dereferenceable(56) %36)
-  %conv36 = trunc i64 %call35 to i32
-  %offset37 = getelementptr inbounds %"struct.absl::time_internal::cctz::time_zone::absolute_lookup", ptr %agg.result, i32 0, i32 1
-  store i32 %conv36, ptr %offset37, align 8
-  %local_38 = getelementptr inbounds %"class.absl::time_internal::cctz::TimeZoneLibC", ptr %this1, i32 0, i32 1
-  %37 = load i8, ptr %local_38, align 8
-  %tobool39 = trunc i8 %37 to i1
-  br i1 %tobool39, label %cond.true40, label %cond.false42
+77:                                               ; preds = %54
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #8
+  %78 = load ptr, ptr %12, align 8, !tbaa !33
+  %79 = getelementptr inbounds nuw %struct.tm, ptr %78, i32 0, i32 5
+  %80 = load i32, ptr %79, align 4, !tbaa !35
+  %81 = sext i32 %80 to i64
+  %82 = add nsw i64 %81, 1900
+  store i64 %82, ptr %14, align 8, !tbaa !25
+  call void @llvm.lifetime.start.p0(i64 16, ptr %15) #8
+  %83 = load i64, ptr %14, align 8, !tbaa !25
+  %84 = load ptr, ptr %12, align 8, !tbaa !33
+  %85 = getelementptr inbounds nuw %struct.tm, ptr %84, i32 0, i32 4
+  %86 = load i32, ptr %85, align 8, !tbaa !37
+  %87 = add nsw i32 %86, 1
+  %88 = sext i32 %87 to i64
+  %89 = load ptr, ptr %12, align 8, !tbaa !33
+  %90 = getelementptr inbounds nuw %struct.tm, ptr %89, i32 0, i32 3
+  %91 = load i32, ptr %90, align 4, !tbaa !38
+  %92 = sext i32 %91 to i64
+  %93 = load ptr, ptr %12, align 8, !tbaa !33
+  %94 = getelementptr inbounds nuw %struct.tm, ptr %93, i32 0, i32 2
+  %95 = load i32, ptr %94, align 8, !tbaa !39
+  %96 = sext i32 %95 to i64
+  %97 = load ptr, ptr %12, align 8, !tbaa !33
+  %98 = getelementptr inbounds nuw %struct.tm, ptr %97, i32 0, i32 1
+  %99 = load i32, ptr %98, align 4, !tbaa !40
+  %100 = sext i32 %99 to i64
+  %101 = load ptr, ptr %12, align 8, !tbaa !33
+  %102 = getelementptr inbounds nuw %struct.tm, ptr %101, i32 0, i32 0
+  %103 = load i32, ptr %102, align 8, !tbaa !41
+  %104 = sext i32 %103 to i64
+  call void @_ZN4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEEC2Ellllll(ptr noundef nonnull align 8 dereferenceable(16) %15, i64 noundef %83, i64 noundef %88, i64 noundef %92, i64 noundef %96, i64 noundef %100, i64 noundef %104) #8
+  %105 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::time_zone::absolute_lookup", ptr %0, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %105, ptr align 8 %15, i64 16, i1 false), !tbaa.struct !26
+  call void @llvm.lifetime.end.p0(i64 16, ptr %15) #8
+  %106 = load ptr, ptr %12, align 8, !tbaa !33
+  %107 = call noundef i64 @_ZN4absl13time_internal4cctz12_GLOBAL__N_19tm_gmtoffI2tmEEDtdtfp_9tm_gmtoffERKT_(ptr noundef nonnull align 8 dereferenceable(56) %106)
+  %108 = trunc i64 %107 to i32
+  %109 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::time_zone::absolute_lookup", ptr %0, i32 0, i32 1
+  store i32 %108, ptr %109, align 8, !tbaa !15
+  %110 = getelementptr inbounds nuw %"class.absl::time_internal::cctz::TimeZoneLibC", ptr %16, i32 0, i32 1
+  %111 = load i8, ptr %110, align 8, !tbaa !28, !range !31, !noundef !32
+  %112 = trunc i8 %111 to i1
+  br i1 %112, label %113, label %116
 
-cond.true40:                                      ; preds = %if.end26
-  %38 = load ptr, ptr %tmp, align 8
-  %call41 = call noundef ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_17tm_zoneI2tmEEDtdtfp_7tm_zoneERKT_(ptr noundef nonnull align 8 dereferenceable(56) %38)
-  br label %cond.end43
+113:                                              ; preds = %77
+  %114 = load ptr, ptr %12, align 8, !tbaa !33
+  %115 = call noundef ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_17tm_zoneI2tmEEDtdtfp_7tm_zoneERKT_(ptr noundef nonnull align 8 dereferenceable(56) %114)
+  br label %117
 
-cond.false42:                                     ; preds = %if.end26
-  br label %cond.end43
+116:                                              ; preds = %77
+  br label %117
 
-cond.end43:                                       ; preds = %cond.false42, %cond.true40
-  %cond44 = phi ptr [ %call41, %cond.true40 ], [ @.str.1, %cond.false42 ]
-  %abbr45 = getelementptr inbounds %"struct.absl::time_internal::cctz::time_zone::absolute_lookup", ptr %agg.result, i32 0, i32 3
-  store ptr %cond44, ptr %abbr45, align 8
-  %39 = load ptr, ptr %tmp, align 8
-  %tm_isdst = getelementptr inbounds %struct.tm, ptr %39, i32 0, i32 8
-  %40 = load i32, ptr %tm_isdst, align 8
-  %cmp46 = icmp sgt i32 %40, 0
-  %is_dst47 = getelementptr inbounds %"struct.absl::time_internal::cctz::time_zone::absolute_lookup", ptr %agg.result, i32 0, i32 2
-  %frombool = zext i1 %cmp46 to i8
-  store i8 %frombool, ptr %is_dst47, align 4
-  br label %return
+117:                                              ; preds = %116, %113
+  %118 = phi ptr [ %115, %113 ], [ @.str.1, %116 ]
+  %119 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::time_zone::absolute_lookup", ptr %0, i32 0, i32 3
+  store ptr %118, ptr %119, align 8, !tbaa !24
+  %120 = load ptr, ptr %12, align 8, !tbaa !33
+  %121 = getelementptr inbounds nuw %struct.tm, ptr %120, i32 0, i32 8
+  %122 = load i32, ptr %121, align 8, !tbaa !42
+  %123 = icmp sgt i32 %122, 0
+  %124 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::time_zone::absolute_lookup", ptr %0, i32 0, i32 2
+  %125 = zext i1 %123 to i8
+  store i8 %125, ptr %124, align 4, !tbaa !23
+  store i32 1, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #8
+  br label %126
 
-return:                                           ; preds = %cond.end43, %cond.end24, %if.then6, %if.then
+126:                                              ; preds = %117, %75
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #8
+  call void @llvm.lifetime.end.p0(i64 56, ptr %11) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #8
+  br label %127
+
+127:                                              ; preds = %126, %37, %25
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN4absl13time_internal4cctz9time_zone15absolute_lookupC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %cs = getelementptr inbounds %"struct.absl::time_internal::cctz::time_zone::absolute_lookup", ptr %this1, i32 0, i32 0
-  call void @_ZN4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %cs) #5
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN4absl13time_internal4cctz9time_zone15absolute_lookupC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !43
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::time_zone::absolute_lookup", ptr %3, i32 0, i32 0
+  call void @_ZN4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #8
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i64 @_ZN4absl13time_internal4cctz13ToUnixSecondsERKNSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1EEEEEE(ptr noundef nonnull align 8 dereferenceable(8) %tp) #0 comdat {
-entry:
-  %tp.addr = alloca ptr, align 8
-  %ref.tmp = alloca %"class.std::chrono::duration", align 8
-  %ref.tmp1 = alloca %"class.std::chrono::time_point", align 8
-  %ref.tmp2 = alloca %"class.std::chrono::time_point.2", align 8
-  store ptr %tp, ptr %tp.addr, align 8
-  %0 = load ptr, ptr %tp.addr, align 8
-  %call = call i64 @_ZNSt6chrono3_V212system_clock11from_time_tEl(i64 noundef 0) #5
-  %coerce.dive = getelementptr inbounds %"class.std::chrono::time_point.2", ptr %ref.tmp2, i32 0, i32 0
-  %coerce.dive3 = getelementptr inbounds %"class.std::chrono::duration.3", ptr %coerce.dive, i32 0, i32 0
-  store i64 %call, ptr %coerce.dive3, align 8
-  %call4 = call i64 @_ZNSt6chrono15time_point_castINS_8durationIlSt5ratioILl1ELl1EEEENS_3_V212system_clockENS1_IlS2_ILl1ELl1000000000EEEEEENSt9enable_ifIXsr13__is_durationIT_EE5valueENS_10time_pointIT0_SA_EEE4typeERKNSB_ISC_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2)
-  %coerce.dive5 = getelementptr inbounds %"class.std::chrono::time_point", ptr %ref.tmp1, i32 0, i32 0
-  %coerce.dive6 = getelementptr inbounds %"class.std::chrono::duration", ptr %coerce.dive5, i32 0, i32 0
-  store i64 %call4, ptr %coerce.dive6, align 8
-  %call7 = call i64 @_ZNSt6chronomiINS_3_V212system_clockENS_8durationIlSt5ratioILl1ELl1EEEES6_EENSt11common_typeIJT0_T1_EE4typeERKNS_10time_pointIT_S8_EERKNSC_ISD_S9_EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp1)
-  %coerce.dive8 = getelementptr inbounds %"class.std::chrono::duration", ptr %ref.tmp, i32 0, i32 0
-  store i64 %call7, ptr %coerce.dive8, align 8
-  %call9 = call noundef i64 @_ZNKSt6chrono8durationIlSt5ratioILl1ELl1EEE5countEv(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
-  ret i64 %call9
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef i64 @_ZN4absl13time_internal4cctz13ToUnixSecondsERKNSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1EEEEEE(ptr noundef nonnull align 8 dereferenceable(8) %0) #6 comdat {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"class.std::chrono::duration", align 8
+  %4 = alloca %"class.std::chrono::time_point", align 8
+  %5 = alloca %"class.std::chrono::time_point.2", align 8
+  store ptr %0, ptr %2, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #8
+  %6 = load ptr, ptr %2, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  %7 = call i64 @_ZNSt6chrono3_V212system_clock11from_time_tEl(i64 noundef 0) #8
+  %8 = getelementptr inbounds nuw %"class.std::chrono::time_point.2", ptr %5, i32 0, i32 0
+  %9 = getelementptr inbounds nuw %"class.std::chrono::duration.3", ptr %8, i32 0, i32 0
+  store i64 %7, ptr %9, align 8
+  %10 = call i64 @_ZNSt6chrono15time_point_castINS_8durationIlSt5ratioILl1ELl1EEEENS_3_V212system_clockENS1_IlS2_ILl1ELl1000000000EEEEEENSt9enable_ifIXsr13__is_durationIT_EE5valueENS_10time_pointIT0_SA_EEE4typeERKNSB_ISC_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %5)
+  %11 = getelementptr inbounds nuw %"class.std::chrono::time_point", ptr %4, i32 0, i32 0
+  %12 = getelementptr inbounds nuw %"class.std::chrono::duration", ptr %11, i32 0, i32 0
+  store i64 %10, ptr %12, align 8
+  %13 = call i64 @_ZNSt6chronomiINS_3_V212system_clockENS_8durationIlSt5ratioILl1ELl1EEEES6_EENSt11common_typeIJT0_T1_EE4typeERKNS_10time_pointIT_S8_EERKNSC_ISD_S9_EE(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %14 = getelementptr inbounds nuw %"class.std::chrono::duration", ptr %3, i32 0, i32 0
+  store i64 %13, ptr %14, align 8
+  %15 = call noundef i64 @_ZNKSt6chrono8durationIlSt5ratioILl1ELl1EEE5countEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #8
+  ret i64 %15
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNSt14numeric_limitsIlE3minEv() #3 comdat align 2 {
-entry:
   ret i64 -9223372036854775808
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local { i64, i64 } @_ZN4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE3minEv() #3 comdat align 2 {
-entry:
-  %retval = alloca %"class.absl::time_internal::cctz::detail::civil_time", align 8
-  %min_year = alloca i64, align 8
-  store i64 -9223372036854775808, ptr %min_year, align 8
-  call void @_ZN4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEEC2Ellllll(ptr noundef nonnull align 8 dereferenceable(16) %retval, i64 noundef -9223372036854775808, i64 noundef 1, i64 noundef 1, i64 noundef 0, i64 noundef 0, i64 noundef 0) #5
-  %coerce.dive = getelementptr inbounds %"class.absl::time_internal::cctz::detail::civil_time", ptr %retval, i32 0, i32 0
-  %0 = load { i64, i64 }, ptr %coerce.dive, align 8
-  ret { i64, i64 } %0
+  %1 = alloca %"class.absl::time_internal::cctz::detail::civil_time", align 8
+  %2 = alloca i64, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #8
+  store i64 -9223372036854775808, ptr %2, align 8, !tbaa !25
+  call void @_ZN4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEEC2Ellllll(ptr noundef nonnull align 8 dereferenceable(16) %1, i64 noundef -9223372036854775808, i64 noundef 1, i64 noundef 1, i64 noundef 0, i64 noundef 0, i64 noundef 0) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #8
+  %3 = getelementptr inbounds nuw %"class.absl::time_internal::cctz::detail::civil_time", ptr %1, i32 0, i32 0
+  %4 = load { i64, i64 }, ptr %3, align 8
+  ret { i64, i64 } %4
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNSt14numeric_limitsIlE3maxEv() #3 comdat align 2 {
-entry:
   ret i64 9223372036854775807
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local { i64, i64 } @_ZN4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE3maxEv() #3 comdat align 2 {
-entry:
-  %retval = alloca %"class.absl::time_internal::cctz::detail::civil_time", align 8
-  %max_year = alloca i64, align 8
-  store i64 9223372036854775807, ptr %max_year, align 8
-  call void @_ZN4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEEC2Ellllll(ptr noundef nonnull align 8 dereferenceable(16) %retval, i64 noundef 9223372036854775807, i64 noundef 12, i64 noundef 31, i64 noundef 23, i64 noundef 59, i64 noundef 59) #5
-  %coerce.dive = getelementptr inbounds %"class.absl::time_internal::cctz::detail::civil_time", ptr %retval, i32 0, i32 0
-  %0 = load { i64, i64 }, ptr %coerce.dive, align 8
-  ret { i64, i64 } %0
+  %1 = alloca %"class.absl::time_internal::cctz::detail::civil_time", align 8
+  %2 = alloca i64, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #8
+  store i64 9223372036854775807, ptr %2, align 8, !tbaa !25
+  call void @_ZN4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEEC2Ellllll(ptr noundef nonnull align 8 dereferenceable(16) %1, i64 noundef 9223372036854775807, i64 noundef 12, i64 noundef 31, i64 noundef 23, i64 noundef 59, i64 noundef 59) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #8
+  %3 = getelementptr inbounds nuw %"class.absl::time_internal::cctz::detail::civil_time", ptr %1, i32 0, i32 0
+  %4 = load { i64, i64 }, ptr %3, align 8
+  ret { i64, i64 } %4
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define internal noundef ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_110local_timeEPKlP2tm(ptr noundef %0, ptr noundef %1) #4 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !45
+  store ptr %1, ptr %4, align 8, !tbaa !33
+  %5 = load ptr, ptr %3, align 8, !tbaa !45
+  %6 = load ptr, ptr %4, align 8, !tbaa !33
+  %7 = call ptr @localtime_r(ptr noundef %5, ptr noundef %6) #8
+  ret ptr %7
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define internal noundef ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_17gm_timeEPKlP2tm(ptr noundef %0, ptr noundef %1) #4 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !45
+  store ptr %1, ptr %4, align 8, !tbaa !33
+  %5 = load ptr, ptr %3, align 8, !tbaa !45
+  %6 = load ptr, ptr %4, align 8, !tbaa !33
+  %7 = call ptr @gmtime_r(ptr noundef %5, ptr noundef %6) #8
+  ret ptr %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_110local_timeEPKlP2tm(ptr noundef %timep, ptr noundef %result) #3 {
-entry:
-  %timep.addr = alloca ptr, align 8
-  %result.addr = alloca ptr, align 8
-  store ptr %timep, ptr %timep.addr, align 8
-  store ptr %result, ptr %result.addr, align 8
-  %0 = load ptr, ptr %timep.addr, align 8
-  %1 = load ptr, ptr %result.addr, align 8
-  %call = call ptr @localtime_r(ptr noundef %0, ptr noundef %1) #5
-  ret ptr %call
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define internal noundef ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_17gm_timeEPKlP2tm(ptr noundef %timep, ptr noundef %result) #3 {
-entry:
-  %timep.addr = alloca ptr, align 8
-  %result.addr = alloca ptr, align 8
-  store ptr %timep, ptr %timep.addr, align 8
-  store ptr %result, ptr %result.addr, align 8
-  %0 = load ptr, ptr %timep.addr, align 8
-  %1 = load ptr, ptr %result.addr, align 8
-  %call = call ptr @gmtime_r(ptr noundef %0, ptr noundef %1) #5
-  ret ptr %call
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEEC2Ellllll(ptr noundef nonnull align 8 dereferenceable(16) %this, i64 noundef %y, i64 noundef %m, i64 noundef %d, i64 noundef %hh, i64 noundef %mm, i64 noundef %ss) unnamed_addr #3 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %y.addr = alloca i64, align 8
-  %m.addr = alloca i64, align 8
-  %d.addr = alloca i64, align 8
-  %hh.addr = alloca i64, align 8
-  %mm.addr = alloca i64, align 8
-  %ss.addr = alloca i64, align 8
-  %agg.tmp = alloca %"struct.absl::time_internal::cctz::detail::fields", align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i64 %y, ptr %y.addr, align 8
-  store i64 %m, ptr %m.addr, align 8
-  store i64 %d, ptr %d.addr, align 8
-  store i64 %hh, ptr %hh.addr, align 8
-  store i64 %mm, ptr %mm.addr, align 8
-  store i64 %ss, ptr %ss.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i64, ptr %y.addr, align 8
-  %1 = load i64, ptr %m.addr, align 8
-  %2 = load i64, ptr %d.addr, align 8
-  %3 = load i64, ptr %hh.addr, align 8
-  %4 = load i64, ptr %mm.addr, align 8
-  %5 = load i64, ptr %ss.addr, align 8
-  %call = call { i64, i64 } @_ZN4absl13time_internal4cctz6detail4impl5n_secEllllll(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5) #5
-  %6 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp, i32 0, i32 0
-  %7 = extractvalue { i64, i64 } %call, 0
-  store i64 %7, ptr %6, align 8
-  %8 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp, i32 0, i32 1
-  %9 = extractvalue { i64, i64 } %call, 1
-  store i64 %9, ptr %8, align 8
-  %10 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp, i32 0, i32 0
-  %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp, i32 0, i32 1
-  %13 = load i64, ptr %12, align 8
-  call void @_ZN4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEEC2ENS2_6fieldsE(ptr noundef nonnull align 8 dereferenceable(16) %this1, i64 %11, i64 %13) #5
+define linkonce_odr dso_local void @_ZN4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEEC2Ellllll(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6) unnamed_addr #3 comdat align 2 {
+  %8 = alloca ptr, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca i64, align 8
+  %13 = alloca i64, align 8
+  %14 = alloca i64, align 8
+  %15 = alloca %"struct.absl::time_internal::cctz::detail::fields", align 8
+  %16 = alloca { i64, i64 }, align 8
+  store ptr %0, ptr %8, align 8, !tbaa !47
+  store i64 %1, ptr %9, align 8, !tbaa !25
+  store i64 %2, ptr %10, align 8, !tbaa !25
+  store i64 %3, ptr %11, align 8, !tbaa !25
+  store i64 %4, ptr %12, align 8, !tbaa !25
+  store i64 %5, ptr %13, align 8, !tbaa !25
+  store i64 %6, ptr %14, align 8, !tbaa !25
+  %17 = load ptr, ptr %8, align 8
+  %18 = load i64, ptr %9, align 8, !tbaa !25
+  %19 = load i64, ptr %10, align 8, !tbaa !25
+  %20 = load i64, ptr %11, align 8, !tbaa !25
+  %21 = load i64, ptr %12, align 8, !tbaa !25
+  %22 = load i64, ptr %13, align 8, !tbaa !25
+  %23 = load i64, ptr %14, align 8, !tbaa !25
+  %24 = call { i64, i64 } @_ZN4absl13time_internal4cctz6detail4impl5n_secEllllll(i64 noundef %18, i64 noundef %19, i64 noundef %20, i64 noundef %21, i64 noundef %22, i64 noundef %23) #8
+  store { i64, i64 } %24, ptr %16, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %16, i64 13, i1 false)
+  %25 = getelementptr inbounds nuw { i64, i64 }, ptr %15, i32 0, i32 0
+  %26 = load i64, ptr %25, align 8
+  %27 = getelementptr inbounds nuw { i64, i64 }, ptr %15, i32 0, i32 1
+  %28 = load i64, ptr %27, align 8
+  call void @_ZN4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEEC2ENS2_6fieldsE(ptr noundef nonnull align 8 dereferenceable(16) %17, i64 %26, i64 %28) #8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef i64 @_ZN4absl13time_internal4cctz12_GLOBAL__N_19tm_gmtoffI2tmEEDtdtfp_9tm_gmtoffERKT_(ptr noundef nonnull align 8 dereferenceable(56) %tm) #3 {
-entry:
-  %tm.addr = alloca ptr, align 8
-  store ptr %tm, ptr %tm.addr, align 8
-  %0 = load ptr, ptr %tm.addr, align 8
-  %tm_gmtoff = getelementptr inbounds %struct.tm, ptr %0, i32 0, i32 9
-  %1 = load i64, ptr %tm_gmtoff, align 8
-  ret i64 %1
+define internal noundef i64 @_ZN4absl13time_internal4cctz12_GLOBAL__N_19tm_gmtoffI2tmEEDtdtfp_9tm_gmtoffERKT_(ptr noundef nonnull align 8 dereferenceable(56) %0) #3 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !33
+  %3 = load ptr, ptr %2, align 8, !tbaa !33
+  %4 = getelementptr inbounds nuw %struct.tm, ptr %3, i32 0, i32 9
+  %5 = load i64, ptr %4, align 8, !tbaa !49
+  ret i64 %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_17tm_zoneI2tmEEDtdtfp_7tm_zoneERKT_(ptr noundef nonnull align 8 dereferenceable(56) %tm) #3 {
-entry:
-  %tm.addr = alloca ptr, align 8
-  store ptr %tm, ptr %tm.addr, align 8
-  %0 = load ptr, ptr %tm.addr, align 8
-  %tm_zone = getelementptr inbounds %struct.tm, ptr %0, i32 0, i32 10
-  %1 = load ptr, ptr %tm_zone, align 8
-  ret ptr %1
+define internal noundef ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_17tm_zoneI2tmEEDtdtfp_7tm_zoneERKT_(ptr noundef nonnull align 8 dereferenceable(56) %0) #3 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !33
+  %3 = load ptr, ptr %2, align 8, !tbaa !33
+  %4 = getelementptr inbounds nuw %struct.tm, ptr %3, i32 0, i32 10
+  %5 = load ptr, ptr %4, align 8, !tbaa !50
+  ret ptr %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEE(ptr noalias sret(%"struct.absl::time_internal::cctz::time_zone::civil_lookup") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(9) %this, ptr noundef nonnull align 8 dereferenceable(16) %cs) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %cs.addr = alloca ptr, align 8
-  %agg.tmp = alloca %"class.absl::time_internal::cctz::detail::civil_time", align 8
-  %ref.tmp = alloca %"class.std::chrono::time_point", align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  %agg.tmp10 = alloca %"class.absl::time_internal::cctz::detail::civil_time", align 8
-  %ref.tmp11 = alloca %"class.std::chrono::time_point", align 8
-  %tp = alloca %"class.std::chrono::time_point", align 8
-  %agg.tmp30 = alloca %"class.absl::time_internal::cctz::detail::civil_time", align 8
-  %agg.tmp31 = alloca %"class.absl::time_internal::cctz::detail::civil_time", align 8
-  %tp43 = alloca %"class.std::chrono::time_point", align 8
-  %tp57 = alloca %"class.std::chrono::time_point", align 8
-  %t0 = alloca i64, align 8
-  %t1 = alloca i64, align 8
-  %tm0 = alloca %struct.tm, align 8
-  %tm1 = alloca %struct.tm, align 8
-  %tp73 = alloca %"class.std::chrono::time_point", align 8
-  %offset = alloca i64, align 8
-  %tt = alloca i64, align 8
-  %trans93 = alloca %"class.std::chrono::time_point", align 8
-  %pre100 = alloca %"class.std::chrono::time_point", align 8
-  %post104 = alloca %"class.std::chrono::time_point", align 8
-  %pre113 = alloca %"class.std::chrono::time_point", align 8
-  %post117 = alloca %"class.std::chrono::time_point", align 8
-  %tp126 = alloca %"class.std::chrono::time_point", align 8
-  %ref.tmp127 = alloca %"class.absl::time_internal::cctz::detail::civil_time", align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %cs, ptr %cs.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %local_ = getelementptr inbounds %"class.absl::time_internal::cctz::TimeZoneLibC", ptr %this1, i32 0, i32 1
-  %0 = load i8, ptr %local_, align 8
-  %tobool = trunc i8 %0 to i1
-  br i1 %tobool, label %if.end, label %if.then
+define dso_local void @_ZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEE(ptr dead_on_unwind noalias writable sret(%"struct.absl::time_internal::cctz::time_zone::civil_lookup") align 8 %0, ptr noundef nonnull align 8 dereferenceable(9) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca %"class.absl::time_internal::cctz::detail::civil_time", align 8
+  %7 = alloca %"class.std::chrono::time_point", align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca %"class.absl::time_internal::cctz::detail::civil_time", align 8
+  %11 = alloca %"class.std::chrono::time_point", align 8
+  %12 = alloca %"class.std::chrono::time_point", align 8
+  %13 = alloca %"class.absl::time_internal::cctz::detail::civil_time", align 8
+  %14 = alloca %"class.absl::time_internal::cctz::detail::civil_time", align 8
+  %15 = alloca %"class.std::chrono::time_point", align 8
+  %16 = alloca %"class.std::chrono::time_point", align 8
+  %17 = alloca i64, align 8
+  %18 = alloca i64, align 8
+  %19 = alloca %struct.tm, align 8
+  %20 = alloca %struct.tm, align 8
+  %21 = alloca %"class.std::chrono::time_point", align 8
+  %22 = alloca i32, align 4
+  %23 = alloca i64, align 8
+  %24 = alloca i64, align 8
+  %25 = alloca %"class.std::chrono::time_point", align 8
+  %26 = alloca %"class.std::chrono::time_point", align 8
+  %27 = alloca %"class.std::chrono::time_point", align 8
+  %28 = alloca %"class.std::chrono::time_point", align 8
+  %29 = alloca %"class.std::chrono::time_point", align 8
+  %30 = alloca %"class.std::chrono::time_point", align 8
+  %31 = alloca %"class.absl::time_internal::cctz::detail::civil_time", align 8
+  store ptr %1, ptr %4, align 8, !tbaa !11
+  store ptr %2, ptr %5, align 8, !tbaa !47
+  %32 = load ptr, ptr %4, align 8
+  %33 = getelementptr inbounds nuw %"class.absl::time_internal::cctz::TimeZoneLibC", ptr %32, i32 0, i32 1
+  %34 = load i8, ptr %33, align 8, !tbaa !28, !range !31, !noundef !32
+  %35 = trunc i8 %34 to i1
+  br i1 %35, label %118, label %36
 
-if.then:                                          ; preds = %entry
-  %1 = load atomic i8, ptr @_ZGVZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9min_tp_cs acquire, align 8
-  %guard.uninitialized = icmp eq i8 %1, 0
-  br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !5
+36:                                               ; preds = %3
+  %37 = load atomic i8, ptr @_ZGVZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9min_tp_cs acquire, align 8
+  %38 = icmp eq i8 %37, 0
+  br i1 %38, label %39, label %56, !prof !51
 
-init.check:                                       ; preds = %if.then
-  %2 = call i32 @__cxa_guard_acquire(ptr @_ZGVZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9min_tp_cs) #5
-  %tobool2 = icmp ne i32 %2, 0
-  br i1 %tobool2, label %init, label %init.end
+39:                                               ; preds = %36
+  %40 = call i32 @__cxa_guard_acquire(ptr @_ZGVZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9min_tp_cs) #8
+  %41 = icmp ne i32 %40, 0
+  br i1 %41, label %42, label %56
 
-init:                                             ; preds = %init.check
-  call void @_ZN4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp) #5
-  %call = call i64 @_ZNSt6chrono10time_pointINS_3_V212system_clockENS_8durationIlSt5ratioILl1ELl1EEEEE3minEv() #5
-  %coerce.dive = getelementptr inbounds %"class.std::chrono::time_point", ptr %ref.tmp, i32 0, i32 0
-  %coerce.dive3 = getelementptr inbounds %"class.std::chrono::duration", ptr %coerce.dive, i32 0, i32 0
-  store i64 %call, ptr %coerce.dive3, align 8
-  %call4 = invoke noundef i64 @_ZN4absl13time_internal4cctz13ToUnixSecondsERKNSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1EEEEEE(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
-          to label %invoke.cont unwind label %lpad
+42:                                               ; preds = %39
+  call void @_ZN4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
+  %43 = call i64 @_ZNSt6chrono10time_pointINS_3_V212system_clockENS_8durationIlSt5ratioILl1ELl1EEEEE3minEv() #8
+  %44 = getelementptr inbounds nuw %"class.std::chrono::time_point", ptr %7, i32 0, i32 0
+  %45 = getelementptr inbounds nuw %"class.std::chrono::duration", ptr %44, i32 0, i32 0
+  store i64 %43, ptr %45, align 8
+  %46 = invoke noundef i64 @_ZN4absl13time_internal4cctz13ToUnixSecondsERKNSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1EEEEEE(ptr noundef nonnull align 8 dereferenceable(8) %7)
+          to label %47 unwind label %110
 
-invoke.cont:                                      ; preds = %init
-  %3 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp, i32 0, i32 0
-  %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp, i32 0, i32 1
-  %6 = load i64, ptr %5, align 8
-  %call5 = call { i64, i64 } @_ZN4absl13time_internal4cctz6detailplENS2_10civil_timeINS2_10second_tagEEEl(i64 %4, i64 %6, i64 noundef %call4) #5
-  %7 = extractvalue { i64, i64 } %call5, 0
-  store i64 %7, ptr @_ZZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9min_tp_cs, align 8
-  %8 = extractvalue { i64, i64 } %call5, 1
-  %9 = getelementptr inbounds { i64, i64 }, ptr @_ZZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9min_tp_cs, i32 0, i32 1
-  store i64 %8, ptr %9, align 8
-  call void @__cxa_guard_release(ptr @_ZGVZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9min_tp_cs) #5
-  br label %init.end
+47:                                               ; preds = %42
+  %48 = getelementptr inbounds nuw { i64, i64 }, ptr %6, i32 0, i32 0
+  %49 = load i64, ptr %48, align 8
+  %50 = getelementptr inbounds nuw { i64, i64 }, ptr %6, i32 0, i32 1
+  %51 = load i64, ptr %50, align 8
+  %52 = call { i64, i64 } @_ZN4absl13time_internal4cctz6detailplENS2_10civil_timeINS2_10second_tagEEEl(i64 %49, i64 %51, i64 noundef %46) #8
+  %53 = extractvalue { i64, i64 } %52, 0
+  store i64 %53, ptr @_ZZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9min_tp_cs, align 8
+  %54 = extractvalue { i64, i64 } %52, 1
+  store i64 %54, ptr getelementptr inbounds nuw ({ i64, i64 }, ptr @_ZZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9min_tp_cs, i32 0, i32 1), align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
+  %55 = call ptr @llvm.invariant.start.p0(i64 16, ptr @_ZZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9min_tp_cs)
+  call void @__cxa_guard_release(ptr @_ZGVZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9min_tp_cs) #8
+  br label %56
 
-init.end:                                         ; preds = %invoke.cont, %init.check, %if.then
-  %10 = load atomic i8, ptr @_ZGVZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9max_tp_cs acquire, align 8
-  %guard.uninitialized6 = icmp eq i8 %10, 0
-  br i1 %guard.uninitialized6, label %init.check7, label %init.end19, !prof !5
+56:                                               ; preds = %47, %39, %36
+  %57 = load atomic i8, ptr @_ZGVZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9max_tp_cs acquire, align 8
+  %58 = icmp eq i8 %57, 0
+  br i1 %58, label %59, label %76, !prof !51
 
-init.check7:                                      ; preds = %init.end
-  %11 = call i32 @__cxa_guard_acquire(ptr @_ZGVZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9max_tp_cs) #5
-  %tobool8 = icmp ne i32 %11, 0
-  br i1 %tobool8, label %init9, label %init.end19
+59:                                               ; preds = %56
+  %60 = call i32 @__cxa_guard_acquire(ptr @_ZGVZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9max_tp_cs) #8
+  %61 = icmp ne i32 %60, 0
+  br i1 %61, label %62, label %76
 
-init9:                                            ; preds = %init.check7
-  call void @_ZN4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp10) #5
-  %call12 = call i64 @_ZNSt6chrono10time_pointINS_3_V212system_clockENS_8durationIlSt5ratioILl1ELl1EEEEE3maxEv() #5
-  %coerce.dive13 = getelementptr inbounds %"class.std::chrono::time_point", ptr %ref.tmp11, i32 0, i32 0
-  %coerce.dive14 = getelementptr inbounds %"class.std::chrono::duration", ptr %coerce.dive13, i32 0, i32 0
-  store i64 %call12, ptr %coerce.dive14, align 8
-  %call17 = invoke noundef i64 @_ZN4absl13time_internal4cctz13ToUnixSecondsERKNSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1EEEEEE(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp11)
-          to label %invoke.cont16 unwind label %lpad15
+62:                                               ; preds = %59
+  call void @_ZN4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #8
+  %63 = call i64 @_ZNSt6chrono10time_pointINS_3_V212system_clockENS_8durationIlSt5ratioILl1ELl1EEEEE3maxEv() #8
+  %64 = getelementptr inbounds nuw %"class.std::chrono::time_point", ptr %11, i32 0, i32 0
+  %65 = getelementptr inbounds nuw %"class.std::chrono::duration", ptr %64, i32 0, i32 0
+  store i64 %63, ptr %65, align 8
+  %66 = invoke noundef i64 @_ZN4absl13time_internal4cctz13ToUnixSecondsERKNSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1EEEEEE(ptr noundef nonnull align 8 dereferenceable(8) %11)
+          to label %67 unwind label %114
 
-invoke.cont16:                                    ; preds = %init9
-  %12 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp10, i32 0, i32 0
-  %13 = load i64, ptr %12, align 8
-  %14 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp10, i32 0, i32 1
-  %15 = load i64, ptr %14, align 8
-  %call18 = call { i64, i64 } @_ZN4absl13time_internal4cctz6detailplENS2_10civil_timeINS2_10second_tagEEEl(i64 %13, i64 %15, i64 noundef %call17) #5
-  %16 = extractvalue { i64, i64 } %call18, 0
-  store i64 %16, ptr @_ZZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9max_tp_cs, align 8
-  %17 = extractvalue { i64, i64 } %call18, 1
-  %18 = getelementptr inbounds { i64, i64 }, ptr @_ZZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9max_tp_cs, i32 0, i32 1
-  store i64 %17, ptr %18, align 8
-  call void @__cxa_guard_release(ptr @_ZGVZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9max_tp_cs) #5
-  br label %init.end19
+67:                                               ; preds = %62
+  %68 = getelementptr inbounds nuw { i64, i64 }, ptr %10, i32 0, i32 0
+  %69 = load i64, ptr %68, align 8
+  %70 = getelementptr inbounds nuw { i64, i64 }, ptr %10, i32 0, i32 1
+  %71 = load i64, ptr %70, align 8
+  %72 = call { i64, i64 } @_ZN4absl13time_internal4cctz6detailplENS2_10civil_timeINS2_10second_tagEEEl(i64 %69, i64 %71, i64 noundef %66) #8
+  %73 = extractvalue { i64, i64 } %72, 0
+  store i64 %73, ptr @_ZZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9max_tp_cs, align 8
+  %74 = extractvalue { i64, i64 } %72, 1
+  store i64 %74, ptr getelementptr inbounds nuw ({ i64, i64 }, ptr @_ZZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9max_tp_cs, i32 0, i32 1), align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #8
+  %75 = call ptr @llvm.invariant.start.p0(i64 16, ptr @_ZZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9max_tp_cs)
+  call void @__cxa_guard_release(ptr @_ZGVZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9max_tp_cs) #8
+  br label %76
 
-init.end19:                                       ; preds = %invoke.cont16, %init.check7, %init.end
-  %19 = load ptr, ptr %cs.addr, align 8
-  %call20 = call noundef zeroext i1 @_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) @_ZZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9min_tp_cs) #5
-  br i1 %call20, label %cond.true, label %cond.false
+76:                                               ; preds = %67, %59, %56
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #8
+  %77 = load ptr, ptr %5, align 8, !tbaa !47
+  %78 = call noundef zeroext i1 @_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE(ptr noundef nonnull align 8 dereferenceable(16) %77, ptr noundef nonnull align 8 dereferenceable(16) @_ZZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9min_tp_cs) #8
+  br i1 %78, label %79, label %83
 
-cond.true:                                        ; preds = %init.end19
-  %call21 = call i64 @_ZNSt6chrono10time_pointINS_3_V212system_clockENS_8durationIlSt5ratioILl1ELl1EEEEE3minEv() #5
-  %coerce.dive22 = getelementptr inbounds %"class.std::chrono::time_point", ptr %tp, i32 0, i32 0
-  %coerce.dive23 = getelementptr inbounds %"class.std::chrono::duration", ptr %coerce.dive22, i32 0, i32 0
-  store i64 %call21, ptr %coerce.dive23, align 8
-  br label %cond.end36
+79:                                               ; preds = %76
+  %80 = call i64 @_ZNSt6chrono10time_pointINS_3_V212system_clockENS_8durationIlSt5ratioILl1ELl1EEEEE3minEv() #8
+  %81 = getelementptr inbounds nuw %"class.std::chrono::time_point", ptr %12, i32 0, i32 0
+  %82 = getelementptr inbounds nuw %"class.std::chrono::duration", ptr %81, i32 0, i32 0
+  store i64 %80, ptr %82, align 8
+  br label %105
 
-cond.false:                                       ; preds = %init.end19
-  %20 = load ptr, ptr %cs.addr, align 8
-  %call24 = call noundef zeroext i1 @_ZN4absl13time_internal4cctz6detailgtINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(16) @_ZZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9max_tp_cs) #5
-  br i1 %call24, label %cond.true25, label %cond.false29
+83:                                               ; preds = %76
+  %84 = load ptr, ptr %5, align 8, !tbaa !47
+  %85 = call noundef zeroext i1 @_ZN4absl13time_internal4cctz6detailgtINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE(ptr noundef nonnull align 8 dereferenceable(16) %84, ptr noundef nonnull align 8 dereferenceable(16) @_ZZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9max_tp_cs) #8
+  br i1 %85, label %86, label %90
 
-cond.true25:                                      ; preds = %cond.false
-  %call26 = call i64 @_ZNSt6chrono10time_pointINS_3_V212system_clockENS_8durationIlSt5ratioILl1ELl1EEEEE3maxEv() #5
-  %coerce.dive27 = getelementptr inbounds %"class.std::chrono::time_point", ptr %tp, i32 0, i32 0
-  %coerce.dive28 = getelementptr inbounds %"class.std::chrono::duration", ptr %coerce.dive27, i32 0, i32 0
-  store i64 %call26, ptr %coerce.dive28, align 8
-  br label %cond.end
+86:                                               ; preds = %83
+  %87 = call i64 @_ZNSt6chrono10time_pointINS_3_V212system_clockENS_8durationIlSt5ratioILl1ELl1EEEEE3maxEv() #8
+  %88 = getelementptr inbounds nuw %"class.std::chrono::time_point", ptr %12, i32 0, i32 0
+  %89 = getelementptr inbounds nuw %"class.std::chrono::duration", ptr %88, i32 0, i32 0
+  store i64 %87, ptr %89, align 8
+  br label %104
 
-cond.false29:                                     ; preds = %cond.false
-  %21 = load ptr, ptr %cs.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp30, ptr align 8 %21, i64 16, i1 false)
-  call void @_ZN4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp31) #5
-  %22 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp30, i32 0, i32 0
-  %23 = load i64, ptr %22, align 8
-  %24 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp30, i32 0, i32 1
-  %25 = load i64, ptr %24, align 8
-  %26 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp31, i32 0, i32 0
-  %27 = load i64, ptr %26, align 8
-  %28 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp31, i32 0, i32 1
-  %29 = load i64, ptr %28, align 8
-  %call32 = call noundef i64 @_ZN4absl13time_internal4cctz6detailmiENS2_10civil_timeINS2_10second_tagEEES5_(i64 %23, i64 %25, i64 %27, i64 %29) #5
-  %call33 = call i64 @_ZN4absl13time_internal4cctz15FromUnixSecondsEl(i64 noundef %call32)
-  %coerce.dive34 = getelementptr inbounds %"class.std::chrono::time_point", ptr %tp, i32 0, i32 0
-  %coerce.dive35 = getelementptr inbounds %"class.std::chrono::duration", ptr %coerce.dive34, i32 0, i32 0
-  store i64 %call33, ptr %coerce.dive35, align 8
-  br label %cond.end
+90:                                               ; preds = %83
+  %91 = load ptr, ptr %5, align 8, !tbaa !47
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr align 8 %91, i64 16, i1 false), !tbaa.struct !26
+  call void @_ZN4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #8
+  %92 = getelementptr inbounds nuw { i64, i64 }, ptr %13, i32 0, i32 0
+  %93 = load i64, ptr %92, align 8
+  %94 = getelementptr inbounds nuw { i64, i64 }, ptr %13, i32 0, i32 1
+  %95 = load i64, ptr %94, align 8
+  %96 = getelementptr inbounds nuw { i64, i64 }, ptr %14, i32 0, i32 0
+  %97 = load i64, ptr %96, align 8
+  %98 = getelementptr inbounds nuw { i64, i64 }, ptr %14, i32 0, i32 1
+  %99 = load i64, ptr %98, align 8
+  %100 = call noundef i64 @_ZN4absl13time_internal4cctz6detailmiENS2_10civil_timeINS2_10second_tagEEES5_(i64 %93, i64 %95, i64 %97, i64 %99) #8
+  %101 = call i64 @_ZN4absl13time_internal4cctz15FromUnixSecondsEl(i64 noundef %100)
+  %102 = getelementptr inbounds nuw %"class.std::chrono::time_point", ptr %12, i32 0, i32 0
+  %103 = getelementptr inbounds nuw %"class.std::chrono::duration", ptr %102, i32 0, i32 0
+  store i64 %101, ptr %103, align 8
+  br label %104
 
-cond.end:                                         ; preds = %cond.false29, %cond.true25
-  br label %cond.end36
+104:                                              ; preds = %90, %86
+  br label %105
 
-cond.end36:                                       ; preds = %cond.end, %cond.true
-  %kind = getelementptr inbounds %"struct.absl::time_internal::cctz::time_zone::civil_lookup", ptr %agg.result, i32 0, i32 0
-  store i32 0, ptr %kind, align 8
-  %pre = getelementptr inbounds %"struct.absl::time_internal::cctz::time_zone::civil_lookup", ptr %agg.result, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %pre, ptr align 8 %tp, i64 8, i1 false)
-  %trans = getelementptr inbounds %"struct.absl::time_internal::cctz::time_zone::civil_lookup", ptr %agg.result, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %trans, ptr align 8 %tp, i64 8, i1 false)
-  %post = getelementptr inbounds %"struct.absl::time_internal::cctz::time_zone::civil_lookup", ptr %agg.result, i32 0, i32 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %post, ptr align 8 %tp, i64 8, i1 false)
-  br label %return
+105:                                              ; preds = %104, %79
+  %106 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::time_zone::civil_lookup", ptr %0, i32 0, i32 0
+  store i32 0, ptr %106, align 8, !tbaa !52
+  %107 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::time_zone::civil_lookup", ptr %0, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %107, ptr align 8 %12, i64 8, i1 false), !tbaa.struct !57
+  %108 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::time_zone::civil_lookup", ptr %0, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %108, ptr align 8 %12, i64 8, i1 false), !tbaa.struct !57
+  %109 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::time_zone::civil_lookup", ptr %0, i32 0, i32 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %109, ptr align 8 %12, i64 8, i1 false), !tbaa.struct !57
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #8
+  br label %246
 
-lpad:                                             ; preds = %init
-  %30 = landingpad { ptr, i32 }
+110:                                              ; preds = %42
+  %111 = landingpad { ptr, i32 }
           cleanup
-  %31 = extractvalue { ptr, i32 } %30, 0
-  store ptr %31, ptr %exn.slot, align 8
-  %32 = extractvalue { ptr, i32 } %30, 1
-  store i32 %32, ptr %ehselector.slot, align 4
-  call void @__cxa_guard_abort(ptr @_ZGVZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9min_tp_cs) #5
-  br label %eh.resume
+  %112 = extractvalue { ptr, i32 } %111, 0
+  store ptr %112, ptr %8, align 8
+  %113 = extractvalue { ptr, i32 } %111, 1
+  store i32 %113, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
+  call void @__cxa_guard_abort(ptr @_ZGVZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9min_tp_cs) #8
+  br label %247
 
-lpad15:                                           ; preds = %init9
-  %33 = landingpad { ptr, i32 }
+114:                                              ; preds = %62
+  %115 = landingpad { ptr, i32 }
           cleanup
-  %34 = extractvalue { ptr, i32 } %33, 0
-  store ptr %34, ptr %exn.slot, align 8
-  %35 = extractvalue { ptr, i32 } %33, 1
-  store i32 %35, ptr %ehselector.slot, align 4
-  call void @__cxa_guard_abort(ptr @_ZGVZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9max_tp_cs) #5
-  br label %eh.resume
+  %116 = extractvalue { ptr, i32 } %115, 0
+  store ptr %116, ptr %8, align 8
+  %117 = extractvalue { ptr, i32 } %115, 1
+  store i32 %117, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #8
+  call void @__cxa_guard_abort(ptr @_ZGVZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9max_tp_cs) #8
+  br label %247
 
-if.end:                                           ; preds = %entry
-  %36 = load ptr, ptr %cs.addr, align 8
-  %call37 = call noundef i64 @_ZNK4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE4yearEv(ptr noundef nonnull align 8 dereferenceable(16) %36) #5
-  %cmp = icmp slt i64 %call37, 0
-  br i1 %cmp, label %if.then38, label %if.else
+118:                                              ; preds = %3
+  %119 = load ptr, ptr %5, align 8, !tbaa !47
+  %120 = call noundef i64 @_ZNK4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE4yearEv(ptr noundef nonnull align 8 dereferenceable(16) %119) #8
+  %121 = icmp slt i64 %120, 0
+  br i1 %121, label %122, label %138
 
-if.then38:                                        ; preds = %if.end
-  %37 = load ptr, ptr %cs.addr, align 8
-  %call39 = call noundef i64 @_ZNK4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE4yearEv(ptr noundef nonnull align 8 dereferenceable(16) %37) #5
-  %call40 = call noundef i32 @_ZNSt14numeric_limitsIiE3minEv() #5
-  %conv = sext i32 %call40 to i64
-  %add = add nsw i64 %conv, 1900
-  %cmp41 = icmp slt i64 %call39, %add
-  br i1 %cmp41, label %if.then42, label %if.end51
+122:                                              ; preds = %118
+  %123 = load ptr, ptr %5, align 8, !tbaa !47
+  %124 = call noundef i64 @_ZNK4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE4yearEv(ptr noundef nonnull align 8 dereferenceable(16) %123) #8
+  %125 = call noundef i32 @_ZNSt14numeric_limitsIiE3minEv() #8
+  %126 = sext i32 %125 to i64
+  %127 = add nsw i64 %126, 1900
+  %128 = icmp slt i64 %124, %127
+  br i1 %128, label %129, label %137
 
-if.then42:                                        ; preds = %if.then38
-  %call44 = call i64 @_ZNSt6chrono10time_pointINS_3_V212system_clockENS_8durationIlSt5ratioILl1ELl1EEEEE3minEv() #5
-  %coerce.dive45 = getelementptr inbounds %"class.std::chrono::time_point", ptr %tp43, i32 0, i32 0
-  %coerce.dive46 = getelementptr inbounds %"class.std::chrono::duration", ptr %coerce.dive45, i32 0, i32 0
-  store i64 %call44, ptr %coerce.dive46, align 8
-  %kind47 = getelementptr inbounds %"struct.absl::time_internal::cctz::time_zone::civil_lookup", ptr %agg.result, i32 0, i32 0
-  store i32 0, ptr %kind47, align 8
-  %pre48 = getelementptr inbounds %"struct.absl::time_internal::cctz::time_zone::civil_lookup", ptr %agg.result, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %pre48, ptr align 8 %tp43, i64 8, i1 false)
-  %trans49 = getelementptr inbounds %"struct.absl::time_internal::cctz::time_zone::civil_lookup", ptr %agg.result, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %trans49, ptr align 8 %tp43, i64 8, i1 false)
-  %post50 = getelementptr inbounds %"struct.absl::time_internal::cctz::time_zone::civil_lookup", ptr %agg.result, i32 0, i32 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %post50, ptr align 8 %tp43, i64 8, i1 false)
-  br label %return
+129:                                              ; preds = %122
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #8
+  %130 = call i64 @_ZNSt6chrono10time_pointINS_3_V212system_clockENS_8durationIlSt5ratioILl1ELl1EEEEE3minEv() #8
+  %131 = getelementptr inbounds nuw %"class.std::chrono::time_point", ptr %15, i32 0, i32 0
+  %132 = getelementptr inbounds nuw %"class.std::chrono::duration", ptr %131, i32 0, i32 0
+  store i64 %130, ptr %132, align 8
+  %133 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::time_zone::civil_lookup", ptr %0, i32 0, i32 0
+  store i32 0, ptr %133, align 8, !tbaa !52
+  %134 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::time_zone::civil_lookup", ptr %0, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %134, ptr align 8 %15, i64 8, i1 false), !tbaa.struct !57
+  %135 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::time_zone::civil_lookup", ptr %0, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %135, ptr align 8 %15, i64 8, i1 false), !tbaa.struct !57
+  %136 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::time_zone::civil_lookup", ptr %0, i32 0, i32 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %136, ptr align 8 %15, i64 8, i1 false), !tbaa.struct !57
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #8
+  br label %246
 
-if.end51:                                         ; preds = %if.then38
-  br label %if.end66
+137:                                              ; preds = %122
+  br label %154
 
-if.else:                                          ; preds = %if.end
-  %38 = load ptr, ptr %cs.addr, align 8
-  %call52 = call noundef i64 @_ZNK4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE4yearEv(ptr noundef nonnull align 8 dereferenceable(16) %38) #5
-  %sub = sub nsw i64 %call52, 1900
-  %call53 = call noundef i32 @_ZNSt14numeric_limitsIiE3maxEv() #5
-  %conv54 = sext i32 %call53 to i64
-  %cmp55 = icmp sgt i64 %sub, %conv54
-  br i1 %cmp55, label %if.then56, label %if.end65
+138:                                              ; preds = %118
+  %139 = load ptr, ptr %5, align 8, !tbaa !47
+  %140 = call noundef i64 @_ZNK4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE4yearEv(ptr noundef nonnull align 8 dereferenceable(16) %139) #8
+  %141 = sub nsw i64 %140, 1900
+  %142 = call noundef i32 @_ZNSt14numeric_limitsIiE3maxEv() #8
+  %143 = sext i32 %142 to i64
+  %144 = icmp sgt i64 %141, %143
+  br i1 %144, label %145, label %153
 
-if.then56:                                        ; preds = %if.else
-  %call58 = call i64 @_ZNSt6chrono10time_pointINS_3_V212system_clockENS_8durationIlSt5ratioILl1ELl1EEEEE3maxEv() #5
-  %coerce.dive59 = getelementptr inbounds %"class.std::chrono::time_point", ptr %tp57, i32 0, i32 0
-  %coerce.dive60 = getelementptr inbounds %"class.std::chrono::duration", ptr %coerce.dive59, i32 0, i32 0
-  store i64 %call58, ptr %coerce.dive60, align 8
-  %kind61 = getelementptr inbounds %"struct.absl::time_internal::cctz::time_zone::civil_lookup", ptr %agg.result, i32 0, i32 0
-  store i32 0, ptr %kind61, align 8
-  %pre62 = getelementptr inbounds %"struct.absl::time_internal::cctz::time_zone::civil_lookup", ptr %agg.result, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %pre62, ptr align 8 %tp57, i64 8, i1 false)
-  %trans63 = getelementptr inbounds %"struct.absl::time_internal::cctz::time_zone::civil_lookup", ptr %agg.result, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %trans63, ptr align 8 %tp57, i64 8, i1 false)
-  %post64 = getelementptr inbounds %"struct.absl::time_internal::cctz::time_zone::civil_lookup", ptr %agg.result, i32 0, i32 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %post64, ptr align 8 %tp57, i64 8, i1 false)
-  br label %return
+145:                                              ; preds = %138
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #8
+  %146 = call i64 @_ZNSt6chrono10time_pointINS_3_V212system_clockENS_8durationIlSt5ratioILl1ELl1EEEEE3maxEv() #8
+  %147 = getelementptr inbounds nuw %"class.std::chrono::time_point", ptr %16, i32 0, i32 0
+  %148 = getelementptr inbounds nuw %"class.std::chrono::duration", ptr %147, i32 0, i32 0
+  store i64 %146, ptr %148, align 8
+  %149 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::time_zone::civil_lookup", ptr %0, i32 0, i32 0
+  store i32 0, ptr %149, align 8, !tbaa !52
+  %150 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::time_zone::civil_lookup", ptr %0, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %150, ptr align 8 %16, i64 8, i1 false), !tbaa.struct !57
+  %151 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::time_zone::civil_lookup", ptr %0, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %151, ptr align 8 %16, i64 8, i1 false), !tbaa.struct !57
+  %152 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::time_zone::civil_lookup", ptr %0, i32 0, i32 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %152, ptr align 8 %16, i64 8, i1 false), !tbaa.struct !57
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #8
+  br label %246
 
-if.end65:                                         ; preds = %if.else
-  br label %if.end66
+153:                                              ; preds = %138
+  br label %154
 
-if.end66:                                         ; preds = %if.end65, %if.end51
-  %39 = load ptr, ptr %cs.addr, align 8
-  %call67 = call noundef zeroext i1 @_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm(ptr noundef nonnull align 8 dereferenceable(16) %39, i32 noundef 0, ptr noundef %t0, ptr noundef %tm0)
-  br i1 %call67, label %land.lhs.true, label %if.end125
+154:                                              ; preds = %153, %137
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #8
+  call void @llvm.lifetime.start.p0(i64 56, ptr %19) #8
+  call void @llvm.lifetime.start.p0(i64 56, ptr %20) #8
+  %155 = load ptr, ptr %5, align 8, !tbaa !47
+  %156 = call noundef zeroext i1 @_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm(ptr noundef nonnull align 8 dereferenceable(16) %155, i32 noundef 0, ptr noundef %17, ptr noundef %19)
+  br i1 %156, label %157, label %229
 
-land.lhs.true:                                    ; preds = %if.end66
-  %40 = load ptr, ptr %cs.addr, align 8
-  %call68 = call noundef zeroext i1 @_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm(ptr noundef nonnull align 8 dereferenceable(16) %40, i32 noundef 1, ptr noundef %t1, ptr noundef %tm1)
-  br i1 %call68, label %if.then69, label %if.end125
+157:                                              ; preds = %154
+  %158 = load ptr, ptr %5, align 8, !tbaa !47
+  %159 = call noundef zeroext i1 @_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm(ptr noundef nonnull align 8 dereferenceable(16) %158, i32 noundef 1, ptr noundef %18, ptr noundef %20)
+  br i1 %159, label %160, label %229
 
-if.then69:                                        ; preds = %land.lhs.true
-  %tm_isdst = getelementptr inbounds %struct.tm, ptr %tm0, i32 0, i32 8
-  %41 = load i32, ptr %tm_isdst, align 8
-  %tm_isdst70 = getelementptr inbounds %struct.tm, ptr %tm1, i32 0, i32 8
-  %42 = load i32, ptr %tm_isdst70, align 8
-  %cmp71 = icmp eq i32 %41, %42
-  br i1 %cmp71, label %if.then72, label %if.end86
+160:                                              ; preds = %157
+  %161 = getelementptr inbounds nuw %struct.tm, ptr %19, i32 0, i32 8
+  %162 = load i32, ptr %161, align 8, !tbaa !42
+  %163 = getelementptr inbounds nuw %struct.tm, ptr %20, i32 0, i32 8
+  %164 = load i32, ptr %163, align 8, !tbaa !42
+  %165 = icmp eq i32 %162, %164
+  br i1 %165, label %166, label %183
 
-if.then72:                                        ; preds = %if.then69
-  %tm_isdst74 = getelementptr inbounds %struct.tm, ptr %tm0, i32 0, i32 8
-  %43 = load i32, ptr %tm_isdst74, align 8
-  %tobool75 = icmp ne i32 %43, 0
-  br i1 %tobool75, label %cond.true76, label %cond.false77
+166:                                              ; preds = %160
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #8
+  %167 = getelementptr inbounds nuw %struct.tm, ptr %19, i32 0, i32 8
+  %168 = load i32, ptr %167, align 8, !tbaa !42
+  %169 = icmp ne i32 %168, 0
+  br i1 %169, label %170, label %172
 
-cond.true76:                                      ; preds = %if.then72
-  %44 = load i64, ptr %t1, align 8
-  br label %cond.end78
+170:                                              ; preds = %166
+  %171 = load i64, ptr %18, align 8, !tbaa !25
+  br label %174
 
-cond.false77:                                     ; preds = %if.then72
-  %45 = load i64, ptr %t0, align 8
-  br label %cond.end78
+172:                                              ; preds = %166
+  %173 = load i64, ptr %17, align 8, !tbaa !25
+  br label %174
 
-cond.end78:                                       ; preds = %cond.false77, %cond.true76
-  %cond = phi i64 [ %44, %cond.true76 ], [ %45, %cond.false77 ]
-  %call79 = call i64 @_ZN4absl13time_internal4cctz15FromUnixSecondsEl(i64 noundef %cond)
-  %coerce.dive80 = getelementptr inbounds %"class.std::chrono::time_point", ptr %tp73, i32 0, i32 0
-  %coerce.dive81 = getelementptr inbounds %"class.std::chrono::duration", ptr %coerce.dive80, i32 0, i32 0
-  store i64 %call79, ptr %coerce.dive81, align 8
-  %kind82 = getelementptr inbounds %"struct.absl::time_internal::cctz::time_zone::civil_lookup", ptr %agg.result, i32 0, i32 0
-  store i32 0, ptr %kind82, align 8
-  %pre83 = getelementptr inbounds %"struct.absl::time_internal::cctz::time_zone::civil_lookup", ptr %agg.result, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %pre83, ptr align 8 %tp73, i64 8, i1 false)
-  %trans84 = getelementptr inbounds %"struct.absl::time_internal::cctz::time_zone::civil_lookup", ptr %agg.result, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %trans84, ptr align 8 %tp73, i64 8, i1 false)
-  %post85 = getelementptr inbounds %"struct.absl::time_internal::cctz::time_zone::civil_lookup", ptr %agg.result, i32 0, i32 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %post85, ptr align 8 %tp73, i64 8, i1 false)
-  br label %return
+174:                                              ; preds = %172, %170
+  %175 = phi i64 [ %171, %170 ], [ %173, %172 ]
+  %176 = call i64 @_ZN4absl13time_internal4cctz15FromUnixSecondsEl(i64 noundef %175)
+  %177 = getelementptr inbounds nuw %"class.std::chrono::time_point", ptr %21, i32 0, i32 0
+  %178 = getelementptr inbounds nuw %"class.std::chrono::duration", ptr %177, i32 0, i32 0
+  store i64 %176, ptr %178, align 8
+  %179 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::time_zone::civil_lookup", ptr %0, i32 0, i32 0
+  store i32 0, ptr %179, align 8, !tbaa !52
+  %180 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::time_zone::civil_lookup", ptr %0, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %180, ptr align 8 %21, i64 8, i1 false), !tbaa.struct !57
+  %181 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::time_zone::civil_lookup", ptr %0, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %181, ptr align 8 %21, i64 8, i1 false), !tbaa.struct !57
+  %182 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::time_zone::civil_lookup", ptr %0, i32 0, i32 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %182, ptr align 8 %21, i64 8, i1 false), !tbaa.struct !57
+  store i32 1, ptr %22, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #8
+  br label %245
 
-if.end86:                                         ; preds = %if.then69
-  %call87 = call noundef i64 @_ZN4absl13time_internal4cctz12_GLOBAL__N_19tm_gmtoffI2tmEEDtdtfp_9tm_gmtoffERKT_(ptr noundef nonnull align 8 dereferenceable(56) %tm0)
-  store i64 %call87, ptr %offset, align 8
-  %46 = load i64, ptr %t0, align 8
-  %47 = load i64, ptr %t1, align 8
-  %cmp88 = icmp slt i64 %46, %47
-  br i1 %cmp88, label %if.then89, label %if.end91
+183:                                              ; preds = %160
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #8
+  %184 = call noundef i64 @_ZN4absl13time_internal4cctz12_GLOBAL__N_19tm_gmtoffI2tmEEDtdtfp_9tm_gmtoffERKT_(ptr noundef nonnull align 8 dereferenceable(56) %19)
+  store i64 %184, ptr %23, align 8, !tbaa !25
+  %185 = load i64, ptr %17, align 8, !tbaa !25
+  %186 = load i64, ptr %18, align 8, !tbaa !25
+  %187 = icmp slt i64 %185, %186
+  br i1 %187, label %188, label %190
 
-if.then89:                                        ; preds = %if.end86
-  call void @_ZSt4swapIlENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS3_ESt18is_move_assignableIS3_EEE5valueEvE4typeERS3_SC_(ptr noundef nonnull align 8 dereferenceable(8) %t0, ptr noundef nonnull align 8 dereferenceable(8) %t1) #5
-  %call90 = call noundef i64 @_ZN4absl13time_internal4cctz12_GLOBAL__N_19tm_gmtoffI2tmEEDtdtfp_9tm_gmtoffERKT_(ptr noundef nonnull align 8 dereferenceable(56) %tm1)
-  store i64 %call90, ptr %offset, align 8
-  br label %if.end91
+188:                                              ; preds = %183
+  call void @_ZSt4swapIlENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS3_ESt18is_move_assignableIS3_EEE5valueEvE4typeERS3_SC_(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(8) %18) #8
+  %189 = call noundef i64 @_ZN4absl13time_internal4cctz12_GLOBAL__N_19tm_gmtoffI2tmEEDtdtfp_9tm_gmtoffERKT_(ptr noundef nonnull align 8 dereferenceable(56) %20)
+  store i64 %189, ptr %23, align 8, !tbaa !25
+  br label %190
 
-if.end91:                                         ; preds = %if.then89, %if.end86
-  %48 = load i64, ptr %t1, align 8
-  %49 = load i64, ptr %t0, align 8
-  %50 = load i64, ptr %offset, align 8
-  %call92 = call noundef i64 @_ZN4absl13time_internal4cctz12_GLOBAL__N_110find_transElll(i64 noundef %48, i64 noundef %49, i64 noundef %50)
-  store i64 %call92, ptr %tt, align 8
-  %51 = load i64, ptr %tt, align 8
-  %call94 = call i64 @_ZN4absl13time_internal4cctz15FromUnixSecondsEl(i64 noundef %51)
-  %coerce.dive95 = getelementptr inbounds %"class.std::chrono::time_point", ptr %trans93, i32 0, i32 0
-  %coerce.dive96 = getelementptr inbounds %"class.std::chrono::duration", ptr %coerce.dive95, i32 0, i32 0
-  store i64 %call94, ptr %coerce.dive96, align 8
-  %tm_isdst97 = getelementptr inbounds %struct.tm, ptr %tm0, i32 0, i32 8
-  %52 = load i32, ptr %tm_isdst97, align 8
-  %tobool98 = icmp ne i32 %52, 0
-  br i1 %tobool98, label %if.then99, label %if.end112
+190:                                              ; preds = %188, %183
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #8
+  %191 = load i64, ptr %18, align 8, !tbaa !25
+  %192 = load i64, ptr %17, align 8, !tbaa !25
+  %193 = load i64, ptr %23, align 8, !tbaa !25
+  %194 = call noundef i64 @_ZN4absl13time_internal4cctz12_GLOBAL__N_110find_transElll(i64 noundef %191, i64 noundef %192, i64 noundef %193)
+  store i64 %194, ptr %24, align 8, !tbaa !25
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #8
+  %195 = load i64, ptr %24, align 8, !tbaa !25
+  %196 = call i64 @_ZN4absl13time_internal4cctz15FromUnixSecondsEl(i64 noundef %195)
+  %197 = getelementptr inbounds nuw %"class.std::chrono::time_point", ptr %25, i32 0, i32 0
+  %198 = getelementptr inbounds nuw %"class.std::chrono::duration", ptr %197, i32 0, i32 0
+  store i64 %196, ptr %198, align 8
+  %199 = getelementptr inbounds nuw %struct.tm, ptr %19, i32 0, i32 8
+  %200 = load i32, ptr %199, align 8, !tbaa !42
+  %201 = icmp ne i32 %200, 0
+  br i1 %201, label %202, label %215
 
-if.then99:                                        ; preds = %if.end91
-  %53 = load i64, ptr %t0, align 8
-  %call101 = call i64 @_ZN4absl13time_internal4cctz15FromUnixSecondsEl(i64 noundef %53)
-  %coerce.dive102 = getelementptr inbounds %"class.std::chrono::time_point", ptr %pre100, i32 0, i32 0
-  %coerce.dive103 = getelementptr inbounds %"class.std::chrono::duration", ptr %coerce.dive102, i32 0, i32 0
-  store i64 %call101, ptr %coerce.dive103, align 8
-  %54 = load i64, ptr %t1, align 8
-  %call105 = call i64 @_ZN4absl13time_internal4cctz15FromUnixSecondsEl(i64 noundef %54)
-  %coerce.dive106 = getelementptr inbounds %"class.std::chrono::time_point", ptr %post104, i32 0, i32 0
-  %coerce.dive107 = getelementptr inbounds %"class.std::chrono::duration", ptr %coerce.dive106, i32 0, i32 0
-  store i64 %call105, ptr %coerce.dive107, align 8
-  %kind108 = getelementptr inbounds %"struct.absl::time_internal::cctz::time_zone::civil_lookup", ptr %agg.result, i32 0, i32 0
-  store i32 1, ptr %kind108, align 8
-  %pre109 = getelementptr inbounds %"struct.absl::time_internal::cctz::time_zone::civil_lookup", ptr %agg.result, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %pre109, ptr align 8 %pre100, i64 8, i1 false)
-  %trans110 = getelementptr inbounds %"struct.absl::time_internal::cctz::time_zone::civil_lookup", ptr %agg.result, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %trans110, ptr align 8 %trans93, i64 8, i1 false)
-  %post111 = getelementptr inbounds %"struct.absl::time_internal::cctz::time_zone::civil_lookup", ptr %agg.result, i32 0, i32 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %post111, ptr align 8 %post104, i64 8, i1 false)
-  br label %return
+202:                                              ; preds = %190
+  call void @llvm.lifetime.start.p0(i64 8, ptr %26) #8
+  %203 = load i64, ptr %17, align 8, !tbaa !25
+  %204 = call i64 @_ZN4absl13time_internal4cctz15FromUnixSecondsEl(i64 noundef %203)
+  %205 = getelementptr inbounds nuw %"class.std::chrono::time_point", ptr %26, i32 0, i32 0
+  %206 = getelementptr inbounds nuw %"class.std::chrono::duration", ptr %205, i32 0, i32 0
+  store i64 %204, ptr %206, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %27) #8
+  %207 = load i64, ptr %18, align 8, !tbaa !25
+  %208 = call i64 @_ZN4absl13time_internal4cctz15FromUnixSecondsEl(i64 noundef %207)
+  %209 = getelementptr inbounds nuw %"class.std::chrono::time_point", ptr %27, i32 0, i32 0
+  %210 = getelementptr inbounds nuw %"class.std::chrono::duration", ptr %209, i32 0, i32 0
+  store i64 %208, ptr %210, align 8
+  %211 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::time_zone::civil_lookup", ptr %0, i32 0, i32 0
+  store i32 1, ptr %211, align 8, !tbaa !52
+  %212 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::time_zone::civil_lookup", ptr %0, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %212, ptr align 8 %26, i64 8, i1 false), !tbaa.struct !57
+  %213 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::time_zone::civil_lookup", ptr %0, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %213, ptr align 8 %25, i64 8, i1 false), !tbaa.struct !57
+  %214 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::time_zone::civil_lookup", ptr %0, i32 0, i32 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %214, ptr align 8 %27, i64 8, i1 false), !tbaa.struct !57
+  store i32 1, ptr %22, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %27) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %26) #8
+  br label %228
 
-if.end112:                                        ; preds = %if.end91
-  %55 = load i64, ptr %t1, align 8
-  %call114 = call i64 @_ZN4absl13time_internal4cctz15FromUnixSecondsEl(i64 noundef %55)
-  %coerce.dive115 = getelementptr inbounds %"class.std::chrono::time_point", ptr %pre113, i32 0, i32 0
-  %coerce.dive116 = getelementptr inbounds %"class.std::chrono::duration", ptr %coerce.dive115, i32 0, i32 0
-  store i64 %call114, ptr %coerce.dive116, align 8
-  %56 = load i64, ptr %t0, align 8
-  %call118 = call i64 @_ZN4absl13time_internal4cctz15FromUnixSecondsEl(i64 noundef %56)
-  %coerce.dive119 = getelementptr inbounds %"class.std::chrono::time_point", ptr %post117, i32 0, i32 0
-  %coerce.dive120 = getelementptr inbounds %"class.std::chrono::duration", ptr %coerce.dive119, i32 0, i32 0
-  store i64 %call118, ptr %coerce.dive120, align 8
-  %kind121 = getelementptr inbounds %"struct.absl::time_internal::cctz::time_zone::civil_lookup", ptr %agg.result, i32 0, i32 0
-  store i32 2, ptr %kind121, align 8
-  %pre122 = getelementptr inbounds %"struct.absl::time_internal::cctz::time_zone::civil_lookup", ptr %agg.result, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %pre122, ptr align 8 %pre113, i64 8, i1 false)
-  %trans123 = getelementptr inbounds %"struct.absl::time_internal::cctz::time_zone::civil_lookup", ptr %agg.result, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %trans123, ptr align 8 %trans93, i64 8, i1 false)
-  %post124 = getelementptr inbounds %"struct.absl::time_internal::cctz::time_zone::civil_lookup", ptr %agg.result, i32 0, i32 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %post124, ptr align 8 %post117, i64 8, i1 false)
-  br label %return
+215:                                              ; preds = %190
+  call void @llvm.lifetime.start.p0(i64 8, ptr %28) #8
+  %216 = load i64, ptr %18, align 8, !tbaa !25
+  %217 = call i64 @_ZN4absl13time_internal4cctz15FromUnixSecondsEl(i64 noundef %216)
+  %218 = getelementptr inbounds nuw %"class.std::chrono::time_point", ptr %28, i32 0, i32 0
+  %219 = getelementptr inbounds nuw %"class.std::chrono::duration", ptr %218, i32 0, i32 0
+  store i64 %217, ptr %219, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %29) #8
+  %220 = load i64, ptr %17, align 8, !tbaa !25
+  %221 = call i64 @_ZN4absl13time_internal4cctz15FromUnixSecondsEl(i64 noundef %220)
+  %222 = getelementptr inbounds nuw %"class.std::chrono::time_point", ptr %29, i32 0, i32 0
+  %223 = getelementptr inbounds nuw %"class.std::chrono::duration", ptr %222, i32 0, i32 0
+  store i64 %221, ptr %223, align 8
+  %224 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::time_zone::civil_lookup", ptr %0, i32 0, i32 0
+  store i32 2, ptr %224, align 8, !tbaa !52
+  %225 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::time_zone::civil_lookup", ptr %0, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %225, ptr align 8 %28, i64 8, i1 false), !tbaa.struct !57
+  %226 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::time_zone::civil_lookup", ptr %0, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %226, ptr align 8 %25, i64 8, i1 false), !tbaa.struct !57
+  %227 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::time_zone::civil_lookup", ptr %0, i32 0, i32 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %227, ptr align 8 %29, i64 8, i1 false), !tbaa.struct !57
+  store i32 1, ptr %22, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %29) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %28) #8
+  br label %228
 
-if.end125:                                        ; preds = %land.lhs.true, %if.end66
-  %57 = load ptr, ptr %cs.addr, align 8
-  call void @_ZN4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp127) #5
-  %call128 = call noundef zeroext i1 @_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE(ptr noundef nonnull align 8 dereferenceable(16) %57, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp127) #5
-  br i1 %call128, label %cond.true129, label %cond.false133
+228:                                              ; preds = %215, %202
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #8
+  br label %245
 
-cond.true129:                                     ; preds = %if.end125
-  %call130 = call i64 @_ZNSt6chrono10time_pointINS_3_V212system_clockENS_8durationIlSt5ratioILl1ELl1EEEEE3minEv() #5
-  %coerce.dive131 = getelementptr inbounds %"class.std::chrono::time_point", ptr %tp126, i32 0, i32 0
-  %coerce.dive132 = getelementptr inbounds %"class.std::chrono::duration", ptr %coerce.dive131, i32 0, i32 0
-  store i64 %call130, ptr %coerce.dive132, align 8
-  br label %cond.end137
+229:                                              ; preds = %157, %154
+  call void @llvm.lifetime.start.p0(i64 8, ptr %30) #8
+  %230 = load ptr, ptr %5, align 8, !tbaa !47
+  call void @llvm.lifetime.start.p0(i64 16, ptr %31) #8
+  call void @_ZN4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %31) #8
+  %231 = call noundef zeroext i1 @_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE(ptr noundef nonnull align 8 dereferenceable(16) %230, ptr noundef nonnull align 8 dereferenceable(16) %31) #8
+  br i1 %231, label %232, label %236
 
-cond.false133:                                    ; preds = %if.end125
-  %call134 = call i64 @_ZNSt6chrono10time_pointINS_3_V212system_clockENS_8durationIlSt5ratioILl1ELl1EEEEE3maxEv() #5
-  %coerce.dive135 = getelementptr inbounds %"class.std::chrono::time_point", ptr %tp126, i32 0, i32 0
-  %coerce.dive136 = getelementptr inbounds %"class.std::chrono::duration", ptr %coerce.dive135, i32 0, i32 0
-  store i64 %call134, ptr %coerce.dive136, align 8
-  br label %cond.end137
+232:                                              ; preds = %229
+  %233 = call i64 @_ZNSt6chrono10time_pointINS_3_V212system_clockENS_8durationIlSt5ratioILl1ELl1EEEEE3minEv() #8
+  %234 = getelementptr inbounds nuw %"class.std::chrono::time_point", ptr %30, i32 0, i32 0
+  %235 = getelementptr inbounds nuw %"class.std::chrono::duration", ptr %234, i32 0, i32 0
+  store i64 %233, ptr %235, align 8
+  br label %240
 
-cond.end137:                                      ; preds = %cond.false133, %cond.true129
-  %kind138 = getelementptr inbounds %"struct.absl::time_internal::cctz::time_zone::civil_lookup", ptr %agg.result, i32 0, i32 0
-  store i32 0, ptr %kind138, align 8
-  %pre139 = getelementptr inbounds %"struct.absl::time_internal::cctz::time_zone::civil_lookup", ptr %agg.result, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %pre139, ptr align 8 %tp126, i64 8, i1 false)
-  %trans140 = getelementptr inbounds %"struct.absl::time_internal::cctz::time_zone::civil_lookup", ptr %agg.result, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %trans140, ptr align 8 %tp126, i64 8, i1 false)
-  %post141 = getelementptr inbounds %"struct.absl::time_internal::cctz::time_zone::civil_lookup", ptr %agg.result, i32 0, i32 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %post141, ptr align 8 %tp126, i64 8, i1 false)
-  br label %return
+236:                                              ; preds = %229
+  %237 = call i64 @_ZNSt6chrono10time_pointINS_3_V212system_clockENS_8durationIlSt5ratioILl1ELl1EEEEE3maxEv() #8
+  %238 = getelementptr inbounds nuw %"class.std::chrono::time_point", ptr %30, i32 0, i32 0
+  %239 = getelementptr inbounds nuw %"class.std::chrono::duration", ptr %238, i32 0, i32 0
+  store i64 %237, ptr %239, align 8
+  br label %240
 
-return:                                           ; preds = %cond.end137, %if.end112, %if.then99, %cond.end78, %if.then56, %if.then42, %cond.end36
+240:                                              ; preds = %236, %232
+  call void @llvm.lifetime.end.p0(i64 16, ptr %31) #8
+  %241 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::time_zone::civil_lookup", ptr %0, i32 0, i32 0
+  store i32 0, ptr %241, align 8, !tbaa !52
+  %242 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::time_zone::civil_lookup", ptr %0, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %242, ptr align 8 %30, i64 8, i1 false), !tbaa.struct !57
+  %243 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::time_zone::civil_lookup", ptr %0, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %243, ptr align 8 %30, i64 8, i1 false), !tbaa.struct !57
+  %244 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::time_zone::civil_lookup", ptr %0, i32 0, i32 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %244, ptr align 8 %30, i64 8, i1 false), !tbaa.struct !57
+  store i32 1, ptr %22, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %30) #8
+  br label %245
+
+245:                                              ; preds = %240, %228, %174
+  call void @llvm.lifetime.end.p0(i64 56, ptr %20) #8
+  call void @llvm.lifetime.end.p0(i64 56, ptr %19) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #8
+  br label %246
+
+246:                                              ; preds = %245, %145, %129, %105
   ret void
 
-eh.resume:                                        ; preds = %lpad15, %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val142 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val142
+247:                                              ; preds = %114, %110
+  %248 = load ptr, ptr %8, align 8
+  %249 = load i32, ptr %9, align 4
+  %250 = insertvalue { ptr, i32 } poison, ptr %248, 0
+  %251 = insertvalue { ptr, i32 } %250, i32 %249, 1
+  resume { ptr, i32 } %251
 }
 
 ; Function Attrs: nounwind
-declare i32 @__cxa_guard_acquire(ptr) #5
+declare i32 @__cxa_guard_acquire(ptr) #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local { i64, i64 } @_ZN4absl13time_internal4cctz6detailplENS2_10civil_timeINS2_10second_tagEEEl(i64 %a.coerce0, i64 %a.coerce1, i64 noundef %n) #3 comdat {
-entry:
-  %retval = alloca %"class.absl::time_internal::cctz::detail::civil_time", align 8
-  %a = alloca %"class.absl::time_internal::cctz::detail::civil_time", align 8
-  %n.addr = alloca i64, align 8
-  %agg.tmp = alloca %"struct.absl::time_internal::cctz::detail::fields", align 8
-  %agg.tmp2 = alloca %"struct.absl::time_internal::cctz::detail::fields", align 8
-  %0 = getelementptr inbounds { i64, i64 }, ptr %a, i32 0, i32 0
-  store i64 %a.coerce0, ptr %0, align 8
-  %1 = getelementptr inbounds { i64, i64 }, ptr %a, i32 0, i32 1
-  store i64 %a.coerce1, ptr %1, align 8
-  store i64 %n, ptr %n.addr, align 8
-  %f_ = getelementptr inbounds %"class.absl::time_internal::cctz::detail::civil_time", ptr %a, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2, ptr align 8 %f_, i64 16, i1 false)
-  %2 = load i64, ptr %n.addr, align 8
-  %3 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp2, i32 0, i32 0
-  %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp2, i32 0, i32 1
-  %6 = load i64, ptr %5, align 8
-  %call = call { i64, i64 } @_ZN4absl13time_internal4cctz6detail4stepENS2_10second_tagENS2_6fieldsEl(i64 %4, i64 %6, i64 noundef %2) #5
-  %7 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp, i32 0, i32 0
-  %8 = extractvalue { i64, i64 } %call, 0
-  store i64 %8, ptr %7, align 8
-  %9 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp, i32 0, i32 1
-  %10 = extractvalue { i64, i64 } %call, 1
-  store i64 %10, ptr %9, align 8
-  %11 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp, i32 0, i32 0
-  %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp, i32 0, i32 1
-  %14 = load i64, ptr %13, align 8
-  call void @_ZN4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEEC2ENS2_6fieldsE(ptr noundef nonnull align 8 dereferenceable(16) %retval, i64 %12, i64 %14) #5
-  %coerce.dive = getelementptr inbounds %"class.absl::time_internal::cctz::detail::civil_time", ptr %retval, i32 0, i32 0
-  %15 = load { i64, i64 }, ptr %coerce.dive, align 8
-  ret { i64, i64 } %15
+define linkonce_odr dso_local { i64, i64 } @_ZN4absl13time_internal4cctz6detailplENS2_10civil_timeINS2_10second_tagEEEl(i64 %0, i64 %1, i64 noundef %2) #3 comdat {
+  %4 = alloca %"class.absl::time_internal::cctz::detail::civil_time", align 8
+  %5 = alloca %"class.absl::time_internal::cctz::detail::civil_time", align 8
+  %6 = alloca i64, align 8
+  %7 = alloca %"struct.absl::time_internal::cctz::detail::fields", align 8
+  %8 = alloca %"struct.absl::time_internal::cctz::detail::fields", align 8
+  %9 = alloca { i64, i64 }, align 8
+  %10 = getelementptr inbounds nuw { i64, i64 }, ptr %5, i32 0, i32 0
+  store i64 %0, ptr %10, align 8
+  %11 = getelementptr inbounds nuw { i64, i64 }, ptr %5, i32 0, i32 1
+  store i64 %1, ptr %11, align 8
+  store i64 %2, ptr %6, align 8, !tbaa !25
+  %12 = getelementptr inbounds nuw %"class.absl::time_internal::cctz::detail::civil_time", ptr %5, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %12, i64 16, i1 false), !tbaa.struct !26
+  %13 = load i64, ptr %6, align 8, !tbaa !25
+  %14 = getelementptr inbounds nuw { i64, i64 }, ptr %8, i32 0, i32 0
+  %15 = load i64, ptr %14, align 8
+  %16 = getelementptr inbounds nuw { i64, i64 }, ptr %8, i32 0, i32 1
+  %17 = load i64, ptr %16, align 8
+  %18 = call { i64, i64 } @_ZN4absl13time_internal4cctz6detail4stepENS2_10second_tagENS2_6fieldsEl(i64 %15, i64 %17, i64 noundef %13) #8
+  store { i64, i64 } %18, ptr %9, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %9, i64 13, i1 false)
+  %19 = getelementptr inbounds nuw { i64, i64 }, ptr %7, i32 0, i32 0
+  %20 = load i64, ptr %19, align 8
+  %21 = getelementptr inbounds nuw { i64, i64 }, ptr %7, i32 0, i32 1
+  %22 = load i64, ptr %21, align 8
+  call void @_ZN4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEEC2ENS2_6fieldsE(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 %20, i64 %22) #8
+  %23 = getelementptr inbounds nuw %"class.absl::time_internal::cctz::detail::civil_time", ptr %4, i32 0, i32 0
+  %24 = load { i64, i64 }, ptr %23, align 8
+  ret { i64, i64 } %24
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %f_ = getelementptr inbounds %"class.absl::time_internal::cctz::detail::civil_time", ptr %this1, i32 0, i32 0
-  invoke void @_ZN4absl13time_internal4cctz6detail6fieldsC2Elaaaaa(ptr noundef nonnull align 8 dereferenceable(13) %f_, i64 noundef 1970, i8 noundef signext 1, i8 noundef signext 1, i8 noundef signext 0, i8 noundef signext 0, i8 noundef signext 0)
-          to label %invoke.cont unwind label %terminate.lpad
+define linkonce_odr dso_local void @_ZN4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !47
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.absl::time_internal::cctz::detail::civil_time", ptr %3, i32 0, i32 0
+  invoke void @_ZN4absl13time_internal4cctz6detail6fieldsC2Elaaaaa(ptr noundef nonnull align 8 dereferenceable(13) %4, i64 noundef 1970, i8 noundef signext 1, i8 noundef signext 1, i8 noundef signext 0, i8 noundef signext 0, i8 noundef signext 0)
+          to label %5 unwind label %6
 
-invoke.cont:                                      ; preds = %entry
+5:                                                ; preds = %1
   ret void
 
-terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+6:                                                ; preds = %1
+  %7 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #12
+  %8 = extractvalue { ptr, i32 } %7, 0
+  call void @__clang_call_terminate(ptr %8) #16
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local i64 @_ZNSt6chrono10time_pointINS_3_V212system_clockENS_8durationIlSt5ratioILl1ELl1EEEEE3minEv() #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %retval = alloca %"class.std::chrono::time_point", align 8
-  %ref.tmp = alloca %"class.std::chrono::duration", align 8
-  %call = call i64 @_ZNSt6chrono8durationIlSt5ratioILl1ELl1EEE3minEv() #5
-  %coerce.dive = getelementptr inbounds %"class.std::chrono::duration", ptr %ref.tmp, i32 0, i32 0
-  store i64 %call, ptr %coerce.dive, align 8
-  invoke void @_ZNSt6chrono10time_pointINS_3_V212system_clockENS_8durationIlSt5ratioILl1ELl1EEEEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(8) %retval, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
-          to label %invoke.cont unwind label %terminate.lpad
+  %1 = alloca %"class.std::chrono::time_point", align 8
+  %2 = alloca %"class.std::chrono::duration", align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #8
+  %3 = call i64 @_ZNSt6chrono8durationIlSt5ratioILl1ELl1EEE3minEv() #8
+  %4 = getelementptr inbounds nuw %"class.std::chrono::duration", ptr %2, i32 0, i32 0
+  store i64 %3, ptr %4, align 8
+  invoke void @_ZNSt6chrono10time_pointINS_3_V212system_clockENS_8durationIlSt5ratioILl1ELl1EEEEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
+          to label %5 unwind label %9
 
-invoke.cont:                                      ; preds = %entry
-  %coerce.dive1 = getelementptr inbounds %"class.std::chrono::time_point", ptr %retval, i32 0, i32 0
-  %coerce.dive2 = getelementptr inbounds %"class.std::chrono::duration", ptr %coerce.dive1, i32 0, i32 0
-  %0 = load i64, ptr %coerce.dive2, align 8
-  ret i64 %0
+5:                                                ; preds = %0
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #8
+  %6 = getelementptr inbounds nuw %"class.std::chrono::time_point", ptr %1, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %"class.std::chrono::duration", ptr %6, i32 0, i32 0
+  %8 = load i64, ptr %7, align 8
+  ret i64 %8
 
-terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+9:                                                ; preds = %0
+  %10 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #12
+  %11 = extractvalue { ptr, i32 } %10, 0
+  call void @__clang_call_terminate(ptr %11) #16
   unreachable
 }
 
-; Function Attrs: nounwind
-declare void @__cxa_guard_abort(ptr) #5
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare ptr @llvm.invariant.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nounwind
-declare void @__cxa_guard_release(ptr) #5
+declare void @__cxa_guard_abort(ptr) #8
+
+; Function Attrs: nounwind
+declare void @__cxa_guard_release(ptr) #8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local i64 @_ZNSt6chrono10time_pointINS_3_V212system_clockENS_8durationIlSt5ratioILl1ELl1EEEEE3maxEv() #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %retval = alloca %"class.std::chrono::time_point", align 8
-  %ref.tmp = alloca %"class.std::chrono::duration", align 8
-  %call = call i64 @_ZNSt6chrono8durationIlSt5ratioILl1ELl1EEE3maxEv() #5
-  %coerce.dive = getelementptr inbounds %"class.std::chrono::duration", ptr %ref.tmp, i32 0, i32 0
-  store i64 %call, ptr %coerce.dive, align 8
-  invoke void @_ZNSt6chrono10time_pointINS_3_V212system_clockENS_8durationIlSt5ratioILl1ELl1EEEEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(8) %retval, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
-          to label %invoke.cont unwind label %terminate.lpad
+  %1 = alloca %"class.std::chrono::time_point", align 8
+  %2 = alloca %"class.std::chrono::duration", align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #8
+  %3 = call i64 @_ZNSt6chrono8durationIlSt5ratioILl1ELl1EEE3maxEv() #8
+  %4 = getelementptr inbounds nuw %"class.std::chrono::duration", ptr %2, i32 0, i32 0
+  store i64 %3, ptr %4, align 8
+  invoke void @_ZNSt6chrono10time_pointINS_3_V212system_clockENS_8durationIlSt5ratioILl1ELl1EEEEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
+          to label %5 unwind label %9
 
-invoke.cont:                                      ; preds = %entry
-  %coerce.dive1 = getelementptr inbounds %"class.std::chrono::time_point", ptr %retval, i32 0, i32 0
-  %coerce.dive2 = getelementptr inbounds %"class.std::chrono::duration", ptr %coerce.dive1, i32 0, i32 0
-  %0 = load i64, ptr %coerce.dive2, align 8
-  ret i64 %0
+5:                                                ; preds = %0
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #8
+  %6 = getelementptr inbounds nuw %"class.std::chrono::time_point", ptr %1, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %"class.std::chrono::duration", ptr %6, i32 0, i32 0
+  %8 = load i64, ptr %7, align 8
+  ret i64 %8
 
-terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+9:                                                ; preds = %0
+  %10 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #12
+  %11 = extractvalue { ptr, i32 } %10, 0
+  call void @__clang_call_terminate(ptr %11) #16
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE(ptr noundef nonnull align 8 dereferenceable(16) %lhs, ptr noundef nonnull align 8 dereferenceable(16) %rhs) #3 comdat {
-entry:
-  %lhs.addr = alloca ptr, align 8
-  %rhs.addr = alloca ptr, align 8
-  store ptr %lhs, ptr %lhs.addr, align 8
-  store ptr %rhs, ptr %rhs.addr, align 8
-  %0 = load ptr, ptr %lhs.addr, align 8
-  %call = call noundef i64 @_ZNK4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE4yearEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #5
-  %1 = load ptr, ptr %rhs.addr, align 8
-  %call1 = call noundef i64 @_ZNK4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE4yearEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #5
-  %cmp = icmp slt i64 %call, %call1
-  br i1 %cmp, label %lor.end47, label %lor.rhs
+define linkonce_odr dso_local noundef zeroext i1 @_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #3 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !47
+  store ptr %1, ptr %4, align 8, !tbaa !47
+  %5 = load ptr, ptr %3, align 8, !tbaa !47
+  %6 = call noundef i64 @_ZNK4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE4yearEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #8
+  %7 = load ptr, ptr %4, align 8, !tbaa !47
+  %8 = call noundef i64 @_ZNK4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE4yearEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #8
+  %9 = icmp slt i64 %6, %8
+  br i1 %9, label %88, label %10
 
-lor.rhs:                                          ; preds = %entry
-  %2 = load ptr, ptr %lhs.addr, align 8
-  %call2 = call noundef i64 @_ZNK4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE4yearEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #5
-  %3 = load ptr, ptr %rhs.addr, align 8
-  %call3 = call noundef i64 @_ZNK4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE4yearEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #5
-  %cmp4 = icmp eq i64 %call2, %call3
-  br i1 %cmp4, label %land.rhs, label %land.end46
+10:                                               ; preds = %2
+  %11 = load ptr, ptr %3, align 8, !tbaa !47
+  %12 = call noundef i64 @_ZNK4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE4yearEv(ptr noundef nonnull align 8 dereferenceable(16) %11) #8
+  %13 = load ptr, ptr %4, align 8, !tbaa !47
+  %14 = call noundef i64 @_ZNK4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE4yearEv(ptr noundef nonnull align 8 dereferenceable(16) %13) #8
+  %15 = icmp eq i64 %12, %14
+  br i1 %15, label %16, label %86
 
-land.rhs:                                         ; preds = %lor.rhs
-  %4 = load ptr, ptr %lhs.addr, align 8
-  %call5 = call noundef i32 @_ZNK4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE5monthEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #5
-  %5 = load ptr, ptr %rhs.addr, align 8
-  %call6 = call noundef i32 @_ZNK4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE5monthEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #5
-  %cmp7 = icmp slt i32 %call5, %call6
-  br i1 %cmp7, label %lor.end45, label %lor.rhs8
+16:                                               ; preds = %10
+  %17 = load ptr, ptr %3, align 8, !tbaa !47
+  %18 = call noundef i32 @_ZNK4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE5monthEv(ptr noundef nonnull align 8 dereferenceable(16) %17) #8
+  %19 = load ptr, ptr %4, align 8, !tbaa !47
+  %20 = call noundef i32 @_ZNK4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE5monthEv(ptr noundef nonnull align 8 dereferenceable(16) %19) #8
+  %21 = icmp slt i32 %18, %20
+  br i1 %21, label %84, label %22
 
-lor.rhs8:                                         ; preds = %land.rhs
-  %6 = load ptr, ptr %lhs.addr, align 8
-  %call9 = call noundef i32 @_ZNK4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE5monthEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #5
-  %7 = load ptr, ptr %rhs.addr, align 8
-  %call10 = call noundef i32 @_ZNK4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE5monthEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #5
-  %cmp11 = icmp eq i32 %call9, %call10
-  br i1 %cmp11, label %land.rhs12, label %land.end44
+22:                                               ; preds = %16
+  %23 = load ptr, ptr %3, align 8, !tbaa !47
+  %24 = call noundef i32 @_ZNK4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE5monthEv(ptr noundef nonnull align 8 dereferenceable(16) %23) #8
+  %25 = load ptr, ptr %4, align 8, !tbaa !47
+  %26 = call noundef i32 @_ZNK4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE5monthEv(ptr noundef nonnull align 8 dereferenceable(16) %25) #8
+  %27 = icmp eq i32 %24, %26
+  br i1 %27, label %28, label %82
 
-land.rhs12:                                       ; preds = %lor.rhs8
-  %8 = load ptr, ptr %lhs.addr, align 8
-  %call13 = call noundef i32 @_ZNK4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE3dayEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #5
-  %9 = load ptr, ptr %rhs.addr, align 8
-  %call14 = call noundef i32 @_ZNK4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE3dayEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #5
-  %cmp15 = icmp slt i32 %call13, %call14
-  br i1 %cmp15, label %lor.end43, label %lor.rhs16
+28:                                               ; preds = %22
+  %29 = load ptr, ptr %3, align 8, !tbaa !47
+  %30 = call noundef i32 @_ZNK4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE3dayEv(ptr noundef nonnull align 8 dereferenceable(16) %29) #8
+  %31 = load ptr, ptr %4, align 8, !tbaa !47
+  %32 = call noundef i32 @_ZNK4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE3dayEv(ptr noundef nonnull align 8 dereferenceable(16) %31) #8
+  %33 = icmp slt i32 %30, %32
+  br i1 %33, label %80, label %34
 
-lor.rhs16:                                        ; preds = %land.rhs12
-  %10 = load ptr, ptr %lhs.addr, align 8
-  %call17 = call noundef i32 @_ZNK4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE3dayEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #5
-  %11 = load ptr, ptr %rhs.addr, align 8
-  %call18 = call noundef i32 @_ZNK4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE3dayEv(ptr noundef nonnull align 8 dereferenceable(16) %11) #5
-  %cmp19 = icmp eq i32 %call17, %call18
-  br i1 %cmp19, label %land.rhs20, label %land.end42
+34:                                               ; preds = %28
+  %35 = load ptr, ptr %3, align 8, !tbaa !47
+  %36 = call noundef i32 @_ZNK4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE3dayEv(ptr noundef nonnull align 8 dereferenceable(16) %35) #8
+  %37 = load ptr, ptr %4, align 8, !tbaa !47
+  %38 = call noundef i32 @_ZNK4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE3dayEv(ptr noundef nonnull align 8 dereferenceable(16) %37) #8
+  %39 = icmp eq i32 %36, %38
+  br i1 %39, label %40, label %78
 
-land.rhs20:                                       ; preds = %lor.rhs16
-  %12 = load ptr, ptr %lhs.addr, align 8
-  %call21 = call noundef i32 @_ZNK4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE4hourEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #5
-  %13 = load ptr, ptr %rhs.addr, align 8
-  %call22 = call noundef i32 @_ZNK4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE4hourEv(ptr noundef nonnull align 8 dereferenceable(16) %13) #5
-  %cmp23 = icmp slt i32 %call21, %call22
-  br i1 %cmp23, label %lor.end41, label %lor.rhs24
+40:                                               ; preds = %34
+  %41 = load ptr, ptr %3, align 8, !tbaa !47
+  %42 = call noundef i32 @_ZNK4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE4hourEv(ptr noundef nonnull align 8 dereferenceable(16) %41) #8
+  %43 = load ptr, ptr %4, align 8, !tbaa !47
+  %44 = call noundef i32 @_ZNK4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE4hourEv(ptr noundef nonnull align 8 dereferenceable(16) %43) #8
+  %45 = icmp slt i32 %42, %44
+  br i1 %45, label %76, label %46
 
-lor.rhs24:                                        ; preds = %land.rhs20
-  %14 = load ptr, ptr %lhs.addr, align 8
-  %call25 = call noundef i32 @_ZNK4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE4hourEv(ptr noundef nonnull align 8 dereferenceable(16) %14) #5
-  %15 = load ptr, ptr %rhs.addr, align 8
-  %call26 = call noundef i32 @_ZNK4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE4hourEv(ptr noundef nonnull align 8 dereferenceable(16) %15) #5
-  %cmp27 = icmp eq i32 %call25, %call26
-  br i1 %cmp27, label %land.rhs28, label %land.end40
+46:                                               ; preds = %40
+  %47 = load ptr, ptr %3, align 8, !tbaa !47
+  %48 = call noundef i32 @_ZNK4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE4hourEv(ptr noundef nonnull align 8 dereferenceable(16) %47) #8
+  %49 = load ptr, ptr %4, align 8, !tbaa !47
+  %50 = call noundef i32 @_ZNK4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE4hourEv(ptr noundef nonnull align 8 dereferenceable(16) %49) #8
+  %51 = icmp eq i32 %48, %50
+  br i1 %51, label %52, label %74
 
-land.rhs28:                                       ; preds = %lor.rhs24
-  %16 = load ptr, ptr %lhs.addr, align 8
-  %call29 = call noundef i32 @_ZNK4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE6minuteEv(ptr noundef nonnull align 8 dereferenceable(16) %16) #5
-  %17 = load ptr, ptr %rhs.addr, align 8
-  %call30 = call noundef i32 @_ZNK4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE6minuteEv(ptr noundef nonnull align 8 dereferenceable(16) %17) #5
-  %cmp31 = icmp slt i32 %call29, %call30
-  br i1 %cmp31, label %lor.end, label %lor.rhs32
+52:                                               ; preds = %46
+  %53 = load ptr, ptr %3, align 8, !tbaa !47
+  %54 = call noundef i32 @_ZNK4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE6minuteEv(ptr noundef nonnull align 8 dereferenceable(16) %53) #8
+  %55 = load ptr, ptr %4, align 8, !tbaa !47
+  %56 = call noundef i32 @_ZNK4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE6minuteEv(ptr noundef nonnull align 8 dereferenceable(16) %55) #8
+  %57 = icmp slt i32 %54, %56
+  br i1 %57, label %72, label %58
 
-lor.rhs32:                                        ; preds = %land.rhs28
-  %18 = load ptr, ptr %lhs.addr, align 8
-  %call33 = call noundef i32 @_ZNK4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE6minuteEv(ptr noundef nonnull align 8 dereferenceable(16) %18) #5
-  %19 = load ptr, ptr %rhs.addr, align 8
-  %call34 = call noundef i32 @_ZNK4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE6minuteEv(ptr noundef nonnull align 8 dereferenceable(16) %19) #5
-  %cmp35 = icmp eq i32 %call33, %call34
-  br i1 %cmp35, label %land.rhs36, label %land.end
+58:                                               ; preds = %52
+  %59 = load ptr, ptr %3, align 8, !tbaa !47
+  %60 = call noundef i32 @_ZNK4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE6minuteEv(ptr noundef nonnull align 8 dereferenceable(16) %59) #8
+  %61 = load ptr, ptr %4, align 8, !tbaa !47
+  %62 = call noundef i32 @_ZNK4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE6minuteEv(ptr noundef nonnull align 8 dereferenceable(16) %61) #8
+  %63 = icmp eq i32 %60, %62
+  br i1 %63, label %64, label %70
 
-land.rhs36:                                       ; preds = %lor.rhs32
-  %20 = load ptr, ptr %lhs.addr, align 8
-  %call37 = call noundef i32 @_ZNK4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE6secondEv(ptr noundef nonnull align 8 dereferenceable(16) %20) #5
-  %21 = load ptr, ptr %rhs.addr, align 8
-  %call38 = call noundef i32 @_ZNK4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE6secondEv(ptr noundef nonnull align 8 dereferenceable(16) %21) #5
-  %cmp39 = icmp slt i32 %call37, %call38
-  br label %land.end
+64:                                               ; preds = %58
+  %65 = load ptr, ptr %3, align 8, !tbaa !47
+  %66 = call noundef i32 @_ZNK4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE6secondEv(ptr noundef nonnull align 8 dereferenceable(16) %65) #8
+  %67 = load ptr, ptr %4, align 8, !tbaa !47
+  %68 = call noundef i32 @_ZNK4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE6secondEv(ptr noundef nonnull align 8 dereferenceable(16) %67) #8
+  %69 = icmp slt i32 %66, %68
+  br label %70
 
-land.end:                                         ; preds = %land.rhs36, %lor.rhs32
-  %22 = phi i1 [ false, %lor.rhs32 ], [ %cmp39, %land.rhs36 ]
-  br label %lor.end
+70:                                               ; preds = %64, %58
+  %71 = phi i1 [ false, %58 ], [ %69, %64 ]
+  br label %72
 
-lor.end:                                          ; preds = %land.end, %land.rhs28
-  %23 = phi i1 [ true, %land.rhs28 ], [ %22, %land.end ]
-  br label %land.end40
+72:                                               ; preds = %70, %52
+  %73 = phi i1 [ true, %52 ], [ %71, %70 ]
+  br label %74
 
-land.end40:                                       ; preds = %lor.end, %lor.rhs24
-  %24 = phi i1 [ false, %lor.rhs24 ], [ %23, %lor.end ]
-  br label %lor.end41
+74:                                               ; preds = %72, %46
+  %75 = phi i1 [ false, %46 ], [ %73, %72 ]
+  br label %76
 
-lor.end41:                                        ; preds = %land.end40, %land.rhs20
-  %25 = phi i1 [ true, %land.rhs20 ], [ %24, %land.end40 ]
-  br label %land.end42
+76:                                               ; preds = %74, %40
+  %77 = phi i1 [ true, %40 ], [ %75, %74 ]
+  br label %78
 
-land.end42:                                       ; preds = %lor.end41, %lor.rhs16
-  %26 = phi i1 [ false, %lor.rhs16 ], [ %25, %lor.end41 ]
-  br label %lor.end43
+78:                                               ; preds = %76, %34
+  %79 = phi i1 [ false, %34 ], [ %77, %76 ]
+  br label %80
 
-lor.end43:                                        ; preds = %land.end42, %land.rhs12
-  %27 = phi i1 [ true, %land.rhs12 ], [ %26, %land.end42 ]
-  br label %land.end44
+80:                                               ; preds = %78, %28
+  %81 = phi i1 [ true, %28 ], [ %79, %78 ]
+  br label %82
 
-land.end44:                                       ; preds = %lor.end43, %lor.rhs8
-  %28 = phi i1 [ false, %lor.rhs8 ], [ %27, %lor.end43 ]
-  br label %lor.end45
+82:                                               ; preds = %80, %22
+  %83 = phi i1 [ false, %22 ], [ %81, %80 ]
+  br label %84
 
-lor.end45:                                        ; preds = %land.end44, %land.rhs
-  %29 = phi i1 [ true, %land.rhs ], [ %28, %land.end44 ]
-  br label %land.end46
+84:                                               ; preds = %82, %16
+  %85 = phi i1 [ true, %16 ], [ %83, %82 ]
+  br label %86
 
-land.end46:                                       ; preds = %lor.end45, %lor.rhs
-  %30 = phi i1 [ false, %lor.rhs ], [ %29, %lor.end45 ]
-  br label %lor.end47
+86:                                               ; preds = %84, %10
+  %87 = phi i1 [ false, %10 ], [ %85, %84 ]
+  br label %88
 
-lor.end47:                                        ; preds = %land.end46, %entry
-  %31 = phi i1 [ true, %entry ], [ %30, %land.end46 ]
-  ret i1 %31
+88:                                               ; preds = %86, %2
+  %89 = phi i1 [ true, %2 ], [ %87, %86 ]
+  ret i1 %89
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZN4absl13time_internal4cctz6detailgtINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE(ptr noundef nonnull align 8 dereferenceable(16) %lhs, ptr noundef nonnull align 8 dereferenceable(16) %rhs) #3 comdat {
-entry:
-  %lhs.addr = alloca ptr, align 8
-  %rhs.addr = alloca ptr, align 8
-  store ptr %lhs, ptr %lhs.addr, align 8
-  store ptr %rhs, ptr %rhs.addr, align 8
-  %0 = load ptr, ptr %rhs.addr, align 8
-  %1 = load ptr, ptr %lhs.addr, align 8
-  %call = call noundef zeroext i1 @_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #5
-  ret i1 %call
+define linkonce_odr dso_local noundef zeroext i1 @_ZN4absl13time_internal4cctz6detailgtINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #3 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !47
+  store ptr %1, ptr %4, align 8, !tbaa !47
+  %5 = load ptr, ptr %4, align 8, !tbaa !47
+  %6 = load ptr, ptr %3, align 8, !tbaa !47
+  %7 = call noundef zeroext i1 @_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6) #8
+  ret i1 %7
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local i64 @_ZN4absl13time_internal4cctz15FromUnixSecondsEl(i64 noundef %t) #0 comdat {
-entry:
-  %retval = alloca %"class.std::chrono::time_point", align 8
-  %t.addr = alloca i64, align 8
-  %ref.tmp = alloca %"class.std::chrono::time_point", align 8
-  %ref.tmp1 = alloca %"class.std::chrono::time_point.2", align 8
-  %ref.tmp6 = alloca %"class.std::chrono::duration", align 8
-  store i64 %t, ptr %t.addr, align 8
-  %call = call i64 @_ZNSt6chrono3_V212system_clock11from_time_tEl(i64 noundef 0) #5
-  %coerce.dive = getelementptr inbounds %"class.std::chrono::time_point.2", ptr %ref.tmp1, i32 0, i32 0
-  %coerce.dive2 = getelementptr inbounds %"class.std::chrono::duration.3", ptr %coerce.dive, i32 0, i32 0
-  store i64 %call, ptr %coerce.dive2, align 8
-  %call3 = call i64 @_ZNSt6chrono15time_point_castINS_8durationIlSt5ratioILl1ELl1EEEENS_3_V212system_clockENS1_IlS2_ILl1ELl1000000000EEEEEENSt9enable_ifIXsr13__is_durationIT_EE5valueENS_10time_pointIT0_SA_EEE4typeERKNSB_ISC_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp1)
-  %coerce.dive4 = getelementptr inbounds %"class.std::chrono::time_point", ptr %ref.tmp, i32 0, i32 0
-  %coerce.dive5 = getelementptr inbounds %"class.std::chrono::duration", ptr %coerce.dive4, i32 0, i32 0
-  store i64 %call3, ptr %coerce.dive5, align 8
-  call void @_ZNSt6chrono8durationIlSt5ratioILl1ELl1EEEC2IlvEERKT_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp6, ptr noundef nonnull align 8 dereferenceable(8) %t.addr)
-  %call7 = call i64 @_ZNSt6chronoplINS_3_V212system_clockENS_8durationIlSt5ratioILl1ELl1EEEElS5_EENS_10time_pointIT_NSt11common_typeIJT0_NS3_IT1_T2_EEEE4typeEEERKNS7_IS8_SA_EERKSD_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp6)
-  %coerce.dive8 = getelementptr inbounds %"class.std::chrono::time_point", ptr %retval, i32 0, i32 0
-  %coerce.dive9 = getelementptr inbounds %"class.std::chrono::duration", ptr %coerce.dive8, i32 0, i32 0
-  store i64 %call7, ptr %coerce.dive9, align 8
-  %coerce.dive10 = getelementptr inbounds %"class.std::chrono::time_point", ptr %retval, i32 0, i32 0
-  %coerce.dive11 = getelementptr inbounds %"class.std::chrono::duration", ptr %coerce.dive10, i32 0, i32 0
-  %0 = load i64, ptr %coerce.dive11, align 8
-  ret i64 %0
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i64 @_ZN4absl13time_internal4cctz6detailmiENS2_10civil_timeINS2_10second_tagEEES5_(i64 %lhs.coerce0, i64 %lhs.coerce1, i64 %rhs.coerce0, i64 %rhs.coerce1) #3 comdat {
-entry:
-  %lhs = alloca %"class.absl::time_internal::cctz::detail::civil_time", align 8
-  %rhs = alloca %"class.absl::time_internal::cctz::detail::civil_time", align 8
-  %agg.tmp1 = alloca %"struct.absl::time_internal::cctz::detail::fields", align 8
-  %agg.tmp2 = alloca %"struct.absl::time_internal::cctz::detail::fields", align 8
-  %0 = getelementptr inbounds { i64, i64 }, ptr %lhs, i32 0, i32 0
-  store i64 %lhs.coerce0, ptr %0, align 8
-  %1 = getelementptr inbounds { i64, i64 }, ptr %lhs, i32 0, i32 1
-  store i64 %lhs.coerce1, ptr %1, align 8
-  %2 = getelementptr inbounds { i64, i64 }, ptr %rhs, i32 0, i32 0
-  store i64 %rhs.coerce0, ptr %2, align 8
-  %3 = getelementptr inbounds { i64, i64 }, ptr %rhs, i32 0, i32 1
-  store i64 %rhs.coerce1, ptr %3, align 8
-  %f_ = getelementptr inbounds %"class.absl::time_internal::cctz::detail::civil_time", ptr %lhs, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp1, ptr align 8 %f_, i64 16, i1 false)
-  %f_3 = getelementptr inbounds %"class.absl::time_internal::cctz::detail::civil_time", ptr %rhs, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2, ptr align 8 %f_3, i64 16, i1 false)
-  %4 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp1, i32 0, i32 0
-  %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp1, i32 0, i32 1
-  %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp2, i32 0, i32 0
-  %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp2, i32 0, i32 1
-  %11 = load i64, ptr %10, align 8
-  %call = call noundef i64 @_ZN4absl13time_internal4cctz6detail10differenceENS2_10second_tagENS2_6fieldsES4_(i64 %5, i64 %7, i64 %9, i64 %11) #5
-  ret i64 %call
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local i64 @_ZN4absl13time_internal4cctz15FromUnixSecondsEl(i64 noundef %0) #6 comdat {
+  %2 = alloca %"class.std::chrono::time_point", align 8
+  %3 = alloca i64, align 8
+  %4 = alloca %"class.std::chrono::time_point", align 8
+  %5 = alloca %"class.std::chrono::time_point.2", align 8
+  %6 = alloca %"class.std::chrono::duration", align 8
+  store i64 %0, ptr %3, align 8, !tbaa !25
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  %7 = call i64 @_ZNSt6chrono3_V212system_clock11from_time_tEl(i64 noundef 0) #8
+  %8 = getelementptr inbounds nuw %"class.std::chrono::time_point.2", ptr %5, i32 0, i32 0
+  %9 = getelementptr inbounds nuw %"class.std::chrono::duration.3", ptr %8, i32 0, i32 0
+  store i64 %7, ptr %9, align 8
+  %10 = call i64 @_ZNSt6chrono15time_point_castINS_8durationIlSt5ratioILl1ELl1EEEENS_3_V212system_clockENS1_IlS2_ILl1ELl1000000000EEEEEENSt9enable_ifIXsr13__is_durationIT_EE5valueENS_10time_pointIT0_SA_EEE4typeERKNSB_ISC_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %5)
+  %11 = getelementptr inbounds nuw %"class.std::chrono::time_point", ptr %4, i32 0, i32 0
+  %12 = getelementptr inbounds nuw %"class.std::chrono::duration", ptr %11, i32 0, i32 0
+  store i64 %10, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  call void @_ZNSt6chrono8durationIlSt5ratioILl1ELl1EEEC2IlvEERKT_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %13 = call i64 @_ZNSt6chronoplINS_3_V212system_clockENS_8durationIlSt5ratioILl1ELl1EEEElS5_EENS_10time_pointIT_NSt11common_typeIJT0_NS3_IT1_T2_EEEE4typeEEERKNS7_IS8_SA_EERKSD_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  %14 = getelementptr inbounds nuw %"class.std::chrono::time_point", ptr %2, i32 0, i32 0
+  %15 = getelementptr inbounds nuw %"class.std::chrono::duration", ptr %14, i32 0, i32 0
+  store i64 %13, ptr %15, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #8
+  %16 = getelementptr inbounds nuw %"class.std::chrono::time_point", ptr %2, i32 0, i32 0
+  %17 = getelementptr inbounds nuw %"class.std::chrono::duration", ptr %16, i32 0, i32 0
+  %18 = load i64, ptr %17, align 8
+  ret i64 %18
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i64 @_ZNK4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE4yearEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #3 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %f_ = getelementptr inbounds %"class.absl::time_internal::cctz::detail::civil_time", ptr %this1, i32 0, i32 0
-  %y = getelementptr inbounds %"struct.absl::time_internal::cctz::detail::fields", ptr %f_, i32 0, i32 0
-  %0 = load i64, ptr %y, align 8
-  ret i64 %0
+define linkonce_odr dso_local noundef i64 @_ZN4absl13time_internal4cctz6detailmiENS2_10civil_timeINS2_10second_tagEEES5_(i64 %0, i64 %1, i64 %2, i64 %3) #3 comdat {
+  %5 = alloca %"class.absl::time_internal::cctz::detail::civil_time", align 8
+  %6 = alloca %"class.absl::time_internal::cctz::detail::civil_time", align 8
+  %7 = alloca %"struct.absl::time_internal::cctz::detail::fields", align 8
+  %8 = alloca %"struct.absl::time_internal::cctz::detail::fields", align 8
+  %9 = getelementptr inbounds nuw { i64, i64 }, ptr %5, i32 0, i32 0
+  store i64 %0, ptr %9, align 8
+  %10 = getelementptr inbounds nuw { i64, i64 }, ptr %5, i32 0, i32 1
+  store i64 %1, ptr %10, align 8
+  %11 = getelementptr inbounds nuw { i64, i64 }, ptr %6, i32 0, i32 0
+  store i64 %2, ptr %11, align 8
+  %12 = getelementptr inbounds nuw { i64, i64 }, ptr %6, i32 0, i32 1
+  store i64 %3, ptr %12, align 8
+  %13 = getelementptr inbounds nuw %"class.absl::time_internal::cctz::detail::civil_time", ptr %5, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %13, i64 16, i1 false), !tbaa.struct !26
+  %14 = getelementptr inbounds nuw %"class.absl::time_internal::cctz::detail::civil_time", ptr %6, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %14, i64 16, i1 false), !tbaa.struct !26
+  %15 = getelementptr inbounds nuw { i64, i64 }, ptr %7, i32 0, i32 0
+  %16 = load i64, ptr %15, align 8
+  %17 = getelementptr inbounds nuw { i64, i64 }, ptr %7, i32 0, i32 1
+  %18 = load i64, ptr %17, align 8
+  %19 = getelementptr inbounds nuw { i64, i64 }, ptr %8, i32 0, i32 0
+  %20 = load i64, ptr %19, align 8
+  %21 = getelementptr inbounds nuw { i64, i64 }, ptr %8, i32 0, i32 1
+  %22 = load i64, ptr %21, align 8
+  %23 = call noundef i64 @_ZN4absl13time_internal4cctz6detail10differenceENS2_10second_tagENS2_6fieldsES4_(i64 %16, i64 %18, i64 %20, i64 %22) #8
+  ret i64 %23
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i64 @_ZNK4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE4yearEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #3 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !47
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.absl::time_internal::cctz::detail::civil_time", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::detail::fields", ptr %4, i32 0, i32 0
+  %6 = load i64, ptr %5, align 8, !tbaa !58
+  ret i64 %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i32 @_ZNSt14numeric_limitsIiE3minEv() #3 comdat align 2 {
-entry:
   ret i32 -2147483648
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i32 @_ZNSt14numeric_limitsIiE3maxEv() #3 comdat align 2 {
-entry:
   ret i32 2147483647
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm(ptr noundef nonnull align 8 dereferenceable(16) %cs, i32 noundef %is_dst, ptr noundef %t, ptr noundef %tm) #3 {
-entry:
-  %retval = alloca i1, align 1
-  %cs.addr = alloca ptr, align 8
-  %is_dst.addr = alloca i32, align 4
-  %t.addr = alloca ptr, align 8
-  %tm.addr = alloca ptr, align 8
-  %tm2 = alloca %struct.tm, align 8
-  %tmp = alloca ptr, align 8
-  store ptr %cs, ptr %cs.addr, align 8
-  store i32 %is_dst, ptr %is_dst.addr, align 4
-  store ptr %t, ptr %t.addr, align 8
-  store ptr %tm, ptr %tm.addr, align 8
-  %0 = load ptr, ptr %cs.addr, align 8
-  %call = call noundef i64 @_ZNK4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE4yearEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #5
-  %sub = sub nsw i64 %call, 1900
-  %conv = trunc i64 %sub to i32
-  %1 = load ptr, ptr %tm.addr, align 8
-  %tm_year = getelementptr inbounds %struct.tm, ptr %1, i32 0, i32 5
-  store i32 %conv, ptr %tm_year, align 4
-  %2 = load ptr, ptr %cs.addr, align 8
-  %call1 = call noundef i32 @_ZNK4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE5monthEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #5
-  %sub2 = sub nsw i32 %call1, 1
-  %3 = load ptr, ptr %tm.addr, align 8
-  %tm_mon = getelementptr inbounds %struct.tm, ptr %3, i32 0, i32 4
-  store i32 %sub2, ptr %tm_mon, align 8
-  %4 = load ptr, ptr %cs.addr, align 8
-  %call3 = call noundef i32 @_ZNK4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE3dayEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #5
-  %5 = load ptr, ptr %tm.addr, align 8
-  %tm_mday = getelementptr inbounds %struct.tm, ptr %5, i32 0, i32 3
-  store i32 %call3, ptr %tm_mday, align 4
-  %6 = load ptr, ptr %cs.addr, align 8
-  %call4 = call noundef i32 @_ZNK4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE4hourEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #5
-  %7 = load ptr, ptr %tm.addr, align 8
-  %tm_hour = getelementptr inbounds %struct.tm, ptr %7, i32 0, i32 2
-  store i32 %call4, ptr %tm_hour, align 8
-  %8 = load ptr, ptr %cs.addr, align 8
-  %call5 = call noundef i32 @_ZNK4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE6minuteEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #5
-  %9 = load ptr, ptr %tm.addr, align 8
-  %tm_min = getelementptr inbounds %struct.tm, ptr %9, i32 0, i32 1
-  store i32 %call5, ptr %tm_min, align 4
-  %10 = load ptr, ptr %cs.addr, align 8
-  %call6 = call noundef i32 @_ZNK4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE6secondEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #5
-  %11 = load ptr, ptr %tm.addr, align 8
-  %tm_sec = getelementptr inbounds %struct.tm, ptr %11, i32 0, i32 0
-  store i32 %call6, ptr %tm_sec, align 8
-  %12 = load i32, ptr %is_dst.addr, align 4
-  %13 = load ptr, ptr %tm.addr, align 8
-  %tm_isdst = getelementptr inbounds %struct.tm, ptr %13, i32 0, i32 8
-  store i32 %12, ptr %tm_isdst, align 8
-  %14 = load ptr, ptr %tm.addr, align 8
-  %call7 = call i64 @mktime(ptr noundef %14) #5
-  %15 = load ptr, ptr %t.addr, align 8
-  store i64 %call7, ptr %15, align 8
-  %16 = load ptr, ptr %t.addr, align 8
-  %17 = load i64, ptr %16, align 8
-  %cmp = icmp eq i64 %17, -1
-  br i1 %cmp, label %if.then, label %if.end34
+define internal noundef zeroext i1 @_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #3 {
+  %5 = alloca i1, align 1
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca %struct.tm, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !47
+  store i32 %1, ptr %7, align 4, !tbaa !59
+  store ptr %2, ptr %8, align 8, !tbaa !45
+  store ptr %3, ptr %9, align 8, !tbaa !33
+  %13 = load ptr, ptr %6, align 8, !tbaa !47
+  %14 = call noundef i64 @_ZNK4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE4yearEv(ptr noundef nonnull align 8 dereferenceable(16) %13) #8
+  %15 = sub nsw i64 %14, 1900
+  %16 = trunc i64 %15 to i32
+  %17 = load ptr, ptr %9, align 8, !tbaa !33
+  %18 = getelementptr inbounds nuw %struct.tm, ptr %17, i32 0, i32 5
+  store i32 %16, ptr %18, align 4, !tbaa !35
+  %19 = load ptr, ptr %6, align 8, !tbaa !47
+  %20 = call noundef i32 @_ZNK4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE5monthEv(ptr noundef nonnull align 8 dereferenceable(16) %19) #8
+  %21 = sub nsw i32 %20, 1
+  %22 = load ptr, ptr %9, align 8, !tbaa !33
+  %23 = getelementptr inbounds nuw %struct.tm, ptr %22, i32 0, i32 4
+  store i32 %21, ptr %23, align 8, !tbaa !37
+  %24 = load ptr, ptr %6, align 8, !tbaa !47
+  %25 = call noundef i32 @_ZNK4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE3dayEv(ptr noundef nonnull align 8 dereferenceable(16) %24) #8
+  %26 = load ptr, ptr %9, align 8, !tbaa !33
+  %27 = getelementptr inbounds nuw %struct.tm, ptr %26, i32 0, i32 3
+  store i32 %25, ptr %27, align 4, !tbaa !38
+  %28 = load ptr, ptr %6, align 8, !tbaa !47
+  %29 = call noundef i32 @_ZNK4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE4hourEv(ptr noundef nonnull align 8 dereferenceable(16) %28) #8
+  %30 = load ptr, ptr %9, align 8, !tbaa !33
+  %31 = getelementptr inbounds nuw %struct.tm, ptr %30, i32 0, i32 2
+  store i32 %29, ptr %31, align 8, !tbaa !39
+  %32 = load ptr, ptr %6, align 8, !tbaa !47
+  %33 = call noundef i32 @_ZNK4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE6minuteEv(ptr noundef nonnull align 8 dereferenceable(16) %32) #8
+  %34 = load ptr, ptr %9, align 8, !tbaa !33
+  %35 = getelementptr inbounds nuw %struct.tm, ptr %34, i32 0, i32 1
+  store i32 %33, ptr %35, align 4, !tbaa !40
+  %36 = load ptr, ptr %6, align 8, !tbaa !47
+  %37 = call noundef i32 @_ZNK4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE6secondEv(ptr noundef nonnull align 8 dereferenceable(16) %36) #8
+  %38 = load ptr, ptr %9, align 8, !tbaa !33
+  %39 = getelementptr inbounds nuw %struct.tm, ptr %38, i32 0, i32 0
+  store i32 %37, ptr %39, align 8, !tbaa !41
+  %40 = load i32, ptr %7, align 4, !tbaa !59
+  %41 = load ptr, ptr %9, align 8, !tbaa !33
+  %42 = getelementptr inbounds nuw %struct.tm, ptr %41, i32 0, i32 8
+  store i32 %40, ptr %42, align 8, !tbaa !42
+  %43 = load ptr, ptr %9, align 8, !tbaa !33
+  %44 = call i64 @mktime(ptr noundef %43) #8
+  %45 = load ptr, ptr %8, align 8, !tbaa !45
+  store i64 %44, ptr %45, align 8, !tbaa !25
+  %46 = load ptr, ptr %8, align 8, !tbaa !45
+  %47 = load i64, ptr %46, align 8, !tbaa !25
+  %48 = icmp eq i64 %47, -1
+  br i1 %48, label %49, label %107
 
-if.then:                                          ; preds = %entry
-  %18 = load ptr, ptr %t.addr, align 8
-  %call8 = call noundef ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_110local_timeEPKlP2tm(ptr noundef %18, ptr noundef %tm2)
-  store ptr %call8, ptr %tmp, align 8
-  %19 = load ptr, ptr %tmp, align 8
-  %cmp9 = icmp eq ptr %19, null
-  br i1 %cmp9, label %if.then33, label %lor.lhs.false
+49:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 56, ptr %10) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #8
+  %50 = load ptr, ptr %8, align 8, !tbaa !45
+  %51 = call noundef ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_110local_timeEPKlP2tm(ptr noundef %50, ptr noundef %10)
+  store ptr %51, ptr %11, align 8, !tbaa !33
+  %52 = load ptr, ptr %11, align 8, !tbaa !33
+  %53 = icmp eq ptr %52, null
+  br i1 %53, label %102, label %54
 
-lor.lhs.false:                                    ; preds = %if.then
-  %20 = load ptr, ptr %tmp, align 8
-  %tm_year10 = getelementptr inbounds %struct.tm, ptr %20, i32 0, i32 5
-  %21 = load i32, ptr %tm_year10, align 4
-  %22 = load ptr, ptr %tm.addr, align 8
-  %tm_year11 = getelementptr inbounds %struct.tm, ptr %22, i32 0, i32 5
-  %23 = load i32, ptr %tm_year11, align 4
-  %cmp12 = icmp ne i32 %21, %23
-  br i1 %cmp12, label %if.then33, label %lor.lhs.false13
+54:                                               ; preds = %49
+  %55 = load ptr, ptr %11, align 8, !tbaa !33
+  %56 = getelementptr inbounds nuw %struct.tm, ptr %55, i32 0, i32 5
+  %57 = load i32, ptr %56, align 4, !tbaa !35
+  %58 = load ptr, ptr %9, align 8, !tbaa !33
+  %59 = getelementptr inbounds nuw %struct.tm, ptr %58, i32 0, i32 5
+  %60 = load i32, ptr %59, align 4, !tbaa !35
+  %61 = icmp ne i32 %57, %60
+  br i1 %61, label %102, label %62
 
-lor.lhs.false13:                                  ; preds = %lor.lhs.false
-  %24 = load ptr, ptr %tmp, align 8
-  %tm_mon14 = getelementptr inbounds %struct.tm, ptr %24, i32 0, i32 4
-  %25 = load i32, ptr %tm_mon14, align 8
-  %26 = load ptr, ptr %tm.addr, align 8
-  %tm_mon15 = getelementptr inbounds %struct.tm, ptr %26, i32 0, i32 4
-  %27 = load i32, ptr %tm_mon15, align 8
-  %cmp16 = icmp ne i32 %25, %27
-  br i1 %cmp16, label %if.then33, label %lor.lhs.false17
+62:                                               ; preds = %54
+  %63 = load ptr, ptr %11, align 8, !tbaa !33
+  %64 = getelementptr inbounds nuw %struct.tm, ptr %63, i32 0, i32 4
+  %65 = load i32, ptr %64, align 8, !tbaa !37
+  %66 = load ptr, ptr %9, align 8, !tbaa !33
+  %67 = getelementptr inbounds nuw %struct.tm, ptr %66, i32 0, i32 4
+  %68 = load i32, ptr %67, align 8, !tbaa !37
+  %69 = icmp ne i32 %65, %68
+  br i1 %69, label %102, label %70
 
-lor.lhs.false17:                                  ; preds = %lor.lhs.false13
-  %28 = load ptr, ptr %tmp, align 8
-  %tm_mday18 = getelementptr inbounds %struct.tm, ptr %28, i32 0, i32 3
-  %29 = load i32, ptr %tm_mday18, align 4
-  %30 = load ptr, ptr %tm.addr, align 8
-  %tm_mday19 = getelementptr inbounds %struct.tm, ptr %30, i32 0, i32 3
-  %31 = load i32, ptr %tm_mday19, align 4
-  %cmp20 = icmp ne i32 %29, %31
-  br i1 %cmp20, label %if.then33, label %lor.lhs.false21
+70:                                               ; preds = %62
+  %71 = load ptr, ptr %11, align 8, !tbaa !33
+  %72 = getelementptr inbounds nuw %struct.tm, ptr %71, i32 0, i32 3
+  %73 = load i32, ptr %72, align 4, !tbaa !38
+  %74 = load ptr, ptr %9, align 8, !tbaa !33
+  %75 = getelementptr inbounds nuw %struct.tm, ptr %74, i32 0, i32 3
+  %76 = load i32, ptr %75, align 4, !tbaa !38
+  %77 = icmp ne i32 %73, %76
+  br i1 %77, label %102, label %78
 
-lor.lhs.false21:                                  ; preds = %lor.lhs.false17
-  %32 = load ptr, ptr %tmp, align 8
-  %tm_hour22 = getelementptr inbounds %struct.tm, ptr %32, i32 0, i32 2
-  %33 = load i32, ptr %tm_hour22, align 8
-  %34 = load ptr, ptr %tm.addr, align 8
-  %tm_hour23 = getelementptr inbounds %struct.tm, ptr %34, i32 0, i32 2
-  %35 = load i32, ptr %tm_hour23, align 8
-  %cmp24 = icmp ne i32 %33, %35
-  br i1 %cmp24, label %if.then33, label %lor.lhs.false25
+78:                                               ; preds = %70
+  %79 = load ptr, ptr %11, align 8, !tbaa !33
+  %80 = getelementptr inbounds nuw %struct.tm, ptr %79, i32 0, i32 2
+  %81 = load i32, ptr %80, align 8, !tbaa !39
+  %82 = load ptr, ptr %9, align 8, !tbaa !33
+  %83 = getelementptr inbounds nuw %struct.tm, ptr %82, i32 0, i32 2
+  %84 = load i32, ptr %83, align 8, !tbaa !39
+  %85 = icmp ne i32 %81, %84
+  br i1 %85, label %102, label %86
 
-lor.lhs.false25:                                  ; preds = %lor.lhs.false21
-  %36 = load ptr, ptr %tmp, align 8
-  %tm_min26 = getelementptr inbounds %struct.tm, ptr %36, i32 0, i32 1
-  %37 = load i32, ptr %tm_min26, align 4
-  %38 = load ptr, ptr %tm.addr, align 8
-  %tm_min27 = getelementptr inbounds %struct.tm, ptr %38, i32 0, i32 1
-  %39 = load i32, ptr %tm_min27, align 4
-  %cmp28 = icmp ne i32 %37, %39
-  br i1 %cmp28, label %if.then33, label %lor.lhs.false29
+86:                                               ; preds = %78
+  %87 = load ptr, ptr %11, align 8, !tbaa !33
+  %88 = getelementptr inbounds nuw %struct.tm, ptr %87, i32 0, i32 1
+  %89 = load i32, ptr %88, align 4, !tbaa !40
+  %90 = load ptr, ptr %9, align 8, !tbaa !33
+  %91 = getelementptr inbounds nuw %struct.tm, ptr %90, i32 0, i32 1
+  %92 = load i32, ptr %91, align 4, !tbaa !40
+  %93 = icmp ne i32 %89, %92
+  br i1 %93, label %102, label %94
 
-lor.lhs.false29:                                  ; preds = %lor.lhs.false25
-  %40 = load ptr, ptr %tmp, align 8
-  %tm_sec30 = getelementptr inbounds %struct.tm, ptr %40, i32 0, i32 0
-  %41 = load i32, ptr %tm_sec30, align 8
-  %42 = load ptr, ptr %tm.addr, align 8
-  %tm_sec31 = getelementptr inbounds %struct.tm, ptr %42, i32 0, i32 0
-  %43 = load i32, ptr %tm_sec31, align 8
-  %cmp32 = icmp ne i32 %41, %43
-  br i1 %cmp32, label %if.then33, label %if.end
+94:                                               ; preds = %86
+  %95 = load ptr, ptr %11, align 8, !tbaa !33
+  %96 = getelementptr inbounds nuw %struct.tm, ptr %95, i32 0, i32 0
+  %97 = load i32, ptr %96, align 8, !tbaa !41
+  %98 = load ptr, ptr %9, align 8, !tbaa !33
+  %99 = getelementptr inbounds nuw %struct.tm, ptr %98, i32 0, i32 0
+  %100 = load i32, ptr %99, align 8, !tbaa !41
+  %101 = icmp ne i32 %97, %100
+  br i1 %101, label %102, label %103
 
-if.then33:                                        ; preds = %lor.lhs.false29, %lor.lhs.false25, %lor.lhs.false21, %lor.lhs.false17, %lor.lhs.false13, %lor.lhs.false, %if.then
-  store i1 false, ptr %retval, align 1
-  br label %return
+102:                                              ; preds = %94, %86, %78, %70, %62, %54, %49
+  store i1 false, ptr %5, align 1
+  store i32 1, ptr %12, align 4
+  br label %104
 
-if.end:                                           ; preds = %lor.lhs.false29
-  br label %if.end34
+103:                                              ; preds = %94
+  store i32 0, ptr %12, align 4
+  br label %104
 
-if.end34:                                         ; preds = %if.end, %entry
-  store i1 true, ptr %retval, align 1
-  br label %return
+104:                                              ; preds = %103, %102
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #8
+  call void @llvm.lifetime.end.p0(i64 56, ptr %10) #8
+  %105 = load i32, ptr %12, align 4
+  switch i32 %105, label %110 [
+    i32 0, label %106
+    i32 1, label %108
+  ]
 
-return:                                           ; preds = %if.end34, %if.then33
-  %44 = load i1, ptr %retval, align 1
-  ret i1 %44
+106:                                              ; preds = %104
+  br label %107
+
+107:                                              ; preds = %106, %4
+  store i1 true, ptr %5, align 1
+  br label %108
+
+108:                                              ; preds = %107, %104
+  %109 = load i1, ptr %5, align 1
+  ret i1 %109
+
+110:                                              ; preds = %104
+  unreachable
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZSt4swapIlENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS3_ESt18is_move_assignableIS3_EEE5valueEvE4typeERS3_SC_(ptr noundef nonnull align 8 dereferenceable(8) %__a, ptr noundef nonnull align 8 dereferenceable(8) %__b) #3 comdat {
-entry:
-  %__a.addr = alloca ptr, align 8
-  %__b.addr = alloca ptr, align 8
-  %__tmp = alloca i64, align 8
-  store ptr %__a, ptr %__a.addr, align 8
-  store ptr %__b, ptr %__b.addr, align 8
-  %0 = load ptr, ptr %__a.addr, align 8
-  %1 = load i64, ptr %0, align 8
-  store i64 %1, ptr %__tmp, align 8
-  %2 = load ptr, ptr %__b.addr, align 8
-  %3 = load i64, ptr %2, align 8
-  %4 = load ptr, ptr %__a.addr, align 8
-  store i64 %3, ptr %4, align 8
-  %5 = load i64, ptr %__tmp, align 8
-  %6 = load ptr, ptr %__b.addr, align 8
-  store i64 %5, ptr %6, align 8
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZSt4swapIlENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS3_ESt18is_move_assignableIS3_EEE5valueEvE4typeERS3_SC_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !45
+  store ptr %1, ptr %4, align 8, !tbaa !45
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  %6 = load ptr, ptr %3, align 8, !tbaa !45
+  %7 = load i64, ptr %6, align 8, !tbaa !25
+  store i64 %7, ptr %5, align 8, !tbaa !25
+  %8 = load ptr, ptr %4, align 8, !tbaa !45
+  %9 = load i64, ptr %8, align 8, !tbaa !25
+  %10 = load ptr, ptr %3, align 8, !tbaa !45
+  store i64 %9, ptr %10, align 8, !tbaa !25
+  %11 = load i64, ptr %5, align 8, !tbaa !25
+  %12 = load ptr, ptr %4, align 8, !tbaa !45
+  store i64 %11, ptr %12, align 8, !tbaa !25
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i64 @_ZN4absl13time_internal4cctz12_GLOBAL__N_110find_transElll(i64 noundef %lo, i64 noundef %hi, i64 noundef %offset) #0 {
-entry:
-  %retval = alloca i64, align 8
-  %lo.addr = alloca i64, align 8
-  %hi.addr = alloca i64, align 8
-  %offset.addr = alloca i64, align 8
-  %tm = alloca %struct.tm, align 8
-  %mid = alloca i64, align 8
-  %tmp = alloca ptr, align 8
-  store i64 %lo, ptr %lo.addr, align 8
-  store i64 %hi, ptr %hi.addr, align 8
-  store i64 %offset, ptr %offset.addr, align 8
-  br label %while.cond
+define internal noundef i64 @_ZN4absl13time_internal4cctz12_GLOBAL__N_110find_transElll(i64 noundef %0, i64 noundef %1, i64 noundef %2) #0 {
+  %4 = alloca i64, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca %struct.tm, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  store i64 %0, ptr %5, align 8, !tbaa !25
+  store i64 %1, ptr %6, align 8, !tbaa !25
+  store i64 %2, ptr %7, align 8, !tbaa !25
+  call void @llvm.lifetime.start.p0(i64 56, ptr %8) #8
+  br label %12
 
-while.cond:                                       ; preds = %if.end18, %entry
-  %0 = load i64, ptr %lo.addr, align 8
-  %add = add nsw i64 %0, 1
-  %1 = load i64, ptr %hi.addr, align 8
-  %cmp = icmp ne i64 %add, %1
-  br i1 %cmp, label %while.body, label %while.end19
+12:                                               ; preds = %60, %3
+  %13 = load i64, ptr %5, align 8, !tbaa !25
+  %14 = add nsw i64 %13, 1
+  %15 = load i64, ptr %6, align 8, !tbaa !25
+  %16 = icmp ne i64 %14, %15
+  br i1 %16, label %17, label %61
 
-while.body:                                       ; preds = %while.cond
-  %2 = load i64, ptr %lo.addr, align 8
-  %3 = load i64, ptr %hi.addr, align 8
-  %4 = load i64, ptr %lo.addr, align 8
-  %sub = sub nsw i64 %3, %4
-  %div = sdiv i64 %sub, 2
-  %add1 = add nsw i64 %2, %div
-  store i64 %add1, ptr %mid, align 8
-  %call = call noundef ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_110local_timeEPKlP2tm(ptr noundef %mid, ptr noundef %tm)
-  store ptr %call, ptr %tmp, align 8
-  %5 = load ptr, ptr %tmp, align 8
-  %cmp2 = icmp ne ptr %5, null
-  br i1 %cmp2, label %if.then, label %if.else6
+17:                                               ; preds = %12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #8
+  %18 = load i64, ptr %5, align 8, !tbaa !25
+  %19 = load i64, ptr %6, align 8, !tbaa !25
+  %20 = load i64, ptr %5, align 8, !tbaa !25
+  %21 = sub nsw i64 %19, %20
+  %22 = sdiv i64 %21, 2
+  %23 = add nsw i64 %18, %22
+  store i64 %23, ptr %9, align 8, !tbaa !25
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #8
+  %24 = call noundef ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_110local_timeEPKlP2tm(ptr noundef %9, ptr noundef %8)
+  store ptr %24, ptr %10, align 8, !tbaa !33
+  %25 = load ptr, ptr %10, align 8, !tbaa !33
+  %26 = icmp ne ptr %25, null
+  br i1 %26, label %27, label %37
 
-if.then:                                          ; preds = %while.body
-  %6 = load ptr, ptr %tmp, align 8
-  %call3 = call noundef i64 @_ZN4absl13time_internal4cctz12_GLOBAL__N_19tm_gmtoffI2tmEEDtdtfp_9tm_gmtoffERKT_(ptr noundef nonnull align 8 dereferenceable(56) %6)
-  %7 = load i64, ptr %offset.addr, align 8
-  %cmp4 = icmp eq i64 %call3, %7
-  br i1 %cmp4, label %if.then5, label %if.else
+27:                                               ; preds = %17
+  %28 = load ptr, ptr %10, align 8, !tbaa !33
+  %29 = call noundef i64 @_ZN4absl13time_internal4cctz12_GLOBAL__N_19tm_gmtoffI2tmEEDtdtfp_9tm_gmtoffERKT_(ptr noundef nonnull align 8 dereferenceable(56) %28)
+  %30 = load i64, ptr %7, align 8, !tbaa !25
+  %31 = icmp eq i64 %29, %30
+  br i1 %31, label %32, label %34
 
-if.then5:                                         ; preds = %if.then
-  %8 = load i64, ptr %mid, align 8
-  store i64 %8, ptr %hi.addr, align 8
-  br label %if.end
+32:                                               ; preds = %27
+  %33 = load i64, ptr %9, align 8, !tbaa !25
+  store i64 %33, ptr %6, align 8, !tbaa !25
+  br label %36
 
-if.else:                                          ; preds = %if.then
-  %9 = load i64, ptr %mid, align 8
-  store i64 %9, ptr %lo.addr, align 8
-  br label %if.end
+34:                                               ; preds = %27
+  %35 = load i64, ptr %9, align 8, !tbaa !25
+  store i64 %35, ptr %5, align 8, !tbaa !25
+  br label %36
 
-if.end:                                           ; preds = %if.else, %if.then5
-  br label %if.end18
+36:                                               ; preds = %34, %32
+  br label %57
 
-if.else6:                                         ; preds = %while.body
-  br label %while.cond7
+37:                                               ; preds = %17
+  br label %38
 
-while.cond7:                                      ; preds = %if.end17, %if.else6
-  %10 = load i64, ptr %lo.addr, align 8
-  %inc = add nsw i64 %10, 1
-  store i64 %inc, ptr %lo.addr, align 8
-  %11 = load i64, ptr %hi.addr, align 8
-  %cmp8 = icmp ne i64 %inc, %11
-  br i1 %cmp8, label %while.body9, label %while.end
+38:                                               ; preds = %54, %37
+  %39 = load i64, ptr %5, align 8, !tbaa !25
+  %40 = add nsw i64 %39, 1
+  store i64 %40, ptr %5, align 8, !tbaa !25
+  %41 = load i64, ptr %6, align 8, !tbaa !25
+  %42 = icmp ne i64 %40, %41
+  br i1 %42, label %43, label %55
 
-while.body9:                                      ; preds = %while.cond7
-  %call10 = call noundef ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_110local_timeEPKlP2tm(ptr noundef %lo.addr, ptr noundef %tm)
-  store ptr %call10, ptr %tmp, align 8
-  %12 = load ptr, ptr %tmp, align 8
-  %cmp11 = icmp ne ptr %12, null
-  br i1 %cmp11, label %if.then12, label %if.end17
+43:                                               ; preds = %38
+  %44 = call noundef ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_110local_timeEPKlP2tm(ptr noundef %5, ptr noundef %8)
+  store ptr %44, ptr %10, align 8, !tbaa !33
+  %45 = load ptr, ptr %10, align 8, !tbaa !33
+  %46 = icmp ne ptr %45, null
+  br i1 %46, label %47, label %54
 
-if.then12:                                        ; preds = %while.body9
-  %13 = load ptr, ptr %tmp, align 8
-  %call13 = call noundef i64 @_ZN4absl13time_internal4cctz12_GLOBAL__N_19tm_gmtoffI2tmEEDtdtfp_9tm_gmtoffERKT_(ptr noundef nonnull align 8 dereferenceable(56) %13)
-  %14 = load i64, ptr %offset.addr, align 8
-  %cmp14 = icmp eq i64 %call13, %14
-  br i1 %cmp14, label %if.then15, label %if.end16
+47:                                               ; preds = %43
+  %48 = load ptr, ptr %10, align 8, !tbaa !33
+  %49 = call noundef i64 @_ZN4absl13time_internal4cctz12_GLOBAL__N_19tm_gmtoffI2tmEEDtdtfp_9tm_gmtoffERKT_(ptr noundef nonnull align 8 dereferenceable(56) %48)
+  %50 = load i64, ptr %7, align 8, !tbaa !25
+  %51 = icmp eq i64 %49, %50
+  br i1 %51, label %52, label %53
 
-if.then15:                                        ; preds = %if.then12
-  br label %while.end
+52:                                               ; preds = %47
+  br label %55
 
-if.end16:                                         ; preds = %if.then12
-  br label %if.end17
+53:                                               ; preds = %47
+  br label %54
 
-if.end17:                                         ; preds = %if.end16, %while.body9
-  br label %while.cond7, !llvm.loop !6
+54:                                               ; preds = %53, %43
+  br label %38, !llvm.loop !60
 
-while.end:                                        ; preds = %if.then15, %while.cond7
-  %15 = load i64, ptr %lo.addr, align 8
-  store i64 %15, ptr %retval, align 8
-  br label %return
+55:                                               ; preds = %52, %38
+  %56 = load i64, ptr %5, align 8, !tbaa !25
+  store i64 %56, ptr %4, align 8
+  store i32 1, ptr %11, align 4
+  br label %58
 
-if.end18:                                         ; preds = %if.end
-  br label %while.cond, !llvm.loop !8
+57:                                               ; preds = %36
+  store i32 0, ptr %11, align 4
+  br label %58
 
-while.end19:                                      ; preds = %while.cond
-  %16 = load i64, ptr %hi.addr, align 8
-  store i64 %16, ptr %retval, align 8
-  br label %return
+58:                                               ; preds = %57, %55
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #8
+  %59 = load i32, ptr %11, align 4
+  switch i32 %59, label %63 [
+    i32 0, label %60
+  ]
 
-return:                                           ; preds = %while.end19, %while.end
-  %17 = load i64, ptr %retval, align 8
+60:                                               ; preds = %58
+  br label %12, !llvm.loop !62
+
+61:                                               ; preds = %12
+  %62 = load i64, ptr %6, align 8, !tbaa !25
+  store i64 %62, ptr %4, align 8
+  store i32 1, ptr %11, align 4
+  br label %63
+
+63:                                               ; preds = %61, %58
+  call void @llvm.lifetime.end.p0(i64 56, ptr %8) #8
+  %64 = load i64, ptr %4, align 8
+  ret i64 %64
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define dso_local noundef zeroext i1 @_ZNK4absl13time_internal4cctz12TimeZoneLibC14NextTransitionERKNSt6chrono10time_pointINS3_3_V212system_clockENS3_8durationIlSt5ratioILl1ELl1EEEEEEPNS1_9time_zone16civil_transitionE(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2) unnamed_addr #3 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !11
+  store ptr %1, ptr %5, align 8, !tbaa !13
+  store ptr %2, ptr %6, align 8, !tbaa !63
+  ret i1 false
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define dso_local noundef zeroext i1 @_ZNK4absl13time_internal4cctz12TimeZoneLibC14PrevTransitionERKNSt6chrono10time_pointINS3_3_V212system_clockENS3_8durationIlSt5ratioILl1ELl1EEEEEEPNS1_9time_zone16civil_transitionE(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2) unnamed_addr #3 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !11
+  store ptr %1, ptr %5, align 8, !tbaa !13
+  store ptr %2, ptr %6, align 8, !tbaa !63
+  ret i1 false
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define dso_local void @_ZNK4absl13time_internal4cctz12TimeZoneLibC7VersionB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(9) %1) unnamed_addr #3 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8, !tbaa !11
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"class.std::allocator", align 1
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %4 = load ptr, ptr %2, align 8
+  %5 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %4, i32 0, i32 0
+  %6 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %7 unwind label %11
+
+7:                                                ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 1, ptr %3) #8
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC2EPcOS3_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %6, ptr noundef nonnull align 1 dereferenceable(1) %3)
+          to label %8 unwind label %11
+
+8:                                                ; preds = %7
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #8
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #8
+  %9 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_M_use_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef 0)
+          to label %10 unwind label %11
+
+10:                                               ; preds = %8
+  ret void
+
+11:                                               ; preds = %8, %7, %1
+  %12 = landingpad { ptr, i32 }
+          catch ptr null
+  %13 = extractvalue { ptr, i32 } %12, 0
+  call void @__clang_call_terminate(ptr %13) #16
+  unreachable
+}
+
+; Function Attrs: mustprogress uwtable
+define dso_local void @_ZNK4absl13time_internal4cctz12TimeZoneLibC11DescriptionB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(9) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %"class.std::allocator", align 1
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8, !tbaa !11
+  %8 = load ptr, ptr %4, align 8
+  %9 = getelementptr inbounds nuw %"class.absl::time_internal::cctz::TimeZoneLibC", ptr %8, i32 0, i32 1
+  %10 = load i8, ptr %9, align 8, !tbaa !28, !range !31, !noundef !32
+  %11 = trunc i8 %10 to i1
+  %12 = select i1 %11, ptr @.str.2, ptr @.str.1
+  call void @llvm.lifetime.start.p0(i64 1, ptr %5) #8
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %12, ptr noundef nonnull align 1 dereferenceable(1) %5)
+          to label %13 unwind label %14
+
+13:                                               ; preds = %2
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #8
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #8
+  ret void
+
+14:                                               ; preds = %2
+  %15 = landingpad { ptr, i32 }
+          cleanup
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %6, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %7, align 4
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #8
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #8
+  br label %18
+
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %6, align 8
+  %20 = load i32, ptr %7, align 4
+  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
+  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
+  resume { ptr, i32 } %22
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #3 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !65
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt15__new_allocatorIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !4
+  store ptr %1, ptr %5, align 8, !tbaa !67
+  store ptr %2, ptr %6, align 8, !tbaa !65
+  %10 = load ptr, ptr %4, align 8
+  %11 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %10, i32 0, i32 0
+  %12 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %10)
+  %13 = load ptr, ptr %6, align 8, !tbaa !65
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC2EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+  %14 = load ptr, ptr %5, align 8, !tbaa !67
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %16, label %22
+
+16:                                               ; preds = %3
+  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef @.str.3) #17
+          to label %17 unwind label %18
+
+17:                                               ; preds = %16
+  unreachable
+
+18:                                               ; preds = %16
+  %19 = landingpad { ptr, i32 }
+          cleanup
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %7, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %8, align 4
+  br label %35
+
+22:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #8
+  %23 = load ptr, ptr %5, align 8, !tbaa !67
+  %24 = load ptr, ptr %5, align 8, !tbaa !67
+  %25 = invoke noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %24)
+          to label %26 unwind label %31
+
+26:                                               ; preds = %22
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 %25
+  store ptr %27, ptr %9, align 8, !tbaa !67
+  %28 = load ptr, ptr %5, align 8, !tbaa !67
+  %29 = load ptr, ptr %9, align 8, !tbaa !67
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef %28, ptr noundef %29)
+          to label %30 unwind label %31
+
+30:                                               ; preds = %26
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #8
+  ret void
+
+31:                                               ; preds = %26, %22
+  %32 = landingpad { ptr, i32 }
+          cleanup
+  %33 = extractvalue { ptr, i32 } %32, 0
+  store ptr %33, ptr %7, align 8
+  %34 = extractvalue { ptr, i32 } %32, 1
+  store i32 %34, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #8
+  br label %35
+
+35:                                               ; preds = %31, %18
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #8
+  br label %36
+
+36:                                               ; preds = %35
+  %37 = load ptr, ptr %7, align 8
+  %38 = load i32, ptr %8, align 4
+  %39 = insertvalue { ptr, i32 } poison, ptr %37, 0
+  %40 = insertvalue { ptr, i32 } %39, i32 %38, 1
+  resume { ptr, i32 } %40
+}
+
+; Function Attrs: mustprogress uwtable
+define dso_local void @_ZN4absl13time_internal4cctz12TimeZoneLibCC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !11
+  store ptr %1, ptr %4, align 8, !tbaa !4
+  %7 = load ptr, ptr %3, align 8
+  call void @_ZN4absl13time_internal4cctz10TimeZoneIfC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #8
+  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTVN4absl13time_internal4cctz12TimeZoneLibCE, i32 0, i32 0, i32 2), ptr %7, align 8, !tbaa !68
+  %8 = getelementptr inbounds nuw %"class.absl::time_internal::cctz::TimeZoneLibC", ptr %7, i32 0, i32 1
+  %9 = load ptr, ptr %4, align 8, !tbaa !4
+  %10 = invoke noundef zeroext i1 @_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef @.str.2)
+          to label %11 unwind label %13
+
+11:                                               ; preds = %2
+  %12 = zext i1 %10 to i8
+  store i8 %12, ptr %8, align 8, !tbaa !28
+  ret void
+
+13:                                               ; preds = %2
+  %14 = landingpad { ptr, i32 }
+          cleanup
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %5, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %6, align 4
+  call void @_ZN4absl13time_internal4cctz10TimeZoneIfD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #8
+  br label %17
+
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %5, align 8
+  %19 = load i32, ptr %6, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN4absl13time_internal4cctz10TimeZoneIfC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #3 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !70
+  %3 = load ptr, ptr %2, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTVN4absl13time_internal4cctz10TimeZoneIfE, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !68
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) #4 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !67
+  %5 = load ptr, ptr %3, align 8, !tbaa !4
+  %6 = load ptr, ptr %4, align 8, !tbaa !67
+  %7 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %6) #8
+  %8 = icmp eq i32 %7, 0
+  ret i1 %8
+}
+
+; Function Attrs: nounwind
+declare void @_ZN4absl13time_internal4cctz10TimeZoneIfD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #9
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN4absl13time_internal4cctz12TimeZoneLibCD0Ev(ptr noundef nonnull align 8 dereferenceable(9) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !11
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN4absl13time_internal4cctz10TimeZoneIfD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %3) #8
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 16) #15
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local i64 @_ZNSt6chronomiINS_3_V212system_clockENS_8durationIlSt5ratioILl1ELl1EEEES6_EENSt11common_typeIJT0_T1_EE4typeERKNS_10time_pointIT_S8_EERKNSC_ISD_S9_EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat {
+  %3 = alloca %"class.std::chrono::duration", align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca %"class.std::chrono::duration", align 8
+  %7 = alloca %"class.std::chrono::duration", align 8
+  store ptr %0, ptr %4, align 8, !tbaa !13
+  store ptr %1, ptr %5, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  %8 = load ptr, ptr %4, align 8, !tbaa !13
+  %9 = call i64 @_ZNKSt6chrono10time_pointINS_3_V212system_clockENS_8durationIlSt5ratioILl1ELl1EEEEE16time_since_epochEv(ptr noundef nonnull align 8 dereferenceable(8) %8)
+  %10 = getelementptr inbounds nuw %"class.std::chrono::duration", ptr %6, i32 0, i32 0
+  store i64 %9, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
+  %11 = load ptr, ptr %5, align 8, !tbaa !13
+  %12 = call i64 @_ZNKSt6chrono10time_pointINS_3_V212system_clockENS_8durationIlSt5ratioILl1ELl1EEEEE16time_since_epochEv(ptr noundef nonnull align 8 dereferenceable(8) %11)
+  %13 = getelementptr inbounds nuw %"class.std::chrono::duration", ptr %7, i32 0, i32 0
+  store i64 %12, ptr %13, align 8
+  %14 = call i64 @_ZNSt6chronomiIlSt5ratioILl1ELl1EElS2_EENSt11common_typeIJNS_8durationIT_T0_EENS4_IT1_T2_EEEE4typeERKS7_RKSA_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7)
+  %15 = getelementptr inbounds nuw %"class.std::chrono::duration", ptr %3, i32 0, i32 0
+  store i64 %14, ptr %15, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  %16 = getelementptr inbounds nuw %"class.std::chrono::duration", ptr %3, i32 0, i32 0
+  %17 = load i64, ptr %16, align 8
   ret i64 %17
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZNK4absl13time_internal4cctz12TimeZoneLibC14NextTransitionERKNSt6chrono10time_pointINS3_3_V212system_clockENS3_8durationIlSt5ratioILl1ELl1EEEEEEPNS1_9time_zone16civil_transitionE(ptr noundef nonnull align 8 dereferenceable(9) %this, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #3 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %.addr = alloca ptr, align 8
-  %.addr1 = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %0, ptr %.addr, align 8
-  store ptr %1, ptr %.addr1, align 8
-  ret i1 false
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZNK4absl13time_internal4cctz12TimeZoneLibC14PrevTransitionERKNSt6chrono10time_pointINS3_3_V212system_clockENS3_8durationIlSt5ratioILl1ELl1EEEEEEPNS1_9time_zone16civil_transitionE(ptr noundef nonnull align 8 dereferenceable(9) %this, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #3 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %.addr = alloca ptr, align 8
-  %.addr1 = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %0, ptr %.addr, align 8
-  store ptr %1, ptr %.addr1, align 8
-  ret i1 false
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4absl13time_internal4cctz12TimeZoneLibC7VersionB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(9) %this) unnamed_addr #3 align 2 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #5
-  ret void
-}
-
-; Function Attrs: nounwind
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #6
-
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4absl13time_internal4cctz12TimeZoneLibC11DescriptionB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(9) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  %ref.tmp = alloca %"class.std::allocator", align 1
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %local_ = getelementptr inbounds %"class.absl::time_internal::cctz::TimeZoneLibC", ptr %this1, i32 0, i32 1
-  %0 = load i8, ptr %local_, align 8
-  %tobool = trunc i8 %0 to i1
-  %cond = select i1 %tobool, ptr @.str.2, ptr @.str.1
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %cond, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %entry
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #5
-  ret void
-
-lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
-          cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #5
-  br label %eh.resume
-
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val2 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val2
-}
-
-; Function Attrs: nounwind
-declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #6
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %__s, ptr noundef nonnull align 1 dereferenceable(1) %__a) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__s.addr = alloca ptr, align 8
-  %__a.addr = alloca ptr, align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  %__end = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__s, ptr %__s.addr, align 8
-  store ptr %__a, ptr %__a.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_dataplus = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %this1, i32 0, i32 0
-  %call = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
-  %0 = load ptr, ptr %__a.addr, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %_M_dataplus, ptr noundef %call, ptr noundef nonnull align 1 dereferenceable(1) %0)
-  %1 = load ptr, ptr %__s.addr, align 8
-  %cmp = icmp eq ptr %1, null
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef @.str.3) #13
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %if.then
-  unreachable
-
-lpad:                                             ; preds = %invoke.cont2, %if.end, %if.then
-  %2 = landingpad { ptr, i32 }
-          cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_dataplus) #5
-  br label %eh.resume
-
-if.end:                                           ; preds = %entry
-  %5 = load ptr, ptr %__s.addr, align 8
-  %6 = load ptr, ptr %__s.addr, align 8
-  %call3 = invoke noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %6)
-          to label %invoke.cont2 unwind label %lpad
-
-invoke.cont2:                                     ; preds = %if.end
-  %add.ptr = getelementptr inbounds i8, ptr %5, i64 %call3
-  store ptr %add.ptr, ptr %__end, align 8
-  %7 = load ptr, ptr %__s.addr, align 8
-  %8 = load ptr, ptr %__end, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef %7, ptr noundef %8)
-          to label %invoke.cont4 unwind label %lpad
-
-invoke.cont4:                                     ; preds = %invoke.cont2
-  ret void
-
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val5 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val5
-}
-
-; Function Attrs: nounwind
-declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #6
-
-; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl13time_internal4cctz12TimeZoneLibCC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(9) %this, ptr noundef nonnull align 8 dereferenceable(32) %name) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %name.addr = alloca ptr, align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %name, ptr %name.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN4absl13time_internal4cctz10TimeZoneIfC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #5
-  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4absl13time_internal4cctz12TimeZoneLibCE, i32 0, i32 0, i32 2
-  store ptr %0, ptr %this1, align 8
-  %local_ = getelementptr inbounds %"class.absl::time_internal::cctz::TimeZoneLibC", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %name.addr, align 8
-  %call = invoke noundef zeroext i1 @_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef @.str.2)
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %entry
-  %frombool = zext i1 %call to i8
-  store i8 %frombool, ptr %local_, align 8
-  ret void
-
-lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
-          cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
-  call void @_ZN4absl13time_internal4cctz10TimeZoneIfD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #5
-  br label %eh.resume
-
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val2 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val2
+define linkonce_odr dso_local i64 @_ZNSt6chrono15time_point_castINS_8durationIlSt5ratioILl1ELl1EEEENS_3_V212system_clockENS1_IlS2_ILl1ELl1000000000EEEEEENSt9enable_ifIXsr13__is_durationIT_EE5valueENS_10time_pointIT0_SA_EEE4typeERKNSB_ISC_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat {
+  %2 = alloca %"class.std::chrono::time_point", align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca %"class.std::chrono::duration", align 8
+  %5 = alloca %"class.std::chrono::duration.3", align 8
+  store ptr %0, ptr %3, align 8, !tbaa !72
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  %6 = load ptr, ptr %3, align 8, !tbaa !72
+  %7 = call i64 @_ZNKSt6chrono10time_pointINS_3_V212system_clockENS_8durationIlSt5ratioILl1ELl1000000000EEEEE16time_since_epochEv(ptr noundef nonnull align 8 dereferenceable(8) %6)
+  %8 = getelementptr inbounds nuw %"class.std::chrono::duration.3", ptr %5, i32 0, i32 0
+  store i64 %7, ptr %8, align 8
+  %9 = call i64 @_ZNSt6chrono13duration_castINS_8durationIlSt5ratioILl1ELl1EEEElS2_ILl1ELl1000000000EEEENSt9enable_ifIXsr13__is_durationIT_EE5valueES7_E4typeERKNS1_IT0_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %5)
+  %10 = getelementptr inbounds nuw %"class.std::chrono::duration", ptr %4, i32 0, i32 0
+  store i64 %9, ptr %10, align 8
+  call void @_ZNSt6chrono10time_pointINS_3_V212system_clockENS_8durationIlSt5ratioILl1ELl1EEEEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #8
+  %11 = getelementptr inbounds nuw %"class.std::chrono::time_point", ptr %2, i32 0, i32 0
+  %12 = getelementptr inbounds nuw %"class.std::chrono::duration", ptr %11, i32 0, i32 0
+  %13 = load i64, ptr %12, align 8
+  ret i64 %13
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN4absl13time_internal4cctz10TimeZoneIfC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #3 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4absl13time_internal4cctz10TimeZoneIfE, i32 0, i32 0, i32 2
-  store ptr %0, ptr %this1, align 8
-  ret void
-}
+define linkonce_odr dso_local i64 @_ZNSt6chrono3_V212system_clock11from_time_tEl(i64 noundef %0) #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca %"class.std::chrono::time_point.2", align 8
+  %3 = alloca i64, align 8
+  %4 = alloca %"class.std::chrono::time_point", align 8
+  %5 = alloca %"class.std::chrono::duration", align 8
+  store i64 %0, ptr %3, align 8, !tbaa !25
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  invoke void @_ZNSt6chrono8durationIlSt5ratioILl1ELl1EEEC2IlvEERKT_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %3)
+          to label %6 unwind label %15
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_(ptr noundef nonnull align 8 dereferenceable(32) %__lhs, ptr noundef %__rhs) #3 comdat {
-entry:
-  %__lhs.addr = alloca ptr, align 8
-  %__rhs.addr = alloca ptr, align 8
-  store ptr %__lhs, ptr %__lhs.addr, align 8
-  store ptr %__rhs, ptr %__rhs.addr, align 8
-  %0 = load ptr, ptr %__lhs.addr, align 8
-  %1 = load ptr, ptr %__rhs.addr, align 8
-  %call = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) #5
-  %cmp = icmp eq i32 %call, 0
-  ret i1 %cmp
-}
+6:                                                ; preds = %1
+  invoke void @_ZNSt6chrono10time_pointINS_3_V212system_clockENS_8durationIlSt5ratioILl1ELl1EEEEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
+          to label %7 unwind label %15
 
-; Function Attrs: nounwind
-declare void @_ZN4absl13time_internal4cctz10TimeZoneIfD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #6
+7:                                                ; preds = %6
+  %8 = invoke i64 @_ZNSt6chrono15time_point_castINS_8durationIlSt5ratioILl1ELl1000000000EEEENS_3_V212system_clockENS1_IlS2_ILl1ELl1EEEEEENSt9enable_ifIXsr13__is_durationIT_EE5valueENS_10time_pointIT0_SA_EEE4typeERKNSB_ISC_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %4)
+          to label %9 unwind label %15
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN4absl13time_internal4cctz12TimeZoneLibCD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %this) unnamed_addr #3 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN4absl13time_internal4cctz10TimeZoneIfD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #5
-  ret void
-}
+9:                                                ; preds = %7
+  %10 = getelementptr inbounds nuw %"class.std::chrono::time_point.2", ptr %2, i32 0, i32 0
+  %11 = getelementptr inbounds nuw %"class.std::chrono::duration.3", ptr %10, i32 0, i32 0
+  store i64 %8, ptr %11, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #8
+  %12 = getelementptr inbounds nuw %"class.std::chrono::time_point.2", ptr %2, i32 0, i32 0
+  %13 = getelementptr inbounds nuw %"class.std::chrono::duration.3", ptr %12, i32 0, i32 0
+  %14 = load i64, ptr %13, align 8
+  ret i64 %14
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN4absl13time_internal4cctz12TimeZoneLibCD0Ev(ptr noundef nonnull align 8 dereferenceable(9) %this) unnamed_addr #3 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN4absl13time_internal4cctz12TimeZoneLibCD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %this1) #5
-  call void @_ZdlPv(ptr noundef %this1) #11
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local i64 @_ZNSt6chronomiINS_3_V212system_clockENS_8durationIlSt5ratioILl1ELl1EEEES6_EENSt11common_typeIJT0_T1_EE4typeERKNS_10time_pointIT_S8_EERKNSC_ISD_S9_EE(ptr noundef nonnull align 8 dereferenceable(8) %__lhs, ptr noundef nonnull align 8 dereferenceable(8) %__rhs) #0 comdat {
-entry:
-  %retval = alloca %"class.std::chrono::duration", align 8
-  %__lhs.addr = alloca ptr, align 8
-  %__rhs.addr = alloca ptr, align 8
-  %ref.tmp = alloca %"class.std::chrono::duration", align 8
-  %ref.tmp1 = alloca %"class.std::chrono::duration", align 8
-  store ptr %__lhs, ptr %__lhs.addr, align 8
-  store ptr %__rhs, ptr %__rhs.addr, align 8
-  %0 = load ptr, ptr %__lhs.addr, align 8
-  %call = call i64 @_ZNKSt6chrono10time_pointINS_3_V212system_clockENS_8durationIlSt5ratioILl1ELl1EEEEE16time_since_epochEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  %coerce.dive = getelementptr inbounds %"class.std::chrono::duration", ptr %ref.tmp, i32 0, i32 0
-  store i64 %call, ptr %coerce.dive, align 8
-  %1 = load ptr, ptr %__rhs.addr, align 8
-  %call2 = call i64 @_ZNKSt6chrono10time_pointINS_3_V212system_clockENS_8durationIlSt5ratioILl1ELl1EEEEE16time_since_epochEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
-  %coerce.dive3 = getelementptr inbounds %"class.std::chrono::duration", ptr %ref.tmp1, i32 0, i32 0
-  store i64 %call2, ptr %coerce.dive3, align 8
-  %call4 = call i64 @_ZNSt6chronomiIlSt5ratioILl1ELl1EElS2_EENSt11common_typeIJNS_8durationIT_T0_EENS4_IT1_T2_EEEE4typeERKS7_RKSA_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp1)
-  %coerce.dive5 = getelementptr inbounds %"class.std::chrono::duration", ptr %retval, i32 0, i32 0
-  store i64 %call4, ptr %coerce.dive5, align 8
-  %coerce.dive6 = getelementptr inbounds %"class.std::chrono::duration", ptr %retval, i32 0, i32 0
-  %2 = load i64, ptr %coerce.dive6, align 8
-  ret i64 %2
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local i64 @_ZNSt6chrono15time_point_castINS_8durationIlSt5ratioILl1ELl1EEEENS_3_V212system_clockENS1_IlS2_ILl1ELl1000000000EEEEEENSt9enable_ifIXsr13__is_durationIT_EE5valueENS_10time_pointIT0_SA_EEE4typeERKNSB_ISC_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %__t) #0 comdat {
-entry:
-  %retval = alloca %"class.std::chrono::time_point", align 8
-  %__t.addr = alloca ptr, align 8
-  %ref.tmp = alloca %"class.std::chrono::duration", align 8
-  %ref.tmp1 = alloca %"class.std::chrono::duration.3", align 8
-  store ptr %__t, ptr %__t.addr, align 8
-  %0 = load ptr, ptr %__t.addr, align 8
-  %call = call i64 @_ZNKSt6chrono10time_pointINS_3_V212system_clockENS_8durationIlSt5ratioILl1ELl1000000000EEEEE16time_since_epochEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  %coerce.dive = getelementptr inbounds %"class.std::chrono::duration.3", ptr %ref.tmp1, i32 0, i32 0
-  store i64 %call, ptr %coerce.dive, align 8
-  %call2 = call i64 @_ZNSt6chrono13duration_castINS_8durationIlSt5ratioILl1ELl1EEEElS2_ILl1ELl1000000000EEEENSt9enable_ifIXsr13__is_durationIT_EE5valueES7_E4typeERKNS1_IT0_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp1)
-  %coerce.dive3 = getelementptr inbounds %"class.std::chrono::duration", ptr %ref.tmp, i32 0, i32 0
-  store i64 %call2, ptr %coerce.dive3, align 8
-  call void @_ZNSt6chrono10time_pointINS_3_V212system_clockENS_8durationIlSt5ratioILl1ELl1EEEEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(8) %retval, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
-  %coerce.dive4 = getelementptr inbounds %"class.std::chrono::time_point", ptr %retval, i32 0, i32 0
-  %coerce.dive5 = getelementptr inbounds %"class.std::chrono::duration", ptr %coerce.dive4, i32 0, i32 0
-  %1 = load i64, ptr %coerce.dive5, align 8
-  ret i64 %1
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local i64 @_ZNSt6chrono3_V212system_clock11from_time_tEl(i64 noundef %__t) #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %retval = alloca %"class.std::chrono::time_point.2", align 8
-  %__t.addr = alloca i64, align 8
-  %ref.tmp = alloca %"class.std::chrono::time_point", align 8
-  %ref.tmp1 = alloca %"class.std::chrono::duration", align 8
-  store i64 %__t, ptr %__t.addr, align 8
-  invoke void @_ZNSt6chrono8durationIlSt5ratioILl1ELl1EEEC2IlvEERKT_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp1, ptr noundef nonnull align 8 dereferenceable(8) %__t.addr)
-          to label %invoke.cont unwind label %terminate.lpad
-
-invoke.cont:                                      ; preds = %entry
-  invoke void @_ZNSt6chrono10time_pointINS_3_V212system_clockENS_8durationIlSt5ratioILl1ELl1EEEEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp1)
-          to label %invoke.cont2 unwind label %terminate.lpad
-
-invoke.cont2:                                     ; preds = %invoke.cont
-  %call = invoke i64 @_ZNSt6chrono15time_point_castINS_8durationIlSt5ratioILl1ELl1000000000EEEENS_3_V212system_clockENS1_IlS2_ILl1ELl1EEEEEENSt9enable_ifIXsr13__is_durationIT_EE5valueENS_10time_pointIT0_SA_EEE4typeERKNSB_ISC_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
-          to label %invoke.cont3 unwind label %terminate.lpad
-
-invoke.cont3:                                     ; preds = %invoke.cont2
-  %coerce.dive = getelementptr inbounds %"class.std::chrono::time_point.2", ptr %retval, i32 0, i32 0
-  %coerce.dive4 = getelementptr inbounds %"class.std::chrono::duration.3", ptr %coerce.dive, i32 0, i32 0
-  store i64 %call, ptr %coerce.dive4, align 8
-  %coerce.dive5 = getelementptr inbounds %"class.std::chrono::time_point.2", ptr %retval, i32 0, i32 0
-  %coerce.dive6 = getelementptr inbounds %"class.std::chrono::duration.3", ptr %coerce.dive5, i32 0, i32 0
-  %0 = load i64, ptr %coerce.dive6, align 8
-  ret i64 %0
-
-terminate.lpad:                                   ; preds = %invoke.cont2, %invoke.cont, %entry
-  %1 = landingpad { ptr, i32 }
+15:                                               ; preds = %7, %6, %1
+  %16 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #12
+  %17 = extractvalue { ptr, i32 } %16, 0
+  call void @__clang_call_terminate(ptr %17) #16
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i64 @_ZNKSt6chrono8durationIlSt5ratioILl1ELl1EEE5countEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #3 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %__r = getelementptr inbounds %"class.std::chrono::duration", ptr %this1, i32 0, i32 0
-  %0 = load i64, ptr %__r, align 8
-  ret i64 %0
+define linkonce_odr dso_local noundef i64 @_ZNKSt6chrono8durationIlSt5ratioILl1ELl1EEE5countEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #3 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !74
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::chrono::duration", ptr %3, i32 0, i32 0
+  %5 = load i64, ptr %4, align 8, !tbaa !76
+  ret i64 %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local i64 @_ZNSt6chronomiIlSt5ratioILl1ELl1EElS2_EENSt11common_typeIJNS_8durationIT_T0_EENS4_IT1_T2_EEEE4typeERKS7_RKSA_(ptr noundef nonnull align 8 dereferenceable(8) %__lhs, ptr noundef nonnull align 8 dereferenceable(8) %__rhs) #0 comdat {
-entry:
-  %retval = alloca %"class.std::chrono::duration", align 8
-  %__lhs.addr = alloca ptr, align 8
-  %__rhs.addr = alloca ptr, align 8
-  %ref.tmp = alloca i64, align 8
-  %ref.tmp1 = alloca %"class.std::chrono::duration", align 8
-  %ref.tmp2 = alloca %"class.std::chrono::duration", align 8
-  store ptr %__lhs, ptr %__lhs.addr, align 8
-  store ptr %__rhs, ptr %__rhs.addr, align 8
-  %0 = load ptr, ptr %__lhs.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %ref.tmp1, ptr align 8 %0, i64 8, i1 false)
-  %call = call noundef i64 @_ZNKSt6chrono8durationIlSt5ratioILl1ELl1EEE5countEv(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp1)
-  %1 = load ptr, ptr %__rhs.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %ref.tmp2, ptr align 8 %1, i64 8, i1 false)
-  %call3 = call noundef i64 @_ZNKSt6chrono8durationIlSt5ratioILl1ELl1EEE5countEv(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2)
-  %sub = sub nsw i64 %call, %call3
-  store i64 %sub, ptr %ref.tmp, align 8
-  call void @_ZNSt6chrono8durationIlSt5ratioILl1ELl1EEEC2IlvEERKT_(ptr noundef nonnull align 8 dereferenceable(8) %retval, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
-  %coerce.dive = getelementptr inbounds %"class.std::chrono::duration", ptr %retval, i32 0, i32 0
-  %2 = load i64, ptr %coerce.dive, align 8
-  ret i64 %2
+define linkonce_odr dso_local i64 @_ZNSt6chronomiIlSt5ratioILl1ELl1EElS2_EENSt11common_typeIJNS_8durationIT_T0_EENS4_IT1_T2_EEEE4typeERKS7_RKSA_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat {
+  %3 = alloca %"class.std::chrono::duration", align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca %"class.std::chrono::duration", align 8
+  %8 = alloca %"class.std::chrono::duration", align 8
+  store ptr %0, ptr %4, align 8, !tbaa !74
+  store ptr %1, ptr %5, align 8, !tbaa !74
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
+  %9 = load ptr, ptr %4, align 8, !tbaa !74
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %9, i64 8, i1 false), !tbaa.struct !57
+  %10 = call noundef i64 @_ZNKSt6chrono8durationIlSt5ratioILl1ELl1EEE5countEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #8
+  %11 = load ptr, ptr %5, align 8, !tbaa !74
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %11, i64 8, i1 false), !tbaa.struct !57
+  %12 = call noundef i64 @_ZNKSt6chrono8durationIlSt5ratioILl1ELl1EEE5countEv(ptr noundef nonnull align 8 dereferenceable(8) %8)
+  %13 = sub nsw i64 %10, %12
+  store i64 %13, ptr %6, align 8, !tbaa !25
+  call void @_ZNSt6chrono8durationIlSt5ratioILl1ELl1EEEC2IlvEERKT_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  %14 = getelementptr inbounds nuw %"class.std::chrono::duration", ptr %3, i32 0, i32 0
+  %15 = load i64, ptr %14, align 8
+  ret i64 %15
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local i64 @_ZNKSt6chrono10time_pointINS_3_V212system_clockENS_8durationIlSt5ratioILl1ELl1EEEEE16time_since_epochEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #3 comdat align 2 {
-entry:
-  %retval = alloca %"class.std::chrono::duration", align 8
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %__d = getelementptr inbounds %"class.std::chrono::time_point", ptr %this1, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %retval, ptr align 8 %__d, i64 8, i1 false)
-  %coerce.dive = getelementptr inbounds %"class.std::chrono::duration", ptr %retval, i32 0, i32 0
-  %0 = load i64, ptr %coerce.dive, align 8
-  ret i64 %0
+define linkonce_odr dso_local i64 @_ZNKSt6chrono10time_pointINS_3_V212system_clockENS_8durationIlSt5ratioILl1ELl1EEEEE16time_since_epochEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #3 comdat align 2 {
+  %2 = alloca %"class.std::chrono::duration", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !13
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds nuw %"class.std::chrono::time_point", ptr %4, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %2, ptr align 8 %5, i64 8, i1 false), !tbaa.struct !57
+  %6 = getelementptr inbounds nuw %"class.std::chrono::duration", ptr %2, i32 0, i32 0
+  %7 = load i64, ptr %6, align 8
+  ret i64 %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZNSt6chrono8durationIlSt5ratioILl1ELl1EEEC2IlvEERKT_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %__rep) unnamed_addr #3 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__rep.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__rep, ptr %__rep.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %__r = getelementptr inbounds %"class.std::chrono::duration", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %__rep.addr, align 8
-  %1 = load i64, ptr %0, align 8
-  store i64 %1, ptr %__r, align 8
+define linkonce_odr dso_local void @_ZNSt6chrono8durationIlSt5ratioILl1ELl1EEEC2IlvEERKT_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #3 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !74
+  store ptr %1, ptr %4, align 8, !tbaa !45
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.std::chrono::duration", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !45
+  %8 = load i64, ptr %7, align 8, !tbaa !25
+  store i64 %8, ptr %6, align 8, !tbaa !76
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local i64 @_ZNSt6chrono13duration_castINS_8durationIlSt5ratioILl1ELl1EEEElS2_ILl1ELl1000000000EEEENSt9enable_ifIXsr13__is_durationIT_EE5valueES7_E4typeERKNS1_IT0_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %__d) #0 comdat {
-entry:
-  %retval = alloca %"class.std::chrono::duration", align 8
-  %__d.addr = alloca ptr, align 8
-  store ptr %__d, ptr %__d.addr, align 8
-  %0 = load ptr, ptr %__d.addr, align 8
-  %call = call i64 @_ZNSt6chrono20__duration_cast_implINS_8durationIlSt5ratioILl1ELl1EEEES2_ILl1ELl1000000000EElLb1ELb0EE6__castIlS5_EES4_RKNS1_IT_T0_EE(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  %coerce.dive = getelementptr inbounds %"class.std::chrono::duration", ptr %retval, i32 0, i32 0
-  store i64 %call, ptr %coerce.dive, align 8
-  %coerce.dive1 = getelementptr inbounds %"class.std::chrono::duration", ptr %retval, i32 0, i32 0
-  %1 = load i64, ptr %coerce.dive1, align 8
-  ret i64 %1
+define linkonce_odr dso_local i64 @_ZNSt6chrono13duration_castINS_8durationIlSt5ratioILl1ELl1EEEElS2_ILl1ELl1000000000EEEENSt9enable_ifIXsr13__is_durationIT_EE5valueES7_E4typeERKNS1_IT0_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat {
+  %2 = alloca %"class.std::chrono::duration", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !77
+  %4 = load ptr, ptr %3, align 8, !tbaa !77
+  %5 = call i64 @_ZNSt6chrono20__duration_cast_implINS_8durationIlSt5ratioILl1ELl1EEEES2_ILl1ELl1000000000EElLb1ELb0EE6__castIlS5_EES4_RKNS1_IT_T0_EE(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %6 = getelementptr inbounds nuw %"class.std::chrono::duration", ptr %2, i32 0, i32 0
+  store i64 %5, ptr %6, align 8
+  %7 = getelementptr inbounds nuw %"class.std::chrono::duration", ptr %2, i32 0, i32 0
+  %8 = load i64, ptr %7, align 8
+  ret i64 %8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local i64 @_ZNKSt6chrono10time_pointINS_3_V212system_clockENS_8durationIlSt5ratioILl1ELl1000000000EEEEE16time_since_epochEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #3 comdat align 2 {
-entry:
-  %retval = alloca %"class.std::chrono::duration.3", align 8
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %__d = getelementptr inbounds %"class.std::chrono::time_point.2", ptr %this1, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %retval, ptr align 8 %__d, i64 8, i1 false)
-  %coerce.dive = getelementptr inbounds %"class.std::chrono::duration.3", ptr %retval, i32 0, i32 0
-  %0 = load i64, ptr %coerce.dive, align 8
-  ret i64 %0
+define linkonce_odr dso_local i64 @_ZNKSt6chrono10time_pointINS_3_V212system_clockENS_8durationIlSt5ratioILl1ELl1000000000EEEEE16time_since_epochEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #3 comdat align 2 {
+  %2 = alloca %"class.std::chrono::duration.3", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !72
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds nuw %"class.std::chrono::time_point.2", ptr %4, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %2, ptr align 8 %5, i64 8, i1 false), !tbaa.struct !57
+  %6 = getelementptr inbounds nuw %"class.std::chrono::duration.3", ptr %2, i32 0, i32 0
+  %7 = load i64, ptr %6, align 8
+  ret i64 %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZNSt6chrono10time_pointINS_3_V212system_clockENS_8durationIlSt5ratioILl1ELl1EEEEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %__dur) unnamed_addr #3 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__dur.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__dur, ptr %__dur.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %__d = getelementptr inbounds %"class.std::chrono::time_point", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %__dur.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %__d, ptr align 8 %0, i64 8, i1 false)
+define linkonce_odr dso_local void @_ZNSt6chrono10time_pointINS_3_V212system_clockENS_8durationIlSt5ratioILl1ELl1EEEEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #3 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !13
+  store ptr %1, ptr %4, align 8, !tbaa !74
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.std::chrono::time_point", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !74
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %7, i64 8, i1 false), !tbaa.struct !57
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local i64 @_ZNSt6chrono20__duration_cast_implINS_8durationIlSt5ratioILl1ELl1EEEES2_ILl1ELl1000000000EElLb1ELb0EE6__castIlS5_EES4_RKNS1_IT_T0_EE(ptr noundef nonnull align 8 dereferenceable(8) %__d) #0 comdat align 2 {
-entry:
-  %retval = alloca %"class.std::chrono::duration", align 8
-  %__d.addr = alloca ptr, align 8
-  %ref.tmp = alloca i64, align 8
-  store ptr %__d, ptr %__d.addr, align 8
-  %0 = load ptr, ptr %__d.addr, align 8
-  %call = call noundef i64 @_ZNKSt6chrono8durationIlSt5ratioILl1ELl1000000000EEE5countEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  %div = sdiv i64 %call, 1000000000
-  store i64 %div, ptr %ref.tmp, align 8
-  call void @_ZNSt6chrono8durationIlSt5ratioILl1ELl1EEEC2IlvEERKT_(ptr noundef nonnull align 8 dereferenceable(8) %retval, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
-  %coerce.dive = getelementptr inbounds %"class.std::chrono::duration", ptr %retval, i32 0, i32 0
-  %1 = load i64, ptr %coerce.dive, align 8
-  ret i64 %1
+define linkonce_odr dso_local i64 @_ZNSt6chrono20__duration_cast_implINS_8durationIlSt5ratioILl1ELl1EEEES2_ILl1ELl1000000000EElLb1ELb0EE6__castIlS5_EES4_RKNS1_IT_T0_EE(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
+  %2 = alloca %"class.std::chrono::duration", align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !77
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #8
+  %5 = load ptr, ptr %3, align 8, !tbaa !77
+  %6 = call noundef i64 @_ZNKSt6chrono8durationIlSt5ratioILl1ELl1000000000EEE5countEv(ptr noundef nonnull align 8 dereferenceable(8) %5)
+  %7 = sdiv i64 %6, 1000000000
+  store i64 %7, ptr %4, align 8, !tbaa !25
+  call void @_ZNSt6chrono8durationIlSt5ratioILl1ELl1EEEC2IlvEERKT_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #8
+  %8 = getelementptr inbounds nuw %"class.std::chrono::duration", ptr %2, i32 0, i32 0
+  %9 = load i64, ptr %8, align 8
+  ret i64 %9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i64 @_ZNKSt6chrono8durationIlSt5ratioILl1ELl1000000000EEE5countEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #3 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %__r = getelementptr inbounds %"class.std::chrono::duration.3", ptr %this1, i32 0, i32 0
-  %0 = load i64, ptr %__r, align 8
-  ret i64 %0
+define linkonce_odr dso_local noundef i64 @_ZNKSt6chrono8durationIlSt5ratioILl1ELl1000000000EEE5countEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #3 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !77
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::chrono::duration.3", ptr %3, i32 0, i32 0
+  %5 = load i64, ptr %4, align 8, !tbaa !79
+  ret i64 %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local i64 @_ZNSt6chrono15time_point_castINS_8durationIlSt5ratioILl1ELl1000000000EEEENS_3_V212system_clockENS1_IlS2_ILl1ELl1EEEEEENSt9enable_ifIXsr13__is_durationIT_EE5valueENS_10time_pointIT0_SA_EEE4typeERKNSB_ISC_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %__t) #0 comdat {
-entry:
-  %retval = alloca %"class.std::chrono::time_point.2", align 8
-  %__t.addr = alloca ptr, align 8
-  %ref.tmp = alloca %"class.std::chrono::duration.3", align 8
-  %ref.tmp1 = alloca %"class.std::chrono::duration", align 8
-  store ptr %__t, ptr %__t.addr, align 8
-  %0 = load ptr, ptr %__t.addr, align 8
-  %call = call i64 @_ZNKSt6chrono10time_pointINS_3_V212system_clockENS_8durationIlSt5ratioILl1ELl1EEEEE16time_since_epochEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  %coerce.dive = getelementptr inbounds %"class.std::chrono::duration", ptr %ref.tmp1, i32 0, i32 0
-  store i64 %call, ptr %coerce.dive, align 8
-  %call2 = call i64 @_ZNSt6chrono13duration_castINS_8durationIlSt5ratioILl1ELl1000000000EEEElS2_ILl1ELl1EEEENSt9enable_ifIXsr13__is_durationIT_EE5valueES7_E4typeERKNS1_IT0_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp1)
-  %coerce.dive3 = getelementptr inbounds %"class.std::chrono::duration.3", ptr %ref.tmp, i32 0, i32 0
-  store i64 %call2, ptr %coerce.dive3, align 8
-  call void @_ZNSt6chrono10time_pointINS_3_V212system_clockENS_8durationIlSt5ratioILl1ELl1000000000EEEEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(8) %retval, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
-  %coerce.dive4 = getelementptr inbounds %"class.std::chrono::time_point.2", ptr %retval, i32 0, i32 0
-  %coerce.dive5 = getelementptr inbounds %"class.std::chrono::duration.3", ptr %coerce.dive4, i32 0, i32 0
-  %1 = load i64, ptr %coerce.dive5, align 8
-  ret i64 %1
+define linkonce_odr dso_local i64 @_ZNSt6chrono15time_point_castINS_8durationIlSt5ratioILl1ELl1000000000EEEENS_3_V212system_clockENS1_IlS2_ILl1ELl1EEEEEENSt9enable_ifIXsr13__is_durationIT_EE5valueENS_10time_pointIT0_SA_EEE4typeERKNSB_ISC_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat {
+  %2 = alloca %"class.std::chrono::time_point.2", align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca %"class.std::chrono::duration.3", align 8
+  %5 = alloca %"class.std::chrono::duration", align 8
+  store ptr %0, ptr %3, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  %6 = load ptr, ptr %3, align 8, !tbaa !13
+  %7 = call i64 @_ZNKSt6chrono10time_pointINS_3_V212system_clockENS_8durationIlSt5ratioILl1ELl1EEEEE16time_since_epochEv(ptr noundef nonnull align 8 dereferenceable(8) %6)
+  %8 = getelementptr inbounds nuw %"class.std::chrono::duration", ptr %5, i32 0, i32 0
+  store i64 %7, ptr %8, align 8
+  %9 = call i64 @_ZNSt6chrono13duration_castINS_8durationIlSt5ratioILl1ELl1000000000EEEElS2_ILl1ELl1EEEENSt9enable_ifIXsr13__is_durationIT_EE5valueES7_E4typeERKNS1_IT0_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %5)
+  %10 = getelementptr inbounds nuw %"class.std::chrono::duration.3", ptr %4, i32 0, i32 0
+  store i64 %9, ptr %10, align 8
+  call void @_ZNSt6chrono10time_pointINS_3_V212system_clockENS_8durationIlSt5ratioILl1ELl1000000000EEEEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #8
+  %11 = getelementptr inbounds nuw %"class.std::chrono::time_point.2", ptr %2, i32 0, i32 0
+  %12 = getelementptr inbounds nuw %"class.std::chrono::duration.3", ptr %11, i32 0, i32 0
+  %13 = load i64, ptr %12, align 8
+  ret i64 %13
 }
 
-; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #7 comdat {
-  %2 = call ptr @__cxa_begin_catch(ptr %0) #5
-  call void @_ZSt9terminatev() #12
+; Function Attrs: noinline noreturn nounwind uwtable
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #10 comdat {
+  %2 = call ptr @__cxa_begin_catch(ptr %0) #8
+  call void @_ZSt9terminatev() #16
   unreachable
 }
 
@@ -2168,2008 +2336,2550 @@ declare ptr @__cxa_begin_catch(ptr)
 declare void @_ZSt9terminatev()
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local i64 @_ZNSt6chrono13duration_castINS_8durationIlSt5ratioILl1ELl1000000000EEEElS2_ILl1ELl1EEEENSt9enable_ifIXsr13__is_durationIT_EE5valueES7_E4typeERKNS1_IT0_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %__d) #0 comdat {
-entry:
-  %retval = alloca %"class.std::chrono::duration.3", align 8
-  %__d.addr = alloca ptr, align 8
-  store ptr %__d, ptr %__d.addr, align 8
-  %0 = load ptr, ptr %__d.addr, align 8
-  %call = call i64 @_ZNSt6chrono20__duration_cast_implINS_8durationIlSt5ratioILl1ELl1000000000EEEES2_ILl1000000000ELl1EElLb0ELb1EE6__castIlS2_ILl1ELl1EEEES4_RKNS1_IT_T0_EE(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  %coerce.dive = getelementptr inbounds %"class.std::chrono::duration.3", ptr %retval, i32 0, i32 0
-  store i64 %call, ptr %coerce.dive, align 8
-  %coerce.dive1 = getelementptr inbounds %"class.std::chrono::duration.3", ptr %retval, i32 0, i32 0
-  %1 = load i64, ptr %coerce.dive1, align 8
-  ret i64 %1
+define linkonce_odr dso_local i64 @_ZNSt6chrono13duration_castINS_8durationIlSt5ratioILl1ELl1000000000EEEElS2_ILl1ELl1EEEENSt9enable_ifIXsr13__is_durationIT_EE5valueES7_E4typeERKNS1_IT0_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat {
+  %2 = alloca %"class.std::chrono::duration.3", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !74
+  %4 = load ptr, ptr %3, align 8, !tbaa !74
+  %5 = call i64 @_ZNSt6chrono20__duration_cast_implINS_8durationIlSt5ratioILl1ELl1000000000EEEES2_ILl1000000000ELl1EElLb0ELb1EE6__castIlS2_ILl1ELl1EEEES4_RKNS1_IT_T0_EE(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %6 = getelementptr inbounds nuw %"class.std::chrono::duration.3", ptr %2, i32 0, i32 0
+  store i64 %5, ptr %6, align 8
+  %7 = getelementptr inbounds nuw %"class.std::chrono::duration.3", ptr %2, i32 0, i32 0
+  %8 = load i64, ptr %7, align 8
+  ret i64 %8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZNSt6chrono10time_pointINS_3_V212system_clockENS_8durationIlSt5ratioILl1ELl1000000000EEEEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %__dur) unnamed_addr #3 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__dur.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__dur, ptr %__dur.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %__d = getelementptr inbounds %"class.std::chrono::time_point.2", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %__dur.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %__d, ptr align 8 %0, i64 8, i1 false)
+define linkonce_odr dso_local void @_ZNSt6chrono10time_pointINS_3_V212system_clockENS_8durationIlSt5ratioILl1ELl1000000000EEEEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #3 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !72
+  store ptr %1, ptr %4, align 8, !tbaa !77
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.std::chrono::time_point.2", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !77
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %7, i64 8, i1 false), !tbaa.struct !57
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local i64 @_ZNSt6chrono20__duration_cast_implINS_8durationIlSt5ratioILl1ELl1000000000EEEES2_ILl1000000000ELl1EElLb0ELb1EE6__castIlS2_ILl1ELl1EEEES4_RKNS1_IT_T0_EE(ptr noundef nonnull align 8 dereferenceable(8) %__d) #0 comdat align 2 {
-entry:
-  %retval = alloca %"class.std::chrono::duration.3", align 8
-  %__d.addr = alloca ptr, align 8
-  %ref.tmp = alloca i64, align 8
-  store ptr %__d, ptr %__d.addr, align 8
-  %0 = load ptr, ptr %__d.addr, align 8
-  %call = call noundef i64 @_ZNKSt6chrono8durationIlSt5ratioILl1ELl1EEE5countEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  %mul = mul nsw i64 %call, 1000000000
-  store i64 %mul, ptr %ref.tmp, align 8
-  call void @_ZNSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEC2IlvEERKT_(ptr noundef nonnull align 8 dereferenceable(8) %retval, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
-  %coerce.dive = getelementptr inbounds %"class.std::chrono::duration.3", ptr %retval, i32 0, i32 0
-  %1 = load i64, ptr %coerce.dive, align 8
-  ret i64 %1
+define linkonce_odr dso_local i64 @_ZNSt6chrono20__duration_cast_implINS_8durationIlSt5ratioILl1ELl1000000000EEEES2_ILl1000000000ELl1EElLb0ELb1EE6__castIlS2_ILl1ELl1EEEES4_RKNS1_IT_T0_EE(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
+  %2 = alloca %"class.std::chrono::duration.3", align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !74
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #8
+  %5 = load ptr, ptr %3, align 8, !tbaa !74
+  %6 = call noundef i64 @_ZNKSt6chrono8durationIlSt5ratioILl1ELl1EEE5countEv(ptr noundef nonnull align 8 dereferenceable(8) %5)
+  %7 = mul nsw i64 %6, 1000000000
+  store i64 %7, ptr %4, align 8, !tbaa !25
+  call void @_ZNSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEC2IlvEERKT_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #8
+  %8 = getelementptr inbounds nuw %"class.std::chrono::duration.3", ptr %2, i32 0, i32 0
+  %9 = load i64, ptr %8, align 8
+  ret i64 %9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZNSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEC2IlvEERKT_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %__rep) unnamed_addr #3 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__rep.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__rep, ptr %__rep.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %__r = getelementptr inbounds %"class.std::chrono::duration.3", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %__rep.addr, align 8
-  %1 = load i64, ptr %0, align 8
-  store i64 %1, ptr %__r, align 8
+define linkonce_odr dso_local void @_ZNSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEC2IlvEERKT_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #3 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !77
+  store ptr %1, ptr %4, align 8, !tbaa !45
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.std::chrono::duration.3", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !45
+  %8 = load i64, ptr %7, align 8, !tbaa !25
+  store i64 %8, ptr %6, align 8, !tbaa !79
   ret void
 }
 
 ; Function Attrs: nounwind
-declare ptr @localtime_r(ptr noundef, ptr noundef) #6
+declare ptr @localtime_r(ptr noundef, ptr noundef) #9
 
 ; Function Attrs: nounwind
-declare ptr @gmtime_r(ptr noundef, ptr noundef) #6
+declare ptr @gmtime_r(ptr noundef, ptr noundef) #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local { i64, i64 } @_ZN4absl13time_internal4cctz6detail4impl5n_secEllllll(i64 noundef %y, i64 noundef %m, i64 noundef %d, i64 noundef %hh, i64 noundef %mm, i64 noundef %ss) #3 comdat personality ptr @__gxx_personality_v0 {
-entry:
-  %retval = alloca %"struct.absl::time_internal::cctz::detail::fields", align 8
-  %y.addr = alloca i64, align 8
-  %m.addr = alloca i64, align 8
-  %d.addr = alloca i64, align 8
-  %hh.addr = alloca i64, align 8
-  %mm.addr = alloca i64, align 8
-  %ss.addr = alloca i64, align 8
-  %nss = alloca i8, align 1
-  %nmm = alloca i8, align 1
-  %nhh = alloca i8, align 1
-  %nd = alloca i8, align 1
-  %nm = alloca i8, align 1
-  %cm = alloca i64, align 8
-  store i64 %y, ptr %y.addr, align 8
-  store i64 %m, ptr %m.addr, align 8
-  store i64 %d, ptr %d.addr, align 8
-  store i64 %hh, ptr %hh.addr, align 8
-  store i64 %mm, ptr %mm.addr, align 8
-  store i64 %ss, ptr %ss.addr, align 8
-  %0 = load i64, ptr %ss.addr, align 8
-  %cmp = icmp sle i64 0, %0
-  br i1 %cmp, label %land.lhs.true, label %if.end28
+define linkonce_odr dso_local { i64, i64 } @_ZN4absl13time_internal4cctz6detail4impl5n_secEllllll(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5) #3 comdat personality ptr @__gxx_personality_v0 {
+  %7 = alloca %"struct.absl::time_internal::cctz::detail::fields", align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca i64, align 8
+  %13 = alloca i64, align 8
+  %14 = alloca i8, align 1
+  %15 = alloca i8, align 1
+  %16 = alloca i8, align 1
+  %17 = alloca i8, align 1
+  %18 = alloca i8, align 1
+  %19 = alloca i32, align 4
+  %20 = alloca { i64, i64 }, align 8
+  %21 = alloca { i64, i64 }, align 8
+  %22 = alloca { i64, i64 }, align 8
+  %23 = alloca i64, align 8
+  %24 = alloca { i64, i64 }, align 8
+  store i64 %0, ptr %8, align 8, !tbaa !25
+  store i64 %1, ptr %9, align 8, !tbaa !25
+  store i64 %2, ptr %10, align 8, !tbaa !25
+  store i64 %3, ptr %11, align 8, !tbaa !25
+  store i64 %4, ptr %12, align 8, !tbaa !25
+  store i64 %5, ptr %13, align 8, !tbaa !25
+  %25 = load i64, ptr %13, align 8, !tbaa !25
+  %26 = icmp sle i64 0, %25
+  br i1 %26, label %27, label %105
 
-land.lhs.true:                                    ; preds = %entry
-  %1 = load i64, ptr %ss.addr, align 8
-  %cmp1 = icmp slt i64 %1, 60
-  br i1 %cmp1, label %if.then, label %if.end28
+27:                                               ; preds = %6
+  %28 = load i64, ptr %13, align 8, !tbaa !25
+  %29 = icmp slt i64 %28, 60
+  br i1 %29, label %30, label %105
 
-if.then:                                          ; preds = %land.lhs.true
-  %2 = load i64, ptr %ss.addr, align 8
-  %conv = trunc i64 %2 to i8
-  store i8 %conv, ptr %nss, align 1
-  %3 = load i64, ptr %mm.addr, align 8
-  %cmp2 = icmp sle i64 0, %3
-  br i1 %cmp2, label %land.lhs.true3, label %if.end24
+30:                                               ; preds = %27
+  call void @llvm.lifetime.start.p0(i64 1, ptr %14) #8
+  %31 = load i64, ptr %13, align 8, !tbaa !25
+  %32 = trunc i64 %31 to i8
+  store i8 %32, ptr %14, align 1, !tbaa !27
+  %33 = load i64, ptr %12, align 8, !tbaa !25
+  %34 = icmp sle i64 0, %33
+  br i1 %34, label %35, label %93
 
-land.lhs.true3:                                   ; preds = %if.then
-  %4 = load i64, ptr %mm.addr, align 8
-  %cmp4 = icmp slt i64 %4, 60
-  br i1 %cmp4, label %if.then5, label %if.end24
+35:                                               ; preds = %30
+  %36 = load i64, ptr %12, align 8, !tbaa !25
+  %37 = icmp slt i64 %36, 60
+  br i1 %37, label %38, label %93
 
-if.then5:                                         ; preds = %land.lhs.true3
-  %5 = load i64, ptr %mm.addr, align 8
-  %conv6 = trunc i64 %5 to i8
-  store i8 %conv6, ptr %nmm, align 1
-  %6 = load i64, ptr %hh.addr, align 8
-  %cmp7 = icmp sle i64 0, %6
-  br i1 %cmp7, label %land.lhs.true8, label %if.end22
+38:                                               ; preds = %35
+  call void @llvm.lifetime.start.p0(i64 1, ptr %15) #8
+  %39 = load i64, ptr %12, align 8, !tbaa !25
+  %40 = trunc i64 %39 to i8
+  store i8 %40, ptr %15, align 1, !tbaa !27
+  %41 = load i64, ptr %11, align 8, !tbaa !25
+  %42 = icmp sle i64 0, %41
+  br i1 %42, label %43, label %81
 
-land.lhs.true8:                                   ; preds = %if.then5
-  %7 = load i64, ptr %hh.addr, align 8
-  %cmp9 = icmp slt i64 %7, 24
-  br i1 %cmp9, label %if.then10, label %if.end22
+43:                                               ; preds = %38
+  %44 = load i64, ptr %11, align 8, !tbaa !25
+  %45 = icmp slt i64 %44, 24
+  br i1 %45, label %46, label %81
 
-if.then10:                                        ; preds = %land.lhs.true8
-  %8 = load i64, ptr %hh.addr, align 8
-  %conv11 = trunc i64 %8 to i8
-  store i8 %conv11, ptr %nhh, align 1
-  %9 = load i64, ptr %d.addr, align 8
-  %cmp12 = icmp sle i64 1, %9
-  br i1 %cmp12, label %land.lhs.true13, label %if.end
+46:                                               ; preds = %43
+  call void @llvm.lifetime.start.p0(i64 1, ptr %16) #8
+  %47 = load i64, ptr %11, align 8, !tbaa !25
+  %48 = trunc i64 %47 to i8
+  store i8 %48, ptr %16, align 1, !tbaa !27
+  %49 = load i64, ptr %10, align 8, !tbaa !25
+  %50 = icmp sle i64 1, %49
+  br i1 %50, label %51, label %72
 
-land.lhs.true13:                                  ; preds = %if.then10
-  %10 = load i64, ptr %d.addr, align 8
-  %cmp14 = icmp sle i64 %10, 28
-  br i1 %cmp14, label %land.lhs.true15, label %if.end
+51:                                               ; preds = %46
+  %52 = load i64, ptr %10, align 8, !tbaa !25
+  %53 = icmp sle i64 %52, 28
+  br i1 %53, label %54, label %72
 
-land.lhs.true15:                                  ; preds = %land.lhs.true13
-  %11 = load i64, ptr %m.addr, align 8
-  %cmp16 = icmp sle i64 1, %11
-  br i1 %cmp16, label %land.lhs.true17, label %if.end
+54:                                               ; preds = %51
+  %55 = load i64, ptr %9, align 8, !tbaa !25
+  %56 = icmp sle i64 1, %55
+  br i1 %56, label %57, label %72
 
-land.lhs.true17:                                  ; preds = %land.lhs.true15
-  %12 = load i64, ptr %m.addr, align 8
-  %cmp18 = icmp sle i64 %12, 12
-  br i1 %cmp18, label %if.then19, label %if.end
+57:                                               ; preds = %54
+  %58 = load i64, ptr %9, align 8, !tbaa !25
+  %59 = icmp sle i64 %58, 12
+  br i1 %59, label %60, label %72
 
-if.then19:                                        ; preds = %land.lhs.true17
-  %13 = load i64, ptr %d.addr, align 8
-  %conv20 = trunc i64 %13 to i8
-  store i8 %conv20, ptr %nd, align 1
-  %14 = load i64, ptr %m.addr, align 8
-  %conv21 = trunc i64 %14 to i8
-  store i8 %conv21, ptr %nm, align 1
-  %15 = load i64, ptr %y.addr, align 8
-  %16 = load i8, ptr %nm, align 1
-  %17 = load i8, ptr %nd, align 1
-  %18 = load i8, ptr %nhh, align 1
-  %19 = load i8, ptr %nmm, align 1
-  %20 = load i8, ptr %nss, align 1
-  invoke void @_ZN4absl13time_internal4cctz6detail6fieldsC2Elaaaaa(ptr noundef nonnull align 8 dereferenceable(13) %retval, i64 noundef %15, i8 noundef signext %16, i8 noundef signext %17, i8 noundef signext %18, i8 noundef signext %19, i8 noundef signext %20)
-          to label %invoke.cont unwind label %terminate.lpad
+60:                                               ; preds = %57
+  call void @llvm.lifetime.start.p0(i64 1, ptr %17) #8
+  %61 = load i64, ptr %10, align 8, !tbaa !25
+  %62 = trunc i64 %61 to i8
+  store i8 %62, ptr %17, align 1, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 1, ptr %18) #8
+  %63 = load i64, ptr %9, align 8, !tbaa !25
+  %64 = trunc i64 %63 to i8
+  store i8 %64, ptr %18, align 1, !tbaa !27
+  %65 = load i64, ptr %8, align 8, !tbaa !25
+  %66 = load i8, ptr %18, align 1, !tbaa !27
+  %67 = load i8, ptr %17, align 1, !tbaa !27
+  %68 = load i8, ptr %16, align 1, !tbaa !27
+  %69 = load i8, ptr %15, align 1, !tbaa !27
+  %70 = load i8, ptr %14, align 1, !tbaa !27
+  invoke void @_ZN4absl13time_internal4cctz6detail6fieldsC2Elaaaaa(ptr noundef nonnull align 8 dereferenceable(13) %7, i64 noundef %65, i8 noundef signext %66, i8 noundef signext %67, i8 noundef signext %68, i8 noundef signext %69, i8 noundef signext %70)
+          to label %71 unwind label %137
 
-invoke.cont:                                      ; preds = %if.then19
-  br label %return
+71:                                               ; preds = %60
+  store i32 1, ptr %19, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %18) #8
+  call void @llvm.lifetime.end.p0(i64 1, ptr %17) #8
+  br label %80
 
-if.end:                                           ; preds = %land.lhs.true17, %land.lhs.true15, %land.lhs.true13, %if.then10
-  %21 = load i64, ptr %y.addr, align 8
-  %22 = load i64, ptr %m.addr, align 8
-  %23 = load i64, ptr %d.addr, align 8
-  %24 = load i8, ptr %nhh, align 1
-  %25 = load i8, ptr %nmm, align 1
-  %26 = load i8, ptr %nss, align 1
-  %call = call { i64, i64 } @_ZN4absl13time_internal4cctz6detail4impl5n_monEllllaaa(i64 noundef %21, i64 noundef %22, i64 noundef %23, i64 noundef 0, i8 noundef signext %24, i8 noundef signext %25, i8 noundef signext %26) #5
-  %27 = getelementptr inbounds { i64, i64 }, ptr %retval, i32 0, i32 0
-  %28 = extractvalue { i64, i64 } %call, 0
-  store i64 %28, ptr %27, align 8
-  %29 = getelementptr inbounds { i64, i64 }, ptr %retval, i32 0, i32 1
-  %30 = extractvalue { i64, i64 } %call, 1
-  store i64 %30, ptr %29, align 8
-  br label %return
+72:                                               ; preds = %57, %54, %51, %46
+  %73 = load i64, ptr %8, align 8, !tbaa !25
+  %74 = load i64, ptr %9, align 8, !tbaa !25
+  %75 = load i64, ptr %10, align 8, !tbaa !25
+  %76 = load i8, ptr %16, align 1, !tbaa !27
+  %77 = load i8, ptr %15, align 1, !tbaa !27
+  %78 = load i8, ptr %14, align 1, !tbaa !27
+  %79 = call { i64, i64 } @_ZN4absl13time_internal4cctz6detail4impl5n_monEllllaaa(i64 noundef %73, i64 noundef %74, i64 noundef %75, i64 noundef 0, i8 noundef signext %76, i8 noundef signext %77, i8 noundef signext %78) #8
+  store { i64, i64 } %79, ptr %20, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %20, i64 13, i1 false)
+  store i32 1, ptr %19, align 4
+  br label %80
 
-if.end22:                                         ; preds = %land.lhs.true8, %if.then5
-  %31 = load i64, ptr %y.addr, align 8
-  %32 = load i64, ptr %m.addr, align 8
-  %33 = load i64, ptr %d.addr, align 8
-  %34 = load i64, ptr %hh.addr, align 8
-  %div = sdiv i64 %34, 24
-  %35 = load i64, ptr %hh.addr, align 8
-  %rem = srem i64 %35, 24
-  %36 = load i8, ptr %nmm, align 1
-  %37 = load i8, ptr %nss, align 1
-  %call23 = call { i64, i64 } @_ZN4absl13time_internal4cctz6detail4impl6n_hourElllllaa(i64 noundef %31, i64 noundef %32, i64 noundef %33, i64 noundef %div, i64 noundef %rem, i8 noundef signext %36, i8 noundef signext %37) #5
-  %38 = getelementptr inbounds { i64, i64 }, ptr %retval, i32 0, i32 0
-  %39 = extractvalue { i64, i64 } %call23, 0
-  store i64 %39, ptr %38, align 8
-  %40 = getelementptr inbounds { i64, i64 }, ptr %retval, i32 0, i32 1
-  %41 = extractvalue { i64, i64 } %call23, 1
-  store i64 %41, ptr %40, align 8
-  br label %return
+80:                                               ; preds = %72, %71
+  call void @llvm.lifetime.end.p0(i64 1, ptr %16) #8
+  br label %92
 
-if.end24:                                         ; preds = %land.lhs.true3, %if.then
-  %42 = load i64, ptr %y.addr, align 8
-  %43 = load i64, ptr %m.addr, align 8
-  %44 = load i64, ptr %d.addr, align 8
-  %45 = load i64, ptr %hh.addr, align 8
-  %46 = load i64, ptr %mm.addr, align 8
-  %div25 = sdiv i64 %46, 60
-  %47 = load i64, ptr %mm.addr, align 8
-  %rem26 = srem i64 %47, 60
-  %48 = load i8, ptr %nss, align 1
-  %call27 = call { i64, i64 } @_ZN4absl13time_internal4cctz6detail4impl5n_minElllllla(i64 noundef %42, i64 noundef %43, i64 noundef %44, i64 noundef %45, i64 noundef %div25, i64 noundef %rem26, i8 noundef signext %48) #5
-  %49 = getelementptr inbounds { i64, i64 }, ptr %retval, i32 0, i32 0
-  %50 = extractvalue { i64, i64 } %call27, 0
-  store i64 %50, ptr %49, align 8
-  %51 = getelementptr inbounds { i64, i64 }, ptr %retval, i32 0, i32 1
-  %52 = extractvalue { i64, i64 } %call27, 1
-  store i64 %52, ptr %51, align 8
-  br label %return
+81:                                               ; preds = %43, %38
+  %82 = load i64, ptr %8, align 8, !tbaa !25
+  %83 = load i64, ptr %9, align 8, !tbaa !25
+  %84 = load i64, ptr %10, align 8, !tbaa !25
+  %85 = load i64, ptr %11, align 8, !tbaa !25
+  %86 = sdiv i64 %85, 24
+  %87 = load i64, ptr %11, align 8, !tbaa !25
+  %88 = srem i64 %87, 24
+  %89 = load i8, ptr %15, align 1, !tbaa !27
+  %90 = load i8, ptr %14, align 1, !tbaa !27
+  %91 = call { i64, i64 } @_ZN4absl13time_internal4cctz6detail4impl6n_hourElllllaa(i64 noundef %82, i64 noundef %83, i64 noundef %84, i64 noundef %86, i64 noundef %88, i8 noundef signext %89, i8 noundef signext %90) #8
+  store { i64, i64 } %91, ptr %21, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %21, i64 13, i1 false)
+  store i32 1, ptr %19, align 4
+  br label %92
 
-if.end28:                                         ; preds = %land.lhs.true, %entry
-  %53 = load i64, ptr %ss.addr, align 8
-  %div29 = sdiv i64 %53, 60
-  store i64 %div29, ptr %cm, align 8
-  %54 = load i64, ptr %ss.addr, align 8
-  %rem30 = srem i64 %54, 60
-  store i64 %rem30, ptr %ss.addr, align 8
-  %55 = load i64, ptr %ss.addr, align 8
-  %cmp31 = icmp slt i64 %55, 0
-  br i1 %cmp31, label %if.then32, label %if.end33
+92:                                               ; preds = %81, %80
+  call void @llvm.lifetime.end.p0(i64 1, ptr %15) #8
+  br label %104
 
-if.then32:                                        ; preds = %if.end28
-  %56 = load i64, ptr %cm, align 8
-  %sub = sub nsw i64 %56, 1
-  store i64 %sub, ptr %cm, align 8
-  %57 = load i64, ptr %ss.addr, align 8
-  %add = add nsw i64 %57, 60
-  store i64 %add, ptr %ss.addr, align 8
-  br label %if.end33
+93:                                               ; preds = %35, %30
+  %94 = load i64, ptr %8, align 8, !tbaa !25
+  %95 = load i64, ptr %9, align 8, !tbaa !25
+  %96 = load i64, ptr %10, align 8, !tbaa !25
+  %97 = load i64, ptr %11, align 8, !tbaa !25
+  %98 = load i64, ptr %12, align 8, !tbaa !25
+  %99 = sdiv i64 %98, 60
+  %100 = load i64, ptr %12, align 8, !tbaa !25
+  %101 = srem i64 %100, 60
+  %102 = load i8, ptr %14, align 1, !tbaa !27
+  %103 = call { i64, i64 } @_ZN4absl13time_internal4cctz6detail4impl5n_minElllllla(i64 noundef %94, i64 noundef %95, i64 noundef %96, i64 noundef %97, i64 noundef %99, i64 noundef %101, i8 noundef signext %102) #8
+  store { i64, i64 } %103, ptr %22, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %22, i64 13, i1 false)
+  store i32 1, ptr %19, align 4
+  br label %104
 
-if.end33:                                         ; preds = %if.then32, %if.end28
-  %58 = load i64, ptr %y.addr, align 8
-  %59 = load i64, ptr %m.addr, align 8
-  %60 = load i64, ptr %d.addr, align 8
-  %61 = load i64, ptr %hh.addr, align 8
-  %62 = load i64, ptr %mm.addr, align 8
-  %div34 = sdiv i64 %62, 60
-  %63 = load i64, ptr %cm, align 8
-  %div35 = sdiv i64 %63, 60
-  %add36 = add nsw i64 %div34, %div35
-  %64 = load i64, ptr %mm.addr, align 8
-  %rem37 = srem i64 %64, 60
-  %65 = load i64, ptr %cm, align 8
-  %rem38 = srem i64 %65, 60
-  %add39 = add nsw i64 %rem37, %rem38
-  %66 = load i64, ptr %ss.addr, align 8
-  %conv40 = trunc i64 %66 to i8
-  %call41 = call { i64, i64 } @_ZN4absl13time_internal4cctz6detail4impl5n_minElllllla(i64 noundef %58, i64 noundef %59, i64 noundef %60, i64 noundef %61, i64 noundef %add36, i64 noundef %add39, i8 noundef signext %conv40) #5
-  %67 = getelementptr inbounds { i64, i64 }, ptr %retval, i32 0, i32 0
-  %68 = extractvalue { i64, i64 } %call41, 0
-  store i64 %68, ptr %67, align 8
-  %69 = getelementptr inbounds { i64, i64 }, ptr %retval, i32 0, i32 1
-  %70 = extractvalue { i64, i64 } %call41, 1
-  store i64 %70, ptr %69, align 8
-  br label %return
+104:                                              ; preds = %93, %92
+  call void @llvm.lifetime.end.p0(i64 1, ptr %14) #8
+  br label %135
 
-return:                                           ; preds = %if.end33, %if.end24, %if.end22, %if.end, %invoke.cont
-  %71 = load { i64, i64 }, ptr %retval, align 8
-  ret { i64, i64 } %71
+105:                                              ; preds = %27, %6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #8
+  %106 = load i64, ptr %13, align 8, !tbaa !25
+  %107 = sdiv i64 %106, 60
+  store i64 %107, ptr %23, align 8, !tbaa !25
+  %108 = load i64, ptr %13, align 8, !tbaa !25
+  %109 = srem i64 %108, 60
+  store i64 %109, ptr %13, align 8, !tbaa !25
+  %110 = load i64, ptr %13, align 8, !tbaa !25
+  %111 = icmp slt i64 %110, 0
+  br i1 %111, label %112, label %117
 
-terminate.lpad:                                   ; preds = %if.then19
-  %72 = landingpad { ptr, i32 }
+112:                                              ; preds = %105
+  %113 = load i64, ptr %23, align 8, !tbaa !25
+  %114 = sub nsw i64 %113, 1
+  store i64 %114, ptr %23, align 8, !tbaa !25
+  %115 = load i64, ptr %13, align 8, !tbaa !25
+  %116 = add nsw i64 %115, 60
+  store i64 %116, ptr %13, align 8, !tbaa !25
+  br label %117
+
+117:                                              ; preds = %112, %105
+  %118 = load i64, ptr %8, align 8, !tbaa !25
+  %119 = load i64, ptr %9, align 8, !tbaa !25
+  %120 = load i64, ptr %10, align 8, !tbaa !25
+  %121 = load i64, ptr %11, align 8, !tbaa !25
+  %122 = load i64, ptr %12, align 8, !tbaa !25
+  %123 = sdiv i64 %122, 60
+  %124 = load i64, ptr %23, align 8, !tbaa !25
+  %125 = sdiv i64 %124, 60
+  %126 = add nsw i64 %123, %125
+  %127 = load i64, ptr %12, align 8, !tbaa !25
+  %128 = srem i64 %127, 60
+  %129 = load i64, ptr %23, align 8, !tbaa !25
+  %130 = srem i64 %129, 60
+  %131 = add nsw i64 %128, %130
+  %132 = load i64, ptr %13, align 8, !tbaa !25
+  %133 = trunc i64 %132 to i8
+  %134 = call { i64, i64 } @_ZN4absl13time_internal4cctz6detail4impl5n_minElllllla(i64 noundef %118, i64 noundef %119, i64 noundef %120, i64 noundef %121, i64 noundef %126, i64 noundef %131, i8 noundef signext %133) #8
+  store { i64, i64 } %134, ptr %24, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %24, i64 13, i1 false)
+  store i32 1, ptr %19, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #8
+  br label %135
+
+135:                                              ; preds = %117, %104
+  %136 = load { i64, i64 }, ptr %7, align 8
+  ret { i64, i64 } %136
+
+137:                                              ; preds = %60
+  %138 = landingpad { ptr, i32 }
           catch ptr null
-  %73 = extractvalue { ptr, i32 } %72, 0
-  call void @__clang_call_terminate(ptr %73) #12
+  %139 = extractvalue { ptr, i32 } %138, 0
+  call void @__clang_call_terminate(ptr %139) #16
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN4absl13time_internal4cctz6detail6fieldsC2Elaaaaa(ptr noundef nonnull align 8 dereferenceable(13) %this, i64 noundef %year, i8 noundef signext %month, i8 noundef signext %day, i8 noundef signext %hour, i8 noundef signext %minute, i8 noundef signext %second) unnamed_addr #3 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %year.addr = alloca i64, align 8
-  %month.addr = alloca i8, align 1
-  %day.addr = alloca i8, align 1
-  %hour.addr = alloca i8, align 1
-  %minute.addr = alloca i8, align 1
-  %second.addr = alloca i8, align 1
-  store ptr %this, ptr %this.addr, align 8
-  store i64 %year, ptr %year.addr, align 8
-  store i8 %month, ptr %month.addr, align 1
-  store i8 %day, ptr %day.addr, align 1
-  store i8 %hour, ptr %hour.addr, align 1
-  store i8 %minute, ptr %minute.addr, align 1
-  store i8 %second, ptr %second.addr, align 1
-  %this1 = load ptr, ptr %this.addr, align 8
-  %y = getelementptr inbounds %"struct.absl::time_internal::cctz::detail::fields", ptr %this1, i32 0, i32 0
-  %0 = load i64, ptr %year.addr, align 8
-  store i64 %0, ptr %y, align 8
-  %m = getelementptr inbounds %"struct.absl::time_internal::cctz::detail::fields", ptr %this1, i32 0, i32 1
-  %1 = load i8, ptr %month.addr, align 1
-  store i8 %1, ptr %m, align 8
-  %d = getelementptr inbounds %"struct.absl::time_internal::cctz::detail::fields", ptr %this1, i32 0, i32 2
-  %2 = load i8, ptr %day.addr, align 1
-  store i8 %2, ptr %d, align 1
-  %hh = getelementptr inbounds %"struct.absl::time_internal::cctz::detail::fields", ptr %this1, i32 0, i32 3
-  %3 = load i8, ptr %hour.addr, align 1
-  store i8 %3, ptr %hh, align 2
-  %mm = getelementptr inbounds %"struct.absl::time_internal::cctz::detail::fields", ptr %this1, i32 0, i32 4
-  %4 = load i8, ptr %minute.addr, align 1
-  store i8 %4, ptr %mm, align 1
-  %ss = getelementptr inbounds %"struct.absl::time_internal::cctz::detail::fields", ptr %this1, i32 0, i32 5
-  %5 = load i8, ptr %second.addr, align 1
-  store i8 %5, ptr %ss, align 4
+define linkonce_odr dso_local void @_ZN4absl13time_internal4cctz6detail6fieldsC2Elaaaaa(ptr noundef nonnull align 8 dereferenceable(13) %0, i64 noundef %1, i8 noundef signext %2, i8 noundef signext %3, i8 noundef signext %4, i8 noundef signext %5, i8 noundef signext %6) unnamed_addr #3 comdat align 2 {
+  %8 = alloca ptr, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i8, align 1
+  %11 = alloca i8, align 1
+  %12 = alloca i8, align 1
+  %13 = alloca i8, align 1
+  %14 = alloca i8, align 1
+  store ptr %0, ptr %8, align 8, !tbaa !81
+  store i64 %1, ptr %9, align 8, !tbaa !25
+  store i8 %2, ptr %10, align 1, !tbaa !27
+  store i8 %3, ptr %11, align 1, !tbaa !27
+  store i8 %4, ptr %12, align 1, !tbaa !27
+  store i8 %5, ptr %13, align 1, !tbaa !27
+  store i8 %6, ptr %14, align 1, !tbaa !27
+  %15 = load ptr, ptr %8, align 8
+  %16 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::detail::fields", ptr %15, i32 0, i32 0
+  %17 = load i64, ptr %9, align 8, !tbaa !25
+  store i64 %17, ptr %16, align 8, !tbaa !83
+  %18 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::detail::fields", ptr %15, i32 0, i32 1
+  %19 = load i8, ptr %10, align 1, !tbaa !27
+  store i8 %19, ptr %18, align 8, !tbaa !84
+  %20 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::detail::fields", ptr %15, i32 0, i32 2
+  %21 = load i8, ptr %11, align 1, !tbaa !27
+  store i8 %21, ptr %20, align 1, !tbaa !85
+  %22 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::detail::fields", ptr %15, i32 0, i32 3
+  %23 = load i8, ptr %12, align 1, !tbaa !27
+  store i8 %23, ptr %22, align 2, !tbaa !86
+  %24 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::detail::fields", ptr %15, i32 0, i32 4
+  %25 = load i8, ptr %13, align 1, !tbaa !27
+  store i8 %25, ptr %24, align 1, !tbaa !87
+  %26 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::detail::fields", ptr %15, i32 0, i32 5
+  %27 = load i8, ptr %14, align 1, !tbaa !27
+  store i8 %27, ptr %26, align 4, !tbaa !88
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local { i64, i64 } @_ZN4absl13time_internal4cctz6detail4impl5n_monEllllaaa(i64 noundef %y, i64 noundef %m, i64 noundef %d, i64 noundef %cd, i8 noundef signext %hh, i8 noundef signext %mm, i8 noundef signext %ss) #3 comdat {
-entry:
-  %retval = alloca %"struct.absl::time_internal::cctz::detail::fields", align 8
-  %y.addr = alloca i64, align 8
-  %m.addr = alloca i64, align 8
-  %d.addr = alloca i64, align 8
-  %cd.addr = alloca i64, align 8
-  %hh.addr = alloca i8, align 1
-  %mm.addr = alloca i8, align 1
-  %ss.addr = alloca i8, align 1
-  store i64 %y, ptr %y.addr, align 8
-  store i64 %m, ptr %m.addr, align 8
-  store i64 %d, ptr %d.addr, align 8
-  store i64 %cd, ptr %cd.addr, align 8
-  store i8 %hh, ptr %hh.addr, align 1
-  store i8 %mm, ptr %mm.addr, align 1
-  store i8 %ss, ptr %ss.addr, align 1
-  %0 = load i64, ptr %m.addr, align 8
-  %cmp = icmp ne i64 %0, 12
-  br i1 %cmp, label %if.then, label %if.end4
+define linkonce_odr dso_local { i64, i64 } @_ZN4absl13time_internal4cctz6detail4impl5n_monEllllaaa(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i8 noundef signext %4, i8 noundef signext %5, i8 noundef signext %6) #3 comdat {
+  %8 = alloca %"struct.absl::time_internal::cctz::detail::fields", align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca i64, align 8
+  %13 = alloca i8, align 1
+  %14 = alloca i8, align 1
+  %15 = alloca i8, align 1
+  %16 = alloca { i64, i64 }, align 8
+  store i64 %0, ptr %9, align 8, !tbaa !25
+  store i64 %1, ptr %10, align 8, !tbaa !25
+  store i64 %2, ptr %11, align 8, !tbaa !25
+  store i64 %3, ptr %12, align 8, !tbaa !25
+  store i8 %4, ptr %13, align 1, !tbaa !27
+  store i8 %5, ptr %14, align 1, !tbaa !27
+  store i8 %6, ptr %15, align 1, !tbaa !27
+  %17 = load i64, ptr %10, align 8, !tbaa !25
+  %18 = icmp ne i64 %17, 12
+  br i1 %18, label %19, label %34
 
-if.then:                                          ; preds = %entry
-  %1 = load i64, ptr %m.addr, align 8
-  %div = sdiv i64 %1, 12
-  %2 = load i64, ptr %y.addr, align 8
-  %add = add nsw i64 %2, %div
-  store i64 %add, ptr %y.addr, align 8
-  %3 = load i64, ptr %m.addr, align 8
-  %rem = srem i64 %3, 12
-  store i64 %rem, ptr %m.addr, align 8
-  %4 = load i64, ptr %m.addr, align 8
-  %cmp1 = icmp sle i64 %4, 0
-  br i1 %cmp1, label %if.then2, label %if.end
+19:                                               ; preds = %7
+  %20 = load i64, ptr %10, align 8, !tbaa !25
+  %21 = sdiv i64 %20, 12
+  %22 = load i64, ptr %9, align 8, !tbaa !25
+  %23 = add nsw i64 %22, %21
+  store i64 %23, ptr %9, align 8, !tbaa !25
+  %24 = load i64, ptr %10, align 8, !tbaa !25
+  %25 = srem i64 %24, 12
+  store i64 %25, ptr %10, align 8, !tbaa !25
+  %26 = load i64, ptr %10, align 8, !tbaa !25
+  %27 = icmp sle i64 %26, 0
+  br i1 %27, label %28, label %33
 
-if.then2:                                         ; preds = %if.then
-  %5 = load i64, ptr %y.addr, align 8
-  %sub = sub nsw i64 %5, 1
-  store i64 %sub, ptr %y.addr, align 8
-  %6 = load i64, ptr %m.addr, align 8
-  %add3 = add nsw i64 %6, 12
-  store i64 %add3, ptr %m.addr, align 8
-  br label %if.end
+28:                                               ; preds = %19
+  %29 = load i64, ptr %9, align 8, !tbaa !25
+  %30 = sub nsw i64 %29, 1
+  store i64 %30, ptr %9, align 8, !tbaa !25
+  %31 = load i64, ptr %10, align 8, !tbaa !25
+  %32 = add nsw i64 %31, 12
+  store i64 %32, ptr %10, align 8, !tbaa !25
+  br label %33
 
-if.end:                                           ; preds = %if.then2, %if.then
-  br label %if.end4
+33:                                               ; preds = %28, %19
+  br label %34
 
-if.end4:                                          ; preds = %if.end, %entry
-  %7 = load i64, ptr %y.addr, align 8
-  %8 = load i64, ptr %m.addr, align 8
-  %conv = trunc i64 %8 to i8
-  %9 = load i64, ptr %d.addr, align 8
-  %10 = load i64, ptr %cd.addr, align 8
-  %11 = load i8, ptr %hh.addr, align 1
-  %12 = load i8, ptr %mm.addr, align 1
-  %13 = load i8, ptr %ss.addr, align 1
-  %call = call { i64, i64 } @_ZN4absl13time_internal4cctz6detail4impl5n_dayElallaaa(i64 noundef %7, i8 noundef signext %conv, i64 noundef %9, i64 noundef %10, i8 noundef signext %11, i8 noundef signext %12, i8 noundef signext %13) #5
-  %14 = getelementptr inbounds { i64, i64 }, ptr %retval, i32 0, i32 0
-  %15 = extractvalue { i64, i64 } %call, 0
-  store i64 %15, ptr %14, align 8
-  %16 = getelementptr inbounds { i64, i64 }, ptr %retval, i32 0, i32 1
-  %17 = extractvalue { i64, i64 } %call, 1
-  store i64 %17, ptr %16, align 8
-  %18 = load { i64, i64 }, ptr %retval, align 8
-  ret { i64, i64 } %18
+34:                                               ; preds = %33, %7
+  %35 = load i64, ptr %9, align 8, !tbaa !25
+  %36 = load i64, ptr %10, align 8, !tbaa !25
+  %37 = trunc i64 %36 to i8
+  %38 = load i64, ptr %11, align 8, !tbaa !25
+  %39 = load i64, ptr %12, align 8, !tbaa !25
+  %40 = load i8, ptr %13, align 1, !tbaa !27
+  %41 = load i8, ptr %14, align 1, !tbaa !27
+  %42 = load i8, ptr %15, align 1, !tbaa !27
+  %43 = call { i64, i64 } @_ZN4absl13time_internal4cctz6detail4impl5n_dayElallaaa(i64 noundef %35, i8 noundef signext %37, i64 noundef %38, i64 noundef %39, i8 noundef signext %40, i8 noundef signext %41, i8 noundef signext %42) #8
+  store { i64, i64 } %43, ptr %16, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %16, i64 13, i1 false)
+  %44 = load { i64, i64 }, ptr %8, align 8
+  ret { i64, i64 } %44
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local { i64, i64 } @_ZN4absl13time_internal4cctz6detail4impl6n_hourElllllaa(i64 noundef %y, i64 noundef %m, i64 noundef %d, i64 noundef %cd, i64 noundef %hh, i8 noundef signext %mm, i8 noundef signext %ss) #3 comdat {
-entry:
-  %retval = alloca %"struct.absl::time_internal::cctz::detail::fields", align 8
-  %y.addr = alloca i64, align 8
-  %m.addr = alloca i64, align 8
-  %d.addr = alloca i64, align 8
-  %cd.addr = alloca i64, align 8
-  %hh.addr = alloca i64, align 8
-  %mm.addr = alloca i8, align 1
-  %ss.addr = alloca i8, align 1
-  store i64 %y, ptr %y.addr, align 8
-  store i64 %m, ptr %m.addr, align 8
-  store i64 %d, ptr %d.addr, align 8
-  store i64 %cd, ptr %cd.addr, align 8
-  store i64 %hh, ptr %hh.addr, align 8
-  store i8 %mm, ptr %mm.addr, align 1
-  store i8 %ss, ptr %ss.addr, align 1
-  %0 = load i64, ptr %hh.addr, align 8
-  %div = sdiv i64 %0, 24
-  %1 = load i64, ptr %cd.addr, align 8
-  %add = add nsw i64 %1, %div
-  store i64 %add, ptr %cd.addr, align 8
-  %2 = load i64, ptr %hh.addr, align 8
-  %rem = srem i64 %2, 24
-  store i64 %rem, ptr %hh.addr, align 8
-  %3 = load i64, ptr %hh.addr, align 8
-  %cmp = icmp slt i64 %3, 0
-  br i1 %cmp, label %if.then, label %if.end
+define linkonce_odr dso_local { i64, i64 } @_ZN4absl13time_internal4cctz6detail4impl6n_hourElllllaa(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i8 noundef signext %5, i8 noundef signext %6) #3 comdat {
+  %8 = alloca %"struct.absl::time_internal::cctz::detail::fields", align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca i64, align 8
+  %13 = alloca i64, align 8
+  %14 = alloca i8, align 1
+  %15 = alloca i8, align 1
+  %16 = alloca { i64, i64 }, align 8
+  store i64 %0, ptr %9, align 8, !tbaa !25
+  store i64 %1, ptr %10, align 8, !tbaa !25
+  store i64 %2, ptr %11, align 8, !tbaa !25
+  store i64 %3, ptr %12, align 8, !tbaa !25
+  store i64 %4, ptr %13, align 8, !tbaa !25
+  store i8 %5, ptr %14, align 1, !tbaa !27
+  store i8 %6, ptr %15, align 1, !tbaa !27
+  %17 = load i64, ptr %13, align 8, !tbaa !25
+  %18 = sdiv i64 %17, 24
+  %19 = load i64, ptr %12, align 8, !tbaa !25
+  %20 = add nsw i64 %19, %18
+  store i64 %20, ptr %12, align 8, !tbaa !25
+  %21 = load i64, ptr %13, align 8, !tbaa !25
+  %22 = srem i64 %21, 24
+  store i64 %22, ptr %13, align 8, !tbaa !25
+  %23 = load i64, ptr %13, align 8, !tbaa !25
+  %24 = icmp slt i64 %23, 0
+  br i1 %24, label %25, label %30
 
-if.then:                                          ; preds = %entry
-  %4 = load i64, ptr %cd.addr, align 8
-  %sub = sub nsw i64 %4, 1
-  store i64 %sub, ptr %cd.addr, align 8
-  %5 = load i64, ptr %hh.addr, align 8
-  %add1 = add nsw i64 %5, 24
-  store i64 %add1, ptr %hh.addr, align 8
-  br label %if.end
+25:                                               ; preds = %7
+  %26 = load i64, ptr %12, align 8, !tbaa !25
+  %27 = sub nsw i64 %26, 1
+  store i64 %27, ptr %12, align 8, !tbaa !25
+  %28 = load i64, ptr %13, align 8, !tbaa !25
+  %29 = add nsw i64 %28, 24
+  store i64 %29, ptr %13, align 8, !tbaa !25
+  br label %30
 
-if.end:                                           ; preds = %if.then, %entry
-  %6 = load i64, ptr %y.addr, align 8
-  %7 = load i64, ptr %m.addr, align 8
-  %8 = load i64, ptr %d.addr, align 8
-  %9 = load i64, ptr %cd.addr, align 8
-  %10 = load i64, ptr %hh.addr, align 8
-  %conv = trunc i64 %10 to i8
-  %11 = load i8, ptr %mm.addr, align 1
-  %12 = load i8, ptr %ss.addr, align 1
-  %call = call { i64, i64 } @_ZN4absl13time_internal4cctz6detail4impl5n_monEllllaaa(i64 noundef %6, i64 noundef %7, i64 noundef %8, i64 noundef %9, i8 noundef signext %conv, i8 noundef signext %11, i8 noundef signext %12) #5
-  %13 = getelementptr inbounds { i64, i64 }, ptr %retval, i32 0, i32 0
-  %14 = extractvalue { i64, i64 } %call, 0
-  store i64 %14, ptr %13, align 8
-  %15 = getelementptr inbounds { i64, i64 }, ptr %retval, i32 0, i32 1
-  %16 = extractvalue { i64, i64 } %call, 1
-  store i64 %16, ptr %15, align 8
-  %17 = load { i64, i64 }, ptr %retval, align 8
-  ret { i64, i64 } %17
+30:                                               ; preds = %25, %7
+  %31 = load i64, ptr %9, align 8, !tbaa !25
+  %32 = load i64, ptr %10, align 8, !tbaa !25
+  %33 = load i64, ptr %11, align 8, !tbaa !25
+  %34 = load i64, ptr %12, align 8, !tbaa !25
+  %35 = load i64, ptr %13, align 8, !tbaa !25
+  %36 = trunc i64 %35 to i8
+  %37 = load i8, ptr %14, align 1, !tbaa !27
+  %38 = load i8, ptr %15, align 1, !tbaa !27
+  %39 = call { i64, i64 } @_ZN4absl13time_internal4cctz6detail4impl5n_monEllllaaa(i64 noundef %31, i64 noundef %32, i64 noundef %33, i64 noundef %34, i8 noundef signext %36, i8 noundef signext %37, i8 noundef signext %38) #8
+  store { i64, i64 } %39, ptr %16, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %16, i64 13, i1 false)
+  %40 = load { i64, i64 }, ptr %8, align 8
+  ret { i64, i64 } %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local { i64, i64 } @_ZN4absl13time_internal4cctz6detail4impl5n_minElllllla(i64 noundef %y, i64 noundef %m, i64 noundef %d, i64 noundef %hh, i64 noundef %ch, i64 noundef %mm, i8 noundef signext %ss) #3 comdat {
-entry:
-  %retval = alloca %"struct.absl::time_internal::cctz::detail::fields", align 8
-  %y.addr = alloca i64, align 8
-  %m.addr = alloca i64, align 8
-  %d.addr = alloca i64, align 8
-  %hh.addr = alloca i64, align 8
-  %ch.addr = alloca i64, align 8
-  %mm.addr = alloca i64, align 8
-  %ss.addr = alloca i8, align 1
-  store i64 %y, ptr %y.addr, align 8
-  store i64 %m, ptr %m.addr, align 8
-  store i64 %d, ptr %d.addr, align 8
-  store i64 %hh, ptr %hh.addr, align 8
-  store i64 %ch, ptr %ch.addr, align 8
-  store i64 %mm, ptr %mm.addr, align 8
-  store i8 %ss, ptr %ss.addr, align 1
-  %0 = load i64, ptr %mm.addr, align 8
-  %div = sdiv i64 %0, 60
-  %1 = load i64, ptr %ch.addr, align 8
-  %add = add nsw i64 %1, %div
-  store i64 %add, ptr %ch.addr, align 8
-  %2 = load i64, ptr %mm.addr, align 8
-  %rem = srem i64 %2, 60
-  store i64 %rem, ptr %mm.addr, align 8
-  %3 = load i64, ptr %mm.addr, align 8
-  %cmp = icmp slt i64 %3, 0
-  br i1 %cmp, label %if.then, label %if.end
+define linkonce_odr dso_local { i64, i64 } @_ZN4absl13time_internal4cctz6detail4impl5n_minElllllla(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i8 noundef signext %6) #3 comdat {
+  %8 = alloca %"struct.absl::time_internal::cctz::detail::fields", align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca i64, align 8
+  %13 = alloca i64, align 8
+  %14 = alloca i64, align 8
+  %15 = alloca i8, align 1
+  %16 = alloca { i64, i64 }, align 8
+  store i64 %0, ptr %9, align 8, !tbaa !25
+  store i64 %1, ptr %10, align 8, !tbaa !25
+  store i64 %2, ptr %11, align 8, !tbaa !25
+  store i64 %3, ptr %12, align 8, !tbaa !25
+  store i64 %4, ptr %13, align 8, !tbaa !25
+  store i64 %5, ptr %14, align 8, !tbaa !25
+  store i8 %6, ptr %15, align 1, !tbaa !27
+  %17 = load i64, ptr %14, align 8, !tbaa !25
+  %18 = sdiv i64 %17, 60
+  %19 = load i64, ptr %13, align 8, !tbaa !25
+  %20 = add nsw i64 %19, %18
+  store i64 %20, ptr %13, align 8, !tbaa !25
+  %21 = load i64, ptr %14, align 8, !tbaa !25
+  %22 = srem i64 %21, 60
+  store i64 %22, ptr %14, align 8, !tbaa !25
+  %23 = load i64, ptr %14, align 8, !tbaa !25
+  %24 = icmp slt i64 %23, 0
+  br i1 %24, label %25, label %30
 
-if.then:                                          ; preds = %entry
-  %4 = load i64, ptr %ch.addr, align 8
-  %sub = sub nsw i64 %4, 1
-  store i64 %sub, ptr %ch.addr, align 8
-  %5 = load i64, ptr %mm.addr, align 8
-  %add1 = add nsw i64 %5, 60
-  store i64 %add1, ptr %mm.addr, align 8
-  br label %if.end
+25:                                               ; preds = %7
+  %26 = load i64, ptr %13, align 8, !tbaa !25
+  %27 = sub nsw i64 %26, 1
+  store i64 %27, ptr %13, align 8, !tbaa !25
+  %28 = load i64, ptr %14, align 8, !tbaa !25
+  %29 = add nsw i64 %28, 60
+  store i64 %29, ptr %14, align 8, !tbaa !25
+  br label %30
 
-if.end:                                           ; preds = %if.then, %entry
-  %6 = load i64, ptr %y.addr, align 8
-  %7 = load i64, ptr %m.addr, align 8
-  %8 = load i64, ptr %d.addr, align 8
-  %9 = load i64, ptr %hh.addr, align 8
-  %div2 = sdiv i64 %9, 24
-  %10 = load i64, ptr %ch.addr, align 8
-  %div3 = sdiv i64 %10, 24
-  %add4 = add nsw i64 %div2, %div3
-  %11 = load i64, ptr %hh.addr, align 8
-  %rem5 = srem i64 %11, 24
-  %12 = load i64, ptr %ch.addr, align 8
-  %rem6 = srem i64 %12, 24
-  %add7 = add nsw i64 %rem5, %rem6
-  %13 = load i64, ptr %mm.addr, align 8
-  %conv = trunc i64 %13 to i8
-  %14 = load i8, ptr %ss.addr, align 1
-  %call = call { i64, i64 } @_ZN4absl13time_internal4cctz6detail4impl6n_hourElllllaa(i64 noundef %6, i64 noundef %7, i64 noundef %8, i64 noundef %add4, i64 noundef %add7, i8 noundef signext %conv, i8 noundef signext %14) #5
-  %15 = getelementptr inbounds { i64, i64 }, ptr %retval, i32 0, i32 0
-  %16 = extractvalue { i64, i64 } %call, 0
-  store i64 %16, ptr %15, align 8
-  %17 = getelementptr inbounds { i64, i64 }, ptr %retval, i32 0, i32 1
-  %18 = extractvalue { i64, i64 } %call, 1
-  store i64 %18, ptr %17, align 8
-  %19 = load { i64, i64 }, ptr %retval, align 8
-  ret { i64, i64 } %19
+30:                                               ; preds = %25, %7
+  %31 = load i64, ptr %9, align 8, !tbaa !25
+  %32 = load i64, ptr %10, align 8, !tbaa !25
+  %33 = load i64, ptr %11, align 8, !tbaa !25
+  %34 = load i64, ptr %12, align 8, !tbaa !25
+  %35 = sdiv i64 %34, 24
+  %36 = load i64, ptr %13, align 8, !tbaa !25
+  %37 = sdiv i64 %36, 24
+  %38 = add nsw i64 %35, %37
+  %39 = load i64, ptr %12, align 8, !tbaa !25
+  %40 = srem i64 %39, 24
+  %41 = load i64, ptr %13, align 8, !tbaa !25
+  %42 = srem i64 %41, 24
+  %43 = add nsw i64 %40, %42
+  %44 = load i64, ptr %14, align 8, !tbaa !25
+  %45 = trunc i64 %44 to i8
+  %46 = load i8, ptr %15, align 1, !tbaa !27
+  %47 = call { i64, i64 } @_ZN4absl13time_internal4cctz6detail4impl6n_hourElllllaa(i64 noundef %31, i64 noundef %32, i64 noundef %33, i64 noundef %38, i64 noundef %43, i8 noundef signext %45, i8 noundef signext %46) #8
+  store { i64, i64 } %47, ptr %16, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %16, i64 13, i1 false)
+  %48 = load { i64, i64 }, ptr %8, align 8
+  ret { i64, i64 } %48
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local { i64, i64 } @_ZN4absl13time_internal4cctz6detail4impl5n_dayElallaaa(i64 noundef %y, i8 noundef signext %m, i64 noundef %d, i64 noundef %cd, i8 noundef signext %hh, i8 noundef signext %mm, i8 noundef signext %ss) #3 comdat personality ptr @__gxx_personality_v0 {
-entry:
-  %retval = alloca %"struct.absl::time_internal::cctz::detail::fields", align 8
-  %y.addr = alloca i64, align 8
-  %m.addr = alloca i8, align 1
-  %d.addr = alloca i64, align 8
-  %cd.addr = alloca i64, align 8
-  %hh.addr = alloca i8, align 1
-  %mm.addr = alloca i8, align 1
-  %ss.addr = alloca i8, align 1
-  %ey = alloca i64, align 8
-  %oey = alloca i64, align 8
-  %yi = alloca i32, align 4
-  %n = alloca i32, align 4
-  %n41 = alloca i32, align 4
-  %n57 = alloca i32, align 4
-  %n70 = alloca i32, align 4
-  store i64 %y, ptr %y.addr, align 8
-  store i8 %m, ptr %m.addr, align 1
-  store i64 %d, ptr %d.addr, align 8
-  store i64 %cd, ptr %cd.addr, align 8
-  store i8 %hh, ptr %hh.addr, align 1
-  store i8 %mm, ptr %mm.addr, align 1
-  store i8 %ss, ptr %ss.addr, align 1
-  %0 = load i64, ptr %y.addr, align 8
-  %rem = srem i64 %0, 400
-  store i64 %rem, ptr %ey, align 8
-  %1 = load i64, ptr %ey, align 8
-  store i64 %1, ptr %oey, align 8
-  %2 = load i64, ptr %cd.addr, align 8
-  %div = sdiv i64 %2, 146097
-  %mul = mul nsw i64 %div, 400
-  %3 = load i64, ptr %ey, align 8
-  %add = add nsw i64 %3, %mul
-  store i64 %add, ptr %ey, align 8
-  %4 = load i64, ptr %cd.addr, align 8
-  %rem1 = srem i64 %4, 146097
-  store i64 %rem1, ptr %cd.addr, align 8
-  %5 = load i64, ptr %cd.addr, align 8
-  %cmp = icmp slt i64 %5, 0
-  br i1 %cmp, label %if.then, label %if.end
+define linkonce_odr dso_local { i64, i64 } @_ZN4absl13time_internal4cctz6detail4impl5n_dayElallaaa(i64 noundef %0, i8 noundef signext %1, i64 noundef %2, i64 noundef %3, i8 noundef signext %4, i8 noundef signext %5, i8 noundef signext %6) #3 comdat personality ptr @__gxx_personality_v0 {
+  %8 = alloca %"struct.absl::time_internal::cctz::detail::fields", align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i8, align 1
+  %11 = alloca i64, align 8
+  %12 = alloca i64, align 8
+  %13 = alloca i8, align 1
+  %14 = alloca i8, align 1
+  %15 = alloca i8, align 1
+  %16 = alloca i64, align 8
+  %17 = alloca i64, align 8
+  %18 = alloca i32, align 4
+  %19 = alloca i32, align 4
+  %20 = alloca i32, align 4
+  %21 = alloca i32, align 4
+  %22 = alloca i32, align 4
+  %23 = alloca i32, align 4
+  store i64 %0, ptr %9, align 8, !tbaa !25
+  store i8 %1, ptr %10, align 1, !tbaa !27
+  store i64 %2, ptr %11, align 8, !tbaa !25
+  store i64 %3, ptr %12, align 8, !tbaa !25
+  store i8 %4, ptr %13, align 1, !tbaa !27
+  store i8 %5, ptr %14, align 1, !tbaa !27
+  store i8 %6, ptr %15, align 1, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #8
+  %24 = load i64, ptr %9, align 8, !tbaa !25
+  %25 = srem i64 %24, 400
+  store i64 %25, ptr %16, align 8, !tbaa !25
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #8
+  %26 = load i64, ptr %16, align 8, !tbaa !25
+  store i64 %26, ptr %17, align 8, !tbaa !25
+  %27 = load i64, ptr %12, align 8, !tbaa !25
+  %28 = sdiv i64 %27, 146097
+  %29 = mul nsw i64 %28, 400
+  %30 = load i64, ptr %16, align 8, !tbaa !25
+  %31 = add nsw i64 %30, %29
+  store i64 %31, ptr %16, align 8, !tbaa !25
+  %32 = load i64, ptr %12, align 8, !tbaa !25
+  %33 = srem i64 %32, 146097
+  store i64 %33, ptr %12, align 8, !tbaa !25
+  %34 = load i64, ptr %12, align 8, !tbaa !25
+  %35 = icmp slt i64 %34, 0
+  br i1 %35, label %36, label %41
 
-if.then:                                          ; preds = %entry
-  %6 = load i64, ptr %ey, align 8
-  %sub = sub nsw i64 %6, 400
-  store i64 %sub, ptr %ey, align 8
-  %7 = load i64, ptr %cd.addr, align 8
-  %add2 = add nsw i64 %7, 146097
-  store i64 %add2, ptr %cd.addr, align 8
-  br label %if.end
+36:                                               ; preds = %7
+  %37 = load i64, ptr %16, align 8, !tbaa !25
+  %38 = sub nsw i64 %37, 400
+  store i64 %38, ptr %16, align 8, !tbaa !25
+  %39 = load i64, ptr %12, align 8, !tbaa !25
+  %40 = add nsw i64 %39, 146097
+  store i64 %40, ptr %12, align 8, !tbaa !25
+  br label %41
 
-if.end:                                           ; preds = %if.then, %entry
-  %8 = load i64, ptr %d.addr, align 8
-  %div3 = sdiv i64 %8, 146097
-  %mul4 = mul nsw i64 %div3, 400
-  %9 = load i64, ptr %ey, align 8
-  %add5 = add nsw i64 %9, %mul4
-  store i64 %add5, ptr %ey, align 8
-  %10 = load i64, ptr %d.addr, align 8
-  %rem6 = srem i64 %10, 146097
-  %11 = load i64, ptr %cd.addr, align 8
-  %add7 = add nsw i64 %rem6, %11
-  store i64 %add7, ptr %d.addr, align 8
-  %12 = load i64, ptr %d.addr, align 8
-  %cmp8 = icmp sgt i64 %12, 0
-  br i1 %cmp8, label %if.then9, label %if.else
+41:                                               ; preds = %36, %7
+  %42 = load i64, ptr %11, align 8, !tbaa !25
+  %43 = sdiv i64 %42, 146097
+  %44 = mul nsw i64 %43, 400
+  %45 = load i64, ptr %16, align 8, !tbaa !25
+  %46 = add nsw i64 %45, %44
+  store i64 %46, ptr %16, align 8, !tbaa !25
+  %47 = load i64, ptr %11, align 8, !tbaa !25
+  %48 = srem i64 %47, 146097
+  %49 = load i64, ptr %12, align 8, !tbaa !25
+  %50 = add nsw i64 %48, %49
+  store i64 %50, ptr %11, align 8, !tbaa !25
+  %51 = load i64, ptr %11, align 8, !tbaa !25
+  %52 = icmp sgt i64 %51, 0
+  br i1 %52, label %53, label %62
 
-if.then9:                                         ; preds = %if.end
-  %13 = load i64, ptr %d.addr, align 8
-  %cmp10 = icmp sgt i64 %13, 146097
-  br i1 %cmp10, label %if.then11, label %if.end14
+53:                                               ; preds = %41
+  %54 = load i64, ptr %11, align 8, !tbaa !25
+  %55 = icmp sgt i64 %54, 146097
+  br i1 %55, label %56, label %61
 
-if.then11:                                        ; preds = %if.then9
-  %14 = load i64, ptr %ey, align 8
-  %add12 = add nsw i64 %14, 400
-  store i64 %add12, ptr %ey, align 8
-  %15 = load i64, ptr %d.addr, align 8
-  %sub13 = sub nsw i64 %15, 146097
-  store i64 %sub13, ptr %d.addr, align 8
-  br label %if.end14
+56:                                               ; preds = %53
+  %57 = load i64, ptr %16, align 8, !tbaa !25
+  %58 = add nsw i64 %57, 400
+  store i64 %58, ptr %16, align 8, !tbaa !25
+  %59 = load i64, ptr %11, align 8, !tbaa !25
+  %60 = sub nsw i64 %59, 146097
+  store i64 %60, ptr %11, align 8, !tbaa !25
+  br label %61
 
-if.end14:                                         ; preds = %if.then11, %if.then9
-  br label %if.end23
+61:                                               ; preds = %56, %53
+  br label %80
 
-if.else:                                          ; preds = %if.end
-  %16 = load i64, ptr %d.addr, align 8
-  %cmp15 = icmp sgt i64 %16, -365
-  br i1 %cmp15, label %if.then16, label %if.else19
+62:                                               ; preds = %41
+  %63 = load i64, ptr %11, align 8, !tbaa !25
+  %64 = icmp sgt i64 %63, -365
+  br i1 %64, label %65, label %74
 
-if.then16:                                        ; preds = %if.else
-  %17 = load i64, ptr %ey, align 8
-  %sub17 = sub nsw i64 %17, 1
-  store i64 %sub17, ptr %ey, align 8
-  %18 = load i64, ptr %ey, align 8
-  %19 = load i8, ptr %m.addr, align 1
-  %call = call noundef i32 @_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla(i64 noundef %18, i8 noundef signext %19) #5
-  %conv = sext i32 %call to i64
-  %20 = load i64, ptr %d.addr, align 8
-  %add18 = add nsw i64 %20, %conv
-  store i64 %add18, ptr %d.addr, align 8
-  br label %if.end22
+65:                                               ; preds = %62
+  %66 = load i64, ptr %16, align 8, !tbaa !25
+  %67 = sub nsw i64 %66, 1
+  store i64 %67, ptr %16, align 8, !tbaa !25
+  %68 = load i64, ptr %16, align 8, !tbaa !25
+  %69 = load i8, ptr %10, align 1, !tbaa !27
+  %70 = call noundef i32 @_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla(i64 noundef %68, i8 noundef signext %69) #8
+  %71 = sext i32 %70 to i64
+  %72 = load i64, ptr %11, align 8, !tbaa !25
+  %73 = add nsw i64 %72, %71
+  store i64 %73, ptr %11, align 8, !tbaa !25
+  br label %79
 
-if.else19:                                        ; preds = %if.else
-  %21 = load i64, ptr %ey, align 8
-  %sub20 = sub nsw i64 %21, 400
-  store i64 %sub20, ptr %ey, align 8
-  %22 = load i64, ptr %d.addr, align 8
-  %add21 = add nsw i64 %22, 146097
-  store i64 %add21, ptr %d.addr, align 8
-  br label %if.end22
+74:                                               ; preds = %62
+  %75 = load i64, ptr %16, align 8, !tbaa !25
+  %76 = sub nsw i64 %75, 400
+  store i64 %76, ptr %16, align 8, !tbaa !25
+  %77 = load i64, ptr %11, align 8, !tbaa !25
+  %78 = add nsw i64 %77, 146097
+  store i64 %78, ptr %11, align 8, !tbaa !25
+  br label %79
 
-if.end22:                                         ; preds = %if.else19, %if.then16
-  br label %if.end23
+79:                                               ; preds = %74, %65
+  br label %80
 
-if.end23:                                         ; preds = %if.end22, %if.end14
-  %23 = load i64, ptr %d.addr, align 8
-  %cmp24 = icmp sgt i64 %23, 365
-  br i1 %cmp24, label %if.then25, label %if.end66
+80:                                               ; preds = %79, %61
+  %81 = load i64, ptr %11, align 8, !tbaa !25
+  %82 = icmp sgt i64 %81, 365
+  br i1 %82, label %83, label %161
 
-if.then25:                                        ; preds = %if.end23
-  %24 = load i64, ptr %ey, align 8
-  %25 = load i8, ptr %m.addr, align 1
-  %call26 = call noundef i32 @_ZN4absl13time_internal4cctz6detail4impl10year_indexEla(i64 noundef %24, i8 noundef signext %25) #5
-  store i32 %call26, ptr %yi, align 4
-  br label %for.cond
+83:                                               ; preds = %80
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #8
+  %84 = load i64, ptr %16, align 8, !tbaa !25
+  %85 = load i8, ptr %10, align 1, !tbaa !27
+  %86 = call noundef i32 @_ZN4absl13time_internal4cctz6detail4impl10year_indexEla(i64 noundef %84, i8 noundef signext %85) #8
+  store i32 %86, ptr %18, align 4, !tbaa !59
+  br label %87
 
-for.cond:                                         ; preds = %if.end39, %if.then25
-  %26 = load i32, ptr %yi, align 4
-  %call27 = call noundef i32 @_ZN4absl13time_internal4cctz6detail4impl16days_per_centuryEi(i32 noundef %26) #5
-  store i32 %call27, ptr %n, align 4
-  %27 = load i64, ptr %d.addr, align 8
-  %28 = load i32, ptr %n, align 4
-  %conv28 = sext i32 %28 to i64
-  %cmp29 = icmp sle i64 %27, %conv28
-  br i1 %cmp29, label %if.then30, label %if.end31
+87:                                               ; preds = %112, %83
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #8
+  %88 = load i32, ptr %18, align 4, !tbaa !59
+  %89 = call noundef i32 @_ZN4absl13time_internal4cctz6detail4impl16days_per_centuryEi(i32 noundef %88) #8
+  store i32 %89, ptr %19, align 4, !tbaa !59
+  %90 = load i64, ptr %11, align 8, !tbaa !25
+  %91 = load i32, ptr %19, align 4, !tbaa !59
+  %92 = sext i32 %91 to i64
+  %93 = icmp sle i64 %90, %92
+  br i1 %93, label %94, label %95
 
-if.then30:                                        ; preds = %for.cond
-  br label %for.end
+94:                                               ; preds = %87
+  store i32 2, ptr %20, align 4
+  br label %110
 
-if.end31:                                         ; preds = %for.cond
-  %29 = load i32, ptr %n, align 4
-  %conv32 = sext i32 %29 to i64
-  %30 = load i64, ptr %d.addr, align 8
-  %sub33 = sub nsw i64 %30, %conv32
-  store i64 %sub33, ptr %d.addr, align 8
-  %31 = load i64, ptr %ey, align 8
-  %add34 = add nsw i64 %31, 100
-  store i64 %add34, ptr %ey, align 8
-  %32 = load i32, ptr %yi, align 4
-  %add35 = add nsw i32 %32, 100
-  store i32 %add35, ptr %yi, align 4
-  %33 = load i32, ptr %yi, align 4
-  %cmp36 = icmp sge i32 %33, 400
-  br i1 %cmp36, label %if.then37, label %if.end39
+95:                                               ; preds = %87
+  %96 = load i32, ptr %19, align 4, !tbaa !59
+  %97 = sext i32 %96 to i64
+  %98 = load i64, ptr %11, align 8, !tbaa !25
+  %99 = sub nsw i64 %98, %97
+  store i64 %99, ptr %11, align 8, !tbaa !25
+  %100 = load i64, ptr %16, align 8, !tbaa !25
+  %101 = add nsw i64 %100, 100
+  store i64 %101, ptr %16, align 8, !tbaa !25
+  %102 = load i32, ptr %18, align 4, !tbaa !59
+  %103 = add nsw i32 %102, 100
+  store i32 %103, ptr %18, align 4, !tbaa !59
+  %104 = load i32, ptr %18, align 4, !tbaa !59
+  %105 = icmp sge i32 %104, 400
+  br i1 %105, label %106, label %109
 
-if.then37:                                        ; preds = %if.end31
-  %34 = load i32, ptr %yi, align 4
-  %sub38 = sub nsw i32 %34, 400
-  store i32 %sub38, ptr %yi, align 4
-  br label %if.end39
+106:                                              ; preds = %95
+  %107 = load i32, ptr %18, align 4, !tbaa !59
+  %108 = sub nsw i32 %107, 400
+  store i32 %108, ptr %18, align 4, !tbaa !59
+  br label %109
 
-if.end39:                                         ; preds = %if.then37, %if.end31
-  br label %for.cond, !llvm.loop !9
+109:                                              ; preds = %106, %95
+  store i32 0, ptr %20, align 4
+  br label %110
 
-for.end:                                          ; preds = %if.then30
-  br label %for.cond40
+110:                                              ; preds = %109, %94
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #8
+  %111 = load i32, ptr %20, align 4
+  switch i32 %111, label %208 [
+    i32 0, label %112
+    i32 2, label %113
+  ]
 
-for.cond40:                                       ; preds = %if.end54, %for.end
-  %35 = load i32, ptr %yi, align 4
-  %call42 = call noundef i32 @_ZN4absl13time_internal4cctz6detail4impl15days_per_4yearsEi(i32 noundef %35) #5
-  store i32 %call42, ptr %n41, align 4
-  %36 = load i64, ptr %d.addr, align 8
-  %37 = load i32, ptr %n41, align 4
-  %conv43 = sext i32 %37 to i64
-  %cmp44 = icmp sle i64 %36, %conv43
-  br i1 %cmp44, label %if.then45, label %if.end46
+112:                                              ; preds = %110
+  br label %87, !llvm.loop !89
 
-if.then45:                                        ; preds = %for.cond40
-  br label %for.end55
+113:                                              ; preds = %110
+  br label %114
 
-if.end46:                                         ; preds = %for.cond40
-  %38 = load i32, ptr %n41, align 4
-  %conv47 = sext i32 %38 to i64
-  %39 = load i64, ptr %d.addr, align 8
-  %sub48 = sub nsw i64 %39, %conv47
-  store i64 %sub48, ptr %d.addr, align 8
-  %40 = load i64, ptr %ey, align 8
-  %add49 = add nsw i64 %40, 4
-  store i64 %add49, ptr %ey, align 8
-  %41 = load i32, ptr %yi, align 4
-  %add50 = add nsw i32 %41, 4
-  store i32 %add50, ptr %yi, align 4
-  %42 = load i32, ptr %yi, align 4
-  %cmp51 = icmp sge i32 %42, 400
-  br i1 %cmp51, label %if.then52, label %if.end54
+114:                                              ; preds = %139, %113
+  call void @llvm.lifetime.start.p0(i64 4, ptr %21) #8
+  %115 = load i32, ptr %18, align 4, !tbaa !59
+  %116 = call noundef i32 @_ZN4absl13time_internal4cctz6detail4impl15days_per_4yearsEi(i32 noundef %115) #8
+  store i32 %116, ptr %21, align 4, !tbaa !59
+  %117 = load i64, ptr %11, align 8, !tbaa !25
+  %118 = load i32, ptr %21, align 4, !tbaa !59
+  %119 = sext i32 %118 to i64
+  %120 = icmp sle i64 %117, %119
+  br i1 %120, label %121, label %122
 
-if.then52:                                        ; preds = %if.end46
-  %43 = load i32, ptr %yi, align 4
-  %sub53 = sub nsw i32 %43, 400
-  store i32 %sub53, ptr %yi, align 4
-  br label %if.end54
+121:                                              ; preds = %114
+  store i32 4, ptr %20, align 4
+  br label %137
 
-if.end54:                                         ; preds = %if.then52, %if.end46
-  br label %for.cond40, !llvm.loop !10
+122:                                              ; preds = %114
+  %123 = load i32, ptr %21, align 4, !tbaa !59
+  %124 = sext i32 %123 to i64
+  %125 = load i64, ptr %11, align 8, !tbaa !25
+  %126 = sub nsw i64 %125, %124
+  store i64 %126, ptr %11, align 8, !tbaa !25
+  %127 = load i64, ptr %16, align 8, !tbaa !25
+  %128 = add nsw i64 %127, 4
+  store i64 %128, ptr %16, align 8, !tbaa !25
+  %129 = load i32, ptr %18, align 4, !tbaa !59
+  %130 = add nsw i32 %129, 4
+  store i32 %130, ptr %18, align 4, !tbaa !59
+  %131 = load i32, ptr %18, align 4, !tbaa !59
+  %132 = icmp sge i32 %131, 400
+  br i1 %132, label %133, label %136
 
-for.end55:                                        ; preds = %if.then45
-  br label %for.cond56
+133:                                              ; preds = %122
+  %134 = load i32, ptr %18, align 4, !tbaa !59
+  %135 = sub nsw i32 %134, 400
+  store i32 %135, ptr %18, align 4, !tbaa !59
+  br label %136
 
-for.cond56:                                       ; preds = %if.end62, %for.end55
-  %44 = load i64, ptr %ey, align 8
-  %45 = load i8, ptr %m.addr, align 1
-  %call58 = call noundef i32 @_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla(i64 noundef %44, i8 noundef signext %45) #5
-  store i32 %call58, ptr %n57, align 4
-  %46 = load i64, ptr %d.addr, align 8
-  %47 = load i32, ptr %n57, align 4
-  %conv59 = sext i32 %47 to i64
-  %cmp60 = icmp sle i64 %46, %conv59
-  br i1 %cmp60, label %if.then61, label %if.end62
+136:                                              ; preds = %133, %122
+  store i32 0, ptr %20, align 4
+  br label %137
 
-if.then61:                                        ; preds = %for.cond56
-  br label %for.end65
+137:                                              ; preds = %136, %121
+  call void @llvm.lifetime.end.p0(i64 4, ptr %21) #8
+  %138 = load i32, ptr %20, align 4
+  switch i32 %138, label %208 [
+    i32 0, label %139
+    i32 4, label %140
+  ]
 
-if.end62:                                         ; preds = %for.cond56
-  %48 = load i32, ptr %n57, align 4
-  %conv63 = sext i32 %48 to i64
-  %49 = load i64, ptr %d.addr, align 8
-  %sub64 = sub nsw i64 %49, %conv63
-  store i64 %sub64, ptr %d.addr, align 8
-  %50 = load i64, ptr %ey, align 8
-  %inc = add nsw i64 %50, 1
-  store i64 %inc, ptr %ey, align 8
-  br label %for.cond56, !llvm.loop !11
+139:                                              ; preds = %137
+  br label %114, !llvm.loop !90
 
-for.end65:                                        ; preds = %if.then61
-  br label %if.end66
+140:                                              ; preds = %137
+  br label %141
 
-if.end66:                                         ; preds = %for.end65, %if.end23
-  %51 = load i64, ptr %d.addr, align 8
-  %cmp67 = icmp sgt i64 %51, 28
-  br i1 %cmp67, label %if.then68, label %if.end85
+141:                                              ; preds = %159, %140
+  call void @llvm.lifetime.start.p0(i64 4, ptr %22) #8
+  %142 = load i64, ptr %16, align 8, !tbaa !25
+  %143 = load i8, ptr %10, align 1, !tbaa !27
+  %144 = call noundef i32 @_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla(i64 noundef %142, i8 noundef signext %143) #8
+  store i32 %144, ptr %22, align 4, !tbaa !59
+  %145 = load i64, ptr %11, align 8, !tbaa !25
+  %146 = load i32, ptr %22, align 4, !tbaa !59
+  %147 = sext i32 %146 to i64
+  %148 = icmp sle i64 %145, %147
+  br i1 %148, label %149, label %150
 
-if.then68:                                        ; preds = %if.end66
-  br label %for.cond69
+149:                                              ; preds = %141
+  store i32 6, ptr %20, align 4
+  br label %157
 
-for.cond69:                                       ; preds = %if.end83, %if.then68
-  %52 = load i64, ptr %ey, align 8
-  %53 = load i8, ptr %m.addr, align 1
-  %call71 = call noundef i32 @_ZN4absl13time_internal4cctz6detail4impl14days_per_monthEla(i64 noundef %52, i8 noundef signext %53) #5
-  store i32 %call71, ptr %n70, align 4
-  %54 = load i64, ptr %d.addr, align 8
-  %55 = load i32, ptr %n70, align 4
-  %conv72 = sext i32 %55 to i64
-  %cmp73 = icmp sle i64 %54, %conv72
-  br i1 %cmp73, label %if.then74, label %if.end75
+150:                                              ; preds = %141
+  %151 = load i32, ptr %22, align 4, !tbaa !59
+  %152 = sext i32 %151 to i64
+  %153 = load i64, ptr %11, align 8, !tbaa !25
+  %154 = sub nsw i64 %153, %152
+  store i64 %154, ptr %11, align 8, !tbaa !25
+  %155 = load i64, ptr %16, align 8, !tbaa !25
+  %156 = add nsw i64 %155, 1
+  store i64 %156, ptr %16, align 8, !tbaa !25
+  store i32 0, ptr %20, align 4
+  br label %157
 
-if.then74:                                        ; preds = %for.cond69
-  br label %for.end84
+157:                                              ; preds = %150, %149
+  call void @llvm.lifetime.end.p0(i64 4, ptr %22) #8
+  %158 = load i32, ptr %20, align 4
+  switch i32 %158, label %208 [
+    i32 0, label %159
+    i32 6, label %160
+  ]
 
-if.end75:                                         ; preds = %for.cond69
-  %56 = load i32, ptr %n70, align 4
-  %conv76 = sext i32 %56 to i64
-  %57 = load i64, ptr %d.addr, align 8
-  %sub77 = sub nsw i64 %57, %conv76
-  store i64 %sub77, ptr %d.addr, align 8
-  %58 = load i8, ptr %m.addr, align 1
-  %inc78 = add i8 %58, 1
-  store i8 %inc78, ptr %m.addr, align 1
-  %conv79 = sext i8 %inc78 to i32
-  %cmp80 = icmp sgt i32 %conv79, 12
-  br i1 %cmp80, label %if.then81, label %if.end83
+159:                                              ; preds = %157
+  br label %141, !llvm.loop !91
 
-if.then81:                                        ; preds = %if.end75
-  %59 = load i64, ptr %ey, align 8
-  %inc82 = add nsw i64 %59, 1
-  store i64 %inc82, ptr %ey, align 8
-  store i8 1, ptr %m.addr, align 1
-  br label %if.end83
+160:                                              ; preds = %157
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #8
+  br label %161
 
-if.end83:                                         ; preds = %if.then81, %if.end75
-  br label %for.cond69, !llvm.loop !12
+161:                                              ; preds = %160, %80
+  %162 = load i64, ptr %11, align 8, !tbaa !25
+  %163 = icmp sgt i64 %162, 28
+  br i1 %163, label %164, label %191
 
-for.end84:                                        ; preds = %if.then74
-  br label %if.end85
+164:                                              ; preds = %161
+  br label %165
 
-if.end85:                                         ; preds = %for.end84, %if.end66
-  %60 = load i64, ptr %y.addr, align 8
-  %61 = load i64, ptr %ey, align 8
-  %62 = load i64, ptr %oey, align 8
-  %sub86 = sub nsw i64 %61, %62
-  %add87 = add nsw i64 %60, %sub86
-  %63 = load i8, ptr %m.addr, align 1
-  %64 = load i64, ptr %d.addr, align 8
-  %conv88 = trunc i64 %64 to i8
-  %65 = load i8, ptr %hh.addr, align 1
-  %66 = load i8, ptr %mm.addr, align 1
-  %67 = load i8, ptr %ss.addr, align 1
-  invoke void @_ZN4absl13time_internal4cctz6detail6fieldsC2Elaaaaa(ptr noundef nonnull align 8 dereferenceable(13) %retval, i64 noundef %add87, i8 noundef signext %63, i8 noundef signext %conv88, i8 noundef signext %65, i8 noundef signext %66, i8 noundef signext %67)
-          to label %invoke.cont unwind label %terminate.lpad
+165:                                              ; preds = %189, %164
+  call void @llvm.lifetime.start.p0(i64 4, ptr %23) #8
+  %166 = load i64, ptr %16, align 8, !tbaa !25
+  %167 = load i8, ptr %10, align 1, !tbaa !27
+  %168 = call noundef i32 @_ZN4absl13time_internal4cctz6detail4impl14days_per_monthEla(i64 noundef %166, i8 noundef signext %167) #8
+  store i32 %168, ptr %23, align 4, !tbaa !59
+  %169 = load i64, ptr %11, align 8, !tbaa !25
+  %170 = load i32, ptr %23, align 4, !tbaa !59
+  %171 = sext i32 %170 to i64
+  %172 = icmp sle i64 %169, %171
+  br i1 %172, label %173, label %174
 
-invoke.cont:                                      ; preds = %if.end85
-  %68 = load { i64, i64 }, ptr %retval, align 8
-  ret { i64, i64 } %68
+173:                                              ; preds = %165
+  store i32 8, ptr %20, align 4
+  br label %187
 
-terminate.lpad:                                   ; preds = %if.end85
-  %69 = landingpad { ptr, i32 }
+174:                                              ; preds = %165
+  %175 = load i32, ptr %23, align 4, !tbaa !59
+  %176 = sext i32 %175 to i64
+  %177 = load i64, ptr %11, align 8, !tbaa !25
+  %178 = sub nsw i64 %177, %176
+  store i64 %178, ptr %11, align 8, !tbaa !25
+  %179 = load i8, ptr %10, align 1, !tbaa !27
+  %180 = add i8 %179, 1
+  store i8 %180, ptr %10, align 1, !tbaa !27
+  %181 = sext i8 %180 to i32
+  %182 = icmp sgt i32 %181, 12
+  br i1 %182, label %183, label %186
+
+183:                                              ; preds = %174
+  %184 = load i64, ptr %16, align 8, !tbaa !25
+  %185 = add nsw i64 %184, 1
+  store i64 %185, ptr %16, align 8, !tbaa !25
+  store i8 1, ptr %10, align 1, !tbaa !27
+  br label %186
+
+186:                                              ; preds = %183, %174
+  store i32 0, ptr %20, align 4
+  br label %187
+
+187:                                              ; preds = %186, %173
+  call void @llvm.lifetime.end.p0(i64 4, ptr %23) #8
+  %188 = load i32, ptr %20, align 4
+  switch i32 %188, label %208 [
+    i32 0, label %189
+    i32 8, label %190
+  ]
+
+189:                                              ; preds = %187
+  br label %165, !llvm.loop !92
+
+190:                                              ; preds = %187
+  br label %191
+
+191:                                              ; preds = %190, %161
+  %192 = load i64, ptr %9, align 8, !tbaa !25
+  %193 = load i64, ptr %16, align 8, !tbaa !25
+  %194 = load i64, ptr %17, align 8, !tbaa !25
+  %195 = sub nsw i64 %193, %194
+  %196 = add nsw i64 %192, %195
+  %197 = load i8, ptr %10, align 1, !tbaa !27
+  %198 = load i64, ptr %11, align 8, !tbaa !25
+  %199 = trunc i64 %198 to i8
+  %200 = load i8, ptr %13, align 1, !tbaa !27
+  %201 = load i8, ptr %14, align 1, !tbaa !27
+  %202 = load i8, ptr %15, align 1, !tbaa !27
+  invoke void @_ZN4absl13time_internal4cctz6detail6fieldsC2Elaaaaa(ptr noundef nonnull align 8 dereferenceable(13) %8, i64 noundef %196, i8 noundef signext %197, i8 noundef signext %199, i8 noundef signext %200, i8 noundef signext %201, i8 noundef signext %202)
+          to label %203 unwind label %205
+
+203:                                              ; preds = %191
+  store i32 1, ptr %20, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #8
+  %204 = load { i64, i64 }, ptr %8, align 8
+  ret { i64, i64 } %204
+
+205:                                              ; preds = %191
+  %206 = landingpad { ptr, i32 }
           catch ptr null
-  %70 = extractvalue { ptr, i32 } %69, 0
-  call void @__clang_call_terminate(ptr %70) #12
+  %207 = extractvalue { ptr, i32 } %206, 0
+  call void @__clang_call_terminate(ptr %207) #16
+  unreachable
+
+208:                                              ; preds = %187, %157, %137, %110
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla(i64 noundef %y, i8 noundef signext %m) #3 comdat {
-entry:
-  %y.addr = alloca i64, align 8
-  %m.addr = alloca i8, align 1
-  store i64 %y, ptr %y.addr, align 8
-  store i8 %m, ptr %m.addr, align 1
-  %0 = load i64, ptr %y.addr, align 8
-  %1 = load i8, ptr %m.addr, align 1
-  %conv = sext i8 %1 to i32
-  %cmp = icmp sgt i32 %conv, 2
-  %conv1 = zext i1 %cmp to i64
-  %add = add nsw i64 %0, %conv1
-  %call = call noundef zeroext i1 @_ZN4absl13time_internal4cctz6detail4impl12is_leap_yearEl(i64 noundef %add) #5
-  %cond = select i1 %call, i32 366, i32 365
-  ret i32 %cond
+define linkonce_odr dso_local noundef i32 @_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla(i64 noundef %0, i8 noundef signext %1) #3 comdat {
+  %3 = alloca i64, align 8
+  %4 = alloca i8, align 1
+  store i64 %0, ptr %3, align 8, !tbaa !25
+  store i8 %1, ptr %4, align 1, !tbaa !27
+  %5 = load i64, ptr %3, align 8, !tbaa !25
+  %6 = load i8, ptr %4, align 1, !tbaa !27
+  %7 = sext i8 %6 to i32
+  %8 = icmp sgt i32 %7, 2
+  %9 = zext i1 %8 to i64
+  %10 = add nsw i64 %5, %9
+  %11 = call noundef zeroext i1 @_ZN4absl13time_internal4cctz6detail4impl12is_leap_yearEl(i64 noundef %10) #8
+  %12 = select i1 %11, i32 366, i32 365
+  ret i32 %12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZN4absl13time_internal4cctz6detail4impl10year_indexEla(i64 noundef %y, i8 noundef signext %m) #3 comdat {
-entry:
-  %y.addr = alloca i64, align 8
-  %m.addr = alloca i8, align 1
-  %yi = alloca i32, align 4
-  store i64 %y, ptr %y.addr, align 8
-  store i8 %m, ptr %m.addr, align 1
-  %0 = load i64, ptr %y.addr, align 8
-  %1 = load i8, ptr %m.addr, align 1
-  %conv = sext i8 %1 to i32
-  %cmp = icmp sgt i32 %conv, 2
-  %conv1 = zext i1 %cmp to i64
-  %add = add nsw i64 %0, %conv1
-  %rem = srem i64 %add, 400
-  %conv2 = trunc i64 %rem to i32
-  store i32 %conv2, ptr %yi, align 4
-  %2 = load i32, ptr %yi, align 4
-  %cmp3 = icmp slt i32 %2, 0
-  br i1 %cmp3, label %cond.true, label %cond.false
+define linkonce_odr dso_local noundef i32 @_ZN4absl13time_internal4cctz6detail4impl10year_indexEla(i64 noundef %0, i8 noundef signext %1) #3 comdat {
+  %3 = alloca i64, align 8
+  %4 = alloca i8, align 1
+  %5 = alloca i32, align 4
+  store i64 %0, ptr %3, align 8, !tbaa !25
+  store i8 %1, ptr %4, align 1, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #8
+  %6 = load i64, ptr %3, align 8, !tbaa !25
+  %7 = load i8, ptr %4, align 1, !tbaa !27
+  %8 = sext i8 %7 to i32
+  %9 = icmp sgt i32 %8, 2
+  %10 = zext i1 %9 to i64
+  %11 = add nsw i64 %6, %10
+  %12 = srem i64 %11, 400
+  %13 = trunc i64 %12 to i32
+  store i32 %13, ptr %5, align 4, !tbaa !59
+  %14 = load i32, ptr %5, align 4, !tbaa !59
+  %15 = icmp slt i32 %14, 0
+  br i1 %15, label %16, label %19
 
-cond.true:                                        ; preds = %entry
-  %3 = load i32, ptr %yi, align 4
-  %add4 = add nsw i32 %3, 400
-  br label %cond.end
+16:                                               ; preds = %2
+  %17 = load i32, ptr %5, align 4, !tbaa !59
+  %18 = add nsw i32 %17, 400
+  br label %21
 
-cond.false:                                       ; preds = %entry
-  %4 = load i32, ptr %yi, align 4
-  br label %cond.end
+19:                                               ; preds = %2
+  %20 = load i32, ptr %5, align 4, !tbaa !59
+  br label %21
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ %add4, %cond.true ], [ %4, %cond.false ]
-  ret i32 %cond
+21:                                               ; preds = %19, %16
+  %22 = phi i32 [ %18, %16 ], [ %20, %19 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #8
+  ret i32 %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZN4absl13time_internal4cctz6detail4impl16days_per_centuryEi(i32 noundef %yi) #3 comdat {
-entry:
-  %yi.addr = alloca i32, align 4
-  store i32 %yi, ptr %yi.addr, align 4
-  %0 = load i32, ptr %yi.addr, align 4
-  %cmp = icmp eq i32 %0, 0
-  br i1 %cmp, label %lor.end, label %lor.rhs
+define linkonce_odr dso_local noundef i32 @_ZN4absl13time_internal4cctz6detail4impl16days_per_centuryEi(i32 noundef %0) #3 comdat {
+  %2 = alloca i32, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !59
+  %3 = load i32, ptr %2, align 4, !tbaa !59
+  %4 = icmp eq i32 %3, 0
+  br i1 %4, label %8, label %5
 
-lor.rhs:                                          ; preds = %entry
-  %1 = load i32, ptr %yi.addr, align 4
-  %cmp1 = icmp sgt i32 %1, 300
-  br label %lor.end
+5:                                                ; preds = %1
+  %6 = load i32, ptr %2, align 4, !tbaa !59
+  %7 = icmp sgt i32 %6, 300
+  br label %8
 
-lor.end:                                          ; preds = %lor.rhs, %entry
-  %2 = phi i1 [ true, %entry ], [ %cmp1, %lor.rhs ]
-  %conv = zext i1 %2 to i32
-  %add = add nsw i32 36524, %conv
-  ret i32 %add
+8:                                                ; preds = %5, %1
+  %9 = phi i1 [ true, %1 ], [ %7, %5 ]
+  %10 = zext i1 %9 to i32
+  %11 = add nsw i32 36524, %10
+  ret i32 %11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZN4absl13time_internal4cctz6detail4impl15days_per_4yearsEi(i32 noundef %yi) #3 comdat {
-entry:
-  %yi.addr = alloca i32, align 4
-  store i32 %yi, ptr %yi.addr, align 4
-  %0 = load i32, ptr %yi.addr, align 4
-  %cmp = icmp eq i32 %0, 0
-  br i1 %cmp, label %lor.end, label %lor.lhs.false
+define linkonce_odr dso_local noundef i32 @_ZN4absl13time_internal4cctz6detail4impl15days_per_4yearsEi(i32 noundef %0) #3 comdat {
+  %2 = alloca i32, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !59
+  %3 = load i32, ptr %2, align 4, !tbaa !59
+  %4 = icmp eq i32 %3, 0
+  br i1 %4, label %13, label %5
 
-lor.lhs.false:                                    ; preds = %entry
-  %1 = load i32, ptr %yi.addr, align 4
-  %cmp1 = icmp sgt i32 %1, 300
-  br i1 %cmp1, label %lor.end, label %lor.rhs
+5:                                                ; preds = %1
+  %6 = load i32, ptr %2, align 4, !tbaa !59
+  %7 = icmp sgt i32 %6, 300
+  br i1 %7, label %13, label %8
 
-lor.rhs:                                          ; preds = %lor.lhs.false
-  %2 = load i32, ptr %yi.addr, align 4
-  %sub = sub nsw i32 %2, 1
-  %rem = srem i32 %sub, 100
-  %cmp2 = icmp slt i32 %rem, 96
-  br label %lor.end
+8:                                                ; preds = %5
+  %9 = load i32, ptr %2, align 4, !tbaa !59
+  %10 = sub nsw i32 %9, 1
+  %11 = srem i32 %10, 100
+  %12 = icmp slt i32 %11, 96
+  br label %13
 
-lor.end:                                          ; preds = %lor.rhs, %lor.lhs.false, %entry
-  %3 = phi i1 [ true, %lor.lhs.false ], [ true, %entry ], [ %cmp2, %lor.rhs ]
-  %conv = zext i1 %3 to i32
-  %add = add nsw i32 1460, %conv
-  ret i32 %add
+13:                                               ; preds = %8, %5, %1
+  %14 = phi i1 [ true, %5 ], [ true, %1 ], [ %12, %8 ]
+  %15 = zext i1 %14 to i32
+  %16 = add nsw i32 1460, %15
+  ret i32 %16
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZN4absl13time_internal4cctz6detail4impl14days_per_monthEla(i64 noundef %y, i8 noundef signext %m) #3 comdat {
-entry:
-  %y.addr = alloca i64, align 8
-  %m.addr = alloca i8, align 1
-  %k_days_per_month = alloca [13 x i32], align 16
-  store i64 %y, ptr %y.addr, align 8
-  store i8 %m, ptr %m.addr, align 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %k_days_per_month, ptr align 16 @__const._ZN4absl13time_internal4cctz6detail4impl14days_per_monthEla.k_days_per_month, i64 52, i1 false)
-  %0 = load i8, ptr %m.addr, align 1
-  %idxprom = sext i8 %0 to i64
-  %arrayidx = getelementptr inbounds [13 x i32], ptr %k_days_per_month, i64 0, i64 %idxprom
-  %1 = load i32, ptr %arrayidx, align 4
-  %2 = load i8, ptr %m.addr, align 1
-  %conv = sext i8 %2 to i32
-  %cmp = icmp eq i32 %conv, 2
-  br i1 %cmp, label %land.rhs, label %land.end
+define linkonce_odr dso_local noundef i32 @_ZN4absl13time_internal4cctz6detail4impl14days_per_monthEla(i64 noundef %0, i8 noundef signext %1) #3 comdat {
+  %3 = alloca i64, align 8
+  %4 = alloca i8, align 1
+  %5 = alloca [13 x i32], align 16
+  store i64 %0, ptr %3, align 8, !tbaa !25
+  store i8 %1, ptr %4, align 1, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 52, ptr %5) #8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %5, ptr align 16 @__const._ZN4absl13time_internal4cctz6detail4impl14days_per_monthEla.k_days_per_month, i64 52, i1 false)
+  %6 = load i8, ptr %4, align 1, !tbaa !27
+  %7 = sext i8 %6 to i64
+  %8 = getelementptr inbounds [13 x i32], ptr %5, i64 0, i64 %7
+  %9 = load i32, ptr %8, align 4, !tbaa !59
+  %10 = load i8, ptr %4, align 1, !tbaa !27
+  %11 = sext i8 %10 to i32
+  %12 = icmp eq i32 %11, 2
+  br i1 %12, label %13, label %16
 
-land.rhs:                                         ; preds = %entry
-  %3 = load i64, ptr %y.addr, align 8
-  %call = call noundef zeroext i1 @_ZN4absl13time_internal4cctz6detail4impl12is_leap_yearEl(i64 noundef %3) #5
-  br label %land.end
+13:                                               ; preds = %2
+  %14 = load i64, ptr %3, align 8, !tbaa !25
+  %15 = call noundef zeroext i1 @_ZN4absl13time_internal4cctz6detail4impl12is_leap_yearEl(i64 noundef %14) #8
+  br label %16
 
-land.end:                                         ; preds = %land.rhs, %entry
-  %4 = phi i1 [ false, %entry ], [ %call, %land.rhs ]
-  %conv1 = zext i1 %4 to i32
-  %add = add nsw i32 %1, %conv1
-  ret i32 %add
+16:                                               ; preds = %13, %2
+  %17 = phi i1 [ false, %2 ], [ %15, %13 ]
+  %18 = zext i1 %17 to i32
+  %19 = add nsw i32 %9, %18
+  call void @llvm.lifetime.end.p0(i64 52, ptr %5) #8
+  ret i32 %19
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZN4absl13time_internal4cctz6detail4impl12is_leap_yearEl(i64 noundef %y) #3 comdat {
-entry:
-  %y.addr = alloca i64, align 8
-  store i64 %y, ptr %y.addr, align 8
-  %0 = load i64, ptr %y.addr, align 8
-  %rem = srem i64 %0, 4
-  %cmp = icmp eq i64 %rem, 0
-  br i1 %cmp, label %land.rhs, label %land.end
+define linkonce_odr dso_local noundef zeroext i1 @_ZN4absl13time_internal4cctz6detail4impl12is_leap_yearEl(i64 noundef %0) #3 comdat {
+  %2 = alloca i64, align 8
+  store i64 %0, ptr %2, align 8, !tbaa !25
+  %3 = load i64, ptr %2, align 8, !tbaa !25
+  %4 = srem i64 %3, 4
+  %5 = icmp eq i64 %4, 0
+  br i1 %5, label %6, label %16
 
-land.rhs:                                         ; preds = %entry
-  %1 = load i64, ptr %y.addr, align 8
-  %rem1 = srem i64 %1, 100
-  %cmp2 = icmp ne i64 %rem1, 0
-  br i1 %cmp2, label %lor.end, label %lor.rhs
+6:                                                ; preds = %1
+  %7 = load i64, ptr %2, align 8, !tbaa !25
+  %8 = srem i64 %7, 100
+  %9 = icmp ne i64 %8, 0
+  br i1 %9, label %14, label %10
 
-lor.rhs:                                          ; preds = %land.rhs
-  %2 = load i64, ptr %y.addr, align 8
-  %rem3 = srem i64 %2, 400
-  %cmp4 = icmp eq i64 %rem3, 0
-  br label %lor.end
+10:                                               ; preds = %6
+  %11 = load i64, ptr %2, align 8, !tbaa !25
+  %12 = srem i64 %11, 400
+  %13 = icmp eq i64 %12, 0
+  br label %14
 
-lor.end:                                          ; preds = %lor.rhs, %land.rhs
-  %3 = phi i1 [ true, %land.rhs ], [ %cmp4, %lor.rhs ]
-  br label %land.end
+14:                                               ; preds = %10, %6
+  %15 = phi i1 [ true, %6 ], [ %13, %10 ]
+  br label %16
 
-land.end:                                         ; preds = %lor.end, %entry
-  %4 = phi i1 [ false, %entry ], [ %3, %lor.end ]
-  ret i1 %4
+16:                                               ; preds = %14, %1
+  %17 = phi i1 [ false, %1 ], [ %15, %14 ]
+  ret i1 %17
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local { i64, i64 } @_ZN4absl13time_internal4cctz6detail5alignENS2_10second_tagENS2_6fieldsE(i64 %f.coerce0, i64 %f.coerce1) #3 comdat {
-entry:
-  %retval = alloca %"struct.absl::time_internal::cctz::detail::fields", align 8
-  %f = alloca %"struct.absl::time_internal::cctz::detail::fields", align 8
-  %0 = getelementptr inbounds { i64, i64 }, ptr %f, i32 0, i32 0
-  store i64 %f.coerce0, ptr %0, align 8
-  %1 = getelementptr inbounds { i64, i64 }, ptr %f, i32 0, i32 1
-  store i64 %f.coerce1, ptr %1, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %retval, ptr align 8 %f, i64 16, i1 false)
-  %2 = load { i64, i64 }, ptr %retval, align 8
-  ret { i64, i64 } %2
+define linkonce_odr dso_local { i64, i64 } @_ZN4absl13time_internal4cctz6detail5alignENS2_10second_tagENS2_6fieldsE(i64 %0, i64 %1) #3 comdat {
+  %3 = alloca %"struct.absl::time_internal::cctz::detail::fields", align 8
+  %4 = alloca %"struct.absl::time_internal::cctz::detail::fields", align 8
+  %5 = getelementptr inbounds nuw { i64, i64 }, ptr %4, i32 0, i32 0
+  store i64 %0, ptr %5, align 8
+  %6 = getelementptr inbounds nuw { i64, i64 }, ptr %4, i32 0, i32 1
+  store i64 %1, ptr %6, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %4, i64 16, i1 false), !tbaa.struct !26
+  %7 = load { i64, i64 }, ptr %3, align 8
+  ret { i64, i64 } %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local { i64, i64 } @_ZN4absl13time_internal4cctz6detail4stepENS2_10second_tagENS2_6fieldsEl(i64 %f.coerce0, i64 %f.coerce1, i64 noundef %n) #3 comdat {
-entry:
-  %retval = alloca %"struct.absl::time_internal::cctz::detail::fields", align 8
-  %f = alloca %"struct.absl::time_internal::cctz::detail::fields", align 8
-  %n.addr = alloca i64, align 8
-  %0 = getelementptr inbounds { i64, i64 }, ptr %f, i32 0, i32 0
-  store i64 %f.coerce0, ptr %0, align 8
-  %1 = getelementptr inbounds { i64, i64 }, ptr %f, i32 0, i32 1
-  store i64 %f.coerce1, ptr %1, align 8
-  store i64 %n, ptr %n.addr, align 8
-  %y = getelementptr inbounds %"struct.absl::time_internal::cctz::detail::fields", ptr %f, i32 0, i32 0
-  %2 = load i64, ptr %y, align 8
-  %m = getelementptr inbounds %"struct.absl::time_internal::cctz::detail::fields", ptr %f, i32 0, i32 1
-  %3 = load i8, ptr %m, align 8
-  %conv = sext i8 %3 to i64
-  %d = getelementptr inbounds %"struct.absl::time_internal::cctz::detail::fields", ptr %f, i32 0, i32 2
-  %4 = load i8, ptr %d, align 1
-  %conv1 = sext i8 %4 to i64
-  %hh = getelementptr inbounds %"struct.absl::time_internal::cctz::detail::fields", ptr %f, i32 0, i32 3
-  %5 = load i8, ptr %hh, align 2
-  %conv2 = sext i8 %5 to i64
-  %mm = getelementptr inbounds %"struct.absl::time_internal::cctz::detail::fields", ptr %f, i32 0, i32 4
-  %6 = load i8, ptr %mm, align 1
-  %conv3 = sext i8 %6 to i64
-  %7 = load i64, ptr %n.addr, align 8
-  %div = sdiv i64 %7, 60
-  %add = add nsw i64 %conv3, %div
-  %ss = getelementptr inbounds %"struct.absl::time_internal::cctz::detail::fields", ptr %f, i32 0, i32 5
-  %8 = load i8, ptr %ss, align 4
-  %conv4 = sext i8 %8 to i64
-  %9 = load i64, ptr %n.addr, align 8
-  %rem = srem i64 %9, 60
-  %add5 = add nsw i64 %conv4, %rem
-  %call = call { i64, i64 } @_ZN4absl13time_internal4cctz6detail4impl5n_secEllllll(i64 noundef %2, i64 noundef %conv, i64 noundef %conv1, i64 noundef %conv2, i64 noundef %add, i64 noundef %add5) #5
-  %10 = getelementptr inbounds { i64, i64 }, ptr %retval, i32 0, i32 0
-  %11 = extractvalue { i64, i64 } %call, 0
-  store i64 %11, ptr %10, align 8
-  %12 = getelementptr inbounds { i64, i64 }, ptr %retval, i32 0, i32 1
-  %13 = extractvalue { i64, i64 } %call, 1
-  store i64 %13, ptr %12, align 8
-  %14 = load { i64, i64 }, ptr %retval, align 8
-  ret { i64, i64 } %14
+define linkonce_odr dso_local { i64, i64 } @_ZN4absl13time_internal4cctz6detail4stepENS2_10second_tagENS2_6fieldsEl(i64 %0, i64 %1, i64 noundef %2) #3 comdat {
+  %4 = alloca %"struct.absl::time_internal::cctz::detail::fields", align 8
+  %5 = alloca %"struct.absl::time_internal::cctz::detail::fields", align 8
+  %6 = alloca i64, align 8
+  %7 = alloca { i64, i64 }, align 8
+  %8 = getelementptr inbounds nuw { i64, i64 }, ptr %5, i32 0, i32 0
+  store i64 %0, ptr %8, align 8
+  %9 = getelementptr inbounds nuw { i64, i64 }, ptr %5, i32 0, i32 1
+  store i64 %1, ptr %9, align 8
+  store i64 %2, ptr %6, align 8, !tbaa !25
+  %10 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::detail::fields", ptr %5, i32 0, i32 0
+  %11 = load i64, ptr %10, align 8, !tbaa !83
+  %12 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::detail::fields", ptr %5, i32 0, i32 1
+  %13 = load i8, ptr %12, align 8, !tbaa !84
+  %14 = sext i8 %13 to i64
+  %15 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::detail::fields", ptr %5, i32 0, i32 2
+  %16 = load i8, ptr %15, align 1, !tbaa !85
+  %17 = sext i8 %16 to i64
+  %18 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::detail::fields", ptr %5, i32 0, i32 3
+  %19 = load i8, ptr %18, align 2, !tbaa !86
+  %20 = sext i8 %19 to i64
+  %21 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::detail::fields", ptr %5, i32 0, i32 4
+  %22 = load i8, ptr %21, align 1, !tbaa !87
+  %23 = sext i8 %22 to i64
+  %24 = load i64, ptr %6, align 8, !tbaa !25
+  %25 = sdiv i64 %24, 60
+  %26 = add nsw i64 %23, %25
+  %27 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::detail::fields", ptr %5, i32 0, i32 5
+  %28 = load i8, ptr %27, align 4, !tbaa !88
+  %29 = sext i8 %28 to i64
+  %30 = load i64, ptr %6, align 8, !tbaa !25
+  %31 = srem i64 %30, 60
+  %32 = add nsw i64 %29, %31
+  %33 = call { i64, i64 } @_ZN4absl13time_internal4cctz6detail4impl5n_secEllllll(i64 noundef %11, i64 noundef %14, i64 noundef %17, i64 noundef %20, i64 noundef %26, i64 noundef %32) #8
+  store { i64, i64 } %33, ptr %7, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %4, ptr align 8 %7, i64 13, i1 false)
+  %34 = load { i64, i64 }, ptr %4, align 8
+  ret { i64, i64 } %34
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEEC2ENS2_6fieldsE(ptr noundef nonnull align 8 dereferenceable(16) %this, i64 %f.coerce0, i64 %f.coerce1) unnamed_addr #3 comdat align 2 {
-entry:
-  %f = alloca %"struct.absl::time_internal::cctz::detail::fields", align 8
-  %this.addr = alloca ptr, align 8
-  %agg.tmp2 = alloca %"struct.absl::time_internal::cctz::detail::fields", align 8
-  %0 = getelementptr inbounds { i64, i64 }, ptr %f, i32 0, i32 0
-  store i64 %f.coerce0, ptr %0, align 8
-  %1 = getelementptr inbounds { i64, i64 }, ptr %f, i32 0, i32 1
-  store i64 %f.coerce1, ptr %1, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %f_ = getelementptr inbounds %"class.absl::time_internal::cctz::detail::civil_time", ptr %this1, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2, ptr align 8 %f, i64 16, i1 false)
-  %2 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp2, i32 0, i32 0
-  %3 = load i64, ptr %2, align 8
-  %4 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp2, i32 0, i32 1
-  %5 = load i64, ptr %4, align 8
-  %call = call { i64, i64 } @_ZN4absl13time_internal4cctz6detail5alignENS2_10second_tagENS2_6fieldsE(i64 %3, i64 %5) #5
-  %6 = getelementptr inbounds { i64, i64 }, ptr %f_, i32 0, i32 0
-  %7 = extractvalue { i64, i64 } %call, 0
-  store i64 %7, ptr %6, align 8
-  %8 = getelementptr inbounds { i64, i64 }, ptr %f_, i32 0, i32 1
-  %9 = extractvalue { i64, i64 } %call, 1
-  store i64 %9, ptr %8, align 8
+define linkonce_odr dso_local void @_ZN4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEEC2ENS2_6fieldsE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 %1, i64 %2) unnamed_addr #3 comdat align 2 {
+  %4 = alloca %"struct.absl::time_internal::cctz::detail::fields", align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca %"struct.absl::time_internal::cctz::detail::fields", align 8
+  %7 = alloca { i64, i64 }, align 8
+  %8 = getelementptr inbounds nuw { i64, i64 }, ptr %4, i32 0, i32 0
+  store i64 %1, ptr %8, align 8
+  %9 = getelementptr inbounds nuw { i64, i64 }, ptr %4, i32 0, i32 1
+  store i64 %2, ptr %9, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !47
+  %10 = load ptr, ptr %5, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %4, i64 16, i1 false), !tbaa.struct !26
+  %11 = getelementptr inbounds nuw { i64, i64 }, ptr %6, i32 0, i32 0
+  %12 = load i64, ptr %11, align 8
+  %13 = getelementptr inbounds nuw { i64, i64 }, ptr %6, i32 0, i32 1
+  %14 = load i64, ptr %13, align 8
+  %15 = call { i64, i64 } @_ZN4absl13time_internal4cctz6detail5alignENS2_10second_tagENS2_6fieldsE(i64 %12, i64 %14) #8
+  store { i64, i64 } %15, ptr %7, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %7, i64 13, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local i64 @_ZNSt6chrono8durationIlSt5ratioILl1ELl1EEE3minEv() #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %retval = alloca %"class.std::chrono::duration", align 8
-  %ref.tmp = alloca i64, align 8
-  %call = call noundef i64 @_ZNSt6chrono15duration_valuesIlE3minEv() #5
-  store i64 %call, ptr %ref.tmp, align 8
-  invoke void @_ZNSt6chrono8durationIlSt5ratioILl1ELl1EEEC2IlvEERKT_(ptr noundef nonnull align 8 dereferenceable(8) %retval, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
-          to label %invoke.cont unwind label %terminate.lpad
+  %1 = alloca %"class.std::chrono::duration", align 8
+  %2 = alloca i64, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #8
+  %3 = call noundef i64 @_ZNSt6chrono15duration_valuesIlE3minEv() #8
+  store i64 %3, ptr %2, align 8, !tbaa !25
+  invoke void @_ZNSt6chrono8durationIlSt5ratioILl1ELl1EEEC2IlvEERKT_(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
+          to label %4 unwind label %7
 
-invoke.cont:                                      ; preds = %entry
-  %coerce.dive = getelementptr inbounds %"class.std::chrono::duration", ptr %retval, i32 0, i32 0
-  %0 = load i64, ptr %coerce.dive, align 8
-  ret i64 %0
+4:                                                ; preds = %0
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #8
+  %5 = getelementptr inbounds nuw %"class.std::chrono::duration", ptr %1, i32 0, i32 0
+  %6 = load i64, ptr %5, align 8
+  ret i64 %6
 
-terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+7:                                                ; preds = %0
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #12
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #16
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNSt6chrono15duration_valuesIlE3minEv() #3 comdat align 2 {
-entry:
-  %call = call noundef i64 @_ZNSt14numeric_limitsIlE6lowestEv() #5
-  ret i64 %call
+  %1 = call noundef i64 @_ZNSt14numeric_limitsIlE6lowestEv() #8
+  ret i64 %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNSt14numeric_limitsIlE6lowestEv() #3 comdat align 2 {
-entry:
-  %call = call noundef i64 @_ZNSt14numeric_limitsIlE3minEv() #5
-  ret i64 %call
+  %1 = call noundef i64 @_ZNSt14numeric_limitsIlE3minEv() #8
+  ret i64 %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local i64 @_ZNSt6chrono8durationIlSt5ratioILl1ELl1EEE3maxEv() #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %retval = alloca %"class.std::chrono::duration", align 8
-  %ref.tmp = alloca i64, align 8
-  %call = call noundef i64 @_ZNSt6chrono15duration_valuesIlE3maxEv() #5
-  store i64 %call, ptr %ref.tmp, align 8
-  invoke void @_ZNSt6chrono8durationIlSt5ratioILl1ELl1EEEC2IlvEERKT_(ptr noundef nonnull align 8 dereferenceable(8) %retval, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
-          to label %invoke.cont unwind label %terminate.lpad
+  %1 = alloca %"class.std::chrono::duration", align 8
+  %2 = alloca i64, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #8
+  %3 = call noundef i64 @_ZNSt6chrono15duration_valuesIlE3maxEv() #8
+  store i64 %3, ptr %2, align 8, !tbaa !25
+  invoke void @_ZNSt6chrono8durationIlSt5ratioILl1ELl1EEEC2IlvEERKT_(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
+          to label %4 unwind label %7
 
-invoke.cont:                                      ; preds = %entry
-  %coerce.dive = getelementptr inbounds %"class.std::chrono::duration", ptr %retval, i32 0, i32 0
-  %0 = load i64, ptr %coerce.dive, align 8
-  ret i64 %0
+4:                                                ; preds = %0
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #8
+  %5 = getelementptr inbounds nuw %"class.std::chrono::duration", ptr %1, i32 0, i32 0
+  %6 = load i64, ptr %5, align 8
+  ret i64 %6
 
-terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+7:                                                ; preds = %0
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #12
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #16
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNSt6chrono15duration_valuesIlE3maxEv() #3 comdat align 2 {
-entry:
-  %call = call noundef i64 @_ZNSt14numeric_limitsIlE3maxEv() #5
-  ret i64 %call
+  %1 = call noundef i64 @_ZNSt14numeric_limitsIlE3maxEv() #8
+  ret i64 %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZNK4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE5monthEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #3 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %f_ = getelementptr inbounds %"class.absl::time_internal::cctz::detail::civil_time", ptr %this1, i32 0, i32 0
-  %m = getelementptr inbounds %"struct.absl::time_internal::cctz::detail::fields", ptr %f_, i32 0, i32 1
-  %0 = load i8, ptr %m, align 8
-  %conv = sext i8 %0 to i32
-  ret i32 %conv
+define linkonce_odr dso_local noundef i32 @_ZNK4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE5monthEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #3 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !47
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.absl::time_internal::cctz::detail::civil_time", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::detail::fields", ptr %4, i32 0, i32 1
+  %6 = load i8, ptr %5, align 8, !tbaa !93
+  %7 = sext i8 %6 to i32
+  ret i32 %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZNK4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE3dayEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #3 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %f_ = getelementptr inbounds %"class.absl::time_internal::cctz::detail::civil_time", ptr %this1, i32 0, i32 0
-  %d = getelementptr inbounds %"struct.absl::time_internal::cctz::detail::fields", ptr %f_, i32 0, i32 2
-  %0 = load i8, ptr %d, align 1
-  %conv = sext i8 %0 to i32
-  ret i32 %conv
+define linkonce_odr dso_local noundef i32 @_ZNK4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE3dayEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #3 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !47
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.absl::time_internal::cctz::detail::civil_time", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::detail::fields", ptr %4, i32 0, i32 2
+  %6 = load i8, ptr %5, align 1, !tbaa !94
+  %7 = sext i8 %6 to i32
+  ret i32 %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZNK4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE4hourEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #3 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %f_ = getelementptr inbounds %"class.absl::time_internal::cctz::detail::civil_time", ptr %this1, i32 0, i32 0
-  %hh = getelementptr inbounds %"struct.absl::time_internal::cctz::detail::fields", ptr %f_, i32 0, i32 3
-  %0 = load i8, ptr %hh, align 2
-  %conv = sext i8 %0 to i32
-  ret i32 %conv
+define linkonce_odr dso_local noundef i32 @_ZNK4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE4hourEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #3 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !47
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.absl::time_internal::cctz::detail::civil_time", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::detail::fields", ptr %4, i32 0, i32 3
+  %6 = load i8, ptr %5, align 2, !tbaa !95
+  %7 = sext i8 %6 to i32
+  ret i32 %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZNK4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE6minuteEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #3 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %f_ = getelementptr inbounds %"class.absl::time_internal::cctz::detail::civil_time", ptr %this1, i32 0, i32 0
-  %mm = getelementptr inbounds %"struct.absl::time_internal::cctz::detail::fields", ptr %f_, i32 0, i32 4
-  %0 = load i8, ptr %mm, align 1
-  %conv = sext i8 %0 to i32
-  ret i32 %conv
+define linkonce_odr dso_local noundef i32 @_ZNK4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE6minuteEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #3 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !47
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.absl::time_internal::cctz::detail::civil_time", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::detail::fields", ptr %4, i32 0, i32 4
+  %6 = load i8, ptr %5, align 1, !tbaa !96
+  %7 = sext i8 %6 to i32
+  ret i32 %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZNK4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE6secondEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #3 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %f_ = getelementptr inbounds %"class.absl::time_internal::cctz::detail::civil_time", ptr %this1, i32 0, i32 0
-  %ss = getelementptr inbounds %"struct.absl::time_internal::cctz::detail::fields", ptr %f_, i32 0, i32 5
-  %0 = load i8, ptr %ss, align 4
-  %conv = sext i8 %0 to i32
-  ret i32 %conv
+define linkonce_odr dso_local noundef i32 @_ZNK4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE6secondEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #3 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !47
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.absl::time_internal::cctz::detail::civil_time", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::detail::fields", ptr %4, i32 0, i32 5
+  %6 = load i8, ptr %5, align 4, !tbaa !97
+  %7 = sext i8 %6 to i32
+  ret i32 %7
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local i64 @_ZNSt6chronoplINS_3_V212system_clockENS_8durationIlSt5ratioILl1ELl1EEEElS5_EENS_10time_pointIT_NSt11common_typeIJT0_NS3_IT1_T2_EEEE4typeEEERKNS7_IS8_SA_EERKSD_(ptr noundef nonnull align 8 dereferenceable(8) %__lhs, ptr noundef nonnull align 8 dereferenceable(8) %__rhs) #0 comdat {
-entry:
-  %retval = alloca %"class.std::chrono::time_point", align 8
-  %__lhs.addr = alloca ptr, align 8
-  %__rhs.addr = alloca ptr, align 8
-  %ref.tmp = alloca %"class.std::chrono::duration", align 8
-  %ref.tmp1 = alloca %"class.std::chrono::duration", align 8
-  store ptr %__lhs, ptr %__lhs.addr, align 8
-  store ptr %__rhs, ptr %__rhs.addr, align 8
-  %0 = load ptr, ptr %__lhs.addr, align 8
-  %call = call i64 @_ZNKSt6chrono10time_pointINS_3_V212system_clockENS_8durationIlSt5ratioILl1ELl1EEEEE16time_since_epochEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  %coerce.dive = getelementptr inbounds %"class.std::chrono::duration", ptr %ref.tmp1, i32 0, i32 0
-  store i64 %call, ptr %coerce.dive, align 8
-  %1 = load ptr, ptr %__rhs.addr, align 8
-  %call2 = call i64 @_ZNSt6chronoplIlSt5ratioILl1ELl1EElS2_EENSt11common_typeIJNS_8durationIT_T0_EENS4_IT1_T2_EEEE4typeERKS7_RKSA_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp1, ptr noundef nonnull align 8 dereferenceable(8) %1)
-  %coerce.dive3 = getelementptr inbounds %"class.std::chrono::duration", ptr %ref.tmp, i32 0, i32 0
-  store i64 %call2, ptr %coerce.dive3, align 8
-  call void @_ZNSt6chrono10time_pointINS_3_V212system_clockENS_8durationIlSt5ratioILl1ELl1EEEEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(8) %retval, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
-  %coerce.dive4 = getelementptr inbounds %"class.std::chrono::time_point", ptr %retval, i32 0, i32 0
-  %coerce.dive5 = getelementptr inbounds %"class.std::chrono::duration", ptr %coerce.dive4, i32 0, i32 0
-  %2 = load i64, ptr %coerce.dive5, align 8
-  ret i64 %2
+define linkonce_odr dso_local i64 @_ZNSt6chronoplINS_3_V212system_clockENS_8durationIlSt5ratioILl1ELl1EEEElS5_EENS_10time_pointIT_NSt11common_typeIJT0_NS3_IT1_T2_EEEE4typeEEERKNS7_IS8_SA_EERKSD_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat {
+  %3 = alloca %"class.std::chrono::time_point", align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca %"class.std::chrono::duration", align 8
+  %7 = alloca %"class.std::chrono::duration", align 8
+  store ptr %0, ptr %4, align 8, !tbaa !13
+  store ptr %1, ptr %5, align 8, !tbaa !74
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
+  %8 = load ptr, ptr %4, align 8, !tbaa !13
+  %9 = call i64 @_ZNKSt6chrono10time_pointINS_3_V212system_clockENS_8durationIlSt5ratioILl1ELl1EEEEE16time_since_epochEv(ptr noundef nonnull align 8 dereferenceable(8) %8)
+  %10 = getelementptr inbounds nuw %"class.std::chrono::duration", ptr %7, i32 0, i32 0
+  store i64 %9, ptr %10, align 8
+  %11 = load ptr, ptr %5, align 8, !tbaa !74
+  %12 = call i64 @_ZNSt6chronoplIlSt5ratioILl1ELl1EElS2_EENSt11common_typeIJNS_8durationIT_T0_EENS4_IT1_T2_EEEE4typeERKS7_RKSA_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %11)
+  %13 = getelementptr inbounds nuw %"class.std::chrono::duration", ptr %6, i32 0, i32 0
+  store i64 %12, ptr %13, align 8
+  call void @_ZNSt6chrono10time_pointINS_3_V212system_clockENS_8durationIlSt5ratioILl1ELl1EEEEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  %14 = getelementptr inbounds nuw %"class.std::chrono::time_point", ptr %3, i32 0, i32 0
+  %15 = getelementptr inbounds nuw %"class.std::chrono::duration", ptr %14, i32 0, i32 0
+  %16 = load i64, ptr %15, align 8
+  ret i64 %16
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local i64 @_ZNSt6chronoplIlSt5ratioILl1ELl1EElS2_EENSt11common_typeIJNS_8durationIT_T0_EENS4_IT1_T2_EEEE4typeERKS7_RKSA_(ptr noundef nonnull align 8 dereferenceable(8) %__lhs, ptr noundef nonnull align 8 dereferenceable(8) %__rhs) #0 comdat {
-entry:
-  %retval = alloca %"class.std::chrono::duration", align 8
-  %__lhs.addr = alloca ptr, align 8
-  %__rhs.addr = alloca ptr, align 8
-  %ref.tmp = alloca i64, align 8
-  %ref.tmp1 = alloca %"class.std::chrono::duration", align 8
-  %ref.tmp2 = alloca %"class.std::chrono::duration", align 8
-  store ptr %__lhs, ptr %__lhs.addr, align 8
-  store ptr %__rhs, ptr %__rhs.addr, align 8
-  %0 = load ptr, ptr %__lhs.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %ref.tmp1, ptr align 8 %0, i64 8, i1 false)
-  %call = call noundef i64 @_ZNKSt6chrono8durationIlSt5ratioILl1ELl1EEE5countEv(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp1)
-  %1 = load ptr, ptr %__rhs.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %ref.tmp2, ptr align 8 %1, i64 8, i1 false)
-  %call3 = call noundef i64 @_ZNKSt6chrono8durationIlSt5ratioILl1ELl1EEE5countEv(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2)
-  %add = add nsw i64 %call, %call3
-  store i64 %add, ptr %ref.tmp, align 8
-  call void @_ZNSt6chrono8durationIlSt5ratioILl1ELl1EEEC2IlvEERKT_(ptr noundef nonnull align 8 dereferenceable(8) %retval, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
-  %coerce.dive = getelementptr inbounds %"class.std::chrono::duration", ptr %retval, i32 0, i32 0
-  %2 = load i64, ptr %coerce.dive, align 8
-  ret i64 %2
+define linkonce_odr dso_local i64 @_ZNSt6chronoplIlSt5ratioILl1ELl1EElS2_EENSt11common_typeIJNS_8durationIT_T0_EENS4_IT1_T2_EEEE4typeERKS7_RKSA_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat {
+  %3 = alloca %"class.std::chrono::duration", align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca %"class.std::chrono::duration", align 8
+  %8 = alloca %"class.std::chrono::duration", align 8
+  store ptr %0, ptr %4, align 8, !tbaa !74
+  store ptr %1, ptr %5, align 8, !tbaa !74
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
+  %9 = load ptr, ptr %4, align 8, !tbaa !74
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %9, i64 8, i1 false), !tbaa.struct !57
+  %10 = call noundef i64 @_ZNKSt6chrono8durationIlSt5ratioILl1ELl1EEE5countEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #8
+  %11 = load ptr, ptr %5, align 8, !tbaa !74
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %11, i64 8, i1 false), !tbaa.struct !57
+  %12 = call noundef i64 @_ZNKSt6chrono8durationIlSt5ratioILl1ELl1EEE5countEv(ptr noundef nonnull align 8 dereferenceable(8) %8)
+  %13 = add nsw i64 %10, %12
+  store i64 %13, ptr %6, align 8, !tbaa !25
+  call void @_ZNSt6chrono8durationIlSt5ratioILl1ELl1EEEC2IlvEERKT_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  %14 = getelementptr inbounds nuw %"class.std::chrono::duration", ptr %3, i32 0, i32 0
+  %15 = load i64, ptr %14, align 8
+  ret i64 %15
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i64 @_ZN4absl13time_internal4cctz6detail10differenceENS2_10second_tagENS2_6fieldsES4_(i64 %f1.coerce0, i64 %f1.coerce1, i64 %f2.coerce0, i64 %f2.coerce1) #3 comdat {
-entry:
-  %f1 = alloca %"struct.absl::time_internal::cctz::detail::fields", align 8
-  %f2 = alloca %"struct.absl::time_internal::cctz::detail::fields", align 8
-  %agg.tmp1 = alloca %"struct.absl::time_internal::cctz::detail::fields", align 8
-  %agg.tmp2 = alloca %"struct.absl::time_internal::cctz::detail::fields", align 8
-  %0 = getelementptr inbounds { i64, i64 }, ptr %f1, i32 0, i32 0
-  store i64 %f1.coerce0, ptr %0, align 8
-  %1 = getelementptr inbounds { i64, i64 }, ptr %f1, i32 0, i32 1
-  store i64 %f1.coerce1, ptr %1, align 8
-  %2 = getelementptr inbounds { i64, i64 }, ptr %f2, i32 0, i32 0
-  store i64 %f2.coerce0, ptr %2, align 8
-  %3 = getelementptr inbounds { i64, i64 }, ptr %f2, i32 0, i32 1
-  store i64 %f2.coerce1, ptr %3, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp1, ptr align 8 %f1, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2, ptr align 8 %f2, i64 16, i1 false)
-  %4 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp1, i32 0, i32 0
-  %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp1, i32 0, i32 1
-  %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp2, i32 0, i32 0
-  %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp2, i32 0, i32 1
-  %11 = load i64, ptr %10, align 8
-  %call = call noundef i64 @_ZN4absl13time_internal4cctz6detail10differenceENS2_10minute_tagENS2_6fieldsES4_(i64 %5, i64 %7, i64 %9, i64 %11) #5
-  %ss = getelementptr inbounds %"struct.absl::time_internal::cctz::detail::fields", ptr %f1, i32 0, i32 5
-  %12 = load i8, ptr %ss, align 4
-  %conv = sext i8 %12 to i32
-  %ss3 = getelementptr inbounds %"struct.absl::time_internal::cctz::detail::fields", ptr %f2, i32 0, i32 5
-  %13 = load i8, ptr %ss3, align 4
-  %conv4 = sext i8 %13 to i32
-  %sub = sub nsw i32 %conv, %conv4
-  %conv5 = sext i32 %sub to i64
-  %call6 = call noundef i64 @_ZN4absl13time_internal4cctz6detail4impl9scale_addElll(i64 noundef %call, i64 noundef 60, i64 noundef %conv5) #5
-  ret i64 %call6
+define linkonce_odr dso_local noundef i64 @_ZN4absl13time_internal4cctz6detail10differenceENS2_10second_tagENS2_6fieldsES4_(i64 %0, i64 %1, i64 %2, i64 %3) #3 comdat {
+  %5 = alloca %"struct.absl::time_internal::cctz::detail::fields", align 8
+  %6 = alloca %"struct.absl::time_internal::cctz::detail::fields", align 8
+  %7 = alloca %"struct.absl::time_internal::cctz::detail::fields", align 8
+  %8 = alloca %"struct.absl::time_internal::cctz::detail::fields", align 8
+  %9 = getelementptr inbounds nuw { i64, i64 }, ptr %5, i32 0, i32 0
+  store i64 %0, ptr %9, align 8
+  %10 = getelementptr inbounds nuw { i64, i64 }, ptr %5, i32 0, i32 1
+  store i64 %1, ptr %10, align 8
+  %11 = getelementptr inbounds nuw { i64, i64 }, ptr %6, i32 0, i32 0
+  store i64 %2, ptr %11, align 8
+  %12 = getelementptr inbounds nuw { i64, i64 }, ptr %6, i32 0, i32 1
+  store i64 %3, ptr %12, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %5, i64 16, i1 false), !tbaa.struct !26
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %6, i64 16, i1 false), !tbaa.struct !26
+  %13 = getelementptr inbounds nuw { i64, i64 }, ptr %7, i32 0, i32 0
+  %14 = load i64, ptr %13, align 8
+  %15 = getelementptr inbounds nuw { i64, i64 }, ptr %7, i32 0, i32 1
+  %16 = load i64, ptr %15, align 8
+  %17 = getelementptr inbounds nuw { i64, i64 }, ptr %8, i32 0, i32 0
+  %18 = load i64, ptr %17, align 8
+  %19 = getelementptr inbounds nuw { i64, i64 }, ptr %8, i32 0, i32 1
+  %20 = load i64, ptr %19, align 8
+  %21 = call noundef i64 @_ZN4absl13time_internal4cctz6detail10differenceENS2_10minute_tagENS2_6fieldsES4_(i64 %14, i64 %16, i64 %18, i64 %20) #8
+  %22 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::detail::fields", ptr %5, i32 0, i32 5
+  %23 = load i8, ptr %22, align 4, !tbaa !88
+  %24 = sext i8 %23 to i32
+  %25 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::detail::fields", ptr %6, i32 0, i32 5
+  %26 = load i8, ptr %25, align 4, !tbaa !88
+  %27 = sext i8 %26 to i32
+  %28 = sub nsw i32 %24, %27
+  %29 = sext i32 %28 to i64
+  %30 = call noundef i64 @_ZN4absl13time_internal4cctz6detail4impl9scale_addElll(i64 noundef %21, i64 noundef 60, i64 noundef %29) #8
+  ret i64 %30
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i64 @_ZN4absl13time_internal4cctz6detail4impl9scale_addElll(i64 noundef %v, i64 noundef %f, i64 noundef %a) #3 comdat {
-entry:
-  %v.addr = alloca i64, align 8
-  %f.addr = alloca i64, align 8
-  %a.addr = alloca i64, align 8
-  store i64 %v, ptr %v.addr, align 8
-  store i64 %f, ptr %f.addr, align 8
-  store i64 %a, ptr %a.addr, align 8
-  %0 = load i64, ptr %v.addr, align 8
-  %cmp = icmp slt i64 %0, 0
-  br i1 %cmp, label %cond.true, label %cond.false
+define linkonce_odr dso_local noundef i64 @_ZN4absl13time_internal4cctz6detail4impl9scale_addElll(i64 noundef %0, i64 noundef %1, i64 noundef %2) #3 comdat {
+  %4 = alloca i64, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  store i64 %0, ptr %4, align 8, !tbaa !25
+  store i64 %1, ptr %5, align 8, !tbaa !25
+  store i64 %2, ptr %6, align 8, !tbaa !25
+  %7 = load i64, ptr %4, align 8, !tbaa !25
+  %8 = icmp slt i64 %7, 0
+  br i1 %8, label %9, label %18
 
-cond.true:                                        ; preds = %entry
-  %1 = load i64, ptr %v.addr, align 8
-  %add = add nsw i64 %1, 1
-  %2 = load i64, ptr %f.addr, align 8
-  %mul = mul nsw i64 %add, %2
-  %3 = load i64, ptr %a.addr, align 8
-  %add1 = add nsw i64 %mul, %3
-  %4 = load i64, ptr %f.addr, align 8
-  %sub = sub nsw i64 %add1, %4
-  br label %cond.end
+9:                                                ; preds = %3
+  %10 = load i64, ptr %4, align 8, !tbaa !25
+  %11 = add nsw i64 %10, 1
+  %12 = load i64, ptr %5, align 8, !tbaa !25
+  %13 = mul nsw i64 %11, %12
+  %14 = load i64, ptr %6, align 8, !tbaa !25
+  %15 = add nsw i64 %13, %14
+  %16 = load i64, ptr %5, align 8, !tbaa !25
+  %17 = sub nsw i64 %15, %16
+  br label %27
 
-cond.false:                                       ; preds = %entry
-  %5 = load i64, ptr %v.addr, align 8
-  %sub2 = sub nsw i64 %5, 1
-  %6 = load i64, ptr %f.addr, align 8
-  %mul3 = mul nsw i64 %sub2, %6
-  %7 = load i64, ptr %a.addr, align 8
-  %add4 = add nsw i64 %mul3, %7
-  %8 = load i64, ptr %f.addr, align 8
-  %add5 = add nsw i64 %add4, %8
-  br label %cond.end
+18:                                               ; preds = %3
+  %19 = load i64, ptr %4, align 8, !tbaa !25
+  %20 = sub nsw i64 %19, 1
+  %21 = load i64, ptr %5, align 8, !tbaa !25
+  %22 = mul nsw i64 %20, %21
+  %23 = load i64, ptr %6, align 8, !tbaa !25
+  %24 = add nsw i64 %22, %23
+  %25 = load i64, ptr %5, align 8, !tbaa !25
+  %26 = add nsw i64 %24, %25
+  br label %27
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i64 [ %sub, %cond.true ], [ %add5, %cond.false ]
-  ret i64 %cond
+27:                                               ; preds = %18, %9
+  %28 = phi i64 [ %17, %9 ], [ %26, %18 ]
+  ret i64 %28
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i64 @_ZN4absl13time_internal4cctz6detail10differenceENS2_10minute_tagENS2_6fieldsES4_(i64 %f1.coerce0, i64 %f1.coerce1, i64 %f2.coerce0, i64 %f2.coerce1) #3 comdat {
-entry:
-  %f1 = alloca %"struct.absl::time_internal::cctz::detail::fields", align 8
-  %f2 = alloca %"struct.absl::time_internal::cctz::detail::fields", align 8
-  %agg.tmp1 = alloca %"struct.absl::time_internal::cctz::detail::fields", align 8
-  %agg.tmp2 = alloca %"struct.absl::time_internal::cctz::detail::fields", align 8
-  %0 = getelementptr inbounds { i64, i64 }, ptr %f1, i32 0, i32 0
-  store i64 %f1.coerce0, ptr %0, align 8
-  %1 = getelementptr inbounds { i64, i64 }, ptr %f1, i32 0, i32 1
-  store i64 %f1.coerce1, ptr %1, align 8
-  %2 = getelementptr inbounds { i64, i64 }, ptr %f2, i32 0, i32 0
-  store i64 %f2.coerce0, ptr %2, align 8
-  %3 = getelementptr inbounds { i64, i64 }, ptr %f2, i32 0, i32 1
-  store i64 %f2.coerce1, ptr %3, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp1, ptr align 8 %f1, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2, ptr align 8 %f2, i64 16, i1 false)
-  %4 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp1, i32 0, i32 0
-  %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp1, i32 0, i32 1
-  %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp2, i32 0, i32 0
-  %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp2, i32 0, i32 1
-  %11 = load i64, ptr %10, align 8
-  %call = call noundef i64 @_ZN4absl13time_internal4cctz6detail10differenceENS2_8hour_tagENS2_6fieldsES4_(i64 %5, i64 %7, i64 %9, i64 %11) #5
-  %mm = getelementptr inbounds %"struct.absl::time_internal::cctz::detail::fields", ptr %f1, i32 0, i32 4
-  %12 = load i8, ptr %mm, align 1
-  %conv = sext i8 %12 to i32
-  %mm3 = getelementptr inbounds %"struct.absl::time_internal::cctz::detail::fields", ptr %f2, i32 0, i32 4
-  %13 = load i8, ptr %mm3, align 1
-  %conv4 = sext i8 %13 to i32
-  %sub = sub nsw i32 %conv, %conv4
-  %conv5 = sext i32 %sub to i64
-  %call6 = call noundef i64 @_ZN4absl13time_internal4cctz6detail4impl9scale_addElll(i64 noundef %call, i64 noundef 60, i64 noundef %conv5) #5
-  ret i64 %call6
+define linkonce_odr dso_local noundef i64 @_ZN4absl13time_internal4cctz6detail10differenceENS2_10minute_tagENS2_6fieldsES4_(i64 %0, i64 %1, i64 %2, i64 %3) #3 comdat {
+  %5 = alloca %"struct.absl::time_internal::cctz::detail::fields", align 8
+  %6 = alloca %"struct.absl::time_internal::cctz::detail::fields", align 8
+  %7 = alloca %"struct.absl::time_internal::cctz::detail::fields", align 8
+  %8 = alloca %"struct.absl::time_internal::cctz::detail::fields", align 8
+  %9 = getelementptr inbounds nuw { i64, i64 }, ptr %5, i32 0, i32 0
+  store i64 %0, ptr %9, align 8
+  %10 = getelementptr inbounds nuw { i64, i64 }, ptr %5, i32 0, i32 1
+  store i64 %1, ptr %10, align 8
+  %11 = getelementptr inbounds nuw { i64, i64 }, ptr %6, i32 0, i32 0
+  store i64 %2, ptr %11, align 8
+  %12 = getelementptr inbounds nuw { i64, i64 }, ptr %6, i32 0, i32 1
+  store i64 %3, ptr %12, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %5, i64 16, i1 false), !tbaa.struct !26
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %6, i64 16, i1 false), !tbaa.struct !26
+  %13 = getelementptr inbounds nuw { i64, i64 }, ptr %7, i32 0, i32 0
+  %14 = load i64, ptr %13, align 8
+  %15 = getelementptr inbounds nuw { i64, i64 }, ptr %7, i32 0, i32 1
+  %16 = load i64, ptr %15, align 8
+  %17 = getelementptr inbounds nuw { i64, i64 }, ptr %8, i32 0, i32 0
+  %18 = load i64, ptr %17, align 8
+  %19 = getelementptr inbounds nuw { i64, i64 }, ptr %8, i32 0, i32 1
+  %20 = load i64, ptr %19, align 8
+  %21 = call noundef i64 @_ZN4absl13time_internal4cctz6detail10differenceENS2_8hour_tagENS2_6fieldsES4_(i64 %14, i64 %16, i64 %18, i64 %20) #8
+  %22 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::detail::fields", ptr %5, i32 0, i32 4
+  %23 = load i8, ptr %22, align 1, !tbaa !87
+  %24 = sext i8 %23 to i32
+  %25 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::detail::fields", ptr %6, i32 0, i32 4
+  %26 = load i8, ptr %25, align 1, !tbaa !87
+  %27 = sext i8 %26 to i32
+  %28 = sub nsw i32 %24, %27
+  %29 = sext i32 %28 to i64
+  %30 = call noundef i64 @_ZN4absl13time_internal4cctz6detail4impl9scale_addElll(i64 noundef %21, i64 noundef 60, i64 noundef %29) #8
+  ret i64 %30
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i64 @_ZN4absl13time_internal4cctz6detail10differenceENS2_8hour_tagENS2_6fieldsES4_(i64 %f1.coerce0, i64 %f1.coerce1, i64 %f2.coerce0, i64 %f2.coerce1) #3 comdat {
-entry:
-  %f1 = alloca %"struct.absl::time_internal::cctz::detail::fields", align 8
-  %f2 = alloca %"struct.absl::time_internal::cctz::detail::fields", align 8
-  %agg.tmp1 = alloca %"struct.absl::time_internal::cctz::detail::fields", align 8
-  %agg.tmp2 = alloca %"struct.absl::time_internal::cctz::detail::fields", align 8
-  %0 = getelementptr inbounds { i64, i64 }, ptr %f1, i32 0, i32 0
-  store i64 %f1.coerce0, ptr %0, align 8
-  %1 = getelementptr inbounds { i64, i64 }, ptr %f1, i32 0, i32 1
-  store i64 %f1.coerce1, ptr %1, align 8
-  %2 = getelementptr inbounds { i64, i64 }, ptr %f2, i32 0, i32 0
-  store i64 %f2.coerce0, ptr %2, align 8
-  %3 = getelementptr inbounds { i64, i64 }, ptr %f2, i32 0, i32 1
-  store i64 %f2.coerce1, ptr %3, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp1, ptr align 8 %f1, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2, ptr align 8 %f2, i64 16, i1 false)
-  %4 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp1, i32 0, i32 0
-  %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp1, i32 0, i32 1
-  %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp2, i32 0, i32 0
-  %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp2, i32 0, i32 1
-  %11 = load i64, ptr %10, align 8
-  %call = call noundef i64 @_ZN4absl13time_internal4cctz6detail10differenceENS2_7day_tagENS2_6fieldsES4_(i64 %5, i64 %7, i64 %9, i64 %11) #5
-  %hh = getelementptr inbounds %"struct.absl::time_internal::cctz::detail::fields", ptr %f1, i32 0, i32 3
-  %12 = load i8, ptr %hh, align 2
-  %conv = sext i8 %12 to i32
-  %hh3 = getelementptr inbounds %"struct.absl::time_internal::cctz::detail::fields", ptr %f2, i32 0, i32 3
-  %13 = load i8, ptr %hh3, align 2
-  %conv4 = sext i8 %13 to i32
-  %sub = sub nsw i32 %conv, %conv4
-  %conv5 = sext i32 %sub to i64
-  %call6 = call noundef i64 @_ZN4absl13time_internal4cctz6detail4impl9scale_addElll(i64 noundef %call, i64 noundef 24, i64 noundef %conv5) #5
-  ret i64 %call6
+define linkonce_odr dso_local noundef i64 @_ZN4absl13time_internal4cctz6detail10differenceENS2_8hour_tagENS2_6fieldsES4_(i64 %0, i64 %1, i64 %2, i64 %3) #3 comdat {
+  %5 = alloca %"struct.absl::time_internal::cctz::detail::fields", align 8
+  %6 = alloca %"struct.absl::time_internal::cctz::detail::fields", align 8
+  %7 = alloca %"struct.absl::time_internal::cctz::detail::fields", align 8
+  %8 = alloca %"struct.absl::time_internal::cctz::detail::fields", align 8
+  %9 = getelementptr inbounds nuw { i64, i64 }, ptr %5, i32 0, i32 0
+  store i64 %0, ptr %9, align 8
+  %10 = getelementptr inbounds nuw { i64, i64 }, ptr %5, i32 0, i32 1
+  store i64 %1, ptr %10, align 8
+  %11 = getelementptr inbounds nuw { i64, i64 }, ptr %6, i32 0, i32 0
+  store i64 %2, ptr %11, align 8
+  %12 = getelementptr inbounds nuw { i64, i64 }, ptr %6, i32 0, i32 1
+  store i64 %3, ptr %12, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %5, i64 16, i1 false), !tbaa.struct !26
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %6, i64 16, i1 false), !tbaa.struct !26
+  %13 = getelementptr inbounds nuw { i64, i64 }, ptr %7, i32 0, i32 0
+  %14 = load i64, ptr %13, align 8
+  %15 = getelementptr inbounds nuw { i64, i64 }, ptr %7, i32 0, i32 1
+  %16 = load i64, ptr %15, align 8
+  %17 = getelementptr inbounds nuw { i64, i64 }, ptr %8, i32 0, i32 0
+  %18 = load i64, ptr %17, align 8
+  %19 = getelementptr inbounds nuw { i64, i64 }, ptr %8, i32 0, i32 1
+  %20 = load i64, ptr %19, align 8
+  %21 = call noundef i64 @_ZN4absl13time_internal4cctz6detail10differenceENS2_7day_tagENS2_6fieldsES4_(i64 %14, i64 %16, i64 %18, i64 %20) #8
+  %22 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::detail::fields", ptr %5, i32 0, i32 3
+  %23 = load i8, ptr %22, align 2, !tbaa !86
+  %24 = sext i8 %23 to i32
+  %25 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::detail::fields", ptr %6, i32 0, i32 3
+  %26 = load i8, ptr %25, align 2, !tbaa !86
+  %27 = sext i8 %26 to i32
+  %28 = sub nsw i32 %24, %27
+  %29 = sext i32 %28 to i64
+  %30 = call noundef i64 @_ZN4absl13time_internal4cctz6detail4impl9scale_addElll(i64 noundef %21, i64 noundef 24, i64 noundef %29) #8
+  ret i64 %30
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i64 @_ZN4absl13time_internal4cctz6detail10differenceENS2_7day_tagENS2_6fieldsES4_(i64 %f1.coerce0, i64 %f1.coerce1, i64 %f2.coerce0, i64 %f2.coerce1) #3 comdat {
-entry:
-  %f1 = alloca %"struct.absl::time_internal::cctz::detail::fields", align 8
-  %f2 = alloca %"struct.absl::time_internal::cctz::detail::fields", align 8
-  %0 = getelementptr inbounds { i64, i64 }, ptr %f1, i32 0, i32 0
-  store i64 %f1.coerce0, ptr %0, align 8
-  %1 = getelementptr inbounds { i64, i64 }, ptr %f1, i32 0, i32 1
-  store i64 %f1.coerce1, ptr %1, align 8
-  %2 = getelementptr inbounds { i64, i64 }, ptr %f2, i32 0, i32 0
-  store i64 %f2.coerce0, ptr %2, align 8
-  %3 = getelementptr inbounds { i64, i64 }, ptr %f2, i32 0, i32 1
-  store i64 %f2.coerce1, ptr %3, align 8
-  %y = getelementptr inbounds %"struct.absl::time_internal::cctz::detail::fields", ptr %f1, i32 0, i32 0
-  %4 = load i64, ptr %y, align 8
-  %m = getelementptr inbounds %"struct.absl::time_internal::cctz::detail::fields", ptr %f1, i32 0, i32 1
-  %5 = load i8, ptr %m, align 8
-  %d = getelementptr inbounds %"struct.absl::time_internal::cctz::detail::fields", ptr %f1, i32 0, i32 2
-  %6 = load i8, ptr %d, align 1
-  %y1 = getelementptr inbounds %"struct.absl::time_internal::cctz::detail::fields", ptr %f2, i32 0, i32 0
-  %7 = load i64, ptr %y1, align 8
-  %m2 = getelementptr inbounds %"struct.absl::time_internal::cctz::detail::fields", ptr %f2, i32 0, i32 1
-  %8 = load i8, ptr %m2, align 8
-  %d3 = getelementptr inbounds %"struct.absl::time_internal::cctz::detail::fields", ptr %f2, i32 0, i32 2
-  %9 = load i8, ptr %d3, align 1
-  %call = call noundef i64 @_ZN4absl13time_internal4cctz6detail4impl14day_differenceElaalaa(i64 noundef %4, i8 noundef signext %5, i8 noundef signext %6, i64 noundef %7, i8 noundef signext %8, i8 noundef signext %9) #5
-  ret i64 %call
+define linkonce_odr dso_local noundef i64 @_ZN4absl13time_internal4cctz6detail10differenceENS2_7day_tagENS2_6fieldsES4_(i64 %0, i64 %1, i64 %2, i64 %3) #3 comdat {
+  %5 = alloca %"struct.absl::time_internal::cctz::detail::fields", align 8
+  %6 = alloca %"struct.absl::time_internal::cctz::detail::fields", align 8
+  %7 = getelementptr inbounds nuw { i64, i64 }, ptr %5, i32 0, i32 0
+  store i64 %0, ptr %7, align 8
+  %8 = getelementptr inbounds nuw { i64, i64 }, ptr %5, i32 0, i32 1
+  store i64 %1, ptr %8, align 8
+  %9 = getelementptr inbounds nuw { i64, i64 }, ptr %6, i32 0, i32 0
+  store i64 %2, ptr %9, align 8
+  %10 = getelementptr inbounds nuw { i64, i64 }, ptr %6, i32 0, i32 1
+  store i64 %3, ptr %10, align 8
+  %11 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::detail::fields", ptr %5, i32 0, i32 0
+  %12 = load i64, ptr %11, align 8, !tbaa !83
+  %13 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::detail::fields", ptr %5, i32 0, i32 1
+  %14 = load i8, ptr %13, align 8, !tbaa !84
+  %15 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::detail::fields", ptr %5, i32 0, i32 2
+  %16 = load i8, ptr %15, align 1, !tbaa !85
+  %17 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::detail::fields", ptr %6, i32 0, i32 0
+  %18 = load i64, ptr %17, align 8, !tbaa !83
+  %19 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::detail::fields", ptr %6, i32 0, i32 1
+  %20 = load i8, ptr %19, align 8, !tbaa !84
+  %21 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::detail::fields", ptr %6, i32 0, i32 2
+  %22 = load i8, ptr %21, align 1, !tbaa !85
+  %23 = call noundef i64 @_ZN4absl13time_internal4cctz6detail4impl14day_differenceElaalaa(i64 noundef %12, i8 noundef signext %14, i8 noundef signext %16, i64 noundef %18, i8 noundef signext %20, i8 noundef signext %22) #8
+  ret i64 %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i64 @_ZN4absl13time_internal4cctz6detail4impl14day_differenceElaalaa(i64 noundef %y1, i8 noundef signext %m1, i8 noundef signext %d1, i64 noundef %y2, i8 noundef signext %m2, i8 noundef signext %d2) #3 comdat {
-entry:
-  %y1.addr = alloca i64, align 8
-  %m1.addr = alloca i8, align 1
-  %d1.addr = alloca i8, align 1
-  %y2.addr = alloca i64, align 8
-  %m2.addr = alloca i8, align 1
-  %d2.addr = alloca i8, align 1
-  %a_c4_off = alloca i64, align 8
-  %b_c4_off = alloca i64, align 8
-  %c4_diff = alloca i64, align 8
-  %delta = alloca i64, align 8
-  store i64 %y1, ptr %y1.addr, align 8
-  store i8 %m1, ptr %m1.addr, align 1
-  store i8 %d1, ptr %d1.addr, align 1
-  store i64 %y2, ptr %y2.addr, align 8
-  store i8 %m2, ptr %m2.addr, align 1
-  store i8 %d2, ptr %d2.addr, align 1
-  %0 = load i64, ptr %y1.addr, align 8
-  %rem = srem i64 %0, 400
-  store i64 %rem, ptr %a_c4_off, align 8
-  %1 = load i64, ptr %y2.addr, align 8
-  %rem1 = srem i64 %1, 400
-  store i64 %rem1, ptr %b_c4_off, align 8
-  %2 = load i64, ptr %y1.addr, align 8
-  %3 = load i64, ptr %a_c4_off, align 8
-  %sub = sub nsw i64 %2, %3
-  %4 = load i64, ptr %y2.addr, align 8
-  %5 = load i64, ptr %b_c4_off, align 8
-  %sub2 = sub nsw i64 %4, %5
-  %sub3 = sub nsw i64 %sub, %sub2
-  store i64 %sub3, ptr %c4_diff, align 8
-  %6 = load i64, ptr %a_c4_off, align 8
-  %7 = load i8, ptr %m1.addr, align 1
-  %8 = load i8, ptr %d1.addr, align 1
-  %call = call noundef i64 @_ZN4absl13time_internal4cctz6detail4impl7ymd_ordElaa(i64 noundef %6, i8 noundef signext %7, i8 noundef signext %8) #5
-  %9 = load i64, ptr %b_c4_off, align 8
-  %10 = load i8, ptr %m2.addr, align 1
-  %11 = load i8, ptr %d2.addr, align 1
-  %call4 = call noundef i64 @_ZN4absl13time_internal4cctz6detail4impl7ymd_ordElaa(i64 noundef %9, i8 noundef signext %10, i8 noundef signext %11) #5
-  %sub5 = sub nsw i64 %call, %call4
-  store i64 %sub5, ptr %delta, align 8
-  %12 = load i64, ptr %c4_diff, align 8
-  %cmp = icmp sgt i64 %12, 0
-  br i1 %cmp, label %land.lhs.true, label %if.else
+define linkonce_odr dso_local noundef i64 @_ZN4absl13time_internal4cctz6detail4impl14day_differenceElaalaa(i64 noundef %0, i8 noundef signext %1, i8 noundef signext %2, i64 noundef %3, i8 noundef signext %4, i8 noundef signext %5) #3 comdat {
+  %7 = alloca i64, align 8
+  %8 = alloca i8, align 1
+  %9 = alloca i8, align 1
+  %10 = alloca i64, align 8
+  %11 = alloca i8, align 1
+  %12 = alloca i8, align 1
+  %13 = alloca i64, align 8
+  %14 = alloca i64, align 8
+  %15 = alloca i64, align 8
+  %16 = alloca i64, align 8
+  store i64 %0, ptr %7, align 8, !tbaa !25
+  store i8 %1, ptr %8, align 1, !tbaa !27
+  store i8 %2, ptr %9, align 1, !tbaa !27
+  store i64 %3, ptr %10, align 8, !tbaa !25
+  store i8 %4, ptr %11, align 1, !tbaa !27
+  store i8 %5, ptr %12, align 1, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #8
+  %17 = load i64, ptr %7, align 8, !tbaa !25
+  %18 = srem i64 %17, 400
+  store i64 %18, ptr %13, align 8, !tbaa !25
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #8
+  %19 = load i64, ptr %10, align 8, !tbaa !25
+  %20 = srem i64 %19, 400
+  store i64 %20, ptr %14, align 8, !tbaa !25
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #8
+  %21 = load i64, ptr %7, align 8, !tbaa !25
+  %22 = load i64, ptr %13, align 8, !tbaa !25
+  %23 = sub nsw i64 %21, %22
+  %24 = load i64, ptr %10, align 8, !tbaa !25
+  %25 = load i64, ptr %14, align 8, !tbaa !25
+  %26 = sub nsw i64 %24, %25
+  %27 = sub nsw i64 %23, %26
+  store i64 %27, ptr %15, align 8, !tbaa !25
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #8
+  %28 = load i64, ptr %13, align 8, !tbaa !25
+  %29 = load i8, ptr %8, align 1, !tbaa !27
+  %30 = load i8, ptr %9, align 1, !tbaa !27
+  %31 = call noundef i64 @_ZN4absl13time_internal4cctz6detail4impl7ymd_ordElaa(i64 noundef %28, i8 noundef signext %29, i8 noundef signext %30) #8
+  %32 = load i64, ptr %14, align 8, !tbaa !25
+  %33 = load i8, ptr %11, align 1, !tbaa !27
+  %34 = load i8, ptr %12, align 1, !tbaa !27
+  %35 = call noundef i64 @_ZN4absl13time_internal4cctz6detail4impl7ymd_ordElaa(i64 noundef %32, i8 noundef signext %33, i8 noundef signext %34) #8
+  %36 = sub nsw i64 %31, %35
+  store i64 %36, ptr %16, align 8, !tbaa !25
+  %37 = load i64, ptr %15, align 8, !tbaa !25
+  %38 = icmp sgt i64 %37, 0
+  br i1 %38, label %39, label %47
 
-land.lhs.true:                                    ; preds = %entry
-  %13 = load i64, ptr %delta, align 8
-  %cmp6 = icmp slt i64 %13, 0
-  br i1 %cmp6, label %if.then, label %if.else
+39:                                               ; preds = %6
+  %40 = load i64, ptr %16, align 8, !tbaa !25
+  %41 = icmp slt i64 %40, 0
+  br i1 %41, label %42, label %47
 
-if.then:                                          ; preds = %land.lhs.true
-  %14 = load i64, ptr %delta, align 8
-  %add = add nsw i64 %14, 292194
-  store i64 %add, ptr %delta, align 8
-  %15 = load i64, ptr %c4_diff, align 8
-  %sub7 = sub nsw i64 %15, 800
-  store i64 %sub7, ptr %c4_diff, align 8
-  br label %if.end14
+42:                                               ; preds = %39
+  %43 = load i64, ptr %16, align 8, !tbaa !25
+  %44 = add nsw i64 %43, 292194
+  store i64 %44, ptr %16, align 8, !tbaa !25
+  %45 = load i64, ptr %15, align 8, !tbaa !25
+  %46 = sub nsw i64 %45, 800
+  store i64 %46, ptr %15, align 8, !tbaa !25
+  br label %59
 
-if.else:                                          ; preds = %land.lhs.true, %entry
-  %16 = load i64, ptr %c4_diff, align 8
-  %cmp8 = icmp slt i64 %16, 0
-  br i1 %cmp8, label %land.lhs.true9, label %if.end
+47:                                               ; preds = %39, %6
+  %48 = load i64, ptr %15, align 8, !tbaa !25
+  %49 = icmp slt i64 %48, 0
+  br i1 %49, label %50, label %58
 
-land.lhs.true9:                                   ; preds = %if.else
-  %17 = load i64, ptr %delta, align 8
-  %cmp10 = icmp sgt i64 %17, 0
-  br i1 %cmp10, label %if.then11, label %if.end
+50:                                               ; preds = %47
+  %51 = load i64, ptr %16, align 8, !tbaa !25
+  %52 = icmp sgt i64 %51, 0
+  br i1 %52, label %53, label %58
 
-if.then11:                                        ; preds = %land.lhs.true9
-  %18 = load i64, ptr %delta, align 8
-  %sub12 = sub nsw i64 %18, 292194
-  store i64 %sub12, ptr %delta, align 8
-  %19 = load i64, ptr %c4_diff, align 8
-  %add13 = add nsw i64 %19, 800
-  store i64 %add13, ptr %c4_diff, align 8
-  br label %if.end
+53:                                               ; preds = %50
+  %54 = load i64, ptr %16, align 8, !tbaa !25
+  %55 = sub nsw i64 %54, 292194
+  store i64 %55, ptr %16, align 8, !tbaa !25
+  %56 = load i64, ptr %15, align 8, !tbaa !25
+  %57 = add nsw i64 %56, 800
+  store i64 %57, ptr %15, align 8, !tbaa !25
+  br label %58
 
-if.end:                                           ; preds = %if.then11, %land.lhs.true9, %if.else
-  br label %if.end14
+58:                                               ; preds = %53, %50, %47
+  br label %59
 
-if.end14:                                         ; preds = %if.end, %if.then
-  %20 = load i64, ptr %c4_diff, align 8
-  %div = sdiv i64 %20, 400
-  %mul = mul nsw i64 %div, 146097
-  %21 = load i64, ptr %delta, align 8
-  %add15 = add nsw i64 %mul, %21
-  ret i64 %add15
+59:                                               ; preds = %58, %42
+  %60 = load i64, ptr %15, align 8, !tbaa !25
+  %61 = sdiv i64 %60, 400
+  %62 = mul nsw i64 %61, 146097
+  %63 = load i64, ptr %16, align 8, !tbaa !25
+  %64 = add nsw i64 %62, %63
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #8
+  ret i64 %64
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i64 @_ZN4absl13time_internal4cctz6detail4impl7ymd_ordElaa(i64 noundef %y, i8 noundef signext %m, i8 noundef signext %d) #3 comdat {
-entry:
-  %y.addr = alloca i64, align 8
-  %m.addr = alloca i8, align 1
-  %d.addr = alloca i8, align 1
-  %eyear = alloca i64, align 8
-  %era = alloca i64, align 8
-  %yoe = alloca i64, align 8
-  %doy = alloca i64, align 8
-  %doe = alloca i64, align 8
-  store i64 %y, ptr %y.addr, align 8
-  store i8 %m, ptr %m.addr, align 1
-  store i8 %d, ptr %d.addr, align 1
-  %0 = load i8, ptr %m.addr, align 1
-  %conv = sext i8 %0 to i32
-  %cmp = icmp sle i32 %conv, 2
-  br i1 %cmp, label %cond.true, label %cond.false
+define linkonce_odr dso_local noundef i64 @_ZN4absl13time_internal4cctz6detail4impl7ymd_ordElaa(i64 noundef %0, i8 noundef signext %1, i8 noundef signext %2) #3 comdat {
+  %4 = alloca i64, align 8
+  %5 = alloca i8, align 1
+  %6 = alloca i8, align 1
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i64, align 8
+  store i64 %0, ptr %4, align 8, !tbaa !25
+  store i8 %1, ptr %5, align 1, !tbaa !27
+  store i8 %2, ptr %6, align 1, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
+  %12 = load i8, ptr %5, align 1, !tbaa !27
+  %13 = sext i8 %12 to i32
+  %14 = icmp sle i32 %13, 2
+  br i1 %14, label %15, label %18
 
-cond.true:                                        ; preds = %entry
-  %1 = load i64, ptr %y.addr, align 8
-  %sub = sub nsw i64 %1, 1
-  br label %cond.end
+15:                                               ; preds = %3
+  %16 = load i64, ptr %4, align 8, !tbaa !25
+  %17 = sub nsw i64 %16, 1
+  br label %20
 
-cond.false:                                       ; preds = %entry
-  %2 = load i64, ptr %y.addr, align 8
-  br label %cond.end
+18:                                               ; preds = %3
+  %19 = load i64, ptr %4, align 8, !tbaa !25
+  br label %20
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i64 [ %sub, %cond.true ], [ %2, %cond.false ]
-  store i64 %cond, ptr %eyear, align 8
-  %3 = load i64, ptr %eyear, align 8
-  %cmp1 = icmp sge i64 %3, 0
-  br i1 %cmp1, label %cond.true2, label %cond.false3
+20:                                               ; preds = %18, %15
+  %21 = phi i64 [ %17, %15 ], [ %19, %18 ]
+  store i64 %21, ptr %7, align 8, !tbaa !25
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #8
+  %22 = load i64, ptr %7, align 8, !tbaa !25
+  %23 = icmp sge i64 %22, 0
+  br i1 %23, label %24, label %26
 
-cond.true2:                                       ; preds = %cond.end
-  %4 = load i64, ptr %eyear, align 8
-  br label %cond.end5
+24:                                               ; preds = %20
+  %25 = load i64, ptr %7, align 8, !tbaa !25
+  br label %29
 
-cond.false3:                                      ; preds = %cond.end
-  %5 = load i64, ptr %eyear, align 8
-  %sub4 = sub nsw i64 %5, 399
-  br label %cond.end5
+26:                                               ; preds = %20
+  %27 = load i64, ptr %7, align 8, !tbaa !25
+  %28 = sub nsw i64 %27, 399
+  br label %29
 
-cond.end5:                                        ; preds = %cond.false3, %cond.true2
-  %cond6 = phi i64 [ %4, %cond.true2 ], [ %sub4, %cond.false3 ]
-  %div = sdiv i64 %cond6, 400
-  store i64 %div, ptr %era, align 8
-  %6 = load i64, ptr %eyear, align 8
-  %7 = load i64, ptr %era, align 8
-  %mul = mul nsw i64 %7, 400
-  %sub7 = sub nsw i64 %6, %mul
-  store i64 %sub7, ptr %yoe, align 8
-  %8 = load i8, ptr %m.addr, align 1
-  %conv8 = sext i8 %8 to i32
-  %9 = load i8, ptr %m.addr, align 1
-  %conv9 = sext i8 %9 to i32
-  %cmp10 = icmp sgt i32 %conv9, 2
-  %cond11 = select i1 %cmp10, i32 -3, i32 9
-  %add = add nsw i32 %conv8, %cond11
-  %mul12 = mul nsw i32 153, %add
-  %add13 = add nsw i32 %mul12, 2
-  %div14 = sdiv i32 %add13, 5
-  %10 = load i8, ptr %d.addr, align 1
-  %conv15 = sext i8 %10 to i32
-  %add16 = add nsw i32 %div14, %conv15
-  %sub17 = sub nsw i32 %add16, 1
-  %conv18 = sext i32 %sub17 to i64
-  store i64 %conv18, ptr %doy, align 8
-  %11 = load i64, ptr %yoe, align 8
-  %mul19 = mul nsw i64 %11, 365
-  %12 = load i64, ptr %yoe, align 8
-  %div20 = sdiv i64 %12, 4
-  %add21 = add nsw i64 %mul19, %div20
-  %13 = load i64, ptr %yoe, align 8
-  %div22 = sdiv i64 %13, 100
-  %sub23 = sub nsw i64 %add21, %div22
-  %14 = load i64, ptr %doy, align 8
-  %add24 = add nsw i64 %sub23, %14
-  store i64 %add24, ptr %doe, align 8
-  %15 = load i64, ptr %era, align 8
-  %mul25 = mul nsw i64 %15, 146097
-  %16 = load i64, ptr %doe, align 8
-  %add26 = add nsw i64 %mul25, %16
-  %sub27 = sub nsw i64 %add26, 719468
-  ret i64 %sub27
+29:                                               ; preds = %26, %24
+  %30 = phi i64 [ %25, %24 ], [ %28, %26 ]
+  %31 = sdiv i64 %30, 400
+  store i64 %31, ptr %8, align 8, !tbaa !25
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #8
+  %32 = load i64, ptr %7, align 8, !tbaa !25
+  %33 = load i64, ptr %8, align 8, !tbaa !25
+  %34 = mul nsw i64 %33, 400
+  %35 = sub nsw i64 %32, %34
+  store i64 %35, ptr %9, align 8, !tbaa !25
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #8
+  %36 = load i8, ptr %5, align 1, !tbaa !27
+  %37 = sext i8 %36 to i32
+  %38 = load i8, ptr %5, align 1, !tbaa !27
+  %39 = sext i8 %38 to i32
+  %40 = icmp sgt i32 %39, 2
+  %41 = select i1 %40, i32 -3, i32 9
+  %42 = add nsw i32 %37, %41
+  %43 = mul nsw i32 153, %42
+  %44 = add nsw i32 %43, 2
+  %45 = sdiv i32 %44, 5
+  %46 = load i8, ptr %6, align 1, !tbaa !27
+  %47 = sext i8 %46 to i32
+  %48 = add nsw i32 %45, %47
+  %49 = sub nsw i32 %48, 1
+  %50 = sext i32 %49 to i64
+  store i64 %50, ptr %10, align 8, !tbaa !25
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #8
+  %51 = load i64, ptr %9, align 8, !tbaa !25
+  %52 = mul nsw i64 %51, 365
+  %53 = load i64, ptr %9, align 8, !tbaa !25
+  %54 = sdiv i64 %53, 4
+  %55 = add nsw i64 %52, %54
+  %56 = load i64, ptr %9, align 8, !tbaa !25
+  %57 = sdiv i64 %56, 100
+  %58 = sub nsw i64 %55, %57
+  %59 = load i64, ptr %10, align 8, !tbaa !25
+  %60 = add nsw i64 %58, %59
+  store i64 %60, ptr %11, align 8, !tbaa !25
+  %61 = load i64, ptr %8, align 8, !tbaa !25
+  %62 = mul nsw i64 %61, 146097
+  %63 = load i64, ptr %11, align 8, !tbaa !25
+  %64 = add nsw i64 %62, %63
+  %65 = sub nsw i64 %64, 719468
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
+  ret i64 %65
 }
 
 ; Function Attrs: nounwind
-declare i64 @mktime(ptr noundef) #6
+declare i64 @mktime(ptr noundef) #9
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZNSt15__uniq_ptr_dataIN4absl13time_internal4cctz12TimeZoneLibCESt14default_deleteIS3_ELb1ELb1EECI2St15__uniq_ptr_implIS3_S5_EEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %0) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %0, ptr %.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %1 = load ptr, ptr %.addr, align 8
-  call void @_ZNSt15__uniq_ptr_implIN4absl13time_internal4cctz12TimeZoneLibCESt14default_deleteIS3_EEC2EPS3_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef %1)
+; Function Attrs: nounwind
+declare void @_ZN4absl13time_internal4cctz10TimeZoneIfD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #9
+
+; Function Attrs: nounwind
+declare void @_ZN4absl13time_internal4cctz10TimeZoneIfD0Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #9
+
+declare void @__cxa_pure_virtual() unnamed_addr
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZNSt15__new_allocatorIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #3 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !98
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZNSt15__uniq_ptr_dataIN4absl13time_internal4cctz12TimeZoneLibCESt14default_deleteIS3_ELb1ELb1EECI2St15__uniq_ptr_implIS3_S5_EEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #6 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !100
+  store ptr %1, ptr %4, align 8, !tbaa !11
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !11
+  call void @_ZNSt15__uniq_ptr_implIN4absl13time_internal4cctz12TimeZoneLibCESt14default_deleteIS3_EEC2EPS3_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %6)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZNSt15__uniq_ptr_implIN4absl13time_internal4cctz12TimeZoneLibCESt14default_deleteIS3_EEC2EPS3_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %__p) unnamed_addr #3 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__p.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__p, ptr %__p.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_t = getelementptr inbounds %"class.std::__uniq_ptr_impl", ptr %this1, i32 0, i32 0
-  call void @_ZNSt5tupleIJPN4absl13time_internal4cctz12TimeZoneLibCESt14default_deleteIS3_EEEC2ILb1ETnNSt9enable_ifIXclsr17_TupleConstraintsIXT_ES4_S6_EE37__is_implicitly_default_constructibleEEbE4typeELb1EEEv(ptr noundef nonnull align 8 dereferenceable(8) %_M_t) #5
-  %0 = load ptr, ptr %__p.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIN4absl13time_internal4cctz12TimeZoneLibCESt14default_deleteIS3_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %this1) #5
-  store ptr %0, ptr %call, align 8
+define linkonce_odr dso_local void @_ZNSt15__uniq_ptr_implIN4absl13time_internal4cctz12TimeZoneLibCESt14default_deleteIS3_EEC2EPS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !102
+  store ptr %1, ptr %4, align 8, !tbaa !11
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.std::__uniq_ptr_impl", ptr %5, i32 0, i32 0
+  call void @_ZNSt5tupleIJPN4absl13time_internal4cctz12TimeZoneLibCESt14default_deleteIS3_EEEC2ILb1ETnNSt9enable_ifIXclsr17_TupleConstraintsIXT_ES4_S6_EE37__is_implicitly_default_constructibleEEbE4typeELb1EEEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #8
+  %7 = load ptr, ptr %4, align 8, !tbaa !11
+  %8 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIN4absl13time_internal4cctz12TimeZoneLibCESt14default_deleteIS3_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #8
+  store ptr %7, ptr %8, align 8, !tbaa !11
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZNSt5tupleIJPN4absl13time_internal4cctz12TimeZoneLibCESt14default_deleteIS3_EEEC2ILb1ETnNSt9enable_ifIXclsr17_TupleConstraintsIXT_ES4_S6_EE37__is_implicitly_default_constructibleEEbE4typeELb1EEEv(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  invoke void @_ZNSt11_Tuple_implILm0EJPN4absl13time_internal4cctz12TimeZoneLibCESt14default_deleteIS3_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-          to label %invoke.cont unwind label %terminate.lpad
+define linkonce_odr dso_local void @_ZNSt5tupleIJPN4absl13time_internal4cctz12TimeZoneLibCESt14default_deleteIS3_EEEC2ILb1ETnNSt9enable_ifIXclsr17_TupleConstraintsIXT_ES4_S6_EE37__is_implicitly_default_constructibleEEbE4typeELb1EEEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !104
+  %3 = load ptr, ptr %2, align 8
+  invoke void @_ZNSt11_Tuple_implILm0EJPN4absl13time_internal4cctz12TimeZoneLibCESt14default_deleteIS3_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
+          to label %4 unwind label %5
 
-invoke.cont:                                      ; preds = %entry
+4:                                                ; preds = %1
   ret void
 
-terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+5:                                                ; preds = %1
+  %6 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #12
+  %7 = extractvalue { ptr, i32 } %6, 0
+  call void @__clang_call_terminate(ptr %7) #16
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIN4absl13time_internal4cctz12TimeZoneLibCESt14default_deleteIS3_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #3 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_t = getelementptr inbounds %"class.std::__uniq_ptr_impl", ptr %this1, i32 0, i32 0
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJPN4absl13time_internal4cctz12TimeZoneLibCESt14default_deleteIS3_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERSB_(ptr noundef nonnull align 8 dereferenceable(8) %_M_t) #5
-  ret ptr %call
+define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIN4absl13time_internal4cctz12TimeZoneLibCESt14default_deleteIS3_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #3 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !102
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__uniq_ptr_impl", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJPN4absl13time_internal4cctz12TimeZoneLibCESt14default_deleteIS3_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERSB_(ptr noundef nonnull align 8 dereferenceable(8) %4) #8
+  ret ptr %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZNSt11_Tuple_implILm0EJPN4absl13time_internal4cctz12TimeZoneLibCESt14default_deleteIS3_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZNSt11_Tuple_implILm1EJSt14default_deleteIN4absl13time_internal4cctz12TimeZoneLibCEEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this1)
-  call void @_ZNSt10_Head_baseILm0EPN4absl13time_internal4cctz12TimeZoneLibCELb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
+define linkonce_odr dso_local void @_ZNSt11_Tuple_implILm0EJPN4absl13time_internal4cctz12TimeZoneLibCESt14default_deleteIS3_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !106
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt11_Tuple_implILm1EJSt14default_deleteIN4absl13time_internal4cctz12TimeZoneLibCEEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3)
+  call void @_ZNSt10_Head_baseILm0EPN4absl13time_internal4cctz12TimeZoneLibCELb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZNSt11_Tuple_implILm1EJSt14default_deleteIN4absl13time_internal4cctz12TimeZoneLibCEEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZNSt10_Head_baseILm1ESt14default_deleteIN4absl13time_internal4cctz12TimeZoneLibCEELb1EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this1)
+define linkonce_odr dso_local void @_ZNSt11_Tuple_implILm1EJSt14default_deleteIN4absl13time_internal4cctz12TimeZoneLibCEEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !108
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt10_Head_baseILm1ESt14default_deleteIN4absl13time_internal4cctz12TimeZoneLibCEELb1EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZNSt10_Head_baseILm0EPN4absl13time_internal4cctz12TimeZoneLibCELb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #3 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_head_impl = getelementptr inbounds %"struct.std::_Head_base.1", ptr %this1, i32 0, i32 0
-  store ptr null, ptr %_M_head_impl, align 8
+define linkonce_odr dso_local void @_ZNSt10_Head_baseILm0EPN4absl13time_internal4cctz12TimeZoneLibCELb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #3 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !110
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Head_base.1", ptr %3, i32 0, i32 0
+  store ptr null, ptr %4, align 8, !tbaa !112
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZNSt10_Head_baseILm1ESt14default_deleteIN4absl13time_internal4cctz12TimeZoneLibCEELb1EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) unnamed_addr #3 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
+define linkonce_odr dso_local void @_ZNSt10_Head_baseILm1ESt14default_deleteIN4absl13time_internal4cctz12TimeZoneLibCEELb1EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #3 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !114
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJPN4absl13time_internal4cctz12TimeZoneLibCESt14default_deleteIS3_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERSB_(ptr noundef nonnull align 8 dereferenceable(8) %__t) #3 comdat {
-entry:
-  %__t.addr = alloca ptr, align 8
-  store ptr %__t, ptr %__t.addr, align 8
-  %0 = load ptr, ptr %__t.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EPN4absl13time_internal4cctz12TimeZoneLibCEJSt14default_deleteIS3_EEERT0_RSt11_Tuple_implIXT_EJS7_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0) #5
-  ret ptr %call
+define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJPN4absl13time_internal4cctz12TimeZoneLibCESt14default_deleteIS3_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERSB_(ptr noundef nonnull align 8 dereferenceable(8) %0) #3 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !104
+  %3 = load ptr, ptr %2, align 8, !tbaa !104
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EPN4absl13time_internal4cctz12TimeZoneLibCEJSt14default_deleteIS3_EEERT0_RSt11_Tuple_implIXT_EJS7_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %3) #8
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EPN4absl13time_internal4cctz12TimeZoneLibCEJSt14default_deleteIS3_EEERT0_RSt11_Tuple_implIXT_EJS7_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %__t) #3 comdat {
-entry:
-  %__t.addr = alloca ptr, align 8
-  store ptr %__t, ptr %__t.addr, align 8
-  %0 = load ptr, ptr %__t.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJPN4absl13time_internal4cctz12TimeZoneLibCESt14default_deleteIS3_EEE7_M_headERS7_(ptr noundef nonnull align 8 dereferenceable(8) %0) #5
-  ret ptr %call
+define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EPN4absl13time_internal4cctz12TimeZoneLibCEJSt14default_deleteIS3_EEERT0_RSt11_Tuple_implIXT_EJS7_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0) #3 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !106
+  %3 = load ptr, ptr %2, align 8, !tbaa !106
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJPN4absl13time_internal4cctz12TimeZoneLibCESt14default_deleteIS3_EEE7_M_headERS7_(ptr noundef nonnull align 8 dereferenceable(8) %3) #8
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJPN4absl13time_internal4cctz12TimeZoneLibCESt14default_deleteIS3_EEE7_M_headERS7_(ptr noundef nonnull align 8 dereferenceable(8) %__t) #3 comdat align 2 {
-entry:
-  %__t.addr = alloca ptr, align 8
-  store ptr %__t, ptr %__t.addr, align 8
-  %0 = load ptr, ptr %__t.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EPN4absl13time_internal4cctz12TimeZoneLibCELb0EE7_M_headERS5_(ptr noundef nonnull align 8 dereferenceable(8) %0) #5
-  ret ptr %call
+define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJPN4absl13time_internal4cctz12TimeZoneLibCESt14default_deleteIS3_EEE7_M_headERS7_(ptr noundef nonnull align 8 dereferenceable(8) %0) #3 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !106
+  %3 = load ptr, ptr %2, align 8, !tbaa !106
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EPN4absl13time_internal4cctz12TimeZoneLibCELb0EE7_M_headERS5_(ptr noundef nonnull align 8 dereferenceable(8) %3) #8
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EPN4absl13time_internal4cctz12TimeZoneLibCELb0EE7_M_headERS5_(ptr noundef nonnull align 8 dereferenceable(8) %__b) #3 comdat align 2 {
-entry:
-  %__b.addr = alloca ptr, align 8
-  store ptr %__b, ptr %__b.addr, align 8
-  %0 = load ptr, ptr %__b.addr, align 8
-  %_M_head_impl = getelementptr inbounds %"struct.std::_Head_base.1", ptr %0, i32 0, i32 0
-  ret ptr %_M_head_impl
+define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EPN4absl13time_internal4cctz12TimeZoneLibCELb0EE7_M_headERS5_(ptr noundef nonnull align 8 dereferenceable(8) %0) #3 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !110
+  %3 = load ptr, ptr %2, align 8, !tbaa !110
+  %4 = getelementptr inbounds nuw %"struct.std::_Head_base.1", ptr %3, i32 0, i32 0
+  ret ptr %4
 }
 
-declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32)) #8
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #3 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 2
+  %5 = getelementptr inbounds [16 x i8], ptr %4, i64 0, i64 0
+  %6 = call noundef ptr @_ZNSt19__ptr_traits_ptr_toIPccLb0EE10pointer_toERc(ptr noundef nonnull align 1 dereferenceable(1) %5) #8
+  ret ptr %6
+}
 
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #8
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC2EPcOS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #3 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !116
+  store ptr %1, ptr %5, align 8, !tbaa !67
+  store ptr %2, ptr %6, align 8, !tbaa !65
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %6, align 8, !tbaa !65
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 1 dereferenceable(1) %8) #8
+  %9 = getelementptr inbounds nuw %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", ptr %7, i32 0, i32 0
+  %10 = load ptr, ptr %5, align 8, !tbaa !67
+  store ptr %10, ptr %9, align 8, !tbaa !118
+  ret void
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define available_externally noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_M_use_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #11 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca i8, align 1
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store i64 %1, ptr %4, align 8, !tbaa !25
+  %6 = load ptr, ptr %3, align 8
+  %7 = load i64, ptr %4, align 8, !tbaa !25
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef %7)
+  %8 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6)
+  %9 = load i64, ptr %4, align 8, !tbaa !25
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 %9
+  call void @llvm.lifetime.start.p0(i64 1, ptr %5) #8
+  store i8 0, ptr %5, align 1, !tbaa !27
+  call void @_ZNSt11char_traitsIcE6assignERcRKc(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 1 dereferenceable(1) %5) #8
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef ptr @_ZNSt19__ptr_traits_ptr_toIPccLb0EE10pointer_toERc(ptr noundef nonnull align 1 dereferenceable(1) %0) #3 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !67
+  %3 = load ptr, ptr %2, align 8, !tbaa !67
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #3 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !65
+  store ptr %1, ptr %4, align 8, !tbaa !65
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !65
+  call void @_ZNSt15__new_allocatorIcEC2ERKS0_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZNSt15__new_allocatorIcEC2ERKS0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #3 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !98
+  store ptr %1, ptr %4, align 8, !tbaa !98
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) #3 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store i64 %1, ptr %4, align 8, !tbaa !25
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8, !tbaa !25
+  %7 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %5, i32 0, i32 1
+  store i64 %6, ptr %7, align 8, !tbaa !120
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZNSt11char_traitsIcE6assignERcRKc(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #3 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !67
+  store ptr %1, ptr %4, align 8, !tbaa !67
+  %5 = load ptr, ptr %4, align 8, !tbaa !67
+  %6 = load i8, ptr %5, align 1, !tbaa !27
+  %7 = load ptr, ptr %3, align 8, !tbaa !67
+  store i8 %6, ptr %7, align 1, !tbaa !27
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #3 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8, !tbaa !122
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC2EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #3 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !116
+  store ptr %1, ptr %5, align 8, !tbaa !67
+  store ptr %2, ptr %6, align 8, !tbaa !65
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %6, align 8, !tbaa !65
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 1 dereferenceable(1) %8) #8
+  %9 = getelementptr inbounds nuw %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", ptr %7, i32 0, i32 0
+  %10 = load ptr, ptr %5, align 8, !tbaa !67
+  store ptr %10, ptr %9, align 8, !tbaa !118
+  ret void
+}
 
 ; Function Attrs: noreturn
-declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) #9
+declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) #12
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %__s) #3 comdat align 2 {
-entry:
-  %__s.addr = alloca ptr, align 8
-  store ptr %__s, ptr %__s.addr, align 8
-  %0 = load ptr, ptr %__s.addr, align 8
-  %call = call i64 @strlen(ptr noundef %0) #5
-  ret i64 %call
+define linkonce_odr dso_local noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %0) #3 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !67
+  %3 = load ptr, ptr %2, align 8, !tbaa !67
+  %4 = call i64 @strlen(ptr noundef %3) #8
+  ret i64 %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %__beg, ptr noundef %__end) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr.i = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  %__beg.addr = alloca ptr, align 8
-  %__end.addr = alloca ptr, align 8
-  %__dnew = alloca i64, align 8
-  %__guard = alloca %struct._Guard, align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__beg, ptr %__beg.addr, align 8
-  store ptr %__end, ptr %__end.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %__beg.addr, align 8
-  %1 = load ptr, ptr %__end.addr, align 8
-  %call = call noundef i64 @_ZSt8distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_(ptr noundef %0, ptr noundef %1)
-  store i64 %call, ptr %__dnew, align 8
-  %2 = load i64, ptr %__dnew, align 8
-  %cmp = icmp ugt i64 %2, 15
-  br i1 %cmp, label %if.then, label %if.else
+define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca %struct._Guard, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !4
+  store ptr %1, ptr %5, align 8, !tbaa !67
+  store ptr %2, ptr %6, align 8, !tbaa !67
+  %11 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
+  %12 = load ptr, ptr %5, align 8, !tbaa !67
+  %13 = load ptr, ptr %6, align 8, !tbaa !67
+  %14 = call noundef i64 @_ZSt8distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_(ptr noundef %12, ptr noundef %13)
+  store i64 %14, ptr %7, align 8, !tbaa !25
+  %15 = load i64, ptr %7, align 8, !tbaa !25
+  %16 = icmp ugt i64 %15, 15
+  br i1 %16, label %17, label %20
 
-if.then:                                          ; preds = %entry
-  %call2 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef nonnull align 8 dereferenceable(8) %__dnew, i64 noundef 0)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef %call2)
-  %3 = load i64, ptr %__dnew, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEm(ptr noundef nonnull align 8 dereferenceable(32) %this1, i64 noundef %3)
-  br label %if.end
+17:                                               ; preds = %3
+  %18 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(8) %7, i64 noundef 0)
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef %18)
+  %19 = load i64, ptr %7, align 8, !tbaa !25
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEm(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef %19)
+  br label %22
 
-if.else:                                          ; preds = %entry
-  store ptr %this1, ptr %this.addr.i, align 8
-  %this1.i = load ptr, ptr %this.addr.i, align 8
-  %call.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this1.i)
-          to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_M_use_local_dataEv.exit unwind label %terminate.lpad.i
+20:                                               ; preds = %3
+  %21 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_M_use_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #8
+  br label %22
 
-terminate.lpad.i:                                 ; preds = %if.else
-  %4 = landingpad { ptr, i32 }
-          catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  call void @__clang_call_terminate(ptr %5) #12
-  unreachable
+22:                                               ; preds = %20, %17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #8
+  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %11)
+  %23 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %11)
+  %24 = load ptr, ptr %5, align 8, !tbaa !67
+  %25 = load ptr, ptr %6, align 8, !tbaa !67
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %23, ptr noundef %24, ptr noundef %25) #8
+  %26 = getelementptr inbounds nuw %struct._Guard, ptr %8, i32 0, i32 0
+  store ptr null, ptr %26, align 8, !tbaa !123
+  %27 = load i64, ptr %7, align 8, !tbaa !25
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef %27)
+          to label %28 unwind label %29
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_M_use_local_dataEv.exit: ; preds = %if.else
-  br label %if.end
-
-if.end:                                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_M_use_local_dataEv.exit, %if.then
-  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %__guard, ptr noundef %this1)
-  %call4 = invoke noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %if.end
-  %6 = load ptr, ptr %__beg.addr, align 8
-  %7 = load ptr, ptr %__end.addr, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4, ptr noundef %6, ptr noundef %7) #5
-  %_M_guarded = getelementptr inbounds %struct._Guard, ptr %__guard, i32 0, i32 0
-  store ptr null, ptr %_M_guarded, align 8
-  %8 = load i64, ptr %__dnew, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %this1, i64 noundef %8)
-          to label %invoke.cont5 unwind label %lpad
-
-invoke.cont5:                                     ; preds = %invoke.cont
-  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard) #5
+28:                                               ; preds = %22
+  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
   ret void
 
-lpad:                                             ; preds = %invoke.cont, %if.end
-  %9 = landingpad { ptr, i32 }
+29:                                               ; preds = %22
+  %30 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
-  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard) #5
-  br label %eh.resume
+  %31 = extractvalue { ptr, i32 } %30, 0
+  store ptr %31, ptr %9, align 8
+  %32 = extractvalue { ptr, i32 } %30, 1
+  store i32 %32, ptr %10, align 4
+  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
+  br label %33
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val6 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val6
+33:                                               ; preds = %29
+  %34 = load ptr, ptr %9, align 8
+  %35 = load i32, ptr %10, align 4
+  %36 = insertvalue { ptr, i32 } poison, ptr %34, 0
+  %37 = insertvalue { ptr, i32 } %36, i32 %35, 1
+  resume { ptr, i32 } %37
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #3 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this1) #5
+define linkonce_odr dso_local void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #3 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !98
   ret void
 }
 
 ; Function Attrs: nounwind
-declare i64 @strlen(ptr noundef) #6
+declare i64 @strlen(ptr noundef) #9
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i64 @_ZSt8distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_(ptr noundef %__first, ptr noundef %__last) #0 comdat {
-entry:
-  %__first.addr = alloca ptr, align 8
-  %__last.addr = alloca ptr, align 8
-  store ptr %__first, ptr %__first.addr, align 8
-  store ptr %__last, ptr %__last.addr, align 8
-  %0 = load ptr, ptr %__first.addr, align 8
-  %1 = load ptr, ptr %__last.addr, align 8
-  call void @_ZSt19__iterator_categoryIPKcENSt15iterator_traitsIT_E17iterator_categoryERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %__first.addr)
-  %call = call noundef i64 @_ZSt10__distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_St26random_access_iterator_tag(ptr noundef %0, ptr noundef %1)
-  ret i64 %call
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef i64 @_ZSt8distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_(ptr noundef %0, ptr noundef %1) #6 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !67
+  store ptr %1, ptr %4, align 8, !tbaa !67
+  %5 = load ptr, ptr %3, align 8, !tbaa !67
+  %6 = load ptr, ptr %4, align 8, !tbaa !67
+  call void @_ZSt19__iterator_categoryIPKcENSt15iterator_traitsIT_E17iterator_categoryERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %7 = call noundef i64 @_ZSt10__distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_St26random_access_iterator_tag(ptr noundef %5, ptr noundef %6)
+  ret i64 %7
 }
 
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) #8
-
-declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) #8
-
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) #8
-
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %__s) unnamed_addr #3 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__s.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__s, ptr %__s.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_guarded = getelementptr inbounds %struct._Guard, ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %__s.addr, align 8
-  store ptr %0, ptr %_M_guarded, align 8
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) #3 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !67
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !67
+  %7 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %5, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", ptr %7, i32 0, i32 0
+  store ptr %6, ptr %8, align 8, !tbaa !122
   ret void
 }
 
-; Function Attrs: nounwind
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef, ptr noundef, ptr noundef) #6
-
-declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32)) #8
-
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) #8
+declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) #13
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_guarded = getelementptr inbounds %struct._Guard, ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %_M_guarded, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %if.then, label %if.end
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) #3 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store i64 %1, ptr %4, align 8, !tbaa !25
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8, !tbaa !25
+  %7 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %5, i32 0, i32 2
+  store i64 %6, ptr %7, align 8, !tbaa !27
+  ret void
+}
 
-if.then:                                          ; preds = %entry
-  %_M_guarded2 = getelementptr inbounds %struct._Guard, ptr %this1, i32 0, i32 0
-  %1 = load ptr, ptr %_M_guarded2, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
-          to label %invoke.cont unwind label %terminate.lpad
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !125
+  store ptr %1, ptr %4, align 8, !tbaa !4
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %struct._Guard, ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !4
+  store ptr %7, ptr %6, align 8, !tbaa !123
+  ret void
+}
 
-invoke.cont:                                      ; preds = %if.then
-  br label %if.end
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #3 align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !67
+  store ptr %1, ptr %5, align 8, !tbaa !67
+  store ptr %2, ptr %6, align 8, !tbaa !67
+  %7 = load ptr, ptr %4, align 8, !tbaa !67
+  %8 = load ptr, ptr %5, align 8, !tbaa !67
+  %9 = load ptr, ptr %6, align 8, !tbaa !67
+  %10 = load ptr, ptr %5, align 8, !tbaa !67
+  %11 = ptrtoint ptr %9 to i64
+  %12 = ptrtoint ptr %10 to i64
+  %13 = sub i64 %11, %12
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm(ptr noundef %7, ptr noundef %8, i64 noundef %13)
+          to label %14 unwind label %15
 
-if.end:                                           ; preds = %invoke.cont, %entry
+14:                                               ; preds = %3
   ret void
 
-terminate.lpad:                                   ; preds = %if.then
-  %2 = landingpad { ptr, i32 }
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
           catch ptr null
-  %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #12
+  %17 = extractvalue { ptr, i32 } %16, 0
+  call void @__clang_call_terminate(ptr %17) #16
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i64 @_ZSt10__distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_St26random_access_iterator_tag(ptr noundef %__first, ptr noundef %__last) #3 comdat {
-entry:
-  %__first.addr = alloca ptr, align 8
-  %__last.addr = alloca ptr, align 8
-  store ptr %__first, ptr %__first.addr, align 8
-  store ptr %__last, ptr %__last.addr, align 8
-  %0 = load ptr, ptr %__last.addr, align 8
-  %1 = load ptr, ptr %__first.addr, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  ret i64 %sub.ptr.sub
+define linkonce_odr dso_local void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !125
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %struct._Guard, ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !123
+  %6 = icmp ne ptr %5, null
+  br i1 %6, label %7, label %11
+
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds nuw %struct._Guard, ptr %3, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !123
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32) %9)
+          to label %10 unwind label %12
+
+10:                                               ; preds = %7
+  br label %11
+
+11:                                               ; preds = %10, %1
+  ret void
+
+12:                                               ; preds = %7
+  %13 = landingpad { ptr, i32 }
+          catch ptr null
+  %14 = extractvalue { ptr, i32 } %13, 0
+  call void @__clang_call_terminate(ptr %14) #16
+  unreachable
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZSt19__iterator_categoryIPKcENSt15iterator_traitsIT_E17iterator_categoryERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0) #3 comdat {
-entry:
-  %.addr = alloca ptr, align 8
-  store ptr %0, ptr %.addr, align 8
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i64 @_ZSt10__distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_St26random_access_iterator_tag(ptr noundef %0, ptr noundef %1) #4 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !67
+  store ptr %1, ptr %4, align 8, !tbaa !67
+  %5 = load ptr, ptr %4, align 8, !tbaa !67
+  %6 = load ptr, ptr %3, align 8, !tbaa !67
+  %7 = ptrtoint ptr %5 to i64
+  %8 = ptrtoint ptr %6 to i64
+  %9 = sub i64 %7, %8
+  ret i64 %9
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZSt19__iterator_categoryIPKcENSt15iterator_traitsIT_E17iterator_categoryERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !127
   ret void
 }
 
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32)) #8
+; Function Attrs: mustprogress uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !67
+  store ptr %1, ptr %5, align 8, !tbaa !67
+  store i64 %2, ptr %6, align 8, !tbaa !25
+  %7 = load i64, ptr %6, align 8, !tbaa !25
+  %8 = icmp eq i64 %7, 1
+  br i1 %8, label %9, label %12
+
+9:                                                ; preds = %3
+  %10 = load ptr, ptr %4, align 8, !tbaa !67
+  %11 = load ptr, ptr %5, align 8, !tbaa !67
+  call void @_ZNSt11char_traitsIcE6assignERcRKc(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 1 dereferenceable(1) %11) #8
+  br label %17
+
+12:                                               ; preds = %3
+  %13 = load ptr, ptr %4, align 8, !tbaa !67
+  %14 = load ptr, ptr %5, align 8, !tbaa !67
+  %15 = load i64, ptr %6, align 8, !tbaa !25
+  %16 = call noundef ptr @_ZNSt11char_traitsIcE4copyEPcPKcm(ptr noundef %13, ptr noundef %14, i64 noundef %15)
+  br label %17
+
+17:                                               ; preds = %12, %9
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef ptr @_ZNSt11char_traitsIcE4copyEPcPKcm(ptr noundef %0, ptr noundef %1, i64 noundef %2) #3 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !67
+  store ptr %1, ptr %6, align 8, !tbaa !67
+  store i64 %2, ptr %7, align 8, !tbaa !25
+  %8 = load i64, ptr %7, align 8, !tbaa !25
+  %9 = icmp eq i64 %8, 0
+  br i1 %9, label %10, label %12
+
+10:                                               ; preds = %3
+  %11 = load ptr, ptr %5, align 8, !tbaa !67
+  store ptr %11, ptr %4, align 8
+  br label %16
+
+12:                                               ; preds = %3
+  %13 = load ptr, ptr %5, align 8, !tbaa !67
+  %14 = load ptr, ptr %6, align 8, !tbaa !67
+  %15 = load i64, ptr %7, align 8, !tbaa !25
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %13, ptr align 1 %14, i64 %15, i1 false)
+  store ptr %13, ptr %4, align 8
+  br label %16
+
+16:                                               ; preds = %12, %10
+  %17 = load ptr, ptr %4, align 8
+  ret ptr %17
+}
+
+; Function Attrs: mustprogress uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
+  br i1 %4, label %8, label %5
+
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 2
+  %7 = load i64, ptr %6, align 8, !tbaa !27
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_destroyEm(ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef %7) #8
+  br label %8
+
+8:                                                ; preds = %5, %1
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define available_externally noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #0 align 2 {
+  %2 = alloca i1, align 1
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  %4 = load ptr, ptr %3, align 8
+  %5 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4)
+  %6 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4)
+  %7 = icmp eq ptr %5, %6
+  br i1 %7, label %8, label %14
+
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %4, i32 0, i32 1
+  %10 = load i64, ptr %9, align 8, !tbaa !120
+  %11 = icmp ugt i64 %10, 15
+  br i1 %11, label %12, label %13
+
+12:                                               ; preds = %8
+  unreachable
+
+13:                                               ; preds = %8
+  store i1 true, ptr %2, align 1
+  br label %15
+
+14:                                               ; preds = %1
+  store i1 false, ptr %2, align 1
+  br label %15
+
+15:                                               ; preds = %14, %13
+  %16 = load i1, ptr %2, align 1
+  ret i1 %16
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_destroyEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) #3 align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store i64 %1, ptr %4, align 8, !tbaa !25
+  %5 = load ptr, ptr %3, align 8
+  %6 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE16_M_get_allocatorEv(ptr noundef nonnull align 8 dereferenceable(32) %5)
+          to label %7 unwind label %12
+
+7:                                                ; preds = %2
+  %8 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %5)
+  %9 = load i64, ptr %4, align 8, !tbaa !25
+  %10 = add i64 %9, 1
+  invoke void @_ZNSt16allocator_traitsISaIcEE10deallocateERS0_Pcm(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef %8, i64 noundef %10)
+          to label %11 unwind label %12
+
+11:                                               ; preds = %7
+  ret void
+
+12:                                               ; preds = %7, %2
+  %13 = landingpad { ptr, i32 }
+          catch ptr null
+  %14 = extractvalue { ptr, i32 } %13, 0
+  call void @__clang_call_terminate(ptr %14) #16
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #3 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 2
+  %5 = getelementptr inbounds [16 x i8], ptr %4, i64 0, i64 0
+  %6 = call noundef ptr @_ZNSt19__ptr_traits_ptr_toIPKcS0_Lb0EE10pointer_toERS0_(ptr noundef nonnull align 1 dereferenceable(1) %5) #8
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef ptr @_ZNSt19__ptr_traits_ptr_toIPKcS0_Lb0EE10pointer_toERS0_(ptr noundef nonnull align 1 dereferenceable(1) %0) #3 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !67
+  %3 = load ptr, ptr %2, align 8, !tbaa !67
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZNSt16allocator_traitsISaIcEE10deallocateERS0_Pcm(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !65
+  store ptr %1, ptr %5, align 8, !tbaa !67
+  store i64 %2, ptr %6, align 8, !tbaa !25
+  %7 = load ptr, ptr %4, align 8, !tbaa !65
+  %8 = load ptr, ptr %5, align 8, !tbaa !67
+  %9 = load i64, ptr %6, align 8, !tbaa !25
+  call void @_ZNSt15__new_allocatorIcE10deallocateEPcm(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, i64 noundef %9)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE16_M_get_allocatorEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #3 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZNSt15__new_allocatorIcE10deallocateEPcm(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #3 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !98
+  store ptr %1, ptr %5, align 8, !tbaa !67
+  store i64 %2, ptr %6, align 8, !tbaa !25
+  %7 = load ptr, ptr %5, align 8, !tbaa !67
+  %8 = load i64, ptr %6, align 8, !tbaa !25
+  %9 = mul i64 %8, 1
+  call void @_ZdlPvm(ptr noundef %7, i64 noundef %9) #15
+  ret void
+}
 
 ; Function Attrs: nounwind
-declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #6
+declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) #9
 
-; Function Attrs: nounwind
-declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) #6
+attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { nounwind }
+attributes #9 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { alwaysinline mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { builtin allocsize(0) }
+attributes #15 = { builtin nounwind }
+attributes #16 = { noreturn nounwind }
+attributes #17 = { noreturn }
 
-attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nounwind }
-attributes #6 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { builtin allocsize(0) }
-attributes #11 = { builtin nounwind }
-attributes #12 = { noreturn nounwind }
-attributes #13 = { noreturn }
-
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{!"branch_weights", i32 1, i32 1048575}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"p1 _ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C++ TBAA"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"p1 _ZTSSt10unique_ptrIN4absl13time_internal4cctz12TimeZoneLibCESt14default_deleteIS3_EE", !6, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"p1 _ZTSN4absl13time_internal4cctz12TimeZoneLibCE", !6, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"p1 _ZTSNSt6chrono10time_pointINS_3_V212system_clockENS_8durationIlSt5ratioILl1ELl1EEEEEE", !6, i64 0}
+!15 = !{!16, !20, i64 16}
+!16 = !{!"_ZTSN4absl13time_internal4cctz9time_zone15absolute_lookupE", !17, i64 0, !20, i64 16, !21, i64 20, !22, i64 24}
+!17 = !{!"_ZTSN4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEEE", !18, i64 0}
+!18 = !{!"_ZTSN4absl13time_internal4cctz6detail6fieldsE", !19, i64 0, !7, i64 8, !7, i64 9, !7, i64 10, !7, i64 11, !7, i64 12}
+!19 = !{!"long", !7, i64 0}
+!20 = !{!"int", !7, i64 0}
+!21 = !{!"bool", !7, i64 0}
+!22 = !{!"p1 omnipotent char", !6, i64 0}
+!23 = !{!16, !21, i64 20}
+!24 = !{!16, !22, i64 24}
+!25 = !{!19, !19, i64 0}
+!26 = !{i64 0, i64 8, !25, i64 8, i64 1, !27, i64 9, i64 1, !27, i64 10, i64 1, !27, i64 11, i64 1, !27, i64 12, i64 1, !27}
+!27 = !{!7, !7, i64 0}
+!28 = !{!29, !21, i64 8}
+!29 = !{!"_ZTSN4absl13time_internal4cctz12TimeZoneLibCE", !30, i64 0, !21, i64 8}
+!30 = !{!"_ZTSN4absl13time_internal4cctz10TimeZoneIfE"}
+!31 = !{i8 0, i8 2}
+!32 = !{}
+!33 = !{!34, !34, i64 0}
+!34 = !{!"p1 _ZTS2tm", !6, i64 0}
+!35 = !{!36, !20, i64 20}
+!36 = !{!"_ZTS2tm", !20, i64 0, !20, i64 4, !20, i64 8, !20, i64 12, !20, i64 16, !20, i64 20, !20, i64 24, !20, i64 28, !20, i64 32, !19, i64 40, !22, i64 48}
+!37 = !{!36, !20, i64 16}
+!38 = !{!36, !20, i64 12}
+!39 = !{!36, !20, i64 8}
+!40 = !{!36, !20, i64 4}
+!41 = !{!36, !20, i64 0}
+!42 = !{!36, !20, i64 32}
+!43 = !{!44, !44, i64 0}
+!44 = !{!"p1 _ZTSN4absl13time_internal4cctz9time_zone15absolute_lookupE", !6, i64 0}
+!45 = !{!46, !46, i64 0}
+!46 = !{!"p1 long", !6, i64 0}
+!47 = !{!48, !48, i64 0}
+!48 = !{!"p1 _ZTSN4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEEE", !6, i64 0}
+!49 = !{!36, !19, i64 40}
+!50 = !{!36, !22, i64 48}
+!51 = !{!"branch_weights", i32 1, i32 1048575}
+!52 = !{!53, !54, i64 0}
+!53 = !{!"_ZTSN4absl13time_internal4cctz9time_zone12civil_lookupE", !54, i64 0, !55, i64 8, !55, i64 16, !55, i64 24}
+!54 = !{!"_ZTSN4absl13time_internal4cctz9time_zone12civil_lookup10civil_kindE", !7, i64 0}
+!55 = !{!"_ZTSNSt6chrono10time_pointINS_3_V212system_clockENS_8durationIlSt5ratioILl1ELl1EEEEEE", !56, i64 0}
+!56 = !{!"_ZTSNSt6chrono8durationIlSt5ratioILl1ELl1EEEE", !19, i64 0}
+!57 = !{i64 0, i64 8, !25}
+!58 = !{!17, !19, i64 0}
+!59 = !{!20, !20, i64 0}
+!60 = distinct !{!60, !61}
+!61 = !{!"llvm.loop.mustprogress"}
+!62 = distinct !{!62, !61}
+!63 = !{!64, !64, i64 0}
+!64 = !{!"p1 _ZTSN4absl13time_internal4cctz9time_zone16civil_transitionE", !6, i64 0}
+!65 = !{!66, !66, i64 0}
+!66 = !{!"p1 _ZTSSaIcE", !6, i64 0}
+!67 = !{!22, !22, i64 0}
+!68 = !{!69, !69, i64 0}
+!69 = !{!"vtable pointer", !8, i64 0}
+!70 = !{!71, !71, i64 0}
+!71 = !{!"p1 _ZTSN4absl13time_internal4cctz10TimeZoneIfE", !6, i64 0}
+!72 = !{!73, !73, i64 0}
+!73 = !{!"p1 _ZTSNSt6chrono10time_pointINS_3_V212system_clockENS_8durationIlSt5ratioILl1ELl1000000000EEEEEE", !6, i64 0}
+!74 = !{!75, !75, i64 0}
+!75 = !{!"p1 _ZTSNSt6chrono8durationIlSt5ratioILl1ELl1EEEE", !6, i64 0}
+!76 = !{!56, !19, i64 0}
+!77 = !{!78, !78, i64 0}
+!78 = !{!"p1 _ZTSNSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEE", !6, i64 0}
+!79 = !{!80, !19, i64 0}
+!80 = !{!"_ZTSNSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEE", !19, i64 0}
+!81 = !{!82, !82, i64 0}
+!82 = !{!"p1 _ZTSN4absl13time_internal4cctz6detail6fieldsE", !6, i64 0}
+!83 = !{!18, !19, i64 0}
+!84 = !{!18, !7, i64 8}
+!85 = !{!18, !7, i64 9}
+!86 = !{!18, !7, i64 10}
+!87 = !{!18, !7, i64 11}
+!88 = !{!18, !7, i64 12}
+!89 = distinct !{!89, !61}
+!90 = distinct !{!90, !61}
+!91 = distinct !{!91, !61}
+!92 = distinct !{!92, !61}
+!93 = !{!17, !7, i64 8}
+!94 = !{!17, !7, i64 9}
+!95 = !{!17, !7, i64 10}
+!96 = !{!17, !7, i64 11}
+!97 = !{!17, !7, i64 12}
+!98 = !{!99, !99, i64 0}
+!99 = !{!"p1 _ZTSSt15__new_allocatorIcE", !6, i64 0}
+!100 = !{!101, !101, i64 0}
+!101 = !{!"p1 _ZTSSt15__uniq_ptr_dataIN4absl13time_internal4cctz12TimeZoneLibCESt14default_deleteIS3_ELb1ELb1EE", !6, i64 0}
+!102 = !{!103, !103, i64 0}
+!103 = !{!"p1 _ZTSSt15__uniq_ptr_implIN4absl13time_internal4cctz12TimeZoneLibCESt14default_deleteIS3_EE", !6, i64 0}
+!104 = !{!105, !105, i64 0}
+!105 = !{!"p1 _ZTSSt5tupleIJPN4absl13time_internal4cctz12TimeZoneLibCESt14default_deleteIS3_EEE", !6, i64 0}
+!106 = !{!107, !107, i64 0}
+!107 = !{!"p1 _ZTSSt11_Tuple_implILm0EJPN4absl13time_internal4cctz12TimeZoneLibCESt14default_deleteIS3_EEE", !6, i64 0}
+!108 = !{!109, !109, i64 0}
+!109 = !{!"p1 _ZTSSt11_Tuple_implILm1EJSt14default_deleteIN4absl13time_internal4cctz12TimeZoneLibCEEEE", !6, i64 0}
+!110 = !{!111, !111, i64 0}
+!111 = !{!"p1 _ZTSSt10_Head_baseILm0EPN4absl13time_internal4cctz12TimeZoneLibCELb0EE", !6, i64 0}
+!112 = !{!113, !12, i64 0}
+!113 = !{!"_ZTSSt10_Head_baseILm0EPN4absl13time_internal4cctz12TimeZoneLibCELb0EE", !12, i64 0}
+!114 = !{!115, !115, i64 0}
+!115 = !{!"p1 _ZTSSt10_Head_baseILm1ESt14default_deleteIN4absl13time_internal4cctz12TimeZoneLibCEELb1EE", !6, i64 0}
+!116 = !{!117, !117, i64 0}
+!117 = !{!"p1 _ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !6, i64 0}
+!118 = !{!119, !22, i64 0}
+!119 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !22, i64 0}
+!120 = !{!121, !19, i64 8}
+!121 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !119, i64 0, !19, i64 8, !7, i64 16}
+!122 = !{!121, !22, i64 0}
+!123 = !{!124, !5, i64 0}
+!124 = !{!"_ZTSZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagE6_Guard", !5, i64 0}
+!125 = !{!126, !126, i64 0}
+!126 = !{!"p1 _ZTSZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagE6_Guard", !6, i64 0}
+!127 = !{!128, !128, i64 0}
+!128 = !{!"p2 omnipotent char", !6, i64 0}

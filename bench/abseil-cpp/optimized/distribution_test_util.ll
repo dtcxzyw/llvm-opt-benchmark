@@ -1,9 +1,8 @@
 ; ModuleID = 'bench/abseil-cpp/original/distribution_test_util.ll'
 source_filename = "bench/abseil-cpp/original/distribution_test_util.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
-%"class.std::ios_base::Init" = type { i8 }
 %"struct.absl::random_internal::DistributionMoments" = type { i64, double, double, double, double }
 %"class.absl::str_format_internal::FormatArgImpl" = type { %"union.absl::str_format_internal::FormatArgImpl::Data", ptr }
 %"union.absl::str_format_internal::FormatArgImpl::Data" = type { ptr }
@@ -13,798 +12,881 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::basic_string_view" = type { i64, ptr }
 %"class.absl::AlphaNum" = type { %"class.std::basic_string_view", [32 x i8] }
 
-@_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
-@__dso_handle = external hidden global i8
 @.str = private unnamed_addr constant [45 x i8] c"mean=%f, stddev=%f, skewness=%f, kurtosis=%f\00", align 1
 @.str.1 = private unnamed_addr constant [9 x i8] c" actual=\00", align 1
 @.str.2 = private unnamed_addr constant [11 x i8] c" expected=\00", align 1
 @.str.3 = private unnamed_addr constant [6 x i8] c" err=\00", align 1
 @.str.4 = private unnamed_addr constant [146 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/abseil-cpp/abseil-cpp/absl/random/internal/distribution_test_util.cc\00", align 1
 @.str.5 = private unnamed_addr constant [3 x i8] c"%s\00", align 1
-@llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_distribution_test_util.cc, ptr null }]
-
-declare void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0
-
-; Function Attrs: nounwind
-declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
-
-; Function Attrs: nofree nounwind
-declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable
-define dso_local void @_ZN4absl15random_internal26ComputeDistributionMomentsENS_4SpanIKdEE(ptr noalias writeonly sret(%"struct.absl::random_internal::DistributionMoments") align 8 captures(none) initializes((0, 16)) %agg.result, ptr readonly captures(address) %data_points.coerce0, i64 %data_points.coerce1) local_unnamed_addr #3 {
-entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %agg.result, i8 0, i64 16, i1 false)
-  %add.ptr.i = getelementptr inbounds double, ptr %data_points.coerce0, i64 %data_points.coerce1
-  %cmp.not21 = icmp eq i64 %data_points.coerce1, 0
-  br i1 %cmp.not21, label %for.end.thread, label %for.body
+define dso_local void @_ZN4absl15random_internal26ComputeDistributionMomentsENS_4SpanIKdEE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.absl::random_internal::DistributionMoments") align 8 captures(none) initializes((0, 16)) %0, ptr readonly captures(address) %1, i64 %2) local_unnamed_addr #0 {
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 16, i1 false)
+  %4 = getelementptr inbounds nuw double, ptr %1, i64 %2
+  %.not29 = icmp eq i64 %2, 0
+  br i1 %.not29, label %.thread, label %.lr.ph
 
-for.end.thread:                                   ; preds = %entry
-  %mean330 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  store double 0x7FF8000000000000, ptr %mean330, align 8
-  br label %for.end20
+.thread:                                          ; preds = %3
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store double 0x7FF8000000000000, ptr %5, align 8, !tbaa !4
+  br label %._crit_edge37
 
-for.body:                                         ; preds = %entry, %for.body
-  %0 = phi double [ %add, %for.body ], [ 0.000000e+00, %entry ]
-  %__begin2.022 = phi ptr [ %incdec.ptr, %for.body ], [ %data_points.coerce0, %entry ]
-  %1 = phi i64 [ %inc, %for.body ], [ 0, %entry ]
-  %2 = load double, ptr %__begin2.022, align 8
-  %inc = add i64 %1, 1
-  %add = fadd double %2, %0
-  %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin2.022, i64 8
-  %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
-  br i1 %cmp.not, label %for.end, label %for.body
+6:                                                ; preds = %.lr.ph
+  store i64 %13, ptr %0, align 8
+  %7 = uitofp nneg i64 %13 to double
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %9 = fdiv double %14, %7
+  store double %9, ptr %8, align 8, !tbaa !4
+  br label %.lr.ph36
 
-for.end:                                          ; preds = %for.body
-  store i64 %inc, ptr %agg.result, align 8
-  %conv = uitofp i64 %inc to double
-  %mean3 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  %div = fdiv double %add, %conv
-  store double %div, ptr %mean3, align 8
-  br label %for.body11
+.lr.ph:                                           ; preds = %3, %.lr.ph
+  %10 = phi double [ %14, %.lr.ph ], [ 0.000000e+00, %3 ]
+  %.030 = phi ptr [ %15, %.lr.ph ], [ %1, %3 ]
+  %11 = phi i64 [ %13, %.lr.ph ], [ 0, %3 ]
+  %12 = load double, ptr %.030, align 8, !tbaa !10
+  %13 = add nuw nsw i64 %11, 1
+  %14 = fadd double %12, %10
+  %15 = getelementptr inbounds nuw i8, ptr %.030, i64 8
+  %.not = icmp eq ptr %15, %4
+  br i1 %.not, label %6, label %.lr.ph
 
-for.body11:                                       ; preds = %for.end, %for.body11
-  %3 = phi double [ %9, %for.body11 ], [ 0.000000e+00, %for.end ]
-  %4 = phi double [ %8, %for.body11 ], [ 0.000000e+00, %for.end ]
-  %5 = phi double [ %7, %for.body11 ], [ 0.000000e+00, %for.end ]
-  %__begin25.024 = phi ptr [ %incdec.ptr19, %for.body11 ], [ %data_points.coerce0, %for.end ]
-  %6 = load double, ptr %__begin25.024, align 8
-  %sub = fsub double %6, %div
-  %7 = tail call double @llvm.fmuladd.f64(double %sub, double %sub, double %5)
-  %mul = fmul double %sub, %sub
-  %8 = tail call double @llvm.fmuladd.f64(double %mul, double %sub, double %4)
-  %mul16 = fmul double %sub, %mul
-  %9 = tail call double @llvm.fmuladd.f64(double %mul16, double %sub, double %3)
-  %incdec.ptr19 = getelementptr inbounds nuw i8, ptr %__begin25.024, i64 8
-  %cmp10.not = icmp eq ptr %incdec.ptr19, %add.ptr.i
-  br i1 %cmp10.not, label %for.end20.loopexit, label %for.body11
+._crit_edge37.loopexit:                           ; preds = %.lr.ph36
+  %16 = uitofp nneg i64 %11 to double
+  %17 = fdiv double %35, %16
+  br label %._crit_edge37
 
-for.end20.loopexit:                               ; preds = %for.body11
-  %10 = uitofp i64 %1 to double
-  %11 = fdiv double %7, %10
-  br label %for.end20
-
-for.end20:                                        ; preds = %for.end20.loopexit, %for.end.thread
-  %conv32 = phi double [ 0.000000e+00, %for.end.thread ], [ %conv, %for.end20.loopexit ]
-  %12 = phi double [ 0.000000e+00, %for.end.thread ], [ %9, %for.end20.loopexit ]
-  %13 = phi double [ 0.000000e+00, %for.end.thread ], [ %8, %for.end20.loopexit ]
-  %div25 = phi double [ 0.000000e+00, %for.end.thread ], [ %11, %for.end20.loopexit ]
-  %variance24 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
-  store double %div25, ptr %variance24, align 8
-  %skewness28 = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
-  %div29 = fdiv double %13, %conv32
-  %call31 = tail call double @pow(double noundef %div25, double noundef 1.500000e+00) #15
-  %div33 = fdiv double %div29, %call31
-  store double %div33, ptr %skewness28, align 8
-  %kurtosis36 = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
-  %div37 = fdiv double %12, %conv32
-  %square = fmul double %div25, %div25
-  %div41 = fdiv double %div37, %square
-  store double %div41, ptr %kurtosis36, align 8
+._crit_edge37:                                    ; preds = %._crit_edge37.loopexit, %.thread
+  %18 = phi double [ 0.000000e+00, %.thread ], [ %7, %._crit_edge37.loopexit ]
+  %19 = phi double [ 0.000000e+00, %.thread ], [ %39, %._crit_edge37.loopexit ]
+  %20 = phi double [ 0.000000e+00, %.thread ], [ %37, %._crit_edge37.loopexit ]
+  %21 = phi double [ 0.000000e+00, %.thread ], [ %17, %._crit_edge37.loopexit ]
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store double %21, ptr %22, align 8, !tbaa !11
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %24 = fdiv double %20, %18
+  %25 = tail call double @pow(double noundef %21, double noundef 1.500000e+00) #15, !tbaa !12
+  %26 = fdiv double %24, %25
+  store double %26, ptr %23, align 8, !tbaa !14
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %28 = fdiv double %19, %18
+  %square = fmul double %21, %21
+  %29 = fdiv double %28, %square
+  store double %29, ptr %27, align 8, !tbaa !15
   ret void
+
+.lr.ph36:                                         ; preds = %6, %.lr.ph36
+  %30 = phi double [ %39, %.lr.ph36 ], [ 0.000000e+00, %6 ]
+  %31 = phi double [ %37, %.lr.ph36 ], [ 0.000000e+00, %6 ]
+  %32 = phi double [ %35, %.lr.ph36 ], [ 0.000000e+00, %6 ]
+  %.02334 = phi ptr [ %40, %.lr.ph36 ], [ %1, %6 ]
+  %33 = load double, ptr %.02334, align 8, !tbaa !10
+  %34 = fsub double %33, %9
+  %35 = tail call double @llvm.fmuladd.f64(double %34, double %34, double %32)
+  %36 = fmul double %34, %34
+  %37 = tail call double @llvm.fmuladd.f64(double %36, double %34, double %31)
+  %38 = fmul double %34, %36
+  %39 = tail call double @llvm.fmuladd.f64(double %38, double %34, double %30)
+  %40 = getelementptr inbounds nuw i8, ptr %.02334, i64 8
+  %.not24 = icmp eq ptr %40, %4
+  br i1 %.not24, label %._crit_edge37.loopexit, label %.lr.ph36
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #4
+declare double @llvm.fmuladd.f64(double, double, double) #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @pow(double noundef, double noundef) local_unnamed_addr #5
+declare double @pow(double noundef, double noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absl15random_internallsERSoRKNS0_19DistributionMomentsE(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %moments) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
-entry:
-  %ref.tmp.i = alloca [4 x %"class.absl::str_format_internal::FormatArgImpl"], align 8
-  %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %mean = getelementptr inbounds nuw i8, ptr %moments, i64 8
-  %variance = getelementptr inbounds nuw i8, ptr %moments, i64 16
-  %0 = load double, ptr %variance, align 8
-  %call = tail call double @sqrt(double noundef %0) #15
-  %skewness = getelementptr inbounds nuw i8, ptr %moments, i64 24
-  %kurtosis = getelementptr inbounds nuw i8, ptr %moments, i64 32
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %ref.tmp.i)
-  %retval.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %mean, align 8, !noalias !5
-  store ptr %retval.sroa.0.0.copyload.i.i.i.i, ptr %ref.tmp.i, align 8, !noalias !5
-  %dispatcher_.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
-  store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIdEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i, align 8, !noalias !5
-  %arrayinit.element.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
-  %1 = bitcast double %call to i64
-  %2 = inttoptr i64 %1 to ptr
-  store ptr %2, ptr %arrayinit.element.i, align 8, !noalias !5
-  %dispatcher_.i.i2.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 24
-  store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIdEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i2.i, align 8, !noalias !5
-  %arrayinit.element9.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 32
-  %retval.sroa.0.0.copyload.i.i.i3.i = load ptr, ptr %skewness, align 8, !noalias !5
-  store ptr %retval.sroa.0.0.copyload.i.i.i3.i, ptr %arrayinit.element9.i, align 8, !noalias !5
-  %dispatcher_.i.i4.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 40
-  store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIdEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i4.i, align 8, !noalias !5
-  %arrayinit.element10.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 48
-  %retval.sroa.0.0.copyload.i.i.i5.i = load ptr, ptr %kurtosis, align 8, !noalias !5
-  store ptr %retval.sroa.0.0.copyload.i.i.i5.i, ptr %arrayinit.element10.i, align 8, !noalias !5
-  %dispatcher_.i.i6.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 56
-  store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIdEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i6.i, align 8, !noalias !5
-  call void @_ZN4absl19str_format_internal10FormatPackB5cxx11ENS0_21UntypedFormatSpecImplENS_4SpanIKNS0_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr nonnull @.str, i64 44, ptr nonnull %ref.tmp.i, i64 4)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %ref.tmp.i)
-  %call3 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
-          to label %invoke.cont unwind label %lpad
+define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absl15random_internallsERSoRKNS0_19DistributionMomentsE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+  %3 = alloca [4 x %"class.absl::str_format_internal::FormatArgImpl"], align 8
+  %4 = alloca %"class.std::__cxx11::basic_string", align 8
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #15
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %7 = load double, ptr %6, align 8, !tbaa !11
+  %8 = tail call double @sqrt(double noundef %7) #15, !tbaa !12
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #15, !noalias !16
+  %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %5, align 8, !noalias !16
+  store ptr %.sroa.0.0.copyload.i.i.i.i, ptr %3, align 8, !tbaa !19, !noalias !16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIdEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %11, align 8, !tbaa !20, !noalias !16
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %13 = bitcast double %8 to i64
+  %14 = inttoptr i64 %13 to ptr
+  store ptr %14, ptr %12, align 8, !tbaa !19, !noalias !16
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIdEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %15, align 8, !tbaa !20, !noalias !16
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %.sroa.0.0.copyload.i.i.i8.i = load ptr, ptr %9, align 8, !noalias !16
+  store ptr %.sroa.0.0.copyload.i.i.i8.i, ptr %16, align 8, !tbaa !19, !noalias !16
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIdEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %17, align 8, !tbaa !20, !noalias !16
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %.sroa.0.0.copyload.i.i.i9.i = load ptr, ptr %10, align 8, !noalias !16
+  store ptr %.sroa.0.0.copyload.i.i.i9.i, ptr %18, align 8, !tbaa !19, !noalias !16
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIdEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %19, align 8, !tbaa !20, !noalias !16
+  call void @_ZN4absl19str_format_internal10FormatPackB5cxx11ENS0_21UntypedFormatSpecImplENS_4SpanIKNS0_13FormatArgImplEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr nonnull @.str, i64 44, ptr nonnull %3, i64 4)
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #15, !noalias !16
+  %20 = load ptr, ptr %4, align 8, !tbaa !23
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %22 = load i64, ptr %21, align 8, !tbaa !27
+  %23 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %20, i64 noundef %22)
+          to label %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit unwind label %31
 
-invoke.cont:                                      ; preds = %entry
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #15
-  ret ptr %call3
+_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit: ; preds = %2
+  %24 = load ptr, ptr %4, align 8, !tbaa !23
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %26 = icmp eq ptr %24, %25
+  br i1 %26, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
-lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit
+  %27 = load i64, ptr %21, align 8, !tbaa !27
+  %28 = icmp ult i64 %27, 16
+  call void @llvm.assume(i1 %28)
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit
+  %29 = load i64, ptr %25, align 8, !tbaa !19
+  %30 = add i64 %29, 1
+  call void @_ZdlPvm(ptr noundef %24, i64 noundef %30) #16
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #15
+  ret ptr %23
+
+31:                                               ; preds = %2
+  %32 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #15
-  resume { ptr, i32 } %3
+  %33 = load ptr, ptr %4, align 8, !tbaa !23
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %35 = icmp eq ptr %33, %34
+  br i1 %35, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i7, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i6
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i7: ; preds = %31
+  %36 = load i64, ptr %21, align 8, !tbaa !27
+  %37 = icmp ult i64 %36, 16
+  call void @llvm.assume(i1 %37)
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i6: ; preds = %31
+  %38 = load i64, ptr %34, align 8, !tbaa !19
+  %39 = add i64 %38, 1
+  call void @_ZdlPvm(ptr noundef %33, i64 noundef %39) #16
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8
+
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i7, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i6
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #15
+  resume { ptr, i32 } %32
 }
 
-declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
-
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @sqrt(double noundef) local_unnamed_addr #5
+declare double @sqrt(double noundef) local_unnamed_addr #3
 
 declare i32 @__gxx_personality_v0(...)
 
-; Function Attrs: nounwind
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
-
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define dso_local noundef double @_ZN4absl15random_internal21InverseNormalSurvivalEd(double noundef %x) local_unnamed_addr #7 {
-entry:
-  %0 = tail call double @llvm.fmuladd.f64(double %x, double 2.000000e+00, double -1.000000e+00)
-  %call = tail call noundef double @_ZN4absl15random_internal6erfinvEd(double noundef %0)
-  %mul = fmul double %call, 0xBFF6A09E667F3BCD
-  ret double %mul
+define dso_local noundef double @_ZN4absl15random_internal21InverseNormalSurvivalEd(double noundef %0) local_unnamed_addr #5 {
+  %2 = tail call double @llvm.fmuladd.f64(double %0, double 2.000000e+00, double -1.000000e+00)
+  %3 = tail call noundef double @_ZN4absl15random_internal6erfinvEd(double noundef %2)
+  %4 = fmul double %3, 0xBFF6A09E667F3BCD
+  ret double %4
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define dso_local noundef double @_ZN4absl15random_internal6erfinvEd(double noundef %x) local_unnamed_addr #7 {
-entry:
-  %sub = fsub double 1.000000e+00, %x
-  %add = fadd double %x, 1.000000e+00
-  %mul = fmul double %sub, %add
-  %call = tail call double @log(double noundef %mul) #15
-  %cmp = fcmp ogt double %call, -6.250000e+00
-  br i1 %cmp, label %if.then, label %if.else
+define dso_local noundef double @_ZN4absl15random_internal6erfinvEd(double noundef %0) local_unnamed_addr #5 {
+  %2 = fsub double 1.000000e+00, %0
+  %3 = fadd double %0, 1.000000e+00
+  %4 = fmul double %2, %3
+  %5 = tail call double @log(double noundef %4) #15, !tbaa !12
+  %6 = fcmp ogt double %5, -6.250000e+00
+  br i1 %6, label %7, label %31
 
-if.then:                                          ; preds = %entry
-  %sub1 = fsub double -3.125000e+00, %call
-  %0 = tail call double @llvm.fma.f64(double %sub1, double 0xBBB135D2E746E627, double 0xBC08DDF93324D327)
-  %1 = tail call double @llvm.fma.f64(double %0, double %sub1, double 0x3C37B83EEF0B7C9F)
-  %2 = tail call double @llvm.fma.f64(double %1, double %sub1, double 0x3C69BA72CD589B91)
-  %3 = tail call double @llvm.fma.f64(double %2, double %sub1, double 0xBCA33689090A6B96)
-  %4 = tail call double @llvm.fma.f64(double %3, double %sub1, double 0x3C782E11898132E0)
-  %5 = tail call double @llvm.fma.f64(double %4, double %sub1, double 0x3CFDE4ACFD9E26BA)
-  %6 = tail call double @llvm.fma.f64(double %5, double %sub1, double 0xBD26D33EED66C487)
-  %7 = tail call double @llvm.fma.f64(double %6, double %sub1, double 0xBD36F2167040D8E2)
-  %8 = tail call double @llvm.fma.f64(double %7, double %sub1, double 0x3D872A22C2D77E20)
-  %9 = tail call double @llvm.fma.f64(double %8, double %sub1, double 0xBDAC8859C4E5C0AF)
-  %10 = tail call double @llvm.fma.f64(double %9, double %sub1, double 0xBDCDC583D118A561)
-  %11 = tail call double @llvm.fma.f64(double %10, double %sub1, double 0x3E120F47CCF46B3C)
-  %12 = tail call double @llvm.fma.f64(double %11, double %sub1, double 0xBE31A9E38DC84D60)
-  %13 = tail call double @llvm.fma.f64(double %12, double %sub1, double 0xBE5F36CD6D3D46A9)
-  %14 = tail call double @llvm.fma.f64(double %13, double %sub1, double 0x3E9C6B4F5D03B787)
-  %15 = tail call double @llvm.fma.f64(double %14, double %sub1, double 0xBEB6E8A5434AE8A2)
-  %16 = tail call double @llvm.fma.f64(double %15, double %sub1, double 0xBEED1D1F7B8736F6)
-  %17 = tail call double @llvm.fma.f64(double %16, double %sub1, double 0x3F2879C2A212F024)
-  %18 = tail call double @llvm.fma.f64(double %17, double %sub1, double 0xBF4845769484FCA8)
-  %19 = tail call double @llvm.fma.f64(double %18, double %sub1, double 0xBF78B6C33114F909)
-  %20 = tail call double @llvm.fma.f64(double %19, double %sub1, double 0x3FCEBD80D9B13E28)
-  %21 = tail call double @llvm.fma.f64(double %20, double %sub1, double 0x3FFA755E7C99AE86)
-  br label %if.end9
+7:                                                ; preds = %1
+  %8 = fsub double -3.125000e+00, %5
+  %9 = tail call double @llvm.fma.f64(double %8, double 0xBBB135D2E746E627, double 0xBC08DDF93324D327)
+  %10 = tail call double @llvm.fma.f64(double %9, double %8, double 0x3C37B83EEF0B7C9F)
+  %11 = tail call double @llvm.fma.f64(double %10, double %8, double 0x3C69BA72CD589B91)
+  %12 = tail call double @llvm.fma.f64(double %11, double %8, double 0xBCA33689090A6B96)
+  %13 = tail call double @llvm.fma.f64(double %12, double %8, double 0x3C782E11898132E0)
+  %14 = tail call double @llvm.fma.f64(double %13, double %8, double 0x3CFDE4ACFD9E26BA)
+  %15 = tail call double @llvm.fma.f64(double %14, double %8, double 0xBD26D33EED66C487)
+  %16 = tail call double @llvm.fma.f64(double %15, double %8, double 0xBD36F2167040D8E2)
+  %17 = tail call double @llvm.fma.f64(double %16, double %8, double 0x3D872A22C2D77E20)
+  %18 = tail call double @llvm.fma.f64(double %17, double %8, double 0xBDAC8859C4E5C0AF)
+  %19 = tail call double @llvm.fma.f64(double %18, double %8, double 0xBDCDC583D118A561)
+  %20 = tail call double @llvm.fma.f64(double %19, double %8, double 0x3E120F47CCF46B3C)
+  %21 = tail call double @llvm.fma.f64(double %20, double %8, double 0xBE31A9E38DC84D60)
+  %22 = tail call double @llvm.fma.f64(double %21, double %8, double 0xBE5F36CD6D3D46A9)
+  %23 = tail call double @llvm.fma.f64(double %22, double %8, double 0x3E9C6B4F5D03B787)
+  %24 = tail call double @llvm.fma.f64(double %23, double %8, double 0xBEB6E8A5434AE8A2)
+  %25 = tail call double @llvm.fma.f64(double %24, double %8, double 0xBEED1D1F7B8736F6)
+  %26 = tail call double @llvm.fma.f64(double %25, double %8, double 0x3F2879C2A212F024)
+  %27 = tail call double @llvm.fma.f64(double %26, double %8, double 0xBF4845769484FCA8)
+  %28 = tail call double @llvm.fma.f64(double %27, double %8, double 0xBF78B6C33114F909)
+  %29 = tail call double @llvm.fma.f64(double %28, double %8, double 0x3FCEBD80D9B13E28)
+  %30 = tail call double @llvm.fma.f64(double %29, double %8, double 0x3FFA755E7C99AE86)
+  br label %73
 
-if.else:                                          ; preds = %entry
-  %fneg = fneg double %call
-  %cmp2 = fcmp ogt double %call, -1.600000e+01
-  %call4 = tail call double @sqrt(double noundef %fneg) #15
-  br i1 %cmp2, label %if.then3, label %if.else6
+31:                                               ; preds = %1
+  %32 = fneg double %5
+  %33 = fcmp ogt double %5, -1.600000e+01
+  %34 = tail call double @sqrt(double noundef %32) #15, !tbaa !12
+  br i1 %33, label %35, label %55
 
-if.then3:                                         ; preds = %if.else
-  %sub5 = fadd double %call4, -3.250000e+00
-  %22 = tail call double @llvm.fma.f64(double %sub5, double 0x3E23040F87DBD932, double 0x3E785CBE52878635)
-  %23 = tail call double @llvm.fma.f64(double %22, double %sub5, double 0xBE92777453DD3955)
-  %24 = tail call double @llvm.fma.f64(double %23, double %sub5, double 0x3E5395ABCD554C6C)
-  %25 = tail call double @llvm.fma.f64(double %24, double %sub5, double 0x3EB936388A3790AD)
-  %26 = tail call double @llvm.fma.f64(double %25, double %sub5, double 0xBED0D5DB812B5083)
-  %27 = tail call double @llvm.fma.f64(double %26, double %sub5, double 0x3EC8860CD5D652F6)
-  %28 = tail call double @llvm.fma.f64(double %27, double %sub5, double 0x3EEA29A0CACDFB23)
-  %29 = tail call double @llvm.fma.f64(double %28, double %sub5, double 0xBF08CEF1F80281F2)
-  %30 = tail call double @llvm.fma.f64(double %29, double %sub5, double 0x3F11E684D0B9188A)
-  %31 = tail call double @llvm.fma.f64(double %30, double %sub5, double 0x3EF932CD54C8A222)
-  %32 = tail call double @llvm.fma.f64(double %31, double %sub5, double 0xBF37448A89EF8AA3)
-  %33 = tail call double @llvm.fma.f64(double %32, double %sub5, double 0x3F4F3CC55AD40C25)
-  %34 = tail call double @llvm.fma.f64(double %33, double %sub5, double 0xBF5BA924132F38B1)
-  %35 = tail call double @llvm.fma.f64(double %34, double %sub5, double 0x3F6468EECA533CF8)
-  %36 = tail call double @llvm.fma.f64(double %35, double %sub5, double 0xBF6EBADABB891BBD)
-  %37 = tail call double @llvm.fma.f64(double %36, double %sub5, double 0x3F75FFCFE5B76AFC)
-  %38 = tail call double @llvm.fma.f64(double %37, double %sub5, double 0x3FF0158A6D641D39)
-  %39 = tail call double @llvm.fma.f64(double %38, double %sub5, double 0x4008ABCC380D5A48)
-  br label %if.end9
+35:                                               ; preds = %31
+  %36 = fadd double %34, -3.250000e+00
+  %37 = tail call double @llvm.fma.f64(double %36, double 0x3E23040F87DBD932, double 0x3E785CBE52878635)
+  %38 = tail call double @llvm.fma.f64(double %37, double %36, double 0xBE92777453DD3955)
+  %39 = tail call double @llvm.fma.f64(double %38, double %36, double 0x3E5395ABCD554C6C)
+  %40 = tail call double @llvm.fma.f64(double %39, double %36, double 0x3EB936388A3790AD)
+  %41 = tail call double @llvm.fma.f64(double %40, double %36, double 0xBED0D5DB812B5083)
+  %42 = tail call double @llvm.fma.f64(double %41, double %36, double 0x3EC8860CD5D652F6)
+  %43 = tail call double @llvm.fma.f64(double %42, double %36, double 0x3EEA29A0CACDFB23)
+  %44 = tail call double @llvm.fma.f64(double %43, double %36, double 0xBF08CEF1F80281F2)
+  %45 = tail call double @llvm.fma.f64(double %44, double %36, double 0x3F11E684D0B9188A)
+  %46 = tail call double @llvm.fma.f64(double %45, double %36, double 0x3EF932CD54C8A222)
+  %47 = tail call double @llvm.fma.f64(double %46, double %36, double 0xBF37448A89EF8AA3)
+  %48 = tail call double @llvm.fma.f64(double %47, double %36, double 0x3F4F3CC55AD40C25)
+  %49 = tail call double @llvm.fma.f64(double %48, double %36, double 0xBF5BA924132F38B1)
+  %50 = tail call double @llvm.fma.f64(double %49, double %36, double 0x3F6468EECA533CF8)
+  %51 = tail call double @llvm.fma.f64(double %50, double %36, double 0xBF6EBADABB891BBD)
+  %52 = tail call double @llvm.fma.f64(double %51, double %36, double 0x3F75FFCFE5B76AFC)
+  %53 = tail call double @llvm.fma.f64(double %52, double %36, double 0x3FF0158A6D641D39)
+  %54 = tail call double @llvm.fma.f64(double %53, double %36, double 0x4008ABCC380D5A48)
+  br label %73
 
-if.else6:                                         ; preds = %if.else
-  %sub8 = fadd double %call4, -5.000000e+00
-  %40 = tail call double @llvm.fma.f64(double %sub8, double 0xBDBDCEC3A7785389, double 0xBDF18FEEC0E38727)
-  %41 = tail call double @llvm.fma.f64(double %40, double %sub8, double 0x3E19E6BF2DDA45E3)
-  %42 = tail call double @llvm.fma.f64(double %41, double %sub8, double 0xBE30468FB24E2F5F)
-  %43 = tail call double @llvm.fma.f64(double %42, double %sub8, double 0x3E405AC6A8FBA182)
-  %44 = tail call double @llvm.fma.f64(double %43, double %sub8, double 0xBE50102E495FB9C0)
-  %45 = tail call double @llvm.fma.f64(double %44, double %sub8, double 0x3E5F4C20E1334AF8)
-  %46 = tail call double @llvm.fma.f64(double %45, double %sub8, double 0xBE722D220FDF9C3E)
-  %47 = tail call double @llvm.fma.f64(double %46, double %sub8, double 0x3E8EBC8BB824CB54)
-  %48 = tail call double @llvm.fma.f64(double %47, double %sub8, double 0xBEB0A8D40EA372CC)
-  %49 = tail call double @llvm.fma.f64(double %48, double %sub8, double 0x3ED2FBD29D093D2B)
-  %50 = tail call double @llvm.fma.f64(double %49, double %sub8, double 0xBEF4A3497E1E0FAC)
-  %51 = tail call double @llvm.fma.f64(double %50, double %sub8, double 0x3F13EBF4EB00938F)
-  %52 = tail call double @llvm.fma.f64(double %51, double %sub8, double 0xBF2C2F36A8FC5D53)
-  %53 = tail call double @llvm.fma.f64(double %52, double %sub8, double 0xBF222EA5DF04047C)
-  %54 = tail call double @llvm.fma.f64(double %53, double %sub8, double 0x3FF02A30D1FBA0DC)
-  %55 = tail call double @llvm.fma.f64(double %54, double %sub8, double 0x4013664DDD1AD7FB)
-  br label %if.end9
+55:                                               ; preds = %31
+  %56 = fadd double %34, -5.000000e+00
+  %57 = tail call double @llvm.fma.f64(double %56, double 0xBDBDCEC3A7785389, double 0xBDF18FEEC0E38727)
+  %58 = tail call double @llvm.fma.f64(double %57, double %56, double 0x3E19E6BF2DDA45E3)
+  %59 = tail call double @llvm.fma.f64(double %58, double %56, double 0xBE30468FB24E2F5F)
+  %60 = tail call double @llvm.fma.f64(double %59, double %56, double 0x3E405AC6A8FBA182)
+  %61 = tail call double @llvm.fma.f64(double %60, double %56, double 0xBE50102E495FB9C0)
+  %62 = tail call double @llvm.fma.f64(double %61, double %56, double 0x3E5F4C20E1334AF8)
+  %63 = tail call double @llvm.fma.f64(double %62, double %56, double 0xBE722D220FDF9C3E)
+  %64 = tail call double @llvm.fma.f64(double %63, double %56, double 0x3E8EBC8BB824CB54)
+  %65 = tail call double @llvm.fma.f64(double %64, double %56, double 0xBEB0A8D40EA372CC)
+  %66 = tail call double @llvm.fma.f64(double %65, double %56, double 0x3ED2FBD29D093D2B)
+  %67 = tail call double @llvm.fma.f64(double %66, double %56, double 0xBEF4A3497E1E0FAC)
+  %68 = tail call double @llvm.fma.f64(double %67, double %56, double 0x3F13EBF4EB00938F)
+  %69 = tail call double @llvm.fma.f64(double %68, double %56, double 0xBF2C2F36A8FC5D53)
+  %70 = tail call double @llvm.fma.f64(double %69, double %56, double 0xBF222EA5DF04047C)
+  %71 = tail call double @llvm.fma.f64(double %70, double %56, double 0x3FF02A30D1FBA0DC)
+  %72 = tail call double @llvm.fma.f64(double %71, double %56, double 0x4013664DDD1AD7FB)
+  br label %73
 
-if.end9:                                          ; preds = %if.then3, %if.else6, %if.then
-  %p.0 = phi double [ %21, %if.then ], [ %39, %if.then3 ], [ %55, %if.else6 ]
-  %mul10 = fmul double %x, %p.0
-  ret double %mul10
+73:                                               ; preds = %35, %55, %7
+  %.0 = phi double [ %30, %7 ], [ %54, %35 ], [ %72, %55 ]
+  %74 = fmul double %0, %.0
+  ret double %74
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4absl15random_internal4NearESt17basic_string_viewIcSt11char_traitsIcEEddd(i64 %msg.coerce0, ptr %msg.coerce1, double noundef %actual, double noundef %expected, double noundef %bound) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
-entry:
-  %ref.tmp.i = alloca [7 x %"class.std::basic_string_view"], align 8
-  %ref.tmp14.i = alloca %"class.absl::AlphaNum", align 8
-  %formatted = alloca %"class.std::__cxx11::basic_string", align 8
-  %ref.tmp2 = alloca %"class.absl::AlphaNum", align 8
-  %ref.tmp4 = alloca %"class.absl::AlphaNum", align 8
-  %sub = fsub double %expected, %actual
-  %0 = tail call double @llvm.fabs.f64(double %sub)
-  %cmp = fcmp olt double %0, %bound
-  br i1 %cmp, label %return, label %if.end
+define dso_local noundef zeroext i1 @_ZN4absl15random_internal4NearESt17basic_string_viewIcSt11char_traitsIcEEddd(i64 %0, ptr %1, double noundef %2, double noundef %3, double noundef %4) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+  %6 = alloca [7 x %"class.std::basic_string_view"], align 8
+  %7 = alloca %"class.absl::AlphaNum", align 8
+  %8 = alloca %"class.std::__cxx11::basic_string", align 8
+  %9 = alloca %"class.absl::AlphaNum", align 8
+  %10 = alloca %"class.absl::AlphaNum", align 8
+  %11 = fsub double %3, %2
+  %12 = tail call double @llvm.fabs.f64(double %11)
+  %13 = fcmp olt double %12, %4
+  br i1 %13, label %58, label %14
 
-if.end:                                           ; preds = %entry
-  %digits_.i = getelementptr inbounds nuw i8, ptr %ref.tmp2, i64 16
-  %call.i = call noundef i64 @_ZN4absl16numbers_internal17SixDigitsToBufferEdPc(double noundef %actual, ptr noundef nonnull %digits_.i)
-  store i64 %call.i, ptr %ref.tmp2, align 8
-  %_M_str.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp2, i64 8
-  store ptr %digits_.i, ptr %_M_str.i.i, align 8
-  %digits_.i6 = getelementptr inbounds nuw i8, ptr %ref.tmp4, i64 16
-  %call.i7 = call noundef i64 @_ZN4absl16numbers_internal17SixDigitsToBufferEdPc(double noundef %expected, ptr noundef nonnull %digits_.i6)
-  store i64 %call.i7, ptr %ref.tmp4, align 8
-  %_M_str.i.i8 = getelementptr inbounds nuw i8, ptr %ref.tmp4, i64 8
-  store ptr %digits_.i6, ptr %_M_str.i.i8, align 8
-  %div = fdiv double %0, %bound
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp14.i)
-  store i64 %msg.coerce0, ptr %ref.tmp.i, align 8, !noalias !8
-  %1 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
-  store ptr %msg.coerce1, ptr %1, align 8, !noalias !8
-  %arrayinit.element.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
-  store i64 8, ptr %arrayinit.element.i, align 8, !noalias !8
-  %2 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 24
-  store ptr @.str.1, ptr %2, align 8, !noalias !8
-  %arrayinit.element4.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 32
-  %retval.sroa.0.0.copyload.i6.i = load i64, ptr %ref.tmp2, align 8, !noalias !8
-  %retval.sroa.2.0.copyload.i8.i = load ptr, ptr %_M_str.i.i, align 8, !noalias !8
-  store i64 %retval.sroa.0.0.copyload.i6.i, ptr %arrayinit.element4.i, align 8, !noalias !8
-  %3 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 40
-  store ptr %retval.sroa.2.0.copyload.i8.i, ptr %3, align 8, !noalias !8
-  %arrayinit.element6.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 48
-  store i64 10, ptr %arrayinit.element6.i, align 8, !noalias !8
-  %4 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 56
-  store ptr @.str.2, ptr %4, align 8, !noalias !8
-  %arrayinit.element8.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 64
-  store i64 %call.i7, ptr %arrayinit.element8.i, align 8, !noalias !8
-  %5 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 72
-  store ptr %digits_.i6, ptr %5, align 8, !noalias !8
-  %arrayinit.element10.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 80
-  store i64 5, ptr %arrayinit.element10.i, align 8, !noalias !8
-  %6 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 88
-  store ptr @.str.3, ptr %6, align 8, !noalias !8
-  %arrayinit.element13.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 96
-  %digits_.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp14.i, i64 16
-  %call.i.i = call noundef i64 @_ZN4absl16numbers_internal17SixDigitsToBufferEdPc(double noundef %div, ptr noundef nonnull %digits_.i.i), !noalias !8
-  store i64 %call.i.i, ptr %ref.tmp14.i, align 8, !noalias !8
-  %_M_str.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp14.i, i64 8
-  store ptr %digits_.i.i, ptr %_M_str.i.i.i, align 8, !noalias !8
-  store i64 %call.i.i, ptr %arrayinit.element13.i, align 8, !noalias !8
-  %7 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 104
-  store ptr %digits_.i.i, ptr %7, align 8, !noalias !8
-  call void @_ZN4absl16strings_internal9CatPiecesB5cxx11ESt16initializer_listISt17basic_string_viewIcSt11char_traitsIcEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %formatted, ptr nonnull %ref.tmp.i, i64 7)
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp14.i)
-  %call = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %formatted) #15
-  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.4, i64 120), i32 noundef 95, ptr noundef nonnull @.str.5, ptr noundef %call)
-          to label %do.end unwind label %lpad
+14:                                               ; preds = %5
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #15
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9) #15
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %16 = call noundef i64 @_ZN4absl16numbers_internal17SixDigitsToBufferEdPc(double noundef %2, ptr noundef nonnull %15)
+  store i64 %16, ptr %9, align 8, !tbaa !28
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store ptr %15, ptr %17, align 8, !tbaa !30
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10) #15
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %19 = call noundef i64 @_ZN4absl16numbers_internal17SixDigitsToBufferEdPc(double noundef %3, ptr noundef nonnull %18)
+  store i64 %19, ptr %10, align 8, !tbaa !28
+  %20 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store ptr %18, ptr %20, align 8, !tbaa !30
+  %21 = fdiv double %12, %4
+  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %6) #15, !noalias !31
+  store i64 %0, ptr %6, align 8, !noalias !31
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr %1, ptr %22, align 8, !noalias !31
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store i64 8, ptr %23, align 8, !noalias !31
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store ptr @.str.1, ptr %24, align 8, !noalias !31
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %.sroa.0.0.copyload.i12.i = load i64, ptr %9, align 8, !tbaa !34, !noalias !31
+  %.sroa.2.0.copyload.i14.i = load ptr, ptr %17, align 8, !tbaa !35, !noalias !31
+  store i64 %.sroa.0.0.copyload.i12.i, ptr %25, align 8, !noalias !31
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  store ptr %.sroa.2.0.copyload.i14.i, ptr %26, align 8, !noalias !31
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  store i64 10, ptr %27, align 8, !noalias !31
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 56
+  store ptr @.str.2, ptr %28, align 8, !noalias !31
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  store i64 %19, ptr %29, align 8, !noalias !31
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 72
+  store ptr %18, ptr %30, align 8, !noalias !31
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  store i64 5, ptr %31, align 8, !noalias !31
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 88
+  store ptr @.str.3, ptr %32, align 8, !noalias !31
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 96
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #15, !noalias !31
+  %34 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %35 = call noundef i64 @_ZN4absl16numbers_internal17SixDigitsToBufferEdPc(double noundef %21, ptr noundef nonnull %34), !noalias !31
+  store i64 %35, ptr %7, align 8, !tbaa !28, !noalias !31
+  %36 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store ptr %34, ptr %36, align 8, !tbaa !30, !noalias !31
+  store i64 %35, ptr %33, align 8, !noalias !31
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 104
+  store ptr %34, ptr %37, align 8, !noalias !31
+  call void @_ZN4absl16strings_internal9CatPiecesB5cxx11ESt16initializer_listISt17basic_string_viewIcSt11char_traitsIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr nonnull %6, i64 7)
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #15, !noalias !31
+  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %6) #15, !noalias !31
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10) #15
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9) #15
+  %38 = load ptr, ptr %8, align 8, !tbaa !23
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.4, i64 120), i32 noundef 95, ptr noundef nonnull @.str.5, ptr noundef %38)
+          to label %39 unwind label %48
 
-do.end:                                           ; preds = %if.end
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %formatted) #15
-  br label %return
+39:                                               ; preds = %14
+  %40 = load ptr, ptr %8, align 8, !tbaa !23
+  %41 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %42 = icmp eq ptr %40, %41
+  br i1 %42, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
-lpad:                                             ; preds = %if.end
-  %8 = landingpad { ptr, i32 }
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %39
+  %43 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %44 = load i64, ptr %43, align 8, !tbaa !27
+  %45 = icmp ult i64 %44, 16
+  call void @llvm.assume(i1 %45)
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %39
+  %46 = load i64, ptr %41, align 8, !tbaa !19
+  %47 = add i64 %46, 1
+  call void @_ZdlPvm(ptr noundef %40, i64 noundef %47) #16
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #15
+  br label %58
+
+48:                                               ; preds = %14
+  %49 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %formatted) #15
-  resume { ptr, i32 } %8
+  %50 = load ptr, ptr %8, align 8, !tbaa !23
+  %51 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %52 = icmp eq ptr %50, %51
+  br i1 %52, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i15, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i14
 
-return:                                           ; preds = %entry, %do.end
-  ret i1 %cmp
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i15: ; preds = %48
+  %53 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %54 = load i64, ptr %53, align 8, !tbaa !27
+  %55 = icmp ult i64 %54, 16
+  call void @llvm.assume(i1 %55)
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit16
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i14: ; preds = %48
+  %56 = load i64, ptr %51, align 8, !tbaa !19
+  %57 = add i64 %56, 1
+  call void @_ZdlPvm(ptr noundef %50, i64 noundef %57) #16
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit16
+
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit16: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i15, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i14
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #15
+  resume { ptr, i32 } %49
+
+58:                                               ; preds = %5, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  ret i1 %13
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #4
+declare double @llvm.fabs.f64(double) #2
 
-declare void @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #0
-
-; Function Attrs: nounwind
-declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
+declare void @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef double @_ZN4absl15random_internal4betaEdd(double noundef %p, double noundef %q) local_unnamed_addr #8 {
-entry:
-  %call = tail call double @lgamma(double noundef %p) #15
-  %call1 = tail call double @lgamma(double noundef %q) #15
-  %add = fadd double %call, %call1
-  %add2 = fadd double %p, %q
-  %call3 = tail call double @lgamma(double noundef %add2) #15
-  %sub = fsub double %add, %call3
-  %call4 = tail call double @exp(double noundef %sub) #15
-  ret double %call4
+define dso_local noundef double @_ZN4absl15random_internal4betaEdd(double noundef %0, double noundef %1) local_unnamed_addr #7 {
+  %3 = tail call double @lgamma(double noundef %0) #15
+  %4 = tail call double @lgamma(double noundef %1) #15
+  %5 = fadd double %3, %4
+  %6 = fadd double %0, %1
+  %7 = tail call double @lgamma(double noundef %6) #15
+  %8 = fsub double %5, %7
+  %9 = tail call double @exp(double noundef %8) #15, !tbaa !12
+  ret double %9
 }
 
 ; Function Attrs: nounwind
-declare double @lgamma(double noundef) local_unnamed_addr #1
+declare double @lgamma(double noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @exp(double noundef) local_unnamed_addr #5
+declare double @exp(double noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @log(double noundef) local_unnamed_addr #5
+declare double @log(double noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fma.f64(double, double, double) #4
+declare double @llvm.fma.f64(double, double, double) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef double @_ZN4absl15random_internal14BetaIncompleteEddd(double noundef %x, double noundef %p, double noundef %q) local_unnamed_addr #8 {
-entry:
-  %cmp = fcmp olt double %p, 0.000000e+00
-  %cmp1 = fcmp olt double %q, 0.000000e+00
-  %or.cond = or i1 %cmp, %cmp1
-  %cmp3 = fcmp olt double %x, 0.000000e+00
-  %or.cond1 = or i1 %cmp3, %or.cond
-  %cmp5 = fcmp ogt double %x, 1.000000e+00
-  %or.cond2 = or i1 %cmp5, %or.cond1
-  br i1 %or.cond2, label %return, label %if.end
+define dso_local noundef double @_ZN4absl15random_internal14BetaIncompleteEddd(double noundef %0, double noundef %1, double noundef %2) local_unnamed_addr #7 {
+  %4 = fcmp olt double %1, 0.000000e+00
+  %5 = fcmp olt double %2, 0.000000e+00
+  %or.cond = or i1 %4, %5
+  %6 = fcmp olt double %0, 0.000000e+00
+  %or.cond3 = or i1 %6, %or.cond
+  %7 = fcmp ogt double %0, 1.000000e+00
+  %or.cond5 = or i1 %7, %or.cond3
+  br i1 %or.cond5, label %19, label %8
 
-if.end:                                           ; preds = %entry
-  %cmp6 = fcmp oeq double %x, 0.000000e+00
-  %cmp8 = fcmp oeq double %x, 1.000000e+00
-  %or.cond3 = or i1 %cmp6, %cmp8
-  br i1 %or.cond3, label %return, label %if.end10
+8:                                                ; preds = %3
+  %9 = fcmp oeq double %0, 0.000000e+00
+  %10 = fcmp oeq double %0, 1.000000e+00
+  %or.cond7 = or i1 %9, %10
+  br i1 %or.cond7, label %19, label %11
 
-if.end10:                                         ; preds = %if.end
-  %call11 = tail call double @lgamma(double noundef %p) #15
-  %call12 = tail call double @lgamma(double noundef %q) #15
-  %add = fadd double %call11, %call12
-  %add13 = fadd double %p, %q
-  %call14 = tail call double @lgamma(double noundef %add13) #15
-  %sub = fsub double %add, %call14
-  %call15 = tail call fastcc noundef double @_ZN4absl15random_internal12_GLOBAL__N_118BetaIncompleteImplEdddd(double noundef %x, double noundef %p, double noundef %q, double noundef %sub)
-  br label %return
+11:                                               ; preds = %8
+  %12 = tail call double @lgamma(double noundef %1) #15
+  %13 = tail call double @lgamma(double noundef %2) #15
+  %14 = fadd double %12, %13
+  %15 = fadd double %1, %2
+  %16 = tail call double @lgamma(double noundef %15) #15
+  %17 = fsub double %14, %16
+  %18 = tail call fastcc noundef double @_ZN4absl15random_internal12_GLOBAL__N_118BetaIncompleteImplEdddd(double noundef %0, double noundef %1, double noundef %2, double noundef %17)
+  br label %19
 
-return:                                           ; preds = %entry, %if.end, %if.end10
-  %retval.0 = phi double [ %call15, %if.end10 ], [ %x, %if.end ], [ 0x7FF0000000000000, %entry ]
-  ret double %retval.0
+19:                                               ; preds = %3, %8, %11
+  %.0 = phi double [ %18, %11 ], [ %0, %8 ], [ 0x7FF0000000000000, %3 ]
+  ret double %.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(write) uwtable
-define internal fastcc noundef double @_ZN4absl15random_internal12_GLOBAL__N_118BetaIncompleteImplEdddd(double noundef %x, double noundef %p, double noundef %q, double noundef %beta) unnamed_addr #9 {
-entry:
-  %add = fadd double %p, %q
-  %mul = fmul double %x, %add
-  %cmp = fcmp olt double %p, %mul
-  %sub = fsub double 1.000000e+00, %x
-  br i1 %cmp, label %if.then, label %if.end
+define internal fastcc noundef double @_ZN4absl15random_internal12_GLOBAL__N_118BetaIncompleteImplEdddd(double noundef %0, double noundef %1, double noundef %2, double noundef %3) unnamed_addr #9 {
+  %5 = fadd double %1, %2
+  %6 = fmul double %0, %5
+  %7 = fcmp olt double %1, %6
+  %8 = fsub double 1.000000e+00, %0
+  br i1 %7, label %9, label %12
 
-common.ret55:                                     ; preds = %if.then, %if.then23
-  %common.ret55.op = phi double [ %mul24, %if.then23 ], [ %sub1, %if.then ]
-  ret double %common.ret55.op
+common.ret72:                                     ; preds = %9, %._crit_edge
+  %common.ret72.op = phi double [ %34, %._crit_edge ], [ %11, %9 ]
+  ret double %common.ret72.op
 
-if.then:                                          ; preds = %entry
-  %call = tail call fastcc noundef double @_ZN4absl15random_internal12_GLOBAL__N_118BetaIncompleteImplEdddd(double noundef %sub, double noundef %q, double noundef %p, double noundef %beta)
-  %sub1 = fsub double 1.000000e+00, %call
-  br label %common.ret55
+9:                                                ; preds = %4
+  %10 = tail call fastcc noundef double @_ZN4absl15random_internal12_GLOBAL__N_118BetaIncompleteImplEdddd(double noundef %8, double noundef %2, double noundef %1, double noundef %3)
+  %11 = fsub double 1.000000e+00, %10
+  br label %common.ret72
 
-if.end:                                           ; preds = %entry
-  %call4 = tail call double @log(double noundef %x) #15
-  %sub6 = fadd double %q, -1.000000e+00
-  %call7 = tail call double @log(double noundef %sub) #15
-  %mul8 = fmul double %sub6, %call7
-  %0 = tail call double @llvm.fmuladd.f64(double %p, double %call4, double %mul8)
-  %sub9 = fsub double %0, %beta
-  %call10 = tail call double @exp(double noundef %sub9) #15
-  %div = fdiv double %call10, %p
-  %1 = tail call double @llvm.fmuladd.f64(double %sub, double %add, double %q)
-  %conv = fptosi double %1 to i32
-  %cmp12 = icmp eq i32 %conv, 0
-  %div13 = fdiv double %x, %sub
-  %cond = select i1 %cmp12, double %x, double %div13
-  %mul1636 = fmul double %cond, %sub6
-  %add1737 = fadd double %p, 1.000000e+00
-  %div1838 = fdiv double %mul1636, %add1737
-  %add1939 = fadd double %div1838, 1.000000e+00
-  %2 = tail call double @llvm.fabs.f64(double %div1838)
-  %cmp2040 = fcmp olt double %2, 0x3D06849B86A12B9B
-  %mul2141 = fmul double %add1939, 0x3D06849B86A12B9B
-  %cmp2242 = fcmp olt double %2, %mul2141
-  %or.cond43 = select i1 %cmp2040, i1 %cmp2242, i1 false
-  br i1 %or.cond43, label %if.then23, label %if.end25
+12:                                               ; preds = %4
+  %13 = tail call double @log(double noundef %0) #15, !tbaa !12
+  %14 = fadd double %2, -1.000000e+00
+  %15 = tail call double @log(double noundef %8) #15, !tbaa !12
+  %16 = fmul double %14, %15
+  %17 = tail call double @llvm.fmuladd.f64(double %1, double %13, double %16)
+  %18 = fsub double %17, %3
+  %19 = tail call double @exp(double noundef %18) #15, !tbaa !12
+  %20 = fdiv double %19, %1
+  %21 = tail call double @llvm.fmuladd.f64(double %8, double %5, double %2)
+  %22 = fptosi double %21 to i32
+  %23 = icmp eq i32 %22, 0
+  %24 = fdiv double %0, %8
+  %25 = select i1 %23, double %0, double %24
+  %26 = fmul double %25, %14
+  %27 = fadd double %1, 1.000000e+00
+  %28 = fdiv double %26, %27
+  %29 = fadd double %28, 1.000000e+00
+  %30 = tail call double @llvm.fabs.f64(double %28)
+  %31 = fcmp olt double %30, 0x3D06849B86A12B9B
+  %32 = fmul double %29, 0x3D06849B86A12B9B
+  %33 = fcmp olt double %30, %32
+  %or.cond62 = select i1 %31, i1 %33, i1 false
+  br i1 %or.cond62, label %._crit_edge, label %.lr.ph
 
-if.then23:                                        ; preds = %if.end34, %if.end
-  %add19.lcssa = phi double [ %add1939, %if.end ], [ %add19, %if.end34 ]
-  %mul24 = fmul double %div, %add19.lcssa
-  br label %common.ret55
+._crit_edge:                                      ; preds = %46, %12
+  %.lcssa = phi double [ %29, %12 ], [ %51, %46 ]
+  %34 = fmul double %20, %.lcssa
+  br label %common.ret72
 
-if.end25:                                         ; preds = %if.end, %if.end34
-  %add1949 = phi double [ %add19, %if.end34 ], [ %add1939, %if.end ]
-  %div1848 = phi double [ %div18, %if.end34 ], [ %div1838, %if.end ]
-  %rx.047 = phi double [ %rx.1, %if.end34 ], [ %cond, %if.end ]
-  %ns.046 = phi i32 [ %dec, %if.end34 ], [ %conv, %if.end ]
-  %ai.045 = phi double [ %add26, %if.end34 ], [ 1.000000e+00, %if.end ]
-  %psq.044 = phi double [ %psq.1, %if.end34 ], [ %add, %if.end ]
-  %add26 = fadd double %ai.045, 1.000000e+00
-  %dec = add nsw i32 %ns.046, -1
-  %cmp27 = icmp sgt i32 %ns.046, 0
-  br i1 %cmp27, label %if.then28, label %if.else
+.lr.ph:                                           ; preds = %12, %46
+  %35 = phi double [ %51, %46 ], [ %29, %12 ]
+  %36 = phi double [ %50, %46 ], [ %28, %12 ]
+  %.04866 = phi double [ %.149, %46 ], [ %25, %12 ]
+  %.05065 = phi i32 [ %38, %46 ], [ %22, %12 ]
+  %.05264 = phi double [ %37, %46 ], [ 1.000000e+00, %12 ]
+  %.05563 = phi double [ %.156, %46 ], [ %5, %12 ]
+  %37 = fadd double %.05264, 1.000000e+00
+  %38 = add nsw i32 %.05065, -1
+  %39 = icmp sgt i32 %.05065, 0
+  br i1 %39, label %40, label %44
 
-if.then28:                                        ; preds = %if.end25
-  %sub29 = fsub double %q, %add26
-  %cmp30 = icmp eq i32 %dec, 0
-  br i1 %cmp30, label %if.then31, label %if.end34
+40:                                               ; preds = %.lr.ph
+  %41 = fsub double %2, %37
+  %42 = icmp eq i32 %38, 0
+  br i1 %42, label %43, label %46
 
-if.then31:                                        ; preds = %if.then28
-  br label %if.end34
+43:                                               ; preds = %40
+  br label %46
 
-if.else:                                          ; preds = %if.end25
-  %add33 = fadd double %psq.044, 1.000000e+00
-  br label %if.end34
+44:                                               ; preds = %.lr.ph
+  %45 = fadd double %.05563, 1.000000e+00
+  br label %46
 
-if.end34:                                         ; preds = %if.then28, %if.then31, %if.else
-  %psq.1 = phi double [ %psq.044, %if.then31 ], [ %psq.044, %if.then28 ], [ %add33, %if.else ]
-  %rx.1 = phi double [ %x, %if.then31 ], [ %rx.047, %if.then28 ], [ %rx.047, %if.else ]
-  %temp.1 = phi double [ %sub29, %if.then31 ], [ %sub29, %if.then28 ], [ %psq.044, %if.else ]
-  %mul15 = fmul double %div1848, %temp.1
-  %mul16 = fmul double %rx.1, %mul15
-  %add17 = fadd double %p, %add26
-  %div18 = fdiv double %mul16, %add17
-  %add19 = fadd double %add1949, %div18
-  %3 = tail call double @llvm.fabs.f64(double %div18)
-  %cmp20 = fcmp olt double %3, 0x3D06849B86A12B9B
-  %mul21 = fmul double %add19, 0x3D06849B86A12B9B
-  %cmp22 = fcmp olt double %3, %mul21
-  %or.cond = select i1 %cmp20, i1 %cmp22, i1 false
-  br i1 %or.cond, label %if.then23, label %if.end25, !llvm.loop !11
+46:                                               ; preds = %40, %43, %44
+  %.156 = phi double [ %.05563, %43 ], [ %.05563, %40 ], [ %45, %44 ]
+  %.149 = phi double [ %0, %43 ], [ %.04866, %40 ], [ %.04866, %44 ]
+  %.1 = phi double [ %41, %43 ], [ %41, %40 ], [ %.05563, %44 ]
+  %47 = fmul double %36, %.1
+  %48 = fmul double %.149, %47
+  %49 = fadd double %1, %37
+  %50 = fdiv double %48, %49
+  %51 = fadd double %35, %50
+  %52 = tail call double @llvm.fabs.f64(double %50)
+  %53 = fcmp olt double %52, 0x3D06849B86A12B9B
+  %54 = fmul double %51, 0x3D06849B86A12B9B
+  %55 = fcmp olt double %52, %54
+  %or.cond = select i1 %53, i1 %55, i1 false
+  br i1 %or.cond, label %._crit_edge, label %.lr.ph, !llvm.loop !36
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef double @_ZN4absl15random_internal17BetaIncompleteInvEddd(double noundef %p, double noundef %q, double noundef %alpha) local_unnamed_addr #8 {
-entry:
-  %cmp = fcmp olt double %p, 0.000000e+00
-  %cmp1 = fcmp olt double %q, 0.000000e+00
-  %or.cond = or i1 %cmp, %cmp1
-  %cmp3 = fcmp olt double %alpha, 0.000000e+00
-  %or.cond1 = or i1 %or.cond, %cmp3
-  %cmp5 = fcmp ogt double %alpha, 1.000000e+00
-  %or.cond2 = or i1 %cmp5, %or.cond1
-  br i1 %or.cond2, label %return, label %if.end
+define dso_local noundef double @_ZN4absl15random_internal17BetaIncompleteInvEddd(double noundef %0, double noundef %1, double noundef %2) local_unnamed_addr #7 {
+  %4 = fcmp olt double %0, 0.000000e+00
+  %5 = fcmp olt double %1, 0.000000e+00
+  %or.cond = or i1 %4, %5
+  %6 = fcmp olt double %2, 0.000000e+00
+  %or.cond3 = or i1 %or.cond, %6
+  %7 = fcmp ogt double %2, 1.000000e+00
+  %or.cond5 = or i1 %7, %or.cond3
+  br i1 %or.cond5, label %19, label %8
 
-if.end:                                           ; preds = %entry
-  %cmp6 = fcmp oeq double %alpha, 0.000000e+00
-  %cmp8 = fcmp oeq double %alpha, 1.000000e+00
-  %or.cond3 = or i1 %cmp6, %cmp8
-  br i1 %or.cond3, label %return, label %if.end10
+8:                                                ; preds = %3
+  %9 = fcmp oeq double %2, 0.000000e+00
+  %10 = fcmp oeq double %2, 1.000000e+00
+  %or.cond7 = or i1 %9, %10
+  br i1 %or.cond7, label %19, label %11
 
-if.end10:                                         ; preds = %if.end
-  %call11 = tail call double @lgamma(double noundef %p) #15
-  %call12 = tail call double @lgamma(double noundef %q) #15
-  %add = fadd double %call11, %call12
-  %add13 = fadd double %p, %q
-  %call14 = tail call double @lgamma(double noundef %add13) #15
-  %sub = fsub double %add, %call14
-  %call15 = tail call fastcc noundef double @_ZN4absl15random_internal12_GLOBAL__N_121BetaIncompleteInvImplEdddd(double noundef %p, double noundef %q, double noundef %sub, double noundef %alpha)
-  br label %return
+11:                                               ; preds = %8
+  %12 = tail call double @lgamma(double noundef %0) #15
+  %13 = tail call double @lgamma(double noundef %1) #15
+  %14 = fadd double %12, %13
+  %15 = fadd double %0, %1
+  %16 = tail call double @lgamma(double noundef %15) #15
+  %17 = fsub double %14, %16
+  %18 = tail call fastcc noundef double @_ZN4absl15random_internal12_GLOBAL__N_121BetaIncompleteInvImplEdddd(double noundef %0, double noundef %1, double noundef %17, double noundef %2)
+  br label %19
 
-return:                                           ; preds = %entry, %if.end, %if.end10
-  %retval.0 = phi double [ %call15, %if.end10 ], [ %alpha, %if.end ], [ 0x7FF0000000000000, %entry ]
-  ret double %retval.0
+19:                                               ; preds = %3, %8, %11
+  %.0 = phi double [ %18, %11 ], [ %2, %8 ], [ 0x7FF0000000000000, %3 ]
+  ret double %.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(write) uwtable
-define internal fastcc noundef double @_ZN4absl15random_internal12_GLOBAL__N_121BetaIncompleteInvImplEdddd(double noundef %p, double noundef %q, double noundef %beta, double noundef %alpha) unnamed_addr #9 {
-entry:
-  %cmp = fcmp olt double %alpha, 5.000000e-01
-  br i1 %cmp, label %if.then, label %if.end
+define internal fastcc noundef double @_ZN4absl15random_internal12_GLOBAL__N_121BetaIncompleteInvImplEdddd(double noundef %0, double noundef %1, double noundef %2, double noundef %3) unnamed_addr #9 {
+  %5 = fcmp olt double %3, 5.000000e-01
+  br i1 %5, label %6, label %10
 
-common.ret122:                                    ; preds = %if.end67, %if.end119, %if.else84, %if.end90, %if.then
-  %common.ret122.op = phi double [ %sub1, %if.then ], [ 0x7FF0000000000000, %if.end67 ], [ %value.1100, %if.end119 ], [ %value.1100, %if.end90 ], [ %call85, %if.else84 ]
-  ret double %common.ret122.op
+common.ret189:                                    ; preds = %82, %113, %.loopexit, %91, %95, %6
+  %common.ret189.op = phi double [ %9, %6 ], [ 0x7FF0000000000000, %82 ], [ %.1145162, %113 ], [ %.1145162, %95 ], [ %92, %91 ], [ 0x7FF0000000000000, %.loopexit ]
+  ret double %common.ret189.op
 
-if.then:                                          ; preds = %entry
-  %sub = fsub double 1.000000e+00, %alpha
-  %call = tail call fastcc noundef double @_ZN4absl15random_internal12_GLOBAL__N_121BetaIncompleteInvImplEdddd(double noundef %q, double noundef %p, double noundef %beta, double noundef %sub)
-  %sub1 = fsub double 1.000000e+00, %call
-  br label %common.ret122
+6:                                                ; preds = %4
+  %7 = fsub double 1.000000e+00, %3
+  %8 = tail call fastcc noundef double @_ZN4absl15random_internal12_GLOBAL__N_121BetaIncompleteInvImplEdddd(double noundef %1, double noundef %0, double noundef %2, double noundef %7)
+  %9 = fsub double 1.000000e+00, %8
+  br label %common.ret189
 
-if.end:                                           ; preds = %entry
-  %mul = fmul double %alpha, %alpha
-  %call2 = tail call double @log(double noundef %mul) #15
-  %fneg = fneg double %call2
-  %call3 = tail call double @sqrt(double noundef %fneg) #15
-  %0 = tail call double @llvm.fma.f64(double %call3, double 2.706100e-01, double 2.307530e+00)
-  %1 = tail call double @llvm.fma.f64(double %call3, double 4.481000e-02, double 9.922900e-01)
-  %2 = tail call double @llvm.fma.f64(double %call3, double %1, double 1.000000e+00)
-  %div = fdiv double %0, %2
-  %sub4 = fsub double %call3, %div
-  %cmp5 = fcmp ogt double %p, 1.000000e+00
-  %cmp6 = fcmp ogt double %q, 1.000000e+00
-  %or.cond = and i1 %cmp5, %cmp6
-  br i1 %or.cond, label %if.then7, label %if.else
+10:                                               ; preds = %4
+  %11 = fmul double %3, %3
+  %12 = tail call double @log(double noundef %11) #15, !tbaa !12
+  %13 = fneg double %12
+  %14 = tail call double @sqrt(double noundef %13) #15, !tbaa !12
+  %15 = tail call double @llvm.fma.f64(double %14, double 2.706100e-01, double 2.307530e+00)
+  %16 = tail call double @llvm.fma.f64(double %14, double 4.481000e-02, double 9.922900e-01)
+  %17 = tail call double @llvm.fma.f64(double %14, double %16, double 1.000000e+00)
+  %18 = fdiv double %15, %17
+  %19 = fsub double %14, %18
+  %20 = fcmp ogt double %0, 1.000000e+00
+  %21 = fcmp ogt double %1, 1.000000e+00
+  %or.cond = and i1 %20, %21
+  br i1 %or.cond, label %22, label %48
 
-if.then7:                                         ; preds = %if.end
-  %3 = tail call double @llvm.fmuladd.f64(double %sub4, double %sub4, double -3.000000e+00)
-  %div9 = fdiv double %3, 6.000000e+00
-  %add = fadd double %p, %p
-  %sub10 = fadd double %add, -1.000000e+00
-  %div11 = fdiv double 1.000000e+00, %sub10
-  %add12 = fadd double %q, %q
-  %sub13 = fadd double %add12, -1.000000e+00
-  %div14 = fdiv double 1.000000e+00, %sub13
-  %div15 = fdiv double 2.000000e+00, %div11
-  %add16 = fadd double %div15, %div14
-  %add17 = fadd double %add16, %div9
-  %call18 = tail call double @sqrt(double noundef %add17) #15
-  %mul19 = fmul double %sub4, %call18
-  %div20 = fdiv double %mul19, %add16
-  %sub21 = fsub double %div14, %div11
-  %add22 = fadd double %div9, 0x3FEAAAAAAAAAAAAB
-  %mul23 = fmul double %add16, 3.000000e+00
-  %div24 = fdiv double %div14, %mul23
-  %sub25 = fsub double %add22, %div24
-  %neg = fneg double %sub21
-  %4 = tail call double @llvm.fmuladd.f64(double %neg, double %sub25, double %div20)
-  %add27 = fadd double %4, %4
-  %call28 = tail call double @exp(double noundef %add27) #15
-  %5 = tail call double @llvm.fmuladd.f64(double %q, double %call28, double %p)
-  %div30 = fdiv double %p, %5
-  br label %if.end67
+22:                                               ; preds = %10
+  %23 = tail call double @llvm.fmuladd.f64(double %19, double %19, double -3.000000e+00)
+  %24 = fdiv double %23, 6.000000e+00
+  %25 = fadd double %0, %0
+  %26 = fadd double %25, -1.000000e+00
+  %27 = fdiv double 1.000000e+00, %26
+  %28 = fadd double %1, %1
+  %29 = fadd double %28, -1.000000e+00
+  %30 = fdiv double 1.000000e+00, %29
+  %31 = fdiv double 2.000000e+00, %27
+  %32 = fadd double %31, %30
+  %33 = fadd double %32, %24
+  %34 = tail call double @sqrt(double noundef %33) #15, !tbaa !12
+  %35 = fmul double %19, %34
+  %36 = fdiv double %35, %32
+  %37 = fsub double %30, %27
+  %38 = fadd double %24, 0x3FEAAAAAAAAAAAAB
+  %39 = fmul double %32, 3.000000e+00
+  %40 = fdiv double %30, %39
+  %41 = fsub double %38, %40
+  %42 = fneg double %37
+  %43 = tail call double @llvm.fmuladd.f64(double %42, double %41, double %36)
+  %44 = fadd double %43, %43
+  %45 = tail call double @exp(double noundef %44) #15, !tbaa !12
+  %46 = tail call double @llvm.fmuladd.f64(double %1, double %45, double %0)
+  %47 = fdiv double %0, %46
+  br label %82
 
-if.else:                                          ; preds = %if.end
-  %add31 = fadd double %q, %q
-  %mul33 = fmul double %q, 9.000000e+00
-  %div34 = fdiv double 1.000000e+00, %mul33
-  %sub35 = fsub double 1.000000e+00, %div34
-  %call36 = tail call double @sqrt(double noundef %div34) #15
-  %6 = tail call double @llvm.fmuladd.f64(double %sub4, double %call36, double %sub35)
-  %mul38 = fmul double %6, %6
-  %mul39 = fmul double %6, %mul38
-  %mul40 = fmul double %add31, %mul39
-  %cmp41 = fcmp ugt double %mul40, 0.000000e+00
-  br i1 %cmp41, label %if.else50, label %if.then42
+48:                                               ; preds = %10
+  %49 = fadd double %1, %1
+  %50 = fmul double %1, 9.000000e+00
+  %51 = fdiv double 1.000000e+00, %50
+  %52 = fsub double 1.000000e+00, %51
+  %53 = tail call double @sqrt(double noundef %51) #15, !tbaa !12
+  %54 = tail call double @llvm.fmuladd.f64(double %19, double %53, double %52)
+  %55 = fmul double %54, %54
+  %56 = fmul double %54, %55
+  %57 = fmul double %49, %56
+  %58 = fcmp ugt double %57, 0.000000e+00
+  br i1 %58, label %67, label %59
 
-if.then42:                                        ; preds = %if.else
-  %sub43 = fsub double 1.000000e+00, %alpha
-  %mul44 = fmul double %q, %sub43
-  %call45 = tail call double @log(double noundef %mul44) #15
-  %add46 = fadd double %beta, %call45
-  %div47 = fdiv double %add46, %q
-  %call48 = tail call double @exp(double noundef %div47) #15
-  %sub49 = fsub double 1.000000e+00, %call48
-  br label %if.end67
+59:                                               ; preds = %48
+  %60 = fsub double 1.000000e+00, %3
+  %61 = fmul double %1, %60
+  %62 = tail call double @log(double noundef %61) #15, !tbaa !12
+  %63 = fadd double %2, %62
+  %64 = fdiv double %63, %1
+  %65 = tail call double @exp(double noundef %64) #15, !tbaa !12
+  %66 = fsub double 1.000000e+00, %65
+  br label %82
 
-if.else50:                                        ; preds = %if.else
-  %7 = tail call double @llvm.fmuladd.f64(double %p, double 4.000000e+00, double %add31)
-  %sub52 = fadd double %7, -2.000000e+00
-  %div53 = fdiv double %sub52, %mul40
-  %cmp54 = fcmp ugt double %div53, 1.000000e+00
-  br i1 %cmp54, label %if.else61, label %if.then55
+67:                                               ; preds = %48
+  %68 = tail call double @llvm.fmuladd.f64(double %0, double 4.000000e+00, double %49)
+  %69 = fadd double %68, -2.000000e+00
+  %70 = fdiv double %69, %57
+  %71 = fcmp ugt double %70, 1.000000e+00
+  br i1 %71, label %78, label %72
 
-if.then55:                                        ; preds = %if.else50
-  %mul56 = fmul double %p, %alpha
-  %call57 = tail call double @log(double noundef %mul56) #15
-  %add58 = fadd double %beta, %call57
-  %div59 = fdiv double %add58, %p
-  %call60 = tail call double @exp(double noundef %div59) #15
-  br label %if.end67
+72:                                               ; preds = %67
+  %73 = fmul double %0, %3
+  %74 = tail call double @log(double noundef %73) #15, !tbaa !12
+  %75 = fadd double %2, %74
+  %76 = fdiv double %75, %0
+  %77 = tail call double @exp(double noundef %76) #15, !tbaa !12
+  br label %82
 
-if.else61:                                        ; preds = %if.else50
-  %add62 = fadd double %div53, 1.000000e+00
-  %div63 = fdiv double 2.000000e+00, %add62
-  %sub64 = fsub double 1.000000e+00, %div63
-  br label %if.end67
+78:                                               ; preds = %67
+  %79 = fadd double %70, 1.000000e+00
+  %80 = fdiv double 2.000000e+00, %79
+  %81 = fsub double 1.000000e+00, %80
+  br label %82
 
-if.end67:                                         ; preds = %if.then42, %if.else61, %if.then55, %if.then7
-  %value.0 = phi double [ %div30, %if.then7 ], [ %sub64, %if.else61 ], [ %call60, %if.then55 ], [ %sub49, %if.then42 ]
-  %cmp.i = fcmp olt double %value.0, 0x3D06849B86A12B9B
-  %.sroa.speculated91 = select i1 %cmp.i, double 0x3D06849B86A12B9B, double %value.0
-  %cmp.i80 = fcmp ogt double %.sroa.speculated91, 0x3FEFFFFFFFFFFFA6
-  %.sroa.speculated84 = select i1 %cmp.i80, double 0x3FEFFFFFFFFFFFA6, double %.sroa.speculated91
-  %sub71 = fsub double 1.000000e+00, %p
-  %sub73 = fsub double 1.000000e+00, %q
-  %cmp7699 = fcmp ogt double %.sroa.speculated84, 1.000000e+00
-  br i1 %cmp7699, label %common.ret122, label %if.else79
+82:                                               ; preds = %59, %78, %72, %22
+  %.0144 = phi double [ %47, %22 ], [ %81, %78 ], [ %77, %72 ], [ %66, %59 ]
+  %83 = fcmp olt double %.0144, 0x3D06849B86A12B9B
+  %.sroa.speculated141 = select i1 %83, double 0x3D06849B86A12B9B, double %.0144
+  %84 = fcmp ogt double %.sroa.speculated141, 0x3FEFFFFFFFFFFFA6
+  %.sroa.speculated132 = select i1 %84, double 0x3FEFFFFFFFFFFFA6, double %.sroa.speculated141
+  %85 = fsub double 1.000000e+00, %0
+  %86 = fsub double 1.000000e+00, %1
+  %87 = fcmp ogt double %.sroa.speculated132, 1.000000e+00
+  br i1 %87, label %common.ret189, label %.lr.ph
 
-if.else79:                                        ; preds = %if.end129, %if.end67
-  %value.1100 = phi double [ %.sroa.speculated84, %if.end67 ], [ %sub113, %if.end129 ]
-  %cmp80 = fcmp oeq double %value.1100, 0.000000e+00
-  %cmp82 = fcmp oeq double %value.1100, 1.000000e+00
-  %or.cond2 = or i1 %cmp80, %cmp82
-  br i1 %or.cond2, label %if.end90, label %if.else84
+.loopexit:                                        ; preds = %115
+  %88 = fcmp ogt double %110, 1.000000e+00
+  br i1 %88, label %common.ret189, label %.lr.ph
 
-if.else84:                                        ; preds = %if.else79
-  %call85 = tail call fastcc noundef double @_ZN4absl15random_internal12_GLOBAL__N_118BetaIncompleteImplEdddd(double noundef %value.1100, double noundef %p, double noundef %q, double noundef %beta)
-  %8 = tail call double @llvm.fabs.f64(double %call85)
-  %9 = fcmp ueq double %8, 0x7FF0000000000000
-  br i1 %9, label %common.ret122, label %if.end90
+.lr.ph:                                           ; preds = %82, %.loopexit
+  %.1145162 = phi double [ %110, %.loopexit ], [ %.sroa.speculated132, %82 ]
+  %89 = fcmp oeq double %.1145162, 0.000000e+00
+  %90 = fcmp oeq double %.1145162, 1.000000e+00
+  %or.cond5 = or i1 %89, %90
+  br i1 %or.cond5, label %95, label %91
 
-if.end90:                                         ; preds = %if.else79, %if.else84
-  %y74.0 = phi double [ %call85, %if.else84 ], [ %value.1100, %if.else79 ]
-  %sub91 = fsub double %y74.0, %alpha
-  %call92 = tail call double @log(double noundef %value.1100) #15
-  %10 = tail call double @llvm.fmuladd.f64(double %sub71, double %call92, double %beta)
-  %sub94 = fsub double 1.000000e+00, %value.1100
-  %call95 = tail call double @log(double noundef %sub94) #15
-  %11 = tail call double @llvm.fmuladd.f64(double %sub73, double %call95, double %10)
-  %call97 = tail call double @exp(double noundef %11) #15
-  %mul98 = fmul double %sub91, %call97
-  %mul123 = fmul double %mul98, %mul98
-  %mul123.fr = freeze double %mul123
-  %cmp124 = fcmp olt double %mul123.fr, 0x3D06849B86A12B9B
-  br i1 %cmp124, label %common.ret122, label %for.cond106
+91:                                               ; preds = %.lr.ph
+  %92 = tail call fastcc noundef double @_ZN4absl15random_internal12_GLOBAL__N_118BetaIncompleteImplEdddd(double noundef %.1145162, double noundef %0, double noundef %1, double noundef %2)
+  %93 = tail call double @llvm.fabs.f64(double %92)
+  %94 = fcmp ueq double %93, 0x7FF0000000000000
+  br i1 %94, label %common.ret189, label %95
 
-for.cond106:                                      ; preds = %if.end90, %for.cond106.backedge
-  %g.0 = phi double [ %g.0.be, %for.cond106.backedge ], [ 1.000000e+00, %if.end90 ]
-  %mul107 = fmul double %mul98, %g.0
-  %mul108 = fmul double %mul107, %mul107
-  %cmp109 = fcmp ult double %mul108, 1.000000e+00
-  br i1 %cmp109, label %if.end112, label %for.cond106.backedge
+95:                                               ; preds = %.lr.ph, %91
+  %.0116 = phi double [ %92, %91 ], [ %.1145162, %.lr.ph ]
+  %96 = fsub double %.0116, %3
+  %97 = tail call double @log(double noundef %.1145162) #15, !tbaa !12
+  %98 = tail call double @llvm.fmuladd.f64(double %85, double %97, double %2)
+  %99 = fsub double 1.000000e+00, %.1145162
+  %100 = tail call double @log(double noundef %99) #15, !tbaa !12
+  %101 = tail call double @llvm.fmuladd.f64(double %86, double %100, double %98)
+  %102 = tail call double @exp(double noundef %101) #15, !tbaa !12
+  %103 = fmul double %96, %102
+  %104 = fmul double %103, %103
+  %.fr = freeze double %104
+  %105 = fcmp olt double %.fr, 0x3D06849B86A12B9B
+  br i1 %105, label %common.ret189, label %.split
 
-for.cond106.backedge:                             ; preds = %if.end129, %if.end112, %for.cond106
-  %g.0.be = fdiv double %g.0, 3.000000e+00
-  br label %for.cond106, !llvm.loop !13
+.split:                                           ; preds = %95, %118
+  %.0104 = phi double [ %119, %118 ], [ 1.000000e+00, %95 ]
+  %106 = fmul double %103, %.0104
+  %107 = fmul double %106, %106
+  %108 = fcmp ult double %107, 1.000000e+00
+  br i1 %108, label %109, label %118, !llvm.loop !38
 
-if.end112:                                        ; preds = %for.cond106
-  %sub113 = fsub double %value.1100, %mul107
-  %cmp114 = fcmp olt double %sub113, 0.000000e+00
-  %cmp116 = fcmp ogt double %sub113, 1.000000e+00
-  %or.cond3 = or i1 %cmp114, %cmp116
-  br i1 %or.cond3, label %for.cond106.backedge, label %if.end119
+109:                                              ; preds = %.split
+  %110 = fsub double %.1145162, %106
+  %111 = fcmp olt double %110, 0.000000e+00
+  %112 = fcmp ogt double %110, 1.000000e+00
+  %or.cond7 = or i1 %111, %112
+  br i1 %or.cond7, label %118, label %113, !llvm.loop !38
 
-if.end119:                                        ; preds = %if.end112
-  %cmp127 = fcmp oeq double %sub113, %value.1100
-  br i1 %cmp127, label %common.ret122, label %if.end129
+113:                                              ; preds = %109
+  %114 = fcmp oeq double %110, %.1145162
+  br i1 %114, label %common.ret189, label %115
 
-if.end129:                                        ; preds = %if.end119
-  %cmp130 = fcmp oeq double %sub113, 0.000000e+00
-  %cmp132 = fcmp oeq double %sub113, 1.000000e+00
-  %or.cond4 = or i1 %cmp130, %cmp132
-  br i1 %or.cond4, label %for.cond106.backedge, label %if.else79
+115:                                              ; preds = %113
+  %116 = fcmp oeq double %110, 0.000000e+00
+  %117 = fcmp oeq double %110, 1.000000e+00
+  %or.cond9 = or i1 %116, %117
+  br i1 %or.cond9, label %118, label %.loopexit, !llvm.loop !38
+
+118:                                              ; preds = %115, %109, %.split
+  %119 = fdiv double %.0104, 3.000000e+00
+  br label %.split
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define dso_local noundef double @_ZN4absl15random_internal26RequiredSuccessProbabilityEdi(double noundef %p_fail, i32 noundef %num_trials) local_unnamed_addr #7 {
-entry:
-  %sub = fsub double 1.000000e+00, %p_fail
-  %call = tail call double @log(double noundef %sub) #15
-  %conv = sitofp i32 %num_trials to double
-  %div = fdiv double %call, %conv
-  %call1 = tail call double @exp(double noundef %div) #15
-  ret double %call1
+define dso_local noundef double @_ZN4absl15random_internal26RequiredSuccessProbabilityEdi(double noundef %0, i32 noundef %1) local_unnamed_addr #5 {
+  %3 = fsub double 1.000000e+00, %0
+  %4 = tail call double @log(double noundef %3) #15, !tbaa !12
+  %5 = sitofp i32 %1 to double
+  %6 = fdiv double %4, %5
+  %7 = tail call double @exp(double noundef %6) #15, !tbaa !12
+  ret double %7
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define dso_local noundef double @_ZN4absl15random_internal6ZScoreEdRKNS0_19DistributionMomentsE(double noundef %expected_mean, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %moments) local_unnamed_addr #10 {
-entry:
-  %mean = getelementptr inbounds nuw i8, ptr %moments, i64 8
-  %0 = load double, ptr %mean, align 8
-  %sub = fsub double %0, %expected_mean
-  %variance = getelementptr inbounds nuw i8, ptr %moments, i64 16
-  %1 = load double, ptr %variance, align 8
-  %call = tail call double @sqrt(double noundef %1) #15
-  %2 = load i64, ptr %moments, align 8
-  %conv = uitofp i64 %2 to double
-  %sqrt = tail call double @llvm.sqrt.f64(double %conv)
-  %div = fdiv double %call, %sqrt
-  %div2 = fdiv double %sub, %div
-  ret double %div2
+define dso_local noundef double @_ZN4absl15random_internal6ZScoreEdRKNS0_19DistributionMomentsE(double noundef %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) local_unnamed_addr #10 {
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %4 = load double, ptr %3, align 8, !tbaa !4
+  %5 = fsub double %4, %0
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %7 = load double, ptr %6, align 8, !tbaa !11
+  %8 = tail call double @sqrt(double noundef %7) #15, !tbaa !12
+  %9 = load i64, ptr %1, align 8, !tbaa !39
+  %10 = uitofp i64 %9 to double
+  %sqrt = tail call double @llvm.sqrt.f64(double %10)
+  %11 = fdiv double %8, %sqrt
+  %12 = fdiv double %5, %11
+  ret double %12
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define dso_local noundef double @_ZN4absl15random_internal17MaxErrorToleranceEd(double noundef %acceptance_probability) local_unnamed_addr #7 {
-entry:
-  %sub = fsub double 1.000000e+00, %acceptance_probability
-  %mul = fmul double %sub, 5.000000e-01
-  %0 = tail call double @llvm.fmuladd.f64(double %mul, double 2.000000e+00, double -1.000000e+00)
-  %call.i = tail call noundef double @_ZN4absl15random_internal6erfinvEd(double noundef %0)
-  %mul.i = fmul double %call.i, 0xBFF6A09E667F3BCD
-  ret double %mul.i
+define dso_local noundef double @_ZN4absl15random_internal17MaxErrorToleranceEd(double noundef %0) local_unnamed_addr #5 {
+  %2 = fsub double 1.000000e+00, %0
+  %3 = fmul double %2, 5.000000e-01
+  %4 = tail call double @llvm.fmuladd.f64(double %3, double 2.000000e+00, double -1.000000e+00)
+  %5 = tail call noundef double @_ZN4absl15random_internal6erfinvEd(double noundef %4)
+  %6 = fmul double %5, 0xBFF6A09E667F3BCD
+  ret double %6
 }
 
-declare noundef i64 @_ZN4absl16numbers_internal17SixDigitsToBufferEdPc(double noundef, ptr noundef) local_unnamed_addr #0
+declare noundef i64 @_ZN4absl16numbers_internal17SixDigitsToBufferEdPc(double noundef, ptr noundef) local_unnamed_addr #6
 
-declare void @_ZN4absl19str_format_internal10FormatPackB5cxx11ENS0_21UntypedFormatSpecImplENS_4SpanIKNS0_13FormatArgImplEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr, i64, ptr, i64) local_unnamed_addr #0
+; Function Attrs: nobuiltin nounwind
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #11
 
-declare noundef zeroext i1 @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIdEEbNS1_4DataENS0_24FormatConversionSpecImplEPv(ptr, i64, i32, ptr noundef) #0
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #6
 
-declare void @_ZN4absl16strings_internal9CatPiecesB5cxx11ESt16initializer_listISt17basic_string_viewIcSt11char_traitsIcEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr, i64) local_unnamed_addr #0
+declare void @_ZN4absl19str_format_internal10FormatPackB5cxx11ENS0_21UntypedFormatSpecImplENS_4SpanIKNS0_13FormatArgImplEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr, i64, ptr, i64) local_unnamed_addr #6
 
-; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_distribution_test_util.cc() #11 section ".text.startup" {
-entry:
-  tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #15
-  ret void
-}
+; Function Attrs: mustprogress uwtable
+declare noundef zeroext i1 @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIdEEbNS1_4DataENS0_24FormatConversionSpecImplEPv(ptr, i64, i32, ptr noundef) #4 align 2
+
+declare void @_ZN4absl16strings_internal9CatPiecesB5cxx11ESt16initializer_listISt17basic_string_viewIcSt11char_traitsIcEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr, i64) local_unnamed_addr #6
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.sqrt.f64(double) #14
 
-attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree nounwind }
-attributes #3 = { mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nounwind willreturn memory(write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nounwind memory(write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { mustprogress nofree nounwind willreturn memory(write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind willreturn memory(write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nounwind memory(write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #15 = { nounwind }
+attributes #16 = { builtin nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{!6}
-!6 = distinct !{!6, !7, !"_ZN4absl9StrFormatIJddddEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_19str_format_internal18FormatSpecTemplateIJXspclsr19str_format_internalE14ArgumentToConvIT_EEEEEEDpRKS9_: %agg.result"}
-!7 = distinct !{!7, !"_ZN4absl9StrFormatIJddddEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_19str_format_internal18FormatSpecTemplateIJXspclsr19str_format_internalE14ArgumentToConvIT_EEEEEEDpRKS9_"}
-!8 = !{!9}
-!9 = distinct !{!9, !10, !"_ZN4absl6StrCatIJA6_cdEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_8AlphaNumESA_SA_SA_SA_DpRKT_: %agg.result"}
-!10 = distinct !{!10, !"_ZN4absl6StrCatIJA6_cdEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_8AlphaNumESA_SA_SA_SA_DpRKT_"}
-!11 = distinct !{!11, !12}
-!12 = !{!"llvm.loop.mustprogress"}
-!13 = distinct !{!13, !12}
+!4 = !{!5, !9, i64 8}
+!5 = !{!"_ZTSN4absl15random_internal19DistributionMomentsE", !6, i64 0, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32}
+!6 = !{!"long", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C++ TBAA"}
+!9 = !{!"double", !7, i64 0}
+!10 = !{!9, !9, i64 0}
+!11 = !{!5, !9, i64 16}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"int", !7, i64 0}
+!14 = !{!5, !9, i64 24}
+!15 = !{!5, !9, i64 32}
+!16 = !{!17}
+!17 = distinct !{!17, !18, !"_ZN4absl9StrFormatIJddddEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_19str_format_internal18FormatSpecTemplateIJXspclsr19str_format_internalE14ArgumentToConvIT_EEEEEEDpRKS9_: argument 0"}
+!18 = distinct !{!18, !"_ZN4absl9StrFormatIJddddEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_19str_format_internal18FormatSpecTemplateIJXspclsr19str_format_internalE14ArgumentToConvIT_EEEEEEDpRKS9_"}
+!19 = !{!7, !7, i64 0}
+!20 = !{!21, !22, i64 8}
+!21 = !{!"_ZTSN4absl19str_format_internal13FormatArgImplE", !7, i64 0, !22, i64 8}
+!22 = !{!"any pointer", !7, i64 0}
+!23 = !{!24, !26, i64 0}
+!24 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !25, i64 0, !6, i64 8, !7, i64 16}
+!25 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !26, i64 0}
+!26 = !{!"p1 omnipotent char", !22, i64 0}
+!27 = !{!24, !6, i64 8}
+!28 = !{!29, !6, i64 0}
+!29 = !{!"_ZTSSt17basic_string_viewIcSt11char_traitsIcEE", !6, i64 0, !26, i64 8}
+!30 = !{!29, !26, i64 8}
+!31 = !{!32}
+!32 = distinct !{!32, !33, !"_ZN4absl6StrCatIJA6_cdEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_8AlphaNumESA_SA_SA_SA_DpRKT_: argument 0"}
+!33 = distinct !{!33, !"_ZN4absl6StrCatIJA6_cdEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_8AlphaNumESA_SA_SA_SA_DpRKT_"}
+!34 = !{!6, !6, i64 0}
+!35 = !{!26, !26, i64 0}
+!36 = distinct !{!36, !37}
+!37 = !{!"llvm.loop.mustprogress"}
+!38 = distinct !{!38, !37}
+!39 = !{!5, !6, i64 0}

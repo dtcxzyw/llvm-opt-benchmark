@@ -1,7 +1,7 @@
 ; ModuleID = 'bench/abseil-cpp/original/randen_slow.ll'
 source_filename = "bench/abseil-cpp/original/randen_slow.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %"class.absl::uint128" = type { i64, i64 }
 
@@ -13,535 +13,561 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef nonnull ptr @_ZN4absl15random_internal10RandenSlow7GetKeysEv() local_unnamed_addr #0 align 2 {
-entry:
   ret ptr @_ZN4absl15random_internal16kRandenRoundKeysE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4absl15random_internal10RandenSlow6AbsorbEPKvPv(ptr noundef readonly captures(none) %seed_void, ptr noundef captures(none) %state_void) local_unnamed_addr #1 align 2 {
-entry:
-  %invariant.gep = getelementptr i8, ptr %seed_void, i64 -16
-  br label %for.body
+define dso_local void @_ZN4absl15random_internal10RandenSlow6AbsorbEPKvPv(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #1 align 2 {
+  %invariant.gep = getelementptr i8, ptr %0, i64 -16
+  br label %4
 
-for.body:                                         ; preds = %entry, %for.body
-  %i.04 = phi i64 [ 2, %entry ], [ %inc, %for.body ]
-  %gep = getelementptr i64, ptr %invariant.gep, i64 %i.04
-  %0 = load i64, ptr %gep, align 8
-  %arrayidx1 = getelementptr inbounds nuw i64, ptr %state_void, i64 %i.04
-  %1 = load i64, ptr %arrayidx1, align 8
-  %xor = xor i64 %1, %0
-  store i64 %xor, ptr %arrayidx1, align 8
-  %inc = add nuw nsw i64 %i.04, 1
-  %exitcond.not = icmp eq i64 %inc, 32
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
-
-for.end:                                          ; preds = %for.body
+3:                                                ; preds = %4
   ret void
+
+4:                                                ; preds = %2, %4
+  %.07 = phi i64 [ 2, %2 ], [ %9, %4 ]
+  %gep = getelementptr i64, ptr %invariant.gep, i64 %.07
+  %5 = load i64, ptr %gep, align 8, !tbaa !4
+  %6 = getelementptr inbounds nuw i64, ptr %1, i64 %.07
+  %7 = load i64, ptr %6, align 8, !tbaa !4
+  %8 = xor i64 %7, %5
+  store i64 %8, ptr %6, align 8, !tbaa !4
+  %9 = add nuw nsw i64 %.07, 1
+  %exitcond.not = icmp eq i64 %9, 32
+  br i1 %exitcond.not, label %3, label %4, !llvm.loop !8
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4absl15random_internal10RandenSlow8GenerateEPKvPv(ptr noundef readonly captures(none) %keys_void, ptr noundef captures(none) %state_void) local_unnamed_addr #1 align 2 {
-entry:
-  %v6.i = alloca %"class.absl::uint128", align 16
-  %v7.i = alloca %"class.absl::uint128", align 16
-  %w1.i = alloca %"class.absl::uint128", align 16
-  %w2.i = alloca %"class.absl::uint128", align 16
-  %w3.i = alloca %"class.absl::uint128", align 16
-  %w4.i = alloca %"class.absl::uint128", align 16
-  %w6.i = alloca %"class.absl::uint128", align 16
-  %w7.i = alloca %"class.absl::uint128", align 16
-  %prev_inner.sroa.0.0.copyload = load i64, ptr %state_void, align 16
-  %prev_inner.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %state_void, i64 8
-  %prev_inner.sroa.2.0.copyload = load i64, ptr %prev_inner.sroa.2.0.arrayidx.sroa_idx, align 8
-  %arrayidx1.i = getelementptr inbounds nuw i8, ptr %state_void, i64 112
-  %arrayidx3.i = getelementptr inbounds nuw i8, ptr %state_void, i64 32
-  %arrayidx5.i = getelementptr inbounds nuw i8, ptr %state_void, i64 208
-  %arrayidx7.i = getelementptr inbounds nuw i8, ptr %state_void, i64 64
-  %arrayidx9.i = getelementptr inbounds nuw i8, ptr %state_void, i64 176
-  %arrayidx11.i = getelementptr inbounds nuw i8, ptr %state_void, i64 128
-  %arrayidx13.i = getelementptr inbounds nuw i8, ptr %state_void, i64 48
-  %arrayidx15.i = getelementptr inbounds nuw i8, ptr %state_void, i64 96
-  %arrayidx17.i = getelementptr inbounds nuw i8, ptr %state_void, i64 240
-  %arrayidx21.i = getelementptr inbounds nuw i8, ptr %state_void, i64 144
-  %arrayidx23.i = getelementptr inbounds nuw i8, ptr %state_void, i64 160
-  %arrayidx25.i = getelementptr inbounds nuw i8, ptr %state_void, i64 16
-  %arrayidx27.i = getelementptr inbounds nuw i8, ptr %state_void, i64 224
-  %arrayidx29.i = getelementptr inbounds nuw i8, ptr %state_void, i64 80
-  %arrayidx31.i = getelementptr inbounds nuw i8, ptr %state_void, i64 192
-  br label %for.cond.i5.preheader
+define dso_local void @_ZN4absl15random_internal10RandenSlow8GenerateEPKvPv(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #1 align 2 {
+  %3 = alloca %"class.absl::uint128", align 16
+  %4 = alloca %"class.absl::uint128", align 16
+  %5 = alloca %"class.absl::uint128", align 16
+  %6 = alloca %"class.absl::uint128", align 16
+  %7 = alloca %"class.absl::uint128", align 16
+  %8 = alloca %"class.absl::uint128", align 16
+  %9 = alloca %"class.absl::uint128", align 16
+  %10 = alloca %"class.absl::uint128", align 16
+  %.sroa.01.0.copyload = load i64, ptr %1, align 16, !tbaa !4
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !4
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 176
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 240
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 144
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 224
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 192
+  br label %.preheader
 
-for.cond.i5.preheader:                            ; preds = %entry, %_ZN12_GLOBAL__N_112FeistelRoundEPN4absl7uint128EPKS1_.exit
-  %keys.addr.i.0220 = phi ptr [ %keys_void, %entry ], [ %incdec.ptr26.i, %_ZN12_GLOBAL__N_112FeistelRoundEPN4absl7uint128EPKS1_.exit ]
-  %round.i.0219 = phi i64 [ 0, %entry ], [ %inc.i, %_ZN12_GLOBAL__N_112FeistelRoundEPN4absl7uint128EPKS1_.exit ]
-  br label %for.body.i7
+.preheader:                                       ; preds = %2, %_ZN12_GLOBAL__N_112FeistelRoundEPN4absl7uint128EPKS1_.exit
+  %.0.i90 = phi i64 [ 0, %2 ], [ %357, %_ZN12_GLOBAL__N_112FeistelRoundEPN4absl7uint128EPKS1_.exit ]
+  %.04.i89 = phi ptr [ %0, %2 ], [ %266, %_ZN12_GLOBAL__N_112FeistelRoundEPN4absl7uint128EPKS1_.exit ]
+  br label %26
 
-for.body.i7:                                      ; preds = %for.cond.i5.preheader, %for.body.i7
-  %keys.addr.i4.0218 = phi ptr [ %keys.addr.i.0220, %for.cond.i5.preheader ], [ %incdec.ptr26.i, %for.body.i7 ]
-  %branch.i.0217 = phi i64 [ 0, %for.cond.i5.preheader ], [ %add.i, %for.body.i7 ]
-  %add.ptr.i = getelementptr inbounds nuw %"class.absl::uint128", ptr %state_void, i64 %branch.i.0217
-  %retval.i18.sroa.0.0.copyload = load i64, ptr %add.ptr.i, align 1
-  %retval.i18.sroa.2.0.from.addr.i19.0..sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 8
-  %retval.i18.sroa.2.0.copyload = load i64, ptr %retval.i18.sroa.2.0.from.addr.i19.0..sroa_idx, align 1
-  %s0.i.sroa.5.0.extract.shift = lshr i64 %retval.i18.sroa.0.0.copyload, 32
-  %s0.i.sroa.14.8.extract.shift = lshr i64 %retval.i18.sroa.2.0.copyload, 32
-  %add.ptr2.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 16
-  %retval.i16.sroa.0.0.copyload = load i64, ptr %add.ptr2.i, align 1
-  %retval.i16.sroa.2.0.from.addr.i17.0..sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 24
-  %retval.i16.sroa.2.0.copyload = load i64, ptr %retval.i16.sroa.2.0.from.addr.i17.0..sroa_idx, align 1
-  %s1.i.sroa.0.0.extract.trunc = trunc i64 %retval.i16.sroa.0.0.copyload to i32
-  %s1.i.sroa.2.0.extract.shift = lshr i64 %retval.i16.sroa.0.0.copyload, 32
-  %s1.i.sroa.2.0.extract.trunc = trunc nuw i64 %s1.i.sroa.2.0.extract.shift to i32
-  %s1.i.sroa.3.8.extract.trunc = trunc i64 %retval.i16.sroa.2.0.copyload to i32
-  %s1.i.sroa.5.8.extract.shift = lshr i64 %retval.i16.sroa.2.0.copyload, 32
-  %s1.i.sroa.5.8.extract.trunc = trunc nuw i64 %s1.i.sroa.5.8.extract.shift to i32
-  %retval.i14.sroa.0.0.copyload = load i64, ptr %keys.addr.i4.0218, align 1
-  %retval.i14.sroa.2.0.from.addr.i15.0..sroa_idx = getelementptr inbounds nuw i8, ptr %keys.addr.i4.0218, i64 8
-  %retval.i14.sroa.2.0.copyload = load i64, ptr %retval.i14.sroa.2.0.from.addr.i15.0..sroa_idx, align 1
-  %ref.tmp.i.sroa.0.0.extract.trunc = trunc i64 %retval.i14.sroa.0.0.copyload to i32
-  %ref.tmp.i.sroa.2.0.extract.shift = lshr i64 %retval.i14.sroa.0.0.copyload, 32
-  %ref.tmp.i.sroa.2.0.extract.trunc = trunc nuw i64 %ref.tmp.i.sroa.2.0.extract.shift to i32
-  %ref.tmp.i.sroa.3.8.extract.trunc = trunc i64 %retval.i14.sroa.2.0.copyload to i32
-  %ref.tmp.i.sroa.5.8.extract.shift = lshr i64 %retval.i14.sroa.2.0.copyload, 32
-  %ref.tmp.i.sroa.5.8.extract.trunc = trunc nuw i64 %ref.tmp.i.sroa.5.8.extract.shift to i32
-  %idxprom.i233 = and i64 %retval.i18.sroa.0.0.copyload, 255
-  %arrayidx3.i234 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te0E, i64 0, i64 %idxprom.i233
-  %0 = load i32, ptr %arrayidx3.i234, align 4
-  %xor.i235 = xor i32 %0, %ref.tmp.i.sroa.0.0.extract.trunc
-  %shr.i237192 = lshr i64 %retval.i18.sroa.0.0.copyload, 40
-  %idxprom7.i239 = and i64 %shr.i237192, 255
-  %arrayidx8.i240 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te1E, i64 0, i64 %idxprom7.i239
-  %1 = load i32, ptr %arrayidx8.i240, align 4
-  %xor9.i241 = xor i32 %xor.i235, %1
-  %shr12.i243193 = lshr i64 %retval.i18.sroa.2.0.copyload, 16
-  %idxprom14.i245 = and i64 %shr12.i243193, 255
-  %arrayidx15.i246 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te2E, i64 0, i64 %idxprom14.i245
-  %2 = load i32, ptr %arrayidx15.i246, align 4
-  %xor16.i247 = xor i32 %xor9.i241, %2
-  %shr19.i249194 = lshr i64 %retval.i18.sroa.2.0.copyload, 56
-  %arrayidx22.i252 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te3E, i64 0, i64 %shr19.i249194
-  %3 = load i32, ptr %arrayidx22.i252, align 4
-  %xor23.i253 = xor i32 %xor16.i247, %3
-  %idxprom31.i257 = and i64 %s0.i.sroa.5.0.extract.shift, 255
-  %arrayidx32.i258 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te0E, i64 0, i64 %idxprom31.i257
-  %4 = load i32, ptr %arrayidx32.i258, align 4
-  %xor33.i259 = xor i32 %4, %ref.tmp.i.sroa.2.0.extract.trunc
-  %shr36.i261195 = lshr i64 %retval.i18.sroa.2.0.copyload, 8
-  %idxprom38.i263 = and i64 %shr36.i261195, 255
-  %arrayidx39.i264 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te1E, i64 0, i64 %idxprom38.i263
-  %5 = load i32, ptr %arrayidx39.i264, align 4
-  %xor40.i265 = xor i32 %xor33.i259, %5
-  %shr43.i267196 = lshr i64 %retval.i18.sroa.2.0.copyload, 48
-  %idxprom45.i269 = and i64 %shr43.i267196, 255
-  %arrayidx46.i270 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te2E, i64 0, i64 %idxprom45.i269
-  %6 = load i32, ptr %arrayidx46.i270, align 4
-  %xor47.i271 = xor i32 %xor40.i265, %6
-  %shr50.i272197 = lshr i64 %retval.i18.sroa.0.0.copyload, 24
-  %idxprom52.i274 = and i64 %shr50.i272197, 255
-  %arrayidx53.i275 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te3E, i64 0, i64 %idxprom52.i274
-  %7 = load i32, ptr %arrayidx53.i275, align 4
-  %xor54.i276 = xor i32 %xor47.i271, %7
-  %idxprom62.i281 = and i64 %retval.i18.sroa.2.0.copyload, 255
-  %arrayidx63.i282 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te0E, i64 0, i64 %idxprom62.i281
-  %8 = load i32, ptr %arrayidx63.i282, align 4
-  %xor64.i283 = xor i32 %8, %ref.tmp.i.sroa.3.8.extract.trunc
-  %shr67.i285198 = lshr i64 %retval.i18.sroa.2.0.copyload, 40
-  %idxprom69.i287 = and i64 %shr67.i285198, 255
-  %arrayidx70.i288 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te1E, i64 0, i64 %idxprom69.i287
-  %9 = load i32, ptr %arrayidx70.i288, align 4
-  %xor71.i289 = xor i32 %xor64.i283, %9
-  %shr74.i290199 = lshr i64 %retval.i18.sroa.0.0.copyload, 16
-  %idxprom76.i292 = and i64 %shr74.i290199, 255
-  %arrayidx77.i293 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te2E, i64 0, i64 %idxprom76.i292
-  %10 = load i32, ptr %arrayidx77.i293, align 4
-  %xor78.i294 = xor i32 %xor71.i289, %10
-  %shr81.i296200 = lshr i64 %retval.i18.sroa.0.0.copyload, 56
-  %arrayidx84.i299 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te3E, i64 0, i64 %shr81.i296200
-  %11 = load i32, ptr %arrayidx84.i299, align 4
-  %xor85.i300 = xor i32 %xor78.i294, %11
-  %idxprom93.i305 = and i64 %s0.i.sroa.14.8.extract.shift, 255
-  %arrayidx94.i306 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te0E, i64 0, i64 %idxprom93.i305
-  %12 = load i32, ptr %arrayidx94.i306, align 4
-  %xor95.i307 = xor i32 %12, %ref.tmp.i.sroa.5.8.extract.trunc
-  %shr98.i308201 = lshr i64 %retval.i18.sroa.0.0.copyload, 8
-  %idxprom100.i310 = and i64 %shr98.i308201, 255
-  %arrayidx101.i311 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te1E, i64 0, i64 %idxprom100.i310
-  %13 = load i32, ptr %arrayidx101.i311, align 4
-  %xor102.i312 = xor i32 %xor95.i307, %13
-  %sum.shift = lshr i64 %retval.i18.sroa.0.0.copyload, 48
-  %idxprom107.i316 = and i64 %sum.shift, 255
-  %arrayidx108.i317 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te2E, i64 0, i64 %idxprom107.i316
-  %14 = load i32, ptr %arrayidx108.i317, align 4
-  %xor109.i318 = xor i32 %xor102.i312, %14
-  %shr112.i320203 = lshr i64 %retval.i18.sroa.2.0.copyload, 24
-  %idxprom114.i322 = and i64 %shr112.i320203, 255
-  %arrayidx115.i323 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te3E, i64 0, i64 %idxprom114.i322
-  %15 = load i32, ptr %arrayidx115.i323, align 4
-  %xor116.i324 = xor i32 %xor109.i318, %15
-  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %keys.addr.i4.0218, i64 16
-  %16 = and i32 %xor23.i253, 255
-  %idxprom.i136 = zext nneg i32 %16 to i64
-  %arrayidx3.i137 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te0E, i64 0, i64 %idxprom.i136
-  %17 = load i32, ptr %arrayidx3.i137, align 4
-  %xor.i138 = xor i32 %17, %s1.i.sroa.0.0.extract.trunc
-  %shr.i140 = lshr i32 %xor54.i276, 8
-  %18 = and i32 %shr.i140, 255
-  %idxprom7.i142 = zext nneg i32 %18 to i64
-  %arrayidx8.i143 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te1E, i64 0, i64 %idxprom7.i142
-  %19 = load i32, ptr %arrayidx8.i143, align 4
-  %xor9.i144 = xor i32 %xor.i138, %19
-  %shr12.i146 = lshr i32 %xor85.i300, 16
-  %20 = and i32 %shr12.i146, 255
-  %idxprom14.i148 = zext nneg i32 %20 to i64
-  %arrayidx15.i149 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te2E, i64 0, i64 %idxprom14.i148
-  %21 = load i32, ptr %arrayidx15.i149, align 4
-  %xor16.i150 = xor i32 %xor9.i144, %21
-  %shr19.i152 = lshr i32 %xor116.i324, 24
-  %conv20.i153 = zext nneg i32 %shr19.i152 to i64
-  %arrayidx22.i155 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te3E, i64 0, i64 %conv20.i153
-  %22 = load i32, ptr %arrayidx22.i155, align 4
-  %xor23.i156 = xor i32 %xor16.i150, %22
-  %23 = and i32 %xor54.i276, 255
-  %idxprom31.i160 = zext nneg i32 %23 to i64
-  %arrayidx32.i161 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te0E, i64 0, i64 %idxprom31.i160
-  %24 = load i32, ptr %arrayidx32.i161, align 4
-  %xor33.i162 = xor i32 %24, %s1.i.sroa.2.0.extract.trunc
-  %shr36.i164 = lshr i32 %xor85.i300, 8
-  %25 = and i32 %shr36.i164, 255
-  %idxprom38.i166 = zext nneg i32 %25 to i64
-  %arrayidx39.i167 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te1E, i64 0, i64 %idxprom38.i166
-  %26 = load i32, ptr %arrayidx39.i167, align 4
-  %xor40.i168 = xor i32 %xor33.i162, %26
-  %shr43.i170 = lshr i32 %xor116.i324, 16
-  %27 = and i32 %shr43.i170, 255
-  %idxprom45.i172 = zext nneg i32 %27 to i64
-  %arrayidx46.i173 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te2E, i64 0, i64 %idxprom45.i172
-  %28 = load i32, ptr %arrayidx46.i173, align 4
-  %xor47.i174 = xor i32 %xor40.i168, %28
-  %shr50.i175 = lshr i32 %xor23.i253, 24
-  %conv51.i176 = zext nneg i32 %shr50.i175 to i64
-  %arrayidx53.i178 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te3E, i64 0, i64 %conv51.i176
-  %29 = load i32, ptr %arrayidx53.i178, align 4
-  %xor54.i179 = xor i32 %xor47.i174, %29
-  %30 = and i32 %xor85.i300, 255
-  %idxprom62.i184 = zext nneg i32 %30 to i64
-  %arrayidx63.i185 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te0E, i64 0, i64 %idxprom62.i184
-  %31 = load i32, ptr %arrayidx63.i185, align 4
-  %xor64.i186 = xor i32 %31, %s1.i.sroa.3.8.extract.trunc
-  %shr67.i188 = lshr i32 %xor116.i324, 8
-  %32 = and i32 %shr67.i188, 255
-  %idxprom69.i190 = zext nneg i32 %32 to i64
-  %arrayidx70.i191 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te1E, i64 0, i64 %idxprom69.i190
-  %33 = load i32, ptr %arrayidx70.i191, align 4
-  %xor71.i192 = xor i32 %xor64.i186, %33
-  %shr74.i193 = lshr i32 %xor23.i253, 16
-  %34 = and i32 %shr74.i193, 255
-  %idxprom76.i195 = zext nneg i32 %34 to i64
-  %arrayidx77.i196 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te2E, i64 0, i64 %idxprom76.i195
-  %35 = load i32, ptr %arrayidx77.i196, align 4
-  %xor78.i197 = xor i32 %xor71.i192, %35
-  %shr81.i199 = lshr i32 %xor54.i276, 24
-  %conv82.i200 = zext nneg i32 %shr81.i199 to i64
-  %arrayidx84.i202 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te3E, i64 0, i64 %conv82.i200
-  %36 = load i32, ptr %arrayidx84.i202, align 4
-  %xor85.i203 = xor i32 %xor78.i197, %36
-  %37 = and i32 %xor116.i324, 255
-  %idxprom93.i208 = zext nneg i32 %37 to i64
-  %arrayidx94.i209 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te0E, i64 0, i64 %idxprom93.i208
-  %38 = load i32, ptr %arrayidx94.i209, align 4
-  %xor95.i210 = xor i32 %38, %s1.i.sroa.5.8.extract.trunc
-  %shr98.i211 = lshr i32 %xor23.i253, 8
-  %39 = and i32 %shr98.i211, 255
-  %idxprom100.i213 = zext nneg i32 %39 to i64
-  %arrayidx101.i214 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te1E, i64 0, i64 %idxprom100.i213
-  %40 = load i32, ptr %arrayidx101.i214, align 4
-  %xor102.i215 = xor i32 %xor95.i210, %40
-  %shr105.i217 = lshr i32 %xor54.i276, 16
-  %41 = and i32 %shr105.i217, 255
-  %idxprom107.i219 = zext nneg i32 %41 to i64
-  %arrayidx108.i220 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te2E, i64 0, i64 %idxprom107.i219
-  %42 = load i32, ptr %arrayidx108.i220, align 4
-  %xor109.i221 = xor i32 %xor102.i215, %42
-  %shr112.i223 = lshr i32 %xor85.i300, 24
-  %conv113.i224 = zext nneg i32 %shr112.i223 to i64
-  %arrayidx115.i226 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te3E, i64 0, i64 %conv113.i224
-  %43 = load i32, ptr %arrayidx115.i226, align 4
-  %xor116.i227 = xor i32 %xor109.i221, %43
-  %retval.i132.sroa.2.0.insert.ext = zext i32 %xor54.i179 to i64
-  %retval.i132.sroa.2.0.insert.shift = shl nuw i64 %retval.i132.sroa.2.0.insert.ext, 32
-  %retval.i132.sroa.0.0.insert.ext = zext i32 %xor23.i156 to i64
-  %retval.i132.sroa.0.0.insert.insert = or disjoint i64 %retval.i132.sroa.2.0.insert.shift, %retval.i132.sroa.0.0.insert.ext
-  %retval.i132.sroa.5.8.insert.ext = zext i32 %xor116.i227 to i64
-  %retval.i132.sroa.5.8.insert.shift = shl nuw i64 %retval.i132.sroa.5.8.insert.ext, 32
-  %retval.i132.sroa.3.8.insert.ext = zext i32 %xor85.i203 to i64
-  %retval.i132.sroa.3.8.insert.insert = or disjoint i64 %retval.i132.sroa.5.8.insert.shift, %retval.i132.sroa.3.8.insert.ext
-  store i64 %retval.i132.sroa.0.0.insert.insert, ptr %add.ptr2.i, align 1
-  store i64 %retval.i132.sroa.3.8.insert.insert, ptr %retval.i16.sroa.2.0.from.addr.i17.0..sroa_idx, align 1
-  %add.ptr14.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 32
-  %retval.i12.sroa.0.0.copyload = load i64, ptr %add.ptr14.i, align 1
-  %retval.i12.sroa.2.0.from.addr.i13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 40
-  %retval.i12.sroa.2.0.copyload = load i64, ptr %retval.i12.sroa.2.0.from.addr.i13.0..sroa_idx, align 1
-  %s2.i.sroa.5.0.extract.shift = lshr i64 %retval.i12.sroa.0.0.copyload, 32
-  %s2.i.sroa.14.8.extract.shift = lshr i64 %retval.i12.sroa.2.0.copyload, 32
-  %add.ptr18.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 48
-  %retval.i10.sroa.0.0.copyload = load i64, ptr %add.ptr18.i, align 1
-  %retval.i10.sroa.2.0.from.addr.i11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 56
-  %retval.i10.sroa.2.0.copyload = load i64, ptr %retval.i10.sroa.2.0.from.addr.i11.0..sroa_idx, align 1
-  %s3.i.sroa.0.0.extract.trunc = trunc i64 %retval.i10.sroa.0.0.copyload to i32
-  %s3.i.sroa.2.0.extract.shift = lshr i64 %retval.i10.sroa.0.0.copyload, 32
-  %s3.i.sroa.2.0.extract.trunc = trunc nuw i64 %s3.i.sroa.2.0.extract.shift to i32
-  %s3.i.sroa.3.8.extract.trunc = trunc i64 %retval.i10.sroa.2.0.copyload to i32
-  %s3.i.sroa.5.8.extract.shift = lshr i64 %retval.i10.sroa.2.0.copyload, 32
-  %s3.i.sroa.5.8.extract.trunc = trunc nuw i64 %s3.i.sroa.5.8.extract.shift to i32
-  %retval.i.sroa.0.0.copyload = load i64, ptr %incdec.ptr.i, align 1
-  %retval.i.sroa.2.0.from.addr.i.0..sroa_idx = getelementptr inbounds nuw i8, ptr %keys.addr.i4.0218, i64 24
-  %retval.i.sroa.2.0.copyload = load i64, ptr %retval.i.sroa.2.0.from.addr.i.0..sroa_idx, align 1
-  %ref.tmp21.i.sroa.0.0.extract.trunc = trunc i64 %retval.i.sroa.0.0.copyload to i32
-  %ref.tmp21.i.sroa.2.0.extract.shift = lshr i64 %retval.i.sroa.0.0.copyload, 32
-  %ref.tmp21.i.sroa.2.0.extract.trunc = trunc nuw i64 %ref.tmp21.i.sroa.2.0.extract.shift to i32
-  %ref.tmp21.i.sroa.3.8.extract.trunc = trunc i64 %retval.i.sroa.2.0.copyload to i32
-  %ref.tmp21.i.sroa.5.8.extract.shift = lshr i64 %retval.i.sroa.2.0.copyload, 32
-  %ref.tmp21.i.sroa.5.8.extract.trunc = trunc nuw i64 %ref.tmp21.i.sroa.5.8.extract.shift to i32
-  %idxprom.i39 = and i64 %retval.i12.sroa.0.0.copyload, 255
-  %arrayidx3.i40 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te0E, i64 0, i64 %idxprom.i39
-  %44 = load i32, ptr %arrayidx3.i40, align 4
-  %xor.i41 = xor i32 %44, %ref.tmp21.i.sroa.0.0.extract.trunc
-  %shr.i43204 = lshr i64 %retval.i12.sroa.0.0.copyload, 40
-  %idxprom7.i45 = and i64 %shr.i43204, 255
-  %arrayidx8.i46 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te1E, i64 0, i64 %idxprom7.i45
-  %45 = load i32, ptr %arrayidx8.i46, align 4
-  %xor9.i47 = xor i32 %xor.i41, %45
-  %shr12.i49205 = lshr i64 %retval.i12.sroa.2.0.copyload, 16
-  %idxprom14.i51 = and i64 %shr12.i49205, 255
-  %arrayidx15.i52 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te2E, i64 0, i64 %idxprom14.i51
-  %46 = load i32, ptr %arrayidx15.i52, align 4
-  %xor16.i53 = xor i32 %xor9.i47, %46
-  %shr19.i55206 = lshr i64 %retval.i12.sroa.2.0.copyload, 56
-  %arrayidx22.i58 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te3E, i64 0, i64 %shr19.i55206
-  %47 = load i32, ptr %arrayidx22.i58, align 4
-  %xor23.i59 = xor i32 %xor16.i53, %47
-  %idxprom31.i63 = and i64 %s2.i.sroa.5.0.extract.shift, 255
-  %arrayidx32.i64 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te0E, i64 0, i64 %idxprom31.i63
-  %48 = load i32, ptr %arrayidx32.i64, align 4
-  %xor33.i65 = xor i32 %48, %ref.tmp21.i.sroa.2.0.extract.trunc
-  %shr36.i67207 = lshr i64 %retval.i12.sroa.2.0.copyload, 8
-  %idxprom38.i69 = and i64 %shr36.i67207, 255
-  %arrayidx39.i70 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te1E, i64 0, i64 %idxprom38.i69
-  %49 = load i32, ptr %arrayidx39.i70, align 4
-  %xor40.i71 = xor i32 %xor33.i65, %49
-  %shr43.i73208 = lshr i64 %retval.i12.sroa.2.0.copyload, 48
-  %idxprom45.i75 = and i64 %shr43.i73208, 255
-  %arrayidx46.i76 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te2E, i64 0, i64 %idxprom45.i75
-  %50 = load i32, ptr %arrayidx46.i76, align 4
-  %xor47.i77 = xor i32 %xor40.i71, %50
-  %shr50.i78209 = lshr i64 %retval.i12.sroa.0.0.copyload, 24
-  %idxprom52.i80 = and i64 %shr50.i78209, 255
-  %arrayidx53.i81 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te3E, i64 0, i64 %idxprom52.i80
-  %51 = load i32, ptr %arrayidx53.i81, align 4
-  %xor54.i82 = xor i32 %xor47.i77, %51
-  %idxprom62.i87 = and i64 %retval.i12.sroa.2.0.copyload, 255
-  %arrayidx63.i88 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te0E, i64 0, i64 %idxprom62.i87
-  %52 = load i32, ptr %arrayidx63.i88, align 4
-  %xor64.i89 = xor i32 %52, %ref.tmp21.i.sroa.3.8.extract.trunc
-  %shr67.i91210 = lshr i64 %retval.i12.sroa.2.0.copyload, 40
-  %idxprom69.i93 = and i64 %shr67.i91210, 255
-  %arrayidx70.i94 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te1E, i64 0, i64 %idxprom69.i93
-  %53 = load i32, ptr %arrayidx70.i94, align 4
-  %xor71.i95 = xor i32 %xor64.i89, %53
-  %shr74.i96211 = lshr i64 %retval.i12.sroa.0.0.copyload, 16
-  %idxprom76.i98 = and i64 %shr74.i96211, 255
-  %arrayidx77.i99 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te2E, i64 0, i64 %idxprom76.i98
-  %54 = load i32, ptr %arrayidx77.i99, align 4
-  %xor78.i100 = xor i32 %xor71.i95, %54
-  %shr81.i102212 = lshr i64 %retval.i12.sroa.0.0.copyload, 56
-  %arrayidx84.i105 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te3E, i64 0, i64 %shr81.i102212
-  %55 = load i32, ptr %arrayidx84.i105, align 4
-  %xor85.i106 = xor i32 %xor78.i100, %55
-  %idxprom93.i111 = and i64 %s2.i.sroa.14.8.extract.shift, 255
-  %arrayidx94.i112 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te0E, i64 0, i64 %idxprom93.i111
-  %56 = load i32, ptr %arrayidx94.i112, align 4
-  %xor95.i113 = xor i32 %56, %ref.tmp21.i.sroa.5.8.extract.trunc
-  %shr98.i114213 = lshr i64 %retval.i12.sroa.0.0.copyload, 8
-  %idxprom100.i116 = and i64 %shr98.i114213, 255
-  %arrayidx101.i117 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te1E, i64 0, i64 %idxprom100.i116
-  %57 = load i32, ptr %arrayidx101.i117, align 4
-  %xor102.i118 = xor i32 %xor95.i113, %57
-  %sum.shift214 = lshr i64 %retval.i12.sroa.0.0.copyload, 48
-  %idxprom107.i122 = and i64 %sum.shift214, 255
-  %arrayidx108.i123 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te2E, i64 0, i64 %idxprom107.i122
-  %58 = load i32, ptr %arrayidx108.i123, align 4
-  %xor109.i124 = xor i32 %xor102.i118, %58
-  %shr112.i126216 = lshr i64 %retval.i12.sroa.2.0.copyload, 24
-  %idxprom114.i128 = and i64 %shr112.i126216, 255
-  %arrayidx115.i129 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te3E, i64 0, i64 %idxprom114.i128
-  %59 = load i32, ptr %arrayidx115.i129, align 4
-  %xor116.i130 = xor i32 %xor109.i124, %59
-  %incdec.ptr26.i = getelementptr inbounds nuw i8, ptr %keys.addr.i4.0218, i64 32
-  %60 = and i32 %xor23.i59, 255
-  %idxprom.i = zext nneg i32 %60 to i64
-  %arrayidx3.i22 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te0E, i64 0, i64 %idxprom.i
-  %61 = load i32, ptr %arrayidx3.i22, align 4
-  %xor.i = xor i32 %61, %s3.i.sroa.0.0.extract.trunc
-  %shr.i = lshr i32 %xor54.i82, 8
-  %62 = and i32 %shr.i, 255
-  %idxprom7.i = zext nneg i32 %62 to i64
-  %arrayidx8.i24 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te1E, i64 0, i64 %idxprom7.i
-  %63 = load i32, ptr %arrayidx8.i24, align 4
-  %xor9.i = xor i32 %xor.i, %63
-  %shr12.i = lshr i32 %xor85.i106, 16
-  %64 = and i32 %shr12.i, 255
-  %idxprom14.i = zext nneg i32 %64 to i64
-  %arrayidx15.i26 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te2E, i64 0, i64 %idxprom14.i
-  %65 = load i32, ptr %arrayidx15.i26, align 4
-  %xor16.i = xor i32 %xor9.i, %65
-  %shr19.i = lshr i32 %xor116.i130, 24
-  %conv20.i = zext nneg i32 %shr19.i to i64
-  %arrayidx22.i28 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te3E, i64 0, i64 %conv20.i
-  %66 = load i32, ptr %arrayidx22.i28, align 4
-  %xor23.i = xor i32 %xor16.i, %66
-  %67 = and i32 %xor54.i82, 255
-  %idxprom31.i = zext nneg i32 %67 to i64
-  %arrayidx32.i = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te0E, i64 0, i64 %idxprom31.i
-  %68 = load i32, ptr %arrayidx32.i, align 4
-  %xor33.i = xor i32 %68, %s3.i.sroa.2.0.extract.trunc
-  %shr36.i = lshr i32 %xor85.i106, 8
-  %69 = and i32 %shr36.i, 255
-  %idxprom38.i = zext nneg i32 %69 to i64
-  %arrayidx39.i32 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te1E, i64 0, i64 %idxprom38.i
-  %70 = load i32, ptr %arrayidx39.i32, align 4
-  %xor40.i = xor i32 %xor33.i, %70
-  %shr43.i = lshr i32 %xor116.i130, 16
-  %71 = and i32 %shr43.i, 255
-  %idxprom45.i = zext nneg i32 %71 to i64
-  %arrayidx46.i34 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te2E, i64 0, i64 %idxprom45.i
-  %72 = load i32, ptr %arrayidx46.i34, align 4
-  %xor47.i = xor i32 %xor40.i, %72
-  %shr50.i = lshr i32 %xor23.i59, 24
-  %conv51.i = zext nneg i32 %shr50.i to i64
-  %arrayidx53.i = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te3E, i64 0, i64 %conv51.i
-  %73 = load i32, ptr %arrayidx53.i, align 4
-  %xor54.i = xor i32 %xor47.i, %73
-  %74 = and i32 %xor85.i106, 255
-  %idxprom62.i = zext nneg i32 %74 to i64
-  %arrayidx63.i = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te0E, i64 0, i64 %idxprom62.i
-  %75 = load i32, ptr %arrayidx63.i, align 4
-  %xor64.i = xor i32 %75, %s3.i.sroa.3.8.extract.trunc
-  %shr67.i = lshr i32 %xor116.i130, 8
-  %76 = and i32 %shr67.i, 255
-  %idxprom69.i = zext nneg i32 %76 to i64
-  %arrayidx70.i = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te1E, i64 0, i64 %idxprom69.i
-  %77 = load i32, ptr %arrayidx70.i, align 4
-  %xor71.i = xor i32 %xor64.i, %77
-  %shr74.i = lshr i32 %xor23.i59, 16
-  %78 = and i32 %shr74.i, 255
-  %idxprom76.i = zext nneg i32 %78 to i64
-  %arrayidx77.i = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te2E, i64 0, i64 %idxprom76.i
-  %79 = load i32, ptr %arrayidx77.i, align 4
-  %xor78.i = xor i32 %xor71.i, %79
-  %shr81.i = lshr i32 %xor54.i82, 24
-  %conv82.i = zext nneg i32 %shr81.i to i64
-  %arrayidx84.i = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te3E, i64 0, i64 %conv82.i
-  %80 = load i32, ptr %arrayidx84.i, align 4
-  %xor85.i = xor i32 %xor78.i, %80
-  %81 = and i32 %xor116.i130, 255
-  %idxprom93.i = zext nneg i32 %81 to i64
-  %arrayidx94.i = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te0E, i64 0, i64 %idxprom93.i
-  %82 = load i32, ptr %arrayidx94.i, align 4
-  %xor95.i = xor i32 %82, %s3.i.sroa.5.8.extract.trunc
-  %shr98.i = lshr i32 %xor23.i59, 8
-  %83 = and i32 %shr98.i, 255
-  %idxprom100.i = zext nneg i32 %83 to i64
-  %arrayidx101.i = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te1E, i64 0, i64 %idxprom100.i
-  %84 = load i32, ptr %arrayidx101.i, align 4
-  %xor102.i = xor i32 %xor95.i, %84
-  %shr105.i = lshr i32 %xor54.i82, 16
-  %85 = and i32 %shr105.i, 255
-  %idxprom107.i = zext nneg i32 %85 to i64
-  %arrayidx108.i = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te2E, i64 0, i64 %idxprom107.i
-  %86 = load i32, ptr %arrayidx108.i, align 4
-  %xor109.i = xor i32 %xor102.i, %86
-  %shr112.i = lshr i32 %xor85.i106, 24
-  %conv113.i = zext nneg i32 %shr112.i to i64
-  %arrayidx115.i = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te3E, i64 0, i64 %conv113.i
-  %87 = load i32, ptr %arrayidx115.i, align 4
-  %xor116.i = xor i32 %xor109.i, %87
-  %retval.i20.sroa.2.0.insert.ext = zext i32 %xor54.i to i64
-  %retval.i20.sroa.2.0.insert.shift = shl nuw i64 %retval.i20.sroa.2.0.insert.ext, 32
-  %retval.i20.sroa.0.0.insert.ext = zext i32 %xor23.i to i64
-  %retval.i20.sroa.0.0.insert.insert = or disjoint i64 %retval.i20.sroa.2.0.insert.shift, %retval.i20.sroa.0.0.insert.ext
-  %retval.i20.sroa.5.8.insert.ext = zext i32 %xor116.i to i64
-  %retval.i20.sroa.5.8.insert.shift = shl nuw i64 %retval.i20.sroa.5.8.insert.ext, 32
-  %retval.i20.sroa.3.8.insert.ext = zext i32 %xor85.i to i64
-  %retval.i20.sroa.3.8.insert.insert = or disjoint i64 %retval.i20.sroa.5.8.insert.shift, %retval.i20.sroa.3.8.insert.ext
-  store i64 %retval.i20.sroa.0.0.insert.insert, ptr %add.ptr18.i, align 1
-  store i64 %retval.i20.sroa.3.8.insert.insert, ptr %retval.i10.sroa.2.0.from.addr.i11.0..sroa_idx, align 1
-  %add.i = add nuw nsw i64 %branch.i.0217, 4
-  %cmp.i6 = icmp samesign ult i64 %branch.i.0217, 12
-  br i1 %cmp.i6, label %for.body.i7, label %_ZN12_GLOBAL__N_112FeistelRoundEPN4absl7uint128EPKS1_.exit, !llvm.loop !7
+26:                                               ; preds = %.preheader, %26
+  %.0.i988 = phi i64 [ 0, %.preheader ], [ %355, %26 ]
+  %.018.i87 = phi ptr [ %.04.i89, %.preheader ], [ %266, %26 ]
+  %27 = getelementptr inbounds nuw %"class.absl::uint128", ptr %1, i64 %.0.i988
+  %.sroa.0.0.copyload.i30 = load i64, ptr %27, align 1
+  %.sroa.2.0..0..sroa_idx.i31 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %.sroa.2.0.copyload.i32 = load i64, ptr %.sroa.2.0..0..sroa_idx.i31, align 1
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  %.sroa.0.0.copyload.i25 = load i64, ptr %28, align 1
+  %.sroa.2.0..0..sroa_idx.i26 = getelementptr inbounds nuw i8, ptr %27, i64 24
+  %.sroa.2.0.copyload.i27 = load i64, ptr %.sroa.2.0..0..sroa_idx.i26, align 1
+  %.sroa.0.0.copyload.i20 = load i64, ptr %.018.i87, align 1
+  %.sroa.2.0..0..sroa_idx.i21 = getelementptr inbounds nuw i8, ptr %.018.i87, i64 8
+  %.sroa.2.0.copyload.i22 = load i64, ptr %.sroa.2.0..0..sroa_idx.i21, align 1
+  %.sroa.078.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i20 to i32
+  %29 = and i64 %.sroa.0.0.copyload.i30, 255
+  %30 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te0E, i64 0, i64 %29
+  %31 = load i32, ptr %30, align 4, !tbaa !10
+  %32 = xor i32 %31, %.sroa.078.0.extract.trunc
+  %.sroa.084.4.extract.shift = lshr i64 %.sroa.0.0.copyload.i30, 32
+  %33 = lshr i64 %.sroa.0.0.copyload.i30, 40
+  %34 = and i64 %33, 255
+  %35 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te1E, i64 0, i64 %34
+  %36 = load i32, ptr %35, align 4, !tbaa !10
+  %37 = xor i32 %32, %36
+  %38 = lshr i64 %.sroa.2.0.copyload.i32, 16
+  %39 = and i64 %38, 255
+  %40 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te2E, i64 0, i64 %39
+  %41 = load i32, ptr %40, align 4, !tbaa !10
+  %42 = xor i32 %37, %41
+  %.sroa.585.12.extract.shift = lshr i64 %.sroa.2.0.copyload.i32, 32
+  %43 = lshr i64 %.sroa.2.0.copyload.i32, 56
+  %44 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te3E, i64 0, i64 %43
+  %45 = load i32, ptr %44, align 4, !tbaa !10
+  %46 = xor i32 %42, %45
+  %.sroa.078.4.extract.shift = lshr i64 %.sroa.0.0.copyload.i20, 32
+  %.sroa.078.4.extract.trunc = trunc nuw i64 %.sroa.078.4.extract.shift to i32
+  %47 = and i64 %.sroa.084.4.extract.shift, 255
+  %48 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te0E, i64 0, i64 %47
+  %49 = load i32, ptr %48, align 4, !tbaa !10
+  %50 = xor i32 %49, %.sroa.078.4.extract.trunc
+  %51 = lshr i64 %.sroa.2.0.copyload.i32, 8
+  %52 = and i64 %51, 255
+  %53 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te1E, i64 0, i64 %52
+  %54 = load i32, ptr %53, align 4, !tbaa !10
+  %55 = xor i32 %50, %54
+  %56 = lshr i64 %.sroa.2.0.copyload.i32, 48
+  %57 = and i64 %56, 255
+  %58 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te2E, i64 0, i64 %57
+  %59 = load i32, ptr %58, align 4, !tbaa !10
+  %60 = xor i32 %55, %59
+  %61 = lshr i64 %.sroa.0.0.copyload.i30, 24
+  %62 = and i64 %61, 255
+  %63 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te3E, i64 0, i64 %62
+  %64 = load i32, ptr %63, align 4, !tbaa !10
+  %65 = xor i32 %60, %64
+  %.sroa.579.8.extract.trunc = trunc i64 %.sroa.2.0.copyload.i22 to i32
+  %66 = and i64 %.sroa.2.0.copyload.i32, 255
+  %67 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te0E, i64 0, i64 %66
+  %68 = load i32, ptr %67, align 4, !tbaa !10
+  %69 = xor i32 %68, %.sroa.579.8.extract.trunc
+  %70 = lshr i64 %.sroa.2.0.copyload.i32, 40
+  %71 = and i64 %70, 255
+  %72 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te1E, i64 0, i64 %71
+  %73 = load i32, ptr %72, align 4, !tbaa !10
+  %74 = xor i32 %69, %73
+  %75 = lshr i64 %.sroa.0.0.copyload.i30, 16
+  %76 = and i64 %75, 255
+  %77 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te2E, i64 0, i64 %76
+  %78 = load i32, ptr %77, align 4, !tbaa !10
+  %79 = xor i32 %74, %78
+  %80 = lshr i64 %.sroa.0.0.copyload.i30, 56
+  %81 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te3E, i64 0, i64 %80
+  %82 = load i32, ptr %81, align 4, !tbaa !10
+  %83 = xor i32 %79, %82
+  %.sroa.579.12.extract.shift = lshr i64 %.sroa.2.0.copyload.i22, 32
+  %.sroa.579.12.extract.trunc = trunc nuw i64 %.sroa.579.12.extract.shift to i32
+  %84 = and i64 %.sroa.585.12.extract.shift, 255
+  %85 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te0E, i64 0, i64 %84
+  %86 = load i32, ptr %85, align 4, !tbaa !10
+  %87 = xor i32 %86, %.sroa.579.12.extract.trunc
+  %88 = lshr i64 %.sroa.0.0.copyload.i30, 8
+  %89 = and i64 %88, 255
+  %90 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te1E, i64 0, i64 %89
+  %91 = load i32, ptr %90, align 4, !tbaa !10
+  %92 = xor i32 %87, %91
+  %sum.shift = lshr i64 %.sroa.0.0.copyload.i30, 48
+  %93 = and i64 %sum.shift, 255
+  %94 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te2E, i64 0, i64 %93
+  %95 = load i32, ptr %94, align 4, !tbaa !10
+  %96 = xor i32 %92, %95
+  %97 = lshr i64 %.sroa.2.0.copyload.i32, 24
+  %98 = and i64 %97, 255
+  %99 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te3E, i64 0, i64 %98
+  %100 = load i32, ptr %99, align 4, !tbaa !10
+  %101 = xor i32 %96, %100
+  %102 = getelementptr inbounds nuw i8, ptr %.018.i87, i64 16
+  %.sroa.082.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i25 to i32
+  %103 = and i32 %46, 255
+  %104 = zext nneg i32 %103 to i64
+  %105 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te0E, i64 0, i64 %104
+  %106 = load i32, ptr %105, align 4, !tbaa !10
+  %107 = xor i32 %106, %.sroa.082.0.extract.trunc
+  %108 = lshr i32 %65, 8
+  %109 = and i32 %108, 255
+  %110 = zext nneg i32 %109 to i64
+  %111 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te1E, i64 0, i64 %110
+  %112 = load i32, ptr %111, align 4, !tbaa !10
+  %113 = xor i32 %107, %112
+  %114 = lshr i32 %83, 16
+  %115 = and i32 %114, 255
+  %116 = zext nneg i32 %115 to i64
+  %117 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te2E, i64 0, i64 %116
+  %118 = load i32, ptr %117, align 4, !tbaa !10
+  %119 = xor i32 %113, %118
+  %120 = lshr i32 %101, 24
+  %121 = zext nneg i32 %120 to i64
+  %122 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te3E, i64 0, i64 %121
+  %123 = load i32, ptr %122, align 4, !tbaa !10
+  %124 = xor i32 %119, %123
+  %.sroa.082.4.extract.shift = lshr i64 %.sroa.0.0.copyload.i25, 32
+  %.sroa.082.4.extract.trunc = trunc nuw i64 %.sroa.082.4.extract.shift to i32
+  %125 = and i32 %65, 255
+  %126 = zext nneg i32 %125 to i64
+  %127 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te0E, i64 0, i64 %126
+  %128 = load i32, ptr %127, align 4, !tbaa !10
+  %129 = xor i32 %128, %.sroa.082.4.extract.trunc
+  %130 = lshr i32 %83, 8
+  %131 = and i32 %130, 255
+  %132 = zext nneg i32 %131 to i64
+  %133 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te1E, i64 0, i64 %132
+  %134 = load i32, ptr %133, align 4, !tbaa !10
+  %135 = xor i32 %129, %134
+  %136 = lshr i32 %101, 16
+  %137 = and i32 %136, 255
+  %138 = zext nneg i32 %137 to i64
+  %139 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te2E, i64 0, i64 %138
+  %140 = load i32, ptr %139, align 4, !tbaa !10
+  %141 = xor i32 %135, %140
+  %142 = lshr i32 %46, 24
+  %143 = zext nneg i32 %142 to i64
+  %144 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te3E, i64 0, i64 %143
+  %145 = load i32, ptr %144, align 4, !tbaa !10
+  %146 = xor i32 %141, %145
+  %.sroa.583.8.extract.trunc = trunc i64 %.sroa.2.0.copyload.i27 to i32
+  %147 = and i32 %83, 255
+  %148 = zext nneg i32 %147 to i64
+  %149 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te0E, i64 0, i64 %148
+  %150 = load i32, ptr %149, align 4, !tbaa !10
+  %151 = xor i32 %150, %.sroa.583.8.extract.trunc
+  %152 = lshr i32 %101, 8
+  %153 = and i32 %152, 255
+  %154 = zext nneg i32 %153 to i64
+  %155 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te1E, i64 0, i64 %154
+  %156 = load i32, ptr %155, align 4, !tbaa !10
+  %157 = xor i32 %151, %156
+  %158 = lshr i32 %46, 16
+  %159 = and i32 %158, 255
+  %160 = zext nneg i32 %159 to i64
+  %161 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te2E, i64 0, i64 %160
+  %162 = load i32, ptr %161, align 4, !tbaa !10
+  %163 = xor i32 %157, %162
+  %164 = lshr i32 %65, 24
+  %165 = zext nneg i32 %164 to i64
+  %166 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te3E, i64 0, i64 %165
+  %167 = load i32, ptr %166, align 4, !tbaa !10
+  %168 = xor i32 %163, %167
+  %.sroa.583.12.extract.shift = lshr i64 %.sroa.2.0.copyload.i27, 32
+  %.sroa.583.12.extract.trunc = trunc nuw i64 %.sroa.583.12.extract.shift to i32
+  %169 = and i32 %101, 255
+  %170 = zext nneg i32 %169 to i64
+  %171 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te0E, i64 0, i64 %170
+  %172 = load i32, ptr %171, align 4, !tbaa !10
+  %173 = xor i32 %172, %.sroa.583.12.extract.trunc
+  %174 = lshr i32 %46, 8
+  %175 = and i32 %174, 255
+  %176 = zext nneg i32 %175 to i64
+  %177 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te1E, i64 0, i64 %176
+  %178 = load i32, ptr %177, align 4, !tbaa !10
+  %179 = xor i32 %173, %178
+  %180 = lshr i32 %65, 16
+  %181 = and i32 %180, 255
+  %182 = zext nneg i32 %181 to i64
+  %183 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te2E, i64 0, i64 %182
+  %184 = load i32, ptr %183, align 4, !tbaa !10
+  %185 = xor i32 %179, %184
+  %186 = lshr i32 %83, 24
+  %187 = zext nneg i32 %186 to i64
+  %188 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te3E, i64 0, i64 %187
+  %189 = load i32, ptr %188, align 4, !tbaa !10
+  %190 = xor i32 %185, %189
+  %.sroa.2.0.insert.ext.i47 = zext i32 %146 to i64
+  %.sroa.2.0.insert.shift.i48 = shl nuw i64 %.sroa.2.0.insert.ext.i47, 32
+  %.sroa.0.0.insert.ext.i49 = zext i32 %124 to i64
+  %.sroa.0.0.insert.insert.i50 = or disjoint i64 %.sroa.2.0.insert.shift.i48, %.sroa.0.0.insert.ext.i49
+  %.sroa.5.8.insert.ext.i52 = zext i32 %190 to i64
+  %.sroa.5.8.insert.shift.i53 = shl nuw i64 %.sroa.5.8.insert.ext.i52, 32
+  %.sroa.3.8.insert.ext.i54 = zext i32 %168 to i64
+  %.sroa.3.8.insert.insert.i55 = or disjoint i64 %.sroa.5.8.insert.shift.i53, %.sroa.3.8.insert.ext.i54
+  store i64 %.sroa.0.0.insert.insert.i50, ptr %28, align 1
+  store i64 %.sroa.3.8.insert.insert.i55, ptr %.sroa.2.0..0..sroa_idx.i26, align 1
+  %191 = getelementptr inbounds nuw i8, ptr %27, i64 32
+  %.sroa.0.0.copyload.i15 = load i64, ptr %191, align 1
+  %.sroa.2.0..0..sroa_idx.i16 = getelementptr inbounds nuw i8, ptr %27, i64 40
+  %.sroa.2.0.copyload.i17 = load i64, ptr %.sroa.2.0..0..sroa_idx.i16, align 1
+  %192 = getelementptr inbounds nuw i8, ptr %27, i64 48
+  %.sroa.0.0.copyload.i10 = load i64, ptr %192, align 1
+  %.sroa.2.0..0..sroa_idx.i11 = getelementptr inbounds nuw i8, ptr %27, i64 56
+  %.sroa.2.0.copyload.i12 = load i64, ptr %.sroa.2.0..0..sroa_idx.i11, align 1
+  %.sroa.0.0.copyload.i = load i64, ptr %102, align 1
+  %.sroa.2.0..0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.018.i87, i64 24
+  %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..0..sroa_idx.i, align 1
+  %.sroa.069.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i to i32
+  %193 = and i64 %.sroa.0.0.copyload.i15, 255
+  %194 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te0E, i64 0, i64 %193
+  %195 = load i32, ptr %194, align 4, !tbaa !10
+  %196 = xor i32 %195, %.sroa.069.0.extract.trunc
+  %.sroa.074.4.extract.shift = lshr i64 %.sroa.0.0.copyload.i15, 32
+  %197 = lshr i64 %.sroa.0.0.copyload.i15, 40
+  %198 = and i64 %197, 255
+  %199 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te1E, i64 0, i64 %198
+  %200 = load i32, ptr %199, align 4, !tbaa !10
+  %201 = xor i32 %196, %200
+  %202 = lshr i64 %.sroa.2.0.copyload.i17, 16
+  %203 = and i64 %202, 255
+  %204 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te2E, i64 0, i64 %203
+  %205 = load i32, ptr %204, align 4, !tbaa !10
+  %206 = xor i32 %201, %205
+  %.sroa.575.12.extract.shift = lshr i64 %.sroa.2.0.copyload.i17, 32
+  %207 = lshr i64 %.sroa.2.0.copyload.i17, 56
+  %208 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te3E, i64 0, i64 %207
+  %209 = load i32, ptr %208, align 4, !tbaa !10
+  %210 = xor i32 %206, %209
+  %.sroa.069.4.extract.shift = lshr i64 %.sroa.0.0.copyload.i, 32
+  %.sroa.069.4.extract.trunc = trunc nuw i64 %.sroa.069.4.extract.shift to i32
+  %211 = and i64 %.sroa.074.4.extract.shift, 255
+  %212 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te0E, i64 0, i64 %211
+  %213 = load i32, ptr %212, align 4, !tbaa !10
+  %214 = xor i32 %213, %.sroa.069.4.extract.trunc
+  %215 = lshr i64 %.sroa.2.0.copyload.i17, 8
+  %216 = and i64 %215, 255
+  %217 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te1E, i64 0, i64 %216
+  %218 = load i32, ptr %217, align 4, !tbaa !10
+  %219 = xor i32 %214, %218
+  %220 = lshr i64 %.sroa.2.0.copyload.i17, 48
+  %221 = and i64 %220, 255
+  %222 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te2E, i64 0, i64 %221
+  %223 = load i32, ptr %222, align 4, !tbaa !10
+  %224 = xor i32 %219, %223
+  %225 = lshr i64 %.sroa.0.0.copyload.i15, 24
+  %226 = and i64 %225, 255
+  %227 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te3E, i64 0, i64 %226
+  %228 = load i32, ptr %227, align 4, !tbaa !10
+  %229 = xor i32 %224, %228
+  %.sroa.5.8.extract.trunc = trunc i64 %.sroa.2.0.copyload.i to i32
+  %230 = and i64 %.sroa.2.0.copyload.i17, 255
+  %231 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te0E, i64 0, i64 %230
+  %232 = load i32, ptr %231, align 4, !tbaa !10
+  %233 = xor i32 %232, %.sroa.5.8.extract.trunc
+  %234 = lshr i64 %.sroa.2.0.copyload.i17, 40
+  %235 = and i64 %234, 255
+  %236 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te1E, i64 0, i64 %235
+  %237 = load i32, ptr %236, align 4, !tbaa !10
+  %238 = xor i32 %233, %237
+  %239 = lshr i64 %.sroa.0.0.copyload.i15, 16
+  %240 = and i64 %239, 255
+  %241 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te2E, i64 0, i64 %240
+  %242 = load i32, ptr %241, align 4, !tbaa !10
+  %243 = xor i32 %238, %242
+  %244 = lshr i64 %.sroa.0.0.copyload.i15, 56
+  %245 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te3E, i64 0, i64 %244
+  %246 = load i32, ptr %245, align 4, !tbaa !10
+  %247 = xor i32 %243, %246
+  %.sroa.5.12.extract.shift = lshr i64 %.sroa.2.0.copyload.i, 32
+  %.sroa.5.12.extract.trunc = trunc nuw i64 %.sroa.5.12.extract.shift to i32
+  %248 = and i64 %.sroa.575.12.extract.shift, 255
+  %249 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te0E, i64 0, i64 %248
+  %250 = load i32, ptr %249, align 4, !tbaa !10
+  %251 = xor i32 %250, %.sroa.5.12.extract.trunc
+  %252 = lshr i64 %.sroa.0.0.copyload.i15, 8
+  %253 = and i64 %252, 255
+  %254 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te1E, i64 0, i64 %253
+  %255 = load i32, ptr %254, align 4, !tbaa !10
+  %256 = xor i32 %251, %255
+  %sum.shift86 = lshr i64 %.sroa.0.0.copyload.i15, 48
+  %257 = and i64 %sum.shift86, 255
+  %258 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te2E, i64 0, i64 %257
+  %259 = load i32, ptr %258, align 4, !tbaa !10
+  %260 = xor i32 %256, %259
+  %261 = lshr i64 %.sroa.2.0.copyload.i17, 24
+  %262 = and i64 %261, 255
+  %263 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te3E, i64 0, i64 %262
+  %264 = load i32, ptr %263, align 4, !tbaa !10
+  %265 = xor i32 %260, %264
+  %266 = getelementptr inbounds nuw i8, ptr %.018.i87, i64 32
+  %.sroa.072.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i10 to i32
+  %267 = and i32 %210, 255
+  %268 = zext nneg i32 %267 to i64
+  %269 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te0E, i64 0, i64 %268
+  %270 = load i32, ptr %269, align 4, !tbaa !10
+  %271 = xor i32 %270, %.sroa.072.0.extract.trunc
+  %272 = lshr i32 %229, 8
+  %273 = and i32 %272, 255
+  %274 = zext nneg i32 %273 to i64
+  %275 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te1E, i64 0, i64 %274
+  %276 = load i32, ptr %275, align 4, !tbaa !10
+  %277 = xor i32 %271, %276
+  %278 = lshr i32 %247, 16
+  %279 = and i32 %278, 255
+  %280 = zext nneg i32 %279 to i64
+  %281 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te2E, i64 0, i64 %280
+  %282 = load i32, ptr %281, align 4, !tbaa !10
+  %283 = xor i32 %277, %282
+  %284 = lshr i32 %265, 24
+  %285 = zext nneg i32 %284 to i64
+  %286 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te3E, i64 0, i64 %285
+  %287 = load i32, ptr %286, align 4, !tbaa !10
+  %288 = xor i32 %283, %287
+  %.sroa.072.4.extract.shift = lshr i64 %.sroa.0.0.copyload.i10, 32
+  %.sroa.072.4.extract.trunc = trunc nuw i64 %.sroa.072.4.extract.shift to i32
+  %289 = and i32 %229, 255
+  %290 = zext nneg i32 %289 to i64
+  %291 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te0E, i64 0, i64 %290
+  %292 = load i32, ptr %291, align 4, !tbaa !10
+  %293 = xor i32 %292, %.sroa.072.4.extract.trunc
+  %294 = lshr i32 %247, 8
+  %295 = and i32 %294, 255
+  %296 = zext nneg i32 %295 to i64
+  %297 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te1E, i64 0, i64 %296
+  %298 = load i32, ptr %297, align 4, !tbaa !10
+  %299 = xor i32 %293, %298
+  %300 = lshr i32 %265, 16
+  %301 = and i32 %300, 255
+  %302 = zext nneg i32 %301 to i64
+  %303 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te2E, i64 0, i64 %302
+  %304 = load i32, ptr %303, align 4, !tbaa !10
+  %305 = xor i32 %299, %304
+  %306 = lshr i32 %210, 24
+  %307 = zext nneg i32 %306 to i64
+  %308 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te3E, i64 0, i64 %307
+  %309 = load i32, ptr %308, align 4, !tbaa !10
+  %310 = xor i32 %305, %309
+  %.sroa.573.8.extract.trunc = trunc i64 %.sroa.2.0.copyload.i12 to i32
+  %311 = and i32 %247, 255
+  %312 = zext nneg i32 %311 to i64
+  %313 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te0E, i64 0, i64 %312
+  %314 = load i32, ptr %313, align 4, !tbaa !10
+  %315 = xor i32 %314, %.sroa.573.8.extract.trunc
+  %316 = lshr i32 %265, 8
+  %317 = and i32 %316, 255
+  %318 = zext nneg i32 %317 to i64
+  %319 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te1E, i64 0, i64 %318
+  %320 = load i32, ptr %319, align 4, !tbaa !10
+  %321 = xor i32 %315, %320
+  %322 = lshr i32 %210, 16
+  %323 = and i32 %322, 255
+  %324 = zext nneg i32 %323 to i64
+  %325 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te2E, i64 0, i64 %324
+  %326 = load i32, ptr %325, align 4, !tbaa !10
+  %327 = xor i32 %321, %326
+  %328 = lshr i32 %229, 24
+  %329 = zext nneg i32 %328 to i64
+  %330 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te3E, i64 0, i64 %329
+  %331 = load i32, ptr %330, align 4, !tbaa !10
+  %332 = xor i32 %327, %331
+  %.sroa.573.12.extract.shift = lshr i64 %.sroa.2.0.copyload.i12, 32
+  %.sroa.573.12.extract.trunc = trunc nuw i64 %.sroa.573.12.extract.shift to i32
+  %333 = and i32 %265, 255
+  %334 = zext nneg i32 %333 to i64
+  %335 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te0E, i64 0, i64 %334
+  %336 = load i32, ptr %335, align 4, !tbaa !10
+  %337 = xor i32 %336, %.sroa.573.12.extract.trunc
+  %338 = lshr i32 %210, 8
+  %339 = and i32 %338, 255
+  %340 = zext nneg i32 %339 to i64
+  %341 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te1E, i64 0, i64 %340
+  %342 = load i32, ptr %341, align 4, !tbaa !10
+  %343 = xor i32 %337, %342
+  %344 = lshr i32 %229, 16
+  %345 = and i32 %344, 255
+  %346 = zext nneg i32 %345 to i64
+  %347 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te2E, i64 0, i64 %346
+  %348 = load i32, ptr %347, align 4, !tbaa !10
+  %349 = xor i32 %343, %348
+  %350 = lshr i32 %247, 24
+  %351 = zext nneg i32 %350 to i64
+  %352 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_13te3E, i64 0, i64 %351
+  %353 = load i32, ptr %352, align 4, !tbaa !10
+  %354 = xor i32 %349, %353
+  %.sroa.2.0.insert.ext.i = zext i32 %310 to i64
+  %.sroa.2.0.insert.shift.i = shl nuw i64 %.sroa.2.0.insert.ext.i, 32
+  %.sroa.0.0.insert.ext.i = zext i32 %288 to i64
+  %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.shift.i, %.sroa.0.0.insert.ext.i
+  %.sroa.5.8.insert.ext.i = zext i32 %354 to i64
+  %.sroa.5.8.insert.shift.i = shl nuw i64 %.sroa.5.8.insert.ext.i, 32
+  %.sroa.3.8.insert.ext.i = zext i32 %332 to i64
+  %.sroa.3.8.insert.insert.i = or disjoint i64 %.sroa.5.8.insert.shift.i, %.sroa.3.8.insert.ext.i
+  store i64 %.sroa.0.0.insert.insert.i, ptr %192, align 1
+  store i64 %.sroa.3.8.insert.insert.i, ptr %.sroa.2.0..0..sroa_idx.i11, align 1
+  %355 = add nuw nsw i64 %.0.i988, 4
+  %356 = icmp samesign ult i64 %.0.i988, 12
+  br i1 %356, label %26, label %_ZN12_GLOBAL__N_112FeistelRoundEPN4absl7uint128EPKS1_.exit, !llvm.loop !12
 
-_ZN12_GLOBAL__N_112FeistelRoundEPN4absl7uint128EPKS1_.exit: ; preds = %for.body.i7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %v6.i, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx13.i, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %v7.i, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx15.i, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %w1.i, ptr noundef nonnull align 16 dereferenceable(16) %state_void, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %w2.i, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx21.i, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %w3.i, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx23.i, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %w4.i, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx25.i, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %w6.i, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx29.i, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %w7.i, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx31.i, i64 16, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %state_void, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx1.i, i64 16, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx25.i, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx3.i, i64 16, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx3.i, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx5.i, i64 16, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx13.i, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx7.i, i64 16, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx7.i, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx9.i, i64 16, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx29.i, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx11.i, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx15.i, ptr noundef nonnull align 16 dereferenceable(16) %v6.i, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx1.i, ptr noundef nonnull align 16 dereferenceable(16) %v7.i, i64 16, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx11.i, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx17.i, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx21.i, ptr noundef nonnull align 16 dereferenceable(16) %w1.i, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx23.i, ptr noundef nonnull align 16 dereferenceable(16) %w2.i, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx9.i, ptr noundef nonnull align 16 dereferenceable(16) %w3.i, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx31.i, ptr noundef nonnull align 16 dereferenceable(16) %w4.i, i64 16, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx5.i, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx27.i, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx27.i, ptr noundef nonnull align 16 dereferenceable(16) %w6.i, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx17.i, ptr noundef nonnull align 16 dereferenceable(16) %w7.i, i64 16, i1 false)
-  %inc.i = add nuw nsw i64 %round.i.0219, 1
-  %exitcond.not = icmp eq i64 %inc.i, 17
-  br i1 %exitcond.not, label %_ZN12_GLOBAL__N_17PermuteEPN4absl7uint128EPKS1_.exit, label %for.cond.i5.preheader, !llvm.loop !8
+_ZN12_GLOBAL__N_112FeistelRoundEPN4absl7uint128EPKS1_.exit: ; preds = %26
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %3, ptr noundef nonnull align 16 dereferenceable(16) %17, i64 16, i1 false), !tbaa.struct !13
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, ptr noundef nonnull align 16 dereferenceable(16) %18, i64 16, i1 false), !tbaa.struct !13
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 16 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !13
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %6, ptr noundef nonnull align 16 dereferenceable(16) %20, i64 16, i1 false), !tbaa.struct !13
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, ptr noundef nonnull align 16 dereferenceable(16) %21, i64 16, i1 false), !tbaa.struct !13
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, ptr noundef nonnull align 16 dereferenceable(16) %22, i64 16, i1 false), !tbaa.struct !13
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %9, ptr noundef nonnull align 16 dereferenceable(16) %24, i64 16, i1 false), !tbaa.struct !13
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %10, ptr noundef nonnull align 16 dereferenceable(16) %25, i64 16, i1 false), !tbaa.struct !13
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 16 dereferenceable(16) %11, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %22, ptr noundef nonnull align 16 dereferenceable(16) %12, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %12, ptr noundef nonnull align 16 dereferenceable(16) %13, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %17, ptr noundef nonnull align 16 dereferenceable(16) %14, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %14, ptr noundef nonnull align 16 dereferenceable(16) %15, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %24, ptr noundef nonnull align 16 dereferenceable(16) %16, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %18, ptr noundef nonnull align 16 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !13
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %11, ptr noundef nonnull align 16 dereferenceable(16) %4, i64 16, i1 false), !tbaa.struct !13
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %16, ptr noundef nonnull align 16 dereferenceable(16) %19, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %20, ptr noundef nonnull align 16 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !13
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %21, ptr noundef nonnull align 16 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !13
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %15, ptr noundef nonnull align 16 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !13
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %25, ptr noundef nonnull align 16 dereferenceable(16) %8, i64 16, i1 false), !tbaa.struct !13
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %13, ptr noundef nonnull align 16 dereferenceable(16) %23, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %23, ptr noundef nonnull align 16 dereferenceable(16) %9, i64 16, i1 false), !tbaa.struct !13
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %19, ptr noundef nonnull align 16 dereferenceable(16) %10, i64 16, i1 false), !tbaa.struct !13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  %357 = add nuw nsw i64 %.0.i90, 1
+  %exitcond.not = icmp eq i64 %357, 17
+  br i1 %exitcond.not, label %_ZN12_GLOBAL__N_17PermuteEPN4absl7uint128EPKS1_.exit, label %.preheader, !llvm.loop !14
 
 _ZN12_GLOBAL__N_17PermuteEPN4absl7uint128EPKS1_.exit: ; preds = %_ZN12_GLOBAL__N_112FeistelRoundEPN4absl7uint128EPKS1_.exit
-  %agg.tmp.sroa.0.0.copyload.i = load i64, ptr %state_void, align 16
-  %agg.tmp.sroa.2.0.copyload.i = load i64, ptr %prev_inner.sroa.2.0.arrayidx.sroa_idx, align 8
-  %coerce.sroa.2.0.insert.ext.i.i = zext i64 %agg.tmp.sroa.2.0.copyload.i to i128
-  %coerce.sroa.2.0.insert.shift.i.i = shl nuw i128 %coerce.sroa.2.0.insert.ext.i.i, 64
-  %coerce.sroa.0.0.insert.ext.i.i = zext i64 %agg.tmp.sroa.0.0.copyload.i to i128
-  %coerce.sroa.0.0.insert.insert.i.i = or disjoint i128 %coerce.sroa.2.0.insert.shift.i.i, %coerce.sroa.0.0.insert.ext.i.i
-  %coerce2.sroa.2.0.insert.ext.i.i = zext i64 %prev_inner.sroa.2.0.copyload to i128
-  %coerce2.sroa.2.0.insert.shift.i.i = shl nuw i128 %coerce2.sroa.2.0.insert.ext.i.i, 64
-  %coerce2.sroa.0.0.insert.ext.i.i = zext i64 %prev_inner.sroa.0.0.copyload to i128
-  %coerce2.sroa.0.0.insert.insert.i.i = or disjoint i128 %coerce2.sroa.2.0.insert.shift.i.i, %coerce2.sroa.0.0.insert.ext.i.i
-  %xor.i.i = xor i128 %coerce.sroa.0.0.insert.insert.i.i, %coerce2.sroa.0.0.insert.insert.i.i
-  %coerce3.sroa.0.0.extract.trunc.i.i = trunc i128 %xor.i.i to i64
-  %coerce3.sroa.2.0.extract.shift.i.i = lshr i128 %xor.i.i, 64
-  %coerce3.sroa.2.0.extract.trunc.i.i = trunc nuw i128 %coerce3.sroa.2.0.extract.shift.i.i to i64
-  store i64 %coerce3.sroa.0.0.extract.trunc.i.i, ptr %state_void, align 16
-  store i64 %coerce3.sroa.2.0.extract.trunc.i.i, ptr %prev_inner.sroa.2.0.arrayidx.sroa_idx, align 8
+  %.sroa.01.0.copyload.i = load i64, ptr %1, align 16, !tbaa !4
+  %.sroa.22.0.copyload.i = load i64, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !4
+  %.sroa.24.0.insert.ext.i.i = zext i64 %.sroa.22.0.copyload.i to i128
+  %.sroa.24.0.insert.shift.i.i = shl nuw i128 %.sroa.24.0.insert.ext.i.i, 64
+  %.sroa.03.0.insert.ext.i.i = zext i64 %.sroa.01.0.copyload.i to i128
+  %.sroa.03.0.insert.insert.i.i = or disjoint i128 %.sroa.24.0.insert.shift.i.i, %.sroa.03.0.insert.ext.i.i
+  %.sroa.22.0.insert.ext.i.i = zext i64 %.sroa.4.0.copyload to i128
+  %.sroa.22.0.insert.shift.i.i = shl nuw i128 %.sroa.22.0.insert.ext.i.i, 64
+  %.sroa.01.0.insert.ext.i.i = zext i64 %.sroa.01.0.copyload to i128
+  %.sroa.01.0.insert.insert.i.i = or disjoint i128 %.sroa.22.0.insert.shift.i.i, %.sroa.01.0.insert.ext.i.i
+  %358 = xor i128 %.sroa.03.0.insert.insert.i.i, %.sroa.01.0.insert.insert.i.i
+  %.sroa.0.0.extract.trunc.i.i = trunc i128 %358 to i64
+  %.sroa.2.0.extract.shift.i.i = lshr i128 %358, 64
+  %.sroa.2.0.extract.trunc.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i to i64
+  store i64 %.sroa.0.0.extract.trunc.i.i, ptr %1, align 16, !tbaa !4
+  store i64 %.sroa.2.0.extract.trunc.i.i, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !4
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"long", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"int", !6, i64 0}
+!12 = distinct !{!12, !9}
+!13 = !{i64 0, i64 8, !4, i64 8, i64 8, !4}
+!14 = distinct !{!14, !9}
