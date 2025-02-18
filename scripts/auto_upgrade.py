@@ -63,6 +63,7 @@ supported_project = [
     "sundials",
     "wireshark",
     "wolfssl",
+    "yyjson",
 ]
 
 modify_only = [
