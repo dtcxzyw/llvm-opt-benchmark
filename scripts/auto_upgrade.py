@@ -84,6 +84,7 @@ supported_project = [
     "duckdb",
     "entt",
     "faiss",
+    "flatbuffers",
 ]
 
 modify_only = [
