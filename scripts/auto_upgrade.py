@@ -52,6 +52,7 @@ supported_project = [
     "postgres",
     "qemu",
     "qoi",
+    "quickjs",
 ]
 
 modify_only = [
