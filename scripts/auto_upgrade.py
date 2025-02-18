@@ -39,6 +39,7 @@ supported_project = [
     "lz4",
     "memcached",
     "mimalloc",
+    "miniaudio",
 ]
 
 modify_only = [
