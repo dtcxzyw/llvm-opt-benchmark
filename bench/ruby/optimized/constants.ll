@@ -543,12 +543,12 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.521 = private unnamed_addr constant [10 x i8] c"IFF_SLAVE\00", align 1
 @.str.522 = private unnamed_addr constant [7 x i8] c"IFF_UP\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define weak i64 @ruby_abi_version() local_unnamed_addr #0 {
   ret i64 0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define range(i32 -1, 1) i32 @rsock_family_to_int(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2) #1 {
   switch i64 %1, label %172 [
     i64 2, label %4
@@ -985,7 +985,7 @@ define range(i32 -1, 1) i32 @rsock_family_to_int(ptr noundef readonly captures(n
 
 .sink.split:                                      ; preds = %170, %168, %166, %164, %162, %160, %158, %156, %154, %152, %150, %148, %146, %144, %142, %140, %138, %136, %134, %132, %130, %128, %126, %124, %122, %120, %118, %116, %114, %112, %110, %108, %106, %104, %102, %100, %98, %96, %94, %92, %90, %88, %86, %84, %82, %80, %78, %76, %74, %72, %70, %68, %66, %64, %62, %60, %58, %56, %54, %52, %50, %48, %46, %44, %42, %40, %38, %36, %34, %32, %30, %28, %26, %24, %22, %20, %18, %16, %14, %12, %10, %8, %6, %4
   %.sink = phi i32 [ 27, %4 ], [ 4, %6 ], [ 22, %8 ], [ 46, %10 ], [ 15, %12 ], [ 21, %14 ], [ 26, %16 ], [ 29, %18 ], [ 38, %20 ], [ 41, %22 ], [ 44, %24 ], [ 2, %26 ], [ 1, %28 ], [ 3, %30 ], [ 34, %32 ], [ 28, %34 ], [ 30, %36 ], [ 27, %38 ], [ 27, %40 ], [ 10, %42 ], [ 1, %44 ], [ 16, %46 ], [ 24, %48 ], [ 40, %50 ], [ 4, %52 ], [ 4, %54 ], [ 22, %56 ], [ 22, %58 ], [ 46, %60 ], [ 46, %62 ], [ 15, %64 ], [ 15, %66 ], [ 21, %68 ], [ 21, %70 ], [ 26, %72 ], [ 26, %74 ], [ 29, %76 ], [ 29, %78 ], [ 38, %80 ], [ 38, %82 ], [ 41, %84 ], [ 41, %86 ], [ 44, %88 ], [ 44, %90 ], [ 0, %92 ], [ 12, %94 ], [ 17, %96 ], [ 2, %98 ], [ 2, %100 ], [ 1, %102 ], [ 1, %104 ], [ 3, %106 ], [ 3, %108 ], [ 34, %110 ], [ 34, %112 ], [ 28, %114 ], [ 28, %116 ], [ 30, %118 ], [ 30, %120 ], [ 16, %122 ], [ 10, %124 ], [ 10, %126 ], [ 1, %128 ], [ 1, %130 ], [ 16, %132 ], [ 16, %134 ], [ 24, %136 ], [ 24, %138 ], [ 40, %140 ], [ 40, %142 ], [ 0, %144 ], [ 0, %146 ], [ 12, %148 ], [ 12, %150 ], [ 17, %152 ], [ 17, %154 ], [ 5, %156 ], [ 31, %158 ], [ 16, %160 ], [ 16, %162 ], [ 5, %164 ], [ 5, %166 ], [ 31, %168 ], [ 31, %170 ]
-  store i32 %.sink, ptr %2, align 4
+  store i32 %.sink, ptr %2, align 4, !tbaa !6
   br label %172
 
 172:                                              ; preds = %.sink.split, %3, %170, %162, %158, %142, %122, %96, %50, %36, %24, %4
@@ -993,7 +993,7 @@ define range(i32 -1, 1) i32 @rsock_family_to_int(ptr noundef readonly captures(n
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define range(i32 -1, 1) i32 @rsock_socktype_to_int(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2) #1 {
   switch i64 %1, label %36 [
     i64 3, label %4
@@ -1091,7 +1091,7 @@ define range(i32 -1, 1) i32 @rsock_socktype_to_int(ptr noundef readonly captures
 
 .sink.split:                                      ; preds = %34, %32, %30, %28, %26, %24, %22, %20, %18, %16, %14, %12, %10, %8, %6, %4
   %.sink = phi i32 [ 3, %4 ], [ 4, %6 ], [ 2, %8 ], [ 1, %10 ], [ 10, %12 ], [ 524288, %14 ], [ 3, %16 ], [ 4, %18 ], [ 2048, %20 ], [ 5, %22 ], [ 2, %24 ], [ 1, %26 ], [ 10, %28 ], [ 524288, %30 ], [ 2048, %32 ], [ 5, %34 ]
-  store i32 %.sink, ptr %2, align 4
+  store i32 %.sink, ptr %2, align 4, !tbaa !6
   br label %36
 
 36:                                               ; preds = %.sink.split, %3, %34, %32, %30, %28, %24, %22, %20, %14, %12, %8, %6
@@ -1099,7 +1099,7 @@ define range(i32 -1, 1) i32 @rsock_socktype_to_int(ptr noundef readonly captures
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define range(i32 -1, 1) i32 @rsock_ipproto_to_int(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #1 {
   switch i64 %1, label %80 [
     i64 2, label %4
@@ -1308,7 +1308,7 @@ define range(i32 -1, 1) i32 @rsock_ipproto_to_int(ptr noundef readonly captures(
 
 .sink.split:                                      ; preds = %78, %76, %74, %72, %70, %68, %66, %64, %62, %60, %58, %56, %54, %52, %50, %48, %46, %44, %42, %40, %38, %36, %34, %32, %30, %28, %26, %24, %22, %20, %18, %16, %14, %12, %10, %8, %6, %4
   %.sink = phi i32 [ 0, %4 ], [ 29, %6 ], [ 51, %8 ], [ 6, %10 ], [ 8, %12 ], [ 12, %14 ], [ 17, %16 ], [ 22, %18 ], [ 50, %20 ], [ 255, %22 ], [ 1, %24 ], [ 2, %26 ], [ 41, %28 ], [ 59, %30 ], [ 58, %32 ], [ 60, %34 ], [ 0, %36 ], [ 43, %38 ], [ 44, %40 ], [ 0, %42 ], [ 29, %44 ], [ 51, %46 ], [ 6, %48 ], [ 8, %50 ], [ 12, %52 ], [ 17, %54 ], [ 22, %56 ], [ 50, %58 ], [ 255, %60 ], [ 1, %62 ], [ 2, %64 ], [ 41, %66 ], [ 59, %68 ], [ 58, %70 ], [ 60, %72 ], [ 0, %74 ], [ 43, %76 ], [ 44, %78 ]
-  store i32 %.sink, ptr %2, align 4
+  store i32 %.sink, ptr %2, align 4, !tbaa !6
   br label %80
 
 80:                                               ; preds = %.sink.split, %3, %78, %76, %70, %68, %60, %46, %40, %38, %32, %30, %22, %8
@@ -1316,7 +1316,7 @@ define range(i32 -1, 1) i32 @rsock_ipproto_to_int(ptr noundef readonly captures(
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define range(i32 -1, 1) i32 @rsock_unknown_level_to_int(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2) #1 {
   switch i64 %1, label %8 [
     i64 6, label %4
@@ -1334,7 +1334,7 @@ define range(i32 -1, 1) i32 @rsock_unknown_level_to_int(ptr noundef readonly cap
   br i1 %7, label %.sink.split, label %8
 
 .sink.split:                                      ; preds = %6, %4
-  store i32 1, ptr %2, align 4
+  store i32 1, ptr %2, align 4, !tbaa !6
   br label %8
 
 8:                                                ; preds = %.sink.split, %3, %6, %4
@@ -1342,7 +1342,7 @@ define range(i32 -1, 1) i32 @rsock_unknown_level_to_int(ptr noundef readonly cap
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define range(i32 -1, 1) i32 @rsock_ip_level_to_int(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2) #1 {
   switch i64 %1, label %84 [
     i64 2, label %4
@@ -1561,7 +1561,7 @@ define range(i32 -1, 1) i32 @rsock_ip_level_to_int(ptr noundef readonly captures
 
 .sink.split:                                      ; preds = %82, %80, %78, %76, %74, %72, %70, %68, %66, %64, %62, %60, %58, %56, %54, %52, %50, %48, %46, %44, %42, %40, %38, %36, %34, %32, %30, %28, %26, %24, %22, %20, %18, %16, %14, %12, %10, %8, %6, %4
   %.sink = phi i32 [ 0, %4 ], [ 29, %6 ], [ 51, %8 ], [ 6, %10 ], [ 8, %12 ], [ 12, %14 ], [ 17, %16 ], [ 22, %18 ], [ 50, %20 ], [ 255, %22 ], [ 1, %24 ], [ 2, %26 ], [ 41, %28 ], [ 59, %30 ], [ 1, %32 ], [ 58, %34 ], [ 60, %36 ], [ 0, %38 ], [ 43, %40 ], [ 44, %42 ], [ 1, %44 ], [ 0, %46 ], [ 29, %48 ], [ 51, %50 ], [ 6, %52 ], [ 8, %54 ], [ 12, %56 ], [ 17, %58 ], [ 22, %60 ], [ 50, %62 ], [ 255, %64 ], [ 1, %66 ], [ 2, %68 ], [ 41, %70 ], [ 59, %72 ], [ 58, %74 ], [ 60, %76 ], [ 0, %78 ], [ 43, %80 ], [ 44, %82 ]
-  store i32 %.sink, ptr %2, align 4
+  store i32 %.sink, ptr %2, align 4, !tbaa !6
   br label %84
 
 84:                                               ; preds = %.sink.split, %3, %82, %80, %74, %72, %64, %50, %42, %40, %34, %30, %22, %8
@@ -1569,7 +1569,7 @@ define range(i32 -1, 1) i32 @rsock_ip_level_to_int(ptr noundef readonly captures
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define range(i32 -1, 1) i32 @rsock_so_optname_to_int(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2) #1 {
   switch i64 %1, label %204 [
     i64 32, label %202
@@ -2098,7 +2098,7 @@ define range(i32 -1, 1) i32 @rsock_so_optname_to_int(ptr noundef readonly captur
 
 .sink.split:                                      ; preds = %202, %200, %198, %196, %194, %192, %190, %188, %186, %184, %182, %180, %178, %176, %174, %172, %170, %168, %166, %164, %162, %160, %158, %156, %154, %152, %150, %148, %146, %144, %142, %140, %138, %136, %134, %132, %130, %128, %126, %124, %122, %120, %118, %116, %114, %112, %110, %108, %106, %104, %102, %100, %98, %96, %94, %92, %90, %88, %86, %84, %82, %80, %78, %76, %74, %72, %70, %68, %66, %64, %62, %60, %58, %56, %54, %52, %50, %48, %46, %44, %42, %40, %38, %36, %34, %32, %30, %28, %26, %24, %22, %20, %18, %16, %14, %12, %10, %8, %6, %4
   %.sink = phi i32 [ 3, %4 ], [ 36, %6 ], [ 1, %8 ], [ 4, %10 ], [ 43, %12 ], [ 7, %14 ], [ 8, %16 ], [ 13, %18 ], [ 39, %20 ], [ 3, %22 ], [ 36, %24 ], [ 31, %26 ], [ 34, %28 ], [ 1, %30 ], [ 4, %32 ], [ 43, %34 ], [ 11, %36 ], [ 12, %38 ], [ 16, %40 ], [ 17, %42 ], [ 18, %44 ], [ 19, %46 ], [ 20, %48 ], [ 21, %50 ], [ 28, %52 ], [ 38, %54 ], [ 40, %56 ], [ 42, %58 ], [ 7, %60 ], [ 8, %62 ], [ 13, %64 ], [ 39, %66 ], [ 2, %68 ], [ 15, %70 ], [ 5, %72 ], [ 6, %74 ], [ 9, %76 ], [ 10, %78 ], [ 29, %80 ], [ 46, %82 ], [ 31, %84 ], [ 34, %86 ], [ 30, %88 ], [ 26, %90 ], [ 11, %92 ], [ 12, %94 ], [ 16, %96 ], [ 17, %98 ], [ 18, %100 ], [ 19, %102 ], [ 20, %104 ], [ 21, %106 ], [ 28, %108 ], [ 38, %110 ], [ 40, %112 ], [ 42, %114 ], [ 32, %116 ], [ 33, %118 ], [ 35, %120 ], [ 41, %122 ], [ 44, %124 ], [ 2, %126 ], [ 15, %128 ], [ 5, %130 ], [ 6, %132 ], [ 9, %134 ], [ 10, %136 ], [ 29, %138 ], [ 46, %140 ], [ 25, %142 ], [ 37, %144 ], [ 49, %146 ], [ 30, %148 ], [ 26, %150 ], [ 26, %152 ], [ 27, %154 ], [ 32, %156 ], [ 33, %158 ], [ 35, %160 ], [ 41, %162 ], [ 44, %164 ], [ 48, %166 ], [ 25, %168 ], [ 37, %170 ], [ 49, %172 ], [ 47, %174 ], [ 26, %176 ], [ 27, %178 ], [ 45, %180 ], [ 56, %182 ], [ 48, %184 ], [ 47, %186 ], [ 45, %188 ], [ 56, %190 ], [ 22, %192 ], [ 22, %194 ], [ 24, %196 ], [ 23, %198 ], [ 24, %200 ], [ 23, %202 ]
-  store i32 %.sink, ptr %2, align 4
+  store i32 %.sink, ptr %2, align 4, !tbaa !6
   br label %204
 
 204:                                              ; preds = %.sink.split, %3, %202, %200, %198, %196, %194, %192, %190, %186, %184, %182, %174, %166, %154, %146, %124, %90, %82, %58, %28, %20, %12, %6
@@ -2106,7 +2106,7 @@ define range(i32 -1, 1) i32 @rsock_so_optname_to_int(ptr noundef readonly captur
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define range(i32 -1, 1) i32 @rsock_ip_optname_to_int(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2) #1 {
   switch i64 %1, label %152 [
     i64 3, label %4
@@ -2501,7 +2501,7 @@ define range(i32 -1, 1) i32 @rsock_ip_optname_to_int(ptr noundef readonly captur
 
 .sink.split:                                      ; preds = %150, %148, %146, %144, %142, %140, %138, %136, %134, %132, %130, %128, %126, %124, %122, %120, %118, %116, %114, %112, %110, %108, %106, %104, %102, %100, %98, %96, %94, %92, %90, %88, %86, %84, %82, %80, %78, %76, %74, %72, %70, %68, %66, %64, %62, %60, %58, %56, %54, %52, %50, %48, %46, %44, %42, %40, %38, %36, %34, %32, %30, %28, %26, %24, %22, %20, %18, %16, %14, %12, %10, %8, %6, %4
   %.sink = phi i32 [ 1, %4 ], [ 2, %6 ], [ 14, %8 ], [ 1, %10 ], [ 2, %12 ], [ 14, %14 ], [ 21, %16 ], [ 4, %18 ], [ 3, %20 ], [ 7, %22 ], [ 12, %24 ], [ 8, %26 ], [ 11, %28 ], [ 13, %30 ], [ 18, %32 ], [ 6, %34 ], [ 15, %36 ], [ 41, %38 ], [ 21, %40 ], [ 4, %42 ], [ 3, %44 ], [ 7, %46 ], [ 12, %48 ], [ 8, %50 ], [ 11, %52 ], [ 13, %54 ], [ 18, %56 ], [ 9, %58 ], [ 6, %60 ], [ 15, %62 ], [ 41, %64 ], [ 7, %66 ], [ 17, %68 ], [ 19, %70 ], [ 2, %72 ], [ 32, %74 ], [ 5, %76 ], [ 10, %78 ], [ 16, %80 ], [ 38, %82 ], [ 9, %84 ], [ 33, %86 ], [ 0, %88 ], [ 1, %90 ], [ 7, %92 ], [ 17, %94 ], [ 19, %96 ], [ 2, %98 ], [ 34, %100 ], [ 35, %102 ], [ 37, %104 ], [ 32, %106 ], [ 5, %108 ], [ 10, %110 ], [ 16, %112 ], [ 38, %114 ], [ 36, %116 ], [ 20, %118 ], [ 33, %120 ], [ 0, %122 ], [ 1, %124 ], [ 34, %126 ], [ 35, %128 ], [ 37, %130 ], [ 36, %132 ], [ 20, %134 ], [ 1, %136 ], [ 39, %138 ], [ 1, %140 ], [ 40, %142 ], [ 1, %144 ], [ 39, %146 ], [ 1, %148 ], [ 40, %150 ]
-  store i32 %.sink, ptr %2, align 4
+  store i32 %.sink, ptr %2, align 4, !tbaa !6
   br label %152
 
 152:                                              ; preds = %.sink.split, %3, %150, %146, %142, %138, %134, %130, %124, %118, %104, %90, %82, %72, %58, %40, %38, %32, %16, %8
@@ -2509,7 +2509,7 @@ define range(i32 -1, 1) i32 @rsock_ip_optname_to_int(ptr noundef readonly captur
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define range(i32 -1, 1) i32 @rsock_ipv6_optname_to_int(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2) #1 {
   switch i64 %1, label %116 [
     i64 5, label %4
@@ -2810,7 +2810,7 @@ define range(i32 -1, 1) i32 @rsock_ipv6_optname_to_int(ptr noundef readonly capt
 
 .sink.split:                                      ; preds = %114, %112, %110, %108, %106, %104, %102, %100, %98, %96, %94, %92, %90, %88, %86, %84, %82, %80, %78, %76, %74, %72, %70, %68, %66, %64, %62, %60, %58, %56, %54, %52, %50, %48, %46, %44, %42, %40, %38, %36, %34, %32, %30, %28, %26, %24, %22, %20, %18, %16, %14, %12, %10, %8, %6, %4
   %.sink = phi i32 [ 57, %4 ], [ 26, %6 ], [ 67, %8 ], [ 59, %10 ], [ 54, %12 ], [ 9, %14 ], [ 61, %16 ], [ 50, %18 ], [ 25, %20 ], [ 7, %22 ], [ 62, %24 ], [ 52, %26 ], [ 56, %28 ], [ 57, %30 ], [ 20, %32 ], [ 66, %34 ], [ 26, %36 ], [ 67, %38 ], [ 21, %40 ], [ 58, %42 ], [ 53, %44 ], [ 49, %46 ], [ 60, %48 ], [ 59, %50 ], [ 54, %52 ], [ 9, %54 ], [ 61, %56 ], [ 50, %58 ], [ 25, %60 ], [ 23, %62 ], [ 17, %64 ], [ 16, %66 ], [ 51, %68 ], [ 55, %70 ], [ 0, %72 ], [ 7, %74 ], [ 62, %76 ], [ 52, %78 ], [ 56, %80 ], [ 18, %82 ], [ 19, %84 ], [ 20, %86 ], [ 66, %88 ], [ 21, %90 ], [ 58, %92 ], [ 53, %94 ], [ 49, %96 ], [ 60, %98 ], [ 23, %100 ], [ 17, %102 ], [ 16, %104 ], [ 51, %106 ], [ 55, %108 ], [ 0, %110 ], [ 18, %112 ], [ 19, %114 ]
-  store i32 %.sink, ptr %2, align 4
+  store i32 %.sink, ptr %2, align 4, !tbaa !6
   br label %116
 
 116:                                              ; preds = %.sink.split, %3, %114, %110, %98, %88, %84, %78, %72, %48, %34, %28, %26, %20, %8, %4
@@ -2818,7 +2818,7 @@ define range(i32 -1, 1) i32 @rsock_ipv6_optname_to_int(ptr noundef readonly capt
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define range(i32 -1, 1) i32 @rsock_tcp_optname_to_int(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2) #1 {
   switch i64 %1, label %100 [
     i64 4, label %4
@@ -3082,7 +3082,7 @@ define range(i32 -1, 1) i32 @rsock_tcp_optname_to_int(ptr noundef readonly captu
 
 .sink.split:                                      ; preds = %98, %96, %94, %92, %90, %88, %86, %84, %82, %80, %78, %76, %74, %72, %70, %68, %66, %64, %62, %60, %58, %56, %54, %52, %50, %48, %46, %44, %42, %40, %38, %36, %34, %32, %30, %28, %26, %24, %22, %20, %18, %16, %14, %12, %10, %8, %6, %4
   %.sink = phi i32 [ 3, %4 ], [ 11, %6 ], [ 2, %8 ], [ 14, %10 ], [ 7, %12 ], [ 19, %14 ], [ 1, %16 ], [ 6, %18 ], [ 8, %20 ], [ 3, %22 ], [ 11, %24 ], [ 4, %26 ], [ 12, %28 ], [ 23, %30 ], [ 5, %32 ], [ 21, %34 ], [ 24, %36 ], [ 2, %38 ], [ 14, %40 ], [ 7, %42 ], [ 19, %44 ], [ 13, %46 ], [ 1, %48 ], [ 6, %50 ], [ 8, %52 ], [ 17, %54 ], [ 4, %56 ], [ 12, %58 ], [ 23, %60 ], [ 9, %62 ], [ 10, %64 ], [ 20, %66 ], [ 18, %68 ], [ 5, %70 ], [ 21, %72 ], [ 24, %74 ], [ 13, %76 ], [ 22, %78 ], [ 17, %80 ], [ 9, %82 ], [ 10, %84 ], [ 20, %86 ], [ 18, %88 ], [ 22, %90 ], [ 15, %92 ], [ 16, %94 ], [ 15, %96 ], [ 16, %98 ]
-  store i32 %.sink, ptr %2, align 4
+  store i32 %.sink, ptr %2, align 4, !tbaa !6
   br label %100
 
 100:                                              ; preds = %.sink.split, %3, %98, %96, %94, %92, %90, %88, %80, %78, %74, %68, %54, %46, %36, %30, %20, %14, %6
@@ -3090,7 +3090,7 @@ define range(i32 -1, 1) i32 @rsock_tcp_optname_to_int(ptr noundef readonly captu
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define range(i32 -1, 1) i32 @rsock_udp_optname_to_int(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2) #1 {
   switch i64 %1, label %8 [
     i64 4, label %4
@@ -3108,7 +3108,7 @@ define range(i32 -1, 1) i32 @rsock_udp_optname_to_int(ptr noundef readonly captu
   br i1 %7, label %.sink.split, label %8
 
 .sink.split:                                      ; preds = %6, %4
-  store i32 1, ptr %2, align 4
+  store i32 1, ptr %2, align 4, !tbaa !6
   br label %8
 
 8:                                                ; preds = %.sink.split, %3, %6, %4
@@ -3116,7 +3116,7 @@ define range(i32 -1, 1) i32 @rsock_udp_optname_to_int(ptr noundef readonly captu
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define range(i32 -1, 1) i32 @rsock_shutdown_how_to_int(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2) #1 {
   switch i64 %1, label %16 [
     i64 2, label %4
@@ -3157,7 +3157,7 @@ define range(i32 -1, 1) i32 @rsock_shutdown_how_to_int(ptr noundef readonly capt
 
 .sink.split:                                      ; preds = %14, %12, %10, %8, %6, %4
   %.sink = phi i32 [ 0, %4 ], [ 1, %6 ], [ 2, %8 ], [ 0, %10 ], [ 1, %12 ], [ 2, %14 ]
-  store i32 %.sink, ptr %2, align 4
+  store i32 %.sink, ptr %2, align 4, !tbaa !6
   br label %16
 
 16:                                               ; preds = %.sink.split, %3, %14, %12, %8, %6
@@ -3165,7 +3165,7 @@ define range(i32 -1, 1) i32 @rsock_shutdown_how_to_int(ptr noundef readonly capt
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define range(i32 -1, 1) i32 @rsock_scm_optname_to_int(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2) #1 {
   switch i64 %1, label %28 [
     i64 16, label %26
@@ -3240,7 +3240,7 @@ define range(i32 -1, 1) i32 @rsock_scm_optname_to_int(ptr noundef readonly captu
 
 .sink.split:                                      ; preds = %26, %24, %22, %20, %18, %16, %14, %12, %10, %8, %6, %4
   %.sink = phi i32 [ 1, %4 ], [ 29, %6 ], [ 1, %8 ], [ 35, %10 ], [ 2, %12 ], [ 41, %14 ], [ 37, %16 ], [ 29, %18 ], [ 35, %20 ], [ 2, %22 ], [ 41, %24 ], [ 37, %26 ]
-  store i32 %.sink, ptr %2, align 4
+  store i32 %.sink, ptr %2, align 4, !tbaa !6
   br label %28
 
 28:                                               ; preds = %.sink.split, %3, %26, %24, %18, %16, %14, %8, %6, %4
@@ -3248,204 +3248,237 @@ define range(i32 -1, 1) i32 @rsock_scm_optname_to_int(ptr noundef readonly captu
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define i64 @rsock_intern_family(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
-  %3 = load ptr, ptr @rsock_intern_family_hash, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
+  %3 = load ptr, ptr @rsock_intern_family_hash, align 8, !tbaa !10
   %4 = sext i32 %0 to i64
-  %5 = call i32 @rb_st_lookup(ptr noundef %3, i64 noundef %4, ptr noundef nonnull %2) #5
+  %5 = call i32 @rb_st_lookup(ptr noundef %3, i64 noundef %4, ptr noundef nonnull %2) #6
   %.not = icmp eq i32 %5, 0
   %6 = load i64, ptr %2, align 8
   %.0 = select i1 %.not, i64 0, i64 %6
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
   ret i64 %.0
 }
 
-declare i32 @rb_st_lookup(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
-; Function Attrs: nounwind uwtable
+declare i32 @rb_st_lookup(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: nounwind sspstrong uwtable
 define i64 @rsock_intern_family_noprefix(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
-  %3 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
+  %3 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8, !tbaa !10
   %4 = sext i32 %0 to i64
-  %5 = call i32 @rb_st_lookup(ptr noundef %3, i64 noundef %4, ptr noundef nonnull %2) #5
+  %5 = call i32 @rb_st_lookup(ptr noundef %3, i64 noundef %4, ptr noundef nonnull %2) #6
   %.not = icmp eq i32 %5, 0
   %6 = load i64, ptr %2, align 8
   %.0 = select i1 %.not, i64 0, i64 %6
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
   ret i64 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define i64 @rsock_intern_protocol_family(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
-  %3 = load ptr, ptr @rsock_intern_protocol_family_hash, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
+  %3 = load ptr, ptr @rsock_intern_protocol_family_hash, align 8, !tbaa !10
   %4 = sext i32 %0 to i64
-  %5 = call i32 @rb_st_lookup(ptr noundef %3, i64 noundef %4, ptr noundef nonnull %2) #5
+  %5 = call i32 @rb_st_lookup(ptr noundef %3, i64 noundef %4, ptr noundef nonnull %2) #6
   %.not = icmp eq i32 %5, 0
   %6 = load i64, ptr %2, align 8
   %.0 = select i1 %.not, i64 0, i64 %6
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
   ret i64 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define i64 @rsock_intern_socktype(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
-  %3 = load ptr, ptr @rsock_intern_socktype_hash, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
+  %3 = load ptr, ptr @rsock_intern_socktype_hash, align 8, !tbaa !10
   %4 = sext i32 %0 to i64
-  %5 = call i32 @rb_st_lookup(ptr noundef %3, i64 noundef %4, ptr noundef nonnull %2) #5
+  %5 = call i32 @rb_st_lookup(ptr noundef %3, i64 noundef %4, ptr noundef nonnull %2) #6
   %.not = icmp eq i32 %5, 0
   %6 = load i64, ptr %2, align 8
   %.0 = select i1 %.not, i64 0, i64 %6
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
   ret i64 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define i64 @rsock_intern_ipproto(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
-  %3 = load ptr, ptr @rsock_intern_ipproto_hash, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
+  %3 = load ptr, ptr @rsock_intern_ipproto_hash, align 8, !tbaa !10
   %4 = sext i32 %0 to i64
-  %5 = call i32 @rb_st_lookup(ptr noundef %3, i64 noundef %4, ptr noundef nonnull %2) #5
+  %5 = call i32 @rb_st_lookup(ptr noundef %3, i64 noundef %4, ptr noundef nonnull %2) #6
   %.not = icmp eq i32 %5, 0
   %6 = load i64, ptr %2, align 8
   %.0 = select i1 %.not, i64 0, i64 %6
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
   ret i64 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define i64 @rsock_intern_iplevel(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
-  %3 = load ptr, ptr @rsock_intern_iplevel_hash, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
+  %3 = load ptr, ptr @rsock_intern_iplevel_hash, align 8, !tbaa !10
   %4 = sext i32 %0 to i64
-  %5 = call i32 @rb_st_lookup(ptr noundef %3, i64 noundef %4, ptr noundef nonnull %2) #5
+  %5 = call i32 @rb_st_lookup(ptr noundef %3, i64 noundef %4, ptr noundef nonnull %2) #6
   %.not = icmp eq i32 %5, 0
   %6 = load i64, ptr %2, align 8
   %.0 = select i1 %.not, i64 0, i64 %6
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
   ret i64 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define i64 @rsock_intern_so_optname(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
-  %3 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
+  %3 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
   %4 = sext i32 %0 to i64
-  %5 = call i32 @rb_st_lookup(ptr noundef %3, i64 noundef %4, ptr noundef nonnull %2) #5
+  %5 = call i32 @rb_st_lookup(ptr noundef %3, i64 noundef %4, ptr noundef nonnull %2) #6
   %.not = icmp eq i32 %5, 0
   %6 = load i64, ptr %2, align 8
   %.0 = select i1 %.not, i64 0, i64 %6
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
   ret i64 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define i64 @rsock_intern_ip_optname(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
-  %3 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
+  %3 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8, !tbaa !10
   %4 = sext i32 %0 to i64
-  %5 = call i32 @rb_st_lookup(ptr noundef %3, i64 noundef %4, ptr noundef nonnull %2) #5
+  %5 = call i32 @rb_st_lookup(ptr noundef %3, i64 noundef %4, ptr noundef nonnull %2) #6
   %.not = icmp eq i32 %5, 0
   %6 = load i64, ptr %2, align 8
   %.0 = select i1 %.not, i64 0, i64 %6
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
   ret i64 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define i64 @rsock_intern_ipv6_optname(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
-  %3 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
+  %3 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8, !tbaa !10
   %4 = sext i32 %0 to i64
-  %5 = call i32 @rb_st_lookup(ptr noundef %3, i64 noundef %4, ptr noundef nonnull %2) #5
+  %5 = call i32 @rb_st_lookup(ptr noundef %3, i64 noundef %4, ptr noundef nonnull %2) #6
   %.not = icmp eq i32 %5, 0
   %6 = load i64, ptr %2, align 8
   %.0 = select i1 %.not, i64 0, i64 %6
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
   ret i64 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define i64 @rsock_intern_tcp_optname(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
-  %3 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
+  %3 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8, !tbaa !10
   %4 = sext i32 %0 to i64
-  %5 = call i32 @rb_st_lookup(ptr noundef %3, i64 noundef %4, ptr noundef nonnull %2) #5
+  %5 = call i32 @rb_st_lookup(ptr noundef %3, i64 noundef %4, ptr noundef nonnull %2) #6
   %.not = icmp eq i32 %5, 0
   %6 = load i64, ptr %2, align 8
   %.0 = select i1 %.not, i64 0, i64 %6
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
   ret i64 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define i64 @rsock_intern_udp_optname(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
-  %3 = load ptr, ptr @rsock_intern_udp_optname_hash, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
+  %3 = load ptr, ptr @rsock_intern_udp_optname_hash, align 8, !tbaa !10
   %4 = sext i32 %0 to i64
-  %5 = call i32 @rb_st_lookup(ptr noundef %3, i64 noundef %4, ptr noundef nonnull %2) #5
+  %5 = call i32 @rb_st_lookup(ptr noundef %3, i64 noundef %4, ptr noundef nonnull %2) #6
   %.not = icmp eq i32 %5, 0
   %6 = load i64, ptr %2, align 8
   %.0 = select i1 %.not, i64 0, i64 %6
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
   ret i64 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define i64 @rsock_intern_scm_optname(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
-  %3 = load ptr, ptr @rsock_intern_scm_optname_hash, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
+  %3 = load ptr, ptr @rsock_intern_scm_optname_hash, align 8, !tbaa !10
   %4 = sext i32 %0 to i64
-  %5 = call i32 @rb_st_lookup(ptr noundef %3, i64 noundef %4, ptr noundef nonnull %2) #5
+  %5 = call i32 @rb_st_lookup(ptr noundef %3, i64 noundef %4, ptr noundef nonnull %2) #6
   %.not = icmp eq i32 %5, 0
   %6 = load i64, ptr %2, align 8
   %.0 = select i1 %.not, i64 0, i64 %6
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
   ret i64 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define i64 @rsock_intern_local_optname(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
-  %3 = load ptr, ptr @rsock_intern_local_optname_hash, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
+  %3 = load ptr, ptr @rsock_intern_local_optname_hash, align 8, !tbaa !10
   %4 = sext i32 %0 to i64
-  %5 = call i32 @rb_st_lookup(ptr noundef %3, i64 noundef %4, ptr noundef nonnull %2) #5
+  %5 = call i32 @rb_st_lookup(ptr noundef %3, i64 noundef %4, ptr noundef nonnull %2) #6
   %.not = icmp eq i32 %5, 0
   %6 = load i64, ptr %2, align 8
   %.0 = select i1 %.not, i64 0, i64 %6
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
   ret i64 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define i32 @rsock_family_arg(i64 noundef %0) local_unnamed_addr #0 {
   %2 = tail call fastcc i32 @constant_arg(i64 noundef %0, ptr noundef nonnull @rsock_family_to_int, ptr noundef nonnull @.str.422)
   ret i32 %2
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc i32 @constant_arg(i64 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #6
   %5 = and i64 %0, 255
   %6 = icmp eq i64 %5, 12
   br i1 %6, label %RB_SYMBOL_P.exit.thread, label %7
 
 7:                                                ; preds = %3
-  %8 = and i64 %0, 7
-  %9 = icmp ne i64 %8, 0
-  %10 = icmp eq i64 %0, 0
-  %11 = or i1 %10, %9
+  %8 = icmp eq i64 %0, 0
+  %9 = and i64 %0, 7
+  %10 = icmp ne i64 %9, 0
+  %11 = or i1 %8, %10
   br i1 %11, label %RB_SYMBOL_P.exit.thread10, label %RB_SYMBOL_P.exit
 
 RB_SYMBOL_P.exit:                                 ; preds = %7
   %12 = inttoptr i64 %0 to ptr
-  %13 = load i64, ptr %12, align 8
+  %13 = load i64, ptr %12, align 8, !tbaa !13
   %14 = and i64 %13, 31
   %15 = icmp eq i64 %14, 20
   br i1 %15, label %RB_SYMBOL_P.exit.thread, label %RB_SYMBOL_P.exit.thread10
 
 RB_SYMBOL_P.exit.thread:                          ; preds = %3, %RB_SYMBOL_P.exit
-  %16 = tail call i64 @rb_sym2str(i64 noundef %0) #5
+  %16 = tail call i64 @rb_sym2str(i64 noundef %0) #6
   br label %19
 
 RB_SYMBOL_P.exit.thread10:                        ; preds = %7, %RB_SYMBOL_P.exit
-  %17 = tail call i64 @rb_check_string_type(i64 noundef %0) #5
+  %17 = tail call i64 @rb_check_string_type(i64 noundef %0) #6
   %18 = icmp eq i64 %17, 4
   br i1 %18, label %31, label %19
 
 19:                                               ; preds = %RB_SYMBOL_P.exit.thread10, %RB_SYMBOL_P.exit.thread
   %.0 = phi i64 [ %16, %RB_SYMBOL_P.exit.thread ], [ %17, %RB_SYMBOL_P.exit.thread10 ]
   %20 = inttoptr i64 %.0 to ptr
-  %21 = load i64, ptr %20, align 8, !noalias !6
+  %21 = load i64, ptr %20, align 8, !tbaa !13, !noalias !16
   %22 = and i64 %21, 8192
   %.not.i.i = icmp eq i64 %22, 0
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 24
@@ -3458,18 +3491,18 @@ RB_SYMBOL_P.exit.thread10:                        ; preds = %7, %RB_SYMBOL_P.exi
 RSTRING_PTR.exit:                                 ; preds = %19, %24
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %24 ], [ %23, %19 ]
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %26 = load i64, ptr %25, align 8
-  %27 = call i32 %1(ptr noundef %.sroa.2.0.i, i64 noundef %26, ptr noundef nonnull %4) #5
+  %26 = load i64, ptr %25, align 8, !tbaa !19
+  %27 = call i32 %1(ptr noundef %.sroa.2.0.i, i64 noundef %26, ptr noundef nonnull %4) #6
   %28 = icmp eq i32 %27, -1
   br i1 %28, label %29, label %RSTRING_PTR.exit._crit_edge
 
 RSTRING_PTR.exit._crit_edge:                      ; preds = %RSTRING_PTR.exit
-  %.pre = load i32, ptr %4, align 4
+  %.pre = load i32, ptr %4, align 4, !tbaa !6
   br label %38
 
 29:                                               ; preds = %RSTRING_PTR.exit
-  %30 = load i64, ptr @rb_eSocket, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %30, ptr noundef nonnull @.str.436, ptr noundef %2, ptr noundef %.sroa.2.0.i) #6
+  %30 = load i64, ptr @rb_eSocket, align 8, !tbaa !21
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %30, ptr noundef nonnull @.str.436, ptr noundef %2, ptr noundef %.sroa.2.0.i) #7
   unreachable
 
 31:                                               ; preds = %RB_SYMBOL_P.exit.thread10
@@ -3478,11 +3511,11 @@ RSTRING_PTR.exit._crit_edge:                      ; preds = %RSTRING_PTR.exit
   br i1 %.not.i, label %35, label %33
 
 33:                                               ; preds = %31
-  %34 = tail call i64 @rb_fix2int(i64 noundef %0) #5
+  %34 = tail call i64 @rb_fix2int(i64 noundef %0) #6
   br label %rb_num2int_inline.exit
 
 35:                                               ; preds = %31
-  %36 = tail call i64 @rb_num2int(i64 noundef %0) #5
+  %36 = tail call i64 @rb_num2int(i64 noundef %0) #6
   br label %rb_num2int_inline.exit
 
 rb_num2int_inline.exit:                           ; preds = %33, %35
@@ -3492,16 +3525,17 @@ rb_num2int_inline.exit:                           ; preds = %33, %35
 
 38:                                               ; preds = %RSTRING_PTR.exit._crit_edge, %rb_num2int_inline.exit
   %39 = phi i32 [ %.pre, %RSTRING_PTR.exit._crit_edge ], [ %37, %rb_num2int_inline.exit ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #6
   ret i32 %39
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define i32 @rsock_socktype_arg(i64 noundef %0) local_unnamed_addr #0 {
   %2 = tail call fastcc i32 @constant_arg(i64 noundef %0, ptr noundef nonnull @rsock_socktype_to_int, ptr noundef nonnull @.str.423)
   ret i32 %2
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define i32 @rsock_level_arg(i32 noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = and i32 %0, -9
   %or.cond = icmp eq i32 %3, 2
@@ -3510,7 +3544,7 @@ define i32 @rsock_level_arg(i32 noundef %0, i64 noundef %1) local_unnamed_addr #
   ret i32 %4
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define i32 @rsock_optname_arg(i32 noundef %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = and i32 %0, -9
   %or.cond = icmp eq i32 %4, 2
@@ -3551,11 +3585,11 @@ define i32 @rsock_optname_arg(i32 noundef %0, i32 noundef %1, i64 noundef %2) lo
   br i1 %.not.i, label %20, label %18
 
 18:                                               ; preds = %16
-  %19 = tail call i64 @rb_fix2int(i64 noundef %2) #5
+  %19 = tail call i64 @rb_fix2int(i64 noundef %2) #6
   br label %rb_num2int_inline.exit
 
 20:                                               ; preds = %16
-  %21 = tail call i64 @rb_num2int(i64 noundef %2) #5
+  %21 = tail call i64 @rb_num2int(i64 noundef %2) #6
   br label %rb_num2int_inline.exit
 
 rb_num2int_inline.exit:                           ; preds = %18, %20
@@ -3577,11 +3611,11 @@ rb_num2int_inline.exit:                           ; preds = %18, %20
   br i1 %.not.i14, label %30, label %28
 
 28:                                               ; preds = %26
-  %29 = tail call i64 @rb_fix2int(i64 noundef %2) #5
+  %29 = tail call i64 @rb_fix2int(i64 noundef %2) #6
   br label %rb_num2int_inline.exit16
 
 30:                                               ; preds = %26
-  %31 = tail call i64 @rb_num2int(i64 noundef %2) #5
+  %31 = tail call i64 @rb_num2int(i64 noundef %2) #6
   br label %rb_num2int_inline.exit16
 
 rb_num2int_inline.exit16:                         ; preds = %28, %30
@@ -3594,7 +3628,7 @@ rb_num2int_inline.exit16:                         ; preds = %28, %30
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define i32 @rsock_cmsg_type_arg(i32 noundef %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = and i32 %0, -9
   %or.cond = icmp eq i32 %4, 2
@@ -3635,11 +3669,11 @@ define i32 @rsock_cmsg_type_arg(i32 noundef %0, i32 noundef %1, i64 noundef %2) 
   br i1 %.not.i, label %20, label %18
 
 18:                                               ; preds = %16
-  %19 = tail call i64 @rb_fix2int(i64 noundef %2) #5
+  %19 = tail call i64 @rb_fix2int(i64 noundef %2) #6
   br label %rb_num2int_inline.exit
 
 20:                                               ; preds = %16
-  %21 = tail call i64 @rb_num2int(i64 noundef %2) #5
+  %21 = tail call i64 @rb_num2int(i64 noundef %2) #6
   br label %rb_num2int_inline.exit
 
 rb_num2int_inline.exit:                           ; preds = %18, %20
@@ -3661,11 +3695,11 @@ rb_num2int_inline.exit:                           ; preds = %18, %20
   br i1 %.not.i14, label %30, label %28
 
 28:                                               ; preds = %26
-  %29 = tail call i64 @rb_fix2int(i64 noundef %2) #5
+  %29 = tail call i64 @rb_fix2int(i64 noundef %2) #6
   br label %rb_num2int_inline.exit16
 
 30:                                               ; preds = %26
-  %31 = tail call i64 @rb_num2int(i64 noundef %2) #5
+  %31 = tail call i64 @rb_num2int(i64 noundef %2) #6
   br label %rb_num2int_inline.exit16
 
 rb_num2int_inline.exit16:                         ; preds = %28, %30
@@ -3678,2756 +3712,2757 @@ rb_num2int_inline.exit16:                         ; preds = %28, %30
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define i32 @rsock_shutdown_how_arg(i64 noundef %0) local_unnamed_addr #0 {
   %2 = tail call fastcc i32 @constant_arg(i64 noundef %0, ptr noundef nonnull @rsock_shutdown_how_to_int, ptr noundef nonnull @.str.435)
   ret i32 %2
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define void @rsock_init_socket_constants() local_unnamed_addr #0 {
   tail call fastcc void @init_constants()
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @init_constants() unnamed_addr #0 {
-  %1 = load i64, ptr @rb_cSocket, align 8
-  %2 = tail call i64 @rb_define_module_under(i64 noundef %1, ptr noundef nonnull @.str.437) #5
-  store i64 %2, ptr @rb_mSockConst, align 8
-  %3 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %3, ptr noundef nonnull @.str.94, i64 noundef 3) #5
-  %4 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %4, ptr noundef nonnull @.str.94, i64 noundef 3) #5
-  %5 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %5, ptr noundef nonnull @.str.93, i64 noundef 5) #5
-  %6 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %6, ptr noundef nonnull @.str.93, i64 noundef 5) #5
-  %7 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %7, ptr noundef nonnull @.str.89, i64 noundef 7) #5
-  %8 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %8, ptr noundef nonnull @.str.89, i64 noundef 7) #5
-  %9 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %9, ptr noundef nonnull @.str.90, i64 noundef 9) #5
-  %10 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %10, ptr noundef nonnull @.str.90, i64 noundef 9) #5
-  %11 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %11, ptr noundef nonnull @.str.98, i64 noundef 11) #5
-  %12 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %12, ptr noundef nonnull @.str.98, i64 noundef 11) #5
-  %13 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %13, ptr noundef nonnull @.str.95, i64 noundef 21) #5
-  %14 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %14, ptr noundef nonnull @.str.95, i64 noundef 21) #5
-  %15 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %15, ptr noundef nonnull @.str.97, i64 noundef 4097) #5
-  %16 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %16, ptr noundef nonnull @.str.97, i64 noundef 4097) #5
-  %17 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %17, ptr noundef nonnull @.str.96, i64 noundef 1048577) #5
-  %18 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %18, ptr noundef nonnull @.str.96, i64 noundef 1048577) #5
-  %19 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %19, ptr noundef nonnull @.str.70, i64 noundef 1) #5
-  %20 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %20, ptr noundef nonnull @.str.70, i64 noundef 1) #5
-  %21 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %21, ptr noundef nonnull @.str.71, i64 noundef 1) #5
-  %22 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %22, ptr noundef nonnull @.str.71, i64 noundef 1) #5
-  %23 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %23, ptr noundef nonnull @.str.47, i64 noundef 5) #5
-  %24 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %24, ptr noundef nonnull @.str.47, i64 noundef 5) #5
-  %25 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %25, ptr noundef nonnull @.str.48, i64 noundef 5) #5
-  %26 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %26, ptr noundef nonnull @.str.48, i64 noundef 5) #5
-  %27 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %27, ptr noundef nonnull @.str.60, i64 noundef 21) #5
-  %28 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %28, ptr noundef nonnull @.str.60, i64 noundef 21) #5
-  %29 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %29, ptr noundef nonnull @.str.61, i64 noundef 21) #5
-  %30 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %30, ptr noundef nonnull @.str.61, i64 noundef 21) #5
-  %31 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %31, ptr noundef nonnull @.str.49, i64 noundef 3) #5
-  %32 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %32, ptr noundef nonnull @.str.49, i64 noundef 3) #5
-  %33 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %33, ptr noundef nonnull @.str.50, i64 noundef 3) #5
-  %34 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %34, ptr noundef nonnull @.str.50, i64 noundef 3) #5
-  %35 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %35, ptr noundef nonnull @.str.51, i64 noundef 7) #5
-  %36 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %36, ptr noundef nonnull @.str.51, i64 noundef 7) #5
-  %37 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %37, ptr noundef nonnull @.str.52, i64 noundef 7) #5
-  %38 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %38, ptr noundef nonnull @.str.52, i64 noundef 7) #5
-  %39 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %39, ptr noundef nonnull @.str.24, i64 noundef 9) #5
-  %40 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %40, ptr noundef nonnull @.str.24, i64 noundef 9) #5
-  %41 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %41, ptr noundef nonnull @.str.25, i64 noundef 9) #5
-  %42 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %42, ptr noundef nonnull @.str.25, i64 noundef 9) #5
-  %43 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %43, ptr noundef nonnull @.str.80, i64 noundef 11) #5
-  %44 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %44, ptr noundef nonnull @.str.80, i64 noundef 11) #5
-  %45 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %45, ptr noundef nonnull @.str.81, i64 noundef 11) #5
-  %46 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %46, ptr noundef nonnull @.str.81, i64 noundef 11) #5
-  %47 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %47, ptr noundef nonnull @.str.62, i64 noundef 3) #5
-  %48 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %48, ptr noundef nonnull @.str.62, i64 noundef 3) #5
-  %49 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %49, ptr noundef nonnull @.str.63, i64 noundef 3) #5
-  %50 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %50, ptr noundef nonnull @.str.63, i64 noundef 3) #5
-  %51 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %51, ptr noundef nonnull @.str.26, i64 noundef 45) #5
-  %52 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %52, ptr noundef nonnull @.str.26, i64 noundef 45) #5
-  %53 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %53, ptr noundef nonnull @.str.27, i64 noundef 45) #5
-  %54 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %54, ptr noundef nonnull @.str.27, i64 noundef 45) #5
-  %55 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %55, ptr noundef nonnull @.str.72, i64 noundef 25) #5
-  %56 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %56, ptr noundef nonnull @.str.72, i64 noundef 25) #5
-  %57 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %57, ptr noundef nonnull @.str.73, i64 noundef 25) #5
-  %58 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %58, ptr noundef nonnull @.str.73, i64 noundef 25) #5
-  %59 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %59, ptr noundef nonnull @.str.64, i64 noundef 33) #5
-  %60 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %60, ptr noundef nonnull @.str.64, i64 noundef 33) #5
-  %61 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %61, ptr noundef nonnull @.str.65, i64 noundef 33) #5
-  %62 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %62, ptr noundef nonnull @.str.65, i64 noundef 33) #5
-  %63 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %63, ptr noundef nonnull @.str.53, i64 noundef 69) #5
-  %64 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %64, ptr noundef nonnull @.str.53, i64 noundef 69) #5
-  %65 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %65, ptr noundef nonnull @.str.54, i64 noundef 69) #5
-  %66 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %66, ptr noundef nonnull @.str.54, i64 noundef 69) #5
-  %67 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %67, ptr noundef nonnull @.str.28, i64 noundef 93) #5
-  %68 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %68, ptr noundef nonnull @.str.28, i64 noundef 93) #5
-  %69 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %69, ptr noundef nonnull @.str.29, i64 noundef 93) #5
-  %70 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %70, ptr noundef nonnull @.str.29, i64 noundef 93) #5
-  %71 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %71, ptr noundef nonnull @.str.74, i64 noundef 35) #5
-  %72 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %72, ptr noundef nonnull @.str.74, i64 noundef 35) #5
-  %73 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %73, ptr noundef nonnull @.str.75, i64 noundef 35) #5
-  %74 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %74, ptr noundef nonnull @.str.75, i64 noundef 35) #5
-  %75 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %75, ptr noundef nonnull @.str.30, i64 noundef 31) #5
-  %76 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %76, ptr noundef nonnull @.str.30, i64 noundef 31) #5
-  %77 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %77, ptr noundef nonnull @.str.31, i64 noundef 31) #5
-  %78 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %78, ptr noundef nonnull @.str.31, i64 noundef 31) #5
-  %79 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %79, ptr noundef nonnull @.str.78, i64 noundef 33) #5
-  %80 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %80, ptr noundef nonnull @.str.78, i64 noundef 33) #5
-  %81 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %81, ptr noundef nonnull @.str.79, i64 noundef 33) #5
-  %82 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %82, ptr noundef nonnull @.str.79, i64 noundef 33) #5
-  %83 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %83, ptr noundef nonnull @.str.32, i64 noundef 43) #5
-  %84 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %84, ptr noundef nonnull @.str.32, i64 noundef 43) #5
-  %85 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %85, ptr noundef nonnull @.str.33, i64 noundef 43) #5
-  %86 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %86, ptr noundef nonnull @.str.33, i64 noundef 43) #5
-  %87 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %87, ptr noundef nonnull @.str.66, i64 noundef 49) #5
-  %88 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %88, ptr noundef nonnull @.str.66, i64 noundef 49) #5
-  %89 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %89, ptr noundef nonnull @.str.67, i64 noundef 49) #5
-  %90 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %90, ptr noundef nonnull @.str.67, i64 noundef 49) #5
-  %91 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %91, ptr noundef nonnull @.str.34, i64 noundef 53) #5
-  %92 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %92, ptr noundef nonnull @.str.34, i64 noundef 53) #5
-  %93 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %93, ptr noundef nonnull @.str.35, i64 noundef 53) #5
-  %94 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %94, ptr noundef nonnull @.str.35, i64 noundef 53) #5
-  %95 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %95, ptr noundef nonnull @.str.17, i64 noundef 55) #5
-  %96 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %96, ptr noundef nonnull @.str.17, i64 noundef 55) #5
-  %97 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %97, ptr noundef nonnull @.str.18, i64 noundef 55) #5
-  %98 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %98, ptr noundef nonnull @.str.18, i64 noundef 55) #5
-  %99 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %99, ptr noundef nonnull @.str.55, i64 noundef 57) #5
-  %100 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %100, ptr noundef nonnull @.str.55, i64 noundef 57) #5
-  %101 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %101, ptr noundef nonnull @.str.56, i64 noundef 57) #5
-  %102 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %102, ptr noundef nonnull @.str.56, i64 noundef 57) #5
-  %103 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %103, ptr noundef nonnull @.str.36, i64 noundef 59) #5
-  %104 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %104, ptr noundef nonnull @.str.36, i64 noundef 59) #5
-  %105 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %105, ptr noundef nonnull @.str.37, i64 noundef 59) #5
-  %106 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %106, ptr noundef nonnull @.str.37, i64 noundef 59) #5
-  %107 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %107, ptr noundef nonnull @.str.57, i64 noundef 61) #5
-  %108 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %108, ptr noundef nonnull @.str.57, i64 noundef 61) #5
-  %109 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %109, ptr noundef nonnull @.str.58, i64 noundef 61) #5
-  %110 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %110, ptr noundef nonnull @.str.58, i64 noundef 61) #5
-  %111 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %111, ptr noundef nonnull @.str.82, i64 noundef 63) #5
-  %112 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %112, ptr noundef nonnull @.str.82, i64 noundef 63) #5
-  %113 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %113, ptr noundef nonnull @.str.83, i64 noundef 63) #5
-  %114 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %114, ptr noundef nonnull @.str.83, i64 noundef 63) #5
-  %115 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %115, ptr noundef nonnull @.str.38, i64 noundef 77) #5
-  %116 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %116, ptr noundef nonnull @.str.38, i64 noundef 77) #5
-  %117 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %117, ptr noundef nonnull @.str.39, i64 noundef 77) #5
-  %118 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %118, ptr noundef nonnull @.str.39, i64 noundef 77) #5
-  %119 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %119, ptr noundef nonnull @.str.68, i64 noundef 81) #5
-  %120 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %120, ptr noundef nonnull @.str.68, i64 noundef 81) #5
-  %121 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %121, ptr noundef nonnull @.str.69, i64 noundef 81) #5
-  %122 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %122, ptr noundef nonnull @.str.69, i64 noundef 81) #5
-  %123 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %123, ptr noundef nonnull @.str.40, i64 noundef 83) #5
-  %124 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %124, ptr noundef nonnull @.str.40, i64 noundef 83) #5
-  %125 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %125, ptr noundef nonnull @.str.41, i64 noundef 83) #5
-  %126 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %126, ptr noundef nonnull @.str.41, i64 noundef 83) #5
-  %127 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %127, ptr noundef nonnull @.str.42, i64 noundef 89) #5
-  %128 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %128, ptr noundef nonnull @.str.42, i64 noundef 89) #5
-  %129 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %129, ptr noundef nonnull @.str.43, i64 noundef 89) #5
-  %130 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %130, ptr noundef nonnull @.str.43, i64 noundef 89) #5
-  %131 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %131, ptr noundef nonnull @.str.438, i64 noundef 3) #5
-  %132 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %132, ptr noundef nonnull @.str.438, i64 noundef 3) #5
-  %133 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %133, ptr noundef nonnull @.str.439, i64 noundef 5) #5
-  %134 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %134, ptr noundef nonnull @.str.439, i64 noundef 5) #5
-  %135 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %135, ptr noundef nonnull @.str.440, i64 noundef 9) #5
-  %136 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %136, ptr noundef nonnull @.str.440, i64 noundef 9) #5
-  %137 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %137, ptr noundef nonnull @.str.441, i64 noundef 257) #5
-  %138 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %138, ptr noundef nonnull @.str.441, i64 noundef 257) #5
-  %139 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %139, ptr noundef nonnull @.str.442, i64 noundef 65) #5
-  %140 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %140, ptr noundef nonnull @.str.442, i64 noundef 65) #5
-  %141 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %141, ptr noundef nonnull @.str.443, i64 noundef 17) #5
-  %142 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %142, ptr noundef nonnull @.str.443, i64 noundef 17) #5
-  %143 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %143, ptr noundef nonnull @.str.444, i64 noundef 513) #5
-  %144 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %144, ptr noundef nonnull @.str.444, i64 noundef 513) #5
-  %145 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %145, ptr noundef nonnull @.str.445, i64 noundef 129) #5
-  %146 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %146, ptr noundef nonnull @.str.445, i64 noundef 129) #5
-  %147 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %147, ptr noundef nonnull @.str.446, i64 noundef 33) #5
-  %148 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %148, ptr noundef nonnull @.str.446, i64 noundef 33) #5
-  %149 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %149, ptr noundef nonnull @.str.447, i64 noundef 1025) #5
-  %150 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %150, ptr noundef nonnull @.str.447, i64 noundef 1025) #5
-  %151 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %151, ptr noundef nonnull @.str.448, i64 noundef 2049) #5
-  %152 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %152, ptr noundef nonnull @.str.448, i64 noundef 2049) #5
-  %153 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %153, ptr noundef nonnull @.str.449, i64 noundef 4097) #5
-  %154 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %154, ptr noundef nonnull @.str.449, i64 noundef 4097) #5
-  %155 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %155, ptr noundef nonnull @.str.450, i64 noundef 8193) #5
-  %156 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %156, ptr noundef nonnull @.str.450, i64 noundef 8193) #5
-  %157 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %157, ptr noundef nonnull @.str.451, i64 noundef 16385) #5
-  %158 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %158, ptr noundef nonnull @.str.451, i64 noundef 16385) #5
-  %159 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %159, ptr noundef nonnull @.str.452, i64 noundef 32769) #5
-  %160 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %160, ptr noundef nonnull @.str.452, i64 noundef 32769) #5
-  %161 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %161, ptr noundef nonnull @.str.453, i64 noundef 65537) #5
-  %162 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %162, ptr noundef nonnull @.str.453, i64 noundef 65537) #5
-  %163 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %163, ptr noundef nonnull @.str.454, i64 noundef 1073741825) #5
-  %164 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %164, ptr noundef nonnull @.str.454, i64 noundef 1073741825) #5
-  %165 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %165, ptr noundef nonnull @.str.137, i64 noundef 3) #5
-  %166 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %166, ptr noundef nonnull @.str.137, i64 noundef 3) #5
-  %167 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %167, ptr noundef nonnull @.str.455, i64 noundef 1) #5
-  %168 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %168, ptr noundef nonnull @.str.455, i64 noundef 1) #5
-  %169 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %169, ptr noundef nonnull @.str.456, i64 noundef 13) #5
-  %170 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %170, ptr noundef nonnull @.str.456, i64 noundef 13) #5
-  %171 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %171, ptr noundef nonnull @.str.457, i64 noundef 35) #5
-  %172 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %172, ptr noundef nonnull @.str.457, i64 noundef 35) #5
-  %173 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %173, ptr noundef nonnull @.str.117, i64 noundef 1) #5
-  %174 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %174, ptr noundef nonnull @.str.117, i64 noundef 1) #5
-  %175 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %175, ptr noundef nonnull @.str.127, i64 noundef 3) #5
-  %176 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %176, ptr noundef nonnull @.str.127, i64 noundef 3) #5
-  %177 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %177, ptr noundef nonnull @.str.128, i64 noundef 5) #5
-  %178 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %178, ptr noundef nonnull @.str.128, i64 noundef 5) #5
-  %179 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %179, ptr noundef nonnull @.str.120, i64 noundef 13) #5
-  %180 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %180, ptr noundef nonnull @.str.120, i64 noundef 13) #5
-  %181 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %181, ptr noundef nonnull @.str.121, i64 noundef 17) #5
-  %182 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %182, ptr noundef nonnull @.str.121, i64 noundef 17) #5
-  %183 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %183, ptr noundef nonnull @.str.122, i64 noundef 25) #5
-  %184 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %184, ptr noundef nonnull @.str.122, i64 noundef 25) #5
-  %185 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %185, ptr noundef nonnull @.str.123, i64 noundef 35) #5
-  %186 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %186, ptr noundef nonnull @.str.123, i64 noundef 35) #5
-  %187 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %187, ptr noundef nonnull @.str.124, i64 noundef 45) #5
-  %188 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %188, ptr noundef nonnull @.str.124, i64 noundef 45) #5
-  %189 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %189, ptr noundef nonnull @.str.118, i64 noundef 59) #5
-  %190 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %190, ptr noundef nonnull @.str.118, i64 noundef 59) #5
-  %191 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %191, ptr noundef nonnull @.str.119, i64 noundef 103) #5
-  %192 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %192, ptr noundef nonnull @.str.119, i64 noundef 103) #5
-  %193 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %193, ptr noundef nonnull @.str.132, i64 noundef 121) #5
-  %194 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %194, ptr noundef nonnull @.str.132, i64 noundef 121) #5
-  %195 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %195, ptr noundef nonnull @.str.125, i64 noundef 101) #5
-  %196 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %196, ptr noundef nonnull @.str.125, i64 noundef 101) #5
-  %197 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %197, ptr noundef nonnull @.str.135, i64 noundef 89) #5
-  %198 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %198, ptr noundef nonnull @.str.135, i64 noundef 89) #5
-  %199 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %199, ptr noundef nonnull @.str.133, i64 noundef 1) #5
-  %200 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %200, ptr noundef nonnull @.str.133, i64 noundef 1) #5
-  %201 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %201, ptr noundef nonnull @.str.131, i64 noundef 117) #5
-  %202 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %202, ptr noundef nonnull @.str.131, i64 noundef 117) #5
-  %203 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %203, ptr noundef nonnull @.str.129, i64 noundef 83) #5
-  %204 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %204, ptr noundef nonnull @.str.129, i64 noundef 83) #5
-  %205 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %205, ptr noundef nonnull @.str.130, i64 noundef 119) #5
-  %206 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %206, ptr noundef nonnull @.str.130, i64 noundef 119) #5
-  %207 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %207, ptr noundef nonnull @.str.134, i64 noundef 87) #5
-  %208 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %208, ptr noundef nonnull @.str.134, i64 noundef 87) #5
-  %209 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %209, ptr noundef nonnull @.str.126, i64 noundef 511) #5
-  %210 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %210, ptr noundef nonnull @.str.126, i64 noundef 511) #5
-  %211 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %211, ptr noundef nonnull @.str.458, i64 noundef 2049) #5
-  %212 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %212, ptr noundef nonnull @.str.458, i64 noundef 2049) #5
-  %213 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %213, ptr noundef nonnull @.str.459, i64 noundef 10001) #5
-  %214 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %214, ptr noundef nonnull @.str.459, i64 noundef 10001) #5
-  %215 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %215, ptr noundef nonnull @.str.460, i64 noundef 1) #5
-  %216 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %216, ptr noundef nonnull @.str.460, i64 noundef 1) #5
-  %217 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %217, ptr noundef nonnull @.str.461, i64 noundef 8589934591) #5
-  %218 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %218, ptr noundef nonnull @.str.461, i64 noundef 8589934591) #5
-  %219 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %219, ptr noundef nonnull @.str.462, i64 noundef 4261412867) #5
-  %220 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %220, ptr noundef nonnull @.str.462, i64 noundef 4261412867) #5
-  %221 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %221, ptr noundef nonnull @.str.463, i64 noundef 7516192769) #5
-  %222 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %222, ptr noundef nonnull @.str.463, i64 noundef 7516192769) #5
-  %223 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %223, ptr noundef nonnull @.str.464, i64 noundef 7516192771) #5
-  %224 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %224, ptr noundef nonnull @.str.464, i64 noundef 7516192771) #5
-  %225 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %225, ptr noundef nonnull @.str.465, i64 noundef 7516193279) #5
-  %226 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %226, ptr noundef nonnull @.str.465, i64 noundef 7516193279) #5
-  %227 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %227, ptr noundef nonnull @.str.466, i64 noundef 8589934591) #5
-  %228 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %228, ptr noundef nonnull @.str.466, i64 noundef 8589934591) #5
-  %229 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %229, ptr noundef nonnull @.str.256, i64 noundef 9) #5
-  %230 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %230, ptr noundef nonnull @.str.256, i64 noundef 9) #5
-  %231 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %231, ptr noundef nonnull @.str.257, i64 noundef 7) #5
-  %232 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %232, ptr noundef nonnull @.str.257, i64 noundef 7) #5
-  %233 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %233, ptr noundef nonnull @.str.241, i64 noundef 3) #5
-  %234 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %234, ptr noundef nonnull @.str.241, i64 noundef 3) #5
-  %235 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %235, ptr noundef nonnull @.str.242, i64 noundef 5) #5
-  %236 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %236, ptr noundef nonnull @.str.242, i64 noundef 5) #5
-  %237 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %237, ptr noundef nonnull @.str.265, i64 noundef 13) #5
-  %238 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %238, ptr noundef nonnull @.str.265, i64 noundef 13) #5
-  %239 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %239, ptr noundef nonnull @.str.281, i64 noundef 15) #5
-  %240 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %240, ptr noundef nonnull @.str.281, i64 noundef 15) #5
-  %241 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %241, ptr noundef nonnull @.str.258, i64 noundef 15) #5
-  %242 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %242, ptr noundef nonnull @.str.258, i64 noundef 15) #5
-  %243 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %243, ptr noundef nonnull @.str.255, i64 noundef 43) #5
-  %244 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %244, ptr noundef nonnull @.str.255, i64 noundef 43) #5
-  %245 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %245, ptr noundef nonnull @.str.259, i64 noundef 25) #5
-  %246 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %246, ptr noundef nonnull @.str.259, i64 noundef 25) #5
-  %247 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %247, ptr noundef nonnull @.str.288, i64 noundef 65) #5
-  %248 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %248, ptr noundef nonnull @.str.288, i64 noundef 65) #5
-  %249 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %249, ptr noundef nonnull @.str.295, i64 noundef 67) #5
-  %250 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %250, ptr noundef nonnull @.str.295, i64 noundef 67) #5
-  %251 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %251, ptr noundef nonnull @.str.298, i64 noundef 69) #5
-  %252 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %252, ptr noundef nonnull @.str.298, i64 noundef 69) #5
-  %253 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %253, ptr noundef nonnull @.str.299, i64 noundef 71) #5
-  %254 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %254, ptr noundef nonnull @.str.299, i64 noundef 71) #5
-  %255 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %255, ptr noundef nonnull @.str.301, i64 noundef 73) #5
-  %256 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %256, ptr noundef nonnull @.str.301, i64 noundef 73) #5
-  %257 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %257, ptr noundef nonnull @.str.307, i64 noundef 3) #5
-  %258 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %258, ptr noundef nonnull @.str.307, i64 noundef 3) #5
-  %259 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %259, ptr noundef nonnull @.str.309, i64 noundef 3) #5
-  %260 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %260, ptr noundef nonnull @.str.309, i64 noundef 3) #5
-  %261 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %261, ptr noundef nonnull @.str.302, i64 noundef 41) #5
-  %262 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %262, ptr noundef nonnull @.str.302, i64 noundef 41) #5
-  %263 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %263, ptr noundef nonnull @.str.289, i64 noundef 11) #5
-  %264 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %264, ptr noundef nonnull @.str.289, i64 noundef 11) #5
-  %265 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %265, ptr noundef nonnull @.str.260, i64 noundef 17) #5
-  %266 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %266, ptr noundef nonnull @.str.260, i64 noundef 17) #5
-  %267 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %267, ptr noundef nonnull @.str.277, i64 noundef 19) #5
-  %268 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %268, ptr noundef nonnull @.str.277, i64 noundef 19) #5
-  %269 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %269, ptr noundef nonnull @.str.290, i64 noundef 21) #5
-  %270 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %270, ptr noundef nonnull @.str.290, i64 noundef 21) #5
-  %271 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %271, ptr noundef nonnull @.str.261, i64 noundef 23) #5
-  %272 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %272, ptr noundef nonnull @.str.261, i64 noundef 23) #5
-  %273 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %273, ptr noundef nonnull @.str.262, i64 noundef 27) #5
-  %274 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %274, ptr noundef nonnull @.str.262, i64 noundef 27) #5
-  %275 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %275, ptr noundef nonnull @.str.243, i64 noundef 29) #5
-  %276 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %276, ptr noundef nonnull @.str.243, i64 noundef 29) #5
-  %277 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %277, ptr noundef nonnull @.str.266, i64 noundef 31) #5
-  %278 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %278, ptr noundef nonnull @.str.266, i64 noundef 31) #5
-  %279 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %279, ptr noundef nonnull @.str.291, i64 noundef 33) #5
-  %280 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %280, ptr noundef nonnull @.str.291, i64 noundef 33) #5
-  %281 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %281, ptr noundef nonnull @.str.282, i64 noundef 35) #5
-  %282 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %282, ptr noundef nonnull @.str.282, i64 noundef 35) #5
-  %283 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %283, ptr noundef nonnull @.str.263, i64 noundef 37) #5
-  %284 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %284, ptr noundef nonnull @.str.263, i64 noundef 37) #5
-  %285 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %285, ptr noundef nonnull @.str.283, i64 noundef 39) #5
-  %286 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %286, ptr noundef nonnull @.str.283, i64 noundef 39) #5
-  %287 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %287, ptr noundef nonnull @.str.296, i64 noundef 1) #5
-  %288 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %288, ptr noundef nonnull @.str.296, i64 noundef 1) #5
-  %289 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %289, ptr noundef nonnull @.str.297, i64 noundef 3) #5
-  %290 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %290, ptr noundef nonnull @.str.297, i64 noundef 3) #5
-  %291 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %291, ptr noundef nonnull @.str.284, i64 noundef 5) #5
-  %292 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %292, ptr noundef nonnull @.str.284, i64 noundef 5) #5
-  %293 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %293, ptr noundef nonnull @.str.300, i64 noundef 75) #5
-  %294 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %294, ptr noundef nonnull @.str.300, i64 noundef 75) #5
-  %295 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %295, ptr noundef nonnull @.str.292, i64 noundef 77) #5
-  %296 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %296, ptr noundef nonnull @.str.292, i64 noundef 77) #5
-  %297 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %297, ptr noundef nonnull @.str.308, i64 noundef 79) #5
-  %298 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %298, ptr noundef nonnull @.str.308, i64 noundef 79) #5
-  %299 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %299, ptr noundef nonnull @.str.310, i64 noundef 81) #5
-  %300 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %300, ptr noundef nonnull @.str.310, i64 noundef 81) #5
-  %301 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %301, ptr noundef nonnull @.str.267, i64 noundef 83) #5
-  %302 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %302, ptr noundef nonnull @.str.267, i64 noundef 83) #5
-  %303 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %303, ptr noundef nonnull @.str.467, i64 noundef 85) #5
-  %304 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %304, ptr noundef nonnull @.str.467, i64 noundef 85) #5
-  %305 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %305, ptr noundef nonnull @.str.468, i64 noundef 87) #5
-  %306 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %306, ptr noundef nonnull @.str.468, i64 noundef 87) #5
-  %307 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %307, ptr noundef nonnull @.str.469, i64 noundef 89) #5
-  %308 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %308, ptr noundef nonnull @.str.469, i64 noundef 89) #5
-  %309 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %309, ptr noundef nonnull @.str.470, i64 noundef 91) #5
-  %310 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %310, ptr noundef nonnull @.str.470, i64 noundef 91) #5
-  %311 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %311, ptr noundef nonnull @.str.471, i64 noundef 93) #5
-  %312 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %312, ptr noundef nonnull @.str.471, i64 noundef 93) #5
-  %313 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %313, ptr noundef nonnull @.str.472, i64 noundef 95) #5
-  %314 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %314, ptr noundef nonnull @.str.472, i64 noundef 95) #5
-  %315 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %315, ptr noundef nonnull @.str.473, i64 noundef 97) #5
-  %316 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %316, ptr noundef nonnull @.str.473, i64 noundef 97) #5
-  %317 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %317, ptr noundef nonnull @.str.474, i64 noundef 1) #5
-  %318 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %318, ptr noundef nonnull @.str.474, i64 noundef 1) #5
-  %319 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %319, ptr noundef nonnull @.str.475, i64 noundef 3) #5
-  %320 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %320, ptr noundef nonnull @.str.475, i64 noundef 3) #5
-  %321 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %321, ptr noundef nonnull @.str.151, i64 noundef 3) #5
-  %322 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %322, ptr noundef nonnull @.str.151, i64 noundef 3) #5
-  %323 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %323, ptr noundef nonnull @.str.199, i64 noundef 5) #5
-  %324 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %324, ptr noundef nonnull @.str.199, i64 noundef 5) #5
-  %325 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %325, ptr noundef nonnull @.str.200, i64 noundef 31) #5
-  %326 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %326, ptr noundef nonnull @.str.200, i64 noundef 31) #5
-  %327 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %327, ptr noundef nonnull @.str.147, i64 noundef 7) #5
-  %328 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %328, ptr noundef nonnull @.str.147, i64 noundef 7) #5
-  %329 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %329, ptr noundef nonnull @.str.152, i64 noundef 9) #5
-  %330 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %330, ptr noundef nonnull @.str.152, i64 noundef 9) #5
-  %331 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %331, ptr noundef nonnull @.str.201, i64 noundef 11) #5
-  %332 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %332, ptr noundef nonnull @.str.201, i64 noundef 11) #5
-  %333 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %333, ptr noundef nonnull @.str.202, i64 noundef 13) #5
-  %334 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %334, ptr noundef nonnull @.str.202, i64 noundef 13) #5
-  %335 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %335, ptr noundef nonnull @.str.166, i64 noundef 15) #5
-  %336 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %336, ptr noundef nonnull @.str.166, i64 noundef 15) #5
-  %337 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %337, ptr noundef nonnull @.str.167, i64 noundef 17) #5
-  %338 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %338, ptr noundef nonnull @.str.167, i64 noundef 17) #5
-  %339 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %339, ptr noundef nonnull @.str.214, i64 noundef 65) #5
-  %340 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %340, ptr noundef nonnull @.str.214, i64 noundef 65) #5
-  %341 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %341, ptr noundef nonnull @.str.215, i64 noundef 67) #5
-  %342 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %342, ptr noundef nonnull @.str.215, i64 noundef 67) #5
-  %343 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %343, ptr noundef nonnull @.str.203, i64 noundef 19) #5
-  %344 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %344, ptr noundef nonnull @.str.203, i64 noundef 19) #5
-  %345 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %345, ptr noundef nonnull @.str.204, i64 noundef 21) #5
-  %346 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %346, ptr noundef nonnull @.str.204, i64 noundef 21) #5
-  %347 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %347, ptr noundef nonnull @.str.182, i64 noundef 23) #5
-  %348 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %348, ptr noundef nonnull @.str.182, i64 noundef 23) #5
-  %349 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %349, ptr noundef nonnull @.str.183, i64 noundef 25) #5
-  %350 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %350, ptr noundef nonnull @.str.183, i64 noundef 25) #5
-  %351 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %351, ptr noundef nonnull @.str.168, i64 noundef 27) #5
-  %352 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %352, ptr noundef nonnull @.str.168, i64 noundef 27) #5
-  %353 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %353, ptr noundef nonnull @.str.184, i64 noundef 33) #5
-  %354 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %354, ptr noundef nonnull @.str.184, i64 noundef 33) #5
-  %355 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %355, ptr noundef nonnull @.str.185, i64 noundef 35) #5
-  %356 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %356, ptr noundef nonnull @.str.185, i64 noundef 35) #5
-  %357 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %357, ptr noundef nonnull @.str.186, i64 noundef 37) #5
-  %358 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %358, ptr noundef nonnull @.str.186, i64 noundef 37) #5
-  %359 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %359, ptr noundef nonnull @.str.187, i64 noundef 39) #5
-  %360 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %360, ptr noundef nonnull @.str.187, i64 noundef 39) #5
-  %361 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %361, ptr noundef nonnull @.str.188, i64 noundef 41) #5
-  %362 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %362, ptr noundef nonnull @.str.188, i64 noundef 41) #5
-  %363 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %363, ptr noundef nonnull @.str.189, i64 noundef 43) #5
-  %364 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %364, ptr noundef nonnull @.str.189, i64 noundef 43) #5
-  %365 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %365, ptr noundef nonnull @.str.210, i64 noundef 61) #5
-  %366 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %366, ptr noundef nonnull @.str.210, i64 noundef 61) #5
-  %367 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %367, ptr noundef nonnull @.str.233, i64 noundef 45) #5
-  %368 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %368, ptr noundef nonnull @.str.233, i64 noundef 45) #5
-  %369 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %369, ptr noundef nonnull @.str.237, i64 noundef 47) #5
-  %370 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %370, ptr noundef nonnull @.str.237, i64 noundef 47) #5
-  %371 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %371, ptr noundef nonnull @.str.236, i64 noundef 49) #5
-  %372 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %372, ptr noundef nonnull @.str.236, i64 noundef 49) #5
-  %373 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %373, ptr noundef nonnull @.str.220, i64 noundef 51) #5
-  %374 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %374, ptr noundef nonnull @.str.220, i64 noundef 51) #5
-  %375 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %375, ptr noundef nonnull @.str.224, i64 noundef 53) #5
-  %376 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %376, ptr noundef nonnull @.str.224, i64 noundef 53) #5
-  %377 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %377, ptr noundef nonnull @.str.225, i64 noundef 55) #5
-  %378 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %378, ptr noundef nonnull @.str.225, i64 noundef 55) #5
-  %379 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %379, ptr noundef nonnull @.str.211, i64 noundef 53) #5
-  %380 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %380, ptr noundef nonnull @.str.211, i64 noundef 53) #5
-  %381 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %381, ptr noundef nonnull @.str.190, i64 noundef 57) #5
-  %382 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %382, ptr noundef nonnull @.str.190, i64 noundef 57) #5
-  %383 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %383, ptr noundef nonnull @.str.205, i64 noundef 59) #5
-  %384 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %384, ptr noundef nonnull @.str.205, i64 noundef 59) #5
-  %385 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %385, ptr noundef nonnull @.str.216, i64 noundef 71) #5
-  %386 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %386, ptr noundef nonnull @.str.216, i64 noundef 71) #5
-  %387 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %387, ptr noundef nonnull @.str.178, i64 noundef 63) #5
-  %388 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %388, ptr noundef nonnull @.str.178, i64 noundef 63) #5
-  %389 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %389, ptr noundef nonnull @.str.179, i64 noundef 69) #5
-  %390 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %390, ptr noundef nonnull @.str.179, i64 noundef 69) #5
-  %391 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %391, ptr noundef nonnull @.str.148, i64 noundef 73) #5
-  %392 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %392, ptr noundef nonnull @.str.148, i64 noundef 73) #5
-  %393 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %393, ptr noundef nonnull @.str.221, i64 noundef 75) #5
-  %394 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %394, ptr noundef nonnull @.str.221, i64 noundef 75) #5
-  %395 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %395, ptr noundef nonnull @.str.191, i64 noundef 77) #5
-  %396 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %396, ptr noundef nonnull @.str.191, i64 noundef 77) #5
-  %397 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %397, ptr noundef nonnull @.str.169, i64 noundef 79) #5
-  %398 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %398, ptr noundef nonnull @.str.169, i64 noundef 79) #5
-  %399 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %399, ptr noundef nonnull @.str.192, i64 noundef 81) #5
-  %400 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %400, ptr noundef nonnull @.str.192, i64 noundef 81) #5
-  %401 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %401, ptr noundef nonnull @.str.217, i64 noundef 83) #5
-  %402 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %402, ptr noundef nonnull @.str.217, i64 noundef 83) #5
-  %403 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %403, ptr noundef nonnull @.str.193, i64 noundef 85) #5
-  %404 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %404, ptr noundef nonnull @.str.193, i64 noundef 85) #5
-  %405 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %405, ptr noundef nonnull @.str.153, i64 noundef 87) #5
-  %406 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %406, ptr noundef nonnull @.str.153, i64 noundef 87) #5
-  %407 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %407, ptr noundef nonnull @.str.218, i64 noundef 89) #5
-  %408 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %408, ptr noundef nonnull @.str.218, i64 noundef 89) #5
-  %409 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %409, ptr noundef nonnull @.str.230, i64 noundef 91) #5
-  %410 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %410, ptr noundef nonnull @.str.230, i64 noundef 91) #5
-  %411 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %411, ptr noundef nonnull @.str.206, i64 noundef 93) #5
-  %412 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %412, ptr noundef nonnull @.str.206, i64 noundef 93) #5
-  %413 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %413, ptr noundef nonnull @.str.229, i64 noundef 95) #5
-  %414 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %414, ptr noundef nonnull @.str.229, i64 noundef 95) #5
-  %415 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %415, ptr noundef nonnull @.str.228, i64 noundef 97) #5
-  %416 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %416, ptr noundef nonnull @.str.228, i64 noundef 97) #5
-  %417 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %417, ptr noundef nonnull @.str.222, i64 noundef 99) #5
-  %418 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %418, ptr noundef nonnull @.str.222, i64 noundef 99) #5
-  %419 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %419, ptr noundef nonnull @.str.231, i64 noundef 113) #5
-  %420 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %420, ptr noundef nonnull @.str.231, i64 noundef 113) #5
-  %421 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %421, ptr noundef nonnull @.str.381, i64 noundef 3) #5
-  %422 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %422, ptr noundef nonnull @.str.381, i64 noundef 3) #5
-  %423 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %423, ptr noundef nonnull @.str.376, i64 noundef 5) #5
-  %424 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %424, ptr noundef nonnull @.str.376, i64 noundef 5) #5
-  %425 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %425, ptr noundef nonnull @.str.369, i64 noundef 7) #5
-  %426 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %426, ptr noundef nonnull @.str.369, i64 noundef 7) #5
-  %427 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %427, ptr noundef nonnull @.str.398, i64 noundef 19) #5
-  %428 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %428, ptr noundef nonnull @.str.398, i64 noundef 19) #5
-  %429 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %429, ptr noundef nonnull @.str.370, i64 noundef 23) #5
-  %430 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %430, ptr noundef nonnull @.str.370, i64 noundef 23) #5
-  %431 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %431, ptr noundef nonnull @.str.382, i64 noundef 13) #5
-  %432 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %432, ptr noundef nonnull @.str.382, i64 noundef 13) #5
-  %433 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %433, ptr noundef nonnull @.str.385, i64 noundef 9) #5
-  %434 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %434, ptr noundef nonnull @.str.385, i64 noundef 9) #5
-  %435 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %435, ptr noundef nonnull @.str.392, i64 noundef 11) #5
-  %436 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %436, ptr noundef nonnull @.str.392, i64 noundef 11) #5
-  %437 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %437, ptr noundef nonnull @.str.383, i64 noundef 17) #5
-  %438 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %438, ptr noundef nonnull @.str.383, i64 noundef 17) #5
-  %439 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %439, ptr noundef nonnull @.str.377, i64 noundef 29) #5
-  %440 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %440, ptr noundef nonnull @.str.377, i64 noundef 29) #5
-  %441 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %441, ptr noundef nonnull @.str.386, i64 noundef 25) #5
-  %442 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %442, ptr noundef nonnull @.str.386, i64 noundef 25) #5
-  %443 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %443, ptr noundef nonnull @.str.378, i64 noundef 15) #5
-  %444 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %444, ptr noundef nonnull @.str.378, i64 noundef 15) #5
-  %445 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %445, ptr noundef nonnull @.str.399, i64 noundef 21) #5
-  %446 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %446, ptr noundef nonnull @.str.399, i64 noundef 21) #5
-  %447 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %447, ptr noundef nonnull @.str.387, i64 noundef 47) #5
-  %448 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %448, ptr noundef nonnull @.str.387, i64 noundef 47) #5
-  %449 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %449, ptr noundef nonnull @.str.395, i64 noundef 27) #5
-  %450 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %450, ptr noundef nonnull @.str.395, i64 noundef 27) #5
-  %451 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %451, ptr noundef nonnull @.str.405, i64 noundef 31) #5
-  %452 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %452, ptr noundef nonnull @.str.405, i64 noundef 31) #5
-  %453 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %453, ptr noundef nonnull @.str.393, i64 noundef 43) #5
-  %454 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %454, ptr noundef nonnull @.str.393, i64 noundef 43) #5
-  %455 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %455, ptr noundef nonnull @.str.379, i64 noundef 39) #5
-  %456 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %456, ptr noundef nonnull @.str.379, i64 noundef 39) #5
-  %457 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %457, ptr noundef nonnull @.str.402, i64 noundef 45) #5
-  %458 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %458, ptr noundef nonnull @.str.402, i64 noundef 45) #5
-  %459 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %459, ptr noundef nonnull @.str.400, i64 noundef 41) #5
-  %460 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %460, ptr noundef nonnull @.str.400, i64 noundef 41) #5
-  %461 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %461, ptr noundef nonnull @.str.397, i64 noundef 35) #5
-  %462 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %462, ptr noundef nonnull @.str.397, i64 noundef 35) #5
-  %463 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %463, ptr noundef nonnull @.str.406, i64 noundef 33) #5
-  %464 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %464, ptr noundef nonnull @.str.406, i64 noundef 33) #5
-  %465 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %465, ptr noundef nonnull @.str.394, i64 noundef 49) #5
-  %466 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %466, ptr noundef nonnull @.str.394, i64 noundef 49) #5
-  %467 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %467, ptr noundef nonnull @.str.401, i64 noundef 37) #5
-  %468 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %468, ptr noundef nonnull @.str.401, i64 noundef 37) #5
-  %469 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %469, ptr noundef nonnull @.str.407, i64 noundef 3) #5
-  %470 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %470, ptr noundef nonnull @.str.407, i64 noundef 3) #5
-  %471 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %471, ptr noundef nonnull @.str.476, i64 noundef -17) #5
-  %472 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %472, ptr noundef nonnull @.str.476, i64 noundef -17) #5
-  %473 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %473, ptr noundef nonnull @.str.477, i64 noundef -5) #5
-  %474 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %474, ptr noundef nonnull @.str.477, i64 noundef -5) #5
-  %475 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %475, ptr noundef nonnull @.str.478, i64 noundef -1) #5
-  %476 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %476, ptr noundef nonnull @.str.478, i64 noundef -1) #5
-  %477 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %477, ptr noundef nonnull @.str.479, i64 noundef -7) #5
-  %478 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %478, ptr noundef nonnull @.str.479, i64 noundef -7) #5
-  %479 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %479, ptr noundef nonnull @.str.480, i64 noundef -11) #5
-  %480 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %480, ptr noundef nonnull @.str.480, i64 noundef -11) #5
-  %481 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %481, ptr noundef nonnull @.str.481, i64 noundef -19) #5
-  %482 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %482, ptr noundef nonnull @.str.481, i64 noundef -19) #5
-  %483 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %483, ptr noundef nonnull @.str.482, i64 noundef -9) #5
-  %484 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %484, ptr noundef nonnull @.str.482, i64 noundef -9) #5
-  %485 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %485, ptr noundef nonnull @.str.483, i64 noundef -3) #5
-  %486 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %486, ptr noundef nonnull @.str.483, i64 noundef -3) #5
-  %487 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %487, ptr noundef nonnull @.str.484, i64 noundef -23) #5
-  %488 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %488, ptr noundef nonnull @.str.484, i64 noundef -23) #5
-  %489 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %489, ptr noundef nonnull @.str.485, i64 noundef -15) #5
-  %490 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %490, ptr noundef nonnull @.str.485, i64 noundef -15) #5
-  %491 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %491, ptr noundef nonnull @.str.486, i64 noundef -13) #5
-  %492 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %492, ptr noundef nonnull @.str.486, i64 noundef -13) #5
-  %493 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %493, ptr noundef nonnull @.str.487, i64 noundef -21) #5
-  %494 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %494, ptr noundef nonnull @.str.487, i64 noundef -21) #5
-  %495 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %495, ptr noundef nonnull @.str.488, i64 noundef 3) #5
-  %496 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %496, ptr noundef nonnull @.str.488, i64 noundef 3) #5
-  %497 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %497, ptr noundef nonnull @.str.489, i64 noundef 5) #5
-  %498 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %498, ptr noundef nonnull @.str.489, i64 noundef 5) #5
-  %499 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %499, ptr noundef nonnull @.str.490, i64 noundef 9) #5
-  %500 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %500, ptr noundef nonnull @.str.490, i64 noundef 9) #5
-  %501 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %501, ptr noundef nonnull @.str.491, i64 noundef 2049) #5
-  %502 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %502, ptr noundef nonnull @.str.491, i64 noundef 2049) #5
-  %503 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %503, ptr noundef nonnull @.str.492, i64 noundef 33) #5
-  %504 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %504, ptr noundef nonnull @.str.492, i64 noundef 33) #5
-  %505 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %505, ptr noundef nonnull @.str.493, i64 noundef 65) #5
-  %506 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %506, ptr noundef nonnull @.str.493, i64 noundef 65) #5
-  %507 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %507, ptr noundef nonnull @.str.494, i64 noundef 17) #5
-  %508 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %508, ptr noundef nonnull @.str.494, i64 noundef 17) #5
-  %509 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %509, ptr noundef nonnull @.str.495, i64 noundef 2051) #5
-  %510 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %510, ptr noundef nonnull @.str.495, i64 noundef 2051) #5
-  %511 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %511, ptr noundef nonnull @.str.496, i64 noundef 65) #5
-  %512 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %512, ptr noundef nonnull @.str.496, i64 noundef 65) #5
-  %513 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %513, ptr noundef nonnull @.str.497, i64 noundef 9) #5
-  %514 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %514, ptr noundef nonnull @.str.497, i64 noundef 9) #5
-  %515 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %515, ptr noundef nonnull @.str.498, i64 noundef 3) #5
-  %516 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %516, ptr noundef nonnull @.str.498, i64 noundef 3) #5
-  %517 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %517, ptr noundef nonnull @.str.499, i64 noundef 17) #5
-  %518 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %518, ptr noundef nonnull @.str.499, i64 noundef 17) #5
-  %519 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %519, ptr noundef nonnull @.str.500, i64 noundef 5) #5
-  %520 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %520, ptr noundef nonnull @.str.500, i64 noundef 5) #5
-  %521 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %521, ptr noundef nonnull @.str.501, i64 noundef 33) #5
-  %522 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %522, ptr noundef nonnull @.str.501, i64 noundef 33) #5
-  %523 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %523, ptr noundef nonnull @.str.411, i64 noundef 1) #5
-  %524 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %524, ptr noundef nonnull @.str.411, i64 noundef 1) #5
-  %525 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %525, ptr noundef nonnull @.str.412, i64 noundef 3) #5
-  %526 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %526, ptr noundef nonnull @.str.412, i64 noundef 3) #5
-  %527 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %527, ptr noundef nonnull @.str.413, i64 noundef 5) #5
-  %528 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %528, ptr noundef nonnull @.str.413, i64 noundef 5) #5
-  %529 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %529, ptr noundef nonnull @.str.345, i64 noundef 41) #5
-  %530 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %530, ptr noundef nonnull @.str.345, i64 noundef 41) #5
-  %531 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %531, ptr noundef nonnull @.str.347, i64 noundef 43) #5
-  %532 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %532, ptr noundef nonnull @.str.347, i64 noundef 43) #5
-  %533 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %533, ptr noundef nonnull @.str.352, i64 noundef 47) #5
-  %534 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %534, ptr noundef nonnull @.str.352, i64 noundef 47) #5
-  %535 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %535, ptr noundef nonnull @.str.358, i64 noundef 37) #5
-  %536 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %536, ptr noundef nonnull @.str.358, i64 noundef 37) #5
-  %537 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %537, ptr noundef nonnull @.str.353, i64 noundef 35) #5
-  %538 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %538, ptr noundef nonnull @.str.353, i64 noundef 35) #5
-  %539 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %539, ptr noundef nonnull @.str.359, i64 noundef 39) #5
-  %540 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %540, ptr noundef nonnull @.str.359, i64 noundef 39) #5
-  %541 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %541, ptr noundef nonnull @.str.354, i64 noundef 33) #5
-  %542 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %542, ptr noundef nonnull @.str.354, i64 noundef 33) #5
-  %543 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %543, ptr noundef nonnull @.str.323, i64 noundef 53) #5
-  %544 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %544, ptr noundef nonnull @.str.323, i64 noundef 53) #5
-  %545 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %545, ptr noundef nonnull @.str.340, i64 noundef 15) #5
-  %546 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %546, ptr noundef nonnull @.str.340, i64 noundef 15) #5
-  %547 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %547, ptr noundef nonnull @.str.341, i64 noundef 125) #5
-  %548 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %548, ptr noundef nonnull @.str.341, i64 noundef 125) #5
-  %549 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %549, ptr noundef nonnull @.str.330, i64 noundef 119) #5
-  %550 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %550, ptr noundef nonnull @.str.330, i64 noundef 119) #5
-  %551 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %551, ptr noundef nonnull @.str.342, i64 noundef 105) #5
-  %552 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %552, ptr noundef nonnull @.str.342, i64 noundef 105) #5
-  %553 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %553, ptr noundef nonnull @.str.331, i64 noundef 109) #5
-  %554 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %554, ptr noundef nonnull @.str.331, i64 noundef 109) #5
-  %555 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %555, ptr noundef nonnull @.str.332, i64 noundef 19) #5
-  %556 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %556, ptr noundef nonnull @.str.332, i64 noundef 19) #5
-  %557 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %557, ptr noundef nonnull @.str.333, i64 noundef 123) #5
-  %558 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %558, ptr noundef nonnull @.str.333, i64 noundef 123) #5
-  %559 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %559, ptr noundef nonnull @.str.334, i64 noundef 101) #5
-  %560 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %560, ptr noundef nonnull @.str.334, i64 noundef 101) #5
-  %561 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %561, ptr noundef nonnull @.str.348, i64 noundef 117) #5
-  %562 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %562, ptr noundef nonnull @.str.348, i64 noundef 117) #5
-  %563 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %563, ptr noundef nonnull @.str.335, i64 noundef 51) #5
-  %564 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %564, ptr noundef nonnull @.str.335, i64 noundef 51) #5
-  %565 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %565, ptr noundef nonnull @.str.355, i64 noundef 103) #5
-  %566 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %566, ptr noundef nonnull @.str.355, i64 noundef 103) #5
-  %567 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %567, ptr noundef nonnull @.str.349, i64 noundef 107) #5
-  %568 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %568, ptr noundef nonnull @.str.349, i64 noundef 107) #5
-  %569 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %569, ptr noundef nonnull @.str.350, i64 noundef 99) #5
-  %570 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %570, ptr noundef nonnull @.str.350, i64 noundef 99) #5
-  %571 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %571, ptr noundef nonnull @.str.343, i64 noundef 113) #5
-  %572 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %572, ptr noundef nonnull @.str.343, i64 noundef 113) #5
-  %573 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %573, ptr noundef nonnull @.str.346, i64 noundef 133) #5
-  %574 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %574, ptr noundef nonnull @.str.346, i64 noundef 133) #5
-  %575 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %575, ptr noundef nonnull @.str.320, i64 noundef 115) #5
-  %576 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %576, ptr noundef nonnull @.str.320, i64 noundef 115) #5
-  %577 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %577, ptr noundef nonnull @.str.356, i64 noundef 111) #5
-  %578 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %578, ptr noundef nonnull @.str.356, i64 noundef 111) #5
-  %579 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %579, ptr noundef nonnull @.str.357, i64 noundef 1) #5
-  %580 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %580, ptr noundef nonnull @.str.357, i64 noundef 1) #5
-  %581 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %581, ptr noundef nonnull @.str.351, i64 noundef 121) #5
-  %582 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %582, ptr noundef nonnull @.str.351, i64 noundef 121) #5
-  %583 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %583, ptr noundef nonnull @.str.324, i64 noundef 135) #5
-  %584 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %584, ptr noundef nonnull @.str.324, i64 noundef 135) #5
-  %585 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %585, ptr noundef nonnull @.str.502, i64 noundef 33) #5
-  %586 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %586, ptr noundef nonnull @.str.502, i64 noundef 33) #5
-  %587 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %587, ptr noundef nonnull @.str.503, i64 noundef 93) #5
-  %588 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %588, ptr noundef nonnull @.str.503, i64 noundef 93) #5
-  %589 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %589, ptr noundef nonnull @.str.504, i64 noundef 33) #5
-  %590 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %590, ptr noundef nonnull @.str.504, i64 noundef 33) #5
-  %591 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %591, ptr noundef nonnull @.str.505, i64 noundef 33) #5
-  %592 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %592, ptr noundef nonnull @.str.505, i64 noundef 33) #5
-  %593 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %593, ptr noundef nonnull @.str.506, i64 noundef 8193) #5
-  %594 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %594, ptr noundef nonnull @.str.506, i64 noundef 8193) #5
-  %595 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %595, ptr noundef nonnull @.str.415, i64 noundef 3) #5
-  %596 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %596, ptr noundef nonnull @.str.415, i64 noundef 3) #5
-  %597 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %597, ptr noundef nonnull @.str.417, i64 noundef 59) #5
-  %598 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %598, ptr noundef nonnull @.str.417, i64 noundef 59) #5
-  %599 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %599, ptr noundef nonnull @.str.418, i64 noundef 71) #5
-  %600 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %600, ptr noundef nonnull @.str.418, i64 noundef 71) #5
-  %601 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %601, ptr noundef nonnull @.str.421, i64 noundef 75) #5
-  %602 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %602, ptr noundef nonnull @.str.421, i64 noundef 75) #5
-  %603 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %603, ptr noundef nonnull @.str.419, i64 noundef 5) #5
-  %604 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %604, ptr noundef nonnull @.str.419, i64 noundef 5) #5
-  %605 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %605, ptr noundef nonnull @.str.420, i64 noundef 83) #5
-  %606 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %606, ptr noundef nonnull @.str.420, i64 noundef 83) #5
-  %607 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %607, ptr noundef nonnull @.str.507, i64 noundef 1025) #5
-  %608 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %608, ptr noundef nonnull @.str.507, i64 noundef 1025) #5
-  %609 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %609, ptr noundef nonnull @.str.508, i64 noundef 32769) #5
-  %610 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %610, ptr noundef nonnull @.str.508, i64 noundef 32769) #5
-  %611 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %611, ptr noundef nonnull @.str.509, i64 noundef 5) #5
-  %612 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %612, ptr noundef nonnull @.str.509, i64 noundef 5) #5
-  %613 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %613, ptr noundef nonnull @.str.510, i64 noundef 9) #5
-  %614 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %614, ptr noundef nonnull @.str.510, i64 noundef 9) #5
-  %615 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %615, ptr noundef nonnull @.str.511, i64 noundef 65537) #5
-  %616 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %616, ptr noundef nonnull @.str.511, i64 noundef 65537) #5
-  %617 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %617, ptr noundef nonnull @.str.512, i64 noundef 17) #5
-  %618 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %618, ptr noundef nonnull @.str.512, i64 noundef 17) #5
-  %619 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %619, ptr noundef nonnull @.str.513, i64 noundef 2049) #5
-  %620 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %620, ptr noundef nonnull @.str.513, i64 noundef 2049) #5
-  %621 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %621, ptr noundef nonnull @.str.514, i64 noundef 8193) #5
-  %622 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %622, ptr noundef nonnull @.str.514, i64 noundef 8193) #5
-  %623 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %623, ptr noundef nonnull @.str.515, i64 noundef 257) #5
-  %624 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %624, ptr noundef nonnull @.str.515, i64 noundef 257) #5
-  %625 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %625, ptr noundef nonnull @.str.516, i64 noundef 65) #5
-  %626 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %626, ptr noundef nonnull @.str.516, i64 noundef 65) #5
-  %627 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %627, ptr noundef nonnull @.str.517, i64 noundef 33) #5
-  %628 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %628, ptr noundef nonnull @.str.517, i64 noundef 33) #5
-  %629 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %629, ptr noundef nonnull @.str.518, i64 noundef 16385) #5
-  %630 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %630, ptr noundef nonnull @.str.518, i64 noundef 16385) #5
-  %631 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %631, ptr noundef nonnull @.str.519, i64 noundef 513) #5
-  %632 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %632, ptr noundef nonnull @.str.519, i64 noundef 513) #5
-  %633 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %633, ptr noundef nonnull @.str.520, i64 noundef 129) #5
-  %634 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %634, ptr noundef nonnull @.str.520, i64 noundef 129) #5
-  %635 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %635, ptr noundef nonnull @.str.521, i64 noundef 4097) #5
-  %636 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %636, ptr noundef nonnull @.str.521, i64 noundef 4097) #5
-  %637 = load i64, ptr @rb_cSocket, align 8
-  tail call void @rb_define_const(i64 noundef %637, ptr noundef nonnull @.str.522, i64 noundef 3) #5
-  %638 = load i64, ptr @rb_mSockConst, align 8
-  tail call void @rb_define_const(i64 noundef %638, ptr noundef nonnull @.str.522, i64 noundef 3) #5
-  %639 = tail call ptr @rb_st_init_numtable() #5
-  store ptr %639, ptr @rsock_intern_family_hash, align 8
-  %640 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.42, i64 noundef 6) #5
-  %641 = tail call i32 @rb_st_insert(ptr noundef %639, i64 noundef 44, i64 noundef %640) #5
-  %642 = load ptr, ptr @rsock_intern_family_hash, align 8
-  %643 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.40, i64 noundef 6) #5
-  %644 = tail call i32 @rb_st_insert(ptr noundef %642, i64 noundef 41, i64 noundef %643) #5
-  %645 = load ptr, ptr @rsock_intern_family_hash, align 8
-  %646 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.68, i64 noundef 8) #5
-  %647 = tail call i32 @rb_st_insert(ptr noundef %645, i64 noundef 40, i64 noundef %646) #5
-  %648 = load ptr, ptr @rsock_intern_family_hash, align 8
-  %649 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.38, i64 noundef 6) #5
-  %650 = tail call i32 @rb_st_insert(ptr noundef %648, i64 noundef 38, i64 noundef %649) #5
-  %651 = load ptr, ptr @rsock_intern_family_hash, align 8
-  %652 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.82, i64 noundef 12) #5
-  %653 = tail call i32 @rb_st_insert(ptr noundef %651, i64 noundef 31, i64 noundef %652) #5
-  %654 = load ptr, ptr @rsock_intern_family_hash, align 8
-  %655 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.57, i64 noundef 7) #5
-  %656 = tail call i32 @rb_st_insert(ptr noundef %654, i64 noundef 30, i64 noundef %655) #5
-  %657 = load ptr, ptr @rsock_intern_family_hash, align 8
-  %658 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.36, i64 noundef 6) #5
-  %659 = tail call i32 @rb_st_insert(ptr noundef %657, i64 noundef 29, i64 noundef %658) #5
-  %660 = load ptr, ptr @rsock_intern_family_hash, align 8
-  %661 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.55, i64 noundef 7) #5
-  %662 = tail call i32 @rb_st_insert(ptr noundef %660, i64 noundef 28, i64 noundef %661) #5
-  %663 = load ptr, ptr @rsock_intern_family_hash, align 8
-  %664 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.17, i64 noundef 5) #5
-  %665 = tail call i32 @rb_st_insert(ptr noundef %663, i64 noundef 27, i64 noundef %664) #5
-  %666 = load ptr, ptr @rsock_intern_family_hash, align 8
-  %667 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.34, i64 noundef 6) #5
-  %668 = tail call i32 @rb_st_insert(ptr noundef %666, i64 noundef 26, i64 noundef %667) #5
-  %669 = load ptr, ptr @rsock_intern_family_hash, align 8
-  %670 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.66, i64 noundef 8) #5
-  %671 = tail call i32 @rb_st_insert(ptr noundef %669, i64 noundef 24, i64 noundef %670) #5
-  %672 = load ptr, ptr @rsock_intern_family_hash, align 8
-  %673 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.32, i64 noundef 6) #5
-  %674 = tail call i32 @rb_st_insert(ptr noundef %672, i64 noundef 21, i64 noundef %673) #5
-  %675 = load ptr, ptr @rsock_intern_family_hash, align 8
-  %676 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.78, i64 noundef 10) #5
-  %677 = tail call i32 @rb_st_insert(ptr noundef %675, i64 noundef 16, i64 noundef %676) #5
-  %678 = load ptr, ptr @rsock_intern_family_hash, align 8
-  %679 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.30, i64 noundef 6) #5
-  %680 = tail call i32 @rb_st_insert(ptr noundef %678, i64 noundef 15, i64 noundef %679) #5
-  %681 = load ptr, ptr @rsock_intern_family_hash, align 8
-  %682 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.74, i64 noundef 9) #5
-  %683 = tail call i32 @rb_st_insert(ptr noundef %681, i64 noundef 17, i64 noundef %682) #5
-  %684 = load ptr, ptr @rsock_intern_family_hash, align 8
-  %685 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.28, i64 noundef 6) #5
-  %686 = tail call i32 @rb_st_insert(ptr noundef %684, i64 noundef 46, i64 noundef %685) #5
-  %687 = load ptr, ptr @rsock_intern_family_hash, align 8
-  %688 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.53, i64 noundef 7) #5
-  %689 = tail call i32 @rb_st_insert(ptr noundef %687, i64 noundef 34, i64 noundef %688) #5
-  %690 = load ptr, ptr @rsock_intern_family_hash, align 8
-  %691 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.64, i64 noundef 8) #5
-  %692 = tail call i32 @rb_st_insert(ptr noundef %690, i64 noundef 16, i64 noundef %691) #5
-  %693 = load ptr, ptr @rsock_intern_family_hash, align 8
-  %694 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.72, i64 noundef 9) #5
-  %695 = tail call i32 @rb_st_insert(ptr noundef %693, i64 noundef 12, i64 noundef %694) #5
-  %696 = load ptr, ptr @rsock_intern_family_hash, align 8
-  %697 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.26, i64 noundef 6) #5
-  %698 = tail call i32 @rb_st_insert(ptr noundef %696, i64 noundef 22, i64 noundef %697) #5
-  %699 = load ptr, ptr @rsock_intern_family_hash, align 8
-  %700 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.62, i64 noundef 8) #5
-  %701 = tail call i32 @rb_st_insert(ptr noundef %699, i64 noundef 1, i64 noundef %700) #5
-  %702 = load ptr, ptr @rsock_intern_family_hash, align 8
-  %703 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.80, i64 noundef 12) #5
-  %704 = tail call i32 @rb_st_insert(ptr noundef %702, i64 noundef 5, i64 noundef %703) #5
-  %705 = load ptr, ptr @rsock_intern_family_hash, align 8
-  %706 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.24, i64 noundef 6) #5
-  %707 = tail call i32 @rb_st_insert(ptr noundef %705, i64 noundef 4, i64 noundef %706) #5
-  %708 = load ptr, ptr @rsock_intern_family_hash, align 8
-  %709 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.51, i64 noundef 7) #5
-  %710 = tail call i32 @rb_st_insert(ptr noundef %708, i64 noundef 3, i64 noundef %709) #5
-  %711 = load ptr, ptr @rsock_intern_family_hash, align 8
-  %712 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.49, i64 noundef 7) #5
-  %713 = tail call i32 @rb_st_insert(ptr noundef %711, i64 noundef 1, i64 noundef %712) #5
-  %714 = load ptr, ptr @rsock_intern_family_hash, align 8
-  %715 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.60, i64 noundef 8) #5
-  %716 = tail call i32 @rb_st_insert(ptr noundef %714, i64 noundef 10, i64 noundef %715) #5
-  %717 = load ptr, ptr @rsock_intern_family_hash, align 8
-  %718 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.47, i64 noundef 7) #5
-  %719 = tail call i32 @rb_st_insert(ptr noundef %717, i64 noundef 2, i64 noundef %718) #5
-  %720 = load ptr, ptr @rsock_intern_family_hash, align 8
-  %721 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.70, i64 noundef 9) #5
-  %722 = tail call i32 @rb_st_insert(ptr noundef %720, i64 noundef 0, i64 noundef %721) #5
-  %723 = tail call ptr @rb_st_init_numtable() #5
-  store ptr %723, ptr @rsock_intern_family_noprefix_hash, align 8
-  %724 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.42, i64 noundef 6) #5
-  %725 = tail call i32 @rb_st_insert(ptr noundef %723, i64 noundef 44, i64 noundef %724) #5
-  %726 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8
-  %727 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.40, i64 noundef 6) #5
-  %728 = tail call i32 @rb_st_insert(ptr noundef %726, i64 noundef 41, i64 noundef %727) #5
-  %729 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8
-  %730 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.68, i64 noundef 8) #5
-  %731 = tail call i32 @rb_st_insert(ptr noundef %729, i64 noundef 40, i64 noundef %730) #5
-  %732 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8
-  %733 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.38, i64 noundef 6) #5
-  %734 = tail call i32 @rb_st_insert(ptr noundef %732, i64 noundef 38, i64 noundef %733) #5
-  %735 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8
-  %736 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.82, i64 noundef 12) #5
-  %737 = tail call i32 @rb_st_insert(ptr noundef %735, i64 noundef 31, i64 noundef %736) #5
-  %738 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8
-  %739 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.57, i64 noundef 7) #5
-  %740 = tail call i32 @rb_st_insert(ptr noundef %738, i64 noundef 30, i64 noundef %739) #5
-  %741 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8
-  %742 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.36, i64 noundef 6) #5
-  %743 = tail call i32 @rb_st_insert(ptr noundef %741, i64 noundef 29, i64 noundef %742) #5
-  %744 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8
-  %745 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.55, i64 noundef 7) #5
-  %746 = tail call i32 @rb_st_insert(ptr noundef %744, i64 noundef 28, i64 noundef %745) #5
-  %747 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8
-  %748 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.17, i64 noundef 5) #5
-  %749 = tail call i32 @rb_st_insert(ptr noundef %747, i64 noundef 27, i64 noundef %748) #5
-  %750 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8
-  %751 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.34, i64 noundef 6) #5
-  %752 = tail call i32 @rb_st_insert(ptr noundef %750, i64 noundef 26, i64 noundef %751) #5
-  %753 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8
-  %754 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.66, i64 noundef 8) #5
-  %755 = tail call i32 @rb_st_insert(ptr noundef %753, i64 noundef 24, i64 noundef %754) #5
-  %756 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8
-  %757 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.32, i64 noundef 6) #5
-  %758 = tail call i32 @rb_st_insert(ptr noundef %756, i64 noundef 21, i64 noundef %757) #5
-  %759 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8
-  %760 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.78, i64 noundef 10) #5
-  %761 = tail call i32 @rb_st_insert(ptr noundef %759, i64 noundef 16, i64 noundef %760) #5
-  %762 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8
-  %763 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.30, i64 noundef 6) #5
-  %764 = tail call i32 @rb_st_insert(ptr noundef %762, i64 noundef 15, i64 noundef %763) #5
-  %765 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8
-  %766 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.74, i64 noundef 9) #5
-  %767 = tail call i32 @rb_st_insert(ptr noundef %765, i64 noundef 17, i64 noundef %766) #5
-  %768 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8
-  %769 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.28, i64 noundef 6) #5
-  %770 = tail call i32 @rb_st_insert(ptr noundef %768, i64 noundef 46, i64 noundef %769) #5
-  %771 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8
-  %772 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.53, i64 noundef 7) #5
-  %773 = tail call i32 @rb_st_insert(ptr noundef %771, i64 noundef 34, i64 noundef %772) #5
-  %774 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8
-  %775 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.64, i64 noundef 8) #5
-  %776 = tail call i32 @rb_st_insert(ptr noundef %774, i64 noundef 16, i64 noundef %775) #5
-  %777 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8
-  %778 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.72, i64 noundef 9) #5
-  %779 = tail call i32 @rb_st_insert(ptr noundef %777, i64 noundef 12, i64 noundef %778) #5
-  %780 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8
-  %781 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.26, i64 noundef 6) #5
-  %782 = tail call i32 @rb_st_insert(ptr noundef %780, i64 noundef 22, i64 noundef %781) #5
-  %783 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8
-  %784 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.62, i64 noundef 8) #5
-  %785 = tail call i32 @rb_st_insert(ptr noundef %783, i64 noundef 1, i64 noundef %784) #5
-  %786 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8
-  %787 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.80, i64 noundef 12) #5
-  %788 = tail call i32 @rb_st_insert(ptr noundef %786, i64 noundef 5, i64 noundef %787) #5
-  %789 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8
-  %790 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.24, i64 noundef 6) #5
-  %791 = tail call i32 @rb_st_insert(ptr noundef %789, i64 noundef 4, i64 noundef %790) #5
-  %792 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8
-  %793 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.51, i64 noundef 7) #5
-  %794 = tail call i32 @rb_st_insert(ptr noundef %792, i64 noundef 3, i64 noundef %793) #5
-  %795 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8
-  %796 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.49, i64 noundef 7) #5
-  %797 = tail call i32 @rb_st_insert(ptr noundef %795, i64 noundef 1, i64 noundef %796) #5
-  %798 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8
-  %799 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.60, i64 noundef 8) #5
-  %800 = tail call i32 @rb_st_insert(ptr noundef %798, i64 noundef 10, i64 noundef %799) #5
-  %801 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8
-  %802 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.47, i64 noundef 7) #5
-  %803 = tail call i32 @rb_st_insert(ptr noundef %801, i64 noundef 2, i64 noundef %802) #5
-  %804 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8
-  %805 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.70, i64 noundef 9) #5
-  %806 = tail call i32 @rb_st_insert(ptr noundef %804, i64 noundef 0, i64 noundef %805) #5
-  %807 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8
-  %808 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.10, i64 noundef 3) #5
-  %809 = tail call i32 @rb_st_insert(ptr noundef %807, i64 noundef 44, i64 noundef %808) #5
-  %810 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8
-  %811 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.9, i64 noundef 3) #5
-  %812 = tail call i32 @rb_st_insert(ptr noundef %810, i64 noundef 41, i64 noundef %811) #5
-  %813 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8
-  %814 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.23, i64 noundef 5) #5
-  %815 = tail call i32 @rb_st_insert(ptr noundef %813, i64 noundef 40, i64 noundef %814) #5
-  %816 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8
-  %817 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.8, i64 noundef 3) #5
-  %818 = tail call i32 @rb_st_insert(ptr noundef %816, i64 noundef 38, i64 noundef %817) #5
-  %819 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8
-  %820 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.77, i64 noundef 9) #5
-  %821 = tail call i32 @rb_st_insert(ptr noundef %819, i64 noundef 31, i64 noundef %820) #5
-  %822 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8
-  %823 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.16, i64 noundef 4) #5
-  %824 = tail call i32 @rb_st_insert(ptr noundef %822, i64 noundef 30, i64 noundef %823) #5
-  %825 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8
-  %826 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.7, i64 noundef 3) #5
-  %827 = tail call i32 @rb_st_insert(ptr noundef %825, i64 noundef 29, i64 noundef %826) #5
-  %828 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8
-  %829 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.15, i64 noundef 4) #5
-  %830 = tail call i32 @rb_st_insert(ptr noundef %828, i64 noundef 28, i64 noundef %829) #5
-  %831 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8
-  %832 = tail call i64 @rb_intern2(ptr noundef nonnull @.str, i64 noundef 2) #5
-  %833 = tail call i32 @rb_st_insert(ptr noundef %831, i64 noundef 27, i64 noundef %832) #5
-  %834 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8
-  %835 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.6, i64 noundef 3) #5
-  %836 = tail call i32 @rb_st_insert(ptr noundef %834, i64 noundef 26, i64 noundef %835) #5
-  %837 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8
-  %838 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.22, i64 noundef 5) #5
-  %839 = tail call i32 @rb_st_insert(ptr noundef %837, i64 noundef 24, i64 noundef %838) #5
-  %840 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8
-  %841 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.5, i64 noundef 3) #5
-  %842 = tail call i32 @rb_st_insert(ptr noundef %840, i64 noundef 21, i64 noundef %841) #5
-  %843 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8
-  %844 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.59, i64 noundef 7) #5
-  %845 = tail call i32 @rb_st_insert(ptr noundef %843, i64 noundef 16, i64 noundef %844) #5
-  %846 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8
-  %847 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.4, i64 noundef 3) #5
-  %848 = tail call i32 @rb_st_insert(ptr noundef %846, i64 noundef 15, i64 noundef %847) #5
-  %849 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8
-  %850 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.46, i64 noundef 6) #5
-  %851 = tail call i32 @rb_st_insert(ptr noundef %849, i64 noundef 17, i64 noundef %850) #5
-  %852 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8
-  %853 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.3, i64 noundef 3) #5
-  %854 = tail call i32 @rb_st_insert(ptr noundef %852, i64 noundef 46, i64 noundef %853) #5
-  %855 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8
-  %856 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.14, i64 noundef 4) #5
-  %857 = tail call i32 @rb_st_insert(ptr noundef %855, i64 noundef 34, i64 noundef %856) #5
-  %858 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8
-  %859 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.21, i64 noundef 5) #5
-  %860 = tail call i32 @rb_st_insert(ptr noundef %858, i64 noundef 16, i64 noundef %859) #5
-  %861 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8
-  %862 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.45, i64 noundef 6) #5
-  %863 = tail call i32 @rb_st_insert(ptr noundef %861, i64 noundef 12, i64 noundef %862) #5
-  %864 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8
-  %865 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.2, i64 noundef 3) #5
-  %866 = tail call i32 @rb_st_insert(ptr noundef %864, i64 noundef 22, i64 noundef %865) #5
-  %867 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8
-  %868 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.20, i64 noundef 5) #5
-  %869 = tail call i32 @rb_st_insert(ptr noundef %867, i64 noundef 1, i64 noundef %868) #5
-  %870 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8
-  %871 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.76, i64 noundef 9) #5
-  %872 = tail call i32 @rb_st_insert(ptr noundef %870, i64 noundef 5, i64 noundef %871) #5
-  %873 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8
-  %874 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.1, i64 noundef 3) #5
-  %875 = tail call i32 @rb_st_insert(ptr noundef %873, i64 noundef 4, i64 noundef %874) #5
-  %876 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8
-  %877 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.13, i64 noundef 4) #5
-  %878 = tail call i32 @rb_st_insert(ptr noundef %876, i64 noundef 3, i64 noundef %877) #5
-  %879 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8
-  %880 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.12, i64 noundef 4) #5
-  %881 = tail call i32 @rb_st_insert(ptr noundef %879, i64 noundef 1, i64 noundef %880) #5
-  %882 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8
-  %883 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.19, i64 noundef 5) #5
-  %884 = tail call i32 @rb_st_insert(ptr noundef %882, i64 noundef 10, i64 noundef %883) #5
-  %885 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8
-  %886 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.11, i64 noundef 4) #5
-  %887 = tail call i32 @rb_st_insert(ptr noundef %885, i64 noundef 2, i64 noundef %886) #5
-  %888 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8
-  %889 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.44, i64 noundef 6) #5
-  %890 = tail call i32 @rb_st_insert(ptr noundef %888, i64 noundef 0, i64 noundef %889) #5
-  %891 = tail call ptr @rb_st_init_numtable() #5
-  store ptr %891, ptr @rsock_intern_protocol_family_hash, align 8
-  %892 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.43, i64 noundef 6) #5
-  %893 = tail call i32 @rb_st_insert(ptr noundef %891, i64 noundef 44, i64 noundef %892) #5
-  %894 = load ptr, ptr @rsock_intern_protocol_family_hash, align 8
-  %895 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.41, i64 noundef 6) #5
-  %896 = tail call i32 @rb_st_insert(ptr noundef %894, i64 noundef 41, i64 noundef %895) #5
-  %897 = load ptr, ptr @rsock_intern_protocol_family_hash, align 8
-  %898 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.69, i64 noundef 8) #5
-  %899 = tail call i32 @rb_st_insert(ptr noundef %897, i64 noundef 40, i64 noundef %898) #5
-  %900 = load ptr, ptr @rsock_intern_protocol_family_hash, align 8
-  %901 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.39, i64 noundef 6) #5
-  %902 = tail call i32 @rb_st_insert(ptr noundef %900, i64 noundef 38, i64 noundef %901) #5
-  %903 = load ptr, ptr @rsock_intern_protocol_family_hash, align 8
-  %904 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.83, i64 noundef 12) #5
-  %905 = tail call i32 @rb_st_insert(ptr noundef %903, i64 noundef 31, i64 noundef %904) #5
-  %906 = load ptr, ptr @rsock_intern_protocol_family_hash, align 8
-  %907 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.58, i64 noundef 7) #5
-  %908 = tail call i32 @rb_st_insert(ptr noundef %906, i64 noundef 30, i64 noundef %907) #5
-  %909 = load ptr, ptr @rsock_intern_protocol_family_hash, align 8
-  %910 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.37, i64 noundef 6) #5
-  %911 = tail call i32 @rb_st_insert(ptr noundef %909, i64 noundef 29, i64 noundef %910) #5
-  %912 = load ptr, ptr @rsock_intern_protocol_family_hash, align 8
-  %913 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.56, i64 noundef 7) #5
-  %914 = tail call i32 @rb_st_insert(ptr noundef %912, i64 noundef 28, i64 noundef %913) #5
-  %915 = load ptr, ptr @rsock_intern_protocol_family_hash, align 8
-  %916 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.18, i64 noundef 5) #5
-  %917 = tail call i32 @rb_st_insert(ptr noundef %915, i64 noundef 27, i64 noundef %916) #5
-  %918 = load ptr, ptr @rsock_intern_protocol_family_hash, align 8
-  %919 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.35, i64 noundef 6) #5
-  %920 = tail call i32 @rb_st_insert(ptr noundef %918, i64 noundef 26, i64 noundef %919) #5
-  %921 = load ptr, ptr @rsock_intern_protocol_family_hash, align 8
-  %922 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.67, i64 noundef 8) #5
-  %923 = tail call i32 @rb_st_insert(ptr noundef %921, i64 noundef 24, i64 noundef %922) #5
-  %924 = load ptr, ptr @rsock_intern_protocol_family_hash, align 8
-  %925 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.33, i64 noundef 6) #5
-  %926 = tail call i32 @rb_st_insert(ptr noundef %924, i64 noundef 21, i64 noundef %925) #5
-  %927 = load ptr, ptr @rsock_intern_protocol_family_hash, align 8
-  %928 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.79, i64 noundef 10) #5
-  %929 = tail call i32 @rb_st_insert(ptr noundef %927, i64 noundef 16, i64 noundef %928) #5
-  %930 = load ptr, ptr @rsock_intern_protocol_family_hash, align 8
-  %931 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.31, i64 noundef 6) #5
-  %932 = tail call i32 @rb_st_insert(ptr noundef %930, i64 noundef 15, i64 noundef %931) #5
-  %933 = load ptr, ptr @rsock_intern_protocol_family_hash, align 8
-  %934 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.75, i64 noundef 9) #5
-  %935 = tail call i32 @rb_st_insert(ptr noundef %933, i64 noundef 17, i64 noundef %934) #5
-  %936 = load ptr, ptr @rsock_intern_protocol_family_hash, align 8
-  %937 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.29, i64 noundef 6) #5
-  %938 = tail call i32 @rb_st_insert(ptr noundef %936, i64 noundef 46, i64 noundef %937) #5
-  %939 = load ptr, ptr @rsock_intern_protocol_family_hash, align 8
-  %940 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.54, i64 noundef 7) #5
-  %941 = tail call i32 @rb_st_insert(ptr noundef %939, i64 noundef 34, i64 noundef %940) #5
-  %942 = load ptr, ptr @rsock_intern_protocol_family_hash, align 8
-  %943 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.65, i64 noundef 8) #5
-  %944 = tail call i32 @rb_st_insert(ptr noundef %942, i64 noundef 16, i64 noundef %943) #5
-  %945 = load ptr, ptr @rsock_intern_protocol_family_hash, align 8
-  %946 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.73, i64 noundef 9) #5
-  %947 = tail call i32 @rb_st_insert(ptr noundef %945, i64 noundef 12, i64 noundef %946) #5
-  %948 = load ptr, ptr @rsock_intern_protocol_family_hash, align 8
-  %949 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.27, i64 noundef 6) #5
-  %950 = tail call i32 @rb_st_insert(ptr noundef %948, i64 noundef 22, i64 noundef %949) #5
-  %951 = load ptr, ptr @rsock_intern_protocol_family_hash, align 8
-  %952 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.63, i64 noundef 8) #5
-  %953 = tail call i32 @rb_st_insert(ptr noundef %951, i64 noundef 1, i64 noundef %952) #5
-  %954 = load ptr, ptr @rsock_intern_protocol_family_hash, align 8
-  %955 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.81, i64 noundef 12) #5
-  %956 = tail call i32 @rb_st_insert(ptr noundef %954, i64 noundef 5, i64 noundef %955) #5
-  %957 = load ptr, ptr @rsock_intern_protocol_family_hash, align 8
-  %958 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.25, i64 noundef 6) #5
-  %959 = tail call i32 @rb_st_insert(ptr noundef %957, i64 noundef 4, i64 noundef %958) #5
-  %960 = load ptr, ptr @rsock_intern_protocol_family_hash, align 8
-  %961 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.52, i64 noundef 7) #5
-  %962 = tail call i32 @rb_st_insert(ptr noundef %960, i64 noundef 3, i64 noundef %961) #5
-  %963 = load ptr, ptr @rsock_intern_protocol_family_hash, align 8
-  %964 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.50, i64 noundef 7) #5
-  %965 = tail call i32 @rb_st_insert(ptr noundef %963, i64 noundef 1, i64 noundef %964) #5
-  %966 = load ptr, ptr @rsock_intern_protocol_family_hash, align 8
-  %967 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.61, i64 noundef 8) #5
-  %968 = tail call i32 @rb_st_insert(ptr noundef %966, i64 noundef 10, i64 noundef %967) #5
-  %969 = load ptr, ptr @rsock_intern_protocol_family_hash, align 8
-  %970 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.48, i64 noundef 7) #5
-  %971 = tail call i32 @rb_st_insert(ptr noundef %969, i64 noundef 2, i64 noundef %970) #5
-  %972 = load ptr, ptr @rsock_intern_protocol_family_hash, align 8
-  %973 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.71, i64 noundef 9) #5
-  %974 = tail call i32 @rb_st_insert(ptr noundef %972, i64 noundef 0, i64 noundef %973) #5
-  %975 = tail call ptr @rb_st_init_numtable() #5
-  store ptr %975, ptr @rsock_intern_socktype_hash, align 8
-  %976 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.96, i64 noundef 12) #5
-  %977 = tail call i32 @rb_st_insert(ptr noundef %975, i64 noundef 524288, i64 noundef %976) #5
-  %978 = load ptr, ptr @rsock_intern_socktype_hash, align 8
-  %979 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.97, i64 noundef 13) #5
-  %980 = tail call i32 @rb_st_insert(ptr noundef %978, i64 noundef 2048, i64 noundef %979) #5
-  %981 = load ptr, ptr @rsock_intern_socktype_hash, align 8
-  %982 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.95, i64 noundef 11) #5
-  %983 = tail call i32 @rb_st_insert(ptr noundef %981, i64 noundef 10, i64 noundef %982) #5
-  %984 = load ptr, ptr @rsock_intern_socktype_hash, align 8
-  %985 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.98, i64 noundef 14) #5
-  %986 = tail call i32 @rb_st_insert(ptr noundef %984, i64 noundef 5, i64 noundef %985) #5
-  %987 = load ptr, ptr @rsock_intern_socktype_hash, align 8
-  %988 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.90, i64 noundef 8) #5
-  %989 = tail call i32 @rb_st_insert(ptr noundef %987, i64 noundef 4, i64 noundef %988) #5
-  %990 = load ptr, ptr @rsock_intern_socktype_hash, align 8
-  %991 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.89, i64 noundef 8) #5
-  %992 = tail call i32 @rb_st_insert(ptr noundef %990, i64 noundef 3, i64 noundef %991) #5
-  %993 = load ptr, ptr @rsock_intern_socktype_hash, align 8
-  %994 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.93, i64 noundef 10) #5
-  %995 = tail call i32 @rb_st_insert(ptr noundef %993, i64 noundef 2, i64 noundef %994) #5
-  %996 = load ptr, ptr @rsock_intern_socktype_hash, align 8
-  %997 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.94, i64 noundef 11) #5
-  %998 = tail call i32 @rb_st_insert(ptr noundef %996, i64 noundef 1, i64 noundef %997) #5
-  %999 = tail call ptr @rb_st_init_numtable() #5
-  store ptr %999, ptr @rsock_intern_ipproto_hash, align 8
-  %1000 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.126, i64 noundef 11) #5
-  %1001 = tail call i32 @rb_st_insert(ptr noundef %999, i64 noundef 255, i64 noundef %1000) #5
-  %1002 = load ptr, ptr @rsock_intern_ipproto_hash, align 8
-  %1003 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.134, i64 noundef 15) #5
-  %1004 = tail call i32 @rb_st_insert(ptr noundef %1002, i64 noundef 43, i64 noundef %1003) #5
-  %1005 = load ptr, ptr @rsock_intern_ipproto_hash, align 8
-  %1006 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.130, i64 noundef 12) #5
-  %1007 = tail call i32 @rb_st_insert(ptr noundef %1005, i64 noundef 59, i64 noundef %1006) #5
-  %1008 = load ptr, ptr @rsock_intern_ipproto_hash, align 8
-  %1009 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.129, i64 noundef 12) #5
-  %1010 = tail call i32 @rb_st_insert(ptr noundef %1008, i64 noundef 41, i64 noundef %1009) #5
-  %1011 = load ptr, ptr @rsock_intern_ipproto_hash, align 8
-  %1012 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.131, i64 noundef 14) #5
-  %1013 = tail call i32 @rb_st_insert(ptr noundef %1011, i64 noundef 58, i64 noundef %1012) #5
-  %1014 = load ptr, ptr @rsock_intern_ipproto_hash, align 8
-  %1015 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.133, i64 noundef 15) #5
-  %1016 = tail call i32 @rb_st_insert(ptr noundef %1014, i64 noundef 0, i64 noundef %1015) #5
-  %1017 = load ptr, ptr @rsock_intern_ipproto_hash, align 8
-  %1018 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.135, i64 noundef 16) #5
-  %1019 = tail call i32 @rb_st_insert(ptr noundef %1017, i64 noundef 44, i64 noundef %1018) #5
-  %1020 = load ptr, ptr @rsock_intern_ipproto_hash, align 8
-  %1021 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.125, i64 noundef 11) #5
-  %1022 = tail call i32 @rb_st_insert(ptr noundef %1020, i64 noundef 50, i64 noundef %1021) #5
-  %1023 = load ptr, ptr @rsock_intern_ipproto_hash, align 8
-  %1024 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.132, i64 noundef 15) #5
-  %1025 = tail call i32 @rb_st_insert(ptr noundef %1023, i64 noundef 60, i64 noundef %1024) #5
-  %1026 = load ptr, ptr @rsock_intern_ipproto_hash, align 8
-  %1027 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.119, i64 noundef 10) #5
-  %1028 = tail call i32 @rb_st_insert(ptr noundef %1026, i64 noundef 51, i64 noundef %1027) #5
-  %1029 = load ptr, ptr @rsock_intern_ipproto_hash, align 8
-  %1030 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.118, i64 noundef 10) #5
-  %1031 = tail call i32 @rb_st_insert(ptr noundef %1029, i64 noundef 29, i64 noundef %1030) #5
-  %1032 = load ptr, ptr @rsock_intern_ipproto_hash, align 8
-  %1033 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.124, i64 noundef 11) #5
-  %1034 = tail call i32 @rb_st_insert(ptr noundef %1032, i64 noundef 22, i64 noundef %1033) #5
-  %1035 = load ptr, ptr @rsock_intern_ipproto_hash, align 8
-  %1036 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.123, i64 noundef 11) #5
-  %1037 = tail call i32 @rb_st_insert(ptr noundef %1035, i64 noundef 17, i64 noundef %1036) #5
-  %1038 = load ptr, ptr @rsock_intern_ipproto_hash, align 8
-  %1039 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.122, i64 noundef 11) #5
-  %1040 = tail call i32 @rb_st_insert(ptr noundef %1038, i64 noundef 12, i64 noundef %1039) #5
-  %1041 = load ptr, ptr @rsock_intern_ipproto_hash, align 8
-  %1042 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.121, i64 noundef 11) #5
-  %1043 = tail call i32 @rb_st_insert(ptr noundef %1041, i64 noundef 8, i64 noundef %1042) #5
-  %1044 = load ptr, ptr @rsock_intern_ipproto_hash, align 8
-  %1045 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.120, i64 noundef 11) #5
-  %1046 = tail call i32 @rb_st_insert(ptr noundef %1044, i64 noundef 6, i64 noundef %1045) #5
-  %1047 = load ptr, ptr @rsock_intern_ipproto_hash, align 8
-  %1048 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.128, i64 noundef 12) #5
-  %1049 = tail call i32 @rb_st_insert(ptr noundef %1047, i64 noundef 2, i64 noundef %1048) #5
-  %1050 = load ptr, ptr @rsock_intern_ipproto_hash, align 8
-  %1051 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.127, i64 noundef 12) #5
-  %1052 = tail call i32 @rb_st_insert(ptr noundef %1050, i64 noundef 1, i64 noundef %1051) #5
-  %1053 = load ptr, ptr @rsock_intern_ipproto_hash, align 8
-  %1054 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.117, i64 noundef 10) #5
-  %1055 = tail call i32 @rb_st_insert(ptr noundef %1053, i64 noundef 0, i64 noundef %1054) #5
-  %1056 = tail call ptr @rb_st_init_numtable() #5
-  store ptr %1056, ptr @rsock_intern_iplevel_hash, align 8
-  %1057 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.126, i64 noundef 11) #5
-  %1058 = tail call i32 @rb_st_insert(ptr noundef %1056, i64 noundef 255, i64 noundef %1057) #5
-  %1059 = load ptr, ptr @rsock_intern_iplevel_hash, align 8
-  %1060 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.134, i64 noundef 15) #5
-  %1061 = tail call i32 @rb_st_insert(ptr noundef %1059, i64 noundef 43, i64 noundef %1060) #5
-  %1062 = load ptr, ptr @rsock_intern_iplevel_hash, align 8
-  %1063 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.130, i64 noundef 12) #5
-  %1064 = tail call i32 @rb_st_insert(ptr noundef %1062, i64 noundef 59, i64 noundef %1063) #5
-  %1065 = load ptr, ptr @rsock_intern_iplevel_hash, align 8
-  %1066 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.129, i64 noundef 12) #5
-  %1067 = tail call i32 @rb_st_insert(ptr noundef %1065, i64 noundef 41, i64 noundef %1066) #5
-  %1068 = load ptr, ptr @rsock_intern_iplevel_hash, align 8
-  %1069 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.131, i64 noundef 14) #5
-  %1070 = tail call i32 @rb_st_insert(ptr noundef %1068, i64 noundef 58, i64 noundef %1069) #5
-  %1071 = load ptr, ptr @rsock_intern_iplevel_hash, align 8
-  %1072 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.133, i64 noundef 15) #5
-  %1073 = tail call i32 @rb_st_insert(ptr noundef %1071, i64 noundef 0, i64 noundef %1072) #5
-  %1074 = load ptr, ptr @rsock_intern_iplevel_hash, align 8
-  %1075 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.135, i64 noundef 16) #5
-  %1076 = tail call i32 @rb_st_insert(ptr noundef %1074, i64 noundef 44, i64 noundef %1075) #5
-  %1077 = load ptr, ptr @rsock_intern_iplevel_hash, align 8
-  %1078 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.125, i64 noundef 11) #5
-  %1079 = tail call i32 @rb_st_insert(ptr noundef %1077, i64 noundef 50, i64 noundef %1078) #5
-  %1080 = load ptr, ptr @rsock_intern_iplevel_hash, align 8
-  %1081 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.132, i64 noundef 15) #5
-  %1082 = tail call i32 @rb_st_insert(ptr noundef %1080, i64 noundef 60, i64 noundef %1081) #5
-  %1083 = load ptr, ptr @rsock_intern_iplevel_hash, align 8
-  %1084 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.119, i64 noundef 10) #5
-  %1085 = tail call i32 @rb_st_insert(ptr noundef %1083, i64 noundef 51, i64 noundef %1084) #5
-  %1086 = load ptr, ptr @rsock_intern_iplevel_hash, align 8
-  %1087 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.118, i64 noundef 10) #5
-  %1088 = tail call i32 @rb_st_insert(ptr noundef %1086, i64 noundef 29, i64 noundef %1087) #5
-  %1089 = load ptr, ptr @rsock_intern_iplevel_hash, align 8
-  %1090 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.124, i64 noundef 11) #5
-  %1091 = tail call i32 @rb_st_insert(ptr noundef %1089, i64 noundef 22, i64 noundef %1090) #5
-  %1092 = load ptr, ptr @rsock_intern_iplevel_hash, align 8
-  %1093 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.123, i64 noundef 11) #5
-  %1094 = tail call i32 @rb_st_insert(ptr noundef %1092, i64 noundef 17, i64 noundef %1093) #5
-  %1095 = load ptr, ptr @rsock_intern_iplevel_hash, align 8
-  %1096 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.122, i64 noundef 11) #5
-  %1097 = tail call i32 @rb_st_insert(ptr noundef %1095, i64 noundef 12, i64 noundef %1096) #5
-  %1098 = load ptr, ptr @rsock_intern_iplevel_hash, align 8
-  %1099 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.121, i64 noundef 11) #5
-  %1100 = tail call i32 @rb_st_insert(ptr noundef %1098, i64 noundef 8, i64 noundef %1099) #5
-  %1101 = load ptr, ptr @rsock_intern_iplevel_hash, align 8
-  %1102 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.120, i64 noundef 11) #5
-  %1103 = tail call i32 @rb_st_insert(ptr noundef %1101, i64 noundef 6, i64 noundef %1102) #5
-  %1104 = load ptr, ptr @rsock_intern_iplevel_hash, align 8
-  %1105 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.128, i64 noundef 12) #5
-  %1106 = tail call i32 @rb_st_insert(ptr noundef %1104, i64 noundef 2, i64 noundef %1105) #5
-  %1107 = load ptr, ptr @rsock_intern_iplevel_hash, align 8
-  %1108 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.127, i64 noundef 12) #5
-  %1109 = tail call i32 @rb_st_insert(ptr noundef %1107, i64 noundef 1, i64 noundef %1108) #5
-  %1110 = load ptr, ptr @rsock_intern_iplevel_hash, align 8
-  %1111 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.117, i64 noundef 10) #5
-  %1112 = tail call i32 @rb_st_insert(ptr noundef %1110, i64 noundef 0, i64 noundef %1111) #5
-  %1113 = load ptr, ptr @rsock_intern_iplevel_hash, align 8
-  %1114 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.137, i64 noundef 10) #5
-  %1115 = tail call i32 @rb_st_insert(ptr noundef %1113, i64 noundef 1, i64 noundef %1114) #5
-  %1116 = load ptr, ptr @rsock_intern_iplevel_hash, align 8
-  %1117 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.84, i64 noundef 3) #5
-  %1118 = tail call i32 @rb_st_insert(ptr noundef %1116, i64 noundef 255, i64 noundef %1117) #5
-  %1119 = load ptr, ptr @rsock_intern_iplevel_hash, align 8
-  %1120 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.115, i64 noundef 7) #5
-  %1121 = tail call i32 @rb_st_insert(ptr noundef %1119, i64 noundef 43, i64 noundef %1120) #5
-  %1122 = load ptr, ptr @rsock_intern_iplevel_hash, align 8
-  %1123 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.111, i64 noundef 4) #5
-  %1124 = tail call i32 @rb_st_insert(ptr noundef %1122, i64 noundef 59, i64 noundef %1123) #5
-  %1125 = load ptr, ptr @rsock_intern_iplevel_hash, align 8
-  %1126 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.110, i64 noundef 4) #5
-  %1127 = tail call i32 @rb_st_insert(ptr noundef %1125, i64 noundef 41, i64 noundef %1126) #5
-  %1128 = load ptr, ptr @rsock_intern_iplevel_hash, align 8
-  %1129 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.112, i64 noundef 6) #5
-  %1130 = tail call i32 @rb_st_insert(ptr noundef %1128, i64 noundef 58, i64 noundef %1129) #5
-  %1131 = load ptr, ptr @rsock_intern_iplevel_hash, align 8
-  %1132 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.114, i64 noundef 7) #5
-  %1133 = tail call i32 @rb_st_insert(ptr noundef %1131, i64 noundef 0, i64 noundef %1132) #5
-  %1134 = load ptr, ptr @rsock_intern_iplevel_hash, align 8
-  %1135 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.116, i64 noundef 8) #5
-  %1136 = tail call i32 @rb_st_insert(ptr noundef %1134, i64 noundef 44, i64 noundef %1135) #5
-  %1137 = load ptr, ptr @rsock_intern_iplevel_hash, align 8
-  %1138 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.107, i64 noundef 3) #5
-  %1139 = tail call i32 @rb_st_insert(ptr noundef %1137, i64 noundef 50, i64 noundef %1138) #5
-  %1140 = load ptr, ptr @rsock_intern_iplevel_hash, align 8
-  %1141 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.113, i64 noundef 7) #5
-  %1142 = tail call i32 @rb_st_insert(ptr noundef %1140, i64 noundef 60, i64 noundef %1141) #5
-  %1143 = load ptr, ptr @rsock_intern_iplevel_hash, align 8
-  %1144 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.101, i64 noundef 2) #5
-  %1145 = tail call i32 @rb_st_insert(ptr noundef %1143, i64 noundef 51, i64 noundef %1144) #5
-  %1146 = load ptr, ptr @rsock_intern_iplevel_hash, align 8
-  %1147 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.100, i64 noundef 2) #5
-  %1148 = tail call i32 @rb_st_insert(ptr noundef %1146, i64 noundef 29, i64 noundef %1147) #5
-  %1149 = load ptr, ptr @rsock_intern_iplevel_hash, align 8
-  %1150 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.106, i64 noundef 3) #5
-  %1151 = tail call i32 @rb_st_insert(ptr noundef %1149, i64 noundef 22, i64 noundef %1150) #5
-  %1152 = load ptr, ptr @rsock_intern_iplevel_hash, align 8
-  %1153 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.105, i64 noundef 3) #5
-  %1154 = tail call i32 @rb_st_insert(ptr noundef %1152, i64 noundef 17, i64 noundef %1153) #5
-  %1155 = load ptr, ptr @rsock_intern_iplevel_hash, align 8
-  %1156 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.104, i64 noundef 3) #5
-  %1157 = tail call i32 @rb_st_insert(ptr noundef %1155, i64 noundef 12, i64 noundef %1156) #5
-  %1158 = load ptr, ptr @rsock_intern_iplevel_hash, align 8
-  %1159 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.103, i64 noundef 3) #5
-  %1160 = tail call i32 @rb_st_insert(ptr noundef %1158, i64 noundef 8, i64 noundef %1159) #5
-  %1161 = load ptr, ptr @rsock_intern_iplevel_hash, align 8
-  %1162 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.102, i64 noundef 3) #5
-  %1163 = tail call i32 @rb_st_insert(ptr noundef %1161, i64 noundef 6, i64 noundef %1162) #5
-  %1164 = load ptr, ptr @rsock_intern_iplevel_hash, align 8
-  %1165 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.109, i64 noundef 4) #5
-  %1166 = tail call i32 @rb_st_insert(ptr noundef %1164, i64 noundef 2, i64 noundef %1165) #5
-  %1167 = load ptr, ptr @rsock_intern_iplevel_hash, align 8
-  %1168 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.108, i64 noundef 4) #5
-  %1169 = tail call i32 @rb_st_insert(ptr noundef %1167, i64 noundef 1, i64 noundef %1168) #5
-  %1170 = load ptr, ptr @rsock_intern_iplevel_hash, align 8
-  %1171 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.99, i64 noundef 2) #5
-  %1172 = tail call i32 @rb_st_insert(ptr noundef %1170, i64 noundef 0, i64 noundef %1171) #5
-  %1173 = load ptr, ptr @rsock_intern_iplevel_hash, align 8
-  %1174 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.136, i64 noundef 6) #5
-  %1175 = tail call i32 @rb_st_insert(ptr noundef %1173, i64 noundef 1, i64 noundef %1174) #5
-  %1176 = tail call ptr @rb_st_init_numtable() #5
-  store ptr %1176, ptr @rsock_intern_so_optname_hash, align 8
-  %1177 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.231, i64 noundef 19) #5
-  %1178 = tail call i32 @rb_st_insert(ptr noundef %1176, i64 noundef 56, i64 noundef %1177) #5
-  %1179 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1180 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.222, i64 noundef 15) #5
-  %1181 = tail call i32 @rb_st_insert(ptr noundef %1179, i64 noundef 49, i64 noundef %1180) #5
-  %1182 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1183 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.228, i64 noundef 17) #5
-  %1184 = tail call i32 @rb_st_insert(ptr noundef %1182, i64 noundef 48, i64 noundef %1183) #5
-  %1185 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1186 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.229, i64 noundef 18) #5
-  %1187 = tail call i32 @rb_st_insert(ptr noundef %1185, i64 noundef 47, i64 noundef %1186) #5
-  %1188 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1189 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.206, i64 noundef 12) #5
-  %1190 = tail call i32 @rb_st_insert(ptr noundef %1188, i64 noundef 46, i64 noundef %1189) #5
-  %1191 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1192 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.230, i64 noundef 19) #5
-  %1193 = tail call i32 @rb_st_insert(ptr noundef %1191, i64 noundef 45, i64 noundef %1192) #5
-  %1194 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1195 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.218, i64 noundef 14) #5
-  %1196 = tail call i32 @rb_st_insert(ptr noundef %1194, i64 noundef 44, i64 noundef %1195) #5
-  %1197 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1198 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.153, i64 noundef 8) #5
-  %1199 = tail call i32 @rb_st_insert(ptr noundef %1197, i64 noundef 43, i64 noundef %1198) #5
-  %1200 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1201 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.193, i64 noundef 11) #5
-  %1202 = tail call i32 @rb_st_insert(ptr noundef %1200, i64 noundef 42, i64 noundef %1201) #5
-  %1203 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1204 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.217, i64 noundef 14) #5
-  %1205 = tail call i32 @rb_st_insert(ptr noundef %1203, i64 noundef 41, i64 noundef %1204) #5
-  %1206 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1207 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.192, i64 noundef 11) #5
-  %1208 = tail call i32 @rb_st_insert(ptr noundef %1206, i64 noundef 40, i64 noundef %1207) #5
-  %1209 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1210 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.169, i64 noundef 9) #5
-  %1211 = tail call i32 @rb_st_insert(ptr noundef %1209, i64 noundef 39, i64 noundef %1210) #5
-  %1212 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1213 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.191, i64 noundef 11) #5
-  %1214 = tail call i32 @rb_st_insert(ptr noundef %1212, i64 noundef 38, i64 noundef %1213) #5
-  %1215 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1216 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.221, i64 noundef 15) #5
-  %1217 = tail call i32 @rb_st_insert(ptr noundef %1215, i64 noundef 37, i64 noundef %1216) #5
-  %1218 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1219 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.148, i64 noundef 7) #5
-  %1220 = tail call i32 @rb_st_insert(ptr noundef %1218, i64 noundef 36, i64 noundef %1219) #5
-  %1221 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1222 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.179, i64 noundef 10) #5
-  %1223 = tail call i32 @rb_st_insert(ptr noundef %1221, i64 noundef 34, i64 noundef %1222) #5
-  %1224 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1225 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.178, i64 noundef 10) #5
-  %1226 = tail call i32 @rb_st_insert(ptr noundef %1224, i64 noundef 31, i64 noundef %1225) #5
-  %1227 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1228 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.216, i64 noundef 14) #5
-  %1229 = tail call i32 @rb_st_insert(ptr noundef %1227, i64 noundef 35, i64 noundef %1228) #5
-  %1230 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1231 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.205, i64 noundef 12) #5
-  %1232 = tail call i32 @rb_st_insert(ptr noundef %1230, i64 noundef 29, i64 noundef %1231) #5
-  %1233 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1234 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.190, i64 noundef 11) #5
-  %1235 = tail call i32 @rb_st_insert(ptr noundef %1233, i64 noundef 28, i64 noundef %1234) #5
-  %1236 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1237 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.211, i64 noundef 13) #5
-  %1238 = tail call i32 @rb_st_insert(ptr noundef %1236, i64 noundef 26, i64 noundef %1237) #5
-  %1239 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1240 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.225, i64 noundef 16) #5
-  %1241 = tail call i32 @rb_st_insert(ptr noundef %1239, i64 noundef 27, i64 noundef %1240) #5
-  %1242 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1243 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.224, i64 noundef 16) #5
-  %1244 = tail call i32 @rb_st_insert(ptr noundef %1242, i64 noundef 26, i64 noundef %1243) #5
-  %1245 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1246 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.220, i64 noundef 15) #5
-  %1247 = tail call i32 @rb_st_insert(ptr noundef %1245, i64 noundef 25, i64 noundef %1246) #5
-  %1248 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1249 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.236, i64 noundef 30) #5
-  %1250 = tail call i32 @rb_st_insert(ptr noundef %1248, i64 noundef 24, i64 noundef %1249) #5
-  %1251 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1252 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.237, i64 noundef 32) #5
-  %1253 = tail call i32 @rb_st_insert(ptr noundef %1251, i64 noundef 23, i64 noundef %1252) #5
-  %1254 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1255 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.233, i64 noundef 26) #5
-  %1256 = tail call i32 @rb_st_insert(ptr noundef %1254, i64 noundef 22, i64 noundef %1255) #5
-  %1257 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1258 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.210, i64 noundef 13) #5
-  %1259 = tail call i32 @rb_st_insert(ptr noundef %1257, i64 noundef 30, i64 noundef %1258) #5
-  %1260 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1261 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.189, i64 noundef 11) #5
-  %1262 = tail call i32 @rb_st_insert(ptr noundef %1260, i64 noundef 21, i64 noundef %1261) #5
-  %1263 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1264 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.188, i64 noundef 11) #5
-  %1265 = tail call i32 @rb_st_insert(ptr noundef %1263, i64 noundef 20, i64 noundef %1264) #5
-  %1266 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1267 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.187, i64 noundef 11) #5
-  %1268 = tail call i32 @rb_st_insert(ptr noundef %1266, i64 noundef 19, i64 noundef %1267) #5
-  %1269 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1270 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.186, i64 noundef 11) #5
-  %1271 = tail call i32 @rb_st_insert(ptr noundef %1269, i64 noundef 18, i64 noundef %1270) #5
-  %1272 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1273 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.185, i64 noundef 11) #5
-  %1274 = tail call i32 @rb_st_insert(ptr noundef %1272, i64 noundef 17, i64 noundef %1273) #5
-  %1275 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1276 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.184, i64 noundef 11) #5
-  %1277 = tail call i32 @rb_st_insert(ptr noundef %1275, i64 noundef 16, i64 noundef %1276) #5
-  %1278 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1279 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.168, i64 noundef 9) #5
-  %1280 = tail call i32 @rb_st_insert(ptr noundef %1278, i64 noundef 13, i64 noundef %1279) #5
-  %1281 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1282 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.183, i64 noundef 11) #5
-  %1283 = tail call i32 @rb_st_insert(ptr noundef %1281, i64 noundef 12, i64 noundef %1282) #5
-  %1284 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1285 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.182, i64 noundef 11) #5
-  %1286 = tail call i32 @rb_st_insert(ptr noundef %1284, i64 noundef 11, i64 noundef %1285) #5
-  %1287 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1288 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.204, i64 noundef 12) #5
-  %1289 = tail call i32 @rb_st_insert(ptr noundef %1287, i64 noundef 10, i64 noundef %1288) #5
-  %1290 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1291 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.203, i64 noundef 12) #5
-  %1292 = tail call i32 @rb_st_insert(ptr noundef %1290, i64 noundef 9, i64 noundef %1291) #5
-  %1293 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1294 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.215, i64 noundef 14) #5
-  %1295 = tail call i32 @rb_st_insert(ptr noundef %1293, i64 noundef 33, i64 noundef %1294) #5
-  %1296 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1297 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.214, i64 noundef 14) #5
-  %1298 = tail call i32 @rb_st_insert(ptr noundef %1296, i64 noundef 32, i64 noundef %1297) #5
-  %1299 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1300 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.167, i64 noundef 9) #5
-  %1301 = tail call i32 @rb_st_insert(ptr noundef %1299, i64 noundef 8, i64 noundef %1300) #5
-  %1302 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1303 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.166, i64 noundef 9) #5
-  %1304 = tail call i32 @rb_st_insert(ptr noundef %1302, i64 noundef 7, i64 noundef %1303) #5
-  %1305 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1306 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.202, i64 noundef 12) #5
-  %1307 = tail call i32 @rb_st_insert(ptr noundef %1305, i64 noundef 6, i64 noundef %1306) #5
-  %1308 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1309 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.201, i64 noundef 12) #5
-  %1310 = tail call i32 @rb_st_insert(ptr noundef %1308, i64 noundef 5, i64 noundef %1309) #5
-  %1311 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1312 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.152, i64 noundef 8) #5
-  %1313 = tail call i32 @rb_st_insert(ptr noundef %1311, i64 noundef 4, i64 noundef %1312) #5
-  %1314 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1315 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.147, i64 noundef 7) #5
-  %1316 = tail call i32 @rb_st_insert(ptr noundef %1314, i64 noundef 3, i64 noundef %1315) #5
-  %1317 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1318 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.200, i64 noundef 12) #5
-  %1319 = tail call i32 @rb_st_insert(ptr noundef %1317, i64 noundef 15, i64 noundef %1318) #5
-  %1320 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1321 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.199, i64 noundef 12) #5
-  %1322 = tail call i32 @rb_st_insert(ptr noundef %1320, i64 noundef 2, i64 noundef %1321) #5
-  %1323 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1324 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.151, i64 noundef 8) #5
-  %1325 = tail call i32 @rb_st_insert(ptr noundef %1323, i64 noundef 1, i64 noundef %1324) #5
-  %1326 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1327 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.227, i64 noundef 16) #5
-  %1328 = tail call i32 @rb_st_insert(ptr noundef %1326, i64 noundef 56, i64 noundef %1327) #5
-  %1329 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1330 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.209, i64 noundef 12) #5
-  %1331 = tail call i32 @rb_st_insert(ptr noundef %1329, i64 noundef 49, i64 noundef %1330) #5
-  %1332 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1333 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.219, i64 noundef 14) #5
-  %1334 = tail call i32 @rb_st_insert(ptr noundef %1332, i64 noundef 48, i64 noundef %1333) #5
-  %1335 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1336 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.223, i64 noundef 15) #5
-  %1337 = tail call i32 @rb_st_insert(ptr noundef %1335, i64 noundef 47, i64 noundef %1336) #5
-  %1338 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1339 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.177, i64 noundef 9) #5
-  %1340 = tail call i32 @rb_st_insert(ptr noundef %1338, i64 noundef 46, i64 noundef %1339) #5
-  %1341 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1342 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.226, i64 noundef 16) #5
-  %1343 = tail call i32 @rb_st_insert(ptr noundef %1341, i64 noundef 45, i64 noundef %1342) #5
-  %1344 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1345 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.198, i64 noundef 11) #5
-  %1346 = tail call i32 @rb_st_insert(ptr noundef %1344, i64 noundef 44, i64 noundef %1345) #5
-  %1347 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1348 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.142, i64 noundef 5) #5
-  %1349 = tail call i32 @rb_st_insert(ptr noundef %1347, i64 noundef 43, i64 noundef %1348) #5
-  %1350 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1351 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.165, i64 noundef 8) #5
-  %1352 = tail call i32 @rb_st_insert(ptr noundef %1350, i64 noundef 42, i64 noundef %1351) #5
-  %1353 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1354 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.197, i64 noundef 11) #5
-  %1355 = tail call i32 @rb_st_insert(ptr noundef %1353, i64 noundef 41, i64 noundef %1354) #5
-  %1356 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1357 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.164, i64 noundef 8) #5
-  %1358 = tail call i32 @rb_st_insert(ptr noundef %1356, i64 noundef 40, i64 noundef %1357) #5
-  %1359 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1360 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.146, i64 noundef 6) #5
-  %1361 = tail call i32 @rb_st_insert(ptr noundef %1359, i64 noundef 39, i64 noundef %1360) #5
-  %1362 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1363 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.163, i64 noundef 8) #5
-  %1364 = tail call i32 @rb_st_insert(ptr noundef %1362, i64 noundef 38, i64 noundef %1363) #5
-  %1365 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1366 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.208, i64 noundef 12) #5
-  %1367 = tail call i32 @rb_st_insert(ptr noundef %1365, i64 noundef 37, i64 noundef %1366) #5
-  %1368 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1369 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.139, i64 noundef 4) #5
-  %1370 = tail call i32 @rb_st_insert(ptr noundef %1368, i64 noundef 36, i64 noundef %1369) #5
-  %1371 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1372 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.150, i64 noundef 7) #5
-  %1373 = tail call i32 @rb_st_insert(ptr noundef %1371, i64 noundef 34, i64 noundef %1372) #5
-  %1374 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1375 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.149, i64 noundef 7) #5
-  %1376 = tail call i32 @rb_st_insert(ptr noundef %1374, i64 noundef 31, i64 noundef %1375) #5
-  %1377 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1378 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.196, i64 noundef 11) #5
-  %1379 = tail call i32 @rb_st_insert(ptr noundef %1377, i64 noundef 35, i64 noundef %1378) #5
-  %1380 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1381 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.176, i64 noundef 9) #5
-  %1382 = tail call i32 @rb_st_insert(ptr noundef %1380, i64 noundef 29, i64 noundef %1381) #5
-  %1383 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1384 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.162, i64 noundef 8) #5
-  %1385 = tail call i32 @rb_st_insert(ptr noundef %1383, i64 noundef 28, i64 noundef %1384) #5
-  %1386 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1387 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.181, i64 noundef 10) #5
-  %1388 = tail call i32 @rb_st_insert(ptr noundef %1386, i64 noundef 26, i64 noundef %1387) #5
-  %1389 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1390 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.213, i64 noundef 13) #5
-  %1391 = tail call i32 @rb_st_insert(ptr noundef %1389, i64 noundef 27, i64 noundef %1390) #5
-  %1392 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1393 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.212, i64 noundef 13) #5
-  %1394 = tail call i32 @rb_st_insert(ptr noundef %1392, i64 noundef 26, i64 noundef %1393) #5
-  %1395 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1396 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.207, i64 noundef 12) #5
-  %1397 = tail call i32 @rb_st_insert(ptr noundef %1395, i64 noundef 25, i64 noundef %1396) #5
-  %1398 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1399 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.234, i64 noundef 27) #5
-  %1400 = tail call i32 @rb_st_insert(ptr noundef %1398, i64 noundef 24, i64 noundef %1399) #5
-  %1401 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1402 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.235, i64 noundef 29) #5
-  %1403 = tail call i32 @rb_st_insert(ptr noundef %1401, i64 noundef 23, i64 noundef %1402) #5
-  %1404 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1405 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.232, i64 noundef 23) #5
-  %1406 = tail call i32 @rb_st_insert(ptr noundef %1404, i64 noundef 22, i64 noundef %1405) #5
-  %1407 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1408 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.180, i64 noundef 10) #5
-  %1409 = tail call i32 @rb_st_insert(ptr noundef %1407, i64 noundef 30, i64 noundef %1408) #5
-  %1410 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1411 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.161, i64 noundef 8) #5
-  %1412 = tail call i32 @rb_st_insert(ptr noundef %1410, i64 noundef 21, i64 noundef %1411) #5
-  %1413 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1414 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.160, i64 noundef 8) #5
-  %1415 = tail call i32 @rb_st_insert(ptr noundef %1413, i64 noundef 20, i64 noundef %1414) #5
-  %1416 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1417 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.159, i64 noundef 8) #5
-  %1418 = tail call i32 @rb_st_insert(ptr noundef %1416, i64 noundef 19, i64 noundef %1417) #5
-  %1419 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1420 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.158, i64 noundef 8) #5
-  %1421 = tail call i32 @rb_st_insert(ptr noundef %1419, i64 noundef 18, i64 noundef %1420) #5
-  %1422 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1423 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.157, i64 noundef 8) #5
-  %1424 = tail call i32 @rb_st_insert(ptr noundef %1422, i64 noundef 17, i64 noundef %1423) #5
-  %1425 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1426 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.156, i64 noundef 8) #5
-  %1427 = tail call i32 @rb_st_insert(ptr noundef %1425, i64 noundef 16, i64 noundef %1426) #5
-  %1428 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1429 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.145, i64 noundef 6) #5
-  %1430 = tail call i32 @rb_st_insert(ptr noundef %1428, i64 noundef 13, i64 noundef %1429) #5
-  %1431 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1432 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.155, i64 noundef 8) #5
-  %1433 = tail call i32 @rb_st_insert(ptr noundef %1431, i64 noundef 12, i64 noundef %1432) #5
-  %1434 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1435 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.154, i64 noundef 8) #5
-  %1436 = tail call i32 @rb_st_insert(ptr noundef %1434, i64 noundef 11, i64 noundef %1435) #5
-  %1437 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1438 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.175, i64 noundef 9) #5
-  %1439 = tail call i32 @rb_st_insert(ptr noundef %1437, i64 noundef 10, i64 noundef %1438) #5
-  %1440 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1441 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.174, i64 noundef 9) #5
-  %1442 = tail call i32 @rb_st_insert(ptr noundef %1440, i64 noundef 9, i64 noundef %1441) #5
-  %1443 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1444 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.195, i64 noundef 11) #5
-  %1445 = tail call i32 @rb_st_insert(ptr noundef %1443, i64 noundef 33, i64 noundef %1444) #5
-  %1446 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1447 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.194, i64 noundef 11) #5
-  %1448 = tail call i32 @rb_st_insert(ptr noundef %1446, i64 noundef 32, i64 noundef %1447) #5
-  %1449 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1450 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.144, i64 noundef 6) #5
-  %1451 = tail call i32 @rb_st_insert(ptr noundef %1449, i64 noundef 8, i64 noundef %1450) #5
-  %1452 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1453 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.143, i64 noundef 6) #5
-  %1454 = tail call i32 @rb_st_insert(ptr noundef %1452, i64 noundef 7, i64 noundef %1453) #5
-  %1455 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1456 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.173, i64 noundef 9) #5
-  %1457 = tail call i32 @rb_st_insert(ptr noundef %1455, i64 noundef 6, i64 noundef %1456) #5
-  %1458 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1459 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.172, i64 noundef 9) #5
-  %1460 = tail call i32 @rb_st_insert(ptr noundef %1458, i64 noundef 5, i64 noundef %1459) #5
-  %1461 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1462 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.141, i64 noundef 5) #5
-  %1463 = tail call i32 @rb_st_insert(ptr noundef %1461, i64 noundef 4, i64 noundef %1462) #5
-  %1464 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1465 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.138, i64 noundef 4) #5
-  %1466 = tail call i32 @rb_st_insert(ptr noundef %1464, i64 noundef 3, i64 noundef %1465) #5
-  %1467 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1468 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.171, i64 noundef 9) #5
-  %1469 = tail call i32 @rb_st_insert(ptr noundef %1467, i64 noundef 15, i64 noundef %1468) #5
-  %1470 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1471 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.170, i64 noundef 9) #5
-  %1472 = tail call i32 @rb_st_insert(ptr noundef %1470, i64 noundef 2, i64 noundef %1471) #5
-  %1473 = load ptr, ptr @rsock_intern_so_optname_hash, align 8
-  %1474 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.140, i64 noundef 5) #5
-  %1475 = tail call i32 @rb_st_insert(ptr noundef %1473, i64 noundef 1, i64 noundef %1474) #5
-  %1476 = tail call ptr @rb_st_init_numtable() #5
-  store ptr %1476, ptr @rsock_intern_ip_optname_hash, align 8
-  %1477 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.267, i64 noundef 11) #5
-  %1478 = tail call i32 @rb_st_insert(ptr noundef %1476, i64 noundef 41, i64 noundef %1477) #5
-  %1479 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8
-  %1480 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.310, i64 noundef 25) #5
-  %1481 = tail call i32 @rb_st_insert(ptr noundef %1479, i64 noundef 40, i64 noundef %1480) #5
-  %1482 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8
-  %1483 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.308, i64 noundef 24) #5
-  %1484 = tail call i32 @rb_st_insert(ptr noundef %1482, i64 noundef 39, i64 noundef %1483) #5
-  %1485 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8
-  %1486 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.292, i64 noundef 15) #5
-  %1487 = tail call i32 @rb_st_insert(ptr noundef %1485, i64 noundef 38, i64 noundef %1486) #5
-  %1488 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8
-  %1489 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.300, i64 noundef 17) #5
-  %1490 = tail call i32 @rb_st_insert(ptr noundef %1488, i64 noundef 37, i64 noundef %1489) #5
-  %1491 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8
-  %1492 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.284, i64 noundef 14) #5
-  %1493 = tail call i32 @rb_st_insert(ptr noundef %1491, i64 noundef 2, i64 noundef %1492) #5
-  %1494 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8
-  %1495 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.297, i64 noundef 16) #5
-  %1496 = tail call i32 @rb_st_insert(ptr noundef %1494, i64 noundef 1, i64 noundef %1495) #5
-  %1497 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8
-  %1498 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.296, i64 noundef 16) #5
-  %1499 = tail call i32 @rb_st_insert(ptr noundef %1497, i64 noundef 0, i64 noundef %1498) #5
-  %1500 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8
-  %1501 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.283, i64 noundef 14) #5
-  %1502 = tail call i32 @rb_st_insert(ptr noundef %1500, i64 noundef 19, i64 noundef %1501) #5
-  %1503 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8
-  %1504 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.263, i64 noundef 10) #5
-  %1505 = tail call i32 @rb_st_insert(ptr noundef %1503, i64 noundef 18, i64 noundef %1504) #5
-  %1506 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8
-  %1507 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.282, i64 noundef 14) #5
-  %1508 = tail call i32 @rb_st_insert(ptr noundef %1506, i64 noundef 17, i64 noundef %1507) #5
-  %1509 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8
-  %1510 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.291, i64 noundef 15) #5
-  %1511 = tail call i32 @rb_st_insert(ptr noundef %1509, i64 noundef 16, i64 noundef %1510) #5
-  %1512 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8
-  %1513 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.266, i64 noundef 11) #5
-  %1514 = tail call i32 @rb_st_insert(ptr noundef %1512, i64 noundef 15, i64 noundef %1513) #5
-  %1515 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8
-  %1516 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.243, i64 noundef 6) #5
-  %1517 = tail call i32 @rb_st_insert(ptr noundef %1515, i64 noundef 14, i64 noundef %1516) #5
-  %1518 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8
-  %1519 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.262, i64 noundef 10) #5
-  %1520 = tail call i32 @rb_st_insert(ptr noundef %1518, i64 noundef 13, i64 noundef %1519) #5
-  %1521 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8
-  %1522 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.261, i64 noundef 10) #5
-  %1523 = tail call i32 @rb_st_insert(ptr noundef %1521, i64 noundef 11, i64 noundef %1522) #5
-  %1524 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8
-  %1525 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.290, i64 noundef 15) #5
-  %1526 = tail call i32 @rb_st_insert(ptr noundef %1524, i64 noundef 10, i64 noundef %1525) #5
-  %1527 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8
-  %1528 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.277, i64 noundef 13) #5
-  %1529 = tail call i32 @rb_st_insert(ptr noundef %1527, i64 noundef 9, i64 noundef %1528) #5
-  %1530 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8
-  %1531 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.260, i64 noundef 10) #5
-  %1532 = tail call i32 @rb_st_insert(ptr noundef %1530, i64 noundef 8, i64 noundef %1531) #5
-  %1533 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8
-  %1534 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.289, i64 noundef 15) #5
-  %1535 = tail call i32 @rb_st_insert(ptr noundef %1533, i64 noundef 5, i64 noundef %1534) #5
-  %1536 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8
-  %1537 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.302, i64 noundef 18) #5
-  %1538 = tail call i32 @rb_st_insert(ptr noundef %1536, i64 noundef 20, i64 noundef %1537) #5
-  %1539 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8
-  %1540 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.309, i64 noundef 25) #5
-  %1541 = tail call i32 @rb_st_insert(ptr noundef %1539, i64 noundef 1, i64 noundef %1540) #5
-  %1542 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8
-  %1543 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.307, i64 noundef 24) #5
-  %1544 = tail call i32 @rb_st_insert(ptr noundef %1542, i64 noundef 1, i64 noundef %1543) #5
-  %1545 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8
-  %1546 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.301, i64 noundef 18) #5
-  %1547 = tail call i32 @rb_st_insert(ptr noundef %1545, i64 noundef 36, i64 noundef %1546) #5
-  %1548 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8
-  %1549 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.299, i64 noundef 17) #5
-  %1550 = tail call i32 @rb_st_insert(ptr noundef %1548, i64 noundef 35, i64 noundef %1549) #5
-  %1551 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8
-  %1552 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.298, i64 noundef 17) #5
-  %1553 = tail call i32 @rb_st_insert(ptr noundef %1551, i64 noundef 34, i64 noundef %1552) #5
-  %1554 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8
-  %1555 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.295, i64 noundef 16) #5
-  %1556 = tail call i32 @rb_st_insert(ptr noundef %1554, i64 noundef 33, i64 noundef %1555) #5
-  %1557 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8
-  %1558 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.288, i64 noundef 15) #5
-  %1559 = tail call i32 @rb_st_insert(ptr noundef %1557, i64 noundef 32, i64 noundef %1558) #5
-  %1560 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8
-  %1561 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.259, i64 noundef 10) #5
-  %1562 = tail call i32 @rb_st_insert(ptr noundef %1560, i64 noundef 12, i64 noundef %1561) #5
-  %1563 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8
-  %1564 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.255, i64 noundef 9) #5
-  %1565 = tail call i32 @rb_st_insert(ptr noundef %1563, i64 noundef 21, i64 noundef %1564) #5
-  %1566 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8
-  %1567 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.258, i64 noundef 10) #5
-  %1568 = tail call i32 @rb_st_insert(ptr noundef %1566, i64 noundef 7, i64 noundef %1567) #5
-  %1569 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8
-  %1570 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.281, i64 noundef 14) #5
-  %1571 = tail call i32 @rb_st_insert(ptr noundef %1569, i64 noundef 7, i64 noundef %1570) #5
-  %1572 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8
-  %1573 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.265, i64 noundef 11) #5
-  %1574 = tail call i32 @rb_st_insert(ptr noundef %1572, i64 noundef 6, i64 noundef %1573) #5
-  %1575 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8
-  %1576 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.242, i64 noundef 6) #5
-  %1577 = tail call i32 @rb_st_insert(ptr noundef %1575, i64 noundef 2, i64 noundef %1576) #5
-  %1578 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8
-  %1579 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.241, i64 noundef 6) #5
-  %1580 = tail call i32 @rb_st_insert(ptr noundef %1578, i64 noundef 1, i64 noundef %1579) #5
-  %1581 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8
-  %1582 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.257, i64 noundef 10) #5
-  %1583 = tail call i32 @rb_st_insert(ptr noundef %1581, i64 noundef 3, i64 noundef %1582) #5
-  %1584 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8
-  %1585 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.256, i64 noundef 10) #5
-  %1586 = tail call i32 @rb_st_insert(ptr noundef %1584, i64 noundef 4, i64 noundef %1585) #5
-  %1587 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8
-  %1588 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.254, i64 noundef 8) #5
-  %1589 = tail call i32 @rb_st_insert(ptr noundef %1587, i64 noundef 41, i64 noundef %1588) #5
-  %1590 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8
-  %1591 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.306, i64 noundef 22) #5
-  %1592 = tail call i32 @rb_st_insert(ptr noundef %1590, i64 noundef 40, i64 noundef %1591) #5
-  %1593 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8
-  %1594 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.304, i64 noundef 21) #5
-  %1595 = tail call i32 @rb_st_insert(ptr noundef %1593, i64 noundef 39, i64 noundef %1594) #5
-  %1596 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8
-  %1597 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.276, i64 noundef 12) #5
-  %1598 = tail call i32 @rb_st_insert(ptr noundef %1596, i64 noundef 38, i64 noundef %1597) #5
-  %1599 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8
-  %1600 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.287, i64 noundef 14) #5
-  %1601 = tail call i32 @rb_st_insert(ptr noundef %1599, i64 noundef 37, i64 noundef %1600) #5
-  %1602 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8
-  %1603 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.271, i64 noundef 11) #5
-  %1604 = tail call i32 @rb_st_insert(ptr noundef %1602, i64 noundef 2, i64 noundef %1603) #5
-  %1605 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8
-  %1606 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.280, i64 noundef 13) #5
-  %1607 = tail call i32 @rb_st_insert(ptr noundef %1605, i64 noundef 1, i64 noundef %1606) #5
-  %1608 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8
-  %1609 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.279, i64 noundef 13) #5
-  %1610 = tail call i32 @rb_st_insert(ptr noundef %1608, i64 noundef 0, i64 noundef %1609) #5
-  %1611 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8
-  %1612 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.270, i64 noundef 11) #5
-  %1613 = tail call i32 @rb_st_insert(ptr noundef %1611, i64 noundef 19, i64 noundef %1612) #5
-  %1614 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8
-  %1615 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.150, i64 noundef 7) #5
-  %1616 = tail call i32 @rb_st_insert(ptr noundef %1614, i64 noundef 18, i64 noundef %1615) #5
-  %1617 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8
-  %1618 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.269, i64 noundef 11) #5
-  %1619 = tail call i32 @rb_st_insert(ptr noundef %1617, i64 noundef 17, i64 noundef %1618) #5
-  %1620 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8
-  %1621 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.275, i64 noundef 12) #5
-  %1622 = tail call i32 @rb_st_insert(ptr noundef %1620, i64 noundef 16, i64 noundef %1621) #5
-  %1623 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8
-  %1624 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.253, i64 noundef 8) #5
-  %1625 = tail call i32 @rb_st_insert(ptr noundef %1623, i64 noundef 15, i64 noundef %1624) #5
-  %1626 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8
-  %1627 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.240, i64 noundef 3) #5
-  %1628 = tail call i32 @rb_st_insert(ptr noundef %1626, i64 noundef 14, i64 noundef %1627) #5
-  %1629 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8
-  %1630 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.251, i64 noundef 7) #5
-  %1631 = tail call i32 @rb_st_insert(ptr noundef %1629, i64 noundef 13, i64 noundef %1630) #5
-  %1632 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8
-  %1633 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.250, i64 noundef 7) #5
-  %1634 = tail call i32 @rb_st_insert(ptr noundef %1632, i64 noundef 11, i64 noundef %1633) #5
-  %1635 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8
-  %1636 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.274, i64 noundef 12) #5
-  %1637 = tail call i32 @rb_st_insert(ptr noundef %1635, i64 noundef 10, i64 noundef %1636) #5
-  %1638 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8
-  %1639 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.264, i64 noundef 10) #5
-  %1640 = tail call i32 @rb_st_insert(ptr noundef %1638, i64 noundef 9, i64 noundef %1639) #5
-  %1641 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8
-  %1642 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.249, i64 noundef 7) #5
-  %1643 = tail call i32 @rb_st_insert(ptr noundef %1641, i64 noundef 8, i64 noundef %1642) #5
-  %1644 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8
-  %1645 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.273, i64 noundef 12) #5
-  %1646 = tail call i32 @rb_st_insert(ptr noundef %1644, i64 noundef 5, i64 noundef %1645) #5
-  %1647 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8
-  %1648 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.294, i64 noundef 15) #5
-  %1649 = tail call i32 @rb_st_insert(ptr noundef %1647, i64 noundef 20, i64 noundef %1648) #5
-  %1650 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8
-  %1651 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.305, i64 noundef 22) #5
-  %1652 = tail call i32 @rb_st_insert(ptr noundef %1650, i64 noundef 1, i64 noundef %1651) #5
-  %1653 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8
-  %1654 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.303, i64 noundef 21) #5
-  %1655 = tail call i32 @rb_st_insert(ptr noundef %1653, i64 noundef 1, i64 noundef %1654) #5
-  %1656 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8
-  %1657 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.293, i64 noundef 15) #5
-  %1658 = tail call i32 @rb_st_insert(ptr noundef %1656, i64 noundef 36, i64 noundef %1657) #5
-  %1659 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8
-  %1660 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.286, i64 noundef 14) #5
-  %1661 = tail call i32 @rb_st_insert(ptr noundef %1659, i64 noundef 35, i64 noundef %1660) #5
-  %1662 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8
-  %1663 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.285, i64 noundef 14) #5
-  %1664 = tail call i32 @rb_st_insert(ptr noundef %1662, i64 noundef 34, i64 noundef %1663) #5
-  %1665 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8
-  %1666 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.278, i64 noundef 13) #5
-  %1667 = tail call i32 @rb_st_insert(ptr noundef %1665, i64 noundef 33, i64 noundef %1666) #5
-  %1668 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8
-  %1669 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.272, i64 noundef 12) #5
-  %1670 = tail call i32 @rb_st_insert(ptr noundef %1668, i64 noundef 32, i64 noundef %1669) #5
-  %1671 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8
-  %1672 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.248, i64 noundef 7) #5
-  %1673 = tail call i32 @rb_st_insert(ptr noundef %1671, i64 noundef 12, i64 noundef %1672) #5
-  %1674 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8
-  %1675 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.244, i64 noundef 6) #5
-  %1676 = tail call i32 @rb_st_insert(ptr noundef %1674, i64 noundef 21, i64 noundef %1675) #5
-  %1677 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8
-  %1678 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.247, i64 noundef 7) #5
-  %1679 = tail call i32 @rb_st_insert(ptr noundef %1677, i64 noundef 7, i64 noundef %1678) #5
-  %1680 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8
-  %1681 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.268, i64 noundef 11) #5
-  %1682 = tail call i32 @rb_st_insert(ptr noundef %1680, i64 noundef 7, i64 noundef %1681) #5
-  %1683 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8
-  %1684 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.252, i64 noundef 8) #5
-  %1685 = tail call i32 @rb_st_insert(ptr noundef %1683, i64 noundef 6, i64 noundef %1684) #5
-  %1686 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8
-  %1687 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.239, i64 noundef 3) #5
-  %1688 = tail call i32 @rb_st_insert(ptr noundef %1686, i64 noundef 2, i64 noundef %1687) #5
-  %1689 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8
-  %1690 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.238, i64 noundef 3) #5
-  %1691 = tail call i32 @rb_st_insert(ptr noundef %1689, i64 noundef 1, i64 noundef %1690) #5
-  %1692 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8
-  %1693 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.246, i64 noundef 7) #5
-  %1694 = tail call i32 @rb_st_insert(ptr noundef %1692, i64 noundef 3, i64 noundef %1693) #5
-  %1695 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8
-  %1696 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.245, i64 noundef 7) #5
-  %1697 = tail call i32 @rb_st_insert(ptr noundef %1695, i64 noundef 4, i64 noundef %1696) #5
-  %1698 = tail call ptr @rb_st_init_numtable() #5
-  store ptr %1698, ptr @rsock_intern_ipv6_optname_hash, align 8
-  %1699 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.324, i64 noundef 11) #5
-  %1700 = tail call i32 @rb_st_insert(ptr noundef %1698, i64 noundef 67, i64 noundef %1699) #5
-  %1701 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8
-  %1702 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.351, i64 noundef 16) #5
-  %1703 = tail call i32 @rb_st_insert(ptr noundef %1701, i64 noundef 60, i64 noundef %1702) #5
-  %1704 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8
-  %1705 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.357, i64 noundef 17) #5
-  %1706 = tail call i32 @rb_st_insert(ptr noundef %1704, i64 noundef 0, i64 noundef %1705) #5
-  %1707 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8
-  %1708 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.356, i64 noundef 17) #5
-  %1709 = tail call i32 @rb_st_insert(ptr noundef %1707, i64 noundef 55, i64 noundef %1708) #5
-  %1710 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8
-  %1711 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.320, i64 noundef 10) #5
-  %1712 = tail call i32 @rb_st_insert(ptr noundef %1710, i64 noundef 57, i64 noundef %1711) #5
-  %1713 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8
-  %1714 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.346, i64 noundef 15) #5
-  %1715 = tail call i32 @rb_st_insert(ptr noundef %1713, i64 noundef 66, i64 noundef %1714) #5
-  %1716 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8
-  %1717 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.343, i64 noundef 14) #5
-  %1718 = tail call i32 @rb_st_insert(ptr noundef %1716, i64 noundef 56, i64 noundef %1717) #5
-  %1719 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8
-  %1720 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.350, i64 noundef 16) #5
-  %1721 = tail call i32 @rb_st_insert(ptr noundef %1719, i64 noundef 49, i64 noundef %1720) #5
-  %1722 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8
-  %1723 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.349, i64 noundef 16) #5
-  %1724 = tail call i32 @rb_st_insert(ptr noundef %1722, i64 noundef 53, i64 noundef %1723) #5
-  %1725 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8
-  %1726 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.355, i64 noundef 17) #5
-  %1727 = tail call i32 @rb_st_insert(ptr noundef %1725, i64 noundef 51, i64 noundef %1726) #5
-  %1728 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8
-  %1729 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.335, i64 noundef 12) #5
-  %1730 = tail call i32 @rb_st_insert(ptr noundef %1728, i64 noundef 25, i64 noundef %1729) #5
-  %1731 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8
-  %1732 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.348, i64 noundef 16) #5
-  %1733 = tail call i32 @rb_st_insert(ptr noundef %1731, i64 noundef 58, i64 noundef %1732) #5
-  %1734 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8
-  %1735 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.334, i64 noundef 12) #5
-  %1736 = tail call i32 @rb_st_insert(ptr noundef %1734, i64 noundef 50, i64 noundef %1735) #5
-  %1737 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8
-  %1738 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.333, i64 noundef 12) #5
-  %1739 = tail call i32 @rb_st_insert(ptr noundef %1737, i64 noundef 61, i64 noundef %1738) #5
-  %1740 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8
-  %1741 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.332, i64 noundef 12) #5
-  %1742 = tail call i32 @rb_st_insert(ptr noundef %1740, i64 noundef 9, i64 noundef %1741) #5
-  %1743 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8
-  %1744 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.331, i64 noundef 12) #5
-  %1745 = tail call i32 @rb_st_insert(ptr noundef %1743, i64 noundef 54, i64 noundef %1744) #5
-  %1746 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8
-  %1747 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.342, i64 noundef 13) #5
-  %1748 = tail call i32 @rb_st_insert(ptr noundef %1746, i64 noundef 52, i64 noundef %1747) #5
-  %1749 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8
-  %1750 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.330, i64 noundef 12) #5
-  %1751 = tail call i32 @rb_st_insert(ptr noundef %1749, i64 noundef 59, i64 noundef %1750) #5
-  %1752 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8
-  %1753 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.341, i64 noundef 13) #5
-  %1754 = tail call i32 @rb_st_insert(ptr noundef %1752, i64 noundef 62, i64 noundef %1753) #5
-  %1755 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8
-  %1756 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.340, i64 noundef 13) #5
-  %1757 = tail call i32 @rb_st_insert(ptr noundef %1755, i64 noundef 7, i64 noundef %1756) #5
-  %1758 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8
-  %1759 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.323, i64 noundef 11) #5
-  %1760 = tail call i32 @rb_st_insert(ptr noundef %1758, i64 noundef 26, i64 noundef %1759) #5
-  %1761 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8
-  %1762 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.354, i64 noundef 17) #5
-  %1763 = tail call i32 @rb_st_insert(ptr noundef %1761, i64 noundef 16, i64 noundef %1762) #5
-  %1764 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8
-  %1765 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.359, i64 noundef 19) #5
-  %1766 = tail call i32 @rb_st_insert(ptr noundef %1764, i64 noundef 19, i64 noundef %1765) #5
-  %1767 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8
-  %1768 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.353, i64 noundef 17) #5
-  %1769 = tail call i32 @rb_st_insert(ptr noundef %1767, i64 noundef 17, i64 noundef %1768) #5
-  %1770 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8
-  %1771 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.358, i64 noundef 19) #5
-  %1772 = tail call i32 @rb_st_insert(ptr noundef %1770, i64 noundef 18, i64 noundef %1771) #5
-  %1773 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8
-  %1774 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.352, i64 noundef 17) #5
-  %1775 = tail call i32 @rb_st_insert(ptr noundef %1773, i64 noundef 23, i64 noundef %1774) #5
-  %1776 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8
-  %1777 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.347, i64 noundef 16) #5
-  %1778 = tail call i32 @rb_st_insert(ptr noundef %1776, i64 noundef 21, i64 noundef %1777) #5
-  %1779 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8
-  %1780 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.345, i64 noundef 15) #5
-  %1781 = tail call i32 @rb_st_insert(ptr noundef %1779, i64 noundef 20, i64 noundef %1780) #5
-  %1782 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8
-  %1783 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.313, i64 noundef 6) #5
-  %1784 = tail call i32 @rb_st_insert(ptr noundef %1782, i64 noundef 67, i64 noundef %1783) #5
-  %1785 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8
-  %1786 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.329, i64 noundef 11) #5
-  %1787 = tail call i32 @rb_st_insert(ptr noundef %1785, i64 noundef 60, i64 noundef %1786) #5
-  %1788 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8
-  %1789 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.339, i64 noundef 12) #5
-  %1790 = tail call i32 @rb_st_insert(ptr noundef %1788, i64 noundef 0, i64 noundef %1789) #5
-  %1791 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8
-  %1792 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.338, i64 noundef 12) #5
-  %1793 = tail call i32 @rb_st_insert(ptr noundef %1791, i64 noundef 55, i64 noundef %1792) #5
-  %1794 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8
-  %1795 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.311, i64 noundef 5) #5
-  %1796 = tail call i32 @rb_st_insert(ptr noundef %1794, i64 noundef 57, i64 noundef %1795) #5
-  %1797 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8
-  %1798 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.322, i64 noundef 10) #5
-  %1799 = tail call i32 @rb_st_insert(ptr noundef %1797, i64 noundef 66, i64 noundef %1798) #5
-  %1800 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8
-  %1801 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.319, i64 noundef 9) #5
-  %1802 = tail call i32 @rb_st_insert(ptr noundef %1800, i64 noundef 56, i64 noundef %1801) #5
-  %1803 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8
-  %1804 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.328, i64 noundef 11) #5
-  %1805 = tail call i32 @rb_st_insert(ptr noundef %1803, i64 noundef 49, i64 noundef %1804) #5
-  %1806 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8
-  %1807 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.327, i64 noundef 11) #5
-  %1808 = tail call i32 @rb_st_insert(ptr noundef %1806, i64 noundef 53, i64 noundef %1807) #5
-  %1809 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8
-  %1810 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.337, i64 noundef 12) #5
-  %1811 = tail call i32 @rb_st_insert(ptr noundef %1809, i64 noundef 51, i64 noundef %1810) #5
-  %1812 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8
-  %1813 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.250, i64 noundef 7) #5
-  %1814 = tail call i32 @rb_st_insert(ptr noundef %1812, i64 noundef 25, i64 noundef %1813) #5
-  %1815 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8
-  %1816 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.326, i64 noundef 11) #5
-  %1817 = tail call i32 @rb_st_insert(ptr noundef %1815, i64 noundef 58, i64 noundef %1816) #5
-  %1818 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8
-  %1819 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.249, i64 noundef 7) #5
-  %1820 = tail call i32 @rb_st_insert(ptr noundef %1818, i64 noundef 50, i64 noundef %1819) #5
-  %1821 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8
-  %1822 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.315, i64 noundef 7) #5
-  %1823 = tail call i32 @rb_st_insert(ptr noundef %1821, i64 noundef 61, i64 noundef %1822) #5
-  %1824 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8
-  %1825 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.314, i64 noundef 7) #5
-  %1826 = tail call i32 @rb_st_insert(ptr noundef %1824, i64 noundef 9, i64 noundef %1825) #5
-  %1827 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8
-  %1828 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.114, i64 noundef 7) #5
-  %1829 = tail call i32 @rb_st_insert(ptr noundef %1827, i64 noundef 54, i64 noundef %1828) #5
-  %1830 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8
-  %1831 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.318, i64 noundef 8) #5
-  %1832 = tail call i32 @rb_st_insert(ptr noundef %1830, i64 noundef 52, i64 noundef %1831) #5
-  %1833 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8
-  %1834 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.113, i64 noundef 7) #5
-  %1835 = tail call i32 @rb_st_insert(ptr noundef %1833, i64 noundef 59, i64 noundef %1834) #5
-  %1836 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8
-  %1837 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.317, i64 noundef 8) #5
-  %1838 = tail call i32 @rb_st_insert(ptr noundef %1836, i64 noundef 62, i64 noundef %1837) #5
-  %1839 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8
-  %1840 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.316, i64 noundef 8) #5
-  %1841 = tail call i32 @rb_st_insert(ptr noundef %1839, i64 noundef 7, i64 noundef %1840) #5
-  %1842 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8
-  %1843 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.312, i64 noundef 6) #5
-  %1844 = tail call i32 @rb_st_insert(ptr noundef %1842, i64 noundef 26, i64 noundef %1843) #5
-  %1845 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8
-  %1846 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.336, i64 noundef 12) #5
-  %1847 = tail call i32 @rb_st_insert(ptr noundef %1845, i64 noundef 16, i64 noundef %1846) #5
-  %1848 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8
-  %1849 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.285, i64 noundef 14) #5
-  %1850 = tail call i32 @rb_st_insert(ptr noundef %1848, i64 noundef 19, i64 noundef %1849) #5
-  %1851 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8
-  %1852 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.272, i64 noundef 12) #5
-  %1853 = tail call i32 @rb_st_insert(ptr noundef %1851, i64 noundef 17, i64 noundef %1852) #5
-  %1854 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8
-  %1855 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.344, i64 noundef 14) #5
-  %1856 = tail call i32 @rb_st_insert(ptr noundef %1854, i64 noundef 18, i64 noundef %1855) #5
-  %1857 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8
-  %1858 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.274, i64 noundef 12) #5
-  %1859 = tail call i32 @rb_st_insert(ptr noundef %1857, i64 noundef 23, i64 noundef %1858) #5
-  %1860 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8
-  %1861 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.325, i64 noundef 11) #5
-  %1862 = tail call i32 @rb_st_insert(ptr noundef %1860, i64 noundef 21, i64 noundef %1861) #5
-  %1863 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8
-  %1864 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.321, i64 noundef 10) #5
-  %1865 = tail call i32 @rb_st_insert(ptr noundef %1863, i64 noundef 20, i64 noundef %1864) #5
-  %1866 = tail call ptr @rb_st_init_numtable() #5
-  store ptr %1866, ptr @rsock_intern_tcp_optname_hash, align 8
-  %1867 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.401, i64 noundef 16) #5
-  %1868 = tail call i32 @rb_st_insert(ptr noundef %1866, i64 noundef 18, i64 noundef %1867) #5
-  %1869 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8
-  %1870 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.394, i64 noundef 13) #5
-  %1871 = tail call i32 @rb_st_insert(ptr noundef %1869, i64 noundef 24, i64 noundef %1870) #5
-  %1872 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8
-  %1873 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.406, i64 noundef 24) #5
-  %1874 = tail call i32 @rb_st_insert(ptr noundef %1872, i64 noundef 16, i64 noundef %1873) #5
-  %1875 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8
-  %1876 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.397, i64 noundef 15) #5
-  %1877 = tail call i32 @rb_st_insert(ptr noundef %1875, i64 noundef 17, i64 noundef %1876) #5
-  %1878 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8
-  %1879 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.400, i64 noundef 16) #5
-  %1880 = tail call i32 @rb_st_insert(ptr noundef %1878, i64 noundef 20, i64 noundef %1879) #5
-  %1881 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8
-  %1882 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.402, i64 noundef 18) #5
-  %1883 = tail call i32 @rb_st_insert(ptr noundef %1881, i64 noundef 22, i64 noundef %1882) #5
-  %1884 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8
-  %1885 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.379, i64 noundef 10) #5
-  %1886 = tail call i32 @rb_st_insert(ptr noundef %1884, i64 noundef 19, i64 noundef %1885) #5
-  %1887 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8
-  %1888 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.393, i64 noundef 13) #5
-  %1889 = tail call i32 @rb_st_insert(ptr noundef %1887, i64 noundef 21, i64 noundef %1888) #5
-  %1890 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8
-  %1891 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.405, i64 noundef 23) #5
-  %1892 = tail call i32 @rb_st_insert(ptr noundef %1890, i64 noundef 15, i64 noundef %1891) #5
-  %1893 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8
-  %1894 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.395, i64 noundef 14) #5
-  %1895 = tail call i32 @rb_st_insert(ptr noundef %1893, i64 noundef 13, i64 noundef %1894) #5
-  %1896 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8
-  %1897 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.387, i64 noundef 12) #5
-  %1898 = tail call i32 @rb_st_insert(ptr noundef %1896, i64 noundef 23, i64 noundef %1897) #5
-  %1899 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8
-  %1900 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.399, i64 noundef 16) #5
-  %1901 = tail call i32 @rb_st_insert(ptr noundef %1899, i64 noundef 10, i64 noundef %1900) #5
-  %1902 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8
-  %1903 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.378, i64 noundef 10) #5
-  %1904 = tail call i32 @rb_st_insert(ptr noundef %1902, i64 noundef 7, i64 noundef %1903) #5
-  %1905 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8
-  %1906 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.386, i64 noundef 12) #5
-  %1907 = tail call i32 @rb_st_insert(ptr noundef %1905, i64 noundef 12, i64 noundef %1906) #5
-  %1908 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8
-  %1909 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.377, i64 noundef 10) #5
-  %1910 = tail call i32 @rb_st_insert(ptr noundef %1908, i64 noundef 14, i64 noundef %1909) #5
-  %1911 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8
-  %1912 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.383, i64 noundef 11) #5
-  %1913 = tail call i32 @rb_st_insert(ptr noundef %1911, i64 noundef 8, i64 noundef %1912) #5
-  %1914 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8
-  %1915 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.392, i64 noundef 13) #5
-  %1916 = tail call i32 @rb_st_insert(ptr noundef %1914, i64 noundef 5, i64 noundef %1915) #5
-  %1917 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8
-  %1918 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.385, i64 noundef 12) #5
-  %1919 = tail call i32 @rb_st_insert(ptr noundef %1917, i64 noundef 4, i64 noundef %1918) #5
-  %1920 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8
-  %1921 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.382, i64 noundef 11) #5
-  %1922 = tail call i32 @rb_st_insert(ptr noundef %1920, i64 noundef 6, i64 noundef %1921) #5
-  %1923 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8
-  %1924 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.370, i64 noundef 8) #5
-  %1925 = tail call i32 @rb_st_insert(ptr noundef %1923, i64 noundef 11, i64 noundef %1924) #5
-  %1926 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8
-  %1927 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.398, i64 noundef 16) #5
-  %1928 = tail call i32 @rb_st_insert(ptr noundef %1926, i64 noundef 9, i64 noundef %1927) #5
-  %1929 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8
-  %1930 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.369, i64 noundef 8) #5
-  %1931 = tail call i32 @rb_st_insert(ptr noundef %1929, i64 noundef 3, i64 noundef %1930) #5
-  %1932 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8
-  %1933 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.376, i64 noundef 10) #5
-  %1934 = tail call i32 @rb_st_insert(ptr noundef %1932, i64 noundef 2, i64 noundef %1933) #5
-  %1935 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8
-  %1936 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.381, i64 noundef 11) #5
-  %1937 = tail call i32 @rb_st_insert(ptr noundef %1935, i64 noundef 1, i64 noundef %1936) #5
-  %1938 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8
-  %1939 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.391, i64 noundef 12) #5
-  %1940 = tail call i32 @rb_st_insert(ptr noundef %1938, i64 noundef 18, i64 noundef %1939) #5
-  %1941 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8
-  %1942 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.176, i64 noundef 9) #5
-  %1943 = tail call i32 @rb_st_insert(ptr noundef %1941, i64 noundef 24, i64 noundef %1942) #5
-  %1944 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8
-  %1945 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.404, i64 noundef 20) #5
-  %1946 = tail call i32 @rb_st_insert(ptr noundef %1944, i64 noundef 16, i64 noundef %1945) #5
-  %1947 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8
-  %1948 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.384, i64 noundef 11) #5
-  %1949 = tail call i32 @rb_st_insert(ptr noundef %1947, i64 noundef 17, i64 noundef %1948) #5
-  %1950 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8
-  %1951 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.390, i64 noundef 12) #5
-  %1952 = tail call i32 @rb_st_insert(ptr noundef %1950, i64 noundef 20, i64 noundef %1951) #5
-  %1953 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8
-  %1954 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.396, i64 noundef 14) #5
-  %1955 = tail call i32 @rb_st_insert(ptr noundef %1953, i64 noundef 22, i64 noundef %1954) #5
-  %1956 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8
-  %1957 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.365, i64 noundef 6) #5
-  %1958 = tail call i32 @rb_st_insert(ptr noundef %1956, i64 noundef 19, i64 noundef %1957) #5
-  %1959 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8
-  %1960 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.375, i64 noundef 9) #5
-  %1961 = tail call i32 @rb_st_insert(ptr noundef %1959, i64 noundef 21, i64 noundef %1960) #5
-  %1962 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8
-  %1963 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.403, i64 noundef 19) #5
-  %1964 = tail call i32 @rb_st_insert(ptr noundef %1962, i64 noundef 15, i64 noundef %1963) #5
-  %1965 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8
-  %1966 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.380, i64 noundef 10) #5
-  %1967 = tail call i32 @rb_st_insert(ptr noundef %1965, i64 noundef 13, i64 noundef %1966) #5
-  %1968 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8
-  %1969 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.373, i64 noundef 8) #5
-  %1970 = tail call i32 @rb_st_insert(ptr noundef %1968, i64 noundef 23, i64 noundef %1969) #5
-  %1971 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8
-  %1972 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.389, i64 noundef 12) #5
-  %1973 = tail call i32 @rb_st_insert(ptr noundef %1971, i64 noundef 10, i64 noundef %1972) #5
-  %1974 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8
-  %1975 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.364, i64 noundef 6) #5
-  %1976 = tail call i32 @rb_st_insert(ptr noundef %1974, i64 noundef 7, i64 noundef %1975) #5
-  %1977 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8
-  %1978 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.372, i64 noundef 8) #5
-  %1979 = tail call i32 @rb_st_insert(ptr noundef %1977, i64 noundef 12, i64 noundef %1978) #5
-  %1980 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8
-  %1981 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.363, i64 noundef 6) #5
-  %1982 = tail call i32 @rb_st_insert(ptr noundef %1980, i64 noundef 14, i64 noundef %1981) #5
-  %1983 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8
-  %1984 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.368, i64 noundef 7) #5
-  %1985 = tail call i32 @rb_st_insert(ptr noundef %1983, i64 noundef 8, i64 noundef %1984) #5
-  %1986 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8
-  %1987 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.374, i64 noundef 9) #5
-  %1988 = tail call i32 @rb_st_insert(ptr noundef %1986, i64 noundef 5, i64 noundef %1987) #5
-  %1989 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8
-  %1990 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.371, i64 noundef 8) #5
-  %1991 = tail call i32 @rb_st_insert(ptr noundef %1989, i64 noundef 4, i64 noundef %1990) #5
-  %1992 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8
-  %1993 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.367, i64 noundef 7) #5
-  %1994 = tail call i32 @rb_st_insert(ptr noundef %1992, i64 noundef 6, i64 noundef %1993) #5
-  %1995 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8
-  %1996 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.361, i64 noundef 4) #5
-  %1997 = tail call i32 @rb_st_insert(ptr noundef %1995, i64 noundef 11, i64 noundef %1996) #5
-  %1998 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8
-  %1999 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.388, i64 noundef 12) #5
-  %2000 = tail call i32 @rb_st_insert(ptr noundef %1998, i64 noundef 9, i64 noundef %1999) #5
-  %2001 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8
-  %2002 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.360, i64 noundef 4) #5
-  %2003 = tail call i32 @rb_st_insert(ptr noundef %2001, i64 noundef 3, i64 noundef %2002) #5
-  %2004 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8
-  %2005 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.362, i64 noundef 6) #5
-  %2006 = tail call i32 @rb_st_insert(ptr noundef %2004, i64 noundef 2, i64 noundef %2005) #5
-  %2007 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8
-  %2008 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.366, i64 noundef 7) #5
-  %2009 = tail call i32 @rb_st_insert(ptr noundef %2007, i64 noundef 1, i64 noundef %2008) #5
-  %2010 = tail call ptr @rb_st_init_numtable() #5
-  store ptr %2010, ptr @rsock_intern_udp_optname_hash, align 8
-  %2011 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.407, i64 noundef 8) #5
-  %2012 = tail call i32 @rb_st_insert(ptr noundef %2010, i64 noundef 1, i64 noundef %2011) #5
-  %2013 = load ptr, ptr @rsock_intern_udp_optname_hash, align 8
-  %2014 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.360, i64 noundef 4) #5
-  %2015 = tail call i32 @rb_st_insert(ptr noundef %2013, i64 noundef 1, i64 noundef %2014) #5
-  %2016 = tail call ptr @rb_st_init_numtable() #5
-  store ptr %2016, ptr @rsock_intern_scm_optname_hash, align 8
-  %2017 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.420, i64 noundef 15) #5
-  %2018 = tail call i32 @rb_st_insert(ptr noundef %2016, i64 noundef 41, i64 noundef %2017) #5
-  %2019 = load ptr, ptr @rsock_intern_scm_optname_hash, align 8
-  %2020 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.419, i64 noundef 15) #5
-  %2021 = tail call i32 @rb_st_insert(ptr noundef %2019, i64 noundef 2, i64 noundef %2020) #5
-  %2022 = load ptr, ptr @rsock_intern_scm_optname_hash, align 8
-  %2023 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.421, i64 noundef 16) #5
-  %2024 = tail call i32 @rb_st_insert(ptr noundef %2022, i64 noundef 37, i64 noundef %2023) #5
-  %2025 = load ptr, ptr @rsock_intern_scm_optname_hash, align 8
-  %2026 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.418, i64 noundef 15) #5
-  %2027 = tail call i32 @rb_st_insert(ptr noundef %2025, i64 noundef 35, i64 noundef %2026) #5
-  %2028 = load ptr, ptr @rsock_intern_scm_optname_hash, align 8
-  %2029 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.417, i64 noundef 13) #5
-  %2030 = tail call i32 @rb_st_insert(ptr noundef %2028, i64 noundef 29, i64 noundef %2029) #5
-  %2031 = load ptr, ptr @rsock_intern_scm_optname_hash, align 8
-  %2032 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.415, i64 noundef 10) #5
-  %2033 = tail call i32 @rb_st_insert(ptr noundef %2031, i64 noundef 1, i64 noundef %2032) #5
-  %2034 = load ptr, ptr @rsock_intern_scm_optname_hash, align 8
-  %2035 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.197, i64 noundef 11) #5
-  %2036 = tail call i32 @rb_st_insert(ptr noundef %2034, i64 noundef 41, i64 noundef %2035) #5
-  %2037 = load ptr, ptr @rsock_intern_scm_optname_hash, align 8
-  %2038 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.416, i64 noundef 11) #5
-  %2039 = tail call i32 @rb_st_insert(ptr noundef %2037, i64 noundef 2, i64 noundef %2038) #5
-  %2040 = load ptr, ptr @rsock_intern_scm_optname_hash, align 8
-  %2041 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.208, i64 noundef 12) #5
-  %2042 = tail call i32 @rb_st_insert(ptr noundef %2040, i64 noundef 37, i64 noundef %2041) #5
-  %2043 = load ptr, ptr @rsock_intern_scm_optname_hash, align 8
-  %2044 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.196, i64 noundef 11) #5
-  %2045 = tail call i32 @rb_st_insert(ptr noundef %2043, i64 noundef 35, i64 noundef %2044) #5
-  %2046 = load ptr, ptr @rsock_intern_scm_optname_hash, align 8
-  %2047 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.176, i64 noundef 9) #5
-  %2048 = tail call i32 @rb_st_insert(ptr noundef %2046, i64 noundef 29, i64 noundef %2047) #5
-  %2049 = load ptr, ptr @rsock_intern_scm_optname_hash, align 8
-  %2050 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.414, i64 noundef 6) #5
-  %2051 = tail call i32 @rb_st_insert(ptr noundef %2049, i64 noundef 1, i64 noundef %2050) #5
-  %2052 = tail call ptr @rb_st_init_numtable() #5
-  store ptr %2052, ptr @rsock_intern_local_optname_hash, align 8
+  %1 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  %2 = tail call i64 @rb_define_module_under(i64 noundef %1, ptr noundef nonnull @.str.437) #6
+  store i64 %2, ptr @rb_mSockConst, align 8, !tbaa !21
+  %3 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %3, ptr noundef nonnull @.str.94, i64 noundef 3) #6
+  %4 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %4, ptr noundef nonnull @.str.94, i64 noundef 3) #6
+  %5 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %5, ptr noundef nonnull @.str.93, i64 noundef 5) #6
+  %6 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %6, ptr noundef nonnull @.str.93, i64 noundef 5) #6
+  %7 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %7, ptr noundef nonnull @.str.89, i64 noundef 7) #6
+  %8 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %8, ptr noundef nonnull @.str.89, i64 noundef 7) #6
+  %9 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %9, ptr noundef nonnull @.str.90, i64 noundef 9) #6
+  %10 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %10, ptr noundef nonnull @.str.90, i64 noundef 9) #6
+  %11 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %11, ptr noundef nonnull @.str.98, i64 noundef 11) #6
+  %12 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %12, ptr noundef nonnull @.str.98, i64 noundef 11) #6
+  %13 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %13, ptr noundef nonnull @.str.95, i64 noundef 21) #6
+  %14 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %14, ptr noundef nonnull @.str.95, i64 noundef 21) #6
+  %15 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %15, ptr noundef nonnull @.str.97, i64 noundef 4097) #6
+  %16 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %16, ptr noundef nonnull @.str.97, i64 noundef 4097) #6
+  %17 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %17, ptr noundef nonnull @.str.96, i64 noundef 1048577) #6
+  %18 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %18, ptr noundef nonnull @.str.96, i64 noundef 1048577) #6
+  %19 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %19, ptr noundef nonnull @.str.70, i64 noundef 1) #6
+  %20 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %20, ptr noundef nonnull @.str.70, i64 noundef 1) #6
+  %21 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %21, ptr noundef nonnull @.str.71, i64 noundef 1) #6
+  %22 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %22, ptr noundef nonnull @.str.71, i64 noundef 1) #6
+  %23 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %23, ptr noundef nonnull @.str.47, i64 noundef 5) #6
+  %24 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %24, ptr noundef nonnull @.str.47, i64 noundef 5) #6
+  %25 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %25, ptr noundef nonnull @.str.48, i64 noundef 5) #6
+  %26 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %26, ptr noundef nonnull @.str.48, i64 noundef 5) #6
+  %27 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %27, ptr noundef nonnull @.str.60, i64 noundef 21) #6
+  %28 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %28, ptr noundef nonnull @.str.60, i64 noundef 21) #6
+  %29 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %29, ptr noundef nonnull @.str.61, i64 noundef 21) #6
+  %30 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %30, ptr noundef nonnull @.str.61, i64 noundef 21) #6
+  %31 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %31, ptr noundef nonnull @.str.49, i64 noundef 3) #6
+  %32 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %32, ptr noundef nonnull @.str.49, i64 noundef 3) #6
+  %33 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %33, ptr noundef nonnull @.str.50, i64 noundef 3) #6
+  %34 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %34, ptr noundef nonnull @.str.50, i64 noundef 3) #6
+  %35 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %35, ptr noundef nonnull @.str.51, i64 noundef 7) #6
+  %36 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %36, ptr noundef nonnull @.str.51, i64 noundef 7) #6
+  %37 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %37, ptr noundef nonnull @.str.52, i64 noundef 7) #6
+  %38 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %38, ptr noundef nonnull @.str.52, i64 noundef 7) #6
+  %39 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %39, ptr noundef nonnull @.str.24, i64 noundef 9) #6
+  %40 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %40, ptr noundef nonnull @.str.24, i64 noundef 9) #6
+  %41 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %41, ptr noundef nonnull @.str.25, i64 noundef 9) #6
+  %42 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %42, ptr noundef nonnull @.str.25, i64 noundef 9) #6
+  %43 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %43, ptr noundef nonnull @.str.80, i64 noundef 11) #6
+  %44 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %44, ptr noundef nonnull @.str.80, i64 noundef 11) #6
+  %45 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %45, ptr noundef nonnull @.str.81, i64 noundef 11) #6
+  %46 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %46, ptr noundef nonnull @.str.81, i64 noundef 11) #6
+  %47 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %47, ptr noundef nonnull @.str.62, i64 noundef 3) #6
+  %48 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %48, ptr noundef nonnull @.str.62, i64 noundef 3) #6
+  %49 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %49, ptr noundef nonnull @.str.63, i64 noundef 3) #6
+  %50 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %50, ptr noundef nonnull @.str.63, i64 noundef 3) #6
+  %51 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %51, ptr noundef nonnull @.str.26, i64 noundef 45) #6
+  %52 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %52, ptr noundef nonnull @.str.26, i64 noundef 45) #6
+  %53 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %53, ptr noundef nonnull @.str.27, i64 noundef 45) #6
+  %54 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %54, ptr noundef nonnull @.str.27, i64 noundef 45) #6
+  %55 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %55, ptr noundef nonnull @.str.72, i64 noundef 25) #6
+  %56 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %56, ptr noundef nonnull @.str.72, i64 noundef 25) #6
+  %57 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %57, ptr noundef nonnull @.str.73, i64 noundef 25) #6
+  %58 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %58, ptr noundef nonnull @.str.73, i64 noundef 25) #6
+  %59 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %59, ptr noundef nonnull @.str.64, i64 noundef 33) #6
+  %60 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %60, ptr noundef nonnull @.str.64, i64 noundef 33) #6
+  %61 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %61, ptr noundef nonnull @.str.65, i64 noundef 33) #6
+  %62 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %62, ptr noundef nonnull @.str.65, i64 noundef 33) #6
+  %63 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %63, ptr noundef nonnull @.str.53, i64 noundef 69) #6
+  %64 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %64, ptr noundef nonnull @.str.53, i64 noundef 69) #6
+  %65 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %65, ptr noundef nonnull @.str.54, i64 noundef 69) #6
+  %66 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %66, ptr noundef nonnull @.str.54, i64 noundef 69) #6
+  %67 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %67, ptr noundef nonnull @.str.28, i64 noundef 93) #6
+  %68 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %68, ptr noundef nonnull @.str.28, i64 noundef 93) #6
+  %69 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %69, ptr noundef nonnull @.str.29, i64 noundef 93) #6
+  %70 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %70, ptr noundef nonnull @.str.29, i64 noundef 93) #6
+  %71 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %71, ptr noundef nonnull @.str.74, i64 noundef 35) #6
+  %72 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %72, ptr noundef nonnull @.str.74, i64 noundef 35) #6
+  %73 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %73, ptr noundef nonnull @.str.75, i64 noundef 35) #6
+  %74 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %74, ptr noundef nonnull @.str.75, i64 noundef 35) #6
+  %75 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %75, ptr noundef nonnull @.str.30, i64 noundef 31) #6
+  %76 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %76, ptr noundef nonnull @.str.30, i64 noundef 31) #6
+  %77 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %77, ptr noundef nonnull @.str.31, i64 noundef 31) #6
+  %78 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %78, ptr noundef nonnull @.str.31, i64 noundef 31) #6
+  %79 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %79, ptr noundef nonnull @.str.78, i64 noundef 33) #6
+  %80 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %80, ptr noundef nonnull @.str.78, i64 noundef 33) #6
+  %81 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %81, ptr noundef nonnull @.str.79, i64 noundef 33) #6
+  %82 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %82, ptr noundef nonnull @.str.79, i64 noundef 33) #6
+  %83 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %83, ptr noundef nonnull @.str.32, i64 noundef 43) #6
+  %84 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %84, ptr noundef nonnull @.str.32, i64 noundef 43) #6
+  %85 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %85, ptr noundef nonnull @.str.33, i64 noundef 43) #6
+  %86 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %86, ptr noundef nonnull @.str.33, i64 noundef 43) #6
+  %87 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %87, ptr noundef nonnull @.str.66, i64 noundef 49) #6
+  %88 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %88, ptr noundef nonnull @.str.66, i64 noundef 49) #6
+  %89 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %89, ptr noundef nonnull @.str.67, i64 noundef 49) #6
+  %90 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %90, ptr noundef nonnull @.str.67, i64 noundef 49) #6
+  %91 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %91, ptr noundef nonnull @.str.34, i64 noundef 53) #6
+  %92 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %92, ptr noundef nonnull @.str.34, i64 noundef 53) #6
+  %93 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %93, ptr noundef nonnull @.str.35, i64 noundef 53) #6
+  %94 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %94, ptr noundef nonnull @.str.35, i64 noundef 53) #6
+  %95 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %95, ptr noundef nonnull @.str.17, i64 noundef 55) #6
+  %96 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %96, ptr noundef nonnull @.str.17, i64 noundef 55) #6
+  %97 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %97, ptr noundef nonnull @.str.18, i64 noundef 55) #6
+  %98 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %98, ptr noundef nonnull @.str.18, i64 noundef 55) #6
+  %99 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %99, ptr noundef nonnull @.str.55, i64 noundef 57) #6
+  %100 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %100, ptr noundef nonnull @.str.55, i64 noundef 57) #6
+  %101 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %101, ptr noundef nonnull @.str.56, i64 noundef 57) #6
+  %102 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %102, ptr noundef nonnull @.str.56, i64 noundef 57) #6
+  %103 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %103, ptr noundef nonnull @.str.36, i64 noundef 59) #6
+  %104 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %104, ptr noundef nonnull @.str.36, i64 noundef 59) #6
+  %105 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %105, ptr noundef nonnull @.str.37, i64 noundef 59) #6
+  %106 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %106, ptr noundef nonnull @.str.37, i64 noundef 59) #6
+  %107 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %107, ptr noundef nonnull @.str.57, i64 noundef 61) #6
+  %108 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %108, ptr noundef nonnull @.str.57, i64 noundef 61) #6
+  %109 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %109, ptr noundef nonnull @.str.58, i64 noundef 61) #6
+  %110 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %110, ptr noundef nonnull @.str.58, i64 noundef 61) #6
+  %111 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %111, ptr noundef nonnull @.str.82, i64 noundef 63) #6
+  %112 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %112, ptr noundef nonnull @.str.82, i64 noundef 63) #6
+  %113 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %113, ptr noundef nonnull @.str.83, i64 noundef 63) #6
+  %114 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %114, ptr noundef nonnull @.str.83, i64 noundef 63) #6
+  %115 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %115, ptr noundef nonnull @.str.38, i64 noundef 77) #6
+  %116 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %116, ptr noundef nonnull @.str.38, i64 noundef 77) #6
+  %117 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %117, ptr noundef nonnull @.str.39, i64 noundef 77) #6
+  %118 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %118, ptr noundef nonnull @.str.39, i64 noundef 77) #6
+  %119 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %119, ptr noundef nonnull @.str.68, i64 noundef 81) #6
+  %120 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %120, ptr noundef nonnull @.str.68, i64 noundef 81) #6
+  %121 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %121, ptr noundef nonnull @.str.69, i64 noundef 81) #6
+  %122 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %122, ptr noundef nonnull @.str.69, i64 noundef 81) #6
+  %123 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %123, ptr noundef nonnull @.str.40, i64 noundef 83) #6
+  %124 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %124, ptr noundef nonnull @.str.40, i64 noundef 83) #6
+  %125 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %125, ptr noundef nonnull @.str.41, i64 noundef 83) #6
+  %126 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %126, ptr noundef nonnull @.str.41, i64 noundef 83) #6
+  %127 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %127, ptr noundef nonnull @.str.42, i64 noundef 89) #6
+  %128 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %128, ptr noundef nonnull @.str.42, i64 noundef 89) #6
+  %129 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %129, ptr noundef nonnull @.str.43, i64 noundef 89) #6
+  %130 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %130, ptr noundef nonnull @.str.43, i64 noundef 89) #6
+  %131 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %131, ptr noundef nonnull @.str.438, i64 noundef 3) #6
+  %132 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %132, ptr noundef nonnull @.str.438, i64 noundef 3) #6
+  %133 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %133, ptr noundef nonnull @.str.439, i64 noundef 5) #6
+  %134 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %134, ptr noundef nonnull @.str.439, i64 noundef 5) #6
+  %135 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %135, ptr noundef nonnull @.str.440, i64 noundef 9) #6
+  %136 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %136, ptr noundef nonnull @.str.440, i64 noundef 9) #6
+  %137 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %137, ptr noundef nonnull @.str.441, i64 noundef 257) #6
+  %138 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %138, ptr noundef nonnull @.str.441, i64 noundef 257) #6
+  %139 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %139, ptr noundef nonnull @.str.442, i64 noundef 65) #6
+  %140 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %140, ptr noundef nonnull @.str.442, i64 noundef 65) #6
+  %141 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %141, ptr noundef nonnull @.str.443, i64 noundef 17) #6
+  %142 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %142, ptr noundef nonnull @.str.443, i64 noundef 17) #6
+  %143 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %143, ptr noundef nonnull @.str.444, i64 noundef 513) #6
+  %144 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %144, ptr noundef nonnull @.str.444, i64 noundef 513) #6
+  %145 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %145, ptr noundef nonnull @.str.445, i64 noundef 129) #6
+  %146 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %146, ptr noundef nonnull @.str.445, i64 noundef 129) #6
+  %147 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %147, ptr noundef nonnull @.str.446, i64 noundef 33) #6
+  %148 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %148, ptr noundef nonnull @.str.446, i64 noundef 33) #6
+  %149 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %149, ptr noundef nonnull @.str.447, i64 noundef 1025) #6
+  %150 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %150, ptr noundef nonnull @.str.447, i64 noundef 1025) #6
+  %151 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %151, ptr noundef nonnull @.str.448, i64 noundef 2049) #6
+  %152 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %152, ptr noundef nonnull @.str.448, i64 noundef 2049) #6
+  %153 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %153, ptr noundef nonnull @.str.449, i64 noundef 4097) #6
+  %154 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %154, ptr noundef nonnull @.str.449, i64 noundef 4097) #6
+  %155 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %155, ptr noundef nonnull @.str.450, i64 noundef 8193) #6
+  %156 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %156, ptr noundef nonnull @.str.450, i64 noundef 8193) #6
+  %157 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %157, ptr noundef nonnull @.str.451, i64 noundef 16385) #6
+  %158 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %158, ptr noundef nonnull @.str.451, i64 noundef 16385) #6
+  %159 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %159, ptr noundef nonnull @.str.452, i64 noundef 32769) #6
+  %160 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %160, ptr noundef nonnull @.str.452, i64 noundef 32769) #6
+  %161 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %161, ptr noundef nonnull @.str.453, i64 noundef 65537) #6
+  %162 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %162, ptr noundef nonnull @.str.453, i64 noundef 65537) #6
+  %163 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %163, ptr noundef nonnull @.str.454, i64 noundef 1073741825) #6
+  %164 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %164, ptr noundef nonnull @.str.454, i64 noundef 1073741825) #6
+  %165 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %165, ptr noundef nonnull @.str.137, i64 noundef 3) #6
+  %166 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %166, ptr noundef nonnull @.str.137, i64 noundef 3) #6
+  %167 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %167, ptr noundef nonnull @.str.455, i64 noundef 1) #6
+  %168 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %168, ptr noundef nonnull @.str.455, i64 noundef 1) #6
+  %169 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %169, ptr noundef nonnull @.str.456, i64 noundef 13) #6
+  %170 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %170, ptr noundef nonnull @.str.456, i64 noundef 13) #6
+  %171 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %171, ptr noundef nonnull @.str.457, i64 noundef 35) #6
+  %172 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %172, ptr noundef nonnull @.str.457, i64 noundef 35) #6
+  %173 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %173, ptr noundef nonnull @.str.117, i64 noundef 1) #6
+  %174 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %174, ptr noundef nonnull @.str.117, i64 noundef 1) #6
+  %175 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %175, ptr noundef nonnull @.str.127, i64 noundef 3) #6
+  %176 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %176, ptr noundef nonnull @.str.127, i64 noundef 3) #6
+  %177 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %177, ptr noundef nonnull @.str.128, i64 noundef 5) #6
+  %178 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %178, ptr noundef nonnull @.str.128, i64 noundef 5) #6
+  %179 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %179, ptr noundef nonnull @.str.120, i64 noundef 13) #6
+  %180 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %180, ptr noundef nonnull @.str.120, i64 noundef 13) #6
+  %181 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %181, ptr noundef nonnull @.str.121, i64 noundef 17) #6
+  %182 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %182, ptr noundef nonnull @.str.121, i64 noundef 17) #6
+  %183 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %183, ptr noundef nonnull @.str.122, i64 noundef 25) #6
+  %184 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %184, ptr noundef nonnull @.str.122, i64 noundef 25) #6
+  %185 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %185, ptr noundef nonnull @.str.123, i64 noundef 35) #6
+  %186 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %186, ptr noundef nonnull @.str.123, i64 noundef 35) #6
+  %187 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %187, ptr noundef nonnull @.str.124, i64 noundef 45) #6
+  %188 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %188, ptr noundef nonnull @.str.124, i64 noundef 45) #6
+  %189 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %189, ptr noundef nonnull @.str.118, i64 noundef 59) #6
+  %190 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %190, ptr noundef nonnull @.str.118, i64 noundef 59) #6
+  %191 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %191, ptr noundef nonnull @.str.119, i64 noundef 103) #6
+  %192 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %192, ptr noundef nonnull @.str.119, i64 noundef 103) #6
+  %193 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %193, ptr noundef nonnull @.str.132, i64 noundef 121) #6
+  %194 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %194, ptr noundef nonnull @.str.132, i64 noundef 121) #6
+  %195 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %195, ptr noundef nonnull @.str.125, i64 noundef 101) #6
+  %196 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %196, ptr noundef nonnull @.str.125, i64 noundef 101) #6
+  %197 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %197, ptr noundef nonnull @.str.135, i64 noundef 89) #6
+  %198 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %198, ptr noundef nonnull @.str.135, i64 noundef 89) #6
+  %199 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %199, ptr noundef nonnull @.str.133, i64 noundef 1) #6
+  %200 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %200, ptr noundef nonnull @.str.133, i64 noundef 1) #6
+  %201 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %201, ptr noundef nonnull @.str.131, i64 noundef 117) #6
+  %202 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %202, ptr noundef nonnull @.str.131, i64 noundef 117) #6
+  %203 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %203, ptr noundef nonnull @.str.129, i64 noundef 83) #6
+  %204 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %204, ptr noundef nonnull @.str.129, i64 noundef 83) #6
+  %205 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %205, ptr noundef nonnull @.str.130, i64 noundef 119) #6
+  %206 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %206, ptr noundef nonnull @.str.130, i64 noundef 119) #6
+  %207 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %207, ptr noundef nonnull @.str.134, i64 noundef 87) #6
+  %208 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %208, ptr noundef nonnull @.str.134, i64 noundef 87) #6
+  %209 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %209, ptr noundef nonnull @.str.126, i64 noundef 511) #6
+  %210 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %210, ptr noundef nonnull @.str.126, i64 noundef 511) #6
+  %211 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %211, ptr noundef nonnull @.str.458, i64 noundef 2049) #6
+  %212 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %212, ptr noundef nonnull @.str.458, i64 noundef 2049) #6
+  %213 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %213, ptr noundef nonnull @.str.459, i64 noundef 10001) #6
+  %214 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %214, ptr noundef nonnull @.str.459, i64 noundef 10001) #6
+  %215 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %215, ptr noundef nonnull @.str.460, i64 noundef 1) #6
+  %216 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %216, ptr noundef nonnull @.str.460, i64 noundef 1) #6
+  %217 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %217, ptr noundef nonnull @.str.461, i64 noundef 8589934591) #6
+  %218 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %218, ptr noundef nonnull @.str.461, i64 noundef 8589934591) #6
+  %219 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %219, ptr noundef nonnull @.str.462, i64 noundef 4261412867) #6
+  %220 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %220, ptr noundef nonnull @.str.462, i64 noundef 4261412867) #6
+  %221 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %221, ptr noundef nonnull @.str.463, i64 noundef 7516192769) #6
+  %222 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %222, ptr noundef nonnull @.str.463, i64 noundef 7516192769) #6
+  %223 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %223, ptr noundef nonnull @.str.464, i64 noundef 7516192771) #6
+  %224 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %224, ptr noundef nonnull @.str.464, i64 noundef 7516192771) #6
+  %225 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %225, ptr noundef nonnull @.str.465, i64 noundef 7516193279) #6
+  %226 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %226, ptr noundef nonnull @.str.465, i64 noundef 7516193279) #6
+  %227 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %227, ptr noundef nonnull @.str.466, i64 noundef 8589934591) #6
+  %228 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %228, ptr noundef nonnull @.str.466, i64 noundef 8589934591) #6
+  %229 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %229, ptr noundef nonnull @.str.256, i64 noundef 9) #6
+  %230 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %230, ptr noundef nonnull @.str.256, i64 noundef 9) #6
+  %231 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %231, ptr noundef nonnull @.str.257, i64 noundef 7) #6
+  %232 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %232, ptr noundef nonnull @.str.257, i64 noundef 7) #6
+  %233 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %233, ptr noundef nonnull @.str.241, i64 noundef 3) #6
+  %234 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %234, ptr noundef nonnull @.str.241, i64 noundef 3) #6
+  %235 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %235, ptr noundef nonnull @.str.242, i64 noundef 5) #6
+  %236 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %236, ptr noundef nonnull @.str.242, i64 noundef 5) #6
+  %237 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %237, ptr noundef nonnull @.str.265, i64 noundef 13) #6
+  %238 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %238, ptr noundef nonnull @.str.265, i64 noundef 13) #6
+  %239 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %239, ptr noundef nonnull @.str.281, i64 noundef 15) #6
+  %240 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %240, ptr noundef nonnull @.str.281, i64 noundef 15) #6
+  %241 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %241, ptr noundef nonnull @.str.258, i64 noundef 15) #6
+  %242 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %242, ptr noundef nonnull @.str.258, i64 noundef 15) #6
+  %243 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %243, ptr noundef nonnull @.str.255, i64 noundef 43) #6
+  %244 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %244, ptr noundef nonnull @.str.255, i64 noundef 43) #6
+  %245 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %245, ptr noundef nonnull @.str.259, i64 noundef 25) #6
+  %246 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %246, ptr noundef nonnull @.str.259, i64 noundef 25) #6
+  %247 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %247, ptr noundef nonnull @.str.288, i64 noundef 65) #6
+  %248 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %248, ptr noundef nonnull @.str.288, i64 noundef 65) #6
+  %249 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %249, ptr noundef nonnull @.str.295, i64 noundef 67) #6
+  %250 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %250, ptr noundef nonnull @.str.295, i64 noundef 67) #6
+  %251 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %251, ptr noundef nonnull @.str.298, i64 noundef 69) #6
+  %252 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %252, ptr noundef nonnull @.str.298, i64 noundef 69) #6
+  %253 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %253, ptr noundef nonnull @.str.299, i64 noundef 71) #6
+  %254 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %254, ptr noundef nonnull @.str.299, i64 noundef 71) #6
+  %255 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %255, ptr noundef nonnull @.str.301, i64 noundef 73) #6
+  %256 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %256, ptr noundef nonnull @.str.301, i64 noundef 73) #6
+  %257 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %257, ptr noundef nonnull @.str.307, i64 noundef 3) #6
+  %258 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %258, ptr noundef nonnull @.str.307, i64 noundef 3) #6
+  %259 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %259, ptr noundef nonnull @.str.309, i64 noundef 3) #6
+  %260 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %260, ptr noundef nonnull @.str.309, i64 noundef 3) #6
+  %261 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %261, ptr noundef nonnull @.str.302, i64 noundef 41) #6
+  %262 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %262, ptr noundef nonnull @.str.302, i64 noundef 41) #6
+  %263 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %263, ptr noundef nonnull @.str.289, i64 noundef 11) #6
+  %264 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %264, ptr noundef nonnull @.str.289, i64 noundef 11) #6
+  %265 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %265, ptr noundef nonnull @.str.260, i64 noundef 17) #6
+  %266 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %266, ptr noundef nonnull @.str.260, i64 noundef 17) #6
+  %267 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %267, ptr noundef nonnull @.str.277, i64 noundef 19) #6
+  %268 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %268, ptr noundef nonnull @.str.277, i64 noundef 19) #6
+  %269 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %269, ptr noundef nonnull @.str.290, i64 noundef 21) #6
+  %270 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %270, ptr noundef nonnull @.str.290, i64 noundef 21) #6
+  %271 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %271, ptr noundef nonnull @.str.261, i64 noundef 23) #6
+  %272 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %272, ptr noundef nonnull @.str.261, i64 noundef 23) #6
+  %273 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %273, ptr noundef nonnull @.str.262, i64 noundef 27) #6
+  %274 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %274, ptr noundef nonnull @.str.262, i64 noundef 27) #6
+  %275 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %275, ptr noundef nonnull @.str.243, i64 noundef 29) #6
+  %276 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %276, ptr noundef nonnull @.str.243, i64 noundef 29) #6
+  %277 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %277, ptr noundef nonnull @.str.266, i64 noundef 31) #6
+  %278 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %278, ptr noundef nonnull @.str.266, i64 noundef 31) #6
+  %279 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %279, ptr noundef nonnull @.str.291, i64 noundef 33) #6
+  %280 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %280, ptr noundef nonnull @.str.291, i64 noundef 33) #6
+  %281 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %281, ptr noundef nonnull @.str.282, i64 noundef 35) #6
+  %282 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %282, ptr noundef nonnull @.str.282, i64 noundef 35) #6
+  %283 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %283, ptr noundef nonnull @.str.263, i64 noundef 37) #6
+  %284 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %284, ptr noundef nonnull @.str.263, i64 noundef 37) #6
+  %285 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %285, ptr noundef nonnull @.str.283, i64 noundef 39) #6
+  %286 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %286, ptr noundef nonnull @.str.283, i64 noundef 39) #6
+  %287 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %287, ptr noundef nonnull @.str.296, i64 noundef 1) #6
+  %288 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %288, ptr noundef nonnull @.str.296, i64 noundef 1) #6
+  %289 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %289, ptr noundef nonnull @.str.297, i64 noundef 3) #6
+  %290 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %290, ptr noundef nonnull @.str.297, i64 noundef 3) #6
+  %291 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %291, ptr noundef nonnull @.str.284, i64 noundef 5) #6
+  %292 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %292, ptr noundef nonnull @.str.284, i64 noundef 5) #6
+  %293 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %293, ptr noundef nonnull @.str.300, i64 noundef 75) #6
+  %294 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %294, ptr noundef nonnull @.str.300, i64 noundef 75) #6
+  %295 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %295, ptr noundef nonnull @.str.292, i64 noundef 77) #6
+  %296 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %296, ptr noundef nonnull @.str.292, i64 noundef 77) #6
+  %297 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %297, ptr noundef nonnull @.str.308, i64 noundef 79) #6
+  %298 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %298, ptr noundef nonnull @.str.308, i64 noundef 79) #6
+  %299 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %299, ptr noundef nonnull @.str.310, i64 noundef 81) #6
+  %300 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %300, ptr noundef nonnull @.str.310, i64 noundef 81) #6
+  %301 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %301, ptr noundef nonnull @.str.267, i64 noundef 83) #6
+  %302 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %302, ptr noundef nonnull @.str.267, i64 noundef 83) #6
+  %303 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %303, ptr noundef nonnull @.str.467, i64 noundef 85) #6
+  %304 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %304, ptr noundef nonnull @.str.467, i64 noundef 85) #6
+  %305 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %305, ptr noundef nonnull @.str.468, i64 noundef 87) #6
+  %306 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %306, ptr noundef nonnull @.str.468, i64 noundef 87) #6
+  %307 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %307, ptr noundef nonnull @.str.469, i64 noundef 89) #6
+  %308 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %308, ptr noundef nonnull @.str.469, i64 noundef 89) #6
+  %309 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %309, ptr noundef nonnull @.str.470, i64 noundef 91) #6
+  %310 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %310, ptr noundef nonnull @.str.470, i64 noundef 91) #6
+  %311 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %311, ptr noundef nonnull @.str.471, i64 noundef 93) #6
+  %312 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %312, ptr noundef nonnull @.str.471, i64 noundef 93) #6
+  %313 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %313, ptr noundef nonnull @.str.472, i64 noundef 95) #6
+  %314 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %314, ptr noundef nonnull @.str.472, i64 noundef 95) #6
+  %315 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %315, ptr noundef nonnull @.str.473, i64 noundef 97) #6
+  %316 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %316, ptr noundef nonnull @.str.473, i64 noundef 97) #6
+  %317 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %317, ptr noundef nonnull @.str.474, i64 noundef 1) #6
+  %318 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %318, ptr noundef nonnull @.str.474, i64 noundef 1) #6
+  %319 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %319, ptr noundef nonnull @.str.475, i64 noundef 3) #6
+  %320 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %320, ptr noundef nonnull @.str.475, i64 noundef 3) #6
+  %321 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %321, ptr noundef nonnull @.str.151, i64 noundef 3) #6
+  %322 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %322, ptr noundef nonnull @.str.151, i64 noundef 3) #6
+  %323 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %323, ptr noundef nonnull @.str.199, i64 noundef 5) #6
+  %324 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %324, ptr noundef nonnull @.str.199, i64 noundef 5) #6
+  %325 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %325, ptr noundef nonnull @.str.200, i64 noundef 31) #6
+  %326 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %326, ptr noundef nonnull @.str.200, i64 noundef 31) #6
+  %327 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %327, ptr noundef nonnull @.str.147, i64 noundef 7) #6
+  %328 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %328, ptr noundef nonnull @.str.147, i64 noundef 7) #6
+  %329 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %329, ptr noundef nonnull @.str.152, i64 noundef 9) #6
+  %330 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %330, ptr noundef nonnull @.str.152, i64 noundef 9) #6
+  %331 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %331, ptr noundef nonnull @.str.201, i64 noundef 11) #6
+  %332 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %332, ptr noundef nonnull @.str.201, i64 noundef 11) #6
+  %333 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %333, ptr noundef nonnull @.str.202, i64 noundef 13) #6
+  %334 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %334, ptr noundef nonnull @.str.202, i64 noundef 13) #6
+  %335 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %335, ptr noundef nonnull @.str.166, i64 noundef 15) #6
+  %336 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %336, ptr noundef nonnull @.str.166, i64 noundef 15) #6
+  %337 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %337, ptr noundef nonnull @.str.167, i64 noundef 17) #6
+  %338 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %338, ptr noundef nonnull @.str.167, i64 noundef 17) #6
+  %339 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %339, ptr noundef nonnull @.str.214, i64 noundef 65) #6
+  %340 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %340, ptr noundef nonnull @.str.214, i64 noundef 65) #6
+  %341 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %341, ptr noundef nonnull @.str.215, i64 noundef 67) #6
+  %342 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %342, ptr noundef nonnull @.str.215, i64 noundef 67) #6
+  %343 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %343, ptr noundef nonnull @.str.203, i64 noundef 19) #6
+  %344 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %344, ptr noundef nonnull @.str.203, i64 noundef 19) #6
+  %345 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %345, ptr noundef nonnull @.str.204, i64 noundef 21) #6
+  %346 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %346, ptr noundef nonnull @.str.204, i64 noundef 21) #6
+  %347 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %347, ptr noundef nonnull @.str.182, i64 noundef 23) #6
+  %348 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %348, ptr noundef nonnull @.str.182, i64 noundef 23) #6
+  %349 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %349, ptr noundef nonnull @.str.183, i64 noundef 25) #6
+  %350 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %350, ptr noundef nonnull @.str.183, i64 noundef 25) #6
+  %351 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %351, ptr noundef nonnull @.str.168, i64 noundef 27) #6
+  %352 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %352, ptr noundef nonnull @.str.168, i64 noundef 27) #6
+  %353 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %353, ptr noundef nonnull @.str.184, i64 noundef 33) #6
+  %354 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %354, ptr noundef nonnull @.str.184, i64 noundef 33) #6
+  %355 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %355, ptr noundef nonnull @.str.185, i64 noundef 35) #6
+  %356 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %356, ptr noundef nonnull @.str.185, i64 noundef 35) #6
+  %357 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %357, ptr noundef nonnull @.str.186, i64 noundef 37) #6
+  %358 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %358, ptr noundef nonnull @.str.186, i64 noundef 37) #6
+  %359 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %359, ptr noundef nonnull @.str.187, i64 noundef 39) #6
+  %360 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %360, ptr noundef nonnull @.str.187, i64 noundef 39) #6
+  %361 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %361, ptr noundef nonnull @.str.188, i64 noundef 41) #6
+  %362 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %362, ptr noundef nonnull @.str.188, i64 noundef 41) #6
+  %363 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %363, ptr noundef nonnull @.str.189, i64 noundef 43) #6
+  %364 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %364, ptr noundef nonnull @.str.189, i64 noundef 43) #6
+  %365 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %365, ptr noundef nonnull @.str.210, i64 noundef 61) #6
+  %366 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %366, ptr noundef nonnull @.str.210, i64 noundef 61) #6
+  %367 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %367, ptr noundef nonnull @.str.233, i64 noundef 45) #6
+  %368 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %368, ptr noundef nonnull @.str.233, i64 noundef 45) #6
+  %369 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %369, ptr noundef nonnull @.str.237, i64 noundef 47) #6
+  %370 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %370, ptr noundef nonnull @.str.237, i64 noundef 47) #6
+  %371 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %371, ptr noundef nonnull @.str.236, i64 noundef 49) #6
+  %372 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %372, ptr noundef nonnull @.str.236, i64 noundef 49) #6
+  %373 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %373, ptr noundef nonnull @.str.220, i64 noundef 51) #6
+  %374 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %374, ptr noundef nonnull @.str.220, i64 noundef 51) #6
+  %375 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %375, ptr noundef nonnull @.str.224, i64 noundef 53) #6
+  %376 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %376, ptr noundef nonnull @.str.224, i64 noundef 53) #6
+  %377 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %377, ptr noundef nonnull @.str.225, i64 noundef 55) #6
+  %378 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %378, ptr noundef nonnull @.str.225, i64 noundef 55) #6
+  %379 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %379, ptr noundef nonnull @.str.211, i64 noundef 53) #6
+  %380 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %380, ptr noundef nonnull @.str.211, i64 noundef 53) #6
+  %381 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %381, ptr noundef nonnull @.str.190, i64 noundef 57) #6
+  %382 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %382, ptr noundef nonnull @.str.190, i64 noundef 57) #6
+  %383 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %383, ptr noundef nonnull @.str.205, i64 noundef 59) #6
+  %384 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %384, ptr noundef nonnull @.str.205, i64 noundef 59) #6
+  %385 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %385, ptr noundef nonnull @.str.216, i64 noundef 71) #6
+  %386 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %386, ptr noundef nonnull @.str.216, i64 noundef 71) #6
+  %387 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %387, ptr noundef nonnull @.str.178, i64 noundef 63) #6
+  %388 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %388, ptr noundef nonnull @.str.178, i64 noundef 63) #6
+  %389 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %389, ptr noundef nonnull @.str.179, i64 noundef 69) #6
+  %390 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %390, ptr noundef nonnull @.str.179, i64 noundef 69) #6
+  %391 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %391, ptr noundef nonnull @.str.148, i64 noundef 73) #6
+  %392 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %392, ptr noundef nonnull @.str.148, i64 noundef 73) #6
+  %393 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %393, ptr noundef nonnull @.str.221, i64 noundef 75) #6
+  %394 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %394, ptr noundef nonnull @.str.221, i64 noundef 75) #6
+  %395 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %395, ptr noundef nonnull @.str.191, i64 noundef 77) #6
+  %396 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %396, ptr noundef nonnull @.str.191, i64 noundef 77) #6
+  %397 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %397, ptr noundef nonnull @.str.169, i64 noundef 79) #6
+  %398 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %398, ptr noundef nonnull @.str.169, i64 noundef 79) #6
+  %399 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %399, ptr noundef nonnull @.str.192, i64 noundef 81) #6
+  %400 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %400, ptr noundef nonnull @.str.192, i64 noundef 81) #6
+  %401 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %401, ptr noundef nonnull @.str.217, i64 noundef 83) #6
+  %402 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %402, ptr noundef nonnull @.str.217, i64 noundef 83) #6
+  %403 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %403, ptr noundef nonnull @.str.193, i64 noundef 85) #6
+  %404 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %404, ptr noundef nonnull @.str.193, i64 noundef 85) #6
+  %405 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %405, ptr noundef nonnull @.str.153, i64 noundef 87) #6
+  %406 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %406, ptr noundef nonnull @.str.153, i64 noundef 87) #6
+  %407 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %407, ptr noundef nonnull @.str.218, i64 noundef 89) #6
+  %408 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %408, ptr noundef nonnull @.str.218, i64 noundef 89) #6
+  %409 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %409, ptr noundef nonnull @.str.230, i64 noundef 91) #6
+  %410 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %410, ptr noundef nonnull @.str.230, i64 noundef 91) #6
+  %411 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %411, ptr noundef nonnull @.str.206, i64 noundef 93) #6
+  %412 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %412, ptr noundef nonnull @.str.206, i64 noundef 93) #6
+  %413 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %413, ptr noundef nonnull @.str.229, i64 noundef 95) #6
+  %414 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %414, ptr noundef nonnull @.str.229, i64 noundef 95) #6
+  %415 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %415, ptr noundef nonnull @.str.228, i64 noundef 97) #6
+  %416 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %416, ptr noundef nonnull @.str.228, i64 noundef 97) #6
+  %417 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %417, ptr noundef nonnull @.str.222, i64 noundef 99) #6
+  %418 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %418, ptr noundef nonnull @.str.222, i64 noundef 99) #6
+  %419 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %419, ptr noundef nonnull @.str.231, i64 noundef 113) #6
+  %420 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %420, ptr noundef nonnull @.str.231, i64 noundef 113) #6
+  %421 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %421, ptr noundef nonnull @.str.381, i64 noundef 3) #6
+  %422 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %422, ptr noundef nonnull @.str.381, i64 noundef 3) #6
+  %423 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %423, ptr noundef nonnull @.str.376, i64 noundef 5) #6
+  %424 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %424, ptr noundef nonnull @.str.376, i64 noundef 5) #6
+  %425 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %425, ptr noundef nonnull @.str.369, i64 noundef 7) #6
+  %426 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %426, ptr noundef nonnull @.str.369, i64 noundef 7) #6
+  %427 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %427, ptr noundef nonnull @.str.398, i64 noundef 19) #6
+  %428 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %428, ptr noundef nonnull @.str.398, i64 noundef 19) #6
+  %429 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %429, ptr noundef nonnull @.str.370, i64 noundef 23) #6
+  %430 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %430, ptr noundef nonnull @.str.370, i64 noundef 23) #6
+  %431 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %431, ptr noundef nonnull @.str.382, i64 noundef 13) #6
+  %432 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %432, ptr noundef nonnull @.str.382, i64 noundef 13) #6
+  %433 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %433, ptr noundef nonnull @.str.385, i64 noundef 9) #6
+  %434 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %434, ptr noundef nonnull @.str.385, i64 noundef 9) #6
+  %435 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %435, ptr noundef nonnull @.str.392, i64 noundef 11) #6
+  %436 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %436, ptr noundef nonnull @.str.392, i64 noundef 11) #6
+  %437 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %437, ptr noundef nonnull @.str.383, i64 noundef 17) #6
+  %438 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %438, ptr noundef nonnull @.str.383, i64 noundef 17) #6
+  %439 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %439, ptr noundef nonnull @.str.377, i64 noundef 29) #6
+  %440 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %440, ptr noundef nonnull @.str.377, i64 noundef 29) #6
+  %441 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %441, ptr noundef nonnull @.str.386, i64 noundef 25) #6
+  %442 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %442, ptr noundef nonnull @.str.386, i64 noundef 25) #6
+  %443 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %443, ptr noundef nonnull @.str.378, i64 noundef 15) #6
+  %444 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %444, ptr noundef nonnull @.str.378, i64 noundef 15) #6
+  %445 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %445, ptr noundef nonnull @.str.399, i64 noundef 21) #6
+  %446 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %446, ptr noundef nonnull @.str.399, i64 noundef 21) #6
+  %447 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %447, ptr noundef nonnull @.str.387, i64 noundef 47) #6
+  %448 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %448, ptr noundef nonnull @.str.387, i64 noundef 47) #6
+  %449 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %449, ptr noundef nonnull @.str.395, i64 noundef 27) #6
+  %450 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %450, ptr noundef nonnull @.str.395, i64 noundef 27) #6
+  %451 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %451, ptr noundef nonnull @.str.405, i64 noundef 31) #6
+  %452 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %452, ptr noundef nonnull @.str.405, i64 noundef 31) #6
+  %453 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %453, ptr noundef nonnull @.str.393, i64 noundef 43) #6
+  %454 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %454, ptr noundef nonnull @.str.393, i64 noundef 43) #6
+  %455 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %455, ptr noundef nonnull @.str.379, i64 noundef 39) #6
+  %456 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %456, ptr noundef nonnull @.str.379, i64 noundef 39) #6
+  %457 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %457, ptr noundef nonnull @.str.402, i64 noundef 45) #6
+  %458 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %458, ptr noundef nonnull @.str.402, i64 noundef 45) #6
+  %459 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %459, ptr noundef nonnull @.str.400, i64 noundef 41) #6
+  %460 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %460, ptr noundef nonnull @.str.400, i64 noundef 41) #6
+  %461 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %461, ptr noundef nonnull @.str.397, i64 noundef 35) #6
+  %462 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %462, ptr noundef nonnull @.str.397, i64 noundef 35) #6
+  %463 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %463, ptr noundef nonnull @.str.406, i64 noundef 33) #6
+  %464 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %464, ptr noundef nonnull @.str.406, i64 noundef 33) #6
+  %465 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %465, ptr noundef nonnull @.str.394, i64 noundef 49) #6
+  %466 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %466, ptr noundef nonnull @.str.394, i64 noundef 49) #6
+  %467 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %467, ptr noundef nonnull @.str.401, i64 noundef 37) #6
+  %468 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %468, ptr noundef nonnull @.str.401, i64 noundef 37) #6
+  %469 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %469, ptr noundef nonnull @.str.407, i64 noundef 3) #6
+  %470 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %470, ptr noundef nonnull @.str.407, i64 noundef 3) #6
+  %471 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %471, ptr noundef nonnull @.str.476, i64 noundef -17) #6
+  %472 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %472, ptr noundef nonnull @.str.476, i64 noundef -17) #6
+  %473 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %473, ptr noundef nonnull @.str.477, i64 noundef -5) #6
+  %474 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %474, ptr noundef nonnull @.str.477, i64 noundef -5) #6
+  %475 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %475, ptr noundef nonnull @.str.478, i64 noundef -1) #6
+  %476 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %476, ptr noundef nonnull @.str.478, i64 noundef -1) #6
+  %477 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %477, ptr noundef nonnull @.str.479, i64 noundef -7) #6
+  %478 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %478, ptr noundef nonnull @.str.479, i64 noundef -7) #6
+  %479 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %479, ptr noundef nonnull @.str.480, i64 noundef -11) #6
+  %480 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %480, ptr noundef nonnull @.str.480, i64 noundef -11) #6
+  %481 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %481, ptr noundef nonnull @.str.481, i64 noundef -19) #6
+  %482 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %482, ptr noundef nonnull @.str.481, i64 noundef -19) #6
+  %483 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %483, ptr noundef nonnull @.str.482, i64 noundef -9) #6
+  %484 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %484, ptr noundef nonnull @.str.482, i64 noundef -9) #6
+  %485 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %485, ptr noundef nonnull @.str.483, i64 noundef -3) #6
+  %486 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %486, ptr noundef nonnull @.str.483, i64 noundef -3) #6
+  %487 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %487, ptr noundef nonnull @.str.484, i64 noundef -23) #6
+  %488 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %488, ptr noundef nonnull @.str.484, i64 noundef -23) #6
+  %489 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %489, ptr noundef nonnull @.str.485, i64 noundef -15) #6
+  %490 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %490, ptr noundef nonnull @.str.485, i64 noundef -15) #6
+  %491 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %491, ptr noundef nonnull @.str.486, i64 noundef -13) #6
+  %492 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %492, ptr noundef nonnull @.str.486, i64 noundef -13) #6
+  %493 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %493, ptr noundef nonnull @.str.487, i64 noundef -21) #6
+  %494 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %494, ptr noundef nonnull @.str.487, i64 noundef -21) #6
+  %495 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %495, ptr noundef nonnull @.str.488, i64 noundef 3) #6
+  %496 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %496, ptr noundef nonnull @.str.488, i64 noundef 3) #6
+  %497 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %497, ptr noundef nonnull @.str.489, i64 noundef 5) #6
+  %498 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %498, ptr noundef nonnull @.str.489, i64 noundef 5) #6
+  %499 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %499, ptr noundef nonnull @.str.490, i64 noundef 9) #6
+  %500 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %500, ptr noundef nonnull @.str.490, i64 noundef 9) #6
+  %501 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %501, ptr noundef nonnull @.str.491, i64 noundef 2049) #6
+  %502 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %502, ptr noundef nonnull @.str.491, i64 noundef 2049) #6
+  %503 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %503, ptr noundef nonnull @.str.492, i64 noundef 33) #6
+  %504 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %504, ptr noundef nonnull @.str.492, i64 noundef 33) #6
+  %505 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %505, ptr noundef nonnull @.str.493, i64 noundef 65) #6
+  %506 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %506, ptr noundef nonnull @.str.493, i64 noundef 65) #6
+  %507 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %507, ptr noundef nonnull @.str.494, i64 noundef 17) #6
+  %508 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %508, ptr noundef nonnull @.str.494, i64 noundef 17) #6
+  %509 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %509, ptr noundef nonnull @.str.495, i64 noundef 2051) #6
+  %510 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %510, ptr noundef nonnull @.str.495, i64 noundef 2051) #6
+  %511 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %511, ptr noundef nonnull @.str.496, i64 noundef 65) #6
+  %512 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %512, ptr noundef nonnull @.str.496, i64 noundef 65) #6
+  %513 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %513, ptr noundef nonnull @.str.497, i64 noundef 9) #6
+  %514 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %514, ptr noundef nonnull @.str.497, i64 noundef 9) #6
+  %515 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %515, ptr noundef nonnull @.str.498, i64 noundef 3) #6
+  %516 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %516, ptr noundef nonnull @.str.498, i64 noundef 3) #6
+  %517 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %517, ptr noundef nonnull @.str.499, i64 noundef 17) #6
+  %518 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %518, ptr noundef nonnull @.str.499, i64 noundef 17) #6
+  %519 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %519, ptr noundef nonnull @.str.500, i64 noundef 5) #6
+  %520 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %520, ptr noundef nonnull @.str.500, i64 noundef 5) #6
+  %521 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %521, ptr noundef nonnull @.str.501, i64 noundef 33) #6
+  %522 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %522, ptr noundef nonnull @.str.501, i64 noundef 33) #6
+  %523 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %523, ptr noundef nonnull @.str.411, i64 noundef 1) #6
+  %524 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %524, ptr noundef nonnull @.str.411, i64 noundef 1) #6
+  %525 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %525, ptr noundef nonnull @.str.412, i64 noundef 3) #6
+  %526 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %526, ptr noundef nonnull @.str.412, i64 noundef 3) #6
+  %527 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %527, ptr noundef nonnull @.str.413, i64 noundef 5) #6
+  %528 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %528, ptr noundef nonnull @.str.413, i64 noundef 5) #6
+  %529 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %529, ptr noundef nonnull @.str.345, i64 noundef 41) #6
+  %530 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %530, ptr noundef nonnull @.str.345, i64 noundef 41) #6
+  %531 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %531, ptr noundef nonnull @.str.347, i64 noundef 43) #6
+  %532 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %532, ptr noundef nonnull @.str.347, i64 noundef 43) #6
+  %533 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %533, ptr noundef nonnull @.str.352, i64 noundef 47) #6
+  %534 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %534, ptr noundef nonnull @.str.352, i64 noundef 47) #6
+  %535 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %535, ptr noundef nonnull @.str.358, i64 noundef 37) #6
+  %536 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %536, ptr noundef nonnull @.str.358, i64 noundef 37) #6
+  %537 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %537, ptr noundef nonnull @.str.353, i64 noundef 35) #6
+  %538 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %538, ptr noundef nonnull @.str.353, i64 noundef 35) #6
+  %539 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %539, ptr noundef nonnull @.str.359, i64 noundef 39) #6
+  %540 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %540, ptr noundef nonnull @.str.359, i64 noundef 39) #6
+  %541 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %541, ptr noundef nonnull @.str.354, i64 noundef 33) #6
+  %542 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %542, ptr noundef nonnull @.str.354, i64 noundef 33) #6
+  %543 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %543, ptr noundef nonnull @.str.323, i64 noundef 53) #6
+  %544 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %544, ptr noundef nonnull @.str.323, i64 noundef 53) #6
+  %545 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %545, ptr noundef nonnull @.str.340, i64 noundef 15) #6
+  %546 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %546, ptr noundef nonnull @.str.340, i64 noundef 15) #6
+  %547 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %547, ptr noundef nonnull @.str.341, i64 noundef 125) #6
+  %548 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %548, ptr noundef nonnull @.str.341, i64 noundef 125) #6
+  %549 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %549, ptr noundef nonnull @.str.330, i64 noundef 119) #6
+  %550 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %550, ptr noundef nonnull @.str.330, i64 noundef 119) #6
+  %551 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %551, ptr noundef nonnull @.str.342, i64 noundef 105) #6
+  %552 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %552, ptr noundef nonnull @.str.342, i64 noundef 105) #6
+  %553 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %553, ptr noundef nonnull @.str.331, i64 noundef 109) #6
+  %554 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %554, ptr noundef nonnull @.str.331, i64 noundef 109) #6
+  %555 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %555, ptr noundef nonnull @.str.332, i64 noundef 19) #6
+  %556 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %556, ptr noundef nonnull @.str.332, i64 noundef 19) #6
+  %557 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %557, ptr noundef nonnull @.str.333, i64 noundef 123) #6
+  %558 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %558, ptr noundef nonnull @.str.333, i64 noundef 123) #6
+  %559 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %559, ptr noundef nonnull @.str.334, i64 noundef 101) #6
+  %560 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %560, ptr noundef nonnull @.str.334, i64 noundef 101) #6
+  %561 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %561, ptr noundef nonnull @.str.348, i64 noundef 117) #6
+  %562 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %562, ptr noundef nonnull @.str.348, i64 noundef 117) #6
+  %563 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %563, ptr noundef nonnull @.str.335, i64 noundef 51) #6
+  %564 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %564, ptr noundef nonnull @.str.335, i64 noundef 51) #6
+  %565 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %565, ptr noundef nonnull @.str.355, i64 noundef 103) #6
+  %566 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %566, ptr noundef nonnull @.str.355, i64 noundef 103) #6
+  %567 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %567, ptr noundef nonnull @.str.349, i64 noundef 107) #6
+  %568 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %568, ptr noundef nonnull @.str.349, i64 noundef 107) #6
+  %569 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %569, ptr noundef nonnull @.str.350, i64 noundef 99) #6
+  %570 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %570, ptr noundef nonnull @.str.350, i64 noundef 99) #6
+  %571 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %571, ptr noundef nonnull @.str.343, i64 noundef 113) #6
+  %572 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %572, ptr noundef nonnull @.str.343, i64 noundef 113) #6
+  %573 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %573, ptr noundef nonnull @.str.346, i64 noundef 133) #6
+  %574 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %574, ptr noundef nonnull @.str.346, i64 noundef 133) #6
+  %575 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %575, ptr noundef nonnull @.str.320, i64 noundef 115) #6
+  %576 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %576, ptr noundef nonnull @.str.320, i64 noundef 115) #6
+  %577 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %577, ptr noundef nonnull @.str.356, i64 noundef 111) #6
+  %578 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %578, ptr noundef nonnull @.str.356, i64 noundef 111) #6
+  %579 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %579, ptr noundef nonnull @.str.357, i64 noundef 1) #6
+  %580 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %580, ptr noundef nonnull @.str.357, i64 noundef 1) #6
+  %581 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %581, ptr noundef nonnull @.str.351, i64 noundef 121) #6
+  %582 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %582, ptr noundef nonnull @.str.351, i64 noundef 121) #6
+  %583 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %583, ptr noundef nonnull @.str.324, i64 noundef 135) #6
+  %584 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %584, ptr noundef nonnull @.str.324, i64 noundef 135) #6
+  %585 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %585, ptr noundef nonnull @.str.502, i64 noundef 33) #6
+  %586 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %586, ptr noundef nonnull @.str.502, i64 noundef 33) #6
+  %587 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %587, ptr noundef nonnull @.str.503, i64 noundef 93) #6
+  %588 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %588, ptr noundef nonnull @.str.503, i64 noundef 93) #6
+  %589 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %589, ptr noundef nonnull @.str.504, i64 noundef 33) #6
+  %590 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %590, ptr noundef nonnull @.str.504, i64 noundef 33) #6
+  %591 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %591, ptr noundef nonnull @.str.505, i64 noundef 33) #6
+  %592 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %592, ptr noundef nonnull @.str.505, i64 noundef 33) #6
+  %593 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %593, ptr noundef nonnull @.str.506, i64 noundef 8193) #6
+  %594 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %594, ptr noundef nonnull @.str.506, i64 noundef 8193) #6
+  %595 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %595, ptr noundef nonnull @.str.415, i64 noundef 3) #6
+  %596 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %596, ptr noundef nonnull @.str.415, i64 noundef 3) #6
+  %597 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %597, ptr noundef nonnull @.str.417, i64 noundef 59) #6
+  %598 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %598, ptr noundef nonnull @.str.417, i64 noundef 59) #6
+  %599 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %599, ptr noundef nonnull @.str.418, i64 noundef 71) #6
+  %600 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %600, ptr noundef nonnull @.str.418, i64 noundef 71) #6
+  %601 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %601, ptr noundef nonnull @.str.421, i64 noundef 75) #6
+  %602 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %602, ptr noundef nonnull @.str.421, i64 noundef 75) #6
+  %603 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %603, ptr noundef nonnull @.str.419, i64 noundef 5) #6
+  %604 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %604, ptr noundef nonnull @.str.419, i64 noundef 5) #6
+  %605 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %605, ptr noundef nonnull @.str.420, i64 noundef 83) #6
+  %606 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %606, ptr noundef nonnull @.str.420, i64 noundef 83) #6
+  %607 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %607, ptr noundef nonnull @.str.507, i64 noundef 1025) #6
+  %608 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %608, ptr noundef nonnull @.str.507, i64 noundef 1025) #6
+  %609 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %609, ptr noundef nonnull @.str.508, i64 noundef 32769) #6
+  %610 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %610, ptr noundef nonnull @.str.508, i64 noundef 32769) #6
+  %611 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %611, ptr noundef nonnull @.str.509, i64 noundef 5) #6
+  %612 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %612, ptr noundef nonnull @.str.509, i64 noundef 5) #6
+  %613 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %613, ptr noundef nonnull @.str.510, i64 noundef 9) #6
+  %614 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %614, ptr noundef nonnull @.str.510, i64 noundef 9) #6
+  %615 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %615, ptr noundef nonnull @.str.511, i64 noundef 65537) #6
+  %616 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %616, ptr noundef nonnull @.str.511, i64 noundef 65537) #6
+  %617 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %617, ptr noundef nonnull @.str.512, i64 noundef 17) #6
+  %618 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %618, ptr noundef nonnull @.str.512, i64 noundef 17) #6
+  %619 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %619, ptr noundef nonnull @.str.513, i64 noundef 2049) #6
+  %620 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %620, ptr noundef nonnull @.str.513, i64 noundef 2049) #6
+  %621 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %621, ptr noundef nonnull @.str.514, i64 noundef 8193) #6
+  %622 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %622, ptr noundef nonnull @.str.514, i64 noundef 8193) #6
+  %623 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %623, ptr noundef nonnull @.str.515, i64 noundef 257) #6
+  %624 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %624, ptr noundef nonnull @.str.515, i64 noundef 257) #6
+  %625 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %625, ptr noundef nonnull @.str.516, i64 noundef 65) #6
+  %626 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %626, ptr noundef nonnull @.str.516, i64 noundef 65) #6
+  %627 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %627, ptr noundef nonnull @.str.517, i64 noundef 33) #6
+  %628 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %628, ptr noundef nonnull @.str.517, i64 noundef 33) #6
+  %629 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %629, ptr noundef nonnull @.str.518, i64 noundef 16385) #6
+  %630 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %630, ptr noundef nonnull @.str.518, i64 noundef 16385) #6
+  %631 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %631, ptr noundef nonnull @.str.519, i64 noundef 513) #6
+  %632 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %632, ptr noundef nonnull @.str.519, i64 noundef 513) #6
+  %633 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %633, ptr noundef nonnull @.str.520, i64 noundef 129) #6
+  %634 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %634, ptr noundef nonnull @.str.520, i64 noundef 129) #6
+  %635 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %635, ptr noundef nonnull @.str.521, i64 noundef 4097) #6
+  %636 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %636, ptr noundef nonnull @.str.521, i64 noundef 4097) #6
+  %637 = load i64, ptr @rb_cSocket, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %637, ptr noundef nonnull @.str.522, i64 noundef 3) #6
+  %638 = load i64, ptr @rb_mSockConst, align 8, !tbaa !21
+  tail call void @rb_define_const(i64 noundef %638, ptr noundef nonnull @.str.522, i64 noundef 3) #6
+  %639 = tail call ptr @rb_st_init_numtable() #6
+  store ptr %639, ptr @rsock_intern_family_hash, align 8, !tbaa !10
+  %640 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.42, i64 noundef 6) #6
+  %641 = tail call i32 @rb_st_insert(ptr noundef %639, i64 noundef 44, i64 noundef %640) #6
+  %642 = load ptr, ptr @rsock_intern_family_hash, align 8, !tbaa !10
+  %643 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.40, i64 noundef 6) #6
+  %644 = tail call i32 @rb_st_insert(ptr noundef %642, i64 noundef 41, i64 noundef %643) #6
+  %645 = load ptr, ptr @rsock_intern_family_hash, align 8, !tbaa !10
+  %646 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.68, i64 noundef 8) #6
+  %647 = tail call i32 @rb_st_insert(ptr noundef %645, i64 noundef 40, i64 noundef %646) #6
+  %648 = load ptr, ptr @rsock_intern_family_hash, align 8, !tbaa !10
+  %649 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.38, i64 noundef 6) #6
+  %650 = tail call i32 @rb_st_insert(ptr noundef %648, i64 noundef 38, i64 noundef %649) #6
+  %651 = load ptr, ptr @rsock_intern_family_hash, align 8, !tbaa !10
+  %652 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.82, i64 noundef 12) #6
+  %653 = tail call i32 @rb_st_insert(ptr noundef %651, i64 noundef 31, i64 noundef %652) #6
+  %654 = load ptr, ptr @rsock_intern_family_hash, align 8, !tbaa !10
+  %655 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.57, i64 noundef 7) #6
+  %656 = tail call i32 @rb_st_insert(ptr noundef %654, i64 noundef 30, i64 noundef %655) #6
+  %657 = load ptr, ptr @rsock_intern_family_hash, align 8, !tbaa !10
+  %658 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.36, i64 noundef 6) #6
+  %659 = tail call i32 @rb_st_insert(ptr noundef %657, i64 noundef 29, i64 noundef %658) #6
+  %660 = load ptr, ptr @rsock_intern_family_hash, align 8, !tbaa !10
+  %661 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.55, i64 noundef 7) #6
+  %662 = tail call i32 @rb_st_insert(ptr noundef %660, i64 noundef 28, i64 noundef %661) #6
+  %663 = load ptr, ptr @rsock_intern_family_hash, align 8, !tbaa !10
+  %664 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.17, i64 noundef 5) #6
+  %665 = tail call i32 @rb_st_insert(ptr noundef %663, i64 noundef 27, i64 noundef %664) #6
+  %666 = load ptr, ptr @rsock_intern_family_hash, align 8, !tbaa !10
+  %667 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.34, i64 noundef 6) #6
+  %668 = tail call i32 @rb_st_insert(ptr noundef %666, i64 noundef 26, i64 noundef %667) #6
+  %669 = load ptr, ptr @rsock_intern_family_hash, align 8, !tbaa !10
+  %670 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.66, i64 noundef 8) #6
+  %671 = tail call i32 @rb_st_insert(ptr noundef %669, i64 noundef 24, i64 noundef %670) #6
+  %672 = load ptr, ptr @rsock_intern_family_hash, align 8, !tbaa !10
+  %673 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.32, i64 noundef 6) #6
+  %674 = tail call i32 @rb_st_insert(ptr noundef %672, i64 noundef 21, i64 noundef %673) #6
+  %675 = load ptr, ptr @rsock_intern_family_hash, align 8, !tbaa !10
+  %676 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.78, i64 noundef 10) #6
+  %677 = tail call i32 @rb_st_insert(ptr noundef %675, i64 noundef 16, i64 noundef %676) #6
+  %678 = load ptr, ptr @rsock_intern_family_hash, align 8, !tbaa !10
+  %679 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.30, i64 noundef 6) #6
+  %680 = tail call i32 @rb_st_insert(ptr noundef %678, i64 noundef 15, i64 noundef %679) #6
+  %681 = load ptr, ptr @rsock_intern_family_hash, align 8, !tbaa !10
+  %682 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.74, i64 noundef 9) #6
+  %683 = tail call i32 @rb_st_insert(ptr noundef %681, i64 noundef 17, i64 noundef %682) #6
+  %684 = load ptr, ptr @rsock_intern_family_hash, align 8, !tbaa !10
+  %685 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.28, i64 noundef 6) #6
+  %686 = tail call i32 @rb_st_insert(ptr noundef %684, i64 noundef 46, i64 noundef %685) #6
+  %687 = load ptr, ptr @rsock_intern_family_hash, align 8, !tbaa !10
+  %688 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.53, i64 noundef 7) #6
+  %689 = tail call i32 @rb_st_insert(ptr noundef %687, i64 noundef 34, i64 noundef %688) #6
+  %690 = load ptr, ptr @rsock_intern_family_hash, align 8, !tbaa !10
+  %691 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.64, i64 noundef 8) #6
+  %692 = tail call i32 @rb_st_insert(ptr noundef %690, i64 noundef 16, i64 noundef %691) #6
+  %693 = load ptr, ptr @rsock_intern_family_hash, align 8, !tbaa !10
+  %694 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.72, i64 noundef 9) #6
+  %695 = tail call i32 @rb_st_insert(ptr noundef %693, i64 noundef 12, i64 noundef %694) #6
+  %696 = load ptr, ptr @rsock_intern_family_hash, align 8, !tbaa !10
+  %697 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.26, i64 noundef 6) #6
+  %698 = tail call i32 @rb_st_insert(ptr noundef %696, i64 noundef 22, i64 noundef %697) #6
+  %699 = load ptr, ptr @rsock_intern_family_hash, align 8, !tbaa !10
+  %700 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.62, i64 noundef 8) #6
+  %701 = tail call i32 @rb_st_insert(ptr noundef %699, i64 noundef 1, i64 noundef %700) #6
+  %702 = load ptr, ptr @rsock_intern_family_hash, align 8, !tbaa !10
+  %703 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.80, i64 noundef 12) #6
+  %704 = tail call i32 @rb_st_insert(ptr noundef %702, i64 noundef 5, i64 noundef %703) #6
+  %705 = load ptr, ptr @rsock_intern_family_hash, align 8, !tbaa !10
+  %706 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.24, i64 noundef 6) #6
+  %707 = tail call i32 @rb_st_insert(ptr noundef %705, i64 noundef 4, i64 noundef %706) #6
+  %708 = load ptr, ptr @rsock_intern_family_hash, align 8, !tbaa !10
+  %709 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.51, i64 noundef 7) #6
+  %710 = tail call i32 @rb_st_insert(ptr noundef %708, i64 noundef 3, i64 noundef %709) #6
+  %711 = load ptr, ptr @rsock_intern_family_hash, align 8, !tbaa !10
+  %712 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.49, i64 noundef 7) #6
+  %713 = tail call i32 @rb_st_insert(ptr noundef %711, i64 noundef 1, i64 noundef %712) #6
+  %714 = load ptr, ptr @rsock_intern_family_hash, align 8, !tbaa !10
+  %715 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.60, i64 noundef 8) #6
+  %716 = tail call i32 @rb_st_insert(ptr noundef %714, i64 noundef 10, i64 noundef %715) #6
+  %717 = load ptr, ptr @rsock_intern_family_hash, align 8, !tbaa !10
+  %718 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.47, i64 noundef 7) #6
+  %719 = tail call i32 @rb_st_insert(ptr noundef %717, i64 noundef 2, i64 noundef %718) #6
+  %720 = load ptr, ptr @rsock_intern_family_hash, align 8, !tbaa !10
+  %721 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.70, i64 noundef 9) #6
+  %722 = tail call i32 @rb_st_insert(ptr noundef %720, i64 noundef 0, i64 noundef %721) #6
+  %723 = tail call ptr @rb_st_init_numtable() #6
+  store ptr %723, ptr @rsock_intern_family_noprefix_hash, align 8, !tbaa !10
+  %724 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.42, i64 noundef 6) #6
+  %725 = tail call i32 @rb_st_insert(ptr noundef %723, i64 noundef 44, i64 noundef %724) #6
+  %726 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8, !tbaa !10
+  %727 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.40, i64 noundef 6) #6
+  %728 = tail call i32 @rb_st_insert(ptr noundef %726, i64 noundef 41, i64 noundef %727) #6
+  %729 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8, !tbaa !10
+  %730 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.68, i64 noundef 8) #6
+  %731 = tail call i32 @rb_st_insert(ptr noundef %729, i64 noundef 40, i64 noundef %730) #6
+  %732 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8, !tbaa !10
+  %733 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.38, i64 noundef 6) #6
+  %734 = tail call i32 @rb_st_insert(ptr noundef %732, i64 noundef 38, i64 noundef %733) #6
+  %735 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8, !tbaa !10
+  %736 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.82, i64 noundef 12) #6
+  %737 = tail call i32 @rb_st_insert(ptr noundef %735, i64 noundef 31, i64 noundef %736) #6
+  %738 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8, !tbaa !10
+  %739 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.57, i64 noundef 7) #6
+  %740 = tail call i32 @rb_st_insert(ptr noundef %738, i64 noundef 30, i64 noundef %739) #6
+  %741 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8, !tbaa !10
+  %742 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.36, i64 noundef 6) #6
+  %743 = tail call i32 @rb_st_insert(ptr noundef %741, i64 noundef 29, i64 noundef %742) #6
+  %744 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8, !tbaa !10
+  %745 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.55, i64 noundef 7) #6
+  %746 = tail call i32 @rb_st_insert(ptr noundef %744, i64 noundef 28, i64 noundef %745) #6
+  %747 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8, !tbaa !10
+  %748 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.17, i64 noundef 5) #6
+  %749 = tail call i32 @rb_st_insert(ptr noundef %747, i64 noundef 27, i64 noundef %748) #6
+  %750 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8, !tbaa !10
+  %751 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.34, i64 noundef 6) #6
+  %752 = tail call i32 @rb_st_insert(ptr noundef %750, i64 noundef 26, i64 noundef %751) #6
+  %753 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8, !tbaa !10
+  %754 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.66, i64 noundef 8) #6
+  %755 = tail call i32 @rb_st_insert(ptr noundef %753, i64 noundef 24, i64 noundef %754) #6
+  %756 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8, !tbaa !10
+  %757 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.32, i64 noundef 6) #6
+  %758 = tail call i32 @rb_st_insert(ptr noundef %756, i64 noundef 21, i64 noundef %757) #6
+  %759 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8, !tbaa !10
+  %760 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.78, i64 noundef 10) #6
+  %761 = tail call i32 @rb_st_insert(ptr noundef %759, i64 noundef 16, i64 noundef %760) #6
+  %762 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8, !tbaa !10
+  %763 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.30, i64 noundef 6) #6
+  %764 = tail call i32 @rb_st_insert(ptr noundef %762, i64 noundef 15, i64 noundef %763) #6
+  %765 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8, !tbaa !10
+  %766 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.74, i64 noundef 9) #6
+  %767 = tail call i32 @rb_st_insert(ptr noundef %765, i64 noundef 17, i64 noundef %766) #6
+  %768 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8, !tbaa !10
+  %769 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.28, i64 noundef 6) #6
+  %770 = tail call i32 @rb_st_insert(ptr noundef %768, i64 noundef 46, i64 noundef %769) #6
+  %771 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8, !tbaa !10
+  %772 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.53, i64 noundef 7) #6
+  %773 = tail call i32 @rb_st_insert(ptr noundef %771, i64 noundef 34, i64 noundef %772) #6
+  %774 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8, !tbaa !10
+  %775 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.64, i64 noundef 8) #6
+  %776 = tail call i32 @rb_st_insert(ptr noundef %774, i64 noundef 16, i64 noundef %775) #6
+  %777 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8, !tbaa !10
+  %778 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.72, i64 noundef 9) #6
+  %779 = tail call i32 @rb_st_insert(ptr noundef %777, i64 noundef 12, i64 noundef %778) #6
+  %780 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8, !tbaa !10
+  %781 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.26, i64 noundef 6) #6
+  %782 = tail call i32 @rb_st_insert(ptr noundef %780, i64 noundef 22, i64 noundef %781) #6
+  %783 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8, !tbaa !10
+  %784 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.62, i64 noundef 8) #6
+  %785 = tail call i32 @rb_st_insert(ptr noundef %783, i64 noundef 1, i64 noundef %784) #6
+  %786 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8, !tbaa !10
+  %787 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.80, i64 noundef 12) #6
+  %788 = tail call i32 @rb_st_insert(ptr noundef %786, i64 noundef 5, i64 noundef %787) #6
+  %789 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8, !tbaa !10
+  %790 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.24, i64 noundef 6) #6
+  %791 = tail call i32 @rb_st_insert(ptr noundef %789, i64 noundef 4, i64 noundef %790) #6
+  %792 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8, !tbaa !10
+  %793 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.51, i64 noundef 7) #6
+  %794 = tail call i32 @rb_st_insert(ptr noundef %792, i64 noundef 3, i64 noundef %793) #6
+  %795 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8, !tbaa !10
+  %796 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.49, i64 noundef 7) #6
+  %797 = tail call i32 @rb_st_insert(ptr noundef %795, i64 noundef 1, i64 noundef %796) #6
+  %798 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8, !tbaa !10
+  %799 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.60, i64 noundef 8) #6
+  %800 = tail call i32 @rb_st_insert(ptr noundef %798, i64 noundef 10, i64 noundef %799) #6
+  %801 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8, !tbaa !10
+  %802 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.47, i64 noundef 7) #6
+  %803 = tail call i32 @rb_st_insert(ptr noundef %801, i64 noundef 2, i64 noundef %802) #6
+  %804 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8, !tbaa !10
+  %805 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.70, i64 noundef 9) #6
+  %806 = tail call i32 @rb_st_insert(ptr noundef %804, i64 noundef 0, i64 noundef %805) #6
+  %807 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8, !tbaa !10
+  %808 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.10, i64 noundef 3) #6
+  %809 = tail call i32 @rb_st_insert(ptr noundef %807, i64 noundef 44, i64 noundef %808) #6
+  %810 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8, !tbaa !10
+  %811 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.9, i64 noundef 3) #6
+  %812 = tail call i32 @rb_st_insert(ptr noundef %810, i64 noundef 41, i64 noundef %811) #6
+  %813 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8, !tbaa !10
+  %814 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.23, i64 noundef 5) #6
+  %815 = tail call i32 @rb_st_insert(ptr noundef %813, i64 noundef 40, i64 noundef %814) #6
+  %816 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8, !tbaa !10
+  %817 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.8, i64 noundef 3) #6
+  %818 = tail call i32 @rb_st_insert(ptr noundef %816, i64 noundef 38, i64 noundef %817) #6
+  %819 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8, !tbaa !10
+  %820 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.77, i64 noundef 9) #6
+  %821 = tail call i32 @rb_st_insert(ptr noundef %819, i64 noundef 31, i64 noundef %820) #6
+  %822 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8, !tbaa !10
+  %823 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.16, i64 noundef 4) #6
+  %824 = tail call i32 @rb_st_insert(ptr noundef %822, i64 noundef 30, i64 noundef %823) #6
+  %825 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8, !tbaa !10
+  %826 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.7, i64 noundef 3) #6
+  %827 = tail call i32 @rb_st_insert(ptr noundef %825, i64 noundef 29, i64 noundef %826) #6
+  %828 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8, !tbaa !10
+  %829 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.15, i64 noundef 4) #6
+  %830 = tail call i32 @rb_st_insert(ptr noundef %828, i64 noundef 28, i64 noundef %829) #6
+  %831 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8, !tbaa !10
+  %832 = tail call i64 @rb_intern2(ptr noundef nonnull @.str, i64 noundef 2) #6
+  %833 = tail call i32 @rb_st_insert(ptr noundef %831, i64 noundef 27, i64 noundef %832) #6
+  %834 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8, !tbaa !10
+  %835 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.6, i64 noundef 3) #6
+  %836 = tail call i32 @rb_st_insert(ptr noundef %834, i64 noundef 26, i64 noundef %835) #6
+  %837 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8, !tbaa !10
+  %838 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.22, i64 noundef 5) #6
+  %839 = tail call i32 @rb_st_insert(ptr noundef %837, i64 noundef 24, i64 noundef %838) #6
+  %840 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8, !tbaa !10
+  %841 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.5, i64 noundef 3) #6
+  %842 = tail call i32 @rb_st_insert(ptr noundef %840, i64 noundef 21, i64 noundef %841) #6
+  %843 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8, !tbaa !10
+  %844 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.59, i64 noundef 7) #6
+  %845 = tail call i32 @rb_st_insert(ptr noundef %843, i64 noundef 16, i64 noundef %844) #6
+  %846 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8, !tbaa !10
+  %847 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.4, i64 noundef 3) #6
+  %848 = tail call i32 @rb_st_insert(ptr noundef %846, i64 noundef 15, i64 noundef %847) #6
+  %849 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8, !tbaa !10
+  %850 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.46, i64 noundef 6) #6
+  %851 = tail call i32 @rb_st_insert(ptr noundef %849, i64 noundef 17, i64 noundef %850) #6
+  %852 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8, !tbaa !10
+  %853 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.3, i64 noundef 3) #6
+  %854 = tail call i32 @rb_st_insert(ptr noundef %852, i64 noundef 46, i64 noundef %853) #6
+  %855 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8, !tbaa !10
+  %856 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.14, i64 noundef 4) #6
+  %857 = tail call i32 @rb_st_insert(ptr noundef %855, i64 noundef 34, i64 noundef %856) #6
+  %858 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8, !tbaa !10
+  %859 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.21, i64 noundef 5) #6
+  %860 = tail call i32 @rb_st_insert(ptr noundef %858, i64 noundef 16, i64 noundef %859) #6
+  %861 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8, !tbaa !10
+  %862 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.45, i64 noundef 6) #6
+  %863 = tail call i32 @rb_st_insert(ptr noundef %861, i64 noundef 12, i64 noundef %862) #6
+  %864 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8, !tbaa !10
+  %865 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.2, i64 noundef 3) #6
+  %866 = tail call i32 @rb_st_insert(ptr noundef %864, i64 noundef 22, i64 noundef %865) #6
+  %867 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8, !tbaa !10
+  %868 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.20, i64 noundef 5) #6
+  %869 = tail call i32 @rb_st_insert(ptr noundef %867, i64 noundef 1, i64 noundef %868) #6
+  %870 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8, !tbaa !10
+  %871 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.76, i64 noundef 9) #6
+  %872 = tail call i32 @rb_st_insert(ptr noundef %870, i64 noundef 5, i64 noundef %871) #6
+  %873 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8, !tbaa !10
+  %874 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.1, i64 noundef 3) #6
+  %875 = tail call i32 @rb_st_insert(ptr noundef %873, i64 noundef 4, i64 noundef %874) #6
+  %876 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8, !tbaa !10
+  %877 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.13, i64 noundef 4) #6
+  %878 = tail call i32 @rb_st_insert(ptr noundef %876, i64 noundef 3, i64 noundef %877) #6
+  %879 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8, !tbaa !10
+  %880 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.12, i64 noundef 4) #6
+  %881 = tail call i32 @rb_st_insert(ptr noundef %879, i64 noundef 1, i64 noundef %880) #6
+  %882 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8, !tbaa !10
+  %883 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.19, i64 noundef 5) #6
+  %884 = tail call i32 @rb_st_insert(ptr noundef %882, i64 noundef 10, i64 noundef %883) #6
+  %885 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8, !tbaa !10
+  %886 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.11, i64 noundef 4) #6
+  %887 = tail call i32 @rb_st_insert(ptr noundef %885, i64 noundef 2, i64 noundef %886) #6
+  %888 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8, !tbaa !10
+  %889 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.44, i64 noundef 6) #6
+  %890 = tail call i32 @rb_st_insert(ptr noundef %888, i64 noundef 0, i64 noundef %889) #6
+  %891 = tail call ptr @rb_st_init_numtable() #6
+  store ptr %891, ptr @rsock_intern_protocol_family_hash, align 8, !tbaa !10
+  %892 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.43, i64 noundef 6) #6
+  %893 = tail call i32 @rb_st_insert(ptr noundef %891, i64 noundef 44, i64 noundef %892) #6
+  %894 = load ptr, ptr @rsock_intern_protocol_family_hash, align 8, !tbaa !10
+  %895 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.41, i64 noundef 6) #6
+  %896 = tail call i32 @rb_st_insert(ptr noundef %894, i64 noundef 41, i64 noundef %895) #6
+  %897 = load ptr, ptr @rsock_intern_protocol_family_hash, align 8, !tbaa !10
+  %898 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.69, i64 noundef 8) #6
+  %899 = tail call i32 @rb_st_insert(ptr noundef %897, i64 noundef 40, i64 noundef %898) #6
+  %900 = load ptr, ptr @rsock_intern_protocol_family_hash, align 8, !tbaa !10
+  %901 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.39, i64 noundef 6) #6
+  %902 = tail call i32 @rb_st_insert(ptr noundef %900, i64 noundef 38, i64 noundef %901) #6
+  %903 = load ptr, ptr @rsock_intern_protocol_family_hash, align 8, !tbaa !10
+  %904 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.83, i64 noundef 12) #6
+  %905 = tail call i32 @rb_st_insert(ptr noundef %903, i64 noundef 31, i64 noundef %904) #6
+  %906 = load ptr, ptr @rsock_intern_protocol_family_hash, align 8, !tbaa !10
+  %907 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.58, i64 noundef 7) #6
+  %908 = tail call i32 @rb_st_insert(ptr noundef %906, i64 noundef 30, i64 noundef %907) #6
+  %909 = load ptr, ptr @rsock_intern_protocol_family_hash, align 8, !tbaa !10
+  %910 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.37, i64 noundef 6) #6
+  %911 = tail call i32 @rb_st_insert(ptr noundef %909, i64 noundef 29, i64 noundef %910) #6
+  %912 = load ptr, ptr @rsock_intern_protocol_family_hash, align 8, !tbaa !10
+  %913 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.56, i64 noundef 7) #6
+  %914 = tail call i32 @rb_st_insert(ptr noundef %912, i64 noundef 28, i64 noundef %913) #6
+  %915 = load ptr, ptr @rsock_intern_protocol_family_hash, align 8, !tbaa !10
+  %916 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.18, i64 noundef 5) #6
+  %917 = tail call i32 @rb_st_insert(ptr noundef %915, i64 noundef 27, i64 noundef %916) #6
+  %918 = load ptr, ptr @rsock_intern_protocol_family_hash, align 8, !tbaa !10
+  %919 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.35, i64 noundef 6) #6
+  %920 = tail call i32 @rb_st_insert(ptr noundef %918, i64 noundef 26, i64 noundef %919) #6
+  %921 = load ptr, ptr @rsock_intern_protocol_family_hash, align 8, !tbaa !10
+  %922 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.67, i64 noundef 8) #6
+  %923 = tail call i32 @rb_st_insert(ptr noundef %921, i64 noundef 24, i64 noundef %922) #6
+  %924 = load ptr, ptr @rsock_intern_protocol_family_hash, align 8, !tbaa !10
+  %925 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.33, i64 noundef 6) #6
+  %926 = tail call i32 @rb_st_insert(ptr noundef %924, i64 noundef 21, i64 noundef %925) #6
+  %927 = load ptr, ptr @rsock_intern_protocol_family_hash, align 8, !tbaa !10
+  %928 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.79, i64 noundef 10) #6
+  %929 = tail call i32 @rb_st_insert(ptr noundef %927, i64 noundef 16, i64 noundef %928) #6
+  %930 = load ptr, ptr @rsock_intern_protocol_family_hash, align 8, !tbaa !10
+  %931 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.31, i64 noundef 6) #6
+  %932 = tail call i32 @rb_st_insert(ptr noundef %930, i64 noundef 15, i64 noundef %931) #6
+  %933 = load ptr, ptr @rsock_intern_protocol_family_hash, align 8, !tbaa !10
+  %934 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.75, i64 noundef 9) #6
+  %935 = tail call i32 @rb_st_insert(ptr noundef %933, i64 noundef 17, i64 noundef %934) #6
+  %936 = load ptr, ptr @rsock_intern_protocol_family_hash, align 8, !tbaa !10
+  %937 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.29, i64 noundef 6) #6
+  %938 = tail call i32 @rb_st_insert(ptr noundef %936, i64 noundef 46, i64 noundef %937) #6
+  %939 = load ptr, ptr @rsock_intern_protocol_family_hash, align 8, !tbaa !10
+  %940 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.54, i64 noundef 7) #6
+  %941 = tail call i32 @rb_st_insert(ptr noundef %939, i64 noundef 34, i64 noundef %940) #6
+  %942 = load ptr, ptr @rsock_intern_protocol_family_hash, align 8, !tbaa !10
+  %943 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.65, i64 noundef 8) #6
+  %944 = tail call i32 @rb_st_insert(ptr noundef %942, i64 noundef 16, i64 noundef %943) #6
+  %945 = load ptr, ptr @rsock_intern_protocol_family_hash, align 8, !tbaa !10
+  %946 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.73, i64 noundef 9) #6
+  %947 = tail call i32 @rb_st_insert(ptr noundef %945, i64 noundef 12, i64 noundef %946) #6
+  %948 = load ptr, ptr @rsock_intern_protocol_family_hash, align 8, !tbaa !10
+  %949 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.27, i64 noundef 6) #6
+  %950 = tail call i32 @rb_st_insert(ptr noundef %948, i64 noundef 22, i64 noundef %949) #6
+  %951 = load ptr, ptr @rsock_intern_protocol_family_hash, align 8, !tbaa !10
+  %952 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.63, i64 noundef 8) #6
+  %953 = tail call i32 @rb_st_insert(ptr noundef %951, i64 noundef 1, i64 noundef %952) #6
+  %954 = load ptr, ptr @rsock_intern_protocol_family_hash, align 8, !tbaa !10
+  %955 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.81, i64 noundef 12) #6
+  %956 = tail call i32 @rb_st_insert(ptr noundef %954, i64 noundef 5, i64 noundef %955) #6
+  %957 = load ptr, ptr @rsock_intern_protocol_family_hash, align 8, !tbaa !10
+  %958 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.25, i64 noundef 6) #6
+  %959 = tail call i32 @rb_st_insert(ptr noundef %957, i64 noundef 4, i64 noundef %958) #6
+  %960 = load ptr, ptr @rsock_intern_protocol_family_hash, align 8, !tbaa !10
+  %961 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.52, i64 noundef 7) #6
+  %962 = tail call i32 @rb_st_insert(ptr noundef %960, i64 noundef 3, i64 noundef %961) #6
+  %963 = load ptr, ptr @rsock_intern_protocol_family_hash, align 8, !tbaa !10
+  %964 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.50, i64 noundef 7) #6
+  %965 = tail call i32 @rb_st_insert(ptr noundef %963, i64 noundef 1, i64 noundef %964) #6
+  %966 = load ptr, ptr @rsock_intern_protocol_family_hash, align 8, !tbaa !10
+  %967 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.61, i64 noundef 8) #6
+  %968 = tail call i32 @rb_st_insert(ptr noundef %966, i64 noundef 10, i64 noundef %967) #6
+  %969 = load ptr, ptr @rsock_intern_protocol_family_hash, align 8, !tbaa !10
+  %970 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.48, i64 noundef 7) #6
+  %971 = tail call i32 @rb_st_insert(ptr noundef %969, i64 noundef 2, i64 noundef %970) #6
+  %972 = load ptr, ptr @rsock_intern_protocol_family_hash, align 8, !tbaa !10
+  %973 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.71, i64 noundef 9) #6
+  %974 = tail call i32 @rb_st_insert(ptr noundef %972, i64 noundef 0, i64 noundef %973) #6
+  %975 = tail call ptr @rb_st_init_numtable() #6
+  store ptr %975, ptr @rsock_intern_socktype_hash, align 8, !tbaa !10
+  %976 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.96, i64 noundef 12) #6
+  %977 = tail call i32 @rb_st_insert(ptr noundef %975, i64 noundef 524288, i64 noundef %976) #6
+  %978 = load ptr, ptr @rsock_intern_socktype_hash, align 8, !tbaa !10
+  %979 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.97, i64 noundef 13) #6
+  %980 = tail call i32 @rb_st_insert(ptr noundef %978, i64 noundef 2048, i64 noundef %979) #6
+  %981 = load ptr, ptr @rsock_intern_socktype_hash, align 8, !tbaa !10
+  %982 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.95, i64 noundef 11) #6
+  %983 = tail call i32 @rb_st_insert(ptr noundef %981, i64 noundef 10, i64 noundef %982) #6
+  %984 = load ptr, ptr @rsock_intern_socktype_hash, align 8, !tbaa !10
+  %985 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.98, i64 noundef 14) #6
+  %986 = tail call i32 @rb_st_insert(ptr noundef %984, i64 noundef 5, i64 noundef %985) #6
+  %987 = load ptr, ptr @rsock_intern_socktype_hash, align 8, !tbaa !10
+  %988 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.90, i64 noundef 8) #6
+  %989 = tail call i32 @rb_st_insert(ptr noundef %987, i64 noundef 4, i64 noundef %988) #6
+  %990 = load ptr, ptr @rsock_intern_socktype_hash, align 8, !tbaa !10
+  %991 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.89, i64 noundef 8) #6
+  %992 = tail call i32 @rb_st_insert(ptr noundef %990, i64 noundef 3, i64 noundef %991) #6
+  %993 = load ptr, ptr @rsock_intern_socktype_hash, align 8, !tbaa !10
+  %994 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.93, i64 noundef 10) #6
+  %995 = tail call i32 @rb_st_insert(ptr noundef %993, i64 noundef 2, i64 noundef %994) #6
+  %996 = load ptr, ptr @rsock_intern_socktype_hash, align 8, !tbaa !10
+  %997 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.94, i64 noundef 11) #6
+  %998 = tail call i32 @rb_st_insert(ptr noundef %996, i64 noundef 1, i64 noundef %997) #6
+  %999 = tail call ptr @rb_st_init_numtable() #6
+  store ptr %999, ptr @rsock_intern_ipproto_hash, align 8, !tbaa !10
+  %1000 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.126, i64 noundef 11) #6
+  %1001 = tail call i32 @rb_st_insert(ptr noundef %999, i64 noundef 255, i64 noundef %1000) #6
+  %1002 = load ptr, ptr @rsock_intern_ipproto_hash, align 8, !tbaa !10
+  %1003 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.134, i64 noundef 15) #6
+  %1004 = tail call i32 @rb_st_insert(ptr noundef %1002, i64 noundef 43, i64 noundef %1003) #6
+  %1005 = load ptr, ptr @rsock_intern_ipproto_hash, align 8, !tbaa !10
+  %1006 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.130, i64 noundef 12) #6
+  %1007 = tail call i32 @rb_st_insert(ptr noundef %1005, i64 noundef 59, i64 noundef %1006) #6
+  %1008 = load ptr, ptr @rsock_intern_ipproto_hash, align 8, !tbaa !10
+  %1009 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.129, i64 noundef 12) #6
+  %1010 = tail call i32 @rb_st_insert(ptr noundef %1008, i64 noundef 41, i64 noundef %1009) #6
+  %1011 = load ptr, ptr @rsock_intern_ipproto_hash, align 8, !tbaa !10
+  %1012 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.131, i64 noundef 14) #6
+  %1013 = tail call i32 @rb_st_insert(ptr noundef %1011, i64 noundef 58, i64 noundef %1012) #6
+  %1014 = load ptr, ptr @rsock_intern_ipproto_hash, align 8, !tbaa !10
+  %1015 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.133, i64 noundef 15) #6
+  %1016 = tail call i32 @rb_st_insert(ptr noundef %1014, i64 noundef 0, i64 noundef %1015) #6
+  %1017 = load ptr, ptr @rsock_intern_ipproto_hash, align 8, !tbaa !10
+  %1018 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.135, i64 noundef 16) #6
+  %1019 = tail call i32 @rb_st_insert(ptr noundef %1017, i64 noundef 44, i64 noundef %1018) #6
+  %1020 = load ptr, ptr @rsock_intern_ipproto_hash, align 8, !tbaa !10
+  %1021 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.125, i64 noundef 11) #6
+  %1022 = tail call i32 @rb_st_insert(ptr noundef %1020, i64 noundef 50, i64 noundef %1021) #6
+  %1023 = load ptr, ptr @rsock_intern_ipproto_hash, align 8, !tbaa !10
+  %1024 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.132, i64 noundef 15) #6
+  %1025 = tail call i32 @rb_st_insert(ptr noundef %1023, i64 noundef 60, i64 noundef %1024) #6
+  %1026 = load ptr, ptr @rsock_intern_ipproto_hash, align 8, !tbaa !10
+  %1027 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.119, i64 noundef 10) #6
+  %1028 = tail call i32 @rb_st_insert(ptr noundef %1026, i64 noundef 51, i64 noundef %1027) #6
+  %1029 = load ptr, ptr @rsock_intern_ipproto_hash, align 8, !tbaa !10
+  %1030 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.118, i64 noundef 10) #6
+  %1031 = tail call i32 @rb_st_insert(ptr noundef %1029, i64 noundef 29, i64 noundef %1030) #6
+  %1032 = load ptr, ptr @rsock_intern_ipproto_hash, align 8, !tbaa !10
+  %1033 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.124, i64 noundef 11) #6
+  %1034 = tail call i32 @rb_st_insert(ptr noundef %1032, i64 noundef 22, i64 noundef %1033) #6
+  %1035 = load ptr, ptr @rsock_intern_ipproto_hash, align 8, !tbaa !10
+  %1036 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.123, i64 noundef 11) #6
+  %1037 = tail call i32 @rb_st_insert(ptr noundef %1035, i64 noundef 17, i64 noundef %1036) #6
+  %1038 = load ptr, ptr @rsock_intern_ipproto_hash, align 8, !tbaa !10
+  %1039 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.122, i64 noundef 11) #6
+  %1040 = tail call i32 @rb_st_insert(ptr noundef %1038, i64 noundef 12, i64 noundef %1039) #6
+  %1041 = load ptr, ptr @rsock_intern_ipproto_hash, align 8, !tbaa !10
+  %1042 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.121, i64 noundef 11) #6
+  %1043 = tail call i32 @rb_st_insert(ptr noundef %1041, i64 noundef 8, i64 noundef %1042) #6
+  %1044 = load ptr, ptr @rsock_intern_ipproto_hash, align 8, !tbaa !10
+  %1045 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.120, i64 noundef 11) #6
+  %1046 = tail call i32 @rb_st_insert(ptr noundef %1044, i64 noundef 6, i64 noundef %1045) #6
+  %1047 = load ptr, ptr @rsock_intern_ipproto_hash, align 8, !tbaa !10
+  %1048 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.128, i64 noundef 12) #6
+  %1049 = tail call i32 @rb_st_insert(ptr noundef %1047, i64 noundef 2, i64 noundef %1048) #6
+  %1050 = load ptr, ptr @rsock_intern_ipproto_hash, align 8, !tbaa !10
+  %1051 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.127, i64 noundef 12) #6
+  %1052 = tail call i32 @rb_st_insert(ptr noundef %1050, i64 noundef 1, i64 noundef %1051) #6
+  %1053 = load ptr, ptr @rsock_intern_ipproto_hash, align 8, !tbaa !10
+  %1054 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.117, i64 noundef 10) #6
+  %1055 = tail call i32 @rb_st_insert(ptr noundef %1053, i64 noundef 0, i64 noundef %1054) #6
+  %1056 = tail call ptr @rb_st_init_numtable() #6
+  store ptr %1056, ptr @rsock_intern_iplevel_hash, align 8, !tbaa !10
+  %1057 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.126, i64 noundef 11) #6
+  %1058 = tail call i32 @rb_st_insert(ptr noundef %1056, i64 noundef 255, i64 noundef %1057) #6
+  %1059 = load ptr, ptr @rsock_intern_iplevel_hash, align 8, !tbaa !10
+  %1060 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.134, i64 noundef 15) #6
+  %1061 = tail call i32 @rb_st_insert(ptr noundef %1059, i64 noundef 43, i64 noundef %1060) #6
+  %1062 = load ptr, ptr @rsock_intern_iplevel_hash, align 8, !tbaa !10
+  %1063 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.130, i64 noundef 12) #6
+  %1064 = tail call i32 @rb_st_insert(ptr noundef %1062, i64 noundef 59, i64 noundef %1063) #6
+  %1065 = load ptr, ptr @rsock_intern_iplevel_hash, align 8, !tbaa !10
+  %1066 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.129, i64 noundef 12) #6
+  %1067 = tail call i32 @rb_st_insert(ptr noundef %1065, i64 noundef 41, i64 noundef %1066) #6
+  %1068 = load ptr, ptr @rsock_intern_iplevel_hash, align 8, !tbaa !10
+  %1069 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.131, i64 noundef 14) #6
+  %1070 = tail call i32 @rb_st_insert(ptr noundef %1068, i64 noundef 58, i64 noundef %1069) #6
+  %1071 = load ptr, ptr @rsock_intern_iplevel_hash, align 8, !tbaa !10
+  %1072 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.133, i64 noundef 15) #6
+  %1073 = tail call i32 @rb_st_insert(ptr noundef %1071, i64 noundef 0, i64 noundef %1072) #6
+  %1074 = load ptr, ptr @rsock_intern_iplevel_hash, align 8, !tbaa !10
+  %1075 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.135, i64 noundef 16) #6
+  %1076 = tail call i32 @rb_st_insert(ptr noundef %1074, i64 noundef 44, i64 noundef %1075) #6
+  %1077 = load ptr, ptr @rsock_intern_iplevel_hash, align 8, !tbaa !10
+  %1078 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.125, i64 noundef 11) #6
+  %1079 = tail call i32 @rb_st_insert(ptr noundef %1077, i64 noundef 50, i64 noundef %1078) #6
+  %1080 = load ptr, ptr @rsock_intern_iplevel_hash, align 8, !tbaa !10
+  %1081 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.132, i64 noundef 15) #6
+  %1082 = tail call i32 @rb_st_insert(ptr noundef %1080, i64 noundef 60, i64 noundef %1081) #6
+  %1083 = load ptr, ptr @rsock_intern_iplevel_hash, align 8, !tbaa !10
+  %1084 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.119, i64 noundef 10) #6
+  %1085 = tail call i32 @rb_st_insert(ptr noundef %1083, i64 noundef 51, i64 noundef %1084) #6
+  %1086 = load ptr, ptr @rsock_intern_iplevel_hash, align 8, !tbaa !10
+  %1087 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.118, i64 noundef 10) #6
+  %1088 = tail call i32 @rb_st_insert(ptr noundef %1086, i64 noundef 29, i64 noundef %1087) #6
+  %1089 = load ptr, ptr @rsock_intern_iplevel_hash, align 8, !tbaa !10
+  %1090 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.124, i64 noundef 11) #6
+  %1091 = tail call i32 @rb_st_insert(ptr noundef %1089, i64 noundef 22, i64 noundef %1090) #6
+  %1092 = load ptr, ptr @rsock_intern_iplevel_hash, align 8, !tbaa !10
+  %1093 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.123, i64 noundef 11) #6
+  %1094 = tail call i32 @rb_st_insert(ptr noundef %1092, i64 noundef 17, i64 noundef %1093) #6
+  %1095 = load ptr, ptr @rsock_intern_iplevel_hash, align 8, !tbaa !10
+  %1096 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.122, i64 noundef 11) #6
+  %1097 = tail call i32 @rb_st_insert(ptr noundef %1095, i64 noundef 12, i64 noundef %1096) #6
+  %1098 = load ptr, ptr @rsock_intern_iplevel_hash, align 8, !tbaa !10
+  %1099 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.121, i64 noundef 11) #6
+  %1100 = tail call i32 @rb_st_insert(ptr noundef %1098, i64 noundef 8, i64 noundef %1099) #6
+  %1101 = load ptr, ptr @rsock_intern_iplevel_hash, align 8, !tbaa !10
+  %1102 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.120, i64 noundef 11) #6
+  %1103 = tail call i32 @rb_st_insert(ptr noundef %1101, i64 noundef 6, i64 noundef %1102) #6
+  %1104 = load ptr, ptr @rsock_intern_iplevel_hash, align 8, !tbaa !10
+  %1105 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.128, i64 noundef 12) #6
+  %1106 = tail call i32 @rb_st_insert(ptr noundef %1104, i64 noundef 2, i64 noundef %1105) #6
+  %1107 = load ptr, ptr @rsock_intern_iplevel_hash, align 8, !tbaa !10
+  %1108 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.127, i64 noundef 12) #6
+  %1109 = tail call i32 @rb_st_insert(ptr noundef %1107, i64 noundef 1, i64 noundef %1108) #6
+  %1110 = load ptr, ptr @rsock_intern_iplevel_hash, align 8, !tbaa !10
+  %1111 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.117, i64 noundef 10) #6
+  %1112 = tail call i32 @rb_st_insert(ptr noundef %1110, i64 noundef 0, i64 noundef %1111) #6
+  %1113 = load ptr, ptr @rsock_intern_iplevel_hash, align 8, !tbaa !10
+  %1114 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.137, i64 noundef 10) #6
+  %1115 = tail call i32 @rb_st_insert(ptr noundef %1113, i64 noundef 1, i64 noundef %1114) #6
+  %1116 = load ptr, ptr @rsock_intern_iplevel_hash, align 8, !tbaa !10
+  %1117 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.84, i64 noundef 3) #6
+  %1118 = tail call i32 @rb_st_insert(ptr noundef %1116, i64 noundef 255, i64 noundef %1117) #6
+  %1119 = load ptr, ptr @rsock_intern_iplevel_hash, align 8, !tbaa !10
+  %1120 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.115, i64 noundef 7) #6
+  %1121 = tail call i32 @rb_st_insert(ptr noundef %1119, i64 noundef 43, i64 noundef %1120) #6
+  %1122 = load ptr, ptr @rsock_intern_iplevel_hash, align 8, !tbaa !10
+  %1123 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.111, i64 noundef 4) #6
+  %1124 = tail call i32 @rb_st_insert(ptr noundef %1122, i64 noundef 59, i64 noundef %1123) #6
+  %1125 = load ptr, ptr @rsock_intern_iplevel_hash, align 8, !tbaa !10
+  %1126 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.110, i64 noundef 4) #6
+  %1127 = tail call i32 @rb_st_insert(ptr noundef %1125, i64 noundef 41, i64 noundef %1126) #6
+  %1128 = load ptr, ptr @rsock_intern_iplevel_hash, align 8, !tbaa !10
+  %1129 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.112, i64 noundef 6) #6
+  %1130 = tail call i32 @rb_st_insert(ptr noundef %1128, i64 noundef 58, i64 noundef %1129) #6
+  %1131 = load ptr, ptr @rsock_intern_iplevel_hash, align 8, !tbaa !10
+  %1132 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.114, i64 noundef 7) #6
+  %1133 = tail call i32 @rb_st_insert(ptr noundef %1131, i64 noundef 0, i64 noundef %1132) #6
+  %1134 = load ptr, ptr @rsock_intern_iplevel_hash, align 8, !tbaa !10
+  %1135 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.116, i64 noundef 8) #6
+  %1136 = tail call i32 @rb_st_insert(ptr noundef %1134, i64 noundef 44, i64 noundef %1135) #6
+  %1137 = load ptr, ptr @rsock_intern_iplevel_hash, align 8, !tbaa !10
+  %1138 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.107, i64 noundef 3) #6
+  %1139 = tail call i32 @rb_st_insert(ptr noundef %1137, i64 noundef 50, i64 noundef %1138) #6
+  %1140 = load ptr, ptr @rsock_intern_iplevel_hash, align 8, !tbaa !10
+  %1141 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.113, i64 noundef 7) #6
+  %1142 = tail call i32 @rb_st_insert(ptr noundef %1140, i64 noundef 60, i64 noundef %1141) #6
+  %1143 = load ptr, ptr @rsock_intern_iplevel_hash, align 8, !tbaa !10
+  %1144 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.101, i64 noundef 2) #6
+  %1145 = tail call i32 @rb_st_insert(ptr noundef %1143, i64 noundef 51, i64 noundef %1144) #6
+  %1146 = load ptr, ptr @rsock_intern_iplevel_hash, align 8, !tbaa !10
+  %1147 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.100, i64 noundef 2) #6
+  %1148 = tail call i32 @rb_st_insert(ptr noundef %1146, i64 noundef 29, i64 noundef %1147) #6
+  %1149 = load ptr, ptr @rsock_intern_iplevel_hash, align 8, !tbaa !10
+  %1150 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.106, i64 noundef 3) #6
+  %1151 = tail call i32 @rb_st_insert(ptr noundef %1149, i64 noundef 22, i64 noundef %1150) #6
+  %1152 = load ptr, ptr @rsock_intern_iplevel_hash, align 8, !tbaa !10
+  %1153 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.105, i64 noundef 3) #6
+  %1154 = tail call i32 @rb_st_insert(ptr noundef %1152, i64 noundef 17, i64 noundef %1153) #6
+  %1155 = load ptr, ptr @rsock_intern_iplevel_hash, align 8, !tbaa !10
+  %1156 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.104, i64 noundef 3) #6
+  %1157 = tail call i32 @rb_st_insert(ptr noundef %1155, i64 noundef 12, i64 noundef %1156) #6
+  %1158 = load ptr, ptr @rsock_intern_iplevel_hash, align 8, !tbaa !10
+  %1159 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.103, i64 noundef 3) #6
+  %1160 = tail call i32 @rb_st_insert(ptr noundef %1158, i64 noundef 8, i64 noundef %1159) #6
+  %1161 = load ptr, ptr @rsock_intern_iplevel_hash, align 8, !tbaa !10
+  %1162 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.102, i64 noundef 3) #6
+  %1163 = tail call i32 @rb_st_insert(ptr noundef %1161, i64 noundef 6, i64 noundef %1162) #6
+  %1164 = load ptr, ptr @rsock_intern_iplevel_hash, align 8, !tbaa !10
+  %1165 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.109, i64 noundef 4) #6
+  %1166 = tail call i32 @rb_st_insert(ptr noundef %1164, i64 noundef 2, i64 noundef %1165) #6
+  %1167 = load ptr, ptr @rsock_intern_iplevel_hash, align 8, !tbaa !10
+  %1168 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.108, i64 noundef 4) #6
+  %1169 = tail call i32 @rb_st_insert(ptr noundef %1167, i64 noundef 1, i64 noundef %1168) #6
+  %1170 = load ptr, ptr @rsock_intern_iplevel_hash, align 8, !tbaa !10
+  %1171 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.99, i64 noundef 2) #6
+  %1172 = tail call i32 @rb_st_insert(ptr noundef %1170, i64 noundef 0, i64 noundef %1171) #6
+  %1173 = load ptr, ptr @rsock_intern_iplevel_hash, align 8, !tbaa !10
+  %1174 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.136, i64 noundef 6) #6
+  %1175 = tail call i32 @rb_st_insert(ptr noundef %1173, i64 noundef 1, i64 noundef %1174) #6
+  %1176 = tail call ptr @rb_st_init_numtable() #6
+  store ptr %1176, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1177 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.231, i64 noundef 19) #6
+  %1178 = tail call i32 @rb_st_insert(ptr noundef %1176, i64 noundef 56, i64 noundef %1177) #6
+  %1179 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1180 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.222, i64 noundef 15) #6
+  %1181 = tail call i32 @rb_st_insert(ptr noundef %1179, i64 noundef 49, i64 noundef %1180) #6
+  %1182 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1183 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.228, i64 noundef 17) #6
+  %1184 = tail call i32 @rb_st_insert(ptr noundef %1182, i64 noundef 48, i64 noundef %1183) #6
+  %1185 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1186 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.229, i64 noundef 18) #6
+  %1187 = tail call i32 @rb_st_insert(ptr noundef %1185, i64 noundef 47, i64 noundef %1186) #6
+  %1188 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1189 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.206, i64 noundef 12) #6
+  %1190 = tail call i32 @rb_st_insert(ptr noundef %1188, i64 noundef 46, i64 noundef %1189) #6
+  %1191 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1192 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.230, i64 noundef 19) #6
+  %1193 = tail call i32 @rb_st_insert(ptr noundef %1191, i64 noundef 45, i64 noundef %1192) #6
+  %1194 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1195 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.218, i64 noundef 14) #6
+  %1196 = tail call i32 @rb_st_insert(ptr noundef %1194, i64 noundef 44, i64 noundef %1195) #6
+  %1197 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1198 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.153, i64 noundef 8) #6
+  %1199 = tail call i32 @rb_st_insert(ptr noundef %1197, i64 noundef 43, i64 noundef %1198) #6
+  %1200 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1201 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.193, i64 noundef 11) #6
+  %1202 = tail call i32 @rb_st_insert(ptr noundef %1200, i64 noundef 42, i64 noundef %1201) #6
+  %1203 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1204 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.217, i64 noundef 14) #6
+  %1205 = tail call i32 @rb_st_insert(ptr noundef %1203, i64 noundef 41, i64 noundef %1204) #6
+  %1206 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1207 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.192, i64 noundef 11) #6
+  %1208 = tail call i32 @rb_st_insert(ptr noundef %1206, i64 noundef 40, i64 noundef %1207) #6
+  %1209 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1210 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.169, i64 noundef 9) #6
+  %1211 = tail call i32 @rb_st_insert(ptr noundef %1209, i64 noundef 39, i64 noundef %1210) #6
+  %1212 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1213 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.191, i64 noundef 11) #6
+  %1214 = tail call i32 @rb_st_insert(ptr noundef %1212, i64 noundef 38, i64 noundef %1213) #6
+  %1215 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1216 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.221, i64 noundef 15) #6
+  %1217 = tail call i32 @rb_st_insert(ptr noundef %1215, i64 noundef 37, i64 noundef %1216) #6
+  %1218 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1219 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.148, i64 noundef 7) #6
+  %1220 = tail call i32 @rb_st_insert(ptr noundef %1218, i64 noundef 36, i64 noundef %1219) #6
+  %1221 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1222 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.179, i64 noundef 10) #6
+  %1223 = tail call i32 @rb_st_insert(ptr noundef %1221, i64 noundef 34, i64 noundef %1222) #6
+  %1224 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1225 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.178, i64 noundef 10) #6
+  %1226 = tail call i32 @rb_st_insert(ptr noundef %1224, i64 noundef 31, i64 noundef %1225) #6
+  %1227 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1228 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.216, i64 noundef 14) #6
+  %1229 = tail call i32 @rb_st_insert(ptr noundef %1227, i64 noundef 35, i64 noundef %1228) #6
+  %1230 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1231 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.205, i64 noundef 12) #6
+  %1232 = tail call i32 @rb_st_insert(ptr noundef %1230, i64 noundef 29, i64 noundef %1231) #6
+  %1233 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1234 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.190, i64 noundef 11) #6
+  %1235 = tail call i32 @rb_st_insert(ptr noundef %1233, i64 noundef 28, i64 noundef %1234) #6
+  %1236 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1237 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.211, i64 noundef 13) #6
+  %1238 = tail call i32 @rb_st_insert(ptr noundef %1236, i64 noundef 26, i64 noundef %1237) #6
+  %1239 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1240 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.225, i64 noundef 16) #6
+  %1241 = tail call i32 @rb_st_insert(ptr noundef %1239, i64 noundef 27, i64 noundef %1240) #6
+  %1242 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1243 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.224, i64 noundef 16) #6
+  %1244 = tail call i32 @rb_st_insert(ptr noundef %1242, i64 noundef 26, i64 noundef %1243) #6
+  %1245 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1246 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.220, i64 noundef 15) #6
+  %1247 = tail call i32 @rb_st_insert(ptr noundef %1245, i64 noundef 25, i64 noundef %1246) #6
+  %1248 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1249 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.236, i64 noundef 30) #6
+  %1250 = tail call i32 @rb_st_insert(ptr noundef %1248, i64 noundef 24, i64 noundef %1249) #6
+  %1251 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1252 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.237, i64 noundef 32) #6
+  %1253 = tail call i32 @rb_st_insert(ptr noundef %1251, i64 noundef 23, i64 noundef %1252) #6
+  %1254 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1255 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.233, i64 noundef 26) #6
+  %1256 = tail call i32 @rb_st_insert(ptr noundef %1254, i64 noundef 22, i64 noundef %1255) #6
+  %1257 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1258 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.210, i64 noundef 13) #6
+  %1259 = tail call i32 @rb_st_insert(ptr noundef %1257, i64 noundef 30, i64 noundef %1258) #6
+  %1260 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1261 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.189, i64 noundef 11) #6
+  %1262 = tail call i32 @rb_st_insert(ptr noundef %1260, i64 noundef 21, i64 noundef %1261) #6
+  %1263 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1264 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.188, i64 noundef 11) #6
+  %1265 = tail call i32 @rb_st_insert(ptr noundef %1263, i64 noundef 20, i64 noundef %1264) #6
+  %1266 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1267 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.187, i64 noundef 11) #6
+  %1268 = tail call i32 @rb_st_insert(ptr noundef %1266, i64 noundef 19, i64 noundef %1267) #6
+  %1269 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1270 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.186, i64 noundef 11) #6
+  %1271 = tail call i32 @rb_st_insert(ptr noundef %1269, i64 noundef 18, i64 noundef %1270) #6
+  %1272 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1273 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.185, i64 noundef 11) #6
+  %1274 = tail call i32 @rb_st_insert(ptr noundef %1272, i64 noundef 17, i64 noundef %1273) #6
+  %1275 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1276 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.184, i64 noundef 11) #6
+  %1277 = tail call i32 @rb_st_insert(ptr noundef %1275, i64 noundef 16, i64 noundef %1276) #6
+  %1278 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1279 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.168, i64 noundef 9) #6
+  %1280 = tail call i32 @rb_st_insert(ptr noundef %1278, i64 noundef 13, i64 noundef %1279) #6
+  %1281 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1282 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.183, i64 noundef 11) #6
+  %1283 = tail call i32 @rb_st_insert(ptr noundef %1281, i64 noundef 12, i64 noundef %1282) #6
+  %1284 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1285 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.182, i64 noundef 11) #6
+  %1286 = tail call i32 @rb_st_insert(ptr noundef %1284, i64 noundef 11, i64 noundef %1285) #6
+  %1287 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1288 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.204, i64 noundef 12) #6
+  %1289 = tail call i32 @rb_st_insert(ptr noundef %1287, i64 noundef 10, i64 noundef %1288) #6
+  %1290 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1291 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.203, i64 noundef 12) #6
+  %1292 = tail call i32 @rb_st_insert(ptr noundef %1290, i64 noundef 9, i64 noundef %1291) #6
+  %1293 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1294 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.215, i64 noundef 14) #6
+  %1295 = tail call i32 @rb_st_insert(ptr noundef %1293, i64 noundef 33, i64 noundef %1294) #6
+  %1296 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1297 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.214, i64 noundef 14) #6
+  %1298 = tail call i32 @rb_st_insert(ptr noundef %1296, i64 noundef 32, i64 noundef %1297) #6
+  %1299 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1300 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.167, i64 noundef 9) #6
+  %1301 = tail call i32 @rb_st_insert(ptr noundef %1299, i64 noundef 8, i64 noundef %1300) #6
+  %1302 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1303 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.166, i64 noundef 9) #6
+  %1304 = tail call i32 @rb_st_insert(ptr noundef %1302, i64 noundef 7, i64 noundef %1303) #6
+  %1305 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1306 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.202, i64 noundef 12) #6
+  %1307 = tail call i32 @rb_st_insert(ptr noundef %1305, i64 noundef 6, i64 noundef %1306) #6
+  %1308 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1309 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.201, i64 noundef 12) #6
+  %1310 = tail call i32 @rb_st_insert(ptr noundef %1308, i64 noundef 5, i64 noundef %1309) #6
+  %1311 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1312 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.152, i64 noundef 8) #6
+  %1313 = tail call i32 @rb_st_insert(ptr noundef %1311, i64 noundef 4, i64 noundef %1312) #6
+  %1314 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1315 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.147, i64 noundef 7) #6
+  %1316 = tail call i32 @rb_st_insert(ptr noundef %1314, i64 noundef 3, i64 noundef %1315) #6
+  %1317 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1318 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.200, i64 noundef 12) #6
+  %1319 = tail call i32 @rb_st_insert(ptr noundef %1317, i64 noundef 15, i64 noundef %1318) #6
+  %1320 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1321 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.199, i64 noundef 12) #6
+  %1322 = tail call i32 @rb_st_insert(ptr noundef %1320, i64 noundef 2, i64 noundef %1321) #6
+  %1323 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1324 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.151, i64 noundef 8) #6
+  %1325 = tail call i32 @rb_st_insert(ptr noundef %1323, i64 noundef 1, i64 noundef %1324) #6
+  %1326 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1327 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.227, i64 noundef 16) #6
+  %1328 = tail call i32 @rb_st_insert(ptr noundef %1326, i64 noundef 56, i64 noundef %1327) #6
+  %1329 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1330 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.209, i64 noundef 12) #6
+  %1331 = tail call i32 @rb_st_insert(ptr noundef %1329, i64 noundef 49, i64 noundef %1330) #6
+  %1332 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1333 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.219, i64 noundef 14) #6
+  %1334 = tail call i32 @rb_st_insert(ptr noundef %1332, i64 noundef 48, i64 noundef %1333) #6
+  %1335 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1336 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.223, i64 noundef 15) #6
+  %1337 = tail call i32 @rb_st_insert(ptr noundef %1335, i64 noundef 47, i64 noundef %1336) #6
+  %1338 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1339 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.177, i64 noundef 9) #6
+  %1340 = tail call i32 @rb_st_insert(ptr noundef %1338, i64 noundef 46, i64 noundef %1339) #6
+  %1341 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1342 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.226, i64 noundef 16) #6
+  %1343 = tail call i32 @rb_st_insert(ptr noundef %1341, i64 noundef 45, i64 noundef %1342) #6
+  %1344 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1345 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.198, i64 noundef 11) #6
+  %1346 = tail call i32 @rb_st_insert(ptr noundef %1344, i64 noundef 44, i64 noundef %1345) #6
+  %1347 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1348 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.142, i64 noundef 5) #6
+  %1349 = tail call i32 @rb_st_insert(ptr noundef %1347, i64 noundef 43, i64 noundef %1348) #6
+  %1350 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1351 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.165, i64 noundef 8) #6
+  %1352 = tail call i32 @rb_st_insert(ptr noundef %1350, i64 noundef 42, i64 noundef %1351) #6
+  %1353 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1354 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.197, i64 noundef 11) #6
+  %1355 = tail call i32 @rb_st_insert(ptr noundef %1353, i64 noundef 41, i64 noundef %1354) #6
+  %1356 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1357 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.164, i64 noundef 8) #6
+  %1358 = tail call i32 @rb_st_insert(ptr noundef %1356, i64 noundef 40, i64 noundef %1357) #6
+  %1359 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1360 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.146, i64 noundef 6) #6
+  %1361 = tail call i32 @rb_st_insert(ptr noundef %1359, i64 noundef 39, i64 noundef %1360) #6
+  %1362 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1363 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.163, i64 noundef 8) #6
+  %1364 = tail call i32 @rb_st_insert(ptr noundef %1362, i64 noundef 38, i64 noundef %1363) #6
+  %1365 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1366 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.208, i64 noundef 12) #6
+  %1367 = tail call i32 @rb_st_insert(ptr noundef %1365, i64 noundef 37, i64 noundef %1366) #6
+  %1368 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1369 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.139, i64 noundef 4) #6
+  %1370 = tail call i32 @rb_st_insert(ptr noundef %1368, i64 noundef 36, i64 noundef %1369) #6
+  %1371 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1372 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.150, i64 noundef 7) #6
+  %1373 = tail call i32 @rb_st_insert(ptr noundef %1371, i64 noundef 34, i64 noundef %1372) #6
+  %1374 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1375 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.149, i64 noundef 7) #6
+  %1376 = tail call i32 @rb_st_insert(ptr noundef %1374, i64 noundef 31, i64 noundef %1375) #6
+  %1377 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1378 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.196, i64 noundef 11) #6
+  %1379 = tail call i32 @rb_st_insert(ptr noundef %1377, i64 noundef 35, i64 noundef %1378) #6
+  %1380 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1381 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.176, i64 noundef 9) #6
+  %1382 = tail call i32 @rb_st_insert(ptr noundef %1380, i64 noundef 29, i64 noundef %1381) #6
+  %1383 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1384 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.162, i64 noundef 8) #6
+  %1385 = tail call i32 @rb_st_insert(ptr noundef %1383, i64 noundef 28, i64 noundef %1384) #6
+  %1386 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1387 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.181, i64 noundef 10) #6
+  %1388 = tail call i32 @rb_st_insert(ptr noundef %1386, i64 noundef 26, i64 noundef %1387) #6
+  %1389 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1390 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.213, i64 noundef 13) #6
+  %1391 = tail call i32 @rb_st_insert(ptr noundef %1389, i64 noundef 27, i64 noundef %1390) #6
+  %1392 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1393 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.212, i64 noundef 13) #6
+  %1394 = tail call i32 @rb_st_insert(ptr noundef %1392, i64 noundef 26, i64 noundef %1393) #6
+  %1395 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1396 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.207, i64 noundef 12) #6
+  %1397 = tail call i32 @rb_st_insert(ptr noundef %1395, i64 noundef 25, i64 noundef %1396) #6
+  %1398 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1399 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.234, i64 noundef 27) #6
+  %1400 = tail call i32 @rb_st_insert(ptr noundef %1398, i64 noundef 24, i64 noundef %1399) #6
+  %1401 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1402 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.235, i64 noundef 29) #6
+  %1403 = tail call i32 @rb_st_insert(ptr noundef %1401, i64 noundef 23, i64 noundef %1402) #6
+  %1404 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1405 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.232, i64 noundef 23) #6
+  %1406 = tail call i32 @rb_st_insert(ptr noundef %1404, i64 noundef 22, i64 noundef %1405) #6
+  %1407 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1408 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.180, i64 noundef 10) #6
+  %1409 = tail call i32 @rb_st_insert(ptr noundef %1407, i64 noundef 30, i64 noundef %1408) #6
+  %1410 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1411 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.161, i64 noundef 8) #6
+  %1412 = tail call i32 @rb_st_insert(ptr noundef %1410, i64 noundef 21, i64 noundef %1411) #6
+  %1413 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1414 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.160, i64 noundef 8) #6
+  %1415 = tail call i32 @rb_st_insert(ptr noundef %1413, i64 noundef 20, i64 noundef %1414) #6
+  %1416 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1417 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.159, i64 noundef 8) #6
+  %1418 = tail call i32 @rb_st_insert(ptr noundef %1416, i64 noundef 19, i64 noundef %1417) #6
+  %1419 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1420 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.158, i64 noundef 8) #6
+  %1421 = tail call i32 @rb_st_insert(ptr noundef %1419, i64 noundef 18, i64 noundef %1420) #6
+  %1422 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1423 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.157, i64 noundef 8) #6
+  %1424 = tail call i32 @rb_st_insert(ptr noundef %1422, i64 noundef 17, i64 noundef %1423) #6
+  %1425 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1426 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.156, i64 noundef 8) #6
+  %1427 = tail call i32 @rb_st_insert(ptr noundef %1425, i64 noundef 16, i64 noundef %1426) #6
+  %1428 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1429 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.145, i64 noundef 6) #6
+  %1430 = tail call i32 @rb_st_insert(ptr noundef %1428, i64 noundef 13, i64 noundef %1429) #6
+  %1431 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1432 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.155, i64 noundef 8) #6
+  %1433 = tail call i32 @rb_st_insert(ptr noundef %1431, i64 noundef 12, i64 noundef %1432) #6
+  %1434 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1435 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.154, i64 noundef 8) #6
+  %1436 = tail call i32 @rb_st_insert(ptr noundef %1434, i64 noundef 11, i64 noundef %1435) #6
+  %1437 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1438 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.175, i64 noundef 9) #6
+  %1439 = tail call i32 @rb_st_insert(ptr noundef %1437, i64 noundef 10, i64 noundef %1438) #6
+  %1440 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1441 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.174, i64 noundef 9) #6
+  %1442 = tail call i32 @rb_st_insert(ptr noundef %1440, i64 noundef 9, i64 noundef %1441) #6
+  %1443 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1444 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.195, i64 noundef 11) #6
+  %1445 = tail call i32 @rb_st_insert(ptr noundef %1443, i64 noundef 33, i64 noundef %1444) #6
+  %1446 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1447 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.194, i64 noundef 11) #6
+  %1448 = tail call i32 @rb_st_insert(ptr noundef %1446, i64 noundef 32, i64 noundef %1447) #6
+  %1449 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1450 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.144, i64 noundef 6) #6
+  %1451 = tail call i32 @rb_st_insert(ptr noundef %1449, i64 noundef 8, i64 noundef %1450) #6
+  %1452 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1453 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.143, i64 noundef 6) #6
+  %1454 = tail call i32 @rb_st_insert(ptr noundef %1452, i64 noundef 7, i64 noundef %1453) #6
+  %1455 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1456 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.173, i64 noundef 9) #6
+  %1457 = tail call i32 @rb_st_insert(ptr noundef %1455, i64 noundef 6, i64 noundef %1456) #6
+  %1458 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1459 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.172, i64 noundef 9) #6
+  %1460 = tail call i32 @rb_st_insert(ptr noundef %1458, i64 noundef 5, i64 noundef %1459) #6
+  %1461 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1462 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.141, i64 noundef 5) #6
+  %1463 = tail call i32 @rb_st_insert(ptr noundef %1461, i64 noundef 4, i64 noundef %1462) #6
+  %1464 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1465 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.138, i64 noundef 4) #6
+  %1466 = tail call i32 @rb_st_insert(ptr noundef %1464, i64 noundef 3, i64 noundef %1465) #6
+  %1467 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1468 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.171, i64 noundef 9) #6
+  %1469 = tail call i32 @rb_st_insert(ptr noundef %1467, i64 noundef 15, i64 noundef %1468) #6
+  %1470 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1471 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.170, i64 noundef 9) #6
+  %1472 = tail call i32 @rb_st_insert(ptr noundef %1470, i64 noundef 2, i64 noundef %1471) #6
+  %1473 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
+  %1474 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.140, i64 noundef 5) #6
+  %1475 = tail call i32 @rb_st_insert(ptr noundef %1473, i64 noundef 1, i64 noundef %1474) #6
+  %1476 = tail call ptr @rb_st_init_numtable() #6
+  store ptr %1476, ptr @rsock_intern_ip_optname_hash, align 8, !tbaa !10
+  %1477 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.267, i64 noundef 11) #6
+  %1478 = tail call i32 @rb_st_insert(ptr noundef %1476, i64 noundef 41, i64 noundef %1477) #6
+  %1479 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8, !tbaa !10
+  %1480 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.310, i64 noundef 25) #6
+  %1481 = tail call i32 @rb_st_insert(ptr noundef %1479, i64 noundef 40, i64 noundef %1480) #6
+  %1482 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8, !tbaa !10
+  %1483 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.308, i64 noundef 24) #6
+  %1484 = tail call i32 @rb_st_insert(ptr noundef %1482, i64 noundef 39, i64 noundef %1483) #6
+  %1485 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8, !tbaa !10
+  %1486 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.292, i64 noundef 15) #6
+  %1487 = tail call i32 @rb_st_insert(ptr noundef %1485, i64 noundef 38, i64 noundef %1486) #6
+  %1488 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8, !tbaa !10
+  %1489 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.300, i64 noundef 17) #6
+  %1490 = tail call i32 @rb_st_insert(ptr noundef %1488, i64 noundef 37, i64 noundef %1489) #6
+  %1491 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8, !tbaa !10
+  %1492 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.284, i64 noundef 14) #6
+  %1493 = tail call i32 @rb_st_insert(ptr noundef %1491, i64 noundef 2, i64 noundef %1492) #6
+  %1494 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8, !tbaa !10
+  %1495 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.297, i64 noundef 16) #6
+  %1496 = tail call i32 @rb_st_insert(ptr noundef %1494, i64 noundef 1, i64 noundef %1495) #6
+  %1497 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8, !tbaa !10
+  %1498 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.296, i64 noundef 16) #6
+  %1499 = tail call i32 @rb_st_insert(ptr noundef %1497, i64 noundef 0, i64 noundef %1498) #6
+  %1500 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8, !tbaa !10
+  %1501 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.283, i64 noundef 14) #6
+  %1502 = tail call i32 @rb_st_insert(ptr noundef %1500, i64 noundef 19, i64 noundef %1501) #6
+  %1503 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8, !tbaa !10
+  %1504 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.263, i64 noundef 10) #6
+  %1505 = tail call i32 @rb_st_insert(ptr noundef %1503, i64 noundef 18, i64 noundef %1504) #6
+  %1506 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8, !tbaa !10
+  %1507 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.282, i64 noundef 14) #6
+  %1508 = tail call i32 @rb_st_insert(ptr noundef %1506, i64 noundef 17, i64 noundef %1507) #6
+  %1509 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8, !tbaa !10
+  %1510 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.291, i64 noundef 15) #6
+  %1511 = tail call i32 @rb_st_insert(ptr noundef %1509, i64 noundef 16, i64 noundef %1510) #6
+  %1512 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8, !tbaa !10
+  %1513 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.266, i64 noundef 11) #6
+  %1514 = tail call i32 @rb_st_insert(ptr noundef %1512, i64 noundef 15, i64 noundef %1513) #6
+  %1515 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8, !tbaa !10
+  %1516 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.243, i64 noundef 6) #6
+  %1517 = tail call i32 @rb_st_insert(ptr noundef %1515, i64 noundef 14, i64 noundef %1516) #6
+  %1518 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8, !tbaa !10
+  %1519 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.262, i64 noundef 10) #6
+  %1520 = tail call i32 @rb_st_insert(ptr noundef %1518, i64 noundef 13, i64 noundef %1519) #6
+  %1521 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8, !tbaa !10
+  %1522 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.261, i64 noundef 10) #6
+  %1523 = tail call i32 @rb_st_insert(ptr noundef %1521, i64 noundef 11, i64 noundef %1522) #6
+  %1524 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8, !tbaa !10
+  %1525 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.290, i64 noundef 15) #6
+  %1526 = tail call i32 @rb_st_insert(ptr noundef %1524, i64 noundef 10, i64 noundef %1525) #6
+  %1527 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8, !tbaa !10
+  %1528 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.277, i64 noundef 13) #6
+  %1529 = tail call i32 @rb_st_insert(ptr noundef %1527, i64 noundef 9, i64 noundef %1528) #6
+  %1530 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8, !tbaa !10
+  %1531 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.260, i64 noundef 10) #6
+  %1532 = tail call i32 @rb_st_insert(ptr noundef %1530, i64 noundef 8, i64 noundef %1531) #6
+  %1533 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8, !tbaa !10
+  %1534 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.289, i64 noundef 15) #6
+  %1535 = tail call i32 @rb_st_insert(ptr noundef %1533, i64 noundef 5, i64 noundef %1534) #6
+  %1536 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8, !tbaa !10
+  %1537 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.302, i64 noundef 18) #6
+  %1538 = tail call i32 @rb_st_insert(ptr noundef %1536, i64 noundef 20, i64 noundef %1537) #6
+  %1539 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8, !tbaa !10
+  %1540 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.309, i64 noundef 25) #6
+  %1541 = tail call i32 @rb_st_insert(ptr noundef %1539, i64 noundef 1, i64 noundef %1540) #6
+  %1542 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8, !tbaa !10
+  %1543 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.307, i64 noundef 24) #6
+  %1544 = tail call i32 @rb_st_insert(ptr noundef %1542, i64 noundef 1, i64 noundef %1543) #6
+  %1545 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8, !tbaa !10
+  %1546 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.301, i64 noundef 18) #6
+  %1547 = tail call i32 @rb_st_insert(ptr noundef %1545, i64 noundef 36, i64 noundef %1546) #6
+  %1548 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8, !tbaa !10
+  %1549 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.299, i64 noundef 17) #6
+  %1550 = tail call i32 @rb_st_insert(ptr noundef %1548, i64 noundef 35, i64 noundef %1549) #6
+  %1551 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8, !tbaa !10
+  %1552 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.298, i64 noundef 17) #6
+  %1553 = tail call i32 @rb_st_insert(ptr noundef %1551, i64 noundef 34, i64 noundef %1552) #6
+  %1554 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8, !tbaa !10
+  %1555 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.295, i64 noundef 16) #6
+  %1556 = tail call i32 @rb_st_insert(ptr noundef %1554, i64 noundef 33, i64 noundef %1555) #6
+  %1557 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8, !tbaa !10
+  %1558 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.288, i64 noundef 15) #6
+  %1559 = tail call i32 @rb_st_insert(ptr noundef %1557, i64 noundef 32, i64 noundef %1558) #6
+  %1560 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8, !tbaa !10
+  %1561 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.259, i64 noundef 10) #6
+  %1562 = tail call i32 @rb_st_insert(ptr noundef %1560, i64 noundef 12, i64 noundef %1561) #6
+  %1563 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8, !tbaa !10
+  %1564 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.255, i64 noundef 9) #6
+  %1565 = tail call i32 @rb_st_insert(ptr noundef %1563, i64 noundef 21, i64 noundef %1564) #6
+  %1566 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8, !tbaa !10
+  %1567 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.258, i64 noundef 10) #6
+  %1568 = tail call i32 @rb_st_insert(ptr noundef %1566, i64 noundef 7, i64 noundef %1567) #6
+  %1569 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8, !tbaa !10
+  %1570 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.281, i64 noundef 14) #6
+  %1571 = tail call i32 @rb_st_insert(ptr noundef %1569, i64 noundef 7, i64 noundef %1570) #6
+  %1572 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8, !tbaa !10
+  %1573 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.265, i64 noundef 11) #6
+  %1574 = tail call i32 @rb_st_insert(ptr noundef %1572, i64 noundef 6, i64 noundef %1573) #6
+  %1575 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8, !tbaa !10
+  %1576 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.242, i64 noundef 6) #6
+  %1577 = tail call i32 @rb_st_insert(ptr noundef %1575, i64 noundef 2, i64 noundef %1576) #6
+  %1578 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8, !tbaa !10
+  %1579 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.241, i64 noundef 6) #6
+  %1580 = tail call i32 @rb_st_insert(ptr noundef %1578, i64 noundef 1, i64 noundef %1579) #6
+  %1581 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8, !tbaa !10
+  %1582 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.257, i64 noundef 10) #6
+  %1583 = tail call i32 @rb_st_insert(ptr noundef %1581, i64 noundef 3, i64 noundef %1582) #6
+  %1584 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8, !tbaa !10
+  %1585 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.256, i64 noundef 10) #6
+  %1586 = tail call i32 @rb_st_insert(ptr noundef %1584, i64 noundef 4, i64 noundef %1585) #6
+  %1587 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8, !tbaa !10
+  %1588 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.254, i64 noundef 8) #6
+  %1589 = tail call i32 @rb_st_insert(ptr noundef %1587, i64 noundef 41, i64 noundef %1588) #6
+  %1590 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8, !tbaa !10
+  %1591 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.306, i64 noundef 22) #6
+  %1592 = tail call i32 @rb_st_insert(ptr noundef %1590, i64 noundef 40, i64 noundef %1591) #6
+  %1593 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8, !tbaa !10
+  %1594 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.304, i64 noundef 21) #6
+  %1595 = tail call i32 @rb_st_insert(ptr noundef %1593, i64 noundef 39, i64 noundef %1594) #6
+  %1596 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8, !tbaa !10
+  %1597 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.276, i64 noundef 12) #6
+  %1598 = tail call i32 @rb_st_insert(ptr noundef %1596, i64 noundef 38, i64 noundef %1597) #6
+  %1599 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8, !tbaa !10
+  %1600 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.287, i64 noundef 14) #6
+  %1601 = tail call i32 @rb_st_insert(ptr noundef %1599, i64 noundef 37, i64 noundef %1600) #6
+  %1602 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8, !tbaa !10
+  %1603 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.271, i64 noundef 11) #6
+  %1604 = tail call i32 @rb_st_insert(ptr noundef %1602, i64 noundef 2, i64 noundef %1603) #6
+  %1605 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8, !tbaa !10
+  %1606 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.280, i64 noundef 13) #6
+  %1607 = tail call i32 @rb_st_insert(ptr noundef %1605, i64 noundef 1, i64 noundef %1606) #6
+  %1608 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8, !tbaa !10
+  %1609 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.279, i64 noundef 13) #6
+  %1610 = tail call i32 @rb_st_insert(ptr noundef %1608, i64 noundef 0, i64 noundef %1609) #6
+  %1611 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8, !tbaa !10
+  %1612 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.270, i64 noundef 11) #6
+  %1613 = tail call i32 @rb_st_insert(ptr noundef %1611, i64 noundef 19, i64 noundef %1612) #6
+  %1614 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8, !tbaa !10
+  %1615 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.150, i64 noundef 7) #6
+  %1616 = tail call i32 @rb_st_insert(ptr noundef %1614, i64 noundef 18, i64 noundef %1615) #6
+  %1617 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8, !tbaa !10
+  %1618 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.269, i64 noundef 11) #6
+  %1619 = tail call i32 @rb_st_insert(ptr noundef %1617, i64 noundef 17, i64 noundef %1618) #6
+  %1620 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8, !tbaa !10
+  %1621 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.275, i64 noundef 12) #6
+  %1622 = tail call i32 @rb_st_insert(ptr noundef %1620, i64 noundef 16, i64 noundef %1621) #6
+  %1623 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8, !tbaa !10
+  %1624 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.253, i64 noundef 8) #6
+  %1625 = tail call i32 @rb_st_insert(ptr noundef %1623, i64 noundef 15, i64 noundef %1624) #6
+  %1626 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8, !tbaa !10
+  %1627 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.240, i64 noundef 3) #6
+  %1628 = tail call i32 @rb_st_insert(ptr noundef %1626, i64 noundef 14, i64 noundef %1627) #6
+  %1629 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8, !tbaa !10
+  %1630 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.251, i64 noundef 7) #6
+  %1631 = tail call i32 @rb_st_insert(ptr noundef %1629, i64 noundef 13, i64 noundef %1630) #6
+  %1632 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8, !tbaa !10
+  %1633 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.250, i64 noundef 7) #6
+  %1634 = tail call i32 @rb_st_insert(ptr noundef %1632, i64 noundef 11, i64 noundef %1633) #6
+  %1635 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8, !tbaa !10
+  %1636 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.274, i64 noundef 12) #6
+  %1637 = tail call i32 @rb_st_insert(ptr noundef %1635, i64 noundef 10, i64 noundef %1636) #6
+  %1638 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8, !tbaa !10
+  %1639 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.264, i64 noundef 10) #6
+  %1640 = tail call i32 @rb_st_insert(ptr noundef %1638, i64 noundef 9, i64 noundef %1639) #6
+  %1641 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8, !tbaa !10
+  %1642 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.249, i64 noundef 7) #6
+  %1643 = tail call i32 @rb_st_insert(ptr noundef %1641, i64 noundef 8, i64 noundef %1642) #6
+  %1644 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8, !tbaa !10
+  %1645 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.273, i64 noundef 12) #6
+  %1646 = tail call i32 @rb_st_insert(ptr noundef %1644, i64 noundef 5, i64 noundef %1645) #6
+  %1647 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8, !tbaa !10
+  %1648 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.294, i64 noundef 15) #6
+  %1649 = tail call i32 @rb_st_insert(ptr noundef %1647, i64 noundef 20, i64 noundef %1648) #6
+  %1650 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8, !tbaa !10
+  %1651 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.305, i64 noundef 22) #6
+  %1652 = tail call i32 @rb_st_insert(ptr noundef %1650, i64 noundef 1, i64 noundef %1651) #6
+  %1653 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8, !tbaa !10
+  %1654 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.303, i64 noundef 21) #6
+  %1655 = tail call i32 @rb_st_insert(ptr noundef %1653, i64 noundef 1, i64 noundef %1654) #6
+  %1656 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8, !tbaa !10
+  %1657 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.293, i64 noundef 15) #6
+  %1658 = tail call i32 @rb_st_insert(ptr noundef %1656, i64 noundef 36, i64 noundef %1657) #6
+  %1659 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8, !tbaa !10
+  %1660 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.286, i64 noundef 14) #6
+  %1661 = tail call i32 @rb_st_insert(ptr noundef %1659, i64 noundef 35, i64 noundef %1660) #6
+  %1662 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8, !tbaa !10
+  %1663 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.285, i64 noundef 14) #6
+  %1664 = tail call i32 @rb_st_insert(ptr noundef %1662, i64 noundef 34, i64 noundef %1663) #6
+  %1665 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8, !tbaa !10
+  %1666 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.278, i64 noundef 13) #6
+  %1667 = tail call i32 @rb_st_insert(ptr noundef %1665, i64 noundef 33, i64 noundef %1666) #6
+  %1668 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8, !tbaa !10
+  %1669 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.272, i64 noundef 12) #6
+  %1670 = tail call i32 @rb_st_insert(ptr noundef %1668, i64 noundef 32, i64 noundef %1669) #6
+  %1671 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8, !tbaa !10
+  %1672 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.248, i64 noundef 7) #6
+  %1673 = tail call i32 @rb_st_insert(ptr noundef %1671, i64 noundef 12, i64 noundef %1672) #6
+  %1674 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8, !tbaa !10
+  %1675 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.244, i64 noundef 6) #6
+  %1676 = tail call i32 @rb_st_insert(ptr noundef %1674, i64 noundef 21, i64 noundef %1675) #6
+  %1677 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8, !tbaa !10
+  %1678 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.247, i64 noundef 7) #6
+  %1679 = tail call i32 @rb_st_insert(ptr noundef %1677, i64 noundef 7, i64 noundef %1678) #6
+  %1680 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8, !tbaa !10
+  %1681 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.268, i64 noundef 11) #6
+  %1682 = tail call i32 @rb_st_insert(ptr noundef %1680, i64 noundef 7, i64 noundef %1681) #6
+  %1683 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8, !tbaa !10
+  %1684 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.252, i64 noundef 8) #6
+  %1685 = tail call i32 @rb_st_insert(ptr noundef %1683, i64 noundef 6, i64 noundef %1684) #6
+  %1686 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8, !tbaa !10
+  %1687 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.239, i64 noundef 3) #6
+  %1688 = tail call i32 @rb_st_insert(ptr noundef %1686, i64 noundef 2, i64 noundef %1687) #6
+  %1689 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8, !tbaa !10
+  %1690 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.238, i64 noundef 3) #6
+  %1691 = tail call i32 @rb_st_insert(ptr noundef %1689, i64 noundef 1, i64 noundef %1690) #6
+  %1692 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8, !tbaa !10
+  %1693 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.246, i64 noundef 7) #6
+  %1694 = tail call i32 @rb_st_insert(ptr noundef %1692, i64 noundef 3, i64 noundef %1693) #6
+  %1695 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8, !tbaa !10
+  %1696 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.245, i64 noundef 7) #6
+  %1697 = tail call i32 @rb_st_insert(ptr noundef %1695, i64 noundef 4, i64 noundef %1696) #6
+  %1698 = tail call ptr @rb_st_init_numtable() #6
+  store ptr %1698, ptr @rsock_intern_ipv6_optname_hash, align 8, !tbaa !10
+  %1699 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.324, i64 noundef 11) #6
+  %1700 = tail call i32 @rb_st_insert(ptr noundef %1698, i64 noundef 67, i64 noundef %1699) #6
+  %1701 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8, !tbaa !10
+  %1702 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.351, i64 noundef 16) #6
+  %1703 = tail call i32 @rb_st_insert(ptr noundef %1701, i64 noundef 60, i64 noundef %1702) #6
+  %1704 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8, !tbaa !10
+  %1705 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.357, i64 noundef 17) #6
+  %1706 = tail call i32 @rb_st_insert(ptr noundef %1704, i64 noundef 0, i64 noundef %1705) #6
+  %1707 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8, !tbaa !10
+  %1708 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.356, i64 noundef 17) #6
+  %1709 = tail call i32 @rb_st_insert(ptr noundef %1707, i64 noundef 55, i64 noundef %1708) #6
+  %1710 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8, !tbaa !10
+  %1711 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.320, i64 noundef 10) #6
+  %1712 = tail call i32 @rb_st_insert(ptr noundef %1710, i64 noundef 57, i64 noundef %1711) #6
+  %1713 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8, !tbaa !10
+  %1714 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.346, i64 noundef 15) #6
+  %1715 = tail call i32 @rb_st_insert(ptr noundef %1713, i64 noundef 66, i64 noundef %1714) #6
+  %1716 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8, !tbaa !10
+  %1717 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.343, i64 noundef 14) #6
+  %1718 = tail call i32 @rb_st_insert(ptr noundef %1716, i64 noundef 56, i64 noundef %1717) #6
+  %1719 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8, !tbaa !10
+  %1720 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.350, i64 noundef 16) #6
+  %1721 = tail call i32 @rb_st_insert(ptr noundef %1719, i64 noundef 49, i64 noundef %1720) #6
+  %1722 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8, !tbaa !10
+  %1723 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.349, i64 noundef 16) #6
+  %1724 = tail call i32 @rb_st_insert(ptr noundef %1722, i64 noundef 53, i64 noundef %1723) #6
+  %1725 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8, !tbaa !10
+  %1726 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.355, i64 noundef 17) #6
+  %1727 = tail call i32 @rb_st_insert(ptr noundef %1725, i64 noundef 51, i64 noundef %1726) #6
+  %1728 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8, !tbaa !10
+  %1729 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.335, i64 noundef 12) #6
+  %1730 = tail call i32 @rb_st_insert(ptr noundef %1728, i64 noundef 25, i64 noundef %1729) #6
+  %1731 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8, !tbaa !10
+  %1732 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.348, i64 noundef 16) #6
+  %1733 = tail call i32 @rb_st_insert(ptr noundef %1731, i64 noundef 58, i64 noundef %1732) #6
+  %1734 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8, !tbaa !10
+  %1735 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.334, i64 noundef 12) #6
+  %1736 = tail call i32 @rb_st_insert(ptr noundef %1734, i64 noundef 50, i64 noundef %1735) #6
+  %1737 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8, !tbaa !10
+  %1738 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.333, i64 noundef 12) #6
+  %1739 = tail call i32 @rb_st_insert(ptr noundef %1737, i64 noundef 61, i64 noundef %1738) #6
+  %1740 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8, !tbaa !10
+  %1741 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.332, i64 noundef 12) #6
+  %1742 = tail call i32 @rb_st_insert(ptr noundef %1740, i64 noundef 9, i64 noundef %1741) #6
+  %1743 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8, !tbaa !10
+  %1744 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.331, i64 noundef 12) #6
+  %1745 = tail call i32 @rb_st_insert(ptr noundef %1743, i64 noundef 54, i64 noundef %1744) #6
+  %1746 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8, !tbaa !10
+  %1747 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.342, i64 noundef 13) #6
+  %1748 = tail call i32 @rb_st_insert(ptr noundef %1746, i64 noundef 52, i64 noundef %1747) #6
+  %1749 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8, !tbaa !10
+  %1750 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.330, i64 noundef 12) #6
+  %1751 = tail call i32 @rb_st_insert(ptr noundef %1749, i64 noundef 59, i64 noundef %1750) #6
+  %1752 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8, !tbaa !10
+  %1753 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.341, i64 noundef 13) #6
+  %1754 = tail call i32 @rb_st_insert(ptr noundef %1752, i64 noundef 62, i64 noundef %1753) #6
+  %1755 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8, !tbaa !10
+  %1756 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.340, i64 noundef 13) #6
+  %1757 = tail call i32 @rb_st_insert(ptr noundef %1755, i64 noundef 7, i64 noundef %1756) #6
+  %1758 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8, !tbaa !10
+  %1759 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.323, i64 noundef 11) #6
+  %1760 = tail call i32 @rb_st_insert(ptr noundef %1758, i64 noundef 26, i64 noundef %1759) #6
+  %1761 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8, !tbaa !10
+  %1762 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.354, i64 noundef 17) #6
+  %1763 = tail call i32 @rb_st_insert(ptr noundef %1761, i64 noundef 16, i64 noundef %1762) #6
+  %1764 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8, !tbaa !10
+  %1765 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.359, i64 noundef 19) #6
+  %1766 = tail call i32 @rb_st_insert(ptr noundef %1764, i64 noundef 19, i64 noundef %1765) #6
+  %1767 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8, !tbaa !10
+  %1768 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.353, i64 noundef 17) #6
+  %1769 = tail call i32 @rb_st_insert(ptr noundef %1767, i64 noundef 17, i64 noundef %1768) #6
+  %1770 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8, !tbaa !10
+  %1771 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.358, i64 noundef 19) #6
+  %1772 = tail call i32 @rb_st_insert(ptr noundef %1770, i64 noundef 18, i64 noundef %1771) #6
+  %1773 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8, !tbaa !10
+  %1774 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.352, i64 noundef 17) #6
+  %1775 = tail call i32 @rb_st_insert(ptr noundef %1773, i64 noundef 23, i64 noundef %1774) #6
+  %1776 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8, !tbaa !10
+  %1777 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.347, i64 noundef 16) #6
+  %1778 = tail call i32 @rb_st_insert(ptr noundef %1776, i64 noundef 21, i64 noundef %1777) #6
+  %1779 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8, !tbaa !10
+  %1780 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.345, i64 noundef 15) #6
+  %1781 = tail call i32 @rb_st_insert(ptr noundef %1779, i64 noundef 20, i64 noundef %1780) #6
+  %1782 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8, !tbaa !10
+  %1783 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.313, i64 noundef 6) #6
+  %1784 = tail call i32 @rb_st_insert(ptr noundef %1782, i64 noundef 67, i64 noundef %1783) #6
+  %1785 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8, !tbaa !10
+  %1786 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.329, i64 noundef 11) #6
+  %1787 = tail call i32 @rb_st_insert(ptr noundef %1785, i64 noundef 60, i64 noundef %1786) #6
+  %1788 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8, !tbaa !10
+  %1789 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.339, i64 noundef 12) #6
+  %1790 = tail call i32 @rb_st_insert(ptr noundef %1788, i64 noundef 0, i64 noundef %1789) #6
+  %1791 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8, !tbaa !10
+  %1792 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.338, i64 noundef 12) #6
+  %1793 = tail call i32 @rb_st_insert(ptr noundef %1791, i64 noundef 55, i64 noundef %1792) #6
+  %1794 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8, !tbaa !10
+  %1795 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.311, i64 noundef 5) #6
+  %1796 = tail call i32 @rb_st_insert(ptr noundef %1794, i64 noundef 57, i64 noundef %1795) #6
+  %1797 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8, !tbaa !10
+  %1798 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.322, i64 noundef 10) #6
+  %1799 = tail call i32 @rb_st_insert(ptr noundef %1797, i64 noundef 66, i64 noundef %1798) #6
+  %1800 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8, !tbaa !10
+  %1801 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.319, i64 noundef 9) #6
+  %1802 = tail call i32 @rb_st_insert(ptr noundef %1800, i64 noundef 56, i64 noundef %1801) #6
+  %1803 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8, !tbaa !10
+  %1804 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.328, i64 noundef 11) #6
+  %1805 = tail call i32 @rb_st_insert(ptr noundef %1803, i64 noundef 49, i64 noundef %1804) #6
+  %1806 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8, !tbaa !10
+  %1807 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.327, i64 noundef 11) #6
+  %1808 = tail call i32 @rb_st_insert(ptr noundef %1806, i64 noundef 53, i64 noundef %1807) #6
+  %1809 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8, !tbaa !10
+  %1810 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.337, i64 noundef 12) #6
+  %1811 = tail call i32 @rb_st_insert(ptr noundef %1809, i64 noundef 51, i64 noundef %1810) #6
+  %1812 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8, !tbaa !10
+  %1813 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.250, i64 noundef 7) #6
+  %1814 = tail call i32 @rb_st_insert(ptr noundef %1812, i64 noundef 25, i64 noundef %1813) #6
+  %1815 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8, !tbaa !10
+  %1816 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.326, i64 noundef 11) #6
+  %1817 = tail call i32 @rb_st_insert(ptr noundef %1815, i64 noundef 58, i64 noundef %1816) #6
+  %1818 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8, !tbaa !10
+  %1819 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.249, i64 noundef 7) #6
+  %1820 = tail call i32 @rb_st_insert(ptr noundef %1818, i64 noundef 50, i64 noundef %1819) #6
+  %1821 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8, !tbaa !10
+  %1822 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.315, i64 noundef 7) #6
+  %1823 = tail call i32 @rb_st_insert(ptr noundef %1821, i64 noundef 61, i64 noundef %1822) #6
+  %1824 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8, !tbaa !10
+  %1825 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.314, i64 noundef 7) #6
+  %1826 = tail call i32 @rb_st_insert(ptr noundef %1824, i64 noundef 9, i64 noundef %1825) #6
+  %1827 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8, !tbaa !10
+  %1828 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.114, i64 noundef 7) #6
+  %1829 = tail call i32 @rb_st_insert(ptr noundef %1827, i64 noundef 54, i64 noundef %1828) #6
+  %1830 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8, !tbaa !10
+  %1831 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.318, i64 noundef 8) #6
+  %1832 = tail call i32 @rb_st_insert(ptr noundef %1830, i64 noundef 52, i64 noundef %1831) #6
+  %1833 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8, !tbaa !10
+  %1834 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.113, i64 noundef 7) #6
+  %1835 = tail call i32 @rb_st_insert(ptr noundef %1833, i64 noundef 59, i64 noundef %1834) #6
+  %1836 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8, !tbaa !10
+  %1837 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.317, i64 noundef 8) #6
+  %1838 = tail call i32 @rb_st_insert(ptr noundef %1836, i64 noundef 62, i64 noundef %1837) #6
+  %1839 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8, !tbaa !10
+  %1840 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.316, i64 noundef 8) #6
+  %1841 = tail call i32 @rb_st_insert(ptr noundef %1839, i64 noundef 7, i64 noundef %1840) #6
+  %1842 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8, !tbaa !10
+  %1843 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.312, i64 noundef 6) #6
+  %1844 = tail call i32 @rb_st_insert(ptr noundef %1842, i64 noundef 26, i64 noundef %1843) #6
+  %1845 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8, !tbaa !10
+  %1846 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.336, i64 noundef 12) #6
+  %1847 = tail call i32 @rb_st_insert(ptr noundef %1845, i64 noundef 16, i64 noundef %1846) #6
+  %1848 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8, !tbaa !10
+  %1849 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.285, i64 noundef 14) #6
+  %1850 = tail call i32 @rb_st_insert(ptr noundef %1848, i64 noundef 19, i64 noundef %1849) #6
+  %1851 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8, !tbaa !10
+  %1852 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.272, i64 noundef 12) #6
+  %1853 = tail call i32 @rb_st_insert(ptr noundef %1851, i64 noundef 17, i64 noundef %1852) #6
+  %1854 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8, !tbaa !10
+  %1855 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.344, i64 noundef 14) #6
+  %1856 = tail call i32 @rb_st_insert(ptr noundef %1854, i64 noundef 18, i64 noundef %1855) #6
+  %1857 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8, !tbaa !10
+  %1858 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.274, i64 noundef 12) #6
+  %1859 = tail call i32 @rb_st_insert(ptr noundef %1857, i64 noundef 23, i64 noundef %1858) #6
+  %1860 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8, !tbaa !10
+  %1861 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.325, i64 noundef 11) #6
+  %1862 = tail call i32 @rb_st_insert(ptr noundef %1860, i64 noundef 21, i64 noundef %1861) #6
+  %1863 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8, !tbaa !10
+  %1864 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.321, i64 noundef 10) #6
+  %1865 = tail call i32 @rb_st_insert(ptr noundef %1863, i64 noundef 20, i64 noundef %1864) #6
+  %1866 = tail call ptr @rb_st_init_numtable() #6
+  store ptr %1866, ptr @rsock_intern_tcp_optname_hash, align 8, !tbaa !10
+  %1867 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.401, i64 noundef 16) #6
+  %1868 = tail call i32 @rb_st_insert(ptr noundef %1866, i64 noundef 18, i64 noundef %1867) #6
+  %1869 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8, !tbaa !10
+  %1870 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.394, i64 noundef 13) #6
+  %1871 = tail call i32 @rb_st_insert(ptr noundef %1869, i64 noundef 24, i64 noundef %1870) #6
+  %1872 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8, !tbaa !10
+  %1873 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.406, i64 noundef 24) #6
+  %1874 = tail call i32 @rb_st_insert(ptr noundef %1872, i64 noundef 16, i64 noundef %1873) #6
+  %1875 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8, !tbaa !10
+  %1876 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.397, i64 noundef 15) #6
+  %1877 = tail call i32 @rb_st_insert(ptr noundef %1875, i64 noundef 17, i64 noundef %1876) #6
+  %1878 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8, !tbaa !10
+  %1879 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.400, i64 noundef 16) #6
+  %1880 = tail call i32 @rb_st_insert(ptr noundef %1878, i64 noundef 20, i64 noundef %1879) #6
+  %1881 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8, !tbaa !10
+  %1882 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.402, i64 noundef 18) #6
+  %1883 = tail call i32 @rb_st_insert(ptr noundef %1881, i64 noundef 22, i64 noundef %1882) #6
+  %1884 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8, !tbaa !10
+  %1885 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.379, i64 noundef 10) #6
+  %1886 = tail call i32 @rb_st_insert(ptr noundef %1884, i64 noundef 19, i64 noundef %1885) #6
+  %1887 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8, !tbaa !10
+  %1888 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.393, i64 noundef 13) #6
+  %1889 = tail call i32 @rb_st_insert(ptr noundef %1887, i64 noundef 21, i64 noundef %1888) #6
+  %1890 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8, !tbaa !10
+  %1891 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.405, i64 noundef 23) #6
+  %1892 = tail call i32 @rb_st_insert(ptr noundef %1890, i64 noundef 15, i64 noundef %1891) #6
+  %1893 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8, !tbaa !10
+  %1894 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.395, i64 noundef 14) #6
+  %1895 = tail call i32 @rb_st_insert(ptr noundef %1893, i64 noundef 13, i64 noundef %1894) #6
+  %1896 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8, !tbaa !10
+  %1897 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.387, i64 noundef 12) #6
+  %1898 = tail call i32 @rb_st_insert(ptr noundef %1896, i64 noundef 23, i64 noundef %1897) #6
+  %1899 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8, !tbaa !10
+  %1900 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.399, i64 noundef 16) #6
+  %1901 = tail call i32 @rb_st_insert(ptr noundef %1899, i64 noundef 10, i64 noundef %1900) #6
+  %1902 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8, !tbaa !10
+  %1903 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.378, i64 noundef 10) #6
+  %1904 = tail call i32 @rb_st_insert(ptr noundef %1902, i64 noundef 7, i64 noundef %1903) #6
+  %1905 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8, !tbaa !10
+  %1906 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.386, i64 noundef 12) #6
+  %1907 = tail call i32 @rb_st_insert(ptr noundef %1905, i64 noundef 12, i64 noundef %1906) #6
+  %1908 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8, !tbaa !10
+  %1909 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.377, i64 noundef 10) #6
+  %1910 = tail call i32 @rb_st_insert(ptr noundef %1908, i64 noundef 14, i64 noundef %1909) #6
+  %1911 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8, !tbaa !10
+  %1912 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.383, i64 noundef 11) #6
+  %1913 = tail call i32 @rb_st_insert(ptr noundef %1911, i64 noundef 8, i64 noundef %1912) #6
+  %1914 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8, !tbaa !10
+  %1915 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.392, i64 noundef 13) #6
+  %1916 = tail call i32 @rb_st_insert(ptr noundef %1914, i64 noundef 5, i64 noundef %1915) #6
+  %1917 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8, !tbaa !10
+  %1918 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.385, i64 noundef 12) #6
+  %1919 = tail call i32 @rb_st_insert(ptr noundef %1917, i64 noundef 4, i64 noundef %1918) #6
+  %1920 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8, !tbaa !10
+  %1921 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.382, i64 noundef 11) #6
+  %1922 = tail call i32 @rb_st_insert(ptr noundef %1920, i64 noundef 6, i64 noundef %1921) #6
+  %1923 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8, !tbaa !10
+  %1924 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.370, i64 noundef 8) #6
+  %1925 = tail call i32 @rb_st_insert(ptr noundef %1923, i64 noundef 11, i64 noundef %1924) #6
+  %1926 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8, !tbaa !10
+  %1927 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.398, i64 noundef 16) #6
+  %1928 = tail call i32 @rb_st_insert(ptr noundef %1926, i64 noundef 9, i64 noundef %1927) #6
+  %1929 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8, !tbaa !10
+  %1930 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.369, i64 noundef 8) #6
+  %1931 = tail call i32 @rb_st_insert(ptr noundef %1929, i64 noundef 3, i64 noundef %1930) #6
+  %1932 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8, !tbaa !10
+  %1933 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.376, i64 noundef 10) #6
+  %1934 = tail call i32 @rb_st_insert(ptr noundef %1932, i64 noundef 2, i64 noundef %1933) #6
+  %1935 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8, !tbaa !10
+  %1936 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.381, i64 noundef 11) #6
+  %1937 = tail call i32 @rb_st_insert(ptr noundef %1935, i64 noundef 1, i64 noundef %1936) #6
+  %1938 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8, !tbaa !10
+  %1939 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.391, i64 noundef 12) #6
+  %1940 = tail call i32 @rb_st_insert(ptr noundef %1938, i64 noundef 18, i64 noundef %1939) #6
+  %1941 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8, !tbaa !10
+  %1942 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.176, i64 noundef 9) #6
+  %1943 = tail call i32 @rb_st_insert(ptr noundef %1941, i64 noundef 24, i64 noundef %1942) #6
+  %1944 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8, !tbaa !10
+  %1945 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.404, i64 noundef 20) #6
+  %1946 = tail call i32 @rb_st_insert(ptr noundef %1944, i64 noundef 16, i64 noundef %1945) #6
+  %1947 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8, !tbaa !10
+  %1948 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.384, i64 noundef 11) #6
+  %1949 = tail call i32 @rb_st_insert(ptr noundef %1947, i64 noundef 17, i64 noundef %1948) #6
+  %1950 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8, !tbaa !10
+  %1951 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.390, i64 noundef 12) #6
+  %1952 = tail call i32 @rb_st_insert(ptr noundef %1950, i64 noundef 20, i64 noundef %1951) #6
+  %1953 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8, !tbaa !10
+  %1954 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.396, i64 noundef 14) #6
+  %1955 = tail call i32 @rb_st_insert(ptr noundef %1953, i64 noundef 22, i64 noundef %1954) #6
+  %1956 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8, !tbaa !10
+  %1957 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.365, i64 noundef 6) #6
+  %1958 = tail call i32 @rb_st_insert(ptr noundef %1956, i64 noundef 19, i64 noundef %1957) #6
+  %1959 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8, !tbaa !10
+  %1960 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.375, i64 noundef 9) #6
+  %1961 = tail call i32 @rb_st_insert(ptr noundef %1959, i64 noundef 21, i64 noundef %1960) #6
+  %1962 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8, !tbaa !10
+  %1963 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.403, i64 noundef 19) #6
+  %1964 = tail call i32 @rb_st_insert(ptr noundef %1962, i64 noundef 15, i64 noundef %1963) #6
+  %1965 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8, !tbaa !10
+  %1966 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.380, i64 noundef 10) #6
+  %1967 = tail call i32 @rb_st_insert(ptr noundef %1965, i64 noundef 13, i64 noundef %1966) #6
+  %1968 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8, !tbaa !10
+  %1969 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.373, i64 noundef 8) #6
+  %1970 = tail call i32 @rb_st_insert(ptr noundef %1968, i64 noundef 23, i64 noundef %1969) #6
+  %1971 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8, !tbaa !10
+  %1972 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.389, i64 noundef 12) #6
+  %1973 = tail call i32 @rb_st_insert(ptr noundef %1971, i64 noundef 10, i64 noundef %1972) #6
+  %1974 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8, !tbaa !10
+  %1975 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.364, i64 noundef 6) #6
+  %1976 = tail call i32 @rb_st_insert(ptr noundef %1974, i64 noundef 7, i64 noundef %1975) #6
+  %1977 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8, !tbaa !10
+  %1978 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.372, i64 noundef 8) #6
+  %1979 = tail call i32 @rb_st_insert(ptr noundef %1977, i64 noundef 12, i64 noundef %1978) #6
+  %1980 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8, !tbaa !10
+  %1981 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.363, i64 noundef 6) #6
+  %1982 = tail call i32 @rb_st_insert(ptr noundef %1980, i64 noundef 14, i64 noundef %1981) #6
+  %1983 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8, !tbaa !10
+  %1984 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.368, i64 noundef 7) #6
+  %1985 = tail call i32 @rb_st_insert(ptr noundef %1983, i64 noundef 8, i64 noundef %1984) #6
+  %1986 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8, !tbaa !10
+  %1987 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.374, i64 noundef 9) #6
+  %1988 = tail call i32 @rb_st_insert(ptr noundef %1986, i64 noundef 5, i64 noundef %1987) #6
+  %1989 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8, !tbaa !10
+  %1990 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.371, i64 noundef 8) #6
+  %1991 = tail call i32 @rb_st_insert(ptr noundef %1989, i64 noundef 4, i64 noundef %1990) #6
+  %1992 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8, !tbaa !10
+  %1993 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.367, i64 noundef 7) #6
+  %1994 = tail call i32 @rb_st_insert(ptr noundef %1992, i64 noundef 6, i64 noundef %1993) #6
+  %1995 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8, !tbaa !10
+  %1996 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.361, i64 noundef 4) #6
+  %1997 = tail call i32 @rb_st_insert(ptr noundef %1995, i64 noundef 11, i64 noundef %1996) #6
+  %1998 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8, !tbaa !10
+  %1999 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.388, i64 noundef 12) #6
+  %2000 = tail call i32 @rb_st_insert(ptr noundef %1998, i64 noundef 9, i64 noundef %1999) #6
+  %2001 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8, !tbaa !10
+  %2002 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.360, i64 noundef 4) #6
+  %2003 = tail call i32 @rb_st_insert(ptr noundef %2001, i64 noundef 3, i64 noundef %2002) #6
+  %2004 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8, !tbaa !10
+  %2005 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.362, i64 noundef 6) #6
+  %2006 = tail call i32 @rb_st_insert(ptr noundef %2004, i64 noundef 2, i64 noundef %2005) #6
+  %2007 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8, !tbaa !10
+  %2008 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.366, i64 noundef 7) #6
+  %2009 = tail call i32 @rb_st_insert(ptr noundef %2007, i64 noundef 1, i64 noundef %2008) #6
+  %2010 = tail call ptr @rb_st_init_numtable() #6
+  store ptr %2010, ptr @rsock_intern_udp_optname_hash, align 8, !tbaa !10
+  %2011 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.407, i64 noundef 8) #6
+  %2012 = tail call i32 @rb_st_insert(ptr noundef %2010, i64 noundef 1, i64 noundef %2011) #6
+  %2013 = load ptr, ptr @rsock_intern_udp_optname_hash, align 8, !tbaa !10
+  %2014 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.360, i64 noundef 4) #6
+  %2015 = tail call i32 @rb_st_insert(ptr noundef %2013, i64 noundef 1, i64 noundef %2014) #6
+  %2016 = tail call ptr @rb_st_init_numtable() #6
+  store ptr %2016, ptr @rsock_intern_scm_optname_hash, align 8, !tbaa !10
+  %2017 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.420, i64 noundef 15) #6
+  %2018 = tail call i32 @rb_st_insert(ptr noundef %2016, i64 noundef 41, i64 noundef %2017) #6
+  %2019 = load ptr, ptr @rsock_intern_scm_optname_hash, align 8, !tbaa !10
+  %2020 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.419, i64 noundef 15) #6
+  %2021 = tail call i32 @rb_st_insert(ptr noundef %2019, i64 noundef 2, i64 noundef %2020) #6
+  %2022 = load ptr, ptr @rsock_intern_scm_optname_hash, align 8, !tbaa !10
+  %2023 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.421, i64 noundef 16) #6
+  %2024 = tail call i32 @rb_st_insert(ptr noundef %2022, i64 noundef 37, i64 noundef %2023) #6
+  %2025 = load ptr, ptr @rsock_intern_scm_optname_hash, align 8, !tbaa !10
+  %2026 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.418, i64 noundef 15) #6
+  %2027 = tail call i32 @rb_st_insert(ptr noundef %2025, i64 noundef 35, i64 noundef %2026) #6
+  %2028 = load ptr, ptr @rsock_intern_scm_optname_hash, align 8, !tbaa !10
+  %2029 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.417, i64 noundef 13) #6
+  %2030 = tail call i32 @rb_st_insert(ptr noundef %2028, i64 noundef 29, i64 noundef %2029) #6
+  %2031 = load ptr, ptr @rsock_intern_scm_optname_hash, align 8, !tbaa !10
+  %2032 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.415, i64 noundef 10) #6
+  %2033 = tail call i32 @rb_st_insert(ptr noundef %2031, i64 noundef 1, i64 noundef %2032) #6
+  %2034 = load ptr, ptr @rsock_intern_scm_optname_hash, align 8, !tbaa !10
+  %2035 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.197, i64 noundef 11) #6
+  %2036 = tail call i32 @rb_st_insert(ptr noundef %2034, i64 noundef 41, i64 noundef %2035) #6
+  %2037 = load ptr, ptr @rsock_intern_scm_optname_hash, align 8, !tbaa !10
+  %2038 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.416, i64 noundef 11) #6
+  %2039 = tail call i32 @rb_st_insert(ptr noundef %2037, i64 noundef 2, i64 noundef %2038) #6
+  %2040 = load ptr, ptr @rsock_intern_scm_optname_hash, align 8, !tbaa !10
+  %2041 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.208, i64 noundef 12) #6
+  %2042 = tail call i32 @rb_st_insert(ptr noundef %2040, i64 noundef 37, i64 noundef %2041) #6
+  %2043 = load ptr, ptr @rsock_intern_scm_optname_hash, align 8, !tbaa !10
+  %2044 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.196, i64 noundef 11) #6
+  %2045 = tail call i32 @rb_st_insert(ptr noundef %2043, i64 noundef 35, i64 noundef %2044) #6
+  %2046 = load ptr, ptr @rsock_intern_scm_optname_hash, align 8, !tbaa !10
+  %2047 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.176, i64 noundef 9) #6
+  %2048 = tail call i32 @rb_st_insert(ptr noundef %2046, i64 noundef 29, i64 noundef %2047) #6
+  %2049 = load ptr, ptr @rsock_intern_scm_optname_hash, align 8, !tbaa !10
+  %2050 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.414, i64 noundef 6) #6
+  %2051 = tail call i32 @rb_st_insert(ptr noundef %2049, i64 noundef 1, i64 noundef %2050) #6
+  %2052 = tail call ptr @rb_st_init_numtable() #6
+  store ptr %2052, ptr @rsock_intern_local_optname_hash, align 8, !tbaa !10
   ret void
 }
 
-declare i64 @rb_sym2str(i64 noundef) local_unnamed_addr #2
+declare i64 @rb_sym2str(i64 noundef) local_unnamed_addr #3
 
-declare i64 @rb_check_string_type(i64 noundef) local_unnamed_addr #2
+declare i64 @rb_check_string_type(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: noreturn
-declare void @rb_raise(i64 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare void @rb_raise(i64 noundef, ptr noundef, ...) local_unnamed_addr #4
 
-declare i64 @rb_fix2int(i64 noundef) local_unnamed_addr #2
+declare i64 @rb_fix2int(i64 noundef) local_unnamed_addr #3
 
-declare i64 @rb_num2int(i64 noundef) local_unnamed_addr #2
+declare i64 @rb_num2int(i64 noundef) local_unnamed_addr #3
 
-declare i64 @rb_define_module_under(i64 noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @rb_define_module_under(i64 noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @rb_define_const(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @rb_define_const(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare ptr @rb_st_init_numtable() local_unnamed_addr #2
+declare ptr @rb_st_init_numtable() local_unnamed_addr #3
 
-declare i32 @rb_st_insert(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @rb_st_insert(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
-declare i64 @rb_intern2(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @rb_intern2(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #4
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #5
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #5 = { nounwind }
-attributes #6 = { noreturn nounwind }
+attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #6 = { nounwind }
+attributes #7 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
@@ -6436,7 +6471,20 @@ attributes #6 = { noreturn nounwind }
 !2 = !{i32 1, !"wchar_size", i32 4}
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
-!5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = !{!7}
-!7 = distinct !{!7, !8, !"rbimpl_rstring_getmem: argument 0"}
-!8 = distinct !{!8, !"rbimpl_rstring_getmem"}
+!5 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"int", !8, i64 0}
+!8 = !{!"omnipotent char", !9, i64 0}
+!9 = !{!"Simple C/C++ TBAA"}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"p1 _ZTS8st_table", !12, i64 0}
+!12 = !{!"any pointer", !8, i64 0}
+!13 = !{!14, !15, i64 0}
+!14 = !{!"RBasic", !15, i64 0, !15, i64 8}
+!15 = !{!"long", !8, i64 0}
+!16 = !{!17}
+!17 = distinct !{!17, !18, !"rbimpl_rstring_getmem: argument 0"}
+!18 = distinct !{!18, !"rbimpl_rstring_getmem"}
+!19 = !{!20, !15, i64 16}
+!20 = !{!"RString", !14, i64 0, !15, i64 16, !8, i64 24}
+!21 = !{!15, !15, i64 0}

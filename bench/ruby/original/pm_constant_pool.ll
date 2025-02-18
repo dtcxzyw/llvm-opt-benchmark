@@ -9,39 +9,91 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden void @pm_constant_id_list_init(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.pm_constant_id_list_t, ptr %3, i32 0, i32 2
-  store ptr null, ptr %4, align 8
-  %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds %struct.pm_constant_id_list_t, ptr %5, i32 0, i32 0
-  store i64 0, ptr %6, align 8
-  %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds %struct.pm_constant_id_list_t, ptr %7, i32 0, i32 1
-  store i64 0, ptr %8, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !7
+  %3 = load ptr, ptr %2, align 8, !tbaa !7
+  %4 = getelementptr inbounds nuw %struct.pm_constant_id_list_t, ptr %3, i32 0, i32 2
+  store ptr null, ptr %4, align 8, !tbaa !11
+  %5 = load ptr, ptr %2, align 8, !tbaa !7
+  %6 = getelementptr inbounds nuw %struct.pm_constant_id_list_t, ptr %5, i32 0, i32 0
+  store i64 0, ptr %6, align 8, !tbaa !15
+  %7 = load ptr, ptr %2, align 8, !tbaa !7
+  %8 = getelementptr inbounds nuw %struct.pm_constant_id_list_t, ptr %7, i32 0, i32 1
+  store i64 0, ptr %8, align 8, !tbaa !16
   ret void
 }
+
+; Function Attrs: nounwind sspstrong uwtable
+define hidden void @pm_constant_id_list_init_capacity(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !17
+  %5 = load i64, ptr %4, align 8, !tbaa !17
+  %6 = icmp ne i64 %5, 0
+  br i1 %6, label %7, label %18
+
+7:                                                ; preds = %2
+  %8 = load i64, ptr %4, align 8, !tbaa !17
+  %9 = call noalias ptr @calloc(i64 noundef %8, i64 noundef 4) #11
+  %10 = load ptr, ptr %3, align 8, !tbaa !7
+  %11 = getelementptr inbounds nuw %struct.pm_constant_id_list_t, ptr %10, i32 0, i32 2
+  store ptr %9, ptr %11, align 8, !tbaa !11
+  %12 = load ptr, ptr %3, align 8, !tbaa !7
+  %13 = getelementptr inbounds nuw %struct.pm_constant_id_list_t, ptr %12, i32 0, i32 2
+  %14 = load ptr, ptr %13, align 8, !tbaa !11
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %16, label %17
+
+16:                                               ; preds = %7
+  call void @abort() #12
+  unreachable
+
+17:                                               ; preds = %7
+  br label %21
+
+18:                                               ; preds = %2
+  %19 = load ptr, ptr %3, align 8, !tbaa !7
+  %20 = getelementptr inbounds nuw %struct.pm_constant_id_list_t, ptr %19, i32 0, i32 2
+  store ptr null, ptr %20, align 8, !tbaa !11
+  br label %21
+
+21:                                               ; preds = %18, %17
+  %22 = load ptr, ptr %3, align 8, !tbaa !7
+  %23 = getelementptr inbounds nuw %struct.pm_constant_id_list_t, ptr %22, i32 0, i32 0
+  store i64 0, ptr %23, align 8, !tbaa !15
+  %24 = load i64, ptr %4, align 8, !tbaa !17
+  %25 = load ptr, ptr %3, align 8, !tbaa !7
+  %26 = getelementptr inbounds nuw %struct.pm_constant_id_list_t, ptr %25, i32 0, i32 1
+  store i64 %24, ptr %26, align 8, !tbaa !16
+  ret void
+}
+
+; Function Attrs: nounwind allocsize(0,1)
+declare noalias ptr @calloc(i64 noundef, i64 noundef) #1
+
+; Function Attrs: noreturn nounwind
+declare void @abort() #2
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden zeroext i1 @pm_constant_id_list_append(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca i1, align 1
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds %struct.pm_constant_id_list_t, ptr %6, i32 0, i32 0
-  %8 = load i64, ptr %7, align 8
-  %9 = load ptr, ptr %4, align 8
-  %10 = getelementptr inbounds %struct.pm_constant_id_list_t, ptr %9, i32 0, i32 1
-  %11 = load i64, ptr %10, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !7
+  store i32 %1, ptr %5, align 4, !tbaa !18
+  %6 = load ptr, ptr %4, align 8, !tbaa !7
+  %7 = getelementptr inbounds nuw %struct.pm_constant_id_list_t, ptr %6, i32 0, i32 0
+  %8 = load i64, ptr %7, align 8, !tbaa !15
+  %9 = load ptr, ptr %4, align 8, !tbaa !7
+  %10 = getelementptr inbounds nuw %struct.pm_constant_id_list_t, ptr %9, i32 0, i32 1
+  %11 = load i64, ptr %10, align 8, !tbaa !16
   %12 = icmp uge i64 %8, %11
   br i1 %12, label %13, label %44
 
 13:                                               ; preds = %2
-  %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr inbounds %struct.pm_constant_id_list_t, ptr %14, i32 0, i32 1
-  %16 = load i64, ptr %15, align 8
+  %14 = load ptr, ptr %4, align 8, !tbaa !7
+  %15 = getelementptr inbounds nuw %struct.pm_constant_id_list_t, ptr %14, i32 0, i32 1
+  %16 = load i64, ptr %15, align 8, !tbaa !16
   %17 = icmp eq i64 %16, 0
   br i1 %17, label %18, label %19
 
@@ -49,31 +101,31 @@ define hidden zeroext i1 @pm_constant_id_list_append(ptr noundef %0, i32 noundef
   br label %24
 
 19:                                               ; preds = %13
-  %20 = load ptr, ptr %4, align 8
-  %21 = getelementptr inbounds %struct.pm_constant_id_list_t, ptr %20, i32 0, i32 1
-  %22 = load i64, ptr %21, align 8
+  %20 = load ptr, ptr %4, align 8, !tbaa !7
+  %21 = getelementptr inbounds nuw %struct.pm_constant_id_list_t, ptr %20, i32 0, i32 1
+  %22 = load i64, ptr %21, align 8, !tbaa !16
   %23 = mul i64 %22, 2
   br label %24
 
 24:                                               ; preds = %19, %18
   %25 = phi i64 [ 8, %18 ], [ %23, %19 ]
-  %26 = load ptr, ptr %4, align 8
-  %27 = getelementptr inbounds %struct.pm_constant_id_list_t, ptr %26, i32 0, i32 1
-  store i64 %25, ptr %27, align 8
-  %28 = load ptr, ptr %4, align 8
-  %29 = getelementptr inbounds %struct.pm_constant_id_list_t, ptr %28, i32 0, i32 2
-  %30 = load ptr, ptr %29, align 8
-  %31 = load ptr, ptr %4, align 8
-  %32 = getelementptr inbounds %struct.pm_constant_id_list_t, ptr %31, i32 0, i32 1
-  %33 = load i64, ptr %32, align 8
+  %26 = load ptr, ptr %4, align 8, !tbaa !7
+  %27 = getelementptr inbounds nuw %struct.pm_constant_id_list_t, ptr %26, i32 0, i32 1
+  store i64 %25, ptr %27, align 8, !tbaa !16
+  %28 = load ptr, ptr %4, align 8, !tbaa !7
+  %29 = getelementptr inbounds nuw %struct.pm_constant_id_list_t, ptr %28, i32 0, i32 2
+  %30 = load ptr, ptr %29, align 8, !tbaa !11
+  %31 = load ptr, ptr %4, align 8, !tbaa !7
+  %32 = getelementptr inbounds nuw %struct.pm_constant_id_list_t, ptr %31, i32 0, i32 1
+  %33 = load i64, ptr %32, align 8, !tbaa !16
   %34 = mul i64 4, %33
-  %35 = call ptr @realloc(ptr noundef %30, i64 noundef %34) #6
-  %36 = load ptr, ptr %4, align 8
-  %37 = getelementptr inbounds %struct.pm_constant_id_list_t, ptr %36, i32 0, i32 2
-  store ptr %35, ptr %37, align 8
-  %38 = load ptr, ptr %4, align 8
-  %39 = getelementptr inbounds %struct.pm_constant_id_list_t, ptr %38, i32 0, i32 2
-  %40 = load ptr, ptr %39, align 8
+  %35 = call ptr @realloc(ptr noundef %30, i64 noundef %34) #13
+  %36 = load ptr, ptr %4, align 8, !tbaa !7
+  %37 = getelementptr inbounds nuw %struct.pm_constant_id_list_t, ptr %36, i32 0, i32 2
+  store ptr %35, ptr %37, align 8, !tbaa !11
+  %38 = load ptr, ptr %4, align 8, !tbaa !7
+  %39 = getelementptr inbounds nuw %struct.pm_constant_id_list_t, ptr %38, i32 0, i32 2
+  %40 = load ptr, ptr %39, align 8, !tbaa !11
   %41 = icmp eq ptr %40, null
   br i1 %41, label %42, label %43
 
@@ -85,17 +137,17 @@ define hidden zeroext i1 @pm_constant_id_list_append(ptr noundef %0, i32 noundef
   br label %44
 
 44:                                               ; preds = %43, %2
-  %45 = load i32, ptr %5, align 4
-  %46 = load ptr, ptr %4, align 8
-  %47 = getelementptr inbounds %struct.pm_constant_id_list_t, ptr %46, i32 0, i32 2
-  %48 = load ptr, ptr %47, align 8
-  %49 = load ptr, ptr %4, align 8
-  %50 = getelementptr inbounds %struct.pm_constant_id_list_t, ptr %49, i32 0, i32 0
-  %51 = load i64, ptr %50, align 8
+  %45 = load i32, ptr %5, align 4, !tbaa !18
+  %46 = load ptr, ptr %4, align 8, !tbaa !7
+  %47 = getelementptr inbounds nuw %struct.pm_constant_id_list_t, ptr %46, i32 0, i32 2
+  %48 = load ptr, ptr %47, align 8, !tbaa !11
+  %49 = load ptr, ptr %4, align 8, !tbaa !7
+  %50 = getelementptr inbounds nuw %struct.pm_constant_id_list_t, ptr %49, i32 0, i32 0
+  %51 = load i64, ptr %50, align 8, !tbaa !15
   %52 = add i64 %51, 1
-  store i64 %52, ptr %50, align 8
+  store i64 %52, ptr %50, align 8, !tbaa !15
   %53 = getelementptr i32, ptr %48, i64 %51
-  store i32 %45, ptr %53, align 4
+  store i32 %45, ptr %53, align 4, !tbaa !18
   store i1 true, ptr %3, align 1
   br label %54
 
@@ -105,7 +157,30 @@ define hidden zeroext i1 @pm_constant_id_list_append(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind allocsize(1)
-declare ptr @realloc(ptr noundef, i64 noundef) #1
+declare ptr @realloc(ptr noundef, i64 noundef) #3
+
+; Function Attrs: nounwind sspstrong uwtable
+define hidden void @pm_constant_id_list_insert(ptr noundef %0, i64 noundef %1, i32 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !7
+  store i64 %1, ptr %5, align 8, !tbaa !17
+  store i32 %2, ptr %6, align 4, !tbaa !18
+  %7 = load i32, ptr %6, align 4, !tbaa !18
+  %8 = load ptr, ptr %4, align 8, !tbaa !7
+  %9 = getelementptr inbounds nuw %struct.pm_constant_id_list_t, ptr %8, i32 0, i32 2
+  %10 = load ptr, ptr %9, align 8, !tbaa !11
+  %11 = load i64, ptr %5, align 8, !tbaa !17
+  %12 = getelementptr i32, ptr %10, i64 %11
+  store i32 %7, ptr %12, align 4, !tbaa !18
+  %13 = load ptr, ptr %4, align 8, !tbaa !7
+  %14 = getelementptr inbounds nuw %struct.pm_constant_id_list_t, ptr %13, i32 0, i32 0
+  %15 = load i64, ptr %14, align 8, !tbaa !15
+  %16 = add i64 %15, 1
+  store i64 %16, ptr %14, align 8, !tbaa !15
+  ret void
+}
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden zeroext i1 @pm_constant_id_list_includes(ptr noundef %0, i32 noundef %1) #0 {
@@ -113,79 +188,91 @@ define hidden zeroext i1 @pm_constant_id_list_includes(ptr noundef %0, i32 nound
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  store i64 0, ptr %6, align 8
-  br label %7
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !7
+  store i32 %1, ptr %5, align 4, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #14
+  store i64 0, ptr %6, align 8, !tbaa !17
+  br label %8
 
-7:                                                ; preds = %24, %2
-  %8 = load i64, ptr %6, align 8
-  %9 = load ptr, ptr %4, align 8
-  %10 = getelementptr inbounds %struct.pm_constant_id_list_t, ptr %9, i32 0, i32 0
-  %11 = load i64, ptr %10, align 8
-  %12 = icmp ult i64 %8, %11
-  br i1 %12, label %13, label %27
+8:                                                ; preds = %26, %2
+  %9 = load i64, ptr %6, align 8, !tbaa !17
+  %10 = load ptr, ptr %4, align 8, !tbaa !7
+  %11 = getelementptr inbounds nuw %struct.pm_constant_id_list_t, ptr %10, i32 0, i32 0
+  %12 = load i64, ptr %11, align 8, !tbaa !15
+  %13 = icmp ult i64 %9, %12
+  br i1 %13, label %15, label %14
 
-13:                                               ; preds = %7
-  %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr inbounds %struct.pm_constant_id_list_t, ptr %14, i32 0, i32 2
-  %16 = load ptr, ptr %15, align 8
-  %17 = load i64, ptr %6, align 8
-  %18 = getelementptr i32, ptr %16, i64 %17
-  %19 = load i32, ptr %18, align 4
-  %20 = load i32, ptr %5, align 4
-  %21 = icmp eq i32 %19, %20
-  br i1 %21, label %22, label %23
+14:                                               ; preds = %8
+  store i32 2, ptr %7, align 4
+  br label %29
 
-22:                                               ; preds = %13
+15:                                               ; preds = %8
+  %16 = load ptr, ptr %4, align 8, !tbaa !7
+  %17 = getelementptr inbounds nuw %struct.pm_constant_id_list_t, ptr %16, i32 0, i32 2
+  %18 = load ptr, ptr %17, align 8, !tbaa !11
+  %19 = load i64, ptr %6, align 8, !tbaa !17
+  %20 = getelementptr i32, ptr %18, i64 %19
+  %21 = load i32, ptr %20, align 4, !tbaa !18
+  %22 = load i32, ptr %5, align 4, !tbaa !18
+  %23 = icmp eq i32 %21, %22
+  br i1 %23, label %24, label %25
+
+24:                                               ; preds = %15
   store i1 true, ptr %3, align 1
-  br label %28
+  store i32 1, ptr %7, align 4
+  br label %29
 
-23:                                               ; preds = %13
-  br label %24
+25:                                               ; preds = %15
+  br label %26
 
-24:                                               ; preds = %23
-  %25 = load i64, ptr %6, align 8
-  %26 = add i64 %25, 1
-  store i64 %26, ptr %6, align 8
-  br label %7, !llvm.loop !7
+26:                                               ; preds = %25
+  %27 = load i64, ptr %6, align 8, !tbaa !17
+  %28 = add i64 %27, 1
+  store i64 %28, ptr %6, align 8, !tbaa !17
+  br label %8, !llvm.loop !20
 
-27:                                               ; preds = %7
+29:                                               ; preds = %24, %14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #14
+  %30 = load i32, ptr %7, align 4
+  switch i32 %30, label %34 [
+    i32 2, label %31
+    i32 1, label %32
+  ]
+
+31:                                               ; preds = %29
   store i1 false, ptr %3, align 1
-  br label %28
+  br label %32
 
-28:                                               ; preds = %27, %22
-  %29 = load i1, ptr %3, align 1
-  ret i1 %29
+32:                                               ; preds = %31, %29
+  %33 = load i1, ptr %3, align 1
+  ret i1 %33
+
+34:                                               ; preds = %29
+  unreachable
 }
 
-; Function Attrs: nounwind sspstrong uwtable
-define hidden i64 @pm_constant_id_list_memsize(ptr noundef %0) #0 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.pm_constant_id_list_t, ptr %3, i32 0, i32 1
-  %5 = load i64, ptr %4, align 8
-  %6 = mul i64 %5, 4
-  %7 = add i64 24, %6
-  ret i64 %7
-}
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden void @pm_constant_id_list_free(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.pm_constant_id_list_t, ptr %3, i32 0, i32 2
-  %5 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !7
+  %3 = load ptr, ptr %2, align 8, !tbaa !7
+  %4 = getelementptr inbounds nuw %struct.pm_constant_id_list_t, ptr %3, i32 0, i32 2
+  %5 = load ptr, ptr %4, align 8, !tbaa !11
   %6 = icmp ne ptr %5, null
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %1
-  %8 = load ptr, ptr %2, align 8
-  %9 = getelementptr inbounds %struct.pm_constant_id_list_t, ptr %8, i32 0, i32 2
-  %10 = load ptr, ptr %9, align 8
-  call void @free(ptr noundef %10) #7
+  %8 = load ptr, ptr %2, align 8, !tbaa !7
+  %9 = getelementptr inbounds nuw %struct.pm_constant_id_list_t, ptr %8, i32 0, i32 2
+  %10 = load ptr, ptr %9, align 8, !tbaa !11
+  call void @free(ptr noundef %10) #14
   br label %11
 
 11:                                               ; preds = %7, %1
@@ -193,7 +280,7 @@ define hidden void @pm_constant_id_list_free(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind
-declare void @free(ptr noundef) #2
+declare void @free(ptr noundef) #5
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden zeroext i1 @pm_constant_pool_init(ptr noundef %0, i32 noundef %1) #0 {
@@ -201,70 +288,83 @@ define hidden zeroext i1 @pm_constant_pool_init(ptr noundef %0, i32 noundef %1) 
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  %7 = alloca i64, align 8
-  %8 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  store i32 -1, ptr %6, align 4
-  %9 = load i32, ptr %5, align 4
-  %10 = icmp uge i32 %9, -2147483648
-  br i1 %10, label %11, label %12
-
-11:                                               ; preds = %2
-  store i1 false, ptr %3, align 1
-  br label %37
+  %7 = alloca i32, align 4
+  %8 = alloca i64, align 8
+  %9 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !7
+  store i32 %1, ptr %5, align 4, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #14
+  store i32 -1, ptr %6, align 4, !tbaa !18
+  %10 = load i32, ptr %5, align 4, !tbaa !18
+  %11 = icmp uge i32 %10, -2147483648
+  br i1 %11, label %12, label %13
 
 12:                                               ; preds = %2
-  %13 = load i32, ptr %5, align 4
-  %14 = call i32 @next_power_of_two(i32 noundef %13)
-  store i32 %14, ptr %5, align 4
-  store i64 24, ptr %7, align 8
-  %15 = load i32, ptr %5, align 4
-  %16 = zext i32 %15 to i64
-  %17 = call noalias ptr @calloc(i64 noundef %16, i64 noundef 24) #8
-  store ptr %17, ptr %8, align 8
-  %18 = load ptr, ptr %8, align 8
-  %19 = icmp eq ptr %18, null
-  br i1 %19, label %20, label %21
-
-20:                                               ; preds = %12
   store i1 false, ptr %3, align 1
-  br label %37
+  store i32 1, ptr %7, align 4
+  br label %39
 
-21:                                               ; preds = %12
-  %22 = load ptr, ptr %8, align 8
-  %23 = load ptr, ptr %4, align 8
-  %24 = getelementptr inbounds %struct.pm_constant_pool_t, ptr %23, i32 0, i32 0
-  store ptr %22, ptr %24, align 8
-  %25 = load ptr, ptr %8, align 8
-  %26 = load i32, ptr %5, align 4
-  %27 = zext i32 %26 to i64
-  %28 = mul i64 %27, 8
-  %29 = getelementptr i8, ptr %25, i64 %28
-  %30 = load ptr, ptr %4, align 8
-  %31 = getelementptr inbounds %struct.pm_constant_pool_t, ptr %30, i32 0, i32 1
-  store ptr %29, ptr %31, align 8
-  %32 = load ptr, ptr %4, align 8
-  %33 = getelementptr inbounds %struct.pm_constant_pool_t, ptr %32, i32 0, i32 2
-  store i32 0, ptr %33, align 8
-  %34 = load i32, ptr %5, align 4
-  %35 = load ptr, ptr %4, align 8
-  %36 = getelementptr inbounds %struct.pm_constant_pool_t, ptr %35, i32 0, i32 3
-  store i32 %34, ptr %36, align 4
+13:                                               ; preds = %2
+  %14 = load i32, ptr %5, align 4, !tbaa !18
+  %15 = call i32 @next_power_of_two(i32 noundef %14)
+  store i32 %15, ptr %5, align 4, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #14
+  store i64 24, ptr %8, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #14
+  %16 = load i32, ptr %5, align 4, !tbaa !18
+  %17 = zext i32 %16 to i64
+  %18 = call noalias ptr @calloc(i64 noundef %17, i64 noundef 24) #11
+  store ptr %18, ptr %9, align 8, !tbaa !7
+  %19 = load ptr, ptr %9, align 8, !tbaa !7
+  %20 = icmp eq ptr %19, null
+  br i1 %20, label %21, label %22
+
+21:                                               ; preds = %13
+  store i1 false, ptr %3, align 1
+  store i32 1, ptr %7, align 4
+  br label %38
+
+22:                                               ; preds = %13
+  %23 = load ptr, ptr %9, align 8, !tbaa !7
+  %24 = load ptr, ptr %4, align 8, !tbaa !7
+  %25 = getelementptr inbounds nuw %struct.pm_constant_pool_t, ptr %24, i32 0, i32 0
+  store ptr %23, ptr %25, align 8, !tbaa !22
+  %26 = load ptr, ptr %9, align 8, !tbaa !7
+  %27 = load i32, ptr %5, align 4, !tbaa !18
+  %28 = zext i32 %27 to i64
+  %29 = mul i64 %28, 8
+  %30 = getelementptr i8, ptr %26, i64 %29
+  %31 = load ptr, ptr %4, align 8, !tbaa !7
+  %32 = getelementptr inbounds nuw %struct.pm_constant_pool_t, ptr %31, i32 0, i32 1
+  store ptr %30, ptr %32, align 8, !tbaa !24
+  %33 = load ptr, ptr %4, align 8, !tbaa !7
+  %34 = getelementptr inbounds nuw %struct.pm_constant_pool_t, ptr %33, i32 0, i32 2
+  store i32 0, ptr %34, align 8, !tbaa !25
+  %35 = load i32, ptr %5, align 4, !tbaa !18
+  %36 = load ptr, ptr %4, align 8, !tbaa !7
+  %37 = getelementptr inbounds nuw %struct.pm_constant_pool_t, ptr %36, i32 0, i32 3
+  store i32 %35, ptr %37, align 4, !tbaa !26
   store i1 true, ptr %3, align 1
-  br label %37
+  store i32 1, ptr %7, align 4
+  br label %38
 
-37:                                               ; preds = %21, %20, %11
-  %38 = load i1, ptr %3, align 1
-  ret i1 %38
+38:                                               ; preds = %22, %21
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #14
+  br label %39
+
+39:                                               ; preds = %38, %12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #14
+  %40 = load i1, ptr %3, align 1
+  ret i1 %40
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @next_power_of_two(i32 noundef %0) #0 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
-  store i32 %0, ptr %3, align 4
-  %4 = load i32, ptr %3, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !18
+  %4 = load i32, ptr %3, align 4, !tbaa !18
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %7
 
@@ -273,38 +373,38 @@ define internal i32 @next_power_of_two(i32 noundef %0) #0 {
   br label %33
 
 7:                                                ; preds = %1
-  %8 = load i32, ptr %3, align 4
+  %8 = load i32, ptr %3, align 4, !tbaa !18
   %9 = add i32 %8, -1
-  store i32 %9, ptr %3, align 4
-  %10 = load i32, ptr %3, align 4
+  store i32 %9, ptr %3, align 4, !tbaa !18
+  %10 = load i32, ptr %3, align 4, !tbaa !18
   %11 = lshr i32 %10, 1
-  %12 = load i32, ptr %3, align 4
+  %12 = load i32, ptr %3, align 4, !tbaa !18
   %13 = or i32 %12, %11
-  store i32 %13, ptr %3, align 4
-  %14 = load i32, ptr %3, align 4
+  store i32 %13, ptr %3, align 4, !tbaa !18
+  %14 = load i32, ptr %3, align 4, !tbaa !18
   %15 = lshr i32 %14, 2
-  %16 = load i32, ptr %3, align 4
+  %16 = load i32, ptr %3, align 4, !tbaa !18
   %17 = or i32 %16, %15
-  store i32 %17, ptr %3, align 4
-  %18 = load i32, ptr %3, align 4
+  store i32 %17, ptr %3, align 4, !tbaa !18
+  %18 = load i32, ptr %3, align 4, !tbaa !18
   %19 = lshr i32 %18, 4
-  %20 = load i32, ptr %3, align 4
+  %20 = load i32, ptr %3, align 4, !tbaa !18
   %21 = or i32 %20, %19
-  store i32 %21, ptr %3, align 4
-  %22 = load i32, ptr %3, align 4
+  store i32 %21, ptr %3, align 4, !tbaa !18
+  %22 = load i32, ptr %3, align 4, !tbaa !18
   %23 = lshr i32 %22, 8
-  %24 = load i32, ptr %3, align 4
+  %24 = load i32, ptr %3, align 4, !tbaa !18
   %25 = or i32 %24, %23
-  store i32 %25, ptr %3, align 4
-  %26 = load i32, ptr %3, align 4
+  store i32 %25, ptr %3, align 4, !tbaa !18
+  %26 = load i32, ptr %3, align 4, !tbaa !18
   %27 = lshr i32 %26, 16
-  %28 = load i32, ptr %3, align 4
+  %28 = load i32, ptr %3, align 4, !tbaa !18
   %29 = or i32 %28, %27
-  store i32 %29, ptr %3, align 4
-  %30 = load i32, ptr %3, align 4
+  store i32 %29, ptr %3, align 4, !tbaa !18
+  %30 = load i32, ptr %3, align 4, !tbaa !18
   %31 = add i32 %30, 1
-  store i32 %31, ptr %3, align 4
-  %32 = load i32, ptr %3, align 4
+  store i32 %31, ptr %3, align 4, !tbaa !18
+  %32 = load i32, ptr %3, align 4, !tbaa !18
   store i32 %32, ptr %2, align 4
   br label %33
 
@@ -313,19 +413,16 @@ define internal i32 @next_power_of_two(i32 noundef %0) #0 {
   ret i32 %34
 }
 
-; Function Attrs: nounwind allocsize(0,1)
-declare noalias ptr @calloc(i64 noundef, i64 noundef) #3
-
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden ptr @pm_constant_pool_id_to_constant(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.pm_constant_pool_t, ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %6, align 8
-  %8 = load i32, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i32 %1, ptr %4, align 4, !tbaa !18
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = getelementptr inbounds nuw %struct.pm_constant_pool_t, ptr %5, i32 0, i32 1
+  %7 = load ptr, ptr %6, align 8, !tbaa !24
+  %8 = load i32, ptr %4, align 4, !tbaa !18
   %9 = sub i32 %8, 1
   %10 = zext i32 %9 to i64
   %11 = getelementptr %struct.pm_constant_t, ptr %7, i64 %10
@@ -343,153 +440,183 @@ define hidden i32 @pm_constant_pool_find(ptr noundef %0, ptr noundef %1, i64 nou
   %10 = alloca i32, align 4
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store i64 %2, ptr %7, align 8
-  %13 = load ptr, ptr %5, align 8
-  %14 = getelementptr inbounds %struct.pm_constant_pool_t, ptr %13, i32 0, i32 3
-  %15 = load i32, ptr %14, align 4
-  %16 = sub i32 %15, 1
-  store i32 %16, ptr %8, align 4
-  %17 = load ptr, ptr %6, align 8
-  %18 = load i64, ptr %7, align 8
-  %19 = call i32 @pm_constant_pool_hash(ptr noundef %17, i64 noundef %18)
-  store i32 %19, ptr %9, align 4
-  %20 = load i32, ptr %9, align 4
-  %21 = load i32, ptr %8, align 4
-  %22 = and i32 %20, %21
-  store i32 %22, ptr %10, align 4
-  br label %23
+  %13 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !7
+  store ptr %1, ptr %6, align 8, !tbaa !27
+  store i64 %2, ptr %7, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #14
+  %14 = load ptr, ptr %5, align 8, !tbaa !7
+  %15 = getelementptr inbounds nuw %struct.pm_constant_pool_t, ptr %14, i32 0, i32 3
+  %16 = load i32, ptr %15, align 4, !tbaa !26
+  %17 = sub i32 %16, 1
+  store i32 %17, ptr %8, align 4, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #14
+  %18 = load ptr, ptr %6, align 8, !tbaa !27
+  %19 = load i64, ptr %7, align 8, !tbaa !17
+  %20 = call i32 @pm_constant_pool_hash(ptr noundef %18, i64 noundef %19)
+  store i32 %20, ptr %9, align 4, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #14
+  %21 = load i32, ptr %9, align 4, !tbaa !18
+  %22 = load i32, ptr %8, align 4, !tbaa !18
+  %23 = and i32 %21, %22
+  store i32 %23, ptr %10, align 4, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #14
+  br label %24
 
-23:                                               ; preds = %61, %3
-  %24 = load ptr, ptr %5, align 8
-  %25 = getelementptr inbounds %struct.pm_constant_pool_t, ptr %24, i32 0, i32 0
-  %26 = load ptr, ptr %25, align 8
-  %27 = load i32, ptr %10, align 4
-  %28 = zext i32 %27 to i64
-  %29 = getelementptr %struct.pm_constant_pool_bucket_t, ptr %26, i64 %28
-  store ptr %29, ptr %11, align 8
-  %30 = load ptr, ptr %11, align 8
-  %31 = load i32, ptr %30, align 4
-  %32 = and i32 %31, 1073741823
-  %33 = icmp ne i32 %32, 0
-  br i1 %33, label %34, label %66
+24:                                               ; preds = %69, %3
+  %25 = load ptr, ptr %5, align 8, !tbaa !7
+  %26 = getelementptr inbounds nuw %struct.pm_constant_pool_t, ptr %25, i32 0, i32 0
+  %27 = load ptr, ptr %26, align 8, !tbaa !22
+  %28 = load i32, ptr %10, align 4, !tbaa !18
+  %29 = zext i32 %28 to i64
+  %30 = getelementptr %struct.pm_constant_pool_bucket_t, ptr %27, i64 %29
+  store ptr %30, ptr %11, align 8, !tbaa !7
+  %31 = load ptr, ptr %11, align 8, !tbaa !7
+  %32 = load i32, ptr %31, align 4
+  %33 = and i32 %32, 1073741823
+  %34 = icmp ne i32 %33, 0
+  br i1 %34, label %35, label %70
 
-34:                                               ; preds = %23
-  %35 = load ptr, ptr %5, align 8
-  %36 = getelementptr inbounds %struct.pm_constant_pool_t, ptr %35, i32 0, i32 1
-  %37 = load ptr, ptr %36, align 8
-  %38 = load ptr, ptr %11, align 8
-  %39 = load i32, ptr %38, align 4
-  %40 = and i32 %39, 1073741823
-  %41 = sub i32 %40, 1
-  %42 = sext i32 %41 to i64
-  %43 = getelementptr %struct.pm_constant_t, ptr %37, i64 %42
-  store ptr %43, ptr %12, align 8
-  %44 = load ptr, ptr %12, align 8
-  %45 = getelementptr inbounds %struct.pm_constant_t, ptr %44, i32 0, i32 1
-  %46 = load i64, ptr %45, align 8
-  %47 = load i64, ptr %7, align 8
-  %48 = icmp eq i64 %46, %47
-  br i1 %48, label %49, label %61
+35:                                               ; preds = %24
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #14
+  %36 = load ptr, ptr %5, align 8, !tbaa !7
+  %37 = getelementptr inbounds nuw %struct.pm_constant_pool_t, ptr %36, i32 0, i32 1
+  %38 = load ptr, ptr %37, align 8, !tbaa !24
+  %39 = load ptr, ptr %11, align 8, !tbaa !7
+  %40 = load i32, ptr %39, align 4
+  %41 = and i32 %40, 1073741823
+  %42 = sub i32 %41, 1
+  %43 = sext i32 %42 to i64
+  %44 = getelementptr %struct.pm_constant_t, ptr %38, i64 %43
+  store ptr %44, ptr %12, align 8, !tbaa !7
+  %45 = load ptr, ptr %12, align 8, !tbaa !7
+  %46 = getelementptr inbounds nuw %struct.pm_constant_t, ptr %45, i32 0, i32 1
+  %47 = load i64, ptr %46, align 8, !tbaa !29
+  %48 = load i64, ptr %7, align 8, !tbaa !17
+  %49 = icmp eq i64 %47, %48
+  br i1 %49, label %50, label %62
 
-49:                                               ; preds = %34
-  %50 = load ptr, ptr %12, align 8
-  %51 = getelementptr inbounds %struct.pm_constant_t, ptr %50, i32 0, i32 0
-  %52 = load ptr, ptr %51, align 8
-  %53 = load ptr, ptr %6, align 8
-  %54 = load i64, ptr %7, align 8
-  %55 = call i32 @memcmp(ptr noundef %52, ptr noundef %53, i64 noundef %54) #9
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %57, label %61
+50:                                               ; preds = %35
+  %51 = load ptr, ptr %12, align 8, !tbaa !7
+  %52 = getelementptr inbounds nuw %struct.pm_constant_t, ptr %51, i32 0, i32 0
+  %53 = load ptr, ptr %52, align 8, !tbaa !31
+  %54 = load ptr, ptr %6, align 8, !tbaa !27
+  %55 = load i64, ptr %7, align 8, !tbaa !17
+  %56 = call i32 @memcmp(ptr noundef %53, ptr noundef %54, i64 noundef %55) #15
+  %57 = icmp eq i32 %56, 0
+  br i1 %57, label %58, label %62
 
-57:                                               ; preds = %49
-  %58 = load ptr, ptr %11, align 8
-  %59 = load i32, ptr %58, align 4
-  %60 = and i32 %59, 1073741823
-  store i32 %60, ptr %4, align 4
+58:                                               ; preds = %50
+  %59 = load ptr, ptr %11, align 8, !tbaa !7
+  %60 = load i32, ptr %59, align 4
+  %61 = and i32 %60, 1073741823
+  store i32 %61, ptr %4, align 4
+  store i32 1, ptr %13, align 4
   br label %67
 
-61:                                               ; preds = %49, %34
-  %62 = load i32, ptr %10, align 4
-  %63 = add i32 %62, 1
-  %64 = load i32, ptr %8, align 4
-  %65 = and i32 %63, %64
-  store i32 %65, ptr %10, align 4
-  br label %23, !llvm.loop !9
+62:                                               ; preds = %50, %35
+  %63 = load i32, ptr %10, align 4, !tbaa !18
+  %64 = add i32 %63, 1
+  %65 = load i32, ptr %8, align 4, !tbaa !18
+  %66 = and i32 %64, %65
+  store i32 %66, ptr %10, align 4, !tbaa !18
+  store i32 0, ptr %13, align 4
+  br label %67
 
-66:                                               ; preds = %23
+67:                                               ; preds = %62, %58
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #14
+  %68 = load i32, ptr %13, align 4
+  switch i32 %68, label %71 [
+    i32 0, label %69
+  ]
+
+69:                                               ; preds = %67
+  br label %24, !llvm.loop !32
+
+70:                                               ; preds = %24
   store i32 0, ptr %4, align 4
-  br label %67
+  store i32 1, ptr %13, align 4
+  br label %71
 
-67:                                               ; preds = %66, %57
-  %68 = load i32, ptr %4, align 4
-  ret i32 %68
+71:                                               ; preds = %70, %67
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #14
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #14
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #14
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #14
+  %72 = load i32, ptr %4, align 4
+  ret i32 %72
 }
 
-; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @pm_constant_pool_hash(ptr noundef %0, i64 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal i32 @pm_constant_pool_hash(ptr noundef %0, i64 noundef %1) #6 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca i32, align 4
   %6 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
-  store i32 5381, ptr %5, align 4
-  store i64 0, ptr %6, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !27
+  store i64 %1, ptr %4, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #14
+  store i32 5381, ptr %5, align 4, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #14
+  store i64 0, ptr %6, align 8, !tbaa !17
   br label %7
 
-7:                                                ; preds = %22, %2
-  %8 = load i64, ptr %6, align 8
-  %9 = load i64, ptr %4, align 8
+7:                                                ; preds = %23, %2
+  %8 = load i64, ptr %6, align 8, !tbaa !17
+  %9 = load i64, ptr %4, align 8, !tbaa !17
   %10 = icmp ult i64 %8, %9
-  br i1 %10, label %11, label %25
+  br i1 %10, label %12, label %11
 
 11:                                               ; preds = %7
-  %12 = load i32, ptr %5, align 4
-  %13 = shl i32 %12, 5
-  %14 = load i32, ptr %5, align 4
-  %15 = add i32 %13, %14
-  %16 = load ptr, ptr %3, align 8
-  %17 = load i64, ptr %6, align 8
-  %18 = getelementptr i8, ptr %16, i64 %17
-  %19 = load i8, ptr %18, align 1
-  %20 = zext i8 %19 to i32
-  %21 = add i32 %15, %20
-  store i32 %21, ptr %5, align 4
-  br label %22
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #14
+  br label %26
 
-22:                                               ; preds = %11
-  %23 = load i64, ptr %6, align 8
-  %24 = add i64 %23, 1
-  store i64 %24, ptr %6, align 8
-  br label %7, !llvm.loop !10
+12:                                               ; preds = %7
+  %13 = load i32, ptr %5, align 4, !tbaa !18
+  %14 = shl i32 %13, 5
+  %15 = load i32, ptr %5, align 4, !tbaa !18
+  %16 = add i32 %14, %15
+  %17 = load ptr, ptr %3, align 8, !tbaa !27
+  %18 = load i64, ptr %6, align 8, !tbaa !17
+  %19 = getelementptr i8, ptr %17, i64 %18
+  %20 = load i8, ptr %19, align 1, !tbaa !33
+  %21 = zext i8 %20 to i32
+  %22 = add i32 %16, %21
+  store i32 %22, ptr %5, align 4, !tbaa !18
+  br label %23
 
-25:                                               ; preds = %7
-  %26 = load i32, ptr %5, align 4
-  ret i32 %26
+23:                                               ; preds = %12
+  %24 = load i64, ptr %6, align 8, !tbaa !17
+  %25 = add i64 %24, 1
+  store i64 %25, ptr %6, align 8, !tbaa !17
+  br label %7, !llvm.loop !34
+
+26:                                               ; preds = %11
+  %27 = load i32, ptr %5, align 4, !tbaa !18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #14
+  ret i32 %27
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #4
+declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #7
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden i32 @pm_constant_pool_insert_shared(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = load i64, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !7
+  store ptr %1, ptr %5, align 8, !tbaa !27
+  store i64 %2, ptr %6, align 8, !tbaa !17
+  %7 = load ptr, ptr %4, align 8, !tbaa !7
+  %8 = load ptr, ptr %5, align 8, !tbaa !27
+  %9 = load i64, ptr %6, align 8, !tbaa !17
   %10 = call i32 @pm_constant_pool_insert(ptr noundef %7, ptr noundef %8, i64 noundef %9, i32 noundef 0)
   ret i32 %10
 }
 
-; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @pm_constant_pool_insert(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #0 {
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal i32 @pm_constant_pool_insert(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #6 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -501,192 +628,221 @@ define internal i32 @pm_constant_pool_insert(ptr noundef %0, ptr noundef %1, i64
   %13 = alloca ptr, align 8
   %14 = alloca ptr, align 8
   %15 = alloca i32, align 4
-  %16 = alloca %struct.pm_constant_pool_bucket_t, align 4
-  %17 = alloca %struct.pm_constant_t, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store i64 %2, ptr %8, align 8
-  store i32 %3, ptr %9, align 4
-  %18 = load ptr, ptr %6, align 8
-  %19 = getelementptr inbounds %struct.pm_constant_pool_t, ptr %18, i32 0, i32 2
-  %20 = load i32, ptr %19, align 8
-  %21 = load ptr, ptr %6, align 8
-  %22 = getelementptr inbounds %struct.pm_constant_pool_t, ptr %21, i32 0, i32 3
-  %23 = load i32, ptr %22, align 4
-  %24 = udiv i32 %23, 4
-  %25 = mul i32 %24, 3
-  %26 = icmp uge i32 %20, %25
-  br i1 %26, label %27, label %32
+  %16 = alloca i32, align 4
+  %17 = alloca %struct.pm_constant_pool_bucket_t, align 4
+  %18 = alloca %struct.pm_constant_t, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !7
+  store ptr %1, ptr %7, align 8, !tbaa !27
+  store i64 %2, ptr %8, align 8, !tbaa !17
+  store i32 %3, ptr %9, align 4, !tbaa !18
+  %19 = load ptr, ptr %6, align 8, !tbaa !7
+  %20 = getelementptr inbounds nuw %struct.pm_constant_pool_t, ptr %19, i32 0, i32 2
+  %21 = load i32, ptr %20, align 8, !tbaa !25
+  %22 = load ptr, ptr %6, align 8, !tbaa !7
+  %23 = getelementptr inbounds nuw %struct.pm_constant_pool_t, ptr %22, i32 0, i32 3
+  %24 = load i32, ptr %23, align 4, !tbaa !26
+  %25 = udiv i32 %24, 4
+  %26 = mul i32 %25, 3
+  %27 = icmp uge i32 %21, %26
+  br i1 %27, label %28, label %33
 
-27:                                               ; preds = %4
-  %28 = load ptr, ptr %6, align 8
-  %29 = call zeroext i1 @pm_constant_pool_resize(ptr noundef %28)
-  br i1 %29, label %31, label %30
+28:                                               ; preds = %4
+  %29 = load ptr, ptr %6, align 8, !tbaa !7
+  %30 = call zeroext i1 @pm_constant_pool_resize(ptr noundef %29)
+  br i1 %30, label %32, label %31
 
-30:                                               ; preds = %27
+31:                                               ; preds = %28
   store i32 0, ptr %5, align 4
-  br label %141
+  br label %146
 
-31:                                               ; preds = %27
-  br label %32
+32:                                               ; preds = %28
+  br label %33
 
-32:                                               ; preds = %31, %4
-  %33 = load ptr, ptr %6, align 8
-  %34 = getelementptr inbounds %struct.pm_constant_pool_t, ptr %33, i32 0, i32 3
-  %35 = load i32, ptr %34, align 4
-  %36 = sub i32 %35, 1
-  store i32 %36, ptr %10, align 4
-  %37 = load ptr, ptr %7, align 8
-  %38 = load i64, ptr %8, align 8
-  %39 = call i32 @pm_constant_pool_hash(ptr noundef %37, i64 noundef %38)
-  store i32 %39, ptr %11, align 4
-  %40 = load i32, ptr %11, align 4
-  %41 = load i32, ptr %10, align 4
-  %42 = and i32 %40, %41
-  store i32 %42, ptr %12, align 4
-  br label %43
+33:                                               ; preds = %32, %4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #14
+  %34 = load ptr, ptr %6, align 8, !tbaa !7
+  %35 = getelementptr inbounds nuw %struct.pm_constant_pool_t, ptr %34, i32 0, i32 3
+  %36 = load i32, ptr %35, align 4, !tbaa !26
+  %37 = sub i32 %36, 1
+  store i32 %37, ptr %10, align 4, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #14
+  %38 = load ptr, ptr %7, align 8, !tbaa !27
+  %39 = load i64, ptr %8, align 8, !tbaa !17
+  %40 = call i32 @pm_constant_pool_hash(ptr noundef %38, i64 noundef %39)
+  store i32 %40, ptr %11, align 4, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #14
+  %41 = load i32, ptr %11, align 4, !tbaa !18
+  %42 = load i32, ptr %10, align 4, !tbaa !18
+  %43 = and i32 %41, %42
+  store i32 %43, ptr %12, align 4, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #14
+  br label %44
 
-43:                                               ; preds = %103, %32
-  %44 = load ptr, ptr %6, align 8
-  %45 = getelementptr inbounds %struct.pm_constant_pool_t, ptr %44, i32 0, i32 0
-  %46 = load ptr, ptr %45, align 8
-  %47 = load i32, ptr %12, align 4
-  %48 = zext i32 %47 to i64
-  %49 = getelementptr %struct.pm_constant_pool_bucket_t, ptr %46, i64 %48
-  store ptr %49, ptr %13, align 8
-  %50 = load ptr, ptr %13, align 8
-  %51 = load i32, ptr %50, align 4
-  %52 = and i32 %51, 1073741823
-  %53 = icmp ne i32 %52, 0
-  br i1 %53, label %54, label %108
+44:                                               ; preds = %111, %33
+  %45 = load ptr, ptr %6, align 8, !tbaa !7
+  %46 = getelementptr inbounds nuw %struct.pm_constant_pool_t, ptr %45, i32 0, i32 0
+  %47 = load ptr, ptr %46, align 8, !tbaa !22
+  %48 = load i32, ptr %12, align 4, !tbaa !18
+  %49 = zext i32 %48 to i64
+  %50 = getelementptr %struct.pm_constant_pool_bucket_t, ptr %47, i64 %49
+  store ptr %50, ptr %13, align 8, !tbaa !7
+  %51 = load ptr, ptr %13, align 8, !tbaa !7
+  %52 = load i32, ptr %51, align 4
+  %53 = and i32 %52, 1073741823
+  %54 = icmp ne i32 %53, 0
+  br i1 %54, label %55, label %112
 
-54:                                               ; preds = %43
-  %55 = load ptr, ptr %6, align 8
-  %56 = getelementptr inbounds %struct.pm_constant_pool_t, ptr %55, i32 0, i32 1
-  %57 = load ptr, ptr %56, align 8
-  %58 = load ptr, ptr %13, align 8
-  %59 = load i32, ptr %58, align 4
-  %60 = and i32 %59, 1073741823
-  %61 = sub i32 %60, 1
-  %62 = sext i32 %61 to i64
-  %63 = getelementptr %struct.pm_constant_t, ptr %57, i64 %62
-  store ptr %63, ptr %14, align 8
-  %64 = load ptr, ptr %14, align 8
-  %65 = getelementptr inbounds %struct.pm_constant_t, ptr %64, i32 0, i32 1
-  %66 = load i64, ptr %65, align 8
-  %67 = load i64, ptr %8, align 8
-  %68 = icmp eq i64 %66, %67
-  br i1 %68, label %69, label %103
+55:                                               ; preds = %44
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #14
+  %56 = load ptr, ptr %6, align 8, !tbaa !7
+  %57 = getelementptr inbounds nuw %struct.pm_constant_pool_t, ptr %56, i32 0, i32 1
+  %58 = load ptr, ptr %57, align 8, !tbaa !24
+  %59 = load ptr, ptr %13, align 8, !tbaa !7
+  %60 = load i32, ptr %59, align 4
+  %61 = and i32 %60, 1073741823
+  %62 = sub i32 %61, 1
+  %63 = sext i32 %62 to i64
+  %64 = getelementptr %struct.pm_constant_t, ptr %58, i64 %63
+  store ptr %64, ptr %14, align 8, !tbaa !7
+  %65 = load ptr, ptr %14, align 8, !tbaa !7
+  %66 = getelementptr inbounds nuw %struct.pm_constant_t, ptr %65, i32 0, i32 1
+  %67 = load i64, ptr %66, align 8, !tbaa !29
+  %68 = load i64, ptr %8, align 8, !tbaa !17
+  %69 = icmp eq i64 %67, %68
+  br i1 %69, label %70, label %104
 
-69:                                               ; preds = %54
-  %70 = load ptr, ptr %14, align 8
-  %71 = getelementptr inbounds %struct.pm_constant_t, ptr %70, i32 0, i32 0
-  %72 = load ptr, ptr %71, align 8
-  %73 = load ptr, ptr %7, align 8
-  %74 = load i64, ptr %8, align 8
-  %75 = call i32 @memcmp(ptr noundef %72, ptr noundef %73, i64 noundef %74) #9
-  %76 = icmp eq i32 %75, 0
-  br i1 %76, label %77, label %103
+70:                                               ; preds = %55
+  %71 = load ptr, ptr %14, align 8, !tbaa !7
+  %72 = getelementptr inbounds nuw %struct.pm_constant_t, ptr %71, i32 0, i32 0
+  %73 = load ptr, ptr %72, align 8, !tbaa !31
+  %74 = load ptr, ptr %7, align 8, !tbaa !27
+  %75 = load i64, ptr %8, align 8, !tbaa !17
+  %76 = call i32 @memcmp(ptr noundef %73, ptr noundef %74, i64 noundef %75) #15
+  %77 = icmp eq i32 %76, 0
+  br i1 %77, label %78, label %104
 
-77:                                               ; preds = %69
-  %78 = load i32, ptr %9, align 4
-  %79 = icmp eq i32 %78, 1
-  br i1 %79, label %80, label %82
+78:                                               ; preds = %70
+  %79 = load i32, ptr %9, align 4, !tbaa !18
+  %80 = icmp eq i32 %79, 1
+  br i1 %80, label %81, label %83
 
-80:                                               ; preds = %77
-  %81 = load ptr, ptr %7, align 8
-  call void @free(ptr noundef %81) #7
+81:                                               ; preds = %78
+  %82 = load ptr, ptr %7, align 8, !tbaa !27
+  call void @free(ptr noundef %82) #14
+  br label %100
+
+83:                                               ; preds = %78
+  %84 = load ptr, ptr %13, align 8, !tbaa !7
+  %85 = load i32, ptr %84, align 4
+  %86 = lshr i32 %85, 30
+  %87 = icmp eq i32 %86, 1
+  br i1 %87, label %88, label %99
+
+88:                                               ; preds = %83
+  %89 = load ptr, ptr %14, align 8, !tbaa !7
+  %90 = getelementptr inbounds nuw %struct.pm_constant_t, ptr %89, i32 0, i32 0
+  %91 = load ptr, ptr %90, align 8, !tbaa !31
+  call void @free(ptr noundef %91) #14
+  %92 = load ptr, ptr %7, align 8, !tbaa !27
+  %93 = load ptr, ptr %14, align 8, !tbaa !7
+  %94 = getelementptr inbounds nuw %struct.pm_constant_t, ptr %93, i32 0, i32 0
+  store ptr %92, ptr %94, align 8, !tbaa !31
+  %95 = load ptr, ptr %13, align 8, !tbaa !7
+  %96 = load i32, ptr %95, align 4
+  %97 = and i32 %96, 1073741823
+  %98 = or i32 %97, 0
+  store i32 %98, ptr %95, align 4
   br label %99
 
-82:                                               ; preds = %77
-  %83 = load ptr, ptr %13, align 8
-  %84 = load i32, ptr %83, align 4
-  %85 = lshr i32 %84, 30
-  %86 = icmp eq i32 %85, 1
-  br i1 %86, label %87, label %98
+99:                                               ; preds = %88, %83
+  br label %100
 
-87:                                               ; preds = %82
-  %88 = load ptr, ptr %14, align 8
-  %89 = getelementptr inbounds %struct.pm_constant_t, ptr %88, i32 0, i32 0
-  %90 = load ptr, ptr %89, align 8
-  call void @free(ptr noundef %90) #7
-  %91 = load ptr, ptr %7, align 8
-  %92 = load ptr, ptr %14, align 8
-  %93 = getelementptr inbounds %struct.pm_constant_t, ptr %92, i32 0, i32 0
-  store ptr %91, ptr %93, align 8
-  %94 = load ptr, ptr %13, align 8
-  %95 = load i32, ptr %94, align 4
-  %96 = and i32 %95, 1073741823
-  %97 = or i32 %96, 0
-  store i32 %97, ptr %94, align 4
-  br label %98
+100:                                              ; preds = %99, %81
+  %101 = load ptr, ptr %13, align 8, !tbaa !7
+  %102 = load i32, ptr %101, align 4
+  %103 = and i32 %102, 1073741823
+  store i32 %103, ptr %5, align 4
+  store i32 1, ptr %15, align 4
+  br label %109
 
-98:                                               ; preds = %87, %82
-  br label %99
+104:                                              ; preds = %70, %55
+  %105 = load i32, ptr %12, align 4, !tbaa !18
+  %106 = add i32 %105, 1
+  %107 = load i32, ptr %10, align 4, !tbaa !18
+  %108 = and i32 %106, %107
+  store i32 %108, ptr %12, align 4, !tbaa !18
+  store i32 0, ptr %15, align 4
+  br label %109
 
-99:                                               ; preds = %98, %80
-  %100 = load ptr, ptr %13, align 8
-  %101 = load i32, ptr %100, align 4
-  %102 = and i32 %101, 1073741823
-  store i32 %102, ptr %5, align 4
-  br label %141
+109:                                              ; preds = %104, %100
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #14
+  %110 = load i32, ptr %15, align 4
+  switch i32 %110, label %145 [
+    i32 0, label %111
+  ]
 
-103:                                              ; preds = %69, %54
-  %104 = load i32, ptr %12, align 4
-  %105 = add i32 %104, 1
-  %106 = load i32, ptr %10, align 4
-  %107 = and i32 %105, %106
-  store i32 %107, ptr %12, align 4
-  br label %43, !llvm.loop !11
+111:                                              ; preds = %109
+  br label %44, !llvm.loop !35
 
-108:                                              ; preds = %43
-  %109 = load ptr, ptr %6, align 8
-  %110 = getelementptr inbounds %struct.pm_constant_pool_t, ptr %109, i32 0, i32 2
-  %111 = load i32, ptr %110, align 8
-  %112 = add i32 %111, 1
-  store i32 %112, ptr %110, align 8
-  store i32 %112, ptr %15, align 4
-  %113 = load ptr, ptr %13, align 8
-  %114 = load i32, ptr %15, align 4
-  %115 = and i32 %114, 1073741823
-  %116 = load i32, ptr %16, align 4
-  %117 = and i32 %115, 1073741823
-  %118 = and i32 %116, -1073741824
-  %119 = or i32 %118, %117
-  store i32 %119, ptr %16, align 4
-  %120 = load i32, ptr %9, align 4
-  %121 = and i32 %120, 3
-  %122 = load i32, ptr %16, align 4
-  %123 = and i32 %121, 3
-  %124 = shl i32 %123, 30
-  %125 = and i32 %122, 1073741823
-  %126 = or i32 %125, %124
-  store i32 %126, ptr %16, align 4
-  %127 = getelementptr inbounds %struct.pm_constant_pool_bucket_t, ptr %16, i32 0, i32 1
-  %128 = load i32, ptr %11, align 4
-  store i32 %128, ptr %127, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %113, ptr align 4 %16, i64 8, i1 false)
-  %129 = load ptr, ptr %6, align 8
-  %130 = getelementptr inbounds %struct.pm_constant_pool_t, ptr %129, i32 0, i32 1
-  %131 = load ptr, ptr %130, align 8
-  %132 = load i32, ptr %15, align 4
-  %133 = sub i32 %132, 1
-  %134 = zext i32 %133 to i64
-  %135 = getelementptr %struct.pm_constant_t, ptr %131, i64 %134
-  %136 = getelementptr inbounds %struct.pm_constant_t, ptr %17, i32 0, i32 0
-  %137 = load ptr, ptr %7, align 8
-  store ptr %137, ptr %136, align 8
-  %138 = getelementptr inbounds %struct.pm_constant_t, ptr %17, i32 0, i32 1
-  %139 = load i64, ptr %8, align 8
-  store i64 %139, ptr %138, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %135, ptr align 8 %17, i64 16, i1 false)
-  %140 = load i32, ptr %15, align 4
-  store i32 %140, ptr %5, align 4
-  br label %141
+112:                                              ; preds = %44
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #14
+  %113 = load ptr, ptr %6, align 8, !tbaa !7
+  %114 = getelementptr inbounds nuw %struct.pm_constant_pool_t, ptr %113, i32 0, i32 2
+  %115 = load i32, ptr %114, align 8, !tbaa !25
+  %116 = add i32 %115, 1
+  store i32 %116, ptr %114, align 8, !tbaa !25
+  store i32 %116, ptr %16, align 4, !tbaa !18
+  %117 = load ptr, ptr %13, align 8, !tbaa !7
+  store i32 0, ptr %17, align 4
+  %118 = load i32, ptr %16, align 4, !tbaa !18
+  %119 = and i32 %118, 1073741823
+  %120 = load i32, ptr %17, align 4
+  %121 = and i32 %119, 1073741823
+  %122 = and i32 %120, -1073741824
+  %123 = or i32 %122, %121
+  store i32 %123, ptr %17, align 4
+  %124 = load i32, ptr %9, align 4, !tbaa !18
+  %125 = and i32 %124, 3
+  %126 = load i32, ptr %17, align 4
+  %127 = and i32 %125, 3
+  %128 = shl i32 %127, 30
+  %129 = and i32 %126, 1073741823
+  %130 = or i32 %129, %128
+  store i32 %130, ptr %17, align 4
+  %131 = getelementptr inbounds nuw %struct.pm_constant_pool_bucket_t, ptr %17, i32 0, i32 1
+  %132 = load i32, ptr %11, align 4, !tbaa !18
+  store i32 %132, ptr %131, align 4, !tbaa !36
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %117, ptr align 4 %17, i64 8, i1 false), !tbaa.struct !38
+  %133 = load ptr, ptr %6, align 8, !tbaa !7
+  %134 = getelementptr inbounds nuw %struct.pm_constant_pool_t, ptr %133, i32 0, i32 1
+  %135 = load ptr, ptr %134, align 8, !tbaa !24
+  %136 = load i32, ptr %16, align 4, !tbaa !18
+  %137 = sub i32 %136, 1
+  %138 = zext i32 %137 to i64
+  %139 = getelementptr %struct.pm_constant_t, ptr %135, i64 %138
+  %140 = getelementptr inbounds nuw %struct.pm_constant_t, ptr %18, i32 0, i32 0
+  %141 = load ptr, ptr %7, align 8, !tbaa !27
+  store ptr %141, ptr %140, align 8, !tbaa !31
+  %142 = getelementptr inbounds nuw %struct.pm_constant_t, ptr %18, i32 0, i32 1
+  %143 = load i64, ptr %8, align 8, !tbaa !17
+  store i64 %143, ptr %142, align 8, !tbaa !29
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %139, ptr align 8 %18, i64 16, i1 false), !tbaa.struct !39
+  %144 = load i32, ptr %16, align 4, !tbaa !18
+  store i32 %144, ptr %5, align 4
+  store i32 1, ptr %15, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #14
+  br label %145
 
-141:                                              ; preds = %108, %99, %30
-  %142 = load i32, ptr %5, align 4
-  ret i32 %142
+145:                                              ; preds = %112, %109
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #14
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #14
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #14
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #14
+  br label %146
+
+146:                                              ; preds = %145, %31
+  %147 = load i32, ptr %5, align 4
+  ret i32 %147
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -694,12 +850,12 @@ define hidden i32 @pm_constant_pool_insert_owned(ptr noundef %0, ptr noundef %1,
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = load i64, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !7
+  store ptr %1, ptr %5, align 8, !tbaa !27
+  store i64 %2, ptr %6, align 8, !tbaa !17
+  %7 = load ptr, ptr %4, align 8, !tbaa !7
+  %8 = load ptr, ptr %5, align 8, !tbaa !27
+  %9 = load i64, ptr %6, align 8, !tbaa !17
   %10 = call i32 @pm_constant_pool_insert(ptr noundef %7, ptr noundef %8, i64 noundef %9, i32 noundef 1)
   ret i32 %10
 }
@@ -709,12 +865,12 @@ define hidden i32 @pm_constant_pool_insert_constant(ptr noundef %0, ptr noundef 
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = load i64, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !7
+  store ptr %1, ptr %5, align 8, !tbaa !27
+  store i64 %2, ptr %6, align 8, !tbaa !17
+  %7 = load ptr, ptr %4, align 8, !tbaa !7
+  %8 = load ptr, ptr %5, align 8, !tbaa !27
+  %9 = load i64, ptr %6, align 8, !tbaa !17
   %10 = call i32 @pm_constant_pool_insert(ptr noundef %7, ptr noundef %8, i64 noundef %9, i32 noundef 2)
   ret i32 %10
 }
@@ -725,247 +881,314 @@ define hidden void @pm_constant_pool_free(ptr noundef %0) #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  store i32 0, ptr %3, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #14
+  store i32 0, ptr %3, align 4, !tbaa !18
   br label %6
 
-6:                                                ; preds = %42, %1
-  %7 = load i32, ptr %3, align 4
-  %8 = load ptr, ptr %2, align 8
-  %9 = getelementptr inbounds %struct.pm_constant_pool_t, ptr %8, i32 0, i32 3
-  %10 = load i32, ptr %9, align 4
+6:                                                ; preds = %43, %1
+  %7 = load i32, ptr %3, align 4, !tbaa !18
+  %8 = load ptr, ptr %2, align 8, !tbaa !7
+  %9 = getelementptr inbounds nuw %struct.pm_constant_pool_t, ptr %8, i32 0, i32 3
+  %10 = load i32, ptr %9, align 4, !tbaa !26
   %11 = icmp ult i32 %7, %10
-  br i1 %11, label %12, label %45
+  br i1 %11, label %13, label %12
 
 12:                                               ; preds = %6
-  %13 = load ptr, ptr %2, align 8
-  %14 = getelementptr inbounds %struct.pm_constant_pool_t, ptr %13, i32 0, i32 0
-  %15 = load ptr, ptr %14, align 8
-  %16 = load i32, ptr %3, align 4
-  %17 = zext i32 %16 to i64
-  %18 = getelementptr %struct.pm_constant_pool_bucket_t, ptr %15, i64 %17
-  store ptr %18, ptr %4, align 8
-  %19 = load ptr, ptr %4, align 8
-  %20 = load i32, ptr %19, align 4
-  %21 = and i32 %20, 1073741823
-  %22 = icmp ne i32 %21, 0
-  br i1 %22, label %23, label %41
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #14
+  br label %46
 
-23:                                               ; preds = %12
-  %24 = load ptr, ptr %4, align 8
-  %25 = load i32, ptr %24, align 4
-  %26 = lshr i32 %25, 30
-  %27 = icmp eq i32 %26, 1
-  br i1 %27, label %28, label %41
+13:                                               ; preds = %6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #14
+  %14 = load ptr, ptr %2, align 8, !tbaa !7
+  %15 = getelementptr inbounds nuw %struct.pm_constant_pool_t, ptr %14, i32 0, i32 0
+  %16 = load ptr, ptr %15, align 8, !tbaa !22
+  %17 = load i32, ptr %3, align 4, !tbaa !18
+  %18 = zext i32 %17 to i64
+  %19 = getelementptr %struct.pm_constant_pool_bucket_t, ptr %16, i64 %18
+  store ptr %19, ptr %4, align 8, !tbaa !7
+  %20 = load ptr, ptr %4, align 8, !tbaa !7
+  %21 = load i32, ptr %20, align 4
+  %22 = and i32 %21, 1073741823
+  %23 = icmp ne i32 %22, 0
+  br i1 %23, label %24, label %42
 
-28:                                               ; preds = %23
-  %29 = load ptr, ptr %2, align 8
-  %30 = getelementptr inbounds %struct.pm_constant_pool_t, ptr %29, i32 0, i32 1
-  %31 = load ptr, ptr %30, align 8
-  %32 = load ptr, ptr %4, align 8
-  %33 = load i32, ptr %32, align 4
-  %34 = and i32 %33, 1073741823
-  %35 = sub i32 %34, 1
-  %36 = sext i32 %35 to i64
-  %37 = getelementptr %struct.pm_constant_t, ptr %31, i64 %36
-  store ptr %37, ptr %5, align 8
-  %38 = load ptr, ptr %5, align 8
-  %39 = getelementptr inbounds %struct.pm_constant_t, ptr %38, i32 0, i32 0
-  %40 = load ptr, ptr %39, align 8
-  call void @free(ptr noundef %40) #7
-  br label %41
+24:                                               ; preds = %13
+  %25 = load ptr, ptr %4, align 8, !tbaa !7
+  %26 = load i32, ptr %25, align 4
+  %27 = lshr i32 %26, 30
+  %28 = icmp eq i32 %27, 1
+  br i1 %28, label %29, label %42
 
-41:                                               ; preds = %28, %23, %12
+29:                                               ; preds = %24
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #14
+  %30 = load ptr, ptr %2, align 8, !tbaa !7
+  %31 = getelementptr inbounds nuw %struct.pm_constant_pool_t, ptr %30, i32 0, i32 1
+  %32 = load ptr, ptr %31, align 8, !tbaa !24
+  %33 = load ptr, ptr %4, align 8, !tbaa !7
+  %34 = load i32, ptr %33, align 4
+  %35 = and i32 %34, 1073741823
+  %36 = sub i32 %35, 1
+  %37 = sext i32 %36 to i64
+  %38 = getelementptr %struct.pm_constant_t, ptr %32, i64 %37
+  store ptr %38, ptr %5, align 8, !tbaa !7
+  %39 = load ptr, ptr %5, align 8, !tbaa !7
+  %40 = getelementptr inbounds nuw %struct.pm_constant_t, ptr %39, i32 0, i32 0
+  %41 = load ptr, ptr %40, align 8, !tbaa !31
+  call void @free(ptr noundef %41) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #14
   br label %42
 
-42:                                               ; preds = %41
-  %43 = load i32, ptr %3, align 4
-  %44 = add i32 %43, 1
-  store i32 %44, ptr %3, align 4
-  br label %6, !llvm.loop !12
+42:                                               ; preds = %29, %24, %13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #14
+  br label %43
 
-45:                                               ; preds = %6
-  %46 = load ptr, ptr %2, align 8
-  %47 = getelementptr inbounds %struct.pm_constant_pool_t, ptr %46, i32 0, i32 0
-  %48 = load ptr, ptr %47, align 8
-  call void @free(ptr noundef %48) #7
+43:                                               ; preds = %42
+  %44 = load i32, ptr %3, align 4, !tbaa !18
+  %45 = add i32 %44, 1
+  store i32 %45, ptr %3, align 4, !tbaa !18
+  br label %6, !llvm.loop !40
+
+46:                                               ; preds = %12
+  %47 = load ptr, ptr %2, align 8, !tbaa !7
+  %48 = getelementptr inbounds nuw %struct.pm_constant_pool_t, ptr %47, i32 0, i32 0
+  %49 = load ptr, ptr %48, align 8, !tbaa !22
+  call void @free(ptr noundef %49) #14
   ret void
 }
 
-; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @pm_constant_pool_resize(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal zeroext i1 @pm_constant_pool_resize(ptr noundef %0) #6 {
   %2 = alloca i1, align 1
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
-  %6 = alloca i64, align 8
-  %7 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i64, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
-  %10 = alloca i32, align 4
-  %11 = alloca ptr, align 8
-  %12 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr inbounds %struct.pm_constant_pool_t, ptr %13, i32 0, i32 3
-  %15 = load i32, ptr %14, align 4
-  %16 = mul i32 %15, 2
-  store i32 %16, ptr %4, align 4
-  %17 = load i32, ptr %4, align 4
-  %18 = load ptr, ptr %3, align 8
-  %19 = getelementptr inbounds %struct.pm_constant_pool_t, ptr %18, i32 0, i32 3
-  %20 = load i32, ptr %19, align 4
-  %21 = icmp ult i32 %17, %20
-  br i1 %21, label %22, label %23
-
-22:                                               ; preds = %1
-  store i1 false, ptr %2, align 1
-  br label %107
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #14
+  %14 = load ptr, ptr %3, align 8, !tbaa !7
+  %15 = getelementptr inbounds nuw %struct.pm_constant_pool_t, ptr %14, i32 0, i32 3
+  %16 = load i32, ptr %15, align 4, !tbaa !26
+  %17 = mul i32 %16, 2
+  store i32 %17, ptr %4, align 4, !tbaa !18
+  %18 = load i32, ptr %4, align 4, !tbaa !18
+  %19 = load ptr, ptr %3, align 8, !tbaa !7
+  %20 = getelementptr inbounds nuw %struct.pm_constant_pool_t, ptr %19, i32 0, i32 3
+  %21 = load i32, ptr %20, align 4, !tbaa !26
+  %22 = icmp ult i32 %18, %21
+  br i1 %22, label %23, label %24
 
 23:                                               ; preds = %1
-  %24 = load i32, ptr %4, align 4
-  %25 = sub i32 %24, 1
-  store i32 %25, ptr %5, align 4
-  store i64 24, ptr %6, align 8
-  %26 = load i32, ptr %4, align 4
-  %27 = zext i32 %26 to i64
-  %28 = call noalias ptr @calloc(i64 noundef %27, i64 noundef 24) #8
-  store ptr %28, ptr %7, align 8
-  %29 = load ptr, ptr %7, align 8
-  %30 = icmp eq ptr %29, null
-  br i1 %30, label %31, label %32
-
-31:                                               ; preds = %23
   store i1 false, ptr %2, align 1
-  br label %107
+  store i32 1, ptr %5, align 4
+  br label %111
 
-32:                                               ; preds = %23
-  %33 = load ptr, ptr %7, align 8
-  store ptr %33, ptr %8, align 8
-  %34 = load ptr, ptr %7, align 8
-  %35 = load i32, ptr %4, align 4
-  %36 = zext i32 %35 to i64
-  %37 = mul i64 %36, 8
-  %38 = getelementptr i8, ptr %34, i64 %37
-  store ptr %38, ptr %9, align 8
-  store i32 0, ptr %10, align 4
-  br label %39
+24:                                               ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #14
+  %25 = load i32, ptr %4, align 4, !tbaa !18
+  %26 = sub i32 %25, 1
+  store i32 %26, ptr %6, align 4, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #14
+  store i64 24, ptr %7, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #14
+  %27 = load i32, ptr %4, align 4, !tbaa !18
+  %28 = zext i32 %27 to i64
+  %29 = call noalias ptr @calloc(i64 noundef %28, i64 noundef 24) #11
+  store ptr %29, ptr %8, align 8, !tbaa !7
+  %30 = load ptr, ptr %8, align 8, !tbaa !7
+  %31 = icmp eq ptr %30, null
+  br i1 %31, label %32, label %33
 
-39:                                               ; preds = %82, %32
-  %40 = load i32, ptr %10, align 4
-  %41 = load ptr, ptr %3, align 8
-  %42 = getelementptr inbounds %struct.pm_constant_pool_t, ptr %41, i32 0, i32 3
-  %43 = load i32, ptr %42, align 4
-  %44 = icmp ult i32 %40, %43
-  br i1 %44, label %45, label %85
+32:                                               ; preds = %24
+  store i1 false, ptr %2, align 1
+  store i32 1, ptr %5, align 4
+  br label %110
 
-45:                                               ; preds = %39
-  %46 = load ptr, ptr %3, align 8
-  %47 = getelementptr inbounds %struct.pm_constant_pool_t, ptr %46, i32 0, i32 0
-  %48 = load ptr, ptr %47, align 8
-  %49 = load i32, ptr %10, align 4
-  %50 = zext i32 %49 to i64
-  %51 = getelementptr %struct.pm_constant_pool_bucket_t, ptr %48, i64 %50
-  store ptr %51, ptr %11, align 8
-  %52 = load ptr, ptr %11, align 8
-  %53 = load i32, ptr %52, align 4
-  %54 = and i32 %53, 1073741823
-  %55 = icmp ne i32 %54, 0
-  br i1 %55, label %56, label %81
+33:                                               ; preds = %24
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #14
+  %34 = load ptr, ptr %8, align 8, !tbaa !7
+  store ptr %34, ptr %9, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #14
+  %35 = load ptr, ptr %8, align 8, !tbaa !7
+  %36 = load i32, ptr %4, align 4, !tbaa !18
+  %37 = zext i32 %36 to i64
+  %38 = mul i64 %37, 8
+  %39 = getelementptr i8, ptr %35, i64 %38
+  store ptr %39, ptr %10, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #14
+  store i32 0, ptr %11, align 4, !tbaa !18
+  br label %40
 
-56:                                               ; preds = %45
-  %57 = load ptr, ptr %11, align 8
-  %58 = getelementptr inbounds %struct.pm_constant_pool_bucket_t, ptr %57, i32 0, i32 1
-  %59 = load i32, ptr %58, align 4
-  %60 = load i32, ptr %5, align 4
-  %61 = and i32 %59, %60
-  store i32 %61, ptr %12, align 4
-  br label %62
+40:                                               ; preds = %84, %33
+  %41 = load i32, ptr %11, align 4, !tbaa !18
+  %42 = load ptr, ptr %3, align 8, !tbaa !7
+  %43 = getelementptr inbounds nuw %struct.pm_constant_pool_t, ptr %42, i32 0, i32 3
+  %44 = load i32, ptr %43, align 4, !tbaa !26
+  %45 = icmp ult i32 %41, %44
+  br i1 %45, label %47, label %46
 
-62:                                               ; preds = %70, %56
-  %63 = load ptr, ptr %8, align 8
-  %64 = load i32, ptr %12, align 4
-  %65 = zext i32 %64 to i64
-  %66 = getelementptr %struct.pm_constant_pool_bucket_t, ptr %63, i64 %65
-  %67 = load i32, ptr %66, align 4
-  %68 = and i32 %67, 1073741823
-  %69 = icmp ne i32 %68, 0
-  br i1 %69, label %70, label %75
+46:                                               ; preds = %40
+  store i32 2, ptr %5, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #14
+  br label %87
 
-70:                                               ; preds = %62
-  %71 = load i32, ptr %12, align 4
-  %72 = add i32 %71, 1
-  %73 = load i32, ptr %5, align 4
-  %74 = and i32 %72, %73
-  store i32 %74, ptr %12, align 4
-  br label %62, !llvm.loop !13
+47:                                               ; preds = %40
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #14
+  %48 = load ptr, ptr %3, align 8, !tbaa !7
+  %49 = getelementptr inbounds nuw %struct.pm_constant_pool_t, ptr %48, i32 0, i32 0
+  %50 = load ptr, ptr %49, align 8, !tbaa !22
+  %51 = load i32, ptr %11, align 4, !tbaa !18
+  %52 = zext i32 %51 to i64
+  %53 = getelementptr %struct.pm_constant_pool_bucket_t, ptr %50, i64 %52
+  store ptr %53, ptr %12, align 8, !tbaa !7
+  %54 = load ptr, ptr %12, align 8, !tbaa !7
+  %55 = load i32, ptr %54, align 4
+  %56 = and i32 %55, 1073741823
+  %57 = icmp ne i32 %56, 0
+  br i1 %57, label %58, label %83
 
-75:                                               ; preds = %62
-  %76 = load ptr, ptr %8, align 8
-  %77 = load i32, ptr %12, align 4
-  %78 = zext i32 %77 to i64
-  %79 = getelementptr %struct.pm_constant_pool_bucket_t, ptr %76, i64 %78
-  %80 = load ptr, ptr %11, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %79, ptr align 4 %80, i64 8, i1 false)
-  br label %81
+58:                                               ; preds = %47
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #14
+  %59 = load ptr, ptr %12, align 8, !tbaa !7
+  %60 = getelementptr inbounds nuw %struct.pm_constant_pool_bucket_t, ptr %59, i32 0, i32 1
+  %61 = load i32, ptr %60, align 4, !tbaa !36
+  %62 = load i32, ptr %6, align 4, !tbaa !18
+  %63 = and i32 %61, %62
+  store i32 %63, ptr %13, align 4, !tbaa !18
+  br label %64
 
-81:                                               ; preds = %75, %45
-  br label %82
+64:                                               ; preds = %72, %58
+  %65 = load ptr, ptr %9, align 8, !tbaa !7
+  %66 = load i32, ptr %13, align 4, !tbaa !18
+  %67 = zext i32 %66 to i64
+  %68 = getelementptr %struct.pm_constant_pool_bucket_t, ptr %65, i64 %67
+  %69 = load i32, ptr %68, align 4
+  %70 = and i32 %69, 1073741823
+  %71 = icmp ne i32 %70, 0
+  br i1 %71, label %72, label %77
 
-82:                                               ; preds = %81
-  %83 = load i32, ptr %10, align 4
-  %84 = add i32 %83, 1
-  store i32 %84, ptr %10, align 4
-  br label %39, !llvm.loop !14
+72:                                               ; preds = %64
+  %73 = load i32, ptr %13, align 4, !tbaa !18
+  %74 = add i32 %73, 1
+  %75 = load i32, ptr %6, align 4, !tbaa !18
+  %76 = and i32 %74, %75
+  store i32 %76, ptr %13, align 4, !tbaa !18
+  br label %64, !llvm.loop !41
 
-85:                                               ; preds = %39
-  %86 = load ptr, ptr %9, align 8
-  %87 = load ptr, ptr %3, align 8
-  %88 = getelementptr inbounds %struct.pm_constant_pool_t, ptr %87, i32 0, i32 1
-  %89 = load ptr, ptr %88, align 8
-  %90 = load ptr, ptr %3, align 8
-  %91 = getelementptr inbounds %struct.pm_constant_pool_t, ptr %90, i32 0, i32 2
-  %92 = load i32, ptr %91, align 8
-  %93 = zext i32 %92 to i64
-  %94 = mul i64 %93, 16
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %86, ptr align 8 %89, i64 %94, i1 false)
-  %95 = load ptr, ptr %3, align 8
-  %96 = getelementptr inbounds %struct.pm_constant_pool_t, ptr %95, i32 0, i32 0
-  %97 = load ptr, ptr %96, align 8
-  call void @free(ptr noundef %97) #7
-  %98 = load ptr, ptr %9, align 8
-  %99 = load ptr, ptr %3, align 8
-  %100 = getelementptr inbounds %struct.pm_constant_pool_t, ptr %99, i32 0, i32 1
-  store ptr %98, ptr %100, align 8
-  %101 = load ptr, ptr %8, align 8
-  %102 = load ptr, ptr %3, align 8
-  %103 = getelementptr inbounds %struct.pm_constant_pool_t, ptr %102, i32 0, i32 0
-  store ptr %101, ptr %103, align 8
-  %104 = load i32, ptr %4, align 4
-  %105 = load ptr, ptr %3, align 8
-  %106 = getelementptr inbounds %struct.pm_constant_pool_t, ptr %105, i32 0, i32 3
-  store i32 %104, ptr %106, align 4
+77:                                               ; preds = %64
+  %78 = load ptr, ptr %9, align 8, !tbaa !7
+  %79 = load i32, ptr %13, align 4, !tbaa !18
+  %80 = zext i32 %79 to i64
+  %81 = getelementptr %struct.pm_constant_pool_bucket_t, ptr %78, i64 %80
+  %82 = load ptr, ptr %12, align 8, !tbaa !7
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %81, ptr align 4 %82, i64 8, i1 false), !tbaa.struct !38
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #14
+  br label %83
+
+83:                                               ; preds = %77, %47
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #14
+  br label %84
+
+84:                                               ; preds = %83
+  %85 = load i32, ptr %11, align 4, !tbaa !18
+  %86 = add i32 %85, 1
+  store i32 %86, ptr %11, align 4, !tbaa !18
+  br label %40, !llvm.loop !42
+
+87:                                               ; preds = %46
+  %88 = load ptr, ptr %10, align 8, !tbaa !7
+  %89 = load ptr, ptr %3, align 8, !tbaa !7
+  %90 = getelementptr inbounds nuw %struct.pm_constant_pool_t, ptr %89, i32 0, i32 1
+  %91 = load ptr, ptr %90, align 8, !tbaa !24
+  %92 = load ptr, ptr %3, align 8, !tbaa !7
+  %93 = getelementptr inbounds nuw %struct.pm_constant_pool_t, ptr %92, i32 0, i32 2
+  %94 = load i32, ptr %93, align 8, !tbaa !25
+  %95 = zext i32 %94 to i64
+  %96 = mul i64 %95, 16
+  %97 = call ptr @memcpy.inline(ptr noundef %88, ptr noundef %91, i64 noundef %96) #14
+  %98 = load ptr, ptr %3, align 8, !tbaa !7
+  %99 = getelementptr inbounds nuw %struct.pm_constant_pool_t, ptr %98, i32 0, i32 0
+  %100 = load ptr, ptr %99, align 8, !tbaa !22
+  call void @free(ptr noundef %100) #14
+  %101 = load ptr, ptr %10, align 8, !tbaa !7
+  %102 = load ptr, ptr %3, align 8, !tbaa !7
+  %103 = getelementptr inbounds nuw %struct.pm_constant_pool_t, ptr %102, i32 0, i32 1
+  store ptr %101, ptr %103, align 8, !tbaa !24
+  %104 = load ptr, ptr %9, align 8, !tbaa !7
+  %105 = load ptr, ptr %3, align 8, !tbaa !7
+  %106 = getelementptr inbounds nuw %struct.pm_constant_pool_t, ptr %105, i32 0, i32 0
+  store ptr %104, ptr %106, align 8, !tbaa !22
+  %107 = load i32, ptr %4, align 4, !tbaa !18
+  %108 = load ptr, ptr %3, align 8, !tbaa !7
+  %109 = getelementptr inbounds nuw %struct.pm_constant_pool_t, ptr %108, i32 0, i32 3
+  store i32 %107, ptr %109, align 4, !tbaa !26
   store i1 true, ptr %2, align 1
-  br label %107
+  store i32 1, ptr %5, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #14
+  br label %110
 
-107:                                              ; preds = %85, %31, %22
-  %108 = load i1, ptr %2, align 1
-  ret i1 %108
+110:                                              ; preds = %87, %32
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #14
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #14
+  br label %111
+
+111:                                              ; preds = %110, %23
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #14
+  %112 = load i1, ptr %2, align 1
+  ret i1 %112
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
-attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nounwind allocsize(1) }
-attributes #7 = { nounwind }
-attributes #8 = { nounwind allocsize(0,1) }
-attributes #9 = { nounwind willreturn memory(read) }
+; Function Attrs: alwaysinline nounwind
+define internal ptr @memcpy.inline(ptr noalias nonnull %0, ptr noalias nonnull %1, i64 %2) #9 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !7
+  store ptr %1, ptr %5, align 8, !tbaa !7
+  store i64 %2, ptr %6, align 8, !tbaa !17
+  %7 = load ptr, ptr %4, align 8, !tbaa !7
+  %8 = load ptr, ptr %5, align 8, !tbaa !7
+  %9 = load i64, ptr %6, align 8, !tbaa !17
+  %10 = load ptr, ptr %4, align 8, !tbaa !7
+  %11 = call i64 @llvm.objectsize.i64.p0(ptr %10, i1 false, i1 true, i1 false)
+  %12 = call ptr @__memcpy_chk(ptr noundef %7, ptr noundef %8, i64 noundef %9, i64 noundef %11) #14
+  ret ptr %12
+}
+
+; Function Attrs: nounwind
+declare ptr @__memcpy_chk(ptr noundef, ptr noundef, i64 noundef, i64 noundef) #5
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.objectsize.i64.p0(ptr, i1 immarg, i1 immarg, i1 immarg) #10
+
+attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { inlinehint nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { alwaysinline nounwind "min-legal-vector-width"="0" }
+attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nounwind allocsize(0,1) }
+attributes #12 = { noreturn nounwind }
+attributes #13 = { nounwind allocsize(1) }
+attributes #14 = { nounwind }
+attributes #15 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 
@@ -975,12 +1198,40 @@ attributes #9 = { nounwind willreturn memory(read) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
-!14 = distinct !{!14, !8}
+!6 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"any pointer", !9, i64 0}
+!9 = !{!"omnipotent char", !10, i64 0}
+!10 = !{!"Simple C/C++ TBAA"}
+!11 = !{!12, !14, i64 16}
+!12 = !{!"", !13, i64 0, !13, i64 8, !14, i64 16}
+!13 = !{!"long", !9, i64 0}
+!14 = !{!"p1 int", !8, i64 0}
+!15 = !{!12, !13, i64 0}
+!16 = !{!12, !13, i64 8}
+!17 = !{!13, !13, i64 0}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"int", !9, i64 0}
+!20 = distinct !{!20, !21}
+!21 = !{!"llvm.loop.mustprogress"}
+!22 = !{!23, !8, i64 0}
+!23 = !{!"", !8, i64 0, !8, i64 8, !19, i64 16, !19, i64 20}
+!24 = !{!23, !8, i64 8}
+!25 = !{!23, !19, i64 16}
+!26 = !{!23, !19, i64 20}
+!27 = !{!28, !28, i64 0}
+!28 = !{!"p1 omnipotent char", !8, i64 0}
+!29 = !{!30, !13, i64 8}
+!30 = !{!"", !28, i64 0, !13, i64 8}
+!31 = !{!30, !28, i64 0}
+!32 = distinct !{!32, !21}
+!33 = !{!9, !9, i64 0}
+!34 = distinct !{!34, !21}
+!35 = distinct !{!35, !21}
+!36 = !{!37, !19, i64 4}
+!37 = !{!"", !19, i64 0, !19, i64 3, !19, i64 4}
+!38 = !{i64 0, i64 4, !33, i64 4, i64 4, !18}
+!39 = !{i64 0, i64 8, !27, i64 8, i64 8, !17}
+!40 = distinct !{!40, !21}
+!41 = distinct !{!41, !21}
+!42 = distinct !{!42, !21}

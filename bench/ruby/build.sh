@@ -1,13 +1,15 @@
 #!/bin/bash
 
+rm -rf original
+mkdir original
+export DUMP_PREFIX=$(pwd)/original
 cd ruby
-git clean -fdx
-export CC=clang
-export optflags="-w -Wno-unused-command-line-argument -O0 -DNDEBUG -fembed-bitcode=bitcode -Qn -g0"
+export CC=clang-21
+export optflags="-w -Wno-unused-command-line-argument -DNDEBUG -O3 -fpass-plugin=$PLUGIN -Qn -g0"
 ./autogen.sh
 mkdir build && cd build
 ../configure
 make -j
-cd ../..
-find ruby/build -name "*.o" -exec ../../scripts/extract_bc.sh {} \;
-git -C ruby clean -fdx
+cd ..
+git checkout .
+git clean -fdx

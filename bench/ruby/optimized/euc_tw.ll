@@ -10,12 +10,12 @@ target triple = "x86_64-pc-linux-gnu"
 @trans = internal unnamed_addr constant [4 x [256 x i8]] [[256 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\02\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\FE", [256 x i8] c"\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FE", [256 x i8] c"\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE", [256 x i8] c"\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\FE"], align 16
 @EncLen_EUCTW = internal unnamed_addr constant [256 x i32] [i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 4, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 1], align 16
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define weak i64 @ruby_abi_version() local_unnamed_addr #0 {
   ret i64 0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define void @Init_euc_tw() local_unnamed_addr #0 {
   %1 = tail call i32 @rb_enc_register(ptr noundef nonnull @.str, ptr noundef nonnull @encoding_EUC_TW) #3
   ret void
@@ -23,13 +23,13 @@ define void @Init_euc_tw() local_unnamed_addr #0 {
 
 declare i32 @rb_enc_register(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal range(i32 -2147483647, -2147483648) i32 @euctw_mbc_enc_len(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1, ptr readnone captures(none) %2) #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %5 = load i8, ptr %0, align 1
+  %5 = load i8, ptr %0, align 1, !tbaa !6
   %6 = zext i8 %5 to i64
   %7 = getelementptr inbounds nuw [256 x i8], ptr @trans, i64 0, i64 %6
-  %8 = load i8, ptr %7, align 1
+  %8 = load i8, ptr %7, align 1, !tbaa !6
   %9 = sext i8 %8 to i64
   %10 = icmp slt i8 %8, 0
   br i1 %10, label %11, label %14
@@ -45,16 +45,16 @@ define internal range(i32 -2147483647, -2147483648) i32 @euctw_mbc_enc_len(ptr n
 
 16:                                               ; preds = %14
   %17 = getelementptr inbounds nuw [256 x i32], ptr @EncLen_EUCTW, i64 0, i64 %6
-  %18 = load i32, ptr %17, align 4
+  %18 = load i32, ptr %17, align 4, !tbaa !9
   %19 = sub nsw i32 0, %18
   br label %53
 
 20:                                               ; preds = %14
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %22 = load i8, ptr %4, align 1
+  %22 = load i8, ptr %4, align 1, !tbaa !6
   %23 = zext i8 %22 to i64
   %24 = getelementptr inbounds nuw [4 x [256 x i8]], ptr @trans, i64 0, i64 %9, i64 %23
-  %25 = load i8, ptr %24, align 1
+  %25 = load i8, ptr %24, align 1, !tbaa !6
   %26 = sext i8 %25 to i64
   %27 = icmp slt i8 %25, 0
   br i1 %27, label %28, label %31
@@ -70,10 +70,10 @@ define internal range(i32 -2147483647, -2147483648) i32 @euctw_mbc_enc_len(ptr n
 
 33:                                               ; preds = %31
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %35 = load i8, ptr %21, align 1
+  %35 = load i8, ptr %21, align 1, !tbaa !6
   %36 = zext i8 %35 to i64
   %37 = getelementptr inbounds nuw [4 x [256 x i8]], ptr @trans, i64 0, i64 %26, i64 %36
-  %38 = load i8, ptr %37, align 1
+  %38 = load i8, ptr %37, align 1, !tbaa !6
   %39 = sext i8 %38 to i64
   %40 = icmp slt i8 %38, 0
   br i1 %40, label %41, label %44
@@ -88,10 +88,10 @@ define internal range(i32 -2147483647, -2147483648) i32 @euctw_mbc_enc_len(ptr n
   br i1 %45, label %53, label %46
 
 46:                                               ; preds = %44
-  %47 = load i8, ptr %34, align 1
+  %47 = load i8, ptr %34, align 1, !tbaa !6
   %48 = zext i8 %47 to i64
   %49 = getelementptr inbounds nuw [4 x [256 x i8]], ptr @trans, i64 0, i64 %39, i64 %48
-  %50 = load i8, ptr %49, align 1
+  %50 = load i8, ptr %49, align 1, !tbaa !6
   %51 = icmp eq i8 %50, -1
   %52 = select i1 %51, i32 4, i32 -1
   br label %53
@@ -103,7 +103,7 @@ define internal range(i32 -2147483647, -2147483648) i32 @euctw_mbc_enc_len(ptr n
 
 declare i32 @onigenc_is_mbc_newline_0x0a(ptr noundef, ptr noundef, ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @euctw_mbc_to_code(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = tail call i32 @onigenc_mbn_mbc_to_code(ptr noundef %2, ptr noundef %0, ptr noundef %1) #3
   ret i32 %4
@@ -111,13 +111,13 @@ define internal i32 @euctw_mbc_to_code(ptr noundef %0, ptr noundef %1, ptr nound
 
 declare i32 @onigenc_mb4_code_to_mbclen(i32 noundef, ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @euctw_code_to_mbc(i32 noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = tail call i32 @onigenc_mb4_code_to_mbc(ptr noundef %2, i32 noundef %0, ptr noundef %1) #3
   ret i32 %4
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @euctw_mbc_case_fold(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = tail call i32 @onigenc_mbn_mbc_case_fold(ptr noundef %4, i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #3
   ret i32 %6
@@ -129,7 +129,7 @@ declare i32 @onigenc_ascii_get_case_fold_codes_by_str(i32 noundef, ptr noundef, 
 
 declare i32 @onigenc_minimum_property_name_to_ctype(ptr noundef, ptr noundef, ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @euctw_is_code_ctype(i32 noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = tail call i32 @onigenc_mb4_is_code_ctype(ptr noundef %2, i32 noundef %0, i32 noundef %1) #3
   ret i32 %4
@@ -137,26 +137,26 @@ define internal i32 @euctw_is_code_ctype(i32 noundef %0, i32 noundef %1, ptr nou
 
 declare i32 @onigenc_not_support_get_ctype_code_range(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define internal ptr @euctw_left_adjust_char_head(ptr noundef readnone captures(address) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %.not = icmp ugt ptr %1, %0
   br i1 %.not, label %.preheader, label %32
 
 .preheader:                                       ; preds = %4, %.preheader
   %.025 = phi ptr [ %10, %.preheader ], [ %1, %4 ]
-  %5 = load i8, ptr %.025, align 1
+  %5 = load i8, ptr %.025, align 1, !tbaa !6
   %6 = add i8 %5, 95
   %7 = icmp ult i8 %6, 94
   %8 = icmp ugt ptr %.025, %0
   %9 = and i1 %8, %7
   %10 = getelementptr inbounds i8, ptr %.025, i64 -1
-  br i1 %9, label %.preheader, label %11, !llvm.loop !6
+  br i1 %9, label %.preheader, label %11, !llvm.loop !11
 
 11:                                               ; preds = %.preheader
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %13 = load i32, ptr %12, align 8
+  %13 = load i32, ptr %12, align 8, !tbaa !13
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  %15 = load i32, ptr %14, align 4
+  %15 = load i32, ptr %14, align 4, !tbaa !17
   %16 = icmp eq i32 %13, %15
   br i1 %16, label %17, label %19
 
@@ -189,9 +189,9 @@ define internal ptr @euctw_left_adjust_char_head(ptr noundef readnone captures(a
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal range(i32 0, 2) i32 @euctw_is_allowed_reverse_match(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #2 {
-  %4 = load i8, ptr %0, align 1
+  %4 = load i8, ptr %0, align 1, !tbaa !6
   %5 = icmp ult i8 %4, 127
   %. = zext i1 %5 to i32
   ret i32 %.
@@ -209,9 +209,9 @@ declare i32 @onigenc_mb4_is_code_ctype(ptr noundef, i32 noundef, i32 noundef) lo
 
 declare i32 @onigenc_mbclen(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
@@ -221,6 +221,16 @@ attributes #3 = { nounwind }
 !2 = !{i32 1, !"wchar_size", i32 4}
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
-!5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
+!5 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"int", !7, i64 0}
+!11 = distinct !{!11, !12}
+!12 = !{!"llvm.loop.mustprogress"}
+!13 = !{!14, !10, i64 16}
+!14 = !{!"OnigEncodingTypeST", !15, i64 0, !16, i64 8, !10, i64 16, !10, i64 20, !15, i64 24, !15, i64 32, !15, i64 40, !15, i64 48, !15, i64 56, !15, i64 64, !15, i64 72, !15, i64 80, !15, i64 88, !15, i64 96, !15, i64 104, !15, i64 112, !15, i64 120, !10, i64 128, !10, i64 132}
+!15 = !{!"any pointer", !7, i64 0}
+!16 = !{!"p1 omnipotent char", !15, i64 0}
+!17 = !{!14, !10, i64 20}

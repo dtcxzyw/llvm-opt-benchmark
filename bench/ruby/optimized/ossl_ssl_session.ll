@@ -45,49 +45,49 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.23 = private unnamed_addr constant [12 x i8] c"BIO_s_mem()\00", align 1
 @.str.24 = private unnamed_addr constant [20 x i8] c"SSL_SESSION_print()\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define weak i64 @ruby_abi_version() local_unnamed_addr #0 {
   ret i64 0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define internal void @ossl_ssl_session_free(ptr noundef %0) #0 {
   tail call void @SSL_SESSION_free(ptr noundef %0) #4
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define void @Init_ossl_ssl_session() local_unnamed_addr #0 {
-  %1 = load i64, ptr @mSSL, align 8
-  %2 = load i64, ptr @rb_cObject, align 8
+  %1 = load i64, ptr @mSSL, align 8, !tbaa !6
+  %2 = load i64, ptr @rb_cObject, align 8, !tbaa !6
   %3 = tail call i64 @rb_define_class_under(i64 noundef %1, ptr noundef nonnull @.str.1, i64 noundef %2) #4
-  store i64 %3, ptr @cSSLSession, align 8
-  %4 = load i64, ptr @eOSSLError, align 8
+  store i64 %3, ptr @cSSLSession, align 8, !tbaa !6
+  %4 = load i64, ptr @eOSSLError, align 8, !tbaa !6
   %5 = tail call i64 @rb_define_class_under(i64 noundef %3, ptr noundef nonnull @.str.2, i64 noundef %4) #4
-  store i64 %5, ptr @eSSLSession, align 8
-  %6 = load i64, ptr @cSSLSession, align 8
+  store i64 %5, ptr @eSSLSession, align 8, !tbaa !6
+  %6 = load i64, ptr @cSSLSession, align 8, !tbaa !6
   tail call void @rb_define_alloc_func(i64 noundef %6, ptr noundef nonnull @ossl_ssl_session_alloc) #4
-  %7 = load i64, ptr @cSSLSession, align 8
+  %7 = load i64, ptr @cSSLSession, align 8, !tbaa !6
   tail call void @rb_define_method(i64 noundef %7, ptr noundef nonnull @.str.3, ptr noundef nonnull @ossl_ssl_session_initialize, i32 noundef 1) #4
-  %8 = load i64, ptr @cSSLSession, align 8
+  %8 = load i64, ptr @cSSLSession, align 8, !tbaa !6
   tail call void @rb_define_method(i64 noundef %8, ptr noundef nonnull @.str.4, ptr noundef nonnull @ossl_ssl_session_initialize_copy, i32 noundef 1) #4
-  %9 = load i64, ptr @cSSLSession, align 8
+  %9 = load i64, ptr @cSSLSession, align 8, !tbaa !6
   tail call void @rb_define_method(i64 noundef %9, ptr noundef nonnull @.str.5, ptr noundef nonnull @ossl_ssl_session_eq, i32 noundef 1) #4
-  %10 = load i64, ptr @cSSLSession, align 8
+  %10 = load i64, ptr @cSSLSession, align 8, !tbaa !6
   tail call void @rb_define_method(i64 noundef %10, ptr noundef nonnull @.str.6, ptr noundef nonnull @ossl_ssl_session_get_time, i32 noundef 0) #4
-  %11 = load i64, ptr @cSSLSession, align 8
+  %11 = load i64, ptr @cSSLSession, align 8, !tbaa !6
   tail call void @rb_define_method(i64 noundef %11, ptr noundef nonnull @.str.7, ptr noundef nonnull @ossl_ssl_session_set_time, i32 noundef 1) #4
-  %12 = load i64, ptr @cSSLSession, align 8
+  %12 = load i64, ptr @cSSLSession, align 8, !tbaa !6
   tail call void @rb_define_method(i64 noundef %12, ptr noundef nonnull @.str.8, ptr noundef nonnull @ossl_ssl_session_get_timeout, i32 noundef 0) #4
-  %13 = load i64, ptr @cSSLSession, align 8
+  %13 = load i64, ptr @cSSLSession, align 8, !tbaa !6
   tail call void @rb_define_method(i64 noundef %13, ptr noundef nonnull @.str.9, ptr noundef nonnull @ossl_ssl_session_set_timeout, i32 noundef 1) #4
-  %14 = load i64, ptr @cSSLSession, align 8
+  %14 = load i64, ptr @cSSLSession, align 8, !tbaa !6
   tail call void @rb_define_method(i64 noundef %14, ptr noundef nonnull @.str.10, ptr noundef nonnull @ossl_ssl_session_get_id, i32 noundef 0) #4
-  %15 = load i64, ptr @cSSLSession, align 8
+  %15 = load i64, ptr @cSSLSession, align 8, !tbaa !6
   tail call void @rb_define_method(i64 noundef %15, ptr noundef nonnull @.str.11, ptr noundef nonnull @ossl_ssl_session_to_der, i32 noundef 0) #4
-  %16 = load i64, ptr @cSSLSession, align 8
+  %16 = load i64, ptr @cSSLSession, align 8, !tbaa !6
   tail call void @rb_define_method(i64 noundef %16, ptr noundef nonnull @.str.12, ptr noundef nonnull @ossl_ssl_session_to_pem, i32 noundef 0) #4
-  %17 = load i64, ptr @cSSLSession, align 8
+  %17 = load i64, ptr @cSSLSession, align 8, !tbaa !6
   tail call void @rb_define_method(i64 noundef %17, ptr noundef nonnull @.str.13, ptr noundef nonnull @ossl_ssl_session_to_text, i32 noundef 0) #4
   ret void
 }
@@ -96,7 +96,7 @@ declare i64 @rb_define_class_under(i64 noundef, ptr noundef, i64 noundef) local_
 
 declare void @rb_define_alloc_func(i64 noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ossl_ssl_session_alloc(i64 noundef %0) #0 {
   %2 = tail call i64 @rb_data_typed_object_wrap(i64 noundef %0, ptr noundef null, ptr noundef nonnull @ossl_ssl_session_type) #4
   ret i64 %2
@@ -104,23 +104,23 @@ define internal i64 @ossl_ssl_session_alloc(i64 noundef %0) #0 {
 
 declare extern_weak void @rb_define_method(i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @ossl_ssl_session_initialize(i64 noundef returned %0, i64 noundef %1) #0 {
   %3 = alloca i64, align 8
-  store i64 %1, ptr %3, align 8
+  store i64 %1, ptr %3, align 8, !tbaa !6
   %4 = inttoptr i64 %0 to ptr
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %6 = load ptr, ptr %5, align 8
+  %6 = load ptr, ptr %5, align 8, !tbaa !10
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %9, label %7
 
 7:                                                ; preds = %2
-  %8 = load i64, ptr @eSSLSession, align 8
+  %8 = load i64, ptr @eSSLSession, align 8, !tbaa !6
   tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %8, ptr noundef nonnull @.str.14) #5
   unreachable
 
 9:                                                ; preds = %2
-  %10 = load i64, ptr @cSSLSocket, align 8
+  %10 = load i64, ptr @cSSLSocket, align 8, !tbaa !6
   %11 = tail call i64 @rb_obj_is_instance_of(i64 noundef %1, i64 noundef %10) #4
   %.not14 = icmp eq i64 %11, 0
   br i1 %.not14, label %21, label %12
@@ -131,7 +131,7 @@ define internal noundef i64 @ossl_ssl_session_initialize(i64 noundef returned %0
   br i1 %.not17, label %14, label %16
 
 14:                                               ; preds = %12
-  %15 = load i64, ptr @rb_eRuntimeError, align 8
+  %15 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !6
   tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %15, ptr noundef nonnull @.str.15) #5
   unreachable
 
@@ -141,7 +141,7 @@ define internal noundef i64 @ossl_ssl_session_initialize(i64 noundef returned %0
   br i1 %18, label %19, label %31
 
 19:                                               ; preds = %16
-  %20 = load i64, ptr @eSSLSession, align 8
+  %20 = load i64, ptr @eSSLSession, align 8, !tbaa !6
   tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %20, ptr noundef nonnull @.str.16) #5
   unreachable
 
@@ -164,67 +164,78 @@ define internal noundef i64 @ossl_ssl_session_initialize(i64 noundef returned %0
   br i1 %.not16, label %29, label %31
 
 29:                                               ; preds = %25
-  %30 = load i64, ptr @rb_eArgError, align 8
+  %30 = load i64, ptr @rb_eArgError, align 8, !tbaa !6
   call void (i64, ptr, ...) @ossl_raise(i64 noundef %30, ptr noundef nonnull @.str.17) #5
   unreachable
 
 31:                                               ; preds = %.thread, %25, %16
   %.0 = phi ptr [ %17, %16 ], [ %27, %25 ], [ %23, %.thread ]
-  store ptr %.0, ptr %5, align 8
+  store ptr %.0, ptr %5, align 8, !tbaa !10
   ret i64 %0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 1, -7) i64 @ossl_ssl_session_initialize_copy(i64 noundef returned %0, i64 noundef %1) #0 {
-  %3 = and i64 %0, 7
-  %4 = icmp ne i64 %3, 0
-  %5 = icmp eq i64 %0, 0
-  %6 = or i1 %5, %4
-  br i1 %6, label %RB_OBJ_FROZEN.exit.thread.i, label %7
+  %3 = icmp eq i64 %0, 0
+  %4 = and i64 %0, 7
+  %5 = icmp ne i64 %4, 0
+  %6 = or i1 %3, %5
+  br i1 %6, label %RB_OBJ_FROZEN.exit.thread.i, label %RB_FL_ABLE.exit.i.i, !prof !15
 
-7:                                                ; preds = %2
-  %8 = inttoptr i64 %0 to ptr
-  %9 = load i64, ptr %8, align 8
-  %10 = and i64 %9, 31
-  %11 = icmp eq i64 %10, 27
-  %12 = and i64 %9, 2048
-  %13 = icmp ne i64 %12, 0
-  %or.cond.i = or i1 %11, %13
-  br i1 %or.cond.i, label %RB_OBJ_FROZEN.exit.thread.i, label %rb_check_frozen_inline.exit
+RB_FL_ABLE.exit.i.i:                              ; preds = %2
+  %7 = inttoptr i64 %0 to ptr
+  %8 = load i64, ptr %7, align 8, !tbaa !16
+  %9 = and i64 %8, 31
+  %.not.i.i = icmp eq i64 %9, 27
+  %10 = and i64 %8, 2048
+  %11 = icmp ne i64 %10, 0
+  %or.cond.i = or i1 %.not.i.i, %11
+  br i1 %or.cond.i, label %RB_OBJ_FROZEN.exit.thread.i, label %rbimpl_RB_TYPE_P_fastpath.exit.i, !prof !17
 
-RB_OBJ_FROZEN.exit.thread.i:                      ; preds = %7, %2
+RB_OBJ_FROZEN.exit.thread.i:                      ; preds = %RB_FL_ABLE.exit.i.i, %2
   tail call void @rb_error_frozen_object(i64 noundef %0) #5
   unreachable
 
-rb_check_frozen_inline.exit:                      ; preds = %7
-  %14 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %15 = load ptr, ptr %14, align 8
-  %16 = tail call ptr @rb_check_typeddata(i64 noundef %1, ptr noundef nonnull @ossl_ssl_session_type) #4
-  %.not = icmp eq ptr %16, null
-  br i1 %.not, label %17, label %19
+rbimpl_RB_TYPE_P_fastpath.exit.i:                 ; preds = %RB_FL_ABLE.exit.i.i
+  %12 = icmp ne i64 %9, 5
+  %13 = and i64 %8, 49152
+  %.not.i = icmp eq i64 %13, 0
+  %or.cond8.i = or i1 %12, %.not.i
+  br i1 %or.cond8.i, label %rb_check_frozen_inline.exit, label %14, !prof !18
 
-17:                                               ; preds = %rb_check_frozen_inline.exit
-  %18 = load i64, ptr @rb_eRuntimeError, align 8
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %18, ptr noundef nonnull @.str.18) #5
+14:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i
+  tail call void @rb_str_modify(i64 noundef %0) #4
+  br label %rb_check_frozen_inline.exit
+
+rb_check_frozen_inline.exit:                      ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i, %14
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %16 = load ptr, ptr %15, align 8, !tbaa !10
+  %17 = tail call ptr @rb_check_typeddata(i64 noundef %1, ptr noundef nonnull @ossl_ssl_session_type) #4
+  %.not = icmp eq ptr %17, null
+  br i1 %.not, label %18, label %20
+
+18:                                               ; preds = %rb_check_frozen_inline.exit
+  %19 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !6
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %19, ptr noundef nonnull @.str.18) #5
   unreachable
 
-19:                                               ; preds = %rb_check_frozen_inline.exit
-  %20 = tail call ptr @ASN1_dup(ptr noundef nonnull @i2d_SSL_SESSION, ptr noundef nonnull @d2i_SSL_SESSION, ptr noundef nonnull %16) #4
-  %.not10 = icmp eq ptr %20, null
-  br i1 %.not10, label %21, label %23
+20:                                               ; preds = %rb_check_frozen_inline.exit
+  %21 = tail call ptr @ASN1_dup(ptr noundef nonnull @i2d_SSL_SESSION, ptr noundef nonnull @d2i_SSL_SESSION, ptr noundef nonnull %17) #4
+  %.not10 = icmp eq ptr %21, null
+  br i1 %.not10, label %22, label %24
 
-21:                                               ; preds = %19
-  %22 = load i64, ptr @eSSLSession, align 8
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %22, ptr noundef nonnull @.str.19) #5
+22:                                               ; preds = %20
+  %23 = load i64, ptr @eSSLSession, align 8, !tbaa !6
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %23, ptr noundef nonnull @.str.19) #5
   unreachable
 
-23:                                               ; preds = %19
-  store ptr %20, ptr %14, align 8
-  tail call void @SSL_SESSION_free(ptr noundef %15) #4
+24:                                               ; preds = %20
+  store ptr %21, ptr %15, align 8, !tbaa !10
+  tail call void @SSL_SESSION_free(ptr noundef %16) #4
   ret i64 %0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 0, 21) i64 @ossl_ssl_session_eq(i64 noundef %0, i64 noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
@@ -233,7 +244,7 @@ define internal range(i64 0, 21) i64 @ossl_ssl_session_eq(i64 noundef %0, i64 no
   br i1 %.not, label %6, label %8
 
 6:                                                ; preds = %2
-  %7 = load i64, ptr @rb_eRuntimeError, align 8
+  %7 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !6
   tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %7, ptr noundef nonnull @.str.18) #5
   unreachable
 
@@ -243,14 +254,14 @@ define internal range(i64 0, 21) i64 @ossl_ssl_session_eq(i64 noundef %0, i64 no
   br i1 %.not8, label %10, label %12
 
 10:                                               ; preds = %8
-  %11 = load i64, ptr @rb_eRuntimeError, align 8
+  %11 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !6
   tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %11, ptr noundef nonnull @.str.18) #5
   unreachable
 
 12:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #4
   %13 = call ptr @SSL_SESSION_get_id(ptr noundef nonnull %5, ptr noundef nonnull %3) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #4
   %14 = call ptr @SSL_SESSION_get_id(ptr noundef nonnull %9, ptr noundef nonnull %4) #4
   %15 = call i32 @SSL_SESSION_get_protocol_version(ptr noundef nonnull %5) #4
   %16 = call i32 @SSL_SESSION_get_protocol_version(ptr noundef nonnull %9) #4
@@ -258,21 +269,21 @@ define internal range(i64 0, 21) i64 @ossl_ssl_session_eq(i64 noundef %0, i64 no
   br i1 %.not.i, label %17, label %ossl_SSL_SESSION_cmp.exit.thread
 
 17:                                               ; preds = %12
-  %18 = load i32, ptr %3, align 4
-  %19 = load i32, ptr %4, align 4
+  %18 = load i32, ptr %3, align 4, !tbaa !19
+  %19 = load i32, ptr %4, align 4, !tbaa !19
   %.not7.i = icmp eq i32 %18, %19
   br i1 %.not7.i, label %ossl_SSL_SESSION_cmp.exit, label %ossl_SSL_SESSION_cmp.exit.thread
 
 ossl_SSL_SESSION_cmp.exit.thread:                 ; preds = %12, %17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #4
   br label %22
 
 ossl_SSL_SESSION_cmp.exit:                        ; preds = %17
   %20 = zext i32 %18 to i64
   %21 = call i32 @CRYPTO_memcmp(ptr noundef %13, ptr noundef %14, i64 noundef %20) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #4
   %.fr = freeze i32 %21
   %cond = icmp eq i32 %.fr, 0
   %spec.select = select i1 %cond, i64 20, i64 0
@@ -283,14 +294,14 @@ ossl_SSL_SESSION_cmp.exit:                        ; preds = %17
   ret i64 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ossl_ssl_session_get_time(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ssl_session_type) #4
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %5
 
 3:                                                ; preds = %1
-  %4 = load i64, ptr @rb_eRuntimeError, align 8
+  %4 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !6
   tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %4, ptr noundef nonnull @.str.18) #5
   unreachable
 
@@ -300,16 +311,16 @@ define internal i64 @ossl_ssl_session_get_time(i64 noundef %0) #0 {
   br i1 %7, label %18, label %8
 
 8:                                                ; preds = %5
-  %9 = load i64, ptr @rb_cTime, align 8
-  %.pr.i = load i64, ptr @ossl_ssl_session_get_time.rbimpl_id, align 8
+  %9 = load i64, ptr @rb_cTime, align 8, !tbaa !6
+  %.pr.i = load i64, ptr @ossl_ssl_session_get_time.rbimpl_id, align 8, !tbaa !6
   %.not4.i = icmp eq i64 %.pr.i, 0
   br i1 %.not4.i, label %.lr.ph.i, label %rbimpl_intern_const.exit
 
 .lr.ph.i:                                         ; preds = %8, %.lr.ph.i
   %10 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.20, i64 noundef 2) #4
-  store i64 %10, ptr @ossl_ssl_session_get_time.rbimpl_id, align 8
+  store i64 %10, ptr @ossl_ssl_session_get_time.rbimpl_id, align 8, !tbaa !6
   %.not.i = icmp eq i64 %10, 0
-  br i1 %.not.i, label %.lr.ph.i, label %rbimpl_intern_const.exit, !llvm.loop !6
+  br i1 %.not.i, label %.lr.ph.i, label %rbimpl_intern_const.exit, !llvm.loop !21
 
 rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %8
   %.lcssa.i = phi i64 [ %.pr.i, %8 ], [ %10, %.lr.ph.i ]
@@ -336,33 +347,33 @@ rb_long2num_inline.exit:                          ; preds = %12, %15
   ret i64 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ossl_ssl_session_set_time(i64 noundef %0, i64 noundef %1) #0 {
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ssl_session_type) #4
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %6
 
 4:                                                ; preds = %2
-  %5 = load i64, ptr @rb_eRuntimeError, align 8
+  %5 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !6
   tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %5, ptr noundef nonnull @.str.18) #5
   unreachable
 
 6:                                                ; preds = %2
-  %7 = load i64, ptr @rb_cTime, align 8
+  %7 = load i64, ptr @rb_cTime, align 8, !tbaa !6
   %8 = tail call i64 @rb_obj_is_instance_of(i64 noundef %1, i64 noundef %7) #4
   %.not9 = icmp eq i64 %8, 0
   br i1 %.not9, label %12, label %9
 
 9:                                                ; preds = %6
-  %.pr.i = load i64, ptr @ossl_ssl_session_set_time.rbimpl_id, align 8
+  %.pr.i = load i64, ptr @ossl_ssl_session_set_time.rbimpl_id, align 8, !tbaa !6
   %.not4.i = icmp eq i64 %.pr.i, 0
   br i1 %.not4.i, label %.lr.ph.i, label %rbimpl_intern_const.exit
 
 .lr.ph.i:                                         ; preds = %9, %.lr.ph.i
   %10 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.21, i64 noundef 4) #4
-  store i64 %10, ptr @ossl_ssl_session_set_time.rbimpl_id, align 8
+  store i64 %10, ptr @ossl_ssl_session_set_time.rbimpl_id, align 8, !tbaa !6
   %.not.i = icmp eq i64 %10, 0
-  br i1 %.not.i, label %.lr.ph.i, label %rbimpl_intern_const.exit, !llvm.loop !6
+  br i1 %.not.i, label %.lr.ph.i, label %rbimpl_intern_const.exit, !llvm.loop !21
 
 rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %9
   %.lcssa.i = phi i64 [ %.pr.i, %9 ], [ %10, %.lr.ph.i ]
@@ -390,14 +401,14 @@ rb_num2long_inline.exit:                          ; preds = %14, %16
   ret i64 %19
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ossl_ssl_session_get_timeout(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ssl_session_type) #4
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %5
 
 3:                                                ; preds = %1
-  %4 = load i64, ptr @rb_eRuntimeError, align 8
+  %4 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !6
   tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %4, ptr noundef nonnull @.str.18) #5
   unreachable
 
@@ -421,14 +432,14 @@ rb_long2num_inline.exit:                          ; preds = %8, %11
   ret i64 %.0.i
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ossl_ssl_session_set_timeout(i64 noundef %0, i64 noundef %1) #0 {
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ssl_session_type) #4
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %6
 
 4:                                                ; preds = %2
-  %5 = load i64, ptr @rb_eRuntimeError, align 8
+  %5 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !6
   tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %5, ptr noundef nonnull @.str.18) #5
   unreachable
 
@@ -453,7 +464,7 @@ rb_num2long_inline.exit:                          ; preds = %8, %10
   br i1 %.not.i5, label %14, label %16
 
 14:                                               ; preds = %rb_num2long_inline.exit
-  %15 = load i64, ptr @rb_eRuntimeError, align 8
+  %15 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !6
   tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %15, ptr noundef nonnull @.str.18) #5
   unreachable
 
@@ -477,36 +488,39 @@ ossl_ssl_session_get_timeout.exit:                ; preds = %19, %22
   ret i64 %.0.i.i
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ossl_ssl_session_get_id(i64 noundef %0) #0 {
   %2 = alloca i32, align 4
-  store i32 0, ptr %2, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #4
+  store i32 0, ptr %2, align 4, !tbaa !19
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ssl_session_type) #4
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %6
 
 4:                                                ; preds = %1
-  %5 = load i64, ptr @rb_eRuntimeError, align 8
+  %5 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !6
   tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %5, ptr noundef nonnull @.str.18) #5
   unreachable
 
 6:                                                ; preds = %1
   %7 = call ptr @SSL_SESSION_get_id(ptr noundef nonnull %3, ptr noundef nonnull %2) #4
-  %8 = load i32, ptr %2, align 4
+  %8 = load i32, ptr %2, align 4, !tbaa !19
   %9 = zext i32 %8 to i64
   %10 = call i64 @rb_str_new(ptr noundef %7, i64 noundef %9) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #4
   ret i64 %10
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ossl_ssl_session_to_der(i64 noundef %0) #0 {
   %2 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #4
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ssl_session_type) #4
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %6
 
 4:                                                ; preds = %1
-  %5 = load i64, ptr @rb_eRuntimeError, align 8
+  %5 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !6
   tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %5, ptr noundef nonnull @.str.18) #5
   unreachable
 
@@ -516,15 +530,15 @@ define internal i64 @ossl_ssl_session_to_der(i64 noundef %0) #0 {
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %6
-  %10 = load i64, ptr @eSSLSession, align 8
+  %10 = load i64, ptr @eSSLSession, align 8, !tbaa !6
   tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %10, ptr noundef nonnull @.str.22) #5
   unreachable
 
 11:                                               ; preds = %6
   %12 = zext nneg i32 %7 to i64
-  %13 = tail call i64 @rb_str_new(ptr noundef null, i64 noundef %12) #4, !callees !8
+  %13 = tail call i64 @rb_str_new(ptr noundef null, i64 noundef %12) #4, !callees !23
   %14 = inttoptr i64 %13 to ptr
-  %15 = load i64, ptr %14, align 8, !noalias !9
+  %15 = load i64, ptr %14, align 8, !tbaa !16, !noalias !24
   %16 = and i64 %15, 8192
   %.not.i.i = icmp eq i64 %16, 0
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 24
@@ -536,10 +550,10 @@ define internal i64 @ossl_ssl_session_to_der(i64 noundef %0) #0 {
 
 RSTRING_PTR.exit:                                 ; preds = %11, %18
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %18 ], [ %17, %11 ]
-  store ptr %.sroa.2.0.i, ptr %2, align 8
+  store ptr %.sroa.2.0.i, ptr %2, align 8, !tbaa !27
   %19 = call i32 @i2d_SSL_SESSION(ptr noundef nonnull %3, ptr noundef nonnull %2) #4
-  %20 = load ptr, ptr %2, align 8
-  %21 = load i64, ptr %14, align 8, !noalias !12
+  %20 = load ptr, ptr %2, align 8, !tbaa !27
+  %21 = load i64, ptr %14, align 8, !tbaa !16, !noalias !29
   %22 = and i64 %21, 8192
   %.not.i.i12 = icmp eq i64 %22, 0
   br i1 %.not.i.i12, label %RSTRING_PTR.exit15, label %23
@@ -554,17 +568,18 @@ RSTRING_PTR.exit15:                               ; preds = %RSTRING_PTR.exit, %
   %25 = ptrtoint ptr %.sroa.2.0.i14 to i64
   %26 = sub i64 %24, %25
   call void @rb_str_set_len(i64 noundef %13, i64 noundef %26) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #4
   ret i64 %13
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ossl_ssl_session_to_pem(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ssl_session_type) #4
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %5
 
 3:                                                ; preds = %1
-  %4 = load i64, ptr @rb_eRuntimeError, align 8
+  %4 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !6
   tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %4, ptr noundef nonnull @.str.18) #5
   unreachable
 
@@ -575,7 +590,7 @@ define internal i64 @ossl_ssl_session_to_pem(i64 noundef %0) #0 {
   br i1 %.not6, label %8, label %10
 
 8:                                                ; preds = %5
-  %9 = load i64, ptr @eSSLSession, align 8
+  %9 = load i64, ptr @eSSLSession, align 8, !tbaa !6
   tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %9, ptr noundef nonnull @.str.23) #5
   unreachable
 
@@ -586,7 +601,7 @@ define internal i64 @ossl_ssl_session_to_pem(i64 noundef %0) #0 {
 
 12:                                               ; preds = %10
   %13 = tail call i32 @BIO_free(ptr noundef nonnull %7) #4
-  %14 = load i64, ptr @eSSLSession, align 8
+  %14 = load i64, ptr @eSSLSession, align 8, !tbaa !6
   tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %14, ptr noundef nonnull @.str.24) #5
   unreachable
 
@@ -595,14 +610,14 @@ define internal i64 @ossl_ssl_session_to_pem(i64 noundef %0) #0 {
   ret i64 %16
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ossl_ssl_session_to_text(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ssl_session_type) #4
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %5
 
 3:                                                ; preds = %1
-  %4 = load i64, ptr @rb_eRuntimeError, align 8
+  %4 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !6
   tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %4, ptr noundef nonnull @.str.18) #5
   unreachable
 
@@ -613,7 +628,7 @@ define internal i64 @ossl_ssl_session_to_text(i64 noundef %0) #0 {
   br i1 %.not6, label %8, label %10
 
 8:                                                ; preds = %5
-  %9 = load i64, ptr @eSSLSession, align 8
+  %9 = load i64, ptr @eSSLSession, align 8, !tbaa !6
   tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %9, ptr noundef nonnull @.str.23) #5
   unreachable
 
@@ -624,7 +639,7 @@ define internal i64 @ossl_ssl_session_to_text(i64 noundef %0) #0 {
 
 12:                                               ; preds = %10
   %13 = tail call i32 @BIO_free(ptr noundef nonnull %7) #4
-  %14 = load i64, ptr @eSSLSession, align 8
+  %14 = load i64, ptr @eSSLSession, align 8, !tbaa !6
   tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %14, ptr noundef nonnull @.str.24) #5
   unreachable
 
@@ -637,14 +652,20 @@ declare void @SSL_SESSION_free(ptr noundef) local_unnamed_addr #1
 
 declare i64 @rb_data_typed_object_wrap(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
 ; Function Attrs: noreturn
-declare void @ossl_raise(i64 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @ossl_raise(i64 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 declare i64 @rb_obj_is_instance_of(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 declare ptr @rb_check_typeddata(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 declare ptr @SSL_get1_session(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare ptr @ossl_obj2bio(ptr noundef) local_unnamed_addr #1
 
@@ -667,7 +688,9 @@ declare ptr @ASN1_dup(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr 
 declare i32 @i2d_SSL_SESSION(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: noreturn
-declare void @rb_error_frozen_object(i64 noundef) local_unnamed_addr #2
+declare void @rb_error_frozen_object(i64 noundef) local_unnamed_addr #3
+
+declare void @rb_str_modify(i64 noundef) local_unnamed_addr #1
 
 declare ptr @SSL_SESSION_get_id(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -705,16 +728,10 @@ declare i64 @ossl_membio2str(ptr noundef) local_unnamed_addr #1
 
 declare i32 @SSL_SESSION_print(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
-
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nounwind }
 attributes #5 = { noreturn nounwind }
 
@@ -725,13 +742,30 @@ attributes #5 = { noreturn nounwind }
 !2 = !{i32 1, !"wchar_size", i32 4}
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
-!5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{ptr @rb_str_new, null}
-!9 = !{!10}
-!10 = distinct !{!10, !11, !"rbimpl_rstring_getmem: argument 0"}
-!11 = distinct !{!11, !"rbimpl_rstring_getmem"}
-!12 = !{!13}
-!13 = distinct !{!13, !14, !"rbimpl_rstring_getmem: argument 0"}
-!14 = distinct !{!14, !"rbimpl_rstring_getmem"}
+!5 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"long", !8, i64 0}
+!8 = !{!"omnipotent char", !9, i64 0}
+!9 = !{!"Simple C/C++ TBAA"}
+!10 = !{!11, !14, i64 32}
+!11 = !{!"RTypedData", !12, i64 0, !13, i64 16, !7, i64 24, !14, i64 32}
+!12 = !{!"RBasic", !7, i64 0, !7, i64 8}
+!13 = !{!"p1 _ZTS19rb_data_type_struct", !14, i64 0}
+!14 = !{!"any pointer", !8, i64 0}
+!15 = !{!"branch_weights", i32 1073205, i32 2146410443}
+!16 = !{!12, !7, i64 0}
+!17 = !{!"branch_weights", i32 2146410, i32 -2146410}
+!18 = !{!"branch_weights", i32 4001, i32 1}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"int", !8, i64 0}
+!21 = distinct !{!21, !22}
+!22 = !{!"llvm.loop.mustprogress"}
+!23 = distinct !{ptr @rb_str_new, null}
+!24 = !{!25}
+!25 = distinct !{!25, !26, !"rbimpl_rstring_getmem: argument 0"}
+!26 = distinct !{!26, !"rbimpl_rstring_getmem"}
+!27 = !{!28, !28, i64 0}
+!28 = !{!"p1 omnipotent char", !14, i64 0}
+!29 = !{!30}
+!30 = distinct !{!30, !31, !"rbimpl_rstring_getmem: argument 0"}
+!31 = distinct !{!31, !"rbimpl_rstring_getmem"}

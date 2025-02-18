@@ -57,35 +57,35 @@ target triple = "x86_64-pc-linux-gnu"
 @rb_eArgError = external local_unnamed_addr global i64, align 8
 @.str.36 = private unnamed_addr constant [27 x i8] c"invalid interface name: %s\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define weak i64 @ruby_abi_version() local_unnamed_addr #0 {
   ret i64 0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define void @rsock_init_sockifaddr() local_unnamed_addr #0 {
-  %1 = load i64, ptr @rb_cSocket, align 8
-  %2 = load i64, ptr @rb_cObject, align 8
+  %1 = load i64, ptr @rb_cSocket, align 8, !tbaa !6
+  %2 = load i64, ptr @rb_cObject, align 8, !tbaa !6
   %3 = tail call i64 @rb_define_class_under(i64 noundef %1, ptr noundef nonnull @.str, i64 noundef %2) #7
-  store i64 %3, ptr @rb_cSockIfaddr, align 8
+  store i64 %3, ptr @rb_cSockIfaddr, align 8, !tbaa !6
   tail call void @rb_undef_alloc_func(i64 noundef %3) #7
-  %4 = load i64, ptr @rb_cSockIfaddr, align 8
+  %4 = load i64, ptr @rb_cSockIfaddr, align 8, !tbaa !6
   tail call void @rb_define_method(i64 noundef %4, ptr noundef nonnull @.str.1, ptr noundef nonnull @ifaddr_inspect, i32 noundef 0) #7
-  %5 = load i64, ptr @rb_cSockIfaddr, align 8
+  %5 = load i64, ptr @rb_cSockIfaddr, align 8, !tbaa !6
   tail call void @rb_define_method(i64 noundef %5, ptr noundef nonnull @.str.2, ptr noundef nonnull @ifaddr_name, i32 noundef 0) #7
-  %6 = load i64, ptr @rb_cSockIfaddr, align 8
+  %6 = load i64, ptr @rb_cSockIfaddr, align 8, !tbaa !6
   tail call void @rb_define_method(i64 noundef %6, ptr noundef nonnull @.str.3, ptr noundef nonnull @ifaddr_ifindex, i32 noundef 0) #7
-  %7 = load i64, ptr @rb_cSockIfaddr, align 8
+  %7 = load i64, ptr @rb_cSockIfaddr, align 8, !tbaa !6
   tail call void @rb_define_method(i64 noundef %7, ptr noundef nonnull @.str.4, ptr noundef nonnull @ifaddr_flags, i32 noundef 0) #7
-  %8 = load i64, ptr @rb_cSockIfaddr, align 8
+  %8 = load i64, ptr @rb_cSockIfaddr, align 8, !tbaa !6
   tail call void @rb_define_method(i64 noundef %8, ptr noundef nonnull @.str.5, ptr noundef nonnull @ifaddr_addr, i32 noundef 0) #7
-  %9 = load i64, ptr @rb_cSockIfaddr, align 8
+  %9 = load i64, ptr @rb_cSockIfaddr, align 8, !tbaa !6
   tail call void @rb_define_method(i64 noundef %9, ptr noundef nonnull @.str.6, ptr noundef nonnull @ifaddr_netmask, i32 noundef 0) #7
-  %10 = load i64, ptr @rb_cSockIfaddr, align 8
+  %10 = load i64, ptr @rb_cSockIfaddr, align 8, !tbaa !6
   tail call void @rb_define_method(i64 noundef %10, ptr noundef nonnull @.str.7, ptr noundef nonnull @ifaddr_broadaddr, i32 noundef 0) #7
-  %11 = load i64, ptr @rb_cSockIfaddr, align 8
+  %11 = load i64, ptr @rb_cSockIfaddr, align 8, !tbaa !6
   tail call void @rb_define_method(i64 noundef %11, ptr noundef nonnull @.str.8, ptr noundef nonnull @ifaddr_dstaddr, i32 noundef 0) #7
-  %12 = load i64, ptr @rb_cSocket, align 8
+  %12 = load i64, ptr @rb_cSocket, align 8, !tbaa !6
   tail call void @rb_define_singleton_method(i64 noundef %12, ptr noundef nonnull @.str.9, ptr noundef nonnull @socket_s_getifaddrs, i32 noundef 0) #7
   ret void
 }
@@ -96,25 +96,25 @@ declare void @rb_undef_alloc_func(i64 noundef) local_unnamed_addr #1
 
 declare extern_weak void @rb_define_method(i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ifaddr_inspect(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ifaddr_type) #7
   %.not.i.i = icmp eq ptr %2, null
   br i1 %.not.i.i, label %3, label %get_ifaddrs.exit
 
 3:                                                ; preds = %1
-  %4 = load i64, ptr @rb_eTypeError, align 8
+  %4 = load i64, ptr @rb_eTypeError, align 8, !tbaa !6
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %4, ptr noundef nonnull @.str.16) #8
   unreachable
 
 get_ifaddrs.exit:                                 ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %6 = load ptr, ptr %5, align 8
+  %6 = load ptr, ptr %5, align 8, !tbaa !10
   %7 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.10, i64 noundef 2) #7
-  %8 = and i64 %0, 7
-  %9 = icmp ne i64 %8, 0
-  %10 = icmp eq i64 %0, 0
-  %11 = or i1 %10, %9
+  %8 = icmp eq i64 %0, 0
+  %9 = and i64 %0, 7
+  %10 = icmp ne i64 %9, 0
+  %11 = or i1 %8, %10
   br i1 %11, label %15, label %12
 
 12:                                               ; preds = %get_ifaddrs.exit
@@ -148,15 +148,15 @@ get_ifaddrs.exit:                                 ; preds = %1
 
 rb_class_of.exit:                                 ; preds = %12, %15, %16, %17, %18, %20
   %.0.in.i = phi ptr [ @rb_cNilClass, %16 ], [ @rb_cTrueClass, %17 ], [ %14, %12 ], [ @rb_cFalseClass, %15 ], [ @rb_cInteger, %18 ], [ %spec.select.i, %20 ]
-  %.0.i = load i64, ptr %.0.in.i, align 8
+  %.0.i = load i64, ptr %.0.in.i, align 8, !tbaa !6
   %23 = tail call i64 @rb_class_name(i64 noundef %.0.i) #7
   %24 = tail call i64 @rb_str_append(i64 noundef %7, i64 noundef %23) #7
   %25 = tail call i64 @rb_str_cat(i64 noundef %7, ptr noundef nonnull @.str.11, i64 noundef 1) #7
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %27 = load ptr, ptr %26, align 8
+  %27 = load ptr, ptr %26, align 8, !tbaa !15
   %28 = tail call i64 @rb_str_cat_cstr(i64 noundef %7, ptr noundef %27) #7
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %30 = load i32, ptr %29, align 8
+  %30 = load i32, ptr %29, align 8, !tbaa !19
   %.not = icmp eq i32 %30, 0
   br i1 %.not, label %ifaddr_inspect_flags.exit, label %31
 
@@ -363,48 +363,48 @@ rb_class_of.exit:                                 ; preds = %12, %15, %16, %17, 
 
 ifaddr_inspect_flags.exit:                        ; preds = %113, %112, %rb_class_of.exit
   %115 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %116 = load ptr, ptr %115, align 8
+  %116 = load ptr, ptr %115, align 8, !tbaa !20
   %.not32 = icmp eq ptr %116, null
   br i1 %.not32, label %122, label %117
 
 117:                                              ; preds = %ifaddr_inspect_flags.exit
   %118 = tail call i64 @rb_str_cat(i64 noundef %7, ptr noundef nonnull @.str.11, i64 noundef 1) #7
-  %119 = load ptr, ptr %115, align 8
+  %119 = load ptr, ptr %115, align 8, !tbaa !20
   %120 = tail call i32 @rsock_sockaddr_len(ptr noundef %119) #7
   %121 = tail call i64 @rsock_inspect_sockaddr(ptr noundef %119, i32 noundef %120, i64 noundef %7) #7
   br label %122
 
 122:                                              ; preds = %117, %ifaddr_inspect_flags.exit
   %123 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %124 = load ptr, ptr %123, align 8
+  %124 = load ptr, ptr %123, align 8, !tbaa !21
   %.not33 = icmp eq ptr %124, null
   br i1 %.not33, label %130, label %125
 
 125:                                              ; preds = %122
   %126 = tail call i64 @rb_str_cat(i64 noundef %7, ptr noundef nonnull @.str.12, i64 noundef 9) #7
-  %127 = load ptr, ptr %123, align 8
+  %127 = load ptr, ptr %123, align 8, !tbaa !21
   %128 = tail call i32 @rsock_sockaddr_len(ptr noundef %127) #7
   %129 = tail call i64 @rsock_inspect_sockaddr(ptr noundef %127, i32 noundef %128, i64 noundef %7) #7
   br label %130
 
 130:                                              ; preds = %125, %122
-  %131 = load i32, ptr %29, align 8
+  %131 = load i32, ptr %29, align 8, !tbaa !19
   %132 = and i32 %131, 2
   %.not34 = icmp eq i32 %132, 0
   br i1 %.not34, label %141, label %133
 
 133:                                              ; preds = %130
   %134 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %135 = load ptr, ptr %134, align 8
+  %135 = load ptr, ptr %134, align 8, !tbaa !22
   %.not35 = icmp eq ptr %135, null
   br i1 %.not35, label %141, label %136
 
 136:                                              ; preds = %133
   %137 = tail call i64 @rb_str_cat(i64 noundef %7, ptr noundef nonnull @.str.13, i64 noundef 11) #7
-  %138 = load ptr, ptr %134, align 8
+  %138 = load ptr, ptr %134, align 8, !tbaa !22
   %139 = tail call i32 @rsock_sockaddr_len(ptr noundef %138) #7
   %140 = tail call i64 @rsock_inspect_sockaddr(ptr noundef %138, i32 noundef %139, i64 noundef %7) #7
-  %.pre = load i32, ptr %29, align 8
+  %.pre = load i32, ptr %29, align 8, !tbaa !19
   br label %141
 
 141:                                              ; preds = %136, %133, %130
@@ -415,13 +415,13 @@ ifaddr_inspect_flags.exit:                        ; preds = %113, %112, %rb_clas
 
 144:                                              ; preds = %141
   %145 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %146 = load ptr, ptr %145, align 8
+  %146 = load ptr, ptr %145, align 8, !tbaa !22
   %.not37 = icmp eq ptr %146, null
   br i1 %.not37, label %152, label %147
 
 147:                                              ; preds = %144
   %148 = tail call i64 @rb_str_cat(i64 noundef %7, ptr noundef nonnull @.str.14, i64 noundef 9) #7
-  %149 = load ptr, ptr %145, align 8
+  %149 = load ptr, ptr %145, align 8, !tbaa !22
   %150 = tail call i32 @rsock_sockaddr_len(ptr noundef %149) #7
   %151 = tail call i64 @rsock_inspect_sockaddr(ptr noundef %149, i32 noundef %150, i64 noundef %7) #7
   br label %152
@@ -431,49 +431,49 @@ ifaddr_inspect_flags.exit:                        ; preds = %113, %112, %rb_clas
   ret i64 %7
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ifaddr_name(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ifaddr_type) #7
   %.not.i.i = icmp eq ptr %2, null
   br i1 %.not.i.i, label %3, label %get_ifaddrs.exit
 
 3:                                                ; preds = %1
-  %4 = load i64, ptr @rb_eTypeError, align 8
+  %4 = load i64, ptr @rb_eTypeError, align 8, !tbaa !6
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %4, ptr noundef nonnull @.str.16) #8
   unreachable
 
 get_ifaddrs.exit:                                 ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %6 = load ptr, ptr %5, align 8
+  %6 = load ptr, ptr %5, align 8, !tbaa !10
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %8 = load ptr, ptr %7, align 8
+  %8 = load ptr, ptr %7, align 8, !tbaa !15
   %9 = tail call i64 @rb_str_new_cstr(ptr noundef %8) #7
   ret i64 %9
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 2, 8589934592) i64 @ifaddr_ifindex(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ifaddr_type) #7
   %.not.i.i = icmp eq ptr %2, null
   br i1 %.not.i.i, label %3, label %get_ifaddrs.exit
 
 3:                                                ; preds = %1
-  %4 = load i64, ptr @rb_eTypeError, align 8
+  %4 = load i64, ptr @rb_eTypeError, align 8, !tbaa !6
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %4, ptr noundef nonnull @.str.16) #8
   unreachable
 
 get_ifaddrs.exit:                                 ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %6 = load ptr, ptr %5, align 8
+  %6 = load ptr, ptr %5, align 8, !tbaa !10
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %8 = load ptr, ptr %7, align 8
+  %8 = load ptr, ptr %7, align 8, !tbaa !15
   %9 = tail call i32 @if_nametoindex(ptr noundef %8) #7
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %get_ifaddrs.exit
-  %12 = load i64, ptr @rb_eArgError, align 8
-  %13 = load ptr, ptr %7, align 8
+  %12 = load i64, ptr @rb_eArgError, align 8, !tbaa !6
+  %13 = load ptr, ptr %7, align 8, !tbaa !15
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %12, ptr noundef nonnull @.str.36, ptr noundef %13) #8
   unreachable
 
@@ -484,44 +484,44 @@ get_ifaddrs.exit:                                 ; preds = %1
   ret i64 %17
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 1, 8589934592) i64 @ifaddr_flags(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ifaddr_type) #7
   %.not.i.i = icmp eq ptr %2, null
   br i1 %.not.i.i, label %3, label %get_ifaddrs.exit
 
 3:                                                ; preds = %1
-  %4 = load i64, ptr @rb_eTypeError, align 8
+  %4 = load i64, ptr @rb_eTypeError, align 8, !tbaa !6
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %4, ptr noundef nonnull @.str.16) #8
   unreachable
 
 get_ifaddrs.exit:                                 ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %6 = load ptr, ptr %5, align 8
+  %6 = load ptr, ptr %5, align 8, !tbaa !10
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %8 = load i32, ptr %7, align 8
+  %8 = load i32, ptr %7, align 8, !tbaa !19
   %9 = zext i32 %8 to i64
   %10 = shl nuw nsw i64 %9, 1
   %11 = or disjoint i64 %10, 1
   ret i64 %11
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ifaddr_addr(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ifaddr_type) #7
   %.not.i.i = icmp eq ptr %2, null
   br i1 %.not.i.i, label %3, label %get_ifaddrs.exit
 
 3:                                                ; preds = %1
-  %4 = load i64, ptr @rb_eTypeError, align 8
+  %4 = load i64, ptr @rb_eTypeError, align 8, !tbaa !6
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %4, ptr noundef nonnull @.str.16) #8
   unreachable
 
 get_ifaddrs.exit:                                 ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %6 = load ptr, ptr %5, align 8
+  %6 = load ptr, ptr %5, align 8, !tbaa !10
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %8 = load ptr, ptr %7, align 8
+  %8 = load ptr, ptr %7, align 8, !tbaa !20
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %12, label %9
 
@@ -535,22 +535,22 @@ get_ifaddrs.exit:                                 ; preds = %1
   ret i64 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ifaddr_netmask(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ifaddr_type) #7
   %.not.i.i = icmp eq ptr %2, null
   br i1 %.not.i.i, label %3, label %get_ifaddrs.exit
 
 3:                                                ; preds = %1
-  %4 = load i64, ptr @rb_eTypeError, align 8
+  %4 = load i64, ptr @rb_eTypeError, align 8, !tbaa !6
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %4, ptr noundef nonnull @.str.16) #8
   unreachable
 
 get_ifaddrs.exit:                                 ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %6 = load ptr, ptr %5, align 8
+  %6 = load ptr, ptr %5, align 8, !tbaa !10
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %8 = load ptr, ptr %7, align 8
+  %8 = load ptr, ptr %7, align 8, !tbaa !21
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %12, label %9
 
@@ -564,29 +564,29 @@ get_ifaddrs.exit:                                 ; preds = %1
   ret i64 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ifaddr_broadaddr(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ifaddr_type) #7
   %.not.i.i = icmp eq ptr %2, null
   br i1 %.not.i.i, label %3, label %get_ifaddrs.exit
 
 3:                                                ; preds = %1
-  %4 = load i64, ptr @rb_eTypeError, align 8
+  %4 = load i64, ptr @rb_eTypeError, align 8, !tbaa !6
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %4, ptr noundef nonnull @.str.16) #8
   unreachable
 
 get_ifaddrs.exit:                                 ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %6 = load ptr, ptr %5, align 8
+  %6 = load ptr, ptr %5, align 8, !tbaa !10
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %8 = load i32, ptr %7, align 8
+  %8 = load i32, ptr %7, align 8, !tbaa !19
   %9 = and i32 %8, 2
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %16, label %10
 
 10:                                               ; preds = %get_ifaddrs.exit
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %12 = load ptr, ptr %11, align 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !22
   %.not6 = icmp eq ptr %12, null
   br i1 %.not6, label %16, label %13
 
@@ -600,29 +600,29 @@ get_ifaddrs.exit:                                 ; preds = %1
   ret i64 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ifaddr_dstaddr(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ifaddr_type) #7
   %.not.i.i = icmp eq ptr %2, null
   br i1 %.not.i.i, label %3, label %get_ifaddrs.exit
 
 3:                                                ; preds = %1
-  %4 = load i64, ptr @rb_eTypeError, align 8
+  %4 = load i64, ptr @rb_eTypeError, align 8, !tbaa !6
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %4, ptr noundef nonnull @.str.16) #8
   unreachable
 
 get_ifaddrs.exit:                                 ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %6 = load ptr, ptr %5, align 8
+  %6 = load ptr, ptr %5, align 8, !tbaa !10
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %8 = load i32, ptr %7, align 8
+  %8 = load i32, ptr %7, align 8, !tbaa !19
   %9 = and i32 %8, 16
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %16, label %10
 
 10:                                               ; preds = %get_ifaddrs.exit
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %12 = load ptr, ptr %11, align 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !22
   %.not6 = icmp eq ptr %12, null
   br i1 %.not6, label %16, label %13
 
@@ -638,22 +638,22 @@ get_ifaddrs.exit:                                 ; preds = %1
 
 declare extern_weak void @rb_define_singleton_method(i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @socket_s_getifaddrs(i64 %0) #0 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #7
   %3 = call i32 @getifaddrs(ptr noundef nonnull %2) #7
   %4 = icmp eq i32 %3, -1
   br i1 %4, label %5, label %8
 
 5:                                                ; preds = %1
   %6 = call ptr @rb_errno_ptr() #7
-  %7 = load i32, ptr %6, align 4
+  %7 = load i32, ptr %6, align 4, !tbaa !23
   call void @rb_syserr_fail(i32 noundef %7, ptr noundef nonnull @.str.9) #8
   unreachable
 
 8:                                                ; preds = %1
-  %9 = load ptr, ptr %2, align 8
+  %9 = load ptr, ptr %2, align 8, !tbaa !24
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %10, label %.preheader.i
 
@@ -666,20 +666,20 @@ define internal i64 @socket_s_getifaddrs(i64 %0) #0 {
   %.03441.i = phi i32 [ %12, %.preheader.i ], [ 0, %8 ]
   %.03640.i = phi ptr [ %13, %.preheader.i ], [ %9, %8 ]
   %12 = add nuw nsw i32 %.03441.i, 1
-  %13 = load ptr, ptr %.03640.i, align 8
+  %13 = load ptr, ptr %.03640.i, align 8, !tbaa !25
   %.not39.i = icmp eq ptr %13, null
   %indvars.iv.next48.i = add nuw i32 %indvars.iv47.i, 1
-  br i1 %.not39.i, label %14, label %.preheader.i, !llvm.loop !6
+  br i1 %.not39.i, label %14, label %.preheader.i, !llvm.loop !26
 
 14:                                               ; preds = %.preheader.i
-  %15 = load i64, ptr @rb_cSockIfaddr, align 8
+  %15 = load i64, ptr @rb_cSockIfaddr, align 8, !tbaa !6
   %16 = call i64 @rb_data_typed_object_wrap(i64 noundef %15, ptr noundef null, ptr noundef nonnull @ifaddr_type) #7
   %17 = zext nneg i32 %12 to i64
   %18 = shl nuw nsw i64 %17, 4
   %19 = or disjoint i64 %18, 8
   %20 = call noalias nonnull ptr @ruby_xmalloc(i64 noundef %19) #9
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
-  store i32 %12, ptr %21, align 4
+  store i32 %12, ptr %21, align 4, !tbaa !28
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %wide.trip.count.i = zext i32 %indvars.iv47.i to i64
   br label %23
@@ -687,21 +687,21 @@ define internal i64 @socket_s_getifaddrs(i64 %0) #0 {
 23:                                               ; preds = %23, %14
   %indvars.iv.i = phi i64 [ 0, %14 ], [ %indvars.iv.next.i, %23 ]
   %.137.in42.i = phi ptr [ %2, %14 ], [ %.137.i, %23 ]
-  %.137.i = load ptr, ptr %.137.in42.i, align 8
+  %.137.i = load ptr, ptr %.137.in42.i, align 8, !tbaa !24
   %24 = getelementptr inbounds nuw [1 x %struct.rb_ifaddr_tag], ptr %22, i64 0, i64 %indvars.iv.i
   %25 = trunc nuw nsw i64 %indvars.iv.i to i32
-  store i32 %25, ptr %24, align 8
+  store i32 %25, ptr %24, align 8, !tbaa !30
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  store ptr %.137.i, ptr %26, align 8
+  store ptr %.137.i, ptr %26, align 8, !tbaa !10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %27, label %23, !llvm.loop !8
+  br i1 %exitcond.not.i, label %27, label %23, !llvm.loop !31
 
 27:                                               ; preds = %23
   %28 = inttoptr i64 %16 to ptr
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 32
-  store ptr %22, ptr %29, align 8
-  store i32 1, ptr %20, align 8
+  store ptr %22, ptr %29, align 8, !tbaa !32
+  store i32 1, ptr %20, align 8, !tbaa !36
   %30 = call i64 @rb_ary_new_capa(i64 noundef %17) #7
   %31 = call i64 @rb_ary_push(i64 noundef %30, i64 noundef %16) #7
   %.not45.i = icmp eq i32 %.03441.i, 0
@@ -709,22 +709,25 @@ define internal i64 @socket_s_getifaddrs(i64 %0) #0 {
 
 .lr.ph.i:                                         ; preds = %27, %.lr.ph.i
   %indvars.iv49.i = phi i64 [ %indvars.iv.next50.i, %.lr.ph.i ], [ 1, %27 ]
-  %32 = load i64, ptr @rb_cSockIfaddr, align 8
+  %32 = load i64, ptr @rb_cSockIfaddr, align 8, !tbaa !6
   %33 = getelementptr inbounds nuw [1 x %struct.rb_ifaddr_tag], ptr %22, i64 0, i64 %indvars.iv49.i
   %34 = call i64 @rb_data_typed_object_wrap(i64 noundef %32, ptr noundef nonnull %33, ptr noundef nonnull @ifaddr_type) #7
-  %35 = load i32, ptr %20, align 8
+  %35 = load i32, ptr %20, align 8, !tbaa !36
   %36 = add nsw i32 %35, 1
-  store i32 %36, ptr %20, align 8
+  store i32 %36, ptr %20, align 8, !tbaa !36
   %37 = call i64 @rb_ary_push(i64 noundef %30, i64 noundef %34) #7
   %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
   %exitcond54.not.i = icmp eq i64 %indvars.iv.next50.i, %wide.trip.count.i
-  br i1 %exitcond54.not.i, label %rsock_getifaddrs.exit, label %.lr.ph.i, !llvm.loop !9
+  br i1 %exitcond54.not.i, label %rsock_getifaddrs.exit, label %.lr.ph.i, !llvm.loop !37
 
 rsock_getifaddrs.exit:                            ; preds = %.lr.ph.i, %10, %27
   %.0.i = phi i64 [ %11, %10 ], [ %30, %27 ], [ %30, %.lr.ph.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #7
   ret i64 %.0.i
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare i64 @rb_str_append(i64 noundef, i64 noundef) local_unnamed_addr #1
 
@@ -736,27 +739,30 @@ declare i64 @rsock_inspect_sockaddr(ptr noundef, i32 noundef, i64 noundef) local
 
 declare i32 @rsock_sockaddr_len(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
 ; Function Attrs: noreturn
-declare void @rb_raise(i64 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @rb_raise(i64 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 declare ptr @rb_check_typeddata(i64 noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define internal void @ifaddr_free(ptr noundef %0) #0 {
-  %2 = load i32, ptr %0, align 8
+  %2 = load i32, ptr %0, align 8, !tbaa !30
   %3 = sub nsw i32 0, %2
   %4 = sext i32 %3 to i64
   %5 = getelementptr inbounds %struct.rb_ifaddr_tag, ptr %0, i64 %4
   %6 = getelementptr inbounds i8, ptr %5, i64 -8
-  %7 = load i32, ptr %6, align 8
+  %7 = load i32, ptr %6, align 8, !tbaa !36
   %8 = add nsw i32 %7, -1
-  store i32 %8, ptr %6, align 8
+  store i32 %8, ptr %6, align 8, !tbaa !36
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %12 = load ptr, ptr %11, align 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !10
   tail call void @freeifaddrs(ptr noundef %12) #7
   tail call void @ruby_xfree(ptr noundef nonnull %6) #7
   br label %13
@@ -765,16 +771,16 @@ define internal void @ifaddr_free(ptr noundef %0) #0 {
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i64 64, 81) i64 @ifaddr_memsize(ptr noundef readonly captures(none) %0) #3 {
-  %2 = load i32, ptr %0, align 8
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
+define internal range(i64 64, 81) i64 @ifaddr_memsize(ptr noundef readonly captures(none) %0) #4 {
+  %2 = load i32, ptr %0, align 8, !tbaa !30
   %3 = icmp eq i32 %2, 0
   %spec.select = select i1 %3, i64 80, i64 64
   ret i64 %spec.select
 }
 
 ; Function Attrs: nounwind
-declare void @freeifaddrs(ptr noundef) local_unnamed_addr #4
+declare void @freeifaddrs(ptr noundef) local_unnamed_addr #5
 
 declare void @ruby_xfree(ptr noundef) local_unnamed_addr #1
 
@@ -787,42 +793,36 @@ declare i64 @rb_str_catf(i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 declare i64 @rb_str_new_cstr(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare i32 @if_nametoindex(ptr noundef) local_unnamed_addr #4
+declare i32 @if_nametoindex(ptr noundef) local_unnamed_addr #5
 
 declare i64 @rsock_sockaddr_obj(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare i32 @getifaddrs(ptr noundef) local_unnamed_addr #4
+declare i32 @getifaddrs(ptr noundef) local_unnamed_addr #5
 
 declare ptr @rb_errno_ptr() local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @rb_syserr_fail(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @rb_syserr_fail(i32 noundef, ptr noundef) local_unnamed_addr #3
 
 declare i64 @rb_ary_new() local_unnamed_addr #1
 
 declare i64 @rb_data_typed_object_wrap(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: allocsize(0)
-declare noalias nonnull ptr @ruby_xmalloc(i64 noundef) local_unnamed_addr #5
+declare noalias nonnull ptr @ruby_xmalloc(i64 noundef) local_unnamed_addr #6
 
 declare i64 @rb_ary_new_capa(i64 noundef) local_unnamed_addr #1
 
 declare i64 @rb_ary_push(i64 noundef, i64 noundef) local_unnamed_addr #1
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
-
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nounwind }
 attributes #8 = { noreturn nounwind }
 attributes #9 = { nounwind allocsize(0) }
@@ -834,8 +834,36 @@ attributes #9 = { nounwind allocsize(0) }
 !2 = !{i32 1, !"wchar_size", i32 4}
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
-!5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
+!5 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"long", !8, i64 0}
+!8 = !{!"omnipotent char", !9, i64 0}
+!9 = !{!"Simple C/C++ TBAA"}
+!10 = !{!11, !13, i64 8}
+!11 = !{!"rb_ifaddr_tag", !12, i64 0, !13, i64 8}
+!12 = !{!"int", !8, i64 0}
+!13 = !{!"p1 _ZTS7ifaddrs", !14, i64 0}
+!14 = !{!"any pointer", !8, i64 0}
+!15 = !{!16, !17, i64 8}
+!16 = !{!"ifaddrs", !13, i64 0, !17, i64 8, !12, i64 16, !18, i64 24, !18, i64 32, !8, i64 40, !14, i64 48}
+!17 = !{!"p1 omnipotent char", !14, i64 0}
+!18 = !{!"p1 _ZTS8sockaddr", !14, i64 0}
+!19 = !{!16, !12, i64 16}
+!20 = !{!16, !18, i64 24}
+!21 = !{!16, !18, i64 32}
+!22 = !{!8, !8, i64 0}
+!23 = !{!12, !12, i64 0}
+!24 = !{!13, !13, i64 0}
+!25 = !{!16, !13, i64 0}
+!26 = distinct !{!26, !27}
+!27 = !{!"llvm.loop.mustprogress"}
+!28 = !{!29, !12, i64 4}
+!29 = !{!"rb_ifaddr_root_tag", !12, i64 0, !12, i64 4, !8, i64 8}
+!30 = !{!11, !12, i64 0}
+!31 = distinct !{!31, !27}
+!32 = !{!33, !14, i64 32}
+!33 = !{!"RTypedData", !34, i64 0, !35, i64 16, !7, i64 24, !14, i64 32}
+!34 = !{!"RBasic", !7, i64 0, !7, i64 8}
+!35 = !{!"p1 _ZTS19rb_data_type_struct", !14, i64 0}
+!36 = !{!29, !12, i64 0}
+!37 = distinct !{!37, !27}

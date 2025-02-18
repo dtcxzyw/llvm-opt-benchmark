@@ -3,45 +3,45 @@ source_filename = "bench/ruby/original/rmd160.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define weak i64 @ruby_abi_version() local_unnamed_addr #0 {
   ret i64 0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define noundef i32 @rb_Digest_RMD160_Init(ptr noundef writeonly captures(none) initializes((0, 28), (92, 96)) %0) local_unnamed_addr #1 {
-  store i32 1732584193, ptr %0, align 4
+  store i32 1732584193, ptr %0, align 4, !tbaa !6
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 -271733879, ptr %2, align 4
+  store i32 -271733879, ptr %2, align 4, !tbaa !6
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 -1732584194, ptr %3, align 4
+  store i32 -1732584194, ptr %3, align 4, !tbaa !6
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 271733878, ptr %4, align 4
+  store i32 271733878, ptr %4, align 4, !tbaa !6
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 -1009589776, ptr %5, align 4
+  store i32 -1009589776, ptr %5, align 4, !tbaa !6
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %7, align 4
-  store i32 0, ptr %6, align 4
+  store i32 0, ptr %7, align 4, !tbaa !6
+  store i32 0, ptr %6, align 4, !tbaa !6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  store i32 0, ptr %8, align 4
+  store i32 0, ptr %8, align 4, !tbaa !10
   ret i32 1
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define void @rb_Digest_RMD160_Transform(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
-  %3 = load i32, ptr %0, align 4
+  %3 = load i32, ptr %0, align 4, !tbaa !6
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %5 = load i32, ptr %4, align 4
+  %5 = load i32, ptr %4, align 4, !tbaa !6
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load i32, ptr %6, align 4
+  %7 = load i32, ptr %6, align 4, !tbaa !6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %9 = load i32, ptr %8, align 4
+  %9 = load i32, ptr %8, align 4, !tbaa !6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = load i32, ptr %10, align 4
+  %11 = load i32, ptr %10, align 4, !tbaa !6
   %12 = xor i32 %7, %5
   %13 = xor i32 %12, %9
-  %14 = load i32, ptr %1, align 4
+  %14 = load i32, ptr %1, align 4, !tbaa !6
   %15 = add i32 %13, %3
   %16 = add i32 %15, %14
   %17 = tail call i32 @llvm.fshl.i32(i32 %16, i32 %16, i32 11)
@@ -50,7 +50,7 @@ define void @rb_Digest_RMD160_Transform(ptr noundef captures(none) %0, ptr nound
   %20 = xor i32 %19, %5
   %21 = xor i32 %20, %18
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %23 = load i32, ptr %22, align 4
+  %23 = load i32, ptr %22, align 4, !tbaa !6
   %24 = add i32 %23, %11
   %25 = add i32 %24, %21
   %26 = tail call i32 @llvm.fshl.i32(i32 %25, i32 %25, i32 14)
@@ -59,7 +59,7 @@ define void @rb_Digest_RMD160_Transform(ptr noundef captures(none) %0, ptr nound
   %29 = xor i32 %18, %28
   %30 = xor i32 %29, %27
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %32 = load i32, ptr %31, align 4
+  %32 = load i32, ptr %31, align 4, !tbaa !6
   %33 = add i32 %32, %9
   %34 = add i32 %33, %30
   %35 = tail call i32 @llvm.fshl.i32(i32 %34, i32 %34, i32 15)
@@ -68,7 +68,7 @@ define void @rb_Digest_RMD160_Transform(ptr noundef captures(none) %0, ptr nound
   %38 = xor i32 %27, %37
   %39 = xor i32 %38, %36
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %41 = load i32, ptr %40, align 4
+  %41 = load i32, ptr %40, align 4, !tbaa !6
   %42 = add i32 %41, %19
   %43 = add i32 %42, %39
   %44 = tail call i32 @llvm.fshl.i32(i32 %43, i32 %43, i32 12)
@@ -77,7 +77,7 @@ define void @rb_Digest_RMD160_Transform(ptr noundef captures(none) %0, ptr nound
   %47 = xor i32 %36, %46
   %48 = xor i32 %47, %45
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %50 = load i32, ptr %49, align 4
+  %50 = load i32, ptr %49, align 4, !tbaa !6
   %51 = add i32 %50, %28
   %52 = add i32 %51, %48
   %53 = tail call i32 @llvm.fshl.i32(i32 %52, i32 %52, i32 5)
@@ -86,7 +86,7 @@ define void @rb_Digest_RMD160_Transform(ptr noundef captures(none) %0, ptr nound
   %56 = xor i32 %45, %55
   %57 = xor i32 %56, %54
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %59 = load i32, ptr %58, align 4
+  %59 = load i32, ptr %58, align 4, !tbaa !6
   %60 = add i32 %37, %59
   %61 = add i32 %60, %57
   %62 = tail call i32 @llvm.fshl.i32(i32 %61, i32 %61, i32 8)
@@ -95,7 +95,7 @@ define void @rb_Digest_RMD160_Transform(ptr noundef captures(none) %0, ptr nound
   %65 = xor i32 %54, %64
   %66 = xor i32 %65, %63
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %68 = load i32, ptr %67, align 4
+  %68 = load i32, ptr %67, align 4, !tbaa !6
   %69 = add i32 %46, %68
   %70 = add i32 %69, %66
   %71 = tail call i32 @llvm.fshl.i32(i32 %70, i32 %70, i32 7)
@@ -104,7 +104,7 @@ define void @rb_Digest_RMD160_Transform(ptr noundef captures(none) %0, ptr nound
   %74 = xor i32 %63, %73
   %75 = xor i32 %74, %72
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %77 = load i32, ptr %76, align 4
+  %77 = load i32, ptr %76, align 4, !tbaa !6
   %78 = add i32 %55, %77
   %79 = add i32 %78, %75
   %80 = tail call i32 @llvm.fshl.i32(i32 %79, i32 %79, i32 9)
@@ -113,7 +113,7 @@ define void @rb_Digest_RMD160_Transform(ptr noundef captures(none) %0, ptr nound
   %83 = xor i32 %72, %82
   %84 = xor i32 %83, %81
   %85 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %86 = load i32, ptr %85, align 4
+  %86 = load i32, ptr %85, align 4, !tbaa !6
   %87 = add i32 %64, %86
   %88 = add i32 %87, %84
   %89 = tail call i32 @llvm.fshl.i32(i32 %88, i32 %88, i32 11)
@@ -122,7 +122,7 @@ define void @rb_Digest_RMD160_Transform(ptr noundef captures(none) %0, ptr nound
   %92 = xor i32 %81, %91
   %93 = xor i32 %92, %90
   %94 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %95 = load i32, ptr %94, align 4
+  %95 = load i32, ptr %94, align 4, !tbaa !6
   %96 = add i32 %73, %95
   %97 = add i32 %96, %93
   %98 = tail call i32 @llvm.fshl.i32(i32 %97, i32 %97, i32 13)
@@ -131,7 +131,7 @@ define void @rb_Digest_RMD160_Transform(ptr noundef captures(none) %0, ptr nound
   %101 = xor i32 %90, %100
   %102 = xor i32 %101, %99
   %103 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %104 = load i32, ptr %103, align 4
+  %104 = load i32, ptr %103, align 4, !tbaa !6
   %105 = add i32 %82, %104
   %106 = add i32 %105, %102
   %107 = tail call i32 @llvm.fshl.i32(i32 %106, i32 %106, i32 14)
@@ -140,7 +140,7 @@ define void @rb_Digest_RMD160_Transform(ptr noundef captures(none) %0, ptr nound
   %110 = xor i32 %99, %109
   %111 = xor i32 %110, %108
   %112 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %113 = load i32, ptr %112, align 4
+  %113 = load i32, ptr %112, align 4, !tbaa !6
   %114 = add i32 %91, %113
   %115 = add i32 %114, %111
   %116 = tail call i32 @llvm.fshl.i32(i32 %115, i32 %115, i32 15)
@@ -149,7 +149,7 @@ define void @rb_Digest_RMD160_Transform(ptr noundef captures(none) %0, ptr nound
   %119 = xor i32 %108, %118
   %120 = xor i32 %119, %117
   %121 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %122 = load i32, ptr %121, align 4
+  %122 = load i32, ptr %121, align 4, !tbaa !6
   %123 = add i32 %100, %122
   %124 = add i32 %123, %120
   %125 = tail call i32 @llvm.fshl.i32(i32 %124, i32 %124, i32 6)
@@ -158,7 +158,7 @@ define void @rb_Digest_RMD160_Transform(ptr noundef captures(none) %0, ptr nound
   %128 = xor i32 %117, %127
   %129 = xor i32 %128, %126
   %130 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %131 = load i32, ptr %130, align 4
+  %131 = load i32, ptr %130, align 4, !tbaa !6
   %132 = add i32 %109, %131
   %133 = add i32 %132, %129
   %134 = tail call i32 @llvm.fshl.i32(i32 %133, i32 %133, i32 7)
@@ -167,7 +167,7 @@ define void @rb_Digest_RMD160_Transform(ptr noundef captures(none) %0, ptr nound
   %137 = xor i32 %126, %136
   %138 = xor i32 %137, %135
   %139 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %140 = load i32, ptr %139, align 4
+  %140 = load i32, ptr %139, align 4, !tbaa !6
   %141 = add i32 %118, %140
   %142 = add i32 %141, %138
   %143 = tail call i32 @llvm.fshl.i32(i32 %142, i32 %142, i32 9)
@@ -176,7 +176,7 @@ define void @rb_Digest_RMD160_Transform(ptr noundef captures(none) %0, ptr nound
   %146 = xor i32 %135, %145
   %147 = xor i32 %146, %144
   %148 = getelementptr inbounds nuw i8, ptr %1, i64 60
-  %149 = load i32, ptr %148, align 4
+  %149 = load i32, ptr %148, align 4, !tbaa !6
   %150 = add i32 %127, %149
   %151 = add i32 %150, %147
   %152 = tail call i32 @llvm.fshl.i32(i32 %151, i32 %151, i32 8)
@@ -1509,40 +1509,47 @@ define void @rb_Digest_RMD160_Transform(ptr noundef captures(none) %0, ptr nound
   %1479 = add i32 %1478, %1477
   %1480 = add i32 %760, %7
   %1481 = add i32 %1480, %1471
-  store i32 %1481, ptr %4, align 4
+  store i32 %1481, ptr %4, align 4, !tbaa !6
   %1482 = add i32 %752, %9
   %1483 = add i32 %1482, %1464
-  store i32 %1483, ptr %6, align 4
+  store i32 %1483, ptr %6, align 4, !tbaa !6
   %1484 = add i32 %743, %11
   %1485 = add i32 %1484, %1464
   %1486 = add i32 %1485, %1476
-  store i32 %1486, ptr %8, align 4
+  store i32 %1486, ptr %8, align 4, !tbaa !6
   %1487 = add i32 %743, %3
   %1488 = add i32 %1487, %759
   %1489 = add i32 %1488, %1470
-  store i32 %1489, ptr %10, align 4
-  store i32 %1479, ptr %0, align 4
+  store i32 %1489, ptr %10, align 4, !tbaa !6
+  store i32 %1479, ptr %0, align 4, !tbaa !6
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @rb_Digest_RMD160_Update(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #3 {
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+
+; Function Attrs: nofree nounwind sspstrong memory(argmem: readwrite) uwtable
+define void @rb_Digest_RMD160_Update(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #4 {
   %4 = alloca [16 x i32], align 16
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %6 = load i32, ptr %5, align 4
+  %6 = load i32, ptr %5, align 4, !tbaa !6
   %7 = zext i32 %6 to i64
   %8 = add i64 %2, %7
   %9 = lshr i64 %8, 32
   %10 = trunc nuw i64 %9 to i32
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %12 = load i32, ptr %11, align 4
+  %12 = load i32, ptr %11, align 4, !tbaa !6
   %13 = add i32 %12, %10
-  store i32 %13, ptr %11, align 4
+  store i32 %13, ptr %11, align 4, !tbaa !6
   %14 = trunc i64 %2 to i32
   %15 = add i32 %6, %14
-  store i32 %15, ptr %5, align 4
+  store i32 %15, ptr %5, align 4, !tbaa !6
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  %17 = load i32, ptr %16, align 4
+  %17 = load i32, ptr %16, align 4, !tbaa !10
   %18 = zext i32 %17 to i64
   %19 = add i64 %2, %18
   %20 = icmp ult i64 %19, 64
@@ -1551,10 +1558,10 @@ define void @rb_Digest_RMD160_Update(ptr noundef captures(none) %0, ptr noundef 
 21:                                               ; preds = %3
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 %18
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr align 1 %1, i64 %2, i1 false)
-  %24 = load i32, ptr %16, align 4
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %23, ptr noundef nonnull align 1 %1, i64 noundef %2, i1 noundef false) #8
+  %24 = load i32, ptr %16, align 4, !tbaa !10
   %25 = add i32 %24, %14
-  store i32 %25, ptr %16, align 4
+  store i32 %25, ptr %16, align 4, !tbaa !10
   br label %45
 
 26:                                               ; preds = %3
@@ -1562,8 +1569,8 @@ define void @rb_Digest_RMD160_Update(ptr noundef captures(none) %0, ptr noundef 
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 %18
   %30 = zext i32 %27 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %29, ptr align 1 %1, i64 %30, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %4, ptr noundef nonnull align 4 dereferenceable(64) %28, i64 64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %29, ptr noundef nonnull align 1 %1, i64 noundef %30, i1 noundef false) #8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %4, ptr noundef nonnull align 1 dereferenceable(64) %28, i64 noundef 64, i1 noundef false) #8
   call void @rb_Digest_RMD160_Transform(ptr noundef nonnull %0, ptr noundef nonnull %4)
   %31 = sub i64 %2, %30
   %32 = lshr i64 %31, 6
@@ -1576,12 +1583,12 @@ define void @rb_Digest_RMD160_Update(ptr noundef captures(none) %0, ptr noundef 
   %33 = shl i32 %.035, 6
   %34 = zext i32 %33 to i64
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %34
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %4, ptr noundef nonnull align 1 dereferenceable(64) %gep, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %4, ptr noundef nonnull align 1 dereferenceable(64) %gep, i64 noundef 64, i1 noundef false) #8
   call void @rb_Digest_RMD160_Transform(ptr noundef nonnull %0, ptr noundef nonnull %4)
   %35 = add i32 %.035, 1
   %36 = zext i32 %35 to i64
   %37 = icmp samesign ugt i64 %32, %36
-  br i1 %37, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !6
+  br i1 %37, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !12
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %38 = shl i32 %35, 6
@@ -1592,60 +1599,56 @@ define void @rb_Digest_RMD160_Update(ptr noundef captures(none) %0, ptr noundef 
   %.0.lcssa = phi i64 [ 0, %26 ], [ %39, %._crit_edge.loopexit ]
   %40 = trunc i64 %31 to i32
   %41 = and i32 %40, 63
-  store i32 %41, ptr %16, align 4
+  store i32 %41, ptr %16, align 4, !tbaa !10
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 %.0.lcssa
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 %30
   %44 = and i64 %31, 63
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %28, ptr align 1 %43, i64 %44, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %28, ptr noundef nonnull align 1 %43, i64 noundef %44, i1 noundef false) #8
   br label %45
 
 45:                                               ; preds = %._crit_edge, %21
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #8
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
-
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
-
-; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef i32 @rb_Digest_RMD160_Finish(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #3 {
+; Function Attrs: nofree nounwind sspstrong memory(argmem: readwrite) uwtable
+define noundef i32 @rb_Digest_RMD160_Finish(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #4 {
   %3 = alloca [16 x i32], align 16
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  %6 = load i32, ptr %5, align 4
+  %6 = load i32, ptr %5, align 4, !tbaa !10
   %7 = zext i32 %6 to i64
   %8 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 0, i64 %7
-  store i8 -128, ptr %8, align 1
-  %9 = load i32, ptr %5, align 4
+  store i8 -128, ptr %8, align 1, !tbaa !14
+  %9 = load i32, ptr %5, align 4, !tbaa !10
   %10 = zext i32 %9 to i64
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 1
   %13 = sub i32 63, %9
   %14 = zext i32 %13 to i64
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %12, i8 0, i64 %14, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %3, ptr noundef nonnull align 4 dereferenceable(64) %4, i64 64, i1 false)
-  %15 = load i32, ptr %5, align 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %12, i8 noundef 0, i64 noundef range(i64 0, 4294967296) %14, i1 noundef false) #8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %3, ptr noundef nonnull align 1 dereferenceable(64) %4, i64 noundef 64, i1 noundef false) #8
+  %15 = load i32, ptr %5, align 4, !tbaa !10
   %16 = icmp ugt i32 %15, 55
   br i1 %16, label %17, label %18
 
 17:                                               ; preds = %2
   call void @rb_Digest_RMD160_Transform(ptr noundef nonnull %0, ptr noundef nonnull %3)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %3, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %3, i8 noundef 0, i64 noundef 64, i1 noundef false) #8
   br label %18
 
 18:                                               ; preds = %17, %2
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %20 = load i32, ptr %19, align 4
+  %20 = load i32, ptr %19, align 4, !tbaa !6
   %21 = shl i32 %20, 3
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  store i32 %21, ptr %22, align 8
+  store i32 %21, ptr %22, align 8, !tbaa !6
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %24 = load i32, ptr %23, align 4
+  %24 = load i32, ptr %23, align 4, !tbaa !6
   %25 = tail call i32 @llvm.fshl.i32(i32 %24, i32 %20, i32 3)
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 60
-  store i32 %25, ptr %26, align 4
+  store i32 %25, ptr %26, align 4, !tbaa !6
   call void @rb_Digest_RMD160_Transform(ptr noundef nonnull %0, ptr noundef nonnull %3)
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.loopexit, label %.preheader
@@ -1654,46 +1657,55 @@ define noundef i32 @rb_Digest_RMD160_Finish(ptr noundef captures(none) %0, ptr n
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %18 ]
   %27 = lshr exact i64 %indvars.iv, 2
   %28 = getelementptr inbounds nuw [5 x i32], ptr %0, i64 0, i64 %27
-  %29 = load i32, ptr %28, align 4
+  %29 = load i32, ptr %28, align 4, !tbaa !6
   %30 = trunc i32 %29 to i8
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
-  store i8 %30, ptr %31, align 1
-  %32 = load i32, ptr %28, align 4
+  store i8 %30, ptr %31, align 1, !tbaa !14
+  %32 = load i32, ptr %28, align 4, !tbaa !6
   %33 = lshr i32 %32, 8
   %34 = trunc i32 %33 to i8
   %35 = or disjoint i64 %indvars.iv, 1
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 %35
-  store i8 %34, ptr %36, align 1
-  %37 = load i32, ptr %28, align 4
+  store i8 %34, ptr %36, align 1, !tbaa !14
+  %37 = load i32, ptr %28, align 4, !tbaa !6
   %38 = lshr i32 %37, 16
   %39 = trunc i32 %38 to i8
   %40 = or disjoint i64 %indvars.iv, 2
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 %40
-  store i8 %39, ptr %41, align 1
-  %42 = load i32, ptr %28, align 4
+  store i8 %39, ptr %41, align 1, !tbaa !14
+  %42 = load i32, ptr %28, align 4, !tbaa !6
   %43 = lshr i32 %42, 24
   %44 = trunc nuw i32 %43 to i8
   %45 = or disjoint i64 %indvars.iv, 3
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 %45
-  store i8 %44, ptr %46, align 1
+  store i8 %44, ptr %46, align 1, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %47 = icmp samesign ult i64 %indvars.iv, 16
-  br i1 %47, label %.preheader, label %.loopexit, !llvm.loop !8
+  br i1 %47, label %.preheader, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.preheader, %18
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #8
   ret i32 1
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #6
+declare i32 @llvm.fshl.i32(i32, i32, i32) #5
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
+
+attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nofree nounwind sspstrong memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
@@ -1702,7 +1714,14 @@ attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !2 = !{i32 1, !"wchar_size", i32 4}
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
-!5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!5 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"int", !8, i64 0}
+!8 = !{!"omnipotent char", !9, i64 0}
+!9 = !{!"Simple C/C++ TBAA"}
+!10 = !{!11, !7, i64 92}
+!11 = !{!"", !8, i64 0, !8, i64 20, !8, i64 28, !7, i64 92}
+!12 = distinct !{!12, !13}
+!13 = !{!"llvm.loop.mustprogress"}
+!14 = !{!8, !8, i64 0}
+!15 = distinct !{!15, !13}

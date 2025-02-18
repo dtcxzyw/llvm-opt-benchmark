@@ -8,22 +8,21 @@ target triple = "x86_64-pc-linux-gnu"
 @trans = internal constant [4 x [256 x i8]] [[256 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\02\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\FE", [256 x i8] c"\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FE", [256 x i8] c"\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE", [256 x i8] c"\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\FE"], align 16
 @EncLen_EUCTW = internal constant [256 x i32] [i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 4, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 1], align 16
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define weak i64 @ruby_abi_version() #0 {
   ret i64 0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define void @Init_euc_tw() #0 {
-  %1 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr @encoding_EUC_TW, i32 0, i32 1
-  %2 = load ptr, ptr %1, align 8
-  %3 = call i32 @rb_enc_register(ptr noundef %2, ptr noundef @encoding_EUC_TW)
+  %1 = load ptr, ptr getelementptr inbounds nuw (%struct.OnigEncodingTypeST, ptr @encoding_EUC_TW, i32 0, i32 1), align 8, !tbaa !6
+  %2 = call i32 @rb_enc_register(ptr noundef %1, ptr noundef @encoding_EUC_TW)
   ret void
 }
 
 declare i32 @rb_enc_register(ptr noundef, ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @euctw_mbc_enc_len(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
@@ -31,191 +30,203 @@ define internal i32 @euctw_mbc_enc_len(ptr noundef %0, ptr noundef %1, ptr nound
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  %10 = load ptr, ptr %5, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i32 1
-  store ptr %11, ptr %5, align 8
-  %12 = load i8, ptr %10, align 1
-  %13 = zext i8 %12 to i32
-  store i32 %13, ptr %8, align 4
-  %14 = load i32, ptr %8, align 4
-  %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds [256 x i8], ptr @trans, i64 0, i64 %15
-  %17 = load i8, ptr %16, align 1
-  %18 = sext i8 %17 to i32
-  store i32 %18, ptr %9, align 4
-  %19 = load i32, ptr %9, align 4
-  %20 = icmp slt i32 %19, 0
-  br i1 %20, label %21, label %25
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !13
+  store ptr %1, ptr %6, align 8, !tbaa !13
+  store ptr %2, ptr %7, align 8, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #3
+  %11 = load ptr, ptr %5, align 8, !tbaa !13
+  %12 = getelementptr inbounds nuw i8, ptr %11, i32 1
+  store ptr %12, ptr %5, align 8, !tbaa !13
+  %13 = load i8, ptr %11, align 1, !tbaa !16
+  %14 = zext i8 %13 to i32
+  store i32 %14, ptr %8, align 4, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
+  %15 = load i32, ptr %8, align 4, !tbaa !17
+  %16 = sext i32 %15 to i64
+  %17 = getelementptr inbounds [256 x i8], ptr @trans, i64 0, i64 %16
+  %18 = load i8, ptr %17, align 1, !tbaa !16
+  %19 = sext i8 %18 to i32
+  store i32 %19, ptr %9, align 4, !tbaa !17
+  %20 = load i32, ptr %9, align 4, !tbaa !17
+  %21 = icmp slt i32 %20, 0
+  br i1 %21, label %22, label %26
 
-21:                                               ; preds = %3
-  %22 = load i32, ptr %9, align 4
-  %23 = icmp eq i32 %22, -1
-  %24 = select i1 %23, i32 1, i32 -1
-  store i32 %24, ptr %4, align 4
-  br label %94
+22:                                               ; preds = %3
+  %23 = load i32, ptr %9, align 4, !tbaa !17
+  %24 = icmp eq i32 %23, -1
+  %25 = select i1 %24, i32 1, i32 -1
+  store i32 %25, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %95
 
-25:                                               ; preds = %3
-  %26 = load ptr, ptr %5, align 8
-  %27 = load ptr, ptr %6, align 8
-  %28 = icmp eq ptr %26, %27
-  br i1 %28, label %29, label %36
+26:                                               ; preds = %3
+  %27 = load ptr, ptr %5, align 8, !tbaa !13
+  %28 = load ptr, ptr %6, align 8, !tbaa !13
+  %29 = icmp eq ptr %27, %28
+  br i1 %29, label %30, label %37
 
-29:                                               ; preds = %25
-  %30 = load i32, ptr %8, align 4
-  %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds [256 x i32], ptr @EncLen_EUCTW, i64 0, i64 %31
-  %33 = load i32, ptr %32, align 4
-  %34 = sub nsw i32 %33, 1
-  %35 = sub nsw i32 -1, %34
-  store i32 %35, ptr %4, align 4
-  br label %94
+30:                                               ; preds = %26
+  %31 = load i32, ptr %8, align 4, !tbaa !17
+  %32 = sext i32 %31 to i64
+  %33 = getelementptr inbounds [256 x i32], ptr @EncLen_EUCTW, i64 0, i64 %32
+  %34 = load i32, ptr %33, align 4, !tbaa !17
+  %35 = sub nsw i32 %34, 1
+  %36 = sub nsw i32 -1, %35
+  store i32 %36, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %95
 
-36:                                               ; preds = %25
-  %37 = load i32, ptr %9, align 4
-  %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds [4 x [256 x i8]], ptr @trans, i64 0, i64 %38
-  %40 = load ptr, ptr %5, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i32 1
-  store ptr %41, ptr %5, align 8
-  %42 = load i8, ptr %40, align 1
-  %43 = zext i8 %42 to i64
-  %44 = getelementptr inbounds [256 x i8], ptr %39, i64 0, i64 %43
-  %45 = load i8, ptr %44, align 1
-  %46 = sext i8 %45 to i32
-  store i32 %46, ptr %9, align 4
-  %47 = load i32, ptr %9, align 4
-  %48 = icmp slt i32 %47, 0
-  br i1 %48, label %49, label %53
+37:                                               ; preds = %26
+  %38 = load i32, ptr %9, align 4, !tbaa !17
+  %39 = sext i32 %38 to i64
+  %40 = getelementptr inbounds [4 x [256 x i8]], ptr @trans, i64 0, i64 %39
+  %41 = load ptr, ptr %5, align 8, !tbaa !13
+  %42 = getelementptr inbounds nuw i8, ptr %41, i32 1
+  store ptr %42, ptr %5, align 8, !tbaa !13
+  %43 = load i8, ptr %41, align 1, !tbaa !16
+  %44 = zext i8 %43 to i64
+  %45 = getelementptr inbounds nuw [256 x i8], ptr %40, i64 0, i64 %44
+  %46 = load i8, ptr %45, align 1, !tbaa !16
+  %47 = sext i8 %46 to i32
+  store i32 %47, ptr %9, align 4, !tbaa !17
+  %48 = load i32, ptr %9, align 4, !tbaa !17
+  %49 = icmp slt i32 %48, 0
+  br i1 %49, label %50, label %54
 
-49:                                               ; preds = %36
-  %50 = load i32, ptr %9, align 4
-  %51 = icmp eq i32 %50, -1
-  %52 = select i1 %51, i32 2, i32 -1
-  store i32 %52, ptr %4, align 4
-  br label %94
+50:                                               ; preds = %37
+  %51 = load i32, ptr %9, align 4, !tbaa !17
+  %52 = icmp eq i32 %51, -1
+  %53 = select i1 %52, i32 2, i32 -1
+  store i32 %53, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %95
 
-53:                                               ; preds = %36
-  %54 = load ptr, ptr %5, align 8
-  %55 = load ptr, ptr %6, align 8
-  %56 = icmp eq ptr %54, %55
-  br i1 %56, label %57, label %58
+54:                                               ; preds = %37
+  %55 = load ptr, ptr %5, align 8, !tbaa !13
+  %56 = load ptr, ptr %6, align 8, !tbaa !13
+  %57 = icmp eq ptr %55, %56
+  br i1 %57, label %58, label %59
 
-57:                                               ; preds = %53
+58:                                               ; preds = %54
   store i32 -3, ptr %4, align 4
-  br label %94
+  store i32 1, ptr %10, align 4
+  br label %95
 
-58:                                               ; preds = %53
-  %59 = load i32, ptr %9, align 4
-  %60 = sext i32 %59 to i64
-  %61 = getelementptr inbounds [4 x [256 x i8]], ptr @trans, i64 0, i64 %60
-  %62 = load ptr, ptr %5, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i32 1
-  store ptr %63, ptr %5, align 8
-  %64 = load i8, ptr %62, align 1
-  %65 = zext i8 %64 to i64
-  %66 = getelementptr inbounds [256 x i8], ptr %61, i64 0, i64 %65
-  %67 = load i8, ptr %66, align 1
-  %68 = sext i8 %67 to i32
-  store i32 %68, ptr %9, align 4
-  %69 = load i32, ptr %9, align 4
-  %70 = icmp slt i32 %69, 0
-  br i1 %70, label %71, label %75
+59:                                               ; preds = %54
+  %60 = load i32, ptr %9, align 4, !tbaa !17
+  %61 = sext i32 %60 to i64
+  %62 = getelementptr inbounds [4 x [256 x i8]], ptr @trans, i64 0, i64 %61
+  %63 = load ptr, ptr %5, align 8, !tbaa !13
+  %64 = getelementptr inbounds nuw i8, ptr %63, i32 1
+  store ptr %64, ptr %5, align 8, !tbaa !13
+  %65 = load i8, ptr %63, align 1, !tbaa !16
+  %66 = zext i8 %65 to i64
+  %67 = getelementptr inbounds nuw [256 x i8], ptr %62, i64 0, i64 %66
+  %68 = load i8, ptr %67, align 1, !tbaa !16
+  %69 = sext i8 %68 to i32
+  store i32 %69, ptr %9, align 4, !tbaa !17
+  %70 = load i32, ptr %9, align 4, !tbaa !17
+  %71 = icmp slt i32 %70, 0
+  br i1 %71, label %72, label %76
 
-71:                                               ; preds = %58
-  %72 = load i32, ptr %9, align 4
-  %73 = icmp eq i32 %72, -1
-  %74 = select i1 %73, i32 3, i32 -1
-  store i32 %74, ptr %4, align 4
-  br label %94
+72:                                               ; preds = %59
+  %73 = load i32, ptr %9, align 4, !tbaa !17
+  %74 = icmp eq i32 %73, -1
+  %75 = select i1 %74, i32 3, i32 -1
+  store i32 %75, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %95
 
-75:                                               ; preds = %58
-  %76 = load ptr, ptr %5, align 8
-  %77 = load ptr, ptr %6, align 8
-  %78 = icmp eq ptr %76, %77
-  br i1 %78, label %79, label %80
+76:                                               ; preds = %59
+  %77 = load ptr, ptr %5, align 8, !tbaa !13
+  %78 = load ptr, ptr %6, align 8, !tbaa !13
+  %79 = icmp eq ptr %77, %78
+  br i1 %79, label %80, label %81
 
-79:                                               ; preds = %75
+80:                                               ; preds = %76
   store i32 -2, ptr %4, align 4
-  br label %94
+  store i32 1, ptr %10, align 4
+  br label %95
 
-80:                                               ; preds = %75
-  %81 = load i32, ptr %9, align 4
-  %82 = sext i32 %81 to i64
-  %83 = getelementptr inbounds [4 x [256 x i8]], ptr @trans, i64 0, i64 %82
-  %84 = load ptr, ptr %5, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i32 1
-  store ptr %85, ptr %5, align 8
-  %86 = load i8, ptr %84, align 1
-  %87 = zext i8 %86 to i64
-  %88 = getelementptr inbounds [256 x i8], ptr %83, i64 0, i64 %87
-  %89 = load i8, ptr %88, align 1
-  %90 = sext i8 %89 to i32
-  store i32 %90, ptr %9, align 4
-  %91 = load i32, ptr %9, align 4
-  %92 = icmp eq i32 %91, -1
-  %93 = select i1 %92, i32 4, i32 -1
-  store i32 %93, ptr %4, align 4
-  br label %94
+81:                                               ; preds = %76
+  %82 = load i32, ptr %9, align 4, !tbaa !17
+  %83 = sext i32 %82 to i64
+  %84 = getelementptr inbounds [4 x [256 x i8]], ptr @trans, i64 0, i64 %83
+  %85 = load ptr, ptr %5, align 8, !tbaa !13
+  %86 = getelementptr inbounds nuw i8, ptr %85, i32 1
+  store ptr %86, ptr %5, align 8, !tbaa !13
+  %87 = load i8, ptr %85, align 1, !tbaa !16
+  %88 = zext i8 %87 to i64
+  %89 = getelementptr inbounds nuw [256 x i8], ptr %84, i64 0, i64 %88
+  %90 = load i8, ptr %89, align 1, !tbaa !16
+  %91 = sext i8 %90 to i32
+  store i32 %91, ptr %9, align 4, !tbaa !17
+  %92 = load i32, ptr %9, align 4, !tbaa !17
+  %93 = icmp eq i32 %92, -1
+  %94 = select i1 %93, i32 4, i32 -1
+  store i32 %94, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %95
 
-94:                                               ; preds = %80, %79, %71, %57, %49, %29, %21
-  %95 = load i32, ptr %4, align 4
-  ret i32 %95
+95:                                               ; preds = %81, %80, %72, %58, %50, %30, %22
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #3
+  %96 = load i32, ptr %4, align 4
+  ret i32 %96
 }
 
 declare i32 @onigenc_is_mbc_newline_0x0a(ptr noundef, ptr noundef, ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @euctw_mbc_to_code(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %6, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = load ptr, ptr %5, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !13
+  store ptr %1, ptr %5, align 8, !tbaa !13
+  store ptr %2, ptr %6, align 8, !tbaa !14
+  %7 = load ptr, ptr %6, align 8, !tbaa !14
+  %8 = load ptr, ptr %4, align 8, !tbaa !13
+  %9 = load ptr, ptr %5, align 8, !tbaa !13
   %10 = call i32 @onigenc_mbn_mbc_to_code(ptr noundef %7, ptr noundef %8, ptr noundef %9)
   ret i32 %10
 }
 
 declare i32 @onigenc_mb4_code_to_mbclen(i32 noundef, ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @euctw_code_to_mbc(i32 noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store i32 %0, ptr %4, align 4
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %6, align 8
-  %8 = load i32, ptr %4, align 4
-  %9 = load ptr, ptr %5, align 8
+  store i32 %0, ptr %4, align 4, !tbaa !17
+  store ptr %1, ptr %5, align 8, !tbaa !13
+  store ptr %2, ptr %6, align 8, !tbaa !14
+  %7 = load ptr, ptr %6, align 8, !tbaa !14
+  %8 = load i32, ptr %4, align 4, !tbaa !17
+  %9 = load ptr, ptr %5, align 8, !tbaa !13
   %10 = call i32 @onigenc_mb4_code_to_mbc(ptr noundef %7, i32 noundef %8, ptr noundef %9)
   ret i32 %10
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @euctw_mbc_case_fold(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
-  store i32 %0, ptr %6, align 4
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store ptr %3, ptr %9, align 8
-  store ptr %4, ptr %10, align 8
-  %11 = load ptr, ptr %10, align 8
-  %12 = load i32, ptr %6, align 4
-  %13 = load ptr, ptr %7, align 8
-  %14 = load ptr, ptr %8, align 8
-  %15 = load ptr, ptr %9, align 8
+  store i32 %0, ptr %6, align 4, !tbaa !17
+  store ptr %1, ptr %7, align 8, !tbaa !18
+  store ptr %2, ptr %8, align 8, !tbaa !13
+  store ptr %3, ptr %9, align 8, !tbaa !13
+  store ptr %4, ptr %10, align 8, !tbaa !14
+  %11 = load ptr, ptr %10, align 8, !tbaa !14
+  %12 = load i32, ptr %6, align 4, !tbaa !17
+  %13 = load ptr, ptr %7, align 8, !tbaa !18
+  %14 = load ptr, ptr %8, align 8, !tbaa !13
+  %15 = load ptr, ptr %9, align 8, !tbaa !13
   %16 = call i32 @onigenc_mbn_mbc_case_fold(ptr noundef %11, i32 noundef %12, ptr noundef %13, ptr noundef %14, ptr noundef %15)
   ret i32 %16
 }
@@ -226,24 +237,24 @@ declare i32 @onigenc_ascii_get_case_fold_codes_by_str(i32 noundef, ptr noundef, 
 
 declare i32 @onigenc_minimum_property_name_to_ctype(ptr noundef, ptr noundef, ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @euctw_is_code_ctype(i32 noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
-  store i32 %0, ptr %4, align 4
-  store i32 %1, ptr %5, align 4
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %6, align 8
-  %8 = load i32, ptr %4, align 4
-  %9 = load i32, ptr %5, align 4
+  store i32 %0, ptr %4, align 4, !tbaa !17
+  store i32 %1, ptr %5, align 4, !tbaa !17
+  store ptr %2, ptr %6, align 8, !tbaa !14
+  %7 = load ptr, ptr %6, align 8, !tbaa !14
+  %8 = load i32, ptr %4, align 4, !tbaa !17
+  %9 = load i32, ptr %5, align 4, !tbaa !17
   %10 = call i32 @onigenc_mb4_is_code_ctype(ptr noundef %7, i32 noundef %8, i32 noundef %9)
   ret i32 %10
 }
 
 declare i32 @onigenc_not_support_get_ctype_code_range(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define internal ptr @euctw_left_adjust_char_head(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -252,157 +263,176 @@ define internal ptr @euctw_left_adjust_char_head(ptr noundef %0, ptr noundef %1,
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = alloca i32, align 4
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store ptr %3, ptr %9, align 8
-  %12 = load ptr, ptr %7, align 8
-  %13 = load ptr, ptr %6, align 8
-  %14 = icmp ule ptr %12, %13
-  br i1 %14, label %15, label %17
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !13
+  store ptr %1, ptr %7, align 8, !tbaa !13
+  store ptr %2, ptr %8, align 8, !tbaa !13
+  store ptr %3, ptr %9, align 8, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #3
+  %13 = load ptr, ptr %7, align 8, !tbaa !13
+  %14 = load ptr, ptr %6, align 8, !tbaa !13
+  %15 = icmp ule ptr %13, %14
+  br i1 %15, label %16, label %18
 
-15:                                               ; preds = %4
-  %16 = load ptr, ptr %7, align 8
-  store ptr %16, ptr %5, align 8
-  br label %83
+16:                                               ; preds = %4
+  %17 = load ptr, ptr %7, align 8, !tbaa !13
+  store ptr %17, ptr %5, align 8
+  store i32 1, ptr %12, align 4
+  br label %84
 
-17:                                               ; preds = %4
-  %18 = load ptr, ptr %7, align 8
-  store ptr %18, ptr %10, align 8
-  br label %19
+18:                                               ; preds = %4
+  %19 = load ptr, ptr %7, align 8, !tbaa !13
+  store ptr %19, ptr %10, align 8, !tbaa !13
+  br label %20
 
-19:                                               ; preds = %33, %17
-  %20 = load ptr, ptr %10, align 8
-  %21 = load i8, ptr %20, align 1
-  %22 = zext i8 %21 to i32
-  %23 = sub nsw i32 %22, 161
-  %24 = trunc i32 %23 to i8
-  %25 = zext i8 %24 to i32
-  %26 = icmp sgt i32 %25, 93
-  br i1 %26, label %31, label %27
+20:                                               ; preds = %34, %18
+  %21 = load ptr, ptr %10, align 8, !tbaa !13
+  %22 = load i8, ptr %21, align 1, !tbaa !16
+  %23 = zext i8 %22 to i32
+  %24 = sub nsw i32 %23, 161
+  %25 = trunc i32 %24 to i8
+  %26 = zext i8 %25 to i32
+  %27 = icmp sgt i32 %26, 93
+  br i1 %27, label %32, label %28
 
-27:                                               ; preds = %19
-  %28 = load ptr, ptr %10, align 8
-  %29 = load ptr, ptr %6, align 8
-  %30 = icmp ugt ptr %28, %29
-  br label %31
+28:                                               ; preds = %20
+  %29 = load ptr, ptr %10, align 8, !tbaa !13
+  %30 = load ptr, ptr %6, align 8, !tbaa !13
+  %31 = icmp ugt ptr %29, %30
+  br label %32
 
-31:                                               ; preds = %27, %19
-  %32 = phi i1 [ false, %19 ], [ %30, %27 ]
-  br i1 %32, label %33, label %36
+32:                                               ; preds = %28, %20
+  %33 = phi i1 [ false, %20 ], [ %31, %28 ]
+  br i1 %33, label %34, label %37
 
-33:                                               ; preds = %31
-  %34 = load ptr, ptr %10, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i32 -1
-  store ptr %35, ptr %10, align 8
-  br label %19, !llvm.loop !6
+34:                                               ; preds = %32
+  %35 = load ptr, ptr %10, align 8, !tbaa !13
+  %36 = getelementptr inbounds i8, ptr %35, i32 -1
+  store ptr %36, ptr %10, align 8, !tbaa !13
+  br label %20, !llvm.loop !20
 
-36:                                               ; preds = %31
-  %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %37, i32 0, i32 2
-  %39 = load i32, ptr %38, align 8
-  %40 = load ptr, ptr %9, align 8
-  %41 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %40, i32 0, i32 3
-  %42 = load i32, ptr %41, align 4
-  %43 = icmp eq i32 %39, %42
-  br i1 %43, label %44, label %55
+37:                                               ; preds = %32
+  %38 = load ptr, ptr %9, align 8, !tbaa !14
+  %39 = getelementptr inbounds nuw %struct.OnigEncodingTypeST, ptr %38, i32 0, i32 2
+  %40 = load i32, ptr %39, align 8, !tbaa !22
+  %41 = load ptr, ptr %9, align 8, !tbaa !14
+  %42 = getelementptr inbounds nuw %struct.OnigEncodingTypeST, ptr %41, i32 0, i32 3
+  %43 = load i32, ptr %42, align 4, !tbaa !23
+  %44 = icmp eq i32 %40, %43
+  br i1 %44, label %45, label %56
 
-44:                                               ; preds = %36
-  %45 = load ptr, ptr %10, align 8
-  %46 = load ptr, ptr %8, align 8
-  %47 = icmp ult ptr %45, %46
-  br i1 %47, label %48, label %52
+45:                                               ; preds = %37
+  %46 = load ptr, ptr %10, align 8, !tbaa !13
+  %47 = load ptr, ptr %8, align 8, !tbaa !13
+  %48 = icmp ult ptr %46, %47
+  br i1 %48, label %49, label %53
 
-48:                                               ; preds = %44
-  %49 = load ptr, ptr %9, align 8
-  %50 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %49, i32 0, i32 3
-  %51 = load i32, ptr %50, align 4
-  br label %53
+49:                                               ; preds = %45
+  %50 = load ptr, ptr %9, align 8, !tbaa !14
+  %51 = getelementptr inbounds nuw %struct.OnigEncodingTypeST, ptr %50, i32 0, i32 3
+  %52 = load i32, ptr %51, align 4, !tbaa !23
+  br label %54
 
-52:                                               ; preds = %44
-  br label %53
+53:                                               ; preds = %45
+  br label %54
 
-53:                                               ; preds = %52, %48
-  %54 = phi i32 [ %51, %48 ], [ 0, %52 ]
-  br label %60
+54:                                               ; preds = %53, %49
+  %55 = phi i32 [ %52, %49 ], [ 0, %53 ]
+  br label %61
 
-55:                                               ; preds = %36
-  %56 = load ptr, ptr %10, align 8
-  %57 = load ptr, ptr %8, align 8
-  %58 = load ptr, ptr %9, align 8
-  %59 = call i32 @onigenc_mbclen(ptr noundef %56, ptr noundef %57, ptr noundef %58)
-  br label %60
+56:                                               ; preds = %37
+  %57 = load ptr, ptr %10, align 8, !tbaa !13
+  %58 = load ptr, ptr %8, align 8, !tbaa !13
+  %59 = load ptr, ptr %9, align 8, !tbaa !14
+  %60 = call i32 @onigenc_mbclen(ptr noundef %57, ptr noundef %58, ptr noundef %59)
+  br label %61
 
-60:                                               ; preds = %55, %53
-  %61 = phi i32 [ %54, %53 ], [ %59, %55 ]
-  store i32 %61, ptr %11, align 4
-  %62 = load ptr, ptr %10, align 8
-  %63 = load i32, ptr %11, align 4
-  %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds i8, ptr %62, i64 %64
-  %66 = load ptr, ptr %7, align 8
-  %67 = icmp ugt ptr %65, %66
-  br i1 %67, label %68, label %70
+61:                                               ; preds = %56, %54
+  %62 = phi i32 [ %55, %54 ], [ %60, %56 ]
+  store i32 %62, ptr %11, align 4, !tbaa !17
+  %63 = load ptr, ptr %10, align 8, !tbaa !13
+  %64 = load i32, ptr %11, align 4, !tbaa !17
+  %65 = sext i32 %64 to i64
+  %66 = getelementptr inbounds i8, ptr %63, i64 %65
+  %67 = load ptr, ptr %7, align 8, !tbaa !13
+  %68 = icmp ugt ptr %66, %67
+  br i1 %68, label %69, label %71
 
-68:                                               ; preds = %60
-  %69 = load ptr, ptr %10, align 8
-  store ptr %69, ptr %5, align 8
-  br label %83
+69:                                               ; preds = %61
+  %70 = load ptr, ptr %10, align 8, !tbaa !13
+  store ptr %70, ptr %5, align 8
+  store i32 1, ptr %12, align 4
+  br label %84
 
-70:                                               ; preds = %60
-  %71 = load i32, ptr %11, align 4
-  %72 = load ptr, ptr %10, align 8
-  %73 = sext i32 %71 to i64
-  %74 = getelementptr inbounds i8, ptr %72, i64 %73
-  store ptr %74, ptr %10, align 8
-  %75 = load ptr, ptr %10, align 8
-  %76 = load ptr, ptr %7, align 8
-  %77 = load ptr, ptr %10, align 8
-  %78 = ptrtoint ptr %76 to i64
+71:                                               ; preds = %61
+  %72 = load i32, ptr %11, align 4, !tbaa !17
+  %73 = load ptr, ptr %10, align 8, !tbaa !13
+  %74 = sext i32 %72 to i64
+  %75 = getelementptr inbounds i8, ptr %73, i64 %74
+  store ptr %75, ptr %10, align 8, !tbaa !13
+  %76 = load ptr, ptr %10, align 8, !tbaa !13
+  %77 = load ptr, ptr %7, align 8, !tbaa !13
+  %78 = load ptr, ptr %10, align 8, !tbaa !13
   %79 = ptrtoint ptr %77 to i64
-  %80 = sub i64 %78, %79
-  %81 = and i64 %80, -2
-  %82 = getelementptr inbounds i8, ptr %75, i64 %81
-  store ptr %82, ptr %5, align 8
-  br label %83
+  %80 = ptrtoint ptr %78 to i64
+  %81 = sub i64 %79, %80
+  %82 = and i64 %81, -2
+  %83 = getelementptr inbounds i8, ptr %76, i64 %82
+  store ptr %83, ptr %5, align 8
+  store i32 1, ptr %12, align 4
+  br label %84
 
-83:                                               ; preds = %70, %68, %15
-  %84 = load ptr, ptr %5, align 8
-  ret ptr %84
+84:                                               ; preds = %71, %69, %16
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #3
+  %85 = load ptr, ptr %5, align 8
+  ret ptr %85
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @euctw_is_allowed_reverse_match(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca i8, align 1
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  %9 = load ptr, ptr %5, align 8
-  %10 = load i8, ptr %9, align 1
-  store i8 %10, ptr %8, align 1
-  %11 = load i8, ptr %8, align 1
-  %12 = zext i8 %11 to i32
-  %13 = icmp sle i32 %12, 126
-  br i1 %13, label %14, label %15
-
-14:                                               ; preds = %3
-  store i32 1, ptr %4, align 4
-  br label %16
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !13
+  store ptr %1, ptr %6, align 8, !tbaa !13
+  store ptr %2, ptr %7, align 8, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 1, ptr %8) #3
+  %10 = load ptr, ptr %5, align 8, !tbaa !13
+  %11 = load i8, ptr %10, align 1, !tbaa !16
+  store i8 %11, ptr %8, align 1, !tbaa !16
+  %12 = load i8, ptr %8, align 1, !tbaa !16
+  %13 = zext i8 %12 to i32
+  %14 = icmp sle i32 %13, 126
+  br i1 %14, label %15, label %16
 
 15:                                               ; preds = %3
-  store i32 0, ptr %4, align 4
-  br label %16
+  store i32 1, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %17
 
-16:                                               ; preds = %15, %14
-  %17 = load i32, ptr %4, align 4
-  ret i32 %17
+16:                                               ; preds = %3
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %17
+
+17:                                               ; preds = %16, %15
+  call void @llvm.lifetime.end.p0(i64 1, ptr %8) #3
+  %18 = load i32, ptr %4, align 4
+  ret i32 %18
 }
 
 declare i32 @onigenc_ascii_only_case_map(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare i32 @onigenc_mbn_mbc_to_code(ptr noundef, ptr noundef, ptr noundef) #1
 
@@ -414,8 +444,10 @@ declare i32 @onigenc_mb4_is_code_ctype(ptr noundef, i32 noundef, i32 noundef) #1
 
 declare i32 @onigenc_mbclen(ptr noundef, ptr noundef, ptr noundef) #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
@@ -424,6 +456,22 @@ attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 !2 = !{i32 1, !"wchar_size", i32 4}
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
-!5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
+!5 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!6 = !{!7, !11, i64 8}
+!7 = !{!"OnigEncodingTypeST", !8, i64 0, !11, i64 8, !12, i64 16, !12, i64 20, !8, i64 24, !8, i64 32, !8, i64 40, !8, i64 48, !8, i64 56, !8, i64 64, !8, i64 72, !8, i64 80, !8, i64 88, !8, i64 96, !8, i64 104, !8, i64 112, !8, i64 120, !12, i64 128, !12, i64 132}
+!8 = !{!"any pointer", !9, i64 0}
+!9 = !{!"omnipotent char", !10, i64 0}
+!10 = !{!"Simple C/C++ TBAA"}
+!11 = !{!"p1 omnipotent char", !8, i64 0}
+!12 = !{!"int", !9, i64 0}
+!13 = !{!11, !11, i64 0}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"p1 _ZTS18OnigEncodingTypeST", !8, i64 0}
+!16 = !{!9, !9, i64 0}
+!17 = !{!12, !12, i64 0}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"p2 omnipotent char", !8, i64 0}
+!20 = distinct !{!20, !21}
+!21 = !{!"llvm.loop.mustprogress"}
+!22 = !{!7, !12, i64 16}
+!23 = !{!7, !12, i64 20}

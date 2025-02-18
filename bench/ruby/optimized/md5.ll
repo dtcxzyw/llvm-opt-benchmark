@@ -5,58 +5,58 @@ target triple = "x86_64-pc-linux-gnu"
 
 @rb_Digest_MD5_Finish.pad = internal constant <{ i8, [63 x i8] }> <{ i8 -128, [63 x i8] zeroinitializer }>, align 16
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define weak i64 @ruby_abi_version() local_unnamed_addr #0 {
   ret i64 0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define noundef i32 @rb_Digest_MD5_Init(ptr noundef writeonly captures(none) initializes((0, 24)) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %2, align 4
-  store i32 0, ptr %0, align 4
+  store i32 0, ptr %2, align 4, !tbaa !6
+  store i32 0, ptr %0, align 4, !tbaa !6
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 1732584193, ptr %3, align 4
+  store i32 1732584193, ptr %3, align 4, !tbaa !6
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 -271733879, ptr %4, align 4
+  store i32 -271733879, ptr %4, align 4, !tbaa !6
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 -1732584194, ptr %5, align 4
+  store i32 -1732584194, ptr %5, align 4, !tbaa !6
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 271733878, ptr %6, align 4
+  store i32 271733878, ptr %6, align 4, !tbaa !6
   ret i32 1
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @rb_Digest_MD5_Update(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #2 {
-  %4 = load i32, ptr %0, align 4
+  %4 = load i32, ptr %0, align 4, !tbaa !6
   %5 = lshr i32 %4, 3
   %6 = and i32 %5, 63
   %7 = zext nneg i32 %6 to i64
   %8 = icmp eq i64 %2, 0
-  br i1 %8, label %40, label %9
+  br i1 %8, label %39, label %9
 
 9:                                                ; preds = %3
   %.tr = trunc i64 %2 to i32
   %10 = shl i32 %.tr, 3
   %11 = lshr i64 %2, 29
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %13 = load i32, ptr %12, align 4
+  %13 = load i32, ptr %12, align 4, !tbaa !6
   %14 = trunc i64 %11 to i32
   %15 = add i32 %13, %14
-  store i32 %15, ptr %12, align 4
+  store i32 %15, ptr %12, align 4, !tbaa !6
   %16 = add i32 %4, %10
-  store i32 %16, ptr %0, align 4
+  store i32 %16, ptr %0, align 4, !tbaa !6
   %17 = icmp ult i32 %16, %10
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %9
   %19 = add i32 %15, 1
-  store i32 %19, ptr %12, align 4
+  store i32 %19, ptr %12, align 4, !tbaa !6
   br label %20
 
 20:                                               ; preds = %18, %9
   %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %33, label %21
+  br i1 %.not, label %32, label %21
 
 21:                                               ; preds = %20
   %22 = add i64 %2, %7
@@ -65,91 +65,91 @@ define void @rb_Digest_MD5_Update(ptr noundef %0, ptr noundef %1, i64 noundef %2
   %25 = select i1 %23, i64 %24, i64 %2
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 %7
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr align 1 %1, i64 %25, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %27, ptr noundef nonnull align 1 %1, i64 noundef range(i64 1, 0) %25, i1 noundef false) #7
   %28 = add i64 %25, %7
-  %29 = icmp ult i64 %28, 64
-  br i1 %29, label %40, label %30
+  %29 = icmp ugt i64 %28, 63
+  br i1 %29, label %.thread, label %39
 
-30:                                               ; preds = %21
-  %31 = getelementptr inbounds i8, ptr %1, i64 %25
-  %32 = sub i64 %2, %25
+.thread:                                          ; preds = %21
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 %25
+  %31 = sub i64 %2, %25
   tail call fastcc void @md5_process(ptr noundef nonnull %0, ptr noundef nonnull %26)
-  br label %33
+  br label %32
 
-33:                                               ; preds = %30, %20
-  %.037 = phi i64 [ %32, %30 ], [ %2, %20 ]
-  %.0 = phi ptr [ %31, %30 ], [ %1, %20 ]
-  %34 = icmp ugt i64 %.037, 63
-  br i1 %34, label %.lr.ph, label %._crit_edge
+32:                                               ; preds = %.thread, %20
+  %.039 = phi i64 [ %2, %20 ], [ %31, %.thread ]
+  %.0 = phi ptr [ %1, %20 ], [ %30, %.thread ]
+  %33 = icmp ugt i64 %.039, 63
+  br i1 %33, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %33, %.lr.ph
-  %.143 = phi ptr [ %35, %.lr.ph ], [ %.0, %33 ]
-  %.13842 = phi i64 [ %36, %.lr.ph ], [ %.037, %33 ]
-  tail call fastcc void @md5_process(ptr noundef nonnull %0, ptr noundef %.143)
-  %35 = getelementptr inbounds nuw i8, ptr %.143, i64 64
-  %36 = add i64 %.13842, -64
-  %37 = icmp ugt i64 %36, 63
-  br i1 %37, label %.lr.ph, label %._crit_edge, !llvm.loop !6
+.lr.ph:                                           ; preds = %32, %.lr.ph
+  %.248 = phi ptr [ %34, %.lr.ph ], [ %.0, %32 ]
+  %.24147 = phi i64 [ %35, %.lr.ph ], [ %.039, %32 ]
+  tail call fastcc void @md5_process(ptr noundef nonnull %0, ptr noundef %.248)
+  %34 = getelementptr inbounds nuw i8, ptr %.248, i64 64
+  %35 = add i64 %.24147, -64
+  %36 = icmp ugt i64 %35, 63
+  br i1 %36, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
-._crit_edge:                                      ; preds = %.lr.ph, %33
-  %.138.lcssa = phi i64 [ %.037, %33 ], [ %36, %.lr.ph ]
-  %.1.lcssa = phi ptr [ %.0, %33 ], [ %35, %.lr.ph ]
-  %.not41 = icmp eq i64 %.138.lcssa, 0
-  br i1 %.not41, label %40, label %38
+._crit_edge:                                      ; preds = %.lr.ph, %32
+  %.241.lcssa = phi i64 [ %.039, %32 ], [ %35, %.lr.ph ]
+  %.2.lcssa = phi ptr [ %.0, %32 ], [ %34, %.lr.ph ]
+  %.not44 = icmp eq i64 %.241.lcssa, 0
+  br i1 %.not44, label %39, label %37
 
-38:                                               ; preds = %._crit_edge
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %39, ptr align 1 %.1.lcssa, i64 %.138.lcssa, i1 false)
-  br label %40
+37:                                               ; preds = %._crit_edge
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %38, ptr noundef nonnull align 1 %.2.lcssa, i64 noundef range(i64 1, 0) %.241.lcssa, i1 noundef false) #7
+  br label %39
 
-40:                                               ; preds = %21, %3, %38, %._crit_edge
+39:                                               ; preds = %21, %._crit_edge, %37, %3
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @md5_process(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load i32, ptr %3, align 4
+  %4 = load i32, ptr %3, align 4, !tbaa !6
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %6 = load i32, ptr %5, align 4
+  %6 = load i32, ptr %5, align 4, !tbaa !6
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load i32, ptr %7, align 4
+  %8 = load i32, ptr %7, align 4, !tbaa !6
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %10 = load i32, ptr %9, align 4
-  %.0.sroa.gep600 = getelementptr inbounds nuw i8, ptr %1, i64 60
-  %.0.sroa.phi598.sroa.speculated = load i32, ptr %.0.sroa.gep600, align 1
-  %.0.sroa.gep597 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %.0.sroa.phi595.sroa.speculated = load i32, ptr %.0.sroa.gep597, align 1
-  %.0.sroa.gep594 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %.0.sroa.phi592.sroa.speculated = load i32, ptr %.0.sroa.gep594, align 1
-  %.0.sroa.gep591 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %.0.sroa.phi589.sroa.speculated = load i32, ptr %.0.sroa.gep591, align 1
-  %.0.sroa.gep588 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %.0.sroa.phi586.sroa.speculated = load i32, ptr %.0.sroa.gep588, align 1
-  %.0.sroa.gep585 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %.0.sroa.phi583.sroa.speculated = load i32, ptr %.0.sroa.gep585, align 1
-  %.0.sroa.gep582 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %.0.sroa.phi580.sroa.speculated = load i32, ptr %.0.sroa.gep582, align 1
-  %.0.sroa.gep579 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.0.sroa.phi577.sroa.speculated = load i32, ptr %.0.sroa.gep579, align 1
+  %10 = load i32, ptr %9, align 4, !tbaa !6
+  %.0.sroa.gep643 = getelementptr inbounds nuw i8, ptr %1, i64 60
+  %.0.sroa.phi641.sroa.speculated = load i32, ptr %.0.sroa.gep643, align 1
+  %.0.sroa.gep640 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %.0.sroa.phi638.sroa.speculated = load i32, ptr %.0.sroa.gep640, align 1
+  %.0.sroa.gep637 = getelementptr inbounds nuw i8, ptr %1, i64 52
+  %.0.sroa.phi635.sroa.speculated = load i32, ptr %.0.sroa.gep637, align 1
+  %.0.sroa.gep634 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %.0.sroa.phi632.sroa.speculated = load i32, ptr %.0.sroa.gep634, align 1
+  %.0.sroa.gep631 = getelementptr inbounds nuw i8, ptr %1, i64 44
+  %.0.sroa.phi629.sroa.speculated = load i32, ptr %.0.sroa.gep631, align 1
+  %.0.sroa.gep628 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %.0.sroa.phi626.sroa.speculated = load i32, ptr %.0.sroa.gep628, align 1
+  %.0.sroa.gep625 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  %.0.sroa.phi623.sroa.speculated = load i32, ptr %.0.sroa.gep625, align 1
+  %.0.sroa.gep622 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %.0.sroa.phi620.sroa.speculated = load i32, ptr %.0.sroa.gep622, align 1
   %11 = load i32, ptr %1, align 1
-  %.0.sroa.gep558 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %12 = load i32, ptr %.0.sroa.gep558, align 1
-  %.0.sroa.gep561 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %13 = load i32, ptr %.0.sroa.gep561, align 1
-  %.0.sroa.gep564 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %14 = load i32, ptr %.0.sroa.gep564, align 1
-  %.0.sroa.gep567 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %15 = load i32, ptr %.0.sroa.gep567, align 1
-  %.0.sroa.gep570 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %16 = load i32, ptr %.0.sroa.gep570, align 1
-  %.0.sroa.gep573 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %17 = load i32, ptr %.0.sroa.gep573, align 1
-  %.0.sroa.gep576 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %18 = load i32, ptr %.0.sroa.gep576, align 1
+  %.0.sroa.gep602 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %12 = load i32, ptr %.0.sroa.gep602, align 1
+  %.0.sroa.gep604 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %13 = load i32, ptr %.0.sroa.gep604, align 1
+  %.0.sroa.gep607 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %14 = load i32, ptr %.0.sroa.gep607, align 1
+  %.0.sroa.gep610 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %15 = load i32, ptr %.0.sroa.gep610, align 1
+  %.0.sroa.gep613 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %16 = load i32, ptr %.0.sroa.gep613, align 1
+  %.0.sroa.gep616 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %17 = load i32, ptr %.0.sroa.gep616, align 1
+  %.0.sroa.gep619 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %18 = load i32, ptr %.0.sroa.gep619, align 1
   %19 = and i32 %8, %6
   %20 = xor i32 %6, -1
   %21 = and i32 %10, %20
@@ -226,7 +226,7 @@ define internal fastcc void @md5_process(ptr noundef captures(none) %0, ptr noun
   %92 = xor i32 %90, -1
   %93 = and i32 %72, %92
   %94 = or i32 %91, %93
-  %95 = add i32 %.0.sroa.phi577.sroa.speculated, 1770035416
+  %95 = add i32 %.0.sroa.phi620.sroa.speculated, 1770035416
   %96 = add i32 %95, %63
   %97 = add i32 %96, %94
   %98 = tail call i32 @llvm.fshl.i32(i32 %97, i32 %97, i32 7)
@@ -235,7 +235,7 @@ define internal fastcc void @md5_process(ptr noundef captures(none) %0, ptr noun
   %101 = xor i32 %99, -1
   %102 = and i32 %81, %101
   %103 = or i32 %100, %102
-  %104 = add i32 %.0.sroa.phi580.sroa.speculated, -1958414417
+  %104 = add i32 %.0.sroa.phi623.sroa.speculated, -1958414417
   %105 = add i32 %104, %72
   %106 = add i32 %105, %103
   %107 = tail call i32 @llvm.fshl.i32(i32 %106, i32 %106, i32 12)
@@ -244,7 +244,7 @@ define internal fastcc void @md5_process(ptr noundef captures(none) %0, ptr noun
   %110 = xor i32 %108, -1
   %111 = and i32 %90, %110
   %112 = or i32 %109, %111
-  %113 = add i32 %.0.sroa.phi583.sroa.speculated, -42063
+  %113 = add i32 %.0.sroa.phi626.sroa.speculated, -42063
   %114 = add i32 %113, %81
   %115 = add i32 %114, %112
   %116 = tail call i32 @llvm.fshl.i32(i32 %115, i32 %115, i32 17)
@@ -253,7 +253,7 @@ define internal fastcc void @md5_process(ptr noundef captures(none) %0, ptr noun
   %119 = xor i32 %117, -1
   %120 = and i32 %99, %119
   %121 = or i32 %118, %120
-  %122 = add i32 %.0.sroa.phi586.sroa.speculated, -1990404162
+  %122 = add i32 %.0.sroa.phi629.sroa.speculated, -1990404162
   %123 = add i32 %122, %90
   %124 = add i32 %123, %121
   %125 = tail call i32 @llvm.fshl.i32(i32 %124, i32 %124, i32 22)
@@ -262,7 +262,7 @@ define internal fastcc void @md5_process(ptr noundef captures(none) %0, ptr noun
   %128 = xor i32 %126, -1
   %129 = and i32 %108, %128
   %130 = or i32 %127, %129
-  %131 = add i32 %.0.sroa.phi589.sroa.speculated, 1804603682
+  %131 = add i32 %.0.sroa.phi632.sroa.speculated, 1804603682
   %132 = add i32 %131, %99
   %133 = add i32 %132, %130
   %134 = tail call i32 @llvm.fshl.i32(i32 %133, i32 %133, i32 7)
@@ -271,7 +271,7 @@ define internal fastcc void @md5_process(ptr noundef captures(none) %0, ptr noun
   %137 = xor i32 %135, -1
   %138 = and i32 %117, %137
   %139 = or i32 %136, %138
-  %140 = add i32 %.0.sroa.phi592.sroa.speculated, -40341101
+  %140 = add i32 %.0.sroa.phi635.sroa.speculated, -40341101
   %141 = add i32 %140, %108
   %142 = add i32 %141, %139
   %143 = tail call i32 @llvm.fshl.i32(i32 %142, i32 %142, i32 12)
@@ -280,7 +280,7 @@ define internal fastcc void @md5_process(ptr noundef captures(none) %0, ptr noun
   %146 = xor i32 %144, -1
   %147 = and i32 %126, %146
   %148 = or i32 %145, %147
-  %149 = add i32 %.0.sroa.phi595.sroa.speculated, -1502002290
+  %149 = add i32 %.0.sroa.phi638.sroa.speculated, -1502002290
   %150 = add i32 %149, %117
   %151 = add i32 %150, %148
   %152 = tail call i32 @llvm.fshl.i32(i32 %151, i32 %151, i32 17)
@@ -289,7 +289,7 @@ define internal fastcc void @md5_process(ptr noundef captures(none) %0, ptr noun
   %155 = xor i32 %153, -1
   %156 = and i32 %135, %155
   %157 = or i32 %154, %156
-  %158 = add i32 %.0.sroa.phi598.sroa.speculated, 1236535329
+  %158 = add i32 %.0.sroa.phi641.sroa.speculated, 1236535329
   %159 = add i32 %158, %126
   %160 = add i32 %159, %157
   %161 = tail call i32 @llvm.fshl.i32(i32 %160, i32 %160, i32 22)
@@ -314,7 +314,7 @@ define internal fastcc void @md5_process(ptr noundef captures(none) %0, ptr noun
   %180 = xor i32 %162, -1
   %181 = and i32 %170, %180
   %182 = or i32 %179, %181
-  %183 = add i32 %.0.sroa.phi586.sroa.speculated, 643717713
+  %183 = add i32 %.0.sroa.phi629.sroa.speculated, 643717713
   %184 = add i32 %183, %153
   %185 = add i32 %184, %182
   %186 = tail call i32 @llvm.fshl.i32(i32 %185, i32 %185, i32 14)
@@ -341,7 +341,7 @@ define internal fastcc void @md5_process(ptr noundef captures(none) %0, ptr noun
   %207 = xor i32 %187, -1
   %208 = and i32 %196, %207
   %209 = or i32 %206, %208
-  %210 = add i32 %.0.sroa.phi583.sroa.speculated, 38016083
+  %210 = add i32 %.0.sroa.phi626.sroa.speculated, 38016083
   %211 = add i32 %210, %178
   %212 = add i32 %211, %209
   %213 = tail call i32 @llvm.fshl.i32(i32 %212, i32 %212, i32 9)
@@ -350,7 +350,7 @@ define internal fastcc void @md5_process(ptr noundef captures(none) %0, ptr noun
   %216 = xor i32 %196, -1
   %217 = and i32 %205, %216
   %218 = or i32 %215, %217
-  %219 = add i32 %.0.sroa.phi598.sroa.speculated, -660478335
+  %219 = add i32 %.0.sroa.phi641.sroa.speculated, -660478335
   %220 = add i32 %219, %187
   %221 = add i32 %220, %218
   %222 = tail call i32 @llvm.fshl.i32(i32 %221, i32 %221, i32 14)
@@ -368,7 +368,7 @@ define internal fastcc void @md5_process(ptr noundef captures(none) %0, ptr noun
   %234 = xor i32 %214, -1
   %235 = and i32 %223, %234
   %236 = or i32 %233, %235
-  %237 = add i32 %.0.sroa.phi580.sroa.speculated, 568446438
+  %237 = add i32 %.0.sroa.phi623.sroa.speculated, 568446438
   %238 = add i32 %237, %205
   %239 = add i32 %238, %236
   %240 = tail call i32 @llvm.fshl.i32(i32 %239, i32 %239, i32 5)
@@ -377,7 +377,7 @@ define internal fastcc void @md5_process(ptr noundef captures(none) %0, ptr noun
   %243 = xor i32 %223, -1
   %244 = and i32 %232, %243
   %245 = or i32 %242, %244
-  %246 = add i32 %.0.sroa.phi595.sroa.speculated, -1019803690
+  %246 = add i32 %.0.sroa.phi638.sroa.speculated, -1019803690
   %247 = add i32 %246, %214
   %248 = add i32 %247, %245
   %249 = tail call i32 @llvm.fshl.i32(i32 %248, i32 %248, i32 9)
@@ -395,7 +395,7 @@ define internal fastcc void @md5_process(ptr noundef captures(none) %0, ptr noun
   %261 = xor i32 %241, -1
   %262 = and i32 %250, %261
   %263 = or i32 %260, %262
-  %264 = add i32 %.0.sroa.phi577.sroa.speculated, 1163531501
+  %264 = add i32 %.0.sroa.phi620.sroa.speculated, 1163531501
   %265 = add i32 %264, %232
   %266 = add i32 %265, %263
   %267 = tail call i32 @llvm.fshl.i32(i32 %266, i32 %266, i32 20)
@@ -404,7 +404,7 @@ define internal fastcc void @md5_process(ptr noundef captures(none) %0, ptr noun
   %270 = xor i32 %250, -1
   %271 = and i32 %259, %270
   %272 = or i32 %269, %271
-  %273 = add i32 %.0.sroa.phi592.sroa.speculated, -1444681467
+  %273 = add i32 %.0.sroa.phi635.sroa.speculated, -1444681467
   %274 = add i32 %273, %241
   %275 = add i32 %274, %272
   %276 = tail call i32 @llvm.fshl.i32(i32 %275, i32 %275, i32 5)
@@ -431,7 +431,7 @@ define internal fastcc void @md5_process(ptr noundef captures(none) %0, ptr noun
   %297 = xor i32 %277, -1
   %298 = and i32 %286, %297
   %299 = or i32 %296, %298
-  %300 = add i32 %.0.sroa.phi589.sroa.speculated, -1926607734
+  %300 = add i32 %.0.sroa.phi632.sroa.speculated, -1926607734
   %301 = add i32 %300, %268
   %302 = add i32 %301, %299
   %303 = tail call i32 @llvm.fshl.i32(i32 %302, i32 %302, i32 20)
@@ -444,21 +444,21 @@ define internal fastcc void @md5_process(ptr noundef captures(none) %0, ptr noun
   %310 = tail call i32 @llvm.fshl.i32(i32 %309, i32 %309, i32 4)
   %311 = add i32 %310, %304
   %312 = xor i32 %305, %311
-  %313 = add i32 %.0.sroa.phi577.sroa.speculated, -2022574463
+  %313 = add i32 %.0.sroa.phi620.sroa.speculated, -2022574463
   %314 = add i32 %313, %286
   %315 = add i32 %314, %312
   %316 = tail call i32 @llvm.fshl.i32(i32 %315, i32 %315, i32 11)
   %317 = add i32 %316, %311
   %318 = xor i32 %311, %304
   %319 = xor i32 %318, %317
-  %320 = add i32 %.0.sroa.phi586.sroa.speculated, 1839030562
+  %320 = add i32 %.0.sroa.phi629.sroa.speculated, 1839030562
   %321 = add i32 %320, %295
   %322 = add i32 %321, %319
   %323 = tail call i32 @llvm.fshl.i32(i32 %322, i32 %322, i32 16)
   %324 = add i32 %323, %317
   %325 = xor i32 %317, %311
   %326 = xor i32 %325, %324
-  %327 = add i32 %.0.sroa.phi595.sroa.speculated, -35309556
+  %327 = add i32 %.0.sroa.phi638.sroa.speculated, -35309556
   %328 = add i32 %327, %304
   %329 = add i32 %328, %326
   %330 = tail call i32 @llvm.fshl.i32(i32 %329, i32 %329, i32 23)
@@ -486,14 +486,14 @@ define internal fastcc void @md5_process(ptr noundef captures(none) %0, ptr noun
   %352 = add i32 %351, %345
   %353 = xor i32 %345, %338
   %354 = xor i32 %353, %352
-  %355 = add i32 %.0.sroa.phi583.sroa.speculated, -1094730640
+  %355 = add i32 %.0.sroa.phi626.sroa.speculated, -1094730640
   %356 = add i32 %355, %331
   %357 = add i32 %356, %354
   %358 = tail call i32 @llvm.fshl.i32(i32 %357, i32 %357, i32 23)
   %359 = add i32 %358, %352
   %360 = xor i32 %352, %345
   %361 = xor i32 %360, %359
-  %362 = add i32 %.0.sroa.phi592.sroa.speculated, 681279174
+  %362 = add i32 %.0.sroa.phi635.sroa.speculated, 681279174
   %363 = add i32 %362, %338
   %364 = add i32 %363, %361
   %365 = tail call i32 @llvm.fshl.i32(i32 %364, i32 %364, i32 4)
@@ -521,21 +521,21 @@ define internal fastcc void @md5_process(ptr noundef captures(none) %0, ptr noun
   %387 = add i32 %386, %380
   %388 = xor i32 %380, %373
   %389 = xor i32 %388, %387
-  %390 = add i32 %.0.sroa.phi580.sroa.speculated, -640364487
+  %390 = add i32 %.0.sroa.phi623.sroa.speculated, -640364487
   %391 = add i32 %390, %366
   %392 = add i32 %391, %389
   %393 = tail call i32 @llvm.fshl.i32(i32 %392, i32 %392, i32 4)
   %394 = add i32 %393, %387
   %395 = xor i32 %387, %380
   %396 = xor i32 %395, %394
-  %397 = add i32 %.0.sroa.phi589.sroa.speculated, -421815835
+  %397 = add i32 %.0.sroa.phi632.sroa.speculated, -421815835
   %398 = add i32 %397, %373
   %399 = add i32 %398, %396
   %400 = tail call i32 @llvm.fshl.i32(i32 %399, i32 %399, i32 11)
   %401 = add i32 %400, %394
   %402 = xor i32 %394, %387
   %403 = xor i32 %402, %401
-  %404 = add i32 %.0.sroa.phi598.sroa.speculated, 530742520
+  %404 = add i32 %.0.sroa.phi641.sroa.speculated, 530742520
   %405 = add i32 %404, %380
   %406 = add i32 %405, %403
   %407 = tail call i32 @llvm.fshl.i32(i32 %406, i32 %406, i32 16)
@@ -566,7 +566,7 @@ define internal fastcc void @md5_process(ptr noundef captures(none) %0, ptr noun
   %432 = xor i32 %415, -1
   %433 = or i32 %431, %432
   %434 = xor i32 %433, %423
-  %435 = add i32 %.0.sroa.phi595.sroa.speculated, -1416354905
+  %435 = add i32 %.0.sroa.phi638.sroa.speculated, -1416354905
   %436 = add i32 %435, %408
   %437 = add i32 %436, %434
   %438 = tail call i32 @llvm.fshl.i32(i32 %437, i32 %437, i32 15)
@@ -582,7 +582,7 @@ define internal fastcc void @md5_process(ptr noundef captures(none) %0, ptr noun
   %448 = xor i32 %431, -1
   %449 = or i32 %447, %448
   %450 = xor i32 %449, %439
-  %451 = add i32 %.0.sroa.phi589.sroa.speculated, 1700485571
+  %451 = add i32 %.0.sroa.phi632.sroa.speculated, 1700485571
   %452 = add i32 %451, %423
   %453 = add i32 %452, %450
   %454 = tail call i32 @llvm.fshl.i32(i32 %453, i32 %453, i32 6)
@@ -598,7 +598,7 @@ define internal fastcc void @md5_process(ptr noundef captures(none) %0, ptr noun
   %464 = xor i32 %447, -1
   %465 = or i32 %463, %464
   %466 = xor i32 %465, %455
-  %467 = add i32 %.0.sroa.phi583.sroa.speculated, -1051523
+  %467 = add i32 %.0.sroa.phi626.sroa.speculated, -1051523
   %468 = add i32 %467, %439
   %469 = add i32 %468, %466
   %470 = tail call i32 @llvm.fshl.i32(i32 %469, i32 %469, i32 15)
@@ -614,7 +614,7 @@ define internal fastcc void @md5_process(ptr noundef captures(none) %0, ptr noun
   %480 = xor i32 %463, -1
   %481 = or i32 %479, %480
   %482 = xor i32 %481, %471
-  %483 = add i32 %.0.sroa.phi577.sroa.speculated, 1873313359
+  %483 = add i32 %.0.sroa.phi620.sroa.speculated, 1873313359
   %484 = add i32 %483, %455
   %485 = add i32 %484, %482
   %486 = tail call i32 @llvm.fshl.i32(i32 %485, i32 %485, i32 6)
@@ -622,7 +622,7 @@ define internal fastcc void @md5_process(ptr noundef captures(none) %0, ptr noun
   %488 = xor i32 %471, -1
   %489 = or i32 %487, %488
   %490 = xor i32 %489, %479
-  %491 = add i32 %.0.sroa.phi598.sroa.speculated, -30611744
+  %491 = add i32 %.0.sroa.phi641.sroa.speculated, -30611744
   %492 = add i32 %491, %463
   %493 = add i32 %492, %490
   %494 = tail call i32 @llvm.fshl.i32(i32 %493, i32 %493, i32 10)
@@ -638,7 +638,7 @@ define internal fastcc void @md5_process(ptr noundef captures(none) %0, ptr noun
   %504 = xor i32 %487, -1
   %505 = or i32 %503, %504
   %506 = xor i32 %505, %495
-  %507 = add i32 %.0.sroa.phi592.sroa.speculated, 1309151649
+  %507 = add i32 %.0.sroa.phi635.sroa.speculated, 1309151649
   %508 = add i32 %507, %479
   %509 = add i32 %508, %506
   %510 = tail call i32 @llvm.fshl.i32(i32 %509, i32 %509, i32 21)
@@ -654,7 +654,7 @@ define internal fastcc void @md5_process(ptr noundef captures(none) %0, ptr noun
   %520 = xor i32 %503, -1
   %521 = or i32 %519, %520
   %522 = xor i32 %521, %511
-  %523 = add i32 %.0.sroa.phi586.sroa.speculated, -1120210379
+  %523 = add i32 %.0.sroa.phi629.sroa.speculated, -1120210379
   %524 = add i32 %523, %495
   %525 = add i32 %524, %522
   %526 = tail call i32 @llvm.fshl.i32(i32 %525, i32 %525, i32 10)
@@ -670,206 +670,94 @@ define internal fastcc void @md5_process(ptr noundef captures(none) %0, ptr noun
   %536 = xor i32 %519, -1
   %537 = or i32 %535, %536
   %538 = xor i32 %537, %527
-  %539 = add i32 %.0.sroa.phi580.sroa.speculated, -343485551
+  %539 = add i32 %.0.sroa.phi623.sroa.speculated, -343485551
   %540 = add i32 %539, %511
   %541 = add i32 %540, %538
   %542 = tail call i32 @llvm.fshl.i32(i32 %541, i32 %541, i32 21)
   %543 = add i32 %519, %4
-  store i32 %543, ptr %3, align 4
+  store i32 %543, ptr %3, align 4, !tbaa !6
   %544 = add i32 %535, %6
   %545 = add i32 %544, %542
-  store i32 %545, ptr %5, align 4
+  store i32 %545, ptr %5, align 4, !tbaa !6
   %546 = add i32 %535, %8
-  store i32 %546, ptr %7, align 4
+  store i32 %546, ptr %7, align 4, !tbaa !6
   %547 = add i32 %527, %10
-  store i32 %547, ptr %9, align 4
+  store i32 %547, ptr %9, align 4, !tbaa !6
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+
+; Function Attrs: nofree nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef i32 @rb_Digest_MD5_Finish(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #2 {
   %3 = alloca [8 x i8], align 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
   br label %4
 
 4:                                                ; preds = %2, %4
-  %.036 = phi i64 [ 0, %2 ], [ %13, %4 ]
-  %5 = lshr i64 %.036, 2
+  %.015 = phi i64 [ 0, %2 ], [ %13, %4 ]
+  %5 = lshr i64 %.015, 2
   %6 = getelementptr inbounds nuw [2 x i32], ptr %0, i64 0, i64 %5
-  %7 = load i32, ptr %6, align 4
-  %.0.tr = trunc nuw i64 %.036 to i32
+  %7 = load i32, ptr %6, align 4, !tbaa !6
+  %.0.tr = trunc nuw i64 %.015 to i32
   %8 = shl nuw nsw i32 %.0.tr, 3
   %9 = and i32 %8, 24
   %10 = lshr i32 %7, %9
   %11 = trunc i32 %10 to i8
-  %12 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 0, i64 %.036
-  store i8 %11, ptr %12, align 1
-  %13 = add nuw nsw i64 %.036, 1
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 0, i64 %.015
+  store i8 %11, ptr %12, align 1, !tbaa !12
+  %13 = add nuw nsw i64 %.015, 1
   %exitcond.not = icmp eq i64 %13, 8
-  br i1 %exitcond.not, label %14, label %4, !llvm.loop !8
+  br i1 %exitcond.not, label %14, label %4, !llvm.loop !13
 
 14:                                               ; preds = %4
-  %15 = load i32, ptr %0, align 4
+  %15 = load i32, ptr %0, align 4, !tbaa !6
   %16 = lshr i32 %15, 3
   %17 = sub nsw i32 55, %16
   %18 = and i32 %17, 63
   %19 = add nuw nsw i32 %18, 1
   %20 = zext nneg i32 %19 to i64
-  %21 = and i32 %16, 63
-  %22 = zext nneg i32 %21 to i64
-  %23 = shl nuw nsw i32 %19, 3
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %25 = load i32, ptr %24, align 4
-  %26 = add i32 %23, %15
-  store i32 %26, ptr %0, align 4
-  %27 = icmp ult i32 %26, %23
-  br i1 %27, label %28, label %30
+  tail call void @rb_Digest_MD5_Update(ptr noundef nonnull %0, ptr noundef nonnull @rb_Digest_MD5_Finish.pad, i64 noundef %20)
+  call void @rb_Digest_MD5_Update(ptr noundef nonnull %0, ptr noundef nonnull %3, i64 noundef 8)
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br label %22
 
-28:                                               ; preds = %14
-  %29 = add i32 %25, 1
-  store i32 %29, ptr %24, align 4
-  br label %30
+22:                                               ; preds = %14, %22
+  %.116 = phi i64 [ 0, %14 ], [ %31, %22 ]
+  %23 = lshr i64 %.116, 2
+  %24 = getelementptr inbounds nuw [4 x i32], ptr %21, i64 0, i64 %23
+  %25 = load i32, ptr %24, align 4, !tbaa !6
+  %.1.tr = trunc nuw i64 %.116 to i32
+  %26 = shl nuw nsw i32 %.1.tr, 3
+  %27 = and i32 %26, 24
+  %28 = lshr i32 %25, %27
+  %29 = trunc i32 %28 to i8
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 %.116
+  store i8 %29, ptr %30, align 1, !tbaa !12
+  %31 = add nuw nsw i64 %.116, 1
+  %exitcond17.not = icmp eq i64 %31, 16
+  br i1 %exitcond17.not, label %32, label %22, !llvm.loop !14
 
-30:                                               ; preds = %28, %14
-  %.not.i = icmp eq i32 %21, 0
-  br i1 %.not.i, label %43, label %31
-
-31:                                               ; preds = %30
-  %32 = add nuw nsw i64 %20, %22
-  %33 = icmp samesign ugt i64 %32, 64
-  %34 = sub nuw nsw i64 64, %22
-  %35 = select i1 %33, i64 %34, i64 %20
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 %22
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %37, ptr noundef nonnull align 16 dereferenceable(1) @rb_Digest_MD5_Finish.pad, i64 %35, i1 false)
-  %38 = add nuw nsw i64 %35, %22
-  %39 = icmp samesign ult i64 %38, 64
-  br i1 %39, label %rb_Digest_MD5_Update.exit, label %40
-
-40:                                               ; preds = %31
-  %41 = getelementptr inbounds nuw i8, ptr @rb_Digest_MD5_Finish.pad, i64 %35
-  %42 = sub nsw i64 %20, %35
-  tail call fastcc void @md5_process(ptr noundef nonnull %0, ptr noundef nonnull %36)
-  br label %43
-
-43:                                               ; preds = %40, %30
-  %.037.i = phi i64 [ %42, %40 ], [ %20, %30 ]
-  %.0.i = phi ptr [ %41, %40 ], [ @rb_Digest_MD5_Finish.pad, %30 ]
-  %44 = icmp ugt i64 %.037.i, 63
-  br i1 %44, label %.lr.ph.i, label %._crit_edge.i
-
-.lr.ph.i:                                         ; preds = %43, %.lr.ph.i
-  %.143.i = phi ptr [ %45, %.lr.ph.i ], [ %.0.i, %43 ]
-  %.13842.i = phi i64 [ %46, %.lr.ph.i ], [ %.037.i, %43 ]
-  tail call fastcc void @md5_process(ptr noundef nonnull %0, ptr noundef %.143.i)
-  %45 = getelementptr inbounds nuw i8, ptr %.143.i, i64 64
-  %46 = add i64 %.13842.i, -64
-  %47 = icmp ugt i64 %46, 63
-  br i1 %47, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !6
-
-._crit_edge.i:                                    ; preds = %.lr.ph.i, %43
-  %.138.lcssa.i = phi i64 [ %.037.i, %43 ], [ %46, %.lr.ph.i ]
-  %.1.lcssa.i = phi ptr [ %.0.i, %43 ], [ %45, %.lr.ph.i ]
-  %.not41.i = icmp eq i64 %.138.lcssa.i, 0
-  br i1 %.not41.i, label %rb_Digest_MD5_Update.exit, label %48
-
-48:                                               ; preds = %._crit_edge.i
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %49, ptr align 1 %.1.lcssa.i, i64 %.138.lcssa.i, i1 false)
-  br label %rb_Digest_MD5_Update.exit
-
-rb_Digest_MD5_Update.exit:                        ; preds = %31, %._crit_edge.i, %48
-  %50 = load i32, ptr %0, align 4
-  %51 = lshr i32 %50, 3
-  %52 = and i32 %51, 63
-  %53 = zext nneg i32 %52 to i64
-  %54 = load i32, ptr %24, align 4
-  %55 = add i32 %50, 64
-  store i32 %55, ptr %0, align 4
-  %56 = icmp ugt i32 %50, -65
-  br i1 %56, label %57, label %59
-
-57:                                               ; preds = %rb_Digest_MD5_Update.exit
-  %58 = add i32 %54, 1
-  store i32 %58, ptr %24, align 4
-  br label %59
-
-59:                                               ; preds = %57, %rb_Digest_MD5_Update.exit
-  %.not.i15 = icmp eq i32 %52, 0
-  br i1 %.not.i15, label %._crit_edge.i18.thread, label %60
-
-60:                                               ; preds = %59
-  %61 = icmp samesign ugt i32 %52, 56
-  %62 = sub nuw nsw i64 64, %53
-  %63 = select i1 %61, i64 %62, i64 8
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 %53
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %65, ptr noundef nonnull align 1 dereferenceable(1) %3, i64 %63, i1 false)
-  %66 = add nuw nsw i64 %63, %53
-  %67 = icmp samesign ult i64 %66, 64
-  br i1 %67, label %rb_Digest_MD5_Update.exit25, label %68
-
-68:                                               ; preds = %60
-  %69 = getelementptr inbounds nuw i8, ptr %3, i64 %63
-  %70 = sub nsw i64 8, %63
-  tail call fastcc void @md5_process(ptr noundef nonnull %0, ptr noundef nonnull %64)
-  %71 = icmp ugt i64 %70, 63
-  br i1 %71, label %.lr.ph.i22, label %._crit_edge.i18
-
-.lr.ph.i22:                                       ; preds = %68, %.lr.ph.i22
-  %.143.i23 = phi ptr [ %72, %.lr.ph.i22 ], [ %69, %68 ]
-  %.13842.i24 = phi i64 [ %73, %.lr.ph.i22 ], [ %70, %68 ]
-  call fastcc void @md5_process(ptr noundef nonnull %0, ptr noundef nonnull %.143.i23)
-  %72 = getelementptr inbounds nuw i8, ptr %.143.i23, i64 64
-  %73 = add i64 %.13842.i24, -64
-  %74 = icmp ugt i64 %73, 63
-  br i1 %74, label %.lr.ph.i22, label %._crit_edge.i18, !llvm.loop !6
-
-._crit_edge.i18:                                  ; preds = %.lr.ph.i22, %68
-  %.138.lcssa.i19 = phi i64 [ %70, %68 ], [ %73, %.lr.ph.i22 ]
-  %.1.lcssa.i20 = phi ptr [ %69, %68 ], [ %72, %.lr.ph.i22 ]
-  %.not41.i21 = icmp eq i64 %.138.lcssa.i19, 0
-  br i1 %.not41.i21, label %rb_Digest_MD5_Update.exit25, label %._crit_edge.i18.thread
-
-._crit_edge.i18.thread:                           ; preds = %59, %._crit_edge.i18
-  %.1.lcssa.i2032 = phi ptr [ %.1.lcssa.i20, %._crit_edge.i18 ], [ %3, %59 ]
-  %.138.lcssa.i1931 = phi i64 [ %.138.lcssa.i19, %._crit_edge.i18 ], [ 8, %59 ]
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %75, ptr noundef nonnull align 1 dereferenceable(1) %.1.lcssa.i2032, i64 %.138.lcssa.i1931, i1 false)
-  br label %rb_Digest_MD5_Update.exit25
-
-rb_Digest_MD5_Update.exit25:                      ; preds = %60, %._crit_edge.i18, %._crit_edge.i18.thread
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %77
-
-77:                                               ; preds = %rb_Digest_MD5_Update.exit25, %77
-  %.137 = phi i64 [ 0, %rb_Digest_MD5_Update.exit25 ], [ %86, %77 ]
-  %78 = lshr i64 %.137, 2
-  %79 = getelementptr inbounds nuw [4 x i32], ptr %76, i64 0, i64 %78
-  %80 = load i32, ptr %79, align 4
-  %.1.tr = trunc nuw i64 %.137 to i32
-  %81 = shl nuw nsw i32 %.1.tr, 3
-  %82 = and i32 %81, 24
-  %83 = lshr i32 %80, %82
-  %84 = trunc i32 %83 to i8
-  %85 = getelementptr inbounds nuw i8, ptr %1, i64 %.137
-  store i8 %84, ptr %85, align 1
-  %86 = add nuw nsw i64 %.137, 1
-  %exitcond41.not = icmp eq i64 %86, 16
-  br i1 %exitcond41.not, label %87, label %77, !llvm.loop !9
-
-87:                                               ; preds = %77
+32:                                               ; preds = %22
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
   ret i32 1
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #5
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+
+attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
@@ -878,8 +766,13 @@ attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !2 = !{i32 1, !"wchar_size", i32 4}
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
-!5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
+!5 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"int", !8, i64 0}
+!8 = !{!"omnipotent char", !9, i64 0}
+!9 = !{!"Simple C/C++ TBAA"}
+!10 = distinct !{!10, !11}
+!11 = !{!"llvm.loop.mustprogress"}
+!12 = !{!8, !8, i64 0}
+!13 = distinct !{!13, !11}
+!14 = distinct !{!14, !11}

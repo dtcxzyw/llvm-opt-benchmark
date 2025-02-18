@@ -26,16 +26,16 @@ define dso_local i32 @onigenc_init() #0 {
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @onigenc_get_default_encoding() #0 {
-  %1 = load ptr, ptr @OnigEncDefaultCharEncoding, align 8
+  %1 = load ptr, ptr @OnigEncDefaultCharEncoding, align 8, !tbaa !7
   ret ptr %1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @onigenc_set_default_encoding(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  store ptr %3, ptr @OnigEncDefaultCharEncoding, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !7
+  %3 = load ptr, ptr %2, align 8, !tbaa !7
+  store ptr %3, ptr @OnigEncDefaultCharEncoding, align 8, !tbaa !7
   ret i32 0
 }
 
@@ -46,77 +46,89 @@ define dso_local i32 @onigenc_mbclen(ptr noundef %0, ptr noundef %1, ptr noundef
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  %9 = load ptr, ptr %7, align 8
-  %10 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %9, i32 0, i32 0
-  %11 = load ptr, ptr %10, align 8
-  %12 = load ptr, ptr %5, align 8
-  %13 = load ptr, ptr %6, align 8
-  %14 = load ptr, ptr %7, align 8
-  %15 = call i32 %11(ptr noundef %12, ptr noundef %13, ptr noundef %14)
-  store i32 %15, ptr %8, align 4
-  %16 = load i32, ptr %8, align 4
-  %17 = icmp slt i32 0, %16
-  br i1 %17, label %18, label %35
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !12
+  store ptr %1, ptr %6, align 8, !tbaa !12
+  store ptr %2, ptr %7, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #4
+  %10 = load ptr, ptr %7, align 8, !tbaa !7
+  %11 = getelementptr inbounds nuw %struct.OnigEncodingTypeST, ptr %10, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8, !tbaa !14
+  %13 = load ptr, ptr %5, align 8, !tbaa !12
+  %14 = load ptr, ptr %6, align 8, !tbaa !12
+  %15 = load ptr, ptr %7, align 8, !tbaa !7
+  %16 = call i32 %12(ptr noundef %13, ptr noundef %14, ptr noundef %15)
+  store i32 %16, ptr %8, align 4, !tbaa !17
+  %17 = load i32, ptr %8, align 4, !tbaa !17
+  %18 = icmp slt i32 0, %17
+  br i1 %18, label %19, label %36
 
-18:                                               ; preds = %3
-  %19 = load i32, ptr %8, align 4
-  store i32 %19, ptr %8, align 4
-  %20 = load ptr, ptr %5, align 8
-  %21 = load i32, ptr %8, align 4
-  %22 = sext i32 %21 to i64
-  %23 = getelementptr i8, ptr %20, i64 %22
-  %24 = load ptr, ptr %6, align 8
-  %25 = icmp ugt ptr %23, %24
-  br i1 %25, label %26, label %33
+19:                                               ; preds = %3
+  %20 = load i32, ptr %8, align 4, !tbaa !17
+  store i32 %20, ptr %8, align 4, !tbaa !17
+  %21 = load ptr, ptr %5, align 8, !tbaa !12
+  %22 = load i32, ptr %8, align 4, !tbaa !17
+  %23 = sext i32 %22 to i64
+  %24 = getelementptr i8, ptr %21, i64 %23
+  %25 = load ptr, ptr %6, align 8, !tbaa !12
+  %26 = icmp ugt ptr %24, %25
+  br i1 %26, label %27, label %34
 
-26:                                               ; preds = %18
-  %27 = load ptr, ptr %6, align 8
-  %28 = load ptr, ptr %5, align 8
-  %29 = ptrtoint ptr %27 to i64
+27:                                               ; preds = %19
+  %28 = load ptr, ptr %6, align 8, !tbaa !12
+  %29 = load ptr, ptr %5, align 8, !tbaa !12
   %30 = ptrtoint ptr %28 to i64
-  %31 = sub i64 %29, %30
-  %32 = trunc i64 %31 to i32
-  store i32 %32, ptr %8, align 4
-  br label %33
+  %31 = ptrtoint ptr %29 to i64
+  %32 = sub i64 %30, %31
+  %33 = trunc i64 %32 to i32
+  store i32 %33, ptr %8, align 4, !tbaa !17
+  br label %34
 
-33:                                               ; preds = %26, %18
-  %34 = load i32, ptr %8, align 4
-  store i32 %34, ptr %4, align 4
-  br label %51
+34:                                               ; preds = %27, %19
+  %35 = load i32, ptr %8, align 4, !tbaa !17
+  store i32 %35, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %52
 
-35:                                               ; preds = %3
-  %36 = load i32, ptr %8, align 4
-  %37 = icmp slt i32 %36, -1
-  br i1 %37, label %38, label %45
+36:                                               ; preds = %3
+  %37 = load i32, ptr %8, align 4, !tbaa !17
+  %38 = icmp slt i32 %37, -1
+  br i1 %38, label %39, label %46
 
-38:                                               ; preds = %35
-  %39 = load ptr, ptr %6, align 8
-  %40 = load ptr, ptr %5, align 8
-  %41 = ptrtoint ptr %39 to i64
+39:                                               ; preds = %36
+  %40 = load ptr, ptr %6, align 8, !tbaa !12
+  %41 = load ptr, ptr %5, align 8, !tbaa !12
   %42 = ptrtoint ptr %40 to i64
-  %43 = sub i64 %41, %42
-  %44 = trunc i64 %43 to i32
-  store i32 %44, ptr %4, align 4
-  br label %51
+  %43 = ptrtoint ptr %41 to i64
+  %44 = sub i64 %42, %43
+  %45 = trunc i64 %44 to i32
+  store i32 %45, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %52
 
-45:                                               ; preds = %35
-  br label %46
+46:                                               ; preds = %36
+  br label %47
 
-46:                                               ; preds = %45
-  %47 = load ptr, ptr %5, align 8
-  %48 = load ptr, ptr %6, align 8
-  %49 = icmp ult ptr %47, %48
-  %50 = select i1 %49, i32 1, i32 0
-  store i32 %50, ptr %4, align 4
-  br label %51
+47:                                               ; preds = %46
+  %48 = load ptr, ptr %5, align 8, !tbaa !12
+  %49 = load ptr, ptr %6, align 8, !tbaa !12
+  %50 = icmp ult ptr %48, %49
+  %51 = select i1 %50, i32 1, i32 0
+  store i32 %51, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %52
 
-51:                                               ; preds = %46, %38, %33
-  %52 = load i32, ptr %4, align 4
-  ret i32 %52
+52:                                               ; preds = %47, %39, %34
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #4
+  %53 = load i32, ptr %4, align 4
+  ret i32 %53
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden i32 @onigenc_mbclen_approximate(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
@@ -125,54 +137,60 @@ define hidden i32 @onigenc_mbclen_approximate(ptr noundef %0, ptr noundef %1, pt
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  %9 = load ptr, ptr %7, align 8
-  %10 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %9, i32 0, i32 0
-  %11 = load ptr, ptr %10, align 8
-  %12 = load ptr, ptr %5, align 8
-  %13 = load ptr, ptr %6, align 8
-  %14 = load ptr, ptr %7, align 8
-  %15 = call i32 %11(ptr noundef %12, ptr noundef %13, ptr noundef %14)
-  store i32 %15, ptr %8, align 4
-  %16 = load i32, ptr %8, align 4
-  %17 = icmp slt i32 0, %16
-  br i1 %17, label %18, label %20
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !12
+  store ptr %1, ptr %6, align 8, !tbaa !12
+  store ptr %2, ptr %7, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #4
+  %10 = load ptr, ptr %7, align 8, !tbaa !7
+  %11 = getelementptr inbounds nuw %struct.OnigEncodingTypeST, ptr %10, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8, !tbaa !14
+  %13 = load ptr, ptr %5, align 8, !tbaa !12
+  %14 = load ptr, ptr %6, align 8, !tbaa !12
+  %15 = load ptr, ptr %7, align 8, !tbaa !7
+  %16 = call i32 %12(ptr noundef %13, ptr noundef %14, ptr noundef %15)
+  store i32 %16, ptr %8, align 4, !tbaa !17
+  %17 = load i32, ptr %8, align 4, !tbaa !17
+  %18 = icmp slt i32 0, %17
+  br i1 %18, label %19, label %21
 
-18:                                               ; preds = %3
-  %19 = load i32, ptr %8, align 4
-  store i32 %19, ptr %4, align 4
-  br label %35
+19:                                               ; preds = %3
+  %20 = load i32, ptr %8, align 4, !tbaa !17
+  store i32 %20, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %36
 
-20:                                               ; preds = %3
-  %21 = load i32, ptr %8, align 4
-  %22 = icmp slt i32 %21, -1
-  br i1 %22, label %23, label %33
+21:                                               ; preds = %3
+  %22 = load i32, ptr %8, align 4, !tbaa !17
+  %23 = icmp slt i32 %22, -1
+  br i1 %23, label %24, label %34
 
-23:                                               ; preds = %20
-  %24 = load ptr, ptr %6, align 8
-  %25 = load ptr, ptr %5, align 8
-  %26 = ptrtoint ptr %24 to i64
+24:                                               ; preds = %21
+  %25 = load ptr, ptr %6, align 8, !tbaa !12
+  %26 = load ptr, ptr %5, align 8, !tbaa !12
   %27 = ptrtoint ptr %25 to i64
-  %28 = sub i64 %26, %27
-  %29 = trunc i64 %28 to i32
-  %30 = load i32, ptr %8, align 4
-  %31 = sub i32 -1, %30
-  %32 = add i32 %29, %31
-  store i32 %32, ptr %4, align 4
+  %28 = ptrtoint ptr %26 to i64
+  %29 = sub i64 %27, %28
+  %30 = trunc i64 %29 to i32
+  %31 = load i32, ptr %8, align 4, !tbaa !17
+  %32 = sub i32 -1, %31
+  %33 = add i32 %30, %32
+  store i32 %33, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %36
+
+34:                                               ; preds = %21
   br label %35
 
-33:                                               ; preds = %20
-  br label %34
-
-34:                                               ; preds = %33
+35:                                               ; preds = %34
   store i32 1, ptr %4, align 4
-  br label %35
+  store i32 1, ptr %9, align 4
+  br label %36
 
-35:                                               ; preds = %34, %23, %18
-  %36 = load i32, ptr %4, align 4
-  ret i32 %36
+36:                                               ; preds = %35, %24, %19
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #4
+  %37 = load i32, ptr %4, align 4
+  ret i32 %37
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -182,44 +200,45 @@ define dso_local ptr @onigenc_get_right_adjust_char_head(ptr noundef %0, ptr nou
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store ptr %3, ptr %8, align 8
-  %10 = load ptr, ptr %5, align 8
-  %11 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %10, i32 0, i32 14
-  %12 = load ptr, ptr %11, align 8
-  %13 = load ptr, ptr %6, align 8
-  %14 = load ptr, ptr %7, align 8
-  %15 = load ptr, ptr %8, align 8
-  %16 = load ptr, ptr %5, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !7
+  store ptr %1, ptr %6, align 8, !tbaa !12
+  store ptr %2, ptr %7, align 8, !tbaa !12
+  store ptr %3, ptr %8, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #4
+  %10 = load ptr, ptr %5, align 8, !tbaa !7
+  %11 = getelementptr inbounds nuw %struct.OnigEncodingTypeST, ptr %10, i32 0, i32 14
+  %12 = load ptr, ptr %11, align 8, !tbaa !18
+  %13 = load ptr, ptr %6, align 8, !tbaa !12
+  %14 = load ptr, ptr %7, align 8, !tbaa !12
+  %15 = load ptr, ptr %8, align 8, !tbaa !12
+  %16 = load ptr, ptr %5, align 8, !tbaa !7
   %17 = call ptr %12(ptr noundef %13, ptr noundef %14, ptr noundef %15, ptr noundef %16)
-  store ptr %17, ptr %9, align 8
-  %18 = load ptr, ptr %9, align 8
-  %19 = load ptr, ptr %7, align 8
+  store ptr %17, ptr %9, align 8, !tbaa !12
+  %18 = load ptr, ptr %9, align 8, !tbaa !12
+  %19 = load ptr, ptr %7, align 8, !tbaa !12
   %20 = icmp ult ptr %18, %19
   br i1 %20, label %21, label %50
 
 21:                                               ; preds = %4
-  %22 = load ptr, ptr %5, align 8
-  %23 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %22, i32 0, i32 2
-  %24 = load i32, ptr %23, align 8
-  %25 = load ptr, ptr %5, align 8
-  %26 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %25, i32 0, i32 3
-  %27 = load i32, ptr %26, align 4
+  %22 = load ptr, ptr %5, align 8, !tbaa !7
+  %23 = getelementptr inbounds nuw %struct.OnigEncodingTypeST, ptr %22, i32 0, i32 2
+  %24 = load i32, ptr %23, align 8, !tbaa !19
+  %25 = load ptr, ptr %5, align 8, !tbaa !7
+  %26 = getelementptr inbounds nuw %struct.OnigEncodingTypeST, ptr %25, i32 0, i32 3
+  %27 = load i32, ptr %26, align 4, !tbaa !20
   %28 = icmp eq i32 %24, %27
   br i1 %28, label %29, label %40
 
 29:                                               ; preds = %21
-  %30 = load ptr, ptr %9, align 8
-  %31 = load ptr, ptr %8, align 8
+  %30 = load ptr, ptr %9, align 8, !tbaa !12
+  %31 = load ptr, ptr %8, align 8, !tbaa !12
   %32 = icmp ult ptr %30, %31
   br i1 %32, label %33, label %37
 
 33:                                               ; preds = %29
-  %34 = load ptr, ptr %5, align 8
-  %35 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %34, i32 0, i32 3
-  %36 = load i32, ptr %35, align 4
+  %34 = load ptr, ptr %5, align 8, !tbaa !7
+  %35 = getelementptr inbounds nuw %struct.OnigEncodingTypeST, ptr %34, i32 0, i32 3
+  %36 = load i32, ptr %35, align 4, !tbaa !20
   br label %38
 
 37:                                               ; preds = %29
@@ -230,22 +249,23 @@ define dso_local ptr @onigenc_get_right_adjust_char_head(ptr noundef %0, ptr nou
   br label %45
 
 40:                                               ; preds = %21
-  %41 = load ptr, ptr %9, align 8
-  %42 = load ptr, ptr %8, align 8
-  %43 = load ptr, ptr %5, align 8
+  %41 = load ptr, ptr %9, align 8, !tbaa !12
+  %42 = load ptr, ptr %8, align 8, !tbaa !12
+  %43 = load ptr, ptr %5, align 8, !tbaa !7
   %44 = call i32 @onigenc_mbclen(ptr noundef %41, ptr noundef %42, ptr noundef %43)
   br label %45
 
 45:                                               ; preds = %40, %38
   %46 = phi i32 [ %39, %38 ], [ %44, %40 ]
-  %47 = load ptr, ptr %9, align 8
+  %47 = load ptr, ptr %9, align 8, !tbaa !12
   %48 = sext i32 %46 to i64
   %49 = getelementptr i8, ptr %47, i64 %48
-  store ptr %49, ptr %9, align 8
+  store ptr %49, ptr %9, align 8, !tbaa !12
   br label %50
 
 50:                                               ; preds = %45, %4
-  %51 = load ptr, ptr %9, align 8
+  %51 = load ptr, ptr %9, align 8, !tbaa !12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #4
   ret ptr %51
 }
 
@@ -257,56 +277,57 @@ define dso_local ptr @onigenc_get_right_adjust_char_head_with_prev(ptr noundef %
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store ptr %3, ptr %9, align 8
-  store ptr %4, ptr %10, align 8
-  %12 = load ptr, ptr %6, align 8
-  %13 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %12, i32 0, i32 14
-  %14 = load ptr, ptr %13, align 8
-  %15 = load ptr, ptr %7, align 8
-  %16 = load ptr, ptr %8, align 8
-  %17 = load ptr, ptr %9, align 8
-  %18 = load ptr, ptr %6, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !7
+  store ptr %1, ptr %7, align 8, !tbaa !12
+  store ptr %2, ptr %8, align 8, !tbaa !12
+  store ptr %3, ptr %9, align 8, !tbaa !12
+  store ptr %4, ptr %10, align 8, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #4
+  %12 = load ptr, ptr %6, align 8, !tbaa !7
+  %13 = getelementptr inbounds nuw %struct.OnigEncodingTypeST, ptr %12, i32 0, i32 14
+  %14 = load ptr, ptr %13, align 8, !tbaa !18
+  %15 = load ptr, ptr %7, align 8, !tbaa !12
+  %16 = load ptr, ptr %8, align 8, !tbaa !12
+  %17 = load ptr, ptr %9, align 8, !tbaa !12
+  %18 = load ptr, ptr %6, align 8, !tbaa !7
   %19 = call ptr %14(ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18)
-  store ptr %19, ptr %11, align 8
-  %20 = load ptr, ptr %11, align 8
-  %21 = load ptr, ptr %8, align 8
+  store ptr %19, ptr %11, align 8, !tbaa !12
+  %20 = load ptr, ptr %11, align 8, !tbaa !12
+  %21 = load ptr, ptr %8, align 8, !tbaa !12
   %22 = icmp ult ptr %20, %21
   br i1 %22, label %23, label %58
 
 23:                                               ; preds = %5
-  %24 = load ptr, ptr %10, align 8
+  %24 = load ptr, ptr %10, align 8, !tbaa !21
   %25 = icmp ne ptr %24, null
   br i1 %25, label %26, label %29
 
 26:                                               ; preds = %23
-  %27 = load ptr, ptr %11, align 8
-  %28 = load ptr, ptr %10, align 8
-  store ptr %27, ptr %28, align 8
+  %27 = load ptr, ptr %11, align 8, !tbaa !12
+  %28 = load ptr, ptr %10, align 8, !tbaa !21
+  store ptr %27, ptr %28, align 8, !tbaa !12
   br label %29
 
 29:                                               ; preds = %26, %23
-  %30 = load ptr, ptr %6, align 8
-  %31 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %30, i32 0, i32 2
-  %32 = load i32, ptr %31, align 8
-  %33 = load ptr, ptr %6, align 8
-  %34 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %33, i32 0, i32 3
-  %35 = load i32, ptr %34, align 4
+  %30 = load ptr, ptr %6, align 8, !tbaa !7
+  %31 = getelementptr inbounds nuw %struct.OnigEncodingTypeST, ptr %30, i32 0, i32 2
+  %32 = load i32, ptr %31, align 8, !tbaa !19
+  %33 = load ptr, ptr %6, align 8, !tbaa !7
+  %34 = getelementptr inbounds nuw %struct.OnigEncodingTypeST, ptr %33, i32 0, i32 3
+  %35 = load i32, ptr %34, align 4, !tbaa !20
   %36 = icmp eq i32 %32, %35
   br i1 %36, label %37, label %48
 
 37:                                               ; preds = %29
-  %38 = load ptr, ptr %11, align 8
-  %39 = load ptr, ptr %9, align 8
+  %38 = load ptr, ptr %11, align 8, !tbaa !12
+  %39 = load ptr, ptr %9, align 8, !tbaa !12
   %40 = icmp ult ptr %38, %39
   br i1 %40, label %41, label %45
 
 41:                                               ; preds = %37
-  %42 = load ptr, ptr %6, align 8
-  %43 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %42, i32 0, i32 3
-  %44 = load i32, ptr %43, align 4
+  %42 = load ptr, ptr %6, align 8, !tbaa !7
+  %43 = getelementptr inbounds nuw %struct.OnigEncodingTypeST, ptr %42, i32 0, i32 3
+  %44 = load i32, ptr %43, align 4, !tbaa !20
   br label %46
 
 45:                                               ; preds = %37
@@ -317,35 +338,36 @@ define dso_local ptr @onigenc_get_right_adjust_char_head_with_prev(ptr noundef %
   br label %53
 
 48:                                               ; preds = %29
-  %49 = load ptr, ptr %11, align 8
-  %50 = load ptr, ptr %9, align 8
-  %51 = load ptr, ptr %6, align 8
+  %49 = load ptr, ptr %11, align 8, !tbaa !12
+  %50 = load ptr, ptr %9, align 8, !tbaa !12
+  %51 = load ptr, ptr %6, align 8, !tbaa !7
   %52 = call i32 @onigenc_mbclen(ptr noundef %49, ptr noundef %50, ptr noundef %51)
   br label %53
 
 53:                                               ; preds = %48, %46
   %54 = phi i32 [ %47, %46 ], [ %52, %48 ]
-  %55 = load ptr, ptr %11, align 8
+  %55 = load ptr, ptr %11, align 8, !tbaa !12
   %56 = sext i32 %54 to i64
   %57 = getelementptr i8, ptr %55, i64 %56
-  store ptr %57, ptr %11, align 8
+  store ptr %57, ptr %11, align 8, !tbaa !12
   br label %64
 
 58:                                               ; preds = %5
-  %59 = load ptr, ptr %10, align 8
+  %59 = load ptr, ptr %10, align 8, !tbaa !21
   %60 = icmp ne ptr %59, null
   br i1 %60, label %61, label %63
 
 61:                                               ; preds = %58
-  %62 = load ptr, ptr %10, align 8
-  store ptr null, ptr %62, align 8
+  %62 = load ptr, ptr %10, align 8, !tbaa !21
+  store ptr null, ptr %62, align 8, !tbaa !12
   br label %63
 
 63:                                               ; preds = %61, %58
   br label %64
 
 64:                                               ; preds = %63, %53
-  %65 = load ptr, ptr %11, align 8
+  %65 = load ptr, ptr %11, align 8, !tbaa !12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #4
   ret ptr %65
 }
 
@@ -356,12 +378,12 @@ define dso_local ptr @onigenc_get_prev_char_head(ptr noundef %0, ptr noundef %1,
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store ptr %3, ptr %9, align 8
-  %10 = load ptr, ptr %8, align 8
-  %11 = load ptr, ptr %7, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !7
+  store ptr %1, ptr %7, align 8, !tbaa !12
+  store ptr %2, ptr %8, align 8, !tbaa !12
+  store ptr %3, ptr %9, align 8, !tbaa !12
+  %10 = load ptr, ptr %8, align 8, !tbaa !12
+  %11 = load ptr, ptr %7, align 8, !tbaa !12
   %12 = icmp ule ptr %10, %11
   br i1 %12, label %13, label %14
 
@@ -370,14 +392,14 @@ define dso_local ptr @onigenc_get_prev_char_head(ptr noundef %0, ptr noundef %1,
   br label %24
 
 14:                                               ; preds = %4
-  %15 = load ptr, ptr %6, align 8
-  %16 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %15, i32 0, i32 14
-  %17 = load ptr, ptr %16, align 8
-  %18 = load ptr, ptr %7, align 8
-  %19 = load ptr, ptr %8, align 8
+  %15 = load ptr, ptr %6, align 8, !tbaa !7
+  %16 = getelementptr inbounds nuw %struct.OnigEncodingTypeST, ptr %15, i32 0, i32 14
+  %17 = load ptr, ptr %16, align 8, !tbaa !18
+  %18 = load ptr, ptr %7, align 8, !tbaa !12
+  %19 = load ptr, ptr %8, align 8, !tbaa !12
   %20 = getelementptr i8, ptr %19, i64 -1
-  %21 = load ptr, ptr %9, align 8
-  %22 = load ptr, ptr %6, align 8
+  %21 = load ptr, ptr %9, align 8, !tbaa !12
+  %22 = load ptr, ptr %6, align 8, !tbaa !7
   %23 = call ptr %17(ptr noundef %18, ptr noundef %20, ptr noundef %21, ptr noundef %22)
   store ptr %23, ptr %5, align 8
   br label %24
@@ -395,22 +417,22 @@ define dso_local ptr @onigenc_step_back(ptr noundef %0, ptr noundef %1, ptr noun
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = alloca i32, align 4
-  store ptr %0, ptr %7, align 8
-  store ptr %1, ptr %8, align 8
-  store ptr %2, ptr %9, align 8
-  store ptr %3, ptr %10, align 8
-  store i32 %4, ptr %11, align 4
+  store ptr %0, ptr %7, align 8, !tbaa !7
+  store ptr %1, ptr %8, align 8, !tbaa !12
+  store ptr %2, ptr %9, align 8, !tbaa !12
+  store ptr %3, ptr %10, align 8, !tbaa !12
+  store i32 %4, ptr %11, align 4, !tbaa !17
   br label %12
 
 12:                                               ; preds = %26, %5
-  %13 = load ptr, ptr %9, align 8
+  %13 = load ptr, ptr %9, align 8, !tbaa !12
   %14 = icmp ne ptr %13, null
   br i1 %14, label %15, label %19
 
 15:                                               ; preds = %12
-  %16 = load i32, ptr %11, align 4
+  %16 = load i32, ptr %11, align 4, !tbaa !17
   %17 = add i32 %16, -1
-  store i32 %17, ptr %11, align 4
+  store i32 %17, ptr %11, align 4, !tbaa !17
   %18 = icmp sgt i32 %16, 0
   br label %19
 
@@ -419,8 +441,8 @@ define dso_local ptr @onigenc_step_back(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %20, label %21, label %36
 
 21:                                               ; preds = %19
-  %22 = load ptr, ptr %9, align 8
-  %23 = load ptr, ptr %8, align 8
+  %22 = load ptr, ptr %9, align 8, !tbaa !12
+  %23 = load ptr, ptr %8, align 8, !tbaa !12
   %24 = icmp ule ptr %22, %23
   br i1 %24, label %25, label %26
 
@@ -429,20 +451,20 @@ define dso_local ptr @onigenc_step_back(ptr noundef %0, ptr noundef %1, ptr noun
   br label %38
 
 26:                                               ; preds = %21
-  %27 = load ptr, ptr %7, align 8
-  %28 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %27, i32 0, i32 14
-  %29 = load ptr, ptr %28, align 8
-  %30 = load ptr, ptr %8, align 8
-  %31 = load ptr, ptr %9, align 8
+  %27 = load ptr, ptr %7, align 8, !tbaa !7
+  %28 = getelementptr inbounds nuw %struct.OnigEncodingTypeST, ptr %27, i32 0, i32 14
+  %29 = load ptr, ptr %28, align 8, !tbaa !18
+  %30 = load ptr, ptr %8, align 8, !tbaa !12
+  %31 = load ptr, ptr %9, align 8, !tbaa !12
   %32 = getelementptr i8, ptr %31, i64 -1
-  %33 = load ptr, ptr %10, align 8
-  %34 = load ptr, ptr %7, align 8
+  %33 = load ptr, ptr %10, align 8, !tbaa !12
+  %34 = load ptr, ptr %7, align 8, !tbaa !7
   %35 = call ptr %29(ptr noundef %30, ptr noundef %32, ptr noundef %33, ptr noundef %34)
-  store ptr %35, ptr %9, align 8
-  br label %12, !llvm.loop !7
+  store ptr %35, ptr %9, align 8, !tbaa !12
+  br label %12, !llvm.loop !23
 
 36:                                               ; preds = %19
-  %37 = load ptr, ptr %9, align 8
+  %37 = load ptr, ptr %9, align 8, !tbaa !12
   store ptr %37, ptr %6, align 8
   br label %38
 
@@ -458,40 +480,41 @@ define dso_local ptr @onigenc_step(ptr noundef %0, ptr noundef %1, ptr noundef %
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store i32 %3, ptr %8, align 4
-  %10 = load ptr, ptr %6, align 8
-  store ptr %10, ptr %9, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !7
+  store ptr %1, ptr %6, align 8, !tbaa !12
+  store ptr %2, ptr %7, align 8, !tbaa !12
+  store i32 %3, ptr %8, align 4, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #4
+  %10 = load ptr, ptr %6, align 8, !tbaa !12
+  store ptr %10, ptr %9, align 8, !tbaa !12
   br label %11
 
 11:                                               ; preds = %15, %4
-  %12 = load i32, ptr %8, align 4
+  %12 = load i32, ptr %8, align 4, !tbaa !17
   %13 = add i32 %12, -1
-  store i32 %13, ptr %8, align 4
+  store i32 %13, ptr %8, align 4, !tbaa !17
   %14 = icmp sgt i32 %12, 0
   br i1 %14, label %15, label %23
 
 15:                                               ; preds = %11
-  %16 = load ptr, ptr %9, align 8
-  %17 = load ptr, ptr %7, align 8
-  %18 = load ptr, ptr %5, align 8
+  %16 = load ptr, ptr %9, align 8, !tbaa !12
+  %17 = load ptr, ptr %7, align 8, !tbaa !12
+  %18 = load ptr, ptr %5, align 8, !tbaa !7
   %19 = call i32 @onigenc_mbclen(ptr noundef %16, ptr noundef %17, ptr noundef %18)
-  %20 = load ptr, ptr %9, align 8
+  %20 = load ptr, ptr %9, align 8, !tbaa !12
   %21 = sext i32 %19 to i64
   %22 = getelementptr i8, ptr %20, i64 %21
-  store ptr %22, ptr %9, align 8
-  br label %11, !llvm.loop !9
+  store ptr %22, ptr %9, align 8, !tbaa !12
+  br label %11, !llvm.loop !25
 
 23:                                               ; preds = %11
-  %24 = load ptr, ptr %9, align 8
-  %25 = load ptr, ptr %7, align 8
+  %24 = load ptr, ptr %9, align 8, !tbaa !12
+  %25 = load ptr, ptr %7, align 8, !tbaa !12
   %26 = icmp ule ptr %24, %25
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %23
-  %28 = load ptr, ptr %9, align 8
+  %28 = load ptr, ptr %9, align 8, !tbaa !12
   br label %30
 
 29:                                               ; preds = %23
@@ -499,6 +522,7 @@ define dso_local ptr @onigenc_step(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 30:                                               ; preds = %29, %27
   %31 = phi ptr [ %28, %27 ], [ null, %29 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #4
   ret ptr %31
 }
 
@@ -509,36 +533,40 @@ define dso_local i32 @onigenc_strlen(ptr noundef %0, ptr noundef %1, ptr noundef
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  store i32 0, ptr %7, align 4
-  %9 = load ptr, ptr %5, align 8
-  store ptr %9, ptr %8, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !7
+  store ptr %1, ptr %5, align 8, !tbaa !12
+  store ptr %2, ptr %6, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #4
+  store i32 0, ptr %7, align 4, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #4
+  %9 = load ptr, ptr %5, align 8, !tbaa !12
+  store ptr %9, ptr %8, align 8, !tbaa !12
   br label %10
 
 10:                                               ; preds = %14, %3
-  %11 = load ptr, ptr %8, align 8
-  %12 = load ptr, ptr %6, align 8
+  %11 = load ptr, ptr %8, align 8, !tbaa !12
+  %12 = load ptr, ptr %6, align 8, !tbaa !12
   %13 = icmp ult ptr %11, %12
   br i1 %13, label %14, label %24
 
 14:                                               ; preds = %10
-  %15 = load ptr, ptr %8, align 8
-  %16 = load ptr, ptr %6, align 8
-  %17 = load ptr, ptr %4, align 8
+  %15 = load ptr, ptr %8, align 8, !tbaa !12
+  %16 = load ptr, ptr %6, align 8, !tbaa !12
+  %17 = load ptr, ptr %4, align 8, !tbaa !7
   %18 = call i32 @onigenc_mbclen(ptr noundef %15, ptr noundef %16, ptr noundef %17)
-  %19 = load ptr, ptr %8, align 8
+  %19 = load ptr, ptr %8, align 8, !tbaa !12
   %20 = sext i32 %18 to i64
   %21 = getelementptr i8, ptr %19, i64 %20
-  store ptr %21, ptr %8, align 8
-  %22 = load i32, ptr %7, align 4
+  store ptr %21, ptr %8, align 8, !tbaa !12
+  %22 = load i32, ptr %7, align 4, !tbaa !17
   %23 = add i32 %22, 1
-  store i32 %23, ptr %7, align 4
-  br label %10, !llvm.loop !10
+  store i32 %23, ptr %7, align 4, !tbaa !17
+  br label %10, !llvm.loop !26
 
 24:                                               ; preds = %10
-  %25 = load i32, ptr %7, align 4
+  %25 = load i32, ptr %7, align 4, !tbaa !17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #4
   ret i32 %25
 }
 
@@ -552,101 +580,127 @@ define dso_local i32 @onigenc_strlen_null(ptr noundef %0, ptr noundef %1) #0 {
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i32 0, ptr %6, align 4
-  %11 = load ptr, ptr %5, align 8
-  store ptr %11, ptr %7, align 8
-  br label %12
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !7
+  store ptr %1, ptr %5, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #4
+  store i32 0, ptr %6, align 4, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #4
+  %12 = load ptr, ptr %5, align 8, !tbaa !12
+  store ptr %12, ptr %7, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #4
+  br label %13
 
-12:                                               ; preds = %48, %2
-  %13 = load ptr, ptr %7, align 8
-  %14 = load i8, ptr %13, align 1
-  %15 = zext i8 %14 to i32
-  %16 = icmp eq i32 %15, 0
-  br i1 %16, label %17, label %48
+13:                                               ; preds = %53, %2
+  br label %14
 
-17:                                               ; preds = %12
-  %18 = load ptr, ptr %4, align 8
-  %19 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %18, i32 0, i32 3
-  %20 = load i32, ptr %19, align 4
-  store i32 %20, ptr %10, align 4
-  %21 = load i32, ptr %10, align 4
-  %22 = icmp eq i32 %21, 1
-  br i1 %22, label %23, label %25
+14:                                               ; preds = %13
+  %15 = load ptr, ptr %7, align 8, !tbaa !12
+  %16 = load i8, ptr %15, align 1, !tbaa !27
+  %17 = zext i8 %16 to i32
+  %18 = icmp eq i32 %17, 0
+  br i1 %18, label %19, label %53
 
-23:                                               ; preds = %17
-  %24 = load i32, ptr %6, align 4
-  store i32 %24, ptr %3, align 4
-  br label %64
+19:                                               ; preds = %14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #4
+  %20 = load ptr, ptr %4, align 8, !tbaa !7
+  %21 = getelementptr inbounds nuw %struct.OnigEncodingTypeST, ptr %20, i32 0, i32 3
+  %22 = load i32, ptr %21, align 4, !tbaa !20
+  store i32 %22, ptr %10, align 4, !tbaa !17
+  %23 = load i32, ptr %10, align 4, !tbaa !17
+  %24 = icmp eq i32 %23, 1
+  br i1 %24, label %25, label %27
 
-25:                                               ; preds = %17
-  %26 = load ptr, ptr %7, align 8
-  %27 = getelementptr i8, ptr %26, i64 1
-  store ptr %27, ptr %9, align 8
-  br label %28
+25:                                               ; preds = %19
+  %26 = load i32, ptr %6, align 4, !tbaa !17
+  store i32 %26, ptr %3, align 4
+  store i32 1, ptr %11, align 4
+  br label %50
 
-28:                                               ; preds = %37, %25
-  %29 = load i32, ptr %10, align 4
-  %30 = icmp sgt i32 %29, 1
-  br i1 %30, label %31, label %42
+27:                                               ; preds = %19
+  %28 = load ptr, ptr %7, align 8, !tbaa !12
+  %29 = getelementptr i8, ptr %28, i64 1
+  store ptr %29, ptr %9, align 8, !tbaa !12
+  br label %30
 
-31:                                               ; preds = %28
-  %32 = load ptr, ptr %9, align 8
-  %33 = load i8, ptr %32, align 1
-  %34 = zext i8 %33 to i32
-  %35 = icmp ne i32 %34, 0
-  br i1 %35, label %36, label %37
+30:                                               ; preds = %39, %27
+  %31 = load i32, ptr %10, align 4, !tbaa !17
+  %32 = icmp sgt i32 %31, 1
+  br i1 %32, label %33, label %44
 
-36:                                               ; preds = %31
-  br label %42
+33:                                               ; preds = %30
+  %34 = load ptr, ptr %9, align 8, !tbaa !12
+  %35 = load i8, ptr %34, align 1, !tbaa !27
+  %36 = zext i8 %35 to i32
+  %37 = icmp ne i32 %36, 0
+  br i1 %37, label %38, label %39
 
-37:                                               ; preds = %31
-  %38 = load ptr, ptr %9, align 8
-  %39 = getelementptr i8, ptr %38, i32 1
-  store ptr %39, ptr %9, align 8
-  %40 = load i32, ptr %10, align 4
-  %41 = add i32 %40, -1
-  store i32 %41, ptr %10, align 4
-  br label %28, !llvm.loop !11
+38:                                               ; preds = %33
+  br label %44
 
-42:                                               ; preds = %36, %28
-  %43 = load i32, ptr %10, align 4
-  %44 = icmp eq i32 %43, 1
-  br i1 %44, label %45, label %47
+39:                                               ; preds = %33
+  %40 = load ptr, ptr %9, align 8, !tbaa !12
+  %41 = getelementptr i8, ptr %40, i32 1
+  store ptr %41, ptr %9, align 8, !tbaa !12
+  %42 = load i32, ptr %10, align 4, !tbaa !17
+  %43 = add i32 %42, -1
+  store i32 %43, ptr %10, align 4, !tbaa !17
+  br label %30, !llvm.loop !28
 
-45:                                               ; preds = %42
-  %46 = load i32, ptr %6, align 4
-  store i32 %46, ptr %3, align 4
-  br label %64
+44:                                               ; preds = %38, %30
+  %45 = load i32, ptr %10, align 4, !tbaa !17
+  %46 = icmp eq i32 %45, 1
+  br i1 %46, label %47, label %49
 
-47:                                               ; preds = %42
-  br label %48
+47:                                               ; preds = %44
+  %48 = load i32, ptr %6, align 4, !tbaa !17
+  store i32 %48, ptr %3, align 4
+  store i32 1, ptr %11, align 4
+  br label %50
 
-48:                                               ; preds = %47, %12
-  %49 = load ptr, ptr %7, align 8
-  %50 = load ptr, ptr %4, align 8
-  %51 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %50, i32 0, i32 2
-  %52 = load i32, ptr %51, align 8
-  %53 = sext i32 %52 to i64
-  %54 = getelementptr i8, ptr %49, i64 %53
-  store ptr %54, ptr %8, align 8
-  %55 = load ptr, ptr %7, align 8
-  %56 = load ptr, ptr %8, align 8
-  %57 = load ptr, ptr %4, align 8
-  %58 = call i32 @onigenc_mbclen(ptr noundef %55, ptr noundef %56, ptr noundef %57)
-  %59 = load ptr, ptr %7, align 8
-  %60 = sext i32 %58 to i64
-  %61 = getelementptr i8, ptr %59, i64 %60
-  store ptr %61, ptr %7, align 8
-  %62 = load i32, ptr %6, align 4
-  %63 = add i32 %62, 1
-  store i32 %63, ptr %6, align 4
-  br label %12
+49:                                               ; preds = %44
+  store i32 0, ptr %11, align 4
+  br label %50
 
-64:                                               ; preds = %45, %23
-  %65 = load i32, ptr %3, align 4
-  ret i32 %65
+50:                                               ; preds = %49, %47, %25
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #4
+  %51 = load i32, ptr %11, align 4
+  switch i32 %51, label %69 [
+    i32 0, label %52
+  ]
+
+52:                                               ; preds = %50
+  br label %53
+
+53:                                               ; preds = %52, %14
+  %54 = load ptr, ptr %7, align 8, !tbaa !12
+  %55 = load ptr, ptr %4, align 8, !tbaa !7
+  %56 = getelementptr inbounds nuw %struct.OnigEncodingTypeST, ptr %55, i32 0, i32 2
+  %57 = load i32, ptr %56, align 8, !tbaa !19
+  %58 = sext i32 %57 to i64
+  %59 = getelementptr i8, ptr %54, i64 %58
+  store ptr %59, ptr %8, align 8, !tbaa !12
+  %60 = load ptr, ptr %7, align 8, !tbaa !12
+  %61 = load ptr, ptr %8, align 8, !tbaa !12
+  %62 = load ptr, ptr %4, align 8, !tbaa !7
+  %63 = call i32 @onigenc_mbclen(ptr noundef %60, ptr noundef %61, ptr noundef %62)
+  %64 = load ptr, ptr %7, align 8, !tbaa !12
+  %65 = sext i32 %63 to i64
+  %66 = getelementptr i8, ptr %64, i64 %65
+  store ptr %66, ptr %7, align 8, !tbaa !12
+  %67 = load i32, ptr %6, align 4, !tbaa !17
+  %68 = add i32 %67, 1
+  store i32 %68, ptr %6, align 4, !tbaa !17
+  br label %13
+
+69:                                               ; preds = %50
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #4
+  %70 = load i32, ptr %3, align 4
+  ret i32 %70
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -659,109 +713,135 @@ define dso_local i32 @onigenc_str_bytelen_null(ptr noundef %0, ptr noundef %1) #
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %11 = load ptr, ptr %5, align 8
-  store ptr %11, ptr %6, align 8
-  %12 = load ptr, ptr %5, align 8
-  store ptr %12, ptr %7, align 8
-  br label %13
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !7
+  store ptr %1, ptr %5, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #4
+  %12 = load ptr, ptr %5, align 8, !tbaa !12
+  store ptr %12, ptr %6, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #4
+  %13 = load ptr, ptr %5, align 8, !tbaa !12
+  store ptr %13, ptr %7, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #4
+  br label %14
 
-13:                                               ; preds = %59, %2
-  %14 = load ptr, ptr %7, align 8
-  %15 = load i8, ptr %14, align 1
-  %16 = zext i8 %15 to i32
-  %17 = icmp eq i32 %16, 0
-  br i1 %17, label %18, label %59
+14:                                               ; preds = %64, %2
+  br label %15
 
-18:                                               ; preds = %13
-  %19 = load ptr, ptr %4, align 8
-  %20 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %19, i32 0, i32 3
-  %21 = load i32, ptr %20, align 4
-  store i32 %21, ptr %10, align 4
-  %22 = load i32, ptr %10, align 4
-  %23 = icmp eq i32 %22, 1
-  br i1 %23, label %24, label %31
+15:                                               ; preds = %14
+  %16 = load ptr, ptr %7, align 8, !tbaa !12
+  %17 = load i8, ptr %16, align 1, !tbaa !27
+  %18 = zext i8 %17 to i32
+  %19 = icmp eq i32 %18, 0
+  br i1 %19, label %20, label %64
 
-24:                                               ; preds = %18
-  %25 = load ptr, ptr %7, align 8
-  %26 = load ptr, ptr %6, align 8
-  %27 = ptrtoint ptr %25 to i64
-  %28 = ptrtoint ptr %26 to i64
-  %29 = sub i64 %27, %28
-  %30 = trunc i64 %29 to i32
-  store i32 %30, ptr %3, align 4
-  br label %73
+20:                                               ; preds = %15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #4
+  %21 = load ptr, ptr %4, align 8, !tbaa !7
+  %22 = getelementptr inbounds nuw %struct.OnigEncodingTypeST, ptr %21, i32 0, i32 3
+  %23 = load i32, ptr %22, align 4, !tbaa !20
+  store i32 %23, ptr %10, align 4, !tbaa !17
+  %24 = load i32, ptr %10, align 4, !tbaa !17
+  %25 = icmp eq i32 %24, 1
+  br i1 %25, label %26, label %33
 
-31:                                               ; preds = %18
-  %32 = load ptr, ptr %7, align 8
-  %33 = getelementptr i8, ptr %32, i64 1
-  store ptr %33, ptr %9, align 8
-  br label %34
+26:                                               ; preds = %20
+  %27 = load ptr, ptr %7, align 8, !tbaa !12
+  %28 = load ptr, ptr %6, align 8, !tbaa !12
+  %29 = ptrtoint ptr %27 to i64
+  %30 = ptrtoint ptr %28 to i64
+  %31 = sub i64 %29, %30
+  %32 = trunc i64 %31 to i32
+  store i32 %32, ptr %3, align 4
+  store i32 1, ptr %11, align 4
+  br label %61
 
-34:                                               ; preds = %43, %31
-  %35 = load i32, ptr %10, align 4
-  %36 = icmp sgt i32 %35, 1
-  br i1 %36, label %37, label %48
+33:                                               ; preds = %20
+  %34 = load ptr, ptr %7, align 8, !tbaa !12
+  %35 = getelementptr i8, ptr %34, i64 1
+  store ptr %35, ptr %9, align 8, !tbaa !12
+  br label %36
 
-37:                                               ; preds = %34
-  %38 = load ptr, ptr %9, align 8
-  %39 = load i8, ptr %38, align 1
-  %40 = zext i8 %39 to i32
-  %41 = icmp ne i32 %40, 0
-  br i1 %41, label %42, label %43
+36:                                               ; preds = %45, %33
+  %37 = load i32, ptr %10, align 4, !tbaa !17
+  %38 = icmp sgt i32 %37, 1
+  br i1 %38, label %39, label %50
 
-42:                                               ; preds = %37
-  br label %48
+39:                                               ; preds = %36
+  %40 = load ptr, ptr %9, align 8, !tbaa !12
+  %41 = load i8, ptr %40, align 1, !tbaa !27
+  %42 = zext i8 %41 to i32
+  %43 = icmp ne i32 %42, 0
+  br i1 %43, label %44, label %45
 
-43:                                               ; preds = %37
-  %44 = load ptr, ptr %9, align 8
-  %45 = getelementptr i8, ptr %44, i32 1
-  store ptr %45, ptr %9, align 8
-  %46 = load i32, ptr %10, align 4
-  %47 = add i32 %46, -1
-  store i32 %47, ptr %10, align 4
-  br label %34, !llvm.loop !12
+44:                                               ; preds = %39
+  br label %50
 
-48:                                               ; preds = %42, %34
-  %49 = load i32, ptr %10, align 4
-  %50 = icmp eq i32 %49, 1
-  br i1 %50, label %51, label %58
+45:                                               ; preds = %39
+  %46 = load ptr, ptr %9, align 8, !tbaa !12
+  %47 = getelementptr i8, ptr %46, i32 1
+  store ptr %47, ptr %9, align 8, !tbaa !12
+  %48 = load i32, ptr %10, align 4, !tbaa !17
+  %49 = add i32 %48, -1
+  store i32 %49, ptr %10, align 4, !tbaa !17
+  br label %36, !llvm.loop !29
 
-51:                                               ; preds = %48
-  %52 = load ptr, ptr %7, align 8
-  %53 = load ptr, ptr %6, align 8
-  %54 = ptrtoint ptr %52 to i64
-  %55 = ptrtoint ptr %53 to i64
-  %56 = sub i64 %54, %55
-  %57 = trunc i64 %56 to i32
-  store i32 %57, ptr %3, align 4
-  br label %73
+50:                                               ; preds = %44, %36
+  %51 = load i32, ptr %10, align 4, !tbaa !17
+  %52 = icmp eq i32 %51, 1
+  br i1 %52, label %53, label %60
 
-58:                                               ; preds = %48
-  br label %59
+53:                                               ; preds = %50
+  %54 = load ptr, ptr %7, align 8, !tbaa !12
+  %55 = load ptr, ptr %6, align 8, !tbaa !12
+  %56 = ptrtoint ptr %54 to i64
+  %57 = ptrtoint ptr %55 to i64
+  %58 = sub i64 %56, %57
+  %59 = trunc i64 %58 to i32
+  store i32 %59, ptr %3, align 4
+  store i32 1, ptr %11, align 4
+  br label %61
 
-59:                                               ; preds = %58, %13
-  %60 = load ptr, ptr %7, align 8
-  %61 = load ptr, ptr %4, align 8
-  %62 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %61, i32 0, i32 2
-  %63 = load i32, ptr %62, align 8
-  %64 = sext i32 %63 to i64
-  %65 = getelementptr i8, ptr %60, i64 %64
-  store ptr %65, ptr %8, align 8
-  %66 = load ptr, ptr %7, align 8
-  %67 = load ptr, ptr %8, align 8
-  %68 = load ptr, ptr %4, align 8
-  %69 = call i32 @onigenc_mbclen(ptr noundef %66, ptr noundef %67, ptr noundef %68)
-  %70 = load ptr, ptr %7, align 8
-  %71 = sext i32 %69 to i64
-  %72 = getelementptr i8, ptr %70, i64 %71
-  store ptr %72, ptr %7, align 8
-  br label %13
+60:                                               ; preds = %50
+  store i32 0, ptr %11, align 4
+  br label %61
 
-73:                                               ; preds = %51, %24
-  %74 = load i32, ptr %3, align 4
-  ret i32 %74
+61:                                               ; preds = %60, %53, %26
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #4
+  %62 = load i32, ptr %11, align 4
+  switch i32 %62, label %78 [
+    i32 0, label %63
+  ]
+
+63:                                               ; preds = %61
+  br label %64
+
+64:                                               ; preds = %63, %15
+  %65 = load ptr, ptr %7, align 8, !tbaa !12
+  %66 = load ptr, ptr %4, align 8, !tbaa !7
+  %67 = getelementptr inbounds nuw %struct.OnigEncodingTypeST, ptr %66, i32 0, i32 2
+  %68 = load i32, ptr %67, align 8, !tbaa !19
+  %69 = sext i32 %68 to i64
+  %70 = getelementptr i8, ptr %65, i64 %69
+  store ptr %70, ptr %8, align 8, !tbaa !12
+  %71 = load ptr, ptr %7, align 8, !tbaa !12
+  %72 = load ptr, ptr %8, align 8, !tbaa !12
+  %73 = load ptr, ptr %4, align 8, !tbaa !7
+  %74 = call i32 @onigenc_mbclen(ptr noundef %71, ptr noundef %72, ptr noundef %73)
+  %75 = load ptr, ptr %7, align 8, !tbaa !12
+  %76 = sext i32 %74 to i64
+  %77 = getelementptr i8, ptr %75, i64 %76
+  store ptr %77, ptr %7, align 8, !tbaa !12
+  br label %14
+
+78:                                               ; preds = %61
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #4
+  %79 = load i32, ptr %3, align 4
+  ret i32 %79
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -770,17 +850,17 @@ define dso_local ptr @onigenc_get_left_adjust_char_head(ptr noundef %0, ptr noun
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store ptr %3, ptr %8, align 8
-  %9 = load ptr, ptr %5, align 8
-  %10 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %9, i32 0, i32 14
-  %11 = load ptr, ptr %10, align 8
-  %12 = load ptr, ptr %6, align 8
-  %13 = load ptr, ptr %7, align 8
-  %14 = load ptr, ptr %8, align 8
-  %15 = load ptr, ptr %5, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !7
+  store ptr %1, ptr %6, align 8, !tbaa !12
+  store ptr %2, ptr %7, align 8, !tbaa !12
+  store ptr %3, ptr %8, align 8, !tbaa !12
+  %9 = load ptr, ptr %5, align 8, !tbaa !7
+  %10 = getelementptr inbounds nuw %struct.OnigEncodingTypeST, ptr %9, i32 0, i32 14
+  %11 = load ptr, ptr %10, align 8, !tbaa !18
+  %12 = load ptr, ptr %6, align 8, !tbaa !12
+  %13 = load ptr, ptr %7, align 8, !tbaa !12
+  %14 = load ptr, ptr %8, align 8, !tbaa !12
+  %15 = load ptr, ptr %5, align 8, !tbaa !7
   %16 = call ptr %11(ptr noundef %12, ptr noundef %13, ptr noundef %14, ptr noundef %15)
   ret ptr %16
 }
@@ -795,84 +875,94 @@ define dso_local i32 @onigenc_ascii_apply_all_case_fold(i32 noundef %0, ptr noun
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
-  store i32 %0, ptr %6, align 4
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store ptr %3, ptr %9, align 8
-  store i32 0, ptr %11, align 4
-  br label %13
+  %13 = alloca i32, align 4
+  store i32 %0, ptr %6, align 4, !tbaa !17
+  store ptr %1, ptr %7, align 8, !tbaa !30
+  store ptr %2, ptr %8, align 8, !tbaa !30
+  store ptr %3, ptr %9, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #4
+  store i32 0, ptr %11, align 4, !tbaa !17
+  br label %14
 
-13:                                               ; preds = %53, %4
-  %14 = load i32, ptr %11, align 4
-  %15 = icmp slt i32 %14, 26
-  br i1 %15, label %16, label %56
+14:                                               ; preds = %54, %4
+  %15 = load i32, ptr %11, align 4, !tbaa !17
+  %16 = icmp slt i32 %15, 26
+  br i1 %16, label %17, label %57
 
-16:                                               ; preds = %13
-  %17 = load i32, ptr %11, align 4
-  %18 = sext i32 %17 to i64
-  %19 = getelementptr [26 x %struct.OnigPairCaseFoldCodes], ptr @OnigAsciiLowerMap, i64 0, i64 %18
-  %20 = getelementptr inbounds %struct.OnigPairCaseFoldCodes, ptr %19, i32 0, i32 1
-  %21 = load i32, ptr %20, align 4
-  store i32 %21, ptr %10, align 4
-  %22 = load ptr, ptr %7, align 8
-  %23 = load i32, ptr %11, align 4
-  %24 = sext i32 %23 to i64
-  %25 = getelementptr [26 x %struct.OnigPairCaseFoldCodes], ptr @OnigAsciiLowerMap, i64 0, i64 %24
-  %26 = getelementptr inbounds %struct.OnigPairCaseFoldCodes, ptr %25, i32 0, i32 0
-  %27 = load i32, ptr %26, align 8
-  %28 = load ptr, ptr %8, align 8
-  %29 = call i32 %22(i32 noundef %27, ptr noundef %10, i32 noundef 1, ptr noundef %28)
-  store i32 %29, ptr %12, align 4
-  %30 = load i32, ptr %12, align 4
-  %31 = icmp ne i32 %30, 0
-  br i1 %31, label %32, label %34
+17:                                               ; preds = %14
+  %18 = load i32, ptr %11, align 4, !tbaa !17
+  %19 = sext i32 %18 to i64
+  %20 = getelementptr [26 x %struct.OnigPairCaseFoldCodes], ptr @OnigAsciiLowerMap, i64 0, i64 %19
+  %21 = getelementptr inbounds nuw %struct.OnigPairCaseFoldCodes, ptr %20, i32 0, i32 1
+  %22 = load i32, ptr %21, align 4, !tbaa !31
+  store i32 %22, ptr %10, align 4, !tbaa !17
+  %23 = load ptr, ptr %7, align 8, !tbaa !30
+  %24 = load i32, ptr %11, align 4, !tbaa !17
+  %25 = sext i32 %24 to i64
+  %26 = getelementptr [26 x %struct.OnigPairCaseFoldCodes], ptr @OnigAsciiLowerMap, i64 0, i64 %25
+  %27 = getelementptr inbounds nuw %struct.OnigPairCaseFoldCodes, ptr %26, i32 0, i32 0
+  %28 = load i32, ptr %27, align 8, !tbaa !33
+  %29 = load ptr, ptr %8, align 8, !tbaa !30
+  %30 = call i32 %23(i32 noundef %28, ptr noundef %10, i32 noundef 1, ptr noundef %29)
+  store i32 %30, ptr %12, align 4, !tbaa !17
+  %31 = load i32, ptr %12, align 4, !tbaa !17
+  %32 = icmp ne i32 %31, 0
+  br i1 %32, label %33, label %35
 
-32:                                               ; preds = %16
-  %33 = load i32, ptr %12, align 4
-  store i32 %33, ptr %5, align 4
-  br label %57
+33:                                               ; preds = %17
+  %34 = load i32, ptr %12, align 4, !tbaa !17
+  store i32 %34, ptr %5, align 4
+  store i32 1, ptr %13, align 4
+  br label %58
 
-34:                                               ; preds = %16
-  %35 = load i32, ptr %11, align 4
-  %36 = sext i32 %35 to i64
-  %37 = getelementptr [26 x %struct.OnigPairCaseFoldCodes], ptr @OnigAsciiLowerMap, i64 0, i64 %36
-  %38 = getelementptr inbounds %struct.OnigPairCaseFoldCodes, ptr %37, i32 0, i32 0
-  %39 = load i32, ptr %38, align 8
-  store i32 %39, ptr %10, align 4
-  %40 = load ptr, ptr %7, align 8
-  %41 = load i32, ptr %11, align 4
-  %42 = sext i32 %41 to i64
-  %43 = getelementptr [26 x %struct.OnigPairCaseFoldCodes], ptr @OnigAsciiLowerMap, i64 0, i64 %42
-  %44 = getelementptr inbounds %struct.OnigPairCaseFoldCodes, ptr %43, i32 0, i32 1
-  %45 = load i32, ptr %44, align 4
-  %46 = load ptr, ptr %8, align 8
-  %47 = call i32 %40(i32 noundef %45, ptr noundef %10, i32 noundef 1, ptr noundef %46)
-  store i32 %47, ptr %12, align 4
-  %48 = load i32, ptr %12, align 4
-  %49 = icmp ne i32 %48, 0
-  br i1 %49, label %50, label %52
+35:                                               ; preds = %17
+  %36 = load i32, ptr %11, align 4, !tbaa !17
+  %37 = sext i32 %36 to i64
+  %38 = getelementptr [26 x %struct.OnigPairCaseFoldCodes], ptr @OnigAsciiLowerMap, i64 0, i64 %37
+  %39 = getelementptr inbounds nuw %struct.OnigPairCaseFoldCodes, ptr %38, i32 0, i32 0
+  %40 = load i32, ptr %39, align 8, !tbaa !33
+  store i32 %40, ptr %10, align 4, !tbaa !17
+  %41 = load ptr, ptr %7, align 8, !tbaa !30
+  %42 = load i32, ptr %11, align 4, !tbaa !17
+  %43 = sext i32 %42 to i64
+  %44 = getelementptr [26 x %struct.OnigPairCaseFoldCodes], ptr @OnigAsciiLowerMap, i64 0, i64 %43
+  %45 = getelementptr inbounds nuw %struct.OnigPairCaseFoldCodes, ptr %44, i32 0, i32 1
+  %46 = load i32, ptr %45, align 4, !tbaa !31
+  %47 = load ptr, ptr %8, align 8, !tbaa !30
+  %48 = call i32 %41(i32 noundef %46, ptr noundef %10, i32 noundef 1, ptr noundef %47)
+  store i32 %48, ptr %12, align 4, !tbaa !17
+  %49 = load i32, ptr %12, align 4, !tbaa !17
+  %50 = icmp ne i32 %49, 0
+  br i1 %50, label %51, label %53
 
-50:                                               ; preds = %34
-  %51 = load i32, ptr %12, align 4
-  store i32 %51, ptr %5, align 4
-  br label %57
+51:                                               ; preds = %35
+  %52 = load i32, ptr %12, align 4, !tbaa !17
+  store i32 %52, ptr %5, align 4
+  store i32 1, ptr %13, align 4
+  br label %58
 
-52:                                               ; preds = %34
-  br label %53
+53:                                               ; preds = %35
+  br label %54
 
-53:                                               ; preds = %52
-  %54 = load i32, ptr %11, align 4
-  %55 = add i32 %54, 1
-  store i32 %55, ptr %11, align 4
-  br label %13, !llvm.loop !13
+54:                                               ; preds = %53
+  %55 = load i32, ptr %11, align 4, !tbaa !17
+  %56 = add i32 %55, 1
+  store i32 %56, ptr %11, align 4, !tbaa !17
+  br label %14, !llvm.loop !34
 
-56:                                               ; preds = %13
+57:                                               ; preds = %14
   store i32 0, ptr %5, align 4
-  br label %57
+  store i32 1, ptr %13, align 4
+  br label %58
 
-57:                                               ; preds = %56, %50, %32
-  %58 = load i32, ptr %5, align 4
-  ret i32 %58
+58:                                               ; preds = %57, %51, %33
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #4
+  %59 = load i32, ptr %5, align 4
+  ret i32 %59
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -883,77 +973,77 @@ define dso_local i32 @onigenc_ascii_get_case_fold_codes_by_str(i32 noundef %0, p
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
-  store i32 %0, ptr %7, align 4
-  store ptr %1, ptr %8, align 8
-  store ptr %2, ptr %9, align 8
-  store ptr %3, ptr %10, align 8
-  store ptr %4, ptr %11, align 8
-  %12 = load ptr, ptr %8, align 8
-  %13 = load i8, ptr %12, align 1
+  store i32 %0, ptr %7, align 4, !tbaa !17
+  store ptr %1, ptr %8, align 8, !tbaa !12
+  store ptr %2, ptr %9, align 8, !tbaa !12
+  store ptr %3, ptr %10, align 8, !tbaa !30
+  store ptr %4, ptr %11, align 8, !tbaa !7
+  %12 = load ptr, ptr %8, align 8, !tbaa !12
+  %13 = load i8, ptr %12, align 1, !tbaa !27
   %14 = zext i8 %13 to i32
   %15 = icmp sle i32 65, %14
   br i1 %15, label %16, label %36
 
 16:                                               ; preds = %5
-  %17 = load ptr, ptr %8, align 8
-  %18 = load i8, ptr %17, align 1
+  %17 = load ptr, ptr %8, align 8, !tbaa !12
+  %18 = load i8, ptr %17, align 1, !tbaa !27
   %19 = zext i8 %18 to i32
   %20 = icmp sle i32 %19, 90
   br i1 %20, label %21, label %36
 
 21:                                               ; preds = %16
-  %22 = load ptr, ptr %10, align 8
+  %22 = load ptr, ptr %10, align 8, !tbaa !30
   %23 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %22, i64 0
-  %24 = getelementptr inbounds %struct.OnigCaseFoldCodeItem, ptr %23, i32 0, i32 0
-  store i32 1, ptr %24, align 4
-  %25 = load ptr, ptr %10, align 8
+  %24 = getelementptr inbounds nuw %struct.OnigCaseFoldCodeItem, ptr %23, i32 0, i32 0
+  store i32 1, ptr %24, align 4, !tbaa !35
+  %25 = load ptr, ptr %10, align 8, !tbaa !30
   %26 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %25, i64 0
-  %27 = getelementptr inbounds %struct.OnigCaseFoldCodeItem, ptr %26, i32 0, i32 1
-  store i32 1, ptr %27, align 4
-  %28 = load ptr, ptr %8, align 8
-  %29 = load i8, ptr %28, align 1
+  %27 = getelementptr inbounds nuw %struct.OnigCaseFoldCodeItem, ptr %26, i32 0, i32 1
+  store i32 1, ptr %27, align 4, !tbaa !37
+  %28 = load ptr, ptr %8, align 8, !tbaa !12
+  %29 = load i8, ptr %28, align 1, !tbaa !27
   %30 = zext i8 %29 to i32
   %31 = add i32 %30, 32
-  %32 = load ptr, ptr %10, align 8
+  %32 = load ptr, ptr %10, align 8, !tbaa !30
   %33 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %32, i64 0
-  %34 = getelementptr inbounds %struct.OnigCaseFoldCodeItem, ptr %33, i32 0, i32 2
+  %34 = getelementptr inbounds nuw %struct.OnigCaseFoldCodeItem, ptr %33, i32 0, i32 2
   %35 = getelementptr [3 x i32], ptr %34, i64 0, i64 0
-  store i32 %31, ptr %35, align 4
+  store i32 %31, ptr %35, align 4, !tbaa !17
   store i32 1, ptr %6, align 4
   br label %62
 
 36:                                               ; preds = %16, %5
-  %37 = load ptr, ptr %8, align 8
-  %38 = load i8, ptr %37, align 1
+  %37 = load ptr, ptr %8, align 8, !tbaa !12
+  %38 = load i8, ptr %37, align 1, !tbaa !27
   %39 = zext i8 %38 to i32
   %40 = icmp sle i32 97, %39
   br i1 %40, label %41, label %61
 
 41:                                               ; preds = %36
-  %42 = load ptr, ptr %8, align 8
-  %43 = load i8, ptr %42, align 1
+  %42 = load ptr, ptr %8, align 8, !tbaa !12
+  %43 = load i8, ptr %42, align 1, !tbaa !27
   %44 = zext i8 %43 to i32
   %45 = icmp sle i32 %44, 122
   br i1 %45, label %46, label %61
 
 46:                                               ; preds = %41
-  %47 = load ptr, ptr %10, align 8
+  %47 = load ptr, ptr %10, align 8, !tbaa !30
   %48 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %47, i64 0
-  %49 = getelementptr inbounds %struct.OnigCaseFoldCodeItem, ptr %48, i32 0, i32 0
-  store i32 1, ptr %49, align 4
-  %50 = load ptr, ptr %10, align 8
+  %49 = getelementptr inbounds nuw %struct.OnigCaseFoldCodeItem, ptr %48, i32 0, i32 0
+  store i32 1, ptr %49, align 4, !tbaa !35
+  %50 = load ptr, ptr %10, align 8, !tbaa !30
   %51 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %50, i64 0
-  %52 = getelementptr inbounds %struct.OnigCaseFoldCodeItem, ptr %51, i32 0, i32 1
-  store i32 1, ptr %52, align 4
-  %53 = load ptr, ptr %8, align 8
-  %54 = load i8, ptr %53, align 1
+  %52 = getelementptr inbounds nuw %struct.OnigCaseFoldCodeItem, ptr %51, i32 0, i32 1
+  store i32 1, ptr %52, align 4, !tbaa !37
+  %53 = load ptr, ptr %8, align 8, !tbaa !12
+  %54 = load i8, ptr %53, align 1, !tbaa !27
   %55 = zext i8 %54 to i32
   %56 = sub i32 %55, 32
-  %57 = load ptr, ptr %10, align 8
+  %57 = load ptr, ptr %10, align 8, !tbaa !30
   %58 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %57, i64 0
-  %59 = getelementptr inbounds %struct.OnigCaseFoldCodeItem, ptr %58, i32 0, i32 2
+  %59 = getelementptr inbounds nuw %struct.OnigCaseFoldCodeItem, ptr %58, i32 0, i32 2
   %60 = getelementptr [3 x i32], ptr %59, i64 0, i64 0
-  store i32 %56, ptr %60, align 4
+  store i32 %56, ptr %60, align 4, !tbaa !17
   store i32 1, ptr %6, align 4
   br label %62
 
@@ -978,119 +1068,131 @@ define dso_local i32 @onigenc_apply_all_case_fold_with_map(i32 noundef %0, ptr n
   %14 = alloca i32, align 4
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
-  store i32 %0, ptr %8, align 4
-  store ptr %1, ptr %9, align 8
-  store i32 %2, ptr %10, align 4
-  store i32 %3, ptr %11, align 4
-  store ptr %4, ptr %12, align 8
-  store ptr %5, ptr %13, align 8
-  %17 = load i32, ptr %11, align 4
-  %18 = load ptr, ptr %12, align 8
-  %19 = load ptr, ptr %13, align 8
-  %20 = call i32 @onigenc_ascii_apply_all_case_fold(i32 noundef %17, ptr noundef %18, ptr noundef %19, ptr noundef null)
-  store i32 %20, ptr %16, align 4
-  %21 = load i32, ptr %16, align 4
-  %22 = icmp ne i32 %21, 0
-  br i1 %22, label %23, label %25
+  %17 = alloca i32, align 4
+  store i32 %0, ptr %8, align 4, !tbaa !17
+  store ptr %1, ptr %9, align 8, !tbaa !30
+  store i32 %2, ptr %10, align 4, !tbaa !17
+  store i32 %3, ptr %11, align 4, !tbaa !17
+  store ptr %4, ptr %12, align 8, !tbaa !30
+  store ptr %5, ptr %13, align 8, !tbaa !30
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #4
+  %18 = load i32, ptr %11, align 4, !tbaa !17
+  %19 = load ptr, ptr %12, align 8, !tbaa !30
+  %20 = load ptr, ptr %13, align 8, !tbaa !30
+  %21 = call i32 @onigenc_ascii_apply_all_case_fold(i32 noundef %18, ptr noundef %19, ptr noundef %20, ptr noundef null)
+  store i32 %21, ptr %16, align 4, !tbaa !17
+  %22 = load i32, ptr %16, align 4, !tbaa !17
+  %23 = icmp ne i32 %22, 0
+  br i1 %23, label %24, label %26
 
-23:                                               ; preds = %6
-  %24 = load i32, ptr %16, align 4
-  store i32 %24, ptr %7, align 4
-  br label %83
+24:                                               ; preds = %6
+  %25 = load i32, ptr %16, align 4, !tbaa !17
+  store i32 %25, ptr %7, align 4
+  store i32 1, ptr %17, align 4
+  br label %84
 
-25:                                               ; preds = %6
-  store i32 0, ptr %15, align 4
-  br label %26
+26:                                               ; preds = %6
+  store i32 0, ptr %15, align 4, !tbaa !17
+  br label %27
 
-26:                                               ; preds = %71, %25
-  %27 = load i32, ptr %15, align 4
-  %28 = load i32, ptr %8, align 4
-  %29 = icmp slt i32 %27, %28
-  br i1 %29, label %30, label %74
+27:                                               ; preds = %72, %26
+  %28 = load i32, ptr %15, align 4, !tbaa !17
+  %29 = load i32, ptr %8, align 4, !tbaa !17
+  %30 = icmp slt i32 %28, %29
+  br i1 %30, label %31, label %75
 
-30:                                               ; preds = %26
-  %31 = load ptr, ptr %9, align 8
-  %32 = load i32, ptr %15, align 4
-  %33 = sext i32 %32 to i64
-  %34 = getelementptr %struct.OnigPairCaseFoldCodes, ptr %31, i64 %33
-  %35 = getelementptr inbounds %struct.OnigPairCaseFoldCodes, ptr %34, i32 0, i32 1
-  %36 = load i32, ptr %35, align 4
-  store i32 %36, ptr %14, align 4
-  %37 = load ptr, ptr %12, align 8
-  %38 = load ptr, ptr %9, align 8
-  %39 = load i32, ptr %15, align 4
-  %40 = sext i32 %39 to i64
-  %41 = getelementptr %struct.OnigPairCaseFoldCodes, ptr %38, i64 %40
-  %42 = getelementptr inbounds %struct.OnigPairCaseFoldCodes, ptr %41, i32 0, i32 0
-  %43 = load i32, ptr %42, align 4
-  %44 = load ptr, ptr %13, align 8
-  %45 = call i32 %37(i32 noundef %43, ptr noundef %14, i32 noundef 1, ptr noundef %44)
-  store i32 %45, ptr %16, align 4
-  %46 = load i32, ptr %16, align 4
-  %47 = icmp ne i32 %46, 0
-  br i1 %47, label %48, label %50
+31:                                               ; preds = %27
+  %32 = load ptr, ptr %9, align 8, !tbaa !30
+  %33 = load i32, ptr %15, align 4, !tbaa !17
+  %34 = sext i32 %33 to i64
+  %35 = getelementptr %struct.OnigPairCaseFoldCodes, ptr %32, i64 %34
+  %36 = getelementptr inbounds nuw %struct.OnigPairCaseFoldCodes, ptr %35, i32 0, i32 1
+  %37 = load i32, ptr %36, align 4, !tbaa !31
+  store i32 %37, ptr %14, align 4, !tbaa !17
+  %38 = load ptr, ptr %12, align 8, !tbaa !30
+  %39 = load ptr, ptr %9, align 8, !tbaa !30
+  %40 = load i32, ptr %15, align 4, !tbaa !17
+  %41 = sext i32 %40 to i64
+  %42 = getelementptr %struct.OnigPairCaseFoldCodes, ptr %39, i64 %41
+  %43 = getelementptr inbounds nuw %struct.OnigPairCaseFoldCodes, ptr %42, i32 0, i32 0
+  %44 = load i32, ptr %43, align 4, !tbaa !33
+  %45 = load ptr, ptr %13, align 8, !tbaa !30
+  %46 = call i32 %38(i32 noundef %44, ptr noundef %14, i32 noundef 1, ptr noundef %45)
+  store i32 %46, ptr %16, align 4, !tbaa !17
+  %47 = load i32, ptr %16, align 4, !tbaa !17
+  %48 = icmp ne i32 %47, 0
+  br i1 %48, label %49, label %51
 
-48:                                               ; preds = %30
-  %49 = load i32, ptr %16, align 4
-  store i32 %49, ptr %7, align 4
-  br label %83
+49:                                               ; preds = %31
+  %50 = load i32, ptr %16, align 4, !tbaa !17
+  store i32 %50, ptr %7, align 4
+  store i32 1, ptr %17, align 4
+  br label %84
 
-50:                                               ; preds = %30
-  %51 = load ptr, ptr %9, align 8
-  %52 = load i32, ptr %15, align 4
-  %53 = sext i32 %52 to i64
-  %54 = getelementptr %struct.OnigPairCaseFoldCodes, ptr %51, i64 %53
-  %55 = getelementptr inbounds %struct.OnigPairCaseFoldCodes, ptr %54, i32 0, i32 0
-  %56 = load i32, ptr %55, align 4
-  store i32 %56, ptr %14, align 4
-  %57 = load ptr, ptr %12, align 8
-  %58 = load ptr, ptr %9, align 8
-  %59 = load i32, ptr %15, align 4
-  %60 = sext i32 %59 to i64
-  %61 = getelementptr %struct.OnigPairCaseFoldCodes, ptr %58, i64 %60
-  %62 = getelementptr inbounds %struct.OnigPairCaseFoldCodes, ptr %61, i32 0, i32 1
-  %63 = load i32, ptr %62, align 4
-  %64 = load ptr, ptr %13, align 8
-  %65 = call i32 %57(i32 noundef %63, ptr noundef %14, i32 noundef 1, ptr noundef %64)
-  store i32 %65, ptr %16, align 4
-  %66 = load i32, ptr %16, align 4
-  %67 = icmp ne i32 %66, 0
-  br i1 %67, label %68, label %70
+51:                                               ; preds = %31
+  %52 = load ptr, ptr %9, align 8, !tbaa !30
+  %53 = load i32, ptr %15, align 4, !tbaa !17
+  %54 = sext i32 %53 to i64
+  %55 = getelementptr %struct.OnigPairCaseFoldCodes, ptr %52, i64 %54
+  %56 = getelementptr inbounds nuw %struct.OnigPairCaseFoldCodes, ptr %55, i32 0, i32 0
+  %57 = load i32, ptr %56, align 4, !tbaa !33
+  store i32 %57, ptr %14, align 4, !tbaa !17
+  %58 = load ptr, ptr %12, align 8, !tbaa !30
+  %59 = load ptr, ptr %9, align 8, !tbaa !30
+  %60 = load i32, ptr %15, align 4, !tbaa !17
+  %61 = sext i32 %60 to i64
+  %62 = getelementptr %struct.OnigPairCaseFoldCodes, ptr %59, i64 %61
+  %63 = getelementptr inbounds nuw %struct.OnigPairCaseFoldCodes, ptr %62, i32 0, i32 1
+  %64 = load i32, ptr %63, align 4, !tbaa !31
+  %65 = load ptr, ptr %13, align 8, !tbaa !30
+  %66 = call i32 %58(i32 noundef %64, ptr noundef %14, i32 noundef 1, ptr noundef %65)
+  store i32 %66, ptr %16, align 4, !tbaa !17
+  %67 = load i32, ptr %16, align 4, !tbaa !17
+  %68 = icmp ne i32 %67, 0
+  br i1 %68, label %69, label %71
 
-68:                                               ; preds = %50
-  %69 = load i32, ptr %16, align 4
-  store i32 %69, ptr %7, align 4
-  br label %83
+69:                                               ; preds = %51
+  %70 = load i32, ptr %16, align 4, !tbaa !17
+  store i32 %70, ptr %7, align 4
+  store i32 1, ptr %17, align 4
+  br label %84
 
-70:                                               ; preds = %50
-  br label %71
+71:                                               ; preds = %51
+  br label %72
 
-71:                                               ; preds = %70
-  %72 = load i32, ptr %15, align 4
-  %73 = add i32 %72, 1
-  store i32 %73, ptr %15, align 4
-  br label %26, !llvm.loop !14
+72:                                               ; preds = %71
+  %73 = load i32, ptr %15, align 4, !tbaa !17
+  %74 = add i32 %73, 1
+  store i32 %74, ptr %15, align 4, !tbaa !17
+  br label %27, !llvm.loop !38
 
-74:                                               ; preds = %26
-  %75 = load i32, ptr %10, align 4
-  %76 = icmp ne i32 %75, 0
-  br i1 %76, label %77, label %82
+75:                                               ; preds = %27
+  %76 = load i32, ptr %10, align 4, !tbaa !17
+  %77 = icmp ne i32 %76, 0
+  br i1 %77, label %78, label %83
 
-77:                                               ; preds = %74
-  %78 = load i32, ptr %11, align 4
-  %79 = load ptr, ptr %12, align 8
-  %80 = load ptr, ptr %13, align 8
-  %81 = call i32 @ss_apply_all_case_fold(i32 noundef %78, ptr noundef %79, ptr noundef %80)
-  store i32 %81, ptr %7, align 4
-  br label %83
+78:                                               ; preds = %75
+  %79 = load i32, ptr %11, align 4, !tbaa !17
+  %80 = load ptr, ptr %12, align 8, !tbaa !30
+  %81 = load ptr, ptr %13, align 8, !tbaa !30
+  %82 = call i32 @ss_apply_all_case_fold(i32 noundef %79, ptr noundef %80, ptr noundef %81)
+  store i32 %82, ptr %7, align 4
+  store i32 1, ptr %17, align 4
+  br label %84
 
-82:                                               ; preds = %74
+83:                                               ; preds = %75
   store i32 0, ptr %7, align 4
-  br label %83
+  store i32 1, ptr %17, align 4
+  br label %84
 
-83:                                               ; preds = %82, %77, %68, %48, %23
-  %84 = load i32, ptr %7, align 4
-  ret i32 %84
+84:                                               ; preds = %83, %78, %69, %49, %24
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #4
+  %85 = load i32, ptr %7, align 4
+  ret i32 %85
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -1099,14 +1201,16 @@ define internal i32 @ss_apply_all_case_fold(i32 noundef %0, ptr noundef %1, ptr 
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca [2 x i32], align 4
-  store i32 %0, ptr %4, align 4
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store i32 %0, ptr %4, align 4, !tbaa !17
+  store ptr %1, ptr %5, align 8, !tbaa !30
+  store ptr %2, ptr %6, align 8, !tbaa !30
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #4
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %7, ptr align 4 @__const.ss_apply_all_case_fold.ss, i64 8, i1 false)
-  %8 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !30
   %9 = getelementptr inbounds [2 x i32], ptr %7, i64 0, i64 0
-  %10 = load ptr, ptr %6, align 8
+  %10 = load ptr, ptr %6, align 8, !tbaa !30
   %11 = call i32 %8(i32 noundef 223, ptr noundef %9, i32 noundef 2, ptr noundef %10)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #4
   ret i32 %11
 }
 
@@ -1121,384 +1225,403 @@ define dso_local i32 @onigenc_get_case_fold_codes_by_str_with_map(i32 noundef %0
   %14 = alloca ptr, align 8
   %15 = alloca ptr, align 8
   %16 = alloca i32, align 4
-  store i32 %0, ptr %9, align 4
-  store ptr %1, ptr %10, align 8
-  store i32 %2, ptr %11, align 4
-  store i32 %3, ptr %12, align 4
-  store ptr %4, ptr %13, align 8
-  store ptr %5, ptr %14, align 8
-  store ptr %6, ptr %15, align 8
-  %17 = load ptr, ptr %13, align 8
-  %18 = load i8, ptr %17, align 1
-  %19 = zext i8 %18 to i32
-  %20 = icmp sle i32 65, %19
-  br i1 %20, label %21, label %77
+  %17 = alloca i32, align 4
+  store i32 %0, ptr %9, align 4, !tbaa !17
+  store ptr %1, ptr %10, align 8, !tbaa !30
+  store i32 %2, ptr %11, align 4, !tbaa !17
+  store i32 %3, ptr %12, align 4, !tbaa !17
+  store ptr %4, ptr %13, align 8, !tbaa !12
+  store ptr %5, ptr %14, align 8, !tbaa !12
+  store ptr %6, ptr %15, align 8, !tbaa !30
+  %18 = load ptr, ptr %13, align 8, !tbaa !12
+  %19 = load i8, ptr %18, align 1, !tbaa !27
+  %20 = zext i8 %19 to i32
+  %21 = icmp sle i32 65, %20
+  br i1 %21, label %22, label %78
 
-21:                                               ; preds = %7
-  %22 = load ptr, ptr %13, align 8
-  %23 = load i8, ptr %22, align 1
-  %24 = zext i8 %23 to i32
-  %25 = icmp sle i32 %24, 90
-  br i1 %25, label %26, label %77
+22:                                               ; preds = %7
+  %23 = load ptr, ptr %13, align 8, !tbaa !12
+  %24 = load i8, ptr %23, align 1, !tbaa !27
+  %25 = zext i8 %24 to i32
+  %26 = icmp sle i32 %25, 90
+  br i1 %26, label %27, label %78
 
-26:                                               ; preds = %21
-  %27 = load ptr, ptr %15, align 8
-  %28 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %27, i64 0
-  %29 = getelementptr inbounds %struct.OnigCaseFoldCodeItem, ptr %28, i32 0, i32 0
-  store i32 1, ptr %29, align 4
-  %30 = load ptr, ptr %15, align 8
-  %31 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %30, i64 0
-  %32 = getelementptr inbounds %struct.OnigCaseFoldCodeItem, ptr %31, i32 0, i32 1
-  store i32 1, ptr %32, align 4
-  %33 = load ptr, ptr %13, align 8
-  %34 = load i8, ptr %33, align 1
-  %35 = zext i8 %34 to i32
-  %36 = add i32 %35, 32
-  %37 = load ptr, ptr %15, align 8
-  %38 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %37, i64 0
-  %39 = getelementptr inbounds %struct.OnigCaseFoldCodeItem, ptr %38, i32 0, i32 2
-  %40 = getelementptr [3 x i32], ptr %39, i64 0, i64 0
-  store i32 %36, ptr %40, align 4
-  %41 = load ptr, ptr %13, align 8
-  %42 = load i8, ptr %41, align 1
-  %43 = zext i8 %42 to i32
-  %44 = icmp eq i32 %43, 83
-  br i1 %44, label %45, label %76
+27:                                               ; preds = %22
+  %28 = load ptr, ptr %15, align 8, !tbaa !30
+  %29 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %28, i64 0
+  %30 = getelementptr inbounds nuw %struct.OnigCaseFoldCodeItem, ptr %29, i32 0, i32 0
+  store i32 1, ptr %30, align 4, !tbaa !35
+  %31 = load ptr, ptr %15, align 8, !tbaa !30
+  %32 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %31, i64 0
+  %33 = getelementptr inbounds nuw %struct.OnigCaseFoldCodeItem, ptr %32, i32 0, i32 1
+  store i32 1, ptr %33, align 4, !tbaa !37
+  %34 = load ptr, ptr %13, align 8, !tbaa !12
+  %35 = load i8, ptr %34, align 1, !tbaa !27
+  %36 = zext i8 %35 to i32
+  %37 = add i32 %36, 32
+  %38 = load ptr, ptr %15, align 8, !tbaa !30
+  %39 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %38, i64 0
+  %40 = getelementptr inbounds nuw %struct.OnigCaseFoldCodeItem, ptr %39, i32 0, i32 2
+  %41 = getelementptr [3 x i32], ptr %40, i64 0, i64 0
+  store i32 %37, ptr %41, align 4, !tbaa !17
+  %42 = load ptr, ptr %13, align 8, !tbaa !12
+  %43 = load i8, ptr %42, align 1, !tbaa !27
+  %44 = zext i8 %43 to i32
+  %45 = icmp eq i32 %44, 83
+  br i1 %45, label %46, label %77
 
-45:                                               ; preds = %26
-  %46 = load i32, ptr %11, align 4
-  %47 = icmp ne i32 %46, 0
-  br i1 %47, label %48, label %76
+46:                                               ; preds = %27
+  %47 = load i32, ptr %11, align 4, !tbaa !17
+  %48 = icmp ne i32 %47, 0
+  br i1 %48, label %49, label %77
 
-48:                                               ; preds = %45
-  %49 = load ptr, ptr %14, align 8
-  %50 = load ptr, ptr %13, align 8
-  %51 = getelementptr i8, ptr %50, i64 1
-  %52 = icmp ugt ptr %49, %51
-  br i1 %52, label %53, label %76
+49:                                               ; preds = %46
+  %50 = load ptr, ptr %14, align 8, !tbaa !12
+  %51 = load ptr, ptr %13, align 8, !tbaa !12
+  %52 = getelementptr i8, ptr %51, i64 1
+  %53 = icmp ugt ptr %50, %52
+  br i1 %53, label %54, label %77
 
-53:                                               ; preds = %48
-  %54 = load ptr, ptr %13, align 8
-  %55 = getelementptr i8, ptr %54, i64 1
-  %56 = load i8, ptr %55, align 1
-  %57 = zext i8 %56 to i32
-  %58 = icmp eq i32 %57, 83
-  br i1 %58, label %65, label %59
+54:                                               ; preds = %49
+  %55 = load ptr, ptr %13, align 8, !tbaa !12
+  %56 = getelementptr i8, ptr %55, i64 1
+  %57 = load i8, ptr %56, align 1, !tbaa !27
+  %58 = zext i8 %57 to i32
+  %59 = icmp eq i32 %58, 83
+  br i1 %59, label %66, label %60
 
-59:                                               ; preds = %53
-  %60 = load ptr, ptr %13, align 8
-  %61 = getelementptr i8, ptr %60, i64 1
-  %62 = load i8, ptr %61, align 1
-  %63 = zext i8 %62 to i32
-  %64 = icmp eq i32 %63, 115
-  br i1 %64, label %65, label %76
+60:                                               ; preds = %54
+  %61 = load ptr, ptr %13, align 8, !tbaa !12
+  %62 = getelementptr i8, ptr %61, i64 1
+  %63 = load i8, ptr %62, align 1, !tbaa !27
+  %64 = zext i8 %63 to i32
+  %65 = icmp eq i32 %64, 115
+  br i1 %65, label %66, label %77
 
-65:                                               ; preds = %59, %53
-  %66 = load ptr, ptr %15, align 8
-  %67 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %66, i64 1
-  %68 = getelementptr inbounds %struct.OnigCaseFoldCodeItem, ptr %67, i32 0, i32 0
-  store i32 2, ptr %68, align 4
-  %69 = load ptr, ptr %15, align 8
-  %70 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %69, i64 1
-  %71 = getelementptr inbounds %struct.OnigCaseFoldCodeItem, ptr %70, i32 0, i32 1
-  store i32 1, ptr %71, align 4
-  %72 = load ptr, ptr %15, align 8
-  %73 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %72, i64 1
-  %74 = getelementptr inbounds %struct.OnigCaseFoldCodeItem, ptr %73, i32 0, i32 2
-  %75 = getelementptr [3 x i32], ptr %74, i64 0, i64 0
-  store i32 223, ptr %75, align 4
+66:                                               ; preds = %60, %54
+  %67 = load ptr, ptr %15, align 8, !tbaa !30
+  %68 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %67, i64 1
+  %69 = getelementptr inbounds nuw %struct.OnigCaseFoldCodeItem, ptr %68, i32 0, i32 0
+  store i32 2, ptr %69, align 4, !tbaa !35
+  %70 = load ptr, ptr %15, align 8, !tbaa !30
+  %71 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %70, i64 1
+  %72 = getelementptr inbounds nuw %struct.OnigCaseFoldCodeItem, ptr %71, i32 0, i32 1
+  store i32 1, ptr %72, align 4, !tbaa !37
+  %73 = load ptr, ptr %15, align 8, !tbaa !30
+  %74 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %73, i64 1
+  %75 = getelementptr inbounds nuw %struct.OnigCaseFoldCodeItem, ptr %74, i32 0, i32 2
+  %76 = getelementptr [3 x i32], ptr %75, i64 0, i64 0
+  store i32 223, ptr %76, align 4, !tbaa !17
   store i32 2, ptr %8, align 4
-  br label %273
+  br label %277
 
-76:                                               ; preds = %59, %48, %45, %26
+77:                                               ; preds = %60, %49, %46, %27
   store i32 1, ptr %8, align 4
-  br label %273
+  br label %277
 
-77:                                               ; preds = %21, %7
-  %78 = load ptr, ptr %13, align 8
-  %79 = load i8, ptr %78, align 1
-  %80 = zext i8 %79 to i32
-  %81 = icmp sle i32 97, %80
-  br i1 %81, label %82, label %138
+78:                                               ; preds = %22, %7
+  %79 = load ptr, ptr %13, align 8, !tbaa !12
+  %80 = load i8, ptr %79, align 1, !tbaa !27
+  %81 = zext i8 %80 to i32
+  %82 = icmp sle i32 97, %81
+  br i1 %82, label %83, label %139
 
-82:                                               ; preds = %77
-  %83 = load ptr, ptr %13, align 8
-  %84 = load i8, ptr %83, align 1
-  %85 = zext i8 %84 to i32
-  %86 = icmp sle i32 %85, 122
-  br i1 %86, label %87, label %138
+83:                                               ; preds = %78
+  %84 = load ptr, ptr %13, align 8, !tbaa !12
+  %85 = load i8, ptr %84, align 1, !tbaa !27
+  %86 = zext i8 %85 to i32
+  %87 = icmp sle i32 %86, 122
+  br i1 %87, label %88, label %139
 
-87:                                               ; preds = %82
-  %88 = load ptr, ptr %15, align 8
-  %89 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %88, i64 0
-  %90 = getelementptr inbounds %struct.OnigCaseFoldCodeItem, ptr %89, i32 0, i32 0
-  store i32 1, ptr %90, align 4
-  %91 = load ptr, ptr %15, align 8
-  %92 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %91, i64 0
-  %93 = getelementptr inbounds %struct.OnigCaseFoldCodeItem, ptr %92, i32 0, i32 1
-  store i32 1, ptr %93, align 4
-  %94 = load ptr, ptr %13, align 8
-  %95 = load i8, ptr %94, align 1
-  %96 = zext i8 %95 to i32
-  %97 = sub i32 %96, 32
-  %98 = load ptr, ptr %15, align 8
-  %99 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %98, i64 0
-  %100 = getelementptr inbounds %struct.OnigCaseFoldCodeItem, ptr %99, i32 0, i32 2
-  %101 = getelementptr [3 x i32], ptr %100, i64 0, i64 0
-  store i32 %97, ptr %101, align 4
-  %102 = load ptr, ptr %13, align 8
-  %103 = load i8, ptr %102, align 1
-  %104 = zext i8 %103 to i32
-  %105 = icmp eq i32 %104, 115
-  br i1 %105, label %106, label %137
+88:                                               ; preds = %83
+  %89 = load ptr, ptr %15, align 8, !tbaa !30
+  %90 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %89, i64 0
+  %91 = getelementptr inbounds nuw %struct.OnigCaseFoldCodeItem, ptr %90, i32 0, i32 0
+  store i32 1, ptr %91, align 4, !tbaa !35
+  %92 = load ptr, ptr %15, align 8, !tbaa !30
+  %93 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %92, i64 0
+  %94 = getelementptr inbounds nuw %struct.OnigCaseFoldCodeItem, ptr %93, i32 0, i32 1
+  store i32 1, ptr %94, align 4, !tbaa !37
+  %95 = load ptr, ptr %13, align 8, !tbaa !12
+  %96 = load i8, ptr %95, align 1, !tbaa !27
+  %97 = zext i8 %96 to i32
+  %98 = sub i32 %97, 32
+  %99 = load ptr, ptr %15, align 8, !tbaa !30
+  %100 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %99, i64 0
+  %101 = getelementptr inbounds nuw %struct.OnigCaseFoldCodeItem, ptr %100, i32 0, i32 2
+  %102 = getelementptr [3 x i32], ptr %101, i64 0, i64 0
+  store i32 %98, ptr %102, align 4, !tbaa !17
+  %103 = load ptr, ptr %13, align 8, !tbaa !12
+  %104 = load i8, ptr %103, align 1, !tbaa !27
+  %105 = zext i8 %104 to i32
+  %106 = icmp eq i32 %105, 115
+  br i1 %106, label %107, label %138
 
-106:                                              ; preds = %87
-  %107 = load i32, ptr %11, align 4
-  %108 = icmp ne i32 %107, 0
-  br i1 %108, label %109, label %137
+107:                                              ; preds = %88
+  %108 = load i32, ptr %11, align 4, !tbaa !17
+  %109 = icmp ne i32 %108, 0
+  br i1 %109, label %110, label %138
 
-109:                                              ; preds = %106
-  %110 = load ptr, ptr %14, align 8
-  %111 = load ptr, ptr %13, align 8
-  %112 = getelementptr i8, ptr %111, i64 1
-  %113 = icmp ugt ptr %110, %112
-  br i1 %113, label %114, label %137
+110:                                              ; preds = %107
+  %111 = load ptr, ptr %14, align 8, !tbaa !12
+  %112 = load ptr, ptr %13, align 8, !tbaa !12
+  %113 = getelementptr i8, ptr %112, i64 1
+  %114 = icmp ugt ptr %111, %113
+  br i1 %114, label %115, label %138
 
-114:                                              ; preds = %109
-  %115 = load ptr, ptr %13, align 8
-  %116 = getelementptr i8, ptr %115, i64 1
-  %117 = load i8, ptr %116, align 1
-  %118 = zext i8 %117 to i32
-  %119 = icmp eq i32 %118, 115
-  br i1 %119, label %126, label %120
+115:                                              ; preds = %110
+  %116 = load ptr, ptr %13, align 8, !tbaa !12
+  %117 = getelementptr i8, ptr %116, i64 1
+  %118 = load i8, ptr %117, align 1, !tbaa !27
+  %119 = zext i8 %118 to i32
+  %120 = icmp eq i32 %119, 115
+  br i1 %120, label %127, label %121
 
-120:                                              ; preds = %114
-  %121 = load ptr, ptr %13, align 8
-  %122 = getelementptr i8, ptr %121, i64 1
-  %123 = load i8, ptr %122, align 1
-  %124 = zext i8 %123 to i32
-  %125 = icmp eq i32 %124, 83
-  br i1 %125, label %126, label %137
+121:                                              ; preds = %115
+  %122 = load ptr, ptr %13, align 8, !tbaa !12
+  %123 = getelementptr i8, ptr %122, i64 1
+  %124 = load i8, ptr %123, align 1, !tbaa !27
+  %125 = zext i8 %124 to i32
+  %126 = icmp eq i32 %125, 83
+  br i1 %126, label %127, label %138
 
-126:                                              ; preds = %120, %114
-  %127 = load ptr, ptr %15, align 8
-  %128 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %127, i64 1
-  %129 = getelementptr inbounds %struct.OnigCaseFoldCodeItem, ptr %128, i32 0, i32 0
-  store i32 2, ptr %129, align 4
-  %130 = load ptr, ptr %15, align 8
-  %131 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %130, i64 1
-  %132 = getelementptr inbounds %struct.OnigCaseFoldCodeItem, ptr %131, i32 0, i32 1
-  store i32 1, ptr %132, align 4
-  %133 = load ptr, ptr %15, align 8
-  %134 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %133, i64 1
-  %135 = getelementptr inbounds %struct.OnigCaseFoldCodeItem, ptr %134, i32 0, i32 2
-  %136 = getelementptr [3 x i32], ptr %135, i64 0, i64 0
-  store i32 223, ptr %136, align 4
+127:                                              ; preds = %121, %115
+  %128 = load ptr, ptr %15, align 8, !tbaa !30
+  %129 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %128, i64 1
+  %130 = getelementptr inbounds nuw %struct.OnigCaseFoldCodeItem, ptr %129, i32 0, i32 0
+  store i32 2, ptr %130, align 4, !tbaa !35
+  %131 = load ptr, ptr %15, align 8, !tbaa !30
+  %132 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %131, i64 1
+  %133 = getelementptr inbounds nuw %struct.OnigCaseFoldCodeItem, ptr %132, i32 0, i32 1
+  store i32 1, ptr %133, align 4, !tbaa !37
+  %134 = load ptr, ptr %15, align 8, !tbaa !30
+  %135 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %134, i64 1
+  %136 = getelementptr inbounds nuw %struct.OnigCaseFoldCodeItem, ptr %135, i32 0, i32 2
+  %137 = getelementptr [3 x i32], ptr %136, i64 0, i64 0
+  store i32 223, ptr %137, align 4, !tbaa !17
   store i32 2, ptr %8, align 4
-  br label %273
+  br label %277
 
-137:                                              ; preds = %120, %109, %106, %87
+138:                                              ; preds = %121, %110, %107, %88
   store i32 1, ptr %8, align 4
-  br label %273
+  br label %277
 
-138:                                              ; preds = %82, %77
-  %139 = load ptr, ptr %13, align 8
-  %140 = load i8, ptr %139, align 1
-  %141 = zext i8 %140 to i32
-  %142 = icmp eq i32 %141, 223
-  br i1 %142, label %143, label %203
+139:                                              ; preds = %83, %78
+  %140 = load ptr, ptr %13, align 8, !tbaa !12
+  %141 = load i8, ptr %140, align 1, !tbaa !27
+  %142 = zext i8 %141 to i32
+  %143 = icmp eq i32 %142, 223
+  br i1 %143, label %144, label %204
 
-143:                                              ; preds = %138
-  %144 = load i32, ptr %11, align 4
-  %145 = icmp ne i32 %144, 0
-  br i1 %145, label %146, label %203
+144:                                              ; preds = %139
+  %145 = load i32, ptr %11, align 4, !tbaa !17
+  %146 = icmp ne i32 %145, 0
+  br i1 %146, label %147, label %204
 
-146:                                              ; preds = %143
-  %147 = load ptr, ptr %15, align 8
-  %148 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %147, i64 0
-  %149 = getelementptr inbounds %struct.OnigCaseFoldCodeItem, ptr %148, i32 0, i32 0
-  store i32 1, ptr %149, align 4
-  %150 = load ptr, ptr %15, align 8
-  %151 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %150, i64 0
-  %152 = getelementptr inbounds %struct.OnigCaseFoldCodeItem, ptr %151, i32 0, i32 1
-  store i32 2, ptr %152, align 4
-  %153 = load ptr, ptr %15, align 8
-  %154 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %153, i64 0
-  %155 = getelementptr inbounds %struct.OnigCaseFoldCodeItem, ptr %154, i32 0, i32 2
-  %156 = getelementptr [3 x i32], ptr %155, i64 0, i64 0
-  store i32 115, ptr %156, align 4
-  %157 = load ptr, ptr %15, align 8
-  %158 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %157, i64 0
-  %159 = getelementptr inbounds %struct.OnigCaseFoldCodeItem, ptr %158, i32 0, i32 2
-  %160 = getelementptr [3 x i32], ptr %159, i64 0, i64 1
-  store i32 115, ptr %160, align 4
-  %161 = load ptr, ptr %15, align 8
-  %162 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %161, i64 1
-  %163 = getelementptr inbounds %struct.OnigCaseFoldCodeItem, ptr %162, i32 0, i32 0
-  store i32 1, ptr %163, align 4
-  %164 = load ptr, ptr %15, align 8
-  %165 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %164, i64 1
-  %166 = getelementptr inbounds %struct.OnigCaseFoldCodeItem, ptr %165, i32 0, i32 1
-  store i32 2, ptr %166, align 4
-  %167 = load ptr, ptr %15, align 8
-  %168 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %167, i64 1
-  %169 = getelementptr inbounds %struct.OnigCaseFoldCodeItem, ptr %168, i32 0, i32 2
-  %170 = getelementptr [3 x i32], ptr %169, i64 0, i64 0
-  store i32 83, ptr %170, align 4
-  %171 = load ptr, ptr %15, align 8
-  %172 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %171, i64 1
-  %173 = getelementptr inbounds %struct.OnigCaseFoldCodeItem, ptr %172, i32 0, i32 2
-  %174 = getelementptr [3 x i32], ptr %173, i64 0, i64 1
-  store i32 83, ptr %174, align 4
-  %175 = load ptr, ptr %15, align 8
-  %176 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %175, i64 2
-  %177 = getelementptr inbounds %struct.OnigCaseFoldCodeItem, ptr %176, i32 0, i32 0
-  store i32 1, ptr %177, align 4
-  %178 = load ptr, ptr %15, align 8
-  %179 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %178, i64 2
-  %180 = getelementptr inbounds %struct.OnigCaseFoldCodeItem, ptr %179, i32 0, i32 1
-  store i32 2, ptr %180, align 4
-  %181 = load ptr, ptr %15, align 8
-  %182 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %181, i64 2
-  %183 = getelementptr inbounds %struct.OnigCaseFoldCodeItem, ptr %182, i32 0, i32 2
-  %184 = getelementptr [3 x i32], ptr %183, i64 0, i64 0
-  store i32 115, ptr %184, align 4
-  %185 = load ptr, ptr %15, align 8
-  %186 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %185, i64 2
-  %187 = getelementptr inbounds %struct.OnigCaseFoldCodeItem, ptr %186, i32 0, i32 2
-  %188 = getelementptr [3 x i32], ptr %187, i64 0, i64 1
-  store i32 83, ptr %188, align 4
-  %189 = load ptr, ptr %15, align 8
-  %190 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %189, i64 3
-  %191 = getelementptr inbounds %struct.OnigCaseFoldCodeItem, ptr %190, i32 0, i32 0
-  store i32 1, ptr %191, align 4
-  %192 = load ptr, ptr %15, align 8
-  %193 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %192, i64 3
-  %194 = getelementptr inbounds %struct.OnigCaseFoldCodeItem, ptr %193, i32 0, i32 1
-  store i32 2, ptr %194, align 4
-  %195 = load ptr, ptr %15, align 8
-  %196 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %195, i64 3
-  %197 = getelementptr inbounds %struct.OnigCaseFoldCodeItem, ptr %196, i32 0, i32 2
-  %198 = getelementptr [3 x i32], ptr %197, i64 0, i64 0
-  store i32 83, ptr %198, align 4
-  %199 = load ptr, ptr %15, align 8
-  %200 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %199, i64 3
-  %201 = getelementptr inbounds %struct.OnigCaseFoldCodeItem, ptr %200, i32 0, i32 2
-  %202 = getelementptr [3 x i32], ptr %201, i64 0, i64 1
-  store i32 115, ptr %202, align 4
+147:                                              ; preds = %144
+  %148 = load ptr, ptr %15, align 8, !tbaa !30
+  %149 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %148, i64 0
+  %150 = getelementptr inbounds nuw %struct.OnigCaseFoldCodeItem, ptr %149, i32 0, i32 0
+  store i32 1, ptr %150, align 4, !tbaa !35
+  %151 = load ptr, ptr %15, align 8, !tbaa !30
+  %152 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %151, i64 0
+  %153 = getelementptr inbounds nuw %struct.OnigCaseFoldCodeItem, ptr %152, i32 0, i32 1
+  store i32 2, ptr %153, align 4, !tbaa !37
+  %154 = load ptr, ptr %15, align 8, !tbaa !30
+  %155 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %154, i64 0
+  %156 = getelementptr inbounds nuw %struct.OnigCaseFoldCodeItem, ptr %155, i32 0, i32 2
+  %157 = getelementptr [3 x i32], ptr %156, i64 0, i64 0
+  store i32 115, ptr %157, align 4, !tbaa !17
+  %158 = load ptr, ptr %15, align 8, !tbaa !30
+  %159 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %158, i64 0
+  %160 = getelementptr inbounds nuw %struct.OnigCaseFoldCodeItem, ptr %159, i32 0, i32 2
+  %161 = getelementptr [3 x i32], ptr %160, i64 0, i64 1
+  store i32 115, ptr %161, align 4, !tbaa !17
+  %162 = load ptr, ptr %15, align 8, !tbaa !30
+  %163 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %162, i64 1
+  %164 = getelementptr inbounds nuw %struct.OnigCaseFoldCodeItem, ptr %163, i32 0, i32 0
+  store i32 1, ptr %164, align 4, !tbaa !35
+  %165 = load ptr, ptr %15, align 8, !tbaa !30
+  %166 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %165, i64 1
+  %167 = getelementptr inbounds nuw %struct.OnigCaseFoldCodeItem, ptr %166, i32 0, i32 1
+  store i32 2, ptr %167, align 4, !tbaa !37
+  %168 = load ptr, ptr %15, align 8, !tbaa !30
+  %169 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %168, i64 1
+  %170 = getelementptr inbounds nuw %struct.OnigCaseFoldCodeItem, ptr %169, i32 0, i32 2
+  %171 = getelementptr [3 x i32], ptr %170, i64 0, i64 0
+  store i32 83, ptr %171, align 4, !tbaa !17
+  %172 = load ptr, ptr %15, align 8, !tbaa !30
+  %173 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %172, i64 1
+  %174 = getelementptr inbounds nuw %struct.OnigCaseFoldCodeItem, ptr %173, i32 0, i32 2
+  %175 = getelementptr [3 x i32], ptr %174, i64 0, i64 1
+  store i32 83, ptr %175, align 4, !tbaa !17
+  %176 = load ptr, ptr %15, align 8, !tbaa !30
+  %177 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %176, i64 2
+  %178 = getelementptr inbounds nuw %struct.OnigCaseFoldCodeItem, ptr %177, i32 0, i32 0
+  store i32 1, ptr %178, align 4, !tbaa !35
+  %179 = load ptr, ptr %15, align 8, !tbaa !30
+  %180 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %179, i64 2
+  %181 = getelementptr inbounds nuw %struct.OnigCaseFoldCodeItem, ptr %180, i32 0, i32 1
+  store i32 2, ptr %181, align 4, !tbaa !37
+  %182 = load ptr, ptr %15, align 8, !tbaa !30
+  %183 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %182, i64 2
+  %184 = getelementptr inbounds nuw %struct.OnigCaseFoldCodeItem, ptr %183, i32 0, i32 2
+  %185 = getelementptr [3 x i32], ptr %184, i64 0, i64 0
+  store i32 115, ptr %185, align 4, !tbaa !17
+  %186 = load ptr, ptr %15, align 8, !tbaa !30
+  %187 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %186, i64 2
+  %188 = getelementptr inbounds nuw %struct.OnigCaseFoldCodeItem, ptr %187, i32 0, i32 2
+  %189 = getelementptr [3 x i32], ptr %188, i64 0, i64 1
+  store i32 83, ptr %189, align 4, !tbaa !17
+  %190 = load ptr, ptr %15, align 8, !tbaa !30
+  %191 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %190, i64 3
+  %192 = getelementptr inbounds nuw %struct.OnigCaseFoldCodeItem, ptr %191, i32 0, i32 0
+  store i32 1, ptr %192, align 4, !tbaa !35
+  %193 = load ptr, ptr %15, align 8, !tbaa !30
+  %194 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %193, i64 3
+  %195 = getelementptr inbounds nuw %struct.OnigCaseFoldCodeItem, ptr %194, i32 0, i32 1
+  store i32 2, ptr %195, align 4, !tbaa !37
+  %196 = load ptr, ptr %15, align 8, !tbaa !30
+  %197 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %196, i64 3
+  %198 = getelementptr inbounds nuw %struct.OnigCaseFoldCodeItem, ptr %197, i32 0, i32 2
+  %199 = getelementptr [3 x i32], ptr %198, i64 0, i64 0
+  store i32 83, ptr %199, align 4, !tbaa !17
+  %200 = load ptr, ptr %15, align 8, !tbaa !30
+  %201 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %200, i64 3
+  %202 = getelementptr inbounds nuw %struct.OnigCaseFoldCodeItem, ptr %201, i32 0, i32 2
+  %203 = getelementptr [3 x i32], ptr %202, i64 0, i64 1
+  store i32 115, ptr %203, align 4, !tbaa !17
   store i32 4, ptr %8, align 4
-  br label %273
+  br label %277
 
-203:                                              ; preds = %143, %138
-  store i32 0, ptr %16, align 4
-  br label %204
+204:                                              ; preds = %144, %139
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #4
+  store i32 0, ptr %16, align 4, !tbaa !17
+  br label %205
 
-204:                                              ; preds = %266, %203
-  %205 = load i32, ptr %16, align 4
-  %206 = load i32, ptr %9, align 4
-  %207 = icmp slt i32 %205, %206
-  br i1 %207, label %208, label %269
+205:                                              ; preds = %267, %204
+  %206 = load i32, ptr %16, align 4, !tbaa !17
+  %207 = load i32, ptr %9, align 4, !tbaa !17
+  %208 = icmp slt i32 %206, %207
+  br i1 %208, label %209, label %270
 
-208:                                              ; preds = %204
-  %209 = load ptr, ptr %13, align 8
-  %210 = load i8, ptr %209, align 1
-  %211 = zext i8 %210 to i32
-  %212 = load ptr, ptr %10, align 8
-  %213 = load i32, ptr %16, align 4
-  %214 = sext i32 %213 to i64
-  %215 = getelementptr %struct.OnigPairCaseFoldCodes, ptr %212, i64 %214
-  %216 = getelementptr inbounds %struct.OnigPairCaseFoldCodes, ptr %215, i32 0, i32 0
-  %217 = load i32, ptr %216, align 4
-  %218 = icmp eq i32 %211, %217
-  br i1 %218, label %219, label %236
+209:                                              ; preds = %205
+  %210 = load ptr, ptr %13, align 8, !tbaa !12
+  %211 = load i8, ptr %210, align 1, !tbaa !27
+  %212 = zext i8 %211 to i32
+  %213 = load ptr, ptr %10, align 8, !tbaa !30
+  %214 = load i32, ptr %16, align 4, !tbaa !17
+  %215 = sext i32 %214 to i64
+  %216 = getelementptr %struct.OnigPairCaseFoldCodes, ptr %213, i64 %215
+  %217 = getelementptr inbounds nuw %struct.OnigPairCaseFoldCodes, ptr %216, i32 0, i32 0
+  %218 = load i32, ptr %217, align 4, !tbaa !33
+  %219 = icmp eq i32 %212, %218
+  br i1 %219, label %220, label %237
 
-219:                                              ; preds = %208
-  %220 = load ptr, ptr %15, align 8
-  %221 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %220, i64 0
-  %222 = getelementptr inbounds %struct.OnigCaseFoldCodeItem, ptr %221, i32 0, i32 0
-  store i32 1, ptr %222, align 4
-  %223 = load ptr, ptr %15, align 8
-  %224 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %223, i64 0
-  %225 = getelementptr inbounds %struct.OnigCaseFoldCodeItem, ptr %224, i32 0, i32 1
-  store i32 1, ptr %225, align 4
-  %226 = load ptr, ptr %10, align 8
-  %227 = load i32, ptr %16, align 4
-  %228 = sext i32 %227 to i64
-  %229 = getelementptr %struct.OnigPairCaseFoldCodes, ptr %226, i64 %228
-  %230 = getelementptr inbounds %struct.OnigPairCaseFoldCodes, ptr %229, i32 0, i32 1
-  %231 = load i32, ptr %230, align 4
-  %232 = load ptr, ptr %15, align 8
-  %233 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %232, i64 0
-  %234 = getelementptr inbounds %struct.OnigCaseFoldCodeItem, ptr %233, i32 0, i32 2
-  %235 = getelementptr [3 x i32], ptr %234, i64 0, i64 0
-  store i32 %231, ptr %235, align 4
+220:                                              ; preds = %209
+  %221 = load ptr, ptr %15, align 8, !tbaa !30
+  %222 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %221, i64 0
+  %223 = getelementptr inbounds nuw %struct.OnigCaseFoldCodeItem, ptr %222, i32 0, i32 0
+  store i32 1, ptr %223, align 4, !tbaa !35
+  %224 = load ptr, ptr %15, align 8, !tbaa !30
+  %225 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %224, i64 0
+  %226 = getelementptr inbounds nuw %struct.OnigCaseFoldCodeItem, ptr %225, i32 0, i32 1
+  store i32 1, ptr %226, align 4, !tbaa !37
+  %227 = load ptr, ptr %10, align 8, !tbaa !30
+  %228 = load i32, ptr %16, align 4, !tbaa !17
+  %229 = sext i32 %228 to i64
+  %230 = getelementptr %struct.OnigPairCaseFoldCodes, ptr %227, i64 %229
+  %231 = getelementptr inbounds nuw %struct.OnigPairCaseFoldCodes, ptr %230, i32 0, i32 1
+  %232 = load i32, ptr %231, align 4, !tbaa !31
+  %233 = load ptr, ptr %15, align 8, !tbaa !30
+  %234 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %233, i64 0
+  %235 = getelementptr inbounds nuw %struct.OnigCaseFoldCodeItem, ptr %234, i32 0, i32 2
+  %236 = getelementptr [3 x i32], ptr %235, i64 0, i64 0
+  store i32 %232, ptr %236, align 4, !tbaa !17
   store i32 1, ptr %8, align 4
-  br label %273
+  store i32 1, ptr %17, align 4
+  br label %271
 
-236:                                              ; preds = %208
-  %237 = load ptr, ptr %13, align 8
-  %238 = load i8, ptr %237, align 1
-  %239 = zext i8 %238 to i32
-  %240 = load ptr, ptr %10, align 8
-  %241 = load i32, ptr %16, align 4
-  %242 = sext i32 %241 to i64
-  %243 = getelementptr %struct.OnigPairCaseFoldCodes, ptr %240, i64 %242
-  %244 = getelementptr inbounds %struct.OnigPairCaseFoldCodes, ptr %243, i32 0, i32 1
-  %245 = load i32, ptr %244, align 4
-  %246 = icmp eq i32 %239, %245
-  br i1 %246, label %247, label %264
+237:                                              ; preds = %209
+  %238 = load ptr, ptr %13, align 8, !tbaa !12
+  %239 = load i8, ptr %238, align 1, !tbaa !27
+  %240 = zext i8 %239 to i32
+  %241 = load ptr, ptr %10, align 8, !tbaa !30
+  %242 = load i32, ptr %16, align 4, !tbaa !17
+  %243 = sext i32 %242 to i64
+  %244 = getelementptr %struct.OnigPairCaseFoldCodes, ptr %241, i64 %243
+  %245 = getelementptr inbounds nuw %struct.OnigPairCaseFoldCodes, ptr %244, i32 0, i32 1
+  %246 = load i32, ptr %245, align 4, !tbaa !31
+  %247 = icmp eq i32 %240, %246
+  br i1 %247, label %248, label %265
 
-247:                                              ; preds = %236
-  %248 = load ptr, ptr %15, align 8
-  %249 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %248, i64 0
-  %250 = getelementptr inbounds %struct.OnigCaseFoldCodeItem, ptr %249, i32 0, i32 0
-  store i32 1, ptr %250, align 4
-  %251 = load ptr, ptr %15, align 8
-  %252 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %251, i64 0
-  %253 = getelementptr inbounds %struct.OnigCaseFoldCodeItem, ptr %252, i32 0, i32 1
-  store i32 1, ptr %253, align 4
-  %254 = load ptr, ptr %10, align 8
-  %255 = load i32, ptr %16, align 4
-  %256 = sext i32 %255 to i64
-  %257 = getelementptr %struct.OnigPairCaseFoldCodes, ptr %254, i64 %256
-  %258 = getelementptr inbounds %struct.OnigPairCaseFoldCodes, ptr %257, i32 0, i32 0
-  %259 = load i32, ptr %258, align 4
-  %260 = load ptr, ptr %15, align 8
-  %261 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %260, i64 0
-  %262 = getelementptr inbounds %struct.OnigCaseFoldCodeItem, ptr %261, i32 0, i32 2
-  %263 = getelementptr [3 x i32], ptr %262, i64 0, i64 0
-  store i32 %259, ptr %263, align 4
+248:                                              ; preds = %237
+  %249 = load ptr, ptr %15, align 8, !tbaa !30
+  %250 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %249, i64 0
+  %251 = getelementptr inbounds nuw %struct.OnigCaseFoldCodeItem, ptr %250, i32 0, i32 0
+  store i32 1, ptr %251, align 4, !tbaa !35
+  %252 = load ptr, ptr %15, align 8, !tbaa !30
+  %253 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %252, i64 0
+  %254 = getelementptr inbounds nuw %struct.OnigCaseFoldCodeItem, ptr %253, i32 0, i32 1
+  store i32 1, ptr %254, align 4, !tbaa !37
+  %255 = load ptr, ptr %10, align 8, !tbaa !30
+  %256 = load i32, ptr %16, align 4, !tbaa !17
+  %257 = sext i32 %256 to i64
+  %258 = getelementptr %struct.OnigPairCaseFoldCodes, ptr %255, i64 %257
+  %259 = getelementptr inbounds nuw %struct.OnigPairCaseFoldCodes, ptr %258, i32 0, i32 0
+  %260 = load i32, ptr %259, align 4, !tbaa !33
+  %261 = load ptr, ptr %15, align 8, !tbaa !30
+  %262 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %261, i64 0
+  %263 = getelementptr inbounds nuw %struct.OnigCaseFoldCodeItem, ptr %262, i32 0, i32 2
+  %264 = getelementptr [3 x i32], ptr %263, i64 0, i64 0
+  store i32 %260, ptr %264, align 4, !tbaa !17
   store i32 1, ptr %8, align 4
-  br label %273
+  store i32 1, ptr %17, align 4
+  br label %271
 
-264:                                              ; preds = %236
-  br label %265
-
-265:                                              ; preds = %264
+265:                                              ; preds = %237
   br label %266
 
 266:                                              ; preds = %265
-  %267 = load i32, ptr %16, align 4
-  %268 = add i32 %267, 1
-  store i32 %268, ptr %16, align 4
-  br label %204, !llvm.loop !15
+  br label %267
 
-269:                                              ; preds = %204
-  br label %270
+267:                                              ; preds = %266
+  %268 = load i32, ptr %16, align 4, !tbaa !17
+  %269 = add i32 %268, 1
+  store i32 %269, ptr %16, align 4, !tbaa !17
+  br label %205, !llvm.loop !39
 
-270:                                              ; preds = %269
+270:                                              ; preds = %205
+  store i32 0, ptr %17, align 4
   br label %271
 
-271:                                              ; preds = %270
-  br label %272
+271:                                              ; preds = %270, %248, %220
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #4
+  %272 = load i32, ptr %17, align 4
+  switch i32 %272, label %279 [
+    i32 0, label %273
+    i32 1, label %277
+  ]
 
-272:                                              ; preds = %271
+273:                                              ; preds = %271
+  br label %274
+
+274:                                              ; preds = %273
+  br label %275
+
+275:                                              ; preds = %274
+  br label %276
+
+276:                                              ; preds = %275
   store i32 0, ptr %8, align 4
-  br label %273
+  br label %277
 
-273:                                              ; preds = %272, %247, %219, %146, %137, %126, %76, %65
-  %274 = load i32, ptr %8, align 4
-  ret i32 %274
+277:                                              ; preds = %276, %271, %147, %138, %127, %77, %66
+  %278 = load i32, ptr %8, align 4
+  ret i32 %278
+
+279:                                              ; preds = %271
+  unreachable
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -1507,10 +1630,10 @@ define dso_local i32 @onigenc_not_support_get_ctype_code_range(i32 noundef %0, p
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  store i32 %0, ptr %5, align 4
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store ptr %3, ptr %8, align 8
+  store i32 %0, ptr %5, align 4, !tbaa !17
+  store ptr %1, ptr %6, align 8, !tbaa !40
+  store ptr %2, ptr %7, align 8, !tbaa !42
+  store ptr %3, ptr %8, align 8, !tbaa !7
   ret i32 -2
 }
 
@@ -1520,17 +1643,17 @@ define dso_local i32 @onigenc_is_mbc_newline_0x0a(ptr noundef %0, ptr noundef %1
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = load ptr, ptr %6, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !12
+  store ptr %1, ptr %6, align 8, !tbaa !12
+  store ptr %2, ptr %7, align 8, !tbaa !7
+  %8 = load ptr, ptr %5, align 8, !tbaa !12
+  %9 = load ptr, ptr %6, align 8, !tbaa !12
   %10 = icmp ult ptr %8, %9
   br i1 %10, label %11, label %18
 
 11:                                               ; preds = %3
-  %12 = load ptr, ptr %5, align 8
-  %13 = load i8, ptr %12, align 1
+  %12 = load ptr, ptr %5, align 8, !tbaa !12
+  %13 = load i8, ptr %12, align 1, !tbaa !27
   %14 = zext i8 %13 to i32
   %15 = icmp eq i32 %14, 10
   br i1 %15, label %16, label %17
@@ -1558,23 +1681,23 @@ define dso_local i32 @onigenc_ascii_mbc_case_fold(i32 noundef %0, ptr noundef %1
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
-  store i32 %0, ptr %6, align 4
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store ptr %3, ptr %9, align 8
-  store ptr %4, ptr %10, align 8
-  %11 = load ptr, ptr %7, align 8
-  %12 = load ptr, ptr %11, align 8
-  %13 = load i8, ptr %12, align 1
+  store i32 %0, ptr %6, align 4, !tbaa !17
+  store ptr %1, ptr %7, align 8, !tbaa !21
+  store ptr %2, ptr %8, align 8, !tbaa !12
+  store ptr %3, ptr %9, align 8, !tbaa !12
+  store ptr %4, ptr %10, align 8, !tbaa !7
+  %11 = load ptr, ptr %7, align 8, !tbaa !21
+  %12 = load ptr, ptr %11, align 8, !tbaa !12
+  %13 = load i8, ptr %12, align 1, !tbaa !27
   %14 = zext i8 %13 to i64
   %15 = getelementptr [256 x i8], ptr @OnigEncAsciiToLowerCaseTable, i64 0, i64 %14
-  %16 = load i8, ptr %15, align 1
-  %17 = load ptr, ptr %9, align 8
-  store i8 %16, ptr %17, align 1
-  %18 = load ptr, ptr %7, align 8
-  %19 = load ptr, ptr %18, align 8
+  %16 = load i8, ptr %15, align 1, !tbaa !27
+  %17 = load ptr, ptr %9, align 8, !tbaa !12
+  store i8 %16, ptr %17, align 1, !tbaa !27
+  %18 = load ptr, ptr %7, align 8, !tbaa !21
+  %19 = load ptr, ptr %18, align 8, !tbaa !12
   %20 = getelementptr i8, ptr %19, i32 1
-  store ptr %20, ptr %18, align 8
+  store ptr %20, ptr %18, align 8, !tbaa !12
   ret i32 1
 }
 
@@ -1583,9 +1706,9 @@ define dso_local i32 @onigenc_single_byte_mbc_enc_len(ptr noundef %0, ptr nounde
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !12
+  store ptr %1, ptr %5, align 8, !tbaa !12
+  store ptr %2, ptr %6, align 8, !tbaa !7
   ret i32 1
 }
 
@@ -1594,11 +1717,11 @@ define dso_local i32 @onigenc_single_byte_mbc_to_code(ptr noundef %0, ptr nounde
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load i8, ptr %7, align 1
+  store ptr %0, ptr %4, align 8, !tbaa !12
+  store ptr %1, ptr %5, align 8, !tbaa !12
+  store ptr %2, ptr %6, align 8, !tbaa !7
+  %7 = load ptr, ptr %4, align 8, !tbaa !12
+  %8 = load i8, ptr %7, align 1, !tbaa !27
   %9 = zext i8 %8 to i32
   ret i32 %9
 }
@@ -1607,8 +1730,8 @@ define dso_local i32 @onigenc_single_byte_mbc_to_code(ptr noundef %0, ptr nounde
 define dso_local i32 @onigenc_single_byte_code_to_mbclen(i32 noundef %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
-  store i32 %0, ptr %3, align 4
-  store ptr %1, ptr %4, align 8
+  store i32 %0, ptr %3, align 4, !tbaa !17
+  store ptr %1, ptr %4, align 8, !tbaa !7
   ret i32 1
 }
 
@@ -1617,30 +1740,30 @@ define dso_local i32 @onigenc_single_byte_code_to_mbc(i32 noundef %0, ptr nounde
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store i32 %0, ptr %4, align 4
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load i32, ptr %4, align 4
+  store i32 %0, ptr %4, align 4, !tbaa !17
+  store ptr %1, ptr %5, align 8, !tbaa !12
+  store ptr %2, ptr %6, align 8, !tbaa !7
+  %7 = load i32, ptr %4, align 4, !tbaa !17
   %8 = icmp ugt i32 %7, 255
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %3
-  %10 = load i64, ptr @rb_eRangeError, align 8
-  %11 = load i32, ptr %4, align 4
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %10, ptr noundef @.str, i32 noundef %11) #3
+  %10 = load i64, ptr @rb_eRangeError, align 8, !tbaa !44
+  %11 = load i32, ptr %4, align 4, !tbaa !17
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %10, ptr noundef @.str, i32 noundef %11) #5
   unreachable
 
 12:                                               ; preds = %3
-  %13 = load i32, ptr %4, align 4
+  %13 = load i32, ptr %4, align 4, !tbaa !17
   %14 = and i32 %13, 255
   %15 = trunc i32 %14 to i8
-  %16 = load ptr, ptr %5, align 8
-  store i8 %15, ptr %16, align 1
+  %16 = load ptr, ptr %5, align 8, !tbaa !12
+  store i8 %15, ptr %16, align 1, !tbaa !27
   ret i32 1
 }
 
 ; Function Attrs: noreturn
-declare void @rb_raise(i64 noundef, ptr noundef, ...) #1
+declare void @rb_raise(i64 noundef, ptr noundef, ...) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @onigenc_single_byte_left_adjust_char_head(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
@@ -1648,11 +1771,11 @@ define dso_local ptr @onigenc_single_byte_left_adjust_char_head(ptr noundef %0, 
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store ptr %3, ptr %8, align 8
-  %9 = load ptr, ptr %6, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !12
+  store ptr %1, ptr %6, align 8, !tbaa !12
+  store ptr %2, ptr %7, align 8, !tbaa !12
+  store ptr %3, ptr %8, align 8, !tbaa !7
+  %9 = load ptr, ptr %6, align 8, !tbaa !12
   ret ptr %9
 }
 
@@ -1661,9 +1784,9 @@ define dso_local i32 @onigenc_always_true_is_allowed_reverse_match(ptr noundef %
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !12
+  store ptr %1, ptr %5, align 8, !tbaa !12
+  store ptr %2, ptr %6, align 8, !tbaa !7
   ret i32 1
 }
 
@@ -1672,9 +1795,9 @@ define dso_local i32 @onigenc_always_false_is_allowed_reverse_match(ptr noundef 
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !12
+  store ptr %1, ptr %5, align 8, !tbaa !12
+  store ptr %2, ptr %6, align 8, !tbaa !7
   ret i32 0
 }
 
@@ -1684,20 +1807,20 @@ define dso_local i32 @onigenc_ascii_is_code_ctype(i32 noundef %0, i32 noundef %1
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
-  store i32 %0, ptr %5, align 4
-  store i32 %1, ptr %6, align 4
-  store ptr %2, ptr %7, align 8
-  %8 = load i32, ptr %5, align 4
+  store i32 %0, ptr %5, align 4, !tbaa !17
+  store i32 %1, ptr %6, align 4, !tbaa !17
+  store ptr %2, ptr %7, align 8, !tbaa !7
+  %8 = load i32, ptr %5, align 4, !tbaa !17
   %9 = icmp ult i32 %8, 128
   br i1 %9, label %10, label %21
 
 10:                                               ; preds = %3
-  %11 = load i32, ptr %5, align 4
+  %11 = load i32, ptr %5, align 4, !tbaa !17
   %12 = zext i32 %11 to i64
   %13 = getelementptr [256 x i16], ptr @OnigEncAsciiCtypeTable, i64 0, i64 %12
-  %14 = load i16, ptr %13, align 2
+  %14 = load i16, ptr %13, align 2, !tbaa !46
   %15 = zext i16 %14 to i32
-  %16 = load i32, ptr %6, align 4
+  %16 = load i32, ptr %6, align 4, !tbaa !17
   %17 = shl i32 1, %16
   %18 = and i32 %15, %17
   %19 = icmp ne i32 %18, 0
@@ -1724,111 +1847,122 @@ define dso_local i32 @onigenc_mbn_mbc_to_code(ptr noundef %0, ptr noundef %1, pt
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  %12 = load ptr, ptr %5, align 8
-  %13 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %12, i32 0, i32 2
-  %14 = load i32, ptr %13, align 8
-  %15 = load ptr, ptr %5, align 8
-  %16 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %15, i32 0, i32 3
-  %17 = load i32, ptr %16, align 4
-  %18 = icmp eq i32 %14, %17
-  br i1 %18, label %19, label %30
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !7
+  store ptr %1, ptr %6, align 8, !tbaa !12
+  store ptr %2, ptr %7, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #4
+  %13 = load ptr, ptr %5, align 8, !tbaa !7
+  %14 = getelementptr inbounds nuw %struct.OnigEncodingTypeST, ptr %13, i32 0, i32 2
+  %15 = load i32, ptr %14, align 8, !tbaa !19
+  %16 = load ptr, ptr %5, align 8, !tbaa !7
+  %17 = getelementptr inbounds nuw %struct.OnigEncodingTypeST, ptr %16, i32 0, i32 3
+  %18 = load i32, ptr %17, align 4, !tbaa !20
+  %19 = icmp eq i32 %15, %18
+  br i1 %19, label %20, label %31
 
-19:                                               ; preds = %3
-  %20 = load ptr, ptr %6, align 8
-  %21 = load ptr, ptr %7, align 8
-  %22 = icmp ult ptr %20, %21
-  br i1 %22, label %23, label %27
+20:                                               ; preds = %3
+  %21 = load ptr, ptr %6, align 8, !tbaa !12
+  %22 = load ptr, ptr %7, align 8, !tbaa !12
+  %23 = icmp ult ptr %21, %22
+  br i1 %23, label %24, label %28
 
-23:                                               ; preds = %19
-  %24 = load ptr, ptr %5, align 8
-  %25 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %24, i32 0, i32 3
-  %26 = load i32, ptr %25, align 4
-  br label %28
+24:                                               ; preds = %20
+  %25 = load ptr, ptr %5, align 8, !tbaa !7
+  %26 = getelementptr inbounds nuw %struct.OnigEncodingTypeST, ptr %25, i32 0, i32 3
+  %27 = load i32, ptr %26, align 4, !tbaa !20
+  br label %29
 
-27:                                               ; preds = %19
-  br label %28
+28:                                               ; preds = %20
+  br label %29
 
-28:                                               ; preds = %27, %23
-  %29 = phi i32 [ %26, %23 ], [ 0, %27 ]
-  br label %35
+29:                                               ; preds = %28, %24
+  %30 = phi i32 [ %27, %24 ], [ 0, %28 ]
+  br label %36
 
-30:                                               ; preds = %3
-  %31 = load ptr, ptr %6, align 8
-  %32 = load ptr, ptr %7, align 8
-  %33 = load ptr, ptr %5, align 8
-  %34 = call i32 @onigenc_mbclen(ptr noundef %31, ptr noundef %32, ptr noundef %33)
-  br label %35
+31:                                               ; preds = %3
+  %32 = load ptr, ptr %6, align 8, !tbaa !12
+  %33 = load ptr, ptr %7, align 8, !tbaa !12
+  %34 = load ptr, ptr %5, align 8, !tbaa !7
+  %35 = call i32 @onigenc_mbclen(ptr noundef %32, ptr noundef %33, ptr noundef %34)
+  br label %36
 
-35:                                               ; preds = %30, %28
-  %36 = phi i32 [ %29, %28 ], [ %34, %30 ]
-  store i32 %36, ptr %10, align 4
-  %37 = load ptr, ptr %6, align 8
-  %38 = getelementptr i8, ptr %37, i32 1
-  store ptr %38, ptr %6, align 8
-  %39 = load i8, ptr %37, align 1
-  %40 = zext i8 %39 to i32
-  store i32 %40, ptr %11, align 4
-  %41 = load i32, ptr %10, align 4
-  %42 = icmp eq i32 %41, 1
-  br i1 %42, label %43, label %45
+36:                                               ; preds = %31, %29
+  %37 = phi i32 [ %30, %29 ], [ %35, %31 ]
+  store i32 %37, ptr %10, align 4, !tbaa !17
+  %38 = load ptr, ptr %6, align 8, !tbaa !12
+  %39 = getelementptr i8, ptr %38, i32 1
+  store ptr %39, ptr %6, align 8, !tbaa !12
+  %40 = load i8, ptr %38, align 1, !tbaa !27
+  %41 = zext i8 %40 to i32
+  store i32 %41, ptr %11, align 4, !tbaa !17
+  %42 = load i32, ptr %10, align 4, !tbaa !17
+  %43 = icmp eq i32 %42, 1
+  br i1 %43, label %44, label %46
 
-43:                                               ; preds = %35
-  %44 = load i32, ptr %11, align 4
-  store i32 %44, ptr %4, align 4
-  br label %70
+44:                                               ; preds = %36
+  %45 = load i32, ptr %11, align 4, !tbaa !17
+  store i32 %45, ptr %4, align 4
+  store i32 1, ptr %12, align 4
+  br label %71
 
-45:                                               ; preds = %35
-  store i32 1, ptr %9, align 4
-  br label %46
+46:                                               ; preds = %36
+  store i32 1, ptr %9, align 4, !tbaa !17
+  br label %47
 
-46:                                               ; preds = %65, %45
-  %47 = load i32, ptr %9, align 4
-  %48 = load i32, ptr %10, align 4
-  %49 = icmp slt i32 %47, %48
-  br i1 %49, label %50, label %68
+47:                                               ; preds = %66, %46
+  %48 = load i32, ptr %9, align 4, !tbaa !17
+  %49 = load i32, ptr %10, align 4, !tbaa !17
+  %50 = icmp slt i32 %48, %49
+  br i1 %50, label %51, label %69
 
-50:                                               ; preds = %46
-  %51 = load ptr, ptr %6, align 8
-  %52 = load ptr, ptr %7, align 8
-  %53 = icmp uge ptr %51, %52
-  br i1 %53, label %54, label %55
+51:                                               ; preds = %47
+  %52 = load ptr, ptr %6, align 8, !tbaa !12
+  %53 = load ptr, ptr %7, align 8, !tbaa !12
+  %54 = icmp uge ptr %52, %53
+  br i1 %54, label %55, label %56
 
-54:                                               ; preds = %50
-  br label %68
+55:                                               ; preds = %51
+  br label %69
 
-55:                                               ; preds = %50
-  %56 = load ptr, ptr %6, align 8
-  %57 = getelementptr i8, ptr %56, i32 1
-  store ptr %57, ptr %6, align 8
-  %58 = load i8, ptr %56, align 1
-  %59 = zext i8 %58 to i32
-  store i32 %59, ptr %8, align 4
-  %60 = load i32, ptr %11, align 4
-  %61 = shl i32 %60, 8
-  store i32 %61, ptr %11, align 4
-  %62 = load i32, ptr %8, align 4
-  %63 = load i32, ptr %11, align 4
-  %64 = add i32 %63, %62
-  store i32 %64, ptr %11, align 4
-  br label %65
+56:                                               ; preds = %51
+  %57 = load ptr, ptr %6, align 8, !tbaa !12
+  %58 = getelementptr i8, ptr %57, i32 1
+  store ptr %58, ptr %6, align 8, !tbaa !12
+  %59 = load i8, ptr %57, align 1, !tbaa !27
+  %60 = zext i8 %59 to i32
+  store i32 %60, ptr %8, align 4, !tbaa !17
+  %61 = load i32, ptr %11, align 4, !tbaa !17
+  %62 = shl i32 %61, 8
+  store i32 %62, ptr %11, align 4, !tbaa !17
+  %63 = load i32, ptr %8, align 4, !tbaa !17
+  %64 = load i32, ptr %11, align 4, !tbaa !17
+  %65 = add i32 %64, %63
+  store i32 %65, ptr %11, align 4, !tbaa !17
+  br label %66
 
-65:                                               ; preds = %55
-  %66 = load i32, ptr %9, align 4
-  %67 = add i32 %66, 1
-  store i32 %67, ptr %9, align 4
-  br label %46, !llvm.loop !16
+66:                                               ; preds = %56
+  %67 = load i32, ptr %9, align 4, !tbaa !17
+  %68 = add i32 %67, 1
+  store i32 %68, ptr %9, align 4, !tbaa !17
+  br label %47, !llvm.loop !48
 
-68:                                               ; preds = %54, %46
-  %69 = load i32, ptr %11, align 4
-  store i32 %69, ptr %4, align 4
-  br label %70
+69:                                               ; preds = %55, %47
+  %70 = load i32, ptr %11, align 4, !tbaa !17
+  store i32 %70, ptr %4, align 4
+  store i32 1, ptr %12, align 4
+  br label %71
 
-70:                                               ; preds = %68, %43
-  %71 = load i32, ptr %4, align 4
-  ret i32 %71
+71:                                               ; preds = %69, %44
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #4
+  %72 = load i32, ptr %4, align 4
+  ret i32 %72
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -1842,114 +1976,123 @@ define dso_local i32 @onigenc_mbn_mbc_case_fold(ptr noundef %0, i32 noundef %1, 
   %12 = alloca i32, align 4
   %13 = alloca ptr, align 8
   %14 = alloca i32, align 4
-  store ptr %0, ptr %7, align 8
-  store i32 %1, ptr %8, align 4
-  store ptr %2, ptr %9, align 8
-  store ptr %3, ptr %10, align 8
-  store ptr %4, ptr %11, align 8
-  %15 = load ptr, ptr %9, align 8
-  %16 = load ptr, ptr %15, align 8
-  store ptr %16, ptr %13, align 8
-  %17 = load ptr, ptr %13, align 8
-  %18 = load i8, ptr %17, align 1
-  %19 = zext i8 %18 to i32
-  %20 = icmp slt i32 %19, 128
-  br i1 %20, label %21, label %31
+  %15 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8, !tbaa !7
+  store i32 %1, ptr %8, align 4, !tbaa !17
+  store ptr %2, ptr %9, align 8, !tbaa !21
+  store ptr %3, ptr %10, align 8, !tbaa !12
+  store ptr %4, ptr %11, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #4
+  %16 = load ptr, ptr %9, align 8, !tbaa !21
+  %17 = load ptr, ptr %16, align 8, !tbaa !12
+  store ptr %17, ptr %13, align 8, !tbaa !12
+  %18 = load ptr, ptr %13, align 8, !tbaa !12
+  %19 = load i8, ptr %18, align 1, !tbaa !27
+  %20 = zext i8 %19 to i32
+  %21 = icmp slt i32 %20, 128
+  br i1 %21, label %22, label %32
 
-21:                                               ; preds = %5
-  %22 = load ptr, ptr %13, align 8
-  %23 = load i8, ptr %22, align 1
-  %24 = zext i8 %23 to i64
-  %25 = getelementptr [256 x i8], ptr @OnigEncAsciiToLowerCaseTable, i64 0, i64 %24
-  %26 = load i8, ptr %25, align 1
-  %27 = load ptr, ptr %11, align 8
-  store i8 %26, ptr %27, align 1
-  %28 = load ptr, ptr %9, align 8
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr i8, ptr %29, i32 1
-  store ptr %30, ptr %28, align 8
+22:                                               ; preds = %5
+  %23 = load ptr, ptr %13, align 8, !tbaa !12
+  %24 = load i8, ptr %23, align 1, !tbaa !27
+  %25 = zext i8 %24 to i64
+  %26 = getelementptr [256 x i8], ptr @OnigEncAsciiToLowerCaseTable, i64 0, i64 %25
+  %27 = load i8, ptr %26, align 1, !tbaa !27
+  %28 = load ptr, ptr %11, align 8, !tbaa !12
+  store i8 %27, ptr %28, align 1, !tbaa !27
+  %29 = load ptr, ptr %9, align 8, !tbaa !21
+  %30 = load ptr, ptr %29, align 8, !tbaa !12
+  %31 = getelementptr i8, ptr %30, i32 1
+  store ptr %31, ptr %29, align 8, !tbaa !12
   store i32 1, ptr %6, align 4
-  br label %77
+  store i32 1, ptr %14, align 4
+  br label %78
 
-31:                                               ; preds = %5
-  %32 = load ptr, ptr %7, align 8
-  %33 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %32, i32 0, i32 2
-  %34 = load i32, ptr %33, align 8
-  %35 = load ptr, ptr %7, align 8
-  %36 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %35, i32 0, i32 3
-  %37 = load i32, ptr %36, align 4
-  %38 = icmp eq i32 %34, %37
-  br i1 %38, label %39, label %50
+32:                                               ; preds = %5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #4
+  %33 = load ptr, ptr %7, align 8, !tbaa !7
+  %34 = getelementptr inbounds nuw %struct.OnigEncodingTypeST, ptr %33, i32 0, i32 2
+  %35 = load i32, ptr %34, align 8, !tbaa !19
+  %36 = load ptr, ptr %7, align 8, !tbaa !7
+  %37 = getelementptr inbounds nuw %struct.OnigEncodingTypeST, ptr %36, i32 0, i32 3
+  %38 = load i32, ptr %37, align 4, !tbaa !20
+  %39 = icmp eq i32 %35, %38
+  br i1 %39, label %40, label %51
 
-39:                                               ; preds = %31
-  %40 = load ptr, ptr %13, align 8
-  %41 = load ptr, ptr %10, align 8
-  %42 = icmp ult ptr %40, %41
-  br i1 %42, label %43, label %47
+40:                                               ; preds = %32
+  %41 = load ptr, ptr %13, align 8, !tbaa !12
+  %42 = load ptr, ptr %10, align 8, !tbaa !12
+  %43 = icmp ult ptr %41, %42
+  br i1 %43, label %44, label %48
 
-43:                                               ; preds = %39
-  %44 = load ptr, ptr %7, align 8
-  %45 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %44, i32 0, i32 3
-  %46 = load i32, ptr %45, align 4
-  br label %48
+44:                                               ; preds = %40
+  %45 = load ptr, ptr %7, align 8, !tbaa !7
+  %46 = getelementptr inbounds nuw %struct.OnigEncodingTypeST, ptr %45, i32 0, i32 3
+  %47 = load i32, ptr %46, align 4, !tbaa !20
+  br label %49
 
-47:                                               ; preds = %39
-  br label %48
+48:                                               ; preds = %40
+  br label %49
 
-48:                                               ; preds = %47, %43
-  %49 = phi i32 [ %46, %43 ], [ 0, %47 ]
-  br label %55
+49:                                               ; preds = %48, %44
+  %50 = phi i32 [ %47, %44 ], [ 0, %48 ]
+  br label %56
 
-50:                                               ; preds = %31
-  %51 = load ptr, ptr %13, align 8
-  %52 = load ptr, ptr %10, align 8
-  %53 = load ptr, ptr %7, align 8
-  %54 = call i32 @onigenc_mbclen(ptr noundef %51, ptr noundef %52, ptr noundef %53)
-  br label %55
+51:                                               ; preds = %32
+  %52 = load ptr, ptr %13, align 8, !tbaa !12
+  %53 = load ptr, ptr %10, align 8, !tbaa !12
+  %54 = load ptr, ptr %7, align 8, !tbaa !7
+  %55 = call i32 @onigenc_mbclen(ptr noundef %52, ptr noundef %53, ptr noundef %54)
+  br label %56
 
-55:                                               ; preds = %50, %48
-  %56 = phi i32 [ %49, %48 ], [ %54, %50 ]
-  store i32 %56, ptr %12, align 4
-  store i32 0, ptr %14, align 4
-  br label %57
+56:                                               ; preds = %51, %49
+  %57 = phi i32 [ %50, %49 ], [ %55, %51 ]
+  store i32 %57, ptr %12, align 4, !tbaa !17
+  store i32 0, ptr %15, align 4, !tbaa !17
+  br label %58
 
-57:                                               ; preds = %67, %55
-  %58 = load i32, ptr %14, align 4
-  %59 = load i32, ptr %12, align 4
-  %60 = icmp slt i32 %58, %59
-  br i1 %60, label %61, label %70
+58:                                               ; preds = %68, %56
+  %59 = load i32, ptr %15, align 4, !tbaa !17
+  %60 = load i32, ptr %12, align 4, !tbaa !17
+  %61 = icmp slt i32 %59, %60
+  br i1 %61, label %62, label %71
 
-61:                                               ; preds = %57
-  %62 = load ptr, ptr %13, align 8
-  %63 = getelementptr i8, ptr %62, i32 1
-  store ptr %63, ptr %13, align 8
-  %64 = load i8, ptr %62, align 1
-  %65 = load ptr, ptr %11, align 8
-  %66 = getelementptr i8, ptr %65, i32 1
-  store ptr %66, ptr %11, align 8
-  store i8 %64, ptr %65, align 1
-  br label %67
+62:                                               ; preds = %58
+  %63 = load ptr, ptr %13, align 8, !tbaa !12
+  %64 = getelementptr i8, ptr %63, i32 1
+  store ptr %64, ptr %13, align 8, !tbaa !12
+  %65 = load i8, ptr %63, align 1, !tbaa !27
+  %66 = load ptr, ptr %11, align 8, !tbaa !12
+  %67 = getelementptr i8, ptr %66, i32 1
+  store ptr %67, ptr %11, align 8, !tbaa !12
+  store i8 %65, ptr %66, align 1, !tbaa !27
+  br label %68
 
-67:                                               ; preds = %61
-  %68 = load i32, ptr %14, align 4
-  %69 = add i32 %68, 1
-  store i32 %69, ptr %14, align 4
-  br label %57, !llvm.loop !17
+68:                                               ; preds = %62
+  %69 = load i32, ptr %15, align 4, !tbaa !17
+  %70 = add i32 %69, 1
+  store i32 %70, ptr %15, align 4, !tbaa !17
+  br label %58, !llvm.loop !49
 
-70:                                               ; preds = %57
-  %71 = load i32, ptr %12, align 4
-  %72 = load ptr, ptr %9, align 8
-  %73 = load ptr, ptr %72, align 8
-  %74 = sext i32 %71 to i64
-  %75 = getelementptr i8, ptr %73, i64 %74
-  store ptr %75, ptr %72, align 8
-  %76 = load i32, ptr %12, align 4
-  store i32 %76, ptr %6, align 4
-  br label %77
+71:                                               ; preds = %58
+  %72 = load i32, ptr %12, align 4, !tbaa !17
+  %73 = load ptr, ptr %9, align 8, !tbaa !21
+  %74 = load ptr, ptr %73, align 8, !tbaa !12
+  %75 = sext i32 %72 to i64
+  %76 = getelementptr i8, ptr %74, i64 %75
+  store ptr %76, ptr %73, align 8, !tbaa !12
+  %77 = load i32, ptr %12, align 4, !tbaa !17
+  store i32 %77, ptr %6, align 4
+  store i32 1, ptr %14, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #4
+  br label %78
 
-77:                                               ; preds = %70, %21
-  %78 = load i32, ptr %6, align 4
-  ret i32 %78
+78:                                               ; preds = %71, %22
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #4
+  %79 = load i32, ptr %6, align 4
+  ret i32 %79
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -1957,9 +2100,9 @@ define dso_local i32 @onigenc_mb2_code_to_mbclen(i32 noundef %0, ptr noundef %1)
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
-  store i32 %0, ptr %4, align 4
-  store ptr %1, ptr %5, align 8
-  %6 = load i32, ptr %4, align 4
+  store i32 %0, ptr %4, align 4, !tbaa !17
+  store ptr %1, ptr %5, align 8, !tbaa !7
+  %6 = load i32, ptr %4, align 4, !tbaa !17
   %7 = icmp ule i32 %6, 255
   br i1 %7, label %8, label %9
 
@@ -1968,7 +2111,7 @@ define dso_local i32 @onigenc_mb2_code_to_mbclen(i32 noundef %0, ptr noundef %1)
   br label %14
 
 9:                                                ; preds = %2
-  %10 = load i32, ptr %4, align 4
+  %10 = load i32, ptr %4, align 4, !tbaa !17
   %11 = icmp ule i32 %10, 65535
   br i1 %11, label %12, label %13
 
@@ -1990,9 +2133,9 @@ define dso_local i32 @onigenc_mb4_code_to_mbclen(i32 noundef %0, ptr noundef %1)
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
-  store i32 %0, ptr %4, align 4
-  store ptr %1, ptr %5, align 8
-  %6 = load i32, ptr %4, align 4
+  store i32 %0, ptr %4, align 4, !tbaa !17
+  store ptr %1, ptr %5, align 8, !tbaa !7
+  %6 = load i32, ptr %4, align 4, !tbaa !17
   %7 = and i32 %6, -16777216
   %8 = icmp ne i32 %7, 0
   br i1 %8, label %9, label %10
@@ -2002,7 +2145,7 @@ define dso_local i32 @onigenc_mb4_code_to_mbclen(i32 noundef %0, ptr noundef %1)
   br label %21
 
 10:                                               ; preds = %2
-  %11 = load i32, ptr %4, align 4
+  %11 = load i32, ptr %4, align 4, !tbaa !17
   %12 = and i32 %11, 16711680
   %13 = icmp ne i32 %12, 0
   br i1 %13, label %14, label %15
@@ -2012,7 +2155,7 @@ define dso_local i32 @onigenc_mb4_code_to_mbclen(i32 noundef %0, ptr noundef %1)
   br label %21
 
 15:                                               ; preds = %10
-  %16 = load i32, ptr %4, align 4
+  %16 = load i32, ptr %4, align 4, !tbaa !17
   %17 = and i32 %16, 65280
   %18 = icmp ne i32 %17, 0
   br i1 %18, label %19, label %20
@@ -2037,98 +2180,103 @@ define dso_local i32 @onigenc_mb2_code_to_mbc(ptr noundef %0, i32 noundef %1, pt
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store i32 %1, ptr %6, align 4
-  store ptr %2, ptr %7, align 8
-  %9 = load ptr, ptr %7, align 8
-  store ptr %9, ptr %8, align 8
-  %10 = load i32, ptr %6, align 4
-  %11 = and i32 %10, 65280
-  %12 = icmp ne i32 %11, 0
-  br i1 %12, label %13, label %20
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !7
+  store i32 %1, ptr %6, align 4, !tbaa !17
+  store ptr %2, ptr %7, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #4
+  %10 = load ptr, ptr %7, align 8, !tbaa !12
+  store ptr %10, ptr %8, align 8, !tbaa !12
+  %11 = load i32, ptr %6, align 4, !tbaa !17
+  %12 = and i32 %11, 65280
+  %13 = icmp ne i32 %12, 0
+  br i1 %13, label %14, label %21
 
-13:                                               ; preds = %3
-  %14 = load i32, ptr %6, align 4
-  %15 = lshr i32 %14, 8
-  %16 = and i32 %15, 255
-  %17 = trunc i32 %16 to i8
-  %18 = load ptr, ptr %8, align 8
-  %19 = getelementptr i8, ptr %18, i32 1
-  store ptr %19, ptr %8, align 8
-  store i8 %17, ptr %18, align 1
-  br label %20
+14:                                               ; preds = %3
+  %15 = load i32, ptr %6, align 4, !tbaa !17
+  %16 = lshr i32 %15, 8
+  %17 = and i32 %16, 255
+  %18 = trunc i32 %17 to i8
+  %19 = load ptr, ptr %8, align 8, !tbaa !12
+  %20 = getelementptr i8, ptr %19, i32 1
+  store ptr %20, ptr %8, align 8, !tbaa !12
+  store i8 %18, ptr %19, align 1, !tbaa !27
+  br label %21
 
-20:                                               ; preds = %13, %3
-  %21 = load i32, ptr %6, align 4
-  %22 = and i32 %21, 255
-  %23 = trunc i32 %22 to i8
-  %24 = load ptr, ptr %8, align 8
-  %25 = getelementptr i8, ptr %24, i32 1
-  store ptr %25, ptr %8, align 8
-  store i8 %23, ptr %24, align 1
-  %26 = load ptr, ptr %5, align 8
-  %27 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %26, i32 0, i32 2
-  %28 = load i32, ptr %27, align 8
-  %29 = load ptr, ptr %5, align 8
-  %30 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %29, i32 0, i32 3
-  %31 = load i32, ptr %30, align 4
-  %32 = icmp eq i32 %28, %31
-  br i1 %32, label %33, label %44
+21:                                               ; preds = %14, %3
+  %22 = load i32, ptr %6, align 4, !tbaa !17
+  %23 = and i32 %22, 255
+  %24 = trunc i32 %23 to i8
+  %25 = load ptr, ptr %8, align 8, !tbaa !12
+  %26 = getelementptr i8, ptr %25, i32 1
+  store ptr %26, ptr %8, align 8, !tbaa !12
+  store i8 %24, ptr %25, align 1, !tbaa !27
+  %27 = load ptr, ptr %5, align 8, !tbaa !7
+  %28 = getelementptr inbounds nuw %struct.OnigEncodingTypeST, ptr %27, i32 0, i32 2
+  %29 = load i32, ptr %28, align 8, !tbaa !19
+  %30 = load ptr, ptr %5, align 8, !tbaa !7
+  %31 = getelementptr inbounds nuw %struct.OnigEncodingTypeST, ptr %30, i32 0, i32 3
+  %32 = load i32, ptr %31, align 4, !tbaa !20
+  %33 = icmp eq i32 %29, %32
+  br i1 %33, label %34, label %45
 
-33:                                               ; preds = %20
-  %34 = load ptr, ptr %7, align 8
-  %35 = load ptr, ptr %8, align 8
-  %36 = icmp ult ptr %34, %35
-  br i1 %36, label %37, label %41
+34:                                               ; preds = %21
+  %35 = load ptr, ptr %7, align 8, !tbaa !12
+  %36 = load ptr, ptr %8, align 8, !tbaa !12
+  %37 = icmp ult ptr %35, %36
+  br i1 %37, label %38, label %42
 
-37:                                               ; preds = %33
-  %38 = load ptr, ptr %5, align 8
-  %39 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %38, i32 0, i32 3
-  %40 = load i32, ptr %39, align 4
-  br label %42
+38:                                               ; preds = %34
+  %39 = load ptr, ptr %5, align 8, !tbaa !7
+  %40 = getelementptr inbounds nuw %struct.OnigEncodingTypeST, ptr %39, i32 0, i32 3
+  %41 = load i32, ptr %40, align 4, !tbaa !20
+  br label %43
 
-41:                                               ; preds = %33
-  br label %42
+42:                                               ; preds = %34
+  br label %43
 
-42:                                               ; preds = %41, %37
-  %43 = phi i32 [ %40, %37 ], [ 0, %41 ]
-  br label %49
+43:                                               ; preds = %42, %38
+  %44 = phi i32 [ %41, %38 ], [ 0, %42 ]
+  br label %50
 
-44:                                               ; preds = %20
-  %45 = load ptr, ptr %7, align 8
-  %46 = load ptr, ptr %8, align 8
-  %47 = load ptr, ptr %5, align 8
-  %48 = call i32 @onigenc_mbclen(ptr noundef %45, ptr noundef %46, ptr noundef %47)
-  br label %49
+45:                                               ; preds = %21
+  %46 = load ptr, ptr %7, align 8, !tbaa !12
+  %47 = load ptr, ptr %8, align 8, !tbaa !12
+  %48 = load ptr, ptr %5, align 8, !tbaa !7
+  %49 = call i32 @onigenc_mbclen(ptr noundef %46, ptr noundef %47, ptr noundef %48)
+  br label %50
 
-49:                                               ; preds = %44, %42
-  %50 = phi i32 [ %43, %42 ], [ %48, %44 ]
-  %51 = sext i32 %50 to i64
-  %52 = load ptr, ptr %8, align 8
-  %53 = load ptr, ptr %7, align 8
-  %54 = ptrtoint ptr %52 to i64
+50:                                               ; preds = %45, %43
+  %51 = phi i32 [ %44, %43 ], [ %49, %45 ]
+  %52 = sext i32 %51 to i64
+  %53 = load ptr, ptr %8, align 8, !tbaa !12
+  %54 = load ptr, ptr %7, align 8, !tbaa !12
   %55 = ptrtoint ptr %53 to i64
-  %56 = sub i64 %54, %55
-  %57 = icmp ne i64 %51, %56
-  br i1 %57, label %58, label %59
+  %56 = ptrtoint ptr %54 to i64
+  %57 = sub i64 %55, %56
+  %58 = icmp ne i64 %52, %57
+  br i1 %58, label %59, label %60
 
-58:                                               ; preds = %49
+59:                                               ; preds = %50
   store i32 -400, ptr %4, align 4
-  br label %66
+  store i32 1, ptr %9, align 4
+  br label %67
 
-59:                                               ; preds = %49
-  %60 = load ptr, ptr %8, align 8
-  %61 = load ptr, ptr %7, align 8
-  %62 = ptrtoint ptr %60 to i64
+60:                                               ; preds = %50
+  %61 = load ptr, ptr %8, align 8, !tbaa !12
+  %62 = load ptr, ptr %7, align 8, !tbaa !12
   %63 = ptrtoint ptr %61 to i64
-  %64 = sub i64 %62, %63
-  %65 = trunc i64 %64 to i32
-  store i32 %65, ptr %4, align 4
-  br label %66
+  %64 = ptrtoint ptr %62 to i64
+  %65 = sub i64 %63, %64
+  %66 = trunc i64 %65 to i32
+  store i32 %66, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %67
 
-66:                                               ; preds = %59, %58
-  %67 = load i32, ptr %4, align 4
-  ret i32 %67
+67:                                               ; preds = %60, %59
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #4
+  %68 = load i32, ptr %4, align 4
+  ret i32 %68
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -2138,144 +2286,149 @@ define dso_local i32 @onigenc_mb4_code_to_mbc(ptr noundef %0, i32 noundef %1, pt
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store i32 %1, ptr %6, align 4
-  store ptr %2, ptr %7, align 8
-  %9 = load ptr, ptr %7, align 8
-  store ptr %9, ptr %8, align 8
-  %10 = load i32, ptr %6, align 4
-  %11 = and i32 %10, -16777216
-  %12 = icmp ne i32 %11, 0
-  br i1 %12, label %13, label %20
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !7
+  store i32 %1, ptr %6, align 4, !tbaa !17
+  store ptr %2, ptr %7, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #4
+  %10 = load ptr, ptr %7, align 8, !tbaa !12
+  store ptr %10, ptr %8, align 8, !tbaa !12
+  %11 = load i32, ptr %6, align 4, !tbaa !17
+  %12 = and i32 %11, -16777216
+  %13 = icmp ne i32 %12, 0
+  br i1 %13, label %14, label %21
 
-13:                                               ; preds = %3
-  %14 = load i32, ptr %6, align 4
-  %15 = lshr i32 %14, 24
-  %16 = and i32 %15, 255
-  %17 = trunc i32 %16 to i8
-  %18 = load ptr, ptr %8, align 8
-  %19 = getelementptr i8, ptr %18, i32 1
-  store ptr %19, ptr %8, align 8
-  store i8 %17, ptr %18, align 1
-  br label %20
+14:                                               ; preds = %3
+  %15 = load i32, ptr %6, align 4, !tbaa !17
+  %16 = lshr i32 %15, 24
+  %17 = and i32 %16, 255
+  %18 = trunc i32 %17 to i8
+  %19 = load ptr, ptr %8, align 8, !tbaa !12
+  %20 = getelementptr i8, ptr %19, i32 1
+  store ptr %20, ptr %8, align 8, !tbaa !12
+  store i8 %18, ptr %19, align 1, !tbaa !27
+  br label %21
 
-20:                                               ; preds = %13, %3
-  %21 = load i32, ptr %6, align 4
-  %22 = and i32 %21, 16711680
-  %23 = icmp ne i32 %22, 0
-  br i1 %23, label %28, label %24
+21:                                               ; preds = %14, %3
+  %22 = load i32, ptr %6, align 4, !tbaa !17
+  %23 = and i32 %22, 16711680
+  %24 = icmp ne i32 %23, 0
+  br i1 %24, label %29, label %25
 
-24:                                               ; preds = %20
-  %25 = load ptr, ptr %8, align 8
-  %26 = load ptr, ptr %7, align 8
-  %27 = icmp ne ptr %25, %26
-  br i1 %27, label %28, label %35
+25:                                               ; preds = %21
+  %26 = load ptr, ptr %8, align 8, !tbaa !12
+  %27 = load ptr, ptr %7, align 8, !tbaa !12
+  %28 = icmp ne ptr %26, %27
+  br i1 %28, label %29, label %36
 
-28:                                               ; preds = %24, %20
-  %29 = load i32, ptr %6, align 4
-  %30 = lshr i32 %29, 16
-  %31 = and i32 %30, 255
-  %32 = trunc i32 %31 to i8
-  %33 = load ptr, ptr %8, align 8
-  %34 = getelementptr i8, ptr %33, i32 1
-  store ptr %34, ptr %8, align 8
-  store i8 %32, ptr %33, align 1
-  br label %35
+29:                                               ; preds = %25, %21
+  %30 = load i32, ptr %6, align 4, !tbaa !17
+  %31 = lshr i32 %30, 16
+  %32 = and i32 %31, 255
+  %33 = trunc i32 %32 to i8
+  %34 = load ptr, ptr %8, align 8, !tbaa !12
+  %35 = getelementptr i8, ptr %34, i32 1
+  store ptr %35, ptr %8, align 8, !tbaa !12
+  store i8 %33, ptr %34, align 1, !tbaa !27
+  br label %36
 
-35:                                               ; preds = %28, %24
-  %36 = load i32, ptr %6, align 4
-  %37 = and i32 %36, 65280
-  %38 = icmp ne i32 %37, 0
-  br i1 %38, label %43, label %39
+36:                                               ; preds = %29, %25
+  %37 = load i32, ptr %6, align 4, !tbaa !17
+  %38 = and i32 %37, 65280
+  %39 = icmp ne i32 %38, 0
+  br i1 %39, label %44, label %40
 
-39:                                               ; preds = %35
-  %40 = load ptr, ptr %8, align 8
-  %41 = load ptr, ptr %7, align 8
-  %42 = icmp ne ptr %40, %41
-  br i1 %42, label %43, label %50
+40:                                               ; preds = %36
+  %41 = load ptr, ptr %8, align 8, !tbaa !12
+  %42 = load ptr, ptr %7, align 8, !tbaa !12
+  %43 = icmp ne ptr %41, %42
+  br i1 %43, label %44, label %51
 
-43:                                               ; preds = %39, %35
-  %44 = load i32, ptr %6, align 4
-  %45 = lshr i32 %44, 8
-  %46 = and i32 %45, 255
-  %47 = trunc i32 %46 to i8
-  %48 = load ptr, ptr %8, align 8
-  %49 = getelementptr i8, ptr %48, i32 1
-  store ptr %49, ptr %8, align 8
-  store i8 %47, ptr %48, align 1
-  br label %50
+44:                                               ; preds = %40, %36
+  %45 = load i32, ptr %6, align 4, !tbaa !17
+  %46 = lshr i32 %45, 8
+  %47 = and i32 %46, 255
+  %48 = trunc i32 %47 to i8
+  %49 = load ptr, ptr %8, align 8, !tbaa !12
+  %50 = getelementptr i8, ptr %49, i32 1
+  store ptr %50, ptr %8, align 8, !tbaa !12
+  store i8 %48, ptr %49, align 1, !tbaa !27
+  br label %51
 
-50:                                               ; preds = %43, %39
-  %51 = load i32, ptr %6, align 4
-  %52 = and i32 %51, 255
-  %53 = trunc i32 %52 to i8
-  %54 = load ptr, ptr %8, align 8
-  %55 = getelementptr i8, ptr %54, i32 1
-  store ptr %55, ptr %8, align 8
-  store i8 %53, ptr %54, align 1
-  %56 = load ptr, ptr %5, align 8
-  %57 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %56, i32 0, i32 2
-  %58 = load i32, ptr %57, align 8
-  %59 = load ptr, ptr %5, align 8
-  %60 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %59, i32 0, i32 3
-  %61 = load i32, ptr %60, align 4
-  %62 = icmp eq i32 %58, %61
-  br i1 %62, label %63, label %74
+51:                                               ; preds = %44, %40
+  %52 = load i32, ptr %6, align 4, !tbaa !17
+  %53 = and i32 %52, 255
+  %54 = trunc i32 %53 to i8
+  %55 = load ptr, ptr %8, align 8, !tbaa !12
+  %56 = getelementptr i8, ptr %55, i32 1
+  store ptr %56, ptr %8, align 8, !tbaa !12
+  store i8 %54, ptr %55, align 1, !tbaa !27
+  %57 = load ptr, ptr %5, align 8, !tbaa !7
+  %58 = getelementptr inbounds nuw %struct.OnigEncodingTypeST, ptr %57, i32 0, i32 2
+  %59 = load i32, ptr %58, align 8, !tbaa !19
+  %60 = load ptr, ptr %5, align 8, !tbaa !7
+  %61 = getelementptr inbounds nuw %struct.OnigEncodingTypeST, ptr %60, i32 0, i32 3
+  %62 = load i32, ptr %61, align 4, !tbaa !20
+  %63 = icmp eq i32 %59, %62
+  br i1 %63, label %64, label %75
 
-63:                                               ; preds = %50
-  %64 = load ptr, ptr %7, align 8
-  %65 = load ptr, ptr %8, align 8
-  %66 = icmp ult ptr %64, %65
-  br i1 %66, label %67, label %71
+64:                                               ; preds = %51
+  %65 = load ptr, ptr %7, align 8, !tbaa !12
+  %66 = load ptr, ptr %8, align 8, !tbaa !12
+  %67 = icmp ult ptr %65, %66
+  br i1 %67, label %68, label %72
 
-67:                                               ; preds = %63
-  %68 = load ptr, ptr %5, align 8
-  %69 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %68, i32 0, i32 3
-  %70 = load i32, ptr %69, align 4
-  br label %72
+68:                                               ; preds = %64
+  %69 = load ptr, ptr %5, align 8, !tbaa !7
+  %70 = getelementptr inbounds nuw %struct.OnigEncodingTypeST, ptr %69, i32 0, i32 3
+  %71 = load i32, ptr %70, align 4, !tbaa !20
+  br label %73
 
-71:                                               ; preds = %63
-  br label %72
+72:                                               ; preds = %64
+  br label %73
 
-72:                                               ; preds = %71, %67
-  %73 = phi i32 [ %70, %67 ], [ 0, %71 ]
-  br label %79
+73:                                               ; preds = %72, %68
+  %74 = phi i32 [ %71, %68 ], [ 0, %72 ]
+  br label %80
 
-74:                                               ; preds = %50
-  %75 = load ptr, ptr %7, align 8
-  %76 = load ptr, ptr %8, align 8
-  %77 = load ptr, ptr %5, align 8
-  %78 = call i32 @onigenc_mbclen(ptr noundef %75, ptr noundef %76, ptr noundef %77)
-  br label %79
+75:                                               ; preds = %51
+  %76 = load ptr, ptr %7, align 8, !tbaa !12
+  %77 = load ptr, ptr %8, align 8, !tbaa !12
+  %78 = load ptr, ptr %5, align 8, !tbaa !7
+  %79 = call i32 @onigenc_mbclen(ptr noundef %76, ptr noundef %77, ptr noundef %78)
+  br label %80
 
-79:                                               ; preds = %74, %72
-  %80 = phi i32 [ %73, %72 ], [ %78, %74 ]
-  %81 = sext i32 %80 to i64
-  %82 = load ptr, ptr %8, align 8
-  %83 = load ptr, ptr %7, align 8
-  %84 = ptrtoint ptr %82 to i64
+80:                                               ; preds = %75, %73
+  %81 = phi i32 [ %74, %73 ], [ %79, %75 ]
+  %82 = sext i32 %81 to i64
+  %83 = load ptr, ptr %8, align 8, !tbaa !12
+  %84 = load ptr, ptr %7, align 8, !tbaa !12
   %85 = ptrtoint ptr %83 to i64
-  %86 = sub i64 %84, %85
-  %87 = icmp ne i64 %81, %86
-  br i1 %87, label %88, label %89
+  %86 = ptrtoint ptr %84 to i64
+  %87 = sub i64 %85, %86
+  %88 = icmp ne i64 %82, %87
+  br i1 %88, label %89, label %90
 
-88:                                               ; preds = %79
+89:                                               ; preds = %80
   store i32 -400, ptr %4, align 4
-  br label %96
+  store i32 1, ptr %9, align 4
+  br label %97
 
-89:                                               ; preds = %79
-  %90 = load ptr, ptr %8, align 8
-  %91 = load ptr, ptr %7, align 8
-  %92 = ptrtoint ptr %90 to i64
+90:                                               ; preds = %80
+  %91 = load ptr, ptr %8, align 8, !tbaa !12
+  %92 = load ptr, ptr %7, align 8, !tbaa !12
   %93 = ptrtoint ptr %91 to i64
-  %94 = sub i64 %92, %93
-  %95 = trunc i64 %94 to i32
-  store i32 %95, ptr %4, align 4
-  br label %96
+  %94 = ptrtoint ptr %92 to i64
+  %95 = sub i64 %93, %94
+  %96 = trunc i64 %95 to i32
+  store i32 %96, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %97
 
-96:                                               ; preds = %89, %88
-  %97 = load i32, ptr %4, align 4
-  ret i32 %97
+97:                                               ; preds = %90, %89
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #4
+  %98 = load i32, ptr %4, align 4
+  ret i32 %98
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -2286,68 +2439,74 @@ define dso_local i32 @onigenc_minimum_property_name_to_ctype(ptr noundef %0, ptr
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  %10 = load ptr, ptr %5, align 8
-  %11 = load ptr, ptr %6, align 8
-  %12 = load ptr, ptr %7, align 8
-  %13 = call i32 @onigenc_strlen(ptr noundef %10, ptr noundef %11, ptr noundef %12)
-  store i32 %13, ptr %9, align 4
-  store ptr @onigenc_minimum_property_name_to_ctype.PBS, ptr %8, align 8
-  br label %14
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !7
+  store ptr %1, ptr %6, align 8, !tbaa !12
+  store ptr %2, ptr %7, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
+  %11 = load ptr, ptr %5, align 8, !tbaa !7
+  %12 = load ptr, ptr %6, align 8, !tbaa !12
+  %13 = load ptr, ptr %7, align 8, !tbaa !12
+  %14 = call i32 @onigenc_strlen(ptr noundef %11, ptr noundef %12, ptr noundef %13)
+  store i32 %14, ptr %9, align 4, !tbaa !17
+  store ptr @onigenc_minimum_property_name_to_ctype.PBS, ptr %8, align 8, !tbaa !30
+  br label %15
 
-14:                                               ; preds = %43, %3
-  %15 = load ptr, ptr %8, align 8
-  %16 = getelementptr %struct.PosixBracketEntryType, ptr @onigenc_minimum_property_name_to_ctype.PBS, i64 14
-  %17 = icmp ult ptr %15, %16
+15:                                               ; preds = %43, %3
+  %16 = load ptr, ptr %8, align 8, !tbaa !30
+  %17 = icmp ult ptr %16, getelementptr (%struct.PosixBracketEntryType, ptr @onigenc_minimum_property_name_to_ctype.PBS, i64 14)
   br i1 %17, label %18, label %46
 
-18:                                               ; preds = %14
-  %19 = load i32, ptr %9, align 4
-  %20 = load ptr, ptr %8, align 8
-  %21 = getelementptr inbounds %struct.PosixBracketEntryType, ptr %20, i32 0, i32 0
-  %22 = load i16, ptr %21, align 4
+18:                                               ; preds = %15
+  %19 = load i32, ptr %9, align 4, !tbaa !17
+  %20 = load ptr, ptr %8, align 8, !tbaa !30
+  %21 = getelementptr inbounds nuw %struct.PosixBracketEntryType, ptr %20, i32 0, i32 0
+  %22 = load i16, ptr %21, align 4, !tbaa !50
   %23 = sext i16 %22 to i32
   %24 = icmp eq i32 %19, %23
   br i1 %24, label %25, label %42
 
 25:                                               ; preds = %18
-  %26 = load ptr, ptr %5, align 8
-  %27 = load ptr, ptr %6, align 8
-  %28 = load ptr, ptr %7, align 8
-  %29 = load ptr, ptr %8, align 8
-  %30 = getelementptr inbounds %struct.PosixBracketEntryType, ptr %29, i32 0, i32 1
+  %26 = load ptr, ptr %5, align 8, !tbaa !7
+  %27 = load ptr, ptr %6, align 8, !tbaa !12
+  %28 = load ptr, ptr %7, align 8, !tbaa !12
+  %29 = load ptr, ptr %8, align 8, !tbaa !30
+  %30 = getelementptr inbounds nuw %struct.PosixBracketEntryType, ptr %29, i32 0, i32 1
   %31 = getelementptr inbounds [6 x i8], ptr %30, i64 0, i64 0
-  %32 = load ptr, ptr %8, align 8
-  %33 = getelementptr inbounds %struct.PosixBracketEntryType, ptr %32, i32 0, i32 0
-  %34 = load i16, ptr %33, align 4
+  %32 = load ptr, ptr %8, align 8, !tbaa !30
+  %33 = getelementptr inbounds nuw %struct.PosixBracketEntryType, ptr %32, i32 0, i32 0
+  %34 = load i16, ptr %33, align 4, !tbaa !50
   %35 = sext i16 %34 to i32
   %36 = call i32 @onigenc_with_ascii_strnicmp(ptr noundef %26, ptr noundef %27, ptr noundef %28, ptr noundef %31, i32 noundef %35)
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %38, label %42
 
 38:                                               ; preds = %25
-  %39 = load ptr, ptr %8, align 8
-  %40 = getelementptr inbounds %struct.PosixBracketEntryType, ptr %39, i32 0, i32 2
-  %41 = load i32, ptr %40, align 4
+  %39 = load ptr, ptr %8, align 8, !tbaa !30
+  %40 = getelementptr inbounds nuw %struct.PosixBracketEntryType, ptr %39, i32 0, i32 2
+  %41 = load i32, ptr %40, align 4, !tbaa !52
   store i32 %41, ptr %4, align 4
+  store i32 1, ptr %10, align 4
   br label %47
 
 42:                                               ; preds = %25, %18
   br label %43
 
 43:                                               ; preds = %42
-  %44 = load ptr, ptr %8, align 8
+  %44 = load ptr, ptr %8, align 8, !tbaa !30
   %45 = getelementptr %struct.PosixBracketEntryType, ptr %44, i32 1
-  store ptr %45, ptr %8, align 8
-  br label %14, !llvm.loop !18
+  store ptr %45, ptr %8, align 8, !tbaa !30
+  br label %15, !llvm.loop !53
 
-46:                                               ; preds = %14
+46:                                               ; preds = %15
   store i32 -223, ptr %4, align 4
+  store i32 1, ptr %10, align 4
   br label %47
 
 47:                                               ; preds = %46, %38
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #4
   %48 = load i32, ptr %4, align 4
   ret i32 %48
 }
@@ -2362,128 +2521,136 @@ define dso_local i32 @onigenc_with_ascii_strnicmp(ptr noundef %0, ptr noundef %1
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
-  store ptr %0, ptr %7, align 8
-  store ptr %1, ptr %8, align 8
-  store ptr %2, ptr %9, align 8
-  store ptr %3, ptr %10, align 8
-  store i32 %4, ptr %11, align 4
-  br label %14
+  %14 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8, !tbaa !7
+  store ptr %1, ptr %8, align 8, !tbaa !12
+  store ptr %2, ptr %9, align 8, !tbaa !12
+  store ptr %3, ptr %10, align 8, !tbaa !12
+  store i32 %4, ptr %11, align 4, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
+  br label %15
 
-14:                                               ; preds = %81, %5
-  %15 = load i32, ptr %11, align 4
-  %16 = add i32 %15, -1
-  store i32 %16, ptr %11, align 4
-  %17 = icmp sgt i32 %15, 0
-  br i1 %17, label %18, label %86
+15:                                               ; preds = %82, %5
+  %16 = load i32, ptr %11, align 4, !tbaa !17
+  %17 = add i32 %16, -1
+  store i32 %17, ptr %11, align 4, !tbaa !17
+  %18 = icmp sgt i32 %16, 0
+  br i1 %18, label %19, label %87
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %8, align 8
-  %20 = load ptr, ptr %9, align 8
-  %21 = icmp uge ptr %19, %20
-  br i1 %21, label %22, label %26
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %8, align 8, !tbaa !12
+  %21 = load ptr, ptr %9, align 8, !tbaa !12
+  %22 = icmp uge ptr %20, %21
+  br i1 %22, label %23, label %27
 
-22:                                               ; preds = %18
-  %23 = load ptr, ptr %10, align 8
-  %24 = load i8, ptr %23, align 1
-  %25 = zext i8 %24 to i32
-  store i32 %25, ptr %6, align 4
-  br label %87
+23:                                               ; preds = %19
+  %24 = load ptr, ptr %10, align 8, !tbaa !12
+  %25 = load i8, ptr %24, align 1, !tbaa !27
+  %26 = zext i8 %25 to i32
+  store i32 %26, ptr %6, align 4
+  store i32 1, ptr %14, align 4
+  br label %88
 
-26:                                               ; preds = %18
-  %27 = load ptr, ptr %7, align 8
-  %28 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %27, i32 0, i32 5
-  %29 = load ptr, ptr %28, align 8
-  %30 = load ptr, ptr %8, align 8
-  %31 = load ptr, ptr %9, align 8
-  %32 = load ptr, ptr %7, align 8
-  %33 = call i32 %29(ptr noundef %30, ptr noundef %31, ptr noundef %32)
-  store i32 %33, ptr %13, align 4
-  %34 = load i32, ptr %13, align 4
-  %35 = icmp slt i32 %34, 128
-  br i1 %35, label %36, label %42
+27:                                               ; preds = %19
+  %28 = load ptr, ptr %7, align 8, !tbaa !7
+  %29 = getelementptr inbounds nuw %struct.OnigEncodingTypeST, ptr %28, i32 0, i32 5
+  %30 = load ptr, ptr %29, align 8, !tbaa !54
+  %31 = load ptr, ptr %8, align 8, !tbaa !12
+  %32 = load ptr, ptr %9, align 8, !tbaa !12
+  %33 = load ptr, ptr %7, align 8, !tbaa !7
+  %34 = call i32 %30(ptr noundef %31, ptr noundef %32, ptr noundef %33)
+  store i32 %34, ptr %13, align 4, !tbaa !17
+  %35 = load i32, ptr %13, align 4, !tbaa !17
+  %36 = icmp slt i32 %35, 128
+  br i1 %36, label %37, label %43
 
-36:                                               ; preds = %26
-  %37 = load i32, ptr %13, align 4
-  %38 = sext i32 %37 to i64
-  %39 = getelementptr [256 x i8], ptr @OnigEncAsciiToLowerCaseTable, i64 0, i64 %38
-  %40 = load i8, ptr %39, align 1
-  %41 = zext i8 %40 to i32
-  store i32 %41, ptr %13, align 4
-  br label %42
+37:                                               ; preds = %27
+  %38 = load i32, ptr %13, align 4, !tbaa !17
+  %39 = sext i32 %38 to i64
+  %40 = getelementptr [256 x i8], ptr @OnigEncAsciiToLowerCaseTable, i64 0, i64 %39
+  %41 = load i8, ptr %40, align 1, !tbaa !27
+  %42 = zext i8 %41 to i32
+  store i32 %42, ptr %13, align 4, !tbaa !17
+  br label %43
 
-42:                                               ; preds = %36, %26
-  %43 = load ptr, ptr %10, align 8
-  %44 = load i8, ptr %43, align 1
-  %45 = zext i8 %44 to i64
-  %46 = getelementptr [256 x i8], ptr @OnigEncAsciiToLowerCaseTable, i64 0, i64 %45
-  %47 = load i8, ptr %46, align 1
-  %48 = zext i8 %47 to i32
-  %49 = load i32, ptr %13, align 4
-  %50 = sub i32 %48, %49
-  store i32 %50, ptr %12, align 4
-  %51 = load i32, ptr %12, align 4
-  %52 = icmp ne i32 %51, 0
-  br i1 %52, label %53, label %55
+43:                                               ; preds = %37, %27
+  %44 = load ptr, ptr %10, align 8, !tbaa !12
+  %45 = load i8, ptr %44, align 1, !tbaa !27
+  %46 = zext i8 %45 to i64
+  %47 = getelementptr [256 x i8], ptr @OnigEncAsciiToLowerCaseTable, i64 0, i64 %46
+  %48 = load i8, ptr %47, align 1, !tbaa !27
+  %49 = zext i8 %48 to i32
+  %50 = load i32, ptr %13, align 4, !tbaa !17
+  %51 = sub i32 %49, %50
+  store i32 %51, ptr %12, align 4, !tbaa !17
+  %52 = load i32, ptr %12, align 4, !tbaa !17
+  %53 = icmp ne i32 %52, 0
+  br i1 %53, label %54, label %56
 
-53:                                               ; preds = %42
-  %54 = load i32, ptr %12, align 4
-  store i32 %54, ptr %6, align 4
-  br label %87
+54:                                               ; preds = %43
+  %55 = load i32, ptr %12, align 4, !tbaa !17
+  store i32 %55, ptr %6, align 4
+  store i32 1, ptr %14, align 4
+  br label %88
 
-55:                                               ; preds = %42
-  %56 = load ptr, ptr %10, align 8
-  %57 = getelementptr i8, ptr %56, i32 1
-  store ptr %57, ptr %10, align 8
-  %58 = load ptr, ptr %7, align 8
-  %59 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %58, i32 0, i32 2
-  %60 = load i32, ptr %59, align 8
-  %61 = load ptr, ptr %7, align 8
-  %62 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %61, i32 0, i32 3
-  %63 = load i32, ptr %62, align 4
-  %64 = icmp eq i32 %60, %63
-  br i1 %64, label %65, label %76
+56:                                               ; preds = %43
+  %57 = load ptr, ptr %10, align 8, !tbaa !12
+  %58 = getelementptr i8, ptr %57, i32 1
+  store ptr %58, ptr %10, align 8, !tbaa !12
+  %59 = load ptr, ptr %7, align 8, !tbaa !7
+  %60 = getelementptr inbounds nuw %struct.OnigEncodingTypeST, ptr %59, i32 0, i32 2
+  %61 = load i32, ptr %60, align 8, !tbaa !19
+  %62 = load ptr, ptr %7, align 8, !tbaa !7
+  %63 = getelementptr inbounds nuw %struct.OnigEncodingTypeST, ptr %62, i32 0, i32 3
+  %64 = load i32, ptr %63, align 4, !tbaa !20
+  %65 = icmp eq i32 %61, %64
+  br i1 %65, label %66, label %77
 
-65:                                               ; preds = %55
-  %66 = load ptr, ptr %8, align 8
-  %67 = load ptr, ptr %9, align 8
-  %68 = icmp ult ptr %66, %67
-  br i1 %68, label %69, label %73
+66:                                               ; preds = %56
+  %67 = load ptr, ptr %8, align 8, !tbaa !12
+  %68 = load ptr, ptr %9, align 8, !tbaa !12
+  %69 = icmp ult ptr %67, %68
+  br i1 %69, label %70, label %74
 
-69:                                               ; preds = %65
-  %70 = load ptr, ptr %7, align 8
-  %71 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %70, i32 0, i32 3
-  %72 = load i32, ptr %71, align 4
-  br label %74
+70:                                               ; preds = %66
+  %71 = load ptr, ptr %7, align 8, !tbaa !7
+  %72 = getelementptr inbounds nuw %struct.OnigEncodingTypeST, ptr %71, i32 0, i32 3
+  %73 = load i32, ptr %72, align 4, !tbaa !20
+  br label %75
 
-73:                                               ; preds = %65
-  br label %74
+74:                                               ; preds = %66
+  br label %75
 
-74:                                               ; preds = %73, %69
-  %75 = phi i32 [ %72, %69 ], [ 0, %73 ]
-  br label %81
+75:                                               ; preds = %74, %70
+  %76 = phi i32 [ %73, %70 ], [ 0, %74 ]
+  br label %82
 
-76:                                               ; preds = %55
-  %77 = load ptr, ptr %8, align 8
-  %78 = load ptr, ptr %9, align 8
-  %79 = load ptr, ptr %7, align 8
-  %80 = call i32 @onigenc_mbclen(ptr noundef %77, ptr noundef %78, ptr noundef %79)
-  br label %81
+77:                                               ; preds = %56
+  %78 = load ptr, ptr %8, align 8, !tbaa !12
+  %79 = load ptr, ptr %9, align 8, !tbaa !12
+  %80 = load ptr, ptr %7, align 8, !tbaa !7
+  %81 = call i32 @onigenc_mbclen(ptr noundef %78, ptr noundef %79, ptr noundef %80)
+  br label %82
 
-81:                                               ; preds = %76, %74
-  %82 = phi i32 [ %75, %74 ], [ %80, %76 ]
-  %83 = load ptr, ptr %8, align 8
-  %84 = sext i32 %82 to i64
-  %85 = getelementptr i8, ptr %83, i64 %84
-  store ptr %85, ptr %8, align 8
-  br label %14, !llvm.loop !19
+82:                                               ; preds = %77, %75
+  %83 = phi i32 [ %76, %75 ], [ %81, %77 ]
+  %84 = load ptr, ptr %8, align 8, !tbaa !12
+  %85 = sext i32 %83 to i64
+  %86 = getelementptr i8, ptr %84, i64 %85
+  store ptr %86, ptr %8, align 8, !tbaa !12
+  br label %15, !llvm.loop !55
 
-86:                                               ; preds = %14
+87:                                               ; preds = %15
   store i32 0, ptr %6, align 4
-  br label %87
+  store i32 1, ptr %14, align 4
+  br label %88
 
-87:                                               ; preds = %86, %53, %22
-  %88 = load i32, ptr %6, align 4
-  ret i32 %88
+88:                                               ; preds = %87, %54, %23
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #4
+  %89 = load i32, ptr %6, align 4
+  ret i32 %89
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -2492,20 +2659,20 @@ define dso_local i32 @onigenc_mb2_is_code_ctype(ptr noundef %0, i32 noundef %1, 
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store i32 %1, ptr %6, align 4
-  store i32 %2, ptr %7, align 4
-  %8 = load i32, ptr %6, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !7
+  store i32 %1, ptr %6, align 4, !tbaa !17
+  store i32 %2, ptr %7, align 4, !tbaa !17
+  %8 = load i32, ptr %6, align 4, !tbaa !17
   %9 = icmp ult i32 %8, 128
   br i1 %9, label %10, label %21
 
 10:                                               ; preds = %3
-  %11 = load i32, ptr %6, align 4
+  %11 = load i32, ptr %6, align 4, !tbaa !17
   %12 = zext i32 %11 to i64
   %13 = getelementptr [256 x i16], ptr @OnigEncAsciiCtypeTable, i64 0, i64 %12
-  %14 = load i16, ptr %13, align 2
+  %14 = load i16, ptr %13, align 2, !tbaa !46
   %15 = zext i16 %14 to i32
-  %16 = load i32, ptr %7, align 4
+  %16 = load i32, ptr %7, align 4, !tbaa !17
   %17 = shl i32 1, %16
   %18 = and i32 %15, %17
   %19 = icmp ne i32 %18, 0
@@ -2514,26 +2681,26 @@ define dso_local i32 @onigenc_mb2_is_code_ctype(ptr noundef %0, i32 noundef %1, 
   br label %41
 
 21:                                               ; preds = %3
-  %22 = load i32, ptr %7, align 4
+  %22 = load i32, ptr %7, align 4, !tbaa !17
   %23 = icmp eq i32 %22, 12
   br i1 %23, label %30, label %24
 
 24:                                               ; preds = %21
-  %25 = load i32, ptr %7, align 4
+  %25 = load i32, ptr %7, align 4, !tbaa !17
   %26 = icmp eq i32 %25, 5
   br i1 %26, label %30, label %27
 
 27:                                               ; preds = %24
-  %28 = load i32, ptr %7, align 4
+  %28 = load i32, ptr %7, align 4, !tbaa !17
   %29 = icmp eq i32 %28, 7
   br i1 %29, label %30, label %39
 
 30:                                               ; preds = %27, %24, %21
-  %31 = load ptr, ptr %5, align 8
-  %32 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %31, i32 0, i32 6
-  %33 = load ptr, ptr %32, align 8
-  %34 = load i32, ptr %6, align 4
-  %35 = load ptr, ptr %5, align 8
+  %31 = load ptr, ptr %5, align 8, !tbaa !7
+  %32 = getelementptr inbounds nuw %struct.OnigEncodingTypeST, ptr %31, i32 0, i32 6
+  %33 = load ptr, ptr %32, align 8, !tbaa !56
+  %34 = load i32, ptr %6, align 4, !tbaa !17
+  %35 = load ptr, ptr %5, align 8, !tbaa !7
   %36 = call i32 %33(i32 noundef %34, ptr noundef %35)
   %37 = icmp sgt i32 %36, 1
   %38 = select i1 %37, i32 1, i32 0
@@ -2558,20 +2725,20 @@ define dso_local i32 @onigenc_mb4_is_code_ctype(ptr noundef %0, i32 noundef %1, 
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store i32 %1, ptr %6, align 4
-  store i32 %2, ptr %7, align 4
-  %8 = load i32, ptr %6, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !7
+  store i32 %1, ptr %6, align 4, !tbaa !17
+  store i32 %2, ptr %7, align 4, !tbaa !17
+  %8 = load i32, ptr %6, align 4, !tbaa !17
   %9 = icmp ult i32 %8, 128
   br i1 %9, label %10, label %21
 
 10:                                               ; preds = %3
-  %11 = load i32, ptr %6, align 4
+  %11 = load i32, ptr %6, align 4, !tbaa !17
   %12 = zext i32 %11 to i64
   %13 = getelementptr [256 x i16], ptr @OnigEncAsciiCtypeTable, i64 0, i64 %12
-  %14 = load i16, ptr %13, align 2
+  %14 = load i16, ptr %13, align 2, !tbaa !46
   %15 = zext i16 %14 to i32
-  %16 = load i32, ptr %7, align 4
+  %16 = load i32, ptr %7, align 4, !tbaa !17
   %17 = shl i32 1, %16
   %18 = and i32 %15, %17
   %19 = icmp ne i32 %18, 0
@@ -2580,26 +2747,26 @@ define dso_local i32 @onigenc_mb4_is_code_ctype(ptr noundef %0, i32 noundef %1, 
   br label %41
 
 21:                                               ; preds = %3
-  %22 = load i32, ptr %7, align 4
+  %22 = load i32, ptr %7, align 4, !tbaa !17
   %23 = icmp eq i32 %22, 12
   br i1 %23, label %30, label %24
 
 24:                                               ; preds = %21
-  %25 = load i32, ptr %7, align 4
+  %25 = load i32, ptr %7, align 4, !tbaa !17
   %26 = icmp eq i32 %25, 5
   br i1 %26, label %30, label %27
 
 27:                                               ; preds = %24
-  %28 = load i32, ptr %7, align 4
+  %28 = load i32, ptr %7, align 4, !tbaa !17
   %29 = icmp eq i32 %28, 7
   br i1 %29, label %30, label %39
 
 30:                                               ; preds = %27, %24, %21
-  %31 = load ptr, ptr %5, align 8
-  %32 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %31, i32 0, i32 6
-  %33 = load ptr, ptr %32, align 8
-  %34 = load i32, ptr %6, align 4
-  %35 = load ptr, ptr %5, align 8
+  %31 = load ptr, ptr %5, align 8, !tbaa !7
+  %32 = getelementptr inbounds nuw %struct.OnigEncodingTypeST, ptr %31, i32 0, i32 6
+  %33 = load ptr, ptr %32, align 8, !tbaa !56
+  %34 = load i32, ptr %6, align 4, !tbaa !17
+  %35 = load ptr, ptr %5, align 8, !tbaa !7
   %36 = call i32 %33(i32 noundef %34, ptr noundef %35)
   %37 = icmp sgt i32 %36, 1
   %38 = select i1 %37, i32 1, i32 0
@@ -2628,111 +2795,119 @@ define dso_local i32 @onigenc_with_ascii_strncmp(ptr noundef %0, ptr noundef %1,
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
-  store ptr %0, ptr %7, align 8
-  store ptr %1, ptr %8, align 8
-  store ptr %2, ptr %9, align 8
-  store ptr %3, ptr %10, align 8
-  store i32 %4, ptr %11, align 4
-  br label %14
+  %14 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8, !tbaa !7
+  store ptr %1, ptr %8, align 8, !tbaa !12
+  store ptr %2, ptr %9, align 8, !tbaa !12
+  store ptr %3, ptr %10, align 8, !tbaa !12
+  store i32 %4, ptr %11, align 4, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
+  br label %15
 
-14:                                               ; preds = %69, %5
-  %15 = load i32, ptr %11, align 4
-  %16 = add i32 %15, -1
-  store i32 %16, ptr %11, align 4
-  %17 = icmp sgt i32 %15, 0
-  br i1 %17, label %18, label %74
+15:                                               ; preds = %70, %5
+  %16 = load i32, ptr %11, align 4, !tbaa !17
+  %17 = add i32 %16, -1
+  store i32 %17, ptr %11, align 4, !tbaa !17
+  %18 = icmp sgt i32 %16, 0
+  br i1 %18, label %19, label %75
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %8, align 8
-  %20 = load ptr, ptr %9, align 8
-  %21 = icmp uge ptr %19, %20
-  br i1 %21, label %22, label %26
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %8, align 8, !tbaa !12
+  %21 = load ptr, ptr %9, align 8, !tbaa !12
+  %22 = icmp uge ptr %20, %21
+  br i1 %22, label %23, label %27
 
-22:                                               ; preds = %18
-  %23 = load ptr, ptr %10, align 8
-  %24 = load i8, ptr %23, align 1
-  %25 = zext i8 %24 to i32
-  store i32 %25, ptr %6, align 4
-  br label %75
+23:                                               ; preds = %19
+  %24 = load ptr, ptr %10, align 8, !tbaa !12
+  %25 = load i8, ptr %24, align 1, !tbaa !27
+  %26 = zext i8 %25 to i32
+  store i32 %26, ptr %6, align 4
+  store i32 1, ptr %14, align 4
+  br label %76
 
-26:                                               ; preds = %18
-  %27 = load ptr, ptr %7, align 8
-  %28 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %27, i32 0, i32 5
-  %29 = load ptr, ptr %28, align 8
-  %30 = load ptr, ptr %8, align 8
-  %31 = load ptr, ptr %9, align 8
-  %32 = load ptr, ptr %7, align 8
-  %33 = call i32 %29(ptr noundef %30, ptr noundef %31, ptr noundef %32)
-  store i32 %33, ptr %13, align 4
-  %34 = load ptr, ptr %10, align 8
-  %35 = load i8, ptr %34, align 1
-  %36 = zext i8 %35 to i32
-  %37 = load i32, ptr %13, align 4
-  %38 = sub i32 %36, %37
-  store i32 %38, ptr %12, align 4
-  %39 = load i32, ptr %12, align 4
-  %40 = icmp ne i32 %39, 0
-  br i1 %40, label %41, label %43
+27:                                               ; preds = %19
+  %28 = load ptr, ptr %7, align 8, !tbaa !7
+  %29 = getelementptr inbounds nuw %struct.OnigEncodingTypeST, ptr %28, i32 0, i32 5
+  %30 = load ptr, ptr %29, align 8, !tbaa !54
+  %31 = load ptr, ptr %8, align 8, !tbaa !12
+  %32 = load ptr, ptr %9, align 8, !tbaa !12
+  %33 = load ptr, ptr %7, align 8, !tbaa !7
+  %34 = call i32 %30(ptr noundef %31, ptr noundef %32, ptr noundef %33)
+  store i32 %34, ptr %13, align 4, !tbaa !17
+  %35 = load ptr, ptr %10, align 8, !tbaa !12
+  %36 = load i8, ptr %35, align 1, !tbaa !27
+  %37 = zext i8 %36 to i32
+  %38 = load i32, ptr %13, align 4, !tbaa !17
+  %39 = sub i32 %37, %38
+  store i32 %39, ptr %12, align 4, !tbaa !17
+  %40 = load i32, ptr %12, align 4, !tbaa !17
+  %41 = icmp ne i32 %40, 0
+  br i1 %41, label %42, label %44
 
-41:                                               ; preds = %26
-  %42 = load i32, ptr %12, align 4
-  store i32 %42, ptr %6, align 4
-  br label %75
+42:                                               ; preds = %27
+  %43 = load i32, ptr %12, align 4, !tbaa !17
+  store i32 %43, ptr %6, align 4
+  store i32 1, ptr %14, align 4
+  br label %76
 
-43:                                               ; preds = %26
-  %44 = load ptr, ptr %10, align 8
-  %45 = getelementptr i8, ptr %44, i32 1
-  store ptr %45, ptr %10, align 8
-  %46 = load ptr, ptr %7, align 8
-  %47 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %46, i32 0, i32 2
-  %48 = load i32, ptr %47, align 8
-  %49 = load ptr, ptr %7, align 8
-  %50 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %49, i32 0, i32 3
-  %51 = load i32, ptr %50, align 4
-  %52 = icmp eq i32 %48, %51
-  br i1 %52, label %53, label %64
+44:                                               ; preds = %27
+  %45 = load ptr, ptr %10, align 8, !tbaa !12
+  %46 = getelementptr i8, ptr %45, i32 1
+  store ptr %46, ptr %10, align 8, !tbaa !12
+  %47 = load ptr, ptr %7, align 8, !tbaa !7
+  %48 = getelementptr inbounds nuw %struct.OnigEncodingTypeST, ptr %47, i32 0, i32 2
+  %49 = load i32, ptr %48, align 8, !tbaa !19
+  %50 = load ptr, ptr %7, align 8, !tbaa !7
+  %51 = getelementptr inbounds nuw %struct.OnigEncodingTypeST, ptr %50, i32 0, i32 3
+  %52 = load i32, ptr %51, align 4, !tbaa !20
+  %53 = icmp eq i32 %49, %52
+  br i1 %53, label %54, label %65
 
-53:                                               ; preds = %43
-  %54 = load ptr, ptr %8, align 8
-  %55 = load ptr, ptr %9, align 8
-  %56 = icmp ult ptr %54, %55
-  br i1 %56, label %57, label %61
+54:                                               ; preds = %44
+  %55 = load ptr, ptr %8, align 8, !tbaa !12
+  %56 = load ptr, ptr %9, align 8, !tbaa !12
+  %57 = icmp ult ptr %55, %56
+  br i1 %57, label %58, label %62
 
-57:                                               ; preds = %53
-  %58 = load ptr, ptr %7, align 8
-  %59 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %58, i32 0, i32 3
-  %60 = load i32, ptr %59, align 4
-  br label %62
+58:                                               ; preds = %54
+  %59 = load ptr, ptr %7, align 8, !tbaa !7
+  %60 = getelementptr inbounds nuw %struct.OnigEncodingTypeST, ptr %59, i32 0, i32 3
+  %61 = load i32, ptr %60, align 4, !tbaa !20
+  br label %63
 
-61:                                               ; preds = %53
-  br label %62
+62:                                               ; preds = %54
+  br label %63
 
-62:                                               ; preds = %61, %57
-  %63 = phi i32 [ %60, %57 ], [ 0, %61 ]
-  br label %69
+63:                                               ; preds = %62, %58
+  %64 = phi i32 [ %61, %58 ], [ 0, %62 ]
+  br label %70
 
-64:                                               ; preds = %43
-  %65 = load ptr, ptr %8, align 8
-  %66 = load ptr, ptr %9, align 8
-  %67 = load ptr, ptr %7, align 8
-  %68 = call i32 @onigenc_mbclen(ptr noundef %65, ptr noundef %66, ptr noundef %67)
-  br label %69
+65:                                               ; preds = %44
+  %66 = load ptr, ptr %8, align 8, !tbaa !12
+  %67 = load ptr, ptr %9, align 8, !tbaa !12
+  %68 = load ptr, ptr %7, align 8, !tbaa !7
+  %69 = call i32 @onigenc_mbclen(ptr noundef %66, ptr noundef %67, ptr noundef %68)
+  br label %70
 
-69:                                               ; preds = %64, %62
-  %70 = phi i32 [ %63, %62 ], [ %68, %64 ]
-  %71 = load ptr, ptr %8, align 8
-  %72 = sext i32 %70 to i64
-  %73 = getelementptr i8, ptr %71, i64 %72
-  store ptr %73, ptr %8, align 8
-  br label %14, !llvm.loop !20
+70:                                               ; preds = %65, %63
+  %71 = phi i32 [ %64, %63 ], [ %69, %65 ]
+  %72 = load ptr, ptr %8, align 8, !tbaa !12
+  %73 = sext i32 %71 to i64
+  %74 = getelementptr i8, ptr %72, i64 %73
+  store ptr %74, ptr %8, align 8, !tbaa !12
+  br label %15, !llvm.loop !57
 
-74:                                               ; preds = %14
+75:                                               ; preds = %15
   store i32 0, ptr %6, align 4
-  br label %75
+  store i32 1, ptr %14, align 4
+  br label %76
 
-75:                                               ; preds = %74, %41, %22
-  %76 = load i32, ptr %6, align 4
-  ret i32 %76
+76:                                               ; preds = %75, %42, %23
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #4
+  %77 = load i32, ptr %6, align 4
+  ret i32 %77
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -2748,165 +2923,176 @@ define dso_local i32 @onigenc_ascii_only_case_map(ptr noundef %0, ptr noundef %1
   %15 = alloca ptr, align 8
   %16 = alloca i32, align 4
   %17 = alloca i32, align 4
-  store ptr %0, ptr %8, align 8
-  store ptr %1, ptr %9, align 8
-  store ptr %2, ptr %10, align 8
-  store ptr %3, ptr %11, align 8
-  store ptr %4, ptr %12, align 8
-  store ptr %5, ptr %13, align 8
-  %18 = load ptr, ptr %11, align 8
-  store ptr %18, ptr %15, align 8
-  %19 = load ptr, ptr %8, align 8
-  %20 = load i32, ptr %19, align 4
-  store i32 %20, ptr %16, align 4
-  br label %21
+  %18 = alloca i32, align 4
+  store ptr %0, ptr %8, align 8, !tbaa !40
+  store ptr %1, ptr %9, align 8, !tbaa !21
+  store ptr %2, ptr %10, align 8, !tbaa !12
+  store ptr %3, ptr %11, align 8, !tbaa !12
+  store ptr %4, ptr %12, align 8, !tbaa !12
+  store ptr %5, ptr %13, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #4
+  %19 = load ptr, ptr %11, align 8, !tbaa !12
+  store ptr %19, ptr %15, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #4
+  %20 = load ptr, ptr %8, align 8, !tbaa !40
+  %21 = load i32, ptr %20, align 4, !tbaa !17
+  store i32 %21, ptr %16, align 4, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #4
+  br label %22
 
-21:                                               ; preds = %106, %6
-  %22 = load ptr, ptr %9, align 8
-  %23 = load ptr, ptr %22, align 8
-  %24 = load ptr, ptr %10, align 8
-  %25 = icmp ult ptr %23, %24
-  br i1 %25, label %26, label %30
+22:                                               ; preds = %107, %6
+  %23 = load ptr, ptr %9, align 8, !tbaa !21
+  %24 = load ptr, ptr %23, align 8, !tbaa !12
+  %25 = load ptr, ptr %10, align 8, !tbaa !12
+  %26 = icmp ult ptr %24, %25
+  br i1 %26, label %27, label %31
 
-26:                                               ; preds = %21
-  %27 = load ptr, ptr %11, align 8
-  %28 = load ptr, ptr %12, align 8
-  %29 = icmp ult ptr %27, %28
-  br label %30
+27:                                               ; preds = %22
+  %28 = load ptr, ptr %11, align 8, !tbaa !12
+  %29 = load ptr, ptr %12, align 8, !tbaa !12
+  %30 = icmp ult ptr %28, %29
+  br label %31
 
-30:                                               ; preds = %26, %21
-  %31 = phi i1 [ false, %21 ], [ %29, %26 ]
-  br i1 %31, label %32, label %107
+31:                                               ; preds = %27, %22
+  %32 = phi i1 [ false, %22 ], [ %30, %27 ]
+  br i1 %32, label %33, label %108
 
-32:                                               ; preds = %30
-  %33 = load ptr, ptr %13, align 8
-  %34 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %33, i32 0, i32 0
-  %35 = load ptr, ptr %34, align 8
-  %36 = load ptr, ptr %9, align 8
-  %37 = load ptr, ptr %36, align 8
-  %38 = load ptr, ptr %10, align 8
-  %39 = load ptr, ptr %13, align 8
-  %40 = call i32 %35(ptr noundef %37, ptr noundef %38, ptr noundef %39)
-  store i32 %40, ptr %17, align 4
-  %41 = load i32, ptr %17, align 4
-  %42 = icmp slt i32 %41, 0
-  br i1 %42, label %43, label %45
+33:                                               ; preds = %31
+  %34 = load ptr, ptr %13, align 8, !tbaa !7
+  %35 = getelementptr inbounds nuw %struct.OnigEncodingTypeST, ptr %34, i32 0, i32 0
+  %36 = load ptr, ptr %35, align 8, !tbaa !14
+  %37 = load ptr, ptr %9, align 8, !tbaa !21
+  %38 = load ptr, ptr %37, align 8, !tbaa !12
+  %39 = load ptr, ptr %10, align 8, !tbaa !12
+  %40 = load ptr, ptr %13, align 8, !tbaa !7
+  %41 = call i32 %36(ptr noundef %38, ptr noundef %39, ptr noundef %40)
+  store i32 %41, ptr %17, align 4, !tbaa !17
+  %42 = load i32, ptr %17, align 4, !tbaa !17
+  %43 = icmp slt i32 %42, 0
+  br i1 %43, label %44, label %46
 
-43:                                               ; preds = %32
-  %44 = load i32, ptr %17, align 4
-  store i32 %44, ptr %7, align 4
-  br label %116
+44:                                               ; preds = %33
+  %45 = load i32, ptr %17, align 4, !tbaa !17
+  store i32 %45, ptr %7, align 4
+  store i32 1, ptr %18, align 4
+  br label %117
 
-45:                                               ; preds = %32
-  %46 = load ptr, ptr %13, align 8
-  %47 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %46, i32 0, i32 5
-  %48 = load ptr, ptr %47, align 8
-  %49 = load ptr, ptr %9, align 8
-  %50 = load ptr, ptr %49, align 8
-  %51 = load ptr, ptr %10, align 8
-  %52 = load ptr, ptr %13, align 8
-  %53 = call i32 %48(ptr noundef %50, ptr noundef %51, ptr noundef %52)
-  store i32 %53, ptr %14, align 4
-  %54 = load i32, ptr %17, align 4
-  %55 = load ptr, ptr %9, align 8
-  %56 = load ptr, ptr %55, align 8
-  %57 = sext i32 %54 to i64
-  %58 = getelementptr i8, ptr %56, i64 %57
-  store ptr %58, ptr %55, align 8
-  %59 = load i32, ptr %14, align 4
-  %60 = icmp uge i32 %59, 97
-  br i1 %60, label %61, label %73
+46:                                               ; preds = %33
+  %47 = load ptr, ptr %13, align 8, !tbaa !7
+  %48 = getelementptr inbounds nuw %struct.OnigEncodingTypeST, ptr %47, i32 0, i32 5
+  %49 = load ptr, ptr %48, align 8, !tbaa !54
+  %50 = load ptr, ptr %9, align 8, !tbaa !21
+  %51 = load ptr, ptr %50, align 8, !tbaa !12
+  %52 = load ptr, ptr %10, align 8, !tbaa !12
+  %53 = load ptr, ptr %13, align 8, !tbaa !7
+  %54 = call i32 %49(ptr noundef %51, ptr noundef %52, ptr noundef %53)
+  store i32 %54, ptr %14, align 4, !tbaa !17
+  %55 = load i32, ptr %17, align 4, !tbaa !17
+  %56 = load ptr, ptr %9, align 8, !tbaa !21
+  %57 = load ptr, ptr %56, align 8, !tbaa !12
+  %58 = sext i32 %55 to i64
+  %59 = getelementptr i8, ptr %57, i64 %58
+  store ptr %59, ptr %56, align 8, !tbaa !12
+  %60 = load i32, ptr %14, align 4, !tbaa !17
+  %61 = icmp uge i32 %60, 97
+  br i1 %61, label %62, label %74
 
-61:                                               ; preds = %45
-  %62 = load i32, ptr %14, align 4
-  %63 = icmp ule i32 %62, 122
-  br i1 %63, label %64, label %73
+62:                                               ; preds = %46
+  %63 = load i32, ptr %14, align 4, !tbaa !17
+  %64 = icmp ule i32 %63, 122
+  br i1 %64, label %65, label %74
 
-64:                                               ; preds = %61
-  %65 = load i32, ptr %16, align 4
-  %66 = and i32 %65, 8192
-  %67 = icmp ne i32 %66, 0
-  br i1 %67, label %68, label %73
+65:                                               ; preds = %62
+  %66 = load i32, ptr %16, align 4, !tbaa !17
+  %67 = and i32 %66, 8192
+  %68 = icmp ne i32 %67, 0
+  br i1 %68, label %69, label %74
 
-68:                                               ; preds = %64
-  %69 = load i32, ptr %16, align 4
-  %70 = or i32 %69, 262144
-  store i32 %70, ptr %16, align 4
-  %71 = load i32, ptr %14, align 4
-  %72 = add i32 %71, -32
-  store i32 %72, ptr %14, align 4
+69:                                               ; preds = %65
+  %70 = load i32, ptr %16, align 4, !tbaa !17
+  %71 = or i32 %70, 262144
+  store i32 %71, ptr %16, align 4, !tbaa !17
+  %72 = load i32, ptr %14, align 4, !tbaa !17
+  %73 = add i32 %72, -32
+  store i32 %73, ptr %14, align 4, !tbaa !17
+  br label %90
+
+74:                                               ; preds = %65, %62, %46
+  %75 = load i32, ptr %14, align 4, !tbaa !17
+  %76 = icmp uge i32 %75, 65
+  br i1 %76, label %77, label %89
+
+77:                                               ; preds = %74
+  %78 = load i32, ptr %14, align 4, !tbaa !17
+  %79 = icmp ule i32 %78, 90
+  br i1 %79, label %80, label %89
+
+80:                                               ; preds = %77
+  %81 = load i32, ptr %16, align 4, !tbaa !17
+  %82 = and i32 %81, 540672
+  %83 = icmp ne i32 %82, 0
+  br i1 %83, label %84, label %89
+
+84:                                               ; preds = %80
+  %85 = load i32, ptr %16, align 4, !tbaa !17
+  %86 = or i32 %85, 262144
+  store i32 %86, ptr %16, align 4, !tbaa !17
+  %87 = load i32, ptr %14, align 4, !tbaa !17
+  %88 = add i32 %87, 32
+  store i32 %88, ptr %14, align 4, !tbaa !17
   br label %89
 
-73:                                               ; preds = %64, %61, %45
-  %74 = load i32, ptr %14, align 4
-  %75 = icmp uge i32 %74, 65
-  br i1 %75, label %76, label %88
+89:                                               ; preds = %84, %80, %77, %74
+  br label %90
 
-76:                                               ; preds = %73
-  %77 = load i32, ptr %14, align 4
-  %78 = icmp ule i32 %77, 90
-  br i1 %78, label %79, label %88
+90:                                               ; preds = %89, %69
+  %91 = load ptr, ptr %13, align 8, !tbaa !7
+  %92 = getelementptr inbounds nuw %struct.OnigEncodingTypeST, ptr %91, i32 0, i32 7
+  %93 = load ptr, ptr %92, align 8, !tbaa !58
+  %94 = load i32, ptr %14, align 4, !tbaa !17
+  %95 = load ptr, ptr %11, align 8, !tbaa !12
+  %96 = load ptr, ptr %13, align 8, !tbaa !7
+  %97 = call i32 %93(i32 noundef %94, ptr noundef %95, ptr noundef %96)
+  %98 = load ptr, ptr %11, align 8, !tbaa !12
+  %99 = sext i32 %97 to i64
+  %100 = getelementptr i8, ptr %98, i64 %99
+  store ptr %100, ptr %11, align 8, !tbaa !12
+  %101 = load i32, ptr %16, align 4, !tbaa !17
+  %102 = and i32 %101, 32768
+  %103 = icmp ne i32 %102, 0
+  br i1 %103, label %104, label %107
 
-79:                                               ; preds = %76
-  %80 = load i32, ptr %16, align 4
-  %81 = and i32 %80, 540672
-  %82 = icmp ne i32 %81, 0
-  br i1 %82, label %83, label %88
+104:                                              ; preds = %90
+  %105 = load i32, ptr %16, align 4, !tbaa !17
+  %106 = xor i32 %105, 57344
+  store i32 %106, ptr %16, align 4, !tbaa !17
+  br label %107
 
-83:                                               ; preds = %79
-  %84 = load i32, ptr %16, align 4
-  %85 = or i32 %84, 262144
-  store i32 %85, ptr %16, align 4
-  %86 = load i32, ptr %14, align 4
-  %87 = add i32 %86, 32
-  store i32 %87, ptr %14, align 4
-  br label %88
+107:                                              ; preds = %104, %90
+  br label %22, !llvm.loop !59
 
-88:                                               ; preds = %83, %79, %76, %73
-  br label %89
-
-89:                                               ; preds = %88, %68
-  %90 = load ptr, ptr %13, align 8
-  %91 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %90, i32 0, i32 7
-  %92 = load ptr, ptr %91, align 8
-  %93 = load i32, ptr %14, align 4
-  %94 = load ptr, ptr %11, align 8
-  %95 = load ptr, ptr %13, align 8
-  %96 = call i32 %92(i32 noundef %93, ptr noundef %94, ptr noundef %95)
-  %97 = load ptr, ptr %11, align 8
-  %98 = sext i32 %96 to i64
-  %99 = getelementptr i8, ptr %97, i64 %98
-  store ptr %99, ptr %11, align 8
-  %100 = load i32, ptr %16, align 4
-  %101 = and i32 %100, 32768
-  %102 = icmp ne i32 %101, 0
-  br i1 %102, label %103, label %106
-
-103:                                              ; preds = %89
-  %104 = load i32, ptr %16, align 4
-  %105 = xor i32 %104, 57344
-  store i32 %105, ptr %16, align 4
-  br label %106
-
-106:                                              ; preds = %103, %89
-  br label %21, !llvm.loop !21
-
-107:                                              ; preds = %30
-  %108 = load i32, ptr %16, align 4
-  %109 = load ptr, ptr %8, align 8
-  store i32 %108, ptr %109, align 4
-  %110 = load ptr, ptr %11, align 8
-  %111 = load ptr, ptr %15, align 8
-  %112 = ptrtoint ptr %110 to i64
+108:                                              ; preds = %31
+  %109 = load i32, ptr %16, align 4, !tbaa !17
+  %110 = load ptr, ptr %8, align 8, !tbaa !40
+  store i32 %109, ptr %110, align 4, !tbaa !17
+  %111 = load ptr, ptr %11, align 8, !tbaa !12
+  %112 = load ptr, ptr %15, align 8, !tbaa !12
   %113 = ptrtoint ptr %111 to i64
-  %114 = sub i64 %112, %113
-  %115 = trunc i64 %114 to i32
-  store i32 %115, ptr %7, align 4
-  br label %116
+  %114 = ptrtoint ptr %112 to i64
+  %115 = sub i64 %113, %114
+  %116 = trunc i64 %115 to i32
+  store i32 %116, ptr %7, align 4
+  store i32 1, ptr %18, align 4
+  br label %117
 
-116:                                              ; preds = %107, %43
-  %117 = load i32, ptr %7, align 4
-  ret i32 %117
+117:                                              ; preds = %108, %44
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #4
+  %118 = load i32, ptr %7, align 4
+  ret i32 %118
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -2920,29 +3106,32 @@ define dso_local i32 @onigenc_single_byte_ascii_only_case_map(ptr noundef %0, pt
   %13 = alloca i32, align 4
   %14 = alloca ptr, align 8
   %15 = alloca i32, align 4
-  store ptr %0, ptr %7, align 8
-  store ptr %1, ptr %8, align 8
-  store ptr %2, ptr %9, align 8
-  store ptr %3, ptr %10, align 8
-  store ptr %4, ptr %11, align 8
-  store ptr %5, ptr %12, align 8
-  %16 = load ptr, ptr %10, align 8
-  store ptr %16, ptr %14, align 8
-  %17 = load ptr, ptr %7, align 8
-  %18 = load i32, ptr %17, align 4
-  store i32 %18, ptr %15, align 4
+  store ptr %0, ptr %7, align 8, !tbaa !40
+  store ptr %1, ptr %8, align 8, !tbaa !21
+  store ptr %2, ptr %9, align 8, !tbaa !12
+  store ptr %3, ptr %10, align 8, !tbaa !12
+  store ptr %4, ptr %11, align 8, !tbaa !12
+  store ptr %5, ptr %12, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #4
+  %16 = load ptr, ptr %10, align 8, !tbaa !12
+  store ptr %16, ptr %14, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #4
+  %17 = load ptr, ptr %7, align 8, !tbaa !40
+  %18 = load i32, ptr %17, align 4, !tbaa !17
+  store i32 %18, ptr %15, align 4, !tbaa !17
   br label %19
 
 19:                                               ; preds = %77, %6
-  %20 = load ptr, ptr %8, align 8
-  %21 = load ptr, ptr %20, align 8
-  %22 = load ptr, ptr %9, align 8
+  %20 = load ptr, ptr %8, align 8, !tbaa !21
+  %21 = load ptr, ptr %20, align 8, !tbaa !12
+  %22 = load ptr, ptr %9, align 8, !tbaa !12
   %23 = icmp ult ptr %21, %22
   br i1 %23, label %24, label %28
 
 24:                                               ; preds = %19
-  %25 = load ptr, ptr %10, align 8
-  %26 = load ptr, ptr %11, align 8
+  %25 = load ptr, ptr %10, align 8, !tbaa !12
+  %26 = load ptr, ptr %11, align 8, !tbaa !12
   %27 = icmp ult ptr %25, %26
   br label %28
 
@@ -2951,106 +3140,111 @@ define dso_local i32 @onigenc_single_byte_ascii_only_case_map(ptr noundef %0, pt
   br i1 %29, label %30, label %78
 
 30:                                               ; preds = %28
-  %31 = load ptr, ptr %8, align 8
-  %32 = load ptr, ptr %31, align 8
+  %31 = load ptr, ptr %8, align 8, !tbaa !21
+  %32 = load ptr, ptr %31, align 8, !tbaa !12
   %33 = getelementptr i8, ptr %32, i32 1
-  store ptr %33, ptr %31, align 8
-  %34 = load i8, ptr %32, align 1
+  store ptr %33, ptr %31, align 8, !tbaa !12
+  %34 = load i8, ptr %32, align 1, !tbaa !27
   %35 = zext i8 %34 to i32
-  store i32 %35, ptr %13, align 4
-  %36 = load i32, ptr %13, align 4
+  store i32 %35, ptr %13, align 4, !tbaa !17
+  %36 = load i32, ptr %13, align 4, !tbaa !17
   %37 = icmp uge i32 %36, 97
   br i1 %37, label %38, label %50
 
 38:                                               ; preds = %30
-  %39 = load i32, ptr %13, align 4
+  %39 = load i32, ptr %13, align 4, !tbaa !17
   %40 = icmp ule i32 %39, 122
   br i1 %40, label %41, label %50
 
 41:                                               ; preds = %38
-  %42 = load i32, ptr %15, align 4
+  %42 = load i32, ptr %15, align 4, !tbaa !17
   %43 = and i32 %42, 8192
   %44 = icmp ne i32 %43, 0
   br i1 %44, label %45, label %50
 
 45:                                               ; preds = %41
-  %46 = load i32, ptr %15, align 4
+  %46 = load i32, ptr %15, align 4, !tbaa !17
   %47 = or i32 %46, 262144
-  store i32 %47, ptr %15, align 4
-  %48 = load i32, ptr %13, align 4
+  store i32 %47, ptr %15, align 4, !tbaa !17
+  %48 = load i32, ptr %13, align 4, !tbaa !17
   %49 = add i32 %48, -32
-  store i32 %49, ptr %13, align 4
+  store i32 %49, ptr %13, align 4, !tbaa !17
   br label %66
 
 50:                                               ; preds = %41, %38, %30
-  %51 = load i32, ptr %13, align 4
+  %51 = load i32, ptr %13, align 4, !tbaa !17
   %52 = icmp uge i32 %51, 65
   br i1 %52, label %53, label %65
 
 53:                                               ; preds = %50
-  %54 = load i32, ptr %13, align 4
+  %54 = load i32, ptr %13, align 4, !tbaa !17
   %55 = icmp ule i32 %54, 90
   br i1 %55, label %56, label %65
 
 56:                                               ; preds = %53
-  %57 = load i32, ptr %15, align 4
+  %57 = load i32, ptr %15, align 4, !tbaa !17
   %58 = and i32 %57, 540672
   %59 = icmp ne i32 %58, 0
   br i1 %59, label %60, label %65
 
 60:                                               ; preds = %56
-  %61 = load i32, ptr %15, align 4
+  %61 = load i32, ptr %15, align 4, !tbaa !17
   %62 = or i32 %61, 262144
-  store i32 %62, ptr %15, align 4
-  %63 = load i32, ptr %13, align 4
+  store i32 %62, ptr %15, align 4, !tbaa !17
+  %63 = load i32, ptr %13, align 4, !tbaa !17
   %64 = add i32 %63, 32
-  store i32 %64, ptr %13, align 4
+  store i32 %64, ptr %13, align 4, !tbaa !17
   br label %65
 
 65:                                               ; preds = %60, %56, %53, %50
   br label %66
 
 66:                                               ; preds = %65, %45
-  %67 = load i32, ptr %13, align 4
+  %67 = load i32, ptr %13, align 4, !tbaa !17
   %68 = trunc i32 %67 to i8
-  %69 = load ptr, ptr %10, align 8
+  %69 = load ptr, ptr %10, align 8, !tbaa !12
   %70 = getelementptr i8, ptr %69, i32 1
-  store ptr %70, ptr %10, align 8
-  store i8 %68, ptr %69, align 1
-  %71 = load i32, ptr %15, align 4
+  store ptr %70, ptr %10, align 8, !tbaa !12
+  store i8 %68, ptr %69, align 1, !tbaa !27
+  %71 = load i32, ptr %15, align 4, !tbaa !17
   %72 = and i32 %71, 32768
   %73 = icmp ne i32 %72, 0
   br i1 %73, label %74, label %77
 
 74:                                               ; preds = %66
-  %75 = load i32, ptr %15, align 4
+  %75 = load i32, ptr %15, align 4, !tbaa !17
   %76 = xor i32 %75, 57344
-  store i32 %76, ptr %15, align 4
+  store i32 %76, ptr %15, align 4, !tbaa !17
   br label %77
 
 77:                                               ; preds = %74, %66
-  br label %19, !llvm.loop !22
+  br label %19, !llvm.loop !60
 
 78:                                               ; preds = %28
-  %79 = load i32, ptr %15, align 4
-  %80 = load ptr, ptr %7, align 8
-  store i32 %79, ptr %80, align 4
-  %81 = load ptr, ptr %10, align 8
-  %82 = load ptr, ptr %14, align 8
+  %79 = load i32, ptr %15, align 4, !tbaa !17
+  %80 = load ptr, ptr %7, align 8, !tbaa !40
+  store i32 %79, ptr %80, align 4, !tbaa !17
+  %81 = load ptr, ptr %10, align 8, !tbaa !12
+  %82 = load ptr, ptr %14, align 8, !tbaa !12
   %83 = ptrtoint ptr %81 to i64
   %84 = ptrtoint ptr %82 to i64
   %85 = sub i64 %83, %84
   %86 = trunc i64 %85 to i32
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %86
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
-attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { noreturn }
+attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nounwind }
+attributes #5 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 
@@ -3060,20 +3254,58 @@ attributes #3 = { noreturn }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
-!14 = distinct !{!14, !8}
-!15 = distinct !{!15, !8}
-!16 = distinct !{!16, !8}
-!17 = distinct !{!17, !8}
-!18 = distinct !{!18, !8}
-!19 = distinct !{!19, !8}
-!20 = distinct !{!20, !8}
-!21 = distinct !{!21, !8}
-!22 = distinct !{!22, !8}
+!6 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"p1 _ZTS18OnigEncodingTypeST", !9, i64 0}
+!9 = !{!"any pointer", !10, i64 0}
+!10 = !{!"omnipotent char", !11, i64 0}
+!11 = !{!"Simple C/C++ TBAA"}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"p1 omnipotent char", !9, i64 0}
+!14 = !{!15, !9, i64 0}
+!15 = !{!"OnigEncodingTypeST", !9, i64 0, !13, i64 8, !16, i64 16, !16, i64 20, !9, i64 24, !9, i64 32, !9, i64 40, !9, i64 48, !9, i64 56, !9, i64 64, !9, i64 72, !9, i64 80, !9, i64 88, !9, i64 96, !9, i64 104, !9, i64 112, !9, i64 120, !16, i64 128, !16, i64 132}
+!16 = !{!"int", !10, i64 0}
+!17 = !{!16, !16, i64 0}
+!18 = !{!15, !9, i64 104}
+!19 = !{!15, !16, i64 16}
+!20 = !{!15, !16, i64 20}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"p2 omnipotent char", !9, i64 0}
+!23 = distinct !{!23, !24}
+!24 = !{!"llvm.loop.mustprogress"}
+!25 = distinct !{!25, !24}
+!26 = distinct !{!26, !24}
+!27 = !{!10, !10, i64 0}
+!28 = distinct !{!28, !24}
+!29 = distinct !{!29, !24}
+!30 = !{!9, !9, i64 0}
+!31 = !{!32, !16, i64 4}
+!32 = !{!"", !16, i64 0, !16, i64 4}
+!33 = !{!32, !16, i64 0}
+!34 = distinct !{!34, !24}
+!35 = !{!36, !16, i64 0}
+!36 = !{!"", !16, i64 0, !16, i64 4, !10, i64 8}
+!37 = !{!36, !16, i64 4}
+!38 = distinct !{!38, !24}
+!39 = distinct !{!39, !24}
+!40 = !{!41, !41, i64 0}
+!41 = !{!"p1 int", !9, i64 0}
+!42 = !{!43, !43, i64 0}
+!43 = !{!"p2 int", !9, i64 0}
+!44 = !{!45, !45, i64 0}
+!45 = !{!"long", !10, i64 0}
+!46 = !{!47, !47, i64 0}
+!47 = !{!"short", !10, i64 0}
+!48 = distinct !{!48, !24}
+!49 = distinct !{!49, !24}
+!50 = !{!51, !47, i64 0}
+!51 = !{!"", !47, i64 0, !10, i64 2, !16, i64 8}
+!52 = !{!51, !16, i64 8}
+!53 = distinct !{!53, !24}
+!54 = !{!15, !9, i64 32}
+!55 = distinct !{!55, !24}
+!56 = !{!15, !9, i64 40}
+!57 = distinct !{!57, !24}
+!58 = !{!15, !9, i64 48}
+!59 = distinct !{!59, !24}
+!60 = distinct !{!60, !24}

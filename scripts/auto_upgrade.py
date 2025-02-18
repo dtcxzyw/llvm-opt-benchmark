@@ -56,6 +56,7 @@ supported_project = [
     "raylib",
     "redis",
     "spike",
+    "ruby",
 ]
 
 modify_only = [
@@ -74,6 +75,7 @@ modify_only = [
     "raylib",
     "redis",
     "spike",
+    "ruby",
 ]
 
 

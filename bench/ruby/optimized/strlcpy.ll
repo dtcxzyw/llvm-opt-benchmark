@@ -18,14 +18,14 @@ define dso_local i64 @strlcpy(ptr noundef writeonly captures(none) %0, ptr nound
 
 5:                                                ; preds = %.preheader
   %6 = getelementptr i8, ptr %.114, i64 1
-  %7 = load i8, ptr %.114, align 1
+  %7 = load i8, ptr %.114, align 1, !tbaa !7
   %8 = getelementptr i8, ptr %.112, i64 1
-  store i8 %7, ptr %.112, align 1
+  store i8 %7, ptr %.112, align 1, !tbaa !7
   %9 = icmp eq i8 %7, 0
-  br i1 %9, label %.loopexit, label %.preheader, !llvm.loop !7
+  br i1 %9, label %.loopexit, label %.preheader, !llvm.loop !10
 
 10:                                               ; preds = %.preheader
-  store i8 0, ptr %.112, align 1
+  store i8 0, ptr %.112, align 1, !tbaa !7
   br label %.thread25.preheader
 
 .thread25.preheader:                              ; preds = %3, %10
@@ -35,9 +35,9 @@ define dso_local i64 @strlcpy(ptr noundef writeonly captures(none) %0, ptr nound
 .thread25:                                        ; preds = %.thread25.preheader, %.thread25
   %.3 = phi ptr [ %11, %.thread25 ], [ %.3.ph, %.thread25.preheader ]
   %11 = getelementptr i8, ptr %.3, i64 1
-  %12 = load i8, ptr %.3, align 1
+  %12 = load i8, ptr %.3, align 1, !tbaa !7
   %.not20 = icmp eq i8 %12, 0
-  br i1 %.not20, label %.loopexit, label %.thread25, !llvm.loop !9
+  br i1 %.not20, label %.loopexit, label %.thread25, !llvm.loop !12
 
 .loopexit:                                        ; preds = %5, %.thread25
   %.2 = phi ptr [ %11, %.thread25 ], [ %6, %5 ]
@@ -48,7 +48,7 @@ define dso_local i64 @strlcpy(ptr noundef writeonly captures(none) %0, ptr nound
   ret i64 %16
 }
 
-attributes #0 = { nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 
@@ -58,7 +58,10 @@ attributes #0 = { nofree norecurse nosync nounwind sspstrong memory(argmem: read
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
+!6 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"omnipotent char", !9, i64 0}
+!9 = !{!"Simple C/C++ TBAA"}
+!10 = distinct !{!10, !11}
+!11 = !{!"llvm.loop.mustprogress"}
+!12 = distinct !{!12, !11}

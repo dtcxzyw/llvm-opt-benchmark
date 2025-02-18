@@ -1,7220 +1,8988 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.enc_table = type { [256 x %struct.rb_encoding_entry], i32, ptr }
-%struct.rb_encoding_entry = type { ptr, ptr, ptr }
-%struct.rb_data_type_struct = type { ptr, %struct.anon, ptr, ptr, i64 }
-%struct.anon = type { ptr, ptr, ptr, ptr, [1 x ptr] }
-%struct.default_encoding = type { i32, ptr }
-%struct.OnigEncodingTypeST = type { ptr, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32 }
-%struct.RTypedData = type { %struct.RBasic, ptr, i64, ptr }
-%struct.RBasic = type { i64, i64 }
-%struct.RData = type { %struct.RBasic, ptr, ptr, ptr }
-%struct.st_table = type { i8, i8, i8, i32, ptr, i64, ptr, i64, i64, ptr }
-%struct.RString = type { %struct.RBasic, i64, %union.anon }
-%union.anon = type { %struct.anon.0 }
-%struct.anon.0 = type { ptr, %union.anon.1 }
-%union.anon.1 = type { i64 }
-%struct.anon.2 = type { [1 x i8] }
-%struct.rbimpl_size_mul_overflow_tag = type { i8, i64 }
+%struct.pm_encoding_t = type { ptr, ptr, ptr, ptr, ptr, i8 }
 
-@global_enc_table = internal global %struct.enc_table zeroinitializer, align 8
-@encoding_data_type = internal constant %struct.rb_data_type_struct { ptr @.str.4, %struct.anon zeroinitializer, ptr null, ptr null, i64 33 }, align 8
-@.str = private unnamed_addr constant [14 x i8] c"../encoding.c\00", align 1
-@rb_eArgError = external global i64, align 8
-@.str.1 = private unnamed_addr constant [34 x i8] c"encoding %s is already registered\00", align 1
-@.str.2 = private unnamed_addr constant [30 x i8] c"encoding %s is not registered\00", align 1
-@.str.3 = private unnamed_addr constant [53 x i8] c"failed to load encoding (%s); use ASCII-8BIT instead\00", align 1
-@rb_id_encoding.rbimpl_id = internal global i64 0, align 8
-@.str.4 = private unnamed_addr constant [9 x i8] c"encoding\00", align 1
-@id_encoding = internal global i64 0, align 8
-@rb_enc_get_index.rbimpl_id = internal global i64 0, align 8
-@.str.5 = private unnamed_addr constant [18 x i8] c"internal_encoding\00", align 1
-@rb_enc_get_index.rbimpl_id.6 = internal global i64 0, align 8
-@.str.7 = private unnamed_addr constant [18 x i8] c"external_encoding\00", align 1
-@.str.8 = private unnamed_addr constant [20 x i8] c"cannot set encoding\00", align 1
-@rb_eTypeError = external global i64, align 8
-@.str.9 = private unnamed_addr constant [17 x i8] c"unknown encoding\00", align 1
-@.str.10 = private unnamed_addr constant [13 x i8] c"empty string\00", align 1
-@.str.11 = private unnamed_addr constant [28 x i8] c"invalid byte sequence in %s\00", align 1
-@.str.12 = private unnamed_addr constant [29 x i8] c"invalid codepoint 0x%x in %s\00", align 1
-@OnigEncAsciiToUpperCaseTable = external constant [0 x i8], align 1
-@OnigEncAsciiToLowerCaseTable = external constant [0 x i8], align 1
-@global_enc_ascii = internal global ptr null, align 8
-@global_enc_utf_8 = internal global ptr null, align 8
-@global_enc_us_ascii = internal global ptr null, align 8
-@.str.13 = private unnamed_addr constant [7 x i8] c"locale\00", align 1
-@.str.14 = private unnamed_addr constant [11 x i8] c"filesystem\00", align 1
-@default_external = internal global %struct.default_encoding zeroinitializer, align 8
-@.str.15 = private unnamed_addr constant [32 x i8] c"default external can not be nil\00", align 1
-@.str.16 = private unnamed_addr constant [9 x i8] c"external\00", align 1
-@default_internal = internal global %struct.default_encoding { i32 -2, ptr null }, align 8
-@.str.17 = private unnamed_addr constant [9 x i8] c"internal\00", align 1
-@.str.18 = private unnamed_addr constant [9 x i8] c"Encoding\00", align 1
-@rb_cObject = external global i64, align 8
-@rb_cEncoding = dso_local global i64 0, align 8
-@.str.19 = private unnamed_addr constant [4 x i8] c"new\00", align 1
-@.str.20 = private unnamed_addr constant [5 x i8] c"to_s\00", align 1
-@.str.21 = private unnamed_addr constant [8 x i8] c"inspect\00", align 1
-@.str.22 = private unnamed_addr constant [5 x i8] c"name\00", align 1
-@.str.23 = private unnamed_addr constant [6 x i8] c"names\00", align 1
-@.str.24 = private unnamed_addr constant [7 x i8] c"dummy?\00", align 1
-@.str.25 = private unnamed_addr constant [18 x i8] c"ascii_compatible?\00", align 1
-@.str.26 = private unnamed_addr constant [5 x i8] c"list\00", align 1
-@.str.27 = private unnamed_addr constant [10 x i8] c"name_list\00", align 1
-@.str.28 = private unnamed_addr constant [8 x i8] c"aliases\00", align 1
-@.str.29 = private unnamed_addr constant [5 x i8] c"find\00", align 1
-@.str.30 = private unnamed_addr constant [12 x i8] c"compatible?\00", align 1
-@.str.31 = private unnamed_addr constant [6 x i8] c"_dump\00", align 1
-@.str.32 = private unnamed_addr constant [6 x i8] c"_load\00", align 1
-@.str.33 = private unnamed_addr constant [17 x i8] c"default_external\00", align 1
-@.str.34 = private unnamed_addr constant [18 x i8] c"default_external=\00", align 1
-@.str.35 = private unnamed_addr constant [17 x i8] c"default_internal\00", align 1
-@.str.36 = private unnamed_addr constant [18 x i8] c"default_internal=\00", align 1
-@.str.37 = private unnamed_addr constant [15 x i8] c"locale_charmap\00", align 1
-@rb_encoding_list = internal global i64 0, align 8
-@.str.38 = private unnamed_addr constant [48 x i8] c"rb_enc_from_encoding_index(%d): not created yet\00", align 1
-@.str.39 = private unnamed_addr constant [29 x i8] c"unknown encoding name - %li\0B\00", align 1
-@.str.40 = private unnamed_addr constant [34 x i8] c"invalid encoding name (non ASCII)\00", align 1
-@.str.41 = private unnamed_addr constant [33 x i8] c"invalid encoding name (NUL byte)\00", align 1
-@ruby_single_main_ractor = external global ptr, align 8
-@rb_eEncodingError = external global i64, align 8
-@.str.42 = private unnamed_addr constant [25 x i8] c"too many encoding (> %d)\00", align 1
-@.str.43 = private unnamed_addr constant [29 x i8] c"failed to replicate encoding\00", align 1
-@.str.44 = private unnamed_addr constant [26 x i8] c"invalid encoding name: %s\00", align 1
-@.str.45 = private unnamed_addr constant [32 x i8] c"encoding index out of bound: %d\00", align 1
-@.str.46 = private unnamed_addr constant [45 x i8] c"wrong encoding index %d for %s (expected %d)\00", align 1
-@.str.47 = private unnamed_addr constant [29 x i8] c"failed to load encoding (%s)\00", align 1
-@.str.48 = private unnamed_addr constant [10 x i8] c"enc/%s.so\00", align 1
-@.str.49 = private unnamed_addr constant [51 x i8] c"cannot set encoding on non-encoding capable object\00", align 1
-@rb_eEncCompatError = external global i64, align 8
-@.str.50 = private unnamed_addr constant [44 x i8] c"incompatible character encodings: %s and %s\00", align 1
-@rb_cFalseClass = external global i64, align 8
-@rb_cNilClass = external global i64, align 8
-@rb_cTrueClass = external global i64, align 8
-@rb_cInteger = external global i64, align 8
-@rb_cSymbol = external global i64, align 8
-@rb_cFloat = external global i64, align 8
-@.str.51 = private unnamed_addr constant [16 x i8] c"broken Encoding\00", align 1
-@.str.52 = private unnamed_addr constant [15 x i8] c"#<%li\0B:%s%s%s>\00", align 1
-@.str.53 = private unnamed_addr constant [9 x i8] c" (dummy)\00", align 1
-@.str.54 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
-@.str.55 = private unnamed_addr constant [12 x i8] c" (autoload)\00", align 1
-@.str.56 = private unnamed_addr constant [45 x i8] c"wrong argument type %li\0B (expected Encoding)\00", align 1
-@.str.57 = private unnamed_addr constant [34 x i8] c"setting Encoding.default_external\00", align 1
-@.str.58 = private unnamed_addr constant [34 x i8] c"setting Encoding.default_internal\00", align 1
-@OnigEncodingASCII = external constant %struct.OnigEncodingTypeST, align 8
-@OnigEncodingUTF_8 = external constant %struct.OnigEncodingTypeST, align 8
-@OnigEncodingUS_ASCII = external constant %struct.OnigEncodingTypeST, align 8
-@.str.59 = private unnamed_addr constant [9 x i8] c"UTF-16BE\00", align 1
-@.str.60 = private unnamed_addr constant [9 x i8] c"UTF-16LE\00", align 1
-@.str.61 = private unnamed_addr constant [9 x i8] c"UTF-32BE\00", align 1
-@.str.62 = private unnamed_addr constant [9 x i8] c"UTF-32LE\00", align 1
-@.str.63 = private unnamed_addr constant [7 x i8] c"UTF-16\00", align 1
-@.str.64 = private unnamed_addr constant [7 x i8] c"UTF-32\00", align 1
-@.str.65 = private unnamed_addr constant [9 x i8] c"UTF8-MAC\00", align 1
-@.str.66 = private unnamed_addr constant [7 x i8] c"EUC-JP\00", align 1
-@.str.67 = private unnamed_addr constant [12 x i8] c"Windows-31J\00", align 1
-
-; Function Attrs: nounwind sspstrong uwtable
-define hidden void @rb_free_global_enc_table() #0 {
-  %1 = alloca i64, align 8
-  store i64 0, ptr %1, align 8
-  br label %2
-
-2:                                                ; preds = %10, %0
-  %3 = load i64, ptr %1, align 8
-  %4 = icmp ult i64 %3, 256
-  br i1 %4, label %5, label %13
-
-5:                                                ; preds = %2
-  %6 = load i64, ptr %1, align 8
-  %7 = getelementptr [256 x %struct.rb_encoding_entry], ptr @global_enc_table, i64 0, i64 %6
-  %8 = getelementptr inbounds %struct.rb_encoding_entry, ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %8, align 8
-  call void @ruby_xfree(ptr noundef %9)
-  br label %10
-
-10:                                               ; preds = %5
-  %11 = load i64, ptr %1, align 8
-  %12 = add i64 %11, 1
-  store i64 %12, ptr %1, align 8
-  br label %2, !llvm.loop !7
-
-13:                                               ; preds = %2
-  %14 = getelementptr inbounds %struct.enc_table, ptr @global_enc_table, i32 0, i32 2
-  %15 = load ptr, ptr %14, align 8
-  %16 = call i32 @rb_st_foreach(ptr noundef %15, ptr noundef @enc_names_free_i, i64 noundef 0)
-  %17 = getelementptr inbounds %struct.enc_table, ptr @global_enc_table, i32 0, i32 2
-  %18 = load ptr, ptr %17, align 8
-  call void @rb_st_free_table(ptr noundef %18)
-  ret void
-}
-
-declare void @ruby_xfree(ptr noundef) #1
-
-declare i32 @rb_st_foreach(ptr noundef, ptr noundef, i64 noundef) #1
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @enc_names_free_i(i64 noundef %0, i64 noundef %1, i64 noundef %2) #0 {
-  %4 = alloca i64, align 8
-  %5 = alloca i64, align 8
-  %6 = alloca i64, align 8
-  store i64 %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
-  %7 = load i64, ptr %4, align 8
-  %8 = inttoptr i64 %7 to ptr
-  call void @ruby_xfree(ptr noundef %8)
-  ret i32 2
-}
-
-declare void @rb_st_free_table(ptr noundef) #1
-
-; Function Attrs: nounwind sspstrong willreturn memory(read) uwtable
-define hidden i32 @rb_data_is_encoding(i64 noundef %0) #2 {
-  %2 = alloca i64, align 8
-  store i64 %0, ptr %2, align 8
-  %3 = load i64, ptr %2, align 8
-  %4 = call zeroext i1 @RTYPEDDATA_P(i64 noundef %3) #17
-  br i1 %4, label %5, label %9
-
-5:                                                ; preds = %1
-  %6 = load i64, ptr %2, align 8
-  %7 = call ptr @RTYPEDDATA_TYPE(i64 noundef %6) #17
-  %8 = icmp eq ptr %7, @encoding_data_type
-  br label %9
-
-9:                                                ; preds = %5, %1
-  %10 = phi i1 [ false, %1 ], [ %8, %5 ]
-  %11 = zext i1 %10 to i32
-  ret i32 %11
-}
-
-; Function Attrs: nounwind sspstrong willreturn memory(read) uwtable
-define internal zeroext i1 @RTYPEDDATA_P(i64 noundef %0) #2 {
-  %2 = alloca i64, align 8
-  store i64 %0, ptr %2, align 8
-  %3 = load i64, ptr %2, align 8
-  %4 = call zeroext i1 @rbimpl_rtypeddata_p(i64 noundef %3) #17
-  ret i1 %4
-}
-
-; Function Attrs: nounwind sspstrong willreturn memory(read) uwtable
-define internal ptr @RTYPEDDATA_TYPE(i64 noundef %0) #2 {
-  %2 = alloca i64, align 8
-  store i64 %0, ptr %2, align 8
-  %3 = load i64, ptr %2, align 8
-  %4 = inttoptr i64 %3 to ptr
-  %5 = getelementptr inbounds %struct.RTypedData, ptr %4, i32 0, i32 1
-  %6 = load ptr, ptr %5, align 8
-  ret ptr %6
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_enc_from_encoding(ptr noundef %0) #0 {
-  %2 = alloca i64, align 8
-  %3 = alloca ptr, align 8
-  %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = icmp ne ptr %5, null
-  br i1 %6, label %8, label %7
-
-7:                                                ; preds = %1
-  store i64 4, ptr %2, align 8
-  br label %15
-
-8:                                                ; preds = %1
-  %9 = load ptr, ptr %3, align 8
-  %10 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %9, i32 0, i32 17
-  %11 = load i32, ptr %10, align 8
-  %12 = and i32 %11, 16777215
-  store i32 %12, ptr %4, align 4
-  %13 = load i32, ptr %4, align 4
-  %14 = call i64 @rb_enc_from_encoding_index(i32 noundef %13)
-  store i64 %14, ptr %2, align 8
-  br label %15
-
-15:                                               ; preds = %8, %7
-  %16 = load i64, ptr %2, align 8
-  ret i64 %16
-}
+@pm_encoding_unicode_table = hidden constant [256 x i8] c"\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\02\02\02\02\02\02\02\02\02\02\00\00\00\00\00\00\00\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\00\00\00\00\00\00\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\03\00\00\00\00\00\00\00\00\00\00\03\00\00\00\00\03\00\00\00\00\00\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\00\07\07\07\07\07\07\07\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\00\03\03\03\03\03\03\03\03", align 16
+@pm_utf_8_dfa = internal constant [400 x i8] c"\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\09\09\09\09\09\09\09\09\09\09\09\09\09\09\09\09\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\08\08\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\0A\03\03\03\03\03\03\03\03\03\03\03\03\04\03\03\0B\06\06\06\05\08\08\08\08\08\08\08\08\08\08\08\00\01\02\03\05\08\07\01\01\01\04\06\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\00\01\01\01\01\01\00\01\00\01\01\01\01\01\01\01\02\01\01\01\01\01\02\01\02\01\01\01\01\01\01\01\01\01\01\01\01\01\02\01\01\01\01\01\01\01\01\01\02\01\01\01\01\01\01\01\02\01\01\01\01\01\01\01\01\01\01\01\01\01\03\01\03\01\01\01\01\01\01\01\03\01\01\01\01\01\03\01\03\01\01\01\01\01\01\01\03\01\01\01\01\01\01\01\01\01\01\01\01\01\01", align 16
+@unicode_alpha_codepoints = internal constant [1450 x i32] [i32 256, i32 705, i32 710, i32 721, i32 736, i32 740, i32 748, i32 748, i32 750, i32 750, i32 837, i32 837, i32 880, i32 884, i32 886, i32 887, i32 890, i32 893, i32 895, i32 895, i32 902, i32 902, i32 904, i32 906, i32 908, i32 908, i32 910, i32 929, i32 931, i32 1013, i32 1015, i32 1153, i32 1162, i32 1327, i32 1329, i32 1366, i32 1369, i32 1369, i32 1376, i32 1416, i32 1456, i32 1469, i32 1471, i32 1471, i32 1473, i32 1474, i32 1476, i32 1477, i32 1479, i32 1479, i32 1488, i32 1514, i32 1519, i32 1522, i32 1552, i32 1562, i32 1568, i32 1623, i32 1625, i32 1631, i32 1646, i32 1747, i32 1749, i32 1756, i32 1761, i32 1768, i32 1773, i32 1775, i32 1786, i32 1788, i32 1791, i32 1791, i32 1808, i32 1855, i32 1869, i32 1969, i32 1994, i32 2026, i32 2036, i32 2037, i32 2042, i32 2042, i32 2048, i32 2071, i32 2074, i32 2092, i32 2112, i32 2136, i32 2144, i32 2154, i32 2160, i32 2183, i32 2185, i32 2190, i32 2208, i32 2249, i32 2260, i32 2271, i32 2275, i32 2281, i32 2288, i32 2363, i32 2365, i32 2380, i32 2382, i32 2384, i32 2389, i32 2403, i32 2417, i32 2435, i32 2437, i32 2444, i32 2447, i32 2448, i32 2451, i32 2472, i32 2474, i32 2480, i32 2482, i32 2482, i32 2486, i32 2489, i32 2493, i32 2500, i32 2503, i32 2504, i32 2507, i32 2508, i32 2510, i32 2510, i32 2519, i32 2519, i32 2524, i32 2525, i32 2527, i32 2531, i32 2544, i32 2545, i32 2556, i32 2556, i32 2561, i32 2563, i32 2565, i32 2570, i32 2575, i32 2576, i32 2579, i32 2600, i32 2602, i32 2608, i32 2610, i32 2611, i32 2613, i32 2614, i32 2616, i32 2617, i32 2622, i32 2626, i32 2631, i32 2632, i32 2635, i32 2636, i32 2641, i32 2641, i32 2649, i32 2652, i32 2654, i32 2654, i32 2672, i32 2677, i32 2689, i32 2691, i32 2693, i32 2701, i32 2703, i32 2705, i32 2707, i32 2728, i32 2730, i32 2736, i32 2738, i32 2739, i32 2741, i32 2745, i32 2749, i32 2757, i32 2759, i32 2761, i32 2763, i32 2764, i32 2768, i32 2768, i32 2784, i32 2787, i32 2809, i32 2812, i32 2817, i32 2819, i32 2821, i32 2828, i32 2831, i32 2832, i32 2835, i32 2856, i32 2858, i32 2864, i32 2866, i32 2867, i32 2869, i32 2873, i32 2877, i32 2884, i32 2887, i32 2888, i32 2891, i32 2892, i32 2902, i32 2903, i32 2908, i32 2909, i32 2911, i32 2915, i32 2929, i32 2929, i32 2946, i32 2947, i32 2949, i32 2954, i32 2958, i32 2960, i32 2962, i32 2965, i32 2969, i32 2970, i32 2972, i32 2972, i32 2974, i32 2975, i32 2979, i32 2980, i32 2984, i32 2986, i32 2990, i32 3001, i32 3006, i32 3010, i32 3014, i32 3016, i32 3018, i32 3020, i32 3024, i32 3024, i32 3031, i32 3031, i32 3072, i32 3084, i32 3086, i32 3088, i32 3090, i32 3112, i32 3114, i32 3129, i32 3133, i32 3140, i32 3142, i32 3144, i32 3146, i32 3148, i32 3157, i32 3158, i32 3160, i32 3162, i32 3165, i32 3165, i32 3168, i32 3171, i32 3200, i32 3203, i32 3205, i32 3212, i32 3214, i32 3216, i32 3218, i32 3240, i32 3242, i32 3251, i32 3253, i32 3257, i32 3261, i32 3268, i32 3270, i32 3272, i32 3274, i32 3276, i32 3285, i32 3286, i32 3293, i32 3294, i32 3296, i32 3299, i32 3313, i32 3315, i32 3328, i32 3340, i32 3342, i32 3344, i32 3346, i32 3386, i32 3389, i32 3396, i32 3398, i32 3400, i32 3402, i32 3404, i32 3406, i32 3406, i32 3412, i32 3415, i32 3423, i32 3427, i32 3450, i32 3455, i32 3457, i32 3459, i32 3461, i32 3478, i32 3482, i32 3505, i32 3507, i32 3515, i32 3517, i32 3517, i32 3520, i32 3526, i32 3535, i32 3540, i32 3542, i32 3542, i32 3544, i32 3551, i32 3570, i32 3571, i32 3585, i32 3642, i32 3648, i32 3654, i32 3661, i32 3661, i32 3713, i32 3714, i32 3716, i32 3716, i32 3718, i32 3722, i32 3724, i32 3747, i32 3749, i32 3749, i32 3751, i32 3769, i32 3771, i32 3773, i32 3776, i32 3780, i32 3782, i32 3782, i32 3789, i32 3789, i32 3804, i32 3807, i32 3840, i32 3840, i32 3904, i32 3911, i32 3913, i32 3948, i32 3953, i32 3971, i32 3976, i32 3991, i32 3993, i32 4028, i32 4096, i32 4150, i32 4152, i32 4152, i32 4155, i32 4159, i32 4176, i32 4239, i32 4250, i32 4253, i32 4256, i32 4293, i32 4295, i32 4295, i32 4301, i32 4301, i32 4304, i32 4346, i32 4348, i32 4680, i32 4682, i32 4685, i32 4688, i32 4694, i32 4696, i32 4696, i32 4698, i32 4701, i32 4704, i32 4744, i32 4746, i32 4749, i32 4752, i32 4784, i32 4786, i32 4789, i32 4792, i32 4798, i32 4800, i32 4800, i32 4802, i32 4805, i32 4808, i32 4822, i32 4824, i32 4880, i32 4882, i32 4885, i32 4888, i32 4954, i32 4992, i32 5007, i32 5024, i32 5109, i32 5112, i32 5117, i32 5121, i32 5740, i32 5743, i32 5759, i32 5761, i32 5786, i32 5792, i32 5866, i32 5870, i32 5880, i32 5888, i32 5907, i32 5919, i32 5939, i32 5952, i32 5971, i32 5984, i32 5996, i32 5998, i32 6000, i32 6002, i32 6003, i32 6016, i32 6067, i32 6070, i32 6088, i32 6103, i32 6103, i32 6108, i32 6108, i32 6176, i32 6264, i32 6272, i32 6314, i32 6320, i32 6389, i32 6400, i32 6430, i32 6432, i32 6443, i32 6448, i32 6456, i32 6480, i32 6509, i32 6512, i32 6516, i32 6528, i32 6571, i32 6576, i32 6601, i32 6656, i32 6683, i32 6688, i32 6750, i32 6753, i32 6772, i32 6823, i32 6823, i32 6847, i32 6848, i32 6860, i32 6862, i32 6912, i32 6963, i32 6965, i32 6979, i32 6981, i32 6988, i32 7040, i32 7081, i32 7084, i32 7087, i32 7098, i32 7141, i32 7143, i32 7153, i32 7168, i32 7222, i32 7245, i32 7247, i32 7258, i32 7293, i32 7296, i32 7304, i32 7312, i32 7354, i32 7357, i32 7359, i32 7401, i32 7404, i32 7406, i32 7411, i32 7413, i32 7414, i32 7418, i32 7418, i32 7424, i32 7615, i32 7655, i32 7668, i32 7680, i32 7957, i32 7960, i32 7965, i32 7968, i32 8005, i32 8008, i32 8013, i32 8016, i32 8023, i32 8025, i32 8025, i32 8027, i32 8027, i32 8029, i32 8029, i32 8031, i32 8061, i32 8064, i32 8116, i32 8118, i32 8124, i32 8126, i32 8126, i32 8130, i32 8132, i32 8134, i32 8140, i32 8144, i32 8147, i32 8150, i32 8155, i32 8160, i32 8172, i32 8178, i32 8180, i32 8182, i32 8188, i32 8305, i32 8305, i32 8319, i32 8319, i32 8336, i32 8348, i32 8450, i32 8450, i32 8455, i32 8455, i32 8458, i32 8467, i32 8469, i32 8469, i32 8473, i32 8477, i32 8484, i32 8484, i32 8486, i32 8486, i32 8488, i32 8488, i32 8490, i32 8493, i32 8495, i32 8505, i32 8508, i32 8511, i32 8517, i32 8521, i32 8526, i32 8526, i32 8544, i32 8584, i32 9398, i32 9449, i32 11264, i32 11492, i32 11499, i32 11502, i32 11506, i32 11507, i32 11520, i32 11557, i32 11559, i32 11559, i32 11565, i32 11565, i32 11568, i32 11623, i32 11631, i32 11631, i32 11648, i32 11670, i32 11680, i32 11686, i32 11688, i32 11694, i32 11696, i32 11702, i32 11704, i32 11710, i32 11712, i32 11718, i32 11720, i32 11726, i32 11728, i32 11734, i32 11736, i32 11742, i32 11744, i32 11775, i32 11823, i32 11823, i32 12293, i32 12295, i32 12321, i32 12329, i32 12337, i32 12341, i32 12344, i32 12348, i32 12353, i32 12438, i32 12445, i32 12447, i32 12449, i32 12538, i32 12540, i32 12543, i32 12549, i32 12591, i32 12593, i32 12686, i32 12704, i32 12735, i32 12784, i32 12799, i32 13312, i32 19903, i32 19968, i32 42124, i32 42192, i32 42237, i32 42240, i32 42508, i32 42512, i32 42527, i32 42538, i32 42539, i32 42560, i32 42606, i32 42612, i32 42619, i32 42623, i32 42735, i32 42775, i32 42783, i32 42786, i32 42888, i32 42891, i32 42954, i32 42960, i32 42961, i32 42963, i32 42963, i32 42965, i32 42969, i32 42994, i32 43013, i32 43015, i32 43047, i32 43072, i32 43123, i32 43136, i32 43203, i32 43205, i32 43205, i32 43250, i32 43255, i32 43259, i32 43259, i32 43261, i32 43263, i32 43274, i32 43306, i32 43312, i32 43346, i32 43360, i32 43388, i32 43392, i32 43442, i32 43444, i32 43455, i32 43471, i32 43471, i32 43488, i32 43503, i32 43514, i32 43518, i32 43520, i32 43574, i32 43584, i32 43597, i32 43616, i32 43638, i32 43642, i32 43710, i32 43712, i32 43712, i32 43714, i32 43714, i32 43739, i32 43741, i32 43744, i32 43759, i32 43762, i32 43765, i32 43777, i32 43782, i32 43785, i32 43790, i32 43793, i32 43798, i32 43808, i32 43814, i32 43816, i32 43822, i32 43824, i32 43866, i32 43868, i32 43881, i32 43888, i32 44010, i32 44032, i32 55203, i32 55216, i32 55238, i32 55243, i32 55291, i32 63744, i32 64109, i32 64112, i32 64217, i32 64256, i32 64262, i32 64275, i32 64279, i32 64285, i32 64296, i32 64298, i32 64310, i32 64312, i32 64316, i32 64318, i32 64318, i32 64320, i32 64321, i32 64323, i32 64324, i32 64326, i32 64433, i32 64467, i32 64829, i32 64848, i32 64911, i32 64914, i32 64967, i32 65008, i32 65019, i32 65136, i32 65140, i32 65142, i32 65276, i32 65313, i32 65338, i32 65345, i32 65370, i32 65382, i32 65470, i32 65474, i32 65479, i32 65482, i32 65487, i32 65490, i32 65495, i32 65498, i32 65500, i32 65536, i32 65547, i32 65549, i32 65574, i32 65576, i32 65594, i32 65596, i32 65597, i32 65599, i32 65613, i32 65616, i32 65629, i32 65664, i32 65786, i32 65856, i32 65908, i32 66176, i32 66204, i32 66208, i32 66256, i32 66304, i32 66335, i32 66349, i32 66378, i32 66384, i32 66426, i32 66432, i32 66461, i32 66464, i32 66499, i32 66504, i32 66511, i32 66513, i32 66517, i32 66560, i32 66717, i32 66736, i32 66771, i32 66776, i32 66811, i32 66816, i32 66855, i32 66864, i32 66915, i32 66928, i32 66938, i32 66940, i32 66954, i32 66956, i32 66962, i32 66964, i32 66965, i32 66967, i32 66977, i32 66979, i32 66993, i32 66995, i32 67001, i32 67003, i32 67004, i32 67072, i32 67382, i32 67392, i32 67413, i32 67424, i32 67431, i32 67456, i32 67461, i32 67463, i32 67504, i32 67506, i32 67514, i32 67584, i32 67589, i32 67592, i32 67592, i32 67594, i32 67637, i32 67639, i32 67640, i32 67644, i32 67644, i32 67647, i32 67669, i32 67680, i32 67702, i32 67712, i32 67742, i32 67808, i32 67826, i32 67828, i32 67829, i32 67840, i32 67861, i32 67872, i32 67897, i32 67968, i32 68023, i32 68030, i32 68031, i32 68096, i32 68099, i32 68101, i32 68102, i32 68108, i32 68115, i32 68117, i32 68119, i32 68121, i32 68149, i32 68192, i32 68220, i32 68224, i32 68252, i32 68288, i32 68295, i32 68297, i32 68324, i32 68352, i32 68405, i32 68416, i32 68437, i32 68448, i32 68466, i32 68480, i32 68497, i32 68608, i32 68680, i32 68736, i32 68786, i32 68800, i32 68850, i32 68864, i32 68903, i32 69248, i32 69289, i32 69291, i32 69292, i32 69296, i32 69297, i32 69376, i32 69404, i32 69415, i32 69415, i32 69424, i32 69445, i32 69488, i32 69505, i32 69552, i32 69572, i32 69600, i32 69622, i32 69632, i32 69701, i32 69745, i32 69749, i32 69760, i32 69816, i32 69826, i32 69826, i32 69840, i32 69864, i32 69888, i32 69938, i32 69956, i32 69959, i32 69968, i32 70002, i32 70006, i32 70006, i32 70016, i32 70079, i32 70081, i32 70084, i32 70094, i32 70095, i32 70106, i32 70106, i32 70108, i32 70108, i32 70144, i32 70161, i32 70163, i32 70196, i32 70199, i32 70199, i32 70206, i32 70209, i32 70272, i32 70278, i32 70280, i32 70280, i32 70282, i32 70285, i32 70287, i32 70301, i32 70303, i32 70312, i32 70320, i32 70376, i32 70400, i32 70403, i32 70405, i32 70412, i32 70415, i32 70416, i32 70419, i32 70440, i32 70442, i32 70448, i32 70450, i32 70451, i32 70453, i32 70457, i32 70461, i32 70468, i32 70471, i32 70472, i32 70475, i32 70476, i32 70480, i32 70480, i32 70487, i32 70487, i32 70493, i32 70499, i32 70656, i32 70721, i32 70723, i32 70725, i32 70727, i32 70730, i32 70751, i32 70753, i32 70784, i32 70849, i32 70852, i32 70853, i32 70855, i32 70855, i32 71040, i32 71093, i32 71096, i32 71102, i32 71128, i32 71133, i32 71168, i32 71230, i32 71232, i32 71232, i32 71236, i32 71236, i32 71296, i32 71349, i32 71352, i32 71352, i32 71424, i32 71450, i32 71453, i32 71466, i32 71488, i32 71494, i32 71680, i32 71736, i32 71840, i32 71903, i32 71935, i32 71942, i32 71945, i32 71945, i32 71948, i32 71955, i32 71957, i32 71958, i32 71960, i32 71989, i32 71991, i32 71992, i32 71995, i32 71996, i32 71999, i32 72002, i32 72096, i32 72103, i32 72106, i32 72151, i32 72154, i32 72159, i32 72161, i32 72161, i32 72163, i32 72164, i32 72192, i32 72242, i32 72245, i32 72254, i32 72272, i32 72343, i32 72349, i32 72349, i32 72368, i32 72440, i32 72704, i32 72712, i32 72714, i32 72758, i32 72760, i32 72766, i32 72768, i32 72768, i32 72818, i32 72847, i32 72850, i32 72871, i32 72873, i32 72886, i32 72960, i32 72966, i32 72968, i32 72969, i32 72971, i32 73014, i32 73018, i32 73018, i32 73020, i32 73021, i32 73023, i32 73025, i32 73027, i32 73027, i32 73030, i32 73031, i32 73056, i32 73061, i32 73063, i32 73064, i32 73066, i32 73102, i32 73104, i32 73105, i32 73107, i32 73110, i32 73112, i32 73112, i32 73440, i32 73462, i32 73472, i32 73488, i32 73490, i32 73530, i32 73534, i32 73536, i32 73648, i32 73648, i32 73728, i32 74649, i32 74752, i32 74862, i32 74880, i32 75075, i32 77712, i32 77808, i32 77824, i32 78895, i32 78913, i32 78918, i32 82944, i32 83526, i32 92160, i32 92728, i32 92736, i32 92766, i32 92784, i32 92862, i32 92880, i32 92909, i32 92928, i32 92975, i32 92992, i32 92995, i32 93027, i32 93047, i32 93053, i32 93071, i32 93760, i32 93823, i32 93952, i32 94026, i32 94031, i32 94087, i32 94095, i32 94111, i32 94176, i32 94177, i32 94179, i32 94179, i32 94192, i32 94193, i32 94208, i32 100343, i32 100352, i32 101589, i32 101632, i32 101640, i32 110576, i32 110579, i32 110581, i32 110587, i32 110589, i32 110590, i32 110592, i32 110882, i32 110898, i32 110898, i32 110928, i32 110930, i32 110933, i32 110933, i32 110948, i32 110951, i32 110960, i32 111355, i32 113664, i32 113770, i32 113776, i32 113788, i32 113792, i32 113800, i32 113808, i32 113817, i32 113822, i32 113822, i32 119808, i32 119892, i32 119894, i32 119964, i32 119966, i32 119967, i32 119970, i32 119970, i32 119973, i32 119974, i32 119977, i32 119980, i32 119982, i32 119993, i32 119995, i32 119995, i32 119997, i32 120003, i32 120005, i32 120069, i32 120071, i32 120074, i32 120077, i32 120084, i32 120086, i32 120092, i32 120094, i32 120121, i32 120123, i32 120126, i32 120128, i32 120132, i32 120134, i32 120134, i32 120138, i32 120144, i32 120146, i32 120485, i32 120488, i32 120512, i32 120514, i32 120538, i32 120540, i32 120570, i32 120572, i32 120596, i32 120598, i32 120628, i32 120630, i32 120654, i32 120656, i32 120686, i32 120688, i32 120712, i32 120714, i32 120744, i32 120746, i32 120770, i32 120772, i32 120779, i32 122624, i32 122654, i32 122661, i32 122666, i32 122880, i32 122886, i32 122888, i32 122904, i32 122907, i32 122913, i32 122915, i32 122916, i32 122918, i32 122922, i32 122928, i32 122989, i32 123023, i32 123023, i32 123136, i32 123180, i32 123191, i32 123197, i32 123214, i32 123214, i32 123536, i32 123565, i32 123584, i32 123627, i32 124112, i32 124139, i32 124896, i32 124902, i32 124904, i32 124907, i32 124909, i32 124910, i32 124912, i32 124926, i32 124928, i32 125124, i32 125184, i32 125251, i32 125255, i32 125255, i32 125259, i32 125259, i32 126464, i32 126467, i32 126469, i32 126495, i32 126497, i32 126498, i32 126500, i32 126500, i32 126503, i32 126503, i32 126505, i32 126514, i32 126516, i32 126519, i32 126521, i32 126521, i32 126523, i32 126523, i32 126530, i32 126530, i32 126535, i32 126535, i32 126537, i32 126537, i32 126539, i32 126539, i32 126541, i32 126543, i32 126545, i32 126546, i32 126548, i32 126548, i32 126551, i32 126551, i32 126553, i32 126553, i32 126555, i32 126555, i32 126557, i32 126557, i32 126559, i32 126559, i32 126561, i32 126562, i32 126564, i32 126564, i32 126567, i32 126570, i32 126572, i32 126578, i32 126580, i32 126583, i32 126585, i32 126588, i32 126590, i32 126590, i32 126592, i32 126601, i32 126603, i32 126619, i32 126625, i32 126627, i32 126629, i32 126633, i32 126635, i32 126651, i32 127280, i32 127305, i32 127312, i32 127337, i32 127344, i32 127369, i32 131072, i32 173791, i32 173824, i32 177977, i32 177984, i32 178205, i32 178208, i32 183969, i32 183984, i32 191456, i32 194560, i32 195101, i32 196608, i32 201546, i32 201552, i32 205743], align 16
+@unicode_alnum_codepoints = internal constant [1528 x i32] [i32 256, i32 705, i32 710, i32 721, i32 736, i32 740, i32 748, i32 748, i32 750, i32 750, i32 837, i32 837, i32 880, i32 884, i32 886, i32 887, i32 890, i32 893, i32 895, i32 895, i32 902, i32 902, i32 904, i32 906, i32 908, i32 908, i32 910, i32 929, i32 931, i32 1013, i32 1015, i32 1153, i32 1162, i32 1327, i32 1329, i32 1366, i32 1369, i32 1369, i32 1376, i32 1416, i32 1456, i32 1469, i32 1471, i32 1471, i32 1473, i32 1474, i32 1476, i32 1477, i32 1479, i32 1479, i32 1488, i32 1514, i32 1519, i32 1522, i32 1552, i32 1562, i32 1568, i32 1623, i32 1625, i32 1641, i32 1646, i32 1747, i32 1749, i32 1756, i32 1761, i32 1768, i32 1773, i32 1788, i32 1791, i32 1791, i32 1808, i32 1855, i32 1869, i32 1969, i32 1984, i32 2026, i32 2036, i32 2037, i32 2042, i32 2042, i32 2048, i32 2071, i32 2074, i32 2092, i32 2112, i32 2136, i32 2144, i32 2154, i32 2160, i32 2183, i32 2185, i32 2190, i32 2208, i32 2249, i32 2260, i32 2271, i32 2275, i32 2281, i32 2288, i32 2363, i32 2365, i32 2380, i32 2382, i32 2384, i32 2389, i32 2403, i32 2406, i32 2415, i32 2417, i32 2435, i32 2437, i32 2444, i32 2447, i32 2448, i32 2451, i32 2472, i32 2474, i32 2480, i32 2482, i32 2482, i32 2486, i32 2489, i32 2493, i32 2500, i32 2503, i32 2504, i32 2507, i32 2508, i32 2510, i32 2510, i32 2519, i32 2519, i32 2524, i32 2525, i32 2527, i32 2531, i32 2534, i32 2545, i32 2556, i32 2556, i32 2561, i32 2563, i32 2565, i32 2570, i32 2575, i32 2576, i32 2579, i32 2600, i32 2602, i32 2608, i32 2610, i32 2611, i32 2613, i32 2614, i32 2616, i32 2617, i32 2622, i32 2626, i32 2631, i32 2632, i32 2635, i32 2636, i32 2641, i32 2641, i32 2649, i32 2652, i32 2654, i32 2654, i32 2662, i32 2677, i32 2689, i32 2691, i32 2693, i32 2701, i32 2703, i32 2705, i32 2707, i32 2728, i32 2730, i32 2736, i32 2738, i32 2739, i32 2741, i32 2745, i32 2749, i32 2757, i32 2759, i32 2761, i32 2763, i32 2764, i32 2768, i32 2768, i32 2784, i32 2787, i32 2790, i32 2799, i32 2809, i32 2812, i32 2817, i32 2819, i32 2821, i32 2828, i32 2831, i32 2832, i32 2835, i32 2856, i32 2858, i32 2864, i32 2866, i32 2867, i32 2869, i32 2873, i32 2877, i32 2884, i32 2887, i32 2888, i32 2891, i32 2892, i32 2902, i32 2903, i32 2908, i32 2909, i32 2911, i32 2915, i32 2918, i32 2927, i32 2929, i32 2929, i32 2946, i32 2947, i32 2949, i32 2954, i32 2958, i32 2960, i32 2962, i32 2965, i32 2969, i32 2970, i32 2972, i32 2972, i32 2974, i32 2975, i32 2979, i32 2980, i32 2984, i32 2986, i32 2990, i32 3001, i32 3006, i32 3010, i32 3014, i32 3016, i32 3018, i32 3020, i32 3024, i32 3024, i32 3031, i32 3031, i32 3046, i32 3055, i32 3072, i32 3084, i32 3086, i32 3088, i32 3090, i32 3112, i32 3114, i32 3129, i32 3133, i32 3140, i32 3142, i32 3144, i32 3146, i32 3148, i32 3157, i32 3158, i32 3160, i32 3162, i32 3165, i32 3165, i32 3168, i32 3171, i32 3174, i32 3183, i32 3200, i32 3203, i32 3205, i32 3212, i32 3214, i32 3216, i32 3218, i32 3240, i32 3242, i32 3251, i32 3253, i32 3257, i32 3261, i32 3268, i32 3270, i32 3272, i32 3274, i32 3276, i32 3285, i32 3286, i32 3293, i32 3294, i32 3296, i32 3299, i32 3302, i32 3311, i32 3313, i32 3315, i32 3328, i32 3340, i32 3342, i32 3344, i32 3346, i32 3386, i32 3389, i32 3396, i32 3398, i32 3400, i32 3402, i32 3404, i32 3406, i32 3406, i32 3412, i32 3415, i32 3423, i32 3427, i32 3430, i32 3439, i32 3450, i32 3455, i32 3457, i32 3459, i32 3461, i32 3478, i32 3482, i32 3505, i32 3507, i32 3515, i32 3517, i32 3517, i32 3520, i32 3526, i32 3535, i32 3540, i32 3542, i32 3542, i32 3544, i32 3551, i32 3558, i32 3567, i32 3570, i32 3571, i32 3585, i32 3642, i32 3648, i32 3654, i32 3661, i32 3661, i32 3664, i32 3673, i32 3713, i32 3714, i32 3716, i32 3716, i32 3718, i32 3722, i32 3724, i32 3747, i32 3749, i32 3749, i32 3751, i32 3769, i32 3771, i32 3773, i32 3776, i32 3780, i32 3782, i32 3782, i32 3789, i32 3789, i32 3792, i32 3801, i32 3804, i32 3807, i32 3840, i32 3840, i32 3872, i32 3881, i32 3904, i32 3911, i32 3913, i32 3948, i32 3953, i32 3971, i32 3976, i32 3991, i32 3993, i32 4028, i32 4096, i32 4150, i32 4152, i32 4152, i32 4155, i32 4169, i32 4176, i32 4253, i32 4256, i32 4293, i32 4295, i32 4295, i32 4301, i32 4301, i32 4304, i32 4346, i32 4348, i32 4680, i32 4682, i32 4685, i32 4688, i32 4694, i32 4696, i32 4696, i32 4698, i32 4701, i32 4704, i32 4744, i32 4746, i32 4749, i32 4752, i32 4784, i32 4786, i32 4789, i32 4792, i32 4798, i32 4800, i32 4800, i32 4802, i32 4805, i32 4808, i32 4822, i32 4824, i32 4880, i32 4882, i32 4885, i32 4888, i32 4954, i32 4992, i32 5007, i32 5024, i32 5109, i32 5112, i32 5117, i32 5121, i32 5740, i32 5743, i32 5759, i32 5761, i32 5786, i32 5792, i32 5866, i32 5870, i32 5880, i32 5888, i32 5907, i32 5919, i32 5939, i32 5952, i32 5971, i32 5984, i32 5996, i32 5998, i32 6000, i32 6002, i32 6003, i32 6016, i32 6067, i32 6070, i32 6088, i32 6103, i32 6103, i32 6108, i32 6108, i32 6112, i32 6121, i32 6160, i32 6169, i32 6176, i32 6264, i32 6272, i32 6314, i32 6320, i32 6389, i32 6400, i32 6430, i32 6432, i32 6443, i32 6448, i32 6456, i32 6470, i32 6509, i32 6512, i32 6516, i32 6528, i32 6571, i32 6576, i32 6601, i32 6608, i32 6617, i32 6656, i32 6683, i32 6688, i32 6750, i32 6753, i32 6772, i32 6784, i32 6793, i32 6800, i32 6809, i32 6823, i32 6823, i32 6847, i32 6848, i32 6860, i32 6862, i32 6912, i32 6963, i32 6965, i32 6979, i32 6981, i32 6988, i32 6992, i32 7001, i32 7040, i32 7081, i32 7084, i32 7141, i32 7143, i32 7153, i32 7168, i32 7222, i32 7232, i32 7241, i32 7245, i32 7293, i32 7296, i32 7304, i32 7312, i32 7354, i32 7357, i32 7359, i32 7401, i32 7404, i32 7406, i32 7411, i32 7413, i32 7414, i32 7418, i32 7418, i32 7424, i32 7615, i32 7655, i32 7668, i32 7680, i32 7957, i32 7960, i32 7965, i32 7968, i32 8005, i32 8008, i32 8013, i32 8016, i32 8023, i32 8025, i32 8025, i32 8027, i32 8027, i32 8029, i32 8029, i32 8031, i32 8061, i32 8064, i32 8116, i32 8118, i32 8124, i32 8126, i32 8126, i32 8130, i32 8132, i32 8134, i32 8140, i32 8144, i32 8147, i32 8150, i32 8155, i32 8160, i32 8172, i32 8178, i32 8180, i32 8182, i32 8188, i32 8305, i32 8305, i32 8319, i32 8319, i32 8336, i32 8348, i32 8450, i32 8450, i32 8455, i32 8455, i32 8458, i32 8467, i32 8469, i32 8469, i32 8473, i32 8477, i32 8484, i32 8484, i32 8486, i32 8486, i32 8488, i32 8488, i32 8490, i32 8493, i32 8495, i32 8505, i32 8508, i32 8511, i32 8517, i32 8521, i32 8526, i32 8526, i32 8544, i32 8584, i32 9398, i32 9449, i32 11264, i32 11492, i32 11499, i32 11502, i32 11506, i32 11507, i32 11520, i32 11557, i32 11559, i32 11559, i32 11565, i32 11565, i32 11568, i32 11623, i32 11631, i32 11631, i32 11648, i32 11670, i32 11680, i32 11686, i32 11688, i32 11694, i32 11696, i32 11702, i32 11704, i32 11710, i32 11712, i32 11718, i32 11720, i32 11726, i32 11728, i32 11734, i32 11736, i32 11742, i32 11744, i32 11775, i32 11823, i32 11823, i32 12293, i32 12295, i32 12321, i32 12329, i32 12337, i32 12341, i32 12344, i32 12348, i32 12353, i32 12438, i32 12445, i32 12447, i32 12449, i32 12538, i32 12540, i32 12543, i32 12549, i32 12591, i32 12593, i32 12686, i32 12704, i32 12735, i32 12784, i32 12799, i32 13312, i32 19903, i32 19968, i32 42124, i32 42192, i32 42237, i32 42240, i32 42508, i32 42512, i32 42539, i32 42560, i32 42606, i32 42612, i32 42619, i32 42623, i32 42735, i32 42775, i32 42783, i32 42786, i32 42888, i32 42891, i32 42954, i32 42960, i32 42961, i32 42963, i32 42963, i32 42965, i32 42969, i32 42994, i32 43013, i32 43015, i32 43047, i32 43072, i32 43123, i32 43136, i32 43203, i32 43205, i32 43205, i32 43216, i32 43225, i32 43250, i32 43255, i32 43259, i32 43259, i32 43261, i32 43306, i32 43312, i32 43346, i32 43360, i32 43388, i32 43392, i32 43442, i32 43444, i32 43455, i32 43471, i32 43481, i32 43488, i32 43518, i32 43520, i32 43574, i32 43584, i32 43597, i32 43600, i32 43609, i32 43616, i32 43638, i32 43642, i32 43710, i32 43712, i32 43712, i32 43714, i32 43714, i32 43739, i32 43741, i32 43744, i32 43759, i32 43762, i32 43765, i32 43777, i32 43782, i32 43785, i32 43790, i32 43793, i32 43798, i32 43808, i32 43814, i32 43816, i32 43822, i32 43824, i32 43866, i32 43868, i32 43881, i32 43888, i32 44010, i32 44016, i32 44025, i32 44032, i32 55203, i32 55216, i32 55238, i32 55243, i32 55291, i32 63744, i32 64109, i32 64112, i32 64217, i32 64256, i32 64262, i32 64275, i32 64279, i32 64285, i32 64296, i32 64298, i32 64310, i32 64312, i32 64316, i32 64318, i32 64318, i32 64320, i32 64321, i32 64323, i32 64324, i32 64326, i32 64433, i32 64467, i32 64829, i32 64848, i32 64911, i32 64914, i32 64967, i32 65008, i32 65019, i32 65136, i32 65140, i32 65142, i32 65276, i32 65296, i32 65305, i32 65313, i32 65338, i32 65345, i32 65370, i32 65382, i32 65470, i32 65474, i32 65479, i32 65482, i32 65487, i32 65490, i32 65495, i32 65498, i32 65500, i32 65536, i32 65547, i32 65549, i32 65574, i32 65576, i32 65594, i32 65596, i32 65597, i32 65599, i32 65613, i32 65616, i32 65629, i32 65664, i32 65786, i32 65856, i32 65908, i32 66176, i32 66204, i32 66208, i32 66256, i32 66304, i32 66335, i32 66349, i32 66378, i32 66384, i32 66426, i32 66432, i32 66461, i32 66464, i32 66499, i32 66504, i32 66511, i32 66513, i32 66517, i32 66560, i32 66717, i32 66720, i32 66729, i32 66736, i32 66771, i32 66776, i32 66811, i32 66816, i32 66855, i32 66864, i32 66915, i32 66928, i32 66938, i32 66940, i32 66954, i32 66956, i32 66962, i32 66964, i32 66965, i32 66967, i32 66977, i32 66979, i32 66993, i32 66995, i32 67001, i32 67003, i32 67004, i32 67072, i32 67382, i32 67392, i32 67413, i32 67424, i32 67431, i32 67456, i32 67461, i32 67463, i32 67504, i32 67506, i32 67514, i32 67584, i32 67589, i32 67592, i32 67592, i32 67594, i32 67637, i32 67639, i32 67640, i32 67644, i32 67644, i32 67647, i32 67669, i32 67680, i32 67702, i32 67712, i32 67742, i32 67808, i32 67826, i32 67828, i32 67829, i32 67840, i32 67861, i32 67872, i32 67897, i32 67968, i32 68023, i32 68030, i32 68031, i32 68096, i32 68099, i32 68101, i32 68102, i32 68108, i32 68115, i32 68117, i32 68119, i32 68121, i32 68149, i32 68192, i32 68220, i32 68224, i32 68252, i32 68288, i32 68295, i32 68297, i32 68324, i32 68352, i32 68405, i32 68416, i32 68437, i32 68448, i32 68466, i32 68480, i32 68497, i32 68608, i32 68680, i32 68736, i32 68786, i32 68800, i32 68850, i32 68864, i32 68903, i32 68912, i32 68921, i32 69248, i32 69289, i32 69291, i32 69292, i32 69296, i32 69297, i32 69376, i32 69404, i32 69415, i32 69415, i32 69424, i32 69445, i32 69488, i32 69505, i32 69552, i32 69572, i32 69600, i32 69622, i32 69632, i32 69701, i32 69734, i32 69743, i32 69745, i32 69749, i32 69760, i32 69816, i32 69826, i32 69826, i32 69840, i32 69864, i32 69872, i32 69881, i32 69888, i32 69938, i32 69942, i32 69951, i32 69956, i32 69959, i32 69968, i32 70002, i32 70006, i32 70006, i32 70016, i32 70079, i32 70081, i32 70084, i32 70094, i32 70106, i32 70108, i32 70108, i32 70144, i32 70161, i32 70163, i32 70196, i32 70199, i32 70199, i32 70206, i32 70209, i32 70272, i32 70278, i32 70280, i32 70280, i32 70282, i32 70285, i32 70287, i32 70301, i32 70303, i32 70312, i32 70320, i32 70376, i32 70384, i32 70393, i32 70400, i32 70403, i32 70405, i32 70412, i32 70415, i32 70416, i32 70419, i32 70440, i32 70442, i32 70448, i32 70450, i32 70451, i32 70453, i32 70457, i32 70461, i32 70468, i32 70471, i32 70472, i32 70475, i32 70476, i32 70480, i32 70480, i32 70487, i32 70487, i32 70493, i32 70499, i32 70656, i32 70721, i32 70723, i32 70725, i32 70727, i32 70730, i32 70736, i32 70745, i32 70751, i32 70753, i32 70784, i32 70849, i32 70852, i32 70853, i32 70855, i32 70855, i32 70864, i32 70873, i32 71040, i32 71093, i32 71096, i32 71102, i32 71128, i32 71133, i32 71168, i32 71230, i32 71232, i32 71232, i32 71236, i32 71236, i32 71248, i32 71257, i32 71296, i32 71349, i32 71352, i32 71352, i32 71360, i32 71369, i32 71424, i32 71450, i32 71453, i32 71466, i32 71472, i32 71481, i32 71488, i32 71494, i32 71680, i32 71736, i32 71840, i32 71913, i32 71935, i32 71942, i32 71945, i32 71945, i32 71948, i32 71955, i32 71957, i32 71958, i32 71960, i32 71989, i32 71991, i32 71992, i32 71995, i32 71996, i32 71999, i32 72002, i32 72016, i32 72025, i32 72096, i32 72103, i32 72106, i32 72151, i32 72154, i32 72159, i32 72161, i32 72161, i32 72163, i32 72164, i32 72192, i32 72242, i32 72245, i32 72254, i32 72272, i32 72343, i32 72349, i32 72349, i32 72368, i32 72440, i32 72704, i32 72712, i32 72714, i32 72758, i32 72760, i32 72766, i32 72768, i32 72768, i32 72784, i32 72793, i32 72818, i32 72847, i32 72850, i32 72871, i32 72873, i32 72886, i32 72960, i32 72966, i32 72968, i32 72969, i32 72971, i32 73014, i32 73018, i32 73018, i32 73020, i32 73021, i32 73023, i32 73025, i32 73027, i32 73027, i32 73030, i32 73031, i32 73040, i32 73049, i32 73056, i32 73061, i32 73063, i32 73064, i32 73066, i32 73102, i32 73104, i32 73105, i32 73107, i32 73110, i32 73112, i32 73112, i32 73120, i32 73129, i32 73440, i32 73462, i32 73472, i32 73488, i32 73490, i32 73530, i32 73534, i32 73536, i32 73552, i32 73561, i32 73648, i32 73648, i32 73728, i32 74649, i32 74752, i32 74862, i32 74880, i32 75075, i32 77712, i32 77808, i32 77824, i32 78895, i32 78913, i32 78918, i32 82944, i32 83526, i32 92160, i32 92728, i32 92736, i32 92766, i32 92768, i32 92777, i32 92784, i32 92862, i32 92864, i32 92873, i32 92880, i32 92909, i32 92928, i32 92975, i32 92992, i32 92995, i32 93008, i32 93017, i32 93027, i32 93047, i32 93053, i32 93071, i32 93760, i32 93823, i32 93952, i32 94026, i32 94031, i32 94087, i32 94095, i32 94111, i32 94176, i32 94177, i32 94179, i32 94179, i32 94192, i32 94193, i32 94208, i32 100343, i32 100352, i32 101589, i32 101632, i32 101640, i32 110576, i32 110579, i32 110581, i32 110587, i32 110589, i32 110590, i32 110592, i32 110882, i32 110898, i32 110898, i32 110928, i32 110930, i32 110933, i32 110933, i32 110948, i32 110951, i32 110960, i32 111355, i32 113664, i32 113770, i32 113776, i32 113788, i32 113792, i32 113800, i32 113808, i32 113817, i32 113822, i32 113822, i32 119808, i32 119892, i32 119894, i32 119964, i32 119966, i32 119967, i32 119970, i32 119970, i32 119973, i32 119974, i32 119977, i32 119980, i32 119982, i32 119993, i32 119995, i32 119995, i32 119997, i32 120003, i32 120005, i32 120069, i32 120071, i32 120074, i32 120077, i32 120084, i32 120086, i32 120092, i32 120094, i32 120121, i32 120123, i32 120126, i32 120128, i32 120132, i32 120134, i32 120134, i32 120138, i32 120144, i32 120146, i32 120485, i32 120488, i32 120512, i32 120514, i32 120538, i32 120540, i32 120570, i32 120572, i32 120596, i32 120598, i32 120628, i32 120630, i32 120654, i32 120656, i32 120686, i32 120688, i32 120712, i32 120714, i32 120744, i32 120746, i32 120770, i32 120772, i32 120779, i32 120782, i32 120831, i32 122624, i32 122654, i32 122661, i32 122666, i32 122880, i32 122886, i32 122888, i32 122904, i32 122907, i32 122913, i32 122915, i32 122916, i32 122918, i32 122922, i32 122928, i32 122989, i32 123023, i32 123023, i32 123136, i32 123180, i32 123191, i32 123197, i32 123200, i32 123209, i32 123214, i32 123214, i32 123536, i32 123565, i32 123584, i32 123627, i32 123632, i32 123641, i32 124112, i32 124139, i32 124144, i32 124153, i32 124896, i32 124902, i32 124904, i32 124907, i32 124909, i32 124910, i32 124912, i32 124926, i32 124928, i32 125124, i32 125184, i32 125251, i32 125255, i32 125255, i32 125259, i32 125259, i32 125264, i32 125273, i32 126464, i32 126467, i32 126469, i32 126495, i32 126497, i32 126498, i32 126500, i32 126500, i32 126503, i32 126503, i32 126505, i32 126514, i32 126516, i32 126519, i32 126521, i32 126521, i32 126523, i32 126523, i32 126530, i32 126530, i32 126535, i32 126535, i32 126537, i32 126537, i32 126539, i32 126539, i32 126541, i32 126543, i32 126545, i32 126546, i32 126548, i32 126548, i32 126551, i32 126551, i32 126553, i32 126553, i32 126555, i32 126555, i32 126557, i32 126557, i32 126559, i32 126559, i32 126561, i32 126562, i32 126564, i32 126564, i32 126567, i32 126570, i32 126572, i32 126578, i32 126580, i32 126583, i32 126585, i32 126588, i32 126590, i32 126590, i32 126592, i32 126601, i32 126603, i32 126619, i32 126625, i32 126627, i32 126629, i32 126633, i32 126635, i32 126651, i32 127280, i32 127305, i32 127312, i32 127337, i32 127344, i32 127369, i32 130032, i32 130041, i32 131072, i32 173791, i32 173824, i32 177977, i32 177984, i32 178205, i32 178208, i32 183969, i32 183984, i32 191456, i32 194560, i32 195101, i32 196608, i32 201546, i32 201552, i32 205743], align 16
+@unicode_isupper_codepoints = internal constant [1302 x i32] [i32 256, i32 256, i32 258, i32 258, i32 260, i32 260, i32 262, i32 262, i32 264, i32 264, i32 266, i32 266, i32 268, i32 268, i32 270, i32 270, i32 272, i32 272, i32 274, i32 274, i32 276, i32 276, i32 278, i32 278, i32 280, i32 280, i32 282, i32 282, i32 284, i32 284, i32 286, i32 286, i32 288, i32 288, i32 290, i32 290, i32 292, i32 292, i32 294, i32 294, i32 296, i32 296, i32 298, i32 298, i32 300, i32 300, i32 302, i32 302, i32 304, i32 304, i32 306, i32 306, i32 308, i32 308, i32 310, i32 310, i32 313, i32 313, i32 315, i32 315, i32 317, i32 317, i32 319, i32 319, i32 321, i32 321, i32 323, i32 323, i32 325, i32 325, i32 327, i32 327, i32 330, i32 330, i32 332, i32 332, i32 334, i32 334, i32 336, i32 336, i32 338, i32 338, i32 340, i32 340, i32 342, i32 342, i32 344, i32 344, i32 346, i32 346, i32 348, i32 348, i32 350, i32 350, i32 352, i32 352, i32 354, i32 354, i32 356, i32 356, i32 358, i32 358, i32 360, i32 360, i32 362, i32 362, i32 364, i32 364, i32 366, i32 366, i32 368, i32 368, i32 370, i32 370, i32 372, i32 372, i32 374, i32 374, i32 376, i32 377, i32 379, i32 379, i32 381, i32 381, i32 385, i32 386, i32 388, i32 388, i32 390, i32 391, i32 393, i32 395, i32 398, i32 401, i32 403, i32 404, i32 406, i32 408, i32 412, i32 413, i32 415, i32 416, i32 418, i32 418, i32 420, i32 420, i32 422, i32 423, i32 425, i32 425, i32 428, i32 428, i32 430, i32 431, i32 433, i32 435, i32 437, i32 437, i32 439, i32 440, i32 444, i32 444, i32 452, i32 453, i32 455, i32 456, i32 458, i32 459, i32 461, i32 461, i32 463, i32 463, i32 465, i32 465, i32 467, i32 467, i32 469, i32 469, i32 471, i32 471, i32 473, i32 473, i32 475, i32 475, i32 478, i32 478, i32 480, i32 480, i32 482, i32 482, i32 484, i32 484, i32 486, i32 486, i32 488, i32 488, i32 490, i32 490, i32 492, i32 492, i32 494, i32 494, i32 497, i32 498, i32 500, i32 500, i32 502, i32 504, i32 506, i32 506, i32 508, i32 508, i32 510, i32 510, i32 512, i32 512, i32 514, i32 514, i32 516, i32 516, i32 518, i32 518, i32 520, i32 520, i32 522, i32 522, i32 524, i32 524, i32 526, i32 526, i32 528, i32 528, i32 530, i32 530, i32 532, i32 532, i32 534, i32 534, i32 536, i32 536, i32 538, i32 538, i32 540, i32 540, i32 542, i32 542, i32 544, i32 544, i32 546, i32 546, i32 548, i32 548, i32 550, i32 550, i32 552, i32 552, i32 554, i32 554, i32 556, i32 556, i32 558, i32 558, i32 560, i32 560, i32 562, i32 562, i32 570, i32 571, i32 573, i32 574, i32 577, i32 577, i32 579, i32 582, i32 584, i32 584, i32 586, i32 586, i32 588, i32 588, i32 590, i32 590, i32 880, i32 880, i32 882, i32 882, i32 886, i32 886, i32 895, i32 895, i32 902, i32 902, i32 904, i32 906, i32 908, i32 908, i32 910, i32 911, i32 913, i32 929, i32 931, i32 939, i32 975, i32 975, i32 978, i32 980, i32 984, i32 984, i32 986, i32 986, i32 988, i32 988, i32 990, i32 990, i32 992, i32 992, i32 994, i32 994, i32 996, i32 996, i32 998, i32 998, i32 1000, i32 1000, i32 1002, i32 1002, i32 1004, i32 1004, i32 1006, i32 1006, i32 1012, i32 1012, i32 1015, i32 1015, i32 1017, i32 1018, i32 1021, i32 1071, i32 1120, i32 1120, i32 1122, i32 1122, i32 1124, i32 1124, i32 1126, i32 1126, i32 1128, i32 1128, i32 1130, i32 1130, i32 1132, i32 1132, i32 1134, i32 1134, i32 1136, i32 1136, i32 1138, i32 1138, i32 1140, i32 1140, i32 1142, i32 1142, i32 1144, i32 1144, i32 1146, i32 1146, i32 1148, i32 1148, i32 1150, i32 1150, i32 1152, i32 1152, i32 1162, i32 1162, i32 1164, i32 1164, i32 1166, i32 1166, i32 1168, i32 1168, i32 1170, i32 1170, i32 1172, i32 1172, i32 1174, i32 1174, i32 1176, i32 1176, i32 1178, i32 1178, i32 1180, i32 1180, i32 1182, i32 1182, i32 1184, i32 1184, i32 1186, i32 1186, i32 1188, i32 1188, i32 1190, i32 1190, i32 1192, i32 1192, i32 1194, i32 1194, i32 1196, i32 1196, i32 1198, i32 1198, i32 1200, i32 1200, i32 1202, i32 1202, i32 1204, i32 1204, i32 1206, i32 1206, i32 1208, i32 1208, i32 1210, i32 1210, i32 1212, i32 1212, i32 1214, i32 1214, i32 1216, i32 1217, i32 1219, i32 1219, i32 1221, i32 1221, i32 1223, i32 1223, i32 1225, i32 1225, i32 1227, i32 1227, i32 1229, i32 1229, i32 1232, i32 1232, i32 1234, i32 1234, i32 1236, i32 1236, i32 1238, i32 1238, i32 1240, i32 1240, i32 1242, i32 1242, i32 1244, i32 1244, i32 1246, i32 1246, i32 1248, i32 1248, i32 1250, i32 1250, i32 1252, i32 1252, i32 1254, i32 1254, i32 1256, i32 1256, i32 1258, i32 1258, i32 1260, i32 1260, i32 1262, i32 1262, i32 1264, i32 1264, i32 1266, i32 1266, i32 1268, i32 1268, i32 1270, i32 1270, i32 1272, i32 1272, i32 1274, i32 1274, i32 1276, i32 1276, i32 1278, i32 1278, i32 1280, i32 1280, i32 1282, i32 1282, i32 1284, i32 1284, i32 1286, i32 1286, i32 1288, i32 1288, i32 1290, i32 1290, i32 1292, i32 1292, i32 1294, i32 1294, i32 1296, i32 1296, i32 1298, i32 1298, i32 1300, i32 1300, i32 1302, i32 1302, i32 1304, i32 1304, i32 1306, i32 1306, i32 1308, i32 1308, i32 1310, i32 1310, i32 1312, i32 1312, i32 1314, i32 1314, i32 1316, i32 1316, i32 1318, i32 1318, i32 1320, i32 1320, i32 1322, i32 1322, i32 1324, i32 1324, i32 1326, i32 1326, i32 1329, i32 1366, i32 4256, i32 4293, i32 4295, i32 4295, i32 4301, i32 4301, i32 5024, i32 5109, i32 7312, i32 7354, i32 7357, i32 7359, i32 7680, i32 7680, i32 7682, i32 7682, i32 7684, i32 7684, i32 7686, i32 7686, i32 7688, i32 7688, i32 7690, i32 7690, i32 7692, i32 7692, i32 7694, i32 7694, i32 7696, i32 7696, i32 7698, i32 7698, i32 7700, i32 7700, i32 7702, i32 7702, i32 7704, i32 7704, i32 7706, i32 7706, i32 7708, i32 7708, i32 7710, i32 7710, i32 7712, i32 7712, i32 7714, i32 7714, i32 7716, i32 7716, i32 7718, i32 7718, i32 7720, i32 7720, i32 7722, i32 7722, i32 7724, i32 7724, i32 7726, i32 7726, i32 7728, i32 7728, i32 7730, i32 7730, i32 7732, i32 7732, i32 7734, i32 7734, i32 7736, i32 7736, i32 7738, i32 7738, i32 7740, i32 7740, i32 7742, i32 7742, i32 7744, i32 7744, i32 7746, i32 7746, i32 7748, i32 7748, i32 7750, i32 7750, i32 7752, i32 7752, i32 7754, i32 7754, i32 7756, i32 7756, i32 7758, i32 7758, i32 7760, i32 7760, i32 7762, i32 7762, i32 7764, i32 7764, i32 7766, i32 7766, i32 7768, i32 7768, i32 7770, i32 7770, i32 7772, i32 7772, i32 7774, i32 7774, i32 7776, i32 7776, i32 7778, i32 7778, i32 7780, i32 7780, i32 7782, i32 7782, i32 7784, i32 7784, i32 7786, i32 7786, i32 7788, i32 7788, i32 7790, i32 7790, i32 7792, i32 7792, i32 7794, i32 7794, i32 7796, i32 7796, i32 7798, i32 7798, i32 7800, i32 7800, i32 7802, i32 7802, i32 7804, i32 7804, i32 7806, i32 7806, i32 7808, i32 7808, i32 7810, i32 7810, i32 7812, i32 7812, i32 7814, i32 7814, i32 7816, i32 7816, i32 7818, i32 7818, i32 7820, i32 7820, i32 7822, i32 7822, i32 7824, i32 7824, i32 7826, i32 7826, i32 7828, i32 7828, i32 7838, i32 7838, i32 7840, i32 7840, i32 7842, i32 7842, i32 7844, i32 7844, i32 7846, i32 7846, i32 7848, i32 7848, i32 7850, i32 7850, i32 7852, i32 7852, i32 7854, i32 7854, i32 7856, i32 7856, i32 7858, i32 7858, i32 7860, i32 7860, i32 7862, i32 7862, i32 7864, i32 7864, i32 7866, i32 7866, i32 7868, i32 7868, i32 7870, i32 7870, i32 7872, i32 7872, i32 7874, i32 7874, i32 7876, i32 7876, i32 7878, i32 7878, i32 7880, i32 7880, i32 7882, i32 7882, i32 7884, i32 7884, i32 7886, i32 7886, i32 7888, i32 7888, i32 7890, i32 7890, i32 7892, i32 7892, i32 7894, i32 7894, i32 7896, i32 7896, i32 7898, i32 7898, i32 7900, i32 7900, i32 7902, i32 7902, i32 7904, i32 7904, i32 7906, i32 7906, i32 7908, i32 7908, i32 7910, i32 7910, i32 7912, i32 7912, i32 7914, i32 7914, i32 7916, i32 7916, i32 7918, i32 7918, i32 7920, i32 7920, i32 7922, i32 7922, i32 7924, i32 7924, i32 7926, i32 7926, i32 7928, i32 7928, i32 7930, i32 7930, i32 7932, i32 7932, i32 7934, i32 7934, i32 7944, i32 7951, i32 7960, i32 7965, i32 7976, i32 7983, i32 7992, i32 7999, i32 8008, i32 8013, i32 8025, i32 8025, i32 8027, i32 8027, i32 8029, i32 8029, i32 8031, i32 8031, i32 8040, i32 8047, i32 8072, i32 8079, i32 8088, i32 8095, i32 8104, i32 8111, i32 8120, i32 8124, i32 8136, i32 8140, i32 8152, i32 8155, i32 8168, i32 8172, i32 8184, i32 8188, i32 8450, i32 8450, i32 8455, i32 8455, i32 8459, i32 8461, i32 8464, i32 8466, i32 8469, i32 8469, i32 8473, i32 8477, i32 8484, i32 8484, i32 8486, i32 8486, i32 8488, i32 8488, i32 8490, i32 8493, i32 8496, i32 8499, i32 8510, i32 8511, i32 8517, i32 8517, i32 8544, i32 8559, i32 8579, i32 8579, i32 9398, i32 9423, i32 11264, i32 11311, i32 11360, i32 11360, i32 11362, i32 11364, i32 11367, i32 11367, i32 11369, i32 11369, i32 11371, i32 11371, i32 11373, i32 11376, i32 11378, i32 11378, i32 11381, i32 11381, i32 11390, i32 11392, i32 11394, i32 11394, i32 11396, i32 11396, i32 11398, i32 11398, i32 11400, i32 11400, i32 11402, i32 11402, i32 11404, i32 11404, i32 11406, i32 11406, i32 11408, i32 11408, i32 11410, i32 11410, i32 11412, i32 11412, i32 11414, i32 11414, i32 11416, i32 11416, i32 11418, i32 11418, i32 11420, i32 11420, i32 11422, i32 11422, i32 11424, i32 11424, i32 11426, i32 11426, i32 11428, i32 11428, i32 11430, i32 11430, i32 11432, i32 11432, i32 11434, i32 11434, i32 11436, i32 11436, i32 11438, i32 11438, i32 11440, i32 11440, i32 11442, i32 11442, i32 11444, i32 11444, i32 11446, i32 11446, i32 11448, i32 11448, i32 11450, i32 11450, i32 11452, i32 11452, i32 11454, i32 11454, i32 11456, i32 11456, i32 11458, i32 11458, i32 11460, i32 11460, i32 11462, i32 11462, i32 11464, i32 11464, i32 11466, i32 11466, i32 11468, i32 11468, i32 11470, i32 11470, i32 11472, i32 11472, i32 11474, i32 11474, i32 11476, i32 11476, i32 11478, i32 11478, i32 11480, i32 11480, i32 11482, i32 11482, i32 11484, i32 11484, i32 11486, i32 11486, i32 11488, i32 11488, i32 11490, i32 11490, i32 11499, i32 11499, i32 11501, i32 11501, i32 11506, i32 11506, i32 42560, i32 42560, i32 42562, i32 42562, i32 42564, i32 42564, i32 42566, i32 42566, i32 42568, i32 42568, i32 42570, i32 42570, i32 42572, i32 42572, i32 42574, i32 42574, i32 42576, i32 42576, i32 42578, i32 42578, i32 42580, i32 42580, i32 42582, i32 42582, i32 42584, i32 42584, i32 42586, i32 42586, i32 42588, i32 42588, i32 42590, i32 42590, i32 42592, i32 42592, i32 42594, i32 42594, i32 42596, i32 42596, i32 42598, i32 42598, i32 42600, i32 42600, i32 42602, i32 42602, i32 42604, i32 42604, i32 42624, i32 42624, i32 42626, i32 42626, i32 42628, i32 42628, i32 42630, i32 42630, i32 42632, i32 42632, i32 42634, i32 42634, i32 42636, i32 42636, i32 42638, i32 42638, i32 42640, i32 42640, i32 42642, i32 42642, i32 42644, i32 42644, i32 42646, i32 42646, i32 42648, i32 42648, i32 42650, i32 42650, i32 42786, i32 42786, i32 42788, i32 42788, i32 42790, i32 42790, i32 42792, i32 42792, i32 42794, i32 42794, i32 42796, i32 42796, i32 42798, i32 42798, i32 42802, i32 42802, i32 42804, i32 42804, i32 42806, i32 42806, i32 42808, i32 42808, i32 42810, i32 42810, i32 42812, i32 42812, i32 42814, i32 42814, i32 42816, i32 42816, i32 42818, i32 42818, i32 42820, i32 42820, i32 42822, i32 42822, i32 42824, i32 42824, i32 42826, i32 42826, i32 42828, i32 42828, i32 42830, i32 42830, i32 42832, i32 42832, i32 42834, i32 42834, i32 42836, i32 42836, i32 42838, i32 42838, i32 42840, i32 42840, i32 42842, i32 42842, i32 42844, i32 42844, i32 42846, i32 42846, i32 42848, i32 42848, i32 42850, i32 42850, i32 42852, i32 42852, i32 42854, i32 42854, i32 42856, i32 42856, i32 42858, i32 42858, i32 42860, i32 42860, i32 42862, i32 42862, i32 42873, i32 42873, i32 42875, i32 42875, i32 42877, i32 42878, i32 42880, i32 42880, i32 42882, i32 42882, i32 42884, i32 42884, i32 42886, i32 42886, i32 42891, i32 42891, i32 42893, i32 42893, i32 42896, i32 42896, i32 42898, i32 42898, i32 42902, i32 42902, i32 42904, i32 42904, i32 42906, i32 42906, i32 42908, i32 42908, i32 42910, i32 42910, i32 42912, i32 42912, i32 42914, i32 42914, i32 42916, i32 42916, i32 42918, i32 42918, i32 42920, i32 42920, i32 42922, i32 42926, i32 42928, i32 42932, i32 42934, i32 42934, i32 42936, i32 42936, i32 42938, i32 42938, i32 42940, i32 42940, i32 42942, i32 42942, i32 42944, i32 42944, i32 42946, i32 42946, i32 42948, i32 42951, i32 42953, i32 42953, i32 42960, i32 42960, i32 42966, i32 42966, i32 42968, i32 42968, i32 42997, i32 42997, i32 65313, i32 65338, i32 66560, i32 66599, i32 66736, i32 66771, i32 66928, i32 66938, i32 66940, i32 66954, i32 66956, i32 66962, i32 66964, i32 66965, i32 68736, i32 68786, i32 71840, i32 71871, i32 93760, i32 93791, i32 119808, i32 119833, i32 119860, i32 119885, i32 119912, i32 119937, i32 119964, i32 119964, i32 119966, i32 119967, i32 119970, i32 119970, i32 119973, i32 119974, i32 119977, i32 119980, i32 119982, i32 119989, i32 120016, i32 120041, i32 120068, i32 120069, i32 120071, i32 120074, i32 120077, i32 120084, i32 120086, i32 120092, i32 120120, i32 120121, i32 120123, i32 120126, i32 120128, i32 120132, i32 120134, i32 120134, i32 120138, i32 120144, i32 120172, i32 120197, i32 120224, i32 120249, i32 120276, i32 120301, i32 120328, i32 120353, i32 120380, i32 120405, i32 120432, i32 120457, i32 120488, i32 120512, i32 120546, i32 120570, i32 120604, i32 120628, i32 120662, i32 120686, i32 120720, i32 120744, i32 120778, i32 120778, i32 125184, i32 125217, i32 127280, i32 127305, i32 127312, i32 127337, i32 127344, i32 127369], align 16
+@.str = private unnamed_addr constant [6 x i8] c"UTF-8\00", align 1
+@.str.1 = private unnamed_addr constant [9 x i8] c"US-ASCII\00", align 1
+@.str.2 = private unnamed_addr constant [11 x i8] c"ASCII-8BIT\00", align 1
+@.str.3 = private unnamed_addr constant [7 x i8] c"EUC-JP\00", align 1
+@.str.4 = private unnamed_addr constant [12 x i8] c"Windows-31J\00", align 1
+@.str.5 = private unnamed_addr constant [5 x i8] c"Big5\00", align 1
+@.str.6 = private unnamed_addr constant [11 x i8] c"Big5-HKSCS\00", align 1
+@.str.7 = private unnamed_addr constant [9 x i8] c"Big5-UAO\00", align 1
+@.str.8 = private unnamed_addr constant [7 x i8] c"CESU-8\00", align 1
+@.str.9 = private unnamed_addr constant [8 x i8] c"CP51932\00", align 1
+@.str.10 = private unnamed_addr constant [6 x i8] c"CP850\00", align 1
+@.str.11 = private unnamed_addr constant [6 x i8] c"CP852\00", align 1
+@.str.12 = private unnamed_addr constant [6 x i8] c"CP855\00", align 1
+@.str.13 = private unnamed_addr constant [6 x i8] c"CP949\00", align 1
+@.str.14 = private unnamed_addr constant [6 x i8] c"CP950\00", align 1
+@.str.15 = private unnamed_addr constant [6 x i8] c"CP951\00", align 1
+@.str.16 = private unnamed_addr constant [11 x i8] c"Emacs-Mule\00", align 1
+@.str.17 = private unnamed_addr constant [9 x i8] c"eucJP-ms\00", align 1
+@.str.18 = private unnamed_addr constant [13 x i8] c"EUC-JIS-2004\00", align 1
+@.str.19 = private unnamed_addr constant [7 x i8] c"EUC-KR\00", align 1
+@.str.20 = private unnamed_addr constant [7 x i8] c"EUC-TW\00", align 1
+@.str.21 = private unnamed_addr constant [8 x i8] c"GB12345\00", align 1
+@.str.22 = private unnamed_addr constant [8 x i8] c"GB18030\00", align 1
+@.str.23 = private unnamed_addr constant [7 x i8] c"GB1988\00", align 1
+@.str.24 = private unnamed_addr constant [7 x i8] c"GB2312\00", align 1
+@.str.25 = private unnamed_addr constant [4 x i8] c"GBK\00", align 1
+@.str.26 = private unnamed_addr constant [7 x i8] c"IBM437\00", align 1
+@.str.27 = private unnamed_addr constant [7 x i8] c"IBM720\00", align 1
+@.str.28 = private unnamed_addr constant [7 x i8] c"IBM737\00", align 1
+@.str.29 = private unnamed_addr constant [7 x i8] c"IBM775\00", align 1
+@.str.30 = private unnamed_addr constant [7 x i8] c"IBM852\00", align 1
+@.str.31 = private unnamed_addr constant [7 x i8] c"IBM855\00", align 1
+@.str.32 = private unnamed_addr constant [7 x i8] c"IBM857\00", align 1
+@.str.33 = private unnamed_addr constant [7 x i8] c"IBM860\00", align 1
+@.str.34 = private unnamed_addr constant [7 x i8] c"IBM861\00", align 1
+@.str.35 = private unnamed_addr constant [7 x i8] c"IBM862\00", align 1
+@.str.36 = private unnamed_addr constant [7 x i8] c"IBM863\00", align 1
+@.str.37 = private unnamed_addr constant [7 x i8] c"IBM864\00", align 1
+@.str.38 = private unnamed_addr constant [7 x i8] c"IBM865\00", align 1
+@.str.39 = private unnamed_addr constant [7 x i8] c"IBM866\00", align 1
+@.str.40 = private unnamed_addr constant [7 x i8] c"IBM869\00", align 1
+@.str.41 = private unnamed_addr constant [11 x i8] c"ISO-8859-1\00", align 1
+@.str.42 = private unnamed_addr constant [11 x i8] c"ISO-8859-2\00", align 1
+@.str.43 = private unnamed_addr constant [11 x i8] c"ISO-8859-3\00", align 1
+@.str.44 = private unnamed_addr constant [11 x i8] c"ISO-8859-4\00", align 1
+@.str.45 = private unnamed_addr constant [11 x i8] c"ISO-8859-5\00", align 1
+@.str.46 = private unnamed_addr constant [11 x i8] c"ISO-8859-6\00", align 1
+@.str.47 = private unnamed_addr constant [11 x i8] c"ISO-8859-7\00", align 1
+@.str.48 = private unnamed_addr constant [11 x i8] c"ISO-8859-8\00", align 1
+@.str.49 = private unnamed_addr constant [11 x i8] c"ISO-8859-9\00", align 1
+@.str.50 = private unnamed_addr constant [12 x i8] c"ISO-8859-10\00", align 1
+@.str.51 = private unnamed_addr constant [12 x i8] c"ISO-8859-11\00", align 1
+@.str.52 = private unnamed_addr constant [12 x i8] c"ISO-8859-13\00", align 1
+@.str.53 = private unnamed_addr constant [12 x i8] c"ISO-8859-14\00", align 1
+@.str.54 = private unnamed_addr constant [12 x i8] c"ISO-8859-15\00", align 1
+@.str.55 = private unnamed_addr constant [12 x i8] c"ISO-8859-16\00", align 1
+@.str.56 = private unnamed_addr constant [7 x i8] c"KOI8-R\00", align 1
+@.str.57 = private unnamed_addr constant [7 x i8] c"KOI8-U\00", align 1
+@.str.58 = private unnamed_addr constant [12 x i8] c"macCentEuro\00", align 1
+@.str.59 = private unnamed_addr constant [12 x i8] c"macCroatian\00", align 1
+@.str.60 = private unnamed_addr constant [12 x i8] c"macCyrillic\00", align 1
+@.str.61 = private unnamed_addr constant [9 x i8] c"macGreek\00", align 1
+@.str.62 = private unnamed_addr constant [11 x i8] c"macIceland\00", align 1
+@.str.63 = private unnamed_addr constant [12 x i8] c"MacJapanese\00", align 1
+@.str.64 = private unnamed_addr constant [9 x i8] c"macRoman\00", align 1
+@.str.65 = private unnamed_addr constant [11 x i8] c"macRomania\00", align 1
+@.str.66 = private unnamed_addr constant [8 x i8] c"macThai\00", align 1
+@.str.67 = private unnamed_addr constant [11 x i8] c"macTurkish\00", align 1
+@.str.68 = private unnamed_addr constant [11 x i8] c"macUkraine\00", align 1
+@.str.69 = private unnamed_addr constant [10 x i8] c"Shift_JIS\00", align 1
+@.str.70 = private unnamed_addr constant [12 x i8] c"SJIS-DoCoMo\00", align 1
+@.str.71 = private unnamed_addr constant [10 x i8] c"SJIS-KDDI\00", align 1
+@.str.72 = private unnamed_addr constant [14 x i8] c"SJIS-SoftBank\00", align 1
+@.str.73 = private unnamed_addr constant [22 x i8] c"stateless-ISO-2022-JP\00", align 1
+@.str.74 = private unnamed_addr constant [27 x i8] c"stateless-ISO-2022-JP-KDDI\00", align 1
+@.str.75 = private unnamed_addr constant [8 x i8] c"TIS-620\00", align 1
+@.str.76 = private unnamed_addr constant [9 x i8] c"UTF8-MAC\00", align 1
+@.str.77 = private unnamed_addr constant [12 x i8] c"UTF8-DoCoMo\00", align 1
+@.str.78 = private unnamed_addr constant [10 x i8] c"UTF8-KDDI\00", align 1
+@.str.79 = private unnamed_addr constant [14 x i8] c"UTF8-SoftBank\00", align 1
+@.str.80 = private unnamed_addr constant [13 x i8] c"Windows-1250\00", align 1
+@.str.81 = private unnamed_addr constant [13 x i8] c"Windows-1251\00", align 1
+@.str.82 = private unnamed_addr constant [13 x i8] c"Windows-1252\00", align 1
+@.str.83 = private unnamed_addr constant [13 x i8] c"Windows-1253\00", align 1
+@.str.84 = private unnamed_addr constant [13 x i8] c"Windows-1254\00", align 1
+@.str.85 = private unnamed_addr constant [13 x i8] c"Windows-1255\00", align 1
+@.str.86 = private unnamed_addr constant [13 x i8] c"Windows-1256\00", align 1
+@.str.87 = private unnamed_addr constant [13 x i8] c"Windows-1257\00", align 1
+@.str.88 = private unnamed_addr constant [13 x i8] c"Windows-1258\00", align 1
+@.str.89 = private unnamed_addr constant [12 x i8] c"Windows-874\00", align 1
+@pm_encodings = hidden constant [90 x { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] }] [{ ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_utf_8_char_width, ptr @pm_encoding_utf_8_alpha_char, ptr @pm_encoding_utf_8_alnum_char, ptr @pm_encoding_utf_8_isupper_char, ptr @.str, i8 1, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_ascii_char_width, ptr @pm_encoding_ascii_alpha_char, ptr @pm_encoding_ascii_alnum_char, ptr @pm_encoding_ascii_isupper_char, ptr @.str.1, i8 0, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_single_char_width, ptr @pm_encoding_ascii_alpha_char, ptr @pm_encoding_ascii_alnum_char, ptr @pm_encoding_ascii_isupper_char, ptr @.str.2, i8 0, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_euc_jp_char_width, ptr @pm_encoding_ascii_alpha_char_7bit, ptr @pm_encoding_ascii_alnum_char_7bit, ptr @pm_encoding_euc_jp_isupper_char, ptr @.str.3, i8 1, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_shift_jis_char_width, ptr @pm_encoding_shift_jis_alpha_char, ptr @pm_encoding_shift_jis_alnum_char, ptr @pm_encoding_shift_jis_isupper_char, ptr @.str.4, i8 1, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_big5_char_width, ptr @pm_encoding_ascii_alpha_char_7bit, ptr @pm_encoding_ascii_alnum_char_7bit, ptr @pm_encoding_ascii_isupper_char_7bit, ptr @.str.5, i8 1, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_big5_char_width, ptr @pm_encoding_ascii_alpha_char_7bit, ptr @pm_encoding_ascii_alnum_char_7bit, ptr @pm_encoding_ascii_isupper_char_7bit, ptr @.str.6, i8 1, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_big5_char_width, ptr @pm_encoding_ascii_alpha_char_7bit, ptr @pm_encoding_ascii_alnum_char_7bit, ptr @pm_encoding_ascii_isupper_char_7bit, ptr @.str.7, i8 1, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_cesu_8_char_width, ptr @pm_encoding_cesu_8_alpha_char, ptr @pm_encoding_cesu_8_alnum_char, ptr @pm_encoding_cesu_8_isupper_char, ptr @.str.8, i8 1, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_euc_jp_char_width, ptr @pm_encoding_ascii_alpha_char_7bit, ptr @pm_encoding_ascii_alnum_char_7bit, ptr @pm_encoding_euc_jp_isupper_char, ptr @.str.9, i8 1, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_single_char_width, ptr @pm_encoding_cp850_alpha_char, ptr @pm_encoding_cp850_alnum_char, ptr @pm_encoding_cp850_isupper_char, ptr @.str.10, i8 0, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_single_char_width, ptr @pm_encoding_cp852_alpha_char, ptr @pm_encoding_cp852_alnum_char, ptr @pm_encoding_cp852_isupper_char, ptr @.str.11, i8 0, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_single_char_width, ptr @pm_encoding_cp855_alpha_char, ptr @pm_encoding_cp855_alnum_char, ptr @pm_encoding_cp855_isupper_char, ptr @.str.12, i8 0, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_cp949_char_width, ptr @pm_encoding_ascii_alpha_char_7bit, ptr @pm_encoding_ascii_alnum_char_7bit, ptr @pm_encoding_ascii_isupper_char_7bit, ptr @.str.13, i8 1, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_big5_char_width, ptr @pm_encoding_ascii_alpha_char_7bit, ptr @pm_encoding_ascii_alnum_char_7bit, ptr @pm_encoding_ascii_isupper_char_7bit, ptr @.str.14, i8 1, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_big5_char_width, ptr @pm_encoding_ascii_alpha_char_7bit, ptr @pm_encoding_ascii_alnum_char_7bit, ptr @pm_encoding_ascii_isupper_char_7bit, ptr @.str.15, i8 1, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_emacs_mule_char_width, ptr @pm_encoding_ascii_alpha_char_7bit, ptr @pm_encoding_ascii_alnum_char_7bit, ptr @pm_encoding_ascii_isupper_char_7bit, ptr @.str.16, i8 1, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_euc_jp_char_width, ptr @pm_encoding_ascii_alpha_char_7bit, ptr @pm_encoding_ascii_alnum_char_7bit, ptr @pm_encoding_euc_jp_isupper_char, ptr @.str.17, i8 1, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_euc_jp_char_width, ptr @pm_encoding_ascii_alpha_char_7bit, ptr @pm_encoding_ascii_alnum_char_7bit, ptr @pm_encoding_euc_jp_isupper_char, ptr @.str.18, i8 1, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_euc_kr_char_width, ptr @pm_encoding_ascii_alpha_char_7bit, ptr @pm_encoding_ascii_alnum_char_7bit, ptr @pm_encoding_ascii_isupper_char_7bit, ptr @.str.19, i8 1, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_euc_tw_char_width, ptr @pm_encoding_ascii_alpha_char_7bit, ptr @pm_encoding_ascii_alnum_char_7bit, ptr @pm_encoding_ascii_isupper_char_7bit, ptr @.str.20, i8 1, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_euc_kr_char_width, ptr @pm_encoding_ascii_alpha_char_7bit, ptr @pm_encoding_ascii_alnum_char_7bit, ptr @pm_encoding_ascii_isupper_char_7bit, ptr @.str.21, i8 1, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_gb18030_char_width, ptr @pm_encoding_ascii_alpha_char_7bit, ptr @pm_encoding_ascii_alnum_char_7bit, ptr @pm_encoding_ascii_isupper_char_7bit, ptr @.str.22, i8 1, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_single_char_width, ptr @pm_encoding_gb1988_alpha_char, ptr @pm_encoding_gb1988_alnum_char, ptr @pm_encoding_gb1988_isupper_char, ptr @.str.23, i8 0, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_euc_kr_char_width, ptr @pm_encoding_ascii_alpha_char_7bit, ptr @pm_encoding_ascii_alnum_char_7bit, ptr @pm_encoding_ascii_isupper_char_7bit, ptr @.str.24, i8 1, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_gbk_char_width, ptr @pm_encoding_ascii_alpha_char_7bit, ptr @pm_encoding_ascii_alnum_char_7bit, ptr @pm_encoding_ascii_isupper_char_7bit, ptr @.str.25, i8 1, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_single_char_width, ptr @pm_encoding_ibm437_alpha_char, ptr @pm_encoding_ibm437_alnum_char, ptr @pm_encoding_ibm437_isupper_char, ptr @.str.26, i8 0, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_single_char_width, ptr @pm_encoding_ibm720_alpha_char, ptr @pm_encoding_ibm720_alnum_char, ptr @pm_encoding_ibm720_isupper_char, ptr @.str.27, i8 0, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_single_char_width, ptr @pm_encoding_ibm737_alpha_char, ptr @pm_encoding_ibm737_alnum_char, ptr @pm_encoding_ibm737_isupper_char, ptr @.str.28, i8 0, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_single_char_width, ptr @pm_encoding_ibm775_alpha_char, ptr @pm_encoding_ibm775_alnum_char, ptr @pm_encoding_ibm775_isupper_char, ptr @.str.29, i8 0, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_single_char_width, ptr @pm_encoding_ibm852_alpha_char, ptr @pm_encoding_ibm852_alnum_char, ptr @pm_encoding_ibm852_isupper_char, ptr @.str.30, i8 0, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_single_char_width, ptr @pm_encoding_ibm855_alpha_char, ptr @pm_encoding_ibm855_alnum_char, ptr @pm_encoding_ibm855_isupper_char, ptr @.str.31, i8 0, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_single_char_width, ptr @pm_encoding_ibm857_alpha_char, ptr @pm_encoding_ibm857_alnum_char, ptr @pm_encoding_ibm857_isupper_char, ptr @.str.32, i8 0, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_single_char_width, ptr @pm_encoding_ibm860_alpha_char, ptr @pm_encoding_ibm860_alnum_char, ptr @pm_encoding_ibm860_isupper_char, ptr @.str.33, i8 0, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_single_char_width, ptr @pm_encoding_ibm861_alpha_char, ptr @pm_encoding_ibm861_alnum_char, ptr @pm_encoding_ibm861_isupper_char, ptr @.str.34, i8 0, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_single_char_width, ptr @pm_encoding_ibm862_alpha_char, ptr @pm_encoding_ibm862_alnum_char, ptr @pm_encoding_ibm862_isupper_char, ptr @.str.35, i8 0, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_single_char_width, ptr @pm_encoding_ibm863_alpha_char, ptr @pm_encoding_ibm863_alnum_char, ptr @pm_encoding_ibm863_isupper_char, ptr @.str.36, i8 0, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_single_char_width, ptr @pm_encoding_ibm864_alpha_char, ptr @pm_encoding_ibm864_alnum_char, ptr @pm_encoding_ibm864_isupper_char, ptr @.str.37, i8 0, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_single_char_width, ptr @pm_encoding_ibm865_alpha_char, ptr @pm_encoding_ibm865_alnum_char, ptr @pm_encoding_ibm865_isupper_char, ptr @.str.38, i8 0, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_single_char_width, ptr @pm_encoding_ibm866_alpha_char, ptr @pm_encoding_ibm866_alnum_char, ptr @pm_encoding_ibm866_isupper_char, ptr @.str.39, i8 0, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_single_char_width, ptr @pm_encoding_ibm869_alpha_char, ptr @pm_encoding_ibm869_alnum_char, ptr @pm_encoding_ibm869_isupper_char, ptr @.str.40, i8 0, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_single_char_width, ptr @pm_encoding_iso_8859_1_alpha_char, ptr @pm_encoding_iso_8859_1_alnum_char, ptr @pm_encoding_iso_8859_1_isupper_char, ptr @.str.41, i8 0, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_single_char_width, ptr @pm_encoding_iso_8859_2_alpha_char, ptr @pm_encoding_iso_8859_2_alnum_char, ptr @pm_encoding_iso_8859_2_isupper_char, ptr @.str.42, i8 0, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_single_char_width, ptr @pm_encoding_iso_8859_3_alpha_char, ptr @pm_encoding_iso_8859_3_alnum_char, ptr @pm_encoding_iso_8859_3_isupper_char, ptr @.str.43, i8 0, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_single_char_width, ptr @pm_encoding_iso_8859_4_alpha_char, ptr @pm_encoding_iso_8859_4_alnum_char, ptr @pm_encoding_iso_8859_4_isupper_char, ptr @.str.44, i8 0, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_single_char_width, ptr @pm_encoding_iso_8859_5_alpha_char, ptr @pm_encoding_iso_8859_5_alnum_char, ptr @pm_encoding_iso_8859_5_isupper_char, ptr @.str.45, i8 0, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_single_char_width, ptr @pm_encoding_iso_8859_6_alpha_char, ptr @pm_encoding_iso_8859_6_alnum_char, ptr @pm_encoding_iso_8859_6_isupper_char, ptr @.str.46, i8 0, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_single_char_width, ptr @pm_encoding_iso_8859_7_alpha_char, ptr @pm_encoding_iso_8859_7_alnum_char, ptr @pm_encoding_iso_8859_7_isupper_char, ptr @.str.47, i8 0, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_single_char_width, ptr @pm_encoding_iso_8859_8_alpha_char, ptr @pm_encoding_iso_8859_8_alnum_char, ptr @pm_encoding_iso_8859_8_isupper_char, ptr @.str.48, i8 0, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_single_char_width, ptr @pm_encoding_iso_8859_9_alpha_char, ptr @pm_encoding_iso_8859_9_alnum_char, ptr @pm_encoding_iso_8859_9_isupper_char, ptr @.str.49, i8 0, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_single_char_width, ptr @pm_encoding_iso_8859_10_alpha_char, ptr @pm_encoding_iso_8859_10_alnum_char, ptr @pm_encoding_iso_8859_10_isupper_char, ptr @.str.50, i8 0, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_single_char_width, ptr @pm_encoding_iso_8859_11_alpha_char, ptr @pm_encoding_iso_8859_11_alnum_char, ptr @pm_encoding_iso_8859_11_isupper_char, ptr @.str.51, i8 0, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_single_char_width, ptr @pm_encoding_iso_8859_13_alpha_char, ptr @pm_encoding_iso_8859_13_alnum_char, ptr @pm_encoding_iso_8859_13_isupper_char, ptr @.str.52, i8 0, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_single_char_width, ptr @pm_encoding_iso_8859_14_alpha_char, ptr @pm_encoding_iso_8859_14_alnum_char, ptr @pm_encoding_iso_8859_14_isupper_char, ptr @.str.53, i8 0, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_single_char_width, ptr @pm_encoding_iso_8859_15_alpha_char, ptr @pm_encoding_iso_8859_15_alnum_char, ptr @pm_encoding_iso_8859_15_isupper_char, ptr @.str.54, i8 0, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_single_char_width, ptr @pm_encoding_iso_8859_16_alpha_char, ptr @pm_encoding_iso_8859_16_alnum_char, ptr @pm_encoding_iso_8859_16_isupper_char, ptr @.str.55, i8 0, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_single_char_width, ptr @pm_encoding_koi8_r_alpha_char, ptr @pm_encoding_koi8_r_alnum_char, ptr @pm_encoding_koi8_r_isupper_char, ptr @.str.56, i8 0, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_single_char_width, ptr @pm_encoding_koi8_u_alpha_char, ptr @pm_encoding_koi8_u_alnum_char, ptr @pm_encoding_koi8_u_isupper_char, ptr @.str.57, i8 0, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_single_char_width, ptr @pm_encoding_mac_cent_euro_alpha_char, ptr @pm_encoding_mac_cent_euro_alnum_char, ptr @pm_encoding_mac_cent_euro_isupper_char, ptr @.str.58, i8 0, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_single_char_width, ptr @pm_encoding_mac_croatian_alpha_char, ptr @pm_encoding_mac_croatian_alnum_char, ptr @pm_encoding_mac_croatian_isupper_char, ptr @.str.59, i8 0, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_single_char_width, ptr @pm_encoding_mac_cyrillic_alpha_char, ptr @pm_encoding_mac_cyrillic_alnum_char, ptr @pm_encoding_mac_cyrillic_isupper_char, ptr @.str.60, i8 0, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_single_char_width, ptr @pm_encoding_mac_greek_alpha_char, ptr @pm_encoding_mac_greek_alnum_char, ptr @pm_encoding_mac_greek_isupper_char, ptr @.str.61, i8 0, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_single_char_width, ptr @pm_encoding_mac_iceland_alpha_char, ptr @pm_encoding_mac_iceland_alnum_char, ptr @pm_encoding_mac_iceland_isupper_char, ptr @.str.62, i8 0, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_shift_jis_char_width, ptr @pm_encoding_shift_jis_alpha_char, ptr @pm_encoding_shift_jis_alnum_char, ptr @pm_encoding_shift_jis_isupper_char, ptr @.str.63, i8 1, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_single_char_width, ptr @pm_encoding_mac_roman_alpha_char, ptr @pm_encoding_mac_roman_alnum_char, ptr @pm_encoding_mac_roman_isupper_char, ptr @.str.64, i8 0, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_single_char_width, ptr @pm_encoding_mac_romania_alpha_char, ptr @pm_encoding_mac_romania_alnum_char, ptr @pm_encoding_mac_romania_isupper_char, ptr @.str.65, i8 0, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_single_char_width, ptr @pm_encoding_mac_thai_alpha_char, ptr @pm_encoding_mac_thai_alnum_char, ptr @pm_encoding_mac_thai_isupper_char, ptr @.str.66, i8 0, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_single_char_width, ptr @pm_encoding_mac_turkish_alpha_char, ptr @pm_encoding_mac_turkish_alnum_char, ptr @pm_encoding_mac_turkish_isupper_char, ptr @.str.67, i8 0, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_single_char_width, ptr @pm_encoding_mac_ukraine_alpha_char, ptr @pm_encoding_mac_ukraine_alnum_char, ptr @pm_encoding_mac_ukraine_isupper_char, ptr @.str.68, i8 0, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_shift_jis_char_width, ptr @pm_encoding_shift_jis_alpha_char, ptr @pm_encoding_shift_jis_alnum_char, ptr @pm_encoding_shift_jis_isupper_char, ptr @.str.69, i8 1, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_shift_jis_char_width, ptr @pm_encoding_shift_jis_alpha_char, ptr @pm_encoding_shift_jis_alnum_char, ptr @pm_encoding_shift_jis_isupper_char, ptr @.str.70, i8 1, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_shift_jis_char_width, ptr @pm_encoding_shift_jis_alpha_char, ptr @pm_encoding_shift_jis_alnum_char, ptr @pm_encoding_shift_jis_isupper_char, ptr @.str.71, i8 1, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_shift_jis_char_width, ptr @pm_encoding_shift_jis_alpha_char, ptr @pm_encoding_shift_jis_alnum_char, ptr @pm_encoding_shift_jis_isupper_char, ptr @.str.72, i8 1, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_emacs_mule_char_width, ptr @pm_encoding_ascii_alpha_char_7bit, ptr @pm_encoding_ascii_alnum_char_7bit, ptr @pm_encoding_ascii_isupper_char_7bit, ptr @.str.73, i8 1, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_emacs_mule_char_width, ptr @pm_encoding_ascii_alpha_char_7bit, ptr @pm_encoding_ascii_alnum_char_7bit, ptr @pm_encoding_ascii_isupper_char_7bit, ptr @.str.74, i8 1, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_single_char_width, ptr @pm_encoding_tis_620_alpha_char, ptr @pm_encoding_tis_620_alnum_char, ptr @pm_encoding_tis_620_isupper_char, ptr @.str.75, i8 0, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_utf_8_char_width, ptr @pm_encoding_utf_8_alpha_char, ptr @pm_encoding_utf_8_alnum_char, ptr @pm_encoding_utf_8_isupper_char, ptr @.str.76, i8 1, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_utf_8_char_width, ptr @pm_encoding_utf_8_alpha_char, ptr @pm_encoding_utf_8_alnum_char, ptr @pm_encoding_utf_8_isupper_char, ptr @.str.77, i8 1, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_utf_8_char_width, ptr @pm_encoding_utf_8_alpha_char, ptr @pm_encoding_utf_8_alnum_char, ptr @pm_encoding_utf_8_isupper_char, ptr @.str.78, i8 1, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_utf_8_char_width, ptr @pm_encoding_utf_8_alpha_char, ptr @pm_encoding_utf_8_alnum_char, ptr @pm_encoding_utf_8_isupper_char, ptr @.str.79, i8 1, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_single_char_width, ptr @pm_encoding_windows_1250_alpha_char, ptr @pm_encoding_windows_1250_alnum_char, ptr @pm_encoding_windows_1250_isupper_char, ptr @.str.80, i8 0, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_single_char_width, ptr @pm_encoding_windows_1251_alpha_char, ptr @pm_encoding_windows_1251_alnum_char, ptr @pm_encoding_windows_1251_isupper_char, ptr @.str.81, i8 0, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_single_char_width, ptr @pm_encoding_windows_1252_alpha_char, ptr @pm_encoding_windows_1252_alnum_char, ptr @pm_encoding_windows_1252_isupper_char, ptr @.str.82, i8 0, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_single_char_width, ptr @pm_encoding_windows_1253_alpha_char, ptr @pm_encoding_windows_1253_alnum_char, ptr @pm_encoding_windows_1253_isupper_char, ptr @.str.83, i8 0, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_single_char_width, ptr @pm_encoding_windows_1254_alpha_char, ptr @pm_encoding_windows_1254_alnum_char, ptr @pm_encoding_windows_1254_isupper_char, ptr @.str.84, i8 0, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_single_char_width, ptr @pm_encoding_windows_1255_alpha_char, ptr @pm_encoding_windows_1255_alnum_char, ptr @pm_encoding_windows_1255_isupper_char, ptr @.str.85, i8 0, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_single_char_width, ptr @pm_encoding_windows_1256_alpha_char, ptr @pm_encoding_windows_1256_alnum_char, ptr @pm_encoding_windows_1256_isupper_char, ptr @.str.86, i8 0, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_single_char_width, ptr @pm_encoding_windows_1257_alpha_char, ptr @pm_encoding_windows_1257_alnum_char, ptr @pm_encoding_windows_1257_isupper_char, ptr @.str.87, i8 0, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_single_char_width, ptr @pm_encoding_windows_1258_alpha_char, ptr @pm_encoding_windows_1258_alnum_char, ptr @pm_encoding_windows_1258_isupper_char, ptr @.str.88, i8 0, [7 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @pm_encoding_single_char_width, ptr @pm_encoding_windows_874_alpha_char, ptr @pm_encoding_windows_874_alnum_char, ptr @pm_encoding_windows_874_isupper_char, ptr @.str.89, i8 0, [7 x i8] zeroinitializer }], align 16
+@.str.90 = private unnamed_addr constant [5 x i8] c"-HFS\00", align 1
+@.str.91 = private unnamed_addr constant [6 x i8] c"ASCII\00", align 1
+@.str.92 = private unnamed_addr constant [15 x i8] c"ANSI_X3.4-1968\00", align 1
+@.str.93 = private unnamed_addr constant [7 x i8] c"BINARY\00", align 1
+@.str.94 = private unnamed_addr constant [16 x i8] c"Big5-HKSCS:2008\00", align 1
+@.str.95 = private unnamed_addr constant [8 x i8] c"CP65001\00", align 1
+@.str.96 = private unnamed_addr constant [6 x i8] c"CP932\00", align 1
+@.str.97 = private unnamed_addr constant [13 x i8] c"csWindows31J\00", align 1
+@.str.98 = private unnamed_addr constant [6 x i8] c"CP437\00", align 1
+@.str.99 = private unnamed_addr constant [6 x i8] c"CP720\00", align 1
+@.str.100 = private unnamed_addr constant [6 x i8] c"CP737\00", align 1
+@.str.101 = private unnamed_addr constant [6 x i8] c"CP775\00", align 1
+@.str.102 = private unnamed_addr constant [6 x i8] c"CP857\00", align 1
+@.str.103 = private unnamed_addr constant [6 x i8] c"CP860\00", align 1
+@.str.104 = private unnamed_addr constant [6 x i8] c"CP861\00", align 1
+@.str.105 = private unnamed_addr constant [6 x i8] c"CP862\00", align 1
+@.str.106 = private unnamed_addr constant [6 x i8] c"CP864\00", align 1
+@.str.107 = private unnamed_addr constant [6 x i8] c"CP865\00", align 1
+@.str.108 = private unnamed_addr constant [6 x i8] c"CP866\00", align 1
+@.str.109 = private unnamed_addr constant [6 x i8] c"CP869\00", align 1
+@.str.110 = private unnamed_addr constant [6 x i8] c"CP874\00", align 1
+@.str.111 = private unnamed_addr constant [6 x i8] c"CP878\00", align 1
+@.str.112 = private unnamed_addr constant [6 x i8] c"CP863\00", align 1
+@.str.113 = private unnamed_addr constant [6 x i8] c"CP936\00", align 1
+@.str.114 = private unnamed_addr constant [7 x i8] c"CP1250\00", align 1
+@.str.115 = private unnamed_addr constant [7 x i8] c"CP1251\00", align 1
+@.str.116 = private unnamed_addr constant [7 x i8] c"CP1252\00", align 1
+@.str.117 = private unnamed_addr constant [7 x i8] c"CP1253\00", align 1
+@.str.118 = private unnamed_addr constant [7 x i8] c"CP1254\00", align 1
+@.str.119 = private unnamed_addr constant [7 x i8] c"CP1255\00", align 1
+@.str.120 = private unnamed_addr constant [7 x i8] c"CP1256\00", align 1
+@.str.121 = private unnamed_addr constant [7 x i8] c"CP1257\00", align 1
+@.str.122 = private unnamed_addr constant [7 x i8] c"CP1258\00", align 1
+@.str.123 = private unnamed_addr constant [6 x i8] c"eucJP\00", align 1
+@.str.124 = private unnamed_addr constant [10 x i8] c"euc-jp-ms\00", align 1
+@.str.125 = private unnamed_addr constant [13 x i8] c"EUC-JISX0213\00", align 1
+@.str.126 = private unnamed_addr constant [6 x i8] c"eucKR\00", align 1
+@.str.127 = private unnamed_addr constant [7 x i8] c"EUC-CN\00", align 1
+@.str.128 = private unnamed_addr constant [6 x i8] c"eucCN\00", align 1
+@.str.129 = private unnamed_addr constant [6 x i8] c"eucTW\00", align 1
+@.str.130 = private unnamed_addr constant [7 x i8] c"IBM850\00", align 1
+@.str.131 = private unnamed_addr constant [10 x i8] c"ISO8859-1\00", align 1
+@.str.132 = private unnamed_addr constant [10 x i8] c"ISO8859-2\00", align 1
+@.str.133 = private unnamed_addr constant [10 x i8] c"ISO8859-3\00", align 1
+@.str.134 = private unnamed_addr constant [10 x i8] c"ISO8859-4\00", align 1
+@.str.135 = private unnamed_addr constant [10 x i8] c"ISO8859-5\00", align 1
+@.str.136 = private unnamed_addr constant [10 x i8] c"ISO8859-6\00", align 1
+@.str.137 = private unnamed_addr constant [10 x i8] c"ISO8859-7\00", align 1
+@.str.138 = private unnamed_addr constant [10 x i8] c"ISO8859-8\00", align 1
+@.str.139 = private unnamed_addr constant [10 x i8] c"ISO8859-9\00", align 1
+@.str.140 = private unnamed_addr constant [11 x i8] c"ISO8859-10\00", align 1
+@.str.141 = private unnamed_addr constant [11 x i8] c"ISO8859-11\00", align 1
+@.str.142 = private unnamed_addr constant [11 x i8] c"ISO8859-13\00", align 1
+@.str.143 = private unnamed_addr constant [11 x i8] c"ISO8859-14\00", align 1
+@.str.144 = private unnamed_addr constant [11 x i8] c"ISO8859-15\00", align 1
+@.str.145 = private unnamed_addr constant [11 x i8] c"ISO8859-16\00", align 1
+@.str.146 = private unnamed_addr constant [9 x i8] c"MacJapan\00", align 1
+@.str.147 = private unnamed_addr constant [4 x i8] c"PCK\00", align 1
+@.str.148 = private unnamed_addr constant [5 x i8] c"SJIS\00", align 1
+@.str.149 = private unnamed_addr constant [10 x i8] c"UTF-8-HFS\00", align 1
+@.str.150 = private unnamed_addr constant [4 x i8] c"646\00", align 1
+@pm_encoding_ascii_table = internal constant <{ [123 x i8], [133 x i8] }> <{ [123 x i8] c"\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\02\02\02\02\02\02\02\02\02\02\00\00\00\00\00\00\00\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\00\00\00\00\00\00\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03", [133 x i8] zeroinitializer }>, align 16
+@pm_encoding_cp850_table = internal constant <{ [123 x i8], [133 x i8] }> <{ [123 x i8] c"\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\02\02\02\02\02\02\02\02\02\02\00\00\00\00\00\00\00\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\00\00\00\00\00\00\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03", [133 x i8] zeroinitializer }>, align 16
+@pm_encoding_cp852_table = internal constant <{ [123 x i8], [133 x i8] }> <{ [123 x i8] c"\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\02\02\02\02\02\02\02\02\02\02\00\00\00\00\00\00\00\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\00\00\00\00\00\00\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03", [133 x i8] zeroinitializer }>, align 16
+@pm_encoding_cp855_table = internal constant <{ [123 x i8], [133 x i8] }> <{ [123 x i8] c"\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\02\02\02\02\02\02\02\02\02\02\00\00\00\00\00\00\00\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\00\00\00\00\00\00\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03", [133 x i8] zeroinitializer }>, align 16
+@pm_encoding_gb1988_table = internal constant <{ [123 x i8], [133 x i8] }> <{ [123 x i8] c"\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\02\02\02\02\02\02\02\02\02\02\00\00\00\00\00\00\00\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\00\00\00\00\00\00\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03", [133 x i8] zeroinitializer }>, align 16
+@pm_encoding_ibm437_table = internal constant <{ [123 x i8], [133 x i8] }> <{ [123 x i8] c"\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\02\02\02\02\02\02\02\02\02\02\00\00\00\00\00\00\00\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\00\00\00\00\00\00\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03", [133 x i8] zeroinitializer }>, align 16
+@pm_encoding_ibm720_table = internal constant <{ [123 x i8], [133 x i8] }> <{ [123 x i8] c"\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\02\02\02\02\02\02\02\02\02\02\00\00\00\00\00\00\00\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\00\00\00\00\00\00\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03", [133 x i8] zeroinitializer }>, align 16
+@pm_encoding_ibm737_table = internal constant <{ [123 x i8], [133 x i8] }> <{ [123 x i8] c"\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\02\02\02\02\02\02\02\02\02\02\00\00\00\00\00\00\00\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\00\00\00\00\00\00\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03", [133 x i8] zeroinitializer }>, align 16
+@pm_encoding_ibm775_table = internal constant <{ [123 x i8], [133 x i8] }> <{ [123 x i8] c"\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\02\02\02\02\02\02\02\02\02\02\00\00\00\00\00\00\00\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\00\00\00\00\00\00\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03", [133 x i8] zeroinitializer }>, align 16
+@pm_encoding_ibm852_table = internal constant <{ [123 x i8], [133 x i8] }> <{ [123 x i8] c"\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\02\02\02\02\02\02\02\02\02\02\00\00\00\00\00\00\00\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\00\00\00\00\00\00\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03", [133 x i8] zeroinitializer }>, align 16
+@pm_encoding_ibm855_table = internal constant <{ [123 x i8], [133 x i8] }> <{ [123 x i8] c"\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\02\02\02\02\02\02\02\02\02\02\00\00\00\00\00\00\00\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\00\00\00\00\00\00\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03", [133 x i8] zeroinitializer }>, align 16
+@pm_encoding_ibm857_table = internal constant <{ [123 x i8], [133 x i8] }> <{ [123 x i8] c"\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\02\02\02\02\02\02\02\02\02\02\00\00\00\00\00\00\00\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\00\00\00\00\00\00\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03", [133 x i8] zeroinitializer }>, align 16
+@pm_encoding_ibm860_table = internal constant <{ [123 x i8], [133 x i8] }> <{ [123 x i8] c"\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\02\02\02\02\02\02\02\02\02\02\00\00\00\00\00\00\00\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\00\00\00\00\00\00\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03", [133 x i8] zeroinitializer }>, align 16
+@pm_encoding_ibm861_table = internal constant <{ [123 x i8], [133 x i8] }> <{ [123 x i8] c"\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\02\02\02\02\02\02\02\02\02\02\00\00\00\00\00\00\00\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\00\00\00\00\00\00\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03", [133 x i8] zeroinitializer }>, align 16
+@pm_encoding_ibm862_table = internal constant <{ [123 x i8], [133 x i8] }> <{ [123 x i8] c"\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\02\02\02\02\02\02\02\02\02\02\00\00\00\00\00\00\00\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\00\00\00\00\00\00\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03", [133 x i8] zeroinitializer }>, align 16
+@pm_encoding_ibm863_table = internal constant <{ [123 x i8], [133 x i8] }> <{ [123 x i8] c"\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\02\02\02\02\02\02\02\02\02\02\00\00\00\00\00\00\00\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\00\00\00\00\00\00\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03", [133 x i8] zeroinitializer }>, align 16
+@pm_encoding_ibm864_table = internal constant <{ [123 x i8], [133 x i8] }> <{ [123 x i8] c"\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\02\02\02\02\02\02\02\02\02\02\00\00\00\00\00\00\00\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\00\00\00\00\00\00\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03", [133 x i8] zeroinitializer }>, align 16
+@pm_encoding_ibm865_table = internal constant <{ [123 x i8], [133 x i8] }> <{ [123 x i8] c"\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\02\02\02\02\02\02\02\02\02\02\00\00\00\00\00\00\00\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\00\00\00\00\00\00\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03", [133 x i8] zeroinitializer }>, align 16
+@pm_encoding_ibm866_table = internal constant <{ [123 x i8], [133 x i8] }> <{ [123 x i8] c"\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\02\02\02\02\02\02\02\02\02\02\00\00\00\00\00\00\00\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\00\00\00\00\00\00\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03", [133 x i8] zeroinitializer }>, align 16
+@pm_encoding_ibm869_table = internal constant <{ [123 x i8], [133 x i8] }> <{ [123 x i8] c"\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\02\02\02\02\02\02\02\02\02\02\00\00\00\00\00\00\00\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\00\00\00\00\00\00\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03", [133 x i8] zeroinitializer }>, align 16
+@pm_encoding_iso_8859_1_table = internal constant [256 x i8] c"\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\02\02\02\02\02\02\02\02\02\02\00\00\00\00\00\00\00\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\00\00\00\00\00\00\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\03\00\00\00\00\00\00\00\00\00\00\03\00\00\00\00\03\00\00\00\00\00\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\00\07\07\07\07\07\07\07\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\00\03\03\03\03\03\03\03\03", align 16
+@pm_encoding_iso_8859_2_table = internal constant [256 x i8] c"\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\02\02\02\02\02\02\02\02\02\02\00\00\00\00\00\00\00\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\00\00\00\00\00\00\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\07\00\07\00\07\07\00\00\07\07\07\07\00\07\07\00\03\00\03\00\03\03\00\00\03\03\03\03\00\03\03\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\00\07\07\07\07\07\07\07\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\00\03\03\03\03\03\03\03\00", align 16
+@pm_encoding_iso_8859_3_table = internal constant [256 x i8] c"\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\02\02\02\02\02\02\02\02\02\02\00\00\00\00\00\00\00\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\00\00\00\00\00\00\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\07\00\00\00\00\07\00\00\07\07\07\07\00\00\07\00\03\00\00\00\03\03\00\00\03\03\03\03\00\00\03\07\07\07\00\07\07\07\07\07\07\07\07\07\07\07\07\00\07\07\07\07\07\07\00\07\07\07\07\07\07\07\03\03\03\03\00\03\03\03\03\03\03\03\03\03\03\03\03\00\03\03\03\03\03\03\00\03\03\03\03\03\03\03\00", align 16
+@pm_encoding_iso_8859_4_table = internal constant [256 x i8] c"\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\02\02\02\02\02\02\02\02\02\02\00\00\00\00\00\00\00\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\00\00\00\00\00\00\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\07\03\07\00\07\07\00\00\07\07\07\07\00\07\00\00\03\00\03\00\03\03\00\00\03\03\03\03\07\03\03\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\00\07\07\07\07\07\07\07\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\00\03\03\03\03\03\03\03\00", align 16
+@pm_encoding_iso_8859_5_table = internal constant [256 x i8] c"\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\02\02\02\02\02\02\02\02\02\02\00\00\00\00\00\00\00\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\00\00\00\00\00\00\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\07\07\07\07\07\07\07\07\07\07\07\07\00\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\00\03\03\03\03\03\03\03\03\03\03\03\03\00\03\03", align 16
+@pm_encoding_iso_8859_6_table = internal constant <{ [243 x i8], [13 x i8] }> <{ [243 x i8] c"\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\02\02\02\02\02\02\02\02\02\02\00\00\00\00\00\00\00\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\00\00\00\00\00\00\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\00\00\00\00\00\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03", [13 x i8] zeroinitializer }>, align 16
+@pm_encoding_iso_8859_7_table = internal constant [256 x i8] c"\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\02\02\02\02\02\02\02\02\02\02\00\00\00\00\00\00\00\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\00\00\00\00\00\00\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\07\00\07\07\07\00\07\00\07\07\03\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\00\07\07\07\07\07\07\07\07\07\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\00", align 16
+@pm_encoding_iso_8859_8_table = internal constant [256 x i8] c"\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\02\02\02\02\02\02\02\02\02\02\00\00\00\00\00\00\00\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\00\00\00\00\00\00\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\03\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\00\00\00\00\00", align 16
+@pm_encoding_iso_8859_9_table = internal constant [256 x i8] c"\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\02\02\02\02\02\02\02\02\02\02\00\00\00\00\00\00\00\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\00\00\00\00\00\00\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\03\00\00\00\00\00\00\00\00\00\00\03\00\00\00\00\03\00\00\00\00\00\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\00\07\07\07\07\07\07\07\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\00\03\03\03\03\03\03\03\03", align 16
+@pm_encoding_iso_8859_10_table = internal constant [256 x i8] c"\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\02\02\02\02\02\02\02\02\02\02\00\00\00\00\00\00\00\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\00\00\00\00\00\00\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\07\07\07\07\07\07\00\07\07\07\07\07\00\07\07\00\03\03\03\03\03\03\00\03\03\03\03\03\00\03\03\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03", align 16
+@pm_encoding_iso_8859_11_table = internal constant [256 x i8] c"\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\02\02\02\02\02\02\02\02\02\02\00\00\00\00\00\00\00\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\00\00\00\00\00\00\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\00\00\00\00\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\00\00\00\00", align 16
+@pm_encoding_iso_8859_13_table = internal constant [256 x i8] c"\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\02\02\02\02\02\02\02\02\02\02\00\00\00\00\00\00\00\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\00\00\00\00\00\00\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\07\00\07\00\00\00\00\07\00\00\00\00\00\03\00\00\03\00\03\00\00\00\00\03\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\00\07\07\07\07\07\07\07\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\00\03\03\03\03\03\03\03\00", align 16
+@pm_encoding_iso_8859_14_table = internal constant [256 x i8] c"\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\02\02\02\02\02\02\02\02\02\02\00\00\00\00\00\00\00\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\00\00\00\00\00\00\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\07\03\00\07\03\07\00\07\00\07\03\07\00\00\07\07\03\07\03\07\03\00\07\03\03\03\07\03\07\03\03\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03", align 16
+@pm_encoding_iso_8859_15_table = internal constant [256 x i8] c"\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\02\02\02\02\02\02\02\02\02\02\00\00\00\00\00\00\00\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\00\00\00\00\00\00\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\07\00\03\00\03\00\00\00\00\00\00\00\00\00\07\03\00\00\03\00\03\00\07\03\07\00\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\00\07\07\07\07\07\07\07\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\00\03\03\03\03\03\03\03\03", align 16
+@pm_encoding_iso_8859_16_table = internal constant [256 x i8] c"\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\02\02\02\02\02\02\02\02\02\02\00\00\00\00\00\00\00\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\00\00\00\00\00\00\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\07\03\07\00\00\07\00\03\00\07\00\07\00\03\07\00\00\07\03\07\00\00\00\03\03\03\00\07\03\07\03\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03", align 16
+@pm_encoding_koi8_r_table = internal constant [256 x i8] c"\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\02\02\02\02\02\02\02\02\02\02\00\00\00\00\00\00\00\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\00\00\00\00\00\00\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\03\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\07\00\00\00\00\00\00\00\00\00\00\00\00\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07", align 16
+@pm_encoding_koi8_u_table = internal constant [256 x i8] c"\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\02\02\02\02\02\02\02\02\02\02\00\00\00\00\00\00\00\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\00\00\00\00\00\00\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\03\03\00\03\03\00\00\00\00\00\03\00\00\00\00\00\07\07\00\07\07\00\00\00\00\00\07\00\00\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07", align 16
+@pm_encoding_mac_cent_euro_table = internal constant <{ [123 x i8], [133 x i8] }> <{ [123 x i8] c"\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\02\02\02\02\02\02\02\02\02\02\00\00\00\00\00\00\00\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\00\00\00\00\00\00\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03", [133 x i8] zeroinitializer }>, align 16
+@pm_encoding_mac_croatian_table = internal constant <{ [123 x i8], [133 x i8] }> <{ [123 x i8] c"\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\02\02\02\02\02\02\02\02\02\02\00\00\00\00\00\00\00\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\00\00\00\00\00\00\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03", [133 x i8] zeroinitializer }>, align 16
+@pm_encoding_mac_cyrillic_table = internal constant <{ [123 x i8], [133 x i8] }> <{ [123 x i8] c"\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\02\02\02\02\02\02\02\02\02\02\00\00\00\00\00\00\00\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\00\00\00\00\00\00\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03", [133 x i8] zeroinitializer }>, align 16
+@pm_encoding_mac_greek_table = internal constant <{ [123 x i8], [133 x i8] }> <{ [123 x i8] c"\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\02\02\02\02\02\02\02\02\02\02\00\00\00\00\00\00\00\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\00\00\00\00\00\00\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03", [133 x i8] zeroinitializer }>, align 16
+@pm_encoding_mac_iceland_table = internal constant <{ [123 x i8], [133 x i8] }> <{ [123 x i8] c"\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\02\02\02\02\02\02\02\02\02\02\00\00\00\00\00\00\00\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\00\00\00\00\00\00\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03", [133 x i8] zeroinitializer }>, align 16
+@pm_encoding_mac_roman_table = internal constant <{ [123 x i8], [133 x i8] }> <{ [123 x i8] c"\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\02\02\02\02\02\02\02\02\02\02\00\00\00\00\00\00\00\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\00\00\00\00\00\00\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03", [133 x i8] zeroinitializer }>, align 16
+@pm_encoding_mac_romania_table = internal constant <{ [123 x i8], [133 x i8] }> <{ [123 x i8] c"\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\02\02\02\02\02\02\02\02\02\02\00\00\00\00\00\00\00\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\00\00\00\00\00\00\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03", [133 x i8] zeroinitializer }>, align 16
+@pm_encoding_mac_thai_table = internal constant <{ [123 x i8], [133 x i8] }> <{ [123 x i8] c"\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\02\02\02\02\02\02\02\02\02\02\00\00\00\00\00\00\00\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\00\00\00\00\00\00\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03", [133 x i8] zeroinitializer }>, align 16
+@pm_encoding_mac_turkish_table = internal constant <{ [123 x i8], [133 x i8] }> <{ [123 x i8] c"\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\02\02\02\02\02\02\02\02\02\02\00\00\00\00\00\00\00\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\00\00\00\00\00\00\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03", [133 x i8] zeroinitializer }>, align 16
+@pm_encoding_mac_ukraine_table = internal constant <{ [123 x i8], [133 x i8] }> <{ [123 x i8] c"\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\02\02\02\02\02\02\02\02\02\02\00\00\00\00\00\00\00\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\00\00\00\00\00\00\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03", [133 x i8] zeroinitializer }>, align 16
+@pm_encoding_tis_620_table = internal constant [256 x i8] c"\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\02\02\02\02\02\02\02\02\02\02\00\00\00\00\00\00\00\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\00\00\00\00\00\00\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\00\00\00\00\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\00\00\00\00", align 16
+@pm_encoding_windows_1250_table = internal constant [256 x i8] c"\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\02\02\02\02\02\02\02\02\02\02\00\00\00\00\00\00\00\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\00\00\00\00\00\00\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\07\00\07\07\07\07\00\00\00\00\00\00\00\00\00\00\03\00\03\03\03\03\00\00\00\07\00\07\00\00\00\00\07\00\00\00\00\07\00\00\00\03\00\03\00\00\00\03\03\00\07\00\03\03\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\00\03\03\03\03\03\03\03\00", align 16
+@pm_encoding_windows_1251_table = internal constant [256 x i8] c"\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\02\02\02\02\02\02\02\02\02\02\00\00\00\00\00\00\00\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\00\00\00\00\00\00\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\00\00\00\00\00\07\07\00\03\00\00\00\00\00\00\07\00\07\07\07\07\03\00\00\00\00\00\00\00\00\00\03\00\03\03\03\03\00\07\03\07\00\07\00\00\07\00\07\00\00\00\00\07\00\00\07\03\03\03\00\00\03\00\03\00\03\07\03\03\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03", align 16
+@pm_encoding_windows_1252_table = internal constant [256 x i8] c"\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\02\02\02\02\02\02\02\02\02\02\00\00\00\00\00\00\00\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\00\00\00\00\00\00\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\07\00\07\00\07\00\00\00\00\00\00\00\00\00\00\00\03\00\03\00\03\07\00\00\00\00\00\00\00\00\00\00\03\00\00\00\00\00\00\00\00\00\00\03\00\00\00\00\03\00\00\00\00\00\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\00\03\03\03\03\03\03\03\03", align 16
+@pm_encoding_windows_1253_table = internal constant [256 x i8] c"\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\02\02\02\02\02\02\02\02\02\02\00\00\00\00\00\00\00\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\00\00\00\00\00\00\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\07\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\03\07\00\07\07\07\00\07\00\07\07\03\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\00\07\07\07\07\07\07\07\07\07\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\00", align 16
+@pm_encoding_windows_1254_table = internal constant [256 x i8] c"\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\02\02\02\02\02\02\02\02\02\02\00\00\00\00\00\00\00\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\00\00\00\00\00\00\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\07\00\07\00\00\00\00\00\00\00\00\00\00\00\00\00\03\00\03\00\00\07\00\00\00\00\00\00\00\00\00\00\03\00\00\00\00\00\00\00\00\00\00\03\00\00\00\00\03\00\00\00\00\00\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\00\07\07\07\07\07\07\07\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\00\03\03\03\03\03\03\03\03", align 16
+@pm_encoding_windows_1255_table = internal constant [256 x i8] c"\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\02\02\02\02\02\02\02\02\02\02\00\00\00\00\00\00\00\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\00\00\00\00\00\00\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\03\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\00\00\00\00\00", align 16
+@pm_encoding_windows_1256_table = internal constant <{ [243 x i8], [13 x i8] }> <{ [243 x i8] c"\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\02\02\02\02\02\02\02\02\02\02\00\00\00\00\00\00\00\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\00\00\00\00\00\00\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\00\00\00\00\00\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03", [13 x i8] zeroinitializer }>, align 16
+@pm_encoding_windows_1257_table = internal constant [256 x i8] c"\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\02\02\02\02\02\02\02\02\02\02\00\00\00\00\00\00\00\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\00\00\00\00\00\00\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\07\00\07\00\00\00\00\07\00\00\00\00\00\03\00\00\03\00\03\00\00\00\00\03\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\00\07\07\07\07\07\07\07\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\00\03\03\03\03\03\03\03\00", align 16
+@pm_encoding_windows_1258_table = internal constant <{ [123 x i8], [133 x i8] }> <{ [123 x i8] c"\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\02\02\02\02\02\02\02\02\02\02\00\00\00\00\00\00\00\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\00\00\00\00\00\00\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03", [133 x i8] zeroinitializer }>, align 16
+@pm_encoding_windows_874_table = internal constant <{ [123 x i8], [133 x i8] }> <{ [123 x i8] c"\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\02\02\02\02\02\02\02\02\02\02\00\00\00\00\00\00\00\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\00\00\00\00\00\00\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03", [133 x i8] zeroinitializer }>, align 16
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @rb_enc_from_encoding_index(i32 noundef %0) #0 {
-  %2 = alloca i32, align 4
-  store i32 %0, ptr %2, align 4
-  %3 = load i32, ptr %2, align 4
-  %4 = call i64 @enc_list_lookup(i32 noundef %3)
-  ret i64 %4
-}
-
-; Function Attrs: nounwind sspstrong willreturn memory(read) uwtable
-define dso_local i32 @rb_enc_to_index(ptr noundef %0) #2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = icmp ne ptr %3, null
-  br i1 %4, label %5, label %10
-
-5:                                                ; preds = %1
-  %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %6, i32 0, i32 17
-  %8 = load i32, ptr %7, align 8
-  %9 = and i32 %8, 16777215
-  br label %11
-
-10:                                               ; preds = %1
-  br label %11
-
-11:                                               ; preds = %10, %5
-  %12 = phi i32 [ %9, %5 ], [ 0, %10 ]
-  ret i32 %12
-}
-
-; Function Attrs: nounwind sspstrong willreturn memory(read) uwtable
-define dso_local i32 @rb_enc_dummy_p(ptr noundef %0) #2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %3, i32 0, i32 17
-  %5 = load i32, ptr %4, align 8
-  %6 = and i32 %5, 16777216
-  %7 = icmp ne i32 %6, 0
-  %8 = zext i1 %7 to i32
-  ret i32 %8
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @rb_to_encoding_index(i64 noundef %0) #0 {
-  %2 = alloca i32, align 4
+define hidden i64 @pm_encoding_utf_8_char_width(ptr noundef %0, i64 noundef %1) #0 {
   %3 = alloca i64, align 8
-  %4 = alloca i32, align 4
-  %5 = alloca ptr, align 8
-  store i64 %0, ptr %3, align 8
-  %6 = load i64, ptr %3, align 8
-  %7 = call i32 @enc_check_encoding(i64 noundef %6)
-  store i32 %7, ptr %4, align 4
-  %8 = load i32, ptr %4, align 4
-  %9 = icmp sge i32 %8, 0
-  br i1 %9, label %10, label %12
-
-10:                                               ; preds = %1
-  %11 = load i32, ptr %4, align 4
-  store i32 %11, ptr %2, align 4
-  br label %31
-
-12:                                               ; preds = %1
-  %13 = load i64, ptr %3, align 8
-  %14 = call i64 @rb_check_string_type(i64 noundef %13)
-  store i64 %14, ptr %3, align 8
-  %15 = call zeroext i1 @RB_NIL_P(i64 noundef %14) #18
-  br i1 %15, label %16, label %17
-
-16:                                               ; preds = %12
-  store i32 -1, ptr %2, align 4
-  br label %31
-
-17:                                               ; preds = %12
-  br label %18
-
-18:                                               ; preds = %17
-  %19 = load i64, ptr %3, align 8
-  %20 = call ptr @rb_enc_get(i64 noundef %19)
-  %21 = call zeroext i1 @rb_enc_asciicompat(ptr noundef %20)
-  br i1 %21, label %23, label %22
-
-22:                                               ; preds = %18
-  store i32 -1, ptr %2, align 4
-  br label %31
-
-23:                                               ; preds = %18
-  %24 = load i64, ptr %3, align 8
-  %25 = call ptr @rb_str_to_cstr(i64 noundef %24)
-  store ptr %25, ptr %5, align 8
-  %26 = icmp ne ptr %25, null
-  br i1 %26, label %28, label %27
-
-27:                                               ; preds = %23
-  store i32 -1, ptr %2, align 4
-  br label %31
-
-28:                                               ; preds = %23
-  %29 = load ptr, ptr %5, align 8
-  %30 = call i32 @rb_enc_find_index(ptr noundef %29)
-  store i32 %30, ptr %2, align 4
-  br label %31
-
-31:                                               ; preds = %28, %27, %22, %16, %10
-  %32 = load i32, ptr %2, align 4
-  ret i32 %32
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @enc_check_encoding(i64 noundef %0) #0 {
-  %2 = alloca i1, align 1
-  %3 = alloca i64, align 8
-  %4 = alloca i32, align 4
-  %5 = alloca i32, align 4
-  %6 = alloca i64, align 8
-  store i64 %0, ptr %6, align 8
-  br i1 true, label %7, label %63
-
-7:                                                ; preds = %1
-  %8 = load i64, ptr %6, align 8
-  store i64 %8, ptr %3, align 8
-  store i32 12, ptr %4, align 4
-  %9 = load i32, ptr %4, align 4
-  %10 = icmp eq i32 %9, 18
-  br i1 %10, label %11, label %14
-
-11:                                               ; preds = %7
-  %12 = load i64, ptr %3, align 8
-  %13 = icmp eq i64 %12, 20
-  store i1 %13, ptr %2, align 1
-  br label %61
-
-14:                                               ; preds = %7
-  %15 = load i32, ptr %4, align 4
-  %16 = icmp eq i32 %15, 19
-  br i1 %16, label %17, label %20
-
-17:                                               ; preds = %14
-  %18 = load i64, ptr %3, align 8
-  %19 = icmp eq i64 %18, 0
-  store i1 %19, ptr %2, align 1
-  br label %61
-
-20:                                               ; preds = %14
-  %21 = load i32, ptr %4, align 4
-  %22 = icmp eq i32 %21, 17
-  br i1 %22, label %23, label %26
-
-23:                                               ; preds = %20
-  %24 = load i64, ptr %3, align 8
-  %25 = icmp eq i64 %24, 4
-  store i1 %25, ptr %2, align 1
-  br label %61
-
-26:                                               ; preds = %20
-  %27 = load i32, ptr %4, align 4
-  %28 = icmp eq i32 %27, 22
-  br i1 %28, label %29, label %32
-
-29:                                               ; preds = %26
-  %30 = load i64, ptr %3, align 8
-  %31 = icmp eq i64 %30, 36
-  store i1 %31, ptr %2, align 1
-  br label %61
-
-32:                                               ; preds = %26
-  %33 = load i32, ptr %4, align 4
-  %34 = icmp eq i32 %33, 21
-  br i1 %34, label %35, label %38
-
-35:                                               ; preds = %32
-  %36 = load i64, ptr %3, align 8
-  %37 = call zeroext i1 @RB_FIXNUM_P(i64 noundef %36) #18
-  store i1 %37, ptr %2, align 1
-  br label %61
-
-38:                                               ; preds = %32
-  %39 = load i32, ptr %4, align 4
-  %40 = icmp eq i32 %39, 20
-  br i1 %40, label %41, label %44
-
-41:                                               ; preds = %38
-  %42 = load i64, ptr %3, align 8
-  %43 = call zeroext i1 @RB_SYMBOL_P(i64 noundef %42) #17
-  store i1 %43, ptr %2, align 1
-  br label %61
-
-44:                                               ; preds = %38
-  %45 = load i32, ptr %4, align 4
-  %46 = icmp eq i32 %45, 4
-  br i1 %46, label %47, label %50
-
-47:                                               ; preds = %44
-  %48 = load i64, ptr %3, align 8
-  %49 = call zeroext i1 @RB_FLOAT_TYPE_P(i64 noundef %48) #17
-  store i1 %49, ptr %2, align 1
-  br label %61
-
-50:                                               ; preds = %44
-  %51 = load i64, ptr %3, align 8
-  %52 = call zeroext i1 @RB_SPECIAL_CONST_P(i64 noundef %51) #18
-  br i1 %52, label %53, label %54
-
-53:                                               ; preds = %50
-  store i1 false, ptr %2, align 1
-  br label %61
-
-54:                                               ; preds = %50
-  %55 = load i32, ptr %4, align 4
-  %56 = load i64, ptr %3, align 8
-  %57 = call i32 @RB_BUILTIN_TYPE(i64 noundef %56) #17
-  %58 = icmp eq i32 %55, %57
-  br i1 %58, label %59, label %60
-
-59:                                               ; preds = %54
-  store i1 true, ptr %2, align 1
-  br label %61
-
-60:                                               ; preds = %54
-  store i1 false, ptr %2, align 1
-  br label %61
-
-61:                                               ; preds = %60, %59, %53, %47, %41, %35, %29, %23, %17, %11
-  %62 = load i1, ptr %2, align 1
-  br i1 %62, label %66, label %73
-
-63:                                               ; preds = %1
-  %64 = load i64, ptr %6, align 8
-  %65 = call zeroext i1 @RB_TYPE_P(i64 noundef %64, i32 noundef 12) #17
-  br i1 %65, label %66, label %73
-
-66:                                               ; preds = %63, %61
-  %67 = load i64, ptr %6, align 8
-  %68 = call zeroext i1 @RTYPEDDATA_P(i64 noundef %67) #17
-  br i1 %68, label %69, label %73
-
-69:                                               ; preds = %66
-  %70 = load i64, ptr %6, align 8
-  %71 = call ptr @RTYPEDDATA_TYPE(i64 noundef %70) #17
-  %72 = icmp eq ptr %71, @encoding_data_type
-  br i1 %72, label %74, label %73
-
-73:                                               ; preds = %69, %66, %63, %61
-  store i32 -1, ptr %5, align 4
-  br label %80
-
-74:                                               ; preds = %69
-  %75 = load i64, ptr %6, align 8
-  %76 = inttoptr i64 %75 to ptr
-  %77 = getelementptr inbounds %struct.RData, ptr %76, i32 0, i32 3
-  %78 = load ptr, ptr %77, align 8
-  %79 = call i32 @check_encoding(ptr noundef %78)
-  store i32 %79, ptr %5, align 4
-  br label %80
-
-80:                                               ; preds = %74, %73
-  %81 = load i32, ptr %5, align 4
-  ret i32 %81
-}
-
-; Function Attrs: nounwind sspstrong willreturn memory(none) uwtable
-define internal zeroext i1 @RB_NIL_P(i64 noundef %0) #3 {
-  %2 = alloca i64, align 8
-  store i64 %0, ptr %2, align 8
-  %3 = load i64, ptr %2, align 8
-  %4 = icmp eq i64 %3, 4
-  ret i1 %4
-}
-
-declare i64 @rb_check_string_type(i64 noundef) #1
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @rb_enc_asciicompat(ptr noundef %0) #0 {
-  %2 = alloca i1, align 1
-  %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  %4 = load ptr, ptr %3, align 8
-  %5 = call i32 @rb_enc_mbminlen(ptr noundef %4)
-  %6 = icmp ne i32 %5, 1
-  br i1 %6, label %7, label %8
-
-7:                                                ; preds = %1
-  store i1 false, ptr %2, align 1
-  br label %14
-
-8:                                                ; preds = %1
-  %9 = load ptr, ptr %3, align 8
-  %10 = call i32 @rb_enc_dummy_p(ptr noundef %9) #17
-  %11 = icmp ne i32 %10, 0
-  br i1 %11, label %12, label %13
-
-12:                                               ; preds = %8
-  store i1 false, ptr %2, align 1
-  br label %14
-
-13:                                               ; preds = %8
-  store i1 true, ptr %2, align 1
-  br label %14
-
-14:                                               ; preds = %13, %12, %7
-  %15 = load i1, ptr %2, align 1
-  ret i1 %15
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @rb_enc_get(i64 noundef %0) #0 {
-  %2 = alloca i64, align 8
-  store i64 %0, ptr %2, align 8
-  %3 = load i64, ptr %2, align 8
-  %4 = call i32 @rb_enc_get_index(i64 noundef %3)
-  %5 = call ptr @rb_enc_from_index(i32 noundef %4)
-  ret ptr %5
-}
-
-declare ptr @rb_str_to_cstr(i64 noundef) #1
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @rb_enc_find_index(ptr noundef %0) #0 {
-  %2 = alloca i32, align 4
-  %3 = alloca ptr, align 8
-  %4 = alloca i32, align 4
-  %5 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  %6 = load ptr, ptr %3, align 8
-  %7 = call i32 @enc_registered(ptr noundef @global_enc_table, ptr noundef %6)
-  store i32 %7, ptr %4, align 4
-  %8 = load i32, ptr %4, align 4
-  %9 = icmp slt i32 %8, 0
-  br i1 %9, label %10, label %13
-
-10:                                               ; preds = %1
-  %11 = load ptr, ptr %3, align 8
-  %12 = call i32 @load_encoding(ptr noundef %11)
-  store i32 %12, ptr %4, align 4
-  br label %37
-
-13:                                               ; preds = %1
-  %14 = load i32, ptr %4, align 4
-  %15 = call ptr @rb_enc_from_index(i32 noundef %14)
-  store ptr %15, ptr %5, align 8
-  %16 = icmp ne ptr %15, null
-  br i1 %16, label %24, label %17
-
-17:                                               ; preds = %13
-  %18 = load i32, ptr %4, align 4
-  %19 = icmp ne i32 %18, 2147483647
-  br i1 %19, label %20, label %23
-
-20:                                               ; preds = %17
-  %21 = load i64, ptr @rb_eArgError, align 8
-  %22 = load ptr, ptr %3, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %21, ptr noundef @.str.2, ptr noundef %22) #19
-  unreachable
-
-23:                                               ; preds = %17
-  br label %36
-
-24:                                               ; preds = %13
-  %25 = load ptr, ptr %5, align 8
-  %26 = call i32 @rb_enc_mbmaxlen(ptr noundef %25)
-  %27 = icmp ne i32 %26, 0
-  br i1 %27, label %35, label %28
-
-28:                                               ; preds = %24
-  %29 = load ptr, ptr %5, align 8
-  %30 = call i32 @rb_enc_autoload(ptr noundef %29)
-  %31 = icmp slt i32 %30, 0
-  br i1 %31, label %32, label %34
-
-32:                                               ; preds = %28
-  %33 = load ptr, ptr %3, align 8
-  call void (ptr, ...) @rb_warn(ptr noundef @.str.3, ptr noundef %33) #20
-  store i32 0, ptr %2, align 4
-  br label %39
-
-34:                                               ; preds = %28
-  br label %35
-
-35:                                               ; preds = %34, %24
-  br label %36
-
-36:                                               ; preds = %35, %23
-  br label %37
-
-37:                                               ; preds = %36, %10
-  %38 = load i32, ptr %4, align 4
-  store i32 %38, ptr %2, align 4
-  br label %39
-
-39:                                               ; preds = %37, %32
-  %40 = load i32, ptr %2, align 4
-  ret i32 %40
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @rb_to_encoding(i64 noundef %0) #0 {
-  %2 = alloca ptr, align 8
-  %3 = alloca i64, align 8
-  store i64 %0, ptr %3, align 8
-  %4 = load i64, ptr %3, align 8
-  %5 = call i32 @enc_check_encoding(i64 noundef %4)
-  %6 = icmp sge i32 %5, 0
-  br i1 %6, label %7, label %12
-
-7:                                                ; preds = %1
-  %8 = load i64, ptr %3, align 8
-  %9 = inttoptr i64 %8 to ptr
-  %10 = getelementptr inbounds %struct.RData, ptr %9, i32 0, i32 3
-  %11 = load ptr, ptr %10, align 8
-  store ptr %11, ptr %2, align 8
-  br label %15
-
-12:                                               ; preds = %1
-  %13 = load i64, ptr %3, align 8
-  %14 = call ptr @str_to_encoding(i64 noundef %13)
-  store ptr %14, ptr %2, align 8
-  br label %15
-
-15:                                               ; preds = %12, %7
-  %16 = load ptr, ptr %2, align 8
-  ret ptr %16
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal ptr @str_to_encoding(i64 noundef %0) #0 {
-  %2 = alloca i64, align 8
-  store i64 %0, ptr %2, align 8
-  %3 = load i64, ptr %2, align 8
-  %4 = call i32 @str_to_encindex(i64 noundef %3)
-  %5 = call ptr @rb_enc_from_index(i32 noundef %4)
-  ret ptr %5
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @rb_find_encoding(i64 noundef %0) #0 {
-  %2 = alloca ptr, align 8
-  %3 = alloca i64, align 8
-  %4 = alloca i32, align 4
-  store i64 %0, ptr %3, align 8
-  %5 = load i64, ptr %3, align 8
-  %6 = call i32 @enc_check_encoding(i64 noundef %5)
-  %7 = icmp sge i32 %6, 0
-  br i1 %7, label %8, label %13
-
-8:                                                ; preds = %1
-  %9 = load i64, ptr %3, align 8
-  %10 = inttoptr i64 %9 to ptr
-  %11 = getelementptr inbounds %struct.RData, ptr %10, i32 0, i32 3
-  %12 = load ptr, ptr %11, align 8
-  store ptr %12, ptr %2, align 8
-  br label %22
-
-13:                                               ; preds = %1
-  %14 = load i64, ptr %3, align 8
-  %15 = call i32 @str_find_encindex(i64 noundef %14)
-  store i32 %15, ptr %4, align 4
-  %16 = load i32, ptr %4, align 4
-  %17 = icmp slt i32 %16, 0
-  br i1 %17, label %18, label %19
-
-18:                                               ; preds = %13
-  store ptr null, ptr %2, align 8
-  br label %22
-
-19:                                               ; preds = %13
-  %20 = load i32, ptr %4, align 4
-  %21 = call ptr @rb_enc_from_index(i32 noundef %20)
-  store ptr %21, ptr %2, align 8
-  br label %22
-
-22:                                               ; preds = %19, %18, %8
-  %23 = load ptr, ptr %2, align 8
-  ret ptr %23
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @str_find_encindex(i64 noundef %0) #0 {
-  %2 = alloca i64, align 8
-  %3 = alloca i32, align 4
-  %4 = alloca ptr, align 8
-  %5 = alloca ptr, align 8
-  store i64 %0, ptr %2, align 8
-  %6 = call ptr @name_for_encoding(ptr noundef %2)
-  %7 = call i32 @rb_enc_find_index(ptr noundef %6)
-  store i32 %7, ptr %3, align 4
-  store ptr %2, ptr %4, align 8
-  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) %4) #21, !srcloc !9
-  %8 = load ptr, ptr %4, align 8
-  store ptr %8, ptr %5, align 8
-  %9 = load ptr, ptr %5, align 8
-  %10 = load volatile i64, ptr %9, align 8
-  %11 = load i32, ptr %3, align 4
-  ret i32 %11
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @rb_enc_from_index(i32 noundef %0) #0 {
-  %2 = alloca i32, align 4
-  store i32 %0, ptr %2, align 4
-  %3 = load i32, ptr %2, align 4
-  %4 = call ptr @enc_from_index(ptr noundef @global_enc_table, i32 noundef %3)
-  ret ptr %4
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal ptr @enc_from_index(ptr noundef %0, i32 noundef %1) #0 {
-  %3 = alloca ptr, align 8
-  %4 = alloca ptr, align 8
-  %5 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  %6 = load i32, ptr %5, align 4
-  %7 = icmp slt i32 %6, 0
-  br i1 %7, label %15, label %8
-
-8:                                                ; preds = %2
-  %9 = load ptr, ptr %4, align 8
-  %10 = getelementptr inbounds %struct.enc_table, ptr %9, i32 0, i32 1
-  %11 = load i32, ptr %10, align 8
-  %12 = load i32, ptr %5, align 4
-  %13 = and i32 %12, 16777215
-  store i32 %13, ptr %5, align 4
-  %14 = icmp sle i32 %11, %13
-  br label %15
-
-15:                                               ; preds = %8, %2
-  %16 = phi i1 [ true, %2 ], [ %14, %8 ]
-  %17 = xor i1 %16, true
-  %18 = xor i1 %17, true
-  %19 = zext i1 %18 to i32
-  %20 = sext i32 %19 to i64
-  %21 = icmp ne i64 %20, 0
-  br i1 %21, label %22, label %23
-
-22:                                               ; preds = %15
-  store ptr null, ptr %3, align 8
-  br label %31
-
-23:                                               ; preds = %15
-  %24 = load ptr, ptr %4, align 8
-  %25 = getelementptr inbounds %struct.enc_table, ptr %24, i32 0, i32 0
-  %26 = load i32, ptr %5, align 4
-  %27 = sext i32 %26 to i64
-  %28 = getelementptr [256 x %struct.rb_encoding_entry], ptr %25, i64 0, i64 %27
-  %29 = getelementptr inbounds %struct.rb_encoding_entry, ptr %28, i32 0, i32 1
-  %30 = load ptr, ptr %29, align 8
-  store ptr %30, ptr %3, align 8
-  br label %31
-
-31:                                               ; preds = %23, %22
-  %32 = load ptr, ptr %3, align 8
-  ret ptr %32
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @rb_enc_register(ptr noundef %0, ptr noundef %1) #0 {
-  %3 = alloca ptr, align 8
-  %4 = alloca ptr, align 8
-  %5 = alloca i32, align 4
-  %6 = alloca ptr, align 8
-  %7 = alloca i32, align 4
-  %8 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  store ptr @global_enc_table, ptr %6, align 8
-  call void @rb_vm_lock_enter(ptr noundef %7, ptr noundef @.str, i32 noundef 412)
-  %9 = load ptr, ptr %6, align 8
-  %10 = load ptr, ptr %3, align 8
-  %11 = call i32 @enc_registered(ptr noundef %9, ptr noundef %10)
-  store i32 %11, ptr %5, align 4
-  %12 = load i32, ptr %5, align 4
-  %13 = icmp sge i32 %12, 0
-  br i1 %13, label %14, label %49
-
-14:                                               ; preds = %2
-  %15 = load ptr, ptr %6, align 8
-  %16 = load i32, ptr %5, align 4
-  %17 = call ptr @enc_from_index(ptr noundef %15, i32 noundef %16)
-  store ptr %17, ptr %8, align 8
-  %18 = load ptr, ptr %3, align 8
-  %19 = load ptr, ptr %8, align 8
-  %20 = call ptr @rb_enc_name(ptr noundef %19)
-  %21 = call i32 @rb_st_locale_insensitive_strcasecmp(ptr noundef %18, ptr noundef %20) #17
-  %22 = icmp ne i32 %21, 0
-  br i1 %22, label %23, label %28
-
-23:                                               ; preds = %14
-  %24 = load ptr, ptr %6, align 8
-  %25 = load ptr, ptr %3, align 8
-  %26 = load ptr, ptr %4, align 8
-  %27 = call i32 @enc_register(ptr noundef %24, ptr noundef %25, ptr noundef %26)
-  store i32 %27, ptr %5, align 4
-  br label %48
-
-28:                                               ; preds = %14
-  %29 = load ptr, ptr %8, align 8
-  %30 = call i32 @rb_enc_mbmaxlen(ptr noundef %29)
-  %31 = icmp ne i32 %30, 0
-  br i1 %31, label %32, label %38
-
-32:                                               ; preds = %28
-  %33 = load ptr, ptr %8, align 8
-  %34 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %33, i32 0, i32 17
-  %35 = load i32, ptr %34, align 8
-  %36 = and i32 %35, 16777216
-  %37 = icmp ne i32 %36, 0
-  br i1 %37, label %44, label %38
-
-38:                                               ; preds = %32, %28
-  %39 = load ptr, ptr %6, align 8
-  %40 = load i32, ptr %5, align 4
-  %41 = load ptr, ptr %3, align 8
-  %42 = load ptr, ptr %4, align 8
-  %43 = call i32 @enc_register_at(ptr noundef %39, i32 noundef %40, ptr noundef %41, ptr noundef %42)
-  br label %47
-
-44:                                               ; preds = %32
-  %45 = load i64, ptr @rb_eArgError, align 8
-  %46 = load ptr, ptr %3, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %45, ptr noundef @.str.1, ptr noundef %46) #19
-  unreachable
-
-47:                                               ; preds = %38
-  br label %48
-
-48:                                               ; preds = %47, %23
-  br label %57
-
-49:                                               ; preds = %2
-  %50 = load ptr, ptr %6, align 8
-  %51 = load ptr, ptr %3, align 8
-  %52 = load ptr, ptr %4, align 8
-  %53 = call i32 @enc_register(ptr noundef %50, ptr noundef %51, ptr noundef %52)
-  store i32 %53, ptr %5, align 4
-  %54 = load ptr, ptr %3, align 8
-  %55 = load i32, ptr %5, align 4
-  %56 = call ptr @rb_enc_from_index(i32 noundef %55)
-  call void @set_encoding_const(ptr noundef %54, ptr noundef %56)
-  br label %57
-
-57:                                               ; preds = %49, %48
-  call void @rb_vm_lock_leave(ptr noundef %7, ptr noundef @.str, i32 noundef 433)
-  %58 = load i32, ptr %5, align 4
-  ret i32 %58
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @rb_vm_lock_enter(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
-  %4 = alloca ptr, align 8
-  %5 = alloca ptr, align 8
-  %6 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i32 %2, ptr %6, align 4
-  %7 = call zeroext i1 @rb_multi_ractor_p()
-  br i1 %7, label %8, label %10
-
-8:                                                ; preds = %3
-  %9 = load ptr, ptr %4, align 8
-  call void @rb_vm_lock_enter_body(ptr noundef %9)
-  br label %10
-
-10:                                               ; preds = %8, %3
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @enc_registered(ptr noundef %0, ptr noundef %1) #0 {
-  %3 = alloca i32, align 4
-  %4 = alloca ptr, align 8
-  %5 = alloca ptr, align 8
-  %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 0, ptr %6, align 8
-  %7 = load ptr, ptr %5, align 8
-  %8 = icmp ne ptr %7, null
-  br i1 %8, label %10, label %9
-
-9:                                                ; preds = %2
-  store i32 -1, ptr %3, align 4
-  br label %28
-
-10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  %12 = getelementptr inbounds %struct.enc_table, ptr %11, i32 0, i32 2
-  %13 = load ptr, ptr %12, align 8
-  %14 = icmp ne ptr %13, null
-  br i1 %14, label %16, label %15
-
-15:                                               ; preds = %10
-  store i32 -1, ptr %3, align 4
-  br label %28
-
-16:                                               ; preds = %10
-  %17 = load ptr, ptr %4, align 8
-  %18 = getelementptr inbounds %struct.enc_table, ptr %17, i32 0, i32 2
-  %19 = load ptr, ptr %18, align 8
-  %20 = load ptr, ptr %5, align 8
-  %21 = ptrtoint ptr %20 to i64
-  %22 = call i32 @rb_st_lookup(ptr noundef %19, i64 noundef %21, ptr noundef %6)
-  %23 = icmp ne i32 %22, 0
-  br i1 %23, label %24, label %27
-
-24:                                               ; preds = %16
-  %25 = load i64, ptr %6, align 8
-  %26 = trunc i64 %25 to i32
-  store i32 %26, ptr %3, align 4
-  br label %28
-
-27:                                               ; preds = %16
-  store i32 -1, ptr %3, align 4
-  br label %28
-
-28:                                               ; preds = %27, %24, %15, %9
-  %29 = load i32, ptr %3, align 4
-  ret i32 %29
-}
-
-; Function Attrs: nounwind willreturn memory(read)
-declare i32 @rb_st_locale_insensitive_strcasecmp(ptr noundef, ptr noundef) #4
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal ptr @rb_enc_name(ptr noundef %0) #0 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %3, i32 0, i32 1
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @enc_register(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
-  %4 = alloca ptr, align 8
-  %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
-  %7 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %struct.enc_table, ptr %8, i32 0, i32 1
-  %10 = load i32, ptr %9, align 8
-  store i32 %10, ptr %7, align 4
-  %11 = load ptr, ptr %4, align 8
-  %12 = load i32, ptr %7, align 4
-  %13 = add i32 %12, 1
-  %14 = call i32 @enc_table_expand(ptr noundef %11, i32 noundef %13)
-  %15 = load ptr, ptr %4, align 8
-  %16 = getelementptr inbounds %struct.enc_table, ptr %15, i32 0, i32 1
-  store i32 %14, ptr %16, align 8
-  %17 = load ptr, ptr %4, align 8
-  %18 = load i32, ptr %7, align 4
-  %19 = load ptr, ptr %5, align 8
-  %20 = load ptr, ptr %6, align 8
-  %21 = call i32 @enc_register_at(ptr noundef %17, i32 noundef %18, ptr noundef %19, ptr noundef %20)
-  ret i32 %21
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @rb_enc_mbmaxlen(ptr noundef %0) #0 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %3, i32 0, i32 2
-  %5 = load i32, ptr %4, align 8
-  ret i32 %5
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @enc_register_at(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  %5 = alloca i32, align 4
-  %6 = alloca ptr, align 8
-  %7 = alloca i32, align 4
-  %8 = alloca ptr, align 8
-  %9 = alloca ptr, align 8
-  %10 = alloca ptr, align 8
-  %11 = alloca ptr, align 8
-  store ptr %0, ptr %6, align 8
-  store i32 %1, ptr %7, align 4
-  store ptr %2, ptr %8, align 8
-  store ptr %3, ptr %9, align 8
-  %12 = load ptr, ptr %6, align 8
-  %13 = getelementptr inbounds %struct.enc_table, ptr %12, i32 0, i32 0
-  %14 = load i32, ptr %7, align 4
-  %15 = sext i32 %14 to i64
-  %16 = getelementptr [256 x %struct.rb_encoding_entry], ptr %13, i64 0, i64 %15
-  store ptr %16, ptr %10, align 8
-  %17 = load ptr, ptr %8, align 8
-  %18 = icmp ne ptr %17, null
-  br i1 %18, label %19, label %23
-
-19:                                               ; preds = %4
-  %20 = load ptr, ptr %8, align 8
-  %21 = call i64 @strlen(ptr noundef %20) #17
-  %22 = icmp ule i64 %21, 63
-  br i1 %22, label %24, label %23
-
-23:                                               ; preds = %19, %4
-  store i32 -1, ptr %5, align 4
-  br label %80
-
-24:                                               ; preds = %19
-  %25 = load ptr, ptr %10, align 8
-  %26 = getelementptr inbounds %struct.rb_encoding_entry, ptr %25, i32 0, i32 0
-  %27 = load ptr, ptr %26, align 8
-  %28 = icmp ne ptr %27, null
-  br i1 %28, label %34, label %29
-
-29:                                               ; preds = %24
-  %30 = load ptr, ptr %8, align 8
-  %31 = call noalias nonnull ptr @ruby_strdup(ptr noundef %30)
-  store ptr %31, ptr %8, align 8
-  %32 = load ptr, ptr %10, align 8
-  %33 = getelementptr inbounds %struct.rb_encoding_entry, ptr %32, i32 0, i32 0
-  store ptr %31, ptr %33, align 8
-  br label %43
-
-34:                                               ; preds = %24
-  %35 = load ptr, ptr %8, align 8
-  %36 = load ptr, ptr %10, align 8
-  %37 = getelementptr inbounds %struct.rb_encoding_entry, ptr %36, i32 0, i32 0
-  %38 = load ptr, ptr %37, align 8
-  %39 = call i32 @rb_st_locale_insensitive_strcasecmp(ptr noundef %35, ptr noundef %38) #17
-  %40 = icmp ne i32 %39, 0
-  br i1 %40, label %41, label %42
-
-41:                                               ; preds = %34
-  store i32 -1, ptr %5, align 4
-  br label %80
-
-42:                                               ; preds = %34
-  br label %43
-
-43:                                               ; preds = %42, %29
-  %44 = load ptr, ptr %10, align 8
-  %45 = getelementptr inbounds %struct.rb_encoding_entry, ptr %44, i32 0, i32 1
-  %46 = load ptr, ptr %45, align 8
-  store ptr %46, ptr %11, align 8
-  %47 = load ptr, ptr %11, align 8
-  %48 = icmp ne ptr %47, null
-  br i1 %48, label %51, label %49
-
-49:                                               ; preds = %43
-  %50 = call noalias nonnull ptr @ruby_xmalloc(i64 noundef 136) #22
-  store ptr %50, ptr %11, align 8
-  br label %51
-
-51:                                               ; preds = %49, %43
-  %52 = load ptr, ptr %9, align 8
-  %53 = icmp ne ptr %52, null
-  br i1 %53, label %54, label %57
-
-54:                                               ; preds = %51
-  %55 = load ptr, ptr %11, align 8
-  %56 = load ptr, ptr %9, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %55, ptr align 8 %56, i64 136, i1 false)
-  br label %59
-
-57:                                               ; preds = %51
-  %58 = load ptr, ptr %11, align 8
-  call void @llvm.memset.p0.i64(ptr align 8 %58, i8 0, i64 136, i1 false)
-  br label %59
-
-59:                                               ; preds = %57, %54
-  %60 = load ptr, ptr %8, align 8
-  %61 = load ptr, ptr %11, align 8
-  %62 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %61, i32 0, i32 1
-  store ptr %60, ptr %62, align 8
-  %63 = load i32, ptr %7, align 4
-  %64 = load ptr, ptr %11, align 8
-  %65 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %64, i32 0, i32 17
-  store i32 %63, ptr %65, align 8
-  %66 = load ptr, ptr %11, align 8
-  %67 = load ptr, ptr %10, align 8
-  %68 = getelementptr inbounds %struct.rb_encoding_entry, ptr %67, i32 0, i32 1
-  store ptr %66, ptr %68, align 8
-  %69 = load ptr, ptr %6, align 8
-  %70 = getelementptr inbounds %struct.enc_table, ptr %69, i32 0, i32 2
-  %71 = load ptr, ptr %70, align 8
-  %72 = load ptr, ptr %8, align 8
-  %73 = ptrtoint ptr %72 to i64
-  %74 = load i32, ptr %7, align 4
-  %75 = sext i32 %74 to i64
-  %76 = call i32 @rb_st_insert(ptr noundef %71, i64 noundef %73, i64 noundef %75)
-  %77 = load i32, ptr %7, align 4
-  %78 = load ptr, ptr %11, align 8
-  call void @enc_list_update(i32 noundef %77, ptr noundef %78)
-  %79 = load i32, ptr %7, align 4
-  store i32 %79, ptr %5, align 4
-  br label %80
-
-80:                                               ; preds = %59, %41, %23
-  %81 = load i32, ptr %5, align 4
-  ret i32 %81
-}
-
-; Function Attrs: noreturn
-declare void @rb_raise(i64 noundef, ptr noundef, ...) #5
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @set_encoding_const(ptr noundef %0, ptr noundef %1) #0 {
-  %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
-  %6 = alloca ptr, align 8
-  %7 = alloca i32, align 4
-  %8 = alloca i32, align 4
-  %9 = alloca i32, align 4
-  %10 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %11 = load ptr, ptr %4, align 8
-  %12 = call i64 @rb_enc_from_encoding(ptr noundef %11)
-  store i64 %12, ptr %5, align 8
-  %13 = load ptr, ptr %3, align 8
-  store ptr %13, ptr %6, align 8
-  store i32 0, ptr %7, align 4
-  store i32 0, ptr %8, align 4
-  store i32 0, ptr %9, align 4
-  %14 = load ptr, ptr %6, align 8
-  %15 = load i8, ptr %14, align 1
-  %16 = sext i8 %15 to i32
-  %17 = call i32 @rb_isdigit(i32 noundef %16) #18
-  %18 = icmp ne i32 %17, 0
-  br i1 %18, label %19, label %20
-
-19:                                               ; preds = %2
-  br label %224
-
-20:                                               ; preds = %2
-  %21 = load ptr, ptr %6, align 8
-  %22 = load i8, ptr %21, align 1
-  %23 = sext i8 %22 to i32
-  %24 = call i32 @rb_isupper(i32 noundef %23) #18
-  %25 = icmp ne i32 %24, 0
-  br i1 %25, label %26, label %57
-
-26:                                               ; preds = %20
-  store i32 1, ptr %8, align 4
-  br label %27
-
-27:                                               ; preds = %55, %26
-  %28 = load ptr, ptr %6, align 8
-  %29 = getelementptr i8, ptr %28, i32 1
-  store ptr %29, ptr %6, align 8
-  %30 = load i8, ptr %29, align 1
-  %31 = sext i8 %30 to i32
-  %32 = icmp ne i32 %31, 0
-  br i1 %32, label %33, label %46
-
-33:                                               ; preds = %27
-  %34 = load ptr, ptr %6, align 8
-  %35 = load i8, ptr %34, align 1
-  %36 = sext i8 %35 to i32
-  %37 = call i32 @rb_isalnum(i32 noundef %36) #18
-  %38 = icmp ne i32 %37, 0
-  br i1 %38, label %44, label %39
-
-39:                                               ; preds = %33
-  %40 = load ptr, ptr %6, align 8
-  %41 = load i8, ptr %40, align 1
-  %42 = sext i8 %41 to i32
-  %43 = icmp eq i32 %42, 95
-  br label %44
-
-44:                                               ; preds = %39, %33
-  %45 = phi i1 [ true, %33 ], [ %43, %39 ]
-  br label %46
-
-46:                                               ; preds = %44, %27
-  %47 = phi i1 [ false, %27 ], [ %45, %44 ]
-  br i1 %47, label %48, label %56
-
-48:                                               ; preds = %46
-  %49 = load ptr, ptr %6, align 8
-  %50 = load i8, ptr %49, align 1
-  %51 = sext i8 %50 to i32
-  %52 = call i32 @rb_islower(i32 noundef %51) #18
-  %53 = icmp ne i32 %52, 0
-  br i1 %53, label %54, label %55
-
-54:                                               ; preds = %48
-  store i32 1, ptr %7, align 4
-  br label %55
-
-55:                                               ; preds = %54, %48
-  br label %27, !llvm.loop !10
-
-56:                                               ; preds = %46
-  br label %57
-
-57:                                               ; preds = %56, %20
-  %58 = load ptr, ptr %6, align 8
-  %59 = load i8, ptr %58, align 1
-  %60 = icmp ne i8 %59, 0
-  br i1 %60, label %73, label %61
-
-61:                                               ; preds = %57
-  %62 = load ptr, ptr %6, align 8
-  %63 = load ptr, ptr %3, align 8
-  %64 = ptrtoint ptr %62 to i64
-  %65 = ptrtoint ptr %63 to i64
-  %66 = sub i64 %64, %65
-  %67 = icmp sgt i64 %66, 63
-  br i1 %67, label %68, label %69
-
-68:                                               ; preds = %61
-  br label %224
-
-69:                                               ; preds = %61
-  store i32 1, ptr %9, align 4
-  %70 = load i64, ptr @rb_cEncoding, align 8
-  %71 = load ptr, ptr %3, align 8
-  %72 = load i64, ptr %5, align 8
-  call void @rb_define_const(i64 noundef %70, ptr noundef %71, i64 noundef %72)
-  br label %73
-
-73:                                               ; preds = %69, %57
-  %74 = load i32, ptr %9, align 4
-  %75 = icmp ne i32 %74, 0
-  br i1 %75, label %76, label %79
-
-76:                                               ; preds = %73
-  %77 = load i32, ptr %7, align 4
-  %78 = icmp ne i32 %77, 0
-  br i1 %78, label %79, label %224
-
-79:                                               ; preds = %76, %73
-  %80 = load ptr, ptr %6, align 8
-  %81 = load ptr, ptr %3, align 8
-  %82 = ptrtoint ptr %80 to i64
-  %83 = ptrtoint ptr %81 to i64
-  %84 = sub i64 %82, %83
-  store i64 %84, ptr %10, align 8
-  %85 = load i64, ptr %10, align 8
-  %86 = icmp ugt i64 %85, 63
-  br i1 %86, label %87, label %88
-
-87:                                               ; preds = %79
-  br label %224
-
-88:                                               ; preds = %79
-  %89 = load i32, ptr %7, align 4
-  %90 = icmp ne i32 %89, 0
-  br i1 %90, label %91, label %94
-
-91:                                               ; preds = %88
-  %92 = load i32, ptr %8, align 4
-  %93 = icmp ne i32 %92, 0
-  br i1 %93, label %133, label %94
-
-94:                                               ; preds = %91, %88
-  br label %95
-
-95:                                               ; preds = %125, %94
-  %96 = load ptr, ptr %6, align 8
-  %97 = load i8, ptr %96, align 1
-  %98 = sext i8 %97 to i32
-  %99 = call i32 @rb_islower(i32 noundef %98) #18
-  %100 = icmp ne i32 %99, 0
-  br i1 %100, label %101, label %102
-
-101:                                              ; preds = %95
-  store i32 1, ptr %7, align 4
-  br label %102
-
-102:                                              ; preds = %101, %95
-  %103 = load ptr, ptr %6, align 8
-  %104 = load i8, ptr %103, align 1
-  %105 = sext i8 %104 to i32
-  %106 = call i32 @rb_isupper(i32 noundef %105) #18
-  %107 = icmp ne i32 %106, 0
-  br i1 %107, label %108, label %109
-
-108:                                              ; preds = %102
-  store i32 1, ptr %8, align 4
-  br label %109
-
-109:                                              ; preds = %108, %102
-  br label %110
-
-110:                                              ; preds = %109
-  %111 = load ptr, ptr %6, align 8
-  %112 = getelementptr i8, ptr %111, i32 1
-  store ptr %112, ptr %6, align 8
-  %113 = load i8, ptr %112, align 1
-  %114 = sext i8 %113 to i32
-  %115 = icmp ne i32 %114, 0
-  br i1 %115, label %116, label %125
-
-116:                                              ; preds = %110
-  %117 = load i32, ptr %7, align 4
-  %118 = icmp ne i32 %117, 0
-  br i1 %118, label %119, label %123
-
-119:                                              ; preds = %116
-  %120 = load i32, ptr %8, align 4
-  %121 = icmp ne i32 %120, 0
-  %122 = xor i1 %121, true
-  br label %123
-
-123:                                              ; preds = %119, %116
-  %124 = phi i1 [ true, %116 ], [ %122, %119 ]
-  br label %125
-
-125:                                              ; preds = %123, %110
-  %126 = phi i1 [ false, %110 ], [ %124, %123 ]
-  br i1 %126, label %95, label %127, !llvm.loop !11
-
-127:                                              ; preds = %125
-  %128 = load ptr, ptr %6, align 8
-  %129 = load ptr, ptr %3, align 8
-  %130 = ptrtoint ptr %128 to i64
-  %131 = ptrtoint ptr %129 to i64
-  %132 = sub i64 %130, %131
-  store i64 %132, ptr %10, align 8
-  br label %133
-
-133:                                              ; preds = %127, %91
-  %134 = load ptr, ptr %6, align 8
-  %135 = call i64 @strlen(ptr noundef %134) #17
-  %136 = load i64, ptr %10, align 8
-  %137 = add i64 %136, %135
-  store i64 %137, ptr %10, align 8
-  %138 = load i64, ptr %10, align 8
-  %139 = add i64 %138, 1
-  store i64 %139, ptr %10, align 8
-  %140 = icmp ugt i64 %138, 63
-  br i1 %140, label %141, label %142
-
-141:                                              ; preds = %133
-  br label %224
-
-142:                                              ; preds = %133
-  %143 = load i64, ptr %10, align 8
-  %144 = call i64 @rbimpl_size_mul_or_raise(i64 noundef 1, i64 noundef %143)
-  %145 = alloca i8, i64 %144, align 16
-  store ptr %145, ptr %6, align 8
-  %146 = load ptr, ptr %3, align 8
-  %147 = load i64, ptr %10, align 8
-  %148 = call i64 @rbimpl_size_mul_or_raise(i64 noundef 1, i64 noundef %147)
-  %149 = call nonnull ptr @ruby_nonempty_memcpy(ptr noundef %145, ptr noundef %146, i64 noundef %148) #23
-  %150 = load ptr, ptr %6, align 8
-  store ptr %150, ptr %3, align 8
-  %151 = load i32, ptr %9, align 4
-  %152 = icmp ne i32 %151, 0
-  br i1 %152, label %192, label %153
-
-153:                                              ; preds = %142
-  %154 = load ptr, ptr %6, align 8
-  %155 = load i8, ptr %154, align 1
-  %156 = sext i8 %155 to i32
-  %157 = call i32 @rb_islower(i32 noundef %156) #18
-  %158 = icmp ne i32 %157, 0
-  br i1 %158, label %159, label %167
-
-159:                                              ; preds = %153
-  %160 = load ptr, ptr %6, align 8
-  %161 = load i8, ptr %160, align 1
-  %162 = sext i8 %161 to i32
-  %163 = sext i32 %162 to i64
-  %164 = getelementptr [0 x i8], ptr @OnigEncAsciiToUpperCaseTable, i64 0, i64 %163
-  %165 = load i8, ptr %164, align 1
-  %166 = load ptr, ptr %6, align 8
-  store i8 %165, ptr %166, align 1
-  br label %167
-
-167:                                              ; preds = %159, %153
-  br label %168
-
-168:                                              ; preds = %181, %167
-  %169 = load ptr, ptr %6, align 8
-  %170 = load i8, ptr %169, align 1
-  %171 = icmp ne i8 %170, 0
-  br i1 %171, label %172, label %184
-
-172:                                              ; preds = %168
-  %173 = load ptr, ptr %6, align 8
-  %174 = load i8, ptr %173, align 1
-  %175 = sext i8 %174 to i32
-  %176 = call i32 @rb_isalnum(i32 noundef %175) #18
-  %177 = icmp ne i32 %176, 0
-  br i1 %177, label %180, label %178
-
-178:                                              ; preds = %172
-  %179 = load ptr, ptr %6, align 8
-  store i8 95, ptr %179, align 1
-  br label %180
-
-180:                                              ; preds = %178, %172
-  br label %181
-
-181:                                              ; preds = %180
-  %182 = load ptr, ptr %6, align 8
-  %183 = getelementptr i8, ptr %182, i32 1
-  store ptr %183, ptr %6, align 8
-  br label %168, !llvm.loop !12
-
-184:                                              ; preds = %168
-  %185 = load i32, ptr %8, align 4
-  %186 = icmp ne i32 %185, 0
-  br i1 %186, label %187, label %191
-
-187:                                              ; preds = %184
-  %188 = load i64, ptr @rb_cEncoding, align 8
-  %189 = load ptr, ptr %3, align 8
-  %190 = load i64, ptr %5, align 8
-  call void @rb_define_const(i64 noundef %188, ptr noundef %189, i64 noundef %190)
-  br label %191
-
-191:                                              ; preds = %187, %184
-  br label %192
-
-192:                                              ; preds = %191, %142
-  %193 = load i32, ptr %7, align 4
-  %194 = icmp ne i32 %193, 0
-  br i1 %194, label %195, label %223
-
-195:                                              ; preds = %192
-  %196 = load ptr, ptr %3, align 8
-  store ptr %196, ptr %6, align 8
-  br label %197
-
-197:                                              ; preds = %216, %195
-  %198 = load ptr, ptr %6, align 8
-  %199 = load i8, ptr %198, align 1
-  %200 = icmp ne i8 %199, 0
-  br i1 %200, label %201, label %219
-
-201:                                              ; preds = %197
-  %202 = load ptr, ptr %6, align 8
-  %203 = load i8, ptr %202, align 1
-  %204 = sext i8 %203 to i32
-  %205 = call i32 @rb_islower(i32 noundef %204) #18
-  %206 = icmp ne i32 %205, 0
-  br i1 %206, label %207, label %215
-
-207:                                              ; preds = %201
-  %208 = load ptr, ptr %6, align 8
-  %209 = load i8, ptr %208, align 1
-  %210 = sext i8 %209 to i32
-  %211 = sext i32 %210 to i64
-  %212 = getelementptr [0 x i8], ptr @OnigEncAsciiToUpperCaseTable, i64 0, i64 %211
-  %213 = load i8, ptr %212, align 1
-  %214 = load ptr, ptr %6, align 8
-  store i8 %213, ptr %214, align 1
-  br label %215
-
-215:                                              ; preds = %207, %201
-  br label %216
-
-216:                                              ; preds = %215
-  %217 = load ptr, ptr %6, align 8
-  %218 = getelementptr i8, ptr %217, i32 1
-  store ptr %218, ptr %6, align 8
-  br label %197, !llvm.loop !13
-
-219:                                              ; preds = %197
-  %220 = load i64, ptr @rb_cEncoding, align 8
-  %221 = load ptr, ptr %3, align 8
-  %222 = load i64, ptr %5, align 8
-  call void @rb_define_const(i64 noundef %220, ptr noundef %221, i64 noundef %222)
-  br label %223
-
-223:                                              ; preds = %219, %192
-  br label %224
-
-224:                                              ; preds = %223, %141, %87, %76, %68, %19
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @rb_vm_lock_leave(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
-  %4 = alloca ptr, align 8
-  %5 = alloca ptr, align 8
-  %6 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i32 %2, ptr %6, align 4
-  %7 = call zeroext i1 @rb_multi_ractor_p()
-  br i1 %7, label %8, label %10
-
-8:                                                ; preds = %3
-  %9 = load ptr, ptr %4, align 8
-  call void @rb_vm_lock_leave_body(ptr noundef %9)
-  br label %10
-
-10:                                               ; preds = %8, %3
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @rb_encdb_declare(ptr noundef %0) #0 {
-  %2 = alloca ptr, align 8
-  %3 = alloca ptr, align 8
-  %4 = alloca i32, align 4
-  %5 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
-  store ptr @global_enc_table, ptr %3, align 8
-  call void @rb_vm_lock_enter(ptr noundef %4, ptr noundef @.str, i32 noundef 453)
-  %6 = load ptr, ptr %3, align 8
-  %7 = load ptr, ptr %2, align 8
-  %8 = call i32 @enc_registered(ptr noundef %6, ptr noundef %7)
-  store i32 %8, ptr %5, align 4
-  %9 = load i32, ptr %5, align 4
-  %10 = icmp slt i32 %9, 0
-  br i1 %10, label %11, label %15
-
-11:                                               ; preds = %1
-  %12 = load ptr, ptr %3, align 8
-  %13 = load ptr, ptr %2, align 8
-  %14 = call i32 @enc_register(ptr noundef %12, ptr noundef %13, ptr noundef null)
-  store i32 %14, ptr %5, align 4
-  br label %15
-
-15:                                               ; preds = %11, %1
-  %16 = load ptr, ptr %2, align 8
-  %17 = load i32, ptr %5, align 4
-  %18 = call ptr @rb_enc_from_index(i32 noundef %17)
-  call void @set_encoding_const(ptr noundef %16, ptr noundef %18)
-  call void @rb_vm_lock_leave(ptr noundef %4, ptr noundef @.str, i32 noundef 461)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @rb_enc_set_base(ptr noundef %0, ptr noundef %1) #0 {
-  %3 = alloca ptr, align 8
-  %4 = alloca ptr, align 8
-  %5 = alloca ptr, align 8
-  %6 = alloca i32, align 4
-  %7 = alloca i32, align 4
-  %8 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  store ptr @global_enc_table, ptr %5, align 8
-  call void @rb_vm_lock_enter(ptr noundef %6, ptr noundef @.str, i32 noundef 493)
-  %9 = load ptr, ptr %5, align 8
-  %10 = load ptr, ptr %3, align 8
-  %11 = call i32 @enc_registered(ptr noundef %9, ptr noundef %10)
-  store i32 %11, ptr %7, align 4
-  %12 = load ptr, ptr %5, align 8
-  %13 = load ptr, ptr %4, align 8
-  %14 = call i32 @enc_registered(ptr noundef %12, ptr noundef %13)
-  store i32 %14, ptr %8, align 4
-  %15 = load ptr, ptr %5, align 8
-  %16 = load i32, ptr %7, align 4
-  %17 = load i32, ptr %8, align 4
-  %18 = call ptr @rb_enc_from_index(i32 noundef %17)
-  %19 = call ptr @set_base_encoding(ptr noundef %15, i32 noundef %16, ptr noundef %18)
-  call void @rb_vm_lock_leave(ptr noundef %6, ptr noundef @.str, i32 noundef 499)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal ptr @set_base_encoding(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
-  %4 = alloca ptr, align 8
-  %5 = alloca i32, align 4
-  %6 = alloca ptr, align 8
-  %7 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  store ptr %2, ptr %6, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %struct.enc_table, ptr %8, i32 0, i32 0
-  %10 = load i32, ptr %5, align 4
-  %11 = sext i32 %10 to i64
-  %12 = getelementptr [256 x %struct.rb_encoding_entry], ptr %9, i64 0, i64 %11
-  %13 = getelementptr inbounds %struct.rb_encoding_entry, ptr %12, i32 0, i32 1
-  %14 = load ptr, ptr %13, align 8
-  store ptr %14, ptr %7, align 8
-  %15 = load ptr, ptr %7, align 8
-  %16 = icmp ne ptr %15, null
-  call void @llvm.assume(i1 %16)
-  %17 = load ptr, ptr %6, align 8
-  %18 = load ptr, ptr %4, align 8
-  %19 = getelementptr inbounds %struct.enc_table, ptr %18, i32 0, i32 0
-  %20 = load i32, ptr %5, align 4
-  %21 = sext i32 %20 to i64
-  %22 = getelementptr [256 x %struct.rb_encoding_entry], ptr %19, i64 0, i64 %21
-  %23 = getelementptr inbounds %struct.rb_encoding_entry, ptr %22, i32 0, i32 2
-  store ptr %17, ptr %23, align 8
-  %24 = load ptr, ptr %6, align 8
-  %25 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %24, i32 0, i32 17
-  %26 = load i32, ptr %25, align 8
-  %27 = and i32 %26, 16777216
-  %28 = icmp ne i32 %27, 0
-  br i1 %28, label %29, label %34
-
-29:                                               ; preds = %3
-  %30 = load ptr, ptr %7, align 8
-  %31 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %30, i32 0, i32 17
-  %32 = load i32, ptr %31, align 8
-  %33 = or i32 %32, 16777216
-  store i32 %33, ptr %31, align 8
-  br label %34
-
-34:                                               ; preds = %29, %3
-  %35 = load ptr, ptr %7, align 8
-  ret ptr %35
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @rb_enc_set_dummy(i32 noundef %0) #0 {
-  %2 = alloca i32, align 4
-  %3 = alloca ptr, align 8
-  store i32 %0, ptr %2, align 4
-  %4 = load i32, ptr %2, align 4
-  %5 = sext i32 %4 to i64
-  %6 = getelementptr [256 x %struct.rb_encoding_entry], ptr @global_enc_table, i64 0, i64 %5
-  %7 = getelementptr inbounds %struct.rb_encoding_entry, ptr %6, i32 0, i32 1
-  %8 = load ptr, ptr %7, align 8
-  store ptr %8, ptr %3, align 8
-  %9 = load ptr, ptr %3, align 8
-  %10 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %9, i32 0, i32 17
-  %11 = load i32, ptr %10, align 8
-  %12 = or i32 %11, 16777216
-  store i32 %12, ptr %10, align 8
-  %13 = load i32, ptr %2, align 4
-  ret i32 %13
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @rb_encdb_replicate(ptr noundef %0, ptr noundef %1) #0 {
-  %3 = alloca ptr, align 8
-  %4 = alloca ptr, align 8
-  %5 = alloca i32, align 4
-  %6 = alloca ptr, align 8
-  %7 = alloca i32, align 4
-  %8 = alloca i32, align 4
-  %9 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  store ptr @global_enc_table, ptr %6, align 8
-  call void @rb_vm_lock_enter(ptr noundef %7, ptr noundef @.str, i32 noundef 550)
-  %10 = load ptr, ptr %6, align 8
-  %11 = load ptr, ptr %4, align 8
-  %12 = call i32 @enc_registered(ptr noundef %10, ptr noundef %11)
-  store i32 %12, ptr %8, align 4
-  %13 = load ptr, ptr %6, align 8
-  %14 = load ptr, ptr %3, align 8
-  %15 = call i32 @enc_registered(ptr noundef %13, ptr noundef %14)
-  store i32 %15, ptr %9, align 4
-  %16 = load i32, ptr %8, align 4
-  %17 = icmp slt i32 %16, 0
-  br i1 %17, label %18, label %22
-
-18:                                               ; preds = %2
-  %19 = load ptr, ptr %6, align 8
-  %20 = load ptr, ptr %4, align 8
-  %21 = call i32 @enc_register(ptr noundef %19, ptr noundef %20, ptr noundef null)
-  store i32 %21, ptr %8, align 4
-  br label %22
-
-22:                                               ; preds = %18, %2
-  %23 = load ptr, ptr %6, align 8
-  %24 = load ptr, ptr %3, align 8
-  %25 = load i32, ptr %8, align 4
-  %26 = call ptr @rb_enc_from_index(i32 noundef %25)
-  %27 = load i32, ptr %9, align 4
-  %28 = call i32 @enc_replicate_with_index(ptr noundef %23, ptr noundef %24, ptr noundef %26, i32 noundef %27)
-  store i32 %28, ptr %5, align 4
-  call void @rb_vm_lock_leave(ptr noundef %7, ptr noundef @.str, i32 noundef 560)
-  %29 = load i32, ptr %5, align 4
-  ret i32 %29
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @enc_replicate_with_index(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
-  %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
-  %7 = alloca ptr, align 8
-  %8 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store i32 %3, ptr %8, align 4
-  %9 = load i32, ptr %8, align 4
-  %10 = icmp slt i32 %9, 0
-  br i1 %10, label %11, label %16
-
-11:                                               ; preds = %4
-  %12 = load ptr, ptr %5, align 8
-  %13 = load ptr, ptr %6, align 8
-  %14 = load ptr, ptr %7, align 8
-  %15 = call i32 @enc_register(ptr noundef %12, ptr noundef %13, ptr noundef %14)
-  store i32 %15, ptr %8, align 4
-  br label %22
-
-16:                                               ; preds = %4
-  %17 = load ptr, ptr %5, align 8
-  %18 = load i32, ptr %8, align 4
-  %19 = load ptr, ptr %6, align 8
-  %20 = load ptr, ptr %7, align 8
-  %21 = call i32 @enc_register_at(ptr noundef %17, i32 noundef %18, ptr noundef %19, ptr noundef %20)
-  store i32 %21, ptr %8, align 4
-  br label %22
-
-22:                                               ; preds = %16, %11
-  %23 = load i32, ptr %8, align 4
-  %24 = icmp sge i32 %23, 0
-  br i1 %24, label %25, label %33
-
-25:                                               ; preds = %22
-  %26 = load ptr, ptr %5, align 8
-  %27 = load i32, ptr %8, align 4
-  %28 = load ptr, ptr %7, align 8
-  %29 = call ptr @set_base_encoding(ptr noundef %26, i32 noundef %27, ptr noundef %28)
-  %30 = load ptr, ptr %6, align 8
-  %31 = load i32, ptr %8, align 4
-  %32 = call ptr @rb_enc_from_index(i32 noundef %31)
-  call void @set_encoding_const(ptr noundef %30, ptr noundef %32)
-  br label %35
-
-33:                                               ; preds = %22
-  %34 = load i64, ptr @rb_eArgError, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %34, ptr noundef @.str.43) #19
-  unreachable
-
-35:                                               ; preds = %25
-  %36 = load i32, ptr %8, align 4
-  ret i32 %36
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @rb_define_dummy_encoding(ptr noundef %0) #0 {
-  %2 = alloca ptr, align 8
-  %3 = alloca i32, align 4
-  %4 = alloca ptr, align 8
-  %5 = alloca i32, align 4
-  %6 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  store ptr @global_enc_table, ptr %4, align 8
-  call void @rb_vm_lock_enter(ptr noundef %5, ptr noundef @.str, i32 noundef 570)
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %2, align 8
-  %9 = call nonnull ptr @rb_ascii8bit_encoding()
-  %10 = call i32 @enc_replicate(ptr noundef %7, ptr noundef %8, ptr noundef %9)
-  store i32 %10, ptr %3, align 4
-  %11 = load ptr, ptr %4, align 8
-  %12 = getelementptr inbounds %struct.enc_table, ptr %11, i32 0, i32 0
-  %13 = load i32, ptr %3, align 4
-  %14 = sext i32 %13 to i64
-  %15 = getelementptr [256 x %struct.rb_encoding_entry], ptr %12, i64 0, i64 %14
-  %16 = getelementptr inbounds %struct.rb_encoding_entry, ptr %15, i32 0, i32 1
-  %17 = load ptr, ptr %16, align 8
-  store ptr %17, ptr %6, align 8
-  %18 = load ptr, ptr %6, align 8
-  %19 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %18, i32 0, i32 17
-  %20 = load i32, ptr %19, align 8
-  %21 = or i32 %20, 16777216
-  store i32 %21, ptr %19, align 8
-  call void @rb_vm_lock_leave(ptr noundef %5, ptr noundef @.str, i32 noundef 576)
-  %22 = load i32, ptr %3, align 4
-  ret i32 %22
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @enc_replicate(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
-  %4 = alloca ptr, align 8
-  %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
-  %7 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = load ptr, ptr %5, align 8
-  call void @enc_check_addable(ptr noundef %8, ptr noundef %9)
-  %10 = load ptr, ptr %4, align 8
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  %13 = call i32 @enc_register(ptr noundef %10, ptr noundef %11, ptr noundef %12)
-  store i32 %13, ptr %7, align 4
-  %14 = load i32, ptr %7, align 4
-  %15 = icmp slt i32 %14, 0
-  br i1 %15, label %16, label %19
-
-16:                                               ; preds = %3
-  %17 = load i64, ptr @rb_eArgError, align 8
-  %18 = load ptr, ptr %5, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %17, ptr noundef @.str.44, ptr noundef %18) #19
-  unreachable
-
-19:                                               ; preds = %3
-  %20 = load ptr, ptr %4, align 8
-  %21 = load i32, ptr %7, align 4
-  %22 = load ptr, ptr %6, align 8
-  %23 = call ptr @set_base_encoding(ptr noundef %20, i32 noundef %21, ptr noundef %22)
-  %24 = load ptr, ptr %5, align 8
-  %25 = load i32, ptr %7, align 4
-  %26 = call ptr @rb_enc_from_index(i32 noundef %25)
-  call void @set_encoding_const(ptr noundef %24, ptr noundef %26)
-  %27 = load i32, ptr %7, align 4
-  ret i32 %27
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local nonnull ptr @rb_ascii8bit_encoding() #0 {
-  %1 = load ptr, ptr @global_enc_ascii, align 8
-  ret ptr %1
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @rb_encdb_dummy(ptr noundef %0) #0 {
-  %2 = alloca ptr, align 8
-  %3 = alloca i32, align 4
-  %4 = alloca ptr, align 8
-  %5 = alloca i32, align 4
-  %6 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  store ptr @global_enc_table, ptr %4, align 8
-  call void @rb_vm_lock_enter(ptr noundef %5, ptr noundef @.str, i32 noundef 586)
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %2, align 8
-  %9 = call nonnull ptr @rb_ascii8bit_encoding()
-  %10 = load ptr, ptr %4, align 8
-  %11 = load ptr, ptr %2, align 8
-  %12 = call i32 @enc_registered(ptr noundef %10, ptr noundef %11)
-  %13 = call i32 @enc_replicate_with_index(ptr noundef %7, ptr noundef %8, ptr noundef %9, i32 noundef %12)
-  store i32 %13, ptr %3, align 4
-  %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr inbounds %struct.enc_table, ptr %14, i32 0, i32 0
-  %16 = load i32, ptr %3, align 4
-  %17 = sext i32 %16 to i64
-  %18 = getelementptr [256 x %struct.rb_encoding_entry], ptr %15, i64 0, i64 %17
-  %19 = getelementptr inbounds %struct.rb_encoding_entry, ptr %18, i32 0, i32 1
-  %20 = load ptr, ptr %19, align 8
-  store ptr %20, ptr %6, align 8
-  %21 = load ptr, ptr %6, align 8
-  %22 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %21, i32 0, i32 17
-  %23 = load i32, ptr %22, align 8
-  %24 = or i32 %23, 16777216
-  store i32 %24, ptr %22, align 8
-  call void @rb_vm_lock_leave(ptr noundef %5, ptr noundef @.str, i32 noundef 594)
-  %25 = load i32, ptr %3, align 4
-  ret i32 %25
-}
-
-; Function Attrs: nounwind sspstrong willreturn memory(read) uwtable
-define dso_local i32 @rb_enc_unicode_p(ptr noundef %0) #2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %3, i32 0, i32 18
-  %5 = load i32, ptr %4, align 4
-  %6 = and i32 %5, 1
-  ret i32 %6
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @rb_enc_alias(ptr noundef %0, ptr noundef %1) #0 {
-  %3 = alloca ptr, align 8
-  %4 = alloca ptr, align 8
-  %5 = alloca i32, align 4
-  %6 = alloca i32, align 4
-  %7 = alloca ptr, align 8
-  %8 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  store ptr @global_enc_table, ptr %7, align 8
-  call void @rb_vm_lock_enter(ptr noundef %8, ptr noundef @.str, i32 noundef 674)
-  %9 = load ptr, ptr %7, align 8
-  %10 = load ptr, ptr %3, align 8
-  call void @enc_check_addable(ptr noundef %9, ptr noundef %10)
-  %11 = load ptr, ptr %4, align 8
-  %12 = call i32 @rb_enc_find_index(ptr noundef %11)
-  store i32 %12, ptr %5, align 4
-  %13 = icmp slt i32 %12, 0
-  br i1 %13, label %14, label %15
-
-14:                                               ; preds = %2
-  store i32 -1, ptr %6, align 4
-  br label %20
-
-15:                                               ; preds = %2
-  %16 = load ptr, ptr %7, align 8
-  %17 = load ptr, ptr %3, align 8
-  %18 = load i32, ptr %5, align 4
-  %19 = call i32 @enc_alias(ptr noundef %16, ptr noundef %17, i32 noundef %18)
-  store i32 %19, ptr %6, align 4
-  br label %20
-
-20:                                               ; preds = %15, %14
-  call void @rb_vm_lock_leave(ptr noundef %8, ptr noundef @.str, i32 noundef 684)
-  %21 = load i32, ptr %6, align 4
-  ret i32 %21
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @enc_check_addable(ptr noundef %0, ptr noundef %1) #0 {
-  %3 = alloca ptr, align 8
-  %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
-  %7 = call i32 @enc_registered(ptr noundef %5, ptr noundef %6)
-  %8 = icmp sge i32 %7, 0
-  br i1 %8, label %9, label %12
-
-9:                                                ; preds = %2
-  %10 = load i64, ptr @rb_eArgError, align 8
-  %11 = load ptr, ptr %4, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %10, ptr noundef @.str.1, ptr noundef %11) #19
-  unreachable
-
-12:                                               ; preds = %2
-  %13 = load ptr, ptr %4, align 8
-  %14 = icmp ne ptr %13, null
-  br i1 %14, label %15, label %19
-
-15:                                               ; preds = %12
-  %16 = load ptr, ptr %4, align 8
-  %17 = call i64 @strlen(ptr noundef %16) #17
-  %18 = icmp ule i64 %17, 63
-  br i1 %18, label %22, label %19
-
-19:                                               ; preds = %15, %12
-  %20 = load i64, ptr @rb_eArgError, align 8
-  %21 = load ptr, ptr %4, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %20, ptr noundef @.str.44, ptr noundef %21) #19
-  unreachable
-
-22:                                               ; preds = %15
-  br label %23
-
-23:                                               ; preds = %22
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @enc_alias(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
-  %4 = alloca i32, align 4
-  %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
-  %7 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store i32 %2, ptr %7, align 4
-  %8 = load ptr, ptr %6, align 8
-  %9 = icmp ne ptr %8, null
-  br i1 %9, label %10, label %14
-
-10:                                               ; preds = %3
-  %11 = load ptr, ptr %6, align 8
-  %12 = call i64 @strlen(ptr noundef %11) #17
-  %13 = icmp ule i64 %12, 63
-  br i1 %13, label %15, label %14
-
-14:                                               ; preds = %10, %3
-  store i32 -1, ptr %4, align 4
-  br label %28
-
-15:                                               ; preds = %10
-  %16 = load ptr, ptr %5, align 8
-  %17 = load ptr, ptr %6, align 8
-  %18 = load i32, ptr %7, align 4
-  %19 = call i32 @enc_alias_internal(ptr noundef %16, ptr noundef %17, i32 noundef %18)
-  %20 = icmp ne i32 %19, 0
-  br i1 %20, label %26, label %21
-
-21:                                               ; preds = %15
-  %22 = load ptr, ptr %6, align 8
-  %23 = load ptr, ptr %5, align 8
-  %24 = load i32, ptr %7, align 4
-  %25 = call ptr @enc_from_index(ptr noundef %23, i32 noundef %24)
-  call void @set_encoding_const(ptr noundef %22, ptr noundef %25)
-  br label %26
-
-26:                                               ; preds = %21, %15
-  %27 = load i32, ptr %7, align 4
-  store i32 %27, ptr %4, align 4
-  br label %28
-
-28:                                               ; preds = %26, %14
-  %29 = load i32, ptr %4, align 4
-  ret i32 %29
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @rb_encdb_alias(ptr noundef %0, ptr noundef %1) #0 {
-  %3 = alloca ptr, align 8
-  %4 = alloca ptr, align 8
-  %5 = alloca i32, align 4
-  %6 = alloca ptr, align 8
-  %7 = alloca i32, align 4
-  %8 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  store ptr @global_enc_table, ptr %6, align 8
-  call void @rb_vm_lock_enter(ptr noundef %7, ptr noundef @.str, i32 noundef 694)
-  %9 = load ptr, ptr %6, align 8
-  %10 = load ptr, ptr %4, align 8
-  %11 = call i32 @enc_registered(ptr noundef %9, ptr noundef %10)
-  store i32 %11, ptr %8, align 4
-  %12 = load i32, ptr %8, align 4
-  %13 = icmp slt i32 %12, 0
-  br i1 %13, label %14, label %18
-
-14:                                               ; preds = %2
-  %15 = load ptr, ptr %6, align 8
-  %16 = load ptr, ptr %4, align 8
-  %17 = call i32 @enc_register(ptr noundef %15, ptr noundef %16, ptr noundef null)
-  store i32 %17, ptr %8, align 4
-  br label %18
-
-18:                                               ; preds = %14, %2
-  %19 = load ptr, ptr %6, align 8
-  %20 = load ptr, ptr %3, align 8
-  %21 = load i32, ptr %8, align 4
-  %22 = call i32 @enc_alias(ptr noundef %19, ptr noundef %20, i32 noundef %21)
-  store i32 %22, ptr %5, align 4
-  call void @rb_vm_lock_leave(ptr noundef %7, ptr noundef @.str, i32 noundef 703)
-  %23 = load i32, ptr %5, align 4
-  ret i32 %23
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define hidden ptr @rb_enc_get_from_index(i32 noundef %0) #0 {
-  %2 = alloca i32, align 4
-  store i32 %0, ptr %2, align 4
-  %3 = load i32, ptr %2, align 4
-  %4 = call ptr @must_encindex(i32 noundef %3)
-  ret ptr %4
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal ptr @must_encindex(i32 noundef %0) #0 {
-  %2 = alloca i32, align 4
-  %3 = alloca ptr, align 8
-  store i32 %0, ptr %2, align 4
-  %4 = load i32, ptr %2, align 4
-  %5 = call ptr @rb_enc_from_index(i32 noundef %4)
-  store ptr %5, ptr %3, align 8
-  %6 = load ptr, ptr %3, align 8
-  %7 = icmp ne ptr %6, null
-  br i1 %7, label %11, label %8
-
-8:                                                ; preds = %1
-  %9 = load i64, ptr @rb_eEncodingError, align 8
-  %10 = load i32, ptr %2, align 4
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %9, ptr noundef @.str.45, i32 noundef %10) #19
-  unreachable
-
-11:                                               ; preds = %1
-  %12 = load ptr, ptr %3, align 8
-  %13 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %12, i32 0, i32 17
-  %14 = load i32, ptr %13, align 8
-  %15 = and i32 %14, 16777215
-  %16 = load i32, ptr %2, align 4
-  %17 = and i32 %16, 16777215
-  %18 = icmp ne i32 %15, %17
-  br i1 %18, label %19, label %28
-
-19:                                               ; preds = %11
-  %20 = load i64, ptr @rb_eEncodingError, align 8
-  %21 = load i32, ptr %2, align 4
-  %22 = load ptr, ptr %3, align 8
-  %23 = call ptr @rb_enc_name(ptr noundef %22)
-  %24 = load ptr, ptr %3, align 8
-  %25 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %24, i32 0, i32 17
-  %26 = load i32, ptr %25, align 8
-  %27 = and i32 %26, 16777215
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %20, ptr noundef @.str.46, i32 noundef %21, ptr noundef %23, i32 noundef %27) #19
-  unreachable
-
-28:                                               ; preds = %11
-  %29 = load ptr, ptr %3, align 8
-  %30 = call i32 @rb_enc_mbmaxlen(ptr noundef %29)
-  %31 = icmp ne i32 %30, 0
-  br i1 %31, label %39, label %32
-
-32:                                               ; preds = %28
-  %33 = load ptr, ptr %3, align 8
-  %34 = call i32 @rb_enc_autoload(ptr noundef %33)
-  %35 = icmp eq i32 %34, -1
-  br i1 %35, label %36, label %39
-
-36:                                               ; preds = %32
-  %37 = load ptr, ptr %3, align 8
-  %38 = call ptr @rb_enc_name(ptr noundef %37)
-  call void (ptr, ...) @rb_loaderror(ptr noundef @.str.47, ptr noundef %38) #19
-  unreachable
-
-39:                                               ; preds = %32, %28
-  %40 = load ptr, ptr %3, align 8
-  ret ptr %40
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define hidden i32 @rb_enc_autoload(ptr noundef %0) #0 {
-  %2 = alloca ptr, align 8
-  %3 = alloca i32, align 4
-  %4 = alloca ptr, align 8
-  %5 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
-  br label %6
-
-6:                                                ; preds = %1
-  store ptr @global_enc_table, ptr %4, align 8
-  call void @rb_vm_lock_enter(ptr noundef %5, ptr noundef @.str, i32 noundef 815)
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %2, align 8
-  %9 = call i32 @enc_autoload_body(ptr noundef %7, ptr noundef %8)
-  store i32 %9, ptr %3, align 4
-  call void @rb_vm_lock_leave(ptr noundef %5, ptr noundef @.str, i32 noundef 815)
-  br label %10
-
-10:                                               ; preds = %6
-  %11 = load i32, ptr %3, align 4
-  %12 = icmp eq i32 %11, -2
-  br i1 %12, label %13, label %17
-
-13:                                               ; preds = %10
-  %14 = load ptr, ptr %2, align 8
-  %15 = call ptr @rb_enc_name(ptr noundef %14)
-  %16 = call i32 @load_encoding(ptr noundef %15)
-  store i32 %16, ptr %3, align 4
-  br label %17
-
-17:                                               ; preds = %13, %10
-  %18 = load i32, ptr %3, align 4
-  ret i32 %18
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @enc_autoload_body(ptr noundef %0, ptr noundef %1) #0 {
-  %3 = alloca i32, align 4
-  %4 = alloca ptr, align 8
-  %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
-  %7 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %struct.enc_table, ptr %8, i32 0, i32 0
-  %10 = load ptr, ptr %5, align 8
-  %11 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %10, i32 0, i32 17
-  %12 = load i32, ptr %11, align 8
-  %13 = and i32 %12, 16777215
-  %14 = sext i32 %13 to i64
-  %15 = getelementptr [256 x %struct.rb_encoding_entry], ptr %9, i64 0, i64 %14
-  %16 = getelementptr inbounds %struct.rb_encoding_entry, ptr %15, i32 0, i32 2
-  %17 = load ptr, ptr %16, align 8
-  store ptr %17, ptr %6, align 8
-  %18 = load ptr, ptr %6, align 8
-  %19 = icmp ne ptr %18, null
-  br i1 %19, label %20, label %71
-
-20:                                               ; preds = %2
-  store i32 0, ptr %7, align 4
-  br label %21
-
-21:                                               ; preds = %42, %20
-  %22 = load i32, ptr %7, align 4
-  %23 = load ptr, ptr %4, align 8
-  %24 = getelementptr inbounds %struct.enc_table, ptr %23, i32 0, i32 1
-  %25 = load i32, ptr %24, align 8
-  %26 = icmp sge i32 %22, %25
-  br i1 %26, label %27, label %28
-
-27:                                               ; preds = %21
-  store i32 -1, ptr %3, align 4
-  br label %72
-
-28:                                               ; preds = %21
-  br label %29
-
-29:                                               ; preds = %28
-  %30 = load ptr, ptr %4, align 8
-  %31 = getelementptr inbounds %struct.enc_table, ptr %30, i32 0, i32 0
-  %32 = load i32, ptr %7, align 4
-  %33 = sext i32 %32 to i64
-  %34 = getelementptr [256 x %struct.rb_encoding_entry], ptr %31, i64 0, i64 %33
-  %35 = getelementptr inbounds %struct.rb_encoding_entry, ptr %34, i32 0, i32 1
-  %36 = load ptr, ptr %35, align 8
-  %37 = load ptr, ptr %6, align 8
-  %38 = icmp ne ptr %36, %37
-  br i1 %38, label %39, label %42
-
-39:                                               ; preds = %29
-  %40 = load i32, ptr %7, align 4
-  %41 = add i32 %40, 1
-  store i32 %41, ptr %7, align 4
-  br label %42
-
-42:                                               ; preds = %39, %29
-  %43 = phi i1 [ false, %29 ], [ true, %39 ]
-  br i1 %43, label %21, label %44, !llvm.loop !14
-
-44:                                               ; preds = %42
-  %45 = load ptr, ptr %6, align 8
-  %46 = call i32 @rb_enc_mbmaxlen(ptr noundef %45)
-  %47 = icmp ne i32 %46, 0
-  br i1 %47, label %54, label %48
-
-48:                                               ; preds = %44
-  %49 = load ptr, ptr %6, align 8
-  %50 = call i32 @rb_enc_autoload(ptr noundef %49)
-  %51 = icmp slt i32 %50, 0
-  br i1 %51, label %52, label %53
-
-52:                                               ; preds = %48
-  store i32 -1, ptr %3, align 4
-  br label %72
-
-53:                                               ; preds = %48
-  br label %54
-
-54:                                               ; preds = %53, %44
-  %55 = load ptr, ptr %5, align 8
-  %56 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %55, i32 0, i32 17
-  %57 = load i32, ptr %56, align 8
-  store i32 %57, ptr %7, align 4
-  %58 = load ptr, ptr %4, align 8
-  %59 = load i32, ptr %7, align 4
-  %60 = and i32 %59, 16777215
-  %61 = load ptr, ptr %5, align 8
-  %62 = call ptr @rb_enc_name(ptr noundef %61)
-  %63 = load ptr, ptr %6, align 8
-  %64 = call i32 @enc_register_at(ptr noundef %58, i32 noundef %60, ptr noundef %62, ptr noundef %63)
-  %65 = load i32, ptr %7, align 4
-  %66 = load ptr, ptr %5, align 8
-  %67 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %66, i32 0, i32 17
-  store i32 %65, ptr %67, align 8
-  %68 = load i32, ptr %7, align 4
-  %69 = and i32 %68, 16777215
-  store i32 %69, ptr %7, align 4
-  %70 = load i32, ptr %7, align 4
-  store i32 %70, ptr %3, align 4
-  br label %72
-
-71:                                               ; preds = %2
-  store i32 -2, ptr %3, align 4
-  br label %72
-
-72:                                               ; preds = %71, %54, %52, %27
-  %73 = load i32, ptr %3, align 4
-  ret i32 %73
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @load_encoding(ptr noundef %0) #0 {
-  %2 = alloca ptr, align 8
-  %3 = alloca i64, align 8
-  %4 = alloca i64, align 8
-  %5 = alloca i64, align 8
-  %6 = alloca ptr, align 8
-  %7 = alloca ptr, align 8
-  %8 = alloca i32, align 4
-  %9 = alloca i32, align 4
-  %10 = alloca ptr, align 8
-  %11 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
-  %12 = load ptr, ptr %2, align 8
-  %13 = call i64 (ptr, ...) @rb_sprintf(ptr noundef @.str.48, ptr noundef %12)
-  store i64 %13, ptr %3, align 8
-  %14 = call ptr @rb_ruby_debug_ptr()
-  %15 = load i64, ptr %14, align 8
-  store i64 %15, ptr %4, align 8
-  %16 = load i64, ptr %3, align 8
-  %17 = call ptr @RSTRING_PTR(i64 noundef %16)
-  %18 = getelementptr i8, ptr %17, i64 4
-  store ptr %18, ptr %6, align 8
-  %19 = load i64, ptr %3, align 8
-  %20 = call ptr @RSTRING_END(i64 noundef %19)
-  %21 = getelementptr i8, ptr %20, i64 -3
-  store ptr %21, ptr %7, align 8
-  br label %22
-
-22:                                               ; preds = %48, %1
-  %23 = load ptr, ptr %6, align 8
-  %24 = load ptr, ptr %7, align 8
-  %25 = icmp ult ptr %23, %24
-  br i1 %25, label %26, label %51
-
-26:                                               ; preds = %22
-  %27 = load ptr, ptr %6, align 8
-  %28 = load i8, ptr %27, align 1
-  %29 = sext i8 %28 to i32
-  %30 = call i32 @rb_isalnum(i32 noundef %29) #18
-  %31 = icmp ne i32 %30, 0
-  br i1 %31, label %34, label %32
-
-32:                                               ; preds = %26
-  %33 = load ptr, ptr %6, align 8
-  store i8 95, ptr %33, align 1
-  br label %48
-
-34:                                               ; preds = %26
-  %35 = load ptr, ptr %6, align 8
-  %36 = load i8, ptr %35, align 1
-  %37 = sext i8 %36 to i32
-  %38 = call i32 @rb_isupper(i32 noundef %37) #18
-  %39 = icmp ne i32 %38, 0
-  br i1 %39, label %40, label %47
-
-40:                                               ; preds = %34
-  %41 = load ptr, ptr %6, align 8
-  %42 = load i8, ptr %41, align 1
-  %43 = sext i8 %42 to i32
-  %44 = call i32 @rb_tolower(i32 noundef %43) #18
-  %45 = trunc i32 %44 to i8
-  %46 = load ptr, ptr %6, align 8
-  store i8 %45, ptr %46, align 1
-  br label %47
-
-47:                                               ; preds = %40, %34
-  br label %48
-
-48:                                               ; preds = %47, %32
-  %49 = load ptr, ptr %6, align 8
-  %50 = getelementptr i8, ptr %49, i32 1
-  store ptr %50, ptr %6, align 8
-  br label %22, !llvm.loop !15
-
-51:                                               ; preds = %22
-  %52 = load i64, ptr %3, align 8
-  %53 = call i64 @rb_fstring(i64 noundef %52)
-  store i64 %53, ptr %3, align 8
-  %54 = call ptr @rb_ruby_debug_ptr()
-  store i64 0, ptr %54, align 8
-  %55 = call i64 @rb_errinfo()
-  store i64 %55, ptr %5, align 8
-  %56 = load i64, ptr %3, align 8
-  %57 = call i32 @rb_require_internal_silent(i64 noundef %56)
-  store i32 %57, ptr %8, align 4
-  %58 = load i64, ptr %4, align 8
-  %59 = call ptr @rb_ruby_debug_ptr()
-  store i64 %58, ptr %59, align 8
-  %60 = load i64, ptr %5, align 8
-  call void @rb_set_errinfo(i64 noundef %60)
-  store ptr @global_enc_table, ptr %10, align 8
-  call void @rb_vm_lock_enter(ptr noundef %11, ptr noundef @.str, i32 noundef 770)
-  %61 = load i32, ptr %8, align 4
-  %62 = icmp slt i32 %61, 0
-  br i1 %62, label %66, label %63
-
-63:                                               ; preds = %51
-  %64 = load i32, ptr %8, align 4
-  %65 = icmp slt i32 1, %64
-  br i1 %65, label %66, label %67
-
-66:                                               ; preds = %63, %51
-  store i32 -1, ptr %9, align 4
-  br label %86
-
-67:                                               ; preds = %63
-  %68 = load ptr, ptr %10, align 8
-  %69 = load ptr, ptr %2, align 8
-  %70 = call i32 @enc_registered(ptr noundef %68, ptr noundef %69)
-  store i32 %70, ptr %9, align 4
-  %71 = icmp slt i32 %70, 0
-  br i1 %71, label %72, label %73
-
-72:                                               ; preds = %67
-  store i32 -1, ptr %9, align 4
-  br label %85
-
-73:                                               ; preds = %67
-  %74 = load ptr, ptr %10, align 8
-  %75 = getelementptr inbounds %struct.enc_table, ptr %74, i32 0, i32 0
-  %76 = load i32, ptr %9, align 4
-  %77 = sext i32 %76 to i64
-  %78 = getelementptr [256 x %struct.rb_encoding_entry], ptr %75, i64 0, i64 %77
-  %79 = getelementptr inbounds %struct.rb_encoding_entry, ptr %78, i32 0, i32 1
-  %80 = load ptr, ptr %79, align 8
-  %81 = call i32 @rb_enc_mbmaxlen(ptr noundef %80)
-  %82 = icmp ne i32 %81, 0
-  br i1 %82, label %84, label %83
-
-83:                                               ; preds = %73
-  store i32 -1, ptr %9, align 4
-  br label %84
-
-84:                                               ; preds = %83, %73
-  br label %85
-
-85:                                               ; preds = %84, %72
-  br label %86
-
-86:                                               ; preds = %85, %66
-  call void @rb_vm_lock_leave(ptr noundef %11, ptr noundef @.str, i32 noundef 782)
-  %87 = load i32, ptr %9, align 4
-  ret i32 %87
-}
-
-; Function Attrs: cold
-declare void @rb_warn(ptr noundef, ...) #6
-
-; Function Attrs: nounwind sspstrong uwtable
-define hidden i32 @rb_enc_find_index2(ptr noundef %0, i64 noundef %1) #0 {
-  %3 = alloca i32, align 4
-  %4 = alloca ptr, align 8
-  %5 = alloca i64, align 8
-  %6 = alloca [64 x i8], align 16
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  %7 = load i64, ptr %5, align 8
-  %8 = icmp sgt i64 %7, 63
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %2
-  store i32 -1, ptr %3, align 4
-  br label %19
-
-10:                                               ; preds = %2
-  %11 = getelementptr inbounds [64 x i8], ptr %6, i64 0, i64 0
-  %12 = load ptr, ptr %4, align 8
-  %13 = load i64, ptr %5, align 8
-  %14 = call nonnull ptr @ruby_nonempty_memcpy(ptr noundef %11, ptr noundef %12, i64 noundef %13) #23
-  %15 = load i64, ptr %5, align 8
-  %16 = getelementptr [64 x i8], ptr %6, i64 0, i64 %15
-  store i8 0, ptr %16, align 1
-  %17 = getelementptr inbounds [64 x i8], ptr %6, i64 0, i64 0
-  %18 = call i32 @rb_enc_find_index(ptr noundef %17)
-  store i32 %18, ptr %3, align 4
-  br label %19
-
-19:                                               ; preds = %10, %9
-  %20 = load i32, ptr %3, align 4
-  ret i32 %20
-}
-
-; Function Attrs: nounwind sspstrong memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal nonnull ptr @ruby_nonempty_memcpy(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2) #7 {
-  %4 = alloca ptr, align 8
-  %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
-  %7 = alloca i64, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store i64 %2, ptr %7, align 8
-  %8 = load i64, ptr %7, align 8
-  %9 = icmp ne i64 %8, 0
-  br i1 %9, label %10, label %14
-
-10:                                               ; preds = %3
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  %13 = load i64, ptr %7, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %11, ptr align 1 %12, i64 %13, i1 false)
-  store ptr %11, ptr %4, align 8
-  br label %16
-
-14:                                               ; preds = %3
-  %15 = load ptr, ptr %5, align 8
-  store ptr %15, ptr %4, align 8
-  br label %16
-
-16:                                               ; preds = %14, %10
-  %17 = load ptr, ptr %4, align 8
-  ret ptr %17
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @rb_enc_find(ptr noundef %0) #0 {
-  %2 = alloca ptr, align 8
-  %3 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
-  %4 = load ptr, ptr %2, align 8
-  %5 = call i32 @rb_enc_find_index(ptr noundef %4)
-  store i32 %5, ptr %3, align 4
-  %6 = load i32, ptr %3, align 4
-  %7 = icmp slt i32 %6, 0
-  br i1 %7, label %8, label %9
-
-8:                                                ; preds = %1
-  store i32 0, ptr %3, align 4
-  br label %9
-
-9:                                                ; preds = %8, %1
-  %10 = load i32, ptr %3, align 4
-  %11 = call ptr @rb_enc_from_index(i32 noundef %10)
-  ret ptr %11
-}
-
-; Function Attrs: nounwind sspstrong willreturn memory(read) uwtable
-define dso_local i32 @rb_enc_capable(i64 noundef %0) #2 {
-  %2 = alloca i64, align 8
-  store i64 %0, ptr %2, align 8
-  %3 = load i64, ptr %2, align 8
-  %4 = call i32 @enc_capable(i64 noundef %3)
-  ret i32 %4
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @enc_capable(i64 noundef %0) #0 {
-  %2 = alloca i32, align 4
-  %3 = alloca i64, align 8
-  store i64 %0, ptr %3, align 8
-  %4 = load i64, ptr %3, align 8
-  %5 = call zeroext i1 @RB_SPECIAL_CONST_P(i64 noundef %4) #18
-  br i1 %5, label %6, label %10
-
-6:                                                ; preds = %1
-  %7 = load i64, ptr %3, align 8
-  %8 = call zeroext i1 @RB_SYMBOL_P(i64 noundef %7) #17
-  %9 = zext i1 %8 to i32
-  store i32 %9, ptr %2, align 4
-  br label %24
-
-10:                                               ; preds = %1
-  %11 = load i64, ptr %3, align 8
-  %12 = call i32 @RB_BUILTIN_TYPE(i64 noundef %11) #17
-  switch i32 %12, label %23 [
-    i32 5, label %13
-    i32 6, label %13
-    i32 11, label %13
-    i32 20, label %13
-    i32 12, label %14
-  ]
-
-13:                                               ; preds = %10, %10, %10, %10
-  store i32 1, ptr %2, align 4
-  br label %24
-
-14:                                               ; preds = %10
-  %15 = load i64, ptr %3, align 8
-  %16 = call zeroext i1 @RTYPEDDATA_P(i64 noundef %15) #17
-  br i1 %16, label %17, label %22
-
-17:                                               ; preds = %14
-  %18 = load i64, ptr %3, align 8
-  %19 = call ptr @RTYPEDDATA_TYPE(i64 noundef %18) #17
-  %20 = icmp eq ptr %19, @encoding_data_type
-  br i1 %20, label %21, label %22
-
-21:                                               ; preds = %17
-  store i32 1, ptr %2, align 4
-  br label %24
-
-22:                                               ; preds = %17, %14
-  br label %23
-
-23:                                               ; preds = %22, %10
-  store i32 0, ptr %2, align 4
-  br label %24
-
-24:                                               ; preds = %23, %21, %13, %6
-  %25 = load i32, ptr %2, align 4
-  ret i32 %25
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define hidden i64 @rb_id_encoding() #0 {
-  br label %1
-
-1:                                                ; preds = %0
-  %2 = call i64 @rbimpl_intern_const(ptr noundef @rb_id_encoding.rbimpl_id, ptr noundef @.str.4) #23
-  store i64 %2, ptr @id_encoding, align 8
-  br label %3
-
-3:                                                ; preds = %1
-  %4 = load i64, ptr @id_encoding, align 8
-  ret i64 %4
-}
-
-; Function Attrs: nounwind sspstrong memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal i64 @rbimpl_intern_const(ptr noundef nonnull %0, ptr noundef nonnull %1) #7 {
-  %3 = alloca ptr, align 8
-  %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  br label %5
-
-5:                                                ; preds = %10, %2
-  %6 = load ptr, ptr %3, align 8
-  %7 = load i64, ptr %6, align 8
-  %8 = icmp ne i64 %7, 0
-  %9 = xor i1 %8, true
-  br i1 %9, label %10, label %14
-
-10:                                               ; preds = %5
-  %11 = load ptr, ptr %4, align 8
-  %12 = call i64 @rb_intern_const(ptr noundef %11) #17
-  %13 = load ptr, ptr %3, align 8
-  store i64 %12, ptr %13, align 8
-  br label %5, !llvm.loop !16
-
-14:                                               ; preds = %5
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i64, ptr %15, align 8
-  ret i64 %16
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @rb_enc_get_index(i64 noundef %0) #0 {
-  %2 = alloca i1, align 1
-  %3 = alloca i64, align 8
-  %4 = alloca i32, align 4
-  %5 = alloca i32, align 4
   %6 = alloca i64, align 8
   %7 = alloca i32, align 4
   %8 = alloca i64, align 8
-  %9 = alloca i64, align 8
-  %10 = alloca i64, align 8
-  store i64 %0, ptr %6, align 8
-  store i32 -1, ptr %7, align 4
-  %11 = load i64, ptr %6, align 8
-  %12 = call zeroext i1 @RB_SPECIAL_CONST_P(i64 noundef %11) #18
-  br i1 %12, label %13, label %20
-
-13:                                               ; preds = %1
-  %14 = load i64, ptr %6, align 8
-  %15 = call zeroext i1 @RB_SYMBOL_P(i64 noundef %14) #17
-  br i1 %15, label %17, label %16
-
-16:                                               ; preds = %13
-  store i32 -1, ptr %5, align 4
-  br label %123
-
-17:                                               ; preds = %13
-  %18 = load i64, ptr %6, align 8
-  %19 = call i64 @rb_sym2str(i64 noundef %18)
-  store i64 %19, ptr %6, align 8
-  br label %20
-
-20:                                               ; preds = %17, %1
-  %21 = load i64, ptr %6, align 8
-  %22 = call i32 @RB_BUILTIN_TYPE(i64 noundef %21) #17
-  switch i32 %22, label %120 [
-    i32 5, label %23
-    i32 20, label %23
-    i32 6, label %23
-    i32 11, label %26
-    i32 12, label %109
-  ]
-
-23:                                               ; preds = %20, %20, %20
-  %24 = load i64, ptr %6, align 8
-  %25 = call i32 @enc_get_index_str(i64 noundef %24)
-  store i32 %25, ptr %7, align 4
-  br label %121
-
-26:                                               ; preds = %20
-  %27 = load i64, ptr %6, align 8
-  %28 = call i64 @rbimpl_intern_const(ptr noundef @rb_enc_get_index.rbimpl_id, ptr noundef @.str.5) #23
-  store i64 %28, ptr %9, align 8
-  %29 = load i64, ptr %9, align 8
-  %30 = call i64 @rb_funcallv(i64 noundef %27, i64 noundef %29, i32 noundef 0, ptr noundef null)
-  store i64 %30, ptr %8, align 8
-  %31 = load i64, ptr %8, align 8
-  %32 = call zeroext i1 @RB_NIL_P(i64 noundef %31) #18
-  br i1 %32, label %33, label %38
-
-33:                                               ; preds = %26
-  %34 = load i64, ptr %6, align 8
-  %35 = call i64 @rbimpl_intern_const(ptr noundef @rb_enc_get_index.rbimpl_id.6, ptr noundef @.str.7) #23
-  store i64 %35, ptr %10, align 8
-  %36 = load i64, ptr %10, align 8
-  %37 = call i64 @rb_funcallv(i64 noundef %34, i64 noundef %36, i32 noundef 0, ptr noundef null)
-  store i64 %37, ptr %8, align 8
-  br label %38
-
-38:                                               ; preds = %33, %26
-  br i1 true, label %39, label %95
-
-39:                                               ; preds = %38
-  %40 = load i64, ptr %8, align 8
-  store i64 %40, ptr %3, align 8
-  store i32 12, ptr %4, align 4
-  %41 = load i32, ptr %4, align 4
-  %42 = icmp eq i32 %41, 18
-  br i1 %42, label %43, label %46
-
-43:                                               ; preds = %39
-  %44 = load i64, ptr %3, align 8
-  %45 = icmp eq i64 %44, 20
-  store i1 %45, ptr %2, align 1
-  br label %93
-
-46:                                               ; preds = %39
-  %47 = load i32, ptr %4, align 4
-  %48 = icmp eq i32 %47, 19
-  br i1 %48, label %49, label %52
-
-49:                                               ; preds = %46
-  %50 = load i64, ptr %3, align 8
-  %51 = icmp eq i64 %50, 0
-  store i1 %51, ptr %2, align 1
-  br label %93
-
-52:                                               ; preds = %46
-  %53 = load i32, ptr %4, align 4
-  %54 = icmp eq i32 %53, 17
-  br i1 %54, label %55, label %58
-
-55:                                               ; preds = %52
-  %56 = load i64, ptr %3, align 8
-  %57 = icmp eq i64 %56, 4
-  store i1 %57, ptr %2, align 1
-  br label %93
-
-58:                                               ; preds = %52
-  %59 = load i32, ptr %4, align 4
-  %60 = icmp eq i32 %59, 22
-  br i1 %60, label %61, label %64
-
-61:                                               ; preds = %58
-  %62 = load i64, ptr %3, align 8
-  %63 = icmp eq i64 %62, 36
-  store i1 %63, ptr %2, align 1
-  br label %93
-
-64:                                               ; preds = %58
-  %65 = load i32, ptr %4, align 4
-  %66 = icmp eq i32 %65, 21
-  br i1 %66, label %67, label %70
-
-67:                                               ; preds = %64
-  %68 = load i64, ptr %3, align 8
-  %69 = call zeroext i1 @RB_FIXNUM_P(i64 noundef %68) #18
-  store i1 %69, ptr %2, align 1
-  br label %93
-
-70:                                               ; preds = %64
-  %71 = load i32, ptr %4, align 4
-  %72 = icmp eq i32 %71, 20
-  br i1 %72, label %73, label %76
-
-73:                                               ; preds = %70
-  %74 = load i64, ptr %3, align 8
-  %75 = call zeroext i1 @RB_SYMBOL_P(i64 noundef %74) #17
-  store i1 %75, ptr %2, align 1
-  br label %93
-
-76:                                               ; preds = %70
-  %77 = load i32, ptr %4, align 4
-  %78 = icmp eq i32 %77, 4
-  br i1 %78, label %79, label %82
-
-79:                                               ; preds = %76
-  %80 = load i64, ptr %3, align 8
-  %81 = call zeroext i1 @RB_FLOAT_TYPE_P(i64 noundef %80) #17
-  store i1 %81, ptr %2, align 1
-  br label %93
-
-82:                                               ; preds = %76
-  %83 = load i64, ptr %3, align 8
-  %84 = call zeroext i1 @RB_SPECIAL_CONST_P(i64 noundef %83) #18
-  br i1 %84, label %85, label %86
-
-85:                                               ; preds = %82
-  store i1 false, ptr %2, align 1
-  br label %93
-
-86:                                               ; preds = %82
-  %87 = load i32, ptr %4, align 4
-  %88 = load i64, ptr %3, align 8
-  %89 = call i32 @RB_BUILTIN_TYPE(i64 noundef %88) #17
-  %90 = icmp eq i32 %87, %89
-  br i1 %90, label %91, label %92
-
-91:                                               ; preds = %86
-  store i1 true, ptr %2, align 1
-  br label %93
-
-92:                                               ; preds = %86
-  store i1 false, ptr %2, align 1
-  br label %93
-
-93:                                               ; preds = %92, %91, %85, %79, %73, %67, %61, %55, %49, %43
-  %94 = load i1, ptr %2, align 1
-  br i1 %94, label %98, label %108
-
-95:                                               ; preds = %38
-  %96 = load i64, ptr %8, align 8
-  %97 = call zeroext i1 @RB_TYPE_P(i64 noundef %96, i32 noundef 12) #17
-  br i1 %97, label %98, label %108
-
-98:                                               ; preds = %95, %93
-  %99 = load i64, ptr %8, align 8
-  %100 = call zeroext i1 @RTYPEDDATA_P(i64 noundef %99) #17
-  br i1 %100, label %101, label %108
-
-101:                                              ; preds = %98
-  %102 = load i64, ptr %8, align 8
-  %103 = call ptr @RTYPEDDATA_TYPE(i64 noundef %102) #17
-  %104 = icmp eq ptr %103, @encoding_data_type
-  br i1 %104, label %105, label %108
-
-105:                                              ; preds = %101
-  %106 = load i64, ptr %8, align 8
-  %107 = call i32 @enc_check_encoding(i64 noundef %106)
-  store i32 %107, ptr %7, align 4
-  br label %108
-
-108:                                              ; preds = %105, %101, %98, %95, %93
-  br label %121
-
-109:                                              ; preds = %20
-  %110 = load i64, ptr %6, align 8
-  %111 = call zeroext i1 @RTYPEDDATA_P(i64 noundef %110) #17
-  br i1 %111, label %112, label %119
-
-112:                                              ; preds = %109
-  %113 = load i64, ptr %6, align 8
-  %114 = call ptr @RTYPEDDATA_TYPE(i64 noundef %113) #17
-  %115 = icmp eq ptr %114, @encoding_data_type
-  br i1 %115, label %116, label %119
-
-116:                                              ; preds = %112
-  %117 = load i64, ptr %6, align 8
-  %118 = call i32 @enc_check_encoding(i64 noundef %117)
-  store i32 %118, ptr %7, align 4
-  br label %119
-
-119:                                              ; preds = %116, %112, %109
-  br label %121
-
-120:                                              ; preds = %20
-  br label %121
-
-121:                                              ; preds = %120, %119, %108, %23
-  %122 = load i32, ptr %7, align 4
-  store i32 %122, ptr %5, align 4
-  br label %123
-
-123:                                              ; preds = %121, %16
-  %124 = load i32, ptr %5, align 4
-  ret i32 %124
-}
-
-; Function Attrs: nounwind sspstrong willreturn memory(none) uwtable
-define internal zeroext i1 @RB_SPECIAL_CONST_P(i64 noundef %0) #3 {
-  %2 = alloca i64, align 8
-  store i64 %0, ptr %2, align 8
-  %3 = load i64, ptr %2, align 8
-  %4 = call zeroext i1 @RB_IMMEDIATE_P(i64 noundef %3) #18
-  br i1 %4, label %8, label %5
-
-5:                                                ; preds = %1
-  %6 = load i64, ptr %2, align 8
-  %7 = icmp eq i64 %6, 0
-  br label %8
-
-8:                                                ; preds = %5, %1
-  %9 = phi i1 [ true, %1 ], [ %7, %5 ]
-  ret i1 %9
-}
-
-; Function Attrs: nounwind sspstrong willreturn memory(read) uwtable
-define internal zeroext i1 @RB_SYMBOL_P(i64 noundef %0) #2 {
-  %2 = alloca i64, align 8
-  store i64 %0, ptr %2, align 8
-  %3 = load i64, ptr %2, align 8
-  %4 = call zeroext i1 @RB_STATIC_SYM_P(i64 noundef %3) #18
-  br i1 %4, label %8, label %5
-
-5:                                                ; preds = %1
-  %6 = load i64, ptr %2, align 8
-  %7 = call zeroext i1 @RB_DYNAMIC_SYM_P(i64 noundef %6) #17
-  br label %8
-
-8:                                                ; preds = %5, %1
-  %9 = phi i1 [ true, %1 ], [ %7, %5 ]
-  ret i1 %9
-}
-
-declare i64 @rb_sym2str(i64 noundef) #1
-
-; Function Attrs: nounwind sspstrong willreturn memory(read) uwtable
-define internal i32 @RB_BUILTIN_TYPE(i64 noundef %0) #2 {
-  %2 = alloca i64, align 8
-  %3 = alloca i64, align 8
-  store i64 %0, ptr %2, align 8
-  %4 = load i64, ptr %2, align 8
-  %5 = inttoptr i64 %4 to ptr
-  %6 = getelementptr inbounds %struct.RBasic, ptr %5, i32 0, i32 0
-  %7 = load i64, ptr %6, align 8
-  %8 = and i64 %7, 31
-  store i64 %8, ptr %3, align 8
-  %9 = load i64, ptr %3, align 8
-  %10 = trunc i64 %9 to i32
-  ret i32 %10
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @enc_get_index_str(i64 noundef %0) #0 {
-  %2 = alloca i64, align 8
-  %3 = alloca i32, align 4
-  %4 = alloca i64, align 8
-  store i64 %0, ptr %2, align 8
-  %5 = load i64, ptr %2, align 8
-  %6 = call i32 @RB_ENCODING_GET_INLINED(i64 noundef %5)
-  store i32 %6, ptr %3, align 4
-  %7 = load i32, ptr %3, align 4
-  %8 = icmp eq i32 %7, 127
-  br i1 %8, label %9, label %21
-
-9:                                                ; preds = %1
-  %10 = load i64, ptr %2, align 8
-  %11 = call i64 @rb_id_encoding()
-  %12 = call i64 @rb_attr_get(i64 noundef %10, i64 noundef %11)
-  store i64 %12, ptr %4, align 8
-  %13 = load i64, ptr %4, align 8
-  %14 = call zeroext i1 @RB_NIL_P(i64 noundef %13) #18
-  br i1 %14, label %15, label %16
-
-15:                                               ; preds = %9
-  br label %19
-
-16:                                               ; preds = %9
-  %17 = load i64, ptr %4, align 8
-  %18 = call i32 @rb_num2int_inline(i64 noundef %17)
-  br label %19
-
-19:                                               ; preds = %16, %15
-  %20 = phi i32 [ 0, %15 ], [ %18, %16 ]
-  store i32 %20, ptr %3, align 4
-  br label %21
-
-21:                                               ; preds = %19, %1
-  %22 = load i32, ptr %3, align 4
-  ret i32 %22
-}
-
-declare i64 @rb_funcallv(i64 noundef, i64 noundef, i32 noundef, ptr noundef) #1
-
-; Function Attrs: nounwind sspstrong willreturn memory(read) uwtable
-define internal zeroext i1 @RB_TYPE_P(i64 noundef %0, i32 noundef %1) #2 {
-  %3 = alloca i1, align 1
-  %4 = alloca i64, align 8
-  %5 = alloca i32, align 4
-  %6 = alloca i1, align 1
-  %7 = alloca i64, align 8
-  %8 = alloca i32, align 4
-  store i64 %0, ptr %7, align 8
-  store i32 %1, ptr %8, align 4
-  %9 = load i32, ptr %8, align 4
-  %10 = call i1 @llvm.is.constant.i32(i32 %9)
-  br i1 %10, label %11, label %68
-
-11:                                               ; preds = %2
-  %12 = load i64, ptr %7, align 8
-  %13 = load i32, ptr %8, align 4
-  store i64 %12, ptr %4, align 8
-  store i32 %13, ptr %5, align 4
-  %14 = load i32, ptr %5, align 4
-  %15 = icmp eq i32 %14, 18
-  br i1 %15, label %16, label %19
-
-16:                                               ; preds = %11
-  %17 = load i64, ptr %4, align 8
-  %18 = icmp eq i64 %17, 20
-  store i1 %18, ptr %3, align 1
-  br label %66
-
-19:                                               ; preds = %11
-  %20 = load i32, ptr %5, align 4
-  %21 = icmp eq i32 %20, 19
-  br i1 %21, label %22, label %25
-
-22:                                               ; preds = %19
-  %23 = load i64, ptr %4, align 8
-  %24 = icmp eq i64 %23, 0
-  store i1 %24, ptr %3, align 1
-  br label %66
-
-25:                                               ; preds = %19
-  %26 = load i32, ptr %5, align 4
-  %27 = icmp eq i32 %26, 17
-  br i1 %27, label %28, label %31
-
-28:                                               ; preds = %25
-  %29 = load i64, ptr %4, align 8
-  %30 = icmp eq i64 %29, 4
-  store i1 %30, ptr %3, align 1
-  br label %66
-
-31:                                               ; preds = %25
-  %32 = load i32, ptr %5, align 4
-  %33 = icmp eq i32 %32, 22
-  br i1 %33, label %34, label %37
-
-34:                                               ; preds = %31
-  %35 = load i64, ptr %4, align 8
-  %36 = icmp eq i64 %35, 36
-  store i1 %36, ptr %3, align 1
-  br label %66
-
-37:                                               ; preds = %31
-  %38 = load i32, ptr %5, align 4
-  %39 = icmp eq i32 %38, 21
-  br i1 %39, label %40, label %43
-
-40:                                               ; preds = %37
-  %41 = load i64, ptr %4, align 8
-  %42 = call zeroext i1 @RB_FIXNUM_P(i64 noundef %41) #18
-  store i1 %42, ptr %3, align 1
-  br label %66
-
-43:                                               ; preds = %37
-  %44 = load i32, ptr %5, align 4
-  %45 = icmp eq i32 %44, 20
-  br i1 %45, label %46, label %49
-
-46:                                               ; preds = %43
-  %47 = load i64, ptr %4, align 8
-  %48 = call zeroext i1 @RB_SYMBOL_P(i64 noundef %47) #17
-  store i1 %48, ptr %3, align 1
-  br label %66
-
-49:                                               ; preds = %43
-  %50 = load i32, ptr %5, align 4
-  %51 = icmp eq i32 %50, 4
-  br i1 %51, label %52, label %55
-
-52:                                               ; preds = %49
-  %53 = load i64, ptr %4, align 8
-  %54 = call zeroext i1 @RB_FLOAT_TYPE_P(i64 noundef %53) #17
-  store i1 %54, ptr %3, align 1
-  br label %66
-
-55:                                               ; preds = %49
-  %56 = load i64, ptr %4, align 8
-  %57 = call zeroext i1 @RB_SPECIAL_CONST_P(i64 noundef %56) #18
-  br i1 %57, label %58, label %59
-
-58:                                               ; preds = %55
-  store i1 false, ptr %3, align 1
-  br label %66
-
-59:                                               ; preds = %55
-  %60 = load i32, ptr %5, align 4
-  %61 = load i64, ptr %4, align 8
-  %62 = call i32 @RB_BUILTIN_TYPE(i64 noundef %61) #17
-  %63 = icmp eq i32 %60, %62
-  br i1 %63, label %64, label %65
-
-64:                                               ; preds = %59
-  store i1 true, ptr %3, align 1
-  br label %66
-
-65:                                               ; preds = %59
-  store i1 false, ptr %3, align 1
-  br label %66
-
-66:                                               ; preds = %65, %64, %58, %52, %46, %40, %34, %28, %22, %16
-  %67 = load i1, ptr %3, align 1
-  store i1 %67, ptr %6, align 1
-  br label %73
-
-68:                                               ; preds = %2
-  %69 = load i32, ptr %8, align 4
-  %70 = load i64, ptr %7, align 8
-  %71 = call i32 @rb_type(i64 noundef %70) #17
-  %72 = icmp eq i32 %69, %71
-  store i1 %72, ptr %6, align 1
-  br label %73
-
-73:                                               ; preds = %68, %66
-  %74 = load i1, ptr %6, align 1
-  ret i1 %74
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @rb_enc_set_index(i64 noundef %0, i32 noundef %1) #0 {
-  %3 = alloca i64, align 8
-  %4 = alloca i32, align 4
-  store i64 %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %5 = load i64, ptr %3, align 8
-  call void @rb_check_frozen_inline(i64 noundef %5)
-  %6 = load i32, ptr %4, align 4
-  %7 = call ptr @must_encindex(i32 noundef %6)
-  %8 = load i64, ptr %3, align 8
-  %9 = load i32, ptr %4, align 4
-  call void @enc_set_index(i64 noundef %8, i32 noundef %9)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @rb_check_frozen_inline(i64 noundef %0) #0 {
-  %2 = alloca i64, align 8
-  store i64 %0, ptr %2, align 8
-  %3 = load i64, ptr %2, align 8
-  %4 = call zeroext i1 @RB_OBJ_FROZEN(i64 noundef %3) #17
-  %5 = xor i1 %4, true
-  %6 = xor i1 %5, true
-  %7 = zext i1 %6 to i32
-  %8 = sext i32 %7 to i64
-  %9 = icmp ne i64 %8, 0
-  br i1 %9, label %10, label %12
-
-10:                                               ; preds = %1
-  %11 = load i64, ptr %2, align 8
-  call void @rb_error_frozen_object(i64 noundef %11) #19
-  unreachable
-
-12:                                               ; preds = %1
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @enc_set_index(i64 noundef %0, i32 noundef %1) #0 {
-  %3 = alloca i64, align 8
-  %4 = alloca i32, align 4
-  store i64 %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %5 = load i64, ptr %3, align 8
-  %6 = call i32 @enc_capable(i64 noundef %5)
-  %7 = icmp ne i32 %6, 0
-  br i1 %7, label %10, label %8
-
-8:                                                ; preds = %2
-  %9 = load i64, ptr @rb_eArgError, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %9, ptr noundef @.str.49) #19
-  unreachable
-
-10:                                               ; preds = %2
-  %11 = load i32, ptr %4, align 4
-  %12 = icmp slt i32 %11, 127
-  br i1 %12, label %13, label %16
-
-13:                                               ; preds = %10
-  %14 = load i64, ptr %3, align 8
-  %15 = load i32, ptr %4, align 4
-  call void @RB_ENCODING_SET_INLINED(i64 noundef %14, i32 noundef %15)
-  br label %23
-
-16:                                               ; preds = %10
-  %17 = load i64, ptr %3, align 8
-  call void @RB_ENCODING_SET_INLINED(i64 noundef %17, i32 noundef 127)
-  %18 = load i64, ptr %3, align 8
-  %19 = call i64 @rb_id_encoding()
-  %20 = load i32, ptr %4, align 4
-  %21 = call i64 @rb_int2num_inline(i32 noundef %20)
-  %22 = call i64 @rb_ivar_set(i64 noundef %18, i64 noundef %19, i64 noundef %21)
-  br label %23
-
-23:                                               ; preds = %16, %13
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_enc_associate_index(i64 noundef %0, i32 noundef %1) #0 {
-  %3 = alloca i1, align 1
-  %4 = alloca i64, align 8
-  %5 = alloca i32, align 4
-  %6 = alloca i64, align 8
-  %7 = alloca i64, align 8
-  %8 = alloca i32, align 4
-  %9 = alloca ptr, align 8
-  %10 = alloca i32, align 4
-  %11 = alloca i32, align 4
-  %12 = alloca i32, align 4
-  store i64 %0, ptr %7, align 8
-  store i32 %1, ptr %8, align 4
-  %13 = load i64, ptr %7, align 8
-  call void @rb_check_frozen_inline(i64 noundef %13)
-  %14 = load i64, ptr %7, align 8
-  %15 = call i32 @rb_enc_get_index(i64 noundef %14)
-  store i32 %15, ptr %10, align 4
-  %16 = load i32, ptr %10, align 4
-  %17 = load i32, ptr %8, align 4
-  %18 = icmp eq i32 %16, %17
-  br i1 %18, label %19, label %21
-
-19:                                               ; preds = %2
-  %20 = load i64, ptr %7, align 8
-  store i64 %20, ptr %6, align 8
-  br label %113
-
-21:                                               ; preds = %2
-  %22 = load i64, ptr %7, align 8
-  %23 = call zeroext i1 @RB_SPECIAL_CONST_P(i64 noundef %22) #18
-  br i1 %23, label %24, label %26
-
-24:                                               ; preds = %21
-  %25 = load i64, ptr @rb_eArgError, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %25, ptr noundef @.str.8) #19
-  unreachable
-
-26:                                               ; preds = %21
-  %27 = load i32, ptr %8, align 4
-  %28 = call ptr @must_encindex(i32 noundef %27)
-  store ptr %28, ptr %9, align 8
-  %29 = load i64, ptr %7, align 8
-  %30 = call zeroext i1 @RB_ENC_CODERANGE_ASCIIONLY(i64 noundef %29) #17
-  br i1 %30, label %31, label %34
-
-31:                                               ; preds = %26
-  %32 = load ptr, ptr %9, align 8
-  %33 = call zeroext i1 @rb_enc_asciicompat(ptr noundef %32)
-  br i1 %33, label %36, label %34
-
-34:                                               ; preds = %31, %26
-  %35 = load i64, ptr %7, align 8
-  call void @RB_ENC_CODERANGE_CLEAR(i64 noundef %35)
-  br label %36
-
-36:                                               ; preds = %34, %31
-  %37 = load ptr, ptr %9, align 8
-  %38 = call i32 @rb_enc_mbminlen(ptr noundef %37)
-  store i32 %38, ptr %12, align 4
-  %39 = load i32, ptr %10, align 4
-  %40 = call ptr @rb_enc_from_index(i32 noundef %39)
-  %41 = call i32 @rb_enc_mbminlen(ptr noundef %40)
-  store i32 %41, ptr %11, align 4
-  %42 = load i32, ptr %11, align 4
-  %43 = load i32, ptr %12, align 4
-  %44 = icmp ne i32 %42, %43
-  br i1 %44, label %45, label %109
-
-45:                                               ; preds = %36
-  br i1 true, label %46, label %102
-
-46:                                               ; preds = %45
-  %47 = load i64, ptr %7, align 8
-  store i64 %47, ptr %4, align 8
-  store i32 5, ptr %5, align 4
-  %48 = load i32, ptr %5, align 4
-  %49 = icmp eq i32 %48, 18
-  br i1 %49, label %50, label %53
-
-50:                                               ; preds = %46
-  %51 = load i64, ptr %4, align 8
-  %52 = icmp eq i64 %51, 20
-  store i1 %52, ptr %3, align 1
-  br label %100
-
-53:                                               ; preds = %46
-  %54 = load i32, ptr %5, align 4
-  %55 = icmp eq i32 %54, 19
-  br i1 %55, label %56, label %59
-
-56:                                               ; preds = %53
-  %57 = load i64, ptr %4, align 8
-  %58 = icmp eq i64 %57, 0
-  store i1 %58, ptr %3, align 1
-  br label %100
-
-59:                                               ; preds = %53
-  %60 = load i32, ptr %5, align 4
-  %61 = icmp eq i32 %60, 17
-  br i1 %61, label %62, label %65
-
-62:                                               ; preds = %59
-  %63 = load i64, ptr %4, align 8
-  %64 = icmp eq i64 %63, 4
-  store i1 %64, ptr %3, align 1
-  br label %100
-
-65:                                               ; preds = %59
-  %66 = load i32, ptr %5, align 4
-  %67 = icmp eq i32 %66, 22
-  br i1 %67, label %68, label %71
-
-68:                                               ; preds = %65
-  %69 = load i64, ptr %4, align 8
-  %70 = icmp eq i64 %69, 36
-  store i1 %70, ptr %3, align 1
-  br label %100
-
-71:                                               ; preds = %65
-  %72 = load i32, ptr %5, align 4
-  %73 = icmp eq i32 %72, 21
-  br i1 %73, label %74, label %77
-
-74:                                               ; preds = %71
-  %75 = load i64, ptr %4, align 8
-  %76 = call zeroext i1 @RB_FIXNUM_P(i64 noundef %75) #18
-  store i1 %76, ptr %3, align 1
-  br label %100
-
-77:                                               ; preds = %71
-  %78 = load i32, ptr %5, align 4
-  %79 = icmp eq i32 %78, 20
-  br i1 %79, label %80, label %83
-
-80:                                               ; preds = %77
-  %81 = load i64, ptr %4, align 8
-  %82 = call zeroext i1 @RB_SYMBOL_P(i64 noundef %81) #17
-  store i1 %82, ptr %3, align 1
-  br label %100
-
-83:                                               ; preds = %77
-  %84 = load i32, ptr %5, align 4
-  %85 = icmp eq i32 %84, 4
-  br i1 %85, label %86, label %89
-
-86:                                               ; preds = %83
-  %87 = load i64, ptr %4, align 8
-  %88 = call zeroext i1 @RB_FLOAT_TYPE_P(i64 noundef %87) #17
-  store i1 %88, ptr %3, align 1
-  br label %100
-
-89:                                               ; preds = %83
-  %90 = load i64, ptr %4, align 8
-  %91 = call zeroext i1 @RB_SPECIAL_CONST_P(i64 noundef %90) #18
-  br i1 %91, label %92, label %93
-
-92:                                               ; preds = %89
-  store i1 false, ptr %3, align 1
-  br label %100
-
-93:                                               ; preds = %89
-  %94 = load i32, ptr %5, align 4
-  %95 = load i64, ptr %4, align 8
-  %96 = call i32 @RB_BUILTIN_TYPE(i64 noundef %95) #17
-  %97 = icmp eq i32 %94, %96
-  br i1 %97, label %98, label %99
-
-98:                                               ; preds = %93
-  store i1 true, ptr %3, align 1
-  br label %100
-
-99:                                               ; preds = %93
-  store i1 false, ptr %3, align 1
-  br label %100
-
-100:                                              ; preds = %99, %98, %92, %86, %80, %74, %68, %62, %56, %50
-  %101 = load i1, ptr %3, align 1
-  br i1 %101, label %105, label %109
-
-102:                                              ; preds = %45
-  %103 = load i64, ptr %7, align 8
-  %104 = call zeroext i1 @RB_TYPE_P(i64 noundef %103, i32 noundef 5) #17
-  br i1 %104, label %105, label %109
-
-105:                                              ; preds = %102, %100
-  %106 = load i64, ptr %7, align 8
-  %107 = load i32, ptr %11, align 4
-  %108 = load i32, ptr %12, align 4
-  call void @rb_str_change_terminator_length(i64 noundef %106, i32 noundef %107, i32 noundef %108)
-  br label %109
-
-109:                                              ; preds = %105, %102, %100, %36
-  %110 = load i64, ptr %7, align 8
-  %111 = load i32, ptr %8, align 4
-  call void @enc_set_index(i64 noundef %110, i32 noundef %111)
-  %112 = load i64, ptr %7, align 8
-  store i64 %112, ptr %6, align 8
-  br label %113
-
-113:                                              ; preds = %109, %19
-  %114 = load i64, ptr %6, align 8
-  ret i64 %114
-}
-
-; Function Attrs: nounwind sspstrong willreturn memory(read) uwtable
-define internal zeroext i1 @RB_ENC_CODERANGE_ASCIIONLY(i64 noundef %0) #2 {
-  %2 = alloca i64, align 8
-  store i64 %0, ptr %2, align 8
-  %3 = load i64, ptr %2, align 8
-  %4 = call i32 @RB_ENC_CODERANGE(i64 noundef %3) #17
-  %5 = icmp eq i32 %4, 1048576
-  ret i1 %5
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @RB_ENC_CODERANGE_CLEAR(i64 noundef %0) #0 {
-  %2 = alloca i64, align 8
-  store i64 %0, ptr %2, align 8
-  %3 = load i64, ptr %2, align 8
-  call void @RB_FL_UNSET_RAW(i64 noundef %3, i64 noundef 3145728)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @rb_enc_mbminlen(ptr noundef %0) #0 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %3, i32 0, i32 3
-  %5 = load i32, ptr %4, align 4
-  ret i32 %5
-}
-
-declare void @rb_str_change_terminator_length(i64 noundef, i32 noundef, i32 noundef) #1
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_enc_associate(i64 noundef %0, ptr noundef %1) #0 {
-  %3 = alloca i64, align 8
-  %4 = alloca ptr, align 8
-  store i64 %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load i64, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
-  %7 = call i32 @rb_enc_to_index(ptr noundef %6) #17
-  %8 = call i64 @rb_enc_associate_index(i64 noundef %5, i32 noundef %7)
-  ret i64 %8
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define hidden ptr @rb_enc_check_str(i64 noundef %0, i64 noundef %1) #0 {
-  %3 = alloca i64, align 8
-  %4 = alloca i64, align 8
-  %5 = alloca ptr, align 8
-  store i64 %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
-  %6 = load i64, ptr %3, align 8
-  %7 = load i64, ptr %4, align 8
-  %8 = call ptr @enc_compatible_str(i64 noundef %6, i64 noundef %7)
-  store ptr %8, ptr %5, align 8
-  %9 = load ptr, ptr %5, align 8
-  %10 = load i64, ptr %3, align 8
-  %11 = load i64, ptr %4, align 8
-  %12 = call ptr @rb_encoding_check(ptr noundef %9, i64 noundef %10, i64 noundef %11)
-  ret ptr %12
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal ptr @enc_compatible_str(i64 noundef %0, i64 noundef %1) #0 {
-  %3 = alloca ptr, align 8
-  %4 = alloca i64, align 8
-  %5 = alloca i64, align 8
-  %6 = alloca i32, align 4
-  %7 = alloca i32, align 4
-  store i64 %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  %8 = load i64, ptr %4, align 8
-  %9 = call i32 @enc_get_index_str(i64 noundef %8)
-  store i32 %9, ptr %6, align 4
-  %10 = load i64, ptr %5, align 8
-  %11 = call i32 @enc_get_index_str(i64 noundef %10)
-  store i32 %11, ptr %7, align 4
-  %12 = load i32, ptr %6, align 4
-  %13 = icmp slt i32 %12, 0
-  br i1 %13, label %17, label %14
-
-14:                                               ; preds = %2
-  %15 = load i32, ptr %7, align 4
-  %16 = icmp slt i32 %15, 0
-  br i1 %16, label %17, label %18
-
-17:                                               ; preds = %14, %2
-  store ptr null, ptr %3, align 8
-  br label %31
-
-18:                                               ; preds = %14
-  %19 = load i32, ptr %6, align 4
-  %20 = load i32, ptr %7, align 4
-  %21 = icmp eq i32 %19, %20
-  br i1 %21, label %22, label %25
-
-22:                                               ; preds = %18
-  %23 = load i32, ptr %6, align 4
-  %24 = call ptr @rb_enc_from_index(i32 noundef %23)
-  store ptr %24, ptr %3, align 8
-  br label %31
-
-25:                                               ; preds = %18
-  %26 = load i64, ptr %4, align 8
-  %27 = load i64, ptr %5, align 8
-  %28 = load i32, ptr %6, align 4
-  %29 = load i32, ptr %7, align 4
-  %30 = call ptr @enc_compatible_latter(i64 noundef %26, i64 noundef %27, i32 noundef %28, i32 noundef %29)
-  store ptr %30, ptr %3, align 8
-  br label %31
-
-31:                                               ; preds = %25, %22, %17
-  %32 = load ptr, ptr %3, align 8
-  ret ptr %32
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal ptr @rb_encoding_check(ptr noundef %0, i64 noundef %1, i64 noundef %2) #0 {
-  %4 = alloca ptr, align 8
-  %5 = alloca i64, align 8
-  %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = icmp ne ptr %7, null
-  br i1 %8, label %17, label %9
-
-9:                                                ; preds = %3
-  %10 = load i64, ptr @rb_eEncCompatError, align 8
-  %11 = load i64, ptr %5, align 8
-  %12 = call ptr @rb_enc_get(i64 noundef %11)
-  %13 = call ptr @rb_enc_name(ptr noundef %12)
-  %14 = load i64, ptr %6, align 8
-  %15 = call ptr @rb_enc_get(i64 noundef %14)
-  %16 = call ptr @rb_enc_name(ptr noundef %15)
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %10, ptr noundef @.str.50, ptr noundef %13, ptr noundef %16) #19
-  unreachable
-
-17:                                               ; preds = %3
-  %18 = load ptr, ptr %4, align 8
-  ret ptr %18
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @rb_enc_check(i64 noundef %0, i64 noundef %1) #0 {
-  %3 = alloca i64, align 8
-  %4 = alloca i64, align 8
-  %5 = alloca ptr, align 8
-  store i64 %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
-  %6 = load i64, ptr %3, align 8
-  %7 = load i64, ptr %4, align 8
-  %8 = call ptr @rb_enc_compatible(i64 noundef %6, i64 noundef %7)
-  store ptr %8, ptr %5, align 8
-  %9 = load ptr, ptr %5, align 8
-  %10 = load i64, ptr %3, align 8
-  %11 = load i64, ptr %4, align 8
-  %12 = call ptr @rb_encoding_check(ptr noundef %9, i64 noundef %10, i64 noundef %11)
-  ret ptr %12
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @rb_enc_compatible(i64 noundef %0, i64 noundef %1) #0 {
-  %3 = alloca ptr, align 8
-  %4 = alloca i64, align 8
-  %5 = alloca i64, align 8
-  %6 = alloca i32, align 4
-  %7 = alloca i32, align 4
-  store i64 %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  %8 = load i64, ptr %4, align 8
-  %9 = call i32 @rb_enc_get_index(i64 noundef %8)
-  store i32 %9, ptr %6, align 4
-  %10 = load i64, ptr %5, align 8
-  %11 = call i32 @rb_enc_get_index(i64 noundef %10)
-  store i32 %11, ptr %7, align 4
-  %12 = load i32, ptr %6, align 4
-  %13 = icmp slt i32 %12, 0
-  br i1 %13, label %17, label %14
-
-14:                                               ; preds = %2
-  %15 = load i32, ptr %7, align 4
-  %16 = icmp slt i32 %15, 0
-  br i1 %16, label %17, label %18
-
-17:                                               ; preds = %14, %2
-  store ptr null, ptr %3, align 8
-  br label %31
-
-18:                                               ; preds = %14
-  %19 = load i32, ptr %6, align 4
-  %20 = load i32, ptr %7, align 4
-  %21 = icmp eq i32 %19, %20
-  br i1 %21, label %22, label %25
-
-22:                                               ; preds = %18
-  %23 = load i32, ptr %6, align 4
-  %24 = call ptr @rb_enc_from_index(i32 noundef %23)
-  store ptr %24, ptr %3, align 8
-  br label %31
-
-25:                                               ; preds = %18
-  %26 = load i64, ptr %4, align 8
-  %27 = load i64, ptr %5, align 8
-  %28 = load i32, ptr %6, align 4
-  %29 = load i32, ptr %7, align 4
-  %30 = call ptr @enc_compatible_latter(i64 noundef %26, i64 noundef %27, i32 noundef %28, i32 noundef %29)
-  store ptr %30, ptr %3, align 8
-  br label %31
-
-31:                                               ; preds = %25, %22, %17
-  %32 = load ptr, ptr %3, align 8
-  ret ptr %32
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal ptr @enc_compatible_latter(i64 noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3) #0 {
-  %5 = alloca i1, align 1
-  %6 = alloca i64, align 8
-  %7 = alloca i32, align 4
-  %8 = alloca i1, align 1
-  %9 = alloca i64, align 8
-  %10 = alloca i32, align 4
-  %11 = alloca ptr, align 8
-  %12 = alloca i64, align 8
-  %13 = alloca i64, align 8
-  %14 = alloca i32, align 4
-  %15 = alloca i32, align 4
-  %16 = alloca i32, align 4
-  %17 = alloca i32, align 4
-  %18 = alloca ptr, align 8
-  %19 = alloca ptr, align 8
-  %20 = alloca i64, align 8
-  %21 = alloca i32, align 4
-  %22 = alloca i32, align 4
-  %23 = alloca i32, align 4
-  store i64 %0, ptr %12, align 8
-  store i64 %1, ptr %13, align 8
-  store i32 %2, ptr %14, align 4
-  store i32 %3, ptr %15, align 4
-  %24 = load i32, ptr %14, align 4
-  %25 = call ptr @rb_enc_from_index(i32 noundef %24)
-  store ptr %25, ptr %18, align 8
-  %26 = load i32, ptr %15, align 4
-  %27 = call ptr @rb_enc_from_index(i32 noundef %26)
-  store ptr %27, ptr %19, align 8
-  %28 = load i64, ptr %13, align 8
-  store i64 %28, ptr %6, align 8
-  store i32 5, ptr %7, align 4
-  %29 = load i32, ptr %7, align 4
-  %30 = icmp eq i32 %29, 18
-  br i1 %30, label %31, label %34
-
-31:                                               ; preds = %4
-  %32 = load i64, ptr %6, align 8
-  %33 = icmp eq i64 %32, 20
-  store i1 %33, ptr %5, align 1
-  br label %81
-
-34:                                               ; preds = %4
-  %35 = load i32, ptr %7, align 4
-  %36 = icmp eq i32 %35, 19
-  br i1 %36, label %37, label %40
-
-37:                                               ; preds = %34
-  %38 = load i64, ptr %6, align 8
-  %39 = icmp eq i64 %38, 0
-  store i1 %39, ptr %5, align 1
-  br label %81
-
-40:                                               ; preds = %34
-  %41 = load i32, ptr %7, align 4
-  %42 = icmp eq i32 %41, 17
-  br i1 %42, label %43, label %46
-
-43:                                               ; preds = %40
-  %44 = load i64, ptr %6, align 8
-  %45 = icmp eq i64 %44, 4
-  store i1 %45, ptr %5, align 1
-  br label %81
-
-46:                                               ; preds = %40
-  %47 = load i32, ptr %7, align 4
-  %48 = icmp eq i32 %47, 22
-  br i1 %48, label %49, label %52
-
-49:                                               ; preds = %46
-  %50 = load i64, ptr %6, align 8
-  %51 = icmp eq i64 %50, 36
-  store i1 %51, ptr %5, align 1
-  br label %81
-
-52:                                               ; preds = %46
-  %53 = load i32, ptr %7, align 4
-  %54 = icmp eq i32 %53, 21
-  br i1 %54, label %55, label %58
-
-55:                                               ; preds = %52
-  %56 = load i64, ptr %6, align 8
-  %57 = call zeroext i1 @RB_FIXNUM_P(i64 noundef %56) #18
-  store i1 %57, ptr %5, align 1
-  br label %81
-
-58:                                               ; preds = %52
-  %59 = load i32, ptr %7, align 4
-  %60 = icmp eq i32 %59, 20
-  br i1 %60, label %61, label %64
-
-61:                                               ; preds = %58
-  %62 = load i64, ptr %6, align 8
-  %63 = call zeroext i1 @RB_SYMBOL_P(i64 noundef %62) #17
-  store i1 %63, ptr %5, align 1
-  br label %81
-
-64:                                               ; preds = %58
-  %65 = load i32, ptr %7, align 4
-  %66 = icmp eq i32 %65, 4
-  br i1 %66, label %67, label %70
-
-67:                                               ; preds = %64
-  %68 = load i64, ptr %6, align 8
-  %69 = call zeroext i1 @RB_FLOAT_TYPE_P(i64 noundef %68) #17
-  store i1 %69, ptr %5, align 1
-  br label %81
-
-70:                                               ; preds = %64
-  %71 = load i64, ptr %6, align 8
-  %72 = call zeroext i1 @RB_SPECIAL_CONST_P(i64 noundef %71) #18
-  br i1 %72, label %73, label %74
-
-73:                                               ; preds = %70
-  store i1 false, ptr %5, align 1
-  br label %81
-
-74:                                               ; preds = %70
-  %75 = load i32, ptr %7, align 4
-  %76 = load i64, ptr %6, align 8
-  %77 = call i32 @RB_BUILTIN_TYPE(i64 noundef %76) #17
-  %78 = icmp eq i32 %75, %77
-  br i1 %78, label %79, label %80
-
-79:                                               ; preds = %74
-  store i1 true, ptr %5, align 1
-  br label %81
-
-80:                                               ; preds = %74
-  store i1 false, ptr %5, align 1
-  br label %81
-
-81:                                               ; preds = %80, %79, %73, %67, %61, %55, %49, %43, %37, %31
-  %82 = load i1, ptr %5, align 1
-  %83 = zext i1 %82 to i32
-  store i32 %83, ptr %17, align 4
-  %84 = load i32, ptr %17, align 4
-  %85 = icmp ne i32 %84, 0
-  br i1 %85, label %86, label %92
-
-86:                                               ; preds = %81
-  %87 = load i64, ptr %13, align 8
-  %88 = call i64 @RSTRING_LEN(i64 noundef %87) #17
-  %89 = icmp eq i64 %88, 0
-  br i1 %89, label %90, label %92
-
-90:                                               ; preds = %86
-  %91 = load ptr, ptr %18, align 8
-  store ptr %91, ptr %11, align 8
-  br label %245
-
-92:                                               ; preds = %86, %81
-  %93 = load i64, ptr %12, align 8
-  store i64 %93, ptr %9, align 8
-  store i32 5, ptr %10, align 4
-  %94 = load i32, ptr %10, align 4
-  %95 = icmp eq i32 %94, 18
-  br i1 %95, label %96, label %99
-
-96:                                               ; preds = %92
-  %97 = load i64, ptr %9, align 8
-  %98 = icmp eq i64 %97, 20
-  store i1 %98, ptr %8, align 1
-  br label %146
-
-99:                                               ; preds = %92
-  %100 = load i32, ptr %10, align 4
-  %101 = icmp eq i32 %100, 19
-  br i1 %101, label %102, label %105
-
-102:                                              ; preds = %99
-  %103 = load i64, ptr %9, align 8
-  %104 = icmp eq i64 %103, 0
-  store i1 %104, ptr %8, align 1
-  br label %146
-
-105:                                              ; preds = %99
-  %106 = load i32, ptr %10, align 4
-  %107 = icmp eq i32 %106, 17
-  br i1 %107, label %108, label %111
-
-108:                                              ; preds = %105
-  %109 = load i64, ptr %9, align 8
-  %110 = icmp eq i64 %109, 4
-  store i1 %110, ptr %8, align 1
-  br label %146
-
-111:                                              ; preds = %105
-  %112 = load i32, ptr %10, align 4
-  %113 = icmp eq i32 %112, 22
-  br i1 %113, label %114, label %117
-
-114:                                              ; preds = %111
-  %115 = load i64, ptr %9, align 8
-  %116 = icmp eq i64 %115, 36
-  store i1 %116, ptr %8, align 1
-  br label %146
-
-117:                                              ; preds = %111
-  %118 = load i32, ptr %10, align 4
-  %119 = icmp eq i32 %118, 21
-  br i1 %119, label %120, label %123
-
-120:                                              ; preds = %117
-  %121 = load i64, ptr %9, align 8
-  %122 = call zeroext i1 @RB_FIXNUM_P(i64 noundef %121) #18
-  store i1 %122, ptr %8, align 1
-  br label %146
-
-123:                                              ; preds = %117
-  %124 = load i32, ptr %10, align 4
-  %125 = icmp eq i32 %124, 20
-  br i1 %125, label %126, label %129
-
-126:                                              ; preds = %123
-  %127 = load i64, ptr %9, align 8
-  %128 = call zeroext i1 @RB_SYMBOL_P(i64 noundef %127) #17
-  store i1 %128, ptr %8, align 1
-  br label %146
-
-129:                                              ; preds = %123
-  %130 = load i32, ptr %10, align 4
-  %131 = icmp eq i32 %130, 4
-  br i1 %131, label %132, label %135
-
-132:                                              ; preds = %129
-  %133 = load i64, ptr %9, align 8
-  %134 = call zeroext i1 @RB_FLOAT_TYPE_P(i64 noundef %133) #17
-  store i1 %134, ptr %8, align 1
-  br label %146
-
-135:                                              ; preds = %129
-  %136 = load i64, ptr %9, align 8
-  %137 = call zeroext i1 @RB_SPECIAL_CONST_P(i64 noundef %136) #18
-  br i1 %137, label %138, label %139
-
-138:                                              ; preds = %135
-  store i1 false, ptr %8, align 1
-  br label %146
-
-139:                                              ; preds = %135
-  %140 = load i32, ptr %10, align 4
-  %141 = load i64, ptr %9, align 8
-  %142 = call i32 @RB_BUILTIN_TYPE(i64 noundef %141) #17
-  %143 = icmp eq i32 %140, %142
-  br i1 %143, label %144, label %145
-
-144:                                              ; preds = %139
-  store i1 true, ptr %8, align 1
-  br label %146
-
-145:                                              ; preds = %139
-  store i1 false, ptr %8, align 1
-  br label %146
-
-146:                                              ; preds = %145, %144, %138, %132, %126, %120, %114, %108, %102, %96
-  %147 = load i1, ptr %8, align 1
-  %148 = zext i1 %147 to i32
-  store i32 %148, ptr %16, align 4
-  %149 = load i32, ptr %16, align 4
-  %150 = icmp ne i32 %149, 0
-  br i1 %150, label %151, label %171
-
-151:                                              ; preds = %146
-  %152 = load i32, ptr %17, align 4
-  %153 = icmp ne i32 %152, 0
-  br i1 %153, label %154, label %171
-
-154:                                              ; preds = %151
-  %155 = load i64, ptr %12, align 8
-  %156 = call i64 @RSTRING_LEN(i64 noundef %155) #17
-  %157 = icmp eq i64 %156, 0
-  br i1 %157, label %158, label %171
-
-158:                                              ; preds = %154
-  %159 = load ptr, ptr %18, align 8
-  %160 = call zeroext i1 @rb_enc_asciicompat(ptr noundef %159)
-  br i1 %160, label %161, label %167
-
-161:                                              ; preds = %158
-  %162 = load i64, ptr %13, align 8
-  %163 = call i32 @rb_enc_str_asciionly_p(i64 noundef %162)
-  %164 = icmp ne i32 %163, 0
-  br i1 %164, label %165, label %167
-
-165:                                              ; preds = %161
-  %166 = load ptr, ptr %18, align 8
-  br label %169
-
-167:                                              ; preds = %161, %158
-  %168 = load ptr, ptr %19, align 8
-  br label %169
-
-169:                                              ; preds = %167, %165
-  %170 = phi ptr [ %166, %165 ], [ %168, %167 ]
-  store ptr %170, ptr %11, align 8
-  br label %245
-
-171:                                              ; preds = %154, %151, %146
-  %172 = load ptr, ptr %18, align 8
-  %173 = call zeroext i1 @rb_enc_asciicompat(ptr noundef %172)
-  br i1 %173, label %174, label %177
-
-174:                                              ; preds = %171
-  %175 = load ptr, ptr %19, align 8
-  %176 = call zeroext i1 @rb_enc_asciicompat(ptr noundef %175)
-  br i1 %176, label %178, label %177
-
-177:                                              ; preds = %174, %171
-  store ptr null, ptr %11, align 8
-  br label %245
-
-178:                                              ; preds = %174
-  %179 = load i32, ptr %17, align 4
-  %180 = icmp ne i32 %179, 0
-  br i1 %180, label %186, label %181
-
-181:                                              ; preds = %178
-  %182 = load i32, ptr %15, align 4
-  %183 = icmp eq i32 %182, 2
-  br i1 %183, label %184, label %186
-
-184:                                              ; preds = %181
-  %185 = load ptr, ptr %18, align 8
-  store ptr %185, ptr %11, align 8
-  br label %245
-
-186:                                              ; preds = %181, %178
-  %187 = load i32, ptr %16, align 4
-  %188 = icmp ne i32 %187, 0
-  br i1 %188, label %194, label %189
-
-189:                                              ; preds = %186
-  %190 = load i32, ptr %14, align 4
-  %191 = icmp eq i32 %190, 2
-  br i1 %191, label %192, label %194
-
-192:                                              ; preds = %189
-  %193 = load ptr, ptr %19, align 8
-  store ptr %193, ptr %11, align 8
-  br label %245
-
-194:                                              ; preds = %189, %186
-  %195 = load i32, ptr %16, align 4
-  %196 = icmp ne i32 %195, 0
-  br i1 %196, label %207, label %197
-
-197:                                              ; preds = %194
-  %198 = load i64, ptr %12, align 8
-  store i64 %198, ptr %20, align 8
-  %199 = load i32, ptr %14, align 4
-  store i32 %199, ptr %21, align 4
-  %200 = load i64, ptr %13, align 8
-  store i64 %200, ptr %12, align 8
-  %201 = load i64, ptr %20, align 8
-  store i64 %201, ptr %13, align 8
-  %202 = load i32, ptr %15, align 4
-  store i32 %202, ptr %14, align 4
-  %203 = load i32, ptr %21, align 4
-  store i32 %203, ptr %15, align 4
-  %204 = load i32, ptr %16, align 4
-  store i32 %204, ptr %21, align 4
-  %205 = load i32, ptr %17, align 4
-  store i32 %205, ptr %16, align 4
-  %206 = load i32, ptr %21, align 4
-  store i32 %206, ptr %17, align 4
-  br label %207
-
-207:                                              ; preds = %197, %194
-  %208 = load i32, ptr %16, align 4
-  %209 = icmp ne i32 %208, 0
-  br i1 %209, label %210, label %244
-
-210:                                              ; preds = %207
-  %211 = load i64, ptr %12, align 8
-  %212 = call i32 @rb_enc_str_coderange(i64 noundef %211)
-  store i32 %212, ptr %22, align 4
-  %213 = load i32, ptr %17, align 4
-  %214 = icmp ne i32 %213, 0
-  br i1 %214, label %215, label %238
-
-215:                                              ; preds = %210
-  %216 = load i64, ptr %13, align 8
-  %217 = call i32 @rb_enc_str_coderange(i64 noundef %216)
-  store i32 %217, ptr %23, align 4
-  %218 = load i32, ptr %22, align 4
-  %219 = load i32, ptr %23, align 4
-  %220 = icmp ne i32 %218, %219
-  br i1 %220, label %221, label %232
-
-221:                                              ; preds = %215
-  %222 = load i32, ptr %22, align 4
-  %223 = icmp eq i32 %222, 1048576
-  br i1 %223, label %224, label %226
-
-224:                                              ; preds = %221
-  %225 = load ptr, ptr %19, align 8
-  store ptr %225, ptr %11, align 8
-  br label %245
-
-226:                                              ; preds = %221
-  %227 = load i32, ptr %23, align 4
-  %228 = icmp eq i32 %227, 1048576
-  br i1 %228, label %229, label %231
-
-229:                                              ; preds = %226
-  %230 = load ptr, ptr %18, align 8
-  store ptr %230, ptr %11, align 8
-  br label %245
-
-231:                                              ; preds = %226
-  br label %232
-
-232:                                              ; preds = %231, %215
-  %233 = load i32, ptr %23, align 4
-  %234 = icmp eq i32 %233, 1048576
-  br i1 %234, label %235, label %237
-
-235:                                              ; preds = %232
-  %236 = load ptr, ptr %18, align 8
-  store ptr %236, ptr %11, align 8
-  br label %245
-
-237:                                              ; preds = %232
-  br label %238
-
-238:                                              ; preds = %237, %210
-  %239 = load i32, ptr %22, align 4
-  %240 = icmp eq i32 %239, 1048576
-  br i1 %240, label %241, label %243
-
-241:                                              ; preds = %238
-  %242 = load ptr, ptr %19, align 8
-  store ptr %242, ptr %11, align 8
-  br label %245
-
-243:                                              ; preds = %238
-  br label %244
-
-244:                                              ; preds = %243, %207
-  store ptr null, ptr %11, align 8
-  br label %245
-
-245:                                              ; preds = %244, %241, %235, %229, %224, %192, %184, %177, %169, %90
-  %246 = load ptr, ptr %11, align 8
-  ret ptr %246
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @rb_enc_copy(i64 noundef %0, i64 noundef %1) #0 {
-  %3 = alloca i64, align 8
-  %4 = alloca i64, align 8
-  store i64 %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
-  %5 = load i64, ptr %3, align 8
-  %6 = load i64, ptr %4, align 8
-  %7 = call i32 @rb_enc_get_index(i64 noundef %6)
-  %8 = call i64 @rb_enc_associate_index(i64 noundef %5, i32 noundef %7)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_obj_encoding(i64 noundef %0) #0 {
-  %2 = alloca i64, align 8
-  %3 = alloca i32, align 4
-  store i64 %0, ptr %2, align 8
-  %4 = load i64, ptr %2, align 8
-  %5 = call i32 @rb_enc_get_index(i64 noundef %4)
-  store i32 %5, ptr %3, align 4
-  %6 = load i32, ptr %3, align 4
-  %7 = icmp slt i32 %6, 0
-  br i1 %7, label %8, label %10
-
-8:                                                ; preds = %1
-  %9 = load i64, ptr @rb_eTypeError, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %9, ptr noundef @.str.9) #19
-  unreachable
-
-10:                                               ; preds = %1
-  %11 = load i32, ptr %3, align 4
-  %12 = and i32 %11, 16777215
-  %13 = call i64 @rb_enc_from_encoding_index(i32 noundef %12)
-  ret i64 %13
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @rb_enc_fast_mbclen(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
-  %4 = alloca ptr, align 8
-  %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = load ptr, ptr %6, align 8
-  %10 = call i32 @onigenc_mbclen(ptr noundef %7, ptr noundef %8, ptr noundef %9)
-  ret i32 %10
-}
-
-declare i32 @onigenc_mbclen(ptr noundef, ptr noundef, ptr noundef) #1
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @rb_enc_mbclen(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
-  %4 = alloca i32, align 4
-  %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
-  %7 = alloca ptr, align 8
-  %8 = alloca i32, align 4
   %9 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  %10 = load ptr, ptr %7, align 8
-  %11 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %10, i32 0, i32 0
-  %12 = load ptr, ptr %11, align 8
-  %13 = load ptr, ptr %5, align 8
-  %14 = load ptr, ptr %6, align 8
-  %15 = load ptr, ptr %7, align 8
-  %16 = call i32 %12(ptr noundef %13, ptr noundef %14, ptr noundef %15)
-  store i32 %16, ptr %8, align 4
-  %17 = load i32, ptr %8, align 4
-  %18 = icmp slt i32 0, %17
-  br i1 %18, label %19, label %30
-
-19:                                               ; preds = %3
-  %20 = load i32, ptr %8, align 4
-  %21 = sext i32 %20 to i64
-  %22 = load ptr, ptr %6, align 8
-  %23 = load ptr, ptr %5, align 8
-  %24 = ptrtoint ptr %22 to i64
-  %25 = ptrtoint ptr %23 to i64
-  %26 = sub i64 %24, %25
-  %27 = icmp sle i64 %21, %26
-  br i1 %27, label %28, label %30
-
-28:                                               ; preds = %19
-  %29 = load i32, ptr %8, align 4
-  store i32 %29, ptr %4, align 4
-  br label %52
-
-30:                                               ; preds = %19, %3
-  %31 = load ptr, ptr %7, align 8
-  %32 = call i32 @rb_enc_mbminlen(ptr noundef %31)
-  store i32 %32, ptr %9, align 4
-  %33 = load i32, ptr %9, align 4
-  %34 = sext i32 %33 to i64
-  %35 = load ptr, ptr %6, align 8
-  %36 = load ptr, ptr %5, align 8
-  %37 = ptrtoint ptr %35 to i64
-  %38 = ptrtoint ptr %36 to i64
-  %39 = sub i64 %37, %38
-  %40 = icmp sle i64 %34, %39
-  br i1 %40, label %41, label %43
-
-41:                                               ; preds = %30
-  %42 = load i32, ptr %9, align 4
-  br label %50
-
-43:                                               ; preds = %30
-  %44 = load ptr, ptr %6, align 8
-  %45 = load ptr, ptr %5, align 8
-  %46 = ptrtoint ptr %44 to i64
-  %47 = ptrtoint ptr %45 to i64
-  %48 = sub i64 %46, %47
-  %49 = trunc i64 %48 to i32
-  br label %50
-
-50:                                               ; preds = %43, %41
-  %51 = phi i32 [ %42, %41 ], [ %49, %43 ]
-  store i32 %51, ptr %4, align 4
-  br label %52
-
-52:                                               ; preds = %50, %28
-  %53 = load i32, ptr %4, align 4
-  ret i32 %53
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @rb_enc_precise_mbclen(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
-  %4 = alloca i32, align 4
-  %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
-  %7 = alloca ptr, align 8
-  %8 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  %9 = load ptr, ptr %6, align 8
-  %10 = load ptr, ptr %5, align 8
-  %11 = icmp ule ptr %9, %10
+  store ptr %0, ptr %4, align 8, !tbaa !7
+  store i64 %1, ptr %5, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #3
+  %10 = load i64, ptr %5, align 8, !tbaa !12
+  %11 = icmp sgt i64 %10, 4
   br i1 %11, label %12, label %13
 
-12:                                               ; preds = %3
-  store i32 -2, ptr %4, align 4
-  br label %41
-
-13:                                               ; preds = %3
-  %14 = load ptr, ptr %7, align 8
-  %15 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %14, i32 0, i32 0
-  %16 = load ptr, ptr %15, align 8
-  %17 = load ptr, ptr %5, align 8
-  %18 = load ptr, ptr %6, align 8
-  %19 = load ptr, ptr %7, align 8
-  %20 = call i32 %16(ptr noundef %17, ptr noundef %18, ptr noundef %19)
-  store i32 %20, ptr %8, align 4
-  %21 = load ptr, ptr %6, align 8
-  %22 = load ptr, ptr %5, align 8
-  %23 = ptrtoint ptr %21 to i64
-  %24 = ptrtoint ptr %22 to i64
-  %25 = sub i64 %23, %24
-  %26 = load i32, ptr %8, align 4
-  %27 = sext i32 %26 to i64
-  %28 = icmp slt i64 %25, %27
-  br i1 %28, label %29, label %39
-
-29:                                               ; preds = %13
-  %30 = load i32, ptr %8, align 4
-  %31 = load ptr, ptr %6, align 8
-  %32 = load ptr, ptr %5, align 8
-  %33 = ptrtoint ptr %31 to i64
-  %34 = ptrtoint ptr %32 to i64
-  %35 = sub i64 %33, %34
-  %36 = trunc i64 %35 to i32
-  %37 = sub i32 %30, %36
-  %38 = sub i32 -1, %37
-  store i32 %38, ptr %4, align 4
-  br label %41
-
-39:                                               ; preds = %13
-  %40 = load i32, ptr %8, align 4
-  store i32 %40, ptr %4, align 4
-  br label %41
-
-41:                                               ; preds = %39, %29, %12
-  %42 = load i32, ptr %4, align 4
-  ret i32 %42
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @rb_enc_ascget(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  %5 = alloca i32, align 4
-  %6 = alloca ptr, align 8
-  %7 = alloca ptr, align 8
-  %8 = alloca ptr, align 8
-  %9 = alloca ptr, align 8
-  %10 = alloca i32, align 4
-  %11 = alloca i32, align 4
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store ptr %3, ptr %9, align 8
-  %12 = load ptr, ptr %7, align 8
-  %13 = load ptr, ptr %6, align 8
-  %14 = icmp ule ptr %12, %13
-  br i1 %14, label %15, label %16
-
-15:                                               ; preds = %4
-  store i32 -1, ptr %5, align 4
-  br label %59
-
-16:                                               ; preds = %4
-  %17 = load ptr, ptr %9, align 8
-  %18 = call zeroext i1 @rb_enc_asciicompat(ptr noundef %17)
-  br i1 %18, label %19, label %34
-
-19:                                               ; preds = %16
-  %20 = load ptr, ptr %6, align 8
-  %21 = load i8, ptr %20, align 1
-  %22 = zext i8 %21 to i32
-  store i32 %22, ptr %10, align 4
-  %23 = load i32, ptr %10, align 4
-  %24 = call i32 @rb_isascii(i32 noundef %23) #18
-  %25 = icmp ne i32 %24, 0
-  br i1 %25, label %27, label %26
-
-26:                                               ; preds = %19
-  store i32 -1, ptr %5, align 4
-  br label %59
-
-27:                                               ; preds = %19
-  %28 = load ptr, ptr %8, align 8
-  %29 = icmp ne ptr %28, null
-  br i1 %29, label %30, label %32
-
-30:                                               ; preds = %27
-  %31 = load ptr, ptr %8, align 8
-  store i32 1, ptr %31, align 4
-  br label %32
-
-32:                                               ; preds = %30, %27
-  %33 = load i32, ptr %10, align 4
-  store i32 %33, ptr %5, align 4
-  br label %59
-
-34:                                               ; preds = %16
-  %35 = load ptr, ptr %6, align 8
-  %36 = load ptr, ptr %7, align 8
-  %37 = load ptr, ptr %9, align 8
-  %38 = call i32 @rb_enc_precise_mbclen(ptr noundef %35, ptr noundef %36, ptr noundef %37)
-  store i32 %38, ptr %11, align 4
-  %39 = load i32, ptr %11, align 4
-  %40 = icmp slt i32 0, %39
-  br i1 %40, label %42, label %41
-
-41:                                               ; preds = %34
-  store i32 -1, ptr %5, align 4
-  br label %59
-
-42:                                               ; preds = %34
-  %43 = load ptr, ptr %6, align 8
-  %44 = load ptr, ptr %7, align 8
-  %45 = load ptr, ptr %9, align 8
-  %46 = call i32 @rb_enc_mbc_to_codepoint(ptr noundef %43, ptr noundef %44, ptr noundef %45)
-  store i32 %46, ptr %10, align 4
-  %47 = load i32, ptr %10, align 4
-  %48 = load ptr, ptr %9, align 8
-  %49 = call zeroext i1 @rb_enc_isascii(i32 noundef %47, ptr noundef %48)
-  br i1 %49, label %51, label %50
-
-50:                                               ; preds = %42
-  store i32 -1, ptr %5, align 4
-  br label %59
-
-51:                                               ; preds = %42
-  %52 = load ptr, ptr %8, align 8
-  %53 = icmp ne ptr %52, null
-  br i1 %53, label %54, label %57
-
-54:                                               ; preds = %51
-  %55 = load i32, ptr %11, align 4
-  %56 = load ptr, ptr %8, align 8
-  store i32 %55, ptr %56, align 4
-  br label %57
-
-57:                                               ; preds = %54, %51
-  %58 = load i32, ptr %10, align 4
-  store i32 %58, ptr %5, align 4
-  br label %59
-
-59:                                               ; preds = %57, %50, %41, %32, %26, %15
-  %60 = load i32, ptr %5, align 4
-  ret i32 %60
-}
-
-; Function Attrs: nounwind sspstrong willreturn memory(none) uwtable
-define internal i32 @rb_isascii(i32 noundef %0) #3 {
-  %2 = alloca i32, align 4
-  store i32 %0, ptr %2, align 4
-  %3 = load i32, ptr %2, align 4
-  %4 = icmp sle i32 0, %3
-  br i1 %4, label %5, label %8
-
-5:                                                ; preds = %1
-  %6 = load i32, ptr %2, align 4
-  %7 = icmp sle i32 %6, 127
-  br label %8
-
-8:                                                ; preds = %5, %1
-  %9 = phi i1 [ false, %1 ], [ %7, %5 ]
-  %10 = zext i1 %9 to i32
-  ret i32 %10
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @rb_enc_mbc_to_codepoint(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
-  %4 = alloca ptr, align 8
-  %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
-  %7 = alloca ptr, align 8
-  %8 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %9 = load ptr, ptr %4, align 8
-  store ptr %9, ptr %7, align 8
-  %10 = load ptr, ptr %5, align 8
-  store ptr %10, ptr %8, align 8
-  %11 = load ptr, ptr %6, align 8
-  %12 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %11, i32 0, i32 5
-  %13 = load ptr, ptr %12, align 8
-  %14 = load ptr, ptr %7, align 8
-  %15 = load ptr, ptr %8, align 8
-  %16 = load ptr, ptr %6, align 8
-  %17 = call i32 %13(ptr noundef %14, ptr noundef %15, ptr noundef %16)
-  ret i32 %17
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @rb_enc_isascii(i32 noundef %0, ptr noundef %1) #0 {
-  %3 = alloca i32, align 4
-  %4 = alloca ptr, align 8
-  store i32 %0, ptr %3, align 4
-  store ptr %1, ptr %4, align 8
-  %5 = load i32, ptr %3, align 4
-  %6 = icmp ult i32 %5, 128
-  ret i1 %6
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @rb_enc_codepoint_len(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
-  %7 = alloca ptr, align 8
-  %8 = alloca ptr, align 8
-  %9 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store ptr %3, ptr %8, align 8
-  %10 = load ptr, ptr %6, align 8
-  %11 = load ptr, ptr %5, align 8
-  %12 = icmp ule ptr %10, %11
-  br i1 %12, label %13, label %15
-
-13:                                               ; preds = %4
-  %14 = load i64, ptr @rb_eArgError, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %14, ptr noundef @.str.10) #19
-  unreachable
-
-15:                                               ; preds = %4
-  %16 = load ptr, ptr %5, align 8
-  %17 = load ptr, ptr %6, align 8
-  %18 = load ptr, ptr %8, align 8
-  %19 = call i32 @rb_enc_precise_mbclen(ptr noundef %16, ptr noundef %17, ptr noundef %18)
-  store i32 %19, ptr %9, align 4
-  %20 = load i32, ptr %9, align 4
-  %21 = icmp slt i32 0, %20
-  br i1 %21, label %26, label %22
-
-22:                                               ; preds = %15
-  %23 = load i64, ptr @rb_eArgError, align 8
-  %24 = load ptr, ptr %8, align 8
-  %25 = call ptr @rb_enc_name(ptr noundef %24)
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %23, ptr noundef @.str.11, ptr noundef %25) #19
-  unreachable
-
-26:                                               ; preds = %15
-  %27 = load ptr, ptr %7, align 8
-  %28 = icmp ne ptr %27, null
-  br i1 %28, label %29, label %32
-
-29:                                               ; preds = %26
-  %30 = load i32, ptr %9, align 4
-  %31 = load ptr, ptr %7, align 8
-  store i32 %30, ptr %31, align 4
-  br label %32
-
-32:                                               ; preds = %29, %26
-  %33 = load ptr, ptr %5, align 8
-  %34 = load ptr, ptr %6, align 8
-  %35 = load ptr, ptr %8, align 8
-  %36 = call i32 @rb_enc_mbc_to_codepoint(ptr noundef %33, ptr noundef %34, ptr noundef %35)
-  ret i32 %36
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @rb_enc_codelen(i32 noundef %0, ptr noundef %1) #0 {
-  %3 = alloca i32, align 4
-  %4 = alloca ptr, align 8
-  %5 = alloca i32, align 4
-  store i32 %0, ptr %3, align 4
-  store ptr %1, ptr %4, align 8
-  %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %6, i32 0, i32 6
-  %8 = load ptr, ptr %7, align 8
-  %9 = load i32, ptr %3, align 4
-  %10 = load ptr, ptr %4, align 8
-  %11 = call i32 %8(i32 noundef %9, ptr noundef %10)
-  store i32 %11, ptr %5, align 4
-  %12 = load i32, ptr %5, align 4
-  %13 = icmp eq i32 %12, 0
-  br i1 %13, label %14, label %19
-
-14:                                               ; preds = %2
-  %15 = load i64, ptr @rb_eArgError, align 8
-  %16 = load i32, ptr %3, align 4
-  %17 = load ptr, ptr %4, align 8
-  %18 = call ptr @rb_enc_name(ptr noundef %17)
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %15, ptr noundef @.str.12, i32 noundef %16, ptr noundef %18) #19
-  unreachable
-
-19:                                               ; preds = %2
-  %20 = load i32, ptr %5, align 4
-  ret i32 %20
-}
-
-; Function Attrs: nounwind sspstrong willreturn memory(none) uwtable
-define dso_local i32 @rb_enc_toupper(i32 noundef %0, ptr noundef %1) #3 {
-  %3 = alloca i32, align 4
-  %4 = alloca ptr, align 8
-  store i32 %0, ptr %3, align 4
-  store ptr %1, ptr %4, align 8
-  %5 = load i32, ptr %3, align 4
-  %6 = icmp slt i32 %5, 128
-  br i1 %6, label %7, label %13
-
-7:                                                ; preds = %2
-  %8 = load i32, ptr %3, align 4
-  %9 = sext i32 %8 to i64
-  %10 = getelementptr [0 x i8], ptr @OnigEncAsciiToUpperCaseTable, i64 0, i64 %9
-  %11 = load i8, ptr %10, align 1
-  %12 = zext i8 %11 to i32
+12:                                               ; preds = %2
   br label %15
 
 13:                                               ; preds = %2
-  %14 = load i32, ptr %3, align 4
+  %14 = load i64, ptr %5, align 8, !tbaa !12
   br label %15
 
-15:                                               ; preds = %13, %7
-  %16 = phi i32 [ %12, %7 ], [ %14, %13 ]
-  ret i32 %16
-}
-
-; Function Attrs: nounwind sspstrong willreturn memory(none) uwtable
-define dso_local i32 @rb_enc_tolower(i32 noundef %0, ptr noundef %1) #3 {
-  %3 = alloca i32, align 4
-  %4 = alloca ptr, align 8
-  store i32 %0, ptr %3, align 4
-  store ptr %1, ptr %4, align 8
-  %5 = load i32, ptr %3, align 4
-  %6 = icmp slt i32 %5, 128
-  br i1 %6, label %7, label %13
-
-7:                                                ; preds = %2
-  %8 = load i32, ptr %3, align 4
-  %9 = sext i32 %8 to i64
-  %10 = getelementptr [0 x i8], ptr @OnigEncAsciiToLowerCaseTable, i64 0, i64 %9
-  %11 = load i8, ptr %10, align 1
-  %12 = zext i8 %11 to i32
-  br label %15
-
-13:                                               ; preds = %2
-  %14 = load i32, ptr %3, align 4
-  br label %15
-
-15:                                               ; preds = %13, %7
-  %16 = phi i32 [ %12, %7 ], [ %14, %13 ]
-  ret i32 %16
-}
-
-; Function Attrs: nounwind sspstrong willreturn memory(none) uwtable
-define dso_local i32 @rb_ascii8bit_encindex() #3 {
-  ret i32 0
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local nonnull ptr @rb_utf8_encoding() #0 {
-  %1 = load ptr, ptr @global_enc_utf_8, align 8
-  ret ptr %1
-}
-
-; Function Attrs: nounwind sspstrong willreturn memory(none) uwtable
-define dso_local i32 @rb_utf8_encindex() #3 {
-  ret i32 1
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local nonnull ptr @rb_usascii_encoding() #0 {
-  %1 = load ptr, ptr @global_enc_us_ascii, align 8
-  ret ptr %1
-}
-
-; Function Attrs: nounwind sspstrong willreturn memory(none) uwtable
-define dso_local i32 @rb_usascii_encindex() #3 {
-  ret i32 2
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @rb_locale_encindex() #0 {
-  %1 = alloca i32, align 4
-  %2 = alloca ptr, align 8
-  %3 = alloca i32, align 4
-  %4 = call i32 @rb_locale_charmap_index()
-  store i32 %4, ptr %1, align 4
-  %5 = load i32, ptr %1, align 4
-  %6 = icmp slt i32 %5, 0
-  br i1 %6, label %7, label %8
-
-7:                                                ; preds = %0
-  store i32 1, ptr %1, align 4
-  br label %8
-
-8:                                                ; preds = %7, %0
-  %9 = call i32 @enc_registered(ptr noundef @global_enc_table, ptr noundef @.str.13)
-  %10 = icmp slt i32 %9, 0
-  br i1 %10, label %11, label %15
-
-11:                                               ; preds = %8
-  store ptr @global_enc_table, ptr %2, align 8
-  call void @rb_vm_lock_enter(ptr noundef %3, ptr noundef @.str, i32 noundef 1495)
-  %12 = load ptr, ptr %2, align 8
-  %13 = load i32, ptr %1, align 4
-  %14 = call i32 @enc_alias_internal(ptr noundef %12, ptr noundef @.str.13, i32 noundef %13)
-  call void @rb_vm_lock_leave(ptr noundef %3, ptr noundef @.str, i32 noundef 1499)
-  br label %15
-
-15:                                               ; preds = %11, %8
-  %16 = load i32, ptr %1, align 4
-  ret i32 %16
-}
-
-declare i32 @rb_locale_charmap_index() #1
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @enc_alias_internal(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
-  %4 = alloca ptr, align 8
-  %5 = alloca ptr, align 8
-  %6 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i32 %2, ptr %6, align 4
-  %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %struct.enc_table, ptr %7, i32 0, i32 2
-  %9 = load ptr, ptr %8, align 8
-  %10 = load ptr, ptr %5, align 8
-  %11 = ptrtoint ptr %10 to i64
-  %12 = load i32, ptr %6, align 4
-  %13 = sext i32 %12 to i64
-  %14 = call i32 @rb_st_insert2(ptr noundef %9, i64 noundef %11, i64 noundef %13, ptr noundef @enc_dup_name)
-  ret i32 %14
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @rb_locale_encoding() #0 {
-  %1 = call i32 @rb_locale_encindex()
-  %2 = call ptr @rb_enc_from_index(i32 noundef %1)
-  ret ptr %2
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @rb_filesystem_encindex() #0 {
-  %1 = alloca i32, align 4
-  %2 = call i32 @enc_registered(ptr noundef @global_enc_table, ptr noundef @.str.14)
-  store i32 %2, ptr %1, align 4
-  %3 = load i32, ptr %1, align 4
-  %4 = icmp slt i32 %3, 0
-  br i1 %4, label %5, label %6
-
-5:                                                ; preds = %0
-  store i32 0, ptr %1, align 4
-  br label %6
-
-6:                                                ; preds = %5, %0
-  %7 = load i32, ptr %1, align 4
-  ret i32 %7
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @rb_filesystem_encoding() #0 {
-  %1 = call i32 @rb_filesystem_encindex()
-  %2 = call ptr @rb_enc_from_index(i32 noundef %1)
-  ret ptr %2
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @rb_default_external_encoding() #0 {
-  %1 = alloca ptr, align 8
-  %2 = getelementptr inbounds %struct.default_encoding, ptr @default_external, i32 0, i32 1
-  %3 = load ptr, ptr %2, align 8
-  %4 = icmp ne ptr %3, null
-  br i1 %4, label %5, label %8
-
-5:                                                ; preds = %0
-  %6 = getelementptr inbounds %struct.default_encoding, ptr @default_external, i32 0, i32 1
-  %7 = load ptr, ptr %6, align 8
-  store ptr %7, ptr %1, align 8
-  br label %19
-
-8:                                                ; preds = %0
-  %9 = load i32, ptr @default_external, align 8
-  %10 = icmp sge i32 %9, 0
-  br i1 %10, label %11, label %17
-
-11:                                               ; preds = %8
-  %12 = load i32, ptr @default_external, align 8
-  %13 = call ptr @rb_enc_from_index(i32 noundef %12)
-  %14 = getelementptr inbounds %struct.default_encoding, ptr @default_external, i32 0, i32 1
-  store ptr %13, ptr %14, align 8
-  %15 = getelementptr inbounds %struct.default_encoding, ptr @default_external, i32 0, i32 1
-  %16 = load ptr, ptr %15, align 8
-  store ptr %16, ptr %1, align 8
-  br label %19
-
-17:                                               ; preds = %8
-  %18 = call ptr @rb_locale_encoding()
-  store ptr %18, ptr %1, align 8
-  br label %19
-
-19:                                               ; preds = %17, %11, %5
-  %20 = load ptr, ptr %1, align 8
-  ret ptr %20
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_enc_default_external() #0 {
-  %1 = call ptr @rb_default_external_encoding()
-  %2 = call i64 @rb_enc_from_encoding(ptr noundef %1)
-  ret i64 %2
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @rb_enc_set_default_external(i64 noundef %0) #0 {
-  %2 = alloca i64, align 8
-  store i64 %0, ptr %2, align 8
-  %3 = load i64, ptr %2, align 8
-  %4 = call zeroext i1 @RB_NIL_P(i64 noundef %3) #18
-  br i1 %4, label %5, label %7
-
-5:                                                ; preds = %1
-  %6 = load i64, ptr @rb_eArgError, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %6, ptr noundef @.str.15) #19
-  unreachable
-
-7:                                                ; preds = %1
-  %8 = load i64, ptr %2, align 8
-  %9 = call i32 @enc_set_default_encoding(ptr noundef @default_external, i64 noundef %8, ptr noundef @.str.16)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @enc_set_default_encoding(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 {
-  %4 = alloca ptr, align 8
-  %5 = alloca i64, align 8
-  %6 = alloca ptr, align 8
-  %7 = alloca i32, align 4
-  %8 = alloca ptr, align 8
-  %9 = alloca i32, align 4
-  %10 = alloca ptr, align 8
-  %11 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  store i32 0, ptr %7, align 4
-  %12 = load ptr, ptr %4, align 8
-  %13 = getelementptr inbounds %struct.default_encoding, ptr %12, i32 0, i32 0
-  %14 = load i32, ptr %13, align 8
-  %15 = icmp ne i32 %14, -2
-  br i1 %15, label %16, label %17
-
-16:                                               ; preds = %3
-  store i32 1, ptr %7, align 4
+15:                                               ; preds = %13, %12
+  %16 = phi i64 [ 4, %12 ], [ %14, %13 ]
+  store i64 %16, ptr %6, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #3
+  store i32 0, ptr %7, align 4, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #3
+  store i64 0, ptr %8, align 8, !tbaa !12
   br label %17
 
-17:                                               ; preds = %16, %3
-  store ptr @global_enc_table, ptr %8, align 8
-  call void @rb_vm_lock_enter(ptr noundef %9, ptr noundef @.str, i32 noundef 1541)
-  %18 = load i64, ptr %5, align 8
-  %19 = call zeroext i1 @RB_NIL_P(i64 noundef %18) #18
-  br i1 %19, label %20, label %44
+17:                                               ; preds = %45, %15
+  %18 = load i64, ptr %8, align 8, !tbaa !12
+  %19 = load i64, ptr %6, align 8, !tbaa !12
+  %20 = icmp ult i64 %18, %19
+  br i1 %20, label %22, label %21
 
-20:                                               ; preds = %17
-  %21 = load ptr, ptr %4, align 8
-  %22 = getelementptr inbounds %struct.default_encoding, ptr %21, i32 0, i32 0
-  store i32 -1, ptr %22, align 8
-  %23 = load ptr, ptr %4, align 8
-  %24 = getelementptr inbounds %struct.default_encoding, ptr %23, i32 0, i32 1
-  store ptr null, ptr %24, align 8
-  %25 = load ptr, ptr %6, align 8
-  %26 = call noalias nonnull ptr @ruby_strdup(ptr noundef %25)
-  store ptr %26, ptr %10, align 8
-  %27 = load ptr, ptr %10, align 8
-  %28 = ptrtoint ptr %27 to i64
-  store i64 %28, ptr %11, align 8
-  %29 = load ptr, ptr %8, align 8
-  %30 = getelementptr inbounds %struct.enc_table, ptr %29, i32 0, i32 2
-  %31 = load ptr, ptr %30, align 8
-  %32 = call i32 @rb_st_delete(ptr noundef %31, ptr noundef %11, ptr noundef null)
-  %33 = icmp ne i32 %32, 0
-  br i1 %33, label %34, label %37
+21:                                               ; preds = %17
+  store i32 2, ptr %9, align 4
+  br label %48
 
-34:                                               ; preds = %20
-  %35 = load i64, ptr %11, align 8
-  %36 = inttoptr i64 %35 to ptr
-  call void @ruby_xfree(ptr noundef %36)
-  br label %37
+22:                                               ; preds = %17
+  %23 = load i32, ptr %7, align 4, !tbaa !14
+  %24 = mul i32 %23, 16
+  %25 = add i32 256, %24
+  %26 = load ptr, ptr %4, align 8, !tbaa !7
+  %27 = load i64, ptr %8, align 8, !tbaa !12
+  %28 = getelementptr i8, ptr %26, i64 %27
+  %29 = load i8, ptr %28, align 1, !tbaa !16
+  %30 = zext i8 %29 to i64
+  %31 = getelementptr [400 x i8], ptr @pm_utf_8_dfa, i64 0, i64 %30
+  %32 = load i8, ptr %31, align 1, !tbaa !16
+  %33 = zext i8 %32 to i32
+  %34 = add i32 %25, %33
+  %35 = zext i32 %34 to i64
+  %36 = getelementptr [400 x i8], ptr @pm_utf_8_dfa, i64 0, i64 %35
+  %37 = load i8, ptr %36, align 1, !tbaa !16
+  %38 = zext i8 %37 to i32
+  store i32 %38, ptr %7, align 4, !tbaa !14
+  %39 = load i32, ptr %7, align 4, !tbaa !14
+  %40 = icmp eq i32 %39, 0
+  br i1 %40, label %41, label %44
 
-37:                                               ; preds = %34, %20
-  %38 = load ptr, ptr %8, align 8
-  %39 = getelementptr inbounds %struct.enc_table, ptr %38, i32 0, i32 2
-  %40 = load ptr, ptr %39, align 8
-  %41 = load ptr, ptr %10, align 8
-  %42 = ptrtoint ptr %41 to i64
-  %43 = call i32 @rb_st_insert(ptr noundef %40, i64 noundef %42, i64 noundef 2147483647)
-  br label %58
+41:                                               ; preds = %22
+  %42 = load i64, ptr %8, align 8, !tbaa !12
+  %43 = add i64 %42, 1
+  store i64 %43, ptr %3, align 8
+  store i32 1, ptr %9, align 4
+  br label %48
 
-44:                                               ; preds = %17
-  %45 = load i64, ptr %5, align 8
-  %46 = call ptr @rb_to_encoding(i64 noundef %45)
-  %47 = call i32 @rb_enc_to_index(ptr noundef %46) #17
-  %48 = load ptr, ptr %4, align 8
-  %49 = getelementptr inbounds %struct.default_encoding, ptr %48, i32 0, i32 0
-  store i32 %47, ptr %49, align 8
-  %50 = load ptr, ptr %4, align 8
-  %51 = getelementptr inbounds %struct.default_encoding, ptr %50, i32 0, i32 1
-  store ptr null, ptr %51, align 8
-  %52 = load ptr, ptr %8, align 8
-  %53 = load ptr, ptr %6, align 8
-  %54 = load ptr, ptr %4, align 8
-  %55 = getelementptr inbounds %struct.default_encoding, ptr %54, i32 0, i32 0
-  %56 = load i32, ptr %55, align 8
-  %57 = call i32 @enc_alias_internal(ptr noundef %52, ptr noundef %53, i32 noundef %56)
-  br label %58
-
-58:                                               ; preds = %44, %37
-  %59 = load ptr, ptr %4, align 8
-  %60 = icmp eq ptr %59, @default_external
-  br i1 %60, label %61, label %65
-
-61:                                               ; preds = %58
-  %62 = load ptr, ptr %8, align 8
-  %63 = call i32 @Init_enc_set_filesystem_encoding()
-  %64 = call i32 @enc_alias_internal(ptr noundef %62, ptr noundef @.str.14, i32 noundef %63)
-  br label %65
-
-65:                                               ; preds = %61, %58
-  call void @rb_vm_lock_leave(ptr noundef %9, ptr noundef @.str, i32 noundef 1566)
-  %66 = load i32, ptr %7, align 4
-  ret i32 %66
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @rb_default_internal_encoding() #0 {
-  %1 = getelementptr inbounds %struct.default_encoding, ptr @default_internal, i32 0, i32 1
-  %2 = load ptr, ptr %1, align 8
-  %3 = icmp ne ptr %2, null
-  br i1 %3, label %11, label %4
-
-4:                                                ; preds = %0
-  %5 = load i32, ptr @default_internal, align 8
-  %6 = icmp sge i32 %5, 0
-  br i1 %6, label %7, label %11
-
-7:                                                ; preds = %4
-  %8 = load i32, ptr @default_internal, align 8
-  %9 = call ptr @rb_enc_from_index(i32 noundef %8)
-  %10 = getelementptr inbounds %struct.default_encoding, ptr @default_internal, i32 0, i32 1
-  store ptr %9, ptr %10, align 8
-  br label %11
-
-11:                                               ; preds = %7, %4, %0
-  %12 = getelementptr inbounds %struct.default_encoding, ptr @default_internal, i32 0, i32 1
-  %13 = load ptr, ptr %12, align 8
-  ret ptr %13
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_enc_default_internal() #0 {
-  %1 = call ptr @rb_default_internal_encoding()
-  %2 = call i64 @rb_enc_from_encoding(ptr noundef %1)
-  ret i64 %2
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @rb_enc_set_default_internal(i64 noundef %0) #0 {
-  %2 = alloca i64, align 8
-  store i64 %0, ptr %2, align 8
-  %3 = load i64, ptr %2, align 8
-  %4 = call i32 @enc_set_default_encoding(ptr noundef @default_internal, i64 noundef %3, ptr noundef @.str.17)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define hidden void @Init_Encoding() #0 {
-  %1 = alloca i64, align 8
-  %2 = alloca i32, align 4
-  %3 = alloca ptr, align 8
-  %4 = load i64, ptr @rb_cObject, align 8
-  %5 = call i64 @rb_define_class(ptr noundef @.str.18, i64 noundef %4)
-  store i64 %5, ptr @rb_cEncoding, align 8
-  %6 = load i64, ptr @rb_cEncoding, align 8
-  call void @rb_define_alloc_func(i64 noundef %6, ptr noundef @enc_s_alloc)
-  %7 = load i64, ptr @rb_cEncoding, align 8
-  %8 = call i64 @rb_class_of(i64 noundef %7) #17
-  call void @rb_undef_method(i64 noundef %8, ptr noundef @.str.19)
-  %9 = load i64, ptr @rb_cEncoding, align 8
-  call void @rb_define_method(i64 noundef %9, ptr noundef @.str.20, ptr noundef @enc_name, i32 noundef 0)
-  %10 = load i64, ptr @rb_cEncoding, align 8
-  call void @rb_define_method(i64 noundef %10, ptr noundef @.str.21, ptr noundef @enc_inspect, i32 noundef 0)
-  %11 = load i64, ptr @rb_cEncoding, align 8
-  call void @rb_define_method(i64 noundef %11, ptr noundef @.str.22, ptr noundef @enc_name, i32 noundef 0)
-  %12 = load i64, ptr @rb_cEncoding, align 8
-  call void @rb_define_method(i64 noundef %12, ptr noundef @.str.23, ptr noundef @enc_names, i32 noundef 0)
-  %13 = load i64, ptr @rb_cEncoding, align 8
-  call void @rb_define_method(i64 noundef %13, ptr noundef @.str.24, ptr noundef @enc_dummy_p, i32 noundef 0)
-  %14 = load i64, ptr @rb_cEncoding, align 8
-  call void @rb_define_method(i64 noundef %14, ptr noundef @.str.25, ptr noundef @enc_ascii_compatible_p, i32 noundef 0)
-  %15 = load i64, ptr @rb_cEncoding, align 8
-  call void @rb_define_singleton_method(i64 noundef %15, ptr noundef @.str.26, ptr noundef @enc_list, i32 noundef 0)
-  %16 = load i64, ptr @rb_cEncoding, align 8
-  call void @rb_define_singleton_method(i64 noundef %16, ptr noundef @.str.27, ptr noundef @rb_enc_name_list, i32 noundef 0)
-  %17 = load i64, ptr @rb_cEncoding, align 8
-  call void @rb_define_singleton_method(i64 noundef %17, ptr noundef @.str.28, ptr noundef @rb_enc_aliases, i32 noundef 0)
-  %18 = load i64, ptr @rb_cEncoding, align 8
-  call void @rb_define_singleton_method(i64 noundef %18, ptr noundef @.str.29, ptr noundef @enc_find, i32 noundef 1)
-  %19 = load i64, ptr @rb_cEncoding, align 8
-  call void @rb_define_singleton_method(i64 noundef %19, ptr noundef @.str.30, ptr noundef @enc_compatible_p, i32 noundef 2)
-  %20 = load i64, ptr @rb_cEncoding, align 8
-  call void @rb_define_method(i64 noundef %20, ptr noundef @.str.31, ptr noundef @enc_dump, i32 noundef -1)
-  %21 = load i64, ptr @rb_cEncoding, align 8
-  call void @rb_define_singleton_method(i64 noundef %21, ptr noundef @.str.32, ptr noundef @enc_load, i32 noundef 1)
-  %22 = load i64, ptr @rb_cEncoding, align 8
-  call void @rb_define_singleton_method(i64 noundef %22, ptr noundef @.str.33, ptr noundef @get_default_external, i32 noundef 0)
-  %23 = load i64, ptr @rb_cEncoding, align 8
-  call void @rb_define_singleton_method(i64 noundef %23, ptr noundef @.str.34, ptr noundef @set_default_external, i32 noundef 1)
-  %24 = load i64, ptr @rb_cEncoding, align 8
-  call void @rb_define_singleton_method(i64 noundef %24, ptr noundef @.str.35, ptr noundef @get_default_internal, i32 noundef 0)
-  %25 = load i64, ptr @rb_cEncoding, align 8
-  call void @rb_define_singleton_method(i64 noundef %25, ptr noundef @.str.36, ptr noundef @set_default_internal, i32 noundef 1)
-  %26 = load i64, ptr @rb_cEncoding, align 8
-  call void @rb_define_singleton_method(i64 noundef %26, ptr noundef @.str.37, ptr noundef @rb_locale_charmap, i32 noundef 0)
-  store ptr @global_enc_table, ptr %3, align 8
-  %27 = call i64 @rb_ary_new_capa(i64 noundef 256)
-  store i64 %27, ptr @rb_encoding_list, align 8
-  store i64 %27, ptr %1, align 8
-  %28 = load i64, ptr %1, align 8
-  call void @RBASIC_CLEAR_CLASS(i64 noundef %28)
-  %29 = load i64, ptr %1, align 8
-  call void @rb_gc_register_mark_object(i64 noundef %29)
-  store i32 0, ptr %2, align 4
-  br label %30
-
-30:                                               ; preds = %47, %0
-  %31 = load i32, ptr %2, align 4
-  %32 = load ptr, ptr %3, align 8
-  %33 = getelementptr inbounds %struct.enc_table, ptr %32, i32 0, i32 1
-  %34 = load i32, ptr %33, align 8
-  %35 = icmp slt i32 %31, %34
-  br i1 %35, label %36, label %50
-
-36:                                               ; preds = %30
-  %37 = load i64, ptr %1, align 8
-  %38 = load ptr, ptr %3, align 8
-  %39 = getelementptr inbounds %struct.enc_table, ptr %38, i32 0, i32 0
-  %40 = load i32, ptr %2, align 4
-  %41 = sext i32 %40 to i64
-  %42 = getelementptr [256 x %struct.rb_encoding_entry], ptr %39, i64 0, i64 %41
-  %43 = getelementptr inbounds %struct.rb_encoding_entry, ptr %42, i32 0, i32 1
-  %44 = load ptr, ptr %43, align 8
-  %45 = call i64 @enc_new(ptr noundef %44)
-  %46 = call i64 @rb_ary_push(i64 noundef %37, i64 noundef %45)
-  br label %47
-
-47:                                               ; preds = %36
-  %48 = load i32, ptr %2, align 4
-  %49 = add i32 %48, 1
-  store i32 %49, ptr %2, align 4
-  br label %30, !llvm.loop !17
-
-50:                                               ; preds = %30
-  %51 = load i64, ptr @rb_cEncoding, align 8
-  call void @rb_marshal_define_compat(i64 noundef %51, i64 noundef 4, ptr noundef null, ptr noundef @enc_m_loader)
-  ret void
-}
-
-declare i64 @rb_define_class(ptr noundef, i64 noundef) #1
-
-declare void @rb_define_alloc_func(i64 noundef, ptr noundef) #1
-
-; Function Attrs: noreturn nounwind sspstrong uwtable
-define internal i64 @enc_s_alloc(i64 noundef %0) #8 {
-  %2 = alloca i64, align 8
-  store i64 %0, ptr %2, align 8
-  %3 = load i64, ptr %2, align 8
-  call void @rb_undefined_alloc(i64 noundef %3) #19
-  unreachable
-}
-
-declare void @rb_undef_method(i64 noundef, ptr noundef) #1
-
-; Function Attrs: nounwind sspstrong willreturn memory(read) uwtable
-define internal i64 @rb_class_of(i64 noundef %0) #2 {
-  %2 = alloca i64, align 8
-  %3 = alloca i64, align 8
-  store i64 %0, ptr %3, align 8
-  %4 = load i64, ptr %3, align 8
-  %5 = call zeroext i1 @RB_SPECIAL_CONST_P(i64 noundef %4) #18
-  br i1 %5, label %9, label %6
-
-6:                                                ; preds = %1
-  %7 = load i64, ptr %3, align 8
-  %8 = call i64 @RBASIC_CLASS(i64 noundef %7) #17
-  store i64 %8, ptr %2, align 8
-  br label %46
-
-9:                                                ; preds = %1
-  %10 = load i64, ptr %3, align 8
-  %11 = icmp eq i64 %10, 0
-  br i1 %11, label %12, label %14
-
-12:                                               ; preds = %9
-  %13 = load i64, ptr @rb_cFalseClass, align 8
-  store i64 %13, ptr %2, align 8
-  br label %46
-
-14:                                               ; preds = %9
-  %15 = load i64, ptr %3, align 8
-  %16 = icmp eq i64 %15, 4
-  br i1 %16, label %17, label %19
-
-17:                                               ; preds = %14
-  %18 = load i64, ptr @rb_cNilClass, align 8
-  store i64 %18, ptr %2, align 8
-  br label %46
-
-19:                                               ; preds = %14
-  %20 = load i64, ptr %3, align 8
-  %21 = icmp eq i64 %20, 20
-  br i1 %21, label %22, label %24
-
-22:                                               ; preds = %19
-  %23 = load i64, ptr @rb_cTrueClass, align 8
-  store i64 %23, ptr %2, align 8
-  br label %46
-
-24:                                               ; preds = %19
-  %25 = load i64, ptr %3, align 8
-  %26 = call zeroext i1 @RB_FIXNUM_P(i64 noundef %25) #18
-  br i1 %26, label %27, label %29
-
-27:                                               ; preds = %24
-  %28 = load i64, ptr @rb_cInteger, align 8
-  store i64 %28, ptr %2, align 8
-  br label %46
-
-29:                                               ; preds = %24
-  %30 = load i64, ptr %3, align 8
-  %31 = call zeroext i1 @RB_STATIC_SYM_P(i64 noundef %30) #18
-  br i1 %31, label %32, label %34
-
-32:                                               ; preds = %29
-  %33 = load i64, ptr @rb_cSymbol, align 8
-  store i64 %33, ptr %2, align 8
-  br label %46
-
-34:                                               ; preds = %29
-  %35 = load i64, ptr %3, align 8
-  %36 = call zeroext i1 @RB_FLONUM_P(i64 noundef %35) #18
-  br i1 %36, label %37, label %39
-
-37:                                               ; preds = %34
-  %38 = load i64, ptr @rb_cFloat, align 8
-  store i64 %38, ptr %2, align 8
-  br label %46
-
-39:                                               ; preds = %34
-  br label %40
-
-40:                                               ; preds = %39
-  br label %41
-
-41:                                               ; preds = %40
-  br label %42
-
-42:                                               ; preds = %41
-  br label %43
-
-43:                                               ; preds = %42
-  br label %44
-
-44:                                               ; preds = %43
+44:                                               ; preds = %22
   br label %45
 
 45:                                               ; preds = %44
-  unreachable
+  %46 = load i64, ptr %8, align 8, !tbaa !12
+  %47 = add i64 %46, 1
+  store i64 %47, ptr %8, align 8, !tbaa !12
+  br label %17, !llvm.loop !17
 
-46:                                               ; preds = %37, %32, %27, %22, %17, %12, %6
-  %47 = load i64, ptr %2, align 8
-  ret i64 %47
+48:                                               ; preds = %41, %21
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #3
+  %49 = load i32, ptr %9, align 4
+  switch i32 %49, label %51 [
+    i32 2, label %50
+  ]
+
+50:                                               ; preds = %48
+  store i64 0, ptr %3, align 8
+  store i32 1, ptr %9, align 4
+  br label %51
+
+51:                                               ; preds = %50, %48
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #3
+  %52 = load i64, ptr %3, align 8
+  ret i64 %52
 }
 
-declare extern_weak void @rb_define_method(i64 noundef, ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @enc_name(i64 noundef %0) #0 {
-  %2 = alloca i64, align 8
-  store i64 %0, ptr %2, align 8
-  %3 = load i64, ptr %2, align 8
-  %4 = inttoptr i64 %3 to ptr
-  %5 = getelementptr inbounds %struct.RData, ptr %4, i32 0, i32 3
-  %6 = load ptr, ptr %5, align 8
-  %7 = call ptr @rb_enc_name(ptr noundef %6)
-  %8 = call i64 @rb_fstring_cstr(ptr noundef %7)
-  ret i64 %8
+define hidden i64 @pm_encoding_utf_8_alpha_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca i64, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !7
+  store i64 %1, ptr %5, align 8, !tbaa !12
+  %9 = load ptr, ptr %4, align 8, !tbaa !7
+  %10 = load i8, ptr %9, align 1, !tbaa !16
+  %11 = zext i8 %10 to i32
+  %12 = icmp slt i32 %11, 128
+  br i1 %12, label %13, label %24
+
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %4, align 8, !tbaa !7
+  %15 = load i8, ptr %14, align 1, !tbaa !16
+  %16 = zext i8 %15 to i64
+  %17 = getelementptr [256 x i8], ptr @pm_encoding_unicode_table, i64 0, i64 %16
+  %18 = load i8, ptr %17, align 1, !tbaa !16
+  %19 = zext i8 %18 to i32
+  %20 = and i32 %19, 1
+  %21 = icmp ne i32 %20, 0
+  %22 = select i1 %21, i32 1, i32 0
+  %23 = sext i32 %22 to i64
+  store i64 %23, ptr %3, align 8
+  br label %53
+
+24:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #3
+  %25 = load ptr, ptr %4, align 8, !tbaa !7
+  %26 = load i64, ptr %5, align 8, !tbaa !12
+  %27 = call i32 @pm_utf_8_codepoint(ptr noundef %25, i64 noundef %26, ptr noundef %6)
+  store i32 %27, ptr %7, align 4, !tbaa !14
+  %28 = load i32, ptr %7, align 4, !tbaa !14
+  %29 = icmp ule i32 %28, 255
+  br i1 %29, label %30, label %44
+
+30:                                               ; preds = %24
+  %31 = load i32, ptr %7, align 4, !tbaa !14
+  %32 = trunc i32 %31 to i8
+  %33 = zext i8 %32 to i64
+  %34 = getelementptr [256 x i8], ptr @pm_encoding_unicode_table, i64 0, i64 %33
+  %35 = load i8, ptr %34, align 1, !tbaa !16
+  %36 = zext i8 %35 to i32
+  %37 = and i32 %36, 1
+  %38 = icmp ne i32 %37, 0
+  br i1 %38, label %39, label %41
+
+39:                                               ; preds = %30
+  %40 = load i64, ptr %6, align 8, !tbaa !12
+  br label %42
+
+41:                                               ; preds = %30
+  br label %42
+
+42:                                               ; preds = %41, %39
+  %43 = phi i64 [ %40, %39 ], [ 0, %41 ]
+  store i64 %43, ptr %3, align 8
+  store i32 1, ptr %8, align 4
+  br label %52
+
+44:                                               ; preds = %24
+  %45 = load i32, ptr %7, align 4, !tbaa !14
+  %46 = call zeroext i1 @pm_unicode_codepoint_match(i32 noundef %45, ptr noundef @unicode_alpha_codepoints, i64 noundef 1450)
+  br i1 %46, label %47, label %49
+
+47:                                               ; preds = %44
+  %48 = load i64, ptr %6, align 8, !tbaa !12
+  br label %50
+
+49:                                               ; preds = %44
+  br label %50
+
+50:                                               ; preds = %49, %47
+  %51 = phi i64 [ %48, %47 ], [ 0, %49 ]
+  store i64 %51, ptr %3, align 8
+  store i32 1, ptr %8, align 4
+  br label %52
+
+52:                                               ; preds = %50, %42
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #3
+  br label %53
+
+53:                                               ; preds = %52, %13
+  %54 = load i64, ptr %3, align 8
+  ret i64 %54
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @enc_inspect(i64 noundef %0) #0 {
-  %2 = alloca i64, align 8
-  %3 = alloca ptr, align 8
-  store i64 %0, ptr %2, align 8
-  %4 = load i64, ptr %2, align 8
-  %5 = call zeroext i1 @RTYPEDDATA_P(i64 noundef %4) #17
-  br i1 %5, label %6, label %10
+define internal i32 @pm_utf_8_codepoint(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i64, align 8
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !7
+  store i64 %1, ptr %6, align 8, !tbaa !12
+  store ptr %2, ptr %7, align 8, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #3
+  %15 = load i64, ptr %6, align 8, !tbaa !12
+  %16 = icmp sgt i64 %15, 4
+  br i1 %16, label %17, label %18
 
-6:                                                ; preds = %1
-  %7 = load i64, ptr %2, align 8
-  %8 = call ptr @RTYPEDDATA_TYPE(i64 noundef %7) #17
-  %9 = icmp eq ptr %8, @encoding_data_type
-  br i1 %9, label %12, label %10
+17:                                               ; preds = %3
+  br label %20
 
-10:                                               ; preds = %6, %1
-  %11 = load i64, ptr %2, align 8
-  call void @not_encoding(i64 noundef %11) #19
-  unreachable
+18:                                               ; preds = %3
+  %19 = load i64, ptr %6, align 8, !tbaa !12
+  br label %20
 
-12:                                               ; preds = %6
-  %13 = load i64, ptr %2, align 8
-  %14 = inttoptr i64 %13 to ptr
-  %15 = getelementptr inbounds %struct.RData, ptr %14, i32 0, i32 3
-  %16 = load ptr, ptr %15, align 8
-  store ptr %16, ptr %3, align 8
-  %17 = icmp ne ptr %16, null
-  br i1 %17, label %18, label %24
+20:                                               ; preds = %18, %17
+  %21 = phi i64 [ 4, %17 ], [ %19, %18 ]
+  store i64 %21, ptr %8, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #3
+  store i32 0, ptr %10, align 4, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #3
+  store i64 0, ptr %11, align 8, !tbaa !12
+  br label %22
 
-18:                                               ; preds = %12
-  %19 = load ptr, ptr %3, align 8
-  %20 = call i32 @rb_enc_to_index(ptr noundef %19) #17
-  %21 = call ptr @rb_enc_from_index(i32 noundef %20)
-  %22 = load ptr, ptr %3, align 8
-  %23 = icmp ne ptr %21, %22
-  br i1 %23, label %24, label %26
+22:                                               ; preds = %73, %20
+  %23 = load i64, ptr %11, align 8, !tbaa !12
+  %24 = load i64, ptr %8, align 8, !tbaa !12
+  %25 = icmp ult i64 %23, %24
+  br i1 %25, label %27, label %26
 
-24:                                               ; preds = %18, %12
-  %25 = load i64, ptr @rb_eTypeError, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %25, ptr noundef @.str.51) #19
-  unreachable
+26:                                               ; preds = %22
+  store i32 2, ptr %12, align 4
+  br label %76
 
-26:                                               ; preds = %18
-  %27 = call nonnull ptr @rb_usascii_encoding()
-  %28 = load i64, ptr %2, align 8
-  %29 = call i64 @rb_obj_class(i64 noundef %28)
-  %30 = load ptr, ptr %3, align 8
-  %31 = call ptr @rb_enc_name(ptr noundef %30)
-  %32 = load ptr, ptr %3, align 8
-  %33 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %32, i32 0, i32 17
-  %34 = load i32, ptr %33, align 8
-  %35 = and i32 %34, 16777216
-  %36 = icmp ne i32 %35, 0
-  %37 = select i1 %36, ptr @.str.53, ptr @.str.54
-  %38 = load ptr, ptr %3, align 8
-  %39 = call i32 @rb_enc_mbmaxlen(ptr noundef %38)
+27:                                               ; preds = %22
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #3
+  %28 = load ptr, ptr %5, align 8, !tbaa !7
+  %29 = load i64, ptr %11, align 8, !tbaa !12
+  %30 = getelementptr i8, ptr %28, i64 %29
+  %31 = load i8, ptr %30, align 1, !tbaa !16
+  %32 = zext i8 %31 to i32
+  store i32 %32, ptr %13, align 4, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #3
+  %33 = load i32, ptr %13, align 4, !tbaa !14
+  %34 = zext i32 %33 to i64
+  %35 = getelementptr [400 x i8], ptr @pm_utf_8_dfa, i64 0, i64 %34
+  %36 = load i8, ptr %35, align 1, !tbaa !16
+  %37 = zext i8 %36 to i32
+  store i32 %37, ptr %14, align 4, !tbaa !14
+  %38 = load i32, ptr %10, align 4, !tbaa !14
+  %39 = icmp ne i32 %38, 0
+  br i1 %39, label %40, label %46
+
+40:                                               ; preds = %27
+  %41 = load i32, ptr %13, align 4, !tbaa !14
+  %42 = and i32 %41, 63
+  %43 = load i32, ptr %9, align 4, !tbaa !14
+  %44 = shl i32 %43, 6
+  %45 = or i32 %42, %44
+  br label %51
+
+46:                                               ; preds = %27
+  %47 = load i32, ptr %14, align 4, !tbaa !14
+  %48 = lshr i32 255, %47
+  %49 = load i32, ptr %13, align 4, !tbaa !14
+  %50 = and i32 %48, %49
+  br label %51
+
+51:                                               ; preds = %46, %40
+  %52 = phi i32 [ %45, %40 ], [ %50, %46 ]
+  store i32 %52, ptr %9, align 4, !tbaa !14
+  %53 = load i32, ptr %10, align 4, !tbaa !14
+  %54 = mul i32 %53, 16
+  %55 = add i32 256, %54
+  %56 = load i32, ptr %14, align 4, !tbaa !14
+  %57 = add i32 %55, %56
+  %58 = zext i32 %57 to i64
+  %59 = getelementptr [400 x i8], ptr @pm_utf_8_dfa, i64 0, i64 %58
+  %60 = load i8, ptr %59, align 1, !tbaa !16
+  %61 = zext i8 %60 to i32
+  store i32 %61, ptr %10, align 4, !tbaa !14
+  %62 = load i32, ptr %10, align 4, !tbaa !14
+  %63 = icmp eq i32 %62, 0
+  br i1 %63, label %64, label %69
+
+64:                                               ; preds = %51
+  %65 = load i64, ptr %11, align 8, !tbaa !12
+  %66 = add i64 %65, 1
+  %67 = load ptr, ptr %7, align 8, !tbaa !19
+  store i64 %66, ptr %67, align 8, !tbaa !12
+  %68 = load i32, ptr %9, align 4, !tbaa !14
+  store i32 %68, ptr %4, align 4
+  store i32 1, ptr %12, align 4
+  br label %70
+
+69:                                               ; preds = %51
+  store i32 0, ptr %12, align 4
+  br label %70
+
+70:                                               ; preds = %69, %64
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #3
+  %71 = load i32, ptr %12, align 4
+  switch i32 %71, label %76 [
+    i32 0, label %72
+  ]
+
+72:                                               ; preds = %70
+  br label %73
+
+73:                                               ; preds = %72
+  %74 = load i64, ptr %11, align 8, !tbaa !12
+  %75 = add i64 %74, 1
+  store i64 %75, ptr %11, align 8, !tbaa !12
+  br label %22, !llvm.loop !21
+
+76:                                               ; preds = %70, %26
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #3
+  %77 = load i32, ptr %12, align 4
+  switch i32 %77, label %80 [
+    i32 2, label %78
+  ]
+
+78:                                               ; preds = %76
+  %79 = load ptr, ptr %7, align 8, !tbaa !19
+  store i64 0, ptr %79, align 8, !tbaa !12
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %12, align 4
+  br label %80
+
+80:                                               ; preds = %78, %76
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #3
+  %81 = load i32, ptr %4, align 4
+  ret i32 %81
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal zeroext i1 @pm_unicode_codepoint_match(i32 noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+  %4 = alloca i1, align 1
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i32, align 4
+  store i32 %0, ptr %5, align 4, !tbaa !14
+  store ptr %1, ptr %6, align 8, !tbaa !22
+  store i64 %2, ptr %7, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #3
+  store i64 0, ptr %8, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #3
+  %12 = load i64, ptr %7, align 8, !tbaa !12
+  store i64 %12, ptr %9, align 8, !tbaa !12
+  br label %13
+
+13:                                               ; preds = %61, %3
+  %14 = load i64, ptr %8, align 8, !tbaa !12
+  %15 = load i64, ptr %9, align 8, !tbaa !12
+  %16 = icmp ult i64 %14, %15
+  br i1 %16, label %17, label %62
+
+17:                                               ; preds = %13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #3
+  %18 = load i64, ptr %8, align 8, !tbaa !12
+  %19 = load i64, ptr %9, align 8, !tbaa !12
+  %20 = load i64, ptr %8, align 8, !tbaa !12
+  %21 = sub i64 %19, %20
+  %22 = udiv i64 %21, 2
+  %23 = add i64 %18, %22
+  store i64 %23, ptr %10, align 8, !tbaa !12
+  %24 = load i64, ptr %10, align 8, !tbaa !12
+  %25 = urem i64 %24, 2
+  %26 = icmp ne i64 %25, 0
+  br i1 %26, label %27, label %30
+
+27:                                               ; preds = %17
+  %28 = load i64, ptr %10, align 8, !tbaa !12
+  %29 = add i64 %28, -1
+  store i64 %29, ptr %10, align 8, !tbaa !12
+  br label %30
+
+30:                                               ; preds = %27, %17
+  %31 = load i32, ptr %5, align 4, !tbaa !14
+  %32 = load ptr, ptr %6, align 8, !tbaa !22
+  %33 = load i64, ptr %10, align 8, !tbaa !12
+  %34 = getelementptr i32, ptr %32, i64 %33
+  %35 = load i32, ptr %34, align 4, !tbaa !14
+  %36 = icmp uge i32 %31, %35
+  br i1 %36, label %37, label %46
+
+37:                                               ; preds = %30
+  %38 = load i32, ptr %5, align 4, !tbaa !14
+  %39 = load ptr, ptr %6, align 8, !tbaa !22
+  %40 = load i64, ptr %10, align 8, !tbaa !12
+  %41 = add i64 %40, 1
+  %42 = getelementptr i32, ptr %39, i64 %41
+  %43 = load i32, ptr %42, align 4, !tbaa !14
+  %44 = icmp ule i32 %38, %43
+  br i1 %44, label %45, label %46
+
+45:                                               ; preds = %37
+  store i1 true, ptr %4, align 1
+  store i32 1, ptr %11, align 4
+  br label %59
+
+46:                                               ; preds = %37, %30
+  %47 = load i32, ptr %5, align 4, !tbaa !14
+  %48 = load ptr, ptr %6, align 8, !tbaa !22
+  %49 = load i64, ptr %10, align 8, !tbaa !12
+  %50 = getelementptr i32, ptr %48, i64 %49
+  %51 = load i32, ptr %50, align 4, !tbaa !14
+  %52 = icmp ult i32 %47, %51
+  br i1 %52, label %53, label %55
+
+53:                                               ; preds = %46
+  %54 = load i64, ptr %10, align 8, !tbaa !12
+  store i64 %54, ptr %9, align 8, !tbaa !12
+  br label %58
+
+55:                                               ; preds = %46
+  %56 = load i64, ptr %10, align 8, !tbaa !12
+  %57 = add i64 %56, 2
+  store i64 %57, ptr %8, align 8, !tbaa !12
+  br label %58
+
+58:                                               ; preds = %55, %53
+  store i32 0, ptr %11, align 4
+  br label %59
+
+59:                                               ; preds = %58, %45
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #3
+  %60 = load i32, ptr %11, align 4
+  switch i32 %60, label %63 [
+    i32 0, label %61
+  ]
+
+61:                                               ; preds = %59
+  br label %13, !llvm.loop !24
+
+62:                                               ; preds = %13
+  store i1 false, ptr %4, align 1
+  store i32 1, ptr %11, align 4
+  br label %63
+
+63:                                               ; preds = %62, %59
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #3
+  %64 = load i1, ptr %4, align 1
+  ret i1 %64
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define hidden i64 @pm_encoding_utf_8_alnum_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca i64, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !7
+  store i64 %1, ptr %5, align 8, !tbaa !12
+  %9 = load ptr, ptr %4, align 8, !tbaa !7
+  %10 = load i8, ptr %9, align 1, !tbaa !16
+  %11 = zext i8 %10 to i32
+  %12 = icmp slt i32 %11, 128
+  br i1 %12, label %13, label %24
+
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %4, align 8, !tbaa !7
+  %15 = load i8, ptr %14, align 1, !tbaa !16
+  %16 = zext i8 %15 to i64
+  %17 = getelementptr [256 x i8], ptr @pm_encoding_unicode_table, i64 0, i64 %16
+  %18 = load i8, ptr %17, align 1, !tbaa !16
+  %19 = zext i8 %18 to i32
+  %20 = and i32 %19, 2
+  %21 = icmp ne i32 %20, 0
+  %22 = select i1 %21, i32 1, i32 0
+  %23 = sext i32 %22 to i64
+  store i64 %23, ptr %3, align 8
+  br label %53
+
+24:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #3
+  %25 = load ptr, ptr %4, align 8, !tbaa !7
+  %26 = load i64, ptr %5, align 8, !tbaa !12
+  %27 = call i32 @pm_utf_8_codepoint(ptr noundef %25, i64 noundef %26, ptr noundef %6)
+  store i32 %27, ptr %7, align 4, !tbaa !14
+  %28 = load i32, ptr %7, align 4, !tbaa !14
+  %29 = icmp ule i32 %28, 255
+  br i1 %29, label %30, label %44
+
+30:                                               ; preds = %24
+  %31 = load i32, ptr %7, align 4, !tbaa !14
+  %32 = trunc i32 %31 to i8
+  %33 = zext i8 %32 to i64
+  %34 = getelementptr [256 x i8], ptr @pm_encoding_unicode_table, i64 0, i64 %33
+  %35 = load i8, ptr %34, align 1, !tbaa !16
+  %36 = zext i8 %35 to i32
+  %37 = and i32 %36, 2
+  %38 = icmp ne i32 %37, 0
+  br i1 %38, label %39, label %41
+
+39:                                               ; preds = %30
+  %40 = load i64, ptr %6, align 8, !tbaa !12
+  br label %42
+
+41:                                               ; preds = %30
+  br label %42
+
+42:                                               ; preds = %41, %39
+  %43 = phi i64 [ %40, %39 ], [ 0, %41 ]
+  store i64 %43, ptr %3, align 8
+  store i32 1, ptr %8, align 4
+  br label %52
+
+44:                                               ; preds = %24
+  %45 = load i32, ptr %7, align 4, !tbaa !14
+  %46 = call zeroext i1 @pm_unicode_codepoint_match(i32 noundef %45, ptr noundef @unicode_alnum_codepoints, i64 noundef 1528)
+  br i1 %46, label %47, label %49
+
+47:                                               ; preds = %44
+  %48 = load i64, ptr %6, align 8, !tbaa !12
+  br label %50
+
+49:                                               ; preds = %44
+  br label %50
+
+50:                                               ; preds = %49, %47
+  %51 = phi i64 [ %48, %47 ], [ 0, %49 ]
+  store i64 %51, ptr %3, align 8
+  store i32 1, ptr %8, align 4
+  br label %52
+
+52:                                               ; preds = %50, %42
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #3
+  br label %53
+
+53:                                               ; preds = %52, %13
+  %54 = load i64, ptr %3, align 8
+  ret i64 %54
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define hidden zeroext i1 @pm_encoding_utf_8_isupper_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca i1, align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !7
+  store i64 %1, ptr %5, align 8, !tbaa !12
+  %9 = load ptr, ptr %4, align 8, !tbaa !7
+  %10 = load i8, ptr %9, align 1, !tbaa !16
+  %11 = zext i8 %10 to i32
+  %12 = icmp slt i32 %11, 128
+  br i1 %12, label %13, label %24
+
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %4, align 8, !tbaa !7
+  %15 = load i8, ptr %14, align 1, !tbaa !16
+  %16 = zext i8 %15 to i64
+  %17 = getelementptr [256 x i8], ptr @pm_encoding_unicode_table, i64 0, i64 %16
+  %18 = load i8, ptr %17, align 1, !tbaa !16
+  %19 = zext i8 %18 to i32
+  %20 = and i32 %19, 4
+  %21 = icmp ne i32 %20, 0
+  %22 = select i1 %21, i32 1, i32 0
+  %23 = icmp ne i32 %22, 0
+  store i1 %23, ptr %3, align 1
+  br label %47
+
+24:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #3
+  %25 = load ptr, ptr %4, align 8, !tbaa !7
+  %26 = load i64, ptr %5, align 8, !tbaa !12
+  %27 = call i32 @pm_utf_8_codepoint(ptr noundef %25, i64 noundef %26, ptr noundef %6)
+  store i32 %27, ptr %7, align 4, !tbaa !14
+  %28 = load i32, ptr %7, align 4, !tbaa !14
+  %29 = icmp ule i32 %28, 255
+  br i1 %29, label %30, label %41
+
+30:                                               ; preds = %24
+  %31 = load i32, ptr %7, align 4, !tbaa !14
+  %32 = trunc i32 %31 to i8
+  %33 = zext i8 %32 to i64
+  %34 = getelementptr [256 x i8], ptr @pm_encoding_unicode_table, i64 0, i64 %33
+  %35 = load i8, ptr %34, align 1, !tbaa !16
+  %36 = zext i8 %35 to i32
+  %37 = and i32 %36, 4
+  %38 = icmp ne i32 %37, 0
+  %39 = select i1 %38, i32 1, i32 0
   %40 = icmp ne i32 %39, 0
-  %41 = xor i1 %40, true
-  %42 = select i1 %41, ptr @.str.55, ptr @.str.54
-  %43 = call i64 (ptr, ptr, ...) @rb_enc_sprintf(ptr noundef %27, ptr noundef @.str.52, i64 noundef %29, ptr noundef %31, ptr noundef %37, ptr noundef %42)
-  ret i64 %43
+  store i1 %40, ptr %3, align 1
+  store i32 1, ptr %8, align 4
+  br label %46
+
+41:                                               ; preds = %24
+  %42 = load i32, ptr %7, align 4, !tbaa !14
+  %43 = call zeroext i1 @pm_unicode_codepoint_match(i32 noundef %42, ptr noundef @unicode_isupper_codepoints, i64 noundef 1302)
+  %44 = select i1 %43, i32 1, i32 0
+  %45 = icmp ne i32 %44, 0
+  store i1 %45, ptr %3, align 1
+  store i32 1, ptr %8, align 4
+  br label %46
+
+46:                                               ; preds = %41, %30
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #3
+  br label %47
+
+47:                                               ; preds = %46, %13
+  %48 = load i1, ptr %3, align 1
+  ret i1 %48
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @enc_names(i64 noundef %0) #0 {
-  %2 = alloca i64, align 8
-  %3 = alloca [2 x i64], align 16
-  store i64 %0, ptr %2, align 8
-  %4 = load i64, ptr %2, align 8
-  %5 = call i32 @rb_to_encoding_index(i64 noundef %4)
-  %6 = sext i32 %5 to i64
-  %7 = getelementptr [2 x i64], ptr %3, i64 0, i64 0
-  store i64 %6, ptr %7, align 16
-  %8 = call i64 @rb_ary_new_capa(i64 noundef 0)
-  %9 = getelementptr [2 x i64], ptr %3, i64 0, i64 1
-  store i64 %8, ptr %9, align 8
-  %10 = getelementptr inbounds %struct.enc_table, ptr @global_enc_table, i32 0, i32 2
-  %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds [2 x i64], ptr %3, i64 0, i64 0
-  %13 = ptrtoint ptr %12 to i64
-  %14 = call i32 @rb_st_foreach(ptr noundef %11, ptr noundef @enc_names_i, i64 noundef %13)
-  %15 = getelementptr [2 x i64], ptr %3, i64 0, i64 1
-  %16 = load i64, ptr %15, align 8
-  ret i64 %16
+define internal i64 @pm_encoding_ascii_char_width(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i32
+  %8 = icmp slt i32 %7, 128
+  %9 = select i1 %8, i32 1, i32 0
+  %10 = sext i32 %9 to i64
+  ret i64 %10
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @enc_dummy_p(i64 noundef %0) #0 {
-  %2 = alloca i64, align 8
-  store i64 %0, ptr %2, align 8
-  %3 = load i64, ptr %2, align 8
-  %4 = call ptr @must_encoding(i64 noundef %3)
-  %5 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %4, i32 0, i32 17
-  %6 = load i32, ptr %5, align 8
-  %7 = and i32 %6, 16777216
-  %8 = icmp ne i32 %7, 0
-  %9 = select i1 %8, i64 20, i64 0
-  ret i64 %9
+define internal i64 @pm_encoding_ascii_alpha_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_ascii_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 1
+  %12 = sext i32 %11 to i64
+  ret i64 %12
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @enc_ascii_compatible_p(i64 noundef %0) #0 {
-  %2 = alloca i64, align 8
-  store i64 %0, ptr %2, align 8
-  %3 = load i64, ptr %2, align 8
-  %4 = call ptr @must_encoding(i64 noundef %3)
-  %5 = call zeroext i1 @rb_enc_asciicompat(ptr noundef %4)
-  %6 = select i1 %5, i64 20, i64 0
-  ret i64 %6
-}
-
-declare extern_weak void @rb_define_singleton_method(i64 noundef, ptr noundef, ptr noundef, i32 noundef) #1
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @enc_list(i64 noundef %0) #0 {
-  %2 = alloca i64, align 8
-  %3 = alloca i64, align 8
-  store i64 %0, ptr %2, align 8
-  %4 = call i64 @rb_ary_new_capa(i64 noundef 0)
-  store i64 %4, ptr %3, align 8
-  %5 = load i64, ptr %3, align 8
-  %6 = load i64, ptr @rb_encoding_list, align 8
-  %7 = call i64 @rb_ary_replace(i64 noundef %5, i64 noundef %6)
-  %8 = load i64, ptr %3, align 8
-  ret i64 %8
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @rb_enc_name_list(i64 noundef %0) #0 {
-  %2 = alloca i64, align 8
-  %3 = alloca i64, align 8
-  store i64 %0, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.enc_table, ptr @global_enc_table, i32 0, i32 2
-  %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds %struct.st_table, ptr %5, i32 0, i32 5
-  %7 = load i64, ptr %6, align 8
-  %8 = call i64 @rb_ary_new_capa(i64 noundef %7)
-  store i64 %8, ptr %3, align 8
-  %9 = getelementptr inbounds %struct.enc_table, ptr @global_enc_table, i32 0, i32 2
-  %10 = load ptr, ptr %9, align 8
-  %11 = load i64, ptr %3, align 8
-  %12 = call i32 @rb_st_foreach(ptr noundef %10, ptr noundef @rb_enc_name_list_i, i64 noundef %11)
-  %13 = load i64, ptr %3, align 8
-  ret i64 %13
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @rb_enc_aliases(i64 noundef %0) #0 {
-  %2 = alloca i64, align 8
-  %3 = alloca [2 x i64], align 16
-  store i64 %0, ptr %2, align 8
-  %4 = call i64 @rb_hash_new()
-  %5 = getelementptr [2 x i64], ptr %3, i64 0, i64 0
-  store i64 %4, ptr %5, align 16
-  %6 = call i64 @rb_ary_new()
-  %7 = getelementptr [2 x i64], ptr %3, i64 0, i64 1
-  store i64 %6, ptr %7, align 8
-  %8 = getelementptr inbounds %struct.enc_table, ptr @global_enc_table, i32 0, i32 2
-  %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds [2 x i64], ptr %3, i64 0, i64 0
-  %11 = ptrtoint ptr %10 to i64
-  %12 = call i32 @rb_st_foreach(ptr noundef %9, ptr noundef @rb_enc_aliases_enc_i, i64 noundef %11)
-  %13 = getelementptr [2 x i64], ptr %3, i64 0, i64 0
-  %14 = load i64, ptr %13, align 16
+define internal i64 @pm_encoding_ascii_alnum_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_ascii_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 2
+  %12 = icmp ne i32 %11, 0
+  %13 = select i1 %12, i32 1, i32 0
+  %14 = sext i32 %13 to i64
   ret i64 %14
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @enc_find(i64 noundef %0, i64 noundef %1) #0 {
-  %3 = alloca i1, align 1
+define internal zeroext i1 @pm_encoding_ascii_isupper_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  %5 = alloca i32, align 4
-  %6 = alloca i64, align 8
-  %7 = alloca i64, align 8
-  %8 = alloca i64, align 8
-  %9 = alloca i32, align 4
-  store i64 %0, ptr %7, align 8
-  store i64 %1, ptr %8, align 8
-  br i1 true, label %10, label %66
-
-10:                                               ; preds = %2
-  %11 = load i64, ptr %8, align 8
-  store i64 %11, ptr %4, align 8
-  store i32 12, ptr %5, align 4
-  %12 = load i32, ptr %5, align 4
-  %13 = icmp eq i32 %12, 18
-  br i1 %13, label %14, label %17
-
-14:                                               ; preds = %10
-  %15 = load i64, ptr %4, align 8
-  %16 = icmp eq i64 %15, 20
-  store i1 %16, ptr %3, align 1
-  br label %64
-
-17:                                               ; preds = %10
-  %18 = load i32, ptr %5, align 4
-  %19 = icmp eq i32 %18, 19
-  br i1 %19, label %20, label %23
-
-20:                                               ; preds = %17
-  %21 = load i64, ptr %4, align 8
-  %22 = icmp eq i64 %21, 0
-  store i1 %22, ptr %3, align 1
-  br label %64
-
-23:                                               ; preds = %17
-  %24 = load i32, ptr %5, align 4
-  %25 = icmp eq i32 %24, 17
-  br i1 %25, label %26, label %29
-
-26:                                               ; preds = %23
-  %27 = load i64, ptr %4, align 8
-  %28 = icmp eq i64 %27, 4
-  store i1 %28, ptr %3, align 1
-  br label %64
-
-29:                                               ; preds = %23
-  %30 = load i32, ptr %5, align 4
-  %31 = icmp eq i32 %30, 22
-  br i1 %31, label %32, label %35
-
-32:                                               ; preds = %29
-  %33 = load i64, ptr %4, align 8
-  %34 = icmp eq i64 %33, 36
-  store i1 %34, ptr %3, align 1
-  br label %64
-
-35:                                               ; preds = %29
-  %36 = load i32, ptr %5, align 4
-  %37 = icmp eq i32 %36, 21
-  br i1 %37, label %38, label %41
-
-38:                                               ; preds = %35
-  %39 = load i64, ptr %4, align 8
-  %40 = call zeroext i1 @RB_FIXNUM_P(i64 noundef %39) #18
-  store i1 %40, ptr %3, align 1
-  br label %64
-
-41:                                               ; preds = %35
-  %42 = load i32, ptr %5, align 4
-  %43 = icmp eq i32 %42, 20
-  br i1 %43, label %44, label %47
-
-44:                                               ; preds = %41
-  %45 = load i64, ptr %4, align 8
-  %46 = call zeroext i1 @RB_SYMBOL_P(i64 noundef %45) #17
-  store i1 %46, ptr %3, align 1
-  br label %64
-
-47:                                               ; preds = %41
-  %48 = load i32, ptr %5, align 4
-  %49 = icmp eq i32 %48, 4
-  br i1 %49, label %50, label %53
-
-50:                                               ; preds = %47
-  %51 = load i64, ptr %4, align 8
-  %52 = call zeroext i1 @RB_FLOAT_TYPE_P(i64 noundef %51) #17
-  store i1 %52, ptr %3, align 1
-  br label %64
-
-53:                                               ; preds = %47
-  %54 = load i64, ptr %4, align 8
-  %55 = call zeroext i1 @RB_SPECIAL_CONST_P(i64 noundef %54) #18
-  br i1 %55, label %56, label %57
-
-56:                                               ; preds = %53
-  store i1 false, ptr %3, align 1
-  br label %64
-
-57:                                               ; preds = %53
-  %58 = load i32, ptr %5, align 4
-  %59 = load i64, ptr %4, align 8
-  %60 = call i32 @RB_BUILTIN_TYPE(i64 noundef %59) #17
-  %61 = icmp eq i32 %58, %60
-  br i1 %61, label %62, label %63
-
-62:                                               ; preds = %57
-  store i1 true, ptr %3, align 1
-  br label %64
-
-63:                                               ; preds = %57
-  store i1 false, ptr %3, align 1
-  br label %64
-
-64:                                               ; preds = %63, %62, %56, %50, %44, %38, %32, %26, %20, %14
-  %65 = load i1, ptr %3, align 1
-  br i1 %65, label %69, label %78
-
-66:                                               ; preds = %2
-  %67 = load i64, ptr %8, align 8
-  %68 = call zeroext i1 @RB_TYPE_P(i64 noundef %67, i32 noundef 12) #17
-  br i1 %68, label %69, label %78
-
-69:                                               ; preds = %66, %64
-  %70 = load i64, ptr %8, align 8
-  %71 = call zeroext i1 @RTYPEDDATA_P(i64 noundef %70) #17
-  br i1 %71, label %72, label %78
-
-72:                                               ; preds = %69
-  %73 = load i64, ptr %8, align 8
-  %74 = call ptr @RTYPEDDATA_TYPE(i64 noundef %73) #17
-  %75 = icmp eq ptr %74, @encoding_data_type
-  br i1 %75, label %76, label %78
-
-76:                                               ; preds = %72
-  %77 = load i64, ptr %8, align 8
-  store i64 %77, ptr %6, align 8
-  br label %87
-
-78:                                               ; preds = %72, %69, %66, %64
-  %79 = load i64, ptr %8, align 8
-  %80 = call i32 @str_to_encindex(i64 noundef %79)
-  store i32 %80, ptr %9, align 4
-  %81 = load i32, ptr %9, align 4
-  %82 = icmp eq i32 %81, 2147483647
-  br i1 %82, label %83, label %84
-
-83:                                               ; preds = %78
-  store i64 4, ptr %6, align 8
-  br label %87
-
-84:                                               ; preds = %78
-  %85 = load i32, ptr %9, align 4
-  %86 = call i64 @rb_enc_from_encoding_index(i32 noundef %85)
-  store i64 %86, ptr %6, align 8
-  br label %87
-
-87:                                               ; preds = %84, %83, %76
-  %88 = load i64, ptr %6, align 8
-  ret i64 %88
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_ascii_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 4
+  %12 = icmp ne i32 %11, 0
+  ret i1 %12
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @enc_compatible_p(i64 noundef %0, i64 noundef %1, i64 noundef %2) #0 {
+define internal i64 @pm_encoding_single_char_width(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  ret i64 1
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_euc_jp_char_width(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca i64, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !7
+  store i64 %1, ptr %5, align 8, !tbaa !12
+  %6 = load ptr, ptr %4, align 8, !tbaa !7
+  %7 = load i8, ptr %6, align 1, !tbaa !16
+  %8 = zext i8 %7 to i32
+  %9 = icmp slt i32 %8, 128
+  br i1 %9, label %10, label %11
+
+10:                                               ; preds = %2
+  store i64 1, ptr %3, align 8
+  br label %80
+
+11:                                               ; preds = %2
+  %12 = load i64, ptr %5, align 8, !tbaa !12
+  %13 = icmp sgt i64 %12, 1
+  br i1 %13, label %14, label %45
+
+14:                                               ; preds = %11
+  %15 = load ptr, ptr %4, align 8, !tbaa !7
+  %16 = getelementptr i8, ptr %15, i64 0
+  %17 = load i8, ptr %16, align 1, !tbaa !16
+  %18 = zext i8 %17 to i32
+  %19 = icmp eq i32 %18, 142
+  br i1 %19, label %32, label %20
+
+20:                                               ; preds = %14
+  %21 = load ptr, ptr %4, align 8, !tbaa !7
+  %22 = getelementptr i8, ptr %21, i64 0
+  %23 = load i8, ptr %22, align 1, !tbaa !16
+  %24 = zext i8 %23 to i32
+  %25 = icmp sge i32 %24, 161
+  br i1 %25, label %26, label %45
+
+26:                                               ; preds = %20
+  %27 = load ptr, ptr %4, align 8, !tbaa !7
+  %28 = getelementptr i8, ptr %27, i64 0
+  %29 = load i8, ptr %28, align 1, !tbaa !16
+  %30 = zext i8 %29 to i32
+  %31 = icmp sle i32 %30, 254
+  br i1 %31, label %32, label %45
+
+32:                                               ; preds = %26, %14
+  %33 = load ptr, ptr %4, align 8, !tbaa !7
+  %34 = getelementptr i8, ptr %33, i64 1
+  %35 = load i8, ptr %34, align 1, !tbaa !16
+  %36 = zext i8 %35 to i32
+  %37 = icmp sge i32 %36, 161
+  br i1 %37, label %38, label %45
+
+38:                                               ; preds = %32
+  %39 = load ptr, ptr %4, align 8, !tbaa !7
+  %40 = getelementptr i8, ptr %39, i64 1
+  %41 = load i8, ptr %40, align 1, !tbaa !16
+  %42 = zext i8 %41 to i32
+  %43 = icmp sle i32 %42, 254
+  br i1 %43, label %44, label %45
+
+44:                                               ; preds = %38
+  store i64 2, ptr %3, align 8
+  br label %80
+
+45:                                               ; preds = %38, %32, %26, %20, %11
+  %46 = load i64, ptr %5, align 8, !tbaa !12
+  %47 = icmp sgt i64 %46, 2
+  br i1 %47, label %48, label %79
+
+48:                                               ; preds = %45
+  %49 = load ptr, ptr %4, align 8, !tbaa !7
+  %50 = getelementptr i8, ptr %49, i64 0
+  %51 = load i8, ptr %50, align 1, !tbaa !16
+  %52 = zext i8 %51 to i32
+  %53 = icmp eq i32 %52, 143
+  br i1 %53, label %54, label %79
+
+54:                                               ; preds = %48
+  %55 = load ptr, ptr %4, align 8, !tbaa !7
+  %56 = getelementptr i8, ptr %55, i64 1
+  %57 = load i8, ptr %56, align 1, !tbaa !16
+  %58 = zext i8 %57 to i32
+  %59 = icmp sge i32 %58, 161
+  br i1 %59, label %60, label %79
+
+60:                                               ; preds = %54
+  %61 = load ptr, ptr %4, align 8, !tbaa !7
+  %62 = getelementptr i8, ptr %61, i64 2
+  %63 = load i8, ptr %62, align 1, !tbaa !16
+  %64 = zext i8 %63 to i32
+  %65 = icmp sle i32 %64, 254
+  br i1 %65, label %66, label %79
+
+66:                                               ; preds = %60
+  %67 = load ptr, ptr %4, align 8, !tbaa !7
+  %68 = getelementptr i8, ptr %67, i64 2
+  %69 = load i8, ptr %68, align 1, !tbaa !16
+  %70 = zext i8 %69 to i32
+  %71 = icmp sge i32 %70, 161
+  br i1 %71, label %72, label %79
+
+72:                                               ; preds = %66
+  %73 = load ptr, ptr %4, align 8, !tbaa !7
+  %74 = getelementptr i8, ptr %73, i64 2
+  %75 = load i8, ptr %74, align 1, !tbaa !16
+  %76 = zext i8 %75 to i32
+  %77 = icmp sle i32 %76, 254
+  br i1 %77, label %78, label %79
+
+78:                                               ; preds = %72
+  store i64 3, ptr %3, align 8
+  br label %80
+
+79:                                               ; preds = %72, %66, %60, %54, %48, %45
+  store i64 0, ptr %3, align 8
+  br label %80
+
+80:                                               ; preds = %79, %78, %44, %10
+  %81 = load i64, ptr %3, align 8
+  ret i64 %81
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_ascii_alpha_char_7bit(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i32
+  %8 = icmp slt i32 %7, 128
+  br i1 %8, label %9, label %13
+
+9:                                                ; preds = %2
+  %10 = load ptr, ptr %3, align 8, !tbaa !7
+  %11 = load i64, ptr %4, align 8, !tbaa !12
+  %12 = call i64 @pm_encoding_ascii_alpha_char(ptr noundef %10, i64 noundef %11)
+  br label %14
+
+13:                                               ; preds = %2
+  br label %14
+
+14:                                               ; preds = %13, %9
+  %15 = phi i64 [ %12, %9 ], [ 0, %13 ]
+  ret i64 %15
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_ascii_alnum_char_7bit(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i32
+  %8 = icmp slt i32 %7, 128
+  br i1 %8, label %9, label %13
+
+9:                                                ; preds = %2
+  %10 = load ptr, ptr %3, align 8, !tbaa !7
+  %11 = load i64, ptr %4, align 8, !tbaa !12
+  %12 = call i64 @pm_encoding_ascii_alnum_char(ptr noundef %10, i64 noundef %11)
+  br label %14
+
+13:                                               ; preds = %2
+  br label %14
+
+14:                                               ; preds = %13, %9
+  %15 = phi i64 [ %12, %9 ], [ 0, %13 ]
+  ret i64 %15
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal zeroext i1 @pm_encoding_euc_jp_isupper_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca i1, align 1
+  %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
-  %7 = alloca i64, align 8
-  %8 = alloca ptr, align 8
-  store i64 %0, ptr %5, align 8
-  store i64 %1, ptr %6, align 8
-  store i64 %2, ptr %7, align 8
-  %9 = load i64, ptr %6, align 8
-  %10 = call i32 @enc_capable(i64 noundef %9)
-  %11 = icmp ne i32 %10, 0
-  br i1 %11, label %13, label %12
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !7
+  store i64 %1, ptr %5, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #3
+  %8 = load ptr, ptr %4, align 8, !tbaa !7
+  %9 = load i64, ptr %5, align 8, !tbaa !12
+  %10 = call i64 @pm_encoding_euc_jp_char_width(ptr noundef %8, i64 noundef %9)
+  store i64 %10, ptr %6, align 8, !tbaa !12
+  %11 = load i64, ptr %6, align 8, !tbaa !12
+  %12 = icmp eq i64 %11, 1
+  br i1 %12, label %13, label %17
 
-12:                                               ; preds = %3
-  store i64 4, ptr %4, align 8
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %4, align 8, !tbaa !7
+  %15 = load i64, ptr %5, align 8, !tbaa !12
+  %16 = call zeroext i1 @pm_encoding_ascii_isupper_char(ptr noundef %14, i64 noundef %15)
+  store i1 %16, ptr %3, align 1
+  store i32 1, ptr %7, align 4
+  br label %79
+
+17:                                               ; preds = %2
+  %18 = load i64, ptr %6, align 8, !tbaa !12
+  %19 = icmp eq i64 %18, 2
+  br i1 %19, label %20, label %78
+
+20:                                               ; preds = %17
+  %21 = load ptr, ptr %4, align 8, !tbaa !7
+  %22 = getelementptr i8, ptr %21, i64 0
+  %23 = load i8, ptr %22, align 1, !tbaa !16
+  %24 = zext i8 %23 to i32
+  %25 = icmp eq i32 %24, 163
+  br i1 %25, label %26, label %38
+
+26:                                               ; preds = %20
+  %27 = load ptr, ptr %4, align 8, !tbaa !7
+  %28 = getelementptr i8, ptr %27, i64 1
+  %29 = load i8, ptr %28, align 1, !tbaa !16
+  %30 = zext i8 %29 to i32
+  %31 = icmp sge i32 %30, 193
+  br i1 %31, label %32, label %38
+
+32:                                               ; preds = %26
+  %33 = load ptr, ptr %4, align 8, !tbaa !7
+  %34 = getelementptr i8, ptr %33, i64 1
+  %35 = load i8, ptr %34, align 1, !tbaa !16
+  %36 = zext i8 %35 to i32
+  %37 = icmp sle i32 %36, 218
+  br i1 %37, label %76, label %38
+
+38:                                               ; preds = %32, %26, %20
+  %39 = load ptr, ptr %4, align 8, !tbaa !7
+  %40 = getelementptr i8, ptr %39, i64 0
+  %41 = load i8, ptr %40, align 1, !tbaa !16
+  %42 = zext i8 %41 to i32
+  %43 = icmp eq i32 %42, 166
+  br i1 %43, label %44, label %56
+
+44:                                               ; preds = %38
+  %45 = load ptr, ptr %4, align 8, !tbaa !7
+  %46 = getelementptr i8, ptr %45, i64 1
+  %47 = load i8, ptr %46, align 1, !tbaa !16
+  %48 = zext i8 %47 to i32
+  %49 = icmp sge i32 %48, 161
+  br i1 %49, label %50, label %56
+
+50:                                               ; preds = %44
+  %51 = load ptr, ptr %4, align 8, !tbaa !7
+  %52 = getelementptr i8, ptr %51, i64 1
+  %53 = load i8, ptr %52, align 1, !tbaa !16
+  %54 = zext i8 %53 to i32
+  %55 = icmp sle i32 %54, 184
+  br i1 %55, label %76, label %56
+
+56:                                               ; preds = %50, %44, %38
+  %57 = load ptr, ptr %4, align 8, !tbaa !7
+  %58 = getelementptr i8, ptr %57, i64 0
+  %59 = load i8, ptr %58, align 1, !tbaa !16
+  %60 = zext i8 %59 to i32
+  %61 = icmp eq i32 %60, 167
+  br i1 %61, label %62, label %74
+
+62:                                               ; preds = %56
+  %63 = load ptr, ptr %4, align 8, !tbaa !7
+  %64 = getelementptr i8, ptr %63, i64 1
+  %65 = load i8, ptr %64, align 1, !tbaa !16
+  %66 = zext i8 %65 to i32
+  %67 = icmp sge i32 %66, 161
+  br i1 %67, label %68, label %74
+
+68:                                               ; preds = %62
+  %69 = load ptr, ptr %4, align 8, !tbaa !7
+  %70 = getelementptr i8, ptr %69, i64 1
+  %71 = load i8, ptr %70, align 1, !tbaa !16
+  %72 = zext i8 %71 to i32
+  %73 = icmp sle i32 %72, 193
+  br label %74
+
+74:                                               ; preds = %68, %62, %56
+  %75 = phi i1 [ false, %62 ], [ false, %56 ], [ %73, %68 ]
+  br label %76
+
+76:                                               ; preds = %74, %50, %32
+  %77 = phi i1 [ true, %50 ], [ true, %32 ], [ %75, %74 ]
+  store i1 %77, ptr %3, align 1
+  store i32 1, ptr %7, align 4
+  br label %79
+
+78:                                               ; preds = %17
+  store i1 false, ptr %3, align 1
+  store i32 1, ptr %7, align 4
+  br label %79
+
+79:                                               ; preds = %78, %76, %13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #3
+  %80 = load i1, ptr %3, align 1
+  ret i1 %80
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_shift_jis_char_width(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca i64, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !7
+  store i64 %1, ptr %5, align 8, !tbaa !12
+  %6 = load ptr, ptr %4, align 8, !tbaa !7
+  %7 = getelementptr i8, ptr %6, i64 0
+  %8 = load i8, ptr %7, align 1, !tbaa !16
+  %9 = zext i8 %8 to i32
+  %10 = icmp slt i32 %9, 128
+  br i1 %10, label %23, label %11
+
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !7
+  %13 = getelementptr i8, ptr %12, i64 0
+  %14 = load i8, ptr %13, align 1, !tbaa !16
+  %15 = zext i8 %14 to i32
+  %16 = icmp sge i32 %15, 161
+  br i1 %16, label %17, label %24
+
+17:                                               ; preds = %11
+  %18 = load ptr, ptr %4, align 8, !tbaa !7
+  %19 = getelementptr i8, ptr %18, i64 0
+  %20 = load i8, ptr %19, align 1, !tbaa !16
+  %21 = zext i8 %20 to i32
+  %22 = icmp sle i32 %21, 223
+  br i1 %22, label %23, label %24
+
+23:                                               ; preds = %17, %2
+  store i64 1, ptr %3, align 8
+  br label %71
+
+24:                                               ; preds = %17, %11
+  %25 = load i64, ptr %5, align 8, !tbaa !12
+  %26 = icmp sgt i64 %25, 1
+  br i1 %26, label %27, label %70
+
+27:                                               ; preds = %24
+  %28 = load ptr, ptr %4, align 8, !tbaa !7
+  %29 = getelementptr i8, ptr %28, i64 0
+  %30 = load i8, ptr %29, align 1, !tbaa !16
+  %31 = zext i8 %30 to i32
+  %32 = icmp sge i32 %31, 129
+  br i1 %32, label %33, label %39
+
+33:                                               ; preds = %27
+  %34 = load ptr, ptr %4, align 8, !tbaa !7
+  %35 = getelementptr i8, ptr %34, i64 0
+  %36 = load i8, ptr %35, align 1, !tbaa !16
+  %37 = zext i8 %36 to i32
+  %38 = icmp sle i32 %37, 159
+  br i1 %38, label %51, label %39
+
+39:                                               ; preds = %33, %27
+  %40 = load ptr, ptr %4, align 8, !tbaa !7
+  %41 = getelementptr i8, ptr %40, i64 0
+  %42 = load i8, ptr %41, align 1, !tbaa !16
+  %43 = zext i8 %42 to i32
+  %44 = icmp sge i32 %43, 224
+  br i1 %44, label %45, label %70
+
+45:                                               ; preds = %39
+  %46 = load ptr, ptr %4, align 8, !tbaa !7
+  %47 = getelementptr i8, ptr %46, i64 0
+  %48 = load i8, ptr %47, align 1, !tbaa !16
+  %49 = zext i8 %48 to i32
+  %50 = icmp sle i32 %49, 252
+  br i1 %50, label %51, label %70
+
+51:                                               ; preds = %45, %33
+  %52 = load ptr, ptr %4, align 8, !tbaa !7
+  %53 = getelementptr i8, ptr %52, i64 1
+  %54 = load i8, ptr %53, align 1, !tbaa !16
+  %55 = zext i8 %54 to i32
+  %56 = icmp sge i32 %55, 64
+  br i1 %56, label %57, label %70
+
+57:                                               ; preds = %51
+  %58 = load ptr, ptr %4, align 8, !tbaa !7
+  %59 = getelementptr i8, ptr %58, i64 1
+  %60 = load i8, ptr %59, align 1, !tbaa !16
+  %61 = zext i8 %60 to i32
+  %62 = icmp sle i32 %61, 252
+  br i1 %62, label %63, label %70
+
+63:                                               ; preds = %57
+  %64 = load ptr, ptr %4, align 8, !tbaa !7
+  %65 = getelementptr i8, ptr %64, i64 1
+  %66 = load i8, ptr %65, align 1, !tbaa !16
+  %67 = zext i8 %66 to i32
+  %68 = icmp ne i32 %67, 127
+  br i1 %68, label %69, label %70
+
+69:                                               ; preds = %63
+  store i64 2, ptr %3, align 8
+  br label %71
+
+70:                                               ; preds = %63, %57, %51, %45, %39, %24
+  store i64 0, ptr %3, align 8
+  br label %71
+
+71:                                               ; preds = %70, %69, %23
+  %72 = load i64, ptr %3, align 8
+  ret i64 %72
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_shift_jis_alpha_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #3
+  %6 = load ptr, ptr %3, align 8, !tbaa !7
+  %7 = load i64, ptr %4, align 8, !tbaa !12
+  %8 = call i64 @pm_encoding_shift_jis_char_width(ptr noundef %6, i64 noundef %7)
+  store i64 %8, ptr %5, align 8, !tbaa !12
+  %9 = load i64, ptr %5, align 8, !tbaa !12
+  %10 = icmp eq i64 %9, 1
+  br i1 %10, label %11, label %26
+
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %3, align 8, !tbaa !7
+  %13 = getelementptr i8, ptr %12, i64 0
+  %14 = load i8, ptr %13, align 1, !tbaa !16
+  %15 = zext i8 %14 to i32
+  %16 = icmp sge i32 %15, 128
+  br i1 %16, label %22, label %17
+
+17:                                               ; preds = %11
+  %18 = load ptr, ptr %3, align 8, !tbaa !7
+  %19 = load i64, ptr %4, align 8, !tbaa !12
+  %20 = call i64 @pm_encoding_ascii_alpha_char(ptr noundef %18, i64 noundef %19)
+  %21 = icmp ne i64 %20, 0
+  br label %22
+
+22:                                               ; preds = %17, %11
+  %23 = phi i1 [ true, %11 ], [ %21, %17 ]
+  %24 = zext i1 %23 to i32
+  %25 = sext i32 %24 to i64
   br label %28
 
-13:                                               ; preds = %3
-  %14 = load i64, ptr %7, align 8
-  %15 = call i32 @enc_capable(i64 noundef %14)
-  %16 = icmp ne i32 %15, 0
-  br i1 %16, label %18, label %17
-
-17:                                               ; preds = %13
-  store i64 4, ptr %4, align 8
+26:                                               ; preds = %2
+  %27 = load i64, ptr %5, align 8, !tbaa !12
   br label %28
 
-18:                                               ; preds = %13
-  %19 = load i64, ptr %6, align 8
-  %20 = load i64, ptr %7, align 8
-  %21 = call ptr @rb_enc_compatible(i64 noundef %19, i64 noundef %20)
-  store ptr %21, ptr %8, align 8
-  %22 = load ptr, ptr %8, align 8
-  %23 = icmp ne ptr %22, null
-  br i1 %23, label %25, label %24
-
-24:                                               ; preds = %18
-  store i64 4, ptr %4, align 8
-  br label %28
-
-25:                                               ; preds = %18
-  %26 = load ptr, ptr %8, align 8
-  %27 = call i64 @rb_enc_from_encoding(ptr noundef %26)
-  store i64 %27, ptr %4, align 8
-  br label %28
-
-28:                                               ; preds = %25, %24, %17, %12
-  %29 = load i64, ptr %4, align 8
+28:                                               ; preds = %26, %22
+  %29 = phi i64 [ %25, %22 ], [ %27, %26 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #3
   ret i64 %29
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @enc_dump(i32 noundef %0, ptr noundef %1, i64 noundef %2) #0 {
-  %4 = alloca i32, align 4
-  %5 = alloca ptr, align 8
-  %6 = alloca i64, align 8
-  store i32 %0, ptr %4, align 4
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
-  %7 = load i32, ptr %4, align 4
-  %8 = call i32 @rb_check_arity(i32 noundef %7, i32 noundef 0, i32 noundef 1)
-  %9 = load i64, ptr %6, align 8
-  %10 = call i64 @enc_name(i64 noundef %9)
-  ret i64 %10
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @enc_load(i64 noundef %0, i64 noundef %1) #0 {
-  %3 = alloca i64, align 8
-  %4 = alloca i64, align 8
-  store i64 %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
-  %5 = load i64, ptr %4, align 8
-  ret i64 %5
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @get_default_external(i64 noundef %0) #0 {
-  %2 = alloca i64, align 8
-  store i64 %0, ptr %2, align 8
-  %3 = call i64 @rb_enc_default_external()
-  ret i64 %3
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @set_default_external(i64 noundef %0, i64 noundef %1) #0 {
-  %3 = alloca i64, align 8
-  %4 = alloca i64, align 8
-  store i64 %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
-  call void (ptr, ...) @rb_warning(ptr noundef @.str.57)
-  %5 = load i64, ptr %4, align 8
-  call void @rb_enc_set_default_external(i64 noundef %5)
-  %6 = load i64, ptr %4, align 8
-  ret i64 %6
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @get_default_internal(i64 noundef %0) #0 {
-  %2 = alloca i64, align 8
-  store i64 %0, ptr %2, align 8
-  %3 = call i64 @rb_enc_default_internal()
-  ret i64 %3
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @set_default_internal(i64 noundef %0, i64 noundef %1) #0 {
-  %3 = alloca i64, align 8
-  %4 = alloca i64, align 8
-  store i64 %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
-  call void (ptr, ...) @rb_warning(ptr noundef @.str.58)
-  %5 = load i64, ptr %4, align 8
-  call void @rb_enc_set_default_internal(i64 noundef %5)
-  %6 = load i64, ptr %4, align 8
-  ret i64 %6
-}
-
-declare i64 @rb_locale_charmap(i64 noundef) #1
-
-declare i64 @rb_ary_new_capa(i64 noundef) #1
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @RBASIC_CLEAR_CLASS(i64 noundef %0) #0 {
-  %2 = alloca i64, align 8
-  store i64 %0, ptr %2, align 8
-  %3 = load i64, ptr %2, align 8
-  call void @RBASIC_SET_CLASS_RAW(i64 noundef %3, i64 noundef 0)
-  ret void
-}
-
-declare void @rb_gc_register_mark_object(i64 noundef) #1
-
-declare i64 @rb_ary_push(i64 noundef, i64 noundef) #1
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @enc_new(ptr noundef %0) #0 {
-  %2 = alloca ptr, align 8
-  %3 = alloca i64, align 8
-  store ptr %0, ptr %2, align 8
-  %4 = load i64, ptr @rb_cEncoding, align 8
-  %5 = load ptr, ptr %2, align 8
-  %6 = call i64 @rb_data_typed_object_wrap(i64 noundef %4, ptr noundef %5, ptr noundef @encoding_data_type)
-  store i64 %6, ptr %3, align 8
-  %7 = load i64, ptr %3, align 8
-  %8 = call i64 @rb_obj_freeze(i64 noundef %7)
-  %9 = load i64, ptr %3, align 8
-  call void @RB_FL_SET_RAW(i64 noundef %9, i64 noundef 256)
-  %10 = load i64, ptr %3, align 8
-  ret i64 %10
-}
-
-declare void @rb_marshal_define_compat(i64 noundef, i64 noundef, ptr noundef, ptr noundef) #1
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @enc_m_loader(i64 noundef %0, i64 noundef %1) #0 {
-  %3 = alloca i64, align 8
-  %4 = alloca i64, align 8
-  store i64 %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
-  %5 = load i64, ptr %3, align 8
-  %6 = load i64, ptr %4, align 8
-  %7 = call i64 @enc_find(i64 noundef %5, i64 noundef %6)
-  ret i64 %7
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define hidden void @Init_encodings() #0 {
-  call void @rb_enc_init(ptr noundef @global_enc_table)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @rb_enc_init(ptr noundef %0) #0 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call i32 @enc_table_expand(ptr noundef %3, i32 noundef 13)
-  %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds %struct.enc_table, ptr %5, i32 0, i32 2
-  %7 = load ptr, ptr %6, align 8
-  %8 = icmp ne ptr %7, null
-  br i1 %8, label %13, label %9
-
-9:                                                ; preds = %1
-  %10 = call ptr @rb_st_init_strcasetable_with_size(i64 noundef 256)
-  %11 = load ptr, ptr %2, align 8
-  %12 = getelementptr inbounds %struct.enc_table, ptr %11, i32 0, i32 2
-  store ptr %10, ptr %12, align 8
-  br label %13
-
-13:                                               ; preds = %9, %1
-  %14 = load ptr, ptr %2, align 8
-  %15 = call ptr @rb_enc_name(ptr noundef @OnigEncodingASCII)
-  %16 = call i32 @enc_register_at(ptr noundef %14, i32 noundef 0, ptr noundef %15, ptr noundef @OnigEncodingASCII)
-  %17 = load ptr, ptr %2, align 8
-  %18 = call ptr @rb_enc_name(ptr noundef @OnigEncodingUTF_8)
-  %19 = call i32 @enc_register_at(ptr noundef %17, i32 noundef 1, ptr noundef %18, ptr noundef @OnigEncodingUTF_8)
-  %20 = load ptr, ptr %2, align 8
-  %21 = call ptr @rb_enc_name(ptr noundef @OnigEncodingUS_ASCII)
-  %22 = call i32 @enc_register_at(ptr noundef %20, i32 noundef 2, ptr noundef %21, ptr noundef @OnigEncodingUS_ASCII)
-  %23 = load ptr, ptr %2, align 8
-  %24 = getelementptr inbounds %struct.enc_table, ptr %23, i32 0, i32 0
-  %25 = getelementptr [256 x %struct.rb_encoding_entry], ptr %24, i64 0, i64 0
-  %26 = getelementptr inbounds %struct.rb_encoding_entry, ptr %25, i32 0, i32 1
-  %27 = load ptr, ptr %26, align 8
-  store ptr %27, ptr @global_enc_ascii, align 8
-  %28 = load ptr, ptr %2, align 8
-  %29 = getelementptr inbounds %struct.enc_table, ptr %28, i32 0, i32 0
-  %30 = getelementptr [256 x %struct.rb_encoding_entry], ptr %29, i64 0, i64 1
-  %31 = getelementptr inbounds %struct.rb_encoding_entry, ptr %30, i32 0, i32 1
-  %32 = load ptr, ptr %31, align 8
-  store ptr %32, ptr @global_enc_utf_8, align 8
-  %33 = load ptr, ptr %2, align 8
-  %34 = getelementptr inbounds %struct.enc_table, ptr %33, i32 0, i32 0
-  %35 = getelementptr [256 x %struct.rb_encoding_entry], ptr %34, i64 0, i64 2
-  %36 = getelementptr inbounds %struct.rb_encoding_entry, ptr %35, i32 0, i32 1
-  %37 = load ptr, ptr %36, align 8
-  store ptr %37, ptr @global_enc_us_ascii, align 8
-  %38 = load ptr, ptr %2, align 8
-  %39 = call i32 @enc_register_at(ptr noundef %38, i32 noundef 3, ptr noundef @.str.59, ptr noundef null)
-  %40 = load ptr, ptr %2, align 8
-  %41 = call i32 @enc_register_at(ptr noundef %40, i32 noundef 4, ptr noundef @.str.60, ptr noundef null)
-  %42 = load ptr, ptr %2, align 8
-  %43 = call i32 @enc_register_at(ptr noundef %42, i32 noundef 5, ptr noundef @.str.61, ptr noundef null)
-  %44 = load ptr, ptr %2, align 8
-  %45 = call i32 @enc_register_at(ptr noundef %44, i32 noundef 6, ptr noundef @.str.62, ptr noundef null)
-  %46 = load ptr, ptr %2, align 8
-  %47 = call i32 @enc_register_at(ptr noundef %46, i32 noundef 7, ptr noundef @.str.63, ptr noundef null)
-  %48 = load ptr, ptr %2, align 8
-  %49 = call i32 @enc_register_at(ptr noundef %48, i32 noundef 8, ptr noundef @.str.64, ptr noundef null)
-  %50 = load ptr, ptr %2, align 8
-  %51 = call i32 @enc_register_at(ptr noundef %50, i32 noundef 9, ptr noundef @.str.65, ptr noundef null)
-  %52 = load ptr, ptr %2, align 8
-  %53 = call i32 @enc_register_at(ptr noundef %52, i32 noundef 10, ptr noundef @.str.66, ptr noundef null)
-  %54 = load ptr, ptr %2, align 8
-  %55 = call i32 @enc_register_at(ptr noundef %54, i32 noundef 11, ptr noundef @.str.67, ptr noundef null)
-  %56 = load ptr, ptr %2, align 8
-  %57 = getelementptr inbounds %struct.enc_table, ptr %56, i32 0, i32 1
-  store i32 12, ptr %57, align 8
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define hidden void @rb_enc_foreach_name(ptr noundef %0, i64 noundef %1) #0 {
+define internal i64 @pm_encoding_shift_jis_alnum_char(ptr noundef %0, i64 noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
-  %5 = getelementptr inbounds %struct.enc_table, ptr @global_enc_table, i32 0, i32 2
-  %6 = load ptr, ptr %5, align 8
-  %7 = load ptr, ptr %3, align 8
-  %8 = load i64, ptr %4, align 8
-  %9 = call i32 @rb_st_foreach(ptr noundef %6, ptr noundef %7, i64 noundef %8)
-  ret void
+  %5 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #3
+  %6 = load ptr, ptr %3, align 8, !tbaa !7
+  %7 = load i64, ptr %4, align 8, !tbaa !12
+  %8 = call i64 @pm_encoding_shift_jis_char_width(ptr noundef %6, i64 noundef %7)
+  store i64 %8, ptr %5, align 8, !tbaa !12
+  %9 = load i64, ptr %5, align 8, !tbaa !12
+  %10 = icmp eq i64 %9, 1
+  br i1 %10, label %11, label %26
+
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %3, align 8, !tbaa !7
+  %13 = getelementptr i8, ptr %12, i64 0
+  %14 = load i8, ptr %13, align 1, !tbaa !16
+  %15 = zext i8 %14 to i32
+  %16 = icmp sge i32 %15, 128
+  br i1 %16, label %22, label %17
+
+17:                                               ; preds = %11
+  %18 = load ptr, ptr %3, align 8, !tbaa !7
+  %19 = load i64, ptr %4, align 8, !tbaa !12
+  %20 = call i64 @pm_encoding_ascii_alnum_char(ptr noundef %18, i64 noundef %19)
+  %21 = icmp ne i64 %20, 0
+  br label %22
+
+22:                                               ; preds = %17, %11
+  %23 = phi i1 [ true, %11 ], [ %21, %17 ]
+  %24 = zext i1 %23 to i32
+  %25 = sext i32 %24 to i64
+  br label %28
+
+26:                                               ; preds = %2
+  %27 = load i64, ptr %5, align 8, !tbaa !12
+  br label %28
+
+28:                                               ; preds = %26, %22
+  %29 = phi i64 [ %25, %22 ], [ %27, %26 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #3
+  ret i64 %29
 }
 
-; Function Attrs: nounwind sspstrong willreturn memory(read) uwtable
-define internal zeroext i1 @rbimpl_rtypeddata_p(i64 noundef %0) #2 {
-  %2 = alloca i64, align 8
-  %3 = alloca i64, align 8
-  store i64 %0, ptr %2, align 8
-  %4 = load i64, ptr %2, align 8
-  %5 = inttoptr i64 %4 to ptr
-  %6 = getelementptr inbounds %struct.RTypedData, ptr %5, i32 0, i32 2
-  %7 = load i64, ptr %6, align 8
-  store i64 %7, ptr %3, align 8
-  %8 = load i64, ptr %3, align 8
-  %9 = icmp ne i64 %8, 0
-  br i1 %9, label %10, label %13
+; Function Attrs: nounwind sspstrong uwtable
+define internal zeroext i1 @pm_encoding_shift_jis_isupper_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca i1, align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !7
+  store i64 %1, ptr %5, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #3
+  %8 = load ptr, ptr %4, align 8, !tbaa !7
+  %9 = load i64, ptr %5, align 8, !tbaa !12
+  %10 = call i64 @pm_encoding_shift_jis_char_width(ptr noundef %8, i64 noundef %9)
+  store i64 %10, ptr %6, align 8, !tbaa !12
+  %11 = load i64, ptr %6, align 8, !tbaa !12
+  %12 = icmp eq i64 %11, 1
+  br i1 %12, label %13, label %17
 
-10:                                               ; preds = %1
-  %11 = load i64, ptr %3, align 8
-  %12 = icmp ule i64 %11, 3
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %4, align 8, !tbaa !7
+  %15 = load i64, ptr %5, align 8, !tbaa !12
+  %16 = call zeroext i1 @pm_encoding_ascii_isupper_char(ptr noundef %14, i64 noundef %15)
+  store i1 %16, ptr %3, align 1
+  store i32 1, ptr %7, align 4
+  br label %83
+
+17:                                               ; preds = %2
+  %18 = load i64, ptr %6, align 8, !tbaa !12
+  %19 = icmp eq i64 %18, 2
+  br i1 %19, label %20, label %80
+
+20:                                               ; preds = %17
+  %21 = load ptr, ptr %4, align 8, !tbaa !7
+  %22 = getelementptr i8, ptr %21, i64 0
+  %23 = load i8, ptr %22, align 1, !tbaa !16
+  %24 = zext i8 %23 to i32
+  %25 = icmp eq i32 %24, 130
+  br i1 %25, label %26, label %38
+
+26:                                               ; preds = %20
+  %27 = load ptr, ptr %4, align 8, !tbaa !7
+  %28 = getelementptr i8, ptr %27, i64 1
+  %29 = load i8, ptr %28, align 1, !tbaa !16
+  %30 = zext i8 %29 to i32
+  %31 = icmp sge i32 %30, 96
+  br i1 %31, label %32, label %38
+
+32:                                               ; preds = %26
+  %33 = load ptr, ptr %4, align 8, !tbaa !7
+  %34 = getelementptr i8, ptr %33, i64 1
+  %35 = load i8, ptr %34, align 1, !tbaa !16
+  %36 = zext i8 %35 to i32
+  %37 = icmp sle i32 %36, 121
+  br i1 %37, label %78, label %38
+
+38:                                               ; preds = %32, %26, %20
+  %39 = load ptr, ptr %4, align 8, !tbaa !7
+  %40 = getelementptr i8, ptr %39, i64 0
+  %41 = load i8, ptr %40, align 1, !tbaa !16
+  %42 = zext i8 %41 to i32
+  %43 = icmp eq i32 %42, 131
+  br i1 %43, label %44, label %56
+
+44:                                               ; preds = %38
+  %45 = load ptr, ptr %4, align 8, !tbaa !7
+  %46 = getelementptr i8, ptr %45, i64 1
+  %47 = load i8, ptr %46, align 1, !tbaa !16
+  %48 = zext i8 %47 to i32
+  %49 = icmp sge i32 %48, 159
+  br i1 %49, label %50, label %56
+
+50:                                               ; preds = %44
+  %51 = load ptr, ptr %4, align 8, !tbaa !7
+  %52 = getelementptr i8, ptr %51, i64 1
+  %53 = load i8, ptr %52, align 1, !tbaa !16
+  %54 = zext i8 %53 to i32
+  %55 = icmp sle i32 %54, 182
+  br i1 %55, label %78, label %56
+
+56:                                               ; preds = %50, %44, %38
+  %57 = load ptr, ptr %4, align 8, !tbaa !7
+  %58 = getelementptr i8, ptr %57, i64 0
+  %59 = load i8, ptr %58, align 1, !tbaa !16
+  %60 = zext i8 %59 to i32
+  %61 = icmp eq i32 %60, 132
+  br i1 %61, label %62, label %76
+
+62:                                               ; preds = %56
+  %63 = load ptr, ptr %4, align 8, !tbaa !7
+  %64 = getelementptr i8, ptr %63, i64 1
+  %65 = load i8, ptr %64, align 1, !tbaa !16
+  %66 = zext i8 %65 to i32
+  %67 = icmp sge i32 %66, 64
+  br i1 %67, label %68, label %74
+
+68:                                               ; preds = %62
+  %69 = load ptr, ptr %4, align 8, !tbaa !7
+  %70 = getelementptr i8, ptr %69, i64 1
+  %71 = load i8, ptr %70, align 1, !tbaa !16
+  %72 = zext i8 %71 to i32
+  %73 = icmp sle i32 %72, 96
+  br label %74
+
+74:                                               ; preds = %68, %62
+  %75 = phi i1 [ false, %62 ], [ %73, %68 ]
+  br label %76
+
+76:                                               ; preds = %74, %56
+  %77 = phi i1 [ false, %56 ], [ %75, %74 ]
+  br label %78
+
+78:                                               ; preds = %76, %50, %32
+  %79 = phi i1 [ true, %50 ], [ true, %32 ], [ %77, %76 ]
+  store i1 %79, ptr %3, align 1
+  store i32 1, ptr %7, align 4
+  br label %83
+
+80:                                               ; preds = %17
+  %81 = load i64, ptr %6, align 8, !tbaa !12
+  %82 = icmp ne i64 %81, 0
+  store i1 %82, ptr %3, align 1
+  store i32 1, ptr %7, align 4
+  br label %83
+
+83:                                               ; preds = %80, %78, %13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #3
+  %84 = load i1, ptr %3, align 1
+  ret i1 %84
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_big5_char_width(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca i64, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !7
+  store i64 %1, ptr %5, align 8, !tbaa !12
+  %6 = load ptr, ptr %4, align 8, !tbaa !7
+  %7 = load i8, ptr %6, align 1, !tbaa !16
+  %8 = zext i8 %7 to i32
+  %9 = icmp slt i32 %8, 128
+  br i1 %9, label %10, label %11
+
+10:                                               ; preds = %2
+  store i64 1, ptr %3, align 8
+  br label %52
+
+11:                                               ; preds = %2
+  %12 = load i64, ptr %5, align 8, !tbaa !12
+  %13 = icmp sgt i64 %12, 1
+  br i1 %13, label %14, label %51
+
+14:                                               ; preds = %11
+  %15 = load ptr, ptr %4, align 8, !tbaa !7
+  %16 = getelementptr i8, ptr %15, i64 0
+  %17 = load i8, ptr %16, align 1, !tbaa !16
+  %18 = zext i8 %17 to i32
+  %19 = icmp sge i32 %18, 161
+  br i1 %19, label %20, label %51
+
+20:                                               ; preds = %14
+  %21 = load ptr, ptr %4, align 8, !tbaa !7
+  %22 = getelementptr i8, ptr %21, i64 0
+  %23 = load i8, ptr %22, align 1, !tbaa !16
+  %24 = zext i8 %23 to i32
+  %25 = icmp sle i32 %24, 254
+  br i1 %25, label %26, label %51
+
+26:                                               ; preds = %20
+  %27 = load ptr, ptr %4, align 8, !tbaa !7
+  %28 = getelementptr i8, ptr %27, i64 1
+  %29 = load i8, ptr %28, align 1, !tbaa !16
+  %30 = zext i8 %29 to i32
+  %31 = icmp sge i32 %30, 64
+  br i1 %31, label %32, label %38
+
+32:                                               ; preds = %26
+  %33 = load ptr, ptr %4, align 8, !tbaa !7
+  %34 = getelementptr i8, ptr %33, i64 1
+  %35 = load i8, ptr %34, align 1, !tbaa !16
+  %36 = zext i8 %35 to i32
+  %37 = icmp sle i32 %36, 126
+  br i1 %37, label %50, label %38
+
+38:                                               ; preds = %32, %26
+  %39 = load ptr, ptr %4, align 8, !tbaa !7
+  %40 = getelementptr i8, ptr %39, i64 1
+  %41 = load i8, ptr %40, align 1, !tbaa !16
+  %42 = zext i8 %41 to i32
+  %43 = icmp sge i32 %42, 161
+  br i1 %43, label %44, label %51
+
+44:                                               ; preds = %38
+  %45 = load ptr, ptr %4, align 8, !tbaa !7
+  %46 = getelementptr i8, ptr %45, i64 1
+  %47 = load i8, ptr %46, align 1, !tbaa !16
+  %48 = zext i8 %47 to i32
+  %49 = icmp sle i32 %48, 254
+  br i1 %49, label %50, label %51
+
+50:                                               ; preds = %44, %32
+  store i64 2, ptr %3, align 8
+  br label %52
+
+51:                                               ; preds = %44, %38, %20, %14, %11
+  store i64 0, ptr %3, align 8
+  br label %52
+
+52:                                               ; preds = %51, %50, %10
+  %53 = load i64, ptr %3, align 8
+  ret i64 %53
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal zeroext i1 @pm_encoding_ascii_isupper_char_7bit(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i32
+  %8 = icmp slt i32 %7, 128
+  br i1 %8, label %9, label %13
+
+9:                                                ; preds = %2
+  %10 = load ptr, ptr %3, align 8, !tbaa !7
+  %11 = load i64, ptr %4, align 8, !tbaa !12
+  %12 = call zeroext i1 @pm_encoding_ascii_isupper_char(ptr noundef %10, i64 noundef %11)
   br label %13
 
-13:                                               ; preds = %10, %1
-  %14 = phi i1 [ false, %1 ], [ %12, %10 ]
+13:                                               ; preds = %9, %2
+  %14 = phi i1 [ false, %2 ], [ %12, %9 ]
   ret i1 %14
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @enc_list_lookup(i32 noundef %0) #0 {
-  %2 = alloca i32, align 4
-  %3 = alloca i64, align 8
-  %4 = alloca i64, align 8
-  store i32 %0, ptr %2, align 4
-  store i64 4, ptr %4, align 8
-  %5 = load i32, ptr %2, align 4
-  %6 = icmp slt i32 %5, 256
-  br i1 %6, label %7, label %13
-
-7:                                                ; preds = %1
-  %8 = load i64, ptr @rb_encoding_list, align 8
-  store i64 %8, ptr %3, align 8
-  %9 = load i64, ptr %3, align 8
-  %10 = load i32, ptr %2, align 4
-  %11 = sext i32 %10 to i64
-  %12 = call i64 @rb_ary_entry(i64 noundef %9, i64 noundef %11) #17
-  store i64 %12, ptr %4, align 8
-  br label %13
-
-13:                                               ; preds = %7, %1
-  %14 = load i64, ptr %4, align 8
-  %15 = call zeroext i1 @RB_NIL_P(i64 noundef %14) #18
-  br i1 %15, label %16, label %18
-
-16:                                               ; preds = %13
-  %17 = load i32, ptr %2, align 4
-  call void (ptr, ...) @rb_bug(ptr noundef @.str.38, i32 noundef %17) #24
-  unreachable
-
-18:                                               ; preds = %13
-  %19 = load i64, ptr %4, align 8
-  ret i64 %19
-}
-
-; Function Attrs: nounwind willreturn memory(read)
-declare i64 @rb_ary_entry(i64 noundef, i64 noundef) #4
-
-; Function Attrs: cold noreturn
-declare void @rb_bug(ptr noundef, ...) #9
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @check_encoding(ptr noundef %0) #0 {
-  %2 = alloca i32, align 4
+define internal i64 @pm_encoding_cesu_8_char_width(ptr noundef %0, i64 noundef %1) #0 {
   %3 = alloca ptr, align 8
-  %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = call i32 @rb_enc_to_index(ptr noundef %5) #17
-  store i32 %6, ptr %4, align 4
-  %7 = load i32, ptr %4, align 4
-  %8 = call ptr @rb_enc_from_index(i32 noundef %7)
-  %9 = load ptr, ptr %3, align 8
-  %10 = icmp ne ptr %8, %9
-  br i1 %10, label %11, label %12
-
-11:                                               ; preds = %1
-  store i32 -1, ptr %2, align 4
-  br label %21
-
-12:                                               ; preds = %1
-  %13 = load ptr, ptr %3, align 8
-  %14 = call i32 @rb_enc_mbmaxlen(ptr noundef %13)
-  %15 = icmp ne i32 %14, 0
-  br i1 %15, label %19, label %16
-
-16:                                               ; preds = %12
-  %17 = load ptr, ptr %3, align 8
-  %18 = call i32 @rb_enc_autoload(ptr noundef %17)
-  store i32 %18, ptr %4, align 4
-  br label %19
-
-19:                                               ; preds = %16, %12
-  %20 = load i32, ptr %4, align 4
-  store i32 %20, ptr %2, align 4
-  br label %21
-
-21:                                               ; preds = %19, %11
-  %22 = load i32, ptr %2, align 4
-  ret i32 %22
+  %4 = alloca i64, align 8
+  %5 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #3
+  %6 = load ptr, ptr %3, align 8, !tbaa !7
+  %7 = load i64, ptr %4, align 8, !tbaa !12
+  %8 = call i32 @pm_cesu_8_codepoint(ptr noundef %6, i64 noundef %7, ptr noundef %5)
+  %9 = load i64, ptr %5, align 8, !tbaa !12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #3
+  ret i64 %9
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @str_to_encindex(i64 noundef %0) #0 {
-  %2 = alloca i64, align 8
-  %3 = alloca i32, align 4
-  store i64 %0, ptr %2, align 8
-  %4 = load i64, ptr %2, align 8
-  %5 = call i32 @str_find_encindex(i64 noundef %4)
-  store i32 %5, ptr %3, align 4
-  %6 = load i32, ptr %3, align 4
-  %7 = icmp slt i32 %6, 0
-  br i1 %7, label %8, label %11
-
-8:                                                ; preds = %1
-  %9 = load i64, ptr @rb_eArgError, align 8
-  %10 = load i64, ptr %2, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %9, ptr noundef @.str.39, i64 noundef %10) #19
-  unreachable
-
-11:                                               ; preds = %1
-  %12 = load i32, ptr %3, align 4
-  ret i32 %12
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal ptr @name_for_encoding(ptr noundef %0) #0 {
-  %2 = alloca ptr, align 8
+define internal i64 @pm_encoding_cesu_8_alpha_char(ptr noundef %0, i64 noundef %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %5 = load ptr, ptr %2, align 8
-  %6 = call i64 @rb_string_value(ptr noundef %5)
-  store i64 %6, ptr %3, align 8
-  %7 = load i64, ptr %3, align 8
-  %8 = call ptr @rb_enc_get(i64 noundef %7)
-  %9 = call zeroext i1 @rb_enc_asciicompat(ptr noundef %8)
-  br i1 %9, label %12, label %10
-
-10:                                               ; preds = %1
-  %11 = load i64, ptr @rb_eArgError, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %11, ptr noundef @.str.40) #19
-  unreachable
-
-12:                                               ; preds = %1
-  %13 = load i64, ptr %3, align 8
-  %14 = call ptr @rb_str_to_cstr(i64 noundef %13)
-  store ptr %14, ptr %4, align 8
-  %15 = icmp ne ptr %14, null
-  br i1 %15, label %18, label %16
-
-16:                                               ; preds = %12
-  %17 = load i64, ptr @rb_eArgError, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %17, ptr noundef @.str.41) #19
-  unreachable
-
-18:                                               ; preds = %12
-  %19 = load ptr, ptr %4, align 8
-  ret ptr %19
-}
-
-declare i64 @rb_string_value(ptr noundef) #1
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @rb_multi_ractor_p() #0 {
-  %1 = alloca i1, align 1
-  %2 = load ptr, ptr @ruby_single_main_ractor, align 8
-  %3 = icmp ne ptr %2, null
-  %4 = xor i1 %3, true
-  %5 = xor i1 %4, true
-  %6 = zext i1 %5 to i32
-  %7 = sext i32 %6 to i64
-  %8 = icmp ne i64 %7, 0
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %0
-  store i1 false, ptr %1, align 1
-  br label %11
-
-10:                                               ; preds = %0
-  store i1 true, ptr %1, align 1
-  br label %11
-
-11:                                               ; preds = %10, %9
-  %12 = load i1, ptr %1, align 1
-  ret i1 %12
-}
-
-declare void @rb_vm_lock_enter_body(ptr noundef) #1
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @enc_table_expand(ptr noundef %0, i32 noundef %1) #0 {
-  %3 = alloca ptr, align 8
-  %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %5 = load i32, ptr %4, align 4
-  %6 = icmp sgt i32 %5, 256
-  br i1 %6, label %7, label %9
-
-7:                                                ; preds = %2
-  %8 = load i64, ptr @rb_eEncodingError, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %8, ptr noundef @.str.42, i32 noundef 256) #19
-  unreachable
-
-9:                                                ; preds = %2
-  %10 = load i32, ptr %4, align 4
-  ret i32 %10
-}
-
-; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #4
-
-declare noalias nonnull ptr @ruby_strdup(ptr noundef) #1
-
-; Function Attrs: allocsize(0)
-declare noalias nonnull ptr @ruby_xmalloc(i64 noundef) #10
-
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
-
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
-
-declare i32 @rb_st_insert(ptr noundef, i64 noundef, i64 noundef) #1
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @enc_list_update(i32 noundef %0, ptr noundef %1) #0 {
-  %3 = alloca i32, align 4
-  %4 = alloca ptr, align 8
-  %5 = alloca i64, align 8
-  store i32 %0, ptr %3, align 4
-  store ptr %1, ptr %4, align 8
-  %6 = load i64, ptr @rb_encoding_list, align 8
-  store i64 %6, ptr %5, align 8
-  %7 = load i64, ptr %5, align 8
-  %8 = icmp ne i64 %7, 0
-  br i1 %8, label %9, label %21
-
-9:                                                ; preds = %2
-  %10 = load i64, ptr %5, align 8
-  %11 = load i32, ptr %3, align 4
-  %12 = sext i32 %11 to i64
-  %13 = call i64 @rb_ary_entry(i64 noundef %10, i64 noundef %12) #17
-  %14 = call zeroext i1 @RB_NIL_P(i64 noundef %13) #18
-  br i1 %14, label %15, label %21
-
-15:                                               ; preds = %9
-  %16 = load i64, ptr %5, align 8
-  %17 = load i32, ptr %3, align 4
-  %18 = sext i32 %17 to i64
-  %19 = load ptr, ptr %4, align 8
-  %20 = call i64 @enc_new(ptr noundef %19)
-  call void @rb_ary_store(i64 noundef %16, i64 noundef %18, i64 noundef %20)
-  br label %21
-
-21:                                               ; preds = %15, %9, %2
-  ret void
-}
-
-declare void @rb_ary_store(i64 noundef, i64 noundef, i64 noundef) #1
-
-declare void @rb_vm_lock_leave_body(ptr noundef) #1
-
-declare i32 @rb_st_lookup(ptr noundef, i64 noundef, ptr noundef) #1
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #13
-
-; Function Attrs: noreturn
-declare void @rb_loaderror(ptr noundef, ...) #5
-
-declare i64 @rb_sprintf(ptr noundef, ...) #1
-
-declare ptr @rb_ruby_debug_ptr() #1
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal ptr @RSTRING_PTR(i64 noundef %0) #0 {
-  %2 = alloca i64, align 8
-  %3 = alloca ptr, align 8
-  %4 = alloca %struct.RString, align 8
-  store i64 %0, ptr %2, align 8
-  %5 = load i64, ptr %2, align 8
-  call void @rbimpl_rstring_getmem(ptr dead_on_unwind writable sret(%struct.RString) align 8 %4, i64 noundef %5) #25
-  %6 = getelementptr inbounds %struct.RString, ptr %4, i32 0, i32 2
-  %7 = getelementptr inbounds %struct.anon.0, ptr %6, i32 0, i32 0
-  %8 = load ptr, ptr %7, align 8
-  store ptr %8, ptr %3, align 8
-  %9 = load ptr, ptr %3, align 8
-  ret ptr %9
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal ptr @RSTRING_END(i64 noundef %0) #0 {
-  %2 = alloca i64, align 8
-  %3 = alloca %struct.RString, align 8
-  store i64 %0, ptr %2, align 8
-  %4 = load i64, ptr %2, align 8
-  call void @rbimpl_rstring_getmem(ptr dead_on_unwind writable sret(%struct.RString) align 8 %3, i64 noundef %4) #25
-  %5 = getelementptr inbounds %struct.RString, ptr %3, i32 0, i32 2
-  %6 = getelementptr inbounds %struct.anon.0, ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds %struct.RString, ptr %3, i32 0, i32 1
-  %9 = load i64, ptr %8, align 8
-  %10 = getelementptr i8, ptr %7, i64 %9
-  ret ptr %10
-}
-
-; Function Attrs: nounwind sspstrong willreturn memory(none) uwtable
-define internal i32 @rb_isalnum(i32 noundef %0) #3 {
-  %2 = alloca i32, align 4
-  store i32 %0, ptr %2, align 4
-  %3 = load i32, ptr %2, align 4
-  %4 = call i32 @rb_isalpha(i32 noundef %3) #18
-  %5 = icmp ne i32 %4, 0
-  br i1 %5, label %10, label %6
-
-6:                                                ; preds = %1
-  %7 = load i32, ptr %2, align 4
-  %8 = call i32 @rb_isdigit(i32 noundef %7) #18
-  %9 = icmp ne i32 %8, 0
-  br label %10
-
-10:                                               ; preds = %6, %1
-  %11 = phi i1 [ true, %1 ], [ %9, %6 ]
-  %12 = zext i1 %11 to i32
-  ret i32 %12
-}
-
-; Function Attrs: nounwind sspstrong willreturn memory(none) uwtable
-define internal i32 @rb_isupper(i32 noundef %0) #3 {
-  %2 = alloca i32, align 4
-  store i32 %0, ptr %2, align 4
-  %3 = load i32, ptr %2, align 4
-  %4 = icmp sle i32 65, %3
-  br i1 %4, label %5, label %8
-
-5:                                                ; preds = %1
-  %6 = load i32, ptr %2, align 4
-  %7 = icmp sle i32 %6, 90
-  br label %8
-
-8:                                                ; preds = %5, %1
-  %9 = phi i1 [ false, %1 ], [ %7, %5 ]
-  %10 = zext i1 %9 to i32
-  ret i32 %10
-}
-
-; Function Attrs: nounwind sspstrong willreturn memory(none) uwtable
-define internal i32 @rb_tolower(i32 noundef %0) #3 {
-  %2 = alloca i32, align 4
-  store i32 %0, ptr %2, align 4
-  %3 = load i32, ptr %2, align 4
-  %4 = call i32 @rb_isupper(i32 noundef %3) #18
-  %5 = icmp ne i32 %4, 0
-  br i1 %5, label %6, label %9
-
-6:                                                ; preds = %1
-  %7 = load i32, ptr %2, align 4
-  %8 = or i32 %7, 32
-  br label %11
-
-9:                                                ; preds = %1
-  %10 = load i32, ptr %2, align 4
-  br label %11
-
-11:                                               ; preds = %9, %6
-  %12 = phi i32 [ %8, %6 ], [ %10, %9 ]
-  ret i32 %12
-}
-
-declare i64 @rb_fstring(i64 noundef) #1
-
-declare i64 @rb_errinfo() #1
-
-declare i32 @rb_require_internal_silent(i64 noundef) #1
-
-declare void @rb_set_errinfo(i64 noundef) #1
-
-; Function Attrs: nounwind sspstrong willreturn memory(read, argmem: readwrite) uwtable
-define internal void @rbimpl_rstring_getmem(ptr dead_on_unwind noalias writable sret(%struct.RString) align 8 %0, i64 noundef %1) #14 {
-  %3 = alloca i64, align 8
-  store i64 %1, ptr %3, align 8
-  %4 = load i64, ptr %3, align 8
-  %5 = call zeroext i1 @RB_FL_ANY_RAW(i64 noundef %4, i64 noundef 8192) #17
-  br i1 %5, label %6, label %9
-
-6:                                                ; preds = %2
-  %7 = load i64, ptr %3, align 8
-  %8 = inttoptr i64 %7 to ptr
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 %8, i64 40, i1 false)
-  br label %20
-
-9:                                                ; preds = %2
-  %10 = load i64, ptr %3, align 8
-  %11 = call i64 @RSTRING_LEN(i64 noundef %10) #17
-  %12 = getelementptr inbounds %struct.RString, ptr %0, i32 0, i32 1
-  store i64 %11, ptr %12, align 8
-  %13 = load i64, ptr %3, align 8
-  %14 = inttoptr i64 %13 to ptr
-  %15 = getelementptr inbounds %struct.RString, ptr %14, i32 0, i32 2
-  %16 = getelementptr inbounds %struct.anon.2, ptr %15, i32 0, i32 0
-  %17 = getelementptr inbounds [1 x i8], ptr %16, i64 0, i64 0
-  %18 = getelementptr inbounds %struct.RString, ptr %0, i32 0, i32 2
-  %19 = getelementptr inbounds %struct.anon.0, ptr %18, i32 0, i32 0
-  store ptr %17, ptr %19, align 8
-  br label %20
-
-20:                                               ; preds = %9, %6
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong willreturn memory(read) uwtable
-define internal zeroext i1 @RB_FL_ANY_RAW(i64 noundef %0, i64 noundef %1) #2 {
-  %3 = alloca i64, align 8
-  %4 = alloca i64, align 8
-  store i64 %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
-  %5 = load i64, ptr %3, align 8
-  %6 = load i64, ptr %4, align 8
-  %7 = call i64 @RB_FL_TEST_RAW(i64 noundef %5, i64 noundef %6) #17
-  %8 = icmp ne i64 %7, 0
-  ret i1 %8
-}
-
-; Function Attrs: nounwind sspstrong willreturn memory(read) uwtable
-define internal i64 @RSTRING_LEN(i64 noundef %0) #2 {
-  %2 = alloca i64, align 8
-  store i64 %0, ptr %2, align 8
-  %3 = load i64, ptr %2, align 8
-  %4 = inttoptr i64 %3 to ptr
-  %5 = getelementptr inbounds %struct.RString, ptr %4, i32 0, i32 1
-  %6 = load i64, ptr %5, align 8
-  ret i64 %6
-}
-
-; Function Attrs: nounwind sspstrong willreturn memory(read) uwtable
-define internal i64 @RB_FL_TEST_RAW(i64 noundef %0, i64 noundef %1) #2 {
-  %3 = alloca i64, align 8
-  %4 = alloca i64, align 8
-  store i64 %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
-  %5 = load i64, ptr %3, align 8
-  %6 = inttoptr i64 %5 to ptr
-  %7 = getelementptr inbounds %struct.RBasic, ptr %6, i32 0, i32 0
-  %8 = load i64, ptr %7, align 8
-  %9 = load i64, ptr %4, align 8
-  %10 = and i64 %8, %9
-  ret i64 %10
-}
-
-; Function Attrs: nounwind sspstrong willreturn memory(none) uwtable
-define internal i32 @rb_isalpha(i32 noundef %0) #3 {
-  %2 = alloca i32, align 4
-  store i32 %0, ptr %2, align 4
-  %3 = load i32, ptr %2, align 4
-  %4 = call i32 @rb_isupper(i32 noundef %3) #18
-  %5 = icmp ne i32 %4, 0
-  br i1 %5, label %10, label %6
-
-6:                                                ; preds = %1
-  %7 = load i32, ptr %2, align 4
-  %8 = call i32 @rb_islower(i32 noundef %7) #18
-  %9 = icmp ne i32 %8, 0
-  br label %10
-
-10:                                               ; preds = %6, %1
-  %11 = phi i1 [ true, %1 ], [ %9, %6 ]
-  %12 = zext i1 %11 to i32
-  ret i32 %12
-}
-
-; Function Attrs: nounwind sspstrong willreturn memory(none) uwtable
-define internal i32 @rb_isdigit(i32 noundef %0) #3 {
-  %2 = alloca i32, align 4
-  store i32 %0, ptr %2, align 4
-  %3 = load i32, ptr %2, align 4
-  %4 = icmp sle i32 48, %3
-  br i1 %4, label %5, label %8
-
-5:                                                ; preds = %1
-  %6 = load i32, ptr %2, align 4
-  %7 = icmp sle i32 %6, 57
-  br label %8
-
-8:                                                ; preds = %5, %1
-  %9 = phi i1 [ false, %1 ], [ %7, %5 ]
-  %10 = zext i1 %9 to i32
-  ret i32 %10
-}
-
-; Function Attrs: nounwind sspstrong willreturn memory(none) uwtable
-define internal i32 @rb_islower(i32 noundef %0) #3 {
-  %2 = alloca i32, align 4
-  store i32 %0, ptr %2, align 4
-  %3 = load i32, ptr %2, align 4
-  %4 = icmp sle i32 97, %3
-  br i1 %4, label %5, label %8
-
-5:                                                ; preds = %1
-  %6 = load i32, ptr %2, align 4
-  %7 = icmp sle i32 %6, 122
-  br label %8
-
-8:                                                ; preds = %5, %1
-  %9 = phi i1 [ false, %1 ], [ %7, %5 ]
-  %10 = zext i1 %9 to i32
-  ret i32 %10
-}
-
-; Function Attrs: nounwind sspstrong willreturn memory(read) uwtable
-define internal i64 @rb_intern_const(ptr noundef nonnull %0) #2 {
-  %2 = alloca ptr, align 8
-  %3 = alloca i64, align 8
-  store ptr %0, ptr %2, align 8
-  %4 = load ptr, ptr %2, align 8
-  %5 = call i64 @strlen(ptr noundef %4) #17
-  store i64 %5, ptr %3, align 8
-  %6 = load ptr, ptr %2, align 8
-  %7 = load i64, ptr %3, align 8
-  %8 = call i64 @rb_intern2(ptr noundef %6, i64 noundef %7)
-  ret i64 %8
-}
-
-declare i64 @rb_intern2(ptr noundef, i64 noundef) #1
-
-; Function Attrs: nounwind sspstrong willreturn memory(none) uwtable
-define internal zeroext i1 @RB_IMMEDIATE_P(i64 noundef %0) #3 {
-  %2 = alloca i64, align 8
-  store i64 %0, ptr %2, align 8
-  %3 = load i64, ptr %2, align 8
-  %4 = and i64 %3, 7
-  %5 = icmp ne i64 %4, 0
-  ret i1 %5
-}
-
-; Function Attrs: nounwind sspstrong willreturn memory(none) uwtable
-define internal zeroext i1 @RB_STATIC_SYM_P(i64 noundef %0) #3 {
-  %2 = alloca i64, align 8
-  %3 = alloca i64, align 8
-  store i64 %0, ptr %2, align 8
-  store i64 255, ptr %3, align 8
-  %4 = load i64, ptr %2, align 8
-  %5 = and i64 %4, 255
-  %6 = icmp eq i64 %5, 12
-  ret i1 %6
-}
-
-; Function Attrs: nounwind sspstrong willreturn memory(read) uwtable
-define internal zeroext i1 @RB_DYNAMIC_SYM_P(i64 noundef %0) #2 {
-  %2 = alloca i1, align 1
-  %3 = alloca i64, align 8
-  store i64 %0, ptr %3, align 8
-  %4 = load i64, ptr %3, align 8
-  %5 = call zeroext i1 @RB_SPECIAL_CONST_P(i64 noundef %4) #18
-  br i1 %5, label %6, label %7
-
-6:                                                ; preds = %1
-  store i1 false, ptr %2, align 1
-  br label %11
-
-7:                                                ; preds = %1
-  %8 = load i64, ptr %3, align 8
-  %9 = call i32 @RB_BUILTIN_TYPE(i64 noundef %8) #17
-  %10 = icmp eq i32 %9, 20
-  store i1 %10, ptr %2, align 1
-  br label %11
-
-11:                                               ; preds = %7, %6
-  %12 = load i1, ptr %2, align 1
-  ret i1 %12
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @RB_ENCODING_GET_INLINED(i64 noundef %0) #0 {
-  %2 = alloca i64, align 8
-  %3 = alloca i64, align 8
-  store i64 %0, ptr %2, align 8
-  %4 = load i64, ptr %2, align 8
-  %5 = call i64 @RB_FL_TEST_RAW(i64 noundef %4, i64 noundef 532676608) #17
-  %6 = lshr i64 %5, 22
-  store i64 %6, ptr %3, align 8
-  %7 = load i64, ptr %3, align 8
-  %8 = trunc i64 %7 to i32
-  ret i32 %8
-}
-
-declare i64 @rb_attr_get(i64 noundef, i64 noundef) #1
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @rb_num2int_inline(i64 noundef %0) #0 {
-  %2 = alloca i64, align 8
-  %3 = alloca i64, align 8
-  store i64 %0, ptr %2, align 8
-  %4 = load i64, ptr %2, align 8
-  %5 = call zeroext i1 @RB_FIXNUM_P(i64 noundef %4) #18
-  br i1 %5, label %6, label %9
-
-6:                                                ; preds = %1
-  %7 = load i64, ptr %2, align 8
-  %8 = call i64 @rb_fix2int(i64 noundef %7)
-  store i64 %8, ptr %3, align 8
-  br label %12
-
-9:                                                ; preds = %1
-  %10 = load i64, ptr %2, align 8
-  %11 = call i64 @rb_num2int(i64 noundef %10)
-  store i64 %11, ptr %3, align 8
-  br label %12
-
-12:                                               ; preds = %9, %6
-  %13 = load i64, ptr %3, align 8
-  %14 = trunc i64 %13 to i32
-  ret i32 %14
-}
-
-; Function Attrs: nounwind sspstrong willreturn memory(none) uwtable
-define internal zeroext i1 @RB_FIXNUM_P(i64 noundef %0) #3 {
-  %2 = alloca i64, align 8
-  store i64 %0, ptr %2, align 8
-  %3 = load i64, ptr %2, align 8
-  %4 = and i64 %3, 1
-  %5 = icmp ne i64 %4, 0
-  ret i1 %5
-}
-
-declare i64 @rb_fix2int(i64 noundef) #1
-
-declare i64 @rb_num2int(i64 noundef) #1
-
-; Function Attrs: nounwind sspstrong willreturn memory(read) uwtable
-define internal zeroext i1 @RB_FLOAT_TYPE_P(i64 noundef %0) #2 {
-  %2 = alloca i1, align 1
-  %3 = alloca i64, align 8
-  store i64 %0, ptr %3, align 8
-  %4 = load i64, ptr %3, align 8
-  %5 = call zeroext i1 @RB_FLONUM_P(i64 noundef %4) #18
-  br i1 %5, label %6, label %7
-
-6:                                                ; preds = %1
-  store i1 true, ptr %2, align 1
-  br label %15
-
-7:                                                ; preds = %1
-  %8 = load i64, ptr %3, align 8
-  %9 = call zeroext i1 @RB_SPECIAL_CONST_P(i64 noundef %8) #18
-  br i1 %9, label %10, label %11
-
-10:                                               ; preds = %7
-  store i1 false, ptr %2, align 1
-  br label %15
-
-11:                                               ; preds = %7
-  %12 = load i64, ptr %3, align 8
-  %13 = call i32 @RB_BUILTIN_TYPE(i64 noundef %12) #17
-  %14 = icmp eq i32 %13, 4
-  store i1 %14, ptr %2, align 1
-  br label %15
-
-15:                                               ; preds = %11, %10, %6
-  %16 = load i1, ptr %2, align 1
-  ret i1 %16
-}
-
-; Function Attrs: nounwind sspstrong willreturn memory(none) uwtable
-define internal zeroext i1 @RB_FLONUM_P(i64 noundef %0) #3 {
-  %2 = alloca i64, align 8
-  store i64 %0, ptr %2, align 8
-  %3 = load i64, ptr %2, align 8
-  %4 = and i64 %3, 3
-  %5 = icmp eq i64 %4, 2
-  ret i1 %5
-}
-
-; Function Attrs: convergent nocallback nofree nosync nounwind willreturn memory(none)
-declare i1 @llvm.is.constant.i32(i32) #15
-
-; Function Attrs: nounwind sspstrong willreturn memory(read) uwtable
-define internal i32 @rb_type(i64 noundef %0) #2 {
-  %2 = alloca i32, align 4
-  %3 = alloca i64, align 8
-  store i64 %0, ptr %3, align 8
-  %4 = load i64, ptr %3, align 8
-  %5 = call zeroext i1 @RB_SPECIAL_CONST_P(i64 noundef %4) #18
-  br i1 %5, label %9, label %6
-
-6:                                                ; preds = %1
-  %7 = load i64, ptr %3, align 8
-  %8 = call i32 @RB_BUILTIN_TYPE(i64 noundef %7) #17
-  store i32 %8, ptr %2, align 4
-  br label %36
-
-9:                                                ; preds = %1
-  %10 = load i64, ptr %3, align 8
-  %11 = icmp eq i64 %10, 0
-  br i1 %11, label %12, label %13
-
-12:                                               ; preds = %9
-  store i32 19, ptr %2, align 4
-  br label %36
-
-13:                                               ; preds = %9
-  %14 = load i64, ptr %3, align 8
-  %15 = icmp eq i64 %14, 4
-  br i1 %15, label %16, label %17
-
-16:                                               ; preds = %13
-  store i32 17, ptr %2, align 4
-  br label %36
-
-17:                                               ; preds = %13
-  %18 = load i64, ptr %3, align 8
-  %19 = icmp eq i64 %18, 20
-  br i1 %19, label %20, label %21
-
-20:                                               ; preds = %17
-  store i32 18, ptr %2, align 4
-  br label %36
-
-21:                                               ; preds = %17
-  %22 = load i64, ptr %3, align 8
-  %23 = icmp eq i64 %22, 36
-  br i1 %23, label %24, label %25
-
-24:                                               ; preds = %21
-  store i32 22, ptr %2, align 4
-  br label %36
-
-25:                                               ; preds = %21
-  %26 = load i64, ptr %3, align 8
-  %27 = call zeroext i1 @RB_FIXNUM_P(i64 noundef %26) #18
-  br i1 %27, label %28, label %29
-
-28:                                               ; preds = %25
-  store i32 21, ptr %2, align 4
-  br label %36
-
-29:                                               ; preds = %25
-  %30 = load i64, ptr %3, align 8
-  %31 = call zeroext i1 @RB_STATIC_SYM_P(i64 noundef %30) #18
-  br i1 %31, label %32, label %33
-
-32:                                               ; preds = %29
-  store i32 20, ptr %2, align 4
-  br label %36
-
-33:                                               ; preds = %29
-  %34 = load i64, ptr %3, align 8
-  %35 = call zeroext i1 @RB_FLONUM_P(i64 noundef %34) #18
-  call void @llvm.assume(i1 %35)
-  store i32 4, ptr %2, align 4
-  br label %36
-
-36:                                               ; preds = %33, %32, %28, %24, %20, %16, %12, %6
-  %37 = load i32, ptr %2, align 4
-  ret i32 %37
-}
-
-; Function Attrs: nounwind sspstrong willreturn memory(read) uwtable
-define internal zeroext i1 @RB_OBJ_FROZEN(i64 noundef %0) #2 {
-  %2 = alloca i1, align 1
-  %3 = alloca i64, align 8
-  %4 = alloca i32, align 4
-  %5 = alloca i1, align 1
-  %6 = alloca i64, align 8
-  %7 = alloca i1, align 1
-  %8 = alloca i64, align 8
-  store i64 %0, ptr %8, align 8
-  %9 = load i64, ptr %8, align 8
-  store i64 %9, ptr %6, align 8
-  %10 = load i64, ptr %6, align 8
-  %11 = call zeroext i1 @RB_SPECIAL_CONST_P(i64 noundef %10) #18
-  br i1 %11, label %12, label %13
-
-12:                                               ; preds = %1
-  store i1 false, ptr %5, align 1
-  br label %71
-
-13:                                               ; preds = %1
-  %14 = load i64, ptr %6, align 8
-  store i64 %14, ptr %3, align 8
-  store i32 27, ptr %4, align 4
-  %15 = load i32, ptr %4, align 4
-  %16 = icmp eq i32 %15, 18
-  br i1 %16, label %17, label %20
-
-17:                                               ; preds = %13
-  %18 = load i64, ptr %3, align 8
-  %19 = icmp eq i64 %18, 20
-  store i1 %19, ptr %2, align 1
-  br label %67
-
-20:                                               ; preds = %13
-  %21 = load i32, ptr %4, align 4
-  %22 = icmp eq i32 %21, 19
-  br i1 %22, label %23, label %26
-
-23:                                               ; preds = %20
-  %24 = load i64, ptr %3, align 8
-  %25 = icmp eq i64 %24, 0
-  store i1 %25, ptr %2, align 1
-  br label %67
-
-26:                                               ; preds = %20
-  %27 = load i32, ptr %4, align 4
-  %28 = icmp eq i32 %27, 17
-  br i1 %28, label %29, label %32
-
-29:                                               ; preds = %26
-  %30 = load i64, ptr %3, align 8
-  %31 = icmp eq i64 %30, 4
-  store i1 %31, ptr %2, align 1
-  br label %67
-
-32:                                               ; preds = %26
-  %33 = load i32, ptr %4, align 4
-  %34 = icmp eq i32 %33, 22
-  br i1 %34, label %35, label %38
-
-35:                                               ; preds = %32
-  %36 = load i64, ptr %3, align 8
-  %37 = icmp eq i64 %36, 36
-  store i1 %37, ptr %2, align 1
-  br label %67
-
-38:                                               ; preds = %32
-  %39 = load i32, ptr %4, align 4
-  %40 = icmp eq i32 %39, 21
-  br i1 %40, label %41, label %44
-
-41:                                               ; preds = %38
-  %42 = load i64, ptr %3, align 8
-  %43 = call zeroext i1 @RB_FIXNUM_P(i64 noundef %42) #18
-  store i1 %43, ptr %2, align 1
-  br label %67
-
-44:                                               ; preds = %38
-  %45 = load i32, ptr %4, align 4
-  %46 = icmp eq i32 %45, 20
-  br i1 %46, label %47, label %50
-
-47:                                               ; preds = %44
-  %48 = load i64, ptr %3, align 8
-  %49 = call zeroext i1 @RB_SYMBOL_P(i64 noundef %48) #17
-  store i1 %49, ptr %2, align 1
-  br label %67
-
-50:                                               ; preds = %44
-  %51 = load i32, ptr %4, align 4
-  %52 = icmp eq i32 %51, 4
-  br i1 %52, label %53, label %56
-
-53:                                               ; preds = %50
-  %54 = load i64, ptr %3, align 8
-  %55 = call zeroext i1 @RB_FLOAT_TYPE_P(i64 noundef %54) #17
-  store i1 %55, ptr %2, align 1
-  br label %67
-
-56:                                               ; preds = %50
-  %57 = load i64, ptr %3, align 8
-  %58 = call zeroext i1 @RB_SPECIAL_CONST_P(i64 noundef %57) #18
-  br i1 %58, label %59, label %60
-
-59:                                               ; preds = %56
-  store i1 false, ptr %2, align 1
-  br label %67
-
-60:                                               ; preds = %56
-  %61 = load i32, ptr %4, align 4
-  %62 = load i64, ptr %3, align 8
-  %63 = call i32 @RB_BUILTIN_TYPE(i64 noundef %62) #17
-  %64 = icmp eq i32 %61, %63
-  br i1 %64, label %65, label %66
-
-65:                                               ; preds = %60
-  store i1 true, ptr %2, align 1
-  br label %67
-
-66:                                               ; preds = %60
-  store i1 false, ptr %2, align 1
-  br label %67
-
-67:                                               ; preds = %66, %65, %59, %53, %47, %41, %35, %29, %23, %17
-  %68 = load i1, ptr %2, align 1
-  br i1 %68, label %69, label %70
-
-69:                                               ; preds = %67
-  store i1 false, ptr %5, align 1
-  br label %71
-
-70:                                               ; preds = %67
-  store i1 true, ptr %5, align 1
-  br label %71
-
-71:                                               ; preds = %70, %69, %12
-  %72 = load i1, ptr %5, align 1
-  br i1 %72, label %74, label %73
-
-73:                                               ; preds = %71
-  store i1 true, ptr %7, align 1
-  br label %78
-
-74:                                               ; preds = %71
-  %75 = load i64, ptr %8, align 8
-  %76 = call i64 @RB_OBJ_FROZEN_RAW(i64 noundef %75) #17
-  %77 = icmp ne i64 %76, 0
-  store i1 %77, ptr %7, align 1
-  br label %78
-
-78:                                               ; preds = %74, %73
-  %79 = load i1, ptr %7, align 1
-  ret i1 %79
-}
-
-; Function Attrs: noreturn
-declare void @rb_error_frozen_object(i64 noundef) #5
-
-; Function Attrs: nounwind sspstrong willreturn memory(read) uwtable
-define internal i64 @RB_OBJ_FROZEN_RAW(i64 noundef %0) #2 {
-  %2 = alloca i64, align 8
-  store i64 %0, ptr %2, align 8
-  %3 = load i64, ptr %2, align 8
-  %4 = call i64 @RB_FL_TEST_RAW(i64 noundef %3, i64 noundef 2048) #17
-  ret i64 %4
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @RB_ENCODING_SET_INLINED(i64 noundef %0, i32 noundef %1) #0 {
-  %3 = alloca i64, align 8
-  %4 = alloca i32, align 4
-  %5 = alloca i64, align 8
-  store i64 %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %6 = load i32, ptr %4, align 4
-  %7 = sext i32 %6 to i64
-  store i64 %7, ptr %5, align 8
-  %8 = load i64, ptr %5, align 8
-  %9 = shl i64 %8, 22
-  store i64 %9, ptr %5, align 8
-  %10 = load i64, ptr %3, align 8
-  call void @RB_FL_UNSET_RAW(i64 noundef %10, i64 noundef 532676608)
-  %11 = load i64, ptr %3, align 8
-  %12 = load i64, ptr %5, align 8
-  call void @RB_FL_SET_RAW(i64 noundef %11, i64 noundef %12)
-  ret void
-}
-
-declare i64 @rb_ivar_set(i64 noundef, i64 noundef, i64 noundef) #1
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @rb_int2num_inline(i32 noundef %0) #0 {
-  %2 = alloca i64, align 8
-  %3 = alloca i32, align 4
-  store i32 %0, ptr %3, align 4
-  %4 = load i32, ptr %3, align 4
-  %5 = sext i32 %4 to i64
-  %6 = icmp slt i64 %5, 4611686018427387904
-  br i1 %6, label %7, label %15
-
-7:                                                ; preds = %1
-  %8 = load i32, ptr %3, align 4
-  %9 = sext i32 %8 to i64
-  %10 = icmp sge i64 %9, -4611686018427387904
-  br i1 %10, label %11, label %15
-
-11:                                               ; preds = %7
-  %12 = load i32, ptr %3, align 4
-  %13 = sext i32 %12 to i64
-  %14 = call i64 @RB_INT2FIX(i64 noundef %13) #18
-  store i64 %14, ptr %2, align 8
-  br label %19
-
-15:                                               ; preds = %7, %1
-  %16 = load i32, ptr %3, align 4
-  %17 = sext i32 %16 to i64
-  %18 = call i64 @rb_int2big(i64 noundef %17)
-  store i64 %18, ptr %2, align 8
-  br label %19
-
-19:                                               ; preds = %15, %11
-  %20 = load i64, ptr %2, align 8
-  ret i64 %20
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @RB_FL_UNSET_RAW(i64 noundef %0, i64 noundef %1) #0 {
-  %3 = alloca i64, align 8
-  %4 = alloca i64, align 8
-  store i64 %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
-  %5 = load i64, ptr %3, align 8
-  %6 = inttoptr i64 %5 to ptr
-  %7 = load i64, ptr %4, align 8
-  call void @rbimpl_fl_unset_raw_raw(ptr noundef %6, i64 noundef %7) #23
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @RB_FL_SET_RAW(i64 noundef %0, i64 noundef %1) #0 {
-  %3 = alloca i64, align 8
-  %4 = alloca i64, align 8
-  store i64 %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
-  %5 = load i64, ptr %3, align 8
-  %6 = inttoptr i64 %5 to ptr
-  %7 = load i64, ptr %4, align 8
-  call void @rbimpl_fl_set_raw_raw(ptr noundef %6, i64 noundef %7) #23
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal void @rbimpl_fl_unset_raw_raw(ptr noundef %0, i64 noundef %1) #7 {
-  %3 = alloca ptr, align 8
-  %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
-  %5 = load i64, ptr %4, align 8
-  %6 = xor i64 %5, -1
-  %7 = load ptr, ptr %3, align 8
-  %8 = getelementptr inbounds %struct.RBasic, ptr %7, i32 0, i32 0
-  %9 = load i64, ptr %8, align 8
-  %10 = and i64 %9, %6
-  store i64 %10, ptr %8, align 8
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal void @rbimpl_fl_set_raw_raw(ptr noundef %0, i64 noundef %1) #7 {
-  %3 = alloca ptr, align 8
-  %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
-  %5 = load i64, ptr %4, align 8
-  %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds %struct.RBasic, ptr %6, i32 0, i32 0
-  %8 = load i64, ptr %7, align 8
-  %9 = or i64 %8, %5
-  store i64 %9, ptr %7, align 8
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong willreturn memory(none) uwtable
-define internal i64 @RB_INT2FIX(i64 noundef %0) #3 {
-  %2 = alloca i64, align 8
-  %3 = alloca i64, align 8
-  %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
-  %7 = alloca i64, align 8
-  store i64 %0, ptr %2, align 8
-  %8 = load i64, ptr %2, align 8
-  store i64 %8, ptr %3, align 8
-  %9 = load i64, ptr %3, align 8
-  %10 = shl i64 %9, 1
-  %11 = add i64 %10, 1
-  store i64 %11, ptr %4, align 8
-  %12 = load i64, ptr %4, align 8
-  store i64 %12, ptr %5, align 8
-  %13 = load i64, ptr %5, align 8
-  store i64 %13, ptr %6, align 8
-  %14 = load i64, ptr %6, align 8
-  store i64 %14, ptr %7, align 8
-  %15 = load i64, ptr %7, align 8
-  ret i64 %15
-}
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !7
+  store i64 %1, ptr %5, align 8, !tbaa !12
+  %9 = load ptr, ptr %4, align 8, !tbaa !7
+  %10 = load i8, ptr %9, align 1, !tbaa !16
+  %11 = zext i8 %10 to i32
+  %12 = icmp slt i32 %11, 128
+  br i1 %12, label %13, label %24
 
-declare i64 @rb_int2big(i64 noundef) #1
-
-; Function Attrs: nounwind sspstrong willreturn memory(read) uwtable
-define internal i32 @RB_ENC_CODERANGE(i64 noundef %0) #2 {
-  %2 = alloca i64, align 8
-  %3 = alloca i64, align 8
-  store i64 %0, ptr %2, align 8
-  %4 = load i64, ptr %2, align 8
-  %5 = call i64 @RB_FL_TEST_RAW(i64 noundef %4, i64 noundef 3145728) #17
-  store i64 %5, ptr %3, align 8
-  %6 = load i64, ptr %3, align 8
-  %7 = trunc i64 %6 to i32
-  ret i32 %7
-}
-
-declare i32 @rb_enc_str_asciionly_p(i64 noundef) #1
-
-declare i32 @rb_enc_str_coderange(i64 noundef) #1
-
-declare i32 @rb_st_insert2(ptr noundef, i64 noundef, i64 noundef, ptr noundef) #1
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @enc_dup_name(i64 noundef %0) #0 {
-  %2 = alloca i64, align 8
-  store i64 %0, ptr %2, align 8
-  %3 = load i64, ptr %2, align 8
-  %4 = inttoptr i64 %3 to ptr
-  %5 = call noalias nonnull ptr @ruby_strdup(ptr noundef %4)
-  %6 = ptrtoint ptr %5 to i64
-  ret i64 %6
-}
-
-declare i32 @rb_st_delete(ptr noundef, ptr noundef, ptr noundef) #1
-
-declare i32 @Init_enc_set_filesystem_encoding() #1
-
-declare void @rb_define_const(i64 noundef, ptr noundef, i64 noundef) #1
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @rbimpl_size_mul_or_raise(i64 noundef %0, i64 noundef %1) #0 {
-  %3 = alloca i64, align 8
-  %4 = alloca i64, align 8
-  %5 = alloca %struct.rbimpl_size_mul_overflow_tag, align 8
-  store i64 %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
-  %6 = load i64, ptr %3, align 8
-  %7 = load i64, ptr %4, align 8
-  %8 = call { i8, i64 } @rbimpl_size_mul_overflow(i64 noundef %6, i64 noundef %7) #18
-  %9 = getelementptr inbounds { i8, i64 }, ptr %5, i32 0, i32 0
-  %10 = extractvalue { i8, i64 } %8, 0
-  store i8 %10, ptr %9, align 8
-  %11 = getelementptr inbounds { i8, i64 }, ptr %5, i32 0, i32 1
-  %12 = extractvalue { i8, i64 } %8, 1
-  store i64 %12, ptr %11, align 8
-  %13 = getelementptr inbounds %struct.rbimpl_size_mul_overflow_tag, ptr %5, i32 0, i32 0
-  %14 = load i8, ptr %13, align 8
-  %15 = trunc i8 %14 to i1
-  %16 = xor i1 %15, true
-  %17 = xor i1 %16, true
-  %18 = xor i1 %17, true
-  %19 = zext i1 %18 to i32
-  %20 = sext i32 %19 to i64
-  %21 = icmp ne i64 %20, 0
-  br i1 %21, label %22, label %25
-
-22:                                               ; preds = %2
-  %23 = getelementptr inbounds %struct.rbimpl_size_mul_overflow_tag, ptr %5, i32 0, i32 1
-  %24 = load i64, ptr %23, align 8
-  ret i64 %24
-
-25:                                               ; preds = %2
-  %26 = load i64, ptr %3, align 8
-  %27 = load i64, ptr %4, align 8
-  call void @ruby_malloc_size_overflow(i64 noundef %26, i64 noundef %27) #19
-  unreachable
-}
-
-; Function Attrs: nounwind sspstrong willreturn memory(none) uwtable
-define internal { i8, i64 } @rbimpl_size_mul_overflow(i64 noundef %0, i64 noundef %1) #3 {
-  %3 = alloca %struct.rbimpl_size_mul_overflow_tag, align 8
-  %4 = alloca i64, align 8
-  %5 = alloca i64, align 8
-  store i64 %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  call void @llvm.memset.p0.i64(ptr align 8 %3, i8 0, i64 16, i1 false)
-  %6 = load i64, ptr %4, align 8
-  %7 = load i64, ptr %5, align 8
-  %8 = getelementptr inbounds %struct.rbimpl_size_mul_overflow_tag, ptr %3, i32 0, i32 1
-  %9 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %6, i64 %7)
-  %10 = extractvalue { i64, i1 } %9, 1
-  %11 = extractvalue { i64, i1 } %9, 0
-  store i64 %11, ptr %8, align 8
-  %12 = getelementptr inbounds %struct.rbimpl_size_mul_overflow_tag, ptr %3, i32 0, i32 0
-  %13 = zext i1 %10 to i8
-  store i8 %13, ptr %12, align 8
-  %14 = load { i8, i64 }, ptr %3, align 8
-  ret { i8, i64 } %14
-}
-
-; Function Attrs: noreturn
-declare void @ruby_malloc_size_overflow(i64 noundef, i64 noundef) #5
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #16
-
-; Function Attrs: noreturn
-declare void @rb_undefined_alloc(i64 noundef) #5
-
-; Function Attrs: nounwind sspstrong willreturn memory(read) uwtable
-define internal i64 @RBASIC_CLASS(i64 noundef %0) #2 {
-  %2 = alloca i64, align 8
-  store i64 %0, ptr %2, align 8
-  %3 = load i64, ptr %2, align 8
-  %4 = inttoptr i64 %3 to ptr
-  %5 = getelementptr inbounds %struct.RBasic, ptr %4, i32 0, i32 1
-  %6 = load i64, ptr %5, align 8
-  ret i64 %6
-}
-
-declare i64 @rb_fstring_cstr(ptr noundef) #1
-
-; Function Attrs: noreturn nounwind sspstrong uwtable
-define internal void @not_encoding(i64 noundef %0) #8 {
-  %2 = alloca i64, align 8
-  store i64 %0, ptr %2, align 8
-  %3 = load i64, ptr @rb_eTypeError, align 8
-  %4 = load i64, ptr %2, align 8
-  %5 = call i64 @rb_obj_class(i64 noundef %4)
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %3, ptr noundef @.str.56, i64 noundef %5) #19
-  unreachable
-}
-
-declare i64 @rb_enc_sprintf(ptr noundef, ptr noundef, ...) #1
-
-declare i64 @rb_obj_class(i64 noundef) #1
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @enc_names_i(i64 noundef %0, i64 noundef %1, i64 noundef %2) #0 {
-  %4 = alloca i64, align 8
-  %5 = alloca i64, align 8
-  %6 = alloca i64, align 8
-  %7 = alloca ptr, align 8
-  %8 = alloca i64, align 8
-  store i64 %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
-  %9 = load i64, ptr %6, align 8
-  %10 = inttoptr i64 %9 to ptr
-  store ptr %10, ptr %7, align 8
-  %11 = load i64, ptr %5, align 8
-  %12 = trunc i64 %11 to i32
-  %13 = load ptr, ptr %7, align 8
-  %14 = getelementptr i64, ptr %13, i64 0
-  %15 = load i64, ptr %14, align 8
-  %16 = trunc i64 %15 to i32
-  %17 = icmp eq i32 %12, %16
-  br i1 %17, label %18, label %37
-
-18:                                               ; preds = %3
-  br i1 false, label %19, label %26
-
-19:                                               ; preds = %18
-  %20 = load i64, ptr %4, align 8
-  %21 = inttoptr i64 %20 to ptr
-  %22 = load i64, ptr %4, align 8
-  %23 = inttoptr i64 %22 to ptr
-  %24 = call i64 @strlen(ptr noundef %23) #17
-  %25 = call i64 @rb_fstring_new(ptr noundef %21, i64 noundef %24)
-  br label %30
-
-26:                                               ; preds = %18
-  %27 = load i64, ptr %4, align 8
-  %28 = inttoptr i64 %27 to ptr
-  %29 = call i64 @rb_fstring_cstr(ptr noundef %28)
-  br label %30
-
-30:                                               ; preds = %26, %19
-  %31 = phi i64 [ %25, %19 ], [ %29, %26 ]
-  store i64 %31, ptr %8, align 8
-  %32 = load ptr, ptr %7, align 8
-  %33 = getelementptr i64, ptr %32, i64 1
-  %34 = load i64, ptr %33, align 8
-  %35 = load i64, ptr %8, align 8
-  %36 = call i64 @rb_ary_push(i64 noundef %34, i64 noundef %35)
-  br label %37
-
-37:                                               ; preds = %30, %3
-  ret i32 0
-}
-
-declare i64 @rb_fstring_new(ptr noundef, i64 noundef) #1
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal ptr @must_encoding(i64 noundef %0) #0 {
-  %2 = alloca i64, align 8
-  %3 = alloca i32, align 4
-  store i64 %0, ptr %2, align 8
-  %4 = load i64, ptr %2, align 8
-  %5 = call i32 @enc_check_encoding(i64 noundef %4)
-  store i32 %5, ptr %3, align 4
-  %6 = load i32, ptr %3, align 4
-  %7 = icmp slt i32 %6, 0
-  br i1 %7, label %8, label %10
-
-8:                                                ; preds = %1
-  %9 = load i64, ptr %2, align 8
-  call void @not_encoding(i64 noundef %9) #19
-  unreachable
-
-10:                                               ; preds = %1
-  %11 = load i64, ptr %2, align 8
-  %12 = inttoptr i64 %11 to ptr
-  %13 = getelementptr inbounds %struct.RData, ptr %12, i32 0, i32 3
-  %14 = load ptr, ptr %13, align 8
-  ret ptr %14
-}
-
-declare i64 @rb_ary_replace(i64 noundef, i64 noundef) #1
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @rb_enc_name_list_i(i64 noundef %0, i64 noundef %1, i64 noundef %2) #0 {
-  %4 = alloca i64, align 8
-  %5 = alloca i64, align 8
-  %6 = alloca i64, align 8
-  %7 = alloca i64, align 8
-  %8 = alloca i64, align 8
-  store i64 %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
-  %9 = load i64, ptr %6, align 8
-  store i64 %9, ptr %7, align 8
-  br i1 false, label %10, label %17
-
-10:                                               ; preds = %3
-  %11 = load i64, ptr %4, align 8
-  %12 = inttoptr i64 %11 to ptr
-  %13 = load i64, ptr %4, align 8
-  %14 = inttoptr i64 %13 to ptr
-  %15 = call i64 @strlen(ptr noundef %14) #17
-  %16 = call i64 @rb_fstring_new(ptr noundef %12, i64 noundef %15)
-  br label %21
-
-17:                                               ; preds = %3
-  %18 = load i64, ptr %4, align 8
-  %19 = inttoptr i64 %18 to ptr
-  %20 = call i64 @rb_fstring_cstr(ptr noundef %19)
-  br label %21
-
-21:                                               ; preds = %17, %10
-  %22 = phi i64 [ %16, %10 ], [ %20, %17 ]
-  store i64 %22, ptr %8, align 8
-  %23 = load i64, ptr %7, align 8
-  %24 = load i64, ptr %8, align 8
-  %25 = call i64 @rb_ary_push(i64 noundef %23, i64 noundef %24)
-  ret i32 0
-}
-
-declare i64 @rb_hash_new() #1
-
-declare i64 @rb_ary_new() #1
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @rb_enc_aliases_enc_i(i64 noundef %0, i64 noundef %1, i64 noundef %2) #0 {
-  %4 = alloca i32, align 4
-  %5 = alloca i64, align 8
-  %6 = alloca i64, align 8
-  %7 = alloca i64, align 8
-  %8 = alloca ptr, align 8
-  %9 = alloca i64, align 8
-  %10 = alloca i64, align 8
-  %11 = alloca i32, align 4
-  %12 = alloca i64, align 8
-  %13 = alloca i64, align 8
-  %14 = alloca ptr, align 8
-  store i64 %0, ptr %5, align 8
-  store i64 %1, ptr %6, align 8
-  store i64 %2, ptr %7, align 8
-  %15 = load i64, ptr %7, align 8
-  %16 = inttoptr i64 %15 to ptr
-  store ptr %16, ptr %8, align 8
-  %17 = load ptr, ptr %8, align 8
-  %18 = getelementptr i64, ptr %17, i64 0
-  %19 = load i64, ptr %18, align 8
-  store i64 %19, ptr %9, align 8
-  %20 = load ptr, ptr %8, align 8
-  %21 = getelementptr i64, ptr %20, i64 1
-  %22 = load i64, ptr %21, align 8
-  store i64 %22, ptr %10, align 8
-  %23 = load i64, ptr %6, align 8
-  %24 = trunc i64 %23 to i32
-  store i32 %24, ptr %11, align 4
-  %25 = load i64, ptr %10, align 8
-  %26 = load i32, ptr %11, align 4
-  %27 = sext i32 %26 to i64
-  %28 = call i64 @rb_ary_entry(i64 noundef %25, i64 noundef %27) #17
-  store i64 %28, ptr %13, align 8
-  %29 = load i64, ptr %13, align 8
-  %30 = call zeroext i1 @RB_NIL_P(i64 noundef %29) #18
-  br i1 %30, label %31, label %53
-
-31:                                               ; preds = %3
-  %32 = load i32, ptr %11, align 4
-  %33 = call ptr @rb_enc_from_index(i32 noundef %32)
-  store ptr %33, ptr %14, align 8
-  %34 = load ptr, ptr %14, align 8
-  %35 = icmp ne ptr %34, null
-  br i1 %35, label %37, label %36
-
-36:                                               ; preds = %31
-  store i32 0, ptr %4, align 4
-  br label %71
-
-37:                                               ; preds = %31
-  %38 = load i64, ptr %5, align 8
-  %39 = inttoptr i64 %38 to ptr
-  %40 = load ptr, ptr %14, align 8
-  %41 = call ptr @rb_enc_name(ptr noundef %40)
-  %42 = call i32 @rb_st_locale_insensitive_strcasecmp(ptr noundef %39, ptr noundef %41) #17
-  %43 = icmp eq i32 %42, 0
-  br i1 %43, label %44, label %45
-
-44:                                               ; preds = %37
-  store i32 0, ptr %4, align 4
-  br label %71
-
-45:                                               ; preds = %37
-  %46 = load ptr, ptr %14, align 8
-  %47 = call ptr @rb_enc_name(ptr noundef %46)
-  %48 = call i64 @rb_fstring_cstr(ptr noundef %47)
-  store i64 %48, ptr %13, align 8
-  %49 = load i64, ptr %10, align 8
-  %50 = load i32, ptr %11, align 4
-  %51 = sext i32 %50 to i64
-  %52 = load i64, ptr %13, align 8
-  call void @rb_ary_store(i64 noundef %49, i64 noundef %51, i64 noundef %52)
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %4, align 8, !tbaa !7
+  %15 = load i8, ptr %14, align 1, !tbaa !16
+  %16 = zext i8 %15 to i64
+  %17 = getelementptr [256 x i8], ptr @pm_encoding_unicode_table, i64 0, i64 %16
+  %18 = load i8, ptr %17, align 1, !tbaa !16
+  %19 = zext i8 %18 to i32
+  %20 = and i32 %19, 1
+  %21 = icmp ne i32 %20, 0
+  %22 = select i1 %21, i32 1, i32 0
+  %23 = sext i32 %22 to i64
+  store i64 %23, ptr %3, align 8
   br label %53
 
-53:                                               ; preds = %45, %3
-  br i1 false, label %54, label %61
+24:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #3
+  %25 = load ptr, ptr %4, align 8, !tbaa !7
+  %26 = load i64, ptr %5, align 8, !tbaa !12
+  %27 = call i32 @pm_cesu_8_codepoint(ptr noundef %25, i64 noundef %26, ptr noundef %6)
+  store i32 %27, ptr %7, align 4, !tbaa !14
+  %28 = load i32, ptr %7, align 4, !tbaa !14
+  %29 = icmp ule i32 %28, 255
+  br i1 %29, label %30, label %44
 
-54:                                               ; preds = %53
-  %55 = load i64, ptr %5, align 8
-  %56 = inttoptr i64 %55 to ptr
-  %57 = load i64, ptr %5, align 8
-  %58 = inttoptr i64 %57 to ptr
-  %59 = call i64 @strlen(ptr noundef %58) #17
-  %60 = call i64 @rb_fstring_new(ptr noundef %56, i64 noundef %59)
-  br label %65
+30:                                               ; preds = %24
+  %31 = load i32, ptr %7, align 4, !tbaa !14
+  %32 = trunc i32 %31 to i8
+  %33 = zext i8 %32 to i64
+  %34 = getelementptr [256 x i8], ptr @pm_encoding_unicode_table, i64 0, i64 %33
+  %35 = load i8, ptr %34, align 1, !tbaa !16
+  %36 = zext i8 %35 to i32
+  %37 = and i32 %36, 1
+  %38 = icmp ne i32 %37, 0
+  br i1 %38, label %39, label %41
 
-61:                                               ; preds = %53
-  %62 = load i64, ptr %5, align 8
-  %63 = inttoptr i64 %62 to ptr
-  %64 = call i64 @rb_fstring_cstr(ptr noundef %63)
-  br label %65
+39:                                               ; preds = %30
+  %40 = load i64, ptr %6, align 8, !tbaa !12
+  br label %42
 
-65:                                               ; preds = %61, %54
-  %66 = phi i64 [ %60, %54 ], [ %64, %61 ]
-  store i64 %66, ptr %12, align 8
-  %67 = load i64, ptr %9, align 8
-  %68 = load i64, ptr %12, align 8
-  %69 = load i64, ptr %13, align 8
-  %70 = call i64 @rb_hash_aset(i64 noundef %67, i64 noundef %68, i64 noundef %69)
-  store i32 0, ptr %4, align 4
-  br label %71
+41:                                               ; preds = %30
+  br label %42
 
-71:                                               ; preds = %65, %44, %36
-  %72 = load i32, ptr %4, align 4
-  ret i32 %72
+42:                                               ; preds = %41, %39
+  %43 = phi i64 [ %40, %39 ], [ 0, %41 ]
+  store i64 %43, ptr %3, align 8
+  store i32 1, ptr %8, align 4
+  br label %52
+
+44:                                               ; preds = %24
+  %45 = load i32, ptr %7, align 4, !tbaa !14
+  %46 = call zeroext i1 @pm_unicode_codepoint_match(i32 noundef %45, ptr noundef @unicode_alpha_codepoints, i64 noundef 1450)
+  br i1 %46, label %47, label %49
+
+47:                                               ; preds = %44
+  %48 = load i64, ptr %6, align 8, !tbaa !12
+  br label %50
+
+49:                                               ; preds = %44
+  br label %50
+
+50:                                               ; preds = %49, %47
+  %51 = phi i64 [ %48, %47 ], [ 0, %49 ]
+  store i64 %51, ptr %3, align 8
+  store i32 1, ptr %8, align 4
+  br label %52
+
+52:                                               ; preds = %50, %42
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #3
+  br label %53
+
+53:                                               ; preds = %52, %13
+  %54 = load i64, ptr %3, align 8
+  ret i64 %54
 }
 
-declare i64 @rb_hash_aset(i64 noundef, i64 noundef, i64 noundef) #1
-
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @rb_check_arity(i32 noundef %0, i32 noundef %1, i32 noundef %2) #0 {
-  %4 = alloca i32, align 4
-  %5 = alloca i32, align 4
-  %6 = alloca i32, align 4
-  store i32 %0, ptr %4, align 4
-  store i32 %1, ptr %5, align 4
-  store i32 %2, ptr %6, align 4
-  %7 = load i32, ptr %4, align 4
-  %8 = load i32, ptr %5, align 4
-  %9 = icmp slt i32 %7, %8
-  br i1 %9, label %17, label %10
-
-10:                                               ; preds = %3
-  %11 = load i32, ptr %6, align 4
-  %12 = icmp ne i32 %11, -1
-  br i1 %12, label %13, label %21
-
-13:                                               ; preds = %10
-  %14 = load i32, ptr %4, align 4
-  %15 = load i32, ptr %6, align 4
-  %16 = icmp sgt i32 %14, %15
-  br i1 %16, label %17, label %21
-
-17:                                               ; preds = %13, %3
-  %18 = load i32, ptr %4, align 4
-  %19 = load i32, ptr %5, align 4
-  %20 = load i32, ptr %6, align 4
-  call void @rb_error_arity(i32 noundef %18, i32 noundef %19, i32 noundef %20) #19
-  unreachable
-
-21:                                               ; preds = %13, %10
-  %22 = load i32, ptr %4, align 4
-  ret i32 %22
-}
-
-; Function Attrs: noreturn
-declare void @rb_error_arity(i32 noundef, i32 noundef, i32 noundef) #5
-
-declare void @rb_warning(ptr noundef, ...) #1
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @RBASIC_SET_CLASS_RAW(i64 noundef %0, i64 noundef %1) #0 {
+define internal i64 @pm_encoding_cesu_8_alnum_char(ptr noundef %0, i64 noundef %1) #0 {
   %3 = alloca i64, align 8
-  %4 = alloca i64, align 8
-  %5 = alloca ptr, align 8
-  store i64 %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
-  %6 = load i64, ptr %3, align 8
-  %7 = inttoptr i64 %6 to ptr
-  %8 = getelementptr inbounds %struct.RBasic, ptr %7, i32 0, i32 1
-  store ptr %8, ptr %5, align 8
-  %9 = load i64, ptr %4, align 8
-  %10 = load ptr, ptr %5, align 8
-  store i64 %9, ptr %10, align 8
-  ret void
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !7
+  store i64 %1, ptr %5, align 8, !tbaa !12
+  %9 = load ptr, ptr %4, align 8, !tbaa !7
+  %10 = load i8, ptr %9, align 1, !tbaa !16
+  %11 = zext i8 %10 to i32
+  %12 = icmp slt i32 %11, 128
+  br i1 %12, label %13, label %24
+
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %4, align 8, !tbaa !7
+  %15 = load i8, ptr %14, align 1, !tbaa !16
+  %16 = zext i8 %15 to i64
+  %17 = getelementptr [256 x i8], ptr @pm_encoding_unicode_table, i64 0, i64 %16
+  %18 = load i8, ptr %17, align 1, !tbaa !16
+  %19 = zext i8 %18 to i32
+  %20 = and i32 %19, 2
+  %21 = icmp ne i32 %20, 0
+  %22 = select i1 %21, i32 1, i32 0
+  %23 = sext i32 %22 to i64
+  store i64 %23, ptr %3, align 8
+  br label %53
+
+24:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #3
+  %25 = load ptr, ptr %4, align 8, !tbaa !7
+  %26 = load i64, ptr %5, align 8, !tbaa !12
+  %27 = call i32 @pm_cesu_8_codepoint(ptr noundef %25, i64 noundef %26, ptr noundef %6)
+  store i32 %27, ptr %7, align 4, !tbaa !14
+  %28 = load i32, ptr %7, align 4, !tbaa !14
+  %29 = icmp ule i32 %28, 255
+  br i1 %29, label %30, label %44
+
+30:                                               ; preds = %24
+  %31 = load i32, ptr %7, align 4, !tbaa !14
+  %32 = trunc i32 %31 to i8
+  %33 = zext i8 %32 to i64
+  %34 = getelementptr [256 x i8], ptr @pm_encoding_unicode_table, i64 0, i64 %33
+  %35 = load i8, ptr %34, align 1, !tbaa !16
+  %36 = zext i8 %35 to i32
+  %37 = and i32 %36, 2
+  %38 = icmp ne i32 %37, 0
+  br i1 %38, label %39, label %41
+
+39:                                               ; preds = %30
+  %40 = load i64, ptr %6, align 8, !tbaa !12
+  br label %42
+
+41:                                               ; preds = %30
+  br label %42
+
+42:                                               ; preds = %41, %39
+  %43 = phi i64 [ %40, %39 ], [ 0, %41 ]
+  store i64 %43, ptr %3, align 8
+  store i32 1, ptr %8, align 4
+  br label %52
+
+44:                                               ; preds = %24
+  %45 = load i32, ptr %7, align 4, !tbaa !14
+  %46 = call zeroext i1 @pm_unicode_codepoint_match(i32 noundef %45, ptr noundef @unicode_alnum_codepoints, i64 noundef 1528)
+  br i1 %46, label %47, label %49
+
+47:                                               ; preds = %44
+  %48 = load i64, ptr %6, align 8, !tbaa !12
+  br label %50
+
+49:                                               ; preds = %44
+  br label %50
+
+50:                                               ; preds = %49, %47
+  %51 = phi i64 [ %48, %47 ], [ 0, %49 ]
+  store i64 %51, ptr %3, align 8
+  store i32 1, ptr %8, align 4
+  br label %52
+
+52:                                               ; preds = %50, %42
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #3
+  br label %53
+
+53:                                               ; preds = %52, %13
+  %54 = load i64, ptr %3, align 8
+  ret i64 %54
 }
 
-declare i64 @rb_data_typed_object_wrap(i64 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: nounwind sspstrong uwtable
+define internal zeroext i1 @pm_encoding_cesu_8_isupper_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca i1, align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !7
+  store i64 %1, ptr %5, align 8, !tbaa !12
+  %9 = load ptr, ptr %4, align 8, !tbaa !7
+  %10 = load i8, ptr %9, align 1, !tbaa !16
+  %11 = zext i8 %10 to i32
+  %12 = icmp slt i32 %11, 128
+  br i1 %12, label %13, label %24
 
-declare i64 @rb_obj_freeze(i64 noundef) #1
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %4, align 8, !tbaa !7
+  %15 = load i8, ptr %14, align 1, !tbaa !16
+  %16 = zext i8 %15 to i64
+  %17 = getelementptr [256 x i8], ptr @pm_encoding_unicode_table, i64 0, i64 %16
+  %18 = load i8, ptr %17, align 1, !tbaa !16
+  %19 = zext i8 %18 to i32
+  %20 = and i32 %19, 4
+  %21 = icmp ne i32 %20, 0
+  %22 = select i1 %21, i32 1, i32 0
+  %23 = icmp ne i32 %22, 0
+  store i1 %23, ptr %3, align 1
+  br label %47
 
-declare ptr @rb_st_init_strcasetable_with_size(i64 noundef) #1
+24:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #3
+  %25 = load ptr, ptr %4, align 8, !tbaa !7
+  %26 = load i64, ptr %5, align 8, !tbaa !12
+  %27 = call i32 @pm_cesu_8_codepoint(ptr noundef %25, i64 noundef %26, ptr noundef %6)
+  store i32 %27, ptr %7, align 4, !tbaa !14
+  %28 = load i32, ptr %7, align 4, !tbaa !14
+  %29 = icmp ule i32 %28, 255
+  br i1 %29, label %30, label %41
 
-attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind sspstrong willreturn memory(read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind sspstrong willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind sspstrong memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { noreturn nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { cold noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #13 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #14 = { nounwind sspstrong willreturn memory(read, argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #17 = { nounwind willreturn memory(read) }
-attributes #18 = { nounwind willreturn memory(none) }
-attributes #19 = { noreturn }
-attributes #20 = { cold }
-attributes #21 = { nounwind }
-attributes #22 = { allocsize(0) }
-attributes #23 = { nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) }
-attributes #24 = { cold noreturn }
-attributes #25 = { nounwind willreturn memory(read, argmem: readwrite) }
+30:                                               ; preds = %24
+  %31 = load i32, ptr %7, align 4, !tbaa !14
+  %32 = trunc i32 %31 to i8
+  %33 = zext i8 %32 to i64
+  %34 = getelementptr [256 x i8], ptr @pm_encoding_unicode_table, i64 0, i64 %33
+  %35 = load i8, ptr %34, align 1, !tbaa !16
+  %36 = zext i8 %35 to i32
+  %37 = and i32 %36, 4
+  %38 = icmp ne i32 %37, 0
+  %39 = select i1 %38, i32 1, i32 0
+  %40 = icmp ne i32 %39, 0
+  store i1 %40, ptr %3, align 1
+  store i32 1, ptr %8, align 4
+  br label %46
+
+41:                                               ; preds = %24
+  %42 = load i32, ptr %7, align 4, !tbaa !14
+  %43 = call zeroext i1 @pm_unicode_codepoint_match(i32 noundef %42, ptr noundef @unicode_isupper_codepoints, i64 noundef 1302)
+  %44 = select i1 %43, i32 1, i32 0
+  %45 = icmp ne i32 %44, 0
+  store i1 %45, ptr %3, align 1
+  store i32 1, ptr %8, align 4
+  br label %46
+
+46:                                               ; preds = %41, %30
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #3
+  br label %47
+
+47:                                               ; preds = %46, %13
+  %48 = load i1, ptr %3, align 1
+  ret i1 %48
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_cp850_alpha_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_cp850_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 1
+  %12 = sext i32 %11 to i64
+  ret i64 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_cp850_alnum_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_cp850_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 2
+  %12 = icmp ne i32 %11, 0
+  %13 = select i1 %12, i32 1, i32 0
+  %14 = sext i32 %13 to i64
+  ret i64 %14
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal zeroext i1 @pm_encoding_cp850_isupper_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_cp850_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 4
+  %12 = icmp ne i32 %11, 0
+  ret i1 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_cp852_alpha_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_cp852_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 1
+  %12 = sext i32 %11 to i64
+  ret i64 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_cp852_alnum_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_cp852_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 2
+  %12 = icmp ne i32 %11, 0
+  %13 = select i1 %12, i32 1, i32 0
+  %14 = sext i32 %13 to i64
+  ret i64 %14
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal zeroext i1 @pm_encoding_cp852_isupper_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_cp852_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 4
+  %12 = icmp ne i32 %11, 0
+  ret i1 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_cp855_alpha_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_cp855_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 1
+  %12 = sext i32 %11 to i64
+  ret i64 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_cp855_alnum_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_cp855_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 2
+  %12 = icmp ne i32 %11, 0
+  %13 = select i1 %12, i32 1, i32 0
+  %14 = sext i32 %13 to i64
+  ret i64 %14
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal zeroext i1 @pm_encoding_cp855_isupper_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_cp855_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 4
+  %12 = icmp ne i32 %11, 0
+  ret i1 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_cp949_char_width(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca i64, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !7
+  store i64 %1, ptr %5, align 8, !tbaa !12
+  %6 = load ptr, ptr %4, align 8, !tbaa !7
+  %7 = load i8, ptr %6, align 1, !tbaa !16
+  %8 = zext i8 %7 to i32
+  %9 = icmp sle i32 %8, 128
+  br i1 %9, label %10, label %11
+
+10:                                               ; preds = %2
+  store i64 1, ptr %3, align 8
+  br label %64
+
+11:                                               ; preds = %2
+  %12 = load i64, ptr %5, align 8, !tbaa !12
+  %13 = icmp sgt i64 %12, 1
+  br i1 %13, label %14, label %63
+
+14:                                               ; preds = %11
+  %15 = load ptr, ptr %4, align 8, !tbaa !7
+  %16 = getelementptr i8, ptr %15, i64 0
+  %17 = load i8, ptr %16, align 1, !tbaa !16
+  %18 = zext i8 %17 to i32
+  %19 = icmp sge i32 %18, 129
+  br i1 %19, label %20, label %63
+
+20:                                               ; preds = %14
+  %21 = load ptr, ptr %4, align 8, !tbaa !7
+  %22 = getelementptr i8, ptr %21, i64 0
+  %23 = load i8, ptr %22, align 1, !tbaa !16
+  %24 = zext i8 %23 to i32
+  %25 = icmp sle i32 %24, 254
+  br i1 %25, label %26, label %63
+
+26:                                               ; preds = %20
+  %27 = load ptr, ptr %4, align 8, !tbaa !7
+  %28 = getelementptr i8, ptr %27, i64 1
+  %29 = load i8, ptr %28, align 1, !tbaa !16
+  %30 = zext i8 %29 to i32
+  %31 = icmp sge i32 %30, 65
+  br i1 %31, label %32, label %38
+
+32:                                               ; preds = %26
+  %33 = load ptr, ptr %4, align 8, !tbaa !7
+  %34 = getelementptr i8, ptr %33, i64 1
+  %35 = load i8, ptr %34, align 1, !tbaa !16
+  %36 = zext i8 %35 to i32
+  %37 = icmp sle i32 %36, 90
+  br i1 %37, label %62, label %38
+
+38:                                               ; preds = %32, %26
+  %39 = load ptr, ptr %4, align 8, !tbaa !7
+  %40 = getelementptr i8, ptr %39, i64 1
+  %41 = load i8, ptr %40, align 1, !tbaa !16
+  %42 = zext i8 %41 to i32
+  %43 = icmp sge i32 %42, 97
+  br i1 %43, label %44, label %50
+
+44:                                               ; preds = %38
+  %45 = load ptr, ptr %4, align 8, !tbaa !7
+  %46 = getelementptr i8, ptr %45, i64 1
+  %47 = load i8, ptr %46, align 1, !tbaa !16
+  %48 = zext i8 %47 to i32
+  %49 = icmp sle i32 %48, 122
+  br i1 %49, label %62, label %50
+
+50:                                               ; preds = %44, %38
+  %51 = load ptr, ptr %4, align 8, !tbaa !7
+  %52 = getelementptr i8, ptr %51, i64 1
+  %53 = load i8, ptr %52, align 1, !tbaa !16
+  %54 = zext i8 %53 to i32
+  %55 = icmp sge i32 %54, 129
+  br i1 %55, label %56, label %63
+
+56:                                               ; preds = %50
+  %57 = load ptr, ptr %4, align 8, !tbaa !7
+  %58 = getelementptr i8, ptr %57, i64 1
+  %59 = load i8, ptr %58, align 1, !tbaa !16
+  %60 = zext i8 %59 to i32
+  %61 = icmp sle i32 %60, 254
+  br i1 %61, label %62, label %63
+
+62:                                               ; preds = %56, %44, %32
+  store i64 2, ptr %3, align 8
+  br label %64
+
+63:                                               ; preds = %56, %50, %20, %14, %11
+  store i64 0, ptr %3, align 8
+  br label %64
+
+64:                                               ; preds = %63, %62, %10
+  %65 = load i64, ptr %3, align 8
+  ret i64 %65
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_emacs_mule_char_width(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca i64, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !7
+  store i64 %1, ptr %5, align 8, !tbaa !12
+  %6 = load ptr, ptr %4, align 8, !tbaa !7
+  %7 = load i8, ptr %6, align 1, !tbaa !16
+  %8 = zext i8 %7 to i32
+  %9 = icmp slt i32 %8, 128
+  br i1 %9, label %10, label %11
+
+10:                                               ; preds = %2
+  store i64 1, ptr %3, align 8
+  br label %138
+
+11:                                               ; preds = %2
+  %12 = load i64, ptr %5, align 8, !tbaa !12
+  %13 = icmp sgt i64 %12, 1
+  br i1 %13, label %14, label %33
+
+14:                                               ; preds = %11
+  %15 = load ptr, ptr %4, align 8, !tbaa !7
+  %16 = getelementptr i8, ptr %15, i64 0
+  %17 = load i8, ptr %16, align 1, !tbaa !16
+  %18 = zext i8 %17 to i32
+  %19 = icmp sge i32 %18, 129
+  br i1 %19, label %20, label %33
+
+20:                                               ; preds = %14
+  %21 = load ptr, ptr %4, align 8, !tbaa !7
+  %22 = getelementptr i8, ptr %21, i64 0
+  %23 = load i8, ptr %22, align 1, !tbaa !16
+  %24 = zext i8 %23 to i32
+  %25 = icmp sle i32 %24, 143
+  br i1 %25, label %26, label %33
+
+26:                                               ; preds = %20
+  %27 = load ptr, ptr %4, align 8, !tbaa !7
+  %28 = getelementptr i8, ptr %27, i64 1
+  %29 = load i8, ptr %28, align 1, !tbaa !16
+  %30 = zext i8 %29 to i32
+  %31 = icmp sge i32 %30, 160
+  br i1 %31, label %32, label %33
+
+32:                                               ; preds = %26
+  store i64 2, ptr %3, align 8
+  br label %138
+
+33:                                               ; preds = %26, %20, %14, %11
+  %34 = load i64, ptr %5, align 8, !tbaa !12
+  %35 = icmp sgt i64 %34, 2
+  br i1 %35, label %36, label %85
+
+36:                                               ; preds = %33
+  %37 = load ptr, ptr %4, align 8, !tbaa !7
+  %38 = getelementptr i8, ptr %37, i64 0
+  %39 = load i8, ptr %38, align 1, !tbaa !16
+  %40 = zext i8 %39 to i32
+  %41 = icmp sge i32 %40, 144
+  br i1 %41, label %42, label %54
+
+42:                                               ; preds = %36
+  %43 = load ptr, ptr %4, align 8, !tbaa !7
+  %44 = getelementptr i8, ptr %43, i64 0
+  %45 = load i8, ptr %44, align 1, !tbaa !16
+  %46 = zext i8 %45 to i32
+  %47 = icmp sle i32 %46, 153
+  br i1 %47, label %48, label %54
+
+48:                                               ; preds = %42
+  %49 = load ptr, ptr %4, align 8, !tbaa !7
+  %50 = getelementptr i8, ptr %49, i64 1
+  %51 = load i8, ptr %50, align 1, !tbaa !16
+  %52 = zext i8 %51 to i32
+  %53 = icmp sge i32 %52, 160
+  br i1 %53, label %78, label %54
+
+54:                                               ; preds = %48, %42, %36
+  %55 = load ptr, ptr %4, align 8, !tbaa !7
+  %56 = getelementptr i8, ptr %55, i64 0
+  %57 = load i8, ptr %56, align 1, !tbaa !16
+  %58 = zext i8 %57 to i32
+  %59 = icmp eq i32 %58, 154
+  br i1 %59, label %66, label %60
+
+60:                                               ; preds = %54
+  %61 = load ptr, ptr %4, align 8, !tbaa !7
+  %62 = getelementptr i8, ptr %61, i64 0
+  %63 = load i8, ptr %62, align 1, !tbaa !16
+  %64 = zext i8 %63 to i32
+  %65 = icmp eq i32 %64, 155
+  br i1 %65, label %66, label %85
+
+66:                                               ; preds = %60, %54
+  %67 = load ptr, ptr %4, align 8, !tbaa !7
+  %68 = getelementptr i8, ptr %67, i64 1
+  %69 = load i8, ptr %68, align 1, !tbaa !16
+  %70 = zext i8 %69 to i32
+  %71 = icmp sge i32 %70, 224
+  br i1 %71, label %72, label %85
+
+72:                                               ; preds = %66
+  %73 = load ptr, ptr %4, align 8, !tbaa !7
+  %74 = getelementptr i8, ptr %73, i64 1
+  %75 = load i8, ptr %74, align 1, !tbaa !16
+  %76 = zext i8 %75 to i32
+  %77 = icmp sle i32 %76, 239
+  br i1 %77, label %78, label %85
+
+78:                                               ; preds = %72, %48
+  %79 = load ptr, ptr %4, align 8, !tbaa !7
+  %80 = getelementptr i8, ptr %79, i64 2
+  %81 = load i8, ptr %80, align 1, !tbaa !16
+  %82 = zext i8 %81 to i32
+  %83 = icmp sge i32 %82, 160
+  br i1 %83, label %84, label %85
+
+84:                                               ; preds = %78
+  store i64 3, ptr %3, align 8
+  br label %138
+
+85:                                               ; preds = %78, %72, %66, %60, %33
+  %86 = load i64, ptr %5, align 8, !tbaa !12
+  %87 = icmp sgt i64 %86, 3
+  br i1 %87, label %88, label %137
+
+88:                                               ; preds = %85
+  %89 = load ptr, ptr %4, align 8, !tbaa !7
+  %90 = getelementptr i8, ptr %89, i64 0
+  %91 = load i8, ptr %90, align 1, !tbaa !16
+  %92 = zext i8 %91 to i32
+  %93 = icmp eq i32 %92, 156
+  br i1 %93, label %94, label %106
+
+94:                                               ; preds = %88
+  %95 = load ptr, ptr %4, align 8, !tbaa !7
+  %96 = getelementptr i8, ptr %95, i64 1
+  %97 = load i8, ptr %96, align 1, !tbaa !16
+  %98 = zext i8 %97 to i32
+  %99 = icmp sge i32 %98, 240
+  br i1 %99, label %100, label %106
+
+100:                                              ; preds = %94
+  %101 = load ptr, ptr %4, align 8, !tbaa !7
+  %102 = getelementptr i8, ptr %101, i64 1
+  %103 = load i8, ptr %102, align 1, !tbaa !16
+  %104 = zext i8 %103 to i32
+  %105 = icmp sle i32 %104, 244
+  br i1 %105, label %124, label %106
+
+106:                                              ; preds = %100, %94, %88
+  %107 = load ptr, ptr %4, align 8, !tbaa !7
+  %108 = getelementptr i8, ptr %107, i64 0
+  %109 = load i8, ptr %108, align 1, !tbaa !16
+  %110 = zext i8 %109 to i32
+  %111 = icmp eq i32 %110, 157
+  br i1 %111, label %112, label %137
+
+112:                                              ; preds = %106
+  %113 = load ptr, ptr %4, align 8, !tbaa !7
+  %114 = getelementptr i8, ptr %113, i64 1
+  %115 = load i8, ptr %114, align 1, !tbaa !16
+  %116 = zext i8 %115 to i32
+  %117 = icmp sge i32 %116, 245
+  br i1 %117, label %118, label %137
+
+118:                                              ; preds = %112
+  %119 = load ptr, ptr %4, align 8, !tbaa !7
+  %120 = getelementptr i8, ptr %119, i64 1
+  %121 = load i8, ptr %120, align 1, !tbaa !16
+  %122 = zext i8 %121 to i32
+  %123 = icmp sle i32 %122, 254
+  br i1 %123, label %124, label %137
+
+124:                                              ; preds = %118, %100
+  %125 = load ptr, ptr %4, align 8, !tbaa !7
+  %126 = getelementptr i8, ptr %125, i64 2
+  %127 = load i8, ptr %126, align 1, !tbaa !16
+  %128 = zext i8 %127 to i32
+  %129 = icmp sge i32 %128, 160
+  br i1 %129, label %130, label %137
+
+130:                                              ; preds = %124
+  %131 = load ptr, ptr %4, align 8, !tbaa !7
+  %132 = getelementptr i8, ptr %131, i64 3
+  %133 = load i8, ptr %132, align 1, !tbaa !16
+  %134 = zext i8 %133 to i32
+  %135 = icmp sge i32 %134, 160
+  br i1 %135, label %136, label %137
+
+136:                                              ; preds = %130
+  store i64 4, ptr %3, align 8
+  br label %138
+
+137:                                              ; preds = %130, %124, %118, %112, %106, %85
+  store i64 0, ptr %3, align 8
+  br label %138
+
+138:                                              ; preds = %137, %136, %84, %32, %10
+  %139 = load i64, ptr %3, align 8
+  ret i64 %139
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_euc_kr_char_width(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca i64, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !7
+  store i64 %1, ptr %5, align 8, !tbaa !12
+  %6 = load ptr, ptr %4, align 8, !tbaa !7
+  %7 = load i8, ptr %6, align 1, !tbaa !16
+  %8 = zext i8 %7 to i32
+  %9 = icmp slt i32 %8, 128
+  br i1 %9, label %10, label %11
+
+10:                                               ; preds = %2
+  store i64 1, ptr %3, align 8
+  br label %40
+
+11:                                               ; preds = %2
+  %12 = load i64, ptr %5, align 8, !tbaa !12
+  %13 = icmp sgt i64 %12, 1
+  br i1 %13, label %14, label %39
+
+14:                                               ; preds = %11
+  %15 = load ptr, ptr %4, align 8, !tbaa !7
+  %16 = getelementptr i8, ptr %15, i64 0
+  %17 = load i8, ptr %16, align 1, !tbaa !16
+  %18 = zext i8 %17 to i32
+  %19 = icmp sge i32 %18, 161
+  br i1 %19, label %20, label %39
+
+20:                                               ; preds = %14
+  %21 = load ptr, ptr %4, align 8, !tbaa !7
+  %22 = getelementptr i8, ptr %21, i64 0
+  %23 = load i8, ptr %22, align 1, !tbaa !16
+  %24 = zext i8 %23 to i32
+  %25 = icmp sle i32 %24, 254
+  br i1 %25, label %26, label %39
+
+26:                                               ; preds = %20
+  %27 = load ptr, ptr %4, align 8, !tbaa !7
+  %28 = getelementptr i8, ptr %27, i64 1
+  %29 = load i8, ptr %28, align 1, !tbaa !16
+  %30 = zext i8 %29 to i32
+  %31 = icmp sge i32 %30, 161
+  br i1 %31, label %32, label %39
+
+32:                                               ; preds = %26
+  %33 = load ptr, ptr %4, align 8, !tbaa !7
+  %34 = getelementptr i8, ptr %33, i64 1
+  %35 = load i8, ptr %34, align 1, !tbaa !16
+  %36 = zext i8 %35 to i32
+  %37 = icmp sle i32 %36, 254
+  br i1 %37, label %38, label %39
+
+38:                                               ; preds = %32
+  store i64 2, ptr %3, align 8
+  br label %40
+
+39:                                               ; preds = %32, %26, %20, %14, %11
+  store i64 0, ptr %3, align 8
+  br label %40
+
+40:                                               ; preds = %39, %38, %10
+  %41 = load i64, ptr %3, align 8
+  ret i64 %41
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_euc_tw_char_width(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca i64, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !7
+  store i64 %1, ptr %5, align 8, !tbaa !12
+  %6 = load ptr, ptr %4, align 8, !tbaa !7
+  %7 = load i8, ptr %6, align 1, !tbaa !16
+  %8 = zext i8 %7 to i32
+  %9 = icmp slt i32 %8, 128
+  br i1 %9, label %10, label %11
+
+10:                                               ; preds = %2
+  store i64 1, ptr %3, align 8
+  br label %86
+
+11:                                               ; preds = %2
+  %12 = load i64, ptr %5, align 8, !tbaa !12
+  %13 = icmp sgt i64 %12, 1
+  br i1 %13, label %14, label %39
+
+14:                                               ; preds = %11
+  %15 = load ptr, ptr %4, align 8, !tbaa !7
+  %16 = getelementptr i8, ptr %15, i64 0
+  %17 = load i8, ptr %16, align 1, !tbaa !16
+  %18 = zext i8 %17 to i32
+  %19 = icmp sge i32 %18, 161
+  br i1 %19, label %20, label %39
+
+20:                                               ; preds = %14
+  %21 = load ptr, ptr %4, align 8, !tbaa !7
+  %22 = getelementptr i8, ptr %21, i64 0
+  %23 = load i8, ptr %22, align 1, !tbaa !16
+  %24 = zext i8 %23 to i32
+  %25 = icmp sle i32 %24, 254
+  br i1 %25, label %26, label %39
+
+26:                                               ; preds = %20
+  %27 = load ptr, ptr %4, align 8, !tbaa !7
+  %28 = getelementptr i8, ptr %27, i64 1
+  %29 = load i8, ptr %28, align 1, !tbaa !16
+  %30 = zext i8 %29 to i32
+  %31 = icmp sge i32 %30, 161
+  br i1 %31, label %32, label %39
+
+32:                                               ; preds = %26
+  %33 = load ptr, ptr %4, align 8, !tbaa !7
+  %34 = getelementptr i8, ptr %33, i64 1
+  %35 = load i8, ptr %34, align 1, !tbaa !16
+  %36 = zext i8 %35 to i32
+  %37 = icmp sle i32 %36, 254
+  br i1 %37, label %38, label %39
+
+38:                                               ; preds = %32
+  store i64 2, ptr %3, align 8
+  br label %86
+
+39:                                               ; preds = %32, %26, %20, %14, %11
+  %40 = load i64, ptr %5, align 8, !tbaa !12
+  %41 = icmp sgt i64 %40, 3
+  br i1 %41, label %42, label %85
+
+42:                                               ; preds = %39
+  %43 = load ptr, ptr %4, align 8, !tbaa !7
+  %44 = getelementptr i8, ptr %43, i64 0
+  %45 = load i8, ptr %44, align 1, !tbaa !16
+  %46 = zext i8 %45 to i32
+  %47 = icmp eq i32 %46, 142
+  br i1 %47, label %48, label %85
+
+48:                                               ; preds = %42
+  %49 = load ptr, ptr %4, align 8, !tbaa !7
+  %50 = getelementptr i8, ptr %49, i64 1
+  %51 = load i8, ptr %50, align 1, !tbaa !16
+  %52 = zext i8 %51 to i32
+  %53 = icmp sge i32 %52, 161
+  br i1 %53, label %54, label %85
+
+54:                                               ; preds = %48
+  %55 = load ptr, ptr %4, align 8, !tbaa !7
+  %56 = getelementptr i8, ptr %55, i64 1
+  %57 = load i8, ptr %56, align 1, !tbaa !16
+  %58 = zext i8 %57 to i32
+  %59 = icmp sle i32 %58, 176
+  br i1 %59, label %60, label %85
+
+60:                                               ; preds = %54
+  %61 = load ptr, ptr %4, align 8, !tbaa !7
+  %62 = getelementptr i8, ptr %61, i64 2
+  %63 = load i8, ptr %62, align 1, !tbaa !16
+  %64 = zext i8 %63 to i32
+  %65 = icmp sge i32 %64, 161
+  br i1 %65, label %66, label %85
+
+66:                                               ; preds = %60
+  %67 = load ptr, ptr %4, align 8, !tbaa !7
+  %68 = getelementptr i8, ptr %67, i64 2
+  %69 = load i8, ptr %68, align 1, !tbaa !16
+  %70 = zext i8 %69 to i32
+  %71 = icmp sle i32 %70, 254
+  br i1 %71, label %72, label %85
+
+72:                                               ; preds = %66
+  %73 = load ptr, ptr %4, align 8, !tbaa !7
+  %74 = getelementptr i8, ptr %73, i64 3
+  %75 = load i8, ptr %74, align 1, !tbaa !16
+  %76 = zext i8 %75 to i32
+  %77 = icmp sge i32 %76, 161
+  br i1 %77, label %78, label %85
+
+78:                                               ; preds = %72
+  %79 = load ptr, ptr %4, align 8, !tbaa !7
+  %80 = getelementptr i8, ptr %79, i64 3
+  %81 = load i8, ptr %80, align 1, !tbaa !16
+  %82 = zext i8 %81 to i32
+  %83 = icmp sle i32 %82, 254
+  br i1 %83, label %84, label %85
+
+84:                                               ; preds = %78
+  store i64 4, ptr %3, align 8
+  br label %86
+
+85:                                               ; preds = %78, %72, %66, %60, %54, %48, %42, %39
+  store i64 0, ptr %3, align 8
+  br label %86
+
+86:                                               ; preds = %85, %84, %38, %10
+  %87 = load i64, ptr %3, align 8
+  ret i64 %87
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_gb18030_char_width(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca i64, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !7
+  store i64 %1, ptr %5, align 8, !tbaa !12
+  %6 = load ptr, ptr %4, align 8, !tbaa !7
+  %7 = load i8, ptr %6, align 1, !tbaa !16
+  %8 = zext i8 %7 to i32
+  %9 = icmp slt i32 %8, 128
+  br i1 %9, label %10, label %11
+
+10:                                               ; preds = %2
+  store i64 1, ptr %3, align 8
+  br label %98
+
+11:                                               ; preds = %2
+  %12 = load i64, ptr %5, align 8, !tbaa !12
+  %13 = icmp sgt i64 %12, 1
+  br i1 %13, label %14, label %45
+
+14:                                               ; preds = %11
+  %15 = load ptr, ptr %4, align 8, !tbaa !7
+  %16 = getelementptr i8, ptr %15, i64 0
+  %17 = load i8, ptr %16, align 1, !tbaa !16
+  %18 = zext i8 %17 to i32
+  %19 = icmp sge i32 %18, 129
+  br i1 %19, label %20, label %45
+
+20:                                               ; preds = %14
+  %21 = load ptr, ptr %4, align 8, !tbaa !7
+  %22 = getelementptr i8, ptr %21, i64 0
+  %23 = load i8, ptr %22, align 1, !tbaa !16
+  %24 = zext i8 %23 to i32
+  %25 = icmp sle i32 %24, 254
+  br i1 %25, label %26, label %45
+
+26:                                               ; preds = %20
+  %27 = load ptr, ptr %4, align 8, !tbaa !7
+  %28 = getelementptr i8, ptr %27, i64 1
+  %29 = load i8, ptr %28, align 1, !tbaa !16
+  %30 = zext i8 %29 to i32
+  %31 = icmp sge i32 %30, 64
+  br i1 %31, label %32, label %45
+
+32:                                               ; preds = %26
+  %33 = load ptr, ptr %4, align 8, !tbaa !7
+  %34 = getelementptr i8, ptr %33, i64 1
+  %35 = load i8, ptr %34, align 1, !tbaa !16
+  %36 = zext i8 %35 to i32
+  %37 = icmp sle i32 %36, 254
+  br i1 %37, label %38, label %45
+
+38:                                               ; preds = %32
+  %39 = load ptr, ptr %4, align 8, !tbaa !7
+  %40 = getelementptr i8, ptr %39, i64 1
+  %41 = load i8, ptr %40, align 1, !tbaa !16
+  %42 = zext i8 %41 to i32
+  %43 = icmp ne i32 %42, 127
+  br i1 %43, label %44, label %45
+
+44:                                               ; preds = %38
+  store i64 2, ptr %3, align 8
+  br label %98
+
+45:                                               ; preds = %38, %32, %26, %20, %14, %11
+  %46 = load i64, ptr %5, align 8, !tbaa !12
+  %47 = icmp sgt i64 %46, 3
+  br i1 %47, label %48, label %97
+
+48:                                               ; preds = %45
+  %49 = load ptr, ptr %4, align 8, !tbaa !7
+  %50 = getelementptr i8, ptr %49, i64 0
+  %51 = load i8, ptr %50, align 1, !tbaa !16
+  %52 = zext i8 %51 to i32
+  %53 = icmp sge i32 %52, 129
+  br i1 %53, label %54, label %97
+
+54:                                               ; preds = %48
+  %55 = load ptr, ptr %4, align 8, !tbaa !7
+  %56 = getelementptr i8, ptr %55, i64 0
+  %57 = load i8, ptr %56, align 1, !tbaa !16
+  %58 = zext i8 %57 to i32
+  %59 = icmp sle i32 %58, 254
+  br i1 %59, label %60, label %97
+
+60:                                               ; preds = %54
+  %61 = load ptr, ptr %4, align 8, !tbaa !7
+  %62 = getelementptr i8, ptr %61, i64 1
+  %63 = load i8, ptr %62, align 1, !tbaa !16
+  %64 = zext i8 %63 to i32
+  %65 = icmp sge i32 %64, 48
+  br i1 %65, label %66, label %97
+
+66:                                               ; preds = %60
+  %67 = load ptr, ptr %4, align 8, !tbaa !7
+  %68 = getelementptr i8, ptr %67, i64 1
+  %69 = load i8, ptr %68, align 1, !tbaa !16
+  %70 = zext i8 %69 to i32
+  %71 = icmp sle i32 %70, 57
+  br i1 %71, label %72, label %97
+
+72:                                               ; preds = %66
+  %73 = load ptr, ptr %4, align 8, !tbaa !7
+  %74 = getelementptr i8, ptr %73, i64 2
+  %75 = load i8, ptr %74, align 1, !tbaa !16
+  %76 = zext i8 %75 to i32
+  %77 = icmp sge i32 %76, 129
+  br i1 %77, label %78, label %97
+
+78:                                               ; preds = %72
+  %79 = load ptr, ptr %4, align 8, !tbaa !7
+  %80 = getelementptr i8, ptr %79, i64 2
+  %81 = load i8, ptr %80, align 1, !tbaa !16
+  %82 = zext i8 %81 to i32
+  %83 = icmp sle i32 %82, 254
+  br i1 %83, label %84, label %97
+
+84:                                               ; preds = %78
+  %85 = load ptr, ptr %4, align 8, !tbaa !7
+  %86 = getelementptr i8, ptr %85, i64 3
+  %87 = load i8, ptr %86, align 1, !tbaa !16
+  %88 = zext i8 %87 to i32
+  %89 = icmp sge i32 %88, 48
+  br i1 %89, label %90, label %97
+
+90:                                               ; preds = %84
+  %91 = load ptr, ptr %4, align 8, !tbaa !7
+  %92 = getelementptr i8, ptr %91, i64 3
+  %93 = load i8, ptr %92, align 1, !tbaa !16
+  %94 = zext i8 %93 to i32
+  %95 = icmp sle i32 %94, 57
+  br i1 %95, label %96, label %97
+
+96:                                               ; preds = %90
+  store i64 4, ptr %3, align 8
+  br label %98
+
+97:                                               ; preds = %90, %84, %78, %72, %66, %60, %54, %48, %45
+  store i64 0, ptr %3, align 8
+  br label %98
+
+98:                                               ; preds = %97, %96, %44, %10
+  %99 = load i64, ptr %3, align 8
+  ret i64 %99
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_gb1988_alpha_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_gb1988_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 1
+  %12 = sext i32 %11 to i64
+  ret i64 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_gb1988_alnum_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_gb1988_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 2
+  %12 = icmp ne i32 %11, 0
+  %13 = select i1 %12, i32 1, i32 0
+  %14 = sext i32 %13 to i64
+  ret i64 %14
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal zeroext i1 @pm_encoding_gb1988_isupper_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_gb1988_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 4
+  %12 = icmp ne i32 %11, 0
+  ret i1 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_gbk_char_width(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca i64, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !7
+  store i64 %1, ptr %5, align 8, !tbaa !12
+  %6 = load ptr, ptr %4, align 8, !tbaa !7
+  %7 = load i8, ptr %6, align 1, !tbaa !16
+  %8 = zext i8 %7 to i32
+  %9 = icmp sle i32 %8, 128
+  br i1 %9, label %10, label %11
+
+10:                                               ; preds = %2
+  store i64 1, ptr %3, align 8
+  br label %232
+
+11:                                               ; preds = %2
+  %12 = load i64, ptr %5, align 8, !tbaa !12
+  %13 = icmp sgt i64 %12, 1
+  br i1 %13, label %14, label %231
+
+14:                                               ; preds = %11
+  %15 = load ptr, ptr %4, align 8, !tbaa !7
+  %16 = getelementptr i8, ptr %15, i64 0
+  %17 = load i8, ptr %16, align 1, !tbaa !16
+  %18 = zext i8 %17 to i32
+  %19 = icmp sge i32 %18, 161
+  br i1 %19, label %20, label %38
+
+20:                                               ; preds = %14
+  %21 = load ptr, ptr %4, align 8, !tbaa !7
+  %22 = getelementptr i8, ptr %21, i64 0
+  %23 = load i8, ptr %22, align 1, !tbaa !16
+  %24 = zext i8 %23 to i32
+  %25 = icmp sle i32 %24, 169
+  br i1 %25, label %26, label %38
+
+26:                                               ; preds = %20
+  %27 = load ptr, ptr %4, align 8, !tbaa !7
+  %28 = getelementptr i8, ptr %27, i64 1
+  %29 = load i8, ptr %28, align 1, !tbaa !16
+  %30 = zext i8 %29 to i32
+  %31 = icmp sge i32 %30, 161
+  br i1 %31, label %32, label %38
+
+32:                                               ; preds = %26
+  %33 = load ptr, ptr %4, align 8, !tbaa !7
+  %34 = getelementptr i8, ptr %33, i64 1
+  %35 = load i8, ptr %34, align 1, !tbaa !16
+  %36 = zext i8 %35 to i32
+  %37 = icmp sle i32 %36, 254
+  br i1 %37, label %230, label %38
+
+38:                                               ; preds = %32, %26, %20, %14
+  %39 = load ptr, ptr %4, align 8, !tbaa !7
+  %40 = getelementptr i8, ptr %39, i64 0
+  %41 = load i8, ptr %40, align 1, !tbaa !16
+  %42 = zext i8 %41 to i32
+  %43 = icmp sge i32 %42, 176
+  br i1 %43, label %44, label %62
+
+44:                                               ; preds = %38
+  %45 = load ptr, ptr %4, align 8, !tbaa !7
+  %46 = getelementptr i8, ptr %45, i64 0
+  %47 = load i8, ptr %46, align 1, !tbaa !16
+  %48 = zext i8 %47 to i32
+  %49 = icmp sle i32 %48, 247
+  br i1 %49, label %50, label %62
+
+50:                                               ; preds = %44
+  %51 = load ptr, ptr %4, align 8, !tbaa !7
+  %52 = getelementptr i8, ptr %51, i64 1
+  %53 = load i8, ptr %52, align 1, !tbaa !16
+  %54 = zext i8 %53 to i32
+  %55 = icmp sge i32 %54, 161
+  br i1 %55, label %56, label %62
+
+56:                                               ; preds = %50
+  %57 = load ptr, ptr %4, align 8, !tbaa !7
+  %58 = getelementptr i8, ptr %57, i64 1
+  %59 = load i8, ptr %58, align 1, !tbaa !16
+  %60 = zext i8 %59 to i32
+  %61 = icmp sle i32 %60, 254
+  br i1 %61, label %230, label %62
+
+62:                                               ; preds = %56, %50, %44, %38
+  %63 = load ptr, ptr %4, align 8, !tbaa !7
+  %64 = getelementptr i8, ptr %63, i64 0
+  %65 = load i8, ptr %64, align 1, !tbaa !16
+  %66 = zext i8 %65 to i32
+  %67 = icmp sge i32 %66, 129
+  br i1 %67, label %68, label %92
+
+68:                                               ; preds = %62
+  %69 = load ptr, ptr %4, align 8, !tbaa !7
+  %70 = getelementptr i8, ptr %69, i64 0
+  %71 = load i8, ptr %70, align 1, !tbaa !16
+  %72 = zext i8 %71 to i32
+  %73 = icmp sle i32 %72, 160
+  br i1 %73, label %74, label %92
+
+74:                                               ; preds = %68
+  %75 = load ptr, ptr %4, align 8, !tbaa !7
+  %76 = getelementptr i8, ptr %75, i64 1
+  %77 = load i8, ptr %76, align 1, !tbaa !16
+  %78 = zext i8 %77 to i32
+  %79 = icmp sge i32 %78, 64
+  br i1 %79, label %80, label %92
+
+80:                                               ; preds = %74
+  %81 = load ptr, ptr %4, align 8, !tbaa !7
+  %82 = getelementptr i8, ptr %81, i64 1
+  %83 = load i8, ptr %82, align 1, !tbaa !16
+  %84 = zext i8 %83 to i32
+  %85 = icmp sle i32 %84, 254
+  br i1 %85, label %86, label %92
+
+86:                                               ; preds = %80
+  %87 = load ptr, ptr %4, align 8, !tbaa !7
+  %88 = getelementptr i8, ptr %87, i64 1
+  %89 = load i8, ptr %88, align 1, !tbaa !16
+  %90 = zext i8 %89 to i32
+  %91 = icmp ne i32 %90, 127
+  br i1 %91, label %230, label %92
+
+92:                                               ; preds = %86, %80, %74, %68, %62
+  %93 = load ptr, ptr %4, align 8, !tbaa !7
+  %94 = getelementptr i8, ptr %93, i64 0
+  %95 = load i8, ptr %94, align 1, !tbaa !16
+  %96 = zext i8 %95 to i32
+  %97 = icmp sge i32 %96, 170
+  br i1 %97, label %98, label %122
+
+98:                                               ; preds = %92
+  %99 = load ptr, ptr %4, align 8, !tbaa !7
+  %100 = getelementptr i8, ptr %99, i64 0
+  %101 = load i8, ptr %100, align 1, !tbaa !16
+  %102 = zext i8 %101 to i32
+  %103 = icmp sle i32 %102, 254
+  br i1 %103, label %104, label %122
+
+104:                                              ; preds = %98
+  %105 = load ptr, ptr %4, align 8, !tbaa !7
+  %106 = getelementptr i8, ptr %105, i64 1
+  %107 = load i8, ptr %106, align 1, !tbaa !16
+  %108 = zext i8 %107 to i32
+  %109 = icmp sge i32 %108, 64
+  br i1 %109, label %110, label %122
+
+110:                                              ; preds = %104
+  %111 = load ptr, ptr %4, align 8, !tbaa !7
+  %112 = getelementptr i8, ptr %111, i64 1
+  %113 = load i8, ptr %112, align 1, !tbaa !16
+  %114 = zext i8 %113 to i32
+  %115 = icmp sle i32 %114, 160
+  br i1 %115, label %116, label %122
+
+116:                                              ; preds = %110
+  %117 = load ptr, ptr %4, align 8, !tbaa !7
+  %118 = getelementptr i8, ptr %117, i64 1
+  %119 = load i8, ptr %118, align 1, !tbaa !16
+  %120 = zext i8 %119 to i32
+  %121 = icmp ne i32 %120, 127
+  br i1 %121, label %230, label %122
+
+122:                                              ; preds = %116, %110, %104, %98, %92
+  %123 = load ptr, ptr %4, align 8, !tbaa !7
+  %124 = getelementptr i8, ptr %123, i64 0
+  %125 = load i8, ptr %124, align 1, !tbaa !16
+  %126 = zext i8 %125 to i32
+  %127 = icmp sge i32 %126, 168
+  br i1 %127, label %128, label %152
+
+128:                                              ; preds = %122
+  %129 = load ptr, ptr %4, align 8, !tbaa !7
+  %130 = getelementptr i8, ptr %129, i64 0
+  %131 = load i8, ptr %130, align 1, !tbaa !16
+  %132 = zext i8 %131 to i32
+  %133 = icmp sle i32 %132, 169
+  br i1 %133, label %134, label %152
+
+134:                                              ; preds = %128
+  %135 = load ptr, ptr %4, align 8, !tbaa !7
+  %136 = getelementptr i8, ptr %135, i64 1
+  %137 = load i8, ptr %136, align 1, !tbaa !16
+  %138 = zext i8 %137 to i32
+  %139 = icmp sge i32 %138, 64
+  br i1 %139, label %140, label %152
+
+140:                                              ; preds = %134
+  %141 = load ptr, ptr %4, align 8, !tbaa !7
+  %142 = getelementptr i8, ptr %141, i64 1
+  %143 = load i8, ptr %142, align 1, !tbaa !16
+  %144 = zext i8 %143 to i32
+  %145 = icmp sle i32 %144, 160
+  br i1 %145, label %146, label %152
+
+146:                                              ; preds = %140
+  %147 = load ptr, ptr %4, align 8, !tbaa !7
+  %148 = getelementptr i8, ptr %147, i64 1
+  %149 = load i8, ptr %148, align 1, !tbaa !16
+  %150 = zext i8 %149 to i32
+  %151 = icmp ne i32 %150, 127
+  br i1 %151, label %230, label %152
+
+152:                                              ; preds = %146, %140, %134, %128, %122
+  %153 = load ptr, ptr %4, align 8, !tbaa !7
+  %154 = getelementptr i8, ptr %153, i64 0
+  %155 = load i8, ptr %154, align 1, !tbaa !16
+  %156 = zext i8 %155 to i32
+  %157 = icmp sge i32 %156, 170
+  br i1 %157, label %158, label %176
+
+158:                                              ; preds = %152
+  %159 = load ptr, ptr %4, align 8, !tbaa !7
+  %160 = getelementptr i8, ptr %159, i64 0
+  %161 = load i8, ptr %160, align 1, !tbaa !16
+  %162 = zext i8 %161 to i32
+  %163 = icmp sle i32 %162, 175
+  br i1 %163, label %164, label %176
+
+164:                                              ; preds = %158
+  %165 = load ptr, ptr %4, align 8, !tbaa !7
+  %166 = getelementptr i8, ptr %165, i64 1
+  %167 = load i8, ptr %166, align 1, !tbaa !16
+  %168 = zext i8 %167 to i32
+  %169 = icmp sge i32 %168, 161
+  br i1 %169, label %170, label %176
+
+170:                                              ; preds = %164
+  %171 = load ptr, ptr %4, align 8, !tbaa !7
+  %172 = getelementptr i8, ptr %171, i64 1
+  %173 = load i8, ptr %172, align 1, !tbaa !16
+  %174 = zext i8 %173 to i32
+  %175 = icmp sle i32 %174, 254
+  br i1 %175, label %230, label %176
+
+176:                                              ; preds = %170, %164, %158, %152
+  %177 = load ptr, ptr %4, align 8, !tbaa !7
+  %178 = getelementptr i8, ptr %177, i64 0
+  %179 = load i8, ptr %178, align 1, !tbaa !16
+  %180 = zext i8 %179 to i32
+  %181 = icmp sge i32 %180, 248
+  br i1 %181, label %182, label %200
+
+182:                                              ; preds = %176
+  %183 = load ptr, ptr %4, align 8, !tbaa !7
+  %184 = getelementptr i8, ptr %183, i64 0
+  %185 = load i8, ptr %184, align 1, !tbaa !16
+  %186 = zext i8 %185 to i32
+  %187 = icmp sle i32 %186, 254
+  br i1 %187, label %188, label %200
+
+188:                                              ; preds = %182
+  %189 = load ptr, ptr %4, align 8, !tbaa !7
+  %190 = getelementptr i8, ptr %189, i64 1
+  %191 = load i8, ptr %190, align 1, !tbaa !16
+  %192 = zext i8 %191 to i32
+  %193 = icmp sge i32 %192, 161
+  br i1 %193, label %194, label %200
+
+194:                                              ; preds = %188
+  %195 = load ptr, ptr %4, align 8, !tbaa !7
+  %196 = getelementptr i8, ptr %195, i64 1
+  %197 = load i8, ptr %196, align 1, !tbaa !16
+  %198 = zext i8 %197 to i32
+  %199 = icmp sle i32 %198, 254
+  br i1 %199, label %230, label %200
+
+200:                                              ; preds = %194, %188, %182, %176
+  %201 = load ptr, ptr %4, align 8, !tbaa !7
+  %202 = getelementptr i8, ptr %201, i64 0
+  %203 = load i8, ptr %202, align 1, !tbaa !16
+  %204 = zext i8 %203 to i32
+  %205 = icmp sge i32 %204, 161
+  br i1 %205, label %206, label %231
+
+206:                                              ; preds = %200
+  %207 = load ptr, ptr %4, align 8, !tbaa !7
+  %208 = getelementptr i8, ptr %207, i64 0
+  %209 = load i8, ptr %208, align 1, !tbaa !16
+  %210 = zext i8 %209 to i32
+  %211 = icmp sle i32 %210, 167
+  br i1 %211, label %212, label %231
+
+212:                                              ; preds = %206
+  %213 = load ptr, ptr %4, align 8, !tbaa !7
+  %214 = getelementptr i8, ptr %213, i64 1
+  %215 = load i8, ptr %214, align 1, !tbaa !16
+  %216 = zext i8 %215 to i32
+  %217 = icmp sge i32 %216, 64
+  br i1 %217, label %218, label %231
+
+218:                                              ; preds = %212
+  %219 = load ptr, ptr %4, align 8, !tbaa !7
+  %220 = getelementptr i8, ptr %219, i64 1
+  %221 = load i8, ptr %220, align 1, !tbaa !16
+  %222 = zext i8 %221 to i32
+  %223 = icmp sle i32 %222, 160
+  br i1 %223, label %224, label %231
+
+224:                                              ; preds = %218
+  %225 = load ptr, ptr %4, align 8, !tbaa !7
+  %226 = getelementptr i8, ptr %225, i64 1
+  %227 = load i8, ptr %226, align 1, !tbaa !16
+  %228 = zext i8 %227 to i32
+  %229 = icmp ne i32 %228, 127
+  br i1 %229, label %230, label %231
+
+230:                                              ; preds = %224, %194, %170, %146, %116, %86, %56, %32
+  store i64 2, ptr %3, align 8
+  br label %232
+
+231:                                              ; preds = %224, %218, %212, %206, %200, %11
+  store i64 0, ptr %3, align 8
+  br label %232
+
+232:                                              ; preds = %231, %230, %10
+  %233 = load i64, ptr %3, align 8
+  ret i64 %233
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_ibm437_alpha_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_ibm437_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 1
+  %12 = sext i32 %11 to i64
+  ret i64 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_ibm437_alnum_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_ibm437_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 2
+  %12 = icmp ne i32 %11, 0
+  %13 = select i1 %12, i32 1, i32 0
+  %14 = sext i32 %13 to i64
+  ret i64 %14
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal zeroext i1 @pm_encoding_ibm437_isupper_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_ibm437_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 4
+  %12 = icmp ne i32 %11, 0
+  ret i1 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_ibm720_alpha_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_ibm720_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 1
+  %12 = sext i32 %11 to i64
+  ret i64 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_ibm720_alnum_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_ibm720_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 2
+  %12 = icmp ne i32 %11, 0
+  %13 = select i1 %12, i32 1, i32 0
+  %14 = sext i32 %13 to i64
+  ret i64 %14
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal zeroext i1 @pm_encoding_ibm720_isupper_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_ibm720_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 4
+  %12 = icmp ne i32 %11, 0
+  ret i1 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_ibm737_alpha_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_ibm737_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 1
+  %12 = sext i32 %11 to i64
+  ret i64 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_ibm737_alnum_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_ibm737_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 2
+  %12 = icmp ne i32 %11, 0
+  %13 = select i1 %12, i32 1, i32 0
+  %14 = sext i32 %13 to i64
+  ret i64 %14
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal zeroext i1 @pm_encoding_ibm737_isupper_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_ibm737_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 4
+  %12 = icmp ne i32 %11, 0
+  ret i1 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_ibm775_alpha_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_ibm775_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 1
+  %12 = sext i32 %11 to i64
+  ret i64 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_ibm775_alnum_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_ibm775_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 2
+  %12 = icmp ne i32 %11, 0
+  %13 = select i1 %12, i32 1, i32 0
+  %14 = sext i32 %13 to i64
+  ret i64 %14
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal zeroext i1 @pm_encoding_ibm775_isupper_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_ibm775_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 4
+  %12 = icmp ne i32 %11, 0
+  ret i1 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_ibm852_alpha_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_ibm852_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 1
+  %12 = sext i32 %11 to i64
+  ret i64 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_ibm852_alnum_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_ibm852_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 2
+  %12 = icmp ne i32 %11, 0
+  %13 = select i1 %12, i32 1, i32 0
+  %14 = sext i32 %13 to i64
+  ret i64 %14
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal zeroext i1 @pm_encoding_ibm852_isupper_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_ibm852_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 4
+  %12 = icmp ne i32 %11, 0
+  ret i1 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_ibm855_alpha_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_ibm855_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 1
+  %12 = sext i32 %11 to i64
+  ret i64 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_ibm855_alnum_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_ibm855_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 2
+  %12 = icmp ne i32 %11, 0
+  %13 = select i1 %12, i32 1, i32 0
+  %14 = sext i32 %13 to i64
+  ret i64 %14
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal zeroext i1 @pm_encoding_ibm855_isupper_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_ibm855_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 4
+  %12 = icmp ne i32 %11, 0
+  ret i1 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_ibm857_alpha_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_ibm857_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 1
+  %12 = sext i32 %11 to i64
+  ret i64 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_ibm857_alnum_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_ibm857_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 2
+  %12 = icmp ne i32 %11, 0
+  %13 = select i1 %12, i32 1, i32 0
+  %14 = sext i32 %13 to i64
+  ret i64 %14
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal zeroext i1 @pm_encoding_ibm857_isupper_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_ibm857_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 4
+  %12 = icmp ne i32 %11, 0
+  ret i1 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_ibm860_alpha_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_ibm860_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 1
+  %12 = sext i32 %11 to i64
+  ret i64 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_ibm860_alnum_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_ibm860_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 2
+  %12 = icmp ne i32 %11, 0
+  %13 = select i1 %12, i32 1, i32 0
+  %14 = sext i32 %13 to i64
+  ret i64 %14
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal zeroext i1 @pm_encoding_ibm860_isupper_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_ibm860_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 4
+  %12 = icmp ne i32 %11, 0
+  ret i1 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_ibm861_alpha_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_ibm861_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 1
+  %12 = sext i32 %11 to i64
+  ret i64 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_ibm861_alnum_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_ibm861_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 2
+  %12 = icmp ne i32 %11, 0
+  %13 = select i1 %12, i32 1, i32 0
+  %14 = sext i32 %13 to i64
+  ret i64 %14
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal zeroext i1 @pm_encoding_ibm861_isupper_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_ibm861_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 4
+  %12 = icmp ne i32 %11, 0
+  ret i1 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_ibm862_alpha_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_ibm862_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 1
+  %12 = sext i32 %11 to i64
+  ret i64 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_ibm862_alnum_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_ibm862_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 2
+  %12 = icmp ne i32 %11, 0
+  %13 = select i1 %12, i32 1, i32 0
+  %14 = sext i32 %13 to i64
+  ret i64 %14
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal zeroext i1 @pm_encoding_ibm862_isupper_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_ibm862_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 4
+  %12 = icmp ne i32 %11, 0
+  ret i1 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_ibm863_alpha_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_ibm863_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 1
+  %12 = sext i32 %11 to i64
+  ret i64 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_ibm863_alnum_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_ibm863_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 2
+  %12 = icmp ne i32 %11, 0
+  %13 = select i1 %12, i32 1, i32 0
+  %14 = sext i32 %13 to i64
+  ret i64 %14
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal zeroext i1 @pm_encoding_ibm863_isupper_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_ibm863_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 4
+  %12 = icmp ne i32 %11, 0
+  ret i1 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_ibm864_alpha_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_ibm864_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 1
+  %12 = sext i32 %11 to i64
+  ret i64 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_ibm864_alnum_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_ibm864_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 2
+  %12 = icmp ne i32 %11, 0
+  %13 = select i1 %12, i32 1, i32 0
+  %14 = sext i32 %13 to i64
+  ret i64 %14
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal zeroext i1 @pm_encoding_ibm864_isupper_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_ibm864_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 4
+  %12 = icmp ne i32 %11, 0
+  ret i1 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_ibm865_alpha_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_ibm865_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 1
+  %12 = sext i32 %11 to i64
+  ret i64 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_ibm865_alnum_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_ibm865_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 2
+  %12 = icmp ne i32 %11, 0
+  %13 = select i1 %12, i32 1, i32 0
+  %14 = sext i32 %13 to i64
+  ret i64 %14
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal zeroext i1 @pm_encoding_ibm865_isupper_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_ibm865_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 4
+  %12 = icmp ne i32 %11, 0
+  ret i1 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_ibm866_alpha_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_ibm866_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 1
+  %12 = sext i32 %11 to i64
+  ret i64 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_ibm866_alnum_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_ibm866_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 2
+  %12 = icmp ne i32 %11, 0
+  %13 = select i1 %12, i32 1, i32 0
+  %14 = sext i32 %13 to i64
+  ret i64 %14
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal zeroext i1 @pm_encoding_ibm866_isupper_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_ibm866_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 4
+  %12 = icmp ne i32 %11, 0
+  ret i1 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_ibm869_alpha_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_ibm869_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 1
+  %12 = sext i32 %11 to i64
+  ret i64 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_ibm869_alnum_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_ibm869_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 2
+  %12 = icmp ne i32 %11, 0
+  %13 = select i1 %12, i32 1, i32 0
+  %14 = sext i32 %13 to i64
+  ret i64 %14
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal zeroext i1 @pm_encoding_ibm869_isupper_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_ibm869_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 4
+  %12 = icmp ne i32 %11, 0
+  ret i1 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_iso_8859_1_alpha_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_1_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 1
+  %12 = sext i32 %11 to i64
+  ret i64 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_iso_8859_1_alnum_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_1_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 2
+  %12 = icmp ne i32 %11, 0
+  %13 = select i1 %12, i32 1, i32 0
+  %14 = sext i32 %13 to i64
+  ret i64 %14
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal zeroext i1 @pm_encoding_iso_8859_1_isupper_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_1_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 4
+  %12 = icmp ne i32 %11, 0
+  ret i1 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_iso_8859_2_alpha_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_2_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 1
+  %12 = sext i32 %11 to i64
+  ret i64 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_iso_8859_2_alnum_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_2_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 2
+  %12 = icmp ne i32 %11, 0
+  %13 = select i1 %12, i32 1, i32 0
+  %14 = sext i32 %13 to i64
+  ret i64 %14
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal zeroext i1 @pm_encoding_iso_8859_2_isupper_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_2_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 4
+  %12 = icmp ne i32 %11, 0
+  ret i1 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_iso_8859_3_alpha_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_3_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 1
+  %12 = sext i32 %11 to i64
+  ret i64 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_iso_8859_3_alnum_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_3_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 2
+  %12 = icmp ne i32 %11, 0
+  %13 = select i1 %12, i32 1, i32 0
+  %14 = sext i32 %13 to i64
+  ret i64 %14
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal zeroext i1 @pm_encoding_iso_8859_3_isupper_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_3_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 4
+  %12 = icmp ne i32 %11, 0
+  ret i1 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_iso_8859_4_alpha_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_4_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 1
+  %12 = sext i32 %11 to i64
+  ret i64 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_iso_8859_4_alnum_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_4_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 2
+  %12 = icmp ne i32 %11, 0
+  %13 = select i1 %12, i32 1, i32 0
+  %14 = sext i32 %13 to i64
+  ret i64 %14
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal zeroext i1 @pm_encoding_iso_8859_4_isupper_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_4_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 4
+  %12 = icmp ne i32 %11, 0
+  ret i1 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_iso_8859_5_alpha_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_5_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 1
+  %12 = sext i32 %11 to i64
+  ret i64 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_iso_8859_5_alnum_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_5_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 2
+  %12 = icmp ne i32 %11, 0
+  %13 = select i1 %12, i32 1, i32 0
+  %14 = sext i32 %13 to i64
+  ret i64 %14
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal zeroext i1 @pm_encoding_iso_8859_5_isupper_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_5_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 4
+  %12 = icmp ne i32 %11, 0
+  ret i1 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_iso_8859_6_alpha_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_6_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 1
+  %12 = sext i32 %11 to i64
+  ret i64 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_iso_8859_6_alnum_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_6_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 2
+  %12 = icmp ne i32 %11, 0
+  %13 = select i1 %12, i32 1, i32 0
+  %14 = sext i32 %13 to i64
+  ret i64 %14
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal zeroext i1 @pm_encoding_iso_8859_6_isupper_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_6_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 4
+  %12 = icmp ne i32 %11, 0
+  ret i1 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_iso_8859_7_alpha_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_7_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 1
+  %12 = sext i32 %11 to i64
+  ret i64 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_iso_8859_7_alnum_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_7_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 2
+  %12 = icmp ne i32 %11, 0
+  %13 = select i1 %12, i32 1, i32 0
+  %14 = sext i32 %13 to i64
+  ret i64 %14
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal zeroext i1 @pm_encoding_iso_8859_7_isupper_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_7_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 4
+  %12 = icmp ne i32 %11, 0
+  ret i1 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_iso_8859_8_alpha_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_8_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 1
+  %12 = sext i32 %11 to i64
+  ret i64 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_iso_8859_8_alnum_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_8_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 2
+  %12 = icmp ne i32 %11, 0
+  %13 = select i1 %12, i32 1, i32 0
+  %14 = sext i32 %13 to i64
+  ret i64 %14
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal zeroext i1 @pm_encoding_iso_8859_8_isupper_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_8_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 4
+  %12 = icmp ne i32 %11, 0
+  ret i1 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_iso_8859_9_alpha_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_9_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 1
+  %12 = sext i32 %11 to i64
+  ret i64 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_iso_8859_9_alnum_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_9_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 2
+  %12 = icmp ne i32 %11, 0
+  %13 = select i1 %12, i32 1, i32 0
+  %14 = sext i32 %13 to i64
+  ret i64 %14
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal zeroext i1 @pm_encoding_iso_8859_9_isupper_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_9_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 4
+  %12 = icmp ne i32 %11, 0
+  ret i1 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_iso_8859_10_alpha_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_10_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 1
+  %12 = sext i32 %11 to i64
+  ret i64 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_iso_8859_10_alnum_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_10_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 2
+  %12 = icmp ne i32 %11, 0
+  %13 = select i1 %12, i32 1, i32 0
+  %14 = sext i32 %13 to i64
+  ret i64 %14
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal zeroext i1 @pm_encoding_iso_8859_10_isupper_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_10_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 4
+  %12 = icmp ne i32 %11, 0
+  ret i1 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_iso_8859_11_alpha_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_11_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 1
+  %12 = sext i32 %11 to i64
+  ret i64 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_iso_8859_11_alnum_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_11_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 2
+  %12 = icmp ne i32 %11, 0
+  %13 = select i1 %12, i32 1, i32 0
+  %14 = sext i32 %13 to i64
+  ret i64 %14
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal zeroext i1 @pm_encoding_iso_8859_11_isupper_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_11_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 4
+  %12 = icmp ne i32 %11, 0
+  ret i1 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_iso_8859_13_alpha_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_13_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 1
+  %12 = sext i32 %11 to i64
+  ret i64 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_iso_8859_13_alnum_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_13_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 2
+  %12 = icmp ne i32 %11, 0
+  %13 = select i1 %12, i32 1, i32 0
+  %14 = sext i32 %13 to i64
+  ret i64 %14
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal zeroext i1 @pm_encoding_iso_8859_13_isupper_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_13_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 4
+  %12 = icmp ne i32 %11, 0
+  ret i1 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_iso_8859_14_alpha_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_14_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 1
+  %12 = sext i32 %11 to i64
+  ret i64 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_iso_8859_14_alnum_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_14_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 2
+  %12 = icmp ne i32 %11, 0
+  %13 = select i1 %12, i32 1, i32 0
+  %14 = sext i32 %13 to i64
+  ret i64 %14
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal zeroext i1 @pm_encoding_iso_8859_14_isupper_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_14_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 4
+  %12 = icmp ne i32 %11, 0
+  ret i1 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_iso_8859_15_alpha_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_15_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 1
+  %12 = sext i32 %11 to i64
+  ret i64 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_iso_8859_15_alnum_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_15_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 2
+  %12 = icmp ne i32 %11, 0
+  %13 = select i1 %12, i32 1, i32 0
+  %14 = sext i32 %13 to i64
+  ret i64 %14
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal zeroext i1 @pm_encoding_iso_8859_15_isupper_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_15_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 4
+  %12 = icmp ne i32 %11, 0
+  ret i1 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_iso_8859_16_alpha_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_16_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 1
+  %12 = sext i32 %11 to i64
+  ret i64 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_iso_8859_16_alnum_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_16_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 2
+  %12 = icmp ne i32 %11, 0
+  %13 = select i1 %12, i32 1, i32 0
+  %14 = sext i32 %13 to i64
+  ret i64 %14
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal zeroext i1 @pm_encoding_iso_8859_16_isupper_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_16_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 4
+  %12 = icmp ne i32 %11, 0
+  ret i1 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_koi8_r_alpha_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_koi8_r_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 1
+  %12 = sext i32 %11 to i64
+  ret i64 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_koi8_r_alnum_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_koi8_r_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 2
+  %12 = icmp ne i32 %11, 0
+  %13 = select i1 %12, i32 1, i32 0
+  %14 = sext i32 %13 to i64
+  ret i64 %14
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal zeroext i1 @pm_encoding_koi8_r_isupper_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_koi8_r_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 4
+  %12 = icmp ne i32 %11, 0
+  ret i1 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_koi8_u_alpha_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_koi8_u_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 1
+  %12 = sext i32 %11 to i64
+  ret i64 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_koi8_u_alnum_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_koi8_u_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 2
+  %12 = icmp ne i32 %11, 0
+  %13 = select i1 %12, i32 1, i32 0
+  %14 = sext i32 %13 to i64
+  ret i64 %14
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal zeroext i1 @pm_encoding_koi8_u_isupper_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_koi8_u_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 4
+  %12 = icmp ne i32 %11, 0
+  ret i1 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_mac_cent_euro_alpha_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_mac_cent_euro_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 1
+  %12 = sext i32 %11 to i64
+  ret i64 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_mac_cent_euro_alnum_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_mac_cent_euro_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 2
+  %12 = icmp ne i32 %11, 0
+  %13 = select i1 %12, i32 1, i32 0
+  %14 = sext i32 %13 to i64
+  ret i64 %14
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal zeroext i1 @pm_encoding_mac_cent_euro_isupper_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_mac_cent_euro_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 4
+  %12 = icmp ne i32 %11, 0
+  ret i1 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_mac_croatian_alpha_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_mac_croatian_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 1
+  %12 = sext i32 %11 to i64
+  ret i64 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_mac_croatian_alnum_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_mac_croatian_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 2
+  %12 = icmp ne i32 %11, 0
+  %13 = select i1 %12, i32 1, i32 0
+  %14 = sext i32 %13 to i64
+  ret i64 %14
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal zeroext i1 @pm_encoding_mac_croatian_isupper_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_mac_croatian_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 4
+  %12 = icmp ne i32 %11, 0
+  ret i1 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_mac_cyrillic_alpha_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_mac_cyrillic_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 1
+  %12 = sext i32 %11 to i64
+  ret i64 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_mac_cyrillic_alnum_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_mac_cyrillic_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 2
+  %12 = icmp ne i32 %11, 0
+  %13 = select i1 %12, i32 1, i32 0
+  %14 = sext i32 %13 to i64
+  ret i64 %14
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal zeroext i1 @pm_encoding_mac_cyrillic_isupper_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_mac_cyrillic_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 4
+  %12 = icmp ne i32 %11, 0
+  ret i1 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_mac_greek_alpha_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_mac_greek_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 1
+  %12 = sext i32 %11 to i64
+  ret i64 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_mac_greek_alnum_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_mac_greek_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 2
+  %12 = icmp ne i32 %11, 0
+  %13 = select i1 %12, i32 1, i32 0
+  %14 = sext i32 %13 to i64
+  ret i64 %14
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal zeroext i1 @pm_encoding_mac_greek_isupper_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_mac_greek_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 4
+  %12 = icmp ne i32 %11, 0
+  ret i1 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_mac_iceland_alpha_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_mac_iceland_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 1
+  %12 = sext i32 %11 to i64
+  ret i64 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_mac_iceland_alnum_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_mac_iceland_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 2
+  %12 = icmp ne i32 %11, 0
+  %13 = select i1 %12, i32 1, i32 0
+  %14 = sext i32 %13 to i64
+  ret i64 %14
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal zeroext i1 @pm_encoding_mac_iceland_isupper_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_mac_iceland_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 4
+  %12 = icmp ne i32 %11, 0
+  ret i1 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_mac_roman_alpha_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_mac_roman_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 1
+  %12 = sext i32 %11 to i64
+  ret i64 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_mac_roman_alnum_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_mac_roman_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 2
+  %12 = icmp ne i32 %11, 0
+  %13 = select i1 %12, i32 1, i32 0
+  %14 = sext i32 %13 to i64
+  ret i64 %14
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal zeroext i1 @pm_encoding_mac_roman_isupper_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_mac_roman_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 4
+  %12 = icmp ne i32 %11, 0
+  ret i1 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_mac_romania_alpha_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_mac_romania_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 1
+  %12 = sext i32 %11 to i64
+  ret i64 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_mac_romania_alnum_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_mac_romania_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 2
+  %12 = icmp ne i32 %11, 0
+  %13 = select i1 %12, i32 1, i32 0
+  %14 = sext i32 %13 to i64
+  ret i64 %14
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal zeroext i1 @pm_encoding_mac_romania_isupper_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_mac_romania_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 4
+  %12 = icmp ne i32 %11, 0
+  ret i1 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_mac_thai_alpha_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_mac_thai_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 1
+  %12 = sext i32 %11 to i64
+  ret i64 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_mac_thai_alnum_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_mac_thai_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 2
+  %12 = icmp ne i32 %11, 0
+  %13 = select i1 %12, i32 1, i32 0
+  %14 = sext i32 %13 to i64
+  ret i64 %14
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal zeroext i1 @pm_encoding_mac_thai_isupper_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_mac_thai_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 4
+  %12 = icmp ne i32 %11, 0
+  ret i1 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_mac_turkish_alpha_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_mac_turkish_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 1
+  %12 = sext i32 %11 to i64
+  ret i64 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_mac_turkish_alnum_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_mac_turkish_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 2
+  %12 = icmp ne i32 %11, 0
+  %13 = select i1 %12, i32 1, i32 0
+  %14 = sext i32 %13 to i64
+  ret i64 %14
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal zeroext i1 @pm_encoding_mac_turkish_isupper_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_mac_turkish_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 4
+  %12 = icmp ne i32 %11, 0
+  ret i1 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_mac_ukraine_alpha_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_mac_ukraine_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 1
+  %12 = sext i32 %11 to i64
+  ret i64 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_mac_ukraine_alnum_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_mac_ukraine_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 2
+  %12 = icmp ne i32 %11, 0
+  %13 = select i1 %12, i32 1, i32 0
+  %14 = sext i32 %13 to i64
+  ret i64 %14
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal zeroext i1 @pm_encoding_mac_ukraine_isupper_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_mac_ukraine_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 4
+  %12 = icmp ne i32 %11, 0
+  ret i1 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_tis_620_alpha_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_tis_620_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 1
+  %12 = sext i32 %11 to i64
+  ret i64 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_tis_620_alnum_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_tis_620_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 2
+  %12 = icmp ne i32 %11, 0
+  %13 = select i1 %12, i32 1, i32 0
+  %14 = sext i32 %13 to i64
+  ret i64 %14
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal zeroext i1 @pm_encoding_tis_620_isupper_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_tis_620_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 4
+  %12 = icmp ne i32 %11, 0
+  ret i1 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_windows_1250_alpha_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_windows_1250_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 1
+  %12 = sext i32 %11 to i64
+  ret i64 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_windows_1250_alnum_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_windows_1250_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 2
+  %12 = icmp ne i32 %11, 0
+  %13 = select i1 %12, i32 1, i32 0
+  %14 = sext i32 %13 to i64
+  ret i64 %14
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal zeroext i1 @pm_encoding_windows_1250_isupper_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_windows_1250_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 4
+  %12 = icmp ne i32 %11, 0
+  ret i1 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_windows_1251_alpha_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_windows_1251_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 1
+  %12 = sext i32 %11 to i64
+  ret i64 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_windows_1251_alnum_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_windows_1251_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 2
+  %12 = icmp ne i32 %11, 0
+  %13 = select i1 %12, i32 1, i32 0
+  %14 = sext i32 %13 to i64
+  ret i64 %14
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal zeroext i1 @pm_encoding_windows_1251_isupper_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_windows_1251_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 4
+  %12 = icmp ne i32 %11, 0
+  ret i1 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_windows_1252_alpha_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_windows_1252_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 1
+  %12 = sext i32 %11 to i64
+  ret i64 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_windows_1252_alnum_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_windows_1252_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 2
+  %12 = icmp ne i32 %11, 0
+  %13 = select i1 %12, i32 1, i32 0
+  %14 = sext i32 %13 to i64
+  ret i64 %14
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal zeroext i1 @pm_encoding_windows_1252_isupper_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_windows_1252_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 4
+  %12 = icmp ne i32 %11, 0
+  ret i1 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_windows_1253_alpha_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_windows_1253_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 1
+  %12 = sext i32 %11 to i64
+  ret i64 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_windows_1253_alnum_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_windows_1253_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 2
+  %12 = icmp ne i32 %11, 0
+  %13 = select i1 %12, i32 1, i32 0
+  %14 = sext i32 %13 to i64
+  ret i64 %14
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal zeroext i1 @pm_encoding_windows_1253_isupper_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_windows_1253_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 4
+  %12 = icmp ne i32 %11, 0
+  ret i1 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_windows_1254_alpha_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_windows_1254_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 1
+  %12 = sext i32 %11 to i64
+  ret i64 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_windows_1254_alnum_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_windows_1254_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 2
+  %12 = icmp ne i32 %11, 0
+  %13 = select i1 %12, i32 1, i32 0
+  %14 = sext i32 %13 to i64
+  ret i64 %14
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal zeroext i1 @pm_encoding_windows_1254_isupper_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_windows_1254_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 4
+  %12 = icmp ne i32 %11, 0
+  ret i1 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_windows_1255_alpha_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_windows_1255_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 1
+  %12 = sext i32 %11 to i64
+  ret i64 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_windows_1255_alnum_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_windows_1255_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 2
+  %12 = icmp ne i32 %11, 0
+  %13 = select i1 %12, i32 1, i32 0
+  %14 = sext i32 %13 to i64
+  ret i64 %14
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal zeroext i1 @pm_encoding_windows_1255_isupper_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_windows_1255_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 4
+  %12 = icmp ne i32 %11, 0
+  ret i1 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_windows_1256_alpha_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_windows_1256_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 1
+  %12 = sext i32 %11 to i64
+  ret i64 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_windows_1256_alnum_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_windows_1256_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 2
+  %12 = icmp ne i32 %11, 0
+  %13 = select i1 %12, i32 1, i32 0
+  %14 = sext i32 %13 to i64
+  ret i64 %14
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal zeroext i1 @pm_encoding_windows_1256_isupper_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_windows_1256_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 4
+  %12 = icmp ne i32 %11, 0
+  ret i1 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_windows_1257_alpha_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_windows_1257_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 1
+  %12 = sext i32 %11 to i64
+  ret i64 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_windows_1257_alnum_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_windows_1257_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 2
+  %12 = icmp ne i32 %11, 0
+  %13 = select i1 %12, i32 1, i32 0
+  %14 = sext i32 %13 to i64
+  ret i64 %14
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal zeroext i1 @pm_encoding_windows_1257_isupper_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_windows_1257_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 4
+  %12 = icmp ne i32 %11, 0
+  ret i1 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_windows_1258_alpha_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_windows_1258_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 1
+  %12 = sext i32 %11 to i64
+  ret i64 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_windows_1258_alnum_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_windows_1258_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 2
+  %12 = icmp ne i32 %11, 0
+  %13 = select i1 %12, i32 1, i32 0
+  %14 = sext i32 %13 to i64
+  ret i64 %14
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal zeroext i1 @pm_encoding_windows_1258_isupper_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_windows_1258_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 4
+  %12 = icmp ne i32 %11, 0
+  ret i1 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_windows_874_alpha_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 1
+  %12 = sext i32 %11 to i64
+  ret i64 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @pm_encoding_windows_874_alnum_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 2
+  %12 = icmp ne i32 %11, 0
+  %13 = select i1 %12, i32 1, i32 0
+  %14 = sext i32 %13 to i64
+  ret i64 %14
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal zeroext i1 @pm_encoding_windows_874_isupper_char(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 4
+  %12 = icmp ne i32 %11, 0
+  ret i1 %12
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define hidden ptr @pm_encoding_find(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !7
+  store ptr %1, ptr %5, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #3
+  %8 = load ptr, ptr %5, align 8, !tbaa !7
+  %9 = load ptr, ptr %4, align 8, !tbaa !7
+  %10 = ptrtoint ptr %8 to i64
+  %11 = ptrtoint ptr %9 to i64
+  %12 = sub i64 %10, %11
+  store i64 %12, ptr %6, align 8, !tbaa !12
+  %13 = load ptr, ptr %4, align 8, !tbaa !7
+  %14 = getelementptr i8, ptr %13, i64 5
+  %15 = load ptr, ptr %5, align 8, !tbaa !7
+  %16 = icmp ule ptr %14, %15
+  br i1 %16, label %17, label %31
+
+17:                                               ; preds = %2
+  %18 = load ptr, ptr %4, align 8, !tbaa !7
+  %19 = call i32 @pm_strncasecmp(ptr noundef %18, ptr noundef @.str, i64 noundef 5)
+  %20 = icmp eq i32 %19, 0
+  br i1 %20, label %21, label %31
+
+21:                                               ; preds = %17
+  %22 = load i64, ptr %6, align 8, !tbaa !12
+  %23 = icmp eq i64 %22, 9
+  br i1 %23, label %24, label %30
+
+24:                                               ; preds = %21
+  %25 = load ptr, ptr %4, align 8, !tbaa !7
+  %26 = getelementptr i8, ptr %25, i64 5
+  %27 = call i32 @pm_strncasecmp(ptr noundef %26, ptr noundef @.str.90, i64 noundef 4)
+  %28 = icmp eq i32 %27, 0
+  br i1 %28, label %29, label %30
+
+29:                                               ; preds = %24
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 76), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+30:                                               ; preds = %24, %21
+  store ptr @pm_encodings, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+31:                                               ; preds = %17, %2
+  %32 = load i64, ptr %6, align 8, !tbaa !12
+  %33 = icmp uge i64 %32, 3
+  br i1 %33, label %34, label %1394
+
+34:                                               ; preds = %31
+  %35 = load ptr, ptr %4, align 8, !tbaa !7
+  %36 = load i8, ptr %35, align 1, !tbaa !16
+  %37 = zext i8 %36 to i32
+  switch i32 %37, label %1393 [
+    i32 65, label %38
+    i32 97, label %38
+    i32 66, label %66
+    i32 98, label %66
+    i32 67, label %112
+    i32 99, label %112
+    i32 69, label %437
+    i32 101, label %437
+    i32 71, label %555
+    i32 103, label %555
+    i32 73, label %601
+    i32 105, label %601
+    i32 75, label %1016
+    i32 107, label %1016
+    i32 77, label %1035
+    i32 109, label %1035
+    i32 80, label %1144
+    i32 112, label %1144
+    i32 83, label %1154
+    i32 115, label %1154
+    i32 84, label %1218
+    i32 116, label %1218
+    i32 85, label %1228
+    i32 117, label %1228
+    i32 87, label %1283
+    i32 119, label %1283
+    i32 54, label %1383
+  ]
+
+38:                                               ; preds = %34, %34
+  %39 = load i64, ptr %6, align 8, !tbaa !12
+  %40 = icmp eq i64 %39, 5
+  br i1 %40, label %41, label %47
+
+41:                                               ; preds = %38
+  %42 = load ptr, ptr %4, align 8, !tbaa !7
+  %43 = load i64, ptr %6, align 8, !tbaa !12
+  %44 = call i32 @pm_strncasecmp(ptr noundef %42, ptr noundef @.str.91, i64 noundef %43)
+  %45 = icmp eq i32 %44, 0
+  br i1 %45, label %46, label %47
+
+46:                                               ; preds = %41
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 1), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+47:                                               ; preds = %41, %38
+  %48 = load i64, ptr %6, align 8, !tbaa !12
+  %49 = icmp eq i64 %48, 10
+  br i1 %49, label %50, label %56
+
+50:                                               ; preds = %47
+  %51 = load ptr, ptr %4, align 8, !tbaa !7
+  %52 = load i64, ptr %6, align 8, !tbaa !12
+  %53 = call i32 @pm_strncasecmp(ptr noundef %51, ptr noundef @.str.2, i64 noundef %52)
+  %54 = icmp eq i32 %53, 0
+  br i1 %54, label %55, label %56
+
+55:                                               ; preds = %50
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 2), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+56:                                               ; preds = %50, %47
+  %57 = load i64, ptr %6, align 8, !tbaa !12
+  %58 = icmp eq i64 %57, 14
+  br i1 %58, label %59, label %65
+
+59:                                               ; preds = %56
+  %60 = load ptr, ptr %4, align 8, !tbaa !7
+  %61 = load i64, ptr %6, align 8, !tbaa !12
+  %62 = call i32 @pm_strncasecmp(ptr noundef %60, ptr noundef @.str.92, i64 noundef %61)
+  %63 = icmp eq i32 %62, 0
+  br i1 %63, label %64, label %65
+
+64:                                               ; preds = %59
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 1), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+65:                                               ; preds = %59, %56
+  br label %1393
+
+66:                                               ; preds = %34, %34
+  %67 = load i64, ptr %6, align 8, !tbaa !12
+  %68 = icmp eq i64 %67, 6
+  br i1 %68, label %69, label %75
+
+69:                                               ; preds = %66
+  %70 = load ptr, ptr %4, align 8, !tbaa !7
+  %71 = load i64, ptr %6, align 8, !tbaa !12
+  %72 = call i32 @pm_strncasecmp(ptr noundef %70, ptr noundef @.str.93, i64 noundef %71)
+  %73 = icmp eq i32 %72, 0
+  br i1 %73, label %74, label %75
+
+74:                                               ; preds = %69
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 2), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+75:                                               ; preds = %69, %66
+  %76 = load i64, ptr %6, align 8, !tbaa !12
+  %77 = icmp eq i64 %76, 4
+  br i1 %77, label %78, label %84
+
+78:                                               ; preds = %75
+  %79 = load ptr, ptr %4, align 8, !tbaa !7
+  %80 = load i64, ptr %6, align 8, !tbaa !12
+  %81 = call i32 @pm_strncasecmp(ptr noundef %79, ptr noundef @.str.5, i64 noundef %80)
+  %82 = icmp eq i32 %81, 0
+  br i1 %82, label %83, label %84
+
+83:                                               ; preds = %78
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 5), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+84:                                               ; preds = %78, %75
+  %85 = load i64, ptr %6, align 8, !tbaa !12
+  %86 = icmp eq i64 %85, 10
+  br i1 %86, label %87, label %93
+
+87:                                               ; preds = %84
+  %88 = load ptr, ptr %4, align 8, !tbaa !7
+  %89 = load i64, ptr %6, align 8, !tbaa !12
+  %90 = call i32 @pm_strncasecmp(ptr noundef %88, ptr noundef @.str.6, i64 noundef %89)
+  %91 = icmp eq i32 %90, 0
+  br i1 %91, label %92, label %93
+
+92:                                               ; preds = %87
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 6), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+93:                                               ; preds = %87, %84
+  %94 = load i64, ptr %6, align 8, !tbaa !12
+  %95 = icmp eq i64 %94, 15
+  br i1 %95, label %96, label %102
+
+96:                                               ; preds = %93
+  %97 = load ptr, ptr %4, align 8, !tbaa !7
+  %98 = load i64, ptr %6, align 8, !tbaa !12
+  %99 = call i32 @pm_strncasecmp(ptr noundef %97, ptr noundef @.str.94, i64 noundef %98)
+  %100 = icmp eq i32 %99, 0
+  br i1 %100, label %101, label %102
+
+101:                                              ; preds = %96
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 6), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+102:                                              ; preds = %96, %93
+  %103 = load i64, ptr %6, align 8, !tbaa !12
+  %104 = icmp eq i64 %103, 8
+  br i1 %104, label %105, label %111
+
+105:                                              ; preds = %102
+  %106 = load ptr, ptr %4, align 8, !tbaa !7
+  %107 = load i64, ptr %6, align 8, !tbaa !12
+  %108 = call i32 @pm_strncasecmp(ptr noundef %106, ptr noundef @.str.7, i64 noundef %107)
+  %109 = icmp eq i32 %108, 0
+  br i1 %109, label %110, label %111
+
+110:                                              ; preds = %105
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 7), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+111:                                              ; preds = %105, %102
+  br label %1393
+
+112:                                              ; preds = %34, %34
+  %113 = load i64, ptr %6, align 8, !tbaa !12
+  %114 = icmp eq i64 %113, 7
+  br i1 %114, label %115, label %121
+
+115:                                              ; preds = %112
+  %116 = load ptr, ptr %4, align 8, !tbaa !7
+  %117 = load i64, ptr %6, align 8, !tbaa !12
+  %118 = call i32 @pm_strncasecmp(ptr noundef %116, ptr noundef @.str.95, i64 noundef %117)
+  %119 = icmp eq i32 %118, 0
+  br i1 %119, label %120, label %121
+
+120:                                              ; preds = %115
+  store ptr @pm_encodings, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+121:                                              ; preds = %115, %112
+  %122 = load i64, ptr %6, align 8, !tbaa !12
+  %123 = icmp eq i64 %122, 5
+  br i1 %123, label %124, label %130
+
+124:                                              ; preds = %121
+  %125 = load ptr, ptr %4, align 8, !tbaa !7
+  %126 = load i64, ptr %6, align 8, !tbaa !12
+  %127 = call i32 @pm_strncasecmp(ptr noundef %125, ptr noundef @.str.96, i64 noundef %126)
+  %128 = icmp eq i32 %127, 0
+  br i1 %128, label %129, label %130
+
+129:                                              ; preds = %124
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 4), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+130:                                              ; preds = %124, %121
+  %131 = load i64, ptr %6, align 8, !tbaa !12
+  %132 = icmp eq i64 %131, 12
+  br i1 %132, label %133, label %139
+
+133:                                              ; preds = %130
+  %134 = load ptr, ptr %4, align 8, !tbaa !7
+  %135 = load i64, ptr %6, align 8, !tbaa !12
+  %136 = call i32 @pm_strncasecmp(ptr noundef %134, ptr noundef @.str.97, i64 noundef %135)
+  %137 = icmp eq i32 %136, 0
+  br i1 %137, label %138, label %139
+
+138:                                              ; preds = %133
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 4), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+139:                                              ; preds = %133, %130
+  %140 = load i64, ptr %6, align 8, !tbaa !12
+  %141 = icmp eq i64 %140, 6
+  br i1 %141, label %142, label %148
+
+142:                                              ; preds = %139
+  %143 = load ptr, ptr %4, align 8, !tbaa !7
+  %144 = load i64, ptr %6, align 8, !tbaa !12
+  %145 = call i32 @pm_strncasecmp(ptr noundef %143, ptr noundef @.str.8, i64 noundef %144)
+  %146 = icmp eq i32 %145, 0
+  br i1 %146, label %147, label %148
+
+147:                                              ; preds = %142
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 8), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+148:                                              ; preds = %142, %139
+  %149 = load i64, ptr %6, align 8, !tbaa !12
+  %150 = icmp eq i64 %149, 5
+  br i1 %150, label %151, label %157
+
+151:                                              ; preds = %148
+  %152 = load ptr, ptr %4, align 8, !tbaa !7
+  %153 = load i64, ptr %6, align 8, !tbaa !12
+  %154 = call i32 @pm_strncasecmp(ptr noundef %152, ptr noundef @.str.98, i64 noundef %153)
+  %155 = icmp eq i32 %154, 0
+  br i1 %155, label %156, label %157
+
+156:                                              ; preds = %151
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 26), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+157:                                              ; preds = %151, %148
+  %158 = load i64, ptr %6, align 8, !tbaa !12
+  %159 = icmp eq i64 %158, 5
+  br i1 %159, label %160, label %166
+
+160:                                              ; preds = %157
+  %161 = load ptr, ptr %4, align 8, !tbaa !7
+  %162 = load i64, ptr %6, align 8, !tbaa !12
+  %163 = call i32 @pm_strncasecmp(ptr noundef %161, ptr noundef @.str.99, i64 noundef %162)
+  %164 = icmp eq i32 %163, 0
+  br i1 %164, label %165, label %166
+
+165:                                              ; preds = %160
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 27), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+166:                                              ; preds = %160, %157
+  %167 = load i64, ptr %6, align 8, !tbaa !12
+  %168 = icmp eq i64 %167, 5
+  br i1 %168, label %169, label %175
+
+169:                                              ; preds = %166
+  %170 = load ptr, ptr %4, align 8, !tbaa !7
+  %171 = load i64, ptr %6, align 8, !tbaa !12
+  %172 = call i32 @pm_strncasecmp(ptr noundef %170, ptr noundef @.str.100, i64 noundef %171)
+  %173 = icmp eq i32 %172, 0
+  br i1 %173, label %174, label %175
+
+174:                                              ; preds = %169
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 28), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+175:                                              ; preds = %169, %166
+  %176 = load i64, ptr %6, align 8, !tbaa !12
+  %177 = icmp eq i64 %176, 5
+  br i1 %177, label %178, label %184
+
+178:                                              ; preds = %175
+  %179 = load ptr, ptr %4, align 8, !tbaa !7
+  %180 = load i64, ptr %6, align 8, !tbaa !12
+  %181 = call i32 @pm_strncasecmp(ptr noundef %179, ptr noundef @.str.101, i64 noundef %180)
+  %182 = icmp eq i32 %181, 0
+  br i1 %182, label %183, label %184
+
+183:                                              ; preds = %178
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 29), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+184:                                              ; preds = %178, %175
+  %185 = load i64, ptr %6, align 8, !tbaa !12
+  %186 = icmp eq i64 %185, 5
+  br i1 %186, label %187, label %193
+
+187:                                              ; preds = %184
+  %188 = load ptr, ptr %4, align 8, !tbaa !7
+  %189 = load i64, ptr %6, align 8, !tbaa !12
+  %190 = call i32 @pm_strncasecmp(ptr noundef %188, ptr noundef @.str.10, i64 noundef %189)
+  %191 = icmp eq i32 %190, 0
+  br i1 %191, label %192, label %193
+
+192:                                              ; preds = %187
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 10), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+193:                                              ; preds = %187, %184
+  %194 = load i64, ptr %6, align 8, !tbaa !12
+  %195 = icmp eq i64 %194, 5
+  br i1 %195, label %196, label %202
+
+196:                                              ; preds = %193
+  %197 = load ptr, ptr %4, align 8, !tbaa !7
+  %198 = load i64, ptr %6, align 8, !tbaa !12
+  %199 = call i32 @pm_strncasecmp(ptr noundef %197, ptr noundef @.str.11, i64 noundef %198)
+  %200 = icmp eq i32 %199, 0
+  br i1 %200, label %201, label %202
+
+201:                                              ; preds = %196
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 11), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+202:                                              ; preds = %196, %193
+  %203 = load i64, ptr %6, align 8, !tbaa !12
+  %204 = icmp eq i64 %203, 5
+  br i1 %204, label %205, label %211
+
+205:                                              ; preds = %202
+  %206 = load ptr, ptr %4, align 8, !tbaa !7
+  %207 = load i64, ptr %6, align 8, !tbaa !12
+  %208 = call i32 @pm_strncasecmp(ptr noundef %206, ptr noundef @.str.12, i64 noundef %207)
+  %209 = icmp eq i32 %208, 0
+  br i1 %209, label %210, label %211
+
+210:                                              ; preds = %205
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 12), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+211:                                              ; preds = %205, %202
+  %212 = load i64, ptr %6, align 8, !tbaa !12
+  %213 = icmp eq i64 %212, 5
+  br i1 %213, label %214, label %220
+
+214:                                              ; preds = %211
+  %215 = load ptr, ptr %4, align 8, !tbaa !7
+  %216 = load i64, ptr %6, align 8, !tbaa !12
+  %217 = call i32 @pm_strncasecmp(ptr noundef %215, ptr noundef @.str.102, i64 noundef %216)
+  %218 = icmp eq i32 %217, 0
+  br i1 %218, label %219, label %220
+
+219:                                              ; preds = %214
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 32), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+220:                                              ; preds = %214, %211
+  %221 = load i64, ptr %6, align 8, !tbaa !12
+  %222 = icmp eq i64 %221, 5
+  br i1 %222, label %223, label %229
+
+223:                                              ; preds = %220
+  %224 = load ptr, ptr %4, align 8, !tbaa !7
+  %225 = load i64, ptr %6, align 8, !tbaa !12
+  %226 = call i32 @pm_strncasecmp(ptr noundef %224, ptr noundef @.str.103, i64 noundef %225)
+  %227 = icmp eq i32 %226, 0
+  br i1 %227, label %228, label %229
+
+228:                                              ; preds = %223
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 33), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+229:                                              ; preds = %223, %220
+  %230 = load i64, ptr %6, align 8, !tbaa !12
+  %231 = icmp eq i64 %230, 5
+  br i1 %231, label %232, label %238
+
+232:                                              ; preds = %229
+  %233 = load ptr, ptr %4, align 8, !tbaa !7
+  %234 = load i64, ptr %6, align 8, !tbaa !12
+  %235 = call i32 @pm_strncasecmp(ptr noundef %233, ptr noundef @.str.104, i64 noundef %234)
+  %236 = icmp eq i32 %235, 0
+  br i1 %236, label %237, label %238
+
+237:                                              ; preds = %232
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 34), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+238:                                              ; preds = %232, %229
+  %239 = load i64, ptr %6, align 8, !tbaa !12
+  %240 = icmp eq i64 %239, 5
+  br i1 %240, label %241, label %247
+
+241:                                              ; preds = %238
+  %242 = load ptr, ptr %4, align 8, !tbaa !7
+  %243 = load i64, ptr %6, align 8, !tbaa !12
+  %244 = call i32 @pm_strncasecmp(ptr noundef %242, ptr noundef @.str.105, i64 noundef %243)
+  %245 = icmp eq i32 %244, 0
+  br i1 %245, label %246, label %247
+
+246:                                              ; preds = %241
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 35), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+247:                                              ; preds = %241, %238
+  %248 = load i64, ptr %6, align 8, !tbaa !12
+  %249 = icmp eq i64 %248, 5
+  br i1 %249, label %250, label %256
+
+250:                                              ; preds = %247
+  %251 = load ptr, ptr %4, align 8, !tbaa !7
+  %252 = load i64, ptr %6, align 8, !tbaa !12
+  %253 = call i32 @pm_strncasecmp(ptr noundef %251, ptr noundef @.str.106, i64 noundef %252)
+  %254 = icmp eq i32 %253, 0
+  br i1 %254, label %255, label %256
+
+255:                                              ; preds = %250
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 37), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+256:                                              ; preds = %250, %247
+  %257 = load i64, ptr %6, align 8, !tbaa !12
+  %258 = icmp eq i64 %257, 5
+  br i1 %258, label %259, label %265
+
+259:                                              ; preds = %256
+  %260 = load ptr, ptr %4, align 8, !tbaa !7
+  %261 = load i64, ptr %6, align 8, !tbaa !12
+  %262 = call i32 @pm_strncasecmp(ptr noundef %260, ptr noundef @.str.107, i64 noundef %261)
+  %263 = icmp eq i32 %262, 0
+  br i1 %263, label %264, label %265
+
+264:                                              ; preds = %259
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 38), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+265:                                              ; preds = %259, %256
+  %266 = load i64, ptr %6, align 8, !tbaa !12
+  %267 = icmp eq i64 %266, 5
+  br i1 %267, label %268, label %274
+
+268:                                              ; preds = %265
+  %269 = load ptr, ptr %4, align 8, !tbaa !7
+  %270 = load i64, ptr %6, align 8, !tbaa !12
+  %271 = call i32 @pm_strncasecmp(ptr noundef %269, ptr noundef @.str.108, i64 noundef %270)
+  %272 = icmp eq i32 %271, 0
+  br i1 %272, label %273, label %274
+
+273:                                              ; preds = %268
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 39), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+274:                                              ; preds = %268, %265
+  %275 = load i64, ptr %6, align 8, !tbaa !12
+  %276 = icmp eq i64 %275, 5
+  br i1 %276, label %277, label %283
+
+277:                                              ; preds = %274
+  %278 = load ptr, ptr %4, align 8, !tbaa !7
+  %279 = load i64, ptr %6, align 8, !tbaa !12
+  %280 = call i32 @pm_strncasecmp(ptr noundef %278, ptr noundef @.str.109, i64 noundef %279)
+  %281 = icmp eq i32 %280, 0
+  br i1 %281, label %282, label %283
+
+282:                                              ; preds = %277
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 40), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+283:                                              ; preds = %277, %274
+  %284 = load i64, ptr %6, align 8, !tbaa !12
+  %285 = icmp eq i64 %284, 5
+  br i1 %285, label %286, label %292
+
+286:                                              ; preds = %283
+  %287 = load ptr, ptr %4, align 8, !tbaa !7
+  %288 = load i64, ptr %6, align 8, !tbaa !12
+  %289 = call i32 @pm_strncasecmp(ptr noundef %287, ptr noundef @.str.110, i64 noundef %288)
+  %290 = icmp eq i32 %289, 0
+  br i1 %290, label %291, label %292
+
+291:                                              ; preds = %286
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 89), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+292:                                              ; preds = %286, %283
+  %293 = load i64, ptr %6, align 8, !tbaa !12
+  %294 = icmp eq i64 %293, 5
+  br i1 %294, label %295, label %301
+
+295:                                              ; preds = %292
+  %296 = load ptr, ptr %4, align 8, !tbaa !7
+  %297 = load i64, ptr %6, align 8, !tbaa !12
+  %298 = call i32 @pm_strncasecmp(ptr noundef %296, ptr noundef @.str.111, i64 noundef %297)
+  %299 = icmp eq i32 %298, 0
+  br i1 %299, label %300, label %301
+
+300:                                              ; preds = %295
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 56), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+301:                                              ; preds = %295, %292
+  %302 = load i64, ptr %6, align 8, !tbaa !12
+  %303 = icmp eq i64 %302, 5
+  br i1 %303, label %304, label %310
+
+304:                                              ; preds = %301
+  %305 = load ptr, ptr %4, align 8, !tbaa !7
+  %306 = load i64, ptr %6, align 8, !tbaa !12
+  %307 = call i32 @pm_strncasecmp(ptr noundef %305, ptr noundef @.str.112, i64 noundef %306)
+  %308 = icmp eq i32 %307, 0
+  br i1 %308, label %309, label %310
+
+309:                                              ; preds = %304
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 36), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+310:                                              ; preds = %304, %301
+  %311 = load i64, ptr %6, align 8, !tbaa !12
+  %312 = icmp eq i64 %311, 5
+  br i1 %312, label %313, label %319
+
+313:                                              ; preds = %310
+  %314 = load ptr, ptr %4, align 8, !tbaa !7
+  %315 = load i64, ptr %6, align 8, !tbaa !12
+  %316 = call i32 @pm_strncasecmp(ptr noundef %314, ptr noundef @.str.113, i64 noundef %315)
+  %317 = icmp eq i32 %316, 0
+  br i1 %317, label %318, label %319
+
+318:                                              ; preds = %313
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 25), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+319:                                              ; preds = %313, %310
+  %320 = load i64, ptr %6, align 8, !tbaa !12
+  %321 = icmp eq i64 %320, 5
+  br i1 %321, label %322, label %328
+
+322:                                              ; preds = %319
+  %323 = load ptr, ptr %4, align 8, !tbaa !7
+  %324 = load i64, ptr %6, align 8, !tbaa !12
+  %325 = call i32 @pm_strncasecmp(ptr noundef %323, ptr noundef @.str.13, i64 noundef %324)
+  %326 = icmp eq i32 %325, 0
+  br i1 %326, label %327, label %328
+
+327:                                              ; preds = %322
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 13), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+328:                                              ; preds = %322, %319
+  %329 = load i64, ptr %6, align 8, !tbaa !12
+  %330 = icmp eq i64 %329, 5
+  br i1 %330, label %331, label %337
+
+331:                                              ; preds = %328
+  %332 = load ptr, ptr %4, align 8, !tbaa !7
+  %333 = load i64, ptr %6, align 8, !tbaa !12
+  %334 = call i32 @pm_strncasecmp(ptr noundef %332, ptr noundef @.str.14, i64 noundef %333)
+  %335 = icmp eq i32 %334, 0
+  br i1 %335, label %336, label %337
+
+336:                                              ; preds = %331
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 14), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+337:                                              ; preds = %331, %328
+  %338 = load i64, ptr %6, align 8, !tbaa !12
+  %339 = icmp eq i64 %338, 5
+  br i1 %339, label %340, label %346
+
+340:                                              ; preds = %337
+  %341 = load ptr, ptr %4, align 8, !tbaa !7
+  %342 = load i64, ptr %6, align 8, !tbaa !12
+  %343 = call i32 @pm_strncasecmp(ptr noundef %341, ptr noundef @.str.15, i64 noundef %342)
+  %344 = icmp eq i32 %343, 0
+  br i1 %344, label %345, label %346
+
+345:                                              ; preds = %340
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 15), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+346:                                              ; preds = %340, %337
+  %347 = load i64, ptr %6, align 8, !tbaa !12
+  %348 = icmp eq i64 %347, 6
+  br i1 %348, label %349, label %355
+
+349:                                              ; preds = %346
+  %350 = load ptr, ptr %4, align 8, !tbaa !7
+  %351 = load i64, ptr %6, align 8, !tbaa !12
+  %352 = call i32 @pm_strncasecmp(ptr noundef %350, ptr noundef @.str.114, i64 noundef %351)
+  %353 = icmp eq i32 %352, 0
+  br i1 %353, label %354, label %355
+
+354:                                              ; preds = %349
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 80), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+355:                                              ; preds = %349, %346
+  %356 = load i64, ptr %6, align 8, !tbaa !12
+  %357 = icmp eq i64 %356, 6
+  br i1 %357, label %358, label %364
+
+358:                                              ; preds = %355
+  %359 = load ptr, ptr %4, align 8, !tbaa !7
+  %360 = load i64, ptr %6, align 8, !tbaa !12
+  %361 = call i32 @pm_strncasecmp(ptr noundef %359, ptr noundef @.str.115, i64 noundef %360)
+  %362 = icmp eq i32 %361, 0
+  br i1 %362, label %363, label %364
+
+363:                                              ; preds = %358
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 81), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+364:                                              ; preds = %358, %355
+  %365 = load i64, ptr %6, align 8, !tbaa !12
+  %366 = icmp eq i64 %365, 6
+  br i1 %366, label %367, label %373
+
+367:                                              ; preds = %364
+  %368 = load ptr, ptr %4, align 8, !tbaa !7
+  %369 = load i64, ptr %6, align 8, !tbaa !12
+  %370 = call i32 @pm_strncasecmp(ptr noundef %368, ptr noundef @.str.116, i64 noundef %369)
+  %371 = icmp eq i32 %370, 0
+  br i1 %371, label %372, label %373
+
+372:                                              ; preds = %367
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 82), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+373:                                              ; preds = %367, %364
+  %374 = load i64, ptr %6, align 8, !tbaa !12
+  %375 = icmp eq i64 %374, 6
+  br i1 %375, label %376, label %382
+
+376:                                              ; preds = %373
+  %377 = load ptr, ptr %4, align 8, !tbaa !7
+  %378 = load i64, ptr %6, align 8, !tbaa !12
+  %379 = call i32 @pm_strncasecmp(ptr noundef %377, ptr noundef @.str.117, i64 noundef %378)
+  %380 = icmp eq i32 %379, 0
+  br i1 %380, label %381, label %382
+
+381:                                              ; preds = %376
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 83), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+382:                                              ; preds = %376, %373
+  %383 = load i64, ptr %6, align 8, !tbaa !12
+  %384 = icmp eq i64 %383, 6
+  br i1 %384, label %385, label %391
+
+385:                                              ; preds = %382
+  %386 = load ptr, ptr %4, align 8, !tbaa !7
+  %387 = load i64, ptr %6, align 8, !tbaa !12
+  %388 = call i32 @pm_strncasecmp(ptr noundef %386, ptr noundef @.str.118, i64 noundef %387)
+  %389 = icmp eq i32 %388, 0
+  br i1 %389, label %390, label %391
+
+390:                                              ; preds = %385
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 84), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+391:                                              ; preds = %385, %382
+  %392 = load i64, ptr %6, align 8, !tbaa !12
+  %393 = icmp eq i64 %392, 6
+  br i1 %393, label %394, label %400
+
+394:                                              ; preds = %391
+  %395 = load ptr, ptr %4, align 8, !tbaa !7
+  %396 = load i64, ptr %6, align 8, !tbaa !12
+  %397 = call i32 @pm_strncasecmp(ptr noundef %395, ptr noundef @.str.119, i64 noundef %396)
+  %398 = icmp eq i32 %397, 0
+  br i1 %398, label %399, label %400
+
+399:                                              ; preds = %394
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 85), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+400:                                              ; preds = %394, %391
+  %401 = load i64, ptr %6, align 8, !tbaa !12
+  %402 = icmp eq i64 %401, 6
+  br i1 %402, label %403, label %409
+
+403:                                              ; preds = %400
+  %404 = load ptr, ptr %4, align 8, !tbaa !7
+  %405 = load i64, ptr %6, align 8, !tbaa !12
+  %406 = call i32 @pm_strncasecmp(ptr noundef %404, ptr noundef @.str.120, i64 noundef %405)
+  %407 = icmp eq i32 %406, 0
+  br i1 %407, label %408, label %409
+
+408:                                              ; preds = %403
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 86), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+409:                                              ; preds = %403, %400
+  %410 = load i64, ptr %6, align 8, !tbaa !12
+  %411 = icmp eq i64 %410, 6
+  br i1 %411, label %412, label %418
+
+412:                                              ; preds = %409
+  %413 = load ptr, ptr %4, align 8, !tbaa !7
+  %414 = load i64, ptr %6, align 8, !tbaa !12
+  %415 = call i32 @pm_strncasecmp(ptr noundef %413, ptr noundef @.str.121, i64 noundef %414)
+  %416 = icmp eq i32 %415, 0
+  br i1 %416, label %417, label %418
+
+417:                                              ; preds = %412
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 87), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+418:                                              ; preds = %412, %409
+  %419 = load i64, ptr %6, align 8, !tbaa !12
+  %420 = icmp eq i64 %419, 6
+  br i1 %420, label %421, label %427
+
+421:                                              ; preds = %418
+  %422 = load ptr, ptr %4, align 8, !tbaa !7
+  %423 = load i64, ptr %6, align 8, !tbaa !12
+  %424 = call i32 @pm_strncasecmp(ptr noundef %422, ptr noundef @.str.122, i64 noundef %423)
+  %425 = icmp eq i32 %424, 0
+  br i1 %425, label %426, label %427
+
+426:                                              ; preds = %421
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 88), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+427:                                              ; preds = %421, %418
+  %428 = load i64, ptr %6, align 8, !tbaa !12
+  %429 = icmp eq i64 %428, 7
+  br i1 %429, label %430, label %436
+
+430:                                              ; preds = %427
+  %431 = load ptr, ptr %4, align 8, !tbaa !7
+  %432 = load i64, ptr %6, align 8, !tbaa !12
+  %433 = call i32 @pm_strncasecmp(ptr noundef %431, ptr noundef @.str.9, i64 noundef %432)
+  %434 = icmp eq i32 %433, 0
+  br i1 %434, label %435, label %436
+
+435:                                              ; preds = %430
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 9), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+436:                                              ; preds = %430, %427
+  br label %1393
+
+437:                                              ; preds = %34, %34
+  %438 = load i64, ptr %6, align 8, !tbaa !12
+  %439 = icmp eq i64 %438, 6
+  br i1 %439, label %440, label %446
+
+440:                                              ; preds = %437
+  %441 = load ptr, ptr %4, align 8, !tbaa !7
+  %442 = load i64, ptr %6, align 8, !tbaa !12
+  %443 = call i32 @pm_strncasecmp(ptr noundef %441, ptr noundef @.str.3, i64 noundef %442)
+  %444 = icmp eq i32 %443, 0
+  br i1 %444, label %445, label %446
+
+445:                                              ; preds = %440
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 3), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+446:                                              ; preds = %440, %437
+  %447 = load i64, ptr %6, align 8, !tbaa !12
+  %448 = icmp eq i64 %447, 5
+  br i1 %448, label %449, label %455
+
+449:                                              ; preds = %446
+  %450 = load ptr, ptr %4, align 8, !tbaa !7
+  %451 = load i64, ptr %6, align 8, !tbaa !12
+  %452 = call i32 @pm_strncasecmp(ptr noundef %450, ptr noundef @.str.123, i64 noundef %451)
+  %453 = icmp eq i32 %452, 0
+  br i1 %453, label %454, label %455
+
+454:                                              ; preds = %449
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 3), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+455:                                              ; preds = %449, %446
+  %456 = load i64, ptr %6, align 8, !tbaa !12
+  %457 = icmp eq i64 %456, 8
+  br i1 %457, label %458, label %464
+
+458:                                              ; preds = %455
+  %459 = load ptr, ptr %4, align 8, !tbaa !7
+  %460 = load i64, ptr %6, align 8, !tbaa !12
+  %461 = call i32 @pm_strncasecmp(ptr noundef %459, ptr noundef @.str.17, i64 noundef %460)
+  %462 = icmp eq i32 %461, 0
+  br i1 %462, label %463, label %464
+
+463:                                              ; preds = %458
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 17), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+464:                                              ; preds = %458, %455
+  %465 = load i64, ptr %6, align 8, !tbaa !12
+  %466 = icmp eq i64 %465, 9
+  br i1 %466, label %467, label %473
+
+467:                                              ; preds = %464
+  %468 = load ptr, ptr %4, align 8, !tbaa !7
+  %469 = load i64, ptr %6, align 8, !tbaa !12
+  %470 = call i32 @pm_strncasecmp(ptr noundef %468, ptr noundef @.str.124, i64 noundef %469)
+  %471 = icmp eq i32 %470, 0
+  br i1 %471, label %472, label %473
+
+472:                                              ; preds = %467
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 17), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+473:                                              ; preds = %467, %464
+  %474 = load i64, ptr %6, align 8, !tbaa !12
+  %475 = icmp eq i64 %474, 12
+  br i1 %475, label %476, label %482
+
+476:                                              ; preds = %473
+  %477 = load ptr, ptr %4, align 8, !tbaa !7
+  %478 = load i64, ptr %6, align 8, !tbaa !12
+  %479 = call i32 @pm_strncasecmp(ptr noundef %477, ptr noundef @.str.18, i64 noundef %478)
+  %480 = icmp eq i32 %479, 0
+  br i1 %480, label %481, label %482
+
+481:                                              ; preds = %476
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 18), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+482:                                              ; preds = %476, %473
+  %483 = load i64, ptr %6, align 8, !tbaa !12
+  %484 = icmp eq i64 %483, 12
+  br i1 %484, label %485, label %491
+
+485:                                              ; preds = %482
+  %486 = load ptr, ptr %4, align 8, !tbaa !7
+  %487 = load i64, ptr %6, align 8, !tbaa !12
+  %488 = call i32 @pm_strncasecmp(ptr noundef %486, ptr noundef @.str.125, i64 noundef %487)
+  %489 = icmp eq i32 %488, 0
+  br i1 %489, label %490, label %491
+
+490:                                              ; preds = %485
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 18), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+491:                                              ; preds = %485, %482
+  %492 = load i64, ptr %6, align 8, !tbaa !12
+  %493 = icmp eq i64 %492, 6
+  br i1 %493, label %494, label %500
+
+494:                                              ; preds = %491
+  %495 = load ptr, ptr %4, align 8, !tbaa !7
+  %496 = load i64, ptr %6, align 8, !tbaa !12
+  %497 = call i32 @pm_strncasecmp(ptr noundef %495, ptr noundef @.str.19, i64 noundef %496)
+  %498 = icmp eq i32 %497, 0
+  br i1 %498, label %499, label %500
+
+499:                                              ; preds = %494
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 19), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+500:                                              ; preds = %494, %491
+  %501 = load i64, ptr %6, align 8, !tbaa !12
+  %502 = icmp eq i64 %501, 5
+  br i1 %502, label %503, label %509
+
+503:                                              ; preds = %500
+  %504 = load ptr, ptr %4, align 8, !tbaa !7
+  %505 = load i64, ptr %6, align 8, !tbaa !12
+  %506 = call i32 @pm_strncasecmp(ptr noundef %504, ptr noundef @.str.126, i64 noundef %505)
+  %507 = icmp eq i32 %506, 0
+  br i1 %507, label %508, label %509
+
+508:                                              ; preds = %503
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 19), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+509:                                              ; preds = %503, %500
+  %510 = load i64, ptr %6, align 8, !tbaa !12
+  %511 = icmp eq i64 %510, 6
+  br i1 %511, label %512, label %518
+
+512:                                              ; preds = %509
+  %513 = load ptr, ptr %4, align 8, !tbaa !7
+  %514 = load i64, ptr %6, align 8, !tbaa !12
+  %515 = call i32 @pm_strncasecmp(ptr noundef %513, ptr noundef @.str.127, i64 noundef %514)
+  %516 = icmp eq i32 %515, 0
+  br i1 %516, label %517, label %518
+
+517:                                              ; preds = %512
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 24), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+518:                                              ; preds = %512, %509
+  %519 = load i64, ptr %6, align 8, !tbaa !12
+  %520 = icmp eq i64 %519, 5
+  br i1 %520, label %521, label %527
+
+521:                                              ; preds = %518
+  %522 = load ptr, ptr %4, align 8, !tbaa !7
+  %523 = load i64, ptr %6, align 8, !tbaa !12
+  %524 = call i32 @pm_strncasecmp(ptr noundef %522, ptr noundef @.str.128, i64 noundef %523)
+  %525 = icmp eq i32 %524, 0
+  br i1 %525, label %526, label %527
+
+526:                                              ; preds = %521
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 24), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+527:                                              ; preds = %521, %518
+  %528 = load i64, ptr %6, align 8, !tbaa !12
+  %529 = icmp eq i64 %528, 6
+  br i1 %529, label %530, label %536
+
+530:                                              ; preds = %527
+  %531 = load ptr, ptr %4, align 8, !tbaa !7
+  %532 = load i64, ptr %6, align 8, !tbaa !12
+  %533 = call i32 @pm_strncasecmp(ptr noundef %531, ptr noundef @.str.20, i64 noundef %532)
+  %534 = icmp eq i32 %533, 0
+  br i1 %534, label %535, label %536
+
+535:                                              ; preds = %530
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 20), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+536:                                              ; preds = %530, %527
+  %537 = load i64, ptr %6, align 8, !tbaa !12
+  %538 = icmp eq i64 %537, 5
+  br i1 %538, label %539, label %545
+
+539:                                              ; preds = %536
+  %540 = load ptr, ptr %4, align 8, !tbaa !7
+  %541 = load i64, ptr %6, align 8, !tbaa !12
+  %542 = call i32 @pm_strncasecmp(ptr noundef %540, ptr noundef @.str.129, i64 noundef %541)
+  %543 = icmp eq i32 %542, 0
+  br i1 %543, label %544, label %545
+
+544:                                              ; preds = %539
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 20), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+545:                                              ; preds = %539, %536
+  %546 = load i64, ptr %6, align 8, !tbaa !12
+  %547 = icmp eq i64 %546, 10
+  br i1 %547, label %548, label %554
+
+548:                                              ; preds = %545
+  %549 = load ptr, ptr %4, align 8, !tbaa !7
+  %550 = load i64, ptr %6, align 8, !tbaa !12
+  %551 = call i32 @pm_strncasecmp(ptr noundef %549, ptr noundef @.str.16, i64 noundef %550)
+  %552 = icmp eq i32 %551, 0
+  br i1 %552, label %553, label %554
+
+553:                                              ; preds = %548
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 16), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+554:                                              ; preds = %548, %545
+  br label %1393
+
+555:                                              ; preds = %34, %34
+  %556 = load i64, ptr %6, align 8, !tbaa !12
+  %557 = icmp eq i64 %556, 3
+  br i1 %557, label %558, label %564
+
+558:                                              ; preds = %555
+  %559 = load ptr, ptr %4, align 8, !tbaa !7
+  %560 = load i64, ptr %6, align 8, !tbaa !12
+  %561 = call i32 @pm_strncasecmp(ptr noundef %559, ptr noundef @.str.25, i64 noundef %560)
+  %562 = icmp eq i32 %561, 0
+  br i1 %562, label %563, label %564
+
+563:                                              ; preds = %558
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 25), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+564:                                              ; preds = %558, %555
+  %565 = load i64, ptr %6, align 8, !tbaa !12
+  %566 = icmp eq i64 %565, 7
+  br i1 %566, label %567, label %573
+
+567:                                              ; preds = %564
+  %568 = load ptr, ptr %4, align 8, !tbaa !7
+  %569 = load i64, ptr %6, align 8, !tbaa !12
+  %570 = call i32 @pm_strncasecmp(ptr noundef %568, ptr noundef @.str.21, i64 noundef %569)
+  %571 = icmp eq i32 %570, 0
+  br i1 %571, label %572, label %573
+
+572:                                              ; preds = %567
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 21), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+573:                                              ; preds = %567, %564
+  %574 = load i64, ptr %6, align 8, !tbaa !12
+  %575 = icmp eq i64 %574, 7
+  br i1 %575, label %576, label %582
+
+576:                                              ; preds = %573
+  %577 = load ptr, ptr %4, align 8, !tbaa !7
+  %578 = load i64, ptr %6, align 8, !tbaa !12
+  %579 = call i32 @pm_strncasecmp(ptr noundef %577, ptr noundef @.str.22, i64 noundef %578)
+  %580 = icmp eq i32 %579, 0
+  br i1 %580, label %581, label %582
+
+581:                                              ; preds = %576
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 22), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+582:                                              ; preds = %576, %573
+  %583 = load i64, ptr %6, align 8, !tbaa !12
+  %584 = icmp eq i64 %583, 6
+  br i1 %584, label %585, label %591
+
+585:                                              ; preds = %582
+  %586 = load ptr, ptr %4, align 8, !tbaa !7
+  %587 = load i64, ptr %6, align 8, !tbaa !12
+  %588 = call i32 @pm_strncasecmp(ptr noundef %586, ptr noundef @.str.23, i64 noundef %587)
+  %589 = icmp eq i32 %588, 0
+  br i1 %589, label %590, label %591
+
+590:                                              ; preds = %585
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 23), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+591:                                              ; preds = %585, %582
+  %592 = load i64, ptr %6, align 8, !tbaa !12
+  %593 = icmp eq i64 %592, 6
+  br i1 %593, label %594, label %600
+
+594:                                              ; preds = %591
+  %595 = load ptr, ptr %4, align 8, !tbaa !7
+  %596 = load i64, ptr %6, align 8, !tbaa !12
+  %597 = call i32 @pm_strncasecmp(ptr noundef %595, ptr noundef @.str.24, i64 noundef %596)
+  %598 = icmp eq i32 %597, 0
+  br i1 %598, label %599, label %600
+
+599:                                              ; preds = %594
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 24), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+600:                                              ; preds = %594, %591
+  br label %1393
+
+601:                                              ; preds = %34, %34
+  %602 = load i64, ptr %6, align 8, !tbaa !12
+  %603 = icmp eq i64 %602, 6
+  br i1 %603, label %604, label %610
+
+604:                                              ; preds = %601
+  %605 = load ptr, ptr %4, align 8, !tbaa !7
+  %606 = load i64, ptr %6, align 8, !tbaa !12
+  %607 = call i32 @pm_strncasecmp(ptr noundef %605, ptr noundef @.str.26, i64 noundef %606)
+  %608 = icmp eq i32 %607, 0
+  br i1 %608, label %609, label %610
+
+609:                                              ; preds = %604
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 26), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+610:                                              ; preds = %604, %601
+  %611 = load i64, ptr %6, align 8, !tbaa !12
+  %612 = icmp eq i64 %611, 6
+  br i1 %612, label %613, label %619
+
+613:                                              ; preds = %610
+  %614 = load ptr, ptr %4, align 8, !tbaa !7
+  %615 = load i64, ptr %6, align 8, !tbaa !12
+  %616 = call i32 @pm_strncasecmp(ptr noundef %614, ptr noundef @.str.27, i64 noundef %615)
+  %617 = icmp eq i32 %616, 0
+  br i1 %617, label %618, label %619
+
+618:                                              ; preds = %613
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 27), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+619:                                              ; preds = %613, %610
+  %620 = load i64, ptr %6, align 8, !tbaa !12
+  %621 = icmp eq i64 %620, 6
+  br i1 %621, label %622, label %628
+
+622:                                              ; preds = %619
+  %623 = load ptr, ptr %4, align 8, !tbaa !7
+  %624 = load i64, ptr %6, align 8, !tbaa !12
+  %625 = call i32 @pm_strncasecmp(ptr noundef %623, ptr noundef @.str.28, i64 noundef %624)
+  %626 = icmp eq i32 %625, 0
+  br i1 %626, label %627, label %628
+
+627:                                              ; preds = %622
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 28), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+628:                                              ; preds = %622, %619
+  %629 = load i64, ptr %6, align 8, !tbaa !12
+  %630 = icmp eq i64 %629, 6
+  br i1 %630, label %631, label %637
+
+631:                                              ; preds = %628
+  %632 = load ptr, ptr %4, align 8, !tbaa !7
+  %633 = load i64, ptr %6, align 8, !tbaa !12
+  %634 = call i32 @pm_strncasecmp(ptr noundef %632, ptr noundef @.str.29, i64 noundef %633)
+  %635 = icmp eq i32 %634, 0
+  br i1 %635, label %636, label %637
+
+636:                                              ; preds = %631
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 29), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+637:                                              ; preds = %631, %628
+  %638 = load i64, ptr %6, align 8, !tbaa !12
+  %639 = icmp eq i64 %638, 6
+  br i1 %639, label %640, label %646
+
+640:                                              ; preds = %637
+  %641 = load ptr, ptr %4, align 8, !tbaa !7
+  %642 = load i64, ptr %6, align 8, !tbaa !12
+  %643 = call i32 @pm_strncasecmp(ptr noundef %641, ptr noundef @.str.130, i64 noundef %642)
+  %644 = icmp eq i32 %643, 0
+  br i1 %644, label %645, label %646
+
+645:                                              ; preds = %640
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 10), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+646:                                              ; preds = %640, %637
+  %647 = load i64, ptr %6, align 8, !tbaa !12
+  %648 = icmp eq i64 %647, 6
+  br i1 %648, label %649, label %655
+
+649:                                              ; preds = %646
+  %650 = load ptr, ptr %4, align 8, !tbaa !7
+  %651 = load i64, ptr %6, align 8, !tbaa !12
+  %652 = call i32 @pm_strncasecmp(ptr noundef %650, ptr noundef @.str.30, i64 noundef %651)
+  %653 = icmp eq i32 %652, 0
+  br i1 %653, label %654, label %655
+
+654:                                              ; preds = %649
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 30), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+655:                                              ; preds = %649, %646
+  %656 = load i64, ptr %6, align 8, !tbaa !12
+  %657 = icmp eq i64 %656, 6
+  br i1 %657, label %658, label %664
+
+658:                                              ; preds = %655
+  %659 = load ptr, ptr %4, align 8, !tbaa !7
+  %660 = load i64, ptr %6, align 8, !tbaa !12
+  %661 = call i32 @pm_strncasecmp(ptr noundef %659, ptr noundef @.str.31, i64 noundef %660)
+  %662 = icmp eq i32 %661, 0
+  br i1 %662, label %663, label %664
+
+663:                                              ; preds = %658
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 31), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+664:                                              ; preds = %658, %655
+  %665 = load i64, ptr %6, align 8, !tbaa !12
+  %666 = icmp eq i64 %665, 6
+  br i1 %666, label %667, label %673
+
+667:                                              ; preds = %664
+  %668 = load ptr, ptr %4, align 8, !tbaa !7
+  %669 = load i64, ptr %6, align 8, !tbaa !12
+  %670 = call i32 @pm_strncasecmp(ptr noundef %668, ptr noundef @.str.32, i64 noundef %669)
+  %671 = icmp eq i32 %670, 0
+  br i1 %671, label %672, label %673
+
+672:                                              ; preds = %667
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 32), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+673:                                              ; preds = %667, %664
+  %674 = load i64, ptr %6, align 8, !tbaa !12
+  %675 = icmp eq i64 %674, 6
+  br i1 %675, label %676, label %682
+
+676:                                              ; preds = %673
+  %677 = load ptr, ptr %4, align 8, !tbaa !7
+  %678 = load i64, ptr %6, align 8, !tbaa !12
+  %679 = call i32 @pm_strncasecmp(ptr noundef %677, ptr noundef @.str.33, i64 noundef %678)
+  %680 = icmp eq i32 %679, 0
+  br i1 %680, label %681, label %682
+
+681:                                              ; preds = %676
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 33), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+682:                                              ; preds = %676, %673
+  %683 = load i64, ptr %6, align 8, !tbaa !12
+  %684 = icmp eq i64 %683, 6
+  br i1 %684, label %685, label %691
+
+685:                                              ; preds = %682
+  %686 = load ptr, ptr %4, align 8, !tbaa !7
+  %687 = load i64, ptr %6, align 8, !tbaa !12
+  %688 = call i32 @pm_strncasecmp(ptr noundef %686, ptr noundef @.str.34, i64 noundef %687)
+  %689 = icmp eq i32 %688, 0
+  br i1 %689, label %690, label %691
+
+690:                                              ; preds = %685
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 34), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+691:                                              ; preds = %685, %682
+  %692 = load i64, ptr %6, align 8, !tbaa !12
+  %693 = icmp eq i64 %692, 6
+  br i1 %693, label %694, label %700
+
+694:                                              ; preds = %691
+  %695 = load ptr, ptr %4, align 8, !tbaa !7
+  %696 = load i64, ptr %6, align 8, !tbaa !12
+  %697 = call i32 @pm_strncasecmp(ptr noundef %695, ptr noundef @.str.35, i64 noundef %696)
+  %698 = icmp eq i32 %697, 0
+  br i1 %698, label %699, label %700
+
+699:                                              ; preds = %694
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 35), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+700:                                              ; preds = %694, %691
+  %701 = load i64, ptr %6, align 8, !tbaa !12
+  %702 = icmp eq i64 %701, 6
+  br i1 %702, label %703, label %709
+
+703:                                              ; preds = %700
+  %704 = load ptr, ptr %4, align 8, !tbaa !7
+  %705 = load i64, ptr %6, align 8, !tbaa !12
+  %706 = call i32 @pm_strncasecmp(ptr noundef %704, ptr noundef @.str.36, i64 noundef %705)
+  %707 = icmp eq i32 %706, 0
+  br i1 %707, label %708, label %709
+
+708:                                              ; preds = %703
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 36), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+709:                                              ; preds = %703, %700
+  %710 = load i64, ptr %6, align 8, !tbaa !12
+  %711 = icmp eq i64 %710, 6
+  br i1 %711, label %712, label %718
+
+712:                                              ; preds = %709
+  %713 = load ptr, ptr %4, align 8, !tbaa !7
+  %714 = load i64, ptr %6, align 8, !tbaa !12
+  %715 = call i32 @pm_strncasecmp(ptr noundef %713, ptr noundef @.str.37, i64 noundef %714)
+  %716 = icmp eq i32 %715, 0
+  br i1 %716, label %717, label %718
+
+717:                                              ; preds = %712
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 37), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+718:                                              ; preds = %712, %709
+  %719 = load i64, ptr %6, align 8, !tbaa !12
+  %720 = icmp eq i64 %719, 6
+  br i1 %720, label %721, label %727
+
+721:                                              ; preds = %718
+  %722 = load ptr, ptr %4, align 8, !tbaa !7
+  %723 = load i64, ptr %6, align 8, !tbaa !12
+  %724 = call i32 @pm_strncasecmp(ptr noundef %722, ptr noundef @.str.38, i64 noundef %723)
+  %725 = icmp eq i32 %724, 0
+  br i1 %725, label %726, label %727
+
+726:                                              ; preds = %721
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 38), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+727:                                              ; preds = %721, %718
+  %728 = load i64, ptr %6, align 8, !tbaa !12
+  %729 = icmp eq i64 %728, 6
+  br i1 %729, label %730, label %736
+
+730:                                              ; preds = %727
+  %731 = load ptr, ptr %4, align 8, !tbaa !7
+  %732 = load i64, ptr %6, align 8, !tbaa !12
+  %733 = call i32 @pm_strncasecmp(ptr noundef %731, ptr noundef @.str.39, i64 noundef %732)
+  %734 = icmp eq i32 %733, 0
+  br i1 %734, label %735, label %736
+
+735:                                              ; preds = %730
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 39), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+736:                                              ; preds = %730, %727
+  %737 = load i64, ptr %6, align 8, !tbaa !12
+  %738 = icmp eq i64 %737, 6
+  br i1 %738, label %739, label %745
+
+739:                                              ; preds = %736
+  %740 = load ptr, ptr %4, align 8, !tbaa !7
+  %741 = load i64, ptr %6, align 8, !tbaa !12
+  %742 = call i32 @pm_strncasecmp(ptr noundef %740, ptr noundef @.str.40, i64 noundef %741)
+  %743 = icmp eq i32 %742, 0
+  br i1 %743, label %744, label %745
+
+744:                                              ; preds = %739
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 40), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+745:                                              ; preds = %739, %736
+  %746 = load i64, ptr %6, align 8, !tbaa !12
+  %747 = icmp eq i64 %746, 10
+  br i1 %747, label %748, label %754
+
+748:                                              ; preds = %745
+  %749 = load ptr, ptr %4, align 8, !tbaa !7
+  %750 = load i64, ptr %6, align 8, !tbaa !12
+  %751 = call i32 @pm_strncasecmp(ptr noundef %749, ptr noundef @.str.41, i64 noundef %750)
+  %752 = icmp eq i32 %751, 0
+  br i1 %752, label %753, label %754
+
+753:                                              ; preds = %748
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 41), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+754:                                              ; preds = %748, %745
+  %755 = load i64, ptr %6, align 8, !tbaa !12
+  %756 = icmp eq i64 %755, 9
+  br i1 %756, label %757, label %763
+
+757:                                              ; preds = %754
+  %758 = load ptr, ptr %4, align 8, !tbaa !7
+  %759 = load i64, ptr %6, align 8, !tbaa !12
+  %760 = call i32 @pm_strncasecmp(ptr noundef %758, ptr noundef @.str.131, i64 noundef %759)
+  %761 = icmp eq i32 %760, 0
+  br i1 %761, label %762, label %763
+
+762:                                              ; preds = %757
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 41), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+763:                                              ; preds = %757, %754
+  %764 = load i64, ptr %6, align 8, !tbaa !12
+  %765 = icmp eq i64 %764, 10
+  br i1 %765, label %766, label %772
+
+766:                                              ; preds = %763
+  %767 = load ptr, ptr %4, align 8, !tbaa !7
+  %768 = load i64, ptr %6, align 8, !tbaa !12
+  %769 = call i32 @pm_strncasecmp(ptr noundef %767, ptr noundef @.str.42, i64 noundef %768)
+  %770 = icmp eq i32 %769, 0
+  br i1 %770, label %771, label %772
+
+771:                                              ; preds = %766
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 42), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+772:                                              ; preds = %766, %763
+  %773 = load i64, ptr %6, align 8, !tbaa !12
+  %774 = icmp eq i64 %773, 9
+  br i1 %774, label %775, label %781
+
+775:                                              ; preds = %772
+  %776 = load ptr, ptr %4, align 8, !tbaa !7
+  %777 = load i64, ptr %6, align 8, !tbaa !12
+  %778 = call i32 @pm_strncasecmp(ptr noundef %776, ptr noundef @.str.132, i64 noundef %777)
+  %779 = icmp eq i32 %778, 0
+  br i1 %779, label %780, label %781
+
+780:                                              ; preds = %775
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 42), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+781:                                              ; preds = %775, %772
+  %782 = load i64, ptr %6, align 8, !tbaa !12
+  %783 = icmp eq i64 %782, 10
+  br i1 %783, label %784, label %790
+
+784:                                              ; preds = %781
+  %785 = load ptr, ptr %4, align 8, !tbaa !7
+  %786 = load i64, ptr %6, align 8, !tbaa !12
+  %787 = call i32 @pm_strncasecmp(ptr noundef %785, ptr noundef @.str.43, i64 noundef %786)
+  %788 = icmp eq i32 %787, 0
+  br i1 %788, label %789, label %790
+
+789:                                              ; preds = %784
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 43), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+790:                                              ; preds = %784, %781
+  %791 = load i64, ptr %6, align 8, !tbaa !12
+  %792 = icmp eq i64 %791, 9
+  br i1 %792, label %793, label %799
+
+793:                                              ; preds = %790
+  %794 = load ptr, ptr %4, align 8, !tbaa !7
+  %795 = load i64, ptr %6, align 8, !tbaa !12
+  %796 = call i32 @pm_strncasecmp(ptr noundef %794, ptr noundef @.str.133, i64 noundef %795)
+  %797 = icmp eq i32 %796, 0
+  br i1 %797, label %798, label %799
+
+798:                                              ; preds = %793
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 43), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+799:                                              ; preds = %793, %790
+  %800 = load i64, ptr %6, align 8, !tbaa !12
+  %801 = icmp eq i64 %800, 10
+  br i1 %801, label %802, label %808
+
+802:                                              ; preds = %799
+  %803 = load ptr, ptr %4, align 8, !tbaa !7
+  %804 = load i64, ptr %6, align 8, !tbaa !12
+  %805 = call i32 @pm_strncasecmp(ptr noundef %803, ptr noundef @.str.44, i64 noundef %804)
+  %806 = icmp eq i32 %805, 0
+  br i1 %806, label %807, label %808
+
+807:                                              ; preds = %802
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 44), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+808:                                              ; preds = %802, %799
+  %809 = load i64, ptr %6, align 8, !tbaa !12
+  %810 = icmp eq i64 %809, 9
+  br i1 %810, label %811, label %817
+
+811:                                              ; preds = %808
+  %812 = load ptr, ptr %4, align 8, !tbaa !7
+  %813 = load i64, ptr %6, align 8, !tbaa !12
+  %814 = call i32 @pm_strncasecmp(ptr noundef %812, ptr noundef @.str.134, i64 noundef %813)
+  %815 = icmp eq i32 %814, 0
+  br i1 %815, label %816, label %817
+
+816:                                              ; preds = %811
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 44), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+817:                                              ; preds = %811, %808
+  %818 = load i64, ptr %6, align 8, !tbaa !12
+  %819 = icmp eq i64 %818, 10
+  br i1 %819, label %820, label %826
+
+820:                                              ; preds = %817
+  %821 = load ptr, ptr %4, align 8, !tbaa !7
+  %822 = load i64, ptr %6, align 8, !tbaa !12
+  %823 = call i32 @pm_strncasecmp(ptr noundef %821, ptr noundef @.str.45, i64 noundef %822)
+  %824 = icmp eq i32 %823, 0
+  br i1 %824, label %825, label %826
+
+825:                                              ; preds = %820
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 45), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+826:                                              ; preds = %820, %817
+  %827 = load i64, ptr %6, align 8, !tbaa !12
+  %828 = icmp eq i64 %827, 9
+  br i1 %828, label %829, label %835
+
+829:                                              ; preds = %826
+  %830 = load ptr, ptr %4, align 8, !tbaa !7
+  %831 = load i64, ptr %6, align 8, !tbaa !12
+  %832 = call i32 @pm_strncasecmp(ptr noundef %830, ptr noundef @.str.135, i64 noundef %831)
+  %833 = icmp eq i32 %832, 0
+  br i1 %833, label %834, label %835
+
+834:                                              ; preds = %829
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 45), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+835:                                              ; preds = %829, %826
+  %836 = load i64, ptr %6, align 8, !tbaa !12
+  %837 = icmp eq i64 %836, 10
+  br i1 %837, label %838, label %844
+
+838:                                              ; preds = %835
+  %839 = load ptr, ptr %4, align 8, !tbaa !7
+  %840 = load i64, ptr %6, align 8, !tbaa !12
+  %841 = call i32 @pm_strncasecmp(ptr noundef %839, ptr noundef @.str.46, i64 noundef %840)
+  %842 = icmp eq i32 %841, 0
+  br i1 %842, label %843, label %844
+
+843:                                              ; preds = %838
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 46), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+844:                                              ; preds = %838, %835
+  %845 = load i64, ptr %6, align 8, !tbaa !12
+  %846 = icmp eq i64 %845, 9
+  br i1 %846, label %847, label %853
+
+847:                                              ; preds = %844
+  %848 = load ptr, ptr %4, align 8, !tbaa !7
+  %849 = load i64, ptr %6, align 8, !tbaa !12
+  %850 = call i32 @pm_strncasecmp(ptr noundef %848, ptr noundef @.str.136, i64 noundef %849)
+  %851 = icmp eq i32 %850, 0
+  br i1 %851, label %852, label %853
+
+852:                                              ; preds = %847
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 46), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+853:                                              ; preds = %847, %844
+  %854 = load i64, ptr %6, align 8, !tbaa !12
+  %855 = icmp eq i64 %854, 10
+  br i1 %855, label %856, label %862
+
+856:                                              ; preds = %853
+  %857 = load ptr, ptr %4, align 8, !tbaa !7
+  %858 = load i64, ptr %6, align 8, !tbaa !12
+  %859 = call i32 @pm_strncasecmp(ptr noundef %857, ptr noundef @.str.47, i64 noundef %858)
+  %860 = icmp eq i32 %859, 0
+  br i1 %860, label %861, label %862
+
+861:                                              ; preds = %856
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 47), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+862:                                              ; preds = %856, %853
+  %863 = load i64, ptr %6, align 8, !tbaa !12
+  %864 = icmp eq i64 %863, 9
+  br i1 %864, label %865, label %871
+
+865:                                              ; preds = %862
+  %866 = load ptr, ptr %4, align 8, !tbaa !7
+  %867 = load i64, ptr %6, align 8, !tbaa !12
+  %868 = call i32 @pm_strncasecmp(ptr noundef %866, ptr noundef @.str.137, i64 noundef %867)
+  %869 = icmp eq i32 %868, 0
+  br i1 %869, label %870, label %871
+
+870:                                              ; preds = %865
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 47), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+871:                                              ; preds = %865, %862
+  %872 = load i64, ptr %6, align 8, !tbaa !12
+  %873 = icmp eq i64 %872, 10
+  br i1 %873, label %874, label %880
+
+874:                                              ; preds = %871
+  %875 = load ptr, ptr %4, align 8, !tbaa !7
+  %876 = load i64, ptr %6, align 8, !tbaa !12
+  %877 = call i32 @pm_strncasecmp(ptr noundef %875, ptr noundef @.str.48, i64 noundef %876)
+  %878 = icmp eq i32 %877, 0
+  br i1 %878, label %879, label %880
+
+879:                                              ; preds = %874
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 48), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+880:                                              ; preds = %874, %871
+  %881 = load i64, ptr %6, align 8, !tbaa !12
+  %882 = icmp eq i64 %881, 9
+  br i1 %882, label %883, label %889
+
+883:                                              ; preds = %880
+  %884 = load ptr, ptr %4, align 8, !tbaa !7
+  %885 = load i64, ptr %6, align 8, !tbaa !12
+  %886 = call i32 @pm_strncasecmp(ptr noundef %884, ptr noundef @.str.138, i64 noundef %885)
+  %887 = icmp eq i32 %886, 0
+  br i1 %887, label %888, label %889
+
+888:                                              ; preds = %883
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 48), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+889:                                              ; preds = %883, %880
+  %890 = load i64, ptr %6, align 8, !tbaa !12
+  %891 = icmp eq i64 %890, 10
+  br i1 %891, label %892, label %898
+
+892:                                              ; preds = %889
+  %893 = load ptr, ptr %4, align 8, !tbaa !7
+  %894 = load i64, ptr %6, align 8, !tbaa !12
+  %895 = call i32 @pm_strncasecmp(ptr noundef %893, ptr noundef @.str.49, i64 noundef %894)
+  %896 = icmp eq i32 %895, 0
+  br i1 %896, label %897, label %898
+
+897:                                              ; preds = %892
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 49), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+898:                                              ; preds = %892, %889
+  %899 = load i64, ptr %6, align 8, !tbaa !12
+  %900 = icmp eq i64 %899, 9
+  br i1 %900, label %901, label %907
+
+901:                                              ; preds = %898
+  %902 = load ptr, ptr %4, align 8, !tbaa !7
+  %903 = load i64, ptr %6, align 8, !tbaa !12
+  %904 = call i32 @pm_strncasecmp(ptr noundef %902, ptr noundef @.str.139, i64 noundef %903)
+  %905 = icmp eq i32 %904, 0
+  br i1 %905, label %906, label %907
+
+906:                                              ; preds = %901
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 49), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+907:                                              ; preds = %901, %898
+  %908 = load i64, ptr %6, align 8, !tbaa !12
+  %909 = icmp eq i64 %908, 11
+  br i1 %909, label %910, label %916
+
+910:                                              ; preds = %907
+  %911 = load ptr, ptr %4, align 8, !tbaa !7
+  %912 = load i64, ptr %6, align 8, !tbaa !12
+  %913 = call i32 @pm_strncasecmp(ptr noundef %911, ptr noundef @.str.50, i64 noundef %912)
+  %914 = icmp eq i32 %913, 0
+  br i1 %914, label %915, label %916
+
+915:                                              ; preds = %910
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 50), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+916:                                              ; preds = %910, %907
+  %917 = load i64, ptr %6, align 8, !tbaa !12
+  %918 = icmp eq i64 %917, 10
+  br i1 %918, label %919, label %925
+
+919:                                              ; preds = %916
+  %920 = load ptr, ptr %4, align 8, !tbaa !7
+  %921 = load i64, ptr %6, align 8, !tbaa !12
+  %922 = call i32 @pm_strncasecmp(ptr noundef %920, ptr noundef @.str.140, i64 noundef %921)
+  %923 = icmp eq i32 %922, 0
+  br i1 %923, label %924, label %925
+
+924:                                              ; preds = %919
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 50), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+925:                                              ; preds = %919, %916
+  %926 = load i64, ptr %6, align 8, !tbaa !12
+  %927 = icmp eq i64 %926, 11
+  br i1 %927, label %928, label %934
+
+928:                                              ; preds = %925
+  %929 = load ptr, ptr %4, align 8, !tbaa !7
+  %930 = load i64, ptr %6, align 8, !tbaa !12
+  %931 = call i32 @pm_strncasecmp(ptr noundef %929, ptr noundef @.str.51, i64 noundef %930)
+  %932 = icmp eq i32 %931, 0
+  br i1 %932, label %933, label %934
+
+933:                                              ; preds = %928
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 51), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+934:                                              ; preds = %928, %925
+  %935 = load i64, ptr %6, align 8, !tbaa !12
+  %936 = icmp eq i64 %935, 10
+  br i1 %936, label %937, label %943
+
+937:                                              ; preds = %934
+  %938 = load ptr, ptr %4, align 8, !tbaa !7
+  %939 = load i64, ptr %6, align 8, !tbaa !12
+  %940 = call i32 @pm_strncasecmp(ptr noundef %938, ptr noundef @.str.141, i64 noundef %939)
+  %941 = icmp eq i32 %940, 0
+  br i1 %941, label %942, label %943
+
+942:                                              ; preds = %937
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 51), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+943:                                              ; preds = %937, %934
+  %944 = load i64, ptr %6, align 8, !tbaa !12
+  %945 = icmp eq i64 %944, 11
+  br i1 %945, label %946, label %952
+
+946:                                              ; preds = %943
+  %947 = load ptr, ptr %4, align 8, !tbaa !7
+  %948 = load i64, ptr %6, align 8, !tbaa !12
+  %949 = call i32 @pm_strncasecmp(ptr noundef %947, ptr noundef @.str.52, i64 noundef %948)
+  %950 = icmp eq i32 %949, 0
+  br i1 %950, label %951, label %952
+
+951:                                              ; preds = %946
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 52), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+952:                                              ; preds = %946, %943
+  %953 = load i64, ptr %6, align 8, !tbaa !12
+  %954 = icmp eq i64 %953, 10
+  br i1 %954, label %955, label %961
+
+955:                                              ; preds = %952
+  %956 = load ptr, ptr %4, align 8, !tbaa !7
+  %957 = load i64, ptr %6, align 8, !tbaa !12
+  %958 = call i32 @pm_strncasecmp(ptr noundef %956, ptr noundef @.str.142, i64 noundef %957)
+  %959 = icmp eq i32 %958, 0
+  br i1 %959, label %960, label %961
+
+960:                                              ; preds = %955
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 52), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+961:                                              ; preds = %955, %952
+  %962 = load i64, ptr %6, align 8, !tbaa !12
+  %963 = icmp eq i64 %962, 11
+  br i1 %963, label %964, label %970
+
+964:                                              ; preds = %961
+  %965 = load ptr, ptr %4, align 8, !tbaa !7
+  %966 = load i64, ptr %6, align 8, !tbaa !12
+  %967 = call i32 @pm_strncasecmp(ptr noundef %965, ptr noundef @.str.53, i64 noundef %966)
+  %968 = icmp eq i32 %967, 0
+  br i1 %968, label %969, label %970
+
+969:                                              ; preds = %964
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 53), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+970:                                              ; preds = %964, %961
+  %971 = load i64, ptr %6, align 8, !tbaa !12
+  %972 = icmp eq i64 %971, 10
+  br i1 %972, label %973, label %979
+
+973:                                              ; preds = %970
+  %974 = load ptr, ptr %4, align 8, !tbaa !7
+  %975 = load i64, ptr %6, align 8, !tbaa !12
+  %976 = call i32 @pm_strncasecmp(ptr noundef %974, ptr noundef @.str.143, i64 noundef %975)
+  %977 = icmp eq i32 %976, 0
+  br i1 %977, label %978, label %979
+
+978:                                              ; preds = %973
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 53), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+979:                                              ; preds = %973, %970
+  %980 = load i64, ptr %6, align 8, !tbaa !12
+  %981 = icmp eq i64 %980, 11
+  br i1 %981, label %982, label %988
+
+982:                                              ; preds = %979
+  %983 = load ptr, ptr %4, align 8, !tbaa !7
+  %984 = load i64, ptr %6, align 8, !tbaa !12
+  %985 = call i32 @pm_strncasecmp(ptr noundef %983, ptr noundef @.str.54, i64 noundef %984)
+  %986 = icmp eq i32 %985, 0
+  br i1 %986, label %987, label %988
+
+987:                                              ; preds = %982
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 54), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+988:                                              ; preds = %982, %979
+  %989 = load i64, ptr %6, align 8, !tbaa !12
+  %990 = icmp eq i64 %989, 10
+  br i1 %990, label %991, label %997
+
+991:                                              ; preds = %988
+  %992 = load ptr, ptr %4, align 8, !tbaa !7
+  %993 = load i64, ptr %6, align 8, !tbaa !12
+  %994 = call i32 @pm_strncasecmp(ptr noundef %992, ptr noundef @.str.144, i64 noundef %993)
+  %995 = icmp eq i32 %994, 0
+  br i1 %995, label %996, label %997
+
+996:                                              ; preds = %991
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 54), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+997:                                              ; preds = %991, %988
+  %998 = load i64, ptr %6, align 8, !tbaa !12
+  %999 = icmp eq i64 %998, 11
+  br i1 %999, label %1000, label %1006
+
+1000:                                             ; preds = %997
+  %1001 = load ptr, ptr %4, align 8, !tbaa !7
+  %1002 = load i64, ptr %6, align 8, !tbaa !12
+  %1003 = call i32 @pm_strncasecmp(ptr noundef %1001, ptr noundef @.str.55, i64 noundef %1002)
+  %1004 = icmp eq i32 %1003, 0
+  br i1 %1004, label %1005, label %1006
+
+1005:                                             ; preds = %1000
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 55), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+1006:                                             ; preds = %1000, %997
+  %1007 = load i64, ptr %6, align 8, !tbaa !12
+  %1008 = icmp eq i64 %1007, 10
+  br i1 %1008, label %1009, label %1015
+
+1009:                                             ; preds = %1006
+  %1010 = load ptr, ptr %4, align 8, !tbaa !7
+  %1011 = load i64, ptr %6, align 8, !tbaa !12
+  %1012 = call i32 @pm_strncasecmp(ptr noundef %1010, ptr noundef @.str.145, i64 noundef %1011)
+  %1013 = icmp eq i32 %1012, 0
+  br i1 %1013, label %1014, label %1015
+
+1014:                                             ; preds = %1009
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 55), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+1015:                                             ; preds = %1009, %1006
+  br label %1393
+
+1016:                                             ; preds = %34, %34
+  %1017 = load i64, ptr %6, align 8, !tbaa !12
+  %1018 = icmp eq i64 %1017, 6
+  br i1 %1018, label %1019, label %1025
+
+1019:                                             ; preds = %1016
+  %1020 = load ptr, ptr %4, align 8, !tbaa !7
+  %1021 = load i64, ptr %6, align 8, !tbaa !12
+  %1022 = call i32 @pm_strncasecmp(ptr noundef %1020, ptr noundef @.str.56, i64 noundef %1021)
+  %1023 = icmp eq i32 %1022, 0
+  br i1 %1023, label %1024, label %1025
+
+1024:                                             ; preds = %1019
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 56), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+1025:                                             ; preds = %1019, %1016
+  %1026 = load i64, ptr %6, align 8, !tbaa !12
+  %1027 = icmp eq i64 %1026, 6
+  br i1 %1027, label %1028, label %1034
+
+1028:                                             ; preds = %1025
+  %1029 = load ptr, ptr %4, align 8, !tbaa !7
+  %1030 = load i64, ptr %6, align 8, !tbaa !12
+  %1031 = call i32 @pm_strncasecmp(ptr noundef %1029, ptr noundef @.str.57, i64 noundef %1030)
+  %1032 = icmp eq i32 %1031, 0
+  br i1 %1032, label %1033, label %1034
+
+1033:                                             ; preds = %1028
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 57), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+1034:                                             ; preds = %1028, %1025
+  br label %1393
+
+1035:                                             ; preds = %34, %34
+  %1036 = load i64, ptr %6, align 8, !tbaa !12
+  %1037 = icmp eq i64 %1036, 11
+  br i1 %1037, label %1038, label %1044
+
+1038:                                             ; preds = %1035
+  %1039 = load ptr, ptr %4, align 8, !tbaa !7
+  %1040 = load i64, ptr %6, align 8, !tbaa !12
+  %1041 = call i32 @pm_strncasecmp(ptr noundef %1039, ptr noundef @.str.58, i64 noundef %1040)
+  %1042 = icmp eq i32 %1041, 0
+  br i1 %1042, label %1043, label %1044
+
+1043:                                             ; preds = %1038
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 58), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+1044:                                             ; preds = %1038, %1035
+  %1045 = load i64, ptr %6, align 8, !tbaa !12
+  %1046 = icmp eq i64 %1045, 11
+  br i1 %1046, label %1047, label %1053
+
+1047:                                             ; preds = %1044
+  %1048 = load ptr, ptr %4, align 8, !tbaa !7
+  %1049 = load i64, ptr %6, align 8, !tbaa !12
+  %1050 = call i32 @pm_strncasecmp(ptr noundef %1048, ptr noundef @.str.59, i64 noundef %1049)
+  %1051 = icmp eq i32 %1050, 0
+  br i1 %1051, label %1052, label %1053
+
+1052:                                             ; preds = %1047
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 59), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+1053:                                             ; preds = %1047, %1044
+  %1054 = load i64, ptr %6, align 8, !tbaa !12
+  %1055 = icmp eq i64 %1054, 11
+  br i1 %1055, label %1056, label %1062
+
+1056:                                             ; preds = %1053
+  %1057 = load ptr, ptr %4, align 8, !tbaa !7
+  %1058 = load i64, ptr %6, align 8, !tbaa !12
+  %1059 = call i32 @pm_strncasecmp(ptr noundef %1057, ptr noundef @.str.60, i64 noundef %1058)
+  %1060 = icmp eq i32 %1059, 0
+  br i1 %1060, label %1061, label %1062
+
+1061:                                             ; preds = %1056
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 60), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+1062:                                             ; preds = %1056, %1053
+  %1063 = load i64, ptr %6, align 8, !tbaa !12
+  %1064 = icmp eq i64 %1063, 8
+  br i1 %1064, label %1065, label %1071
+
+1065:                                             ; preds = %1062
+  %1066 = load ptr, ptr %4, align 8, !tbaa !7
+  %1067 = load i64, ptr %6, align 8, !tbaa !12
+  %1068 = call i32 @pm_strncasecmp(ptr noundef %1066, ptr noundef @.str.61, i64 noundef %1067)
+  %1069 = icmp eq i32 %1068, 0
+  br i1 %1069, label %1070, label %1071
+
+1070:                                             ; preds = %1065
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 61), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+1071:                                             ; preds = %1065, %1062
+  %1072 = load i64, ptr %6, align 8, !tbaa !12
+  %1073 = icmp eq i64 %1072, 10
+  br i1 %1073, label %1074, label %1080
+
+1074:                                             ; preds = %1071
+  %1075 = load ptr, ptr %4, align 8, !tbaa !7
+  %1076 = load i64, ptr %6, align 8, !tbaa !12
+  %1077 = call i32 @pm_strncasecmp(ptr noundef %1075, ptr noundef @.str.62, i64 noundef %1076)
+  %1078 = icmp eq i32 %1077, 0
+  br i1 %1078, label %1079, label %1080
+
+1079:                                             ; preds = %1074
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 62), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+1080:                                             ; preds = %1074, %1071
+  %1081 = load i64, ptr %6, align 8, !tbaa !12
+  %1082 = icmp eq i64 %1081, 11
+  br i1 %1082, label %1083, label %1089
+
+1083:                                             ; preds = %1080
+  %1084 = load ptr, ptr %4, align 8, !tbaa !7
+  %1085 = load i64, ptr %6, align 8, !tbaa !12
+  %1086 = call i32 @pm_strncasecmp(ptr noundef %1084, ptr noundef @.str.63, i64 noundef %1085)
+  %1087 = icmp eq i32 %1086, 0
+  br i1 %1087, label %1088, label %1089
+
+1088:                                             ; preds = %1083
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 63), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+1089:                                             ; preds = %1083, %1080
+  %1090 = load i64, ptr %6, align 8, !tbaa !12
+  %1091 = icmp eq i64 %1090, 8
+  br i1 %1091, label %1092, label %1098
+
+1092:                                             ; preds = %1089
+  %1093 = load ptr, ptr %4, align 8, !tbaa !7
+  %1094 = load i64, ptr %6, align 8, !tbaa !12
+  %1095 = call i32 @pm_strncasecmp(ptr noundef %1093, ptr noundef @.str.146, i64 noundef %1094)
+  %1096 = icmp eq i32 %1095, 0
+  br i1 %1096, label %1097, label %1098
+
+1097:                                             ; preds = %1092
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 63), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+1098:                                             ; preds = %1092, %1089
+  %1099 = load i64, ptr %6, align 8, !tbaa !12
+  %1100 = icmp eq i64 %1099, 8
+  br i1 %1100, label %1101, label %1107
+
+1101:                                             ; preds = %1098
+  %1102 = load ptr, ptr %4, align 8, !tbaa !7
+  %1103 = load i64, ptr %6, align 8, !tbaa !12
+  %1104 = call i32 @pm_strncasecmp(ptr noundef %1102, ptr noundef @.str.64, i64 noundef %1103)
+  %1105 = icmp eq i32 %1104, 0
+  br i1 %1105, label %1106, label %1107
+
+1106:                                             ; preds = %1101
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 64), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+1107:                                             ; preds = %1101, %1098
+  %1108 = load i64, ptr %6, align 8, !tbaa !12
+  %1109 = icmp eq i64 %1108, 10
+  br i1 %1109, label %1110, label %1116
+
+1110:                                             ; preds = %1107
+  %1111 = load ptr, ptr %4, align 8, !tbaa !7
+  %1112 = load i64, ptr %6, align 8, !tbaa !12
+  %1113 = call i32 @pm_strncasecmp(ptr noundef %1111, ptr noundef @.str.65, i64 noundef %1112)
+  %1114 = icmp eq i32 %1113, 0
+  br i1 %1114, label %1115, label %1116
+
+1115:                                             ; preds = %1110
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 65), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+1116:                                             ; preds = %1110, %1107
+  %1117 = load i64, ptr %6, align 8, !tbaa !12
+  %1118 = icmp eq i64 %1117, 7
+  br i1 %1118, label %1119, label %1125
+
+1119:                                             ; preds = %1116
+  %1120 = load ptr, ptr %4, align 8, !tbaa !7
+  %1121 = load i64, ptr %6, align 8, !tbaa !12
+  %1122 = call i32 @pm_strncasecmp(ptr noundef %1120, ptr noundef @.str.66, i64 noundef %1121)
+  %1123 = icmp eq i32 %1122, 0
+  br i1 %1123, label %1124, label %1125
+
+1124:                                             ; preds = %1119
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 66), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+1125:                                             ; preds = %1119, %1116
+  %1126 = load i64, ptr %6, align 8, !tbaa !12
+  %1127 = icmp eq i64 %1126, 10
+  br i1 %1127, label %1128, label %1134
+
+1128:                                             ; preds = %1125
+  %1129 = load ptr, ptr %4, align 8, !tbaa !7
+  %1130 = load i64, ptr %6, align 8, !tbaa !12
+  %1131 = call i32 @pm_strncasecmp(ptr noundef %1129, ptr noundef @.str.67, i64 noundef %1130)
+  %1132 = icmp eq i32 %1131, 0
+  br i1 %1132, label %1133, label %1134
+
+1133:                                             ; preds = %1128
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 67), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+1134:                                             ; preds = %1128, %1125
+  %1135 = load i64, ptr %6, align 8, !tbaa !12
+  %1136 = icmp eq i64 %1135, 10
+  br i1 %1136, label %1137, label %1143
+
+1137:                                             ; preds = %1134
+  %1138 = load ptr, ptr %4, align 8, !tbaa !7
+  %1139 = load i64, ptr %6, align 8, !tbaa !12
+  %1140 = call i32 @pm_strncasecmp(ptr noundef %1138, ptr noundef @.str.68, i64 noundef %1139)
+  %1141 = icmp eq i32 %1140, 0
+  br i1 %1141, label %1142, label %1143
+
+1142:                                             ; preds = %1137
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 68), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+1143:                                             ; preds = %1137, %1134
+  br label %1393
+
+1144:                                             ; preds = %34, %34
+  %1145 = load i64, ptr %6, align 8, !tbaa !12
+  %1146 = icmp eq i64 %1145, 3
+  br i1 %1146, label %1147, label %1153
+
+1147:                                             ; preds = %1144
+  %1148 = load ptr, ptr %4, align 8, !tbaa !7
+  %1149 = load i64, ptr %6, align 8, !tbaa !12
+  %1150 = call i32 @pm_strncasecmp(ptr noundef %1148, ptr noundef @.str.147, i64 noundef %1149)
+  %1151 = icmp eq i32 %1150, 0
+  br i1 %1151, label %1152, label %1153
+
+1152:                                             ; preds = %1147
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 4), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+1153:                                             ; preds = %1147, %1144
+  br label %1393
+
+1154:                                             ; preds = %34, %34
+  %1155 = load i64, ptr %6, align 8, !tbaa !12
+  %1156 = icmp eq i64 %1155, 4
+  br i1 %1156, label %1157, label %1163
+
+1157:                                             ; preds = %1154
+  %1158 = load ptr, ptr %4, align 8, !tbaa !7
+  %1159 = load i64, ptr %6, align 8, !tbaa !12
+  %1160 = call i32 @pm_strncasecmp(ptr noundef %1158, ptr noundef @.str.148, i64 noundef %1159)
+  %1161 = icmp eq i32 %1160, 0
+  br i1 %1161, label %1162, label %1163
+
+1162:                                             ; preds = %1157
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 4), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+1163:                                             ; preds = %1157, %1154
+  %1164 = load i64, ptr %6, align 8, !tbaa !12
+  %1165 = icmp eq i64 %1164, 9
+  br i1 %1165, label %1166, label %1172
+
+1166:                                             ; preds = %1163
+  %1167 = load ptr, ptr %4, align 8, !tbaa !7
+  %1168 = load i64, ptr %6, align 8, !tbaa !12
+  %1169 = call i32 @pm_strncasecmp(ptr noundef %1167, ptr noundef @.str.69, i64 noundef %1168)
+  %1170 = icmp eq i32 %1169, 0
+  br i1 %1170, label %1171, label %1172
+
+1171:                                             ; preds = %1166
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 69), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+1172:                                             ; preds = %1166, %1163
+  %1173 = load i64, ptr %6, align 8, !tbaa !12
+  %1174 = icmp eq i64 %1173, 11
+  br i1 %1174, label %1175, label %1181
+
+1175:                                             ; preds = %1172
+  %1176 = load ptr, ptr %4, align 8, !tbaa !7
+  %1177 = load i64, ptr %6, align 8, !tbaa !12
+  %1178 = call i32 @pm_strncasecmp(ptr noundef %1176, ptr noundef @.str.70, i64 noundef %1177)
+  %1179 = icmp eq i32 %1178, 0
+  br i1 %1179, label %1180, label %1181
+
+1180:                                             ; preds = %1175
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 70), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+1181:                                             ; preds = %1175, %1172
+  %1182 = load i64, ptr %6, align 8, !tbaa !12
+  %1183 = icmp eq i64 %1182, 9
+  br i1 %1183, label %1184, label %1190
+
+1184:                                             ; preds = %1181
+  %1185 = load ptr, ptr %4, align 8, !tbaa !7
+  %1186 = load i64, ptr %6, align 8, !tbaa !12
+  %1187 = call i32 @pm_strncasecmp(ptr noundef %1185, ptr noundef @.str.71, i64 noundef %1186)
+  %1188 = icmp eq i32 %1187, 0
+  br i1 %1188, label %1189, label %1190
+
+1189:                                             ; preds = %1184
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 71), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+1190:                                             ; preds = %1184, %1181
+  %1191 = load i64, ptr %6, align 8, !tbaa !12
+  %1192 = icmp eq i64 %1191, 13
+  br i1 %1192, label %1193, label %1199
+
+1193:                                             ; preds = %1190
+  %1194 = load ptr, ptr %4, align 8, !tbaa !7
+  %1195 = load i64, ptr %6, align 8, !tbaa !12
+  %1196 = call i32 @pm_strncasecmp(ptr noundef %1194, ptr noundef @.str.72, i64 noundef %1195)
+  %1197 = icmp eq i32 %1196, 0
+  br i1 %1197, label %1198, label %1199
+
+1198:                                             ; preds = %1193
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 72), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+1199:                                             ; preds = %1193, %1190
+  %1200 = load i64, ptr %6, align 8, !tbaa !12
+  %1201 = icmp eq i64 %1200, 21
+  br i1 %1201, label %1202, label %1208
+
+1202:                                             ; preds = %1199
+  %1203 = load ptr, ptr %4, align 8, !tbaa !7
+  %1204 = load i64, ptr %6, align 8, !tbaa !12
+  %1205 = call i32 @pm_strncasecmp(ptr noundef %1203, ptr noundef @.str.73, i64 noundef %1204)
+  %1206 = icmp eq i32 %1205, 0
+  br i1 %1206, label %1207, label %1208
+
+1207:                                             ; preds = %1202
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 73), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+1208:                                             ; preds = %1202, %1199
+  %1209 = load i64, ptr %6, align 8, !tbaa !12
+  %1210 = icmp eq i64 %1209, 26
+  br i1 %1210, label %1211, label %1217
+
+1211:                                             ; preds = %1208
+  %1212 = load ptr, ptr %4, align 8, !tbaa !7
+  %1213 = load i64, ptr %6, align 8, !tbaa !12
+  %1214 = call i32 @pm_strncasecmp(ptr noundef %1212, ptr noundef @.str.74, i64 noundef %1213)
+  %1215 = icmp eq i32 %1214, 0
+  br i1 %1215, label %1216, label %1217
+
+1216:                                             ; preds = %1211
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 74), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+1217:                                             ; preds = %1211, %1208
+  br label %1393
+
+1218:                                             ; preds = %34, %34
+  %1219 = load i64, ptr %6, align 8, !tbaa !12
+  %1220 = icmp eq i64 %1219, 7
+  br i1 %1220, label %1221, label %1227
+
+1221:                                             ; preds = %1218
+  %1222 = load ptr, ptr %4, align 8, !tbaa !7
+  %1223 = load i64, ptr %6, align 8, !tbaa !12
+  %1224 = call i32 @pm_strncasecmp(ptr noundef %1222, ptr noundef @.str.75, i64 noundef %1223)
+  %1225 = icmp eq i32 %1224, 0
+  br i1 %1225, label %1226, label %1227
+
+1226:                                             ; preds = %1221
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 75), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+1227:                                             ; preds = %1221, %1218
+  br label %1393
+
+1228:                                             ; preds = %34, %34
+  %1229 = load i64, ptr %6, align 8, !tbaa !12
+  %1230 = icmp eq i64 %1229, 8
+  br i1 %1230, label %1231, label %1237
+
+1231:                                             ; preds = %1228
+  %1232 = load ptr, ptr %4, align 8, !tbaa !7
+  %1233 = load i64, ptr %6, align 8, !tbaa !12
+  %1234 = call i32 @pm_strncasecmp(ptr noundef %1232, ptr noundef @.str.1, i64 noundef %1233)
+  %1235 = icmp eq i32 %1234, 0
+  br i1 %1235, label %1236, label %1237
+
+1236:                                             ; preds = %1231
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 1), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+1237:                                             ; preds = %1231, %1228
+  %1238 = load i64, ptr %6, align 8, !tbaa !12
+  %1239 = icmp eq i64 %1238, 8
+  br i1 %1239, label %1240, label %1246
+
+1240:                                             ; preds = %1237
+  %1241 = load ptr, ptr %4, align 8, !tbaa !7
+  %1242 = load i64, ptr %6, align 8, !tbaa !12
+  %1243 = call i32 @pm_strncasecmp(ptr noundef %1241, ptr noundef @.str.76, i64 noundef %1242)
+  %1244 = icmp eq i32 %1243, 0
+  br i1 %1244, label %1245, label %1246
+
+1245:                                             ; preds = %1240
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 76), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+1246:                                             ; preds = %1240, %1237
+  %1247 = load i64, ptr %6, align 8, !tbaa !12
+  %1248 = icmp eq i64 %1247, 9
+  br i1 %1248, label %1249, label %1255
+
+1249:                                             ; preds = %1246
+  %1250 = load ptr, ptr %4, align 8, !tbaa !7
+  %1251 = load i64, ptr %6, align 8, !tbaa !12
+  %1252 = call i32 @pm_strncasecmp(ptr noundef %1250, ptr noundef @.str.149, i64 noundef %1251)
+  %1253 = icmp eq i32 %1252, 0
+  br i1 %1253, label %1254, label %1255
+
+1254:                                             ; preds = %1249
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 76), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+1255:                                             ; preds = %1249, %1246
+  %1256 = load i64, ptr %6, align 8, !tbaa !12
+  %1257 = icmp eq i64 %1256, 11
+  br i1 %1257, label %1258, label %1264
+
+1258:                                             ; preds = %1255
+  %1259 = load ptr, ptr %4, align 8, !tbaa !7
+  %1260 = load i64, ptr %6, align 8, !tbaa !12
+  %1261 = call i32 @pm_strncasecmp(ptr noundef %1259, ptr noundef @.str.77, i64 noundef %1260)
+  %1262 = icmp eq i32 %1261, 0
+  br i1 %1262, label %1263, label %1264
+
+1263:                                             ; preds = %1258
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 77), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+1264:                                             ; preds = %1258, %1255
+  %1265 = load i64, ptr %6, align 8, !tbaa !12
+  %1266 = icmp eq i64 %1265, 9
+  br i1 %1266, label %1267, label %1273
+
+1267:                                             ; preds = %1264
+  %1268 = load ptr, ptr %4, align 8, !tbaa !7
+  %1269 = load i64, ptr %6, align 8, !tbaa !12
+  %1270 = call i32 @pm_strncasecmp(ptr noundef %1268, ptr noundef @.str.78, i64 noundef %1269)
+  %1271 = icmp eq i32 %1270, 0
+  br i1 %1271, label %1272, label %1273
+
+1272:                                             ; preds = %1267
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 78), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+1273:                                             ; preds = %1267, %1264
+  %1274 = load i64, ptr %6, align 8, !tbaa !12
+  %1275 = icmp eq i64 %1274, 13
+  br i1 %1275, label %1276, label %1282
+
+1276:                                             ; preds = %1273
+  %1277 = load ptr, ptr %4, align 8, !tbaa !7
+  %1278 = load i64, ptr %6, align 8, !tbaa !12
+  %1279 = call i32 @pm_strncasecmp(ptr noundef %1277, ptr noundef @.str.79, i64 noundef %1278)
+  %1280 = icmp eq i32 %1279, 0
+  br i1 %1280, label %1281, label %1282
+
+1281:                                             ; preds = %1276
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 79), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+1282:                                             ; preds = %1276, %1273
+  br label %1393
+
+1283:                                             ; preds = %34, %34
+  %1284 = load i64, ptr %6, align 8, !tbaa !12
+  %1285 = icmp eq i64 %1284, 11
+  br i1 %1285, label %1286, label %1292
+
+1286:                                             ; preds = %1283
+  %1287 = load ptr, ptr %4, align 8, !tbaa !7
+  %1288 = load i64, ptr %6, align 8, !tbaa !12
+  %1289 = call i32 @pm_strncasecmp(ptr noundef %1287, ptr noundef @.str.4, i64 noundef %1288)
+  %1290 = icmp eq i32 %1289, 0
+  br i1 %1290, label %1291, label %1292
+
+1291:                                             ; preds = %1286
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 4), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+1292:                                             ; preds = %1286, %1283
+  %1293 = load i64, ptr %6, align 8, !tbaa !12
+  %1294 = icmp eq i64 %1293, 11
+  br i1 %1294, label %1295, label %1301
+
+1295:                                             ; preds = %1292
+  %1296 = load ptr, ptr %4, align 8, !tbaa !7
+  %1297 = load i64, ptr %6, align 8, !tbaa !12
+  %1298 = call i32 @pm_strncasecmp(ptr noundef %1296, ptr noundef @.str.89, i64 noundef %1297)
+  %1299 = icmp eq i32 %1298, 0
+  br i1 %1299, label %1300, label %1301
+
+1300:                                             ; preds = %1295
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 89), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+1301:                                             ; preds = %1295, %1292
+  %1302 = load i64, ptr %6, align 8, !tbaa !12
+  %1303 = icmp eq i64 %1302, 12
+  br i1 %1303, label %1304, label %1310
+
+1304:                                             ; preds = %1301
+  %1305 = load ptr, ptr %4, align 8, !tbaa !7
+  %1306 = load i64, ptr %6, align 8, !tbaa !12
+  %1307 = call i32 @pm_strncasecmp(ptr noundef %1305, ptr noundef @.str.80, i64 noundef %1306)
+  %1308 = icmp eq i32 %1307, 0
+  br i1 %1308, label %1309, label %1310
+
+1309:                                             ; preds = %1304
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 80), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+1310:                                             ; preds = %1304, %1301
+  %1311 = load i64, ptr %6, align 8, !tbaa !12
+  %1312 = icmp eq i64 %1311, 12
+  br i1 %1312, label %1313, label %1319
+
+1313:                                             ; preds = %1310
+  %1314 = load ptr, ptr %4, align 8, !tbaa !7
+  %1315 = load i64, ptr %6, align 8, !tbaa !12
+  %1316 = call i32 @pm_strncasecmp(ptr noundef %1314, ptr noundef @.str.81, i64 noundef %1315)
+  %1317 = icmp eq i32 %1316, 0
+  br i1 %1317, label %1318, label %1319
+
+1318:                                             ; preds = %1313
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 81), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+1319:                                             ; preds = %1313, %1310
+  %1320 = load i64, ptr %6, align 8, !tbaa !12
+  %1321 = icmp eq i64 %1320, 12
+  br i1 %1321, label %1322, label %1328
+
+1322:                                             ; preds = %1319
+  %1323 = load ptr, ptr %4, align 8, !tbaa !7
+  %1324 = load i64, ptr %6, align 8, !tbaa !12
+  %1325 = call i32 @pm_strncasecmp(ptr noundef %1323, ptr noundef @.str.82, i64 noundef %1324)
+  %1326 = icmp eq i32 %1325, 0
+  br i1 %1326, label %1327, label %1328
+
+1327:                                             ; preds = %1322
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 82), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+1328:                                             ; preds = %1322, %1319
+  %1329 = load i64, ptr %6, align 8, !tbaa !12
+  %1330 = icmp eq i64 %1329, 12
+  br i1 %1330, label %1331, label %1337
+
+1331:                                             ; preds = %1328
+  %1332 = load ptr, ptr %4, align 8, !tbaa !7
+  %1333 = load i64, ptr %6, align 8, !tbaa !12
+  %1334 = call i32 @pm_strncasecmp(ptr noundef %1332, ptr noundef @.str.83, i64 noundef %1333)
+  %1335 = icmp eq i32 %1334, 0
+  br i1 %1335, label %1336, label %1337
+
+1336:                                             ; preds = %1331
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 83), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+1337:                                             ; preds = %1331, %1328
+  %1338 = load i64, ptr %6, align 8, !tbaa !12
+  %1339 = icmp eq i64 %1338, 12
+  br i1 %1339, label %1340, label %1346
+
+1340:                                             ; preds = %1337
+  %1341 = load ptr, ptr %4, align 8, !tbaa !7
+  %1342 = load i64, ptr %6, align 8, !tbaa !12
+  %1343 = call i32 @pm_strncasecmp(ptr noundef %1341, ptr noundef @.str.84, i64 noundef %1342)
+  %1344 = icmp eq i32 %1343, 0
+  br i1 %1344, label %1345, label %1346
+
+1345:                                             ; preds = %1340
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 84), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+1346:                                             ; preds = %1340, %1337
+  %1347 = load i64, ptr %6, align 8, !tbaa !12
+  %1348 = icmp eq i64 %1347, 12
+  br i1 %1348, label %1349, label %1355
+
+1349:                                             ; preds = %1346
+  %1350 = load ptr, ptr %4, align 8, !tbaa !7
+  %1351 = load i64, ptr %6, align 8, !tbaa !12
+  %1352 = call i32 @pm_strncasecmp(ptr noundef %1350, ptr noundef @.str.85, i64 noundef %1351)
+  %1353 = icmp eq i32 %1352, 0
+  br i1 %1353, label %1354, label %1355
+
+1354:                                             ; preds = %1349
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 85), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+1355:                                             ; preds = %1349, %1346
+  %1356 = load i64, ptr %6, align 8, !tbaa !12
+  %1357 = icmp eq i64 %1356, 12
+  br i1 %1357, label %1358, label %1364
+
+1358:                                             ; preds = %1355
+  %1359 = load ptr, ptr %4, align 8, !tbaa !7
+  %1360 = load i64, ptr %6, align 8, !tbaa !12
+  %1361 = call i32 @pm_strncasecmp(ptr noundef %1359, ptr noundef @.str.86, i64 noundef %1360)
+  %1362 = icmp eq i32 %1361, 0
+  br i1 %1362, label %1363, label %1364
+
+1363:                                             ; preds = %1358
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 86), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+1364:                                             ; preds = %1358, %1355
+  %1365 = load i64, ptr %6, align 8, !tbaa !12
+  %1366 = icmp eq i64 %1365, 12
+  br i1 %1366, label %1367, label %1373
+
+1367:                                             ; preds = %1364
+  %1368 = load ptr, ptr %4, align 8, !tbaa !7
+  %1369 = load i64, ptr %6, align 8, !tbaa !12
+  %1370 = call i32 @pm_strncasecmp(ptr noundef %1368, ptr noundef @.str.87, i64 noundef %1369)
+  %1371 = icmp eq i32 %1370, 0
+  br i1 %1371, label %1372, label %1373
+
+1372:                                             ; preds = %1367
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 87), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+1373:                                             ; preds = %1367, %1364
+  %1374 = load i64, ptr %6, align 8, !tbaa !12
+  %1375 = icmp eq i64 %1374, 12
+  br i1 %1375, label %1376, label %1382
+
+1376:                                             ; preds = %1373
+  %1377 = load ptr, ptr %4, align 8, !tbaa !7
+  %1378 = load i64, ptr %6, align 8, !tbaa !12
+  %1379 = call i32 @pm_strncasecmp(ptr noundef %1377, ptr noundef @.str.88, i64 noundef %1378)
+  %1380 = icmp eq i32 %1379, 0
+  br i1 %1380, label %1381, label %1382
+
+1381:                                             ; preds = %1376
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 88), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+1382:                                             ; preds = %1376, %1373
+  br label %1393
+
+1383:                                             ; preds = %34
+  %1384 = load i64, ptr %6, align 8, !tbaa !12
+  %1385 = icmp eq i64 %1384, 3
+  br i1 %1385, label %1386, label %1392
+
+1386:                                             ; preds = %1383
+  %1387 = load ptr, ptr %4, align 8, !tbaa !7
+  %1388 = load i64, ptr %6, align 8, !tbaa !12
+  %1389 = call i32 @pm_strncasecmp(ptr noundef %1387, ptr noundef @.str.150, i64 noundef %1388)
+  %1390 = icmp eq i32 %1389, 0
+  br i1 %1390, label %1391, label %1392
+
+1391:                                             ; preds = %1386
+  store ptr getelementptr ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 1), ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+1392:                                             ; preds = %1386, %1383
+  br label %1393
+
+1393:                                             ; preds = %34, %1392, %1382, %1282, %1227, %1217, %1153, %1143, %1034, %1015, %600, %554, %436, %111, %65
+  br label %1394
+
+1394:                                             ; preds = %1393, %31
+  store ptr null, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %1395
+
+1395:                                             ; preds = %1394, %1391, %1381, %1372, %1363, %1354, %1345, %1336, %1327, %1318, %1309, %1300, %1291, %1281, %1272, %1263, %1254, %1245, %1236, %1226, %1216, %1207, %1198, %1189, %1180, %1171, %1162, %1152, %1142, %1133, %1124, %1115, %1106, %1097, %1088, %1079, %1070, %1061, %1052, %1043, %1033, %1024, %1014, %1005, %996, %987, %978, %969, %960, %951, %942, %933, %924, %915, %906, %897, %888, %879, %870, %861, %852, %843, %834, %825, %816, %807, %798, %789, %780, %771, %762, %753, %744, %735, %726, %717, %708, %699, %690, %681, %672, %663, %654, %645, %636, %627, %618, %609, %599, %590, %581, %572, %563, %553, %544, %535, %526, %517, %508, %499, %490, %481, %472, %463, %454, %445, %435, %426, %417, %408, %399, %390, %381, %372, %363, %354, %345, %336, %327, %318, %309, %300, %291, %282, %273, %264, %255, %246, %237, %228, %219, %210, %201, %192, %183, %174, %165, %156, %147, %138, %129, %120, %110, %101, %92, %83, %74, %64, %55, %46, %30, %29
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #3
+  %1396 = load ptr, ptr %3, align 8
+  ret ptr %1396
+}
+
+declare i32 @pm_strncasecmp(ptr noundef, ptr noundef, i64 noundef) #2
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i32 @pm_cesu_8_codepoint(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !7
+  store i64 %1, ptr %6, align 8, !tbaa !12
+  store ptr %2, ptr %7, align 8, !tbaa !19
+  %8 = load ptr, ptr %5, align 8, !tbaa !7
+  %9 = getelementptr i8, ptr %8, i64 0
+  %10 = load i8, ptr %9, align 1, !tbaa !16
+  %11 = zext i8 %10 to i32
+  %12 = icmp slt i32 %11, 128
+  br i1 %12, label %13, label %19
+
+13:                                               ; preds = %3
+  %14 = load ptr, ptr %7, align 8, !tbaa !19
+  store i64 1, ptr %14, align 8, !tbaa !12
+  %15 = load ptr, ptr %5, align 8, !tbaa !7
+  %16 = getelementptr i8, ptr %15, i64 0
+  %17 = load i8, ptr %16, align 1, !tbaa !16
+  %18 = zext i8 %17 to i32
+  store i32 %18, ptr %4, align 4
+  br label %269
+
+19:                                               ; preds = %3
+  %20 = load i64, ptr %6, align 8, !tbaa !12
+  %21 = icmp sgt i64 %20, 1
+  br i1 %21, label %22, label %60
+
+22:                                               ; preds = %19
+  %23 = load ptr, ptr %5, align 8, !tbaa !7
+  %24 = getelementptr i8, ptr %23, i64 0
+  %25 = load i8, ptr %24, align 1, !tbaa !16
+  %26 = zext i8 %25 to i32
+  %27 = icmp sge i32 %26, 194
+  br i1 %27, label %28, label %60
+
+28:                                               ; preds = %22
+  %29 = load ptr, ptr %5, align 8, !tbaa !7
+  %30 = getelementptr i8, ptr %29, i64 0
+  %31 = load i8, ptr %30, align 1, !tbaa !16
+  %32 = zext i8 %31 to i32
+  %33 = icmp sle i32 %32, 223
+  br i1 %33, label %34, label %60
+
+34:                                               ; preds = %28
+  %35 = load ptr, ptr %5, align 8, !tbaa !7
+  %36 = getelementptr i8, ptr %35, i64 1
+  %37 = load i8, ptr %36, align 1, !tbaa !16
+  %38 = zext i8 %37 to i32
+  %39 = icmp sge i32 %38, 128
+  br i1 %39, label %40, label %60
+
+40:                                               ; preds = %34
+  %41 = load ptr, ptr %5, align 8, !tbaa !7
+  %42 = getelementptr i8, ptr %41, i64 1
+  %43 = load i8, ptr %42, align 1, !tbaa !16
+  %44 = zext i8 %43 to i32
+  %45 = icmp sle i32 %44, 191
+  br i1 %45, label %46, label %60
+
+46:                                               ; preds = %40
+  %47 = load ptr, ptr %7, align 8, !tbaa !19
+  store i64 2, ptr %47, align 8, !tbaa !12
+  %48 = load ptr, ptr %5, align 8, !tbaa !7
+  %49 = getelementptr i8, ptr %48, i64 0
+  %50 = load i8, ptr %49, align 1, !tbaa !16
+  %51 = zext i8 %50 to i32
+  %52 = and i32 %51, 31
+  %53 = shl i32 %52, 6
+  %54 = load ptr, ptr %5, align 8, !tbaa !7
+  %55 = getelementptr i8, ptr %54, i64 1
+  %56 = load i8, ptr %55, align 1, !tbaa !16
+  %57 = zext i8 %56 to i32
+  %58 = and i32 %57, 63
+  %59 = or i32 %53, %58
+  store i32 %59, ptr %4, align 4
+  br label %269
+
+60:                                               ; preds = %40, %34, %28, %22, %19
+  %61 = load i64, ptr %6, align 8, !tbaa !12
+  %62 = icmp sgt i64 %61, 5
+  br i1 %62, label %63, label %152
+
+63:                                               ; preds = %60
+  %64 = load ptr, ptr %5, align 8, !tbaa !7
+  %65 = getelementptr i8, ptr %64, i64 0
+  %66 = load i8, ptr %65, align 1, !tbaa !16
+  %67 = zext i8 %66 to i32
+  %68 = icmp eq i32 %67, 237
+  br i1 %68, label %69, label %152
+
+69:                                               ; preds = %63
+  %70 = load ptr, ptr %5, align 8, !tbaa !7
+  %71 = getelementptr i8, ptr %70, i64 1
+  %72 = load i8, ptr %71, align 1, !tbaa !16
+  %73 = zext i8 %72 to i32
+  %74 = icmp sge i32 %73, 160
+  br i1 %74, label %75, label %152
+
+75:                                               ; preds = %69
+  %76 = load ptr, ptr %5, align 8, !tbaa !7
+  %77 = getelementptr i8, ptr %76, i64 1
+  %78 = load i8, ptr %77, align 1, !tbaa !16
+  %79 = zext i8 %78 to i32
+  %80 = icmp sle i32 %79, 175
+  br i1 %80, label %81, label %152
+
+81:                                               ; preds = %75
+  %82 = load ptr, ptr %5, align 8, !tbaa !7
+  %83 = getelementptr i8, ptr %82, i64 2
+  %84 = load i8, ptr %83, align 1, !tbaa !16
+  %85 = zext i8 %84 to i32
+  %86 = icmp sge i32 %85, 128
+  br i1 %86, label %87, label %152
+
+87:                                               ; preds = %81
+  %88 = load ptr, ptr %5, align 8, !tbaa !7
+  %89 = getelementptr i8, ptr %88, i64 2
+  %90 = load i8, ptr %89, align 1, !tbaa !16
+  %91 = zext i8 %90 to i32
+  %92 = icmp sle i32 %91, 191
+  br i1 %92, label %93, label %152
+
+93:                                               ; preds = %87
+  %94 = load ptr, ptr %5, align 8, !tbaa !7
+  %95 = getelementptr i8, ptr %94, i64 3
+  %96 = load i8, ptr %95, align 1, !tbaa !16
+  %97 = zext i8 %96 to i32
+  %98 = icmp eq i32 %97, 237
+  br i1 %98, label %99, label %152
+
+99:                                               ; preds = %93
+  %100 = load ptr, ptr %5, align 8, !tbaa !7
+  %101 = getelementptr i8, ptr %100, i64 4
+  %102 = load i8, ptr %101, align 1, !tbaa !16
+  %103 = zext i8 %102 to i32
+  %104 = icmp sge i32 %103, 176
+  br i1 %104, label %105, label %152
+
+105:                                              ; preds = %99
+  %106 = load ptr, ptr %5, align 8, !tbaa !7
+  %107 = getelementptr i8, ptr %106, i64 4
+  %108 = load i8, ptr %107, align 1, !tbaa !16
+  %109 = zext i8 %108 to i32
+  %110 = icmp sle i32 %109, 191
+  br i1 %110, label %111, label %152
+
+111:                                              ; preds = %105
+  %112 = load ptr, ptr %5, align 8, !tbaa !7
+  %113 = getelementptr i8, ptr %112, i64 5
+  %114 = load i8, ptr %113, align 1, !tbaa !16
+  %115 = zext i8 %114 to i32
+  %116 = icmp sge i32 %115, 128
+  br i1 %116, label %117, label %152
+
+117:                                              ; preds = %111
+  %118 = load ptr, ptr %5, align 8, !tbaa !7
+  %119 = getelementptr i8, ptr %118, i64 5
+  %120 = load i8, ptr %119, align 1, !tbaa !16
+  %121 = zext i8 %120 to i32
+  %122 = icmp sle i32 %121, 191
+  br i1 %122, label %123, label %152
+
+123:                                              ; preds = %117
+  %124 = load ptr, ptr %7, align 8, !tbaa !19
+  store i64 6, ptr %124, align 8, !tbaa !12
+  %125 = load ptr, ptr %5, align 8, !tbaa !7
+  %126 = getelementptr i8, ptr %125, i64 1
+  %127 = load i8, ptr %126, align 1, !tbaa !16
+  %128 = zext i8 %127 to i32
+  %129 = and i32 %128, 15
+  %130 = shl i32 %129, 16
+  %131 = load ptr, ptr %5, align 8, !tbaa !7
+  %132 = getelementptr i8, ptr %131, i64 2
+  %133 = load i8, ptr %132, align 1, !tbaa !16
+  %134 = zext i8 %133 to i32
+  %135 = and i32 %134, 63
+  %136 = shl i32 %135, 10
+  %137 = or i32 %130, %136
+  %138 = load ptr, ptr %5, align 8, !tbaa !7
+  %139 = getelementptr i8, ptr %138, i64 4
+  %140 = load i8, ptr %139, align 1, !tbaa !16
+  %141 = zext i8 %140 to i32
+  %142 = and i32 %141, 15
+  %143 = shl i32 %142, 6
+  %144 = or i32 %137, %143
+  %145 = load ptr, ptr %5, align 8, !tbaa !7
+  %146 = getelementptr i8, ptr %145, i64 5
+  %147 = load i8, ptr %146, align 1, !tbaa !16
+  %148 = zext i8 %147 to i32
+  %149 = and i32 %148, 63
+  %150 = or i32 %144, %149
+  %151 = add i32 65536, %150
+  store i32 %151, ptr %4, align 4
+  br label %269
+
+152:                                              ; preds = %117, %111, %105, %99, %93, %87, %81, %75, %69, %63, %60
+  %153 = load i64, ptr %6, align 8, !tbaa !12
+  %154 = icmp sgt i64 %153, 2
+  br i1 %154, label %155, label %195
+
+155:                                              ; preds = %152
+  %156 = load ptr, ptr %5, align 8, !tbaa !7
+  %157 = getelementptr i8, ptr %156, i64 0
+  %158 = load i8, ptr %157, align 1, !tbaa !16
+  %159 = zext i8 %158 to i32
+  %160 = icmp eq i32 %159, 237
+  br i1 %160, label %161, label %195
+
+161:                                              ; preds = %155
+  %162 = load ptr, ptr %5, align 8, !tbaa !7
+  %163 = getelementptr i8, ptr %162, i64 1
+  %164 = load i8, ptr %163, align 1, !tbaa !16
+  %165 = zext i8 %164 to i32
+  %166 = icmp sge i32 %165, 160
+  br i1 %166, label %167, label %195
+
+167:                                              ; preds = %161
+  %168 = load ptr, ptr %5, align 8, !tbaa !7
+  %169 = getelementptr i8, ptr %168, i64 1
+  %170 = load i8, ptr %169, align 1, !tbaa !16
+  %171 = zext i8 %170 to i32
+  %172 = icmp sle i32 %171, 191
+  br i1 %172, label %173, label %195
+
+173:                                              ; preds = %167
+  %174 = load ptr, ptr %7, align 8, !tbaa !19
+  store i64 3, ptr %174, align 8, !tbaa !12
+  %175 = load ptr, ptr %5, align 8, !tbaa !7
+  %176 = getelementptr i8, ptr %175, i64 0
+  %177 = load i8, ptr %176, align 1, !tbaa !16
+  %178 = zext i8 %177 to i32
+  %179 = and i32 %178, 3
+  %180 = shl i32 %179, 16
+  %181 = load ptr, ptr %5, align 8, !tbaa !7
+  %182 = getelementptr i8, ptr %181, i64 1
+  %183 = load i8, ptr %182, align 1, !tbaa !16
+  %184 = zext i8 %183 to i32
+  %185 = and i32 %184, 63
+  %186 = shl i32 %185, 10
+  %187 = or i32 %180, %186
+  %188 = load ptr, ptr %5, align 8, !tbaa !7
+  %189 = getelementptr i8, ptr %188, i64 2
+  %190 = load i8, ptr %189, align 1, !tbaa !16
+  %191 = zext i8 %190 to i32
+  %192 = and i32 %191, 63
+  %193 = or i32 %187, %192
+  %194 = add i32 65536, %193
+  store i32 %194, ptr %4, align 4
+  br label %269
+
+195:                                              ; preds = %167, %161, %155, %152
+  %196 = load i64, ptr %6, align 8, !tbaa !12
+  %197 = icmp sgt i64 %196, 2
+  br i1 %197, label %198, label %267
+
+198:                                              ; preds = %195
+  %199 = load ptr, ptr %5, align 8, !tbaa !7
+  %200 = getelementptr i8, ptr %199, i64 0
+  %201 = load i8, ptr %200, align 1, !tbaa !16
+  %202 = zext i8 %201 to i32
+  %203 = icmp eq i32 %202, 224
+  br i1 %203, label %204, label %210
+
+204:                                              ; preds = %198
+  %205 = load ptr, ptr %5, align 8, !tbaa !7
+  %206 = getelementptr i8, ptr %205, i64 1
+  %207 = load i8, ptr %206, align 1, !tbaa !16
+  %208 = zext i8 %207 to i32
+  %209 = icmp sge i32 %208, 160
+  br i1 %209, label %228, label %210
+
+210:                                              ; preds = %204, %198
+  %211 = load ptr, ptr %5, align 8, !tbaa !7
+  %212 = getelementptr i8, ptr %211, i64 0
+  %213 = load i8, ptr %212, align 1, !tbaa !16
+  %214 = zext i8 %213 to i32
+  %215 = icmp sge i32 %214, 225
+  br i1 %215, label %216, label %267
+
+216:                                              ; preds = %210
+  %217 = load ptr, ptr %5, align 8, !tbaa !7
+  %218 = getelementptr i8, ptr %217, i64 0
+  %219 = load i8, ptr %218, align 1, !tbaa !16
+  %220 = zext i8 %219 to i32
+  %221 = icmp sle i32 %220, 239
+  br i1 %221, label %222, label %267
+
+222:                                              ; preds = %216
+  %223 = load ptr, ptr %5, align 8, !tbaa !7
+  %224 = getelementptr i8, ptr %223, i64 1
+  %225 = load i8, ptr %224, align 1, !tbaa !16
+  %226 = zext i8 %225 to i32
+  %227 = icmp sge i32 %226, 128
+  br i1 %227, label %228, label %267
+
+228:                                              ; preds = %222, %204
+  %229 = load ptr, ptr %5, align 8, !tbaa !7
+  %230 = getelementptr i8, ptr %229, i64 1
+  %231 = load i8, ptr %230, align 1, !tbaa !16
+  %232 = zext i8 %231 to i32
+  %233 = icmp sle i32 %232, 191
+  br i1 %233, label %234, label %267
+
+234:                                              ; preds = %228
+  %235 = load ptr, ptr %5, align 8, !tbaa !7
+  %236 = getelementptr i8, ptr %235, i64 2
+  %237 = load i8, ptr %236, align 1, !tbaa !16
+  %238 = zext i8 %237 to i32
+  %239 = icmp sge i32 %238, 128
+  br i1 %239, label %240, label %267
+
+240:                                              ; preds = %234
+  %241 = load ptr, ptr %5, align 8, !tbaa !7
+  %242 = getelementptr i8, ptr %241, i64 2
+  %243 = load i8, ptr %242, align 1, !tbaa !16
+  %244 = zext i8 %243 to i32
+  %245 = icmp sle i32 %244, 191
+  br i1 %245, label %246, label %267
+
+246:                                              ; preds = %240
+  %247 = load ptr, ptr %7, align 8, !tbaa !19
+  store i64 3, ptr %247, align 8, !tbaa !12
+  %248 = load ptr, ptr %5, align 8, !tbaa !7
+  %249 = getelementptr i8, ptr %248, i64 0
+  %250 = load i8, ptr %249, align 1, !tbaa !16
+  %251 = zext i8 %250 to i32
+  %252 = and i32 %251, 15
+  %253 = shl i32 %252, 12
+  %254 = load ptr, ptr %5, align 8, !tbaa !7
+  %255 = getelementptr i8, ptr %254, i64 1
+  %256 = load i8, ptr %255, align 1, !tbaa !16
+  %257 = zext i8 %256 to i32
+  %258 = and i32 %257, 63
+  %259 = shl i32 %258, 6
+  %260 = or i32 %253, %259
+  %261 = load ptr, ptr %5, align 8, !tbaa !7
+  %262 = getelementptr i8, ptr %261, i64 2
+  %263 = load i8, ptr %262, align 1, !tbaa !16
+  %264 = zext i8 %263 to i32
+  %265 = and i32 %264, 63
+  %266 = or i32 %260, %265
+  store i32 %266, ptr %4, align 4
+  br label %269
+
+267:                                              ; preds = %240, %234, %228, %222, %216, %210, %195
+  %268 = load ptr, ptr %7, align 8, !tbaa !19
+  store i64 0, ptr %268, align 8, !tbaa !12
+  store i32 0, ptr %4, align 4
+  br label %269
+
+269:                                              ; preds = %267, %246, %173, %123, %46, %13
+  %270 = load i32, ptr %4, align 4
+  ret i32 %270
+}
+
+attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 
@@ -7224,15 +8992,22 @@ attributes #25 = { nounwind willreturn memory(read, argmem: readwrite) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = !{i64 2150767520}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
-!14 = distinct !{!14, !8}
-!15 = distinct !{!15, !8}
-!16 = distinct !{!16, !8}
-!17 = distinct !{!17, !8}
+!6 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"p1 omnipotent char", !9, i64 0}
+!9 = !{!"any pointer", !10, i64 0}
+!10 = !{!"omnipotent char", !11, i64 0}
+!11 = !{!"Simple C/C++ TBAA"}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"long", !10, i64 0}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"int", !10, i64 0}
+!16 = !{!10, !10, i64 0}
+!17 = distinct !{!17, !18}
+!18 = !{!"llvm.loop.mustprogress"}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"p1 long", !9, i64 0}
+!21 = distinct !{!21, !18}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"p1 int", !9, i64 0}
+!24 = distinct !{!24, !18}

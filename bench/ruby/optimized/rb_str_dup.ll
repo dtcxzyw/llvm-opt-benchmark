@@ -7,12 +7,12 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [15 x i8] c"shared_string?\00", align 1
 @.str.2 = private unnamed_addr constant [21 x i8] c"sharing_with_shared?\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define weak i64 @ruby_abi_version() local_unnamed_addr #0 {
   ret i64 0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define void @Init_string_rb_str_dup(i64 noundef %0) local_unnamed_addr #0 {
   tail call void @rb_define_singleton_method(i64 noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @bug_rb_str_dup, i32 noundef 1) #4
   tail call void @rb_define_singleton_method(i64 noundef %0, ptr noundef nonnull @.str.1, ptr noundef nonnull @bug_shared_string_p, i32 noundef 1) #4
@@ -22,44 +22,44 @@ define void @Init_string_rb_str_dup(i64 noundef %0) local_unnamed_addr #0 {
 
 declare extern_weak void @rb_define_singleton_method(i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: cold nounwind uwtable
+; Function Attrs: cold nounwind sspstrong uwtable
 define internal i64 @bug_rb_str_dup(i64 %0, i64 noundef %1) #2 {
   tail call void @rb_check_type(i64 noundef %1, i32 noundef 5) #5
   %3 = tail call i64 @rb_str_dup(i64 noundef %1) #4
   ret i64 %3
 }
 
-; Function Attrs: cold nounwind uwtable
+; Function Attrs: cold nounwind sspstrong uwtable
 define internal range(i64 0, 21) i64 @bug_shared_string_p(i64 %0, i64 noundef %1) #2 {
   tail call void @rb_check_type(i64 noundef %1, i32 noundef 5) #5
-  %3 = and i64 %1, 7
-  %4 = icmp ne i64 %3, 0
-  %5 = icmp eq i64 %1, 0
-  %6 = or i1 %5, %4
-  br i1 %6, label %RB_FL_TEST.exit.thread, label %7
+  %3 = icmp eq i64 %1, 0
+  %4 = and i64 %1, 7
+  %5 = icmp ne i64 %4, 0
+  %6 = or i1 %3, %5
+  br i1 %6, label %RB_FL_TEST.exit.thread, label %RB_FL_ABLE.exit.i
 
-7:                                                ; preds = %2
-  %8 = inttoptr i64 %1 to ptr
-  %9 = load i64, ptr %8, align 8
-  %10 = and i64 %9, 31
-  %11 = icmp eq i64 %10, 27
-  %12 = and i64 %9, 16384
-  %.not = icmp eq i64 %12, 0
-  %or.cond = or i1 %11, %.not
-  br i1 %or.cond, label %RB_FL_TEST.exit.thread, label %RB_FL_TEST.exit6
+RB_FL_ABLE.exit.i:                                ; preds = %2
+  %7 = inttoptr i64 %1 to ptr
+  %8 = load i64, ptr %7, align 8, !tbaa !6
+  %9 = and i64 %8, 31
+  %.not.i = icmp eq i64 %9, 27
+  %10 = and i64 %8, 4096
+  %.not = icmp eq i64 %10, 0
+  %or.cond = or i1 %.not.i, %.not
+  br i1 %or.cond, label %RB_FL_TEST.exit.thread, label %RB_FL_TEST.exit8
 
-RB_FL_TEST.exit6:                                 ; preds = %7
-  %13 = and i64 %9, 8192
-  %.not39 = icmp eq i64 %13, 0
-  %14 = select i1 %.not39, i64 0, i64 20
+RB_FL_TEST.exit8:                                 ; preds = %RB_FL_ABLE.exit.i
+  %11 = and i64 %8, 8192
+  %.not311 = icmp eq i64 %11, 0
+  %12 = select i1 %.not311, i64 0, i64 20
   br label %RB_FL_TEST.exit.thread
 
-RB_FL_TEST.exit.thread:                           ; preds = %7, %2, %RB_FL_TEST.exit6
-  %15 = phi i64 [ %14, %RB_FL_TEST.exit6 ], [ 0, %2 ], [ 0, %7 ]
-  ret i64 %15
+RB_FL_TEST.exit.thread:                           ; preds = %RB_FL_ABLE.exit.i, %2, %RB_FL_TEST.exit8
+  %13 = phi i64 [ %12, %RB_FL_TEST.exit8 ], [ 0, %2 ], [ 0, %RB_FL_ABLE.exit.i ]
+  ret i64 %13
 }
 
-; Function Attrs: cold nounwind uwtable
+; Function Attrs: cold nounwind sspstrong uwtable
 define internal range(i64 0, 21) i64 @bug_sharing_with_shared_p(i64 %0, i64 noundef %1) #2 {
   tail call void @rb_check_type(i64 noundef %1, i32 noundef 5) #5
   %3 = tail call i64 @bug_shared_string_p(i64 poison, i64 noundef %1)
@@ -69,7 +69,7 @@ define internal range(i64 0, 21) i64 @bug_sharing_with_shared_p(i64 %0, i64 noun
 4:                                                ; preds = %2
   %5 = inttoptr i64 %1 to ptr
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %7 = load i64, ptr %6, align 8
+  %7 = load i64, ptr %6, align 8, !tbaa !11
   %8 = tail call i64 @bug_shared_string_p(i64 poison, i64 noundef %7)
   br label %9
 
@@ -83,10 +83,10 @@ declare void @rb_check_type(i64 noundef, i32 noundef) local_unnamed_addr #3
 
 declare i64 @rb_str_dup(i64 noundef) local_unnamed_addr #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { cold nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { cold nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nounwind }
 attributes #5 = { cold nounwind }
 
@@ -97,4 +97,10 @@ attributes #5 = { cold nounwind }
 !2 = !{i32 1, !"wchar_size", i32 4}
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
-!5 = !{i32 7, !"frame-pointer", i32 2}
+!5 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!6 = !{!7, !8, i64 0}
+!7 = !{!"RBasic", !8, i64 0, !8, i64 8}
+!8 = !{!"long", !9, i64 0}
+!9 = !{!"omnipotent char", !10, i64 0}
+!10 = !{!"Simple C/C++ TBAA"}
+!11 = !{!9, !9, i64 0}

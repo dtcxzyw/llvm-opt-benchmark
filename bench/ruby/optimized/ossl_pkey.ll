@@ -22,7 +22,6 @@ target triple = "x86_64-pc-linux-gnu"
 @id_private_q = internal unnamed_addr global i64 0, align 8
 @rb_eArgError = external local_unnamed_addr global i64, align 8
 @.str.6 = private unnamed_addr constant [22 x i8] c"private key is needed\00", align 1
-@.str.7 = private unnamed_addr constant [3 x i8] c"02\00", align 1
 @.str.8 = private unnamed_addr constant [8 x i8] c"BIO_new\00", align 1
 @.str.9 = private unnamed_addr constant [19 x i8] c"i2d_PrivateKey_bio\00", align 1
 @.str.10 = private unnamed_addr constant [37 x i8] c"PEM_write_bio_PrivateKey_traditional\00", align 1
@@ -65,7 +64,6 @@ target triple = "x86_64-pc-linux-gnu"
 @cDSA = external local_unnamed_addr global i64, align 8
 @cDH = external local_unnamed_addr global i64, align 8
 @cEC = external local_unnamed_addr global i64, align 8
-@.str.41 = private unnamed_addr constant [3 x i8] c"11\00", align 1
 @.str.42 = private unnamed_addr constant [21 x i8] c"Could not parse PKey\00", align 1
 @.str.43 = private unnamed_addr constant [17 x i8] c"EVP_PKEY_CTX_new\00", align 1
 @.str.44 = private unnamed_addr constant [27 x i8] c"EVP_PKEY_CTX_new_from_name\00", align 1
@@ -97,12 +95,10 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.62 = private unnamed_addr constant [28 x i8] c"EVP_PKEY_get_raw_public_key\00", align 1
 @.str.63 = private unnamed_addr constant [34 x i8] c"cannot match different PKey types\00", align 1
 @.str.64 = private unnamed_addr constant [12 x i8] c"EVP_PKEY_eq\00", align 1
-@.str.65 = private unnamed_addr constant [3 x i8] c"21\00", align 1
 @.str.66 = private unnamed_addr constant [15 x i8] c"EVP_MD_CTX_new\00", align 1
 @.str.67 = private unnamed_addr constant [19 x i8] c"EVP_DigestSignInit\00", align 1
 @.str.68 = private unnamed_addr constant [15 x i8] c"EVP_DigestSign\00", align 1
 @.str.69 = private unnamed_addr constant [29 x i8] c"signature would be too large\00", align 1
-@.str.70 = private unnamed_addr constant [3 x i8] c"31\00", align 1
 @.str.71 = private unnamed_addr constant [21 x i8] c"EVP_DigestVerifyInit\00", align 1
 @.str.72 = private unnamed_addr constant [17 x i8] c"EVP_DigestVerify\00", align 1
 @.str.73 = private unnamed_addr constant [19 x i8] c"EVP_PKEY_sign_init\00", align 1
@@ -112,7 +108,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.77 = private unnamed_addr constant [16 x i8] c"EVP_PKEY_verify\00", align 1
 @.str.78 = private unnamed_addr constant [29 x i8] c"EVP_PKEY_verify_recover_init\00", align 1
 @.str.79 = private unnamed_addr constant [24 x i8] c"EVP_PKEY_verify_recover\00", align 1
-@.str.80 = private unnamed_addr constant [2 x i8] c"1\00", align 1
 @.str.81 = private unnamed_addr constant [21 x i8] c"EVP_PKEY_derive_init\00", align 1
 @.str.82 = private unnamed_addr constant [25 x i8] c"EVP_PKEY_derive_set_peer\00", align 1
 @.str.83 = private unnamed_addr constant [16 x i8] c"EVP_PKEY_derive\00", align 1
@@ -124,39 +119,44 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.89 = private unnamed_addr constant [17 x i8] c"EVP_PKEY_decrypt\00", align 1
 @.str.90 = private unnamed_addr constant [34 x i8] c"decrypted data would be too large\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define weak i64 @ruby_abi_version() local_unnamed_addr #0 {
   ret i64 0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define internal void @ossl_evp_pkey_free(ptr noundef %0) #0 {
   tail call void @EVP_PKEY_free(ptr noundef %0) #8
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define i64 @ossl_pkey_new(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #8
   %3 = ptrtoint ptr %0 to i64
   %4 = call i64 @rb_protect(ptr noundef nonnull @pkey_new0, i64 noundef %3, ptr noundef nonnull %2) #8
-  %5 = load i32, ptr %2, align 4
+  %5 = load i32, ptr %2, align 4, !tbaa !6
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %8, label %6
 
 6:                                                ; preds = %1
   call void @EVP_PKEY_free(ptr noundef %0) #8
-  %7 = load i32, ptr %2, align 4
+  %7 = load i32, ptr %2, align 4, !tbaa !6
   call void @rb_jump_tag(i32 noundef %7) #9
   unreachable
 
 8:                                                ; preds = %1
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #8
   ret i64 %4
 }
 
-declare i64 @rb_protect(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-; Function Attrs: nounwind uwtable
+declare i64 @rb_protect(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @pkey_new0(i64 noundef %0) #0 {
   %2 = inttoptr i64 %0 to ptr
   %3 = tail call i32 @EVP_PKEY_get_base_id(ptr noundef %2) #8
@@ -181,20 +181,23 @@ define internal i64 @pkey_new0(i64 noundef %0) #0 {
 
 8:                                                ; preds = %1, %7, %6, %5, %4
   %.0.in = phi ptr [ @cPKey, %7 ], [ @cEC, %6 ], [ @cDH, %5 ], [ @cDSA, %4 ], [ @cRSA, %1 ]
-  %.0 = load i64, ptr %.0.in, align 8
+  %.0 = load i64, ptr %.0.in, align 8, !tbaa !10
   %9 = tail call i64 @rb_obj_alloc(i64 noundef %.0) #8
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  store ptr %2, ptr %11, align 8
+  store ptr %2, ptr %11, align 8, !tbaa !12
   ret i64 %9
 }
 
-declare void @EVP_PKEY_free(ptr noundef) local_unnamed_addr #1
+declare void @EVP_PKEY_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: noreturn
-declare void @rb_jump_tag(i32 noundef) local_unnamed_addr #2
+declare void @rb_jump_tag(i32 noundef) local_unnamed_addr #3
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: nounwind sspstrong uwtable
 define ptr @ossl_pkey_read_generic(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = inttoptr i64 %1 to ptr
@@ -204,20 +207,20 @@ define ptr @ossl_pkey_read_generic(ptr noundef %0, i64 noundef %1) local_unnamed
   %5 = phi i1 [ true, %2 ], [ false, %28 ]
   %indvars.iv21 = phi i64 [ 0, %2 ], [ 1, %28 ]
   %6 = getelementptr inbounds nuw [2 x ptr], ptr @__const.ossl_pkey_read_generic.input_types, i64 0, i64 %indvars.iv21
-  %7 = load ptr, ptr %6, align 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !17
   br label %9
 
 8:                                                ; preds = %ossl_pkey_read.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %28, label %9, !llvm.loop !6
+  br i1 %exitcond.not, label %28, label %9, !llvm.loop !19
 
 9:                                                ; preds = %.preheader, %8
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %8 ]
   %10 = getelementptr inbounds nuw [3 x i32], ptr @__const.ossl_pkey_read_generic.selections, i64 0, i64 %indvars.iv
-  %11 = load i32, ptr %10, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  store ptr null, ptr %3, align 8
+  %11 = load i32, ptr %10, align 4, !tbaa !6
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
+  store ptr null, ptr %3, align 8, !tbaa !21
   %12 = call ptr @OSSL_DECODER_CTX_new_for_pkey(ptr noundef nonnull %3, ptr noundef %7, ptr noundef null, ptr noundef null, i32 noundef %11, ptr noundef null, ptr noundef null) #8
   %.not.i = icmp eq ptr %12, null
   br i1 %.not.i, label %ossl_pkey_read.exit, label %13
@@ -257,26 +260,26 @@ ossl_pkey_read.exit:                              ; preds = %.lr.ph.i, %19, %23,
   %26 = call i64 @BIO_ctrl(ptr noundef %0, i32 noundef 1, i64 noundef 0, ptr noundef null) #8
   call void @ossl_clear_error() #8
   call void @OSSL_DECODER_CTX_free(ptr noundef %12) #8
-  %27 = load ptr, ptr %3, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  %27 = load ptr, ptr %3, align 8, !tbaa !21
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
   %.not = icmp eq ptr %27, null
   br i1 %.not, label %8, label %.loopexit
 
 28:                                               ; preds = %8
-  br i1 %5, label %.preheader, label %.loopexit, !llvm.loop !8
+  br i1 %5, label %.preheader, label %.loopexit, !llvm.loop !23
 
 .loopexit:                                        ; preds = %28, %ossl_pkey_read.exit
   ret ptr %27
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define void @ossl_pkey_check_public_key(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i32 @EVP_PKEY_missing_parameters(ptr noundef %0) #8
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %5, label %3
 
 3:                                                ; preds = %1
-  %4 = load i64, ptr @ePKeyError, align 8
+  %4 = load i64, ptr @ePKeyError, align 8, !tbaa !10
   tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %4, ptr noundef nonnull @.str.3) #9
   unreachable
 
@@ -284,19 +287,19 @@ define void @ossl_pkey_check_public_key(ptr noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-declare i32 @EVP_PKEY_missing_parameters(ptr noundef) local_unnamed_addr #1
+declare i32 @EVP_PKEY_missing_parameters(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: noreturn
-declare void @ossl_raise(i64 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @ossl_raise(i64 noundef, ptr noundef, ...) local_unnamed_addr #3
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define nonnull ptr @GetPKeyPtr(i64 noundef %0) local_unnamed_addr #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_evp_pkey_type) #8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %5
 
 3:                                                ; preds = %1
-  %4 = load i64, ptr @rb_eRuntimeError, align 8
+  %4 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !10
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %4, ptr noundef nonnull @.str.4) #9
   unreachable
 
@@ -304,32 +307,32 @@ define nonnull ptr @GetPKeyPtr(i64 noundef %0) local_unnamed_addr #0 {
   ret ptr %2
 }
 
-declare ptr @rb_check_typeddata(i64 noundef, ptr noundef) local_unnamed_addr #1
+declare ptr @rb_check_typeddata(i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: noreturn
-declare void @rb_raise(i64 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @rb_raise(i64 noundef, ptr noundef, ...) local_unnamed_addr #3
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define nonnull ptr @GetPrivPKeyPtr(i64 noundef %0) local_unnamed_addr #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_evp_pkey_type) #8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %5
 
 3:                                                ; preds = %1
-  %4 = load i64, ptr @rb_eRuntimeError, align 8
+  %4 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !10
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %4, ptr noundef nonnull @.str.4) #9
   unreachable
 
 5:                                                ; preds = %1
-  %.pr.i = load i64, ptr @GetPrivPKeyPtr.rbimpl_id, align 8
+  %.pr.i = load i64, ptr @GetPrivPKeyPtr.rbimpl_id, align 8, !tbaa !10
   %.not4.i = icmp eq i64 %.pr.i, 0
   br i1 %.not4.i, label %.lr.ph.i, label %rbimpl_intern_const.exit
 
 .lr.ph.i:                                         ; preds = %5, %.lr.ph.i
   %6 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.5, i64 noundef 7) #8
-  store i64 %6, ptr @GetPrivPKeyPtr.rbimpl_id, align 8
+  store i64 %6, ptr @GetPrivPKeyPtr.rbimpl_id, align 8, !tbaa !10
   %.not.i = icmp eq i64 %6, 0
-  br i1 %.not.i, label %.lr.ph.i, label %rbimpl_intern_const.exit, !llvm.loop !9
+  br i1 %.not.i, label %.lr.ph.i, label %rbimpl_intern_const.exit, !llvm.loop !24
 
 rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %5
   %.lcssa.i = phi i64 [ %.pr.i, %5 ], [ %6, %.lr.ph.i ]
@@ -338,20 +341,20 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %5
   br i1 %8, label %18, label %9
 
 9:                                                ; preds = %rbimpl_intern_const.exit
-  %10 = load i64, ptr @id_private_q, align 8
+  %10 = load i64, ptr @id_private_q, align 8, !tbaa !10
   %11 = tail call i32 @rb_respond_to(i64 noundef %0, i64 noundef %10) #8
   %.not9 = icmp eq i32 %11, 0
   br i1 %.not9, label %18, label %12
 
 12:                                               ; preds = %9
-  %13 = load i64, ptr @id_private_q, align 8
+  %13 = load i64, ptr @id_private_q, align 8, !tbaa !10
   %14 = tail call i64 @rb_funcallv(i64 noundef %0, i64 noundef %13, i32 noundef 0, ptr noundef null) #8
   %15 = and i64 %14, -5
   %.not10 = icmp eq i64 %15, 0
   br i1 %.not10, label %16, label %18
 
 16:                                               ; preds = %12
-  %17 = load i64, ptr @rb_eArgError, align 8
+  %17 = load i64, ptr @rb_eArgError, align 8, !tbaa !10
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %17, ptr noundef nonnull @.str.6) #9
   unreachable
 
@@ -359,20 +362,20 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %5
   ret ptr %2
 }
 
-declare i64 @rb_attr_get(i64 noundef, i64 noundef) local_unnamed_addr #1
+declare i64 @rb_attr_get(i64 noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @rb_respond_to(i64 noundef, i64 noundef) local_unnamed_addr #1
+declare i32 @rb_respond_to(i64 noundef, i64 noundef) local_unnamed_addr #2
 
-declare i64 @rb_funcallv(i64 noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+declare i64 @rb_funcallv(i64 noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define nonnull ptr @DupPKeyPtr(i64 noundef %0) local_unnamed_addr #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_evp_pkey_type) #8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %5
 
 3:                                                ; preds = %1
-  %4 = load i64, ptr @rb_eRuntimeError, align 8
+  %4 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !10
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %4, ptr noundef nonnull @.str.4) #9
   unreachable
 
@@ -381,222 +384,285 @@ define nonnull ptr @DupPKeyPtr(i64 noundef %0) local_unnamed_addr #0 {
   ret ptr %2
 }
 
-declare i32 @EVP_PKEY_up_ref(ptr noundef) local_unnamed_addr #1
+declare i32 @EVP_PKEY_up_ref(ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
-define i64 @ossl_pkey_export_traditional(i32 noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+; Function Attrs: nounwind sspstrong uwtable
+define i64 @ossl_pkey_export_traditional(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
-  %7 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @ossl_evp_pkey_type) #8
-  %.not = icmp eq ptr %7, null
-  br i1 %.not, label %8, label %10
+  %7 = alloca [2 x ptr], align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  %8 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @ossl_evp_pkey_type) #8
+  %.not = icmp eq ptr %8, null
+  br i1 %.not, label %9, label %11
 
-8:                                                ; preds = %4
-  %9 = load i64, ptr @rb_eRuntimeError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %9, ptr noundef nonnull @.str.4) #9
+9:                                                ; preds = %4
+  %10 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !10
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %10, ptr noundef nonnull @.str.4) #9
   unreachable
 
-10:                                               ; preds = %4
-  %11 = call i32 (i32, ptr, ptr, ...) @rb_scan_args(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.7, ptr noundef nonnull %5, ptr noundef nonnull %6) #8
-  %12 = load i64, ptr %5, align 8
-  %13 = icmp eq i64 %12, 4
-  br i1 %13, label %18, label %14
+11:                                               ; preds = %4
+  store ptr %5, ptr %7, align 8, !tbaa !25
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store ptr %6, ptr %12, align 8, !tbaa !25
+  %13 = icmp slt i32 %0, 0
+  br i1 %13, label %29, label %.preheader
 
-14:                                               ; preds = %10
-  %15 = call ptr @ossl_evp_get_cipherbyname(i64 noundef %12) #8
-  %16 = load i64, ptr %6, align 8
-  %17 = call i64 @ossl_pem_passwd_value(i64 noundef %16) #8
-  store i64 %17, ptr %6, align 8
-  br label %18
+.preheader:                                       ; preds = %11, %26
+  %indvars.iv = phi i64 [ %indvars.iv.next, %26 ], [ 0, %11 ]
+  %.185.i20 = phi i32 [ %.286.i, %26 ], [ 0, %11 ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %14 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %15 = load ptr, ptr %14, align 8, !tbaa !25
+  %16 = icmp slt i32 %.185.i20, %0
+  %.not108.i = icmp eq ptr %15, null
+  br i1 %16, label %17, label %24
 
-18:                                               ; preds = %14, %10
-  %.0 = phi ptr [ null, %10 ], [ %15, %14 ]
-  %19 = call ptr @BIO_s_mem() #8
-  %20 = call ptr @BIO_new(ptr noundef %19) #8
-  %.not15 = icmp eq ptr %20, null
-  br i1 %.not15, label %21, label %23
+17:                                               ; preds = %.preheader
+  br i1 %.not108.i, label %22, label %18
 
-21:                                               ; preds = %18
-  %22 = load i64, ptr @ePKeyError, align 8
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %22, ptr noundef nonnull @.str.8) #9
+18:                                               ; preds = %17
+  %19 = sext i32 %.185.i20 to i64
+  %20 = getelementptr inbounds i64, ptr %1, i64 %19
+  %21 = load i64, ptr %20, align 8, !tbaa !10
+  store i64 %21, ptr %15, align 8, !tbaa !10
+  br label %22
+
+22:                                               ; preds = %18, %17
+  %23 = add nsw i32 %.185.i20, 1
+  br label %26
+
+24:                                               ; preds = %.preheader
+  br i1 %.not108.i, label %26, label %25
+
+25:                                               ; preds = %24
+  store i64 4, ptr %15, align 8, !tbaa !10
+  br label %26
+
+26:                                               ; preds = %25, %24, %22
+  %.286.i = phi i32 [ %23, %22 ], [ %.185.i20, %25 ], [ %.185.i20, %24 ]
+  %exitcond.not = icmp eq i64 %indvars.iv.next, 2
+  br i1 %exitcond.not, label %27, label %.preheader, !llvm.loop !27
+
+27:                                               ; preds = %26
+  %28 = icmp eq i32 %.286.i, %0
+  br i1 %28, label %rb_scan_args_set.exit, label %29
+
+29:                                               ; preds = %27, %11
+  call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 2) #9
   unreachable
 
-23:                                               ; preds = %18
+rb_scan_args_set.exit:                            ; preds = %27
+  %30 = load i64, ptr %5, align 8, !tbaa !10
+  %31 = icmp eq i64 %30, 4
+  br i1 %31, label %36, label %32
+
+32:                                               ; preds = %rb_scan_args_set.exit
+  %33 = call ptr @ossl_evp_get_cipherbyname(i64 noundef %30) #8
+  %34 = load i64, ptr %6, align 8, !tbaa !10
+  %35 = call i64 @ossl_pem_passwd_value(i64 noundef %34) #8
+  store i64 %35, ptr %6, align 8, !tbaa !10
+  br label %36
+
+36:                                               ; preds = %32, %rb_scan_args_set.exit
+  %.0 = phi ptr [ null, %rb_scan_args_set.exit ], [ %33, %32 ]
+  %37 = call ptr @BIO_s_mem() #8
+  %38 = call ptr @BIO_new(ptr noundef %37) #8
+  %.not15 = icmp eq ptr %38, null
+  br i1 %.not15, label %39, label %41
+
+39:                                               ; preds = %36
+  %40 = load i64, ptr @ePKeyError, align 8, !tbaa !10
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %40, ptr noundef nonnull @.str.8) #9
+  unreachable
+
+41:                                               ; preds = %36
   %.not16 = icmp eq i32 %3, 0
-  br i1 %.not16, label %29, label %24
+  br i1 %.not16, label %47, label %42
 
-24:                                               ; preds = %23
-  %25 = call i32 @i2d_PrivateKey_bio(ptr noundef nonnull %20, ptr noundef nonnull %7) #8
-  %.not18 = icmp eq i32 %25, 0
-  br i1 %.not18, label %26, label %36
+42:                                               ; preds = %41
+  %43 = call i32 @i2d_PrivateKey_bio(ptr noundef nonnull %38, ptr noundef nonnull %8) #8
+  %.not18 = icmp eq i32 %43, 0
+  br i1 %.not18, label %44, label %54
 
-26:                                               ; preds = %24
-  %27 = call i32 @BIO_free(ptr noundef nonnull %20) #8
-  %28 = load i64, ptr @ePKeyError, align 8
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %28, ptr noundef nonnull @.str.9) #9
+44:                                               ; preds = %42
+  %45 = call i32 @BIO_free(ptr noundef nonnull %38) #8
+  %46 = load i64, ptr @ePKeyError, align 8, !tbaa !10
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %46, ptr noundef nonnull @.str.9) #9
   unreachable
 
-29:                                               ; preds = %23
-  %30 = load i64, ptr %6, align 8
-  %31 = inttoptr i64 %30 to ptr
-  %32 = call i32 @PEM_write_bio_PrivateKey_traditional(ptr noundef nonnull %20, ptr noundef nonnull %7, ptr noundef %.0, ptr noundef null, i32 noundef 0, ptr noundef nonnull @ossl_pem_passwd_cb, ptr noundef %31) #8
-  %.not17 = icmp eq i32 %32, 0
-  br i1 %.not17, label %33, label %36
+47:                                               ; preds = %41
+  %48 = load i64, ptr %6, align 8, !tbaa !10
+  %49 = inttoptr i64 %48 to ptr
+  %50 = call i32 @PEM_write_bio_PrivateKey_traditional(ptr noundef nonnull %38, ptr noundef nonnull %8, ptr noundef %.0, ptr noundef null, i32 noundef 0, ptr noundef nonnull @ossl_pem_passwd_cb, ptr noundef %49) #8
+  %.not17 = icmp eq i32 %50, 0
+  br i1 %.not17, label %51, label %54
 
-33:                                               ; preds = %29
-  %34 = call i32 @BIO_free(ptr noundef nonnull %20) #8
-  %35 = load i64, ptr @ePKeyError, align 8
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %35, ptr noundef nonnull @.str.10) #9
+51:                                               ; preds = %47
+  %52 = call i32 @BIO_free(ptr noundef nonnull %38) #8
+  %53 = load i64, ptr @ePKeyError, align 8, !tbaa !10
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %53, ptr noundef nonnull @.str.10) #9
   unreachable
 
-36:                                               ; preds = %29, %24
-  %37 = call i64 @ossl_membio2str(ptr noundef nonnull %20) #8
-  ret i64 %37
+54:                                               ; preds = %47, %42
+  %55 = call i64 @ossl_membio2str(ptr noundef nonnull %38) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  ret i64 %55
 }
 
-declare i32 @rb_scan_args(i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
+declare ptr @ossl_evp_get_cipherbyname(i64 noundef) local_unnamed_addr #2
 
-declare ptr @ossl_evp_get_cipherbyname(i64 noundef) local_unnamed_addr #1
+declare i64 @ossl_pem_passwd_value(i64 noundef) local_unnamed_addr #2
 
-declare i64 @ossl_pem_passwd_value(i64 noundef) local_unnamed_addr #1
+declare ptr @BIO_new(ptr noundef) local_unnamed_addr #2
 
-declare ptr @BIO_new(ptr noundef) local_unnamed_addr #1
+declare ptr @BIO_s_mem() local_unnamed_addr #2
 
-declare ptr @BIO_s_mem() local_unnamed_addr #1
+declare i32 @i2d_PrivateKey_bio(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @i2d_PrivateKey_bio(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @BIO_free(ptr noundef) local_unnamed_addr #2
 
-declare i32 @BIO_free(ptr noundef) local_unnamed_addr #1
+declare i32 @PEM_write_bio_PrivateKey_traditional(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @PEM_write_bio_PrivateKey_traditional(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @ossl_pem_passwd_cb(ptr noundef, i32 noundef, i32 noundef, ptr noundef) #2
 
-declare i32 @ossl_pem_passwd_cb(ptr noundef, i32 noundef, i32 noundef, ptr noundef) #1
+declare i64 @ossl_membio2str(ptr noundef) local_unnamed_addr #2
 
-declare i64 @ossl_membio2str(ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define i64 @ossl_pkey_export_spki(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_evp_pkey_type) #8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %6
 
 4:                                                ; preds = %2
-  %5 = load i64, ptr @rb_eRuntimeError, align 8
+  %5 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !10
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %5, ptr noundef nonnull @.str.4) #9
   unreachable
 
 6:                                                ; preds = %2
-  %7 = tail call ptr @BIO_s_mem() #8
-  %8 = tail call ptr @BIO_new(ptr noundef %7) #8
-  %.not11 = icmp eq ptr %8, null
-  br i1 %.not11, label %9, label %11
+  %7 = tail call i32 @EVP_PKEY_missing_parameters(ptr noundef nonnull %3) #8
+  %.not.i = icmp eq i32 %7, 0
+  br i1 %.not.i, label %ossl_pkey_check_public_key.exit, label %8
 
-9:                                                ; preds = %6
-  %10 = load i64, ptr @ePKeyError, align 8
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %10, ptr noundef nonnull @.str.8) #9
+8:                                                ; preds = %6
+  %9 = load i64, ptr @ePKeyError, align 8, !tbaa !10
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %9, ptr noundef nonnull @.str.3) #9
   unreachable
 
-11:                                               ; preds = %6
-  %.not12 = icmp eq i32 %1, 0
-  br i1 %.not12, label %17, label %12
+ossl_pkey_check_public_key.exit:                  ; preds = %6
+  %10 = tail call ptr @BIO_s_mem() #8
+  %11 = tail call ptr @BIO_new(ptr noundef %10) #8
+  %.not12 = icmp eq ptr %11, null
+  br i1 %.not12, label %12, label %14
 
-12:                                               ; preds = %11
-  %13 = tail call i32 @i2d_PUBKEY_bio(ptr noundef nonnull %8, ptr noundef nonnull %3) #8
-  %.not14 = icmp eq i32 %13, 0
-  br i1 %.not14, label %14, label %22
-
-14:                                               ; preds = %12
-  %15 = tail call i32 @BIO_free(ptr noundef nonnull %8) #8
-  %16 = load i64, ptr @ePKeyError, align 8
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %16, ptr noundef nonnull @.str.11) #9
+12:                                               ; preds = %ossl_pkey_check_public_key.exit
+  %13 = load i64, ptr @ePKeyError, align 8, !tbaa !10
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %13, ptr noundef nonnull @.str.8) #9
   unreachable
 
-17:                                               ; preds = %11
-  %18 = tail call i32 @PEM_write_bio_PUBKEY(ptr noundef nonnull %8, ptr noundef nonnull %3) #8
-  %.not13 = icmp eq i32 %18, 0
-  br i1 %.not13, label %19, label %22
+14:                                               ; preds = %ossl_pkey_check_public_key.exit
+  %.not13 = icmp eq i32 %1, 0
+  br i1 %.not13, label %20, label %15
 
-19:                                               ; preds = %17
-  %20 = tail call i32 @BIO_free(ptr noundef nonnull %8) #8
-  %21 = load i64, ptr @ePKeyError, align 8
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %21, ptr noundef nonnull @.str.12) #9
+15:                                               ; preds = %14
+  %16 = tail call i32 @i2d_PUBKEY_bio(ptr noundef nonnull %11, ptr noundef nonnull %3) #8
+  %.not15 = icmp eq i32 %16, 0
+  br i1 %.not15, label %17, label %25
+
+17:                                               ; preds = %15
+  %18 = tail call i32 @BIO_free(ptr noundef nonnull %11) #8
+  %19 = load i64, ptr @ePKeyError, align 8, !tbaa !10
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %19, ptr noundef nonnull @.str.11) #9
   unreachable
 
-22:                                               ; preds = %17, %12
-  %23 = tail call i64 @ossl_membio2str(ptr noundef nonnull %8) #8
-  ret i64 %23
+20:                                               ; preds = %14
+  %21 = tail call i32 @PEM_write_bio_PUBKEY(ptr noundef nonnull %11, ptr noundef nonnull %3) #8
+  %.not14 = icmp eq i32 %21, 0
+  br i1 %.not14, label %22, label %25
+
+22:                                               ; preds = %20
+  %23 = tail call i32 @BIO_free(ptr noundef nonnull %11) #8
+  %24 = load i64, ptr @ePKeyError, align 8, !tbaa !10
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %24, ptr noundef nonnull @.str.12) #9
+  unreachable
+
+25:                                               ; preds = %20, %15
+  %26 = tail call i64 @ossl_membio2str(ptr noundef nonnull %11) #8
+  ret i64 %26
 }
 
-declare i32 @i2d_PUBKEY_bio(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @i2d_PUBKEY_bio(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @PEM_write_bio_PUBKEY(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @PEM_write_bio_PUBKEY(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define void @Init_ossl_pkey() local_unnamed_addr #0 {
-  %1 = load i64, ptr @mOSSL, align 8
+  %1 = load i64, ptr @mOSSL, align 8, !tbaa !10
   %2 = tail call i64 @rb_define_module_under(i64 noundef %1, ptr noundef nonnull @.str.13) #8
-  store i64 %2, ptr @mPKey, align 8
-  %3 = load i64, ptr @eOSSLError, align 8
+  store i64 %2, ptr @mPKey, align 8, !tbaa !10
+  %3 = load i64, ptr @eOSSLError, align 8, !tbaa !10
   %4 = tail call i64 @rb_define_class_under(i64 noundef %2, ptr noundef nonnull @.str.14, i64 noundef %3) #8
-  store i64 %4, ptr @ePKeyError, align 8
-  %5 = load i64, ptr @mPKey, align 8
-  %6 = load i64, ptr @rb_cObject, align 8
+  store i64 %4, ptr @ePKeyError, align 8, !tbaa !10
+  %5 = load i64, ptr @mPKey, align 8, !tbaa !10
+  %6 = load i64, ptr @rb_cObject, align 8, !tbaa !10
   %7 = tail call i64 @rb_define_class_under(i64 noundef %5, ptr noundef nonnull @.str.13, i64 noundef %6) #8
-  store i64 %7, ptr @cPKey, align 8
-  %8 = load i64, ptr @mPKey, align 8
+  store i64 %7, ptr @cPKey, align 8, !tbaa !10
+  %8 = load i64, ptr @mPKey, align 8, !tbaa !10
   tail call void @rb_define_module_function(i64 noundef %8, ptr noundef nonnull @.str.15, ptr noundef nonnull @ossl_pkey_new_from_data, i32 noundef -1) #8
-  %9 = load i64, ptr @mPKey, align 8
+  %9 = load i64, ptr @mPKey, align 8, !tbaa !10
   tail call void @rb_define_module_function(i64 noundef %9, ptr noundef nonnull @.str.16, ptr noundef nonnull @ossl_pkey_s_generate_parameters, i32 noundef -1) #8
-  %10 = load i64, ptr @mPKey, align 8
+  %10 = load i64, ptr @mPKey, align 8, !tbaa !10
   tail call void @rb_define_module_function(i64 noundef %10, ptr noundef nonnull @.str.17, ptr noundef nonnull @ossl_pkey_s_generate_key, i32 noundef -1) #8
-  %11 = load i64, ptr @mPKey, align 8
+  %11 = load i64, ptr @mPKey, align 8, !tbaa !10
   tail call void @rb_define_module_function(i64 noundef %11, ptr noundef nonnull @.str.18, ptr noundef nonnull @ossl_pkey_new_raw_private_key, i32 noundef 2) #8
-  %12 = load i64, ptr @mPKey, align 8
+  %12 = load i64, ptr @mPKey, align 8, !tbaa !10
   tail call void @rb_define_module_function(i64 noundef %12, ptr noundef nonnull @.str.19, ptr noundef nonnull @ossl_pkey_new_raw_public_key, i32 noundef 2) #8
-  %13 = load i64, ptr @cPKey, align 8
+  %13 = load i64, ptr @cPKey, align 8, !tbaa !10
   tail call void @rb_define_alloc_func(i64 noundef %13, ptr noundef nonnull @ossl_pkey_alloc) #8
-  %14 = load i64, ptr @cPKey, align 8
+  %14 = load i64, ptr @cPKey, align 8, !tbaa !10
   tail call void @rb_define_method(i64 noundef %14, ptr noundef nonnull @.str.20, ptr noundef nonnull @ossl_pkey_initialize, i32 noundef 0) #8
-  %15 = load i64, ptr @cPKey, align 8
+  %15 = load i64, ptr @cPKey, align 8, !tbaa !10
   tail call void @rb_define_method(i64 noundef %15, ptr noundef nonnull @.str.21, ptr noundef nonnull @ossl_pkey_initialize_copy, i32 noundef 1) #8
-  %16 = load i64, ptr @cPKey, align 8
+  %16 = load i64, ptr @cPKey, align 8, !tbaa !10
   tail call void @rb_define_method(i64 noundef %16, ptr noundef nonnull @.str.22, ptr noundef nonnull @ossl_pkey_oid, i32 noundef 0) #8
-  %17 = load i64, ptr @cPKey, align 8
+  %17 = load i64, ptr @cPKey, align 8, !tbaa !10
   tail call void @rb_define_method(i64 noundef %17, ptr noundef nonnull @.str.23, ptr noundef nonnull @ossl_pkey_inspect, i32 noundef 0) #8
-  %18 = load i64, ptr @cPKey, align 8
+  %18 = load i64, ptr @cPKey, align 8, !tbaa !10
   tail call void @rb_define_method(i64 noundef %18, ptr noundef nonnull @.str.24, ptr noundef nonnull @ossl_pkey_to_text, i32 noundef 0) #8
-  %19 = load i64, ptr @cPKey, align 8
+  %19 = load i64, ptr @cPKey, align 8, !tbaa !10
   tail call void @rb_define_method(i64 noundef %19, ptr noundef nonnull @.str.25, ptr noundef nonnull @ossl_pkey_private_to_der, i32 noundef -1) #8
-  %20 = load i64, ptr @cPKey, align 8
+  %20 = load i64, ptr @cPKey, align 8, !tbaa !10
   tail call void @rb_define_method(i64 noundef %20, ptr noundef nonnull @.str.26, ptr noundef nonnull @ossl_pkey_private_to_pem, i32 noundef -1) #8
-  %21 = load i64, ptr @cPKey, align 8
+  %21 = load i64, ptr @cPKey, align 8, !tbaa !10
   tail call void @rb_define_method(i64 noundef %21, ptr noundef nonnull @.str.27, ptr noundef nonnull @ossl_pkey_public_to_der, i32 noundef 0) #8
-  %22 = load i64, ptr @cPKey, align 8
+  %22 = load i64, ptr @cPKey, align 8, !tbaa !10
   tail call void @rb_define_method(i64 noundef %22, ptr noundef nonnull @.str.28, ptr noundef nonnull @ossl_pkey_public_to_pem, i32 noundef 0) #8
-  %23 = load i64, ptr @cPKey, align 8
+  %23 = load i64, ptr @cPKey, align 8, !tbaa !10
   tail call void @rb_define_method(i64 noundef %23, ptr noundef nonnull @.str.29, ptr noundef nonnull @ossl_pkey_raw_private_key, i32 noundef 0) #8
-  %24 = load i64, ptr @cPKey, align 8
+  %24 = load i64, ptr @cPKey, align 8, !tbaa !10
   tail call void @rb_define_method(i64 noundef %24, ptr noundef nonnull @.str.30, ptr noundef nonnull @ossl_pkey_raw_public_key, i32 noundef 0) #8
-  %25 = load i64, ptr @cPKey, align 8
+  %25 = load i64, ptr @cPKey, align 8, !tbaa !10
   tail call void @rb_define_method(i64 noundef %25, ptr noundef nonnull @.str.31, ptr noundef nonnull @ossl_pkey_compare, i32 noundef 1) #8
-  %26 = load i64, ptr @cPKey, align 8
+  %26 = load i64, ptr @cPKey, align 8, !tbaa !10
   tail call void @rb_define_method(i64 noundef %26, ptr noundef nonnull @.str.32, ptr noundef nonnull @ossl_pkey_sign, i32 noundef -1) #8
-  %27 = load i64, ptr @cPKey, align 8
+  %27 = load i64, ptr @cPKey, align 8, !tbaa !10
   tail call void @rb_define_method(i64 noundef %27, ptr noundef nonnull @.str.33, ptr noundef nonnull @ossl_pkey_verify, i32 noundef -1) #8
-  %28 = load i64, ptr @cPKey, align 8
+  %28 = load i64, ptr @cPKey, align 8, !tbaa !10
   tail call void @rb_define_method(i64 noundef %28, ptr noundef nonnull @.str.34, ptr noundef nonnull @ossl_pkey_sign_raw, i32 noundef -1) #8
-  %29 = load i64, ptr @cPKey, align 8
+  %29 = load i64, ptr @cPKey, align 8, !tbaa !10
   tail call void @rb_define_method(i64 noundef %29, ptr noundef nonnull @.str.35, ptr noundef nonnull @ossl_pkey_verify_raw, i32 noundef -1) #8
-  %30 = load i64, ptr @cPKey, align 8
+  %30 = load i64, ptr @cPKey, align 8, !tbaa !10
   tail call void @rb_define_method(i64 noundef %30, ptr noundef nonnull @.str.36, ptr noundef nonnull @ossl_pkey_verify_recover, i32 noundef -1) #8
-  %31 = load i64, ptr @cPKey, align 8
+  %31 = load i64, ptr @cPKey, align 8, !tbaa !10
   tail call void @rb_define_method(i64 noundef %31, ptr noundef nonnull @.str.37, ptr noundef nonnull @ossl_pkey_derive, i32 noundef -1) #8
-  %32 = load i64, ptr @cPKey, align 8
+  %32 = load i64, ptr @cPKey, align 8, !tbaa !10
   tail call void @rb_define_method(i64 noundef %32, ptr noundef nonnull @.str.38, ptr noundef nonnull @ossl_pkey_encrypt, i32 noundef -1) #8
-  %33 = load i64, ptr @cPKey, align 8
+  %33 = load i64, ptr @cPKey, align 8, !tbaa !10
   tail call void @rb_define_method(i64 noundef %33, ptr noundef nonnull @.str.39, ptr noundef nonnull @ossl_pkey_decrypt, i32 noundef -1) #8
   %34 = tail call i64 @rb_intern(ptr noundef nonnull @.str.40) #8
-  store i64 %34, ptr @id_private_q, align 8
+  store i64 %34, ptr @id_private_q, align 8, !tbaa !10
   tail call void @Init_ossl_rsa() #8
   tail call void @Init_ossl_dsa() #8
   tail call void @Init_ossl_dh() #8
@@ -604,75 +670,100 @@ define void @Init_ossl_pkey() local_unnamed_addr #0 {
   ret void
 }
 
-declare i64 @rb_define_module_under(i64 noundef, ptr noundef) local_unnamed_addr #1
+declare i64 @rb_define_module_under(i64 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i64 @rb_define_class_under(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+declare i64 @rb_define_class_under(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare extern_weak void @rb_define_module_function(i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+declare extern_weak void @rb_define_module_function(i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
-define internal i64 @ossl_pkey_new_from_data(i32 noundef %0, ptr noundef %1, i64 %2) #0 {
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @ossl_pkey_new_from_data(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
   %4 = alloca i32, align 4
   %5 = alloca i64, align 8
-  %6 = alloca i64, align 8
-  %7 = call i32 (i32, ptr, ptr, ...) @rb_scan_args(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.41, ptr noundef nonnull %5, ptr noundef nonnull %6) #8
-  %8 = call ptr @ossl_obj2bio(ptr noundef nonnull %5) #8
-  %9 = load i64, ptr %6, align 8
-  %10 = call i64 @ossl_pem_passwd_value(i64 noundef %9) #8
-  %11 = call ptr @ossl_pkey_read_generic(ptr noundef %8, i64 noundef %10)
-  %12 = call i32 @BIO_free(ptr noundef %8) #8
-  %.not = icmp eq ptr %11, null
-  br i1 %.not, label %13, label %15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
+  %6 = icmp slt i32 %0, 1
+  br i1 %6, label %14, label %.preheader
 
-13:                                               ; preds = %3
-  %14 = load i64, ptr @ePKeyError, align 8
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %14, ptr noundef nonnull @.str.42) #9
+.preheader:                                       ; preds = %3
+  %7 = load i64, ptr %1, align 8, !tbaa !10
+  store i64 %7, ptr %5, align 8, !tbaa !10
+  %.not11 = icmp eq i32 %0, 1
+  br i1 %.not11, label %11, label %8
+
+8:                                                ; preds = %.preheader
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %10 = load i64, ptr %9, align 8, !tbaa !10
+  br label %11
+
+11:                                               ; preds = %.preheader, %8
+  %12 = phi i64 [ %10, %8 ], [ 4, %.preheader ]
+  %.185.i.lcssa = phi i32 [ 2, %8 ], [ 1, %.preheader ]
+  %13 = icmp eq i32 %.185.i.lcssa, %0
+  br i1 %13, label %rb_scan_args_set.exit, label %14
+
+14:                                               ; preds = %11, %3
+  tail call void @rb_error_arity(i32 noundef %0, i32 noundef 1, i32 noundef 2) #9
   unreachable
 
-15:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  %16 = ptrtoint ptr %11 to i64
-  %17 = call i64 @rb_protect(ptr noundef nonnull @pkey_new0, i64 noundef %16, ptr noundef nonnull %4) #8
-  %18 = load i32, ptr %4, align 4
-  %.not.i = icmp eq i32 %18, 0
-  br i1 %.not.i, label %ossl_pkey_new.exit, label %19
+rb_scan_args_set.exit:                            ; preds = %11
+  %15 = call ptr @ossl_obj2bio(ptr noundef nonnull %5) #8
+  %16 = call i64 @ossl_pem_passwd_value(i64 noundef %12) #8
+  %17 = call ptr @ossl_pkey_read_generic(ptr noundef %15, i64 noundef %16)
+  %18 = call i32 @BIO_free(ptr noundef %15) #8
+  %.not = icmp eq ptr %17, null
+  br i1 %.not, label %19, label %21
 
-19:                                               ; preds = %15
-  call void @EVP_PKEY_free(ptr noundef nonnull %11) #8
-  %20 = load i32, ptr %4, align 4
-  call void @rb_jump_tag(i32 noundef %20) #9
+19:                                               ; preds = %rb_scan_args_set.exit
+  %20 = load i64, ptr @ePKeyError, align 8, !tbaa !10
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %20, ptr noundef nonnull @.str.42) #9
   unreachable
 
-ossl_pkey_new.exit:                               ; preds = %15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  ret i64 %17
+21:                                               ; preds = %rb_scan_args_set.exit
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #8
+  %22 = ptrtoint ptr %17 to i64
+  %23 = call i64 @rb_protect(ptr noundef nonnull @pkey_new0, i64 noundef %22, ptr noundef nonnull %4) #8
+  %24 = load i32, ptr %4, align 4, !tbaa !6
+  %.not.i5 = icmp eq i32 %24, 0
+  br i1 %.not.i5, label %ossl_pkey_new.exit, label %25
+
+25:                                               ; preds = %21
+  call void @EVP_PKEY_free(ptr noundef nonnull %17) #8
+  %26 = load i32, ptr %4, align 4, !tbaa !6
+  call void @rb_jump_tag(i32 noundef %26) #9
+  unreachable
+
+ossl_pkey_new.exit:                               ; preds = %21
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  ret i64 %23
 }
 
-; Function Attrs: nounwind uwtable
-define internal i64 @ossl_pkey_s_generate_parameters(i32 noundef %0, ptr noundef %1, i64 %2) #0 {
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @ossl_pkey_s_generate_parameters(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
   %4 = tail call fastcc i64 @pkey_generate(i32 noundef %0, ptr noundef %1, i32 noundef 1)
   ret i64 %4
 }
 
-; Function Attrs: nounwind uwtable
-define internal i64 @ossl_pkey_s_generate_key(i32 noundef %0, ptr noundef %1, i64 %2) #0 {
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @ossl_pkey_s_generate_key(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
   %4 = tail call fastcc i64 @pkey_generate(i32 noundef %0, ptr noundef %1, i32 noundef 0)
   ret i64 %4
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ossl_pkey_new_raw_private_key(i64 %0, i64 noundef %1, i64 noundef %2) #0 {
   %4 = alloca i32, align 4
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca i32, align 4
-  store i64 %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
+  store i64 %1, ptr %5, align 8, !tbaa !10
+  store i64 %2, ptr %6, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #8
   %8 = call i64 @rb_string_value(ptr noundef nonnull %5) #8
   %9 = call i64 @rb_string_value(ptr noundef nonnull %6) #8
-  %10 = load i64, ptr %5, align 8
+  %10 = load i64, ptr %5, align 8, !tbaa !10
   %11 = inttoptr i64 %10 to ptr
-  %12 = load i64, ptr %11, align 8, !noalias !10
+  %12 = load i64, ptr %11, align 8, !tbaa !28, !noalias !29
   %13 = and i64 %12, 8192
   %.not.i.i = icmp eq i64 %13, 0
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 24
@@ -685,7 +776,7 @@ define internal i64 @ossl_pkey_new_raw_private_key(i64 %0, i64 noundef %1, i64 n
 RSTRING_PTR.exit:                                 ; preds = %3, %15
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %15 ], [ %14, %3 ]
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %17 = load i64, ptr %16, align 8
+  %17 = load i64, ptr %16, align 8, !tbaa !32
   %18 = add i64 %17, 2147483648
   %.not.i.i6 = icmp ult i64 %18, 4294967296
   br i1 %.not.i.i6, label %RSTRING_LENINT.exit, label %19
@@ -701,19 +792,19 @@ RSTRING_LENINT.exit:                              ; preds = %RSTRING_PTR.exit
   br i1 %.not, label %22, label %25
 
 22:                                               ; preds = %RSTRING_LENINT.exit
-  %23 = load i64, ptr @ePKeyError, align 8
-  %24 = load i64, ptr %5, align 8
+  %23 = load i64, ptr @ePKeyError, align 8, !tbaa !10
+  %24 = load i64, ptr %5, align 8, !tbaa !10
   call void (i64, ptr, ...) @ossl_raise(i64 noundef %23, ptr noundef nonnull @.str.51, i64 noundef %24) #9
   unreachable
 
 25:                                               ; preds = %RSTRING_LENINT.exit
   %26 = call i32 @EVP_PKEY_asn1_get0_info(ptr noundef nonnull %7, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %21) #8
-  %27 = load i64, ptr %6, align 8
+  %27 = load i64, ptr %6, align 8, !tbaa !10
   %28 = inttoptr i64 %27 to ptr
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  %30 = load i64, ptr %29, align 8
-  %31 = load i32, ptr %7, align 4
-  %32 = load i64, ptr %28, align 8, !noalias !13
+  %30 = load i64, ptr %29, align 8, !tbaa !32
+  %31 = load i32, ptr %7, align 4, !tbaa !6
+  %32 = load i64, ptr %28, align 8, !tbaa !28, !noalias !34
   %33 = and i64 %32, 8192
   %.not.i.i7 = icmp eq i64 %33, 0
   %34 = getelementptr inbounds nuw i8, ptr %28, i64 24
@@ -730,42 +821,44 @@ RSTRING_PTR.exit10:                               ; preds = %25, %35
   br i1 %.not5, label %37, label %39
 
 37:                                               ; preds = %RSTRING_PTR.exit10
-  %38 = load i64, ptr @ePKeyError, align 8
+  %38 = load i64, ptr @ePKeyError, align 8, !tbaa !10
   call void (i64, ptr, ...) @ossl_raise(i64 noundef %38, ptr noundef nonnull @.str.52) #9
   unreachable
 
 39:                                               ; preds = %RSTRING_PTR.exit10
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #8
   %40 = ptrtoint ptr %36 to i64
   %41 = call i64 @rb_protect(ptr noundef nonnull @pkey_new0, i64 noundef %40, ptr noundef nonnull %4) #8
-  %42 = load i32, ptr %4, align 4
+  %42 = load i32, ptr %4, align 4, !tbaa !6
   %.not.i = icmp eq i32 %42, 0
   br i1 %.not.i, label %ossl_pkey_new.exit, label %43
 
 43:                                               ; preds = %39
   call void @EVP_PKEY_free(ptr noundef nonnull %36) #8
-  %44 = load i32, ptr %4, align 4
+  %44 = load i32, ptr %4, align 4, !tbaa !6
   call void @rb_jump_tag(i32 noundef %44) #9
   unreachable
 
 ossl_pkey_new.exit:                               ; preds = %39
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
   ret i64 %41
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ossl_pkey_new_raw_public_key(i64 %0, i64 noundef %1, i64 noundef %2) #0 {
   %4 = alloca i32, align 4
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca i32, align 4
-  store i64 %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
+  store i64 %1, ptr %5, align 8, !tbaa !10
+  store i64 %2, ptr %6, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #8
   %8 = call i64 @rb_string_value(ptr noundef nonnull %5) #8
   %9 = call i64 @rb_string_value(ptr noundef nonnull %6) #8
-  %10 = load i64, ptr %5, align 8
+  %10 = load i64, ptr %5, align 8, !tbaa !10
   %11 = inttoptr i64 %10 to ptr
-  %12 = load i64, ptr %11, align 8, !noalias !16
+  %12 = load i64, ptr %11, align 8, !tbaa !28, !noalias !37
   %13 = and i64 %12, 8192
   %.not.i.i = icmp eq i64 %13, 0
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 24
@@ -778,7 +871,7 @@ define internal i64 @ossl_pkey_new_raw_public_key(i64 %0, i64 noundef %1, i64 no
 RSTRING_PTR.exit:                                 ; preds = %3, %15
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %15 ], [ %14, %3 ]
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %17 = load i64, ptr %16, align 8
+  %17 = load i64, ptr %16, align 8, !tbaa !32
   %18 = add i64 %17, 2147483648
   %.not.i.i6 = icmp ult i64 %18, 4294967296
   br i1 %.not.i.i6, label %RSTRING_LENINT.exit, label %19
@@ -794,19 +887,19 @@ RSTRING_LENINT.exit:                              ; preds = %RSTRING_PTR.exit
   br i1 %.not, label %22, label %25
 
 22:                                               ; preds = %RSTRING_LENINT.exit
-  %23 = load i64, ptr @ePKeyError, align 8
-  %24 = load i64, ptr %5, align 8
+  %23 = load i64, ptr @ePKeyError, align 8, !tbaa !10
+  %24 = load i64, ptr %5, align 8, !tbaa !10
   call void (i64, ptr, ...) @ossl_raise(i64 noundef %23, ptr noundef nonnull @.str.51, i64 noundef %24) #9
   unreachable
 
 25:                                               ; preds = %RSTRING_LENINT.exit
   %26 = call i32 @EVP_PKEY_asn1_get0_info(ptr noundef nonnull %7, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %21) #8
-  %27 = load i64, ptr %6, align 8
+  %27 = load i64, ptr %6, align 8, !tbaa !10
   %28 = inttoptr i64 %27 to ptr
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  %30 = load i64, ptr %29, align 8
-  %31 = load i32, ptr %7, align 4
-  %32 = load i64, ptr %28, align 8, !noalias !19
+  %30 = load i64, ptr %29, align 8, !tbaa !32
+  %31 = load i32, ptr %7, align 4, !tbaa !6
+  %32 = load i64, ptr %28, align 8, !tbaa !28, !noalias !40
   %33 = and i64 %32, 8192
   %.not.i.i7 = icmp eq i64 %33, 0
   %34 = getelementptr inbounds nuw i8, ptr %28, i64 24
@@ -823,48 +916,49 @@ RSTRING_PTR.exit10:                               ; preds = %25, %35
   br i1 %.not5, label %37, label %39
 
 37:                                               ; preds = %RSTRING_PTR.exit10
-  %38 = load i64, ptr @ePKeyError, align 8
+  %38 = load i64, ptr @ePKeyError, align 8, !tbaa !10
   call void (i64, ptr, ...) @ossl_raise(i64 noundef %38, ptr noundef nonnull @.str.53) #9
   unreachable
 
 39:                                               ; preds = %RSTRING_PTR.exit10
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #8
   %40 = ptrtoint ptr %36 to i64
   %41 = call i64 @rb_protect(ptr noundef nonnull @pkey_new0, i64 noundef %40, ptr noundef nonnull %4) #8
-  %42 = load i32, ptr %4, align 4
+  %42 = load i32, ptr %4, align 4, !tbaa !6
   %.not.i = icmp eq i32 %42, 0
   br i1 %.not.i, label %ossl_pkey_new.exit, label %43
 
 43:                                               ; preds = %39
   call void @EVP_PKEY_free(ptr noundef nonnull %36) #8
-  %44 = load i32, ptr %4, align 4
+  %44 = load i32, ptr %4, align 4, !tbaa !6
   call void @rb_jump_tag(i32 noundef %44) #9
   unreachable
 
 ossl_pkey_new.exit:                               ; preds = %39
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
   ret i64 %41
 }
 
-declare void @rb_define_alloc_func(i64 noundef, ptr noundef) local_unnamed_addr #1
+declare void @rb_define_alloc_func(i64 noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ossl_pkey_alloc(i64 noundef %0) #0 {
   %2 = tail call i64 @rb_data_typed_object_wrap(i64 noundef %0, ptr noundef null, ptr noundef nonnull @ossl_evp_pkey_type) #8
   ret i64 %2
 }
 
-declare extern_weak void @rb_define_method(i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+declare extern_weak void @rb_define_method(i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @ossl_pkey_initialize(i64 noundef returned %0) #0 {
-  %2 = load i64, ptr @cPKey, align 8
+  %2 = load i64, ptr @cPKey, align 8, !tbaa !10
   %3 = tail call i64 @rb_obj_is_instance_of(i64 noundef %0, i64 noundef %2) #8
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %6, label %4
 
 4:                                                ; preds = %1
-  %5 = load i64, ptr @rb_eTypeError, align 8
+  %5 = load i64, ptr @rb_eTypeError, align 8, !tbaa !10
   tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %5, ptr noundef nonnull @.str.54) #9
   unreachable
 
@@ -872,7 +966,7 @@ define internal noundef i64 @ossl_pkey_initialize(i64 noundef returned %0) #0 {
   ret i64 %0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @ossl_pkey_initialize_copy(i64 noundef returned %0, i64 noundef %1) #0 {
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_evp_pkey_type) #8
   %4 = tail call ptr @rb_check_typeddata(i64 noundef %1, ptr noundef nonnull @ossl_evp_pkey_type) #8
@@ -880,7 +974,7 @@ define internal noundef i64 @ossl_pkey_initialize_copy(i64 noundef returned %0, 
   br i1 %.not, label %7, label %5
 
 5:                                                ; preds = %2
-  %6 = load i64, ptr @rb_eTypeError, align 8
+  %6 = load i64, ptr @rb_eTypeError, align 8, !tbaa !10
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %6, ptr noundef nonnull @.str.55) #9
   unreachable
 
@@ -894,28 +988,28 @@ define internal noundef i64 @ossl_pkey_initialize_copy(i64 noundef returned %0, 
   br i1 %.not10, label %10, label %12
 
 10:                                               ; preds = %8
-  %11 = load i64, ptr @ePKeyError, align 8
+  %11 = load i64, ptr @ePKeyError, align 8, !tbaa !10
   tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %11, ptr noundef nonnull @.str.56) #9
   unreachable
 
 12:                                               ; preds = %8
   %13 = inttoptr i64 %0 to ptr
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  store ptr %9, ptr %14, align 8
+  store ptr %9, ptr %14, align 8, !tbaa !12
   br label %15
 
 15:                                               ; preds = %12, %7
   ret i64 %0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ossl_pkey_oid(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_evp_pkey_type) #8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %5
 
 3:                                                ; preds = %1
-  %4 = load i64, ptr @rb_eRuntimeError, align 8
+  %4 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !10
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %4, ptr noundef nonnull @.str.4) #9
   unreachable
 
@@ -926,23 +1020,23 @@ define internal i64 @ossl_pkey_oid(i64 noundef %0) #0 {
   ret i64 %8
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ossl_pkey_inspect(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_evp_pkey_type) #8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %5
 
 3:                                                ; preds = %1
-  %4 = load i64, ptr @rb_eRuntimeError, align 8
+  %4 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !10
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %4, ptr noundef nonnull @.str.4) #9
   unreachable
 
 5:                                                ; preds = %1
   %6 = tail call i32 @EVP_PKEY_get_id(ptr noundef nonnull %2) #8
-  %7 = and i64 %0, 7
-  %8 = icmp ne i64 %7, 0
-  %9 = icmp eq i64 %0, 0
-  %10 = or i1 %9, %8
+  %7 = icmp eq i64 %0, 0
+  %8 = and i64 %0, 7
+  %9 = icmp ne i64 %8, 0
+  %10 = or i1 %7, %9
   br i1 %10, label %14, label %11
 
 11:                                               ; preds = %5
@@ -976,7 +1070,7 @@ define internal i64 @ossl_pkey_inspect(i64 noundef %0) #0 {
 
 rb_class_of.exit:                                 ; preds = %11, %14, %15, %16, %17, %19
   %.0.in.i = phi ptr [ @rb_cNilClass, %15 ], [ @rb_cTrueClass, %16 ], [ %13, %11 ], [ @rb_cFalseClass, %14 ], [ @rb_cInteger, %17 ], [ %spec.select.i, %19 ]
-  %.0.i = load i64, ptr %.0.in.i, align 8
+  %.0.i = load i64, ptr %.0.in.i, align 8, !tbaa !10
   %22 = tail call i64 @rb_class_name(i64 noundef %.0.i) #8
   %23 = inttoptr i64 %0 to ptr
   %24 = tail call ptr @OBJ_nid2sn(i32 noundef %6) #8
@@ -984,14 +1078,14 @@ rb_class_of.exit:                                 ; preds = %11, %14, %15, %16, 
   ret i64 %25
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ossl_pkey_to_text(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_evp_pkey_type) #8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %5
 
 3:                                                ; preds = %1
-  %4 = load i64, ptr @rb_eRuntimeError, align 8
+  %4 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !10
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %4, ptr noundef nonnull @.str.4) #9
   unreachable
 
@@ -1002,7 +1096,7 @@ define internal i64 @ossl_pkey_to_text(i64 noundef %0) #0 {
   br i1 %.not12, label %8, label %10
 
 8:                                                ; preds = %5
-  %9 = load i64, ptr @ePKeyError, align 8
+  %9 = load i64, ptr @ePKeyError, align 8, !tbaa !10
   tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %9, ptr noundef nonnull @.str.8) #9
   unreachable
 
@@ -1027,7 +1121,7 @@ define internal i64 @ossl_pkey_to_text(i64 noundef %0) #0 {
 
 21:                                               ; preds = %17
   %22 = tail call i32 @BIO_free(ptr noundef nonnull %7) #8
-  %23 = load i64, ptr @ePKeyError, align 8
+  %23 = load i64, ptr @ePKeyError, align 8, !tbaa !10
   tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %23, ptr noundef nonnull @.str.58) #9
   unreachable
 
@@ -1036,39 +1130,40 @@ define internal i64 @ossl_pkey_to_text(i64 noundef %0) #0 {
   ret i64 %25
 }
 
-; Function Attrs: nounwind uwtable
-define internal i64 @ossl_pkey_private_to_der(i32 noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @ossl_pkey_private_to_der(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = tail call fastcc i64 @do_pkcs8_export(i32 noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef 1)
   ret i64 %4
 }
 
-; Function Attrs: nounwind uwtable
-define internal i64 @ossl_pkey_private_to_pem(i32 noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @ossl_pkey_private_to_pem(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = tail call fastcc i64 @do_pkcs8_export(i32 noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef 0)
   ret i64 %4
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ossl_pkey_public_to_der(i64 noundef %0) #0 {
   %2 = tail call i64 @ossl_pkey_export_spki(i64 noundef %0, i32 noundef 1)
   ret i64 %2
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ossl_pkey_public_to_pem(i64 noundef %0) #0 {
   %2 = tail call i64 @ossl_pkey_export_spki(i64 noundef %0, i32 noundef 0)
   ret i64 %2
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ossl_pkey_raw_private_key(i64 noundef %0) #0 {
   %2 = alloca i64, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_evp_pkey_type) #8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %6
 
 4:                                                ; preds = %1
-  %5 = load i64, ptr @rb_eRuntimeError, align 8
+  %5 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !10
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %5, ptr noundef nonnull @.str.4) #9
   unreachable
 
@@ -1078,15 +1173,15 @@ define internal i64 @ossl_pkey_raw_private_key(i64 noundef %0) #0 {
   br i1 %.not6, label %10, label %8
 
 8:                                                ; preds = %6
-  %9 = load i64, ptr @ePKeyError, align 8
+  %9 = load i64, ptr @ePKeyError, align 8, !tbaa !10
   call void (i64, ptr, ...) @ossl_raise(i64 noundef %9, ptr noundef nonnull @.str.61) #9
   unreachable
 
 10:                                               ; preds = %6
-  %11 = load i64, ptr %2, align 8
-  %12 = call i64 @rb_str_new(ptr noundef null, i64 noundef %11) #8, !callees !22
+  %11 = load i64, ptr %2, align 8, !tbaa !10
+  %12 = call i64 @rb_str_new(ptr noundef null, i64 noundef %11) #8, !callees !43
   %13 = inttoptr i64 %12 to ptr
-  %14 = load i64, ptr %13, align 8, !noalias !23
+  %14 = load i64, ptr %13, align 8, !tbaa !28, !noalias !44
   %15 = and i64 %14, 8192
   %.not.i.i = icmp eq i64 %15, 0
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 24
@@ -1103,25 +1198,27 @@ RSTRING_PTR.exit:                                 ; preds = %10, %17
   br i1 %.not7, label %21, label %19
 
 19:                                               ; preds = %RSTRING_PTR.exit
-  %20 = load i64, ptr @ePKeyError, align 8
+  %20 = load i64, ptr @ePKeyError, align 8, !tbaa !10
   call void (i64, ptr, ...) @ossl_raise(i64 noundef %20, ptr noundef nonnull @.str.61) #9
   unreachable
 
 21:                                               ; preds = %RSTRING_PTR.exit
-  %22 = load i64, ptr %2, align 8
+  %22 = load i64, ptr %2, align 8, !tbaa !10
   call void @rb_str_set_len(i64 noundef %12, i64 noundef %22) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8
   ret i64 %12
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ossl_pkey_raw_public_key(i64 noundef %0) #0 {
   %2 = alloca i64, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_evp_pkey_type) #8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %6
 
 4:                                                ; preds = %1
-  %5 = load i64, ptr @rb_eRuntimeError, align 8
+  %5 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !10
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %5, ptr noundef nonnull @.str.4) #9
   unreachable
 
@@ -1131,15 +1228,15 @@ define internal i64 @ossl_pkey_raw_public_key(i64 noundef %0) #0 {
   br i1 %.not6, label %10, label %8
 
 8:                                                ; preds = %6
-  %9 = load i64, ptr @ePKeyError, align 8
+  %9 = load i64, ptr @ePKeyError, align 8, !tbaa !10
   call void (i64, ptr, ...) @ossl_raise(i64 noundef %9, ptr noundef nonnull @.str.62) #9
   unreachable
 
 10:                                               ; preds = %6
-  %11 = load i64, ptr %2, align 8
-  %12 = call i64 @rb_str_new(ptr noundef null, i64 noundef %11) #8, !callees !22
+  %11 = load i64, ptr %2, align 8, !tbaa !10
+  %12 = call i64 @rb_str_new(ptr noundef null, i64 noundef %11) #8, !callees !43
   %13 = inttoptr i64 %12 to ptr
-  %14 = load i64, ptr %13, align 8, !noalias !26
+  %14 = load i64, ptr %13, align 8, !tbaa !28, !noalias !47
   %15 = and i64 %14, 8192
   %.not.i.i = icmp eq i64 %15, 0
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 24
@@ -1156,24 +1253,25 @@ RSTRING_PTR.exit:                                 ; preds = %10, %17
   br i1 %.not7, label %21, label %19
 
 19:                                               ; preds = %RSTRING_PTR.exit
-  %20 = load i64, ptr @ePKeyError, align 8
+  %20 = load i64, ptr @ePKeyError, align 8, !tbaa !10
   call void (i64, ptr, ...) @ossl_raise(i64 noundef %20, ptr noundef nonnull @.str.62) #9
   unreachable
 
 21:                                               ; preds = %RSTRING_PTR.exit
-  %22 = load i64, ptr %2, align 8
+  %22 = load i64, ptr %2, align 8, !tbaa !10
   call void @rb_str_set_len(i64 noundef %12, i64 noundef %22) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8
   ret i64 %12
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 0, 21) i64 @ossl_pkey_compare(i64 noundef %0, i64 noundef %1) #0 {
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_evp_pkey_type) #8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %6
 
 4:                                                ; preds = %2
-  %5 = load i64, ptr @rb_eRuntimeError, align 8
+  %5 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !10
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %5, ptr noundef nonnull @.str.4) #9
   unreachable
 
@@ -1183,7 +1281,7 @@ define internal range(i64 0, 21) i64 @ossl_pkey_compare(i64 noundef %0, i64 noun
   br i1 %.not13, label %8, label %10
 
 8:                                                ; preds = %6
-  %9 = load i64, ptr @rb_eRuntimeError, align 8
+  %9 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !10
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %9, ptr noundef nonnull @.str.4) #9
   unreachable
 
@@ -1194,7 +1292,7 @@ define internal range(i64 0, 21) i64 @ossl_pkey_compare(i64 noundef %0, i64 noun
   br i1 %.not14, label %15, label %13
 
 13:                                               ; preds = %10
-  %14 = load i64, ptr @rb_eTypeError, align 8
+  %14 = load i64, ptr @rb_eTypeError, align 8, !tbaa !10
   tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %14, ptr noundef nonnull @.str.63) #9
   unreachable
 
@@ -1209,7 +1307,7 @@ define internal range(i64 0, 21) i64 @ossl_pkey_compare(i64 noundef %0, i64 noun
   br label %20
 
 18:                                               ; preds = %15
-  %19 = load i64, ptr @ePKeyError, align 8
+  %19 = load i64, ptr @ePKeyError, align 8, !tbaa !10
   tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %19, ptr noundef nonnull @.str.64) #9
   unreachable
 
@@ -1218,8 +1316,8 @@ define internal range(i64 0, 21) i64 @ossl_pkey_compare(i64 noundef %0, i64 noun
   ret i64 %.0
 }
 
-; Function Attrs: nounwind uwtable
-define internal i64 @ossl_pkey_sign(i32 noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @ossl_pkey_sign(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca [2 x i64], align 16
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
@@ -1227,162 +1325,221 @@ define internal i64 @ossl_pkey_sign(i32 noundef %0, ptr noundef %1, i64 noundef 
   %8 = alloca ptr, align 8
   %9 = alloca i64, align 8
   %10 = alloca i32, align 4
-  %11 = tail call ptr @GetPrivPKeyPtr(i64 noundef %2)
-  %12 = call i32 (i32, ptr, ptr, ...) @rb_scan_args(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.65, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #8
-  %13 = load i64, ptr %5, align 8
-  %14 = icmp eq i64 %13, 4
-  br i1 %14, label %17, label %15
+  %11 = alloca [3 x ptr], align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #8
+  %12 = tail call ptr @GetPrivPKeyPtr(i64 noundef %2)
+  store ptr %5, ptr %11, align 8, !tbaa !25
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store ptr %6, ptr %13, align 8, !tbaa !25
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  store ptr %7, ptr %14, align 8, !tbaa !25
+  %15 = icmp slt i32 %0, 2
+  br i1 %15, label %27, label %.preheader30
 
-15:                                               ; preds = %3
-  %16 = call ptr @ossl_evp_get_digestbyname(i64 noundef %13) #8
-  br label %17
+.preheader30:                                     ; preds = %3, %21
+  %indvars.iv = phi i64 [ %indvars.iv.next, %21 ], [ 0, %3 ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %16 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
+  %17 = load ptr, ptr %16, align 8, !tbaa !25
+  %.not109.i = icmp eq ptr %17, null
+  br i1 %.not109.i, label %21, label %18
 
-17:                                               ; preds = %15, %3
-  %.0 = phi ptr [ null, %3 ], [ %16, %15 ]
-  %18 = call i64 @rb_string_value(ptr noundef nonnull %6) #8
-  %19 = call ptr @EVP_MD_CTX_new() #8
-  %.not = icmp eq ptr %19, null
-  br i1 %.not, label %20, label %22
+18:                                               ; preds = %.preheader30
+  %19 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %20 = load i64, ptr %19, align 8, !tbaa !10
+  store i64 %20, ptr %17, align 8, !tbaa !10
+  br label %21
 
-20:                                               ; preds = %17
-  %21 = load i64, ptr @ePKeyError, align 8
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %21, ptr noundef nonnull @.str.66) #9
+21:                                               ; preds = %18, %.preheader30
+  %exitcond.not = icmp eq i64 %indvars.iv.next, 2
+  br i1 %exitcond.not, label %.preheader, label %.preheader30, !llvm.loop !50
+
+.preheader:                                       ; preds = %21
+  %.not43 = icmp eq i32 %0, 2
+  br i1 %.not43, label %25, label %22
+
+22:                                               ; preds = %.preheader
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %24 = load i64, ptr %23, align 8, !tbaa !10
+  br label %25
+
+25:                                               ; preds = %.preheader, %22
+  %.sink = phi i64 [ %24, %22 ], [ 4, %.preheader ]
+  %.185.i.lcssa = phi i32 [ 3, %22 ], [ 2, %.preheader ]
+  store i64 %.sink, ptr %7, align 8, !tbaa !10
+  %26 = icmp eq i32 %.185.i.lcssa, %0
+  br i1 %26, label %rb_scan_args_set.exit, label %27
+
+27:                                               ; preds = %25, %3
+  call void @rb_error_arity(i32 noundef %0, i32 noundef 2, i32 noundef 3) #9
   unreachable
 
-22:                                               ; preds = %17
-  %23 = call i32 @EVP_DigestSignInit(ptr noundef nonnull %19, ptr noundef nonnull %8, ptr noundef %.0, ptr noundef null, ptr noundef nonnull %11) #8
-  %24 = icmp slt i32 %23, 1
-  br i1 %24, label %25, label %27
-
-25:                                               ; preds = %22
-  call void @EVP_MD_CTX_free(ptr noundef nonnull %19) #8
-  %26 = load i64, ptr @ePKeyError, align 8
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %26, ptr noundef nonnull @.str.67) #9
-  unreachable
-
-27:                                               ; preds = %22
-  %28 = load i64, ptr %7, align 8
+rb_scan_args_set.exit:                            ; preds = %25
+  %28 = load i64, ptr %5, align 8, !tbaa !10
   %29 = icmp eq i64 %28, 4
-  br i1 %29, label %39, label %30
+  br i1 %29, label %32, label %30
 
-30:                                               ; preds = %27
-  %31 = load ptr, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  %32 = ptrtoint ptr %31 to i64
-  store i64 %32, ptr %4, align 16
-  %33 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %28, ptr %33, align 8
-  %34 = ptrtoint ptr %4 to i64
-  %35 = call i64 @rb_protect(ptr noundef nonnull @pkey_ctx_apply_options0, i64 noundef %34, ptr noundef nonnull %10) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %36 = load i32, ptr %10, align 4
-  %.not20 = icmp eq i32 %36, 0
-  br i1 %.not20, label %39, label %37
+30:                                               ; preds = %rb_scan_args_set.exit
+  %31 = call ptr @ossl_evp_get_digestbyname(i64 noundef %28) #8
+  br label %32
 
-37:                                               ; preds = %30
-  call void @EVP_MD_CTX_free(ptr noundef nonnull %19) #8
-  %38 = load i32, ptr %10, align 4
-  call void @rb_jump_tag(i32 noundef %38) #9
+32:                                               ; preds = %30, %rb_scan_args_set.exit
+  %.0 = phi ptr [ null, %rb_scan_args_set.exit ], [ %31, %30 ]
+  %33 = call i64 @rb_string_value(ptr noundef nonnull %6) #8
+  %34 = call ptr @EVP_MD_CTX_new() #8
+  %.not = icmp eq ptr %34, null
+  br i1 %.not, label %35, label %37
+
+35:                                               ; preds = %32
+  %36 = load i64, ptr @ePKeyError, align 8, !tbaa !10
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %36, ptr noundef nonnull @.str.66) #9
   unreachable
 
-39:                                               ; preds = %30, %27
-  %40 = load i64, ptr %6, align 8
-  %41 = inttoptr i64 %40 to ptr
-  %42 = load i64, ptr %41, align 8, !noalias !29
-  %43 = and i64 %42, 8192
-  %.not.i.i = icmp eq i64 %43, 0
-  %44 = getelementptr inbounds nuw i8, ptr %41, i64 24
-  br i1 %.not.i.i, label %RSTRING_PTR.exit, label %45
+37:                                               ; preds = %32
+  %38 = call i32 @EVP_DigestSignInit(ptr noundef nonnull %34, ptr noundef nonnull %8, ptr noundef %.0, ptr noundef null, ptr noundef nonnull %12) #8
+  %39 = icmp slt i32 %38, 1
+  br i1 %39, label %40, label %42
 
-45:                                               ; preds = %39
-  %.sroa.2.0.copyload.i = load ptr, ptr %44, align 8
+40:                                               ; preds = %37
+  call void @EVP_MD_CTX_free(ptr noundef nonnull %34) #8
+  %41 = load i64, ptr @ePKeyError, align 8, !tbaa !10
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %41, ptr noundef nonnull @.str.67) #9
+  unreachable
+
+42:                                               ; preds = %37
+  %43 = load i64, ptr %7, align 8, !tbaa !10
+  %44 = icmp eq i64 %43, 4
+  br i1 %44, label %54, label %45
+
+45:                                               ; preds = %42
+  %46 = load ptr, ptr %8, align 8, !tbaa !51
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #8
+  %47 = ptrtoint ptr %46 to i64
+  store i64 %47, ptr %4, align 16, !tbaa !10
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i64 %43, ptr %48, align 8, !tbaa !10
+  %49 = ptrtoint ptr %4 to i64
+  %50 = call i64 @rb_protect(ptr noundef nonnull @pkey_ctx_apply_options0, i64 noundef %49, ptr noundef nonnull %10) #8
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #8
+  %51 = load i32, ptr %10, align 4, !tbaa !6
+  %.not20 = icmp eq i32 %51, 0
+  br i1 %.not20, label %54, label %52
+
+52:                                               ; preds = %45
+  call void @EVP_MD_CTX_free(ptr noundef nonnull %34) #8
+  %53 = load i32, ptr %10, align 4, !tbaa !6
+  call void @rb_jump_tag(i32 noundef %53) #9
+  unreachable
+
+54:                                               ; preds = %45, %42
+  %55 = load i64, ptr %6, align 8, !tbaa !10
+  %56 = inttoptr i64 %55 to ptr
+  %57 = load i64, ptr %56, align 8, !tbaa !28, !noalias !53
+  %58 = and i64 %57, 8192
+  %.not.i.i = icmp eq i64 %58, 0
+  %59 = getelementptr inbounds nuw i8, ptr %56, i64 24
+  br i1 %.not.i.i, label %RSTRING_PTR.exit, label %60
+
+60:                                               ; preds = %54
+  %.sroa.2.0.copyload.i = load ptr, ptr %59, align 8
   br label %RSTRING_PTR.exit
 
-RSTRING_PTR.exit:                                 ; preds = %39, %45
-  %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %45 ], [ %44, %39 ]
-  %46 = getelementptr inbounds nuw i8, ptr %41, i64 16
-  %47 = load i64, ptr %46, align 8
-  %48 = call i32 @EVP_DigestSign(ptr noundef nonnull %19, ptr noundef null, ptr noundef nonnull %9, ptr noundef %.sroa.2.0.i, i64 noundef %47) #8
-  %49 = icmp slt i32 %48, 1
-  br i1 %49, label %50, label %52
+RSTRING_PTR.exit:                                 ; preds = %54, %60
+  %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %60 ], [ %59, %54 ]
+  %61 = getelementptr inbounds nuw i8, ptr %56, i64 16
+  %62 = load i64, ptr %61, align 8, !tbaa !32
+  %63 = call i32 @EVP_DigestSign(ptr noundef nonnull %34, ptr noundef null, ptr noundef nonnull %9, ptr noundef %.sroa.2.0.i, i64 noundef %62) #8
+  %64 = icmp slt i32 %63, 1
+  br i1 %64, label %65, label %67
 
-50:                                               ; preds = %RSTRING_PTR.exit
-  call void @EVP_MD_CTX_free(ptr noundef nonnull %19) #8
-  %51 = load i64, ptr @ePKeyError, align 8
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %51, ptr noundef nonnull @.str.68) #9
+65:                                               ; preds = %RSTRING_PTR.exit
+  call void @EVP_MD_CTX_free(ptr noundef nonnull %34) #8
+  %66 = load i64, ptr @ePKeyError, align 8, !tbaa !10
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %66, ptr noundef nonnull @.str.68) #9
   unreachable
 
-52:                                               ; preds = %RSTRING_PTR.exit
-  %53 = load i64, ptr %9, align 8
-  %54 = icmp slt i64 %53, 0
-  br i1 %54, label %55, label %57
+67:                                               ; preds = %RSTRING_PTR.exit
+  %68 = load i64, ptr %9, align 8, !tbaa !10
+  %69 = icmp slt i64 %68, 0
+  br i1 %69, label %70, label %72
 
-55:                                               ; preds = %52
-  call void @EVP_MD_CTX_free(ptr noundef nonnull %19) #8
-  %56 = load i64, ptr @ePKeyError, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %56, ptr noundef nonnull @.str.69) #9
+70:                                               ; preds = %67
+  call void @EVP_MD_CTX_free(ptr noundef nonnull %34) #8
+  %71 = load i64, ptr @ePKeyError, align 8, !tbaa !10
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %71, ptr noundef nonnull @.str.69) #9
   unreachable
 
-57:                                               ; preds = %52
-  %58 = call i64 @ossl_str_new(ptr noundef null, i64 noundef %53, ptr noundef nonnull %10) #8
-  %59 = load i32, ptr %10, align 4
-  %.not21 = icmp eq i32 %59, 0
-  br i1 %.not21, label %62, label %60
+72:                                               ; preds = %67
+  %73 = call i64 @ossl_str_new(ptr noundef null, i64 noundef %68, ptr noundef nonnull %10) #8
+  %74 = load i32, ptr %10, align 4, !tbaa !6
+  %.not21 = icmp eq i32 %74, 0
+  br i1 %.not21, label %77, label %75
 
-60:                                               ; preds = %57
-  call void @EVP_MD_CTX_free(ptr noundef nonnull %19) #8
-  %61 = load i32, ptr %10, align 4
-  call void @rb_jump_tag(i32 noundef %61) #9
+75:                                               ; preds = %72
+  call void @EVP_MD_CTX_free(ptr noundef nonnull %34) #8
+  %76 = load i32, ptr %10, align 4, !tbaa !6
+  call void @rb_jump_tag(i32 noundef %76) #9
   unreachable
 
-62:                                               ; preds = %57
-  %63 = inttoptr i64 %58 to ptr
-  %64 = load i64, ptr %63, align 8, !noalias !32
-  %65 = and i64 %64, 8192
-  %.not.i.i22 = icmp eq i64 %65, 0
-  %66 = getelementptr inbounds nuw i8, ptr %63, i64 24
-  br i1 %.not.i.i22, label %RSTRING_PTR.exit25, label %67
+77:                                               ; preds = %72
+  %78 = inttoptr i64 %73 to ptr
+  %79 = load i64, ptr %78, align 8, !tbaa !28, !noalias !56
+  %80 = and i64 %79, 8192
+  %.not.i.i22 = icmp eq i64 %80, 0
+  %81 = getelementptr inbounds nuw i8, ptr %78, i64 24
+  br i1 %.not.i.i22, label %RSTRING_PTR.exit25, label %82
 
-67:                                               ; preds = %62
-  %.sroa.2.0.copyload.i23 = load ptr, ptr %66, align 8
+82:                                               ; preds = %77
+  %.sroa.2.0.copyload.i23 = load ptr, ptr %81, align 8
   br label %RSTRING_PTR.exit25
 
-RSTRING_PTR.exit25:                               ; preds = %62, %67
-  %.sroa.2.0.i24 = phi ptr [ %.sroa.2.0.copyload.i23, %67 ], [ %66, %62 ]
-  %68 = load i64, ptr %6, align 8
-  %69 = inttoptr i64 %68 to ptr
-  %70 = load i64, ptr %69, align 8, !noalias !35
-  %71 = and i64 %70, 8192
-  %.not.i.i26 = icmp eq i64 %71, 0
-  %72 = getelementptr inbounds nuw i8, ptr %69, i64 24
-  br i1 %.not.i.i26, label %RSTRING_PTR.exit29, label %73
+RSTRING_PTR.exit25:                               ; preds = %77, %82
+  %.sroa.2.0.i24 = phi ptr [ %.sroa.2.0.copyload.i23, %82 ], [ %81, %77 ]
+  %83 = load i64, ptr %6, align 8, !tbaa !10
+  %84 = inttoptr i64 %83 to ptr
+  %85 = load i64, ptr %84, align 8, !tbaa !28, !noalias !59
+  %86 = and i64 %85, 8192
+  %.not.i.i26 = icmp eq i64 %86, 0
+  %87 = getelementptr inbounds nuw i8, ptr %84, i64 24
+  br i1 %.not.i.i26, label %RSTRING_PTR.exit29, label %88
 
-73:                                               ; preds = %RSTRING_PTR.exit25
-  %.sroa.2.0.copyload.i27 = load ptr, ptr %72, align 8
+88:                                               ; preds = %RSTRING_PTR.exit25
+  %.sroa.2.0.copyload.i27 = load ptr, ptr %87, align 8
   br label %RSTRING_PTR.exit29
 
-RSTRING_PTR.exit29:                               ; preds = %RSTRING_PTR.exit25, %73
-  %.sroa.2.0.i28 = phi ptr [ %.sroa.2.0.copyload.i27, %73 ], [ %72, %RSTRING_PTR.exit25 ]
-  %74 = getelementptr inbounds nuw i8, ptr %69, i64 16
-  %75 = load i64, ptr %74, align 8
-  %76 = call i32 @EVP_DigestSign(ptr noundef nonnull %19, ptr noundef %.sroa.2.0.i24, ptr noundef nonnull %9, ptr noundef %.sroa.2.0.i28, i64 noundef %75) #8
-  %77 = icmp slt i32 %76, 1
-  call void @EVP_MD_CTX_free(ptr noundef nonnull %19) #8
-  br i1 %77, label %78, label %80
+RSTRING_PTR.exit29:                               ; preds = %RSTRING_PTR.exit25, %88
+  %.sroa.2.0.i28 = phi ptr [ %.sroa.2.0.copyload.i27, %88 ], [ %87, %RSTRING_PTR.exit25 ]
+  %89 = getelementptr inbounds nuw i8, ptr %84, i64 16
+  %90 = load i64, ptr %89, align 8, !tbaa !32
+  %91 = call i32 @EVP_DigestSign(ptr noundef nonnull %34, ptr noundef %.sroa.2.0.i24, ptr noundef nonnull %9, ptr noundef %.sroa.2.0.i28, i64 noundef %90) #8
+  %92 = icmp slt i32 %91, 1
+  call void @EVP_MD_CTX_free(ptr noundef nonnull %34) #8
+  br i1 %92, label %93, label %95
 
-78:                                               ; preds = %RSTRING_PTR.exit29
-  %79 = load i64, ptr @ePKeyError, align 8
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %79, ptr noundef nonnull @.str.68) #9
+93:                                               ; preds = %RSTRING_PTR.exit29
+  %94 = load i64, ptr @ePKeyError, align 8, !tbaa !10
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %94, ptr noundef nonnull @.str.68) #9
   unreachable
 
-80:                                               ; preds = %RSTRING_PTR.exit29
-  %81 = load i64, ptr %9, align 8
-  call void @rb_str_set_len(i64 noundef %58, i64 noundef %81) #8
-  ret i64 %58
+95:                                               ; preds = %RSTRING_PTR.exit29
+  %96 = load i64, ptr %9, align 8, !tbaa !10
+  call void @rb_str_set_len(i64 noundef %73, i64 noundef %96) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  ret i64 %73
 }
 
-; Function Attrs: nounwind uwtable
-define internal range(i64 0, 21) i64 @ossl_pkey_verify(i32 noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+; Function Attrs: nounwind sspstrong uwtable
+define internal range(i64 0, 21) i64 @ossl_pkey_verify(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca [2 x i64], align 16
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
@@ -1390,760 +1547,1002 @@ define internal range(i64 0, 21) i64 @ossl_pkey_verify(i32 noundef %0, ptr nound
   %8 = alloca i64, align 8
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
+  %11 = alloca [4 x ptr], align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #8
+  %12 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @ossl_evp_pkey_type) #8
+  %.not = icmp eq ptr %12, null
+  br i1 %.not, label %13, label %15
+
+13:                                               ; preds = %3
+  %14 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !10
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %14, ptr noundef nonnull @.str.4) #9
+  unreachable
+
+15:                                               ; preds = %3
+  store ptr %5, ptr %11, align 8, !tbaa !25
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store ptr %6, ptr %16, align 8, !tbaa !25
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  store ptr %7, ptr %17, align 8, !tbaa !25
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  store ptr %8, ptr %18, align 8, !tbaa !25
+  %19 = icmp slt i32 %0, 3
+  br i1 %19, label %31, label %.preheader27
+
+.preheader27:                                     ; preds = %15, %25
+  %indvars.iv = phi i64 [ %indvars.iv.next, %25 ], [ 0, %15 ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %20 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
+  %21 = load ptr, ptr %20, align 8, !tbaa !25
+  %.not109.i = icmp eq ptr %21, null
+  br i1 %.not109.i, label %25, label %22
+
+22:                                               ; preds = %.preheader27
+  %23 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %24 = load i64, ptr %23, align 8, !tbaa !10
+  store i64 %24, ptr %21, align 8, !tbaa !10
+  br label %25
+
+25:                                               ; preds = %22, %.preheader27
+  %exitcond.not = icmp eq i64 %indvars.iv.next, 3
+  br i1 %exitcond.not, label %.preheader, label %.preheader27, !llvm.loop !50
+
+.preheader:                                       ; preds = %25
+  %.not40 = icmp eq i32 %0, 3
+  br i1 %.not40, label %29, label %26
+
+26:                                               ; preds = %.preheader
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %28 = load i64, ptr %27, align 8, !tbaa !10
+  br label %29
+
+29:                                               ; preds = %.preheader, %26
+  %.sink = phi i64 [ %28, %26 ], [ 4, %.preheader ]
+  %.185.i.lcssa = phi i32 [ 4, %26 ], [ 3, %.preheader ]
+  store i64 %.sink, ptr %8, align 8, !tbaa !10
+  %30 = icmp eq i32 %.185.i.lcssa, %0
+  br i1 %30, label %rb_scan_args_set.exit, label %31
+
+31:                                               ; preds = %29, %15
+  call void @rb_error_arity(i32 noundef %0, i32 noundef 3, i32 noundef 4) #9
+  unreachable
+
+rb_scan_args_set.exit:                            ; preds = %29
+  %32 = call i32 @EVP_PKEY_missing_parameters(ptr noundef nonnull %12) #8
+  %.not.i22 = icmp eq i32 %32, 0
+  br i1 %.not.i22, label %ossl_pkey_check_public_key.exit, label %33
+
+33:                                               ; preds = %rb_scan_args_set.exit
+  %34 = load i64, ptr @ePKeyError, align 8, !tbaa !10
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %34, ptr noundef nonnull @.str.3) #9
+  unreachable
+
+ossl_pkey_check_public_key.exit:                  ; preds = %rb_scan_args_set.exit
+  %35 = load i64, ptr %5, align 8, !tbaa !10
+  %36 = icmp eq i64 %35, 4
+  br i1 %36, label %39, label %37
+
+37:                                               ; preds = %ossl_pkey_check_public_key.exit
+  %38 = call ptr @ossl_evp_get_digestbyname(i64 noundef %35) #8
+  br label %39
+
+39:                                               ; preds = %37, %ossl_pkey_check_public_key.exit
+  %.015 = phi ptr [ null, %ossl_pkey_check_public_key.exit ], [ %38, %37 ]
+  %40 = call i64 @rb_string_value(ptr noundef nonnull %6) #8
+  %41 = call i64 @rb_string_value(ptr noundef nonnull %7) #8
+  %42 = call ptr @EVP_MD_CTX_new() #8
+  %.not19 = icmp eq ptr %42, null
+  br i1 %.not19, label %43, label %45
+
+43:                                               ; preds = %39
+  %44 = load i64, ptr @ePKeyError, align 8, !tbaa !10
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %44, ptr noundef nonnull @.str.66) #9
+  unreachable
+
+45:                                               ; preds = %39
+  %46 = call i32 @EVP_DigestVerifyInit(ptr noundef nonnull %42, ptr noundef nonnull %9, ptr noundef %.015, ptr noundef null, ptr noundef nonnull %12) #8
+  %47 = icmp slt i32 %46, 1
+  br i1 %47, label %48, label %50
+
+48:                                               ; preds = %45
+  call void @EVP_MD_CTX_free(ptr noundef nonnull %42) #8
+  %49 = load i64, ptr @ePKeyError, align 8, !tbaa !10
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %49, ptr noundef nonnull @.str.71) #9
+  unreachable
+
+50:                                               ; preds = %45
+  %51 = load i64, ptr %8, align 8, !tbaa !10
+  %52 = icmp eq i64 %51, 4
+  br i1 %52, label %62, label %53
+
+53:                                               ; preds = %50
+  %54 = load ptr, ptr %9, align 8, !tbaa !51
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #8
+  %55 = ptrtoint ptr %54 to i64
+  store i64 %55, ptr %4, align 16, !tbaa !10
+  %56 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i64 %51, ptr %56, align 8, !tbaa !10
+  %57 = ptrtoint ptr %4 to i64
+  %58 = call i64 @rb_protect(ptr noundef nonnull @pkey_ctx_apply_options0, i64 noundef %57, ptr noundef nonnull %10) #8
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #8
+  %59 = load i32, ptr %10, align 4, !tbaa !6
+  %.not20 = icmp eq i32 %59, 0
+  br i1 %.not20, label %62, label %60
+
+60:                                               ; preds = %53
+  call void @EVP_MD_CTX_free(ptr noundef nonnull %42) #8
+  %61 = load i32, ptr %10, align 4, !tbaa !6
+  call void @rb_jump_tag(i32 noundef %61) #9
+  unreachable
+
+62:                                               ; preds = %53, %50
+  %63 = load i64, ptr %6, align 8, !tbaa !10
+  %64 = inttoptr i64 %63 to ptr
+  %65 = load i64, ptr %64, align 8, !tbaa !28, !noalias !62
+  %66 = and i64 %65, 8192
+  %.not.i.i = icmp eq i64 %66, 0
+  %67 = getelementptr inbounds nuw i8, ptr %64, i64 24
+  br i1 %.not.i.i, label %RSTRING_PTR.exit, label %68
+
+68:                                               ; preds = %62
+  %.sroa.2.0.copyload.i = load ptr, ptr %67, align 8
+  br label %RSTRING_PTR.exit
+
+RSTRING_PTR.exit:                                 ; preds = %62, %68
+  %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %68 ], [ %67, %62 ]
+  %69 = getelementptr inbounds nuw i8, ptr %64, i64 16
+  %70 = load i64, ptr %69, align 8, !tbaa !32
+  %71 = load i64, ptr %7, align 8, !tbaa !10
+  %72 = inttoptr i64 %71 to ptr
+  %73 = load i64, ptr %72, align 8, !tbaa !28, !noalias !65
+  %74 = and i64 %73, 8192
+  %.not.i.i23 = icmp eq i64 %74, 0
+  %75 = getelementptr inbounds nuw i8, ptr %72, i64 24
+  br i1 %.not.i.i23, label %RSTRING_PTR.exit26, label %76
+
+76:                                               ; preds = %RSTRING_PTR.exit
+  %.sroa.2.0.copyload.i24 = load ptr, ptr %75, align 8
+  br label %RSTRING_PTR.exit26
+
+RSTRING_PTR.exit26:                               ; preds = %RSTRING_PTR.exit, %76
+  %.sroa.2.0.i25 = phi ptr [ %.sroa.2.0.copyload.i24, %76 ], [ %75, %RSTRING_PTR.exit ]
+  %77 = getelementptr inbounds nuw i8, ptr %72, i64 16
+  %78 = load i64, ptr %77, align 8, !tbaa !32
+  %79 = call i32 @EVP_DigestVerify(ptr noundef nonnull %42, ptr noundef %.sroa.2.0.i, i64 noundef %70, ptr noundef %.sroa.2.0.i25, i64 noundef %78) #8
+  call void @EVP_MD_CTX_free(ptr noundef nonnull %42) #8
+  %80 = icmp slt i32 %79, 0
+  br i1 %80, label %81, label %83
+
+81:                                               ; preds = %RSTRING_PTR.exit26
+  %82 = load i64, ptr @ePKeyError, align 8, !tbaa !10
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %82, ptr noundef nonnull @.str.72) #9
+  unreachable
+
+83:                                               ; preds = %RSTRING_PTR.exit26
+  %.not21 = icmp eq i32 %79, 0
+  br i1 %.not21, label %84, label %85
+
+84:                                               ; preds = %83
+  call void @ossl_clear_error() #8
+  br label %85
+
+85:                                               ; preds = %83, %84
+  %.0 = phi i64 [ 0, %84 ], [ 20, %83 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  ret i64 %.0
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @ossl_pkey_sign_raw(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
+  %4 = alloca [2 x i64], align 16
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca [3 x ptr], align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #8
   %11 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @ossl_evp_pkey_type) #8
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %12, label %14
 
 12:                                               ; preds = %3
-  %13 = load i64, ptr @rb_eRuntimeError, align 8
+  %13 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !10
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %13, ptr noundef nonnull @.str.4) #9
   unreachable
 
 14:                                               ; preds = %3
-  %15 = call i32 (i32, ptr, ptr, ...) @rb_scan_args(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.70, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #8
-  %16 = call i32 @EVP_PKEY_missing_parameters(ptr noundef nonnull %11) #8
-  %.not.i = icmp eq i32 %16, 0
-  br i1 %.not.i, label %ossl_pkey_check_public_key.exit, label %17
+  store ptr %5, ptr %10, align 8, !tbaa !25
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store ptr %6, ptr %15, align 8, !tbaa !25
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  store ptr %7, ptr %16, align 8, !tbaa !25
+  %17 = icmp slt i32 %0, 2
+  br i1 %17, label %29, label %.preheader38
 
-17:                                               ; preds = %14
-  %18 = load i64, ptr @ePKeyError, align 8
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %18, ptr noundef nonnull @.str.3) #9
-  unreachable
+.preheader38:                                     ; preds = %14, %23
+  %indvars.iv = phi i64 [ %indvars.iv.next, %23 ], [ 0, %14 ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %18 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %19 = load ptr, ptr %18, align 8, !tbaa !25
+  %.not109.i = icmp eq ptr %19, null
+  br i1 %.not109.i, label %23, label %20
 
-ossl_pkey_check_public_key.exit:                  ; preds = %14
-  %19 = load i64, ptr %5, align 8
-  %20 = icmp eq i64 %19, 4
-  br i1 %20, label %23, label %21
-
-21:                                               ; preds = %ossl_pkey_check_public_key.exit
-  %22 = call ptr @ossl_evp_get_digestbyname(i64 noundef %19) #8
+20:                                               ; preds = %.preheader38
+  %21 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %22 = load i64, ptr %21, align 8, !tbaa !10
+  store i64 %22, ptr %19, align 8, !tbaa !10
   br label %23
 
-23:                                               ; preds = %21, %ossl_pkey_check_public_key.exit
-  %.015 = phi ptr [ null, %ossl_pkey_check_public_key.exit ], [ %22, %21 ]
-  %24 = call i64 @rb_string_value(ptr noundef nonnull %6) #8
-  %25 = call i64 @rb_string_value(ptr noundef nonnull %7) #8
-  %26 = call ptr @EVP_MD_CTX_new() #8
-  %.not19 = icmp eq ptr %26, null
-  br i1 %.not19, label %27, label %29
+23:                                               ; preds = %20, %.preheader38
+  %exitcond.not = icmp eq i64 %indvars.iv.next, 2
+  br i1 %exitcond.not, label %.preheader, label %.preheader38, !llvm.loop !50
 
-27:                                               ; preds = %23
-  %28 = load i64, ptr @ePKeyError, align 8
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %28, ptr noundef nonnull @.str.66) #9
+.preheader:                                       ; preds = %23
+  %.not51 = icmp eq i32 %0, 2
+  br i1 %.not51, label %27, label %24
+
+24:                                               ; preds = %.preheader
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %26 = load i64, ptr %25, align 8, !tbaa !10
+  br label %27
+
+27:                                               ; preds = %.preheader, %24
+  %.sink = phi i64 [ %26, %24 ], [ 4, %.preheader ]
+  %.185.i.lcssa = phi i32 [ 3, %24 ], [ 2, %.preheader ]
+  store i64 %.sink, ptr %7, align 8, !tbaa !10
+  %28 = icmp eq i32 %.185.i.lcssa, %0
+  br i1 %28, label %rb_scan_args_set.exit, label %29
+
+29:                                               ; preds = %27, %14
+  call void @rb_error_arity(i32 noundef %0, i32 noundef 2, i32 noundef 3) #9
   unreachable
 
-29:                                               ; preds = %23
-  %30 = call i32 @EVP_DigestVerifyInit(ptr noundef nonnull %26, ptr noundef nonnull %9, ptr noundef %.015, ptr noundef null, ptr noundef nonnull %11) #8
-  %31 = icmp slt i32 %30, 1
-  br i1 %31, label %32, label %34
+rb_scan_args_set.exit:                            ; preds = %27
+  %30 = load i64, ptr %5, align 8, !tbaa !10
+  %31 = icmp eq i64 %30, 4
+  br i1 %31, label %34, label %32
 
-32:                                               ; preds = %29
-  call void @EVP_MD_CTX_free(ptr noundef nonnull %26) #8
-  %33 = load i64, ptr @ePKeyError, align 8
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %33, ptr noundef nonnull @.str.71) #9
-  unreachable
+32:                                               ; preds = %rb_scan_args_set.exit
+  %33 = call ptr @ossl_evp_get_digestbyname(i64 noundef %30) #8
+  br label %34
 
-34:                                               ; preds = %29
-  %35 = load i64, ptr %8, align 8
-  %36 = icmp eq i64 %35, 4
-  br i1 %36, label %46, label %37
+34:                                               ; preds = %32, %rb_scan_args_set.exit
+  %.0 = phi ptr [ null, %rb_scan_args_set.exit ], [ %33, %32 ]
+  %35 = call i64 @rb_string_value(ptr noundef nonnull %6) #8
+  %36 = call ptr @EVP_PKEY_CTX_new(ptr noundef nonnull %11, ptr noundef null) #8
+  %.not26 = icmp eq ptr %36, null
+  br i1 %.not26, label %37, label %39
 
 37:                                               ; preds = %34
-  %38 = load ptr, ptr %9, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  %39 = ptrtoint ptr %38 to i64
-  store i64 %39, ptr %4, align 16
-  %40 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %35, ptr %40, align 8
-  %41 = ptrtoint ptr %4 to i64
-  %42 = call i64 @rb_protect(ptr noundef nonnull @pkey_ctx_apply_options0, i64 noundef %41, ptr noundef nonnull %10) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %43 = load i32, ptr %10, align 4
-  %.not20 = icmp eq i32 %43, 0
-  br i1 %.not20, label %46, label %44
-
-44:                                               ; preds = %37
-  call void @EVP_MD_CTX_free(ptr noundef nonnull %26) #8
-  %45 = load i32, ptr %10, align 4
-  call void @rb_jump_tag(i32 noundef %45) #9
+  %38 = load i64, ptr @ePKeyError, align 8, !tbaa !10
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %38, ptr noundef nonnull @.str.43) #9
   unreachable
 
-46:                                               ; preds = %37, %34
-  %47 = load i64, ptr %6, align 8
-  %48 = inttoptr i64 %47 to ptr
-  %49 = load i64, ptr %48, align 8, !noalias !38
-  %50 = and i64 %49, 8192
-  %.not.i.i = icmp eq i64 %50, 0
-  %51 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  br i1 %.not.i.i, label %RSTRING_PTR.exit, label %52
-
-52:                                               ; preds = %46
-  %.sroa.2.0.copyload.i = load ptr, ptr %51, align 8
-  br label %RSTRING_PTR.exit
-
-RSTRING_PTR.exit:                                 ; preds = %46, %52
-  %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %52 ], [ %51, %46 ]
-  %53 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  %54 = load i64, ptr %53, align 8
-  %55 = load i64, ptr %7, align 8
-  %56 = inttoptr i64 %55 to ptr
-  %57 = load i64, ptr %56, align 8, !noalias !41
-  %58 = and i64 %57, 8192
-  %.not.i.i22 = icmp eq i64 %58, 0
-  %59 = getelementptr inbounds nuw i8, ptr %56, i64 24
-  br i1 %.not.i.i22, label %RSTRING_PTR.exit25, label %60
-
-60:                                               ; preds = %RSTRING_PTR.exit
-  %.sroa.2.0.copyload.i23 = load ptr, ptr %59, align 8
-  br label %RSTRING_PTR.exit25
-
-RSTRING_PTR.exit25:                               ; preds = %RSTRING_PTR.exit, %60
-  %.sroa.2.0.i24 = phi ptr [ %.sroa.2.0.copyload.i23, %60 ], [ %59, %RSTRING_PTR.exit ]
-  %61 = getelementptr inbounds nuw i8, ptr %56, i64 16
-  %62 = load i64, ptr %61, align 8
-  %63 = call i32 @EVP_DigestVerify(ptr noundef nonnull %26, ptr noundef %.sroa.2.0.i, i64 noundef %54, ptr noundef %.sroa.2.0.i24, i64 noundef %62) #8
-  call void @EVP_MD_CTX_free(ptr noundef nonnull %26) #8
-  %64 = icmp slt i32 %63, 0
-  br i1 %64, label %65, label %67
-
-65:                                               ; preds = %RSTRING_PTR.exit25
-  %66 = load i64, ptr @ePKeyError, align 8
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %66, ptr noundef nonnull @.str.72) #9
-  unreachable
-
-67:                                               ; preds = %RSTRING_PTR.exit25
-  %.not21 = icmp eq i32 %63, 0
-  br i1 %.not21, label %68, label %69
-
-68:                                               ; preds = %67
-  call void @ossl_clear_error() #8
-  br label %69
-
-69:                                               ; preds = %67, %68
-  %.0 = phi i64 [ 0, %68 ], [ 20, %67 ]
-  ret i64 %.0
-}
-
-; Function Attrs: nounwind uwtable
-define internal i64 @ossl_pkey_sign_raw(i32 noundef %0, ptr noundef %1, i64 noundef %2) #0 {
-  %4 = alloca [2 x i64], align 16
-  %5 = alloca i64, align 8
-  %6 = alloca i64, align 8
-  %7 = alloca i64, align 8
-  %8 = alloca i64, align 8
-  %9 = alloca i32, align 4
-  %10 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @ossl_evp_pkey_type) #8
-  %.not = icmp eq ptr %10, null
-  br i1 %.not, label %11, label %13
-
-11:                                               ; preds = %3
-  %12 = load i64, ptr @rb_eRuntimeError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %12, ptr noundef nonnull @.str.4) #9
-  unreachable
-
-13:                                               ; preds = %3
-  %14 = call i32 (i32, ptr, ptr, ...) @rb_scan_args(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.65, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #8
-  %15 = load i64, ptr %5, align 8
-  %16 = icmp eq i64 %15, 4
-  br i1 %16, label %19, label %17
-
-17:                                               ; preds = %13
-  %18 = call ptr @ossl_evp_get_digestbyname(i64 noundef %15) #8
-  br label %19
-
-19:                                               ; preds = %17, %13
-  %.0 = phi ptr [ null, %13 ], [ %18, %17 ]
-  %20 = call i64 @rb_string_value(ptr noundef nonnull %6) #8
-  %21 = call ptr @EVP_PKEY_CTX_new(ptr noundef nonnull %10, ptr noundef null) #8
-  %.not26 = icmp eq ptr %21, null
-  br i1 %.not26, label %22, label %24
-
-22:                                               ; preds = %19
-  %23 = load i64, ptr @ePKeyError, align 8
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %23, ptr noundef nonnull @.str.43) #9
-  unreachable
-
-24:                                               ; preds = %19
-  %25 = call i32 @EVP_PKEY_sign_init(ptr noundef nonnull %21) #8
-  %26 = icmp slt i32 %25, 1
-  br i1 %26, label %27, label %29
-
-27:                                               ; preds = %24
-  call void @EVP_PKEY_CTX_free(ptr noundef nonnull %21) #8
-  %28 = load i64, ptr @ePKeyError, align 8
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %28, ptr noundef nonnull @.str.73) #9
-  unreachable
-
-29:                                               ; preds = %24
-  %.not27 = icmp eq ptr %.0, null
-  br i1 %.not27, label %35, label %30
-
-30:                                               ; preds = %29
-  %31 = call i32 @EVP_PKEY_CTX_set_signature_md(ptr noundef nonnull %21, ptr noundef nonnull %.0) #8
-  %32 = icmp slt i32 %31, 1
-  br i1 %32, label %33, label %35
-
-33:                                               ; preds = %30
-  call void @EVP_PKEY_CTX_free(ptr noundef nonnull %21) #8
-  %34 = load i64, ptr @ePKeyError, align 8
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %34, ptr noundef nonnull @.str.74) #9
-  unreachable
-
-35:                                               ; preds = %30, %29
-  %36 = load i64, ptr %7, align 8
-  %37 = icmp eq i64 %36, 4
-  br i1 %37, label %46, label %38
-
-38:                                               ; preds = %35
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  %39 = ptrtoint ptr %21 to i64
-  store i64 %39, ptr %4, align 16
-  %40 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %36, ptr %40, align 8
-  %41 = ptrtoint ptr %4 to i64
-  %42 = call i64 @rb_protect(ptr noundef nonnull @pkey_ctx_apply_options0, i64 noundef %41, ptr noundef nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %43 = load i32, ptr %9, align 4
-  %.not28 = icmp eq i32 %43, 0
-  br i1 %.not28, label %46, label %44
-
-44:                                               ; preds = %38
-  call void @EVP_PKEY_CTX_free(ptr noundef nonnull %21) #8
-  %45 = load i32, ptr %9, align 4
-  call void @rb_jump_tag(i32 noundef %45) #9
-  unreachable
-
-46:                                               ; preds = %38, %35
-  %47 = load i64, ptr %6, align 8
-  %48 = inttoptr i64 %47 to ptr
-  %49 = load i64, ptr %48, align 8, !noalias !44
-  %50 = and i64 %49, 8192
-  %.not.i.i = icmp eq i64 %50, 0
-  %51 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  br i1 %.not.i.i, label %RSTRING_PTR.exit, label %52
-
-52:                                               ; preds = %46
-  %.sroa.2.0.copyload.i = load ptr, ptr %51, align 8
-  br label %RSTRING_PTR.exit
-
-RSTRING_PTR.exit:                                 ; preds = %46, %52
-  %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %52 ], [ %51, %46 ]
-  %53 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  %54 = load i64, ptr %53, align 8
-  %55 = call i32 @EVP_PKEY_sign(ptr noundef nonnull %21, ptr noundef null, ptr noundef nonnull %8, ptr noundef %.sroa.2.0.i, i64 noundef %54) #8
-  %56 = icmp slt i32 %55, 1
-  br i1 %56, label %57, label %59
-
-57:                                               ; preds = %RSTRING_PTR.exit
-  call void @EVP_PKEY_CTX_free(ptr noundef nonnull %21) #8
-  %58 = load i64, ptr @ePKeyError, align 8
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %58, ptr noundef nonnull @.str.75) #9
-  unreachable
-
-59:                                               ; preds = %RSTRING_PTR.exit
-  %60 = load i64, ptr %8, align 8
-  %61 = icmp slt i64 %60, 0
-  br i1 %61, label %62, label %64
-
-62:                                               ; preds = %59
-  call void @EVP_PKEY_CTX_free(ptr noundef nonnull %21) #8
-  %63 = load i64, ptr @ePKeyError, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %63, ptr noundef nonnull @.str.69) #9
-  unreachable
-
-64:                                               ; preds = %59
-  %65 = call i64 @ossl_str_new(ptr noundef null, i64 noundef %60, ptr noundef nonnull %9) #8
-  %66 = load i32, ptr %9, align 4
-  %.not29 = icmp eq i32 %66, 0
-  br i1 %.not29, label %69, label %67
-
-67:                                               ; preds = %64
-  call void @EVP_PKEY_CTX_free(ptr noundef nonnull %21) #8
-  %68 = load i32, ptr %9, align 4
-  call void @rb_jump_tag(i32 noundef %68) #9
-  unreachable
-
-69:                                               ; preds = %64
-  %70 = inttoptr i64 %65 to ptr
-  %71 = load i64, ptr %70, align 8, !noalias !47
-  %72 = and i64 %71, 8192
-  %.not.i.i30 = icmp eq i64 %72, 0
-  %73 = getelementptr inbounds nuw i8, ptr %70, i64 24
-  br i1 %.not.i.i30, label %RSTRING_PTR.exit33, label %74
-
-74:                                               ; preds = %69
-  %.sroa.2.0.copyload.i31 = load ptr, ptr %73, align 8
-  br label %RSTRING_PTR.exit33
-
-RSTRING_PTR.exit33:                               ; preds = %69, %74
-  %.sroa.2.0.i32 = phi ptr [ %.sroa.2.0.copyload.i31, %74 ], [ %73, %69 ]
-  %75 = load i64, ptr %6, align 8
-  %76 = inttoptr i64 %75 to ptr
-  %77 = load i64, ptr %76, align 8, !noalias !50
-  %78 = and i64 %77, 8192
-  %.not.i.i34 = icmp eq i64 %78, 0
-  %79 = getelementptr inbounds nuw i8, ptr %76, i64 24
-  br i1 %.not.i.i34, label %RSTRING_PTR.exit37, label %80
-
-80:                                               ; preds = %RSTRING_PTR.exit33
-  %.sroa.2.0.copyload.i35 = load ptr, ptr %79, align 8
-  br label %RSTRING_PTR.exit37
-
-RSTRING_PTR.exit37:                               ; preds = %RSTRING_PTR.exit33, %80
-  %.sroa.2.0.i36 = phi ptr [ %.sroa.2.0.copyload.i35, %80 ], [ %79, %RSTRING_PTR.exit33 ]
-  %81 = getelementptr inbounds nuw i8, ptr %76, i64 16
-  %82 = load i64, ptr %81, align 8
-  %83 = call i32 @EVP_PKEY_sign(ptr noundef nonnull %21, ptr noundef %.sroa.2.0.i32, ptr noundef nonnull %8, ptr noundef %.sroa.2.0.i36, i64 noundef %82) #8
-  %84 = icmp slt i32 %83, 1
-  call void @EVP_PKEY_CTX_free(ptr noundef nonnull %21) #8
-  br i1 %84, label %85, label %87
-
-85:                                               ; preds = %RSTRING_PTR.exit37
-  %86 = load i64, ptr @ePKeyError, align 8
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %86, ptr noundef nonnull @.str.75) #9
-  unreachable
-
-87:                                               ; preds = %RSTRING_PTR.exit37
-  %88 = load i64, ptr %8, align 8
-  call void @rb_str_set_len(i64 noundef %65, i64 noundef %88) #8
-  ret i64 %65
-}
-
-; Function Attrs: nounwind uwtable
-define internal range(i64 0, 21) i64 @ossl_pkey_verify_raw(i32 noundef %0, ptr noundef %1, i64 noundef %2) #0 {
-  %4 = alloca [2 x i64], align 16
-  %5 = alloca i64, align 8
-  %6 = alloca i64, align 8
-  %7 = alloca i64, align 8
-  %8 = alloca i64, align 8
-  %9 = alloca i32, align 4
-  %10 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @ossl_evp_pkey_type) #8
-  %.not = icmp eq ptr %10, null
-  br i1 %.not, label %11, label %13
-
-11:                                               ; preds = %3
-  %12 = load i64, ptr @rb_eRuntimeError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %12, ptr noundef nonnull @.str.4) #9
-  unreachable
-
-13:                                               ; preds = %3
-  %14 = call i32 (i32, ptr, ptr, ...) @rb_scan_args(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.70, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #8
-  %15 = call i32 @EVP_PKEY_missing_parameters(ptr noundef nonnull %10) #8
-  %.not.i = icmp eq i32 %15, 0
-  br i1 %.not.i, label %ossl_pkey_check_public_key.exit, label %16
-
-16:                                               ; preds = %13
-  %17 = load i64, ptr @ePKeyError, align 8
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %17, ptr noundef nonnull @.str.3) #9
-  unreachable
-
-ossl_pkey_check_public_key.exit:                  ; preds = %13
-  %18 = load i64, ptr %5, align 8
-  %19 = icmp eq i64 %18, 4
-  br i1 %19, label %22, label %20
-
-20:                                               ; preds = %ossl_pkey_check_public_key.exit
-  %21 = call ptr @ossl_evp_get_digestbyname(i64 noundef %18) #8
-  br label %22
-
-22:                                               ; preds = %20, %ossl_pkey_check_public_key.exit
-  %.019 = phi ptr [ null, %ossl_pkey_check_public_key.exit ], [ %21, %20 ]
-  %23 = call i64 @rb_string_value(ptr noundef nonnull %6) #8
-  %24 = call i64 @rb_string_value(ptr noundef nonnull %7) #8
-  %25 = call ptr @EVP_PKEY_CTX_new(ptr noundef nonnull %10, ptr noundef null) #8
-  %.not23 = icmp eq ptr %25, null
-  br i1 %.not23, label %26, label %28
-
-26:                                               ; preds = %22
-  %27 = load i64, ptr @ePKeyError, align 8
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %27, ptr noundef nonnull @.str.43) #9
-  unreachable
-
-28:                                               ; preds = %22
-  %29 = call i32 @EVP_PKEY_verify_init(ptr noundef nonnull %25) #8
-  %30 = icmp slt i32 %29, 1
-  br i1 %30, label %31, label %33
-
-31:                                               ; preds = %28
-  call void @EVP_PKEY_CTX_free(ptr noundef nonnull %25) #8
-  %32 = load i64, ptr @ePKeyError, align 8
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %32, ptr noundef nonnull @.str.76) #9
-  unreachable
-
-33:                                               ; preds = %28
-  %.not24 = icmp eq ptr %.019, null
-  br i1 %.not24, label %39, label %34
-
-34:                                               ; preds = %33
-  %35 = call i32 @EVP_PKEY_CTX_set_signature_md(ptr noundef nonnull %25, ptr noundef nonnull %.019) #8
-  %36 = icmp slt i32 %35, 1
-  br i1 %36, label %37, label %39
-
-37:                                               ; preds = %34
-  call void @EVP_PKEY_CTX_free(ptr noundef nonnull %25) #8
-  %38 = load i64, ptr @ePKeyError, align 8
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %38, ptr noundef nonnull @.str.74) #9
-  unreachable
-
-39:                                               ; preds = %34, %33
-  %40 = load i64, ptr %8, align 8
-  %41 = icmp eq i64 %40, 4
-  br i1 %41, label %50, label %42
+39:                                               ; preds = %34
+  %40 = call i32 @EVP_PKEY_sign_init(ptr noundef nonnull %36) #8
+  %41 = icmp slt i32 %40, 1
+  br i1 %41, label %42, label %44
 
 42:                                               ; preds = %39
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  %43 = ptrtoint ptr %25 to i64
-  store i64 %43, ptr %4, align 16
-  %44 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %40, ptr %44, align 8
-  %45 = ptrtoint ptr %4 to i64
-  %46 = call i64 @rb_protect(ptr noundef nonnull @pkey_ctx_apply_options0, i64 noundef %45, ptr noundef nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %47 = load i32, ptr %9, align 4
-  %.not25 = icmp eq i32 %47, 0
-  br i1 %.not25, label %50, label %48
-
-48:                                               ; preds = %42
-  call void @EVP_PKEY_CTX_free(ptr noundef nonnull %25) #8
-  %49 = load i32, ptr %9, align 4
-  call void @rb_jump_tag(i32 noundef %49) #9
+  call void @EVP_PKEY_CTX_free(ptr noundef nonnull %36) #8
+  %43 = load i64, ptr @ePKeyError, align 8, !tbaa !10
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %43, ptr noundef nonnull @.str.73) #9
   unreachable
 
-50:                                               ; preds = %42, %39
-  %51 = load i64, ptr %6, align 8
-  %52 = inttoptr i64 %51 to ptr
-  %53 = load i64, ptr %52, align 8, !noalias !53
-  %54 = and i64 %53, 8192
-  %.not.i.i = icmp eq i64 %54, 0
-  %55 = getelementptr inbounds nuw i8, ptr %52, i64 24
-  br i1 %.not.i.i, label %RSTRING_PTR.exit, label %56
+44:                                               ; preds = %39
+  %.not27 = icmp eq ptr %.0, null
+  br i1 %.not27, label %50, label %45
 
-56:                                               ; preds = %50
-  %.sroa.2.0.copyload.i = load ptr, ptr %55, align 8
+45:                                               ; preds = %44
+  %46 = call i32 @EVP_PKEY_CTX_set_signature_md(ptr noundef nonnull %36, ptr noundef nonnull %.0) #8
+  %47 = icmp slt i32 %46, 1
+  br i1 %47, label %48, label %50
+
+48:                                               ; preds = %45
+  call void @EVP_PKEY_CTX_free(ptr noundef nonnull %36) #8
+  %49 = load i64, ptr @ePKeyError, align 8, !tbaa !10
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %49, ptr noundef nonnull @.str.74) #9
+  unreachable
+
+50:                                               ; preds = %45, %44
+  %51 = load i64, ptr %7, align 8, !tbaa !10
+  %52 = icmp eq i64 %51, 4
+  br i1 %52, label %61, label %53
+
+53:                                               ; preds = %50
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #8
+  %54 = ptrtoint ptr %36 to i64
+  store i64 %54, ptr %4, align 16, !tbaa !10
+  %55 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i64 %51, ptr %55, align 8, !tbaa !10
+  %56 = ptrtoint ptr %4 to i64
+  %57 = call i64 @rb_protect(ptr noundef nonnull @pkey_ctx_apply_options0, i64 noundef %56, ptr noundef nonnull %9) #8
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #8
+  %58 = load i32, ptr %9, align 4, !tbaa !6
+  %.not28 = icmp eq i32 %58, 0
+  br i1 %.not28, label %61, label %59
+
+59:                                               ; preds = %53
+  call void @EVP_PKEY_CTX_free(ptr noundef nonnull %36) #8
+  %60 = load i32, ptr %9, align 4, !tbaa !6
+  call void @rb_jump_tag(i32 noundef %60) #9
+  unreachable
+
+61:                                               ; preds = %53, %50
+  %62 = load i64, ptr %6, align 8, !tbaa !10
+  %63 = inttoptr i64 %62 to ptr
+  %64 = load i64, ptr %63, align 8, !tbaa !28, !noalias !68
+  %65 = and i64 %64, 8192
+  %.not.i.i = icmp eq i64 %65, 0
+  %66 = getelementptr inbounds nuw i8, ptr %63, i64 24
+  br i1 %.not.i.i, label %RSTRING_PTR.exit, label %67
+
+67:                                               ; preds = %61
+  %.sroa.2.0.copyload.i = load ptr, ptr %66, align 8
   br label %RSTRING_PTR.exit
 
-RSTRING_PTR.exit:                                 ; preds = %50, %56
-  %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %56 ], [ %55, %50 ]
-  %57 = getelementptr inbounds nuw i8, ptr %52, i64 16
-  %58 = load i64, ptr %57, align 8
-  %59 = load i64, ptr %7, align 8
-  %60 = inttoptr i64 %59 to ptr
-  %61 = load i64, ptr %60, align 8, !noalias !56
-  %62 = and i64 %61, 8192
-  %.not.i.i27 = icmp eq i64 %62, 0
-  %63 = getelementptr inbounds nuw i8, ptr %60, i64 24
-  br i1 %.not.i.i27, label %RSTRING_PTR.exit30, label %64
+RSTRING_PTR.exit:                                 ; preds = %61, %67
+  %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %67 ], [ %66, %61 ]
+  %68 = getelementptr inbounds nuw i8, ptr %63, i64 16
+  %69 = load i64, ptr %68, align 8, !tbaa !32
+  %70 = call i32 @EVP_PKEY_sign(ptr noundef nonnull %36, ptr noundef null, ptr noundef nonnull %8, ptr noundef %.sroa.2.0.i, i64 noundef %69) #8
+  %71 = icmp slt i32 %70, 1
+  br i1 %71, label %72, label %74
 
-64:                                               ; preds = %RSTRING_PTR.exit
-  %.sroa.2.0.copyload.i28 = load ptr, ptr %63, align 8
-  br label %RSTRING_PTR.exit30
-
-RSTRING_PTR.exit30:                               ; preds = %RSTRING_PTR.exit, %64
-  %.sroa.2.0.i29 = phi ptr [ %.sroa.2.0.copyload.i28, %64 ], [ %63, %RSTRING_PTR.exit ]
-  %65 = getelementptr inbounds nuw i8, ptr %60, i64 16
-  %66 = load i64, ptr %65, align 8
-  %67 = call i32 @EVP_PKEY_verify(ptr noundef nonnull %25, ptr noundef %.sroa.2.0.i, i64 noundef %58, ptr noundef %.sroa.2.0.i29, i64 noundef %66) #8
-  call void @EVP_PKEY_CTX_free(ptr noundef nonnull %25) #8
-  %68 = icmp slt i32 %67, 0
-  br i1 %68, label %69, label %71
-
-69:                                               ; preds = %RSTRING_PTR.exit30
-  %70 = load i64, ptr @ePKeyError, align 8
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %70, ptr noundef nonnull @.str.77) #9
+72:                                               ; preds = %RSTRING_PTR.exit
+  call void @EVP_PKEY_CTX_free(ptr noundef nonnull %36) #8
+  %73 = load i64, ptr @ePKeyError, align 8, !tbaa !10
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %73, ptr noundef nonnull @.str.75) #9
   unreachable
 
-71:                                               ; preds = %RSTRING_PTR.exit30
-  %.not26 = icmp eq i32 %67, 0
-  br i1 %.not26, label %72, label %73
+74:                                               ; preds = %RSTRING_PTR.exit
+  %75 = load i64, ptr %8, align 8, !tbaa !10
+  %76 = icmp slt i64 %75, 0
+  br i1 %76, label %77, label %79
 
-72:                                               ; preds = %71
+77:                                               ; preds = %74
+  call void @EVP_PKEY_CTX_free(ptr noundef nonnull %36) #8
+  %78 = load i64, ptr @ePKeyError, align 8, !tbaa !10
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %78, ptr noundef nonnull @.str.69) #9
+  unreachable
+
+79:                                               ; preds = %74
+  %80 = call i64 @ossl_str_new(ptr noundef null, i64 noundef %75, ptr noundef nonnull %9) #8
+  %81 = load i32, ptr %9, align 4, !tbaa !6
+  %.not29 = icmp eq i32 %81, 0
+  br i1 %.not29, label %84, label %82
+
+82:                                               ; preds = %79
+  call void @EVP_PKEY_CTX_free(ptr noundef nonnull %36) #8
+  %83 = load i32, ptr %9, align 4, !tbaa !6
+  call void @rb_jump_tag(i32 noundef %83) #9
+  unreachable
+
+84:                                               ; preds = %79
+  %85 = inttoptr i64 %80 to ptr
+  %86 = load i64, ptr %85, align 8, !tbaa !28, !noalias !71
+  %87 = and i64 %86, 8192
+  %.not.i.i30 = icmp eq i64 %87, 0
+  %88 = getelementptr inbounds nuw i8, ptr %85, i64 24
+  br i1 %.not.i.i30, label %RSTRING_PTR.exit33, label %89
+
+89:                                               ; preds = %84
+  %.sroa.2.0.copyload.i31 = load ptr, ptr %88, align 8
+  br label %RSTRING_PTR.exit33
+
+RSTRING_PTR.exit33:                               ; preds = %84, %89
+  %.sroa.2.0.i32 = phi ptr [ %.sroa.2.0.copyload.i31, %89 ], [ %88, %84 ]
+  %90 = load i64, ptr %6, align 8, !tbaa !10
+  %91 = inttoptr i64 %90 to ptr
+  %92 = load i64, ptr %91, align 8, !tbaa !28, !noalias !74
+  %93 = and i64 %92, 8192
+  %.not.i.i34 = icmp eq i64 %93, 0
+  %94 = getelementptr inbounds nuw i8, ptr %91, i64 24
+  br i1 %.not.i.i34, label %RSTRING_PTR.exit37, label %95
+
+95:                                               ; preds = %RSTRING_PTR.exit33
+  %.sroa.2.0.copyload.i35 = load ptr, ptr %94, align 8
+  br label %RSTRING_PTR.exit37
+
+RSTRING_PTR.exit37:                               ; preds = %RSTRING_PTR.exit33, %95
+  %.sroa.2.0.i36 = phi ptr [ %.sroa.2.0.copyload.i35, %95 ], [ %94, %RSTRING_PTR.exit33 ]
+  %96 = getelementptr inbounds nuw i8, ptr %91, i64 16
+  %97 = load i64, ptr %96, align 8, !tbaa !32
+  %98 = call i32 @EVP_PKEY_sign(ptr noundef nonnull %36, ptr noundef %.sroa.2.0.i32, ptr noundef nonnull %8, ptr noundef %.sroa.2.0.i36, i64 noundef %97) #8
+  %99 = icmp slt i32 %98, 1
+  call void @EVP_PKEY_CTX_free(ptr noundef nonnull %36) #8
+  br i1 %99, label %100, label %102
+
+100:                                              ; preds = %RSTRING_PTR.exit37
+  %101 = load i64, ptr @ePKeyError, align 8, !tbaa !10
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %101, ptr noundef nonnull @.str.75) #9
+  unreachable
+
+102:                                              ; preds = %RSTRING_PTR.exit37
+  %103 = load i64, ptr %8, align 8, !tbaa !10
+  call void @rb_str_set_len(i64 noundef %80, i64 noundef %103) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  ret i64 %80
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal range(i64 0, 21) i64 @ossl_pkey_verify_raw(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
+  %4 = alloca [2 x i64], align 16
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca [4 x ptr], align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #8
+  %11 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @ossl_evp_pkey_type) #8
+  %.not = icmp eq ptr %11, null
+  br i1 %.not, label %12, label %14
+
+12:                                               ; preds = %3
+  %13 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !10
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %13, ptr noundef nonnull @.str.4) #9
+  unreachable
+
+14:                                               ; preds = %3
+  store ptr %5, ptr %10, align 8, !tbaa !25
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store ptr %6, ptr %15, align 8, !tbaa !25
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  store ptr %7, ptr %16, align 8, !tbaa !25
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  store ptr %8, ptr %17, align 8, !tbaa !25
+  %18 = icmp slt i32 %0, 3
+  br i1 %18, label %30, label %.preheader32
+
+.preheader32:                                     ; preds = %14, %24
+  %indvars.iv = phi i64 [ %indvars.iv.next, %24 ], [ 0, %14 ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %19 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %20 = load ptr, ptr %19, align 8, !tbaa !25
+  %.not109.i = icmp eq ptr %20, null
+  br i1 %.not109.i, label %24, label %21
+
+21:                                               ; preds = %.preheader32
+  %22 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %23 = load i64, ptr %22, align 8, !tbaa !10
+  store i64 %23, ptr %20, align 8, !tbaa !10
+  br label %24
+
+24:                                               ; preds = %21, %.preheader32
+  %exitcond.not = icmp eq i64 %indvars.iv.next, 3
+  br i1 %exitcond.not, label %.preheader, label %.preheader32, !llvm.loop !50
+
+.preheader:                                       ; preds = %24
+  %.not45 = icmp eq i32 %0, 3
+  br i1 %.not45, label %28, label %25
+
+25:                                               ; preds = %.preheader
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %27 = load i64, ptr %26, align 8, !tbaa !10
+  br label %28
+
+28:                                               ; preds = %.preheader, %25
+  %.sink = phi i64 [ %27, %25 ], [ 4, %.preheader ]
+  %.185.i.lcssa = phi i32 [ 4, %25 ], [ 3, %.preheader ]
+  store i64 %.sink, ptr %8, align 8, !tbaa !10
+  %29 = icmp eq i32 %.185.i.lcssa, %0
+  br i1 %29, label %rb_scan_args_set.exit, label %30
+
+30:                                               ; preds = %28, %14
+  call void @rb_error_arity(i32 noundef %0, i32 noundef 3, i32 noundef 4) #9
+  unreachable
+
+rb_scan_args_set.exit:                            ; preds = %28
+  %31 = call i32 @EVP_PKEY_missing_parameters(ptr noundef nonnull %11) #8
+  %.not.i27 = icmp eq i32 %31, 0
+  br i1 %.not.i27, label %ossl_pkey_check_public_key.exit, label %32
+
+32:                                               ; preds = %rb_scan_args_set.exit
+  %33 = load i64, ptr @ePKeyError, align 8, !tbaa !10
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %33, ptr noundef nonnull @.str.3) #9
+  unreachable
+
+ossl_pkey_check_public_key.exit:                  ; preds = %rb_scan_args_set.exit
+  %34 = load i64, ptr %5, align 8, !tbaa !10
+  %35 = icmp eq i64 %34, 4
+  br i1 %35, label %38, label %36
+
+36:                                               ; preds = %ossl_pkey_check_public_key.exit
+  %37 = call ptr @ossl_evp_get_digestbyname(i64 noundef %34) #8
+  br label %38
+
+38:                                               ; preds = %36, %ossl_pkey_check_public_key.exit
+  %.019 = phi ptr [ null, %ossl_pkey_check_public_key.exit ], [ %37, %36 ]
+  %39 = call i64 @rb_string_value(ptr noundef nonnull %6) #8
+  %40 = call i64 @rb_string_value(ptr noundef nonnull %7) #8
+  %41 = call ptr @EVP_PKEY_CTX_new(ptr noundef nonnull %11, ptr noundef null) #8
+  %.not23 = icmp eq ptr %41, null
+  br i1 %.not23, label %42, label %44
+
+42:                                               ; preds = %38
+  %43 = load i64, ptr @ePKeyError, align 8, !tbaa !10
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %43, ptr noundef nonnull @.str.43) #9
+  unreachable
+
+44:                                               ; preds = %38
+  %45 = call i32 @EVP_PKEY_verify_init(ptr noundef nonnull %41) #8
+  %46 = icmp slt i32 %45, 1
+  br i1 %46, label %47, label %49
+
+47:                                               ; preds = %44
+  call void @EVP_PKEY_CTX_free(ptr noundef nonnull %41) #8
+  %48 = load i64, ptr @ePKeyError, align 8, !tbaa !10
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %48, ptr noundef nonnull @.str.76) #9
+  unreachable
+
+49:                                               ; preds = %44
+  %.not24 = icmp eq ptr %.019, null
+  br i1 %.not24, label %55, label %50
+
+50:                                               ; preds = %49
+  %51 = call i32 @EVP_PKEY_CTX_set_signature_md(ptr noundef nonnull %41, ptr noundef nonnull %.019) #8
+  %52 = icmp slt i32 %51, 1
+  br i1 %52, label %53, label %55
+
+53:                                               ; preds = %50
+  call void @EVP_PKEY_CTX_free(ptr noundef nonnull %41) #8
+  %54 = load i64, ptr @ePKeyError, align 8, !tbaa !10
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %54, ptr noundef nonnull @.str.74) #9
+  unreachable
+
+55:                                               ; preds = %50, %49
+  %56 = load i64, ptr %8, align 8, !tbaa !10
+  %57 = icmp eq i64 %56, 4
+  br i1 %57, label %66, label %58
+
+58:                                               ; preds = %55
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #8
+  %59 = ptrtoint ptr %41 to i64
+  store i64 %59, ptr %4, align 16, !tbaa !10
+  %60 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i64 %56, ptr %60, align 8, !tbaa !10
+  %61 = ptrtoint ptr %4 to i64
+  %62 = call i64 @rb_protect(ptr noundef nonnull @pkey_ctx_apply_options0, i64 noundef %61, ptr noundef nonnull %9) #8
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #8
+  %63 = load i32, ptr %9, align 4, !tbaa !6
+  %.not25 = icmp eq i32 %63, 0
+  br i1 %.not25, label %66, label %64
+
+64:                                               ; preds = %58
+  call void @EVP_PKEY_CTX_free(ptr noundef nonnull %41) #8
+  %65 = load i32, ptr %9, align 4, !tbaa !6
+  call void @rb_jump_tag(i32 noundef %65) #9
+  unreachable
+
+66:                                               ; preds = %58, %55
+  %67 = load i64, ptr %6, align 8, !tbaa !10
+  %68 = inttoptr i64 %67 to ptr
+  %69 = load i64, ptr %68, align 8, !tbaa !28, !noalias !77
+  %70 = and i64 %69, 8192
+  %.not.i.i = icmp eq i64 %70, 0
+  %71 = getelementptr inbounds nuw i8, ptr %68, i64 24
+  br i1 %.not.i.i, label %RSTRING_PTR.exit, label %72
+
+72:                                               ; preds = %66
+  %.sroa.2.0.copyload.i = load ptr, ptr %71, align 8
+  br label %RSTRING_PTR.exit
+
+RSTRING_PTR.exit:                                 ; preds = %66, %72
+  %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %72 ], [ %71, %66 ]
+  %73 = getelementptr inbounds nuw i8, ptr %68, i64 16
+  %74 = load i64, ptr %73, align 8, !tbaa !32
+  %75 = load i64, ptr %7, align 8, !tbaa !10
+  %76 = inttoptr i64 %75 to ptr
+  %77 = load i64, ptr %76, align 8, !tbaa !28, !noalias !80
+  %78 = and i64 %77, 8192
+  %.not.i.i28 = icmp eq i64 %78, 0
+  %79 = getelementptr inbounds nuw i8, ptr %76, i64 24
+  br i1 %.not.i.i28, label %RSTRING_PTR.exit31, label %80
+
+80:                                               ; preds = %RSTRING_PTR.exit
+  %.sroa.2.0.copyload.i29 = load ptr, ptr %79, align 8
+  br label %RSTRING_PTR.exit31
+
+RSTRING_PTR.exit31:                               ; preds = %RSTRING_PTR.exit, %80
+  %.sroa.2.0.i30 = phi ptr [ %.sroa.2.0.copyload.i29, %80 ], [ %79, %RSTRING_PTR.exit ]
+  %81 = getelementptr inbounds nuw i8, ptr %76, i64 16
+  %82 = load i64, ptr %81, align 8, !tbaa !32
+  %83 = call i32 @EVP_PKEY_verify(ptr noundef nonnull %41, ptr noundef %.sroa.2.0.i, i64 noundef %74, ptr noundef %.sroa.2.0.i30, i64 noundef %82) #8
+  call void @EVP_PKEY_CTX_free(ptr noundef nonnull %41) #8
+  %84 = icmp slt i32 %83, 0
+  br i1 %84, label %85, label %87
+
+85:                                               ; preds = %RSTRING_PTR.exit31
+  %86 = load i64, ptr @ePKeyError, align 8, !tbaa !10
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %86, ptr noundef nonnull @.str.77) #9
+  unreachable
+
+87:                                               ; preds = %RSTRING_PTR.exit31
+  %.not26 = icmp eq i32 %83, 0
+  br i1 %.not26, label %88, label %89
+
+88:                                               ; preds = %87
   call void @ossl_clear_error() #8
-  br label %73
+  br label %89
 
-73:                                               ; preds = %71, %72
-  %.0 = phi i64 [ 0, %72 ], [ 20, %71 ]
+89:                                               ; preds = %87, %88
+  %.0 = phi i64 [ 0, %88 ], [ 20, %87 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
   ret i64 %.0
 }
 
-; Function Attrs: nounwind uwtable
-define internal i64 @ossl_pkey_verify_recover(i32 noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @ossl_pkey_verify_recover(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca [2 x i64], align 16
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca i32, align 4
   %9 = alloca i64, align 8
-  %10 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @ossl_evp_pkey_type) #8
-  %.not = icmp eq ptr %10, null
-  br i1 %.not, label %11, label %13
+  %10 = alloca [3 x ptr], align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #8
+  %11 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @ossl_evp_pkey_type) #8
+  %.not = icmp eq ptr %11, null
+  br i1 %.not, label %12, label %14
 
-11:                                               ; preds = %3
-  %12 = load i64, ptr @rb_eRuntimeError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %12, ptr noundef nonnull @.str.4) #9
+12:                                               ; preds = %3
+  %13 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !10
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %13, ptr noundef nonnull @.str.4) #9
   unreachable
 
-13:                                               ; preds = %3
-  %14 = call i32 (i32, ptr, ptr, ...) @rb_scan_args(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.65, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #8
-  %15 = call i32 @EVP_PKEY_missing_parameters(ptr noundef nonnull %10) #8
-  %.not.i = icmp eq i32 %15, 0
-  br i1 %.not.i, label %ossl_pkey_check_public_key.exit, label %16
+14:                                               ; preds = %3
+  store ptr %5, ptr %10, align 8, !tbaa !25
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store ptr %6, ptr %15, align 8, !tbaa !25
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  store ptr %7, ptr %16, align 8, !tbaa !25
+  %17 = icmp slt i32 %0, 2
+  br i1 %17, label %29, label %.preheader38
 
-16:                                               ; preds = %13
-  %17 = load i64, ptr @ePKeyError, align 8
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %17, ptr noundef nonnull @.str.3) #9
+.preheader38:                                     ; preds = %14, %23
+  %indvars.iv = phi i64 [ %indvars.iv.next, %23 ], [ 0, %14 ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %18 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %19 = load ptr, ptr %18, align 8, !tbaa !25
+  %.not109.i = icmp eq ptr %19, null
+  br i1 %.not109.i, label %23, label %20
+
+20:                                               ; preds = %.preheader38
+  %21 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %22 = load i64, ptr %21, align 8, !tbaa !10
+  store i64 %22, ptr %19, align 8, !tbaa !10
+  br label %23
+
+23:                                               ; preds = %20, %.preheader38
+  %exitcond.not = icmp eq i64 %indvars.iv.next, 2
+  br i1 %exitcond.not, label %.preheader, label %.preheader38, !llvm.loop !50
+
+.preheader:                                       ; preds = %23
+  %.not51 = icmp eq i32 %0, 2
+  br i1 %.not51, label %27, label %24
+
+24:                                               ; preds = %.preheader
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %26 = load i64, ptr %25, align 8, !tbaa !10
+  br label %27
+
+27:                                               ; preds = %.preheader, %24
+  %.sink = phi i64 [ %26, %24 ], [ 4, %.preheader ]
+  %.185.i.lcssa = phi i32 [ 3, %24 ], [ 2, %.preheader ]
+  store i64 %.sink, ptr %7, align 8, !tbaa !10
+  %28 = icmp eq i32 %.185.i.lcssa, %0
+  br i1 %28, label %rb_scan_args_set.exit, label %29
+
+29:                                               ; preds = %27, %14
+  call void @rb_error_arity(i32 noundef %0, i32 noundef 2, i32 noundef 3) #9
   unreachable
 
-ossl_pkey_check_public_key.exit:                  ; preds = %13
-  %18 = load i64, ptr %5, align 8
-  %19 = icmp eq i64 %18, 4
-  br i1 %19, label %22, label %20
+rb_scan_args_set.exit:                            ; preds = %27
+  %30 = call i32 @EVP_PKEY_missing_parameters(ptr noundef nonnull %11) #8
+  %.not.i29 = icmp eq i32 %30, 0
+  br i1 %.not.i29, label %ossl_pkey_check_public_key.exit, label %31
 
-20:                                               ; preds = %ossl_pkey_check_public_key.exit
-  %21 = call ptr @ossl_evp_get_digestbyname(i64 noundef %18) #8
-  br label %22
-
-22:                                               ; preds = %20, %ossl_pkey_check_public_key.exit
-  %.0 = phi ptr [ null, %ossl_pkey_check_public_key.exit ], [ %21, %20 ]
-  %23 = call i64 @rb_string_value(ptr noundef nonnull %6) #8
-  %24 = call ptr @EVP_PKEY_CTX_new(ptr noundef nonnull %10, ptr noundef null) #8
-  %.not25 = icmp eq ptr %24, null
-  br i1 %.not25, label %25, label %27
-
-25:                                               ; preds = %22
-  %26 = load i64, ptr @ePKeyError, align 8
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %26, ptr noundef nonnull @.str.43) #9
+31:                                               ; preds = %rb_scan_args_set.exit
+  %32 = load i64, ptr @ePKeyError, align 8, !tbaa !10
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %32, ptr noundef nonnull @.str.3) #9
   unreachable
 
-27:                                               ; preds = %22
-  %28 = call i32 @EVP_PKEY_verify_recover_init(ptr noundef nonnull %24) #8
-  %29 = icmp slt i32 %28, 1
-  br i1 %29, label %30, label %32
+ossl_pkey_check_public_key.exit:                  ; preds = %rb_scan_args_set.exit
+  %33 = load i64, ptr %5, align 8, !tbaa !10
+  %34 = icmp eq i64 %33, 4
+  br i1 %34, label %37, label %35
 
-30:                                               ; preds = %27
-  call void @EVP_PKEY_CTX_free(ptr noundef nonnull %24) #8
-  %31 = load i64, ptr @ePKeyError, align 8
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %31, ptr noundef nonnull @.str.78) #9
+35:                                               ; preds = %ossl_pkey_check_public_key.exit
+  %36 = call ptr @ossl_evp_get_digestbyname(i64 noundef %33) #8
+  br label %37
+
+37:                                               ; preds = %35, %ossl_pkey_check_public_key.exit
+  %.0 = phi ptr [ null, %ossl_pkey_check_public_key.exit ], [ %36, %35 ]
+  %38 = call i64 @rb_string_value(ptr noundef nonnull %6) #8
+  %39 = call ptr @EVP_PKEY_CTX_new(ptr noundef nonnull %11, ptr noundef null) #8
+  %.not25 = icmp eq ptr %39, null
+  br i1 %.not25, label %40, label %42
+
+40:                                               ; preds = %37
+  %41 = load i64, ptr @ePKeyError, align 8, !tbaa !10
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %41, ptr noundef nonnull @.str.43) #9
   unreachable
 
-32:                                               ; preds = %27
+42:                                               ; preds = %37
+  %43 = call i32 @EVP_PKEY_verify_recover_init(ptr noundef nonnull %39) #8
+  %44 = icmp slt i32 %43, 1
+  br i1 %44, label %45, label %47
+
+45:                                               ; preds = %42
+  call void @EVP_PKEY_CTX_free(ptr noundef nonnull %39) #8
+  %46 = load i64, ptr @ePKeyError, align 8, !tbaa !10
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %46, ptr noundef nonnull @.str.78) #9
+  unreachable
+
+47:                                               ; preds = %42
   %.not26 = icmp eq ptr %.0, null
-  br i1 %.not26, label %38, label %33
+  br i1 %.not26, label %53, label %48
 
-33:                                               ; preds = %32
-  %34 = call i32 @EVP_PKEY_CTX_set_signature_md(ptr noundef nonnull %24, ptr noundef nonnull %.0) #8
-  %35 = icmp slt i32 %34, 1
-  br i1 %35, label %36, label %38
+48:                                               ; preds = %47
+  %49 = call i32 @EVP_PKEY_CTX_set_signature_md(ptr noundef nonnull %39, ptr noundef nonnull %.0) #8
+  %50 = icmp slt i32 %49, 1
+  br i1 %50, label %51, label %53
 
-36:                                               ; preds = %33
-  call void @EVP_PKEY_CTX_free(ptr noundef nonnull %24) #8
-  %37 = load i64, ptr @ePKeyError, align 8
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %37, ptr noundef nonnull @.str.74) #9
+51:                                               ; preds = %48
+  call void @EVP_PKEY_CTX_free(ptr noundef nonnull %39) #8
+  %52 = load i64, ptr @ePKeyError, align 8, !tbaa !10
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %52, ptr noundef nonnull @.str.74) #9
   unreachable
 
-38:                                               ; preds = %33, %32
-  %39 = load i64, ptr %7, align 8
-  %40 = icmp eq i64 %39, 4
-  br i1 %40, label %49, label %41
+53:                                               ; preds = %48, %47
+  %54 = load i64, ptr %7, align 8, !tbaa !10
+  %55 = icmp eq i64 %54, 4
+  br i1 %55, label %64, label %56
 
-41:                                               ; preds = %38
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  %42 = ptrtoint ptr %24 to i64
-  store i64 %42, ptr %4, align 16
-  %43 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %39, ptr %43, align 8
-  %44 = ptrtoint ptr %4 to i64
-  %45 = call i64 @rb_protect(ptr noundef nonnull @pkey_ctx_apply_options0, i64 noundef %44, ptr noundef nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %46 = load i32, ptr %8, align 4
-  %.not27 = icmp eq i32 %46, 0
-  br i1 %.not27, label %49, label %47
+56:                                               ; preds = %53
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #8
+  %57 = ptrtoint ptr %39 to i64
+  store i64 %57, ptr %4, align 16, !tbaa !10
+  %58 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i64 %54, ptr %58, align 8, !tbaa !10
+  %59 = ptrtoint ptr %4 to i64
+  %60 = call i64 @rb_protect(ptr noundef nonnull @pkey_ctx_apply_options0, i64 noundef %59, ptr noundef nonnull %8) #8
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #8
+  %61 = load i32, ptr %8, align 4, !tbaa !6
+  %.not27 = icmp eq i32 %61, 0
+  br i1 %.not27, label %64, label %62
 
-47:                                               ; preds = %41
-  call void @EVP_PKEY_CTX_free(ptr noundef nonnull %24) #8
-  %48 = load i32, ptr %8, align 4
-  call void @rb_jump_tag(i32 noundef %48) #9
+62:                                               ; preds = %56
+  call void @EVP_PKEY_CTX_free(ptr noundef nonnull %39) #8
+  %63 = load i32, ptr %8, align 4, !tbaa !6
+  call void @rb_jump_tag(i32 noundef %63) #9
   unreachable
 
-49:                                               ; preds = %41, %38
-  %50 = load i64, ptr %6, align 8
-  %51 = inttoptr i64 %50 to ptr
-  %52 = load i64, ptr %51, align 8, !noalias !59
-  %53 = and i64 %52, 8192
-  %.not.i.i = icmp eq i64 %53, 0
-  %54 = getelementptr inbounds nuw i8, ptr %51, i64 24
-  br i1 %.not.i.i, label %RSTRING_PTR.exit, label %55
+64:                                               ; preds = %56, %53
+  %65 = load i64, ptr %6, align 8, !tbaa !10
+  %66 = inttoptr i64 %65 to ptr
+  %67 = load i64, ptr %66, align 8, !tbaa !28, !noalias !83
+  %68 = and i64 %67, 8192
+  %.not.i.i = icmp eq i64 %68, 0
+  %69 = getelementptr inbounds nuw i8, ptr %66, i64 24
+  br i1 %.not.i.i, label %RSTRING_PTR.exit, label %70
 
-55:                                               ; preds = %49
-  %.sroa.2.0.copyload.i = load ptr, ptr %54, align 8
+70:                                               ; preds = %64
+  %.sroa.2.0.copyload.i = load ptr, ptr %69, align 8
   br label %RSTRING_PTR.exit
 
-RSTRING_PTR.exit:                                 ; preds = %49, %55
-  %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %55 ], [ %54, %49 ]
-  %56 = getelementptr inbounds nuw i8, ptr %51, i64 16
-  %57 = load i64, ptr %56, align 8
-  %58 = call i32 @EVP_PKEY_verify_recover(ptr noundef nonnull %24, ptr noundef null, ptr noundef nonnull %9, ptr noundef %.sroa.2.0.i, i64 noundef %57) #8
-  %59 = icmp slt i32 %58, 1
-  br i1 %59, label %60, label %62
+RSTRING_PTR.exit:                                 ; preds = %64, %70
+  %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %70 ], [ %69, %64 ]
+  %71 = getelementptr inbounds nuw i8, ptr %66, i64 16
+  %72 = load i64, ptr %71, align 8, !tbaa !32
+  %73 = call i32 @EVP_PKEY_verify_recover(ptr noundef nonnull %39, ptr noundef null, ptr noundef nonnull %9, ptr noundef %.sroa.2.0.i, i64 noundef %72) #8
+  %74 = icmp slt i32 %73, 1
+  br i1 %74, label %75, label %77
 
-60:                                               ; preds = %RSTRING_PTR.exit
-  call void @EVP_PKEY_CTX_free(ptr noundef nonnull %24) #8
-  %61 = load i64, ptr @ePKeyError, align 8
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %61, ptr noundef nonnull @.str.79) #9
+75:                                               ; preds = %RSTRING_PTR.exit
+  call void @EVP_PKEY_CTX_free(ptr noundef nonnull %39) #8
+  %76 = load i64, ptr @ePKeyError, align 8, !tbaa !10
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %76, ptr noundef nonnull @.str.79) #9
   unreachable
 
-62:                                               ; preds = %RSTRING_PTR.exit
-  %63 = load i64, ptr %9, align 8
-  %64 = call i64 @ossl_str_new(ptr noundef null, i64 noundef %63, ptr noundef nonnull %8) #8
-  %65 = load i32, ptr %8, align 4
-  %.not28 = icmp eq i32 %65, 0
-  br i1 %.not28, label %68, label %66
+77:                                               ; preds = %RSTRING_PTR.exit
+  %78 = load i64, ptr %9, align 8, !tbaa !10
+  %79 = call i64 @ossl_str_new(ptr noundef null, i64 noundef %78, ptr noundef nonnull %8) #8
+  %80 = load i32, ptr %8, align 4, !tbaa !6
+  %.not28 = icmp eq i32 %80, 0
+  br i1 %.not28, label %83, label %81
 
-66:                                               ; preds = %62
-  call void @EVP_PKEY_CTX_free(ptr noundef nonnull %24) #8
-  %67 = load i32, ptr %8, align 4
-  call void @rb_jump_tag(i32 noundef %67) #9
+81:                                               ; preds = %77
+  call void @EVP_PKEY_CTX_free(ptr noundef nonnull %39) #8
+  %82 = load i32, ptr %8, align 4, !tbaa !6
+  call void @rb_jump_tag(i32 noundef %82) #9
   unreachable
 
-68:                                               ; preds = %62
-  %69 = inttoptr i64 %64 to ptr
-  %70 = load i64, ptr %69, align 8, !noalias !62
-  %71 = and i64 %70, 8192
-  %.not.i.i29 = icmp eq i64 %71, 0
-  %72 = getelementptr inbounds nuw i8, ptr %69, i64 24
-  br i1 %.not.i.i29, label %RSTRING_PTR.exit32, label %73
+83:                                               ; preds = %77
+  %84 = inttoptr i64 %79 to ptr
+  %85 = load i64, ptr %84, align 8, !tbaa !28, !noalias !86
+  %86 = and i64 %85, 8192
+  %.not.i.i30 = icmp eq i64 %86, 0
+  %87 = getelementptr inbounds nuw i8, ptr %84, i64 24
+  br i1 %.not.i.i30, label %RSTRING_PTR.exit33, label %88
 
-73:                                               ; preds = %68
-  %.sroa.2.0.copyload.i30 = load ptr, ptr %72, align 8
-  br label %RSTRING_PTR.exit32
+88:                                               ; preds = %83
+  %.sroa.2.0.copyload.i31 = load ptr, ptr %87, align 8
+  br label %RSTRING_PTR.exit33
 
-RSTRING_PTR.exit32:                               ; preds = %68, %73
-  %.sroa.2.0.i31 = phi ptr [ %.sroa.2.0.copyload.i30, %73 ], [ %72, %68 ]
-  %74 = load i64, ptr %6, align 8
-  %75 = inttoptr i64 %74 to ptr
-  %76 = load i64, ptr %75, align 8, !noalias !65
-  %77 = and i64 %76, 8192
-  %.not.i.i33 = icmp eq i64 %77, 0
-  %78 = getelementptr inbounds nuw i8, ptr %75, i64 24
-  br i1 %.not.i.i33, label %RSTRING_PTR.exit36, label %79
+RSTRING_PTR.exit33:                               ; preds = %83, %88
+  %.sroa.2.0.i32 = phi ptr [ %.sroa.2.0.copyload.i31, %88 ], [ %87, %83 ]
+  %89 = load i64, ptr %6, align 8, !tbaa !10
+  %90 = inttoptr i64 %89 to ptr
+  %91 = load i64, ptr %90, align 8, !tbaa !28, !noalias !89
+  %92 = and i64 %91, 8192
+  %.not.i.i34 = icmp eq i64 %92, 0
+  %93 = getelementptr inbounds nuw i8, ptr %90, i64 24
+  br i1 %.not.i.i34, label %RSTRING_PTR.exit37, label %94
 
-79:                                               ; preds = %RSTRING_PTR.exit32
-  %.sroa.2.0.copyload.i34 = load ptr, ptr %78, align 8
-  br label %RSTRING_PTR.exit36
+94:                                               ; preds = %RSTRING_PTR.exit33
+  %.sroa.2.0.copyload.i35 = load ptr, ptr %93, align 8
+  br label %RSTRING_PTR.exit37
 
-RSTRING_PTR.exit36:                               ; preds = %RSTRING_PTR.exit32, %79
-  %.sroa.2.0.i35 = phi ptr [ %.sroa.2.0.copyload.i34, %79 ], [ %78, %RSTRING_PTR.exit32 ]
-  %80 = getelementptr inbounds nuw i8, ptr %75, i64 16
-  %81 = load i64, ptr %80, align 8
-  %82 = call i32 @EVP_PKEY_verify_recover(ptr noundef nonnull %24, ptr noundef %.sroa.2.0.i31, ptr noundef nonnull %9, ptr noundef %.sroa.2.0.i35, i64 noundef %81) #8
-  %83 = icmp slt i32 %82, 1
-  call void @EVP_PKEY_CTX_free(ptr noundef nonnull %24) #8
-  br i1 %83, label %84, label %86
+RSTRING_PTR.exit37:                               ; preds = %RSTRING_PTR.exit33, %94
+  %.sroa.2.0.i36 = phi ptr [ %.sroa.2.0.copyload.i35, %94 ], [ %93, %RSTRING_PTR.exit33 ]
+  %95 = getelementptr inbounds nuw i8, ptr %90, i64 16
+  %96 = load i64, ptr %95, align 8, !tbaa !32
+  %97 = call i32 @EVP_PKEY_verify_recover(ptr noundef nonnull %39, ptr noundef %.sroa.2.0.i32, ptr noundef nonnull %9, ptr noundef %.sroa.2.0.i36, i64 noundef %96) #8
+  %98 = icmp slt i32 %97, 1
+  call void @EVP_PKEY_CTX_free(ptr noundef nonnull %39) #8
+  br i1 %98, label %99, label %101
 
-84:                                               ; preds = %RSTRING_PTR.exit36
-  %85 = load i64, ptr @ePKeyError, align 8
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %85, ptr noundef nonnull @.str.79) #9
+99:                                               ; preds = %RSTRING_PTR.exit37
+  %100 = load i64, ptr @ePKeyError, align 8, !tbaa !10
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %100, ptr noundef nonnull @.str.79) #9
   unreachable
 
-86:                                               ; preds = %RSTRING_PTR.exit36
-  %87 = load i64, ptr %9, align 8
-  call void @rb_str_set_len(i64 noundef %64, i64 noundef %87) #8
-  ret i64 %64
+101:                                              ; preds = %RSTRING_PTR.exit37
+  %102 = load i64, ptr %9, align 8, !tbaa !10
+  call void @rb_str_set_len(i64 noundef %79, i64 noundef %102) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  ret i64 %79
 }
 
-; Function Attrs: nounwind uwtable
-define internal i64 @ossl_pkey_derive(i32 noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @ossl_pkey_derive(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca i64, align 8
-  %5 = alloca i64, align 8
-  %6 = alloca i32, align 4
-  %7 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @ossl_evp_pkey_type) #8
-  %.not = icmp eq ptr %7, null
-  br i1 %.not, label %8, label %10
+  %5 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #8
+  %6 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @ossl_evp_pkey_type) #8
+  %.not = icmp eq ptr %6, null
+  br i1 %.not, label %7, label %9
 
-8:                                                ; preds = %3
-  %9 = load i64, ptr @rb_eRuntimeError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %9, ptr noundef nonnull @.str.4) #9
+7:                                                ; preds = %3
+  %8 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !10
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %8, ptr noundef nonnull @.str.4) #9
   unreachable
 
-10:                                               ; preds = %3
-  %11 = call i32 (i32, ptr, ptr, ...) @rb_scan_args(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.80, ptr noundef nonnull %4) #8
-  %12 = load i64, ptr %4, align 8
-  %13 = call ptr @rb_check_typeddata(i64 noundef %12, ptr noundef nonnull @ossl_evp_pkey_type) #8
+9:                                                ; preds = %3
+  %10 = icmp eq i32 %0, 1
+  br i1 %10, label %rb_scan_args_set.exit, label %11
+
+11:                                               ; preds = %9
+  tail call void @rb_error_arity(i32 noundef %0, i32 noundef 1, i32 noundef 1) #9
+  unreachable
+
+rb_scan_args_set.exit:                            ; preds = %9
+  %12 = load i64, ptr %1, align 8, !tbaa !10
+  %13 = tail call ptr @rb_check_typeddata(i64 noundef %12, ptr noundef nonnull @ossl_evp_pkey_type) #8
   %.not23 = icmp eq ptr %13, null
   br i1 %.not23, label %14, label %16
 
-14:                                               ; preds = %10
-  %15 = load i64, ptr @rb_eRuntimeError, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %15, ptr noundef nonnull @.str.4) #9
+14:                                               ; preds = %rb_scan_args_set.exit
+  %15 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !10
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %15, ptr noundef nonnull @.str.4) #9
   unreachable
 
-16:                                               ; preds = %10
-  %17 = call ptr @EVP_PKEY_CTX_new(ptr noundef nonnull %7, ptr noundef null) #8
+16:                                               ; preds = %rb_scan_args_set.exit
+  %17 = tail call ptr @EVP_PKEY_CTX_new(ptr noundef nonnull %6, ptr noundef null) #8
   %.not24 = icmp eq ptr %17, null
   br i1 %.not24, label %18, label %20
 
 18:                                               ; preds = %16
-  %19 = load i64, ptr @ePKeyError, align 8
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %19, ptr noundef nonnull @.str.43) #9
+  %19 = load i64, ptr @ePKeyError, align 8, !tbaa !10
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %19, ptr noundef nonnull @.str.43) #9
   unreachable
 
 20:                                               ; preds = %16
-  %21 = call i32 @EVP_PKEY_derive_init(ptr noundef nonnull %17) #8
+  %21 = tail call i32 @EVP_PKEY_derive_init(ptr noundef nonnull %17) #8
   %22 = icmp slt i32 %21, 1
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %20
-  call void @EVP_PKEY_CTX_free(ptr noundef nonnull %17) #8
-  %24 = load i64, ptr @ePKeyError, align 8
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %24, ptr noundef nonnull @.str.81) #9
+  tail call void @EVP_PKEY_CTX_free(ptr noundef nonnull %17) #8
+  %24 = load i64, ptr @ePKeyError, align 8, !tbaa !10
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %24, ptr noundef nonnull @.str.81) #9
   unreachable
 
 25:                                               ; preds = %20
-  %26 = call i32 @EVP_PKEY_derive_set_peer(ptr noundef nonnull %17, ptr noundef nonnull %13) #8
+  %26 = tail call i32 @EVP_PKEY_derive_set_peer(ptr noundef nonnull %17, ptr noundef nonnull %13) #8
   %27 = icmp slt i32 %26, 1
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %25
-  call void @EVP_PKEY_CTX_free(ptr noundef nonnull %17) #8
-  %29 = load i64, ptr @ePKeyError, align 8
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %29, ptr noundef nonnull @.str.82) #9
+  tail call void @EVP_PKEY_CTX_free(ptr noundef nonnull %17) #8
+  %29 = load i64, ptr @ePKeyError, align 8, !tbaa !10
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %29, ptr noundef nonnull @.str.82) #9
   unreachable
 
 30:                                               ; preds = %25
-  %31 = call i32 @EVP_PKEY_derive(ptr noundef nonnull %17, ptr noundef null, ptr noundef nonnull %5) #8
+  %31 = call i32 @EVP_PKEY_derive(ptr noundef nonnull %17, ptr noundef null, ptr noundef nonnull %4) #8
   %32 = icmp slt i32 %31, 1
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %30
   call void @EVP_PKEY_CTX_free(ptr noundef nonnull %17) #8
-  %34 = load i64, ptr @ePKeyError, align 8
+  %34 = load i64, ptr @ePKeyError, align 8, !tbaa !10
   call void (i64, ptr, ...) @ossl_raise(i64 noundef %34, ptr noundef nonnull @.str.83) #9
   unreachable
 
 35:                                               ; preds = %30
-  %36 = load i64, ptr %5, align 8
+  %36 = load i64, ptr %4, align 8, !tbaa !10
   %37 = icmp slt i64 %36, 0
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %35
-  %39 = load i64, ptr @ePKeyError, align 8
+  %39 = load i64, ptr @ePKeyError, align 8, !tbaa !10
   call void (i64, ptr, ...) @rb_raise(i64 noundef %39, ptr noundef nonnull @.str.84) #9
   unreachable
 
 40:                                               ; preds = %35
-  %41 = call i64 @ossl_str_new(ptr noundef null, i64 noundef %36, ptr noundef nonnull %6) #8
-  %42 = load i32, ptr %6, align 4
+  %41 = call i64 @ossl_str_new(ptr noundef null, i64 noundef %36, ptr noundef nonnull %5) #8
+  %42 = load i32, ptr %5, align 4, !tbaa !6
   %.not25 = icmp eq i32 %42, 0
   br i1 %.not25, label %45, label %43
 
 43:                                               ; preds = %40
   call void @EVP_PKEY_CTX_free(ptr noundef nonnull %17) #8
-  %44 = load i32, ptr %6, align 4
+  %44 = load i32, ptr %5, align 4, !tbaa !6
   call void @rb_jump_tag(i32 noundef %44) #9
   unreachable
 
 45:                                               ; preds = %40
   %46 = inttoptr i64 %41 to ptr
-  %47 = load i64, ptr %46, align 8, !noalias !68
+  %47 = load i64, ptr %46, align 8, !tbaa !28, !noalias !92
   %48 = and i64 %47, 8192
   %.not.i.i = icmp eq i64 %48, 0
   %49 = getelementptr inbounds nuw i8, ptr %46, i64 24
@@ -2155,590 +2554,678 @@ define internal i64 @ossl_pkey_derive(i32 noundef %0, ptr noundef %1, i64 nounde
 
 RSTRING_PTR.exit:                                 ; preds = %45, %50
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %50 ], [ %49, %45 ]
-  %51 = call i32 @EVP_PKEY_derive(ptr noundef nonnull %17, ptr noundef %.sroa.2.0.i, ptr noundef nonnull %5) #8
+  %51 = call i32 @EVP_PKEY_derive(ptr noundef nonnull %17, ptr noundef %.sroa.2.0.i, ptr noundef nonnull %4) #8
   %52 = icmp slt i32 %51, 1
   call void @EVP_PKEY_CTX_free(ptr noundef nonnull %17) #8
   br i1 %52, label %53, label %55
 
 53:                                               ; preds = %RSTRING_PTR.exit
-  %54 = load i64, ptr @ePKeyError, align 8
+  %54 = load i64, ptr @ePKeyError, align 8, !tbaa !10
   call void (i64, ptr, ...) @ossl_raise(i64 noundef %54, ptr noundef nonnull @.str.83) #9
   unreachable
 
 55:                                               ; preds = %RSTRING_PTR.exit
-  %56 = load i64, ptr %5, align 8
+  %56 = load i64, ptr %4, align 8, !tbaa !10
   call void @rb_str_set_len(i64 noundef %41, i64 noundef %56) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
   ret i64 %41
 }
 
-; Function Attrs: nounwind uwtable
-define internal i64 @ossl_pkey_encrypt(i32 noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @ossl_pkey_encrypt(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca [2 x i64], align 16
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
-  %7 = alloca i64, align 8
-  %8 = alloca i32, align 4
-  %9 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @ossl_evp_pkey_type) #8
-  %.not = icmp eq ptr %9, null
-  br i1 %.not, label %10, label %12
+  %7 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #8
+  %8 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @ossl_evp_pkey_type) #8
+  %.not = icmp eq ptr %8, null
+  br i1 %.not, label %9, label %11
 
-10:                                               ; preds = %3
-  %11 = load i64, ptr @rb_eRuntimeError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %11, ptr noundef nonnull @.str.4) #9
+9:                                                ; preds = %3
+  %10 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !10
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %10, ptr noundef nonnull @.str.4) #9
   unreachable
 
-12:                                               ; preds = %3
-  %13 = call i32 (i32, ptr, ptr, ...) @rb_scan_args(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.41, ptr noundef nonnull %5, ptr noundef nonnull %6) #8
-  %14 = call i64 @rb_string_value(ptr noundef nonnull %5) #8
-  %15 = call ptr @EVP_PKEY_CTX_new(ptr noundef nonnull %9, ptr noundef null) #8
-  %.not21 = icmp eq ptr %15, null
-  br i1 %.not21, label %16, label %18
+11:                                               ; preds = %3
+  %12 = icmp slt i32 %0, 1
+  br i1 %12, label %20, label %.preheader
 
-16:                                               ; preds = %12
-  %17 = load i64, ptr @ePKeyError, align 8
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %17, ptr noundef nonnull @.str.43) #9
+.preheader:                                       ; preds = %11
+  %13 = load i64, ptr %1, align 8, !tbaa !10
+  store i64 %13, ptr %5, align 8, !tbaa !10
+  %.not37 = icmp eq i32 %0, 1
+  br i1 %.not37, label %17, label %14
+
+14:                                               ; preds = %.preheader
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %16 = load i64, ptr %15, align 8, !tbaa !10
+  br label %17
+
+17:                                               ; preds = %.preheader, %14
+  %18 = phi i64 [ %16, %14 ], [ 4, %.preheader ]
+  %.185.i.lcssa = phi i32 [ 2, %14 ], [ 1, %.preheader ]
+  %19 = icmp eq i32 %.185.i.lcssa, %0
+  br i1 %19, label %rb_scan_args_set.exit, label %20
+
+20:                                               ; preds = %17, %11
+  tail call void @rb_error_arity(i32 noundef %0, i32 noundef 1, i32 noundef 2) #9
   unreachable
 
-18:                                               ; preds = %12
-  %19 = call i32 @EVP_PKEY_encrypt_init(ptr noundef nonnull %15) #8
-  %20 = icmp slt i32 %19, 1
-  br i1 %20, label %21, label %23
+rb_scan_args_set.exit:                            ; preds = %17
+  %21 = call i64 @rb_string_value(ptr noundef nonnull %5) #8
+  %22 = call ptr @EVP_PKEY_CTX_new(ptr noundef nonnull %8, ptr noundef null) #8
+  %.not21 = icmp eq ptr %22, null
+  br i1 %.not21, label %23, label %25
 
-21:                                               ; preds = %18
-  call void @EVP_PKEY_CTX_free(ptr noundef nonnull %15) #8
-  %22 = load i64, ptr @ePKeyError, align 8
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %22, ptr noundef nonnull @.str.85) #9
+23:                                               ; preds = %rb_scan_args_set.exit
+  %24 = load i64, ptr @ePKeyError, align 8, !tbaa !10
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %24, ptr noundef nonnull @.str.43) #9
   unreachable
 
-23:                                               ; preds = %18
-  %24 = load i64, ptr %6, align 8
-  %25 = icmp eq i64 %24, 4
-  br i1 %25, label %34, label %26
+25:                                               ; preds = %rb_scan_args_set.exit
+  %26 = call i32 @EVP_PKEY_encrypt_init(ptr noundef nonnull %22) #8
+  %27 = icmp slt i32 %26, 1
+  br i1 %27, label %28, label %30
 
-26:                                               ; preds = %23
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  %27 = ptrtoint ptr %15 to i64
-  store i64 %27, ptr %4, align 16
-  %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %24, ptr %28, align 8
-  %29 = ptrtoint ptr %4 to i64
-  %30 = call i64 @rb_protect(ptr noundef nonnull @pkey_ctx_apply_options0, i64 noundef %29, ptr noundef nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %31 = load i32, ptr %8, align 4
-  %.not22 = icmp eq i32 %31, 0
-  br i1 %.not22, label %34, label %32
-
-32:                                               ; preds = %26
-  call void @EVP_PKEY_CTX_free(ptr noundef nonnull %15) #8
-  %33 = load i32, ptr %8, align 4
-  call void @rb_jump_tag(i32 noundef %33) #9
+28:                                               ; preds = %25
+  call void @EVP_PKEY_CTX_free(ptr noundef nonnull %22) #8
+  %29 = load i64, ptr @ePKeyError, align 8, !tbaa !10
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %29, ptr noundef nonnull @.str.85) #9
   unreachable
 
-34:                                               ; preds = %26, %23
-  %35 = load i64, ptr %5, align 8
-  %36 = inttoptr i64 %35 to ptr
-  %37 = load i64, ptr %36, align 8, !noalias !71
-  %38 = and i64 %37, 8192
-  %.not.i.i = icmp eq i64 %38, 0
-  %39 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  br i1 %.not.i.i, label %RSTRING_PTR.exit, label %40
+30:                                               ; preds = %25
+  %31 = icmp eq i64 %18, 4
+  br i1 %31, label %40, label %32
 
-40:                                               ; preds = %34
-  %.sroa.2.0.copyload.i = load ptr, ptr %39, align 8
+32:                                               ; preds = %30
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #8
+  %33 = ptrtoint ptr %22 to i64
+  store i64 %33, ptr %4, align 16, !tbaa !10
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i64 %18, ptr %34, align 8, !tbaa !10
+  %35 = ptrtoint ptr %4 to i64
+  %36 = call i64 @rb_protect(ptr noundef nonnull @pkey_ctx_apply_options0, i64 noundef %35, ptr noundef nonnull %7) #8
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #8
+  %37 = load i32, ptr %7, align 4, !tbaa !6
+  %.not22 = icmp eq i32 %37, 0
+  br i1 %.not22, label %40, label %38
+
+38:                                               ; preds = %32
+  call void @EVP_PKEY_CTX_free(ptr noundef nonnull %22) #8
+  %39 = load i32, ptr %7, align 4, !tbaa !6
+  call void @rb_jump_tag(i32 noundef %39) #9
+  unreachable
+
+40:                                               ; preds = %32, %30
+  %41 = load i64, ptr %5, align 8, !tbaa !10
+  %42 = inttoptr i64 %41 to ptr
+  %43 = load i64, ptr %42, align 8, !tbaa !28, !noalias !95
+  %44 = and i64 %43, 8192
+  %.not.i.i = icmp eq i64 %44, 0
+  %45 = getelementptr inbounds nuw i8, ptr %42, i64 24
+  br i1 %.not.i.i, label %RSTRING_PTR.exit, label %46
+
+46:                                               ; preds = %40
+  %.sroa.2.0.copyload.i = load ptr, ptr %45, align 8
   br label %RSTRING_PTR.exit
 
-RSTRING_PTR.exit:                                 ; preds = %34, %40
-  %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %40 ], [ %39, %34 ]
-  %41 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  %42 = load i64, ptr %41, align 8
-  %43 = call i32 @EVP_PKEY_encrypt(ptr noundef nonnull %15, ptr noundef null, ptr noundef nonnull %7, ptr noundef %.sroa.2.0.i, i64 noundef %42) #8
-  %44 = icmp slt i32 %43, 1
-  br i1 %44, label %45, label %47
+RSTRING_PTR.exit:                                 ; preds = %40, %46
+  %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %46 ], [ %45, %40 ]
+  %47 = getelementptr inbounds nuw i8, ptr %42, i64 16
+  %48 = load i64, ptr %47, align 8, !tbaa !32
+  %49 = call i32 @EVP_PKEY_encrypt(ptr noundef nonnull %22, ptr noundef null, ptr noundef nonnull %6, ptr noundef %.sroa.2.0.i, i64 noundef %48) #8
+  %50 = icmp slt i32 %49, 1
+  br i1 %50, label %51, label %53
 
-45:                                               ; preds = %RSTRING_PTR.exit
-  call void @EVP_PKEY_CTX_free(ptr noundef nonnull %15) #8
-  %46 = load i64, ptr @ePKeyError, align 8
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %46, ptr noundef nonnull @.str.86) #9
+51:                                               ; preds = %RSTRING_PTR.exit
+  call void @EVP_PKEY_CTX_free(ptr noundef nonnull %22) #8
+  %52 = load i64, ptr @ePKeyError, align 8, !tbaa !10
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %52, ptr noundef nonnull @.str.86) #9
   unreachable
 
-47:                                               ; preds = %RSTRING_PTR.exit
-  %48 = load i64, ptr %7, align 8
-  %49 = icmp slt i64 %48, 0
-  br i1 %49, label %50, label %52
+53:                                               ; preds = %RSTRING_PTR.exit
+  %54 = load i64, ptr %6, align 8, !tbaa !10
+  %55 = icmp slt i64 %54, 0
+  br i1 %55, label %56, label %58
 
-50:                                               ; preds = %47
-  call void @EVP_PKEY_CTX_free(ptr noundef nonnull %15) #8
-  %51 = load i64, ptr @ePKeyError, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %51, ptr noundef nonnull @.str.87) #9
+56:                                               ; preds = %53
+  call void @EVP_PKEY_CTX_free(ptr noundef nonnull %22) #8
+  %57 = load i64, ptr @ePKeyError, align 8, !tbaa !10
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %57, ptr noundef nonnull @.str.87) #9
   unreachable
 
-52:                                               ; preds = %47
-  %53 = call i64 @ossl_str_new(ptr noundef null, i64 noundef %48, ptr noundef nonnull %8) #8
-  %54 = load i32, ptr %8, align 4
-  %.not23 = icmp eq i32 %54, 0
-  br i1 %.not23, label %57, label %55
+58:                                               ; preds = %53
+  %59 = call i64 @ossl_str_new(ptr noundef null, i64 noundef %54, ptr noundef nonnull %7) #8
+  %60 = load i32, ptr %7, align 4, !tbaa !6
+  %.not23 = icmp eq i32 %60, 0
+  br i1 %.not23, label %63, label %61
 
-55:                                               ; preds = %52
-  call void @EVP_PKEY_CTX_free(ptr noundef nonnull %15) #8
-  %56 = load i32, ptr %8, align 4
-  call void @rb_jump_tag(i32 noundef %56) #9
+61:                                               ; preds = %58
+  call void @EVP_PKEY_CTX_free(ptr noundef nonnull %22) #8
+  %62 = load i32, ptr %7, align 4, !tbaa !6
+  call void @rb_jump_tag(i32 noundef %62) #9
   unreachable
 
-57:                                               ; preds = %52
-  %58 = inttoptr i64 %53 to ptr
-  %59 = load i64, ptr %58, align 8, !noalias !74
-  %60 = and i64 %59, 8192
-  %.not.i.i24 = icmp eq i64 %60, 0
-  %61 = getelementptr inbounds nuw i8, ptr %58, i64 24
-  br i1 %.not.i.i24, label %RSTRING_PTR.exit27, label %62
+63:                                               ; preds = %58
+  %64 = inttoptr i64 %59 to ptr
+  %65 = load i64, ptr %64, align 8, !tbaa !28, !noalias !98
+  %66 = and i64 %65, 8192
+  %.not.i.i24 = icmp eq i64 %66, 0
+  %67 = getelementptr inbounds nuw i8, ptr %64, i64 24
+  br i1 %.not.i.i24, label %RSTRING_PTR.exit27, label %68
 
-62:                                               ; preds = %57
-  %.sroa.2.0.copyload.i25 = load ptr, ptr %61, align 8
+68:                                               ; preds = %63
+  %.sroa.2.0.copyload.i25 = load ptr, ptr %67, align 8
   br label %RSTRING_PTR.exit27
 
-RSTRING_PTR.exit27:                               ; preds = %57, %62
-  %.sroa.2.0.i26 = phi ptr [ %.sroa.2.0.copyload.i25, %62 ], [ %61, %57 ]
-  %63 = load i64, ptr %5, align 8
-  %64 = inttoptr i64 %63 to ptr
-  %65 = load i64, ptr %64, align 8, !noalias !77
-  %66 = and i64 %65, 8192
-  %.not.i.i28 = icmp eq i64 %66, 0
-  %67 = getelementptr inbounds nuw i8, ptr %64, i64 24
-  br i1 %.not.i.i28, label %RSTRING_PTR.exit31, label %68
+RSTRING_PTR.exit27:                               ; preds = %63, %68
+  %.sroa.2.0.i26 = phi ptr [ %.sroa.2.0.copyload.i25, %68 ], [ %67, %63 ]
+  %69 = load i64, ptr %5, align 8, !tbaa !10
+  %70 = inttoptr i64 %69 to ptr
+  %71 = load i64, ptr %70, align 8, !tbaa !28, !noalias !101
+  %72 = and i64 %71, 8192
+  %.not.i.i28 = icmp eq i64 %72, 0
+  %73 = getelementptr inbounds nuw i8, ptr %70, i64 24
+  br i1 %.not.i.i28, label %RSTRING_PTR.exit31, label %74
 
-68:                                               ; preds = %RSTRING_PTR.exit27
-  %.sroa.2.0.copyload.i29 = load ptr, ptr %67, align 8
+74:                                               ; preds = %RSTRING_PTR.exit27
+  %.sroa.2.0.copyload.i29 = load ptr, ptr %73, align 8
   br label %RSTRING_PTR.exit31
 
-RSTRING_PTR.exit31:                               ; preds = %RSTRING_PTR.exit27, %68
-  %.sroa.2.0.i30 = phi ptr [ %.sroa.2.0.copyload.i29, %68 ], [ %67, %RSTRING_PTR.exit27 ]
-  %69 = getelementptr inbounds nuw i8, ptr %64, i64 16
-  %70 = load i64, ptr %69, align 8
-  %71 = call i32 @EVP_PKEY_encrypt(ptr noundef nonnull %15, ptr noundef %.sroa.2.0.i26, ptr noundef nonnull %7, ptr noundef %.sroa.2.0.i30, i64 noundef %70) #8
-  %72 = icmp slt i32 %71, 1
-  call void @EVP_PKEY_CTX_free(ptr noundef nonnull %15) #8
-  br i1 %72, label %73, label %75
+RSTRING_PTR.exit31:                               ; preds = %RSTRING_PTR.exit27, %74
+  %.sroa.2.0.i30 = phi ptr [ %.sroa.2.0.copyload.i29, %74 ], [ %73, %RSTRING_PTR.exit27 ]
+  %75 = getelementptr inbounds nuw i8, ptr %70, i64 16
+  %76 = load i64, ptr %75, align 8, !tbaa !32
+  %77 = call i32 @EVP_PKEY_encrypt(ptr noundef nonnull %22, ptr noundef %.sroa.2.0.i26, ptr noundef nonnull %6, ptr noundef %.sroa.2.0.i30, i64 noundef %76) #8
+  %78 = icmp slt i32 %77, 1
+  call void @EVP_PKEY_CTX_free(ptr noundef nonnull %22) #8
+  br i1 %78, label %79, label %81
 
-73:                                               ; preds = %RSTRING_PTR.exit31
-  %74 = load i64, ptr @ePKeyError, align 8
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %74, ptr noundef nonnull @.str.86) #9
+79:                                               ; preds = %RSTRING_PTR.exit31
+  %80 = load i64, ptr @ePKeyError, align 8, !tbaa !10
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %80, ptr noundef nonnull @.str.86) #9
   unreachable
 
-75:                                               ; preds = %RSTRING_PTR.exit31
-  %76 = load i64, ptr %7, align 8
-  call void @rb_str_set_len(i64 noundef %53, i64 noundef %76) #8
-  ret i64 %53
+81:                                               ; preds = %RSTRING_PTR.exit31
+  %82 = load i64, ptr %6, align 8, !tbaa !10
+  call void @rb_str_set_len(i64 noundef %59, i64 noundef %82) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  ret i64 %59
 }
 
-; Function Attrs: nounwind uwtable
-define internal i64 @ossl_pkey_decrypt(i32 noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @ossl_pkey_decrypt(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca [2 x i64], align 16
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
-  %7 = alloca i64, align 8
-  %8 = alloca i32, align 4
-  %9 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @ossl_evp_pkey_type) #8
-  %.not = icmp eq ptr %9, null
-  br i1 %.not, label %10, label %12
+  %7 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #8
+  %8 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @ossl_evp_pkey_type) #8
+  %.not = icmp eq ptr %8, null
+  br i1 %.not, label %9, label %11
 
-10:                                               ; preds = %3
-  %11 = load i64, ptr @rb_eRuntimeError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %11, ptr noundef nonnull @.str.4) #9
+9:                                                ; preds = %3
+  %10 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !10
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %10, ptr noundef nonnull @.str.4) #9
   unreachable
 
-12:                                               ; preds = %3
-  %13 = call i32 (i32, ptr, ptr, ...) @rb_scan_args(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.41, ptr noundef nonnull %5, ptr noundef nonnull %6) #8
-  %14 = call i64 @rb_string_value(ptr noundef nonnull %5) #8
-  %15 = call ptr @EVP_PKEY_CTX_new(ptr noundef nonnull %9, ptr noundef null) #8
-  %.not21 = icmp eq ptr %15, null
-  br i1 %.not21, label %16, label %18
+11:                                               ; preds = %3
+  %12 = icmp slt i32 %0, 1
+  br i1 %12, label %20, label %.preheader
 
-16:                                               ; preds = %12
-  %17 = load i64, ptr @ePKeyError, align 8
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %17, ptr noundef nonnull @.str.43) #9
+.preheader:                                       ; preds = %11
+  %13 = load i64, ptr %1, align 8, !tbaa !10
+  store i64 %13, ptr %5, align 8, !tbaa !10
+  %.not37 = icmp eq i32 %0, 1
+  br i1 %.not37, label %17, label %14
+
+14:                                               ; preds = %.preheader
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %16 = load i64, ptr %15, align 8, !tbaa !10
+  br label %17
+
+17:                                               ; preds = %.preheader, %14
+  %18 = phi i64 [ %16, %14 ], [ 4, %.preheader ]
+  %.185.i.lcssa = phi i32 [ 2, %14 ], [ 1, %.preheader ]
+  %19 = icmp eq i32 %.185.i.lcssa, %0
+  br i1 %19, label %rb_scan_args_set.exit, label %20
+
+20:                                               ; preds = %17, %11
+  tail call void @rb_error_arity(i32 noundef %0, i32 noundef 1, i32 noundef 2) #9
   unreachable
 
-18:                                               ; preds = %12
-  %19 = call i32 @EVP_PKEY_decrypt_init(ptr noundef nonnull %15) #8
-  %20 = icmp slt i32 %19, 1
-  br i1 %20, label %21, label %23
+rb_scan_args_set.exit:                            ; preds = %17
+  %21 = call i64 @rb_string_value(ptr noundef nonnull %5) #8
+  %22 = call ptr @EVP_PKEY_CTX_new(ptr noundef nonnull %8, ptr noundef null) #8
+  %.not21 = icmp eq ptr %22, null
+  br i1 %.not21, label %23, label %25
 
-21:                                               ; preds = %18
-  call void @EVP_PKEY_CTX_free(ptr noundef nonnull %15) #8
-  %22 = load i64, ptr @ePKeyError, align 8
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %22, ptr noundef nonnull @.str.88) #9
+23:                                               ; preds = %rb_scan_args_set.exit
+  %24 = load i64, ptr @ePKeyError, align 8, !tbaa !10
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %24, ptr noundef nonnull @.str.43) #9
   unreachable
 
-23:                                               ; preds = %18
-  %24 = load i64, ptr %6, align 8
-  %25 = icmp eq i64 %24, 4
-  br i1 %25, label %34, label %26
+25:                                               ; preds = %rb_scan_args_set.exit
+  %26 = call i32 @EVP_PKEY_decrypt_init(ptr noundef nonnull %22) #8
+  %27 = icmp slt i32 %26, 1
+  br i1 %27, label %28, label %30
 
-26:                                               ; preds = %23
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  %27 = ptrtoint ptr %15 to i64
-  store i64 %27, ptr %4, align 16
-  %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %24, ptr %28, align 8
-  %29 = ptrtoint ptr %4 to i64
-  %30 = call i64 @rb_protect(ptr noundef nonnull @pkey_ctx_apply_options0, i64 noundef %29, ptr noundef nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %31 = load i32, ptr %8, align 4
-  %.not22 = icmp eq i32 %31, 0
-  br i1 %.not22, label %34, label %32
-
-32:                                               ; preds = %26
-  call void @EVP_PKEY_CTX_free(ptr noundef nonnull %15) #8
-  %33 = load i32, ptr %8, align 4
-  call void @rb_jump_tag(i32 noundef %33) #9
+28:                                               ; preds = %25
+  call void @EVP_PKEY_CTX_free(ptr noundef nonnull %22) #8
+  %29 = load i64, ptr @ePKeyError, align 8, !tbaa !10
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %29, ptr noundef nonnull @.str.88) #9
   unreachable
 
-34:                                               ; preds = %26, %23
-  %35 = load i64, ptr %5, align 8
-  %36 = inttoptr i64 %35 to ptr
-  %37 = load i64, ptr %36, align 8, !noalias !80
-  %38 = and i64 %37, 8192
-  %.not.i.i = icmp eq i64 %38, 0
-  %39 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  br i1 %.not.i.i, label %RSTRING_PTR.exit, label %40
+30:                                               ; preds = %25
+  %31 = icmp eq i64 %18, 4
+  br i1 %31, label %40, label %32
 
-40:                                               ; preds = %34
-  %.sroa.2.0.copyload.i = load ptr, ptr %39, align 8
+32:                                               ; preds = %30
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #8
+  %33 = ptrtoint ptr %22 to i64
+  store i64 %33, ptr %4, align 16, !tbaa !10
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i64 %18, ptr %34, align 8, !tbaa !10
+  %35 = ptrtoint ptr %4 to i64
+  %36 = call i64 @rb_protect(ptr noundef nonnull @pkey_ctx_apply_options0, i64 noundef %35, ptr noundef nonnull %7) #8
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #8
+  %37 = load i32, ptr %7, align 4, !tbaa !6
+  %.not22 = icmp eq i32 %37, 0
+  br i1 %.not22, label %40, label %38
+
+38:                                               ; preds = %32
+  call void @EVP_PKEY_CTX_free(ptr noundef nonnull %22) #8
+  %39 = load i32, ptr %7, align 4, !tbaa !6
+  call void @rb_jump_tag(i32 noundef %39) #9
+  unreachable
+
+40:                                               ; preds = %32, %30
+  %41 = load i64, ptr %5, align 8, !tbaa !10
+  %42 = inttoptr i64 %41 to ptr
+  %43 = load i64, ptr %42, align 8, !tbaa !28, !noalias !104
+  %44 = and i64 %43, 8192
+  %.not.i.i = icmp eq i64 %44, 0
+  %45 = getelementptr inbounds nuw i8, ptr %42, i64 24
+  br i1 %.not.i.i, label %RSTRING_PTR.exit, label %46
+
+46:                                               ; preds = %40
+  %.sroa.2.0.copyload.i = load ptr, ptr %45, align 8
   br label %RSTRING_PTR.exit
 
-RSTRING_PTR.exit:                                 ; preds = %34, %40
-  %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %40 ], [ %39, %34 ]
-  %41 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  %42 = load i64, ptr %41, align 8
-  %43 = call i32 @EVP_PKEY_decrypt(ptr noundef nonnull %15, ptr noundef null, ptr noundef nonnull %7, ptr noundef %.sroa.2.0.i, i64 noundef %42) #8
-  %44 = icmp slt i32 %43, 1
-  br i1 %44, label %45, label %47
+RSTRING_PTR.exit:                                 ; preds = %40, %46
+  %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %46 ], [ %45, %40 ]
+  %47 = getelementptr inbounds nuw i8, ptr %42, i64 16
+  %48 = load i64, ptr %47, align 8, !tbaa !32
+  %49 = call i32 @EVP_PKEY_decrypt(ptr noundef nonnull %22, ptr noundef null, ptr noundef nonnull %6, ptr noundef %.sroa.2.0.i, i64 noundef %48) #8
+  %50 = icmp slt i32 %49, 1
+  br i1 %50, label %51, label %53
 
-45:                                               ; preds = %RSTRING_PTR.exit
-  call void @EVP_PKEY_CTX_free(ptr noundef nonnull %15) #8
-  %46 = load i64, ptr @ePKeyError, align 8
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %46, ptr noundef nonnull @.str.89) #9
+51:                                               ; preds = %RSTRING_PTR.exit
+  call void @EVP_PKEY_CTX_free(ptr noundef nonnull %22) #8
+  %52 = load i64, ptr @ePKeyError, align 8, !tbaa !10
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %52, ptr noundef nonnull @.str.89) #9
   unreachable
 
-47:                                               ; preds = %RSTRING_PTR.exit
-  %48 = load i64, ptr %7, align 8
-  %49 = icmp slt i64 %48, 0
-  br i1 %49, label %50, label %52
+53:                                               ; preds = %RSTRING_PTR.exit
+  %54 = load i64, ptr %6, align 8, !tbaa !10
+  %55 = icmp slt i64 %54, 0
+  br i1 %55, label %56, label %58
 
-50:                                               ; preds = %47
-  call void @EVP_PKEY_CTX_free(ptr noundef nonnull %15) #8
-  %51 = load i64, ptr @ePKeyError, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %51, ptr noundef nonnull @.str.90) #9
+56:                                               ; preds = %53
+  call void @EVP_PKEY_CTX_free(ptr noundef nonnull %22) #8
+  %57 = load i64, ptr @ePKeyError, align 8, !tbaa !10
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %57, ptr noundef nonnull @.str.90) #9
   unreachable
 
-52:                                               ; preds = %47
-  %53 = call i64 @ossl_str_new(ptr noundef null, i64 noundef %48, ptr noundef nonnull %8) #8
-  %54 = load i32, ptr %8, align 4
-  %.not23 = icmp eq i32 %54, 0
-  br i1 %.not23, label %57, label %55
+58:                                               ; preds = %53
+  %59 = call i64 @ossl_str_new(ptr noundef null, i64 noundef %54, ptr noundef nonnull %7) #8
+  %60 = load i32, ptr %7, align 4, !tbaa !6
+  %.not23 = icmp eq i32 %60, 0
+  br i1 %.not23, label %63, label %61
 
-55:                                               ; preds = %52
-  call void @EVP_PKEY_CTX_free(ptr noundef nonnull %15) #8
-  %56 = load i32, ptr %8, align 4
-  call void @rb_jump_tag(i32 noundef %56) #9
+61:                                               ; preds = %58
+  call void @EVP_PKEY_CTX_free(ptr noundef nonnull %22) #8
+  %62 = load i32, ptr %7, align 4, !tbaa !6
+  call void @rb_jump_tag(i32 noundef %62) #9
   unreachable
 
-57:                                               ; preds = %52
-  %58 = inttoptr i64 %53 to ptr
-  %59 = load i64, ptr %58, align 8, !noalias !83
-  %60 = and i64 %59, 8192
-  %.not.i.i24 = icmp eq i64 %60, 0
-  %61 = getelementptr inbounds nuw i8, ptr %58, i64 24
-  br i1 %.not.i.i24, label %RSTRING_PTR.exit27, label %62
+63:                                               ; preds = %58
+  %64 = inttoptr i64 %59 to ptr
+  %65 = load i64, ptr %64, align 8, !tbaa !28, !noalias !107
+  %66 = and i64 %65, 8192
+  %.not.i.i24 = icmp eq i64 %66, 0
+  %67 = getelementptr inbounds nuw i8, ptr %64, i64 24
+  br i1 %.not.i.i24, label %RSTRING_PTR.exit27, label %68
 
-62:                                               ; preds = %57
-  %.sroa.2.0.copyload.i25 = load ptr, ptr %61, align 8
+68:                                               ; preds = %63
+  %.sroa.2.0.copyload.i25 = load ptr, ptr %67, align 8
   br label %RSTRING_PTR.exit27
 
-RSTRING_PTR.exit27:                               ; preds = %57, %62
-  %.sroa.2.0.i26 = phi ptr [ %.sroa.2.0.copyload.i25, %62 ], [ %61, %57 ]
-  %63 = load i64, ptr %5, align 8
-  %64 = inttoptr i64 %63 to ptr
-  %65 = load i64, ptr %64, align 8, !noalias !86
-  %66 = and i64 %65, 8192
-  %.not.i.i28 = icmp eq i64 %66, 0
-  %67 = getelementptr inbounds nuw i8, ptr %64, i64 24
-  br i1 %.not.i.i28, label %RSTRING_PTR.exit31, label %68
+RSTRING_PTR.exit27:                               ; preds = %63, %68
+  %.sroa.2.0.i26 = phi ptr [ %.sroa.2.0.copyload.i25, %68 ], [ %67, %63 ]
+  %69 = load i64, ptr %5, align 8, !tbaa !10
+  %70 = inttoptr i64 %69 to ptr
+  %71 = load i64, ptr %70, align 8, !tbaa !28, !noalias !110
+  %72 = and i64 %71, 8192
+  %.not.i.i28 = icmp eq i64 %72, 0
+  %73 = getelementptr inbounds nuw i8, ptr %70, i64 24
+  br i1 %.not.i.i28, label %RSTRING_PTR.exit31, label %74
 
-68:                                               ; preds = %RSTRING_PTR.exit27
-  %.sroa.2.0.copyload.i29 = load ptr, ptr %67, align 8
+74:                                               ; preds = %RSTRING_PTR.exit27
+  %.sroa.2.0.copyload.i29 = load ptr, ptr %73, align 8
   br label %RSTRING_PTR.exit31
 
-RSTRING_PTR.exit31:                               ; preds = %RSTRING_PTR.exit27, %68
-  %.sroa.2.0.i30 = phi ptr [ %.sroa.2.0.copyload.i29, %68 ], [ %67, %RSTRING_PTR.exit27 ]
-  %69 = getelementptr inbounds nuw i8, ptr %64, i64 16
-  %70 = load i64, ptr %69, align 8
-  %71 = call i32 @EVP_PKEY_decrypt(ptr noundef nonnull %15, ptr noundef %.sroa.2.0.i26, ptr noundef nonnull %7, ptr noundef %.sroa.2.0.i30, i64 noundef %70) #8
-  %72 = icmp slt i32 %71, 1
-  call void @EVP_PKEY_CTX_free(ptr noundef nonnull %15) #8
-  br i1 %72, label %73, label %75
+RSTRING_PTR.exit31:                               ; preds = %RSTRING_PTR.exit27, %74
+  %.sroa.2.0.i30 = phi ptr [ %.sroa.2.0.copyload.i29, %74 ], [ %73, %RSTRING_PTR.exit27 ]
+  %75 = getelementptr inbounds nuw i8, ptr %70, i64 16
+  %76 = load i64, ptr %75, align 8, !tbaa !32
+  %77 = call i32 @EVP_PKEY_decrypt(ptr noundef nonnull %22, ptr noundef %.sroa.2.0.i26, ptr noundef nonnull %6, ptr noundef %.sroa.2.0.i30, i64 noundef %76) #8
+  %78 = icmp slt i32 %77, 1
+  call void @EVP_PKEY_CTX_free(ptr noundef nonnull %22) #8
+  br i1 %78, label %79, label %81
 
-73:                                               ; preds = %RSTRING_PTR.exit31
-  %74 = load i64, ptr @ePKeyError, align 8
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %74, ptr noundef nonnull @.str.89) #9
+79:                                               ; preds = %RSTRING_PTR.exit31
+  %80 = load i64, ptr @ePKeyError, align 8, !tbaa !10
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %80, ptr noundef nonnull @.str.89) #9
   unreachable
 
-75:                                               ; preds = %RSTRING_PTR.exit31
-  %76 = load i64, ptr %7, align 8
-  call void @rb_str_set_len(i64 noundef %53, i64 noundef %76) #8
-  ret i64 %53
+81:                                               ; preds = %RSTRING_PTR.exit31
+  %82 = load i64, ptr %6, align 8, !tbaa !10
+  call void @rb_str_set_len(i64 noundef %59, i64 noundef %82) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  ret i64 %59
 }
 
-declare i64 @rb_intern(ptr noundef) local_unnamed_addr #1
+declare i64 @rb_intern(ptr noundef) local_unnamed_addr #2
 
-declare void @Init_ossl_rsa() local_unnamed_addr #1
+declare void @Init_ossl_rsa() local_unnamed_addr #2
 
-declare void @Init_ossl_dsa() local_unnamed_addr #1
+declare void @Init_ossl_dsa() local_unnamed_addr #2
 
-declare void @Init_ossl_dh() local_unnamed_addr #1
+declare void @Init_ossl_dh() local_unnamed_addr #2
 
-declare void @Init_ossl_ec() local_unnamed_addr #1
+declare void @Init_ossl_ec() local_unnamed_addr #2
 
-declare i32 @EVP_PKEY_get_base_id(ptr noundef) local_unnamed_addr #1
+declare i32 @EVP_PKEY_get_base_id(ptr noundef) local_unnamed_addr #2
 
-declare i64 @rb_obj_alloc(i64 noundef) local_unnamed_addr #1
+declare i64 @rb_obj_alloc(i64 noundef) local_unnamed_addr #2
 
-declare ptr @OSSL_DECODER_CTX_new_for_pkey(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare ptr @OSSL_DECODER_CTX_new_for_pkey(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @OSSL_DECODER_CTX_set_pem_password_cb(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @OSSL_DECODER_CTX_set_pem_password_cb(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @OSSL_DECODER_from_bio(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @OSSL_DECODER_from_bio(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i64 @BIO_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
+declare i64 @BIO_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @ossl_clear_error() local_unnamed_addr #1
+declare void @ossl_clear_error() local_unnamed_addr #2
 
-declare void @OSSL_DECODER_CTX_free(ptr noundef) local_unnamed_addr #1
+declare void @OSSL_DECODER_CTX_free(ptr noundef) local_unnamed_addr #2
 
-declare i64 @rb_intern2(ptr noundef, i64 noundef) local_unnamed_addr #1
+declare i64 @rb_intern2(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare ptr @ossl_obj2bio(ptr noundef) local_unnamed_addr #1
+declare i32 @rb_block_given_p() local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
-define internal fastcc i64 @pkey_generate(i32 noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
+; Function Attrs: noreturn
+declare void @rb_error_arity(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+
+declare ptr @ossl_obj2bio(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal fastcc i64 @pkey_generate(i32 noundef %0, ptr noundef readonly captures(none) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca [2 x i64], align 16
   %6 = alloca i64, align 8
-  %7 = alloca i64, align 8
-  %8 = alloca %struct.pkey_blocking_generate_arg, align 8
-  %9 = alloca i32, align 4
-  %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 16, i1 false)
-  %11 = call i32 (i32, ptr, ptr, ...) @rb_scan_args(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.41, ptr noundef nonnull %6, ptr noundef nonnull %7) #8
-  %12 = load i64, ptr %6, align 8
-  %13 = load i64, ptr @cPKey, align 8
-  %14 = call i64 @rb_obj_is_kind_of(i64 noundef %12, i64 noundef %13) #8
-  %.not = icmp eq i64 %14, 0
-  br i1 %.not, label %24, label %15
+  %7 = alloca %struct.pkey_blocking_generate_arg, align 8
+  %8 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #8
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 16, i1 false)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #8
+  %10 = icmp slt i32 %0, 1
+  br i1 %10, label %18, label %.preheader
 
-15:                                               ; preds = %3
-  %16 = load i64, ptr %6, align 8
-  %17 = call ptr @rb_check_typeddata(i64 noundef %16, ptr noundef nonnull @ossl_evp_pkey_type) #8
-  %.not24 = icmp eq ptr %17, null
-  br i1 %.not24, label %18, label %20
+.preheader:                                       ; preds = %3
+  %11 = load i64, ptr %1, align 8, !tbaa !10
+  store i64 %11, ptr %6, align 8, !tbaa !10
+  %.not39 = icmp eq i32 %0, 1
+  br i1 %.not39, label %15, label %12
 
-18:                                               ; preds = %15
-  %19 = load i64, ptr @rb_eRuntimeError, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %19, ptr noundef nonnull @.str.4) #9
+12:                                               ; preds = %.preheader
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %14 = load i64, ptr %13, align 8, !tbaa !10
+  br label %15
+
+15:                                               ; preds = %.preheader, %12
+  %16 = phi i64 [ %14, %12 ], [ 4, %.preheader ]
+  %.185.i.lcssa = phi i32 [ 2, %12 ], [ 1, %.preheader ]
+  %17 = icmp eq i32 %.185.i.lcssa, %0
+  br i1 %17, label %rb_scan_args_set.exit, label %18
+
+18:                                               ; preds = %15, %3
+  tail call void @rb_error_arity(i32 noundef %0, i32 noundef 1, i32 noundef 2) #9
   unreachable
 
-20:                                               ; preds = %15
-  %21 = call ptr @EVP_PKEY_CTX_new(ptr noundef nonnull %17, ptr noundef null) #8
-  %.not25 = icmp eq ptr %21, null
-  br i1 %.not25, label %22, label %29
+rb_scan_args_set.exit:                            ; preds = %15
+  %19 = load i64, ptr @cPKey, align 8, !tbaa !10
+  %20 = tail call i64 @rb_obj_is_kind_of(i64 noundef %11, i64 noundef %19) #8
+  %.not = icmp eq i64 %20, 0
+  br i1 %.not, label %29, label %21
 
-22:                                               ; preds = %20
-  %23 = load i64, ptr @ePKeyError, align 8
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %23, ptr noundef nonnull @.str.43) #9
+21:                                               ; preds = %rb_scan_args_set.exit
+  %22 = tail call ptr @rb_check_typeddata(i64 noundef %11, ptr noundef nonnull @ossl_evp_pkey_type) #8
+  %.not24 = icmp eq ptr %22, null
+  br i1 %.not24, label %23, label %25
+
+23:                                               ; preds = %21
+  %24 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !10
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %24, ptr noundef nonnull @.str.4) #9
   unreachable
 
-24:                                               ; preds = %3
-  %25 = call ptr @rb_string_value_cstr(ptr noundef nonnull %6) #8
-  %26 = call ptr @EVP_PKEY_CTX_new_from_name(ptr noundef null, ptr noundef %25, ptr noundef null) #8
-  %.not23 = icmp eq ptr %26, null
-  br i1 %.not23, label %27, label %29
+25:                                               ; preds = %21
+  %26 = tail call ptr @EVP_PKEY_CTX_new(ptr noundef nonnull %22, ptr noundef null) #8
+  %.not25 = icmp eq ptr %26, null
+  br i1 %.not25, label %27, label %34
 
-27:                                               ; preds = %24
-  %28 = load i64, ptr @ePKeyError, align 8
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %28, ptr noundef nonnull @.str.44) #9
+27:                                               ; preds = %25
+  %28 = load i64, ptr @ePKeyError, align 8, !tbaa !10
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %28, ptr noundef nonnull @.str.43) #9
   unreachable
 
-29:                                               ; preds = %24, %20
-  %.0 = phi ptr [ %21, %20 ], [ %26, %24 ]
+29:                                               ; preds = %rb_scan_args_set.exit
+  %30 = call ptr @rb_string_value_cstr(ptr noundef nonnull %6) #8
+  %31 = call ptr @EVP_PKEY_CTX_new_from_name(ptr noundef null, ptr noundef %30, ptr noundef null) #8
+  %.not23 = icmp eq ptr %31, null
+  br i1 %.not23, label %32, label %34
+
+32:                                               ; preds = %29
+  %33 = load i64, ptr @ePKeyError, align 8, !tbaa !10
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %33, ptr noundef nonnull @.str.44) #9
+  unreachable
+
+34:                                               ; preds = %25, %29
+  %.0 = phi ptr [ %31, %29 ], [ %26, %25 ]
   %.not26 = icmp eq i32 %2, 0
-  br i1 %.not26, label %.critedge, label %30
+  br i1 %.not26, label %.critedge, label %35
 
-30:                                               ; preds = %29
-  %31 = call i32 @EVP_PKEY_paramgen_init(ptr noundef nonnull %.0) #8
-  %32 = icmp slt i32 %31, 1
-  br i1 %32, label %33, label %39
+35:                                               ; preds = %34
+  %36 = call i32 @EVP_PKEY_paramgen_init(ptr noundef nonnull %.0) #8
+  %37 = icmp slt i32 %36, 1
+  br i1 %37, label %38, label %44
 
-33:                                               ; preds = %30
+38:                                               ; preds = %35
   call void @EVP_PKEY_CTX_free(ptr noundef nonnull %.0) #8
-  %34 = load i64, ptr @ePKeyError, align 8
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %34, ptr noundef nonnull @.str.45) #9
+  %39 = load i64, ptr @ePKeyError, align 8, !tbaa !10
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %39, ptr noundef nonnull @.str.45) #9
   unreachable
 
-.critedge:                                        ; preds = %29
-  %35 = call i32 @EVP_PKEY_keygen_init(ptr noundef nonnull %.0) #8
-  %36 = icmp slt i32 %35, 1
-  br i1 %36, label %37, label %39
+.critedge:                                        ; preds = %34
+  %40 = call i32 @EVP_PKEY_keygen_init(ptr noundef nonnull %.0) #8
+  %41 = icmp slt i32 %40, 1
+  br i1 %41, label %42, label %44
 
-37:                                               ; preds = %.critedge
+42:                                               ; preds = %.critedge
   call void @EVP_PKEY_CTX_free(ptr noundef nonnull %.0) #8
-  %38 = load i64, ptr @ePKeyError, align 8
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %38, ptr noundef nonnull @.str.46) #9
+  %43 = load i64, ptr @ePKeyError, align 8, !tbaa !10
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %43, ptr noundef nonnull @.str.46) #9
   unreachable
 
-39:                                               ; preds = %30, %.critedge
-  %40 = load i64, ptr %7, align 8
-  %41 = icmp eq i64 %40, 4
-  br i1 %41, label %50, label %42
+44:                                               ; preds = %35, %.critedge
+  %45 = icmp eq i64 %16, 4
+  br i1 %45, label %54, label %46
 
-42:                                               ; preds = %39
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  %43 = ptrtoint ptr %.0 to i64
-  store i64 %43, ptr %5, align 16
-  %44 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %40, ptr %44, align 8
-  %45 = ptrtoint ptr %5 to i64
-  %46 = call i64 @rb_protect(ptr noundef nonnull @pkey_ctx_apply_options0, i64 noundef %45, ptr noundef nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %47 = load i32, ptr %9, align 4
-  %.not27 = icmp eq i32 %47, 0
-  br i1 %.not27, label %50, label %48
+46:                                               ; preds = %44
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #8
+  %47 = ptrtoint ptr %.0 to i64
+  store i64 %47, ptr %5, align 16, !tbaa !10
+  %48 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 %16, ptr %48, align 8, !tbaa !10
+  %49 = ptrtoint ptr %5 to i64
+  %50 = call i64 @rb_protect(ptr noundef nonnull @pkey_ctx_apply_options0, i64 noundef %49, ptr noundef nonnull %8) #8
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #8
+  %51 = load i32, ptr %8, align 4, !tbaa !6
+  %.not27 = icmp eq i32 %51, 0
+  br i1 %.not27, label %54, label %52
 
-48:                                               ; preds = %42
+52:                                               ; preds = %46
   call void @EVP_PKEY_CTX_free(ptr noundef nonnull %.0) #8
-  %49 = load i32, ptr %9, align 4
-  call void @rb_jump_tag(i32 noundef %49) #9
+  %53 = load i32, ptr %8, align 4, !tbaa !6
+  call void @rb_jump_tag(i32 noundef %53) #9
   unreachable
 
-50:                                               ; preds = %42, %39
-  %51 = getelementptr inbounds nuw i8, ptr %8, i64 20
-  %52 = trunc nuw nsw i32 %2 to i8
-  %53 = shl nuw nsw i8 %52, 1
-  store ptr %.0, ptr %8, align 8
-  %54 = call i32 @rb_block_given_p() #8
-  %55 = trunc i32 %54 to i8
-  %56 = and i8 %55, 1
-  %57 = or disjoint i8 %53, %56
-  store i8 %57, ptr %51, align 4
-  call void @EVP_PKEY_CTX_set_app_data(ptr noundef nonnull %.0, ptr noundef nonnull %8) #8
+54:                                               ; preds = %46, %44
+  %55 = getelementptr inbounds nuw i8, ptr %7, i64 20
+  %56 = trunc nuw nsw i32 %2 to i8
+  %57 = shl nuw nsw i8 %56, 1
+  store ptr %.0, ptr %7, align 8, !tbaa !113
+  %58 = call i32 @rb_block_given_p() #8
+  %59 = trunc i32 %58 to i8
+  %60 = and i8 %59, 1
+  %61 = or disjoint i8 %57, %60
+  store i8 %61, ptr %55, align 4
+  call void @EVP_PKEY_CTX_set_app_data(ptr noundef nonnull %.0, ptr noundef nonnull %7) #8
   call void @EVP_PKEY_CTX_set_cb(ptr noundef nonnull %.0, ptr noundef nonnull @pkey_gen_cb) #8
-  %58 = load i8, ptr %51, align 4
-  %59 = and i8 %58, 1
-  %.not28 = icmp eq i8 %59, 0
-  br i1 %.not28, label %74, label %60
+  %62 = load i8, ptr %55, align 4
+  %63 = and i8 %62, 1
+  %.not28 = icmp eq i8 %63, 0
+  br i1 %.not28, label %78, label %64
 
-60:                                               ; preds = %50
-  %61 = and i8 %58, 2
-  %.not.i = icmp eq i8 %61, 0
-  br i1 %.not.i, label %67, label %62
+64:                                               ; preds = %54
+  %65 = and i8 %62, 2
+  %.not.i31 = icmp eq i8 %65, 0
+  br i1 %.not.i31, label %71, label %66
 
-62:                                               ; preds = %60
-  %63 = load ptr, ptr %8, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %65 = call i32 @EVP_PKEY_paramgen(ptr noundef %63, ptr noundef nonnull %64) #8
-  %66 = icmp slt i32 %65, 1
-  br i1 %66, label %pkey_blocking_gen.exit, label %._crit_edge.i
+66:                                               ; preds = %64
+  %67 = load ptr, ptr %7, align 8, !tbaa !113
+  %68 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %69 = call i32 @EVP_PKEY_paramgen(ptr noundef %67, ptr noundef nonnull %68) #8
+  %70 = icmp slt i32 %69, 1
+  br i1 %70, label %pkey_blocking_gen.exit, label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %62
-  %.pre.i = load i8, ptr %51, align 4
-  br label %67
+._crit_edge.i:                                    ; preds = %66
+  %.pre.i = load i8, ptr %55, align 4
+  br label %71
 
-67:                                               ; preds = %._crit_edge.i, %60
-  %68 = phi i8 [ %.pre.i, %._crit_edge.i ], [ %58, %60 ]
-  %69 = and i8 %68, 2
-  %.not9.i = icmp eq i8 %69, 0
-  br i1 %.not9.i, label %70, label %pkey_blocking_gen.exit
+71:                                               ; preds = %._crit_edge.i, %64
+  %72 = phi i8 [ %.pre.i, %._crit_edge.i ], [ %62, %64 ]
+  %73 = and i8 %72, 2
+  %.not9.i = icmp eq i8 %73, 0
+  br i1 %.not9.i, label %74, label %pkey_blocking_gen.exit
 
-70:                                               ; preds = %67
-  %71 = load ptr, ptr %8, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %73 = call i32 @EVP_PKEY_keygen(ptr noundef %71, ptr noundef nonnull %72) #8
+74:                                               ; preds = %71
+  %75 = load ptr, ptr %7, align 8, !tbaa !113
+  %76 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %77 = call i32 @EVP_PKEY_keygen(ptr noundef %75, ptr noundef nonnull %76) #8
   br label %pkey_blocking_gen.exit
 
-74:                                               ; preds = %50
-  %75 = call ptr @rb_thread_call_without_gvl(ptr noundef nonnull @pkey_blocking_gen, ptr noundef nonnull %8, ptr noundef nonnull @pkey_blocking_gen_stop, ptr noundef nonnull %8) #8
+78:                                               ; preds = %54
+  %79 = call ptr @rb_thread_call_without_gvl(ptr noundef nonnull @pkey_blocking_gen, ptr noundef nonnull %7, ptr noundef nonnull @pkey_blocking_gen_stop, ptr noundef nonnull %7) #8
   br label %pkey_blocking_gen.exit
 
-pkey_blocking_gen.exit:                           ; preds = %70, %67, %62, %74
+pkey_blocking_gen.exit:                           ; preds = %74, %71, %66, %78
   call void @EVP_PKEY_CTX_free(ptr noundef nonnull %.0) #8
-  %76 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %77 = load ptr, ptr %76, align 8
-  %.not29 = icmp eq ptr %77, null
-  br i1 %.not29, label %78, label %86
+  %80 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %81 = load ptr, ptr %80, align 8, !tbaa !115
+  %.not29 = icmp eq ptr %81, null
+  br i1 %.not29, label %82, label %90
 
-78:                                               ; preds = %pkey_blocking_gen.exit
-  %79 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %80 = load i32, ptr %79, align 8
-  %.not30 = icmp eq i32 %80, 0
-  br i1 %.not30, label %83, label %81
+82:                                               ; preds = %pkey_blocking_gen.exit
+  %83 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %84 = load i32, ptr %83, align 8, !tbaa !116
+  %.not30 = icmp eq i32 %84, 0
+  br i1 %.not30, label %87, label %85
 
-81:                                               ; preds = %78
+85:                                               ; preds = %82
   call void @ossl_clear_error() #8
-  %82 = load i32, ptr %79, align 8
-  call void @rb_jump_tag(i32 noundef %82) #9
+  %86 = load i32, ptr %83, align 8, !tbaa !116
+  call void @rb_jump_tag(i32 noundef %86) #9
   unreachable
 
-83:                                               ; preds = %78
-  %84 = load i64, ptr @ePKeyError, align 8
-  %85 = select i1 %.not26, ptr @.str.48, ptr @.str.47
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %84, ptr noundef nonnull %85) #9
+87:                                               ; preds = %82
+  %88 = load i64, ptr @ePKeyError, align 8, !tbaa !10
+  %89 = select i1 %.not26, ptr @.str.48, ptr @.str.47
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %88, ptr noundef nonnull %89) #9
   unreachable
 
-86:                                               ; preds = %pkey_blocking_gen.exit
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  %87 = ptrtoint ptr %77 to i64
-  %88 = call i64 @rb_protect(ptr noundef nonnull @pkey_new0, i64 noundef %87, ptr noundef nonnull %4) #8
-  %89 = load i32, ptr %4, align 4
-  %.not.i31 = icmp eq i32 %89, 0
-  br i1 %.not.i31, label %ossl_pkey_new.exit, label %90
+90:                                               ; preds = %pkey_blocking_gen.exit
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #8
+  %91 = ptrtoint ptr %81 to i64
+  %92 = call i64 @rb_protect(ptr noundef nonnull @pkey_new0, i64 noundef %91, ptr noundef nonnull %4) #8
+  %93 = load i32, ptr %4, align 4, !tbaa !6
+  %.not.i33 = icmp eq i32 %93, 0
+  br i1 %.not.i33, label %ossl_pkey_new.exit, label %94
 
-90:                                               ; preds = %86
-  call void @EVP_PKEY_free(ptr noundef nonnull %77) #8
-  %91 = load i32, ptr %4, align 4
-  call void @rb_jump_tag(i32 noundef %91) #9
+94:                                               ; preds = %90
+  call void @EVP_PKEY_free(ptr noundef nonnull %81) #8
+  %95 = load i32, ptr %4, align 4, !tbaa !6
+  call void @rb_jump_tag(i32 noundef %95) #9
   unreachable
 
-ossl_pkey_new.exit:                               ; preds = %86
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  ret i64 %88
+ossl_pkey_new.exit:                               ; preds = %90
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  ret i64 %92
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
-declare i64 @rb_obj_is_kind_of(i64 noundef, i64 noundef) local_unnamed_addr #1
+declare i64 @rb_obj_is_kind_of(i64 noundef, i64 noundef) local_unnamed_addr #2
 
-declare ptr @EVP_PKEY_CTX_new(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare ptr @EVP_PKEY_CTX_new(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @EVP_PKEY_CTX_new_from_name(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare ptr @EVP_PKEY_CTX_new_from_name(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @rb_string_value_cstr(ptr noundef) local_unnamed_addr #1
+declare ptr @rb_string_value_cstr(ptr noundef) local_unnamed_addr #2
 
-declare i32 @EVP_PKEY_paramgen_init(ptr noundef) local_unnamed_addr #1
+declare i32 @EVP_PKEY_paramgen_init(ptr noundef) local_unnamed_addr #2
 
-declare void @EVP_PKEY_CTX_free(ptr noundef) local_unnamed_addr #1
+declare void @EVP_PKEY_CTX_free(ptr noundef) local_unnamed_addr #2
 
-declare i32 @EVP_PKEY_keygen_init(ptr noundef) local_unnamed_addr #1
+declare i32 @EVP_PKEY_keygen_init(ptr noundef) local_unnamed_addr #2
 
-declare i32 @rb_block_given_p() local_unnamed_addr #1
+declare void @EVP_PKEY_CTX_set_app_data(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @EVP_PKEY_CTX_set_app_data(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare void @EVP_PKEY_CTX_set_cb(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @EVP_PKEY_CTX_set_cb(ptr noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define internal range(i32 0, 2) i32 @pkey_gen_cb(ptr noundef %0) #0 {
   %2 = alloca i32, align 4
   %3 = tail call ptr @EVP_PKEY_CTX_get_app_data(ptr noundef %0) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %5 = load i8, ptr %4, align 4
   %6 = and i8 %5, 1
@@ -2748,7 +3235,7 @@ define internal range(i32 0, 2) i32 @pkey_gen_cb(ptr noundef %0) #0 {
 7:                                                ; preds = %1
   %8 = ptrtoint ptr %0 to i64
   %9 = call i64 @rb_protect(ptr noundef nonnull @pkey_gen_cb_yield, i64 noundef %8, ptr noundef nonnull %2) #8
-  %10 = load i32, ptr %2, align 4
+  %10 = load i32, ptr %2, align 4, !tbaa !6
   %.not9 = icmp eq i32 %10, 0
   br i1 %.not9, label %._crit_edge, label %.sink.split
 
@@ -2774,15 +3261,16 @@ define internal range(i32 0, 2) i32 @pkey_gen_cb(ptr noundef %0) #0 {
 .sink.split:                                      ; preds = %14, %7
   %.sink = phi i32 [ %10, %7 ], [ %18, %14 ]
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i32 %.sink, ptr %19, align 8
+  store i32 %.sink, ptr %19, align 8, !tbaa !116
   br label %20
 
 20:                                               ; preds = %.sink.split, %11, %14
   %.0 = phi i32 [ 1, %14 ], [ 1, %11 ], [ 0, %.sink.split ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #8
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define internal ptr @pkey_blocking_gen(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i8, ptr %2, align 4
@@ -2791,7 +3279,7 @@ define internal ptr @pkey_blocking_gen(ptr noundef %0) #0 {
   br i1 %.not, label %10, label %5
 
 5:                                                ; preds = %1
-  %6 = load ptr, ptr %0, align 8
+  %6 = load ptr, ptr %0, align 8, !tbaa !113
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = tail call i32 @EVP_PKEY_paramgen(ptr noundef %6, ptr noundef nonnull %7) #8
   %9 = icmp slt i32 %8, 1
@@ -2808,7 +3296,7 @@ define internal ptr @pkey_blocking_gen(ptr noundef %0) #0 {
   br i1 %.not9, label %13, label %18
 
 13:                                               ; preds = %10
-  %14 = load ptr, ptr %0, align 8
+  %14 = load ptr, ptr %0, align 8, !tbaa !113
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = tail call i32 @EVP_PKEY_keygen(ptr noundef %14, ptr noundef nonnull %15) #8
   %17 = icmp slt i32 %16, 1
@@ -2816,7 +3304,7 @@ define internal ptr @pkey_blocking_gen(ptr noundef %0) #0 {
 
 18:                                               ; preds = %13, %10
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %20 = load ptr, ptr %19, align 8
+  %20 = load ptr, ptr %19, align 8, !tbaa !115
   br label %21
 
 21:                                               ; preds = %13, %5, %18
@@ -2824,10 +3312,10 @@ define internal ptr @pkey_blocking_gen(ptr noundef %0) #0 {
   ret ptr %.0
 }
 
-declare ptr @rb_thread_call_without_gvl(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare ptr @rb_thread_call_without_gvl(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @pkey_blocking_gen_stop(ptr noundef captures(none) %0) #4 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
+define internal void @pkey_blocking_gen_stop(ptr noundef captures(none) %0) #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i8, ptr %2, align 4
   %4 = or i8 %3, 4
@@ -2835,54 +3323,56 @@ define internal void @pkey_blocking_gen_stop(ptr noundef captures(none) %0) #4 {
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @pkey_ctx_apply_options0(i64 noundef %0) #0 {
   %2 = inttoptr i64 %0 to ptr
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %4 = load i64, ptr %3, align 8
-  %5 = and i64 %4, 7
-  %6 = icmp ne i64 %5, 0
-  %7 = icmp eq i64 %4, 0
-  %8 = or i1 %7, %6
-  br i1 %8, label %.critedge.i, label %9
+  %4 = load i64, ptr %3, align 8, !tbaa !10
+  %5 = icmp eq i64 %4, 0
+  %6 = and i64 %4, 7
+  %7 = icmp ne i64 %6, 0
+  %8 = or i1 %5, %7
+  br i1 %8, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i, label %rbimpl_RB_TYPE_P_fastpath.exit.i, !prof !117
 
-9:                                                ; preds = %1
-  %10 = inttoptr i64 %4 to ptr
-  %11 = load i64, ptr %10, align 8
-  %12 = and i64 %11, 31
-  %.not.i = icmp eq i64 %12, 8
-  br i1 %.not.i, label %Check_Type.exit, label %.critedge.i
+rbimpl_RB_TYPE_P_fastpath.exit.i:                 ; preds = %1
+  %9 = inttoptr i64 %4 to ptr
+  %10 = load i64, ptr %9, align 8, !tbaa !28
+  %11 = and i64 %10, 31
+  %12 = icmp eq i64 %11, 8
+  br i1 %12, label %Check_Type.exit, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i, !prof !118
 
-.critedge.i:                                      ; preds = %9, %1
+rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i, %1
   tail call void @rb_unexpected_type(i64 noundef %4, i32 noundef 8) #10
   unreachable
 
-Check_Type.exit:                                  ; preds = %9
-  %.pr.i = load i64, ptr @pkey_ctx_apply_options0.rbimpl_id, align 8
+Check_Type.exit:                                  ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i
+  %.pr.i = load i64, ptr @pkey_ctx_apply_options0.rbimpl_id, align 8, !tbaa !10
   %.not4.i = icmp eq i64 %.pr.i, 0
   br i1 %.not4.i, label %.lr.ph.i, label %rbimpl_intern_const.exit
 
 .lr.ph.i:                                         ; preds = %Check_Type.exit, %.lr.ph.i
   %13 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.49, i64 noundef 4) #8
-  store i64 %13, ptr @pkey_ctx_apply_options0.rbimpl_id, align 8
-  %.not.i4 = icmp eq i64 %13, 0
-  br i1 %.not.i4, label %.lr.ph.i, label %rbimpl_intern_const.exit, !llvm.loop !9
+  store i64 %13, ptr @pkey_ctx_apply_options0.rbimpl_id, align 8, !tbaa !10
+  %.not.i = icmp eq i64 %13, 0
+  br i1 %.not.i, label %.lr.ph.i, label %rbimpl_intern_const.exit, !llvm.loop !24
 
 rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %Check_Type.exit
   %.lcssa.i = phi i64 [ %.pr.i, %Check_Type.exit ], [ %13, %.lr.ph.i ]
-  %14 = load i64, ptr %2, align 8
+  %14 = load i64, ptr %2, align 8, !tbaa !10
   %15 = tail call i64 @rb_block_call(i64 noundef %4, i64 noundef %.lcssa.i, i32 noundef 0, ptr noundef null, ptr noundef nonnull @pkey_ctx_apply_options_i, i64 noundef %14) #8
   ret i64 4
 }
 
-declare i64 @rb_block_call(i64 noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+declare i64 @rb_block_call(i64 noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @pkey_ctx_apply_options_i(i64 noundef %0, i64 noundef %1, i32 %2, ptr readnone captures(none) %3, i64 %4) #0 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
   %8 = tail call i64 @rb_ary_entry(i64 noundef %0, i64 noundef 0) #11
-  store i64 %8, ptr %6, align 8
+  store i64 %8, ptr %6, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #8
   %9 = tail call i64 @rb_ary_entry(i64 noundef %0, i64 noundef 1) #11
   %10 = inttoptr i64 %1 to ptr
   %11 = and i64 %8, 255
@@ -2890,27 +3380,27 @@ define internal noundef i64 @pkey_ctx_apply_options_i(i64 noundef %0, i64 nounde
   br i1 %12, label %RB_SYMBOL_P.exit.thread, label %13
 
 13:                                               ; preds = %5
-  %14 = and i64 %8, 7
-  %15 = icmp ne i64 %14, 0
-  %16 = icmp eq i64 %8, 0
-  %17 = or i1 %16, %15
+  %14 = icmp eq i64 %8, 0
+  %15 = and i64 %8, 7
+  %16 = icmp ne i64 %15, 0
+  %17 = or i1 %14, %16
   br i1 %17, label %RB_SYMBOL_P.exit.thread3, label %RB_SYMBOL_P.exit
 
 RB_SYMBOL_P.exit:                                 ; preds = %13
   %18 = inttoptr i64 %8 to ptr
-  %19 = load i64, ptr %18, align 8
+  %19 = load i64, ptr %18, align 8, !tbaa !28
   %20 = and i64 %19, 31
   %21 = icmp eq i64 %20, 20
   br i1 %21, label %RB_SYMBOL_P.exit.thread, label %RB_SYMBOL_P.exit.thread3
 
 RB_SYMBOL_P.exit.thread:                          ; preds = %5, %RB_SYMBOL_P.exit
   %22 = tail call i64 @rb_sym2str(i64 noundef %8) #8
-  store i64 %22, ptr %6, align 8
+  store i64 %22, ptr %6, align 8, !tbaa !10
   br label %RB_SYMBOL_P.exit.thread3
 
 RB_SYMBOL_P.exit.thread3:                         ; preds = %13, %RB_SYMBOL_P.exit.thread, %RB_SYMBOL_P.exit
   %23 = tail call i64 @rb_String(i64 noundef %9) #8
-  store i64 %23, ptr %7, align 8
+  store i64 %23, ptr %7, align 8, !tbaa !10
   %24 = call ptr @rb_string_value_cstr(ptr noundef nonnull %6) #8
   %25 = call ptr @rb_string_value_cstr(ptr noundef nonnull %7) #8
   %26 = call i32 @EVP_PKEY_CTX_ctrl_str(ptr noundef %10, ptr noundef %24, ptr noundef %25) #8
@@ -2918,37 +3408,39 @@ RB_SYMBOL_P.exit.thread3:                         ; preds = %13, %RB_SYMBOL_P.ex
   br i1 %27, label %28, label %32
 
 28:                                               ; preds = %RB_SYMBOL_P.exit.thread3
-  %29 = load i64, ptr @ePKeyError, align 8
-  %30 = load i64, ptr %6, align 8
-  %31 = load i64, ptr %7, align 8
+  %29 = load i64, ptr @ePKeyError, align 8, !tbaa !10
+  %30 = load i64, ptr %6, align 8, !tbaa !10
+  %31 = load i64, ptr %7, align 8, !tbaa !10
   call void (i64, ptr, ...) @ossl_raise(i64 noundef %29, ptr noundef nonnull @.str.50, i64 noundef %30, i64 noundef %31) #9
   unreachable
 
 32:                                               ; preds = %RB_SYMBOL_P.exit.thread3
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
   ret i64 4
 }
 
 ; Function Attrs: cold noreturn
-declare void @rb_unexpected_type(i64 noundef, i32 noundef) local_unnamed_addr #5
+declare void @rb_unexpected_type(i64 noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i64 @rb_ary_entry(i64 noundef, i64 noundef) local_unnamed_addr #6
+declare i64 @rb_ary_entry(i64 noundef, i64 noundef) local_unnamed_addr #7
 
-declare i64 @rb_sym2str(i64 noundef) local_unnamed_addr #1
+declare i64 @rb_sym2str(i64 noundef) local_unnamed_addr #2
 
-declare i64 @rb_String(i64 noundef) local_unnamed_addr #1
+declare i64 @rb_String(i64 noundef) local_unnamed_addr #2
 
-declare i32 @EVP_PKEY_CTX_ctrl_str(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @EVP_PKEY_CTX_ctrl_str(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @EVP_PKEY_CTX_get_app_data(ptr noundef) local_unnamed_addr #1
+declare ptr @EVP_PKEY_CTX_get_app_data(ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @pkey_gen_cb_yield(i64 noundef %0) #0 {
   %2 = inttoptr i64 %0 to ptr
   %3 = tail call i32 @EVP_PKEY_CTX_get_keygen_info(ptr noundef %2, i32 noundef -1) #8
   %4 = sext i32 %3 to i64
   %5 = icmp slt i32 %3, 0
-  br i1 %5, label %6, label %rbimpl_size_mul_or_raise.exit
+  br i1 %5, label %6, label %rbimpl_size_mul_or_raise.exit, !prof !119
 
 6:                                                ; preds = %1
   tail call void @ruby_malloc_size_overflow(i64 noundef 8, i64 noundef range(i64 -2147483648, 2147483648) %4) #9
@@ -2972,225 +3464,276 @@ rbimpl_size_mul_or_raise.exit:                    ; preds = %1
   %12 = shl nsw i64 %11, 1
   %13 = or disjoint i64 %12, 1
   %14 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv
-  store i64 %13, ptr %14, align 8
+  store i64 %13, ptr %14, align 8, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !89
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !120
 
 ._crit_edge:                                      ; preds = %.lr.ph, %rbimpl_size_mul_or_raise.exit
   %15 = call i64 @rb_yield_values2(i32 noundef %3, ptr noundef nonnull %8) #8
   ret i64 %15
 }
 
-declare ptr @rb_thread_call_with_gvl(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare ptr @rb_thread_call_with_gvl(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define internal ptr @call_check_ints(ptr readnone captures(none) %0) #0 {
   %2 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #8
   %3 = call i64 @rb_protect(ptr noundef nonnull @call_check_ints0, i64 noundef 4, ptr noundef nonnull %2) #8
-  %4 = load i32, ptr %2, align 4
+  %4 = load i32, ptr %2, align 4, !tbaa !6
   %5 = sext i32 %4 to i64
   %6 = inttoptr i64 %5 to ptr
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #8
   ret ptr %6
 }
 
-declare i32 @EVP_PKEY_CTX_get_keygen_info(ptr noundef, i32 noundef) local_unnamed_addr #1
+declare i32 @EVP_PKEY_CTX_get_keygen_info(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i64 @rb_yield_values2(i32 noundef, ptr noundef) local_unnamed_addr #1
+declare i64 @rb_yield_values2(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: noreturn
-declare void @ruby_malloc_size_overflow(i64 noundef, i64 noundef) local_unnamed_addr #2
+declare void @ruby_malloc_size_overflow(i64 noundef, i64 noundef) local_unnamed_addr #3
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @call_check_ints0(i64 %0) #0 {
   tail call void @rb_thread_check_ints() #8
   ret i64 4
 }
 
-declare void @rb_thread_check_ints() local_unnamed_addr #1
+declare void @rb_thread_check_ints() local_unnamed_addr #2
 
-declare i32 @EVP_PKEY_paramgen(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @EVP_PKEY_paramgen(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @EVP_PKEY_keygen(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @EVP_PKEY_keygen(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i64 @rb_string_value(ptr noundef) local_unnamed_addr #1
+declare i64 @rb_string_value(ptr noundef) local_unnamed_addr #2
 
-declare ptr @EVP_PKEY_asn1_find_str(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+declare ptr @EVP_PKEY_asn1_find_str(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @EVP_PKEY_asn1_get0_info(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @EVP_PKEY_asn1_get0_info(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @EVP_PKEY_new_raw_private_key(i32 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+declare ptr @EVP_PKEY_new_raw_private_key(i32 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold noreturn
-declare void @rb_out_of_int(i64 noundef) local_unnamed_addr #5
+declare void @rb_out_of_int(i64 noundef) local_unnamed_addr #6
 
-declare ptr @EVP_PKEY_new_raw_public_key(i32 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+declare ptr @EVP_PKEY_new_raw_public_key(i32 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i64 @rb_data_typed_object_wrap(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i64 @rb_data_typed_object_wrap(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i64 @rb_obj_is_instance_of(i64 noundef, i64 noundef) local_unnamed_addr #1
+declare i64 @rb_obj_is_instance_of(i64 noundef, i64 noundef) local_unnamed_addr #2
 
-declare ptr @EVP_PKEY_dup(ptr noundef) local_unnamed_addr #1
+declare ptr @EVP_PKEY_dup(ptr noundef) local_unnamed_addr #2
 
-declare i32 @EVP_PKEY_get_id(ptr noundef) local_unnamed_addr #1
+declare i32 @EVP_PKEY_get_id(ptr noundef) local_unnamed_addr #2
 
-declare i64 @rb_str_new_cstr(ptr noundef) local_unnamed_addr #1
+declare i64 @rb_str_new_cstr(ptr noundef) local_unnamed_addr #2
 
-declare ptr @OBJ_nid2sn(i32 noundef) local_unnamed_addr #1
+declare ptr @OBJ_nid2sn(i32 noundef) local_unnamed_addr #2
 
-declare i64 @rb_sprintf(ptr noundef, ...) local_unnamed_addr #1
+declare i64 @rb_sprintf(ptr noundef, ...) local_unnamed_addr #2
 
-declare i64 @rb_class_name(i64 noundef) local_unnamed_addr #1
+declare i64 @rb_class_name(i64 noundef) local_unnamed_addr #2
 
-declare i32 @EVP_PKEY_print_private(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @EVP_PKEY_print_private(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @EVP_PKEY_print_public(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @EVP_PKEY_print_public(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @EVP_PKEY_print_params(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @EVP_PKEY_print_params(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
-define internal fastcc i64 @do_pkcs8_export(i32 noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
+; Function Attrs: nounwind sspstrong uwtable
+define internal fastcc i64 @do_pkcs8_export(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
-  %7 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @ossl_evp_pkey_type) #8
-  %.not = icmp eq ptr %7, null
-  br i1 %.not, label %8, label %10
+  %7 = alloca [2 x ptr], align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  %8 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @ossl_evp_pkey_type) #8
+  %.not = icmp eq ptr %8, null
+  br i1 %.not, label %9, label %11
 
-8:                                                ; preds = %4
-  %9 = load i64, ptr @rb_eRuntimeError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %9, ptr noundef nonnull @.str.4) #9
+9:                                                ; preds = %4
+  %10 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !10
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %10, ptr noundef nonnull @.str.4) #9
   unreachable
 
-10:                                               ; preds = %4
-  %11 = call i32 (i32, ptr, ptr, ...) @rb_scan_args(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.7, ptr noundef nonnull %5, ptr noundef nonnull %6) #8
-  %12 = icmp sgt i32 %0, 0
-  br i1 %12, label %13, label %18
+11:                                               ; preds = %4
+  store ptr %5, ptr %7, align 8, !tbaa !25
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store ptr %6, ptr %12, align 8, !tbaa !25
+  %13 = icmp sgt i32 %0, 0
+  %14 = icmp slt i32 %0, 0
+  br i1 %14, label %30, label %.preheader
 
-13:                                               ; preds = %10
-  %14 = load i64, ptr %5, align 8
-  %15 = call ptr @ossl_evp_get_cipherbyname(i64 noundef %14) #8
-  %16 = load i64, ptr %6, align 8
-  %17 = call i64 @ossl_pem_passwd_value(i64 noundef %16) #8
-  store i64 %17, ptr %6, align 8
-  br label %18
+.preheader:                                       ; preds = %11, %27
+  %indvars.iv = phi i64 [ %indvars.iv.next, %27 ], [ 0, %11 ]
+  %.185.i22 = phi i32 [ %.286.i, %27 ], [ 0, %11 ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %15 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %16 = load ptr, ptr %15, align 8, !tbaa !25
+  %17 = icmp slt i32 %.185.i22, %0
+  %.not108.i = icmp eq ptr %16, null
+  br i1 %17, label %18, label %25
 
-18:                                               ; preds = %13, %10
-  %.0 = phi ptr [ %15, %13 ], [ null, %10 ]
-  %19 = call ptr @BIO_s_mem() #8
-  %20 = call ptr @BIO_new(ptr noundef %19) #8
-  %.not17 = icmp eq ptr %20, null
-  br i1 %.not17, label %21, label %23
+18:                                               ; preds = %.preheader
+  br i1 %.not108.i, label %23, label %19
 
-21:                                               ; preds = %18
-  %22 = load i64, ptr @ePKeyError, align 8
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %22, ptr noundef nonnull @.str.8) #9
+19:                                               ; preds = %18
+  %20 = sext i32 %.185.i22 to i64
+  %21 = getelementptr inbounds i64, ptr %1, i64 %20
+  %22 = load i64, ptr %21, align 8, !tbaa !10
+  store i64 %22, ptr %16, align 8, !tbaa !10
+  br label %23
+
+23:                                               ; preds = %19, %18
+  %24 = add nsw i32 %.185.i22, 1
+  br label %27
+
+25:                                               ; preds = %.preheader
+  br i1 %.not108.i, label %27, label %26
+
+26:                                               ; preds = %25
+  store i64 4, ptr %16, align 8, !tbaa !10
+  br label %27
+
+27:                                               ; preds = %26, %25, %23
+  %.286.i = phi i32 [ %24, %23 ], [ %.185.i22, %26 ], [ %.185.i22, %25 ]
+  %exitcond.not = icmp eq i64 %indvars.iv.next, 2
+  br i1 %exitcond.not, label %28, label %.preheader, !llvm.loop !27
+
+28:                                               ; preds = %27
+  %29 = icmp eq i32 %.286.i, %0
+  br i1 %29, label %rb_scan_args_set.exit, label %30
+
+30:                                               ; preds = %28, %11
+  call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 2) #9
   unreachable
 
-23:                                               ; preds = %18
+rb_scan_args_set.exit:                            ; preds = %28
+  br i1 %13, label %31, label %36
+
+31:                                               ; preds = %rb_scan_args_set.exit
+  %32 = load i64, ptr %5, align 8, !tbaa !10
+  %33 = call ptr @ossl_evp_get_cipherbyname(i64 noundef %32) #8
+  %34 = load i64, ptr %6, align 8, !tbaa !10
+  %35 = call i64 @ossl_pem_passwd_value(i64 noundef %34) #8
+  store i64 %35, ptr %6, align 8, !tbaa !10
+  br label %36
+
+36:                                               ; preds = %31, %rb_scan_args_set.exit
+  %.0 = phi ptr [ %33, %31 ], [ null, %rb_scan_args_set.exit ]
+  %37 = call ptr @BIO_s_mem() #8
+  %38 = call ptr @BIO_new(ptr noundef %37) #8
+  %.not17 = icmp eq ptr %38, null
+  br i1 %.not17, label %39, label %41
+
+39:                                               ; preds = %36
+  %40 = load i64, ptr @ePKeyError, align 8, !tbaa !10
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %40, ptr noundef nonnull @.str.8) #9
+  unreachable
+
+41:                                               ; preds = %36
   %.not18 = icmp eq i32 %3, 0
-  %24 = load i64, ptr %6, align 8
-  %25 = inttoptr i64 %24 to ptr
-  br i1 %.not18, label %31, label %26
+  %42 = load i64, ptr %6, align 8, !tbaa !10
+  %43 = inttoptr i64 %42 to ptr
+  br i1 %.not18, label %49, label %44
 
-26:                                               ; preds = %23
-  %27 = call i32 @i2d_PKCS8PrivateKey_bio(ptr noundef nonnull %20, ptr noundef nonnull %7, ptr noundef %.0, ptr noundef null, i32 noundef 0, ptr noundef nonnull @ossl_pem_passwd_cb, ptr noundef %25) #8
-  %.not20 = icmp eq i32 %27, 0
-  br i1 %.not20, label %28, label %36
+44:                                               ; preds = %41
+  %45 = call i32 @i2d_PKCS8PrivateKey_bio(ptr noundef nonnull %38, ptr noundef nonnull %8, ptr noundef %.0, ptr noundef null, i32 noundef 0, ptr noundef nonnull @ossl_pem_passwd_cb, ptr noundef %43) #8
+  %.not20 = icmp eq i32 %45, 0
+  br i1 %.not20, label %46, label %54
 
-28:                                               ; preds = %26
-  %29 = call i32 @BIO_free(ptr noundef nonnull %20) #8
-  %30 = load i64, ptr @ePKeyError, align 8
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %30, ptr noundef nonnull @.str.59) #9
+46:                                               ; preds = %44
+  %47 = call i32 @BIO_free(ptr noundef nonnull %38) #8
+  %48 = load i64, ptr @ePKeyError, align 8, !tbaa !10
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %48, ptr noundef nonnull @.str.59) #9
   unreachable
 
-31:                                               ; preds = %23
-  %32 = call i32 @PEM_write_bio_PKCS8PrivateKey(ptr noundef nonnull %20, ptr noundef nonnull %7, ptr noundef %.0, ptr noundef null, i32 noundef 0, ptr noundef nonnull @ossl_pem_passwd_cb, ptr noundef %25) #8
-  %.not19 = icmp eq i32 %32, 0
-  br i1 %.not19, label %33, label %36
+49:                                               ; preds = %41
+  %50 = call i32 @PEM_write_bio_PKCS8PrivateKey(ptr noundef nonnull %38, ptr noundef nonnull %8, ptr noundef %.0, ptr noundef null, i32 noundef 0, ptr noundef nonnull @ossl_pem_passwd_cb, ptr noundef %43) #8
+  %.not19 = icmp eq i32 %50, 0
+  br i1 %.not19, label %51, label %54
 
-33:                                               ; preds = %31
-  %34 = call i32 @BIO_free(ptr noundef nonnull %20) #8
-  %35 = load i64, ptr @ePKeyError, align 8
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %35, ptr noundef nonnull @.str.60) #9
+51:                                               ; preds = %49
+  %52 = call i32 @BIO_free(ptr noundef nonnull %38) #8
+  %53 = load i64, ptr @ePKeyError, align 8, !tbaa !10
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %53, ptr noundef nonnull @.str.60) #9
   unreachable
 
-36:                                               ; preds = %31, %26
-  %37 = call i64 @ossl_membio2str(ptr noundef nonnull %20) #8
-  ret i64 %37
+54:                                               ; preds = %49, %44
+  %55 = call i64 @ossl_membio2str(ptr noundef nonnull %38) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  ret i64 %55
 }
 
-declare i32 @i2d_PKCS8PrivateKey_bio(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @i2d_PKCS8PrivateKey_bio(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @PEM_write_bio_PKCS8PrivateKey(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @PEM_write_bio_PKCS8PrivateKey(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @EVP_PKEY_get_raw_private_key(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @EVP_PKEY_get_raw_private_key(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i64 @rb_str_new(ptr noundef, i64 noundef) local_unnamed_addr #1
+declare i64 @rb_str_new(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @rb_str_set_len(i64 noundef, i64 noundef) local_unnamed_addr #1
+declare void @rb_str_set_len(i64 noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @EVP_PKEY_get_raw_public_key(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @EVP_PKEY_get_raw_public_key(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @EVP_PKEY_eq(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @EVP_PKEY_eq(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @ossl_evp_get_digestbyname(i64 noundef) local_unnamed_addr #1
+declare ptr @ossl_evp_get_digestbyname(i64 noundef) local_unnamed_addr #2
 
-declare ptr @EVP_MD_CTX_new() local_unnamed_addr #1
+declare ptr @EVP_MD_CTX_new() local_unnamed_addr #2
 
-declare i32 @EVP_DigestSignInit(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @EVP_DigestSignInit(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @EVP_MD_CTX_free(ptr noundef) local_unnamed_addr #1
+declare void @EVP_MD_CTX_free(ptr noundef) local_unnamed_addr #2
 
-declare i32 @EVP_DigestSign(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+declare i32 @EVP_DigestSign(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i64 @ossl_str_new(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
+declare i64 @ossl_str_new(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @EVP_DigestVerifyInit(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @EVP_DigestVerifyInit(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @EVP_DigestVerify(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+declare i32 @EVP_DigestVerify(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @EVP_PKEY_sign_init(ptr noundef) local_unnamed_addr #1
+declare i32 @EVP_PKEY_sign_init(ptr noundef) local_unnamed_addr #2
 
-declare i32 @EVP_PKEY_CTX_set_signature_md(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @EVP_PKEY_CTX_set_signature_md(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @EVP_PKEY_sign(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+declare i32 @EVP_PKEY_sign(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @EVP_PKEY_verify_init(ptr noundef) local_unnamed_addr #1
+declare i32 @EVP_PKEY_verify_init(ptr noundef) local_unnamed_addr #2
 
-declare i32 @EVP_PKEY_verify(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+declare i32 @EVP_PKEY_verify(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @EVP_PKEY_verify_recover_init(ptr noundef) local_unnamed_addr #1
+declare i32 @EVP_PKEY_verify_recover_init(ptr noundef) local_unnamed_addr #2
 
-declare i32 @EVP_PKEY_verify_recover(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+declare i32 @EVP_PKEY_verify_recover(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @EVP_PKEY_derive_init(ptr noundef) local_unnamed_addr #1
+declare i32 @EVP_PKEY_derive_init(ptr noundef) local_unnamed_addr #2
 
-declare i32 @EVP_PKEY_derive_set_peer(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @EVP_PKEY_derive_set_peer(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @EVP_PKEY_derive(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @EVP_PKEY_derive(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @EVP_PKEY_encrypt_init(ptr noundef) local_unnamed_addr #1
+declare i32 @EVP_PKEY_encrypt_init(ptr noundef) local_unnamed_addr #2
 
-declare i32 @EVP_PKEY_encrypt(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+declare i32 @EVP_PKEY_encrypt(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @EVP_PKEY_decrypt_init(ptr noundef) local_unnamed_addr #1
+declare i32 @EVP_PKEY_decrypt_init(ptr noundef) local_unnamed_addr #2
 
-declare i32 @EVP_PKEY_decrypt(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+declare i32 @EVP_PKEY_decrypt(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
-
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { cold noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { cold noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nounwind }
 attributes #9 = { noreturn nounwind }
 attributes #10 = { cold noreturn nounwind }
@@ -3203,54 +3746,54 @@ attributes #11 = { nounwind willreturn memory(read) }
 !2 = !{i32 1, !"wchar_size", i32 4}
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
-!5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = !{!11}
-!11 = distinct !{!11, !12, !"rbimpl_rstring_getmem: argument 0"}
-!12 = distinct !{!12, !"rbimpl_rstring_getmem"}
-!13 = !{!14}
-!14 = distinct !{!14, !15, !"rbimpl_rstring_getmem: argument 0"}
-!15 = distinct !{!15, !"rbimpl_rstring_getmem"}
-!16 = !{!17}
-!17 = distinct !{!17, !18, !"rbimpl_rstring_getmem: argument 0"}
-!18 = distinct !{!18, !"rbimpl_rstring_getmem"}
-!19 = !{!20}
-!20 = distinct !{!20, !21, !"rbimpl_rstring_getmem: argument 0"}
-!21 = distinct !{!21, !"rbimpl_rstring_getmem"}
-!22 = distinct !{ptr @rb_str_new, null}
-!23 = !{!24}
-!24 = distinct !{!24, !25, !"rbimpl_rstring_getmem: argument 0"}
-!25 = distinct !{!25, !"rbimpl_rstring_getmem"}
-!26 = !{!27}
-!27 = distinct !{!27, !28, !"rbimpl_rstring_getmem: argument 0"}
-!28 = distinct !{!28, !"rbimpl_rstring_getmem"}
+!5 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"int", !8, i64 0}
+!8 = !{!"omnipotent char", !9, i64 0}
+!9 = !{!"Simple C/C++ TBAA"}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"long", !8, i64 0}
+!12 = !{!13, !16, i64 32}
+!13 = !{!"RTypedData", !14, i64 0, !15, i64 16, !11, i64 24, !16, i64 32}
+!14 = !{!"RBasic", !11, i64 0, !11, i64 8}
+!15 = !{!"p1 _ZTS19rb_data_type_struct", !16, i64 0}
+!16 = !{!"any pointer", !8, i64 0}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"p1 omnipotent char", !16, i64 0}
+!19 = distinct !{!19, !20}
+!20 = !{!"llvm.loop.mustprogress"}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"p1 _ZTS11evp_pkey_st", !16, i64 0}
+!23 = distinct !{!23, !20}
+!24 = distinct !{!24, !20}
+!25 = !{!26, !26, i64 0}
+!26 = !{!"p1 long", !16, i64 0}
+!27 = distinct !{!27, !20}
+!28 = !{!14, !11, i64 0}
 !29 = !{!30}
 !30 = distinct !{!30, !31, !"rbimpl_rstring_getmem: argument 0"}
 !31 = distinct !{!31, !"rbimpl_rstring_getmem"}
-!32 = !{!33}
-!33 = distinct !{!33, !34, !"rbimpl_rstring_getmem: argument 0"}
-!34 = distinct !{!34, !"rbimpl_rstring_getmem"}
-!35 = !{!36}
-!36 = distinct !{!36, !37, !"rbimpl_rstring_getmem: argument 0"}
-!37 = distinct !{!37, !"rbimpl_rstring_getmem"}
-!38 = !{!39}
-!39 = distinct !{!39, !40, !"rbimpl_rstring_getmem: argument 0"}
-!40 = distinct !{!40, !"rbimpl_rstring_getmem"}
-!41 = !{!42}
-!42 = distinct !{!42, !43, !"rbimpl_rstring_getmem: argument 0"}
-!43 = distinct !{!43, !"rbimpl_rstring_getmem"}
+!32 = !{!33, !11, i64 16}
+!33 = !{!"RString", !14, i64 0, !11, i64 16, !8, i64 24}
+!34 = !{!35}
+!35 = distinct !{!35, !36, !"rbimpl_rstring_getmem: argument 0"}
+!36 = distinct !{!36, !"rbimpl_rstring_getmem"}
+!37 = !{!38}
+!38 = distinct !{!38, !39, !"rbimpl_rstring_getmem: argument 0"}
+!39 = distinct !{!39, !"rbimpl_rstring_getmem"}
+!40 = !{!41}
+!41 = distinct !{!41, !42, !"rbimpl_rstring_getmem: argument 0"}
+!42 = distinct !{!42, !"rbimpl_rstring_getmem"}
+!43 = distinct !{ptr @rb_str_new, null}
 !44 = !{!45}
 !45 = distinct !{!45, !46, !"rbimpl_rstring_getmem: argument 0"}
 !46 = distinct !{!46, !"rbimpl_rstring_getmem"}
 !47 = !{!48}
 !48 = distinct !{!48, !49, !"rbimpl_rstring_getmem: argument 0"}
 !49 = distinct !{!49, !"rbimpl_rstring_getmem"}
-!50 = !{!51}
-!51 = distinct !{!51, !52, !"rbimpl_rstring_getmem: argument 0"}
-!52 = distinct !{!52, !"rbimpl_rstring_getmem"}
+!50 = distinct !{!50, !20}
+!51 = !{!52, !52, i64 0}
+!52 = !{!"p1 _ZTS15evp_pkey_ctx_st", !16, i64 0}
 !53 = !{!54}
 !54 = distinct !{!54, !55, !"rbimpl_rstring_getmem: argument 0"}
 !55 = distinct !{!55, !"rbimpl_rstring_getmem"}
@@ -3287,4 +3830,35 @@ attributes #11 = { nounwind willreturn memory(read) }
 !86 = !{!87}
 !87 = distinct !{!87, !88, !"rbimpl_rstring_getmem: argument 0"}
 !88 = distinct !{!88, !"rbimpl_rstring_getmem"}
-!89 = distinct !{!89, !7}
+!89 = !{!90}
+!90 = distinct !{!90, !91, !"rbimpl_rstring_getmem: argument 0"}
+!91 = distinct !{!91, !"rbimpl_rstring_getmem"}
+!92 = !{!93}
+!93 = distinct !{!93, !94, !"rbimpl_rstring_getmem: argument 0"}
+!94 = distinct !{!94, !"rbimpl_rstring_getmem"}
+!95 = !{!96}
+!96 = distinct !{!96, !97, !"rbimpl_rstring_getmem: argument 0"}
+!97 = distinct !{!97, !"rbimpl_rstring_getmem"}
+!98 = !{!99}
+!99 = distinct !{!99, !100, !"rbimpl_rstring_getmem: argument 0"}
+!100 = distinct !{!100, !"rbimpl_rstring_getmem"}
+!101 = !{!102}
+!102 = distinct !{!102, !103, !"rbimpl_rstring_getmem: argument 0"}
+!103 = distinct !{!103, !"rbimpl_rstring_getmem"}
+!104 = !{!105}
+!105 = distinct !{!105, !106, !"rbimpl_rstring_getmem: argument 0"}
+!106 = distinct !{!106, !"rbimpl_rstring_getmem"}
+!107 = !{!108}
+!108 = distinct !{!108, !109, !"rbimpl_rstring_getmem: argument 0"}
+!109 = distinct !{!109, !"rbimpl_rstring_getmem"}
+!110 = !{!111}
+!111 = distinct !{!111, !112, !"rbimpl_rstring_getmem: argument 0"}
+!112 = distinct !{!112, !"rbimpl_rstring_getmem"}
+!113 = !{!114, !52, i64 0}
+!114 = !{!"pkey_blocking_generate_arg", !52, i64 0, !22, i64 8, !7, i64 16, !7, i64 20, !7, i64 20, !7, i64 20}
+!115 = !{!114, !22, i64 8}
+!116 = !{!114, !7, i64 16}
+!117 = !{!"branch_weights", i32 1073205, i32 2146410443}
+!118 = !{!"branch_weights", !"expected", i32 -2147483648, i32 0}
+!119 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!120 = distinct !{!120, !20}

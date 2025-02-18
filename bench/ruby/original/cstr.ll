@@ -23,99 +23,109 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.8 = private unnamed_addr constant [9 x i8] c"beg: %ld\00", align 1
 @.str.9 = private unnamed_addr constant [9 x i8] c"end: %ld\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define weak i64 @ruby_abi_version() #0 {
   ret i64 0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define void @Init_string_cstr(i64 noundef %0) #0 {
   %2 = alloca i64, align 8
-  store i64 %0, ptr %2, align 8
-  %3 = load i64, ptr %2, align 8
+  store i64 %0, ptr %2, align 8, !tbaa !6
+  %3 = load i64, ptr %2, align 8, !tbaa !6
   call void @rb_define_method(i64 noundef %3, ptr noundef @.str, ptr noundef @bug_str_cstr_term, i32 noundef 0)
-  %4 = load i64, ptr %2, align 8
+  %4 = load i64, ptr %2, align 8, !tbaa !6
   call void @rb_define_method(i64 noundef %4, ptr noundef @.str.1, ptr noundef @bug_str_cstr_unterm, i32 noundef 1)
-  %5 = load i64, ptr %2, align 8
+  %5 = load i64, ptr %2, align 8, !tbaa !6
   call void @rb_define_method(i64 noundef %5, ptr noundef @.str.2, ptr noundef @bug_str_cstr_term_char, i32 noundef 0)
-  %6 = load i64, ptr %2, align 8
+  %6 = load i64, ptr %2, align 8, !tbaa !6
   call void @rb_define_method(i64 noundef %6, ptr noundef @.str.3, ptr noundef @bug_str_unterminated_substring, i32 noundef 2)
-  %7 = load i64, ptr %2, align 8
+  %7 = load i64, ptr %2, align 8, !tbaa !6
   call void @rb_define_singleton_method(i64 noundef %7, ptr noundef @.str, ptr noundef @bug_str_s_cstr_term, i32 noundef 1)
-  %8 = load i64, ptr %2, align 8
+  %8 = load i64, ptr %2, align 8, !tbaa !6
   call void @rb_define_singleton_method(i64 noundef %8, ptr noundef @.str.1, ptr noundef @bug_str_s_cstr_unterm, i32 noundef 2)
-  %9 = load i64, ptr %2, align 8
+  %9 = load i64, ptr %2, align 8, !tbaa !6
   call void @rb_define_singleton_method(i64 noundef %9, ptr noundef @.str.2, ptr noundef @bug_str_s_cstr_term_char, i32 noundef 1)
-  %10 = load i64, ptr %2, align 8
+  %10 = load i64, ptr %2, align 8, !tbaa !6
   call void @rb_define_singleton_method(i64 noundef %10, ptr noundef @.str.4, ptr noundef @bug_str_s_cstr_noembed, i32 noundef 1)
-  %11 = load i64, ptr %2, align 8
+  %11 = load i64, ptr %2, align 8, !tbaa !6
   call void @rb_define_singleton_method(i64 noundef %11, ptr noundef @.str.5, ptr noundef @bug_str_s_cstr_embedded_p, i32 noundef 1)
-  %12 = load i64, ptr %2, align 8
+  %12 = load i64, ptr %2, align 8, !tbaa !6
   call void @rb_define_singleton_method(i64 noundef %12, ptr noundef @.str.6, ptr noundef @bug_str_s_rb_str_new_frozen, i32 noundef 1)
   ret void
 }
 
 declare extern_weak void @rb_define_method(i64 noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @bug_str_cstr_term(i64 noundef %0) #0 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
-  store i64 %0, ptr %2, align 8
-  %7 = load i64, ptr %2, align 8
-  %8 = call i64 @RSTRING_LEN(i64 noundef %7) #13
-  store i64 %8, ptr %3, align 8
+  store i64 %0, ptr %2, align 8, !tbaa !6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #19
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #19
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #19
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #19
+  %7 = load i64, ptr %2, align 8, !tbaa !6
+  %8 = call i64 @RSTRING_LEN(i64 noundef %7) #20
+  store i64 %8, ptr %3, align 8, !tbaa !6
   %9 = call ptr @rb_string_value_cstr(ptr noundef %2)
-  store ptr %9, ptr %4, align 8
+  store ptr %9, ptr %4, align 8, !tbaa !10
   call void @rb_gc()
-  %10 = load i64, ptr %2, align 8
+  %10 = load i64, ptr %2, align 8, !tbaa !6
   %11 = call ptr @rb_enc_get(i64 noundef %10)
-  store ptr %11, ptr %6, align 8
-  %12 = load ptr, ptr %4, align 8
-  %13 = load i64, ptr %3, align 8
+  store ptr %11, ptr %6, align 8, !tbaa !13
+  %12 = load ptr, ptr %4, align 8, !tbaa !10
+  %13 = load i64, ptr %3, align 8, !tbaa !6
   %14 = getelementptr inbounds i8, ptr %12, i64 %13
-  %15 = load ptr, ptr %4, align 8
-  %16 = load i64, ptr %3, align 8
-  %17 = load ptr, ptr %6, align 8
+  %15 = load ptr, ptr %4, align 8, !tbaa !10
+  %16 = load i64, ptr %3, align 8, !tbaa !6
+  %17 = load ptr, ptr %6, align 8, !tbaa !13
   %18 = call i32 @rb_enc_mbminlen(ptr noundef %17)
   %19 = sext i32 %18 to i64
   %20 = add nsw i64 %16, %19
   %21 = getelementptr inbounds i8, ptr %15, i64 %20
-  %22 = load ptr, ptr %6, align 8
+  %22 = load ptr, ptr %6, align 8, !tbaa !13
   %23 = call i32 @rb_enc_codepoint(ptr noundef %14, ptr noundef %21, ptr noundef %22)
-  store i32 %23, ptr %5, align 4
-  %24 = load i32, ptr %5, align 4
+  store i32 %23, ptr %5, align 4, !tbaa !15
+  %24 = load i32, ptr %5, align 4, !tbaa !15
   %25 = call i64 @rb_int2num_inline(i32 noundef %24)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #19
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #19
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #19
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #19
   ret i64 %25
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @bug_str_cstr_unterm(i64 noundef %0, i64 noundef %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
-  store i64 %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
-  %6 = load i64, ptr %3, align 8
+  store i64 %0, ptr %3, align 8, !tbaa !6
+  store i64 %1, ptr %4, align 8, !tbaa !6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #19
+  %6 = load i64, ptr %3, align 8, !tbaa !6
   call void @rb_str_modify(i64 noundef %6)
-  %7 = load i64, ptr %3, align 8
-  %8 = call i64 @RSTRING_LEN(i64 noundef %7) #13
-  store i64 %8, ptr %5, align 8
-  %9 = load i64, ptr %4, align 8
+  %7 = load i64, ptr %3, align 8, !tbaa !6
+  %8 = call i64 @RSTRING_LEN(i64 noundef %7) #20
+  store i64 %8, ptr %5, align 8, !tbaa !6
+  %9 = load i64, ptr %4, align 8, !tbaa !6
   %10 = call signext i8 @rb_num2char_inline(i64 noundef %9)
-  %11 = load i64, ptr %3, align 8
+  %11 = load i64, ptr %3, align 8, !tbaa !6
   %12 = call ptr @RSTRING_PTR(i64 noundef %11)
-  %13 = load i64, ptr %5, align 8
+  %13 = load i64, ptr %5, align 8, !tbaa !6
   %14 = getelementptr inbounds i8, ptr %12, i64 %13
-  store i8 %10, ptr %14, align 1
-  %15 = load i64, ptr %3, align 8
+  store i8 %10, ptr %14, align 1, !tbaa !17
+  %15 = load i64, ptr %3, align 8, !tbaa !6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #19
   ret i64 %15
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @bug_str_cstr_term_char(i64 noundef %0) #0 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
@@ -125,226 +135,243 @@ define internal i64 @bug_str_cstr_term_char(i64 noundef %0) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca %struct.RString, align 8
   %9 = alloca i64, align 8
-  store i64 %0, ptr %3, align 8
-  %10 = load i64, ptr %3, align 8
-  %11 = call ptr @rb_enc_get(i64 noundef %10)
-  store ptr %11, ptr %7, align 8
-  %12 = load i64, ptr %3, align 8
-  call void @rbimpl_rstring_getmem(ptr dead_on_unwind writable sret(%struct.RString) align 8 %8, i64 noundef %12) #14
-  %13 = getelementptr inbounds %struct.RString, ptr %8, i32 0, i32 2
-  %14 = getelementptr inbounds %struct.anon, ptr %13, i32 0, i32 0
-  %15 = load ptr, ptr %14, align 8
-  store ptr %15, ptr %5, align 8
-  %16 = getelementptr inbounds %struct.RString, ptr %8, i32 0, i32 1
-  %17 = load i64, ptr %16, align 8
-  store i64 %17, ptr %4, align 8
-  store i64 %17, ptr %9, align 8
-  %18 = load i64, ptr %4, align 8
-  %19 = load ptr, ptr %5, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 %18
-  store ptr %20, ptr %5, align 8
-  %21 = load ptr, ptr %7, align 8
-  %22 = call i32 @rb_enc_mbminlen(ptr noundef %21)
-  %23 = sext i32 %22 to i64
-  store i64 %23, ptr %4, align 8
-  %24 = load ptr, ptr %5, align 8
-  %25 = load ptr, ptr %5, align 8
-  %26 = load i64, ptr %4, align 8
-  %27 = getelementptr inbounds i8, ptr %25, i64 %26
-  %28 = load ptr, ptr %7, align 8
-  %29 = call i32 @rb_enc_precise_mbclen(ptr noundef %24, ptr noundef %27, ptr noundef %28)
-  store i32 %29, ptr %6, align 4
-  %30 = load i32, ptr %6, align 4
-  %31 = icmp slt i32 0, %30
-  br i1 %31, label %36, label %32
+  %10 = alloca i32, align 4
+  store i64 %0, ptr %3, align 8, !tbaa !6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #19
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #19
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #19
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #19
+  %11 = load i64, ptr %3, align 8, !tbaa !6
+  %12 = call ptr @rb_enc_get(i64 noundef %11)
+  store ptr %12, ptr %7, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 40, ptr %8) #19
+  %13 = load i64, ptr %3, align 8, !tbaa !6
+  call void @rbimpl_rstring_getmem(ptr dead_on_unwind writable sret(%struct.RString) align 8 %8, i64 noundef %13) #21
+  %14 = getelementptr inbounds nuw %struct.RString, ptr %8, i32 0, i32 2
+  %15 = getelementptr inbounds nuw %struct.anon, ptr %14, i32 0, i32 0
+  %16 = load ptr, ptr %15, align 8, !tbaa !17
+  store ptr %16, ptr %5, align 8, !tbaa !10
+  %17 = getelementptr inbounds nuw %struct.RString, ptr %8, i32 0, i32 1
+  %18 = load i64, ptr %17, align 8, !tbaa !18
+  store i64 %18, ptr %4, align 8, !tbaa !6
+  store i64 %18, ptr %9, align 8, !tbaa !6
+  call void @llvm.lifetime.end.p0(i64 40, ptr %8) #19
+  %19 = load i64, ptr %4, align 8, !tbaa !6
+  %20 = load ptr, ptr %5, align 8, !tbaa !10
+  %21 = getelementptr inbounds i8, ptr %20, i64 %19
+  store ptr %21, ptr %5, align 8, !tbaa !10
+  %22 = load ptr, ptr %7, align 8, !tbaa !13
+  %23 = call i32 @rb_enc_mbminlen(ptr noundef %22)
+  %24 = sext i32 %23 to i64
+  store i64 %24, ptr %4, align 8, !tbaa !6
+  %25 = load ptr, ptr %5, align 8, !tbaa !10
+  %26 = load ptr, ptr %5, align 8, !tbaa !10
+  %27 = load i64, ptr %4, align 8, !tbaa !6
+  %28 = getelementptr inbounds i8, ptr %26, i64 %27
+  %29 = load ptr, ptr %7, align 8, !tbaa !13
+  %30 = call i32 @rb_enc_precise_mbclen(ptr noundef %25, ptr noundef %28, ptr noundef %29)
+  store i32 %30, ptr %6, align 4, !tbaa !15
+  %31 = load i32, ptr %6, align 4, !tbaa !15
+  %32 = icmp slt i32 0, %31
+  br i1 %32, label %37, label %33
 
-32:                                               ; preds = %1
-  %33 = load ptr, ptr %5, align 8
-  %34 = load i8, ptr %33, align 1
-  %35 = zext i8 %34 to i32
-  store i32 %35, ptr %6, align 4
-  br label %47
+33:                                               ; preds = %1
+  %34 = load ptr, ptr %5, align 8, !tbaa !10
+  %35 = load i8, ptr %34, align 1, !tbaa !17
+  %36 = zext i8 %35 to i32
+  store i32 %36, ptr %6, align 4, !tbaa !15
+  br label %48
 
-36:                                               ; preds = %1
-  %37 = load ptr, ptr %5, align 8
-  %38 = load ptr, ptr %5, align 8
-  %39 = load i64, ptr %4, align 8
-  %40 = getelementptr inbounds i8, ptr %38, i64 %39
-  %41 = load ptr, ptr %7, align 8
-  %42 = call i32 @rb_enc_mbc_to_codepoint(ptr noundef %37, ptr noundef %40, ptr noundef %41)
-  store i32 %42, ptr %6, align 4
-  %43 = load i32, ptr %6, align 4
-  %44 = icmp ne i32 %43, 0
-  br i1 %44, label %46, label %45
+37:                                               ; preds = %1
+  %38 = load ptr, ptr %5, align 8, !tbaa !10
+  %39 = load ptr, ptr %5, align 8, !tbaa !10
+  %40 = load i64, ptr %4, align 8, !tbaa !6
+  %41 = getelementptr inbounds i8, ptr %39, i64 %40
+  %42 = load ptr, ptr %7, align 8, !tbaa !13
+  %43 = call i32 @rb_enc_mbc_to_codepoint(ptr noundef %38, ptr noundef %41, ptr noundef %42)
+  store i32 %43, ptr %6, align 4, !tbaa !15
+  %44 = load i32, ptr %6, align 4, !tbaa !15
+  %45 = icmp ne i32 %44, 0
+  br i1 %45, label %47, label %46
 
-45:                                               ; preds = %36
+46:                                               ; preds = %37
   store i64 4, ptr %2, align 8
-  br label %51
+  store i32 1, ptr %10, align 4
+  br label %52
 
-46:                                               ; preds = %36
-  br label %47
+47:                                               ; preds = %37
+  br label %48
 
-47:                                               ; preds = %46, %32
-  %48 = load i32, ptr %6, align 4
-  %49 = load ptr, ptr %7, align 8
-  %50 = call i64 @rb_enc_uint_chr(i32 noundef %48, ptr noundef %49)
-  store i64 %50, ptr %2, align 8
-  br label %51
+48:                                               ; preds = %47, %33
+  %49 = load i32, ptr %6, align 4, !tbaa !15
+  %50 = load ptr, ptr %7, align 8, !tbaa !13
+  %51 = call i64 @rb_enc_uint_chr(i32 noundef %49, ptr noundef %50)
+  store i64 %51, ptr %2, align 8
+  store i32 1, ptr %10, align 4
+  br label %52
 
-51:                                               ; preds = %47, %45
-  %52 = load i64, ptr %2, align 8
-  ret i64 %52
+52:                                               ; preds = %48, %46
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #19
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #19
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #19
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #19
+  %53 = load i64, ptr %2, align 8
+  ret i64 %53
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @bug_str_unterminated_substring(i64 noundef %0, i64 noundef %1, i64 noundef %2) #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
-  store i64 %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
-  %9 = load i64, ptr %5, align 8
+  store i64 %0, ptr %4, align 8, !tbaa !6
+  store i64 %1, ptr %5, align 8, !tbaa !6
+  store i64 %2, ptr %6, align 8, !tbaa !6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #19
+  %9 = load i64, ptr %5, align 8, !tbaa !6
   %10 = call i64 @rb_num2long_inline(i64 noundef %9)
-  store i64 %10, ptr %7, align 8
-  %11 = load i64, ptr %6, align 8
+  store i64 %10, ptr %7, align 8, !tbaa !6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #19
+  %11 = load i64, ptr %6, align 8, !tbaa !6
   %12 = call i64 @rb_num2long_inline(i64 noundef %11)
-  store i64 %12, ptr %8, align 8
-  %13 = load i64, ptr %4, align 8
+  store i64 %12, ptr %8, align 8, !tbaa !6
+  %13 = load i64, ptr %4, align 8, !tbaa !6
   call void @rb_str_modify(i64 noundef %13)
-  %14 = load i64, ptr %8, align 8
+  %14 = load i64, ptr %8, align 8, !tbaa !6
   %15 = icmp slt i64 %14, 0
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %3
-  %17 = load i64, ptr @rb_eArgError, align 8
-  %18 = load i64, ptr %8, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %17, ptr noundef @.str.7, i64 noundef %18) #15
+  %17 = load i64, ptr @rb_eArgError, align 8, !tbaa !6
+  %18 = load i64, ptr %8, align 8, !tbaa !6
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %17, ptr noundef @.str.7, i64 noundef %18) #22
   unreachable
 
 19:                                               ; preds = %3
-  %20 = load i64, ptr %4, align 8
-  %21 = call i64 @RSTRING_LEN(i64 noundef %20) #13
-  %22 = load i64, ptr %7, align 8
+  %20 = load i64, ptr %4, align 8, !tbaa !6
+  %21 = call i64 @RSTRING_LEN(i64 noundef %20) #20
+  %22 = load i64, ptr %7, align 8, !tbaa !6
   %23 = icmp slt i64 %21, %22
   br i1 %23, label %24, label %27
 
 24:                                               ; preds = %19
-  %25 = load i64, ptr @rb_eIndexError, align 8
-  %26 = load i64, ptr %7, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %25, ptr noundef @.str.8, i64 noundef %26) #15
+  %25 = load i64, ptr @rb_eIndexError, align 8, !tbaa !6
+  %26 = load i64, ptr %7, align 8, !tbaa !6
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %25, ptr noundef @.str.8, i64 noundef %26) #22
   unreachable
 
 27:                                               ; preds = %19
-  %28 = load i64, ptr %4, align 8
-  %29 = call i64 @RSTRING_LEN(i64 noundef %28) #13
-  %30 = load i64, ptr %7, align 8
-  %31 = load i64, ptr %8, align 8
+  %28 = load i64, ptr %4, align 8, !tbaa !6
+  %29 = call i64 @RSTRING_LEN(i64 noundef %28) #20
+  %30 = load i64, ptr %7, align 8, !tbaa !6
+  %31 = load i64, ptr %8, align 8, !tbaa !6
   %32 = add nsw i64 %30, %31
   %33 = icmp slt i64 %29, %32
   br i1 %33, label %34, label %39
 
 34:                                               ; preds = %27
-  %35 = load i64, ptr @rb_eIndexError, align 8
-  %36 = load i64, ptr %7, align 8
-  %37 = load i64, ptr %8, align 8
+  %35 = load i64, ptr @rb_eIndexError, align 8, !tbaa !6
+  %36 = load i64, ptr %7, align 8, !tbaa !6
+  %37 = load i64, ptr %8, align 8, !tbaa !6
   %38 = add nsw i64 %36, %37
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %35, ptr noundef @.str.9, i64 noundef %38) #15
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %35, ptr noundef @.str.9, i64 noundef %38) #22
   unreachable
 
 39:                                               ; preds = %27
-  %40 = load i64, ptr %4, align 8
+  %40 = load i64, ptr %4, align 8, !tbaa !6
   %41 = call i64 @rb_str_new_shared(i64 noundef %40)
-  store i64 %41, ptr %4, align 8
-  %42 = load i64, ptr %8, align 8
-  %43 = load i64, ptr %4, align 8
+  store i64 %41, ptr %4, align 8, !tbaa !6
+  %42 = load i64, ptr %8, align 8, !tbaa !6
+  %43 = load i64, ptr %4, align 8, !tbaa !6
   %44 = inttoptr i64 %43 to ptr
-  %45 = getelementptr inbounds %struct.RString, ptr %44, i32 0, i32 1
-  store i64 %42, ptr %45, align 8
-  %46 = load i64, ptr %4, align 8
+  %45 = getelementptr inbounds nuw %struct.RString, ptr %44, i32 0, i32 1
+  store i64 %42, ptr %45, align 8, !tbaa !18
+  %46 = load i64, ptr %4, align 8, !tbaa !6
   %47 = call zeroext i1 @STR_EMBED_P(i64 noundef %46)
-  br i1 %47, label %48, label %62
+  br i1 %47, label %48, label %63
 
 48:                                               ; preds = %39
-  %49 = load i64, ptr %4, align 8
+  %49 = load i64, ptr %4, align 8, !tbaa !6
   %50 = inttoptr i64 %49 to ptr
-  %51 = getelementptr inbounds %struct.RString, ptr %50, i32 0, i32 2
-  %52 = getelementptr inbounds %struct.anon.1, ptr %51, i32 0, i32 0
+  %51 = getelementptr inbounds nuw %struct.RString, ptr %50, i32 0, i32 2
+  %52 = getelementptr inbounds nuw %struct.anon.1, ptr %51, i32 0, i32 0
   %53 = getelementptr inbounds [1 x i8], ptr %52, i64 0, i64 0
-  %54 = load i64, ptr %4, align 8
+  %54 = load i64, ptr %4, align 8, !tbaa !6
   %55 = inttoptr i64 %54 to ptr
-  %56 = getelementptr inbounds %struct.RString, ptr %55, i32 0, i32 2
-  %57 = getelementptr inbounds %struct.anon.1, ptr %56, i32 0, i32 0
+  %56 = getelementptr inbounds nuw %struct.RString, ptr %55, i32 0, i32 2
+  %57 = getelementptr inbounds nuw %struct.anon.1, ptr %56, i32 0, i32 0
   %58 = getelementptr inbounds [1 x i8], ptr %57, i64 0, i64 0
-  %59 = load i64, ptr %7, align 8
+  %59 = load i64, ptr %7, align 8, !tbaa !6
   %60 = getelementptr inbounds i8, ptr %58, i64 %59
-  %61 = load i64, ptr %8, align 8
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %53, ptr align 1 %60, i64 %61, i1 false)
-  br label %70
+  %61 = load i64, ptr %8, align 8, !tbaa !6
+  %62 = call ptr @memmove.inline(ptr noundef %53, ptr noundef %60, i64 noundef %61) #19
+  br label %71
 
-62:                                               ; preds = %39
-  %63 = load i64, ptr %7, align 8
-  %64 = load i64, ptr %4, align 8
-  %65 = inttoptr i64 %64 to ptr
-  %66 = getelementptr inbounds %struct.RString, ptr %65, i32 0, i32 2
-  %67 = getelementptr inbounds %struct.anon, ptr %66, i32 0, i32 0
-  %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 %63
-  store ptr %69, ptr %67, align 8
-  br label %70
+63:                                               ; preds = %39
+  %64 = load i64, ptr %7, align 8, !tbaa !6
+  %65 = load i64, ptr %4, align 8, !tbaa !6
+  %66 = inttoptr i64 %65 to ptr
+  %67 = getelementptr inbounds nuw %struct.RString, ptr %66, i32 0, i32 2
+  %68 = getelementptr inbounds nuw %struct.anon, ptr %67, i32 0, i32 0
+  %69 = load ptr, ptr %68, align 8, !tbaa !17
+  %70 = getelementptr inbounds i8, ptr %69, i64 %64
+  store ptr %70, ptr %68, align 8, !tbaa !17
+  br label %71
 
-70:                                               ; preds = %62, %48
-  %71 = load i64, ptr %4, align 8
-  ret i64 %71
+71:                                               ; preds = %63, %48
+  %72 = load i64, ptr %4, align 8, !tbaa !6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #19
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #19
+  ret i64 %72
 }
 
 declare extern_weak void @rb_define_singleton_method(i64 noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @bug_str_s_cstr_term(i64 noundef %0, i64 noundef %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
-  store i64 %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
-  %5 = load i64, ptr %4, align 8
+  store i64 %0, ptr %3, align 8, !tbaa !6
+  store i64 %1, ptr %4, align 8, !tbaa !6
+  %5 = load i64, ptr %4, align 8, !tbaa !6
   call void @Check_Type(i64 noundef %5, i32 noundef 5)
-  %6 = load i64, ptr %4, align 8
+  %6 = load i64, ptr %4, align 8, !tbaa !6
   %7 = call i64 @bug_str_cstr_term(i64 noundef %6)
   ret i64 %7
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @bug_str_s_cstr_unterm(i64 noundef %0, i64 noundef %1, i64 noundef %2) #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
-  store i64 %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
-  %7 = load i64, ptr %5, align 8
+  store i64 %0, ptr %4, align 8, !tbaa !6
+  store i64 %1, ptr %5, align 8, !tbaa !6
+  store i64 %2, ptr %6, align 8, !tbaa !6
+  %7 = load i64, ptr %5, align 8, !tbaa !6
   call void @Check_Type(i64 noundef %7, i32 noundef 5)
-  %8 = load i64, ptr %5, align 8
-  %9 = load i64, ptr %6, align 8
+  %8 = load i64, ptr %5, align 8, !tbaa !6
+  %9 = load i64, ptr %6, align 8, !tbaa !6
   %10 = call i64 @bug_str_cstr_unterm(i64 noundef %8, i64 noundef %9)
   ret i64 %10
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @bug_str_s_cstr_term_char(i64 noundef %0, i64 noundef %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
-  store i64 %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
-  %5 = load i64, ptr %4, align 8
+  store i64 %0, ptr %3, align 8, !tbaa !6
+  store i64 %1, ptr %4, align 8, !tbaa !6
+  %5 = load i64, ptr %4, align 8, !tbaa !6
   call void @Check_Type(i64 noundef %5, i32 noundef 5)
-  %6 = load i64, ptr %4, align 8
+  %6 = load i64, ptr %4, align 8, !tbaa !6
   %7 = call i64 @bug_str_cstr_term_char(i64 noundef %6)
   ret i64 %7
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @bug_str_s_cstr_noembed(i64 noundef %0, i64 noundef %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
@@ -353,121 +380,138 @@ define internal i64 @bug_str_s_cstr_noembed(i64 noundef %0, i64 noundef %1) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
-  store i64 %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
+  store i64 %0, ptr %3, align 8, !tbaa !6
+  store i64 %1, ptr %4, align 8, !tbaa !6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #19
   %10 = call i64 @rb_str_new_static(ptr noundef null, i64 noundef 0)
-  store i64 %10, ptr %5, align 8
-  %11 = load i64, ptr %4, align 8
-  %12 = call i64 @RSTRING_LEN(i64 noundef %11) #13
-  %13 = load i64, ptr %4, align 8
+  store i64 %10, ptr %5, align 8, !tbaa !6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #19
+  %11 = load i64, ptr %4, align 8, !tbaa !6
+  %12 = call i64 @RSTRING_LEN(i64 noundef %11) #20
+  %13 = load i64, ptr %4, align 8, !tbaa !6
   %14 = call ptr @rb_enc_get(i64 noundef %13)
   %15 = call i32 @rb_enc_mbminlen(ptr noundef %14)
   %16 = sext i32 %15 to i64
   %17 = add nsw i64 %12, %16
-  store i64 %17, ptr %6, align 8
-  %18 = load i64, ptr %6, align 8
-  %19 = call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %18, i64 noundef 1) #16
-  store ptr %19, ptr %7, align 8
-  %20 = load i64, ptr %4, align 8
+  store i64 %17, ptr %6, align 8, !tbaa !6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #19
+  %18 = load i64, ptr %6, align 8, !tbaa !6
+  %19 = call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %18, i64 noundef 1) #23
+  store ptr %19, ptr %7, align 8, !tbaa !10
+  %20 = load i64, ptr %4, align 8, !tbaa !6
   call void @Check_Type(i64 noundef %20, i32 noundef 5)
-  %21 = load i64, ptr %5, align 8
+  %21 = load i64, ptr %5, align 8, !tbaa !6
   call void @RB_FL_SET(i64 noundef %21, i64 noundef 8192)
-  %22 = load ptr, ptr %7, align 8
-  %23 = load i64, ptr %4, align 8
+  %22 = load ptr, ptr %7, align 8, !tbaa !10
+  %23 = load i64, ptr %4, align 8, !tbaa !6
   %24 = call ptr @RSTRING_PTR(i64 noundef %23)
-  %25 = load i64, ptr %6, align 8
-  %26 = call nonnull ptr @ruby_nonempty_memcpy(ptr noundef %22, ptr noundef %24, i64 noundef %25) #17
-  %27 = load i64, ptr %5, align 8
+  %25 = load i64, ptr %6, align 8, !tbaa !6
+  %26 = call nonnull ptr @ruby_nonempty_memcpy(ptr noundef %22, ptr noundef %24, i64 noundef %25) #24
+  %27 = load i64, ptr %5, align 8, !tbaa !6
   %28 = inttoptr i64 %27 to ptr
-  %29 = getelementptr inbounds %struct.RBasic, ptr %28, i32 0, i32 0
-  %30 = load i64, ptr %29, align 8
-  %31 = and i64 %30, -409601
-  store i64 %31, ptr %29, align 8
-  %32 = load i64, ptr %6, align 8
-  %33 = load i64, ptr %5, align 8
+  %29 = getelementptr inbounds nuw %struct.RBasic, ptr %28, i32 0, i32 0
+  %30 = load i64, ptr %29, align 8, !tbaa !21
+  %31 = and i64 %30, -397313
+  store i64 %31, ptr %29, align 8, !tbaa !21
+  %32 = load i64, ptr %6, align 8, !tbaa !6
+  %33 = load i64, ptr %5, align 8, !tbaa !6
   %34 = inttoptr i64 %33 to ptr
-  %35 = getelementptr inbounds %struct.RString, ptr %34, i32 0, i32 2
-  %36 = getelementptr inbounds %struct.anon, ptr %35, i32 0, i32 1
-  store i64 %32, ptr %36, align 8
-  %37 = load ptr, ptr %7, align 8
-  %38 = load i64, ptr %5, align 8
+  %35 = getelementptr inbounds nuw %struct.RString, ptr %34, i32 0, i32 2
+  %36 = getelementptr inbounds nuw %struct.anon, ptr %35, i32 0, i32 1
+  store i64 %32, ptr %36, align 8, !tbaa !17
+  %37 = load ptr, ptr %7, align 8, !tbaa !10
+  %38 = load i64, ptr %5, align 8, !tbaa !6
   %39 = inttoptr i64 %38 to ptr
-  %40 = getelementptr inbounds %struct.RString, ptr %39, i32 0, i32 2
-  %41 = getelementptr inbounds %struct.anon, ptr %40, i32 0, i32 0
-  store ptr %37, ptr %41, align 8
-  %42 = load i64, ptr %4, align 8
-  %43 = call i64 @RSTRING_LEN(i64 noundef %42) #13
-  %44 = load i64, ptr %5, align 8
+  %40 = getelementptr inbounds nuw %struct.RString, ptr %39, i32 0, i32 2
+  %41 = getelementptr inbounds nuw %struct.anon, ptr %40, i32 0, i32 0
+  store ptr %37, ptr %41, align 8, !tbaa !17
+  %42 = load i64, ptr %4, align 8, !tbaa !6
+  %43 = call i64 @RSTRING_LEN(i64 noundef %42) #20
+  %44 = load i64, ptr %5, align 8, !tbaa !6
   %45 = inttoptr i64 %44 to ptr
-  %46 = getelementptr inbounds %struct.RString, ptr %45, i32 0, i32 1
-  store i64 %43, ptr %46, align 8
+  %46 = getelementptr inbounds nuw %struct.RString, ptr %45, i32 0, i32 1
+  store i64 %43, ptr %46, align 8, !tbaa !18
   br label %47
 
 47:                                               ; preds = %2
-  %48 = load i64, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #19
+  %48 = load i64, ptr %5, align 8, !tbaa !6
   %49 = call ptr @RSTRING_END(i64 noundef %48)
-  store ptr %49, ptr %8, align 8
-  %50 = load i64, ptr %4, align 8
+  store ptr %49, ptr %8, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #19
+  %50 = load i64, ptr %4, align 8, !tbaa !6
   %51 = call ptr @rb_enc_get(i64 noundef %50)
   %52 = call i32 @rb_enc_mbminlen(ptr noundef %51)
-  store i32 %52, ptr %9, align 4
-  %53 = load ptr, ptr %8, align 8
-  store i8 0, ptr %53, align 1
-  %54 = load i32, ptr %9, align 4
+  store i32 %52, ptr %9, align 4, !tbaa !15
+  %53 = load ptr, ptr %8, align 8, !tbaa !10
+  store i8 0, ptr %53, align 1, !tbaa !17
+  %54 = load i32, ptr %9, align 4, !tbaa !15
   %55 = icmp sgt i32 %54, 1
   %56 = xor i1 %55, true
   %57 = xor i1 %56, true
   %58 = zext i1 %57 to i32
   %59 = sext i32 %58 to i64
-  %60 = icmp ne i64 %59, 0
-  br i1 %60, label %61, label %65
+  %60 = call i64 @llvm.expect.i64(i64 %59, i64 0)
+  %61 = icmp ne i64 %60, 0
+  br i1 %61, label %62, label %67
 
-61:                                               ; preds = %47
-  %62 = load ptr, ptr %8, align 8
-  %63 = load i32, ptr %9, align 4
-  %64 = sext i32 %63 to i64
-  call void @llvm.memset.p0.i64(ptr align 1 %62, i8 0, i64 %64, i1 false)
-  br label %65
+62:                                               ; preds = %47
+  %63 = load ptr, ptr %8, align 8, !tbaa !10
+  %64 = load i32, ptr %9, align 4, !tbaa !15
+  %65 = sext i32 %64 to i64
+  %66 = call ptr @memset.inline(ptr noundef %63, i32 noundef 0, i64 noundef %65) #19
+  br label %67
 
-65:                                               ; preds = %61, %47
-  br label %66
+67:                                               ; preds = %62, %47
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #19
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #19
+  br label %68
 
-66:                                               ; preds = %65
-  %67 = load i64, ptr %5, align 8
-  ret i64 %67
+68:                                               ; preds = %67
+  br label %69
+
+69:                                               ; preds = %68
+  %70 = load i64, ptr %5, align 8, !tbaa !6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #19
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #19
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #19
+  ret i64 %70
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @bug_str_s_cstr_embedded_p(i64 noundef %0, i64 noundef %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
-  store i64 %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
-  %5 = load i64, ptr %4, align 8
+  store i64 %0, ptr %3, align 8, !tbaa !6
+  store i64 %1, ptr %4, align 8, !tbaa !6
+  %5 = load i64, ptr %4, align 8, !tbaa !6
   %6 = call zeroext i1 @STR_EMBED_P(i64 noundef %5)
   %7 = select i1 %6, i64 20, i64 0
   ret i64 %7
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @bug_str_s_rb_str_new_frozen(i64 noundef %0, i64 noundef %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
-  store i64 %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
-  %5 = load i64, ptr %4, align 8
+  store i64 %0, ptr %3, align 8, !tbaa !6
+  store i64 %1, ptr %4, align 8, !tbaa !6
+  %5 = load i64, ptr %4, align 8, !tbaa !6
   %6 = call i64 @rb_str_new_frozen(i64 noundef %5)
   ret i64 %6
 }
 
-; Function Attrs: nounwind willreturn memory(read) uwtable
-define internal i64 @RSTRING_LEN(i64 noundef %0) #2 {
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: inlinehint nounwind sspstrong willreturn memory(read) uwtable
+define internal i64 @RSTRING_LEN(i64 noundef %0) #3 {
   %2 = alloca i64, align 8
-  store i64 %0, ptr %2, align 8
-  %3 = load i64, ptr %2, align 8
+  store i64 %0, ptr %2, align 8, !tbaa !6
+  %3 = load i64, ptr %2, align 8, !tbaa !6
   %4 = inttoptr i64 %3 to ptr
-  %5 = getelementptr inbounds %struct.RString, ptr %4, i32 0, i32 1
-  %6 = load i64, ptr %5, align 8
+  %5 = getelementptr inbounds nuw %struct.RString, ptr %4, i32 0, i32 1
+  %6 = load i64, ptr %5, align 8, !tbaa !18
   ret i64 %6
 }
 
@@ -477,56 +521,56 @@ declare void @rb_gc() #1
 
 declare ptr @rb_enc_get(i64 noundef) #1
 
-; Function Attrs: nounwind uwtable
-define internal i32 @rb_enc_codepoint(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal i32 @rb_enc_codepoint(ptr noundef %0, ptr noundef %1, ptr noundef %2) #4 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = load ptr, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !10
+  store ptr %1, ptr %5, align 8, !tbaa !10
+  store ptr %2, ptr %6, align 8, !tbaa !13
+  %7 = load ptr, ptr %4, align 8, !tbaa !10
+  %8 = load ptr, ptr %5, align 8, !tbaa !10
+  %9 = load ptr, ptr %6, align 8, !tbaa !13
   %10 = call i32 @rb_enc_codepoint_len(ptr noundef %7, ptr noundef %8, ptr noundef null, ptr noundef %9)
   ret i32 %10
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @rb_enc_mbminlen(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal i32 @rb_enc_mbminlen(ptr noundef %0) #4 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %3, i32 0, i32 3
-  %5 = load i32, ptr %4, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !13
+  %3 = load ptr, ptr %2, align 8, !tbaa !13
+  %4 = getelementptr inbounds nuw %struct.OnigEncodingTypeST, ptr %3, i32 0, i32 3
+  %5 = load i32, ptr %4, align 4, !tbaa !22
   ret i32 %5
 }
 
-; Function Attrs: nounwind uwtable
-define internal i64 @rb_int2num_inline(i32 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal i64 @rb_int2num_inline(i32 noundef %0) #4 {
   %2 = alloca i64, align 8
   %3 = alloca i32, align 4
-  store i32 %0, ptr %3, align 4
-  %4 = load i32, ptr %3, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !15
+  %4 = load i32, ptr %3, align 4, !tbaa !15
   %5 = sext i32 %4 to i64
   %6 = icmp slt i64 %5, 4611686018427387904
   br i1 %6, label %7, label %15
 
 7:                                                ; preds = %1
-  %8 = load i32, ptr %3, align 4
+  %8 = load i32, ptr %3, align 4, !tbaa !15
   %9 = sext i32 %8 to i64
   %10 = icmp sge i64 %9, -4611686018427387904
   br i1 %10, label %11, label %15
 
 11:                                               ; preds = %7
-  %12 = load i32, ptr %3, align 4
+  %12 = load i32, ptr %3, align 4, !tbaa !15
   %13 = sext i32 %12 to i64
-  %14 = call i64 @RB_INT2FIX(i64 noundef %13) #18
+  %14 = call i64 @RB_INT2FIX(i64 noundef %13) #25
   store i64 %14, ptr %2, align 8
   br label %19
 
 15:                                               ; preds = %7, %1
-  %16 = load i32, ptr %3, align 4
+  %16 = load i32, ptr %3, align 4, !tbaa !15
   %17 = sext i32 %16 to i64
   %18 = call i64 @rb_int2big(i64 noundef %17)
   store i64 %18, ptr %2, align 8
@@ -537,30 +581,43 @@ define internal i64 @rb_int2num_inline(i32 noundef %0) #0 {
   ret i64 %20
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
 declare i32 @rb_enc_codepoint_len(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
-; Function Attrs: nounwind willreturn memory(none) uwtable
-define internal i64 @RB_INT2FIX(i64 noundef %0) #3 {
+; Function Attrs: inlinehint nounwind sspstrong willreturn memory(none) uwtable
+define internal i64 @RB_INT2FIX(i64 noundef %0) #5 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
-  store i64 %0, ptr %2, align 8
-  %8 = load i64, ptr %2, align 8
-  store i64 %8, ptr %3, align 8
-  %9 = load i64, ptr %3, align 8
+  store i64 %0, ptr %2, align 8, !tbaa !6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #19
+  %8 = load i64, ptr %2, align 8, !tbaa !6
+  store i64 %8, ptr %3, align 8, !tbaa !6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #19
+  %9 = load i64, ptr %3, align 8, !tbaa !6
   %10 = shl i64 %9, 1
   %11 = add i64 %10, 1
-  store i64 %11, ptr %4, align 8
-  %12 = load i64, ptr %4, align 8
-  store i64 %12, ptr %5, align 8
-  %13 = load i64, ptr %5, align 8
-  store i64 %13, ptr %6, align 8
-  %14 = load i64, ptr %6, align 8
-  store i64 %14, ptr %7, align 8
-  %15 = load i64, ptr %7, align 8
+  store i64 %11, ptr %4, align 8, !tbaa !6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #19
+  %12 = load i64, ptr %4, align 8, !tbaa !6
+  store i64 %12, ptr %5, align 8, !tbaa !6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #19
+  %13 = load i64, ptr %5, align 8, !tbaa !6
+  store i64 %13, ptr %6, align 8, !tbaa !6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #19
+  %14 = load i64, ptr %6, align 8, !tbaa !6
+  store i64 %14, ptr %7, align 8, !tbaa !6
+  %15 = load i64, ptr %7, align 8, !tbaa !6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #19
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #19
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #19
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #19
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #19
   ret i64 %15
 }
 
@@ -568,356 +625,260 @@ declare i64 @rb_int2big(i64 noundef) #1
 
 declare void @rb_str_modify(i64 noundef) #1
 
-; Function Attrs: nounwind uwtable
-define internal signext i8 @rb_num2char_inline(i64 noundef %0) #0 {
-  %2 = alloca i1, align 1
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal signext i8 @rb_num2char_inline(i64 noundef %0) #4 {
+  %2 = alloca i8, align 1
   %3 = alloca i64, align 8
-  %4 = alloca i32, align 4
-  %5 = alloca i8, align 1
-  %6 = alloca i64, align 8
-  store i64 %0, ptr %6, align 8
-  br i1 true, label %7, label %63
+  store i64 %0, ptr %3, align 8, !tbaa !6
+  br i1 true, label %4, label %7
+
+4:                                                ; preds = %1
+  %5 = load i64, ptr %3, align 8, !tbaa !6
+  %6 = call zeroext i1 @rbimpl_RB_TYPE_P_fastpath(i64 noundef %5, i32 noundef 5) #20
+  br i1 %6, label %10, label %19
 
 7:                                                ; preds = %1
-  %8 = load i64, ptr %6, align 8
-  store i64 %8, ptr %3, align 8
-  store i32 5, ptr %4, align 4
-  %9 = load i32, ptr %4, align 4
-  %10 = icmp eq i32 %9, 18
-  br i1 %10, label %11, label %14
+  %8 = load i64, ptr %3, align 8, !tbaa !6
+  %9 = call zeroext i1 @RB_TYPE_P(i64 noundef %8, i32 noundef 5) #20
+  br i1 %9, label %10, label %19
 
-11:                                               ; preds = %7
-  %12 = load i64, ptr %3, align 8
-  %13 = icmp eq i64 %12, 20
-  store i1 %13, ptr %2, align 1
-  br label %61
+10:                                               ; preds = %7, %4
+  %11 = load i64, ptr %3, align 8, !tbaa !6
+  %12 = call i64 @RSTRING_LEN(i64 noundef %11) #20
+  %13 = icmp sge i64 %12, 1
+  br i1 %13, label %14, label %19
 
-14:                                               ; preds = %7
-  %15 = load i32, ptr %4, align 4
-  %16 = icmp eq i32 %15, 19
-  br i1 %16, label %17, label %20
+14:                                               ; preds = %10
+  %15 = load i64, ptr %3, align 8, !tbaa !6
+  %16 = call ptr @RSTRING_PTR(i64 noundef %15)
+  %17 = getelementptr inbounds i8, ptr %16, i64 0
+  %18 = load i8, ptr %17, align 1, !tbaa !17
+  store i8 %18, ptr %2, align 1
+  br label %23
 
-17:                                               ; preds = %14
-  %18 = load i64, ptr %3, align 8
-  %19 = icmp eq i64 %18, 0
-  store i1 %19, ptr %2, align 1
-  br label %61
+19:                                               ; preds = %10, %7, %4
+  %20 = load i64, ptr %3, align 8, !tbaa !6
+  %21 = call i32 @rb_num2int_inline(i64 noundef %20)
+  %22 = trunc i32 %21 to i8
+  store i8 %22, ptr %2, align 1
+  br label %23
 
-20:                                               ; preds = %14
-  %21 = load i32, ptr %4, align 4
-  %22 = icmp eq i32 %21, 17
-  br i1 %22, label %23, label %26
-
-23:                                               ; preds = %20
-  %24 = load i64, ptr %3, align 8
-  %25 = icmp eq i64 %24, 4
-  store i1 %25, ptr %2, align 1
-  br label %61
-
-26:                                               ; preds = %20
-  %27 = load i32, ptr %4, align 4
-  %28 = icmp eq i32 %27, 22
-  br i1 %28, label %29, label %32
-
-29:                                               ; preds = %26
-  %30 = load i64, ptr %3, align 8
-  %31 = icmp eq i64 %30, 36
-  store i1 %31, ptr %2, align 1
-  br label %61
-
-32:                                               ; preds = %26
-  %33 = load i32, ptr %4, align 4
-  %34 = icmp eq i32 %33, 21
-  br i1 %34, label %35, label %38
-
-35:                                               ; preds = %32
-  %36 = load i64, ptr %3, align 8
-  %37 = call zeroext i1 @RB_FIXNUM_P(i64 noundef %36) #18
-  store i1 %37, ptr %2, align 1
-  br label %61
-
-38:                                               ; preds = %32
-  %39 = load i32, ptr %4, align 4
-  %40 = icmp eq i32 %39, 20
-  br i1 %40, label %41, label %44
-
-41:                                               ; preds = %38
-  %42 = load i64, ptr %3, align 8
-  %43 = call zeroext i1 @RB_SYMBOL_P(i64 noundef %42) #13
-  store i1 %43, ptr %2, align 1
-  br label %61
-
-44:                                               ; preds = %38
-  %45 = load i32, ptr %4, align 4
-  %46 = icmp eq i32 %45, 4
-  br i1 %46, label %47, label %50
-
-47:                                               ; preds = %44
-  %48 = load i64, ptr %3, align 8
-  %49 = call zeroext i1 @RB_FLOAT_TYPE_P(i64 noundef %48) #13
-  store i1 %49, ptr %2, align 1
-  br label %61
-
-50:                                               ; preds = %44
-  %51 = load i64, ptr %3, align 8
-  %52 = call zeroext i1 @RB_SPECIAL_CONST_P(i64 noundef %51) #18
-  br i1 %52, label %53, label %54
-
-53:                                               ; preds = %50
-  store i1 false, ptr %2, align 1
-  br label %61
-
-54:                                               ; preds = %50
-  %55 = load i32, ptr %4, align 4
-  %56 = load i64, ptr %3, align 8
-  %57 = call i32 @RB_BUILTIN_TYPE(i64 noundef %56) #13
-  %58 = icmp eq i32 %55, %57
-  br i1 %58, label %59, label %60
-
-59:                                               ; preds = %54
-  store i1 true, ptr %2, align 1
-  br label %61
-
-60:                                               ; preds = %54
-  store i1 false, ptr %2, align 1
-  br label %61
-
-61:                                               ; preds = %60, %59, %53, %47, %41, %35, %29, %23, %17, %11
-  %62 = load i1, ptr %2, align 1
-  br i1 %62, label %66, label %75
-
-63:                                               ; preds = %1
-  %64 = load i64, ptr %6, align 8
-  %65 = call zeroext i1 @RB_TYPE_P(i64 noundef %64, i32 noundef 5) #13
-  br i1 %65, label %66, label %75
-
-66:                                               ; preds = %63, %61
-  %67 = load i64, ptr %6, align 8
-  %68 = call i64 @RSTRING_LEN(i64 noundef %67) #13
-  %69 = icmp sge i64 %68, 1
-  br i1 %69, label %70, label %75
-
-70:                                               ; preds = %66
-  %71 = load i64, ptr %6, align 8
-  %72 = call ptr @RSTRING_PTR(i64 noundef %71)
-  %73 = getelementptr inbounds i8, ptr %72, i64 0
-  %74 = load i8, ptr %73, align 1
-  store i8 %74, ptr %5, align 1
-  br label %79
-
-75:                                               ; preds = %66, %63, %61
-  %76 = load i64, ptr %6, align 8
-  %77 = call i32 @rb_num2int_inline(i64 noundef %76)
-  %78 = trunc i32 %77 to i8
-  store i8 %78, ptr %5, align 1
-  br label %79
-
-79:                                               ; preds = %75, %70
-  %80 = load i8, ptr %5, align 1
-  ret i8 %80
+23:                                               ; preds = %19, %14
+  %24 = load i8, ptr %2, align 1
+  ret i8 %24
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @RSTRING_PTR(i64 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal ptr @RSTRING_PTR(i64 noundef %0) #4 {
   %2 = alloca i64, align 8
   %3 = alloca ptr, align 8
   %4 = alloca %struct.RString, align 8
-  store i64 %0, ptr %2, align 8
-  %5 = load i64, ptr %2, align 8
-  call void @rbimpl_rstring_getmem(ptr dead_on_unwind writable sret(%struct.RString) align 8 %4, i64 noundef %5) #14
-  %6 = getelementptr inbounds %struct.RString, ptr %4, i32 0, i32 2
-  %7 = getelementptr inbounds %struct.anon, ptr %6, i32 0, i32 0
-  %8 = load ptr, ptr %7, align 8
-  store ptr %8, ptr %3, align 8
-  %9 = load ptr, ptr %3, align 8
+  store i64 %0, ptr %2, align 8, !tbaa !6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #19
+  %5 = load i64, ptr %2, align 8, !tbaa !6
+  call void @rbimpl_rstring_getmem(ptr dead_on_unwind writable sret(%struct.RString) align 8 %4, i64 noundef %5) #21
+  %6 = getelementptr inbounds nuw %struct.RString, ptr %4, i32 0, i32 2
+  %7 = getelementptr inbounds nuw %struct.anon, ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8, !tbaa !17
+  store ptr %8, ptr %3, align 8, !tbaa !10
+  %9 = load ptr, ptr %3, align 8, !tbaa !10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #19
   ret ptr %9
 }
 
-; Function Attrs: nounwind willreturn memory(read) uwtable
-define internal zeroext i1 @RB_TYPE_P(i64 noundef %0, i32 noundef %1) #2 {
+; Function Attrs: alwaysinline nounwind sspstrong willreturn memory(read) uwtable
+define internal zeroext i1 @rbimpl_RB_TYPE_P_fastpath(i64 noundef %0, i32 noundef %1) #6 {
   %3 = alloca i1, align 1
   %4 = alloca i64, align 8
   %5 = alloca i32, align 4
-  %6 = alloca i1, align 1
-  %7 = alloca i64, align 8
-  %8 = alloca i32, align 4
-  store i64 %0, ptr %7, align 8
-  store i32 %1, ptr %8, align 4
-  %9 = load i32, ptr %8, align 4
-  %10 = call i1 @llvm.is.constant.i32(i32 %9)
-  br i1 %10, label %11, label %68
+  store i64 %0, ptr %4, align 8, !tbaa !6
+  store i32 %1, ptr %5, align 4, !tbaa !15
+  %6 = load i32, ptr %5, align 4, !tbaa !15
+  %7 = icmp eq i32 %6, 18
+  br i1 %7, label %8, label %11
+
+8:                                                ; preds = %2
+  %9 = load i64, ptr %4, align 8, !tbaa !6
+  %10 = icmp eq i64 %9, 20
+  store i1 %10, ptr %3, align 1
+  br label %58
 
 11:                                               ; preds = %2
-  %12 = load i64, ptr %7, align 8
-  %13 = load i32, ptr %8, align 4
-  store i64 %12, ptr %4, align 8
-  store i32 %13, ptr %5, align 4
-  %14 = load i32, ptr %5, align 4
-  %15 = icmp eq i32 %14, 18
-  br i1 %15, label %16, label %19
+  %12 = load i32, ptr %5, align 4, !tbaa !15
+  %13 = icmp eq i32 %12, 19
+  br i1 %13, label %14, label %17
 
-16:                                               ; preds = %11
-  %17 = load i64, ptr %4, align 8
-  %18 = icmp eq i64 %17, 20
-  store i1 %18, ptr %3, align 1
-  br label %66
+14:                                               ; preds = %11
+  %15 = load i64, ptr %4, align 8, !tbaa !6
+  %16 = icmp eq i64 %15, 0
+  store i1 %16, ptr %3, align 1
+  br label %58
 
-19:                                               ; preds = %11
-  %20 = load i32, ptr %5, align 4
-  %21 = icmp eq i32 %20, 19
-  br i1 %21, label %22, label %25
+17:                                               ; preds = %11
+  %18 = load i32, ptr %5, align 4, !tbaa !15
+  %19 = icmp eq i32 %18, 17
+  br i1 %19, label %20, label %23
 
-22:                                               ; preds = %19
-  %23 = load i64, ptr %4, align 8
-  %24 = icmp eq i64 %23, 0
-  store i1 %24, ptr %3, align 1
-  br label %66
+20:                                               ; preds = %17
+  %21 = load i64, ptr %4, align 8, !tbaa !6
+  %22 = icmp eq i64 %21, 4
+  store i1 %22, ptr %3, align 1
+  br label %58
 
-25:                                               ; preds = %19
-  %26 = load i32, ptr %5, align 4
-  %27 = icmp eq i32 %26, 17
-  br i1 %27, label %28, label %31
+23:                                               ; preds = %17
+  %24 = load i32, ptr %5, align 4, !tbaa !15
+  %25 = icmp eq i32 %24, 22
+  br i1 %25, label %26, label %29
 
-28:                                               ; preds = %25
-  %29 = load i64, ptr %4, align 8
-  %30 = icmp eq i64 %29, 4
-  store i1 %30, ptr %3, align 1
-  br label %66
+26:                                               ; preds = %23
+  %27 = load i64, ptr %4, align 8, !tbaa !6
+  %28 = icmp eq i64 %27, 36
+  store i1 %28, ptr %3, align 1
+  br label %58
 
-31:                                               ; preds = %25
-  %32 = load i32, ptr %5, align 4
-  %33 = icmp eq i32 %32, 22
-  br i1 %33, label %34, label %37
+29:                                               ; preds = %23
+  %30 = load i32, ptr %5, align 4, !tbaa !15
+  %31 = icmp eq i32 %30, 21
+  br i1 %31, label %32, label %35
 
-34:                                               ; preds = %31
-  %35 = load i64, ptr %4, align 8
-  %36 = icmp eq i64 %35, 36
-  store i1 %36, ptr %3, align 1
-  br label %66
+32:                                               ; preds = %29
+  %33 = load i64, ptr %4, align 8, !tbaa !6
+  %34 = call zeroext i1 @RB_FIXNUM_P(i64 noundef %33) #25
+  store i1 %34, ptr %3, align 1
+  br label %58
 
-37:                                               ; preds = %31
-  %38 = load i32, ptr %5, align 4
-  %39 = icmp eq i32 %38, 21
-  br i1 %39, label %40, label %43
+35:                                               ; preds = %29
+  %36 = load i32, ptr %5, align 4, !tbaa !15
+  %37 = icmp eq i32 %36, 20
+  br i1 %37, label %38, label %41
 
-40:                                               ; preds = %37
-  %41 = load i64, ptr %4, align 8
-  %42 = call zeroext i1 @RB_FIXNUM_P(i64 noundef %41) #18
-  store i1 %42, ptr %3, align 1
-  br label %66
+38:                                               ; preds = %35
+  %39 = load i64, ptr %4, align 8, !tbaa !6
+  %40 = call zeroext i1 @RB_SYMBOL_P(i64 noundef %39) #20
+  store i1 %40, ptr %3, align 1
+  br label %58
 
-43:                                               ; preds = %37
-  %44 = load i32, ptr %5, align 4
-  %45 = icmp eq i32 %44, 20
-  br i1 %45, label %46, label %49
+41:                                               ; preds = %35
+  %42 = load i32, ptr %5, align 4, !tbaa !15
+  %43 = icmp eq i32 %42, 4
+  br i1 %43, label %44, label %47
 
-46:                                               ; preds = %43
-  %47 = load i64, ptr %4, align 8
-  %48 = call zeroext i1 @RB_SYMBOL_P(i64 noundef %47) #13
-  store i1 %48, ptr %3, align 1
-  br label %66
+44:                                               ; preds = %41
+  %45 = load i64, ptr %4, align 8, !tbaa !6
+  %46 = call zeroext i1 @RB_FLOAT_TYPE_P(i64 noundef %45) #20
+  store i1 %46, ptr %3, align 1
+  br label %58
 
-49:                                               ; preds = %43
-  %50 = load i32, ptr %5, align 4
-  %51 = icmp eq i32 %50, 4
-  br i1 %51, label %52, label %55
+47:                                               ; preds = %41
+  %48 = load i64, ptr %4, align 8, !tbaa !6
+  %49 = call zeroext i1 @RB_SPECIAL_CONST_P(i64 noundef %48) #25
+  br i1 %49, label %50, label %51
 
-52:                                               ; preds = %49
-  %53 = load i64, ptr %4, align 8
-  %54 = call zeroext i1 @RB_FLOAT_TYPE_P(i64 noundef %53) #13
-  store i1 %54, ptr %3, align 1
-  br label %66
-
-55:                                               ; preds = %49
-  %56 = load i64, ptr %4, align 8
-  %57 = call zeroext i1 @RB_SPECIAL_CONST_P(i64 noundef %56) #18
-  br i1 %57, label %58, label %59
-
-58:                                               ; preds = %55
+50:                                               ; preds = %47
   store i1 false, ptr %3, align 1
-  br label %66
+  br label %58
 
-59:                                               ; preds = %55
-  %60 = load i32, ptr %5, align 4
-  %61 = load i64, ptr %4, align 8
-  %62 = call i32 @RB_BUILTIN_TYPE(i64 noundef %61) #13
-  %63 = icmp eq i32 %60, %62
-  br i1 %63, label %64, label %65
+51:                                               ; preds = %47
+  %52 = load i32, ptr %5, align 4, !tbaa !15
+  %53 = load i64, ptr %4, align 8, !tbaa !6
+  %54 = call i32 @RB_BUILTIN_TYPE(i64 noundef %53) #20
+  %55 = icmp eq i32 %52, %54
+  br i1 %55, label %56, label %57
 
-64:                                               ; preds = %59
+56:                                               ; preds = %51
   store i1 true, ptr %3, align 1
-  br label %66
+  br label %58
 
-65:                                               ; preds = %59
+57:                                               ; preds = %51
   store i1 false, ptr %3, align 1
-  br label %66
+  br label %58
 
-66:                                               ; preds = %65, %64, %58, %52, %46, %40, %34, %28, %22, %16
-  %67 = load i1, ptr %3, align 1
-  store i1 %67, ptr %6, align 1
-  br label %73
-
-68:                                               ; preds = %2
-  %69 = load i32, ptr %8, align 4
-  %70 = load i64, ptr %7, align 8
-  %71 = call i32 @rb_type(i64 noundef %70) #13
-  %72 = icmp eq i32 %69, %71
-  store i1 %72, ptr %6, align 1
-  br label %73
-
-73:                                               ; preds = %68, %66
-  %74 = load i1, ptr %6, align 1
-  ret i1 %74
+58:                                               ; preds = %57, %56, %50, %44, %38, %32, %26, %20, %14, %8
+  %59 = load i1, ptr %3, align 1
+  ret i1 %59
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @rb_num2int_inline(i64 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind sspstrong willreturn memory(read) uwtable
+define internal zeroext i1 @RB_TYPE_P(i64 noundef %0, i32 noundef %1) #3 {
+  %3 = alloca i1, align 1
+  %4 = alloca i64, align 8
+  %5 = alloca i32, align 4
+  store i64 %0, ptr %4, align 8, !tbaa !6
+  store i32 %1, ptr %5, align 4, !tbaa !15
+  %6 = load i32, ptr %5, align 4, !tbaa !15
+  %7 = call i1 @llvm.is.constant.i32(i32 %6)
+  br i1 %7, label %8, label %12
+
+8:                                                ; preds = %2
+  %9 = load i64, ptr %4, align 8, !tbaa !6
+  %10 = load i32, ptr %5, align 4, !tbaa !15
+  %11 = call zeroext i1 @rbimpl_RB_TYPE_P_fastpath(i64 noundef %9, i32 noundef %10) #20
+  store i1 %11, ptr %3, align 1
+  br label %17
+
+12:                                               ; preds = %2
+  %13 = load i32, ptr %5, align 4, !tbaa !15
+  %14 = load i64, ptr %4, align 8, !tbaa !6
+  %15 = call i32 @rb_type(i64 noundef %14) #20
+  %16 = icmp eq i32 %13, %15
+  store i1 %16, ptr %3, align 1
+  br label %17
+
+17:                                               ; preds = %12, %8
+  %18 = load i1, ptr %3, align 1
+  ret i1 %18
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal i32 @rb_num2int_inline(i64 noundef %0) #4 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
-  store i64 %0, ptr %2, align 8
-  %4 = load i64, ptr %2, align 8
-  %5 = call zeroext i1 @RB_FIXNUM_P(i64 noundef %4) #18
+  store i64 %0, ptr %2, align 8, !tbaa !6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #19
+  %4 = load i64, ptr %2, align 8, !tbaa !6
+  %5 = call zeroext i1 @RB_FIXNUM_P(i64 noundef %4) #25
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %1
-  %7 = load i64, ptr %2, align 8
+  %7 = load i64, ptr %2, align 8, !tbaa !6
   %8 = call i64 @rb_fix2int(i64 noundef %7)
-  store i64 %8, ptr %3, align 8
+  store i64 %8, ptr %3, align 8, !tbaa !6
   br label %12
 
 9:                                                ; preds = %1
-  %10 = load i64, ptr %2, align 8
+  %10 = load i64, ptr %2, align 8, !tbaa !6
   %11 = call i64 @rb_num2int(i64 noundef %10)
-  store i64 %11, ptr %3, align 8
+  store i64 %11, ptr %3, align 8, !tbaa !6
   br label %12
 
 12:                                               ; preds = %9, %6
-  %13 = load i64, ptr %3, align 8
+  %13 = load i64, ptr %3, align 8, !tbaa !6
   %14 = trunc i64 %13 to i32
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #19
   ret i32 %14
 }
 
-; Function Attrs: nounwind willreturn memory(none) uwtable
-define internal zeroext i1 @RB_FIXNUM_P(i64 noundef %0) #3 {
+; Function Attrs: inlinehint nounwind sspstrong willreturn memory(none) uwtable
+define internal zeroext i1 @RB_FIXNUM_P(i64 noundef %0) #5 {
   %2 = alloca i64, align 8
-  store i64 %0, ptr %2, align 8
-  %3 = load i64, ptr %2, align 8
+  store i64 %0, ptr %2, align 8, !tbaa !6
+  %3 = load i64, ptr %2, align 8, !tbaa !6
   %4 = and i64 %3, 1
   %5 = icmp ne i64 %4, 0
   ret i1 %5
 }
 
-; Function Attrs: nounwind willreturn memory(read) uwtable
-define internal zeroext i1 @RB_SYMBOL_P(i64 noundef %0) #2 {
+; Function Attrs: inlinehint nounwind sspstrong willreturn memory(read) uwtable
+define internal zeroext i1 @RB_SYMBOL_P(i64 noundef %0) #3 {
   %2 = alloca i64, align 8
-  store i64 %0, ptr %2, align 8
-  %3 = load i64, ptr %2, align 8
-  %4 = call zeroext i1 @RB_STATIC_SYM_P(i64 noundef %3) #18
+  store i64 %0, ptr %2, align 8, !tbaa !6
+  %3 = load i64, ptr %2, align 8, !tbaa !6
+  %4 = call zeroext i1 @RB_STATIC_SYM_P(i64 noundef %3) #25
   br i1 %4, label %8, label %5
 
 5:                                                ; preds = %1
-  %6 = load i64, ptr %2, align 8
-  %7 = call zeroext i1 @RB_DYNAMIC_SYM_P(i64 noundef %6) #13
+  %6 = load i64, ptr %2, align 8, !tbaa !6
+  %7 = call zeroext i1 @RB_DYNAMIC_SYM_P(i64 noundef %6) #20
   br label %8
 
 8:                                                ; preds = %5, %1
@@ -925,13 +886,13 @@ define internal zeroext i1 @RB_SYMBOL_P(i64 noundef %0) #2 {
   ret i1 %9
 }
 
-; Function Attrs: nounwind willreturn memory(read) uwtable
-define internal zeroext i1 @RB_FLOAT_TYPE_P(i64 noundef %0) #2 {
+; Function Attrs: inlinehint nounwind sspstrong willreturn memory(read) uwtable
+define internal zeroext i1 @RB_FLOAT_TYPE_P(i64 noundef %0) #3 {
   %2 = alloca i1, align 1
   %3 = alloca i64, align 8
-  store i64 %0, ptr %3, align 8
-  %4 = load i64, ptr %3, align 8
-  %5 = call zeroext i1 @RB_FLONUM_P(i64 noundef %4) #18
+  store i64 %0, ptr %3, align 8, !tbaa !6
+  %4 = load i64, ptr %3, align 8, !tbaa !6
+  %5 = call zeroext i1 @RB_FLONUM_P(i64 noundef %4) #25
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %1
@@ -939,8 +900,8 @@ define internal zeroext i1 @RB_FLOAT_TYPE_P(i64 noundef %0) #2 {
   br label %15
 
 7:                                                ; preds = %1
-  %8 = load i64, ptr %3, align 8
-  %9 = call zeroext i1 @RB_SPECIAL_CONST_P(i64 noundef %8) #18
+  %8 = load i64, ptr %3, align 8, !tbaa !6
+  %9 = call zeroext i1 @RB_SPECIAL_CONST_P(i64 noundef %8) #25
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %7
@@ -948,8 +909,8 @@ define internal zeroext i1 @RB_FLOAT_TYPE_P(i64 noundef %0) #2 {
   br label %15
 
 11:                                               ; preds = %7
-  %12 = load i64, ptr %3, align 8
-  %13 = call i32 @RB_BUILTIN_TYPE(i64 noundef %12) #13
+  %12 = load i64, ptr %3, align 8, !tbaa !6
+  %13 = call i32 @RB_BUILTIN_TYPE(i64 noundef %12) #20
   %14 = icmp eq i32 %13, 4
   store i1 %14, ptr %2, align 1
   br label %15
@@ -959,17 +920,17 @@ define internal zeroext i1 @RB_FLOAT_TYPE_P(i64 noundef %0) #2 {
   ret i1 %16
 }
 
-; Function Attrs: nounwind willreturn memory(none) uwtable
-define internal zeroext i1 @RB_SPECIAL_CONST_P(i64 noundef %0) #3 {
+; Function Attrs: inlinehint nounwind sspstrong willreturn memory(none) uwtable
+define internal zeroext i1 @RB_SPECIAL_CONST_P(i64 noundef %0) #5 {
   %2 = alloca i64, align 8
-  store i64 %0, ptr %2, align 8
-  %3 = load i64, ptr %2, align 8
-  %4 = call zeroext i1 @RB_IMMEDIATE_P(i64 noundef %3) #18
+  store i64 %0, ptr %2, align 8, !tbaa !6
+  %3 = load i64, ptr %2, align 8, !tbaa !6
+  %4 = icmp eq i64 %3, 0
   br i1 %4, label %8, label %5
 
 5:                                                ; preds = %1
-  %6 = load i64, ptr %2, align 8
-  %7 = icmp eq i64 %6, 0
+  %6 = load i64, ptr %2, align 8, !tbaa !6
+  %7 = call zeroext i1 @RB_IMMEDIATE_P(i64 noundef %6) #25
   br label %8
 
 8:                                                ; preds = %5, %1
@@ -977,41 +938,45 @@ define internal zeroext i1 @RB_SPECIAL_CONST_P(i64 noundef %0) #3 {
   ret i1 %9
 }
 
-; Function Attrs: nounwind willreturn memory(read) uwtable
-define internal i32 @RB_BUILTIN_TYPE(i64 noundef %0) #2 {
+; Function Attrs: inlinehint nounwind sspstrong willreturn memory(read) uwtable
+define internal i32 @RB_BUILTIN_TYPE(i64 noundef %0) #3 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
-  store i64 %0, ptr %2, align 8
-  %4 = load i64, ptr %2, align 8
+  store i64 %0, ptr %2, align 8, !tbaa !6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #19
+  %4 = load i64, ptr %2, align 8, !tbaa !6
   %5 = inttoptr i64 %4 to ptr
-  %6 = getelementptr inbounds %struct.RBasic, ptr %5, i32 0, i32 0
-  %7 = load i64, ptr %6, align 8
+  %6 = getelementptr inbounds nuw %struct.RBasic, ptr %5, i32 0, i32 0
+  %7 = load i64, ptr %6, align 8, !tbaa !21
   %8 = and i64 %7, 31
-  store i64 %8, ptr %3, align 8
-  %9 = load i64, ptr %3, align 8
+  store i64 %8, ptr %3, align 8, !tbaa !6
+  %9 = load i64, ptr %3, align 8, !tbaa !6
   %10 = trunc i64 %9 to i32
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #19
   ret i32 %10
 }
 
-; Function Attrs: nounwind willreturn memory(none) uwtable
-define internal zeroext i1 @RB_STATIC_SYM_P(i64 noundef %0) #3 {
+; Function Attrs: inlinehint nounwind sspstrong willreturn memory(none) uwtable
+define internal zeroext i1 @RB_STATIC_SYM_P(i64 noundef %0) #5 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
-  store i64 %0, ptr %2, align 8
-  store i64 255, ptr %3, align 8
-  %4 = load i64, ptr %2, align 8
+  store i64 %0, ptr %2, align 8, !tbaa !6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #19
+  store i64 255, ptr %3, align 8, !tbaa !6
+  %4 = load i64, ptr %2, align 8, !tbaa !6
   %5 = and i64 %4, 255
   %6 = icmp eq i64 %5, 12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #19
   ret i1 %6
 }
 
-; Function Attrs: nounwind willreturn memory(read) uwtable
-define internal zeroext i1 @RB_DYNAMIC_SYM_P(i64 noundef %0) #2 {
+; Function Attrs: inlinehint nounwind sspstrong willreturn memory(read) uwtable
+define internal zeroext i1 @RB_DYNAMIC_SYM_P(i64 noundef %0) #3 {
   %2 = alloca i1, align 1
   %3 = alloca i64, align 8
-  store i64 %0, ptr %3, align 8
-  %4 = load i64, ptr %3, align 8
-  %5 = call zeroext i1 @RB_SPECIAL_CONST_P(i64 noundef %4) #18
+  store i64 %0, ptr %3, align 8, !tbaa !6
+  %4 = load i64, ptr %3, align 8, !tbaa !6
+  %5 = call zeroext i1 @RB_SPECIAL_CONST_P(i64 noundef %4) #25
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %1
@@ -1019,8 +984,8 @@ define internal zeroext i1 @RB_DYNAMIC_SYM_P(i64 noundef %0) #2 {
   br label %11
 
 7:                                                ; preds = %1
-  %8 = load i64, ptr %3, align 8
-  %9 = call i32 @RB_BUILTIN_TYPE(i64 noundef %8) #13
+  %8 = load i64, ptr %3, align 8, !tbaa !6
+  %9 = call i32 @RB_BUILTIN_TYPE(i64 noundef %8) #20
   %10 = icmp eq i32 %9, 20
   store i1 %10, ptr %2, align 1
   br label %11
@@ -1030,46 +995,46 @@ define internal zeroext i1 @RB_DYNAMIC_SYM_P(i64 noundef %0) #2 {
   ret i1 %12
 }
 
-; Function Attrs: nounwind willreturn memory(none) uwtable
-define internal zeroext i1 @RB_FLONUM_P(i64 noundef %0) #3 {
+; Function Attrs: inlinehint nounwind sspstrong willreturn memory(none) uwtable
+define internal zeroext i1 @RB_FLONUM_P(i64 noundef %0) #5 {
   %2 = alloca i64, align 8
-  store i64 %0, ptr %2, align 8
-  %3 = load i64, ptr %2, align 8
+  store i64 %0, ptr %2, align 8, !tbaa !6
+  %3 = load i64, ptr %2, align 8, !tbaa !6
   %4 = and i64 %3, 3
   %5 = icmp eq i64 %4, 2
   ret i1 %5
 }
 
-; Function Attrs: nounwind willreturn memory(none) uwtable
-define internal zeroext i1 @RB_IMMEDIATE_P(i64 noundef %0) #3 {
+; Function Attrs: inlinehint nounwind sspstrong willreturn memory(none) uwtable
+define internal zeroext i1 @RB_IMMEDIATE_P(i64 noundef %0) #5 {
   %2 = alloca i64, align 8
-  store i64 %0, ptr %2, align 8
-  %3 = load i64, ptr %2, align 8
+  store i64 %0, ptr %2, align 8, !tbaa !6
+  %3 = load i64, ptr %2, align 8, !tbaa !6
   %4 = and i64 %3, 7
   %5 = icmp ne i64 %4, 0
   ret i1 %5
 }
 
 ; Function Attrs: convergent nocallback nofree nosync nounwind willreturn memory(none)
-declare i1 @llvm.is.constant.i32(i32) #4
+declare i1 @llvm.is.constant.i32(i32) #7
 
-; Function Attrs: nounwind willreturn memory(read) uwtable
-define internal i32 @rb_type(i64 noundef %0) #2 {
+; Function Attrs: inlinehint nounwind sspstrong willreturn memory(read) uwtable
+define internal i32 @rb_type(i64 noundef %0) #3 {
   %2 = alloca i32, align 4
   %3 = alloca i64, align 8
-  store i64 %0, ptr %3, align 8
-  %4 = load i64, ptr %3, align 8
-  %5 = call zeroext i1 @RB_SPECIAL_CONST_P(i64 noundef %4) #18
+  store i64 %0, ptr %3, align 8, !tbaa !6
+  %4 = load i64, ptr %3, align 8, !tbaa !6
+  %5 = call zeroext i1 @RB_SPECIAL_CONST_P(i64 noundef %4) #25
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %1
-  %7 = load i64, ptr %3, align 8
-  %8 = call i32 @RB_BUILTIN_TYPE(i64 noundef %7) #13
+  %7 = load i64, ptr %3, align 8, !tbaa !6
+  %8 = call i32 @RB_BUILTIN_TYPE(i64 noundef %7) #20
   store i32 %8, ptr %2, align 4
   br label %36
 
 9:                                                ; preds = %1
-  %10 = load i64, ptr %3, align 8
+  %10 = load i64, ptr %3, align 8, !tbaa !6
   %11 = icmp eq i64 %10, 0
   br i1 %11, label %12, label %13
 
@@ -1078,7 +1043,7 @@ define internal i32 @rb_type(i64 noundef %0) #2 {
   br label %36
 
 13:                                               ; preds = %9
-  %14 = load i64, ptr %3, align 8
+  %14 = load i64, ptr %3, align 8, !tbaa !6
   %15 = icmp eq i64 %14, 4
   br i1 %15, label %16, label %17
 
@@ -1087,7 +1052,7 @@ define internal i32 @rb_type(i64 noundef %0) #2 {
   br label %36
 
 17:                                               ; preds = %13
-  %18 = load i64, ptr %3, align 8
+  %18 = load i64, ptr %3, align 8, !tbaa !6
   %19 = icmp eq i64 %18, 20
   br i1 %19, label %20, label %21
 
@@ -1096,7 +1061,7 @@ define internal i32 @rb_type(i64 noundef %0) #2 {
   br label %36
 
 21:                                               ; preds = %17
-  %22 = load i64, ptr %3, align 8
+  %22 = load i64, ptr %3, align 8, !tbaa !6
   %23 = icmp eq i64 %22, 36
   br i1 %23, label %24, label %25
 
@@ -1105,8 +1070,8 @@ define internal i32 @rb_type(i64 noundef %0) #2 {
   br label %36
 
 25:                                               ; preds = %21
-  %26 = load i64, ptr %3, align 8
-  %27 = call zeroext i1 @RB_FIXNUM_P(i64 noundef %26) #18
+  %26 = load i64, ptr %3, align 8, !tbaa !6
+  %27 = call zeroext i1 @RB_FIXNUM_P(i64 noundef %26) #25
   br i1 %27, label %28, label %29
 
 28:                                               ; preds = %25
@@ -1114,8 +1079,8 @@ define internal i32 @rb_type(i64 noundef %0) #2 {
   br label %36
 
 29:                                               ; preds = %25
-  %30 = load i64, ptr %3, align 8
-  %31 = call zeroext i1 @RB_STATIC_SYM_P(i64 noundef %30) #18
+  %30 = load i64, ptr %3, align 8, !tbaa !6
+  %31 = call zeroext i1 @RB_STATIC_SYM_P(i64 noundef %30) #25
   br i1 %31, label %32, label %33
 
 32:                                               ; preds = %29
@@ -1123,8 +1088,8 @@ define internal i32 @rb_type(i64 noundef %0) #2 {
   br label %36
 
 33:                                               ; preds = %29
-  %34 = load i64, ptr %3, align 8
-  %35 = call zeroext i1 @RB_FLONUM_P(i64 noundef %34) #18
+  %34 = load i64, ptr %3, align 8, !tbaa !6
+  %35 = call zeroext i1 @RB_FLONUM_P(i64 noundef %34) #25
   call void @llvm.assume(i1 %35)
   store i32 4, ptr %2, align 4
   br label %36
@@ -1135,121 +1100,125 @@ define internal i32 @rb_type(i64 noundef %0) #2 {
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #5
+declare void @llvm.assume(i1 noundef) #8
 
 declare i64 @rb_fix2int(i64 noundef) #1
 
 declare i64 @rb_num2int(i64 noundef) #1
 
-; Function Attrs: nounwind willreturn memory(read, argmem: readwrite) uwtable
-define internal void @rbimpl_rstring_getmem(ptr dead_on_unwind noalias writable sret(%struct.RString) align 8 %0, i64 noundef %1) #6 {
+; Function Attrs: inlinehint nounwind sspstrong willreturn memory(read, argmem: readwrite) uwtable
+define internal void @rbimpl_rstring_getmem(ptr dead_on_unwind noalias writable sret(%struct.RString) align 8 %0, i64 noundef %1) #9 {
   %3 = alloca i64, align 8
-  store i64 %1, ptr %3, align 8
-  %4 = load i64, ptr %3, align 8
-  %5 = call zeroext i1 @RB_FL_ANY_RAW(i64 noundef %4, i64 noundef 8192) #13
+  store i64 %1, ptr %3, align 8, !tbaa !6
+  %4 = load i64, ptr %3, align 8, !tbaa !6
+  %5 = call zeroext i1 @RB_FL_ANY_RAW(i64 noundef %4, i64 noundef 8192) #20
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %2
-  %7 = load i64, ptr %3, align 8
+  %7 = load i64, ptr %3, align 8, !tbaa !6
   %8 = inttoptr i64 %7 to ptr
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 %8, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 %8, i64 40, i1 false), !tbaa.struct !24
   br label %20
 
 9:                                                ; preds = %2
-  %10 = load i64, ptr %3, align 8
-  %11 = call i64 @RSTRING_LEN(i64 noundef %10) #13
-  %12 = getelementptr inbounds %struct.RString, ptr %0, i32 0, i32 1
-  store i64 %11, ptr %12, align 8
-  %13 = load i64, ptr %3, align 8
+  %10 = load i64, ptr %3, align 8, !tbaa !6
+  %11 = call i64 @RSTRING_LEN(i64 noundef %10) #20
+  %12 = getelementptr inbounds nuw %struct.RString, ptr %0, i32 0, i32 1
+  store i64 %11, ptr %12, align 8, !tbaa !18
+  %13 = load i64, ptr %3, align 8, !tbaa !6
   %14 = inttoptr i64 %13 to ptr
-  %15 = getelementptr inbounds %struct.RString, ptr %14, i32 0, i32 2
-  %16 = getelementptr inbounds %struct.anon.1, ptr %15, i32 0, i32 0
+  %15 = getelementptr inbounds nuw %struct.RString, ptr %14, i32 0, i32 2
+  %16 = getelementptr inbounds nuw %struct.anon.1, ptr %15, i32 0, i32 0
   %17 = getelementptr inbounds [1 x i8], ptr %16, i64 0, i64 0
-  %18 = getelementptr inbounds %struct.RString, ptr %0, i32 0, i32 2
-  %19 = getelementptr inbounds %struct.anon, ptr %18, i32 0, i32 0
-  store ptr %17, ptr %19, align 8
+  %18 = getelementptr inbounds nuw %struct.RString, ptr %0, i32 0, i32 2
+  %19 = getelementptr inbounds nuw %struct.anon, ptr %18, i32 0, i32 0
+  store ptr %17, ptr %19, align 8, !tbaa !17
   br label %20
 
 20:                                               ; preds = %9, %6
   ret void
 }
 
-; Function Attrs: nounwind willreturn memory(read) uwtable
-define internal zeroext i1 @RB_FL_ANY_RAW(i64 noundef %0, i64 noundef %1) #2 {
+; Function Attrs: inlinehint nounwind sspstrong willreturn memory(read) uwtable
+define internal zeroext i1 @RB_FL_ANY_RAW(i64 noundef %0, i64 noundef %1) #3 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
-  store i64 %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
-  %5 = load i64, ptr %3, align 8
-  %6 = load i64, ptr %4, align 8
-  %7 = call i64 @RB_FL_TEST_RAW(i64 noundef %5, i64 noundef %6) #13
+  store i64 %0, ptr %3, align 8, !tbaa !6
+  store i64 %1, ptr %4, align 8, !tbaa !6
+  %5 = load i64, ptr %3, align 8, !tbaa !6
+  %6 = load i64, ptr %4, align 8, !tbaa !6
+  %7 = call i64 @RB_FL_TEST_RAW(i64 noundef %5, i64 noundef %6) #20
   %8 = icmp ne i64 %7, 0
   ret i1 %8
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
-; Function Attrs: nounwind willreturn memory(read) uwtable
-define internal i64 @RB_FL_TEST_RAW(i64 noundef %0, i64 noundef %1) #2 {
+; Function Attrs: inlinehint nounwind sspstrong willreturn memory(read) uwtable
+define internal i64 @RB_FL_TEST_RAW(i64 noundef %0, i64 noundef %1) #3 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
-  store i64 %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
-  %5 = load i64, ptr %3, align 8
+  store i64 %0, ptr %3, align 8, !tbaa !6
+  store i64 %1, ptr %4, align 8, !tbaa !6
+  %5 = load i64, ptr %3, align 8, !tbaa !6
   %6 = inttoptr i64 %5 to ptr
-  %7 = getelementptr inbounds %struct.RBasic, ptr %6, i32 0, i32 0
-  %8 = load i64, ptr %7, align 8
-  %9 = load i64, ptr %4, align 8
+  %7 = getelementptr inbounds nuw %struct.RBasic, ptr %6, i32 0, i32 0
+  %8 = load i64, ptr %7, align 8, !tbaa !21
+  %9 = load i64, ptr %4, align 8, !tbaa !6
   %10 = and i64 %8, %9
   ret i64 %10
 }
 
 declare i32 @rb_enc_precise_mbclen(ptr noundef, ptr noundef, ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
-define internal i32 @rb_enc_mbc_to_codepoint(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal i32 @rb_enc_mbc_to_codepoint(ptr noundef %0, ptr noundef %1, ptr noundef %2) #4 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %9 = load ptr, ptr %4, align 8
-  store ptr %9, ptr %7, align 8
-  %10 = load ptr, ptr %5, align 8
-  store ptr %10, ptr %8, align 8
-  %11 = load ptr, ptr %6, align 8
-  %12 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %11, i32 0, i32 5
-  %13 = load ptr, ptr %12, align 8
-  %14 = load ptr, ptr %7, align 8
-  %15 = load ptr, ptr %8, align 8
-  %16 = load ptr, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !10
+  store ptr %1, ptr %5, align 8, !tbaa !10
+  store ptr %2, ptr %6, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #19
+  %9 = load ptr, ptr %4, align 8, !tbaa !10
+  store ptr %9, ptr %7, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #19
+  %10 = load ptr, ptr %5, align 8, !tbaa !10
+  store ptr %10, ptr %8, align 8, !tbaa !10
+  %11 = load ptr, ptr %6, align 8, !tbaa !13
+  %12 = getelementptr inbounds nuw %struct.OnigEncodingTypeST, ptr %11, i32 0, i32 5
+  %13 = load ptr, ptr %12, align 8, !tbaa !25
+  %14 = load ptr, ptr %7, align 8, !tbaa !10
+  %15 = load ptr, ptr %8, align 8, !tbaa !10
+  %16 = load ptr, ptr %6, align 8, !tbaa !13
   %17 = call i32 %13(ptr noundef %14, ptr noundef %15, ptr noundef %16)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #19
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #19
   ret i32 %17
 }
 
 declare i64 @rb_enc_uint_chr(i32 noundef, ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
-define internal i64 @rb_num2long_inline(i64 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal i64 @rb_num2long_inline(i64 noundef %0) #4 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
-  store i64 %0, ptr %3, align 8
-  %4 = load i64, ptr %3, align 8
-  %5 = call zeroext i1 @RB_FIXNUM_P(i64 noundef %4) #18
+  store i64 %0, ptr %3, align 8, !tbaa !6
+  %4 = load i64, ptr %3, align 8, !tbaa !6
+  %5 = call zeroext i1 @RB_FIXNUM_P(i64 noundef %4) #25
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %1
-  %7 = load i64, ptr %3, align 8
-  %8 = call i64 @rb_fix2long(i64 noundef %7) #18
+  %7 = load i64, ptr %3, align 8, !tbaa !6
+  %8 = call i64 @rb_fix2long(i64 noundef %7) #25
   store i64 %8, ptr %2, align 8
   br label %12
 
 9:                                                ; preds = %1
-  %10 = load i64, ptr %3, align 8
+  %10 = load i64, ptr %3, align 8, !tbaa !6
   %11 = call i64 @rb_num2long(i64 noundef %10)
   store i64 %11, ptr %2, align 8
   br label %12
@@ -1260,41 +1229,55 @@ define internal i64 @rb_num2long_inline(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: noreturn
-declare void @rb_raise(i64 noundef, ptr noundef, ...) #8
+declare void @rb_raise(i64 noundef, ptr noundef, ...) #11
 
 declare i64 @rb_str_new_shared(i64 noundef) #1
 
-; Function Attrs: nounwind uwtable
-define internal zeroext i1 @STR_EMBED_P(i64 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal zeroext i1 @STR_EMBED_P(i64 noundef %0) #4 {
   %2 = alloca i64, align 8
-  store i64 %0, ptr %2, align 8
-  %3 = load i64, ptr %2, align 8
-  %4 = call i64 @RB_FL_TEST_RAW(i64 noundef %3, i64 noundef 8192) #13
+  store i64 %0, ptr %2, align 8, !tbaa !6
+  %3 = load i64, ptr %2, align 8, !tbaa !6
+  %4 = call i64 @RB_FL_TEST_RAW(i64 noundef %3, i64 noundef 8192) #20
   %5 = icmp ne i64 %4, 0
   %6 = xor i1 %5, true
   ret i1 %6
 }
 
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #7
+; Function Attrs: alwaysinline nounwind
+define internal ptr @memmove.inline(ptr nonnull %0, ptr nonnull %1, i64 %2) #12 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !26
+  store ptr %1, ptr %5, align 8, !tbaa !26
+  store i64 %2, ptr %6, align 8, !tbaa !6
+  %7 = load ptr, ptr %4, align 8, !tbaa !26
+  %8 = load ptr, ptr %5, align 8, !tbaa !26
+  %9 = load i64, ptr %6, align 8, !tbaa !6
+  %10 = load ptr, ptr %4, align 8, !tbaa !26
+  %11 = call i64 @llvm.objectsize.i64.p0(ptr %10, i1 false, i1 true, i1 false)
+  %12 = call ptr @__memmove_chk(ptr noundef %7, ptr noundef %8, i64 noundef %9, i64 noundef %11) #19
+  ret ptr %12
+}
 
-; Function Attrs: nounwind willreturn memory(none) uwtable
-define internal i64 @rb_fix2long(i64 noundef %0) #3 {
+; Function Attrs: inlinehint nounwind sspstrong willreturn memory(none) uwtable
+define internal i64 @rb_fix2long(i64 noundef %0) #5 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
-  store i64 %0, ptr %3, align 8
-  %4 = call zeroext i1 @rbimpl_right_shift_is_arithmetic_p() #18
+  store i64 %0, ptr %3, align 8, !tbaa !6
+  %4 = call zeroext i1 @rbimpl_right_shift_is_arithmetic_p() #25
   br i1 %4, label %5, label %8
 
 5:                                                ; preds = %1
-  %6 = load i64, ptr %3, align 8
-  %7 = call i64 @rbimpl_fix2long_by_shift(i64 noundef %6) #18
+  %6 = load i64, ptr %3, align 8, !tbaa !6
+  %7 = call i64 @rbimpl_fix2long_by_shift(i64 noundef %6) #25
   store i64 %7, ptr %2, align 8
   br label %11
 
 8:                                                ; preds = %1
-  %9 = load i64, ptr %3, align 8
-  %10 = call i64 @rbimpl_fix2long_by_idiv(i64 noundef %9) #18
+  %9 = load i64, ptr %3, align 8, !tbaa !6
+  %10 = call i64 @rbimpl_fix2long_by_idiv(i64 noundef %9) #25
   store i64 %10, ptr %2, align 8
   br label %11
 
@@ -1305,498 +1288,370 @@ define internal i64 @rb_fix2long(i64 noundef %0) #3 {
 
 declare i64 @rb_num2long(i64 noundef) #1
 
-; Function Attrs: nounwind willreturn memory(none) uwtable
-define internal zeroext i1 @rbimpl_right_shift_is_arithmetic_p() #3 {
+; Function Attrs: inlinehint nounwind sspstrong willreturn memory(none) uwtable
+define internal zeroext i1 @rbimpl_right_shift_is_arithmetic_p() #5 {
   ret i1 true
 }
 
-; Function Attrs: nounwind willreturn memory(none) uwtable
-define internal i64 @rbimpl_fix2long_by_shift(i64 noundef %0) #3 {
+; Function Attrs: inlinehint nounwind sspstrong willreturn memory(none) uwtable
+define internal i64 @rbimpl_fix2long_by_shift(i64 noundef %0) #5 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
-  store i64 %0, ptr %2, align 8
-  %6 = load i64, ptr %2, align 8
-  store i64 %6, ptr %3, align 8
-  %7 = load i64, ptr %3, align 8
+  store i64 %0, ptr %2, align 8, !tbaa !6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #19
+  %6 = load i64, ptr %2, align 8, !tbaa !6
+  store i64 %6, ptr %3, align 8, !tbaa !6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #19
+  %7 = load i64, ptr %3, align 8, !tbaa !6
   %8 = ashr i64 %7, 1
-  store i64 %8, ptr %4, align 8
-  %9 = load i64, ptr %4, align 8
-  store i64 %9, ptr %5, align 8
-  %10 = load i64, ptr %5, align 8
+  store i64 %8, ptr %4, align 8, !tbaa !6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #19
+  %9 = load i64, ptr %4, align 8, !tbaa !6
+  store i64 %9, ptr %5, align 8, !tbaa !6
+  %10 = load i64, ptr %5, align 8, !tbaa !6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #19
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #19
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #19
   ret i64 %10
 }
 
-; Function Attrs: nounwind willreturn memory(none) uwtable
-define internal i64 @rbimpl_fix2long_by_idiv(i64 noundef %0) #3 {
+; Function Attrs: inlinehint nounwind sspstrong willreturn memory(none) uwtable
+define internal i64 @rbimpl_fix2long_by_idiv(i64 noundef %0) #5 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
-  store i64 %0, ptr %2, align 8
-  %6 = load i64, ptr %2, align 8
+  store i64 %0, ptr %2, align 8, !tbaa !6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #19
+  %6 = load i64, ptr %2, align 8, !tbaa !6
   %7 = sub i64 %6, 1
-  store i64 %7, ptr %3, align 8
-  %8 = load i64, ptr %3, align 8
+  store i64 %7, ptr %3, align 8, !tbaa !6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #19
+  %8 = load i64, ptr %3, align 8, !tbaa !6
   %9 = sdiv i64 %8, 2
-  store i64 %9, ptr %4, align 8
-  %10 = load i64, ptr %4, align 8
-  store i64 %10, ptr %5, align 8
-  %11 = load i64, ptr %5, align 8
+  store i64 %9, ptr %4, align 8, !tbaa !6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #19
+  %10 = load i64, ptr %4, align 8, !tbaa !6
+  store i64 %10, ptr %5, align 8, !tbaa !6
+  %11 = load i64, ptr %5, align 8, !tbaa !6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #19
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #19
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #19
   ret i64 %11
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @Check_Type(i64 noundef %0, i32 noundef %1) #0 {
-  %3 = alloca i1, align 1
-  %4 = alloca i64, align 8
-  %5 = alloca i32, align 4
-  %6 = alloca i64, align 8
-  %7 = alloca i32, align 4
-  store i64 %0, ptr %6, align 8
-  store i32 %1, ptr %7, align 4
-  %8 = load i32, ptr %7, align 4
-  %9 = call i1 @llvm.is.constant.i32(i32 %8)
-  br i1 %9, label %10, label %68
+; Function Attrs: nounwind
+declare ptr @__memmove_chk(ptr noundef, ptr noundef, i64 noundef, i64 noundef) #13
 
-10:                                               ; preds = %2
-  %11 = load i64, ptr %6, align 8
-  %12 = load i32, ptr %7, align 4
-  store i64 %11, ptr %4, align 8
-  store i32 %12, ptr %5, align 4
-  %13 = load i32, ptr %5, align 4
-  %14 = icmp eq i32 %13, 18
-  br i1 %14, label %15, label %18
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.objectsize.i64.p0(ptr, i1 immarg, i1 immarg, i1 immarg) #14
 
-15:                                               ; preds = %10
-  %16 = load i64, ptr %4, align 8
-  %17 = icmp eq i64 %16, 20
-  store i1 %17, ptr %3, align 1
-  br label %65
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @Check_Type(i64 noundef %0, i32 noundef %1) #4 {
+  %3 = alloca i64, align 8
+  %4 = alloca i32, align 4
+  store i64 %0, ptr %3, align 8, !tbaa !6
+  store i32 %1, ptr %4, align 4, !tbaa !15
+  %5 = load i32, ptr %4, align 4, !tbaa !15
+  %6 = call i1 @llvm.is.constant.i32(i32 %5)
+  br i1 %6, label %7, label %12
 
-18:                                               ; preds = %10
-  %19 = load i32, ptr %5, align 4
-  %20 = icmp eq i32 %19, 19
-  br i1 %20, label %21, label %24
+7:                                                ; preds = %2
+  %8 = load i64, ptr %3, align 8, !tbaa !6
+  %9 = load i32, ptr %4, align 4, !tbaa !15
+  %10 = call zeroext i1 @rbimpl_RB_TYPE_P_fastpath(i64 noundef %8, i32 noundef %9) #20
+  %11 = zext i1 %10 to i32
+  br label %17
 
-21:                                               ; preds = %18
-  %22 = load i64, ptr %4, align 8
-  %23 = icmp eq i64 %22, 0
-  store i1 %23, ptr %3, align 1
-  br label %65
+12:                                               ; preds = %2
+  %13 = load i64, ptr %3, align 8, !tbaa !6
+  %14 = load i32, ptr %4, align 4, !tbaa !15
+  %15 = call zeroext i1 @RB_TYPE_P(i64 noundef %13, i32 noundef %14) #20
+  %16 = zext i1 %15 to i32
+  br label %17
 
-24:                                               ; preds = %18
-  %25 = load i32, ptr %5, align 4
-  %26 = icmp eq i32 %25, 17
-  br i1 %26, label %27, label %30
+17:                                               ; preds = %12, %7
+  %18 = phi i32 [ %11, %7 ], [ %16, %12 ]
+  %19 = icmp ne i32 %18, 0
+  %20 = xor i1 %19, true
+  %21 = xor i1 %20, true
+  %22 = xor i1 %21, true
+  %23 = zext i1 %22 to i32
+  %24 = sext i32 %23 to i64
+  %25 = call i64 @llvm.expect.i64(i64 %24, i64 0)
+  %26 = icmp ne i64 %25, 0
+  br i1 %26, label %27, label %28
 
-27:                                               ; preds = %24
-  %28 = load i64, ptr %4, align 8
-  %29 = icmp eq i64 %28, 4
-  store i1 %29, ptr %3, align 1
-  br label %65
+27:                                               ; preds = %17
+  br label %36
 
-30:                                               ; preds = %24
-  %31 = load i32, ptr %5, align 4
-  %32 = icmp eq i32 %31, 22
-  br i1 %32, label %33, label %36
+28:                                               ; preds = %17
+  %29 = load i32, ptr %4, align 4, !tbaa !15
+  %30 = icmp eq i32 %29, 12
+  br i1 %30, label %31, label %35
 
-33:                                               ; preds = %30
-  %34 = load i64, ptr %4, align 8
-  %35 = icmp eq i64 %34, 36
-  store i1 %35, ptr %3, align 1
-  br label %65
+31:                                               ; preds = %28
+  %32 = load i64, ptr %3, align 8, !tbaa !6
+  %33 = call zeroext i1 @rbimpl_rtypeddata_p(i64 noundef %32) #20
+  br i1 %33, label %34, label %35
 
-36:                                               ; preds = %30
-  %37 = load i32, ptr %5, align 4
-  %38 = icmp eq i32 %37, 21
-  br i1 %38, label %39, label %42
+34:                                               ; preds = %31
+  br label %36
 
-39:                                               ; preds = %36
-  %40 = load i64, ptr %4, align 8
-  %41 = call zeroext i1 @RB_FIXNUM_P(i64 noundef %40) #18
-  store i1 %41, ptr %3, align 1
-  br label %65
-
-42:                                               ; preds = %36
-  %43 = load i32, ptr %5, align 4
-  %44 = icmp eq i32 %43, 20
-  br i1 %44, label %45, label %48
-
-45:                                               ; preds = %42
-  %46 = load i64, ptr %4, align 8
-  %47 = call zeroext i1 @RB_SYMBOL_P(i64 noundef %46) #13
-  store i1 %47, ptr %3, align 1
-  br label %65
-
-48:                                               ; preds = %42
-  %49 = load i32, ptr %5, align 4
-  %50 = icmp eq i32 %49, 4
-  br i1 %50, label %51, label %54
-
-51:                                               ; preds = %48
-  %52 = load i64, ptr %4, align 8
-  %53 = call zeroext i1 @RB_FLOAT_TYPE_P(i64 noundef %52) #13
-  store i1 %53, ptr %3, align 1
-  br label %65
-
-54:                                               ; preds = %48
-  %55 = load i64, ptr %4, align 8
-  %56 = call zeroext i1 @RB_SPECIAL_CONST_P(i64 noundef %55) #18
-  br i1 %56, label %57, label %58
-
-57:                                               ; preds = %54
-  store i1 false, ptr %3, align 1
-  br label %65
-
-58:                                               ; preds = %54
-  %59 = load i32, ptr %5, align 4
-  %60 = load i64, ptr %4, align 8
-  %61 = call i32 @RB_BUILTIN_TYPE(i64 noundef %60) #13
-  %62 = icmp eq i32 %59, %61
-  br i1 %62, label %63, label %64
-
-63:                                               ; preds = %58
-  store i1 true, ptr %3, align 1
-  br label %65
-
-64:                                               ; preds = %58
-  store i1 false, ptr %3, align 1
-  br label %65
-
-65:                                               ; preds = %64, %63, %57, %51, %45, %39, %33, %27, %21, %15
-  %66 = load i1, ptr %3, align 1
-  %67 = zext i1 %66 to i32
-  br label %73
-
-68:                                               ; preds = %2
-  %69 = load i64, ptr %6, align 8
-  %70 = load i32, ptr %7, align 4
-  %71 = call zeroext i1 @RB_TYPE_P(i64 noundef %69, i32 noundef %70) #13
-  %72 = zext i1 %71 to i32
-  br label %73
-
-73:                                               ; preds = %68, %65
-  %74 = phi i32 [ %67, %65 ], [ %72, %68 ]
-  %75 = icmp ne i32 %74, 0
-  %76 = xor i1 %75, true
-  %77 = xor i1 %76, true
-  %78 = xor i1 %77, true
-  %79 = zext i1 %78 to i32
-  %80 = sext i32 %79 to i64
-  %81 = icmp ne i64 %80, 0
-  br i1 %81, label %82, label %83
-
-82:                                               ; preds = %73
-  br label %91
-
-83:                                               ; preds = %73
-  %84 = load i32, ptr %7, align 4
-  %85 = icmp eq i32 %84, 12
-  br i1 %85, label %86, label %90
-
-86:                                               ; preds = %83
-  %87 = load i64, ptr %6, align 8
-  %88 = call zeroext i1 @rbimpl_rtypeddata_p(i64 noundef %87) #13
-  br i1 %88, label %89, label %90
-
-89:                                               ; preds = %86
-  br label %91
-
-90:                                               ; preds = %86, %83
+35:                                               ; preds = %31, %28
   ret void
 
-91:                                               ; preds = %89, %82
-  %92 = load i64, ptr %6, align 8
-  %93 = load i32, ptr %7, align 4
-  call void @rb_unexpected_type(i64 noundef %92, i32 noundef %93) #19
+36:                                               ; preds = %34, %27
+  %37 = load i64, ptr %3, align 8, !tbaa !6
+  %38 = load i32, ptr %4, align 4, !tbaa !15
+  call void @rb_unexpected_type(i64 noundef %37, i32 noundef %38) #26
   unreachable
 }
 
-; Function Attrs: nounwind willreturn memory(read) uwtable
-define internal zeroext i1 @rbimpl_rtypeddata_p(i64 noundef %0) #2 {
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
+declare i64 @llvm.expect.i64(i64, i64) #15
+
+; Function Attrs: inlinehint nounwind sspstrong willreturn memory(read) uwtable
+define internal zeroext i1 @rbimpl_rtypeddata_p(i64 noundef %0) #3 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
-  store i64 %0, ptr %2, align 8
-  %4 = load i64, ptr %2, align 8
+  store i64 %0, ptr %2, align 8, !tbaa !6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #19
+  %4 = load i64, ptr %2, align 8, !tbaa !6
   %5 = inttoptr i64 %4 to ptr
-  %6 = getelementptr inbounds %struct.RTypedData, ptr %5, i32 0, i32 2
-  %7 = load i64, ptr %6, align 8
-  store i64 %7, ptr %3, align 8
-  %8 = load i64, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %struct.RTypedData, ptr %5, i32 0, i32 2
+  %7 = load i64, ptr %6, align 8, !tbaa !27
+  store i64 %7, ptr %3, align 8, !tbaa !6
+  %8 = load i64, ptr %3, align 8, !tbaa !6
   %9 = icmp ne i64 %8, 0
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %1
-  %11 = load i64, ptr %3, align 8
+  %11 = load i64, ptr %3, align 8, !tbaa !6
   %12 = icmp ule i64 %11, 3
   br label %13
 
 13:                                               ; preds = %10, %1
   %14 = phi i1 [ false, %1 ], [ %12, %10 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #19
   ret i1 %14
 }
 
 ; Function Attrs: cold noreturn
-declare void @rb_unexpected_type(i64 noundef, i32 noundef) #9
+declare void @rb_unexpected_type(i64 noundef, i32 noundef) #16
 
 declare i64 @rb_str_new_static(ptr noundef, i64 noundef) #1
 
 ; Function Attrs: allocsize(0,1)
-declare noalias nonnull ptr @ruby_xmalloc2(i64 noundef, i64 noundef) #10
+declare noalias nonnull ptr @ruby_xmalloc2(i64 noundef, i64 noundef) #17
 
-; Function Attrs: nounwind uwtable
-define internal void @RB_FL_SET(i64 noundef %0, i64 noundef %1) #0 {
-  %3 = alloca i1, align 1
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @RB_FL_SET(i64 noundef %0, i64 noundef %1) #4 {
+  %3 = alloca i64, align 8
   %4 = alloca i64, align 8
-  %5 = alloca i32, align 4
-  %6 = alloca i1, align 1
-  %7 = alloca i64, align 8
-  %8 = alloca i64, align 8
-  %9 = alloca i64, align 8
-  store i64 %0, ptr %8, align 8
-  store i64 %1, ptr %9, align 8
-  %10 = load i64, ptr %8, align 8
-  store i64 %10, ptr %7, align 8
-  %11 = load i64, ptr %7, align 8
-  %12 = call zeroext i1 @RB_SPECIAL_CONST_P(i64 noundef %11) #18
-  br i1 %12, label %13, label %14
+  store i64 %0, ptr %3, align 8, !tbaa !6
+  store i64 %1, ptr %4, align 8, !tbaa !6
+  %5 = load i64, ptr %3, align 8, !tbaa !6
+  %6 = call zeroext i1 @RB_FL_ABLE(i64 noundef %5) #20
+  br i1 %6, label %7, label %10
 
-13:                                               ; preds = %2
-  store i1 false, ptr %6, align 1
-  br label %72
+7:                                                ; preds = %2
+  %8 = load i64, ptr %3, align 8, !tbaa !6
+  %9 = load i64, ptr %4, align 8, !tbaa !6
+  call void @RB_FL_SET_RAW(i64 noundef %8, i64 noundef %9)
+  br label %10
 
-14:                                               ; preds = %2
-  %15 = load i64, ptr %7, align 8
-  store i64 %15, ptr %4, align 8
-  store i32 27, ptr %5, align 4
-  %16 = load i32, ptr %5, align 4
-  %17 = icmp eq i32 %16, 18
-  br i1 %17, label %18, label %21
-
-18:                                               ; preds = %14
-  %19 = load i64, ptr %4, align 8
-  %20 = icmp eq i64 %19, 20
-  store i1 %20, ptr %3, align 1
-  br label %68
-
-21:                                               ; preds = %14
-  %22 = load i32, ptr %5, align 4
-  %23 = icmp eq i32 %22, 19
-  br i1 %23, label %24, label %27
-
-24:                                               ; preds = %21
-  %25 = load i64, ptr %4, align 8
-  %26 = icmp eq i64 %25, 0
-  store i1 %26, ptr %3, align 1
-  br label %68
-
-27:                                               ; preds = %21
-  %28 = load i32, ptr %5, align 4
-  %29 = icmp eq i32 %28, 17
-  br i1 %29, label %30, label %33
-
-30:                                               ; preds = %27
-  %31 = load i64, ptr %4, align 8
-  %32 = icmp eq i64 %31, 4
-  store i1 %32, ptr %3, align 1
-  br label %68
-
-33:                                               ; preds = %27
-  %34 = load i32, ptr %5, align 4
-  %35 = icmp eq i32 %34, 22
-  br i1 %35, label %36, label %39
-
-36:                                               ; preds = %33
-  %37 = load i64, ptr %4, align 8
-  %38 = icmp eq i64 %37, 36
-  store i1 %38, ptr %3, align 1
-  br label %68
-
-39:                                               ; preds = %33
-  %40 = load i32, ptr %5, align 4
-  %41 = icmp eq i32 %40, 21
-  br i1 %41, label %42, label %45
-
-42:                                               ; preds = %39
-  %43 = load i64, ptr %4, align 8
-  %44 = call zeroext i1 @RB_FIXNUM_P(i64 noundef %43) #18
-  store i1 %44, ptr %3, align 1
-  br label %68
-
-45:                                               ; preds = %39
-  %46 = load i32, ptr %5, align 4
-  %47 = icmp eq i32 %46, 20
-  br i1 %47, label %48, label %51
-
-48:                                               ; preds = %45
-  %49 = load i64, ptr %4, align 8
-  %50 = call zeroext i1 @RB_SYMBOL_P(i64 noundef %49) #13
-  store i1 %50, ptr %3, align 1
-  br label %68
-
-51:                                               ; preds = %45
-  %52 = load i32, ptr %5, align 4
-  %53 = icmp eq i32 %52, 4
-  br i1 %53, label %54, label %57
-
-54:                                               ; preds = %51
-  %55 = load i64, ptr %4, align 8
-  %56 = call zeroext i1 @RB_FLOAT_TYPE_P(i64 noundef %55) #13
-  store i1 %56, ptr %3, align 1
-  br label %68
-
-57:                                               ; preds = %51
-  %58 = load i64, ptr %4, align 8
-  %59 = call zeroext i1 @RB_SPECIAL_CONST_P(i64 noundef %58) #18
-  br i1 %59, label %60, label %61
-
-60:                                               ; preds = %57
-  store i1 false, ptr %3, align 1
-  br label %68
-
-61:                                               ; preds = %57
-  %62 = load i32, ptr %5, align 4
-  %63 = load i64, ptr %4, align 8
-  %64 = call i32 @RB_BUILTIN_TYPE(i64 noundef %63) #13
-  %65 = icmp eq i32 %62, %64
-  br i1 %65, label %66, label %67
-
-66:                                               ; preds = %61
-  store i1 true, ptr %3, align 1
-  br label %68
-
-67:                                               ; preds = %61
-  store i1 false, ptr %3, align 1
-  br label %68
-
-68:                                               ; preds = %67, %66, %60, %54, %48, %42, %36, %30, %24, %18
-  %69 = load i1, ptr %3, align 1
-  br i1 %69, label %70, label %71
-
-70:                                               ; preds = %68
-  store i1 false, ptr %6, align 1
-  br label %72
-
-71:                                               ; preds = %68
-  store i1 true, ptr %6, align 1
-  br label %72
-
-72:                                               ; preds = %71, %70, %13
-  %73 = load i1, ptr %6, align 1
-  br i1 %73, label %74, label %77
-
-74:                                               ; preds = %72
-  %75 = load i64, ptr %8, align 8
-  %76 = load i64, ptr %9, align 8
-  call void @RB_FL_SET_RAW(i64 noundef %75, i64 noundef %76)
-  br label %77
-
-77:                                               ; preds = %74, %72
+10:                                               ; preds = %7, %2
   ret void
 }
 
-; Function Attrs: nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal nonnull ptr @ruby_nonempty_memcpy(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2) #11 {
+; Function Attrs: inlinehint nounwind sspstrong memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
+define internal nonnull ptr @ruby_nonempty_memcpy(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2) #18 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store i64 %2, ptr %7, align 8
-  %8 = load i64, ptr %7, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !26
+  store ptr %1, ptr %6, align 8, !tbaa !26
+  store i64 %2, ptr %7, align 8, !tbaa !6
+  %8 = load i64, ptr %7, align 8, !tbaa !6
   %9 = icmp ne i64 %8, 0
-  br i1 %9, label %10, label %14
+  br i1 %9, label %10, label %15
 
 10:                                               ; preds = %3
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  %13 = load i64, ptr %7, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %11, ptr align 1 %12, i64 %13, i1 false)
-  store ptr %11, ptr %4, align 8
-  br label %16
+  %11 = load ptr, ptr %5, align 8, !tbaa !26
+  %12 = load ptr, ptr %6, align 8, !tbaa !26
+  %13 = load i64, ptr %7, align 8, !tbaa !6
+  %14 = call ptr @memcpy.inline(ptr noundef %11, ptr noundef %12, i64 noundef %13) #19
+  store ptr %14, ptr %4, align 8
+  br label %17
 
-14:                                               ; preds = %3
-  %15 = load ptr, ptr %5, align 8
-  store ptr %15, ptr %4, align 8
-  br label %16
+15:                                               ; preds = %3
+  %16 = load ptr, ptr %5, align 8, !tbaa !26
+  store ptr %16, ptr %4, align 8
+  br label %17
 
-16:                                               ; preds = %14, %10
-  %17 = load ptr, ptr %4, align 8
-  ret ptr %17
+17:                                               ; preds = %15, %10
+  %18 = load ptr, ptr %4, align 8
+  ret ptr %18
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @RSTRING_END(i64 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal ptr @RSTRING_END(i64 noundef %0) #4 {
   %2 = alloca i64, align 8
   %3 = alloca %struct.RString, align 8
-  store i64 %0, ptr %2, align 8
-  %4 = load i64, ptr %2, align 8
-  call void @rbimpl_rstring_getmem(ptr dead_on_unwind writable sret(%struct.RString) align 8 %3, i64 noundef %4) #14
-  %5 = getelementptr inbounds %struct.RString, ptr %3, i32 0, i32 2
-  %6 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds %struct.RString, ptr %3, i32 0, i32 1
-  %9 = load i64, ptr %8, align 8
+  store i64 %0, ptr %2, align 8, !tbaa !6
+  call void @llvm.lifetime.start.p0(i64 40, ptr %3) #19
+  %4 = load i64, ptr %2, align 8, !tbaa !6
+  call void @rbimpl_rstring_getmem(ptr dead_on_unwind writable sret(%struct.RString) align 8 %3, i64 noundef %4) #21
+  %5 = getelementptr inbounds nuw %struct.RString, ptr %3, i32 0, i32 2
+  %6 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %6, align 8, !tbaa !17
+  %8 = getelementptr inbounds nuw %struct.RString, ptr %3, i32 0, i32 1
+  %9 = load i64, ptr %8, align 8, !tbaa !18
   %10 = getelementptr inbounds i8, ptr %7, i64 %9
+  call void @llvm.lifetime.end.p0(i64 40, ptr %3) #19
   ret ptr %10
 }
 
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+; Function Attrs: alwaysinline nounwind
+define internal ptr @memset.inline(ptr nonnull %0, i32 %1, i64 %2) #12 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !26
+  store i32 %1, ptr %5, align 4, !tbaa !15
+  store i64 %2, ptr %6, align 8, !tbaa !6
+  %7 = load ptr, ptr %4, align 8, !tbaa !26
+  %8 = load i32, ptr %5, align 4, !tbaa !15
+  %9 = load i64, ptr %6, align 8, !tbaa !6
+  %10 = load ptr, ptr %4, align 8, !tbaa !26
+  %11 = call i64 @llvm.objectsize.i64.p0(ptr %10, i1 false, i1 true, i1 false)
+  %12 = call ptr @__memset_chk(ptr noundef %7, i32 noundef %8, i64 noundef %9, i64 noundef %11) #19
+  ret ptr %12
+}
 
-; Function Attrs: nounwind uwtable
-define internal void @RB_FL_SET_RAW(i64 noundef %0, i64 noundef %1) #0 {
+; Function Attrs: alwaysinline nounwind sspstrong willreturn memory(read) uwtable
+define internal zeroext i1 @RB_FL_ABLE(i64 noundef %0) #6 {
+  %2 = alloca i1, align 1
+  %3 = alloca i64, align 8
+  store i64 %0, ptr %3, align 8, !tbaa !6
+  %4 = load i64, ptr %3, align 8, !tbaa !6
+  %5 = call zeroext i1 @RB_SPECIAL_CONST_P(i64 noundef %4) #25
+  br i1 %5, label %6, label %7
+
+6:                                                ; preds = %1
+  store i1 false, ptr %2, align 1
+  br label %16
+
+7:                                                ; preds = %1
+  br i1 true, label %8, label %11
+
+8:                                                ; preds = %7
+  %9 = load i64, ptr %3, align 8, !tbaa !6
+  %10 = call zeroext i1 @rbimpl_RB_TYPE_P_fastpath(i64 noundef %9, i32 noundef 27) #20
+  br i1 %10, label %14, label %15
+
+11:                                               ; preds = %7
+  %12 = load i64, ptr %3, align 8, !tbaa !6
+  %13 = call zeroext i1 @RB_TYPE_P(i64 noundef %12, i32 noundef 27) #20
+  br i1 %13, label %14, label %15
+
+14:                                               ; preds = %11, %8
+  store i1 false, ptr %2, align 1
+  br label %16
+
+15:                                               ; preds = %11, %8
+  store i1 true, ptr %2, align 1
+  br label %16
+
+16:                                               ; preds = %15, %14, %6
+  %17 = load i1, ptr %2, align 1
+  ret i1 %17
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @RB_FL_SET_RAW(i64 noundef %0, i64 noundef %1) #4 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
-  store i64 %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
-  %5 = load i64, ptr %3, align 8
+  store i64 %0, ptr %3, align 8, !tbaa !6
+  store i64 %1, ptr %4, align 8, !tbaa !6
+  %5 = load i64, ptr %3, align 8, !tbaa !6
   %6 = inttoptr i64 %5 to ptr
-  %7 = load i64, ptr %4, align 8
-  call void @rbimpl_fl_set_raw_raw(ptr noundef %6, i64 noundef %7) #17
+  %7 = load i64, ptr %4, align 8, !tbaa !6
+  call void @rbimpl_fl_set_raw_raw(ptr noundef %6, i64 noundef %7) #24
   ret void
 }
 
-; Function Attrs: nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal void @rbimpl_fl_set_raw_raw(ptr noundef %0, i64 noundef %1) #11 {
+; Function Attrs: inlinehint nounwind sspstrong memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
+define internal void @rbimpl_fl_set_raw_raw(ptr noundef %0, i64 noundef %1) #18 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
-  %5 = load i64, ptr %4, align 8
-  %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds %struct.RBasic, ptr %6, i32 0, i32 0
-  %8 = load i64, ptr %7, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !30
+  store i64 %1, ptr %4, align 8, !tbaa !6
+  %5 = load i64, ptr %4, align 8, !tbaa !6
+  %6 = load ptr, ptr %3, align 8, !tbaa !30
+  %7 = getelementptr inbounds nuw %struct.RBasic, ptr %6, i32 0, i32 0
+  %8 = load i64, ptr %7, align 8, !tbaa !21
   %9 = or i64 %8, %5
-  store i64 %9, ptr %7, align 8
+  store i64 %9, ptr %7, align 8, !tbaa !21
   ret void
 }
+
+; Function Attrs: alwaysinline nounwind
+define internal ptr @memcpy.inline(ptr noalias nonnull %0, ptr noalias nonnull %1, i64 %2) #12 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !26
+  store ptr %1, ptr %5, align 8, !tbaa !26
+  store i64 %2, ptr %6, align 8, !tbaa !6
+  %7 = load ptr, ptr %4, align 8, !tbaa !26
+  %8 = load ptr, ptr %5, align 8, !tbaa !26
+  %9 = load i64, ptr %6, align 8, !tbaa !6
+  %10 = load ptr, ptr %4, align 8, !tbaa !26
+  %11 = call i64 @llvm.objectsize.i64.p0(ptr %10, i1 false, i1 true, i1 false)
+  %12 = call ptr @__memcpy_chk(ptr noundef %7, ptr noundef %8, i64 noundef %9, i64 noundef %11) #19
+  ret ptr %12
+}
+
+; Function Attrs: nounwind
+declare ptr @__memcpy_chk(ptr noundef, ptr noundef, i64 noundef, i64 noundef) #13
+
+; Function Attrs: nounwind
+declare ptr @__memset_chk(ptr noundef, i32 noundef, i64 noundef, i64 noundef) #13
 
 declare i64 @rb_str_new_frozen(i64 noundef) #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind willreturn memory(read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #6 = { nounwind willreturn memory(read, argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { cold noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #13 = { nounwind willreturn memory(read) }
-attributes #14 = { nounwind willreturn memory(read, argmem: readwrite) }
-attributes #15 = { noreturn }
-attributes #16 = { allocsize(0,1) }
-attributes #17 = { nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) }
-attributes #18 = { nounwind willreturn memory(none) }
-attributes #19 = { cold noreturn }
+attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { inlinehint nounwind sspstrong willreturn memory(read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { inlinehint nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { inlinehint nounwind sspstrong willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { alwaysinline nounwind sspstrong willreturn memory(read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #9 = { inlinehint nounwind sspstrong willreturn memory(read, argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { alwaysinline nounwind "min-legal-vector-width"="0" }
+attributes #13 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #16 = { cold noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { inlinehint nounwind sspstrong memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { nounwind }
+attributes #20 = { nounwind willreturn memory(read) }
+attributes #21 = { nounwind willreturn memory(read, argmem: readwrite) }
+attributes #22 = { noreturn }
+attributes #23 = { allocsize(0,1) }
+attributes #24 = { nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) }
+attributes #25 = { nounwind willreturn memory(none) }
+attributes #26 = { cold noreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
@@ -1805,4 +1660,30 @@ attributes #19 = { cold noreturn }
 !2 = !{i32 1, !"wchar_size", i32 4}
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
-!5 = !{i32 7, !"frame-pointer", i32 2}
+!5 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"long", !8, i64 0}
+!8 = !{!"omnipotent char", !9, i64 0}
+!9 = !{!"Simple C/C++ TBAA"}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"p1 omnipotent char", !12, i64 0}
+!12 = !{!"any pointer", !8, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"p1 _ZTS18OnigEncodingTypeST", !12, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"int", !8, i64 0}
+!17 = !{!8, !8, i64 0}
+!18 = !{!19, !7, i64 16}
+!19 = !{!"RString", !20, i64 0, !7, i64 16, !8, i64 24}
+!20 = !{!"RBasic", !7, i64 0, !7, i64 8}
+!21 = !{!20, !7, i64 0}
+!22 = !{!23, !16, i64 20}
+!23 = !{!"OnigEncodingTypeST", !12, i64 0, !11, i64 8, !16, i64 16, !16, i64 20, !12, i64 24, !12, i64 32, !12, i64 40, !12, i64 48, !12, i64 56, !12, i64 64, !12, i64 72, !12, i64 80, !12, i64 88, !12, i64 96, !12, i64 104, !12, i64 112, !12, i64 120, !16, i64 128, !16, i64 132}
+!24 = !{i64 0, i64 8, !6, i64 8, i64 8, !6, i64 16, i64 8, !6, i64 24, i64 16, !17}
+!25 = !{!23, !12, i64 32}
+!26 = !{!12, !12, i64 0}
+!27 = !{!28, !7, i64 24}
+!28 = !{!"RTypedData", !20, i64 0, !29, i64 16, !7, i64 24, !12, i64 32}
+!29 = !{!"p1 _ZTS19rb_data_type_struct", !12, i64 0}
+!30 = !{!31, !31, i64 0}
+!31 = !{!"p1 _ZTS6RBasic", !12, i64 0}

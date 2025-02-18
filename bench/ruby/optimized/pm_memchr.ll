@@ -9,48 +9,46 @@ define hidden ptr @pm_memchr(ptr noundef %0, i32 noundef %1, i64 noundef %2, i1 
 
 6:                                                ; preds = %5
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %8 = load i8, ptr %7, align 8
-  %9 = trunc i8 %8 to i1
+  %8 = load i8, ptr %7, align 8, !tbaa !7, !range !14, !noundef !15
+  %9 = trunc nuw i8 %8 to i1
   %10 = icmp sgt i32 %1, 63
   %or.cond = and i1 %10, %9
   br i1 %or.cond, label %.preheader, label %22
 
-.preheader:                                       ; preds = %6
-  %.not = icmp eq i64 %2, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph
+.preheader:                                       ; preds = %6, %17
+  %.025 = phi i64 [ %21, %17 ], [ 0, %6 ]
+  %11 = icmp ult i64 %.025, %2
+  br i1 %11, label %12, label %.loopexit
 
-.lr.ph:                                           ; preds = %.preheader, %15
-  %.02327 = phi i64 [ %20, %15 ], [ 0, %.preheader ]
-  %11 = getelementptr i8, ptr %0, i64 %.02327
-  %12 = load i8, ptr %11, align 1
-  %13 = zext i8 %12 to i32
-  %14 = icmp eq i32 %1, %13
-  br i1 %14, label %.loopexit, label %15
+12:                                               ; preds = %.preheader
+  %13 = getelementptr i8, ptr %0, i64 %.025
+  %14 = load i8, ptr %13, align 1, !tbaa !16
+  %15 = zext i8 %14 to i32
+  %16 = icmp eq i32 %1, %15
+  br i1 %16, label %.loopexit, label %17
 
-15:                                               ; preds = %.lr.ph
-  %16 = load ptr, ptr %4, align 8
-  %17 = sub i64 %2, %.02327
-  %18 = tail call i64 %16(ptr noundef nonnull %11, i64 noundef %17) #2
-  %19 = icmp ne i64 %18, 0
-  %20 = add i64 %18, %.02327
-  %21 = icmp ult i64 %20, %2
-  %or.cond33 = and i1 %19, %21
-  br i1 %or.cond33, label %.lr.ph, label %.loopexit, !llvm.loop !7
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %4, align 8, !tbaa !17
+  %19 = sub i64 %2, %.025
+  %20 = tail call i64 %18(ptr noundef nonnull %13, i64 noundef %19) #2
+  %.not = icmp eq i64 %20, 0
+  %21 = add i64 %20, %.025
+  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !18
 
 22:                                               ; preds = %6, %5
   %23 = tail call ptr @memchr(ptr noundef %0, i32 noundef %1, i64 noundef %2) #3
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %15, %.preheader, %22
-  %.0 = phi ptr [ %23, %22 ], [ null, %.preheader ], [ %11, %.lr.ph ], [ null, %15 ]
-  ret ptr %.0
+.loopexit:                                        ; preds = %17, %12, %.preheader, %22
+  %.3 = phi ptr [ %23, %22 ], [ null, %.preheader ], [ %13, %12 ], [ null, %17 ]
+  ret ptr %.3
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
-attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind }
 attributes #3 = { nounwind willreturn memory(read) }
 
@@ -62,6 +60,17 @@ attributes #3 = { nounwind willreturn memory(read) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
+!6 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!7 = !{!8, !13, i64 40}
+!8 = !{!"", !9, i64 0, !9, i64 8, !9, i64 16, !9, i64 24, !12, i64 32, !13, i64 40}
+!9 = !{!"any pointer", !10, i64 0}
+!10 = !{!"omnipotent char", !11, i64 0}
+!11 = !{!"Simple C/C++ TBAA"}
+!12 = !{!"p1 omnipotent char", !9, i64 0}
+!13 = !{!"_Bool", !10, i64 0}
+!14 = !{i8 0, i8 2}
+!15 = !{}
+!16 = !{!10, !10, i64 0}
+!17 = !{!8, !9, i64 0}
+!18 = distinct !{!18, !19}
+!19 = !{!"llvm.loop.mustprogress"}
