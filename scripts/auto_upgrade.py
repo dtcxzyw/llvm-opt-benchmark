@@ -69,6 +69,7 @@ supported_project = [
     "abseil-cpp",
     "annoy",
     "arrow",
+    "assimp",
 ]
 
 modify_only = [
@@ -92,6 +93,7 @@ modify_only = [
     "wireshark",
     "wolfssl",
     "zstd",
+    "assimp",
 ]
 
 

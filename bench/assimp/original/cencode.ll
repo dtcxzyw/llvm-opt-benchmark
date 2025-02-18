@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.base64_encodestate = type { i32, i8, i32 }
 
@@ -7,368 +7,388 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [65 x i8] c"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @base64_init_encodestate(ptr noundef %state_in) #0 {
-entry:
-  %state_in.addr = alloca ptr, align 8
-  store ptr %state_in, ptr %state_in.addr, align 8
-  %0 = load ptr, ptr %state_in.addr, align 8
-  %step = getelementptr inbounds %struct.base64_encodestate, ptr %0, i32 0, i32 0
-  store i32 0, ptr %step, align 4
-  %1 = load ptr, ptr %state_in.addr, align 8
-  %result = getelementptr inbounds %struct.base64_encodestate, ptr %1, i32 0, i32 1
-  store i8 0, ptr %result, align 4
-  %2 = load ptr, ptr %state_in.addr, align 8
-  %stepcount = getelementptr inbounds %struct.base64_encodestate, ptr %2, i32 0, i32 2
-  store i32 0, ptr %stepcount, align 4
+define void @base64_init_encodestate(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %struct.base64_encodestate, ptr %3, i32 0, i32 0
+  store i32 0, ptr %4, align 4
+  %5 = load ptr, ptr %2, align 8
+  %6 = getelementptr inbounds nuw %struct.base64_encodestate, ptr %5, i32 0, i32 1
+  store i8 0, ptr %6, align 4
+  %7 = load ptr, ptr %2, align 8
+  %8 = getelementptr inbounds nuw %struct.base64_encodestate, ptr %7, i32 0, i32 2
+  store i32 0, ptr %8, align 4
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define signext i8 @base64_encode_value(i8 noundef signext %value_in) #0 {
-entry:
-  %retval = alloca i8, align 1
-  %value_in.addr = alloca i8, align 1
-  store i8 %value_in, ptr %value_in.addr, align 1
-  %0 = load i8, ptr %value_in.addr, align 1
-  %conv = sext i8 %0 to i32
-  %cmp = icmp sgt i32 %conv, 63
-  br i1 %cmp, label %if.then, label %if.end
+define signext i8 @base64_encode_value(i8 noundef signext %0) #0 {
+  %2 = alloca i8, align 1
+  %3 = alloca i8, align 1
+  store i8 %0, ptr %3, align 1
+  %4 = load i8, ptr %3, align 1
+  %5 = sext i8 %4 to i32
+  %6 = icmp sgt i32 %5, 63
+  br i1 %6, label %7, label %8
 
-if.then:                                          ; preds = %entry
-  store i8 61, ptr %retval, align 1
-  br label %return
+7:                                                ; preds = %1
+  store i8 61, ptr %2, align 1
+  br label %15
 
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr @base64_encode_value.encoding, align 8
-  %2 = load i8, ptr %value_in.addr, align 1
-  %conv2 = sext i8 %2 to i32
-  %idxprom = sext i32 %conv2 to i64
-  %arrayidx = getelementptr inbounds i8, ptr %1, i64 %idxprom
-  %3 = load i8, ptr %arrayidx, align 1
-  store i8 %3, ptr %retval, align 1
-  br label %return
+8:                                                ; preds = %1
+  %9 = load ptr, ptr @base64_encode_value.encoding, align 8
+  %10 = load i8, ptr %3, align 1
+  %11 = sext i8 %10 to i32
+  %12 = sext i32 %11 to i64
+  %13 = getelementptr inbounds i8, ptr %9, i64 %12
+  %14 = load i8, ptr %13, align 1
+  store i8 %14, ptr %2, align 1
+  br label %15
 
-return:                                           ; preds = %if.end, %if.then
-  %4 = load i8, ptr %retval, align 1
-  ret i8 %4
+15:                                               ; preds = %8, %7
+  %16 = load i8, ptr %2, align 1
+  ret i8 %16
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @base64_encode_block(ptr noundef %plaintext_in, i32 noundef %length_in, ptr noundef %code_out, ptr noundef %state_in) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %plaintext_in.addr = alloca ptr, align 8
-  %length_in.addr = alloca i32, align 4
-  %code_out.addr = alloca ptr, align 8
-  %state_in.addr = alloca ptr, align 8
-  %plainchar = alloca ptr, align 8
-  %plaintextend = alloca ptr, align 8
-  %codechar = alloca ptr, align 8
-  %result = alloca i8, align 1
-  %fragment = alloca i8, align 1
-  store ptr %plaintext_in, ptr %plaintext_in.addr, align 8
-  store i32 %length_in, ptr %length_in.addr, align 4
-  store ptr %code_out, ptr %code_out.addr, align 8
-  store ptr %state_in, ptr %state_in.addr, align 8
-  %0 = load ptr, ptr %plaintext_in.addr, align 8
-  store ptr %0, ptr %plainchar, align 8
-  %1 = load ptr, ptr %plaintext_in.addr, align 8
-  %2 = load i32, ptr %length_in.addr, align 4
-  %idx.ext = sext i32 %2 to i64
-  %add.ptr = getelementptr inbounds i8, ptr %1, i64 %idx.ext
-  store ptr %add.ptr, ptr %plaintextend, align 8
-  %3 = load ptr, ptr %code_out.addr, align 8
-  store ptr %3, ptr %codechar, align 8
-  %4 = load ptr, ptr %state_in.addr, align 8
-  %result1 = getelementptr inbounds %struct.base64_encodestate, ptr %4, i32 0, i32 1
-  %5 = load i8, ptr %result1, align 4
-  store i8 %5, ptr %result, align 1
-  %6 = load ptr, ptr %state_in.addr, align 8
-  %step = getelementptr inbounds %struct.base64_encodestate, ptr %6, i32 0, i32 0
-  %7 = load i32, ptr %step, align 4
-  switch i32 %7, label %sw.epilog [
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb10
-    i32 2, label %sw.bb33
+define i32 @base64_encode_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i8, align 1
+  %14 = alloca i8, align 1
+  %15 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8
+  store i32 %1, ptr %7, align 4
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #2
+  %16 = load ptr, ptr %6, align 8
+  store ptr %16, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #2
+  %17 = load ptr, ptr %6, align 8
+  %18 = load i32, ptr %7, align 4
+  %19 = sext i32 %18 to i64
+  %20 = getelementptr inbounds i8, ptr %17, i64 %19
+  store ptr %20, ptr %11, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #2
+  %21 = load ptr, ptr %8, align 8
+  store ptr %21, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %13) #2
+  call void @llvm.lifetime.start.p0(i64 1, ptr %14) #2
+  %22 = load ptr, ptr %9, align 8
+  %23 = getelementptr inbounds nuw %struct.base64_encodestate, ptr %22, i32 0, i32 1
+  %24 = load i8, ptr %23, align 4
+  store i8 %24, ptr %13, align 1
+  %25 = load ptr, ptr %9, align 8
+  %26 = getelementptr inbounds nuw %struct.base64_encodestate, ptr %25, i32 0, i32 0
+  %27 = load i32, ptr %26, align 4
+  switch i32 %27, label %157 [
+    i32 0, label %31
+    i32 1, label %65
+    i32 2, label %102
   ]
 
-8:                                                ; No predecessors!
-  br label %while.body
+28:                                               ; No predecessors!
+  br label %29
 
-while.body:                                       ; preds = %if.end65, %8
-  br label %sw.bb
+29:                                               ; preds = %156, %28
+  br label %30
 
-sw.bb:                                            ; preds = %while.body, %entry
-  %9 = load ptr, ptr %plainchar, align 8
-  %10 = load ptr, ptr %plaintextend, align 8
-  %cmp = icmp eq ptr %9, %10
-  br i1 %cmp, label %if.then, label %if.end
+30:                                               ; preds = %29
+  br label %31
 
-if.then:                                          ; preds = %sw.bb
-  %11 = load i8, ptr %result, align 1
-  %12 = load ptr, ptr %state_in.addr, align 8
-  %result2 = getelementptr inbounds %struct.base64_encodestate, ptr %12, i32 0, i32 1
-  store i8 %11, ptr %result2, align 4
-  %13 = load ptr, ptr %state_in.addr, align 8
-  %step3 = getelementptr inbounds %struct.base64_encodestate, ptr %13, i32 0, i32 0
-  store i32 0, ptr %step3, align 4
-  %14 = load ptr, ptr %codechar, align 8
-  %15 = load ptr, ptr %code_out.addr, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %14 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %15 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %conv = trunc i64 %sub.ptr.sub to i32
-  store i32 %conv, ptr %retval, align 4
-  br label %return
+31:                                               ; preds = %4, %30
+  %32 = load ptr, ptr %10, align 8
+  %33 = load ptr, ptr %11, align 8
+  %34 = icmp eq ptr %32, %33
+  br i1 %34, label %35, label %47
 
-if.end:                                           ; preds = %sw.bb
-  %16 = load ptr, ptr %plainchar, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %16, i32 1
-  store ptr %incdec.ptr, ptr %plainchar, align 8
-  %17 = load i8, ptr %16, align 1
-  store i8 %17, ptr %fragment, align 1
-  %18 = load i8, ptr %fragment, align 1
-  %conv4 = sext i8 %18 to i32
-  %and = and i32 %conv4, 252
-  %shr = ashr i32 %and, 2
-  %conv5 = trunc i32 %shr to i8
-  store i8 %conv5, ptr %result, align 1
-  %19 = load i8, ptr %result, align 1
-  %call = call signext i8 @base64_encode_value(i8 noundef signext %19)
-  %20 = load ptr, ptr %codechar, align 8
-  %incdec.ptr6 = getelementptr inbounds i8, ptr %20, i32 1
-  store ptr %incdec.ptr6, ptr %codechar, align 8
-  store i8 %call, ptr %20, align 1
-  %21 = load i8, ptr %fragment, align 1
-  %conv7 = sext i8 %21 to i32
-  %and8 = and i32 %conv7, 3
-  %shl = shl i32 %and8, 4
-  %conv9 = trunc i32 %shl to i8
-  store i8 %conv9, ptr %result, align 1
-  br label %sw.bb10
+35:                                               ; preds = %31
+  %36 = load i8, ptr %13, align 1
+  %37 = load ptr, ptr %9, align 8
+  %38 = getelementptr inbounds nuw %struct.base64_encodestate, ptr %37, i32 0, i32 1
+  store i8 %36, ptr %38, align 4
+  %39 = load ptr, ptr %9, align 8
+  %40 = getelementptr inbounds nuw %struct.base64_encodestate, ptr %39, i32 0, i32 0
+  store i32 0, ptr %40, align 4
+  %41 = load ptr, ptr %12, align 8
+  %42 = load ptr, ptr %8, align 8
+  %43 = ptrtoint ptr %41 to i64
+  %44 = ptrtoint ptr %42 to i64
+  %45 = sub i64 %43, %44
+  %46 = trunc i64 %45 to i32
+  store i32 %46, ptr %5, align 4
+  store i32 1, ptr %15, align 4
+  br label %164
 
-sw.bb10:                                          ; preds = %if.end, %entry
-  %22 = load ptr, ptr %plainchar, align 8
-  %23 = load ptr, ptr %plaintextend, align 8
-  %cmp11 = icmp eq ptr %22, %23
-  br i1 %cmp11, label %if.then13, label %if.end20
+47:                                               ; preds = %31
+  %48 = load ptr, ptr %10, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %48, i32 1
+  store ptr %49, ptr %10, align 8
+  %50 = load i8, ptr %48, align 1
+  store i8 %50, ptr %14, align 1
+  %51 = load i8, ptr %14, align 1
+  %52 = sext i8 %51 to i32
+  %53 = and i32 %52, 252
+  %54 = ashr i32 %53, 2
+  %55 = trunc i32 %54 to i8
+  store i8 %55, ptr %13, align 1
+  %56 = load i8, ptr %13, align 1
+  %57 = call signext i8 @base64_encode_value(i8 noundef signext %56)
+  %58 = load ptr, ptr %12, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %58, i32 1
+  store ptr %59, ptr %12, align 8
+  store i8 %57, ptr %58, align 1
+  %60 = load i8, ptr %14, align 1
+  %61 = sext i8 %60 to i32
+  %62 = and i32 %61, 3
+  %63 = shl i32 %62, 4
+  %64 = trunc i32 %63 to i8
+  store i8 %64, ptr %13, align 1
+  br label %65
 
-if.then13:                                        ; preds = %sw.bb10
-  %24 = load i8, ptr %result, align 1
-  %25 = load ptr, ptr %state_in.addr, align 8
-  %result14 = getelementptr inbounds %struct.base64_encodestate, ptr %25, i32 0, i32 1
-  store i8 %24, ptr %result14, align 4
-  %26 = load ptr, ptr %state_in.addr, align 8
-  %step15 = getelementptr inbounds %struct.base64_encodestate, ptr %26, i32 0, i32 0
-  store i32 1, ptr %step15, align 4
-  %27 = load ptr, ptr %codechar, align 8
-  %28 = load ptr, ptr %code_out.addr, align 8
-  %sub.ptr.lhs.cast16 = ptrtoint ptr %27 to i64
-  %sub.ptr.rhs.cast17 = ptrtoint ptr %28 to i64
-  %sub.ptr.sub18 = sub i64 %sub.ptr.lhs.cast16, %sub.ptr.rhs.cast17
-  %conv19 = trunc i64 %sub.ptr.sub18 to i32
-  store i32 %conv19, ptr %retval, align 4
-  br label %return
+65:                                               ; preds = %4, %47
+  %66 = load ptr, ptr %10, align 8
+  %67 = load ptr, ptr %11, align 8
+  %68 = icmp eq ptr %66, %67
+  br i1 %68, label %69, label %81
 
-if.end20:                                         ; preds = %sw.bb10
-  %29 = load ptr, ptr %plainchar, align 8
-  %incdec.ptr21 = getelementptr inbounds i8, ptr %29, i32 1
-  store ptr %incdec.ptr21, ptr %plainchar, align 8
-  %30 = load i8, ptr %29, align 1
-  store i8 %30, ptr %fragment, align 1
-  %31 = load i8, ptr %fragment, align 1
-  %conv22 = sext i8 %31 to i32
-  %and23 = and i32 %conv22, 240
-  %shr24 = ashr i32 %and23, 4
-  %32 = load i8, ptr %result, align 1
-  %conv25 = sext i8 %32 to i32
-  %or = or i32 %conv25, %shr24
-  %conv26 = trunc i32 %or to i8
-  store i8 %conv26, ptr %result, align 1
-  %33 = load i8, ptr %result, align 1
-  %call27 = call signext i8 @base64_encode_value(i8 noundef signext %33)
-  %34 = load ptr, ptr %codechar, align 8
-  %incdec.ptr28 = getelementptr inbounds i8, ptr %34, i32 1
-  store ptr %incdec.ptr28, ptr %codechar, align 8
-  store i8 %call27, ptr %34, align 1
-  %35 = load i8, ptr %fragment, align 1
-  %conv29 = sext i8 %35 to i32
-  %and30 = and i32 %conv29, 15
-  %shl31 = shl i32 %and30, 2
-  %conv32 = trunc i32 %shl31 to i8
-  store i8 %conv32, ptr %result, align 1
-  br label %sw.bb33
+69:                                               ; preds = %65
+  %70 = load i8, ptr %13, align 1
+  %71 = load ptr, ptr %9, align 8
+  %72 = getelementptr inbounds nuw %struct.base64_encodestate, ptr %71, i32 0, i32 1
+  store i8 %70, ptr %72, align 4
+  %73 = load ptr, ptr %9, align 8
+  %74 = getelementptr inbounds nuw %struct.base64_encodestate, ptr %73, i32 0, i32 0
+  store i32 1, ptr %74, align 4
+  %75 = load ptr, ptr %12, align 8
+  %76 = load ptr, ptr %8, align 8
+  %77 = ptrtoint ptr %75 to i64
+  %78 = ptrtoint ptr %76 to i64
+  %79 = sub i64 %77, %78
+  %80 = trunc i64 %79 to i32
+  store i32 %80, ptr %5, align 4
+  store i32 1, ptr %15, align 4
+  br label %164
 
-sw.bb33:                                          ; preds = %if.end20, %entry
-  %36 = load ptr, ptr %plainchar, align 8
-  %37 = load ptr, ptr %plaintextend, align 8
-  %cmp34 = icmp eq ptr %36, %37
-  br i1 %cmp34, label %if.then36, label %if.end43
+81:                                               ; preds = %65
+  %82 = load ptr, ptr %10, align 8
+  %83 = getelementptr inbounds nuw i8, ptr %82, i32 1
+  store ptr %83, ptr %10, align 8
+  %84 = load i8, ptr %82, align 1
+  store i8 %84, ptr %14, align 1
+  %85 = load i8, ptr %14, align 1
+  %86 = sext i8 %85 to i32
+  %87 = and i32 %86, 240
+  %88 = ashr i32 %87, 4
+  %89 = load i8, ptr %13, align 1
+  %90 = sext i8 %89 to i32
+  %91 = or i32 %90, %88
+  %92 = trunc i32 %91 to i8
+  store i8 %92, ptr %13, align 1
+  %93 = load i8, ptr %13, align 1
+  %94 = call signext i8 @base64_encode_value(i8 noundef signext %93)
+  %95 = load ptr, ptr %12, align 8
+  %96 = getelementptr inbounds nuw i8, ptr %95, i32 1
+  store ptr %96, ptr %12, align 8
+  store i8 %94, ptr %95, align 1
+  %97 = load i8, ptr %14, align 1
+  %98 = sext i8 %97 to i32
+  %99 = and i32 %98, 15
+  %100 = shl i32 %99, 2
+  %101 = trunc i32 %100 to i8
+  store i8 %101, ptr %13, align 1
+  br label %102
 
-if.then36:                                        ; preds = %sw.bb33
-  %38 = load i8, ptr %result, align 1
-  %39 = load ptr, ptr %state_in.addr, align 8
-  %result37 = getelementptr inbounds %struct.base64_encodestate, ptr %39, i32 0, i32 1
-  store i8 %38, ptr %result37, align 4
-  %40 = load ptr, ptr %state_in.addr, align 8
-  %step38 = getelementptr inbounds %struct.base64_encodestate, ptr %40, i32 0, i32 0
-  store i32 2, ptr %step38, align 4
-  %41 = load ptr, ptr %codechar, align 8
-  %42 = load ptr, ptr %code_out.addr, align 8
-  %sub.ptr.lhs.cast39 = ptrtoint ptr %41 to i64
-  %sub.ptr.rhs.cast40 = ptrtoint ptr %42 to i64
-  %sub.ptr.sub41 = sub i64 %sub.ptr.lhs.cast39, %sub.ptr.rhs.cast40
-  %conv42 = trunc i64 %sub.ptr.sub41 to i32
-  store i32 %conv42, ptr %retval, align 4
-  br label %return
+102:                                              ; preds = %4, %81
+  %103 = load ptr, ptr %10, align 8
+  %104 = load ptr, ptr %11, align 8
+  %105 = icmp eq ptr %103, %104
+  br i1 %105, label %106, label %118
 
-if.end43:                                         ; preds = %sw.bb33
-  %43 = load ptr, ptr %plainchar, align 8
-  %incdec.ptr44 = getelementptr inbounds i8, ptr %43, i32 1
-  store ptr %incdec.ptr44, ptr %plainchar, align 8
-  %44 = load i8, ptr %43, align 1
-  store i8 %44, ptr %fragment, align 1
-  %45 = load i8, ptr %fragment, align 1
-  %conv45 = sext i8 %45 to i32
-  %and46 = and i32 %conv45, 192
-  %shr47 = ashr i32 %and46, 6
-  %46 = load i8, ptr %result, align 1
-  %conv48 = sext i8 %46 to i32
-  %or49 = or i32 %conv48, %shr47
-  %conv50 = trunc i32 %or49 to i8
-  store i8 %conv50, ptr %result, align 1
-  %47 = load i8, ptr %result, align 1
-  %call51 = call signext i8 @base64_encode_value(i8 noundef signext %47)
-  %48 = load ptr, ptr %codechar, align 8
-  %incdec.ptr52 = getelementptr inbounds i8, ptr %48, i32 1
-  store ptr %incdec.ptr52, ptr %codechar, align 8
-  store i8 %call51, ptr %48, align 1
-  %49 = load i8, ptr %fragment, align 1
-  %conv53 = sext i8 %49 to i32
-  %and54 = and i32 %conv53, 63
-  %shr55 = ashr i32 %and54, 0
-  %conv56 = trunc i32 %shr55 to i8
-  store i8 %conv56, ptr %result, align 1
-  %50 = load i8, ptr %result, align 1
-  %call57 = call signext i8 @base64_encode_value(i8 noundef signext %50)
-  %51 = load ptr, ptr %codechar, align 8
-  %incdec.ptr58 = getelementptr inbounds i8, ptr %51, i32 1
-  store ptr %incdec.ptr58, ptr %codechar, align 8
-  store i8 %call57, ptr %51, align 1
-  %52 = load ptr, ptr %state_in.addr, align 8
-  %stepcount = getelementptr inbounds %struct.base64_encodestate, ptr %52, i32 0, i32 2
-  %53 = load i32, ptr %stepcount, align 4
-  %inc = add nsw i32 %53, 1
-  store i32 %inc, ptr %stepcount, align 4
-  %54 = load ptr, ptr %state_in.addr, align 8
-  %stepcount59 = getelementptr inbounds %struct.base64_encodestate, ptr %54, i32 0, i32 2
-  %55 = load i32, ptr %stepcount59, align 4
-  %cmp60 = icmp eq i32 %55, 18
-  br i1 %cmp60, label %if.then62, label %if.end65
+106:                                              ; preds = %102
+  %107 = load i8, ptr %13, align 1
+  %108 = load ptr, ptr %9, align 8
+  %109 = getelementptr inbounds nuw %struct.base64_encodestate, ptr %108, i32 0, i32 1
+  store i8 %107, ptr %109, align 4
+  %110 = load ptr, ptr %9, align 8
+  %111 = getelementptr inbounds nuw %struct.base64_encodestate, ptr %110, i32 0, i32 0
+  store i32 2, ptr %111, align 4
+  %112 = load ptr, ptr %12, align 8
+  %113 = load ptr, ptr %8, align 8
+  %114 = ptrtoint ptr %112 to i64
+  %115 = ptrtoint ptr %113 to i64
+  %116 = sub i64 %114, %115
+  %117 = trunc i64 %116 to i32
+  store i32 %117, ptr %5, align 4
+  store i32 1, ptr %15, align 4
+  br label %164
 
-if.then62:                                        ; preds = %if.end43
-  %56 = load ptr, ptr %codechar, align 8
-  %incdec.ptr63 = getelementptr inbounds i8, ptr %56, i32 1
-  store ptr %incdec.ptr63, ptr %codechar, align 8
-  store i8 10, ptr %56, align 1
-  %57 = load ptr, ptr %state_in.addr, align 8
-  %stepcount64 = getelementptr inbounds %struct.base64_encodestate, ptr %57, i32 0, i32 2
-  store i32 0, ptr %stepcount64, align 4
-  br label %if.end65
+118:                                              ; preds = %102
+  %119 = load ptr, ptr %10, align 8
+  %120 = getelementptr inbounds nuw i8, ptr %119, i32 1
+  store ptr %120, ptr %10, align 8
+  %121 = load i8, ptr %119, align 1
+  store i8 %121, ptr %14, align 1
+  %122 = load i8, ptr %14, align 1
+  %123 = sext i8 %122 to i32
+  %124 = and i32 %123, 192
+  %125 = ashr i32 %124, 6
+  %126 = load i8, ptr %13, align 1
+  %127 = sext i8 %126 to i32
+  %128 = or i32 %127, %125
+  %129 = trunc i32 %128 to i8
+  store i8 %129, ptr %13, align 1
+  %130 = load i8, ptr %13, align 1
+  %131 = call signext i8 @base64_encode_value(i8 noundef signext %130)
+  %132 = load ptr, ptr %12, align 8
+  %133 = getelementptr inbounds nuw i8, ptr %132, i32 1
+  store ptr %133, ptr %12, align 8
+  store i8 %131, ptr %132, align 1
+  %134 = load i8, ptr %14, align 1
+  %135 = sext i8 %134 to i32
+  %136 = and i32 %135, 63
+  %137 = ashr i32 %136, 0
+  %138 = trunc i32 %137 to i8
+  store i8 %138, ptr %13, align 1
+  %139 = load i8, ptr %13, align 1
+  %140 = call signext i8 @base64_encode_value(i8 noundef signext %139)
+  %141 = load ptr, ptr %12, align 8
+  %142 = getelementptr inbounds nuw i8, ptr %141, i32 1
+  store ptr %142, ptr %12, align 8
+  store i8 %140, ptr %141, align 1
+  %143 = load ptr, ptr %9, align 8
+  %144 = getelementptr inbounds nuw %struct.base64_encodestate, ptr %143, i32 0, i32 2
+  %145 = load i32, ptr %144, align 4
+  %146 = add nsw i32 %145, 1
+  store i32 %146, ptr %144, align 4
+  %147 = load ptr, ptr %9, align 8
+  %148 = getelementptr inbounds nuw %struct.base64_encodestate, ptr %147, i32 0, i32 2
+  %149 = load i32, ptr %148, align 4
+  %150 = icmp eq i32 %149, 18
+  br i1 %150, label %151, label %156
 
-if.end65:                                         ; preds = %if.then62, %if.end43
-  br label %while.body
+151:                                              ; preds = %118
+  %152 = load ptr, ptr %12, align 8
+  %153 = getelementptr inbounds nuw i8, ptr %152, i32 1
+  store ptr %153, ptr %12, align 8
+  store i8 10, ptr %152, align 1
+  %154 = load ptr, ptr %9, align 8
+  %155 = getelementptr inbounds nuw %struct.base64_encodestate, ptr %154, i32 0, i32 2
+  store i32 0, ptr %155, align 4
+  br label %156
 
-sw.epilog:                                        ; preds = %entry
-  %58 = load ptr, ptr %codechar, align 8
-  %59 = load ptr, ptr %code_out.addr, align 8
-  %sub.ptr.lhs.cast66 = ptrtoint ptr %58 to i64
-  %sub.ptr.rhs.cast67 = ptrtoint ptr %59 to i64
-  %sub.ptr.sub68 = sub i64 %sub.ptr.lhs.cast66, %sub.ptr.rhs.cast67
-  %conv69 = trunc i64 %sub.ptr.sub68 to i32
-  store i32 %conv69, ptr %retval, align 4
-  br label %return
+156:                                              ; preds = %151, %118
+  br label %29
 
-return:                                           ; preds = %sw.epilog, %if.then36, %if.then13, %if.then
-  %60 = load i32, ptr %retval, align 4
-  ret i32 %60
+157:                                              ; preds = %4
+  %158 = load ptr, ptr %12, align 8
+  %159 = load ptr, ptr %8, align 8
+  %160 = ptrtoint ptr %158 to i64
+  %161 = ptrtoint ptr %159 to i64
+  %162 = sub i64 %160, %161
+  %163 = trunc i64 %162 to i32
+  store i32 %163, ptr %5, align 4
+  store i32 1, ptr %15, align 4
+  br label %164
+
+164:                                              ; preds = %157, %106, %69, %35
+  call void @llvm.lifetime.end.p0(i64 1, ptr %14) #2
+  call void @llvm.lifetime.end.p0(i64 1, ptr %13) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #2
+  %165 = load i32, ptr %5, align 4
+  ret i32 %165
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @base64_encode_blockend(ptr noundef %code_out, ptr noundef %state_in) #0 {
-entry:
-  %code_out.addr = alloca ptr, align 8
-  %state_in.addr = alloca ptr, align 8
-  %codechar = alloca ptr, align 8
-  store ptr %code_out, ptr %code_out.addr, align 8
-  store ptr %state_in, ptr %state_in.addr, align 8
-  %0 = load ptr, ptr %code_out.addr, align 8
-  store ptr %0, ptr %codechar, align 8
-  %1 = load ptr, ptr %state_in.addr, align 8
-  %step = getelementptr inbounds %struct.base64_encodestate, ptr %1, i32 0, i32 0
-  %2 = load i32, ptr %step, align 4
-  switch i32 %2, label %sw.epilog [
-    i32 1, label %sw.bb
-    i32 2, label %sw.bb3
-    i32 0, label %sw.bb8
+define i32 @base64_encode_blockend(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #2
+  %6 = load ptr, ptr %3, align 8
+  store ptr %6, ptr %5, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %struct.base64_encodestate, ptr %7, i32 0, i32 0
+  %9 = load i32, ptr %8, align 4
+  switch i32 %9, label %30 [
+    i32 1, label %10
+    i32 2, label %21
+    i32 0, label %30
   ]
 
-sw.bb:                                            ; preds = %entry
-  %3 = load ptr, ptr %state_in.addr, align 8
-  %result = getelementptr inbounds %struct.base64_encodestate, ptr %3, i32 0, i32 1
-  %4 = load i8, ptr %result, align 4
-  %call = call signext i8 @base64_encode_value(i8 noundef signext %4)
-  %5 = load ptr, ptr %codechar, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %5, i32 1
-  store ptr %incdec.ptr, ptr %codechar, align 8
-  store i8 %call, ptr %5, align 1
-  %6 = load ptr, ptr %codechar, align 8
-  %incdec.ptr1 = getelementptr inbounds i8, ptr %6, i32 1
-  store ptr %incdec.ptr1, ptr %codechar, align 8
-  store i8 61, ptr %6, align 1
-  %7 = load ptr, ptr %codechar, align 8
-  %incdec.ptr2 = getelementptr inbounds i8, ptr %7, i32 1
-  store ptr %incdec.ptr2, ptr %codechar, align 8
-  store i8 61, ptr %7, align 1
-  br label %sw.epilog
+10:                                               ; preds = %2
+  %11 = load ptr, ptr %4, align 8
+  %12 = getelementptr inbounds nuw %struct.base64_encodestate, ptr %11, i32 0, i32 1
+  %13 = load i8, ptr %12, align 4
+  %14 = call signext i8 @base64_encode_value(i8 noundef signext %13)
+  %15 = load ptr, ptr %5, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i32 1
+  store ptr %16, ptr %5, align 8
+  store i8 %14, ptr %15, align 1
+  %17 = load ptr, ptr %5, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i32 1
+  store ptr %18, ptr %5, align 8
+  store i8 61, ptr %17, align 1
+  %19 = load ptr, ptr %5, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i32 1
+  store ptr %20, ptr %5, align 8
+  store i8 61, ptr %19, align 1
+  br label %30
 
-sw.bb3:                                           ; preds = %entry
-  %8 = load ptr, ptr %state_in.addr, align 8
-  %result4 = getelementptr inbounds %struct.base64_encodestate, ptr %8, i32 0, i32 1
-  %9 = load i8, ptr %result4, align 4
-  %call5 = call signext i8 @base64_encode_value(i8 noundef signext %9)
-  %10 = load ptr, ptr %codechar, align 8
-  %incdec.ptr6 = getelementptr inbounds i8, ptr %10, i32 1
-  store ptr %incdec.ptr6, ptr %codechar, align 8
-  store i8 %call5, ptr %10, align 1
-  %11 = load ptr, ptr %codechar, align 8
-  %incdec.ptr7 = getelementptr inbounds i8, ptr %11, i32 1
-  store ptr %incdec.ptr7, ptr %codechar, align 8
-  store i8 61, ptr %11, align 1
-  br label %sw.epilog
+21:                                               ; preds = %2
+  %22 = load ptr, ptr %4, align 8
+  %23 = getelementptr inbounds nuw %struct.base64_encodestate, ptr %22, i32 0, i32 1
+  %24 = load i8, ptr %23, align 4
+  %25 = call signext i8 @base64_encode_value(i8 noundef signext %24)
+  %26 = load ptr, ptr %5, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i32 1
+  store ptr %27, ptr %5, align 8
+  store i8 %25, ptr %26, align 1
+  %28 = load ptr, ptr %5, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i32 1
+  store ptr %29, ptr %5, align 8
+  store i8 61, ptr %28, align 1
+  br label %30
 
-sw.bb8:                                           ; preds = %entry
-  br label %sw.epilog
-
-sw.epilog:                                        ; preds = %sw.bb8, %sw.bb3, %sw.bb, %entry
-  %12 = load ptr, ptr %codechar, align 8
-  %incdec.ptr9 = getelementptr inbounds i8, ptr %12, i32 1
-  store ptr %incdec.ptr9, ptr %codechar, align 8
-  store i8 10, ptr %12, align 1
-  %13 = load ptr, ptr %codechar, align 8
-  %14 = load ptr, ptr %code_out.addr, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %13 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %14 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %conv = trunc i64 %sub.ptr.sub to i32
-  ret i32 %conv
+30:                                               ; preds = %2, %2, %21, %10
+  %31 = load ptr, ptr %5, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %31, i32 1
+  store ptr %32, ptr %5, align 8
+  store i8 10, ptr %31, align 1
+  %33 = load ptr, ptr %5, align 8
+  %34 = load ptr, ptr %3, align 8
+  %35 = ptrtoint ptr %33 to i64
+  %36 = ptrtoint ptr %34 to i64
+  %37 = sub i64 %35, %36
+  %38 = trunc i64 %37 to i32
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #2
+  ret i32 %38
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}

@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %class.aiMatrix4x4t = type { float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float }
 %struct.aiScene = type { i32, ptr, i32, ptr, i32, ptr, i32, ptr, i32, ptr, i32, ptr, i32, ptr, ptr, %struct.aiString, i32, ptr, ptr }
@@ -14,18 +14,14 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.aiMaterial = type { ptr, i32, i32 }
 %struct.aiMaterialProperty = type { %struct.aiString, i32, i32, i32, i32, ptr }
 %struct.aiNodeAnim = type { %struct.aiString, i32, ptr, i32, ptr, i32, ptr, i32, i32 }
-%struct.aiVectorKey = type <{ double, %class.aiVector3t, [4 x i8] }>
-%struct.aiQuatKey = type { double, %class.aiQuaterniont }
+%struct.aiVectorKey = type { double, %class.aiVector3t, i32 }
+%struct.aiQuatKey = type <{ double, %class.aiQuaterniont, i32, [4 x i8] }>
 %class.aiQuaterniont = type { float, float, float, float }
 %struct.aiCamera = type { %struct.aiString, %class.aiVector3t, %class.aiVector3t, %class.aiVector3t, float, float, float, float, float }
 %struct.aiUVTransform = type { %class.aiVector2t, %class.aiVector2t, float }
 %class.aiVector2t = type { float, float }
 %struct.aiFace = type { i32, ptr }
 %class.aiColor4t = type { float, float, float, float }
-
-$_ZN6Assimp9LogStreamD0Ev = comdat any
-
-$_ZN6Assimp6LoggerD0Ev = comdat any
 
 $_ZN12aiMatrix4x4tIfEC2Ev = comdat any
 
@@ -57,15 +53,9 @@ $_ZNK10aiAnimMesh15HasVertexColorsEj = comdat any
 
 $_ZSt4swapI9aiColor4tIfEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS5_ESt18is_move_assignableIS5_EEE5valueEvE4typeERS5_SE_ = comdat any
 
-$_ZN6Assimp9LogStreamD2Ev = comdat any
-
-$_ZN6Assimp6LoggerD2Ev = comdat any
-
-$_ZN6Assimp21MakeLeftHandedProcessD2Ev = comdat any
-
 $_ZN6Assimp21MakeLeftHandedProcessD0Ev = comdat any
 
-$_ZN6Assimp23FlipWindingOrderProcessD2Ev = comdat any
+$_ZN6Assimp11BaseProcessD2Ev = comdat any
 
 $_ZN6Assimp23FlipWindingOrderProcessD0Ev = comdat any
 
@@ -76,22 +66,6 @@ $_ZN12aiMatrix4x4tIfEC2Effffffffffffffff = comdat any
 $_ZN10aiVector3tIfEC2Efff = comdat any
 
 $_ZNK6aiMesh16HasTextureCoordsEj = comdat any
-
-$_ZTVN6Assimp9LogStreamE = comdat any
-
-$_ZTSN6Assimp9LogStreamE = comdat any
-
-$_ZTSN6Assimp6Intern22AllocateFromAssimpHeapE = comdat any
-
-$_ZTIN6Assimp6Intern22AllocateFromAssimpHeapE = comdat any
-
-$_ZTIN6Assimp9LogStreamE = comdat any
-
-$_ZTVN6Assimp6LoggerE = comdat any
-
-$_ZTSN6Assimp6LoggerE = comdat any
-
-$_ZTIN6Assimp6LoggerE = comdat any
 
 @.str = private unnamed_addr constant [28 x i8] c"MakeLeftHandedProcess begin\00", align 1
 @.str.1 = private unnamed_addr constant [31 x i8] c"MakeLeftHandedProcess finished\00", align 1
@@ -105,2824 +79,2984 @@ $_ZTIN6Assimp6LoggerE = comdat any
 @.str.8 = private unnamed_addr constant [13 x i8] c"$tex.uvtrafo\00", align 1
 @.str.9 = private unnamed_addr constant [30 x i8] c"FlipWindingOrderProcess begin\00", align 1
 @.str.10 = private unnamed_addr constant [33 x i8] c"FlipWindingOrderProcess finished\00", align 1
-@_ZTVN6Assimp9LogStreamE = linkonce_odr unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN6Assimp9LogStreamE, ptr @_ZN6Assimp9LogStreamD2Ev, ptr @_ZN6Assimp9LogStreamD0Ev, ptr @__cxa_pure_virtual] }, comdat, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
-@_ZTSN6Assimp9LogStreamE = linkonce_odr constant [20 x i8] c"N6Assimp9LogStreamE\00", comdat, align 1
-@_ZTVN10__cxxabiv117__class_type_infoE = external global [0 x ptr]
-@_ZTSN6Assimp6Intern22AllocateFromAssimpHeapE = linkonce_odr constant [41 x i8] c"N6Assimp6Intern22AllocateFromAssimpHeapE\00", comdat, align 1
-@_ZTIN6Assimp6Intern22AllocateFromAssimpHeapE = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN6Assimp6Intern22AllocateFromAssimpHeapE }, comdat, align 8
-@_ZTIN6Assimp9LogStreamE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN6Assimp9LogStreamE, ptr @_ZTIN6Assimp6Intern22AllocateFromAssimpHeapE }, comdat, align 8
-@_ZTVN6Assimp6LoggerE = linkonce_odr unnamed_addr constant { [11 x ptr] } { [11 x ptr] [ptr null, ptr @_ZTIN6Assimp6LoggerE, ptr @_ZN6Assimp6LoggerD2Ev, ptr @_ZN6Assimp6LoggerD0Ev, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual] }, comdat, align 8
-@_ZTSN6Assimp6LoggerE = linkonce_odr constant [17 x i8] c"N6Assimp6LoggerE\00", comdat, align 1
-@_ZTIN6Assimp6LoggerE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN6Assimp6LoggerE, ptr @_ZTIN6Assimp6Intern22AllocateFromAssimpHeapE }, comdat, align 8
-@_ZTVN6Assimp21MakeLeftHandedProcessE = hidden unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN6Assimp21MakeLeftHandedProcessE, ptr @_ZN6Assimp21MakeLeftHandedProcessD2Ev, ptr @_ZN6Assimp21MakeLeftHandedProcessD0Ev, ptr @_ZNK6Assimp21MakeLeftHandedProcess8IsActiveEj, ptr @_ZNK6Assimp11BaseProcess20RequireVerboseFormatEv, ptr @_ZN6Assimp11BaseProcess15SetupPropertiesEPKNS_8ImporterE, ptr @_ZN6Assimp21MakeLeftHandedProcess7ExecuteEP7aiScene] }, align 8
+@_ZTVN6Assimp21MakeLeftHandedProcessE = hidden unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN6Assimp21MakeLeftHandedProcessE, ptr @_ZN6Assimp11BaseProcessD2Ev, ptr @_ZN6Assimp21MakeLeftHandedProcessD0Ev, ptr @_ZNK6Assimp21MakeLeftHandedProcess8IsActiveEj, ptr @_ZNK6Assimp11BaseProcess20RequireVerboseFormatEv, ptr @_ZN6Assimp11BaseProcess15SetupPropertiesEPKNS_8ImporterE, ptr @_ZN6Assimp21MakeLeftHandedProcess7ExecuteEP7aiScene] }, align 8
+@_ZTIN6Assimp21MakeLeftHandedProcessE = hidden constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN6Assimp21MakeLeftHandedProcessE, ptr @_ZTIN6Assimp11BaseProcessE }, align 8
 @_ZTSN6Assimp21MakeLeftHandedProcessE = hidden constant [33 x i8] c"N6Assimp21MakeLeftHandedProcessE\00", align 1
 @_ZTIN6Assimp11BaseProcessE = external constant ptr
-@_ZTIN6Assimp21MakeLeftHandedProcessE = hidden constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN6Assimp21MakeLeftHandedProcessE, ptr @_ZTIN6Assimp11BaseProcessE }, align 8
-@_ZTSN6Assimp14FlipUVsProcessE = hidden constant [26 x i8] c"N6Assimp14FlipUVsProcessE\00", align 1
 @_ZTIN6Assimp14FlipUVsProcessE = hidden constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN6Assimp14FlipUVsProcessE, ptr @_ZTIN6Assimp11BaseProcessE }, align 8
-@_ZTVN6Assimp23FlipWindingOrderProcessE = hidden unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN6Assimp23FlipWindingOrderProcessE, ptr @_ZN6Assimp23FlipWindingOrderProcessD2Ev, ptr @_ZN6Assimp23FlipWindingOrderProcessD0Ev, ptr @_ZNK6Assimp23FlipWindingOrderProcess8IsActiveEj, ptr @_ZNK6Assimp11BaseProcess20RequireVerboseFormatEv, ptr @_ZN6Assimp11BaseProcess15SetupPropertiesEPKNS_8ImporterE, ptr @_ZN6Assimp23FlipWindingOrderProcess7ExecuteEP7aiScene] }, align 8
-@_ZTSN6Assimp23FlipWindingOrderProcessE = hidden constant [35 x i8] c"N6Assimp23FlipWindingOrderProcessE\00", align 1
+@_ZTSN6Assimp14FlipUVsProcessE = hidden constant [26 x i8] c"N6Assimp14FlipUVsProcessE\00", align 1
+@_ZTVN6Assimp23FlipWindingOrderProcessE = hidden unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN6Assimp23FlipWindingOrderProcessE, ptr @_ZN6Assimp11BaseProcessD2Ev, ptr @_ZN6Assimp23FlipWindingOrderProcessD0Ev, ptr @_ZNK6Assimp23FlipWindingOrderProcess8IsActiveEj, ptr @_ZNK6Assimp11BaseProcess20RequireVerboseFormatEv, ptr @_ZN6Assimp11BaseProcess15SetupPropertiesEPKNS_8ImporterE, ptr @_ZN6Assimp23FlipWindingOrderProcess7ExecuteEP7aiScene] }, align 8
 @_ZTIN6Assimp23FlipWindingOrderProcessE = hidden constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN6Assimp23FlipWindingOrderProcessE, ptr @_ZTIN6Assimp11BaseProcessE }, align 8
+@_ZTSN6Assimp23FlipWindingOrderProcessE = hidden constant [35 x i8] c"N6Assimp23FlipWindingOrderProcessE\00", align 1
 
 @_ZN6Assimp14FlipUVsProcessC1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN6Assimp14FlipUVsProcessC2Ev
 @_ZN6Assimp14FlipUVsProcessD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN6Assimp14FlipUVsProcessD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6Assimp9LogStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  call void @llvm.trap() #10
-  unreachable
-}
-
-; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #1
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6Assimp6LoggerD0Ev(ptr noundef nonnull align 8 dereferenceable(12) %this) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  call void @llvm.trap() #10
-  unreachable
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK6Assimp21MakeLeftHandedProcess8IsActiveEj(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %pFlags) unnamed_addr #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %pFlags.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %pFlags, ptr %pFlags.addr, align 4
-  %0 = load i32, ptr %pFlags.addr, align 4
-  %and = and i32 %0, 4
-  %cmp = icmp ne i32 0, %and
-  ret i1 %cmp
+define hidden noundef zeroext i1 @_ZNK6Assimp21MakeLeftHandedProcess8IsActiveEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store i32 %1, ptr %4, align 4
+  %5 = load i32, ptr %4, align 4
+  %6 = and i32 %5, 4
+  %7 = icmp ne i32 0, %6
+  ret i1 %7
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp21MakeLeftHandedProcess7ExecuteEP7aiScene(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %pScene) unnamed_addr #2 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %pScene.addr = alloca ptr, align 8
-  %ref.tmp = alloca %class.aiMatrix4x4t, align 4
-  %a = alloca i32, align 4
-  %a2 = alloca i32, align 4
-  %a11 = alloca i32, align 4
-  %anim = alloca ptr, align 8
-  %b = alloca i32, align 4
-  %nodeAnim = alloca ptr, align 8
-  %a28 = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %pScene, ptr %pScene.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
-  call void @_ZN6Assimp6Logger5debugEPKc(ptr noundef nonnull align 8 dereferenceable(12) %call, ptr noundef @.str)
-  %0 = load ptr, ptr %pScene.addr, align 8
-  %mRootNode = getelementptr inbounds %struct.aiScene, ptr %0, i32 0, i32 1
-  %1 = load ptr, ptr %mRootNode, align 8
-  call void @_ZN12aiMatrix4x4tIfEC2Ev(ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp) #11
-  call void @_ZN6Assimp21MakeLeftHandedProcess11ProcessNodeEP6aiNodeRK12aiMatrix4x4tIfE(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp)
-  store i32 0, ptr %a, align 4
-  br label %for.cond
+define hidden void @_ZN6Assimp21MakeLeftHandedProcess7ExecuteEP7aiScene(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #1 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %class.aiMatrix4x4t, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %14 = load ptr, ptr %3, align 8
+  %15 = call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
+  call void @_ZN6Assimp6Logger5debugEPKc(ptr noundef nonnull align 8 dereferenceable(12) %15, ptr noundef @.str)
+  %16 = load ptr, ptr %4, align 8
+  %17 = getelementptr inbounds nuw %struct.aiScene, ptr %16, i32 0, i32 1
+  %18 = load ptr, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 64, ptr %5) #12
+  call void @_ZN12aiMatrix4x4tIfEC2Ev(ptr noundef nonnull align 4 dereferenceable(64) %5) #12
+  call void @_ZN6Assimp21MakeLeftHandedProcess11ProcessNodeEP6aiNodeRK12aiMatrix4x4tIfE(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef %18, ptr noundef nonnull align 4 dereferenceable(64) %5)
+  call void @llvm.lifetime.end.p0(i64 64, ptr %5) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #12
+  store i32 0, ptr %6, align 4
+  br label %19
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %2 = load i32, ptr %a, align 4
-  %3 = load ptr, ptr %pScene.addr, align 8
-  %mNumMeshes = getelementptr inbounds %struct.aiScene, ptr %3, i32 0, i32 2
-  %4 = load i32, ptr %mNumMeshes, align 8
-  %cmp = icmp ult i32 %2, %4
-  br i1 %cmp, label %for.body, label %for.end
+19:                                               ; preds = %34, %2
+  %20 = load i32, ptr %6, align 4
+  %21 = load ptr, ptr %4, align 8
+  %22 = getelementptr inbounds nuw %struct.aiScene, ptr %21, i32 0, i32 2
+  %23 = load i32, ptr %22, align 8
+  %24 = icmp ult i32 %20, %23
+  br i1 %24, label %26, label %25
 
-for.body:                                         ; preds = %for.cond
-  %5 = load ptr, ptr %pScene.addr, align 8
-  %mMeshes = getelementptr inbounds %struct.aiScene, ptr %5, i32 0, i32 3
-  %6 = load ptr, ptr %mMeshes, align 8
-  %7 = load i32, ptr %a, align 4
-  %idxprom = zext i32 %7 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %6, i64 %idxprom
-  %8 = load ptr, ptr %arrayidx, align 8
-  call void @_ZN6Assimp21MakeLeftHandedProcess11ProcessMeshEP6aiMesh(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef %8)
-  br label %for.inc
+25:                                               ; preds = %19
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #12
+  br label %37
 
-for.inc:                                          ; preds = %for.body
-  %9 = load i32, ptr %a, align 4
-  %inc = add i32 %9, 1
-  store i32 %inc, ptr %a, align 4
-  br label %for.cond, !llvm.loop !4
+26:                                               ; preds = %19
+  %27 = load ptr, ptr %4, align 8
+  %28 = getelementptr inbounds nuw %struct.aiScene, ptr %27, i32 0, i32 3
+  %29 = load ptr, ptr %28, align 8
+  %30 = load i32, ptr %6, align 4
+  %31 = zext i32 %30 to i64
+  %32 = getelementptr inbounds nuw ptr, ptr %29, i64 %31
+  %33 = load ptr, ptr %32, align 8
+  call void @_ZN6Assimp21MakeLeftHandedProcess11ProcessMeshEP6aiMesh(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef %33)
+  br label %34
 
-for.end:                                          ; preds = %for.cond
-  store i32 0, ptr %a2, align 4
-  br label %for.cond3
+34:                                               ; preds = %26
+  %35 = load i32, ptr %6, align 4
+  %36 = add i32 %35, 1
+  store i32 %36, ptr %6, align 4
+  br label %19, !llvm.loop !3
 
-for.cond3:                                        ; preds = %for.inc8, %for.end
-  %10 = load i32, ptr %a2, align 4
-  %11 = load ptr, ptr %pScene.addr, align 8
-  %mNumMaterials = getelementptr inbounds %struct.aiScene, ptr %11, i32 0, i32 4
-  %12 = load i32, ptr %mNumMaterials, align 8
-  %cmp4 = icmp ult i32 %10, %12
-  br i1 %cmp4, label %for.body5, label %for.end10
+37:                                               ; preds = %25
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #12
+  store i32 0, ptr %7, align 4
+  br label %38
 
-for.body5:                                        ; preds = %for.cond3
-  %13 = load ptr, ptr %pScene.addr, align 8
-  %mMaterials = getelementptr inbounds %struct.aiScene, ptr %13, i32 0, i32 5
-  %14 = load ptr, ptr %mMaterials, align 8
-  %15 = load i32, ptr %a2, align 4
-  %idxprom6 = zext i32 %15 to i64
-  %arrayidx7 = getelementptr inbounds ptr, ptr %14, i64 %idxprom6
-  %16 = load ptr, ptr %arrayidx7, align 8
-  call void @_ZN6Assimp21MakeLeftHandedProcess15ProcessMaterialEP10aiMaterial(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef %16)
-  br label %for.inc8
+38:                                               ; preds = %53, %37
+  %39 = load i32, ptr %7, align 4
+  %40 = load ptr, ptr %4, align 8
+  %41 = getelementptr inbounds nuw %struct.aiScene, ptr %40, i32 0, i32 4
+  %42 = load i32, ptr %41, align 8
+  %43 = icmp ult i32 %39, %42
+  br i1 %43, label %45, label %44
 
-for.inc8:                                         ; preds = %for.body5
-  %17 = load i32, ptr %a2, align 4
-  %inc9 = add i32 %17, 1
-  store i32 %inc9, ptr %a2, align 4
-  br label %for.cond3, !llvm.loop !6
+44:                                               ; preds = %38
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #12
+  br label %56
 
-for.end10:                                        ; preds = %for.cond3
-  store i32 0, ptr %a11, align 4
-  br label %for.cond12
+45:                                               ; preds = %38
+  %46 = load ptr, ptr %4, align 8
+  %47 = getelementptr inbounds nuw %struct.aiScene, ptr %46, i32 0, i32 5
+  %48 = load ptr, ptr %47, align 8
+  %49 = load i32, ptr %7, align 4
+  %50 = zext i32 %49 to i64
+  %51 = getelementptr inbounds nuw ptr, ptr %48, i64 %50
+  %52 = load ptr, ptr %51, align 8
+  call void @_ZN6Assimp21MakeLeftHandedProcess15ProcessMaterialEP10aiMaterial(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef %52)
+  br label %53
 
-for.cond12:                                       ; preds = %for.inc25, %for.end10
-  %18 = load i32, ptr %a11, align 4
-  %19 = load ptr, ptr %pScene.addr, align 8
-  %mNumAnimations = getelementptr inbounds %struct.aiScene, ptr %19, i32 0, i32 6
-  %20 = load i32, ptr %mNumAnimations, align 8
-  %cmp13 = icmp ult i32 %18, %20
-  br i1 %cmp13, label %for.body14, label %for.end27
+53:                                               ; preds = %45
+  %54 = load i32, ptr %7, align 4
+  %55 = add i32 %54, 1
+  store i32 %55, ptr %7, align 4
+  br label %38, !llvm.loop !5
 
-for.body14:                                       ; preds = %for.cond12
-  %21 = load ptr, ptr %pScene.addr, align 8
-  %mAnimations = getelementptr inbounds %struct.aiScene, ptr %21, i32 0, i32 7
-  %22 = load ptr, ptr %mAnimations, align 8
-  %23 = load i32, ptr %a11, align 4
-  %idxprom15 = zext i32 %23 to i64
-  %arrayidx16 = getelementptr inbounds ptr, ptr %22, i64 %idxprom15
-  %24 = load ptr, ptr %arrayidx16, align 8
-  store ptr %24, ptr %anim, align 8
-  store i32 0, ptr %b, align 4
-  br label %for.cond17
+56:                                               ; preds = %44
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #12
+  store i32 0, ptr %8, align 4
+  br label %57
 
-for.cond17:                                       ; preds = %for.inc22, %for.body14
-  %25 = load i32, ptr %b, align 4
-  %26 = load ptr, ptr %anim, align 8
-  %mNumChannels = getelementptr inbounds %struct.aiAnimation, ptr %26, i32 0, i32 3
-  %27 = load i32, ptr %mNumChannels, align 8
-  %cmp18 = icmp ult i32 %25, %27
-  br i1 %cmp18, label %for.body19, label %for.end24
+57:                                               ; preds = %92, %56
+  %58 = load i32, ptr %8, align 4
+  %59 = load ptr, ptr %4, align 8
+  %60 = getelementptr inbounds nuw %struct.aiScene, ptr %59, i32 0, i32 6
+  %61 = load i32, ptr %60, align 8
+  %62 = icmp ult i32 %58, %61
+  br i1 %62, label %64, label %63
 
-for.body19:                                       ; preds = %for.cond17
-  %28 = load ptr, ptr %anim, align 8
-  %mChannels = getelementptr inbounds %struct.aiAnimation, ptr %28, i32 0, i32 4
-  %29 = load ptr, ptr %mChannels, align 8
-  %30 = load i32, ptr %b, align 4
-  %idxprom20 = zext i32 %30 to i64
-  %arrayidx21 = getelementptr inbounds ptr, ptr %29, i64 %idxprom20
-  %31 = load ptr, ptr %arrayidx21, align 8
-  store ptr %31, ptr %nodeAnim, align 8
-  %32 = load ptr, ptr %nodeAnim, align 8
-  call void @_ZN6Assimp21MakeLeftHandedProcess16ProcessAnimationEP10aiNodeAnim(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef %32)
-  br label %for.inc22
+63:                                               ; preds = %57
+  store i32 8, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #12
+  br label %95
 
-for.inc22:                                        ; preds = %for.body19
-  %33 = load i32, ptr %b, align 4
-  %inc23 = add i32 %33, 1
-  store i32 %inc23, ptr %b, align 4
-  br label %for.cond17, !llvm.loop !7
+64:                                               ; preds = %57
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #12
+  %65 = load ptr, ptr %4, align 8
+  %66 = getelementptr inbounds nuw %struct.aiScene, ptr %65, i32 0, i32 7
+  %67 = load ptr, ptr %66, align 8
+  %68 = load i32, ptr %8, align 4
+  %69 = zext i32 %68 to i64
+  %70 = getelementptr inbounds nuw ptr, ptr %67, i64 %69
+  %71 = load ptr, ptr %70, align 8
+  store ptr %71, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #12
+  store i32 0, ptr %11, align 4
+  br label %72
 
-for.end24:                                        ; preds = %for.cond17
-  br label %for.inc25
+72:                                               ; preds = %88, %64
+  %73 = load i32, ptr %11, align 4
+  %74 = load ptr, ptr %10, align 8
+  %75 = getelementptr inbounds nuw %struct.aiAnimation, ptr %74, i32 0, i32 3
+  %76 = load i32, ptr %75, align 8
+  %77 = icmp ult i32 %73, %76
+  br i1 %77, label %79, label %78
 
-for.inc25:                                        ; preds = %for.end24
-  %34 = load i32, ptr %a11, align 4
-  %inc26 = add i32 %34, 1
-  store i32 %inc26, ptr %a11, align 4
-  br label %for.cond12, !llvm.loop !8
+78:                                               ; preds = %72
+  store i32 11, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #12
+  br label %91
 
-for.end27:                                        ; preds = %for.cond12
-  store i32 0, ptr %a28, align 4
-  br label %for.cond29
+79:                                               ; preds = %72
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #12
+  %80 = load ptr, ptr %10, align 8
+  %81 = getelementptr inbounds nuw %struct.aiAnimation, ptr %80, i32 0, i32 4
+  %82 = load ptr, ptr %81, align 8
+  %83 = load i32, ptr %11, align 4
+  %84 = zext i32 %83 to i64
+  %85 = getelementptr inbounds nuw ptr, ptr %82, i64 %84
+  %86 = load ptr, ptr %85, align 8
+  store ptr %86, ptr %12, align 8
+  %87 = load ptr, ptr %12, align 8
+  call void @_ZN6Assimp21MakeLeftHandedProcess16ProcessAnimationEP10aiNodeAnim(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef %87)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #12
+  br label %88
 
-for.cond29:                                       ; preds = %for.inc34, %for.end27
-  %35 = load i32, ptr %a28, align 4
-  %36 = load ptr, ptr %pScene.addr, align 8
-  %mNumCameras = getelementptr inbounds %struct.aiScene, ptr %36, i32 0, i32 12
-  %37 = load i32, ptr %mNumCameras, align 8
-  %cmp30 = icmp ult i32 %35, %37
-  br i1 %cmp30, label %for.body31, label %for.end36
+88:                                               ; preds = %79
+  %89 = load i32, ptr %11, align 4
+  %90 = add i32 %89, 1
+  store i32 %90, ptr %11, align 4
+  br label %72, !llvm.loop !6
 
-for.body31:                                       ; preds = %for.cond29
-  %38 = load ptr, ptr %pScene.addr, align 8
-  %mCameras = getelementptr inbounds %struct.aiScene, ptr %38, i32 0, i32 13
-  %39 = load ptr, ptr %mCameras, align 8
-  %40 = load i32, ptr %a28, align 4
-  %idxprom32 = zext i32 %40 to i64
-  %arrayidx33 = getelementptr inbounds ptr, ptr %39, i64 %idxprom32
-  %41 = load ptr, ptr %arrayidx33, align 8
-  call void @_ZN6Assimp21MakeLeftHandedProcess13ProcessCameraEP8aiCamera(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef %41)
-  br label %for.inc34
+91:                                               ; preds = %78
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #12
+  br label %92
 
-for.inc34:                                        ; preds = %for.body31
-  %42 = load i32, ptr %a28, align 4
-  %inc35 = add i32 %42, 1
-  store i32 %inc35, ptr %a28, align 4
-  br label %for.cond29, !llvm.loop !9
+92:                                               ; preds = %91
+  %93 = load i32, ptr %8, align 4
+  %94 = add i32 %93, 1
+  store i32 %94, ptr %8, align 4
+  br label %57, !llvm.loop !7
 
-for.end36:                                        ; preds = %for.cond29
-  %call37 = call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
-  call void @_ZN6Assimp6Logger5debugEPKc(ptr noundef nonnull align 8 dereferenceable(12) %call37, ptr noundef @.str.1)
+95:                                               ; preds = %63
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #12
+  store i32 0, ptr %13, align 4
+  br label %96
+
+96:                                               ; preds = %111, %95
+  %97 = load i32, ptr %13, align 4
+  %98 = load ptr, ptr %4, align 8
+  %99 = getelementptr inbounds nuw %struct.aiScene, ptr %98, i32 0, i32 12
+  %100 = load i32, ptr %99, align 8
+  %101 = icmp ult i32 %97, %100
+  br i1 %101, label %103, label %102
+
+102:                                              ; preds = %96
+  store i32 14, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #12
+  br label %114
+
+103:                                              ; preds = %96
+  %104 = load ptr, ptr %4, align 8
+  %105 = getelementptr inbounds nuw %struct.aiScene, ptr %104, i32 0, i32 13
+  %106 = load ptr, ptr %105, align 8
+  %107 = load i32, ptr %13, align 4
+  %108 = zext i32 %107 to i64
+  %109 = getelementptr inbounds nuw ptr, ptr %106, i64 %108
+  %110 = load ptr, ptr %109, align 8
+  call void @_ZN6Assimp21MakeLeftHandedProcess13ProcessCameraEP8aiCamera(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef %110)
+  br label %111
+
+111:                                              ; preds = %103
+  %112 = load i32, ptr %13, align 4
+  %113 = add i32 %112, 1
+  store i32 %113, ptr %13, align 4
+  br label %96, !llvm.loop !8
+
+114:                                              ; preds = %102
+  %115 = call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
+  call void @_ZN6Assimp6Logger5debugEPKc(ptr noundef nonnull align 8 dereferenceable(12) %115, ptr noundef @.str.1)
   ret void
 }
 
-declare noundef ptr @_ZN6Assimp13DefaultLogger3getEv() #3
+declare noundef ptr @_ZN6Assimp13DefaultLogger3getEv() #2
 
-declare void @_ZN6Assimp6Logger5debugEPKc(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) #3
+declare void @_ZN6Assimp6Logger5debugEPKc(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp21MakeLeftHandedProcess11ProcessNodeEP6aiNodeRK12aiMatrix4x4tIfE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %pNode, ptr noundef nonnull align 4 dereferenceable(64) %pParentGlobalRotation) #2 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %pNode.addr = alloca ptr, align 8
-  %pParentGlobalRotation.addr = alloca ptr, align 8
-  %a = alloca i64, align 8
-  %ref.tmp = alloca %class.aiMatrix4x4t, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %pNode, ptr %pNode.addr, align 8
-  store ptr %pParentGlobalRotation, ptr %pParentGlobalRotation.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %pNode.addr, align 8
-  %mTransformation = getelementptr inbounds %struct.aiNode, ptr %0, i32 0, i32 1
-  %c1 = getelementptr inbounds %class.aiMatrix4x4t, ptr %mTransformation, i32 0, i32 8
-  %1 = load float, ptr %c1, align 4
-  %fneg = fneg float %1
-  %2 = load ptr, ptr %pNode.addr, align 8
-  %mTransformation2 = getelementptr inbounds %struct.aiNode, ptr %2, i32 0, i32 1
-  %c13 = getelementptr inbounds %class.aiMatrix4x4t, ptr %mTransformation2, i32 0, i32 8
-  store float %fneg, ptr %c13, align 4
-  %3 = load ptr, ptr %pNode.addr, align 8
-  %mTransformation4 = getelementptr inbounds %struct.aiNode, ptr %3, i32 0, i32 1
-  %c2 = getelementptr inbounds %class.aiMatrix4x4t, ptr %mTransformation4, i32 0, i32 9
-  %4 = load float, ptr %c2, align 4
-  %fneg5 = fneg float %4
-  %5 = load ptr, ptr %pNode.addr, align 8
-  %mTransformation6 = getelementptr inbounds %struct.aiNode, ptr %5, i32 0, i32 1
-  %c27 = getelementptr inbounds %class.aiMatrix4x4t, ptr %mTransformation6, i32 0, i32 9
-  store float %fneg5, ptr %c27, align 4
-  %6 = load ptr, ptr %pNode.addr, align 8
-  %mTransformation8 = getelementptr inbounds %struct.aiNode, ptr %6, i32 0, i32 1
-  %c3 = getelementptr inbounds %class.aiMatrix4x4t, ptr %mTransformation8, i32 0, i32 10
-  %7 = load float, ptr %c3, align 4
-  %fneg9 = fneg float %7
-  %8 = load ptr, ptr %pNode.addr, align 8
-  %mTransformation10 = getelementptr inbounds %struct.aiNode, ptr %8, i32 0, i32 1
-  %c311 = getelementptr inbounds %class.aiMatrix4x4t, ptr %mTransformation10, i32 0, i32 10
-  store float %fneg9, ptr %c311, align 4
-  %9 = load ptr, ptr %pNode.addr, align 8
-  %mTransformation12 = getelementptr inbounds %struct.aiNode, ptr %9, i32 0, i32 1
-  %c4 = getelementptr inbounds %class.aiMatrix4x4t, ptr %mTransformation12, i32 0, i32 11
-  %10 = load float, ptr %c4, align 4
-  %fneg13 = fneg float %10
-  %11 = load ptr, ptr %pNode.addr, align 8
-  %mTransformation14 = getelementptr inbounds %struct.aiNode, ptr %11, i32 0, i32 1
-  %c415 = getelementptr inbounds %class.aiMatrix4x4t, ptr %mTransformation14, i32 0, i32 11
-  store float %fneg13, ptr %c415, align 4
-  %12 = load ptr, ptr %pNode.addr, align 8
-  %mTransformation16 = getelementptr inbounds %struct.aiNode, ptr %12, i32 0, i32 1
-  %a3 = getelementptr inbounds %class.aiMatrix4x4t, ptr %mTransformation16, i32 0, i32 2
-  %13 = load float, ptr %a3, align 4
-  %fneg17 = fneg float %13
-  %14 = load ptr, ptr %pNode.addr, align 8
-  %mTransformation18 = getelementptr inbounds %struct.aiNode, ptr %14, i32 0, i32 1
-  %a319 = getelementptr inbounds %class.aiMatrix4x4t, ptr %mTransformation18, i32 0, i32 2
-  store float %fneg17, ptr %a319, align 4
-  %15 = load ptr, ptr %pNode.addr, align 8
-  %mTransformation20 = getelementptr inbounds %struct.aiNode, ptr %15, i32 0, i32 1
-  %b3 = getelementptr inbounds %class.aiMatrix4x4t, ptr %mTransformation20, i32 0, i32 6
-  %16 = load float, ptr %b3, align 4
-  %fneg21 = fneg float %16
-  %17 = load ptr, ptr %pNode.addr, align 8
-  %mTransformation22 = getelementptr inbounds %struct.aiNode, ptr %17, i32 0, i32 1
-  %b323 = getelementptr inbounds %class.aiMatrix4x4t, ptr %mTransformation22, i32 0, i32 6
-  store float %fneg21, ptr %b323, align 4
-  %18 = load ptr, ptr %pNode.addr, align 8
-  %mTransformation24 = getelementptr inbounds %struct.aiNode, ptr %18, i32 0, i32 1
-  %c325 = getelementptr inbounds %class.aiMatrix4x4t, ptr %mTransformation24, i32 0, i32 10
-  %19 = load float, ptr %c325, align 4
-  %fneg26 = fneg float %19
-  %20 = load ptr, ptr %pNode.addr, align 8
-  %mTransformation27 = getelementptr inbounds %struct.aiNode, ptr %20, i32 0, i32 1
-  %c328 = getelementptr inbounds %class.aiMatrix4x4t, ptr %mTransformation27, i32 0, i32 10
-  store float %fneg26, ptr %c328, align 4
-  %21 = load ptr, ptr %pNode.addr, align 8
-  %mTransformation29 = getelementptr inbounds %struct.aiNode, ptr %21, i32 0, i32 1
-  %d3 = getelementptr inbounds %class.aiMatrix4x4t, ptr %mTransformation29, i32 0, i32 14
-  %22 = load float, ptr %d3, align 4
-  %fneg30 = fneg float %22
-  %23 = load ptr, ptr %pNode.addr, align 8
-  %mTransformation31 = getelementptr inbounds %struct.aiNode, ptr %23, i32 0, i32 1
-  %d332 = getelementptr inbounds %class.aiMatrix4x4t, ptr %mTransformation31, i32 0, i32 14
-  store float %fneg30, ptr %d332, align 4
-  store i64 0, ptr %a, align 8
-  br label %for.cond
+define hidden void @_ZN6Assimp21MakeLeftHandedProcess11ProcessNodeEP6aiNodeRK12aiMatrix4x4tIfE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(64) %2) #1 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca %class.aiMatrix4x4t, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %9 = load ptr, ptr %4, align 8
+  %10 = load ptr, ptr %5, align 8
+  %11 = getelementptr inbounds nuw %struct.aiNode, ptr %10, i32 0, i32 1
+  %12 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %11, i32 0, i32 8
+  %13 = load float, ptr %12, align 4
+  %14 = fneg float %13
+  %15 = load ptr, ptr %5, align 8
+  %16 = getelementptr inbounds nuw %struct.aiNode, ptr %15, i32 0, i32 1
+  %17 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %16, i32 0, i32 8
+  store float %14, ptr %17, align 4
+  %18 = load ptr, ptr %5, align 8
+  %19 = getelementptr inbounds nuw %struct.aiNode, ptr %18, i32 0, i32 1
+  %20 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %19, i32 0, i32 9
+  %21 = load float, ptr %20, align 4
+  %22 = fneg float %21
+  %23 = load ptr, ptr %5, align 8
+  %24 = getelementptr inbounds nuw %struct.aiNode, ptr %23, i32 0, i32 1
+  %25 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %24, i32 0, i32 9
+  store float %22, ptr %25, align 4
+  %26 = load ptr, ptr %5, align 8
+  %27 = getelementptr inbounds nuw %struct.aiNode, ptr %26, i32 0, i32 1
+  %28 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %27, i32 0, i32 10
+  %29 = load float, ptr %28, align 4
+  %30 = fneg float %29
+  %31 = load ptr, ptr %5, align 8
+  %32 = getelementptr inbounds nuw %struct.aiNode, ptr %31, i32 0, i32 1
+  %33 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %32, i32 0, i32 10
+  store float %30, ptr %33, align 4
+  %34 = load ptr, ptr %5, align 8
+  %35 = getelementptr inbounds nuw %struct.aiNode, ptr %34, i32 0, i32 1
+  %36 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %35, i32 0, i32 11
+  %37 = load float, ptr %36, align 4
+  %38 = fneg float %37
+  %39 = load ptr, ptr %5, align 8
+  %40 = getelementptr inbounds nuw %struct.aiNode, ptr %39, i32 0, i32 1
+  %41 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %40, i32 0, i32 11
+  store float %38, ptr %41, align 4
+  %42 = load ptr, ptr %5, align 8
+  %43 = getelementptr inbounds nuw %struct.aiNode, ptr %42, i32 0, i32 1
+  %44 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %43, i32 0, i32 2
+  %45 = load float, ptr %44, align 4
+  %46 = fneg float %45
+  %47 = load ptr, ptr %5, align 8
+  %48 = getelementptr inbounds nuw %struct.aiNode, ptr %47, i32 0, i32 1
+  %49 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %48, i32 0, i32 2
+  store float %46, ptr %49, align 4
+  %50 = load ptr, ptr %5, align 8
+  %51 = getelementptr inbounds nuw %struct.aiNode, ptr %50, i32 0, i32 1
+  %52 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %51, i32 0, i32 6
+  %53 = load float, ptr %52, align 4
+  %54 = fneg float %53
+  %55 = load ptr, ptr %5, align 8
+  %56 = getelementptr inbounds nuw %struct.aiNode, ptr %55, i32 0, i32 1
+  %57 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %56, i32 0, i32 6
+  store float %54, ptr %57, align 4
+  %58 = load ptr, ptr %5, align 8
+  %59 = getelementptr inbounds nuw %struct.aiNode, ptr %58, i32 0, i32 1
+  %60 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %59, i32 0, i32 10
+  %61 = load float, ptr %60, align 4
+  %62 = fneg float %61
+  %63 = load ptr, ptr %5, align 8
+  %64 = getelementptr inbounds nuw %struct.aiNode, ptr %63, i32 0, i32 1
+  %65 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %64, i32 0, i32 10
+  store float %62, ptr %65, align 4
+  %66 = load ptr, ptr %5, align 8
+  %67 = getelementptr inbounds nuw %struct.aiNode, ptr %66, i32 0, i32 1
+  %68 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %67, i32 0, i32 14
+  %69 = load float, ptr %68, align 4
+  %70 = fneg float %69
+  %71 = load ptr, ptr %5, align 8
+  %72 = getelementptr inbounds nuw %struct.aiNode, ptr %71, i32 0, i32 1
+  %73 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %72, i32 0, i32 14
+  store float %70, ptr %73, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #12
+  store i64 0, ptr %7, align 8
+  br label %74
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %24 = load i64, ptr %a, align 8
-  %25 = load ptr, ptr %pNode.addr, align 8
-  %mNumChildren = getelementptr inbounds %struct.aiNode, ptr %25, i32 0, i32 3
-  %26 = load i32, ptr %mNumChildren, align 8
-  %conv = zext i32 %26 to i64
-  %cmp = icmp ult i64 %24, %conv
-  br i1 %cmp, label %for.body, label %for.end
+74:                                               ; preds = %92, %3
+  %75 = load i64, ptr %7, align 8
+  %76 = load ptr, ptr %5, align 8
+  %77 = getelementptr inbounds nuw %struct.aiNode, ptr %76, i32 0, i32 3
+  %78 = load i32, ptr %77, align 8
+  %79 = zext i32 %78 to i64
+  %80 = icmp ult i64 %75, %79
+  br i1 %80, label %82, label %81
 
-for.body:                                         ; preds = %for.cond
-  %27 = load ptr, ptr %pNode.addr, align 8
-  %mChildren = getelementptr inbounds %struct.aiNode, ptr %27, i32 0, i32 4
-  %28 = load ptr, ptr %mChildren, align 8
-  %29 = load i64, ptr %a, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %28, i64 %29
-  %30 = load ptr, ptr %arrayidx, align 8
-  %31 = load ptr, ptr %pParentGlobalRotation.addr, align 8
-  %32 = load ptr, ptr %pNode.addr, align 8
-  %mTransformation33 = getelementptr inbounds %struct.aiNode, ptr %32, i32 0, i32 1
-  call void @_ZNK12aiMatrix4x4tIfEmlERKS0_(ptr sret(%class.aiMatrix4x4t) align 4 %ref.tmp, ptr noundef nonnull align 4 dereferenceable(64) %31, ptr noundef nonnull align 4 dereferenceable(64) %mTransformation33)
-  call void @_ZN6Assimp21MakeLeftHandedProcess11ProcessNodeEP6aiNodeRK12aiMatrix4x4tIfE(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef %30, ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp)
-  br label %for.inc
+81:                                               ; preds = %74
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #12
+  br label %95
 
-for.inc:                                          ; preds = %for.body
-  %33 = load i64, ptr %a, align 8
-  %inc = add i64 %33, 1
-  store i64 %inc, ptr %a, align 8
-  br label %for.cond, !llvm.loop !10
+82:                                               ; preds = %74
+  %83 = load ptr, ptr %5, align 8
+  %84 = getelementptr inbounds nuw %struct.aiNode, ptr %83, i32 0, i32 4
+  %85 = load ptr, ptr %84, align 8
+  %86 = load i64, ptr %7, align 8
+  %87 = getelementptr inbounds nuw ptr, ptr %85, i64 %86
+  %88 = load ptr, ptr %87, align 8
+  call void @llvm.lifetime.start.p0(i64 64, ptr %8) #12
+  %89 = load ptr, ptr %6, align 8
+  %90 = load ptr, ptr %5, align 8
+  %91 = getelementptr inbounds nuw %struct.aiNode, ptr %90, i32 0, i32 1
+  call void @_ZNK12aiMatrix4x4tIfEmlERKS0_(ptr dead_on_unwind writable sret(%class.aiMatrix4x4t) align 4 %8, ptr noundef nonnull align 4 dereferenceable(64) %89, ptr noundef nonnull align 4 dereferenceable(64) %91)
+  call void @_ZN6Assimp21MakeLeftHandedProcess11ProcessNodeEP6aiNodeRK12aiMatrix4x4tIfE(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef %88, ptr noundef nonnull align 4 dereferenceable(64) %8)
+  call void @llvm.lifetime.end.p0(i64 64, ptr %8) #12
+  br label %92
 
-for.end:                                          ; preds = %for.cond
+92:                                               ; preds = %82
+  %93 = load i64, ptr %7, align 8
+  %94 = add i64 %93, 1
+  store i64 %94, ptr %7, align 8
+  br label %74, !llvm.loop !9
+
+95:                                               ; preds = %81
   ret void
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN12aiMatrix4x4tIfEC2Ev(ptr noundef nonnull align 4 dereferenceable(64) %this) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %a1 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 0
-  store float 1.000000e+00, ptr %a1, align 4
-  %a2 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 1
-  store float 0.000000e+00, ptr %a2, align 4
-  %a3 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 2
-  store float 0.000000e+00, ptr %a3, align 4
-  %a4 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 3
-  store float 0.000000e+00, ptr %a4, align 4
-  %b1 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 4
-  store float 0.000000e+00, ptr %b1, align 4
-  %b2 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 5
-  store float 1.000000e+00, ptr %b2, align 4
-  %b3 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 6
-  store float 0.000000e+00, ptr %b3, align 4
-  %b4 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 7
-  store float 0.000000e+00, ptr %b4, align 4
-  %c1 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 8
-  store float 0.000000e+00, ptr %c1, align 4
-  %c2 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 9
-  store float 0.000000e+00, ptr %c2, align 4
-  %c3 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 10
-  store float 1.000000e+00, ptr %c3, align 4
-  %c4 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 11
-  store float 0.000000e+00, ptr %c4, align 4
-  %d1 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 12
-  store float 0.000000e+00, ptr %d1, align 4
-  %d2 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 13
-  store float 0.000000e+00, ptr %d2, align 4
-  %d3 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 14
-  store float 0.000000e+00, ptr %d3, align 4
-  %d4 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 15
-  store float 1.000000e+00, ptr %d4, align 4
+define linkonce_odr hidden void @_ZN12aiMatrix4x4tIfEC2Ev(ptr noundef nonnull align 4 dereferenceable(64) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %3, i32 0, i32 0
+  store float 1.000000e+00, ptr %4, align 4
+  %5 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %3, i32 0, i32 1
+  store float 0.000000e+00, ptr %5, align 4
+  %6 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %3, i32 0, i32 2
+  store float 0.000000e+00, ptr %6, align 4
+  %7 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %3, i32 0, i32 3
+  store float 0.000000e+00, ptr %7, align 4
+  %8 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %3, i32 0, i32 4
+  store float 0.000000e+00, ptr %8, align 4
+  %9 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %3, i32 0, i32 5
+  store float 1.000000e+00, ptr %9, align 4
+  %10 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %3, i32 0, i32 6
+  store float 0.000000e+00, ptr %10, align 4
+  %11 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %3, i32 0, i32 7
+  store float 0.000000e+00, ptr %11, align 4
+  %12 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %3, i32 0, i32 8
+  store float 0.000000e+00, ptr %12, align 4
+  %13 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %3, i32 0, i32 9
+  store float 0.000000e+00, ptr %13, align 4
+  %14 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %3, i32 0, i32 10
+  store float 1.000000e+00, ptr %14, align 4
+  %15 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %3, i32 0, i32 11
+  store float 0.000000e+00, ptr %15, align 4
+  %16 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %3, i32 0, i32 12
+  store float 0.000000e+00, ptr %16, align 4
+  %17 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %3, i32 0, i32 13
+  store float 0.000000e+00, ptr %17, align 4
+  %18 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %3, i32 0, i32 14
+  store float 0.000000e+00, ptr %18, align 4
+  %19 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %3, i32 0, i32 15
+  store float 1.000000e+00, ptr %19, align 4
   ret void
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp21MakeLeftHandedProcess11ProcessMeshEP6aiMesh(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %pMesh) #2 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %pMesh.addr = alloca ptr, align 8
-  %a = alloca i64, align 8
-  %m = alloca i64, align 8
-  %a22 = alloca i64, align 8
-  %a69 = alloca i64, align 8
-  %bone = alloca ptr, align 8
-  %a102 = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %pMesh, ptr %pMesh.addr, align 8
-  %0 = load ptr, ptr %pMesh.addr, align 8
-  %cmp = icmp eq ptr null, %0
-  br i1 %cmp, label %if.then, label %if.end
+define hidden void @_ZN6Assimp21MakeLeftHandedProcess11ProcessMeshEP6aiMesh(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) #1 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i64, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %12 = load ptr, ptr %4, align 8
+  %13 = icmp eq ptr null, %12
+  br i1 %13, label %14, label %16
 
-if.then:                                          ; preds = %entry
-  %call = call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
-  call void @_ZN6Assimp6Logger5errorEPKc(ptr noundef nonnull align 8 dereferenceable(12) %call, ptr noundef @.str.2)
-  br label %if.end113
+14:                                               ; preds = %2
+  %15 = call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
+  call void @_ZN6Assimp6Logger5errorEPKc(ptr noundef nonnull align 8 dereferenceable(12) %15, ptr noundef @.str.2)
+  br label %260
 
-if.end:                                           ; preds = %entry
-  store i64 0, ptr %a, align 8
-  br label %for.cond
+16:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #12
+  store i64 0, ptr %5, align 8
+  br label %17
 
-for.cond:                                         ; preds = %for.inc, %if.end
-  %1 = load i64, ptr %a, align 8
-  %2 = load ptr, ptr %pMesh.addr, align 8
-  %mNumVertices = getelementptr inbounds %struct.aiMesh, ptr %2, i32 0, i32 1
-  %3 = load i32, ptr %mNumVertices, align 4
-  %conv = zext i32 %3 to i64
-  %cmp2 = icmp ult i64 %1, %conv
-  br i1 %cmp2, label %for.body, label %for.end
+17:                                               ; preds = %66, %16
+  %18 = load i64, ptr %5, align 8
+  %19 = load ptr, ptr %4, align 8
+  %20 = getelementptr inbounds nuw %struct.aiMesh, ptr %19, i32 0, i32 1
+  %21 = load i32, ptr %20, align 4
+  %22 = zext i32 %21 to i64
+  %23 = icmp ult i64 %18, %22
+  br i1 %23, label %25, label %24
 
-for.body:                                         ; preds = %for.cond
-  %4 = load ptr, ptr %pMesh.addr, align 8
-  %mVertices = getelementptr inbounds %struct.aiMesh, ptr %4, i32 0, i32 3
-  %5 = load ptr, ptr %mVertices, align 8
-  %6 = load i64, ptr %a, align 8
-  %arrayidx = getelementptr inbounds %class.aiVector3t, ptr %5, i64 %6
-  %z = getelementptr inbounds %class.aiVector3t, ptr %arrayidx, i32 0, i32 2
-  %7 = load float, ptr %z, align 4
-  %mul = fmul float %7, -1.000000e+00
-  store float %mul, ptr %z, align 4
-  %8 = load ptr, ptr %pMesh.addr, align 8
-  %call3 = call noundef zeroext i1 @_ZNK6aiMesh10HasNormalsEv(ptr noundef nonnull align 8 dereferenceable(1320) %8)
-  br i1 %call3, label %if.then4, label %if.end8
+24:                                               ; preds = %17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #12
+  br label %69
 
-if.then4:                                         ; preds = %for.body
-  %9 = load ptr, ptr %pMesh.addr, align 8
-  %mNormals = getelementptr inbounds %struct.aiMesh, ptr %9, i32 0, i32 4
-  %10 = load ptr, ptr %mNormals, align 8
-  %11 = load i64, ptr %a, align 8
-  %arrayidx5 = getelementptr inbounds %class.aiVector3t, ptr %10, i64 %11
-  %z6 = getelementptr inbounds %class.aiVector3t, ptr %arrayidx5, i32 0, i32 2
-  %12 = load float, ptr %z6, align 4
-  %mul7 = fmul float %12, -1.000000e+00
-  store float %mul7, ptr %z6, align 4
-  br label %if.end8
+25:                                               ; preds = %17
+  %26 = load ptr, ptr %4, align 8
+  %27 = getelementptr inbounds nuw %struct.aiMesh, ptr %26, i32 0, i32 3
+  %28 = load ptr, ptr %27, align 8
+  %29 = load i64, ptr %5, align 8
+  %30 = getelementptr inbounds nuw %class.aiVector3t, ptr %28, i64 %29
+  %31 = getelementptr inbounds nuw %class.aiVector3t, ptr %30, i32 0, i32 2
+  %32 = load float, ptr %31, align 4
+  %33 = fmul float %32, -1.000000e+00
+  store float %33, ptr %31, align 4
+  %34 = load ptr, ptr %4, align 8
+  %35 = call noundef zeroext i1 @_ZNK6aiMesh10HasNormalsEv(ptr noundef nonnull align 8 dereferenceable(1320) %34)
+  br i1 %35, label %36, label %45
 
-if.end8:                                          ; preds = %if.then4, %for.body
-  %13 = load ptr, ptr %pMesh.addr, align 8
-  %call9 = call noundef zeroext i1 @_ZNK6aiMesh24HasTangentsAndBitangentsEv(ptr noundef nonnull align 8 dereferenceable(1320) %13)
-  br i1 %call9, label %if.then10, label %if.end17
+36:                                               ; preds = %25
+  %37 = load ptr, ptr %4, align 8
+  %38 = getelementptr inbounds nuw %struct.aiMesh, ptr %37, i32 0, i32 4
+  %39 = load ptr, ptr %38, align 8
+  %40 = load i64, ptr %5, align 8
+  %41 = getelementptr inbounds nuw %class.aiVector3t, ptr %39, i64 %40
+  %42 = getelementptr inbounds nuw %class.aiVector3t, ptr %41, i32 0, i32 2
+  %43 = load float, ptr %42, align 4
+  %44 = fmul float %43, -1.000000e+00
+  store float %44, ptr %42, align 4
+  br label %45
 
-if.then10:                                        ; preds = %if.end8
-  %14 = load ptr, ptr %pMesh.addr, align 8
-  %mTangents = getelementptr inbounds %struct.aiMesh, ptr %14, i32 0, i32 5
-  %15 = load ptr, ptr %mTangents, align 8
-  %16 = load i64, ptr %a, align 8
-  %arrayidx11 = getelementptr inbounds %class.aiVector3t, ptr %15, i64 %16
-  %z12 = getelementptr inbounds %class.aiVector3t, ptr %arrayidx11, i32 0, i32 2
-  %17 = load float, ptr %z12, align 4
-  %mul13 = fmul float %17, -1.000000e+00
-  store float %mul13, ptr %z12, align 4
-  %18 = load ptr, ptr %pMesh.addr, align 8
-  %mBitangents = getelementptr inbounds %struct.aiMesh, ptr %18, i32 0, i32 6
-  %19 = load ptr, ptr %mBitangents, align 8
-  %20 = load i64, ptr %a, align 8
-  %arrayidx14 = getelementptr inbounds %class.aiVector3t, ptr %19, i64 %20
-  %z15 = getelementptr inbounds %class.aiVector3t, ptr %arrayidx14, i32 0, i32 2
-  %21 = load float, ptr %z15, align 4
-  %mul16 = fmul float %21, -1.000000e+00
-  store float %mul16, ptr %z15, align 4
-  br label %if.end17
+45:                                               ; preds = %36, %25
+  %46 = load ptr, ptr %4, align 8
+  %47 = call noundef zeroext i1 @_ZNK6aiMesh24HasTangentsAndBitangentsEv(ptr noundef nonnull align 8 dereferenceable(1320) %46)
+  br i1 %47, label %48, label %65
 
-if.end17:                                         ; preds = %if.then10, %if.end8
-  br label %for.inc
+48:                                               ; preds = %45
+  %49 = load ptr, ptr %4, align 8
+  %50 = getelementptr inbounds nuw %struct.aiMesh, ptr %49, i32 0, i32 5
+  %51 = load ptr, ptr %50, align 8
+  %52 = load i64, ptr %5, align 8
+  %53 = getelementptr inbounds nuw %class.aiVector3t, ptr %51, i64 %52
+  %54 = getelementptr inbounds nuw %class.aiVector3t, ptr %53, i32 0, i32 2
+  %55 = load float, ptr %54, align 4
+  %56 = fmul float %55, -1.000000e+00
+  store float %56, ptr %54, align 4
+  %57 = load ptr, ptr %4, align 8
+  %58 = getelementptr inbounds nuw %struct.aiMesh, ptr %57, i32 0, i32 6
+  %59 = load ptr, ptr %58, align 8
+  %60 = load i64, ptr %5, align 8
+  %61 = getelementptr inbounds nuw %class.aiVector3t, ptr %59, i64 %60
+  %62 = getelementptr inbounds nuw %class.aiVector3t, ptr %61, i32 0, i32 2
+  %63 = load float, ptr %62, align 4
+  %64 = fmul float %63, -1.000000e+00
+  store float %64, ptr %62, align 4
+  br label %65
 
-for.inc:                                          ; preds = %if.end17
-  %22 = load i64, ptr %a, align 8
-  %inc = add i64 %22, 1
-  store i64 %inc, ptr %a, align 8
-  br label %for.cond, !llvm.loop !11
+65:                                               ; preds = %48, %45
+  br label %66
 
-for.end:                                          ; preds = %for.cond
-  store i64 0, ptr %m, align 8
-  br label %for.cond18
+66:                                               ; preds = %65
+  %67 = load i64, ptr %5, align 8
+  %68 = add i64 %67, 1
+  store i64 %68, ptr %5, align 8
+  br label %17, !llvm.loop !10
 
-for.cond18:                                       ; preds = %for.inc66, %for.end
-  %23 = load i64, ptr %m, align 8
-  %24 = load ptr, ptr %pMesh.addr, align 8
-  %mNumAnimMeshes = getelementptr inbounds %struct.aiMesh, ptr %24, i32 0, i32 15
-  %25 = load i32, ptr %mNumAnimMeshes, align 8
-  %conv19 = zext i32 %25 to i64
-  %cmp20 = icmp ult i64 %23, %conv19
-  br i1 %cmp20, label %for.body21, label %for.end68
+69:                                               ; preds = %24
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #12
+  store i64 0, ptr %6, align 8
+  br label %70
 
-for.body21:                                       ; preds = %for.cond18
-  store i64 0, ptr %a22, align 8
-  br label %for.cond23
+70:                                               ; preds = %167, %69
+  %71 = load i64, ptr %6, align 8
+  %72 = load ptr, ptr %4, align 8
+  %73 = getelementptr inbounds nuw %struct.aiMesh, ptr %72, i32 0, i32 15
+  %74 = load i32, ptr %73, align 8
+  %75 = zext i32 %74 to i64
+  %76 = icmp ult i64 %71, %75
+  br i1 %76, label %78, label %77
 
-for.cond23:                                       ; preds = %for.inc63, %for.body21
-  %26 = load i64, ptr %a22, align 8
-  %27 = load ptr, ptr %pMesh.addr, align 8
-  %mAnimMeshes = getelementptr inbounds %struct.aiMesh, ptr %27, i32 0, i32 16
-  %28 = load ptr, ptr %mAnimMeshes, align 8
-  %29 = load i64, ptr %m, align 8
-  %arrayidx24 = getelementptr inbounds ptr, ptr %28, i64 %29
-  %30 = load ptr, ptr %arrayidx24, align 8
-  %mNumVertices25 = getelementptr inbounds %struct.aiAnimMesh, ptr %30, i32 0, i32 7
-  %31 = load i32, ptr %mNumVertices25, align 8
-  %conv26 = zext i32 %31 to i64
-  %cmp27 = icmp ult i64 %26, %conv26
-  br i1 %cmp27, label %for.body28, label %for.end65
+77:                                               ; preds = %70
+  store i32 5, ptr %7, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #12
+  br label %170
 
-for.body28:                                       ; preds = %for.cond23
-  %32 = load ptr, ptr %pMesh.addr, align 8
-  %mAnimMeshes29 = getelementptr inbounds %struct.aiMesh, ptr %32, i32 0, i32 16
-  %33 = load ptr, ptr %mAnimMeshes29, align 8
-  %34 = load i64, ptr %m, align 8
-  %arrayidx30 = getelementptr inbounds ptr, ptr %33, i64 %34
-  %35 = load ptr, ptr %arrayidx30, align 8
-  %mVertices31 = getelementptr inbounds %struct.aiAnimMesh, ptr %35, i32 0, i32 1
-  %36 = load ptr, ptr %mVertices31, align 8
-  %37 = load i64, ptr %a22, align 8
-  %arrayidx32 = getelementptr inbounds %class.aiVector3t, ptr %36, i64 %37
-  %z33 = getelementptr inbounds %class.aiVector3t, ptr %arrayidx32, i32 0, i32 2
-  %38 = load float, ptr %z33, align 4
-  %mul34 = fmul float %38, -1.000000e+00
-  store float %mul34, ptr %z33, align 4
-  %39 = load ptr, ptr %pMesh.addr, align 8
-  %mAnimMeshes35 = getelementptr inbounds %struct.aiMesh, ptr %39, i32 0, i32 16
-  %40 = load ptr, ptr %mAnimMeshes35, align 8
-  %41 = load i64, ptr %m, align 8
-  %arrayidx36 = getelementptr inbounds ptr, ptr %40, i64 %41
-  %42 = load ptr, ptr %arrayidx36, align 8
-  %call37 = call noundef zeroext i1 @_ZNK10aiAnimMesh10HasNormalsEv(ptr noundef nonnull align 8 dereferenceable(1200) %42)
-  br i1 %call37, label %if.then38, label %if.end45
+78:                                               ; preds = %70
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #12
+  store i64 0, ptr %8, align 8
+  br label %79
 
-if.then38:                                        ; preds = %for.body28
-  %43 = load ptr, ptr %pMesh.addr, align 8
-  %mAnimMeshes39 = getelementptr inbounds %struct.aiMesh, ptr %43, i32 0, i32 16
-  %44 = load ptr, ptr %mAnimMeshes39, align 8
-  %45 = load i64, ptr %m, align 8
-  %arrayidx40 = getelementptr inbounds ptr, ptr %44, i64 %45
-  %46 = load ptr, ptr %arrayidx40, align 8
-  %mNormals41 = getelementptr inbounds %struct.aiAnimMesh, ptr %46, i32 0, i32 2
-  %47 = load ptr, ptr %mNormals41, align 8
-  %48 = load i64, ptr %a22, align 8
-  %arrayidx42 = getelementptr inbounds %class.aiVector3t, ptr %47, i64 %48
-  %z43 = getelementptr inbounds %class.aiVector3t, ptr %arrayidx42, i32 0, i32 2
-  %49 = load float, ptr %z43, align 4
-  %mul44 = fmul float %49, -1.000000e+00
-  store float %mul44, ptr %z43, align 4
-  br label %if.end45
+79:                                               ; preds = %163, %78
+  %80 = load i64, ptr %8, align 8
+  %81 = load ptr, ptr %4, align 8
+  %82 = getelementptr inbounds nuw %struct.aiMesh, ptr %81, i32 0, i32 16
+  %83 = load ptr, ptr %82, align 8
+  %84 = load i64, ptr %6, align 8
+  %85 = getelementptr inbounds nuw ptr, ptr %83, i64 %84
+  %86 = load ptr, ptr %85, align 8
+  %87 = getelementptr inbounds nuw %struct.aiAnimMesh, ptr %86, i32 0, i32 7
+  %88 = load i32, ptr %87, align 8
+  %89 = zext i32 %88 to i64
+  %90 = icmp ult i64 %80, %89
+  br i1 %90, label %92, label %91
 
-if.end45:                                         ; preds = %if.then38, %for.body28
-  %50 = load ptr, ptr %pMesh.addr, align 8
-  %mAnimMeshes46 = getelementptr inbounds %struct.aiMesh, ptr %50, i32 0, i32 16
-  %51 = load ptr, ptr %mAnimMeshes46, align 8
-  %52 = load i64, ptr %m, align 8
-  %arrayidx47 = getelementptr inbounds ptr, ptr %51, i64 %52
-  %53 = load ptr, ptr %arrayidx47, align 8
-  %call48 = call noundef zeroext i1 @_ZNK10aiAnimMesh24HasTangentsAndBitangentsEv(ptr noundef nonnull align 8 dereferenceable(1200) %53)
-  br i1 %call48, label %if.then49, label %if.end62
+91:                                               ; preds = %79
+  store i32 8, ptr %7, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #12
+  br label %166
 
-if.then49:                                        ; preds = %if.end45
-  %54 = load ptr, ptr %pMesh.addr, align 8
-  %mAnimMeshes50 = getelementptr inbounds %struct.aiMesh, ptr %54, i32 0, i32 16
-  %55 = load ptr, ptr %mAnimMeshes50, align 8
-  %56 = load i64, ptr %m, align 8
-  %arrayidx51 = getelementptr inbounds ptr, ptr %55, i64 %56
-  %57 = load ptr, ptr %arrayidx51, align 8
-  %mTangents52 = getelementptr inbounds %struct.aiAnimMesh, ptr %57, i32 0, i32 3
-  %58 = load ptr, ptr %mTangents52, align 8
-  %59 = load i64, ptr %a22, align 8
-  %arrayidx53 = getelementptr inbounds %class.aiVector3t, ptr %58, i64 %59
-  %z54 = getelementptr inbounds %class.aiVector3t, ptr %arrayidx53, i32 0, i32 2
-  %60 = load float, ptr %z54, align 4
-  %mul55 = fmul float %60, -1.000000e+00
-  store float %mul55, ptr %z54, align 4
-  %61 = load ptr, ptr %pMesh.addr, align 8
-  %mAnimMeshes56 = getelementptr inbounds %struct.aiMesh, ptr %61, i32 0, i32 16
-  %62 = load ptr, ptr %mAnimMeshes56, align 8
-  %63 = load i64, ptr %m, align 8
-  %arrayidx57 = getelementptr inbounds ptr, ptr %62, i64 %63
-  %64 = load ptr, ptr %arrayidx57, align 8
-  %mBitangents58 = getelementptr inbounds %struct.aiAnimMesh, ptr %64, i32 0, i32 4
-  %65 = load ptr, ptr %mBitangents58, align 8
-  %66 = load i64, ptr %a22, align 8
-  %arrayidx59 = getelementptr inbounds %class.aiVector3t, ptr %65, i64 %66
-  %z60 = getelementptr inbounds %class.aiVector3t, ptr %arrayidx59, i32 0, i32 2
-  %67 = load float, ptr %z60, align 4
-  %mul61 = fmul float %67, -1.000000e+00
-  store float %mul61, ptr %z60, align 4
-  br label %if.end62
+92:                                               ; preds = %79
+  %93 = load ptr, ptr %4, align 8
+  %94 = getelementptr inbounds nuw %struct.aiMesh, ptr %93, i32 0, i32 16
+  %95 = load ptr, ptr %94, align 8
+  %96 = load i64, ptr %6, align 8
+  %97 = getelementptr inbounds nuw ptr, ptr %95, i64 %96
+  %98 = load ptr, ptr %97, align 8
+  %99 = getelementptr inbounds nuw %struct.aiAnimMesh, ptr %98, i32 0, i32 1
+  %100 = load ptr, ptr %99, align 8
+  %101 = load i64, ptr %8, align 8
+  %102 = getelementptr inbounds nuw %class.aiVector3t, ptr %100, i64 %101
+  %103 = getelementptr inbounds nuw %class.aiVector3t, ptr %102, i32 0, i32 2
+  %104 = load float, ptr %103, align 4
+  %105 = fmul float %104, -1.000000e+00
+  store float %105, ptr %103, align 4
+  %106 = load ptr, ptr %4, align 8
+  %107 = getelementptr inbounds nuw %struct.aiMesh, ptr %106, i32 0, i32 16
+  %108 = load ptr, ptr %107, align 8
+  %109 = load i64, ptr %6, align 8
+  %110 = getelementptr inbounds nuw ptr, ptr %108, i64 %109
+  %111 = load ptr, ptr %110, align 8
+  %112 = call noundef zeroext i1 @_ZNK10aiAnimMesh10HasNormalsEv(ptr noundef nonnull align 8 dereferenceable(1200) %111)
+  br i1 %112, label %113, label %127
 
-if.end62:                                         ; preds = %if.then49, %if.end45
-  br label %for.inc63
+113:                                              ; preds = %92
+  %114 = load ptr, ptr %4, align 8
+  %115 = getelementptr inbounds nuw %struct.aiMesh, ptr %114, i32 0, i32 16
+  %116 = load ptr, ptr %115, align 8
+  %117 = load i64, ptr %6, align 8
+  %118 = getelementptr inbounds nuw ptr, ptr %116, i64 %117
+  %119 = load ptr, ptr %118, align 8
+  %120 = getelementptr inbounds nuw %struct.aiAnimMesh, ptr %119, i32 0, i32 2
+  %121 = load ptr, ptr %120, align 8
+  %122 = load i64, ptr %8, align 8
+  %123 = getelementptr inbounds nuw %class.aiVector3t, ptr %121, i64 %122
+  %124 = getelementptr inbounds nuw %class.aiVector3t, ptr %123, i32 0, i32 2
+  %125 = load float, ptr %124, align 4
+  %126 = fmul float %125, -1.000000e+00
+  store float %126, ptr %124, align 4
+  br label %127
 
-for.inc63:                                        ; preds = %if.end62
-  %68 = load i64, ptr %a22, align 8
-  %inc64 = add i64 %68, 1
-  store i64 %inc64, ptr %a22, align 8
-  br label %for.cond23, !llvm.loop !12
+127:                                              ; preds = %113, %92
+  %128 = load ptr, ptr %4, align 8
+  %129 = getelementptr inbounds nuw %struct.aiMesh, ptr %128, i32 0, i32 16
+  %130 = load ptr, ptr %129, align 8
+  %131 = load i64, ptr %6, align 8
+  %132 = getelementptr inbounds nuw ptr, ptr %130, i64 %131
+  %133 = load ptr, ptr %132, align 8
+  %134 = call noundef zeroext i1 @_ZNK10aiAnimMesh24HasTangentsAndBitangentsEv(ptr noundef nonnull align 8 dereferenceable(1200) %133)
+  br i1 %134, label %135, label %162
 
-for.end65:                                        ; preds = %for.cond23
-  br label %for.inc66
+135:                                              ; preds = %127
+  %136 = load ptr, ptr %4, align 8
+  %137 = getelementptr inbounds nuw %struct.aiMesh, ptr %136, i32 0, i32 16
+  %138 = load ptr, ptr %137, align 8
+  %139 = load i64, ptr %6, align 8
+  %140 = getelementptr inbounds nuw ptr, ptr %138, i64 %139
+  %141 = load ptr, ptr %140, align 8
+  %142 = getelementptr inbounds nuw %struct.aiAnimMesh, ptr %141, i32 0, i32 3
+  %143 = load ptr, ptr %142, align 8
+  %144 = load i64, ptr %8, align 8
+  %145 = getelementptr inbounds nuw %class.aiVector3t, ptr %143, i64 %144
+  %146 = getelementptr inbounds nuw %class.aiVector3t, ptr %145, i32 0, i32 2
+  %147 = load float, ptr %146, align 4
+  %148 = fmul float %147, -1.000000e+00
+  store float %148, ptr %146, align 4
+  %149 = load ptr, ptr %4, align 8
+  %150 = getelementptr inbounds nuw %struct.aiMesh, ptr %149, i32 0, i32 16
+  %151 = load ptr, ptr %150, align 8
+  %152 = load i64, ptr %6, align 8
+  %153 = getelementptr inbounds nuw ptr, ptr %151, i64 %152
+  %154 = load ptr, ptr %153, align 8
+  %155 = getelementptr inbounds nuw %struct.aiAnimMesh, ptr %154, i32 0, i32 4
+  %156 = load ptr, ptr %155, align 8
+  %157 = load i64, ptr %8, align 8
+  %158 = getelementptr inbounds nuw %class.aiVector3t, ptr %156, i64 %157
+  %159 = getelementptr inbounds nuw %class.aiVector3t, ptr %158, i32 0, i32 2
+  %160 = load float, ptr %159, align 4
+  %161 = fmul float %160, -1.000000e+00
+  store float %161, ptr %159, align 4
+  br label %162
 
-for.inc66:                                        ; preds = %for.end65
-  %69 = load i64, ptr %m, align 8
-  %inc67 = add i64 %69, 1
-  store i64 %inc67, ptr %m, align 8
-  br label %for.cond18, !llvm.loop !13
+162:                                              ; preds = %135, %127
+  br label %163
 
-for.end68:                                        ; preds = %for.cond18
-  store i64 0, ptr %a69, align 8
-  br label %for.cond70
+163:                                              ; preds = %162
+  %164 = load i64, ptr %8, align 8
+  %165 = add i64 %164, 1
+  store i64 %165, ptr %8, align 8
+  br label %79, !llvm.loop !11
 
-for.cond70:                                       ; preds = %for.inc97, %for.end68
-  %70 = load i64, ptr %a69, align 8
-  %71 = load ptr, ptr %pMesh.addr, align 8
-  %mNumBones = getelementptr inbounds %struct.aiMesh, ptr %71, i32 0, i32 11
-  %72 = load i32, ptr %mNumBones, align 8
-  %conv71 = zext i32 %72 to i64
-  %cmp72 = icmp ult i64 %70, %conv71
-  br i1 %cmp72, label %for.body73, label %for.end99
+166:                                              ; preds = %91
+  br label %167
 
-for.body73:                                       ; preds = %for.cond70
-  %73 = load ptr, ptr %pMesh.addr, align 8
-  %mBones = getelementptr inbounds %struct.aiMesh, ptr %73, i32 0, i32 12
-  %74 = load ptr, ptr %mBones, align 8
-  %75 = load i64, ptr %a69, align 8
-  %arrayidx74 = getelementptr inbounds ptr, ptr %74, i64 %75
-  %76 = load ptr, ptr %arrayidx74, align 8
-  store ptr %76, ptr %bone, align 8
-  %77 = load ptr, ptr %bone, align 8
-  %mOffsetMatrix = getelementptr inbounds %struct.aiBone, ptr %77, i32 0, i32 5
-  %a3 = getelementptr inbounds %class.aiMatrix4x4t, ptr %mOffsetMatrix, i32 0, i32 2
-  %78 = load float, ptr %a3, align 8
-  %fneg = fneg float %78
-  %79 = load ptr, ptr %bone, align 8
-  %mOffsetMatrix75 = getelementptr inbounds %struct.aiBone, ptr %79, i32 0, i32 5
-  %a376 = getelementptr inbounds %class.aiMatrix4x4t, ptr %mOffsetMatrix75, i32 0, i32 2
-  store float %fneg, ptr %a376, align 8
-  %80 = load ptr, ptr %bone, align 8
-  %mOffsetMatrix77 = getelementptr inbounds %struct.aiBone, ptr %80, i32 0, i32 5
-  %b3 = getelementptr inbounds %class.aiMatrix4x4t, ptr %mOffsetMatrix77, i32 0, i32 6
-  %81 = load float, ptr %b3, align 8
-  %fneg78 = fneg float %81
-  %82 = load ptr, ptr %bone, align 8
-  %mOffsetMatrix79 = getelementptr inbounds %struct.aiBone, ptr %82, i32 0, i32 5
-  %b380 = getelementptr inbounds %class.aiMatrix4x4t, ptr %mOffsetMatrix79, i32 0, i32 6
-  store float %fneg78, ptr %b380, align 8
-  %83 = load ptr, ptr %bone, align 8
-  %mOffsetMatrix81 = getelementptr inbounds %struct.aiBone, ptr %83, i32 0, i32 5
-  %d3 = getelementptr inbounds %class.aiMatrix4x4t, ptr %mOffsetMatrix81, i32 0, i32 14
-  %84 = load float, ptr %d3, align 8
-  %fneg82 = fneg float %84
-  %85 = load ptr, ptr %bone, align 8
-  %mOffsetMatrix83 = getelementptr inbounds %struct.aiBone, ptr %85, i32 0, i32 5
-  %d384 = getelementptr inbounds %class.aiMatrix4x4t, ptr %mOffsetMatrix83, i32 0, i32 14
-  store float %fneg82, ptr %d384, align 8
-  %86 = load ptr, ptr %bone, align 8
-  %mOffsetMatrix85 = getelementptr inbounds %struct.aiBone, ptr %86, i32 0, i32 5
-  %c1 = getelementptr inbounds %class.aiMatrix4x4t, ptr %mOffsetMatrix85, i32 0, i32 8
-  %87 = load float, ptr %c1, align 8
-  %fneg86 = fneg float %87
-  %88 = load ptr, ptr %bone, align 8
-  %mOffsetMatrix87 = getelementptr inbounds %struct.aiBone, ptr %88, i32 0, i32 5
-  %c188 = getelementptr inbounds %class.aiMatrix4x4t, ptr %mOffsetMatrix87, i32 0, i32 8
-  store float %fneg86, ptr %c188, align 8
-  %89 = load ptr, ptr %bone, align 8
-  %mOffsetMatrix89 = getelementptr inbounds %struct.aiBone, ptr %89, i32 0, i32 5
-  %c2 = getelementptr inbounds %class.aiMatrix4x4t, ptr %mOffsetMatrix89, i32 0, i32 9
-  %90 = load float, ptr %c2, align 4
-  %fneg90 = fneg float %90
-  %91 = load ptr, ptr %bone, align 8
-  %mOffsetMatrix91 = getelementptr inbounds %struct.aiBone, ptr %91, i32 0, i32 5
-  %c292 = getelementptr inbounds %class.aiMatrix4x4t, ptr %mOffsetMatrix91, i32 0, i32 9
-  store float %fneg90, ptr %c292, align 4
-  %92 = load ptr, ptr %bone, align 8
-  %mOffsetMatrix93 = getelementptr inbounds %struct.aiBone, ptr %92, i32 0, i32 5
-  %c4 = getelementptr inbounds %class.aiMatrix4x4t, ptr %mOffsetMatrix93, i32 0, i32 11
-  %93 = load float, ptr %c4, align 4
-  %fneg94 = fneg float %93
-  %94 = load ptr, ptr %bone, align 8
-  %mOffsetMatrix95 = getelementptr inbounds %struct.aiBone, ptr %94, i32 0, i32 5
-  %c496 = getelementptr inbounds %class.aiMatrix4x4t, ptr %mOffsetMatrix95, i32 0, i32 11
-  store float %fneg94, ptr %c496, align 4
-  br label %for.inc97
+167:                                              ; preds = %166
+  %168 = load i64, ptr %6, align 8
+  %169 = add i64 %168, 1
+  store i64 %169, ptr %6, align 8
+  br label %70, !llvm.loop !12
 
-for.inc97:                                        ; preds = %for.body73
-  %95 = load i64, ptr %a69, align 8
-  %inc98 = add i64 %95, 1
-  store i64 %inc98, ptr %a69, align 8
-  br label %for.cond70, !llvm.loop !14
+170:                                              ; preds = %77
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #12
+  store i64 0, ptr %9, align 8
+  br label %171
 
-for.end99:                                        ; preds = %for.cond70
-  %96 = load ptr, ptr %pMesh.addr, align 8
-  %call100 = call noundef zeroext i1 @_ZNK6aiMesh24HasTangentsAndBitangentsEv(ptr noundef nonnull align 8 dereferenceable(1320) %96)
-  br i1 %call100, label %if.then101, label %if.end113
+171:                                              ; preds = %234, %170
+  %172 = load i64, ptr %9, align 8
+  %173 = load ptr, ptr %4, align 8
+  %174 = getelementptr inbounds nuw %struct.aiMesh, ptr %173, i32 0, i32 11
+  %175 = load i32, ptr %174, align 8
+  %176 = zext i32 %175 to i64
+  %177 = icmp ult i64 %172, %176
+  br i1 %177, label %179, label %178
 
-if.then101:                                       ; preds = %for.end99
-  store i32 0, ptr %a102, align 4
-  br label %for.cond103
+178:                                              ; preds = %171
+  store i32 11, ptr %7, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #12
+  br label %237
 
-for.cond103:                                      ; preds = %for.inc110, %if.then101
-  %97 = load i32, ptr %a102, align 4
-  %98 = load ptr, ptr %pMesh.addr, align 8
-  %mNumVertices104 = getelementptr inbounds %struct.aiMesh, ptr %98, i32 0, i32 1
-  %99 = load i32, ptr %mNumVertices104, align 4
-  %cmp105 = icmp ult i32 %97, %99
-  br i1 %cmp105, label %for.body106, label %for.end112
+179:                                              ; preds = %171
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #12
+  %180 = load ptr, ptr %4, align 8
+  %181 = getelementptr inbounds nuw %struct.aiMesh, ptr %180, i32 0, i32 12
+  %182 = load ptr, ptr %181, align 8
+  %183 = load i64, ptr %9, align 8
+  %184 = getelementptr inbounds nuw ptr, ptr %182, i64 %183
+  %185 = load ptr, ptr %184, align 8
+  store ptr %185, ptr %10, align 8
+  %186 = load ptr, ptr %10, align 8
+  %187 = getelementptr inbounds nuw %struct.aiBone, ptr %186, i32 0, i32 5
+  %188 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %187, i32 0, i32 2
+  %189 = load float, ptr %188, align 8
+  %190 = fneg float %189
+  %191 = load ptr, ptr %10, align 8
+  %192 = getelementptr inbounds nuw %struct.aiBone, ptr %191, i32 0, i32 5
+  %193 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %192, i32 0, i32 2
+  store float %190, ptr %193, align 8
+  %194 = load ptr, ptr %10, align 8
+  %195 = getelementptr inbounds nuw %struct.aiBone, ptr %194, i32 0, i32 5
+  %196 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %195, i32 0, i32 6
+  %197 = load float, ptr %196, align 8
+  %198 = fneg float %197
+  %199 = load ptr, ptr %10, align 8
+  %200 = getelementptr inbounds nuw %struct.aiBone, ptr %199, i32 0, i32 5
+  %201 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %200, i32 0, i32 6
+  store float %198, ptr %201, align 8
+  %202 = load ptr, ptr %10, align 8
+  %203 = getelementptr inbounds nuw %struct.aiBone, ptr %202, i32 0, i32 5
+  %204 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %203, i32 0, i32 14
+  %205 = load float, ptr %204, align 8
+  %206 = fneg float %205
+  %207 = load ptr, ptr %10, align 8
+  %208 = getelementptr inbounds nuw %struct.aiBone, ptr %207, i32 0, i32 5
+  %209 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %208, i32 0, i32 14
+  store float %206, ptr %209, align 8
+  %210 = load ptr, ptr %10, align 8
+  %211 = getelementptr inbounds nuw %struct.aiBone, ptr %210, i32 0, i32 5
+  %212 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %211, i32 0, i32 8
+  %213 = load float, ptr %212, align 8
+  %214 = fneg float %213
+  %215 = load ptr, ptr %10, align 8
+  %216 = getelementptr inbounds nuw %struct.aiBone, ptr %215, i32 0, i32 5
+  %217 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %216, i32 0, i32 8
+  store float %214, ptr %217, align 8
+  %218 = load ptr, ptr %10, align 8
+  %219 = getelementptr inbounds nuw %struct.aiBone, ptr %218, i32 0, i32 5
+  %220 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %219, i32 0, i32 9
+  %221 = load float, ptr %220, align 4
+  %222 = fneg float %221
+  %223 = load ptr, ptr %10, align 8
+  %224 = getelementptr inbounds nuw %struct.aiBone, ptr %223, i32 0, i32 5
+  %225 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %224, i32 0, i32 9
+  store float %222, ptr %225, align 4
+  %226 = load ptr, ptr %10, align 8
+  %227 = getelementptr inbounds nuw %struct.aiBone, ptr %226, i32 0, i32 5
+  %228 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %227, i32 0, i32 11
+  %229 = load float, ptr %228, align 4
+  %230 = fneg float %229
+  %231 = load ptr, ptr %10, align 8
+  %232 = getelementptr inbounds nuw %struct.aiBone, ptr %231, i32 0, i32 5
+  %233 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %232, i32 0, i32 11
+  store float %230, ptr %233, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #12
+  br label %234
 
-for.body106:                                      ; preds = %for.cond103
-  %100 = load ptr, ptr %pMesh.addr, align 8
-  %mBitangents107 = getelementptr inbounds %struct.aiMesh, ptr %100, i32 0, i32 6
-  %101 = load ptr, ptr %mBitangents107, align 8
-  %102 = load i32, ptr %a102, align 4
-  %idxprom = zext i32 %102 to i64
-  %arrayidx108 = getelementptr inbounds %class.aiVector3t, ptr %101, i64 %idxprom
-  %call109 = call noundef nonnull align 4 dereferenceable(12) ptr @_ZN10aiVector3tIfEmLEf(ptr noundef nonnull align 4 dereferenceable(12) %arrayidx108, float noundef -1.000000e+00)
-  br label %for.inc110
+234:                                              ; preds = %179
+  %235 = load i64, ptr %9, align 8
+  %236 = add i64 %235, 1
+  store i64 %236, ptr %9, align 8
+  br label %171, !llvm.loop !13
 
-for.inc110:                                       ; preds = %for.body106
-  %103 = load i32, ptr %a102, align 4
-  %inc111 = add i32 %103, 1
-  store i32 %inc111, ptr %a102, align 4
-  br label %for.cond103, !llvm.loop !15
+237:                                              ; preds = %178
+  %238 = load ptr, ptr %4, align 8
+  %239 = call noundef zeroext i1 @_ZNK6aiMesh24HasTangentsAndBitangentsEv(ptr noundef nonnull align 8 dereferenceable(1320) %238)
+  br i1 %239, label %240, label %260
 
-for.end112:                                       ; preds = %for.cond103
-  br label %if.end113
+240:                                              ; preds = %237
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #12
+  store i32 0, ptr %11, align 4
+  br label %241
 
-if.end113:                                        ; preds = %for.end112, %for.end99, %if.then
-  ret void
-}
+241:                                              ; preds = %256, %240
+  %242 = load i32, ptr %11, align 4
+  %243 = load ptr, ptr %4, align 8
+  %244 = getelementptr inbounds nuw %struct.aiMesh, ptr %243, i32 0, i32 1
+  %245 = load i32, ptr %244, align 4
+  %246 = icmp ult i32 %242, %245
+  br i1 %246, label %248, label %247
 
-; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp21MakeLeftHandedProcess15ProcessMaterialEP10aiMaterial(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %_mat) #2 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %_mat.addr = alloca ptr, align 8
-  %mat = alloca ptr, align 8
-  %a = alloca i32, align 4
-  %prop = alloca ptr, align 8
-  %pff = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %_mat, ptr %_mat.addr, align 8
-  %0 = load ptr, ptr %_mat.addr, align 8
-  %cmp = icmp eq ptr null, %0
-  br i1 %cmp, label %if.then, label %if.end
+247:                                              ; preds = %241
+  store i32 14, ptr %7, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #12
+  br label %259
 
-if.then:                                          ; preds = %entry
-  %call = call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
-  call void @_ZN6Assimp6Logger5errorEPKc(ptr noundef nonnull align 8 dereferenceable(12) %call, ptr noundef @.str.3)
-  br label %for.end
+248:                                              ; preds = %241
+  %249 = load ptr, ptr %4, align 8
+  %250 = getelementptr inbounds nuw %struct.aiMesh, ptr %249, i32 0, i32 6
+  %251 = load ptr, ptr %250, align 8
+  %252 = load i32, ptr %11, align 4
+  %253 = zext i32 %252 to i64
+  %254 = getelementptr inbounds nuw %class.aiVector3t, ptr %251, i64 %253
+  %255 = call noundef nonnull align 4 dereferenceable(12) ptr @_ZN10aiVector3tIfEmLEf(ptr noundef nonnull align 4 dereferenceable(12) %254, float noundef -1.000000e+00)
+  br label %256
 
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %_mat.addr, align 8
-  store ptr %1, ptr %mat, align 8
-  store i32 0, ptr %a, align 4
-  br label %for.cond
+256:                                              ; preds = %248
+  %257 = load i32, ptr %11, align 4
+  %258 = add i32 %257, 1
+  store i32 %258, ptr %11, align 4
+  br label %241, !llvm.loop !14
 
-for.cond:                                         ; preds = %for.inc, %if.end
-  %2 = load i32, ptr %a, align 4
-  %3 = load ptr, ptr %mat, align 8
-  %mNumProperties = getelementptr inbounds %struct.aiMaterial, ptr %3, i32 0, i32 1
-  %4 = load i32, ptr %mNumProperties, align 8
-  %cmp2 = icmp ult i32 %2, %4
-  br i1 %cmp2, label %for.body, label %for.end
+259:                                              ; preds = %247
+  br label %260
 
-for.body:                                         ; preds = %for.cond
-  %5 = load ptr, ptr %mat, align 8
-  %mProperties = getelementptr inbounds %struct.aiMaterial, ptr %5, i32 0, i32 0
-  %6 = load ptr, ptr %mProperties, align 8
-  %7 = load i32, ptr %a, align 4
-  %idxprom = zext i32 %7 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %6, i64 %idxprom
-  %8 = load ptr, ptr %arrayidx, align 8
-  store ptr %8, ptr %prop, align 8
-  %9 = load ptr, ptr %prop, align 8
-  %mKey = getelementptr inbounds %struct.aiMaterialProperty, ptr %9, i32 0, i32 0
-  %data = getelementptr inbounds %struct.aiString, ptr %mKey, i32 0, i32 1
-  %arraydecay = getelementptr inbounds [1024 x i8], ptr %data, i64 0, i64 0
-  %call3 = call i32 @strcmp(ptr noundef %arraydecay, ptr noundef @.str.4) #12
-  %tobool = icmp ne i32 %call3, 0
-  br i1 %tobool, label %if.end5, label %if.then4
-
-if.then4:                                         ; preds = %for.body
-  %10 = load ptr, ptr %prop, align 8
-  %mData = getelementptr inbounds %struct.aiMaterialProperty, ptr %10, i32 0, i32 5
-  %11 = load ptr, ptr %mData, align 8
-  store ptr %11, ptr %pff, align 8
-  %12 = load ptr, ptr %pff, align 8
-  %z = getelementptr inbounds %class.aiVector3t, ptr %12, i32 0, i32 2
-  %13 = load float, ptr %z, align 4
-  %mul = fmul float %13, -1.000000e+00
-  store float %mul, ptr %z, align 4
-  br label %if.end5
-
-if.end5:                                          ; preds = %if.then4, %for.body
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end5
-  %14 = load i32, ptr %a, align 4
-  %inc = add i32 %14, 1
-  store i32 %inc, ptr %a, align 4
-  br label %for.cond, !llvm.loop !16
-
-for.end:                                          ; preds = %for.cond, %if.then
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6Assimp21MakeLeftHandedProcess16ProcessAnimationEP10aiNodeAnim(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %pAnim) #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %pAnim.addr = alloca ptr, align 8
-  %a = alloca i32, align 4
-  %a2 = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %pAnim, ptr %pAnim.addr, align 8
-  store i32 0, ptr %a, align 4
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i32, ptr %a, align 4
-  %1 = load ptr, ptr %pAnim.addr, align 8
-  %mNumPositionKeys = getelementptr inbounds %struct.aiNodeAnim, ptr %1, i32 0, i32 1
-  %2 = load i32, ptr %mNumPositionKeys, align 4
-  %cmp = icmp ult i32 %0, %2
-  br i1 %cmp, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %3 = load ptr, ptr %pAnim.addr, align 8
-  %mPositionKeys = getelementptr inbounds %struct.aiNodeAnim, ptr %3, i32 0, i32 2
-  %4 = load ptr, ptr %mPositionKeys, align 8
-  %5 = load i32, ptr %a, align 4
-  %idxprom = zext i32 %5 to i64
-  %arrayidx = getelementptr inbounds %struct.aiVectorKey, ptr %4, i64 %idxprom
-  %mValue = getelementptr inbounds %struct.aiVectorKey, ptr %arrayidx, i32 0, i32 1
-  %z = getelementptr inbounds %class.aiVector3t, ptr %mValue, i32 0, i32 2
-  %6 = load float, ptr %z, align 8
-  %mul = fmul float %6, -1.000000e+00
-  store float %mul, ptr %z, align 8
-  br label %for.inc
-
-for.inc:                                          ; preds = %for.body
-  %7 = load i32, ptr %a, align 4
-  %inc = add i32 %7, 1
-  store i32 %inc, ptr %a, align 4
-  br label %for.cond, !llvm.loop !17
-
-for.end:                                          ; preds = %for.cond
-  store i32 0, ptr %a2, align 4
-  br label %for.cond3
-
-for.cond3:                                        ; preds = %for.inc15, %for.end
-  %8 = load i32, ptr %a2, align 4
-  %9 = load ptr, ptr %pAnim.addr, align 8
-  %mNumRotationKeys = getelementptr inbounds %struct.aiNodeAnim, ptr %9, i32 0, i32 3
-  %10 = load i32, ptr %mNumRotationKeys, align 8
-  %cmp4 = icmp ult i32 %8, %10
-  br i1 %cmp4, label %for.body5, label %for.end17
-
-for.body5:                                        ; preds = %for.cond3
-  %11 = load ptr, ptr %pAnim.addr, align 8
-  %mRotationKeys = getelementptr inbounds %struct.aiNodeAnim, ptr %11, i32 0, i32 4
-  %12 = load ptr, ptr %mRotationKeys, align 8
-  %13 = load i32, ptr %a2, align 4
-  %idxprom6 = zext i32 %13 to i64
-  %arrayidx7 = getelementptr inbounds %struct.aiQuatKey, ptr %12, i64 %idxprom6
-  %mValue8 = getelementptr inbounds %struct.aiQuatKey, ptr %arrayidx7, i32 0, i32 1
-  %x = getelementptr inbounds %class.aiQuaterniont, ptr %mValue8, i32 0, i32 1
-  %14 = load float, ptr %x, align 4
-  %mul9 = fmul float %14, -1.000000e+00
-  store float %mul9, ptr %x, align 4
-  %15 = load ptr, ptr %pAnim.addr, align 8
-  %mRotationKeys10 = getelementptr inbounds %struct.aiNodeAnim, ptr %15, i32 0, i32 4
-  %16 = load ptr, ptr %mRotationKeys10, align 8
-  %17 = load i32, ptr %a2, align 4
-  %idxprom11 = zext i32 %17 to i64
-  %arrayidx12 = getelementptr inbounds %struct.aiQuatKey, ptr %16, i64 %idxprom11
-  %mValue13 = getelementptr inbounds %struct.aiQuatKey, ptr %arrayidx12, i32 0, i32 1
-  %y = getelementptr inbounds %class.aiQuaterniont, ptr %mValue13, i32 0, i32 2
-  %18 = load float, ptr %y, align 8
-  %mul14 = fmul float %18, -1.000000e+00
-  store float %mul14, ptr %y, align 8
-  br label %for.inc15
-
-for.inc15:                                        ; preds = %for.body5
-  %19 = load i32, ptr %a2, align 4
-  %inc16 = add i32 %19, 1
-  store i32 %inc16, ptr %a2, align 4
-  br label %for.cond3, !llvm.loop !18
-
-for.end17:                                        ; preds = %for.cond3
+260:                                              ; preds = %14, %259, %237
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp21MakeLeftHandedProcess13ProcessCameraEP8aiCamera(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %pCam) #4 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %pCam.addr = alloca ptr, align 8
-  %ref.tmp = alloca %class.aiVector3t, align 4
-  %ref.tmp2 = alloca %class.aiVector3t, align 4
-  %tmp.coerce = alloca { <2 x float>, float }, align 8
-  %tmp.coerce4 = alloca { <2 x float>, float }, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %pCam, ptr %pCam.addr, align 8
-  %0 = load ptr, ptr %pCam.addr, align 8
-  %mPosition = getelementptr inbounds %struct.aiCamera, ptr %0, i32 0, i32 1
-  %call = call { <2 x float>, float } @_ZmlIfE10aiVector3tIT_ES1_RKS2_(float noundef 2.000000e+00, ptr noundef nonnull align 4 dereferenceable(12) %mPosition)
-  store { <2 x float>, float } %call, ptr %tmp.coerce, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %ref.tmp2, ptr align 8 %tmp.coerce, i64 12, i1 false)
-  %1 = load ptr, ptr %pCam.addr, align 8
-  %mLookAt = getelementptr inbounds %struct.aiCamera, ptr %1, i32 0, i32 3
-  %call3 = call { <2 x float>, float } @_ZmiIfE10aiVector3tIT_ERKS2_S4_(ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp2, ptr noundef nonnull align 4 dereferenceable(12) %mLookAt)
-  store { <2 x float>, float } %call3, ptr %tmp.coerce4, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %ref.tmp, ptr align 8 %tmp.coerce4, i64 12, i1 false)
-  %2 = load ptr, ptr %pCam.addr, align 8
-  %mLookAt5 = getelementptr inbounds %struct.aiCamera, ptr %2, i32 0, i32 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %mLookAt5, ptr align 4 %ref.tmp, i64 12, i1 false)
+define hidden void @_ZN6Assimp21MakeLeftHandedProcess15ProcessMaterialEP10aiMaterial(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) #1 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %9 = load ptr, ptr %4, align 8
+  %10 = icmp eq ptr null, %9
+  br i1 %10, label %11, label %13
+
+11:                                               ; preds = %2
+  %12 = call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
+  call void @_ZN6Assimp6Logger5errorEPKc(ptr noundef nonnull align 8 dereferenceable(12) %12, ptr noundef @.str.3)
+  br label %49
+
+13:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #12
+  %14 = load ptr, ptr %4, align 8
+  store ptr %14, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #12
+  store i32 0, ptr %6, align 4
+  br label %15
+
+15:                                               ; preds = %45, %13
+  %16 = load i32, ptr %6, align 4
+  %17 = load ptr, ptr %5, align 8
+  %18 = getelementptr inbounds nuw %struct.aiMaterial, ptr %17, i32 0, i32 1
+  %19 = load i32, ptr %18, align 8
+  %20 = icmp ult i32 %16, %19
+  br i1 %20, label %22, label %21
+
+21:                                               ; preds = %15
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #12
+  br label %48
+
+22:                                               ; preds = %15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #12
+  %23 = load ptr, ptr %5, align 8
+  %24 = getelementptr inbounds nuw %struct.aiMaterial, ptr %23, i32 0, i32 0
+  %25 = load ptr, ptr %24, align 8
+  %26 = load i32, ptr %6, align 4
+  %27 = zext i32 %26 to i64
+  %28 = getelementptr inbounds nuw ptr, ptr %25, i64 %27
+  %29 = load ptr, ptr %28, align 8
+  store ptr %29, ptr %7, align 8
+  %30 = load ptr, ptr %7, align 8
+  %31 = getelementptr inbounds nuw %struct.aiMaterialProperty, ptr %30, i32 0, i32 0
+  %32 = getelementptr inbounds nuw %struct.aiString, ptr %31, i32 0, i32 1
+  %33 = getelementptr inbounds [1024 x i8], ptr %32, i64 0, i64 0
+  %34 = call i32 @strcmp(ptr noundef %33, ptr noundef @.str.4) #13
+  %35 = icmp ne i32 %34, 0
+  br i1 %35, label %44, label %36
+
+36:                                               ; preds = %22
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #12
+  %37 = load ptr, ptr %7, align 8
+  %38 = getelementptr inbounds nuw %struct.aiMaterialProperty, ptr %37, i32 0, i32 5
+  %39 = load ptr, ptr %38, align 8
+  store ptr %39, ptr %8, align 8
+  %40 = load ptr, ptr %8, align 8
+  %41 = getelementptr inbounds nuw %class.aiVector3t, ptr %40, i32 0, i32 2
+  %42 = load float, ptr %41, align 4
+  %43 = fmul float %42, -1.000000e+00
+  store float %43, ptr %41, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #12
+  br label %44
+
+44:                                               ; preds = %36, %22
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #12
+  br label %45
+
+45:                                               ; preds = %44
+  %46 = load i32, ptr %6, align 4
+  %47 = add i32 %46, 1
+  store i32 %47, ptr %6, align 4
+  br label %15, !llvm.loop !15
+
+48:                                               ; preds = %21
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #12
+  br label %49
+
+49:                                               ; preds = %48, %11
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define hidden void @_ZN6Assimp21MakeLeftHandedProcess16ProcessAnimationEP10aiNodeAnim(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #12
+  store i32 0, ptr %5, align 4
+  br label %7
+
+7:                                                ; preds = %25, %2
+  %8 = load i32, ptr %5, align 4
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds nuw %struct.aiNodeAnim, ptr %9, i32 0, i32 1
+  %11 = load i32, ptr %10, align 4
+  %12 = icmp ult i32 %8, %11
+  br i1 %12, label %14, label %13
+
+13:                                               ; preds = %7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #12
+  br label %28
+
+14:                                               ; preds = %7
+  %15 = load ptr, ptr %4, align 8
+  %16 = getelementptr inbounds nuw %struct.aiNodeAnim, ptr %15, i32 0, i32 2
+  %17 = load ptr, ptr %16, align 8
+  %18 = load i32, ptr %5, align 4
+  %19 = zext i32 %18 to i64
+  %20 = getelementptr inbounds nuw %struct.aiVectorKey, ptr %17, i64 %19
+  %21 = getelementptr inbounds nuw %struct.aiVectorKey, ptr %20, i32 0, i32 1
+  %22 = getelementptr inbounds nuw %class.aiVector3t, ptr %21, i32 0, i32 2
+  %23 = load float, ptr %22, align 8
+  %24 = fmul float %23, -1.000000e+00
+  store float %24, ptr %22, align 8
+  br label %25
+
+25:                                               ; preds = %14
+  %26 = load i32, ptr %5, align 4
+  %27 = add i32 %26, 1
+  store i32 %27, ptr %5, align 4
+  br label %7, !llvm.loop !16
+
+28:                                               ; preds = %13
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #12
+  store i32 0, ptr %6, align 4
+  br label %29
+
+29:                                               ; preds = %57, %28
+  %30 = load i32, ptr %6, align 4
+  %31 = load ptr, ptr %4, align 8
+  %32 = getelementptr inbounds nuw %struct.aiNodeAnim, ptr %31, i32 0, i32 3
+  %33 = load i32, ptr %32, align 8
+  %34 = icmp ult i32 %30, %33
+  br i1 %34, label %36, label %35
+
+35:                                               ; preds = %29
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #12
+  br label %60
+
+36:                                               ; preds = %29
+  %37 = load ptr, ptr %4, align 8
+  %38 = getelementptr inbounds nuw %struct.aiNodeAnim, ptr %37, i32 0, i32 4
+  %39 = load ptr, ptr %38, align 8
+  %40 = load i32, ptr %6, align 4
+  %41 = zext i32 %40 to i64
+  %42 = getelementptr inbounds nuw %struct.aiQuatKey, ptr %39, i64 %41
+  %43 = getelementptr inbounds nuw %struct.aiQuatKey, ptr %42, i32 0, i32 1
+  %44 = getelementptr inbounds nuw %class.aiQuaterniont, ptr %43, i32 0, i32 1
+  %45 = load float, ptr %44, align 4
+  %46 = fmul float %45, -1.000000e+00
+  store float %46, ptr %44, align 4
+  %47 = load ptr, ptr %4, align 8
+  %48 = getelementptr inbounds nuw %struct.aiNodeAnim, ptr %47, i32 0, i32 4
+  %49 = load ptr, ptr %48, align 8
+  %50 = load i32, ptr %6, align 4
+  %51 = zext i32 %50 to i64
+  %52 = getelementptr inbounds nuw %struct.aiQuatKey, ptr %49, i64 %51
+  %53 = getelementptr inbounds nuw %struct.aiQuatKey, ptr %52, i32 0, i32 1
+  %54 = getelementptr inbounds nuw %class.aiQuaterniont, ptr %53, i32 0, i32 2
+  %55 = load float, ptr %54, align 8
+  %56 = fmul float %55, -1.000000e+00
+  store float %56, ptr %54, align 8
+  br label %57
+
+57:                                               ; preds = %36
+  %58 = load i32, ptr %6, align 4
+  %59 = add i32 %58, 1
+  store i32 %59, ptr %6, align 4
+  br label %29, !llvm.loop !17
+
+60:                                               ; preds = %35
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNK12aiMatrix4x4tIfEmlERKS0_(ptr noalias sret(%class.aiMatrix4x4t) align 4 %agg.result, ptr noundef nonnull align 4 dereferenceable(64) %this, ptr noundef nonnull align 4 dereferenceable(64) %m) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %m.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %m, ptr %m.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %agg.result, ptr align 4 %this1, i64 64, i1 false)
-  %0 = load ptr, ptr %m.addr, align 8
-  %call = call noundef nonnull align 4 dereferenceable(64) ptr @_ZN12aiMatrix4x4tIfEmLERKS0_(ptr noundef nonnull align 4 dereferenceable(64) %agg.result, ptr noundef nonnull align 4 dereferenceable(64) %0)
+define hidden void @_ZN6Assimp21MakeLeftHandedProcess13ProcessCameraEP8aiCamera(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) #4 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %class.aiVector3t, align 4
+  %6 = alloca %class.aiVector3t, align 4
+  %7 = alloca { <2 x float>, float }, align 8
+  %8 = alloca { <2 x float>, float }, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 12, ptr %5) #12
+  call void @llvm.lifetime.start.p0(i64 12, ptr %6) #12
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds nuw %struct.aiCamera, ptr %9, i32 0, i32 1
+  %11 = call { <2 x float>, float } @_ZmlIfE10aiVector3tIT_ES1_RKS2_(float noundef 2.000000e+00, ptr noundef nonnull align 4 dereferenceable(12) %10)
+  store { <2 x float>, float } %11, ptr %7, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %6, ptr align 8 %7, i64 12, i1 false)
+  %12 = load ptr, ptr %4, align 8
+  %13 = getelementptr inbounds nuw %struct.aiCamera, ptr %12, i32 0, i32 3
+  %14 = call { <2 x float>, float } @_ZmiIfE10aiVector3tIT_ERKS2_S4_(ptr noundef nonnull align 4 dereferenceable(12) %6, ptr noundef nonnull align 4 dereferenceable(12) %13)
+  store { <2 x float>, float } %14, ptr %8, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %5, ptr align 8 %8, i64 12, i1 false)
+  %15 = load ptr, ptr %4, align 8
+  %16 = getelementptr inbounds nuw %struct.aiCamera, ptr %15, i32 0, i32 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %16, ptr align 4 %5, i64 12, i1 false)
+  call void @llvm.lifetime.end.p0(i64 12, ptr %6) #12
+  call void @llvm.lifetime.end.p0(i64 12, ptr %5) #12
   ret void
 }
 
-declare void @_ZN6Assimp6Logger5errorEPKc(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) #3
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden void @_ZNK12aiMatrix4x4tIfEmlERKS0_(ptr dead_on_unwind noalias writable sret(%class.aiMatrix4x4t) align 4 %0, ptr noundef nonnull align 4 dereferenceable(64) %1, ptr noundef nonnull align 4 dereferenceable(64) %2) #5 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %1, ptr %4, align 8
+  store ptr %2, ptr %5, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %0, ptr align 4 %6, i64 64, i1 false)
+  %7 = load ptr, ptr %5, align 8
+  %8 = call noundef nonnull align 4 dereferenceable(64) ptr @_ZN12aiMatrix4x4tIfEmLERKS0_(ptr noundef nonnull align 4 dereferenceable(64) %0, ptr noundef nonnull align 4 dereferenceable(64) %7)
+  ret void
+}
+
+declare void @_ZN6Assimp6Logger5errorEPKc(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZNK6aiMesh10HasNormalsEv(ptr noundef nonnull align 8 dereferenceable(1320) %this) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %mNormals = getelementptr inbounds %struct.aiMesh, ptr %this1, i32 0, i32 4
-  %0 = load ptr, ptr %mNormals, align 8
-  %cmp = icmp ne ptr %0, null
-  br i1 %cmp, label %land.rhs, label %land.end
+define linkonce_odr hidden noundef zeroext i1 @_ZNK6aiMesh10HasNormalsEv(ptr noundef nonnull align 8 dereferenceable(1320) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %struct.aiMesh, ptr %3, i32 0, i32 4
+  %5 = load ptr, ptr %4, align 8
+  %6 = icmp ne ptr %5, null
+  br i1 %6, label %7, label %11
 
-land.rhs:                                         ; preds = %entry
-  %mNumVertices = getelementptr inbounds %struct.aiMesh, ptr %this1, i32 0, i32 1
-  %1 = load i32, ptr %mNumVertices, align 4
-  %cmp2 = icmp ugt i32 %1, 0
-  br label %land.end
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds nuw %struct.aiMesh, ptr %3, i32 0, i32 1
+  %9 = load i32, ptr %8, align 4
+  %10 = icmp ugt i32 %9, 0
+  br label %11
 
-land.end:                                         ; preds = %land.rhs, %entry
-  %2 = phi i1 [ false, %entry ], [ %cmp2, %land.rhs ]
-  ret i1 %2
+11:                                               ; preds = %7, %1
+  %12 = phi i1 [ false, %1 ], [ %10, %7 ]
+  ret i1 %12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZNK6aiMesh24HasTangentsAndBitangentsEv(ptr noundef nonnull align 8 dereferenceable(1320) %this) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %mTangents = getelementptr inbounds %struct.aiMesh, ptr %this1, i32 0, i32 5
-  %0 = load ptr, ptr %mTangents, align 8
-  %cmp = icmp ne ptr %0, null
-  br i1 %cmp, label %land.lhs.true, label %land.end
+define linkonce_odr hidden noundef zeroext i1 @_ZNK6aiMesh24HasTangentsAndBitangentsEv(ptr noundef nonnull align 8 dereferenceable(1320) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %struct.aiMesh, ptr %3, i32 0, i32 5
+  %5 = load ptr, ptr %4, align 8
+  %6 = icmp ne ptr %5, null
+  br i1 %6, label %7, label %15
 
-land.lhs.true:                                    ; preds = %entry
-  %mBitangents = getelementptr inbounds %struct.aiMesh, ptr %this1, i32 0, i32 6
-  %1 = load ptr, ptr %mBitangents, align 8
-  %cmp2 = icmp ne ptr %1, null
-  br i1 %cmp2, label %land.rhs, label %land.end
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds nuw %struct.aiMesh, ptr %3, i32 0, i32 6
+  %9 = load ptr, ptr %8, align 8
+  %10 = icmp ne ptr %9, null
+  br i1 %10, label %11, label %15
 
-land.rhs:                                         ; preds = %land.lhs.true
-  %mNumVertices = getelementptr inbounds %struct.aiMesh, ptr %this1, i32 0, i32 1
-  %2 = load i32, ptr %mNumVertices, align 4
-  %cmp3 = icmp ugt i32 %2, 0
-  br label %land.end
+11:                                               ; preds = %7
+  %12 = getelementptr inbounds nuw %struct.aiMesh, ptr %3, i32 0, i32 1
+  %13 = load i32, ptr %12, align 4
+  %14 = icmp ugt i32 %13, 0
+  br label %15
 
-land.end:                                         ; preds = %land.rhs, %land.lhs.true, %entry
-  %3 = phi i1 [ false, %land.lhs.true ], [ false, %entry ], [ %cmp3, %land.rhs ]
-  ret i1 %3
+15:                                               ; preds = %11, %7, %1
+  %16 = phi i1 [ false, %7 ], [ false, %1 ], [ %14, %11 ]
+  ret i1 %16
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZNK10aiAnimMesh10HasNormalsEv(ptr noundef nonnull align 8 dereferenceable(1200) %this) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %mNormals = getelementptr inbounds %struct.aiAnimMesh, ptr %this1, i32 0, i32 2
-  %0 = load ptr, ptr %mNormals, align 8
-  %cmp = icmp ne ptr %0, null
-  ret i1 %cmp
+define linkonce_odr hidden noundef zeroext i1 @_ZNK10aiAnimMesh10HasNormalsEv(ptr noundef nonnull align 8 dereferenceable(1200) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %struct.aiAnimMesh, ptr %3, i32 0, i32 2
+  %5 = load ptr, ptr %4, align 8
+  %6 = icmp ne ptr %5, null
+  ret i1 %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZNK10aiAnimMesh24HasTangentsAndBitangentsEv(ptr noundef nonnull align 8 dereferenceable(1200) %this) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %mTangents = getelementptr inbounds %struct.aiAnimMesh, ptr %this1, i32 0, i32 3
-  %0 = load ptr, ptr %mTangents, align 8
-  %cmp = icmp ne ptr %0, null
-  ret i1 %cmp
+define linkonce_odr hidden noundef zeroext i1 @_ZNK10aiAnimMesh24HasTangentsAndBitangentsEv(ptr noundef nonnull align 8 dereferenceable(1200) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %struct.aiAnimMesh, ptr %3, i32 0, i32 3
+  %5 = load ptr, ptr %4, align 8
+  %6 = icmp ne ptr %5, null
+  ret i1 %6
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 4 dereferenceable(12) ptr @_ZN10aiVector3tIfEmLEf(ptr noundef nonnull align 4 dereferenceable(12) %this, float noundef %f) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %f.addr = alloca float, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store float %f, ptr %f.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load float, ptr %f.addr, align 4
-  %x = getelementptr inbounds %class.aiVector3t, ptr %this1, i32 0, i32 0
-  %1 = load float, ptr %x, align 4
-  %mul = fmul float %1, %0
-  store float %mul, ptr %x, align 4
-  %2 = load float, ptr %f.addr, align 4
-  %y = getelementptr inbounds %class.aiVector3t, ptr %this1, i32 0, i32 1
-  %3 = load float, ptr %y, align 4
-  %mul2 = fmul float %3, %2
-  store float %mul2, ptr %y, align 4
-  %4 = load float, ptr %f.addr, align 4
-  %z = getelementptr inbounds %class.aiVector3t, ptr %this1, i32 0, i32 2
-  %5 = load float, ptr %z, align 4
-  %mul3 = fmul float %5, %4
-  store float %mul3, ptr %z, align 4
-  ret ptr %this1
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 4 dereferenceable(12) ptr @_ZN10aiVector3tIfEmLEf(ptr noundef nonnull align 4 dereferenceable(12) %0, float noundef %1) #6 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca float, align 4
+  store ptr %0, ptr %3, align 8
+  store float %1, ptr %4, align 4
+  %5 = load ptr, ptr %3, align 8
+  %6 = load float, ptr %4, align 4
+  %7 = getelementptr inbounds nuw %class.aiVector3t, ptr %5, i32 0, i32 0
+  %8 = load float, ptr %7, align 4
+  %9 = fmul float %8, %6
+  store float %9, ptr %7, align 4
+  %10 = load float, ptr %4, align 4
+  %11 = getelementptr inbounds nuw %class.aiVector3t, ptr %5, i32 0, i32 1
+  %12 = load float, ptr %11, align 4
+  %13 = fmul float %12, %10
+  store float %13, ptr %11, align 4
+  %14 = load float, ptr %4, align 4
+  %15 = getelementptr inbounds nuw %class.aiVector3t, ptr %5, i32 0, i32 2
+  %16 = load float, ptr %15, align 4
+  %17 = fmul float %16, %14
+  store float %17, ptr %15, align 4
+  ret ptr %5
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strcmp(ptr noundef, ptr noundef) #5
+declare i32 @strcmp(ptr noundef, ptr noundef) #7
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden { <2 x float>, float } @_ZmiIfE10aiVector3tIT_ERKS2_S4_(ptr noundef nonnull align 4 dereferenceable(12) %v1, ptr noundef nonnull align 4 dereferenceable(12) %v2) #2 comdat {
-entry:
-  %retval = alloca %class.aiVector3t, align 4
-  %v1.addr = alloca ptr, align 8
-  %v2.addr = alloca ptr, align 8
-  %retval.coerce = alloca { <2 x float>, float }, align 8
-  store ptr %v1, ptr %v1.addr, align 8
-  store ptr %v2, ptr %v2.addr, align 8
-  %0 = load ptr, ptr %v1.addr, align 8
-  %x = getelementptr inbounds %class.aiVector3t, ptr %0, i32 0, i32 0
-  %1 = load float, ptr %x, align 4
-  %2 = load ptr, ptr %v2.addr, align 8
-  %x1 = getelementptr inbounds %class.aiVector3t, ptr %2, i32 0, i32 0
-  %3 = load float, ptr %x1, align 4
-  %sub = fsub float %1, %3
-  %4 = load ptr, ptr %v1.addr, align 8
-  %y = getelementptr inbounds %class.aiVector3t, ptr %4, i32 0, i32 1
-  %5 = load float, ptr %y, align 4
-  %6 = load ptr, ptr %v2.addr, align 8
-  %y2 = getelementptr inbounds %class.aiVector3t, ptr %6, i32 0, i32 1
-  %7 = load float, ptr %y2, align 4
-  %sub3 = fsub float %5, %7
-  %8 = load ptr, ptr %v1.addr, align 8
-  %z = getelementptr inbounds %class.aiVector3t, ptr %8, i32 0, i32 2
-  %9 = load float, ptr %z, align 4
-  %10 = load ptr, ptr %v2.addr, align 8
-  %z4 = getelementptr inbounds %class.aiVector3t, ptr %10, i32 0, i32 2
-  %11 = load float, ptr %z4, align 4
-  %sub5 = fsub float %9, %11
-  call void @_ZN10aiVector3tIfEC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %retval, float noundef %sub, float noundef %sub3, float noundef %sub5)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %retval.coerce, ptr align 4 %retval, i64 12, i1 false)
-  %12 = load { <2 x float>, float }, ptr %retval.coerce, align 8
-  ret { <2 x float>, float } %12
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden { <2 x float>, float } @_ZmiIfE10aiVector3tIT_ERKS2_S4_(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %1) #5 comdat {
+  %3 = alloca %class.aiVector3t, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca { <2 x float>, float }, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %class.aiVector3t, ptr %7, i32 0, i32 0
+  %9 = load float, ptr %8, align 4
+  %10 = load ptr, ptr %5, align 8
+  %11 = getelementptr inbounds nuw %class.aiVector3t, ptr %10, i32 0, i32 0
+  %12 = load float, ptr %11, align 4
+  %13 = fsub float %9, %12
+  %14 = load ptr, ptr %4, align 8
+  %15 = getelementptr inbounds nuw %class.aiVector3t, ptr %14, i32 0, i32 1
+  %16 = load float, ptr %15, align 4
+  %17 = load ptr, ptr %5, align 8
+  %18 = getelementptr inbounds nuw %class.aiVector3t, ptr %17, i32 0, i32 1
+  %19 = load float, ptr %18, align 4
+  %20 = fsub float %16, %19
+  %21 = load ptr, ptr %4, align 8
+  %22 = getelementptr inbounds nuw %class.aiVector3t, ptr %21, i32 0, i32 2
+  %23 = load float, ptr %22, align 4
+  %24 = load ptr, ptr %5, align 8
+  %25 = getelementptr inbounds nuw %class.aiVector3t, ptr %24, i32 0, i32 2
+  %26 = load float, ptr %25, align 4
+  %27 = fsub float %23, %26
+  call void @_ZN10aiVector3tIfEC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %3, float noundef %13, float noundef %20, float noundef %27)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 4 %3, i64 12, i1 false)
+  %28 = load { <2 x float>, float }, ptr %6, align 8
+  ret { <2 x float>, float } %28
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden { <2 x float>, float } @_ZmlIfE10aiVector3tIT_ES1_RKS2_(float noundef %f, ptr noundef nonnull align 4 dereferenceable(12) %v) #2 comdat {
-entry:
-  %retval = alloca %class.aiVector3t, align 4
-  %f.addr = alloca float, align 4
-  %v.addr = alloca ptr, align 8
-  %retval.coerce = alloca { <2 x float>, float }, align 8
-  store float %f, ptr %f.addr, align 4
-  store ptr %v, ptr %v.addr, align 8
-  %0 = load float, ptr %f.addr, align 4
-  %1 = load ptr, ptr %v.addr, align 8
-  %x = getelementptr inbounds %class.aiVector3t, ptr %1, i32 0, i32 0
-  %2 = load float, ptr %x, align 4
-  %mul = fmul float %0, %2
-  %3 = load float, ptr %f.addr, align 4
-  %4 = load ptr, ptr %v.addr, align 8
-  %y = getelementptr inbounds %class.aiVector3t, ptr %4, i32 0, i32 1
-  %5 = load float, ptr %y, align 4
-  %mul1 = fmul float %3, %5
-  %6 = load float, ptr %f.addr, align 4
-  %7 = load ptr, ptr %v.addr, align 8
-  %z = getelementptr inbounds %class.aiVector3t, ptr %7, i32 0, i32 2
-  %8 = load float, ptr %z, align 4
-  %mul2 = fmul float %6, %8
-  call void @_ZN10aiVector3tIfEC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %retval, float noundef %mul, float noundef %mul1, float noundef %mul2)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %retval.coerce, ptr align 4 %retval, i64 12, i1 false)
-  %9 = load { <2 x float>, float }, ptr %retval.coerce, align 8
-  ret { <2 x float>, float } %9
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden { <2 x float>, float } @_ZmlIfE10aiVector3tIT_ES1_RKS2_(float noundef %0, ptr noundef nonnull align 4 dereferenceable(12) %1) #5 comdat {
+  %3 = alloca %class.aiVector3t, align 4
+  %4 = alloca float, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca { <2 x float>, float }, align 8
+  store float %0, ptr %4, align 4
+  store ptr %1, ptr %5, align 8
+  %7 = load float, ptr %4, align 4
+  %8 = load ptr, ptr %5, align 8
+  %9 = getelementptr inbounds nuw %class.aiVector3t, ptr %8, i32 0, i32 0
+  %10 = load float, ptr %9, align 4
+  %11 = fmul float %7, %10
+  %12 = load float, ptr %4, align 4
+  %13 = load ptr, ptr %5, align 8
+  %14 = getelementptr inbounds nuw %class.aiVector3t, ptr %13, i32 0, i32 1
+  %15 = load float, ptr %14, align 4
+  %16 = fmul float %12, %15
+  %17 = load float, ptr %4, align 4
+  %18 = load ptr, ptr %5, align 8
+  %19 = getelementptr inbounds nuw %class.aiVector3t, ptr %18, i32 0, i32 2
+  %20 = load float, ptr %19, align 4
+  %21 = fmul float %17, %20
+  call void @_ZN10aiVector3tIfEC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %3, float noundef %11, float noundef %16, float noundef %21)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 4 %3, i64 12, i1 false)
+  %22 = load { <2 x float>, float }, ptr %6, align 8
+  ret { <2 x float>, float } %22
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6Assimp14FlipUVsProcessC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN6Assimp11BaseProcessC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #11
-  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN6Assimp14FlipUVsProcessE, i32 0, i32 0, i32 2
-  store ptr %0, ptr %this1, align 8
+define hidden void @_ZN6Assimp14FlipUVsProcessC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN6Assimp11BaseProcessC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #12
+  store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr] }, ptr @_ZTVN6Assimp14FlipUVsProcessE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: nounwind
-declare void @_ZN6Assimp11BaseProcessC2Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #7
+declare void @_ZN6Assimp11BaseProcessC2Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6Assimp14FlipUVsProcessD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN6Assimp11BaseProcessD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #11
+define hidden void @_ZN6Assimp14FlipUVsProcessD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN6Assimp11BaseProcessD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #12
   ret void
 }
 
-; Function Attrs: nounwind
-declare void @_ZN6Assimp11BaseProcessD2Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #7
-
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6Assimp14FlipUVsProcessD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN6Assimp14FlipUVsProcessD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #11
-  call void @_ZdlPv(ptr noundef %this1) #13
+define hidden void @_ZN6Assimp14FlipUVsProcessD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN6Assimp14FlipUVsProcessD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #12
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #14
   ret void
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) #8
+declare void @_ZdlPvm(ptr noundef, i64 noundef) #10
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK6Assimp14FlipUVsProcess8IsActiveEj(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %pFlags) unnamed_addr #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %pFlags.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %pFlags, ptr %pFlags.addr, align 4
-  %0 = load i32, ptr %pFlags.addr, align 4
-  %and = and i32 %0, 8388608
-  %cmp = icmp ne i32 0, %and
-  ret i1 %cmp
+define hidden noundef zeroext i1 @_ZNK6Assimp14FlipUVsProcess8IsActiveEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store i32 %1, ptr %4, align 4
+  %5 = load i32, ptr %4, align 4
+  %6 = and i32 %5, 8388608
+  %7 = icmp ne i32 0, %6
+  ret i1 %7
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp14FlipUVsProcess7ExecuteEP7aiScene(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %pScene) unnamed_addr #2 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %pScene.addr = alloca ptr, align 8
-  %i = alloca i32, align 4
-  %i2 = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %pScene, ptr %pScene.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
-  call void @_ZN6Assimp6Logger5debugEPKc(ptr noundef nonnull align 8 dereferenceable(12) %call, ptr noundef @.str.5)
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+define hidden void @_ZN6Assimp14FlipUVsProcess7ExecuteEP7aiScene(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #1 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %7 = load ptr, ptr %3, align 8
+  %8 = call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
+  call void @_ZN6Assimp6Logger5debugEPKc(ptr noundef nonnull align 8 dereferenceable(12) %8, ptr noundef @.str.5)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #12
+  store i32 0, ptr %5, align 4
+  br label %9
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i32, ptr %i, align 4
-  %1 = load ptr, ptr %pScene.addr, align 8
-  %mNumMeshes = getelementptr inbounds %struct.aiScene, ptr %1, i32 0, i32 2
-  %2 = load i32, ptr %mNumMeshes, align 8
-  %cmp = icmp ult i32 %0, %2
-  br i1 %cmp, label %for.body, label %for.end
+9:                                                ; preds = %24, %2
+  %10 = load i32, ptr %5, align 4
+  %11 = load ptr, ptr %4, align 8
+  %12 = getelementptr inbounds nuw %struct.aiScene, ptr %11, i32 0, i32 2
+  %13 = load i32, ptr %12, align 8
+  %14 = icmp ult i32 %10, %13
+  br i1 %14, label %16, label %15
 
-for.body:                                         ; preds = %for.cond
-  %3 = load ptr, ptr %pScene.addr, align 8
-  %mMeshes = getelementptr inbounds %struct.aiScene, ptr %3, i32 0, i32 3
-  %4 = load ptr, ptr %mMeshes, align 8
-  %5 = load i32, ptr %i, align 4
-  %idxprom = zext i32 %5 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %4, i64 %idxprom
-  %6 = load ptr, ptr %arrayidx, align 8
-  call void @_ZN6Assimp14FlipUVsProcess11ProcessMeshEP6aiMesh(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef %6)
-  br label %for.inc
+15:                                               ; preds = %9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #12
+  br label %27
 
-for.inc:                                          ; preds = %for.body
-  %7 = load i32, ptr %i, align 4
-  %inc = add i32 %7, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !19
+16:                                               ; preds = %9
+  %17 = load ptr, ptr %4, align 8
+  %18 = getelementptr inbounds nuw %struct.aiScene, ptr %17, i32 0, i32 3
+  %19 = load ptr, ptr %18, align 8
+  %20 = load i32, ptr %5, align 4
+  %21 = zext i32 %20 to i64
+  %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %21
+  %23 = load ptr, ptr %22, align 8
+  call void @_ZN6Assimp14FlipUVsProcess11ProcessMeshEP6aiMesh(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef %23)
+  br label %24
 
-for.end:                                          ; preds = %for.cond
-  store i32 0, ptr %i2, align 4
-  br label %for.cond3
+24:                                               ; preds = %16
+  %25 = load i32, ptr %5, align 4
+  %26 = add i32 %25, 1
+  store i32 %26, ptr %5, align 4
+  br label %9, !llvm.loop !18
 
-for.cond3:                                        ; preds = %for.inc8, %for.end
-  %8 = load i32, ptr %i2, align 4
-  %9 = load ptr, ptr %pScene.addr, align 8
-  %mNumMaterials = getelementptr inbounds %struct.aiScene, ptr %9, i32 0, i32 4
-  %10 = load i32, ptr %mNumMaterials, align 8
-  %cmp4 = icmp ult i32 %8, %10
-  br i1 %cmp4, label %for.body5, label %for.end10
+27:                                               ; preds = %15
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #12
+  store i32 0, ptr %6, align 4
+  br label %28
 
-for.body5:                                        ; preds = %for.cond3
-  %11 = load ptr, ptr %pScene.addr, align 8
-  %mMaterials = getelementptr inbounds %struct.aiScene, ptr %11, i32 0, i32 5
-  %12 = load ptr, ptr %mMaterials, align 8
-  %13 = load i32, ptr %i2, align 4
-  %idxprom6 = zext i32 %13 to i64
-  %arrayidx7 = getelementptr inbounds ptr, ptr %12, i64 %idxprom6
-  %14 = load ptr, ptr %arrayidx7, align 8
-  call void @_ZN6Assimp14FlipUVsProcess15ProcessMaterialEP10aiMaterial(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef %14)
-  br label %for.inc8
+28:                                               ; preds = %43, %27
+  %29 = load i32, ptr %6, align 4
+  %30 = load ptr, ptr %4, align 8
+  %31 = getelementptr inbounds nuw %struct.aiScene, ptr %30, i32 0, i32 4
+  %32 = load i32, ptr %31, align 8
+  %33 = icmp ult i32 %29, %32
+  br i1 %33, label %35, label %34
 
-for.inc8:                                         ; preds = %for.body5
-  %15 = load i32, ptr %i2, align 4
-  %inc9 = add i32 %15, 1
-  store i32 %inc9, ptr %i2, align 4
-  br label %for.cond3, !llvm.loop !20
+34:                                               ; preds = %28
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #12
+  br label %46
 
-for.end10:                                        ; preds = %for.cond3
-  %call11 = call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
-  call void @_ZN6Assimp6Logger5debugEPKc(ptr noundef nonnull align 8 dereferenceable(12) %call11, ptr noundef @.str.6)
-  ret void
-}
+35:                                               ; preds = %28
+  %36 = load ptr, ptr %4, align 8
+  %37 = getelementptr inbounds nuw %struct.aiScene, ptr %36, i32 0, i32 5
+  %38 = load ptr, ptr %37, align 8
+  %39 = load i32, ptr %6, align 4
+  %40 = zext i32 %39 to i64
+  %41 = getelementptr inbounds nuw ptr, ptr %38, i64 %40
+  %42 = load ptr, ptr %41, align 8
+  call void @_ZN6Assimp14FlipUVsProcess15ProcessMaterialEP10aiMaterial(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef %42)
+  br label %43
 
-; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp14FlipUVsProcess11ProcessMeshEP6aiMesh(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %pMesh) #2 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %pMesh.addr = alloca ptr, align 8
-  %idx = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %pMesh, ptr %pMesh.addr, align 8
-  %0 = load ptr, ptr %pMesh.addr, align 8
-  call void @_ZN12_GLOBAL__N_17flipUVsI6aiMeshEEvPT_(ptr noundef %0)
-  store i32 0, ptr %idx, align 4
-  br label %for.cond
+43:                                               ; preds = %35
+  %44 = load i32, ptr %6, align 4
+  %45 = add i32 %44, 1
+  store i32 %45, ptr %6, align 4
+  br label %28, !llvm.loop !19
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %1 = load i32, ptr %idx, align 4
-  %2 = load ptr, ptr %pMesh.addr, align 8
-  %mNumAnimMeshes = getelementptr inbounds %struct.aiMesh, ptr %2, i32 0, i32 15
-  %3 = load i32, ptr %mNumAnimMeshes, align 8
-  %cmp = icmp ult i32 %1, %3
-  br i1 %cmp, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %4 = load ptr, ptr %pMesh.addr, align 8
-  %mAnimMeshes = getelementptr inbounds %struct.aiMesh, ptr %4, i32 0, i32 16
-  %5 = load ptr, ptr %mAnimMeshes, align 8
-  %6 = load i32, ptr %idx, align 4
-  %idxprom = zext i32 %6 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %5, i64 %idxprom
-  %7 = load ptr, ptr %arrayidx, align 8
-  call void @_ZN12_GLOBAL__N_17flipUVsI10aiAnimMeshEEvPT_(ptr noundef %7)
-  br label %for.inc
-
-for.inc:                                          ; preds = %for.body
-  %8 = load i32, ptr %idx, align 4
-  %inc = add i32 %8, 1
-  store i32 %inc, ptr %idx, align 4
-  br label %for.cond, !llvm.loop !21
-
-for.end:                                          ; preds = %for.cond
+46:                                               ; preds = %34
+  %47 = call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
+  call void @_ZN6Assimp6Logger5debugEPKc(ptr noundef nonnull align 8 dereferenceable(12) %47, ptr noundef @.str.6)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp14FlipUVsProcess15ProcessMaterialEP10aiMaterial(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %_mat) #2 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %_mat.addr = alloca ptr, align 8
-  %mat = alloca ptr, align 8
-  %a = alloca i32, align 4
-  %prop = alloca ptr, align 8
-  %uv = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %_mat, ptr %_mat.addr, align 8
-  %0 = load ptr, ptr %_mat.addr, align 8
-  store ptr %0, ptr %mat, align 8
-  store i32 0, ptr %a, align 4
-  br label %for.cond
+define hidden void @_ZN6Assimp14FlipUVsProcess11ProcessMeshEP6aiMesh(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) #1 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZN12_GLOBAL__N_17flipUVsI6aiMeshEEvPT_(ptr noundef %6)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #12
+  store i32 0, ptr %5, align 4
+  br label %7
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %1 = load i32, ptr %a, align 4
-  %2 = load ptr, ptr %mat, align 8
-  %mNumProperties = getelementptr inbounds %struct.aiMaterial, ptr %2, i32 0, i32 1
-  %3 = load i32, ptr %mNumProperties, align 8
-  %cmp = icmp ult i32 %1, %3
-  br i1 %cmp, label %for.body, label %for.end
+7:                                                ; preds = %22, %2
+  %8 = load i32, ptr %5, align 4
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds nuw %struct.aiMesh, ptr %9, i32 0, i32 15
+  %11 = load i32, ptr %10, align 8
+  %12 = icmp ult i32 %8, %11
+  br i1 %12, label %14, label %13
 
-for.body:                                         ; preds = %for.cond
-  %4 = load ptr, ptr %mat, align 8
-  %mProperties = getelementptr inbounds %struct.aiMaterial, ptr %4, i32 0, i32 0
-  %5 = load ptr, ptr %mProperties, align 8
-  %6 = load i32, ptr %a, align 4
-  %idxprom = zext i32 %6 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %5, i64 %idxprom
-  %7 = load ptr, ptr %arrayidx, align 8
-  store ptr %7, ptr %prop, align 8
-  %8 = load ptr, ptr %prop, align 8
-  %tobool = icmp ne ptr %8, null
-  br i1 %tobool, label %if.end, label %if.then
+13:                                               ; preds = %7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #12
+  br label %25
 
-if.then:                                          ; preds = %for.body
-  %call = call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
-  call void @_ZN6Assimp6Logger12verboseDebugEPKc(ptr noundef nonnull align 8 dereferenceable(12) %call, ptr noundef @.str.7)
-  br label %for.inc
+14:                                               ; preds = %7
+  %15 = load ptr, ptr %4, align 8
+  %16 = getelementptr inbounds nuw %struct.aiMesh, ptr %15, i32 0, i32 16
+  %17 = load ptr, ptr %16, align 8
+  %18 = load i32, ptr %5, align 4
+  %19 = zext i32 %18 to i64
+  %20 = getelementptr inbounds nuw ptr, ptr %17, i64 %19
+  %21 = load ptr, ptr %20, align 8
+  call void @_ZN12_GLOBAL__N_17flipUVsI10aiAnimMeshEEvPT_(ptr noundef %21)
+  br label %22
 
-if.end:                                           ; preds = %for.body
-  %9 = load ptr, ptr %prop, align 8
-  %mKey = getelementptr inbounds %struct.aiMaterialProperty, ptr %9, i32 0, i32 0
-  %data = getelementptr inbounds %struct.aiString, ptr %mKey, i32 0, i32 1
-  %arraydecay = getelementptr inbounds [1024 x i8], ptr %data, i64 0, i64 0
-  %call2 = call i32 @strcmp(ptr noundef %arraydecay, ptr noundef @.str.8) #12
-  %tobool3 = icmp ne i32 %call2, 0
-  br i1 %tobool3, label %if.end6, label %if.then4
+22:                                               ; preds = %14
+  %23 = load i32, ptr %5, align 4
+  %24 = add i32 %23, 1
+  store i32 %24, ptr %5, align 4
+  br label %7, !llvm.loop !20
 
-if.then4:                                         ; preds = %if.end
-  %10 = load ptr, ptr %prop, align 8
-  %mData = getelementptr inbounds %struct.aiMaterialProperty, ptr %10, i32 0, i32 5
-  %11 = load ptr, ptr %mData, align 8
-  store ptr %11, ptr %uv, align 8
-  %12 = load ptr, ptr %uv, align 8
-  %mTranslation = getelementptr inbounds %struct.aiUVTransform, ptr %12, i32 0, i32 0
-  %y = getelementptr inbounds %class.aiVector2t, ptr %mTranslation, i32 0, i32 1
-  %13 = load float, ptr %y, align 4
-  %mul = fmul float %13, -1.000000e+00
-  store float %mul, ptr %y, align 4
-  %14 = load ptr, ptr %uv, align 8
-  %mRotation = getelementptr inbounds %struct.aiUVTransform, ptr %14, i32 0, i32 2
-  %15 = load float, ptr %mRotation, align 4
-  %mul5 = fmul float %15, -1.000000e+00
-  store float %mul5, ptr %mRotation, align 4
-  br label %if.end6
-
-if.end6:                                          ; preds = %if.then4, %if.end
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end6, %if.then
-  %16 = load i32, ptr %a, align 4
-  %inc = add i32 %16, 1
-  store i32 %inc, ptr %a, align 4
-  br label %for.cond, !llvm.loop !22
-
-for.end:                                          ; preds = %for.cond
-  ret void
-}
-
-declare void @_ZN6Assimp6Logger12verboseDebugEPKc(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) #3
-
-; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_17flipUVsI6aiMeshEEvPT_(ptr noundef %pMesh) #2 {
-entry:
-  %pMesh.addr = alloca ptr, align 8
-  %tcIdx = alloca i32, align 4
-  %vIdx = alloca i32, align 4
-  store ptr %pMesh, ptr %pMesh.addr, align 8
-  %0 = load ptr, ptr %pMesh.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  br label %for.end17
-
-if.end:                                           ; preds = %entry
-  store i32 0, ptr %tcIdx, align 4
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc15, %if.end
-  %1 = load i32, ptr %tcIdx, align 4
-  %cmp1 = icmp ult i32 %1, 8
-  br i1 %cmp1, label %for.body, label %for.end17
-
-for.body:                                         ; preds = %for.cond
-  %2 = load ptr, ptr %pMesh.addr, align 8
-  %3 = load i32, ptr %tcIdx, align 4
-  %call = call noundef zeroext i1 @_ZNK6aiMesh16HasTextureCoordsEj(ptr noundef nonnull align 8 dereferenceable(1320) %2, i32 noundef %3)
-  br i1 %call, label %if.end3, label %if.then2
-
-if.then2:                                         ; preds = %for.body
-  br label %for.end17
-
-if.end3:                                          ; preds = %for.body
-  store i32 0, ptr %vIdx, align 4
-  br label %for.cond4
-
-for.cond4:                                        ; preds = %for.inc, %if.end3
-  %4 = load i32, ptr %vIdx, align 4
-  %5 = load ptr, ptr %pMesh.addr, align 8
-  %mNumVertices = getelementptr inbounds %struct.aiMesh, ptr %5, i32 0, i32 1
-  %6 = load i32, ptr %mNumVertices, align 4
-  %cmp5 = icmp ult i32 %4, %6
-  br i1 %cmp5, label %for.body6, label %for.end
-
-for.body6:                                        ; preds = %for.cond4
-  %7 = load ptr, ptr %pMesh.addr, align 8
-  %mTextureCoords = getelementptr inbounds %struct.aiMesh, ptr %7, i32 0, i32 8
-  %8 = load i32, ptr %tcIdx, align 4
-  %idxprom = zext i32 %8 to i64
-  %arrayidx = getelementptr inbounds [8 x ptr], ptr %mTextureCoords, i64 0, i64 %idxprom
-  %9 = load ptr, ptr %arrayidx, align 8
-  %10 = load i32, ptr %vIdx, align 4
-  %idxprom7 = zext i32 %10 to i64
-  %arrayidx8 = getelementptr inbounds %class.aiVector3t, ptr %9, i64 %idxprom7
-  %y = getelementptr inbounds %class.aiVector3t, ptr %arrayidx8, i32 0, i32 1
-  %11 = load float, ptr %y, align 4
-  %sub = fsub float 1.000000e+00, %11
-  %12 = load ptr, ptr %pMesh.addr, align 8
-  %mTextureCoords9 = getelementptr inbounds %struct.aiMesh, ptr %12, i32 0, i32 8
-  %13 = load i32, ptr %tcIdx, align 4
-  %idxprom10 = zext i32 %13 to i64
-  %arrayidx11 = getelementptr inbounds [8 x ptr], ptr %mTextureCoords9, i64 0, i64 %idxprom10
-  %14 = load ptr, ptr %arrayidx11, align 8
-  %15 = load i32, ptr %vIdx, align 4
-  %idxprom12 = zext i32 %15 to i64
-  %arrayidx13 = getelementptr inbounds %class.aiVector3t, ptr %14, i64 %idxprom12
-  %y14 = getelementptr inbounds %class.aiVector3t, ptr %arrayidx13, i32 0, i32 1
-  store float %sub, ptr %y14, align 4
-  br label %for.inc
-
-for.inc:                                          ; preds = %for.body6
-  %16 = load i32, ptr %vIdx, align 4
-  %inc = add i32 %16, 1
-  store i32 %inc, ptr %vIdx, align 4
-  br label %for.cond4, !llvm.loop !23
-
-for.end:                                          ; preds = %for.cond4
-  br label %for.inc15
-
-for.inc15:                                        ; preds = %for.end
-  %17 = load i32, ptr %tcIdx, align 4
-  %inc16 = add i32 %17, 1
-  store i32 %inc16, ptr %tcIdx, align 4
-  br label %for.cond, !llvm.loop !24
-
-for.end17:                                        ; preds = %if.then2, %for.cond, %if.then
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_17flipUVsI10aiAnimMeshEEvPT_(ptr noundef %pMesh) #0 {
-entry:
-  %pMesh.addr = alloca ptr, align 8
-  %tcIdx = alloca i32, align 4
-  %vIdx = alloca i32, align 4
-  store ptr %pMesh, ptr %pMesh.addr, align 8
-  %0 = load ptr, ptr %pMesh.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  br label %for.end17
-
-if.end:                                           ; preds = %entry
-  store i32 0, ptr %tcIdx, align 4
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc15, %if.end
-  %1 = load i32, ptr %tcIdx, align 4
-  %cmp1 = icmp ult i32 %1, 8
-  br i1 %cmp1, label %for.body, label %for.end17
-
-for.body:                                         ; preds = %for.cond
-  %2 = load ptr, ptr %pMesh.addr, align 8
-  %3 = load i32, ptr %tcIdx, align 4
-  %call = call noundef zeroext i1 @_ZNK10aiAnimMesh16HasTextureCoordsEj(ptr noundef nonnull align 8 dereferenceable(1200) %2, i32 noundef %3)
-  br i1 %call, label %if.end3, label %if.then2
-
-if.then2:                                         ; preds = %for.body
-  br label %for.end17
-
-if.end3:                                          ; preds = %for.body
-  store i32 0, ptr %vIdx, align 4
-  br label %for.cond4
-
-for.cond4:                                        ; preds = %for.inc, %if.end3
-  %4 = load i32, ptr %vIdx, align 4
-  %5 = load ptr, ptr %pMesh.addr, align 8
-  %mNumVertices = getelementptr inbounds %struct.aiAnimMesh, ptr %5, i32 0, i32 7
-  %6 = load i32, ptr %mNumVertices, align 8
-  %cmp5 = icmp ult i32 %4, %6
-  br i1 %cmp5, label %for.body6, label %for.end
-
-for.body6:                                        ; preds = %for.cond4
-  %7 = load ptr, ptr %pMesh.addr, align 8
-  %mTextureCoords = getelementptr inbounds %struct.aiAnimMesh, ptr %7, i32 0, i32 6
-  %8 = load i32, ptr %tcIdx, align 4
-  %idxprom = zext i32 %8 to i64
-  %arrayidx = getelementptr inbounds [8 x ptr], ptr %mTextureCoords, i64 0, i64 %idxprom
-  %9 = load ptr, ptr %arrayidx, align 8
-  %10 = load i32, ptr %vIdx, align 4
-  %idxprom7 = zext i32 %10 to i64
-  %arrayidx8 = getelementptr inbounds %class.aiVector3t, ptr %9, i64 %idxprom7
-  %y = getelementptr inbounds %class.aiVector3t, ptr %arrayidx8, i32 0, i32 1
-  %11 = load float, ptr %y, align 4
-  %sub = fsub float 1.000000e+00, %11
-  %12 = load ptr, ptr %pMesh.addr, align 8
-  %mTextureCoords9 = getelementptr inbounds %struct.aiAnimMesh, ptr %12, i32 0, i32 6
-  %13 = load i32, ptr %tcIdx, align 4
-  %idxprom10 = zext i32 %13 to i64
-  %arrayidx11 = getelementptr inbounds [8 x ptr], ptr %mTextureCoords9, i64 0, i64 %idxprom10
-  %14 = load ptr, ptr %arrayidx11, align 8
-  %15 = load i32, ptr %vIdx, align 4
-  %idxprom12 = zext i32 %15 to i64
-  %arrayidx13 = getelementptr inbounds %class.aiVector3t, ptr %14, i64 %idxprom12
-  %y14 = getelementptr inbounds %class.aiVector3t, ptr %arrayidx13, i32 0, i32 1
-  store float %sub, ptr %y14, align 4
-  br label %for.inc
-
-for.inc:                                          ; preds = %for.body6
-  %16 = load i32, ptr %vIdx, align 4
-  %inc = add i32 %16, 1
-  store i32 %inc, ptr %vIdx, align 4
-  br label %for.cond4, !llvm.loop !25
-
-for.end:                                          ; preds = %for.cond4
-  br label %for.inc15
-
-for.inc15:                                        ; preds = %for.end
-  %17 = load i32, ptr %tcIdx, align 4
-  %inc16 = add i32 %17, 1
-  store i32 %inc16, ptr %tcIdx, align 4
-  br label %for.cond, !llvm.loop !26
-
-for.end17:                                        ; preds = %if.then2, %for.cond, %if.then
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK6Assimp23FlipWindingOrderProcess8IsActiveEj(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %pFlags) unnamed_addr #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %pFlags.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %pFlags, ptr %pFlags.addr, align 4
-  %0 = load i32, ptr %pFlags.addr, align 4
-  %and = and i32 %0, 16777216
-  %cmp = icmp ne i32 0, %and
-  ret i1 %cmp
-}
-
-; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp23FlipWindingOrderProcess7ExecuteEP7aiScene(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %pScene) unnamed_addr #2 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %pScene.addr = alloca ptr, align 8
-  %i = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %pScene, ptr %pScene.addr, align 8
-  %call = call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
-  call void @_ZN6Assimp6Logger5debugEPKc(ptr noundef nonnull align 8 dereferenceable(12) %call, ptr noundef @.str.9)
-  store i32 0, ptr %i, align 4
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i32, ptr %i, align 4
-  %1 = load ptr, ptr %pScene.addr, align 8
-  %mNumMeshes = getelementptr inbounds %struct.aiScene, ptr %1, i32 0, i32 2
-  %2 = load i32, ptr %mNumMeshes, align 8
-  %cmp = icmp ult i32 %0, %2
-  br i1 %cmp, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %3 = load ptr, ptr %pScene.addr, align 8
-  %mMeshes = getelementptr inbounds %struct.aiScene, ptr %3, i32 0, i32 3
-  %4 = load ptr, ptr %mMeshes, align 8
-  %5 = load i32, ptr %i, align 4
-  %idxprom = zext i32 %5 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %4, i64 %idxprom
-  %6 = load ptr, ptr %arrayidx, align 8
-  call void @_ZN6Assimp23FlipWindingOrderProcess11ProcessMeshEP6aiMesh(ptr noundef %6)
-  br label %for.inc
-
-for.inc:                                          ; preds = %for.body
-  %7 = load i32, ptr %i, align 4
-  %inc = add i32 %7, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !27
-
-for.end:                                          ; preds = %for.cond
-  %call2 = call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
-  call void @_ZN6Assimp6Logger5debugEPKc(ptr noundef nonnull align 8 dereferenceable(12) %call2, ptr noundef @.str.10)
+25:                                               ; preds = %13
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp23FlipWindingOrderProcess11ProcessMeshEP6aiMesh(ptr noundef %pMesh) #2 align 2 {
-entry:
-  %pMesh.addr = alloca ptr, align 8
-  %a = alloca i32, align 4
-  %face = alloca ptr, align 8
-  %b = alloca i32, align 4
-  %m = alloca i32, align 4
-  %animMesh = alloca ptr, align 8
-  %numVertices = alloca i32, align 4
-  %a19 = alloca i32, align 4
-  %a35 = alloca i32, align 4
-  %i = alloca i32, align 4
-  %a55 = alloca i32, align 4
-  %a79 = alloca i32, align 4
-  %v = alloca i32, align 4
-  %a106 = alloca i32, align 4
-  store ptr %pMesh, ptr %pMesh.addr, align 8
-  store i32 0, ptr %a, align 4
-  br label %for.cond
+define hidden void @_ZN6Assimp14FlipUVsProcess15ProcessMaterialEP10aiMaterial(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) #1 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #12
+  %10 = load ptr, ptr %4, align 8
+  store ptr %10, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #12
+  store i32 0, ptr %6, align 4
+  br label %11
 
-for.cond:                                         ; preds = %for.inc11, %entry
-  %0 = load i32, ptr %a, align 4
-  %1 = load ptr, ptr %pMesh.addr, align 8
-  %mNumFaces = getelementptr inbounds %struct.aiMesh, ptr %1, i32 0, i32 2
-  %2 = load i32, ptr %mNumFaces, align 8
-  %cmp = icmp ult i32 %0, %2
-  br i1 %cmp, label %for.body, label %for.end13
+11:                                               ; preds = %54, %2
+  %12 = load i32, ptr %6, align 4
+  %13 = load ptr, ptr %5, align 8
+  %14 = getelementptr inbounds nuw %struct.aiMaterial, ptr %13, i32 0, i32 1
+  %15 = load i32, ptr %14, align 8
+  %16 = icmp ult i32 %12, %15
+  br i1 %16, label %18, label %17
 
-for.body:                                         ; preds = %for.cond
-  %3 = load ptr, ptr %pMesh.addr, align 8
-  %mFaces = getelementptr inbounds %struct.aiMesh, ptr %3, i32 0, i32 10
-  %4 = load ptr, ptr %mFaces, align 8
-  %5 = load i32, ptr %a, align 4
-  %idxprom = zext i32 %5 to i64
-  %arrayidx = getelementptr inbounds %struct.aiFace, ptr %4, i64 %idxprom
-  store ptr %arrayidx, ptr %face, align 8
-  store i32 0, ptr %b, align 4
-  br label %for.cond1
+17:                                               ; preds = %11
+  store i32 2, ptr %7, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #12
+  br label %57
 
-for.cond1:                                        ; preds = %for.inc, %for.body
-  %6 = load i32, ptr %b, align 4
-  %7 = load ptr, ptr %face, align 8
-  %mNumIndices = getelementptr inbounds %struct.aiFace, ptr %7, i32 0, i32 0
-  %8 = load i32, ptr %mNumIndices, align 8
-  %div = udiv i32 %8, 2
-  %cmp2 = icmp ult i32 %6, %div
-  br i1 %cmp2, label %for.body3, label %for.end
+18:                                               ; preds = %11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #12
+  %19 = load ptr, ptr %5, align 8
+  %20 = getelementptr inbounds nuw %struct.aiMaterial, ptr %19, i32 0, i32 0
+  %21 = load ptr, ptr %20, align 8
+  %22 = load i32, ptr %6, align 4
+  %23 = zext i32 %22 to i64
+  %24 = getelementptr inbounds nuw ptr, ptr %21, i64 %23
+  %25 = load ptr, ptr %24, align 8
+  store ptr %25, ptr %8, align 8
+  %26 = load ptr, ptr %8, align 8
+  %27 = icmp ne ptr %26, null
+  br i1 %27, label %30, label %28
 
-for.body3:                                        ; preds = %for.cond1
-  %9 = load ptr, ptr %face, align 8
-  %mIndices = getelementptr inbounds %struct.aiFace, ptr %9, i32 0, i32 1
-  %10 = load ptr, ptr %mIndices, align 8
-  %11 = load i32, ptr %b, align 4
-  %idxprom4 = zext i32 %11 to i64
-  %arrayidx5 = getelementptr inbounds i32, ptr %10, i64 %idxprom4
-  %12 = load ptr, ptr %face, align 8
-  %mIndices6 = getelementptr inbounds %struct.aiFace, ptr %12, i32 0, i32 1
-  %13 = load ptr, ptr %mIndices6, align 8
-  %14 = load ptr, ptr %face, align 8
-  %mNumIndices7 = getelementptr inbounds %struct.aiFace, ptr %14, i32 0, i32 0
-  %15 = load i32, ptr %mNumIndices7, align 8
-  %sub = sub i32 %15, 1
-  %16 = load i32, ptr %b, align 4
-  %sub8 = sub i32 %sub, %16
-  %idxprom9 = zext i32 %sub8 to i64
-  %arrayidx10 = getelementptr inbounds i32, ptr %13, i64 %idxprom9
-  call void @_ZSt4swapIjENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS3_ESt18is_move_assignableIS3_EEE5valueEvE4typeERS3_SC_(ptr noundef nonnull align 4 dereferenceable(4) %arrayidx5, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx10) #11
-  br label %for.inc
+28:                                               ; preds = %18
+  %29 = call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
+  call void @_ZN6Assimp6Logger12verboseDebugEPKc(ptr noundef nonnull align 8 dereferenceable(12) %29, ptr noundef @.str.7)
+  store i32 4, ptr %7, align 4
+  br label %51
 
-for.inc:                                          ; preds = %for.body3
-  %17 = load i32, ptr %b, align 4
-  %inc = add i32 %17, 1
-  store i32 %inc, ptr %b, align 4
-  br label %for.cond1, !llvm.loop !28
+30:                                               ; preds = %18
+  %31 = load ptr, ptr %8, align 8
+  %32 = getelementptr inbounds nuw %struct.aiMaterialProperty, ptr %31, i32 0, i32 0
+  %33 = getelementptr inbounds nuw %struct.aiString, ptr %32, i32 0, i32 1
+  %34 = getelementptr inbounds [1024 x i8], ptr %33, i64 0, i64 0
+  %35 = call i32 @strcmp(ptr noundef %34, ptr noundef @.str.8) #13
+  %36 = icmp ne i32 %35, 0
+  br i1 %36, label %50, label %37
 
-for.end:                                          ; preds = %for.cond1
-  br label %for.inc11
+37:                                               ; preds = %30
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #12
+  %38 = load ptr, ptr %8, align 8
+  %39 = getelementptr inbounds nuw %struct.aiMaterialProperty, ptr %38, i32 0, i32 5
+  %40 = load ptr, ptr %39, align 8
+  store ptr %40, ptr %9, align 8
+  %41 = load ptr, ptr %9, align 8
+  %42 = getelementptr inbounds nuw %struct.aiUVTransform, ptr %41, i32 0, i32 0
+  %43 = getelementptr inbounds nuw %class.aiVector2t, ptr %42, i32 0, i32 1
+  %44 = load float, ptr %43, align 4
+  %45 = fmul float %44, -1.000000e+00
+  store float %45, ptr %43, align 4
+  %46 = load ptr, ptr %9, align 8
+  %47 = getelementptr inbounds nuw %struct.aiUVTransform, ptr %46, i32 0, i32 2
+  %48 = load float, ptr %47, align 4
+  %49 = fmul float %48, -1.000000e+00
+  store float %49, ptr %47, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #12
+  br label %50
 
-for.inc11:                                        ; preds = %for.end
-  %18 = load i32, ptr %a, align 4
-  %inc12 = add i32 %18, 1
-  store i32 %inc12, ptr %a, align 4
-  br label %for.cond, !llvm.loop !29
+50:                                               ; preds = %37, %30
+  store i32 0, ptr %7, align 4
+  br label %51
 
-for.end13:                                        ; preds = %for.cond
-  store i32 0, ptr %m, align 4
-  br label %for.cond14
+51:                                               ; preds = %50, %28
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #12
+  %52 = load i32, ptr %7, align 4
+  switch i32 %52, label %58 [
+    i32 0, label %53
+    i32 4, label %54
+  ]
 
-for.cond14:                                       ; preds = %for.inc128, %for.end13
-  %19 = load i32, ptr %m, align 4
-  %20 = load ptr, ptr %pMesh.addr, align 8
-  %mNumAnimMeshes = getelementptr inbounds %struct.aiMesh, ptr %20, i32 0, i32 15
-  %21 = load i32, ptr %mNumAnimMeshes, align 8
-  %cmp15 = icmp ult i32 %19, %21
-  br i1 %cmp15, label %for.body16, label %for.end130
+53:                                               ; preds = %51
+  br label %54
 
-for.body16:                                       ; preds = %for.cond14
-  %22 = load ptr, ptr %pMesh.addr, align 8
-  %mAnimMeshes = getelementptr inbounds %struct.aiMesh, ptr %22, i32 0, i32 16
-  %23 = load ptr, ptr %mAnimMeshes, align 8
-  %24 = load i32, ptr %m, align 4
-  %idxprom17 = zext i32 %24 to i64
-  %arrayidx18 = getelementptr inbounds ptr, ptr %23, i64 %idxprom17
-  %25 = load ptr, ptr %arrayidx18, align 8
-  store ptr %25, ptr %animMesh, align 8
-  %26 = load ptr, ptr %animMesh, align 8
-  %mNumVertices = getelementptr inbounds %struct.aiAnimMesh, ptr %26, i32 0, i32 7
-  %27 = load i32, ptr %mNumVertices, align 8
-  store i32 %27, ptr %numVertices, align 4
-  %28 = load ptr, ptr %animMesh, align 8
-  %call = call noundef zeroext i1 @_ZNK10aiAnimMesh12HasPositionsEv(ptr noundef nonnull align 8 dereferenceable(1200) %28)
-  br i1 %call, label %if.then, label %if.end
+54:                                               ; preds = %53, %51
+  %55 = load i32, ptr %6, align 4
+  %56 = add i32 %55, 1
+  store i32 %56, ptr %6, align 4
+  br label %11, !llvm.loop !21
 
-if.then:                                          ; preds = %for.body16
-  store i32 0, ptr %a19, align 4
-  br label %for.cond20
+57:                                               ; preds = %17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #12
+  ret void
 
-for.cond20:                                       ; preds = %for.inc30, %if.then
-  %29 = load i32, ptr %a19, align 4
-  %30 = load i32, ptr %numVertices, align 4
-  %cmp21 = icmp ult i32 %29, %30
-  br i1 %cmp21, label %for.body22, label %for.end32
+58:                                               ; preds = %51
+  unreachable
+}
 
-for.body22:                                       ; preds = %for.cond20
-  %31 = load ptr, ptr %animMesh, align 8
-  %mVertices = getelementptr inbounds %struct.aiAnimMesh, ptr %31, i32 0, i32 1
-  %32 = load ptr, ptr %mVertices, align 8
-  %33 = load i32, ptr %a19, align 4
-  %idxprom23 = zext i32 %33 to i64
-  %arrayidx24 = getelementptr inbounds %class.aiVector3t, ptr %32, i64 %idxprom23
-  %34 = load ptr, ptr %animMesh, align 8
-  %mVertices25 = getelementptr inbounds %struct.aiAnimMesh, ptr %34, i32 0, i32 1
-  %35 = load ptr, ptr %mVertices25, align 8
-  %36 = load i32, ptr %numVertices, align 4
-  %sub26 = sub i32 %36, 1
-  %37 = load i32, ptr %a19, align 4
-  %sub27 = sub i32 %sub26, %37
-  %idxprom28 = zext i32 %sub27 to i64
-  %arrayidx29 = getelementptr inbounds %class.aiVector3t, ptr %35, i64 %idxprom28
-  call void @_ZSt4swapI10aiVector3tIfEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS5_ESt18is_move_assignableIS5_EEE5valueEvE4typeERS5_SE_(ptr noundef nonnull align 4 dereferenceable(12) %arrayidx24, ptr noundef nonnull align 4 dereferenceable(12) %arrayidx29) #11
-  br label %for.inc30
+declare void @_ZN6Assimp6Logger12verboseDebugEPKc(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) #2
 
-for.inc30:                                        ; preds = %for.body22
-  %38 = load i32, ptr %a19, align 4
-  %inc31 = add i32 %38, 1
-  store i32 %inc31, ptr %a19, align 4
-  br label %for.cond20, !llvm.loop !30
+; Function Attrs: mustprogress uwtable
+define internal void @_ZN12_GLOBAL__N_17flipUVsI6aiMeshEEvPT_(ptr noundef %0) #1 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8
+  %6 = load ptr, ptr %2, align 8
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %8, label %9
 
-for.end32:                                        ; preds = %for.cond20
-  br label %if.end
+8:                                                ; preds = %1
+  br label %58
 
-if.end:                                           ; preds = %for.end32, %for.body16
-  %39 = load ptr, ptr %animMesh, align 8
-  %call33 = call noundef zeroext i1 @_ZNK10aiAnimMesh10HasNormalsEv(ptr noundef nonnull align 8 dereferenceable(1200) %39)
-  br i1 %call33, label %if.then34, label %if.end49
+9:                                                ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #12
+  store i32 0, ptr %3, align 4
+  br label %10
 
-if.then34:                                        ; preds = %if.end
-  store i32 0, ptr %a35, align 4
-  br label %for.cond36
+10:                                               ; preds = %54, %9
+  %11 = load i32, ptr %3, align 4
+  %12 = icmp ult i32 %11, 8
+  br i1 %12, label %14, label %13
 
-for.cond36:                                       ; preds = %for.inc46, %if.then34
-  %40 = load i32, ptr %a35, align 4
-  %41 = load i32, ptr %numVertices, align 4
-  %cmp37 = icmp ult i32 %40, %41
-  br i1 %cmp37, label %for.body38, label %for.end48
+13:                                               ; preds = %10
+  store i32 2, ptr %4, align 4
+  br label %57
 
-for.body38:                                       ; preds = %for.cond36
-  %42 = load ptr, ptr %animMesh, align 8
-  %mNormals = getelementptr inbounds %struct.aiAnimMesh, ptr %42, i32 0, i32 2
-  %43 = load ptr, ptr %mNormals, align 8
-  %44 = load i32, ptr %a35, align 4
-  %idxprom39 = zext i32 %44 to i64
-  %arrayidx40 = getelementptr inbounds %class.aiVector3t, ptr %43, i64 %idxprom39
-  %45 = load ptr, ptr %animMesh, align 8
-  %mNormals41 = getelementptr inbounds %struct.aiAnimMesh, ptr %45, i32 0, i32 2
-  %46 = load ptr, ptr %mNormals41, align 8
-  %47 = load i32, ptr %numVertices, align 4
-  %sub42 = sub i32 %47, 1
-  %48 = load i32, ptr %a35, align 4
-  %sub43 = sub i32 %sub42, %48
-  %idxprom44 = zext i32 %sub43 to i64
-  %arrayidx45 = getelementptr inbounds %class.aiVector3t, ptr %46, i64 %idxprom44
-  call void @_ZSt4swapI10aiVector3tIfEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS5_ESt18is_move_assignableIS5_EEE5valueEvE4typeERS5_SE_(ptr noundef nonnull align 4 dereferenceable(12) %arrayidx40, ptr noundef nonnull align 4 dereferenceable(12) %arrayidx45) #11
-  br label %for.inc46
+14:                                               ; preds = %10
+  %15 = load ptr, ptr %2, align 8
+  %16 = load i32, ptr %3, align 4
+  %17 = call noundef zeroext i1 @_ZNK6aiMesh16HasTextureCoordsEj(ptr noundef nonnull align 8 dereferenceable(1320) %15, i32 noundef %16)
+  br i1 %17, label %19, label %18
 
-for.inc46:                                        ; preds = %for.body38
-  %49 = load i32, ptr %a35, align 4
-  %inc47 = add i32 %49, 1
-  store i32 %inc47, ptr %a35, align 4
-  br label %for.cond36, !llvm.loop !31
+18:                                               ; preds = %14
+  store i32 2, ptr %4, align 4
+  br label %57
 
-for.end48:                                        ; preds = %for.cond36
-  br label %if.end49
+19:                                               ; preds = %14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #12
+  store i32 0, ptr %5, align 4
+  br label %20
 
-if.end49:                                         ; preds = %for.end48, %if.end
-  store i32 0, ptr %i, align 4
-  br label %for.cond50
+20:                                               ; preds = %50, %19
+  %21 = load i32, ptr %5, align 4
+  %22 = load ptr, ptr %2, align 8
+  %23 = getelementptr inbounds nuw %struct.aiMesh, ptr %22, i32 0, i32 1
+  %24 = load i32, ptr %23, align 4
+  %25 = icmp ult i32 %21, %24
+  br i1 %25, label %27, label %26
 
-for.cond50:                                       ; preds = %for.inc74, %if.end49
-  %50 = load i32, ptr %i, align 4
-  %cmp51 = icmp ult i32 %50, 8
-  br i1 %cmp51, label %for.body52, label %for.end76
+26:                                               ; preds = %20
+  store i32 5, ptr %4, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #12
+  br label %53
 
-for.body52:                                       ; preds = %for.cond50
-  %51 = load ptr, ptr %animMesh, align 8
-  %52 = load i32, ptr %i, align 4
-  %call53 = call noundef zeroext i1 @_ZNK10aiAnimMesh16HasTextureCoordsEj(ptr noundef nonnull align 8 dereferenceable(1200) %51, i32 noundef %52)
-  br i1 %call53, label %if.then54, label %if.end73
+27:                                               ; preds = %20
+  %28 = load ptr, ptr %2, align 8
+  %29 = getelementptr inbounds nuw %struct.aiMesh, ptr %28, i32 0, i32 8
+  %30 = load i32, ptr %3, align 4
+  %31 = zext i32 %30 to i64
+  %32 = getelementptr inbounds nuw [8 x ptr], ptr %29, i64 0, i64 %31
+  %33 = load ptr, ptr %32, align 8
+  %34 = load i32, ptr %5, align 4
+  %35 = zext i32 %34 to i64
+  %36 = getelementptr inbounds nuw %class.aiVector3t, ptr %33, i64 %35
+  %37 = getelementptr inbounds nuw %class.aiVector3t, ptr %36, i32 0, i32 1
+  %38 = load float, ptr %37, align 4
+  %39 = fsub float 1.000000e+00, %38
+  %40 = load ptr, ptr %2, align 8
+  %41 = getelementptr inbounds nuw %struct.aiMesh, ptr %40, i32 0, i32 8
+  %42 = load i32, ptr %3, align 4
+  %43 = zext i32 %42 to i64
+  %44 = getelementptr inbounds nuw [8 x ptr], ptr %41, i64 0, i64 %43
+  %45 = load ptr, ptr %44, align 8
+  %46 = load i32, ptr %5, align 4
+  %47 = zext i32 %46 to i64
+  %48 = getelementptr inbounds nuw %class.aiVector3t, ptr %45, i64 %47
+  %49 = getelementptr inbounds nuw %class.aiVector3t, ptr %48, i32 0, i32 1
+  store float %39, ptr %49, align 4
+  br label %50
 
-if.then54:                                        ; preds = %for.body52
-  store i32 0, ptr %a55, align 4
-  br label %for.cond56
+50:                                               ; preds = %27
+  %51 = load i32, ptr %5, align 4
+  %52 = add i32 %51, 1
+  store i32 %52, ptr %5, align 4
+  br label %20, !llvm.loop !22
 
-for.cond56:                                       ; preds = %for.inc70, %if.then54
-  %53 = load i32, ptr %a55, align 4
-  %54 = load i32, ptr %numVertices, align 4
-  %cmp57 = icmp ult i32 %53, %54
-  br i1 %cmp57, label %for.body58, label %for.end72
+53:                                               ; preds = %26
+  br label %54
 
-for.body58:                                       ; preds = %for.cond56
-  %55 = load ptr, ptr %animMesh, align 8
-  %mTextureCoords = getelementptr inbounds %struct.aiAnimMesh, ptr %55, i32 0, i32 6
-  %56 = load i32, ptr %i, align 4
-  %idxprom59 = zext i32 %56 to i64
-  %arrayidx60 = getelementptr inbounds [8 x ptr], ptr %mTextureCoords, i64 0, i64 %idxprom59
-  %57 = load ptr, ptr %arrayidx60, align 8
-  %58 = load i32, ptr %a55, align 4
-  %idxprom61 = zext i32 %58 to i64
-  %arrayidx62 = getelementptr inbounds %class.aiVector3t, ptr %57, i64 %idxprom61
-  %59 = load ptr, ptr %animMesh, align 8
-  %mTextureCoords63 = getelementptr inbounds %struct.aiAnimMesh, ptr %59, i32 0, i32 6
-  %60 = load i32, ptr %i, align 4
-  %idxprom64 = zext i32 %60 to i64
-  %arrayidx65 = getelementptr inbounds [8 x ptr], ptr %mTextureCoords63, i64 0, i64 %idxprom64
-  %61 = load ptr, ptr %arrayidx65, align 8
-  %62 = load i32, ptr %numVertices, align 4
-  %sub66 = sub i32 %62, 1
-  %63 = load i32, ptr %a55, align 4
-  %sub67 = sub i32 %sub66, %63
-  %idxprom68 = zext i32 %sub67 to i64
-  %arrayidx69 = getelementptr inbounds %class.aiVector3t, ptr %61, i64 %idxprom68
-  call void @_ZSt4swapI10aiVector3tIfEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS5_ESt18is_move_assignableIS5_EEE5valueEvE4typeERS5_SE_(ptr noundef nonnull align 4 dereferenceable(12) %arrayidx62, ptr noundef nonnull align 4 dereferenceable(12) %arrayidx69) #11
-  br label %for.inc70
+54:                                               ; preds = %53
+  %55 = load i32, ptr %3, align 4
+  %56 = add i32 %55, 1
+  store i32 %56, ptr %3, align 4
+  br label %10, !llvm.loop !23
 
-for.inc70:                                        ; preds = %for.body58
-  %64 = load i32, ptr %a55, align 4
-  %inc71 = add i32 %64, 1
-  store i32 %inc71, ptr %a55, align 4
-  br label %for.cond56, !llvm.loop !32
+57:                                               ; preds = %18, %13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #12
+  br label %58
 
-for.end72:                                        ; preds = %for.cond56
-  br label %if.end73
-
-if.end73:                                         ; preds = %for.end72, %for.body52
-  br label %for.inc74
-
-for.inc74:                                        ; preds = %if.end73
-  %65 = load i32, ptr %i, align 4
-  %inc75 = add i32 %65, 1
-  store i32 %inc75, ptr %i, align 4
-  br label %for.cond50, !llvm.loop !33
-
-for.end76:                                        ; preds = %for.cond50
-  %66 = load ptr, ptr %animMesh, align 8
-  %call77 = call noundef zeroext i1 @_ZNK10aiAnimMesh24HasTangentsAndBitangentsEv(ptr noundef nonnull align 8 dereferenceable(1200) %66)
-  br i1 %call77, label %if.then78, label %if.end100
-
-if.then78:                                        ; preds = %for.end76
-  store i32 0, ptr %a79, align 4
-  br label %for.cond80
-
-for.cond80:                                       ; preds = %for.inc97, %if.then78
-  %67 = load i32, ptr %a79, align 4
-  %68 = load i32, ptr %numVertices, align 4
-  %cmp81 = icmp ult i32 %67, %68
-  br i1 %cmp81, label %for.body82, label %for.end99
-
-for.body82:                                       ; preds = %for.cond80
-  %69 = load ptr, ptr %animMesh, align 8
-  %mTangents = getelementptr inbounds %struct.aiAnimMesh, ptr %69, i32 0, i32 3
-  %70 = load ptr, ptr %mTangents, align 8
-  %71 = load i32, ptr %a79, align 4
-  %idxprom83 = zext i32 %71 to i64
-  %arrayidx84 = getelementptr inbounds %class.aiVector3t, ptr %70, i64 %idxprom83
-  %72 = load ptr, ptr %animMesh, align 8
-  %mTangents85 = getelementptr inbounds %struct.aiAnimMesh, ptr %72, i32 0, i32 3
-  %73 = load ptr, ptr %mTangents85, align 8
-  %74 = load i32, ptr %numVertices, align 4
-  %sub86 = sub i32 %74, 1
-  %75 = load i32, ptr %a79, align 4
-  %sub87 = sub i32 %sub86, %75
-  %idxprom88 = zext i32 %sub87 to i64
-  %arrayidx89 = getelementptr inbounds %class.aiVector3t, ptr %73, i64 %idxprom88
-  call void @_ZSt4swapI10aiVector3tIfEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS5_ESt18is_move_assignableIS5_EEE5valueEvE4typeERS5_SE_(ptr noundef nonnull align 4 dereferenceable(12) %arrayidx84, ptr noundef nonnull align 4 dereferenceable(12) %arrayidx89) #11
-  %76 = load ptr, ptr %animMesh, align 8
-  %mBitangents = getelementptr inbounds %struct.aiAnimMesh, ptr %76, i32 0, i32 4
-  %77 = load ptr, ptr %mBitangents, align 8
-  %78 = load i32, ptr %a79, align 4
-  %idxprom90 = zext i32 %78 to i64
-  %arrayidx91 = getelementptr inbounds %class.aiVector3t, ptr %77, i64 %idxprom90
-  %79 = load ptr, ptr %animMesh, align 8
-  %mBitangents92 = getelementptr inbounds %struct.aiAnimMesh, ptr %79, i32 0, i32 4
-  %80 = load ptr, ptr %mBitangents92, align 8
-  %81 = load i32, ptr %numVertices, align 4
-  %sub93 = sub i32 %81, 1
-  %82 = load i32, ptr %a79, align 4
-  %sub94 = sub i32 %sub93, %82
-  %idxprom95 = zext i32 %sub94 to i64
-  %arrayidx96 = getelementptr inbounds %class.aiVector3t, ptr %80, i64 %idxprom95
-  call void @_ZSt4swapI10aiVector3tIfEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS5_ESt18is_move_assignableIS5_EEE5valueEvE4typeERS5_SE_(ptr noundef nonnull align 4 dereferenceable(12) %arrayidx91, ptr noundef nonnull align 4 dereferenceable(12) %arrayidx96) #11
-  br label %for.inc97
-
-for.inc97:                                        ; preds = %for.body82
-  %83 = load i32, ptr %a79, align 4
-  %inc98 = add i32 %83, 1
-  store i32 %inc98, ptr %a79, align 4
-  br label %for.cond80, !llvm.loop !34
-
-for.end99:                                        ; preds = %for.cond80
-  br label %if.end100
-
-if.end100:                                        ; preds = %for.end99, %for.end76
-  store i32 0, ptr %v, align 4
-  br label %for.cond101
-
-for.cond101:                                      ; preds = %for.inc125, %if.end100
-  %84 = load i32, ptr %v, align 4
-  %cmp102 = icmp ult i32 %84, 8
-  br i1 %cmp102, label %for.body103, label %for.end127
-
-for.body103:                                      ; preds = %for.cond101
-  %85 = load ptr, ptr %animMesh, align 8
-  %86 = load i32, ptr %v, align 4
-  %call104 = call noundef zeroext i1 @_ZNK10aiAnimMesh15HasVertexColorsEj(ptr noundef nonnull align 8 dereferenceable(1200) %85, i32 noundef %86)
-  br i1 %call104, label %if.then105, label %if.end124
-
-if.then105:                                       ; preds = %for.body103
-  store i32 0, ptr %a106, align 4
-  br label %for.cond107
-
-for.cond107:                                      ; preds = %for.inc121, %if.then105
-  %87 = load i32, ptr %a106, align 4
-  %88 = load i32, ptr %numVertices, align 4
-  %cmp108 = icmp ult i32 %87, %88
-  br i1 %cmp108, label %for.body109, label %for.end123
-
-for.body109:                                      ; preds = %for.cond107
-  %89 = load ptr, ptr %animMesh, align 8
-  %mColors = getelementptr inbounds %struct.aiAnimMesh, ptr %89, i32 0, i32 5
-  %90 = load i32, ptr %v, align 4
-  %idxprom110 = zext i32 %90 to i64
-  %arrayidx111 = getelementptr inbounds [8 x ptr], ptr %mColors, i64 0, i64 %idxprom110
-  %91 = load ptr, ptr %arrayidx111, align 8
-  %92 = load i32, ptr %a106, align 4
-  %idxprom112 = zext i32 %92 to i64
-  %arrayidx113 = getelementptr inbounds %class.aiColor4t, ptr %91, i64 %idxprom112
-  %93 = load ptr, ptr %animMesh, align 8
-  %mColors114 = getelementptr inbounds %struct.aiAnimMesh, ptr %93, i32 0, i32 5
-  %94 = load i32, ptr %v, align 4
-  %idxprom115 = zext i32 %94 to i64
-  %arrayidx116 = getelementptr inbounds [8 x ptr], ptr %mColors114, i64 0, i64 %idxprom115
-  %95 = load ptr, ptr %arrayidx116, align 8
-  %96 = load i32, ptr %numVertices, align 4
-  %sub117 = sub i32 %96, 1
-  %97 = load i32, ptr %a106, align 4
-  %sub118 = sub i32 %sub117, %97
-  %idxprom119 = zext i32 %sub118 to i64
-  %arrayidx120 = getelementptr inbounds %class.aiColor4t, ptr %95, i64 %idxprom119
-  call void @_ZSt4swapI9aiColor4tIfEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS5_ESt18is_move_assignableIS5_EEE5valueEvE4typeERS5_SE_(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx113, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx120) #11
-  br label %for.inc121
-
-for.inc121:                                       ; preds = %for.body109
-  %98 = load i32, ptr %a106, align 4
-  %inc122 = add i32 %98, 1
-  store i32 %inc122, ptr %a106, align 4
-  br label %for.cond107, !llvm.loop !35
-
-for.end123:                                       ; preds = %for.cond107
-  br label %if.end124
-
-if.end124:                                        ; preds = %for.end123, %for.body103
-  br label %for.inc125
-
-for.inc125:                                       ; preds = %if.end124
-  %99 = load i32, ptr %v, align 4
-  %inc126 = add i32 %99, 1
-  store i32 %inc126, ptr %v, align 4
-  br label %for.cond101, !llvm.loop !36
-
-for.end127:                                       ; preds = %for.cond101
-  br label %for.inc128
-
-for.inc128:                                       ; preds = %for.end127
-  %100 = load i32, ptr %m, align 4
-  %inc129 = add i32 %100, 1
-  store i32 %inc129, ptr %m, align 4
-  br label %for.cond14, !llvm.loop !37
-
-for.end130:                                       ; preds = %for.cond14
+58:                                               ; preds = %8, %57
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZSt4swapIjENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS3_ESt18is_move_assignableIS3_EEE5valueEvE4typeERS3_SC_(ptr noundef nonnull align 4 dereferenceable(4) %__a, ptr noundef nonnull align 4 dereferenceable(4) %__b) #0 comdat {
-entry:
-  %__a.addr = alloca ptr, align 8
-  %__b.addr = alloca ptr, align 8
-  %__tmp = alloca i32, align 4
-  store ptr %__a, ptr %__a.addr, align 8
-  store ptr %__b, ptr %__b.addr, align 8
-  %0 = load ptr, ptr %__a.addr, align 8
-  %1 = load i32, ptr %0, align 4
-  store i32 %1, ptr %__tmp, align 4
-  %2 = load ptr, ptr %__b.addr, align 8
-  %3 = load i32, ptr %2, align 4
-  %4 = load ptr, ptr %__a.addr, align 8
-  store i32 %3, ptr %4, align 4
-  %5 = load i32, ptr %__tmp, align 4
-  %6 = load ptr, ptr %__b.addr, align 8
-  store i32 %5, ptr %6, align 4
+define internal void @_ZN12_GLOBAL__N_17flipUVsI10aiAnimMeshEEvPT_(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8
+  %6 = load ptr, ptr %2, align 8
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %8, label %9
+
+8:                                                ; preds = %1
+  br label %58
+
+9:                                                ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #12
+  store i32 0, ptr %3, align 4
+  br label %10
+
+10:                                               ; preds = %54, %9
+  %11 = load i32, ptr %3, align 4
+  %12 = icmp ult i32 %11, 8
+  br i1 %12, label %14, label %13
+
+13:                                               ; preds = %10
+  store i32 2, ptr %4, align 4
+  br label %57
+
+14:                                               ; preds = %10
+  %15 = load ptr, ptr %2, align 8
+  %16 = load i32, ptr %3, align 4
+  %17 = call noundef zeroext i1 @_ZNK10aiAnimMesh16HasTextureCoordsEj(ptr noundef nonnull align 8 dereferenceable(1200) %15, i32 noundef %16)
+  br i1 %17, label %19, label %18
+
+18:                                               ; preds = %14
+  store i32 2, ptr %4, align 4
+  br label %57
+
+19:                                               ; preds = %14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #12
+  store i32 0, ptr %5, align 4
+  br label %20
+
+20:                                               ; preds = %50, %19
+  %21 = load i32, ptr %5, align 4
+  %22 = load ptr, ptr %2, align 8
+  %23 = getelementptr inbounds nuw %struct.aiAnimMesh, ptr %22, i32 0, i32 7
+  %24 = load i32, ptr %23, align 8
+  %25 = icmp ult i32 %21, %24
+  br i1 %25, label %27, label %26
+
+26:                                               ; preds = %20
+  store i32 5, ptr %4, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #12
+  br label %53
+
+27:                                               ; preds = %20
+  %28 = load ptr, ptr %2, align 8
+  %29 = getelementptr inbounds nuw %struct.aiAnimMesh, ptr %28, i32 0, i32 6
+  %30 = load i32, ptr %3, align 4
+  %31 = zext i32 %30 to i64
+  %32 = getelementptr inbounds nuw [8 x ptr], ptr %29, i64 0, i64 %31
+  %33 = load ptr, ptr %32, align 8
+  %34 = load i32, ptr %5, align 4
+  %35 = zext i32 %34 to i64
+  %36 = getelementptr inbounds nuw %class.aiVector3t, ptr %33, i64 %35
+  %37 = getelementptr inbounds nuw %class.aiVector3t, ptr %36, i32 0, i32 1
+  %38 = load float, ptr %37, align 4
+  %39 = fsub float 1.000000e+00, %38
+  %40 = load ptr, ptr %2, align 8
+  %41 = getelementptr inbounds nuw %struct.aiAnimMesh, ptr %40, i32 0, i32 6
+  %42 = load i32, ptr %3, align 4
+  %43 = zext i32 %42 to i64
+  %44 = getelementptr inbounds nuw [8 x ptr], ptr %41, i64 0, i64 %43
+  %45 = load ptr, ptr %44, align 8
+  %46 = load i32, ptr %5, align 4
+  %47 = zext i32 %46 to i64
+  %48 = getelementptr inbounds nuw %class.aiVector3t, ptr %45, i64 %47
+  %49 = getelementptr inbounds nuw %class.aiVector3t, ptr %48, i32 0, i32 1
+  store float %39, ptr %49, align 4
+  br label %50
+
+50:                                               ; preds = %27
+  %51 = load i32, ptr %5, align 4
+  %52 = add i32 %51, 1
+  store i32 %52, ptr %5, align 4
+  br label %20, !llvm.loop !24
+
+53:                                               ; preds = %26
+  br label %54
+
+54:                                               ; preds = %53
+  %55 = load i32, ptr %3, align 4
+  %56 = add i32 %55, 1
+  store i32 %56, ptr %3, align 4
+  br label %10, !llvm.loop !25
+
+57:                                               ; preds = %18, %13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #12
+  br label %58
+
+58:                                               ; preds = %8, %57
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZNK10aiAnimMesh12HasPositionsEv(ptr noundef nonnull align 8 dereferenceable(1200) %this) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %mVertices = getelementptr inbounds %struct.aiAnimMesh, ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %mVertices, align 8
-  %cmp = icmp ne ptr %0, null
-  ret i1 %cmp
+define hidden noundef zeroext i1 @_ZNK6Assimp23FlipWindingOrderProcess8IsActiveEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store i32 %1, ptr %4, align 4
+  %5 = load i32, ptr %4, align 4
+  %6 = and i32 %5, 16777216
+  %7 = icmp ne i32 0, %6
+  ret i1 %7
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZSt4swapI10aiVector3tIfEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS5_ESt18is_move_assignableIS5_EEE5valueEvE4typeERS5_SE_(ptr noundef nonnull align 4 dereferenceable(12) %__a, ptr noundef nonnull align 4 dereferenceable(12) %__b) #0 comdat {
-entry:
-  %__a.addr = alloca ptr, align 8
-  %__b.addr = alloca ptr, align 8
-  %__tmp = alloca %class.aiVector3t, align 4
-  store ptr %__a, ptr %__a.addr, align 8
-  store ptr %__b, ptr %__b.addr, align 8
-  %0 = load ptr, ptr %__a.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %__tmp, ptr align 4 %0, i64 12, i1 false)
-  %1 = load ptr, ptr %__b.addr, align 8
-  %2 = load ptr, ptr %__a.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %2, ptr align 4 %1, i64 12, i1 false)
-  %3 = load ptr, ptr %__b.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %3, ptr align 4 %__tmp, i64 12, i1 false)
-  ret void
-}
+; Function Attrs: mustprogress uwtable
+define hidden void @_ZN6Assimp23FlipWindingOrderProcess7ExecuteEP7aiScene(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #1 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %6 = call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
+  call void @_ZN6Assimp6Logger5debugEPKc(ptr noundef nonnull align 8 dereferenceable(12) %6, ptr noundef @.str.9)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #12
+  store i32 0, ptr %5, align 4
+  br label %7
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZNK10aiAnimMesh16HasTextureCoordsEj(ptr noundef nonnull align 8 dereferenceable(1200) %this, i32 noundef %pIndex) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %pIndex.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %pIndex, ptr %pIndex.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i32, ptr %pIndex.addr, align 4
-  %cmp = icmp uge i32 %0, 8
-  br i1 %cmp, label %cond.true, label %cond.false
+7:                                                ; preds = %22, %2
+  %8 = load i32, ptr %5, align 4
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds nuw %struct.aiScene, ptr %9, i32 0, i32 2
+  %11 = load i32, ptr %10, align 8
+  %12 = icmp ult i32 %8, %11
+  br i1 %12, label %14, label %13
 
-cond.true:                                        ; preds = %entry
-  br label %cond.end
+13:                                               ; preds = %7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #12
+  br label %25
 
-cond.false:                                       ; preds = %entry
-  %mTextureCoords = getelementptr inbounds %struct.aiAnimMesh, ptr %this1, i32 0, i32 6
-  %1 = load i32, ptr %pIndex.addr, align 4
-  %idxprom = zext i32 %1 to i64
-  %arrayidx = getelementptr inbounds [8 x ptr], ptr %mTextureCoords, i64 0, i64 %idxprom
-  %2 = load ptr, ptr %arrayidx, align 8
-  %cmp2 = icmp ne ptr %2, null
-  br label %cond.end
+14:                                               ; preds = %7
+  %15 = load ptr, ptr %4, align 8
+  %16 = getelementptr inbounds nuw %struct.aiScene, ptr %15, i32 0, i32 3
+  %17 = load ptr, ptr %16, align 8
+  %18 = load i32, ptr %5, align 4
+  %19 = zext i32 %18 to i64
+  %20 = getelementptr inbounds nuw ptr, ptr %17, i64 %19
+  %21 = load ptr, ptr %20, align 8
+  call void @_ZN6Assimp23FlipWindingOrderProcess11ProcessMeshEP6aiMesh(ptr noundef %21)
+  br label %22
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i1 [ false, %cond.true ], [ %cmp2, %cond.false ]
-  ret i1 %cond
-}
+22:                                               ; preds = %14
+  %23 = load i32, ptr %5, align 4
+  %24 = add i32 %23, 1
+  store i32 %24, ptr %5, align 4
+  br label %7, !llvm.loop !26
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZNK10aiAnimMesh15HasVertexColorsEj(ptr noundef nonnull align 8 dereferenceable(1200) %this, i32 noundef %pIndex) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %pIndex.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %pIndex, ptr %pIndex.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i32, ptr %pIndex.addr, align 4
-  %cmp = icmp uge i32 %0, 8
-  br i1 %cmp, label %cond.true, label %cond.false
-
-cond.true:                                        ; preds = %entry
-  br label %cond.end
-
-cond.false:                                       ; preds = %entry
-  %mColors = getelementptr inbounds %struct.aiAnimMesh, ptr %this1, i32 0, i32 5
-  %1 = load i32, ptr %pIndex.addr, align 4
-  %idxprom = zext i32 %1 to i64
-  %arrayidx = getelementptr inbounds [8 x ptr], ptr %mColors, i64 0, i64 %idxprom
-  %2 = load ptr, ptr %arrayidx, align 8
-  %cmp2 = icmp ne ptr %2, null
-  br label %cond.end
-
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i1 [ false, %cond.true ], [ %cmp2, %cond.false ]
-  ret i1 %cond
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZSt4swapI9aiColor4tIfEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS5_ESt18is_move_assignableIS5_EEE5valueEvE4typeERS5_SE_(ptr noundef nonnull align 4 dereferenceable(16) %__a, ptr noundef nonnull align 4 dereferenceable(16) %__b) #0 comdat {
-entry:
-  %__a.addr = alloca ptr, align 8
-  %__b.addr = alloca ptr, align 8
-  %__tmp = alloca %class.aiColor4t, align 4
-  store ptr %__a, ptr %__a.addr, align 8
-  store ptr %__b, ptr %__b.addr, align 8
-  %0 = load ptr, ptr %__a.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %__tmp, ptr align 4 %0, i64 16, i1 false)
-  %1 = load ptr, ptr %__b.addr, align 8
-  %2 = load ptr, ptr %__a.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %2, ptr align 4 %1, i64 16, i1 false)
-  %3 = load ptr, ptr %__b.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %3, ptr align 4 %__tmp, i64 16, i1 false)
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6Assimp9LogStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  ret void
-}
-
-declare void @__cxa_pure_virtual() unnamed_addr
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6Assimp6LoggerD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN6Assimp21MakeLeftHandedProcessD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN6Assimp11BaseProcessD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #11
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN6Assimp21MakeLeftHandedProcessD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN6Assimp21MakeLeftHandedProcessD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #11
-  call void @_ZdlPv(ptr noundef %this1) #13
-  ret void
-}
-
-declare noundef zeroext i1 @_ZNK6Assimp11BaseProcess20RequireVerboseFormatEv(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #3
-
-declare void @_ZN6Assimp11BaseProcess15SetupPropertiesEPKNS_8ImporterE(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef) unnamed_addr #3
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN6Assimp23FlipWindingOrderProcessD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN6Assimp11BaseProcessD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #11
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN6Assimp23FlipWindingOrderProcessD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN6Assimp23FlipWindingOrderProcessD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #11
-  call void @_ZdlPv(ptr noundef %this1) #13
+25:                                               ; preds = %13
+  %26 = call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
+  call void @_ZN6Assimp6Logger5debugEPKc(ptr noundef nonnull align 8 dereferenceable(12) %26, ptr noundef @.str.10)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef nonnull align 4 dereferenceable(64) ptr @_ZN12aiMatrix4x4tIfEmLERKS0_(ptr noundef nonnull align 4 dereferenceable(64) %this, ptr noundef nonnull align 4 dereferenceable(64) %m) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %m.addr = alloca ptr, align 8
-  %ref.tmp = alloca %class.aiMatrix4x4t, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %m, ptr %m.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %m.addr, align 8
-  %a1 = getelementptr inbounds %class.aiMatrix4x4t, ptr %0, i32 0, i32 0
-  %1 = load float, ptr %a1, align 4
-  %a12 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 0
-  %2 = load float, ptr %a12, align 4
-  %3 = load ptr, ptr %m.addr, align 8
-  %b1 = getelementptr inbounds %class.aiMatrix4x4t, ptr %3, i32 0, i32 4
-  %4 = load float, ptr %b1, align 4
-  %a2 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 1
-  %5 = load float, ptr %a2, align 4
-  %mul3 = fmul float %4, %5
-  %6 = call float @llvm.fmuladd.f32(float %1, float %2, float %mul3)
-  %7 = load ptr, ptr %m.addr, align 8
-  %c1 = getelementptr inbounds %class.aiMatrix4x4t, ptr %7, i32 0, i32 8
-  %8 = load float, ptr %c1, align 4
-  %a3 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 2
-  %9 = load float, ptr %a3, align 4
-  %10 = call float @llvm.fmuladd.f32(float %8, float %9, float %6)
-  %11 = load ptr, ptr %m.addr, align 8
-  %d1 = getelementptr inbounds %class.aiMatrix4x4t, ptr %11, i32 0, i32 12
-  %12 = load float, ptr %d1, align 4
-  %a4 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 3
-  %13 = load float, ptr %a4, align 4
-  %14 = call float @llvm.fmuladd.f32(float %12, float %13, float %10)
-  %15 = load ptr, ptr %m.addr, align 8
-  %a24 = getelementptr inbounds %class.aiMatrix4x4t, ptr %15, i32 0, i32 1
-  %16 = load float, ptr %a24, align 4
-  %a15 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 0
-  %17 = load float, ptr %a15, align 4
-  %18 = load ptr, ptr %m.addr, align 8
-  %b2 = getelementptr inbounds %class.aiMatrix4x4t, ptr %18, i32 0, i32 5
-  %19 = load float, ptr %b2, align 4
-  %a26 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 1
-  %20 = load float, ptr %a26, align 4
-  %mul7 = fmul float %19, %20
-  %21 = call float @llvm.fmuladd.f32(float %16, float %17, float %mul7)
-  %22 = load ptr, ptr %m.addr, align 8
-  %c2 = getelementptr inbounds %class.aiMatrix4x4t, ptr %22, i32 0, i32 9
-  %23 = load float, ptr %c2, align 4
-  %a38 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 2
-  %24 = load float, ptr %a38, align 4
-  %25 = call float @llvm.fmuladd.f32(float %23, float %24, float %21)
-  %26 = load ptr, ptr %m.addr, align 8
-  %d2 = getelementptr inbounds %class.aiMatrix4x4t, ptr %26, i32 0, i32 13
-  %27 = load float, ptr %d2, align 4
-  %a49 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 3
-  %28 = load float, ptr %a49, align 4
-  %29 = call float @llvm.fmuladd.f32(float %27, float %28, float %25)
-  %30 = load ptr, ptr %m.addr, align 8
-  %a310 = getelementptr inbounds %class.aiMatrix4x4t, ptr %30, i32 0, i32 2
-  %31 = load float, ptr %a310, align 4
-  %a111 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 0
-  %32 = load float, ptr %a111, align 4
-  %33 = load ptr, ptr %m.addr, align 8
-  %b3 = getelementptr inbounds %class.aiMatrix4x4t, ptr %33, i32 0, i32 6
-  %34 = load float, ptr %b3, align 4
-  %a212 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 1
-  %35 = load float, ptr %a212, align 4
-  %mul13 = fmul float %34, %35
-  %36 = call float @llvm.fmuladd.f32(float %31, float %32, float %mul13)
-  %37 = load ptr, ptr %m.addr, align 8
-  %c3 = getelementptr inbounds %class.aiMatrix4x4t, ptr %37, i32 0, i32 10
-  %38 = load float, ptr %c3, align 4
-  %a314 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 2
-  %39 = load float, ptr %a314, align 4
-  %40 = call float @llvm.fmuladd.f32(float %38, float %39, float %36)
-  %41 = load ptr, ptr %m.addr, align 8
-  %d3 = getelementptr inbounds %class.aiMatrix4x4t, ptr %41, i32 0, i32 14
-  %42 = load float, ptr %d3, align 4
-  %a415 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 3
-  %43 = load float, ptr %a415, align 4
-  %44 = call float @llvm.fmuladd.f32(float %42, float %43, float %40)
-  %45 = load ptr, ptr %m.addr, align 8
-  %a416 = getelementptr inbounds %class.aiMatrix4x4t, ptr %45, i32 0, i32 3
-  %46 = load float, ptr %a416, align 4
-  %a117 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 0
-  %47 = load float, ptr %a117, align 4
-  %48 = load ptr, ptr %m.addr, align 8
-  %b4 = getelementptr inbounds %class.aiMatrix4x4t, ptr %48, i32 0, i32 7
-  %49 = load float, ptr %b4, align 4
-  %a218 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 1
-  %50 = load float, ptr %a218, align 4
-  %mul19 = fmul float %49, %50
-  %51 = call float @llvm.fmuladd.f32(float %46, float %47, float %mul19)
-  %52 = load ptr, ptr %m.addr, align 8
-  %c4 = getelementptr inbounds %class.aiMatrix4x4t, ptr %52, i32 0, i32 11
-  %53 = load float, ptr %c4, align 4
-  %a320 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 2
-  %54 = load float, ptr %a320, align 4
-  %55 = call float @llvm.fmuladd.f32(float %53, float %54, float %51)
-  %56 = load ptr, ptr %m.addr, align 8
-  %d4 = getelementptr inbounds %class.aiMatrix4x4t, ptr %56, i32 0, i32 15
-  %57 = load float, ptr %d4, align 4
-  %a421 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 3
-  %58 = load float, ptr %a421, align 4
-  %59 = call float @llvm.fmuladd.f32(float %57, float %58, float %55)
-  %60 = load ptr, ptr %m.addr, align 8
-  %a122 = getelementptr inbounds %class.aiMatrix4x4t, ptr %60, i32 0, i32 0
-  %61 = load float, ptr %a122, align 4
-  %b123 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 4
-  %62 = load float, ptr %b123, align 4
-  %63 = load ptr, ptr %m.addr, align 8
-  %b124 = getelementptr inbounds %class.aiMatrix4x4t, ptr %63, i32 0, i32 4
-  %64 = load float, ptr %b124, align 4
-  %b225 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 5
-  %65 = load float, ptr %b225, align 4
-  %mul26 = fmul float %64, %65
-  %66 = call float @llvm.fmuladd.f32(float %61, float %62, float %mul26)
-  %67 = load ptr, ptr %m.addr, align 8
-  %c127 = getelementptr inbounds %class.aiMatrix4x4t, ptr %67, i32 0, i32 8
-  %68 = load float, ptr %c127, align 4
-  %b328 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 6
-  %69 = load float, ptr %b328, align 4
-  %70 = call float @llvm.fmuladd.f32(float %68, float %69, float %66)
-  %71 = load ptr, ptr %m.addr, align 8
-  %d129 = getelementptr inbounds %class.aiMatrix4x4t, ptr %71, i32 0, i32 12
-  %72 = load float, ptr %d129, align 4
-  %b430 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 7
-  %73 = load float, ptr %b430, align 4
-  %74 = call float @llvm.fmuladd.f32(float %72, float %73, float %70)
-  %75 = load ptr, ptr %m.addr, align 8
-  %a231 = getelementptr inbounds %class.aiMatrix4x4t, ptr %75, i32 0, i32 1
-  %76 = load float, ptr %a231, align 4
-  %b132 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 4
-  %77 = load float, ptr %b132, align 4
-  %78 = load ptr, ptr %m.addr, align 8
-  %b233 = getelementptr inbounds %class.aiMatrix4x4t, ptr %78, i32 0, i32 5
-  %79 = load float, ptr %b233, align 4
-  %b234 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 5
-  %80 = load float, ptr %b234, align 4
-  %mul35 = fmul float %79, %80
-  %81 = call float @llvm.fmuladd.f32(float %76, float %77, float %mul35)
-  %82 = load ptr, ptr %m.addr, align 8
-  %c236 = getelementptr inbounds %class.aiMatrix4x4t, ptr %82, i32 0, i32 9
-  %83 = load float, ptr %c236, align 4
-  %b337 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 6
-  %84 = load float, ptr %b337, align 4
-  %85 = call float @llvm.fmuladd.f32(float %83, float %84, float %81)
-  %86 = load ptr, ptr %m.addr, align 8
-  %d238 = getelementptr inbounds %class.aiMatrix4x4t, ptr %86, i32 0, i32 13
-  %87 = load float, ptr %d238, align 4
-  %b439 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 7
-  %88 = load float, ptr %b439, align 4
-  %89 = call float @llvm.fmuladd.f32(float %87, float %88, float %85)
-  %90 = load ptr, ptr %m.addr, align 8
-  %a340 = getelementptr inbounds %class.aiMatrix4x4t, ptr %90, i32 0, i32 2
-  %91 = load float, ptr %a340, align 4
-  %b141 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 4
-  %92 = load float, ptr %b141, align 4
-  %93 = load ptr, ptr %m.addr, align 8
-  %b342 = getelementptr inbounds %class.aiMatrix4x4t, ptr %93, i32 0, i32 6
-  %94 = load float, ptr %b342, align 4
-  %b243 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 5
-  %95 = load float, ptr %b243, align 4
-  %mul44 = fmul float %94, %95
-  %96 = call float @llvm.fmuladd.f32(float %91, float %92, float %mul44)
-  %97 = load ptr, ptr %m.addr, align 8
-  %c345 = getelementptr inbounds %class.aiMatrix4x4t, ptr %97, i32 0, i32 10
-  %98 = load float, ptr %c345, align 4
-  %b346 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 6
-  %99 = load float, ptr %b346, align 4
-  %100 = call float @llvm.fmuladd.f32(float %98, float %99, float %96)
-  %101 = load ptr, ptr %m.addr, align 8
-  %d347 = getelementptr inbounds %class.aiMatrix4x4t, ptr %101, i32 0, i32 14
-  %102 = load float, ptr %d347, align 4
-  %b448 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 7
-  %103 = load float, ptr %b448, align 4
-  %104 = call float @llvm.fmuladd.f32(float %102, float %103, float %100)
-  %105 = load ptr, ptr %m.addr, align 8
-  %a449 = getelementptr inbounds %class.aiMatrix4x4t, ptr %105, i32 0, i32 3
-  %106 = load float, ptr %a449, align 4
-  %b150 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 4
-  %107 = load float, ptr %b150, align 4
-  %108 = load ptr, ptr %m.addr, align 8
-  %b451 = getelementptr inbounds %class.aiMatrix4x4t, ptr %108, i32 0, i32 7
-  %109 = load float, ptr %b451, align 4
-  %b252 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 5
-  %110 = load float, ptr %b252, align 4
-  %mul53 = fmul float %109, %110
-  %111 = call float @llvm.fmuladd.f32(float %106, float %107, float %mul53)
-  %112 = load ptr, ptr %m.addr, align 8
-  %c454 = getelementptr inbounds %class.aiMatrix4x4t, ptr %112, i32 0, i32 11
-  %113 = load float, ptr %c454, align 4
-  %b355 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 6
-  %114 = load float, ptr %b355, align 4
-  %115 = call float @llvm.fmuladd.f32(float %113, float %114, float %111)
-  %116 = load ptr, ptr %m.addr, align 8
-  %d456 = getelementptr inbounds %class.aiMatrix4x4t, ptr %116, i32 0, i32 15
-  %117 = load float, ptr %d456, align 4
-  %b457 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 7
-  %118 = load float, ptr %b457, align 4
-  %119 = call float @llvm.fmuladd.f32(float %117, float %118, float %115)
-  %120 = load ptr, ptr %m.addr, align 8
-  %a158 = getelementptr inbounds %class.aiMatrix4x4t, ptr %120, i32 0, i32 0
-  %121 = load float, ptr %a158, align 4
-  %c159 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 8
-  %122 = load float, ptr %c159, align 4
-  %123 = load ptr, ptr %m.addr, align 8
-  %b160 = getelementptr inbounds %class.aiMatrix4x4t, ptr %123, i32 0, i32 4
-  %124 = load float, ptr %b160, align 4
-  %c261 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 9
-  %125 = load float, ptr %c261, align 4
-  %mul62 = fmul float %124, %125
-  %126 = call float @llvm.fmuladd.f32(float %121, float %122, float %mul62)
-  %127 = load ptr, ptr %m.addr, align 8
-  %c163 = getelementptr inbounds %class.aiMatrix4x4t, ptr %127, i32 0, i32 8
-  %128 = load float, ptr %c163, align 4
-  %c364 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 10
-  %129 = load float, ptr %c364, align 4
-  %130 = call float @llvm.fmuladd.f32(float %128, float %129, float %126)
-  %131 = load ptr, ptr %m.addr, align 8
-  %d165 = getelementptr inbounds %class.aiMatrix4x4t, ptr %131, i32 0, i32 12
-  %132 = load float, ptr %d165, align 4
-  %c466 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 11
-  %133 = load float, ptr %c466, align 4
-  %134 = call float @llvm.fmuladd.f32(float %132, float %133, float %130)
-  %135 = load ptr, ptr %m.addr, align 8
-  %a267 = getelementptr inbounds %class.aiMatrix4x4t, ptr %135, i32 0, i32 1
-  %136 = load float, ptr %a267, align 4
-  %c168 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 8
-  %137 = load float, ptr %c168, align 4
-  %138 = load ptr, ptr %m.addr, align 8
-  %b269 = getelementptr inbounds %class.aiMatrix4x4t, ptr %138, i32 0, i32 5
-  %139 = load float, ptr %b269, align 4
-  %c270 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 9
-  %140 = load float, ptr %c270, align 4
-  %mul71 = fmul float %139, %140
-  %141 = call float @llvm.fmuladd.f32(float %136, float %137, float %mul71)
-  %142 = load ptr, ptr %m.addr, align 8
-  %c272 = getelementptr inbounds %class.aiMatrix4x4t, ptr %142, i32 0, i32 9
-  %143 = load float, ptr %c272, align 4
-  %c373 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 10
-  %144 = load float, ptr %c373, align 4
-  %145 = call float @llvm.fmuladd.f32(float %143, float %144, float %141)
-  %146 = load ptr, ptr %m.addr, align 8
-  %d274 = getelementptr inbounds %class.aiMatrix4x4t, ptr %146, i32 0, i32 13
-  %147 = load float, ptr %d274, align 4
-  %c475 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 11
-  %148 = load float, ptr %c475, align 4
-  %149 = call float @llvm.fmuladd.f32(float %147, float %148, float %145)
-  %150 = load ptr, ptr %m.addr, align 8
-  %a376 = getelementptr inbounds %class.aiMatrix4x4t, ptr %150, i32 0, i32 2
-  %151 = load float, ptr %a376, align 4
-  %c177 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 8
-  %152 = load float, ptr %c177, align 4
-  %153 = load ptr, ptr %m.addr, align 8
-  %b378 = getelementptr inbounds %class.aiMatrix4x4t, ptr %153, i32 0, i32 6
-  %154 = load float, ptr %b378, align 4
-  %c279 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 9
-  %155 = load float, ptr %c279, align 4
-  %mul80 = fmul float %154, %155
-  %156 = call float @llvm.fmuladd.f32(float %151, float %152, float %mul80)
-  %157 = load ptr, ptr %m.addr, align 8
-  %c381 = getelementptr inbounds %class.aiMatrix4x4t, ptr %157, i32 0, i32 10
-  %158 = load float, ptr %c381, align 4
-  %c382 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 10
-  %159 = load float, ptr %c382, align 4
-  %160 = call float @llvm.fmuladd.f32(float %158, float %159, float %156)
-  %161 = load ptr, ptr %m.addr, align 8
-  %d383 = getelementptr inbounds %class.aiMatrix4x4t, ptr %161, i32 0, i32 14
-  %162 = load float, ptr %d383, align 4
-  %c484 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 11
-  %163 = load float, ptr %c484, align 4
-  %164 = call float @llvm.fmuladd.f32(float %162, float %163, float %160)
-  %165 = load ptr, ptr %m.addr, align 8
-  %a485 = getelementptr inbounds %class.aiMatrix4x4t, ptr %165, i32 0, i32 3
-  %166 = load float, ptr %a485, align 4
-  %c186 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 8
-  %167 = load float, ptr %c186, align 4
-  %168 = load ptr, ptr %m.addr, align 8
-  %b487 = getelementptr inbounds %class.aiMatrix4x4t, ptr %168, i32 0, i32 7
-  %169 = load float, ptr %b487, align 4
-  %c288 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 9
-  %170 = load float, ptr %c288, align 4
-  %mul89 = fmul float %169, %170
-  %171 = call float @llvm.fmuladd.f32(float %166, float %167, float %mul89)
-  %172 = load ptr, ptr %m.addr, align 8
-  %c490 = getelementptr inbounds %class.aiMatrix4x4t, ptr %172, i32 0, i32 11
-  %173 = load float, ptr %c490, align 4
-  %c391 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 10
-  %174 = load float, ptr %c391, align 4
-  %175 = call float @llvm.fmuladd.f32(float %173, float %174, float %171)
-  %176 = load ptr, ptr %m.addr, align 8
-  %d492 = getelementptr inbounds %class.aiMatrix4x4t, ptr %176, i32 0, i32 15
-  %177 = load float, ptr %d492, align 4
-  %c493 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 11
-  %178 = load float, ptr %c493, align 4
-  %179 = call float @llvm.fmuladd.f32(float %177, float %178, float %175)
-  %180 = load ptr, ptr %m.addr, align 8
-  %a194 = getelementptr inbounds %class.aiMatrix4x4t, ptr %180, i32 0, i32 0
-  %181 = load float, ptr %a194, align 4
-  %d195 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 12
-  %182 = load float, ptr %d195, align 4
-  %183 = load ptr, ptr %m.addr, align 8
-  %b196 = getelementptr inbounds %class.aiMatrix4x4t, ptr %183, i32 0, i32 4
-  %184 = load float, ptr %b196, align 4
-  %d297 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 13
-  %185 = load float, ptr %d297, align 4
-  %mul98 = fmul float %184, %185
-  %186 = call float @llvm.fmuladd.f32(float %181, float %182, float %mul98)
-  %187 = load ptr, ptr %m.addr, align 8
-  %c199 = getelementptr inbounds %class.aiMatrix4x4t, ptr %187, i32 0, i32 8
-  %188 = load float, ptr %c199, align 4
-  %d3100 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 14
-  %189 = load float, ptr %d3100, align 4
-  %190 = call float @llvm.fmuladd.f32(float %188, float %189, float %186)
-  %191 = load ptr, ptr %m.addr, align 8
-  %d1101 = getelementptr inbounds %class.aiMatrix4x4t, ptr %191, i32 0, i32 12
-  %192 = load float, ptr %d1101, align 4
-  %d4102 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 15
-  %193 = load float, ptr %d4102, align 4
-  %194 = call float @llvm.fmuladd.f32(float %192, float %193, float %190)
-  %195 = load ptr, ptr %m.addr, align 8
-  %a2103 = getelementptr inbounds %class.aiMatrix4x4t, ptr %195, i32 0, i32 1
-  %196 = load float, ptr %a2103, align 4
-  %d1104 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 12
-  %197 = load float, ptr %d1104, align 4
-  %198 = load ptr, ptr %m.addr, align 8
-  %b2105 = getelementptr inbounds %class.aiMatrix4x4t, ptr %198, i32 0, i32 5
-  %199 = load float, ptr %b2105, align 4
-  %d2106 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 13
-  %200 = load float, ptr %d2106, align 4
-  %mul107 = fmul float %199, %200
-  %201 = call float @llvm.fmuladd.f32(float %196, float %197, float %mul107)
-  %202 = load ptr, ptr %m.addr, align 8
-  %c2108 = getelementptr inbounds %class.aiMatrix4x4t, ptr %202, i32 0, i32 9
-  %203 = load float, ptr %c2108, align 4
-  %d3109 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 14
-  %204 = load float, ptr %d3109, align 4
-  %205 = call float @llvm.fmuladd.f32(float %203, float %204, float %201)
-  %206 = load ptr, ptr %m.addr, align 8
-  %d2110 = getelementptr inbounds %class.aiMatrix4x4t, ptr %206, i32 0, i32 13
-  %207 = load float, ptr %d2110, align 4
-  %d4111 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 15
-  %208 = load float, ptr %d4111, align 4
-  %209 = call float @llvm.fmuladd.f32(float %207, float %208, float %205)
-  %210 = load ptr, ptr %m.addr, align 8
-  %a3112 = getelementptr inbounds %class.aiMatrix4x4t, ptr %210, i32 0, i32 2
-  %211 = load float, ptr %a3112, align 4
-  %d1113 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 12
-  %212 = load float, ptr %d1113, align 4
-  %213 = load ptr, ptr %m.addr, align 8
-  %b3114 = getelementptr inbounds %class.aiMatrix4x4t, ptr %213, i32 0, i32 6
-  %214 = load float, ptr %b3114, align 4
-  %d2115 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 13
-  %215 = load float, ptr %d2115, align 4
-  %mul116 = fmul float %214, %215
-  %216 = call float @llvm.fmuladd.f32(float %211, float %212, float %mul116)
-  %217 = load ptr, ptr %m.addr, align 8
-  %c3117 = getelementptr inbounds %class.aiMatrix4x4t, ptr %217, i32 0, i32 10
-  %218 = load float, ptr %c3117, align 4
-  %d3118 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 14
-  %219 = load float, ptr %d3118, align 4
-  %220 = call float @llvm.fmuladd.f32(float %218, float %219, float %216)
-  %221 = load ptr, ptr %m.addr, align 8
-  %d3119 = getelementptr inbounds %class.aiMatrix4x4t, ptr %221, i32 0, i32 14
-  %222 = load float, ptr %d3119, align 4
-  %d4120 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 15
-  %223 = load float, ptr %d4120, align 4
-  %224 = call float @llvm.fmuladd.f32(float %222, float %223, float %220)
-  %225 = load ptr, ptr %m.addr, align 8
-  %a4121 = getelementptr inbounds %class.aiMatrix4x4t, ptr %225, i32 0, i32 3
-  %226 = load float, ptr %a4121, align 4
-  %d1122 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 12
-  %227 = load float, ptr %d1122, align 4
-  %228 = load ptr, ptr %m.addr, align 8
-  %b4123 = getelementptr inbounds %class.aiMatrix4x4t, ptr %228, i32 0, i32 7
-  %229 = load float, ptr %b4123, align 4
-  %d2124 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 13
-  %230 = load float, ptr %d2124, align 4
-  %mul125 = fmul float %229, %230
-  %231 = call float @llvm.fmuladd.f32(float %226, float %227, float %mul125)
-  %232 = load ptr, ptr %m.addr, align 8
-  %c4126 = getelementptr inbounds %class.aiMatrix4x4t, ptr %232, i32 0, i32 11
-  %233 = load float, ptr %c4126, align 4
-  %d3127 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 14
-  %234 = load float, ptr %d3127, align 4
-  %235 = call float @llvm.fmuladd.f32(float %233, float %234, float %231)
-  %236 = load ptr, ptr %m.addr, align 8
-  %d4128 = getelementptr inbounds %class.aiMatrix4x4t, ptr %236, i32 0, i32 15
-  %237 = load float, ptr %d4128, align 4
-  %d4129 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 15
-  %238 = load float, ptr %d4129, align 4
-  %239 = call float @llvm.fmuladd.f32(float %237, float %238, float %235)
-  call void @_ZN12aiMatrix4x4tIfEC2Effffffffffffffff(ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp, float noundef %14, float noundef %29, float noundef %44, float noundef %59, float noundef %74, float noundef %89, float noundef %104, float noundef %119, float noundef %134, float noundef %149, float noundef %164, float noundef %179, float noundef %194, float noundef %209, float noundef %224, float noundef %239)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %this1, ptr align 4 %ref.tmp, i64 64, i1 false)
-  ret ptr %this1
+define hidden void @_ZN6Assimp23FlipWindingOrderProcess11ProcessMeshEP6aiMesh(ptr noundef %0) #1 align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  %16 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #12
+  store i32 0, ptr %3, align 4
+  br label %17
+
+17:                                               ; preds = %61, %1
+  %18 = load i32, ptr %3, align 4
+  %19 = load ptr, ptr %2, align 8
+  %20 = getelementptr inbounds nuw %struct.aiMesh, ptr %19, i32 0, i32 2
+  %21 = load i32, ptr %20, align 8
+  %22 = icmp ult i32 %18, %21
+  br i1 %22, label %24, label %23
+
+23:                                               ; preds = %17
+  store i32 2, ptr %4, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #12
+  br label %64
+
+24:                                               ; preds = %17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #12
+  %25 = load ptr, ptr %2, align 8
+  %26 = getelementptr inbounds nuw %struct.aiMesh, ptr %25, i32 0, i32 10
+  %27 = load ptr, ptr %26, align 8
+  %28 = load i32, ptr %3, align 4
+  %29 = zext i32 %28 to i64
+  %30 = getelementptr inbounds nuw %struct.aiFace, ptr %27, i64 %29
+  store ptr %30, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #12
+  store i32 0, ptr %6, align 4
+  br label %31
+
+31:                                               ; preds = %57, %24
+  %32 = load i32, ptr %6, align 4
+  %33 = load ptr, ptr %5, align 8
+  %34 = getelementptr inbounds nuw %struct.aiFace, ptr %33, i32 0, i32 0
+  %35 = load i32, ptr %34, align 8
+  %36 = udiv i32 %35, 2
+  %37 = icmp ult i32 %32, %36
+  br i1 %37, label %39, label %38
+
+38:                                               ; preds = %31
+  store i32 5, ptr %4, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #12
+  br label %60
+
+39:                                               ; preds = %31
+  %40 = load ptr, ptr %5, align 8
+  %41 = getelementptr inbounds nuw %struct.aiFace, ptr %40, i32 0, i32 1
+  %42 = load ptr, ptr %41, align 8
+  %43 = load i32, ptr %6, align 4
+  %44 = zext i32 %43 to i64
+  %45 = getelementptr inbounds nuw i32, ptr %42, i64 %44
+  %46 = load ptr, ptr %5, align 8
+  %47 = getelementptr inbounds nuw %struct.aiFace, ptr %46, i32 0, i32 1
+  %48 = load ptr, ptr %47, align 8
+  %49 = load ptr, ptr %5, align 8
+  %50 = getelementptr inbounds nuw %struct.aiFace, ptr %49, i32 0, i32 0
+  %51 = load i32, ptr %50, align 8
+  %52 = sub i32 %51, 1
+  %53 = load i32, ptr %6, align 4
+  %54 = sub i32 %52, %53
+  %55 = zext i32 %54 to i64
+  %56 = getelementptr inbounds nuw i32, ptr %48, i64 %55
+  call void @_ZSt4swapIjENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS3_ESt18is_move_assignableIS3_EEE5valueEvE4typeERS3_SC_(ptr noundef nonnull align 4 dereferenceable(4) %45, ptr noundef nonnull align 4 dereferenceable(4) %56) #12
+  br label %57
+
+57:                                               ; preds = %39
+  %58 = load i32, ptr %6, align 4
+  %59 = add i32 %58, 1
+  store i32 %59, ptr %6, align 4
+  br label %31, !llvm.loop !27
+
+60:                                               ; preds = %38
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #12
+  br label %61
+
+61:                                               ; preds = %60
+  %62 = load i32, ptr %3, align 4
+  %63 = add i32 %62, 1
+  store i32 %63, ptr %3, align 4
+  br label %17, !llvm.loop !28
+
+64:                                               ; preds = %23
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #12
+  store i32 0, ptr %7, align 4
+  br label %65
+
+65:                                               ; preds = %275, %64
+  %66 = load i32, ptr %7, align 4
+  %67 = load ptr, ptr %2, align 8
+  %68 = getelementptr inbounds nuw %struct.aiMesh, ptr %67, i32 0, i32 15
+  %69 = load i32, ptr %68, align 8
+  %70 = icmp ult i32 %66, %69
+  br i1 %70, label %72, label %71
+
+71:                                               ; preds = %65
+  store i32 8, ptr %4, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #12
+  br label %278
+
+72:                                               ; preds = %65
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #12
+  %73 = load ptr, ptr %2, align 8
+  %74 = getelementptr inbounds nuw %struct.aiMesh, ptr %73, i32 0, i32 16
+  %75 = load ptr, ptr %74, align 8
+  %76 = load i32, ptr %7, align 4
+  %77 = zext i32 %76 to i64
+  %78 = getelementptr inbounds nuw ptr, ptr %75, i64 %77
+  %79 = load ptr, ptr %78, align 8
+  store ptr %79, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #12
+  %80 = load ptr, ptr %8, align 8
+  %81 = getelementptr inbounds nuw %struct.aiAnimMesh, ptr %80, i32 0, i32 7
+  %82 = load i32, ptr %81, align 8
+  store i32 %82, ptr %9, align 4
+  %83 = load ptr, ptr %8, align 8
+  %84 = call noundef zeroext i1 @_ZNK10aiAnimMesh12HasPositionsEv(ptr noundef nonnull align 8 dereferenceable(1200) %83)
+  br i1 %84, label %85, label %111
+
+85:                                               ; preds = %72
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #12
+  store i32 0, ptr %10, align 4
+  br label %86
+
+86:                                               ; preds = %107, %85
+  %87 = load i32, ptr %10, align 4
+  %88 = load i32, ptr %9, align 4
+  %89 = icmp ult i32 %87, %88
+  br i1 %89, label %91, label %90
+
+90:                                               ; preds = %86
+  store i32 11, ptr %4, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #12
+  br label %110
+
+91:                                               ; preds = %86
+  %92 = load ptr, ptr %8, align 8
+  %93 = getelementptr inbounds nuw %struct.aiAnimMesh, ptr %92, i32 0, i32 1
+  %94 = load ptr, ptr %93, align 8
+  %95 = load i32, ptr %10, align 4
+  %96 = zext i32 %95 to i64
+  %97 = getelementptr inbounds nuw %class.aiVector3t, ptr %94, i64 %96
+  %98 = load ptr, ptr %8, align 8
+  %99 = getelementptr inbounds nuw %struct.aiAnimMesh, ptr %98, i32 0, i32 1
+  %100 = load ptr, ptr %99, align 8
+  %101 = load i32, ptr %9, align 4
+  %102 = sub i32 %101, 1
+  %103 = load i32, ptr %10, align 4
+  %104 = sub i32 %102, %103
+  %105 = zext i32 %104 to i64
+  %106 = getelementptr inbounds nuw %class.aiVector3t, ptr %100, i64 %105
+  call void @_ZSt4swapI10aiVector3tIfEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS5_ESt18is_move_assignableIS5_EEE5valueEvE4typeERS5_SE_(ptr noundef nonnull align 4 dereferenceable(12) %97, ptr noundef nonnull align 4 dereferenceable(12) %106) #12
+  br label %107
+
+107:                                              ; preds = %91
+  %108 = load i32, ptr %10, align 4
+  %109 = add i32 %108, 1
+  store i32 %109, ptr %10, align 4
+  br label %86, !llvm.loop !29
+
+110:                                              ; preds = %90
+  br label %111
+
+111:                                              ; preds = %110, %72
+  %112 = load ptr, ptr %8, align 8
+  %113 = call noundef zeroext i1 @_ZNK10aiAnimMesh10HasNormalsEv(ptr noundef nonnull align 8 dereferenceable(1200) %112)
+  br i1 %113, label %114, label %140
+
+114:                                              ; preds = %111
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #12
+  store i32 0, ptr %11, align 4
+  br label %115
+
+115:                                              ; preds = %136, %114
+  %116 = load i32, ptr %11, align 4
+  %117 = load i32, ptr %9, align 4
+  %118 = icmp ult i32 %116, %117
+  br i1 %118, label %120, label %119
+
+119:                                              ; preds = %115
+  store i32 14, ptr %4, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #12
+  br label %139
+
+120:                                              ; preds = %115
+  %121 = load ptr, ptr %8, align 8
+  %122 = getelementptr inbounds nuw %struct.aiAnimMesh, ptr %121, i32 0, i32 2
+  %123 = load ptr, ptr %122, align 8
+  %124 = load i32, ptr %11, align 4
+  %125 = zext i32 %124 to i64
+  %126 = getelementptr inbounds nuw %class.aiVector3t, ptr %123, i64 %125
+  %127 = load ptr, ptr %8, align 8
+  %128 = getelementptr inbounds nuw %struct.aiAnimMesh, ptr %127, i32 0, i32 2
+  %129 = load ptr, ptr %128, align 8
+  %130 = load i32, ptr %9, align 4
+  %131 = sub i32 %130, 1
+  %132 = load i32, ptr %11, align 4
+  %133 = sub i32 %131, %132
+  %134 = zext i32 %133 to i64
+  %135 = getelementptr inbounds nuw %class.aiVector3t, ptr %129, i64 %134
+  call void @_ZSt4swapI10aiVector3tIfEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS5_ESt18is_move_assignableIS5_EEE5valueEvE4typeERS5_SE_(ptr noundef nonnull align 4 dereferenceable(12) %126, ptr noundef nonnull align 4 dereferenceable(12) %135) #12
+  br label %136
+
+136:                                              ; preds = %120
+  %137 = load i32, ptr %11, align 4
+  %138 = add i32 %137, 1
+  store i32 %138, ptr %11, align 4
+  br label %115, !llvm.loop !30
+
+139:                                              ; preds = %119
+  br label %140
+
+140:                                              ; preds = %139, %111
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #12
+  store i32 0, ptr %12, align 4
+  br label %141
+
+141:                                              ; preds = %182, %140
+  %142 = load i32, ptr %12, align 4
+  %143 = icmp ult i32 %142, 8
+  br i1 %143, label %145, label %144
+
+144:                                              ; preds = %141
+  store i32 17, ptr %4, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #12
+  br label %185
+
+145:                                              ; preds = %141
+  %146 = load ptr, ptr %8, align 8
+  %147 = load i32, ptr %12, align 4
+  %148 = call noundef zeroext i1 @_ZNK10aiAnimMesh16HasTextureCoordsEj(ptr noundef nonnull align 8 dereferenceable(1200) %146, i32 noundef %147)
+  br i1 %148, label %149, label %181
+
+149:                                              ; preds = %145
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #12
+  store i32 0, ptr %13, align 4
+  br label %150
+
+150:                                              ; preds = %177, %149
+  %151 = load i32, ptr %13, align 4
+  %152 = load i32, ptr %9, align 4
+  %153 = icmp ult i32 %151, %152
+  br i1 %153, label %155, label %154
+
+154:                                              ; preds = %150
+  store i32 20, ptr %4, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #12
+  br label %180
+
+155:                                              ; preds = %150
+  %156 = load ptr, ptr %8, align 8
+  %157 = getelementptr inbounds nuw %struct.aiAnimMesh, ptr %156, i32 0, i32 6
+  %158 = load i32, ptr %12, align 4
+  %159 = zext i32 %158 to i64
+  %160 = getelementptr inbounds nuw [8 x ptr], ptr %157, i64 0, i64 %159
+  %161 = load ptr, ptr %160, align 8
+  %162 = load i32, ptr %13, align 4
+  %163 = zext i32 %162 to i64
+  %164 = getelementptr inbounds nuw %class.aiVector3t, ptr %161, i64 %163
+  %165 = load ptr, ptr %8, align 8
+  %166 = getelementptr inbounds nuw %struct.aiAnimMesh, ptr %165, i32 0, i32 6
+  %167 = load i32, ptr %12, align 4
+  %168 = zext i32 %167 to i64
+  %169 = getelementptr inbounds nuw [8 x ptr], ptr %166, i64 0, i64 %168
+  %170 = load ptr, ptr %169, align 8
+  %171 = load i32, ptr %9, align 4
+  %172 = sub i32 %171, 1
+  %173 = load i32, ptr %13, align 4
+  %174 = sub i32 %172, %173
+  %175 = zext i32 %174 to i64
+  %176 = getelementptr inbounds nuw %class.aiVector3t, ptr %170, i64 %175
+  call void @_ZSt4swapI10aiVector3tIfEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS5_ESt18is_move_assignableIS5_EEE5valueEvE4typeERS5_SE_(ptr noundef nonnull align 4 dereferenceable(12) %164, ptr noundef nonnull align 4 dereferenceable(12) %176) #12
+  br label %177
+
+177:                                              ; preds = %155
+  %178 = load i32, ptr %13, align 4
+  %179 = add i32 %178, 1
+  store i32 %179, ptr %13, align 4
+  br label %150, !llvm.loop !31
+
+180:                                              ; preds = %154
+  br label %181
+
+181:                                              ; preds = %180, %145
+  br label %182
+
+182:                                              ; preds = %181
+  %183 = load i32, ptr %12, align 4
+  %184 = add i32 %183, 1
+  store i32 %184, ptr %12, align 4
+  br label %141, !llvm.loop !32
+
+185:                                              ; preds = %144
+  %186 = load ptr, ptr %8, align 8
+  %187 = call noundef zeroext i1 @_ZNK10aiAnimMesh24HasTangentsAndBitangentsEv(ptr noundef nonnull align 8 dereferenceable(1200) %186)
+  br i1 %187, label %188, label %229
+
+188:                                              ; preds = %185
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #12
+  store i32 0, ptr %14, align 4
+  br label %189
+
+189:                                              ; preds = %225, %188
+  %190 = load i32, ptr %14, align 4
+  %191 = load i32, ptr %9, align 4
+  %192 = icmp ult i32 %190, %191
+  br i1 %192, label %194, label %193
+
+193:                                              ; preds = %189
+  store i32 23, ptr %4, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #12
+  br label %228
+
+194:                                              ; preds = %189
+  %195 = load ptr, ptr %8, align 8
+  %196 = getelementptr inbounds nuw %struct.aiAnimMesh, ptr %195, i32 0, i32 3
+  %197 = load ptr, ptr %196, align 8
+  %198 = load i32, ptr %14, align 4
+  %199 = zext i32 %198 to i64
+  %200 = getelementptr inbounds nuw %class.aiVector3t, ptr %197, i64 %199
+  %201 = load ptr, ptr %8, align 8
+  %202 = getelementptr inbounds nuw %struct.aiAnimMesh, ptr %201, i32 0, i32 3
+  %203 = load ptr, ptr %202, align 8
+  %204 = load i32, ptr %9, align 4
+  %205 = sub i32 %204, 1
+  %206 = load i32, ptr %14, align 4
+  %207 = sub i32 %205, %206
+  %208 = zext i32 %207 to i64
+  %209 = getelementptr inbounds nuw %class.aiVector3t, ptr %203, i64 %208
+  call void @_ZSt4swapI10aiVector3tIfEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS5_ESt18is_move_assignableIS5_EEE5valueEvE4typeERS5_SE_(ptr noundef nonnull align 4 dereferenceable(12) %200, ptr noundef nonnull align 4 dereferenceable(12) %209) #12
+  %210 = load ptr, ptr %8, align 8
+  %211 = getelementptr inbounds nuw %struct.aiAnimMesh, ptr %210, i32 0, i32 4
+  %212 = load ptr, ptr %211, align 8
+  %213 = load i32, ptr %14, align 4
+  %214 = zext i32 %213 to i64
+  %215 = getelementptr inbounds nuw %class.aiVector3t, ptr %212, i64 %214
+  %216 = load ptr, ptr %8, align 8
+  %217 = getelementptr inbounds nuw %struct.aiAnimMesh, ptr %216, i32 0, i32 4
+  %218 = load ptr, ptr %217, align 8
+  %219 = load i32, ptr %9, align 4
+  %220 = sub i32 %219, 1
+  %221 = load i32, ptr %14, align 4
+  %222 = sub i32 %220, %221
+  %223 = zext i32 %222 to i64
+  %224 = getelementptr inbounds nuw %class.aiVector3t, ptr %218, i64 %223
+  call void @_ZSt4swapI10aiVector3tIfEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS5_ESt18is_move_assignableIS5_EEE5valueEvE4typeERS5_SE_(ptr noundef nonnull align 4 dereferenceable(12) %215, ptr noundef nonnull align 4 dereferenceable(12) %224) #12
+  br label %225
+
+225:                                              ; preds = %194
+  %226 = load i32, ptr %14, align 4
+  %227 = add i32 %226, 1
+  store i32 %227, ptr %14, align 4
+  br label %189, !llvm.loop !33
+
+228:                                              ; preds = %193
+  br label %229
+
+229:                                              ; preds = %228, %185
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #12
+  store i32 0, ptr %15, align 4
+  br label %230
+
+230:                                              ; preds = %271, %229
+  %231 = load i32, ptr %15, align 4
+  %232 = icmp ult i32 %231, 8
+  br i1 %232, label %234, label %233
+
+233:                                              ; preds = %230
+  store i32 26, ptr %4, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #12
+  br label %274
+
+234:                                              ; preds = %230
+  %235 = load ptr, ptr %8, align 8
+  %236 = load i32, ptr %15, align 4
+  %237 = call noundef zeroext i1 @_ZNK10aiAnimMesh15HasVertexColorsEj(ptr noundef nonnull align 8 dereferenceable(1200) %235, i32 noundef %236)
+  br i1 %237, label %238, label %270
+
+238:                                              ; preds = %234
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #12
+  store i32 0, ptr %16, align 4
+  br label %239
+
+239:                                              ; preds = %266, %238
+  %240 = load i32, ptr %16, align 4
+  %241 = load i32, ptr %9, align 4
+  %242 = icmp ult i32 %240, %241
+  br i1 %242, label %244, label %243
+
+243:                                              ; preds = %239
+  store i32 29, ptr %4, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #12
+  br label %269
+
+244:                                              ; preds = %239
+  %245 = load ptr, ptr %8, align 8
+  %246 = getelementptr inbounds nuw %struct.aiAnimMesh, ptr %245, i32 0, i32 5
+  %247 = load i32, ptr %15, align 4
+  %248 = zext i32 %247 to i64
+  %249 = getelementptr inbounds nuw [8 x ptr], ptr %246, i64 0, i64 %248
+  %250 = load ptr, ptr %249, align 8
+  %251 = load i32, ptr %16, align 4
+  %252 = zext i32 %251 to i64
+  %253 = getelementptr inbounds nuw %class.aiColor4t, ptr %250, i64 %252
+  %254 = load ptr, ptr %8, align 8
+  %255 = getelementptr inbounds nuw %struct.aiAnimMesh, ptr %254, i32 0, i32 5
+  %256 = load i32, ptr %15, align 4
+  %257 = zext i32 %256 to i64
+  %258 = getelementptr inbounds nuw [8 x ptr], ptr %255, i64 0, i64 %257
+  %259 = load ptr, ptr %258, align 8
+  %260 = load i32, ptr %9, align 4
+  %261 = sub i32 %260, 1
+  %262 = load i32, ptr %16, align 4
+  %263 = sub i32 %261, %262
+  %264 = zext i32 %263 to i64
+  %265 = getelementptr inbounds nuw %class.aiColor4t, ptr %259, i64 %264
+  call void @_ZSt4swapI9aiColor4tIfEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS5_ESt18is_move_assignableIS5_EEE5valueEvE4typeERS5_SE_(ptr noundef nonnull align 4 dereferenceable(16) %253, ptr noundef nonnull align 4 dereferenceable(16) %265) #12
+  br label %266
+
+266:                                              ; preds = %244
+  %267 = load i32, ptr %16, align 4
+  %268 = add i32 %267, 1
+  store i32 %268, ptr %16, align 4
+  br label %239, !llvm.loop !34
+
+269:                                              ; preds = %243
+  br label %270
+
+270:                                              ; preds = %269, %234
+  br label %271
+
+271:                                              ; preds = %270
+  %272 = load i32, ptr %15, align 4
+  %273 = add i32 %272, 1
+  store i32 %273, ptr %15, align 4
+  br label %230, !llvm.loop !35
+
+274:                                              ; preds = %233
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #12
+  br label %275
+
+275:                                              ; preds = %274
+  %276 = load i32, ptr %7, align 4
+  %277 = add i32 %276, 1
+  store i32 %277, ptr %7, align 4
+  br label %65, !llvm.loop !36
+
+278:                                              ; preds = %71
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt4swapIjENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS3_ESt18is_move_assignableIS3_EEE5valueEvE4typeERS3_SC_(ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #6 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #12
+  %6 = load ptr, ptr %3, align 8
+  %7 = load i32, ptr %6, align 4
+  store i32 %7, ptr %5, align 4
+  %8 = load ptr, ptr %4, align 8
+  %9 = load i32, ptr %8, align 4
+  %10 = load ptr, ptr %3, align 8
+  store i32 %9, ptr %10, align 4
+  %11 = load i32, ptr %5, align 4
+  %12 = load ptr, ptr %4, align 8
+  store i32 %11, ptr %12, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZNK10aiAnimMesh12HasPositionsEv(ptr noundef nonnull align 8 dereferenceable(1200) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %struct.aiAnimMesh, ptr %3, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8
+  %6 = icmp ne ptr %5, null
+  ret i1 %6
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZSt4swapI10aiVector3tIfEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS5_ESt18is_move_assignableIS5_EEE5valueEvE4typeERS5_SE_(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %1) #6 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %class.aiVector3t, align 4
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 12, ptr %5) #12
+  %6 = load ptr, ptr %3, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %5, ptr align 4 %6, i64 12, i1 false)
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %3, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %8, ptr align 4 %7, i64 12, i1 false)
+  %9 = load ptr, ptr %4, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %9, ptr align 4 %5, i64 12, i1 false)
+  call void @llvm.lifetime.end.p0(i64 12, ptr %5) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZNK10aiAnimMesh16HasTextureCoordsEj(ptr noundef nonnull align 8 dereferenceable(1200) %0, i32 noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store i32 %1, ptr %4, align 4
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i32, ptr %4, align 4
+  %7 = icmp uge i32 %6, 8
+  br i1 %7, label %8, label %9
+
+8:                                                ; preds = %2
+  br label %16
+
+9:                                                ; preds = %2
+  %10 = getelementptr inbounds nuw %struct.aiAnimMesh, ptr %5, i32 0, i32 6
+  %11 = load i32, ptr %4, align 4
+  %12 = zext i32 %11 to i64
+  %13 = getelementptr inbounds nuw [8 x ptr], ptr %10, i64 0, i64 %12
+  %14 = load ptr, ptr %13, align 8
+  %15 = icmp ne ptr %14, null
+  br label %16
+
+16:                                               ; preds = %9, %8
+  %17 = phi i1 [ false, %8 ], [ %15, %9 ]
+  ret i1 %17
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZNK10aiAnimMesh15HasVertexColorsEj(ptr noundef nonnull align 8 dereferenceable(1200) %0, i32 noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store i32 %1, ptr %4, align 4
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i32, ptr %4, align 4
+  %7 = icmp uge i32 %6, 8
+  br i1 %7, label %8, label %9
+
+8:                                                ; preds = %2
+  br label %16
+
+9:                                                ; preds = %2
+  %10 = getelementptr inbounds nuw %struct.aiAnimMesh, ptr %5, i32 0, i32 5
+  %11 = load i32, ptr %4, align 4
+  %12 = zext i32 %11 to i64
+  %13 = getelementptr inbounds nuw [8 x ptr], ptr %10, i64 0, i64 %12
+  %14 = load ptr, ptr %13, align 8
+  %15 = icmp ne ptr %14, null
+  br label %16
+
+16:                                               ; preds = %9, %8
+  %17 = phi i1 [ false, %8 ], [ %15, %9 ]
+  ret i1 %17
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZSt4swapI9aiColor4tIfEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS5_ESt18is_move_assignableIS5_EEE5valueEvE4typeERS5_SE_(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %1) #6 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %class.aiColor4t, align 4
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %5) #12
+  %6 = load ptr, ptr %3, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %5, ptr align 4 %6, i64 16, i1 false)
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %3, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %8, ptr align 4 %7, i64 16, i1 false)
+  %9 = load ptr, ptr %4, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %9, ptr align 4 %5, i64 16, i1 false)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %5) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN6Assimp21MakeLeftHandedProcessD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN6Assimp11BaseProcessD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #12
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #14
+  ret void
+}
+
+declare noundef zeroext i1 @_ZNK6Assimp11BaseProcess20RequireVerboseFormatEv(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #2
+
+declare void @_ZN6Assimp11BaseProcess15SetupPropertiesEPKNS_8ImporterE(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef) unnamed_addr #2
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN6Assimp11BaseProcessD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN6Assimp23FlipWindingOrderProcessD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN6Assimp11BaseProcessD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #12
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #14
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden noundef nonnull align 4 dereferenceable(64) ptr @_ZN12aiMatrix4x4tIfEmLERKS0_(ptr noundef nonnull align 4 dereferenceable(64) %0, ptr noundef nonnull align 4 dereferenceable(64) %1) #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %class.aiMatrix4x4t, align 4
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %6 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 64, ptr %5) #12
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %7, i32 0, i32 0
+  %9 = load float, ptr %8, align 4
+  %10 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %6, i32 0, i32 0
+  %11 = load float, ptr %10, align 4
+  %12 = load ptr, ptr %4, align 8
+  %13 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %12, i32 0, i32 4
+  %14 = load float, ptr %13, align 4
+  %15 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %6, i32 0, i32 1
+  %16 = load float, ptr %15, align 4
+  %17 = fmul float %14, %16
+  %18 = call float @llvm.fmuladd.f32(float %9, float %11, float %17)
+  %19 = load ptr, ptr %4, align 8
+  %20 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %19, i32 0, i32 8
+  %21 = load float, ptr %20, align 4
+  %22 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %6, i32 0, i32 2
+  %23 = load float, ptr %22, align 4
+  %24 = call float @llvm.fmuladd.f32(float %21, float %23, float %18)
+  %25 = load ptr, ptr %4, align 8
+  %26 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %25, i32 0, i32 12
+  %27 = load float, ptr %26, align 4
+  %28 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %6, i32 0, i32 3
+  %29 = load float, ptr %28, align 4
+  %30 = call float @llvm.fmuladd.f32(float %27, float %29, float %24)
+  %31 = load ptr, ptr %4, align 8
+  %32 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %31, i32 0, i32 1
+  %33 = load float, ptr %32, align 4
+  %34 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %6, i32 0, i32 0
+  %35 = load float, ptr %34, align 4
+  %36 = load ptr, ptr %4, align 8
+  %37 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %36, i32 0, i32 5
+  %38 = load float, ptr %37, align 4
+  %39 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %6, i32 0, i32 1
+  %40 = load float, ptr %39, align 4
+  %41 = fmul float %38, %40
+  %42 = call float @llvm.fmuladd.f32(float %33, float %35, float %41)
+  %43 = load ptr, ptr %4, align 8
+  %44 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %43, i32 0, i32 9
+  %45 = load float, ptr %44, align 4
+  %46 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %6, i32 0, i32 2
+  %47 = load float, ptr %46, align 4
+  %48 = call float @llvm.fmuladd.f32(float %45, float %47, float %42)
+  %49 = load ptr, ptr %4, align 8
+  %50 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %49, i32 0, i32 13
+  %51 = load float, ptr %50, align 4
+  %52 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %6, i32 0, i32 3
+  %53 = load float, ptr %52, align 4
+  %54 = call float @llvm.fmuladd.f32(float %51, float %53, float %48)
+  %55 = load ptr, ptr %4, align 8
+  %56 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %55, i32 0, i32 2
+  %57 = load float, ptr %56, align 4
+  %58 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %6, i32 0, i32 0
+  %59 = load float, ptr %58, align 4
+  %60 = load ptr, ptr %4, align 8
+  %61 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %60, i32 0, i32 6
+  %62 = load float, ptr %61, align 4
+  %63 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %6, i32 0, i32 1
+  %64 = load float, ptr %63, align 4
+  %65 = fmul float %62, %64
+  %66 = call float @llvm.fmuladd.f32(float %57, float %59, float %65)
+  %67 = load ptr, ptr %4, align 8
+  %68 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %67, i32 0, i32 10
+  %69 = load float, ptr %68, align 4
+  %70 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %6, i32 0, i32 2
+  %71 = load float, ptr %70, align 4
+  %72 = call float @llvm.fmuladd.f32(float %69, float %71, float %66)
+  %73 = load ptr, ptr %4, align 8
+  %74 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %73, i32 0, i32 14
+  %75 = load float, ptr %74, align 4
+  %76 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %6, i32 0, i32 3
+  %77 = load float, ptr %76, align 4
+  %78 = call float @llvm.fmuladd.f32(float %75, float %77, float %72)
+  %79 = load ptr, ptr %4, align 8
+  %80 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %79, i32 0, i32 3
+  %81 = load float, ptr %80, align 4
+  %82 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %6, i32 0, i32 0
+  %83 = load float, ptr %82, align 4
+  %84 = load ptr, ptr %4, align 8
+  %85 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %84, i32 0, i32 7
+  %86 = load float, ptr %85, align 4
+  %87 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %6, i32 0, i32 1
+  %88 = load float, ptr %87, align 4
+  %89 = fmul float %86, %88
+  %90 = call float @llvm.fmuladd.f32(float %81, float %83, float %89)
+  %91 = load ptr, ptr %4, align 8
+  %92 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %91, i32 0, i32 11
+  %93 = load float, ptr %92, align 4
+  %94 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %6, i32 0, i32 2
+  %95 = load float, ptr %94, align 4
+  %96 = call float @llvm.fmuladd.f32(float %93, float %95, float %90)
+  %97 = load ptr, ptr %4, align 8
+  %98 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %97, i32 0, i32 15
+  %99 = load float, ptr %98, align 4
+  %100 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %6, i32 0, i32 3
+  %101 = load float, ptr %100, align 4
+  %102 = call float @llvm.fmuladd.f32(float %99, float %101, float %96)
+  %103 = load ptr, ptr %4, align 8
+  %104 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %103, i32 0, i32 0
+  %105 = load float, ptr %104, align 4
+  %106 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %6, i32 0, i32 4
+  %107 = load float, ptr %106, align 4
+  %108 = load ptr, ptr %4, align 8
+  %109 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %108, i32 0, i32 4
+  %110 = load float, ptr %109, align 4
+  %111 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %6, i32 0, i32 5
+  %112 = load float, ptr %111, align 4
+  %113 = fmul float %110, %112
+  %114 = call float @llvm.fmuladd.f32(float %105, float %107, float %113)
+  %115 = load ptr, ptr %4, align 8
+  %116 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %115, i32 0, i32 8
+  %117 = load float, ptr %116, align 4
+  %118 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %6, i32 0, i32 6
+  %119 = load float, ptr %118, align 4
+  %120 = call float @llvm.fmuladd.f32(float %117, float %119, float %114)
+  %121 = load ptr, ptr %4, align 8
+  %122 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %121, i32 0, i32 12
+  %123 = load float, ptr %122, align 4
+  %124 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %6, i32 0, i32 7
+  %125 = load float, ptr %124, align 4
+  %126 = call float @llvm.fmuladd.f32(float %123, float %125, float %120)
+  %127 = load ptr, ptr %4, align 8
+  %128 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %127, i32 0, i32 1
+  %129 = load float, ptr %128, align 4
+  %130 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %6, i32 0, i32 4
+  %131 = load float, ptr %130, align 4
+  %132 = load ptr, ptr %4, align 8
+  %133 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %132, i32 0, i32 5
+  %134 = load float, ptr %133, align 4
+  %135 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %6, i32 0, i32 5
+  %136 = load float, ptr %135, align 4
+  %137 = fmul float %134, %136
+  %138 = call float @llvm.fmuladd.f32(float %129, float %131, float %137)
+  %139 = load ptr, ptr %4, align 8
+  %140 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %139, i32 0, i32 9
+  %141 = load float, ptr %140, align 4
+  %142 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %6, i32 0, i32 6
+  %143 = load float, ptr %142, align 4
+  %144 = call float @llvm.fmuladd.f32(float %141, float %143, float %138)
+  %145 = load ptr, ptr %4, align 8
+  %146 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %145, i32 0, i32 13
+  %147 = load float, ptr %146, align 4
+  %148 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %6, i32 0, i32 7
+  %149 = load float, ptr %148, align 4
+  %150 = call float @llvm.fmuladd.f32(float %147, float %149, float %144)
+  %151 = load ptr, ptr %4, align 8
+  %152 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %151, i32 0, i32 2
+  %153 = load float, ptr %152, align 4
+  %154 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %6, i32 0, i32 4
+  %155 = load float, ptr %154, align 4
+  %156 = load ptr, ptr %4, align 8
+  %157 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %156, i32 0, i32 6
+  %158 = load float, ptr %157, align 4
+  %159 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %6, i32 0, i32 5
+  %160 = load float, ptr %159, align 4
+  %161 = fmul float %158, %160
+  %162 = call float @llvm.fmuladd.f32(float %153, float %155, float %161)
+  %163 = load ptr, ptr %4, align 8
+  %164 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %163, i32 0, i32 10
+  %165 = load float, ptr %164, align 4
+  %166 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %6, i32 0, i32 6
+  %167 = load float, ptr %166, align 4
+  %168 = call float @llvm.fmuladd.f32(float %165, float %167, float %162)
+  %169 = load ptr, ptr %4, align 8
+  %170 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %169, i32 0, i32 14
+  %171 = load float, ptr %170, align 4
+  %172 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %6, i32 0, i32 7
+  %173 = load float, ptr %172, align 4
+  %174 = call float @llvm.fmuladd.f32(float %171, float %173, float %168)
+  %175 = load ptr, ptr %4, align 8
+  %176 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %175, i32 0, i32 3
+  %177 = load float, ptr %176, align 4
+  %178 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %6, i32 0, i32 4
+  %179 = load float, ptr %178, align 4
+  %180 = load ptr, ptr %4, align 8
+  %181 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %180, i32 0, i32 7
+  %182 = load float, ptr %181, align 4
+  %183 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %6, i32 0, i32 5
+  %184 = load float, ptr %183, align 4
+  %185 = fmul float %182, %184
+  %186 = call float @llvm.fmuladd.f32(float %177, float %179, float %185)
+  %187 = load ptr, ptr %4, align 8
+  %188 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %187, i32 0, i32 11
+  %189 = load float, ptr %188, align 4
+  %190 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %6, i32 0, i32 6
+  %191 = load float, ptr %190, align 4
+  %192 = call float @llvm.fmuladd.f32(float %189, float %191, float %186)
+  %193 = load ptr, ptr %4, align 8
+  %194 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %193, i32 0, i32 15
+  %195 = load float, ptr %194, align 4
+  %196 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %6, i32 0, i32 7
+  %197 = load float, ptr %196, align 4
+  %198 = call float @llvm.fmuladd.f32(float %195, float %197, float %192)
+  %199 = load ptr, ptr %4, align 8
+  %200 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %199, i32 0, i32 0
+  %201 = load float, ptr %200, align 4
+  %202 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %6, i32 0, i32 8
+  %203 = load float, ptr %202, align 4
+  %204 = load ptr, ptr %4, align 8
+  %205 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %204, i32 0, i32 4
+  %206 = load float, ptr %205, align 4
+  %207 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %6, i32 0, i32 9
+  %208 = load float, ptr %207, align 4
+  %209 = fmul float %206, %208
+  %210 = call float @llvm.fmuladd.f32(float %201, float %203, float %209)
+  %211 = load ptr, ptr %4, align 8
+  %212 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %211, i32 0, i32 8
+  %213 = load float, ptr %212, align 4
+  %214 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %6, i32 0, i32 10
+  %215 = load float, ptr %214, align 4
+  %216 = call float @llvm.fmuladd.f32(float %213, float %215, float %210)
+  %217 = load ptr, ptr %4, align 8
+  %218 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %217, i32 0, i32 12
+  %219 = load float, ptr %218, align 4
+  %220 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %6, i32 0, i32 11
+  %221 = load float, ptr %220, align 4
+  %222 = call float @llvm.fmuladd.f32(float %219, float %221, float %216)
+  %223 = load ptr, ptr %4, align 8
+  %224 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %223, i32 0, i32 1
+  %225 = load float, ptr %224, align 4
+  %226 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %6, i32 0, i32 8
+  %227 = load float, ptr %226, align 4
+  %228 = load ptr, ptr %4, align 8
+  %229 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %228, i32 0, i32 5
+  %230 = load float, ptr %229, align 4
+  %231 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %6, i32 0, i32 9
+  %232 = load float, ptr %231, align 4
+  %233 = fmul float %230, %232
+  %234 = call float @llvm.fmuladd.f32(float %225, float %227, float %233)
+  %235 = load ptr, ptr %4, align 8
+  %236 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %235, i32 0, i32 9
+  %237 = load float, ptr %236, align 4
+  %238 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %6, i32 0, i32 10
+  %239 = load float, ptr %238, align 4
+  %240 = call float @llvm.fmuladd.f32(float %237, float %239, float %234)
+  %241 = load ptr, ptr %4, align 8
+  %242 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %241, i32 0, i32 13
+  %243 = load float, ptr %242, align 4
+  %244 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %6, i32 0, i32 11
+  %245 = load float, ptr %244, align 4
+  %246 = call float @llvm.fmuladd.f32(float %243, float %245, float %240)
+  %247 = load ptr, ptr %4, align 8
+  %248 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %247, i32 0, i32 2
+  %249 = load float, ptr %248, align 4
+  %250 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %6, i32 0, i32 8
+  %251 = load float, ptr %250, align 4
+  %252 = load ptr, ptr %4, align 8
+  %253 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %252, i32 0, i32 6
+  %254 = load float, ptr %253, align 4
+  %255 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %6, i32 0, i32 9
+  %256 = load float, ptr %255, align 4
+  %257 = fmul float %254, %256
+  %258 = call float @llvm.fmuladd.f32(float %249, float %251, float %257)
+  %259 = load ptr, ptr %4, align 8
+  %260 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %259, i32 0, i32 10
+  %261 = load float, ptr %260, align 4
+  %262 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %6, i32 0, i32 10
+  %263 = load float, ptr %262, align 4
+  %264 = call float @llvm.fmuladd.f32(float %261, float %263, float %258)
+  %265 = load ptr, ptr %4, align 8
+  %266 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %265, i32 0, i32 14
+  %267 = load float, ptr %266, align 4
+  %268 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %6, i32 0, i32 11
+  %269 = load float, ptr %268, align 4
+  %270 = call float @llvm.fmuladd.f32(float %267, float %269, float %264)
+  %271 = load ptr, ptr %4, align 8
+  %272 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %271, i32 0, i32 3
+  %273 = load float, ptr %272, align 4
+  %274 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %6, i32 0, i32 8
+  %275 = load float, ptr %274, align 4
+  %276 = load ptr, ptr %4, align 8
+  %277 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %276, i32 0, i32 7
+  %278 = load float, ptr %277, align 4
+  %279 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %6, i32 0, i32 9
+  %280 = load float, ptr %279, align 4
+  %281 = fmul float %278, %280
+  %282 = call float @llvm.fmuladd.f32(float %273, float %275, float %281)
+  %283 = load ptr, ptr %4, align 8
+  %284 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %283, i32 0, i32 11
+  %285 = load float, ptr %284, align 4
+  %286 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %6, i32 0, i32 10
+  %287 = load float, ptr %286, align 4
+  %288 = call float @llvm.fmuladd.f32(float %285, float %287, float %282)
+  %289 = load ptr, ptr %4, align 8
+  %290 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %289, i32 0, i32 15
+  %291 = load float, ptr %290, align 4
+  %292 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %6, i32 0, i32 11
+  %293 = load float, ptr %292, align 4
+  %294 = call float @llvm.fmuladd.f32(float %291, float %293, float %288)
+  %295 = load ptr, ptr %4, align 8
+  %296 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %295, i32 0, i32 0
+  %297 = load float, ptr %296, align 4
+  %298 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %6, i32 0, i32 12
+  %299 = load float, ptr %298, align 4
+  %300 = load ptr, ptr %4, align 8
+  %301 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %300, i32 0, i32 4
+  %302 = load float, ptr %301, align 4
+  %303 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %6, i32 0, i32 13
+  %304 = load float, ptr %303, align 4
+  %305 = fmul float %302, %304
+  %306 = call float @llvm.fmuladd.f32(float %297, float %299, float %305)
+  %307 = load ptr, ptr %4, align 8
+  %308 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %307, i32 0, i32 8
+  %309 = load float, ptr %308, align 4
+  %310 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %6, i32 0, i32 14
+  %311 = load float, ptr %310, align 4
+  %312 = call float @llvm.fmuladd.f32(float %309, float %311, float %306)
+  %313 = load ptr, ptr %4, align 8
+  %314 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %313, i32 0, i32 12
+  %315 = load float, ptr %314, align 4
+  %316 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %6, i32 0, i32 15
+  %317 = load float, ptr %316, align 4
+  %318 = call float @llvm.fmuladd.f32(float %315, float %317, float %312)
+  %319 = load ptr, ptr %4, align 8
+  %320 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %319, i32 0, i32 1
+  %321 = load float, ptr %320, align 4
+  %322 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %6, i32 0, i32 12
+  %323 = load float, ptr %322, align 4
+  %324 = load ptr, ptr %4, align 8
+  %325 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %324, i32 0, i32 5
+  %326 = load float, ptr %325, align 4
+  %327 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %6, i32 0, i32 13
+  %328 = load float, ptr %327, align 4
+  %329 = fmul float %326, %328
+  %330 = call float @llvm.fmuladd.f32(float %321, float %323, float %329)
+  %331 = load ptr, ptr %4, align 8
+  %332 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %331, i32 0, i32 9
+  %333 = load float, ptr %332, align 4
+  %334 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %6, i32 0, i32 14
+  %335 = load float, ptr %334, align 4
+  %336 = call float @llvm.fmuladd.f32(float %333, float %335, float %330)
+  %337 = load ptr, ptr %4, align 8
+  %338 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %337, i32 0, i32 13
+  %339 = load float, ptr %338, align 4
+  %340 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %6, i32 0, i32 15
+  %341 = load float, ptr %340, align 4
+  %342 = call float @llvm.fmuladd.f32(float %339, float %341, float %336)
+  %343 = load ptr, ptr %4, align 8
+  %344 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %343, i32 0, i32 2
+  %345 = load float, ptr %344, align 4
+  %346 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %6, i32 0, i32 12
+  %347 = load float, ptr %346, align 4
+  %348 = load ptr, ptr %4, align 8
+  %349 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %348, i32 0, i32 6
+  %350 = load float, ptr %349, align 4
+  %351 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %6, i32 0, i32 13
+  %352 = load float, ptr %351, align 4
+  %353 = fmul float %350, %352
+  %354 = call float @llvm.fmuladd.f32(float %345, float %347, float %353)
+  %355 = load ptr, ptr %4, align 8
+  %356 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %355, i32 0, i32 10
+  %357 = load float, ptr %356, align 4
+  %358 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %6, i32 0, i32 14
+  %359 = load float, ptr %358, align 4
+  %360 = call float @llvm.fmuladd.f32(float %357, float %359, float %354)
+  %361 = load ptr, ptr %4, align 8
+  %362 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %361, i32 0, i32 14
+  %363 = load float, ptr %362, align 4
+  %364 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %6, i32 0, i32 15
+  %365 = load float, ptr %364, align 4
+  %366 = call float @llvm.fmuladd.f32(float %363, float %365, float %360)
+  %367 = load ptr, ptr %4, align 8
+  %368 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %367, i32 0, i32 3
+  %369 = load float, ptr %368, align 4
+  %370 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %6, i32 0, i32 12
+  %371 = load float, ptr %370, align 4
+  %372 = load ptr, ptr %4, align 8
+  %373 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %372, i32 0, i32 7
+  %374 = load float, ptr %373, align 4
+  %375 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %6, i32 0, i32 13
+  %376 = load float, ptr %375, align 4
+  %377 = fmul float %374, %376
+  %378 = call float @llvm.fmuladd.f32(float %369, float %371, float %377)
+  %379 = load ptr, ptr %4, align 8
+  %380 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %379, i32 0, i32 11
+  %381 = load float, ptr %380, align 4
+  %382 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %6, i32 0, i32 14
+  %383 = load float, ptr %382, align 4
+  %384 = call float @llvm.fmuladd.f32(float %381, float %383, float %378)
+  %385 = load ptr, ptr %4, align 8
+  %386 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %385, i32 0, i32 15
+  %387 = load float, ptr %386, align 4
+  %388 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %6, i32 0, i32 15
+  %389 = load float, ptr %388, align 4
+  %390 = call float @llvm.fmuladd.f32(float %387, float %389, float %384)
+  call void @_ZN12aiMatrix4x4tIfEC2Effffffffffffffff(ptr noundef nonnull align 4 dereferenceable(64) %5, float noundef %30, float noundef %54, float noundef %78, float noundef %102, float noundef %126, float noundef %150, float noundef %174, float noundef %198, float noundef %222, float noundef %246, float noundef %270, float noundef %294, float noundef %318, float noundef %342, float noundef %366, float noundef %390)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %6, ptr align 4 %5, i64 64, i1 false)
+  call void @llvm.lifetime.end.p0(i64 64, ptr %5) #12
+  ret ptr %6
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #9
+declare float @llvm.fmuladd.f32(float, float, float) #11
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN12aiMatrix4x4tIfEC2Effffffffffffffff(ptr noundef nonnull align 4 dereferenceable(64) %this, float noundef %_a1, float noundef %_a2, float noundef %_a3, float noundef %_a4, float noundef %_b1, float noundef %_b2, float noundef %_b3, float noundef %_b4, float noundef %_c1, float noundef %_c2, float noundef %_c3, float noundef %_c4, float noundef %_d1, float noundef %_d2, float noundef %_d3, float noundef %_d4) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %_a1.addr = alloca float, align 4
-  %_a2.addr = alloca float, align 4
-  %_a3.addr = alloca float, align 4
-  %_a4.addr = alloca float, align 4
-  %_b1.addr = alloca float, align 4
-  %_b2.addr = alloca float, align 4
-  %_b3.addr = alloca float, align 4
-  %_b4.addr = alloca float, align 4
-  %_c1.addr = alloca float, align 4
-  %_c2.addr = alloca float, align 4
-  %_c3.addr = alloca float, align 4
-  %_c4.addr = alloca float, align 4
-  %_d1.addr = alloca float, align 4
-  %_d2.addr = alloca float, align 4
-  %_d3.addr = alloca float, align 4
-  %_d4.addr = alloca float, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store float %_a1, ptr %_a1.addr, align 4
-  store float %_a2, ptr %_a2.addr, align 4
-  store float %_a3, ptr %_a3.addr, align 4
-  store float %_a4, ptr %_a4.addr, align 4
-  store float %_b1, ptr %_b1.addr, align 4
-  store float %_b2, ptr %_b2.addr, align 4
-  store float %_b3, ptr %_b3.addr, align 4
-  store float %_b4, ptr %_b4.addr, align 4
-  store float %_c1, ptr %_c1.addr, align 4
-  store float %_c2, ptr %_c2.addr, align 4
-  store float %_c3, ptr %_c3.addr, align 4
-  store float %_c4, ptr %_c4.addr, align 4
-  store float %_d1, ptr %_d1.addr, align 4
-  store float %_d2, ptr %_d2.addr, align 4
-  store float %_d3, ptr %_d3.addr, align 4
-  store float %_d4, ptr %_d4.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %a1 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 0
-  %0 = load float, ptr %_a1.addr, align 4
-  store float %0, ptr %a1, align 4
-  %a2 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 1
-  %1 = load float, ptr %_a2.addr, align 4
-  store float %1, ptr %a2, align 4
-  %a3 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 2
-  %2 = load float, ptr %_a3.addr, align 4
-  store float %2, ptr %a3, align 4
-  %a4 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 3
-  %3 = load float, ptr %_a4.addr, align 4
-  store float %3, ptr %a4, align 4
-  %b1 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 4
-  %4 = load float, ptr %_b1.addr, align 4
-  store float %4, ptr %b1, align 4
-  %b2 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 5
-  %5 = load float, ptr %_b2.addr, align 4
-  store float %5, ptr %b2, align 4
-  %b3 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 6
-  %6 = load float, ptr %_b3.addr, align 4
-  store float %6, ptr %b3, align 4
-  %b4 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 7
-  %7 = load float, ptr %_b4.addr, align 4
-  store float %7, ptr %b4, align 4
-  %c1 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 8
-  %8 = load float, ptr %_c1.addr, align 4
-  store float %8, ptr %c1, align 4
-  %c2 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 9
-  %9 = load float, ptr %_c2.addr, align 4
-  store float %9, ptr %c2, align 4
-  %c3 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 10
-  %10 = load float, ptr %_c3.addr, align 4
-  store float %10, ptr %c3, align 4
-  %c4 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 11
-  %11 = load float, ptr %_c4.addr, align 4
-  store float %11, ptr %c4, align 4
-  %d1 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 12
-  %12 = load float, ptr %_d1.addr, align 4
-  store float %12, ptr %d1, align 4
-  %d2 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 13
-  %13 = load float, ptr %_d2.addr, align 4
-  store float %13, ptr %d2, align 4
-  %d3 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 14
-  %14 = load float, ptr %_d3.addr, align 4
-  store float %14, ptr %d3, align 4
-  %d4 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 15
-  %15 = load float, ptr %_d4.addr, align 4
-  store float %15, ptr %d4, align 4
+define linkonce_odr hidden void @_ZN12aiMatrix4x4tIfEC2Effffffffffffffff(ptr noundef nonnull align 4 dereferenceable(64) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, float noundef %9, float noundef %10, float noundef %11, float noundef %12, float noundef %13, float noundef %14, float noundef %15, float noundef %16) unnamed_addr #0 comdat align 2 {
+  %18 = alloca ptr, align 8
+  %19 = alloca float, align 4
+  %20 = alloca float, align 4
+  %21 = alloca float, align 4
+  %22 = alloca float, align 4
+  %23 = alloca float, align 4
+  %24 = alloca float, align 4
+  %25 = alloca float, align 4
+  %26 = alloca float, align 4
+  %27 = alloca float, align 4
+  %28 = alloca float, align 4
+  %29 = alloca float, align 4
+  %30 = alloca float, align 4
+  %31 = alloca float, align 4
+  %32 = alloca float, align 4
+  %33 = alloca float, align 4
+  %34 = alloca float, align 4
+  store ptr %0, ptr %18, align 8
+  store float %1, ptr %19, align 4
+  store float %2, ptr %20, align 4
+  store float %3, ptr %21, align 4
+  store float %4, ptr %22, align 4
+  store float %5, ptr %23, align 4
+  store float %6, ptr %24, align 4
+  store float %7, ptr %25, align 4
+  store float %8, ptr %26, align 4
+  store float %9, ptr %27, align 4
+  store float %10, ptr %28, align 4
+  store float %11, ptr %29, align 4
+  store float %12, ptr %30, align 4
+  store float %13, ptr %31, align 4
+  store float %14, ptr %32, align 4
+  store float %15, ptr %33, align 4
+  store float %16, ptr %34, align 4
+  %35 = load ptr, ptr %18, align 8
+  %36 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %35, i32 0, i32 0
+  %37 = load float, ptr %19, align 4
+  store float %37, ptr %36, align 4
+  %38 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %35, i32 0, i32 1
+  %39 = load float, ptr %20, align 4
+  store float %39, ptr %38, align 4
+  %40 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %35, i32 0, i32 2
+  %41 = load float, ptr %21, align 4
+  store float %41, ptr %40, align 4
+  %42 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %35, i32 0, i32 3
+  %43 = load float, ptr %22, align 4
+  store float %43, ptr %42, align 4
+  %44 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %35, i32 0, i32 4
+  %45 = load float, ptr %23, align 4
+  store float %45, ptr %44, align 4
+  %46 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %35, i32 0, i32 5
+  %47 = load float, ptr %24, align 4
+  store float %47, ptr %46, align 4
+  %48 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %35, i32 0, i32 6
+  %49 = load float, ptr %25, align 4
+  store float %49, ptr %48, align 4
+  %50 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %35, i32 0, i32 7
+  %51 = load float, ptr %26, align 4
+  store float %51, ptr %50, align 4
+  %52 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %35, i32 0, i32 8
+  %53 = load float, ptr %27, align 4
+  store float %53, ptr %52, align 4
+  %54 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %35, i32 0, i32 9
+  %55 = load float, ptr %28, align 4
+  store float %55, ptr %54, align 4
+  %56 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %35, i32 0, i32 10
+  %57 = load float, ptr %29, align 4
+  store float %57, ptr %56, align 4
+  %58 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %35, i32 0, i32 11
+  %59 = load float, ptr %30, align 4
+  store float %59, ptr %58, align 4
+  %60 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %35, i32 0, i32 12
+  %61 = load float, ptr %31, align 4
+  store float %61, ptr %60, align 4
+  %62 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %35, i32 0, i32 13
+  %63 = load float, ptr %32, align 4
+  store float %63, ptr %62, align 4
+  %64 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %35, i32 0, i32 14
+  %65 = load float, ptr %33, align 4
+  store float %65, ptr %64, align 4
+  %66 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %35, i32 0, i32 15
+  %67 = load float, ptr %34, align 4
+  store float %67, ptr %66, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN10aiVector3tIfEC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %this, float noundef %_x, float noundef %_y, float noundef %_z) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %_x.addr = alloca float, align 4
-  %_y.addr = alloca float, align 4
-  %_z.addr = alloca float, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store float %_x, ptr %_x.addr, align 4
-  store float %_y, ptr %_y.addr, align 4
-  store float %_z, ptr %_z.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %x = getelementptr inbounds %class.aiVector3t, ptr %this1, i32 0, i32 0
-  %0 = load float, ptr %_x.addr, align 4
-  store float %0, ptr %x, align 4
-  %y = getelementptr inbounds %class.aiVector3t, ptr %this1, i32 0, i32 1
-  %1 = load float, ptr %_y.addr, align 4
-  store float %1, ptr %y, align 4
-  %z = getelementptr inbounds %class.aiVector3t, ptr %this1, i32 0, i32 2
-  %2 = load float, ptr %_z.addr, align 4
-  store float %2, ptr %z, align 4
+define linkonce_odr hidden void @_ZN10aiVector3tIfEC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %0, float noundef %1, float noundef %2, float noundef %3) unnamed_addr #0 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca float, align 4
+  %7 = alloca float, align 4
+  %8 = alloca float, align 4
+  store ptr %0, ptr %5, align 8
+  store float %1, ptr %6, align 4
+  store float %2, ptr %7, align 4
+  store float %3, ptr %8, align 4
+  %9 = load ptr, ptr %5, align 8
+  %10 = getelementptr inbounds nuw %class.aiVector3t, ptr %9, i32 0, i32 0
+  %11 = load float, ptr %6, align 4
+  store float %11, ptr %10, align 4
+  %12 = getelementptr inbounds nuw %class.aiVector3t, ptr %9, i32 0, i32 1
+  %13 = load float, ptr %7, align 4
+  store float %13, ptr %12, align 4
+  %14 = getelementptr inbounds nuw %class.aiVector3t, ptr %9, i32 0, i32 2
+  %15 = load float, ptr %8, align 4
+  store float %15, ptr %14, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZNK6aiMesh16HasTextureCoordsEj(ptr noundef nonnull align 8 dereferenceable(1320) %this, i32 noundef %index) #0 comdat align 2 {
-entry:
-  %retval = alloca i1, align 1
-  %this.addr = alloca ptr, align 8
-  %index.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %index, ptr %index.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i32, ptr %index.addr, align 4
-  %cmp = icmp uge i32 %0, 8
-  br i1 %cmp, label %if.then, label %if.end
+define linkonce_odr hidden noundef zeroext i1 @_ZNK6aiMesh16HasTextureCoordsEj(ptr noundef nonnull align 8 dereferenceable(1320) %0, i32 noundef %1) #0 comdat align 2 {
+  %3 = alloca i1, align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store i32 %1, ptr %5, align 4
+  %6 = load ptr, ptr %4, align 8
+  %7 = load i32, ptr %5, align 4
+  %8 = icmp uge i32 %7, 8
+  br i1 %8, label %9, label %10
 
-if.then:                                          ; preds = %entry
-  store i1 false, ptr %retval, align 1
-  br label %return
+9:                                                ; preds = %2
+  store i1 false, ptr %3, align 1
+  br label %23
 
-if.end:                                           ; preds = %entry
-  %mTextureCoords = getelementptr inbounds %struct.aiMesh, ptr %this1, i32 0, i32 8
-  %1 = load i32, ptr %index.addr, align 4
-  %idxprom = zext i32 %1 to i64
-  %arrayidx = getelementptr inbounds [8 x ptr], ptr %mTextureCoords, i64 0, i64 %idxprom
-  %2 = load ptr, ptr %arrayidx, align 8
-  %cmp2 = icmp ne ptr %2, null
-  br i1 %cmp2, label %land.rhs, label %land.end
+10:                                               ; preds = %2
+  %11 = getelementptr inbounds nuw %struct.aiMesh, ptr %6, i32 0, i32 8
+  %12 = load i32, ptr %5, align 4
+  %13 = zext i32 %12 to i64
+  %14 = getelementptr inbounds nuw [8 x ptr], ptr %11, i64 0, i64 %13
+  %15 = load ptr, ptr %14, align 8
+  %16 = icmp ne ptr %15, null
+  br i1 %16, label %17, label %21
 
-land.rhs:                                         ; preds = %if.end
-  %mNumVertices = getelementptr inbounds %struct.aiMesh, ptr %this1, i32 0, i32 1
-  %3 = load i32, ptr %mNumVertices, align 4
-  %cmp3 = icmp ugt i32 %3, 0
-  br label %land.end
+17:                                               ; preds = %10
+  %18 = getelementptr inbounds nuw %struct.aiMesh, ptr %6, i32 0, i32 1
+  %19 = load i32, ptr %18, align 4
+  %20 = icmp ugt i32 %19, 0
+  br label %21
 
-land.end:                                         ; preds = %land.rhs, %if.end
-  %4 = phi i1 [ false, %if.end ], [ %cmp3, %land.rhs ]
-  store i1 %4, ptr %retval, align 1
-  br label %return
+21:                                               ; preds = %17, %10
+  %22 = phi i1 [ false, %10 ], [ %20, %17 ]
+  store i1 %22, ptr %3, align 1
+  br label %23
 
-return:                                           ; preds = %land.end, %if.then
-  %5 = load i1, ptr %retval, align 1
-  ret i1 %5
+23:                                               ; preds = %21, %9
+  %24 = load i1, ptr %3, align 1
+  ret i1 %24
 }
 
-attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #2 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { noreturn nounwind }
-attributes #11 = { nounwind }
-attributes #12 = { nounwind willreturn memory(read) }
-attributes #13 = { builtin nounwind }
+attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nounwind }
+attributes #13 = { nounwind willreturn memory(read) }
+attributes #14 = { builtin nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}
-!24 = distinct !{!24, !5}
-!25 = distinct !{!25, !5}
-!26 = distinct !{!26, !5}
-!27 = distinct !{!27, !5}
-!28 = distinct !{!28, !5}
-!29 = distinct !{!29, !5}
-!30 = distinct !{!30, !5}
-!31 = distinct !{!31, !5}
-!32 = distinct !{!32, !5}
-!33 = distinct !{!33, !5}
-!34 = distinct !{!34, !5}
-!35 = distinct !{!35, !5}
-!36 = distinct !{!36, !5}
-!37 = distinct !{!37, !5}
+!3 = distinct !{!3, !4}
+!4 = !{!"llvm.loop.mustprogress"}
+!5 = distinct !{!5, !4}
+!6 = distinct !{!6, !4}
+!7 = distinct !{!7, !4}
+!8 = distinct !{!8, !4}
+!9 = distinct !{!9, !4}
+!10 = distinct !{!10, !4}
+!11 = distinct !{!11, !4}
+!12 = distinct !{!12, !4}
+!13 = distinct !{!13, !4}
+!14 = distinct !{!14, !4}
+!15 = distinct !{!15, !4}
+!16 = distinct !{!16, !4}
+!17 = distinct !{!17, !4}
+!18 = distinct !{!18, !4}
+!19 = distinct !{!19, !4}
+!20 = distinct !{!20, !4}
+!21 = distinct !{!21, !4}
+!22 = distinct !{!22, !4}
+!23 = distinct !{!23, !4}
+!24 = distinct !{!24, !4}
+!25 = distinct !{!25, !4}
+!26 = distinct !{!26, !4}
+!27 = distinct !{!27, !4}
+!28 = distinct !{!28, !4}
+!29 = distinct !{!29, !4}
+!30 = distinct !{!30, !4}
+!31 = distinct !{!31, !4}
+!32 = distinct !{!32, !4}
+!33 = distinct !{!33, !4}
+!34 = distinct !{!34, !4}
+!35 = distinct !{!35, !4}
+!36 = distinct !{!36, !4}

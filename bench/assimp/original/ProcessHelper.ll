@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
@@ -28,6 +28,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::allocator.8" = type { i8 }
 %struct.aiFace = type { i32, ptr }
 %class.aiColor4t = type { float, float, float, float }
+%struct._Guard = type { ptr }
 %"class.std::__cxx11::_List_base" = type { %"struct.std::__cxx11::_List_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_List_impl" }
 %"struct.std::__cxx11::_List_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
 %"struct.std::__detail::_List_node_header" = type { %"struct.std::__detail::_List_node_base", i64 }
@@ -36,17 +37,13 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_List_node" = type { %"struct.std::__detail::_List_node_base", %"struct.__gnu_cxx::__aligned_membuf" }
 %"struct.__gnu_cxx::__aligned_membuf" = type { [32 x i8] }
 
-$_ZN6Assimp9LogStreamD0Ev = comdat any
-
-$_ZN6Assimp6LoggerD0Ev = comdat any
-
-$_ZN6Assimp20SkipSpacesAndLineEndIcEEbPPKT_ = comdat any
+$_ZN6Assimp20SkipSpacesAndLineEndIcEEbPPKT_S3_ = comdat any
 
 $_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJRPKcmEEERS5_DpOT_ = comdat any
 
 $_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_ = comdat any
 
-$_ZN6Assimp12GetNextTokenB5cxx11ERPKc = comdat any
+$_ZN6Assimp12GetNextTokenB5cxx11ERPKcS1_ = comdat any
 
 $_ZN10aiVector3tIfEC2Efff = comdat any
 
@@ -90,8 +87,6 @@ $_ZNSaIjEC2Ev = comdat any
 
 $_ZNSt6vectorIjSaIjEEC2EmRKjRKS0_ = comdat any
 
-$_ZNSaIjED2Ev = comdat any
-
 $_ZNKSt6vectorIjSaIjEE4sizeEv = comdat any
 
 $_ZNKSt6vectorIjSaIjEEixEm = comdat any
@@ -116,15 +111,43 @@ $_ZN14aiVertexWeightC2Ejf = comdat any
 
 $_ZNSt6vectorIjSaIjEED2Ev = comdat any
 
-$_ZN6Assimp9LogStreamD2Ev = comdat any
-
-$_ZN6Assimp6LoggerD2Ev = comdat any
-
 $_ZN6Assimp16IsSpaceOrNewLineIcEEbT_ = comdat any
+
+$_ZNSt15__new_allocatorIcED2Ev = comdat any
 
 $_ZN6Assimp7IsSpaceIcEEbT_ = comdat any
 
 $_ZN6Assimp9IsLineEndIcEEbT_ = comdat any
+
+$_ZNSt15__new_allocatorIcEC2Ev = comdat any
+
+$_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag = comdat any
+
+$_ZNSt19__ptr_traits_ptr_toIPccLb0EE10pointer_toERc = comdat any
+
+$_ZNSt15__new_allocatorIcEC2ERKS0_ = comdat any
+
+$_ZSt8distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_ = comdat any
+
+$_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardC2EPS4_ = comdat any
+
+$_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev = comdat any
+
+$_ZSt10__distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_St26random_access_iterator_tag = comdat any
+
+$_ZSt19__iterator_categoryIPKcENSt15iterator_traitsIT_E17iterator_categoryERKS3_ = comdat any
+
+$__clang_call_terminate = comdat any
+
+$_ZNSt11char_traitsIcE6assignERcRKc = comdat any
+
+$_ZNSt11char_traitsIcE4copyEPcPKcm = comdat any
+
+$_ZNSt19__ptr_traits_ptr_toIPKcS0_Lb0EE10pointer_toERS0_ = comdat any
+
+$_ZNSt16allocator_traitsISaIcEE10deallocateERS0_Pcm = comdat any
+
+$_ZNSt15__new_allocatorIcE10deallocateEPcm = comdat any
 
 $_ZNSt12_Vector_baseISt4pairIjfESaIS1_EEC2Ev = comdat any
 
@@ -140,11 +163,9 @@ $_ZN8aiStringC2Ev = comdat any
 
 $_ZN6aiAABBC2Ev = comdat any
 
-$__clang_call_terminate = comdat any
-
 $_ZN12aiMatrix4x4tIfEC2Ev = comdat any
 
-$_ZN6Assimp20SkipSpacesAndLineEndIcEEbPKT_PS3_ = comdat any
+$_ZN6Assimp20SkipSpacesAndLineEndIcEEbPKT_PS3_S3_ = comdat any
 
 $_ZSt3minIfERKT_S2_S2_ = comdat any
 
@@ -292,8 +313,6 @@ $_ZNK9__gnu_cxx17__normal_iteratorIPSt4pairIjfESt6vectorIS2_SaIS2_EEEdeEv = comd
 
 $_ZNSt15__new_allocatorIjEC2Ev = comdat any
 
-$_ZNSt15__new_allocatorIjED2Ev = comdat any
-
 $_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_ = comdat any
 
 $_ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_ = comdat any
@@ -318,7 +337,7 @@ $_ZNSt12_Vector_baseIjSaIjEE12_Vector_implC2ERKS0_ = comdat any
 
 $_ZNSt12_Vector_baseIjSaIjEE17_M_create_storageEm = comdat any
 
-$_ZNSt12_Vector_baseIjSaIjEE12_Vector_implD2Ev = comdat any
+$_ZNSt15__new_allocatorIjED2Ev = comdat any
 
 $_ZNSt12_Vector_baseIjSaIjEE17_Vector_impl_dataC2Ev = comdat any
 
@@ -360,22 +379,6 @@ $_ZSt8_DestroyIPjEvT_S1_ = comdat any
 
 $_ZNSt12_Destroy_auxILb1EE9__destroyIPjEEvT_S3_ = comdat any
 
-$_ZTVN6Assimp9LogStreamE = comdat any
-
-$_ZTSN6Assimp9LogStreamE = comdat any
-
-$_ZTSN6Assimp6Intern22AllocateFromAssimpHeapE = comdat any
-
-$_ZTIN6Assimp6Intern22AllocateFromAssimpHeapE = comdat any
-
-$_ZTIN6Assimp9LogStreamE = comdat any
-
-$_ZTVN6Assimp6LoggerE = comdat any
-
-$_ZTSN6Assimp6LoggerE = comdat any
-
-$_ZTIN6Assimp6LoggerE = comdat any
-
 @.str = private unnamed_addr constant [50 x i8] c"ConvertListToString: String list is ill-formatted\00", align 1
 @.str.1 = private unnamed_addr constant [3 x i8] c"UV\00", align 1
 @.str.2 = private unnamed_addr constant [4 x i8] c"Box\00", align 1
@@ -384,165 +387,203 @@ $_ZTIN6Assimp6LoggerE = comdat any
 @.str.5 = private unnamed_addr constant [6 x i8] c"Plane\00", align 1
 @.str.6 = private unnamed_addr constant [6 x i8] c"Other\00", align 1
 @.str.7 = private unnamed_addr constant [4 x i8] c"BUG\00", align 1
-@_ZTVN6Assimp9LogStreamE = linkonce_odr unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN6Assimp9LogStreamE, ptr @_ZN6Assimp9LogStreamD2Ev, ptr @_ZN6Assimp9LogStreamD0Ev, ptr @__cxa_pure_virtual] }, comdat, align 8
-@_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
-@_ZTSN6Assimp9LogStreamE = linkonce_odr constant [20 x i8] c"N6Assimp9LogStreamE\00", comdat, align 1
-@_ZTVN10__cxxabiv117__class_type_infoE = external global [0 x ptr]
-@_ZTSN6Assimp6Intern22AllocateFromAssimpHeapE = linkonce_odr constant [41 x i8] c"N6Assimp6Intern22AllocateFromAssimpHeapE\00", comdat, align 1
-@_ZTIN6Assimp6Intern22AllocateFromAssimpHeapE = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN6Assimp6Intern22AllocateFromAssimpHeapE }, comdat, align 8
-@_ZTIN6Assimp9LogStreamE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN6Assimp9LogStreamE, ptr @_ZTIN6Assimp6Intern22AllocateFromAssimpHeapE }, comdat, align 8
-@_ZTVN6Assimp6LoggerE = linkonce_odr unnamed_addr constant { [11 x ptr] } { [11 x ptr] [ptr null, ptr @_ZTIN6Assimp6LoggerE, ptr @_ZN6Assimp6LoggerD2Ev, ptr @_ZN6Assimp6LoggerD0Ev, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual] }, comdat, align 8
-@_ZTSN6Assimp6LoggerE = linkonce_odr constant [17 x i8] c"N6Assimp6LoggerE\00", comdat, align 1
-@_ZTIN6Assimp6LoggerE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN6Assimp6LoggerE, ptr @_ZTIN6Assimp6Intern22AllocateFromAssimpHeapE }, comdat, align 8
-@.str.8 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
-@.str.9 = private unnamed_addr constant [49 x i8] c"cannot create std::vector larger than max_size()\00", align 1
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6Assimp9LogStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  call void @llvm.trap() #13
-  unreachable
-}
-
-; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #1
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6Assimp6LoggerD0Ev(ptr noundef nonnull align 8 dereferenceable(12) %this) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  call void @llvm.trap() #13
-  unreachable
-}
+@.str.8 = private unnamed_addr constant [50 x i8] c"basic_string: construction from null is not valid\00", align 1
+@.str.9 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
+@.str.10 = private unnamed_addr constant [49 x i8] c"cannot create std::vector larger than max_size()\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp20ConvertListToStringsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS0_4listIS5_SaIS5_EEE(ptr noundef nonnull align 8 dereferenceable(32) %in, ptr noundef nonnull align 8 dereferenceable(24) %out) #2 personality ptr @__gxx_personality_v0 {
-entry:
-  %in.addr = alloca ptr, align 8
-  %out.addr = alloca ptr, align 8
-  %s = alloca ptr, align 8
-  %base = alloca ptr, align 8
-  %ref.tmp = alloca i64, align 8
-  %ref.tmp13 = alloca %"class.std::__cxx11::basic_string", align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %in, ptr %in.addr, align 8
-  store ptr %out, ptr %out.addr, align 8
-  %0 = load ptr, ptr %in.addr, align 8
-  %call = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #14
-  store ptr %call, ptr %s, align 8
-  br label %while.cond
+define hidden void @_ZN6Assimp20ConvertListToStringsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS0_4listIS5_SaIS5_EEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #0 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i64, align 8
+  %10 = alloca %"class.std::__cxx11::basic_string", align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #18
+  %13 = load ptr, ptr %3, align 8
+  %14 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %13) #18
+  store ptr %14, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #18
+  %15 = load ptr, ptr %3, align 8
+  %16 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %15) #18
+  %17 = load ptr, ptr %3, align 8
+  %18 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %17) #18
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 %18
+  store ptr %19, ptr %6, align 8
+  br label %20
 
-while.cond:                                       ; preds = %if.end14, %entry
-  %1 = load ptr, ptr %s, align 8
-  %2 = load i8, ptr %1, align 1
-  %tobool = icmp ne i8 %2, 0
-  br i1 %tobool, label %while.body, label %while.end15
+20:                                               ; preds = %70, %2
+  %21 = load ptr, ptr %5, align 8
+  %22 = load i8, ptr %21, align 1
+  %23 = icmp ne i8 %22, 0
+  br i1 %23, label %24, label %71
 
-while.body:                                       ; preds = %while.cond
-  %call1 = call noundef zeroext i1 @_ZN6Assimp20SkipSpacesAndLineEndIcEEbPPKT_(ptr noundef %s)
-  %3 = load ptr, ptr %s, align 8
-  %4 = load i8, ptr %3, align 1
-  %conv = sext i8 %4 to i32
-  %cmp = icmp eq i32 %conv, 39
-  br i1 %cmp, label %if.then, label %if.else
+24:                                               ; preds = %20
+  %25 = load ptr, ptr %6, align 8
+  %26 = call noundef zeroext i1 @_ZN6Assimp20SkipSpacesAndLineEndIcEEbPPKT_S3_(ptr noundef %5, ptr noundef %25)
+  %27 = load ptr, ptr %5, align 8
+  %28 = load i8, ptr %27, align 1
+  %29 = sext i8 %28 to i32
+  %30 = icmp eq i32 %29, 39
+  br i1 %30, label %31, label %62
 
-if.then:                                          ; preds = %while.body
-  %5 = load ptr, ptr %s, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %5, i32 1
-  store ptr %incdec.ptr, ptr %s, align 8
-  store ptr %incdec.ptr, ptr %base, align 8
-  br label %while.cond2
+31:                                               ; preds = %24
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #18
+  %32 = load ptr, ptr %5, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %32, i32 1
+  store ptr %33, ptr %5, align 8
+  store ptr %33, ptr %7, align 8
+  br label %34
 
-while.cond2:                                      ; preds = %if.end, %if.then
-  %6 = load ptr, ptr %s, align 8
-  %7 = load i8, ptr %6, align 1
-  %conv3 = sext i8 %7 to i32
-  %cmp4 = icmp ne i32 %conv3, 39
-  br i1 %cmp4, label %while.body5, label %while.end
+34:                                               ; preds = %48, %31
+  %35 = load ptr, ptr %5, align 8
+  %36 = load i8, ptr %35, align 1
+  %37 = sext i8 %36 to i32
+  %38 = icmp ne i32 %37, 39
+  br i1 %38, label %39, label %49
 
-while.body5:                                      ; preds = %while.cond2
-  %8 = load ptr, ptr %s, align 8
-  %incdec.ptr6 = getelementptr inbounds i8, ptr %8, i32 1
-  store ptr %incdec.ptr6, ptr %s, align 8
-  %9 = load ptr, ptr %s, align 8
-  %10 = load i8, ptr %9, align 1
-  %conv7 = sext i8 %10 to i32
-  %cmp8 = icmp eq i32 %conv7, 0
-  br i1 %cmp8, label %if.then9, label %if.end
+39:                                               ; preds = %34
+  %40 = load ptr, ptr %5, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %40, i32 1
+  store ptr %41, ptr %5, align 8
+  %42 = load ptr, ptr %5, align 8
+  %43 = load i8, ptr %42, align 1
+  %44 = sext i8 %43 to i32
+  %45 = icmp eq i32 %44, 0
+  br i1 %45, label %46, label %48
 
-if.then9:                                         ; preds = %while.body5
-  %call10 = call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
-  call void @_ZN6Assimp6Logger5errorEPKc(ptr noundef nonnull align 8 dereferenceable(12) %call10, ptr noundef @.str)
-  br label %while.end15
+46:                                               ; preds = %39
+  %47 = call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
+  call void @_ZN6Assimp6Logger5errorEPKc(ptr noundef nonnull align 8 dereferenceable(12) %47, ptr noundef @.str)
+  store i32 1, ptr %8, align 4
+  br label %59
 
-if.end:                                           ; preds = %while.body5
-  br label %while.cond2, !llvm.loop !4
+48:                                               ; preds = %39
+  br label %34, !llvm.loop !3
 
-while.end:                                        ; preds = %while.cond2
-  %11 = load ptr, ptr %out.addr, align 8
-  %12 = load ptr, ptr %s, align 8
-  %13 = load ptr, ptr %base, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %12 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %13 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  store i64 %sub.ptr.sub, ptr %ref.tmp, align 8
-  %call11 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJRPKcmEEERS5_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(8) %base, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
-  %14 = load ptr, ptr %s, align 8
-  %incdec.ptr12 = getelementptr inbounds i8, ptr %14, i32 1
-  store ptr %incdec.ptr12, ptr %s, align 8
-  br label %if.end14
+49:                                               ; preds = %34
+  %50 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #18
+  %51 = load ptr, ptr %5, align 8
+  %52 = load ptr, ptr %7, align 8
+  %53 = ptrtoint ptr %51 to i64
+  %54 = ptrtoint ptr %52 to i64
+  %55 = sub i64 %53, %54
+  store i64 %55, ptr %9, align 8
+  %56 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJRPKcmEEERS5_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %50, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %9)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #18
+  %57 = load ptr, ptr %5, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %57, i32 1
+  store ptr %58, ptr %5, align 8
+  store i32 0, ptr %8, align 4
+  br label %59
 
-if.else:                                          ; preds = %while.body
-  %15 = load ptr, ptr %out.addr, align 8
-  call void @_ZN6Assimp12GetNextTokenB5cxx11ERPKc(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp13, ptr noundef nonnull align 8 dereferenceable(8) %s)
-  invoke void @_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13)
-          to label %invoke.cont unwind label %lpad
+59:                                               ; preds = %49, %46
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #18
+  %60 = load i32, ptr %8, align 4
+  switch i32 %60, label %72 [
+    i32 0, label %61
+  ]
 
-invoke.cont:                                      ; preds = %if.else
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13) #14
-  br label %if.end14
+61:                                               ; preds = %59
+  br label %70
 
-lpad:                                             ; preds = %if.else
-  %16 = landingpad { ptr, i32 }
+62:                                               ; preds = %24
+  %63 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 32, ptr %10) #18
+  %64 = load ptr, ptr %6, align 8
+  call void @_ZN6Assimp12GetNextTokenB5cxx11ERPKcS1_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %10, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %64)
+  invoke void @_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_(ptr noundef nonnull align 8 dereferenceable(24) %63, ptr noundef nonnull align 8 dereferenceable(32) %10)
+          to label %65 unwind label %66
+
+65:                                               ; preds = %62
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #18
+  call void @llvm.lifetime.end.p0(i64 32, ptr %10) #18
+  br label %70
+
+66:                                               ; preds = %62
+  %67 = landingpad { ptr, i32 }
           cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %exn.slot, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %ehselector.slot, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13) #14
-  br label %eh.resume
+  %68 = extractvalue { ptr, i32 } %67, 0
+  store ptr %68, ptr %11, align 8
+  %69 = extractvalue { ptr, i32 } %67, 1
+  store i32 %69, ptr %12, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #18
+  call void @llvm.lifetime.end.p0(i64 32, ptr %10) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #18
+  br label %75
 
-if.end14:                                         ; preds = %invoke.cont, %while.end
-  br label %while.cond, !llvm.loop !6
+70:                                               ; preds = %65, %61
+  br label %20, !llvm.loop !5
 
-while.end15:                                      ; preds = %if.then9, %while.cond
+71:                                               ; preds = %20
+  store i32 0, ptr %8, align 4
+  br label %72
+
+72:                                               ; preds = %71, %59
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #18
+  %73 = load i32, ptr %8, align 4
+  switch i32 %73, label %80 [
+    i32 0, label %74
+    i32 1, label %74
+  ]
+
+74:                                               ; preds = %72, %72
   ret void
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val16 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val16
+75:                                               ; preds = %66
+  %76 = load ptr, ptr %11, align 8
+  %77 = load i32, ptr %12, align 4
+  %78 = insertvalue { ptr, i32 } poison, ptr %76, 0
+  %79 = insertvalue { ptr, i32 } %78, i32 %77, 1
+  resume { ptr, i32 } %79
+
+80:                                               ; preds = %72
+  unreachable
 }
 
-; Function Attrs: nounwind
-declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) #3
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZN6Assimp20SkipSpacesAndLineEndIcEEbPPKT_(ptr noundef %inout) #2 comdat {
-entry:
-  %inout.addr = alloca ptr, align 8
-  store ptr %inout, ptr %inout.addr, align 8
-  %0 = load ptr, ptr %inout.addr, align 8
-  %1 = load ptr, ptr %0, align 8
-  %2 = load ptr, ptr %inout.addr, align 8
-  %call = call noundef zeroext i1 @_ZN6Assimp20SkipSpacesAndLineEndIcEEbPKT_PS3_(ptr noundef %1, ptr noundef %2)
-  ret i1 %call
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #2 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #2 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 1
+  %5 = load i64, ptr %4, align 8
+  ret i64 %5
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZN6Assimp20SkipSpacesAndLineEndIcEEbPPKT_S3_(ptr noundef %0, ptr noundef %1) #3 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %5, align 8
+  %7 = load ptr, ptr %3, align 8
+  %8 = load ptr, ptr %4, align 8
+  %9 = call noundef zeroext i1 @_ZN6Assimp20SkipSpacesAndLineEndIcEEbPKT_PS3_S3_(ptr noundef %6, ptr noundef %7, ptr noundef %8)
+  ret i1 %9
 }
 
 declare noundef ptr @_ZN6Assimp13DefaultLogger3getEv() #4
@@ -550,3297 +591,3984 @@ declare noundef ptr @_ZN6Assimp13DefaultLogger3getEv() #4
 declare void @_ZN6Assimp6Logger5errorEPKc(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) #4
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJRPKcmEEERS5_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %__args, ptr noundef nonnull align 8 dereferenceable(8) %__args1) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__args.addr = alloca ptr, align 8
-  %__args.addr2 = alloca ptr, align 8
-  %agg.tmp = alloca %"struct.std::_List_iterator", align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__args, ptr %__args.addr, align 8
-  store ptr %__args1, ptr %__args.addr2, align 8
-  %this3 = load ptr, ptr %this.addr, align 8
-  %call = call ptr @_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %this3) #14
-  %coerce.dive = getelementptr inbounds %"struct.std::_List_iterator", ptr %agg.tmp, i32 0, i32 0
-  store ptr %call, ptr %coerce.dive, align 8
-  %0 = load ptr, ptr %__args.addr, align 8
-  %1 = load ptr, ptr %__args.addr2, align 8
-  %coerce.dive4 = getelementptr inbounds %"struct.std::_List_iterator", ptr %agg.tmp, i32 0, i32 0
-  %2 = load ptr, ptr %coerce.dive4, align 8
-  call void @_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9_M_insertIJRPKcmEEEvSt14_List_iteratorIS5_EDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this3, ptr %2, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
-  %call5 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE4backEv(ptr noundef nonnull align 8 dereferenceable(24) %this3) #14
-  ret ptr %call5
+define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJRPKcmEEERS5_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %"struct.std::_List_iterator", align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %8 = load ptr, ptr %4, align 8
+  %9 = call ptr @_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #18
+  %10 = getelementptr inbounds nuw %"struct.std::_List_iterator", ptr %7, i32 0, i32 0
+  store ptr %9, ptr %10, align 8
+  %11 = load ptr, ptr %5, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = getelementptr inbounds nuw %"struct.std::_List_iterator", ptr %7, i32 0, i32 0
+  %14 = load ptr, ptr %13, align 8
+  call void @_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9_M_insertIJRPKcmEEEvSt14_List_iteratorIS5_EDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr %14, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12)
+  %15 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE4backEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #18
+  ret ptr %15
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %__x) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__x.addr = alloca ptr, align 8
-  %agg.tmp = alloca %"struct.std::_List_iterator", align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__x, ptr %__x.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call ptr @_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #14
-  %coerce.dive = getelementptr inbounds %"struct.std::_List_iterator", ptr %agg.tmp, i32 0, i32 0
-  store ptr %call, ptr %coerce.dive, align 8
-  %0 = load ptr, ptr %__x.addr, align 8
-  %coerce.dive2 = getelementptr inbounds %"struct.std::_List_iterator", ptr %agg.tmp, i32 0, i32 0
-  %1 = load ptr, ptr %coerce.dive2, align 8
-  call void @_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9_M_insertIJS5_EEEvSt14_List_iteratorIS5_EDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %0)
+define linkonce_odr void @_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %"struct.std::_List_iterator", align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %6 = load ptr, ptr %3, align 8
+  %7 = call ptr @_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #18
+  %8 = getelementptr inbounds nuw %"struct.std::_List_iterator", ptr %5, i32 0, i32 0
+  store ptr %7, ptr %8, align 8
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds nuw %"struct.std::_List_iterator", ptr %5, i32 0, i32 0
+  %11 = load ptr, ptr %10, align 8
+  call void @_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9_M_insertIJS5_EEEvSt14_List_iteratorIS5_EDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %11, ptr noundef nonnull align 8 dereferenceable(32) %9)
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN6Assimp12GetNextTokenB5cxx11ERPKc(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %in) #2 comdat personality ptr @__gxx_personality_v0 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %in.addr = alloca ptr, align 8
-  %cur = alloca ptr, align 8
-  %ref.tmp = alloca %"class.std::allocator", align 1
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %in, ptr %in.addr, align 8
-  %0 = load ptr, ptr %in.addr, align 8
-  %call = call noundef zeroext i1 @_ZN6Assimp20SkipSpacesAndLineEndIcEEbPPKT_(ptr noundef %0)
-  %1 = load ptr, ptr %in.addr, align 8
-  %2 = load ptr, ptr %1, align 8
-  store ptr %2, ptr %cur, align 8
-  br label %while.cond
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden void @_ZN6Assimp12GetNextTokenB5cxx11ERPKcS1_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2) #3 comdat personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca %"class.std::allocator", align 1
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %11 = load ptr, ptr %5, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call noundef zeroext i1 @_ZN6Assimp20SkipSpacesAndLineEndIcEEbPPKT_S3_(ptr noundef %11, ptr noundef %12)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #18
+  %14 = load ptr, ptr %5, align 8
+  %15 = load ptr, ptr %14, align 8
+  store ptr %15, ptr %7, align 8
+  br label %16
 
-while.cond:                                       ; preds = %while.body, %entry
-  %3 = load ptr, ptr %in.addr, align 8
-  %4 = load ptr, ptr %3, align 8
-  %5 = load i8, ptr %4, align 1
-  %call1 = call noundef zeroext i1 @_ZN6Assimp16IsSpaceOrNewLineIcEEbT_(i8 noundef signext %5)
-  %lnot = xor i1 %call1, true
-  br i1 %lnot, label %while.body, label %while.end
+16:                                               ; preds = %22, %3
+  %17 = load ptr, ptr %5, align 8
+  %18 = load ptr, ptr %17, align 8
+  %19 = load i8, ptr %18, align 1
+  %20 = call noundef zeroext i1 @_ZN6Assimp16IsSpaceOrNewLineIcEEbT_(i8 noundef signext %19)
+  %21 = xor i1 %20, true
+  br i1 %21, label %22, label %26
 
-while.body:                                       ; preds = %while.cond
-  %6 = load ptr, ptr %in.addr, align 8
-  %7 = load ptr, ptr %6, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %7, i32 1
-  store ptr %incdec.ptr, ptr %6, align 8
-  br label %while.cond, !llvm.loop !7
+22:                                               ; preds = %16
+  %23 = load ptr, ptr %5, align 8
+  %24 = load ptr, ptr %23, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i32 1
+  store ptr %25, ptr %23, align 8
+  br label %16, !llvm.loop !6
 
-while.end:                                        ; preds = %while.cond
-  %8 = load ptr, ptr %cur, align 8
-  %9 = load ptr, ptr %in.addr, align 8
-  %10 = load ptr, ptr %9, align 8
-  %11 = load ptr, ptr %cur, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %10 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %11 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #14
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %8, i64 noundef %sub.ptr.sub, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
-          to label %invoke.cont unwind label %lpad
+26:                                               ; preds = %16
+  %27 = load ptr, ptr %7, align 8
+  %28 = load ptr, ptr %5, align 8
+  %29 = load ptr, ptr %28, align 8
+  %30 = load ptr, ptr %7, align 8
+  %31 = ptrtoint ptr %29 to i64
+  %32 = ptrtoint ptr %30 to i64
+  %33 = sub i64 %31, %32
+  call void @llvm.lifetime.start.p0(i64 1, ptr %8) #18
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #18
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %27, i64 noundef %33, ptr noundef nonnull align 1 dereferenceable(1) %8)
+          to label %34 unwind label %35
 
-invoke.cont:                                      ; preds = %while.end
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #14
+34:                                               ; preds = %26
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #18
+  call void @llvm.lifetime.end.p0(i64 1, ptr %8) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #18
   ret void
 
-lpad:                                             ; preds = %while.end
-  %12 = landingpad { ptr, i32 }
+35:                                               ; preds = %26
+  %36 = landingpad { ptr, i32 }
           cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %exn.slot, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %ehselector.slot, align 4
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #14
-  br label %eh.resume
+  %37 = extractvalue { ptr, i32 } %36, 0
+  store ptr %37, ptr %9, align 8
+  %38 = extractvalue { ptr, i32 } %36, 1
+  store i32 %38, ptr %10, align 4
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #18
+  call void @llvm.lifetime.end.p0(i64 1, ptr %8) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #18
+  br label %39
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val2 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val2
+39:                                               ; preds = %35
+  %40 = load ptr, ptr %9, align 8
+  %41 = load i32, ptr %10, align 4
+  %42 = insertvalue { ptr, i32 } poison, ptr %40, 0
+  %43 = insertvalue { ptr, i32 } %42, i32 %41, 1
+  resume { ptr, i32 } %43
 }
 
 declare i32 @__gxx_personality_v0(...)
 
-; Function Attrs: nounwind
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #3
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
+          to label %4 unwind label %6
+
+4:                                                ; preds = %1
+  %5 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 0
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #18
+  ret void
+
+6:                                                ; preds = %1
+  %7 = landingpad { ptr, i32 }
+          catch ptr null
+  %8 = extractvalue { ptr, i32 } %7, 0
+  call void @__clang_call_terminate(ptr %8) #19
+  unreachable
+}
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp19FindAABBTransformedEPK6aiMeshR10aiVector3tIfES5_RK12aiMatrix4x4tIfE(ptr noundef %mesh, ptr noundef nonnull align 4 dereferenceable(12) %min, ptr noundef nonnull align 4 dereferenceable(12) %max, ptr noundef nonnull align 4 dereferenceable(64) %m) #5 {
-entry:
-  %mesh.addr = alloca ptr, align 8
-  %min.addr = alloca ptr, align 8
-  %max.addr = alloca ptr, align 8
-  %m.addr = alloca ptr, align 8
-  %ref.tmp = alloca %class.aiVector3t, align 4
-  %ref.tmp1 = alloca %class.aiVector3t, align 4
-  %i = alloca i32, align 4
-  %v = alloca %class.aiVector3t, align 4
-  %tmp.coerce = alloca { <2 x float>, float }, align 8
-  %ref.tmp2 = alloca %class.aiVector3t, align 4
-  %tmp.coerce4 = alloca { <2 x float>, float }, align 8
-  %ref.tmp5 = alloca %class.aiVector3t, align 4
-  %tmp.coerce7 = alloca { <2 x float>, float }, align 8
-  store ptr %mesh, ptr %mesh.addr, align 8
-  store ptr %min, ptr %min.addr, align 8
-  store ptr %max, ptr %max.addr, align 8
-  store ptr %m, ptr %m.addr, align 8
-  call void @_ZN10aiVector3tIfEC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp, float noundef 0x42374876E0000000, float noundef 0x42374876E0000000, float noundef 0x42374876E0000000)
-  %0 = load ptr, ptr %min.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %0, ptr align 4 %ref.tmp, i64 12, i1 false)
-  call void @_ZN10aiVector3tIfEC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp1, float noundef 0xC2374876E0000000, float noundef 0xC2374876E0000000, float noundef 0xC2374876E0000000)
-  %1 = load ptr, ptr %max.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %1, ptr align 4 %ref.tmp1, i64 12, i1 false)
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+define hidden void @_ZN6Assimp19FindAABBTransformedEPK6aiMeshR10aiVector3tIfES5_RK12aiMatrix4x4tIfE(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef nonnull align 4 dereferenceable(12) %2, ptr noundef nonnull align 4 dereferenceable(64) %3) #5 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca %class.aiVector3t, align 4
+  %10 = alloca %class.aiVector3t, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca %class.aiVector3t, align 4
+  %13 = alloca { <2 x float>, float }, align 8
+  %14 = alloca %class.aiVector3t, align 4
+  %15 = alloca { <2 x float>, float }, align 8
+  %16 = alloca %class.aiVector3t, align 4
+  %17 = alloca { <2 x float>, float }, align 8
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store ptr %2, ptr %7, align 8
+  store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 12, ptr %9) #18
+  call void @_ZN10aiVector3tIfEC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %9, float noundef 0x42374876E0000000, float noundef 0x42374876E0000000, float noundef 0x42374876E0000000)
+  %18 = load ptr, ptr %6, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %18, ptr align 4 %9, i64 12, i1 false)
+  call void @llvm.lifetime.end.p0(i64 12, ptr %9) #18
+  call void @llvm.lifetime.start.p0(i64 12, ptr %10) #18
+  call void @_ZN10aiVector3tIfEC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %10, float noundef 0xC2374876E0000000, float noundef 0xC2374876E0000000, float noundef 0xC2374876E0000000)
+  %19 = load ptr, ptr %7, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %19, ptr align 4 %10, i64 12, i1 false)
+  call void @llvm.lifetime.end.p0(i64 12, ptr %10) #18
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #18
+  store i32 0, ptr %11, align 4
+  br label %20
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %2 = load i32, ptr %i, align 4
-  %3 = load ptr, ptr %mesh.addr, align 8
-  %mNumVertices = getelementptr inbounds %struct.aiMesh, ptr %3, i32 0, i32 1
-  %4 = load i32, ptr %mNumVertices, align 4
-  %cmp = icmp ult i32 %2, %4
-  br i1 %cmp, label %for.body, label %for.end
+20:                                               ; preds = %42, %4
+  %21 = load i32, ptr %11, align 4
+  %22 = load ptr, ptr %5, align 8
+  %23 = getelementptr inbounds nuw %struct.aiMesh, ptr %22, i32 0, i32 1
+  %24 = load i32, ptr %23, align 4
+  %25 = icmp ult i32 %21, %24
+  br i1 %25, label %27, label %26
 
-for.body:                                         ; preds = %for.cond
-  %5 = load ptr, ptr %m.addr, align 8
-  %6 = load ptr, ptr %mesh.addr, align 8
-  %mVertices = getelementptr inbounds %struct.aiMesh, ptr %6, i32 0, i32 3
-  %7 = load ptr, ptr %mVertices, align 8
-  %8 = load i32, ptr %i, align 4
-  %idxprom = zext i32 %8 to i64
-  %arrayidx = getelementptr inbounds %class.aiVector3t, ptr %7, i64 %idxprom
-  %call = call { <2 x float>, float } @_ZmlIfE10aiVector3tIT_ERK12aiMatrix4x4tIS1_ERKS2_(ptr noundef nonnull align 4 dereferenceable(64) %5, ptr noundef nonnull align 4 dereferenceable(12) %arrayidx)
-  store { <2 x float>, float } %call, ptr %tmp.coerce, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %v, ptr align 8 %tmp.coerce, i64 12, i1 false)
-  %9 = load ptr, ptr %min.addr, align 8
-  %call3 = call { <2 x float>, float } @_ZSt3minIfE10aiVector3tIT_ERKS2_S4_(ptr noundef nonnull align 4 dereferenceable(12) %v, ptr noundef nonnull align 4 dereferenceable(12) %9)
-  store { <2 x float>, float } %call3, ptr %tmp.coerce4, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %ref.tmp2, ptr align 8 %tmp.coerce4, i64 12, i1 false)
-  %10 = load ptr, ptr %min.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %10, ptr align 4 %ref.tmp2, i64 12, i1 false)
-  %11 = load ptr, ptr %max.addr, align 8
-  %call6 = call { <2 x float>, float } @_ZSt3maxIfE10aiVector3tIT_ERKS2_S4_(ptr noundef nonnull align 4 dereferenceable(12) %v, ptr noundef nonnull align 4 dereferenceable(12) %11)
-  store { <2 x float>, float } %call6, ptr %tmp.coerce7, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %ref.tmp5, ptr align 8 %tmp.coerce7, i64 12, i1 false)
-  %12 = load ptr, ptr %max.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %12, ptr align 4 %ref.tmp5, i64 12, i1 false)
-  br label %for.inc
+26:                                               ; preds = %20
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #18
+  br label %45
 
-for.inc:                                          ; preds = %for.body
-  %13 = load i32, ptr %i, align 4
-  %inc = add i32 %13, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !8
+27:                                               ; preds = %20
+  call void @llvm.lifetime.start.p0(i64 12, ptr %12) #18
+  %28 = load ptr, ptr %8, align 8
+  %29 = load ptr, ptr %5, align 8
+  %30 = getelementptr inbounds nuw %struct.aiMesh, ptr %29, i32 0, i32 3
+  %31 = load ptr, ptr %30, align 8
+  %32 = load i32, ptr %11, align 4
+  %33 = zext i32 %32 to i64
+  %34 = getelementptr inbounds nuw %class.aiVector3t, ptr %31, i64 %33
+  %35 = call { <2 x float>, float } @_ZmlIfE10aiVector3tIT_ERK12aiMatrix4x4tIS1_ERKS2_(ptr noundef nonnull align 4 dereferenceable(64) %28, ptr noundef nonnull align 4 dereferenceable(12) %34)
+  store { <2 x float>, float } %35, ptr %13, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %12, ptr align 8 %13, i64 12, i1 false)
+  call void @llvm.lifetime.start.p0(i64 12, ptr %14) #18
+  %36 = load ptr, ptr %6, align 8
+  %37 = call { <2 x float>, float } @_ZSt3minIfE10aiVector3tIT_ERKS2_S4_(ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %36)
+  store { <2 x float>, float } %37, ptr %15, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %14, ptr align 8 %15, i64 12, i1 false)
+  %38 = load ptr, ptr %6, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %38, ptr align 4 %14, i64 12, i1 false)
+  call void @llvm.lifetime.end.p0(i64 12, ptr %14) #18
+  call void @llvm.lifetime.start.p0(i64 12, ptr %16) #18
+  %39 = load ptr, ptr %7, align 8
+  %40 = call { <2 x float>, float } @_ZSt3maxIfE10aiVector3tIT_ERKS2_S4_(ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %39)
+  store { <2 x float>, float } %40, ptr %17, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %16, ptr align 8 %17, i64 12, i1 false)
+  %41 = load ptr, ptr %7, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %41, ptr align 4 %16, i64 12, i1 false)
+  call void @llvm.lifetime.end.p0(i64 12, ptr %16) #18
+  call void @llvm.lifetime.end.p0(i64 12, ptr %12) #18
+  br label %42
 
-for.end:                                          ; preds = %for.cond
+42:                                               ; preds = %27
+  %43 = load i32, ptr %11, align 4
+  %44 = add i32 %43, 1
+  store i32 %44, ptr %11, align 4
+  br label %20, !llvm.loop !7
+
+45:                                               ; preds = %26
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN10aiVector3tIfEC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %this, float noundef %_x, float noundef %_y, float noundef %_z) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %_x.addr = alloca float, align 4
-  %_y.addr = alloca float, align 4
-  %_z.addr = alloca float, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store float %_x, ptr %_x.addr, align 4
-  store float %_y, ptr %_y.addr, align 4
-  store float %_z, ptr %_z.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %x = getelementptr inbounds %class.aiVector3t, ptr %this1, i32 0, i32 0
-  %0 = load float, ptr %_x.addr, align 4
-  store float %0, ptr %x, align 4
-  %y = getelementptr inbounds %class.aiVector3t, ptr %this1, i32 0, i32 1
-  %1 = load float, ptr %_y.addr, align 4
-  store float %1, ptr %y, align 4
-  %z = getelementptr inbounds %class.aiVector3t, ptr %this1, i32 0, i32 2
-  %2 = load float, ptr %_z.addr, align 4
-  store float %2, ptr %z, align 4
+define linkonce_odr hidden void @_ZN10aiVector3tIfEC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %0, float noundef %1, float noundef %2, float noundef %3) unnamed_addr #2 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca float, align 4
+  %7 = alloca float, align 4
+  %8 = alloca float, align 4
+  store ptr %0, ptr %5, align 8
+  store float %1, ptr %6, align 4
+  store float %2, ptr %7, align 4
+  store float %3, ptr %8, align 4
+  %9 = load ptr, ptr %5, align 8
+  %10 = getelementptr inbounds nuw %class.aiVector3t, ptr %9, i32 0, i32 0
+  %11 = load float, ptr %6, align 4
+  store float %11, ptr %10, align 4
+  %12 = getelementptr inbounds nuw %class.aiVector3t, ptr %9, i32 0, i32 1
+  %13 = load float, ptr %7, align 4
+  store float %13, ptr %12, align 4
+  %14 = getelementptr inbounds nuw %class.aiVector3t, ptr %9, i32 0, i32 2
+  %15 = load float, ptr %8, align 4
+  store float %15, ptr %14, align 4
   ret void
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden { <2 x float>, float } @_ZmlIfE10aiVector3tIT_ERK12aiMatrix4x4tIS1_ERKS2_(ptr noundef nonnull align 4 dereferenceable(64) %0, ptr noundef nonnull align 4 dereferenceable(12) %1) #7 comdat {
+  %3 = alloca %class.aiVector3t, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca { <2 x float>, float }, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  call void @_ZN10aiVector3tIfEC2Ev(ptr noundef nonnull align 4 dereferenceable(12) %3) #18
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %7, i32 0, i32 0
+  %9 = load float, ptr %8, align 4
+  %10 = load ptr, ptr %5, align 8
+  %11 = getelementptr inbounds nuw %class.aiVector3t, ptr %10, i32 0, i32 0
+  %12 = load float, ptr %11, align 4
+  %13 = load ptr, ptr %4, align 8
+  %14 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %13, i32 0, i32 1
+  %15 = load float, ptr %14, align 4
+  %16 = load ptr, ptr %5, align 8
+  %17 = getelementptr inbounds nuw %class.aiVector3t, ptr %16, i32 0, i32 1
+  %18 = load float, ptr %17, align 4
+  %19 = fmul float %15, %18
+  %20 = call float @llvm.fmuladd.f32(float %9, float %12, float %19)
+  %21 = load ptr, ptr %4, align 8
+  %22 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %21, i32 0, i32 2
+  %23 = load float, ptr %22, align 4
+  %24 = load ptr, ptr %5, align 8
+  %25 = getelementptr inbounds nuw %class.aiVector3t, ptr %24, i32 0, i32 2
+  %26 = load float, ptr %25, align 4
+  %27 = call float @llvm.fmuladd.f32(float %23, float %26, float %20)
+  %28 = load ptr, ptr %4, align 8
+  %29 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %28, i32 0, i32 3
+  %30 = load float, ptr %29, align 4
+  %31 = fadd float %27, %30
+  %32 = getelementptr inbounds nuw %class.aiVector3t, ptr %3, i32 0, i32 0
+  store float %31, ptr %32, align 4
+  %33 = load ptr, ptr %4, align 8
+  %34 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %33, i32 0, i32 4
+  %35 = load float, ptr %34, align 4
+  %36 = load ptr, ptr %5, align 8
+  %37 = getelementptr inbounds nuw %class.aiVector3t, ptr %36, i32 0, i32 0
+  %38 = load float, ptr %37, align 4
+  %39 = load ptr, ptr %4, align 8
+  %40 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %39, i32 0, i32 5
+  %41 = load float, ptr %40, align 4
+  %42 = load ptr, ptr %5, align 8
+  %43 = getelementptr inbounds nuw %class.aiVector3t, ptr %42, i32 0, i32 1
+  %44 = load float, ptr %43, align 4
+  %45 = fmul float %41, %44
+  %46 = call float @llvm.fmuladd.f32(float %35, float %38, float %45)
+  %47 = load ptr, ptr %4, align 8
+  %48 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %47, i32 0, i32 6
+  %49 = load float, ptr %48, align 4
+  %50 = load ptr, ptr %5, align 8
+  %51 = getelementptr inbounds nuw %class.aiVector3t, ptr %50, i32 0, i32 2
+  %52 = load float, ptr %51, align 4
+  %53 = call float @llvm.fmuladd.f32(float %49, float %52, float %46)
+  %54 = load ptr, ptr %4, align 8
+  %55 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %54, i32 0, i32 7
+  %56 = load float, ptr %55, align 4
+  %57 = fadd float %53, %56
+  %58 = getelementptr inbounds nuw %class.aiVector3t, ptr %3, i32 0, i32 1
+  store float %57, ptr %58, align 4
+  %59 = load ptr, ptr %4, align 8
+  %60 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %59, i32 0, i32 8
+  %61 = load float, ptr %60, align 4
+  %62 = load ptr, ptr %5, align 8
+  %63 = getelementptr inbounds nuw %class.aiVector3t, ptr %62, i32 0, i32 0
+  %64 = load float, ptr %63, align 4
+  %65 = load ptr, ptr %4, align 8
+  %66 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %65, i32 0, i32 9
+  %67 = load float, ptr %66, align 4
+  %68 = load ptr, ptr %5, align 8
+  %69 = getelementptr inbounds nuw %class.aiVector3t, ptr %68, i32 0, i32 1
+  %70 = load float, ptr %69, align 4
+  %71 = fmul float %67, %70
+  %72 = call float @llvm.fmuladd.f32(float %61, float %64, float %71)
+  %73 = load ptr, ptr %4, align 8
+  %74 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %73, i32 0, i32 10
+  %75 = load float, ptr %74, align 4
+  %76 = load ptr, ptr %5, align 8
+  %77 = getelementptr inbounds nuw %class.aiVector3t, ptr %76, i32 0, i32 2
+  %78 = load float, ptr %77, align 4
+  %79 = call float @llvm.fmuladd.f32(float %75, float %78, float %72)
+  %80 = load ptr, ptr %4, align 8
+  %81 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %80, i32 0, i32 11
+  %82 = load float, ptr %81, align 4
+  %83 = fadd float %79, %82
+  %84 = getelementptr inbounds nuw %class.aiVector3t, ptr %3, i32 0, i32 2
+  store float %83, ptr %84, align 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 4 %3, i64 12, i1 false)
+  %85 = load { <2 x float>, float }, ptr %6, align 8
+  ret { <2 x float>, float } %85
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden { <2 x float>, float } @_ZSt3minIfE10aiVector3tIT_ERKS2_S4_(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %1) #3 comdat {
+  %3 = alloca %class.aiVector3t, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca { <2 x float>, float }, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %class.aiVector3t, ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %5, align 8
+  %10 = getelementptr inbounds nuw %class.aiVector3t, ptr %9, i32 0, i32 0
+  %11 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZSt3minIfERKT_S2_S2_(ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 4 dereferenceable(4) %10)
+  %12 = load float, ptr %11, align 4
+  %13 = load ptr, ptr %4, align 8
+  %14 = getelementptr inbounds nuw %class.aiVector3t, ptr %13, i32 0, i32 1
+  %15 = load ptr, ptr %5, align 8
+  %16 = getelementptr inbounds nuw %class.aiVector3t, ptr %15, i32 0, i32 1
+  %17 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZSt3minIfERKT_S2_S2_(ptr noundef nonnull align 4 dereferenceable(4) %14, ptr noundef nonnull align 4 dereferenceable(4) %16)
+  %18 = load float, ptr %17, align 4
+  %19 = load ptr, ptr %4, align 8
+  %20 = getelementptr inbounds nuw %class.aiVector3t, ptr %19, i32 0, i32 2
+  %21 = load ptr, ptr %5, align 8
+  %22 = getelementptr inbounds nuw %class.aiVector3t, ptr %21, i32 0, i32 2
+  %23 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZSt3minIfERKT_S2_S2_(ptr noundef nonnull align 4 dereferenceable(4) %20, ptr noundef nonnull align 4 dereferenceable(4) %22)
+  %24 = load float, ptr %23, align 4
+  call void @_ZN10aiVector3tIfEC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %3, float noundef %12, float noundef %18, float noundef %24)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 4 %3, i64 12, i1 false)
+  %25 = load { <2 x float>, float }, ptr %6, align 8
+  ret { <2 x float>, float } %25
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden { <2 x float>, float } @_ZSt3maxIfE10aiVector3tIT_ERKS2_S4_(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %1) #3 comdat {
+  %3 = alloca %class.aiVector3t, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca { <2 x float>, float }, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %class.aiVector3t, ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %5, align 8
+  %10 = getelementptr inbounds nuw %class.aiVector3t, ptr %9, i32 0, i32 0
+  %11 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZSt3maxIfERKT_S2_S2_(ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 4 dereferenceable(4) %10)
+  %12 = load float, ptr %11, align 4
+  %13 = load ptr, ptr %4, align 8
+  %14 = getelementptr inbounds nuw %class.aiVector3t, ptr %13, i32 0, i32 1
+  %15 = load ptr, ptr %5, align 8
+  %16 = getelementptr inbounds nuw %class.aiVector3t, ptr %15, i32 0, i32 1
+  %17 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZSt3maxIfERKT_S2_S2_(ptr noundef nonnull align 4 dereferenceable(4) %14, ptr noundef nonnull align 4 dereferenceable(4) %16)
+  %18 = load float, ptr %17, align 4
+  %19 = load ptr, ptr %4, align 8
+  %20 = getelementptr inbounds nuw %class.aiVector3t, ptr %19, i32 0, i32 2
+  %21 = load ptr, ptr %5, align 8
+  %22 = getelementptr inbounds nuw %class.aiVector3t, ptr %21, i32 0, i32 2
+  %23 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZSt3maxIfERKT_S2_S2_(ptr noundef nonnull align 4 dereferenceable(4) %20, ptr noundef nonnull align 4 dereferenceable(4) %22)
+  %24 = load float, ptr %23, align 4
+  call void @_ZN10aiVector3tIfEC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %3, float noundef %12, float noundef %18, float noundef %24)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 4 %3, i64 12, i1 false)
+  %25 = load { <2 x float>, float }, ptr %6, align 8
+  ret { <2 x float>, float } %25
+}
+
+; Function Attrs: mustprogress uwtable
+define hidden void @_ZN6Assimp14FindMeshCenterEP6aiMeshR10aiVector3tIfES4_S4_(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef nonnull align 4 dereferenceable(12) %2, ptr noundef nonnull align 4 dereferenceable(12) %3) #5 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca %class.aiVector3t, align 4
+  %10 = alloca %class.aiVector3t, align 4
+  %11 = alloca %class.aiVector3t, align 4
+  %12 = alloca { <2 x float>, float }, align 8
+  %13 = alloca { <2 x float>, float }, align 8
+  %14 = alloca { <2 x float>, float }, align 8
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store ptr %2, ptr %7, align 8
+  store ptr %3, ptr %8, align 8
+  %15 = load ptr, ptr %5, align 8
+  %16 = getelementptr inbounds nuw %struct.aiMesh, ptr %15, i32 0, i32 3
+  %17 = load ptr, ptr %16, align 8
+  %18 = load ptr, ptr %5, align 8
+  %19 = getelementptr inbounds nuw %struct.aiMesh, ptr %18, i32 0, i32 1
+  %20 = load i32, ptr %19, align 4
+  %21 = load ptr, ptr %7, align 8
+  %22 = load ptr, ptr %8, align 8
+  call void @_ZN6Assimp11ArrayBoundsI10aiVector3tIfEEEvPKT_jRS3_S6_(ptr noundef %17, i32 noundef %20, ptr noundef nonnull align 4 dereferenceable(12) %21, ptr noundef nonnull align 4 dereferenceable(12) %22)
+  call void @llvm.lifetime.start.p0(i64 12, ptr %9) #18
+  %23 = load ptr, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 12, ptr %10) #18
+  call void @llvm.lifetime.start.p0(i64 12, ptr %11) #18
+  %24 = load ptr, ptr %8, align 8
+  %25 = load ptr, ptr %7, align 8
+  %26 = call { <2 x float>, float } @_ZmiIfE10aiVector3tIT_ERKS2_S4_(ptr noundef nonnull align 4 dereferenceable(12) %24, ptr noundef nonnull align 4 dereferenceable(12) %25)
+  store { <2 x float>, float } %26, ptr %12, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %11, ptr align 8 %12, i64 12, i1 false)
+  %27 = call { <2 x float>, float } @_ZmlIfE10aiVector3tIT_ERKS2_S1_(ptr noundef nonnull align 4 dereferenceable(12) %11, float noundef 5.000000e-01)
+  store { <2 x float>, float } %27, ptr %13, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %10, ptr align 8 %13, i64 12, i1 false)
+  %28 = call { <2 x float>, float } @_ZplIfE10aiVector3tIT_ERKS2_S4_(ptr noundef nonnull align 4 dereferenceable(12) %23, ptr noundef nonnull align 4 dereferenceable(12) %10)
+  store { <2 x float>, float } %28, ptr %14, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %9, ptr align 8 %14, i64 12, i1 false)
+  %29 = load ptr, ptr %6, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %29, ptr align 4 %9, i64 12, i1 false)
+  call void @llvm.lifetime.end.p0(i64 12, ptr %11) #18
+  call void @llvm.lifetime.end.p0(i64 12, ptr %10) #18
+  call void @llvm.lifetime.end.p0(i64 12, ptr %9) #18
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden void @_ZN6Assimp11ArrayBoundsI10aiVector3tIfEEEvPKT_jRS3_S6_(ptr noundef %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(12) %2, ptr noundef nonnull align 4 dereferenceable(12) %3) #8 comdat {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca %"struct.Assimp::MinMaxChooser", align 1
+  %10 = alloca i32, align 4
+  %11 = alloca %class.aiVector3t, align 4
+  %12 = alloca { <2 x float>, float }, align 8
+  %13 = alloca %class.aiVector3t, align 4
+  %14 = alloca { <2 x float>, float }, align 8
+  store ptr %0, ptr %5, align 8
+  store i32 %1, ptr %6, align 4
+  store ptr %2, ptr %7, align 8
+  store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #18
+  %15 = load ptr, ptr %7, align 8
+  %16 = load ptr, ptr %8, align 8
+  call void @_ZN6Assimp13MinMaxChooserI10aiVector3tIfEEclERS2_S4_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 4 dereferenceable(12) %15, ptr noundef nonnull align 4 dereferenceable(12) %16)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #18
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #18
+  store i32 0, ptr %10, align 4
+  br label %17
+
+17:                                               ; preds = %37, %4
+  %18 = load i32, ptr %10, align 4
+  %19 = load i32, ptr %6, align 4
+  %20 = icmp ult i32 %18, %19
+  br i1 %20, label %22, label %21
+
+21:                                               ; preds = %17
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #18
+  br label %40
+
+22:                                               ; preds = %17
+  call void @llvm.lifetime.start.p0(i64 12, ptr %11) #18
+  %23 = load ptr, ptr %5, align 8
+  %24 = load i32, ptr %10, align 4
+  %25 = zext i32 %24 to i64
+  %26 = getelementptr inbounds nuw %class.aiVector3t, ptr %23, i64 %25
+  %27 = load ptr, ptr %7, align 8
+  %28 = call { <2 x float>, float } @_ZSt3minIfE10aiVector3tIT_ERKS2_S4_(ptr noundef nonnull align 4 dereferenceable(12) %26, ptr noundef nonnull align 4 dereferenceable(12) %27)
+  store { <2 x float>, float } %28, ptr %12, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %11, ptr align 8 %12, i64 12, i1 false)
+  %29 = load ptr, ptr %7, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %29, ptr align 4 %11, i64 12, i1 false)
+  call void @llvm.lifetime.end.p0(i64 12, ptr %11) #18
+  call void @llvm.lifetime.start.p0(i64 12, ptr %13) #18
+  %30 = load ptr, ptr %5, align 8
+  %31 = load i32, ptr %10, align 4
+  %32 = zext i32 %31 to i64
+  %33 = getelementptr inbounds nuw %class.aiVector3t, ptr %30, i64 %32
+  %34 = load ptr, ptr %8, align 8
+  %35 = call { <2 x float>, float } @_ZSt3maxIfE10aiVector3tIT_ERKS2_S4_(ptr noundef nonnull align 4 dereferenceable(12) %33, ptr noundef nonnull align 4 dereferenceable(12) %34)
+  store { <2 x float>, float } %35, ptr %14, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %13, ptr align 8 %14, i64 12, i1 false)
+  %36 = load ptr, ptr %8, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %36, ptr align 4 %13, i64 12, i1 false)
+  call void @llvm.lifetime.end.p0(i64 12, ptr %13) #18
+  br label %37
+
+37:                                               ; preds = %22
+  %38 = load i32, ptr %10, align 4
+  %39 = add i32 %38, 1
+  store i32 %39, ptr %10, align 4
+  br label %17, !llvm.loop !8
+
+40:                                               ; preds = %21
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden { <2 x float>, float } @_ZplIfE10aiVector3tIT_ERKS2_S4_(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %1) #3 comdat {
+  %3 = alloca %class.aiVector3t, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca { <2 x float>, float }, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %class.aiVector3t, ptr %7, i32 0, i32 0
+  %9 = load float, ptr %8, align 4
+  %10 = load ptr, ptr %5, align 8
+  %11 = getelementptr inbounds nuw %class.aiVector3t, ptr %10, i32 0, i32 0
+  %12 = load float, ptr %11, align 4
+  %13 = fadd float %9, %12
+  %14 = load ptr, ptr %4, align 8
+  %15 = getelementptr inbounds nuw %class.aiVector3t, ptr %14, i32 0, i32 1
+  %16 = load float, ptr %15, align 4
+  %17 = load ptr, ptr %5, align 8
+  %18 = getelementptr inbounds nuw %class.aiVector3t, ptr %17, i32 0, i32 1
+  %19 = load float, ptr %18, align 4
+  %20 = fadd float %16, %19
+  %21 = load ptr, ptr %4, align 8
+  %22 = getelementptr inbounds nuw %class.aiVector3t, ptr %21, i32 0, i32 2
+  %23 = load float, ptr %22, align 4
+  %24 = load ptr, ptr %5, align 8
+  %25 = getelementptr inbounds nuw %class.aiVector3t, ptr %24, i32 0, i32 2
+  %26 = load float, ptr %25, align 4
+  %27 = fadd float %23, %26
+  call void @_ZN10aiVector3tIfEC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %3, float noundef %13, float noundef %20, float noundef %27)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 4 %3, i64 12, i1 false)
+  %28 = load { <2 x float>, float }, ptr %6, align 8
+  ret { <2 x float>, float } %28
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden { <2 x float>, float } @_ZmlIfE10aiVector3tIT_ERKS2_S1_(ptr noundef nonnull align 4 dereferenceable(12) %0, float noundef %1) #3 comdat {
+  %3 = alloca %class.aiVector3t, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca float, align 4
+  %6 = alloca { <2 x float>, float }, align 8
+  store ptr %0, ptr %4, align 8
+  store float %1, ptr %5, align 4
+  %7 = load float, ptr %5, align 4
+  %8 = load ptr, ptr %4, align 8
+  %9 = getelementptr inbounds nuw %class.aiVector3t, ptr %8, i32 0, i32 0
+  %10 = load float, ptr %9, align 4
+  %11 = fmul float %7, %10
+  %12 = load float, ptr %5, align 4
+  %13 = load ptr, ptr %4, align 8
+  %14 = getelementptr inbounds nuw %class.aiVector3t, ptr %13, i32 0, i32 1
+  %15 = load float, ptr %14, align 4
+  %16 = fmul float %12, %15
+  %17 = load float, ptr %5, align 4
+  %18 = load ptr, ptr %4, align 8
+  %19 = getelementptr inbounds nuw %class.aiVector3t, ptr %18, i32 0, i32 2
+  %20 = load float, ptr %19, align 4
+  %21 = fmul float %17, %20
+  call void @_ZN10aiVector3tIfEC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %3, float noundef %11, float noundef %16, float noundef %21)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 4 %3, i64 12, i1 false)
+  %22 = load { <2 x float>, float }, ptr %6, align 8
+  ret { <2 x float>, float } %22
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden { <2 x float>, float } @_ZmiIfE10aiVector3tIT_ERKS2_S4_(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %1) #3 comdat {
+  %3 = alloca %class.aiVector3t, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca { <2 x float>, float }, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %class.aiVector3t, ptr %7, i32 0, i32 0
+  %9 = load float, ptr %8, align 4
+  %10 = load ptr, ptr %5, align 8
+  %11 = getelementptr inbounds nuw %class.aiVector3t, ptr %10, i32 0, i32 0
+  %12 = load float, ptr %11, align 4
+  %13 = fsub float %9, %12
+  %14 = load ptr, ptr %4, align 8
+  %15 = getelementptr inbounds nuw %class.aiVector3t, ptr %14, i32 0, i32 1
+  %16 = load float, ptr %15, align 4
+  %17 = load ptr, ptr %5, align 8
+  %18 = getelementptr inbounds nuw %class.aiVector3t, ptr %17, i32 0, i32 1
+  %19 = load float, ptr %18, align 4
+  %20 = fsub float %16, %19
+  %21 = load ptr, ptr %4, align 8
+  %22 = getelementptr inbounds nuw %class.aiVector3t, ptr %21, i32 0, i32 2
+  %23 = load float, ptr %22, align 4
+  %24 = load ptr, ptr %5, align 8
+  %25 = getelementptr inbounds nuw %class.aiVector3t, ptr %24, i32 0, i32 2
+  %26 = load float, ptr %25, align 4
+  %27 = fsub float %23, %26
+  call void @_ZN10aiVector3tIfEC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %3, float noundef %13, float noundef %20, float noundef %27)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 4 %3, i64 12, i1 false)
+  %28 = load { <2 x float>, float }, ptr %6, align 8
+  ret { <2 x float>, float } %28
+}
+
+; Function Attrs: mustprogress uwtable
+define hidden void @_ZN6Assimp15FindSceneCenterEP7aiSceneR10aiVector3tIfES4_S4_(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef nonnull align 4 dereferenceable(12) %2, ptr noundef nonnull align 4 dereferenceable(12) %3) #5 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca %class.aiVector3t, align 4
+  %11 = alloca %class.aiVector3t, align 4
+  %12 = alloca %class.aiVector3t, align 4
+  %13 = alloca %class.aiVector3t, align 4
+  %14 = alloca %class.aiVector3t, align 4
+  %15 = alloca %class.aiVector3t, align 4
+  %16 = alloca { <2 x float>, float }, align 8
+  %17 = alloca { <2 x float>, float }, align 8
+  %18 = alloca { <2 x float>, float }, align 8
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store ptr %2, ptr %7, align 8
+  store ptr %3, ptr %8, align 8
+  %19 = load ptr, ptr %5, align 8
+  %20 = icmp eq ptr null, %19
+  br i1 %20, label %21, label %22
+
+21:                                               ; preds = %4
+  br label %135
+
+22:                                               ; preds = %4
+  %23 = load ptr, ptr %5, align 8
+  %24 = getelementptr inbounds nuw %struct.aiScene, ptr %23, i32 0, i32 2
+  %25 = load i32, ptr %24, align 8
+  %26 = icmp eq i32 0, %25
+  br i1 %26, label %27, label %28
+
+27:                                               ; preds = %22
+  br label %135
+
+28:                                               ; preds = %22
+  %29 = load ptr, ptr %5, align 8
+  %30 = getelementptr inbounds nuw %struct.aiScene, ptr %29, i32 0, i32 3
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds ptr, ptr %31, i64 0
+  %33 = load ptr, ptr %32, align 8
+  %34 = load ptr, ptr %6, align 8
+  %35 = load ptr, ptr %7, align 8
+  %36 = load ptr, ptr %8, align 8
+  call void @_ZN6Assimp14FindMeshCenterEP6aiMeshR10aiVector3tIfES4_S4_(ptr noundef %33, ptr noundef nonnull align 4 dereferenceable(12) %34, ptr noundef nonnull align 4 dereferenceable(12) %35, ptr noundef nonnull align 4 dereferenceable(12) %36)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #18
+  store i32 1, ptr %9, align 4
+  br label %37
+
+37:                                               ; preds = %124, %28
+  %38 = load i32, ptr %9, align 4
+  %39 = load ptr, ptr %5, align 8
+  %40 = getelementptr inbounds nuw %struct.aiScene, ptr %39, i32 0, i32 2
+  %41 = load i32, ptr %40, align 8
+  %42 = icmp ult i32 %38, %41
+  br i1 %42, label %44, label %43
+
+43:                                               ; preds = %37
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #18
+  br label %127
+
+44:                                               ; preds = %37
+  call void @llvm.lifetime.start.p0(i64 12, ptr %10) #18
+  call void @_ZN10aiVector3tIfEC2Ev(ptr noundef nonnull align 4 dereferenceable(12) %10) #18
+  call void @llvm.lifetime.start.p0(i64 12, ptr %11) #18
+  call void @_ZN10aiVector3tIfEC2Ev(ptr noundef nonnull align 4 dereferenceable(12) %11) #18
+  call void @llvm.lifetime.start.p0(i64 12, ptr %12) #18
+  call void @_ZN10aiVector3tIfEC2Ev(ptr noundef nonnull align 4 dereferenceable(12) %12) #18
+  %45 = load ptr, ptr %5, align 8
+  %46 = getelementptr inbounds nuw %struct.aiScene, ptr %45, i32 0, i32 3
+  %47 = load ptr, ptr %46, align 8
+  %48 = load i32, ptr %9, align 4
+  %49 = zext i32 %48 to i64
+  %50 = getelementptr inbounds nuw ptr, ptr %47, i64 %49
+  %51 = load ptr, ptr %50, align 8
+  call void @_ZN6Assimp14FindMeshCenterEP6aiMeshR10aiVector3tIfES4_S4_(ptr noundef %51, ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %12)
+  %52 = load ptr, ptr %7, align 8
+  %53 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN10aiVector3tIfEixEj(ptr noundef nonnull align 4 dereferenceable(12) %52, i32 noundef 0)
+  %54 = load float, ptr %53, align 4
+  %55 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN10aiVector3tIfEixEj(ptr noundef nonnull align 4 dereferenceable(12) %11, i32 noundef 0)
+  %56 = load float, ptr %55, align 4
+  %57 = fcmp ogt float %54, %56
+  br i1 %57, label %58, label %63
+
+58:                                               ; preds = %44
+  %59 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN10aiVector3tIfEixEj(ptr noundef nonnull align 4 dereferenceable(12) %11, i32 noundef 0)
+  %60 = load float, ptr %59, align 4
+  %61 = load ptr, ptr %7, align 8
+  %62 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN10aiVector3tIfEixEj(ptr noundef nonnull align 4 dereferenceable(12) %61, i32 noundef 0)
+  store float %60, ptr %62, align 4
+  br label %63
+
+63:                                               ; preds = %58, %44
+  %64 = load ptr, ptr %7, align 8
+  %65 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN10aiVector3tIfEixEj(ptr noundef nonnull align 4 dereferenceable(12) %64, i32 noundef 1)
+  %66 = load float, ptr %65, align 4
+  %67 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN10aiVector3tIfEixEj(ptr noundef nonnull align 4 dereferenceable(12) %11, i32 noundef 1)
+  %68 = load float, ptr %67, align 4
+  %69 = fcmp ogt float %66, %68
+  br i1 %69, label %70, label %75
+
+70:                                               ; preds = %63
+  %71 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN10aiVector3tIfEixEj(ptr noundef nonnull align 4 dereferenceable(12) %11, i32 noundef 1)
+  %72 = load float, ptr %71, align 4
+  %73 = load ptr, ptr %7, align 8
+  %74 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN10aiVector3tIfEixEj(ptr noundef nonnull align 4 dereferenceable(12) %73, i32 noundef 1)
+  store float %72, ptr %74, align 4
+  br label %75
+
+75:                                               ; preds = %70, %63
+  %76 = load ptr, ptr %7, align 8
+  %77 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN10aiVector3tIfEixEj(ptr noundef nonnull align 4 dereferenceable(12) %76, i32 noundef 2)
+  %78 = load float, ptr %77, align 4
+  %79 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN10aiVector3tIfEixEj(ptr noundef nonnull align 4 dereferenceable(12) %11, i32 noundef 2)
+  %80 = load float, ptr %79, align 4
+  %81 = fcmp ogt float %78, %80
+  br i1 %81, label %82, label %87
+
+82:                                               ; preds = %75
+  %83 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN10aiVector3tIfEixEj(ptr noundef nonnull align 4 dereferenceable(12) %11, i32 noundef 2)
+  %84 = load float, ptr %83, align 4
+  %85 = load ptr, ptr %7, align 8
+  %86 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN10aiVector3tIfEixEj(ptr noundef nonnull align 4 dereferenceable(12) %85, i32 noundef 2)
+  store float %84, ptr %86, align 4
+  br label %87
+
+87:                                               ; preds = %82, %75
+  %88 = load ptr, ptr %8, align 8
+  %89 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN10aiVector3tIfEixEj(ptr noundef nonnull align 4 dereferenceable(12) %88, i32 noundef 0)
+  %90 = load float, ptr %89, align 4
+  %91 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN10aiVector3tIfEixEj(ptr noundef nonnull align 4 dereferenceable(12) %12, i32 noundef 0)
+  %92 = load float, ptr %91, align 4
+  %93 = fcmp olt float %90, %92
+  br i1 %93, label %94, label %99
+
+94:                                               ; preds = %87
+  %95 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN10aiVector3tIfEixEj(ptr noundef nonnull align 4 dereferenceable(12) %12, i32 noundef 0)
+  %96 = load float, ptr %95, align 4
+  %97 = load ptr, ptr %8, align 8
+  %98 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN10aiVector3tIfEixEj(ptr noundef nonnull align 4 dereferenceable(12) %97, i32 noundef 0)
+  store float %96, ptr %98, align 4
+  br label %99
+
+99:                                               ; preds = %94, %87
+  %100 = load ptr, ptr %8, align 8
+  %101 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN10aiVector3tIfEixEj(ptr noundef nonnull align 4 dereferenceable(12) %100, i32 noundef 1)
+  %102 = load float, ptr %101, align 4
+  %103 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN10aiVector3tIfEixEj(ptr noundef nonnull align 4 dereferenceable(12) %12, i32 noundef 1)
+  %104 = load float, ptr %103, align 4
+  %105 = fcmp olt float %102, %104
+  br i1 %105, label %106, label %111
+
+106:                                              ; preds = %99
+  %107 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN10aiVector3tIfEixEj(ptr noundef nonnull align 4 dereferenceable(12) %12, i32 noundef 1)
+  %108 = load float, ptr %107, align 4
+  %109 = load ptr, ptr %8, align 8
+  %110 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN10aiVector3tIfEixEj(ptr noundef nonnull align 4 dereferenceable(12) %109, i32 noundef 1)
+  store float %108, ptr %110, align 4
+  br label %111
+
+111:                                              ; preds = %106, %99
+  %112 = load ptr, ptr %8, align 8
+  %113 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN10aiVector3tIfEixEj(ptr noundef nonnull align 4 dereferenceable(12) %112, i32 noundef 2)
+  %114 = load float, ptr %113, align 4
+  %115 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN10aiVector3tIfEixEj(ptr noundef nonnull align 4 dereferenceable(12) %12, i32 noundef 2)
+  %116 = load float, ptr %115, align 4
+  %117 = fcmp olt float %114, %116
+  br i1 %117, label %118, label %123
+
+118:                                              ; preds = %111
+  %119 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN10aiVector3tIfEixEj(ptr noundef nonnull align 4 dereferenceable(12) %12, i32 noundef 2)
+  %120 = load float, ptr %119, align 4
+  %121 = load ptr, ptr %8, align 8
+  %122 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN10aiVector3tIfEixEj(ptr noundef nonnull align 4 dereferenceable(12) %121, i32 noundef 2)
+  store float %120, ptr %122, align 4
+  br label %123
+
+123:                                              ; preds = %118, %111
+  call void @llvm.lifetime.end.p0(i64 12, ptr %12) #18
+  call void @llvm.lifetime.end.p0(i64 12, ptr %11) #18
+  call void @llvm.lifetime.end.p0(i64 12, ptr %10) #18
+  br label %124
+
+124:                                              ; preds = %123
+  %125 = load i32, ptr %9, align 4
+  %126 = add i32 %125, 1
+  store i32 %126, ptr %9, align 4
+  br label %37, !llvm.loop !9
+
+127:                                              ; preds = %43
+  call void @llvm.lifetime.start.p0(i64 12, ptr %13) #18
+  %128 = load ptr, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 12, ptr %14) #18
+  call void @llvm.lifetime.start.p0(i64 12, ptr %15) #18
+  %129 = load ptr, ptr %8, align 8
+  %130 = load ptr, ptr %7, align 8
+  %131 = call { <2 x float>, float } @_ZmiIfE10aiVector3tIT_ERKS2_S4_(ptr noundef nonnull align 4 dereferenceable(12) %129, ptr noundef nonnull align 4 dereferenceable(12) %130)
+  store { <2 x float>, float } %131, ptr %16, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %15, ptr align 8 %16, i64 12, i1 false)
+  %132 = call { <2 x float>, float } @_ZmlIfE10aiVector3tIT_ERKS2_S1_(ptr noundef nonnull align 4 dereferenceable(12) %15, float noundef 5.000000e-01)
+  store { <2 x float>, float } %132, ptr %17, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %14, ptr align 8 %17, i64 12, i1 false)
+  %133 = call { <2 x float>, float } @_ZplIfE10aiVector3tIT_ERKS2_S4_(ptr noundef nonnull align 4 dereferenceable(12) %128, ptr noundef nonnull align 4 dereferenceable(12) %14)
+  store { <2 x float>, float } %133, ptr %18, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %13, ptr align 8 %18, i64 12, i1 false)
+  %134 = load ptr, ptr %6, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %134, ptr align 4 %13, i64 12, i1 false)
+  call void @llvm.lifetime.end.p0(i64 12, ptr %15) #18
+  call void @llvm.lifetime.end.p0(i64 12, ptr %14) #18
+  call void @llvm.lifetime.end.p0(i64 12, ptr %13) #18
+  br label %135
+
+135:                                              ; preds = %127, %27, %21
+  ret void
+}
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden { <2 x float>, float } @_ZmlIfE10aiVector3tIT_ERK12aiMatrix4x4tIS1_ERKS2_(ptr noundef nonnull align 4 dereferenceable(64) %pMatrix, ptr noundef nonnull align 4 dereferenceable(12) %pVector) #0 comdat {
-entry:
-  %retval = alloca %class.aiVector3t, align 4
-  %pMatrix.addr = alloca ptr, align 8
-  %pVector.addr = alloca ptr, align 8
-  %retval.coerce = alloca { <2 x float>, float }, align 8
-  store ptr %pMatrix, ptr %pMatrix.addr, align 8
-  store ptr %pVector, ptr %pVector.addr, align 8
-  call void @_ZN10aiVector3tIfEC2Ev(ptr noundef nonnull align 4 dereferenceable(12) %retval) #14
-  %0 = load ptr, ptr %pMatrix.addr, align 8
-  %a1 = getelementptr inbounds %class.aiMatrix4x4t, ptr %0, i32 0, i32 0
-  %1 = load float, ptr %a1, align 4
-  %2 = load ptr, ptr %pVector.addr, align 8
-  %x = getelementptr inbounds %class.aiVector3t, ptr %2, i32 0, i32 0
-  %3 = load float, ptr %x, align 4
-  %4 = load ptr, ptr %pMatrix.addr, align 8
-  %a2 = getelementptr inbounds %class.aiMatrix4x4t, ptr %4, i32 0, i32 1
-  %5 = load float, ptr %a2, align 4
-  %6 = load ptr, ptr %pVector.addr, align 8
-  %y = getelementptr inbounds %class.aiVector3t, ptr %6, i32 0, i32 1
-  %7 = load float, ptr %y, align 4
-  %mul1 = fmul float %5, %7
-  %8 = call float @llvm.fmuladd.f32(float %1, float %3, float %mul1)
-  %9 = load ptr, ptr %pMatrix.addr, align 8
-  %a3 = getelementptr inbounds %class.aiMatrix4x4t, ptr %9, i32 0, i32 2
-  %10 = load float, ptr %a3, align 4
-  %11 = load ptr, ptr %pVector.addr, align 8
-  %z = getelementptr inbounds %class.aiVector3t, ptr %11, i32 0, i32 2
-  %12 = load float, ptr %z, align 4
-  %13 = call float @llvm.fmuladd.f32(float %10, float %12, float %8)
-  %14 = load ptr, ptr %pMatrix.addr, align 8
-  %a4 = getelementptr inbounds %class.aiMatrix4x4t, ptr %14, i32 0, i32 3
-  %15 = load float, ptr %a4, align 4
-  %add = fadd float %13, %15
-  %x2 = getelementptr inbounds %class.aiVector3t, ptr %retval, i32 0, i32 0
-  store float %add, ptr %x2, align 4
-  %16 = load ptr, ptr %pMatrix.addr, align 8
-  %b1 = getelementptr inbounds %class.aiMatrix4x4t, ptr %16, i32 0, i32 4
-  %17 = load float, ptr %b1, align 4
-  %18 = load ptr, ptr %pVector.addr, align 8
-  %x3 = getelementptr inbounds %class.aiVector3t, ptr %18, i32 0, i32 0
-  %19 = load float, ptr %x3, align 4
-  %20 = load ptr, ptr %pMatrix.addr, align 8
-  %b2 = getelementptr inbounds %class.aiMatrix4x4t, ptr %20, i32 0, i32 5
-  %21 = load float, ptr %b2, align 4
-  %22 = load ptr, ptr %pVector.addr, align 8
-  %y4 = getelementptr inbounds %class.aiVector3t, ptr %22, i32 0, i32 1
-  %23 = load float, ptr %y4, align 4
-  %mul5 = fmul float %21, %23
-  %24 = call float @llvm.fmuladd.f32(float %17, float %19, float %mul5)
-  %25 = load ptr, ptr %pMatrix.addr, align 8
-  %b3 = getelementptr inbounds %class.aiMatrix4x4t, ptr %25, i32 0, i32 6
-  %26 = load float, ptr %b3, align 4
-  %27 = load ptr, ptr %pVector.addr, align 8
-  %z6 = getelementptr inbounds %class.aiVector3t, ptr %27, i32 0, i32 2
-  %28 = load float, ptr %z6, align 4
-  %29 = call float @llvm.fmuladd.f32(float %26, float %28, float %24)
-  %30 = load ptr, ptr %pMatrix.addr, align 8
-  %b4 = getelementptr inbounds %class.aiMatrix4x4t, ptr %30, i32 0, i32 7
-  %31 = load float, ptr %b4, align 4
-  %add7 = fadd float %29, %31
-  %y8 = getelementptr inbounds %class.aiVector3t, ptr %retval, i32 0, i32 1
-  store float %add7, ptr %y8, align 4
-  %32 = load ptr, ptr %pMatrix.addr, align 8
-  %c1 = getelementptr inbounds %class.aiMatrix4x4t, ptr %32, i32 0, i32 8
-  %33 = load float, ptr %c1, align 4
-  %34 = load ptr, ptr %pVector.addr, align 8
-  %x9 = getelementptr inbounds %class.aiVector3t, ptr %34, i32 0, i32 0
-  %35 = load float, ptr %x9, align 4
-  %36 = load ptr, ptr %pMatrix.addr, align 8
-  %c2 = getelementptr inbounds %class.aiMatrix4x4t, ptr %36, i32 0, i32 9
-  %37 = load float, ptr %c2, align 4
-  %38 = load ptr, ptr %pVector.addr, align 8
-  %y10 = getelementptr inbounds %class.aiVector3t, ptr %38, i32 0, i32 1
-  %39 = load float, ptr %y10, align 4
-  %mul11 = fmul float %37, %39
-  %40 = call float @llvm.fmuladd.f32(float %33, float %35, float %mul11)
-  %41 = load ptr, ptr %pMatrix.addr, align 8
-  %c3 = getelementptr inbounds %class.aiMatrix4x4t, ptr %41, i32 0, i32 10
-  %42 = load float, ptr %c3, align 4
-  %43 = load ptr, ptr %pVector.addr, align 8
-  %z12 = getelementptr inbounds %class.aiVector3t, ptr %43, i32 0, i32 2
-  %44 = load float, ptr %z12, align 4
-  %45 = call float @llvm.fmuladd.f32(float %42, float %44, float %40)
-  %46 = load ptr, ptr %pMatrix.addr, align 8
-  %c4 = getelementptr inbounds %class.aiMatrix4x4t, ptr %46, i32 0, i32 11
-  %47 = load float, ptr %c4, align 4
-  %add13 = fadd float %45, %47
-  %z14 = getelementptr inbounds %class.aiVector3t, ptr %retval, i32 0, i32 2
-  store float %add13, ptr %z14, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %retval.coerce, ptr align 4 %retval, i64 12, i1 false)
-  %48 = load { <2 x float>, float }, ptr %retval.coerce, align 8
-  ret { <2 x float>, float } %48
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden { <2 x float>, float } @_ZSt3minIfE10aiVector3tIT_ERKS2_S4_(ptr noundef nonnull align 4 dereferenceable(12) %a, ptr noundef nonnull align 4 dereferenceable(12) %b) #2 comdat {
-entry:
-  %retval = alloca %class.aiVector3t, align 4
-  %a.addr = alloca ptr, align 8
-  %b.addr = alloca ptr, align 8
-  %retval.coerce = alloca { <2 x float>, float }, align 8
-  store ptr %a, ptr %a.addr, align 8
-  store ptr %b, ptr %b.addr, align 8
-  %0 = load ptr, ptr %a.addr, align 8
-  %x = getelementptr inbounds %class.aiVector3t, ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %b.addr, align 8
-  %x1 = getelementptr inbounds %class.aiVector3t, ptr %1, i32 0, i32 0
-  %call = call noundef nonnull align 4 dereferenceable(4) ptr @_ZSt3minIfERKT_S2_S2_(ptr noundef nonnull align 4 dereferenceable(4) %x, ptr noundef nonnull align 4 dereferenceable(4) %x1)
-  %2 = load float, ptr %call, align 4
-  %3 = load ptr, ptr %a.addr, align 8
-  %y = getelementptr inbounds %class.aiVector3t, ptr %3, i32 0, i32 1
-  %4 = load ptr, ptr %b.addr, align 8
-  %y2 = getelementptr inbounds %class.aiVector3t, ptr %4, i32 0, i32 1
-  %call3 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZSt3minIfERKT_S2_S2_(ptr noundef nonnull align 4 dereferenceable(4) %y, ptr noundef nonnull align 4 dereferenceable(4) %y2)
-  %5 = load float, ptr %call3, align 4
-  %6 = load ptr, ptr %a.addr, align 8
-  %z = getelementptr inbounds %class.aiVector3t, ptr %6, i32 0, i32 2
-  %7 = load ptr, ptr %b.addr, align 8
-  %z4 = getelementptr inbounds %class.aiVector3t, ptr %7, i32 0, i32 2
-  %call5 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZSt3minIfERKT_S2_S2_(ptr noundef nonnull align 4 dereferenceable(4) %z, ptr noundef nonnull align 4 dereferenceable(4) %z4)
-  %8 = load float, ptr %call5, align 4
-  call void @_ZN10aiVector3tIfEC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %retval, float noundef %2, float noundef %5, float noundef %8)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %retval.coerce, ptr align 4 %retval, i64 12, i1 false)
-  %9 = load { <2 x float>, float }, ptr %retval.coerce, align 8
-  ret { <2 x float>, float } %9
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden { <2 x float>, float } @_ZSt3maxIfE10aiVector3tIT_ERKS2_S4_(ptr noundef nonnull align 4 dereferenceable(12) %a, ptr noundef nonnull align 4 dereferenceable(12) %b) #2 comdat {
-entry:
-  %retval = alloca %class.aiVector3t, align 4
-  %a.addr = alloca ptr, align 8
-  %b.addr = alloca ptr, align 8
-  %retval.coerce = alloca { <2 x float>, float }, align 8
-  store ptr %a, ptr %a.addr, align 8
-  store ptr %b, ptr %b.addr, align 8
-  %0 = load ptr, ptr %a.addr, align 8
-  %x = getelementptr inbounds %class.aiVector3t, ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %b.addr, align 8
-  %x1 = getelementptr inbounds %class.aiVector3t, ptr %1, i32 0, i32 0
-  %call = call noundef nonnull align 4 dereferenceable(4) ptr @_ZSt3maxIfERKT_S2_S2_(ptr noundef nonnull align 4 dereferenceable(4) %x, ptr noundef nonnull align 4 dereferenceable(4) %x1)
-  %2 = load float, ptr %call, align 4
-  %3 = load ptr, ptr %a.addr, align 8
-  %y = getelementptr inbounds %class.aiVector3t, ptr %3, i32 0, i32 1
-  %4 = load ptr, ptr %b.addr, align 8
-  %y2 = getelementptr inbounds %class.aiVector3t, ptr %4, i32 0, i32 1
-  %call3 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZSt3maxIfERKT_S2_S2_(ptr noundef nonnull align 4 dereferenceable(4) %y, ptr noundef nonnull align 4 dereferenceable(4) %y2)
-  %5 = load float, ptr %call3, align 4
-  %6 = load ptr, ptr %a.addr, align 8
-  %z = getelementptr inbounds %class.aiVector3t, ptr %6, i32 0, i32 2
-  %7 = load ptr, ptr %b.addr, align 8
-  %z4 = getelementptr inbounds %class.aiVector3t, ptr %7, i32 0, i32 2
-  %call5 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZSt3maxIfERKT_S2_S2_(ptr noundef nonnull align 4 dereferenceable(4) %z, ptr noundef nonnull align 4 dereferenceable(4) %z4)
-  %8 = load float, ptr %call5, align 4
-  call void @_ZN10aiVector3tIfEC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %retval, float noundef %2, float noundef %5, float noundef %8)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %retval.coerce, ptr align 4 %retval, i64 12, i1 false)
-  %9 = load { <2 x float>, float }, ptr %retval.coerce, align 8
-  ret { <2 x float>, float } %9
-}
-
-; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp14FindMeshCenterEP6aiMeshR10aiVector3tIfES4_S4_(ptr noundef %mesh, ptr noundef nonnull align 4 dereferenceable(12) %out, ptr noundef nonnull align 4 dereferenceable(12) %min, ptr noundef nonnull align 4 dereferenceable(12) %max) #5 {
-entry:
-  %mesh.addr = alloca ptr, align 8
-  %out.addr = alloca ptr, align 8
-  %min.addr = alloca ptr, align 8
-  %max.addr = alloca ptr, align 8
-  %ref.tmp = alloca %class.aiVector3t, align 4
-  %ref.tmp1 = alloca %class.aiVector3t, align 4
-  %ref.tmp2 = alloca %class.aiVector3t, align 4
-  %tmp.coerce = alloca { <2 x float>, float }, align 8
-  %tmp.coerce4 = alloca { <2 x float>, float }, align 8
-  %tmp.coerce6 = alloca { <2 x float>, float }, align 8
-  store ptr %mesh, ptr %mesh.addr, align 8
-  store ptr %out, ptr %out.addr, align 8
-  store ptr %min, ptr %min.addr, align 8
-  store ptr %max, ptr %max.addr, align 8
-  %0 = load ptr, ptr %mesh.addr, align 8
-  %mVertices = getelementptr inbounds %struct.aiMesh, ptr %0, i32 0, i32 3
-  %1 = load ptr, ptr %mVertices, align 8
-  %2 = load ptr, ptr %mesh.addr, align 8
-  %mNumVertices = getelementptr inbounds %struct.aiMesh, ptr %2, i32 0, i32 1
-  %3 = load i32, ptr %mNumVertices, align 4
-  %4 = load ptr, ptr %min.addr, align 8
-  %5 = load ptr, ptr %max.addr, align 8
-  call void @_ZN6Assimp11ArrayBoundsI10aiVector3tIfEEEvPKT_jRS3_S6_(ptr noundef %1, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(12) %4, ptr noundef nonnull align 4 dereferenceable(12) %5)
-  %6 = load ptr, ptr %min.addr, align 8
-  %7 = load ptr, ptr %max.addr, align 8
-  %8 = load ptr, ptr %min.addr, align 8
-  %call = call { <2 x float>, float } @_ZmiIfE10aiVector3tIT_ERKS2_S4_(ptr noundef nonnull align 4 dereferenceable(12) %7, ptr noundef nonnull align 4 dereferenceable(12) %8)
-  store { <2 x float>, float } %call, ptr %tmp.coerce, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %ref.tmp2, ptr align 8 %tmp.coerce, i64 12, i1 false)
-  %call3 = call { <2 x float>, float } @_ZmlIfE10aiVector3tIT_ERKS2_S1_(ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp2, float noundef 5.000000e-01)
-  store { <2 x float>, float } %call3, ptr %tmp.coerce4, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %ref.tmp1, ptr align 8 %tmp.coerce4, i64 12, i1 false)
-  %call5 = call { <2 x float>, float } @_ZplIfE10aiVector3tIT_ERKS2_S4_(ptr noundef nonnull align 4 dereferenceable(12) %6, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp1)
-  store { <2 x float>, float } %call5, ptr %tmp.coerce6, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %ref.tmp, ptr align 8 %tmp.coerce6, i64 12, i1 false)
-  %9 = load ptr, ptr %out.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %9, ptr align 4 %ref.tmp, i64 12, i1 false)
+define linkonce_odr hidden void @_ZN10aiVector3tIfEC2Ev(ptr noundef nonnull align 4 dereferenceable(12) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.aiVector3t, ptr %3, i32 0, i32 0
+  store float 0.000000e+00, ptr %4, align 4
+  %5 = getelementptr inbounds nuw %class.aiVector3t, ptr %3, i32 0, i32 1
+  store float 0.000000e+00, ptr %5, align 4
+  %6 = getelementptr inbounds nuw %class.aiVector3t, ptr %3, i32 0, i32 2
+  store float 0.000000e+00, ptr %6, align 4
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN6Assimp11ArrayBoundsI10aiVector3tIfEEEvPKT_jRS3_S6_(ptr noundef %in, i32 noundef %size, ptr noundef nonnull align 4 dereferenceable(12) %min, ptr noundef nonnull align 4 dereferenceable(12) %max) #5 comdat {
-entry:
-  %in.addr = alloca ptr, align 8
-  %size.addr = alloca i32, align 4
-  %min.addr = alloca ptr, align 8
-  %max.addr = alloca ptr, align 8
-  %ref.tmp = alloca %"struct.Assimp::MinMaxChooser", align 1
-  %i = alloca i32, align 4
-  %ref.tmp1 = alloca %class.aiVector3t, align 4
-  %tmp.coerce = alloca { <2 x float>, float }, align 8
-  %ref.tmp2 = alloca %class.aiVector3t, align 4
-  %tmp.coerce6 = alloca { <2 x float>, float }, align 8
-  store ptr %in, ptr %in.addr, align 8
-  store i32 %size, ptr %size.addr, align 4
-  store ptr %min, ptr %min.addr, align 8
-  store ptr %max, ptr %max.addr, align 8
-  %0 = load ptr, ptr %min.addr, align 8
-  %1 = load ptr, ptr %max.addr, align 8
-  call void @_ZN6Assimp13MinMaxChooserI10aiVector3tIfEEclERS2_S4_(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %1)
-  store i32 0, ptr %i, align 4
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %entry
-  %2 = load i32, ptr %i, align 4
-  %3 = load i32, ptr %size.addr, align 4
-  %cmp = icmp ult i32 %2, %3
-  br i1 %cmp, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %4 = load ptr, ptr %in.addr, align 8
-  %5 = load i32, ptr %i, align 4
-  %idxprom = zext i32 %5 to i64
-  %arrayidx = getelementptr inbounds %class.aiVector3t, ptr %4, i64 %idxprom
-  %6 = load ptr, ptr %min.addr, align 8
-  %call = call { <2 x float>, float } @_ZSt3minIfE10aiVector3tIT_ERKS2_S4_(ptr noundef nonnull align 4 dereferenceable(12) %arrayidx, ptr noundef nonnull align 4 dereferenceable(12) %6)
-  store { <2 x float>, float } %call, ptr %tmp.coerce, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %ref.tmp1, ptr align 8 %tmp.coerce, i64 12, i1 false)
-  %7 = load ptr, ptr %min.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %7, ptr align 4 %ref.tmp1, i64 12, i1 false)
-  %8 = load ptr, ptr %in.addr, align 8
-  %9 = load i32, ptr %i, align 4
-  %idxprom3 = zext i32 %9 to i64
-  %arrayidx4 = getelementptr inbounds %class.aiVector3t, ptr %8, i64 %idxprom3
-  %10 = load ptr, ptr %max.addr, align 8
-  %call5 = call { <2 x float>, float } @_ZSt3maxIfE10aiVector3tIT_ERKS2_S4_(ptr noundef nonnull align 4 dereferenceable(12) %arrayidx4, ptr noundef nonnull align 4 dereferenceable(12) %10)
-  store { <2 x float>, float } %call5, ptr %tmp.coerce6, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %ref.tmp2, ptr align 8 %tmp.coerce6, i64 12, i1 false)
-  %11 = load ptr, ptr %max.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %11, ptr align 4 %ref.tmp2, i64 12, i1 false)
-  br label %for.inc
-
-for.inc:                                          ; preds = %for.body
-  %12 = load i32, ptr %i, align 4
-  %inc = add i32 %12, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !9
-
-for.end:                                          ; preds = %for.cond
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden { <2 x float>, float } @_ZplIfE10aiVector3tIT_ERKS2_S4_(ptr noundef nonnull align 4 dereferenceable(12) %v1, ptr noundef nonnull align 4 dereferenceable(12) %v2) #2 comdat {
-entry:
-  %retval = alloca %class.aiVector3t, align 4
-  %v1.addr = alloca ptr, align 8
-  %v2.addr = alloca ptr, align 8
-  %retval.coerce = alloca { <2 x float>, float }, align 8
-  store ptr %v1, ptr %v1.addr, align 8
-  store ptr %v2, ptr %v2.addr, align 8
-  %0 = load ptr, ptr %v1.addr, align 8
-  %x = getelementptr inbounds %class.aiVector3t, ptr %0, i32 0, i32 0
-  %1 = load float, ptr %x, align 4
-  %2 = load ptr, ptr %v2.addr, align 8
-  %x1 = getelementptr inbounds %class.aiVector3t, ptr %2, i32 0, i32 0
-  %3 = load float, ptr %x1, align 4
-  %add = fadd float %1, %3
-  %4 = load ptr, ptr %v1.addr, align 8
-  %y = getelementptr inbounds %class.aiVector3t, ptr %4, i32 0, i32 1
-  %5 = load float, ptr %y, align 4
-  %6 = load ptr, ptr %v2.addr, align 8
-  %y2 = getelementptr inbounds %class.aiVector3t, ptr %6, i32 0, i32 1
-  %7 = load float, ptr %y2, align 4
-  %add3 = fadd float %5, %7
-  %8 = load ptr, ptr %v1.addr, align 8
-  %z = getelementptr inbounds %class.aiVector3t, ptr %8, i32 0, i32 2
-  %9 = load float, ptr %z, align 4
-  %10 = load ptr, ptr %v2.addr, align 8
-  %z4 = getelementptr inbounds %class.aiVector3t, ptr %10, i32 0, i32 2
-  %11 = load float, ptr %z4, align 4
-  %add5 = fadd float %9, %11
-  call void @_ZN10aiVector3tIfEC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %retval, float noundef %add, float noundef %add3, float noundef %add5)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %retval.coerce, ptr align 4 %retval, i64 12, i1 false)
-  %12 = load { <2 x float>, float }, ptr %retval.coerce, align 8
-  ret { <2 x float>, float } %12
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden { <2 x float>, float } @_ZmlIfE10aiVector3tIT_ERKS2_S1_(ptr noundef nonnull align 4 dereferenceable(12) %v, float noundef %f) #2 comdat {
-entry:
-  %retval = alloca %class.aiVector3t, align 4
-  %v.addr = alloca ptr, align 8
-  %f.addr = alloca float, align 4
-  %retval.coerce = alloca { <2 x float>, float }, align 8
-  store ptr %v, ptr %v.addr, align 8
-  store float %f, ptr %f.addr, align 4
-  %0 = load float, ptr %f.addr, align 4
-  %1 = load ptr, ptr %v.addr, align 8
-  %x = getelementptr inbounds %class.aiVector3t, ptr %1, i32 0, i32 0
-  %2 = load float, ptr %x, align 4
-  %mul = fmul float %0, %2
-  %3 = load float, ptr %f.addr, align 4
-  %4 = load ptr, ptr %v.addr, align 8
-  %y = getelementptr inbounds %class.aiVector3t, ptr %4, i32 0, i32 1
-  %5 = load float, ptr %y, align 4
-  %mul1 = fmul float %3, %5
-  %6 = load float, ptr %f.addr, align 4
-  %7 = load ptr, ptr %v.addr, align 8
-  %z = getelementptr inbounds %class.aiVector3t, ptr %7, i32 0, i32 2
-  %8 = load float, ptr %z, align 4
-  %mul2 = fmul float %6, %8
-  call void @_ZN10aiVector3tIfEC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %retval, float noundef %mul, float noundef %mul1, float noundef %mul2)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %retval.coerce, ptr align 4 %retval, i64 12, i1 false)
-  %9 = load { <2 x float>, float }, ptr %retval.coerce, align 8
-  ret { <2 x float>, float } %9
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden { <2 x float>, float } @_ZmiIfE10aiVector3tIT_ERKS2_S4_(ptr noundef nonnull align 4 dereferenceable(12) %v1, ptr noundef nonnull align 4 dereferenceable(12) %v2) #2 comdat {
-entry:
-  %retval = alloca %class.aiVector3t, align 4
-  %v1.addr = alloca ptr, align 8
-  %v2.addr = alloca ptr, align 8
-  %retval.coerce = alloca { <2 x float>, float }, align 8
-  store ptr %v1, ptr %v1.addr, align 8
-  store ptr %v2, ptr %v2.addr, align 8
-  %0 = load ptr, ptr %v1.addr, align 8
-  %x = getelementptr inbounds %class.aiVector3t, ptr %0, i32 0, i32 0
-  %1 = load float, ptr %x, align 4
-  %2 = load ptr, ptr %v2.addr, align 8
-  %x1 = getelementptr inbounds %class.aiVector3t, ptr %2, i32 0, i32 0
-  %3 = load float, ptr %x1, align 4
-  %sub = fsub float %1, %3
-  %4 = load ptr, ptr %v1.addr, align 8
-  %y = getelementptr inbounds %class.aiVector3t, ptr %4, i32 0, i32 1
-  %5 = load float, ptr %y, align 4
-  %6 = load ptr, ptr %v2.addr, align 8
-  %y2 = getelementptr inbounds %class.aiVector3t, ptr %6, i32 0, i32 1
-  %7 = load float, ptr %y2, align 4
-  %sub3 = fsub float %5, %7
-  %8 = load ptr, ptr %v1.addr, align 8
-  %z = getelementptr inbounds %class.aiVector3t, ptr %8, i32 0, i32 2
-  %9 = load float, ptr %z, align 4
-  %10 = load ptr, ptr %v2.addr, align 8
-  %z4 = getelementptr inbounds %class.aiVector3t, ptr %10, i32 0, i32 2
-  %11 = load float, ptr %z4, align 4
-  %sub5 = fsub float %9, %11
-  call void @_ZN10aiVector3tIfEC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %retval, float noundef %sub, float noundef %sub3, float noundef %sub5)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %retval.coerce, ptr align 4 %retval, i64 12, i1 false)
-  %12 = load { <2 x float>, float }, ptr %retval.coerce, align 8
-  ret { <2 x float>, float } %12
-}
-
-; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp15FindSceneCenterEP7aiSceneR10aiVector3tIfES4_S4_(ptr noundef %scene, ptr noundef nonnull align 4 dereferenceable(12) %out, ptr noundef nonnull align 4 dereferenceable(12) %min, ptr noundef nonnull align 4 dereferenceable(12) %max) #5 {
-entry:
-  %scene.addr = alloca ptr, align 8
-  %out.addr = alloca ptr, align 8
-  %min.addr = alloca ptr, align 8
-  %max.addr = alloca ptr, align 8
-  %i = alloca i32, align 4
-  %tout = alloca %class.aiVector3t, align 4
-  %tmin = alloca %class.aiVector3t, align 4
-  %tmax = alloca %class.aiVector3t, align 4
-  %ref.tmp = alloca %class.aiVector3t, align 4
-  %ref.tmp49 = alloca %class.aiVector3t, align 4
-  %ref.tmp50 = alloca %class.aiVector3t, align 4
-  %tmp.coerce = alloca { <2 x float>, float }, align 8
-  %tmp.coerce53 = alloca { <2 x float>, float }, align 8
-  %tmp.coerce55 = alloca { <2 x float>, float }, align 8
-  store ptr %scene, ptr %scene.addr, align 8
-  store ptr %out, ptr %out.addr, align 8
-  store ptr %min, ptr %min.addr, align 8
-  store ptr %max, ptr %max.addr, align 8
-  %0 = load ptr, ptr %scene.addr, align 8
-  %cmp = icmp eq ptr null, %0
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %scene.addr, align 8
-  %mNumMeshes = getelementptr inbounds %struct.aiScene, ptr %1, i32 0, i32 2
-  %2 = load i32, ptr %mNumMeshes, align 8
-  %cmp1 = icmp eq i32 0, %2
-  br i1 %cmp1, label %if.then2, label %if.end3
-
-if.then2:                                         ; preds = %if.end
-  br label %return
-
-if.end3:                                          ; preds = %if.end
-  %3 = load ptr, ptr %scene.addr, align 8
-  %mMeshes = getelementptr inbounds %struct.aiScene, ptr %3, i32 0, i32 3
-  %4 = load ptr, ptr %mMeshes, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %4, i64 0
-  %5 = load ptr, ptr %arrayidx, align 8
-  %6 = load ptr, ptr %out.addr, align 8
-  %7 = load ptr, ptr %min.addr, align 8
-  %8 = load ptr, ptr %max.addr, align 8
-  call void @_ZN6Assimp14FindMeshCenterEP6aiMeshR10aiVector3tIfES4_S4_(ptr noundef %5, ptr noundef nonnull align 4 dereferenceable(12) %6, ptr noundef nonnull align 4 dereferenceable(12) %7, ptr noundef nonnull align 4 dereferenceable(12) %8)
-  store i32 1, ptr %i, align 4
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %if.end3
-  %9 = load i32, ptr %i, align 4
-  %10 = load ptr, ptr %scene.addr, align 8
-  %mNumMeshes4 = getelementptr inbounds %struct.aiScene, ptr %10, i32 0, i32 2
-  %11 = load i32, ptr %mNumMeshes4, align 8
-  %cmp5 = icmp ult i32 %9, %11
-  br i1 %cmp5, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  call void @_ZN10aiVector3tIfEC2Ev(ptr noundef nonnull align 4 dereferenceable(12) %tout) #14
-  call void @_ZN10aiVector3tIfEC2Ev(ptr noundef nonnull align 4 dereferenceable(12) %tmin) #14
-  call void @_ZN10aiVector3tIfEC2Ev(ptr noundef nonnull align 4 dereferenceable(12) %tmax) #14
-  %12 = load ptr, ptr %scene.addr, align 8
-  %mMeshes6 = getelementptr inbounds %struct.aiScene, ptr %12, i32 0, i32 3
-  %13 = load ptr, ptr %mMeshes6, align 8
-  %14 = load i32, ptr %i, align 4
-  %idxprom = zext i32 %14 to i64
-  %arrayidx7 = getelementptr inbounds ptr, ptr %13, i64 %idxprom
-  %15 = load ptr, ptr %arrayidx7, align 8
-  call void @_ZN6Assimp14FindMeshCenterEP6aiMeshR10aiVector3tIfES4_S4_(ptr noundef %15, ptr noundef nonnull align 4 dereferenceable(12) %tout, ptr noundef nonnull align 4 dereferenceable(12) %tmin, ptr noundef nonnull align 4 dereferenceable(12) %tmax)
-  %16 = load ptr, ptr %min.addr, align 8
-  %call = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN10aiVector3tIfEixEj(ptr noundef nonnull align 4 dereferenceable(12) %16, i32 noundef 0)
-  %17 = load float, ptr %call, align 4
-  %call8 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN10aiVector3tIfEixEj(ptr noundef nonnull align 4 dereferenceable(12) %tmin, i32 noundef 0)
-  %18 = load float, ptr %call8, align 4
-  %cmp9 = fcmp ogt float %17, %18
-  br i1 %cmp9, label %if.then10, label %if.end13
-
-if.then10:                                        ; preds = %for.body
-  %call11 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN10aiVector3tIfEixEj(ptr noundef nonnull align 4 dereferenceable(12) %tmin, i32 noundef 0)
-  %19 = load float, ptr %call11, align 4
-  %20 = load ptr, ptr %min.addr, align 8
-  %call12 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN10aiVector3tIfEixEj(ptr noundef nonnull align 4 dereferenceable(12) %20, i32 noundef 0)
-  store float %19, ptr %call12, align 4
-  br label %if.end13
-
-if.end13:                                         ; preds = %if.then10, %for.body
-  %21 = load ptr, ptr %min.addr, align 8
-  %call14 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN10aiVector3tIfEixEj(ptr noundef nonnull align 4 dereferenceable(12) %21, i32 noundef 1)
-  %22 = load float, ptr %call14, align 4
-  %call15 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN10aiVector3tIfEixEj(ptr noundef nonnull align 4 dereferenceable(12) %tmin, i32 noundef 1)
-  %23 = load float, ptr %call15, align 4
-  %cmp16 = fcmp ogt float %22, %23
-  br i1 %cmp16, label %if.then17, label %if.end20
-
-if.then17:                                        ; preds = %if.end13
-  %call18 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN10aiVector3tIfEixEj(ptr noundef nonnull align 4 dereferenceable(12) %tmin, i32 noundef 1)
-  %24 = load float, ptr %call18, align 4
-  %25 = load ptr, ptr %min.addr, align 8
-  %call19 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN10aiVector3tIfEixEj(ptr noundef nonnull align 4 dereferenceable(12) %25, i32 noundef 1)
-  store float %24, ptr %call19, align 4
-  br label %if.end20
-
-if.end20:                                         ; preds = %if.then17, %if.end13
-  %26 = load ptr, ptr %min.addr, align 8
-  %call21 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN10aiVector3tIfEixEj(ptr noundef nonnull align 4 dereferenceable(12) %26, i32 noundef 2)
-  %27 = load float, ptr %call21, align 4
-  %call22 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN10aiVector3tIfEixEj(ptr noundef nonnull align 4 dereferenceable(12) %tmin, i32 noundef 2)
-  %28 = load float, ptr %call22, align 4
-  %cmp23 = fcmp ogt float %27, %28
-  br i1 %cmp23, label %if.then24, label %if.end27
-
-if.then24:                                        ; preds = %if.end20
-  %call25 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN10aiVector3tIfEixEj(ptr noundef nonnull align 4 dereferenceable(12) %tmin, i32 noundef 2)
-  %29 = load float, ptr %call25, align 4
-  %30 = load ptr, ptr %min.addr, align 8
-  %call26 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN10aiVector3tIfEixEj(ptr noundef nonnull align 4 dereferenceable(12) %30, i32 noundef 2)
-  store float %29, ptr %call26, align 4
-  br label %if.end27
-
-if.end27:                                         ; preds = %if.then24, %if.end20
-  %31 = load ptr, ptr %max.addr, align 8
-  %call28 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN10aiVector3tIfEixEj(ptr noundef nonnull align 4 dereferenceable(12) %31, i32 noundef 0)
-  %32 = load float, ptr %call28, align 4
-  %call29 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN10aiVector3tIfEixEj(ptr noundef nonnull align 4 dereferenceable(12) %tmax, i32 noundef 0)
-  %33 = load float, ptr %call29, align 4
-  %cmp30 = fcmp olt float %32, %33
-  br i1 %cmp30, label %if.then31, label %if.end34
-
-if.then31:                                        ; preds = %if.end27
-  %call32 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN10aiVector3tIfEixEj(ptr noundef nonnull align 4 dereferenceable(12) %tmax, i32 noundef 0)
-  %34 = load float, ptr %call32, align 4
-  %35 = load ptr, ptr %max.addr, align 8
-  %call33 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN10aiVector3tIfEixEj(ptr noundef nonnull align 4 dereferenceable(12) %35, i32 noundef 0)
-  store float %34, ptr %call33, align 4
-  br label %if.end34
-
-if.end34:                                         ; preds = %if.then31, %if.end27
-  %36 = load ptr, ptr %max.addr, align 8
-  %call35 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN10aiVector3tIfEixEj(ptr noundef nonnull align 4 dereferenceable(12) %36, i32 noundef 1)
-  %37 = load float, ptr %call35, align 4
-  %call36 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN10aiVector3tIfEixEj(ptr noundef nonnull align 4 dereferenceable(12) %tmax, i32 noundef 1)
-  %38 = load float, ptr %call36, align 4
-  %cmp37 = fcmp olt float %37, %38
-  br i1 %cmp37, label %if.then38, label %if.end41
-
-if.then38:                                        ; preds = %if.end34
-  %call39 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN10aiVector3tIfEixEj(ptr noundef nonnull align 4 dereferenceable(12) %tmax, i32 noundef 1)
-  %39 = load float, ptr %call39, align 4
-  %40 = load ptr, ptr %max.addr, align 8
-  %call40 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN10aiVector3tIfEixEj(ptr noundef nonnull align 4 dereferenceable(12) %40, i32 noundef 1)
-  store float %39, ptr %call40, align 4
-  br label %if.end41
-
-if.end41:                                         ; preds = %if.then38, %if.end34
-  %41 = load ptr, ptr %max.addr, align 8
-  %call42 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN10aiVector3tIfEixEj(ptr noundef nonnull align 4 dereferenceable(12) %41, i32 noundef 2)
-  %42 = load float, ptr %call42, align 4
-  %call43 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN10aiVector3tIfEixEj(ptr noundef nonnull align 4 dereferenceable(12) %tmax, i32 noundef 2)
-  %43 = load float, ptr %call43, align 4
-  %cmp44 = fcmp olt float %42, %43
-  br i1 %cmp44, label %if.then45, label %if.end48
-
-if.then45:                                        ; preds = %if.end41
-  %call46 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN10aiVector3tIfEixEj(ptr noundef nonnull align 4 dereferenceable(12) %tmax, i32 noundef 2)
-  %44 = load float, ptr %call46, align 4
-  %45 = load ptr, ptr %max.addr, align 8
-  %call47 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN10aiVector3tIfEixEj(ptr noundef nonnull align 4 dereferenceable(12) %45, i32 noundef 2)
-  store float %44, ptr %call47, align 4
-  br label %if.end48
-
-if.end48:                                         ; preds = %if.then45, %if.end41
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end48
-  %46 = load i32, ptr %i, align 4
-  %inc = add i32 %46, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !10
-
-for.end:                                          ; preds = %for.cond
-  %47 = load ptr, ptr %min.addr, align 8
-  %48 = load ptr, ptr %max.addr, align 8
-  %49 = load ptr, ptr %min.addr, align 8
-  %call51 = call { <2 x float>, float } @_ZmiIfE10aiVector3tIT_ERKS2_S4_(ptr noundef nonnull align 4 dereferenceable(12) %48, ptr noundef nonnull align 4 dereferenceable(12) %49)
-  store { <2 x float>, float } %call51, ptr %tmp.coerce, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %ref.tmp50, ptr align 8 %tmp.coerce, i64 12, i1 false)
-  %call52 = call { <2 x float>, float } @_ZmlIfE10aiVector3tIT_ERKS2_S1_(ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp50, float noundef 5.000000e-01)
-  store { <2 x float>, float } %call52, ptr %tmp.coerce53, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %ref.tmp49, ptr align 8 %tmp.coerce53, i64 12, i1 false)
-  %call54 = call { <2 x float>, float } @_ZplIfE10aiVector3tIT_ERKS2_S4_(ptr noundef nonnull align 4 dereferenceable(12) %47, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp49)
-  store { <2 x float>, float } %call54, ptr %tmp.coerce55, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %ref.tmp, ptr align 8 %tmp.coerce55, i64 12, i1 false)
-  %50 = load ptr, ptr %out.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %50, ptr align 4 %ref.tmp, i64 12, i1 false)
-  br label %return
-
-return:                                           ; preds = %for.end, %if.then2, %if.then
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN10aiVector3tIfEC2Ev(ptr noundef nonnull align 4 dereferenceable(12) %this) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %x = getelementptr inbounds %class.aiVector3t, ptr %this1, i32 0, i32 0
-  store float 0.000000e+00, ptr %x, align 4
-  %y = getelementptr inbounds %class.aiVector3t, ptr %this1, i32 0, i32 1
-  store float 0.000000e+00, ptr %y, align 4
-  %z = getelementptr inbounds %class.aiVector3t, ptr %this1, i32 0, i32 2
-  store float 0.000000e+00, ptr %z, align 4
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZN10aiVector3tIfEixEj(ptr noundef nonnull align 4 dereferenceable(12) %this, i32 noundef %i) #0 comdat align 2 {
-entry:
-  %retval = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  %i.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %i, ptr %i.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i32, ptr %i.addr, align 4
-  switch i32 %0, label %sw.default [
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb2
-    i32 2, label %sw.bb3
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZN10aiVector3tIfEixEj(ptr noundef nonnull align 4 dereferenceable(12) %0, i32 noundef %1) #7 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store i32 %1, ptr %5, align 4
+  %6 = load ptr, ptr %4, align 8
+  %7 = load i32, ptr %5, align 4
+  switch i32 %7, label %14 [
+    i32 0, label %8
+    i32 1, label %10
+    i32 2, label %12
   ]
 
-sw.bb:                                            ; preds = %entry
-  %x = getelementptr inbounds %class.aiVector3t, ptr %this1, i32 0, i32 0
-  store ptr %x, ptr %retval, align 8
-  br label %return
+8:                                                ; preds = %2
+  %9 = getelementptr inbounds nuw %class.aiVector3t, ptr %6, i32 0, i32 0
+  store ptr %9, ptr %3, align 8
+  br label %17
 
-sw.bb2:                                           ; preds = %entry
-  %y = getelementptr inbounds %class.aiVector3t, ptr %this1, i32 0, i32 1
-  store ptr %y, ptr %retval, align 8
-  br label %return
+10:                                               ; preds = %2
+  %11 = getelementptr inbounds nuw %class.aiVector3t, ptr %6, i32 0, i32 1
+  store ptr %11, ptr %3, align 8
+  br label %17
 
-sw.bb3:                                           ; preds = %entry
-  %z = getelementptr inbounds %class.aiVector3t, ptr %this1, i32 0, i32 2
-  store ptr %z, ptr %retval, align 8
-  br label %return
+12:                                               ; preds = %2
+  %13 = getelementptr inbounds nuw %class.aiVector3t, ptr %6, i32 0, i32 2
+  store ptr %13, ptr %3, align 8
+  br label %17
 
-sw.default:                                       ; preds = %entry
-  br label %sw.epilog
+14:                                               ; preds = %2
+  br label %15
 
-sw.epilog:                                        ; preds = %sw.default
-  %x4 = getelementptr inbounds %class.aiVector3t, ptr %this1, i32 0, i32 0
-  store ptr %x4, ptr %retval, align 8
-  br label %return
+15:                                               ; preds = %14
+  %16 = getelementptr inbounds nuw %class.aiVector3t, ptr %6, i32 0, i32 0
+  store ptr %16, ptr %3, align 8
+  br label %17
 
-return:                                           ; preds = %sw.epilog, %sw.bb3, %sw.bb2, %sw.bb
-  %1 = load ptr, ptr %retval, align 8
-  ret ptr %1
+17:                                               ; preds = %15, %12, %10, %8
+  %18 = load ptr, ptr %3, align 8
+  ret ptr %18
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp25FindMeshCenterTransformedEP6aiMeshR10aiVector3tIfES4_S4_RK12aiMatrix4x4tIfE(ptr noundef %mesh, ptr noundef nonnull align 4 dereferenceable(12) %out, ptr noundef nonnull align 4 dereferenceable(12) %min, ptr noundef nonnull align 4 dereferenceable(12) %max, ptr noundef nonnull align 4 dereferenceable(64) %m) #5 {
-entry:
-  %mesh.addr = alloca ptr, align 8
-  %out.addr = alloca ptr, align 8
-  %min.addr = alloca ptr, align 8
-  %max.addr = alloca ptr, align 8
-  %m.addr = alloca ptr, align 8
-  %ref.tmp = alloca %class.aiVector3t, align 4
-  %ref.tmp1 = alloca %class.aiVector3t, align 4
-  %ref.tmp2 = alloca %class.aiVector3t, align 4
-  %tmp.coerce = alloca { <2 x float>, float }, align 8
-  %tmp.coerce4 = alloca { <2 x float>, float }, align 8
-  %tmp.coerce6 = alloca { <2 x float>, float }, align 8
-  store ptr %mesh, ptr %mesh.addr, align 8
-  store ptr %out, ptr %out.addr, align 8
-  store ptr %min, ptr %min.addr, align 8
-  store ptr %max, ptr %max.addr, align 8
-  store ptr %m, ptr %m.addr, align 8
-  %0 = load ptr, ptr %mesh.addr, align 8
-  %1 = load ptr, ptr %min.addr, align 8
-  %2 = load ptr, ptr %max.addr, align 8
-  %3 = load ptr, ptr %m.addr, align 8
-  call void @_ZN6Assimp19FindAABBTransformedEPK6aiMeshR10aiVector3tIfES5_RK12aiMatrix4x4tIfE(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef nonnull align 4 dereferenceable(12) %2, ptr noundef nonnull align 4 dereferenceable(64) %3)
-  %4 = load ptr, ptr %min.addr, align 8
-  %5 = load ptr, ptr %max.addr, align 8
-  %6 = load ptr, ptr %min.addr, align 8
-  %call = call { <2 x float>, float } @_ZmiIfE10aiVector3tIT_ERKS2_S4_(ptr noundef nonnull align 4 dereferenceable(12) %5, ptr noundef nonnull align 4 dereferenceable(12) %6)
-  store { <2 x float>, float } %call, ptr %tmp.coerce, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %ref.tmp2, ptr align 8 %tmp.coerce, i64 12, i1 false)
-  %call3 = call { <2 x float>, float } @_ZmlIfE10aiVector3tIT_ERKS2_S1_(ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp2, float noundef 5.000000e-01)
-  store { <2 x float>, float } %call3, ptr %tmp.coerce4, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %ref.tmp1, ptr align 8 %tmp.coerce4, i64 12, i1 false)
-  %call5 = call { <2 x float>, float } @_ZplIfE10aiVector3tIT_ERKS2_S4_(ptr noundef nonnull align 4 dereferenceable(12) %4, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp1)
-  store { <2 x float>, float } %call5, ptr %tmp.coerce6, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %ref.tmp, ptr align 8 %tmp.coerce6, i64 12, i1 false)
-  %7 = load ptr, ptr %out.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %7, ptr align 4 %ref.tmp, i64 12, i1 false)
+define hidden void @_ZN6Assimp25FindMeshCenterTransformedEP6aiMeshR10aiVector3tIfES4_S4_RK12aiMatrix4x4tIfE(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef nonnull align 4 dereferenceable(12) %2, ptr noundef nonnull align 4 dereferenceable(12) %3, ptr noundef nonnull align 4 dereferenceable(64) %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca %class.aiVector3t, align 4
+  %12 = alloca %class.aiVector3t, align 4
+  %13 = alloca %class.aiVector3t, align 4
+  %14 = alloca { <2 x float>, float }, align 8
+  %15 = alloca { <2 x float>, float }, align 8
+  %16 = alloca { <2 x float>, float }, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %17 = load ptr, ptr %6, align 8
+  %18 = load ptr, ptr %8, align 8
+  %19 = load ptr, ptr %9, align 8
+  %20 = load ptr, ptr %10, align 8
+  call void @_ZN6Assimp19FindAABBTransformedEPK6aiMeshR10aiVector3tIfES5_RK12aiMatrix4x4tIfE(ptr noundef %17, ptr noundef nonnull align 4 dereferenceable(12) %18, ptr noundef nonnull align 4 dereferenceable(12) %19, ptr noundef nonnull align 4 dereferenceable(64) %20)
+  call void @llvm.lifetime.start.p0(i64 12, ptr %11) #18
+  %21 = load ptr, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 12, ptr %12) #18
+  call void @llvm.lifetime.start.p0(i64 12, ptr %13) #18
+  %22 = load ptr, ptr %9, align 8
+  %23 = load ptr, ptr %8, align 8
+  %24 = call { <2 x float>, float } @_ZmiIfE10aiVector3tIT_ERKS2_S4_(ptr noundef nonnull align 4 dereferenceable(12) %22, ptr noundef nonnull align 4 dereferenceable(12) %23)
+  store { <2 x float>, float } %24, ptr %14, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %13, ptr align 8 %14, i64 12, i1 false)
+  %25 = call { <2 x float>, float } @_ZmlIfE10aiVector3tIT_ERKS2_S1_(ptr noundef nonnull align 4 dereferenceable(12) %13, float noundef 5.000000e-01)
+  store { <2 x float>, float } %25, ptr %15, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %12, ptr align 8 %15, i64 12, i1 false)
+  %26 = call { <2 x float>, float } @_ZplIfE10aiVector3tIT_ERKS2_S4_(ptr noundef nonnull align 4 dereferenceable(12) %21, ptr noundef nonnull align 4 dereferenceable(12) %12)
+  store { <2 x float>, float } %26, ptr %16, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %11, ptr align 8 %16, i64 12, i1 false)
+  %27 = load ptr, ptr %7, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %27, ptr align 4 %11, i64 12, i1 false)
+  call void @llvm.lifetime.end.p0(i64 12, ptr %13) #18
+  call void @llvm.lifetime.end.p0(i64 12, ptr %12) #18
+  call void @llvm.lifetime.end.p0(i64 12, ptr %11) #18
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp14FindMeshCenterEP6aiMeshR10aiVector3tIfE(ptr noundef %mesh, ptr noundef nonnull align 4 dereferenceable(12) %out) #2 {
-entry:
-  %mesh.addr = alloca ptr, align 8
-  %out.addr = alloca ptr, align 8
-  %min = alloca %class.aiVector3t, align 4
-  %max = alloca %class.aiVector3t, align 4
-  store ptr %mesh, ptr %mesh.addr, align 8
-  store ptr %out, ptr %out.addr, align 8
-  call void @_ZN10aiVector3tIfEC2Ev(ptr noundef nonnull align 4 dereferenceable(12) %min) #14
-  call void @_ZN10aiVector3tIfEC2Ev(ptr noundef nonnull align 4 dereferenceable(12) %max) #14
-  %0 = load ptr, ptr %mesh.addr, align 8
-  %1 = load ptr, ptr %out.addr, align 8
-  call void @_ZN6Assimp14FindMeshCenterEP6aiMeshR10aiVector3tIfES4_S4_(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef nonnull align 4 dereferenceable(12) %min, ptr noundef nonnull align 4 dereferenceable(12) %max)
+define hidden void @_ZN6Assimp14FindMeshCenterEP6aiMeshR10aiVector3tIfE(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(12) %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %class.aiVector3t, align 4
+  %6 = alloca %class.aiVector3t, align 4
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 12, ptr %5) #18
+  call void @_ZN10aiVector3tIfEC2Ev(ptr noundef nonnull align 4 dereferenceable(12) %5) #18
+  call void @llvm.lifetime.start.p0(i64 12, ptr %6) #18
+  call void @_ZN10aiVector3tIfEC2Ev(ptr noundef nonnull align 4 dereferenceable(12) %6) #18
+  %7 = load ptr, ptr %3, align 8
+  %8 = load ptr, ptr %4, align 8
+  call void @_ZN6Assimp14FindMeshCenterEP6aiMeshR10aiVector3tIfES4_S4_(ptr noundef %7, ptr noundef nonnull align 4 dereferenceable(12) %8, ptr noundef nonnull align 4 dereferenceable(12) %5, ptr noundef nonnull align 4 dereferenceable(12) %6)
+  call void @llvm.lifetime.end.p0(i64 12, ptr %6) #18
+  call void @llvm.lifetime.end.p0(i64 12, ptr %5) #18
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp25FindMeshCenterTransformedEP6aiMeshR10aiVector3tIfERK12aiMatrix4x4tIfE(ptr noundef %mesh, ptr noundef nonnull align 4 dereferenceable(12) %out, ptr noundef nonnull align 4 dereferenceable(64) %m) #2 {
-entry:
-  %mesh.addr = alloca ptr, align 8
-  %out.addr = alloca ptr, align 8
-  %m.addr = alloca ptr, align 8
-  %min = alloca %class.aiVector3t, align 4
-  %max = alloca %class.aiVector3t, align 4
-  store ptr %mesh, ptr %mesh.addr, align 8
-  store ptr %out, ptr %out.addr, align 8
-  store ptr %m, ptr %m.addr, align 8
-  call void @_ZN10aiVector3tIfEC2Ev(ptr noundef nonnull align 4 dereferenceable(12) %min) #14
-  call void @_ZN10aiVector3tIfEC2Ev(ptr noundef nonnull align 4 dereferenceable(12) %max) #14
-  %0 = load ptr, ptr %mesh.addr, align 8
-  %1 = load ptr, ptr %out.addr, align 8
-  %2 = load ptr, ptr %m.addr, align 8
-  call void @_ZN6Assimp25FindMeshCenterTransformedEP6aiMeshR10aiVector3tIfES4_S4_RK12aiMatrix4x4tIfE(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef nonnull align 4 dereferenceable(12) %min, ptr noundef nonnull align 4 dereferenceable(12) %max, ptr noundef nonnull align 4 dereferenceable(64) %2)
+define hidden void @_ZN6Assimp25FindMeshCenterTransformedEP6aiMeshR10aiVector3tIfERK12aiMatrix4x4tIfE(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef nonnull align 4 dereferenceable(64) %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %class.aiVector3t, align 4
+  %8 = alloca %class.aiVector3t, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 12, ptr %7) #18
+  call void @_ZN10aiVector3tIfEC2Ev(ptr noundef nonnull align 4 dereferenceable(12) %7) #18
+  call void @llvm.lifetime.start.p0(i64 12, ptr %8) #18
+  call void @_ZN10aiVector3tIfEC2Ev(ptr noundef nonnull align 4 dereferenceable(12) %8) #18
+  %9 = load ptr, ptr %4, align 8
+  %10 = load ptr, ptr %5, align 8
+  %11 = load ptr, ptr %6, align 8
+  call void @_ZN6Assimp25FindMeshCenterTransformedEP6aiMeshR10aiVector3tIfES4_S4_RK12aiMatrix4x4tIfE(ptr noundef %9, ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %7, ptr noundef nonnull align 4 dereferenceable(12) %8, ptr noundef nonnull align 4 dereferenceable(64) %11)
+  call void @llvm.lifetime.end.p0(i64 12, ptr %8) #18
+  call void @llvm.lifetime.end.p0(i64 12, ptr %7) #18
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef float @_ZN6Assimp22ComputePositionEpsilonEPK6aiMesh(ptr noundef %pMesh) #5 {
-entry:
-  %pMesh.addr = alloca ptr, align 8
-  %epsilon = alloca float, align 4
-  %minVec = alloca %class.aiVector3t, align 4
-  %maxVec = alloca %class.aiVector3t, align 4
-  %ref.tmp = alloca %class.aiVector3t, align 4
-  %tmp.coerce = alloca { <2 x float>, float }, align 8
-  store ptr %pMesh, ptr %pMesh.addr, align 8
-  store float 0x3F1A36E2E0000000, ptr %epsilon, align 4
-  call void @_ZN10aiVector3tIfEC2Ev(ptr noundef nonnull align 4 dereferenceable(12) %minVec) #14
-  call void @_ZN10aiVector3tIfEC2Ev(ptr noundef nonnull align 4 dereferenceable(12) %maxVec) #14
-  %0 = load ptr, ptr %pMesh.addr, align 8
-  %mVertices = getelementptr inbounds %struct.aiMesh, ptr %0, i32 0, i32 3
-  %1 = load ptr, ptr %mVertices, align 8
-  %2 = load ptr, ptr %pMesh.addr, align 8
-  %mNumVertices = getelementptr inbounds %struct.aiMesh, ptr %2, i32 0, i32 1
-  %3 = load i32, ptr %mNumVertices, align 4
-  call void @_ZN6Assimp11ArrayBoundsI10aiVector3tIfEEEvPKT_jRS3_S6_(ptr noundef %1, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(12) %minVec, ptr noundef nonnull align 4 dereferenceable(12) %maxVec)
-  %call = call { <2 x float>, float } @_ZmiIfE10aiVector3tIT_ERKS2_S4_(ptr noundef nonnull align 4 dereferenceable(12) %maxVec, ptr noundef nonnull align 4 dereferenceable(12) %minVec)
-  store { <2 x float>, float } %call, ptr %tmp.coerce, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %ref.tmp, ptr align 8 %tmp.coerce, i64 12, i1 false)
-  %call1 = call noundef float @_ZNK10aiVector3tIfE6LengthEv(ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp)
-  %mul = fmul float %call1, 0x3F1A36E2E0000000
-  ret float %mul
+define hidden noundef float @_ZN6Assimp22ComputePositionEpsilonEPK6aiMesh(ptr noundef %0) #5 {
+  %2 = alloca ptr, align 8
+  %3 = alloca float, align 4
+  %4 = alloca %class.aiVector3t, align 4
+  %5 = alloca %class.aiVector3t, align 4
+  %6 = alloca %class.aiVector3t, align 4
+  %7 = alloca { <2 x float>, float }, align 8
+  store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #18
+  store float 0x3F1A36E2E0000000, ptr %3, align 4
+  call void @llvm.lifetime.start.p0(i64 12, ptr %4) #18
+  call void @_ZN10aiVector3tIfEC2Ev(ptr noundef nonnull align 4 dereferenceable(12) %4) #18
+  call void @llvm.lifetime.start.p0(i64 12, ptr %5) #18
+  call void @_ZN10aiVector3tIfEC2Ev(ptr noundef nonnull align 4 dereferenceable(12) %5) #18
+  %8 = load ptr, ptr %2, align 8
+  %9 = getelementptr inbounds nuw %struct.aiMesh, ptr %8, i32 0, i32 3
+  %10 = load ptr, ptr %9, align 8
+  %11 = load ptr, ptr %2, align 8
+  %12 = getelementptr inbounds nuw %struct.aiMesh, ptr %11, i32 0, i32 1
+  %13 = load i32, ptr %12, align 4
+  call void @_ZN6Assimp11ArrayBoundsI10aiVector3tIfEEEvPKT_jRS3_S6_(ptr noundef %10, i32 noundef %13, ptr noundef nonnull align 4 dereferenceable(12) %4, ptr noundef nonnull align 4 dereferenceable(12) %5)
+  call void @llvm.lifetime.start.p0(i64 12, ptr %6) #18
+  %14 = call { <2 x float>, float } @_ZmiIfE10aiVector3tIT_ERKS2_S4_(ptr noundef nonnull align 4 dereferenceable(12) %5, ptr noundef nonnull align 4 dereferenceable(12) %4)
+  store { <2 x float>, float } %14, ptr %7, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %6, ptr align 8 %7, i64 12, i1 false)
+  %15 = call noundef float @_ZNK10aiVector3tIfE6LengthEv(ptr noundef nonnull align 4 dereferenceable(12) %6)
+  %16 = fmul float %15, 0x3F1A36E2E0000000
+  call void @llvm.lifetime.end.p0(i64 12, ptr %6) #18
+  call void @llvm.lifetime.end.p0(i64 12, ptr %5) #18
+  call void @llvm.lifetime.end.p0(i64 12, ptr %4) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #18
+  ret float %16
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden noundef float @_ZNK10aiVector3tIfE6LengthEv(ptr noundef nonnull align 4 dereferenceable(12) %0) #3 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef float @_ZNK10aiVector3tIfE12SquareLengthEv(ptr noundef nonnull align 4 dereferenceable(12) %3)
+  %5 = call noundef float @_ZSt4sqrtf(float noundef %4)
+  ret float %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef float @_ZNK10aiVector3tIfE6LengthEv(ptr noundef nonnull align 4 dereferenceable(12) %this) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef float @_ZNK10aiVector3tIfE12SquareLengthEv(ptr noundef nonnull align 4 dereferenceable(12) %this1)
-  %call2 = call noundef float @_ZSt4sqrtf(float noundef %call)
-  ret float %call2
+define hidden noundef float @_ZN6Assimp22ComputePositionEpsilonEPKPK6aiMeshm(ptr noundef %0, i64 noundef %1) #5 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca float, align 4
+  %6 = alloca %class.aiVector3t, align 4
+  %7 = alloca %class.aiVector3t, align 4
+  %8 = alloca %class.aiVector3t, align 4
+  %9 = alloca %class.aiVector3t, align 4
+  %10 = alloca %"struct.Assimp::MinMaxChooser", align 1
+  %11 = alloca i64, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca %class.aiVector3t, align 4
+  %14 = alloca { <2 x float>, float }, align 8
+  %15 = alloca %class.aiVector3t, align 4
+  %16 = alloca { <2 x float>, float }, align 8
+  %17 = alloca %class.aiVector3t, align 4
+  %18 = alloca { <2 x float>, float }, align 8
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #18
+  store float 0x3F1A36E2E0000000, ptr %5, align 4
+  call void @llvm.lifetime.start.p0(i64 12, ptr %6) #18
+  call void @_ZN10aiVector3tIfEC2Ev(ptr noundef nonnull align 4 dereferenceable(12) %6) #18
+  call void @llvm.lifetime.start.p0(i64 12, ptr %7) #18
+  call void @_ZN10aiVector3tIfEC2Ev(ptr noundef nonnull align 4 dereferenceable(12) %7) #18
+  call void @llvm.lifetime.start.p0(i64 12, ptr %8) #18
+  call void @_ZN10aiVector3tIfEC2Ev(ptr noundef nonnull align 4 dereferenceable(12) %8) #18
+  call void @llvm.lifetime.start.p0(i64 12, ptr %9) #18
+  call void @_ZN10aiVector3tIfEC2Ev(ptr noundef nonnull align 4 dereferenceable(12) %9) #18
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #18
+  call void @_ZN6Assimp13MinMaxChooserI10aiVector3tIfEEclERS2_S4_(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 4 dereferenceable(12) %6, ptr noundef nonnull align 4 dereferenceable(12) %7)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #18
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #18
+  store i64 0, ptr %11, align 8
+  br label %19
+
+19:                                               ; preds = %37, %2
+  %20 = load i64, ptr %11, align 8
+  %21 = load i64, ptr %4, align 8
+  %22 = icmp ult i64 %20, %21
+  br i1 %22, label %24, label %23
+
+23:                                               ; preds = %19
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #18
+  br label %40
+
+24:                                               ; preds = %19
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #18
+  %25 = load ptr, ptr %3, align 8
+  %26 = load i64, ptr %11, align 8
+  %27 = getelementptr inbounds nuw ptr, ptr %25, i64 %26
+  %28 = load ptr, ptr %27, align 8
+  store ptr %28, ptr %12, align 8
+  %29 = load ptr, ptr %12, align 8
+  %30 = getelementptr inbounds nuw %struct.aiMesh, ptr %29, i32 0, i32 3
+  %31 = load ptr, ptr %30, align 8
+  %32 = load ptr, ptr %12, align 8
+  %33 = getelementptr inbounds nuw %struct.aiMesh, ptr %32, i32 0, i32 1
+  %34 = load i32, ptr %33, align 4
+  call void @_ZN6Assimp11ArrayBoundsI10aiVector3tIfEEEvPKT_jRS3_S6_(ptr noundef %31, i32 noundef %34, ptr noundef nonnull align 4 dereferenceable(12) %8, ptr noundef nonnull align 4 dereferenceable(12) %9)
+  call void @llvm.lifetime.start.p0(i64 12, ptr %13) #18
+  %35 = call { <2 x float>, float } @_ZSt3minIfE10aiVector3tIT_ERKS2_S4_(ptr noundef nonnull align 4 dereferenceable(12) %6, ptr noundef nonnull align 4 dereferenceable(12) %8)
+  store { <2 x float>, float } %35, ptr %14, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %13, ptr align 8 %14, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %6, ptr align 4 %13, i64 12, i1 false)
+  call void @llvm.lifetime.end.p0(i64 12, ptr %13) #18
+  call void @llvm.lifetime.start.p0(i64 12, ptr %15) #18
+  %36 = call { <2 x float>, float } @_ZSt3maxIfE10aiVector3tIT_ERKS2_S4_(ptr noundef nonnull align 4 dereferenceable(12) %7, ptr noundef nonnull align 4 dereferenceable(12) %9)
+  store { <2 x float>, float } %36, ptr %16, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %15, ptr align 8 %16, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %7, ptr align 4 %15, i64 12, i1 false)
+  call void @llvm.lifetime.end.p0(i64 12, ptr %15) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #18
+  br label %37
+
+37:                                               ; preds = %24
+  %38 = load i64, ptr %11, align 8
+  %39 = add i64 %38, 1
+  store i64 %39, ptr %11, align 8
+  br label %19, !llvm.loop !10
+
+40:                                               ; preds = %23
+  call void @llvm.lifetime.start.p0(i64 12, ptr %17) #18
+  %41 = call { <2 x float>, float } @_ZmiIfE10aiVector3tIT_ERKS2_S4_(ptr noundef nonnull align 4 dereferenceable(12) %7, ptr noundef nonnull align 4 dereferenceable(12) %6)
+  store { <2 x float>, float } %41, ptr %18, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %17, ptr align 8 %18, i64 12, i1 false)
+  %42 = call noundef float @_ZNK10aiVector3tIfE6LengthEv(ptr noundef nonnull align 4 dereferenceable(12) %17)
+  %43 = fmul float %42, 0x3F1A36E2E0000000
+  call void @llvm.lifetime.end.p0(i64 12, ptr %17) #18
+  call void @llvm.lifetime.end.p0(i64 12, ptr %9) #18
+  call void @llvm.lifetime.end.p0(i64 12, ptr %8) #18
+  call void @llvm.lifetime.end.p0(i64 12, ptr %7) #18
+  call void @llvm.lifetime.end.p0(i64 12, ptr %6) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #18
+  ret float %43
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef float @_ZN6Assimp22ComputePositionEpsilonEPKPK6aiMeshm(ptr noundef %pMeshes, i64 noundef %num) #5 {
-entry:
-  %pMeshes.addr = alloca ptr, align 8
-  %num.addr = alloca i64, align 8
-  %epsilon = alloca float, align 4
-  %minVec = alloca %class.aiVector3t, align 4
-  %maxVec = alloca %class.aiVector3t, align 4
-  %mi = alloca %class.aiVector3t, align 4
-  %ma = alloca %class.aiVector3t, align 4
-  %ref.tmp = alloca %"struct.Assimp::MinMaxChooser", align 1
-  %a = alloca i64, align 8
-  %pMesh = alloca ptr, align 8
-  %ref.tmp1 = alloca %class.aiVector3t, align 4
-  %tmp.coerce = alloca { <2 x float>, float }, align 8
-  %ref.tmp2 = alloca %class.aiVector3t, align 4
-  %tmp.coerce4 = alloca { <2 x float>, float }, align 8
-  %ref.tmp5 = alloca %class.aiVector3t, align 4
-  %tmp.coerce7 = alloca { <2 x float>, float }, align 8
-  store ptr %pMeshes, ptr %pMeshes.addr, align 8
-  store i64 %num, ptr %num.addr, align 8
-  store float 0x3F1A36E2E0000000, ptr %epsilon, align 4
-  call void @_ZN10aiVector3tIfEC2Ev(ptr noundef nonnull align 4 dereferenceable(12) %minVec) #14
-  call void @_ZN10aiVector3tIfEC2Ev(ptr noundef nonnull align 4 dereferenceable(12) %maxVec) #14
-  call void @_ZN10aiVector3tIfEC2Ev(ptr noundef nonnull align 4 dereferenceable(12) %mi) #14
-  call void @_ZN10aiVector3tIfEC2Ev(ptr noundef nonnull align 4 dereferenceable(12) %ma) #14
-  call void @_ZN6Assimp13MinMaxChooserI10aiVector3tIfEEclERS2_S4_(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(12) %minVec, ptr noundef nonnull align 4 dereferenceable(12) %maxVec)
-  store i64 0, ptr %a, align 8
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i64, ptr %a, align 8
-  %1 = load i64, ptr %num.addr, align 8
-  %cmp = icmp ult i64 %0, %1
-  br i1 %cmp, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %2 = load ptr, ptr %pMeshes.addr, align 8
-  %3 = load i64, ptr %a, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %2, i64 %3
-  %4 = load ptr, ptr %arrayidx, align 8
-  store ptr %4, ptr %pMesh, align 8
-  %5 = load ptr, ptr %pMesh, align 8
-  %mVertices = getelementptr inbounds %struct.aiMesh, ptr %5, i32 0, i32 3
-  %6 = load ptr, ptr %mVertices, align 8
-  %7 = load ptr, ptr %pMesh, align 8
-  %mNumVertices = getelementptr inbounds %struct.aiMesh, ptr %7, i32 0, i32 1
-  %8 = load i32, ptr %mNumVertices, align 4
-  call void @_ZN6Assimp11ArrayBoundsI10aiVector3tIfEEEvPKT_jRS3_S6_(ptr noundef %6, i32 noundef %8, ptr noundef nonnull align 4 dereferenceable(12) %mi, ptr noundef nonnull align 4 dereferenceable(12) %ma)
-  %call = call { <2 x float>, float } @_ZSt3minIfE10aiVector3tIT_ERKS2_S4_(ptr noundef nonnull align 4 dereferenceable(12) %minVec, ptr noundef nonnull align 4 dereferenceable(12) %mi)
-  store { <2 x float>, float } %call, ptr %tmp.coerce, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %ref.tmp1, ptr align 8 %tmp.coerce, i64 12, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %minVec, ptr align 4 %ref.tmp1, i64 12, i1 false)
-  %call3 = call { <2 x float>, float } @_ZSt3maxIfE10aiVector3tIT_ERKS2_S4_(ptr noundef nonnull align 4 dereferenceable(12) %maxVec, ptr noundef nonnull align 4 dereferenceable(12) %ma)
-  store { <2 x float>, float } %call3, ptr %tmp.coerce4, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %ref.tmp2, ptr align 8 %tmp.coerce4, i64 12, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %maxVec, ptr align 4 %ref.tmp2, i64 12, i1 false)
-  br label %for.inc
-
-for.inc:                                          ; preds = %for.body
-  %9 = load i64, ptr %a, align 8
-  %inc = add i64 %9, 1
-  store i64 %inc, ptr %a, align 8
-  br label %for.cond, !llvm.loop !11
-
-for.end:                                          ; preds = %for.cond
-  %call6 = call { <2 x float>, float } @_ZmiIfE10aiVector3tIT_ERKS2_S4_(ptr noundef nonnull align 4 dereferenceable(12) %maxVec, ptr noundef nonnull align 4 dereferenceable(12) %minVec)
-  store { <2 x float>, float } %call6, ptr %tmp.coerce7, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %ref.tmp5, ptr align 8 %tmp.coerce7, i64 12, i1 false)
-  %call8 = call noundef float @_ZNK10aiVector3tIfE6LengthEv(ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp5)
-  %mul = fmul float %call8, 0x3F1A36E2E0000000
-  ret float %mul
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN6Assimp13MinMaxChooserI10aiVector3tIfEEclERS2_S4_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 4 dereferenceable(12) %min, ptr noundef nonnull align 4 dereferenceable(12) %max) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %min.addr = alloca ptr, align 8
-  %max.addr = alloca ptr, align 8
-  %ref.tmp = alloca %class.aiVector3t, align 4
-  %ref.tmp2 = alloca %class.aiVector3t, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %min, ptr %min.addr, align 8
-  store ptr %max, ptr %max.addr, align 8
-  call void @_ZN10aiVector3tIfEC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp, float noundef -1.000000e+10, float noundef -1.000000e+10, float noundef -1.000000e+10)
-  %0 = load ptr, ptr %max.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %0, ptr align 4 %ref.tmp, i64 12, i1 false)
-  call void @_ZN10aiVector3tIfEC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp2, float noundef 1.000000e+10, float noundef 1.000000e+10, float noundef 1.000000e+10)
-  %1 = load ptr, ptr %min.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %1, ptr align 4 %ref.tmp2, i64 12, i1 false)
+define linkonce_odr hidden void @_ZN6Assimp13MinMaxChooserI10aiVector3tIfEEclERS2_S4_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef nonnull align 4 dereferenceable(12) %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %class.aiVector3t, align 4
+  %8 = alloca %class.aiVector3t, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 12, ptr %7) #18
+  call void @_ZN10aiVector3tIfEC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %7, float noundef -1.000000e+10, float noundef -1.000000e+10, float noundef -1.000000e+10)
+  %9 = load ptr, ptr %6, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %9, ptr align 4 %7, i64 12, i1 false)
+  call void @llvm.lifetime.end.p0(i64 12, ptr %7) #18
+  call void @llvm.lifetime.start.p0(i64 12, ptr %8) #18
+  call void @_ZN10aiVector3tIfEC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %8, float noundef 1.000000e+10, float noundef 1.000000e+10, float noundef 1.000000e+10)
+  %10 = load ptr, ptr %5, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %10, ptr align 4 %8, i64 12, i1 false)
+  call void @llvm.lifetime.end.p0(i64 12, ptr %8) #18
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN6Assimp20GetMeshVFormatUniqueEPK6aiMesh(ptr noundef %pcMesh) #2 {
-entry:
-  %pcMesh.addr = alloca ptr, align 8
-  %iRet = alloca i32, align 4
-  %p = alloca i32, align 4
-  store ptr %pcMesh, ptr %pcMesh.addr, align 8
-  store i32 1, ptr %iRet, align 4
-  %0 = load ptr, ptr %pcMesh.addr, align 8
-  %call = call noundef zeroext i1 @_ZNK6aiMesh10HasNormalsEv(ptr noundef nonnull align 8 dereferenceable(1320) %0)
-  br i1 %call, label %if.then, label %if.end
+define hidden noundef i32 @_ZN6Assimp20GetMeshVFormatUniqueEPK6aiMesh(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #18
+  store i32 1, ptr %3, align 4
+  %5 = load ptr, ptr %2, align 8
+  %6 = call noundef zeroext i1 @_ZNK6aiMesh10HasNormalsEv(ptr noundef nonnull align 8 dereferenceable(1320) %5)
+  br i1 %6, label %7, label %10
 
-if.then:                                          ; preds = %entry
-  %1 = load i32, ptr %iRet, align 4
-  %or = or i32 %1, 2
-  store i32 %or, ptr %iRet, align 4
-  br label %if.end
+7:                                                ; preds = %1
+  %8 = load i32, ptr %3, align 4
+  %9 = or i32 %8, 2
+  store i32 %9, ptr %3, align 4
+  br label %10
 
-if.end:                                           ; preds = %if.then, %entry
-  %2 = load ptr, ptr %pcMesh.addr, align 8
-  %call1 = call noundef zeroext i1 @_ZNK6aiMesh24HasTangentsAndBitangentsEv(ptr noundef nonnull align 8 dereferenceable(1320) %2)
-  br i1 %call1, label %if.then2, label %if.end4
+10:                                               ; preds = %7, %1
+  %11 = load ptr, ptr %2, align 8
+  %12 = call noundef zeroext i1 @_ZNK6aiMesh24HasTangentsAndBitangentsEv(ptr noundef nonnull align 8 dereferenceable(1320) %11)
+  br i1 %12, label %13, label %16
 
-if.then2:                                         ; preds = %if.end
-  %3 = load i32, ptr %iRet, align 4
-  %or3 = or i32 %3, 4
-  store i32 %or3, ptr %iRet, align 4
-  br label %if.end4
+13:                                               ; preds = %10
+  %14 = load i32, ptr %3, align 4
+  %15 = or i32 %14, 4
+  store i32 %15, ptr %3, align 4
+  br label %16
 
-if.end4:                                          ; preds = %if.then2, %if.end
-  store i32 0, ptr %p, align 4
-  br label %while.cond
+16:                                               ; preds = %13, %10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #18
+  store i32 0, ptr %4, align 4
+  br label %17
 
-while.cond:                                       ; preds = %if.end10, %if.end4
-  %4 = load ptr, ptr %pcMesh.addr, align 8
-  %5 = load i32, ptr %p, align 4
-  %call5 = call noundef zeroext i1 @_ZNK6aiMesh16HasTextureCoordsEj(ptr noundef nonnull align 8 dereferenceable(1320) %4, i32 noundef %5)
-  br i1 %call5, label %while.body, label %while.end
+17:                                               ; preds = %38, %16
+  %18 = load ptr, ptr %2, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = call noundef zeroext i1 @_ZNK6aiMesh16HasTextureCoordsEj(ptr noundef nonnull align 8 dereferenceable(1320) %18, i32 noundef %19)
+  br i1 %20, label %21, label %41
 
-while.body:                                       ; preds = %while.cond
-  %6 = load i32, ptr %p, align 4
-  %shl = shl i32 256, %6
-  %7 = load i32, ptr %iRet, align 4
-  %or6 = or i32 %7, %shl
-  store i32 %or6, ptr %iRet, align 4
-  %8 = load ptr, ptr %pcMesh.addr, align 8
-  %mNumUVComponents = getelementptr inbounds %struct.aiMesh, ptr %8, i32 0, i32 9
-  %9 = load i32, ptr %p, align 4
-  %idxprom = zext i32 %9 to i64
-  %arrayidx = getelementptr inbounds [8 x i32], ptr %mNumUVComponents, i64 0, i64 %idxprom
-  %10 = load i32, ptr %arrayidx, align 4
-  %cmp = icmp eq i32 3, %10
-  br i1 %cmp, label %if.then7, label %if.end10
+21:                                               ; preds = %17
+  %22 = load i32, ptr %4, align 4
+  %23 = shl i32 256, %22
+  %24 = load i32, ptr %3, align 4
+  %25 = or i32 %24, %23
+  store i32 %25, ptr %3, align 4
+  %26 = load ptr, ptr %2, align 8
+  %27 = getelementptr inbounds nuw %struct.aiMesh, ptr %26, i32 0, i32 9
+  %28 = load i32, ptr %4, align 4
+  %29 = zext i32 %28 to i64
+  %30 = getelementptr inbounds nuw [8 x i32], ptr %27, i64 0, i64 %29
+  %31 = load i32, ptr %30, align 4
+  %32 = icmp eq i32 3, %31
+  br i1 %32, label %33, label %38
 
-if.then7:                                         ; preds = %while.body
-  %11 = load i32, ptr %p, align 4
-  %shl8 = shl i32 65536, %11
-  %12 = load i32, ptr %iRet, align 4
-  %or9 = or i32 %12, %shl8
-  store i32 %or9, ptr %iRet, align 4
-  br label %if.end10
+33:                                               ; preds = %21
+  %34 = load i32, ptr %4, align 4
+  %35 = shl i32 65536, %34
+  %36 = load i32, ptr %3, align 4
+  %37 = or i32 %36, %35
+  store i32 %37, ptr %3, align 4
+  br label %38
 
-if.end10:                                         ; preds = %if.then7, %while.body
-  %13 = load i32, ptr %p, align 4
-  %inc = add i32 %13, 1
-  store i32 %inc, ptr %p, align 4
-  br label %while.cond, !llvm.loop !12
+38:                                               ; preds = %33, %21
+  %39 = load i32, ptr %4, align 4
+  %40 = add i32 %39, 1
+  store i32 %40, ptr %4, align 4
+  br label %17, !llvm.loop !11
 
-while.end:                                        ; preds = %while.cond
-  store i32 0, ptr %p, align 4
-  br label %while.cond11
+41:                                               ; preds = %17
+  store i32 0, ptr %4, align 4
+  br label %42
 
-while.cond11:                                     ; preds = %while.body13, %while.end
-  %14 = load ptr, ptr %pcMesh.addr, align 8
-  %15 = load i32, ptr %p, align 4
-  %call12 = call noundef zeroext i1 @_ZNK6aiMesh15HasVertexColorsEj(ptr noundef nonnull align 8 dereferenceable(1320) %14, i32 noundef %15)
-  br i1 %call12, label %while.body13, label %while.end17
+42:                                               ; preds = %46, %41
+  %43 = load ptr, ptr %2, align 8
+  %44 = load i32, ptr %4, align 4
+  %45 = call noundef zeroext i1 @_ZNK6aiMesh15HasVertexColorsEj(ptr noundef nonnull align 8 dereferenceable(1320) %43, i32 noundef %44)
+  br i1 %45, label %46, label %52
 
-while.body13:                                     ; preds = %while.cond11
-  %16 = load i32, ptr %p, align 4
-  %inc14 = add i32 %16, 1
-  store i32 %inc14, ptr %p, align 4
-  %shl15 = shl i32 16777216, %16
-  %17 = load i32, ptr %iRet, align 4
-  %or16 = or i32 %17, %shl15
-  store i32 %or16, ptr %iRet, align 4
-  br label %while.cond11, !llvm.loop !13
+46:                                               ; preds = %42
+  %47 = load i32, ptr %4, align 4
+  %48 = add i32 %47, 1
+  store i32 %48, ptr %4, align 4
+  %49 = shl i32 16777216, %47
+  %50 = load i32, ptr %3, align 4
+  %51 = or i32 %50, %49
+  store i32 %51, ptr %3, align 4
+  br label %42, !llvm.loop !12
 
-while.end17:                                      ; preds = %while.cond11
-  %18 = load i32, ptr %iRet, align 4
-  ret i32 %18
+52:                                               ; preds = %42
+  %53 = load i32, ptr %3, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #18
+  ret i32 %53
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZNK6aiMesh10HasNormalsEv(ptr noundef nonnull align 8 dereferenceable(1320) %this) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %mNormals = getelementptr inbounds %struct.aiMesh, ptr %this1, i32 0, i32 4
-  %0 = load ptr, ptr %mNormals, align 8
-  %cmp = icmp ne ptr %0, null
-  br i1 %cmp, label %land.rhs, label %land.end
+define linkonce_odr hidden noundef zeroext i1 @_ZNK6aiMesh10HasNormalsEv(ptr noundef nonnull align 8 dereferenceable(1320) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %struct.aiMesh, ptr %3, i32 0, i32 4
+  %5 = load ptr, ptr %4, align 8
+  %6 = icmp ne ptr %5, null
+  br i1 %6, label %7, label %11
 
-land.rhs:                                         ; preds = %entry
-  %mNumVertices = getelementptr inbounds %struct.aiMesh, ptr %this1, i32 0, i32 1
-  %1 = load i32, ptr %mNumVertices, align 4
-  %cmp2 = icmp ugt i32 %1, 0
-  br label %land.end
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds nuw %struct.aiMesh, ptr %3, i32 0, i32 1
+  %9 = load i32, ptr %8, align 4
+  %10 = icmp ugt i32 %9, 0
+  br label %11
 
-land.end:                                         ; preds = %land.rhs, %entry
-  %2 = phi i1 [ false, %entry ], [ %cmp2, %land.rhs ]
-  ret i1 %2
+11:                                               ; preds = %7, %1
+  %12 = phi i1 [ false, %1 ], [ %10, %7 ]
+  ret i1 %12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZNK6aiMesh24HasTangentsAndBitangentsEv(ptr noundef nonnull align 8 dereferenceable(1320) %this) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %mTangents = getelementptr inbounds %struct.aiMesh, ptr %this1, i32 0, i32 5
-  %0 = load ptr, ptr %mTangents, align 8
-  %cmp = icmp ne ptr %0, null
-  br i1 %cmp, label %land.lhs.true, label %land.end
+define linkonce_odr hidden noundef zeroext i1 @_ZNK6aiMesh24HasTangentsAndBitangentsEv(ptr noundef nonnull align 8 dereferenceable(1320) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %struct.aiMesh, ptr %3, i32 0, i32 5
+  %5 = load ptr, ptr %4, align 8
+  %6 = icmp ne ptr %5, null
+  br i1 %6, label %7, label %15
 
-land.lhs.true:                                    ; preds = %entry
-  %mBitangents = getelementptr inbounds %struct.aiMesh, ptr %this1, i32 0, i32 6
-  %1 = load ptr, ptr %mBitangents, align 8
-  %cmp2 = icmp ne ptr %1, null
-  br i1 %cmp2, label %land.rhs, label %land.end
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds nuw %struct.aiMesh, ptr %3, i32 0, i32 6
+  %9 = load ptr, ptr %8, align 8
+  %10 = icmp ne ptr %9, null
+  br i1 %10, label %11, label %15
 
-land.rhs:                                         ; preds = %land.lhs.true
-  %mNumVertices = getelementptr inbounds %struct.aiMesh, ptr %this1, i32 0, i32 1
-  %2 = load i32, ptr %mNumVertices, align 4
-  %cmp3 = icmp ugt i32 %2, 0
-  br label %land.end
+11:                                               ; preds = %7
+  %12 = getelementptr inbounds nuw %struct.aiMesh, ptr %3, i32 0, i32 1
+  %13 = load i32, ptr %12, align 4
+  %14 = icmp ugt i32 %13, 0
+  br label %15
 
-land.end:                                         ; preds = %land.rhs, %land.lhs.true, %entry
-  %3 = phi i1 [ false, %land.lhs.true ], [ false, %entry ], [ %cmp3, %land.rhs ]
-  ret i1 %3
+15:                                               ; preds = %11, %7, %1
+  %16 = phi i1 [ false, %7 ], [ false, %1 ], [ %14, %11 ]
+  ret i1 %16
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZNK6aiMesh16HasTextureCoordsEj(ptr noundef nonnull align 8 dereferenceable(1320) %this, i32 noundef %index) #0 comdat align 2 {
-entry:
-  %retval = alloca i1, align 1
-  %this.addr = alloca ptr, align 8
-  %index.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %index, ptr %index.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i32, ptr %index.addr, align 4
-  %cmp = icmp uge i32 %0, 8
-  br i1 %cmp, label %if.then, label %if.end
+define linkonce_odr hidden noundef zeroext i1 @_ZNK6aiMesh16HasTextureCoordsEj(ptr noundef nonnull align 8 dereferenceable(1320) %0, i32 noundef %1) #2 comdat align 2 {
+  %3 = alloca i1, align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store i32 %1, ptr %5, align 4
+  %6 = load ptr, ptr %4, align 8
+  %7 = load i32, ptr %5, align 4
+  %8 = icmp uge i32 %7, 8
+  br i1 %8, label %9, label %10
 
-if.then:                                          ; preds = %entry
-  store i1 false, ptr %retval, align 1
-  br label %return
+9:                                                ; preds = %2
+  store i1 false, ptr %3, align 1
+  br label %23
 
-if.end:                                           ; preds = %entry
-  %mTextureCoords = getelementptr inbounds %struct.aiMesh, ptr %this1, i32 0, i32 8
-  %1 = load i32, ptr %index.addr, align 4
-  %idxprom = zext i32 %1 to i64
-  %arrayidx = getelementptr inbounds [8 x ptr], ptr %mTextureCoords, i64 0, i64 %idxprom
-  %2 = load ptr, ptr %arrayidx, align 8
-  %cmp2 = icmp ne ptr %2, null
-  br i1 %cmp2, label %land.rhs, label %land.end
+10:                                               ; preds = %2
+  %11 = getelementptr inbounds nuw %struct.aiMesh, ptr %6, i32 0, i32 8
+  %12 = load i32, ptr %5, align 4
+  %13 = zext i32 %12 to i64
+  %14 = getelementptr inbounds nuw [8 x ptr], ptr %11, i64 0, i64 %13
+  %15 = load ptr, ptr %14, align 8
+  %16 = icmp ne ptr %15, null
+  br i1 %16, label %17, label %21
 
-land.rhs:                                         ; preds = %if.end
-  %mNumVertices = getelementptr inbounds %struct.aiMesh, ptr %this1, i32 0, i32 1
-  %3 = load i32, ptr %mNumVertices, align 4
-  %cmp3 = icmp ugt i32 %3, 0
-  br label %land.end
+17:                                               ; preds = %10
+  %18 = getelementptr inbounds nuw %struct.aiMesh, ptr %6, i32 0, i32 1
+  %19 = load i32, ptr %18, align 4
+  %20 = icmp ugt i32 %19, 0
+  br label %21
 
-land.end:                                         ; preds = %land.rhs, %if.end
-  %4 = phi i1 [ false, %if.end ], [ %cmp3, %land.rhs ]
-  store i1 %4, ptr %retval, align 1
-  br label %return
+21:                                               ; preds = %17, %10
+  %22 = phi i1 [ false, %10 ], [ %20, %17 ]
+  store i1 %22, ptr %3, align 1
+  br label %23
 
-return:                                           ; preds = %land.end, %if.then
-  %5 = load i1, ptr %retval, align 1
-  ret i1 %5
+23:                                               ; preds = %21, %9
+  %24 = load i1, ptr %3, align 1
+  ret i1 %24
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZNK6aiMesh15HasVertexColorsEj(ptr noundef nonnull align 8 dereferenceable(1320) %this, i32 noundef %index) #0 comdat align 2 {
-entry:
-  %retval = alloca i1, align 1
-  %this.addr = alloca ptr, align 8
-  %index.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %index, ptr %index.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i32, ptr %index.addr, align 4
-  %cmp = icmp uge i32 %0, 8
-  br i1 %cmp, label %if.then, label %if.end
+define linkonce_odr hidden noundef zeroext i1 @_ZNK6aiMesh15HasVertexColorsEj(ptr noundef nonnull align 8 dereferenceable(1320) %0, i32 noundef %1) #2 comdat align 2 {
+  %3 = alloca i1, align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store i32 %1, ptr %5, align 4
+  %6 = load ptr, ptr %4, align 8
+  %7 = load i32, ptr %5, align 4
+  %8 = icmp uge i32 %7, 8
+  br i1 %8, label %9, label %10
 
-if.then:                                          ; preds = %entry
-  store i1 false, ptr %retval, align 1
-  br label %return
+9:                                                ; preds = %2
+  store i1 false, ptr %3, align 1
+  br label %23
 
-if.end:                                           ; preds = %entry
-  %mColors = getelementptr inbounds %struct.aiMesh, ptr %this1, i32 0, i32 7
-  %1 = load i32, ptr %index.addr, align 4
-  %idxprom = zext i32 %1 to i64
-  %arrayidx = getelementptr inbounds [8 x ptr], ptr %mColors, i64 0, i64 %idxprom
-  %2 = load ptr, ptr %arrayidx, align 8
-  %cmp2 = icmp ne ptr %2, null
-  br i1 %cmp2, label %land.rhs, label %land.end
+10:                                               ; preds = %2
+  %11 = getelementptr inbounds nuw %struct.aiMesh, ptr %6, i32 0, i32 7
+  %12 = load i32, ptr %5, align 4
+  %13 = zext i32 %12 to i64
+  %14 = getelementptr inbounds nuw [8 x ptr], ptr %11, i64 0, i64 %13
+  %15 = load ptr, ptr %14, align 8
+  %16 = icmp ne ptr %15, null
+  br i1 %16, label %17, label %21
 
-land.rhs:                                         ; preds = %if.end
-  %mNumVertices = getelementptr inbounds %struct.aiMesh, ptr %this1, i32 0, i32 1
-  %3 = load i32, ptr %mNumVertices, align 4
-  %cmp3 = icmp ugt i32 %3, 0
-  br label %land.end
+17:                                               ; preds = %10
+  %18 = getelementptr inbounds nuw %struct.aiMesh, ptr %6, i32 0, i32 1
+  %19 = load i32, ptr %18, align 4
+  %20 = icmp ugt i32 %19, 0
+  br label %21
 
-land.end:                                         ; preds = %land.rhs, %if.end
-  %4 = phi i1 [ false, %if.end ], [ %cmp3, %land.rhs ]
-  store i1 %4, ptr %retval, align 1
-  br label %return
+21:                                               ; preds = %17, %10
+  %22 = phi i1 [ false, %10 ], [ %20, %17 ]
+  store i1 %22, ptr %3, align 1
+  br label %23
 
-return:                                           ; preds = %land.end, %if.then
-  %5 = load i1, ptr %retval, align 1
-  ret i1 %5
+23:                                               ; preds = %21, %9
+  %24 = load i1, ptr %3, align 1
+  ret i1 %24
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN6Assimp28ComputeVertexBoneWeightTableEPK6aiMesh(ptr noundef %pMesh) #2 {
-entry:
-  %retval = alloca ptr, align 8
-  %pMesh.addr = alloca ptr, align 8
-  %avPerVertexWeights = alloca ptr, align 8
-  %i = alloca i32, align 4
-  %bone = alloca ptr, align 8
-  %a = alloca i32, align 4
-  %weight = alloca ptr, align 8
-  store ptr %pMesh, ptr %pMesh.addr, align 8
-  %0 = load ptr, ptr %pMesh.addr, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %lor.lhs.false, label %if.then
+define hidden noundef ptr @_ZN6Assimp28ComputeVertexBoneWeightTableEPK6aiMesh(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  %10 = load ptr, ptr %3, align 8
+  %11 = icmp ne ptr %10, null
+  br i1 %11, label %12, label %22
 
-lor.lhs.false:                                    ; preds = %entry
-  %1 = load ptr, ptr %pMesh.addr, align 8
-  %mNumVertices = getelementptr inbounds %struct.aiMesh, ptr %1, i32 0, i32 1
-  %2 = load i32, ptr %mNumVertices, align 4
-  %tobool1 = icmp ne i32 %2, 0
-  br i1 %tobool1, label %lor.lhs.false2, label %if.then
+12:                                               ; preds = %1
+  %13 = load ptr, ptr %3, align 8
+  %14 = getelementptr inbounds nuw %struct.aiMesh, ptr %13, i32 0, i32 1
+  %15 = load i32, ptr %14, align 4
+  %16 = icmp ne i32 %15, 0
+  br i1 %16, label %17, label %22
 
-lor.lhs.false2:                                   ; preds = %lor.lhs.false
-  %3 = load ptr, ptr %pMesh.addr, align 8
-  %mNumBones = getelementptr inbounds %struct.aiMesh, ptr %3, i32 0, i32 11
-  %4 = load i32, ptr %mNumBones, align 8
-  %tobool3 = icmp ne i32 %4, 0
-  br i1 %tobool3, label %if.end, label %if.then
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = getelementptr inbounds nuw %struct.aiMesh, ptr %18, i32 0, i32 11
+  %20 = load i32, ptr %19, align 8
+  %21 = icmp ne i32 %20, 0
+  br i1 %21, label %23, label %22
 
-if.then:                                          ; preds = %lor.lhs.false2, %lor.lhs.false, %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
+22:                                               ; preds = %17, %12, %1
+  store ptr null, ptr %2, align 8
+  br label %93
 
-if.end:                                           ; preds = %lor.lhs.false2
-  %5 = load ptr, ptr %pMesh.addr, align 8
-  %mNumVertices4 = getelementptr inbounds %struct.aiMesh, ptr %5, i32 0, i32 1
-  %6 = load i32, ptr %mNumVertices4, align 4
-  %conv = zext i32 %6 to i64
-  %7 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %conv, i64 24)
-  %8 = extractvalue { i64, i1 } %7, 1
-  %9 = extractvalue { i64, i1 } %7, 0
-  %10 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %9, i64 8)
-  %11 = extractvalue { i64, i1 } %10, 1
-  %12 = or i1 %8, %11
-  %13 = extractvalue { i64, i1 } %10, 0
-  %14 = select i1 %12, i64 -1, i64 %13
-  %call = call noalias noundef nonnull ptr @_Znam(i64 noundef %14) #15
-  store i64 %conv, ptr %call, align 16
-  %15 = getelementptr inbounds i8, ptr %call, i64 8
-  %isempty = icmp eq i64 %conv, 0
-  br i1 %isempty, label %arrayctor.cont, label %new.ctorloop
+23:                                               ; preds = %17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #18
+  %24 = load ptr, ptr %3, align 8
+  %25 = getelementptr inbounds nuw %struct.aiMesh, ptr %24, i32 0, i32 1
+  %26 = load i32, ptr %25, align 4
+  %27 = zext i32 %26 to i64
+  %28 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %27, i64 24)
+  %29 = extractvalue { i64, i1 } %28, 1
+  %30 = extractvalue { i64, i1 } %28, 0
+  %31 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %30, i64 8)
+  %32 = extractvalue { i64, i1 } %31, 1
+  %33 = or i1 %29, %32
+  %34 = extractvalue { i64, i1 } %31, 0
+  %35 = select i1 %33, i64 -1, i64 %34
+  %36 = call noalias noundef nonnull ptr @_Znam(i64 noundef %35) #20
+  store i64 %27, ptr %36, align 16
+  %37 = getelementptr inbounds i8, ptr %36, i64 8
+  %38 = icmp eq i64 %27, 0
+  br i1 %38, label %45, label %39
 
-new.ctorloop:                                     ; preds = %if.end
-  %arrayctor.end = getelementptr inbounds %"class.std::vector", ptr %15, i64 %conv
-  br label %arrayctor.loop
+39:                                               ; preds = %23
+  %40 = getelementptr inbounds %"class.std::vector", ptr %37, i64 %27
+  br label %41
 
-arrayctor.loop:                                   ; preds = %arrayctor.loop, %new.ctorloop
-  %arrayctor.cur = phi ptr [ %15, %new.ctorloop ], [ %arrayctor.next, %arrayctor.loop ]
-  call void @_ZNSt6vectorISt4pairIjfESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %arrayctor.cur) #14
-  %arrayctor.next = getelementptr inbounds %"class.std::vector", ptr %arrayctor.cur, i64 1
-  %arrayctor.done = icmp eq ptr %arrayctor.next, %arrayctor.end
-  br i1 %arrayctor.done, label %arrayctor.cont, label %arrayctor.loop
+41:                                               ; preds = %41, %39
+  %42 = phi ptr [ %37, %39 ], [ %43, %41 ]
+  call void @_ZNSt6vectorISt4pairIjfESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %42) #18
+  %43 = getelementptr inbounds %"class.std::vector", ptr %42, i64 1
+  %44 = icmp eq ptr %43, %40
+  br i1 %44, label %45, label %41
 
-arrayctor.cont:                                   ; preds = %arrayctor.loop, %if.end
-  store ptr %15, ptr %avPerVertexWeights, align 8
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+45:                                               ; preds = %23, %41
+  store ptr %37, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #18
+  store i32 0, ptr %5, align 4
+  br label %46
 
-for.cond:                                         ; preds = %for.inc14, %arrayctor.cont
-  %16 = load i32, ptr %i, align 4
-  %17 = load ptr, ptr %pMesh.addr, align 8
-  %mNumBones5 = getelementptr inbounds %struct.aiMesh, ptr %17, i32 0, i32 11
-  %18 = load i32, ptr %mNumBones5, align 8
-  %cmp = icmp ult i32 %16, %18
-  br i1 %cmp, label %for.body, label %for.end16
+46:                                               ; preds = %88, %45
+  %47 = load i32, ptr %5, align 4
+  %48 = load ptr, ptr %3, align 8
+  %49 = getelementptr inbounds nuw %struct.aiMesh, ptr %48, i32 0, i32 11
+  %50 = load i32, ptr %49, align 8
+  %51 = icmp ult i32 %47, %50
+  br i1 %51, label %53, label %52
 
-for.body:                                         ; preds = %for.cond
-  %19 = load ptr, ptr %pMesh.addr, align 8
-  %mBones = getelementptr inbounds %struct.aiMesh, ptr %19, i32 0, i32 12
-  %20 = load ptr, ptr %mBones, align 8
-  %21 = load i32, ptr %i, align 4
-  %idxprom = zext i32 %21 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %20, i64 %idxprom
-  %22 = load ptr, ptr %arrayidx, align 8
-  store ptr %22, ptr %bone, align 8
-  store i32 0, ptr %a, align 4
-  br label %for.cond6
+52:                                               ; preds = %46
+  store i32 2, ptr %6, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #18
+  br label %91
 
-for.cond6:                                        ; preds = %for.inc, %for.body
-  %23 = load i32, ptr %a, align 4
-  %24 = load ptr, ptr %bone, align 8
-  %mNumWeights = getelementptr inbounds %struct.aiBone, ptr %24, i32 0, i32 1
-  %25 = load i32, ptr %mNumWeights, align 4
-  %cmp7 = icmp ult i32 %23, %25
-  br i1 %cmp7, label %for.body8, label %for.end
+53:                                               ; preds = %46
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #18
+  %54 = load ptr, ptr %3, align 8
+  %55 = getelementptr inbounds nuw %struct.aiMesh, ptr %54, i32 0, i32 12
+  %56 = load ptr, ptr %55, align 8
+  %57 = load i32, ptr %5, align 4
+  %58 = zext i32 %57 to i64
+  %59 = getelementptr inbounds nuw ptr, ptr %56, i64 %58
+  %60 = load ptr, ptr %59, align 8
+  store ptr %60, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #18
+  store i32 0, ptr %8, align 4
+  br label %61
 
-for.body8:                                        ; preds = %for.cond6
-  %26 = load ptr, ptr %bone, align 8
-  %mWeights = getelementptr inbounds %struct.aiBone, ptr %26, i32 0, i32 4
-  %27 = load ptr, ptr %mWeights, align 8
-  %28 = load i32, ptr %a, align 4
-  %idxprom9 = zext i32 %28 to i64
-  %arrayidx10 = getelementptr inbounds %struct.aiVertexWeight, ptr %27, i64 %idxprom9
-  store ptr %arrayidx10, ptr %weight, align 8
-  %29 = load ptr, ptr %avPerVertexWeights, align 8
-  %30 = load ptr, ptr %weight, align 8
-  %mVertexId = getelementptr inbounds %struct.aiVertexWeight, ptr %30, i32 0, i32 0
-  %31 = load i32, ptr %mVertexId, align 4
-  %idxprom11 = zext i32 %31 to i64
-  %arrayidx12 = getelementptr inbounds %"class.std::vector", ptr %29, i64 %idxprom11
-  %32 = load ptr, ptr %weight, align 8
-  %mWeight = getelementptr inbounds %struct.aiVertexWeight, ptr %32, i32 0, i32 1
-  %call13 = call noundef nonnull align 1 ptr @_ZNSt6vectorISt4pairIjfESaIS1_EE12emplace_backIJRjRKfEEERS1_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx12, ptr noundef nonnull align 4 dereferenceable(4) %i, ptr noundef nonnull align 4 dereferenceable(4) %mWeight)
-  br label %for.inc
+61:                                               ; preds = %84, %53
+  %62 = load i32, ptr %8, align 4
+  %63 = load ptr, ptr %7, align 8
+  %64 = getelementptr inbounds nuw %struct.aiBone, ptr %63, i32 0, i32 1
+  %65 = load i32, ptr %64, align 4
+  %66 = icmp ult i32 %62, %65
+  br i1 %66, label %68, label %67
 
-for.inc:                                          ; preds = %for.body8
-  %33 = load i32, ptr %a, align 4
-  %inc = add i32 %33, 1
-  store i32 %inc, ptr %a, align 4
-  br label %for.cond6, !llvm.loop !14
+67:                                               ; preds = %61
+  store i32 5, ptr %6, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #18
+  br label %87
 
-for.end:                                          ; preds = %for.cond6
-  br label %for.inc14
+68:                                               ; preds = %61
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #18
+  %69 = load ptr, ptr %7, align 8
+  %70 = getelementptr inbounds nuw %struct.aiBone, ptr %69, i32 0, i32 4
+  %71 = load ptr, ptr %70, align 8
+  %72 = load i32, ptr %8, align 4
+  %73 = zext i32 %72 to i64
+  %74 = getelementptr inbounds nuw %struct.aiVertexWeight, ptr %71, i64 %73
+  store ptr %74, ptr %9, align 8
+  %75 = load ptr, ptr %4, align 8
+  %76 = load ptr, ptr %9, align 8
+  %77 = getelementptr inbounds nuw %struct.aiVertexWeight, ptr %76, i32 0, i32 0
+  %78 = load i32, ptr %77, align 4
+  %79 = zext i32 %78 to i64
+  %80 = getelementptr inbounds nuw %"class.std::vector", ptr %75, i64 %79
+  %81 = load ptr, ptr %9, align 8
+  %82 = getelementptr inbounds nuw %struct.aiVertexWeight, ptr %81, i32 0, i32 1
+  %83 = call noundef nonnull align 1 ptr @_ZNSt6vectorISt4pairIjfESaIS1_EE12emplace_backIJRjRKfEEERS1_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %80, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 4 dereferenceable(4) %82)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #18
+  br label %84
 
-for.inc14:                                        ; preds = %for.end
-  %34 = load i32, ptr %i, align 4
-  %inc15 = add i32 %34, 1
-  store i32 %inc15, ptr %i, align 4
-  br label %for.cond, !llvm.loop !15
+84:                                               ; preds = %68
+  %85 = load i32, ptr %8, align 4
+  %86 = add i32 %85, 1
+  store i32 %86, ptr %8, align 4
+  br label %61, !llvm.loop !13
 
-for.end16:                                        ; preds = %for.cond
-  %35 = load ptr, ptr %avPerVertexWeights, align 8
-  store ptr %35, ptr %retval, align 8
-  br label %return
+87:                                               ; preds = %67
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #18
+  br label %88
 
-return:                                           ; preds = %for.end16, %if.then
-  %36 = load ptr, ptr %retval, align 8
+88:                                               ; preds = %87
+  %89 = load i32, ptr %5, align 4
+  %90 = add i32 %89, 1
+  store i32 %90, ptr %5, align 4
+  br label %46, !llvm.loop !14
+
+91:                                               ; preds = %52
+  %92 = load ptr, ptr %4, align 8
+  store ptr %92, ptr %2, align 8
+  store i32 1, ptr %6, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #18
+  br label %93
+
+93:                                               ; preds = %91, %22
+  %94 = load ptr, ptr %2, align 8
+  ret ptr %94
+}
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #9
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare { i64, i1 } @llvm.uadd.with.overflow.i64(i64, i64) #9
+
+; Function Attrs: nobuiltin allocsize(0)
+declare noundef nonnull ptr @_Znam(i64 noundef) #10
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt6vectorISt4pairIjfESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt12_Vector_baseISt4pairIjfESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #18
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef nonnull align 1 ptr @_ZNSt6vectorISt4pairIjfESaIS1_EE12emplace_backIJRjRKfEEERS1_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %8 = load ptr, ptr %4, align 8
+  %9 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %8, i32 0, i32 0
+  %10 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::pair<unsigned int, float>, std::allocator<std::pair<unsigned int, float>>>::_Vector_impl_data", ptr %9, i32 0, i32 1
+  %11 = load ptr, ptr %10, align 8
+  %12 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %8, i32 0, i32 0
+  %13 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::pair<unsigned int, float>, std::allocator<std::pair<unsigned int, float>>>::_Vector_impl_data", ptr %12, i32 0, i32 2
+  %14 = load ptr, ptr %13, align 8
+  %15 = icmp ne ptr %11, %14
+  br i1 %15, label %16, label %27
+
+16:                                               ; preds = %3
+  %17 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %8, i32 0, i32 0
+  %18 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %8, i32 0, i32 0
+  %19 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::pair<unsigned int, float>, std::allocator<std::pair<unsigned int, float>>>::_Vector_impl_data", ptr %18, i32 0, i32 1
+  %20 = load ptr, ptr %19, align 8
+  %21 = load ptr, ptr %5, align 8
+  %22 = load ptr, ptr %6, align 8
+  call void @_ZNSt16allocator_traitsISaISt4pairIjfEEE9constructIS1_JRjRKfEEEvRS2_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %17, ptr noundef %20, ptr noundef nonnull align 4 dereferenceable(4) %21, ptr noundef nonnull align 4 dereferenceable(4) %22)
+  %23 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %8, i32 0, i32 0
+  %24 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::pair<unsigned int, float>, std::allocator<std::pair<unsigned int, float>>>::_Vector_impl_data", ptr %23, i32 0, i32 1
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds nuw %"struct.std::pair", ptr %25, i32 1
+  store ptr %26, ptr %24, align 8
+  br label %34
+
+27:                                               ; preds = %3
+  %28 = call ptr @_ZNSt6vectorISt4pairIjfESaIS1_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #18
+  %29 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %7, i32 0, i32 0
+  store ptr %28, ptr %29, align 8
+  %30 = load ptr, ptr %5, align 8
+  %31 = load ptr, ptr %6, align 8
+  %32 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %7, i32 0, i32 0
+  %33 = load ptr, ptr %32, align 8
+  call void @_ZNSt6vectorISt4pairIjfESaIS1_EE17_M_realloc_insertIJRjRKfEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr %33, ptr noundef nonnull align 4 dereferenceable(4) %30, ptr noundef nonnull align 4 dereferenceable(4) %31)
+  br label %34
+
+34:                                               ; preds = %27, %16
+  %35 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZNSt6vectorISt4pairIjfESaIS1_EE4backEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #18
+  ret ptr %35
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define hidden noundef ptr @_ZN6Assimp19MappingTypeToStringE16aiTextureMapping(i32 noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  store i32 %0, ptr %3, align 4
+  %4 = load i32, ptr %3, align 4
+  switch i32 %4, label %11 [
+    i32 0, label %5
+    i32 3, label %6
+    i32 1, label %7
+    i32 2, label %8
+    i32 4, label %9
+    i32 5, label %10
+  ]
+
+5:                                                ; preds = %1
+  store ptr @.str.1, ptr %2, align 8
+  br label %13
+
+6:                                                ; preds = %1
+  store ptr @.str.2, ptr %2, align 8
+  br label %13
+
+7:                                                ; preds = %1
+  store ptr @.str.3, ptr %2, align 8
+  br label %13
+
+8:                                                ; preds = %1
+  store ptr @.str.4, ptr %2, align 8
+  br label %13
+
+9:                                                ; preds = %1
+  store ptr @.str.5, ptr %2, align 8
+  br label %13
+
+10:                                               ; preds = %1
+  store ptr @.str.6, ptr %2, align 8
+  br label %13
+
+11:                                               ; preds = %1
+  br label %12
+
+12:                                               ; preds = %11
+  store ptr @.str.7, ptr %2, align 8
+  br label %13
+
+13:                                               ; preds = %12, %10, %9, %8, %7, %6, %5
+  %14 = load ptr, ptr %2, align 8
+  ret ptr %14
+}
+
+; Function Attrs: mustprogress uwtable
+define hidden noundef ptr @_ZN6Assimp11MakeSubmeshEPK6aiMeshRKSt6vectorIjSaIjEEj(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2) #0 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca %"class.std::vector.6", align 8
+  %9 = alloca i32, align 4
+  %10 = alloca %"class.std::allocator.8", align 1
+  %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
+  %13 = alloca i64, align 8
+  %14 = alloca i64, align 8
+  %15 = alloca i32, align 4
+  %16 = alloca i32, align 4
+  %17 = alloca ptr, align 8
+  %18 = alloca i32, align 4
+  %19 = alloca i64, align 8
+  %20 = alloca i64, align 8
+  %21 = alloca i32, align 4
+  %22 = alloca ptr, align 8
+  %23 = alloca ptr, align 8
+  %24 = alloca i64, align 8
+  %25 = alloca i32, align 4
+  %26 = alloca i32, align 4
+  %27 = alloca i64, align 8
+  %28 = alloca i64, align 8
+  %29 = alloca i64, align 8
+  %30 = alloca i64, align 8
+  %31 = alloca %"class.std::vector.6", align 8
+  %32 = alloca i32, align 4
+  %33 = alloca %"class.std::allocator.8", align 1
+  %34 = alloca i32, align 4
+  %35 = alloca ptr, align 8
+  %36 = alloca i32, align 4
+  %37 = alloca i32, align 4
+  %38 = alloca i32, align 4
+  %39 = alloca i32, align 4
+  %40 = alloca i32, align 4
+  %41 = alloca ptr, align 8
+  %42 = alloca ptr, align 8
+  %43 = alloca i32, align 4
+  %44 = alloca i32, align 4
+  %45 = alloca %struct.aiVertexWeight, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i32 %2, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #18
+  %46 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 1320) #20
+  call void @_ZN6aiMeshC2Ev(ptr noundef nonnull align 8 dereferenceable(1320) %46) #18
+  store ptr %46, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr %8) #18
+  %47 = load ptr, ptr %4, align 8
+  %48 = getelementptr inbounds nuw %struct.aiMesh, ptr %47, i32 0, i32 1
+  %49 = load i32, ptr %48, align 4
+  %50 = zext i32 %49 to i64
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #18
+  store i32 -1, ptr %9, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #18
+  call void @_ZNSaIjEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #18
+  invoke void @_ZNSt6vectorIjSaIjEEC2EmRKjRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %50, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 1 dereferenceable(1) %10)
+          to label %51 unwind label %60
+
+51:                                               ; preds = %3
+  call void @_ZNSt15__new_allocatorIjED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #18
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #18
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #18
+  store i64 0, ptr %13, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #18
+  %52 = load ptr, ptr %5, align 8
+  %53 = call noundef i64 @_ZNKSt6vectorIjSaIjEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %52) #18
+  store i64 %53, ptr %14, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #18
+  store i32 0, ptr %15, align 4
+  br label %54
+
+54:                                               ; preds = %112, %51
+  %55 = load i32, ptr %15, align 4
+  %56 = zext i32 %55 to i64
+  %57 = load i64, ptr %14, align 8
+  %58 = icmp ult i64 %56, %57
+  br i1 %58, label %64, label %59
+
+59:                                               ; preds = %54
+  store i32 2, ptr %16, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #18
+  br label %115
+
+60:                                               ; preds = %3
+  %61 = landingpad { ptr, i32 }
+          cleanup
+  %62 = extractvalue { ptr, i32 } %61, 0
+  store ptr %62, ptr %11, align 8
+  %63 = extractvalue { ptr, i32 } %61, 1
+  store i32 %63, ptr %12, align 4
+  call void @_ZNSt15__new_allocatorIjED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #18
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #18
+  br label %802
+
+64:                                               ; preds = %54
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #18
+  %65 = load ptr, ptr %4, align 8
+  %66 = getelementptr inbounds nuw %struct.aiMesh, ptr %65, i32 0, i32 10
+  %67 = load ptr, ptr %66, align 8
+  %68 = load ptr, ptr %5, align 8
+  %69 = load i32, ptr %15, align 4
+  %70 = zext i32 %69 to i64
+  %71 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNKSt6vectorIjSaIjEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %68, i64 noundef %70) #18
+  %72 = load i32, ptr %71, align 4
+  %73 = zext i32 %72 to i64
+  %74 = getelementptr inbounds nuw %struct.aiFace, ptr %67, i64 %73
+  store ptr %74, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #18
+  store i32 0, ptr %18, align 4
+  br label %75
+
+75:                                               ; preds = %108, %64
+  %76 = load i32, ptr %18, align 4
+  %77 = load ptr, ptr %17, align 8
+  %78 = getelementptr inbounds nuw %struct.aiFace, ptr %77, i32 0, i32 0
+  %79 = load i32, ptr %78, align 8
+  %80 = icmp ult i32 %76, %79
+  br i1 %80, label %82, label %81
+
+81:                                               ; preds = %75
+  store i32 5, ptr %16, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #18
+  br label %111
+
+82:                                               ; preds = %75
+  %83 = load ptr, ptr %17, align 8
+  %84 = getelementptr inbounds nuw %struct.aiFace, ptr %83, i32 0, i32 1
+  %85 = load ptr, ptr %84, align 8
+  %86 = load i32, ptr %18, align 4
+  %87 = zext i32 %86 to i64
+  %88 = getelementptr inbounds nuw i32, ptr %85, i64 %87
+  %89 = load i32, ptr %88, align 4
+  %90 = zext i32 %89 to i64
+  %91 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt6vectorIjSaIjEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %90) #18
+  %92 = load i32, ptr %91, align 4
+  %93 = icmp eq i32 %92, -1
+  br i1 %93, label %94, label %107
+
+94:                                               ; preds = %82
+  %95 = load i64, ptr %13, align 8
+  %96 = add i64 %95, 1
+  store i64 %96, ptr %13, align 8
+  %97 = trunc i64 %95 to i32
+  %98 = load ptr, ptr %17, align 8
+  %99 = getelementptr inbounds nuw %struct.aiFace, ptr %98, i32 0, i32 1
+  %100 = load ptr, ptr %99, align 8
+  %101 = load i32, ptr %18, align 4
+  %102 = zext i32 %101 to i64
+  %103 = getelementptr inbounds nuw i32, ptr %100, i64 %102
+  %104 = load i32, ptr %103, align 4
+  %105 = zext i32 %104 to i64
+  %106 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt6vectorIjSaIjEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %105) #18
+  store i32 %97, ptr %106, align 4
+  br label %107
+
+107:                                              ; preds = %94, %82
+  br label %108
+
+108:                                              ; preds = %107
+  %109 = load i32, ptr %18, align 4
+  %110 = add i32 %109, 1
+  store i32 %110, ptr %18, align 4
+  br label %75, !llvm.loop !15
+
+111:                                              ; preds = %81
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #18
+  br label %112
+
+112:                                              ; preds = %111
+  %113 = load i32, ptr %15, align 4
+  %114 = add i32 %113, 1
+  store i32 %114, ptr %15, align 4
+  br label %54, !llvm.loop !16
+
+115:                                              ; preds = %59
+  %116 = load ptr, ptr %4, align 8
+  %117 = getelementptr inbounds nuw %struct.aiMesh, ptr %116, i32 0, i32 14
+  %118 = load ptr, ptr %7, align 8
+  %119 = getelementptr inbounds nuw %struct.aiMesh, ptr %118, i32 0, i32 14
+  %120 = invoke noundef nonnull align 4 dereferenceable(1028) ptr @_ZN8aiStringaSERKS_(ptr noundef nonnull align 4 dereferenceable(1028) %119, ptr noundef nonnull align 4 dereferenceable(1028) %117)
+          to label %121 unwind label %179
+
+121:                                              ; preds = %115
+  %122 = load ptr, ptr %4, align 8
+  %123 = getelementptr inbounds nuw %struct.aiMesh, ptr %122, i32 0, i32 13
+  %124 = load i32, ptr %123, align 8
+  %125 = load ptr, ptr %7, align 8
+  %126 = getelementptr inbounds nuw %struct.aiMesh, ptr %125, i32 0, i32 13
+  store i32 %124, ptr %126, align 8
+  %127 = load ptr, ptr %4, align 8
+  %128 = getelementptr inbounds nuw %struct.aiMesh, ptr %127, i32 0, i32 0
+  %129 = load i32, ptr %128, align 8
+  %130 = load ptr, ptr %7, align 8
+  %131 = getelementptr inbounds nuw %struct.aiMesh, ptr %130, i32 0, i32 0
+  store i32 %129, ptr %131, align 8
+  %132 = load ptr, ptr %5, align 8
+  %133 = call noundef i64 @_ZNKSt6vectorIjSaIjEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %132) #18
+  %134 = trunc i64 %133 to i32
+  %135 = load ptr, ptr %7, align 8
+  %136 = getelementptr inbounds nuw %struct.aiMesh, ptr %135, i32 0, i32 2
+  store i32 %134, ptr %136, align 8
+  %137 = load i64, ptr %13, align 8
+  %138 = trunc i64 %137 to i32
+  %139 = load ptr, ptr %7, align 8
+  %140 = getelementptr inbounds nuw %struct.aiMesh, ptr %139, i32 0, i32 1
+  store i32 %138, ptr %140, align 4
+  %141 = load i64, ptr %13, align 8
+  %142 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %141, i64 12)
+  %143 = extractvalue { i64, i1 } %142, 1
+  %144 = extractvalue { i64, i1 } %142, 0
+  %145 = select i1 %143, i64 -1, i64 %144
+  %146 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %145) #20
+          to label %147 unwind label %179
+
+147:                                              ; preds = %121
+  %148 = icmp eq i64 %141, 0
+  br i1 %148, label %155, label %149
+
+149:                                              ; preds = %147
+  %150 = getelementptr inbounds %class.aiVector3t, ptr %146, i64 %141
+  br label %151
+
+151:                                              ; preds = %151, %149
+  %152 = phi ptr [ %146, %149 ], [ %153, %151 ]
+  call void @_ZN10aiVector3tIfEC2Ev(ptr noundef nonnull align 4 dereferenceable(12) %152) #18
+  %153 = getelementptr inbounds %class.aiVector3t, ptr %152, i64 1
+  %154 = icmp eq ptr %153, %150
+  br i1 %154, label %155, label %151
+
+155:                                              ; preds = %147, %151
+  %156 = load ptr, ptr %7, align 8
+  %157 = getelementptr inbounds nuw %struct.aiMesh, ptr %156, i32 0, i32 3
+  store ptr %146, ptr %157, align 8
+  %158 = load ptr, ptr %4, align 8
+  %159 = invoke noundef zeroext i1 @_ZNK6aiMesh10HasNormalsEv(ptr noundef nonnull align 8 dereferenceable(1320) %158)
+          to label %160 unwind label %179
+
+160:                                              ; preds = %155
+  br i1 %159, label %161, label %183
+
+161:                                              ; preds = %160
+  %162 = load i64, ptr %13, align 8
+  %163 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %162, i64 12)
+  %164 = extractvalue { i64, i1 } %163, 1
+  %165 = extractvalue { i64, i1 } %163, 0
+  %166 = select i1 %164, i64 -1, i64 %165
+  %167 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %166) #20
+          to label %168 unwind label %179
+
+168:                                              ; preds = %161
+  %169 = icmp eq i64 %162, 0
+  br i1 %169, label %176, label %170
+
+170:                                              ; preds = %168
+  %171 = getelementptr inbounds %class.aiVector3t, ptr %167, i64 %162
+  br label %172
+
+172:                                              ; preds = %172, %170
+  %173 = phi ptr [ %167, %170 ], [ %174, %172 ]
+  call void @_ZN10aiVector3tIfEC2Ev(ptr noundef nonnull align 4 dereferenceable(12) %173) #18
+  %174 = getelementptr inbounds %class.aiVector3t, ptr %173, i64 1
+  %175 = icmp eq ptr %174, %171
+  br i1 %175, label %176, label %172
+
+176:                                              ; preds = %168, %172
+  %177 = load ptr, ptr %7, align 8
+  %178 = getelementptr inbounds nuw %struct.aiMesh, ptr %177, i32 0, i32 4
+  store ptr %167, ptr %178, align 8
+  br label %183
+
+179:                                              ; preds = %301, %202, %187, %183, %161, %155, %121, %115
+  %180 = landingpad { ptr, i32 }
+          cleanup
+  %181 = extractvalue { ptr, i32 } %180, 0
+  store ptr %181, ptr %11, align 8
+  %182 = extractvalue { ptr, i32 } %180, 1
+  store i32 %182, ptr %12, align 4
+  br label %801
+
+183:                                              ; preds = %176, %160
+  %184 = load ptr, ptr %4, align 8
+  %185 = invoke noundef zeroext i1 @_ZNK6aiMesh24HasTangentsAndBitangentsEv(ptr noundef nonnull align 8 dereferenceable(1320) %184)
+          to label %186 unwind label %179
+
+186:                                              ; preds = %183
+  br i1 %185, label %187, label %222
+
+187:                                              ; preds = %186
+  %188 = load i64, ptr %13, align 8
+  %189 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %188, i64 12)
+  %190 = extractvalue { i64, i1 } %189, 1
+  %191 = extractvalue { i64, i1 } %189, 0
+  %192 = select i1 %190, i64 -1, i64 %191
+  %193 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %192) #20
+          to label %194 unwind label %179
+
+194:                                              ; preds = %187
+  %195 = icmp eq i64 %188, 0
+  br i1 %195, label %202, label %196
+
+196:                                              ; preds = %194
+  %197 = getelementptr inbounds %class.aiVector3t, ptr %193, i64 %188
+  br label %198
+
+198:                                              ; preds = %198, %196
+  %199 = phi ptr [ %193, %196 ], [ %200, %198 ]
+  call void @_ZN10aiVector3tIfEC2Ev(ptr noundef nonnull align 4 dereferenceable(12) %199) #18
+  %200 = getelementptr inbounds %class.aiVector3t, ptr %199, i64 1
+  %201 = icmp eq ptr %200, %197
+  br i1 %201, label %202, label %198
+
+202:                                              ; preds = %194, %198
+  %203 = load ptr, ptr %7, align 8
+  %204 = getelementptr inbounds nuw %struct.aiMesh, ptr %203, i32 0, i32 5
+  store ptr %193, ptr %204, align 8
+  %205 = load i64, ptr %13, align 8
+  %206 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %205, i64 12)
+  %207 = extractvalue { i64, i1 } %206, 1
+  %208 = extractvalue { i64, i1 } %206, 0
+  %209 = select i1 %207, i64 -1, i64 %208
+  %210 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %209) #20
+          to label %211 unwind label %179
+
+211:                                              ; preds = %202
+  %212 = icmp eq i64 %205, 0
+  br i1 %212, label %219, label %213
+
+213:                                              ; preds = %211
+  %214 = getelementptr inbounds %class.aiVector3t, ptr %210, i64 %205
+  br label %215
+
+215:                                              ; preds = %215, %213
+  %216 = phi ptr [ %210, %213 ], [ %217, %215 ]
+  call void @_ZN10aiVector3tIfEC2Ev(ptr noundef nonnull align 4 dereferenceable(12) %216) #18
+  %217 = getelementptr inbounds %class.aiVector3t, ptr %216, i64 1
+  %218 = icmp eq ptr %217, %214
+  br i1 %218, label %219, label %215
+
+219:                                              ; preds = %211, %215
+  %220 = load ptr, ptr %7, align 8
+  %221 = getelementptr inbounds nuw %struct.aiMesh, ptr %220, i32 0, i32 6
+  store ptr %210, ptr %221, align 8
+  br label %222
+
+222:                                              ; preds = %219, %186
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #18
+  store i64 0, ptr %19, align 8
+  br label %223
+
+223:                                              ; preds = %263, %222
+  %224 = load ptr, ptr %4, align 8
+  %225 = load i64, ptr %19, align 8
+  %226 = trunc i64 %225 to i32
+  %227 = invoke noundef zeroext i1 @_ZNK6aiMesh16HasTextureCoordsEj(ptr noundef nonnull align 8 dereferenceable(1320) %224, i32 noundef %226)
+          to label %228 unwind label %230
+
+228:                                              ; preds = %223
+  br i1 %227, label %234, label %229
+
+229:                                              ; preds = %228
+  store i32 8, ptr %16, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #18
+  br label %266
+
+230:                                              ; preds = %234, %223
+  %231 = landingpad { ptr, i32 }
+          cleanup
+  %232 = extractvalue { ptr, i32 } %231, 0
+  store ptr %232, ptr %11, align 8
+  %233 = extractvalue { ptr, i32 } %231, 1
+  store i32 %233, ptr %12, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #18
+  br label %801
+
+234:                                              ; preds = %228
+  %235 = load i64, ptr %13, align 8
+  %236 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %235, i64 12)
+  %237 = extractvalue { i64, i1 } %236, 1
+  %238 = extractvalue { i64, i1 } %236, 0
+  %239 = select i1 %237, i64 -1, i64 %238
+  %240 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %239) #20
+          to label %241 unwind label %230
+
+241:                                              ; preds = %234
+  %242 = icmp eq i64 %235, 0
+  br i1 %242, label %249, label %243
+
+243:                                              ; preds = %241
+  %244 = getelementptr inbounds %class.aiVector3t, ptr %240, i64 %235
+  br label %245
+
+245:                                              ; preds = %245, %243
+  %246 = phi ptr [ %240, %243 ], [ %247, %245 ]
+  call void @_ZN10aiVector3tIfEC2Ev(ptr noundef nonnull align 4 dereferenceable(12) %246) #18
+  %247 = getelementptr inbounds %class.aiVector3t, ptr %246, i64 1
+  %248 = icmp eq ptr %247, %244
+  br i1 %248, label %249, label %245
+
+249:                                              ; preds = %241, %245
+  %250 = load ptr, ptr %7, align 8
+  %251 = getelementptr inbounds nuw %struct.aiMesh, ptr %250, i32 0, i32 8
+  %252 = load i64, ptr %19, align 8
+  %253 = getelementptr inbounds nuw [8 x ptr], ptr %251, i64 0, i64 %252
+  store ptr %240, ptr %253, align 8
+  %254 = load ptr, ptr %4, align 8
+  %255 = getelementptr inbounds nuw %struct.aiMesh, ptr %254, i32 0, i32 9
+  %256 = load i64, ptr %19, align 8
+  %257 = getelementptr inbounds nuw [8 x i32], ptr %255, i64 0, i64 %256
+  %258 = load i32, ptr %257, align 4
+  %259 = load ptr, ptr %7, align 8
+  %260 = getelementptr inbounds nuw %struct.aiMesh, ptr %259, i32 0, i32 9
+  %261 = load i64, ptr %19, align 8
+  %262 = getelementptr inbounds nuw [8 x i32], ptr %260, i64 0, i64 %261
+  store i32 %258, ptr %262, align 4
+  br label %263
+
+263:                                              ; preds = %249
+  %264 = load i64, ptr %19, align 8
+  %265 = add i64 %264, 1
+  store i64 %265, ptr %19, align 8
+  br label %223, !llvm.loop !17
+
+266:                                              ; preds = %229
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #18
+  store i64 0, ptr %20, align 8
+  br label %267
+
+267:                                              ; preds = %298, %266
+  %268 = load ptr, ptr %4, align 8
+  %269 = load i64, ptr %20, align 8
+  %270 = trunc i64 %269 to i32
+  %271 = invoke noundef zeroext i1 @_ZNK6aiMesh15HasVertexColorsEj(ptr noundef nonnull align 8 dereferenceable(1320) %268, i32 noundef %270)
+          to label %272 unwind label %274
+
+272:                                              ; preds = %267
+  br i1 %271, label %278, label %273
+
+273:                                              ; preds = %272
+  store i32 11, ptr %16, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #18
+  br label %301
+
+274:                                              ; preds = %278, %267
+  %275 = landingpad { ptr, i32 }
+          cleanup
+  %276 = extractvalue { ptr, i32 } %275, 0
+  store ptr %276, ptr %11, align 8
+  %277 = extractvalue { ptr, i32 } %275, 1
+  store i32 %277, ptr %12, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #18
+  br label %801
+
+278:                                              ; preds = %272
+  %279 = load i64, ptr %13, align 8
+  %280 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %279, i64 16)
+  %281 = extractvalue { i64, i1 } %280, 1
+  %282 = extractvalue { i64, i1 } %280, 0
+  %283 = select i1 %281, i64 -1, i64 %282
+  %284 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %283) #20
+          to label %285 unwind label %274
+
+285:                                              ; preds = %278
+  %286 = icmp eq i64 %279, 0
+  br i1 %286, label %293, label %287
+
+287:                                              ; preds = %285
+  %288 = getelementptr inbounds %class.aiColor4t, ptr %284, i64 %279
+  br label %289
+
+289:                                              ; preds = %289, %287
+  %290 = phi ptr [ %284, %287 ], [ %291, %289 ]
+  call void @_ZN9aiColor4tIfEC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %290) #18
+  %291 = getelementptr inbounds %class.aiColor4t, ptr %290, i64 1
+  %292 = icmp eq ptr %291, %288
+  br i1 %292, label %293, label %289
+
+293:                                              ; preds = %285, %289
+  %294 = load ptr, ptr %7, align 8
+  %295 = getelementptr inbounds nuw %struct.aiMesh, ptr %294, i32 0, i32 7
+  %296 = load i64, ptr %20, align 8
+  %297 = getelementptr inbounds nuw [8 x ptr], ptr %295, i64 0, i64 %296
+  store ptr %284, ptr %297, align 8
+  br label %298
+
+298:                                              ; preds = %293
+  %299 = load i64, ptr %20, align 8
+  %300 = add i64 %299, 1
+  store i64 %300, ptr %20, align 8
+  br label %267, !llvm.loop !18
+
+301:                                              ; preds = %273
+  %302 = load i64, ptr %14, align 8
+  %303 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %302, i64 16)
+  %304 = extractvalue { i64, i1 } %303, 1
+  %305 = extractvalue { i64, i1 } %303, 0
+  %306 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %305, i64 8)
+  %307 = extractvalue { i64, i1 } %306, 1
+  %308 = or i1 %304, %307
+  %309 = extractvalue { i64, i1 } %306, 0
+  %310 = select i1 %308, i64 -1, i64 %309
+  %311 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %310) #20
+          to label %312 unwind label %179
+
+312:                                              ; preds = %301
+  store i64 %302, ptr %311, align 16
+  %313 = getelementptr inbounds i8, ptr %311, i64 8
+  %314 = icmp eq i64 %302, 0
+  br i1 %314, label %321, label %315
+
+315:                                              ; preds = %312
+  %316 = getelementptr inbounds %struct.aiFace, ptr %313, i64 %302
+  br label %317
+
+317:                                              ; preds = %317, %315
+  %318 = phi ptr [ %313, %315 ], [ %319, %317 ]
+  call void @_ZN6aiFaceC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %318) #18
+  %319 = getelementptr inbounds %struct.aiFace, ptr %318, i64 1
+  %320 = icmp eq ptr %319, %316
+  br i1 %320, label %321, label %317
+
+321:                                              ; preds = %312, %317
+  %322 = load ptr, ptr %7, align 8
+  %323 = getelementptr inbounds nuw %struct.aiMesh, ptr %322, i32 0, i32 10
+  store ptr %313, ptr %323, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %21) #18
+  store i32 0, ptr %21, align 4
+  br label %324
+
+324:                                              ; preds = %395, %321
+  %325 = load i32, ptr %21, align 4
+  %326 = zext i32 %325 to i64
+  %327 = load i64, ptr %14, align 8
+  %328 = icmp ult i64 %326, %327
+  br i1 %328, label %330, label %329
+
+329:                                              ; preds = %324
+  store i32 14, ptr %16, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %21) #18
+  br label %398
+
+330:                                              ; preds = %324
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #18
+  %331 = load ptr, ptr %4, align 8
+  %332 = getelementptr inbounds nuw %struct.aiMesh, ptr %331, i32 0, i32 10
+  %333 = load ptr, ptr %332, align 8
+  %334 = load ptr, ptr %5, align 8
+  %335 = load i32, ptr %21, align 4
+  %336 = zext i32 %335 to i64
+  %337 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNKSt6vectorIjSaIjEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %334, i64 noundef %336) #18
+  %338 = load i32, ptr %337, align 4
+  %339 = zext i32 %338 to i64
+  %340 = getelementptr inbounds nuw %struct.aiFace, ptr %333, i64 %339
+  store ptr %340, ptr %22, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #18
+  %341 = load ptr, ptr %7, align 8
+  %342 = getelementptr inbounds nuw %struct.aiMesh, ptr %341, i32 0, i32 10
+  %343 = load ptr, ptr %342, align 8
+  %344 = load i32, ptr %21, align 4
+  %345 = zext i32 %344 to i64
+  %346 = getelementptr inbounds nuw %struct.aiFace, ptr %343, i64 %345
+  store ptr %346, ptr %23, align 8
+  %347 = load ptr, ptr %22, align 8
+  %348 = getelementptr inbounds nuw %struct.aiFace, ptr %347, i32 0, i32 0
+  %349 = load i32, ptr %348, align 8
+  %350 = load ptr, ptr %23, align 8
+  %351 = getelementptr inbounds nuw %struct.aiFace, ptr %350, i32 0, i32 0
+  store i32 %349, ptr %351, align 8
+  %352 = load ptr, ptr %23, align 8
+  %353 = getelementptr inbounds nuw %struct.aiFace, ptr %352, i32 0, i32 0
+  %354 = load i32, ptr %353, align 8
+  %355 = zext i32 %354 to i64
+  %356 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %355, i64 4)
+  %357 = extractvalue { i64, i1 } %356, 1
+  %358 = extractvalue { i64, i1 } %356, 0
+  %359 = select i1 %357, i64 -1, i64 %358
+  %360 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %359) #20
+          to label %361 unwind label %372
+
+361:                                              ; preds = %330
+  %362 = load ptr, ptr %23, align 8
+  %363 = getelementptr inbounds nuw %struct.aiFace, ptr %362, i32 0, i32 1
+  store ptr %360, ptr %363, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #18
+  store i64 0, ptr %24, align 8
+  br label %364
+
+364:                                              ; preds = %391, %361
+  %365 = load i64, ptr %24, align 8
+  %366 = load ptr, ptr %23, align 8
+  %367 = getelementptr inbounds nuw %struct.aiFace, ptr %366, i32 0, i32 0
+  %368 = load i32, ptr %367, align 8
+  %369 = zext i32 %368 to i64
+  %370 = icmp ult i64 %365, %369
+  br i1 %370, label %376, label %371
+
+371:                                              ; preds = %364
+  store i32 17, ptr %16, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #18
+  br label %394
+
+372:                                              ; preds = %330
+  %373 = landingpad { ptr, i32 }
+          cleanup
+  %374 = extractvalue { ptr, i32 } %373, 0
+  store ptr %374, ptr %11, align 8
+  %375 = extractvalue { ptr, i32 } %373, 1
+  store i32 %375, ptr %12, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %21) #18
+  br label %801
+
+376:                                              ; preds = %364
+  %377 = load ptr, ptr %22, align 8
+  %378 = getelementptr inbounds nuw %struct.aiFace, ptr %377, i32 0, i32 1
+  %379 = load ptr, ptr %378, align 8
+  %380 = load i64, ptr %24, align 8
+  %381 = getelementptr inbounds nuw i32, ptr %379, i64 %380
+  %382 = load i32, ptr %381, align 4
+  %383 = zext i32 %382 to i64
+  %384 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt6vectorIjSaIjEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %383) #18
+  %385 = load i32, ptr %384, align 4
+  %386 = load ptr, ptr %23, align 8
+  %387 = getelementptr inbounds nuw %struct.aiFace, ptr %386, i32 0, i32 1
+  %388 = load ptr, ptr %387, align 8
+  %389 = load i64, ptr %24, align 8
+  %390 = getelementptr inbounds nuw i32, ptr %388, i64 %389
+  store i32 %385, ptr %390, align 4
+  br label %391
+
+391:                                              ; preds = %376
+  %392 = load i64, ptr %24, align 8
+  %393 = add i64 %392, 1
+  store i64 %393, ptr %24, align 8
+  br label %364, !llvm.loop !19
+
+394:                                              ; preds = %371
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #18
+  br label %395
+
+395:                                              ; preds = %394
+  %396 = load i32, ptr %21, align 4
+  %397 = add i32 %396, 1
+  store i32 %397, ptr %21, align 4
+  br label %324, !llvm.loop !20
+
+398:                                              ; preds = %329
+  call void @llvm.lifetime.start.p0(i64 4, ptr %25) #18
+  store i32 0, ptr %25, align 4
+  br label %399
+
+399:                                              ; preds = %548, %398
+  %400 = load i32, ptr %25, align 4
+  %401 = load ptr, ptr %4, align 8
+  %402 = getelementptr inbounds nuw %struct.aiMesh, ptr %401, i32 0, i32 1
+  %403 = load i32, ptr %402, align 4
+  %404 = icmp ult i32 %400, %403
+  br i1 %404, label %406, label %405
+
+405:                                              ; preds = %399
+  store i32 20, ptr %16, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %25) #18
+  br label %552
+
+406:                                              ; preds = %399
+  call void @llvm.lifetime.start.p0(i64 4, ptr %26) #18
+  %407 = load i32, ptr %25, align 4
+  %408 = zext i32 %407 to i64
+  %409 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt6vectorIjSaIjEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %408) #18
+  %410 = load i32, ptr %409, align 4
+  store i32 %410, ptr %26, align 4
+  %411 = load i32, ptr %26, align 4
+  %412 = icmp eq i32 %411, -1
+  br i1 %412, label %413, label %414
+
+413:                                              ; preds = %406
+  store i32 22, ptr %16, align 4
+  br label %545
+
+414:                                              ; preds = %406
+  %415 = load ptr, ptr %4, align 8
+  %416 = getelementptr inbounds nuw %struct.aiMesh, ptr %415, i32 0, i32 3
+  %417 = load ptr, ptr %416, align 8
+  %418 = load i32, ptr %25, align 4
+  %419 = zext i32 %418 to i64
+  %420 = getelementptr inbounds nuw %class.aiVector3t, ptr %417, i64 %419
+  %421 = load ptr, ptr %7, align 8
+  %422 = getelementptr inbounds nuw %struct.aiMesh, ptr %421, i32 0, i32 3
+  %423 = load ptr, ptr %422, align 8
+  %424 = load i32, ptr %26, align 4
+  %425 = zext i32 %424 to i64
+  %426 = getelementptr inbounds nuw %class.aiVector3t, ptr %423, i64 %425
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %426, ptr align 4 %420, i64 12, i1 false)
+  %427 = load ptr, ptr %4, align 8
+  %428 = invoke noundef zeroext i1 @_ZNK6aiMesh10HasNormalsEv(ptr noundef nonnull align 8 dereferenceable(1320) %427)
+          to label %429 unwind label %443
+
+429:                                              ; preds = %414
+  br i1 %428, label %430, label %447
+
+430:                                              ; preds = %429
+  %431 = load ptr, ptr %4, align 8
+  %432 = getelementptr inbounds nuw %struct.aiMesh, ptr %431, i32 0, i32 4
+  %433 = load ptr, ptr %432, align 8
+  %434 = load i32, ptr %25, align 4
+  %435 = zext i32 %434 to i64
+  %436 = getelementptr inbounds nuw %class.aiVector3t, ptr %433, i64 %435
+  %437 = load ptr, ptr %7, align 8
+  %438 = getelementptr inbounds nuw %struct.aiMesh, ptr %437, i32 0, i32 4
+  %439 = load ptr, ptr %438, align 8
+  %440 = load i32, ptr %26, align 4
+  %441 = zext i32 %440 to i64
+  %442 = getelementptr inbounds nuw %class.aiVector3t, ptr %439, i64 %441
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %442, ptr align 4 %436, i64 12, i1 false)
+  br label %447
+
+443:                                              ; preds = %447, %414
+  %444 = landingpad { ptr, i32 }
+          cleanup
+  %445 = extractvalue { ptr, i32 } %444, 0
+  store ptr %445, ptr %11, align 8
+  %446 = extractvalue { ptr, i32 } %444, 1
+  store i32 %446, ptr %12, align 4
+  br label %551
+
+447:                                              ; preds = %430, %429
+  %448 = load ptr, ptr %4, align 8
+  %449 = invoke noundef zeroext i1 @_ZNK6aiMesh24HasTangentsAndBitangentsEv(ptr noundef nonnull align 8 dereferenceable(1320) %448)
+          to label %450 unwind label %443
+
+450:                                              ; preds = %447
+  br i1 %449, label %451, label %476
+
+451:                                              ; preds = %450
+  %452 = load ptr, ptr %4, align 8
+  %453 = getelementptr inbounds nuw %struct.aiMesh, ptr %452, i32 0, i32 5
+  %454 = load ptr, ptr %453, align 8
+  %455 = load i32, ptr %25, align 4
+  %456 = zext i32 %455 to i64
+  %457 = getelementptr inbounds nuw %class.aiVector3t, ptr %454, i64 %456
+  %458 = load ptr, ptr %7, align 8
+  %459 = getelementptr inbounds nuw %struct.aiMesh, ptr %458, i32 0, i32 5
+  %460 = load ptr, ptr %459, align 8
+  %461 = load i32, ptr %26, align 4
+  %462 = zext i32 %461 to i64
+  %463 = getelementptr inbounds nuw %class.aiVector3t, ptr %460, i64 %462
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %463, ptr align 4 %457, i64 12, i1 false)
+  %464 = load ptr, ptr %4, align 8
+  %465 = getelementptr inbounds nuw %struct.aiMesh, ptr %464, i32 0, i32 6
+  %466 = load ptr, ptr %465, align 8
+  %467 = load i32, ptr %25, align 4
+  %468 = zext i32 %467 to i64
+  %469 = getelementptr inbounds nuw %class.aiVector3t, ptr %466, i64 %468
+  %470 = load ptr, ptr %7, align 8
+  %471 = getelementptr inbounds nuw %struct.aiMesh, ptr %470, i32 0, i32 6
+  %472 = load ptr, ptr %471, align 8
+  %473 = load i32, ptr %26, align 4
+  %474 = zext i32 %473 to i64
+  %475 = getelementptr inbounds nuw %class.aiVector3t, ptr %472, i64 %474
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %475, ptr align 4 %469, i64 12, i1 false)
+  br label %476
+
+476:                                              ; preds = %451, %450
+  call void @llvm.lifetime.start.p0(i64 8, ptr %27) #18
+  store i64 0, ptr %27, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %28) #18
+  %477 = load ptr, ptr %4, align 8
+  %478 = invoke noundef i32 @_ZNK6aiMesh16GetNumUVChannelsEv(ptr noundef nonnull align 8 dereferenceable(1320) %477)
+          to label %479 unwind label %486
+
+479:                                              ; preds = %476
+  %480 = zext i32 %478 to i64
+  store i64 %480, ptr %28, align 8
+  br label %481
+
+481:                                              ; preds = %507, %479
+  %482 = load i64, ptr %27, align 8
+  %483 = load i64, ptr %28, align 8
+  %484 = icmp ult i64 %482, %483
+  br i1 %484, label %490, label %485
+
+485:                                              ; preds = %481
+  store i32 23, ptr %16, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %28) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %27) #18
+  br label %510
+
+486:                                              ; preds = %476
+  %487 = landingpad { ptr, i32 }
+          cleanup
+  %488 = extractvalue { ptr, i32 } %487, 0
+  store ptr %488, ptr %11, align 8
+  %489 = extractvalue { ptr, i32 } %487, 1
+  store i32 %489, ptr %12, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %28) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %27) #18
+  br label %551
+
+490:                                              ; preds = %481
+  %491 = load ptr, ptr %4, align 8
+  %492 = getelementptr inbounds nuw %struct.aiMesh, ptr %491, i32 0, i32 8
+  %493 = load i64, ptr %27, align 8
+  %494 = getelementptr inbounds nuw [8 x ptr], ptr %492, i64 0, i64 %493
+  %495 = load ptr, ptr %494, align 8
+  %496 = load i32, ptr %25, align 4
+  %497 = zext i32 %496 to i64
+  %498 = getelementptr inbounds nuw %class.aiVector3t, ptr %495, i64 %497
+  %499 = load ptr, ptr %7, align 8
+  %500 = getelementptr inbounds nuw %struct.aiMesh, ptr %499, i32 0, i32 8
+  %501 = load i64, ptr %27, align 8
+  %502 = getelementptr inbounds nuw [8 x ptr], ptr %500, i64 0, i64 %501
+  %503 = load ptr, ptr %502, align 8
+  %504 = load i32, ptr %26, align 4
+  %505 = zext i32 %504 to i64
+  %506 = getelementptr inbounds nuw %class.aiVector3t, ptr %503, i64 %505
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %506, ptr align 4 %498, i64 12, i1 false)
+  br label %507
+
+507:                                              ; preds = %490
+  %508 = load i64, ptr %27, align 8
+  %509 = add i64 %508, 1
+  store i64 %509, ptr %27, align 8
+  br label %481, !llvm.loop !21
+
+510:                                              ; preds = %485
+  call void @llvm.lifetime.start.p0(i64 8, ptr %29) #18
+  store i64 0, ptr %29, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %30) #18
+  %511 = load ptr, ptr %4, align 8
+  %512 = invoke noundef i32 @_ZNK6aiMesh19GetNumColorChannelsEv(ptr noundef nonnull align 8 dereferenceable(1320) %511)
+          to label %513 unwind label %520
+
+513:                                              ; preds = %510
+  %514 = zext i32 %512 to i64
+  store i64 %514, ptr %30, align 8
+  br label %515
+
+515:                                              ; preds = %541, %513
+  %516 = load i64, ptr %29, align 8
+  %517 = load i64, ptr %30, align 8
+  %518 = icmp ult i64 %516, %517
+  br i1 %518, label %524, label %519
+
+519:                                              ; preds = %515
+  store i32 26, ptr %16, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %30) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %29) #18
+  br label %544
+
+520:                                              ; preds = %510
+  %521 = landingpad { ptr, i32 }
+          cleanup
+  %522 = extractvalue { ptr, i32 } %521, 0
+  store ptr %522, ptr %11, align 8
+  %523 = extractvalue { ptr, i32 } %521, 1
+  store i32 %523, ptr %12, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %30) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %29) #18
+  br label %551
+
+524:                                              ; preds = %515
+  %525 = load ptr, ptr %4, align 8
+  %526 = getelementptr inbounds nuw %struct.aiMesh, ptr %525, i32 0, i32 7
+  %527 = load i64, ptr %29, align 8
+  %528 = getelementptr inbounds nuw [8 x ptr], ptr %526, i64 0, i64 %527
+  %529 = load ptr, ptr %528, align 8
+  %530 = load i32, ptr %25, align 4
+  %531 = zext i32 %530 to i64
+  %532 = getelementptr inbounds nuw %class.aiColor4t, ptr %529, i64 %531
+  %533 = load ptr, ptr %7, align 8
+  %534 = getelementptr inbounds nuw %struct.aiMesh, ptr %533, i32 0, i32 7
+  %535 = load i64, ptr %29, align 8
+  %536 = getelementptr inbounds nuw [8 x ptr], ptr %534, i64 0, i64 %535
+  %537 = load ptr, ptr %536, align 8
+  %538 = load i32, ptr %26, align 4
+  %539 = zext i32 %538 to i64
+  %540 = getelementptr inbounds nuw %class.aiColor4t, ptr %537, i64 %539
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %540, ptr align 4 %532, i64 16, i1 false)
+  br label %541
+
+541:                                              ; preds = %524
+  %542 = load i64, ptr %29, align 8
+  %543 = add i64 %542, 1
+  store i64 %543, ptr %29, align 8
+  br label %515, !llvm.loop !22
+
+544:                                              ; preds = %519
+  store i32 0, ptr %16, align 4
+  br label %545
+
+545:                                              ; preds = %544, %413
+  call void @llvm.lifetime.end.p0(i64 4, ptr %26) #18
+  %546 = load i32, ptr %16, align 4
+  switch i32 %546, label %808 [
+    i32 0, label %547
+    i32 22, label %548
+  ]
+
+547:                                              ; preds = %545
+  br label %548
+
+548:                                              ; preds = %547, %545
+  %549 = load i32, ptr %25, align 4
+  %550 = add i32 %549, 1
+  store i32 %550, ptr %25, align 4
+  br label %399, !llvm.loop !23
+
+551:                                              ; preds = %520, %486, %443
+  call void @llvm.lifetime.end.p0(i64 4, ptr %26) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %25) #18
+  br label %801
+
+552:                                              ; preds = %405
+  %553 = load i32, ptr %6, align 4
+  %554 = xor i32 %553, -1
+  %555 = and i32 %554, 1
+  %556 = icmp ne i32 %555, 0
+  br i1 %556, label %557, label %799
+
+557:                                              ; preds = %552
+  call void @llvm.lifetime.start.p0(i64 24, ptr %31) #18
+  %558 = load ptr, ptr %4, align 8
+  %559 = getelementptr inbounds nuw %struct.aiMesh, ptr %558, i32 0, i32 11
+  %560 = load i32, ptr %559, align 8
+  %561 = zext i32 %560 to i64
+  call void @llvm.lifetime.start.p0(i64 4, ptr %32) #18
+  store i32 0, ptr %32, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %33) #18
+  call void @_ZNSaIjEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %33) #18
+  invoke void @_ZNSt6vectorIjSaIjEEC2EmRKjRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %31, i64 noundef %561, ptr noundef nonnull align 4 dereferenceable(4) %32, ptr noundef nonnull align 1 dereferenceable(1) %33)
+          to label %562 unwind label %570
+
+562:                                              ; preds = %557
+  call void @_ZNSt15__new_allocatorIjED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %33) #18
+  call void @llvm.lifetime.end.p0(i64 1, ptr %33) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %32) #18
+  call void @llvm.lifetime.start.p0(i64 4, ptr %34) #18
+  store i32 0, ptr %34, align 4
+  br label %563
+
+563:                                              ; preds = %614, %562
+  %564 = load i32, ptr %34, align 4
+  %565 = load ptr, ptr %4, align 8
+  %566 = getelementptr inbounds nuw %struct.aiMesh, ptr %565, i32 0, i32 11
+  %567 = load i32, ptr %566, align 8
+  %568 = icmp ult i32 %564, %567
+  br i1 %568, label %574, label %569
+
+569:                                              ; preds = %563
+  store i32 29, ptr %16, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %34) #18
+  br label %617
+
+570:                                              ; preds = %557
+  %571 = landingpad { ptr, i32 }
+          cleanup
+  %572 = extractvalue { ptr, i32 } %571, 0
+  store ptr %572, ptr %11, align 8
+  %573 = extractvalue { ptr, i32 } %571, 1
+  store i32 %573, ptr %12, align 4
+  call void @_ZNSt15__new_allocatorIjED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %33) #18
+  call void @llvm.lifetime.end.p0(i64 1, ptr %33) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %32) #18
+  br label %798
+
+574:                                              ; preds = %563
+  call void @llvm.lifetime.start.p0(i64 8, ptr %35) #18
+  %575 = load ptr, ptr %4, align 8
+  %576 = getelementptr inbounds nuw %struct.aiMesh, ptr %575, i32 0, i32 12
+  %577 = load ptr, ptr %576, align 8
+  %578 = load i32, ptr %34, align 4
+  %579 = zext i32 %578 to i64
+  %580 = getelementptr inbounds nuw ptr, ptr %577, i64 %579
+  %581 = load ptr, ptr %580, align 8
+  store ptr %581, ptr %35, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %36) #18
+  store i32 0, ptr %36, align 4
+  br label %582
+
+582:                                              ; preds = %610, %574
+  %583 = load i32, ptr %36, align 4
+  %584 = load ptr, ptr %35, align 8
+  %585 = getelementptr inbounds nuw %struct.aiBone, ptr %584, i32 0, i32 1
+  %586 = load i32, ptr %585, align 4
+  %587 = icmp ult i32 %583, %586
+  br i1 %587, label %589, label %588
+
+588:                                              ; preds = %582
+  store i32 32, ptr %16, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %36) #18
+  br label %613
+
+589:                                              ; preds = %582
+  call void @llvm.lifetime.start.p0(i64 4, ptr %37) #18
+  %590 = load ptr, ptr %35, align 8
+  %591 = getelementptr inbounds nuw %struct.aiBone, ptr %590, i32 0, i32 4
+  %592 = load ptr, ptr %591, align 8
+  %593 = load i32, ptr %36, align 4
+  %594 = zext i32 %593 to i64
+  %595 = getelementptr inbounds nuw %struct.aiVertexWeight, ptr %592, i64 %594
+  %596 = getelementptr inbounds nuw %struct.aiVertexWeight, ptr %595, i32 0, i32 0
+  %597 = load i32, ptr %596, align 4
+  %598 = zext i32 %597 to i64
+  %599 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt6vectorIjSaIjEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %598) #18
+  %600 = load i32, ptr %599, align 4
+  store i32 %600, ptr %37, align 4
+  %601 = load i32, ptr %37, align 4
+  %602 = icmp ne i32 %601, -1
+  br i1 %602, label %603, label %609
+
+603:                                              ; preds = %589
+  %604 = load i32, ptr %34, align 4
+  %605 = zext i32 %604 to i64
+  %606 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt6vectorIjSaIjEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %31, i64 noundef %605) #18
+  %607 = load i32, ptr %606, align 4
+  %608 = add i32 %607, 1
+  store i32 %608, ptr %606, align 4
+  br label %609
+
+609:                                              ; preds = %603, %589
+  call void @llvm.lifetime.end.p0(i64 4, ptr %37) #18
+  br label %610
+
+610:                                              ; preds = %609
+  %611 = load i32, ptr %36, align 4
+  %612 = add i32 %611, 1
+  store i32 %612, ptr %36, align 4
+  br label %582, !llvm.loop !24
+
+613:                                              ; preds = %588
+  call void @llvm.lifetime.end.p0(i64 8, ptr %35) #18
+  br label %614
+
+614:                                              ; preds = %613
+  %615 = load i32, ptr %34, align 4
+  %616 = add i32 %615, 1
+  store i32 %616, ptr %34, align 4
+  br label %563, !llvm.loop !25
+
+617:                                              ; preds = %569
+  call void @llvm.lifetime.start.p0(i64 4, ptr %38) #18
+  store i32 0, ptr %38, align 4
+  br label %618
+
+618:                                              ; preds = %637, %617
+  %619 = load i32, ptr %38, align 4
+  %620 = load ptr, ptr %4, align 8
+  %621 = getelementptr inbounds nuw %struct.aiMesh, ptr %620, i32 0, i32 11
+  %622 = load i32, ptr %621, align 8
+  %623 = icmp ult i32 %619, %622
+  br i1 %623, label %625, label %624
+
+624:                                              ; preds = %618
+  store i32 35, ptr %16, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %38) #18
+  br label %640
+
+625:                                              ; preds = %618
+  %626 = load i32, ptr %38, align 4
+  %627 = zext i32 %626 to i64
+  %628 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt6vectorIjSaIjEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %31, i64 noundef %627) #18
+  %629 = load i32, ptr %628, align 4
+  %630 = icmp ugt i32 %629, 0
+  br i1 %630, label %631, label %636
+
+631:                                              ; preds = %625
+  %632 = load ptr, ptr %7, align 8
+  %633 = getelementptr inbounds nuw %struct.aiMesh, ptr %632, i32 0, i32 11
+  %634 = load i32, ptr %633, align 8
+  %635 = add i32 %634, 1
+  store i32 %635, ptr %633, align 8
+  br label %636
+
+636:                                              ; preds = %631, %625
+  br label %637
+
+637:                                              ; preds = %636
+  %638 = load i32, ptr %38, align 4
+  %639 = add i32 %638, 1
+  store i32 %639, ptr %38, align 4
+  br label %618, !llvm.loop !26
+
+640:                                              ; preds = %624
+  %641 = load ptr, ptr %7, align 8
+  %642 = getelementptr inbounds nuw %struct.aiMesh, ptr %641, i32 0, i32 11
+  %643 = load i32, ptr %642, align 8
+  %644 = icmp ne i32 %643, 0
+  br i1 %644, label %645, label %796
+
+645:                                              ; preds = %640
+  %646 = load ptr, ptr %7, align 8
+  %647 = getelementptr inbounds nuw %struct.aiMesh, ptr %646, i32 0, i32 11
+  %648 = load i32, ptr %647, align 8
+  %649 = zext i32 %648 to i64
+  %650 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %649, i64 8)
+  %651 = extractvalue { i64, i1 } %650, 1
+  %652 = extractvalue { i64, i1 } %650, 0
+  %653 = select i1 %651, i64 -1, i64 %652
+  %654 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %653) #20
+          to label %655 unwind label %670
+
+655:                                              ; preds = %645
+  call void @llvm.memset.p0.i64(ptr align 8 %654, i8 0, i64 %653, i1 false)
+  %656 = load ptr, ptr %7, align 8
+  %657 = getelementptr inbounds nuw %struct.aiMesh, ptr %656, i32 0, i32 12
+  store ptr %654, ptr %657, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %39) #18
+  %658 = load ptr, ptr %7, align 8
+  %659 = getelementptr inbounds nuw %struct.aiMesh, ptr %658, i32 0, i32 11
+  %660 = load i32, ptr %659, align 8
+  store i32 %660, ptr %39, align 4
+  %661 = load ptr, ptr %7, align 8
+  %662 = getelementptr inbounds nuw %struct.aiMesh, ptr %661, i32 0, i32 11
+  store i32 0, ptr %662, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %40) #18
+  store i32 0, ptr %40, align 4
+  br label %663
+
+663:                                              ; preds = %790, %655
+  %664 = load i32, ptr %40, align 4
+  %665 = load ptr, ptr %4, align 8
+  %666 = getelementptr inbounds nuw %struct.aiMesh, ptr %665, i32 0, i32 11
+  %667 = load i32, ptr %666, align 8
+  %668 = icmp ult i32 %664, %667
+  br i1 %668, label %674, label %669
+
+669:                                              ; preds = %663
+  store i32 38, ptr %16, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %40) #18
+  br label %795
+
+670:                                              ; preds = %645
+  %671 = landingpad { ptr, i32 }
+          cleanup
+  %672 = extractvalue { ptr, i32 } %671, 0
+  store ptr %672, ptr %11, align 8
+  %673 = extractvalue { ptr, i32 } %671, 1
+  store i32 %673, ptr %12, align 4
+  br label %797
+
+674:                                              ; preds = %663
+  %675 = load i32, ptr %40, align 4
+  %676 = zext i32 %675 to i64
+  %677 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt6vectorIjSaIjEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %31, i64 noundef %676) #18
+  %678 = load i32, ptr %677, align 4
+  %679 = icmp eq i32 %678, 0
+  br i1 %679, label %680, label %681
+
+680:                                              ; preds = %674
+  br label %790
+
+681:                                              ; preds = %674
+  call void @llvm.lifetime.start.p0(i64 8, ptr %41) #18
+  %682 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 1120) #20
+          to label %683 unwind label %739
+
+683:                                              ; preds = %681
+  call void @_ZN6aiBoneC2Ev(ptr noundef nonnull align 8 dereferenceable(1120) %682) #18
+  store ptr %682, ptr %41, align 8
+  %684 = load ptr, ptr %41, align 8
+  %685 = load ptr, ptr %7, align 8
+  %686 = getelementptr inbounds nuw %struct.aiMesh, ptr %685, i32 0, i32 12
+  %687 = load ptr, ptr %686, align 8
+  %688 = load ptr, ptr %7, align 8
+  %689 = getelementptr inbounds nuw %struct.aiMesh, ptr %688, i32 0, i32 11
+  %690 = load i32, ptr %689, align 8
+  %691 = add i32 %690, 1
+  store i32 %691, ptr %689, align 8
+  %692 = zext i32 %690 to i64
+  %693 = getelementptr inbounds nuw ptr, ptr %687, i64 %692
+  store ptr %684, ptr %693, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %42) #18
+  %694 = load ptr, ptr %4, align 8
+  %695 = getelementptr inbounds nuw %struct.aiMesh, ptr %694, i32 0, i32 12
+  %696 = load ptr, ptr %695, align 8
+  %697 = load i32, ptr %40, align 4
+  %698 = zext i32 %697 to i64
+  %699 = getelementptr inbounds nuw ptr, ptr %696, i64 %698
+  %700 = load ptr, ptr %699, align 8
+  store ptr %700, ptr %42, align 8
+  %701 = load ptr, ptr %42, align 8
+  %702 = getelementptr inbounds nuw %struct.aiBone, ptr %701, i32 0, i32 0
+  %703 = load ptr, ptr %41, align 8
+  %704 = getelementptr inbounds nuw %struct.aiBone, ptr %703, i32 0, i32 0
+  %705 = invoke noundef nonnull align 4 dereferenceable(1028) ptr @_ZN8aiStringaSERKS_(ptr noundef nonnull align 4 dereferenceable(1028) %704, ptr noundef nonnull align 4 dereferenceable(1028) %702)
+          to label %706 unwind label %743
+
+706:                                              ; preds = %683
+  %707 = load ptr, ptr %42, align 8
+  %708 = getelementptr inbounds nuw %struct.aiBone, ptr %707, i32 0, i32 5
+  %709 = load ptr, ptr %41, align 8
+  %710 = getelementptr inbounds nuw %struct.aiBone, ptr %709, i32 0, i32 5
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %710, ptr align 8 %708, i64 64, i1 false)
+  %711 = load i32, ptr %40, align 4
+  %712 = zext i32 %711 to i64
+  %713 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt6vectorIjSaIjEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %31, i64 noundef %712) #18
+  %714 = load i32, ptr %713, align 4
+  %715 = zext i32 %714 to i64
+  %716 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %715, i64 8)
+  %717 = extractvalue { i64, i1 } %716, 1
+  %718 = extractvalue { i64, i1 } %716, 0
+  %719 = select i1 %717, i64 -1, i64 %718
+  %720 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %719) #20
+          to label %721 unwind label %743
+
+721:                                              ; preds = %706
+  %722 = icmp eq i64 %715, 0
+  br i1 %722, label %729, label %723
+
+723:                                              ; preds = %721
+  %724 = getelementptr inbounds %struct.aiVertexWeight, ptr %720, i64 %715
+  br label %725
+
+725:                                              ; preds = %725, %723
+  %726 = phi ptr [ %720, %723 ], [ %727, %725 ]
+  call void @_ZN14aiVertexWeightC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %726) #18
+  %727 = getelementptr inbounds %struct.aiVertexWeight, ptr %726, i64 1
+  %728 = icmp eq ptr %727, %724
+  br i1 %728, label %729, label %725
+
+729:                                              ; preds = %721, %725
+  %730 = load ptr, ptr %41, align 8
+  %731 = getelementptr inbounds nuw %struct.aiBone, ptr %730, i32 0, i32 4
+  store ptr %720, ptr %731, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %43) #18
+  store i32 0, ptr %43, align 4
+  br label %732
+
+732:                                              ; preds = %786, %729
+  %733 = load i32, ptr %43, align 4
+  %734 = load ptr, ptr %42, align 8
+  %735 = getelementptr inbounds nuw %struct.aiBone, ptr %734, i32 0, i32 1
+  %736 = load i32, ptr %735, align 4
+  %737 = icmp ult i32 %733, %736
+  br i1 %737, label %747, label %738
+
+738:                                              ; preds = %732
+  store i32 41, ptr %16, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %43) #18
+  br label %789
+
+739:                                              ; preds = %681
+  %740 = landingpad { ptr, i32 }
+          cleanup
+  %741 = extractvalue { ptr, i32 } %740, 0
+  store ptr %741, ptr %11, align 8
+  %742 = extractvalue { ptr, i32 } %740, 1
+  store i32 %742, ptr %12, align 4
+  br label %794
+
+743:                                              ; preds = %706, %683
+  %744 = landingpad { ptr, i32 }
+          cleanup
+  %745 = extractvalue { ptr, i32 } %744, 0
+  store ptr %745, ptr %11, align 8
+  %746 = extractvalue { ptr, i32 } %744, 1
+  store i32 %746, ptr %12, align 4
+  br label %793
+
+747:                                              ; preds = %732
+  call void @llvm.lifetime.start.p0(i64 4, ptr %44) #18
+  %748 = load ptr, ptr %42, align 8
+  %749 = getelementptr inbounds nuw %struct.aiBone, ptr %748, i32 0, i32 4
+  %750 = load ptr, ptr %749, align 8
+  %751 = load i32, ptr %43, align 4
+  %752 = zext i32 %751 to i64
+  %753 = getelementptr inbounds nuw %struct.aiVertexWeight, ptr %750, i64 %752
+  %754 = getelementptr inbounds nuw %struct.aiVertexWeight, ptr %753, i32 0, i32 0
+  %755 = load i32, ptr %754, align 4
+  %756 = zext i32 %755 to i64
+  %757 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt6vectorIjSaIjEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %756) #18
+  %758 = load i32, ptr %757, align 4
+  store i32 %758, ptr %44, align 4
+  %759 = load i32, ptr %44, align 4
+  %760 = icmp ne i32 %759, -1
+  br i1 %760, label %761, label %785
+
+761:                                              ; preds = %747
+  call void @llvm.lifetime.start.p0(i64 8, ptr %45) #18
+  %762 = load i32, ptr %44, align 4
+  %763 = load ptr, ptr %42, align 8
+  %764 = getelementptr inbounds nuw %struct.aiBone, ptr %763, i32 0, i32 4
+  %765 = load ptr, ptr %764, align 8
+  %766 = load i32, ptr %43, align 4
+  %767 = zext i32 %766 to i64
+  %768 = getelementptr inbounds nuw %struct.aiVertexWeight, ptr %765, i64 %767
+  %769 = getelementptr inbounds nuw %struct.aiVertexWeight, ptr %768, i32 0, i32 1
+  %770 = load float, ptr %769, align 4
+  invoke void @_ZN14aiVertexWeightC2Ejf(ptr noundef nonnull align 4 dereferenceable(8) %45, i32 noundef %762, float noundef %770)
+          to label %771 unwind label %781
+
+771:                                              ; preds = %761
+  %772 = load ptr, ptr %41, align 8
+  %773 = getelementptr inbounds nuw %struct.aiBone, ptr %772, i32 0, i32 4
+  %774 = load ptr, ptr %773, align 8
+  %775 = load ptr, ptr %41, align 8
+  %776 = getelementptr inbounds nuw %struct.aiBone, ptr %775, i32 0, i32 1
+  %777 = load i32, ptr %776, align 4
+  %778 = add i32 %777, 1
+  store i32 %778, ptr %776, align 4
+  %779 = zext i32 %777 to i64
+  %780 = getelementptr inbounds nuw %struct.aiVertexWeight, ptr %774, i64 %779
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %780, ptr align 4 %45, i64 8, i1 false)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %45) #18
+  br label %785
+
+781:                                              ; preds = %761
+  %782 = landingpad { ptr, i32 }
+          cleanup
+  %783 = extractvalue { ptr, i32 } %782, 0
+  store ptr %783, ptr %11, align 8
+  %784 = extractvalue { ptr, i32 } %782, 1
+  store i32 %784, ptr %12, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %45) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %44) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %43) #18
+  br label %793
+
+785:                                              ; preds = %771, %747
+  call void @llvm.lifetime.end.p0(i64 4, ptr %44) #18
+  br label %786
+
+786:                                              ; preds = %785
+  %787 = load i32, ptr %43, align 4
+  %788 = add i32 %787, 1
+  store i32 %788, ptr %43, align 4
+  br label %732, !llvm.loop !27
+
+789:                                              ; preds = %738
+  call void @llvm.lifetime.end.p0(i64 8, ptr %42) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %41) #18
+  br label %790
+
+790:                                              ; preds = %789, %680
+  %791 = load i32, ptr %40, align 4
+  %792 = add i32 %791, 1
+  store i32 %792, ptr %40, align 4
+  br label %663, !llvm.loop !28
+
+793:                                              ; preds = %781, %743
+  call void @llvm.lifetime.end.p0(i64 8, ptr %42) #18
+  br label %794
+
+794:                                              ; preds = %793, %739
+  call void @llvm.lifetime.end.p0(i64 8, ptr %41) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %40) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %39) #18
+  br label %797
+
+795:                                              ; preds = %669
+  call void @llvm.lifetime.end.p0(i64 4, ptr %39) #18
+  br label %796
+
+796:                                              ; preds = %795, %640
+  call void @_ZNSt6vectorIjSaIjEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %31) #18
+  call void @llvm.lifetime.end.p0(i64 24, ptr %31) #18
+  br label %799
+
+797:                                              ; preds = %794, %670
+  call void @_ZNSt6vectorIjSaIjEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %31) #18
+  br label %798
+
+798:                                              ; preds = %797, %570
+  call void @llvm.lifetime.end.p0(i64 24, ptr %31) #18
+  br label %801
+
+799:                                              ; preds = %796, %552
+  %800 = load ptr, ptr %7, align 8
+  store i32 1, ptr %16, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #18
+  call void @_ZNSt6vectorIjSaIjEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #18
+  call void @llvm.lifetime.end.p0(i64 24, ptr %8) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #18
+  ret ptr %800
+
+801:                                              ; preds = %798, %551, %372, %274, %230, %179
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #18
+  call void @_ZNSt6vectorIjSaIjEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #18
+  br label %802
+
+802:                                              ; preds = %801, %60
+  call void @llvm.lifetime.end.p0(i64 24, ptr %8) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #18
+  br label %803
+
+803:                                              ; preds = %802
+  %804 = load ptr, ptr %11, align 8
+  %805 = load i32, ptr %12, align 4
+  %806 = insertvalue { ptr, i32 } poison, ptr %804, 0
+  %807 = insertvalue { ptr, i32 } %806, i32 %805, 1
+  resume { ptr, i32 } %807
+
+808:                                              ; preds = %545
+  unreachable
+}
+
+; Function Attrs: nobuiltin allocsize(0)
+declare noundef nonnull ptr @_Znwm(i64 noundef) #10
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN6aiMeshC2Ev(ptr noundef nonnull align 8 dereferenceable(1320) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %struct.aiMesh, ptr %3, i32 0, i32 0
+  store i32 0, ptr %4, align 8
+  %5 = getelementptr inbounds nuw %struct.aiMesh, ptr %3, i32 0, i32 1
+  store i32 0, ptr %5, align 4
+  %6 = getelementptr inbounds nuw %struct.aiMesh, ptr %3, i32 0, i32 2
+  store i32 0, ptr %6, align 8
+  %7 = getelementptr inbounds nuw %struct.aiMesh, ptr %3, i32 0, i32 3
+  store ptr null, ptr %7, align 8
+  %8 = getelementptr inbounds nuw %struct.aiMesh, ptr %3, i32 0, i32 4
+  store ptr null, ptr %8, align 8
+  %9 = getelementptr inbounds nuw %struct.aiMesh, ptr %3, i32 0, i32 5
+  store ptr null, ptr %9, align 8
+  %10 = getelementptr inbounds nuw %struct.aiMesh, ptr %3, i32 0, i32 6
+  store ptr null, ptr %10, align 8
+  %11 = getelementptr inbounds nuw %struct.aiMesh, ptr %3, i32 0, i32 7
+  call void @llvm.memset.p0.i64(ptr align 8 %11, i8 0, i64 64, i1 false)
+  %12 = getelementptr inbounds nuw %struct.aiMesh, ptr %3, i32 0, i32 8
+  call void @llvm.memset.p0.i64(ptr align 8 %12, i8 0, i64 64, i1 false)
+  %13 = getelementptr inbounds nuw %struct.aiMesh, ptr %3, i32 0, i32 9
+  call void @llvm.memset.p0.i64(ptr align 8 %13, i8 0, i64 32, i1 false)
+  %14 = getelementptr inbounds nuw %struct.aiMesh, ptr %3, i32 0, i32 10
+  store ptr null, ptr %14, align 8
+  %15 = getelementptr inbounds nuw %struct.aiMesh, ptr %3, i32 0, i32 11
+  store i32 0, ptr %15, align 8
+  %16 = getelementptr inbounds nuw %struct.aiMesh, ptr %3, i32 0, i32 12
+  store ptr null, ptr %16, align 8
+  %17 = getelementptr inbounds nuw %struct.aiMesh, ptr %3, i32 0, i32 13
+  store i32 0, ptr %17, align 8
+  %18 = getelementptr inbounds nuw %struct.aiMesh, ptr %3, i32 0, i32 14
+  call void @_ZN8aiStringC2Ev(ptr noundef nonnull align 4 dereferenceable(1028) %18) #18
+  %19 = getelementptr inbounds nuw %struct.aiMesh, ptr %3, i32 0, i32 15
+  store i32 0, ptr %19, align 8
+  %20 = getelementptr inbounds nuw %struct.aiMesh, ptr %3, i32 0, i32 16
+  store ptr null, ptr %20, align 8
+  %21 = getelementptr inbounds nuw %struct.aiMesh, ptr %3, i32 0, i32 17
+  store i32 0, ptr %21, align 8
+  %22 = getelementptr inbounds nuw %struct.aiMesh, ptr %3, i32 0, i32 18
+  call void @llvm.memset.p0.i64(ptr align 4 %22, i8 0, i64 24, i1 false)
+  call void @_ZN6aiAABBC2Ev(ptr noundef nonnull align 4 dereferenceable(24) %22) #18
+  %23 = getelementptr inbounds nuw %struct.aiMesh, ptr %3, i32 0, i32 19
+  store ptr null, ptr %23, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSaIjEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt15__new_allocatorIjEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #18
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt6vectorIjSaIjEEC2EmRKjRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 1 dereferenceable(1) %3) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8
+  store i64 %1, ptr %6, align 8
+  store ptr %2, ptr %7, align 8
+  store ptr %3, ptr %8, align 8
+  %11 = load ptr, ptr %5, align 8
+  %12 = load i64, ptr %6, align 8
+  %13 = load ptr, ptr %8, align 8
+  %14 = call noundef i64 @_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_(i64 noundef %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+  %15 = load ptr, ptr %8, align 8
+  call void @_ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %11, i64 noundef %14, ptr noundef nonnull align 1 dereferenceable(1) %15)
+  %16 = load i64, ptr %6, align 8
+  %17 = load ptr, ptr %7, align 8
+  invoke void @_ZNSt6vectorIjSaIjEE18_M_fill_initializeEmRKj(ptr noundef nonnull align 8 dereferenceable(24) %11, i64 noundef %16, ptr noundef nonnull align 4 dereferenceable(4) %17)
+          to label %18 unwind label %19
+
+18:                                               ; preds = %4
+  ret void
+
+19:                                               ; preds = %4
+  %20 = landingpad { ptr, i32 }
+          cleanup
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %9, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %10, align 4
+  call void @_ZNSt12_Vector_baseIjSaIjEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #18
+  br label %23
+
+23:                                               ; preds = %19
+  %24 = load ptr, ptr %9, align 8
+  %25 = load i32, ptr %10, align 4
+  %26 = insertvalue { ptr, i32 } poison, ptr %24, 0
+  %27 = insertvalue { ptr, i32 } %26, i32 %25, 1
+  resume { ptr, i32 } %27
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNKSt6vectorIjSaIjEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base.7", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %4, i32 0, i32 1
+  %6 = load ptr, ptr %5, align 8
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base.7", ptr %3, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8
+  %10 = ptrtoint ptr %6 to i64
+  %11 = ptrtoint ptr %9 to i64
+  %12 = sub i64 %10, %11
+  %13 = sdiv exact i64 %12, 4
+  ret i64 %13
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZNKSt6vectorIjSaIjEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"struct.std::_Vector_base.7", ptr %5, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8
+  %9 = load i64, ptr %4, align 8
+  %10 = getelementptr inbounds nuw i32, ptr %8, i64 %9
+  ret ptr %10
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt6vectorIjSaIjEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"struct.std::_Vector_base.7", ptr %5, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8
+  %9 = load i64, ptr %4, align 8
+  %10 = getelementptr inbounds nuw i32, ptr %8, i64 %9
+  ret ptr %10
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 4 dereferenceable(1028) ptr @_ZN8aiStringaSERKS_(ptr noundef nonnull align 4 dereferenceable(1028) %0, ptr noundef nonnull align 4 dereferenceable(1028) %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  %6 = load ptr, ptr %4, align 8
+  %7 = load ptr, ptr %5, align 8
+  %8 = icmp eq ptr %6, %7
+  br i1 %8, label %9, label %10
+
+9:                                                ; preds = %2
+  store ptr %6, ptr %3, align 8
+  br label %35
+
+10:                                               ; preds = %2
+  %11 = load ptr, ptr %5, align 8
+  %12 = getelementptr inbounds nuw %struct.aiString, ptr %11, i32 0, i32 0
+  %13 = load i32, ptr %12, align 4
+  %14 = getelementptr inbounds nuw %struct.aiString, ptr %6, i32 0, i32 0
+  store i32 %13, ptr %14, align 4
+  %15 = getelementptr inbounds nuw %struct.aiString, ptr %6, i32 0, i32 0
+  %16 = load i32, ptr %15, align 4
+  %17 = zext i32 %16 to i64
+  %18 = icmp ugt i64 %17, 1023
+  br i1 %18, label %19, label %21
+
+19:                                               ; preds = %10
+  %20 = getelementptr inbounds nuw %struct.aiString, ptr %6, i32 0, i32 0
+  store i32 1023, ptr %20, align 4
+  br label %21
+
+21:                                               ; preds = %19, %10
+  %22 = getelementptr inbounds nuw %struct.aiString, ptr %6, i32 0, i32 1
+  %23 = getelementptr inbounds [1024 x i8], ptr %22, i64 0, i64 0
+  %24 = load ptr, ptr %5, align 8
+  %25 = getelementptr inbounds nuw %struct.aiString, ptr %24, i32 0, i32 1
+  %26 = getelementptr inbounds [1024 x i8], ptr %25, i64 0, i64 0
+  %27 = getelementptr inbounds nuw %struct.aiString, ptr %6, i32 0, i32 0
+  %28 = load i32, ptr %27, align 4
+  %29 = zext i32 %28 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %23, ptr align 4 %26, i64 %29, i1 false)
+  %30 = getelementptr inbounds nuw %struct.aiString, ptr %6, i32 0, i32 1
+  %31 = getelementptr inbounds nuw %struct.aiString, ptr %6, i32 0, i32 0
+  %32 = load i32, ptr %31, align 4
+  %33 = zext i32 %32 to i64
+  %34 = getelementptr inbounds nuw [1024 x i8], ptr %30, i64 0, i64 %33
+  store i8 0, ptr %34, align 1
+  store ptr %6, ptr %3, align 8
+  br label %35
+
+35:                                               ; preds = %21, %9
+  %36 = load ptr, ptr %3, align 8
   ret ptr %36
 }
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #7
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare { i64, i1 } @llvm.uadd.with.overflow.i64(i64, i64) #7
-
-; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znam(i64 noundef) #8
-
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt6vectorISt4pairIjfESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZNSt12_Vector_baseISt4pairIjfESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #14
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef nonnull align 1 ptr @_ZNSt6vectorISt4pairIjfESaIS1_EE12emplace_backIJRjRKfEEERS1_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 4 dereferenceable(4) %__args, ptr noundef nonnull align 4 dereferenceable(4) %__args1) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__args.addr = alloca ptr, align 8
-  %__args.addr2 = alloca ptr, align 8
-  %agg.tmp = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__args, ptr %__args.addr, align 8
-  store ptr %__args1, ptr %__args.addr2, align 8
-  %this3 = load ptr, ptr %this.addr, align 8
-  %_M_impl = getelementptr inbounds %"struct.std::_Vector_base", ptr %this3, i32 0, i32 0
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<std::pair<unsigned int, float>, std::allocator<std::pair<unsigned int, float>>>::_Vector_impl_data", ptr %_M_impl, i32 0, i32 1
-  %0 = load ptr, ptr %_M_finish, align 8
-  %_M_impl4 = getelementptr inbounds %"struct.std::_Vector_base", ptr %this3, i32 0, i32 0
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<std::pair<unsigned int, float>, std::allocator<std::pair<unsigned int, float>>>::_Vector_impl_data", ptr %_M_impl4, i32 0, i32 2
-  %1 = load ptr, ptr %_M_end_of_storage, align 8
-  %cmp = icmp ne ptr %0, %1
-  br i1 %cmp, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  %_M_impl5 = getelementptr inbounds %"struct.std::_Vector_base", ptr %this3, i32 0, i32 0
-  %_M_impl6 = getelementptr inbounds %"struct.std::_Vector_base", ptr %this3, i32 0, i32 0
-  %_M_finish7 = getelementptr inbounds %"struct.std::_Vector_base<std::pair<unsigned int, float>, std::allocator<std::pair<unsigned int, float>>>::_Vector_impl_data", ptr %_M_impl6, i32 0, i32 1
-  %2 = load ptr, ptr %_M_finish7, align 8
-  %3 = load ptr, ptr %__args.addr, align 8
-  %4 = load ptr, ptr %__args.addr2, align 8
-  call void @_ZNSt16allocator_traitsISaISt4pairIjfEEE9constructIS1_JRjRKfEEEvRS2_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %_M_impl5, ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4)
-  %_M_impl8 = getelementptr inbounds %"struct.std::_Vector_base", ptr %this3, i32 0, i32 0
-  %_M_finish9 = getelementptr inbounds %"struct.std::_Vector_base<std::pair<unsigned int, float>, std::allocator<std::pair<unsigned int, float>>>::_Vector_impl_data", ptr %_M_impl8, i32 0, i32 1
-  %5 = load ptr, ptr %_M_finish9, align 8
-  %incdec.ptr = getelementptr inbounds %"struct.std::pair", ptr %5, i32 1
-  store ptr %incdec.ptr, ptr %_M_finish9, align 8
-  br label %if.end
-
-if.else:                                          ; preds = %entry
-  %call = call ptr @_ZNSt6vectorISt4pairIjfESaIS1_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %this3) #14
-  %coerce.dive = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %agg.tmp, i32 0, i32 0
-  store ptr %call, ptr %coerce.dive, align 8
-  %6 = load ptr, ptr %__args.addr, align 8
-  %7 = load ptr, ptr %__args.addr2, align 8
-  %coerce.dive10 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %agg.tmp, i32 0, i32 0
-  %8 = load ptr, ptr %coerce.dive10, align 8
-  call void @_ZNSt6vectorISt4pairIjfESaIS1_EE17_M_realloc_insertIJRjRKfEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this3, ptr %8, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %7)
-  br label %if.end
-
-if.end:                                           ; preds = %if.else, %if.then
-  %call11 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZNSt6vectorISt4pairIjfESaIS1_EE4backEv(ptr noundef nonnull align 8 dereferenceable(24) %this3) #14
-  ret ptr %call11
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN6Assimp19MappingTypeToStringE16aiTextureMapping(i32 noundef %in) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %in.addr = alloca i32, align 4
-  store i32 %in, ptr %in.addr, align 4
-  %0 = load i32, ptr %in.addr, align 4
-  switch i32 %0, label %sw.default [
-    i32 0, label %sw.bb
-    i32 3, label %sw.bb1
-    i32 1, label %sw.bb2
-    i32 2, label %sw.bb3
-    i32 4, label %sw.bb4
-    i32 5, label %sw.bb5
-  ]
-
-sw.bb:                                            ; preds = %entry
-  store ptr @.str.1, ptr %retval, align 8
-  br label %return
-
-sw.bb1:                                           ; preds = %entry
-  store ptr @.str.2, ptr %retval, align 8
-  br label %return
-
-sw.bb2:                                           ; preds = %entry
-  store ptr @.str.3, ptr %retval, align 8
-  br label %return
-
-sw.bb3:                                           ; preds = %entry
-  store ptr @.str.4, ptr %retval, align 8
-  br label %return
-
-sw.bb4:                                           ; preds = %entry
-  store ptr @.str.5, ptr %retval, align 8
-  br label %return
-
-sw.bb5:                                           ; preds = %entry
-  store ptr @.str.6, ptr %retval, align 8
-  br label %return
-
-sw.default:                                       ; preds = %entry
-  br label %sw.epilog
-
-sw.epilog:                                        ; preds = %sw.default
-  store ptr @.str.7, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %sw.epilog, %sw.bb5, %sw.bb4, %sw.bb3, %sw.bb2, %sw.bb1, %sw.bb
-  %1 = load ptr, ptr %retval, align 8
-  ret ptr %1
-}
-
-; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN6Assimp11MakeSubmeshEPK6aiMeshRKSt6vectorIjSaIjEEj(ptr noundef %pMesh, ptr noundef nonnull align 8 dereferenceable(24) %subMeshFaces, i32 noundef %subFlags) #2 personality ptr @__gxx_personality_v0 {
-entry:
-  %pMesh.addr = alloca ptr, align 8
-  %subMeshFaces.addr = alloca ptr, align 8
-  %subFlags.addr = alloca i32, align 4
-  %oMesh = alloca ptr, align 8
-  %vMap = alloca %"class.std::vector.6", align 8
-  %ref.tmp = alloca i32, align 4
-  %ref.tmp1 = alloca %"class.std::allocator.8", align 1
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  %numSubVerts = alloca i64, align 8
-  %numSubFaces = alloca i64, align 8
-  %i = alloca i32, align 4
-  %f = alloca ptr, align 8
-  %j = alloca i32, align 4
-  %a = alloca i64, align 8
-  %a96 = alloca i64, align 8
-  %a127 = alloca i32, align 4
-  %srcFace = alloca ptr, align 8
-  %dstFace = alloca ptr, align 8
-  %b = alloca i64, align 8
-  %srcIndex = alloca i32, align 4
-  %nvi = alloca i32, align 4
-  %c = alloca i64, align 8
-  %cc = alloca i64, align 8
-  %c222 = alloca i64, align 8
-  %cc223 = alloca i64, align 8
-  %subBones = alloca %"class.std::vector.6", align 8
-  %ref.tmp246 = alloca i32, align 4
-  %ref.tmp247 = alloca %"class.std::allocator.8", align 1
-  %a250 = alloca i32, align 4
-  %bone = alloca ptr, align 8
-  %b257 = alloca i32, align 4
-  %v = alloca i32, align 4
-  %a277 = alloca i32, align 4
-  %nbParanoia = alloca i32, align 4
-  %a303 = alloca i32, align 4
-  %newBone = alloca ptr, align 8
-  %bone320 = alloca ptr, align 8
-  %b343 = alloca i32, align 4
-  %v348 = alloca i32, align 4
-  %w = alloca %struct.aiVertexWeight, align 4
-  store ptr %pMesh, ptr %pMesh.addr, align 8
-  store ptr %subMeshFaces, ptr %subMeshFaces.addr, align 8
-  store i32 %subFlags, ptr %subFlags.addr, align 4
-  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 1320) #15
-  call void @_ZN6aiMeshC2Ev(ptr noundef nonnull align 8 dereferenceable(1320) %call) #14
-  store ptr %call, ptr %oMesh, align 8
-  %0 = load ptr, ptr %pMesh.addr, align 8
-  %mNumVertices = getelementptr inbounds %struct.aiMesh, ptr %0, i32 0, i32 1
-  %1 = load i32, ptr %mNumVertices, align 4
-  %conv = zext i32 %1 to i64
-  store i32 -1, ptr %ref.tmp, align 4
-  call void @_ZNSaIjEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1) #14
-  invoke void @_ZNSt6vectorIjSaIjEEC2EmRKjRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %vMap, i64 noundef %conv, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1)
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %entry
-  call void @_ZNSaIjED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1) #14
-  store i64 0, ptr %numSubVerts, align 8
-  %2 = load ptr, ptr %subMeshFaces.addr, align 8
-  %call2 = call noundef i64 @_ZNKSt6vectorIjSaIjEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %2) #14
-  store i64 %call2, ptr %numSubFaces, align 8
-  store i32 0, ptr %i, align 4
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc21, %invoke.cont
-  %3 = load i32, ptr %i, align 4
-  %conv3 = zext i32 %3 to i64
-  %4 = load i64, ptr %numSubFaces, align 8
-  %cmp = icmp ult i64 %conv3, %4
-  br i1 %cmp, label %for.body, label %for.end23
-
-for.body:                                         ; preds = %for.cond
-  %5 = load ptr, ptr %pMesh.addr, align 8
-  %mFaces = getelementptr inbounds %struct.aiMesh, ptr %5, i32 0, i32 10
-  %6 = load ptr, ptr %mFaces, align 8
-  %7 = load ptr, ptr %subMeshFaces.addr, align 8
-  %8 = load i32, ptr %i, align 4
-  %conv4 = zext i32 %8 to i64
-  %call5 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNKSt6vectorIjSaIjEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %conv4) #14
-  %9 = load i32, ptr %call5, align 4
-  %idxprom = zext i32 %9 to i64
-  %arrayidx = getelementptr inbounds %struct.aiFace, ptr %6, i64 %idxprom
-  store ptr %arrayidx, ptr %f, align 8
-  store i32 0, ptr %j, align 4
-  br label %for.cond6
-
-for.cond6:                                        ; preds = %for.inc, %for.body
-  %10 = load i32, ptr %j, align 4
-  %11 = load ptr, ptr %f, align 8
-  %mNumIndices = getelementptr inbounds %struct.aiFace, ptr %11, i32 0, i32 0
-  %12 = load i32, ptr %mNumIndices, align 8
-  %cmp7 = icmp ult i32 %10, %12
-  br i1 %cmp7, label %for.body8, label %for.end
-
-for.body8:                                        ; preds = %for.cond6
-  %13 = load ptr, ptr %f, align 8
-  %mIndices = getelementptr inbounds %struct.aiFace, ptr %13, i32 0, i32 1
-  %14 = load ptr, ptr %mIndices, align 8
-  %15 = load i32, ptr %j, align 4
-  %idxprom9 = zext i32 %15 to i64
-  %arrayidx10 = getelementptr inbounds i32, ptr %14, i64 %idxprom9
-  %16 = load i32, ptr %arrayidx10, align 4
-  %conv11 = zext i32 %16 to i64
-  %call12 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt6vectorIjSaIjEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %vMap, i64 noundef %conv11) #14
-  %17 = load i32, ptr %call12, align 4
-  %cmp13 = icmp eq i32 %17, -1
-  br i1 %cmp13, label %if.then, label %if.end
-
-if.then:                                          ; preds = %for.body8
-  %18 = load i64, ptr %numSubVerts, align 8
-  %inc = add i64 %18, 1
-  store i64 %inc, ptr %numSubVerts, align 8
-  %conv14 = trunc i64 %18 to i32
-  %19 = load ptr, ptr %f, align 8
-  %mIndices15 = getelementptr inbounds %struct.aiFace, ptr %19, i32 0, i32 1
-  %20 = load ptr, ptr %mIndices15, align 8
-  %21 = load i32, ptr %j, align 4
-  %idxprom16 = zext i32 %21 to i64
-  %arrayidx17 = getelementptr inbounds i32, ptr %20, i64 %idxprom16
-  %22 = load i32, ptr %arrayidx17, align 4
-  %conv18 = zext i32 %22 to i64
-  %call19 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt6vectorIjSaIjEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %vMap, i64 noundef %conv18) #14
-  store i32 %conv14, ptr %call19, align 4
-  br label %if.end
-
-lpad:                                             ; preds = %entry
-  %23 = landingpad { ptr, i32 }
-          cleanup
-  %24 = extractvalue { ptr, i32 } %23, 0
-  store ptr %24, ptr %exn.slot, align 8
-  %25 = extractvalue { ptr, i32 } %23, 1
-  store i32 %25, ptr %ehselector.slot, align 4
-  call void @_ZNSaIjED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1) #14
-  br label %eh.resume
-
-if.end:                                           ; preds = %if.then, %for.body8
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end
-  %26 = load i32, ptr %j, align 4
-  %inc20 = add i32 %26, 1
-  store i32 %inc20, ptr %j, align 4
-  br label %for.cond6, !llvm.loop !16
-
-for.end:                                          ; preds = %for.cond6
-  br label %for.inc21
-
-for.inc21:                                        ; preds = %for.end
-  %27 = load i32, ptr %i, align 4
-  %inc22 = add i32 %27, 1
-  store i32 %inc22, ptr %i, align 4
-  br label %for.cond, !llvm.loop !17
-
-for.end23:                                        ; preds = %for.cond
-  %28 = load ptr, ptr %pMesh.addr, align 8
-  %mName = getelementptr inbounds %struct.aiMesh, ptr %28, i32 0, i32 14
-  %29 = load ptr, ptr %oMesh, align 8
-  %mName24 = getelementptr inbounds %struct.aiMesh, ptr %29, i32 0, i32 14
-  %call27 = invoke noundef nonnull align 4 dereferenceable(1028) ptr @_ZN8aiStringaSERKS_(ptr noundef nonnull align 4 dereferenceable(1028) %mName24, ptr noundef nonnull align 4 dereferenceable(1028) %mName)
-          to label %invoke.cont26 unwind label %lpad25
-
-invoke.cont26:                                    ; preds = %for.end23
-  %30 = load ptr, ptr %pMesh.addr, align 8
-  %mMaterialIndex = getelementptr inbounds %struct.aiMesh, ptr %30, i32 0, i32 13
-  %31 = load i32, ptr %mMaterialIndex, align 8
-  %32 = load ptr, ptr %oMesh, align 8
-  %mMaterialIndex28 = getelementptr inbounds %struct.aiMesh, ptr %32, i32 0, i32 13
-  store i32 %31, ptr %mMaterialIndex28, align 8
-  %33 = load ptr, ptr %pMesh.addr, align 8
-  %mPrimitiveTypes = getelementptr inbounds %struct.aiMesh, ptr %33, i32 0, i32 0
-  %34 = load i32, ptr %mPrimitiveTypes, align 8
-  %35 = load ptr, ptr %oMesh, align 8
-  %mPrimitiveTypes29 = getelementptr inbounds %struct.aiMesh, ptr %35, i32 0, i32 0
-  store i32 %34, ptr %mPrimitiveTypes29, align 8
-  %36 = load ptr, ptr %subMeshFaces.addr, align 8
-  %call30 = call noundef i64 @_ZNKSt6vectorIjSaIjEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %36) #14
-  %conv31 = trunc i64 %call30 to i32
-  %37 = load ptr, ptr %oMesh, align 8
-  %mNumFaces = getelementptr inbounds %struct.aiMesh, ptr %37, i32 0, i32 2
-  store i32 %conv31, ptr %mNumFaces, align 8
-  %38 = load i64, ptr %numSubVerts, align 8
-  %conv32 = trunc i64 %38 to i32
-  %39 = load ptr, ptr %oMesh, align 8
-  %mNumVertices33 = getelementptr inbounds %struct.aiMesh, ptr %39, i32 0, i32 1
-  store i32 %conv32, ptr %mNumVertices33, align 4
-  %40 = load i64, ptr %numSubVerts, align 8
-  %41 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %40, i64 12)
-  %42 = extractvalue { i64, i1 } %41, 1
-  %43 = extractvalue { i64, i1 } %41, 0
-  %44 = select i1 %42, i64 -1, i64 %43
-  %call35 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %44) #15
-          to label %invoke.cont34 unwind label %lpad25
-
-invoke.cont34:                                    ; preds = %invoke.cont26
-  %isempty = icmp eq i64 %40, 0
-  br i1 %isempty, label %arrayctor.cont, label %new.ctorloop
-
-new.ctorloop:                                     ; preds = %invoke.cont34
-  %arrayctor.end = getelementptr inbounds %class.aiVector3t, ptr %call35, i64 %40
-  br label %arrayctor.loop
-
-arrayctor.loop:                                   ; preds = %arrayctor.loop, %new.ctorloop
-  %arrayctor.cur = phi ptr [ %call35, %new.ctorloop ], [ %arrayctor.next, %arrayctor.loop ]
-  call void @_ZN10aiVector3tIfEC2Ev(ptr noundef nonnull align 4 dereferenceable(12) %arrayctor.cur) #14
-  %arrayctor.next = getelementptr inbounds %class.aiVector3t, ptr %arrayctor.cur, i64 1
-  %arrayctor.done = icmp eq ptr %arrayctor.next, %arrayctor.end
-  br i1 %arrayctor.done, label %arrayctor.cont, label %arrayctor.loop
-
-arrayctor.cont:                                   ; preds = %arrayctor.loop, %invoke.cont34
-  %45 = load ptr, ptr %oMesh, align 8
-  %mVertices = getelementptr inbounds %struct.aiMesh, ptr %45, i32 0, i32 3
-  store ptr %call35, ptr %mVertices, align 8
-  %46 = load ptr, ptr %pMesh.addr, align 8
-  %call37 = invoke noundef zeroext i1 @_ZNK6aiMesh10HasNormalsEv(ptr noundef nonnull align 8 dereferenceable(1320) %46)
-          to label %invoke.cont36 unwind label %lpad25
-
-invoke.cont36:                                    ; preds = %arrayctor.cont
-  br i1 %call37, label %if.then38, label %if.end49
-
-if.then38:                                        ; preds = %invoke.cont36
-  %47 = load i64, ptr %numSubVerts, align 8
-  %48 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %47, i64 12)
-  %49 = extractvalue { i64, i1 } %48, 1
-  %50 = extractvalue { i64, i1 } %48, 0
-  %51 = select i1 %49, i64 -1, i64 %50
-  %call40 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %51) #15
-          to label %invoke.cont39 unwind label %lpad25
-
-invoke.cont39:                                    ; preds = %if.then38
-  %isempty41 = icmp eq i64 %47, 0
-  br i1 %isempty41, label %arrayctor.cont48, label %new.ctorloop42
-
-new.ctorloop42:                                   ; preds = %invoke.cont39
-  %arrayctor.end43 = getelementptr inbounds %class.aiVector3t, ptr %call40, i64 %47
-  br label %arrayctor.loop44
-
-arrayctor.loop44:                                 ; preds = %arrayctor.loop44, %new.ctorloop42
-  %arrayctor.cur45 = phi ptr [ %call40, %new.ctorloop42 ], [ %arrayctor.next46, %arrayctor.loop44 ]
-  call void @_ZN10aiVector3tIfEC2Ev(ptr noundef nonnull align 4 dereferenceable(12) %arrayctor.cur45) #14
-  %arrayctor.next46 = getelementptr inbounds %class.aiVector3t, ptr %arrayctor.cur45, i64 1
-  %arrayctor.done47 = icmp eq ptr %arrayctor.next46, %arrayctor.end43
-  br i1 %arrayctor.done47, label %arrayctor.cont48, label %arrayctor.loop44
-
-arrayctor.cont48:                                 ; preds = %arrayctor.loop44, %invoke.cont39
-  %52 = load ptr, ptr %oMesh, align 8
-  %mNormals = getelementptr inbounds %struct.aiMesh, ptr %52, i32 0, i32 4
-  store ptr %call40, ptr %mNormals, align 8
-  br label %if.end49
-
-lpad25:                                           ; preds = %for.end221, %if.end204, %if.end188, %if.end172, %for.body131, %for.end115, %for.body101, %for.cond97, %for.body78, %for.cond74, %arrayctor.cont62, %if.then52, %if.end49, %if.then38, %arrayctor.cont, %invoke.cont26, %for.end23
-  %53 = landingpad { ptr, i32 }
-          cleanup
-  %54 = extractvalue { ptr, i32 } %53, 0
-  store ptr %54, ptr %exn.slot, align 8
-  %55 = extractvalue { ptr, i32 } %53, 1
-  store i32 %55, ptr %ehselector.slot, align 4
-  br label %ehcleanup
-
-if.end49:                                         ; preds = %arrayctor.cont48, %invoke.cont36
-  %56 = load ptr, ptr %pMesh.addr, align 8
-  %call51 = invoke noundef zeroext i1 @_ZNK6aiMesh24HasTangentsAndBitangentsEv(ptr noundef nonnull align 8 dereferenceable(1320) %56)
-          to label %invoke.cont50 unwind label %lpad25
-
-invoke.cont50:                                    ; preds = %if.end49
-  br i1 %call51, label %if.then52, label %if.end73
-
-if.then52:                                        ; preds = %invoke.cont50
-  %57 = load i64, ptr %numSubVerts, align 8
-  %58 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %57, i64 12)
-  %59 = extractvalue { i64, i1 } %58, 1
-  %60 = extractvalue { i64, i1 } %58, 0
-  %61 = select i1 %59, i64 -1, i64 %60
-  %call54 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %61) #15
-          to label %invoke.cont53 unwind label %lpad25
-
-invoke.cont53:                                    ; preds = %if.then52
-  %isempty55 = icmp eq i64 %57, 0
-  br i1 %isempty55, label %arrayctor.cont62, label %new.ctorloop56
-
-new.ctorloop56:                                   ; preds = %invoke.cont53
-  %arrayctor.end57 = getelementptr inbounds %class.aiVector3t, ptr %call54, i64 %57
-  br label %arrayctor.loop58
-
-arrayctor.loop58:                                 ; preds = %arrayctor.loop58, %new.ctorloop56
-  %arrayctor.cur59 = phi ptr [ %call54, %new.ctorloop56 ], [ %arrayctor.next60, %arrayctor.loop58 ]
-  call void @_ZN10aiVector3tIfEC2Ev(ptr noundef nonnull align 4 dereferenceable(12) %arrayctor.cur59) #14
-  %arrayctor.next60 = getelementptr inbounds %class.aiVector3t, ptr %arrayctor.cur59, i64 1
-  %arrayctor.done61 = icmp eq ptr %arrayctor.next60, %arrayctor.end57
-  br i1 %arrayctor.done61, label %arrayctor.cont62, label %arrayctor.loop58
-
-arrayctor.cont62:                                 ; preds = %arrayctor.loop58, %invoke.cont53
-  %62 = load ptr, ptr %oMesh, align 8
-  %mTangents = getelementptr inbounds %struct.aiMesh, ptr %62, i32 0, i32 5
-  store ptr %call54, ptr %mTangents, align 8
-  %63 = load i64, ptr %numSubVerts, align 8
-  %64 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %63, i64 12)
-  %65 = extractvalue { i64, i1 } %64, 1
-  %66 = extractvalue { i64, i1 } %64, 0
-  %67 = select i1 %65, i64 -1, i64 %66
-  %call64 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %67) #15
-          to label %invoke.cont63 unwind label %lpad25
-
-invoke.cont63:                                    ; preds = %arrayctor.cont62
-  %isempty65 = icmp eq i64 %63, 0
-  br i1 %isempty65, label %arrayctor.cont72, label %new.ctorloop66
-
-new.ctorloop66:                                   ; preds = %invoke.cont63
-  %arrayctor.end67 = getelementptr inbounds %class.aiVector3t, ptr %call64, i64 %63
-  br label %arrayctor.loop68
-
-arrayctor.loop68:                                 ; preds = %arrayctor.loop68, %new.ctorloop66
-  %arrayctor.cur69 = phi ptr [ %call64, %new.ctorloop66 ], [ %arrayctor.next70, %arrayctor.loop68 ]
-  call void @_ZN10aiVector3tIfEC2Ev(ptr noundef nonnull align 4 dereferenceable(12) %arrayctor.cur69) #14
-  %arrayctor.next70 = getelementptr inbounds %class.aiVector3t, ptr %arrayctor.cur69, i64 1
-  %arrayctor.done71 = icmp eq ptr %arrayctor.next70, %arrayctor.end67
-  br i1 %arrayctor.done71, label %arrayctor.cont72, label %arrayctor.loop68
-
-arrayctor.cont72:                                 ; preds = %arrayctor.loop68, %invoke.cont63
-  %68 = load ptr, ptr %oMesh, align 8
-  %mBitangents = getelementptr inbounds %struct.aiMesh, ptr %68, i32 0, i32 6
-  store ptr %call64, ptr %mBitangents, align 8
-  br label %if.end73
-
-if.end73:                                         ; preds = %arrayctor.cont72, %invoke.cont50
-  store i64 0, ptr %a, align 8
-  br label %for.cond74
-
-for.cond74:                                       ; preds = %for.inc93, %if.end73
-  %69 = load ptr, ptr %pMesh.addr, align 8
-  %70 = load i64, ptr %a, align 8
-  %conv75 = trunc i64 %70 to i32
-  %call77 = invoke noundef zeroext i1 @_ZNK6aiMesh16HasTextureCoordsEj(ptr noundef nonnull align 8 dereferenceable(1320) %69, i32 noundef %conv75)
-          to label %invoke.cont76 unwind label %lpad25
-
-invoke.cont76:                                    ; preds = %for.cond74
-  br i1 %call77, label %for.body78, label %for.end95
-
-for.body78:                                       ; preds = %invoke.cont76
-  %71 = load i64, ptr %numSubVerts, align 8
-  %72 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %71, i64 12)
-  %73 = extractvalue { i64, i1 } %72, 1
-  %74 = extractvalue { i64, i1 } %72, 0
-  %75 = select i1 %73, i64 -1, i64 %74
-  %call80 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %75) #15
-          to label %invoke.cont79 unwind label %lpad25
-
-invoke.cont79:                                    ; preds = %for.body78
-  %isempty81 = icmp eq i64 %71, 0
-  br i1 %isempty81, label %arrayctor.cont88, label %new.ctorloop82
-
-new.ctorloop82:                                   ; preds = %invoke.cont79
-  %arrayctor.end83 = getelementptr inbounds %class.aiVector3t, ptr %call80, i64 %71
-  br label %arrayctor.loop84
-
-arrayctor.loop84:                                 ; preds = %arrayctor.loop84, %new.ctorloop82
-  %arrayctor.cur85 = phi ptr [ %call80, %new.ctorloop82 ], [ %arrayctor.next86, %arrayctor.loop84 ]
-  call void @_ZN10aiVector3tIfEC2Ev(ptr noundef nonnull align 4 dereferenceable(12) %arrayctor.cur85) #14
-  %arrayctor.next86 = getelementptr inbounds %class.aiVector3t, ptr %arrayctor.cur85, i64 1
-  %arrayctor.done87 = icmp eq ptr %arrayctor.next86, %arrayctor.end83
-  br i1 %arrayctor.done87, label %arrayctor.cont88, label %arrayctor.loop84
-
-arrayctor.cont88:                                 ; preds = %arrayctor.loop84, %invoke.cont79
-  %76 = load ptr, ptr %oMesh, align 8
-  %mTextureCoords = getelementptr inbounds %struct.aiMesh, ptr %76, i32 0, i32 8
-  %77 = load i64, ptr %a, align 8
-  %arrayidx89 = getelementptr inbounds [8 x ptr], ptr %mTextureCoords, i64 0, i64 %77
-  store ptr %call80, ptr %arrayidx89, align 8
-  %78 = load ptr, ptr %pMesh.addr, align 8
-  %mNumUVComponents = getelementptr inbounds %struct.aiMesh, ptr %78, i32 0, i32 9
-  %79 = load i64, ptr %a, align 8
-  %arrayidx90 = getelementptr inbounds [8 x i32], ptr %mNumUVComponents, i64 0, i64 %79
-  %80 = load i32, ptr %arrayidx90, align 4
-  %81 = load ptr, ptr %oMesh, align 8
-  %mNumUVComponents91 = getelementptr inbounds %struct.aiMesh, ptr %81, i32 0, i32 9
-  %82 = load i64, ptr %a, align 8
-  %arrayidx92 = getelementptr inbounds [8 x i32], ptr %mNumUVComponents91, i64 0, i64 %82
-  store i32 %80, ptr %arrayidx92, align 4
-  br label %for.inc93
-
-for.inc93:                                        ; preds = %arrayctor.cont88
-  %83 = load i64, ptr %a, align 8
-  %inc94 = add i64 %83, 1
-  store i64 %inc94, ptr %a, align 8
-  br label %for.cond74, !llvm.loop !18
-
-for.end95:                                        ; preds = %invoke.cont76
-  store i64 0, ptr %a96, align 8
-  br label %for.cond97
-
-for.cond97:                                       ; preds = %for.inc113, %for.end95
-  %84 = load ptr, ptr %pMesh.addr, align 8
-  %85 = load i64, ptr %a96, align 8
-  %conv98 = trunc i64 %85 to i32
-  %call100 = invoke noundef zeroext i1 @_ZNK6aiMesh15HasVertexColorsEj(ptr noundef nonnull align 8 dereferenceable(1320) %84, i32 noundef %conv98)
-          to label %invoke.cont99 unwind label %lpad25
-
-invoke.cont99:                                    ; preds = %for.cond97
-  br i1 %call100, label %for.body101, label %for.end115
-
-for.body101:                                      ; preds = %invoke.cont99
-  %86 = load i64, ptr %numSubVerts, align 8
-  %87 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %86, i64 16)
-  %88 = extractvalue { i64, i1 } %87, 1
-  %89 = extractvalue { i64, i1 } %87, 0
-  %90 = select i1 %88, i64 -1, i64 %89
-  %call103 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %90) #15
-          to label %invoke.cont102 unwind label %lpad25
-
-invoke.cont102:                                   ; preds = %for.body101
-  %isempty104 = icmp eq i64 %86, 0
-  br i1 %isempty104, label %arrayctor.cont111, label %new.ctorloop105
-
-new.ctorloop105:                                  ; preds = %invoke.cont102
-  %arrayctor.end106 = getelementptr inbounds %class.aiColor4t, ptr %call103, i64 %86
-  br label %arrayctor.loop107
-
-arrayctor.loop107:                                ; preds = %arrayctor.loop107, %new.ctorloop105
-  %arrayctor.cur108 = phi ptr [ %call103, %new.ctorloop105 ], [ %arrayctor.next109, %arrayctor.loop107 ]
-  call void @_ZN9aiColor4tIfEC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %arrayctor.cur108) #14
-  %arrayctor.next109 = getelementptr inbounds %class.aiColor4t, ptr %arrayctor.cur108, i64 1
-  %arrayctor.done110 = icmp eq ptr %arrayctor.next109, %arrayctor.end106
-  br i1 %arrayctor.done110, label %arrayctor.cont111, label %arrayctor.loop107
-
-arrayctor.cont111:                                ; preds = %arrayctor.loop107, %invoke.cont102
-  %91 = load ptr, ptr %oMesh, align 8
-  %mColors = getelementptr inbounds %struct.aiMesh, ptr %91, i32 0, i32 7
-  %92 = load i64, ptr %a96, align 8
-  %arrayidx112 = getelementptr inbounds [8 x ptr], ptr %mColors, i64 0, i64 %92
-  store ptr %call103, ptr %arrayidx112, align 8
-  br label %for.inc113
-
-for.inc113:                                       ; preds = %arrayctor.cont111
-  %93 = load i64, ptr %a96, align 8
-  %inc114 = add i64 %93, 1
-  store i64 %inc114, ptr %a96, align 8
-  br label %for.cond97, !llvm.loop !19
-
-for.end115:                                       ; preds = %invoke.cont99
-  %94 = load i64, ptr %numSubFaces, align 8
-  %95 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %94, i64 16)
-  %96 = extractvalue { i64, i1 } %95, 1
-  %97 = extractvalue { i64, i1 } %95, 0
-  %98 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %97, i64 8)
-  %99 = extractvalue { i64, i1 } %98, 1
-  %100 = or i1 %96, %99
-  %101 = extractvalue { i64, i1 } %98, 0
-  %102 = select i1 %100, i64 -1, i64 %101
-  %call117 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %102) #15
-          to label %invoke.cont116 unwind label %lpad25
-
-invoke.cont116:                                   ; preds = %for.end115
-  store i64 %94, ptr %call117, align 16
-  %103 = getelementptr inbounds i8, ptr %call117, i64 8
-  %isempty118 = icmp eq i64 %94, 0
-  br i1 %isempty118, label %arrayctor.cont125, label %new.ctorloop119
-
-new.ctorloop119:                                  ; preds = %invoke.cont116
-  %arrayctor.end120 = getelementptr inbounds %struct.aiFace, ptr %103, i64 %94
-  br label %arrayctor.loop121
-
-arrayctor.loop121:                                ; preds = %arrayctor.loop121, %new.ctorloop119
-  %arrayctor.cur122 = phi ptr [ %103, %new.ctorloop119 ], [ %arrayctor.next123, %arrayctor.loop121 ]
-  call void @_ZN6aiFaceC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %arrayctor.cur122) #14
-  %arrayctor.next123 = getelementptr inbounds %struct.aiFace, ptr %arrayctor.cur122, i64 1
-  %arrayctor.done124 = icmp eq ptr %arrayctor.next123, %arrayctor.end120
-  br i1 %arrayctor.done124, label %arrayctor.cont125, label %arrayctor.loop121
-
-arrayctor.cont125:                                ; preds = %arrayctor.loop121, %invoke.cont116
-  %104 = load ptr, ptr %oMesh, align 8
-  %mFaces126 = getelementptr inbounds %struct.aiMesh, ptr %104, i32 0, i32 10
-  store ptr %103, ptr %mFaces126, align 8
-  store i32 0, ptr %a127, align 4
-  br label %for.cond128
-
-for.cond128:                                      ; preds = %for.inc161, %arrayctor.cont125
-  %105 = load i32, ptr %a127, align 4
-  %conv129 = zext i32 %105 to i64
-  %106 = load i64, ptr %numSubFaces, align 8
-  %cmp130 = icmp ult i64 %conv129, %106
-  br i1 %cmp130, label %for.body131, label %for.end163
-
-for.body131:                                      ; preds = %for.cond128
-  %107 = load ptr, ptr %pMesh.addr, align 8
-  %mFaces132 = getelementptr inbounds %struct.aiMesh, ptr %107, i32 0, i32 10
-  %108 = load ptr, ptr %mFaces132, align 8
-  %109 = load ptr, ptr %subMeshFaces.addr, align 8
-  %110 = load i32, ptr %a127, align 4
-  %conv133 = zext i32 %110 to i64
-  %call134 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNKSt6vectorIjSaIjEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %109, i64 noundef %conv133) #14
-  %111 = load i32, ptr %call134, align 4
-  %idxprom135 = zext i32 %111 to i64
-  %arrayidx136 = getelementptr inbounds %struct.aiFace, ptr %108, i64 %idxprom135
-  store ptr %arrayidx136, ptr %srcFace, align 8
-  %112 = load ptr, ptr %oMesh, align 8
-  %mFaces137 = getelementptr inbounds %struct.aiMesh, ptr %112, i32 0, i32 10
-  %113 = load ptr, ptr %mFaces137, align 8
-  %114 = load i32, ptr %a127, align 4
-  %idxprom138 = zext i32 %114 to i64
-  %arrayidx139 = getelementptr inbounds %struct.aiFace, ptr %113, i64 %idxprom138
-  store ptr %arrayidx139, ptr %dstFace, align 8
-  %115 = load ptr, ptr %srcFace, align 8
-  %mNumIndices140 = getelementptr inbounds %struct.aiFace, ptr %115, i32 0, i32 0
-  %116 = load i32, ptr %mNumIndices140, align 8
-  %117 = load ptr, ptr %dstFace, align 8
-  %mNumIndices141 = getelementptr inbounds %struct.aiFace, ptr %117, i32 0, i32 0
-  store i32 %116, ptr %mNumIndices141, align 8
-  %118 = load ptr, ptr %dstFace, align 8
-  %mNumIndices142 = getelementptr inbounds %struct.aiFace, ptr %118, i32 0, i32 0
-  %119 = load i32, ptr %mNumIndices142, align 8
-  %conv143 = zext i32 %119 to i64
-  %120 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %conv143, i64 4)
-  %121 = extractvalue { i64, i1 } %120, 1
-  %122 = extractvalue { i64, i1 } %120, 0
-  %123 = select i1 %121, i64 -1, i64 %122
-  %call145 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %123) #15
-          to label %invoke.cont144 unwind label %lpad25
-
-invoke.cont144:                                   ; preds = %for.body131
-  %124 = load ptr, ptr %dstFace, align 8
-  %mIndices146 = getelementptr inbounds %struct.aiFace, ptr %124, i32 0, i32 1
-  store ptr %call145, ptr %mIndices146, align 8
-  store i64 0, ptr %b, align 8
-  br label %for.cond147
-
-for.cond147:                                      ; preds = %for.inc158, %invoke.cont144
-  %125 = load i64, ptr %b, align 8
-  %126 = load ptr, ptr %dstFace, align 8
-  %mNumIndices148 = getelementptr inbounds %struct.aiFace, ptr %126, i32 0, i32 0
-  %127 = load i32, ptr %mNumIndices148, align 8
-  %conv149 = zext i32 %127 to i64
-  %cmp150 = icmp ult i64 %125, %conv149
-  br i1 %cmp150, label %for.body151, label %for.end160
-
-for.body151:                                      ; preds = %for.cond147
-  %128 = load ptr, ptr %srcFace, align 8
-  %mIndices152 = getelementptr inbounds %struct.aiFace, ptr %128, i32 0, i32 1
-  %129 = load ptr, ptr %mIndices152, align 8
-  %130 = load i64, ptr %b, align 8
-  %arrayidx153 = getelementptr inbounds i32, ptr %129, i64 %130
-  %131 = load i32, ptr %arrayidx153, align 4
-  %conv154 = zext i32 %131 to i64
-  %call155 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt6vectorIjSaIjEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %vMap, i64 noundef %conv154) #14
-  %132 = load i32, ptr %call155, align 4
-  %133 = load ptr, ptr %dstFace, align 8
-  %mIndices156 = getelementptr inbounds %struct.aiFace, ptr %133, i32 0, i32 1
-  %134 = load ptr, ptr %mIndices156, align 8
-  %135 = load i64, ptr %b, align 8
-  %arrayidx157 = getelementptr inbounds i32, ptr %134, i64 %135
-  store i32 %132, ptr %arrayidx157, align 4
-  br label %for.inc158
-
-for.inc158:                                       ; preds = %for.body151
-  %136 = load i64, ptr %b, align 8
-  %inc159 = add i64 %136, 1
-  store i64 %inc159, ptr %b, align 8
-  br label %for.cond147, !llvm.loop !20
-
-for.end160:                                       ; preds = %for.cond147
-  br label %for.inc161
-
-for.inc161:                                       ; preds = %for.end160
-  %137 = load i32, ptr %a127, align 4
-  %inc162 = add i32 %137, 1
-  store i32 %inc162, ptr %a127, align 4
-  br label %for.cond128, !llvm.loop !21
-
-for.end163:                                       ; preds = %for.cond128
-  store i32 0, ptr %srcIndex, align 4
-  br label %for.cond164
-
-for.cond164:                                      ; preds = %for.inc241, %for.end163
-  %138 = load i32, ptr %srcIndex, align 4
-  %139 = load ptr, ptr %pMesh.addr, align 8
-  %mNumVertices165 = getelementptr inbounds %struct.aiMesh, ptr %139, i32 0, i32 1
-  %140 = load i32, ptr %mNumVertices165, align 4
-  %cmp166 = icmp ult i32 %138, %140
-  br i1 %cmp166, label %for.body167, label %for.end243
-
-for.body167:                                      ; preds = %for.cond164
-  %141 = load i32, ptr %srcIndex, align 4
-  %conv168 = zext i32 %141 to i64
-  %call169 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt6vectorIjSaIjEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %vMap, i64 noundef %conv168) #14
-  %142 = load i32, ptr %call169, align 4
-  store i32 %142, ptr %nvi, align 4
-  %143 = load i32, ptr %nvi, align 4
-  %cmp170 = icmp eq i32 %143, -1
-  br i1 %cmp170, label %if.then171, label %if.end172
-
-if.then171:                                       ; preds = %for.body167
-  br label %for.inc241
-
-if.end172:                                        ; preds = %for.body167
-  %144 = load ptr, ptr %pMesh.addr, align 8
-  %mVertices173 = getelementptr inbounds %struct.aiMesh, ptr %144, i32 0, i32 3
-  %145 = load ptr, ptr %mVertices173, align 8
-  %146 = load i32, ptr %srcIndex, align 4
-  %idxprom174 = zext i32 %146 to i64
-  %arrayidx175 = getelementptr inbounds %class.aiVector3t, ptr %145, i64 %idxprom174
-  %147 = load ptr, ptr %oMesh, align 8
-  %mVertices176 = getelementptr inbounds %struct.aiMesh, ptr %147, i32 0, i32 3
-  %148 = load ptr, ptr %mVertices176, align 8
-  %149 = load i32, ptr %nvi, align 4
-  %idxprom177 = zext i32 %149 to i64
-  %arrayidx178 = getelementptr inbounds %class.aiVector3t, ptr %148, i64 %idxprom177
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arrayidx178, ptr align 4 %arrayidx175, i64 12, i1 false)
-  %150 = load ptr, ptr %pMesh.addr, align 8
-  %call180 = invoke noundef zeroext i1 @_ZNK6aiMesh10HasNormalsEv(ptr noundef nonnull align 8 dereferenceable(1320) %150)
-          to label %invoke.cont179 unwind label %lpad25
-
-invoke.cont179:                                   ; preds = %if.end172
-  br i1 %call180, label %if.then181, label %if.end188
-
-if.then181:                                       ; preds = %invoke.cont179
-  %151 = load ptr, ptr %pMesh.addr, align 8
-  %mNormals182 = getelementptr inbounds %struct.aiMesh, ptr %151, i32 0, i32 4
-  %152 = load ptr, ptr %mNormals182, align 8
-  %153 = load i32, ptr %srcIndex, align 4
-  %idxprom183 = zext i32 %153 to i64
-  %arrayidx184 = getelementptr inbounds %class.aiVector3t, ptr %152, i64 %idxprom183
-  %154 = load ptr, ptr %oMesh, align 8
-  %mNormals185 = getelementptr inbounds %struct.aiMesh, ptr %154, i32 0, i32 4
-  %155 = load ptr, ptr %mNormals185, align 8
-  %156 = load i32, ptr %nvi, align 4
-  %idxprom186 = zext i32 %156 to i64
-  %arrayidx187 = getelementptr inbounds %class.aiVector3t, ptr %155, i64 %idxprom186
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arrayidx187, ptr align 4 %arrayidx184, i64 12, i1 false)
-  br label %if.end188
-
-if.end188:                                        ; preds = %if.then181, %invoke.cont179
-  %157 = load ptr, ptr %pMesh.addr, align 8
-  %call190 = invoke noundef zeroext i1 @_ZNK6aiMesh24HasTangentsAndBitangentsEv(ptr noundef nonnull align 8 dereferenceable(1320) %157)
-          to label %invoke.cont189 unwind label %lpad25
-
-invoke.cont189:                                   ; preds = %if.end188
-  br i1 %call190, label %if.then191, label %if.end204
-
-if.then191:                                       ; preds = %invoke.cont189
-  %158 = load ptr, ptr %pMesh.addr, align 8
-  %mTangents192 = getelementptr inbounds %struct.aiMesh, ptr %158, i32 0, i32 5
-  %159 = load ptr, ptr %mTangents192, align 8
-  %160 = load i32, ptr %srcIndex, align 4
-  %idxprom193 = zext i32 %160 to i64
-  %arrayidx194 = getelementptr inbounds %class.aiVector3t, ptr %159, i64 %idxprom193
-  %161 = load ptr, ptr %oMesh, align 8
-  %mTangents195 = getelementptr inbounds %struct.aiMesh, ptr %161, i32 0, i32 5
-  %162 = load ptr, ptr %mTangents195, align 8
-  %163 = load i32, ptr %nvi, align 4
-  %idxprom196 = zext i32 %163 to i64
-  %arrayidx197 = getelementptr inbounds %class.aiVector3t, ptr %162, i64 %idxprom196
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arrayidx197, ptr align 4 %arrayidx194, i64 12, i1 false)
-  %164 = load ptr, ptr %pMesh.addr, align 8
-  %mBitangents198 = getelementptr inbounds %struct.aiMesh, ptr %164, i32 0, i32 6
-  %165 = load ptr, ptr %mBitangents198, align 8
-  %166 = load i32, ptr %srcIndex, align 4
-  %idxprom199 = zext i32 %166 to i64
-  %arrayidx200 = getelementptr inbounds %class.aiVector3t, ptr %165, i64 %idxprom199
-  %167 = load ptr, ptr %oMesh, align 8
-  %mBitangents201 = getelementptr inbounds %struct.aiMesh, ptr %167, i32 0, i32 6
-  %168 = load ptr, ptr %mBitangents201, align 8
-  %169 = load i32, ptr %nvi, align 4
-  %idxprom202 = zext i32 %169 to i64
-  %arrayidx203 = getelementptr inbounds %class.aiVector3t, ptr %168, i64 %idxprom202
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arrayidx203, ptr align 4 %arrayidx200, i64 12, i1 false)
-  br label %if.end204
-
-if.end204:                                        ; preds = %if.then191, %invoke.cont189
-  store i64 0, ptr %c, align 8
-  %170 = load ptr, ptr %pMesh.addr, align 8
-  %call206 = invoke noundef i32 @_ZNK6aiMesh16GetNumUVChannelsEv(ptr noundef nonnull align 8 dereferenceable(1320) %170)
-          to label %invoke.cont205 unwind label %lpad25
-
-invoke.cont205:                                   ; preds = %if.end204
-  %conv207 = zext i32 %call206 to i64
-  store i64 %conv207, ptr %cc, align 8
-  br label %for.cond208
-
-for.cond208:                                      ; preds = %for.inc219, %invoke.cont205
-  %171 = load i64, ptr %c, align 8
-  %172 = load i64, ptr %cc, align 8
-  %cmp209 = icmp ult i64 %171, %172
-  br i1 %cmp209, label %for.body210, label %for.end221
-
-for.body210:                                      ; preds = %for.cond208
-  %173 = load ptr, ptr %pMesh.addr, align 8
-  %mTextureCoords211 = getelementptr inbounds %struct.aiMesh, ptr %173, i32 0, i32 8
-  %174 = load i64, ptr %c, align 8
-  %arrayidx212 = getelementptr inbounds [8 x ptr], ptr %mTextureCoords211, i64 0, i64 %174
-  %175 = load ptr, ptr %arrayidx212, align 8
-  %176 = load i32, ptr %srcIndex, align 4
-  %idxprom213 = zext i32 %176 to i64
-  %arrayidx214 = getelementptr inbounds %class.aiVector3t, ptr %175, i64 %idxprom213
-  %177 = load ptr, ptr %oMesh, align 8
-  %mTextureCoords215 = getelementptr inbounds %struct.aiMesh, ptr %177, i32 0, i32 8
-  %178 = load i64, ptr %c, align 8
-  %arrayidx216 = getelementptr inbounds [8 x ptr], ptr %mTextureCoords215, i64 0, i64 %178
-  %179 = load ptr, ptr %arrayidx216, align 8
-  %180 = load i32, ptr %nvi, align 4
-  %idxprom217 = zext i32 %180 to i64
-  %arrayidx218 = getelementptr inbounds %class.aiVector3t, ptr %179, i64 %idxprom217
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arrayidx218, ptr align 4 %arrayidx214, i64 12, i1 false)
-  br label %for.inc219
-
-for.inc219:                                       ; preds = %for.body210
-  %181 = load i64, ptr %c, align 8
-  %inc220 = add i64 %181, 1
-  store i64 %inc220, ptr %c, align 8
-  br label %for.cond208, !llvm.loop !22
-
-for.end221:                                       ; preds = %for.cond208
-  store i64 0, ptr %c222, align 8
-  %182 = load ptr, ptr %pMesh.addr, align 8
-  %call225 = invoke noundef i32 @_ZNK6aiMesh19GetNumColorChannelsEv(ptr noundef nonnull align 8 dereferenceable(1320) %182)
-          to label %invoke.cont224 unwind label %lpad25
-
-invoke.cont224:                                   ; preds = %for.end221
-  %conv226 = zext i32 %call225 to i64
-  store i64 %conv226, ptr %cc223, align 8
-  br label %for.cond227
-
-for.cond227:                                      ; preds = %for.inc238, %invoke.cont224
-  %183 = load i64, ptr %c222, align 8
-  %184 = load i64, ptr %cc223, align 8
-  %cmp228 = icmp ult i64 %183, %184
-  br i1 %cmp228, label %for.body229, label %for.end240
-
-for.body229:                                      ; preds = %for.cond227
-  %185 = load ptr, ptr %pMesh.addr, align 8
-  %mColors230 = getelementptr inbounds %struct.aiMesh, ptr %185, i32 0, i32 7
-  %186 = load i64, ptr %c222, align 8
-  %arrayidx231 = getelementptr inbounds [8 x ptr], ptr %mColors230, i64 0, i64 %186
-  %187 = load ptr, ptr %arrayidx231, align 8
-  %188 = load i32, ptr %srcIndex, align 4
-  %idxprom232 = zext i32 %188 to i64
-  %arrayidx233 = getelementptr inbounds %class.aiColor4t, ptr %187, i64 %idxprom232
-  %189 = load ptr, ptr %oMesh, align 8
-  %mColors234 = getelementptr inbounds %struct.aiMesh, ptr %189, i32 0, i32 7
-  %190 = load i64, ptr %c222, align 8
-  %arrayidx235 = getelementptr inbounds [8 x ptr], ptr %mColors234, i64 0, i64 %190
-  %191 = load ptr, ptr %arrayidx235, align 8
-  %192 = load i32, ptr %nvi, align 4
-  %idxprom236 = zext i32 %192 to i64
-  %arrayidx237 = getelementptr inbounds %class.aiColor4t, ptr %191, i64 %idxprom236
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arrayidx237, ptr align 4 %arrayidx233, i64 16, i1 false)
-  br label %for.inc238
-
-for.inc238:                                       ; preds = %for.body229
-  %193 = load i64, ptr %c222, align 8
-  %inc239 = add i64 %193, 1
-  store i64 %inc239, ptr %c222, align 8
-  br label %for.cond227, !llvm.loop !23
-
-for.end240:                                       ; preds = %for.cond227
-  br label %for.inc241
-
-for.inc241:                                       ; preds = %for.end240, %if.then171
-  %194 = load i32, ptr %srcIndex, align 4
-  %inc242 = add i32 %194, 1
-  store i32 %inc242, ptr %srcIndex, align 4
-  br label %for.cond164, !llvm.loop !24
-
-for.end243:                                       ; preds = %for.cond164
-  %195 = load i32, ptr %subFlags.addr, align 4
-  %not = xor i32 %195, -1
-  %and = and i32 %not, 1
-  %tobool = icmp ne i32 %and, 0
-  br i1 %tobool, label %if.then244, label %if.end374
-
-if.then244:                                       ; preds = %for.end243
-  %196 = load ptr, ptr %pMesh.addr, align 8
-  %mNumBones = getelementptr inbounds %struct.aiMesh, ptr %196, i32 0, i32 11
-  %197 = load i32, ptr %mNumBones, align 8
-  %conv245 = zext i32 %197 to i64
-  store i32 0, ptr %ref.tmp246, align 4
-  call void @_ZNSaIjEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp247) #14
-  invoke void @_ZNSt6vectorIjSaIjEEC2EmRKjRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %subBones, i64 noundef %conv245, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp246, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp247)
-          to label %invoke.cont249 unwind label %lpad248
-
-invoke.cont249:                                   ; preds = %if.then244
-  call void @_ZNSaIjED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp247) #14
-  store i32 0, ptr %a250, align 4
-  br label %for.cond251
-
-for.cond251:                                      ; preds = %for.inc274, %invoke.cont249
-  %198 = load i32, ptr %a250, align 4
-  %199 = load ptr, ptr %pMesh.addr, align 8
-  %mNumBones252 = getelementptr inbounds %struct.aiMesh, ptr %199, i32 0, i32 11
-  %200 = load i32, ptr %mNumBones252, align 8
-  %cmp253 = icmp ult i32 %198, %200
-  br i1 %cmp253, label %for.body254, label %for.end276
-
-for.body254:                                      ; preds = %for.cond251
-  %201 = load ptr, ptr %pMesh.addr, align 8
-  %mBones = getelementptr inbounds %struct.aiMesh, ptr %201, i32 0, i32 12
-  %202 = load ptr, ptr %mBones, align 8
-  %203 = load i32, ptr %a250, align 4
-  %idxprom255 = zext i32 %203 to i64
-  %arrayidx256 = getelementptr inbounds ptr, ptr %202, i64 %idxprom255
-  %204 = load ptr, ptr %arrayidx256, align 8
-  store ptr %204, ptr %bone, align 8
-  store i32 0, ptr %b257, align 4
-  br label %for.cond258
-
-for.cond258:                                      ; preds = %for.inc271, %for.body254
-  %205 = load i32, ptr %b257, align 4
-  %206 = load ptr, ptr %bone, align 8
-  %mNumWeights = getelementptr inbounds %struct.aiBone, ptr %206, i32 0, i32 1
-  %207 = load i32, ptr %mNumWeights, align 4
-  %cmp259 = icmp ult i32 %205, %207
-  br i1 %cmp259, label %for.body260, label %for.end273
-
-for.body260:                                      ; preds = %for.cond258
-  %208 = load ptr, ptr %bone, align 8
-  %mWeights = getelementptr inbounds %struct.aiBone, ptr %208, i32 0, i32 4
-  %209 = load ptr, ptr %mWeights, align 8
-  %210 = load i32, ptr %b257, align 4
-  %idxprom261 = zext i32 %210 to i64
-  %arrayidx262 = getelementptr inbounds %struct.aiVertexWeight, ptr %209, i64 %idxprom261
-  %mVertexId = getelementptr inbounds %struct.aiVertexWeight, ptr %arrayidx262, i32 0, i32 0
-  %211 = load i32, ptr %mVertexId, align 4
-  %conv263 = zext i32 %211 to i64
-  %call264 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt6vectorIjSaIjEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %vMap, i64 noundef %conv263) #14
-  %212 = load i32, ptr %call264, align 4
-  store i32 %212, ptr %v, align 4
-  %213 = load i32, ptr %v, align 4
-  %cmp265 = icmp ne i32 %213, -1
-  br i1 %cmp265, label %if.then266, label %if.end270
-
-if.then266:                                       ; preds = %for.body260
-  %214 = load i32, ptr %a250, align 4
-  %conv267 = zext i32 %214 to i64
-  %call268 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt6vectorIjSaIjEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %subBones, i64 noundef %conv267) #14
-  %215 = load i32, ptr %call268, align 4
-  %inc269 = add i32 %215, 1
-  store i32 %inc269, ptr %call268, align 4
-  br label %if.end270
-
-lpad248:                                          ; preds = %if.then244
-  %216 = landingpad { ptr, i32 }
-          cleanup
-  %217 = extractvalue { ptr, i32 } %216, 0
-  store ptr %217, ptr %exn.slot, align 8
-  %218 = extractvalue { ptr, i32 } %216, 1
-  store i32 %218, ptr %ehselector.slot, align 4
-  call void @_ZNSaIjED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp247) #14
-  br label %ehcleanup
-
-if.end270:                                        ; preds = %if.then266, %for.body260
-  br label %for.inc271
-
-for.inc271:                                       ; preds = %if.end270
-  %219 = load i32, ptr %b257, align 4
-  %inc272 = add i32 %219, 1
-  store i32 %inc272, ptr %b257, align 4
-  br label %for.cond258, !llvm.loop !25
-
-for.end273:                                       ; preds = %for.cond258
-  br label %for.inc274
-
-for.inc274:                                       ; preds = %for.end273
-  %220 = load i32, ptr %a250, align 4
-  %inc275 = add i32 %220, 1
-  store i32 %inc275, ptr %a250, align 4
-  br label %for.cond251, !llvm.loop !26
-
-for.end276:                                       ; preds = %for.cond251
-  store i32 0, ptr %a277, align 4
-  br label %for.cond278
-
-for.cond278:                                      ; preds = %for.inc289, %for.end276
-  %221 = load i32, ptr %a277, align 4
-  %222 = load ptr, ptr %pMesh.addr, align 8
-  %mNumBones279 = getelementptr inbounds %struct.aiMesh, ptr %222, i32 0, i32 11
-  %223 = load i32, ptr %mNumBones279, align 8
-  %cmp280 = icmp ult i32 %221, %223
-  br i1 %cmp280, label %for.body281, label %for.end291
-
-for.body281:                                      ; preds = %for.cond278
-  %224 = load i32, ptr %a277, align 4
-  %conv282 = zext i32 %224 to i64
-  %call283 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt6vectorIjSaIjEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %subBones, i64 noundef %conv282) #14
-  %225 = load i32, ptr %call283, align 4
-  %cmp284 = icmp ugt i32 %225, 0
-  br i1 %cmp284, label %if.then285, label %if.end288
-
-if.then285:                                       ; preds = %for.body281
-  %226 = load ptr, ptr %oMesh, align 8
-  %mNumBones286 = getelementptr inbounds %struct.aiMesh, ptr %226, i32 0, i32 11
-  %227 = load i32, ptr %mNumBones286, align 8
-  %inc287 = add i32 %227, 1
-  store i32 %inc287, ptr %mNumBones286, align 8
-  br label %if.end288
-
-if.end288:                                        ; preds = %if.then285, %for.body281
-  br label %for.inc289
-
-for.inc289:                                       ; preds = %if.end288
-  %228 = load i32, ptr %a277, align 4
-  %inc290 = add i32 %228, 1
-  store i32 %inc290, ptr %a277, align 4
-  br label %for.cond278, !llvm.loop !27
-
-for.end291:                                       ; preds = %for.cond278
-  %229 = load ptr, ptr %oMesh, align 8
-  %mNumBones292 = getelementptr inbounds %struct.aiMesh, ptr %229, i32 0, i32 11
-  %230 = load i32, ptr %mNumBones292, align 8
-  %tobool293 = icmp ne i32 %230, 0
-  br i1 %tobool293, label %if.then294, label %if.end373
-
-if.then294:                                       ; preds = %for.end291
-  %231 = load ptr, ptr %oMesh, align 8
-  %mNumBones295 = getelementptr inbounds %struct.aiMesh, ptr %231, i32 0, i32 11
-  %232 = load i32, ptr %mNumBones295, align 8
-  %conv296 = zext i32 %232 to i64
-  %233 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %conv296, i64 8)
-  %234 = extractvalue { i64, i1 } %233, 1
-  %235 = extractvalue { i64, i1 } %233, 0
-  %236 = select i1 %234, i64 -1, i64 %235
-  %call299 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %236) #15
-          to label %invoke.cont298 unwind label %lpad297
-
-invoke.cont298:                                   ; preds = %if.then294
-  call void @llvm.memset.p0.i64(ptr align 8 %call299, i8 0, i64 %236, i1 false)
-  %237 = load ptr, ptr %oMesh, align 8
-  %mBones300 = getelementptr inbounds %struct.aiMesh, ptr %237, i32 0, i32 12
-  store ptr %call299, ptr %mBones300, align 8
-  %238 = load ptr, ptr %oMesh, align 8
-  %mNumBones301 = getelementptr inbounds %struct.aiMesh, ptr %238, i32 0, i32 11
-  %239 = load i32, ptr %mNumBones301, align 8
-  store i32 %239, ptr %nbParanoia, align 4
-  %240 = load ptr, ptr %oMesh, align 8
-  %mNumBones302 = getelementptr inbounds %struct.aiMesh, ptr %240, i32 0, i32 11
-  store i32 0, ptr %mNumBones302, align 8
-  store i32 0, ptr %a303, align 4
-  br label %for.cond304
-
-for.cond304:                                      ; preds = %for.inc370, %invoke.cont298
-  %241 = load i32, ptr %a303, align 4
-  %242 = load ptr, ptr %pMesh.addr, align 8
-  %mNumBones305 = getelementptr inbounds %struct.aiMesh, ptr %242, i32 0, i32 11
-  %243 = load i32, ptr %mNumBones305, align 8
-  %cmp306 = icmp ult i32 %241, %243
-  br i1 %cmp306, label %for.body307, label %for.end372
-
-for.body307:                                      ; preds = %for.cond304
-  %244 = load i32, ptr %a303, align 4
-  %conv308 = zext i32 %244 to i64
-  %call309 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt6vectorIjSaIjEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %subBones, i64 noundef %conv308) #14
-  %245 = load i32, ptr %call309, align 4
-  %cmp310 = icmp eq i32 %245, 0
-  br i1 %cmp310, label %if.then311, label %if.end312
-
-if.then311:                                       ; preds = %for.body307
-  br label %for.inc370
-
-lpad297:                                          ; preds = %if.then356, %invoke.cont326, %invoke.cont313, %if.end312, %if.then294
-  %246 = landingpad { ptr, i32 }
-          cleanup
-  %247 = extractvalue { ptr, i32 } %246, 0
-  store ptr %247, ptr %exn.slot, align 8
-  %248 = extractvalue { ptr, i32 } %246, 1
-  store i32 %248, ptr %ehselector.slot, align 4
-  call void @_ZNSt6vectorIjSaIjEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %subBones) #14
-  br label %ehcleanup
-
-if.end312:                                        ; preds = %for.body307
-  %call314 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 1120) #15
-          to label %invoke.cont313 unwind label %lpad297
-
-invoke.cont313:                                   ; preds = %if.end312
-  call void @_ZN6aiBoneC2Ev(ptr noundef nonnull align 8 dereferenceable(1120) %call314) #14
-  store ptr %call314, ptr %newBone, align 8
-  %249 = load ptr, ptr %newBone, align 8
-  %250 = load ptr, ptr %oMesh, align 8
-  %mBones315 = getelementptr inbounds %struct.aiMesh, ptr %250, i32 0, i32 12
-  %251 = load ptr, ptr %mBones315, align 8
-  %252 = load ptr, ptr %oMesh, align 8
-  %mNumBones316 = getelementptr inbounds %struct.aiMesh, ptr %252, i32 0, i32 11
-  %253 = load i32, ptr %mNumBones316, align 8
-  %inc317 = add i32 %253, 1
-  store i32 %inc317, ptr %mNumBones316, align 8
-  %idxprom318 = zext i32 %253 to i64
-  %arrayidx319 = getelementptr inbounds ptr, ptr %251, i64 %idxprom318
-  store ptr %249, ptr %arrayidx319, align 8
-  %254 = load ptr, ptr %pMesh.addr, align 8
-  %mBones321 = getelementptr inbounds %struct.aiMesh, ptr %254, i32 0, i32 12
-  %255 = load ptr, ptr %mBones321, align 8
-  %256 = load i32, ptr %a303, align 4
-  %idxprom322 = zext i32 %256 to i64
-  %arrayidx323 = getelementptr inbounds ptr, ptr %255, i64 %idxprom322
-  %257 = load ptr, ptr %arrayidx323, align 8
-  store ptr %257, ptr %bone320, align 8
-  %258 = load ptr, ptr %bone320, align 8
-  %mName324 = getelementptr inbounds %struct.aiBone, ptr %258, i32 0, i32 0
-  %259 = load ptr, ptr %newBone, align 8
-  %mName325 = getelementptr inbounds %struct.aiBone, ptr %259, i32 0, i32 0
-  %call327 = invoke noundef nonnull align 4 dereferenceable(1028) ptr @_ZN8aiStringaSERKS_(ptr noundef nonnull align 4 dereferenceable(1028) %mName325, ptr noundef nonnull align 4 dereferenceable(1028) %mName324)
-          to label %invoke.cont326 unwind label %lpad297
-
-invoke.cont326:                                   ; preds = %invoke.cont313
-  %260 = load ptr, ptr %bone320, align 8
-  %mOffsetMatrix = getelementptr inbounds %struct.aiBone, ptr %260, i32 0, i32 5
-  %261 = load ptr, ptr %newBone, align 8
-  %mOffsetMatrix328 = getelementptr inbounds %struct.aiBone, ptr %261, i32 0, i32 5
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %mOffsetMatrix328, ptr align 8 %mOffsetMatrix, i64 64, i1 false)
-  %262 = load i32, ptr %a303, align 4
-  %conv329 = zext i32 %262 to i64
-  %call330 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt6vectorIjSaIjEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %subBones, i64 noundef %conv329) #14
-  %263 = load i32, ptr %call330, align 4
-  %conv331 = zext i32 %263 to i64
-  %264 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %conv331, i64 8)
-  %265 = extractvalue { i64, i1 } %264, 1
-  %266 = extractvalue { i64, i1 } %264, 0
-  %267 = select i1 %265, i64 -1, i64 %266
-  %call333 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %267) #15
-          to label %invoke.cont332 unwind label %lpad297
-
-invoke.cont332:                                   ; preds = %invoke.cont326
-  %isempty334 = icmp eq i64 %conv331, 0
-  br i1 %isempty334, label %arrayctor.cont341, label %new.ctorloop335
-
-new.ctorloop335:                                  ; preds = %invoke.cont332
-  %arrayctor.end336 = getelementptr inbounds %struct.aiVertexWeight, ptr %call333, i64 %conv331
-  br label %arrayctor.loop337
-
-arrayctor.loop337:                                ; preds = %arrayctor.loop337, %new.ctorloop335
-  %arrayctor.cur338 = phi ptr [ %call333, %new.ctorloop335 ], [ %arrayctor.next339, %arrayctor.loop337 ]
-  call void @_ZN14aiVertexWeightC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %arrayctor.cur338) #14
-  %arrayctor.next339 = getelementptr inbounds %struct.aiVertexWeight, ptr %arrayctor.cur338, i64 1
-  %arrayctor.done340 = icmp eq ptr %arrayctor.next339, %arrayctor.end336
-  br i1 %arrayctor.done340, label %arrayctor.cont341, label %arrayctor.loop337
-
-arrayctor.cont341:                                ; preds = %arrayctor.loop337, %invoke.cont332
-  %268 = load ptr, ptr %newBone, align 8
-  %mWeights342 = getelementptr inbounds %struct.aiBone, ptr %268, i32 0, i32 4
-  store ptr %call333, ptr %mWeights342, align 8
-  store i32 0, ptr %b343, align 4
-  br label %for.cond344
-
-for.cond344:                                      ; preds = %for.inc367, %arrayctor.cont341
-  %269 = load i32, ptr %b343, align 4
-  %270 = load ptr, ptr %bone320, align 8
-  %mNumWeights345 = getelementptr inbounds %struct.aiBone, ptr %270, i32 0, i32 1
-  %271 = load i32, ptr %mNumWeights345, align 4
-  %cmp346 = icmp ult i32 %269, %271
-  br i1 %cmp346, label %for.body347, label %for.end369
-
-for.body347:                                      ; preds = %for.cond344
-  %272 = load ptr, ptr %bone320, align 8
-  %mWeights349 = getelementptr inbounds %struct.aiBone, ptr %272, i32 0, i32 4
-  %273 = load ptr, ptr %mWeights349, align 8
-  %274 = load i32, ptr %b343, align 4
-  %idxprom350 = zext i32 %274 to i64
-  %arrayidx351 = getelementptr inbounds %struct.aiVertexWeight, ptr %273, i64 %idxprom350
-  %mVertexId352 = getelementptr inbounds %struct.aiVertexWeight, ptr %arrayidx351, i32 0, i32 0
-  %275 = load i32, ptr %mVertexId352, align 4
-  %conv353 = zext i32 %275 to i64
-  %call354 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt6vectorIjSaIjEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %vMap, i64 noundef %conv353) #14
-  %276 = load i32, ptr %call354, align 4
-  store i32 %276, ptr %v348, align 4
-  %277 = load i32, ptr %v348, align 4
-  %cmp355 = icmp ne i32 %277, -1
-  br i1 %cmp355, label %if.then356, label %if.end366
-
-if.then356:                                       ; preds = %for.body347
-  %278 = load i32, ptr %v348, align 4
-  %279 = load ptr, ptr %bone320, align 8
-  %mWeights357 = getelementptr inbounds %struct.aiBone, ptr %279, i32 0, i32 4
-  %280 = load ptr, ptr %mWeights357, align 8
-  %281 = load i32, ptr %b343, align 4
-  %idxprom358 = zext i32 %281 to i64
-  %arrayidx359 = getelementptr inbounds %struct.aiVertexWeight, ptr %280, i64 %idxprom358
-  %mWeight = getelementptr inbounds %struct.aiVertexWeight, ptr %arrayidx359, i32 0, i32 1
-  %282 = load float, ptr %mWeight, align 4
-  invoke void @_ZN14aiVertexWeightC2Ejf(ptr noundef nonnull align 4 dereferenceable(8) %w, i32 noundef %278, float noundef %282)
-          to label %invoke.cont360 unwind label %lpad297
-
-invoke.cont360:                                   ; preds = %if.then356
-  %283 = load ptr, ptr %newBone, align 8
-  %mWeights361 = getelementptr inbounds %struct.aiBone, ptr %283, i32 0, i32 4
-  %284 = load ptr, ptr %mWeights361, align 8
-  %285 = load ptr, ptr %newBone, align 8
-  %mNumWeights362 = getelementptr inbounds %struct.aiBone, ptr %285, i32 0, i32 1
-  %286 = load i32, ptr %mNumWeights362, align 4
-  %inc363 = add i32 %286, 1
-  store i32 %inc363, ptr %mNumWeights362, align 4
-  %idxprom364 = zext i32 %286 to i64
-  %arrayidx365 = getelementptr inbounds %struct.aiVertexWeight, ptr %284, i64 %idxprom364
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arrayidx365, ptr align 4 %w, i64 8, i1 false)
-  br label %if.end366
-
-if.end366:                                        ; preds = %invoke.cont360, %for.body347
-  br label %for.inc367
-
-for.inc367:                                       ; preds = %if.end366
-  %287 = load i32, ptr %b343, align 4
-  %inc368 = add i32 %287, 1
-  store i32 %inc368, ptr %b343, align 4
-  br label %for.cond344, !llvm.loop !28
-
-for.end369:                                       ; preds = %for.cond344
-  br label %for.inc370
-
-for.inc370:                                       ; preds = %for.end369, %if.then311
-  %288 = load i32, ptr %a303, align 4
-  %inc371 = add i32 %288, 1
-  store i32 %inc371, ptr %a303, align 4
-  br label %for.cond304, !llvm.loop !29
-
-for.end372:                                       ; preds = %for.cond304
-  br label %if.end373
-
-if.end373:                                        ; preds = %for.end372, %for.end291
-  call void @_ZNSt6vectorIjSaIjEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %subBones) #14
-  br label %if.end374
-
-if.end374:                                        ; preds = %if.end373, %for.end243
-  %289 = load ptr, ptr %oMesh, align 8
-  call void @_ZNSt6vectorIjSaIjEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %vMap) #14
-  ret ptr %289
-
-ehcleanup:                                        ; preds = %lpad297, %lpad248, %lpad25
-  call void @_ZNSt6vectorIjSaIjEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %vMap) #14
-  br label %eh.resume
-
-eh.resume:                                        ; preds = %ehcleanup, %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val375 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val375
-}
-
-; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) #8
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN6aiMeshC2Ev(ptr noundef nonnull align 8 dereferenceable(1320) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %mPrimitiveTypes = getelementptr inbounds %struct.aiMesh, ptr %this1, i32 0, i32 0
-  store i32 0, ptr %mPrimitiveTypes, align 8
-  %mNumVertices = getelementptr inbounds %struct.aiMesh, ptr %this1, i32 0, i32 1
-  store i32 0, ptr %mNumVertices, align 4
-  %mNumFaces = getelementptr inbounds %struct.aiMesh, ptr %this1, i32 0, i32 2
-  store i32 0, ptr %mNumFaces, align 8
-  %mVertices = getelementptr inbounds %struct.aiMesh, ptr %this1, i32 0, i32 3
-  store ptr null, ptr %mVertices, align 8
-  %mNormals = getelementptr inbounds %struct.aiMesh, ptr %this1, i32 0, i32 4
-  store ptr null, ptr %mNormals, align 8
-  %mTangents = getelementptr inbounds %struct.aiMesh, ptr %this1, i32 0, i32 5
-  store ptr null, ptr %mTangents, align 8
-  %mBitangents = getelementptr inbounds %struct.aiMesh, ptr %this1, i32 0, i32 6
-  store ptr null, ptr %mBitangents, align 8
-  %mColors = getelementptr inbounds %struct.aiMesh, ptr %this1, i32 0, i32 7
-  call void @llvm.memset.p0.i64(ptr align 8 %mColors, i8 0, i64 64, i1 false)
-  %mTextureCoords = getelementptr inbounds %struct.aiMesh, ptr %this1, i32 0, i32 8
-  call void @llvm.memset.p0.i64(ptr align 8 %mTextureCoords, i8 0, i64 64, i1 false)
-  %mNumUVComponents = getelementptr inbounds %struct.aiMesh, ptr %this1, i32 0, i32 9
-  call void @llvm.memset.p0.i64(ptr align 8 %mNumUVComponents, i8 0, i64 32, i1 false)
-  %mFaces = getelementptr inbounds %struct.aiMesh, ptr %this1, i32 0, i32 10
-  store ptr null, ptr %mFaces, align 8
-  %mNumBones = getelementptr inbounds %struct.aiMesh, ptr %this1, i32 0, i32 11
-  store i32 0, ptr %mNumBones, align 8
-  %mBones = getelementptr inbounds %struct.aiMesh, ptr %this1, i32 0, i32 12
-  store ptr null, ptr %mBones, align 8
-  %mMaterialIndex = getelementptr inbounds %struct.aiMesh, ptr %this1, i32 0, i32 13
-  store i32 0, ptr %mMaterialIndex, align 8
-  %mName = getelementptr inbounds %struct.aiMesh, ptr %this1, i32 0, i32 14
-  call void @_ZN8aiStringC2Ev(ptr noundef nonnull align 4 dereferenceable(1028) %mName) #14
-  %mNumAnimMeshes = getelementptr inbounds %struct.aiMesh, ptr %this1, i32 0, i32 15
-  store i32 0, ptr %mNumAnimMeshes, align 8
-  %mAnimMeshes = getelementptr inbounds %struct.aiMesh, ptr %this1, i32 0, i32 16
-  store ptr null, ptr %mAnimMeshes, align 8
-  %mMethod = getelementptr inbounds %struct.aiMesh, ptr %this1, i32 0, i32 17
-  store i32 0, ptr %mMethod, align 8
-  %mAABB = getelementptr inbounds %struct.aiMesh, ptr %this1, i32 0, i32 18
-  invoke void @_ZN6aiAABBC2Ev(ptr noundef nonnull align 4 dereferenceable(24) %mAABB)
-          to label %invoke.cont unwind label %terminate.lpad
-
-invoke.cont:                                      ; preds = %entry
-  %mTextureCoordsNames = getelementptr inbounds %struct.aiMesh, ptr %this1, i32 0, i32 19
-  store ptr null, ptr %mTextureCoordsNames, align 8
-  ret void
-
-terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
-          catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #13
-  unreachable
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSaIjEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZNSt15__new_allocatorIjEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this1) #14
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt6vectorIjSaIjEEC2EmRKjRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %__n, ptr noundef nonnull align 4 dereferenceable(4) %__value, ptr noundef nonnull align 1 dereferenceable(1) %__a) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__n.addr = alloca i64, align 8
-  %__value.addr = alloca ptr, align 8
-  %__a.addr = alloca ptr, align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i64 %__n, ptr %__n.addr, align 8
-  store ptr %__value, ptr %__value.addr, align 8
-  store ptr %__a, ptr %__a.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i64, ptr %__n.addr, align 8
-  %1 = load ptr, ptr %__a.addr, align 8
-  %call = call noundef i64 @_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_(i64 noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %1)
-  %2 = load ptr, ptr %__a.addr, align 8
-  call void @_ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %this1, i64 noundef %call, ptr noundef nonnull align 1 dereferenceable(1) %2)
-  %3 = load i64, ptr %__n.addr, align 8
-  %4 = load ptr, ptr %__value.addr, align 8
-  invoke void @_ZNSt6vectorIjSaIjEE18_M_fill_initializeEmRKj(ptr noundef nonnull align 8 dereferenceable(24) %this1, i64 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %4)
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %entry
-  ret void
-
-lpad:                                             ; preds = %entry
-  %5 = landingpad { ptr, i32 }
-          cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
-  call void @_ZNSt12_Vector_baseIjSaIjEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #14
-  br label %eh.resume
-
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val2 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val2
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSaIjED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZNSt15__new_allocatorIjED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this1) #14
+define linkonce_odr hidden void @_ZN9aiColor4tIfEC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.aiColor4t, ptr %3, i32 0, i32 0
+  store float 0.000000e+00, ptr %4, align 4
+  %5 = getelementptr inbounds nuw %class.aiColor4t, ptr %3, i32 0, i32 1
+  store float 0.000000e+00, ptr %5, align 4
+  %6 = getelementptr inbounds nuw %class.aiColor4t, ptr %3, i32 0, i32 2
+  store float 0.000000e+00, ptr %6, align 4
+  %7 = getelementptr inbounds nuw %class.aiColor4t, ptr %3, i32 0, i32 3
+  store float 0.000000e+00, ptr %7, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i64 @_ZNKSt6vectorIjSaIjEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %this) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_impl = getelementptr inbounds %"struct.std::_Vector_base.7", ptr %this1, i32 0, i32 0
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %_M_impl, i32 0, i32 1
-  %0 = load ptr, ptr %_M_finish, align 8
-  %_M_impl2 = getelementptr inbounds %"struct.std::_Vector_base.7", ptr %this1, i32 0, i32 0
-  %_M_start = getelementptr inbounds %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %_M_impl2, i32 0, i32 0
-  %1 = load ptr, ptr %_M_start, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 4
-  ret i64 %sub.ptr.div
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZNKSt6vectorIjSaIjEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %__n) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__n.addr = alloca i64, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i64 %__n, ptr %__n.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_impl = getelementptr inbounds %"struct.std::_Vector_base.7", ptr %this1, i32 0, i32 0
-  %_M_start = getelementptr inbounds %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %_M_impl, i32 0, i32 0
-  %0 = load ptr, ptr %_M_start, align 8
-  %1 = load i64, ptr %__n.addr, align 8
-  %add.ptr = getelementptr inbounds i32, ptr %0, i64 %1
-  ret ptr %add.ptr
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt6vectorIjSaIjEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %__n) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__n.addr = alloca i64, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i64 %__n, ptr %__n.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_impl = getelementptr inbounds %"struct.std::_Vector_base.7", ptr %this1, i32 0, i32 0
-  %_M_start = getelementptr inbounds %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %_M_impl, i32 0, i32 0
-  %0 = load ptr, ptr %_M_start, align 8
-  %1 = load i64, ptr %__n.addr, align 8
-  %add.ptr = getelementptr inbounds i32, ptr %0, i64 %1
-  ret ptr %add.ptr
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 4 dereferenceable(1028) ptr @_ZN8aiStringaSERKS_(ptr noundef nonnull align 4 dereferenceable(1028) %this, ptr noundef nonnull align 4 dereferenceable(1028) %rOther) #0 comdat align 2 {
-entry:
-  %retval = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  %rOther.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %rOther, ptr %rOther.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %rOther.addr, align 8
-  %cmp = icmp eq ptr %this1, %0
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  store ptr %this1, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %rOther.addr, align 8
-  %length = getelementptr inbounds %struct.aiString, ptr %1, i32 0, i32 0
-  %2 = load i32, ptr %length, align 4
-  %length2 = getelementptr inbounds %struct.aiString, ptr %this1, i32 0, i32 0
-  store i32 %2, ptr %length2, align 4
-  %length3 = getelementptr inbounds %struct.aiString, ptr %this1, i32 0, i32 0
-  %3 = load i32, ptr %length3, align 4
-  %conv = zext i32 %3 to i64
-  %cmp4 = icmp ugt i64 %conv, 1023
-  br i1 %cmp4, label %if.then5, label %if.end7
-
-if.then5:                                         ; preds = %if.end
-  %length6 = getelementptr inbounds %struct.aiString, ptr %this1, i32 0, i32 0
-  store i32 1023, ptr %length6, align 4
-  br label %if.end7
-
-if.end7:                                          ; preds = %if.then5, %if.end
-  %data = getelementptr inbounds %struct.aiString, ptr %this1, i32 0, i32 1
-  %arraydecay = getelementptr inbounds [1024 x i8], ptr %data, i64 0, i64 0
-  %4 = load ptr, ptr %rOther.addr, align 8
-  %data8 = getelementptr inbounds %struct.aiString, ptr %4, i32 0, i32 1
-  %arraydecay9 = getelementptr inbounds [1024 x i8], ptr %data8, i64 0, i64 0
-  %length10 = getelementptr inbounds %struct.aiString, ptr %this1, i32 0, i32 0
-  %5 = load i32, ptr %length10, align 4
-  %conv11 = zext i32 %5 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arraydecay, ptr align 4 %arraydecay9, i64 %conv11, i1 false)
-  %data12 = getelementptr inbounds %struct.aiString, ptr %this1, i32 0, i32 1
-  %length13 = getelementptr inbounds %struct.aiString, ptr %this1, i32 0, i32 0
-  %6 = load i32, ptr %length13, align 4
-  %idxprom = zext i32 %6 to i64
-  %arrayidx = getelementptr inbounds [1024 x i8], ptr %data12, i64 0, i64 %idxprom
-  store i8 0, ptr %arrayidx, align 1
-  store ptr %this1, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.end7, %if.then
-  %7 = load ptr, ptr %retval, align 8
-  ret ptr %7
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN9aiColor4tIfEC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %this) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %r = getelementptr inbounds %class.aiColor4t, ptr %this1, i32 0, i32 0
-  store float 0.000000e+00, ptr %r, align 4
-  %g = getelementptr inbounds %class.aiColor4t, ptr %this1, i32 0, i32 1
-  store float 0.000000e+00, ptr %g, align 4
-  %b = getelementptr inbounds %class.aiColor4t, ptr %this1, i32 0, i32 2
-  store float 0.000000e+00, ptr %b, align 4
-  %a = getelementptr inbounds %class.aiColor4t, ptr %this1, i32 0, i32 3
-  store float 0.000000e+00, ptr %a, align 4
+define linkonce_odr hidden void @_ZN6aiFaceC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %struct.aiFace, ptr %3, i32 0, i32 0
+  store i32 0, ptr %4, align 8
+  %5 = getelementptr inbounds nuw %struct.aiFace, ptr %3, i32 0, i32 1
+  store ptr null, ptr %5, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN6aiFaceC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %mNumIndices = getelementptr inbounds %struct.aiFace, ptr %this1, i32 0, i32 0
-  store i32 0, ptr %mNumIndices, align 8
-  %mIndices = getelementptr inbounds %struct.aiFace, ptr %this1, i32 0, i32 1
-  store ptr null, ptr %mIndices, align 8
-  ret void
+define linkonce_odr hidden noundef i32 @_ZNK6aiMesh16GetNumUVChannelsEv(ptr noundef nonnull align 8 dereferenceable(1320) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8
+  %5 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #18
+  store i32 0, ptr %3, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #18
+  store i32 0, ptr %4, align 4
+  br label %6
+
+6:                                                ; preds = %21, %1
+  %7 = load i32, ptr %4, align 4
+  %8 = icmp ult i32 %7, 8
+  br i1 %8, label %10, label %9
+
+9:                                                ; preds = %6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #18
+  br label %24
+
+10:                                               ; preds = %6
+  %11 = getelementptr inbounds nuw %struct.aiMesh, ptr %5, i32 0, i32 8
+  %12 = load i32, ptr %4, align 4
+  %13 = zext i32 %12 to i64
+  %14 = getelementptr inbounds nuw [8 x ptr], ptr %11, i64 0, i64 %13
+  %15 = load ptr, ptr %14, align 8
+  %16 = icmp ne ptr %15, null
+  br i1 %16, label %17, label %20
+
+17:                                               ; preds = %10
+  %18 = load i32, ptr %3, align 4
+  %19 = add i32 %18, 1
+  store i32 %19, ptr %3, align 4
+  br label %20
+
+20:                                               ; preds = %17, %10
+  br label %21
+
+21:                                               ; preds = %20
+  %22 = load i32, ptr %4, align 4
+  %23 = add i32 %22, 1
+  store i32 %23, ptr %4, align 4
+  br label %6, !llvm.loop !29
+
+24:                                               ; preds = %9
+  %25 = load i32, ptr %3, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #18
+  ret i32 %25
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef i32 @_ZNK6aiMesh16GetNumUVChannelsEv(ptr noundef nonnull align 8 dereferenceable(1320) %this) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %n = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  store i32 0, ptr %n, align 4
-  br label %while.cond
+define linkonce_odr hidden noundef i32 @_ZNK6aiMesh19GetNumColorChannelsEv(ptr noundef nonnull align 8 dereferenceable(1320) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8
+  %4 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #18
+  store i32 0, ptr %3, align 4
+  br label %5
 
-while.cond:                                       ; preds = %while.body, %entry
-  %0 = load i32, ptr %n, align 4
-  %cmp = icmp ult i32 %0, 8
-  br i1 %cmp, label %land.rhs, label %land.end
+5:                                                ; preds = %17, %1
+  %6 = load i32, ptr %3, align 4
+  %7 = icmp ult i32 %6, 8
+  br i1 %7, label %8, label %15
 
-land.rhs:                                         ; preds = %while.cond
-  %mTextureCoords = getelementptr inbounds %struct.aiMesh, ptr %this1, i32 0, i32 8
-  %1 = load i32, ptr %n, align 4
-  %idxprom = zext i32 %1 to i64
-  %arrayidx = getelementptr inbounds [8 x ptr], ptr %mTextureCoords, i64 0, i64 %idxprom
-  %2 = load ptr, ptr %arrayidx, align 8
-  %tobool = icmp ne ptr %2, null
-  br label %land.end
+8:                                                ; preds = %5
+  %9 = getelementptr inbounds nuw %struct.aiMesh, ptr %4, i32 0, i32 7
+  %10 = load i32, ptr %3, align 4
+  %11 = zext i32 %10 to i64
+  %12 = getelementptr inbounds nuw [8 x ptr], ptr %9, i64 0, i64 %11
+  %13 = load ptr, ptr %12, align 8
+  %14 = icmp ne ptr %13, null
+  br label %15
 
-land.end:                                         ; preds = %land.rhs, %while.cond
-  %3 = phi i1 [ false, %while.cond ], [ %tobool, %land.rhs ]
-  br i1 %3, label %while.body, label %while.end
+15:                                               ; preds = %8, %5
+  %16 = phi i1 [ false, %5 ], [ %14, %8 ]
+  br i1 %16, label %17, label %20
 
-while.body:                                       ; preds = %land.end
-  %4 = load i32, ptr %n, align 4
-  %inc = add i32 %4, 1
-  store i32 %inc, ptr %n, align 4
-  br label %while.cond, !llvm.loop !30
+17:                                               ; preds = %15
+  %18 = load i32, ptr %3, align 4
+  %19 = add i32 %18, 1
+  store i32 %19, ptr %3, align 4
+  br label %5, !llvm.loop !30
 
-while.end:                                        ; preds = %land.end
-  %5 = load i32, ptr %n, align 4
-  ret i32 %5
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef i32 @_ZNK6aiMesh19GetNumColorChannelsEv(ptr noundef nonnull align 8 dereferenceable(1320) %this) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %n = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  store i32 0, ptr %n, align 4
-  br label %while.cond
-
-while.cond:                                       ; preds = %while.body, %entry
-  %0 = load i32, ptr %n, align 4
-  %cmp = icmp ult i32 %0, 8
-  br i1 %cmp, label %land.rhs, label %land.end
-
-land.rhs:                                         ; preds = %while.cond
-  %mColors = getelementptr inbounds %struct.aiMesh, ptr %this1, i32 0, i32 7
-  %1 = load i32, ptr %n, align 4
-  %idxprom = zext i32 %1 to i64
-  %arrayidx = getelementptr inbounds [8 x ptr], ptr %mColors, i64 0, i64 %idxprom
-  %2 = load ptr, ptr %arrayidx, align 8
-  %tobool = icmp ne ptr %2, null
-  br label %land.end
-
-land.end:                                         ; preds = %land.rhs, %while.cond
-  %3 = phi i1 [ false, %while.cond ], [ %tobool, %land.rhs ]
-  br i1 %3, label %while.body, label %while.end
-
-while.body:                                       ; preds = %land.end
-  %4 = load i32, ptr %n, align 4
-  %inc = add i32 %4, 1
-  store i32 %inc, ptr %n, align 4
-  br label %while.cond, !llvm.loop !31
-
-while.end:                                        ; preds = %land.end
-  %5 = load i32, ptr %n, align 4
-  ret i32 %5
+20:                                               ; preds = %15
+  %21 = load i32, ptr %3, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #18
+  ret i32 %21
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN6aiBoneC2Ev(ptr noundef nonnull align 8 dereferenceable(1120) %this) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %mName = getelementptr inbounds %struct.aiBone, ptr %this1, i32 0, i32 0
-  call void @_ZN8aiStringC2Ev(ptr noundef nonnull align 4 dereferenceable(1028) %mName) #14
-  %mNumWeights = getelementptr inbounds %struct.aiBone, ptr %this1, i32 0, i32 1
-  store i32 0, ptr %mNumWeights, align 4
-  %mArmature = getelementptr inbounds %struct.aiBone, ptr %this1, i32 0, i32 2
-  store ptr null, ptr %mArmature, align 8
-  %mNode = getelementptr inbounds %struct.aiBone, ptr %this1, i32 0, i32 3
-  store ptr null, ptr %mNode, align 8
-  %mWeights = getelementptr inbounds %struct.aiBone, ptr %this1, i32 0, i32 4
-  store ptr null, ptr %mWeights, align 8
-  %mOffsetMatrix = getelementptr inbounds %struct.aiBone, ptr %this1, i32 0, i32 5
-  call void @_ZN12aiMatrix4x4tIfEC2Ev(ptr noundef nonnull align 4 dereferenceable(64) %mOffsetMatrix) #14
+define linkonce_odr hidden void @_ZN6aiBoneC2Ev(ptr noundef nonnull align 8 dereferenceable(1120) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %struct.aiBone, ptr %3, i32 0, i32 0
+  call void @_ZN8aiStringC2Ev(ptr noundef nonnull align 4 dereferenceable(1028) %4) #18
+  %5 = getelementptr inbounds nuw %struct.aiBone, ptr %3, i32 0, i32 1
+  store i32 0, ptr %5, align 4
+  %6 = getelementptr inbounds nuw %struct.aiBone, ptr %3, i32 0, i32 2
+  store ptr null, ptr %6, align 8
+  %7 = getelementptr inbounds nuw %struct.aiBone, ptr %3, i32 0, i32 3
+  store ptr null, ptr %7, align 8
+  %8 = getelementptr inbounds nuw %struct.aiBone, ptr %3, i32 0, i32 4
+  store ptr null, ptr %8, align 8
+  %9 = getelementptr inbounds nuw %struct.aiBone, ptr %3, i32 0, i32 5
+  call void @_ZN12aiMatrix4x4tIfEC2Ev(ptr noundef nonnull align 4 dereferenceable(64) %9) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN14aiVertexWeightC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %this) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %mVertexId = getelementptr inbounds %struct.aiVertexWeight, ptr %this1, i32 0, i32 0
-  store i32 0, ptr %mVertexId, align 4
-  %mWeight = getelementptr inbounds %struct.aiVertexWeight, ptr %this1, i32 0, i32 1
-  store float 0.000000e+00, ptr %mWeight, align 4
+define linkonce_odr hidden void @_ZN14aiVertexWeightC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %struct.aiVertexWeight, ptr %3, i32 0, i32 0
+  store i32 0, ptr %4, align 4
+  %5 = getelementptr inbounds nuw %struct.aiVertexWeight, ptr %3, i32 0, i32 1
+  store float 0.000000e+00, ptr %5, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN14aiVertexWeightC2Ejf(ptr noundef nonnull align 4 dereferenceable(8) %this, i32 noundef %pID, float noundef %pWeight) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %pID.addr = alloca i32, align 4
-  %pWeight.addr = alloca float, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %pID, ptr %pID.addr, align 4
-  store float %pWeight, ptr %pWeight.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %mVertexId = getelementptr inbounds %struct.aiVertexWeight, ptr %this1, i32 0, i32 0
-  %0 = load i32, ptr %pID.addr, align 4
-  store i32 %0, ptr %mVertexId, align 4
-  %mWeight = getelementptr inbounds %struct.aiVertexWeight, ptr %this1, i32 0, i32 1
-  %1 = load float, ptr %pWeight.addr, align 4
-  store float %1, ptr %mWeight, align 4
+define linkonce_odr hidden void @_ZN14aiVertexWeightC2Ejf(ptr noundef nonnull align 4 dereferenceable(8) %0, i32 noundef %1, float noundef %2) unnamed_addr #2 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca float, align 4
+  store ptr %0, ptr %4, align 8
+  store i32 %1, ptr %5, align 4
+  store float %2, ptr %6, align 4
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %struct.aiVertexWeight, ptr %7, i32 0, i32 0
+  %9 = load i32, ptr %5, align 4
+  store i32 %9, ptr %8, align 4
+  %10 = getelementptr inbounds nuw %struct.aiVertexWeight, ptr %7, i32 0, i32 1
+  %11 = load float, ptr %6, align 4
+  store float %11, ptr %10, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt6vectorIjSaIjEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_impl = getelementptr inbounds %"struct.std::_Vector_base.7", ptr %this1, i32 0, i32 0
-  %_M_start = getelementptr inbounds %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %_M_impl, i32 0, i32 0
-  %0 = load ptr, ptr %_M_start, align 8
-  %_M_impl2 = getelementptr inbounds %"struct.std::_Vector_base.7", ptr %this1, i32 0, i32 0
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %_M_impl2, i32 0, i32 1
-  %1 = load ptr, ptr %_M_finish, align 8
-  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIjSaIjEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #14
-  invoke void @_ZSt8_DestroyIPjjEvT_S1_RSaIT0_E(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %call)
-          to label %invoke.cont unwind label %terminate.lpad
+define linkonce_odr void @_ZNSt6vectorIjSaIjEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base.7", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base.7", ptr %3, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %7, i32 0, i32 1
+  %9 = load ptr, ptr %8, align 8
+  %10 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIjSaIjEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #18
+  invoke void @_ZSt8_DestroyIPjjEvT_S1_RSaIT0_E(ptr noundef %6, ptr noundef %9, ptr noundef nonnull align 1 dereferenceable(1) %10)
+          to label %11 unwind label %12
 
-invoke.cont:                                      ; preds = %entry
-  call void @_ZNSt12_Vector_baseIjSaIjEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #14
+11:                                               ; preds = %1
+  call void @_ZNSt12_Vector_baseIjSaIjEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #18
   ret void
 
-terminate.lpad:                                   ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           catch ptr null
-  %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #13
+  %14 = extractvalue { ptr, i32 } %13, 0
+  call void @__clang_call_terminate(ptr %14) #19
   unreachable
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6Assimp9LogStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  ret void
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZN6Assimp16IsSpaceOrNewLineIcEEbT_(i8 noundef signext %0) #3 comdat {
+  %2 = alloca i8, align 1
+  store i8 %0, ptr %2, align 1
+  %3 = load i8, ptr %2, align 1
+  %4 = call noundef zeroext i1 @_ZN6Assimp7IsSpaceIcEEbT_(i8 noundef signext %3)
+  br i1 %4, label %8, label %5
+
+5:                                                ; preds = %1
+  %6 = load i8, ptr %2, align 1
+  %7 = call noundef zeroext i1 @_ZN6Assimp9IsLineEndIcEEbT_(i8 noundef signext %6)
+  br label %8
+
+8:                                                ; preds = %5, %1
+  %9 = phi i1 [ true, %1 ], [ %7, %5 ]
+  ret i1 %9
 }
 
-declare void @__cxa_pure_virtual() unnamed_addr
-
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6Assimp6LoggerD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
+define available_externally void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #2 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt15__new_allocatorIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #18
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZN6Assimp16IsSpaceOrNewLineIcEEbT_(i8 noundef signext %in) #2 comdat {
-entry:
-  %in.addr = alloca i8, align 1
-  store i8 %in, ptr %in.addr, align 1
-  %0 = load i8, ptr %in.addr, align 1
-  %call = call noundef zeroext i1 @_ZN6Assimp7IsSpaceIcEEbT_(i8 noundef signext %0)
-  br i1 %call, label %lor.end, label %lor.rhs
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store i64 %2, ptr %7, align 8
+  store ptr %3, ptr %8, align 8
+  %11 = load ptr, ptr %5, align 8
+  %12 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %11, i32 0, i32 0
+  %13 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %11)
+  %14 = load ptr, ptr %8, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC2EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef %13, ptr noundef nonnull align 1 dereferenceable(1) %14)
+  %15 = load ptr, ptr %6, align 8
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %17, label %26
 
-lor.rhs:                                          ; preds = %entry
-  %1 = load i8, ptr %in.addr, align 1
-  %call1 = call noundef zeroext i1 @_ZN6Assimp9IsLineEndIcEEbT_(i8 noundef signext %1)
-  br label %lor.end
+17:                                               ; preds = %4
+  %18 = load i64, ptr %7, align 8
+  %19 = icmp ugt i64 %18, 0
+  br i1 %19, label %20, label %26
 
-lor.end:                                          ; preds = %lor.rhs, %entry
-  %2 = phi i1 [ true, %entry ], [ %call1, %lor.rhs ]
-  ret i1 %2
-}
+20:                                               ; preds = %17
+  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef @.str.8) #21
+          to label %21 unwind label %22
 
-; Function Attrs: nounwind
-declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #3
+21:                                               ; preds = %20
+  unreachable
 
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #4
+22:                                               ; preds = %26, %20
+  %23 = landingpad { ptr, i32 }
+          cleanup
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %9, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %10, align 4
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #18
+  br label %32
 
-; Function Attrs: nounwind
-declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #3
+26:                                               ; preds = %17, %4
+  %27 = load ptr, ptr %6, align 8
+  %28 = load ptr, ptr %6, align 8
+  %29 = load i64, ptr %7, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 %29
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef %27, ptr noundef %30)
+          to label %31 unwind label %22
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZN6Assimp7IsSpaceIcEEbT_(i8 noundef signext %in) #0 comdat {
-entry:
-  %in.addr = alloca i8, align 1
-  store i8 %in, ptr %in.addr, align 1
-  %0 = load i8, ptr %in.addr, align 1
-  %conv = sext i8 %0 to i32
-  %cmp = icmp eq i32 %conv, 32
-  br i1 %cmp, label %lor.end, label %lor.rhs
+31:                                               ; preds = %26
+  ret void
 
-lor.rhs:                                          ; preds = %entry
-  %1 = load i8, ptr %in.addr, align 1
-  %conv1 = sext i8 %1 to i32
-  %cmp2 = icmp eq i32 %conv1, 9
-  br label %lor.end
-
-lor.end:                                          ; preds = %lor.rhs, %entry
-  %2 = phi i1 [ true, %entry ], [ %cmp2, %lor.rhs ]
-  ret i1 %2
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZN6Assimp9IsLineEndIcEEbT_(i8 noundef signext %in) #0 comdat {
-entry:
-  %in.addr = alloca i8, align 1
-  store i8 %in, ptr %in.addr, align 1
-  %0 = load i8, ptr %in.addr, align 1
-  %conv = sext i8 %0 to i32
-  %cmp = icmp eq i32 %conv, 13
-  br i1 %cmp, label %lor.end, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %entry
-  %1 = load i8, ptr %in.addr, align 1
-  %conv1 = sext i8 %1 to i32
-  %cmp2 = icmp eq i32 %conv1, 10
-  br i1 %cmp2, label %lor.end, label %lor.lhs.false3
-
-lor.lhs.false3:                                   ; preds = %lor.lhs.false
-  %2 = load i8, ptr %in.addr, align 1
-  %conv4 = sext i8 %2 to i32
-  %cmp5 = icmp eq i32 %conv4, 0
-  br i1 %cmp5, label %lor.end, label %lor.rhs
-
-lor.rhs:                                          ; preds = %lor.lhs.false3
-  %3 = load i8, ptr %in.addr, align 1
-  %conv6 = sext i8 %3 to i32
-  %cmp7 = icmp eq i32 %conv6, 12
-  br label %lor.end
-
-lor.end:                                          ; preds = %lor.rhs, %lor.lhs.false3, %lor.lhs.false, %entry
-  %4 = phi i1 [ true, %lor.lhs.false3 ], [ true, %lor.lhs.false ], [ true, %entry ], [ %cmp7, %lor.rhs ]
-  ret i1 %4
+32:                                               ; preds = %22
+  %33 = load ptr, ptr %9, align 8
+  %34 = load i32, ptr %10, align 4
+  %35 = insertvalue { ptr, i32 } poison, ptr %33, 0
+  %36 = insertvalue { ptr, i32 } %35, i32 %34, 1
+  resume { ptr, i32 } %36
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt12_Vector_baseISt4pairIjfESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_impl = getelementptr inbounds %"struct.std::_Vector_base", ptr %this1, i32 0, i32 0
-  call void @_ZNSt12_Vector_baseISt4pairIjfESaIS1_EE12_Vector_implC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %_M_impl) #14
+define linkonce_odr void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZN6Assimp7IsSpaceIcEEbT_(i8 noundef signext %0) #7 comdat {
+  %2 = alloca i8, align 1
+  store i8 %0, ptr %2, align 1
+  %3 = load i8, ptr %2, align 1
+  %4 = sext i8 %3 to i32
+  %5 = icmp eq i32 %4, 32
+  br i1 %5, label %10, label %6
+
+6:                                                ; preds = %1
+  %7 = load i8, ptr %2, align 1
+  %8 = sext i8 %7 to i32
+  %9 = icmp eq i32 %8, 9
+  br label %10
+
+10:                                               ; preds = %6, %1
+  %11 = phi i1 [ true, %1 ], [ %9, %6 ]
+  ret i1 %11
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZN6Assimp9IsLineEndIcEEbT_(i8 noundef signext %0) #7 comdat {
+  %2 = alloca i8, align 1
+  store i8 %0, ptr %2, align 1
+  %3 = load i8, ptr %2, align 1
+  %4 = sext i8 %3 to i32
+  %5 = icmp eq i32 %4, 13
+  br i1 %5, label %18, label %6
+
+6:                                                ; preds = %1
+  %7 = load i8, ptr %2, align 1
+  %8 = sext i8 %7 to i32
+  %9 = icmp eq i32 %8, 10
+  br i1 %9, label %18, label %10
+
+10:                                               ; preds = %6
+  %11 = load i8, ptr %2, align 1
+  %12 = sext i8 %11 to i32
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %18, label %14
+
+14:                                               ; preds = %10
+  %15 = load i8, ptr %2, align 1
+  %16 = sext i8 %15 to i32
+  %17 = icmp eq i32 %16, 12
+  br label %18
+
+18:                                               ; preds = %14, %10, %6, %1
+  %19 = phi i1 [ true, %10 ], [ true, %6 ], [ true, %1 ], [ %17, %14 ]
+  ret i1 %19
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt12_Vector_baseISt4pairIjfESaIS1_EE12_Vector_implC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZNSaISt4pairIjfEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this1) #14
-  call void @_ZNSt12_Vector_baseISt4pairIjfESaIS1_EE17_Vector_impl_dataC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #14
+define available_externally noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #2 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 2
+  %5 = getelementptr inbounds [16 x i8], ptr %4, i64 0, i64 0
+  %6 = call noundef ptr @_ZNSt19__ptr_traits_ptr_toIPccLb0EE10pointer_toERc(ptr noundef nonnull align 1 dereferenceable(1) %5) #18
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC2EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #2 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %6, align 8
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 1 dereferenceable(1) %8) #18
+  %9 = getelementptr inbounds nuw %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", ptr %7, i32 0, i32 0
+  %10 = load ptr, ptr %5, align 8
+  store ptr %10, ptr %9, align 8
+  ret void
+}
+
+; Function Attrs: noreturn
+declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) #12
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca %struct._Guard, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %11 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #18
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  %14 = call noundef i64 @_ZSt8distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_(ptr noundef %12, ptr noundef %13)
+  store i64 %14, ptr %7, align 8
+  %15 = load i64, ptr %7, align 8
+  %16 = icmp ugt i64 %15, 15
+  br i1 %16, label %17, label %20
+
+17:                                               ; preds = %3
+  %18 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(8) %7, i64 noundef 0)
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef %18)
+  %19 = load i64, ptr %7, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEm(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef %19)
+  br label %22
+
+20:                                               ; preds = %3
+  %21 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_M_use_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #18
+  br label %22
+
+22:                                               ; preds = %20, %17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #18
+  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %11)
+  %23 = invoke noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %11)
+          to label %24 unwind label %30
+
+24:                                               ; preds = %22
+  %25 = load ptr, ptr %5, align 8
+  %26 = load ptr, ptr %6, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %23, ptr noundef %25, ptr noundef %26) #18
+  %27 = getelementptr inbounds nuw %struct._Guard, ptr %8, i32 0, i32 0
+  store ptr null, ptr %27, align 8
+  %28 = load i64, ptr %7, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef %28)
+          to label %29 unwind label %30
+
+29:                                               ; preds = %24
+  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #18
+  ret void
+
+30:                                               ; preds = %24, %22
+  %31 = landingpad { ptr, i32 }
+          cleanup
+  %32 = extractvalue { ptr, i32 } %31, 0
+  store ptr %32, ptr %9, align 8
+  %33 = extractvalue { ptr, i32 } %31, 1
+  store i32 %33, ptr %10, align 4
+  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #18
+  br label %34
+
+34:                                               ; preds = %30
+  %35 = load ptr, ptr %9, align 8
+  %36 = load i32, ptr %10, align 4
+  %37 = insertvalue { ptr, i32 } poison, ptr %35, 0
+  %38 = insertvalue { ptr, i32 } %37, i32 %36, 1
+  resume { ptr, i32 } %38
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNSt19__ptr_traits_ptr_toIPccLb0EE10pointer_toERc(ptr noundef nonnull align 1 dereferenceable(1) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #2 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZNSt15__new_allocatorIcEC2ERKS0_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSaISt4pairIjfEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZNSt15__new_allocatorISt4pairIjfEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this1) #14
+define linkonce_odr void @_ZNSt15__new_allocatorIcEC2ERKS0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef i64 @_ZSt8distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_(ptr noundef %0, ptr noundef %1) #3 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZSt19__iterator_categoryIPKcENSt15iterator_traitsIT_E17iterator_categoryERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %7 = call noundef i64 @_ZSt10__distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_St26random_access_iterator_tag(ptr noundef %5, ptr noundef %6)
+  ret i64 %7
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) #2 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  %7 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %5, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", ptr %7, i32 0, i32 0
+  store ptr %6, ptr %8, align 8
+  ret void
+}
+
+declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) #4
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) #2 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8
+  %7 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %5, i32 0, i32 2
+  store i64 %6, ptr %7, align 8
+  ret void
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define available_externally noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_M_use_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #13 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %struct._Guard, ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8
+  store ptr %7, ptr %6, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt12_Vector_baseISt4pairIjfESaIS1_EE17_Vector_impl_dataC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_start = getelementptr inbounds %"struct.std::_Vector_base<std::pair<unsigned int, float>, std::allocator<std::pair<unsigned int, float>>>::_Vector_impl_data", ptr %this1, i32 0, i32 0
-  store ptr null, ptr %_M_start, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<std::pair<unsigned int, float>, std::allocator<std::pair<unsigned int, float>>>::_Vector_impl_data", ptr %this1, i32 0, i32 1
-  store ptr null, ptr %_M_finish, align 8
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<std::pair<unsigned int, float>, std::allocator<std::pair<unsigned int, float>>>::_Vector_impl_data", ptr %this1, i32 0, i32 2
-  store ptr null, ptr %_M_end_of_storage, align 8
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = load ptr, ptr %6, align 8
+  %10 = load ptr, ptr %5, align 8
+  %11 = ptrtoint ptr %9 to i64
+  %12 = ptrtoint ptr %10 to i64
+  %13 = sub i64 %11, %12
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm(ptr noundef %7, ptr noundef %8, i64 noundef %13)
+          to label %14 unwind label %15
+
+14:                                               ; preds = %3
+  ret void
+
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          catch ptr null
+  %17 = extractvalue { ptr, i32 } %16, 0
+  call void @__clang_call_terminate(ptr %17) #19
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #2 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca i8, align 1
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %6 = load ptr, ptr %3, align 8
+  %7 = load i64, ptr %4, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef %7)
+  %8 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6)
+  %9 = load i64, ptr %4, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 %9
+  call void @llvm.lifetime.start.p0(i64 1, ptr %5) #18
+  store i8 0, ptr %5, align 1
+  call void @_ZNSt11char_traitsIcE6assignERcRKc(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 1 dereferenceable(1) %5) #18
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15__new_allocatorISt4pairIjfEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
+define linkonce_odr void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %struct._Guard, ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8
+  %6 = icmp ne ptr %5, null
+  br i1 %6, label %7, label %11
+
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds nuw %struct._Guard, ptr %3, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32) %9)
+          to label %10 unwind label %12
+
+10:                                               ; preds = %7
+  br label %11
+
+11:                                               ; preds = %10, %1
+  ret void
+
+12:                                               ; preds = %7
+  %13 = landingpad { ptr, i32 }
+          catch ptr null
+  %14 = extractvalue { ptr, i32 } %13, 0
+  call void @__clang_call_terminate(ptr %14) #19
+  unreachable
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZSt10__distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_St26random_access_iterator_tag(ptr noundef %0, ptr noundef %1) #7 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %3, align 8
+  %7 = ptrtoint ptr %5 to i64
+  %8 = ptrtoint ptr %6 to i64
+  %9 = sub i64 %7, %8
+  ret i64 %9
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt19__iterator_categoryIPKcENSt15iterator_traitsIT_E17iterator_categoryERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0) #7 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN8aiStringC2Ev(ptr noundef nonnull align 4 dereferenceable(1028) %this) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %length = getelementptr inbounds %struct.aiString, ptr %this1, i32 0, i32 0
-  store i32 0, ptr %length, align 4
-  %data = getelementptr inbounds %struct.aiString, ptr %this1, i32 0, i32 1
-  %arrayidx = getelementptr inbounds [1024 x i8], ptr %data, i64 0, i64 0
-  store i8 0, ptr %arrayidx, align 4
+; Function Attrs: mustprogress uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %7 = load i64, ptr %6, align 8
+  %8 = icmp eq i64 %7, 1
+  br i1 %8, label %9, label %12
+
+9:                                                ; preds = %3
+  %10 = load ptr, ptr %4, align 8
+  %11 = load ptr, ptr %5, align 8
+  call void @_ZNSt11char_traitsIcE6assignERcRKc(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 1 dereferenceable(1) %11) #18
+  br label %17
+
+12:                                               ; preds = %3
+  %13 = load ptr, ptr %4, align 8
+  %14 = load ptr, ptr %5, align 8
+  %15 = load i64, ptr %6, align 8
+  %16 = call noundef ptr @_ZNSt11char_traitsIcE4copyEPcPKcm(ptr noundef %13, ptr noundef %14, i64 noundef %15)
+  br label %17
+
+17:                                               ; preds = %12, %9
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN6aiAABBC2Ev(ptr noundef nonnull align 4 dereferenceable(24) %this) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %mMin = getelementptr inbounds %struct.aiAABB, ptr %this1, i32 0, i32 0
-  call void @_ZN10aiVector3tIfEC2Ev(ptr noundef nonnull align 4 dereferenceable(12) %mMin) #14
-  %mMax = getelementptr inbounds %struct.aiAABB, ptr %this1, i32 0, i32 1
-  call void @_ZN10aiVector3tIfEC2Ev(ptr noundef nonnull align 4 dereferenceable(12) %mMax) #14
-  ret void
-}
-
-; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #10 comdat {
-  %2 = call ptr @__cxa_begin_catch(ptr %0) #14
-  call void @_ZSt9terminatev() #13
+; Function Attrs: noinline noreturn nounwind uwtable
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #14 comdat {
+  %2 = call ptr @__cxa_begin_catch(ptr %0) #18
+  call void @_ZSt9terminatev() #19
   unreachable
 }
 
@@ -3849,1212 +4577,1590 @@ declare ptr @__cxa_begin_catch(ptr)
 declare void @_ZSt9terminatev()
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN12aiMatrix4x4tIfEC2Ev(ptr noundef nonnull align 4 dereferenceable(64) %this) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %a1 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 0
-  store float 1.000000e+00, ptr %a1, align 4
-  %a2 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 1
-  store float 0.000000e+00, ptr %a2, align 4
-  %a3 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 2
-  store float 0.000000e+00, ptr %a3, align 4
-  %a4 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 3
-  store float 0.000000e+00, ptr %a4, align 4
-  %b1 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 4
-  store float 0.000000e+00, ptr %b1, align 4
-  %b2 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 5
-  store float 1.000000e+00, ptr %b2, align 4
-  %b3 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 6
-  store float 0.000000e+00, ptr %b3, align 4
-  %b4 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 7
-  store float 0.000000e+00, ptr %b4, align 4
-  %c1 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 8
-  store float 0.000000e+00, ptr %c1, align 4
-  %c2 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 9
-  store float 0.000000e+00, ptr %c2, align 4
-  %c3 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 10
-  store float 1.000000e+00, ptr %c3, align 4
-  %c4 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 11
-  store float 0.000000e+00, ptr %c4, align 4
-  %d1 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 12
-  store float 0.000000e+00, ptr %d1, align 4
-  %d2 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 13
-  store float 0.000000e+00, ptr %d2, align 4
-  %d3 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 14
-  store float 0.000000e+00, ptr %d3, align 4
-  %d4 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this1, i32 0, i32 15
-  store float 1.000000e+00, ptr %d4, align 4
+define linkonce_odr void @_ZNSt11char_traitsIcE6assignERcRKc(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8
+  %6 = load i8, ptr %5, align 1
+  %7 = load ptr, ptr %3, align 8
+  store i8 %6, ptr %7, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZN6Assimp20SkipSpacesAndLineEndIcEEbPKT_PS3_(ptr noundef %in, ptr noundef %out) #0 comdat {
-entry:
-  %in.addr = alloca ptr, align 8
-  %out.addr = alloca ptr, align 8
-  store ptr %in, ptr %in.addr, align 8
-  store ptr %out, ptr %out.addr, align 8
-  br label %while.cond
+define linkonce_odr noundef ptr @_ZNSt11char_traitsIcE4copyEPcPKcm(ptr noundef %0, ptr noundef %1, i64 noundef %2) #2 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store i64 %2, ptr %7, align 8
+  %8 = load i64, ptr %7, align 8
+  %9 = icmp eq i64 %8, 0
+  br i1 %9, label %10, label %12
 
-while.cond:                                       ; preds = %while.body, %entry
-  %0 = load ptr, ptr %in.addr, align 8
-  %1 = load i8, ptr %0, align 1
-  %conv = sext i8 %1 to i32
-  %cmp = icmp eq i32 %conv, 32
-  br i1 %cmp, label %lor.end, label %lor.lhs.false
+10:                                               ; preds = %3
+  %11 = load ptr, ptr %5, align 8
+  store ptr %11, ptr %4, align 8
+  br label %16
 
-lor.lhs.false:                                    ; preds = %while.cond
-  %2 = load ptr, ptr %in.addr, align 8
-  %3 = load i8, ptr %2, align 1
-  %conv1 = sext i8 %3 to i32
-  %cmp2 = icmp eq i32 %conv1, 9
-  br i1 %cmp2, label %lor.end, label %lor.lhs.false3
+12:                                               ; preds = %3
+  %13 = load ptr, ptr %5, align 8
+  %14 = load ptr, ptr %6, align 8
+  %15 = load i64, ptr %7, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %13, ptr align 1 %14, i64 %15, i1 false)
+  store ptr %13, ptr %4, align 8
+  br label %16
 
-lor.lhs.false3:                                   ; preds = %lor.lhs.false
-  %4 = load ptr, ptr %in.addr, align 8
-  %5 = load i8, ptr %4, align 1
-  %conv4 = sext i8 %5 to i32
-  %cmp5 = icmp eq i32 %conv4, 13
-  br i1 %cmp5, label %lor.end, label %lor.rhs
-
-lor.rhs:                                          ; preds = %lor.lhs.false3
-  %6 = load ptr, ptr %in.addr, align 8
-  %7 = load i8, ptr %6, align 1
-  %conv6 = sext i8 %7 to i32
-  %cmp7 = icmp eq i32 %conv6, 10
-  br label %lor.end
-
-lor.end:                                          ; preds = %lor.rhs, %lor.lhs.false3, %lor.lhs.false, %while.cond
-  %8 = phi i1 [ true, %lor.lhs.false3 ], [ true, %lor.lhs.false ], [ true, %while.cond ], [ %cmp7, %lor.rhs ]
-  br i1 %8, label %while.body, label %while.end
-
-while.body:                                       ; preds = %lor.end
-  %9 = load ptr, ptr %in.addr, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %9, i32 1
-  store ptr %incdec.ptr, ptr %in.addr, align 8
-  br label %while.cond, !llvm.loop !32
-
-while.end:                                        ; preds = %lor.end
-  %10 = load ptr, ptr %in.addr, align 8
-  %11 = load ptr, ptr %out.addr, align 8
-  store ptr %10, ptr %11, align 8
-  %12 = load ptr, ptr %in.addr, align 8
-  %13 = load i8, ptr %12, align 1
-  %conv8 = sext i8 %13 to i32
-  %cmp9 = icmp ne i32 %conv8, 0
-  ret i1 %cmp9
+16:                                               ; preds = %12, %10
+  %17 = load ptr, ptr %4, align 8
+  ret ptr %17
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZSt3minIfERKT_S2_S2_(ptr noundef nonnull align 4 dereferenceable(4) %__a, ptr noundef nonnull align 4 dereferenceable(4) %__b) #0 comdat {
-entry:
-  %retval = alloca ptr, align 8
-  %__a.addr = alloca ptr, align 8
-  %__b.addr = alloca ptr, align 8
-  store ptr %__a, ptr %__a.addr, align 8
-  store ptr %__b, ptr %__b.addr, align 8
-  %0 = load ptr, ptr %__b.addr, align 8
-  %1 = load float, ptr %0, align 4
-  %2 = load ptr, ptr %__a.addr, align 8
-  %3 = load float, ptr %2, align 4
-  %cmp = fcmp olt float %1, %3
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr %__b.addr, align 8
-  store ptr %4, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %5 = load ptr, ptr %__a.addr, align 8
-  store ptr %5, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.end, %if.then
-  %6 = load ptr, ptr %retval, align 8
-  ret ptr %6
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZSt3maxIfERKT_S2_S2_(ptr noundef nonnull align 4 dereferenceable(4) %__a, ptr noundef nonnull align 4 dereferenceable(4) %__b) #0 comdat {
-entry:
-  %retval = alloca ptr, align 8
-  %__a.addr = alloca ptr, align 8
-  %__b.addr = alloca ptr, align 8
-  store ptr %__a, ptr %__a.addr, align 8
-  store ptr %__b, ptr %__b.addr, align 8
-  %0 = load ptr, ptr %__a.addr, align 8
-  %1 = load float, ptr %0, align 4
-  %2 = load ptr, ptr %__b.addr, align 8
-  %3 = load float, ptr %2, align 4
-  %cmp = fcmp olt float %1, %3
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr %__b.addr, align 8
-  store ptr %4, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %5 = load ptr, ptr %__a.addr, align 8
-  store ptr %5, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.end, %if.then
-  %6 = load ptr, ptr %retval, align 8
-  ret ptr %6
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9_M_insertIJRPKcmEEEvSt14_List_iteratorIS5_EDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(8) %__args, ptr noundef nonnull align 8 dereferenceable(8) %__args1) #2 comdat align 2 {
-entry:
-  %__position = alloca %"struct.std::_List_iterator", align 8
-  %this.addr = alloca ptr, align 8
-  %__args.addr = alloca ptr, align 8
-  %__args.addr2 = alloca ptr, align 8
-  %__tmp = alloca ptr, align 8
-  %coerce.dive = getelementptr inbounds %"struct.std::_List_iterator", ptr %__position, i32 0, i32 0
-  store ptr %__position.coerce, ptr %coerce.dive, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__args, ptr %__args.addr, align 8
-  store ptr %__args1, ptr %__args.addr2, align 8
-  %this3 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %__args.addr, align 8
-  %1 = load ptr, ptr %__args.addr2, align 8
-  %call = call noundef ptr @_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE14_M_create_nodeIJRPKcmEEEPSt10_List_nodeIS5_EDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this3, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
-  store ptr %call, ptr %__tmp, align 8
-  %2 = load ptr, ptr %__tmp, align 8
-  %_M_node = getelementptr inbounds %"struct.std::_List_iterator", ptr %__position, i32 0, i32 0
-  %3 = load ptr, ptr %_M_node, align 8
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef %3) #14
-  call void @_ZNSt7__cxx1110_List_baseINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_inc_sizeEm(ptr noundef nonnull align 8 dereferenceable(24) %this3, i64 noundef 1)
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr ptr @_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %this) #0 comdat align 2 {
-entry:
-  %retval = alloca %"struct.std::_List_iterator", align 8
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_impl = getelementptr inbounds %"class.std::__cxx11::_List_base", ptr %this1, i32 0, i32 0
-  %_M_node = getelementptr inbounds %"struct.std::__cxx11::_List_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_List_impl", ptr %_M_impl, i32 0, i32 0
-  call void @_ZNSt14_List_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EPNSt8__detail15_List_node_baseE(ptr noundef nonnull align 8 dereferenceable(8) %retval, ptr noundef %_M_node) #14
-  %coerce.dive = getelementptr inbounds %"struct.std::_List_iterator", ptr %retval, i32 0, i32 0
-  %0 = load ptr, ptr %coerce.dive, align 8
-  ret ptr %0
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE4backEv(ptr noundef nonnull align 8 dereferenceable(24) %this) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__tmp = alloca %"struct.std::_List_iterator", align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call ptr @_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #14
-  %coerce.dive = getelementptr inbounds %"struct.std::_List_iterator", ptr %__tmp, i32 0, i32 0
-  store ptr %call, ptr %coerce.dive, align 8
-  %call2 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt14_List_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEmmEv(ptr noundef nonnull align 8 dereferenceable(8) %__tmp) #14
-  %call3 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNKSt14_List_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %__tmp) #14
-  ret ptr %call3
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE14_M_create_nodeIJRPKcmEEEPSt10_List_nodeIS5_EDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %__args, ptr noundef nonnull align 8 dereferenceable(8) %__args1) #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__args.addr = alloca ptr, align 8
-  %__args.addr2 = alloca ptr, align 8
-  %__p = alloca ptr, align 8
-  %__alloc = alloca ptr, align 8
-  %__guard = alloca %"struct.std::__allocated_ptr", align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__args, ptr %__args.addr, align 8
-  store ptr %__args1, ptr %__args.addr2, align 8
-  %this3 = load ptr, ptr %this.addr, align 8
-  %call = call noundef ptr @_ZNSt7__cxx1110_List_baseINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_get_nodeEv(ptr noundef nonnull align 8 dereferenceable(24) %this3)
-  store ptr %call, ptr %__p, align 8
-  %call4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1110_List_baseINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE21_M_get_Node_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %this3) #14
-  store ptr %call4, ptr %__alloc, align 8
-  %0 = load ptr, ptr %__alloc, align 8
-  %1 = load ptr, ptr %__p, align 8
-  call void @_ZNSt15__allocated_ptrISaISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEC2ERS8_PS7_(ptr noundef nonnull align 8 dereferenceable(16) %__guard, ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #14
-  %2 = load ptr, ptr %__alloc, align 8
-  %3 = load ptr, ptr %__p, align 8
-  %call5 = invoke noundef ptr @_ZNSt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9_M_valptrEv(ptr noundef nonnull align 8 dereferenceable(48) %3)
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %entry
-  %4 = load ptr, ptr %__args.addr, align 8
-  %5 = load ptr, ptr %__args.addr2, align 8
-  invoke void @_ZNSt16allocator_traitsISaISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE9constructIS6_JRPKcmEEEvRS8_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef %call5, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
-          to label %invoke.cont6 unwind label %lpad
-
-invoke.cont6:                                     ; preds = %invoke.cont
-  %call7 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt15__allocated_ptrISaISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEaSEDn(ptr noundef nonnull align 8 dereferenceable(16) %__guard, ptr null) #14
-  %6 = load ptr, ptr %__p, align 8
-  call void @_ZNSt15__allocated_ptrISaISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %__guard) #14
-  ret ptr %6
-
-lpad:                                             ; preds = %invoke.cont, %entry
-  %7 = landingpad { ptr, i32 }
-          cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
-  call void @_ZNSt15__allocated_ptrISaISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %__guard) #14
-  br label %eh.resume
-
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val8 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val8
-}
-
-; Function Attrs: nounwind
-declare void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) #3
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt7__cxx1110_List_baseINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_inc_sizeEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %__n) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__n.addr = alloca i64, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i64 %__n, ptr %__n.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i64, ptr %__n.addr, align 8
-  %_M_impl = getelementptr inbounds %"class.std::__cxx11::_List_base", ptr %this1, i32 0, i32 0
-  %_M_node = getelementptr inbounds %"struct.std::__cxx11::_List_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_List_impl", ptr %_M_impl, i32 0, i32 0
-  %_M_size = getelementptr inbounds %"struct.std::__detail::_List_node_header", ptr %_M_node, i32 0, i32 1
-  %1 = load i64, ptr %_M_size, align 8
-  %add = add i64 %1, %0
-  store i64 %add, ptr %_M_size, align 8
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) #2 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8
+  %7 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %5, i32 0, i32 1
+  store i64 %6, ptr %7, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZNSt7__cxx1110_List_baseINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_get_nodeEv(ptr noundef nonnull align 8 dereferenceable(24) %this) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_impl = getelementptr inbounds %"class.std::__cxx11::_List_base", ptr %this1, i32 0, i32 0
-  %call = call noundef ptr @_ZNSt16allocator_traitsISaISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE8allocateERS8_m(ptr noundef nonnull align 1 dereferenceable(1) %_M_impl, i64 noundef 1)
-  ret ptr %call
-}
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
+  br i1 %4, label %8, label %5
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1110_List_baseINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE21_M_get_Node_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %this) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_impl = getelementptr inbounds %"class.std::__cxx11::_List_base", ptr %this1, i32 0, i32 0
-  ret ptr %_M_impl
-}
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 2
+  %7 = load i64, ptr %6, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_destroyEm(ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef %7) #18
+  br label %8
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15__allocated_ptrISaISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEC2ERS8_PS7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %__ptr) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__a.addr = alloca ptr, align 8
-  %__ptr.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__a, ptr %__a.addr, align 8
-  store ptr %__ptr, ptr %__ptr.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_alloc = getelementptr inbounds %"struct.std::__allocated_ptr", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %__a.addr, align 8
-  store ptr %0, ptr %_M_alloc, align 8
-  %_M_ptr = getelementptr inbounds %"struct.std::__allocated_ptr", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %__ptr.addr, align 8
-  store ptr %1, ptr %_M_ptr, align 8
+8:                                                ; preds = %5, %1
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt16allocator_traitsISaISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE9constructIS6_JRPKcmEEEvRS8_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %__p, ptr noundef nonnull align 8 dereferenceable(8) %__args, ptr noundef nonnull align 8 dereferenceable(8) %__args1) #2 comdat align 2 {
-entry:
-  %__a.addr = alloca ptr, align 8
-  %__p.addr = alloca ptr, align 8
-  %__args.addr = alloca ptr, align 8
-  %__args.addr2 = alloca ptr, align 8
-  store ptr %__a, ptr %__a.addr, align 8
-  store ptr %__p, ptr %__p.addr, align 8
-  store ptr %__args, ptr %__args.addr, align 8
-  store ptr %__args1, ptr %__args.addr2, align 8
-  %0 = load ptr, ptr %__a.addr, align 8
-  %1 = load ptr, ptr %__p.addr, align 8
-  %2 = load ptr, ptr %__args.addr, align 8
-  %3 = load ptr, ptr %__args.addr2, align 8
-  call void @_ZNSt15__new_allocatorISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS6_JRPKcmEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  ret void
+define available_externally noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #0 align 2 {
+  %2 = alloca i1, align 1
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4)
+  %6 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4)
+  %7 = icmp eq ptr %5, %6
+  br i1 %7, label %8, label %14
+
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %4, i32 0, i32 1
+  %10 = load i64, ptr %9, align 8
+  %11 = icmp ugt i64 %10, 15
+  br i1 %11, label %12, label %13
+
+12:                                               ; preds = %8
+  unreachable
+
+13:                                               ; preds = %8
+  store i1 true, ptr %2, align 1
+  br label %15
+
+14:                                               ; preds = %1
+  store i1 false, ptr %2, align 1
+  br label %15
+
+15:                                               ; preds = %14, %13
+  %16 = load i1, ptr %2, align 1
+  ret i1 %16
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZNSt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9_M_valptrEv(ptr noundef nonnull align 8 dereferenceable(48) %this) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_storage = getelementptr inbounds %"struct.std::_List_node", ptr %this1, i32 0, i32 1
-  %call = call noundef ptr @_ZN9__gnu_cxx16__aligned_membufINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage) #14
-  ret ptr %call
-}
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_destroyEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) #2 align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE16_M_get_allocatorEv(ptr noundef nonnull align 8 dereferenceable(32) %5)
+          to label %7 unwind label %12
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt15__allocated_ptrISaISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEaSEDn(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr %0) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %0, ptr %.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_ptr = getelementptr inbounds %"struct.std::__allocated_ptr", ptr %this1, i32 0, i32 1
-  store ptr null, ptr %_M_ptr, align 8
-  ret ptr %this1
-}
+7:                                                ; preds = %2
+  %8 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %5)
+  %9 = load i64, ptr %4, align 8
+  %10 = add i64 %9, 1
+  invoke void @_ZNSt16allocator_traitsISaIcEE10deallocateERS0_Pcm(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef %8, i64 noundef %10)
+          to label %11 unwind label %12
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15__allocated_ptrISaISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_ptr = getelementptr inbounds %"struct.std::__allocated_ptr", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %_M_ptr, align 8
-  %cmp = icmp ne ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %_M_alloc = getelementptr inbounds %"struct.std::__allocated_ptr", ptr %this1, i32 0, i32 0
-  %1 = load ptr, ptr %_M_alloc, align 8
-  %_M_ptr2 = getelementptr inbounds %"struct.std::__allocated_ptr", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %_M_ptr2, align 8
-  invoke void @_ZNSt16allocator_traitsISaISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE10deallocateERS8_PS7_m(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef %2, i64 noundef 1)
-          to label %invoke.cont unwind label %terminate.lpad
-
-invoke.cont:                                      ; preds = %if.then
-  br label %if.end
-
-if.end:                                           ; preds = %invoke.cont, %entry
+11:                                               ; preds = %7
   ret void
 
-terminate.lpad:                                   ; preds = %if.then
-  %3 = landingpad { ptr, i32 }
+12:                                               ; preds = %7, %2
+  %13 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #13
+  %14 = extractvalue { ptr, i32 } %13, 0
+  call void @__clang_call_terminate(ptr %14) #19
   unreachable
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZNSt16allocator_traitsISaISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE8allocateERS8_m(ptr noundef nonnull align 1 dereferenceable(1) %__a, i64 noundef %__n) #2 comdat align 2 {
-entry:
-  %__a.addr = alloca ptr, align 8
-  %__n.addr = alloca i64, align 8
-  store ptr %__a, ptr %__a.addr, align 8
-  store i64 %__n, ptr %__n.addr, align 8
-  %0 = load ptr, ptr %__a.addr, align 8
-  %1 = load i64, ptr %__n.addr, align 8
-  %call = call noundef ptr @_ZNSt15__new_allocatorISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1, ptr noundef null)
-  ret ptr %call
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZNSt15__new_allocatorISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %this, i64 noundef %__n, ptr noundef %0) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__n.addr = alloca i64, align 8
-  %.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i64 %__n, ptr %__n.addr, align 8
-  store ptr %0, ptr %.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %1 = load i64, ptr %__n.addr, align 8
-  %call = call noundef i64 @_ZNKSt15__new_allocatorISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %this1) #14
-  %cmp = icmp ugt i64 %1, %call
-  br i1 %cmp, label %if.then, label %if.end4
-
-if.then:                                          ; preds = %entry
-  %2 = load i64, ptr %__n.addr, align 8
-  %cmp2 = icmp ugt i64 %2, 384307168202282325
-  br i1 %cmp2, label %if.then3, label %if.end
-
-if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #16
-  unreachable
-
-if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #16
-  unreachable
-
-if.end4:                                          ; preds = %entry
-  %3 = load i64, ptr %__n.addr, align 8
-  %mul = mul i64 %3, 48
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #15
-  ret ptr %call5
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #2 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 2
+  %5 = getelementptr inbounds [16 x i8], ptr %4, i64 0, i64 0
+  %6 = call noundef ptr @_ZNSt19__ptr_traits_ptr_toIPKcS0_Lb0EE10pointer_toERS0_(ptr noundef nonnull align 1 dereferenceable(1) %5) #18
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i64 @_ZNKSt15__new_allocatorISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %this) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  ret i64 192153584101141162
-}
-
-; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() #11
-
-; Function Attrs: noreturn
-declare void @_ZSt17__throw_bad_allocv() #11
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt15__new_allocatorISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS6_JRPKcmEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %__p, ptr noundef nonnull align 8 dereferenceable(8) %__args, ptr noundef nonnull align 8 dereferenceable(8) %__args1) #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__p.addr = alloca ptr, align 8
-  %__args.addr = alloca ptr, align 8
-  %__args.addr2 = alloca ptr, align 8
-  %ref.tmp = alloca %"class.std::allocator", align 1
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__p, ptr %__p.addr, align 8
-  store ptr %__args, ptr %__args.addr, align 8
-  store ptr %__args1, ptr %__args.addr2, align 8
-  %0 = load ptr, ptr %__p.addr, align 8
-  %1 = load ptr, ptr %__args.addr, align 8
-  %2 = load ptr, ptr %1, align 8
-  %3 = load ptr, ptr %__args.addr2, align 8
-  %4 = load i64, ptr %3, align 8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #14
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %2, i64 noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %entry
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #14
-  ret void
-
-lpad:                                             ; preds = %entry
-  %5 = landingpad { ptr, i32 }
-          cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #14
-  br label %eh.resume
-
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val4 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val4
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZN9__gnu_cxx16__aligned_membufINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef ptr @_ZN9__gnu_cxx16__aligned_membufINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7_M_addrEv(ptr noundef nonnull align 8 dereferenceable(32) %this1) #14
-  ret ptr %call
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZN9__gnu_cxx16__aligned_membufINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7_M_addrEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_storage = getelementptr inbounds %"struct.__gnu_cxx::__aligned_membuf", ptr %this1, i32 0, i32 0
-  ret ptr %_M_storage
+define linkonce_odr noundef ptr @_ZNSt19__ptr_traits_ptr_toIPKcS0_Lb0EE10pointer_toERS0_(ptr noundef nonnull align 1 dereferenceable(1) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  ret ptr %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt16allocator_traitsISaISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE10deallocateERS8_PS7_m(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %__p, i64 noundef %__n) #2 comdat align 2 {
-entry:
-  %__a.addr = alloca ptr, align 8
-  %__p.addr = alloca ptr, align 8
-  %__n.addr = alloca i64, align 8
-  store ptr %__a, ptr %__a.addr, align 8
-  store ptr %__p, ptr %__p.addr, align 8
-  store i64 %__n, ptr %__n.addr, align 8
-  %0 = load ptr, ptr %__a.addr, align 8
-  %1 = load ptr, ptr %__p.addr, align 8
-  %2 = load i64, ptr %__n.addr, align 8
-  call void @_ZNSt15__new_allocatorISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE10deallocateEPS7_m(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2)
+define linkonce_odr void @_ZNSt16allocator_traitsISaIcEE10deallocateERS0_Pcm(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = load i64, ptr %6, align 8
+  call void @_ZNSt15__new_allocatorIcE10deallocateEPcm(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, i64 noundef %9)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15__new_allocatorISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE10deallocateEPS7_m(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %__p, i64 noundef %__n) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__p.addr = alloca ptr, align 8
-  %__n.addr = alloca i64, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__p, ptr %__p.addr, align 8
-  store i64 %__n, ptr %__n.addr, align 8
-  %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZdlPv(ptr noundef %0) #17
+define available_externally noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE16_M_get_allocatorEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #2 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorIcE10deallocateEPcm(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #2 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %7 = load ptr, ptr %5, align 8
+  %8 = load i64, ptr %6, align 8
+  %9 = mul i64 %8, 1
+  call void @_ZdlPvm(ptr noundef %7, i64 noundef %9) #22
   ret void
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) #12
+declare void @_ZdlPvm(ptr noundef, i64 noundef) #15
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt14_List_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EPNSt8__detail15_List_node_baseE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %__x) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__x.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__x, ptr %__x.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_node = getelementptr inbounds %"struct.std::_List_iterator", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %__x.addr, align 8
-  store ptr %0, ptr %_M_node, align 8
+define linkonce_odr void @_ZNSt12_Vector_baseISt4pairIjfESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  call void @_ZNSt12_Vector_baseISt4pairIjfESaIS1_EE12_Vector_implC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt14_List_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEmmEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_node = getelementptr inbounds %"struct.std::_List_iterator", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %_M_node, align 8
-  %_M_prev = getelementptr inbounds %"struct.std::__detail::_List_node_base", ptr %0, i32 0, i32 1
-  %1 = load ptr, ptr %_M_prev, align 8
-  %_M_node2 = getelementptr inbounds %"struct.std::_List_iterator", ptr %this1, i32 0, i32 0
-  store ptr %1, ptr %_M_node2, align 8
-  ret ptr %this1
+define linkonce_odr void @_ZNSt12_Vector_baseISt4pairIjfESaIS1_EE12_Vector_implC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSaISt4pairIjfEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #18
+  call void @_ZNSt12_Vector_baseISt4pairIjfESaIS1_EE17_Vector_impl_dataC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #18
+  ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNKSt14_List_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_node = getelementptr inbounds %"struct.std::_List_iterator", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZNSt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9_M_valptrEv(ptr noundef nonnull align 8 dereferenceable(48) %0)
-  ret ptr %call
+define linkonce_odr void @_ZNSaISt4pairIjfEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt15__new_allocatorISt4pairIjfEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #18
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt12_Vector_baseISt4pairIjfESaIS1_EE17_Vector_impl_dataC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::pair<unsigned int, float>, std::allocator<std::pair<unsigned int, float>>>::_Vector_impl_data", ptr %3, i32 0, i32 0
+  store ptr null, ptr %4, align 8
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::pair<unsigned int, float>, std::allocator<std::pair<unsigned int, float>>>::_Vector_impl_data", ptr %3, i32 0, i32 1
+  store ptr null, ptr %5, align 8
+  %6 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::pair<unsigned int, float>, std::allocator<std::pair<unsigned int, float>>>::_Vector_impl_data", ptr %3, i32 0, i32 2
+  store ptr null, ptr %6, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorISt4pairIjfEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN8aiStringC2Ev(ptr noundef nonnull align 4 dereferenceable(1028) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %struct.aiString, ptr %3, i32 0, i32 0
+  store i32 0, ptr %4, align 4
+  %5 = getelementptr inbounds nuw %struct.aiString, ptr %3, i32 0, i32 1
+  call void @llvm.memset.p0.i64(ptr align 4 %5, i8 0, i64 1024, i1 false)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN6aiAABBC2Ev(ptr noundef nonnull align 4 dereferenceable(24) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %struct.aiAABB, ptr %3, i32 0, i32 0
+  call void @_ZN10aiVector3tIfEC2Ev(ptr noundef nonnull align 4 dereferenceable(12) %4) #18
+  %5 = getelementptr inbounds nuw %struct.aiAABB, ptr %3, i32 0, i32 1
+  call void @_ZN10aiVector3tIfEC2Ev(ptr noundef nonnull align 4 dereferenceable(12) %5) #18
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN12aiMatrix4x4tIfEC2Ev(ptr noundef nonnull align 4 dereferenceable(64) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %3, i32 0, i32 0
+  store float 1.000000e+00, ptr %4, align 4
+  %5 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %3, i32 0, i32 1
+  store float 0.000000e+00, ptr %5, align 4
+  %6 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %3, i32 0, i32 2
+  store float 0.000000e+00, ptr %6, align 4
+  %7 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %3, i32 0, i32 3
+  store float 0.000000e+00, ptr %7, align 4
+  %8 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %3, i32 0, i32 4
+  store float 0.000000e+00, ptr %8, align 4
+  %9 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %3, i32 0, i32 5
+  store float 1.000000e+00, ptr %9, align 4
+  %10 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %3, i32 0, i32 6
+  store float 0.000000e+00, ptr %10, align 4
+  %11 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %3, i32 0, i32 7
+  store float 0.000000e+00, ptr %11, align 4
+  %12 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %3, i32 0, i32 8
+  store float 0.000000e+00, ptr %12, align 4
+  %13 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %3, i32 0, i32 9
+  store float 0.000000e+00, ptr %13, align 4
+  %14 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %3, i32 0, i32 10
+  store float 1.000000e+00, ptr %14, align 4
+  %15 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %3, i32 0, i32 11
+  store float 0.000000e+00, ptr %15, align 4
+  %16 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %3, i32 0, i32 12
+  store float 0.000000e+00, ptr %16, align 4
+  %17 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %3, i32 0, i32 13
+  store float 0.000000e+00, ptr %17, align 4
+  %18 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %3, i32 0, i32 14
+  store float 0.000000e+00, ptr %18, align 4
+  %19 = getelementptr inbounds nuw %class.aiMatrix4x4t, ptr %3, i32 0, i32 15
+  store float 1.000000e+00, ptr %19, align 4
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZN6Assimp20SkipSpacesAndLineEndIcEEbPKT_PS3_S3_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #7 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  br label %7
+
+7:                                                ; preds = %33, %3
+  %8 = load ptr, ptr %4, align 8
+  %9 = load i8, ptr %8, align 1
+  %10 = sext i8 %9 to i32
+  %11 = icmp eq i32 %10, 32
+  br i1 %11, label %27, label %12
+
+12:                                               ; preds = %7
+  %13 = load ptr, ptr %4, align 8
+  %14 = load i8, ptr %13, align 1
+  %15 = sext i8 %14 to i32
+  %16 = icmp eq i32 %15, 9
+  br i1 %16, label %27, label %17
+
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %4, align 8
+  %19 = load i8, ptr %18, align 1
+  %20 = sext i8 %19 to i32
+  %21 = icmp eq i32 %20, 13
+  br i1 %21, label %27, label %22
+
+22:                                               ; preds = %17
+  %23 = load ptr, ptr %4, align 8
+  %24 = load i8, ptr %23, align 1
+  %25 = sext i8 %24 to i32
+  %26 = icmp eq i32 %25, 10
+  br i1 %26, label %27, label %31
+
+27:                                               ; preds = %22, %17, %12, %7
+  %28 = load ptr, ptr %4, align 8
+  %29 = load ptr, ptr %6, align 8
+  %30 = icmp ne ptr %28, %29
+  br label %31
+
+31:                                               ; preds = %27, %22
+  %32 = phi i1 [ false, %22 ], [ %30, %27 ]
+  br i1 %32, label %33, label %36
+
+33:                                               ; preds = %31
+  %34 = load ptr, ptr %4, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i32 1
+  store ptr %35, ptr %4, align 8
+  br label %7, !llvm.loop !31
+
+36:                                               ; preds = %31
+  %37 = load ptr, ptr %4, align 8
+  %38 = load ptr, ptr %5, align 8
+  store ptr %37, ptr %38, align 8
+  %39 = load ptr, ptr %4, align 8
+  %40 = load i8, ptr %39, align 1
+  %41 = sext i8 %40 to i32
+  %42 = icmp ne i32 %41, 0
+  ret i1 %42
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZSt3minIfERKT_S2_S2_(ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #7 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  %6 = load ptr, ptr %5, align 8
+  %7 = load float, ptr %6, align 4
+  %8 = load ptr, ptr %4, align 8
+  %9 = load float, ptr %8, align 4
+  %10 = fcmp olt float %7, %9
+  br i1 %10, label %11, label %13
+
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %5, align 8
+  store ptr %12, ptr %3, align 8
+  br label %15
+
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %4, align 8
+  store ptr %14, ptr %3, align 8
+  br label %15
+
+15:                                               ; preds = %13, %11
+  %16 = load ptr, ptr %3, align 8
+  ret ptr %16
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZSt3maxIfERKT_S2_S2_(ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #7 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  %6 = load ptr, ptr %4, align 8
+  %7 = load float, ptr %6, align 4
+  %8 = load ptr, ptr %5, align 8
+  %9 = load float, ptr %8, align 4
+  %10 = fcmp olt float %7, %9
+  br i1 %10, label %11, label %13
+
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %5, align 8
+  store ptr %12, ptr %3, align 8
+  br label %15
+
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %4, align 8
+  store ptr %14, ptr %3, align 8
+  br label %15
+
+15:                                               ; preds = %13, %11
+  %16 = load ptr, ptr %3, align 8
+  ret ptr %16
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9_M_insertIJS5_EEEvSt14_List_iteratorIS5_EDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(32) %__args) #2 comdat align 2 {
-entry:
-  %__position = alloca %"struct.std::_List_iterator", align 8
-  %this.addr = alloca ptr, align 8
-  %__args.addr = alloca ptr, align 8
-  %__tmp = alloca ptr, align 8
-  %coerce.dive = getelementptr inbounds %"struct.std::_List_iterator", ptr %__position, i32 0, i32 0
-  store ptr %__position.coerce, ptr %coerce.dive, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__args, ptr %__args.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %__args.addr, align 8
-  %call = call noundef ptr @_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE14_M_create_nodeIJS5_EEEPSt10_List_nodeIS5_EDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr %call, ptr %__tmp, align 8
-  %1 = load ptr, ptr %__tmp, align 8
-  %_M_node = getelementptr inbounds %"struct.std::_List_iterator", ptr %__position, i32 0, i32 0
-  %2 = load ptr, ptr %_M_node, align 8
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %2) #14
-  call void @_ZNSt7__cxx1110_List_baseINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_inc_sizeEm(ptr noundef nonnull align 8 dereferenceable(24) %this1, i64 noundef 1)
+define linkonce_odr void @_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9_M_insertIJRPKcmEEEvSt14_List_iteratorIS5_EDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3) #0 comdat align 2 {
+  %5 = alloca %"struct.std::_List_iterator", align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = getelementptr inbounds nuw %"struct.std::_List_iterator", ptr %5, i32 0, i32 0
+  store ptr %1, ptr %10, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %2, ptr %7, align 8
+  store ptr %3, ptr %8, align 8
+  %11 = load ptr, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #18
+  %12 = load ptr, ptr %7, align 8
+  %13 = load ptr, ptr %8, align 8
+  %14 = call noundef ptr @_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE14_M_create_nodeIJRPKcmEEEPSt10_List_nodeIS5_EDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %13)
+  store ptr %14, ptr %9, align 8
+  %15 = load ptr, ptr %9, align 8
+  %16 = getelementptr inbounds nuw %"struct.std::_List_iterator", ptr %5, i32 0, i32 0
+  %17 = load ptr, ptr %16, align 8
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef %17) #18
+  call void @_ZNSt7__cxx1110_List_baseINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_inc_sizeEm(ptr noundef nonnull align 8 dereferenceable(24) %11, i64 noundef 1)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #18
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr ptr @_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #2 comdat align 2 {
+  %2 = alloca %"struct.std::_List_iterator", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds nuw %"class.std::__cxx11::_List_base", ptr %4, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %"struct.std::__cxx11::_List_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_List_impl", ptr %5, i32 0, i32 0
+  call void @_ZNSt14_List_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EPNSt8__detail15_List_node_baseE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %6) #18
+  %7 = getelementptr inbounds nuw %"struct.std::_List_iterator", ptr %2, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8
+  ret ptr %8
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE4backEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"struct.std::_List_iterator", align 8
+  store ptr %0, ptr %2, align 8
+  %4 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #18
+  %5 = call ptr @_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %4) #18
+  %6 = getelementptr inbounds nuw %"struct.std::_List_iterator", ptr %3, i32 0, i32 0
+  store ptr %5, ptr %6, align 8
+  %7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt14_List_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEmmEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #18
+  %8 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNKSt14_List_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #18
+  ret ptr %8
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE14_M_create_nodeIJRPKcmEEEPSt10_List_nodeIS5_EDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca %"struct.std::__allocated_ptr", align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %12 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #18
+  %13 = call noundef ptr @_ZNSt7__cxx1110_List_baseINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_get_nodeEv(ptr noundef nonnull align 8 dereferenceable(24) %12)
+  store ptr %13, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #18
+  %14 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1110_List_baseINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE21_M_get_Node_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %12) #18
+  store ptr %14, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %9) #18
+  %15 = load ptr, ptr %8, align 8
+  %16 = load ptr, ptr %7, align 8
+  call void @_ZNSt15__allocated_ptrISaISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEC2ERS8_PS7_(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef %16) #18
+  %17 = load ptr, ptr %8, align 8
+  %18 = load ptr, ptr %7, align 8
+  %19 = invoke noundef ptr @_ZNSt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9_M_valptrEv(ptr noundef nonnull align 8 dereferenceable(48) %18)
+          to label %20 unwind label %26
+
+20:                                               ; preds = %3
+  %21 = load ptr, ptr %5, align 8
+  %22 = load ptr, ptr %6, align 8
+  invoke void @_ZNSt16allocator_traitsISaISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE9constructIS6_JRPKcmEEEvRS8_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %17, ptr noundef %19, ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %22)
+          to label %23 unwind label %26
+
+23:                                               ; preds = %20
+  %24 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt15__allocated_ptrISaISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEaSEDn(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr null) #18
+  %25 = load ptr, ptr %7, align 8
+  call void @_ZNSt15__allocated_ptrISaISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #18
+  call void @llvm.lifetime.end.p0(i64 16, ptr %9) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #18
+  ret ptr %25
+
+26:                                               ; preds = %20, %3
+  %27 = landingpad { ptr, i32 }
+          cleanup
+  %28 = extractvalue { ptr, i32 } %27, 0
+  store ptr %28, ptr %10, align 8
+  %29 = extractvalue { ptr, i32 } %27, 1
+  store i32 %29, ptr %11, align 4
+  call void @_ZNSt15__allocated_ptrISaISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #18
+  call void @llvm.lifetime.end.p0(i64 16, ptr %9) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #18
+  br label %30
+
+30:                                               ; preds = %26
+  %31 = load ptr, ptr %10, align 8
+  %32 = load i32, ptr %11, align 4
+  %33 = insertvalue { ptr, i32 } poison, ptr %31, 0
+  %34 = insertvalue { ptr, i32 } %33, i32 %32, 1
+  resume { ptr, i32 } %34
+}
+
+; Function Attrs: nounwind
+declare void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) #16
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt7__cxx1110_List_baseINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_inc_sizeEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8
+  %7 = getelementptr inbounds nuw %"class.std::__cxx11::_List_base", ptr %5, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::__cxx11::_List_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_List_impl", ptr %7, i32 0, i32 0
+  %9 = getelementptr inbounds nuw %"struct.std::__detail::_List_node_header", ptr %8, i32 0, i32 1
+  %10 = load i64, ptr %9, align 8
+  %11 = add i64 %10, %6
+  store i64 %11, ptr %9, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE14_M_create_nodeIJS5_EEEPSt10_List_nodeIS5_EDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %__args) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__args.addr = alloca ptr, align 8
-  %__p = alloca ptr, align 8
-  %__alloc = alloca ptr, align 8
-  %__guard = alloca %"struct.std::__allocated_ptr", align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__args, ptr %__args.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef ptr @_ZNSt7__cxx1110_List_baseINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_get_nodeEv(ptr noundef nonnull align 8 dereferenceable(24) %this1)
-  store ptr %call, ptr %__p, align 8
-  %call2 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1110_List_baseINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE21_M_get_Node_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #14
-  store ptr %call2, ptr %__alloc, align 8
-  %0 = load ptr, ptr %__alloc, align 8
-  %1 = load ptr, ptr %__p, align 8
-  call void @_ZNSt15__allocated_ptrISaISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEC2ERS8_PS7_(ptr noundef nonnull align 8 dereferenceable(16) %__guard, ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #14
-  %2 = load ptr, ptr %__alloc, align 8
-  %3 = load ptr, ptr %__p, align 8
-  %call3 = call noundef ptr @_ZNSt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9_M_valptrEv(ptr noundef nonnull align 8 dereferenceable(48) %3)
-  %4 = load ptr, ptr %__args.addr, align 8
-  call void @_ZNSt16allocator_traitsISaISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE9constructIS6_JS6_EEEvRS8_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef %call3, ptr noundef nonnull align 8 dereferenceable(32) %4) #14
-  %call4 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt15__allocated_ptrISaISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEaSEDn(ptr noundef nonnull align 8 dereferenceable(16) %__guard, ptr null) #14
-  %5 = load ptr, ptr %__p, align 8
-  call void @_ZNSt15__allocated_ptrISaISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %__guard) #14
+define linkonce_odr noundef ptr @_ZNSt7__cxx1110_List_baseINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_get_nodeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::_List_base", ptr %3, i32 0, i32 0
+  %5 = call noundef ptr @_ZNSt16allocator_traitsISaISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE8allocateERS8_m(ptr noundef nonnull align 1 dereferenceable(1) %4, i64 noundef 1)
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt16allocator_traitsISaISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE9constructIS6_JS6_EEEvRS8_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %__p, ptr noundef nonnull align 8 dereferenceable(32) %__args) #0 comdat align 2 {
-entry:
-  %__a.addr = alloca ptr, align 8
-  %__p.addr = alloca ptr, align 8
-  %__args.addr = alloca ptr, align 8
-  store ptr %__a, ptr %__a.addr, align 8
-  store ptr %__p, ptr %__p.addr, align 8
-  store ptr %__args, ptr %__args.addr, align 8
-  %0 = load ptr, ptr %__a.addr, align 8
-  %1 = load ptr, ptr %__p.addr, align 8
-  %2 = load ptr, ptr %__args.addr, align 8
-  call void @_ZNSt15__new_allocatorISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS6_JS6_EEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) #14
-  ret void
+define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1110_List_baseINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE21_M_get_Node_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::_List_base", ptr %3, i32 0, i32 0
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15__new_allocatorISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS6_JS6_EEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %__p, ptr noundef nonnull align 8 dereferenceable(32) %__args) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__p.addr = alloca ptr, align 8
-  %__args.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__p, ptr %__p.addr, align 8
-  store ptr %__args, ptr %__args.addr, align 8
-  %0 = load ptr, ptr %__p.addr, align 8
-  %1 = load ptr, ptr %__args.addr, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #14
-  ret void
-}
-
-; Function Attrs: nounwind
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #3
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #7
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef float @_ZSt4sqrtf(float noundef %__x) #0 comdat {
-entry:
-  %__x.addr = alloca float, align 4
-  store float %__x, ptr %__x.addr, align 4
-  %0 = load float, ptr %__x.addr, align 4
-  %call = call float @sqrtf(float noundef %0) #14
-  ret float %call
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef float @_ZNK10aiVector3tIfE12SquareLengthEv(ptr noundef nonnull align 4 dereferenceable(12) %this) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %x = getelementptr inbounds %class.aiVector3t, ptr %this1, i32 0, i32 0
-  %0 = load float, ptr %x, align 4
-  %x2 = getelementptr inbounds %class.aiVector3t, ptr %this1, i32 0, i32 0
-  %1 = load float, ptr %x2, align 4
-  %y = getelementptr inbounds %class.aiVector3t, ptr %this1, i32 0, i32 1
-  %2 = load float, ptr %y, align 4
-  %y3 = getelementptr inbounds %class.aiVector3t, ptr %this1, i32 0, i32 1
-  %3 = load float, ptr %y3, align 4
-  %mul4 = fmul float %2, %3
-  %4 = call float @llvm.fmuladd.f32(float %0, float %1, float %mul4)
-  %z = getelementptr inbounds %class.aiVector3t, ptr %this1, i32 0, i32 2
-  %5 = load float, ptr %z, align 4
-  %z5 = getelementptr inbounds %class.aiVector3t, ptr %this1, i32 0, i32 2
-  %6 = load float, ptr %z5, align 4
-  %7 = call float @llvm.fmuladd.f32(float %5, float %6, float %4)
-  ret float %7
-}
-
-; Function Attrs: nounwind
-declare float @sqrtf(float noundef) #3
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt16allocator_traitsISaISt4pairIjfEEE9constructIS1_JRjRKfEEEvRS2_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %__p, ptr noundef nonnull align 4 dereferenceable(4) %__args, ptr noundef nonnull align 4 dereferenceable(4) %__args1) #2 comdat align 2 {
-entry:
-  %__a.addr = alloca ptr, align 8
-  %__p.addr = alloca ptr, align 8
-  %__args.addr = alloca ptr, align 8
-  %__args.addr2 = alloca ptr, align 8
-  store ptr %__a, ptr %__a.addr, align 8
-  store ptr %__p, ptr %__p.addr, align 8
-  store ptr %__args, ptr %__args.addr, align 8
-  store ptr %__args1, ptr %__args.addr2, align 8
-  %0 = load ptr, ptr %__a.addr, align 8
-  %1 = load ptr, ptr %__p.addr, align 8
-  %2 = load ptr, ptr %__args.addr, align 8
-  %3 = load ptr, ptr %__args.addr2, align 8
-  call void @_ZNSt15__new_allocatorISt4pairIjfEE9constructIS1_JRjRKfEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %3)
+define linkonce_odr void @_ZNSt15__allocated_ptrISaISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEC2ERS8_PS7_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef %2) unnamed_addr #2 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %"struct.std::__allocated_ptr", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %5, align 8
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds nuw %"struct.std::__allocated_ptr", ptr %7, i32 0, i32 1
+  %11 = load ptr, ptr %6, align 8
+  store ptr %11, ptr %10, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt6vectorISt4pairIjfESaIS1_EE17_M_realloc_insertIJRjRKfEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 4 dereferenceable(4) %__args, ptr noundef nonnull align 4 dereferenceable(4) %__args1) #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %__position = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %this.addr = alloca ptr, align 8
-  %__args.addr = alloca ptr, align 8
-  %__args.addr2 = alloca ptr, align 8
-  %__len = alloca i64, align 8
-  %__old_start = alloca ptr, align 8
-  %__old_finish = alloca ptr, align 8
-  %__elems_before = alloca i64, align 8
-  %ref.tmp = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %__new_start = alloca ptr, align 8
-  %__new_finish = alloca ptr, align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  %coerce.dive = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %__position, i32 0, i32 0
-  store ptr %__position.coerce, ptr %coerce.dive, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__args, ptr %__args.addr, align 8
-  store ptr %__args1, ptr %__args.addr2, align 8
-  %this3 = load ptr, ptr %this.addr, align 8
-  %call = call noundef i64 @_ZNKSt6vectorISt4pairIjfESaIS1_EE12_M_check_lenEmPKc(ptr noundef nonnull align 8 dereferenceable(24) %this3, i64 noundef 1, ptr noundef @.str.8)
-  store i64 %call, ptr %__len, align 8
-  %_M_impl = getelementptr inbounds %"struct.std::_Vector_base", ptr %this3, i32 0, i32 0
-  %_M_start = getelementptr inbounds %"struct.std::_Vector_base<std::pair<unsigned int, float>, std::allocator<std::pair<unsigned int, float>>>::_Vector_impl_data", ptr %_M_impl, i32 0, i32 0
-  %0 = load ptr, ptr %_M_start, align 8
-  store ptr %0, ptr %__old_start, align 8
-  %_M_impl4 = getelementptr inbounds %"struct.std::_Vector_base", ptr %this3, i32 0, i32 0
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<std::pair<unsigned int, float>, std::allocator<std::pair<unsigned int, float>>>::_Vector_impl_data", ptr %_M_impl4, i32 0, i32 1
-  %1 = load ptr, ptr %_M_finish, align 8
-  store ptr %1, ptr %__old_finish, align 8
-  %call5 = call ptr @_ZNSt6vectorISt4pairIjfESaIS1_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %this3) #14
-  %coerce.dive6 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %ref.tmp, i32 0, i32 0
-  store ptr %call5, ptr %coerce.dive6, align 8
-  %call7 = call noundef i64 @_ZN9__gnu_cxxmiIPSt4pairIjfESt6vectorIS2_SaIS2_EEEENS_17__normal_iteratorIT_T0_E15difference_typeERKSA_SD_(ptr noundef nonnull align 8 dereferenceable(8) %__position, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #14
-  store i64 %call7, ptr %__elems_before, align 8
-  %2 = load i64, ptr %__len, align 8
-  %call8 = call noundef ptr @_ZNSt12_Vector_baseISt4pairIjfESaIS1_EE11_M_allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %this3, i64 noundef %2)
-  store ptr %call8, ptr %__new_start, align 8
-  %3 = load ptr, ptr %__new_start, align 8
-  store ptr %3, ptr %__new_finish, align 8
-  %_M_impl9 = getelementptr inbounds %"struct.std::_Vector_base", ptr %this3, i32 0, i32 0
-  %4 = load ptr, ptr %__new_start, align 8
-  %5 = load i64, ptr %__elems_before, align 8
-  %add.ptr = getelementptr inbounds %"struct.std::pair", ptr %4, i64 %5
-  %6 = load ptr, ptr %__args.addr, align 8
-  %7 = load ptr, ptr %__args.addr2, align 8
-  invoke void @_ZNSt16allocator_traitsISaISt4pairIjfEEE9constructIS1_JRjRKfEEEvRS2_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %_M_impl9, ptr noundef %add.ptr, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %7)
-          to label %invoke.cont unwind label %lpad
+define linkonce_odr void @_ZNSt16allocator_traitsISaISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE9constructIS6_JRPKcmEEEvRS8_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3) #0 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store ptr %2, ptr %7, align 8
+  store ptr %3, ptr %8, align 8
+  %9 = load ptr, ptr %5, align 8
+  %10 = load ptr, ptr %6, align 8
+  %11 = load ptr, ptr %7, align 8
+  %12 = load ptr, ptr %8, align 8
+  call void @_ZNSt15__new_allocatorISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS6_JRPKcmEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12)
+  ret void
+}
 
-invoke.cont:                                      ; preds = %entry
-  store ptr null, ptr %__new_finish, align 8
-  %8 = load ptr, ptr %__old_start, align 8
-  %call10 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt4pairIjfESt6vectorIS2_SaIS2_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %__position) #14
-  %9 = load ptr, ptr %call10, align 8
-  %10 = load ptr, ptr %__new_start, align 8
-  %call11 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseISt4pairIjfESaIS1_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %this3) #14
-  %call12 = call noundef ptr @_ZNSt6vectorISt4pairIjfESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_(ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef nonnull align 1 dereferenceable(1) %call11) #14
-  store ptr %call12, ptr %__new_finish, align 8
-  %11 = load ptr, ptr %__new_finish, align 8
-  %incdec.ptr = getelementptr inbounds %"struct.std::pair", ptr %11, i32 1
-  store ptr %incdec.ptr, ptr %__new_finish, align 8
-  %call13 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt4pairIjfESt6vectorIS2_SaIS2_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %__position) #14
-  %12 = load ptr, ptr %call13, align 8
-  %13 = load ptr, ptr %__old_finish, align 8
-  %14 = load ptr, ptr %__new_finish, align 8
-  %call14 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseISt4pairIjfESaIS1_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %this3) #14
-  %call15 = call noundef ptr @_ZNSt6vectorISt4pairIjfESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_(ptr noundef %12, ptr noundef %13, ptr noundef %14, ptr noundef nonnull align 1 dereferenceable(1) %call14) #14
-  store ptr %call15, ptr %__new_finish, align 8
-  br label %try.cont
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNSt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9_M_valptrEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_List_node", ptr %3, i32 0, i32 1
+  %5 = call noundef ptr @_ZN9__gnu_cxx16__aligned_membufINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
+  ret ptr %5
+}
 
-lpad:                                             ; preds = %entry
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt15__allocated_ptrISaISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEaSEDn(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"struct.std::__allocated_ptr", ptr %5, i32 0, i32 1
+  store ptr null, ptr %6, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__allocated_ptrISaISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::__allocated_ptr", ptr %3, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8
+  %6 = icmp ne ptr %5, null
+  br i1 %6, label %7, label %13
+
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds nuw %"struct.std::__allocated_ptr", ptr %3, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8
+  %10 = getelementptr inbounds nuw %"struct.std::__allocated_ptr", ptr %3, i32 0, i32 1
+  %11 = load ptr, ptr %10, align 8
+  invoke void @_ZNSt16allocator_traitsISaISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE10deallocateERS8_PS7_m(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef %11, i64 noundef 1)
+          to label %12 unwind label %14
+
+12:                                               ; preds = %7
+  br label %13
+
+13:                                               ; preds = %12, %1
+  ret void
+
+14:                                               ; preds = %7
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %exn.slot, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %ehselector.slot, align 4
-  br label %catch
+  call void @__clang_call_terminate(ptr %16) #19
+  unreachable
+}
 
-catch:                                            ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %18 = call ptr @__cxa_begin_catch(ptr %exn) #14
-  %19 = load ptr, ptr %__new_finish, align 8
-  %tobool = icmp ne ptr %19, null
-  br i1 %tobool, label %if.else, label %if.then
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZNSt16allocator_traitsISaISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE8allocateERS8_m(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8
+  %7 = call noundef ptr @_ZNSt15__new_allocatorISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %5, i64 noundef %6, ptr noundef null)
+  ret ptr %7
+}
 
-if.then:                                          ; preds = %catch
-  %_M_impl16 = getelementptr inbounds %"struct.std::_Vector_base", ptr %this3, i32 0, i32 0
-  %20 = load ptr, ptr %__new_start, align 8
-  %21 = load i64, ptr %__elems_before, align 8
-  %add.ptr17 = getelementptr inbounds %"struct.std::pair", ptr %20, i64 %21
-  call void @_ZNSt16allocator_traitsISaISt4pairIjfEEE7destroyIS1_EEvRS2_PT_(ptr noundef nonnull align 1 dereferenceable(1) %_M_impl16, ptr noundef %add.ptr17) #14
-  br label %if.end
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZNSt15__new_allocatorISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1, ptr noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store i64 %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load i64, ptr %5, align 8
+  %9 = call noundef i64 @_ZNKSt15__new_allocatorISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %7) #18
+  %10 = icmp ugt i64 %8, %9
+  %11 = zext i1 %10 to i64
+  %12 = call i64 @llvm.expect.i64(i64 %11, i64 0)
+  %13 = icmp ne i64 %12, 0
+  br i1 %13, label %14, label %19
 
-if.else:                                          ; preds = %catch
-  %22 = load ptr, ptr %__new_start, align 8
-  %23 = load ptr, ptr %__new_finish, align 8
-  %call18 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseISt4pairIjfESaIS1_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %this3) #14
-  invoke void @_ZSt8_DestroyIPSt4pairIjfES1_EvT_S3_RSaIT0_E(ptr noundef %22, ptr noundef %23, ptr noundef nonnull align 1 dereferenceable(1) %call18)
-          to label %invoke.cont20 unwind label %lpad19
+14:                                               ; preds = %3
+  %15 = load i64, ptr %5, align 8
+  %16 = icmp ugt i64 %15, 384307168202282325
+  br i1 %16, label %17, label %18
 
-invoke.cont20:                                    ; preds = %if.else
-  br label %if.end
+17:                                               ; preds = %14
+  call void @_ZSt28__throw_bad_array_new_lengthv() #21
+  unreachable
 
-lpad19:                                           ; preds = %invoke.cont21, %if.end, %if.else
-  %24 = landingpad { ptr, i32 }
+18:                                               ; preds = %14
+  call void @_ZSt17__throw_bad_allocv() #21
+  unreachable
+
+19:                                               ; preds = %3
+  %20 = load i64, ptr %5, align 8
+  %21 = mul i64 %20, 48
+  %22 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #20
+  ret ptr %22
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNKSt15__new_allocatorISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret i64 192153584101141162
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
+declare i64 @llvm.expect.i64(i64, i64) #17
+
+; Function Attrs: noreturn
+declare void @_ZSt28__throw_bad_array_new_lengthv() #12
+
+; Function Attrs: noreturn
+declare void @_ZSt17__throw_bad_allocv() #12
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS6_JRPKcmEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca %"class.std::allocator", align 1
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store ptr %2, ptr %7, align 8
+  store ptr %3, ptr %8, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = load ptr, ptr %7, align 8
+  %14 = load ptr, ptr %13, align 8
+  %15 = load ptr, ptr %8, align 8
+  %16 = load i64, ptr %15, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #18
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #18
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef %14, i64 noundef %16, ptr noundef nonnull align 1 dereferenceable(1) %9)
+          to label %17 unwind label %18
+
+17:                                               ; preds = %4
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #18
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #18
+  ret void
+
+18:                                               ; preds = %4
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %exn.slot, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %ehselector.slot, align 4
-  invoke void @__cxa_end_catch()
-          to label %invoke.cont22 unwind label %terminate.lpad
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %10, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %11, align 4
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #18
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #18
+  br label %22
 
-if.end:                                           ; preds = %invoke.cont20, %if.then
-  %27 = load ptr, ptr %__new_start, align 8
-  %28 = load i64, ptr %__len, align 8
-  invoke void @_ZNSt12_Vector_baseISt4pairIjfESaIS1_EE13_M_deallocateEPS1_m(ptr noundef nonnull align 8 dereferenceable(24) %this3, ptr noundef %27, i64 noundef %28)
-          to label %invoke.cont21 unwind label %lpad19
+22:                                               ; preds = %18
+  %23 = load ptr, ptr %10, align 8
+  %24 = load i32, ptr %11, align 4
+  %25 = insertvalue { ptr, i32 } poison, ptr %23, 0
+  %26 = insertvalue { ptr, i32 } %25, i32 %24, 1
+  resume { ptr, i32 } %26
+}
 
-invoke.cont21:                                    ; preds = %if.end
-  invoke void @__cxa_rethrow() #16
-          to label %unreachable unwind label %lpad19
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZN9__gnu_cxx16__aligned_membufINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZN9__gnu_cxx16__aligned_membufINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7_M_addrEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
+  ret ptr %4
+}
 
-invoke.cont22:                                    ; preds = %lpad19
-  br label %eh.resume
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZN9__gnu_cxx16__aligned_membufINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7_M_addrEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.__gnu_cxx::__aligned_membuf", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
 
-try.cont:                                         ; preds = %invoke.cont
-  %29 = load ptr, ptr %__old_start, align 8
-  %_M_impl23 = getelementptr inbounds %"struct.std::_Vector_base", ptr %this3, i32 0, i32 0
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<std::pair<unsigned int, float>, std::allocator<std::pair<unsigned int, float>>>::_Vector_impl_data", ptr %_M_impl23, i32 0, i32 2
-  %30 = load ptr, ptr %_M_end_of_storage, align 8
-  %31 = load ptr, ptr %__old_start, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %30 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %31 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 8
-  call void @_ZNSt12_Vector_baseISt4pairIjfESaIS1_EE13_M_deallocateEPS1_m(ptr noundef nonnull align 8 dereferenceable(24) %this3, ptr noundef %29, i64 noundef %sub.ptr.div)
-  %32 = load ptr, ptr %__new_start, align 8
-  %_M_impl24 = getelementptr inbounds %"struct.std::_Vector_base", ptr %this3, i32 0, i32 0
-  %_M_start25 = getelementptr inbounds %"struct.std::_Vector_base<std::pair<unsigned int, float>, std::allocator<std::pair<unsigned int, float>>>::_Vector_impl_data", ptr %_M_impl24, i32 0, i32 0
-  store ptr %32, ptr %_M_start25, align 8
-  %33 = load ptr, ptr %__new_finish, align 8
-  %_M_impl26 = getelementptr inbounds %"struct.std::_Vector_base", ptr %this3, i32 0, i32 0
-  %_M_finish27 = getelementptr inbounds %"struct.std::_Vector_base<std::pair<unsigned int, float>, std::allocator<std::pair<unsigned int, float>>>::_Vector_impl_data", ptr %_M_impl26, i32 0, i32 1
-  store ptr %33, ptr %_M_finish27, align 8
-  %34 = load ptr, ptr %__new_start, align 8
-  %35 = load i64, ptr %__len, align 8
-  %add.ptr28 = getelementptr inbounds %"struct.std::pair", ptr %34, i64 %35
-  %_M_impl29 = getelementptr inbounds %"struct.std::_Vector_base", ptr %this3, i32 0, i32 0
-  %_M_end_of_storage30 = getelementptr inbounds %"struct.std::_Vector_base<std::pair<unsigned int, float>, std::allocator<std::pair<unsigned int, float>>>::_Vector_impl_data", ptr %_M_impl29, i32 0, i32 2
-  store ptr %add.ptr28, ptr %_M_end_of_storage30, align 8
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt16allocator_traitsISaISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE10deallocateERS8_PS7_m(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = load i64, ptr %6, align 8
+  call void @_ZNSt15__new_allocatorISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE10deallocateEPS7_m(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, i64 noundef %9)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE10deallocateEPS7_m(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #2 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %7 = load ptr, ptr %5, align 8
+  %8 = load i64, ptr %6, align 8
+  %9 = mul i64 %8, 48
+  call void @_ZdlPvm(ptr noundef %7, i64 noundef %9) #22
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt14_List_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EPNSt8__detail15_List_node_baseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"struct.std::_List_iterator", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8
+  store ptr %7, ptr %6, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt14_List_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEmmEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_List_iterator", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds nuw %"struct.std::__detail::_List_node_base", ptr %5, i32 0, i32 1
+  %7 = load ptr, ptr %6, align 8
+  %8 = getelementptr inbounds nuw %"struct.std::_List_iterator", ptr %3, i32 0, i32 0
+  store ptr %7, ptr %8, align 8
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNKSt14_List_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_List_iterator", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8
+  %6 = call noundef ptr @_ZNSt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9_M_valptrEv(ptr noundef nonnull align 8 dereferenceable(48) %5)
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9_M_insertIJS5_EEEvSt14_List_iteratorIS5_EDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) #0 comdat align 2 {
+  %4 = alloca %"struct.std::_List_iterator", align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = getelementptr inbounds nuw %"struct.std::_List_iterator", ptr %4, i32 0, i32 0
+  store ptr %1, ptr %8, align 8
+  store ptr %0, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %9 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #18
+  %10 = load ptr, ptr %6, align 8
+  %11 = call noundef ptr @_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE14_M_create_nodeIJS5_EEEPSt10_List_nodeIS5_EDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(32) %10)
+  store ptr %11, ptr %7, align 8
+  %12 = load ptr, ptr %7, align 8
+  %13 = getelementptr inbounds nuw %"struct.std::_List_iterator", ptr %4, i32 0, i32 0
+  %14 = load ptr, ptr %13, align 8
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef %14) #18
+  call void @_ZNSt7__cxx1110_List_baseINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_inc_sizeEm(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 noundef 1)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #18
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE14_M_create_nodeIJS5_EEEPSt10_List_nodeIS5_EDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %"struct.std::__allocated_ptr", align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %8 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #18
+  %9 = call noundef ptr @_ZNSt7__cxx1110_List_baseINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_get_nodeEv(ptr noundef nonnull align 8 dereferenceable(24) %8)
+  store ptr %9, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #18
+  %10 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1110_List_baseINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE21_M_get_Node_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #18
+  store ptr %10, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %7) #18
+  %11 = load ptr, ptr %6, align 8
+  %12 = load ptr, ptr %5, align 8
+  call void @_ZNSt15__allocated_ptrISaISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEC2ERS8_PS7_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef %12) #18
+  %13 = load ptr, ptr %6, align 8
+  %14 = load ptr, ptr %5, align 8
+  %15 = call noundef ptr @_ZNSt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9_M_valptrEv(ptr noundef nonnull align 8 dereferenceable(48) %14)
+  %16 = load ptr, ptr %4, align 8
+  call void @_ZNSt16allocator_traitsISaISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE9constructIS6_JS6_EEEvRS8_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef %15, ptr noundef nonnull align 8 dereferenceable(32) %16) #18
+  %17 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt15__allocated_ptrISaISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEaSEDn(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr null) #18
+  %18 = load ptr, ptr %5, align 8
+  call void @_ZNSt15__allocated_ptrISaISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #18
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #18
+  ret ptr %18
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt16allocator_traitsISaISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE9constructIS6_JS6_EEEvRS8_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) #2 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = load ptr, ptr %6, align 8
+  call void @_ZNSt15__new_allocatorISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS6_JS6_EEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(32) %9) #18
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS6_JS6_EEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) #2 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %6, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %8) #18
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %5, i32 0, i32 0
+  %7 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %5)
+  %8 = load ptr, ptr %4, align 8
+  %9 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE16_M_get_allocatorEv(ptr noundef nonnull align 8 dereferenceable(32) %8)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC2EPcOS3_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %9)
+          to label %10 unwind label %38
+
+10:                                               ; preds = %2
+  %11 = load ptr, ptr %4, align 8
+  %12 = invoke noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv(ptr noundef nonnull align 8 dereferenceable(32) %11)
+          to label %13 unwind label %38
+
+13:                                               ; preds = %10
+  br i1 %12, label %14, label %24
+
+14:                                               ; preds = %13
+  %15 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %5, i32 0, i32 2
+  %16 = getelementptr inbounds [16 x i8], ptr %15, i64 0, i64 0
+  %17 = load ptr, ptr %4, align 8
+  %18 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %17, i32 0, i32 2
+  %19 = getelementptr inbounds [16 x i8], ptr %18, i64 0, i64 0
+  %20 = load ptr, ptr %4, align 8
+  %21 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %20) #18
+  %22 = add i64 %21, 1
+  %23 = call noundef ptr @_ZNSt11char_traitsIcE4copyEPcPKcm(ptr noundef %16, ptr noundef %19, i64 noundef %22)
+  br label %30
+
+24:                                               ; preds = %13
+  %25 = load ptr, ptr %4, align 8
+  %26 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %25)
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %26)
+  %27 = load ptr, ptr %4, align 8
+  %28 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %27, i32 0, i32 2
+  %29 = load i64, ptr %28, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEm(ptr noundef nonnull align 8 dereferenceable(32) %5, i64 noundef %29)
+  br label %30
+
+30:                                               ; preds = %24, %14
+  %31 = load ptr, ptr %4, align 8
+  %32 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %31) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %5, i64 noundef %32)
+  %33 = load ptr, ptr %4, align 8
+  %34 = load ptr, ptr %4, align 8
+  %35 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %34)
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef %35)
+  %36 = load ptr, ptr %4, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %36, i64 noundef 0)
+          to label %37 unwind label %38
+
+37:                                               ; preds = %30
   ret void
 
-eh.resume:                                        ; preds = %invoke.cont22
-  %exn31 = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn31, 0
-  %lpad.val32 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val32
-
-terminate.lpad:                                   ; preds = %lpad19
-  %36 = landingpad { ptr, i32 }
+38:                                               ; preds = %30, %10, %2
+  %39 = landingpad { ptr, i32 }
           catch ptr null
-  %37 = extractvalue { ptr, i32 } %36, 0
-  call void @__clang_call_terminate(ptr %37) #13
-  unreachable
-
-unreachable:                                      ; preds = %invoke.cont21
+  %40 = extractvalue { ptr, i32 } %39, 0
+  call void @__clang_call_terminate(ptr %40) #19
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr ptr @_ZNSt6vectorISt4pairIjfESaIS1_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %this) #0 comdat align 2 {
-entry:
-  %retval = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_impl = getelementptr inbounds %"struct.std::_Vector_base", ptr %this1, i32 0, i32 0
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<std::pair<unsigned int, float>, std::allocator<std::pair<unsigned int, float>>>::_Vector_impl_data", ptr %_M_impl, i32 0, i32 1
-  call void @_ZN9__gnu_cxx17__normal_iteratorIPSt4pairIjfESt6vectorIS2_SaIS2_EEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %retval, ptr noundef nonnull align 8 dereferenceable(8) %_M_finish) #14
-  %coerce.dive = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %retval, i32 0, i32 0
-  %0 = load ptr, ptr %coerce.dive, align 8
-  ret ptr %0
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 4 dereferenceable(8) ptr @_ZNSt6vectorISt4pairIjfESaIS1_EE4backEv(ptr noundef nonnull align 8 dereferenceable(24) %this) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %ref.tmp = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %ref.tmp2 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call ptr @_ZNSt6vectorISt4pairIjfESaIS1_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #14
-  %coerce.dive = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %ref.tmp2, i32 0, i32 0
-  store ptr %call, ptr %coerce.dive, align 8
-  %call3 = call ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt4pairIjfESt6vectorIS2_SaIS2_EEEmiEl(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2, i64 noundef 1) #14
-  %coerce.dive4 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %ref.tmp, i32 0, i32 0
-  store ptr %call3, ptr %coerce.dive4, align 8
-  %call5 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt4pairIjfESt6vectorIS2_SaIS2_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #14
-  ret ptr %call5
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt15__new_allocatorISt4pairIjfEE9constructIS1_JRjRKfEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %__p, ptr noundef nonnull align 4 dereferenceable(4) %__args, ptr noundef nonnull align 4 dereferenceable(4) %__args1) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__p.addr = alloca ptr, align 8
-  %__args.addr = alloca ptr, align 8
-  %__args.addr2 = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__p, ptr %__p.addr, align 8
-  store ptr %__args, ptr %__args.addr, align 8
-  store ptr %__args1, ptr %__args.addr2, align 8
-  %0 = load ptr, ptr %__p.addr, align 8
-  %1 = load ptr, ptr %__args.addr, align 8
-  %2 = load ptr, ptr %__args.addr2, align 8
-  call void @_ZNSt4pairIjfEC2IRjRKfTnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS6_S7_EEEbE4typeELb1EEEOS6_OS7_(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC2EPcOS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #2 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %6, align 8
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 1 dereferenceable(1) %8) #18
+  %9 = getelementptr inbounds nuw %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", ptr %7, i32 0, i32 0
+  %10 = load ptr, ptr %5, align 8
+  store ptr %10, ptr %9, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt4pairIjfEC2IRjRKfTnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS6_S7_EEEbE4typeELb1EEEOS6_OS7_(ptr noundef nonnull align 4 dereferenceable(8) %this, ptr noundef nonnull align 4 dereferenceable(4) %__x, ptr noundef nonnull align 4 dereferenceable(4) %__y) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__x.addr = alloca ptr, align 8
-  %__y.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__x, ptr %__x.addr, align 8
-  store ptr %__y, ptr %__y.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %first = getelementptr inbounds %"struct.std::pair", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %__x.addr, align 8
-  %1 = load i32, ptr %0, align 4
-  store i32 %1, ptr %first, align 4
-  %second = getelementptr inbounds %"struct.std::pair", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %__y.addr, align 8
+define available_externally noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #2 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 1
+  %5 = load i64, ptr %4, align 8
+  ret i64 %5
+}
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.fmuladd.f32(float, float, float) #9
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef float @_ZSt4sqrtf(float noundef %0) #7 comdat {
+  %2 = alloca float, align 4
+  store float %0, ptr %2, align 4
   %3 = load float, ptr %2, align 4
-  store float %3, ptr %second, align 4
+  %4 = call float @sqrtf(float noundef %3) #18
+  ret float %4
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden noundef float @_ZNK10aiVector3tIfE12SquareLengthEv(ptr noundef nonnull align 4 dereferenceable(12) %0) #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.aiVector3t, ptr %3, i32 0, i32 0
+  %5 = load float, ptr %4, align 4
+  %6 = getelementptr inbounds nuw %class.aiVector3t, ptr %3, i32 0, i32 0
+  %7 = load float, ptr %6, align 4
+  %8 = getelementptr inbounds nuw %class.aiVector3t, ptr %3, i32 0, i32 1
+  %9 = load float, ptr %8, align 4
+  %10 = getelementptr inbounds nuw %class.aiVector3t, ptr %3, i32 0, i32 1
+  %11 = load float, ptr %10, align 4
+  %12 = fmul float %9, %11
+  %13 = call float @llvm.fmuladd.f32(float %5, float %7, float %12)
+  %14 = getelementptr inbounds nuw %class.aiVector3t, ptr %3, i32 0, i32 2
+  %15 = load float, ptr %14, align 4
+  %16 = getelementptr inbounds nuw %class.aiVector3t, ptr %3, i32 0, i32 2
+  %17 = load float, ptr %16, align 4
+  %18 = call float @llvm.fmuladd.f32(float %15, float %17, float %13)
+  ret float %18
+}
+
+; Function Attrs: nounwind
+declare float @sqrtf(float noundef) #16
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt16allocator_traitsISaISt4pairIjfEEE9constructIS1_JRjRKfEEEvRS2_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %3) #0 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store ptr %2, ptr %7, align 8
+  store ptr %3, ptr %8, align 8
+  %9 = load ptr, ptr %5, align 8
+  %10 = load ptr, ptr %6, align 8
+  %11 = load ptr, ptr %7, align 8
+  %12 = load ptr, ptr %8, align 8
+  call void @_ZNSt15__new_allocatorISt4pairIjfEE9constructIS1_JRjRKfEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef %10, ptr noundef nonnull align 4 dereferenceable(4) %11, ptr noundef nonnull align 4 dereferenceable(4) %12)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef i64 @_ZNKSt6vectorISt4pairIjfESaIS1_EE12_M_check_lenEmPKc(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %__n, ptr noundef %__s) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__n.addr = alloca i64, align 8
-  %__s.addr = alloca ptr, align 8
-  %__len = alloca i64, align 8
-  %ref.tmp = alloca i64, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i64 %__n, ptr %__n.addr, align 8
-  store ptr %__s, ptr %__s.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef i64 @_ZNKSt6vectorISt4pairIjfESaIS1_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #14
-  %call2 = call noundef i64 @_ZNKSt6vectorISt4pairIjfESaIS1_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #14
-  %sub = sub i64 %call, %call2
-  %0 = load i64, ptr %__n.addr, align 8
-  %cmp = icmp ult i64 %sub, %0
-  br i1 %cmp, label %if.then, label %if.end
+define linkonce_odr void @_ZNSt6vectorISt4pairIjfESaIS1_EE17_M_realloc_insertIJRjRKfEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %3) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %5 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i64, align 8
+  %13 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca i32, align 4
+  %18 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %5, i32 0, i32 0
+  store ptr %1, ptr %18, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %2, ptr %7, align 8
+  store ptr %3, ptr %8, align 8
+  %19 = load ptr, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #18
+  %20 = call noundef i64 @_ZNKSt6vectorISt4pairIjfESaIS1_EE12_M_check_lenEmPKc(ptr noundef nonnull align 8 dereferenceable(24) %19, i64 noundef 1, ptr noundef @.str.9)
+  store i64 %20, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #18
+  %21 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %19, i32 0, i32 0
+  %22 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::pair<unsigned int, float>, std::allocator<std::pair<unsigned int, float>>>::_Vector_impl_data", ptr %21, i32 0, i32 0
+  %23 = load ptr, ptr %22, align 8
+  store ptr %23, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #18
+  %24 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %19, i32 0, i32 0
+  %25 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::pair<unsigned int, float>, std::allocator<std::pair<unsigned int, float>>>::_Vector_impl_data", ptr %24, i32 0, i32 1
+  %26 = load ptr, ptr %25, align 8
+  store ptr %26, ptr %11, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #18
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #18
+  %27 = call ptr @_ZNSt6vectorISt4pairIjfESaIS1_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %19) #18
+  %28 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %13, i32 0, i32 0
+  store ptr %27, ptr %28, align 8
+  %29 = call noundef i64 @_ZN9__gnu_cxxmiIPSt4pairIjfESt6vectorIS2_SaIS2_EEEENS_17__normal_iteratorIT_T0_E15difference_typeERKSA_SD_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %13) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #18
+  store i64 %29, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #18
+  %30 = load i64, ptr %9, align 8
+  %31 = call noundef ptr @_ZNSt12_Vector_baseISt4pairIjfESaIS1_EE11_M_allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %19, i64 noundef %30)
+  store ptr %31, ptr %14, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #18
+  %32 = load ptr, ptr %14, align 8
+  store ptr %32, ptr %15, align 8
+  %33 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %19, i32 0, i32 0
+  %34 = load ptr, ptr %14, align 8
+  %35 = load i64, ptr %12, align 8
+  %36 = getelementptr inbounds nuw %"struct.std::pair", ptr %34, i64 %35
+  %37 = load ptr, ptr %7, align 8
+  %38 = load ptr, ptr %8, align 8
+  invoke void @_ZNSt16allocator_traitsISaISt4pairIjfEEE9constructIS1_JRjRKfEEEvRS2_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %33, ptr noundef %36, ptr noundef nonnull align 4 dereferenceable(4) %37, ptr noundef nonnull align 4 dereferenceable(4) %38)
+          to label %39 unwind label %54
 
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %__s.addr, align 8
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef %1) #16
+39:                                               ; preds = %4
+  store ptr null, ptr %15, align 8
+  %40 = load ptr, ptr %10, align 8
+  %41 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt4pairIjfESt6vectorIS2_SaIS2_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #18
+  %42 = load ptr, ptr %41, align 8
+  %43 = load ptr, ptr %14, align 8
+  %44 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseISt4pairIjfESaIS1_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %19) #18
+  %45 = call noundef ptr @_ZNSt6vectorISt4pairIjfESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_(ptr noundef %40, ptr noundef %42, ptr noundef %43, ptr noundef nonnull align 1 dereferenceable(1) %44) #18
+  store ptr %45, ptr %15, align 8
+  %46 = load ptr, ptr %15, align 8
+  %47 = getelementptr inbounds nuw %"struct.std::pair", ptr %46, i32 1
+  store ptr %47, ptr %15, align 8
+  %48 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt4pairIjfESt6vectorIS2_SaIS2_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #18
+  %49 = load ptr, ptr %48, align 8
+  %50 = load ptr, ptr %11, align 8
+  %51 = load ptr, ptr %15, align 8
+  %52 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseISt4pairIjfESaIS1_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %19) #18
+  %53 = call noundef ptr @_ZNSt6vectorISt4pairIjfESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_(ptr noundef %49, ptr noundef %50, ptr noundef %51, ptr noundef nonnull align 1 dereferenceable(1) %52) #18
+  store ptr %53, ptr %15, align 8
+  br label %82
+
+54:                                               ; preds = %4
+  %55 = landingpad { ptr, i32 }
+          catch ptr null
+  %56 = extractvalue { ptr, i32 } %55, 0
+  store ptr %56, ptr %16, align 8
+  %57 = extractvalue { ptr, i32 } %55, 1
+  store i32 %57, ptr %17, align 4
+  br label %58
+
+58:                                               ; preds = %54
+  %59 = load ptr, ptr %16, align 8
+  %60 = call ptr @__cxa_begin_catch(ptr %59) #18
+  %61 = load ptr, ptr %15, align 8
+  %62 = icmp ne ptr %61, null
+  br i1 %62, label %68, label %63
+
+63:                                               ; preds = %58
+  %64 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %19, i32 0, i32 0
+  %65 = load ptr, ptr %14, align 8
+  %66 = load i64, ptr %12, align 8
+  %67 = getelementptr inbounds nuw %"struct.std::pair", ptr %65, i64 %66
+  call void @_ZNSt16allocator_traitsISaISt4pairIjfEEE7destroyIS1_EEvRS2_PT_(ptr noundef nonnull align 1 dereferenceable(1) %64, ptr noundef %67) #18
+  br label %77
+
+68:                                               ; preds = %58
+  %69 = load ptr, ptr %14, align 8
+  %70 = load ptr, ptr %15, align 8
+  %71 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseISt4pairIjfESaIS1_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %19) #18
+  invoke void @_ZSt8_DestroyIPSt4pairIjfES1_EvT_S3_RSaIT0_E(ptr noundef %69, ptr noundef %70, ptr noundef nonnull align 1 dereferenceable(1) %71)
+          to label %72 unwind label %73
+
+72:                                               ; preds = %68
+  br label %77
+
+73:                                               ; preds = %80, %77, %68
+  %74 = landingpad { ptr, i32 }
+          cleanup
+  %75 = extractvalue { ptr, i32 } %74, 0
+  store ptr %75, ptr %16, align 8
+  %76 = extractvalue { ptr, i32 } %74, 1
+  store i32 %76, ptr %17, align 4
+  invoke void @__cxa_end_catch()
+          to label %81 unwind label %108
+
+77:                                               ; preds = %72, %63
+  %78 = load ptr, ptr %14, align 8
+  %79 = load i64, ptr %9, align 8
+  invoke void @_ZNSt12_Vector_baseISt4pairIjfESaIS1_EE13_M_deallocateEPS1_m(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef %78, i64 noundef %79)
+          to label %80 unwind label %73
+
+80:                                               ; preds = %77
+  invoke void @__cxa_rethrow() #21
+          to label %111 unwind label %73
+
+81:                                               ; preds = %73
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #18
+  br label %103
+
+82:                                               ; preds = %39
+  %83 = load ptr, ptr %10, align 8
+  %84 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %19, i32 0, i32 0
+  %85 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::pair<unsigned int, float>, std::allocator<std::pair<unsigned int, float>>>::_Vector_impl_data", ptr %84, i32 0, i32 2
+  %86 = load ptr, ptr %85, align 8
+  %87 = load ptr, ptr %10, align 8
+  %88 = ptrtoint ptr %86 to i64
+  %89 = ptrtoint ptr %87 to i64
+  %90 = sub i64 %88, %89
+  %91 = sdiv exact i64 %90, 8
+  call void @_ZNSt12_Vector_baseISt4pairIjfESaIS1_EE13_M_deallocateEPS1_m(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef %83, i64 noundef %91)
+  %92 = load ptr, ptr %14, align 8
+  %93 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %19, i32 0, i32 0
+  %94 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::pair<unsigned int, float>, std::allocator<std::pair<unsigned int, float>>>::_Vector_impl_data", ptr %93, i32 0, i32 0
+  store ptr %92, ptr %94, align 8
+  %95 = load ptr, ptr %15, align 8
+  %96 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %19, i32 0, i32 0
+  %97 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::pair<unsigned int, float>, std::allocator<std::pair<unsigned int, float>>>::_Vector_impl_data", ptr %96, i32 0, i32 1
+  store ptr %95, ptr %97, align 8
+  %98 = load ptr, ptr %14, align 8
+  %99 = load i64, ptr %9, align 8
+  %100 = getelementptr inbounds nuw %"struct.std::pair", ptr %98, i64 %99
+  %101 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %19, i32 0, i32 0
+  %102 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::pair<unsigned int, float>, std::allocator<std::pair<unsigned int, float>>>::_Vector_impl_data", ptr %101, i32 0, i32 2
+  store ptr %100, ptr %102, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #18
+  ret void
+
+103:                                              ; preds = %81
+  %104 = load ptr, ptr %16, align 8
+  %105 = load i32, ptr %17, align 4
+  %106 = insertvalue { ptr, i32 } poison, ptr %104, 0
+  %107 = insertvalue { ptr, i32 } %106, i32 %105, 1
+  resume { ptr, i32 } %107
+
+108:                                              ; preds = %73
+  %109 = landingpad { ptr, i32 }
+          catch ptr null
+  %110 = extractvalue { ptr, i32 } %109, 0
+  call void @__clang_call_terminate(ptr %110) #19
   unreachable
 
-if.end:                                           ; preds = %entry
-  %call3 = call noundef i64 @_ZNKSt6vectorISt4pairIjfESaIS1_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #14
-  %call4 = call noundef i64 @_ZNKSt6vectorISt4pairIjfESaIS1_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #14
-  store i64 %call4, ptr %ref.tmp, align 8
-  %call5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3maxImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %__n.addr)
-  %2 = load i64, ptr %call5, align 8
-  %add = add i64 %call3, %2
-  store i64 %add, ptr %__len, align 8
-  %3 = load i64, ptr %__len, align 8
-  %call6 = call noundef i64 @_ZNKSt6vectorISt4pairIjfESaIS1_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #14
-  %cmp7 = icmp ult i64 %3, %call6
-  br i1 %cmp7, label %cond.true, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %if.end
-  %4 = load i64, ptr %__len, align 8
-  %call8 = call noundef i64 @_ZNKSt6vectorISt4pairIjfESaIS1_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #14
-  %cmp9 = icmp ugt i64 %4, %call8
-  br i1 %cmp9, label %cond.true, label %cond.false
-
-cond.true:                                        ; preds = %lor.lhs.false, %if.end
-  %call10 = call noundef i64 @_ZNKSt6vectorISt4pairIjfESaIS1_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #14
-  br label %cond.end
-
-cond.false:                                       ; preds = %lor.lhs.false
-  %5 = load i64, ptr %__len, align 8
-  br label %cond.end
-
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i64 [ %call10, %cond.true ], [ %5, %cond.false ]
-  ret i64 %cond
+111:                                              ; preds = %80
+  unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i64 @_ZN9__gnu_cxxmiIPSt4pairIjfESt6vectorIS2_SaIS2_EEEENS_17__normal_iteratorIT_T0_E15difference_typeERKSA_SD_(ptr noundef nonnull align 8 dereferenceable(8) %__lhs, ptr noundef nonnull align 8 dereferenceable(8) %__rhs) #0 comdat {
-entry:
-  %__lhs.addr = alloca ptr, align 8
-  %__rhs.addr = alloca ptr, align 8
-  store ptr %__lhs, ptr %__lhs.addr, align 8
-  store ptr %__rhs, ptr %__rhs.addr, align 8
-  %0 = load ptr, ptr %__lhs.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt4pairIjfESt6vectorIS2_SaIS2_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
-  %1 = load ptr, ptr %call, align 8
-  %2 = load ptr, ptr %__rhs.addr, align 8
-  %call1 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt4pairIjfESt6vectorIS2_SaIS2_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %2) #14
-  %3 = load ptr, ptr %call1, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %1 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %3 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 8
-  ret i64 %sub.ptr.div
+define linkonce_odr ptr @_ZNSt6vectorISt4pairIjfESaIS1_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #2 comdat align 2 {
+  %2 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %4, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::pair<unsigned int, float>, std::allocator<std::pair<unsigned int, float>>>::_Vector_impl_data", ptr %5, i32 0, i32 1
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPSt4pairIjfESt6vectorIS2_SaIS2_EEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #18
+  %7 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %2, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8
+  ret ptr %8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr ptr @_ZNSt6vectorISt4pairIjfESaIS1_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %this) #0 comdat align 2 {
-entry:
-  %retval = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_impl = getelementptr inbounds %"struct.std::_Vector_base", ptr %this1, i32 0, i32 0
-  %_M_start = getelementptr inbounds %"struct.std::_Vector_base<std::pair<unsigned int, float>, std::allocator<std::pair<unsigned int, float>>>::_Vector_impl_data", ptr %_M_impl, i32 0, i32 0
-  call void @_ZN9__gnu_cxx17__normal_iteratorIPSt4pairIjfESt6vectorIS2_SaIS2_EEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %retval, ptr noundef nonnull align 8 dereferenceable(8) %_M_start) #14
-  %coerce.dive = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %retval, i32 0, i32 0
-  %0 = load ptr, ptr %coerce.dive, align 8
-  ret ptr %0
+define linkonce_odr noundef nonnull align 4 dereferenceable(8) ptr @_ZNSt6vectorISt4pairIjfESaIS1_EE4backEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %4 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  store ptr %0, ptr %2, align 8
+  %5 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #18
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #18
+  %6 = call ptr @_ZNSt6vectorISt4pairIjfESaIS1_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #18
+  %7 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %4, i32 0, i32 0
+  store ptr %6, ptr %7, align 8
+  %8 = call ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt4pairIjfESt6vectorIS2_SaIS2_EEEmiEl(ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 1) #18
+  %9 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %3, i32 0, i32 0
+  store ptr %8, ptr %9, align 8
+  %10 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt4pairIjfESt6vectorIS2_SaIS2_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #18
+  ret ptr %10
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZNSt12_Vector_baseISt4pairIjfESaIS1_EE11_M_allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %__n) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__n.addr = alloca i64, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i64 %__n, ptr %__n.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i64, ptr %__n.addr, align 8
-  %cmp = icmp ne i64 %0, 0
-  br i1 %cmp, label %cond.true, label %cond.false
-
-cond.true:                                        ; preds = %entry
-  %_M_impl = getelementptr inbounds %"struct.std::_Vector_base", ptr %this1, i32 0, i32 0
-  %1 = load i64, ptr %__n.addr, align 8
-  %call = call noundef ptr @_ZNSt16allocator_traitsISaISt4pairIjfEEE8allocateERS2_m(ptr noundef nonnull align 1 dereferenceable(1) %_M_impl, i64 noundef %1)
-  br label %cond.end
-
-cond.false:                                       ; preds = %entry
-  br label %cond.end
-
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi ptr [ %call, %cond.true ], [ null, %cond.false ]
-  ret ptr %cond
+define linkonce_odr void @_ZNSt15__new_allocatorISt4pairIjfEE9constructIS1_JRjRKfEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %3) #0 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store ptr %2, ptr %7, align 8
+  store ptr %3, ptr %8, align 8
+  %9 = load ptr, ptr %6, align 8
+  %10 = load ptr, ptr %7, align 8
+  %11 = load ptr, ptr %8, align 8
+  call void @_ZNSt4pairIjfEC2IRjRKfTnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS6_S7_EEEbE4typeELb1EEEOS6_OS7_(ptr noundef nonnull align 4 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 4 dereferenceable(4) %11)
+  ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZNSt6vectorISt4pairIjfESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_(ptr noundef %__first, ptr noundef %__last, ptr noundef %__result, ptr noundef nonnull align 1 dereferenceable(1) %__alloc) #0 comdat align 2 {
-entry:
-  %__first.addr = alloca ptr, align 8
-  %__last.addr = alloca ptr, align 8
-  %__result.addr = alloca ptr, align 8
-  %__alloc.addr = alloca ptr, align 8
-  store ptr %__first, ptr %__first.addr, align 8
-  store ptr %__last, ptr %__last.addr, align 8
-  store ptr %__result, ptr %__result.addr, align 8
-  store ptr %__alloc, ptr %__alloc.addr, align 8
-  %0 = load ptr, ptr %__first.addr, align 8
-  %1 = load ptr, ptr %__last.addr, align 8
-  %2 = load ptr, ptr %__result.addr, align 8
-  %3 = load ptr, ptr %__alloc.addr, align 8
-  %call = call noundef ptr @_ZSt12__relocate_aIPSt4pairIjfES2_SaIS1_EET0_T_S5_S4_RT1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #14
-  ret ptr %call
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt4pairIjfESt6vectorIS2_SaIS2_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_current = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %this1, i32 0, i32 0
-  ret ptr %_M_current
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseISt4pairIjfESaIS1_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %this) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_impl = getelementptr inbounds %"struct.std::_Vector_base", ptr %this1, i32 0, i32 0
-  ret ptr %_M_impl
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt16allocator_traitsISaISt4pairIjfEEE7destroyIS1_EEvRS2_PT_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %__p) #0 comdat align 2 {
-entry:
-  %__a.addr = alloca ptr, align 8
-  %__p.addr = alloca ptr, align 8
-  store ptr %__a, ptr %__a.addr, align 8
-  store ptr %__p, ptr %__p.addr, align 8
-  %0 = load ptr, ptr %__a.addr, align 8
-  %1 = load ptr, ptr %__p.addr, align 8
-  call void @_ZNSt15__new_allocatorISt4pairIjfEE7destroyIS1_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #14
+define linkonce_odr void @_ZNSt4pairIjfEC2IRjRKfTnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS6_S7_EEEbE4typeELb1EEEOS6_OS7_(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) unnamed_addr #2 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %"struct.std::pair", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %5, align 8
+  %10 = load i32, ptr %9, align 4
+  store i32 %10, ptr %8, align 4
+  %11 = getelementptr inbounds nuw %"struct.std::pair", ptr %7, i32 0, i32 1
+  %12 = load ptr, ptr %6, align 8
+  %13 = load float, ptr %12, align 4
+  store float %13, ptr %11, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZSt8_DestroyIPSt4pairIjfES1_EvT_S3_RSaIT0_E(ptr noundef %__first, ptr noundef %__last, ptr noundef nonnull align 1 dereferenceable(1) %0) #2 comdat {
-entry:
-  %__first.addr = alloca ptr, align 8
-  %__last.addr = alloca ptr, align 8
-  %.addr = alloca ptr, align 8
-  store ptr %__first, ptr %__first.addr, align 8
-  store ptr %__last, ptr %__last.addr, align 8
-  store ptr %0, ptr %.addr, align 8
-  %1 = load ptr, ptr %__first.addr, align 8
-  %2 = load ptr, ptr %__last.addr, align 8
-  call void @_ZSt8_DestroyIPSt4pairIjfEEvT_S3_(ptr noundef %1, ptr noundef %2)
+define linkonce_odr noundef i64 @_ZNKSt6vectorISt4pairIjfESaIS1_EE12_M_check_lenEmPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1, ptr noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store i64 %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %9 = load ptr, ptr %4, align 8
+  %10 = call noundef i64 @_ZNKSt6vectorISt4pairIjfESaIS1_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #18
+  %11 = call noundef i64 @_ZNKSt6vectorISt4pairIjfESaIS1_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #18
+  %12 = sub i64 %10, %11
+  %13 = load i64, ptr %5, align 8
+  %14 = icmp ult i64 %12, %13
+  br i1 %14, label %15, label %17
+
+15:                                               ; preds = %3
+  %16 = load ptr, ptr %6, align 8
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef %16) #21
+  unreachable
+
+17:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #18
+  %18 = call noundef i64 @_ZNKSt6vectorISt4pairIjfESaIS1_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #18
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #18
+  %19 = call noundef i64 @_ZNKSt6vectorISt4pairIjfESaIS1_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #18
+  store i64 %19, ptr %8, align 8
+  %20 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3maxImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  %21 = load i64, ptr %20, align 8
+  %22 = add i64 %18, %21
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #18
+  store i64 %22, ptr %7, align 8
+  %23 = load i64, ptr %7, align 8
+  %24 = call noundef i64 @_ZNKSt6vectorISt4pairIjfESaIS1_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #18
+  %25 = icmp ult i64 %23, %24
+  br i1 %25, label %30, label %26
+
+26:                                               ; preds = %17
+  %27 = load i64, ptr %7, align 8
+  %28 = call noundef i64 @_ZNKSt6vectorISt4pairIjfESaIS1_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #18
+  %29 = icmp ugt i64 %27, %28
+  br i1 %29, label %30, label %32
+
+30:                                               ; preds = %26, %17
+  %31 = call noundef i64 @_ZNKSt6vectorISt4pairIjfESaIS1_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #18
+  br label %34
+
+32:                                               ; preds = %26
+  %33 = load i64, ptr %7, align 8
+  br label %34
+
+34:                                               ; preds = %32, %30
+  %35 = phi i64 [ %31, %30 ], [ %33, %32 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #18
+  ret i64 %35
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZN9__gnu_cxxmiIPSt4pairIjfESt6vectorIS2_SaIS2_EEEENS_17__normal_iteratorIT_T0_E15difference_typeERKSA_SD_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #7 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt4pairIjfESt6vectorIS2_SaIS2_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #18
+  %7 = load ptr, ptr %6, align 8
+  %8 = load ptr, ptr %4, align 8
+  %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt4pairIjfESt6vectorIS2_SaIS2_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #18
+  %10 = load ptr, ptr %9, align 8
+  %11 = ptrtoint ptr %7 to i64
+  %12 = ptrtoint ptr %10 to i64
+  %13 = sub i64 %11, %12
+  %14 = sdiv exact i64 %13, 8
+  ret i64 %14
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr ptr @_ZNSt6vectorISt4pairIjfESaIS1_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #2 comdat align 2 {
+  %2 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %4, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::pair<unsigned int, float>, std::allocator<std::pair<unsigned int, float>>>::_Vector_impl_data", ptr %5, i32 0, i32 0
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPSt4pairIjfESt6vectorIS2_SaIS2_EEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #18
+  %7 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %2, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8
+  ret ptr %8
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZNSt12_Vector_baseISt4pairIjfESaIS1_EE11_M_allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8
+  %7 = icmp ne i64 %6, 0
+  br i1 %7, label %8, label %12
+
+8:                                                ; preds = %2
+  %9 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %5, i32 0, i32 0
+  %10 = load i64, ptr %4, align 8
+  %11 = call noundef ptr @_ZNSt16allocator_traitsISaISt4pairIjfEEE8allocateERS2_m(ptr noundef nonnull align 1 dereferenceable(1) %9, i64 noundef %10)
+  br label %13
+
+12:                                               ; preds = %2
+  br label %13
+
+13:                                               ; preds = %12, %8
+  %14 = phi ptr [ %11, %8 ], [ null, %12 ]
+  ret ptr %14
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNSt6vectorISt4pairIjfESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #2 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store ptr %2, ptr %7, align 8
+  store ptr %3, ptr %8, align 8
+  %9 = load ptr, ptr %5, align 8
+  %10 = load ptr, ptr %6, align 8
+  %11 = load ptr, ptr %7, align 8
+  %12 = load ptr, ptr %8, align 8
+  %13 = call noundef ptr @_ZSt12__relocate_aIPSt4pairIjfES2_SaIS1_EET0_T_S5_S4_RT1_(ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef nonnull align 1 dereferenceable(1) %12) #18
+  ret ptr %13
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt4pairIjfESt6vectorIS2_SaIS2_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseISt4pairIjfESaIS1_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt16allocator_traitsISaISt4pairIjfEEE7destroyIS1_EEvRS2_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZNSt15__new_allocatorISt4pairIjfEE7destroyIS1_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %6) #18
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZSt8_DestroyIPSt4pairIjfES1_EvT_S3_RSaIT0_E(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #3 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  call void @_ZSt8_DestroyIPSt4pairIjfEEvT_S3_(ptr noundef %7, ptr noundef %8)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt12_Vector_baseISt4pairIjfESaIS1_EE13_M_deallocateEPS1_m(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %__p, i64 noundef %__n) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__p.addr = alloca ptr, align 8
-  %__n.addr = alloca i64, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__p, ptr %__p.addr, align 8
-  store i64 %__n, ptr %__n.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %__p.addr, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %if.then, label %if.end
+define linkonce_odr void @_ZNSt12_Vector_baseISt4pairIjfESaIS1_EE13_M_deallocateEPS1_m(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, i64 noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = icmp ne ptr %8, null
+  br i1 %9, label %10, label %14
 
-if.then:                                          ; preds = %entry
-  %_M_impl = getelementptr inbounds %"struct.std::_Vector_base", ptr %this1, i32 0, i32 0
-  %1 = load ptr, ptr %__p.addr, align 8
-  %2 = load i64, ptr %__n.addr, align 8
-  call void @_ZNSt16allocator_traitsISaISt4pairIjfEEE10deallocateERS2_PS1_m(ptr noundef nonnull align 1 dereferenceable(1) %_M_impl, ptr noundef %1, i64 noundef %2)
-  br label %if.end
+10:                                               ; preds = %3
+  %11 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %7, i32 0, i32 0
+  %12 = load ptr, ptr %5, align 8
+  %13 = load i64, ptr %6, align 8
+  call void @_ZNSt16allocator_traitsISaISt4pairIjfEEE10deallocateERS2_PS1_m(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef %12, i64 noundef %13)
+  br label %14
 
-if.end:                                           ; preds = %if.then, %entry
+14:                                               ; preds = %10, %3
   ret void
 }
 
@@ -5063,1127 +6169,1090 @@ declare void @__cxa_rethrow()
 declare void @__cxa_end_catch()
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i64 @_ZNKSt6vectorISt4pairIjfESaIS1_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %this) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt12_Vector_baseISt4pairIjfESaIS1_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #14
-  %call2 = call noundef i64 @_ZNSt6vectorISt4pairIjfESaIS1_EE11_S_max_sizeERKS2_(ptr noundef nonnull align 1 dereferenceable(1) %call) #14
-  ret i64 %call2
+define linkonce_odr noundef i64 @_ZNKSt6vectorISt4pairIjfESaIS1_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt12_Vector_baseISt4pairIjfESaIS1_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #18
+  %5 = call noundef i64 @_ZNSt6vectorISt4pairIjfESaIS1_EE11_S_max_sizeERKS2_(ptr noundef nonnull align 1 dereferenceable(1) %4) #18
+  ret i64 %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i64 @_ZNKSt6vectorISt4pairIjfESaIS1_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %this) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_impl = getelementptr inbounds %"struct.std::_Vector_base", ptr %this1, i32 0, i32 0
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<std::pair<unsigned int, float>, std::allocator<std::pair<unsigned int, float>>>::_Vector_impl_data", ptr %_M_impl, i32 0, i32 1
-  %0 = load ptr, ptr %_M_finish, align 8
-  %_M_impl2 = getelementptr inbounds %"struct.std::_Vector_base", ptr %this1, i32 0, i32 0
-  %_M_start = getelementptr inbounds %"struct.std::_Vector_base<std::pair<unsigned int, float>, std::allocator<std::pair<unsigned int, float>>>::_Vector_impl_data", ptr %_M_impl2, i32 0, i32 0
-  %1 = load ptr, ptr %_M_start, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 8
-  ret i64 %sub.ptr.div
+define linkonce_odr noundef i64 @_ZNKSt6vectorISt4pairIjfESaIS1_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::pair<unsigned int, float>, std::allocator<std::pair<unsigned int, float>>>::_Vector_impl_data", ptr %4, i32 0, i32 1
+  %6 = load ptr, ptr %5, align 8
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::pair<unsigned int, float>, std::allocator<std::pair<unsigned int, float>>>::_Vector_impl_data", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8
+  %10 = ptrtoint ptr %6 to i64
+  %11 = ptrtoint ptr %9 to i64
+  %12 = sub i64 %10, %11
+  %13 = sdiv exact i64 %12, 8
+  ret i64 %13
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) #11
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) #12
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3maxImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %__a, ptr noundef nonnull align 8 dereferenceable(8) %__b) #0 comdat {
-entry:
-  %retval = alloca ptr, align 8
-  %__a.addr = alloca ptr, align 8
-  %__b.addr = alloca ptr, align 8
-  store ptr %__a, ptr %__a.addr, align 8
-  store ptr %__b, ptr %__b.addr, align 8
-  %0 = load ptr, ptr %__a.addr, align 8
-  %1 = load i64, ptr %0, align 8
-  %2 = load ptr, ptr %__b.addr, align 8
-  %3 = load i64, ptr %2, align 8
-  %cmp = icmp ult i64 %1, %3
-  br i1 %cmp, label %if.then, label %if.end
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3maxImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #7 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  %6 = load ptr, ptr %4, align 8
+  %7 = load i64, ptr %6, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = load i64, ptr %8, align 8
+  %10 = icmp ult i64 %7, %9
+  br i1 %10, label %11, label %13
 
-if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr %__b.addr, align 8
-  store ptr %4, ptr %retval, align 8
-  br label %return
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %5, align 8
+  store ptr %12, ptr %3, align 8
+  br label %15
 
-if.end:                                           ; preds = %entry
-  %5 = load ptr, ptr %__a.addr, align 8
-  store ptr %5, ptr %retval, align 8
-  br label %return
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %4, align 8
+  store ptr %14, ptr %3, align 8
+  br label %15
 
-return:                                           ; preds = %if.end, %if.then
-  %6 = load ptr, ptr %retval, align 8
-  ret ptr %6
+15:                                               ; preds = %13, %11
+  %16 = load ptr, ptr %3, align 8
+  ret ptr %16
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i64 @_ZNSt6vectorISt4pairIjfESaIS1_EE11_S_max_sizeERKS2_(ptr noundef nonnull align 1 dereferenceable(1) %__a) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %__a.addr = alloca ptr, align 8
-  %__diffmax = alloca i64, align 8
-  %__allocmax = alloca i64, align 8
-  store ptr %__a, ptr %__a.addr, align 8
-  store i64 1152921504606846975, ptr %__diffmax, align 8
-  %0 = load ptr, ptr %__a.addr, align 8
-  %call = call noundef i64 @_ZNSt16allocator_traitsISaISt4pairIjfEEE8max_sizeERKS2_(ptr noundef nonnull align 1 dereferenceable(1) %0) #14
-  store i64 %call, ptr %__allocmax, align 8
-  %call1 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3minImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %__diffmax, ptr noundef nonnull align 8 dereferenceable(8) %__allocmax)
-          to label %invoke.cont unwind label %terminate.lpad
+define linkonce_odr noundef i64 @_ZNSt6vectorISt4pairIjfESaIS1_EE11_S_max_sizeERKS2_(ptr noundef nonnull align 1 dereferenceable(1) %0) #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i64, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #18
+  store i64 1152921504606846975, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #18
+  %5 = load ptr, ptr %2, align 8
+  %6 = call noundef i64 @_ZNSt16allocator_traitsISaISt4pairIjfEEE8max_sizeERKS2_(ptr noundef nonnull align 1 dereferenceable(1) %5) #18
+  store i64 %6, ptr %4, align 8
+  %7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3minImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
+          to label %8 unwind label %10
 
-invoke.cont:                                      ; preds = %entry
-  %1 = load i64, ptr %call1, align 8
-  ret i64 %1
+8:                                                ; preds = %1
+  %9 = load i64, ptr %7, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #18
+  ret i64 %9
 
-terminate.lpad:                                   ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+10:                                               ; preds = %1
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #13
+  %12 = extractvalue { ptr, i32 } %11, 0
+  call void @__clang_call_terminate(ptr %12) #19
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt12_Vector_baseISt4pairIjfESaIS1_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %this) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_impl = getelementptr inbounds %"struct.std::_Vector_base", ptr %this1, i32 0, i32 0
-  ret ptr %_M_impl
+define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt12_Vector_baseISt4pairIjfESaIS1_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i64 @_ZNSt16allocator_traitsISaISt4pairIjfEEE8max_sizeERKS2_(ptr noundef nonnull align 1 dereferenceable(1) %__a) #0 comdat align 2 {
-entry:
-  %__a.addr = alloca ptr, align 8
-  store ptr %__a, ptr %__a.addr, align 8
-  %0 = load ptr, ptr %__a.addr, align 8
-  %call = call noundef i64 @_ZNKSt15__new_allocatorISt4pairIjfEE8max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #14
-  ret i64 %call
+define linkonce_odr noundef i64 @_ZNSt16allocator_traitsISaISt4pairIjfEEE8max_sizeERKS2_(ptr noundef nonnull align 1 dereferenceable(1) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef i64 @_ZNKSt15__new_allocatorISt4pairIjfEE8max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %3) #18
+  ret i64 %4
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3minImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #7 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  %6 = load ptr, ptr %5, align 8
+  %7 = load i64, ptr %6, align 8
+  %8 = load ptr, ptr %4, align 8
+  %9 = load i64, ptr %8, align 8
+  %10 = icmp ult i64 %7, %9
+  br i1 %10, label %11, label %13
+
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %5, align 8
+  store ptr %12, ptr %3, align 8
+  br label %15
+
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %4, align 8
+  store ptr %14, ptr %3, align 8
+  br label %15
+
+15:                                               ; preds = %13, %11
+  %16 = load ptr, ptr %3, align 8
+  ret ptr %16
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3minImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %__a, ptr noundef nonnull align 8 dereferenceable(8) %__b) #0 comdat {
-entry:
-  %retval = alloca ptr, align 8
-  %__a.addr = alloca ptr, align 8
-  %__b.addr = alloca ptr, align 8
-  store ptr %__a, ptr %__a.addr, align 8
-  store ptr %__b, ptr %__b.addr, align 8
-  %0 = load ptr, ptr %__b.addr, align 8
-  %1 = load i64, ptr %0, align 8
-  %2 = load ptr, ptr %__a.addr, align 8
-  %3 = load i64, ptr %2, align 8
-  %cmp = icmp ult i64 %1, %3
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr %__b.addr, align 8
-  store ptr %4, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %5 = load ptr, ptr %__a.addr, align 8
-  store ptr %5, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.end, %if.then
-  %6 = load ptr, ptr %retval, align 8
-  ret ptr %6
+define linkonce_odr noundef i64 @_ZNKSt15__new_allocatorISt4pairIjfEE8max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef i64 @_ZNKSt15__new_allocatorISt4pairIjfEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %3) #18
+  ret i64 %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i64 @_ZNKSt15__new_allocatorISt4pairIjfEE8max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %this) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef i64 @_ZNKSt15__new_allocatorISt4pairIjfEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %this1) #14
-  ret i64 %call
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i64 @_ZNKSt15__new_allocatorISt4pairIjfEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %this) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
+define linkonce_odr noundef i64 @_ZNKSt15__new_allocatorISt4pairIjfEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
   ret i64 1152921504606846975
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN9__gnu_cxx17__normal_iteratorIPSt4pairIjfESt6vectorIS2_SaIS2_EEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %__i) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__i.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__i, ptr %__i.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_current = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %__i.addr, align 8
-  %1 = load ptr, ptr %0, align 8
-  store ptr %1, ptr %_M_current, align 8
+define linkonce_odr void @_ZN9__gnu_cxx17__normal_iteratorIPSt4pairIjfESt6vectorIS2_SaIS2_EEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %7, align 8
+  store ptr %8, ptr %6, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZNSt16allocator_traitsISaISt4pairIjfEEE8allocateERS2_m(ptr noundef nonnull align 1 dereferenceable(1) %__a, i64 noundef %__n) #2 comdat align 2 {
-entry:
-  %__a.addr = alloca ptr, align 8
-  %__n.addr = alloca i64, align 8
-  store ptr %__a, ptr %__a.addr, align 8
-  store i64 %__n, ptr %__n.addr, align 8
-  %0 = load ptr, ptr %__a.addr, align 8
-  %1 = load i64, ptr %__n.addr, align 8
-  %call = call noundef ptr @_ZNSt15__new_allocatorISt4pairIjfEE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1, ptr noundef null)
-  ret ptr %call
+define linkonce_odr noundef ptr @_ZNSt16allocator_traitsISaISt4pairIjfEEE8allocateERS2_m(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8
+  %7 = call noundef ptr @_ZNSt15__new_allocatorISt4pairIjfEE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %5, i64 noundef %6, ptr noundef null)
+  ret ptr %7
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZNSt15__new_allocatorISt4pairIjfEE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %this, i64 noundef %__n, ptr noundef %0) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__n.addr = alloca i64, align 8
-  %.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i64 %__n, ptr %__n.addr, align 8
-  store ptr %0, ptr %.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %1 = load i64, ptr %__n.addr, align 8
-  %call = call noundef i64 @_ZNKSt15__new_allocatorISt4pairIjfEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %this1) #14
-  %cmp = icmp ugt i64 %1, %call
-  br i1 %cmp, label %if.then, label %if.end4
+define linkonce_odr noundef ptr @_ZNSt15__new_allocatorISt4pairIjfEE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1, ptr noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store i64 %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load i64, ptr %5, align 8
+  %9 = call noundef i64 @_ZNKSt15__new_allocatorISt4pairIjfEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %7) #18
+  %10 = icmp ugt i64 %8, %9
+  %11 = zext i1 %10 to i64
+  %12 = call i64 @llvm.expect.i64(i64 %11, i64 0)
+  %13 = icmp ne i64 %12, 0
+  br i1 %13, label %14, label %19
 
-if.then:                                          ; preds = %entry
-  %2 = load i64, ptr %__n.addr, align 8
-  %cmp2 = icmp ugt i64 %2, 2305843009213693951
-  br i1 %cmp2, label %if.then3, label %if.end
+14:                                               ; preds = %3
+  %15 = load i64, ptr %5, align 8
+  %16 = icmp ugt i64 %15, 2305843009213693951
+  br i1 %16, label %17, label %18
 
-if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #16
+17:                                               ; preds = %14
+  call void @_ZSt28__throw_bad_array_new_lengthv() #21
   unreachable
 
-if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #16
+18:                                               ; preds = %14
+  call void @_ZSt17__throw_bad_allocv() #21
   unreachable
 
-if.end4:                                          ; preds = %entry
-  %3 = load i64, ptr %__n.addr, align 8
-  %mul = mul i64 %3, 8
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #15
-  ret ptr %call5
+19:                                               ; preds = %3
+  %20 = load i64, ptr %5, align 8
+  %21 = mul i64 %20, 8
+  %22 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #20
+  ret ptr %22
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZSt12__relocate_aIPSt4pairIjfES2_SaIS1_EET0_T_S5_S4_RT1_(ptr noundef %__first, ptr noundef %__last, ptr noundef %__result, ptr noundef nonnull align 1 dereferenceable(1) %__alloc) #0 comdat {
-entry:
-  %__first.addr = alloca ptr, align 8
-  %__last.addr = alloca ptr, align 8
-  %__result.addr = alloca ptr, align 8
-  %__alloc.addr = alloca ptr, align 8
-  store ptr %__first, ptr %__first.addr, align 8
-  store ptr %__last, ptr %__last.addr, align 8
-  store ptr %__result, ptr %__result.addr, align 8
-  store ptr %__alloc, ptr %__alloc.addr, align 8
-  %0 = load ptr, ptr %__first.addr, align 8
-  %call = call noundef ptr @_ZSt12__niter_baseIPSt4pairIjfEET_S3_(ptr noundef %0) #14
-  %1 = load ptr, ptr %__last.addr, align 8
-  %call1 = call noundef ptr @_ZSt12__niter_baseIPSt4pairIjfEET_S3_(ptr noundef %1) #14
-  %2 = load ptr, ptr %__result.addr, align 8
-  %call2 = call noundef ptr @_ZSt12__niter_baseIPSt4pairIjfEET_S3_(ptr noundef %2) #14
-  %3 = load ptr, ptr %__alloc.addr, align 8
-  %call3 = call noundef ptr @_ZSt14__relocate_a_1IPSt4pairIjfES2_SaIS1_EET0_T_S5_S4_RT1_(ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef nonnull align 1 dereferenceable(1) %3) #14
-  ret ptr %call3
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZSt12__relocate_aIPSt4pairIjfES2_SaIS1_EET0_T_S5_S4_RT1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #7 comdat {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store ptr %2, ptr %7, align 8
+  store ptr %3, ptr %8, align 8
+  %9 = load ptr, ptr %5, align 8
+  %10 = call noundef ptr @_ZSt12__niter_baseIPSt4pairIjfEET_S3_(ptr noundef %9) #18
+  %11 = load ptr, ptr %6, align 8
+  %12 = call noundef ptr @_ZSt12__niter_baseIPSt4pairIjfEET_S3_(ptr noundef %11) #18
+  %13 = load ptr, ptr %7, align 8
+  %14 = call noundef ptr @_ZSt12__niter_baseIPSt4pairIjfEET_S3_(ptr noundef %13) #18
+  %15 = load ptr, ptr %8, align 8
+  %16 = call noundef ptr @_ZSt14__relocate_a_1IPSt4pairIjfES2_SaIS1_EET0_T_S5_S4_RT1_(ptr noundef %10, ptr noundef %12, ptr noundef %14, ptr noundef nonnull align 1 dereferenceable(1) %15) #18
+  ret ptr %16
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZSt14__relocate_a_1IPSt4pairIjfES2_SaIS1_EET0_T_S5_S4_RT1_(ptr noundef %__first, ptr noundef %__last, ptr noundef %__result, ptr noundef nonnull align 1 dereferenceable(1) %__alloc) #0 comdat {
-entry:
-  %__first.addr = alloca ptr, align 8
-  %__last.addr = alloca ptr, align 8
-  %__result.addr = alloca ptr, align 8
-  %__alloc.addr = alloca ptr, align 8
-  %__cur = alloca ptr, align 8
-  store ptr %__first, ptr %__first.addr, align 8
-  store ptr %__last, ptr %__last.addr, align 8
-  store ptr %__result, ptr %__result.addr, align 8
-  store ptr %__alloc, ptr %__alloc.addr, align 8
-  %0 = load ptr, ptr %__result.addr, align 8
-  store ptr %0, ptr %__cur, align 8
-  br label %for.cond
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZSt14__relocate_a_1IPSt4pairIjfES2_SaIS1_EET0_T_S5_S4_RT1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #7 comdat {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store ptr %2, ptr %7, align 8
+  store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #18
+  %10 = load ptr, ptr %7, align 8
+  store ptr %10, ptr %9, align 8
+  br label %11
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %1 = load ptr, ptr %__first.addr, align 8
-  %2 = load ptr, ptr %__last.addr, align 8
-  %cmp = icmp ne ptr %1, %2
-  br i1 %cmp, label %for.body, label %for.end
+11:                                               ; preds = %19, %4
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  %14 = icmp ne ptr %12, %13
+  br i1 %14, label %15, label %24
 
-for.body:                                         ; preds = %for.cond
-  %3 = load ptr, ptr %__cur, align 8
-  %4 = load ptr, ptr %__first.addr, align 8
-  %5 = load ptr, ptr %__alloc.addr, align 8
-  call void @_ZSt19__relocate_object_aISt4pairIjfES1_SaIS1_EEvPT_PT0_RT1_(ptr noundef %3, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %5) #14
-  br label %for.inc
+15:                                               ; preds = %11
+  %16 = load ptr, ptr %9, align 8
+  %17 = load ptr, ptr %5, align 8
+  %18 = load ptr, ptr %8, align 8
+  call void @_ZSt19__relocate_object_aISt4pairIjfES1_SaIS1_EEvPT_PT0_RT1_(ptr noundef %16, ptr noundef %17, ptr noundef nonnull align 1 dereferenceable(1) %18) #18
+  br label %19
 
-for.inc:                                          ; preds = %for.body
-  %6 = load ptr, ptr %__first.addr, align 8
-  %incdec.ptr = getelementptr inbounds %"struct.std::pair", ptr %6, i32 1
-  store ptr %incdec.ptr, ptr %__first.addr, align 8
-  %7 = load ptr, ptr %__cur, align 8
-  %incdec.ptr1 = getelementptr inbounds %"struct.std::pair", ptr %7, i32 1
-  store ptr %incdec.ptr1, ptr %__cur, align 8
-  br label %for.cond, !llvm.loop !33
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %5, align 8
+  %21 = getelementptr inbounds nuw %"struct.std::pair", ptr %20, i32 1
+  store ptr %21, ptr %5, align 8
+  %22 = load ptr, ptr %9, align 8
+  %23 = getelementptr inbounds nuw %"struct.std::pair", ptr %22, i32 1
+  store ptr %23, ptr %9, align 8
+  br label %11, !llvm.loop !32
 
-for.end:                                          ; preds = %for.cond
-  %8 = load ptr, ptr %__cur, align 8
-  ret ptr %8
+24:                                               ; preds = %11
+  %25 = load ptr, ptr %9, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #18
+  ret ptr %25
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZSt12__niter_baseIPSt4pairIjfEET_S3_(ptr noundef %__it) #0 comdat {
-entry:
-  %__it.addr = alloca ptr, align 8
-  store ptr %__it, ptr %__it.addr, align 8
-  %0 = load ptr, ptr %__it.addr, align 8
-  ret ptr %0
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZSt12__niter_baseIPSt4pairIjfEET_S3_(ptr noundef %0) #7 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  ret ptr %3
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZSt19__relocate_object_aISt4pairIjfES1_SaIS1_EEvPT_PT0_RT1_(ptr noalias noundef %__dest, ptr noalias noundef %__orig, ptr noundef nonnull align 1 dereferenceable(1) %__alloc) #0 comdat {
-entry:
-  %__dest.addr = alloca ptr, align 8
-  %__orig.addr = alloca ptr, align 8
-  %__alloc.addr = alloca ptr, align 8
-  store ptr %__dest, ptr %__dest.addr, align 8
-  store ptr %__orig, ptr %__orig.addr, align 8
-  store ptr %__alloc, ptr %__alloc.addr, align 8
-  %0 = load ptr, ptr %__alloc.addr, align 8
-  %1 = load ptr, ptr %__dest.addr, align 8
-  %2 = load ptr, ptr %__orig.addr, align 8
-  call void @_ZNSt16allocator_traitsISaISt4pairIjfEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(8) %2) #14
-  %3 = load ptr, ptr %__alloc.addr, align 8
-  %4 = load ptr, ptr %__orig.addr, align 8
-  call void @_ZNSt16allocator_traitsISaISt4pairIjfEEE7destroyIS1_EEvRS2_PT_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %4) #14
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt19__relocate_object_aISt4pairIjfES1_SaIS1_EEvPT_PT0_RT1_(ptr noalias noundef %0, ptr noalias noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #7 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %6, align 8
+  %8 = load ptr, ptr %4, align 8
+  %9 = load ptr, ptr %5, align 8
+  call void @_ZNSt16allocator_traitsISaISt4pairIjfEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, ptr noundef nonnull align 4 dereferenceable(8) %9) #18
+  %10 = load ptr, ptr %6, align 8
+  %11 = load ptr, ptr %5, align 8
+  call void @_ZNSt16allocator_traitsISaISt4pairIjfEEE7destroyIS1_EEvRS2_PT_(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef %11) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt16allocator_traitsISaISt4pairIjfEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %__p, ptr noundef nonnull align 4 dereferenceable(8) %__args) #0 comdat align 2 {
-entry:
-  %__a.addr = alloca ptr, align 8
-  %__p.addr = alloca ptr, align 8
-  %__args.addr = alloca ptr, align 8
-  store ptr %__a, ptr %__a.addr, align 8
-  store ptr %__p, ptr %__p.addr, align 8
-  store ptr %__args, ptr %__args.addr, align 8
-  %0 = load ptr, ptr %__a.addr, align 8
-  %1 = load ptr, ptr %__p.addr, align 8
-  %2 = load ptr, ptr %__args.addr, align 8
-  call void @_ZNSt15__new_allocatorISt4pairIjfEE9constructIS1_JS1_EEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(8) %2) #14
+define linkonce_odr void @_ZNSt16allocator_traitsISaISt4pairIjfEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(8) %2) #2 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = load ptr, ptr %6, align 8
+  call void @_ZNSt15__new_allocatorISt4pairIjfEE9constructIS1_JS1_EEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, ptr noundef nonnull align 4 dereferenceable(8) %9) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15__new_allocatorISt4pairIjfEE9constructIS1_JS1_EEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %__p, ptr noundef nonnull align 4 dereferenceable(8) %__args) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__p.addr = alloca ptr, align 8
-  %__args.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__p, ptr %__p.addr, align 8
-  store ptr %__args, ptr %__args.addr, align 8
-  %0 = load ptr, ptr %__p.addr, align 8
-  %1 = load ptr, ptr %__args.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %0, ptr align 4 %1, i64 8, i1 false)
+define linkonce_odr void @_ZNSt15__new_allocatorISt4pairIjfEE9constructIS1_JS1_EEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(8) %2) #2 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %6, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %7, ptr align 4 %8, i64 8, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15__new_allocatorISt4pairIjfEE7destroyIS1_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %__p) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__p.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__p, ptr %__p.addr, align 8
+define linkonce_odr void @_ZNSt15__new_allocatorISt4pairIjfEE7destroyIS1_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZSt8_DestroyIPSt4pairIjfEEvT_S3_(ptr noundef %__first, ptr noundef %__last) #2 comdat {
-entry:
-  %__first.addr = alloca ptr, align 8
-  %__last.addr = alloca ptr, align 8
-  store ptr %__first, ptr %__first.addr, align 8
-  store ptr %__last, ptr %__last.addr, align 8
-  %0 = load ptr, ptr %__first.addr, align 8
-  %1 = load ptr, ptr %__last.addr, align 8
-  call void @_ZNSt12_Destroy_auxILb1EE9__destroyIPSt4pairIjfEEEvT_S5_(ptr noundef %0, ptr noundef %1)
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZSt8_DestroyIPSt4pairIjfEEvT_S3_(ptr noundef %0, ptr noundef %1) #3 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZNSt12_Destroy_auxILb1EE9__destroyIPSt4pairIjfEEEvT_S5_(ptr noundef %5, ptr noundef %6)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt12_Destroy_auxILb1EE9__destroyIPSt4pairIjfEEEvT_S5_(ptr noundef %0, ptr noundef %1) #0 comdat align 2 {
-entry:
-  %.addr = alloca ptr, align 8
-  %.addr1 = alloca ptr, align 8
-  store ptr %0, ptr %.addr, align 8
-  store ptr %1, ptr %.addr1, align 8
+define linkonce_odr void @_ZNSt12_Destroy_auxILb1EE9__destroyIPSt4pairIjfEEEvT_S5_(ptr noundef %0, ptr noundef %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt16allocator_traitsISaISt4pairIjfEEE10deallocateERS2_PS1_m(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %__p, i64 noundef %__n) #2 comdat align 2 {
-entry:
-  %__a.addr = alloca ptr, align 8
-  %__p.addr = alloca ptr, align 8
-  %__n.addr = alloca i64, align 8
-  store ptr %__a, ptr %__a.addr, align 8
-  store ptr %__p, ptr %__p.addr, align 8
-  store i64 %__n, ptr %__n.addr, align 8
-  %0 = load ptr, ptr %__a.addr, align 8
-  %1 = load ptr, ptr %__p.addr, align 8
-  %2 = load i64, ptr %__n.addr, align 8
-  call void @_ZNSt15__new_allocatorISt4pairIjfEE10deallocateEPS1_m(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2)
+define linkonce_odr void @_ZNSt16allocator_traitsISaISt4pairIjfEEE10deallocateERS2_PS1_m(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = load i64, ptr %6, align 8
+  call void @_ZNSt15__new_allocatorISt4pairIjfEE10deallocateEPS1_m(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, i64 noundef %9)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15__new_allocatorISt4pairIjfEE10deallocateEPS1_m(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %__p, i64 noundef %__n) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__p.addr = alloca ptr, align 8
-  %__n.addr = alloca i64, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__p, ptr %__p.addr, align 8
-  store i64 %__n, ptr %__n.addr, align 8
-  %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZdlPv(ptr noundef %0) #17
+define linkonce_odr void @_ZNSt15__new_allocatorISt4pairIjfEE10deallocateEPS1_m(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #2 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %7 = load ptr, ptr %5, align 8
+  %8 = load i64, ptr %6, align 8
+  %9 = mul i64 %8, 8
+  call void @_ZdlPvm(ptr noundef %7, i64 noundef %9) #22
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt4pairIjfESt6vectorIS2_SaIS2_EEEmiEl(ptr noundef nonnull align 8 dereferenceable(8) %this, i64 noundef %__n) #0 comdat align 2 {
-entry:
-  %retval = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %this.addr = alloca ptr, align 8
-  %__n.addr = alloca i64, align 8
-  %ref.tmp = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i64 %__n, ptr %__n.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_current = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %_M_current, align 8
-  %1 = load i64, ptr %__n.addr, align 8
-  %idx.neg = sub i64 0, %1
-  %add.ptr = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %idx.neg
-  store ptr %add.ptr, ptr %ref.tmp, align 8
-  call void @_ZN9__gnu_cxx17__normal_iteratorIPSt4pairIjfESt6vectorIS2_SaIS2_EEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %retval, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #14
-  %coerce.dive = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %retval, i32 0, i32 0
-  %2 = load ptr, ptr %coerce.dive, align 8
-  ret ptr %2
+define linkonce_odr ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt4pairIjfESt6vectorIS2_SaIS2_EEEmiEl(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %1) #2 comdat align 2 {
+  %3 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store i64 %1, ptr %5, align 8
+  %7 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #18
+  %8 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8
+  %10 = load i64, ptr %5, align 8
+  %11 = sub i64 0, %10
+  %12 = getelementptr inbounds %"struct.std::pair", ptr %9, i64 %11
+  store ptr %12, ptr %6, align 8
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPSt4pairIjfESt6vectorIS2_SaIS2_EEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %6) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #18
+  %13 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %3, i32 0, i32 0
+  %14 = load ptr, ptr %13, align 8
+  ret ptr %14
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 4 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt4pairIjfESt6vectorIS2_SaIS2_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_current = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %_M_current, align 8
-  ret ptr %0
+define linkonce_odr noundef nonnull align 4 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt4pairIjfESt6vectorIS2_SaIS2_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15__new_allocatorIjEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15__new_allocatorIjED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
+define linkonce_odr void @_ZNSt15__new_allocatorIjEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef i64 @_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_(i64 noundef %__n, ptr noundef nonnull align 1 dereferenceable(1) %__a) #2 comdat align 2 {
-entry:
-  %__n.addr = alloca i64, align 8
-  %__a.addr = alloca ptr, align 8
-  %ref.tmp = alloca %"class.std::allocator.8", align 1
-  store i64 %__n, ptr %__n.addr, align 8
-  store ptr %__a, ptr %__a.addr, align 8
-  %0 = load i64, ptr %__n.addr, align 8
-  %1 = load ptr, ptr %__a.addr, align 8
-  call void @_ZNSaIjEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp, ptr noundef nonnull align 1 dereferenceable(1) %1) #14
-  %call = call noundef i64 @_ZNSt6vectorIjSaIjEE11_S_max_sizeERKS0_(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #14
-  %cmp = icmp ugt i64 %0, %call
-  call void @_ZNSaIjED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #14
-  br i1 %cmp, label %if.then, label %if.end
+define linkonce_odr noundef i64 @_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_(i64 noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #0 comdat align 2 {
+  %3 = alloca i64, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %"class.std::allocator.8", align 1
+  store i64 %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %6 = load i64, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %5) #18
+  %7 = load ptr, ptr %4, align 8
+  call void @_ZNSaIjEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %7) #18
+  %8 = call noundef i64 @_ZNSt6vectorIjSaIjEE11_S_max_sizeERKS0_(ptr noundef nonnull align 1 dereferenceable(1) %5) #18
+  %9 = icmp ugt i64 %6, %8
+  call void @_ZNSt15__new_allocatorIjED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #18
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #18
+  br i1 %9, label %10, label %11
 
-if.then:                                          ; preds = %entry
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef @.str.9) #16
+10:                                               ; preds = %2
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef @.str.10) #21
   unreachable
 
-if.end:                                           ; preds = %entry
-  %2 = load i64, ptr %__n.addr, align 8
-  ret i64 %2
+11:                                               ; preds = %2
+  %12 = load i64, ptr %3, align 8
+  ret i64 %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %__n, ptr noundef nonnull align 1 dereferenceable(1) %__a) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__n.addr = alloca i64, align 8
-  %__a.addr = alloca ptr, align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i64 %__n, ptr %__n.addr, align 8
-  store ptr %__a, ptr %__a.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_impl = getelementptr inbounds %"struct.std::_Vector_base.7", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %__a.addr, align 8
-  call void @_ZNSt12_Vector_baseIjSaIjEE12_Vector_implC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %_M_impl, ptr noundef nonnull align 1 dereferenceable(1) %0) #14
-  %1 = load i64, ptr %__n.addr, align 8
-  invoke void @_ZNSt12_Vector_baseIjSaIjEE17_M_create_storageEm(ptr noundef nonnull align 8 dereferenceable(24) %this1, i64 noundef %1)
-          to label %invoke.cont unwind label %lpad
+define linkonce_odr void @_ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store i64 %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds nuw %"struct.std::_Vector_base.7", ptr %9, i32 0, i32 0
+  %11 = load ptr, ptr %6, align 8
+  call void @_ZNSt12_Vector_baseIjSaIjEE12_Vector_implC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 1 dereferenceable(1) %11) #18
+  %12 = load i64, ptr %5, align 8
+  invoke void @_ZNSt12_Vector_baseIjSaIjEE17_M_create_storageEm(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %12)
+          to label %13 unwind label %14
 
-invoke.cont:                                      ; preds = %entry
+13:                                               ; preds = %3
   ret void
 
-lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+14:                                               ; preds = %3
+  %15 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
-  call void @_ZNSt12_Vector_baseIjSaIjEE12_Vector_implD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %_M_impl) #14
-  br label %eh.resume
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %7, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %8, align 4
+  call void @_ZNSt15__new_allocatorIjED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #18
+  br label %18
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val2 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val2
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %7, align 8
+  %20 = load i32, ptr %8, align 4
+  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
+  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
+  resume { ptr, i32 } %22
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt6vectorIjSaIjEE18_M_fill_initializeEmRKj(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %__n, ptr noundef nonnull align 4 dereferenceable(4) %__value) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__n.addr = alloca i64, align 8
-  %__value.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i64 %__n, ptr %__n.addr, align 8
-  store ptr %__value, ptr %__value.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_impl = getelementptr inbounds %"struct.std::_Vector_base.7", ptr %this1, i32 0, i32 0
-  %_M_start = getelementptr inbounds %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %_M_impl, i32 0, i32 0
-  %0 = load ptr, ptr %_M_start, align 8
-  %1 = load i64, ptr %__n.addr, align 8
-  %2 = load ptr, ptr %__value.addr, align 8
-  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIjSaIjEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #14
-  %call2 = call noundef ptr @_ZSt24__uninitialized_fill_n_aIPjmjjET_S1_T0_RKT1_RSaIT2_E(ptr noundef %0, i64 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 1 dereferenceable(1) %call)
-  %_M_impl3 = getelementptr inbounds %"struct.std::_Vector_base.7", ptr %this1, i32 0, i32 0
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %_M_impl3, i32 0, i32 1
-  store ptr %call2, ptr %_M_finish, align 8
+define linkonce_odr void @_ZNSt6vectorIjSaIjEE18_M_fill_initializeEmRKj(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store i64 %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base.7", ptr %7, i32 0, i32 0
+  %9 = getelementptr inbounds nuw %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %8, i32 0, i32 0
+  %10 = load ptr, ptr %9, align 8
+  %11 = load i64, ptr %5, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIjSaIjEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %7) #18
+  %14 = call noundef ptr @_ZSt24__uninitialized_fill_n_aIPjmjjET_S1_T0_RKT1_RSaIT2_E(ptr noundef %10, i64 noundef %11, ptr noundef nonnull align 4 dereferenceable(4) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+  %15 = getelementptr inbounds nuw %"struct.std::_Vector_base.7", ptr %7, i32 0, i32 0
+  %16 = getelementptr inbounds nuw %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %15, i32 0, i32 1
+  store ptr %14, ptr %16, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt12_Vector_baseIjSaIjEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_impl = getelementptr inbounds %"struct.std::_Vector_base.7", ptr %this1, i32 0, i32 0
-  %_M_start = getelementptr inbounds %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %_M_impl, i32 0, i32 0
-  %0 = load ptr, ptr %_M_start, align 8
-  %_M_impl2 = getelementptr inbounds %"struct.std::_Vector_base.7", ptr %this1, i32 0, i32 0
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %_M_impl2, i32 0, i32 2
-  %1 = load ptr, ptr %_M_end_of_storage, align 8
-  %_M_impl3 = getelementptr inbounds %"struct.std::_Vector_base.7", ptr %this1, i32 0, i32 0
-  %_M_start4 = getelementptr inbounds %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %_M_impl3, i32 0, i32 0
-  %2 = load ptr, ptr %_M_start4, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %1 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %2 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 4
-  invoke void @_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef %0, i64 noundef %sub.ptr.div)
-          to label %invoke.cont unwind label %terminate.lpad
+define linkonce_odr void @_ZNSt12_Vector_baseIjSaIjEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base.7", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base.7", ptr %3, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %7, i32 0, i32 2
+  %9 = load ptr, ptr %8, align 8
+  %10 = getelementptr inbounds nuw %"struct.std::_Vector_base.7", ptr %3, i32 0, i32 0
+  %11 = getelementptr inbounds nuw %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %10, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8
+  %13 = ptrtoint ptr %9 to i64
+  %14 = ptrtoint ptr %12 to i64
+  %15 = sub i64 %13, %14
+  %16 = sdiv exact i64 %15, 4
+  invoke void @_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef %6, i64 noundef %16)
+          to label %17 unwind label %19
 
-invoke.cont:                                      ; preds = %entry
-  %_M_impl5 = getelementptr inbounds %"struct.std::_Vector_base.7", ptr %this1, i32 0, i32 0
-  call void @_ZNSt12_Vector_baseIjSaIjEE12_Vector_implD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %_M_impl5) #14
+17:                                               ; preds = %1
+  %18 = getelementptr inbounds nuw %"struct.std::_Vector_base.7", ptr %3, i32 0, i32 0
+  call void @_ZNSt15__new_allocatorIjED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #18
   ret void
 
-terminate.lpad:                                   ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+19:                                               ; preds = %1
+  %20 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #13
+  %21 = extractvalue { ptr, i32 } %20, 0
+  call void @__clang_call_terminate(ptr %21) #19
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i64 @_ZNSt6vectorIjSaIjEE11_S_max_sizeERKS0_(ptr noundef nonnull align 1 dereferenceable(1) %__a) #0 comdat align 2 {
-entry:
-  %__a.addr = alloca ptr, align 8
-  %__diffmax = alloca i64, align 8
-  %__allocmax = alloca i64, align 8
-  store ptr %__a, ptr %__a.addr, align 8
-  store i64 2305843009213693951, ptr %__diffmax, align 8
-  %0 = load ptr, ptr %__a.addr, align 8
-  %call = call noundef i64 @_ZNSt16allocator_traitsISaIjEE8max_sizeERKS0_(ptr noundef nonnull align 1 dereferenceable(1) %0) #14
-  store i64 %call, ptr %__allocmax, align 8
-  %call1 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3minImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %__diffmax, ptr noundef nonnull align 8 dereferenceable(8) %__allocmax)
-  %1 = load i64, ptr %call1, align 8
-  ret i64 %1
+define linkonce_odr noundef i64 @_ZNSt6vectorIjSaIjEE11_S_max_sizeERKS0_(ptr noundef nonnull align 1 dereferenceable(1) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i64, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #18
+  store i64 2305843009213693951, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #18
+  %5 = load ptr, ptr %2, align 8
+  %6 = call noundef i64 @_ZNSt16allocator_traitsISaIjEE8max_sizeERKS0_(ptr noundef nonnull align 1 dereferenceable(1) %5) #18
+  store i64 %6, ptr %4, align 8
+  %7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3minImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %8 = load i64, ptr %7, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #18
+  ret i64 %8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSaIjEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 1 dereferenceable(1) %__a) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__a.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__a, ptr %__a.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %__a.addr, align 8
-  call void @_ZNSt15__new_allocatorIjEC2ERKS0_(ptr noundef nonnull align 1 dereferenceable(1) %this1, ptr noundef nonnull align 1 dereferenceable(1) %0) #14
+define linkonce_odr void @_ZNSaIjEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZNSt15__new_allocatorIjEC2ERKS0_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i64 @_ZNSt16allocator_traitsISaIjEE8max_sizeERKS0_(ptr noundef nonnull align 1 dereferenceable(1) %__a) #0 comdat align 2 {
-entry:
-  %__a.addr = alloca ptr, align 8
-  store ptr %__a, ptr %__a.addr, align 8
-  %0 = load ptr, ptr %__a.addr, align 8
-  %call = call noundef i64 @_ZNKSt15__new_allocatorIjE8max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #14
-  ret i64 %call
+define linkonce_odr noundef i64 @_ZNSt16allocator_traitsISaIjEE8max_sizeERKS0_(ptr noundef nonnull align 1 dereferenceable(1) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef i64 @_ZNKSt15__new_allocatorIjE8max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %3) #18
+  ret i64 %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i64 @_ZNKSt15__new_allocatorIjE8max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %this) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef i64 @_ZNKSt15__new_allocatorIjE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %this1) #14
-  ret i64 %call
+define linkonce_odr noundef i64 @_ZNKSt15__new_allocatorIjE8max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef i64 @_ZNKSt15__new_allocatorIjE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %3) #18
+  ret i64 %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i64 @_ZNKSt15__new_allocatorIjE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %this) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
+define linkonce_odr noundef i64 @_ZNKSt15__new_allocatorIjE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
   ret i64 2305843009213693951
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15__new_allocatorIjEC2ERKS0_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %0, ptr %.addr, align 8
+define linkonce_odr void @_ZNSt15__new_allocatorIjEC2ERKS0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt12_Vector_baseIjSaIjEE12_Vector_implC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 1 dereferenceable(1) %__a) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__a.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__a, ptr %__a.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %__a.addr, align 8
-  call void @_ZNSaIjEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %this1, ptr noundef nonnull align 1 dereferenceable(1) %0) #14
-  call void @_ZNSt12_Vector_baseIjSaIjEE17_Vector_impl_dataC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #14
+define linkonce_odr void @_ZNSt12_Vector_baseIjSaIjEE12_Vector_implC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZNSaIjEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #18
+  call void @_ZNSt12_Vector_baseIjSaIjEE17_Vector_impl_dataC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #18
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt12_Vector_baseIjSaIjEE17_M_create_storageEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %__n) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__n.addr = alloca i64, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i64 %__n, ptr %__n.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i64, ptr %__n.addr, align 8
-  %call = call noundef ptr @_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %this1, i64 noundef %0)
-  %_M_impl = getelementptr inbounds %"struct.std::_Vector_base.7", ptr %this1, i32 0, i32 0
-  %_M_start = getelementptr inbounds %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %_M_impl, i32 0, i32 0
-  store ptr %call, ptr %_M_start, align 8
-  %_M_impl2 = getelementptr inbounds %"struct.std::_Vector_base.7", ptr %this1, i32 0, i32 0
-  %_M_start3 = getelementptr inbounds %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %_M_impl2, i32 0, i32 0
-  %1 = load ptr, ptr %_M_start3, align 8
-  %_M_impl4 = getelementptr inbounds %"struct.std::_Vector_base.7", ptr %this1, i32 0, i32 0
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %_M_impl4, i32 0, i32 1
-  store ptr %1, ptr %_M_finish, align 8
-  %_M_impl5 = getelementptr inbounds %"struct.std::_Vector_base.7", ptr %this1, i32 0, i32 0
-  %_M_start6 = getelementptr inbounds %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %_M_impl5, i32 0, i32 0
-  %2 = load ptr, ptr %_M_start6, align 8
-  %3 = load i64, ptr %__n.addr, align 8
-  %add.ptr = getelementptr inbounds i32, ptr %2, i64 %3
-  %_M_impl7 = getelementptr inbounds %"struct.std::_Vector_base.7", ptr %this1, i32 0, i32 0
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %_M_impl7, i32 0, i32 2
-  store ptr %add.ptr, ptr %_M_end_of_storage, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt12_Vector_baseIjSaIjEE12_Vector_implD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZNSaIjED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this1) #14
+define linkonce_odr void @_ZNSt12_Vector_baseIjSaIjEE17_M_create_storageEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8
+  %7 = call noundef ptr @_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %6)
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base.7", ptr %5, i32 0, i32 0
+  %9 = getelementptr inbounds nuw %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %8, i32 0, i32 0
+  store ptr %7, ptr %9, align 8
+  %10 = getelementptr inbounds nuw %"struct.std::_Vector_base.7", ptr %5, i32 0, i32 0
+  %11 = getelementptr inbounds nuw %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %10, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds nuw %"struct.std::_Vector_base.7", ptr %5, i32 0, i32 0
+  %14 = getelementptr inbounds nuw %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %13, i32 0, i32 1
+  store ptr %12, ptr %14, align 8
+  %15 = getelementptr inbounds nuw %"struct.std::_Vector_base.7", ptr %5, i32 0, i32 0
+  %16 = getelementptr inbounds nuw %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %15, i32 0, i32 0
+  %17 = load ptr, ptr %16, align 8
+  %18 = load i64, ptr %4, align 8
+  %19 = getelementptr inbounds nuw i32, ptr %17, i64 %18
+  %20 = getelementptr inbounds nuw %"struct.std::_Vector_base.7", ptr %5, i32 0, i32 0
+  %21 = getelementptr inbounds nuw %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %20, i32 0, i32 2
+  store ptr %19, ptr %21, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt12_Vector_baseIjSaIjEE17_Vector_impl_dataC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_start = getelementptr inbounds %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %this1, i32 0, i32 0
-  store ptr null, ptr %_M_start, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %this1, i32 0, i32 1
-  store ptr null, ptr %_M_finish, align 8
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %this1, i32 0, i32 2
-  store ptr null, ptr %_M_end_of_storage, align 8
+define linkonce_odr void @_ZNSt15__new_allocatorIjED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt12_Vector_baseIjSaIjEE17_Vector_impl_dataC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %3, i32 0, i32 0
+  store ptr null, ptr %4, align 8
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %3, i32 0, i32 1
+  store ptr null, ptr %5, align 8
+  %6 = getelementptr inbounds nuw %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %3, i32 0, i32 2
+  store ptr null, ptr %6, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %__n) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__n.addr = alloca i64, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i64 %__n, ptr %__n.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i64, ptr %__n.addr, align 8
-  %cmp = icmp ne i64 %0, 0
-  br i1 %cmp, label %cond.true, label %cond.false
+define linkonce_odr noundef ptr @_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8
+  %7 = icmp ne i64 %6, 0
+  br i1 %7, label %8, label %12
 
-cond.true:                                        ; preds = %entry
-  %_M_impl = getelementptr inbounds %"struct.std::_Vector_base.7", ptr %this1, i32 0, i32 0
-  %1 = load i64, ptr %__n.addr, align 8
-  %call = call noundef ptr @_ZNSt16allocator_traitsISaIjEE8allocateERS0_m(ptr noundef nonnull align 1 dereferenceable(1) %_M_impl, i64 noundef %1)
-  br label %cond.end
+8:                                                ; preds = %2
+  %9 = getelementptr inbounds nuw %"struct.std::_Vector_base.7", ptr %5, i32 0, i32 0
+  %10 = load i64, ptr %4, align 8
+  %11 = call noundef ptr @_ZNSt16allocator_traitsISaIjEE8allocateERS0_m(ptr noundef nonnull align 1 dereferenceable(1) %9, i64 noundef %10)
+  br label %13
 
-cond.false:                                       ; preds = %entry
-  br label %cond.end
+12:                                               ; preds = %2
+  br label %13
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi ptr [ %call, %cond.true ], [ null, %cond.false ]
-  ret ptr %cond
+13:                                               ; preds = %12, %8
+  %14 = phi ptr [ %11, %8 ], [ null, %12 ]
+  ret ptr %14
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZNSt16allocator_traitsISaIjEE8allocateERS0_m(ptr noundef nonnull align 1 dereferenceable(1) %__a, i64 noundef %__n) #2 comdat align 2 {
-entry:
-  %__a.addr = alloca ptr, align 8
-  %__n.addr = alloca i64, align 8
-  store ptr %__a, ptr %__a.addr, align 8
-  store i64 %__n, ptr %__n.addr, align 8
-  %0 = load ptr, ptr %__a.addr, align 8
-  %1 = load i64, ptr %__n.addr, align 8
-  %call = call noundef ptr @_ZNSt15__new_allocatorIjE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1, ptr noundef null)
-  ret ptr %call
+define linkonce_odr noundef ptr @_ZNSt16allocator_traitsISaIjEE8allocateERS0_m(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8
+  %7 = call noundef ptr @_ZNSt15__new_allocatorIjE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %5, i64 noundef %6, ptr noundef null)
+  ret ptr %7
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZNSt15__new_allocatorIjE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %this, i64 noundef %__n, ptr noundef %0) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__n.addr = alloca i64, align 8
-  %.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i64 %__n, ptr %__n.addr, align 8
-  store ptr %0, ptr %.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %1 = load i64, ptr %__n.addr, align 8
-  %call = call noundef i64 @_ZNKSt15__new_allocatorIjE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %this1) #14
-  %cmp = icmp ugt i64 %1, %call
-  br i1 %cmp, label %if.then, label %if.end4
+define linkonce_odr noundef ptr @_ZNSt15__new_allocatorIjE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1, ptr noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store i64 %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load i64, ptr %5, align 8
+  %9 = call noundef i64 @_ZNKSt15__new_allocatorIjE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %7) #18
+  %10 = icmp ugt i64 %8, %9
+  %11 = zext i1 %10 to i64
+  %12 = call i64 @llvm.expect.i64(i64 %11, i64 0)
+  %13 = icmp ne i64 %12, 0
+  br i1 %13, label %14, label %19
 
-if.then:                                          ; preds = %entry
-  %2 = load i64, ptr %__n.addr, align 8
-  %cmp2 = icmp ugt i64 %2, 4611686018427387903
-  br i1 %cmp2, label %if.then3, label %if.end
+14:                                               ; preds = %3
+  %15 = load i64, ptr %5, align 8
+  %16 = icmp ugt i64 %15, 4611686018427387903
+  br i1 %16, label %17, label %18
 
-if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #16
+17:                                               ; preds = %14
+  call void @_ZSt28__throw_bad_array_new_lengthv() #21
   unreachable
 
-if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #16
+18:                                               ; preds = %14
+  call void @_ZSt17__throw_bad_allocv() #21
   unreachable
 
-if.end4:                                          ; preds = %entry
-  %3 = load i64, ptr %__n.addr, align 8
-  %mul = mul i64 %3, 4
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #15
-  ret ptr %call5
+19:                                               ; preds = %3
+  %20 = load i64, ptr %5, align 8
+  %21 = mul i64 %20, 4
+  %22 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #20
+  ret ptr %22
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZSt24__uninitialized_fill_n_aIPjmjjET_S1_T0_RKT1_RSaIT2_E(ptr noundef %__first, i64 noundef %__n, ptr noundef nonnull align 4 dereferenceable(4) %__x, ptr noundef nonnull align 1 dereferenceable(1) %0) #2 comdat {
-entry:
-  %__first.addr = alloca ptr, align 8
-  %__n.addr = alloca i64, align 8
-  %__x.addr = alloca ptr, align 8
-  %.addr = alloca ptr, align 8
-  store ptr %__first, ptr %__first.addr, align 8
-  store i64 %__n, ptr %__n.addr, align 8
-  store ptr %__x, ptr %__x.addr, align 8
-  store ptr %0, ptr %.addr, align 8
-  %1 = load ptr, ptr %__first.addr, align 8
-  %2 = load i64, ptr %__n.addr, align 8
-  %3 = load ptr, ptr %__x.addr, align 8
-  %call = call noundef ptr @_ZSt20uninitialized_fill_nIPjmjET_S1_T0_RKT1_(ptr noundef %1, i64 noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %3)
-  ret ptr %call
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIjSaIjEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %this) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_impl = getelementptr inbounds %"struct.std::_Vector_base.7", ptr %this1, i32 0, i32 0
-  ret ptr %_M_impl
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZSt20uninitialized_fill_nIPjmjET_S1_T0_RKT1_(ptr noundef %__first, i64 noundef %__n, ptr noundef nonnull align 4 dereferenceable(4) %__x) #2 comdat {
-entry:
-  %__first.addr = alloca ptr, align 8
-  %__n.addr = alloca i64, align 8
-  %__x.addr = alloca ptr, align 8
-  %__can_fill = alloca i8, align 1
-  store ptr %__first, ptr %__first.addr, align 8
-  store i64 %__n, ptr %__n.addr, align 8
-  store ptr %__x, ptr %__x.addr, align 8
-  store i8 1, ptr %__can_fill, align 1
-  %0 = load ptr, ptr %__first.addr, align 8
-  %1 = load i64, ptr %__n.addr, align 8
-  %2 = load ptr, ptr %__x.addr, align 8
-  %call = call noundef ptr @_ZNSt22__uninitialized_fill_nILb1EE15__uninit_fill_nIPjmjEET_S3_T0_RKT1_(ptr noundef %0, i64 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
-  ret ptr %call
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZNSt22__uninitialized_fill_nILb1EE15__uninit_fill_nIPjmjEET_S3_T0_RKT1_(ptr noundef %__first, i64 noundef %__n, ptr noundef nonnull align 4 dereferenceable(4) %__x) #2 comdat align 2 {
-entry:
-  %__first.addr = alloca ptr, align 8
-  %__n.addr = alloca i64, align 8
-  %__x.addr = alloca ptr, align 8
-  store ptr %__first, ptr %__first.addr, align 8
-  store i64 %__n, ptr %__n.addr, align 8
-  store ptr %__x, ptr %__x.addr, align 8
-  %0 = load ptr, ptr %__first.addr, align 8
-  %1 = load i64, ptr %__n.addr, align 8
-  %2 = load ptr, ptr %__x.addr, align 8
-  %call = call noundef ptr @_ZSt6fill_nIPjmjET_S1_T0_RKT1_(ptr noundef %0, i64 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
-  ret ptr %call
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZSt6fill_nIPjmjET_S1_T0_RKT1_(ptr noundef %__first, i64 noundef %__n, ptr noundef nonnull align 4 dereferenceable(4) %__value) #2 comdat {
-entry:
-  %__first.addr = alloca ptr, align 8
-  %__n.addr = alloca i64, align 8
-  %__value.addr = alloca ptr, align 8
-  store ptr %__first, ptr %__first.addr, align 8
-  store i64 %__n, ptr %__n.addr, align 8
-  store ptr %__value, ptr %__value.addr, align 8
-  %0 = load ptr, ptr %__first.addr, align 8
-  %1 = load i64, ptr %__n.addr, align 8
-  %call = call noundef i64 @_ZSt17__size_to_integerm(i64 noundef %1)
-  %2 = load ptr, ptr %__value.addr, align 8
-  call void @_ZSt19__iterator_categoryIPjENSt15iterator_traitsIT_E17iterator_categoryERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %__first.addr)
-  %call1 = call noundef ptr @_ZSt10__fill_n_aIPjmjET_S1_T0_RKT1_St26random_access_iterator_tag(ptr noundef %0, i64 noundef %call, ptr noundef nonnull align 4 dereferenceable(4) %2)
-  ret ptr %call1
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZSt10__fill_n_aIPjmjET_S1_T0_RKT1_St26random_access_iterator_tag(ptr noundef %__first, i64 noundef %__n, ptr noundef nonnull align 4 dereferenceable(4) %__value) #2 comdat {
-entry:
-  %retval = alloca ptr, align 8
-  %__first.addr = alloca ptr, align 8
-  %__n.addr = alloca i64, align 8
-  %__value.addr = alloca ptr, align 8
-  store ptr %__first, ptr %__first.addr, align 8
-  store i64 %__n, ptr %__n.addr, align 8
-  store ptr %__value, ptr %__value.addr, align 8
-  %0 = load i64, ptr %__n.addr, align 8
-  %cmp = icmp ule i64 %0, 0
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %__first.addr, align 8
-  store ptr %1, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %__first.addr, align 8
-  %3 = load ptr, ptr %__first.addr, align 8
-  %4 = load i64, ptr %__n.addr, align 8
-  %add.ptr = getelementptr inbounds i32, ptr %3, i64 %4
-  %5 = load ptr, ptr %__value.addr, align 8
-  call void @_ZSt8__fill_aIPjjEvT_S1_RKT0_(ptr noundef %2, ptr noundef %add.ptr, ptr noundef nonnull align 4 dereferenceable(4) %5)
-  %6 = load ptr, ptr %__first.addr, align 8
-  %7 = load i64, ptr %__n.addr, align 8
-  %add.ptr1 = getelementptr inbounds i32, ptr %6, i64 %7
-  store ptr %add.ptr1, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.end, %if.then
-  %8 = load ptr, ptr %retval, align 8
-  ret ptr %8
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef ptr @_ZSt24__uninitialized_fill_n_aIPjmjjET_S1_T0_RKT1_RSaIT2_E(ptr noundef %0, i64 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #3 comdat {
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8
+  store i64 %1, ptr %6, align 8
+  store ptr %2, ptr %7, align 8
+  store ptr %3, ptr %8, align 8
+  %9 = load ptr, ptr %5, align 8
+  %10 = load i64, ptr %6, align 8
+  %11 = load ptr, ptr %7, align 8
+  %12 = call noundef ptr @_ZSt20uninitialized_fill_nIPjmjET_S1_T0_RKT1_(ptr noundef %9, i64 noundef %10, ptr noundef nonnull align 4 dereferenceable(4) %11)
+  ret ptr %12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i64 @_ZSt17__size_to_integerm(i64 noundef %__n) #0 comdat {
-entry:
-  %__n.addr = alloca i64, align 8
-  store i64 %__n, ptr %__n.addr, align 8
-  %0 = load i64, ptr %__n.addr, align 8
-  ret i64 %0
+define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIjSaIjEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base.7", ptr %3, i32 0, i32 0
+  ret ptr %4
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZSt19__iterator_categoryIPjENSt15iterator_traitsIT_E17iterator_categoryERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat {
-entry:
-  %.addr = alloca ptr, align 8
-  store ptr %0, ptr %.addr, align 8
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef ptr @_ZSt20uninitialized_fill_nIPjmjET_S1_T0_RKT1_(ptr noundef %0, i64 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2) #3 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i8, align 1
+  store ptr %0, ptr %4, align 8
+  store i64 %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %7) #18
+  store i8 1, ptr %7, align 1
+  %8 = load ptr, ptr %4, align 8
+  %9 = load i64, ptr %5, align 8
+  %10 = load ptr, ptr %6, align 8
+  %11 = call noundef ptr @_ZNSt22__uninitialized_fill_nILb1EE15__uninit_fill_nIPjmjEET_S3_T0_RKT1_(ptr noundef %8, i64 noundef %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #18
+  ret ptr %11
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZNSt22__uninitialized_fill_nILb1EE15__uninit_fill_nIPjmjEET_S3_T0_RKT1_(ptr noundef %0, i64 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store i64 %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load i64, ptr %5, align 8
+  %9 = load ptr, ptr %6, align 8
+  %10 = call noundef ptr @_ZSt6fill_nIPjmjET_S1_T0_RKT1_(ptr noundef %7, i64 noundef %8, ptr noundef nonnull align 4 dereferenceable(4) %9)
+  ret ptr %10
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef ptr @_ZSt6fill_nIPjmjET_S1_T0_RKT1_(ptr noundef %0, i64 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2) #3 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store i64 %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load i64, ptr %5, align 8
+  %9 = call noundef i64 @_ZSt17__size_to_integerm(i64 noundef %8)
+  %10 = load ptr, ptr %6, align 8
+  call void @_ZSt19__iterator_categoryIPjENSt15iterator_traitsIT_E17iterator_categoryERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %11 = call noundef ptr @_ZSt10__fill_n_aIPjmjET_S1_T0_RKT1_St26random_access_iterator_tag(ptr noundef %7, i64 noundef %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
+  ret ptr %11
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef ptr @_ZSt10__fill_n_aIPjmjET_S1_T0_RKT1_St26random_access_iterator_tag(ptr noundef %0, i64 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2) #3 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8
+  store i64 %1, ptr %6, align 8
+  store ptr %2, ptr %7, align 8
+  %8 = load i64, ptr %6, align 8
+  %9 = icmp ule i64 %8, 0
+  br i1 %9, label %10, label %12
+
+10:                                               ; preds = %3
+  %11 = load ptr, ptr %5, align 8
+  store ptr %11, ptr %4, align 8
+  br label %21
+
+12:                                               ; preds = %3
+  %13 = load ptr, ptr %5, align 8
+  %14 = load ptr, ptr %5, align 8
+  %15 = load i64, ptr %6, align 8
+  %16 = getelementptr inbounds nuw i32, ptr %14, i64 %15
+  %17 = load ptr, ptr %7, align 8
+  call void @_ZSt8__fill_aIPjjEvT_S1_RKT0_(ptr noundef %13, ptr noundef %16, ptr noundef nonnull align 4 dereferenceable(4) %17)
+  %18 = load ptr, ptr %5, align 8
+  %19 = load i64, ptr %6, align 8
+  %20 = getelementptr inbounds nuw i32, ptr %18, i64 %19
+  store ptr %20, ptr %4, align 8
+  br label %21
+
+21:                                               ; preds = %12, %10
+  %22 = load ptr, ptr %4, align 8
+  ret ptr %22
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZSt17__size_to_integerm(i64 noundef %0) #7 comdat {
+  %2 = alloca i64, align 8
+  store i64 %0, ptr %2, align 8
+  %3 = load i64, ptr %2, align 8
+  ret i64 %3
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt19__iterator_categoryIPjENSt15iterator_traitsIT_E17iterator_categoryERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %0) #7 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZSt8__fill_aIPjjEvT_S1_RKT0_(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2) #3 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = load ptr, ptr %6, align 8
+  call void @_ZSt9__fill_a1IPjjEN9__gnu_cxx11__enable_ifIXsr11__is_scalarIT0_EE7__valueEvE6__typeET_S6_RKS3_(ptr noundef %7, ptr noundef %8, ptr noundef nonnull align 4 dereferenceable(4) %9)
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt9__fill_a1IPjjEN9__gnu_cxx11__enable_ifIXsr11__is_scalarIT0_EE7__valueEvE6__typeET_S6_RKS3_(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2) #7 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #18
+  %8 = load ptr, ptr %6, align 8
+  %9 = load i32, ptr %8, align 4
+  store i32 %9, ptr %7, align 4
+  br label %10
+
+10:                                               ; preds = %17, %3
+  %11 = load ptr, ptr %4, align 8
+  %12 = load ptr, ptr %5, align 8
+  %13 = icmp ne ptr %11, %12
+  br i1 %13, label %14, label %20
+
+14:                                               ; preds = %10
+  %15 = load i32, ptr %7, align 4
+  %16 = load ptr, ptr %4, align 8
+  store i32 %15, ptr %16, align 4
+  br label %17
+
+17:                                               ; preds = %14
+  %18 = load ptr, ptr %4, align 8
+  %19 = getelementptr inbounds nuw i32, ptr %18, i32 1
+  store ptr %19, ptr %4, align 8
+  br label %10, !llvm.loop !33
+
+20:                                               ; preds = %10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #18
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZSt8__fill_aIPjjEvT_S1_RKT0_(ptr noundef %__first, ptr noundef %__last, ptr noundef nonnull align 4 dereferenceable(4) %__value) #2 comdat {
-entry:
-  %__first.addr = alloca ptr, align 8
-  %__last.addr = alloca ptr, align 8
-  %__value.addr = alloca ptr, align 8
-  store ptr %__first, ptr %__first.addr, align 8
-  store ptr %__last, ptr %__last.addr, align 8
-  store ptr %__value, ptr %__value.addr, align 8
-  %0 = load ptr, ptr %__first.addr, align 8
-  %1 = load ptr, ptr %__last.addr, align 8
-  %2 = load ptr, ptr %__value.addr, align 8
-  call void @_ZSt9__fill_a1IPjjEN9__gnu_cxx11__enable_ifIXsr11__is_scalarIT0_EE7__valueEvE6__typeET_S6_RKS3_(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
-  ret void
-}
+define linkonce_odr void @_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, i64 noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = icmp ne ptr %8, null
+  br i1 %9, label %10, label %14
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZSt9__fill_a1IPjjEN9__gnu_cxx11__enable_ifIXsr11__is_scalarIT0_EE7__valueEvE6__typeET_S6_RKS3_(ptr noundef %__first, ptr noundef %__last, ptr noundef nonnull align 4 dereferenceable(4) %__value) #0 comdat {
-entry:
-  %__first.addr = alloca ptr, align 8
-  %__last.addr = alloca ptr, align 8
-  %__value.addr = alloca ptr, align 8
-  %__tmp = alloca i32, align 4
-  store ptr %__first, ptr %__first.addr, align 8
-  store ptr %__last, ptr %__last.addr, align 8
-  store ptr %__value, ptr %__value.addr, align 8
-  %0 = load ptr, ptr %__value.addr, align 8
-  %1 = load i32, ptr %0, align 4
-  store i32 %1, ptr %__tmp, align 4
-  br label %for.cond
+10:                                               ; preds = %3
+  %11 = getelementptr inbounds nuw %"struct.std::_Vector_base.7", ptr %7, i32 0, i32 0
+  %12 = load ptr, ptr %5, align 8
+  %13 = load i64, ptr %6, align 8
+  call void @_ZNSt16allocator_traitsISaIjEE10deallocateERS0_Pjm(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef %12, i64 noundef %13)
+  br label %14
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %2 = load ptr, ptr %__first.addr, align 8
-  %3 = load ptr, ptr %__last.addr, align 8
-  %cmp = icmp ne ptr %2, %3
-  br i1 %cmp, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %4 = load i32, ptr %__tmp, align 4
-  %5 = load ptr, ptr %__first.addr, align 8
-  store i32 %4, ptr %5, align 4
-  br label %for.inc
-
-for.inc:                                          ; preds = %for.body
-  %6 = load ptr, ptr %__first.addr, align 8
-  %incdec.ptr = getelementptr inbounds i32, ptr %6, i32 1
-  store ptr %incdec.ptr, ptr %__first.addr, align 8
-  br label %for.cond, !llvm.loop !34
-
-for.end:                                          ; preds = %for.cond
+14:                                               ; preds = %10, %3
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %__p, i64 noundef %__n) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__p.addr = alloca ptr, align 8
-  %__n.addr = alloca i64, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__p, ptr %__p.addr, align 8
-  store i64 %__n, ptr %__n.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %__p.addr, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %_M_impl = getelementptr inbounds %"struct.std::_Vector_base.7", ptr %this1, i32 0, i32 0
-  %1 = load ptr, ptr %__p.addr, align 8
-  %2 = load i64, ptr %__n.addr, align 8
-  call void @_ZNSt16allocator_traitsISaIjEE10deallocateERS0_Pjm(ptr noundef nonnull align 1 dereferenceable(1) %_M_impl, ptr noundef %1, i64 noundef %2)
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %entry
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt16allocator_traitsISaIjEE10deallocateERS0_Pjm(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %__p, i64 noundef %__n) #2 comdat align 2 {
-entry:
-  %__a.addr = alloca ptr, align 8
-  %__p.addr = alloca ptr, align 8
-  %__n.addr = alloca i64, align 8
-  store ptr %__a, ptr %__a.addr, align 8
-  store ptr %__p, ptr %__p.addr, align 8
-  store i64 %__n, ptr %__n.addr, align 8
-  %0 = load ptr, ptr %__a.addr, align 8
-  %1 = load ptr, ptr %__p.addr, align 8
-  %2 = load i64, ptr %__n.addr, align 8
-  call void @_ZNSt15__new_allocatorIjE10deallocateEPjm(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2)
+define linkonce_odr void @_ZNSt16allocator_traitsISaIjEE10deallocateERS0_Pjm(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = load i64, ptr %6, align 8
+  call void @_ZNSt15__new_allocatorIjE10deallocateEPjm(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, i64 noundef %9)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15__new_allocatorIjE10deallocateEPjm(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %__p, i64 noundef %__n) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__p.addr = alloca ptr, align 8
-  %__n.addr = alloca i64, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__p, ptr %__p.addr, align 8
-  store i64 %__n, ptr %__n.addr, align 8
-  %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZdlPv(ptr noundef %0) #17
+define linkonce_odr void @_ZNSt15__new_allocatorIjE10deallocateEPjm(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #2 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %7 = load ptr, ptr %5, align 8
+  %8 = load i64, ptr %6, align 8
+  %9 = mul i64 %8, 4
+  call void @_ZdlPvm(ptr noundef %7, i64 noundef %9) #22
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZSt8_DestroyIPjjEvT_S1_RSaIT0_E(ptr noundef %__first, ptr noundef %__last, ptr noundef nonnull align 1 dereferenceable(1) %0) #2 comdat {
-entry:
-  %__first.addr = alloca ptr, align 8
-  %__last.addr = alloca ptr, align 8
-  %.addr = alloca ptr, align 8
-  store ptr %__first, ptr %__first.addr, align 8
-  store ptr %__last, ptr %__last.addr, align 8
-  store ptr %0, ptr %.addr, align 8
-  %1 = load ptr, ptr %__first.addr, align 8
-  %2 = load ptr, ptr %__last.addr, align 8
-  call void @_ZSt8_DestroyIPjEvT_S1_(ptr noundef %1, ptr noundef %2)
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZSt8_DestroyIPjjEvT_S1_RSaIT0_E(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #3 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  call void @_ZSt8_DestroyIPjEvT_S1_(ptr noundef %7, ptr noundef %8)
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZSt8_DestroyIPjEvT_S1_(ptr noundef %__first, ptr noundef %__last) #2 comdat {
-entry:
-  %__first.addr = alloca ptr, align 8
-  %__last.addr = alloca ptr, align 8
-  store ptr %__first, ptr %__first.addr, align 8
-  store ptr %__last, ptr %__last.addr, align 8
-  %0 = load ptr, ptr %__first.addr, align 8
-  %1 = load ptr, ptr %__last.addr, align 8
-  call void @_ZNSt12_Destroy_auxILb1EE9__destroyIPjEEvT_S3_(ptr noundef %0, ptr noundef %1)
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZSt8_DestroyIPjEvT_S1_(ptr noundef %0, ptr noundef %1) #3 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZNSt12_Destroy_auxILb1EE9__destroyIPjEEvT_S3_(ptr noundef %5, ptr noundef %6)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt12_Destroy_auxILb1EE9__destroyIPjEEvT_S3_(ptr noundef %0, ptr noundef %1) #0 comdat align 2 {
-entry:
-  %.addr = alloca ptr, align 8
-  %.addr1 = alloca ptr, align 8
-  store ptr %0, ptr %.addr, align 8
-  store ptr %1, ptr %.addr1, align 8
+define linkonce_odr void @_ZNSt12_Destroy_auxILb1EE9__destroyIPjEEvT_S3_(ptr noundef %0, ptr noundef %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
   ret void
 }
 
-attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #2 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { noreturn nounwind }
-attributes #14 = { nounwind }
-attributes #15 = { builtin allocsize(0) }
-attributes #16 = { noreturn }
-attributes #17 = { builtin nounwind }
+attributes #7 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { inlinehint mustprogress uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #12 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { alwaysinline mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #18 = { nounwind }
+attributes #19 = { noreturn nounwind }
+attributes #20 = { builtin allocsize(0) }
+attributes #21 = { noreturn }
+attributes #22 = { builtin nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}
-!24 = distinct !{!24, !5}
-!25 = distinct !{!25, !5}
-!26 = distinct !{!26, !5}
-!27 = distinct !{!27, !5}
-!28 = distinct !{!28, !5}
-!29 = distinct !{!29, !5}
-!30 = distinct !{!30, !5}
-!31 = distinct !{!31, !5}
-!32 = distinct !{!32, !5}
-!33 = distinct !{!33, !5}
-!34 = distinct !{!34, !5}
+!3 = distinct !{!3, !4}
+!4 = !{!"llvm.loop.mustprogress"}
+!5 = distinct !{!5, !4}
+!6 = distinct !{!6, !4}
+!7 = distinct !{!7, !4}
+!8 = distinct !{!8, !4}
+!9 = distinct !{!9, !4}
+!10 = distinct !{!10, !4}
+!11 = distinct !{!11, !4}
+!12 = distinct !{!12, !4}
+!13 = distinct !{!13, !4}
+!14 = distinct !{!14, !4}
+!15 = distinct !{!15, !4}
+!16 = distinct !{!16, !4}
+!17 = distinct !{!17, !4}
+!18 = distinct !{!18, !4}
+!19 = distinct !{!19, !4}
+!20 = distinct !{!20, !4}
+!21 = distinct !{!21, !4}
+!22 = distinct !{!22, !4}
+!23 = distinct !{!23, !4}
+!24 = distinct !{!24, !4}
+!25 = distinct !{!25, !4}
+!26 = distinct !{!26, !4}
+!27 = distinct !{!27, !4}
+!28 = distinct !{!28, !4}
+!29 = distinct !{!29, !4}
+!30 = distinct !{!30, !4}
+!31 = distinct !{!31, !4}
+!32 = distinct !{!32, !4}
+!33 = distinct !{!33, !4}

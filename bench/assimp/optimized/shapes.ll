@@ -1,7 +1,7 @@
 ; ModuleID = 'bench/assimp/original/shapes.ll'
 source_filename = "bench/assimp/original/shapes.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
 %"class.std::basic_ostream" = type { ptr, %"class.std::basic_ios" }
@@ -12,12 +12,13 @@ target triple = "x86_64-unknown-linux-gnu"
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
-@_ZSt4cout = external global %"class.std::basic_ostream", align 8
 @.str = private unnamed_addr constant [2 x i8] c",\00", align 1
+@_ZSt4cout = external global %"class.std::basic_ostream", align 8
 @.str.1 = private unnamed_addr constant [2 x i8] c" \00", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_shapes.cc, ptr null }]
 
-@_ZN3p2t8TriangleC1ERNS_5PointES2_S2_ = hidden unnamed_addr alias void (ptr, ptr, ptr, ptr), ptr @_ZN3p2t8TriangleC2ERNS_5PointES2_S2_
+@_ZN3p2t5PointC1Edd = unnamed_addr alias void (ptr, double, double), ptr @_ZN3p2t5PointC2Edd
+@_ZN3p2t8TriangleC1ERNS_5PointES2_S2_ = unnamed_addr alias void (ptr, ptr, ptr, ptr), ptr @_ZN3p2t8TriangleC2ERNS_5PointES2_S2_
 
 declare void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0
 
@@ -28,983 +29,1186 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN3p2t8TriangleC2ERNS_5PointES2_S2_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(57) initializes((0, 6), (8, 57)) %this, ptr noundef nonnull align 8 dereferenceable(40) %a, ptr noundef nonnull align 8 dereferenceable(40) %b, ptr noundef nonnull align 8 dereferenceable(40) %c) unnamed_addr #3 align 2 {
-entry:
-  %points_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr %a, ptr %points_, align 8
-  %arrayidx3 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr %b, ptr %arrayidx3, align 8
-  %arrayidx5 = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store ptr %c, ptr %arrayidx5, align 8
-  %neighbors_ = getelementptr inbounds nuw i8, ptr %this, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %this, i8 0, i64 6, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %neighbors_, i8 0, i64 25, i1 false)
+define void @_ZN3p2t5PointC2Edd(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 40)) %0, double noundef %1, double noundef %2) unnamed_addr #3 align 2 {
+  store double %1, ptr %0, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store double %2, ptr %4, align 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN3p2tlsERSoRKNS_5PointE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) local_unnamed_addr #4 {
+  %3 = load double, ptr %1, align 8
+  %4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %0, double noundef %3)
+  %5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str, i64 noundef 1)
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %7 = load double, ptr %6, align 8
+  %8 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %4, double noundef %7)
+  ret ptr %8
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
+define void @_ZN3p2t8TriangleC2ERNS_5PointES2_S2_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(57) initializes((0, 6), (8, 57)) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(40) %3) unnamed_addr #3 align 2 {
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %1, ptr %5, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %2, ptr %6, align 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %3, ptr %7, align 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %0, i8 0, i64 6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %8, i8 0, i64 25, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN3p2t8Triangle12MarkNeighborEPNS_5PointES2_PS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(57) %this, ptr noundef readnone captures(address) %p1, ptr noundef readnone captures(address) %p2, ptr noundef %t) local_unnamed_addr #4 align 2 {
-entry:
-  %points_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %0 = load ptr, ptr %arrayidx, align 8
-  %cmp = icmp eq ptr %p1, %0
-  %arrayidx3 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %1 = load ptr, ptr %arrayidx3, align 8
-  %cmp4 = icmp eq ptr %p2, %1
-  %or.cond = select i1 %cmp, i1 %cmp4, i1 false
-  br i1 %or.cond, label %if.end52.sink.split, label %lor.lhs.false
+define void @_ZN3p2t8Triangle12MarkNeighborEPNS_5PointES2_PS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(57) %0, ptr noundef readnone captures(address) %1, ptr noundef readnone captures(address) %2, ptr noundef %3) local_unnamed_addr #5 align 2 {
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %7 = load ptr, ptr %6, align 8
+  %8 = icmp eq ptr %1, %7
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %10 = load ptr, ptr %9, align 8
+  %11 = icmp eq ptr %2, %10
+  %or.cond = select i1 %8, i1 %11, i1 false
+  br i1 %or.cond, label %.sink.split, label %12
 
-lor.lhs.false:                                    ; preds = %entry
-  %cmp7 = icmp eq ptr %p1, %1
-  %cmp11 = icmp eq ptr %p2, %0
-  %or.cond13 = and i1 %cmp11, %cmp7
-  br i1 %or.cond13, label %if.end52.sink.split, label %if.else
+12:                                               ; preds = %4
+  %13 = icmp eq ptr %1, %10
+  %14 = icmp eq ptr %2, %7
+  %or.cond19 = and i1 %14, %13
+  br i1 %or.cond19, label %.sink.split, label %15
 
-if.else:                                          ; preds = %lor.lhs.false
-  %2 = load ptr, ptr %points_, align 8
-  %cmp15 = icmp eq ptr %p1, %2
-  %or.cond14 = and i1 %cmp11, %cmp15
-  br i1 %or.cond14, label %if.end52.sink.split, label %lor.lhs.false20
+15:                                               ; preds = %12
+  %16 = load ptr, ptr %5, align 8
+  %17 = icmp eq ptr %1, %16
+  %or.cond21 = and i1 %14, %17
+  br i1 %or.cond21, label %.sink.split, label %18
 
-lor.lhs.false20:                                  ; preds = %if.else
-  %cmp27 = icmp eq ptr %p2, %2
-  %or.cond15 = and i1 %cmp, %cmp27
-  br i1 %or.cond15, label %if.end52.sink.split, label %if.else31
+18:                                               ; preds = %15
+  %19 = icmp eq ptr %2, %16
+  %or.cond23 = and i1 %8, %19
+  br i1 %or.cond23, label %.sink.split, label %20
 
-if.else31:                                        ; preds = %lor.lhs.false20
-  %or.cond16 = select i1 %cmp15, i1 %cmp4, i1 false
-  %or.cond17 = and i1 %cmp7, %cmp27
-  %or.cond18 = or i1 %or.cond16, %or.cond17
-  br i1 %or.cond18, label %if.end52.sink.split, label %if.end52
+20:                                               ; preds = %18
+  %or.cond25 = select i1 %17, i1 %11, i1 false
+  %or.cond27 = and i1 %13, %19
+  %or.cond28 = or i1 %or.cond25, %or.cond27
+  br i1 %or.cond28, label %.sink.split, label %22
 
-if.end52.sink.split:                              ; preds = %if.else31, %if.else, %lor.lhs.false20, %entry, %lor.lhs.false
-  %.sink = phi i64 [ 32, %lor.lhs.false ], [ 32, %entry ], [ 40, %lor.lhs.false20 ], [ 40, %if.else ], [ 48, %if.else31 ]
-  %arrayidx30 = getelementptr inbounds nuw i8, ptr %this, i64 %.sink
-  store ptr %t, ptr %arrayidx30, align 8
-  br label %if.end52
+.sink.split:                                      ; preds = %20, %15, %18, %4, %12
+  %.sink29 = phi i64 [ 32, %12 ], [ 32, %4 ], [ 40, %18 ], [ 40, %15 ], [ 48, %20 ]
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink29
+  store ptr %3, ptr %21, align 8
+  br label %22
 
-if.end52:                                         ; preds = %if.end52.sink.split, %if.else31
+22:                                               ; preds = %.sink.split, %20
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN3p2t8Triangle12MarkNeighborERS0_(ptr noundef nonnull align 8 dereferenceable(57) %this, ptr noundef nonnull align 8 dereferenceable(57) %t) local_unnamed_addr #4 align 2 {
-entry:
-  %points_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %0 = load ptr, ptr %arrayidx, align 8
-  %arrayidx3 = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %1 = load ptr, ptr %arrayidx3, align 8
-  %points_.i.i = getelementptr inbounds nuw i8, ptr %t, i64 8
-  %2 = load ptr, ptr %points_.i.i, align 8
-  %cmp.i.i = icmp eq ptr %0, %2
-  %arrayidx3.i.i = getelementptr inbounds nuw i8, ptr %t, i64 16
-  %3 = load ptr, ptr %arrayidx3.i.i, align 8
-  %cmp4.i.i = icmp eq ptr %0, %3
-  %or.cond.i.i = select i1 %cmp.i.i, i1 true, i1 %cmp4.i.i
-  %arrayidx6.i.i = getelementptr inbounds nuw i8, ptr %t, i64 24
-  %4 = load ptr, ptr %arrayidx6.i.i, align 8
-  %cmp7.i.i = icmp eq ptr %0, %4
-  %or.cond.i = select i1 %or.cond.i.i, i1 true, i1 %cmp7.i.i
-  br i1 %or.cond.i, label %_ZN3p2t8Triangle8ContainsEPKNS_5PointES3_.exit, label %if.else
+define void @_ZN3p2t8Triangle12MarkNeighborERS0_(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr noundef nonnull align 8 dereferenceable(57) %1) local_unnamed_addr #5 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %5 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %7 = load ptr, ptr %6, align 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %9 = load ptr, ptr %8, align 8
+  %10 = icmp eq ptr %5, %9
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %12 = load ptr, ptr %11, align 8
+  %13 = icmp eq ptr %5, %12
+  %or.cond.i.i = select i1 %10, i1 true, i1 %13
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %15 = load ptr, ptr %14, align 8
+  %16 = icmp eq ptr %5, %15
+  %or.cond.i = select i1 %or.cond.i.i, i1 true, i1 %16
+  br i1 %or.cond.i, label %_ZN3p2t8Triangle8ContainsEPKNS_5PointES3_.exit, label %_ZN3p2t8Triangle8ContainsEPKNS_5PointES3_.exit.thread
 
-_ZN3p2t8Triangle8ContainsEPKNS_5PointES3_.exit:   ; preds = %entry
-  %cmp.i2.i = icmp eq ptr %1, %2
-  %cmp4.i4.i = icmp eq ptr %1, %3
-  %or.cond.i5.i = select i1 %cmp.i2.i, i1 true, i1 %cmp4.i4.i
-  %cmp7.i8.i = icmp eq ptr %1, %4
-  %spec.select.i = select i1 %or.cond.i5.i, i1 true, i1 %cmp7.i8.i
-  br i1 %spec.select.i, label %if.then, label %if.else
+_ZN3p2t8Triangle8ContainsEPKNS_5PointES3_.exit:   ; preds = %2
+  %17 = icmp eq ptr %7, %9
+  %18 = icmp eq ptr %7, %12
+  %or.cond.i3.i = select i1 %17, i1 true, i1 %18
+  %19 = icmp eq ptr %7, %15
+  %spec.select.i = select i1 %or.cond.i3.i, i1 true, i1 %19
+  br i1 %spec.select.i, label %20, label %_ZN3p2t8Triangle8ContainsEPKNS_5PointES3_.exit.thread
 
-if.then:                                          ; preds = %_ZN3p2t8Triangle8ContainsEPKNS_5PointES3_.exit
-  %neighbors_ = getelementptr inbounds nuw i8, ptr %this, i64 32
-  store ptr %t, ptr %neighbors_, align 8
-  %5 = load ptr, ptr %arrayidx6.i.i, align 8
-  %cmp.i = icmp eq ptr %0, %5
-  %6 = load ptr, ptr %arrayidx3.i.i, align 8
-  %cmp4.i = icmp eq ptr %1, %6
-  %or.cond.i9 = select i1 %cmp.i, i1 %cmp4.i, i1 false
-  br i1 %or.cond.i9, label %if.end35.sink.split, label %lor.lhs.false.i
+20:                                               ; preds = %_ZN3p2t8Triangle8ContainsEPKNS_5PointES3_.exit
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr %1, ptr %21, align 8
+  %22 = load ptr, ptr %14, align 8
+  %23 = icmp eq ptr %5, %22
+  %24 = load ptr, ptr %11, align 8
+  %25 = icmp eq ptr %7, %24
+  %or.cond.i10 = select i1 %23, i1 %25, i1 false
+  br i1 %or.cond.i10, label %_ZN3p2t8Triangle12MarkNeighborEPNS_5PointES2_PS0_.exit.sink.split, label %26
 
-lor.lhs.false.i:                                  ; preds = %if.then
-  %cmp7.i = icmp eq ptr %0, %6
-  %cmp11.i = icmp eq ptr %1, %5
-  %or.cond13.i = and i1 %cmp11.i, %cmp7.i
-  br i1 %or.cond13.i, label %if.end35.sink.split, label %if.else.i
+26:                                               ; preds = %20
+  %27 = icmp eq ptr %5, %24
+  %28 = icmp eq ptr %7, %22
+  %or.cond19.i = and i1 %28, %27
+  br i1 %or.cond19.i, label %_ZN3p2t8Triangle12MarkNeighborEPNS_5PointES2_PS0_.exit.sink.split, label %29
 
-if.else.i:                                        ; preds = %lor.lhs.false.i
-  %7 = load ptr, ptr %points_.i.i, align 8
-  %cmp15.i = icmp eq ptr %0, %7
-  %or.cond14.i = and i1 %cmp11.i, %cmp15.i
-  br i1 %or.cond14.i, label %if.end35.sink.split, label %lor.lhs.false20.i
+29:                                               ; preds = %26
+  %30 = load ptr, ptr %8, align 8
+  %31 = icmp eq ptr %5, %30
+  %or.cond21.i = and i1 %28, %31
+  br i1 %or.cond21.i, label %_ZN3p2t8Triangle12MarkNeighborEPNS_5PointES2_PS0_.exit.sink.split, label %32
 
-lor.lhs.false20.i:                                ; preds = %if.else.i
-  %cmp27.i = icmp eq ptr %1, %7
-  %or.cond15.i = and i1 %cmp.i, %cmp27.i
-  br i1 %or.cond15.i, label %if.end35.sink.split, label %if.else31.i
+32:                                               ; preds = %29
+  %33 = icmp eq ptr %7, %30
+  %or.cond23.i = and i1 %23, %33
+  br i1 %or.cond23.i, label %_ZN3p2t8Triangle12MarkNeighborEPNS_5PointES2_PS0_.exit.sink.split, label %34
 
-if.else31.i:                                      ; preds = %lor.lhs.false20.i
-  %or.cond16.i = select i1 %cmp15.i, i1 %cmp4.i, i1 false
-  %or.cond17.i = and i1 %cmp7.i, %cmp27.i
-  %or.cond18.i = or i1 %or.cond16.i, %or.cond17.i
-  br i1 %or.cond18.i, label %if.end35.sink.split, label %if.end35
+34:                                               ; preds = %32
+  %or.cond25.i = select i1 %31, i1 %25, i1 false
+  %or.cond27.i = and i1 %27, %33
+  %or.cond28.i = or i1 %or.cond25.i, %or.cond27.i
+  br i1 %or.cond28.i, label %_ZN3p2t8Triangle12MarkNeighborEPNS_5PointES2_PS0_.exit.sink.split, label %_ZN3p2t8Triangle12MarkNeighborEPNS_5PointES2_PS0_.exit
 
-if.else:                                          ; preds = %entry, %_ZN3p2t8Triangle8ContainsEPKNS_5PointES3_.exit
-  %8 = load ptr, ptr %points_, align 8
-  %cmp.i.i11 = icmp eq ptr %8, %2
-  %cmp4.i.i13 = icmp eq ptr %8, %3
-  %or.cond.i.i14 = select i1 %cmp.i.i11, i1 true, i1 %cmp4.i.i13
-  %cmp7.i.i16 = icmp eq ptr %8, %4
-  %or.cond.i17 = select i1 %or.cond.i.i14, i1 true, i1 %cmp7.i.i16
-  br i1 %or.cond.i17, label %_ZN3p2t8Triangle8ContainsEPKNS_5PointES3_.exit24, label %if.end35
+_ZN3p2t8Triangle8ContainsEPKNS_5PointES3_.exit.thread: ; preds = %2, %_ZN3p2t8Triangle8ContainsEPKNS_5PointES3_.exit
+  %35 = load ptr, ptr %3, align 8
+  %36 = icmp eq ptr %35, %9
+  %37 = icmp eq ptr %35, %12
+  %or.cond.i.i11 = select i1 %36, i1 true, i1 %37
+  %38 = icmp eq ptr %35, %15
+  %or.cond.i12 = select i1 %or.cond.i.i11, i1 true, i1 %38
+  br i1 %or.cond.i12, label %_ZN3p2t8Triangle8ContainsEPKNS_5PointES3_.exit16, label %_ZN3p2t8Triangle12MarkNeighborEPNS_5PointES2_PS0_.exit
 
-_ZN3p2t8Triangle8ContainsEPKNS_5PointES3_.exit24: ; preds = %if.else
-  %cmp.i2.i19 = icmp eq ptr %1, %2
-  %cmp4.i4.i20 = icmp eq ptr %1, %3
-  %or.cond.i5.i21 = select i1 %cmp.i2.i19, i1 true, i1 %cmp4.i4.i20
-  %cmp7.i8.i22 = icmp eq ptr %1, %4
-  %spec.select.i23 = select i1 %or.cond.i5.i21, i1 true, i1 %cmp7.i8.i22
-  br i1 %spec.select.i23, label %if.then14, label %_ZN3p2t8Triangle8ContainsEPKNS_5PointES3_.exit63
+_ZN3p2t8Triangle8ContainsEPKNS_5PointES3_.exit16: ; preds = %_ZN3p2t8Triangle8ContainsEPKNS_5PointES3_.exit.thread
+  %39 = icmp eq ptr %7, %9
+  %40 = icmp eq ptr %7, %12
+  %or.cond.i3.i14 = select i1 %39, i1 true, i1 %40
+  %41 = icmp eq ptr %7, %15
+  %spec.select.i15 = select i1 %or.cond.i3.i14, i1 true, i1 %41
+  br i1 %spec.select.i15, label %42, label %_ZN3p2t8Triangle8ContainsEPKNS_5PointES3_.exit32
 
-if.then14:                                        ; preds = %_ZN3p2t8Triangle8ContainsEPKNS_5PointES3_.exit24
-  %arrayidx16 = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store ptr %t, ptr %arrayidx16, align 8
-  %9 = load ptr, ptr %arrayidx6.i.i, align 8
-  %cmp.i27 = icmp eq ptr %8, %9
-  %10 = load ptr, ptr %arrayidx3.i.i, align 8
-  %cmp4.i29 = icmp eq ptr %1, %10
-  %or.cond.i30 = select i1 %cmp.i27, i1 %cmp4.i29, i1 false
-  br i1 %or.cond.i30, label %if.end35.sink.split, label %lor.lhs.false.i31
+42:                                               ; preds = %_ZN3p2t8Triangle8ContainsEPKNS_5PointES3_.exit16
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store ptr %1, ptr %43, align 8
+  %44 = load ptr, ptr %14, align 8
+  %45 = icmp eq ptr %35, %44
+  %46 = load ptr, ptr %11, align 8
+  %47 = icmp eq ptr %7, %46
+  %or.cond.i17 = select i1 %45, i1 %47, i1 false
+  br i1 %or.cond.i17, label %_ZN3p2t8Triangle12MarkNeighborEPNS_5PointES2_PS0_.exit.sink.split, label %48
 
-lor.lhs.false.i31:                                ; preds = %if.then14
-  %cmp7.i32 = icmp eq ptr %8, %10
-  %cmp11.i33 = icmp eq ptr %1, %9
-  %or.cond13.i34 = and i1 %cmp11.i33, %cmp7.i32
-  br i1 %or.cond13.i34, label %if.end35.sink.split, label %if.else.i35
+48:                                               ; preds = %42
+  %49 = icmp eq ptr %35, %46
+  %50 = icmp eq ptr %7, %44
+  %or.cond19.i18 = and i1 %50, %49
+  br i1 %or.cond19.i18, label %_ZN3p2t8Triangle12MarkNeighborEPNS_5PointES2_PS0_.exit.sink.split, label %51
 
-if.else.i35:                                      ; preds = %lor.lhs.false.i31
-  %11 = load ptr, ptr %points_.i.i, align 8
-  %cmp15.i36 = icmp eq ptr %8, %11
-  %or.cond14.i37 = and i1 %cmp11.i33, %cmp15.i36
-  br i1 %or.cond14.i37, label %if.end35.sink.split, label %lor.lhs.false20.i38
+51:                                               ; preds = %48
+  %52 = load ptr, ptr %8, align 8
+  %53 = icmp eq ptr %35, %52
+  %or.cond21.i19 = and i1 %50, %53
+  br i1 %or.cond21.i19, label %_ZN3p2t8Triangle12MarkNeighborEPNS_5PointES2_PS0_.exit.sink.split, label %54
 
-lor.lhs.false20.i38:                              ; preds = %if.else.i35
-  %cmp27.i39 = icmp eq ptr %1, %11
-  %or.cond15.i40 = and i1 %cmp.i27, %cmp27.i39
-  br i1 %or.cond15.i40, label %if.end35.sink.split, label %if.else31.i41
+54:                                               ; preds = %51
+  %55 = icmp eq ptr %7, %52
+  %or.cond23.i20 = and i1 %45, %55
+  br i1 %or.cond23.i20, label %_ZN3p2t8Triangle12MarkNeighborEPNS_5PointES2_PS0_.exit.sink.split, label %56
 
-if.else31.i41:                                    ; preds = %lor.lhs.false20.i38
-  %or.cond16.i42 = select i1 %cmp15.i36, i1 %cmp4.i29, i1 false
-  %or.cond17.i43 = and i1 %cmp7.i32, %cmp27.i39
-  %or.cond18.i44 = or i1 %or.cond16.i42, %or.cond17.i43
-  br i1 %or.cond18.i44, label %if.end35.sink.split, label %if.end35
+56:                                               ; preds = %54
+  %or.cond25.i21 = select i1 %53, i1 %47, i1 false
+  %or.cond27.i22 = and i1 %49, %55
+  %or.cond28.i23 = or i1 %or.cond25.i21, %or.cond27.i22
+  br i1 %or.cond28.i23, label %_ZN3p2t8Triangle12MarkNeighborEPNS_5PointES2_PS0_.exit.sink.split, label %_ZN3p2t8Triangle12MarkNeighborEPNS_5PointES2_PS0_.exit
 
-_ZN3p2t8Triangle8ContainsEPKNS_5PointES3_.exit63: ; preds = %_ZN3p2t8Triangle8ContainsEPKNS_5PointES3_.exit24
-  br i1 %or.cond.i, label %if.then27, label %if.end35
+_ZN3p2t8Triangle8ContainsEPKNS_5PointES3_.exit32: ; preds = %_ZN3p2t8Triangle8ContainsEPKNS_5PointES3_.exit16
+  br i1 %or.cond.i, label %57, label %_ZN3p2t8Triangle12MarkNeighborEPNS_5PointES2_PS0_.exit
 
-if.then27:                                        ; preds = %_ZN3p2t8Triangle8ContainsEPKNS_5PointES3_.exit63
-  %arrayidx29 = getelementptr inbounds nuw i8, ptr %this, i64 48
-  store ptr %t, ptr %arrayidx29, align 8
-  %12 = load ptr, ptr %arrayidx6.i.i, align 8
-  %cmp.i66 = icmp eq ptr %8, %12
-  %13 = load ptr, ptr %arrayidx3.i.i, align 8
-  %cmp4.i68 = icmp eq ptr %0, %13
-  %or.cond.i69 = select i1 %cmp.i66, i1 %cmp4.i68, i1 false
-  br i1 %or.cond.i69, label %if.end35.sink.split, label %lor.lhs.false.i70
+57:                                               ; preds = %_ZN3p2t8Triangle8ContainsEPKNS_5PointES3_.exit32
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store ptr %1, ptr %58, align 8
+  %59 = load ptr, ptr %14, align 8
+  %60 = icmp eq ptr %35, %59
+  %61 = load ptr, ptr %11, align 8
+  %62 = icmp eq ptr %5, %61
+  %or.cond.i33 = select i1 %60, i1 %62, i1 false
+  br i1 %or.cond.i33, label %_ZN3p2t8Triangle12MarkNeighborEPNS_5PointES2_PS0_.exit.sink.split, label %63
 
-lor.lhs.false.i70:                                ; preds = %if.then27
-  %cmp7.i71 = icmp eq ptr %8, %13
-  %cmp11.i72 = icmp eq ptr %0, %12
-  %or.cond13.i73 = and i1 %cmp11.i72, %cmp7.i71
-  br i1 %or.cond13.i73, label %if.end35.sink.split, label %if.else.i74
+63:                                               ; preds = %57
+  %64 = icmp eq ptr %35, %61
+  %65 = icmp eq ptr %5, %59
+  %or.cond19.i34 = and i1 %65, %64
+  br i1 %or.cond19.i34, label %_ZN3p2t8Triangle12MarkNeighborEPNS_5PointES2_PS0_.exit.sink.split, label %66
 
-if.else.i74:                                      ; preds = %lor.lhs.false.i70
-  %14 = load ptr, ptr %points_.i.i, align 8
-  %cmp15.i75 = icmp eq ptr %8, %14
-  %or.cond14.i76 = and i1 %cmp11.i72, %cmp15.i75
-  br i1 %or.cond14.i76, label %if.end35.sink.split, label %lor.lhs.false20.i77
+66:                                               ; preds = %63
+  %67 = load ptr, ptr %8, align 8
+  %68 = icmp eq ptr %35, %67
+  %or.cond21.i35 = and i1 %65, %68
+  br i1 %or.cond21.i35, label %_ZN3p2t8Triangle12MarkNeighborEPNS_5PointES2_PS0_.exit.sink.split, label %69
 
-lor.lhs.false20.i77:                              ; preds = %if.else.i74
-  %cmp27.i78 = icmp eq ptr %0, %14
-  %or.cond15.i79 = and i1 %cmp.i66, %cmp27.i78
-  br i1 %or.cond15.i79, label %if.end35.sink.split, label %if.else31.i80
+69:                                               ; preds = %66
+  %70 = icmp eq ptr %5, %67
+  %or.cond23.i36 = and i1 %60, %70
+  br i1 %or.cond23.i36, label %_ZN3p2t8Triangle12MarkNeighborEPNS_5PointES2_PS0_.exit.sink.split, label %71
 
-if.else31.i80:                                    ; preds = %lor.lhs.false20.i77
-  %or.cond16.i81 = select i1 %cmp15.i75, i1 %cmp4.i68, i1 false
-  %or.cond17.i82 = and i1 %cmp7.i71, %cmp27.i78
-  %or.cond18.i83 = or i1 %or.cond16.i81, %or.cond17.i82
-  br i1 %or.cond18.i83, label %if.end35.sink.split, label %if.end35
+71:                                               ; preds = %69
+  %or.cond25.i37 = select i1 %68, i1 %62, i1 false
+  %or.cond27.i38 = and i1 %64, %70
+  %or.cond28.i39 = or i1 %or.cond25.i37, %or.cond27.i38
+  br i1 %or.cond28.i39, label %_ZN3p2t8Triangle12MarkNeighborEPNS_5PointES2_PS0_.exit.sink.split, label %_ZN3p2t8Triangle12MarkNeighborEPNS_5PointES2_PS0_.exit
 
-if.end35.sink.split:                              ; preds = %if.then27, %lor.lhs.false.i70, %if.else.i74, %lor.lhs.false20.i77, %if.else31.i80, %if.then14, %lor.lhs.false.i31, %if.else.i35, %lor.lhs.false20.i38, %if.else31.i41, %if.then, %lor.lhs.false.i, %if.else.i, %lor.lhs.false20.i, %if.else31.i
-  %.sink.i85.sink = phi i64 [ 32, %lor.lhs.false.i ], [ 32, %if.then ], [ 40, %lor.lhs.false20.i ], [ 40, %if.else.i ], [ 48, %if.else31.i ], [ 32, %lor.lhs.false.i31 ], [ 32, %if.then14 ], [ 40, %lor.lhs.false20.i38 ], [ 40, %if.else.i35 ], [ 48, %if.else31.i41 ], [ 32, %lor.lhs.false.i70 ], [ 32, %if.then27 ], [ 40, %lor.lhs.false20.i77 ], [ 40, %if.else.i74 ], [ 48, %if.else31.i80 ]
-  %arrayidx30.i86 = getelementptr inbounds nuw i8, ptr %t, i64 %.sink.i85.sink
-  store ptr %this, ptr %arrayidx30.i86, align 8
-  br label %if.end35
+_ZN3p2t8Triangle12MarkNeighborEPNS_5PointES2_PS0_.exit.sink.split: ; preds = %57, %63, %66, %69, %71, %42, %48, %51, %54, %56, %20, %26, %29, %32, %34
+  %.sink29.i41.sink = phi i64 [ 32, %26 ], [ 32, %20 ], [ 40, %32 ], [ 40, %29 ], [ 48, %34 ], [ 32, %48 ], [ 32, %42 ], [ 40, %54 ], [ 40, %51 ], [ 48, %56 ], [ 32, %63 ], [ 32, %57 ], [ 40, %69 ], [ 40, %66 ], [ 48, %71 ]
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink29.i41.sink
+  store ptr %0, ptr %72, align 8
+  br label %_ZN3p2t8Triangle12MarkNeighborEPNS_5PointES2_PS0_.exit
 
-if.end35:                                         ; preds = %if.end35.sink.split, %if.else, %if.else31.i80, %if.else31.i41, %if.else31.i, %_ZN3p2t8Triangle8ContainsEPKNS_5PointES3_.exit63
+_ZN3p2t8Triangle12MarkNeighborEPNS_5PointES2_PS0_.exit: ; preds = %_ZN3p2t8Triangle12MarkNeighborEPNS_5PointES2_PS0_.exit.sink.split, %_ZN3p2t8Triangle8ContainsEPKNS_5PointES3_.exit.thread, %71, %56, %34, %_ZN3p2t8Triangle8ContainsEPKNS_5PointES3_.exit32
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN3p2t8Triangle5ClearEv(ptr noundef nonnull align 8 captures(address) dereferenceable(57) %this) local_unnamed_addr #5 align 2 {
-entry:
-  %neighbors_ = getelementptr inbounds nuw i8, ptr %this, i64 32
-  br label %for.body
+define void @_ZN3p2t8Triangle5ClearEv(ptr noundef nonnull align 8 captures(address) dereferenceable(57) %0) local_unnamed_addr #6 align 2 {
+  br label %4
 
-for.body:                                         ; preds = %entry, %for.inc
-  %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds nuw [3 x ptr], ptr %neighbors_, i64 0, i64 %indvars.iv
-  %0 = load ptr, ptr %arrayidx, align 8
-  %cmp2.not = icmp eq ptr %0, null
-  br i1 %cmp2.not, label %for.inc, label %if.then
-
-if.then:                                          ; preds = %for.body
-  %neighbors_.i = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %1 = load ptr, ptr %neighbors_.i, align 8
-  %cmp.i = icmp eq ptr %1, %this
-  br i1 %cmp.i, label %if.then.i, label %if.else.i
-
-if.then.i:                                        ; preds = %if.then
-  store ptr null, ptr %neighbors_.i, align 8
-  br label %for.inc
-
-if.else.i:                                        ; preds = %if.then
-  %arrayidx5.i = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %2 = load ptr, ptr %arrayidx5.i, align 8
-  %cmp6.i = icmp eq ptr %2, %this
-  br i1 %cmp6.i, label %if.then7.i, label %if.else10.i
-
-if.then7.i:                                       ; preds = %if.else.i
-  store ptr null, ptr %arrayidx5.i, align 8
-  br label %for.inc
-
-if.else10.i:                                      ; preds = %if.else.i
-  %arrayidx12.i = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr null, ptr %arrayidx12.i, align 8
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.else10.i, %if.then7.i, %if.then.i, %for.body
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !4
-
-for.end:                                          ; preds = %for.inc
-  %points_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %points_, i8 0, i64 48, i1 false)
+2:                                                ; preds = %_ZN3p2t8Triangle13ClearNeighborEPKS0_.exit
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, i8 0, i64 48, i1 false)
   ret void
+
+4:                                                ; preds = %1, %_ZN3p2t8Triangle13ClearNeighborEPKS0_.exit
+  %.0.idx13 = phi i64 [ 32, %1 ], [ %.0.add, %_ZN3p2t8Triangle13ClearNeighborEPKS0_.exit ]
+  %.0.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.0.idx13
+  %5 = load ptr, ptr %.0.ptr, align 8
+  %.not12 = icmp eq ptr %5, null
+  br i1 %.not12, label %_ZN3p2t8Triangle13ClearNeighborEPKS0_.exit, label %6
+
+6:                                                ; preds = %4
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %8 = load ptr, ptr %7, align 8
+  %9 = icmp eq ptr %8, %0
+  br i1 %9, label %10, label %11
+
+10:                                               ; preds = %6
+  store ptr null, ptr %7, align 8
+  br label %_ZN3p2t8Triangle13ClearNeighborEPKS0_.exit
+
+11:                                               ; preds = %6
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %13 = load ptr, ptr %12, align 8
+  %14 = icmp eq ptr %13, %0
+  br i1 %14, label %15, label %16
+
+15:                                               ; preds = %11
+  store ptr null, ptr %12, align 8
+  br label %_ZN3p2t8Triangle13ClearNeighborEPKS0_.exit
+
+16:                                               ; preds = %11
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  store ptr null, ptr %17, align 8
+  br label %_ZN3p2t8Triangle13ClearNeighborEPKS0_.exit
+
+_ZN3p2t8Triangle13ClearNeighborEPKS0_.exit:       ; preds = %16, %15, %10, %4
+  %.0.add = add nuw nsw i64 %.0.idx13, 8
+  %.not = icmp eq i64 %.0.add, 56
+  br i1 %.not, label %2, label %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN3p2t8Triangle13ClearNeighborEPKS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(57) %this, ptr noundef readnone captures(address) %triangle) local_unnamed_addr #4 align 2 {
-entry:
-  %neighbors_ = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %0 = load ptr, ptr %neighbors_, align 8
-  %cmp = icmp eq ptr %0, %triangle
-  br i1 %cmp, label %if.then, label %if.else
+define void @_ZN3p2t8Triangle13ClearNeighborEPKS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(57) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #5 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %4 = load ptr, ptr %3, align 8
+  %5 = icmp eq ptr %4, %1
+  br i1 %5, label %6, label %7
 
-if.then:                                          ; preds = %entry
-  store ptr null, ptr %neighbors_, align 8
-  br label %if.end13
+6:                                                ; preds = %2
+  store ptr null, ptr %3, align 8
+  br label %14
 
-if.else:                                          ; preds = %entry
-  %arrayidx5 = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %1 = load ptr, ptr %arrayidx5, align 8
-  %cmp6 = icmp eq ptr %1, %triangle
-  br i1 %cmp6, label %if.then7, label %if.else10
+7:                                                ; preds = %2
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %9 = load ptr, ptr %8, align 8
+  %10 = icmp eq ptr %9, %1
+  br i1 %10, label %11, label %12
 
-if.then7:                                         ; preds = %if.else
-  store ptr null, ptr %arrayidx5, align 8
-  br label %if.end13
+11:                                               ; preds = %7
+  store ptr null, ptr %8, align 8
+  br label %14
 
-if.else10:                                        ; preds = %if.else
-  %arrayidx12 = getelementptr inbounds nuw i8, ptr %this, i64 48
-  store ptr null, ptr %arrayidx12, align 8
-  br label %if.end13
+12:                                               ; preds = %7
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store ptr null, ptr %13, align 8
+  br label %14
 
-if.end13:                                         ; preds = %if.then7, %if.else10, %if.then
+14:                                               ; preds = %11, %12, %6
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN3p2t8Triangle14ClearNeighborsEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(57) initializes((32, 56)) %this) local_unnamed_addr #3 align 2 {
-entry:
-  %neighbors_ = getelementptr inbounds nuw i8, ptr %this, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %neighbors_, i8 0, i64 24, i1 false)
+define void @_ZN3p2t8Triangle14ClearNeighborsEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(57) initializes((32, 56)) %0) local_unnamed_addr #3 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN3p2t8Triangle17ClearDelunayEdgesEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(57) initializes((3, 6)) %this) local_unnamed_addr #3 align 2 {
-entry:
-  %delaunay_edge = getelementptr inbounds nuw i8, ptr %this, i64 3
-  %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 5
-  store i8 0, ptr %arrayidx, align 1
-  %arrayidx3 = getelementptr inbounds nuw i8, ptr %this, i64 4
-  store i8 0, ptr %arrayidx3, align 4
-  store i8 0, ptr %delaunay_edge, align 1
+define void @_ZN3p2t8Triangle17ClearDelunayEdgesEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(57) initializes((3, 6)) %0) local_unnamed_addr #3 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 3
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 5
+  store i8 0, ptr %3, align 1
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i8 0, ptr %4, align 4
+  store i8 0, ptr %2, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZN3p2t8Triangle13OppositePointERS0_RKNS_5PointE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(57) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(57) %t, ptr noundef nonnull readnone align 8 captures(address) dereferenceable(40) %p) local_unnamed_addr #6 align 2 {
-entry:
-  %points_.i = getelementptr inbounds nuw i8, ptr %t, i64 8
-  %0 = load ptr, ptr %points_.i, align 8
-  %cmp.i = icmp eq ptr %p, %0
-  br i1 %cmp.i, label %if.then.i, label %if.else.i
+define noundef ptr @_ZN3p2t8Triangle13OppositePointERS0_RKNS_5PointE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(57) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(57) %1, ptr noundef nonnull readnone align 8 captures(address) dereferenceable(40) %2) local_unnamed_addr #7 align 2 {
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %5 = load ptr, ptr %4, align 8
+  %6 = icmp eq ptr %2, %5
+  br i1 %6, label %7, label %10
 
-if.then.i:                                        ; preds = %entry
-  %arrayidx3.i = getelementptr inbounds nuw i8, ptr %t, i64 24
-  %1 = load ptr, ptr %arrayidx3.i, align 8
+7:                                                ; preds = %3
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %9 = load ptr, ptr %8, align 8
   br label %_ZN3p2t8Triangle7PointCWERKNS_5PointE.exit
 
-if.else.i:                                        ; preds = %entry
-  %arrayidx5.i = getelementptr inbounds nuw i8, ptr %t, i64 16
-  %2 = load ptr, ptr %arrayidx5.i, align 8
-  %cmp6.i = icmp eq ptr %p, %2
-  br i1 %cmp6.i, label %_ZN3p2t8Triangle7PointCWERKNS_5PointE.exit, label %if.else10.i
+10:                                               ; preds = %3
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %12 = load ptr, ptr %11, align 8
+  %13 = icmp eq ptr %2, %12
+  br i1 %13, label %_ZN3p2t8Triangle7PointCWERKNS_5PointE.exit, label %14
 
-if.else10.i:                                      ; preds = %if.else.i
-  %arrayidx12.i = getelementptr inbounds nuw i8, ptr %t, i64 24
-  %3 = load ptr, ptr %arrayidx12.i, align 8
-  %cmp13.i = icmp eq ptr %p, %3
-  %..i = select i1 %cmp13.i, ptr %2, ptr null
+14:                                               ; preds = %10
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %16 = load ptr, ptr %15, align 8
+  %17 = icmp eq ptr %2, %16
+  %..i = select i1 %17, ptr %12, ptr null
   br label %_ZN3p2t8Triangle7PointCWERKNS_5PointE.exit
 
-_ZN3p2t8Triangle7PointCWERKNS_5PointE.exit:       ; preds = %if.then.i, %if.else.i, %if.else10.i
-  %retval.0.i = phi ptr [ %1, %if.then.i ], [ %0, %if.else.i ], [ %..i, %if.else10.i ]
-  %points_.i1 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %4 = load ptr, ptr %points_.i1, align 8
-  %cmp.i2 = icmp eq ptr %retval.0.i, %4
-  br i1 %cmp.i2, label %if.then.i11, label %if.else.i3
+_ZN3p2t8Triangle7PointCWERKNS_5PointE.exit:       ; preds = %7, %10, %14
+  %.0.i = phi ptr [ %9, %7 ], [ %5, %10 ], [ %..i, %14 ]
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %19 = load ptr, ptr %18, align 8
+  %20 = icmp eq ptr %.0.i, %19
+  br i1 %20, label %21, label %24
 
-if.then.i11:                                      ; preds = %_ZN3p2t8Triangle7PointCWERKNS_5PointE.exit
-  %arrayidx3.i12 = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %5 = load ptr, ptr %arrayidx3.i12, align 8
-  br label %_ZN3p2t8Triangle7PointCWERKNS_5PointE.exit13
+21:                                               ; preds = %_ZN3p2t8Triangle7PointCWERKNS_5PointE.exit
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %23 = load ptr, ptr %22, align 8
+  br label %_ZN3p2t8Triangle7PointCWERKNS_5PointE.exit6
 
-if.else.i3:                                       ; preds = %_ZN3p2t8Triangle7PointCWERKNS_5PointE.exit
-  %arrayidx5.i4 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %6 = load ptr, ptr %arrayidx5.i4, align 8
-  %cmp6.i5 = icmp eq ptr %retval.0.i, %6
-  br i1 %cmp6.i5, label %_ZN3p2t8Triangle7PointCWERKNS_5PointE.exit13, label %if.else10.i6
+24:                                               ; preds = %_ZN3p2t8Triangle7PointCWERKNS_5PointE.exit
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %26 = load ptr, ptr %25, align 8
+  %27 = icmp eq ptr %.0.i, %26
+  br i1 %27, label %_ZN3p2t8Triangle7PointCWERKNS_5PointE.exit6, label %28
 
-if.else10.i6:                                     ; preds = %if.else.i3
-  %arrayidx12.i7 = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %7 = load ptr, ptr %arrayidx12.i7, align 8
-  %cmp13.i8 = icmp eq ptr %retval.0.i, %7
-  %..i9 = select i1 %cmp13.i8, ptr %6, ptr null
-  br label %_ZN3p2t8Triangle7PointCWERKNS_5PointE.exit13
+28:                                               ; preds = %24
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %30 = load ptr, ptr %29, align 8
+  %31 = icmp eq ptr %.0.i, %30
+  %..i4 = select i1 %31, ptr %26, ptr null
+  br label %_ZN3p2t8Triangle7PointCWERKNS_5PointE.exit6
 
-_ZN3p2t8Triangle7PointCWERKNS_5PointE.exit13:     ; preds = %if.then.i11, %if.else.i3, %if.else10.i6
-  %retval.0.i10 = phi ptr [ %5, %if.then.i11 ], [ %4, %if.else.i3 ], [ %..i9, %if.else10.i6 ]
-  ret ptr %retval.0.i10
+_ZN3p2t8Triangle7PointCWERKNS_5PointE.exit6:      ; preds = %21, %24, %28
+  %.0.i5 = phi ptr [ %23, %21 ], [ %19, %24 ], [ %..i4, %28 ]
+  ret ptr %.0.i5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZN3p2t8Triangle7PointCWERKNS_5PointE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(57) %this, ptr noundef nonnull readnone align 8 captures(address) dereferenceable(40) %point) local_unnamed_addr #6 align 2 {
-entry:
-  %points_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %points_, align 8
-  %cmp = icmp eq ptr %point, %0
-  br i1 %cmp, label %if.then, label %if.else
+define noundef ptr @_ZN3p2t8Triangle7PointCWERKNS_5PointE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(57) %0, ptr noundef nonnull readnone align 8 captures(address) dereferenceable(40) %1) local_unnamed_addr #7 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = icmp eq ptr %1, %4
+  br i1 %5, label %6, label %9
 
-if.then:                                          ; preds = %entry
-  %arrayidx3 = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %1 = load ptr, ptr %arrayidx3, align 8
-  br label %return
+6:                                                ; preds = %2
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %8 = load ptr, ptr %7, align 8
+  br label %17
 
-if.else:                                          ; preds = %entry
-  %arrayidx5 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %2 = load ptr, ptr %arrayidx5, align 8
-  %cmp6 = icmp eq ptr %point, %2
-  br i1 %cmp6, label %return, label %if.else10
+9:                                                ; preds = %2
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %11 = load ptr, ptr %10, align 8
+  %12 = icmp eq ptr %1, %11
+  br i1 %12, label %17, label %13
 
-if.else10:                                        ; preds = %if.else
-  %arrayidx12 = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %3 = load ptr, ptr %arrayidx12, align 8
-  %cmp13 = icmp eq ptr %point, %3
-  %. = select i1 %cmp13, ptr %2, ptr null
-  br label %return
+13:                                               ; preds = %9
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %15 = load ptr, ptr %14, align 8
+  %16 = icmp eq ptr %1, %15
+  %. = select i1 %16, ptr %11, ptr null
+  br label %17
 
-return:                                           ; preds = %if.else10, %if.else, %if.then
-  %retval.0 = phi ptr [ %1, %if.then ], [ %0, %if.else ], [ %., %if.else10 ]
-  ret ptr %retval.0
+17:                                               ; preds = %13, %9, %6
+  %.0 = phi ptr [ %8, %6 ], [ %4, %9 ], [ %., %13 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN3p2t8Triangle8LegalizeERNS_5PointE(ptr noundef nonnull align 8 captures(none) dereferenceable(57) initializes((16, 24)) %this, ptr noundef nonnull align 8 dereferenceable(40) %point) local_unnamed_addr #4 align 2 {
-entry:
-  %points_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %points_, align 8
-  %arrayidx3 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr %0, ptr %arrayidx3, align 8
-  %arrayidx5 = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %1 = load ptr, ptr %arrayidx5, align 8
-  store ptr %1, ptr %points_, align 8
-  store ptr %point, ptr %arrayidx5, align 8
+define void @_ZN3p2t8Triangle8LegalizeERNS_5PointE(ptr noundef nonnull align 8 captures(none) dereferenceable(57) initializes((16, 24)) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) local_unnamed_addr #5 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %4, ptr %5, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %7 = load ptr, ptr %6, align 8
+  store ptr %7, ptr %3, align 8
+  store ptr %1, ptr %6, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN3p2t8Triangle8LegalizeERNS_5PointES2_(ptr noundef nonnull align 8 captures(none) dereferenceable(57) %this, ptr noundef nonnull readnone align 8 captures(address) dereferenceable(40) %opoint, ptr noundef nonnull align 8 dereferenceable(40) %npoint) local_unnamed_addr #4 align 2 {
-entry:
-  %points_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %points_, align 8
-  %cmp = icmp eq ptr %opoint, %0
-  %arrayidx5 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  br i1 %cmp, label %if.then, label %if.else
+define void @_ZN3p2t8Triangle8LegalizeERNS_5PointES2_(ptr noundef nonnull align 8 captures(none) dereferenceable(57) %0, ptr noundef nonnull readnone align 8 captures(address) dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) local_unnamed_addr #5 align 2 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = load ptr, ptr %4, align 8
+  %6 = icmp eq ptr %1, %5
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  br i1 %6, label %8, label %11
 
-if.then:                                          ; preds = %entry
-  store ptr %0, ptr %arrayidx5, align 8
-  %arrayidx7 = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %1 = load ptr, ptr %arrayidx7, align 8
-  store ptr %1, ptr %points_, align 8
-  store ptr %npoint, ptr %arrayidx7, align 8
-  br label %if.end43
+8:                                                ; preds = %3
+  store ptr %5, ptr %7, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %10 = load ptr, ptr %9, align 8
+  store ptr %10, ptr %4, align 8
+  store ptr %2, ptr %9, align 8
+  br label %20
 
-if.else:                                          ; preds = %entry
-  %2 = load ptr, ptr %arrayidx5, align 8
-  %cmp14 = icmp eq ptr %opoint, %2
-  %arrayidx19 = getelementptr inbounds nuw i8, ptr %this, i64 24
-  br i1 %cmp14, label %if.then15, label %if.else26
+11:                                               ; preds = %3
+  %12 = load ptr, ptr %7, align 8
+  %13 = icmp eq ptr %1, %12
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  br i1 %13, label %15, label %16
 
-if.then15:                                        ; preds = %if.else
-  store ptr %2, ptr %arrayidx19, align 8
-  store ptr %0, ptr %arrayidx5, align 8
-  store ptr %npoint, ptr %points_, align 8
-  br label %if.end43
+15:                                               ; preds = %11
+  store ptr %12, ptr %14, align 8
+  store ptr %5, ptr %7, align 8
+  store ptr %2, ptr %4, align 8
+  br label %20
 
-if.else26:                                        ; preds = %if.else
-  %3 = load ptr, ptr %arrayidx19, align 8
-  %cmp29 = icmp eq ptr %opoint, %3
-  br i1 %cmp29, label %if.then30, label %if.end43
+16:                                               ; preds = %11
+  %17 = load ptr, ptr %14, align 8
+  %18 = icmp eq ptr %1, %17
+  br i1 %18, label %19, label %20
 
-if.then30:                                        ; preds = %if.else26
-  store ptr %3, ptr %points_, align 8
-  store ptr %2, ptr %arrayidx19, align 8
-  store ptr %npoint, ptr %arrayidx5, align 8
-  br label %if.end43
+19:                                               ; preds = %16
+  store ptr %17, ptr %4, align 8
+  store ptr %12, ptr %14, align 8
+  store ptr %2, ptr %7, align 8
+  br label %20
 
-if.end43:                                         ; preds = %if.then15, %if.else26, %if.then30, %if.then
+20:                                               ; preds = %15, %16, %19, %8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef range(i32 -1, 3) i32 @_ZN3p2t8Triangle5IndexEPKNS_5PointE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(57) %this, ptr noundef readnone captures(address) %p) local_unnamed_addr #6 align 2 {
-entry:
-  %points_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %points_, align 8
-  %cmp = icmp eq ptr %p, %0
-  br i1 %cmp, label %return, label %if.else
+define noundef range(i32 -1, 3) i32 @_ZN3p2t8Triangle5IndexEPKNS_5PointE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(57) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #7 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = icmp eq ptr %1, %4
+  br i1 %5, label %14, label %6
 
-if.else:                                          ; preds = %entry
-  %arrayidx3 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %1 = load ptr, ptr %arrayidx3, align 8
-  %cmp4 = icmp eq ptr %p, %1
-  br i1 %cmp4, label %return, label %if.else6
+6:                                                ; preds = %2
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %8 = load ptr, ptr %7, align 8
+  %9 = icmp eq ptr %1, %8
+  br i1 %9, label %14, label %10
 
-if.else6:                                         ; preds = %if.else
-  %arrayidx8 = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %2 = load ptr, ptr %arrayidx8, align 8
-  %cmp9 = icmp eq ptr %p, %2
-  %. = select i1 %cmp9, i32 2, i32 -1
-  br label %return
+10:                                               ; preds = %6
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %12 = load ptr, ptr %11, align 8
+  %13 = icmp eq ptr %1, %12
+  %. = select i1 %13, i32 2, i32 -1
+  br label %14
 
-return:                                           ; preds = %if.else6, %if.else, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ 1, %if.else ], [ %., %if.else6 ]
-  ret i32 %retval.0
+14:                                               ; preds = %10, %6, %2
+  %.0 = phi i32 [ 0, %2 ], [ 1, %6 ], [ %., %10 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef range(i32 -1, 3) i32 @_ZN3p2t8Triangle9EdgeIndexEPKNS_5PointES3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(57) %this, ptr noundef readnone captures(address) %p1, ptr noundef readnone captures(address) %p2) local_unnamed_addr #6 align 2 {
-entry:
-  %points_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %points_, align 8
-  %cmp = icmp eq ptr %0, %p1
-  %arrayidx3 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %1 = load ptr, ptr %arrayidx3, align 8
-  br i1 %cmp, label %if.then, label %if.else11
+define noundef range(i32 -1, 3) i32 @_ZN3p2t8Triangle9EdgeIndexEPKNS_5PointES3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(57) %0, ptr noundef readnone captures(address) %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #7 align 2 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = load ptr, ptr %4, align 8
+  %6 = icmp eq ptr %5, %1
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %8 = load ptr, ptr %7, align 8
+  br i1 %6, label %9, label %15
 
-if.then:                                          ; preds = %entry
-  %cmp4 = icmp eq ptr %1, %p2
-  br i1 %cmp4, label %return, label %if.else
+9:                                                ; preds = %3
+  %10 = icmp eq ptr %8, %2
+  br i1 %10, label %30, label %11
 
-if.else:                                          ; preds = %if.then
-  %arrayidx7 = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %2 = load ptr, ptr %arrayidx7, align 8
-  %cmp8 = icmp eq ptr %2, %p2
-  br i1 %cmp8, label %return, label %if.end45
+11:                                               ; preds = %9
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %13 = load ptr, ptr %12, align 8
+  %14 = icmp eq ptr %13, %2
+  br i1 %14, label %30, label %29
 
-if.else11:                                        ; preds = %entry
-  %cmp14 = icmp eq ptr %1, %p1
-  %arrayidx17 = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %3 = load ptr, ptr %arrayidx17, align 8
-  br i1 %cmp14, label %if.then15, label %if.else27
+15:                                               ; preds = %3
+  %16 = icmp eq ptr %8, %1
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %18 = load ptr, ptr %17, align 8
+  br i1 %16, label %19, label %23
 
-if.then15:                                        ; preds = %if.else11
-  %cmp18 = icmp eq ptr %3, %p2
-  br i1 %cmp18, label %return, label %if.else20
+19:                                               ; preds = %15
+  %20 = icmp eq ptr %18, %2
+  br i1 %20, label %30, label %21
 
-if.else20:                                        ; preds = %if.then15
-  %cmp23 = icmp eq ptr %0, %p2
-  br i1 %cmp23, label %return, label %if.end45
+21:                                               ; preds = %19
+  %22 = icmp eq ptr %5, %2
+  br i1 %22, label %30, label %29
 
-if.else27:                                        ; preds = %if.else11
-  %cmp30 = icmp eq ptr %3, %p1
-  br i1 %cmp30, label %if.then31, label %if.end45
+23:                                               ; preds = %15
+  %24 = icmp eq ptr %18, %1
+  br i1 %24, label %25, label %29
 
-if.then31:                                        ; preds = %if.else27
-  %cmp34 = icmp eq ptr %0, %p2
-  br i1 %cmp34, label %return, label %if.else36
+25:                                               ; preds = %23
+  %26 = icmp eq ptr %5, %2
+  br i1 %26, label %30, label %27
 
-if.else36:                                        ; preds = %if.then31
-  %cmp39 = icmp eq ptr %1, %p2
-  br i1 %cmp39, label %return, label %if.end45
+27:                                               ; preds = %25
+  %28 = icmp eq ptr %8, %2
+  br i1 %28, label %30, label %29
 
-if.end45:                                         ; preds = %if.else20, %if.else36, %if.else27, %if.else
-  br label %return
+29:                                               ; preds = %21, %27, %23, %11
+  br label %30
 
-return:                                           ; preds = %if.else36, %if.then31, %if.else20, %if.then15, %if.else, %if.then, %if.end45
-  %retval.0 = phi i32 [ -1, %if.end45 ], [ 2, %if.then ], [ 1, %if.else ], [ 0, %if.then15 ], [ 2, %if.else20 ], [ 1, %if.then31 ], [ 0, %if.else36 ]
-  ret i32 %retval.0
+30:                                               ; preds = %27, %25, %21, %19, %11, %9, %29
+  %.0 = phi i32 [ -1, %29 ], [ 2, %9 ], [ 1, %11 ], [ 0, %19 ], [ 2, %21 ], [ 1, %25 ], [ 0, %27 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN3p2t8Triangle19MarkConstrainedEdgeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(57) %this, i32 noundef %index) local_unnamed_addr #3 align 2 {
-entry:
-  %idxprom = sext i32 %index to i64
-  %arrayidx = getelementptr inbounds [3 x i8], ptr %this, i64 0, i64 %idxprom
-  store i8 1, ptr %arrayidx, align 1
+define void @_ZN3p2t8Triangle19MarkConstrainedEdgeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(57) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
+  %3 = sext i32 %1 to i64
+  %4 = getelementptr inbounds [3 x i8], ptr %0, i64 0, i64 %3
+  store i8 1, ptr %4, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN3p2t8Triangle19MarkConstrainedEdgeERNS_4EdgeE(ptr noundef nonnull align 8 captures(none) dereferenceable(57) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %edge) local_unnamed_addr #4 align 2 {
-entry:
-  %0 = load ptr, ptr %edge, align 8
-  %q = getelementptr inbounds nuw i8, ptr %edge, i64 8
-  %1 = load ptr, ptr %q, align 8
-  %points_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %2 = load ptr, ptr %points_.i, align 8
-  %cmp.i = icmp eq ptr %1, %2
-  %arrayidx3.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %3 = load ptr, ptr %arrayidx3.i, align 8
-  %cmp4.i = icmp eq ptr %0, %3
-  %or.cond.i = select i1 %cmp.i, i1 %cmp4.i, i1 false
-  br i1 %or.cond.i, label %if.then.i, label %lor.lhs.false.i
+define void @_ZN3p2t8Triangle19MarkConstrainedEdgeERNS_4EdgeE(ptr noundef nonnull align 8 captures(none) dereferenceable(57) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #5 align 2 {
+  %3 = load ptr, ptr %1, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %5 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %7 = load ptr, ptr %6, align 8
+  %8 = icmp eq ptr %5, %7
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %10 = load ptr, ptr %9, align 8
+  %11 = icmp eq ptr %3, %10
+  %or.cond.i = select i1 %8, i1 %11, i1 false
+  br i1 %or.cond.i, label %15, label %12
 
-lor.lhs.false.i:                                  ; preds = %entry
-  %cmp7.i = icmp eq ptr %1, %3
-  %cmp11.i = icmp eq ptr %0, %2
-  %or.cond11.i = and i1 %cmp11.i, %cmp7.i
-  br i1 %or.cond11.i, label %if.then.i, label %if.else.i
+12:                                               ; preds = %2
+  %13 = icmp eq ptr %5, %10
+  %14 = icmp eq ptr %3, %7
+  %or.cond16.i = and i1 %14, %13
+  br i1 %or.cond16.i, label %15, label %17
 
-if.then.i:                                        ; preds = %lor.lhs.false.i, %entry
-  %arrayidx12.i = getelementptr inbounds nuw i8, ptr %this, i64 2
-  store i8 1, ptr %arrayidx12.i, align 2
+15:                                               ; preds = %12, %2
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  store i8 1, ptr %16, align 2
   br label %_ZN3p2t8Triangle19MarkConstrainedEdgeEPNS_5PointES2_.exit
 
-if.else.i:                                        ; preds = %lor.lhs.false.i
-  %arrayidx18.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %4 = load ptr, ptr %arrayidx18.i, align 8
-  %cmp19.i = icmp eq ptr %0, %4
-  %or.cond12.i = select i1 %cmp.i, i1 %cmp19.i, i1 false
-  br i1 %or.cond12.i, label %if.then28.i, label %lor.lhs.false20.i
+17:                                               ; preds = %12
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %19 = load ptr, ptr %18, align 8
+  %20 = icmp eq ptr %3, %19
+  %or.cond19.i = select i1 %8, i1 %20, i1 false
+  br i1 %or.cond19.i, label %23, label %21
 
-lor.lhs.false20.i:                                ; preds = %if.else.i
-  %cmp23.i = icmp eq ptr %1, %4
-  %or.cond13.i = and i1 %cmp11.i, %cmp23.i
-  br i1 %or.cond13.i, label %if.then28.i, label %if.else31.i
+21:                                               ; preds = %17
+  %22 = icmp eq ptr %5, %19
+  %or.cond21.i = and i1 %14, %22
+  br i1 %or.cond21.i, label %23, label %25
 
-if.then28.i:                                      ; preds = %lor.lhs.false20.i, %if.else.i
-  %arrayidx30.i = getelementptr inbounds nuw i8, ptr %this, i64 1
-  store i8 1, ptr %arrayidx30.i, align 1
+23:                                               ; preds = %21, %17
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 1, ptr %24, align 1
   br label %_ZN3p2t8Triangle19MarkConstrainedEdgeEPNS_5PointES2_.exit
 
-if.else31.i:                                      ; preds = %lor.lhs.false20.i
-  %or.cond14.i = select i1 %cmp7.i, i1 %cmp19.i, i1 false
-  %or.cond15.i = select i1 %cmp23.i, i1 %cmp4.i, i1 false
-  %or.cond16.i = or i1 %or.cond14.i, %or.cond15.i
-  br i1 %or.cond16.i, label %if.then47.i, label %_ZN3p2t8Triangle19MarkConstrainedEdgeEPNS_5PointES2_.exit
+25:                                               ; preds = %21
+  %or.cond23.i = select i1 %13, i1 %20, i1 false
+  %or.cond25.i = select i1 %22, i1 %11, i1 false
+  %or.cond26.i = or i1 %or.cond23.i, %or.cond25.i
+  br i1 %or.cond26.i, label %26, label %_ZN3p2t8Triangle19MarkConstrainedEdgeEPNS_5PointES2_.exit
 
-if.then47.i:                                      ; preds = %if.else31.i
-  store i8 1, ptr %this, align 8
+26:                                               ; preds = %25
+  store i8 1, ptr %0, align 8
   br label %_ZN3p2t8Triangle19MarkConstrainedEdgeEPNS_5PointES2_.exit
 
-_ZN3p2t8Triangle19MarkConstrainedEdgeEPNS_5PointES2_.exit: ; preds = %if.then.i, %if.then28.i, %if.else31.i, %if.then47.i
+_ZN3p2t8Triangle19MarkConstrainedEdgeEPNS_5PointES2_.exit: ; preds = %15, %23, %25, %26
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN3p2t8Triangle19MarkConstrainedEdgeEPNS_5PointES2_(ptr noundef nonnull align 8 captures(none) dereferenceable(57) %this, ptr noundef readnone captures(address) %p, ptr noundef readnone captures(address) %q) local_unnamed_addr #4 align 2 {
-entry:
-  %points_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %points_, align 8
-  %cmp = icmp eq ptr %q, %0
-  %arrayidx3 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %1 = load ptr, ptr %arrayidx3, align 8
-  %cmp4 = icmp eq ptr %p, %1
-  %or.cond = select i1 %cmp, i1 %cmp4, i1 false
-  br i1 %or.cond, label %if.then, label %lor.lhs.false
+define void @_ZN3p2t8Triangle19MarkConstrainedEdgeEPNS_5PointES2_(ptr noundef nonnull align 8 captures(none) dereferenceable(57) %0, ptr noundef readnone captures(address) %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #5 align 2 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = load ptr, ptr %4, align 8
+  %6 = icmp eq ptr %2, %5
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %8 = load ptr, ptr %7, align 8
+  %9 = icmp eq ptr %1, %8
+  %or.cond = select i1 %6, i1 %9, i1 false
+  br i1 %or.cond, label %13, label %10
 
-lor.lhs.false:                                    ; preds = %entry
-  %cmp7 = icmp eq ptr %q, %1
-  %cmp11 = icmp eq ptr %p, %0
-  %or.cond11 = and i1 %cmp11, %cmp7
-  br i1 %or.cond11, label %if.then, label %if.else
+10:                                               ; preds = %3
+  %11 = icmp eq ptr %2, %8
+  %12 = icmp eq ptr %1, %5
+  %or.cond16 = and i1 %12, %11
+  br i1 %or.cond16, label %13, label %15
 
-if.then:                                          ; preds = %lor.lhs.false, %entry
-  %arrayidx12 = getelementptr inbounds nuw i8, ptr %this, i64 2
-  store i8 1, ptr %arrayidx12, align 2
-  br label %if.end51
+13:                                               ; preds = %10, %3
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  store i8 1, ptr %14, align 2
+  br label %25
 
-if.else:                                          ; preds = %lor.lhs.false
-  %arrayidx18 = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %2 = load ptr, ptr %arrayidx18, align 8
-  %cmp19 = icmp eq ptr %p, %2
-  %or.cond12 = select i1 %cmp, i1 %cmp19, i1 false
-  br i1 %or.cond12, label %if.then28, label %lor.lhs.false20
+15:                                               ; preds = %10
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %17 = load ptr, ptr %16, align 8
+  %18 = icmp eq ptr %1, %17
+  %or.cond19 = select i1 %6, i1 %18, i1 false
+  br i1 %or.cond19, label %21, label %19
 
-lor.lhs.false20:                                  ; preds = %if.else
-  %cmp23 = icmp eq ptr %q, %2
-  %or.cond13 = and i1 %cmp11, %cmp23
-  br i1 %or.cond13, label %if.then28, label %if.else31
+19:                                               ; preds = %15
+  %20 = icmp eq ptr %2, %17
+  %or.cond21 = and i1 %12, %20
+  br i1 %or.cond21, label %21, label %23
 
-if.then28:                                        ; preds = %lor.lhs.false20, %if.else
-  %arrayidx30 = getelementptr inbounds nuw i8, ptr %this, i64 1
-  store i8 1, ptr %arrayidx30, align 1
-  br label %if.end51
+21:                                               ; preds = %19, %15
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 1, ptr %22, align 1
+  br label %25
 
-if.else31:                                        ; preds = %lor.lhs.false20
-  %or.cond14 = select i1 %cmp7, i1 %cmp19, i1 false
-  %or.cond15 = select i1 %cmp23, i1 %cmp4, i1 false
-  %or.cond16 = or i1 %or.cond14, %or.cond15
-  br i1 %or.cond16, label %if.then47, label %if.end51
+23:                                               ; preds = %19
+  %or.cond23 = select i1 %11, i1 %18, i1 false
+  %or.cond25 = select i1 %20, i1 %9, i1 false
+  %or.cond26 = or i1 %or.cond23, %or.cond25
+  br i1 %or.cond26, label %24, label %25
 
-if.then47:                                        ; preds = %if.else31
-  store i8 1, ptr %this, align 8
-  br label %if.end51
+24:                                               ; preds = %23
+  store i8 1, ptr %0, align 8
+  br label %25
 
-if.end51:                                         ; preds = %if.else31, %if.then28, %if.then47, %if.then
+25:                                               ; preds = %23, %21, %24, %13
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZN3p2t8Triangle8PointCCWERKNS_5PointE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(57) %this, ptr noundef nonnull readnone align 8 captures(address) dereferenceable(40) %point) local_unnamed_addr #6 align 2 {
-entry:
-  %points_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %points_, align 8
-  %cmp = icmp eq ptr %point, %0
-  %arrayidx3 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %1 = load ptr, ptr %arrayidx3, align 8
-  br i1 %cmp, label %return, label %if.else
+define noundef ptr @_ZN3p2t8Triangle8PointCCWERKNS_5PointE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(57) %0, ptr noundef nonnull readnone align 8 captures(address) dereferenceable(40) %1) local_unnamed_addr #7 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = icmp eq ptr %1, %4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %7 = load ptr, ptr %6, align 8
+  br i1 %5, label %14, label %8
 
-if.else:                                          ; preds = %entry
-  %cmp6 = icmp eq ptr %point, %1
-  %arrayidx9 = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %2 = load ptr, ptr %arrayidx9, align 8
-  br i1 %cmp6, label %return, label %if.else10
+8:                                                ; preds = %2
+  %9 = icmp eq ptr %1, %7
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %11 = load ptr, ptr %10, align 8
+  br i1 %9, label %14, label %12
 
-if.else10:                                        ; preds = %if.else
-  %cmp13 = icmp eq ptr %point, %2
-  %. = select i1 %cmp13, ptr %0, ptr null
-  br label %return
+12:                                               ; preds = %8
+  %13 = icmp eq ptr %1, %11
+  %. = select i1 %13, ptr %4, ptr null
+  br label %14
 
-return:                                           ; preds = %if.else, %entry, %if.else10
-  %retval.0 = phi ptr [ %., %if.else10 ], [ %1, %entry ], [ %2, %if.else ]
-  ret ptr %retval.0
+14:                                               ; preds = %8, %2, %12
+  %.0 = phi ptr [ %., %12 ], [ %7, %2 ], [ %11, %8 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZN3p2t8Triangle10NeighborCWERKNS_5PointE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(57) %this, ptr noundef nonnull readnone align 8 captures(address) dereferenceable(40) %point) local_unnamed_addr #6 align 2 {
-entry:
-  %points_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %points_, align 8
-  %cmp = icmp eq ptr %point, %0
-  %arrayidx4 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %1 = load ptr, ptr %arrayidx4, align 8
-  %cmp5 = icmp eq ptr %point, %1
-  %. = select i1 %cmp5, i64 48, i64 32
-  %.sink = select i1 %cmp, i64 40, i64 %.
-  %neighbors_10 = getelementptr inbounds nuw i8, ptr %this, i64 %.sink
-  %retval.0 = load ptr, ptr %neighbors_10, align 8
-  ret ptr %retval.0
+define noundef ptr @_ZN3p2t8Triangle14NeighborAcrossERKNS_5PointE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(57) %0, ptr noundef nonnull readnone align 8 captures(address) dereferenceable(40) %1) local_unnamed_addr #7 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = icmp eq ptr %1, %4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %7 = load ptr, ptr %6, align 8
+  %8 = icmp eq ptr %1, %7
+  %. = select i1 %8, i64 40, i64 48
+  %.sink = select i1 %5, i64 32, i64 %.
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
+  %.0 = load ptr, ptr %9, align 8
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZN3p2t8Triangle11NeighborCCWERKNS_5PointE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(57) %this, ptr noundef nonnull readnone align 8 captures(address) dereferenceable(40) %point) local_unnamed_addr #6 align 2 {
-entry:
-  %points_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %points_, align 8
-  %cmp = icmp eq ptr %point, %0
-  %arrayidx4 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %1 = load ptr, ptr %arrayidx4, align 8
-  %cmp5 = icmp eq ptr %point, %1
-  %. = select i1 %cmp5, i64 32, i64 40
-  %.sink = select i1 %cmp, i64 48, i64 %.
-  %arrayidx11 = getelementptr inbounds nuw i8, ptr %this, i64 %.sink
-  %retval.0 = load ptr, ptr %arrayidx11, align 8
-  ret ptr %retval.0
+define noundef ptr @_ZN3p2t8Triangle10NeighborCWERKNS_5PointE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(57) %0, ptr noundef nonnull readnone align 8 captures(address) dereferenceable(40) %1) local_unnamed_addr #7 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = icmp eq ptr %1, %4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %7 = load ptr, ptr %6, align 8
+  %8 = icmp eq ptr %1, %7
+  %. = select i1 %8, i64 48, i64 32
+  %.sink = select i1 %5, i64 40, i64 %.
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
+  %.0 = load ptr, ptr %9, align 8
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZN3p2t8Triangle21GetConstrainedEdgeCCWERKNS_5PointE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(57) %this, ptr noundef nonnull readnone align 8 captures(address) dereferenceable(40) %p) local_unnamed_addr #6 align 2 {
-entry:
-  %points_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %points_, align 8
-  %cmp = icmp eq ptr %p, %0
-  %arrayidx4 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %1 = load ptr, ptr %arrayidx4, align 8
-  %cmp5 = icmp ne ptr %p, %1
-  %spec.select.idx = zext i1 %cmp5 to i64
-  %retval.0.in.in.v = select i1 %cmp, i64 2, i64 %spec.select.idx
-  %retval.0.in.in = getelementptr inbounds nuw i8, ptr %this, i64 %retval.0.in.in.v
-  %retval.0.in = load i8, ptr %retval.0.in.in, align 1
-  %retval.0 = trunc i8 %retval.0.in to i1
-  ret i1 %retval.0
+define noundef ptr @_ZN3p2t8Triangle11NeighborCCWERKNS_5PointE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(57) %0, ptr noundef nonnull readnone align 8 captures(address) dereferenceable(40) %1) local_unnamed_addr #7 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = icmp eq ptr %1, %4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %7 = load ptr, ptr %6, align 8
+  %8 = icmp eq ptr %1, %7
+  %. = select i1 %8, i64 32, i64 40
+  %.sink = select i1 %5, i64 48, i64 %.
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
+  %.0 = load ptr, ptr %9, align 8
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZN3p2t8Triangle20GetConstrainedEdgeCWERKNS_5PointE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(57) %this, ptr noundef nonnull readnone align 8 captures(address) dereferenceable(40) %p) local_unnamed_addr #6 align 2 {
-entry:
-  %points_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %points_, align 8
-  %cmp = icmp eq ptr %p, %0
-  %arrayidx4 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %1 = load ptr, ptr %arrayidx4, align 8
-  %cmp5 = icmp eq ptr %p, %1
-  %spec.select.idx = select i1 %cmp5, i64 2, i64 0
-  %retval.0.in.in.v = select i1 %cmp, i64 1, i64 %spec.select.idx
-  %retval.0.in.in = getelementptr inbounds nuw i8, ptr %this, i64 %retval.0.in.in.v
-  %retval.0.in = load i8, ptr %retval.0.in.in, align 1
-  %retval.0 = trunc i8 %retval.0.in to i1
-  ret i1 %retval.0
+define noundef zeroext i1 @_ZN3p2t8Triangle21GetConstrainedEdgeCCWERKNS_5PointE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(57) %0, ptr noundef nonnull readnone align 8 captures(address) dereferenceable(40) %1) local_unnamed_addr #7 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = icmp eq ptr %1, %4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %7 = load ptr, ptr %6, align 8
+  %8 = icmp ne ptr %1, %7
+  %spec.select.idx = zext i1 %8 to i64
+  %.0.in.in.v = select i1 %5, i64 2, i64 %spec.select.idx
+  %.0.in.in = getelementptr inbounds nuw i8, ptr %0, i64 %.0.in.in.v
+  %.0.in = load i8, ptr %.0.in.in, align 1, !range !3, !noundef !4
+  %.0 = trunc nuw i8 %.0.in to i1
+  ret i1 %.0
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define noundef zeroext i1 @_ZN3p2t8Triangle20GetConstrainedEdgeCWERKNS_5PointE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(57) %0, ptr noundef nonnull readnone align 8 captures(address) dereferenceable(40) %1) local_unnamed_addr #7 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = icmp eq ptr %1, %4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %7 = load ptr, ptr %6, align 8
+  %8 = icmp eq ptr %1, %7
+  %spec.select.idx = select i1 %8, i64 2, i64 0
+  %.0.in.in.v = select i1 %5, i64 1, i64 %spec.select.idx
+  %.0.in.in = getelementptr inbounds nuw i8, ptr %0, i64 %.0.in.in.v
+  %.0.in = load i8, ptr %.0.in.in, align 1, !range !3, !noundef !4
+  %.0 = trunc nuw i8 %.0.in to i1
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN3p2t8Triangle21SetConstrainedEdgeCCWERKNS_5PointEb(ptr noundef nonnull align 8 captures(none) dereferenceable(57) %this, ptr noundef nonnull readnone align 8 captures(address) dereferenceable(40) %p, i1 noundef zeroext %ce) local_unnamed_addr #4 align 2 {
-entry:
-  %frombool = zext i1 %ce to i8
-  %points_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %points_, align 8
-  %cmp = icmp eq ptr %p, %0
-  br i1 %cmp, label %if.then, label %if.else
+define void @_ZN3p2t8Triangle21SetConstrainedEdgeCCWERKNS_5PointEb(ptr noundef nonnull align 8 captures(none) dereferenceable(57) %0, ptr noundef nonnull readnone align 8 captures(address) dereferenceable(40) %1, i1 noundef zeroext %2) local_unnamed_addr #5 align 2 {
+  %4 = zext i1 %2 to i8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp eq ptr %1, %6
+  br i1 %7, label %8, label %10
 
-if.then:                                          ; preds = %entry
-  %arrayidx2 = getelementptr inbounds nuw i8, ptr %this, i64 2
-  store i8 %frombool, ptr %arrayidx2, align 2
-  br label %if.end17
+8:                                                ; preds = %3
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  store i8 %4, ptr %9, align 2
+  br label %17
 
-if.else:                                          ; preds = %entry
-  %arrayidx5 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %1 = load ptr, ptr %arrayidx5, align 8
-  %cmp6 = icmp eq ptr %p, %1
-  br i1 %cmp6, label %if.then7, label %if.else12
+10:                                               ; preds = %3
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %12 = load ptr, ptr %11, align 8
+  %13 = icmp eq ptr %1, %12
+  br i1 %13, label %14, label %15
 
-if.then7:                                         ; preds = %if.else
-  store i8 %frombool, ptr %this, align 8
-  br label %if.end17
+14:                                               ; preds = %10
+  store i8 %4, ptr %0, align 8
+  br label %17
 
-if.else12:                                        ; preds = %if.else
-  %arrayidx15 = getelementptr inbounds nuw i8, ptr %this, i64 1
-  store i8 %frombool, ptr %arrayidx15, align 1
-  br label %if.end17
+15:                                               ; preds = %10
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 %4, ptr %16, align 1
+  br label %17
 
-if.end17:                                         ; preds = %if.then7, %if.else12, %if.then
-  ret void
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN3p2t8Triangle20SetConstrainedEdgeCWERKNS_5PointEb(ptr noundef nonnull align 8 captures(none) dereferenceable(57) %this, ptr noundef nonnull readnone align 8 captures(address) dereferenceable(40) %p, i1 noundef zeroext %ce) local_unnamed_addr #4 align 2 {
-entry:
-  %frombool = zext i1 %ce to i8
-  %points_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %points_, align 8
-  %cmp = icmp eq ptr %p, %0
-  br i1 %cmp, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  %arrayidx2 = getelementptr inbounds nuw i8, ptr %this, i64 1
-  store i8 %frombool, ptr %arrayidx2, align 1
-  br label %if.end17
-
-if.else:                                          ; preds = %entry
-  %arrayidx5 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %1 = load ptr, ptr %arrayidx5, align 8
-  %cmp6 = icmp eq ptr %p, %1
-  br i1 %cmp6, label %if.then7, label %if.else12
-
-if.then7:                                         ; preds = %if.else
-  %arrayidx10 = getelementptr inbounds nuw i8, ptr %this, i64 2
-  store i8 %frombool, ptr %arrayidx10, align 2
-  br label %if.end17
-
-if.else12:                                        ; preds = %if.else
-  store i8 %frombool, ptr %this, align 8
-  br label %if.end17
-
-if.end17:                                         ; preds = %if.then7, %if.else12, %if.then
-  ret void
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZN3p2t8Triangle17GetDelunayEdgeCCWERKNS_5PointE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(57) %this, ptr noundef nonnull readnone align 8 captures(address) dereferenceable(40) %p) local_unnamed_addr #6 align 2 {
-entry:
-  %points_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %points_, align 8
-  %cmp = icmp eq ptr %p, %0
-  %arrayidx4 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %1 = load ptr, ptr %arrayidx4, align 8
-  %cmp5 = icmp eq ptr %p, %1
-  %. = select i1 %cmp5, i64 3, i64 4
-  %.sink = select i1 %cmp, i64 5, i64 %.
-  %arrayidx12 = getelementptr inbounds nuw i8, ptr %this, i64 %.sink
-  %retval.0.in = load i8, ptr %arrayidx12, align 1
-  %retval.0 = trunc i8 %retval.0.in to i1
-  ret i1 %retval.0
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZN3p2t8Triangle16GetDelunayEdgeCWERKNS_5PointE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(57) %this, ptr noundef nonnull readnone align 8 captures(address) dereferenceable(40) %p) local_unnamed_addr #6 align 2 {
-entry:
-  %points_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %points_, align 8
-  %cmp = icmp eq ptr %p, %0
-  %arrayidx4 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %1 = load ptr, ptr %arrayidx4, align 8
-  %cmp5 = icmp eq ptr %p, %1
-  %. = select i1 %cmp5, i64 5, i64 3
-  %.sink = select i1 %cmp, i64 4, i64 %.
-  %delaunay_edge11 = getelementptr inbounds nuw i8, ptr %this, i64 %.sink
-  %retval.0.in = load i8, ptr %delaunay_edge11, align 1
-  %retval.0 = trunc i8 %retval.0.in to i1
-  ret i1 %retval.0
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN3p2t8Triangle17SetDelunayEdgeCCWERKNS_5PointEb(ptr noundef nonnull align 8 captures(none) dereferenceable(57) %this, ptr noundef nonnull readnone align 8 captures(address) dereferenceable(40) %p, i1 noundef zeroext %e) local_unnamed_addr #4 align 2 {
-entry:
-  %frombool = zext i1 %e to i8
-  %points_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %points_, align 8
-  %cmp = icmp eq ptr %p, %0
-  %arrayidx5 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %1 = load ptr, ptr %arrayidx5, align 8
-  %cmp6 = icmp eq ptr %p, %1
-  %. = select i1 %cmp6, i64 3, i64 4
-  %.sink = select i1 %cmp, i64 5, i64 %.
-  %delaunay_edge9 = getelementptr inbounds nuw i8, ptr %this, i64 %.sink
-  store i8 %frombool, ptr %delaunay_edge9, align 1
+17:                                               ; preds = %14, %15, %8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN3p2t8Triangle16SetDelunayEdgeCWERKNS_5PointEb(ptr noundef nonnull align 8 captures(none) dereferenceable(57) %this, ptr noundef nonnull readnone align 8 captures(address) dereferenceable(40) %p, i1 noundef zeroext %e) local_unnamed_addr #4 align 2 {
-entry:
-  %frombool = zext i1 %e to i8
-  %points_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %points_, align 8
-  %cmp = icmp eq ptr %p, %0
-  %arrayidx5 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %1 = load ptr, ptr %arrayidx5, align 8
-  %cmp6 = icmp eq ptr %p, %1
-  %. = select i1 %cmp6, i64 5, i64 3
-  %.sink = select i1 %cmp, i64 4, i64 %.
-  %arrayidx10 = getelementptr inbounds nuw i8, ptr %this, i64 %.sink
-  store i8 %frombool, ptr %arrayidx10, align 1
+define void @_ZN3p2t8Triangle20SetConstrainedEdgeCWERKNS_5PointEb(ptr noundef nonnull align 8 captures(none) dereferenceable(57) %0, ptr noundef nonnull readnone align 8 captures(address) dereferenceable(40) %1, i1 noundef zeroext %2) local_unnamed_addr #5 align 2 {
+  %4 = zext i1 %2 to i8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp eq ptr %1, %6
+  br i1 %7, label %8, label %10
+
+8:                                                ; preds = %3
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 %4, ptr %9, align 1
+  br label %17
+
+10:                                               ; preds = %3
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %12 = load ptr, ptr %11, align 8
+  %13 = icmp eq ptr %1, %12
+  br i1 %13, label %14, label %16
+
+14:                                               ; preds = %10
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  store i8 %4, ptr %15, align 2
+  br label %17
+
+16:                                               ; preds = %10
+  store i8 %4, ptr %0, align 8
+  br label %17
+
+17:                                               ; preds = %14, %16, %8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(57) ptr @_ZN3p2t8Triangle14NeighborAcrossERKNS_5PointE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(57) %this, ptr noundef nonnull readnone align 8 captures(address) dereferenceable(40) %opoint) local_unnamed_addr #6 align 2 {
-entry:
-  %points_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %points_, align 8
-  %cmp = icmp eq ptr %opoint, %0
-  %arrayidx4 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %1 = load ptr, ptr %arrayidx4, align 8
-  %cmp5 = icmp eq ptr %opoint, %1
-  %. = select i1 %cmp5, i64 40, i64 48
-  %.sink = select i1 %cmp, i64 32, i64 %.
-  %arrayidx11 = getelementptr inbounds nuw i8, ptr %this, i64 %.sink
-  %retval.0 = load ptr, ptr %arrayidx11, align 8
-  ret ptr %retval.0
+define noundef zeroext i1 @_ZN3p2t8Triangle17GetDelunayEdgeCCWERKNS_5PointE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(57) %0, ptr noundef nonnull readnone align 8 captures(address) dereferenceable(40) %1) local_unnamed_addr #7 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = icmp eq ptr %1, %4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %7 = load ptr, ptr %6, align 8
+  %8 = icmp eq ptr %1, %7
+  %. = select i1 %8, i64 3, i64 4
+  %.sink = select i1 %5, i64 5, i64 %.
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
+  %.0.in = load i8, ptr %9, align 1, !range !3, !noundef !4
+  %.0 = trunc nuw i8 %.0.in to i1
+  ret i1 %.0
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define noundef zeroext i1 @_ZN3p2t8Triangle16GetDelunayEdgeCWERKNS_5PointE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(57) %0, ptr noundef nonnull readnone align 8 captures(address) dereferenceable(40) %1) local_unnamed_addr #7 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = icmp eq ptr %1, %4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %7 = load ptr, ptr %6, align 8
+  %8 = icmp eq ptr %1, %7
+  %. = select i1 %8, i64 5, i64 3
+  %.sink = select i1 %5, i64 4, i64 %.
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
+  %.0.in = load i8, ptr %9, align 1, !range !3, !noundef !4
+  %.0 = trunc nuw i8 %.0.in to i1
+  ret i1 %.0
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define void @_ZN3p2t8Triangle17SetDelunayEdgeCCWERKNS_5PointEb(ptr noundef nonnull align 8 captures(none) dereferenceable(57) %0, ptr noundef nonnull readnone align 8 captures(address) dereferenceable(40) %1, i1 noundef zeroext %2) local_unnamed_addr #5 align 2 {
+  %4 = zext i1 %2 to i8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp eq ptr %1, %6
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %9 = load ptr, ptr %8, align 8
+  %10 = icmp eq ptr %1, %9
+  %. = select i1 %10, i64 3, i64 4
+  %.sink5 = select i1 %7, i64 5, i64 %.
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink5
+  store i8 %4, ptr %11, align 1
+  ret void
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define void @_ZN3p2t8Triangle16SetDelunayEdgeCWERKNS_5PointEb(ptr noundef nonnull align 8 captures(none) dereferenceable(57) %0, ptr noundef nonnull readnone align 8 captures(address) dereferenceable(40) %1, i1 noundef zeroext %2) local_unnamed_addr #5 align 2 {
+  %4 = zext i1 %2 to i8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp eq ptr %1, %6
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %9 = load ptr, ptr %8, align 8
+  %10 = icmp eq ptr %1, %9
+  %. = select i1 %10, i64 5, i64 3
+  %.sink5 = select i1 %7, i64 4, i64 %.
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink5
+  store i8 %4, ptr %11, align 1
+  ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3p2t8Triangle10DebugPrintEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(57) %this) local_unnamed_addr #7 align 2 {
-entry:
-  %points_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %points_, align 8
-  %1 = load double, ptr %0, align 8
-  %call = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, double noundef %1)
-  %call2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef nonnull @.str)
-  %2 = load ptr, ptr %points_, align 8
-  %y = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %3 = load double, ptr %y, align 8
-  %call5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %call2, double noundef %3)
-  %call6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call5, ptr noundef nonnull @.str.1)
-  %arrayidx8 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %4 = load ptr, ptr %arrayidx8, align 8
-  %5 = load double, ptr %4, align 8
-  %call10 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, double noundef %5)
-  %call11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call10, ptr noundef nonnull @.str)
-  %6 = load ptr, ptr %arrayidx8, align 8
-  %y14 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %7 = load double, ptr %y14, align 8
-  %call15 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %call11, double noundef %7)
-  %call16 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call15, ptr noundef nonnull @.str.1)
-  %arrayidx18 = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %8 = load ptr, ptr %arrayidx18, align 8
-  %9 = load double, ptr %8, align 8
-  %call20 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, double noundef %9)
-  %call21 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call20, ptr noundef nonnull @.str)
-  %10 = load ptr, ptr %arrayidx18, align 8
-  %y24 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %11 = load double, ptr %y24, align 8
-  %call25 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %call21, double noundef %11)
-  %call26 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %call25, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
+define void @_ZN3p2t8Triangle10DebugPrintEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(57) %0) local_unnamed_addr #4 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = load double, ptr %3, align 8
+  %5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, double noundef %4)
+  %6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull @.str, i64 noundef 1)
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %8 = load double, ptr %7, align 8
+  %9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %5, double noundef %8)
+  %10 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull @.str.1, i64 noundef 1)
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %12 = load ptr, ptr %11, align 8
+  %13 = load double, ptr %12, align 8
+  %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %9, double noundef %13)
+  %15 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull @.str, i64 noundef 1)
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %17 = load double, ptr %16, align 8
+  %18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %14, double noundef %17)
+  %19 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull @.str.1, i64 noundef 1)
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %21 = load ptr, ptr %20, align 8
+  %22 = load double, ptr %21, align 8
+  %23 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %18, double noundef %22)
+  %24 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull @.str, i64 noundef 1)
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %26 = load double, ptr %25, align 8
+  %27 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %23, double noundef %26)
+  %28 = load ptr, ptr %27, align 8
+  %29 = getelementptr i8, ptr %28, i64 -24
+  %30 = load i64, ptr %29, align 8
+  %31 = getelementptr inbounds i8, ptr %27, i64 %30
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 240
+  %33 = load ptr, ptr %32, align 8
+  %.not.i.i.i = icmp eq ptr %33, null
+  br i1 %.not.i.i.i, label %34, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
+
+34:                                               ; preds = %1
+  tail call void @_ZSt16__throw_bad_castv() #13
+  unreachable
+
+_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %1
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 56
+  %36 = load i8, ptr %35, align 8
+  %.not.i1.i.i = icmp eq i8 %36, 0
+  br i1 %.not.i1.i.i, label %40, label %37
+
+37:                                               ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
+  %38 = getelementptr inbounds nuw i8, ptr %33, i64 67
+  %39 = load i8, ptr %38, align 1
+  br label %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit
+
+40:                                               ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
+  tail call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %33)
+  %41 = load ptr, ptr %33, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 48
+  %43 = load ptr, ptr %42, align 8
+  %44 = tail call noundef signext i8 %43(ptr noundef nonnull align 8 dereferenceable(570) %33, i8 noundef signext 10)
+  br label %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit
+
+_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %37, %40
+  %.0.i.i.i = phi i8 [ %39, %37 ], [ %44, %40 ]
+  %45 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %27, i8 noundef signext %.0.i.i.i)
+  %46 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %45)
   ret void
 }
 
-declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #0
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define noundef zeroext i1 @_ZNK3p2t8Triangle19CircumcicleContainsERKNS_5PointE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(57) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) local_unnamed_addr #8 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = load double, ptr %4, align 8
+  %6 = load double, ptr %1, align 8
+  %7 = fsub double %5, %6
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %9 = load double, ptr %8, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %11 = load double, ptr %10, align 8
+  %12 = fsub double %9, %11
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %14 = load ptr, ptr %13, align 8
+  %15 = load double, ptr %14, align 8
+  %16 = fsub double %15, %6
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %18 = load double, ptr %17, align 8
+  %19 = fsub double %18, %11
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %21 = load ptr, ptr %20, align 8
+  %22 = load double, ptr %21, align 8
+  %23 = fsub double %22, %6
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %25 = load double, ptr %24, align 8
+  %26 = fsub double %25, %11
+  %27 = fmul double %12, %12
+  %28 = tail call double @llvm.fmuladd.f64(double %7, double %7, double %27)
+  %29 = fmul double %19, %19
+  %30 = tail call double @llvm.fmuladd.f64(double %16, double %16, double %29)
+  %31 = fmul double %26, %26
+  %32 = tail call double @llvm.fmuladd.f64(double %23, double %23, double %31)
+  %33 = fneg double %19
+  %34 = fmul double %32, %33
+  %35 = tail call double @llvm.fmuladd.f64(double %26, double %30, double %34)
+  %36 = fneg double %16
+  %37 = fmul double %32, %36
+  %38 = tail call double @llvm.fmuladd.f64(double %23, double %30, double %37)
+  %39 = fneg double %38
+  %40 = fmul double %12, %39
+  %41 = tail call double @llvm.fmuladd.f64(double %7, double %35, double %40)
+  %42 = fmul double %26, %36
+  %43 = tail call double @llvm.fmuladd.f64(double %23, double %19, double %42)
+  %44 = tail call double @llvm.fmuladd.f64(double %28, double %43, double %41)
+  %45 = fcmp olt double %44, 0.000000e+00
+  ret i1 %45
+}
 
-declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8), double noundef) local_unnamed_addr #0
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.fmuladd.f64(double, double, double) #9
 
-declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #0
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define noundef zeroext i1 @_ZNK3p2t8Triangle18IsCounterClockwiseEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(57) %0) local_unnamed_addr #8 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %4 = load ptr, ptr %3, align 8
+  %5 = load double, ptr %4, align 8
+  %6 = load ptr, ptr %2, align 8
+  %7 = load double, ptr %6, align 8
+  %8 = fsub double %5, %7
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %10 = load ptr, ptr %9, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %12 = load double, ptr %11, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %14 = load double, ptr %13, align 8
+  %15 = fsub double %12, %14
+  %16 = load double, ptr %10, align 8
+  %17 = fsub double %16, %7
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %19 = load double, ptr %18, align 8
+  %20 = fsub double %19, %14
+  %21 = fneg double %20
+  %22 = fmul double %17, %21
+  %23 = tail call double @llvm.fmuladd.f64(double %8, double %15, double %22)
+  %24 = fcmp ogt double %23, 0.000000e+00
+  ret i1 %24
+}
 
-declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_(ptr noundef nonnull align 8 dereferenceable(8)) #0
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define noundef zeroext i1 @_ZN3p2t10IsDelaunayERKSt6vectorIPNS_8TriangleESaIS2_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) local_unnamed_addr #8 {
+  %2 = load ptr, ptr %0, align 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8
+  %.not49 = icmp eq ptr %2, %4
+  br i1 %.not49, label %.loopexit42, label %.lr.ph
+
+.lr.ph:                                           ; preds = %1, %._crit_edge
+  %.sroa.032.050 = phi ptr [ %58, %._crit_edge ], [ %2, %1 ]
+  %5 = load ptr, ptr %.sroa.032.050, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  br label %9
+
+9:                                                ; preds = %.lr.ph, %.loopexit
+  %.sroa.028.048 = phi ptr [ %2, %.lr.ph ], [ %57, %.loopexit ]
+  %10 = load ptr, ptr %.sroa.028.048, align 8
+  %11 = icmp eq ptr %5, %10
+  br i1 %11, label %.loopexit, label %.preheader
+
+.preheader:                                       ; preds = %9
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %13 = load ptr, ptr %6, align 8
+  %14 = load double, ptr %13, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %16 = load double, ptr %15, align 8
+  %17 = load ptr, ptr %7, align 8
+  %18 = load double, ptr %17, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %20 = load double, ptr %19, align 8
+  %21 = load ptr, ptr %8, align 8
+  %22 = load double, ptr %21, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %24 = load double, ptr %23, align 8
+  br label %26
+
+25:                                               ; preds = %26
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond = icmp eq i64 %indvars.iv.next, 3
+  br i1 %exitcond, label %.loopexit, label %26, !llvm.loop !5
+
+26:                                               ; preds = %.preheader, %25
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %25 ]
+  %27 = getelementptr inbounds nuw [3 x ptr], ptr %12, i64 0, i64 %indvars.iv
+  %28 = load ptr, ptr %27, align 8
+  %29 = load double, ptr %28, align 8
+  %30 = fsub double %14, %29
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %32 = load double, ptr %31, align 8
+  %33 = fsub double %16, %32
+  %34 = fsub double %18, %29
+  %35 = fsub double %20, %32
+  %36 = fsub double %22, %29
+  %37 = fsub double %24, %32
+  %38 = fmul double %33, %33
+  %39 = tail call double @llvm.fmuladd.f64(double %30, double %30, double %38)
+  %40 = fmul double %35, %35
+  %41 = tail call double @llvm.fmuladd.f64(double %34, double %34, double %40)
+  %42 = fmul double %37, %37
+  %43 = tail call double @llvm.fmuladd.f64(double %36, double %36, double %42)
+  %44 = fneg double %35
+  %45 = fmul double %43, %44
+  %46 = tail call double @llvm.fmuladd.f64(double %37, double %41, double %45)
+  %47 = fneg double %34
+  %48 = fmul double %43, %47
+  %49 = tail call double @llvm.fmuladd.f64(double %36, double %41, double %48)
+  %50 = fneg double %49
+  %51 = fmul double %33, %50
+  %52 = tail call double @llvm.fmuladd.f64(double %30, double %46, double %51)
+  %53 = fmul double %37, %47
+  %54 = tail call double @llvm.fmuladd.f64(double %36, double %35, double %53)
+  %55 = tail call double @llvm.fmuladd.f64(double %39, double %54, double %52)
+  %56 = fcmp olt double %55, 0.000000e+00
+  br i1 %56, label %.loopexit42, label %25
+
+.loopexit:                                        ; preds = %25, %9
+  %57 = getelementptr inbounds nuw i8, ptr %.sroa.028.048, i64 8
+  %.not41 = icmp eq ptr %57, %4
+  br i1 %.not41, label %._crit_edge, label %9
+
+._crit_edge:                                      ; preds = %.loopexit
+  %58 = getelementptr inbounds nuw i8, ptr %.sroa.032.050, i64 8
+  %.not = icmp eq ptr %58, %4
+  br i1 %.not, label %.loopexit42, label %.lr.ph
+
+.loopexit42:                                      ; preds = %._crit_edge, %26, %1
+  %.not45 = phi i1 [ true, %1 ], [ false, %26 ], [ true, %._crit_edge ]
+  ret i1 %.not45
+}
+
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8), double noundef) local_unnamed_addr #0
+
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #0
+
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8), i8 noundef signext) local_unnamed_addr #0
+
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
+
+; Function Attrs: noreturn
+declare void @_ZSt16__throw_bad_castv() local_unnamed_addr #10
+
+declare void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570)) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_shapes.cc() #8 section ".text.startup" {
-entry:
+define internal void @_GLOBAL__sub_I_shapes.cc() #11 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #10
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #14
   ret void
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
-attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { nounwind }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #13 = { noreturn }
+attributes #14 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
+!3 = !{i8 0, i8 2}
+!4 = !{}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
