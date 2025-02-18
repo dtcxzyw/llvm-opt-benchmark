@@ -1,0 +1,3739 @@
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-pc-linux-gnu"
+
+%struct.malloc_mutex_s = type { %union.anon }
+%union.anon = type { %struct.anon }
+%struct.anon = type { %struct.mutex_prof_data_t, %struct.atomic_b_t, %union.pthread_mutex_t }
+%struct.mutex_prof_data_t = type { %struct.nstime_t, %struct.nstime_t, i64, i64, i32, %struct.atomic_u32_t, i64, ptr, i64 }
+%struct.nstime_t = type { i64 }
+%struct.atomic_u32_t = type { i32 }
+%struct.atomic_b_t = type { i8 }
+%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
+%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
+%struct.__pthread_internal_list = type { ptr, ptr }
+%struct.tsd_s = type { i8, i8, i8, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, ptr, i64, i64, i64, ptr, ptr, %struct.ticker_geom_s, i8, %struct.tsd_binshards_s, %struct.tsd_link_t, i8, %struct.peak_s, %struct.activity_callback_thunk_s, %struct.tcache_slow_s, %struct.rtree_ctx_s, %struct.atomic_u8_t, i64, i64, i64, i64, %struct.tcache_s, %struct.witness_tsd_s }
+%struct.ticker_geom_s = type { i32, i32 }
+%struct.tsd_binshards_s = type { [36 x i8] }
+%struct.tsd_link_t = type { ptr, ptr }
+%struct.peak_s = type { i64, i64 }
+%struct.activity_callback_thunk_s = type { ptr, ptr }
+%struct.tcache_slow_s = type { %struct.anon.9, %struct.cache_bin_array_descriptor_s, ptr, i32, i32, [36 x i8], [36 x i8], [36 x i8], ptr, ptr }
+%struct.anon.9 = type { ptr, ptr }
+%struct.cache_bin_array_descriptor_s = type { %struct.anon.10, ptr }
+%struct.anon.10 = type { ptr, ptr }
+%struct.rtree_ctx_s = type { [16 x %struct.rtree_ctx_cache_elm_s], [8 x %struct.rtree_ctx_cache_elm_s] }
+%struct.rtree_ctx_cache_elm_s = type { i64, ptr }
+%struct.atomic_u8_t = type { i8 }
+%struct.tcache_s = type { ptr, [73 x %struct.cache_bin_s] }
+%struct.cache_bin_s = type { ptr, %struct.cache_bin_stats_s, i16, i16, i16, %struct.cache_bin_info_s }
+%struct.cache_bin_stats_s = type { i64 }
+%struct.cache_bin_info_s = type { i16 }
+%struct.witness_tsd_s = type { %struct.witness_list_t, i8 }
+%struct.witness_list_t = type { ptr }
+%struct.atomic_p_t = type { ptr }
+%struct.arena_config_s = type { ptr, i8 }
+%struct.background_thread_info_s = type { i64, %union.pthread_cond_t, %struct.malloc_mutex_s, i32, %struct.atomic_b_t, %struct.nstime_t, i64, i64, %struct.nstime_t }
+%union.pthread_cond_t = type { %struct.__pthread_cond_s }
+%struct.__pthread_cond_s = type { %union.__atomic_wide_counter, %union.__atomic_wide_counter, [2 x i32], [2 x i32], i32, i32, [2 x i32] }
+%union.__atomic_wide_counter = type { i64 }
+%struct.arena_s = type { [2 x %struct.atomic_u_t], %struct.atomic_u_t, ptr, %struct.arena_stats_s, %struct.anon.2, %struct.anon.3, %struct.malloc_mutex_s, %struct.atomic_u_t, %struct.edata_list_active_t, %struct.malloc_mutex_s, %struct.pa_shard_s, i32, ptr, %struct.nstime_t, [32 x i8], [32 x i8], [0 x %struct.bin_with_batch_s] }
+%struct.arena_stats_s = type { i64, i64, i64, i64, i64, i64, %struct.atomic_zu_t, i64, i64, i64, i64, i64, i64, %struct.pa_shard_stats_s, i64, i64, [12 x %struct.mutex_prof_data_t], [196 x %struct.arena_stats_large_s], %struct.nstime_t }
+%struct.atomic_zu_t = type { i64 }
+%struct.pa_shard_stats_s = type { i64, %struct.pac_stats_s }
+%struct.pac_stats_s = type { %struct.pac_decay_stats_s, %struct.pac_decay_stats_s, i64, %struct.atomic_zu_t, %struct.atomic_zu_t }
+%struct.pac_decay_stats_s = type { %struct.locked_u64_s, %struct.locked_u64_s, %struct.locked_u64_s }
+%struct.locked_u64_s = type { %struct.atomic_u64_t }
+%struct.atomic_u64_t = type { i64 }
+%struct.arena_stats_large_s = type { %struct.locked_u64_s, %struct.locked_u64_s, %struct.locked_u64_s, %struct.locked_u64_s, %struct.locked_u64_s, i64 }
+%struct.anon.2 = type { ptr }
+%struct.anon.3 = type { ptr }
+%struct.atomic_u_t = type { i32 }
+%struct.edata_list_active_t = type { %struct.anon.4 }
+%struct.anon.4 = type { ptr }
+%struct.pa_shard_s = type { ptr, %struct.atomic_zu_t, %struct.atomic_b_t, i8, %struct.pac_s, %struct.sec_s, %struct.hpa_shard_s, %struct.edata_cache_s, i32, ptr, ptr, ptr, ptr }
+%struct.pac_s = type { %struct.pai_s, %struct.ecache_s, %struct.ecache_s, %struct.ecache_s, ptr, ptr, ptr, %struct.exp_grow_s, %struct.malloc_mutex_s, %struct.san_bump_alloc_s, %struct.atomic_zu_t, %struct.decay_s, %struct.decay_s, ptr, ptr, %struct.atomic_zu_t }
+%struct.pai_s = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr }
+%struct.ecache_s = type { %struct.malloc_mutex_s, %struct.eset_s, %struct.eset_s, i32, i32, i8 }
+%struct.eset_s = type { [4 x i64], [200 x %struct.eset_bin_s], [200 x %struct.eset_bin_stats_s], %struct.edata_list_inactive_t, %struct.atomic_zu_t, i32 }
+%struct.eset_bin_s = type { %struct.edata_heap_t, %struct.edata_cmp_summary_s }
+%struct.edata_heap_t = type { %struct.ph_s }
+%struct.ph_s = type { ptr, i64 }
+%struct.edata_cmp_summary_s = type { i64, i64 }
+%struct.eset_bin_stats_s = type { %struct.atomic_zu_t, %struct.atomic_zu_t }
+%struct.edata_list_inactive_t = type { %struct.anon.5 }
+%struct.anon.5 = type { ptr }
+%struct.exp_grow_s = type { i32, i32 }
+%struct.san_bump_alloc_s = type { %struct.malloc_mutex_s, ptr }
+%struct.decay_s = type { %struct.malloc_mutex_s, i8, %struct.atomic_zd_t, %struct.nstime_t, %struct.nstime_t, i64, %struct.nstime_t, i64, i64, [200 x i64], i64 }
+%struct.atomic_zd_t = type { i64 }
+%struct.sec_s = type { %struct.pai_s, ptr, %struct.sec_opts_s, ptr, i32 }
+%struct.sec_opts_s = type { i64, i64, i64, i64, i64 }
+%struct.hpa_shard_s = type { %struct.pai_s, ptr, %struct.malloc_mutex_s, %struct.malloc_mutex_s, ptr, %struct.edata_cache_fast_s, %struct.psset_s, i64, i32, ptr, %struct.hpa_shard_opts_s, i64, %struct.hpa_shard_nonderived_stats_s, %struct.nstime_t }
+%struct.edata_cache_fast_s = type { %struct.edata_list_inactive_t, ptr, i8 }
+%struct.psset_s = type { [64 x %struct.hpdata_age_heap_t], [1 x i64], %struct.psset_bin_stats_s, %struct.psset_stats_s, %struct.hpdata_empty_list_t, [128 x %struct.hpdata_purge_list_t], [2 x i64], %struct.hpdata_hugify_list_t }
+%struct.hpdata_age_heap_t = type { %struct.ph_s }
+%struct.psset_bin_stats_s = type { i64, i64, i64 }
+%struct.psset_stats_s = type { [64 x [2 x %struct.psset_bin_stats_s]], [2 x %struct.psset_bin_stats_s], [2 x %struct.psset_bin_stats_s] }
+%struct.hpdata_empty_list_t = type { %struct.anon.6 }
+%struct.anon.6 = type { ptr }
+%struct.hpdata_purge_list_t = type { %struct.anon.7 }
+%struct.anon.7 = type { ptr }
+%struct.hpdata_hugify_list_t = type { %struct.anon.8 }
+%struct.anon.8 = type { ptr }
+%struct.hpa_shard_opts_s = type { i64, i64, i32, i8, i64, i64, i8 }
+%struct.hpa_shard_nonderived_stats_s = type { i64, i64, i64, i64 }
+%struct.edata_cache_s = type { %struct.edata_avail_t, %struct.atomic_zu_t, %struct.malloc_mutex_s, ptr }
+%struct.edata_avail_t = type { %struct.ph_s }
+%struct.bin_with_batch_s = type { %struct.bin_s, %struct.batcher_s, [16 x %struct.bin_remote_free_data_s] }
+%struct.bin_s = type { %struct.malloc_mutex_s, %struct.bin_stats_s, ptr, %struct.edata_heap_t, %struct.edata_list_active_t }
+%struct.bin_stats_s = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64 }
+%struct.batcher_s = type { %struct.atomic_zu_t, i64, i64, %struct.malloc_mutex_s }
+%struct.bin_remote_free_data_s = type { ptr, ptr }
+%struct.background_thread_stats_s = type { i64, i64, %struct.nstime_t, %struct.mutex_prof_data_t }
+%struct.tsdn_s = type { %struct.tsd_s }
+%struct.__sigset_t = type { [16 x i64] }
+%struct.timeval = type { i64, i64 }
+%struct.timespec = type { i64, i64 }
+
+@duckdb_je_opt_background_thread = global i8 0, align 1
+@duckdb_je_opt_max_background_threads = global i64 4096, align 8
+@pthread_create_fptr = internal global ptr null, align 8
+@duckdb_je_background_thread_lock = global %struct.malloc_mutex_s zeroinitializer, align 8
+@duckdb_je_max_background_threads = global i64 0, align 8
+@duckdb_je_background_thread_info = global ptr null, align 8
+@background_thread_enabled_at_fork = internal global i8 0, align 1
+@duckdb_je_n_background_threads = global i64 0, align 8
+@.str = private unnamed_addr constant [25 x i8] c"background_thread_global\00", align 1
+@.str.1 = private unnamed_addr constant [18 x i8] c"background_thread\00", align 1
+@duckdb_je_background_thread_enabled_state = global %struct.atomic_b_t zeroinitializer, align 1
+@.str.2 = private unnamed_addr constant [60 x i8] c"<jemalloc>: arena 0 background thread creation failed (%d)\0A\00", align 1
+@.str.3 = private unnamed_addr constant [93 x i8] c"<jemalloc>: background thread creation failed (%d), and signal mask restoration failed (%d)\0A\00", align 1
+@duckdb_je_opt_abort = external global i8, align 1
+@duckdb_je_opt_percpu_arena = external global i32, align 4
+@.str.4 = private unnamed_addr constant [52 x i8] c"<jemalloc>: background thread creation failed (%d)\0A\00", align 1
+@duckdb_je_tsd_tls = external thread_local global %struct.tsd_s, align 8
+@duckdb_je_arenas = external global [0 x %struct.atomic_p_t], align 8
+@duckdb_je_arena_config_default = external constant %struct.arena_config_s, align 8
+@nstime_zero = internal constant %struct.nstime_t zeroinitializer, align 8
+
+; Function Attrs: nounwind uwtable
+define i32 @duckdb_je_pthread_create_wrapper(ptr noalias noundef %0, ptr noundef %1, ptr noundef %2, ptr noalias noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !8
+  store ptr %2, ptr %7, align 8, !tbaa !10
+  store ptr %3, ptr %8, align 8, !tbaa !10
+  call void @pthread_create_wrapper_init()
+  %9 = load ptr, ptr @pthread_create_fptr, align 8, !tbaa !10
+  %10 = load ptr, ptr %5, align 8, !tbaa !3
+  %11 = load ptr, ptr %6, align 8, !tbaa !8
+  %12 = load ptr, ptr %7, align 8, !tbaa !10
+  %13 = load ptr, ptr %8, align 8, !tbaa !10
+  %14 = call i32 %9(ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13)
+  ret i32 %14
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @pthread_create_wrapper_init() #0 {
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define zeroext i1 @duckdb_je_background_thread_create(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i8, align 1
+  store ptr %0, ptr %3, align 8, !tbaa !11
+  store i32 %1, ptr %4, align 4, !tbaa !13
+  br label %6
+
+6:                                                ; preds = %2
+  br label %7
+
+7:                                                ; preds = %6
+  call void @llvm.lifetime.start.p0(i64 1, ptr %5) #11
+  %8 = load ptr, ptr %3, align 8, !tbaa !11
+  %9 = call ptr @tsd_tsdn(ptr noundef %8)
+  call void @malloc_mutex_lock(ptr noundef %9, ptr noundef @duckdb_je_background_thread_lock)
+  %10 = load ptr, ptr %3, align 8, !tbaa !11
+  %11 = load i32, ptr %4, align 4, !tbaa !13
+  %12 = call zeroext i1 @background_thread_create_locked(ptr noundef %10, i32 noundef %11)
+  %13 = zext i1 %12 to i8
+  store i8 %13, ptr %5, align 1, !tbaa !15
+  %14 = load ptr, ptr %3, align 8, !tbaa !11
+  %15 = call ptr @tsd_tsdn(ptr noundef %14)
+  call void @malloc_mutex_unlock(ptr noundef %15, ptr noundef @duckdb_je_background_thread_lock)
+  %16 = load i8, ptr %5, align 1, !tbaa !15, !range !17, !noundef !18
+  %17 = trunc i8 %16 to i1
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #11
+  ret i1 %17
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @malloc_mutex_lock(ptr noundef %0, ptr noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !19
+  store ptr %1, ptr %4, align 8, !tbaa !21
+  %5 = load ptr, ptr %3, align 8, !tbaa !19
+  %6 = call ptr @tsdn_witness_tsdp_get(ptr noundef %5)
+  %7 = load ptr, ptr %4, align 8, !tbaa !21
+  %8 = getelementptr inbounds nuw %struct.malloc_mutex_s, ptr %7, i32 0, i32 0
+  call void @witness_assert_not_owner(ptr noundef %6, ptr noundef %8)
+  %9 = load ptr, ptr %4, align 8, !tbaa !21
+  %10 = call zeroext i1 @malloc_mutex_trylock_final(ptr noundef %9)
+  br i1 %10, label %11, label %16
+
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !21
+  call void @duckdb_je_malloc_mutex_lock_slow(ptr noundef %12)
+  %13 = load ptr, ptr %4, align 8, !tbaa !21
+  %14 = getelementptr inbounds nuw %struct.malloc_mutex_s, ptr %13, i32 0, i32 0
+  %15 = getelementptr inbounds nuw %struct.anon, ptr %14, i32 0, i32 1
+  call void @atomic_store_b(ptr noundef %15, i1 noundef zeroext true, i32 noundef 0)
+  br label %16
+
+16:                                               ; preds = %11, %2
+  %17 = load ptr, ptr %3, align 8, !tbaa !19
+  %18 = load ptr, ptr %4, align 8, !tbaa !21
+  call void @mutex_owner_stats_update(ptr noundef %17, ptr noundef %18)
+  %19 = load ptr, ptr %3, align 8, !tbaa !19
+  %20 = call ptr @tsdn_witness_tsdp_get(ptr noundef %19)
+  %21 = load ptr, ptr %4, align 8, !tbaa !21
+  %22 = getelementptr inbounds nuw %struct.malloc_mutex_s, ptr %21, i32 0, i32 0
+  call void @witness_lock(ptr noundef %20, ptr noundef %22)
+  ret void
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal ptr @tsd_tsdn(ptr noundef %0) #3 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !11
+  %3 = load ptr, ptr %2, align 8, !tbaa !11
+  ret ptr %3
+}
+
+; Function Attrs: nounwind uwtable
+define internal zeroext i1 @background_thread_create_locked(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca i1, align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i64, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i8, align 1
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !11
+  store i32 %1, ptr %5, align 4, !tbaa !13
+  br label %12
+
+12:                                               ; preds = %2
+  br label %13
+
+13:                                               ; preds = %12
+  %14 = load ptr, ptr %4, align 8, !tbaa !11
+  %15 = call ptr @tsd_tsdn(ptr noundef %14)
+  call void @malloc_mutex_assert_owner(ptr noundef %15, ptr noundef @duckdb_je_background_thread_lock)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #11
+  %16 = load i32, ptr %5, align 4, !tbaa !13
+  %17 = zext i32 %16 to i64
+  %18 = load i64, ptr @duckdb_je_max_background_threads, align 8, !tbaa !23
+  %19 = urem i64 %17, %18
+  store i64 %19, ptr %6, align 8, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #11
+  %20 = load ptr, ptr @duckdb_je_background_thread_info, align 8, !tbaa !25
+  %21 = load i64, ptr %6, align 8, !tbaa !23
+  %22 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %20, i64 %21
+  store ptr %22, ptr %7, align 8, !tbaa !25
+  call void @llvm.lifetime.start.p0(i64 1, ptr %8) #11
+  %23 = load ptr, ptr %4, align 8, !tbaa !11
+  %24 = call ptr @tsd_tsdn(ptr noundef %23)
+  %25 = load ptr, ptr %7, align 8, !tbaa !25
+  %26 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %25, i32 0, i32 2
+  call void @malloc_mutex_lock(ptr noundef %24, ptr noundef %26)
+  %27 = call zeroext i1 @background_thread_enabled()
+  br i1 %27, label %28, label %33
+
+28:                                               ; preds = %13
+  %29 = load ptr, ptr %7, align 8, !tbaa !25
+  %30 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %29, i32 0, i32 3
+  %31 = load i32, ptr %30, align 8, !tbaa !27
+  %32 = icmp eq i32 %31, 0
+  br label %33
+
+33:                                               ; preds = %28, %13
+  %34 = phi i1 [ false, %13 ], [ %32, %28 ]
+  %35 = zext i1 %34 to i8
+  store i8 %35, ptr %8, align 1, !tbaa !15
+  %36 = load i8, ptr %8, align 1, !tbaa !15, !range !17, !noundef !18
+  %37 = trunc i8 %36 to i1
+  br i1 %37, label %38, label %41
+
+38:                                               ; preds = %33
+  %39 = load ptr, ptr %4, align 8, !tbaa !11
+  %40 = load ptr, ptr %7, align 8, !tbaa !25
+  call void @background_thread_init(ptr noundef %39, ptr noundef %40)
+  br label %41
+
+41:                                               ; preds = %38, %33
+  %42 = load ptr, ptr %4, align 8, !tbaa !11
+  %43 = call ptr @tsd_tsdn(ptr noundef %42)
+  %44 = load ptr, ptr %7, align 8, !tbaa !25
+  %45 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %44, i32 0, i32 2
+  call void @malloc_mutex_unlock(ptr noundef %43, ptr noundef %45)
+  %46 = load i8, ptr %8, align 1, !tbaa !15, !range !17, !noundef !18
+  %47 = trunc i8 %46 to i1
+  br i1 %47, label %49, label %48
+
+48:                                               ; preds = %41
+  store i1 false, ptr %3, align 1
+  store i32 1, ptr %9, align 4
+  br label %95
+
+49:                                               ; preds = %41
+  %50 = load i32, ptr %5, align 4, !tbaa !13
+  %51 = icmp ne i32 %50, 0
+  br i1 %51, label %52, label %69
+
+52:                                               ; preds = %49
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #11
+  %53 = load ptr, ptr @duckdb_je_background_thread_info, align 8, !tbaa !25
+  %54 = getelementptr inbounds %struct.background_thread_info_s, ptr %53, i64 0
+  store ptr %54, ptr %10, align 8, !tbaa !25
+  %55 = load ptr, ptr %4, align 8, !tbaa !11
+  %56 = call ptr @tsd_tsdn(ptr noundef %55)
+  %57 = load ptr, ptr %10, align 8, !tbaa !25
+  %58 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %57, i32 0, i32 2
+  call void @malloc_mutex_lock(ptr noundef %56, ptr noundef %58)
+  br label %59
+
+59:                                               ; preds = %52
+  br label %60
+
+60:                                               ; preds = %59
+  br label %61
+
+61:                                               ; preds = %60
+  %62 = load ptr, ptr %10, align 8, !tbaa !25
+  %63 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %62, i32 0, i32 1
+  %64 = call i32 @pthread_cond_signal(ptr noundef %63) #11
+  %65 = load ptr, ptr %4, align 8, !tbaa !11
+  %66 = call ptr @tsd_tsdn(ptr noundef %65)
+  %67 = load ptr, ptr %10, align 8, !tbaa !25
+  %68 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %67, i32 0, i32 2
+  call void @malloc_mutex_unlock(ptr noundef %66, ptr noundef %68)
+  store i1 false, ptr %3, align 1
+  store i32 1, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #11
+  br label %95
+
+69:                                               ; preds = %49
+  %70 = load ptr, ptr %4, align 8, !tbaa !11
+  call void @pre_reentrancy(ptr noundef %70, ptr noundef null)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #11
+  %71 = load ptr, ptr %7, align 8, !tbaa !25
+  %72 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %71, i32 0, i32 0
+  %73 = load i64, ptr %6, align 8, !tbaa !23
+  %74 = inttoptr i64 %73 to ptr
+  %75 = call i32 @background_thread_create_signals_masked(ptr noundef %72, ptr noundef null, ptr noundef @background_thread_entry, ptr noundef %74)
+  store i32 %75, ptr %11, align 4, !tbaa !13
+  %76 = load ptr, ptr %4, align 8, !tbaa !11
+  call void @post_reentrancy(ptr noundef %76)
+  %77 = load i32, ptr %11, align 4, !tbaa !13
+  %78 = icmp ne i32 %77, 0
+  br i1 %78, label %79, label %93
+
+79:                                               ; preds = %69
+  %80 = load i32, ptr %11, align 4, !tbaa !13
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef @.str.2, i32 noundef %80)
+  %81 = load ptr, ptr %4, align 8, !tbaa !11
+  %82 = call ptr @tsd_tsdn(ptr noundef %81)
+  %83 = load ptr, ptr %7, align 8, !tbaa !25
+  %84 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %83, i32 0, i32 2
+  call void @malloc_mutex_lock(ptr noundef %82, ptr noundef %84)
+  %85 = load ptr, ptr %7, align 8, !tbaa !25
+  %86 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %85, i32 0, i32 3
+  store i32 0, ptr %86, align 8, !tbaa !27
+  %87 = load i64, ptr @duckdb_je_n_background_threads, align 8, !tbaa !23
+  %88 = add i64 %87, -1
+  store i64 %88, ptr @duckdb_je_n_background_threads, align 8, !tbaa !23
+  %89 = load ptr, ptr %4, align 8, !tbaa !11
+  %90 = call ptr @tsd_tsdn(ptr noundef %89)
+  %91 = load ptr, ptr %7, align 8, !tbaa !25
+  %92 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %91, i32 0, i32 2
+  call void @malloc_mutex_unlock(ptr noundef %90, ptr noundef %92)
+  store i1 true, ptr %3, align 1
+  store i32 1, ptr %9, align 4
+  br label %94
+
+93:                                               ; preds = %69
+  store i1 false, ptr %3, align 1
+  store i32 1, ptr %9, align 4
+  br label %94
+
+94:                                               ; preds = %93, %79
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #11
+  br label %95
+
+95:                                               ; preds = %94, %61, %48
+  call void @llvm.lifetime.end.p0(i64 1, ptr %8) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #11
+  %96 = load i1, ptr %3, align 1
+  ret i1 %96
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @malloc_mutex_unlock(ptr noundef %0, ptr noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !19
+  store ptr %1, ptr %4, align 8, !tbaa !21
+  %5 = load ptr, ptr %4, align 8, !tbaa !21
+  %6 = getelementptr inbounds nuw %struct.malloc_mutex_s, ptr %5, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %struct.anon, ptr %6, i32 0, i32 1
+  call void @atomic_store_b(ptr noundef %7, i1 noundef zeroext false, i32 noundef 0)
+  %8 = load ptr, ptr %3, align 8, !tbaa !19
+  %9 = call ptr @tsdn_witness_tsdp_get(ptr noundef %8)
+  %10 = load ptr, ptr %4, align 8, !tbaa !21
+  %11 = getelementptr inbounds nuw %struct.malloc_mutex_s, ptr %10, i32 0, i32 0
+  call void @witness_unlock(ptr noundef %9, ptr noundef %11)
+  %12 = load ptr, ptr %4, align 8, !tbaa !21
+  %13 = getelementptr inbounds nuw %struct.malloc_mutex_s, ptr %12, i32 0, i32 0
+  %14 = getelementptr inbounds nuw %struct.anon, ptr %13, i32 0, i32 2
+  %15 = call i32 @pthread_mutex_unlock(ptr noundef %14) #11
+  ret void
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: nounwind uwtable
+define zeroext i1 @duckdb_je_background_threads_enable(ptr noundef %0) #0 {
+  %2 = alloca i1, align 1
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i64, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca ptr, align 8
+  %12 = alloca i8, align 1
+  %13 = alloca i32, align 4
+  %14 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !11
+  br label %15
+
+15:                                               ; preds = %1
+  br label %16
+
+16:                                               ; preds = %15
+  br label %17
+
+17:                                               ; preds = %16
+  br label %18
+
+18:                                               ; preds = %17
+  %19 = load ptr, ptr %3, align 8, !tbaa !11
+  %20 = call ptr @tsd_tsdn(ptr noundef %19)
+  call void @malloc_mutex_assert_owner(ptr noundef %20, ptr noundef @duckdb_je_background_thread_lock)
+  br label %21
+
+21:                                               ; preds = %18
+  br label %22
+
+22:                                               ; preds = %21
+  %23 = load i64, ptr @duckdb_je_max_background_threads, align 8, !tbaa !23
+  %24 = call ptr @llvm.stacksave.p0()
+  store ptr %24, ptr %4, align 8
+  %25 = alloca i8, i64 %23, align 16
+  store i64 %23, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #11
+  store i64 0, ptr %7, align 8, !tbaa !23
+  br label %26
+
+26:                                               ; preds = %34, %22
+  %27 = load i64, ptr %7, align 8, !tbaa !23
+  %28 = load i64, ptr @duckdb_je_max_background_threads, align 8, !tbaa !23
+  %29 = icmp ult i64 %27, %28
+  br i1 %29, label %31, label %30
+
+30:                                               ; preds = %26
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #11
+  br label %37
+
+31:                                               ; preds = %26
+  %32 = load i64, ptr %7, align 8, !tbaa !23
+  %33 = getelementptr inbounds nuw i8, ptr %25, i64 %32
+  store i8 0, ptr %33, align 1, !tbaa !15
+  br label %34
+
+34:                                               ; preds = %31
+  %35 = load i64, ptr %7, align 8, !tbaa !23
+  %36 = add i64 %35, 1
+  store i64 %36, ptr %7, align 8, !tbaa !23
+  br label %26
+
+37:                                               ; preds = %30
+  store i32 0, ptr %6, align 4, !tbaa !13
+  %38 = getelementptr inbounds i8, ptr %25, i64 0
+  store i8 1, ptr %38, align 16, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #11
+  %39 = call i32 @duckdb_je_narenas_total_get()
+  store i32 %39, ptr %8, align 4, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #11
+  store i32 1, ptr %9, align 4, !tbaa !13
+  br label %40
+
+40:                                               ; preds = %95, %37
+  %41 = load i32, ptr %9, align 4, !tbaa !13
+  %42 = load i32, ptr %8, align 4, !tbaa !13
+  %43 = icmp ult i32 %41, %42
+  br i1 %43, label %45, label %44
+
+44:                                               ; preds = %40
+  store i32 11, ptr %10, align 4
+  br label %98
+
+45:                                               ; preds = %40
+  %46 = load i32, ptr %9, align 4, !tbaa !13
+  %47 = zext i32 %46 to i64
+  %48 = load i64, ptr @duckdb_je_max_background_threads, align 8, !tbaa !23
+  %49 = urem i64 %47, %48
+  %50 = getelementptr inbounds nuw i8, ptr %25, i64 %49
+  %51 = load i8, ptr %50, align 1, !tbaa !15, !range !17, !noundef !18
+  %52 = trunc i8 %51 to i1
+  br i1 %52, label %59, label %53
+
+53:                                               ; preds = %45
+  %54 = load ptr, ptr %3, align 8, !tbaa !11
+  %55 = call ptr @tsd_tsdn(ptr noundef %54)
+  %56 = load i32, ptr %9, align 4, !tbaa !13
+  %57 = call ptr @arena_get(ptr noundef %55, i32 noundef %56, i1 noundef zeroext false)
+  %58 = icmp eq ptr %57, null
+  br i1 %58, label %59, label %60
+
+59:                                               ; preds = %53, %45
+  br label %95
+
+60:                                               ; preds = %53
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #11
+  %61 = load ptr, ptr @duckdb_je_background_thread_info, align 8, !tbaa !25
+  %62 = load i32, ptr %9, align 4, !tbaa !13
+  %63 = zext i32 %62 to i64
+  %64 = load i64, ptr @duckdb_je_max_background_threads, align 8, !tbaa !23
+  %65 = urem i64 %63, %64
+  %66 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %61, i64 %65
+  store ptr %66, ptr %11, align 8, !tbaa !25
+  %67 = load ptr, ptr %3, align 8, !tbaa !11
+  %68 = call ptr @tsd_tsdn(ptr noundef %67)
+  %69 = load ptr, ptr %11, align 8, !tbaa !25
+  %70 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %69, i32 0, i32 2
+  call void @malloc_mutex_lock(ptr noundef %68, ptr noundef %70)
+  br label %71
+
+71:                                               ; preds = %60
+  br label %72
+
+72:                                               ; preds = %71
+  br label %73
+
+73:                                               ; preds = %72
+  %74 = load ptr, ptr %3, align 8, !tbaa !11
+  %75 = load ptr, ptr %11, align 8, !tbaa !25
+  call void @background_thread_init(ptr noundef %74, ptr noundef %75)
+  %76 = load ptr, ptr %3, align 8, !tbaa !11
+  %77 = call ptr @tsd_tsdn(ptr noundef %76)
+  %78 = load ptr, ptr %11, align 8, !tbaa !25
+  %79 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %78, i32 0, i32 2
+  call void @malloc_mutex_unlock(ptr noundef %77, ptr noundef %79)
+  %80 = load i32, ptr %9, align 4, !tbaa !13
+  %81 = zext i32 %80 to i64
+  %82 = load i64, ptr @duckdb_je_max_background_threads, align 8, !tbaa !23
+  %83 = urem i64 %81, %82
+  %84 = getelementptr inbounds nuw i8, ptr %25, i64 %83
+  store i8 1, ptr %84, align 1, !tbaa !15
+  %85 = load i32, ptr %6, align 4, !tbaa !13
+  %86 = add i32 %85, 1
+  store i32 %86, ptr %6, align 4, !tbaa !13
+  %87 = zext i32 %86 to i64
+  %88 = load i64, ptr @duckdb_je_max_background_threads, align 8, !tbaa !23
+  %89 = icmp eq i64 %87, %88
+  br i1 %89, label %90, label %91
+
+90:                                               ; preds = %73
+  store i32 11, ptr %10, align 4
+  br label %92
+
+91:                                               ; preds = %73
+  store i32 0, ptr %10, align 4
+  br label %92
+
+92:                                               ; preds = %91, %90
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #11
+  %93 = load i32, ptr %10, align 4
+  switch i32 %93, label %98 [
+    i32 0, label %94
+  ]
+
+94:                                               ; preds = %92
+  br label %95
+
+95:                                               ; preds = %94, %59
+  %96 = load i32, ptr %9, align 4, !tbaa !13
+  %97 = add i32 %96, 1
+  store i32 %97, ptr %9, align 4, !tbaa !13
+  br label %40
+
+98:                                               ; preds = %92, %44
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #11
+  br label %99
+
+99:                                               ; preds = %98
+  call void @llvm.lifetime.start.p0(i64 1, ptr %12) #11
+  %100 = load ptr, ptr %3, align 8, !tbaa !11
+  %101 = call zeroext i1 @background_thread_create_locked(ptr noundef %100, i32 noundef 0)
+  %102 = zext i1 %101 to i8
+  store i8 %102, ptr %12, align 1, !tbaa !15
+  %103 = load i8, ptr %12, align 1, !tbaa !15, !range !17, !noundef !18
+  %104 = trunc i8 %103 to i1
+  br i1 %104, label %105, label %106
+
+105:                                              ; preds = %99
+  store i1 true, ptr %2, align 1
+  store i32 1, ptr %10, align 4
+  br label %129
+
+106:                                              ; preds = %99
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #11
+  store i32 0, ptr %13, align 4, !tbaa !13
+  br label %107
+
+107:                                              ; preds = %125, %106
+  %108 = load i32, ptr %13, align 4, !tbaa !13
+  %109 = load i32, ptr %8, align 4, !tbaa !13
+  %110 = icmp ult i32 %108, %109
+  br i1 %110, label %112, label %111
+
+111:                                              ; preds = %107
+  store i32 16, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #11
+  br label %128
+
+112:                                              ; preds = %107
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #11
+  %113 = load ptr, ptr %3, align 8, !tbaa !11
+  %114 = call ptr @tsd_tsdn(ptr noundef %113)
+  %115 = load i32, ptr %13, align 4, !tbaa !13
+  %116 = call ptr @arena_get(ptr noundef %114, i32 noundef %115, i1 noundef zeroext false)
+  store ptr %116, ptr %14, align 8, !tbaa !32
+  %117 = load ptr, ptr %14, align 8, !tbaa !32
+  %118 = icmp ne ptr %117, null
+  br i1 %118, label %119, label %124
+
+119:                                              ; preds = %112
+  %120 = load ptr, ptr %3, align 8, !tbaa !11
+  %121 = call ptr @tsd_tsdn(ptr noundef %120)
+  %122 = load ptr, ptr %14, align 8, !tbaa !32
+  %123 = getelementptr inbounds nuw %struct.arena_s, ptr %122, i32 0, i32 10
+  call void @duckdb_je_pa_shard_set_deferral_allowed(ptr noundef %121, ptr noundef %123, i1 noundef zeroext true)
+  br label %124
+
+124:                                              ; preds = %119, %112
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #11
+  br label %125
+
+125:                                              ; preds = %124
+  %126 = load i32, ptr %13, align 4, !tbaa !13
+  %127 = add i32 %126, 1
+  store i32 %127, ptr %13, align 4, !tbaa !13
+  br label %107
+
+128:                                              ; preds = %111
+  store i1 false, ptr %2, align 1
+  store i32 1, ptr %10, align 4
+  br label %129
+
+129:                                              ; preds = %128, %105
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #11
+  %130 = load ptr, ptr %4, align 8
+  call void @llvm.stackrestore.p0(ptr %130)
+  %131 = load i1, ptr %2, align 1
+  ret i1 %131
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @malloc_mutex_assert_owner(ptr noundef %0, ptr noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !19
+  store ptr %1, ptr %4, align 8, !tbaa !21
+  %5 = load ptr, ptr %3, align 8, !tbaa !19
+  %6 = call ptr @tsdn_witness_tsdp_get(ptr noundef %5)
+  %7 = load ptr, ptr %4, align 8, !tbaa !21
+  %8 = getelementptr inbounds nuw %struct.malloc_mutex_s, ptr %7, i32 0, i32 0
+  call void @witness_assert_owner(ptr noundef %6, ptr noundef %8)
+  ret void
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare ptr @llvm.stacksave.p0() #4
+
+declare i32 @duckdb_je_narenas_total_get() #5
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @arena_get(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) #2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i8, align 1
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !19
+  store i32 %1, ptr %5, align 4, !tbaa !13
+  %8 = zext i1 %2 to i8
+  store i8 %8, ptr %6, align 1, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #11
+  br label %9
+
+9:                                                ; preds = %3
+  br label %10
+
+10:                                               ; preds = %9
+  br label %11
+
+11:                                               ; preds = %10
+  %12 = load i32, ptr %5, align 4, !tbaa !13
+  %13 = zext i32 %12 to i64
+  %14 = getelementptr inbounds nuw [0 x %struct.atomic_p_t], ptr @duckdb_je_arenas, i64 0, i64 %13
+  %15 = call ptr @atomic_load_p(ptr noundef %14, i32 noundef 1)
+  store ptr %15, ptr %7, align 8, !tbaa !32
+  %16 = load ptr, ptr %7, align 8, !tbaa !32
+  %17 = icmp eq ptr %16, null
+  %18 = xor i1 %17, true
+  %19 = xor i1 %18, true
+  %20 = zext i1 %19 to i32
+  %21 = sext i32 %20 to i64
+  %22 = call i64 @llvm.expect.i64(i64 %21, i64 0)
+  %23 = icmp ne i64 %22, 0
+  br i1 %23, label %24, label %32
+
+24:                                               ; preds = %11
+  %25 = load i8, ptr %6, align 1, !tbaa !15, !range !17, !noundef !18
+  %26 = trunc i8 %25 to i1
+  br i1 %26, label %27, label %31
+
+27:                                               ; preds = %24
+  %28 = load ptr, ptr %4, align 8, !tbaa !19
+  %29 = load i32, ptr %5, align 4, !tbaa !13
+  %30 = call ptr @duckdb_je_arena_init(ptr noundef %28, i32 noundef %29, ptr noundef @duckdb_je_arena_config_default)
+  store ptr %30, ptr %7, align 8, !tbaa !32
+  br label %31
+
+31:                                               ; preds = %27, %24
+  br label %32
+
+32:                                               ; preds = %31, %11
+  %33 = load ptr, ptr %7, align 8, !tbaa !32
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #11
+  ret ptr %33
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @background_thread_init(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !11
+  store ptr %1, ptr %4, align 8, !tbaa !25
+  %5 = load ptr, ptr %3, align 8, !tbaa !11
+  %6 = call ptr @tsd_tsdn(ptr noundef %5)
+  call void @malloc_mutex_assert_owner(ptr noundef %6, ptr noundef @duckdb_je_background_thread_lock)
+  %7 = load ptr, ptr %4, align 8, !tbaa !25
+  %8 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %7, i32 0, i32 3
+  store i32 1, ptr %8, align 8, !tbaa !27
+  %9 = load ptr, ptr %3, align 8, !tbaa !11
+  %10 = call ptr @tsd_tsdn(ptr noundef %9)
+  %11 = load ptr, ptr %4, align 8, !tbaa !25
+  call void @background_thread_info_init(ptr noundef %10, ptr noundef %11)
+  %12 = load i64, ptr @duckdb_je_n_background_threads, align 8, !tbaa !23
+  %13 = add i64 %12, 1
+  store i64 %13, ptr @duckdb_je_n_background_threads, align 8, !tbaa !23
+  ret void
+}
+
+declare void @duckdb_je_pa_shard_set_deferral_allowed(ptr noundef, ptr noundef, i1 noundef zeroext) #5
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.stackrestore.p0(ptr) #4
+
+; Function Attrs: nounwind uwtable
+define zeroext i1 @duckdb_je_background_threads_disable(ptr noundef %0) #0 {
+  %2 = alloca i1, align 1
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !11
+  br label %7
+
+7:                                                ; preds = %1
+  br label %8
+
+8:                                                ; preds = %7
+  %9 = load ptr, ptr %3, align 8, !tbaa !11
+  %10 = call ptr @tsd_tsdn(ptr noundef %9)
+  call void @malloc_mutex_assert_owner(ptr noundef %10, ptr noundef @duckdb_je_background_thread_lock)
+  %11 = load ptr, ptr %3, align 8, !tbaa !11
+  %12 = load ptr, ptr @duckdb_je_background_thread_info, align 8, !tbaa !25
+  %13 = getelementptr inbounds %struct.background_thread_info_s, ptr %12, i64 0
+  %14 = call zeroext i1 @background_threads_disable_single(ptr noundef %11, ptr noundef %13)
+  br i1 %14, label %15, label %16
+
+15:                                               ; preds = %8
+  store i1 true, ptr %2, align 1
+  br label %42
+
+16:                                               ; preds = %8
+  br label %17
+
+17:                                               ; preds = %16
+  br label %18
+
+18:                                               ; preds = %17
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #11
+  %19 = call i32 @duckdb_je_narenas_total_get()
+  store i32 %19, ptr %4, align 4, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #11
+  store i32 0, ptr %5, align 4, !tbaa !13
+  br label %20
+
+20:                                               ; preds = %38, %18
+  %21 = load i32, ptr %5, align 4, !tbaa !13
+  %22 = load i32, ptr %4, align 4, !tbaa !13
+  %23 = icmp ult i32 %21, %22
+  br i1 %23, label %25, label %24
+
+24:                                               ; preds = %20
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #11
+  br label %41
+
+25:                                               ; preds = %20
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #11
+  %26 = load ptr, ptr %3, align 8, !tbaa !11
+  %27 = call ptr @tsd_tsdn(ptr noundef %26)
+  %28 = load i32, ptr %5, align 4, !tbaa !13
+  %29 = call ptr @arena_get(ptr noundef %27, i32 noundef %28, i1 noundef zeroext false)
+  store ptr %29, ptr %6, align 8, !tbaa !32
+  %30 = load ptr, ptr %6, align 8, !tbaa !32
+  %31 = icmp ne ptr %30, null
+  br i1 %31, label %32, label %37
+
+32:                                               ; preds = %25
+  %33 = load ptr, ptr %3, align 8, !tbaa !11
+  %34 = call ptr @tsd_tsdn(ptr noundef %33)
+  %35 = load ptr, ptr %6, align 8, !tbaa !32
+  %36 = getelementptr inbounds nuw %struct.arena_s, ptr %35, i32 0, i32 10
+  call void @duckdb_je_pa_shard_set_deferral_allowed(ptr noundef %34, ptr noundef %36, i1 noundef zeroext false)
+  br label %37
+
+37:                                               ; preds = %32, %25
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #11
+  br label %38
+
+38:                                               ; preds = %37
+  %39 = load i32, ptr %5, align 4, !tbaa !13
+  %40 = add i32 %39, 1
+  store i32 %40, ptr %5, align 4, !tbaa !13
+  br label %20
+
+41:                                               ; preds = %24
+  store i1 false, ptr %2, align 1
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #11
+  br label %42
+
+42:                                               ; preds = %41, %15
+  %43 = load i1, ptr %2, align 1
+  ret i1 %43
+}
+
+; Function Attrs: nounwind uwtable
+define internal zeroext i1 @background_threads_disable_single(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i1, align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i8, align 1
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !11
+  store ptr %1, ptr %5, align 8, !tbaa !25
+  %9 = load ptr, ptr %5, align 8, !tbaa !25
+  %10 = load ptr, ptr @duckdb_je_background_thread_info, align 8, !tbaa !25
+  %11 = getelementptr inbounds %struct.background_thread_info_s, ptr %10, i64 0
+  %12 = icmp eq ptr %9, %11
+  br i1 %12, label %13, label %16
+
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %4, align 8, !tbaa !11
+  %15 = call ptr @tsd_tsdn(ptr noundef %14)
+  call void @malloc_mutex_assert_owner(ptr noundef %15, ptr noundef @duckdb_je_background_thread_lock)
+  br label %19
+
+16:                                               ; preds = %2
+  %17 = load ptr, ptr %4, align 8, !tbaa !11
+  %18 = call ptr @tsd_tsdn(ptr noundef %17)
+  call void @malloc_mutex_assert_not_owner(ptr noundef %18, ptr noundef @duckdb_je_background_thread_lock)
+  br label %19
+
+19:                                               ; preds = %16, %13
+  %20 = load ptr, ptr %4, align 8, !tbaa !11
+  call void @pre_reentrancy(ptr noundef %20, ptr noundef null)
+  %21 = load ptr, ptr %4, align 8, !tbaa !11
+  %22 = call ptr @tsd_tsdn(ptr noundef %21)
+  %23 = load ptr, ptr %5, align 8, !tbaa !25
+  %24 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %23, i32 0, i32 2
+  call void @malloc_mutex_lock(ptr noundef %22, ptr noundef %24)
+  call void @llvm.lifetime.start.p0(i64 1, ptr %6) #11
+  br label %25
+
+25:                                               ; preds = %19
+  br label %26
+
+26:                                               ; preds = %25
+  br label %27
+
+27:                                               ; preds = %26
+  %28 = load ptr, ptr %5, align 8, !tbaa !25
+  %29 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %28, i32 0, i32 3
+  %30 = load i32, ptr %29, align 8, !tbaa !27
+  %31 = icmp eq i32 %30, 1
+  br i1 %31, label %32, label %38
+
+32:                                               ; preds = %27
+  store i8 1, ptr %6, align 1, !tbaa !15
+  %33 = load ptr, ptr %5, align 8, !tbaa !25
+  %34 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %33, i32 0, i32 3
+  store i32 0, ptr %34, align 8, !tbaa !27
+  %35 = load ptr, ptr %5, align 8, !tbaa !25
+  %36 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %35, i32 0, i32 1
+  %37 = call i32 @pthread_cond_signal(ptr noundef %36) #11
+  br label %39
+
+38:                                               ; preds = %27
+  store i8 0, ptr %6, align 1, !tbaa !15
+  br label %39
+
+39:                                               ; preds = %38, %32
+  %40 = load ptr, ptr %4, align 8, !tbaa !11
+  %41 = call ptr @tsd_tsdn(ptr noundef %40)
+  %42 = load ptr, ptr %5, align 8, !tbaa !25
+  %43 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %42, i32 0, i32 2
+  call void @malloc_mutex_unlock(ptr noundef %41, ptr noundef %43)
+  %44 = load i8, ptr %6, align 1, !tbaa !15, !range !17, !noundef !18
+  %45 = trunc i8 %44 to i1
+  br i1 %45, label %48, label %46
+
+46:                                               ; preds = %39
+  %47 = load ptr, ptr %4, align 8, !tbaa !11
+  call void @post_reentrancy(ptr noundef %47)
+  store i1 false, ptr %3, align 1
+  store i32 1, ptr %7, align 4
+  br label %64
+
+48:                                               ; preds = %39
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #11
+  %49 = load ptr, ptr %5, align 8, !tbaa !25
+  %50 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %49, i32 0, i32 0
+  %51 = load i64, ptr %50, align 8, !tbaa !34
+  %52 = call i32 @pthread_join(i64 noundef %51, ptr noundef %8)
+  %53 = icmp ne i32 %52, 0
+  br i1 %53, label %54, label %56
+
+54:                                               ; preds = %48
+  %55 = load ptr, ptr %4, align 8, !tbaa !11
+  call void @post_reentrancy(ptr noundef %55)
+  store i1 true, ptr %3, align 1
+  store i32 1, ptr %7, align 4
+  br label %63
+
+56:                                               ; preds = %48
+  br label %57
+
+57:                                               ; preds = %56
+  br label %58
+
+58:                                               ; preds = %57
+  br label %59
+
+59:                                               ; preds = %58
+  %60 = load i64, ptr @duckdb_je_n_background_threads, align 8, !tbaa !23
+  %61 = add i64 %60, -1
+  store i64 %61, ptr @duckdb_je_n_background_threads, align 8, !tbaa !23
+  %62 = load ptr, ptr %4, align 8, !tbaa !11
+  call void @post_reentrancy(ptr noundef %62)
+  store i1 false, ptr %3, align 1
+  store i32 1, ptr %7, align 4
+  br label %63
+
+63:                                               ; preds = %59, %54
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #11
+  br label %64
+
+64:                                               ; preds = %63, %46
+  call void @llvm.lifetime.end.p0(i64 1, ptr %6) #11
+  %65 = load i1, ptr %3, align 1
+  ret i1 %65
+}
+
+; Function Attrs: nounwind uwtable
+define zeroext i1 @duckdb_je_background_thread_is_started(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !25
+  %3 = load ptr, ptr %2, align 8, !tbaa !25
+  %4 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %3, i32 0, i32 3
+  %5 = load i32, ptr %4, align 8, !tbaa !27
+  %6 = icmp eq i32 %5, 1
+  ret i1 %6
+}
+
+; Function Attrs: nounwind uwtable
+define void @duckdb_je_background_thread_wakeup_early(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !25
+  store ptr %1, ptr %4, align 8, !tbaa !10
+  %5 = load ptr, ptr %4, align 8, !tbaa !10
+  %6 = icmp ne ptr %5, null
+  br i1 %6, label %7, label %12
+
+7:                                                ; preds = %2
+  %8 = load ptr, ptr %4, align 8, !tbaa !10
+  %9 = call i64 @duckdb_je_nstime_ns(ptr noundef %8)
+  %10 = icmp ult i64 %9, 100000000
+  br i1 %10, label %11, label %12
+
+11:                                               ; preds = %7
+  br label %16
+
+12:                                               ; preds = %7, %2
+  %13 = load ptr, ptr %3, align 8, !tbaa !25
+  %14 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %13, i32 0, i32 1
+  %15 = call i32 @pthread_cond_signal(ptr noundef %14) #11
+  br label %16
+
+16:                                               ; preds = %12, %11
+  ret void
+}
+
+declare i64 @duckdb_je_nstime_ns(ptr noundef) #5
+
+; Function Attrs: nounwind
+declare i32 @pthread_cond_signal(ptr noundef) #6
+
+; Function Attrs: nounwind uwtable
+define void @duckdb_je_background_thread_prefork0(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !19
+  %3 = load ptr, ptr %2, align 8, !tbaa !19
+  call void @duckdb_je_malloc_mutex_prefork(ptr noundef %3, ptr noundef @duckdb_je_background_thread_lock)
+  %4 = call zeroext i1 @background_thread_enabled()
+  %5 = zext i1 %4 to i8
+  store i8 %5, ptr @background_thread_enabled_at_fork, align 1, !tbaa !15
+  ret void
+}
+
+declare void @duckdb_je_malloc_mutex_prefork(ptr noundef, ptr noundef) #5
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal zeroext i1 @background_thread_enabled() #3 {
+  %1 = call zeroext i1 @atomic_load_b(ptr noundef @duckdb_je_background_thread_enabled_state, i32 noundef 0)
+  ret i1 %1
+}
+
+; Function Attrs: nounwind uwtable
+define void @duckdb_je_background_thread_prefork1(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #11
+  store i32 0, ptr %3, align 4, !tbaa !13
+  br label %4
+
+4:                                                ; preds = %17, %1
+  %5 = load i32, ptr %3, align 4, !tbaa !13
+  %6 = zext i32 %5 to i64
+  %7 = load i64, ptr @duckdb_je_max_background_threads, align 8, !tbaa !23
+  %8 = icmp ult i64 %6, %7
+  br i1 %8, label %10, label %9
+
+9:                                                ; preds = %4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #11
+  br label %20
+
+10:                                               ; preds = %4
+  %11 = load ptr, ptr %2, align 8, !tbaa !19
+  %12 = load ptr, ptr @duckdb_je_background_thread_info, align 8, !tbaa !25
+  %13 = load i32, ptr %3, align 4, !tbaa !13
+  %14 = zext i32 %13 to i64
+  %15 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %12, i64 %14
+  %16 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %15, i32 0, i32 2
+  call void @duckdb_je_malloc_mutex_prefork(ptr noundef %11, ptr noundef %16)
+  br label %17
+
+17:                                               ; preds = %10
+  %18 = load i32, ptr %3, align 4, !tbaa !13
+  %19 = add i32 %18, 1
+  store i32 %19, ptr %3, align 4, !tbaa !13
+  br label %4
+
+20:                                               ; preds = %9
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define void @duckdb_je_background_thread_postfork_parent(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #11
+  store i32 0, ptr %3, align 4, !tbaa !13
+  br label %4
+
+4:                                                ; preds = %17, %1
+  %5 = load i32, ptr %3, align 4, !tbaa !13
+  %6 = zext i32 %5 to i64
+  %7 = load i64, ptr @duckdb_je_max_background_threads, align 8, !tbaa !23
+  %8 = icmp ult i64 %6, %7
+  br i1 %8, label %10, label %9
+
+9:                                                ; preds = %4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #11
+  br label %20
+
+10:                                               ; preds = %4
+  %11 = load ptr, ptr %2, align 8, !tbaa !19
+  %12 = load ptr, ptr @duckdb_je_background_thread_info, align 8, !tbaa !25
+  %13 = load i32, ptr %3, align 4, !tbaa !13
+  %14 = zext i32 %13 to i64
+  %15 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %12, i64 %14
+  %16 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %15, i32 0, i32 2
+  call void @duckdb_je_malloc_mutex_postfork_parent(ptr noundef %11, ptr noundef %16)
+  br label %17
+
+17:                                               ; preds = %10
+  %18 = load i32, ptr %3, align 4, !tbaa !13
+  %19 = add i32 %18, 1
+  store i32 %19, ptr %3, align 4, !tbaa !13
+  br label %4
+
+20:                                               ; preds = %9
+  %21 = load ptr, ptr %2, align 8, !tbaa !19
+  call void @duckdb_je_malloc_mutex_postfork_parent(ptr noundef %21, ptr noundef @duckdb_je_background_thread_lock)
+  ret void
+}
+
+declare void @duckdb_je_malloc_mutex_postfork_parent(ptr noundef, ptr noundef) #5
+
+; Function Attrs: nounwind uwtable
+define void @duckdb_je_background_thread_postfork_child(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #11
+  store i32 0, ptr %3, align 4, !tbaa !13
+  br label %7
+
+7:                                                ; preds = %20, %1
+  %8 = load i32, ptr %3, align 4, !tbaa !13
+  %9 = zext i32 %8 to i64
+  %10 = load i64, ptr @duckdb_je_max_background_threads, align 8, !tbaa !23
+  %11 = icmp ult i64 %9, %10
+  br i1 %11, label %13, label %12
+
+12:                                               ; preds = %7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #11
+  br label %23
+
+13:                                               ; preds = %7
+  %14 = load ptr, ptr %2, align 8, !tbaa !19
+  %15 = load ptr, ptr @duckdb_je_background_thread_info, align 8, !tbaa !25
+  %16 = load i32, ptr %3, align 4, !tbaa !13
+  %17 = zext i32 %16 to i64
+  %18 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %15, i64 %17
+  %19 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %18, i32 0, i32 2
+  call void @duckdb_je_malloc_mutex_postfork_child(ptr noundef %14, ptr noundef %19)
+  br label %20
+
+20:                                               ; preds = %13
+  %21 = load i32, ptr %3, align 4, !tbaa !13
+  %22 = add i32 %21, 1
+  store i32 %22, ptr %3, align 4, !tbaa !13
+  br label %7
+
+23:                                               ; preds = %12
+  %24 = load ptr, ptr %2, align 8, !tbaa !19
+  call void @duckdb_je_malloc_mutex_postfork_child(ptr noundef %24, ptr noundef @duckdb_je_background_thread_lock)
+  %25 = load i8, ptr @background_thread_enabled_at_fork, align 1, !tbaa !15, !range !17, !noundef !18
+  %26 = trunc i8 %25 to i1
+  br i1 %26, label %28, label %27
+
+27:                                               ; preds = %23
+  br label %63
+
+28:                                               ; preds = %23
+  %29 = load ptr, ptr %2, align 8, !tbaa !19
+  call void @malloc_mutex_lock(ptr noundef %29, ptr noundef @duckdb_je_background_thread_lock)
+  store i64 0, ptr @duckdb_je_n_background_threads, align 8, !tbaa !23
+  %30 = load ptr, ptr %2, align 8, !tbaa !19
+  call void @background_thread_enabled_set(ptr noundef %30, i1 noundef zeroext false)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #11
+  store i32 0, ptr %4, align 4, !tbaa !13
+  br label %31
+
+31:                                               ; preds = %58, %28
+  %32 = load i32, ptr %4, align 4, !tbaa !13
+  %33 = zext i32 %32 to i64
+  %34 = load i64, ptr @duckdb_je_max_background_threads, align 8, !tbaa !23
+  %35 = icmp ult i64 %33, %34
+  br i1 %35, label %37, label %36
+
+36:                                               ; preds = %31
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #11
+  br label %61
+
+37:                                               ; preds = %31
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #11
+  %38 = load ptr, ptr @duckdb_je_background_thread_info, align 8, !tbaa !25
+  %39 = load i32, ptr %4, align 4, !tbaa !13
+  %40 = zext i32 %39 to i64
+  %41 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %38, i64 %40
+  store ptr %41, ptr %5, align 8, !tbaa !25
+  %42 = load ptr, ptr %2, align 8, !tbaa !19
+  %43 = load ptr, ptr %5, align 8, !tbaa !25
+  %44 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %43, i32 0, i32 2
+  call void @malloc_mutex_lock(ptr noundef %42, ptr noundef %44)
+  %45 = load ptr, ptr %5, align 8, !tbaa !25
+  %46 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %45, i32 0, i32 3
+  store i32 0, ptr %46, align 8, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #11
+  %47 = load ptr, ptr %5, align 8, !tbaa !25
+  %48 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %47, i32 0, i32 1
+  %49 = call i32 @pthread_cond_init(ptr noundef %48, ptr noundef null) #11
+  store i32 %49, ptr %6, align 4, !tbaa !13
+  br label %50
+
+50:                                               ; preds = %37
+  br label %51
+
+51:                                               ; preds = %50
+  br label %52
+
+52:                                               ; preds = %51
+  %53 = load ptr, ptr %2, align 8, !tbaa !19
+  %54 = load ptr, ptr %5, align 8, !tbaa !25
+  call void @background_thread_info_init(ptr noundef %53, ptr noundef %54)
+  %55 = load ptr, ptr %2, align 8, !tbaa !19
+  %56 = load ptr, ptr %5, align 8, !tbaa !25
+  %57 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %56, i32 0, i32 2
+  call void @malloc_mutex_unlock(ptr noundef %55, ptr noundef %57)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #11
+  br label %58
+
+58:                                               ; preds = %52
+  %59 = load i32, ptr %4, align 4, !tbaa !13
+  %60 = add i32 %59, 1
+  store i32 %60, ptr %4, align 4, !tbaa !13
+  br label %31
+
+61:                                               ; preds = %36
+  %62 = load ptr, ptr %2, align 8, !tbaa !19
+  call void @malloc_mutex_unlock(ptr noundef %62, ptr noundef @duckdb_je_background_thread_lock)
+  br label %63
+
+63:                                               ; preds = %61, %27
+  ret void
+}
+
+declare void @duckdb_je_malloc_mutex_postfork_child(ptr noundef, ptr noundef) #5
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal void @background_thread_enabled_set(ptr noundef %0, i1 noundef zeroext %1) #3 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i8, align 1
+  store ptr %0, ptr %3, align 8, !tbaa !19
+  %5 = zext i1 %1 to i8
+  store i8 %5, ptr %4, align 1, !tbaa !15
+  %6 = load ptr, ptr %3, align 8, !tbaa !19
+  call void @malloc_mutex_assert_owner(ptr noundef %6, ptr noundef @duckdb_je_background_thread_lock)
+  %7 = load i8, ptr %4, align 1, !tbaa !15, !range !17, !noundef !18
+  %8 = trunc i8 %7 to i1
+  call void @atomic_store_b(ptr noundef @duckdb_je_background_thread_enabled_state, i1 noundef zeroext %8, i32 noundef 0)
+  ret void
+}
+
+; Function Attrs: nounwind
+declare i32 @pthread_cond_init(ptr noundef, ptr noundef) #6
+
+; Function Attrs: nounwind uwtable
+define internal void @background_thread_info_init(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !19
+  store ptr %1, ptr %4, align 8, !tbaa !25
+  %5 = load ptr, ptr %3, align 8, !tbaa !19
+  %6 = load ptr, ptr %4, align 8, !tbaa !25
+  call void @background_thread_wakeup_time_set(ptr noundef %5, ptr noundef %6, i64 noundef 0)
+  %7 = load ptr, ptr %4, align 8, !tbaa !25
+  %8 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %7, i32 0, i32 6
+  store i64 0, ptr %8, align 8, !tbaa !35
+  %9 = load ptr, ptr %4, align 8, !tbaa !25
+  %10 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %9, i32 0, i32 7
+  store i64 0, ptr %10, align 8, !tbaa !36
+  %11 = load ptr, ptr %4, align 8, !tbaa !25
+  %12 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %11, i32 0, i32 8
+  call void @nstime_init_zero(ptr noundef %12)
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define zeroext i1 @duckdb_je_background_thread_stats_read(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i1, align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !19
+  store ptr %1, ptr %5, align 8, !tbaa !37
+  br label %10
+
+10:                                               ; preds = %2
+  br label %11
+
+11:                                               ; preds = %10
+  %12 = load ptr, ptr %4, align 8, !tbaa !19
+  call void @malloc_mutex_lock(ptr noundef %12, ptr noundef @duckdb_je_background_thread_lock)
+  %13 = call zeroext i1 @background_thread_enabled()
+  br i1 %13, label %16, label %14
+
+14:                                               ; preds = %11
+  %15 = load ptr, ptr %4, align 8, !tbaa !19
+  call void @malloc_mutex_unlock(ptr noundef %15, ptr noundef @duckdb_je_background_thread_lock)
+  store i1 true, ptr %3, align 1
+  br label %82
+
+16:                                               ; preds = %11
+  %17 = load ptr, ptr %5, align 8, !tbaa !37
+  %18 = getelementptr inbounds nuw %struct.background_thread_stats_s, ptr %17, i32 0, i32 2
+  call void @nstime_init_zero(ptr noundef %18)
+  %19 = load ptr, ptr %5, align 8, !tbaa !37
+  %20 = getelementptr inbounds nuw %struct.background_thread_stats_s, ptr %19, i32 0, i32 3
+  call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 64, i1 false)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #11
+  store i64 0, ptr %6, align 8, !tbaa !23
+  %21 = load i64, ptr @duckdb_je_n_background_threads, align 8, !tbaa !23
+  %22 = load ptr, ptr %5, align 8, !tbaa !37
+  %23 = getelementptr inbounds nuw %struct.background_thread_stats_s, ptr %22, i32 0, i32 0
+  store i64 %21, ptr %23, align 8, !tbaa !39
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #11
+  store i32 0, ptr %7, align 4, !tbaa !13
+  br label %24
+
+24:                                               ; preds = %67, %16
+  %25 = load i32, ptr %7, align 4, !tbaa !13
+  %26 = zext i32 %25 to i64
+  %27 = load i64, ptr @duckdb_je_max_background_threads, align 8, !tbaa !23
+  %28 = icmp ult i64 %26, %27
+  br i1 %28, label %30, label %29
+
+29:                                               ; preds = %24
+  store i32 4, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #11
+  br label %70
+
+30:                                               ; preds = %24
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #11
+  %31 = load ptr, ptr @duckdb_je_background_thread_info, align 8, !tbaa !25
+  %32 = load i32, ptr %7, align 4, !tbaa !13
+  %33 = zext i32 %32 to i64
+  %34 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %31, i64 %33
+  store ptr %34, ptr %9, align 8, !tbaa !25
+  %35 = load ptr, ptr %4, align 8, !tbaa !19
+  %36 = load ptr, ptr %9, align 8, !tbaa !25
+  %37 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %36, i32 0, i32 2
+  %38 = call zeroext i1 @malloc_mutex_trylock(ptr noundef %35, ptr noundef %37)
+  br i1 %38, label %39, label %40
+
+39:                                               ; preds = %30
+  store i32 6, ptr %8, align 4
+  br label %64
+
+40:                                               ; preds = %30
+  %41 = load ptr, ptr %9, align 8, !tbaa !25
+  %42 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %41, i32 0, i32 3
+  %43 = load i32, ptr %42, align 8, !tbaa !27
+  %44 = icmp ne i32 %43, 0
+  br i1 %44, label %45, label %60
+
+45:                                               ; preds = %40
+  %46 = load ptr, ptr %9, align 8, !tbaa !25
+  %47 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %46, i32 0, i32 7
+  %48 = load i64, ptr %47, align 8, !tbaa !36
+  %49 = load i64, ptr %6, align 8, !tbaa !23
+  %50 = add i64 %49, %48
+  store i64 %50, ptr %6, align 8, !tbaa !23
+  %51 = load ptr, ptr %5, align 8, !tbaa !37
+  %52 = getelementptr inbounds nuw %struct.background_thread_stats_s, ptr %51, i32 0, i32 2
+  %53 = load ptr, ptr %9, align 8, !tbaa !25
+  %54 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %53, i32 0, i32 8
+  call void @duckdb_je_nstime_add(ptr noundef %52, ptr noundef %54)
+  %55 = load ptr, ptr %4, align 8, !tbaa !19
+  %56 = load ptr, ptr %5, align 8, !tbaa !37
+  %57 = getelementptr inbounds nuw %struct.background_thread_stats_s, ptr %56, i32 0, i32 3
+  %58 = load ptr, ptr %9, align 8, !tbaa !25
+  %59 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %58, i32 0, i32 2
+  call void @malloc_mutex_prof_max_update(ptr noundef %55, ptr noundef %57, ptr noundef %59)
+  br label %60
+
+60:                                               ; preds = %45, %40
+  %61 = load ptr, ptr %4, align 8, !tbaa !19
+  %62 = load ptr, ptr %9, align 8, !tbaa !25
+  %63 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %62, i32 0, i32 2
+  call void @malloc_mutex_unlock(ptr noundef %61, ptr noundef %63)
+  store i32 0, ptr %8, align 4
+  br label %64
+
+64:                                               ; preds = %60, %39
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #11
+  %65 = load i32, ptr %8, align 4
+  switch i32 %65, label %84 [
+    i32 0, label %66
+    i32 6, label %67
+  ]
+
+66:                                               ; preds = %64
+  br label %67
+
+67:                                               ; preds = %66, %64
+  %68 = load i32, ptr %7, align 4, !tbaa !13
+  %69 = add i32 %68, 1
+  store i32 %69, ptr %7, align 4, !tbaa !13
+  br label %24
+
+70:                                               ; preds = %29
+  %71 = load i64, ptr %6, align 8, !tbaa !23
+  %72 = load ptr, ptr %5, align 8, !tbaa !37
+  %73 = getelementptr inbounds nuw %struct.background_thread_stats_s, ptr %72, i32 0, i32 1
+  store i64 %71, ptr %73, align 8, !tbaa !43
+  %74 = load i64, ptr %6, align 8, !tbaa !23
+  %75 = icmp ugt i64 %74, 0
+  br i1 %75, label %76, label %80
+
+76:                                               ; preds = %70
+  %77 = load ptr, ptr %5, align 8, !tbaa !37
+  %78 = getelementptr inbounds nuw %struct.background_thread_stats_s, ptr %77, i32 0, i32 2
+  %79 = load i64, ptr %6, align 8, !tbaa !23
+  call void @duckdb_je_nstime_idivide(ptr noundef %78, i64 noundef %79)
+  br label %80
+
+80:                                               ; preds = %76, %70
+  %81 = load ptr, ptr %4, align 8, !tbaa !19
+  call void @malloc_mutex_unlock(ptr noundef %81, ptr noundef @duckdb_je_background_thread_lock)
+  store i1 false, ptr %3, align 1
+  store i32 1, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #11
+  br label %82
+
+82:                                               ; preds = %80, %14
+  %83 = load i1, ptr %3, align 1
+  ret i1 %83
+
+84:                                               ; preds = %64
+  unreachable
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal void @nstime_init_zero(ptr noundef %0) #3 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !10
+  %3 = load ptr, ptr %2, align 8, !tbaa !10
+  call void @duckdb_je_nstime_copy(ptr noundef %3, ptr noundef @nstime_zero)
+  ret void
+}
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i1 @malloc_mutex_trylock(ptr noundef %0, ptr noundef %1) #2 {
+  %3 = alloca i1, align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !19
+  store ptr %1, ptr %5, align 8, !tbaa !21
+  %6 = load ptr, ptr %4, align 8, !tbaa !19
+  %7 = call ptr @tsdn_witness_tsdp_get(ptr noundef %6)
+  %8 = load ptr, ptr %5, align 8, !tbaa !21
+  %9 = getelementptr inbounds nuw %struct.malloc_mutex_s, ptr %8, i32 0, i32 0
+  call void @witness_assert_not_owner(ptr noundef %7, ptr noundef %9)
+  %10 = load ptr, ptr %5, align 8, !tbaa !21
+  %11 = call zeroext i1 @malloc_mutex_trylock_final(ptr noundef %10)
+  br i1 %11, label %12, label %13
+
+12:                                               ; preds = %2
+  store i1 true, ptr %3, align 1
+  br label %20
+
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %4, align 8, !tbaa !19
+  %15 = load ptr, ptr %5, align 8, !tbaa !21
+  call void @mutex_owner_stats_update(ptr noundef %14, ptr noundef %15)
+  %16 = load ptr, ptr %4, align 8, !tbaa !19
+  %17 = call ptr @tsdn_witness_tsdp_get(ptr noundef %16)
+  %18 = load ptr, ptr %5, align 8, !tbaa !21
+  %19 = getelementptr inbounds nuw %struct.malloc_mutex_s, ptr %18, i32 0, i32 0
+  call void @witness_lock(ptr noundef %17, ptr noundef %19)
+  store i1 false, ptr %3, align 1
+  br label %20
+
+20:                                               ; preds = %13, %12
+  %21 = load i1, ptr %3, align 1
+  ret i1 %21
+}
+
+declare void @duckdb_je_nstime_add(ptr noundef, ptr noundef) #5
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @malloc_mutex_prof_max_update(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !19
+  store ptr %1, ptr %5, align 8, !tbaa !10
+  store ptr %2, ptr %6, align 8, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #11
+  %8 = load ptr, ptr %6, align 8, !tbaa !21
+  %9 = getelementptr inbounds nuw %struct.malloc_mutex_s, ptr %8, i32 0, i32 0
+  %10 = getelementptr inbounds nuw %struct.anon, ptr %9, i32 0, i32 0
+  store ptr %10, ptr %7, align 8, !tbaa !10
+  %11 = load ptr, ptr %4, align 8, !tbaa !19
+  %12 = load ptr, ptr %6, align 8, !tbaa !21
+  call void @malloc_mutex_assert_owner(ptr noundef %11, ptr noundef %12)
+  %13 = load ptr, ptr %7, align 8, !tbaa !10
+  %14 = getelementptr inbounds nuw %struct.mutex_prof_data_t, ptr %13, i32 0, i32 0
+  %15 = load ptr, ptr %5, align 8, !tbaa !10
+  %16 = getelementptr inbounds nuw %struct.mutex_prof_data_t, ptr %15, i32 0, i32 0
+  %17 = call i32 @duckdb_je_nstime_compare(ptr noundef %14, ptr noundef %16)
+  %18 = icmp sgt i32 %17, 0
+  br i1 %18, label %19, label %24
+
+19:                                               ; preds = %3
+  %20 = load ptr, ptr %5, align 8, !tbaa !10
+  %21 = getelementptr inbounds nuw %struct.mutex_prof_data_t, ptr %20, i32 0, i32 0
+  %22 = load ptr, ptr %7, align 8, !tbaa !10
+  %23 = getelementptr inbounds nuw %struct.mutex_prof_data_t, ptr %22, i32 0, i32 0
+  call void @duckdb_je_nstime_copy(ptr noundef %21, ptr noundef %23)
+  br label %24
+
+24:                                               ; preds = %19, %3
+  %25 = load ptr, ptr %7, align 8, !tbaa !10
+  %26 = getelementptr inbounds nuw %struct.mutex_prof_data_t, ptr %25, i32 0, i32 1
+  %27 = load ptr, ptr %5, align 8, !tbaa !10
+  %28 = getelementptr inbounds nuw %struct.mutex_prof_data_t, ptr %27, i32 0, i32 1
+  %29 = call i32 @duckdb_je_nstime_compare(ptr noundef %26, ptr noundef %28)
+  %30 = icmp sgt i32 %29, 0
+  br i1 %30, label %31, label %36
+
+31:                                               ; preds = %24
+  %32 = load ptr, ptr %5, align 8, !tbaa !10
+  %33 = getelementptr inbounds nuw %struct.mutex_prof_data_t, ptr %32, i32 0, i32 1
+  %34 = load ptr, ptr %7, align 8, !tbaa !10
+  %35 = getelementptr inbounds nuw %struct.mutex_prof_data_t, ptr %34, i32 0, i32 1
+  call void @duckdb_je_nstime_copy(ptr noundef %33, ptr noundef %35)
+  br label %36
+
+36:                                               ; preds = %31, %24
+  %37 = load ptr, ptr %7, align 8, !tbaa !10
+  %38 = getelementptr inbounds nuw %struct.mutex_prof_data_t, ptr %37, i32 0, i32 2
+  %39 = load i64, ptr %38, align 8, !tbaa !44
+  %40 = load ptr, ptr %5, align 8, !tbaa !10
+  %41 = getelementptr inbounds nuw %struct.mutex_prof_data_t, ptr %40, i32 0, i32 2
+  %42 = load i64, ptr %41, align 8, !tbaa !44
+  %43 = icmp ugt i64 %39, %42
+  br i1 %43, label %44, label %50
+
+44:                                               ; preds = %36
+  %45 = load ptr, ptr %7, align 8, !tbaa !10
+  %46 = getelementptr inbounds nuw %struct.mutex_prof_data_t, ptr %45, i32 0, i32 2
+  %47 = load i64, ptr %46, align 8, !tbaa !44
+  %48 = load ptr, ptr %5, align 8, !tbaa !10
+  %49 = getelementptr inbounds nuw %struct.mutex_prof_data_t, ptr %48, i32 0, i32 2
+  store i64 %47, ptr %49, align 8, !tbaa !44
+  br label %50
+
+50:                                               ; preds = %44, %36
+  %51 = load ptr, ptr %7, align 8, !tbaa !10
+  %52 = getelementptr inbounds nuw %struct.mutex_prof_data_t, ptr %51, i32 0, i32 3
+  %53 = load i64, ptr %52, align 8, !tbaa !45
+  %54 = load ptr, ptr %5, align 8, !tbaa !10
+  %55 = getelementptr inbounds nuw %struct.mutex_prof_data_t, ptr %54, i32 0, i32 3
+  %56 = load i64, ptr %55, align 8, !tbaa !45
+  %57 = icmp ugt i64 %53, %56
+  br i1 %57, label %58, label %64
+
+58:                                               ; preds = %50
+  %59 = load ptr, ptr %7, align 8, !tbaa !10
+  %60 = getelementptr inbounds nuw %struct.mutex_prof_data_t, ptr %59, i32 0, i32 3
+  %61 = load i64, ptr %60, align 8, !tbaa !45
+  %62 = load ptr, ptr %5, align 8, !tbaa !10
+  %63 = getelementptr inbounds nuw %struct.mutex_prof_data_t, ptr %62, i32 0, i32 3
+  store i64 %61, ptr %63, align 8, !tbaa !45
+  br label %64
+
+64:                                               ; preds = %58, %50
+  %65 = load ptr, ptr %7, align 8, !tbaa !10
+  %66 = getelementptr inbounds nuw %struct.mutex_prof_data_t, ptr %65, i32 0, i32 4
+  %67 = load i32, ptr %66, align 8, !tbaa !46
+  %68 = load ptr, ptr %5, align 8, !tbaa !10
+  %69 = getelementptr inbounds nuw %struct.mutex_prof_data_t, ptr %68, i32 0, i32 4
+  %70 = load i32, ptr %69, align 8, !tbaa !46
+  %71 = icmp ugt i32 %67, %70
+  br i1 %71, label %72, label %78
+
+72:                                               ; preds = %64
+  %73 = load ptr, ptr %7, align 8, !tbaa !10
+  %74 = getelementptr inbounds nuw %struct.mutex_prof_data_t, ptr %73, i32 0, i32 4
+  %75 = load i32, ptr %74, align 8, !tbaa !46
+  %76 = load ptr, ptr %5, align 8, !tbaa !10
+  %77 = getelementptr inbounds nuw %struct.mutex_prof_data_t, ptr %76, i32 0, i32 4
+  store i32 %75, ptr %77, align 8, !tbaa !46
+  br label %78
+
+78:                                               ; preds = %72, %64
+  %79 = load ptr, ptr %7, align 8, !tbaa !10
+  %80 = getelementptr inbounds nuw %struct.mutex_prof_data_t, ptr %79, i32 0, i32 6
+  %81 = load i64, ptr %80, align 8, !tbaa !47
+  %82 = load ptr, ptr %5, align 8, !tbaa !10
+  %83 = getelementptr inbounds nuw %struct.mutex_prof_data_t, ptr %82, i32 0, i32 6
+  %84 = load i64, ptr %83, align 8, !tbaa !47
+  %85 = icmp ugt i64 %81, %84
+  br i1 %85, label %86, label %92
+
+86:                                               ; preds = %78
+  %87 = load ptr, ptr %7, align 8, !tbaa !10
+  %88 = getelementptr inbounds nuw %struct.mutex_prof_data_t, ptr %87, i32 0, i32 6
+  %89 = load i64, ptr %88, align 8, !tbaa !47
+  %90 = load ptr, ptr %5, align 8, !tbaa !10
+  %91 = getelementptr inbounds nuw %struct.mutex_prof_data_t, ptr %90, i32 0, i32 6
+  store i64 %89, ptr %91, align 8, !tbaa !47
+  br label %92
+
+92:                                               ; preds = %86, %78
+  %93 = load ptr, ptr %7, align 8, !tbaa !10
+  %94 = getelementptr inbounds nuw %struct.mutex_prof_data_t, ptr %93, i32 0, i32 8
+  %95 = load i64, ptr %94, align 8, !tbaa !48
+  %96 = load ptr, ptr %5, align 8, !tbaa !10
+  %97 = getelementptr inbounds nuw %struct.mutex_prof_data_t, ptr %96, i32 0, i32 8
+  %98 = load i64, ptr %97, align 8, !tbaa !48
+  %99 = icmp ugt i64 %95, %98
+  br i1 %99, label %100, label %106
+
+100:                                              ; preds = %92
+  %101 = load ptr, ptr %7, align 8, !tbaa !10
+  %102 = getelementptr inbounds nuw %struct.mutex_prof_data_t, ptr %101, i32 0, i32 8
+  %103 = load i64, ptr %102, align 8, !tbaa !48
+  %104 = load ptr, ptr %5, align 8, !tbaa !10
+  %105 = getelementptr inbounds nuw %struct.mutex_prof_data_t, ptr %104, i32 0, i32 8
+  store i64 %103, ptr %105, align 8, !tbaa !48
+  br label %106
+
+106:                                              ; preds = %100, %92
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #11
+  ret void
+}
+
+declare void @duckdb_je_nstime_idivide(ptr noundef, i64 noundef) #5
+
+; Function Attrs: nounwind uwtable
+define void @duckdb_je_background_thread_ctl_init(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !19
+  %3 = load ptr, ptr %2, align 8, !tbaa !19
+  call void @malloc_mutex_assert_not_owner(ptr noundef %3, ptr noundef @duckdb_je_background_thread_lock)
+  %4 = call zeroext i1 @pthread_create_fptr_init()
+  call void @pthread_create_wrapper_init()
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @malloc_mutex_assert_not_owner(ptr noundef %0, ptr noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !19
+  store ptr %1, ptr %4, align 8, !tbaa !21
+  %5 = load ptr, ptr %3, align 8, !tbaa !19
+  %6 = call ptr @tsdn_witness_tsdp_get(ptr noundef %5)
+  %7 = load ptr, ptr %4, align 8, !tbaa !21
+  %8 = getelementptr inbounds nuw %struct.malloc_mutex_s, ptr %7, i32 0, i32 0
+  call void @witness_assert_not_owner(ptr noundef %6, ptr noundef %8)
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal zeroext i1 @pthread_create_fptr_init() #0 {
+  %1 = alloca i1, align 1
+  %2 = load ptr, ptr @pthread_create_fptr, align 8, !tbaa !10
+  %3 = icmp ne ptr %2, null
+  br i1 %3, label %4, label %5
+
+4:                                                ; preds = %0
+  store i1 false, ptr %1, align 1
+  br label %10
+
+5:                                                ; preds = %0
+  store ptr null, ptr @pthread_create_fptr, align 8, !tbaa !10
+  %6 = load ptr, ptr @pthread_create_fptr, align 8, !tbaa !10
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %8, label %9
+
+8:                                                ; preds = %5
+  store ptr @pthread_create, ptr @pthread_create_fptr, align 8, !tbaa !10
+  br label %9
+
+9:                                                ; preds = %8, %5
+  store i1 false, ptr %1, align 1
+  br label %10
+
+10:                                               ; preds = %9, %4
+  %11 = load i1, ptr %1, align 1
+  ret i1 %11
+}
+
+; Function Attrs: nounwind uwtable
+define zeroext i1 @duckdb_je_background_thread_boot0() #0 {
+  %1 = alloca i1, align 1
+  %2 = load i8, ptr @duckdb_je_opt_background_thread, align 1, !tbaa !15, !range !17, !noundef !18
+  %3 = trunc i8 %2 to i1
+  br i1 %3, label %4, label %7
+
+4:                                                ; preds = %0
+  %5 = call zeroext i1 @pthread_create_fptr_init()
+  br i1 %5, label %6, label %7
+
+6:                                                ; preds = %4
+  store i1 true, ptr %1, align 1
+  br label %8
+
+7:                                                ; preds = %4, %0
+  store i1 false, ptr %1, align 1
+  br label %8
+
+8:                                                ; preds = %7, %6
+  %9 = load i1, ptr %1, align 1
+  ret i1 %9
+}
+
+; Function Attrs: nounwind uwtable
+define zeroext i1 @duckdb_je_background_thread_boot1(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i1, align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !19
+  store ptr %1, ptr %5, align 8, !tbaa !49
+  br label %9
+
+9:                                                ; preds = %2
+  br label %10
+
+10:                                               ; preds = %9
+  br label %11
+
+11:                                               ; preds = %10
+  br label %12
+
+12:                                               ; preds = %11
+  %13 = load i64, ptr @duckdb_je_opt_max_background_threads, align 8, !tbaa !23
+  %14 = icmp ugt i64 %13, 4095
+  br i1 %14, label %15, label %16
+
+15:                                               ; preds = %12
+  store i64 4, ptr @duckdb_je_opt_max_background_threads, align 8, !tbaa !23
+  br label %16
+
+16:                                               ; preds = %15, %12
+  %17 = load i64, ptr @duckdb_je_opt_max_background_threads, align 8, !tbaa !23
+  store i64 %17, ptr @duckdb_je_max_background_threads, align 8, !tbaa !23
+  %18 = load ptr, ptr %4, align 8, !tbaa !19
+  %19 = load i8, ptr @duckdb_je_opt_background_thread, align 1, !tbaa !15, !range !17, !noundef !18
+  %20 = trunc i8 %19 to i1
+  call void @background_thread_enabled_set(ptr noundef %18, i1 noundef zeroext %20)
+  %21 = call zeroext i1 @duckdb_je_malloc_mutex_init(ptr noundef @duckdb_je_background_thread_lock, ptr noundef @.str, i32 noundef 5, i32 noundef 0)
+  br i1 %21, label %22, label %23
+
+22:                                               ; preds = %16
+  store i1 true, ptr %3, align 1
+  br label %74
+
+23:                                               ; preds = %16
+  %24 = load ptr, ptr %4, align 8, !tbaa !19
+  %25 = load ptr, ptr %5, align 8, !tbaa !49
+  %26 = load i64, ptr @duckdb_je_opt_max_background_threads, align 8, !tbaa !23
+  %27 = mul i64 %26, 208
+  %28 = call ptr @duckdb_je_base_alloc(ptr noundef %24, ptr noundef %25, i64 noundef %27, i64 noundef 64)
+  store ptr %28, ptr @duckdb_je_background_thread_info, align 8, !tbaa !25
+  %29 = load ptr, ptr @duckdb_je_background_thread_info, align 8, !tbaa !25
+  %30 = icmp eq ptr %29, null
+  br i1 %30, label %31, label %32
+
+31:                                               ; preds = %23
+  store i1 true, ptr %3, align 1
+  br label %74
+
+32:                                               ; preds = %23
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #11
+  store i32 0, ptr %6, align 4, !tbaa !13
+  br label %33
+
+33:                                               ; preds = %68, %32
+  %34 = load i32, ptr %6, align 4, !tbaa !13
+  %35 = zext i32 %34 to i64
+  %36 = load i64, ptr @duckdb_je_max_background_threads, align 8, !tbaa !23
+  %37 = icmp ult i64 %35, %36
+  br i1 %37, label %39, label %38
+
+38:                                               ; preds = %33
+  store i32 6, ptr %7, align 4
+  br label %71
+
+39:                                               ; preds = %33
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #11
+  %40 = load ptr, ptr @duckdb_je_background_thread_info, align 8, !tbaa !25
+  %41 = load i32, ptr %6, align 4, !tbaa !13
+  %42 = zext i32 %41 to i64
+  %43 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %40, i64 %42
+  store ptr %43, ptr %8, align 8, !tbaa !25
+  %44 = load ptr, ptr %8, align 8, !tbaa !25
+  %45 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %44, i32 0, i32 2
+  %46 = call zeroext i1 @duckdb_je_malloc_mutex_init(ptr noundef %45, ptr noundef @.str.1, i32 noundef 13, i32 noundef 1)
+  br i1 %46, label %47, label %48
+
+47:                                               ; preds = %39
+  store i1 true, ptr %3, align 1
+  store i32 1, ptr %7, align 4
+  br label %65
+
+48:                                               ; preds = %39
+  %49 = load ptr, ptr %8, align 8, !tbaa !25
+  %50 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %49, i32 0, i32 1
+  %51 = call i32 @pthread_cond_init(ptr noundef %50, ptr noundef null) #11
+  %52 = icmp ne i32 %51, 0
+  br i1 %52, label %53, label %54
+
+53:                                               ; preds = %48
+  store i1 true, ptr %3, align 1
+  store i32 1, ptr %7, align 4
+  br label %65
+
+54:                                               ; preds = %48
+  %55 = load ptr, ptr %4, align 8, !tbaa !19
+  %56 = load ptr, ptr %8, align 8, !tbaa !25
+  %57 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %56, i32 0, i32 2
+  call void @malloc_mutex_lock(ptr noundef %55, ptr noundef %57)
+  %58 = load ptr, ptr %8, align 8, !tbaa !25
+  %59 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %58, i32 0, i32 3
+  store i32 0, ptr %59, align 8, !tbaa !27
+  %60 = load ptr, ptr %4, align 8, !tbaa !19
+  %61 = load ptr, ptr %8, align 8, !tbaa !25
+  call void @background_thread_info_init(ptr noundef %60, ptr noundef %61)
+  %62 = load ptr, ptr %4, align 8, !tbaa !19
+  %63 = load ptr, ptr %8, align 8, !tbaa !25
+  %64 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %63, i32 0, i32 2
+  call void @malloc_mutex_unlock(ptr noundef %62, ptr noundef %64)
+  store i32 0, ptr %7, align 4
+  br label %65
+
+65:                                               ; preds = %54, %53, %47
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #11
+  %66 = load i32, ptr %7, align 4
+  switch i32 %66, label %71 [
+    i32 0, label %67
+  ]
+
+67:                                               ; preds = %65
+  br label %68
+
+68:                                               ; preds = %67
+  %69 = load i32, ptr %6, align 4, !tbaa !13
+  %70 = add i32 %69, 1
+  store i32 %70, ptr %6, align 4, !tbaa !13
+  br label %33
+
+71:                                               ; preds = %65, %38
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #11
+  %72 = load i32, ptr %7, align 4
+  switch i32 %72, label %76 [
+    i32 6, label %73
+    i32 1, label %74
+  ]
+
+73:                                               ; preds = %71
+  store i1 false, ptr %3, align 1
+  br label %74
+
+74:                                               ; preds = %73, %71, %31, %22
+  %75 = load i1, ptr %3, align 1
+  ret i1 %75
+
+76:                                               ; preds = %71
+  unreachable
+}
+
+declare zeroext i1 @duckdb_je_malloc_mutex_init(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #5
+
+declare ptr @duckdb_je_base_alloc(ptr noundef, ptr noundef, i64 noundef, i64 noundef) #5
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @witness_assert_not_owner(ptr noundef %0, ptr noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !51
+  store ptr %1, ptr %4, align 8, !tbaa !53
+  ret void
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal ptr @tsdn_witness_tsdp_get(ptr noundef %0) #3 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !19
+  %5 = load ptr, ptr %3, align 8, !tbaa !19
+  %6 = call zeroext i1 @tsdn_null(ptr noundef %5)
+  br i1 %6, label %7, label %8
+
+7:                                                ; preds = %1
+  store ptr null, ptr %2, align 8
+  br label %13
+
+8:                                                ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #11
+  %9 = load ptr, ptr %3, align 8, !tbaa !19
+  %10 = call ptr @tsdn_tsd(ptr noundef %9)
+  store ptr %10, ptr %4, align 8, !tbaa !11
+  %11 = load ptr, ptr %4, align 8, !tbaa !11
+  %12 = call ptr @tsd_witness_tsdp_get(ptr noundef %11)
+  store ptr %12, ptr %2, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #11
+  br label %13
+
+13:                                               ; preds = %8, %7
+  %14 = load ptr, ptr %2, align 8
+  ret ptr %14
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i1 @malloc_mutex_trylock_final(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !21
+  %3 = load ptr, ptr %2, align 8, !tbaa !21
+  %4 = getelementptr inbounds nuw %struct.malloc_mutex_s, ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %struct.anon, ptr %4, i32 0, i32 2
+  %6 = call i32 @pthread_mutex_trylock(ptr noundef %5) #11
+  %7 = icmp ne i32 %6, 0
+  ret i1 %7
+}
+
+declare void @duckdb_je_malloc_mutex_lock_slow(ptr noundef) #5
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal void @atomic_store_b(ptr noundef %0, i1 noundef zeroext %1, i32 noundef %2) #3 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i8, align 1
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !10
+  %7 = zext i1 %1 to i8
+  store i8 %7, ptr %5, align 1, !tbaa !15
+  store i32 %2, ptr %6, align 4, !tbaa !13
+  %8 = load ptr, ptr %4, align 8, !tbaa !10
+  %9 = getelementptr inbounds nuw %struct.atomic_b_t, ptr %8, i32 0, i32 0
+  %10 = load i32, ptr %6, align 4, !tbaa !13
+  %11 = call i32 @atomic_enum_to_builtin(i32 noundef %10)
+  switch i32 %11, label %12 [
+    i32 3, label %14
+    i32 5, label %16
+  ]
+
+12:                                               ; preds = %3
+  %13 = load i8, ptr %5, align 1
+  store atomic i8 %13, ptr %9 monotonic, align 1
+  br label %18
+
+14:                                               ; preds = %3
+  %15 = load i8, ptr %5, align 1
+  store atomic i8 %15, ptr %9 release, align 1
+  br label %18
+
+16:                                               ; preds = %3
+  %17 = load i8, ptr %5, align 1
+  store atomic i8 %17, ptr %9 seq_cst, align 1
+  br label %18
+
+18:                                               ; preds = %16, %14, %12
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @mutex_owner_stats_update(ptr noundef %0, ptr noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !19
+  store ptr %1, ptr %4, align 8, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #11
+  %6 = load ptr, ptr %4, align 8, !tbaa !21
+  %7 = getelementptr inbounds nuw %struct.malloc_mutex_s, ptr %6, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %struct.anon, ptr %7, i32 0, i32 0
+  store ptr %8, ptr %5, align 8, !tbaa !10
+  %9 = load ptr, ptr %5, align 8, !tbaa !10
+  %10 = getelementptr inbounds nuw %struct.mutex_prof_data_t, ptr %9, i32 0, i32 8
+  %11 = load i64, ptr %10, align 8, !tbaa !48
+  %12 = add i64 %11, 1
+  store i64 %12, ptr %10, align 8, !tbaa !48
+  %13 = load ptr, ptr %5, align 8, !tbaa !10
+  %14 = getelementptr inbounds nuw %struct.mutex_prof_data_t, ptr %13, i32 0, i32 7
+  %15 = load ptr, ptr %14, align 8, !tbaa !55
+  %16 = load ptr, ptr %3, align 8, !tbaa !19
+  %17 = icmp ne ptr %15, %16
+  br i1 %17, label %18, label %26
+
+18:                                               ; preds = %2
+  %19 = load ptr, ptr %3, align 8, !tbaa !19
+  %20 = load ptr, ptr %5, align 8, !tbaa !10
+  %21 = getelementptr inbounds nuw %struct.mutex_prof_data_t, ptr %20, i32 0, i32 7
+  store ptr %19, ptr %21, align 8, !tbaa !55
+  %22 = load ptr, ptr %5, align 8, !tbaa !10
+  %23 = getelementptr inbounds nuw %struct.mutex_prof_data_t, ptr %22, i32 0, i32 6
+  %24 = load i64, ptr %23, align 8, !tbaa !47
+  %25 = add i64 %24, 1
+  store i64 %25, ptr %23, align 8, !tbaa !47
+  br label %26
+
+26:                                               ; preds = %18, %2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #11
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @witness_lock(ptr noundef %0, ptr noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !51
+  store ptr %1, ptr %4, align 8, !tbaa !53
+  ret void
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal zeroext i1 @tsdn_null(ptr noundef %0) #3 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !19
+  %3 = load ptr, ptr %2, align 8, !tbaa !19
+  %4 = icmp eq ptr %3, null
+  ret i1 %4
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal ptr @tsdn_tsd(ptr noundef %0) #3 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !19
+  br label %3
+
+3:                                                ; preds = %1
+  br label %4
+
+4:                                                ; preds = %3
+  %5 = load ptr, ptr %2, align 8, !tbaa !19
+  %6 = getelementptr inbounds nuw %struct.tsdn_s, ptr %5, i32 0, i32 0
+  ret ptr %6
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal ptr @tsd_witness_tsdp_get(ptr noundef %0) #3 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i8, align 1
+  store ptr %0, ptr %2, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 1, ptr %3) #11
+  %4 = load ptr, ptr %2, align 8, !tbaa !11
+  %5 = call zeroext i8 @tsd_state_get(ptr noundef %4)
+  store i8 %5, ptr %3, align 1, !tbaa !56
+  br label %6
+
+6:                                                ; preds = %1
+  br label %7
+
+7:                                                ; preds = %6
+  br label %8
+
+8:                                                ; preds = %7
+  %9 = load ptr, ptr %2, align 8, !tbaa !11
+  %10 = call ptr @tsd_witness_tsdp_get_unsafe(ptr noundef %9)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #11
+  ret ptr %10
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal zeroext i8 @tsd_state_get(ptr noundef %0) #3 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !11
+  %3 = load ptr, ptr %2, align 8, !tbaa !11
+  %4 = getelementptr inbounds nuw %struct.tsd_s, ptr %3, i32 0, i32 30
+  %5 = load i8, ptr %4, align 8, !tbaa !56
+  ret i8 %5
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal ptr @tsd_witness_tsdp_get_unsafe(ptr noundef %0) #3 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !11
+  %3 = load ptr, ptr %2, align 8, !tbaa !11
+  %4 = getelementptr inbounds nuw %struct.tsd_s, ptr %3, i32 0, i32 36
+  ret ptr %4
+}
+
+; Function Attrs: nounwind
+declare i32 @pthread_mutex_trylock(ptr noundef) #6
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal i32 @atomic_enum_to_builtin(i32 noundef %0) #3 {
+  %2 = alloca i32, align 4
+  %3 = alloca i32, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !13
+  %4 = load i32, ptr %3, align 4, !tbaa !13
+  switch i32 %4, label %10 [
+    i32 0, label %5
+    i32 1, label %6
+    i32 2, label %7
+    i32 3, label %8
+    i32 4, label %9
+  ]
+
+5:                                                ; preds = %1
+  store i32 0, ptr %2, align 4
+  br label %12
+
+6:                                                ; preds = %1
+  store i32 2, ptr %2, align 4
+  br label %12
+
+7:                                                ; preds = %1
+  store i32 3, ptr %2, align 4
+  br label %12
+
+8:                                                ; preds = %1
+  store i32 4, ptr %2, align 4
+  br label %12
+
+9:                                                ; preds = %1
+  store i32 5, ptr %2, align 4
+  br label %12
+
+10:                                               ; preds = %1
+  br label %11
+
+11:                                               ; preds = %10
+  unreachable
+
+12:                                               ; preds = %5, %6, %7, %8, %9
+  %13 = load i32, ptr %2, align 4
+  ret i32 %13
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @pre_reentrancy(ptr noundef %0, ptr noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !11
+  store ptr %1, ptr %4, align 8, !tbaa !32
+  br label %5
+
+5:                                                ; preds = %2
+  br label %6
+
+6:                                                ; preds = %5
+  %7 = load ptr, ptr %3, align 8, !tbaa !11
+  call void @tsd_pre_reentrancy_raw(ptr noundef %7)
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @background_thread_create_signals_masked(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca %struct.__sigset_t, align 8
+  %11 = alloca %struct.__sigset_t, align 8
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store ptr %1, ptr %7, align 8, !tbaa !8
+  store ptr %2, ptr %8, align 8, !tbaa !10
+  store ptr %3, ptr %9, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 128, ptr %10) #11
+  %16 = call i32 @sigfillset(ptr noundef %10) #11
+  call void @llvm.lifetime.start.p0(i64 128, ptr %11) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #11
+  %17 = call i32 @pthread_sigmask(i32 noundef 2, ptr noundef %10, ptr noundef %11) #11
+  store i32 %17, ptr %12, align 4, !tbaa !13
+  %18 = load i32, ptr %12, align 4, !tbaa !13
+  %19 = icmp ne i32 %18, 0
+  br i1 %19, label %20, label %22
+
+20:                                               ; preds = %4
+  %21 = load i32, ptr %12, align 4, !tbaa !13
+  store i32 %21, ptr %5, align 4
+  store i32 1, ptr %13, align 4
+  br label %40
+
+22:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #11
+  %23 = load ptr, ptr %6, align 8, !tbaa !3
+  %24 = load ptr, ptr %7, align 8, !tbaa !8
+  %25 = load ptr, ptr %8, align 8, !tbaa !10
+  %26 = load ptr, ptr %9, align 8, !tbaa !10
+  %27 = call i32 @duckdb_je_pthread_create_wrapper(ptr noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef %26)
+  store i32 %27, ptr %14, align 4, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #11
+  %28 = call i32 @pthread_sigmask(i32 noundef 2, ptr noundef %11, ptr noundef null) #11
+  store i32 %28, ptr %15, align 4, !tbaa !13
+  %29 = load i32, ptr %15, align 4, !tbaa !13
+  %30 = icmp ne i32 %29, 0
+  br i1 %30, label %31, label %38
+
+31:                                               ; preds = %22
+  %32 = load i32, ptr %14, align 4, !tbaa !13
+  %33 = load i32, ptr %15, align 4, !tbaa !13
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef @.str.3, i32 noundef %32, i32 noundef %33)
+  %34 = load i8, ptr @duckdb_je_opt_abort, align 1, !tbaa !15, !range !17, !noundef !18
+  %35 = trunc i8 %34 to i1
+  br i1 %35, label %36, label %37
+
+36:                                               ; preds = %31
+  call void @abort() #12
+  unreachable
+
+37:                                               ; preds = %31
+  br label %38
+
+38:                                               ; preds = %37, %22
+  %39 = load i32, ptr %14, align 4, !tbaa !13
+  store i32 %39, ptr %5, align 4
+  store i32 1, ptr %13, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #11
+  br label %40
+
+40:                                               ; preds = %38, %20
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #11
+  call void @llvm.lifetime.end.p0(i64 128, ptr %11) #11
+  call void @llvm.lifetime.end.p0(i64 128, ptr %10) #11
+  %41 = load i32, ptr %5, align 4
+  ret i32 %41
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @background_thread_entry(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #11
+  %4 = load ptr, ptr %2, align 8, !tbaa !10
+  %5 = ptrtoint ptr %4 to i64
+  %6 = trunc i64 %5 to i32
+  store i32 %6, ptr %3, align 4, !tbaa !13
+  br label %7
+
+7:                                                ; preds = %1
+  br label %8
+
+8:                                                ; preds = %7
+  br label %9
+
+9:                                                ; preds = %8
+  %10 = load i32, ptr @duckdb_je_opt_percpu_arena, align 4, !tbaa !13
+  %11 = icmp ne i32 %10, 2
+  br i1 %11, label %12, label %15
+
+12:                                               ; preds = %9
+  %13 = load i32, ptr %3, align 4, !tbaa !13
+  %14 = call zeroext i1 @set_current_thread_affinity(i32 noundef %13)
+  br label %15
+
+15:                                               ; preds = %12, %9
+  %16 = call ptr @tsd_internal_fetch()
+  %17 = load i32, ptr %3, align 4, !tbaa !13
+  call void @background_work(ptr noundef %16, i32 noundef %17)
+  br label %18
+
+18:                                               ; preds = %15
+  br label %19
+
+19:                                               ; preds = %18
+  br label %20
+
+20:                                               ; preds = %19
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #11
+  ret ptr null
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @post_reentrancy(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !11
+  %3 = load ptr, ptr %2, align 8, !tbaa !11
+  call void @tsd_post_reentrancy_raw(ptr noundef %3)
+  ret void
+}
+
+declare void @duckdb_je_malloc_printf(ptr noundef, ...) #5
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @tsd_pre_reentrancy_raw(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i8, align 1
+  store ptr %0, ptr %2, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 1, ptr %3) #11
+  %4 = load ptr, ptr %2, align 8, !tbaa !11
+  %5 = call zeroext i1 @tsd_fast(ptr noundef %4)
+  %6 = zext i1 %5 to i8
+  store i8 %6, ptr %3, align 1, !tbaa !15
+  br label %7
+
+7:                                                ; preds = %1
+  br label %8
+
+8:                                                ; preds = %7
+  br label %9
+
+9:                                                ; preds = %8
+  %10 = load ptr, ptr %2, align 8, !tbaa !11
+  %11 = call ptr @tsd_reentrancy_levelp_get(ptr noundef %10)
+  %12 = load i8, ptr %11, align 1, !tbaa !56
+  %13 = add i8 %12, 1
+  store i8 %13, ptr %11, align 1, !tbaa !56
+  %14 = load i8, ptr %3, align 1, !tbaa !15, !range !17, !noundef !18
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %16, label %21
+
+16:                                               ; preds = %9
+  %17 = load ptr, ptr %2, align 8, !tbaa !11
+  call void @duckdb_je_tsd_slow_update(ptr noundef %17)
+  br label %18
+
+18:                                               ; preds = %16
+  br label %19
+
+19:                                               ; preds = %18
+  br label %20
+
+20:                                               ; preds = %19
+  br label %21
+
+21:                                               ; preds = %20, %9
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #11
+  ret void
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal zeroext i1 @tsd_fast(ptr noundef %0) #3 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i8, align 1
+  store ptr %0, ptr %2, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 1, ptr %3) #11
+  %4 = load ptr, ptr %2, align 8, !tbaa !11
+  %5 = call zeroext i8 @tsd_state_get(ptr noundef %4)
+  %6 = zext i8 %5 to i32
+  %7 = icmp eq i32 %6, 0
+  %8 = zext i1 %7 to i8
+  store i8 %8, ptr %3, align 1, !tbaa !15
+  %9 = load i8, ptr %3, align 1, !tbaa !15, !range !17, !noundef !18
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %13
+
+11:                                               ; preds = %1
+  %12 = load ptr, ptr %2, align 8, !tbaa !11
+  call void @tsd_assert_fast(ptr noundef %12)
+  br label %13
+
+13:                                               ; preds = %11, %1
+  %14 = load i8, ptr %3, align 1, !tbaa !15, !range !17, !noundef !18
+  %15 = trunc i8 %14 to i1
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #11
+  ret i1 %15
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal ptr @tsd_reentrancy_levelp_get(ptr noundef %0) #3 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i8, align 1
+  store ptr %0, ptr %2, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 1, ptr %3) #11
+  %4 = load ptr, ptr %2, align 8, !tbaa !11
+  %5 = call zeroext i8 @tsd_state_get(ptr noundef %4)
+  store i8 %5, ptr %3, align 1, !tbaa !56
+  br label %6
+
+6:                                                ; preds = %1
+  br label %7
+
+7:                                                ; preds = %6
+  br label %8
+
+8:                                                ; preds = %7
+  %9 = load ptr, ptr %2, align 8, !tbaa !11
+  %10 = call ptr @tsd_reentrancy_levelp_get_unsafe(ptr noundef %9)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #11
+  ret ptr %10
+}
+
+declare void @duckdb_je_tsd_slow_update(ptr noundef) #5
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal void @tsd_assert_fast(ptr noundef %0) #3 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !11
+  br label %3
+
+3:                                                ; preds = %1
+  br label %4
+
+4:                                                ; preds = %3
+  ret void
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal ptr @tsd_reentrancy_levelp_get_unsafe(ptr noundef %0) #3 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !11
+  %3 = load ptr, ptr %2, align 8, !tbaa !11
+  %4 = getelementptr inbounds nuw %struct.tsd_s, ptr %3, i32 0, i32 1
+  ret ptr %4
+}
+
+; Function Attrs: nounwind
+declare i32 @sigfillset(ptr noundef) #6
+
+; Function Attrs: nounwind
+declare i32 @pthread_sigmask(i32 noundef, ptr noundef, ptr noundef) #6
+
+; Function Attrs: noreturn nounwind
+declare void @abort() #8
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i1 @set_current_thread_affinity(i32 noundef %0) #2 {
+  %2 = alloca i32, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !13
+  ret i1 false
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @background_work(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !11
+  store i32 %1, ptr %4, align 4, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #11
+  %6 = load ptr, ptr @duckdb_je_background_thread_info, align 8, !tbaa !25
+  %7 = load i32, ptr %4, align 4, !tbaa !13
+  %8 = zext i32 %7 to i64
+  %9 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %6, i64 %8
+  store ptr %9, ptr %5, align 8, !tbaa !25
+  %10 = load ptr, ptr %3, align 8, !tbaa !11
+  %11 = call ptr @tsd_tsdn(ptr noundef %10)
+  %12 = load ptr, ptr %5, align 8, !tbaa !25
+  %13 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %12, i32 0, i32 2
+  call void @malloc_mutex_lock(ptr noundef %11, ptr noundef %13)
+  %14 = load ptr, ptr %3, align 8, !tbaa !11
+  %15 = call ptr @tsd_tsdn(ptr noundef %14)
+  %16 = load ptr, ptr %5, align 8, !tbaa !25
+  call void @background_thread_wakeup_time_set(ptr noundef %15, ptr noundef %16, i64 noundef -1)
+  %17 = load i32, ptr %4, align 4, !tbaa !13
+  %18 = icmp eq i32 %17, 0
+  br i1 %18, label %19, label %21
+
+19:                                               ; preds = %2
+  %20 = load ptr, ptr %3, align 8, !tbaa !11
+  call void @background_thread0_work(ptr noundef %20)
+  br label %39
+
+21:                                               ; preds = %2
+  br label %22
+
+22:                                               ; preds = %33, %32, %21
+  %23 = load ptr, ptr %5, align 8, !tbaa !25
+  %24 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %23, i32 0, i32 3
+  %25 = load i32, ptr %24, align 8, !tbaa !27
+  %26 = icmp ne i32 %25, 0
+  br i1 %26, label %27, label %38
+
+27:                                               ; preds = %22
+  %28 = load ptr, ptr %3, align 8, !tbaa !11
+  %29 = call ptr @tsd_tsdn(ptr noundef %28)
+  %30 = load ptr, ptr %5, align 8, !tbaa !25
+  %31 = call zeroext i1 @background_thread_pause_check(ptr noundef %29, ptr noundef %30)
+  br i1 %31, label %32, label %33
+
+32:                                               ; preds = %27
+  br label %22
+
+33:                                               ; preds = %27
+  %34 = load ptr, ptr %3, align 8, !tbaa !11
+  %35 = call ptr @tsd_tsdn(ptr noundef %34)
+  %36 = load ptr, ptr %5, align 8, !tbaa !25
+  %37 = load i32, ptr %4, align 4, !tbaa !13
+  call void @background_work_sleep_once(ptr noundef %35, ptr noundef %36, i32 noundef %37)
+  br label %22
+
+38:                                               ; preds = %22
+  br label %39
+
+39:                                               ; preds = %38, %19
+  br label %40
+
+40:                                               ; preds = %39
+  br label %41
+
+41:                                               ; preds = %40
+  br label %42
+
+42:                                               ; preds = %41
+  %43 = load ptr, ptr %3, align 8, !tbaa !11
+  %44 = call ptr @tsd_tsdn(ptr noundef %43)
+  %45 = load ptr, ptr %5, align 8, !tbaa !25
+  call void @background_thread_wakeup_time_set(ptr noundef %44, ptr noundef %45, i64 noundef 0)
+  %46 = load ptr, ptr %3, align 8, !tbaa !11
+  %47 = call ptr @tsd_tsdn(ptr noundef %46)
+  %48 = load ptr, ptr %5, align 8, !tbaa !25
+  %49 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %48, i32 0, i32 2
+  call void @malloc_mutex_unlock(ptr noundef %47, ptr noundef %49)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #11
+  ret void
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal ptr @tsd_internal_fetch() #3 {
+  %1 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #11
+  %2 = call ptr @tsd_fetch_min()
+  store ptr %2, ptr %1, align 8, !tbaa !11
+  %3 = load ptr, ptr %1, align 8, !tbaa !11
+  call void @duckdb_je_tsd_state_set(ptr noundef %3, i8 noundef zeroext 5)
+  %4 = load ptr, ptr %1, align 8, !tbaa !11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #11
+  ret ptr %4
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal void @background_thread_wakeup_time_set(ptr noundef %0, ptr noundef %1, i64 noundef %2) #3 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !19
+  store ptr %1, ptr %5, align 8, !tbaa !25
+  store i64 %2, ptr %6, align 8, !tbaa !23
+  %7 = load ptr, ptr %4, align 8, !tbaa !19
+  %8 = load ptr, ptr %5, align 8, !tbaa !25
+  %9 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %8, i32 0, i32 2
+  call void @malloc_mutex_assert_owner(ptr noundef %7, ptr noundef %9)
+  %10 = load ptr, ptr %5, align 8, !tbaa !25
+  %11 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %10, i32 0, i32 4
+  %12 = load i64, ptr %6, align 8, !tbaa !23
+  %13 = icmp eq i64 %12, -1
+  call void @atomic_store_b(ptr noundef %11, i1 noundef zeroext %13, i32 noundef 2)
+  %14 = load ptr, ptr %5, align 8, !tbaa !25
+  %15 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %14, i32 0, i32 5
+  %16 = load i64, ptr %6, align 8, !tbaa !23
+  call void @duckdb_je_nstime_init(ptr noundef %15, i64 noundef %16)
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @background_thread0_work(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i64, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #11
+  %9 = load i64, ptr @duckdb_je_max_background_threads, align 8, !tbaa !23
+  store i64 %9, ptr %3, align 8, !tbaa !23
+  br label %10
+
+10:                                               ; preds = %1
+  br label %11
+
+11:                                               ; preds = %10
+  br label %12
+
+12:                                               ; preds = %11
+  br label %13
+
+13:                                               ; preds = %12
+  br label %14
+
+14:                                               ; preds = %13
+  br label %15
+
+15:                                               ; preds = %14
+  %16 = load i64, ptr %3, align 8, !tbaa !23
+  %17 = call ptr @llvm.stacksave.p0()
+  store ptr %17, ptr %4, align 8
+  %18 = alloca i8, i64 %16, align 16
+  store i64 %16, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #11
+  store i32 1, ptr %6, align 4, !tbaa !13
+  br label %19
+
+19:                                               ; preds = %28, %15
+  %20 = load i32, ptr %6, align 4, !tbaa !13
+  %21 = zext i32 %20 to i64
+  %22 = load i64, ptr %3, align 8, !tbaa !23
+  %23 = icmp ult i64 %21, %22
+  br i1 %23, label %24, label %31
+
+24:                                               ; preds = %19
+  %25 = load i32, ptr %6, align 4, !tbaa !13
+  %26 = zext i32 %25 to i64
+  %27 = getelementptr inbounds nuw i8, ptr %18, i64 %26
+  store i8 0, ptr %27, align 1, !tbaa !15
+  br label %28
+
+28:                                               ; preds = %24
+  %29 = load i32, ptr %6, align 4, !tbaa !13
+  %30 = add i32 %29, 1
+  store i32 %30, ptr %6, align 4, !tbaa !13
+  br label %19
+
+31:                                               ; preds = %19
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #11
+  store i32 1, ptr %7, align 4, !tbaa !13
+  br label %32
+
+32:                                               ; preds = %50, %49, %44, %31
+  %33 = load ptr, ptr @duckdb_je_background_thread_info, align 8, !tbaa !25
+  %34 = getelementptr inbounds %struct.background_thread_info_s, ptr %33, i64 0
+  %35 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %34, i32 0, i32 3
+  %36 = load i32, ptr %35, align 8, !tbaa !27
+  %37 = icmp ne i32 %36, 0
+  br i1 %37, label %38, label %55
+
+38:                                               ; preds = %32
+  %39 = load ptr, ptr %2, align 8, !tbaa !11
+  %40 = call ptr @tsd_tsdn(ptr noundef %39)
+  %41 = load ptr, ptr @duckdb_je_background_thread_info, align 8, !tbaa !25
+  %42 = getelementptr inbounds %struct.background_thread_info_s, ptr %41, i64 0
+  %43 = call zeroext i1 @background_thread_pause_check(ptr noundef %40, ptr noundef %42)
+  br i1 %43, label %44, label %45
+
+44:                                               ; preds = %38
+  br label %32
+
+45:                                               ; preds = %38
+  %46 = load ptr, ptr %2, align 8, !tbaa !11
+  %47 = load i64, ptr %3, align 8, !tbaa !23
+  %48 = call zeroext i1 @check_background_thread_creation(ptr noundef %46, i64 noundef %47, ptr noundef %7, ptr noundef %18)
+  br i1 %48, label %49, label %50
+
+49:                                               ; preds = %45
+  br label %32
+
+50:                                               ; preds = %45
+  %51 = load ptr, ptr %2, align 8, !tbaa !11
+  %52 = call ptr @tsd_tsdn(ptr noundef %51)
+  %53 = load ptr, ptr @duckdb_je_background_thread_info, align 8, !tbaa !25
+  %54 = getelementptr inbounds %struct.background_thread_info_s, ptr %53, i64 0
+  call void @background_work_sleep_once(ptr noundef %52, ptr noundef %54, i32 noundef 0)
+  br label %32
+
+55:                                               ; preds = %32
+  br label %56
+
+56:                                               ; preds = %55
+  br label %57
+
+57:                                               ; preds = %56
+  br label %58
+
+58:                                               ; preds = %57
+  store i32 1, ptr %6, align 4, !tbaa !13
+  br label %59
+
+59:                                               ; preds = %104, %58
+  %60 = load i32, ptr %6, align 4, !tbaa !13
+  %61 = zext i32 %60 to i64
+  %62 = load i64, ptr %3, align 8, !tbaa !23
+  %63 = icmp ult i64 %61, %62
+  br i1 %63, label %64, label %107
+
+64:                                               ; preds = %59
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #11
+  %65 = load ptr, ptr @duckdb_je_background_thread_info, align 8, !tbaa !25
+  %66 = load i32, ptr %6, align 4, !tbaa !13
+  %67 = zext i32 %66 to i64
+  %68 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %65, i64 %67
+  store ptr %68, ptr %8, align 8, !tbaa !25
+  br label %69
+
+69:                                               ; preds = %64
+  br label %70
+
+70:                                               ; preds = %69
+  br label %71
+
+71:                                               ; preds = %70
+  %72 = load i32, ptr %6, align 4, !tbaa !13
+  %73 = zext i32 %72 to i64
+  %74 = getelementptr inbounds nuw i8, ptr %18, i64 %73
+  %75 = load i8, ptr %74, align 1, !tbaa !15, !range !17, !noundef !18
+  %76 = trunc i8 %75 to i1
+  br i1 %76, label %77, label %81
+
+77:                                               ; preds = %71
+  %78 = load ptr, ptr %2, align 8, !tbaa !11
+  %79 = load ptr, ptr %8, align 8, !tbaa !25
+  %80 = call zeroext i1 @background_threads_disable_single(ptr noundef %78, ptr noundef %79)
+  br label %103
+
+81:                                               ; preds = %71
+  %82 = load ptr, ptr %2, align 8, !tbaa !11
+  %83 = call ptr @tsd_tsdn(ptr noundef %82)
+  %84 = load ptr, ptr %8, align 8, !tbaa !25
+  %85 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %84, i32 0, i32 2
+  call void @malloc_mutex_lock(ptr noundef %83, ptr noundef %85)
+  %86 = load ptr, ptr %8, align 8, !tbaa !25
+  %87 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %86, i32 0, i32 3
+  %88 = load i32, ptr %87, align 8, !tbaa !27
+  %89 = icmp ne i32 %88, 0
+  br i1 %89, label %90, label %98
+
+90:                                               ; preds = %81
+  br label %91
+
+91:                                               ; preds = %90
+  br label %92
+
+92:                                               ; preds = %91
+  br label %93
+
+93:                                               ; preds = %92
+  %94 = load i64, ptr @duckdb_je_n_background_threads, align 8, !tbaa !23
+  %95 = add i64 %94, -1
+  store i64 %95, ptr @duckdb_je_n_background_threads, align 8, !tbaa !23
+  %96 = load ptr, ptr %8, align 8, !tbaa !25
+  %97 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %96, i32 0, i32 3
+  store i32 0, ptr %97, align 8, !tbaa !27
+  br label %98
+
+98:                                               ; preds = %93, %81
+  %99 = load ptr, ptr %2, align 8, !tbaa !11
+  %100 = call ptr @tsd_tsdn(ptr noundef %99)
+  %101 = load ptr, ptr %8, align 8, !tbaa !25
+  %102 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %101, i32 0, i32 2
+  call void @malloc_mutex_unlock(ptr noundef %100, ptr noundef %102)
+  br label %103
+
+103:                                              ; preds = %98, %77
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #11
+  br label %104
+
+104:                                              ; preds = %103
+  %105 = load i32, ptr %6, align 4, !tbaa !13
+  %106 = add i32 %105, 1
+  store i32 %106, ptr %6, align 4, !tbaa !13
+  br label %59
+
+107:                                              ; preds = %59
+  %108 = load ptr, ptr @duckdb_je_background_thread_info, align 8, !tbaa !25
+  %109 = getelementptr inbounds %struct.background_thread_info_s, ptr %108, i64 0
+  %110 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %109, i32 0, i32 3
+  store i32 0, ptr %110, align 8, !tbaa !27
+  br label %111
+
+111:                                              ; preds = %107
+  br label %112
+
+112:                                              ; preds = %111
+  br label %113
+
+113:                                              ; preds = %112
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #11
+  %114 = load ptr, ptr %4, align 8
+  call void @llvm.stackrestore.p0(ptr %114)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #11
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal zeroext i1 @background_thread_pause_check(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i1, align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !19
+  store ptr %1, ptr %5, align 8, !tbaa !25
+  %6 = load ptr, ptr %5, align 8, !tbaa !25
+  %7 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %6, i32 0, i32 3
+  %8 = load i32, ptr %7, align 8, !tbaa !27
+  %9 = icmp eq i32 %8, 2
+  %10 = xor i1 %9, true
+  %11 = xor i1 %10, true
+  %12 = zext i1 %11 to i32
+  %13 = sext i32 %12 to i64
+  %14 = call i64 @llvm.expect.i64(i64 %13, i64 0)
+  %15 = icmp ne i64 %14, 0
+  br i1 %15, label %16, label %25
+
+16:                                               ; preds = %2
+  %17 = load ptr, ptr %4, align 8, !tbaa !19
+  %18 = load ptr, ptr %5, align 8, !tbaa !25
+  %19 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %18, i32 0, i32 2
+  call void @malloc_mutex_unlock(ptr noundef %17, ptr noundef %19)
+  %20 = load ptr, ptr %4, align 8, !tbaa !19
+  call void @malloc_mutex_lock(ptr noundef %20, ptr noundef @duckdb_je_background_thread_lock)
+  %21 = load ptr, ptr %4, align 8, !tbaa !19
+  call void @malloc_mutex_unlock(ptr noundef %21, ptr noundef @duckdb_je_background_thread_lock)
+  %22 = load ptr, ptr %4, align 8, !tbaa !19
+  %23 = load ptr, ptr %5, align 8, !tbaa !25
+  %24 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %23, i32 0, i32 2
+  call void @malloc_mutex_lock(ptr noundef %22, ptr noundef %24)
+  store i1 true, ptr %3, align 1
+  br label %26
+
+25:                                               ; preds = %2
+  store i1 false, ptr %3, align 1
+  br label %26
+
+26:                                               ; preds = %25, %16
+  %27 = load i1, ptr %3, align 1
+  ret i1 %27
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @background_work_sleep_once(ptr noundef %0, ptr noundef %1, i32 noundef %2) #2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i64, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i8, align 1
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca ptr, align 8
+  %13 = alloca i64, align 8
+  %14 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !19
+  store ptr %1, ptr %5, align 8, !tbaa !25
+  store i32 %2, ptr %6, align 4, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #11
+  store i64 -1, ptr %7, align 8, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #11
+  %15 = call i32 @duckdb_je_narenas_total_get()
+  store i32 %15, ptr %8, align 4, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #11
+  %16 = load ptr, ptr %5, align 8, !tbaa !25
+  %17 = call zeroext i1 @background_thread_indefinite_sleep(ptr noundef %16)
+  %18 = zext i1 %17 to i8
+  store i8 %18, ptr %9, align 1, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #11
+  %19 = load i32, ptr %6, align 4, !tbaa !13
+  store i32 %19, ptr %10, align 4, !tbaa !13
+  br label %20
+
+20:                                               ; preds = %56, %3
+  %21 = load i32, ptr %10, align 4, !tbaa !13
+  %22 = load i32, ptr %8, align 4, !tbaa !13
+  %23 = icmp ult i32 %21, %22
+  br i1 %23, label %25, label %24
+
+24:                                               ; preds = %20
+  store i32 2, ptr %11, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #11
+  br label %62
+
+25:                                               ; preds = %20
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #11
+  %26 = load ptr, ptr %4, align 8, !tbaa !19
+  %27 = load i32, ptr %10, align 4, !tbaa !13
+  %28 = call ptr @arena_get(ptr noundef %26, i32 noundef %27, i1 noundef zeroext false)
+  store ptr %28, ptr %12, align 8, !tbaa !32
+  %29 = load ptr, ptr %12, align 8, !tbaa !32
+  %30 = icmp ne ptr %29, null
+  br i1 %30, label %32, label %31
+
+31:                                               ; preds = %25
+  store i32 4, ptr %11, align 4
+  br label %53
+
+32:                                               ; preds = %25
+  %33 = load i8, ptr %9, align 1, !tbaa !15, !range !17, !noundef !18
+  %34 = trunc i8 %33 to i1
+  br i1 %34, label %38, label %35
+
+35:                                               ; preds = %32
+  %36 = load ptr, ptr %4, align 8, !tbaa !19
+  %37 = load ptr, ptr %12, align 8, !tbaa !32
+  call void @duckdb_je_arena_do_deferred_work(ptr noundef %36, ptr noundef %37)
+  br label %38
+
+38:                                               ; preds = %35, %32
+  %39 = load i64, ptr %7, align 8, !tbaa !23
+  %40 = icmp ule i64 %39, 100000000
+  br i1 %40, label %41, label %42
+
+41:                                               ; preds = %38
+  store i32 4, ptr %11, align 4
+  br label %53
+
+42:                                               ; preds = %38
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #11
+  %43 = load ptr, ptr %4, align 8, !tbaa !19
+  %44 = load ptr, ptr %12, align 8, !tbaa !32
+  %45 = getelementptr inbounds nuw %struct.arena_s, ptr %44, i32 0, i32 10
+  %46 = call i64 @duckdb_je_pa_shard_time_until_deferred_work(ptr noundef %43, ptr noundef %45)
+  store i64 %46, ptr %13, align 8, !tbaa !23
+  %47 = load i64, ptr %13, align 8, !tbaa !23
+  %48 = load i64, ptr %7, align 8, !tbaa !23
+  %49 = icmp ult i64 %47, %48
+  br i1 %49, label %50, label %52
+
+50:                                               ; preds = %42
+  %51 = load i64, ptr %13, align 8, !tbaa !23
+  store i64 %51, ptr %7, align 8, !tbaa !23
+  br label %52
+
+52:                                               ; preds = %50, %42
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #11
+  store i32 0, ptr %11, align 4
+  br label %53
+
+53:                                               ; preds = %52, %41, %31
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #11
+  %54 = load i32, ptr %11, align 4
+  switch i32 %54, label %78 [
+    i32 0, label %55
+    i32 4, label %56
+  ]
+
+55:                                               ; preds = %53
+  br label %56
+
+56:                                               ; preds = %55, %53
+  %57 = load i64, ptr @duckdb_je_max_background_threads, align 8, !tbaa !23
+  %58 = load i32, ptr %10, align 4, !tbaa !13
+  %59 = zext i32 %58 to i64
+  %60 = add i64 %59, %57
+  %61 = trunc i64 %60 to i32
+  store i32 %61, ptr %10, align 4, !tbaa !13
+  br label %20
+
+62:                                               ; preds = %24
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #11
+  %63 = load i64, ptr %7, align 8, !tbaa !23
+  %64 = icmp eq i64 %63, -1
+  br i1 %64, label %65, label %66
+
+65:                                               ; preds = %62
+  store i64 -1, ptr %14, align 8, !tbaa !23
+  br label %74
+
+66:                                               ; preds = %62
+  %67 = load i64, ptr %7, align 8, !tbaa !23
+  %68 = icmp ult i64 %67, 100000000
+  br i1 %68, label %69, label %70
+
+69:                                               ; preds = %66
+  br label %72
+
+70:                                               ; preds = %66
+  %71 = load i64, ptr %7, align 8, !tbaa !23
+  br label %72
+
+72:                                               ; preds = %70, %69
+  %73 = phi i64 [ 100000000, %69 ], [ %71, %70 ]
+  store i64 %73, ptr %14, align 8, !tbaa !23
+  br label %74
+
+74:                                               ; preds = %72, %65
+  %75 = load ptr, ptr %4, align 8, !tbaa !19
+  %76 = load ptr, ptr %5, align 8, !tbaa !25
+  %77 = load i64, ptr %14, align 8, !tbaa !23
+  call void @background_thread_sleep(ptr noundef %75, ptr noundef %76, i64 noundef %77)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #11
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #11
+  ret void
+
+78:                                               ; preds = %53
+  unreachable
+}
+
+declare void @duckdb_je_nstime_init(ptr noundef, i64 noundef) #5
+
+; Function Attrs: nounwind uwtable
+define internal zeroext i1 @check_background_thread_creation(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+  %5 = alloca i1, align 1
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i8, align 1
+  %11 = alloca i32, align 4
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  %14 = alloca ptr, align 8
+  %15 = alloca i8, align 1
+  %16 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !11
+  store i64 %1, ptr %7, align 8, !tbaa !23
+  store ptr %2, ptr %8, align 8, !tbaa !57
+  store ptr %3, ptr %9, align 8, !tbaa !59
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #11
+  store i8 0, ptr %10, align 1, !tbaa !15
+  %17 = load ptr, ptr %8, align 8, !tbaa !57
+  %18 = load i32, ptr %17, align 4, !tbaa !13
+  %19 = zext i32 %18 to i64
+  %20 = load i64, ptr @duckdb_je_n_background_threads, align 8, !tbaa !23
+  %21 = icmp eq i64 %19, %20
+  %22 = xor i1 %21, true
+  %23 = xor i1 %22, true
+  %24 = zext i1 %23 to i32
+  %25 = sext i32 %24 to i64
+  %26 = call i64 @llvm.expect.i64(i64 %25, i64 1)
+  %27 = icmp ne i64 %26, 0
+  br i1 %27, label %28, label %31
+
+28:                                               ; preds = %4
+  %29 = load i8, ptr %10, align 1, !tbaa !15, !range !17, !noundef !18
+  %30 = trunc i8 %29 to i1
+  store i1 %30, ptr %5, align 1
+  store i32 1, ptr %11, align 4
+  br label %110
+
+31:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #11
+  %32 = load ptr, ptr %6, align 8, !tbaa !11
+  %33 = call ptr @tsd_tsdn(ptr noundef %32)
+  store ptr %33, ptr %12, align 8, !tbaa !19
+  %34 = load ptr, ptr %12, align 8, !tbaa !19
+  %35 = load ptr, ptr @duckdb_je_background_thread_info, align 8, !tbaa !25
+  %36 = getelementptr inbounds %struct.background_thread_info_s, ptr %35, i64 0
+  %37 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %36, i32 0, i32 2
+  call void @malloc_mutex_unlock(ptr noundef %34, ptr noundef %37)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #11
+  store i32 1, ptr %13, align 4, !tbaa !13
+  br label %38
+
+38:                                               ; preds = %99, %31
+  %39 = load i32, ptr %13, align 4, !tbaa !13
+  %40 = zext i32 %39 to i64
+  %41 = load i64, ptr %7, align 8, !tbaa !23
+  %42 = icmp ult i64 %40, %41
+  br i1 %42, label %44, label %43
+
+43:                                               ; preds = %38
+  store i32 2, ptr %11, align 4
+  br label %102
+
+44:                                               ; preds = %38
+  %45 = load ptr, ptr %9, align 8, !tbaa !59
+  %46 = load i32, ptr %13, align 4, !tbaa !13
+  %47 = zext i32 %46 to i64
+  %48 = getelementptr inbounds nuw i8, ptr %45, i64 %47
+  %49 = load i8, ptr %48, align 1, !tbaa !15, !range !17, !noundef !18
+  %50 = trunc i8 %49 to i1
+  br i1 %50, label %51, label %52
+
+51:                                               ; preds = %44
+  br label %99
+
+52:                                               ; preds = %44
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #11
+  %53 = load ptr, ptr @duckdb_je_background_thread_info, align 8, !tbaa !25
+  %54 = load i32, ptr %13, align 4, !tbaa !13
+  %55 = zext i32 %54 to i64
+  %56 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %53, i64 %55
+  store ptr %56, ptr %14, align 8, !tbaa !25
+  %57 = load ptr, ptr %12, align 8, !tbaa !19
+  %58 = load ptr, ptr %14, align 8, !tbaa !25
+  %59 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %58, i32 0, i32 2
+  call void @malloc_mutex_lock(ptr noundef %57, ptr noundef %59)
+  call void @llvm.lifetime.start.p0(i64 1, ptr %15) #11
+  %60 = load ptr, ptr %14, align 8, !tbaa !25
+  %61 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %60, i32 0, i32 3
+  %62 = load i32, ptr %61, align 8, !tbaa !27
+  %63 = icmp eq i32 %62, 1
+  %64 = zext i1 %63 to i8
+  store i8 %64, ptr %15, align 1, !tbaa !15
+  %65 = load ptr, ptr %12, align 8, !tbaa !19
+  %66 = load ptr, ptr %14, align 8, !tbaa !25
+  %67 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %66, i32 0, i32 2
+  call void @malloc_mutex_unlock(ptr noundef %65, ptr noundef %67)
+  %68 = load i8, ptr %15, align 1, !tbaa !15, !range !17, !noundef !18
+  %69 = trunc i8 %68 to i1
+  br i1 %69, label %71, label %70
+
+70:                                               ; preds = %52
+  store i32 4, ptr %11, align 4
+  br label %97
+
+71:                                               ; preds = %52
+  %72 = load ptr, ptr %6, align 8, !tbaa !11
+  call void @pre_reentrancy(ptr noundef %72, ptr noundef null)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #11
+  %73 = load ptr, ptr %14, align 8, !tbaa !25
+  %74 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %73, i32 0, i32 0
+  %75 = load i32, ptr %13, align 4, !tbaa !13
+  %76 = zext i32 %75 to i64
+  %77 = inttoptr i64 %76 to ptr
+  %78 = call i32 @background_thread_create_signals_masked(ptr noundef %74, ptr noundef null, ptr noundef @background_thread_entry, ptr noundef %77)
+  store i32 %78, ptr %16, align 4, !tbaa !13
+  %79 = load ptr, ptr %6, align 8, !tbaa !11
+  call void @post_reentrancy(ptr noundef %79)
+  %80 = load i32, ptr %16, align 4, !tbaa !13
+  %81 = icmp eq i32 %80, 0
+  br i1 %81, label %82, label %90
+
+82:                                               ; preds = %71
+  %83 = load ptr, ptr %8, align 8, !tbaa !57
+  %84 = load i32, ptr %83, align 4, !tbaa !13
+  %85 = add i32 %84, 1
+  store i32 %85, ptr %83, align 4, !tbaa !13
+  %86 = load ptr, ptr %9, align 8, !tbaa !59
+  %87 = load i32, ptr %13, align 4, !tbaa !13
+  %88 = zext i32 %87 to i64
+  %89 = getelementptr inbounds nuw i8, ptr %86, i64 %88
+  store i8 1, ptr %89, align 1, !tbaa !15
+  br label %96
+
+90:                                               ; preds = %71
+  %91 = load i32, ptr %16, align 4, !tbaa !13
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef @.str.4, i32 noundef %91)
+  %92 = load i8, ptr @duckdb_je_opt_abort, align 1, !tbaa !15, !range !17, !noundef !18
+  %93 = trunc i8 %92 to i1
+  br i1 %93, label %94, label %95
+
+94:                                               ; preds = %90
+  call void @abort() #12
+  unreachable
+
+95:                                               ; preds = %90
+  br label %96
+
+96:                                               ; preds = %95, %82
+  store i8 1, ptr %10, align 1, !tbaa !15
+  store i32 2, ptr %11, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #11
+  br label %97
+
+97:                                               ; preds = %96, %70
+  call void @llvm.lifetime.end.p0(i64 1, ptr %15) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #11
+  %98 = load i32, ptr %11, align 4
+  switch i32 %98, label %102 [
+    i32 4, label %99
+  ]
+
+99:                                               ; preds = %97, %51
+  %100 = load i32, ptr %13, align 4, !tbaa !13
+  %101 = add i32 %100, 1
+  store i32 %101, ptr %13, align 4, !tbaa !13
+  br label %38
+
+102:                                              ; preds = %97, %43
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #11
+  br label %103
+
+103:                                              ; preds = %102
+  %104 = load ptr, ptr %12, align 8, !tbaa !19
+  %105 = load ptr, ptr @duckdb_je_background_thread_info, align 8, !tbaa !25
+  %106 = getelementptr inbounds %struct.background_thread_info_s, ptr %105, i64 0
+  %107 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %106, i32 0, i32 2
+  call void @malloc_mutex_lock(ptr noundef %104, ptr noundef %107)
+  %108 = load i8, ptr %10, align 1, !tbaa !15, !range !17, !noundef !18
+  %109 = trunc i8 %108 to i1
+  store i1 %109, ptr %5, align 1
+  store i32 1, ptr %11, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #11
+  br label %110
+
+110:                                              ; preds = %103, %28
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #11
+  %111 = load i1, ptr %5, align 1
+  ret i1 %111
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
+declare i64 @llvm.expect.i64(i64, i64) #9
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal zeroext i1 @background_thread_indefinite_sleep(ptr noundef %0) #3 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !25
+  %3 = load ptr, ptr %2, align 8, !tbaa !25
+  %4 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %3, i32 0, i32 4
+  %5 = call zeroext i1 @atomic_load_b(ptr noundef %4, i32 noundef 1)
+  ret i1 %5
+}
+
+declare void @duckdb_je_arena_do_deferred_work(ptr noundef, ptr noundef) #5
+
+declare i64 @duckdb_je_pa_shard_time_until_deferred_work(ptr noundef, ptr noundef) #5
+
+; Function Attrs: nounwind uwtable
+define internal void @background_thread_sleep(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca %struct.timeval, align 8
+  %8 = alloca %struct.nstime_t, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca %struct.nstime_t, align 8
+  %11 = alloca %struct.nstime_t, align 8
+  %12 = alloca %struct.timespec, align 8
+  %13 = alloca %struct.nstime_t, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !19
+  store ptr %1, ptr %5, align 8, !tbaa !25
+  store i64 %2, ptr %6, align 8, !tbaa !23
+  %14 = load ptr, ptr %5, align 8, !tbaa !25
+  %15 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %14, i32 0, i32 7
+  %16 = load i64, ptr %15, align 8, !tbaa !36
+  %17 = add i64 %16, 1
+  store i64 %17, ptr %15, align 8, !tbaa !36
+  %18 = load ptr, ptr %5, align 8, !tbaa !25
+  %19 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %18, i32 0, i32 6
+  store i64 0, ptr %19, align 8, !tbaa !35
+  call void @llvm.lifetime.start.p0(i64 16, ptr %7) #11
+  %20 = call i32 @gettimeofday(ptr noundef %7, ptr noundef null) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #11
+  %21 = getelementptr inbounds nuw %struct.timeval, ptr %7, i32 0, i32 0
+  %22 = load i64, ptr %21, align 8, !tbaa !61
+  %23 = getelementptr inbounds nuw %struct.timeval, ptr %7, i32 0, i32 1
+  %24 = load i64, ptr %23, align 8, !tbaa !63
+  %25 = mul nsw i64 %24, 1000
+  call void @duckdb_je_nstime_init2(ptr noundef %8, i64 noundef %22, i64 noundef %25)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #11
+  %26 = load i64, ptr %6, align 8, !tbaa !23
+  %27 = icmp eq i64 %26, -1
+  br i1 %27, label %28, label %41
+
+28:                                               ; preds = %3
+  %29 = load ptr, ptr %4, align 8, !tbaa !19
+  %30 = load ptr, ptr %5, align 8, !tbaa !25
+  call void @background_thread_wakeup_time_set(ptr noundef %29, ptr noundef %30, i64 noundef -1)
+  %31 = load ptr, ptr %5, align 8, !tbaa !25
+  %32 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %31, i32 0, i32 1
+  %33 = load ptr, ptr %5, align 8, !tbaa !25
+  %34 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %33, i32 0, i32 2
+  %35 = getelementptr inbounds nuw %struct.malloc_mutex_s, ptr %34, i32 0, i32 0
+  %36 = getelementptr inbounds nuw %struct.anon, ptr %35, i32 0, i32 2
+  %37 = call i32 @pthread_cond_wait(ptr noundef %32, ptr noundef %36)
+  store i32 %37, ptr %9, align 4, !tbaa !13
+  br label %38
+
+38:                                               ; preds = %28
+  br label %39
+
+39:                                               ; preds = %38
+  br label %40
+
+40:                                               ; preds = %39
+  br label %70
+
+41:                                               ; preds = %3
+  br label %42
+
+42:                                               ; preds = %41
+  br label %43
+
+43:                                               ; preds = %42
+  br label %44
+
+44:                                               ; preds = %43
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #11
+  call void @duckdb_je_nstime_init_update(ptr noundef %10)
+  %45 = load i64, ptr %6, align 8, !tbaa !23
+  call void @duckdb_je_nstime_iadd(ptr noundef %10, i64 noundef %45)
+  br label %46
+
+46:                                               ; preds = %44
+  br label %47
+
+47:                                               ; preds = %46
+  br label %48
+
+48:                                               ; preds = %47
+  %49 = load ptr, ptr %4, align 8, !tbaa !19
+  %50 = load ptr, ptr %5, align 8, !tbaa !25
+  %51 = call i64 @duckdb_je_nstime_ns(ptr noundef %10)
+  call void @background_thread_wakeup_time_set(ptr noundef %49, ptr noundef %50, i64 noundef %51)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #11
+  call void @duckdb_je_nstime_copy(ptr noundef %11, ptr noundef %8)
+  %52 = load i64, ptr %6, align 8, !tbaa !23
+  call void @duckdb_je_nstime_iadd(ptr noundef %11, i64 noundef %52)
+  call void @llvm.lifetime.start.p0(i64 16, ptr %12) #11
+  %53 = call i64 @duckdb_je_nstime_sec(ptr noundef %11)
+  %54 = getelementptr inbounds nuw %struct.timespec, ptr %12, i32 0, i32 0
+  store i64 %53, ptr %54, align 8, !tbaa !64
+  %55 = call i64 @duckdb_je_nstime_nsec(ptr noundef %11)
+  %56 = getelementptr inbounds nuw %struct.timespec, ptr %12, i32 0, i32 1
+  store i64 %55, ptr %56, align 8, !tbaa !66
+  br label %57
+
+57:                                               ; preds = %48
+  br label %58
+
+58:                                               ; preds = %57
+  br label %59
+
+59:                                               ; preds = %58
+  %60 = load ptr, ptr %5, align 8, !tbaa !25
+  %61 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %60, i32 0, i32 1
+  %62 = load ptr, ptr %5, align 8, !tbaa !25
+  %63 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %62, i32 0, i32 2
+  %64 = getelementptr inbounds nuw %struct.malloc_mutex_s, ptr %63, i32 0, i32 0
+  %65 = getelementptr inbounds nuw %struct.anon, ptr %64, i32 0, i32 2
+  %66 = call i32 @pthread_cond_timedwait(ptr noundef %61, ptr noundef %65, ptr noundef %12)
+  store i32 %66, ptr %9, align 4, !tbaa !13
+  br label %67
+
+67:                                               ; preds = %59
+  br label %68
+
+68:                                               ; preds = %67
+  br label %69
+
+69:                                               ; preds = %68
+  call void @llvm.lifetime.end.p0(i64 16, ptr %12) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #11
+  br label %70
+
+70:                                               ; preds = %69, %40
+  %71 = call i32 @gettimeofday(ptr noundef %7, ptr noundef null) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #11
+  %72 = getelementptr inbounds nuw %struct.timeval, ptr %7, i32 0, i32 0
+  %73 = load i64, ptr %72, align 8, !tbaa !61
+  %74 = getelementptr inbounds nuw %struct.timeval, ptr %7, i32 0, i32 1
+  %75 = load i64, ptr %74, align 8, !tbaa !63
+  %76 = mul nsw i64 %75, 1000
+  call void @duckdb_je_nstime_init2(ptr noundef %13, i64 noundef %73, i64 noundef %76)
+  %77 = call i32 @duckdb_je_nstime_compare(ptr noundef %13, ptr noundef %8)
+  %78 = icmp sgt i32 %77, 0
+  br i1 %78, label %79, label %82
+
+79:                                               ; preds = %70
+  call void @duckdb_je_nstime_subtract(ptr noundef %13, ptr noundef %8)
+  %80 = load ptr, ptr %5, align 8, !tbaa !25
+  %81 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %80, i32 0, i32 8
+  call void @duckdb_je_nstime_add(ptr noundef %81, ptr noundef %13)
+  br label %82
+
+82:                                               ; preds = %79, %70
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #11
+  ret void
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal zeroext i1 @atomic_load_b(ptr noundef %0, i32 noundef %1) #3 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i8, align 1
+  store ptr %0, ptr %3, align 8, !tbaa !10
+  store i32 %1, ptr %4, align 4, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 1, ptr %5) #11
+  %6 = load ptr, ptr %3, align 8, !tbaa !10
+  %7 = getelementptr inbounds nuw %struct.atomic_b_t, ptr %6, i32 0, i32 0
+  %8 = load i32, ptr %4, align 4, !tbaa !13
+  %9 = call i32 @atomic_enum_to_builtin(i32 noundef %8)
+  switch i32 %9, label %10 [
+    i32 1, label %12
+    i32 2, label %12
+    i32 5, label %14
+  ]
+
+10:                                               ; preds = %2
+  %11 = load atomic i8, ptr %7 monotonic, align 1
+  store i8 %11, ptr %5, align 1
+  br label %16
+
+12:                                               ; preds = %2, %2
+  %13 = load atomic i8, ptr %7 acquire, align 1
+  store i8 %13, ptr %5, align 1
+  br label %16
+
+14:                                               ; preds = %2
+  %15 = load atomic i8, ptr %7 seq_cst, align 1
+  store i8 %15, ptr %5, align 1
+  br label %16
+
+16:                                               ; preds = %14, %12, %10
+  %17 = load i8, ptr %5, align 1, !tbaa !15, !range !17, !noundef !18
+  %18 = trunc i8 %17 to i1
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #11
+  ret i1 %18
+}
+
+; Function Attrs: nounwind
+declare i32 @gettimeofday(ptr noundef, ptr noundef) #6
+
+declare void @duckdb_je_nstime_init2(ptr noundef, i64 noundef, i64 noundef) #5
+
+declare i32 @pthread_cond_wait(ptr noundef, ptr noundef) #5
+
+declare void @duckdb_je_nstime_init_update(ptr noundef) #5
+
+declare void @duckdb_je_nstime_iadd(ptr noundef, i64 noundef) #5
+
+declare void @duckdb_je_nstime_copy(ptr noundef, ptr noundef) #5
+
+declare i64 @duckdb_je_nstime_sec(ptr noundef) #5
+
+declare i64 @duckdb_je_nstime_nsec(ptr noundef) #5
+
+declare i32 @pthread_cond_timedwait(ptr noundef, ptr noundef, ptr noundef) #5
+
+declare i32 @duckdb_je_nstime_compare(ptr noundef, ptr noundef) #5
+
+declare void @duckdb_je_nstime_subtract(ptr noundef, ptr noundef) #5
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal ptr @tsd_fetch_min() #3 {
+  %1 = call ptr @tsd_fetch_impl(i1 noundef zeroext true, i1 noundef zeroext true)
+  ret ptr %1
+}
+
+declare void @duckdb_je_tsd_state_set(ptr noundef, i8 noundef zeroext) #5
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal ptr @tsd_fetch_impl(i1 noundef zeroext %0, i1 noundef zeroext %1) #3 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i8, align 1
+  %5 = alloca i8, align 1
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = zext i1 %0 to i8
+  store i8 %8, ptr %4, align 1, !tbaa !15
+  %9 = zext i1 %1 to i8
+  store i8 %9, ptr %5, align 1, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #11
+  %10 = load i8, ptr %4, align 1, !tbaa !15, !range !17, !noundef !18
+  %11 = trunc i8 %10 to i1
+  %12 = call ptr @tsd_get(i1 noundef zeroext %11)
+  store ptr %12, ptr %6, align 8, !tbaa !11
+  %13 = load i8, ptr %4, align 1, !tbaa !15, !range !17, !noundef !18
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %21, label %15
+
+15:                                               ; preds = %2
+  %16 = call zeroext i1 @tsd_get_allocates()
+  br i1 %16, label %17, label %21
+
+17:                                               ; preds = %15
+  %18 = load ptr, ptr %6, align 8, !tbaa !11
+  %19 = icmp eq ptr %18, null
+  br i1 %19, label %20, label %21
+
+20:                                               ; preds = %17
+  store ptr null, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %46
+
+21:                                               ; preds = %17, %15, %2
+  br label %22
+
+22:                                               ; preds = %21
+  br label %23
+
+23:                                               ; preds = %22
+  br label %24
+
+24:                                               ; preds = %23
+  %25 = load ptr, ptr %6, align 8, !tbaa !11
+  %26 = call zeroext i8 @tsd_state_get(ptr noundef %25)
+  %27 = zext i8 %26 to i32
+  %28 = icmp ne i32 %27, 0
+  %29 = xor i1 %28, true
+  %30 = xor i1 %29, true
+  %31 = zext i1 %30 to i32
+  %32 = sext i32 %31 to i64
+  %33 = call i64 @llvm.expect.i64(i64 %32, i64 0)
+  %34 = icmp ne i64 %33, 0
+  br i1 %34, label %35, label %40
+
+35:                                               ; preds = %24
+  %36 = load ptr, ptr %6, align 8, !tbaa !11
+  %37 = load i8, ptr %5, align 1, !tbaa !15, !range !17, !noundef !18
+  %38 = trunc i8 %37 to i1
+  %39 = call ptr @duckdb_je_tsd_fetch_slow(ptr noundef %36, i1 noundef zeroext %38)
+  store ptr %39, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %46
+
+40:                                               ; preds = %24
+  br label %41
+
+41:                                               ; preds = %40
+  br label %42
+
+42:                                               ; preds = %41
+  br label %43
+
+43:                                               ; preds = %42
+  %44 = load ptr, ptr %6, align 8, !tbaa !11
+  call void @tsd_assert_fast(ptr noundef %44)
+  %45 = load ptr, ptr %6, align 8, !tbaa !11
+  store ptr %45, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %46
+
+46:                                               ; preds = %43, %35, %20
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #11
+  %47 = load ptr, ptr %3, align 8
+  ret ptr %47
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal ptr @tsd_get(i1 noundef zeroext %0) #3 {
+  %2 = alloca i8, align 1
+  %3 = zext i1 %0 to i8
+  store i8 %3, ptr %2, align 1, !tbaa !15
+  %4 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @duckdb_je_tsd_tls)
+  ret ptr %4
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal zeroext i1 @tsd_get_allocates() #3 {
+  ret i1 false
+}
+
+declare ptr @duckdb_je_tsd_fetch_slow(ptr noundef, i1 noundef zeroext) #5
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #10
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @tsd_post_reentrancy_raw(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #11
+  %4 = load ptr, ptr %2, align 8, !tbaa !11
+  %5 = call ptr @tsd_reentrancy_levelp_get(ptr noundef %4)
+  store ptr %5, ptr %3, align 8, !tbaa !67
+  br label %6
+
+6:                                                ; preds = %1
+  br label %7
+
+7:                                                ; preds = %6
+  br label %8
+
+8:                                                ; preds = %7
+  %9 = load ptr, ptr %3, align 8, !tbaa !67
+  %10 = load i8, ptr %9, align 1, !tbaa !56
+  %11 = add i8 %10, -1
+  store i8 %11, ptr %9, align 1, !tbaa !56
+  %12 = sext i8 %11 to i32
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %14, label %16
+
+14:                                               ; preds = %8
+  %15 = load ptr, ptr %2, align 8, !tbaa !11
+  call void @duckdb_je_tsd_slow_update(ptr noundef %15)
+  br label %16
+
+16:                                               ; preds = %14, %8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #11
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @witness_unlock(ptr noundef %0, ptr noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !51
+  store ptr %1, ptr %4, align 8, !tbaa !53
+  ret void
+}
+
+; Function Attrs: nounwind
+declare i32 @pthread_mutex_unlock(ptr noundef) #6
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @witness_assert_owner(ptr noundef %0, ptr noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !51
+  store ptr %1, ptr %4, align 8, !tbaa !53
+  ret void
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal ptr @atomic_load_p(ptr noundef %0, i32 noundef %1) #3 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !10
+  store i32 %1, ptr %4, align 4, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #11
+  %6 = load ptr, ptr %3, align 8, !tbaa !10
+  %7 = getelementptr inbounds nuw %struct.atomic_p_t, ptr %6, i32 0, i32 0
+  %8 = load i32, ptr %4, align 4, !tbaa !13
+  %9 = call i32 @atomic_enum_to_builtin(i32 noundef %8)
+  switch i32 %9, label %10 [
+    i32 1, label %12
+    i32 2, label %12
+    i32 5, label %14
+  ]
+
+10:                                               ; preds = %2
+  %11 = load atomic i64, ptr %7 monotonic, align 8
+  store i64 %11, ptr %5, align 8
+  br label %16
+
+12:                                               ; preds = %2, %2
+  %13 = load atomic i64, ptr %7 acquire, align 8
+  store i64 %13, ptr %5, align 8
+  br label %16
+
+14:                                               ; preds = %2
+  %15 = load atomic i64, ptr %7 seq_cst, align 8
+  store i64 %15, ptr %5, align 8
+  br label %16
+
+16:                                               ; preds = %14, %12, %10
+  %17 = load ptr, ptr %5, align 8, !tbaa !10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #11
+  ret ptr %17
+}
+
+declare ptr @duckdb_je_arena_init(ptr noundef, i32 noundef, ptr noundef) #5
+
+declare i32 @pthread_join(i64 noundef, ptr noundef) #5
+
+; Function Attrs: nounwind
+declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #6
+
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { alwaysinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nosync nounwind willreturn }
+attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nounwind }
+attributes #12 = { noreturn nounwind }
+
+!llvm.module.flags = !{!0, !1, !2}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 8, !"PIC Level", i32 2}
+!2 = !{i32 7, !"uwtable", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 long", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"p1 _ZTS14pthread_attr_t", !5, i64 0}
+!10 = !{!5, !5, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"p1 _ZTS5tsd_s", !5, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"int", !6, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"_Bool", !6, i64 0}
+!17 = !{i8 0, i8 2}
+!18 = !{}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"p1 _ZTS6tsdn_s", !5, i64 0}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"p1 _ZTS14malloc_mutex_s", !5, i64 0}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"long", !6, i64 0}
+!25 = !{!26, !26, i64 0}
+!26 = !{!"p1 _ZTS24background_thread_info_s", !5, i64 0}
+!27 = !{!28, !14, i64 168}
+!28 = !{!"background_thread_info_s", !24, i64 0, !6, i64 8, !29, i64 56, !14, i64 168, !30, i64 172, !31, i64 176, !24, i64 184, !24, i64 192, !31, i64 200}
+!29 = !{!"malloc_mutex_s", !6, i64 0}
+!30 = !{!"", !16, i64 0}
+!31 = !{!"", !24, i64 0}
+!32 = !{!33, !33, i64 0}
+!33 = !{!"p1 _ZTS7arena_s", !5, i64 0}
+!34 = !{!28, !24, i64 0}
+!35 = !{!28, !24, i64 184}
+!36 = !{!28, !24, i64 192}
+!37 = !{!38, !38, i64 0}
+!38 = !{!"p1 _ZTS25background_thread_stats_s", !5, i64 0}
+!39 = !{!40, !24, i64 0}
+!40 = !{!"background_thread_stats_s", !24, i64 0, !24, i64 8, !31, i64 16, !41, i64 24}
+!41 = !{!"", !31, i64 0, !31, i64 8, !24, i64 16, !24, i64 24, !14, i64 32, !42, i64 36, !24, i64 40, !20, i64 48, !24, i64 56}
+!42 = !{!"", !14, i64 0}
+!43 = !{!40, !24, i64 8}
+!44 = !{!41, !24, i64 16}
+!45 = !{!41, !24, i64 24}
+!46 = !{!41, !14, i64 32}
+!47 = !{!41, !24, i64 40}
+!48 = !{!41, !24, i64 56}
+!49 = !{!50, !50, i64 0}
+!50 = !{!"p1 _ZTS6base_s", !5, i64 0}
+!51 = !{!52, !52, i64 0}
+!52 = !{!"p1 _ZTS14witness_tsdn_s", !5, i64 0}
+!53 = !{!54, !54, i64 0}
+!54 = !{!"p1 _ZTS9witness_s", !5, i64 0}
+!55 = !{!41, !20, i64 48}
+!56 = !{!6, !6, i64 0}
+!57 = !{!58, !58, i64 0}
+!58 = !{!"p1 int", !5, i64 0}
+!59 = !{!60, !60, i64 0}
+!60 = !{!"p1 _Bool", !5, i64 0}
+!61 = !{!62, !24, i64 0}
+!62 = !{!"timeval", !24, i64 0, !24, i64 8}
+!63 = !{!62, !24, i64 8}
+!64 = !{!65, !24, i64 0}
+!65 = !{!"timespec", !24, i64 0, !24, i64 8}
+!66 = !{!65, !24, i64 8}
+!67 = !{!68, !68, i64 0}
+!68 = !{!"p1 omnipotent char", !5, i64 0}

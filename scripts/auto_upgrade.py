@@ -81,6 +81,7 @@ supported_project = [
     "cxxopts",
     "double_conversion",
     "draco",
+    "duckdb",
 ]
 
 modify_only = [

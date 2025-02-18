@@ -1,0 +1,17729 @@
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-pc-linux-gnu"
+
+%"class.duckdb::AggregateFunction" = type { %"class.duckdb::BaseScalarFunction.base", ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8, i8, %"class.duckdb::shared_ptr.3" }
+%"class.duckdb::BaseScalarFunction.base" = type <{ %"class.duckdb::SimpleFunction", %"struct.duckdb::LogicalType", i8, i8, i8, i8 }>
+%"class.duckdb::SimpleFunction" = type { %"class.duckdb::Function", %"class.duckdb::vector", %"class.duckdb::vector", %"struct.duckdb::LogicalType" }
+%"class.duckdb::Function" = type { ptr, %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
+%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
+%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
+%union.anon = type { i64, [8 x i8] }
+%"class.duckdb::vector" = type { %"class.std::vector" }
+%"class.std::vector" = type { %"struct.std::_Vector_base" }
+%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<duckdb::LogicalType, std::allocator<duckdb::LogicalType>>::_Vector_impl" }
+%"struct.std::_Vector_base<duckdb::LogicalType, std::allocator<duckdb::LogicalType>>::_Vector_impl" = type { %"struct.std::_Vector_base<duckdb::LogicalType, std::allocator<duckdb::LogicalType>>::_Vector_impl_data" }
+%"struct.std::_Vector_base<duckdb::LogicalType, std::allocator<duckdb::LogicalType>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%"struct.duckdb::LogicalType" = type { i8, i8, %"class.duckdb::shared_ptr" }
+%"class.duckdb::shared_ptr" = type { %"class.std::shared_ptr" }
+%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
+%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
+%"class.std::__shared_count" = type { ptr }
+%"class.duckdb::shared_ptr.3" = type { %"class.std::shared_ptr.4" }
+%"class.std::shared_ptr.4" = type { %"class.std::__shared_ptr.5" }
+%"class.std::__shared_ptr.5" = type { ptr, %"class.std::__shared_count" }
+%"class.std::initializer_list" = type { ptr, i64 }
+%"class.std::allocator.0" = type { i8 }
+%"class.duckdb::BaseScalarFunction" = type <{ %"class.duckdb::SimpleFunction", %"struct.duckdb::LogicalType", i8, i8, i8, i8, [4 x i8] }>
+%"class.std::_Sp_counted_base" = type { ptr, i32, i32 }
+%"class.duckdb::Vector" = type { i8, %"struct.duckdb::LogicalType", ptr, %"struct.duckdb::ValidityMask", %"class.duckdb::shared_ptr.11", %"class.duckdb::shared_ptr.11" }
+%"struct.duckdb::ValidityMask" = type { %"struct.duckdb::TemplatedValidityMask" }
+%"struct.duckdb::TemplatedValidityMask" = type { ptr, %"class.duckdb::shared_ptr.7", i64 }
+%"class.duckdb::shared_ptr.7" = type { %"class.std::shared_ptr.8" }
+%"class.std::shared_ptr.8" = type { %"class.std::__shared_ptr.9" }
+%"class.std::__shared_ptr.9" = type { ptr, %"class.std::__shared_count" }
+%"class.duckdb::shared_ptr.11" = type { %"class.std::shared_ptr.12" }
+%"class.std::shared_ptr.12" = type { %"class.std::__shared_ptr.13" }
+%"class.std::__shared_ptr.13" = type { ptr, %"class.std::__shared_count" }
+%"struct.duckdb::RegrSXyState" = type { i64, %"struct.duckdb::CovarState" }
+%"struct.duckdb::CovarState" = type { i64, double, double, double }
+%"struct.duckdb::UnifiedVectorFormat" = type { ptr, ptr, %"struct.duckdb::ValidityMask", %"struct.duckdb::SelectionVector" }
+%"struct.duckdb::SelectionVector" = type { ptr, %"class.duckdb::shared_ptr.15" }
+%"class.duckdb::shared_ptr.15" = type { %"class.std::shared_ptr.16" }
+%"class.std::shared_ptr.16" = type { %"class.std::__shared_ptr.17" }
+%"class.std::__shared_ptr.17" = type { ptr, %"class.std::__shared_count" }
+%"struct.duckdb::AggregateBinaryInput" = type { ptr, ptr, ptr, i64, i64 }
+%"struct.duckdb::AggregateFinalizeData" = type { ptr, ptr, i64 }
+%"class.std::allocator" = type { i8 }
+%struct._Guard = type { ptr }
+%struct._Guard.20 = type { ptr }
+%"class.__gnu_cxx::__normal_iterator" = type { ptr }
+%"struct.duckdb::RegrInterceptState" = type { i64, double, double, %"struct.duckdb::RegrSlopeState" }
+%"struct.duckdb::RegrSlopeState" = type { %"struct.duckdb::CovarState", %"struct.duckdb::StddevState" }
+%"struct.duckdb::StddevState" = type { i64, double, double }
+%"struct.duckdb::RegrR2State" = type { %"struct.duckdb::CorrState", %"struct.duckdb::StddevState", %"struct.duckdb::StddevState" }
+%"struct.duckdb::CorrState" = type { %"struct.duckdb::CovarState", %"struct.duckdb::StddevState", %"struct.duckdb::StddevState" }
+%"struct.duckdb::RegrState" = type { double, i64 }
+%"struct.duckdb::RegrSState" = type { i64, %"struct.duckdb::StddevState" }
+
+$_ZN6duckdb17AggregateFunction15BinaryAggregateINS_12RegrSXyStateEdddNS_16RegrSXYOperationELNS_23AggregateDestructorTypeE0EEES0_RKNS_11LogicalTypeES7_S5_ = comdat any
+
+$_ZN6duckdb17AggregateFunction15BinaryAggregateINS_18RegrInterceptStateEdddNS_22RegrInterceptOperationELNS_23AggregateDestructorTypeE0EEES0_RKNS_11LogicalTypeES7_S5_ = comdat any
+
+$_ZN6duckdb17AggregateFunction15BinaryAggregateImddjNS_17RegrCountFunctionELNS_23AggregateDestructorTypeE0EEES0_RKNS_11LogicalTypeES6_S4_ = comdat any
+
+$_ZN6duckdb17AggregateFunctionD2Ev = comdat any
+
+$_ZN6duckdb17AggregateFunction15BinaryAggregateINS_11RegrR2StateEdddNS_15RegrR2OperationELNS_23AggregateDestructorTypeE0EEES0_RKNS_11LogicalTypeES7_S5_ = comdat any
+
+$_ZN6duckdb17AggregateFunction15BinaryAggregateINS_9RegrStateEdddNS_16RegrAvgXFunctionELNS_23AggregateDestructorTypeE0EEES0_RKNS_11LogicalTypeES7_S5_ = comdat any
+
+$_ZN6duckdb17AggregateFunction15BinaryAggregateINS_9RegrStateEdddNS_16RegrAvgYFunctionELNS_23AggregateDestructorTypeE0EEES0_RKNS_11LogicalTypeES7_S5_ = comdat any
+
+$_ZN6duckdb17AggregateFunction15BinaryAggregateINS_14RegrSlopeStateEdddNS_18RegrSlopeOperationELNS_23AggregateDestructorTypeE0EEES0_RKNS_11LogicalTypeES7_S5_ = comdat any
+
+$_ZN6duckdb17AggregateFunction15BinaryAggregateINS_10RegrSStateEdddNS_16RegrSXXOperationELNS_23AggregateDestructorTypeE0EEES0_RKNS_11LogicalTypeES7_S5_ = comdat any
+
+$_ZN6duckdb17AggregateFunction15BinaryAggregateINS_10RegrSStateEdddNS_16RegrSYYOperationELNS_23AggregateDestructorTypeE0EEES0_RKNS_11LogicalTypeES7_S5_ = comdat any
+
+$_ZN6duckdb10shared_ptrINS_21AggregateFunctionInfoELb1EED2Ev = comdat any
+
+$_ZN6duckdb17AggregateFunctionD0Ev = comdat any
+
+$_ZNSt12__shared_ptrIN6duckdb21AggregateFunctionInfoELN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
+
+$_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
+
+$_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv = comdat any
+
+$_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii = comdat any
+
+$__clang_call_terminate = comdat any
+
+$_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv = comdat any
+
+$_ZN9__gnu_cxx20__is_single_threadedEv = comdat any
+
+$_ZN9__gnu_cxx25__exchange_and_add_singleEPii = comdat any
+
+$_ZN9__gnu_cxx18__exchange_and_addEPVii = comdat any
+
+$_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv = comdat any
+
+$_ZNSaIN6duckdb11LogicalTypeEEC2Ev = comdat any
+
+$_ZN6duckdb6vectorINS_11LogicalTypeELb1EECI2St6vectorIS1_SaIS1_EEESt16initializer_listIS1_ERKS4_ = comdat any
+
+$_ZN6duckdb17AggregateFunction9StateSizeINS_12RegrSXyStateEEEmRKS0_ = comdat any
+
+$_ZN6duckdb17AggregateFunction15StateInitializeINS_12RegrSXyStateENS_16RegrSXYOperationELNS_23AggregateDestructorTypeE0EEEvRKS0_Ph = comdat any
+
+$_ZN6duckdb17AggregateFunction19BinaryScatterUpdateINS_12RegrSXyStateEddNS_16RegrSXYOperationEEEvPNS_6VectorERNS_18AggregateInputDataEmRS4_m = comdat any
+
+$_ZN6duckdb17AggregateFunction12StateCombineINS_12RegrSXyStateENS_16RegrSXYOperationEEEvRNS_6VectorES5_RNS_18AggregateInputDataEm = comdat any
+
+$_ZN6duckdb17AggregateFunction13StateFinalizeINS_12RegrSXyStateEdNS_16RegrSXYOperationEEEvRNS_6VectorERNS_18AggregateInputDataES5_mm = comdat any
+
+$_ZN6duckdb17AggregateFunction12BinaryUpdateINS_12RegrSXyStateEddNS_16RegrSXYOperationEEEvPNS_6VectorERNS_18AggregateInputDataEmPhm = comdat any
+
+$_ZN6duckdb17AggregateFunctionC2ERKNS_6vectorINS_11LogicalTypeELb1EEERKS2_PFmRKS0_EPFvS9_PhEPFvPNS_6VectorERNS_18AggregateInputDataEmRSF_mEPFvSJ_SJ_SI_mEPFvSJ_SI_SJ_mmEPFvSG_SI_mSC_mEPFNS_10unique_ptrINS_12FunctionDataESt14default_deleteIST_ELb1EEERNS_13ClientContextERS0_RNS1_INSS_INS_10ExpressionESU_IS10_ELb1EEELb1EEEEPFvSJ_SI_mEPFNSS_INS_14BaseStatisticsESU_IS19_ELb1EEESY_RNS_24BoundAggregateExpressionERNS_24AggregateStatisticsInputEEPFvSI_RKNS_20WindowPartitionInputEPKhSC_RKNS1_INS_11FrameBoundsELb1EEESJ_mEPFvRNS_10SerializerENS_12optional_ptrIST_Lb1EEES9_EPFSW_RNS_12DeserializerESZ_E = comdat any
+
+$_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EED2Ev = comdat any
+
+$_ZNSt15__new_allocatorIN6duckdb11LogicalTypeEED2Ev = comdat any
+
+$_ZNSt15__new_allocatorIN6duckdb11LogicalTypeEEC2Ev = comdat any
+
+$_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EEC2ESt16initializer_listIS1_ERKS2_ = comdat any
+
+$_ZNSt12_Vector_baseIN6duckdb11LogicalTypeESaIS1_EEC2ERKS2_ = comdat any
+
+$_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE19_M_range_initializeIPKS1_EEvT_S7_St20forward_iterator_tag = comdat any
+
+$_ZNKSt16initializer_listIN6duckdb11LogicalTypeEE5beginEv = comdat any
+
+$_ZNKSt16initializer_listIN6duckdb11LogicalTypeEE3endEv = comdat any
+
+$_ZNSt12_Vector_baseIN6duckdb11LogicalTypeESaIS1_EED2Ev = comdat any
+
+$_ZNSt12_Vector_baseIN6duckdb11LogicalTypeESaIS1_EE12_Vector_implC2ERKS2_ = comdat any
+
+$_ZNSt12_Vector_baseIN6duckdb11LogicalTypeESaIS1_EE17_Vector_impl_dataC2Ev = comdat any
+
+$_ZNSt15__new_allocatorIN6duckdb11LogicalTypeEEC2ERKS2_ = comdat any
+
+$_ZSt8distanceIPKN6duckdb11LogicalTypeEENSt15iterator_traitsIT_E15difference_typeES5_S5_ = comdat any
+
+$_ZNSt12_Vector_baseIN6duckdb11LogicalTypeESaIS1_EE11_M_allocateEm = comdat any
+
+$_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE17_S_check_init_lenEmRKS2_ = comdat any
+
+$_ZNSt12_Vector_baseIN6duckdb11LogicalTypeESaIS1_EE19_M_get_Tp_allocatorEv = comdat any
+
+$_ZSt22__uninitialized_copy_aIPKN6duckdb11LogicalTypeEPS1_S1_ET0_T_S6_S5_RSaIT1_E = comdat any
+
+$_ZSt10__distanceIPKN6duckdb11LogicalTypeEENSt15iterator_traitsIT_E15difference_typeES5_S5_St26random_access_iterator_tag = comdat any
+
+$_ZSt19__iterator_categoryIPKN6duckdb11LogicalTypeEENSt15iterator_traitsIT_E17iterator_categoryERKS5_ = comdat any
+
+$_ZNSt16allocator_traitsISaIN6duckdb11LogicalTypeEEE8allocateERS2_m = comdat any
+
+$_ZNSt15__new_allocatorIN6duckdb11LogicalTypeEE8allocateEmPKv = comdat any
+
+$_ZNKSt15__new_allocatorIN6duckdb11LogicalTypeEE11_M_max_sizeEv = comdat any
+
+$_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE11_S_max_sizeERKS2_ = comdat any
+
+$_ZNSaIN6duckdb11LogicalTypeEEC2ERKS1_ = comdat any
+
+$_ZNSt16allocator_traitsISaIN6duckdb11LogicalTypeEEE8max_sizeERKS2_ = comdat any
+
+$_ZSt3minImERKT_S2_S2_ = comdat any
+
+$_ZNKSt15__new_allocatorIN6duckdb11LogicalTypeEE8max_sizeEv = comdat any
+
+$_ZSt18uninitialized_copyIPKN6duckdb11LogicalTypeEPS1_ET0_T_S6_S5_ = comdat any
+
+$_ZNSt20__uninitialized_copyILb0EE13__uninit_copyIPKN6duckdb11LogicalTypeEPS3_EET0_T_S8_S7_ = comdat any
+
+$_ZSt16__do_uninit_copyIPKN6duckdb11LogicalTypeEPS1_ET0_T_S6_S5_ = comdat any
+
+$_ZSt10_ConstructIN6duckdb11LogicalTypeEJRKS1_EEvPT_DpOT0_ = comdat any
+
+$_ZSt8_DestroyIPN6duckdb11LogicalTypeEEvT_S3_ = comdat any
+
+$_ZNSt12_Destroy_auxILb0EE9__destroyIPN6duckdb11LogicalTypeEEEvT_S5_ = comdat any
+
+$_ZSt8_DestroyIN6duckdb11LogicalTypeEEvPT_ = comdat any
+
+$_ZNKSt16initializer_listIN6duckdb11LogicalTypeEE4sizeEv = comdat any
+
+$_ZNSt12_Vector_baseIN6duckdb11LogicalTypeESaIS1_EE13_M_deallocateEPS1_m = comdat any
+
+$_ZNSt16allocator_traitsISaIN6duckdb11LogicalTypeEEE10deallocateERS2_PS1_m = comdat any
+
+$_ZNSt15__new_allocatorIN6duckdb11LogicalTypeEE10deallocateEPS1_m = comdat any
+
+$_ZN6duckdb16RegrSXYOperation10InitializeINS_12RegrSXyStateEEEvRT_ = comdat any
+
+$_ZN6duckdb17RegrCountFunction10InitializeImEEvRT_ = comdat any
+
+$_ZN6duckdb14CovarOperation10InitializeINS_10CovarStateEEEvRT_ = comdat any
+
+$_ZN6duckdb17AggregateExecutor13BinaryScatterINS_12RegrSXyStateEddNS_16RegrSXYOperationEEEvRNS_18AggregateInputDataERNS_6VectorES7_S7_m = comdat any
+
+$_ZN6duckdb17AggregateExecutor17BinaryScatterLoopINS_12RegrSXyStateEddNS_16RegrSXYOperationEEEvPKT0_RNS_18AggregateInputDataEPKT1_PPT_mRKNS_15SelectionVectorESH_SH_RNS_12ValidityMaskESJ_ = comdat any
+
+$_ZN6duckdb19UnifiedVectorFormat7GetDataIdEEPKT_RKS0_ = comdat any
+
+$_ZN6duckdb19UnifiedVectorFormatD2Ev = comdat any
+
+$_ZN6duckdb20AggregateBinaryInputC2ERNS_18AggregateInputDataERNS_12ValidityMaskES4_ = comdat any
+
+$_ZN6duckdb16RegrSXYOperation10IgnoreNullEv = comdat any
+
+$_ZNK6duckdb21TemplatedValidityMaskImE8AllValidEv = comdat any
+
+$_ZNK6duckdb15SelectionVector9get_indexEm = comdat any
+
+$_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm = comdat any
+
+$_ZN6duckdb16RegrSXYOperation9OperationIddNS_12RegrSXyStateES0_EEvRT1_RKT_RKT0_RNS_20AggregateBinaryInputE = comdat any
+
+$_ZNK6duckdb21TemplatedValidityMaskImE16RowIsValidUnsafeEm = comdat any
+
+$_ZN6duckdb21TemplatedValidityMaskImE13GetEntryIndexEmRmS2_ = comdat any
+
+$_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm = comdat any
+
+$_ZN6duckdb21TemplatedValidityMaskImE10RowIsValidERKmS3_ = comdat any
+
+$_ZNK6duckdb21TemplatedValidityMaskImE22GetValidityEntryUnsafeEm = comdat any
+
+$_ZN6duckdb17RegrCountFunction9OperationIddmNS_16RegrSXYOperationEEEvRT1_RKT_RKT0_RNS_20AggregateBinaryInputE = comdat any
+
+$_ZN6duckdb14CovarOperation9OperationIddNS_10CovarStateENS_16RegrSXYOperationEEEvRT1_RKT_RKT0_RNS_20AggregateBinaryInputE = comdat any
+
+$_ZN6duckdb15SelectionVectorD2Ev = comdat any
+
+$_ZN6duckdb21TemplatedValidityMaskImED2Ev = comdat any
+
+$_ZN6duckdb10shared_ptrINS_13SelectionDataELb1EED2Ev = comdat any
+
+$_ZNSt12__shared_ptrIN6duckdb13SelectionDataELN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
+
+$_ZN6duckdb10shared_ptrINS_21TemplatedValidityDataImEELb1EED2Ev = comdat any
+
+$_ZNSt12__shared_ptrIN6duckdb21TemplatedValidityDataImEELN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
+
+$_ZN6duckdb17AggregateExecutor7CombineINS_12RegrSXyStateENS_16RegrSXYOperationEEEvRNS_6VectorES5_RNS_18AggregateInputDataEm = comdat any
+
+$_ZN6duckdb10FlatVector7GetDataIPKNS_12RegrSXyStateEEEPT_RNS_6VectorE = comdat any
+
+$_ZN6duckdb10FlatVector7GetDataIPNS_12RegrSXyStateEEEPT_RNS_6VectorE = comdat any
+
+$_ZN6duckdb16RegrSXYOperation7CombineINS_12RegrSXyStateES0_EEvRKT_RS3_RNS_18AggregateInputDataE = comdat any
+
+$_ZN6duckdb14ConstantVector7GetDataIPKNS_12RegrSXyStateEEEPT_RNS_6VectorE = comdat any
+
+$_ZN6duckdb14ConstantVector7GetDataERNS_6VectorE = comdat any
+
+$_ZN6duckdb14ConstantVector7GetDataIPNS_12RegrSXyStateEEEPT_RNS_6VectorE = comdat any
+
+$_ZN6duckdb14CovarOperation7CombineINS_10CovarStateENS_16RegrSXYOperationEEEvRKT_RS4_RNS_18AggregateInputDataE = comdat any
+
+$_ZN6duckdb17RegrCountFunction7CombineImNS_16RegrSXYOperationEEEvRKT_RS3_RNS_18AggregateInputDataE = comdat any
+
+$_ZN6duckdb17AggregateExecutor8FinalizeINS_12RegrSXyStateEdNS_16RegrSXYOperationEEEvRNS_6VectorERNS_18AggregateInputDataES5_mm = comdat any
+
+$_ZNK6duckdb6Vector13GetVectorTypeEv = comdat any
+
+$_ZN6duckdb14ConstantVector7GetDataIdEEPT_RNS_6VectorE = comdat any
+
+$_ZN6duckdb21AggregateFinalizeDataC2ERNS_6VectorERNS_18AggregateInputDataE = comdat any
+
+$_ZN6duckdb16RegrSXYOperation8FinalizeIdNS_12RegrSXyStateEEEvRT0_RT_RNS_21AggregateFinalizeDataE = comdat any
+
+$_ZN6duckdb10FlatVector7GetDataIdEEPT_RNS_6VectorE = comdat any
+
+$_ZN6duckdb17CovarPopOperation8FinalizeIdNS_10CovarStateEEEvRT0_RT_RNS_21AggregateFinalizeDataE = comdat any
+
+$_ZN6duckdb17RegrCountFunction8FinalizeIdmEEvRT0_RT_RNS_21AggregateFinalizeDataE = comdat any
+
+$_ZN6duckdb21AggregateFinalizeData10ReturnNullEv = comdat any
+
+$_ZNSt15__new_allocatorIcED2Ev = comdat any
+
+$_ZNSt15__new_allocatorIcEC2Ev = comdat any
+
+$_ZNSt11char_traitsIcE6lengthEPKc = comdat any
+
+$_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag = comdat any
+
+$_ZNSt19__ptr_traits_ptr_toIPccLb0EE10pointer_toERc = comdat any
+
+$_ZNSt15__new_allocatorIcEC2ERKS0_ = comdat any
+
+$_ZSt8distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_ = comdat any
+
+$_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardC2EPS4_ = comdat any
+
+$_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev = comdat any
+
+$_ZSt10__distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_St26random_access_iterator_tag = comdat any
+
+$_ZSt19__iterator_categoryIPKcENSt15iterator_traitsIT_E17iterator_categoryERKS3_ = comdat any
+
+$_ZNSt11char_traitsIcE6assignERcRKc = comdat any
+
+$_ZNSt11char_traitsIcE4copyEPcPKcm = comdat any
+
+$_ZNSt19__ptr_traits_ptr_toIPKcS0_Lb0EE10pointer_toERS0_ = comdat any
+
+$_ZNSt16allocator_traitsISaIcEE10deallocateERS0_Pcm = comdat any
+
+$_ZNSt15__new_allocatorIcE10deallocateEPcm = comdat any
+
+$_ZN6duckdb17AggregateExecutor12BinaryUpdateINS_12RegrSXyStateEddNS_16RegrSXYOperationEEEvRNS_18AggregateInputDataERNS_6VectorES7_Phm = comdat any
+
+$_ZN6duckdb17AggregateExecutor16BinaryUpdateLoopINS_12RegrSXyStateEddNS_16RegrSXYOperationEEEvPKT0_RNS_18AggregateInputDataEPKT1_PT_mRKNS_15SelectionVectorESG_RNS_12ValidityMaskESI_ = comdat any
+
+$_ZN6duckdb17AggregateFunctionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_6vectorINS_11LogicalTypeELb1EEERKSA_PFmRKS0_EPFvSH_PhEPFvPNS_6VectorERNS_18AggregateInputDataEmRSN_mEPFvSR_SR_SQ_mEPFvSR_SQ_SR_mmENS_20FunctionNullHandlingEPFvSO_SQ_mSK_mEPFNS_10unique_ptrINS_12FunctionDataESt14default_deleteIS12_ELb1EEERNS_13ClientContextERS0_RNS9_INS11_INS_10ExpressionES13_IS19_ELb1EEELb1EEEEPFvSR_SQ_mEPFNS11_INS_14BaseStatisticsES13_IS1I_ELb1EEES17_RNS_24BoundAggregateExpressionERNS_24AggregateStatisticsInputEEPFvSQ_RKNS_20WindowPartitionInputEPKhSK_RKNS9_INS_11FrameBoundsELb1EEESR_mEPFvRNS_10SerializerENS_12optional_ptrIS12_Lb1EEESH_EPFS15_RNS_12DeserializerES18_E = comdat any
+
+$_ZN6duckdb6vectorINS_11LogicalTypeELb1EEC2ERKS2_ = comdat any
+
+$_ZN6duckdb10shared_ptrINS_21AggregateFunctionInfoELb1EEC2Ev = comdat any
+
+$_ZN9__gnu_cxx14__alloc_traitsISaIcEcE17_S_select_on_copyERKS1_ = comdat any
+
+$_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tag = comdat any
+
+$_ZNSt16allocator_traitsISaIcEE37select_on_container_copy_constructionERKS0_ = comdat any
+
+$_ZSt8distanceIPcENSt15iterator_traitsIT_E15difference_typeES2_S2_ = comdat any
+
+$_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tagEN6_GuardC2EPS4_ = comdat any
+
+$_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tagEN6_GuardD2Ev = comdat any
+
+$_ZSt10__distanceIPcENSt15iterator_traitsIT_E15difference_typeES2_S2_St26random_access_iterator_tag = comdat any
+
+$_ZSt19__iterator_categoryIPcENSt15iterator_traitsIT_E17iterator_categoryERKS2_ = comdat any
+
+$_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EEC2ERKS3_ = comdat any
+
+$_ZNKSt6vectorIN6duckdb11LogicalTypeESaIS1_EE4sizeEv = comdat any
+
+$_ZN9__gnu_cxx14__alloc_traitsISaIN6duckdb11LogicalTypeEES2_E17_S_select_on_copyERKS3_ = comdat any
+
+$_ZNKSt12_Vector_baseIN6duckdb11LogicalTypeESaIS1_EE19_M_get_Tp_allocatorEv = comdat any
+
+$_ZNSt12_Vector_baseIN6duckdb11LogicalTypeESaIS1_EEC2EmRKS2_ = comdat any
+
+$_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN6duckdb11LogicalTypeESt6vectorIS3_SaIS3_EEEEPS3_S3_ET0_T_SC_SB_RSaIT1_E = comdat any
+
+$_ZNKSt6vectorIN6duckdb11LogicalTypeESaIS1_EE5beginEv = comdat any
+
+$_ZNKSt6vectorIN6duckdb11LogicalTypeESaIS1_EE3endEv = comdat any
+
+$_ZNSt16allocator_traitsISaIN6duckdb11LogicalTypeEEE37select_on_container_copy_constructionERKS2_ = comdat any
+
+$_ZNSt12_Vector_baseIN6duckdb11LogicalTypeESaIS1_EE17_M_create_storageEm = comdat any
+
+$_ZSt18uninitialized_copyIN9__gnu_cxx17__normal_iteratorIPKN6duckdb11LogicalTypeESt6vectorIS3_SaIS3_EEEEPS3_ET0_T_SC_SB_ = comdat any
+
+$_ZNSt20__uninitialized_copyILb0EE13__uninit_copyIN9__gnu_cxx17__normal_iteratorIPKN6duckdb11LogicalTypeESt6vectorIS5_SaIS5_EEEEPS5_EET0_T_SE_SD_ = comdat any
+
+$_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_iteratorIPKN6duckdb11LogicalTypeESt6vectorIS3_SaIS3_EEEEPS3_ET0_T_SC_SB_ = comdat any
+
+$_ZN9__gnu_cxxneIPKN6duckdb11LogicalTypeESt6vectorIS2_SaIS2_EEEEbRKNS_17__normal_iteratorIT_T0_EESD_ = comdat any
+
+$_ZNK9__gnu_cxx17__normal_iteratorIPKN6duckdb11LogicalTypeESt6vectorIS2_SaIS2_EEEdeEv = comdat any
+
+$_ZN9__gnu_cxx17__normal_iteratorIPKN6duckdb11LogicalTypeESt6vectorIS2_SaIS2_EEEppEv = comdat any
+
+$_ZNK9__gnu_cxx17__normal_iteratorIPKN6duckdb11LogicalTypeESt6vectorIS2_SaIS2_EEE4baseEv = comdat any
+
+$_ZN9__gnu_cxx17__normal_iteratorIPKN6duckdb11LogicalTypeESt6vectorIS2_SaIS2_EEEC2ERKS4_ = comdat any
+
+$_ZNSt10shared_ptrIN6duckdb21AggregateFunctionInfoEEC2Ev = comdat any
+
+$_ZNSt12__shared_ptrIN6duckdb21AggregateFunctionInfoELN9__gnu_cxx12_Lock_policyE2EEC2Ev = comdat any
+
+$_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2Ev = comdat any
+
+$_ZSt8_DestroyIPN6duckdb11LogicalTypeES1_EvT_S3_RSaIT0_E = comdat any
+
+$_ZN6duckdb17AggregateFunction9StateSizeINS_18RegrInterceptStateEEEmRKS0_ = comdat any
+
+$_ZN6duckdb17AggregateFunction15StateInitializeINS_18RegrInterceptStateENS_22RegrInterceptOperationELNS_23AggregateDestructorTypeE0EEEvRKS0_Ph = comdat any
+
+$_ZN6duckdb17AggregateFunction19BinaryScatterUpdateINS_18RegrInterceptStateEddNS_22RegrInterceptOperationEEEvPNS_6VectorERNS_18AggregateInputDataEmRS4_m = comdat any
+
+$_ZN6duckdb17AggregateFunction12StateCombineINS_18RegrInterceptStateENS_22RegrInterceptOperationEEEvRNS_6VectorES5_RNS_18AggregateInputDataEm = comdat any
+
+$_ZN6duckdb17AggregateFunction13StateFinalizeINS_18RegrInterceptStateEdNS_22RegrInterceptOperationEEEvRNS_6VectorERNS_18AggregateInputDataES5_mm = comdat any
+
+$_ZN6duckdb17AggregateFunction12BinaryUpdateINS_18RegrInterceptStateEddNS_22RegrInterceptOperationEEEvPNS_6VectorERNS_18AggregateInputDataEmPhm = comdat any
+
+$_ZN6duckdb22RegrInterceptOperation10InitializeINS_18RegrInterceptStateEEEvRT_ = comdat any
+
+$_ZN6duckdb18RegrSlopeOperation10InitializeINS_14RegrSlopeStateEEEvRT_ = comdat any
+
+$_ZN6duckdb19STDDevBaseOperation10InitializeINS_11StddevStateEEEvRT_ = comdat any
+
+$_ZN6duckdb17AggregateExecutor13BinaryScatterINS_18RegrInterceptStateEddNS_22RegrInterceptOperationEEEvRNS_18AggregateInputDataERNS_6VectorES7_S7_m = comdat any
+
+$_ZN6duckdb17AggregateExecutor17BinaryScatterLoopINS_18RegrInterceptStateEddNS_22RegrInterceptOperationEEEvPKT0_RNS_18AggregateInputDataEPKT1_PPT_mRKNS_15SelectionVectorESH_SH_RNS_12ValidityMaskESJ_ = comdat any
+
+$_ZN6duckdb22RegrInterceptOperation10IgnoreNullEv = comdat any
+
+$_ZN6duckdb22RegrInterceptOperation9OperationIddNS_18RegrInterceptStateES0_EEvRT1_RKT_RKT0_RNS_20AggregateBinaryInputE = comdat any
+
+$_ZN6duckdb18RegrSlopeOperation9OperationIddNS_14RegrSlopeStateENS_22RegrInterceptOperationEEEvRT1_RKT_RKT0_RNS_20AggregateBinaryInputE = comdat any
+
+$_ZN6duckdb14CovarOperation9OperationIddNS_10CovarStateENS_22RegrInterceptOperationEEEvRT1_RKT_RKT0_RNS_20AggregateBinaryInputE = comdat any
+
+$_ZN6duckdb19STDDevBaseOperation7ExecuteIdNS_11StddevStateEEEvRT0_RKT_ = comdat any
+
+$_ZN6duckdb17AggregateExecutor7CombineINS_18RegrInterceptStateENS_22RegrInterceptOperationEEEvRNS_6VectorES5_RNS_18AggregateInputDataEm = comdat any
+
+$_ZN6duckdb10FlatVector7GetDataIPKNS_18RegrInterceptStateEEEPT_RNS_6VectorE = comdat any
+
+$_ZN6duckdb10FlatVector7GetDataIPNS_18RegrInterceptStateEEEPT_RNS_6VectorE = comdat any
+
+$_ZN6duckdb22RegrInterceptOperation7CombineINS_18RegrInterceptStateES0_EEvRKT_RS3_RNS_18AggregateInputDataE = comdat any
+
+$_ZN6duckdb14ConstantVector7GetDataIPKNS_18RegrInterceptStateEEEPT_RNS_6VectorE = comdat any
+
+$_ZN6duckdb14ConstantVector7GetDataIPNS_18RegrInterceptStateEEEPT_RNS_6VectorE = comdat any
+
+$_ZN6duckdb18RegrSlopeOperation7CombineINS_14RegrSlopeStateENS_22RegrInterceptOperationEEEvRKT_RS4_RNS_18AggregateInputDataE = comdat any
+
+$_ZN6duckdb14CovarOperation7CombineINS_10CovarStateENS_22RegrInterceptOperationEEEvRKT_RS4_RNS_18AggregateInputDataE = comdat any
+
+$_ZN6duckdb19STDDevBaseOperation7CombineINS_11StddevStateENS_22RegrInterceptOperationEEEvRKT_RS4_RNS_18AggregateInputDataE = comdat any
+
+$_ZN6duckdb17AggregateExecutor8FinalizeINS_18RegrInterceptStateEdNS_22RegrInterceptOperationEEEvRNS_6VectorERNS_18AggregateInputDataES5_mm = comdat any
+
+$_ZN6duckdb22RegrInterceptOperation8FinalizeIdNS_18RegrInterceptStateEEEvRT0_RT_RNS_21AggregateFinalizeDataE = comdat any
+
+$_ZN6duckdb18RegrSlopeOperation8FinalizeIdNS_14RegrSlopeStateEEEvRT0_RT_RNS_21AggregateFinalizeDataE = comdat any
+
+$_ZN6duckdb17AggregateExecutor12BinaryUpdateINS_18RegrInterceptStateEddNS_22RegrInterceptOperationEEEvRNS_18AggregateInputDataERNS_6VectorES7_Phm = comdat any
+
+$_ZN6duckdb17AggregateExecutor16BinaryUpdateLoopINS_18RegrInterceptStateEddNS_22RegrInterceptOperationEEEvPKT0_RNS_18AggregateInputDataEPKT1_PT_mRKNS_15SelectionVectorESG_RNS_12ValidityMaskESI_ = comdat any
+
+$_ZN6duckdb17AggregateFunction9StateSizeImEEmRKS0_ = comdat any
+
+$_ZN6duckdb17AggregateFunction15StateInitializeImNS_17RegrCountFunctionELNS_23AggregateDestructorTypeE0EEEvRKS0_Ph = comdat any
+
+$_ZN6duckdb17AggregateFunction19BinaryScatterUpdateImddNS_17RegrCountFunctionEEEvPNS_6VectorERNS_18AggregateInputDataEmRS3_m = comdat any
+
+$_ZN6duckdb17AggregateFunction12StateCombineImNS_17RegrCountFunctionEEEvRNS_6VectorES4_RNS_18AggregateInputDataEm = comdat any
+
+$_ZN6duckdb17AggregateFunction13StateFinalizeImjNS_17RegrCountFunctionEEEvRNS_6VectorERNS_18AggregateInputDataES4_mm = comdat any
+
+$_ZN6duckdb17AggregateFunction12BinaryUpdateImddNS_17RegrCountFunctionEEEvPNS_6VectorERNS_18AggregateInputDataEmPhm = comdat any
+
+$_ZN6duckdb17AggregateExecutor13BinaryScatterImddNS_17RegrCountFunctionEEEvRNS_18AggregateInputDataERNS_6VectorES6_S6_m = comdat any
+
+$_ZN6duckdb17AggregateExecutor17BinaryScatterLoopImddNS_17RegrCountFunctionEEEvPKT0_RNS_18AggregateInputDataEPKT1_PPT_mRKNS_15SelectionVectorESG_SG_RNS_12ValidityMaskESI_ = comdat any
+
+$_ZN6duckdb17RegrCountFunction10IgnoreNullEv = comdat any
+
+$_ZN6duckdb17RegrCountFunction9OperationIddmS0_EEvRT1_RKT_RKT0_RNS_20AggregateBinaryInputE = comdat any
+
+$_ZN6duckdb17AggregateExecutor7CombineImNS_17RegrCountFunctionEEEvRNS_6VectorES4_RNS_18AggregateInputDataEm = comdat any
+
+$_ZN6duckdb10FlatVector7GetDataIPKmEEPT_RNS_6VectorE = comdat any
+
+$_ZN6duckdb10FlatVector7GetDataIPmEEPT_RNS_6VectorE = comdat any
+
+$_ZN6duckdb17RegrCountFunction7CombineImS0_EEvRKT_RS2_RNS_18AggregateInputDataE = comdat any
+
+$_ZN6duckdb14ConstantVector7GetDataIPKmEEPT_RNS_6VectorE = comdat any
+
+$_ZN6duckdb14ConstantVector7GetDataIPmEEPT_RNS_6VectorE = comdat any
+
+$_ZN6duckdb17AggregateExecutor8FinalizeImjNS_17RegrCountFunctionEEEvRNS_6VectorERNS_18AggregateInputDataES4_mm = comdat any
+
+$_ZN6duckdb14ConstantVector7GetDataIjEEPT_RNS_6VectorE = comdat any
+
+$_ZN6duckdb17RegrCountFunction8FinalizeIjmEEvRT0_RT_RNS_21AggregateFinalizeDataE = comdat any
+
+$_ZN6duckdb10FlatVector7GetDataIjEEPT_RNS_6VectorE = comdat any
+
+$_ZN6duckdb17AggregateExecutor12BinaryUpdateImddNS_17RegrCountFunctionEEEvRNS_18AggregateInputDataERNS_6VectorES6_Phm = comdat any
+
+$_ZN6duckdb17AggregateExecutor16BinaryUpdateLoopImddNS_17RegrCountFunctionEEEvPKT0_RNS_18AggregateInputDataEPKT1_PT_mRKNS_15SelectionVectorESF_RNS_12ValidityMaskESH_ = comdat any
+
+$_ZN6duckdb17AggregateFunction9StateSizeINS_11RegrR2StateEEEmRKS0_ = comdat any
+
+$_ZN6duckdb17AggregateFunction15StateInitializeINS_11RegrR2StateENS_15RegrR2OperationELNS_23AggregateDestructorTypeE0EEEvRKS0_Ph = comdat any
+
+$_ZN6duckdb17AggregateFunction19BinaryScatterUpdateINS_11RegrR2StateEddNS_15RegrR2OperationEEEvPNS_6VectorERNS_18AggregateInputDataEmRS4_m = comdat any
+
+$_ZN6duckdb17AggregateFunction12StateCombineINS_11RegrR2StateENS_15RegrR2OperationEEEvRNS_6VectorES5_RNS_18AggregateInputDataEm = comdat any
+
+$_ZN6duckdb17AggregateFunction13StateFinalizeINS_11RegrR2StateEdNS_15RegrR2OperationEEEvRNS_6VectorERNS_18AggregateInputDataES5_mm = comdat any
+
+$_ZN6duckdb17AggregateFunction12BinaryUpdateINS_11RegrR2StateEddNS_15RegrR2OperationEEEvPNS_6VectorERNS_18AggregateInputDataEmPhm = comdat any
+
+$_ZN6duckdb15RegrR2Operation10InitializeINS_11RegrR2StateEEEvRT_ = comdat any
+
+$_ZN6duckdb13CorrOperation10InitializeINS_9CorrStateEEEvRT_ = comdat any
+
+$_ZN6duckdb17AggregateExecutor13BinaryScatterINS_11RegrR2StateEddNS_15RegrR2OperationEEEvRNS_18AggregateInputDataERNS_6VectorES7_S7_m = comdat any
+
+$_ZN6duckdb17AggregateExecutor17BinaryScatterLoopINS_11RegrR2StateEddNS_15RegrR2OperationEEEvPKT0_RNS_18AggregateInputDataEPKT1_PPT_mRKNS_15SelectionVectorESH_SH_RNS_12ValidityMaskESJ_ = comdat any
+
+$_ZN6duckdb15RegrR2Operation10IgnoreNullEv = comdat any
+
+$_ZN6duckdb15RegrR2Operation9OperationIddNS_11RegrR2StateES0_EEvRT1_RKT_RKT0_RNS_20AggregateBinaryInputE = comdat any
+
+$_ZN6duckdb13CorrOperation9OperationIddNS_9CorrStateENS_15RegrR2OperationEEEvRT1_RKT_RKT0_RNS_20AggregateBinaryInputE = comdat any
+
+$_ZN6duckdb14CovarOperation9OperationIddNS_10CovarStateENS_15RegrR2OperationEEEvRT1_RKT_RKT0_RNS_20AggregateBinaryInputE = comdat any
+
+$_ZN6duckdb17AggregateExecutor7CombineINS_11RegrR2StateENS_15RegrR2OperationEEEvRNS_6VectorES5_RNS_18AggregateInputDataEm = comdat any
+
+$_ZN6duckdb10FlatVector7GetDataIPKNS_11RegrR2StateEEEPT_RNS_6VectorE = comdat any
+
+$_ZN6duckdb10FlatVector7GetDataIPNS_11RegrR2StateEEEPT_RNS_6VectorE = comdat any
+
+$_ZN6duckdb15RegrR2Operation7CombineINS_11RegrR2StateES0_EEvRKT_RS3_RNS_18AggregateInputDataE = comdat any
+
+$_ZN6duckdb14ConstantVector7GetDataIPKNS_11RegrR2StateEEEPT_RNS_6VectorE = comdat any
+
+$_ZN6duckdb14ConstantVector7GetDataIPNS_11RegrR2StateEEEPT_RNS_6VectorE = comdat any
+
+$_ZN6duckdb13CorrOperation7CombineINS_9CorrStateENS_15RegrR2OperationEEEvRKT_RS4_RNS_18AggregateInputDataE = comdat any
+
+$_ZN6duckdb19STDDevBaseOperation7CombineINS_11StddevStateENS_15RegrR2OperationEEEvRKT_RS4_RNS_18AggregateInputDataE = comdat any
+
+$_ZN6duckdb14CovarOperation7CombineINS_10CovarStateENS_15RegrR2OperationEEEvRKT_RS4_RNS_18AggregateInputDataE = comdat any
+
+$_ZN6duckdb17AggregateExecutor8FinalizeINS_11RegrR2StateEdNS_15RegrR2OperationEEEvRNS_6VectorERNS_18AggregateInputDataES5_mm = comdat any
+
+$_ZN6duckdb15RegrR2Operation8FinalizeIdNS_11RegrR2StateEEEvRT0_RT_RNS_21AggregateFinalizeDataE = comdat any
+
+$_ZN6duckdb13CorrOperation8FinalizeIdNS_9CorrStateEEEvRT0_RT_RNS_21AggregateFinalizeDataE = comdat any
+
+$_ZN6duckdb17AggregateExecutor12BinaryUpdateINS_11RegrR2StateEddNS_15RegrR2OperationEEEvRNS_18AggregateInputDataERNS_6VectorES7_Phm = comdat any
+
+$_ZN6duckdb17AggregateExecutor16BinaryUpdateLoopINS_11RegrR2StateEddNS_15RegrR2OperationEEEvPKT0_RNS_18AggregateInputDataEPKT1_PT_mRKNS_15SelectionVectorESG_RNS_12ValidityMaskESI_ = comdat any
+
+$_ZN6duckdb17AggregateFunction9StateSizeINS_9RegrStateEEEmRKS0_ = comdat any
+
+$_ZN6duckdb17AggregateFunction15StateInitializeINS_9RegrStateENS_16RegrAvgXFunctionELNS_23AggregateDestructorTypeE0EEEvRKS0_Ph = comdat any
+
+$_ZN6duckdb17AggregateFunction19BinaryScatterUpdateINS_9RegrStateEddNS_16RegrAvgXFunctionEEEvPNS_6VectorERNS_18AggregateInputDataEmRS4_m = comdat any
+
+$_ZN6duckdb17AggregateFunction12StateCombineINS_9RegrStateENS_16RegrAvgXFunctionEEEvRNS_6VectorES5_RNS_18AggregateInputDataEm = comdat any
+
+$_ZN6duckdb17AggregateFunction13StateFinalizeINS_9RegrStateEdNS_16RegrAvgXFunctionEEEvRNS_6VectorERNS_18AggregateInputDataES5_mm = comdat any
+
+$_ZN6duckdb17AggregateFunction12BinaryUpdateINS_9RegrStateEddNS_16RegrAvgXFunctionEEEvPNS_6VectorERNS_18AggregateInputDataEmPhm = comdat any
+
+$_ZN6duckdb15RegrAvgFunction10InitializeINS_9RegrStateEEEvRT_ = comdat any
+
+$_ZN6duckdb17AggregateExecutor13BinaryScatterINS_9RegrStateEddNS_16RegrAvgXFunctionEEEvRNS_18AggregateInputDataERNS_6VectorES7_S7_m = comdat any
+
+$_ZN6duckdb17AggregateExecutor17BinaryScatterLoopINS_9RegrStateEddNS_16RegrAvgXFunctionEEEvPKT0_RNS_18AggregateInputDataEPKT1_PPT_mRKNS_15SelectionVectorESH_SH_RNS_12ValidityMaskESJ_ = comdat any
+
+$_ZN6duckdb15RegrAvgFunction10IgnoreNullEv = comdat any
+
+$_ZN6duckdb16RegrAvgXFunction9OperationIddNS_9RegrStateES0_EEvRT1_RKT_RKT0_RNS_20AggregateBinaryInputE = comdat any
+
+$_ZN6duckdb17AggregateExecutor7CombineINS_9RegrStateENS_16RegrAvgXFunctionEEEvRNS_6VectorES5_RNS_18AggregateInputDataEm = comdat any
+
+$_ZN6duckdb10FlatVector7GetDataIPKNS_9RegrStateEEEPT_RNS_6VectorE = comdat any
+
+$_ZN6duckdb10FlatVector7GetDataIPNS_9RegrStateEEEPT_RNS_6VectorE = comdat any
+
+$_ZN6duckdb15RegrAvgFunction7CombineINS_9RegrStateENS_16RegrAvgXFunctionEEEvRKT_RS4_RNS_18AggregateInputDataE = comdat any
+
+$_ZN6duckdb14ConstantVector7GetDataIPKNS_9RegrStateEEEPT_RNS_6VectorE = comdat any
+
+$_ZN6duckdb14ConstantVector7GetDataIPNS_9RegrStateEEEPT_RNS_6VectorE = comdat any
+
+$_ZN6duckdb17AggregateExecutor8FinalizeINS_9RegrStateEdNS_16RegrAvgXFunctionEEEvRNS_6VectorERNS_18AggregateInputDataES5_mm = comdat any
+
+$_ZN6duckdb15RegrAvgFunction8FinalizeIdNS_9RegrStateEEEvRT0_RT_RNS_21AggregateFinalizeDataE = comdat any
+
+$_ZN6duckdb17AggregateExecutor12BinaryUpdateINS_9RegrStateEddNS_16RegrAvgXFunctionEEEvRNS_18AggregateInputDataERNS_6VectorES7_Phm = comdat any
+
+$_ZN6duckdb17AggregateExecutor16BinaryUpdateLoopINS_9RegrStateEddNS_16RegrAvgXFunctionEEEvPKT0_RNS_18AggregateInputDataEPKT1_PT_mRKNS_15SelectionVectorESG_RNS_12ValidityMaskESI_ = comdat any
+
+$_ZN6duckdb17AggregateFunction15StateInitializeINS_9RegrStateENS_16RegrAvgYFunctionELNS_23AggregateDestructorTypeE0EEEvRKS0_Ph = comdat any
+
+$_ZN6duckdb17AggregateFunction19BinaryScatterUpdateINS_9RegrStateEddNS_16RegrAvgYFunctionEEEvPNS_6VectorERNS_18AggregateInputDataEmRS4_m = comdat any
+
+$_ZN6duckdb17AggregateFunction12StateCombineINS_9RegrStateENS_16RegrAvgYFunctionEEEvRNS_6VectorES5_RNS_18AggregateInputDataEm = comdat any
+
+$_ZN6duckdb17AggregateFunction13StateFinalizeINS_9RegrStateEdNS_16RegrAvgYFunctionEEEvRNS_6VectorERNS_18AggregateInputDataES5_mm = comdat any
+
+$_ZN6duckdb17AggregateFunction12BinaryUpdateINS_9RegrStateEddNS_16RegrAvgYFunctionEEEvPNS_6VectorERNS_18AggregateInputDataEmPhm = comdat any
+
+$_ZN6duckdb17AggregateExecutor13BinaryScatterINS_9RegrStateEddNS_16RegrAvgYFunctionEEEvRNS_18AggregateInputDataERNS_6VectorES7_S7_m = comdat any
+
+$_ZN6duckdb17AggregateExecutor17BinaryScatterLoopINS_9RegrStateEddNS_16RegrAvgYFunctionEEEvPKT0_RNS_18AggregateInputDataEPKT1_PPT_mRKNS_15SelectionVectorESH_SH_RNS_12ValidityMaskESJ_ = comdat any
+
+$_ZN6duckdb16RegrAvgYFunction9OperationIddNS_9RegrStateES0_EEvRT1_RKT_RKT0_RNS_20AggregateBinaryInputE = comdat any
+
+$_ZN6duckdb17AggregateExecutor7CombineINS_9RegrStateENS_16RegrAvgYFunctionEEEvRNS_6VectorES5_RNS_18AggregateInputDataEm = comdat any
+
+$_ZN6duckdb15RegrAvgFunction7CombineINS_9RegrStateENS_16RegrAvgYFunctionEEEvRKT_RS4_RNS_18AggregateInputDataE = comdat any
+
+$_ZN6duckdb17AggregateExecutor8FinalizeINS_9RegrStateEdNS_16RegrAvgYFunctionEEEvRNS_6VectorERNS_18AggregateInputDataES5_mm = comdat any
+
+$_ZN6duckdb17AggregateExecutor12BinaryUpdateINS_9RegrStateEddNS_16RegrAvgYFunctionEEEvRNS_18AggregateInputDataERNS_6VectorES7_Phm = comdat any
+
+$_ZN6duckdb17AggregateExecutor16BinaryUpdateLoopINS_9RegrStateEddNS_16RegrAvgYFunctionEEEvPKT0_RNS_18AggregateInputDataEPKT1_PT_mRKNS_15SelectionVectorESG_RNS_12ValidityMaskESI_ = comdat any
+
+$_ZN6duckdb17AggregateFunction9StateSizeINS_14RegrSlopeStateEEEmRKS0_ = comdat any
+
+$_ZN6duckdb17AggregateFunction15StateInitializeINS_14RegrSlopeStateENS_18RegrSlopeOperationELNS_23AggregateDestructorTypeE0EEEvRKS0_Ph = comdat any
+
+$_ZN6duckdb17AggregateFunction19BinaryScatterUpdateINS_14RegrSlopeStateEddNS_18RegrSlopeOperationEEEvPNS_6VectorERNS_18AggregateInputDataEmRS4_m = comdat any
+
+$_ZN6duckdb17AggregateFunction12StateCombineINS_14RegrSlopeStateENS_18RegrSlopeOperationEEEvRNS_6VectorES5_RNS_18AggregateInputDataEm = comdat any
+
+$_ZN6duckdb17AggregateFunction13StateFinalizeINS_14RegrSlopeStateEdNS_18RegrSlopeOperationEEEvRNS_6VectorERNS_18AggregateInputDataES5_mm = comdat any
+
+$_ZN6duckdb17AggregateFunction12BinaryUpdateINS_14RegrSlopeStateEddNS_18RegrSlopeOperationEEEvPNS_6VectorERNS_18AggregateInputDataEmPhm = comdat any
+
+$_ZN6duckdb17AggregateExecutor13BinaryScatterINS_14RegrSlopeStateEddNS_18RegrSlopeOperationEEEvRNS_18AggregateInputDataERNS_6VectorES7_S7_m = comdat any
+
+$_ZN6duckdb17AggregateExecutor17BinaryScatterLoopINS_14RegrSlopeStateEddNS_18RegrSlopeOperationEEEvPKT0_RNS_18AggregateInputDataEPKT1_PPT_mRKNS_15SelectionVectorESH_SH_RNS_12ValidityMaskESJ_ = comdat any
+
+$_ZN6duckdb18RegrSlopeOperation10IgnoreNullEv = comdat any
+
+$_ZN6duckdb18RegrSlopeOperation9OperationIddNS_14RegrSlopeStateES0_EEvRT1_RKT_RKT0_RNS_20AggregateBinaryInputE = comdat any
+
+$_ZN6duckdb14CovarOperation9OperationIddNS_10CovarStateENS_18RegrSlopeOperationEEEvRT1_RKT_RKT0_RNS_20AggregateBinaryInputE = comdat any
+
+$_ZN6duckdb17AggregateExecutor7CombineINS_14RegrSlopeStateENS_18RegrSlopeOperationEEEvRNS_6VectorES5_RNS_18AggregateInputDataEm = comdat any
+
+$_ZN6duckdb10FlatVector7GetDataIPKNS_14RegrSlopeStateEEEPT_RNS_6VectorE = comdat any
+
+$_ZN6duckdb10FlatVector7GetDataIPNS_14RegrSlopeStateEEEPT_RNS_6VectorE = comdat any
+
+$_ZN6duckdb18RegrSlopeOperation7CombineINS_14RegrSlopeStateES0_EEvRKT_RS3_RNS_18AggregateInputDataE = comdat any
+
+$_ZN6duckdb14ConstantVector7GetDataIPKNS_14RegrSlopeStateEEEPT_RNS_6VectorE = comdat any
+
+$_ZN6duckdb14ConstantVector7GetDataIPNS_14RegrSlopeStateEEEPT_RNS_6VectorE = comdat any
+
+$_ZN6duckdb14CovarOperation7CombineINS_10CovarStateENS_18RegrSlopeOperationEEEvRKT_RS4_RNS_18AggregateInputDataE = comdat any
+
+$_ZN6duckdb19STDDevBaseOperation7CombineINS_11StddevStateENS_18RegrSlopeOperationEEEvRKT_RS4_RNS_18AggregateInputDataE = comdat any
+
+$_ZN6duckdb17AggregateExecutor8FinalizeINS_14RegrSlopeStateEdNS_18RegrSlopeOperationEEEvRNS_6VectorERNS_18AggregateInputDataES5_mm = comdat any
+
+$_ZN6duckdb17AggregateExecutor12BinaryUpdateINS_14RegrSlopeStateEddNS_18RegrSlopeOperationEEEvRNS_18AggregateInputDataERNS_6VectorES7_Phm = comdat any
+
+$_ZN6duckdb17AggregateExecutor16BinaryUpdateLoopINS_14RegrSlopeStateEddNS_18RegrSlopeOperationEEEvPKT0_RNS_18AggregateInputDataEPKT1_PT_mRKNS_15SelectionVectorESG_RNS_12ValidityMaskESI_ = comdat any
+
+$_ZN6duckdb17AggregateFunction9StateSizeINS_10RegrSStateEEEmRKS0_ = comdat any
+
+$_ZN6duckdb17AggregateFunction15StateInitializeINS_10RegrSStateENS_16RegrSXXOperationELNS_23AggregateDestructorTypeE0EEEvRKS0_Ph = comdat any
+
+$_ZN6duckdb17AggregateFunction19BinaryScatterUpdateINS_10RegrSStateEddNS_16RegrSXXOperationEEEvPNS_6VectorERNS_18AggregateInputDataEmRS4_m = comdat any
+
+$_ZN6duckdb17AggregateFunction12StateCombineINS_10RegrSStateENS_16RegrSXXOperationEEEvRNS_6VectorES5_RNS_18AggregateInputDataEm = comdat any
+
+$_ZN6duckdb17AggregateFunction13StateFinalizeINS_10RegrSStateEdNS_16RegrSXXOperationEEEvRNS_6VectorERNS_18AggregateInputDataES5_mm = comdat any
+
+$_ZN6duckdb17AggregateFunction12BinaryUpdateINS_10RegrSStateEddNS_16RegrSXXOperationEEEvPNS_6VectorERNS_18AggregateInputDataEmPhm = comdat any
+
+$_ZN6duckdb17RegrBaseOperation10InitializeINS_10RegrSStateEEEvRT_ = comdat any
+
+$_ZN6duckdb17AggregateExecutor13BinaryScatterINS_10RegrSStateEddNS_16RegrSXXOperationEEEvRNS_18AggregateInputDataERNS_6VectorES7_S7_m = comdat any
+
+$_ZN6duckdb17AggregateExecutor17BinaryScatterLoopINS_10RegrSStateEddNS_16RegrSXXOperationEEEvPKT0_RNS_18AggregateInputDataEPKT1_PPT_mRKNS_15SelectionVectorESH_SH_RNS_12ValidityMaskESJ_ = comdat any
+
+$_ZN6duckdb17RegrBaseOperation10IgnoreNullEv = comdat any
+
+$_ZN6duckdb16RegrSXXOperation9OperationIddNS_10RegrSStateES0_EEvRT1_RKT_RKT0_RNS_20AggregateBinaryInputE = comdat any
+
+$_ZN6duckdb17RegrCountFunction9OperationIddmNS_16RegrSXXOperationEEEvRT1_RKT_RKT0_RNS_20AggregateBinaryInputE = comdat any
+
+$_ZN6duckdb17AggregateExecutor7CombineINS_10RegrSStateENS_16RegrSXXOperationEEEvRNS_6VectorES5_RNS_18AggregateInputDataEm = comdat any
+
+$_ZN6duckdb10FlatVector7GetDataIPKNS_10RegrSStateEEEPT_RNS_6VectorE = comdat any
+
+$_ZN6duckdb10FlatVector7GetDataIPNS_10RegrSStateEEEPT_RNS_6VectorE = comdat any
+
+$_ZN6duckdb17RegrBaseOperation7CombineINS_10RegrSStateENS_16RegrSXXOperationEEEvRKT_RS4_RNS_18AggregateInputDataE = comdat any
+
+$_ZN6duckdb14ConstantVector7GetDataIPKNS_10RegrSStateEEEPT_RNS_6VectorE = comdat any
+
+$_ZN6duckdb14ConstantVector7GetDataIPNS_10RegrSStateEEEPT_RNS_6VectorE = comdat any
+
+$_ZN6duckdb17RegrCountFunction7CombineImNS_16RegrSXXOperationEEEvRKT_RS3_RNS_18AggregateInputDataE = comdat any
+
+$_ZN6duckdb19STDDevBaseOperation7CombineINS_11StddevStateENS_16RegrSXXOperationEEEvRKT_RS4_RNS_18AggregateInputDataE = comdat any
+
+$_ZN6duckdb17AggregateExecutor8FinalizeINS_10RegrSStateEdNS_16RegrSXXOperationEEEvRNS_6VectorERNS_18AggregateInputDataES5_mm = comdat any
+
+$_ZN6duckdb17RegrBaseOperation8FinalizeIdNS_10RegrSStateEEEvRT0_RT_RNS_21AggregateFinalizeDataE = comdat any
+
+$_ZN6duckdb17AggregateExecutor12BinaryUpdateINS_10RegrSStateEddNS_16RegrSXXOperationEEEvRNS_18AggregateInputDataERNS_6VectorES7_Phm = comdat any
+
+$_ZN6duckdb17AggregateExecutor16BinaryUpdateLoopINS_10RegrSStateEddNS_16RegrSXXOperationEEEvPKT0_RNS_18AggregateInputDataEPKT1_PT_mRKNS_15SelectionVectorESG_RNS_12ValidityMaskESI_ = comdat any
+
+$_ZN6duckdb17AggregateFunction15StateInitializeINS_10RegrSStateENS_16RegrSYYOperationELNS_23AggregateDestructorTypeE0EEEvRKS0_Ph = comdat any
+
+$_ZN6duckdb17AggregateFunction19BinaryScatterUpdateINS_10RegrSStateEddNS_16RegrSYYOperationEEEvPNS_6VectorERNS_18AggregateInputDataEmRS4_m = comdat any
+
+$_ZN6duckdb17AggregateFunction12StateCombineINS_10RegrSStateENS_16RegrSYYOperationEEEvRNS_6VectorES5_RNS_18AggregateInputDataEm = comdat any
+
+$_ZN6duckdb17AggregateFunction13StateFinalizeINS_10RegrSStateEdNS_16RegrSYYOperationEEEvRNS_6VectorERNS_18AggregateInputDataES5_mm = comdat any
+
+$_ZN6duckdb17AggregateFunction12BinaryUpdateINS_10RegrSStateEddNS_16RegrSYYOperationEEEvPNS_6VectorERNS_18AggregateInputDataEmPhm = comdat any
+
+$_ZN6duckdb17AggregateExecutor13BinaryScatterINS_10RegrSStateEddNS_16RegrSYYOperationEEEvRNS_18AggregateInputDataERNS_6VectorES7_S7_m = comdat any
+
+$_ZN6duckdb17AggregateExecutor17BinaryScatterLoopINS_10RegrSStateEddNS_16RegrSYYOperationEEEvPKT0_RNS_18AggregateInputDataEPKT1_PPT_mRKNS_15SelectionVectorESH_SH_RNS_12ValidityMaskESJ_ = comdat any
+
+$_ZN6duckdb16RegrSYYOperation9OperationIddNS_10RegrSStateES0_EEvRT1_RKT_RKT0_RNS_20AggregateBinaryInputE = comdat any
+
+$_ZN6duckdb17RegrCountFunction9OperationIddmNS_16RegrSYYOperationEEEvRT1_RKT_RKT0_RNS_20AggregateBinaryInputE = comdat any
+
+$_ZN6duckdb17AggregateExecutor7CombineINS_10RegrSStateENS_16RegrSYYOperationEEEvRNS_6VectorES5_RNS_18AggregateInputDataEm = comdat any
+
+$_ZN6duckdb17RegrBaseOperation7CombineINS_10RegrSStateENS_16RegrSYYOperationEEEvRKT_RS4_RNS_18AggregateInputDataE = comdat any
+
+$_ZN6duckdb17RegrCountFunction7CombineImNS_16RegrSYYOperationEEEvRKT_RS3_RNS_18AggregateInputDataE = comdat any
+
+$_ZN6duckdb19STDDevBaseOperation7CombineINS_11StddevStateENS_16RegrSYYOperationEEEvRKT_RS4_RNS_18AggregateInputDataE = comdat any
+
+$_ZN6duckdb17AggregateExecutor8FinalizeINS_10RegrSStateEdNS_16RegrSYYOperationEEEvRNS_6VectorERNS_18AggregateInputDataES5_mm = comdat any
+
+$_ZN6duckdb17AggregateExecutor12BinaryUpdateINS_10RegrSStateEddNS_16RegrSYYOperationEEEvRNS_18AggregateInputDataERNS_6VectorES7_Phm = comdat any
+
+$_ZN6duckdb17AggregateExecutor16BinaryUpdateLoopINS_10RegrSStateEddNS_16RegrSYYOperationEEEvPKT0_RNS_18AggregateInputDataEPKT1_PT_mRKNS_15SelectionVectorESG_RNS_12ValidityMaskESI_ = comdat any
+
+$_ZTVN6duckdb17AggregateFunctionE = comdat any
+
+$_ZTIN6duckdb17AggregateFunctionE = comdat any
+
+$_ZTSN6duckdb17AggregateFunctionE = comdat any
+
+$_ZTIN6duckdb17InternalExceptionE = comdat any
+
+$_ZTSN6duckdb17InternalExceptionE = comdat any
+
+$_ZTIN6duckdb9ExceptionE = comdat any
+
+$_ZTSN6duckdb9ExceptionE = comdat any
+
+$_ZTIN6duckdb19OutOfRangeExceptionE = comdat any
+
+$_ZTSN6duckdb19OutOfRangeExceptionE = comdat any
+
+@.str = private unnamed_addr constant [11 x i8] c"regr_count\00", align 1
+@_ZTVN6duckdb17AggregateFunctionE = linkonce_odr unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN6duckdb17AggregateFunctionE, ptr @_ZN6duckdb17AggregateFunctionD2Ev, ptr @_ZN6duckdb17AggregateFunctionD0Ev, ptr @_ZNK6duckdb18BaseScalarFunction8ToStringB5cxx11Ev] }, comdat, align 8
+@_ZTIN6duckdb17AggregateFunctionE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN6duckdb17AggregateFunctionE, ptr @_ZTIN6duckdb18BaseScalarFunctionE }, comdat, align 8
+@_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
+@_ZTSN6duckdb17AggregateFunctionE = linkonce_odr constant [29 x i8] c"N6duckdb17AggregateFunctionE\00", comdat, align 1
+@_ZTIN6duckdb18BaseScalarFunctionE = external constant ptr
+@__libc_single_threaded = external global i8, align 1
+@.str.1 = private unnamed_addr constant [49 x i8] c"cannot create std::vector larger than max_size()\00", align 1
+@.str.2 = private unnamed_addr constant [41 x i8] c"Invalid result vector type for aggregate\00", align 1
+@_ZTIN6duckdb17InternalExceptionE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN6duckdb17InternalExceptionE, ptr @_ZTIN6duckdb9ExceptionE }, comdat, align 8
+@_ZTSN6duckdb17InternalExceptionE = linkonce_odr constant [29 x i8] c"N6duckdb17InternalExceptionE\00", comdat, align 1
+@_ZTIN6duckdb9ExceptionE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN6duckdb9ExceptionE, ptr @_ZTISt13runtime_error }, comdat, align 8
+@_ZTSN6duckdb9ExceptionE = linkonce_odr constant [20 x i8] c"N6duckdb9ExceptionE\00", comdat, align 1
+@_ZTISt13runtime_error = external constant ptr
+@.str.3 = private unnamed_addr constant [50 x i8] c"basic_string: construction from null is not valid\00", align 1
+@.str.4 = private unnamed_addr constant [24 x i8] c"VARPOP is out of range!\00", align 1
+@_ZTIN6duckdb19OutOfRangeExceptionE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN6duckdb19OutOfRangeExceptionE, ptr @_ZTIN6duckdb9ExceptionE }, comdat, align 8
+@_ZTSN6duckdb19OutOfRangeExceptionE = linkonce_odr constant [31 x i8] c"N6duckdb19OutOfRangeExceptionE\00", comdat, align 1
+@.str.5 = private unnamed_addr constant [27 x i8] c"VARPOP(X) is out of range!\00", align 1
+@.str.6 = private unnamed_addr constant [27 x i8] c"VARPOP(Y) is out of range!\00", align 1
+@.str.7 = private unnamed_addr constant [34 x i8] c"STDDEV_POP for X is out of range!\00", align 1
+@.str.8 = private unnamed_addr constant [34 x i8] c"STDDEV_POP for Y is out of range!\00", align 1
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN6duckdb10RegrSXYFun11GetFunctionEv(ptr dead_on_unwind noalias writable sret(%"class.duckdb::AggregateFunction") align 8 %0) #0 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"struct.duckdb::LogicalType", align 8
+  %4 = alloca %"struct.duckdb::LogicalType", align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca %"struct.duckdb::LogicalType", align 8
+  store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr %3) #17
+  call void @_ZN6duckdb11LogicalTypeC1ENS_13LogicalTypeIdE(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 noundef zeroext 23)
+  call void @llvm.lifetime.start.p0(i64 24, ptr %4) #17
+  invoke void @_ZN6duckdb11LogicalTypeC1ENS_13LogicalTypeIdE(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 noundef zeroext 23)
+          to label %8 unwind label %11
+
+8:                                                ; preds = %1
+  invoke void @_ZN6duckdb11LogicalTypeC1ENS_13LogicalTypeIdE(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 noundef zeroext 23)
+          to label %9 unwind label %15
+
+9:                                                ; preds = %8
+  invoke void @_ZN6duckdb17AggregateFunction15BinaryAggregateINS_12RegrSXyStateEdddNS_16RegrSXYOperationELNS_23AggregateDestructorTypeE0EEES0_RKNS_11LogicalTypeES7_S5_(ptr dead_on_unwind writable sret(%"class.duckdb::AggregateFunction") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef %7)
+          to label %10 unwind label %19
+
+10:                                               ; preds = %9
+  call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #17
+  call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr %4) #17
+  call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr %3) #17
+  ret void
+
+11:                                               ; preds = %1
+  %12 = landingpad { ptr, i32 }
+          cleanup
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %5, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %6, align 4
+  br label %24
+
+15:                                               ; preds = %8
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %5, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %6, align 4
+  br label %23
+
+19:                                               ; preds = %9
+  %20 = landingpad { ptr, i32 }
+          cleanup
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %5, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %6, align 4
+  call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #17
+  br label %23
+
+23:                                               ; preds = %19, %15
+  call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #17
+  br label %24
+
+24:                                               ; preds = %23, %11
+  call void @llvm.lifetime.end.p0(i64 24, ptr %4) #17
+  call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr %3) #17
+  br label %25
+
+25:                                               ; preds = %24
+  %26 = load ptr, ptr %5, align 8
+  %27 = load i32, ptr %6, align 4
+  %28 = insertvalue { ptr, i32 } poison, ptr %26, 0
+  %29 = insertvalue { ptr, i32 } %28, i32 %27, 1
+  resume { ptr, i32 } %29
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateFunction15BinaryAggregateINS_12RegrSXyStateEdddNS_16RegrSXYOperationELNS_23AggregateDestructorTypeE0EEES0_RKNS_11LogicalTypeES7_S5_(ptr dead_on_unwind noalias writable sret(%"class.duckdb::AggregateFunction") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef %3) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca %"class.duckdb::vector", align 8
+  %10 = alloca %"class.std::initializer_list", align 8
+  %11 = alloca [2 x %"struct.duckdb::LogicalType"], align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca %"class.std::allocator.0", align 1
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8, !tbaa !3
+  store ptr %2, ptr %7, align 8, !tbaa !3
+  store ptr %3, ptr %8, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 24, ptr %9) #17
+  call void @llvm.lifetime.start.p0(i64 48, ptr %11) #17
+  store ptr %11, ptr %12, align 8
+  %16 = load ptr, ptr %6, align 8, !tbaa !3
+  invoke void @_ZN6duckdb11LogicalTypeC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %16)
+          to label %17 unwind label %36
+
+17:                                               ; preds = %4
+  %18 = getelementptr inbounds %"struct.duckdb::LogicalType", ptr %11, i64 1
+  store ptr %18, ptr %12, align 8
+  %19 = load ptr, ptr %7, align 8, !tbaa !3
+  invoke void @_ZN6duckdb11LogicalTypeC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %19)
+          to label %20 unwind label %36
+
+20:                                               ; preds = %17
+  %21 = getelementptr inbounds nuw %"class.std::initializer_list", ptr %10, i32 0, i32 0
+  store ptr %11, ptr %21, align 8, !tbaa !8
+  %22 = getelementptr inbounds nuw %"class.std::initializer_list", ptr %10, i32 0, i32 1
+  store i64 2, ptr %22, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 1, ptr %15) #17
+  call void @_ZNSaIN6duckdb11LogicalTypeEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #17
+  %23 = getelementptr inbounds nuw { ptr, i64 }, ptr %10, i32 0, i32 0
+  %24 = load ptr, ptr %23, align 8
+  %25 = getelementptr inbounds nuw { ptr, i64 }, ptr %10, i32 0, i32 1
+  %26 = load i64, ptr %25, align 8
+  invoke void @_ZN6duckdb6vectorINS_11LogicalTypeELb1EECI2St6vectorIS1_SaIS1_EEESt16initializer_listIS1_ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr %24, i64 %26, ptr noundef nonnull align 1 dereferenceable(1) %15)
+          to label %27 unwind label %47
+
+27:                                               ; preds = %20
+  invoke void @_ZN6duckdb17AggregateFunctionC2ERKNS_6vectorINS_11LogicalTypeELb1EEERKS2_PFmRKS0_EPFvS9_PhEPFvPNS_6VectorERNS_18AggregateInputDataEmRSF_mEPFvSJ_SJ_SI_mEPFvSJ_SI_SJ_mmEPFvSG_SI_mSC_mEPFNS_10unique_ptrINS_12FunctionDataESt14default_deleteIST_ELb1EEERNS_13ClientContextERS0_RNS1_INSS_INS_10ExpressionESU_IS10_ELb1EEELb1EEEEPFvSJ_SI_mEPFNSS_INS_14BaseStatisticsESU_IS19_ELb1EEESY_RNS_24BoundAggregateExpressionERNS_24AggregateStatisticsInputEEPFvSI_RKNS_20WindowPartitionInputEPKhSC_RKNS1_INS_11FrameBoundsELb1EEESJ_mEPFvRNS_10SerializerENS_12optional_ptrIST_Lb1EEES9_EPFSW_RNS_12DeserializerESZ_E(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef @_ZN6duckdb17AggregateFunction9StateSizeINS_12RegrSXyStateEEEmRKS0_, ptr noundef @_ZN6duckdb17AggregateFunction15StateInitializeINS_12RegrSXyStateENS_16RegrSXYOperationELNS_23AggregateDestructorTypeE0EEEvRKS0_Ph, ptr noundef @_ZN6duckdb17AggregateFunction19BinaryScatterUpdateINS_12RegrSXyStateEddNS_16RegrSXYOperationEEEvPNS_6VectorERNS_18AggregateInputDataEmRS4_m, ptr noundef @_ZN6duckdb17AggregateFunction12StateCombineINS_12RegrSXyStateENS_16RegrSXYOperationEEEvRNS_6VectorES5_RNS_18AggregateInputDataEm, ptr noundef @_ZN6duckdb17AggregateFunction13StateFinalizeINS_12RegrSXyStateEdNS_16RegrSXYOperationEEEvRNS_6VectorERNS_18AggregateInputDataES5_mm, ptr noundef @_ZN6duckdb17AggregateFunction12BinaryUpdateINS_12RegrSXyStateEddNS_16RegrSXYOperationEEEvPNS_6VectorERNS_18AggregateInputDataEmPhm, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
+          to label %28 unwind label %51
+
+28:                                               ; preds = %27
+  call void @_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #17
+  call void @_ZNSt15__new_allocatorIN6duckdb11LogicalTypeEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #17
+  call void @llvm.lifetime.end.p0(i64 1, ptr %15) #17
+  %29 = getelementptr inbounds [2 x %"struct.duckdb::LogicalType"], ptr %11, i32 0, i32 0
+  %30 = getelementptr inbounds %"struct.duckdb::LogicalType", ptr %29, i64 2
+  br label %31
+
+31:                                               ; preds = %31, %28
+  %32 = phi ptr [ %30, %28 ], [ %33, %31 ]
+  %33 = getelementptr inbounds %"struct.duckdb::LogicalType", ptr %32, i64 -1
+  call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %33) #17
+  %34 = icmp eq ptr %33, %29
+  br i1 %34, label %35, label %31
+
+35:                                               ; preds = %31
+  call void @llvm.lifetime.end.p0(i64 48, ptr %11) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr %9) #17
+  ret void
+
+36:                                               ; preds = %17, %4
+  %37 = landingpad { ptr, i32 }
+          cleanup
+  %38 = extractvalue { ptr, i32 } %37, 0
+  store ptr %38, ptr %13, align 8
+  %39 = extractvalue { ptr, i32 } %37, 1
+  store i32 %39, ptr %14, align 4
+  %40 = load ptr, ptr %12, align 8
+  %41 = icmp eq ptr %11, %40
+  br i1 %41, label %46, label %42
+
+42:                                               ; preds = %42, %36
+  %43 = phi ptr [ %40, %36 ], [ %44, %42 ]
+  %44 = getelementptr inbounds %"struct.duckdb::LogicalType", ptr %43, i64 -1
+  call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %44) #17
+  %45 = icmp eq ptr %44, %11
+  br i1 %45, label %46, label %42
+
+46:                                               ; preds = %42, %36
+  br label %63
+
+47:                                               ; preds = %20
+  %48 = landingpad { ptr, i32 }
+          cleanup
+  %49 = extractvalue { ptr, i32 } %48, 0
+  store ptr %49, ptr %13, align 8
+  %50 = extractvalue { ptr, i32 } %48, 1
+  store i32 %50, ptr %14, align 4
+  br label %55
+
+51:                                               ; preds = %27
+  %52 = landingpad { ptr, i32 }
+          cleanup
+  %53 = extractvalue { ptr, i32 } %52, 0
+  store ptr %53, ptr %13, align 8
+  %54 = extractvalue { ptr, i32 } %52, 1
+  store i32 %54, ptr %14, align 4
+  call void @_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #17
+  br label %55
+
+55:                                               ; preds = %51, %47
+  call void @_ZNSt15__new_allocatorIN6duckdb11LogicalTypeEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #17
+  call void @llvm.lifetime.end.p0(i64 1, ptr %15) #17
+  %56 = getelementptr inbounds [2 x %"struct.duckdb::LogicalType"], ptr %11, i32 0, i32 0
+  %57 = getelementptr inbounds %"struct.duckdb::LogicalType", ptr %56, i64 2
+  br label %58
+
+58:                                               ; preds = %58, %55
+  %59 = phi ptr [ %57, %55 ], [ %60, %58 ]
+  %60 = getelementptr inbounds %"struct.duckdb::LogicalType", ptr %59, i64 -1
+  call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %60) #17
+  %61 = icmp eq ptr %60, %56
+  br i1 %61, label %62, label %58
+
+62:                                               ; preds = %58
+  br label %63
+
+63:                                               ; preds = %62, %46
+  call void @llvm.lifetime.end.p0(i64 48, ptr %11) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr %9) #17
+  br label %64
+
+64:                                               ; preds = %63
+  %65 = load ptr, ptr %13, align 8
+  %66 = load i32, ptr %14, align 4
+  %67 = insertvalue { ptr, i32 } poison, ptr %65, 0
+  %68 = insertvalue { ptr, i32 } %67, i32 %66, 1
+  resume { ptr, i32 } %68
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+declare void @_ZN6duckdb11LogicalTypeC1ENS_13LogicalTypeIdE(ptr noundef nonnull align 8 dereferenceable(24), i8 noundef zeroext) unnamed_addr #2
+
+declare i32 @__gxx_personality_v0(...)
+
+; Function Attrs: nounwind
+declare void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #3
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN6duckdb16RegrInterceptFun11GetFunctionEv(ptr dead_on_unwind noalias writable sret(%"class.duckdb::AggregateFunction") align 8 %0) #0 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"struct.duckdb::LogicalType", align 8
+  %4 = alloca %"struct.duckdb::LogicalType", align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca %"struct.duckdb::LogicalType", align 8
+  store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr %3) #17
+  call void @_ZN6duckdb11LogicalTypeC1ENS_13LogicalTypeIdE(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 noundef zeroext 23)
+  call void @llvm.lifetime.start.p0(i64 24, ptr %4) #17
+  invoke void @_ZN6duckdb11LogicalTypeC1ENS_13LogicalTypeIdE(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 noundef zeroext 23)
+          to label %8 unwind label %11
+
+8:                                                ; preds = %1
+  invoke void @_ZN6duckdb11LogicalTypeC1ENS_13LogicalTypeIdE(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 noundef zeroext 23)
+          to label %9 unwind label %15
+
+9:                                                ; preds = %8
+  invoke void @_ZN6duckdb17AggregateFunction15BinaryAggregateINS_18RegrInterceptStateEdddNS_22RegrInterceptOperationELNS_23AggregateDestructorTypeE0EEES0_RKNS_11LogicalTypeES7_S5_(ptr dead_on_unwind writable sret(%"class.duckdb::AggregateFunction") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef %7)
+          to label %10 unwind label %19
+
+10:                                               ; preds = %9
+  call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #17
+  call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr %4) #17
+  call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr %3) #17
+  ret void
+
+11:                                               ; preds = %1
+  %12 = landingpad { ptr, i32 }
+          cleanup
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %5, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %6, align 4
+  br label %24
+
+15:                                               ; preds = %8
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %5, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %6, align 4
+  br label %23
+
+19:                                               ; preds = %9
+  %20 = landingpad { ptr, i32 }
+          cleanup
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %5, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %6, align 4
+  call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #17
+  br label %23
+
+23:                                               ; preds = %19, %15
+  call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #17
+  br label %24
+
+24:                                               ; preds = %23, %11
+  call void @llvm.lifetime.end.p0(i64 24, ptr %4) #17
+  call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr %3) #17
+  br label %25
+
+25:                                               ; preds = %24
+  %26 = load ptr, ptr %5, align 8
+  %27 = load i32, ptr %6, align 4
+  %28 = insertvalue { ptr, i32 } poison, ptr %26, 0
+  %29 = insertvalue { ptr, i32 } %28, i32 %27, 1
+  resume { ptr, i32 } %29
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateFunction15BinaryAggregateINS_18RegrInterceptStateEdddNS_22RegrInterceptOperationELNS_23AggregateDestructorTypeE0EEES0_RKNS_11LogicalTypeES7_S5_(ptr dead_on_unwind noalias writable sret(%"class.duckdb::AggregateFunction") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef %3) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca %"class.duckdb::vector", align 8
+  %10 = alloca %"class.std::initializer_list", align 8
+  %11 = alloca [2 x %"struct.duckdb::LogicalType"], align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca %"class.std::allocator.0", align 1
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8, !tbaa !3
+  store ptr %2, ptr %7, align 8, !tbaa !3
+  store ptr %3, ptr %8, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 24, ptr %9) #17
+  call void @llvm.lifetime.start.p0(i64 48, ptr %11) #17
+  store ptr %11, ptr %12, align 8
+  %16 = load ptr, ptr %6, align 8, !tbaa !3
+  invoke void @_ZN6duckdb11LogicalTypeC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %16)
+          to label %17 unwind label %36
+
+17:                                               ; preds = %4
+  %18 = getelementptr inbounds %"struct.duckdb::LogicalType", ptr %11, i64 1
+  store ptr %18, ptr %12, align 8
+  %19 = load ptr, ptr %7, align 8, !tbaa !3
+  invoke void @_ZN6duckdb11LogicalTypeC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %19)
+          to label %20 unwind label %36
+
+20:                                               ; preds = %17
+  %21 = getelementptr inbounds nuw %"class.std::initializer_list", ptr %10, i32 0, i32 0
+  store ptr %11, ptr %21, align 8, !tbaa !8
+  %22 = getelementptr inbounds nuw %"class.std::initializer_list", ptr %10, i32 0, i32 1
+  store i64 2, ptr %22, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 1, ptr %15) #17
+  call void @_ZNSaIN6duckdb11LogicalTypeEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #17
+  %23 = getelementptr inbounds nuw { ptr, i64 }, ptr %10, i32 0, i32 0
+  %24 = load ptr, ptr %23, align 8
+  %25 = getelementptr inbounds nuw { ptr, i64 }, ptr %10, i32 0, i32 1
+  %26 = load i64, ptr %25, align 8
+  invoke void @_ZN6duckdb6vectorINS_11LogicalTypeELb1EECI2St6vectorIS1_SaIS1_EEESt16initializer_listIS1_ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr %24, i64 %26, ptr noundef nonnull align 1 dereferenceable(1) %15)
+          to label %27 unwind label %47
+
+27:                                               ; preds = %20
+  invoke void @_ZN6duckdb17AggregateFunctionC2ERKNS_6vectorINS_11LogicalTypeELb1EEERKS2_PFmRKS0_EPFvS9_PhEPFvPNS_6VectorERNS_18AggregateInputDataEmRSF_mEPFvSJ_SJ_SI_mEPFvSJ_SI_SJ_mmEPFvSG_SI_mSC_mEPFNS_10unique_ptrINS_12FunctionDataESt14default_deleteIST_ELb1EEERNS_13ClientContextERS0_RNS1_INSS_INS_10ExpressionESU_IS10_ELb1EEELb1EEEEPFvSJ_SI_mEPFNSS_INS_14BaseStatisticsESU_IS19_ELb1EEESY_RNS_24BoundAggregateExpressionERNS_24AggregateStatisticsInputEEPFvSI_RKNS_20WindowPartitionInputEPKhSC_RKNS1_INS_11FrameBoundsELb1EEESJ_mEPFvRNS_10SerializerENS_12optional_ptrIST_Lb1EEES9_EPFSW_RNS_12DeserializerESZ_E(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef @_ZN6duckdb17AggregateFunction9StateSizeINS_18RegrInterceptStateEEEmRKS0_, ptr noundef @_ZN6duckdb17AggregateFunction15StateInitializeINS_18RegrInterceptStateENS_22RegrInterceptOperationELNS_23AggregateDestructorTypeE0EEEvRKS0_Ph, ptr noundef @_ZN6duckdb17AggregateFunction19BinaryScatterUpdateINS_18RegrInterceptStateEddNS_22RegrInterceptOperationEEEvPNS_6VectorERNS_18AggregateInputDataEmRS4_m, ptr noundef @_ZN6duckdb17AggregateFunction12StateCombineINS_18RegrInterceptStateENS_22RegrInterceptOperationEEEvRNS_6VectorES5_RNS_18AggregateInputDataEm, ptr noundef @_ZN6duckdb17AggregateFunction13StateFinalizeINS_18RegrInterceptStateEdNS_22RegrInterceptOperationEEEvRNS_6VectorERNS_18AggregateInputDataES5_mm, ptr noundef @_ZN6duckdb17AggregateFunction12BinaryUpdateINS_18RegrInterceptStateEddNS_22RegrInterceptOperationEEEvPNS_6VectorERNS_18AggregateInputDataEmPhm, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
+          to label %28 unwind label %51
+
+28:                                               ; preds = %27
+  call void @_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #17
+  call void @_ZNSt15__new_allocatorIN6duckdb11LogicalTypeEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #17
+  call void @llvm.lifetime.end.p0(i64 1, ptr %15) #17
+  %29 = getelementptr inbounds [2 x %"struct.duckdb::LogicalType"], ptr %11, i32 0, i32 0
+  %30 = getelementptr inbounds %"struct.duckdb::LogicalType", ptr %29, i64 2
+  br label %31
+
+31:                                               ; preds = %31, %28
+  %32 = phi ptr [ %30, %28 ], [ %33, %31 ]
+  %33 = getelementptr inbounds %"struct.duckdb::LogicalType", ptr %32, i64 -1
+  call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %33) #17
+  %34 = icmp eq ptr %33, %29
+  br i1 %34, label %35, label %31
+
+35:                                               ; preds = %31
+  call void @llvm.lifetime.end.p0(i64 48, ptr %11) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr %9) #17
+  ret void
+
+36:                                               ; preds = %17, %4
+  %37 = landingpad { ptr, i32 }
+          cleanup
+  %38 = extractvalue { ptr, i32 } %37, 0
+  store ptr %38, ptr %13, align 8
+  %39 = extractvalue { ptr, i32 } %37, 1
+  store i32 %39, ptr %14, align 4
+  %40 = load ptr, ptr %12, align 8
+  %41 = icmp eq ptr %11, %40
+  br i1 %41, label %46, label %42
+
+42:                                               ; preds = %42, %36
+  %43 = phi ptr [ %40, %36 ], [ %44, %42 ]
+  %44 = getelementptr inbounds %"struct.duckdb::LogicalType", ptr %43, i64 -1
+  call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %44) #17
+  %45 = icmp eq ptr %44, %11
+  br i1 %45, label %46, label %42
+
+46:                                               ; preds = %42, %36
+  br label %63
+
+47:                                               ; preds = %20
+  %48 = landingpad { ptr, i32 }
+          cleanup
+  %49 = extractvalue { ptr, i32 } %48, 0
+  store ptr %49, ptr %13, align 8
+  %50 = extractvalue { ptr, i32 } %48, 1
+  store i32 %50, ptr %14, align 4
+  br label %55
+
+51:                                               ; preds = %27
+  %52 = landingpad { ptr, i32 }
+          cleanup
+  %53 = extractvalue { ptr, i32 } %52, 0
+  store ptr %53, ptr %13, align 8
+  %54 = extractvalue { ptr, i32 } %52, 1
+  store i32 %54, ptr %14, align 4
+  call void @_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #17
+  br label %55
+
+55:                                               ; preds = %51, %47
+  call void @_ZNSt15__new_allocatorIN6duckdb11LogicalTypeEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #17
+  call void @llvm.lifetime.end.p0(i64 1, ptr %15) #17
+  %56 = getelementptr inbounds [2 x %"struct.duckdb::LogicalType"], ptr %11, i32 0, i32 0
+  %57 = getelementptr inbounds %"struct.duckdb::LogicalType", ptr %56, i64 2
+  br label %58
+
+58:                                               ; preds = %58, %55
+  %59 = phi ptr [ %57, %55 ], [ %60, %58 ]
+  %60 = getelementptr inbounds %"struct.duckdb::LogicalType", ptr %59, i64 -1
+  call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %60) #17
+  %61 = icmp eq ptr %60, %56
+  br i1 %61, label %62, label %58
+
+62:                                               ; preds = %58
+  br label %63
+
+63:                                               ; preds = %62, %46
+  call void @llvm.lifetime.end.p0(i64 48, ptr %11) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr %9) #17
+  br label %64
+
+64:                                               ; preds = %63
+  %65 = load ptr, ptr %13, align 8
+  %66 = load i32, ptr %14, align 4
+  %67 = insertvalue { ptr, i32 } poison, ptr %65, 0
+  %68 = insertvalue { ptr, i32 } %67, i32 %66, 1
+  resume { ptr, i32 } %68
+}
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN6duckdb12RegrCountFun11GetFunctionEv(ptr dead_on_unwind noalias writable sret(%"class.duckdb::AggregateFunction") align 8 %0) #0 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i1, align 1
+  %4 = alloca %"struct.duckdb::LogicalType", align 8
+  %5 = alloca %"struct.duckdb::LogicalType", align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca %"struct.duckdb::LogicalType", align 8
+  store ptr %0, ptr %2, align 8
+  store i1 false, ptr %3, align 1
+  call void @llvm.lifetime.start.p0(i64 24, ptr %4) #17
+  call void @_ZN6duckdb11LogicalTypeC1ENS_13LogicalTypeIdE(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 noundef zeroext 23)
+  call void @llvm.lifetime.start.p0(i64 24, ptr %5) #17
+  invoke void @_ZN6duckdb11LogicalTypeC1ENS_13LogicalTypeIdE(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 noundef zeroext 23)
+          to label %9 unwind label %17
+
+9:                                                ; preds = %1
+  invoke void @_ZN6duckdb11LogicalTypeC1ENS_13LogicalTypeIdE(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 noundef zeroext 30)
+          to label %10 unwind label %21
+
+10:                                               ; preds = %9
+  invoke void @_ZN6duckdb17AggregateFunction15BinaryAggregateImddjNS_17RegrCountFunctionELNS_23AggregateDestructorTypeE0EEES0_RKNS_11LogicalTypeES6_S4_(ptr dead_on_unwind writable sret(%"class.duckdb::AggregateFunction") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %8)
+          to label %11 unwind label %25
+
+11:                                               ; preds = %10
+  call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #17
+  call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr %5) #17
+  call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr %4) #17
+  %12 = getelementptr inbounds nuw %"class.duckdb::Function", ptr %0, i32 0, i32 1
+  %13 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef @.str)
+          to label %14 unwind label %31
+
+14:                                               ; preds = %11
+  %15 = getelementptr inbounds nuw %"class.duckdb::BaseScalarFunction", ptr %0, i32 0, i32 3
+  store i8 1, ptr %15, align 1, !tbaa !12
+  store i1 true, ptr %3, align 1
+  %16 = load i1, ptr %3, align 1
+  br i1 %16, label %36, label %35
+
+17:                                               ; preds = %1
+  %18 = landingpad { ptr, i32 }
+          cleanup
+  %19 = extractvalue { ptr, i32 } %18, 0
+  store ptr %19, ptr %6, align 8
+  %20 = extractvalue { ptr, i32 } %18, 1
+  store i32 %20, ptr %7, align 4
+  br label %30
+
+21:                                               ; preds = %9
+  %22 = landingpad { ptr, i32 }
+          cleanup
+  %23 = extractvalue { ptr, i32 } %22, 0
+  store ptr %23, ptr %6, align 8
+  %24 = extractvalue { ptr, i32 } %22, 1
+  store i32 %24, ptr %7, align 4
+  br label %29
+
+25:                                               ; preds = %10
+  %26 = landingpad { ptr, i32 }
+          cleanup
+  %27 = extractvalue { ptr, i32 } %26, 0
+  store ptr %27, ptr %6, align 8
+  %28 = extractvalue { ptr, i32 } %26, 1
+  store i32 %28, ptr %7, align 4
+  call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #17
+  br label %29
+
+29:                                               ; preds = %25, %21
+  call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #17
+  br label %30
+
+30:                                               ; preds = %29, %17
+  call void @llvm.lifetime.end.p0(i64 24, ptr %5) #17
+  call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr %4) #17
+  br label %37
+
+31:                                               ; preds = %11
+  %32 = landingpad { ptr, i32 }
+          cleanup
+  %33 = extractvalue { ptr, i32 } %32, 0
+  store ptr %33, ptr %6, align 8
+  %34 = extractvalue { ptr, i32 } %32, 1
+  store i32 %34, ptr %7, align 4
+  call void @_ZN6duckdb17AggregateFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(304) %0) #17
+  br label %37
+
+35:                                               ; preds = %14
+  call void @_ZN6duckdb17AggregateFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(304) %0) #17
+  br label %36
+
+36:                                               ; preds = %35, %14
+  ret void
+
+37:                                               ; preds = %31, %30
+  %38 = load ptr, ptr %6, align 8
+  %39 = load i32, ptr %7, align 4
+  %40 = insertvalue { ptr, i32 } poison, ptr %38, 0
+  %41 = insertvalue { ptr, i32 } %40, i32 %39, 1
+  resume { ptr, i32 } %41
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateFunction15BinaryAggregateImddjNS_17RegrCountFunctionELNS_23AggregateDestructorTypeE0EEES0_RKNS_11LogicalTypeES6_S4_(ptr dead_on_unwind noalias writable sret(%"class.duckdb::AggregateFunction") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef %3) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca %"class.duckdb::vector", align 8
+  %10 = alloca %"class.std::initializer_list", align 8
+  %11 = alloca [2 x %"struct.duckdb::LogicalType"], align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca %"class.std::allocator.0", align 1
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8, !tbaa !3
+  store ptr %2, ptr %7, align 8, !tbaa !3
+  store ptr %3, ptr %8, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 24, ptr %9) #17
+  call void @llvm.lifetime.start.p0(i64 48, ptr %11) #17
+  store ptr %11, ptr %12, align 8
+  %16 = load ptr, ptr %6, align 8, !tbaa !3
+  invoke void @_ZN6duckdb11LogicalTypeC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %16)
+          to label %17 unwind label %36
+
+17:                                               ; preds = %4
+  %18 = getelementptr inbounds %"struct.duckdb::LogicalType", ptr %11, i64 1
+  store ptr %18, ptr %12, align 8
+  %19 = load ptr, ptr %7, align 8, !tbaa !3
+  invoke void @_ZN6duckdb11LogicalTypeC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %19)
+          to label %20 unwind label %36
+
+20:                                               ; preds = %17
+  %21 = getelementptr inbounds nuw %"class.std::initializer_list", ptr %10, i32 0, i32 0
+  store ptr %11, ptr %21, align 8, !tbaa !8
+  %22 = getelementptr inbounds nuw %"class.std::initializer_list", ptr %10, i32 0, i32 1
+  store i64 2, ptr %22, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 1, ptr %15) #17
+  call void @_ZNSaIN6duckdb11LogicalTypeEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #17
+  %23 = getelementptr inbounds nuw { ptr, i64 }, ptr %10, i32 0, i32 0
+  %24 = load ptr, ptr %23, align 8
+  %25 = getelementptr inbounds nuw { ptr, i64 }, ptr %10, i32 0, i32 1
+  %26 = load i64, ptr %25, align 8
+  invoke void @_ZN6duckdb6vectorINS_11LogicalTypeELb1EECI2St6vectorIS1_SaIS1_EEESt16initializer_listIS1_ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr %24, i64 %26, ptr noundef nonnull align 1 dereferenceable(1) %15)
+          to label %27 unwind label %47
+
+27:                                               ; preds = %20
+  invoke void @_ZN6duckdb17AggregateFunctionC2ERKNS_6vectorINS_11LogicalTypeELb1EEERKS2_PFmRKS0_EPFvS9_PhEPFvPNS_6VectorERNS_18AggregateInputDataEmRSF_mEPFvSJ_SJ_SI_mEPFvSJ_SI_SJ_mmEPFvSG_SI_mSC_mEPFNS_10unique_ptrINS_12FunctionDataESt14default_deleteIST_ELb1EEERNS_13ClientContextERS0_RNS1_INSS_INS_10ExpressionESU_IS10_ELb1EEELb1EEEEPFvSJ_SI_mEPFNSS_INS_14BaseStatisticsESU_IS19_ELb1EEESY_RNS_24BoundAggregateExpressionERNS_24AggregateStatisticsInputEEPFvSI_RKNS_20WindowPartitionInputEPKhSC_RKNS1_INS_11FrameBoundsELb1EEESJ_mEPFvRNS_10SerializerENS_12optional_ptrIST_Lb1EEES9_EPFSW_RNS_12DeserializerESZ_E(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef @_ZN6duckdb17AggregateFunction9StateSizeImEEmRKS0_, ptr noundef @_ZN6duckdb17AggregateFunction15StateInitializeImNS_17RegrCountFunctionELNS_23AggregateDestructorTypeE0EEEvRKS0_Ph, ptr noundef @_ZN6duckdb17AggregateFunction19BinaryScatterUpdateImddNS_17RegrCountFunctionEEEvPNS_6VectorERNS_18AggregateInputDataEmRS3_m, ptr noundef @_ZN6duckdb17AggregateFunction12StateCombineImNS_17RegrCountFunctionEEEvRNS_6VectorES4_RNS_18AggregateInputDataEm, ptr noundef @_ZN6duckdb17AggregateFunction13StateFinalizeImjNS_17RegrCountFunctionEEEvRNS_6VectorERNS_18AggregateInputDataES4_mm, ptr noundef @_ZN6duckdb17AggregateFunction12BinaryUpdateImddNS_17RegrCountFunctionEEEvPNS_6VectorERNS_18AggregateInputDataEmPhm, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
+          to label %28 unwind label %51
+
+28:                                               ; preds = %27
+  call void @_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #17
+  call void @_ZNSt15__new_allocatorIN6duckdb11LogicalTypeEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #17
+  call void @llvm.lifetime.end.p0(i64 1, ptr %15) #17
+  %29 = getelementptr inbounds [2 x %"struct.duckdb::LogicalType"], ptr %11, i32 0, i32 0
+  %30 = getelementptr inbounds %"struct.duckdb::LogicalType", ptr %29, i64 2
+  br label %31
+
+31:                                               ; preds = %31, %28
+  %32 = phi ptr [ %30, %28 ], [ %33, %31 ]
+  %33 = getelementptr inbounds %"struct.duckdb::LogicalType", ptr %32, i64 -1
+  call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %33) #17
+  %34 = icmp eq ptr %33, %29
+  br i1 %34, label %35, label %31
+
+35:                                               ; preds = %31
+  call void @llvm.lifetime.end.p0(i64 48, ptr %11) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr %9) #17
+  ret void
+
+36:                                               ; preds = %17, %4
+  %37 = landingpad { ptr, i32 }
+          cleanup
+  %38 = extractvalue { ptr, i32 } %37, 0
+  store ptr %38, ptr %13, align 8
+  %39 = extractvalue { ptr, i32 } %37, 1
+  store i32 %39, ptr %14, align 4
+  %40 = load ptr, ptr %12, align 8
+  %41 = icmp eq ptr %11, %40
+  br i1 %41, label %46, label %42
+
+42:                                               ; preds = %42, %36
+  %43 = phi ptr [ %40, %36 ], [ %44, %42 ]
+  %44 = getelementptr inbounds %"struct.duckdb::LogicalType", ptr %43, i64 -1
+  call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %44) #17
+  %45 = icmp eq ptr %44, %11
+  br i1 %45, label %46, label %42
+
+46:                                               ; preds = %42, %36
+  br label %63
+
+47:                                               ; preds = %20
+  %48 = landingpad { ptr, i32 }
+          cleanup
+  %49 = extractvalue { ptr, i32 } %48, 0
+  store ptr %49, ptr %13, align 8
+  %50 = extractvalue { ptr, i32 } %48, 1
+  store i32 %50, ptr %14, align 4
+  br label %55
+
+51:                                               ; preds = %27
+  %52 = landingpad { ptr, i32 }
+          cleanup
+  %53 = extractvalue { ptr, i32 } %52, 0
+  store ptr %53, ptr %13, align 8
+  %54 = extractvalue { ptr, i32 } %52, 1
+  store i32 %54, ptr %14, align 4
+  call void @_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #17
+  br label %55
+
+55:                                               ; preds = %51, %47
+  call void @_ZNSt15__new_allocatorIN6duckdb11LogicalTypeEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #17
+  call void @llvm.lifetime.end.p0(i64 1, ptr %15) #17
+  %56 = getelementptr inbounds [2 x %"struct.duckdb::LogicalType"], ptr %11, i32 0, i32 0
+  %57 = getelementptr inbounds %"struct.duckdb::LogicalType", ptr %56, i64 2
+  br label %58
+
+58:                                               ; preds = %58, %55
+  %59 = phi ptr [ %57, %55 ], [ %60, %58 ]
+  %60 = getelementptr inbounds %"struct.duckdb::LogicalType", ptr %59, i64 -1
+  call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %60) #17
+  %61 = icmp eq ptr %60, %56
+  br i1 %61, label %62, label %58
+
+62:                                               ; preds = %58
+  br label %63
+
+63:                                               ; preds = %62, %46
+  call void @llvm.lifetime.end.p0(i64 48, ptr %11) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr %9) #17
+  br label %64
+
+64:                                               ; preds = %63
+  %65 = load ptr, ptr %13, align 8
+  %66 = load i32, ptr %14, align 4
+  %67 = insertvalue { ptr, i32 } poison, ptr %65, 0
+  %68 = insertvalue { ptr, i32 } %67, i32 %66, 1
+  resume { ptr, i32 } %68
+}
+
+; Function Attrs: mustprogress uwtable
+define available_externally noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !37
+  store ptr %1, ptr %4, align 8, !tbaa !39
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !39
+  %7 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKc(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %6)
+  ret ptr %7
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(304) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !40
+  %3 = load ptr, ptr %2, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb17AggregateFunctionE, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !42
+  %4 = getelementptr inbounds nuw %"class.duckdb::AggregateFunction", ptr %3, i32 0, i32 16
+  call void @_ZN6duckdb10shared_ptrINS_21AggregateFunctionInfoELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #17
+  call void @_ZN6duckdb18BaseScalarFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(172) %3) #17
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN6duckdb9RegrR2Fun11GetFunctionEv(ptr dead_on_unwind noalias writable sret(%"class.duckdb::AggregateFunction") align 8 %0) #0 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"struct.duckdb::LogicalType", align 8
+  %4 = alloca %"struct.duckdb::LogicalType", align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca %"struct.duckdb::LogicalType", align 8
+  store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr %3) #17
+  call void @_ZN6duckdb11LogicalTypeC1ENS_13LogicalTypeIdE(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 noundef zeroext 23)
+  call void @llvm.lifetime.start.p0(i64 24, ptr %4) #17
+  invoke void @_ZN6duckdb11LogicalTypeC1ENS_13LogicalTypeIdE(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 noundef zeroext 23)
+          to label %8 unwind label %11
+
+8:                                                ; preds = %1
+  invoke void @_ZN6duckdb11LogicalTypeC1ENS_13LogicalTypeIdE(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 noundef zeroext 23)
+          to label %9 unwind label %15
+
+9:                                                ; preds = %8
+  invoke void @_ZN6duckdb17AggregateFunction15BinaryAggregateINS_11RegrR2StateEdddNS_15RegrR2OperationELNS_23AggregateDestructorTypeE0EEES0_RKNS_11LogicalTypeES7_S5_(ptr dead_on_unwind writable sret(%"class.duckdb::AggregateFunction") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef %7)
+          to label %10 unwind label %19
+
+10:                                               ; preds = %9
+  call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #17
+  call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr %4) #17
+  call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr %3) #17
+  ret void
+
+11:                                               ; preds = %1
+  %12 = landingpad { ptr, i32 }
+          cleanup
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %5, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %6, align 4
+  br label %24
+
+15:                                               ; preds = %8
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %5, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %6, align 4
+  br label %23
+
+19:                                               ; preds = %9
+  %20 = landingpad { ptr, i32 }
+          cleanup
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %5, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %6, align 4
+  call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #17
+  br label %23
+
+23:                                               ; preds = %19, %15
+  call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #17
+  br label %24
+
+24:                                               ; preds = %23, %11
+  call void @llvm.lifetime.end.p0(i64 24, ptr %4) #17
+  call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr %3) #17
+  br label %25
+
+25:                                               ; preds = %24
+  %26 = load ptr, ptr %5, align 8
+  %27 = load i32, ptr %6, align 4
+  %28 = insertvalue { ptr, i32 } poison, ptr %26, 0
+  %29 = insertvalue { ptr, i32 } %28, i32 %27, 1
+  resume { ptr, i32 } %29
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateFunction15BinaryAggregateINS_11RegrR2StateEdddNS_15RegrR2OperationELNS_23AggregateDestructorTypeE0EEES0_RKNS_11LogicalTypeES7_S5_(ptr dead_on_unwind noalias writable sret(%"class.duckdb::AggregateFunction") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef %3) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca %"class.duckdb::vector", align 8
+  %10 = alloca %"class.std::initializer_list", align 8
+  %11 = alloca [2 x %"struct.duckdb::LogicalType"], align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca %"class.std::allocator.0", align 1
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8, !tbaa !3
+  store ptr %2, ptr %7, align 8, !tbaa !3
+  store ptr %3, ptr %8, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 24, ptr %9) #17
+  call void @llvm.lifetime.start.p0(i64 48, ptr %11) #17
+  store ptr %11, ptr %12, align 8
+  %16 = load ptr, ptr %6, align 8, !tbaa !3
+  invoke void @_ZN6duckdb11LogicalTypeC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %16)
+          to label %17 unwind label %36
+
+17:                                               ; preds = %4
+  %18 = getelementptr inbounds %"struct.duckdb::LogicalType", ptr %11, i64 1
+  store ptr %18, ptr %12, align 8
+  %19 = load ptr, ptr %7, align 8, !tbaa !3
+  invoke void @_ZN6duckdb11LogicalTypeC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %19)
+          to label %20 unwind label %36
+
+20:                                               ; preds = %17
+  %21 = getelementptr inbounds nuw %"class.std::initializer_list", ptr %10, i32 0, i32 0
+  store ptr %11, ptr %21, align 8, !tbaa !8
+  %22 = getelementptr inbounds nuw %"class.std::initializer_list", ptr %10, i32 0, i32 1
+  store i64 2, ptr %22, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 1, ptr %15) #17
+  call void @_ZNSaIN6duckdb11LogicalTypeEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #17
+  %23 = getelementptr inbounds nuw { ptr, i64 }, ptr %10, i32 0, i32 0
+  %24 = load ptr, ptr %23, align 8
+  %25 = getelementptr inbounds nuw { ptr, i64 }, ptr %10, i32 0, i32 1
+  %26 = load i64, ptr %25, align 8
+  invoke void @_ZN6duckdb6vectorINS_11LogicalTypeELb1EECI2St6vectorIS1_SaIS1_EEESt16initializer_listIS1_ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr %24, i64 %26, ptr noundef nonnull align 1 dereferenceable(1) %15)
+          to label %27 unwind label %47
+
+27:                                               ; preds = %20
+  invoke void @_ZN6duckdb17AggregateFunctionC2ERKNS_6vectorINS_11LogicalTypeELb1EEERKS2_PFmRKS0_EPFvS9_PhEPFvPNS_6VectorERNS_18AggregateInputDataEmRSF_mEPFvSJ_SJ_SI_mEPFvSJ_SI_SJ_mmEPFvSG_SI_mSC_mEPFNS_10unique_ptrINS_12FunctionDataESt14default_deleteIST_ELb1EEERNS_13ClientContextERS0_RNS1_INSS_INS_10ExpressionESU_IS10_ELb1EEELb1EEEEPFvSJ_SI_mEPFNSS_INS_14BaseStatisticsESU_IS19_ELb1EEESY_RNS_24BoundAggregateExpressionERNS_24AggregateStatisticsInputEEPFvSI_RKNS_20WindowPartitionInputEPKhSC_RKNS1_INS_11FrameBoundsELb1EEESJ_mEPFvRNS_10SerializerENS_12optional_ptrIST_Lb1EEES9_EPFSW_RNS_12DeserializerESZ_E(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef @_ZN6duckdb17AggregateFunction9StateSizeINS_11RegrR2StateEEEmRKS0_, ptr noundef @_ZN6duckdb17AggregateFunction15StateInitializeINS_11RegrR2StateENS_15RegrR2OperationELNS_23AggregateDestructorTypeE0EEEvRKS0_Ph, ptr noundef @_ZN6duckdb17AggregateFunction19BinaryScatterUpdateINS_11RegrR2StateEddNS_15RegrR2OperationEEEvPNS_6VectorERNS_18AggregateInputDataEmRS4_m, ptr noundef @_ZN6duckdb17AggregateFunction12StateCombineINS_11RegrR2StateENS_15RegrR2OperationEEEvRNS_6VectorES5_RNS_18AggregateInputDataEm, ptr noundef @_ZN6duckdb17AggregateFunction13StateFinalizeINS_11RegrR2StateEdNS_15RegrR2OperationEEEvRNS_6VectorERNS_18AggregateInputDataES5_mm, ptr noundef @_ZN6duckdb17AggregateFunction12BinaryUpdateINS_11RegrR2StateEddNS_15RegrR2OperationEEEvPNS_6VectorERNS_18AggregateInputDataEmPhm, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
+          to label %28 unwind label %51
+
+28:                                               ; preds = %27
+  call void @_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #17
+  call void @_ZNSt15__new_allocatorIN6duckdb11LogicalTypeEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #17
+  call void @llvm.lifetime.end.p0(i64 1, ptr %15) #17
+  %29 = getelementptr inbounds [2 x %"struct.duckdb::LogicalType"], ptr %11, i32 0, i32 0
+  %30 = getelementptr inbounds %"struct.duckdb::LogicalType", ptr %29, i64 2
+  br label %31
+
+31:                                               ; preds = %31, %28
+  %32 = phi ptr [ %30, %28 ], [ %33, %31 ]
+  %33 = getelementptr inbounds %"struct.duckdb::LogicalType", ptr %32, i64 -1
+  call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %33) #17
+  %34 = icmp eq ptr %33, %29
+  br i1 %34, label %35, label %31
+
+35:                                               ; preds = %31
+  call void @llvm.lifetime.end.p0(i64 48, ptr %11) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr %9) #17
+  ret void
+
+36:                                               ; preds = %17, %4
+  %37 = landingpad { ptr, i32 }
+          cleanup
+  %38 = extractvalue { ptr, i32 } %37, 0
+  store ptr %38, ptr %13, align 8
+  %39 = extractvalue { ptr, i32 } %37, 1
+  store i32 %39, ptr %14, align 4
+  %40 = load ptr, ptr %12, align 8
+  %41 = icmp eq ptr %11, %40
+  br i1 %41, label %46, label %42
+
+42:                                               ; preds = %42, %36
+  %43 = phi ptr [ %40, %36 ], [ %44, %42 ]
+  %44 = getelementptr inbounds %"struct.duckdb::LogicalType", ptr %43, i64 -1
+  call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %44) #17
+  %45 = icmp eq ptr %44, %11
+  br i1 %45, label %46, label %42
+
+46:                                               ; preds = %42, %36
+  br label %63
+
+47:                                               ; preds = %20
+  %48 = landingpad { ptr, i32 }
+          cleanup
+  %49 = extractvalue { ptr, i32 } %48, 0
+  store ptr %49, ptr %13, align 8
+  %50 = extractvalue { ptr, i32 } %48, 1
+  store i32 %50, ptr %14, align 4
+  br label %55
+
+51:                                               ; preds = %27
+  %52 = landingpad { ptr, i32 }
+          cleanup
+  %53 = extractvalue { ptr, i32 } %52, 0
+  store ptr %53, ptr %13, align 8
+  %54 = extractvalue { ptr, i32 } %52, 1
+  store i32 %54, ptr %14, align 4
+  call void @_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #17
+  br label %55
+
+55:                                               ; preds = %51, %47
+  call void @_ZNSt15__new_allocatorIN6duckdb11LogicalTypeEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #17
+  call void @llvm.lifetime.end.p0(i64 1, ptr %15) #17
+  %56 = getelementptr inbounds [2 x %"struct.duckdb::LogicalType"], ptr %11, i32 0, i32 0
+  %57 = getelementptr inbounds %"struct.duckdb::LogicalType", ptr %56, i64 2
+  br label %58
+
+58:                                               ; preds = %58, %55
+  %59 = phi ptr [ %57, %55 ], [ %60, %58 ]
+  %60 = getelementptr inbounds %"struct.duckdb::LogicalType", ptr %59, i64 -1
+  call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %60) #17
+  %61 = icmp eq ptr %60, %56
+  br i1 %61, label %62, label %58
+
+62:                                               ; preds = %58
+  br label %63
+
+63:                                               ; preds = %62, %46
+  call void @llvm.lifetime.end.p0(i64 48, ptr %11) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr %9) #17
+  br label %64
+
+64:                                               ; preds = %63
+  %65 = load ptr, ptr %13, align 8
+  %66 = load i32, ptr %14, align 4
+  %67 = insertvalue { ptr, i32 } poison, ptr %65, 0
+  %68 = insertvalue { ptr, i32 } %67, i32 %66, 1
+  resume { ptr, i32 } %68
+}
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN6duckdb11RegrAvgxFun11GetFunctionEv(ptr dead_on_unwind noalias writable sret(%"class.duckdb::AggregateFunction") align 8 %0) #0 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"struct.duckdb::LogicalType", align 8
+  %4 = alloca %"struct.duckdb::LogicalType", align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca %"struct.duckdb::LogicalType", align 8
+  store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr %3) #17
+  call void @_ZN6duckdb11LogicalTypeC1ENS_13LogicalTypeIdE(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 noundef zeroext 23)
+  call void @llvm.lifetime.start.p0(i64 24, ptr %4) #17
+  invoke void @_ZN6duckdb11LogicalTypeC1ENS_13LogicalTypeIdE(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 noundef zeroext 23)
+          to label %8 unwind label %11
+
+8:                                                ; preds = %1
+  invoke void @_ZN6duckdb11LogicalTypeC1ENS_13LogicalTypeIdE(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 noundef zeroext 23)
+          to label %9 unwind label %15
+
+9:                                                ; preds = %8
+  invoke void @_ZN6duckdb17AggregateFunction15BinaryAggregateINS_9RegrStateEdddNS_16RegrAvgXFunctionELNS_23AggregateDestructorTypeE0EEES0_RKNS_11LogicalTypeES7_S5_(ptr dead_on_unwind writable sret(%"class.duckdb::AggregateFunction") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef %7)
+          to label %10 unwind label %19
+
+10:                                               ; preds = %9
+  call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #17
+  call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr %4) #17
+  call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr %3) #17
+  ret void
+
+11:                                               ; preds = %1
+  %12 = landingpad { ptr, i32 }
+          cleanup
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %5, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %6, align 4
+  br label %24
+
+15:                                               ; preds = %8
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %5, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %6, align 4
+  br label %23
+
+19:                                               ; preds = %9
+  %20 = landingpad { ptr, i32 }
+          cleanup
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %5, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %6, align 4
+  call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #17
+  br label %23
+
+23:                                               ; preds = %19, %15
+  call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #17
+  br label %24
+
+24:                                               ; preds = %23, %11
+  call void @llvm.lifetime.end.p0(i64 24, ptr %4) #17
+  call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr %3) #17
+  br label %25
+
+25:                                               ; preds = %24
+  %26 = load ptr, ptr %5, align 8
+  %27 = load i32, ptr %6, align 4
+  %28 = insertvalue { ptr, i32 } poison, ptr %26, 0
+  %29 = insertvalue { ptr, i32 } %28, i32 %27, 1
+  resume { ptr, i32 } %29
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateFunction15BinaryAggregateINS_9RegrStateEdddNS_16RegrAvgXFunctionELNS_23AggregateDestructorTypeE0EEES0_RKNS_11LogicalTypeES7_S5_(ptr dead_on_unwind noalias writable sret(%"class.duckdb::AggregateFunction") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef %3) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca %"class.duckdb::vector", align 8
+  %10 = alloca %"class.std::initializer_list", align 8
+  %11 = alloca [2 x %"struct.duckdb::LogicalType"], align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca %"class.std::allocator.0", align 1
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8, !tbaa !3
+  store ptr %2, ptr %7, align 8, !tbaa !3
+  store ptr %3, ptr %8, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 24, ptr %9) #17
+  call void @llvm.lifetime.start.p0(i64 48, ptr %11) #17
+  store ptr %11, ptr %12, align 8
+  %16 = load ptr, ptr %6, align 8, !tbaa !3
+  invoke void @_ZN6duckdb11LogicalTypeC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %16)
+          to label %17 unwind label %36
+
+17:                                               ; preds = %4
+  %18 = getelementptr inbounds %"struct.duckdb::LogicalType", ptr %11, i64 1
+  store ptr %18, ptr %12, align 8
+  %19 = load ptr, ptr %7, align 8, !tbaa !3
+  invoke void @_ZN6duckdb11LogicalTypeC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %19)
+          to label %20 unwind label %36
+
+20:                                               ; preds = %17
+  %21 = getelementptr inbounds nuw %"class.std::initializer_list", ptr %10, i32 0, i32 0
+  store ptr %11, ptr %21, align 8, !tbaa !8
+  %22 = getelementptr inbounds nuw %"class.std::initializer_list", ptr %10, i32 0, i32 1
+  store i64 2, ptr %22, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 1, ptr %15) #17
+  call void @_ZNSaIN6duckdb11LogicalTypeEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #17
+  %23 = getelementptr inbounds nuw { ptr, i64 }, ptr %10, i32 0, i32 0
+  %24 = load ptr, ptr %23, align 8
+  %25 = getelementptr inbounds nuw { ptr, i64 }, ptr %10, i32 0, i32 1
+  %26 = load i64, ptr %25, align 8
+  invoke void @_ZN6duckdb6vectorINS_11LogicalTypeELb1EECI2St6vectorIS1_SaIS1_EEESt16initializer_listIS1_ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr %24, i64 %26, ptr noundef nonnull align 1 dereferenceable(1) %15)
+          to label %27 unwind label %47
+
+27:                                               ; preds = %20
+  invoke void @_ZN6duckdb17AggregateFunctionC2ERKNS_6vectorINS_11LogicalTypeELb1EEERKS2_PFmRKS0_EPFvS9_PhEPFvPNS_6VectorERNS_18AggregateInputDataEmRSF_mEPFvSJ_SJ_SI_mEPFvSJ_SI_SJ_mmEPFvSG_SI_mSC_mEPFNS_10unique_ptrINS_12FunctionDataESt14default_deleteIST_ELb1EEERNS_13ClientContextERS0_RNS1_INSS_INS_10ExpressionESU_IS10_ELb1EEELb1EEEEPFvSJ_SI_mEPFNSS_INS_14BaseStatisticsESU_IS19_ELb1EEESY_RNS_24BoundAggregateExpressionERNS_24AggregateStatisticsInputEEPFvSI_RKNS_20WindowPartitionInputEPKhSC_RKNS1_INS_11FrameBoundsELb1EEESJ_mEPFvRNS_10SerializerENS_12optional_ptrIST_Lb1EEES9_EPFSW_RNS_12DeserializerESZ_E(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef @_ZN6duckdb17AggregateFunction9StateSizeINS_9RegrStateEEEmRKS0_, ptr noundef @_ZN6duckdb17AggregateFunction15StateInitializeINS_9RegrStateENS_16RegrAvgXFunctionELNS_23AggregateDestructorTypeE0EEEvRKS0_Ph, ptr noundef @_ZN6duckdb17AggregateFunction19BinaryScatterUpdateINS_9RegrStateEddNS_16RegrAvgXFunctionEEEvPNS_6VectorERNS_18AggregateInputDataEmRS4_m, ptr noundef @_ZN6duckdb17AggregateFunction12StateCombineINS_9RegrStateENS_16RegrAvgXFunctionEEEvRNS_6VectorES5_RNS_18AggregateInputDataEm, ptr noundef @_ZN6duckdb17AggregateFunction13StateFinalizeINS_9RegrStateEdNS_16RegrAvgXFunctionEEEvRNS_6VectorERNS_18AggregateInputDataES5_mm, ptr noundef @_ZN6duckdb17AggregateFunction12BinaryUpdateINS_9RegrStateEddNS_16RegrAvgXFunctionEEEvPNS_6VectorERNS_18AggregateInputDataEmPhm, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
+          to label %28 unwind label %51
+
+28:                                               ; preds = %27
+  call void @_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #17
+  call void @_ZNSt15__new_allocatorIN6duckdb11LogicalTypeEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #17
+  call void @llvm.lifetime.end.p0(i64 1, ptr %15) #17
+  %29 = getelementptr inbounds [2 x %"struct.duckdb::LogicalType"], ptr %11, i32 0, i32 0
+  %30 = getelementptr inbounds %"struct.duckdb::LogicalType", ptr %29, i64 2
+  br label %31
+
+31:                                               ; preds = %31, %28
+  %32 = phi ptr [ %30, %28 ], [ %33, %31 ]
+  %33 = getelementptr inbounds %"struct.duckdb::LogicalType", ptr %32, i64 -1
+  call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %33) #17
+  %34 = icmp eq ptr %33, %29
+  br i1 %34, label %35, label %31
+
+35:                                               ; preds = %31
+  call void @llvm.lifetime.end.p0(i64 48, ptr %11) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr %9) #17
+  ret void
+
+36:                                               ; preds = %17, %4
+  %37 = landingpad { ptr, i32 }
+          cleanup
+  %38 = extractvalue { ptr, i32 } %37, 0
+  store ptr %38, ptr %13, align 8
+  %39 = extractvalue { ptr, i32 } %37, 1
+  store i32 %39, ptr %14, align 4
+  %40 = load ptr, ptr %12, align 8
+  %41 = icmp eq ptr %11, %40
+  br i1 %41, label %46, label %42
+
+42:                                               ; preds = %42, %36
+  %43 = phi ptr [ %40, %36 ], [ %44, %42 ]
+  %44 = getelementptr inbounds %"struct.duckdb::LogicalType", ptr %43, i64 -1
+  call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %44) #17
+  %45 = icmp eq ptr %44, %11
+  br i1 %45, label %46, label %42
+
+46:                                               ; preds = %42, %36
+  br label %63
+
+47:                                               ; preds = %20
+  %48 = landingpad { ptr, i32 }
+          cleanup
+  %49 = extractvalue { ptr, i32 } %48, 0
+  store ptr %49, ptr %13, align 8
+  %50 = extractvalue { ptr, i32 } %48, 1
+  store i32 %50, ptr %14, align 4
+  br label %55
+
+51:                                               ; preds = %27
+  %52 = landingpad { ptr, i32 }
+          cleanup
+  %53 = extractvalue { ptr, i32 } %52, 0
+  store ptr %53, ptr %13, align 8
+  %54 = extractvalue { ptr, i32 } %52, 1
+  store i32 %54, ptr %14, align 4
+  call void @_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #17
+  br label %55
+
+55:                                               ; preds = %51, %47
+  call void @_ZNSt15__new_allocatorIN6duckdb11LogicalTypeEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #17
+  call void @llvm.lifetime.end.p0(i64 1, ptr %15) #17
+  %56 = getelementptr inbounds [2 x %"struct.duckdb::LogicalType"], ptr %11, i32 0, i32 0
+  %57 = getelementptr inbounds %"struct.duckdb::LogicalType", ptr %56, i64 2
+  br label %58
+
+58:                                               ; preds = %58, %55
+  %59 = phi ptr [ %57, %55 ], [ %60, %58 ]
+  %60 = getelementptr inbounds %"struct.duckdb::LogicalType", ptr %59, i64 -1
+  call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %60) #17
+  %61 = icmp eq ptr %60, %56
+  br i1 %61, label %62, label %58
+
+62:                                               ; preds = %58
+  br label %63
+
+63:                                               ; preds = %62, %46
+  call void @llvm.lifetime.end.p0(i64 48, ptr %11) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr %9) #17
+  br label %64
+
+64:                                               ; preds = %63
+  %65 = load ptr, ptr %13, align 8
+  %66 = load i32, ptr %14, align 4
+  %67 = insertvalue { ptr, i32 } poison, ptr %65, 0
+  %68 = insertvalue { ptr, i32 } %67, i32 %66, 1
+  resume { ptr, i32 } %68
+}
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN6duckdb11RegrAvgyFun11GetFunctionEv(ptr dead_on_unwind noalias writable sret(%"class.duckdb::AggregateFunction") align 8 %0) #0 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"struct.duckdb::LogicalType", align 8
+  %4 = alloca %"struct.duckdb::LogicalType", align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca %"struct.duckdb::LogicalType", align 8
+  store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr %3) #17
+  call void @_ZN6duckdb11LogicalTypeC1ENS_13LogicalTypeIdE(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 noundef zeroext 23)
+  call void @llvm.lifetime.start.p0(i64 24, ptr %4) #17
+  invoke void @_ZN6duckdb11LogicalTypeC1ENS_13LogicalTypeIdE(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 noundef zeroext 23)
+          to label %8 unwind label %11
+
+8:                                                ; preds = %1
+  invoke void @_ZN6duckdb11LogicalTypeC1ENS_13LogicalTypeIdE(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 noundef zeroext 23)
+          to label %9 unwind label %15
+
+9:                                                ; preds = %8
+  invoke void @_ZN6duckdb17AggregateFunction15BinaryAggregateINS_9RegrStateEdddNS_16RegrAvgYFunctionELNS_23AggregateDestructorTypeE0EEES0_RKNS_11LogicalTypeES7_S5_(ptr dead_on_unwind writable sret(%"class.duckdb::AggregateFunction") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef %7)
+          to label %10 unwind label %19
+
+10:                                               ; preds = %9
+  call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #17
+  call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr %4) #17
+  call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr %3) #17
+  ret void
+
+11:                                               ; preds = %1
+  %12 = landingpad { ptr, i32 }
+          cleanup
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %5, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %6, align 4
+  br label %24
+
+15:                                               ; preds = %8
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %5, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %6, align 4
+  br label %23
+
+19:                                               ; preds = %9
+  %20 = landingpad { ptr, i32 }
+          cleanup
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %5, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %6, align 4
+  call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #17
+  br label %23
+
+23:                                               ; preds = %19, %15
+  call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #17
+  br label %24
+
+24:                                               ; preds = %23, %11
+  call void @llvm.lifetime.end.p0(i64 24, ptr %4) #17
+  call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr %3) #17
+  br label %25
+
+25:                                               ; preds = %24
+  %26 = load ptr, ptr %5, align 8
+  %27 = load i32, ptr %6, align 4
+  %28 = insertvalue { ptr, i32 } poison, ptr %26, 0
+  %29 = insertvalue { ptr, i32 } %28, i32 %27, 1
+  resume { ptr, i32 } %29
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateFunction15BinaryAggregateINS_9RegrStateEdddNS_16RegrAvgYFunctionELNS_23AggregateDestructorTypeE0EEES0_RKNS_11LogicalTypeES7_S5_(ptr dead_on_unwind noalias writable sret(%"class.duckdb::AggregateFunction") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef %3) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca %"class.duckdb::vector", align 8
+  %10 = alloca %"class.std::initializer_list", align 8
+  %11 = alloca [2 x %"struct.duckdb::LogicalType"], align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca %"class.std::allocator.0", align 1
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8, !tbaa !3
+  store ptr %2, ptr %7, align 8, !tbaa !3
+  store ptr %3, ptr %8, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 24, ptr %9) #17
+  call void @llvm.lifetime.start.p0(i64 48, ptr %11) #17
+  store ptr %11, ptr %12, align 8
+  %16 = load ptr, ptr %6, align 8, !tbaa !3
+  invoke void @_ZN6duckdb11LogicalTypeC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %16)
+          to label %17 unwind label %36
+
+17:                                               ; preds = %4
+  %18 = getelementptr inbounds %"struct.duckdb::LogicalType", ptr %11, i64 1
+  store ptr %18, ptr %12, align 8
+  %19 = load ptr, ptr %7, align 8, !tbaa !3
+  invoke void @_ZN6duckdb11LogicalTypeC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %19)
+          to label %20 unwind label %36
+
+20:                                               ; preds = %17
+  %21 = getelementptr inbounds nuw %"class.std::initializer_list", ptr %10, i32 0, i32 0
+  store ptr %11, ptr %21, align 8, !tbaa !8
+  %22 = getelementptr inbounds nuw %"class.std::initializer_list", ptr %10, i32 0, i32 1
+  store i64 2, ptr %22, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 1, ptr %15) #17
+  call void @_ZNSaIN6duckdb11LogicalTypeEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #17
+  %23 = getelementptr inbounds nuw { ptr, i64 }, ptr %10, i32 0, i32 0
+  %24 = load ptr, ptr %23, align 8
+  %25 = getelementptr inbounds nuw { ptr, i64 }, ptr %10, i32 0, i32 1
+  %26 = load i64, ptr %25, align 8
+  invoke void @_ZN6duckdb6vectorINS_11LogicalTypeELb1EECI2St6vectorIS1_SaIS1_EEESt16initializer_listIS1_ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr %24, i64 %26, ptr noundef nonnull align 1 dereferenceable(1) %15)
+          to label %27 unwind label %47
+
+27:                                               ; preds = %20
+  invoke void @_ZN6duckdb17AggregateFunctionC2ERKNS_6vectorINS_11LogicalTypeELb1EEERKS2_PFmRKS0_EPFvS9_PhEPFvPNS_6VectorERNS_18AggregateInputDataEmRSF_mEPFvSJ_SJ_SI_mEPFvSJ_SI_SJ_mmEPFvSG_SI_mSC_mEPFNS_10unique_ptrINS_12FunctionDataESt14default_deleteIST_ELb1EEERNS_13ClientContextERS0_RNS1_INSS_INS_10ExpressionESU_IS10_ELb1EEELb1EEEEPFvSJ_SI_mEPFNSS_INS_14BaseStatisticsESU_IS19_ELb1EEESY_RNS_24BoundAggregateExpressionERNS_24AggregateStatisticsInputEEPFvSI_RKNS_20WindowPartitionInputEPKhSC_RKNS1_INS_11FrameBoundsELb1EEESJ_mEPFvRNS_10SerializerENS_12optional_ptrIST_Lb1EEES9_EPFSW_RNS_12DeserializerESZ_E(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef @_ZN6duckdb17AggregateFunction9StateSizeINS_9RegrStateEEEmRKS0_, ptr noundef @_ZN6duckdb17AggregateFunction15StateInitializeINS_9RegrStateENS_16RegrAvgYFunctionELNS_23AggregateDestructorTypeE0EEEvRKS0_Ph, ptr noundef @_ZN6duckdb17AggregateFunction19BinaryScatterUpdateINS_9RegrStateEddNS_16RegrAvgYFunctionEEEvPNS_6VectorERNS_18AggregateInputDataEmRS4_m, ptr noundef @_ZN6duckdb17AggregateFunction12StateCombineINS_9RegrStateENS_16RegrAvgYFunctionEEEvRNS_6VectorES5_RNS_18AggregateInputDataEm, ptr noundef @_ZN6duckdb17AggregateFunction13StateFinalizeINS_9RegrStateEdNS_16RegrAvgYFunctionEEEvRNS_6VectorERNS_18AggregateInputDataES5_mm, ptr noundef @_ZN6duckdb17AggregateFunction12BinaryUpdateINS_9RegrStateEddNS_16RegrAvgYFunctionEEEvPNS_6VectorERNS_18AggregateInputDataEmPhm, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
+          to label %28 unwind label %51
+
+28:                                               ; preds = %27
+  call void @_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #17
+  call void @_ZNSt15__new_allocatorIN6duckdb11LogicalTypeEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #17
+  call void @llvm.lifetime.end.p0(i64 1, ptr %15) #17
+  %29 = getelementptr inbounds [2 x %"struct.duckdb::LogicalType"], ptr %11, i32 0, i32 0
+  %30 = getelementptr inbounds %"struct.duckdb::LogicalType", ptr %29, i64 2
+  br label %31
+
+31:                                               ; preds = %31, %28
+  %32 = phi ptr [ %30, %28 ], [ %33, %31 ]
+  %33 = getelementptr inbounds %"struct.duckdb::LogicalType", ptr %32, i64 -1
+  call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %33) #17
+  %34 = icmp eq ptr %33, %29
+  br i1 %34, label %35, label %31
+
+35:                                               ; preds = %31
+  call void @llvm.lifetime.end.p0(i64 48, ptr %11) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr %9) #17
+  ret void
+
+36:                                               ; preds = %17, %4
+  %37 = landingpad { ptr, i32 }
+          cleanup
+  %38 = extractvalue { ptr, i32 } %37, 0
+  store ptr %38, ptr %13, align 8
+  %39 = extractvalue { ptr, i32 } %37, 1
+  store i32 %39, ptr %14, align 4
+  %40 = load ptr, ptr %12, align 8
+  %41 = icmp eq ptr %11, %40
+  br i1 %41, label %46, label %42
+
+42:                                               ; preds = %42, %36
+  %43 = phi ptr [ %40, %36 ], [ %44, %42 ]
+  %44 = getelementptr inbounds %"struct.duckdb::LogicalType", ptr %43, i64 -1
+  call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %44) #17
+  %45 = icmp eq ptr %44, %11
+  br i1 %45, label %46, label %42
+
+46:                                               ; preds = %42, %36
+  br label %63
+
+47:                                               ; preds = %20
+  %48 = landingpad { ptr, i32 }
+          cleanup
+  %49 = extractvalue { ptr, i32 } %48, 0
+  store ptr %49, ptr %13, align 8
+  %50 = extractvalue { ptr, i32 } %48, 1
+  store i32 %50, ptr %14, align 4
+  br label %55
+
+51:                                               ; preds = %27
+  %52 = landingpad { ptr, i32 }
+          cleanup
+  %53 = extractvalue { ptr, i32 } %52, 0
+  store ptr %53, ptr %13, align 8
+  %54 = extractvalue { ptr, i32 } %52, 1
+  store i32 %54, ptr %14, align 4
+  call void @_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #17
+  br label %55
+
+55:                                               ; preds = %51, %47
+  call void @_ZNSt15__new_allocatorIN6duckdb11LogicalTypeEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #17
+  call void @llvm.lifetime.end.p0(i64 1, ptr %15) #17
+  %56 = getelementptr inbounds [2 x %"struct.duckdb::LogicalType"], ptr %11, i32 0, i32 0
+  %57 = getelementptr inbounds %"struct.duckdb::LogicalType", ptr %56, i64 2
+  br label %58
+
+58:                                               ; preds = %58, %55
+  %59 = phi ptr [ %57, %55 ], [ %60, %58 ]
+  %60 = getelementptr inbounds %"struct.duckdb::LogicalType", ptr %59, i64 -1
+  call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %60) #17
+  %61 = icmp eq ptr %60, %56
+  br i1 %61, label %62, label %58
+
+62:                                               ; preds = %58
+  br label %63
+
+63:                                               ; preds = %62, %46
+  call void @llvm.lifetime.end.p0(i64 48, ptr %11) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr %9) #17
+  br label %64
+
+64:                                               ; preds = %63
+  %65 = load ptr, ptr %13, align 8
+  %66 = load i32, ptr %14, align 4
+  %67 = insertvalue { ptr, i32 } poison, ptr %65, 0
+  %68 = insertvalue { ptr, i32 } %67, i32 %66, 1
+  resume { ptr, i32 } %68
+}
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN6duckdb12RegrSlopeFun11GetFunctionEv(ptr dead_on_unwind noalias writable sret(%"class.duckdb::AggregateFunction") align 8 %0) #0 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"struct.duckdb::LogicalType", align 8
+  %4 = alloca %"struct.duckdb::LogicalType", align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca %"struct.duckdb::LogicalType", align 8
+  store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr %3) #17
+  call void @_ZN6duckdb11LogicalTypeC1ENS_13LogicalTypeIdE(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 noundef zeroext 23)
+  call void @llvm.lifetime.start.p0(i64 24, ptr %4) #17
+  invoke void @_ZN6duckdb11LogicalTypeC1ENS_13LogicalTypeIdE(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 noundef zeroext 23)
+          to label %8 unwind label %11
+
+8:                                                ; preds = %1
+  invoke void @_ZN6duckdb11LogicalTypeC1ENS_13LogicalTypeIdE(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 noundef zeroext 23)
+          to label %9 unwind label %15
+
+9:                                                ; preds = %8
+  invoke void @_ZN6duckdb17AggregateFunction15BinaryAggregateINS_14RegrSlopeStateEdddNS_18RegrSlopeOperationELNS_23AggregateDestructorTypeE0EEES0_RKNS_11LogicalTypeES7_S5_(ptr dead_on_unwind writable sret(%"class.duckdb::AggregateFunction") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef %7)
+          to label %10 unwind label %19
+
+10:                                               ; preds = %9
+  call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #17
+  call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr %4) #17
+  call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr %3) #17
+  ret void
+
+11:                                               ; preds = %1
+  %12 = landingpad { ptr, i32 }
+          cleanup
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %5, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %6, align 4
+  br label %24
+
+15:                                               ; preds = %8
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %5, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %6, align 4
+  br label %23
+
+19:                                               ; preds = %9
+  %20 = landingpad { ptr, i32 }
+          cleanup
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %5, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %6, align 4
+  call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #17
+  br label %23
+
+23:                                               ; preds = %19, %15
+  call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #17
+  br label %24
+
+24:                                               ; preds = %23, %11
+  call void @llvm.lifetime.end.p0(i64 24, ptr %4) #17
+  call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr %3) #17
+  br label %25
+
+25:                                               ; preds = %24
+  %26 = load ptr, ptr %5, align 8
+  %27 = load i32, ptr %6, align 4
+  %28 = insertvalue { ptr, i32 } poison, ptr %26, 0
+  %29 = insertvalue { ptr, i32 } %28, i32 %27, 1
+  resume { ptr, i32 } %29
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateFunction15BinaryAggregateINS_14RegrSlopeStateEdddNS_18RegrSlopeOperationELNS_23AggregateDestructorTypeE0EEES0_RKNS_11LogicalTypeES7_S5_(ptr dead_on_unwind noalias writable sret(%"class.duckdb::AggregateFunction") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef %3) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca %"class.duckdb::vector", align 8
+  %10 = alloca %"class.std::initializer_list", align 8
+  %11 = alloca [2 x %"struct.duckdb::LogicalType"], align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca %"class.std::allocator.0", align 1
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8, !tbaa !3
+  store ptr %2, ptr %7, align 8, !tbaa !3
+  store ptr %3, ptr %8, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 24, ptr %9) #17
+  call void @llvm.lifetime.start.p0(i64 48, ptr %11) #17
+  store ptr %11, ptr %12, align 8
+  %16 = load ptr, ptr %6, align 8, !tbaa !3
+  invoke void @_ZN6duckdb11LogicalTypeC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %16)
+          to label %17 unwind label %36
+
+17:                                               ; preds = %4
+  %18 = getelementptr inbounds %"struct.duckdb::LogicalType", ptr %11, i64 1
+  store ptr %18, ptr %12, align 8
+  %19 = load ptr, ptr %7, align 8, !tbaa !3
+  invoke void @_ZN6duckdb11LogicalTypeC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %19)
+          to label %20 unwind label %36
+
+20:                                               ; preds = %17
+  %21 = getelementptr inbounds nuw %"class.std::initializer_list", ptr %10, i32 0, i32 0
+  store ptr %11, ptr %21, align 8, !tbaa !8
+  %22 = getelementptr inbounds nuw %"class.std::initializer_list", ptr %10, i32 0, i32 1
+  store i64 2, ptr %22, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 1, ptr %15) #17
+  call void @_ZNSaIN6duckdb11LogicalTypeEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #17
+  %23 = getelementptr inbounds nuw { ptr, i64 }, ptr %10, i32 0, i32 0
+  %24 = load ptr, ptr %23, align 8
+  %25 = getelementptr inbounds nuw { ptr, i64 }, ptr %10, i32 0, i32 1
+  %26 = load i64, ptr %25, align 8
+  invoke void @_ZN6duckdb6vectorINS_11LogicalTypeELb1EECI2St6vectorIS1_SaIS1_EEESt16initializer_listIS1_ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr %24, i64 %26, ptr noundef nonnull align 1 dereferenceable(1) %15)
+          to label %27 unwind label %47
+
+27:                                               ; preds = %20
+  invoke void @_ZN6duckdb17AggregateFunctionC2ERKNS_6vectorINS_11LogicalTypeELb1EEERKS2_PFmRKS0_EPFvS9_PhEPFvPNS_6VectorERNS_18AggregateInputDataEmRSF_mEPFvSJ_SJ_SI_mEPFvSJ_SI_SJ_mmEPFvSG_SI_mSC_mEPFNS_10unique_ptrINS_12FunctionDataESt14default_deleteIST_ELb1EEERNS_13ClientContextERS0_RNS1_INSS_INS_10ExpressionESU_IS10_ELb1EEELb1EEEEPFvSJ_SI_mEPFNSS_INS_14BaseStatisticsESU_IS19_ELb1EEESY_RNS_24BoundAggregateExpressionERNS_24AggregateStatisticsInputEEPFvSI_RKNS_20WindowPartitionInputEPKhSC_RKNS1_INS_11FrameBoundsELb1EEESJ_mEPFvRNS_10SerializerENS_12optional_ptrIST_Lb1EEES9_EPFSW_RNS_12DeserializerESZ_E(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef @_ZN6duckdb17AggregateFunction9StateSizeINS_14RegrSlopeStateEEEmRKS0_, ptr noundef @_ZN6duckdb17AggregateFunction15StateInitializeINS_14RegrSlopeStateENS_18RegrSlopeOperationELNS_23AggregateDestructorTypeE0EEEvRKS0_Ph, ptr noundef @_ZN6duckdb17AggregateFunction19BinaryScatterUpdateINS_14RegrSlopeStateEddNS_18RegrSlopeOperationEEEvPNS_6VectorERNS_18AggregateInputDataEmRS4_m, ptr noundef @_ZN6duckdb17AggregateFunction12StateCombineINS_14RegrSlopeStateENS_18RegrSlopeOperationEEEvRNS_6VectorES5_RNS_18AggregateInputDataEm, ptr noundef @_ZN6duckdb17AggregateFunction13StateFinalizeINS_14RegrSlopeStateEdNS_18RegrSlopeOperationEEEvRNS_6VectorERNS_18AggregateInputDataES5_mm, ptr noundef @_ZN6duckdb17AggregateFunction12BinaryUpdateINS_14RegrSlopeStateEddNS_18RegrSlopeOperationEEEvPNS_6VectorERNS_18AggregateInputDataEmPhm, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
+          to label %28 unwind label %51
+
+28:                                               ; preds = %27
+  call void @_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #17
+  call void @_ZNSt15__new_allocatorIN6duckdb11LogicalTypeEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #17
+  call void @llvm.lifetime.end.p0(i64 1, ptr %15) #17
+  %29 = getelementptr inbounds [2 x %"struct.duckdb::LogicalType"], ptr %11, i32 0, i32 0
+  %30 = getelementptr inbounds %"struct.duckdb::LogicalType", ptr %29, i64 2
+  br label %31
+
+31:                                               ; preds = %31, %28
+  %32 = phi ptr [ %30, %28 ], [ %33, %31 ]
+  %33 = getelementptr inbounds %"struct.duckdb::LogicalType", ptr %32, i64 -1
+  call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %33) #17
+  %34 = icmp eq ptr %33, %29
+  br i1 %34, label %35, label %31
+
+35:                                               ; preds = %31
+  call void @llvm.lifetime.end.p0(i64 48, ptr %11) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr %9) #17
+  ret void
+
+36:                                               ; preds = %17, %4
+  %37 = landingpad { ptr, i32 }
+          cleanup
+  %38 = extractvalue { ptr, i32 } %37, 0
+  store ptr %38, ptr %13, align 8
+  %39 = extractvalue { ptr, i32 } %37, 1
+  store i32 %39, ptr %14, align 4
+  %40 = load ptr, ptr %12, align 8
+  %41 = icmp eq ptr %11, %40
+  br i1 %41, label %46, label %42
+
+42:                                               ; preds = %42, %36
+  %43 = phi ptr [ %40, %36 ], [ %44, %42 ]
+  %44 = getelementptr inbounds %"struct.duckdb::LogicalType", ptr %43, i64 -1
+  call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %44) #17
+  %45 = icmp eq ptr %44, %11
+  br i1 %45, label %46, label %42
+
+46:                                               ; preds = %42, %36
+  br label %63
+
+47:                                               ; preds = %20
+  %48 = landingpad { ptr, i32 }
+          cleanup
+  %49 = extractvalue { ptr, i32 } %48, 0
+  store ptr %49, ptr %13, align 8
+  %50 = extractvalue { ptr, i32 } %48, 1
+  store i32 %50, ptr %14, align 4
+  br label %55
+
+51:                                               ; preds = %27
+  %52 = landingpad { ptr, i32 }
+          cleanup
+  %53 = extractvalue { ptr, i32 } %52, 0
+  store ptr %53, ptr %13, align 8
+  %54 = extractvalue { ptr, i32 } %52, 1
+  store i32 %54, ptr %14, align 4
+  call void @_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #17
+  br label %55
+
+55:                                               ; preds = %51, %47
+  call void @_ZNSt15__new_allocatorIN6duckdb11LogicalTypeEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #17
+  call void @llvm.lifetime.end.p0(i64 1, ptr %15) #17
+  %56 = getelementptr inbounds [2 x %"struct.duckdb::LogicalType"], ptr %11, i32 0, i32 0
+  %57 = getelementptr inbounds %"struct.duckdb::LogicalType", ptr %56, i64 2
+  br label %58
+
+58:                                               ; preds = %58, %55
+  %59 = phi ptr [ %57, %55 ], [ %60, %58 ]
+  %60 = getelementptr inbounds %"struct.duckdb::LogicalType", ptr %59, i64 -1
+  call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %60) #17
+  %61 = icmp eq ptr %60, %56
+  br i1 %61, label %62, label %58
+
+62:                                               ; preds = %58
+  br label %63
+
+63:                                               ; preds = %62, %46
+  call void @llvm.lifetime.end.p0(i64 48, ptr %11) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr %9) #17
+  br label %64
+
+64:                                               ; preds = %63
+  %65 = load ptr, ptr %13, align 8
+  %66 = load i32, ptr %14, align 4
+  %67 = insertvalue { ptr, i32 } poison, ptr %65, 0
+  %68 = insertvalue { ptr, i32 } %67, i32 %66, 1
+  resume { ptr, i32 } %68
+}
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN6duckdb10RegrSXXFun11GetFunctionEv(ptr dead_on_unwind noalias writable sret(%"class.duckdb::AggregateFunction") align 8 %0) #0 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"struct.duckdb::LogicalType", align 8
+  %4 = alloca %"struct.duckdb::LogicalType", align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca %"struct.duckdb::LogicalType", align 8
+  store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr %3) #17
+  call void @_ZN6duckdb11LogicalTypeC1ENS_13LogicalTypeIdE(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 noundef zeroext 23)
+  call void @llvm.lifetime.start.p0(i64 24, ptr %4) #17
+  invoke void @_ZN6duckdb11LogicalTypeC1ENS_13LogicalTypeIdE(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 noundef zeroext 23)
+          to label %8 unwind label %11
+
+8:                                                ; preds = %1
+  invoke void @_ZN6duckdb11LogicalTypeC1ENS_13LogicalTypeIdE(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 noundef zeroext 23)
+          to label %9 unwind label %15
+
+9:                                                ; preds = %8
+  invoke void @_ZN6duckdb17AggregateFunction15BinaryAggregateINS_10RegrSStateEdddNS_16RegrSXXOperationELNS_23AggregateDestructorTypeE0EEES0_RKNS_11LogicalTypeES7_S5_(ptr dead_on_unwind writable sret(%"class.duckdb::AggregateFunction") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef %7)
+          to label %10 unwind label %19
+
+10:                                               ; preds = %9
+  call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #17
+  call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr %4) #17
+  call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr %3) #17
+  ret void
+
+11:                                               ; preds = %1
+  %12 = landingpad { ptr, i32 }
+          cleanup
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %5, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %6, align 4
+  br label %24
+
+15:                                               ; preds = %8
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %5, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %6, align 4
+  br label %23
+
+19:                                               ; preds = %9
+  %20 = landingpad { ptr, i32 }
+          cleanup
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %5, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %6, align 4
+  call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #17
+  br label %23
+
+23:                                               ; preds = %19, %15
+  call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #17
+  br label %24
+
+24:                                               ; preds = %23, %11
+  call void @llvm.lifetime.end.p0(i64 24, ptr %4) #17
+  call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr %3) #17
+  br label %25
+
+25:                                               ; preds = %24
+  %26 = load ptr, ptr %5, align 8
+  %27 = load i32, ptr %6, align 4
+  %28 = insertvalue { ptr, i32 } poison, ptr %26, 0
+  %29 = insertvalue { ptr, i32 } %28, i32 %27, 1
+  resume { ptr, i32 } %29
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateFunction15BinaryAggregateINS_10RegrSStateEdddNS_16RegrSXXOperationELNS_23AggregateDestructorTypeE0EEES0_RKNS_11LogicalTypeES7_S5_(ptr dead_on_unwind noalias writable sret(%"class.duckdb::AggregateFunction") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef %3) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca %"class.duckdb::vector", align 8
+  %10 = alloca %"class.std::initializer_list", align 8
+  %11 = alloca [2 x %"struct.duckdb::LogicalType"], align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca %"class.std::allocator.0", align 1
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8, !tbaa !3
+  store ptr %2, ptr %7, align 8, !tbaa !3
+  store ptr %3, ptr %8, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 24, ptr %9) #17
+  call void @llvm.lifetime.start.p0(i64 48, ptr %11) #17
+  store ptr %11, ptr %12, align 8
+  %16 = load ptr, ptr %6, align 8, !tbaa !3
+  invoke void @_ZN6duckdb11LogicalTypeC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %16)
+          to label %17 unwind label %36
+
+17:                                               ; preds = %4
+  %18 = getelementptr inbounds %"struct.duckdb::LogicalType", ptr %11, i64 1
+  store ptr %18, ptr %12, align 8
+  %19 = load ptr, ptr %7, align 8, !tbaa !3
+  invoke void @_ZN6duckdb11LogicalTypeC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %19)
+          to label %20 unwind label %36
+
+20:                                               ; preds = %17
+  %21 = getelementptr inbounds nuw %"class.std::initializer_list", ptr %10, i32 0, i32 0
+  store ptr %11, ptr %21, align 8, !tbaa !8
+  %22 = getelementptr inbounds nuw %"class.std::initializer_list", ptr %10, i32 0, i32 1
+  store i64 2, ptr %22, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 1, ptr %15) #17
+  call void @_ZNSaIN6duckdb11LogicalTypeEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #17
+  %23 = getelementptr inbounds nuw { ptr, i64 }, ptr %10, i32 0, i32 0
+  %24 = load ptr, ptr %23, align 8
+  %25 = getelementptr inbounds nuw { ptr, i64 }, ptr %10, i32 0, i32 1
+  %26 = load i64, ptr %25, align 8
+  invoke void @_ZN6duckdb6vectorINS_11LogicalTypeELb1EECI2St6vectorIS1_SaIS1_EEESt16initializer_listIS1_ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr %24, i64 %26, ptr noundef nonnull align 1 dereferenceable(1) %15)
+          to label %27 unwind label %47
+
+27:                                               ; preds = %20
+  invoke void @_ZN6duckdb17AggregateFunctionC2ERKNS_6vectorINS_11LogicalTypeELb1EEERKS2_PFmRKS0_EPFvS9_PhEPFvPNS_6VectorERNS_18AggregateInputDataEmRSF_mEPFvSJ_SJ_SI_mEPFvSJ_SI_SJ_mmEPFvSG_SI_mSC_mEPFNS_10unique_ptrINS_12FunctionDataESt14default_deleteIST_ELb1EEERNS_13ClientContextERS0_RNS1_INSS_INS_10ExpressionESU_IS10_ELb1EEELb1EEEEPFvSJ_SI_mEPFNSS_INS_14BaseStatisticsESU_IS19_ELb1EEESY_RNS_24BoundAggregateExpressionERNS_24AggregateStatisticsInputEEPFvSI_RKNS_20WindowPartitionInputEPKhSC_RKNS1_INS_11FrameBoundsELb1EEESJ_mEPFvRNS_10SerializerENS_12optional_ptrIST_Lb1EEES9_EPFSW_RNS_12DeserializerESZ_E(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef @_ZN6duckdb17AggregateFunction9StateSizeINS_10RegrSStateEEEmRKS0_, ptr noundef @_ZN6duckdb17AggregateFunction15StateInitializeINS_10RegrSStateENS_16RegrSXXOperationELNS_23AggregateDestructorTypeE0EEEvRKS0_Ph, ptr noundef @_ZN6duckdb17AggregateFunction19BinaryScatterUpdateINS_10RegrSStateEddNS_16RegrSXXOperationEEEvPNS_6VectorERNS_18AggregateInputDataEmRS4_m, ptr noundef @_ZN6duckdb17AggregateFunction12StateCombineINS_10RegrSStateENS_16RegrSXXOperationEEEvRNS_6VectorES5_RNS_18AggregateInputDataEm, ptr noundef @_ZN6duckdb17AggregateFunction13StateFinalizeINS_10RegrSStateEdNS_16RegrSXXOperationEEEvRNS_6VectorERNS_18AggregateInputDataES5_mm, ptr noundef @_ZN6duckdb17AggregateFunction12BinaryUpdateINS_10RegrSStateEddNS_16RegrSXXOperationEEEvPNS_6VectorERNS_18AggregateInputDataEmPhm, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
+          to label %28 unwind label %51
+
+28:                                               ; preds = %27
+  call void @_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #17
+  call void @_ZNSt15__new_allocatorIN6duckdb11LogicalTypeEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #17
+  call void @llvm.lifetime.end.p0(i64 1, ptr %15) #17
+  %29 = getelementptr inbounds [2 x %"struct.duckdb::LogicalType"], ptr %11, i32 0, i32 0
+  %30 = getelementptr inbounds %"struct.duckdb::LogicalType", ptr %29, i64 2
+  br label %31
+
+31:                                               ; preds = %31, %28
+  %32 = phi ptr [ %30, %28 ], [ %33, %31 ]
+  %33 = getelementptr inbounds %"struct.duckdb::LogicalType", ptr %32, i64 -1
+  call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %33) #17
+  %34 = icmp eq ptr %33, %29
+  br i1 %34, label %35, label %31
+
+35:                                               ; preds = %31
+  call void @llvm.lifetime.end.p0(i64 48, ptr %11) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr %9) #17
+  ret void
+
+36:                                               ; preds = %17, %4
+  %37 = landingpad { ptr, i32 }
+          cleanup
+  %38 = extractvalue { ptr, i32 } %37, 0
+  store ptr %38, ptr %13, align 8
+  %39 = extractvalue { ptr, i32 } %37, 1
+  store i32 %39, ptr %14, align 4
+  %40 = load ptr, ptr %12, align 8
+  %41 = icmp eq ptr %11, %40
+  br i1 %41, label %46, label %42
+
+42:                                               ; preds = %42, %36
+  %43 = phi ptr [ %40, %36 ], [ %44, %42 ]
+  %44 = getelementptr inbounds %"struct.duckdb::LogicalType", ptr %43, i64 -1
+  call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %44) #17
+  %45 = icmp eq ptr %44, %11
+  br i1 %45, label %46, label %42
+
+46:                                               ; preds = %42, %36
+  br label %63
+
+47:                                               ; preds = %20
+  %48 = landingpad { ptr, i32 }
+          cleanup
+  %49 = extractvalue { ptr, i32 } %48, 0
+  store ptr %49, ptr %13, align 8
+  %50 = extractvalue { ptr, i32 } %48, 1
+  store i32 %50, ptr %14, align 4
+  br label %55
+
+51:                                               ; preds = %27
+  %52 = landingpad { ptr, i32 }
+          cleanup
+  %53 = extractvalue { ptr, i32 } %52, 0
+  store ptr %53, ptr %13, align 8
+  %54 = extractvalue { ptr, i32 } %52, 1
+  store i32 %54, ptr %14, align 4
+  call void @_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #17
+  br label %55
+
+55:                                               ; preds = %51, %47
+  call void @_ZNSt15__new_allocatorIN6duckdb11LogicalTypeEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #17
+  call void @llvm.lifetime.end.p0(i64 1, ptr %15) #17
+  %56 = getelementptr inbounds [2 x %"struct.duckdb::LogicalType"], ptr %11, i32 0, i32 0
+  %57 = getelementptr inbounds %"struct.duckdb::LogicalType", ptr %56, i64 2
+  br label %58
+
+58:                                               ; preds = %58, %55
+  %59 = phi ptr [ %57, %55 ], [ %60, %58 ]
+  %60 = getelementptr inbounds %"struct.duckdb::LogicalType", ptr %59, i64 -1
+  call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %60) #17
+  %61 = icmp eq ptr %60, %56
+  br i1 %61, label %62, label %58
+
+62:                                               ; preds = %58
+  br label %63
+
+63:                                               ; preds = %62, %46
+  call void @llvm.lifetime.end.p0(i64 48, ptr %11) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr %9) #17
+  br label %64
+
+64:                                               ; preds = %63
+  %65 = load ptr, ptr %13, align 8
+  %66 = load i32, ptr %14, align 4
+  %67 = insertvalue { ptr, i32 } poison, ptr %65, 0
+  %68 = insertvalue { ptr, i32 } %67, i32 %66, 1
+  resume { ptr, i32 } %68
+}
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN6duckdb10RegrSYYFun11GetFunctionEv(ptr dead_on_unwind noalias writable sret(%"class.duckdb::AggregateFunction") align 8 %0) #0 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"struct.duckdb::LogicalType", align 8
+  %4 = alloca %"struct.duckdb::LogicalType", align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca %"struct.duckdb::LogicalType", align 8
+  store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr %3) #17
+  call void @_ZN6duckdb11LogicalTypeC1ENS_13LogicalTypeIdE(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 noundef zeroext 23)
+  call void @llvm.lifetime.start.p0(i64 24, ptr %4) #17
+  invoke void @_ZN6duckdb11LogicalTypeC1ENS_13LogicalTypeIdE(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 noundef zeroext 23)
+          to label %8 unwind label %11
+
+8:                                                ; preds = %1
+  invoke void @_ZN6duckdb11LogicalTypeC1ENS_13LogicalTypeIdE(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 noundef zeroext 23)
+          to label %9 unwind label %15
+
+9:                                                ; preds = %8
+  invoke void @_ZN6duckdb17AggregateFunction15BinaryAggregateINS_10RegrSStateEdddNS_16RegrSYYOperationELNS_23AggregateDestructorTypeE0EEES0_RKNS_11LogicalTypeES7_S5_(ptr dead_on_unwind writable sret(%"class.duckdb::AggregateFunction") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef %7)
+          to label %10 unwind label %19
+
+10:                                               ; preds = %9
+  call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #17
+  call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr %4) #17
+  call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr %3) #17
+  ret void
+
+11:                                               ; preds = %1
+  %12 = landingpad { ptr, i32 }
+          cleanup
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %5, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %6, align 4
+  br label %24
+
+15:                                               ; preds = %8
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %5, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %6, align 4
+  br label %23
+
+19:                                               ; preds = %9
+  %20 = landingpad { ptr, i32 }
+          cleanup
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %5, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %6, align 4
+  call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #17
+  br label %23
+
+23:                                               ; preds = %19, %15
+  call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #17
+  br label %24
+
+24:                                               ; preds = %23, %11
+  call void @llvm.lifetime.end.p0(i64 24, ptr %4) #17
+  call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr %3) #17
+  br label %25
+
+25:                                               ; preds = %24
+  %26 = load ptr, ptr %5, align 8
+  %27 = load i32, ptr %6, align 4
+  %28 = insertvalue { ptr, i32 } poison, ptr %26, 0
+  %29 = insertvalue { ptr, i32 } %28, i32 %27, 1
+  resume { ptr, i32 } %29
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateFunction15BinaryAggregateINS_10RegrSStateEdddNS_16RegrSYYOperationELNS_23AggregateDestructorTypeE0EEES0_RKNS_11LogicalTypeES7_S5_(ptr dead_on_unwind noalias writable sret(%"class.duckdb::AggregateFunction") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef %3) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca %"class.duckdb::vector", align 8
+  %10 = alloca %"class.std::initializer_list", align 8
+  %11 = alloca [2 x %"struct.duckdb::LogicalType"], align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca %"class.std::allocator.0", align 1
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8, !tbaa !3
+  store ptr %2, ptr %7, align 8, !tbaa !3
+  store ptr %3, ptr %8, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 24, ptr %9) #17
+  call void @llvm.lifetime.start.p0(i64 48, ptr %11) #17
+  store ptr %11, ptr %12, align 8
+  %16 = load ptr, ptr %6, align 8, !tbaa !3
+  invoke void @_ZN6duckdb11LogicalTypeC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %16)
+          to label %17 unwind label %36
+
+17:                                               ; preds = %4
+  %18 = getelementptr inbounds %"struct.duckdb::LogicalType", ptr %11, i64 1
+  store ptr %18, ptr %12, align 8
+  %19 = load ptr, ptr %7, align 8, !tbaa !3
+  invoke void @_ZN6duckdb11LogicalTypeC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %19)
+          to label %20 unwind label %36
+
+20:                                               ; preds = %17
+  %21 = getelementptr inbounds nuw %"class.std::initializer_list", ptr %10, i32 0, i32 0
+  store ptr %11, ptr %21, align 8, !tbaa !8
+  %22 = getelementptr inbounds nuw %"class.std::initializer_list", ptr %10, i32 0, i32 1
+  store i64 2, ptr %22, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 1, ptr %15) #17
+  call void @_ZNSaIN6duckdb11LogicalTypeEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #17
+  %23 = getelementptr inbounds nuw { ptr, i64 }, ptr %10, i32 0, i32 0
+  %24 = load ptr, ptr %23, align 8
+  %25 = getelementptr inbounds nuw { ptr, i64 }, ptr %10, i32 0, i32 1
+  %26 = load i64, ptr %25, align 8
+  invoke void @_ZN6duckdb6vectorINS_11LogicalTypeELb1EECI2St6vectorIS1_SaIS1_EEESt16initializer_listIS1_ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr %24, i64 %26, ptr noundef nonnull align 1 dereferenceable(1) %15)
+          to label %27 unwind label %47
+
+27:                                               ; preds = %20
+  invoke void @_ZN6duckdb17AggregateFunctionC2ERKNS_6vectorINS_11LogicalTypeELb1EEERKS2_PFmRKS0_EPFvS9_PhEPFvPNS_6VectorERNS_18AggregateInputDataEmRSF_mEPFvSJ_SJ_SI_mEPFvSJ_SI_SJ_mmEPFvSG_SI_mSC_mEPFNS_10unique_ptrINS_12FunctionDataESt14default_deleteIST_ELb1EEERNS_13ClientContextERS0_RNS1_INSS_INS_10ExpressionESU_IS10_ELb1EEELb1EEEEPFvSJ_SI_mEPFNSS_INS_14BaseStatisticsESU_IS19_ELb1EEESY_RNS_24BoundAggregateExpressionERNS_24AggregateStatisticsInputEEPFvSI_RKNS_20WindowPartitionInputEPKhSC_RKNS1_INS_11FrameBoundsELb1EEESJ_mEPFvRNS_10SerializerENS_12optional_ptrIST_Lb1EEES9_EPFSW_RNS_12DeserializerESZ_E(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef @_ZN6duckdb17AggregateFunction9StateSizeINS_10RegrSStateEEEmRKS0_, ptr noundef @_ZN6duckdb17AggregateFunction15StateInitializeINS_10RegrSStateENS_16RegrSYYOperationELNS_23AggregateDestructorTypeE0EEEvRKS0_Ph, ptr noundef @_ZN6duckdb17AggregateFunction19BinaryScatterUpdateINS_10RegrSStateEddNS_16RegrSYYOperationEEEvPNS_6VectorERNS_18AggregateInputDataEmRS4_m, ptr noundef @_ZN6duckdb17AggregateFunction12StateCombineINS_10RegrSStateENS_16RegrSYYOperationEEEvRNS_6VectorES5_RNS_18AggregateInputDataEm, ptr noundef @_ZN6duckdb17AggregateFunction13StateFinalizeINS_10RegrSStateEdNS_16RegrSYYOperationEEEvRNS_6VectorERNS_18AggregateInputDataES5_mm, ptr noundef @_ZN6duckdb17AggregateFunction12BinaryUpdateINS_10RegrSStateEddNS_16RegrSYYOperationEEEvPNS_6VectorERNS_18AggregateInputDataEmPhm, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
+          to label %28 unwind label %51
+
+28:                                               ; preds = %27
+  call void @_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #17
+  call void @_ZNSt15__new_allocatorIN6duckdb11LogicalTypeEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #17
+  call void @llvm.lifetime.end.p0(i64 1, ptr %15) #17
+  %29 = getelementptr inbounds [2 x %"struct.duckdb::LogicalType"], ptr %11, i32 0, i32 0
+  %30 = getelementptr inbounds %"struct.duckdb::LogicalType", ptr %29, i64 2
+  br label %31
+
+31:                                               ; preds = %31, %28
+  %32 = phi ptr [ %30, %28 ], [ %33, %31 ]
+  %33 = getelementptr inbounds %"struct.duckdb::LogicalType", ptr %32, i64 -1
+  call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %33) #17
+  %34 = icmp eq ptr %33, %29
+  br i1 %34, label %35, label %31
+
+35:                                               ; preds = %31
+  call void @llvm.lifetime.end.p0(i64 48, ptr %11) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr %9) #17
+  ret void
+
+36:                                               ; preds = %17, %4
+  %37 = landingpad { ptr, i32 }
+          cleanup
+  %38 = extractvalue { ptr, i32 } %37, 0
+  store ptr %38, ptr %13, align 8
+  %39 = extractvalue { ptr, i32 } %37, 1
+  store i32 %39, ptr %14, align 4
+  %40 = load ptr, ptr %12, align 8
+  %41 = icmp eq ptr %11, %40
+  br i1 %41, label %46, label %42
+
+42:                                               ; preds = %42, %36
+  %43 = phi ptr [ %40, %36 ], [ %44, %42 ]
+  %44 = getelementptr inbounds %"struct.duckdb::LogicalType", ptr %43, i64 -1
+  call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %44) #17
+  %45 = icmp eq ptr %44, %11
+  br i1 %45, label %46, label %42
+
+46:                                               ; preds = %42, %36
+  br label %63
+
+47:                                               ; preds = %20
+  %48 = landingpad { ptr, i32 }
+          cleanup
+  %49 = extractvalue { ptr, i32 } %48, 0
+  store ptr %49, ptr %13, align 8
+  %50 = extractvalue { ptr, i32 } %48, 1
+  store i32 %50, ptr %14, align 4
+  br label %55
+
+51:                                               ; preds = %27
+  %52 = landingpad { ptr, i32 }
+          cleanup
+  %53 = extractvalue { ptr, i32 } %52, 0
+  store ptr %53, ptr %13, align 8
+  %54 = extractvalue { ptr, i32 } %52, 1
+  store i32 %54, ptr %14, align 4
+  call void @_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #17
+  br label %55
+
+55:                                               ; preds = %51, %47
+  call void @_ZNSt15__new_allocatorIN6duckdb11LogicalTypeEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #17
+  call void @llvm.lifetime.end.p0(i64 1, ptr %15) #17
+  %56 = getelementptr inbounds [2 x %"struct.duckdb::LogicalType"], ptr %11, i32 0, i32 0
+  %57 = getelementptr inbounds %"struct.duckdb::LogicalType", ptr %56, i64 2
+  br label %58
+
+58:                                               ; preds = %58, %55
+  %59 = phi ptr [ %57, %55 ], [ %60, %58 ]
+  %60 = getelementptr inbounds %"struct.duckdb::LogicalType", ptr %59, i64 -1
+  call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %60) #17
+  %61 = icmp eq ptr %60, %56
+  br i1 %61, label %62, label %58
+
+62:                                               ; preds = %58
+  br label %63
+
+63:                                               ; preds = %62, %46
+  call void @llvm.lifetime.end.p0(i64 48, ptr %11) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr %9) #17
+  br label %64
+
+64:                                               ; preds = %63
+  %65 = load ptr, ptr %13, align 8
+  %66 = load i32, ptr %14, align 4
+  %67 = insertvalue { ptr, i32 } poison, ptr %65, 0
+  %68 = insertvalue { ptr, i32 } %67, i32 %66, 1
+  resume { ptr, i32 } %68
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN6duckdb10shared_ptrINS_21AggregateFunctionInfoELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !44
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.duckdb::shared_ptr.3", ptr %3, i32 0, i32 0
+  call void @_ZNSt12__shared_ptrIN6duckdb21AggregateFunctionInfoELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #17
+  ret void
+}
+
+; Function Attrs: nounwind
+declare void @_ZN6duckdb18BaseScalarFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(172)) unnamed_addr #3
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateFunctionD0Ev(ptr noundef nonnull align 8 dereferenceable(304) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !40
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN6duckdb17AggregateFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(304) %3) #17
+  call void @_ZdlPv(ptr noundef %3) #18
+  ret void
+}
+
+declare void @_ZNK6duckdb18BaseScalarFunction8ToStringB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(172)) unnamed_addr #2
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt12__shared_ptrIN6duckdb21AggregateFunctionInfoELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !46
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__shared_ptr.5", ptr %3, i32 0, i32 1
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #17
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !48
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !50
+  %6 = icmp ne ptr %5, null
+  br i1 %6, label %7, label %10
+
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %3, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !50
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #17
+  br label %10
+
+10:                                               ; preds = %7, %1
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i8, align 1
+  %4 = alloca i8, align 1
+  %5 = alloca i8, align 1
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i64, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !51
+  %12 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %3) #17
+  store i8 1, ptr %3, align 1, !tbaa !52
+  call void @llvm.lifetime.start.p0(i64 1, ptr %4) #17
+  store i8 1, ptr %4, align 1, !tbaa !52
+  call void @llvm.lifetime.start.p0(i64 1, ptr %5) #17
+  store i8 1, ptr %5, align 1, !tbaa !52
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #17
+  store i32 32, ptr %6, align 4, !tbaa !54
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #17
+  store i32 32, ptr %7, align 4, !tbaa !54
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #17
+  store i64 4294967297, ptr %8, align 8, !tbaa !56
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #17
+  %13 = getelementptr inbounds nuw %"class.std::_Sp_counted_base", ptr %12, i32 0, i32 1
+  store ptr %13, ptr %9, align 8, !tbaa !58
+  %14 = load ptr, ptr %9, align 8, !tbaa !58
+  %15 = load atomic i64, ptr %14 acquire, align 8
+  store i64 %15, ptr %10, align 8
+  %16 = load i64, ptr %10, align 8, !tbaa !56
+  %17 = icmp eq i64 %16, 4294967297
+  br i1 %17, label %18, label %27
+
+18:                                               ; preds = %1
+  %19 = getelementptr inbounds nuw %"class.std::_Sp_counted_base", ptr %12, i32 0, i32 1
+  store i32 0, ptr %19, align 8, !tbaa !60
+  %20 = getelementptr inbounds nuw %"class.std::_Sp_counted_base", ptr %12, i32 0, i32 2
+  store i32 0, ptr %20, align 4, !tbaa !62
+  %21 = load ptr, ptr %12, align 8, !tbaa !42
+  %22 = getelementptr inbounds ptr, ptr %21, i64 2
+  %23 = load ptr, ptr %22, align 8
+  call void %23(ptr noundef nonnull align 8 dereferenceable(16) %12) #17
+  %24 = load ptr, ptr %12, align 8, !tbaa !42
+  %25 = getelementptr inbounds ptr, ptr %24, i64 3
+  %26 = load ptr, ptr %25, align 8
+  call void %26(ptr noundef nonnull align 8 dereferenceable(16) %12) #17
+  store i32 1, ptr %11, align 4
+  br label %35
+
+27:                                               ; preds = %1
+  %28 = getelementptr inbounds nuw %"class.std::_Sp_counted_base", ptr %12, i32 0, i32 1
+  %29 = invoke noundef i32 @_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii(ptr noundef %28, i32 noundef -1)
+          to label %30 unwind label %41
+
+30:                                               ; preds = %27
+  %31 = icmp eq i32 %29, 1
+  %32 = call i1 @llvm.expect.i1(i1 %31, i1 false)
+  br i1 %32, label %33, label %34
+
+33:                                               ; preds = %30
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #17
+  store i32 1, ptr %11, align 4
+  br label %35
+
+34:                                               ; preds = %30
+  store i32 0, ptr %11, align 4
+  br label %35
+
+35:                                               ; preds = %34, %33, %18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #17
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #17
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #17
+  %36 = load i32, ptr %11, align 4
+  switch i32 %36, label %38 [
+    i32 0, label %37
+  ]
+
+37:                                               ; preds = %35
+  store i32 0, ptr %11, align 4
+  br label %38
+
+38:                                               ; preds = %37, %35
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #17
+  call void @llvm.lifetime.end.p0(i64 1, ptr %4) #17
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #17
+  %39 = load i32, ptr %11, align 4
+  switch i32 %39, label %44 [
+    i32 0, label %40
+    i32 1, label %40
+  ]
+
+40:                                               ; preds = %38, %38
+  ret void
+
+41:                                               ; preds = %27
+  %42 = landingpad { ptr, i32 }
+          catch ptr null
+  %43 = extractvalue { ptr, i32 } %42, 0
+  call void @__clang_call_terminate(ptr %43) #19
+  unreachable
+
+44:                                               ; preds = %38
+  unreachable
+}
+
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr noundef i32 @_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii(ptr noundef %0, i32 noundef %1) #6 comdat {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !63
+  store i32 %1, ptr %5, align 4, !tbaa !54
+  %6 = call noundef zeroext i1 @_ZN9__gnu_cxx20__is_single_threadedEv() #17
+  br i1 %6, label %7, label %11
+
+7:                                                ; preds = %2
+  %8 = load ptr, ptr %4, align 8, !tbaa !63
+  %9 = load i32, ptr %5, align 4, !tbaa !54
+  %10 = call noundef i32 @_ZN9__gnu_cxx25__exchange_and_add_singleEPii(ptr noundef %8, i32 noundef %9)
+  store i32 %10, ptr %3, align 4
+  br label %15
+
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !63
+  %13 = load i32, ptr %5, align 4, !tbaa !54
+  %14 = call noundef i32 @_ZN9__gnu_cxx18__exchange_and_addEPVii(ptr noundef %12, i32 noundef %13)
+  store i32 %14, ptr %3, align 4
+  br label %15
+
+15:                                               ; preds = %11, %7
+  %16 = load i32, ptr %3, align 4
+  ret i32 %16
+}
+
+; Function Attrs: noinline noreturn nounwind uwtable
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #7 comdat {
+  %2 = call ptr @__cxa_begin_catch(ptr %0) #17
+  call void @_ZSt9terminatev() #19
+  unreachable
+}
+
+declare ptr @__cxa_begin_catch(ptr)
+
+declare void @_ZSt9terminatev()
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
+declare i1 @llvm.expect.i1(i1, i1) #8
+
+; Function Attrs: mustprogress noinline nounwind uwtable
+define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #9 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !51
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #17
+  ret void
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZN9__gnu_cxx20__is_single_threadedEv() #10 comdat {
+  %1 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !65
+  %2 = icmp ne i8 %1, 0
+  ret i1 %2
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr noundef i32 @_ZN9__gnu_cxx25__exchange_and_add_singleEPii(ptr noundef %0, i32 noundef %1) #10 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !63
+  store i32 %1, ptr %4, align 4, !tbaa !54
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #17
+  %6 = load ptr, ptr %3, align 8, !tbaa !63
+  %7 = load i32, ptr %6, align 4, !tbaa !54
+  store i32 %7, ptr %5, align 4, !tbaa !54
+  %8 = load i32, ptr %4, align 4, !tbaa !54
+  %9 = load ptr, ptr %3, align 8, !tbaa !63
+  %10 = load i32, ptr %9, align 4, !tbaa !54
+  %11 = add nsw i32 %10, %8
+  store i32 %11, ptr %9, align 4, !tbaa !54
+  %12 = load i32, ptr %5, align 4, !tbaa !54
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #17
+  ret i32 %12
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr noundef i32 @_ZN9__gnu_cxx18__exchange_and_addEPVii(ptr noundef %0, i32 noundef %1) #10 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !63
+  store i32 %1, ptr %4, align 4, !tbaa !54
+  %7 = load ptr, ptr %3, align 8, !tbaa !63
+  %8 = load i32, ptr %4, align 4, !tbaa !54
+  store i32 %8, ptr %5, align 4, !tbaa !54
+  %9 = load i32, ptr %5, align 4
+  %10 = atomicrmw volatile add ptr %7, i32 %9 acq_rel, align 4
+  store i32 %10, ptr %6, align 4
+  %11 = load i32, ptr %6, align 4, !tbaa !54
+  ret i32 %11
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !51
+  %3 = load ptr, ptr %2, align 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !42
+  %5 = getelementptr inbounds ptr, ptr %4, i64 2
+  %6 = load ptr, ptr %5, align 8
+  call void %6(ptr noundef nonnull align 8 dereferenceable(16) %3) #17
+  %7 = getelementptr inbounds nuw %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 2
+  %8 = invoke noundef i32 @_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii(ptr noundef %7, i32 noundef -1)
+          to label %9 unwind label %16
+
+9:                                                ; preds = %1
+  %10 = icmp eq i32 %8, 1
+  br i1 %10, label %11, label %15
+
+11:                                               ; preds = %9
+  %12 = load ptr, ptr %3, align 8, !tbaa !42
+  %13 = getelementptr inbounds ptr, ptr %12, i64 3
+  %14 = load ptr, ptr %13, align 8
+  call void %14(ptr noundef nonnull align 8 dereferenceable(16) %3) #17
+  br label %15
+
+15:                                               ; preds = %11, %9
+  ret void
+
+16:                                               ; preds = %1
+  %17 = landingpad { ptr, i32 }
+          catch ptr null
+  %18 = extractvalue { ptr, i32 } %17, 0
+  call void @__clang_call_terminate(ptr %18) #19
+  unreachable
+}
+
+; Function Attrs: nobuiltin nounwind
+declare void @_ZdlPv(ptr noundef) #11
+
+declare void @_ZN6duckdb11LogicalTypeC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #2
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSaIN6duckdb11LogicalTypeEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !66
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt15__new_allocatorIN6duckdb11LogicalTypeEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #17
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb6vectorINS_11LogicalTypeELb1EECI2St6vectorIS1_SaIS1_EEESt16initializer_listIS1_ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, ptr noundef nonnull align 1 dereferenceable(1) %3) unnamed_addr #12 comdat align 2 {
+  %5 = alloca %"class.std::initializer_list", align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = getelementptr inbounds nuw { ptr, i64 }, ptr %5, i32 0, i32 0
+  store ptr %1, ptr %8, align 8
+  %9 = getelementptr inbounds nuw { ptr, i64 }, ptr %5, i32 0, i32 1
+  store i64 %2, ptr %9, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !68
+  store ptr %3, ptr %7, align 8, !tbaa !66
+  %10 = load ptr, ptr %6, align 8
+  %11 = load ptr, ptr %7, align 8
+  %12 = getelementptr inbounds nuw { ptr, i64 }, ptr %5, i32 0, i32 0
+  %13 = load ptr, ptr %12, align 8
+  %14 = getelementptr inbounds nuw { ptr, i64 }, ptr %5, i32 0, i32 1
+  %15 = load i64, ptr %14, align 8
+  call void @_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EEC2ESt16initializer_listIS1_ERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr %13, i64 %15, ptr noundef nonnull align 1 dereferenceable(1) %11)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZN6duckdb17AggregateFunction9StateSizeINS_12RegrSXyStateEEEmRKS0_(ptr noundef nonnull align 8 dereferenceable(304) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !40
+  ret i64 40
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateFunction15StateInitializeINS_12RegrSXyStateENS_16RegrSXYOperationELNS_23AggregateDestructorTypeE0EEEvRKS0_Ph(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !40
+  store ptr %1, ptr %4, align 8, !tbaa !39
+  %5 = load ptr, ptr %4, align 8, !tbaa !39
+  call void @_ZN6duckdb16RegrSXYOperation10InitializeINS_12RegrSXyStateEEEvRT_(ptr noundef nonnull align 8 dereferenceable(40) %5)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateFunction19BinaryScatterUpdateINS_12RegrSXyStateEddNS_16RegrSXYOperationEEEvPNS_6VectorERNS_18AggregateInputDataEmRS4_m(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(17) %1, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(104) %3, i64 noundef %4) #0 comdat align 2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !70
+  store ptr %1, ptr %7, align 8, !tbaa !72
+  store i64 %2, ptr %8, align 8, !tbaa !74
+  store ptr %3, ptr %9, align 8, !tbaa !70
+  store i64 %4, ptr %10, align 8, !tbaa !74
+  %11 = load ptr, ptr %7, align 8, !tbaa !72
+  %12 = load ptr, ptr %6, align 8, !tbaa !70
+  %13 = getelementptr inbounds %"class.duckdb::Vector", ptr %12, i64 0
+  %14 = load ptr, ptr %6, align 8, !tbaa !70
+  %15 = getelementptr inbounds %"class.duckdb::Vector", ptr %14, i64 1
+  %16 = load ptr, ptr %9, align 8, !tbaa !70
+  %17 = load i64, ptr %10, align 8, !tbaa !74
+  call void @_ZN6duckdb17AggregateExecutor13BinaryScatterINS_12RegrSXyStateEddNS_16RegrSXYOperationEEEvRNS_18AggregateInputDataERNS_6VectorES7_S7_m(ptr noundef nonnull align 8 dereferenceable(17) %11, ptr noundef nonnull align 8 dereferenceable(104) %13, ptr noundef nonnull align 8 dereferenceable(104) %15, ptr noundef nonnull align 8 dereferenceable(104) %16, i64 noundef %17)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateFunction12StateCombineINS_12RegrSXyStateENS_16RegrSXYOperationEEEvRNS_6VectorES5_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(17) %2, i64 noundef %3) #0 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !70
+  store ptr %1, ptr %6, align 8, !tbaa !70
+  store ptr %2, ptr %7, align 8, !tbaa !72
+  store i64 %3, ptr %8, align 8, !tbaa !74
+  %9 = load ptr, ptr %5, align 8, !tbaa !70
+  %10 = load ptr, ptr %6, align 8, !tbaa !70
+  %11 = load ptr, ptr %7, align 8, !tbaa !72
+  %12 = load i64, ptr %8, align 8, !tbaa !74
+  call void @_ZN6duckdb17AggregateExecutor7CombineINS_12RegrSXyStateENS_16RegrSXYOperationEEEvRNS_6VectorES5_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %9, ptr noundef nonnull align 8 dereferenceable(104) %10, ptr noundef nonnull align 8 dereferenceable(17) %11, i64 noundef %12)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateFunction13StateFinalizeINS_12RegrSXyStateEdNS_16RegrSXYOperationEEEvRNS_6VectorERNS_18AggregateInputDataES5_mm(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(17) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, i64 noundef %3, i64 noundef %4) #0 comdat align 2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !70
+  store ptr %1, ptr %7, align 8, !tbaa !72
+  store ptr %2, ptr %8, align 8, !tbaa !70
+  store i64 %3, ptr %9, align 8, !tbaa !74
+  store i64 %4, ptr %10, align 8, !tbaa !74
+  %11 = load ptr, ptr %6, align 8, !tbaa !70
+  %12 = load ptr, ptr %7, align 8, !tbaa !72
+  %13 = load ptr, ptr %8, align 8, !tbaa !70
+  %14 = load i64, ptr %9, align 8, !tbaa !74
+  %15 = load i64, ptr %10, align 8, !tbaa !74
+  call void @_ZN6duckdb17AggregateExecutor8FinalizeINS_12RegrSXyStateEdNS_16RegrSXYOperationEEEvRNS_6VectorERNS_18AggregateInputDataES5_mm(ptr noundef nonnull align 8 dereferenceable(104) %11, ptr noundef nonnull align 8 dereferenceable(17) %12, ptr noundef nonnull align 8 dereferenceable(104) %13, i64 noundef %14, i64 noundef %15)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateFunction12BinaryUpdateINS_12RegrSXyStateEddNS_16RegrSXYOperationEEEvPNS_6VectorERNS_18AggregateInputDataEmPhm(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(17) %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) #0 comdat align 2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !70
+  store ptr %1, ptr %7, align 8, !tbaa !72
+  store i64 %2, ptr %8, align 8, !tbaa !74
+  store ptr %3, ptr %9, align 8, !tbaa !39
+  store i64 %4, ptr %10, align 8, !tbaa !74
+  %11 = load ptr, ptr %7, align 8, !tbaa !72
+  %12 = load ptr, ptr %6, align 8, !tbaa !70
+  %13 = getelementptr inbounds %"class.duckdb::Vector", ptr %12, i64 0
+  %14 = load ptr, ptr %6, align 8, !tbaa !70
+  %15 = getelementptr inbounds %"class.duckdb::Vector", ptr %14, i64 1
+  %16 = load ptr, ptr %9, align 8, !tbaa !39
+  %17 = load i64, ptr %10, align 8, !tbaa !74
+  call void @_ZN6duckdb17AggregateExecutor12BinaryUpdateINS_12RegrSXyStateEddNS_16RegrSXYOperationEEEvRNS_18AggregateInputDataERNS_6VectorES7_Phm(ptr noundef nonnull align 8 dereferenceable(17) %11, ptr noundef nonnull align 8 dereferenceable(104) %13, ptr noundef nonnull align 8 dereferenceable(104) %15, ptr noundef %16, i64 noundef %17)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateFunctionC2ERKNS_6vectorINS_11LogicalTypeELb1EEERKS2_PFmRKS0_EPFvS9_PhEPFvPNS_6VectorERNS_18AggregateInputDataEmRSF_mEPFvSJ_SJ_SI_mEPFvSJ_SI_SJ_mmEPFvSG_SI_mSC_mEPFNS_10unique_ptrINS_12FunctionDataESt14default_deleteIST_ELb1EEERNS_13ClientContextERS0_RNS1_INSS_INS_10ExpressionESU_IS10_ELb1EEELb1EEEEPFvSJ_SI_mEPFNSS_INS_14BaseStatisticsESU_IS19_ELb1EEESY_RNS_24BoundAggregateExpressionERNS_24AggregateStatisticsInputEEPFvSI_RKNS_20WindowPartitionInputEPKhSC_RKNS1_INS_11FrameBoundsELb1EEESJ_mEPFvRNS_10SerializerENS_12optional_ptrIST_Lb1EEES9_EPFSW_RNS_12DeserializerESZ_E(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %16 = alloca ptr, align 8
+  %17 = alloca ptr, align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca ptr, align 8
+  %20 = alloca ptr, align 8
+  %21 = alloca ptr, align 8
+  %22 = alloca ptr, align 8
+  %23 = alloca ptr, align 8
+  %24 = alloca ptr, align 8
+  %25 = alloca ptr, align 8
+  %26 = alloca ptr, align 8
+  %27 = alloca ptr, align 8
+  %28 = alloca ptr, align 8
+  %29 = alloca ptr, align 8
+  %30 = alloca ptr, align 8
+  %31 = alloca %"class.std::__cxx11::basic_string", align 8
+  %32 = alloca ptr, align 8
+  %33 = alloca i32, align 4
+  store ptr %0, ptr %16, align 8, !tbaa !40
+  store ptr %1, ptr %17, align 8, !tbaa !68
+  store ptr %2, ptr %18, align 8, !tbaa !3
+  store ptr %3, ptr %19, align 8, !tbaa !75
+  store ptr %4, ptr %20, align 8, !tbaa !75
+  store ptr %5, ptr %21, align 8, !tbaa !75
+  store ptr %6, ptr %22, align 8, !tbaa !75
+  store ptr %7, ptr %23, align 8, !tbaa !75
+  store ptr %8, ptr %24, align 8, !tbaa !75
+  store ptr %9, ptr %25, align 8, !tbaa !75
+  store ptr %10, ptr %26, align 8, !tbaa !75
+  store ptr %11, ptr %27, align 8, !tbaa !75
+  store ptr %12, ptr %28, align 8, !tbaa !75
+  store ptr %13, ptr %29, align 8, !tbaa !75
+  store ptr %14, ptr %30, align 8, !tbaa !75
+  %34 = load ptr, ptr %16, align 8
+  call void @llvm.lifetime.start.p0(i64 32, ptr %31) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %31) #17
+  %35 = load ptr, ptr %17, align 8, !tbaa !68
+  %36 = load ptr, ptr %18, align 8, !tbaa !3
+  %37 = load ptr, ptr %19, align 8, !tbaa !75
+  %38 = load ptr, ptr %20, align 8, !tbaa !75
+  %39 = load ptr, ptr %21, align 8, !tbaa !75
+  %40 = load ptr, ptr %22, align 8, !tbaa !75
+  %41 = load ptr, ptr %23, align 8, !tbaa !75
+  %42 = load ptr, ptr %24, align 8, !tbaa !75
+  %43 = load ptr, ptr %25, align 8, !tbaa !75
+  %44 = load ptr, ptr %26, align 8, !tbaa !75
+  %45 = load ptr, ptr %27, align 8, !tbaa !75
+  %46 = load ptr, ptr %28, align 8, !tbaa !75
+  %47 = load ptr, ptr %29, align 8, !tbaa !75
+  %48 = load ptr, ptr %30, align 8, !tbaa !75
+  invoke void @_ZN6duckdb17AggregateFunctionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_6vectorINS_11LogicalTypeELb1EEERKSA_PFmRKS0_EPFvSH_PhEPFvPNS_6VectorERNS_18AggregateInputDataEmRSN_mEPFvSR_SR_SQ_mEPFvSR_SQ_SR_mmENS_20FunctionNullHandlingEPFvSO_SQ_mSK_mEPFNS_10unique_ptrINS_12FunctionDataESt14default_deleteIS12_ELb1EEERNS_13ClientContextERS0_RNS9_INS11_INS_10ExpressionES13_IS19_ELb1EEELb1EEEEPFvSR_SQ_mEPFNS11_INS_14BaseStatisticsES13_IS1I_ELb1EEES17_RNS_24BoundAggregateExpressionERNS_24AggregateStatisticsInputEEPFvSQ_RKNS_20WindowPartitionInputEPKhSK_RKNS9_INS_11FrameBoundsELb1EEESR_mEPFvRNS_10SerializerENS_12optional_ptrIS12_Lb1EEESH_EPFS15_RNS_12DeserializerES18_E(ptr noundef nonnull align 8 dereferenceable(304) %34, ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull align 8 dereferenceable(24) %36, ptr noundef %37, ptr noundef %38, ptr noundef %39, ptr noundef %40, ptr noundef %41, i8 noundef zeroext 0, ptr noundef %42, ptr noundef %43, ptr noundef %44, ptr noundef %45, ptr noundef %46, ptr noundef %47, ptr noundef %48)
+          to label %49 unwind label %50
+
+49:                                               ; preds = %15
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %31) #17
+  call void @llvm.lifetime.end.p0(i64 32, ptr %31) #17
+  ret void
+
+50:                                               ; preds = %15
+  %51 = landingpad { ptr, i32 }
+          cleanup
+  %52 = extractvalue { ptr, i32 } %51, 0
+  store ptr %52, ptr %32, align 8
+  %53 = extractvalue { ptr, i32 } %51, 1
+  store i32 %53, ptr %33, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %31) #17
+  call void @llvm.lifetime.end.p0(i64 32, ptr %31) #17
+  br label %54
+
+54:                                               ; preds = %50
+  %55 = load ptr, ptr %32, align 8
+  %56 = load i32, ptr %33, align 4
+  %57 = insertvalue { ptr, i32 } poison, ptr %55, 0
+  %58 = insertvalue { ptr, i32 } %57, i32 %56, 1
+  resume { ptr, i32 } %58
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !76
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<duckdb::LogicalType, std::allocator<duckdb::LogicalType>>::_Vector_impl_data", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8, !tbaa !78
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base<duckdb::LogicalType, std::allocator<duckdb::LogicalType>>::_Vector_impl_data", ptr %7, i32 0, i32 1
+  %9 = load ptr, ptr %8, align 8, !tbaa !79
+  %10 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN6duckdb11LogicalTypeESaIS1_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
+  invoke void @_ZSt8_DestroyIPN6duckdb11LogicalTypeES1_EvT_S3_RSaIT0_E(ptr noundef %6, ptr noundef %9, ptr noundef nonnull align 1 dereferenceable(1) %10)
+          to label %11 unwind label %12
+
+11:                                               ; preds = %1
+  call void @_ZNSt12_Vector_baseIN6duckdb11LogicalTypeESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
+  ret void
+
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
+          catch ptr null
+  %14 = extractvalue { ptr, i32 } %13, 0
+  call void @__clang_call_terminate(ptr %14) #19
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorIN6duckdb11LogicalTypeEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !80
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorIN6duckdb11LogicalTypeEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !80
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EEC2ESt16initializer_listIS1_ERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, ptr noundef nonnull align 1 dereferenceable(1) %3) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %5 = alloca %"class.std::initializer_list", align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = getelementptr inbounds nuw { ptr, i64 }, ptr %5, i32 0, i32 0
+  store ptr %1, ptr %10, align 8
+  %11 = getelementptr inbounds nuw { ptr, i64 }, ptr %5, i32 0, i32 1
+  store i64 %2, ptr %11, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !76
+  store ptr %3, ptr %7, align 8, !tbaa !66
+  %12 = load ptr, ptr %6, align 8
+  %13 = load ptr, ptr %7, align 8, !tbaa !66
+  call void @_ZNSt12_Vector_baseIN6duckdb11LogicalTypeESaIS1_EEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 1 dereferenceable(1) %13) #17
+  %14 = call noundef ptr @_ZNKSt16initializer_listIN6duckdb11LogicalTypeEE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #17
+  %15 = call noundef ptr @_ZNKSt16initializer_listIN6duckdb11LogicalTypeEE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #17
+  invoke void @_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE19_M_range_initializeIPKS1_EEvT_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef %14, ptr noundef %15)
+          to label %16 unwind label %17
+
+16:                                               ; preds = %4
+  ret void
+
+17:                                               ; preds = %4
+  %18 = landingpad { ptr, i32 }
+          cleanup
+  %19 = extractvalue { ptr, i32 } %18, 0
+  store ptr %19, ptr %8, align 8
+  %20 = extractvalue { ptr, i32 } %18, 1
+  store i32 %20, ptr %9, align 4
+  call void @_ZNSt12_Vector_baseIN6duckdb11LogicalTypeESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #17
+  br label %21
+
+21:                                               ; preds = %17
+  %22 = load ptr, ptr %8, align 8
+  %23 = load i32, ptr %9, align 4
+  %24 = insertvalue { ptr, i32 } poison, ptr %22, 0
+  %25 = insertvalue { ptr, i32 } %24, i32 %23, 1
+  resume { ptr, i32 } %25
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt12_Vector_baseIN6duckdb11LogicalTypeESaIS1_EEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !82
+  store ptr %1, ptr %4, align 8, !tbaa !66
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !66
+  call void @_ZNSt12_Vector_baseIN6duckdb11LogicalTypeESaIS1_EE12_Vector_implC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 1 dereferenceable(1) %7) #17
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE19_M_range_initializeIPKS1_EEvT_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, ptr noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !76
+  store ptr %1, ptr %5, align 8, !tbaa !3
+  store ptr %2, ptr %6, align 8, !tbaa !3
+  %8 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #17
+  %9 = load ptr, ptr %5, align 8, !tbaa !3
+  %10 = load ptr, ptr %6, align 8, !tbaa !3
+  %11 = call noundef i64 @_ZSt8distanceIPKN6duckdb11LogicalTypeEENSt15iterator_traitsIT_E15difference_typeES5_S5_(ptr noundef %9, ptr noundef %10)
+  store i64 %11, ptr %7, align 8, !tbaa !74
+  %12 = load i64, ptr %7, align 8, !tbaa !74
+  %13 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN6duckdb11LogicalTypeESaIS1_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #17
+  %14 = call noundef i64 @_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE17_S_check_init_lenEmRKS2_(i64 noundef %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+  %15 = call noundef ptr @_ZNSt12_Vector_baseIN6duckdb11LogicalTypeESaIS1_EE11_M_allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %14)
+  %16 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %8, i32 0, i32 0
+  %17 = getelementptr inbounds nuw %"struct.std::_Vector_base<duckdb::LogicalType, std::allocator<duckdb::LogicalType>>::_Vector_impl_data", ptr %16, i32 0, i32 0
+  store ptr %15, ptr %17, align 8, !tbaa !78
+  %18 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %8, i32 0, i32 0
+  %19 = getelementptr inbounds nuw %"struct.std::_Vector_base<duckdb::LogicalType, std::allocator<duckdb::LogicalType>>::_Vector_impl_data", ptr %18, i32 0, i32 0
+  %20 = load ptr, ptr %19, align 8, !tbaa !78
+  %21 = load i64, ptr %7, align 8, !tbaa !74
+  %22 = getelementptr inbounds nuw %"struct.duckdb::LogicalType", ptr %20, i64 %21
+  %23 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %8, i32 0, i32 0
+  %24 = getelementptr inbounds nuw %"struct.std::_Vector_base<duckdb::LogicalType, std::allocator<duckdb::LogicalType>>::_Vector_impl_data", ptr %23, i32 0, i32 2
+  store ptr %22, ptr %24, align 8, !tbaa !84
+  %25 = load ptr, ptr %5, align 8, !tbaa !3
+  %26 = load ptr, ptr %6, align 8, !tbaa !3
+  %27 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %8, i32 0, i32 0
+  %28 = getelementptr inbounds nuw %"struct.std::_Vector_base<duckdb::LogicalType, std::allocator<duckdb::LogicalType>>::_Vector_impl_data", ptr %27, i32 0, i32 0
+  %29 = load ptr, ptr %28, align 8, !tbaa !78
+  %30 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN6duckdb11LogicalTypeESaIS1_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #17
+  %31 = call noundef ptr @_ZSt22__uninitialized_copy_aIPKN6duckdb11LogicalTypeEPS1_S1_ET0_T_S6_S5_RSaIT1_E(ptr noundef %25, ptr noundef %26, ptr noundef %29, ptr noundef nonnull align 1 dereferenceable(1) %30)
+  %32 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %8, i32 0, i32 0
+  %33 = getelementptr inbounds nuw %"struct.std::_Vector_base<duckdb::LogicalType, std::allocator<duckdb::LogicalType>>::_Vector_impl_data", ptr %32, i32 0, i32 1
+  store ptr %31, ptr %33, align 8, !tbaa !79
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #17
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNKSt16initializer_listIN6duckdb11LogicalTypeEE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !85
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::initializer_list", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNKSt16initializer_listIN6duckdb11LogicalTypeEE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !85
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZNKSt16initializer_listIN6duckdb11LogicalTypeEE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #17
+  %5 = call noundef i64 @_ZNKSt16initializer_listIN6duckdb11LogicalTypeEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #17
+  %6 = getelementptr inbounds nuw %"struct.duckdb::LogicalType", ptr %4, i64 %5
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt12_Vector_baseIN6duckdb11LogicalTypeESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !82
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<duckdb::LogicalType, std::allocator<duckdb::LogicalType>>::_Vector_impl_data", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8, !tbaa !78
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base<duckdb::LogicalType, std::allocator<duckdb::LogicalType>>::_Vector_impl_data", ptr %7, i32 0, i32 2
+  %9 = load ptr, ptr %8, align 8, !tbaa !84
+  %10 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  %11 = getelementptr inbounds nuw %"struct.std::_Vector_base<duckdb::LogicalType, std::allocator<duckdb::LogicalType>>::_Vector_impl_data", ptr %10, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8, !tbaa !78
+  %13 = ptrtoint ptr %9 to i64
+  %14 = ptrtoint ptr %12 to i64
+  %15 = sub i64 %13, %14
+  %16 = sdiv exact i64 %15, 24
+  invoke void @_ZNSt12_Vector_baseIN6duckdb11LogicalTypeESaIS1_EE13_M_deallocateEPS1_m(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef %6, i64 noundef %16)
+          to label %17 unwind label %19
+
+17:                                               ; preds = %1
+  %18 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  call void @_ZNSt15__new_allocatorIN6duckdb11LogicalTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #17
+  ret void
+
+19:                                               ; preds = %1
+  %20 = landingpad { ptr, i32 }
+          catch ptr null
+  %21 = extractvalue { ptr, i32 } %20, 0
+  call void @__clang_call_terminate(ptr %21) #19
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt12_Vector_baseIN6duckdb11LogicalTypeESaIS1_EE12_Vector_implC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !87
+  store ptr %1, ptr %4, align 8, !tbaa !66
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !66
+  call void @_ZNSaIN6duckdb11LogicalTypeEEC2ERKS1_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #17
+  call void @_ZNSt12_Vector_baseIN6duckdb11LogicalTypeESaIS1_EE17_Vector_impl_dataC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #17
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt12_Vector_baseIN6duckdb11LogicalTypeESaIS1_EE17_Vector_impl_dataC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !89
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base<duckdb::LogicalType, std::allocator<duckdb::LogicalType>>::_Vector_impl_data", ptr %3, i32 0, i32 0
+  store ptr null, ptr %4, align 8, !tbaa !78
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<duckdb::LogicalType, std::allocator<duckdb::LogicalType>>::_Vector_impl_data", ptr %3, i32 0, i32 1
+  store ptr null, ptr %5, align 8, !tbaa !79
+  %6 = getelementptr inbounds nuw %"struct.std::_Vector_base<duckdb::LogicalType, std::allocator<duckdb::LogicalType>>::_Vector_impl_data", ptr %3, i32 0, i32 2
+  store ptr null, ptr %6, align 8, !tbaa !84
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorIN6duckdb11LogicalTypeEEC2ERKS2_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !80
+  store ptr %1, ptr %4, align 8, !tbaa !80
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef i64 @_ZSt8distanceIPKN6duckdb11LogicalTypeEENSt15iterator_traitsIT_E15difference_typeES5_S5_(ptr noundef %0, ptr noundef %1) #12 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  %5 = load ptr, ptr %3, align 8, !tbaa !3
+  %6 = load ptr, ptr %4, align 8, !tbaa !3
+  call void @_ZSt19__iterator_categoryIPKN6duckdb11LogicalTypeEENSt15iterator_traitsIT_E17iterator_categoryERKS5_(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %7 = call noundef i64 @_ZSt10__distanceIPKN6duckdb11LogicalTypeEENSt15iterator_traitsIT_E15difference_typeES5_S5_St26random_access_iterator_tag(ptr noundef %5, ptr noundef %6)
+  ret i64 %7
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZNSt12_Vector_baseIN6duckdb11LogicalTypeESaIS1_EE11_M_allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !82
+  store i64 %1, ptr %4, align 8, !tbaa !74
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8, !tbaa !74
+  %7 = icmp ne i64 %6, 0
+  br i1 %7, label %8, label %12
+
+8:                                                ; preds = %2
+  %9 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %5, i32 0, i32 0
+  %10 = load i64, ptr %4, align 8, !tbaa !74
+  %11 = call noundef ptr @_ZNSt16allocator_traitsISaIN6duckdb11LogicalTypeEEE8allocateERS2_m(ptr noundef nonnull align 1 dereferenceable(1) %9, i64 noundef %10)
+  br label %13
+
+12:                                               ; preds = %2
+  br label %13
+
+13:                                               ; preds = %12, %8
+  %14 = phi ptr [ %11, %8 ], [ null, %12 ]
+  ret ptr %14
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef i64 @_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE17_S_check_init_lenEmRKS2_(i64 noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #0 comdat align 2 {
+  %3 = alloca i64, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %"class.std::allocator.0", align 1
+  store i64 %0, ptr %3, align 8, !tbaa !74
+  store ptr %1, ptr %4, align 8, !tbaa !66
+  %6 = load i64, ptr %3, align 8, !tbaa !74
+  call void @llvm.lifetime.start.p0(i64 1, ptr %5) #17
+  %7 = load ptr, ptr %4, align 8, !tbaa !66
+  call void @_ZNSaIN6duckdb11LogicalTypeEEC2ERKS1_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %7) #17
+  %8 = call noundef i64 @_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE11_S_max_sizeERKS2_(ptr noundef nonnull align 1 dereferenceable(1) %5) #17
+  %9 = icmp ugt i64 %6, %8
+  call void @_ZNSt15__new_allocatorIN6duckdb11LogicalTypeEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #17
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #17
+  br i1 %9, label %10, label %11
+
+10:                                               ; preds = %2
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef @.str.1) #20
+  unreachable
+
+11:                                               ; preds = %2
+  %12 = load i64, ptr %3, align 8, !tbaa !74
+  ret i64 %12
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN6duckdb11LogicalTypeESaIS1_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !82
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef ptr @_ZSt22__uninitialized_copy_aIPKN6duckdb11LogicalTypeEPS1_S1_ET0_T_S6_S5_RSaIT1_E(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #12 comdat {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !3
+  store ptr %2, ptr %7, align 8, !tbaa !3
+  store ptr %3, ptr %8, align 8, !tbaa !66
+  %9 = load ptr, ptr %5, align 8, !tbaa !3
+  %10 = load ptr, ptr %6, align 8, !tbaa !3
+  %11 = load ptr, ptr %7, align 8, !tbaa !3
+  %12 = call noundef ptr @_ZSt18uninitialized_copyIPKN6duckdb11LogicalTypeEPS1_ET0_T_S6_S5_(ptr noundef %9, ptr noundef %10, ptr noundef %11)
+  ret ptr %12
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZSt10__distanceIPKN6duckdb11LogicalTypeEENSt15iterator_traitsIT_E15difference_typeES5_S5_St26random_access_iterator_tag(ptr noundef %0, ptr noundef %1) #4 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  %5 = load ptr, ptr %4, align 8, !tbaa !3
+  %6 = load ptr, ptr %3, align 8, !tbaa !3
+  %7 = ptrtoint ptr %5 to i64
+  %8 = ptrtoint ptr %6 to i64
+  %9 = sub i64 %7, %8
+  %10 = sdiv exact i64 %9, 24
+  ret i64 %10
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt19__iterator_categoryIPKN6duckdb11LogicalTypeEENSt15iterator_traitsIT_E17iterator_categoryERKS5_(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !91
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZNSt16allocator_traitsISaIN6duckdb11LogicalTypeEEE8allocateERS2_m(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !66
+  store i64 %1, ptr %4, align 8, !tbaa !74
+  %5 = load ptr, ptr %3, align 8, !tbaa !66
+  %6 = load i64, ptr %4, align 8, !tbaa !74
+  %7 = call noundef ptr @_ZNSt15__new_allocatorIN6duckdb11LogicalTypeEE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %5, i64 noundef %6, ptr noundef null)
+  ret ptr %7
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZNSt15__new_allocatorIN6duckdb11LogicalTypeEE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1, ptr noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !80
+  store i64 %1, ptr %5, align 8, !tbaa !74
+  store ptr %2, ptr %6, align 8, !tbaa !75
+  %7 = load ptr, ptr %4, align 8
+  %8 = load i64, ptr %5, align 8, !tbaa !74
+  %9 = call noundef i64 @_ZNKSt15__new_allocatorIN6duckdb11LogicalTypeEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
+  %10 = icmp ugt i64 %8, %9
+  %11 = zext i1 %10 to i64
+  %12 = call i64 @llvm.expect.i64(i64 %11, i64 0)
+  %13 = icmp ne i64 %12, 0
+  br i1 %13, label %14, label %19
+
+14:                                               ; preds = %3
+  %15 = load i64, ptr %5, align 8, !tbaa !74
+  %16 = icmp ugt i64 %15, 768614336404564650
+  br i1 %16, label %17, label %18
+
+17:                                               ; preds = %14
+  call void @_ZSt28__throw_bad_array_new_lengthv() #20
+  unreachable
+
+18:                                               ; preds = %14
+  call void @_ZSt17__throw_bad_allocv() #20
+  unreachable
+
+19:                                               ; preds = %3
+  %20 = load i64, ptr %5, align 8, !tbaa !74
+  %21 = mul i64 %20, 24
+  %22 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #21
+  ret ptr %22
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNKSt15__new_allocatorIN6duckdb11LogicalTypeEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !80
+  ret i64 384307168202282325
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
+declare i64 @llvm.expect.i64(i64, i64) #8
+
+; Function Attrs: noreturn
+declare void @_ZSt28__throw_bad_array_new_lengthv() #13
+
+; Function Attrs: noreturn
+declare void @_ZSt17__throw_bad_allocv() #13
+
+; Function Attrs: nobuiltin allocsize(0)
+declare noundef nonnull ptr @_Znwm(i64 noundef) #14
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE11_S_max_sizeERKS2_(ptr noundef nonnull align 1 dereferenceable(1) %0) #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i64, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !66
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #17
+  store i64 384307168202282325, ptr %3, align 8, !tbaa !74
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #17
+  %5 = load ptr, ptr %2, align 8, !tbaa !66
+  %6 = call noundef i64 @_ZNSt16allocator_traitsISaIN6duckdb11LogicalTypeEEE8max_sizeERKS2_(ptr noundef nonnull align 1 dereferenceable(1) %5) #17
+  store i64 %6, ptr %4, align 8, !tbaa !74
+  %7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3minImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
+          to label %8 unwind label %10
+
+8:                                                ; preds = %1
+  %9 = load i64, ptr %7, align 8, !tbaa !74
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #17
+  ret i64 %9
+
+10:                                               ; preds = %1
+  %11 = landingpad { ptr, i32 }
+          catch ptr null
+  %12 = extractvalue { ptr, i32 } %11, 0
+  call void @__clang_call_terminate(ptr %12) #19
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSaIN6duckdb11LogicalTypeEEC2ERKS1_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !66
+  store ptr %1, ptr %4, align 8, !tbaa !66
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !66
+  call void @_ZNSt15__new_allocatorIN6duckdb11LogicalTypeEEC2ERKS2_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #17
+  ret void
+}
+
+; Function Attrs: noreturn
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) #13
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNSt16allocator_traitsISaIN6duckdb11LogicalTypeEEE8max_sizeERKS2_(ptr noundef nonnull align 1 dereferenceable(1) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !66
+  %3 = load ptr, ptr %2, align 8, !tbaa !66
+  %4 = call noundef i64 @_ZNKSt15__new_allocatorIN6duckdb11LogicalTypeEE8max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %3) #17
+  ret i64 %4
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3minImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !93
+  store ptr %1, ptr %5, align 8, !tbaa !93
+  %6 = load ptr, ptr %5, align 8, !tbaa !93
+  %7 = load i64, ptr %6, align 8, !tbaa !74
+  %8 = load ptr, ptr %4, align 8, !tbaa !93
+  %9 = load i64, ptr %8, align 8, !tbaa !74
+  %10 = icmp ult i64 %7, %9
+  br i1 %10, label %11, label %13
+
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %5, align 8, !tbaa !93
+  store ptr %12, ptr %3, align 8
+  br label %15
+
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %4, align 8, !tbaa !93
+  store ptr %14, ptr %3, align 8
+  br label %15
+
+15:                                               ; preds = %13, %11
+  %16 = load ptr, ptr %3, align 8
+  ret ptr %16
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNKSt15__new_allocatorIN6duckdb11LogicalTypeEE8max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !80
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef i64 @_ZNKSt15__new_allocatorIN6duckdb11LogicalTypeEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %3) #17
+  ret i64 %4
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef ptr @_ZSt18uninitialized_copyIPKN6duckdb11LogicalTypeEPS1_ET0_T_S6_S5_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #12 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i8, align 1
+  %8 = alloca i8, align 1
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !3
+  store ptr %2, ptr %6, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %7) #17
+  store i8 0, ptr %7, align 1, !tbaa !52
+  call void @llvm.lifetime.start.p0(i64 1, ptr %8) #17
+  store i8 0, ptr %8, align 1, !tbaa !52
+  %9 = load ptr, ptr %4, align 8, !tbaa !3
+  %10 = load ptr, ptr %5, align 8, !tbaa !3
+  %11 = load ptr, ptr %6, align 8, !tbaa !3
+  %12 = call noundef ptr @_ZNSt20__uninitialized_copyILb0EE13__uninit_copyIPKN6duckdb11LogicalTypeEPS3_EET0_T_S8_S7_(ptr noundef %9, ptr noundef %10, ptr noundef %11)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %8) #17
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #17
+  ret ptr %12
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZNSt20__uninitialized_copyILb0EE13__uninit_copyIPKN6duckdb11LogicalTypeEPS3_EET0_T_S8_S7_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !3
+  store ptr %2, ptr %6, align 8, !tbaa !3
+  %7 = load ptr, ptr %4, align 8, !tbaa !3
+  %8 = load ptr, ptr %5, align 8, !tbaa !3
+  %9 = load ptr, ptr %6, align 8, !tbaa !3
+  %10 = call noundef ptr @_ZSt16__do_uninit_copyIPKN6duckdb11LogicalTypeEPS1_ET0_T_S6_S5_(ptr noundef %7, ptr noundef %8, ptr noundef %9)
+  ret ptr %10
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyIPKN6duckdb11LogicalTypeEPS1_ET0_T_S6_S5_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 comdat personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !3
+  store ptr %2, ptr %6, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #17
+  %10 = load ptr, ptr %6, align 8, !tbaa !3
+  store ptr %10, ptr %7, align 8, !tbaa !3
+  br label %11
+
+11:                                               ; preds = %19, %3
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  %13 = load ptr, ptr %5, align 8, !tbaa !3
+  %14 = icmp ne ptr %12, %13
+  br i1 %14, label %15, label %34
+
+15:                                               ; preds = %11
+  %16 = load ptr, ptr %7, align 8, !tbaa !3
+  %17 = load ptr, ptr %4, align 8, !tbaa !3
+  invoke void @_ZSt10_ConstructIN6duckdb11LogicalTypeEJRKS1_EEvPT_DpOT0_(ptr noundef %16, ptr noundef nonnull align 8 dereferenceable(24) %17)
+          to label %18 unwind label %24
+
+18:                                               ; preds = %15
+  br label %19
+
+19:                                               ; preds = %18
+  %20 = load ptr, ptr %4, align 8, !tbaa !3
+  %21 = getelementptr inbounds nuw %"struct.duckdb::LogicalType", ptr %20, i32 1
+  store ptr %21, ptr %4, align 8, !tbaa !3
+  %22 = load ptr, ptr %7, align 8, !tbaa !3
+  %23 = getelementptr inbounds nuw %"struct.duckdb::LogicalType", ptr %22, i32 1
+  store ptr %23, ptr %7, align 8, !tbaa !3
+  br label %11, !llvm.loop !95
+
+24:                                               ; preds = %15
+  %25 = landingpad { ptr, i32 }
+          catch ptr null
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %8, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %9, align 4
+  br label %28
+
+28:                                               ; preds = %24
+  %29 = load ptr, ptr %8, align 8
+  %30 = call ptr @__cxa_begin_catch(ptr %29) #17
+  %31 = load ptr, ptr %6, align 8, !tbaa !3
+  %32 = load ptr, ptr %7, align 8, !tbaa !3
+  invoke void @_ZSt8_DestroyIPN6duckdb11LogicalTypeEEvT_S3_(ptr noundef %31, ptr noundef %32)
+          to label %33 unwind label %36
+
+33:                                               ; preds = %28
+  invoke void @__cxa_rethrow() #20
+          to label %50 unwind label %36
+
+34:                                               ; preds = %11
+  %35 = load ptr, ptr %7, align 8, !tbaa !3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #17
+  ret ptr %35
+
+36:                                               ; preds = %33, %28
+  %37 = landingpad { ptr, i32 }
+          cleanup
+  %38 = extractvalue { ptr, i32 } %37, 0
+  store ptr %38, ptr %8, align 8
+  %39 = extractvalue { ptr, i32 } %37, 1
+  store i32 %39, ptr %9, align 4
+  invoke void @__cxa_end_catch()
+          to label %40 unwind label %47
+
+40:                                               ; preds = %36
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #17
+  br label %42
+
+41:                                               ; No predecessors!
+  unreachable
+
+42:                                               ; preds = %40
+  %43 = load ptr, ptr %8, align 8
+  %44 = load i32, ptr %9, align 4
+  %45 = insertvalue { ptr, i32 } poison, ptr %43, 0
+  %46 = insertvalue { ptr, i32 } %45, i32 %44, 1
+  resume { ptr, i32 } %46
+
+47:                                               ; preds = %36
+  %48 = landingpad { ptr, i32 }
+          catch ptr null
+  %49 = extractvalue { ptr, i32 } %48, 0
+  call void @__clang_call_terminate(ptr %49) #19
+  unreachable
+
+50:                                               ; preds = %33
+  unreachable
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZSt10_ConstructIN6duckdb11LogicalTypeEJRKS1_EEvPT_DpOT0_(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #12 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  %5 = load ptr, ptr %3, align 8, !tbaa !3
+  %6 = load ptr, ptr %4, align 8, !tbaa !3
+  call void @_ZN6duckdb11LogicalTypeC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZSt8_DestroyIPN6duckdb11LogicalTypeEEvT_S3_(ptr noundef %0, ptr noundef %1) #12 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  %5 = load ptr, ptr %3, align 8, !tbaa !3
+  %6 = load ptr, ptr %4, align 8, !tbaa !3
+  call void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN6duckdb11LogicalTypeEEEvT_S5_(ptr noundef %5, ptr noundef %6)
+  ret void
+}
+
+declare void @__cxa_rethrow()
+
+declare void @__cxa_end_catch()
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN6duckdb11LogicalTypeEEEvT_S5_(ptr noundef %0, ptr noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  br label %5
+
+5:                                                ; preds = %11, %2
+  %6 = load ptr, ptr %3, align 8, !tbaa !3
+  %7 = load ptr, ptr %4, align 8, !tbaa !3
+  %8 = icmp ne ptr %6, %7
+  br i1 %8, label %9, label %14
+
+9:                                                ; preds = %5
+  %10 = load ptr, ptr %3, align 8, !tbaa !3
+  call void @_ZSt8_DestroyIN6duckdb11LogicalTypeEEvPT_(ptr noundef %10)
+  br label %11
+
+11:                                               ; preds = %9
+  %12 = load ptr, ptr %3, align 8, !tbaa !3
+  %13 = getelementptr inbounds nuw %"struct.duckdb::LogicalType", ptr %12, i32 1
+  store ptr %13, ptr %3, align 8, !tbaa !3
+  br label %5, !llvm.loop !97
+
+14:                                               ; preds = %5
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt8_DestroyIN6duckdb11LogicalTypeEEvPT_(ptr noundef %0) #4 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8, !tbaa !3
+  call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNKSt16initializer_listIN6duckdb11LogicalTypeEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !85
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::initializer_list", ptr %3, i32 0, i32 1
+  %5 = load i64, ptr %4, align 8, !tbaa !11
+  ret i64 %5
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt12_Vector_baseIN6duckdb11LogicalTypeESaIS1_EE13_M_deallocateEPS1_m(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, i64 noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !82
+  store ptr %1, ptr %5, align 8, !tbaa !3
+  store i64 %2, ptr %6, align 8, !tbaa !74
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !3
+  %9 = icmp ne ptr %8, null
+  br i1 %9, label %10, label %14
+
+10:                                               ; preds = %3
+  %11 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %7, i32 0, i32 0
+  %12 = load ptr, ptr %5, align 8, !tbaa !3
+  %13 = load i64, ptr %6, align 8, !tbaa !74
+  call void @_ZNSt16allocator_traitsISaIN6duckdb11LogicalTypeEEE10deallocateERS2_PS1_m(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef %12, i64 noundef %13)
+  br label %14
+
+14:                                               ; preds = %10, %3
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt16allocator_traitsISaIN6duckdb11LogicalTypeEEE10deallocateERS2_PS1_m(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !66
+  store ptr %1, ptr %5, align 8, !tbaa !3
+  store i64 %2, ptr %6, align 8, !tbaa !74
+  %7 = load ptr, ptr %4, align 8, !tbaa !66
+  %8 = load ptr, ptr %5, align 8, !tbaa !3
+  %9 = load i64, ptr %6, align 8, !tbaa !74
+  call void @_ZNSt15__new_allocatorIN6duckdb11LogicalTypeEE10deallocateEPS1_m(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, i64 noundef %9)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorIN6duckdb11LogicalTypeEE10deallocateEPS1_m(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #5 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !80
+  store ptr %1, ptr %5, align 8, !tbaa !3
+  store i64 %2, ptr %6, align 8, !tbaa !74
+  %7 = load ptr, ptr %5, align 8, !tbaa !3
+  call void @_ZdlPv(ptr noundef %7) #18
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb16RegrSXYOperation10InitializeINS_12RegrSXyStateEEEvRT_(ptr noundef nonnull align 8 dereferenceable(40) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !98
+  %3 = load ptr, ptr %2, align 8, !tbaa !98
+  %4 = getelementptr inbounds nuw %"struct.duckdb::RegrSXyState", ptr %3, i32 0, i32 0
+  call void @_ZN6duckdb17RegrCountFunction10InitializeImEEvRT_(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %5 = load ptr, ptr %2, align 8, !tbaa !98
+  %6 = getelementptr inbounds nuw %"struct.duckdb::RegrSXyState", ptr %5, i32 0, i32 1
+  call void @_ZN6duckdb14CovarOperation10InitializeINS_10CovarStateEEEvRT_(ptr noundef nonnull align 8 dereferenceable(32) %6)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN6duckdb17RegrCountFunction10InitializeImEEvRT_(ptr noundef nonnull align 8 dereferenceable(8) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !93
+  %3 = load ptr, ptr %2, align 8, !tbaa !93
+  store i64 0, ptr %3, align 8, !tbaa !74
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN6duckdb14CovarOperation10InitializeINS_10CovarStateEEEvRT_(ptr noundef nonnull align 8 dereferenceable(32) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !100
+  %3 = load ptr, ptr %2, align 8, !tbaa !100
+  %4 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %3, i32 0, i32 0
+  store i64 0, ptr %4, align 8, !tbaa !102
+  %5 = load ptr, ptr %2, align 8, !tbaa !100
+  %6 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %5, i32 0, i32 1
+  store double 0.000000e+00, ptr %6, align 8, !tbaa !105
+  %7 = load ptr, ptr %2, align 8, !tbaa !100
+  %8 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %7, i32 0, i32 2
+  store double 0.000000e+00, ptr %8, align 8, !tbaa !106
+  %9 = load ptr, ptr %2, align 8, !tbaa !100
+  %10 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %9, i32 0, i32 3
+  store double 0.000000e+00, ptr %10, align 8, !tbaa !107
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateExecutor13BinaryScatterINS_12RegrSXyStateEddNS_16RegrSXYOperationEEEvRNS_18AggregateInputDataERNS_6VectorES7_S7_m(ptr noundef nonnull align 8 dereferenceable(17) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, ptr noundef nonnull align 8 dereferenceable(104) %3, i64 noundef %4) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
+  %12 = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
+  store ptr %0, ptr %6, align 8, !tbaa !72
+  store ptr %1, ptr %7, align 8, !tbaa !70
+  store ptr %2, ptr %8, align 8, !tbaa !70
+  store ptr %3, ptr %9, align 8, !tbaa !70
+  store i64 %4, ptr %10, align 8, !tbaa !74
+  call void @llvm.lifetime.start.p0(i64 72, ptr %11) #17
+  call void @_ZN6duckdb19UnifiedVectorFormatC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %11)
+  call void @llvm.lifetime.start.p0(i64 72, ptr %12) #17
+  invoke void @_ZN6duckdb19UnifiedVectorFormatC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %12)
+          to label %16 unwind label %44
+
+16:                                               ; preds = %5
+  call void @llvm.lifetime.start.p0(i64 72, ptr %15) #17
+  invoke void @_ZN6duckdb19UnifiedVectorFormatC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %15)
+          to label %17 unwind label %48
+
+17:                                               ; preds = %16
+  %18 = load ptr, ptr %7, align 8, !tbaa !70
+  %19 = load i64, ptr %10, align 8, !tbaa !74
+  invoke void @_ZN6duckdb6Vector15ToUnifiedFormatEmRNS_19UnifiedVectorFormatE(ptr noundef nonnull align 8 dereferenceable(104) %18, i64 noundef %19, ptr noundef nonnull align 8 dereferenceable(72) %11)
+          to label %20 unwind label %52
+
+20:                                               ; preds = %17
+  %21 = load ptr, ptr %8, align 8, !tbaa !70
+  %22 = load i64, ptr %10, align 8, !tbaa !74
+  invoke void @_ZN6duckdb6Vector15ToUnifiedFormatEmRNS_19UnifiedVectorFormatE(ptr noundef nonnull align 8 dereferenceable(104) %21, i64 noundef %22, ptr noundef nonnull align 8 dereferenceable(72) %12)
+          to label %23 unwind label %52
+
+23:                                               ; preds = %20
+  %24 = load ptr, ptr %9, align 8, !tbaa !70
+  %25 = load i64, ptr %10, align 8, !tbaa !74
+  invoke void @_ZN6duckdb6Vector15ToUnifiedFormatEmRNS_19UnifiedVectorFormatE(ptr noundef nonnull align 8 dereferenceable(104) %24, i64 noundef %25, ptr noundef nonnull align 8 dereferenceable(72) %15)
+          to label %26 unwind label %52
+
+26:                                               ; preds = %23
+  %27 = invoke noundef ptr @_ZN6duckdb19UnifiedVectorFormat7GetDataIdEEPKT_RKS0_(ptr noundef nonnull align 8 dereferenceable(72) %11)
+          to label %28 unwind label %52
+
+28:                                               ; preds = %26
+  %29 = load ptr, ptr %6, align 8, !tbaa !72
+  %30 = invoke noundef ptr @_ZN6duckdb19UnifiedVectorFormat7GetDataIdEEPKT_RKS0_(ptr noundef nonnull align 8 dereferenceable(72) %12)
+          to label %31 unwind label %52
+
+31:                                               ; preds = %28
+  %32 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %15, i32 0, i32 1
+  %33 = load ptr, ptr %32, align 8, !tbaa !108
+  %34 = load i64, ptr %10, align 8, !tbaa !74
+  %35 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %11, i32 0, i32 0
+  %36 = load ptr, ptr %35, align 8, !tbaa !122
+  %37 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %12, i32 0, i32 0
+  %38 = load ptr, ptr %37, align 8, !tbaa !122
+  %39 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %15, i32 0, i32 0
+  %40 = load ptr, ptr %39, align 8, !tbaa !122
+  %41 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %11, i32 0, i32 2
+  %42 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %12, i32 0, i32 2
+  invoke void @_ZN6duckdb17AggregateExecutor17BinaryScatterLoopINS_12RegrSXyStateEddNS_16RegrSXYOperationEEEvPKT0_RNS_18AggregateInputDataEPKT1_PPT_mRKNS_15SelectionVectorESH_SH_RNS_12ValidityMaskESJ_(ptr noundef %27, ptr noundef nonnull align 8 dereferenceable(17) %29, ptr noundef %30, ptr noundef %33, i64 noundef %34, ptr noundef nonnull align 8 dereferenceable(24) %36, ptr noundef nonnull align 8 dereferenceable(24) %38, ptr noundef nonnull align 8 dereferenceable(24) %40, ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef nonnull align 8 dereferenceable(32) %42)
+          to label %43 unwind label %52
+
+43:                                               ; preds = %31
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %15) #17
+  call void @llvm.lifetime.end.p0(i64 72, ptr %15) #17
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %12) #17
+  call void @llvm.lifetime.end.p0(i64 72, ptr %12) #17
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %11) #17
+  call void @llvm.lifetime.end.p0(i64 72, ptr %11) #17
+  ret void
+
+44:                                               ; preds = %5
+  %45 = landingpad { ptr, i32 }
+          cleanup
+  %46 = extractvalue { ptr, i32 } %45, 0
+  store ptr %46, ptr %13, align 8
+  %47 = extractvalue { ptr, i32 } %45, 1
+  store i32 %47, ptr %14, align 4
+  br label %57
+
+48:                                               ; preds = %16
+  %49 = landingpad { ptr, i32 }
+          cleanup
+  %50 = extractvalue { ptr, i32 } %49, 0
+  store ptr %50, ptr %13, align 8
+  %51 = extractvalue { ptr, i32 } %49, 1
+  store i32 %51, ptr %14, align 4
+  br label %56
+
+52:                                               ; preds = %31, %28, %26, %23, %20, %17
+  %53 = landingpad { ptr, i32 }
+          cleanup
+  %54 = extractvalue { ptr, i32 } %53, 0
+  store ptr %54, ptr %13, align 8
+  %55 = extractvalue { ptr, i32 } %53, 1
+  store i32 %55, ptr %14, align 4
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %15) #17
+  br label %56
+
+56:                                               ; preds = %52, %48
+  call void @llvm.lifetime.end.p0(i64 72, ptr %15) #17
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %12) #17
+  br label %57
+
+57:                                               ; preds = %56, %44
+  call void @llvm.lifetime.end.p0(i64 72, ptr %12) #17
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %11) #17
+  call void @llvm.lifetime.end.p0(i64 72, ptr %11) #17
+  br label %58
+
+58:                                               ; preds = %57
+  %59 = load ptr, ptr %13, align 8
+  %60 = load i32, ptr %14, align 4
+  %61 = insertvalue { ptr, i32 } poison, ptr %59, 0
+  %62 = insertvalue { ptr, i32 } %61, i32 %60, 1
+  resume { ptr, i32 } %62
+}
+
+declare void @_ZN6duckdb19UnifiedVectorFormatC1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
+
+declare void @_ZN6duckdb6Vector15ToUnifiedFormatEmRNS_19UnifiedVectorFormatE(ptr noundef nonnull align 8 dereferenceable(104), i64 noundef, ptr noundef nonnull align 8 dereferenceable(72)) #2
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateExecutor17BinaryScatterLoopINS_12RegrSXyStateEddNS_16RegrSXYOperationEEEvPKT0_RNS_18AggregateInputDataEPKT1_PPT_mRKNS_15SelectionVectorESH_SH_RNS_12ValidityMaskESJ_(ptr noalias noundef %0, ptr noundef nonnull align 8 dereferenceable(17) %1, ptr noalias noundef %2, ptr noalias noundef %3, i64 noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9) #12 comdat align 2 {
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca i64, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca ptr, align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca ptr, align 8
+  %20 = alloca ptr, align 8
+  %21 = alloca %"struct.duckdb::AggregateBinaryInput", align 8
+  %22 = alloca i64, align 8
+  %23 = alloca i64, align 8
+  %24 = alloca i64, align 8
+  %25 = alloca i64, align 8
+  store ptr %0, ptr %11, align 8, !tbaa !123
+  store ptr %1, ptr %12, align 8, !tbaa !72
+  store ptr %2, ptr %13, align 8, !tbaa !123
+  store ptr %3, ptr %14, align 8, !tbaa !125
+  store i64 %4, ptr %15, align 8, !tbaa !74
+  store ptr %5, ptr %16, align 8, !tbaa !127
+  store ptr %6, ptr %17, align 8, !tbaa !127
+  store ptr %7, ptr %18, align 8, !tbaa !127
+  store ptr %8, ptr %19, align 8, !tbaa !128
+  store ptr %9, ptr %20, align 8, !tbaa !128
+  call void @llvm.lifetime.start.p0(i64 40, ptr %21) #17
+  %26 = load ptr, ptr %12, align 8, !tbaa !72
+  %27 = load ptr, ptr %19, align 8, !tbaa !128
+  %28 = load ptr, ptr %20, align 8, !tbaa !128
+  call void @_ZN6duckdb20AggregateBinaryInputC2ERNS_18AggregateInputDataERNS_12ValidityMaskES4_(ptr noundef nonnull align 8 dereferenceable(40) %21, ptr noundef nonnull align 8 dereferenceable(17) %26, ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %28)
+  %29 = call noundef zeroext i1 @_ZN6duckdb16RegrSXYOperation10IgnoreNullEv()
+  br i1 %29, label %30, label %81
+
+30:                                               ; preds = %10
+  %31 = load ptr, ptr %19, align 8, !tbaa !128
+  %32 = call noundef zeroext i1 @_ZNK6duckdb21TemplatedValidityMaskImE8AllValidEv(ptr noundef nonnull align 8 dereferenceable(32) %31)
+  br i1 %32, label %33, label %36
+
+33:                                               ; preds = %30
+  %34 = load ptr, ptr %20, align 8, !tbaa !128
+  %35 = call noundef zeroext i1 @_ZNK6duckdb21TemplatedValidityMaskImE8AllValidEv(ptr noundef nonnull align 8 dereferenceable(32) %34)
+  br i1 %35, label %81, label %36
+
+36:                                               ; preds = %33, %30
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #17
+  store i64 0, ptr %22, align 8, !tbaa !74
+  br label %37
+
+37:                                               ; preds = %77, %36
+  %38 = load i64, ptr %22, align 8, !tbaa !74
+  %39 = load i64, ptr %15, align 8, !tbaa !74
+  %40 = icmp ult i64 %38, %39
+  br i1 %40, label %42, label %41
+
+41:                                               ; preds = %37
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #17
+  br label %80
+
+42:                                               ; preds = %37
+  %43 = load ptr, ptr %16, align 8, !tbaa !127
+  %44 = load i64, ptr %22, align 8, !tbaa !74
+  %45 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %43, i64 noundef %44)
+  %46 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 3
+  store i64 %45, ptr %46, align 8, !tbaa !130
+  %47 = load ptr, ptr %17, align 8, !tbaa !127
+  %48 = load i64, ptr %22, align 8, !tbaa !74
+  %49 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %47, i64 noundef %48)
+  %50 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 4
+  store i64 %49, ptr %50, align 8, !tbaa !132
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #17
+  %51 = load ptr, ptr %18, align 8, !tbaa !127
+  %52 = load i64, ptr %22, align 8, !tbaa !74
+  %53 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %51, i64 noundef %52)
+  store i64 %53, ptr %23, align 8, !tbaa !74
+  %54 = load ptr, ptr %19, align 8, !tbaa !128
+  %55 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 3
+  %56 = load i64, ptr %55, align 8, !tbaa !130
+  %57 = call noundef zeroext i1 @_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm(ptr noundef nonnull align 8 dereferenceable(32) %54, i64 noundef %56)
+  br i1 %57, label %58, label %76
+
+58:                                               ; preds = %42
+  %59 = load ptr, ptr %20, align 8, !tbaa !128
+  %60 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 4
+  %61 = load i64, ptr %60, align 8, !tbaa !132
+  %62 = call noundef zeroext i1 @_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm(ptr noundef nonnull align 8 dereferenceable(32) %59, i64 noundef %61)
+  br i1 %62, label %63, label %76
+
+63:                                               ; preds = %58
+  %64 = load ptr, ptr %14, align 8, !tbaa !125
+  %65 = load i64, ptr %23, align 8, !tbaa !74
+  %66 = getelementptr inbounds nuw ptr, ptr %64, i64 %65
+  %67 = load ptr, ptr %66, align 8, !tbaa !98
+  %68 = load ptr, ptr %11, align 8, !tbaa !123
+  %69 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 3
+  %70 = load i64, ptr %69, align 8, !tbaa !130
+  %71 = getelementptr inbounds nuw double, ptr %68, i64 %70
+  %72 = load ptr, ptr %13, align 8, !tbaa !123
+  %73 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 4
+  %74 = load i64, ptr %73, align 8, !tbaa !132
+  %75 = getelementptr inbounds nuw double, ptr %72, i64 %74
+  call void @_ZN6duckdb16RegrSXYOperation9OperationIddNS_12RegrSXyStateES0_EEvRT1_RKT_RKT0_RNS_20AggregateBinaryInputE(ptr noundef nonnull align 8 dereferenceable(40) %67, ptr noundef nonnull align 8 dereferenceable(8) %71, ptr noundef nonnull align 8 dereferenceable(8) %75, ptr noundef nonnull align 8 dereferenceable(40) %21)
+  br label %76
+
+76:                                               ; preds = %63, %58, %42
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #17
+  br label %77
+
+77:                                               ; preds = %76
+  %78 = load i64, ptr %22, align 8, !tbaa !74
+  %79 = add i64 %78, 1
+  store i64 %79, ptr %22, align 8, !tbaa !74
+  br label %37, !llvm.loop !133
+
+80:                                               ; preds = %41
+  br label %115
+
+81:                                               ; preds = %33, %10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #17
+  store i64 0, ptr %24, align 8, !tbaa !74
+  br label %82
+
+82:                                               ; preds = %111, %81
+  %83 = load i64, ptr %24, align 8, !tbaa !74
+  %84 = load i64, ptr %15, align 8, !tbaa !74
+  %85 = icmp ult i64 %83, %84
+  br i1 %85, label %87, label %86
+
+86:                                               ; preds = %82
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #17
+  br label %114
+
+87:                                               ; preds = %82
+  %88 = load ptr, ptr %16, align 8, !tbaa !127
+  %89 = load i64, ptr %24, align 8, !tbaa !74
+  %90 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %88, i64 noundef %89)
+  %91 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 3
+  store i64 %90, ptr %91, align 8, !tbaa !130
+  %92 = load ptr, ptr %17, align 8, !tbaa !127
+  %93 = load i64, ptr %24, align 8, !tbaa !74
+  %94 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %92, i64 noundef %93)
+  %95 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 4
+  store i64 %94, ptr %95, align 8, !tbaa !132
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #17
+  %96 = load ptr, ptr %18, align 8, !tbaa !127
+  %97 = load i64, ptr %24, align 8, !tbaa !74
+  %98 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %96, i64 noundef %97)
+  store i64 %98, ptr %25, align 8, !tbaa !74
+  %99 = load ptr, ptr %14, align 8, !tbaa !125
+  %100 = load i64, ptr %25, align 8, !tbaa !74
+  %101 = getelementptr inbounds nuw ptr, ptr %99, i64 %100
+  %102 = load ptr, ptr %101, align 8, !tbaa !98
+  %103 = load ptr, ptr %11, align 8, !tbaa !123
+  %104 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 3
+  %105 = load i64, ptr %104, align 8, !tbaa !130
+  %106 = getelementptr inbounds nuw double, ptr %103, i64 %105
+  %107 = load ptr, ptr %13, align 8, !tbaa !123
+  %108 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 4
+  %109 = load i64, ptr %108, align 8, !tbaa !132
+  %110 = getelementptr inbounds nuw double, ptr %107, i64 %109
+  call void @_ZN6duckdb16RegrSXYOperation9OperationIddNS_12RegrSXyStateES0_EEvRT1_RKT_RKT0_RNS_20AggregateBinaryInputE(ptr noundef nonnull align 8 dereferenceable(40) %102, ptr noundef nonnull align 8 dereferenceable(8) %106, ptr noundef nonnull align 8 dereferenceable(8) %110, ptr noundef nonnull align 8 dereferenceable(40) %21)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #17
+  br label %111
+
+111:                                              ; preds = %87
+  %112 = load i64, ptr %24, align 8, !tbaa !74
+  %113 = add i64 %112, 1
+  store i64 %113, ptr %24, align 8, !tbaa !74
+  br label %82, !llvm.loop !134
+
+114:                                              ; preds = %86
+  br label %115
+
+115:                                              ; preds = %114, %80
+  call void @llvm.lifetime.end.p0(i64 40, ptr %21) #17
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZN6duckdb19UnifiedVectorFormat7GetDataIdEEPKT_RKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !135
+  %3 = load ptr, ptr %2, align 8, !tbaa !135
+  %4 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %3, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8, !tbaa !108
+  ret ptr %5
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !135
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %3, i32 0, i32 3
+  call void @_ZN6duckdb15SelectionVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #17
+  %5 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %3, i32 0, i32 2
+  call void @_ZN6duckdb21TemplatedValidityMaskImED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN6duckdb20AggregateBinaryInputC2ERNS_18AggregateInputDataERNS_12ValidityMaskES4_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(17) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) unnamed_addr #5 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !137
+  store ptr %1, ptr %6, align 8, !tbaa !72
+  store ptr %2, ptr %7, align 8, !tbaa !128
+  store ptr %3, ptr %8, align 8, !tbaa !128
+  %9 = load ptr, ptr %5, align 8
+  %10 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %9, i32 0, i32 0
+  %11 = load ptr, ptr %6, align 8, !tbaa !72
+  store ptr %11, ptr %10, align 8, !tbaa !72
+  %12 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %9, i32 0, i32 1
+  %13 = load ptr, ptr %7, align 8, !tbaa !128
+  store ptr %13, ptr %12, align 8, !tbaa !128
+  %14 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %9, i32 0, i32 2
+  %15 = load ptr, ptr %8, align 8, !tbaa !128
+  store ptr %15, ptr %14, align 8, !tbaa !128
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZN6duckdb16RegrSXYOperation10IgnoreNullEv() #5 comdat align 2 {
+  ret i1 true
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZNK6duckdb21TemplatedValidityMaskImE8AllValidEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !139
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.duckdb::TemplatedValidityMask", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !141
+  %6 = icmp ne ptr %5, null
+  %7 = xor i1 %6, true
+  ret i1 %7
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !127
+  store i64 %1, ptr %4, align 8, !tbaa !74
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"struct.duckdb::SelectionVector", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %6, align 8, !tbaa !142
+  %8 = icmp ne ptr %7, null
+  br i1 %8, label %9, label %16
+
+9:                                                ; preds = %2
+  %10 = getelementptr inbounds nuw %"struct.duckdb::SelectionVector", ptr %5, i32 0, i32 0
+  %11 = load ptr, ptr %10, align 8, !tbaa !142
+  %12 = load i64, ptr %4, align 8, !tbaa !74
+  %13 = getelementptr inbounds nuw i32, ptr %11, i64 %12
+  %14 = load i32, ptr %13, align 4, !tbaa !54
+  %15 = zext i32 %14 to i64
+  br label %18
+
+16:                                               ; preds = %2
+  %17 = load i64, ptr %4, align 8, !tbaa !74
+  br label %18
+
+18:                                               ; preds = %16, %9
+  %19 = phi i64 [ %15, %9 ], [ %17, %16 ]
+  ret i64 %19
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef zeroext i1 @_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) #12 comdat align 2 {
+  %3 = alloca i1, align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !139
+  store i64 %1, ptr %5, align 8, !tbaa !74
+  %6 = load ptr, ptr %4, align 8
+  %7 = getelementptr inbounds nuw %"struct.duckdb::TemplatedValidityMask", ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8, !tbaa !141
+  %9 = icmp ne ptr %8, null
+  br i1 %9, label %11, label %10
+
+10:                                               ; preds = %2
+  store i1 true, ptr %3, align 1
+  br label %14
+
+11:                                               ; preds = %2
+  %12 = load i64, ptr %5, align 8, !tbaa !74
+  %13 = call noundef zeroext i1 @_ZNK6duckdb21TemplatedValidityMaskImE16RowIsValidUnsafeEm(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef %12)
+  store i1 %13, ptr %3, align 1
+  br label %14
+
+14:                                               ; preds = %11, %10
+  %15 = load i1, ptr %3, align 1
+  ret i1 %15
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb16RegrSXYOperation9OperationIddNS_12RegrSXyStateES0_EEvRT1_RKT_RKT0_RNS_20AggregateBinaryInputE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(40) %3) #0 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !98
+  store ptr %1, ptr %6, align 8, !tbaa !123
+  store ptr %2, ptr %7, align 8, !tbaa !123
+  store ptr %3, ptr %8, align 8, !tbaa !137
+  %9 = load ptr, ptr %5, align 8, !tbaa !98
+  %10 = getelementptr inbounds nuw %"struct.duckdb::RegrSXyState", ptr %9, i32 0, i32 0
+  %11 = load ptr, ptr %6, align 8, !tbaa !123
+  %12 = load ptr, ptr %7, align 8, !tbaa !123
+  %13 = load ptr, ptr %8, align 8, !tbaa !137
+  call void @_ZN6duckdb17RegrCountFunction9OperationIddmNS_16RegrSXYOperationEEEvRT1_RKT_RKT0_RNS_20AggregateBinaryInputE(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(40) %13)
+  %14 = load ptr, ptr %5, align 8, !tbaa !98
+  %15 = getelementptr inbounds nuw %"struct.duckdb::RegrSXyState", ptr %14, i32 0, i32 1
+  %16 = load ptr, ptr %6, align 8, !tbaa !123
+  %17 = load ptr, ptr %7, align 8, !tbaa !123
+  %18 = load ptr, ptr %8, align 8, !tbaa !137
+  call void @_ZN6duckdb14CovarOperation9OperationIddNS_10CovarStateENS_16RegrSXYOperationEEEvRT1_RKT_RKT0_RNS_20AggregateBinaryInputE(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(40) %18)
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef zeroext i1 @_ZNK6duckdb21TemplatedValidityMaskImE16RowIsValidUnsafeEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) #12 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !139
+  store i64 %1, ptr %4, align 8, !tbaa !74
+  %8 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #17
+  %9 = load i64, ptr %4, align 8, !tbaa !74
+  call void @_ZN6duckdb21TemplatedValidityMaskImE13GetEntryIndexEmRmS2_(i64 noundef %9, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #17
+  %10 = load i64, ptr %5, align 8, !tbaa !74
+  %11 = call noundef i64 @_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm(ptr noundef nonnull align 8 dereferenceable(32) %8, i64 noundef %10)
+  store i64 %11, ptr %7, align 8, !tbaa !74
+  %12 = call noundef zeroext i1 @_ZN6duckdb21TemplatedValidityMaskImE10RowIsValidERKmS3_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #17
+  ret i1 %12
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN6duckdb21TemplatedValidityMaskImE13GetEntryIndexEmRmS2_(i64 noundef %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #4 comdat align 2 {
+  %4 = alloca i64, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store i64 %0, ptr %4, align 8, !tbaa !74
+  store ptr %1, ptr %5, align 8, !tbaa !93
+  store ptr %2, ptr %6, align 8, !tbaa !93
+  %7 = load i64, ptr %4, align 8, !tbaa !74
+  %8 = udiv i64 %7, 64
+  %9 = load ptr, ptr %5, align 8, !tbaa !93
+  store i64 %8, ptr %9, align 8, !tbaa !74
+  %10 = load i64, ptr %4, align 8, !tbaa !74
+  %11 = urem i64 %10, 64
+  %12 = load ptr, ptr %6, align 8, !tbaa !93
+  store i64 %11, ptr %12, align 8, !tbaa !74
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef i64 @_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) #12 comdat align 2 {
+  %3 = alloca i64, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !139
+  store i64 %1, ptr %5, align 8, !tbaa !74
+  %6 = load ptr, ptr %4, align 8
+  %7 = getelementptr inbounds nuw %"struct.duckdb::TemplatedValidityMask", ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8, !tbaa !141
+  %9 = icmp ne ptr %8, null
+  br i1 %9, label %11, label %10
+
+10:                                               ; preds = %2
+  store i64 -1, ptr %3, align 8
+  br label %15
+
+11:                                               ; preds = %2
+  %12 = load i64, ptr %5, align 8, !tbaa !74
+  %13 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6duckdb21TemplatedValidityMaskImE22GetValidityEntryUnsafeEm(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef %12)
+  %14 = load i64, ptr %13, align 8, !tbaa !74
+  store i64 %14, ptr %3, align 8
+  br label %15
+
+15:                                               ; preds = %11, %10
+  %16 = load i64, ptr %3, align 8
+  ret i64 %16
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZN6duckdb21TemplatedValidityMaskImE10RowIsValidERKmS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !93
+  store ptr %1, ptr %4, align 8, !tbaa !93
+  %5 = load ptr, ptr %3, align 8, !tbaa !93
+  %6 = load i64, ptr %5, align 8, !tbaa !74
+  %7 = load ptr, ptr %4, align 8, !tbaa !93
+  %8 = load i64, ptr %7, align 8, !tbaa !74
+  %9 = shl i64 1, %8
+  %10 = and i64 %6, %9
+  %11 = icmp ne i64 %10, 0
+  ret i1 %11
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6duckdb21TemplatedValidityMaskImE22GetValidityEntryUnsafeEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !139
+  store i64 %1, ptr %4, align 8, !tbaa !74
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"struct.duckdb::TemplatedValidityMask", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %6, align 8, !tbaa !141
+  %8 = load i64, ptr %4, align 8, !tbaa !74
+  %9 = getelementptr inbounds nuw i64, ptr %7, i64 %8
+  ret ptr %9
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN6duckdb17RegrCountFunction9OperationIddmNS_16RegrSXYOperationEEEvRT1_RKT_RKT0_RNS_20AggregateBinaryInputE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(40) %3) #5 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !93
+  store ptr %1, ptr %6, align 8, !tbaa !123
+  store ptr %2, ptr %7, align 8, !tbaa !123
+  store ptr %3, ptr %8, align 8, !tbaa !137
+  %9 = load ptr, ptr %5, align 8, !tbaa !93
+  %10 = load i64, ptr %9, align 8, !tbaa !74
+  %11 = add i64 %10, 1
+  store i64 %11, ptr %9, align 8, !tbaa !74
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN6duckdb14CovarOperation9OperationIddNS_10CovarStateENS_16RegrSXYOperationEEEvRT1_RKT_RKT0_RNS_20AggregateBinaryInputE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(40) %3) #5 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca double, align 8
+  %10 = alloca double, align 8
+  %11 = alloca double, align 8
+  %12 = alloca double, align 8
+  %13 = alloca double, align 8
+  %14 = alloca double, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !100
+  store ptr %1, ptr %6, align 8, !tbaa !123
+  store ptr %2, ptr %7, align 8, !tbaa !123
+  store ptr %3, ptr %8, align 8, !tbaa !137
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #17
+  %15 = load ptr, ptr %5, align 8, !tbaa !100
+  %16 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %15, i32 0, i32 0
+  %17 = load i64, ptr %16, align 8, !tbaa !102
+  %18 = add i64 %17, 1
+  store i64 %18, ptr %16, align 8, !tbaa !102
+  %19 = uitofp i64 %18 to double
+  store double %19, ptr %9, align 8, !tbaa !143
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #17
+  %20 = load ptr, ptr %7, align 8, !tbaa !123
+  %21 = load double, ptr %20, align 8, !tbaa !143
+  %22 = load ptr, ptr %5, align 8, !tbaa !100
+  %23 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %22, i32 0, i32 1
+  %24 = load double, ptr %23, align 8, !tbaa !105
+  %25 = fsub double %21, %24
+  store double %25, ptr %10, align 8, !tbaa !143
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #17
+  %26 = load ptr, ptr %5, align 8, !tbaa !100
+  %27 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %26, i32 0, i32 1
+  %28 = load double, ptr %27, align 8, !tbaa !105
+  %29 = load double, ptr %10, align 8, !tbaa !143
+  %30 = load double, ptr %9, align 8, !tbaa !143
+  %31 = fdiv double %29, %30
+  %32 = fadd double %28, %31
+  store double %32, ptr %11, align 8, !tbaa !143
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #17
+  %33 = load ptr, ptr %6, align 8, !tbaa !123
+  %34 = load double, ptr %33, align 8, !tbaa !143
+  %35 = load ptr, ptr %5, align 8, !tbaa !100
+  %36 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %35, i32 0, i32 2
+  %37 = load double, ptr %36, align 8, !tbaa !106
+  %38 = fsub double %34, %37
+  store double %38, ptr %12, align 8, !tbaa !143
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #17
+  %39 = load ptr, ptr %5, align 8, !tbaa !100
+  %40 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %39, i32 0, i32 2
+  %41 = load double, ptr %40, align 8, !tbaa !106
+  %42 = load double, ptr %12, align 8, !tbaa !143
+  %43 = load double, ptr %9, align 8, !tbaa !143
+  %44 = fdiv double %42, %43
+  %45 = fadd double %41, %44
+  store double %45, ptr %13, align 8, !tbaa !143
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #17
+  %46 = load ptr, ptr %5, align 8, !tbaa !100
+  %47 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %46, i32 0, i32 3
+  %48 = load double, ptr %47, align 8, !tbaa !107
+  %49 = load double, ptr %10, align 8, !tbaa !143
+  %50 = load ptr, ptr %6, align 8, !tbaa !123
+  %51 = load double, ptr %50, align 8, !tbaa !143
+  %52 = load double, ptr %13, align 8, !tbaa !143
+  %53 = fsub double %51, %52
+  %54 = call double @llvm.fmuladd.f64(double %49, double %53, double %48)
+  store double %54, ptr %14, align 8, !tbaa !143
+  %55 = load double, ptr %11, align 8, !tbaa !143
+  %56 = load ptr, ptr %5, align 8, !tbaa !100
+  %57 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %56, i32 0, i32 1
+  store double %55, ptr %57, align 8, !tbaa !105
+  %58 = load double, ptr %13, align 8, !tbaa !143
+  %59 = load ptr, ptr %5, align 8, !tbaa !100
+  %60 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %59, i32 0, i32 2
+  store double %58, ptr %60, align 8, !tbaa !106
+  %61 = load double, ptr %14, align 8, !tbaa !143
+  %62 = load ptr, ptr %5, align 8, !tbaa !100
+  %63 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %62, i32 0, i32 3
+  store double %61, ptr %63, align 8, !tbaa !107
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #17
+  ret void
+}
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.fmuladd.f64(double, double, double) #15
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN6duckdb15SelectionVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !127
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.duckdb::SelectionVector", ptr %3, i32 0, i32 1
+  call void @_ZN6duckdb10shared_ptrINS_13SelectionDataELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #17
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN6duckdb21TemplatedValidityMaskImED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !139
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.duckdb::TemplatedValidityMask", ptr %3, i32 0, i32 1
+  call void @_ZN6duckdb10shared_ptrINS_21TemplatedValidityDataImEELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #17
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN6duckdb10shared_ptrINS_13SelectionDataELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !144
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.duckdb::shared_ptr.15", ptr %3, i32 0, i32 0
+  call void @_ZNSt12__shared_ptrIN6duckdb13SelectionDataELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #17
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt12__shared_ptrIN6duckdb13SelectionDataELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !146
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__shared_ptr.17", ptr %3, i32 0, i32 1
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #17
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN6duckdb10shared_ptrINS_21TemplatedValidityDataImEELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !148
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.duckdb::shared_ptr.7", ptr %3, i32 0, i32 0
+  call void @_ZNSt12__shared_ptrIN6duckdb21TemplatedValidityDataImEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #17
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt12__shared_ptrIN6duckdb21TemplatedValidityDataImEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !150
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__shared_ptr.9", ptr %3, i32 0, i32 1
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #17
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateExecutor7CombineINS_12RegrSXyStateENS_16RegrSXYOperationEEEvRNS_6VectorES5_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(17) %2, i64 noundef %3) #0 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !70
+  store ptr %1, ptr %6, align 8, !tbaa !70
+  store ptr %2, ptr %7, align 8, !tbaa !72
+  store i64 %3, ptr %8, align 8, !tbaa !74
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #17
+  %12 = load ptr, ptr %5, align 8, !tbaa !70
+  %13 = call noundef ptr @_ZN6duckdb10FlatVector7GetDataIPKNS_12RegrSXyStateEEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %12)
+  store ptr %13, ptr %9, align 8, !tbaa !125
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #17
+  %14 = load ptr, ptr %6, align 8, !tbaa !70
+  %15 = call noundef ptr @_ZN6duckdb10FlatVector7GetDataIPNS_12RegrSXyStateEEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %14)
+  store ptr %15, ptr %10, align 8, !tbaa !125
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #17
+  store i64 0, ptr %11, align 8, !tbaa !74
+  br label %16
+
+16:                                               ; preds = %31, %4
+  %17 = load i64, ptr %11, align 8, !tbaa !74
+  %18 = load i64, ptr %8, align 8, !tbaa !74
+  %19 = icmp ult i64 %17, %18
+  br i1 %19, label %21, label %20
+
+20:                                               ; preds = %16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #17
+  br label %34
+
+21:                                               ; preds = %16
+  %22 = load ptr, ptr %9, align 8, !tbaa !125
+  %23 = load i64, ptr %11, align 8, !tbaa !74
+  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %25 = load ptr, ptr %24, align 8, !tbaa !98
+  %26 = load ptr, ptr %10, align 8, !tbaa !125
+  %27 = load i64, ptr %11, align 8, !tbaa !74
+  %28 = getelementptr inbounds nuw ptr, ptr %26, i64 %27
+  %29 = load ptr, ptr %28, align 8, !tbaa !98
+  %30 = load ptr, ptr %7, align 8, !tbaa !72
+  call void @_ZN6duckdb16RegrSXYOperation7CombineINS_12RegrSXyStateES0_EEvRKT_RS3_RNS_18AggregateInputDataE(ptr noundef nonnull align 8 dereferenceable(40) %25, ptr noundef nonnull align 8 dereferenceable(40) %29, ptr noundef nonnull align 8 dereferenceable(17) %30)
+  br label %31
+
+31:                                               ; preds = %21
+  %32 = load i64, ptr %11, align 8, !tbaa !74
+  %33 = add i64 %32, 1
+  store i64 %33, ptr %11, align 8, !tbaa !74
+  br label %16, !llvm.loop !152
+
+34:                                               ; preds = %20
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #17
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef ptr @_ZN6duckdb10FlatVector7GetDataIPKNS_12RegrSXyStateEEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %0) #12 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !70
+  %3 = load ptr, ptr %2, align 8, !tbaa !70
+  %4 = call noundef ptr @_ZN6duckdb14ConstantVector7GetDataIPKNS_12RegrSXyStateEEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %3)
+  ret ptr %4
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef ptr @_ZN6duckdb10FlatVector7GetDataIPNS_12RegrSXyStateEEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %0) #12 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !70
+  %3 = load ptr, ptr %2, align 8, !tbaa !70
+  %4 = call noundef ptr @_ZN6duckdb14ConstantVector7GetDataIPNS_12RegrSXyStateEEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %3)
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb16RegrSXYOperation7CombineINS_12RegrSXyStateES0_EEvRKT_RS3_RNS_18AggregateInputDataE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(17) %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !98
+  store ptr %1, ptr %5, align 8, !tbaa !98
+  store ptr %2, ptr %6, align 8, !tbaa !72
+  %7 = load ptr, ptr %4, align 8, !tbaa !98
+  %8 = getelementptr inbounds nuw %"struct.duckdb::RegrSXyState", ptr %7, i32 0, i32 1
+  %9 = load ptr, ptr %5, align 8, !tbaa !98
+  %10 = getelementptr inbounds nuw %"struct.duckdb::RegrSXyState", ptr %9, i32 0, i32 1
+  %11 = load ptr, ptr %6, align 8, !tbaa !72
+  call void @_ZN6duckdb14CovarOperation7CombineINS_10CovarStateENS_16RegrSXYOperationEEEvRKT_RS4_RNS_18AggregateInputDataE(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(17) %11)
+  %12 = load ptr, ptr %4, align 8, !tbaa !98
+  %13 = getelementptr inbounds nuw %"struct.duckdb::RegrSXyState", ptr %12, i32 0, i32 0
+  %14 = load ptr, ptr %5, align 8, !tbaa !98
+  %15 = getelementptr inbounds nuw %"struct.duckdb::RegrSXyState", ptr %14, i32 0, i32 0
+  %16 = load ptr, ptr %6, align 8, !tbaa !72
+  call void @_ZN6duckdb17RegrCountFunction7CombineImNS_16RegrSXYOperationEEEvRKT_RS3_RNS_18AggregateInputDataE(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(17) %16)
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef ptr @_ZN6duckdb14ConstantVector7GetDataIPKNS_12RegrSXyStateEEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %0) #12 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !70
+  %3 = load ptr, ptr %2, align 8, !tbaa !70
+  %4 = call noundef ptr @_ZN6duckdb14ConstantVector7GetDataERNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %3)
+  ret ptr %4
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZN6duckdb14ConstantVector7GetDataERNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !70
+  %3 = load ptr, ptr %2, align 8, !tbaa !70
+  %4 = getelementptr inbounds nuw %"class.duckdb::Vector", ptr %3, i32 0, i32 2
+  %5 = load ptr, ptr %4, align 8, !tbaa !153
+  ret ptr %5
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZN6duckdb14ConstantVector7GetDataIPNS_12RegrSXyStateEEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !70
+  %3 = load ptr, ptr %2, align 8, !tbaa !70
+  %4 = call noundef ptr @_ZN6duckdb14ConstantVector7GetDataERNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %3)
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN6duckdb14CovarOperation7CombineINS_10CovarStateENS_16RegrSXYOperationEEEvRKT_RS4_RNS_18AggregateInputDataE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(17) %2) #5 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca double, align 8
+  %9 = alloca double, align 8
+  %10 = alloca double, align 8
+  %11 = alloca double, align 8
+  %12 = alloca double, align 8
+  %13 = alloca double, align 8
+  %14 = alloca double, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !100
+  store ptr %1, ptr %5, align 8, !tbaa !100
+  store ptr %2, ptr %6, align 8, !tbaa !72
+  %15 = load ptr, ptr %5, align 8, !tbaa !100
+  %16 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %15, i32 0, i32 0
+  %17 = load i64, ptr %16, align 8, !tbaa !102
+  %18 = icmp eq i64 %17, 0
+  br i1 %18, label %19, label %22
+
+19:                                               ; preds = %3
+  %20 = load ptr, ptr %4, align 8, !tbaa !100
+  %21 = load ptr, ptr %5, align 8, !tbaa !100
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %21, ptr align 8 %20, i64 32, i1 false), !tbaa.struct !160
+  br label %112
+
+22:                                               ; preds = %3
+  %23 = load ptr, ptr %4, align 8, !tbaa !100
+  %24 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %23, i32 0, i32 0
+  %25 = load i64, ptr %24, align 8, !tbaa !102
+  %26 = icmp ugt i64 %25, 0
+  br i1 %26, label %27, label %111
+
+27:                                               ; preds = %22
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #17
+  %28 = load ptr, ptr %5, align 8, !tbaa !100
+  %29 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %28, i32 0, i32 0
+  %30 = load i64, ptr %29, align 8, !tbaa !102
+  %31 = load ptr, ptr %4, align 8, !tbaa !100
+  %32 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %31, i32 0, i32 0
+  %33 = load i64, ptr %32, align 8, !tbaa !102
+  %34 = add i64 %30, %33
+  store i64 %34, ptr %7, align 8, !tbaa !74
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #17
+  %35 = load ptr, ptr %5, align 8, !tbaa !100
+  %36 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %35, i32 0, i32 0
+  %37 = load i64, ptr %36, align 8, !tbaa !102
+  %38 = uitofp i64 %37 to double
+  store double %38, ptr %8, align 8, !tbaa !143
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #17
+  %39 = load ptr, ptr %4, align 8, !tbaa !100
+  %40 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %39, i32 0, i32 0
+  %41 = load i64, ptr %40, align 8, !tbaa !102
+  %42 = uitofp i64 %41 to double
+  store double %42, ptr %9, align 8, !tbaa !143
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #17
+  %43 = load i64, ptr %7, align 8, !tbaa !74
+  %44 = uitofp i64 %43 to double
+  store double %44, ptr %10, align 8, !tbaa !143
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #17
+  %45 = load double, ptr %9, align 8, !tbaa !143
+  %46 = load ptr, ptr %4, align 8, !tbaa !100
+  %47 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %46, i32 0, i32 1
+  %48 = load double, ptr %47, align 8, !tbaa !105
+  %49 = load double, ptr %8, align 8, !tbaa !143
+  %50 = load ptr, ptr %5, align 8, !tbaa !100
+  %51 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %50, i32 0, i32 1
+  %52 = load double, ptr %51, align 8, !tbaa !105
+  %53 = fmul double %49, %52
+  %54 = call double @llvm.fmuladd.f64(double %45, double %48, double %53)
+  %55 = load double, ptr %10, align 8, !tbaa !143
+  %56 = fdiv double %54, %55
+  store double %56, ptr %11, align 8, !tbaa !143
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #17
+  %57 = load double, ptr %9, align 8, !tbaa !143
+  %58 = load ptr, ptr %4, align 8, !tbaa !100
+  %59 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %58, i32 0, i32 2
+  %60 = load double, ptr %59, align 8, !tbaa !106
+  %61 = load double, ptr %8, align 8, !tbaa !143
+  %62 = load ptr, ptr %5, align 8, !tbaa !100
+  %63 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %62, i32 0, i32 2
+  %64 = load double, ptr %63, align 8, !tbaa !106
+  %65 = fmul double %61, %64
+  %66 = call double @llvm.fmuladd.f64(double %57, double %60, double %65)
+  %67 = load double, ptr %10, align 8, !tbaa !143
+  %68 = fdiv double %66, %67
+  store double %68, ptr %12, align 8, !tbaa !143
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #17
+  %69 = load ptr, ptr %5, align 8, !tbaa !100
+  %70 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %69, i32 0, i32 1
+  %71 = load double, ptr %70, align 8, !tbaa !105
+  %72 = load ptr, ptr %4, align 8, !tbaa !100
+  %73 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %72, i32 0, i32 1
+  %74 = load double, ptr %73, align 8, !tbaa !105
+  %75 = fsub double %71, %74
+  store double %75, ptr %13, align 8, !tbaa !143
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #17
+  %76 = load ptr, ptr %5, align 8, !tbaa !100
+  %77 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %76, i32 0, i32 2
+  %78 = load double, ptr %77, align 8, !tbaa !106
+  %79 = load ptr, ptr %4, align 8, !tbaa !100
+  %80 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %79, i32 0, i32 2
+  %81 = load double, ptr %80, align 8, !tbaa !106
+  %82 = fsub double %78, %81
+  store double %82, ptr %14, align 8, !tbaa !143
+  %83 = load ptr, ptr %4, align 8, !tbaa !100
+  %84 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %83, i32 0, i32 3
+  %85 = load double, ptr %84, align 8, !tbaa !107
+  %86 = load ptr, ptr %5, align 8, !tbaa !100
+  %87 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %86, i32 0, i32 3
+  %88 = load double, ptr %87, align 8, !tbaa !107
+  %89 = fadd double %85, %88
+  %90 = load double, ptr %13, align 8, !tbaa !143
+  %91 = load double, ptr %14, align 8, !tbaa !143
+  %92 = fmul double %90, %91
+  %93 = load double, ptr %9, align 8, !tbaa !143
+  %94 = fmul double %92, %93
+  %95 = load double, ptr %8, align 8, !tbaa !143
+  %96 = fmul double %94, %95
+  %97 = load double, ptr %10, align 8, !tbaa !143
+  %98 = fdiv double %96, %97
+  %99 = fadd double %89, %98
+  %100 = load ptr, ptr %5, align 8, !tbaa !100
+  %101 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %100, i32 0, i32 3
+  store double %99, ptr %101, align 8, !tbaa !107
+  %102 = load double, ptr %11, align 8, !tbaa !143
+  %103 = load ptr, ptr %5, align 8, !tbaa !100
+  %104 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %103, i32 0, i32 1
+  store double %102, ptr %104, align 8, !tbaa !105
+  %105 = load double, ptr %12, align 8, !tbaa !143
+  %106 = load ptr, ptr %5, align 8, !tbaa !100
+  %107 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %106, i32 0, i32 2
+  store double %105, ptr %107, align 8, !tbaa !106
+  %108 = load i64, ptr %7, align 8, !tbaa !74
+  %109 = load ptr, ptr %5, align 8, !tbaa !100
+  %110 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %109, i32 0, i32 0
+  store i64 %108, ptr %110, align 8, !tbaa !102
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #17
+  br label %111
+
+111:                                              ; preds = %27, %22
+  br label %112
+
+112:                                              ; preds = %111, %19
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN6duckdb17RegrCountFunction7CombineImNS_16RegrSXYOperationEEEvRKT_RS3_RNS_18AggregateInputDataE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(17) %2) #5 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !93
+  store ptr %1, ptr %5, align 8, !tbaa !93
+  store ptr %2, ptr %6, align 8, !tbaa !72
+  %7 = load ptr, ptr %4, align 8, !tbaa !93
+  %8 = load i64, ptr %7, align 8, !tbaa !74
+  %9 = load ptr, ptr %5, align 8, !tbaa !93
+  %10 = load i64, ptr %9, align 8, !tbaa !74
+  %11 = add i64 %10, %8
+  store i64 %11, ptr %9, align 8, !tbaa !74
+  ret void
+}
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #16
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateExecutor8FinalizeINS_12RegrSXyStateEdNS_16RegrSXYOperationEEEvRNS_6VectorERNS_18AggregateInputDataES5_mm(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(17) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, i64 noundef %3, i64 noundef %4) #0 comdat align 2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca %"struct.duckdb::AggregateFinalizeData", align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca %"struct.duckdb::AggregateFinalizeData", align 8
+  %17 = alloca i64, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !70
+  store ptr %1, ptr %7, align 8, !tbaa !72
+  store ptr %2, ptr %8, align 8, !tbaa !70
+  store i64 %3, ptr %9, align 8, !tbaa !74
+  store i64 %4, ptr %10, align 8, !tbaa !74
+  %18 = load ptr, ptr %6, align 8, !tbaa !70
+  %19 = call noundef zeroext i8 @_ZNK6duckdb6Vector13GetVectorTypeEv(ptr noundef nonnull align 8 dereferenceable(104) %18)
+  %20 = icmp eq i8 %19, 2
+  br i1 %20, label %21, label %32
+
+21:                                               ; preds = %5
+  %22 = load ptr, ptr %8, align 8, !tbaa !70
+  call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %22, i8 noundef zeroext 2)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #17
+  %23 = load ptr, ptr %6, align 8, !tbaa !70
+  %24 = call noundef ptr @_ZN6duckdb14ConstantVector7GetDataIPNS_12RegrSXyStateEEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %23)
+  store ptr %24, ptr %11, align 8, !tbaa !125
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #17
+  %25 = load ptr, ptr %8, align 8, !tbaa !70
+  %26 = call noundef ptr @_ZN6duckdb14ConstantVector7GetDataIdEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %25)
+  store ptr %26, ptr %12, align 8, !tbaa !123
+  call void @llvm.lifetime.start.p0(i64 24, ptr %13) #17
+  %27 = load ptr, ptr %8, align 8, !tbaa !70
+  %28 = load ptr, ptr %7, align 8, !tbaa !72
+  call void @_ZN6duckdb21AggregateFinalizeDataC2ERNS_6VectorERNS_18AggregateInputDataE(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(104) %27, ptr noundef nonnull align 8 dereferenceable(17) %28)
+  %29 = load ptr, ptr %11, align 8, !tbaa !125
+  %30 = load ptr, ptr %29, align 8, !tbaa !98
+  %31 = load ptr, ptr %12, align 8, !tbaa !123
+  call void @_ZN6duckdb16RegrSXYOperation8FinalizeIdNS_12RegrSXyStateEEEvRT0_RT_RNS_21AggregateFinalizeDataE(ptr noundef nonnull align 8 dereferenceable(40) %30, ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull align 8 dereferenceable(24) %13)
+  call void @llvm.lifetime.end.p0(i64 24, ptr %13) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #17
+  br label %62
+
+32:                                               ; preds = %5
+  %33 = load ptr, ptr %8, align 8, !tbaa !70
+  call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %33, i8 noundef zeroext 0)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #17
+  %34 = load ptr, ptr %6, align 8, !tbaa !70
+  %35 = call noundef ptr @_ZN6duckdb10FlatVector7GetDataIPNS_12RegrSXyStateEEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %34)
+  store ptr %35, ptr %14, align 8, !tbaa !125
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #17
+  %36 = load ptr, ptr %8, align 8, !tbaa !70
+  %37 = call noundef ptr @_ZN6duckdb10FlatVector7GetDataIdEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %36)
+  store ptr %37, ptr %15, align 8, !tbaa !123
+  call void @llvm.lifetime.start.p0(i64 24, ptr %16) #17
+  %38 = load ptr, ptr %8, align 8, !tbaa !70
+  %39 = load ptr, ptr %7, align 8, !tbaa !72
+  call void @_ZN6duckdb21AggregateFinalizeDataC2ERNS_6VectorERNS_18AggregateInputDataE(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(104) %38, ptr noundef nonnull align 8 dereferenceable(17) %39)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #17
+  store i64 0, ptr %17, align 8, !tbaa !74
+  br label %40
+
+40:                                               ; preds = %58, %32
+  %41 = load i64, ptr %17, align 8, !tbaa !74
+  %42 = load i64, ptr %9, align 8, !tbaa !74
+  %43 = icmp ult i64 %41, %42
+  br i1 %43, label %45, label %44
+
+44:                                               ; preds = %40
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #17
+  br label %61
+
+45:                                               ; preds = %40
+  %46 = load i64, ptr %17, align 8, !tbaa !74
+  %47 = load i64, ptr %10, align 8, !tbaa !74
+  %48 = add i64 %46, %47
+  %49 = getelementptr inbounds nuw %"struct.duckdb::AggregateFinalizeData", ptr %16, i32 0, i32 2
+  store i64 %48, ptr %49, align 8, !tbaa !161
+  %50 = load ptr, ptr %14, align 8, !tbaa !125
+  %51 = load i64, ptr %17, align 8, !tbaa !74
+  %52 = getelementptr inbounds nuw ptr, ptr %50, i64 %51
+  %53 = load ptr, ptr %52, align 8, !tbaa !98
+  %54 = load ptr, ptr %15, align 8, !tbaa !123
+  %55 = getelementptr inbounds nuw %"struct.duckdb::AggregateFinalizeData", ptr %16, i32 0, i32 2
+  %56 = load i64, ptr %55, align 8, !tbaa !161
+  %57 = getelementptr inbounds nuw double, ptr %54, i64 %56
+  call void @_ZN6duckdb16RegrSXYOperation8FinalizeIdNS_12RegrSXyStateEEEvRT0_RT_RNS_21AggregateFinalizeDataE(ptr noundef nonnull align 8 dereferenceable(40) %53, ptr noundef nonnull align 8 dereferenceable(8) %57, ptr noundef nonnull align 8 dereferenceable(24) %16)
+  br label %58
+
+58:                                               ; preds = %45
+  %59 = load i64, ptr %17, align 8, !tbaa !74
+  %60 = add i64 %59, 1
+  store i64 %60, ptr %17, align 8, !tbaa !74
+  br label %40, !llvm.loop !163
+
+61:                                               ; preds = %44
+  call void @llvm.lifetime.end.p0(i64 24, ptr %16) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #17
+  br label %62
+
+62:                                               ; preds = %61, %21
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i8 @_ZNK6duckdb6Vector13GetVectorTypeEv(ptr noundef nonnull align 8 dereferenceable(104) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !70
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.duckdb::Vector", ptr %3, i32 0, i32 0
+  %5 = load i8, ptr %4, align 8, !tbaa !164
+  ret i8 %5
+}
+
+declare void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104), i8 noundef zeroext) #2
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZN6duckdb14ConstantVector7GetDataIdEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !70
+  %3 = load ptr, ptr %2, align 8, !tbaa !70
+  %4 = call noundef ptr @_ZN6duckdb14ConstantVector7GetDataERNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %3)
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN6duckdb21AggregateFinalizeDataC2ERNS_6VectorERNS_18AggregateInputDataE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(17) %2) unnamed_addr #5 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !165
+  store ptr %1, ptr %5, align 8, !tbaa !70
+  store ptr %2, ptr %6, align 8, !tbaa !72
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %"struct.duckdb::AggregateFinalizeData", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %5, align 8, !tbaa !70
+  store ptr %9, ptr %8, align 8, !tbaa !70
+  %10 = getelementptr inbounds nuw %"struct.duckdb::AggregateFinalizeData", ptr %7, i32 0, i32 1
+  %11 = load ptr, ptr %6, align 8, !tbaa !72
+  store ptr %11, ptr %10, align 8, !tbaa !72
+  %12 = getelementptr inbounds nuw %"struct.duckdb::AggregateFinalizeData", ptr %7, i32 0, i32 2
+  store i64 0, ptr %12, align 8, !tbaa !161
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb16RegrSXYOperation8FinalizeIdNS_12RegrSXyStateEEEvRT0_RT_RNS_21AggregateFinalizeDataE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca double, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !98
+  store ptr %1, ptr %5, align 8, !tbaa !123
+  store ptr %2, ptr %6, align 8, !tbaa !165
+  %8 = load ptr, ptr %4, align 8, !tbaa !98
+  %9 = getelementptr inbounds nuw %"struct.duckdb::RegrSXyState", ptr %8, i32 0, i32 1
+  %10 = load ptr, ptr %5, align 8, !tbaa !123
+  %11 = load ptr, ptr %6, align 8, !tbaa !165
+  call void @_ZN6duckdb17CovarPopOperation8FinalizeIdNS_10CovarStateEEEvRT0_RT_RNS_21AggregateFinalizeDataE(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(24) %11)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #17
+  %12 = load ptr, ptr %5, align 8, !tbaa !123
+  %13 = load double, ptr %12, align 8, !tbaa !143
+  store double %13, ptr %7, align 8, !tbaa !143
+  %14 = load ptr, ptr %4, align 8, !tbaa !98
+  %15 = getelementptr inbounds nuw %"struct.duckdb::RegrSXyState", ptr %14, i32 0, i32 0
+  %16 = load ptr, ptr %5, align 8, !tbaa !123
+  %17 = load ptr, ptr %6, align 8, !tbaa !165
+  call void @_ZN6duckdb17RegrCountFunction8FinalizeIdmEEvRT0_RT_RNS_21AggregateFinalizeDataE(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(24) %17)
+  %18 = load double, ptr %7, align 8, !tbaa !143
+  %19 = load ptr, ptr %5, align 8, !tbaa !123
+  %20 = load double, ptr %19, align 8, !tbaa !143
+  %21 = fmul double %20, %18
+  store double %21, ptr %19, align 8, !tbaa !143
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #17
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZN6duckdb10FlatVector7GetDataIdEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !70
+  %3 = load ptr, ptr %2, align 8, !tbaa !70
+  %4 = call noundef ptr @_ZN6duckdb14ConstantVector7GetDataIdEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %3)
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17CovarPopOperation8FinalizeIdNS_10CovarStateEEEvRT0_RT_RNS_21AggregateFinalizeDataE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !100
+  store ptr %1, ptr %5, align 8, !tbaa !123
+  store ptr %2, ptr %6, align 8, !tbaa !165
+  %7 = load ptr, ptr %4, align 8, !tbaa !100
+  %8 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %7, i32 0, i32 0
+  %9 = load i64, ptr %8, align 8, !tbaa !102
+  %10 = icmp eq i64 %9, 0
+  br i1 %10, label %11, label %13
+
+11:                                               ; preds = %3
+  %12 = load ptr, ptr %6, align 8, !tbaa !165
+  call void @_ZN6duckdb21AggregateFinalizeData10ReturnNullEv(ptr noundef nonnull align 8 dereferenceable(24) %12)
+  br label %23
+
+13:                                               ; preds = %3
+  %14 = load ptr, ptr %4, align 8, !tbaa !100
+  %15 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %14, i32 0, i32 3
+  %16 = load double, ptr %15, align 8, !tbaa !107
+  %17 = load ptr, ptr %4, align 8, !tbaa !100
+  %18 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %17, i32 0, i32 0
+  %19 = load i64, ptr %18, align 8, !tbaa !102
+  %20 = uitofp i64 %19 to double
+  %21 = fdiv double %16, %20
+  %22 = load ptr, ptr %5, align 8, !tbaa !123
+  store double %21, ptr %22, align 8, !tbaa !143
+  br label %23
+
+23:                                               ; preds = %13, %11
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN6duckdb17RegrCountFunction8FinalizeIdmEEvRT0_RT_RNS_21AggregateFinalizeDataE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) #5 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !93
+  store ptr %1, ptr %5, align 8, !tbaa !123
+  store ptr %2, ptr %6, align 8, !tbaa !165
+  %7 = load ptr, ptr %4, align 8, !tbaa !93
+  %8 = load i64, ptr %7, align 8, !tbaa !74
+  %9 = uitofp i64 %8 to double
+  %10 = load ptr, ptr %5, align 8, !tbaa !123
+  store double %9, ptr %10, align 8, !tbaa !143
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb21AggregateFinalizeData10ReturnNullEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #12 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"class.std::__cxx11::basic_string", align 8
+  %4 = alloca %"class.std::allocator", align 1
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i1, align 1
+  store ptr %0, ptr %2, align 8, !tbaa !165
+  %8 = load ptr, ptr %2, align 8
+  %9 = getelementptr inbounds nuw %"struct.duckdb::AggregateFinalizeData", ptr %8, i32 0, i32 0
+  %10 = load ptr, ptr %9, align 8, !tbaa !167
+  %11 = call noundef zeroext i8 @_ZNK6duckdb6Vector13GetVectorTypeEv(ptr noundef nonnull align 8 dereferenceable(104) %10)
+  switch i8 %11, label %20 [
+    i8 0, label %12
+    i8 2, label %17
+  ]
+
+12:                                               ; preds = %1
+  %13 = getelementptr inbounds nuw %"struct.duckdb::AggregateFinalizeData", ptr %8, i32 0, i32 0
+  %14 = load ptr, ptr %13, align 8, !tbaa !167
+  %15 = getelementptr inbounds nuw %"struct.duckdb::AggregateFinalizeData", ptr %8, i32 0, i32 2
+  %16 = load i64, ptr %15, align 8, !tbaa !161
+  call void @_ZN6duckdb10FlatVector7SetNullERNS_6VectorEmb(ptr noundef nonnull align 8 dereferenceable(104) %14, i64 noundef %16, i1 noundef zeroext true)
+  br label %36
+
+17:                                               ; preds = %1
+  %18 = getelementptr inbounds nuw %"struct.duckdb::AggregateFinalizeData", ptr %8, i32 0, i32 0
+  %19 = load ptr, ptr %18, align 8, !tbaa !167
+  call void @_ZN6duckdb14ConstantVector7SetNullERNS_6VectorEb(ptr noundef nonnull align 8 dereferenceable(104) %19, i1 noundef zeroext true)
+  br label %36
+
+20:                                               ; preds = %1
+  store i1 true, ptr %7, align 1
+  %21 = call ptr @__cxa_allocate_exception(i64 16) #17
+  call void @llvm.lifetime.start.p0(i64 32, ptr %3) #17
+  call void @llvm.lifetime.start.p0(i64 1, ptr %4) #17
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #17
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %4)
+          to label %22 unwind label %24
+
+22:                                               ; preds = %20
+  invoke void @_ZN6duckdb17InternalExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull align 8 dereferenceable(32) %3)
+          to label %23 unwind label %28
+
+23:                                               ; preds = %22
+  store i1 false, ptr %7, align 1
+  invoke void @__cxa_throw(ptr %21, ptr @_ZTIN6duckdb17InternalExceptionE, ptr @_ZNSt13runtime_errorD2Ev) #20
+          to label %42 unwind label %28
+
+24:                                               ; preds = %20
+  %25 = landingpad { ptr, i32 }
+          cleanup
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %5, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %6, align 4
+  br label %32
+
+28:                                               ; preds = %23, %22
+  %29 = landingpad { ptr, i32 }
+          cleanup
+  %30 = extractvalue { ptr, i32 } %29, 0
+  store ptr %30, ptr %5, align 8
+  %31 = extractvalue { ptr, i32 } %29, 1
+  store i32 %31, ptr %6, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #17
+  br label %32
+
+32:                                               ; preds = %28, %24
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #17
+  call void @llvm.lifetime.end.p0(i64 1, ptr %4) #17
+  call void @llvm.lifetime.end.p0(i64 32, ptr %3) #17
+  %33 = load i1, ptr %7, align 1
+  br i1 %33, label %34, label %35
+
+34:                                               ; preds = %32
+  call void @__cxa_free_exception(ptr %21) #17
+  br label %35
+
+35:                                               ; preds = %34, %32
+  br label %37
+
+36:                                               ; preds = %17, %12
+  ret void
+
+37:                                               ; preds = %35
+  %38 = load ptr, ptr %5, align 8
+  %39 = load i32, ptr %6, align 4
+  %40 = insertvalue { ptr, i32 } poison, ptr %38, 0
+  %41 = insertvalue { ptr, i32 } %40, i32 %39, 1
+  resume { ptr, i32 } %41
+
+42:                                               ; preds = %23
+  unreachable
+}
+
+declare void @_ZN6duckdb10FlatVector7SetNullERNS_6VectorEmb(ptr noundef nonnull align 8 dereferenceable(104), i64 noundef, i1 noundef zeroext) #2
+
+declare void @_ZN6duckdb14ConstantVector7SetNullERNS_6VectorEb(ptr noundef nonnull align 8 dereferenceable(104), i1 noundef zeroext) #2
+
+declare ptr @__cxa_allocate_exception(i64)
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #5 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !168
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt15__new_allocatorIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #17
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !37
+  store ptr %1, ptr %5, align 8, !tbaa !39
+  store ptr %2, ptr %6, align 8, !tbaa !168
+  %10 = load ptr, ptr %4, align 8
+  %11 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %10, i32 0, i32 0
+  %12 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %10)
+  %13 = load ptr, ptr %6, align 8, !tbaa !168
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC2EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+  %14 = load ptr, ptr %5, align 8, !tbaa !39
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %16, label %22
+
+16:                                               ; preds = %3
+  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef @.str.3) #20
+          to label %17 unwind label %18
+
+17:                                               ; preds = %16
+  unreachable
+
+18:                                               ; preds = %16
+  %19 = landingpad { ptr, i32 }
+          cleanup
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %7, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %8, align 4
+  br label %35
+
+22:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #17
+  %23 = load ptr, ptr %5, align 8, !tbaa !39
+  %24 = load ptr, ptr %5, align 8, !tbaa !39
+  %25 = invoke noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %24)
+          to label %26 unwind label %31
+
+26:                                               ; preds = %22
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 %25
+  store ptr %27, ptr %9, align 8, !tbaa !39
+  %28 = load ptr, ptr %5, align 8, !tbaa !39
+  %29 = load ptr, ptr %9, align 8, !tbaa !39
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef %28, ptr noundef %29)
+          to label %30 unwind label %31
+
+30:                                               ; preds = %26
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #17
+  ret void
+
+31:                                               ; preds = %26, %22
+  %32 = landingpad { ptr, i32 }
+          cleanup
+  %33 = extractvalue { ptr, i32 } %32, 0
+  store ptr %33, ptr %7, align 8
+  %34 = extractvalue { ptr, i32 } %32, 1
+  store i32 %34, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #17
+  br label %35
+
+35:                                               ; preds = %31, %18
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #17
+  br label %36
+
+36:                                               ; preds = %35
+  %37 = load ptr, ptr %7, align 8
+  %38 = load i32, ptr %8, align 4
+  %39 = insertvalue { ptr, i32 } poison, ptr %37, 0
+  %40 = insertvalue { ptr, i32 } %39, i32 %38, 1
+  resume { ptr, i32 } %40
+}
+
+declare void @_ZN6duckdb17InternalExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+
+declare void @__cxa_throw(ptr, ptr, ptr)
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !37
+  %3 = load ptr, ptr %2, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
+          to label %4 unwind label %6
+
+4:                                                ; preds = %1
+  %5 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 0
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #17
+  ret void
+
+6:                                                ; preds = %1
+  %7 = landingpad { ptr, i32 }
+          catch ptr null
+  %8 = extractvalue { ptr, i32 } %7, 0
+  call void @__clang_call_terminate(ptr %8) #19
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !170
+  ret void
+}
+
+declare void @__cxa_free_exception(ptr)
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !170
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #5 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !37
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 2
+  %5 = getelementptr inbounds [16 x i8], ptr %4, i64 0, i64 0
+  %6 = call noundef ptr @_ZNSt19__ptr_traits_ptr_toIPccLb0EE10pointer_toERc(ptr noundef nonnull align 1 dereferenceable(1) %5) #17
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC2EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #5 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !172
+  store ptr %1, ptr %5, align 8, !tbaa !39
+  store ptr %2, ptr %6, align 8, !tbaa !168
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %6, align 8, !tbaa !168
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 1 dereferenceable(1) %8) #17
+  %9 = getelementptr inbounds nuw %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", ptr %7, i32 0, i32 0
+  %10 = load ptr, ptr %5, align 8, !tbaa !39
+  store ptr %10, ptr %9, align 8, !tbaa !174
+  ret void
+}
+
+; Function Attrs: noreturn
+declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) #13
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !39
+  %3 = load ptr, ptr %2, align 8, !tbaa !39
+  %4 = call i64 @strlen(ptr noundef %3) #17
+  ret i64 %4
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca %struct._Guard, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !37
+  store ptr %1, ptr %5, align 8, !tbaa !39
+  store ptr %2, ptr %6, align 8, !tbaa !39
+  %11 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #17
+  %12 = load ptr, ptr %5, align 8, !tbaa !39
+  %13 = load ptr, ptr %6, align 8, !tbaa !39
+  %14 = call noundef i64 @_ZSt8distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_(ptr noundef %12, ptr noundef %13)
+  store i64 %14, ptr %7, align 8, !tbaa !74
+  %15 = load i64, ptr %7, align 8, !tbaa !74
+  %16 = icmp ugt i64 %15, 15
+  br i1 %16, label %17, label %20
+
+17:                                               ; preds = %3
+  %18 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(8) %7, i64 noundef 0)
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef %18)
+  %19 = load i64, ptr %7, align 8, !tbaa !74
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEm(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef %19)
+  br label %22
+
+20:                                               ; preds = %3
+  %21 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_M_use_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #17
+  br label %22
+
+22:                                               ; preds = %20, %17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #17
+  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %11)
+  %23 = invoke noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %11)
+          to label %24 unwind label %30
+
+24:                                               ; preds = %22
+  %25 = load ptr, ptr %5, align 8, !tbaa !39
+  %26 = load ptr, ptr %6, align 8, !tbaa !39
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %23, ptr noundef %25, ptr noundef %26) #17
+  %27 = getelementptr inbounds nuw %struct._Guard, ptr %8, i32 0, i32 0
+  store ptr null, ptr %27, align 8, !tbaa !175
+  %28 = load i64, ptr %7, align 8, !tbaa !74
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef %28)
+          to label %29 unwind label %30
+
+29:                                               ; preds = %24
+  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #17
+  ret void
+
+30:                                               ; preds = %24, %22
+  %31 = landingpad { ptr, i32 }
+          cleanup
+  %32 = extractvalue { ptr, i32 } %31, 0
+  store ptr %32, ptr %9, align 8
+  %33 = extractvalue { ptr, i32 } %31, 1
+  store i32 %33, ptr %10, align 4
+  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #17
+  br label %34
+
+34:                                               ; preds = %30
+  %35 = load ptr, ptr %9, align 8
+  %36 = load i32, ptr %10, align 4
+  %37 = insertvalue { ptr, i32 } poison, ptr %35, 0
+  %38 = insertvalue { ptr, i32 } %37, i32 %36, 1
+  resume { ptr, i32 } %38
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNSt19__ptr_traits_ptr_toIPccLb0EE10pointer_toERc(ptr noundef nonnull align 1 dereferenceable(1) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !39
+  %3 = load ptr, ptr %2, align 8, !tbaa !39
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorIcEC2ERKS0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !170
+  store ptr %1, ptr %4, align 8, !tbaa !170
+  ret void
+}
+
+; Function Attrs: nounwind
+declare i64 @strlen(ptr noundef) #3
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef i64 @_ZSt8distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_(ptr noundef %0, ptr noundef %1) #12 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !39
+  store ptr %1, ptr %4, align 8, !tbaa !39
+  %5 = load ptr, ptr %3, align 8, !tbaa !39
+  %6 = load ptr, ptr %4, align 8, !tbaa !39
+  call void @_ZSt19__iterator_categoryIPKcENSt15iterator_traitsIT_E17iterator_categoryERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %7 = call noundef i64 @_ZSt10__distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_St26random_access_iterator_tag(ptr noundef %5, ptr noundef %6)
+  ret i64 %7
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) #5 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !37
+  store ptr %1, ptr %4, align 8, !tbaa !39
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !39
+  %7 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %5, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", ptr %7, i32 0, i32 0
+  store ptr %6, ptr %8, align 8, !tbaa !177
+  ret void
+}
+
+declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) #2
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) #5 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !37
+  store i64 %1, ptr %4, align 8, !tbaa !74
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8, !tbaa !74
+  %7 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %5, i32 0, i32 2
+  store i64 %6, ptr %7, align 8, !tbaa !65
+  ret void
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define available_externally noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_M_use_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #10 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !37
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !178
+  store ptr %1, ptr %4, align 8, !tbaa !37
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %struct._Guard, ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !37
+  store ptr %7, ptr %6, align 8, !tbaa !175
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #5 align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !39
+  store ptr %1, ptr %5, align 8, !tbaa !39
+  store ptr %2, ptr %6, align 8, !tbaa !39
+  %7 = load ptr, ptr %4, align 8, !tbaa !39
+  %8 = load ptr, ptr %5, align 8, !tbaa !39
+  %9 = load ptr, ptr %6, align 8, !tbaa !39
+  %10 = load ptr, ptr %5, align 8, !tbaa !39
+  %11 = ptrtoint ptr %9 to i64
+  %12 = ptrtoint ptr %10 to i64
+  %13 = sub i64 %11, %12
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm(ptr noundef %7, ptr noundef %8, i64 noundef %13)
+          to label %14 unwind label %15
+
+14:                                               ; preds = %3
+  ret void
+
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          catch ptr null
+  %17 = extractvalue { ptr, i32 } %16, 0
+  call void @__clang_call_terminate(ptr %17) #19
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #5 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !37
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8, !tbaa !177
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca i8, align 1
+  store ptr %0, ptr %3, align 8, !tbaa !37
+  store i64 %1, ptr %4, align 8, !tbaa !74
+  %6 = load ptr, ptr %3, align 8
+  %7 = load i64, ptr %4, align 8, !tbaa !74
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef %7)
+  %8 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6)
+  %9 = load i64, ptr %4, align 8, !tbaa !74
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 %9
+  call void @llvm.lifetime.start.p0(i64 1, ptr %5) #17
+  store i8 0, ptr %5, align 1, !tbaa !65
+  call void @_ZNSt11char_traitsIcE6assignERcRKc(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 1 dereferenceable(1) %5) #17
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #17
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !178
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %struct._Guard, ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !175
+  %6 = icmp ne ptr %5, null
+  br i1 %6, label %7, label %11
+
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds nuw %struct._Guard, ptr %3, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !175
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32) %9)
+          to label %10 unwind label %12
+
+10:                                               ; preds = %7
+  br label %11
+
+11:                                               ; preds = %10, %1
+  ret void
+
+12:                                               ; preds = %7
+  %13 = landingpad { ptr, i32 }
+          catch ptr null
+  %14 = extractvalue { ptr, i32 } %13, 0
+  call void @__clang_call_terminate(ptr %14) #19
+  unreachable
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZSt10__distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_St26random_access_iterator_tag(ptr noundef %0, ptr noundef %1) #4 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !39
+  store ptr %1, ptr %4, align 8, !tbaa !39
+  %5 = load ptr, ptr %4, align 8, !tbaa !39
+  %6 = load ptr, ptr %3, align 8, !tbaa !39
+  %7 = ptrtoint ptr %5 to i64
+  %8 = ptrtoint ptr %6 to i64
+  %9 = sub i64 %7, %8
+  ret i64 %9
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt19__iterator_categoryIPKcENSt15iterator_traitsIT_E17iterator_categoryERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !180
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !39
+  store ptr %1, ptr %5, align 8, !tbaa !39
+  store i64 %2, ptr %6, align 8, !tbaa !74
+  %7 = load i64, ptr %6, align 8, !tbaa !74
+  %8 = icmp eq i64 %7, 1
+  br i1 %8, label %9, label %12
+
+9:                                                ; preds = %3
+  %10 = load ptr, ptr %4, align 8, !tbaa !39
+  %11 = load ptr, ptr %5, align 8, !tbaa !39
+  call void @_ZNSt11char_traitsIcE6assignERcRKc(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 1 dereferenceable(1) %11) #17
+  br label %17
+
+12:                                               ; preds = %3
+  %13 = load ptr, ptr %4, align 8, !tbaa !39
+  %14 = load ptr, ptr %5, align 8, !tbaa !39
+  %15 = load i64, ptr %6, align 8, !tbaa !74
+  %16 = call noundef ptr @_ZNSt11char_traitsIcE4copyEPcPKcm(ptr noundef %13, ptr noundef %14, i64 noundef %15)
+  br label %17
+
+17:                                               ; preds = %12, %9
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt11char_traitsIcE6assignERcRKc(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !39
+  store ptr %1, ptr %4, align 8, !tbaa !39
+  %5 = load ptr, ptr %4, align 8, !tbaa !39
+  %6 = load i8, ptr %5, align 1, !tbaa !65
+  %7 = load ptr, ptr %3, align 8, !tbaa !39
+  store i8 %6, ptr %7, align 1, !tbaa !65
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNSt11char_traitsIcE4copyEPcPKcm(ptr noundef %0, ptr noundef %1, i64 noundef %2) #5 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !39
+  store ptr %1, ptr %6, align 8, !tbaa !39
+  store i64 %2, ptr %7, align 8, !tbaa !74
+  %8 = load i64, ptr %7, align 8, !tbaa !74
+  %9 = icmp eq i64 %8, 0
+  br i1 %9, label %10, label %12
+
+10:                                               ; preds = %3
+  %11 = load ptr, ptr %5, align 8, !tbaa !39
+  store ptr %11, ptr %4, align 8
+  br label %16
+
+12:                                               ; preds = %3
+  %13 = load ptr, ptr %5, align 8, !tbaa !39
+  %14 = load ptr, ptr %6, align 8, !tbaa !39
+  %15 = load i64, ptr %7, align 8, !tbaa !74
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %13, ptr align 1 %14, i64 %15, i1 false)
+  store ptr %13, ptr %4, align 8
+  br label %16
+
+16:                                               ; preds = %12, %10
+  %17 = load ptr, ptr %4, align 8
+  ret ptr %17
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) #5 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !37
+  store i64 %1, ptr %4, align 8, !tbaa !74
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8, !tbaa !74
+  %7 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %5, i32 0, i32 1
+  store i64 %6, ptr %7, align 8, !tbaa !182
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !37
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
+  br i1 %4, label %8, label %5
+
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 2
+  %7 = load i64, ptr %6, align 8, !tbaa !65
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_destroyEm(ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef %7) #17
+  br label %8
+
+8:                                                ; preds = %5, %1
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define available_externally noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #0 align 2 {
+  %2 = alloca i1, align 1
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !37
+  %4 = load ptr, ptr %3, align 8
+  %5 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4)
+  %6 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4)
+  %7 = icmp eq ptr %5, %6
+  br i1 %7, label %8, label %14
+
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %4, i32 0, i32 1
+  %10 = load i64, ptr %9, align 8, !tbaa !182
+  %11 = icmp ugt i64 %10, 15
+  br i1 %11, label %12, label %13
+
+12:                                               ; preds = %8
+  unreachable
+
+13:                                               ; preds = %8
+  store i1 true, ptr %2, align 1
+  br label %15
+
+14:                                               ; preds = %1
+  store i1 false, ptr %2, align 1
+  br label %15
+
+15:                                               ; preds = %14, %13
+  %16 = load i1, ptr %2, align 1
+  ret i1 %16
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_destroyEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) #5 align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !37
+  store i64 %1, ptr %4, align 8, !tbaa !74
+  %7 = load ptr, ptr %3, align 8
+  %8 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE16_M_get_allocatorEv(ptr noundef nonnull align 8 dereferenceable(32) %7)
+          to label %9 unwind label %14
+
+9:                                                ; preds = %2
+  %10 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %7)
+  %11 = load i64, ptr %4, align 8, !tbaa !74
+  %12 = add i64 %11, 1
+  invoke void @_ZNSt16allocator_traitsISaIcEE10deallocateERS0_Pcm(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef %10, i64 noundef %12)
+          to label %13 unwind label %14
+
+13:                                               ; preds = %9
+  ret void
+
+14:                                               ; preds = %9, %2
+  %15 = landingpad { ptr, i32 }
+          filter [0 x ptr] zeroinitializer
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %5, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %6, align 4
+  br label %18
+
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %5, align 8
+  call void @__cxa_call_unexpected(ptr %19) #20
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #5 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !37
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 2
+  %5 = getelementptr inbounds [16 x i8], ptr %4, i64 0, i64 0
+  %6 = call noundef ptr @_ZNSt19__ptr_traits_ptr_toIPKcS0_Lb0EE10pointer_toERS0_(ptr noundef nonnull align 1 dereferenceable(1) %5) #17
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNSt19__ptr_traits_ptr_toIPKcS0_Lb0EE10pointer_toERS0_(ptr noundef nonnull align 1 dereferenceable(1) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !39
+  %3 = load ptr, ptr %2, align 8, !tbaa !39
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt16allocator_traitsISaIcEE10deallocateERS0_Pcm(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !168
+  store ptr %1, ptr %5, align 8, !tbaa !39
+  store i64 %2, ptr %6, align 8, !tbaa !74
+  %7 = load ptr, ptr %4, align 8, !tbaa !168
+  %8 = load ptr, ptr %5, align 8, !tbaa !39
+  %9 = load i64, ptr %6, align 8, !tbaa !74
+  call void @_ZNSt15__new_allocatorIcE10deallocateEPcm(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, i64 noundef %9)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE16_M_get_allocatorEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #5 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !37
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+declare void @__cxa_call_unexpected(ptr)
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorIcE10deallocateEPcm(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #5 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !170
+  store ptr %1, ptr %5, align 8, !tbaa !39
+  store i64 %2, ptr %6, align 8, !tbaa !74
+  %7 = load ptr, ptr %5, align 8, !tbaa !39
+  call void @_ZdlPv(ptr noundef %7) #18
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateExecutor12BinaryUpdateINS_12RegrSXyStateEddNS_16RegrSXYOperationEEEvRNS_18AggregateInputDataERNS_6VectorES7_Phm(ptr noundef nonnull align 8 dereferenceable(17) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, ptr noundef %3, i64 noundef %4) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
+  %12 = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !72
+  store ptr %1, ptr %7, align 8, !tbaa !70
+  store ptr %2, ptr %8, align 8, !tbaa !70
+  store ptr %3, ptr %9, align 8, !tbaa !39
+  store i64 %4, ptr %10, align 8, !tbaa !74
+  call void @llvm.lifetime.start.p0(i64 72, ptr %11) #17
+  call void @_ZN6duckdb19UnifiedVectorFormatC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %11)
+  call void @llvm.lifetime.start.p0(i64 72, ptr %12) #17
+  invoke void @_ZN6duckdb19UnifiedVectorFormatC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %12)
+          to label %15 unwind label %34
+
+15:                                               ; preds = %5
+  %16 = load ptr, ptr %7, align 8, !tbaa !70
+  %17 = load i64, ptr %10, align 8, !tbaa !74
+  invoke void @_ZN6duckdb6Vector15ToUnifiedFormatEmRNS_19UnifiedVectorFormatE(ptr noundef nonnull align 8 dereferenceable(104) %16, i64 noundef %17, ptr noundef nonnull align 8 dereferenceable(72) %11)
+          to label %18 unwind label %38
+
+18:                                               ; preds = %15
+  %19 = load ptr, ptr %8, align 8, !tbaa !70
+  %20 = load i64, ptr %10, align 8, !tbaa !74
+  invoke void @_ZN6duckdb6Vector15ToUnifiedFormatEmRNS_19UnifiedVectorFormatE(ptr noundef nonnull align 8 dereferenceable(104) %19, i64 noundef %20, ptr noundef nonnull align 8 dereferenceable(72) %12)
+          to label %21 unwind label %38
+
+21:                                               ; preds = %18
+  %22 = call noundef ptr @_ZN6duckdb19UnifiedVectorFormat7GetDataIdEEPKT_RKS0_(ptr noundef nonnull align 8 dereferenceable(72) %11)
+  %23 = load ptr, ptr %6, align 8, !tbaa !72
+  %24 = call noundef ptr @_ZN6duckdb19UnifiedVectorFormat7GetDataIdEEPKT_RKS0_(ptr noundef nonnull align 8 dereferenceable(72) %12)
+  %25 = load ptr, ptr %9, align 8, !tbaa !39
+  %26 = load i64, ptr %10, align 8, !tbaa !74
+  %27 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %11, i32 0, i32 0
+  %28 = load ptr, ptr %27, align 8, !tbaa !122
+  %29 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %12, i32 0, i32 0
+  %30 = load ptr, ptr %29, align 8, !tbaa !122
+  %31 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %11, i32 0, i32 2
+  %32 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %12, i32 0, i32 2
+  invoke void @_ZN6duckdb17AggregateExecutor16BinaryUpdateLoopINS_12RegrSXyStateEddNS_16RegrSXYOperationEEEvPKT0_RNS_18AggregateInputDataEPKT1_PT_mRKNS_15SelectionVectorESG_RNS_12ValidityMaskESI_(ptr noundef %22, ptr noundef nonnull align 8 dereferenceable(17) %23, ptr noundef %24, ptr noundef %25, i64 noundef %26, ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(32) %32)
+          to label %33 unwind label %38
+
+33:                                               ; preds = %21
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %12) #17
+  call void @llvm.lifetime.end.p0(i64 72, ptr %12) #17
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %11) #17
+  call void @llvm.lifetime.end.p0(i64 72, ptr %11) #17
+  ret void
+
+34:                                               ; preds = %5
+  %35 = landingpad { ptr, i32 }
+          cleanup
+  %36 = extractvalue { ptr, i32 } %35, 0
+  store ptr %36, ptr %13, align 8
+  %37 = extractvalue { ptr, i32 } %35, 1
+  store i32 %37, ptr %14, align 4
+  br label %42
+
+38:                                               ; preds = %21, %18, %15
+  %39 = landingpad { ptr, i32 }
+          cleanup
+  %40 = extractvalue { ptr, i32 } %39, 0
+  store ptr %40, ptr %13, align 8
+  %41 = extractvalue { ptr, i32 } %39, 1
+  store i32 %41, ptr %14, align 4
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %12) #17
+  br label %42
+
+42:                                               ; preds = %38, %34
+  call void @llvm.lifetime.end.p0(i64 72, ptr %12) #17
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %11) #17
+  call void @llvm.lifetime.end.p0(i64 72, ptr %11) #17
+  br label %43
+
+43:                                               ; preds = %42
+  %44 = load ptr, ptr %13, align 8
+  %45 = load i32, ptr %14, align 4
+  %46 = insertvalue { ptr, i32 } poison, ptr %44, 0
+  %47 = insertvalue { ptr, i32 } %46, i32 %45, 1
+  resume { ptr, i32 } %47
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateExecutor16BinaryUpdateLoopINS_12RegrSXyStateEddNS_16RegrSXYOperationEEEvPKT0_RNS_18AggregateInputDataEPKT1_PT_mRKNS_15SelectionVectorESG_RNS_12ValidityMaskESI_(ptr noalias noundef %0, ptr noundef nonnull align 8 dereferenceable(17) %1, ptr noalias noundef %2, ptr noalias noundef %3, i64 noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %8) #12 comdat align 2 {
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i64, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca ptr, align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca %"struct.duckdb::AggregateBinaryInput", align 8
+  %20 = alloca i64, align 8
+  %21 = alloca i64, align 8
+  store ptr %0, ptr %10, align 8, !tbaa !123
+  store ptr %1, ptr %11, align 8, !tbaa !72
+  store ptr %2, ptr %12, align 8, !tbaa !123
+  store ptr %3, ptr %13, align 8, !tbaa !98
+  store i64 %4, ptr %14, align 8, !tbaa !74
+  store ptr %5, ptr %15, align 8, !tbaa !127
+  store ptr %6, ptr %16, align 8, !tbaa !127
+  store ptr %7, ptr %17, align 8, !tbaa !128
+  store ptr %8, ptr %18, align 8, !tbaa !128
+  call void @llvm.lifetime.start.p0(i64 40, ptr %19) #17
+  %22 = load ptr, ptr %11, align 8, !tbaa !72
+  %23 = load ptr, ptr %17, align 8, !tbaa !128
+  %24 = load ptr, ptr %18, align 8, !tbaa !128
+  call void @_ZN6duckdb20AggregateBinaryInputC2ERNS_18AggregateInputDataERNS_12ValidityMaskES4_(ptr noundef nonnull align 8 dereferenceable(40) %19, ptr noundef nonnull align 8 dereferenceable(17) %22, ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %24)
+  %25 = call noundef zeroext i1 @_ZN6duckdb16RegrSXYOperation10IgnoreNullEv()
+  br i1 %25, label %26, label %71
+
+26:                                               ; preds = %9
+  %27 = load ptr, ptr %17, align 8, !tbaa !128
+  %28 = call noundef zeroext i1 @_ZNK6duckdb21TemplatedValidityMaskImE8AllValidEv(ptr noundef nonnull align 8 dereferenceable(32) %27)
+  br i1 %28, label %29, label %32
+
+29:                                               ; preds = %26
+  %30 = load ptr, ptr %18, align 8, !tbaa !128
+  %31 = call noundef zeroext i1 @_ZNK6duckdb21TemplatedValidityMaskImE8AllValidEv(ptr noundef nonnull align 8 dereferenceable(32) %30)
+  br i1 %31, label %71, label %32
+
+32:                                               ; preds = %29, %26
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #17
+  store i64 0, ptr %20, align 8, !tbaa !74
+  br label %33
+
+33:                                               ; preds = %67, %32
+  %34 = load i64, ptr %20, align 8, !tbaa !74
+  %35 = load i64, ptr %14, align 8, !tbaa !74
+  %36 = icmp ult i64 %34, %35
+  br i1 %36, label %38, label %37
+
+37:                                               ; preds = %33
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #17
+  br label %70
+
+38:                                               ; preds = %33
+  %39 = load ptr, ptr %15, align 8, !tbaa !127
+  %40 = load i64, ptr %20, align 8, !tbaa !74
+  %41 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %39, i64 noundef %40)
+  %42 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 3
+  store i64 %41, ptr %42, align 8, !tbaa !130
+  %43 = load ptr, ptr %16, align 8, !tbaa !127
+  %44 = load i64, ptr %20, align 8, !tbaa !74
+  %45 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %43, i64 noundef %44)
+  %46 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 4
+  store i64 %45, ptr %46, align 8, !tbaa !132
+  %47 = load ptr, ptr %17, align 8, !tbaa !128
+  %48 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 3
+  %49 = load i64, ptr %48, align 8, !tbaa !130
+  %50 = call noundef zeroext i1 @_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm(ptr noundef nonnull align 8 dereferenceable(32) %47, i64 noundef %49)
+  br i1 %50, label %51, label %66
+
+51:                                               ; preds = %38
+  %52 = load ptr, ptr %18, align 8, !tbaa !128
+  %53 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 4
+  %54 = load i64, ptr %53, align 8, !tbaa !132
+  %55 = call noundef zeroext i1 @_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm(ptr noundef nonnull align 8 dereferenceable(32) %52, i64 noundef %54)
+  br i1 %55, label %56, label %66
+
+56:                                               ; preds = %51
+  %57 = load ptr, ptr %13, align 8, !tbaa !98
+  %58 = load ptr, ptr %10, align 8, !tbaa !123
+  %59 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 3
+  %60 = load i64, ptr %59, align 8, !tbaa !130
+  %61 = getelementptr inbounds nuw double, ptr %58, i64 %60
+  %62 = load ptr, ptr %12, align 8, !tbaa !123
+  %63 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 4
+  %64 = load i64, ptr %63, align 8, !tbaa !132
+  %65 = getelementptr inbounds nuw double, ptr %62, i64 %64
+  call void @_ZN6duckdb16RegrSXYOperation9OperationIddNS_12RegrSXyStateES0_EEvRT1_RKT_RKT0_RNS_20AggregateBinaryInputE(ptr noundef nonnull align 8 dereferenceable(40) %57, ptr noundef nonnull align 8 dereferenceable(8) %61, ptr noundef nonnull align 8 dereferenceable(8) %65, ptr noundef nonnull align 8 dereferenceable(40) %19)
+  br label %66
+
+66:                                               ; preds = %56, %51, %38
+  br label %67
+
+67:                                               ; preds = %66
+  %68 = load i64, ptr %20, align 8, !tbaa !74
+  %69 = add i64 %68, 1
+  store i64 %69, ptr %20, align 8, !tbaa !74
+  br label %33, !llvm.loop !183
+
+70:                                               ; preds = %37
+  br label %99
+
+71:                                               ; preds = %29, %9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #17
+  store i64 0, ptr %21, align 8, !tbaa !74
+  br label %72
+
+72:                                               ; preds = %95, %71
+  %73 = load i64, ptr %21, align 8, !tbaa !74
+  %74 = load i64, ptr %14, align 8, !tbaa !74
+  %75 = icmp ult i64 %73, %74
+  br i1 %75, label %77, label %76
+
+76:                                               ; preds = %72
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #17
+  br label %98
+
+77:                                               ; preds = %72
+  %78 = load ptr, ptr %15, align 8, !tbaa !127
+  %79 = load i64, ptr %21, align 8, !tbaa !74
+  %80 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %78, i64 noundef %79)
+  %81 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 3
+  store i64 %80, ptr %81, align 8, !tbaa !130
+  %82 = load ptr, ptr %16, align 8, !tbaa !127
+  %83 = load i64, ptr %21, align 8, !tbaa !74
+  %84 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %82, i64 noundef %83)
+  %85 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 4
+  store i64 %84, ptr %85, align 8, !tbaa !132
+  %86 = load ptr, ptr %13, align 8, !tbaa !98
+  %87 = load ptr, ptr %10, align 8, !tbaa !123
+  %88 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 3
+  %89 = load i64, ptr %88, align 8, !tbaa !130
+  %90 = getelementptr inbounds nuw double, ptr %87, i64 %89
+  %91 = load ptr, ptr %12, align 8, !tbaa !123
+  %92 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 4
+  %93 = load i64, ptr %92, align 8, !tbaa !132
+  %94 = getelementptr inbounds nuw double, ptr %91, i64 %93
+  call void @_ZN6duckdb16RegrSXYOperation9OperationIddNS_12RegrSXyStateES0_EEvRT1_RKT_RKT0_RNS_20AggregateBinaryInputE(ptr noundef nonnull align 8 dereferenceable(40) %86, ptr noundef nonnull align 8 dereferenceable(8) %90, ptr noundef nonnull align 8 dereferenceable(8) %94, ptr noundef nonnull align 8 dereferenceable(40) %19)
+  br label %95
+
+95:                                               ; preds = %77
+  %96 = load i64, ptr %21, align 8, !tbaa !74
+  %97 = add i64 %96, 1
+  store i64 %97, ptr %21, align 8, !tbaa !74
+  br label %72, !llvm.loop !184
+
+98:                                               ; preds = %76
+  br label %99
+
+99:                                               ; preds = %98, %70
+  call void @llvm.lifetime.end.p0(i64 40, ptr %19) #17
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"class.std::allocator", align 1
+  store ptr %0, ptr %2, align 8, !tbaa !37
+  %4 = load ptr, ptr %2, align 8
+  %5 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %4, i32 0, i32 0
+  %6 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4)
+  call void @llvm.lifetime.start.p0(i64 1, ptr %3) #17
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #17
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC2EPcOS3_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %6, ptr noundef nonnull align 1 dereferenceable(1) %3)
+          to label %7 unwind label %10
+
+7:                                                ; preds = %1
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #17
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #17
+  %8 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_M_use_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef 0)
+          to label %9 unwind label %10
+
+9:                                                ; preds = %7
+  ret void
+
+10:                                               ; preds = %7, %1
+  %11 = landingpad { ptr, i32 }
+          catch ptr null
+  %12 = extractvalue { ptr, i32 } %11, 0
+  call void @__clang_call_terminate(ptr %12) #19
+  unreachable
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateFunctionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_6vectorINS_11LogicalTypeELb1EEERKSA_PFmRKS0_EPFvSH_PhEPFvPNS_6VectorERNS_18AggregateInputDataEmRSN_mEPFvSR_SR_SQ_mEPFvSR_SQ_SR_mmENS_20FunctionNullHandlingEPFvSO_SQ_mSK_mEPFNS_10unique_ptrINS_12FunctionDataESt14default_deleteIS12_ELb1EEERNS_13ClientContextERS0_RNS9_INS11_INS_10ExpressionES13_IS19_ELb1EEELb1EEEEPFvSR_SQ_mEPFNS11_INS_14BaseStatisticsES13_IS1I_ELb1EEES17_RNS_24BoundAggregateExpressionERNS_24AggregateStatisticsInputEEPFvSQ_RKNS_20WindowPartitionInputEPKhSK_RKNS9_INS_11FrameBoundsELb1EEESR_mEPFvRNS_10SerializerENS_12optional_ptrIS12_Lb1EEESH_EPFS15_RNS_12DeserializerES18_E(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, i8 noundef zeroext %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14, ptr noundef %15, ptr noundef %16) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %18 = alloca ptr, align 8
+  %19 = alloca ptr, align 8
+  %20 = alloca ptr, align 8
+  %21 = alloca ptr, align 8
+  %22 = alloca ptr, align 8
+  %23 = alloca ptr, align 8
+  %24 = alloca ptr, align 8
+  %25 = alloca ptr, align 8
+  %26 = alloca ptr, align 8
+  %27 = alloca i8, align 1
+  %28 = alloca ptr, align 8
+  %29 = alloca ptr, align 8
+  %30 = alloca ptr, align 8
+  %31 = alloca ptr, align 8
+  %32 = alloca ptr, align 8
+  %33 = alloca ptr, align 8
+  %34 = alloca ptr, align 8
+  %35 = alloca %"class.std::__cxx11::basic_string", align 8
+  %36 = alloca %"class.duckdb::vector", align 8
+  %37 = alloca ptr, align 8
+  %38 = alloca i32, align 4
+  %39 = alloca %"struct.duckdb::LogicalType", align 8
+  %40 = alloca %"struct.duckdb::LogicalType", align 8
+  store ptr %0, ptr %18, align 8, !tbaa !40
+  store ptr %1, ptr %19, align 8, !tbaa !37
+  store ptr %2, ptr %20, align 8, !tbaa !68
+  store ptr %3, ptr %21, align 8, !tbaa !3
+  store ptr %4, ptr %22, align 8, !tbaa !75
+  store ptr %5, ptr %23, align 8, !tbaa !75
+  store ptr %6, ptr %24, align 8, !tbaa !75
+  store ptr %7, ptr %25, align 8, !tbaa !75
+  store ptr %8, ptr %26, align 8, !tbaa !75
+  store i8 %9, ptr %27, align 1, !tbaa !185
+  store ptr %10, ptr %28, align 8, !tbaa !75
+  store ptr %11, ptr %29, align 8, !tbaa !75
+  store ptr %12, ptr %30, align 8, !tbaa !75
+  store ptr %13, ptr %31, align 8, !tbaa !75
+  store ptr %14, ptr %32, align 8, !tbaa !75
+  store ptr %15, ptr %33, align 8, !tbaa !75
+  store ptr %16, ptr %34, align 8, !tbaa !75
+  %41 = load ptr, ptr %18, align 8
+  %42 = load ptr, ptr %19, align 8, !tbaa !37
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull align 8 dereferenceable(32) %42)
+  %43 = load ptr, ptr %20, align 8, !tbaa !68
+  invoke void @_ZN6duckdb6vectorINS_11LogicalTypeELb1EEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %36, ptr noundef nonnull align 8 dereferenceable(24) %43)
+          to label %44 unwind label %79
+
+44:                                               ; preds = %17
+  %45 = load ptr, ptr %21, align 8, !tbaa !3
+  invoke void @_ZN6duckdb11LogicalTypeC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %39, ptr noundef nonnull align 8 dereferenceable(24) %45)
+          to label %46 unwind label %83
+
+46:                                               ; preds = %44
+  invoke void @_ZN6duckdb11LogicalTypeC1ENS_13LogicalTypeIdE(ptr noundef nonnull align 8 dereferenceable(24) %40, i8 noundef zeroext 0)
+          to label %47 unwind label %87
+
+47:                                               ; preds = %46
+  %48 = load i8, ptr %27, align 1, !tbaa !185
+  invoke void @_ZN6duckdb18BaseScalarFunctionC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6vectorINS_11LogicalTypeELb1EEES8_NS_17FunctionStabilityES8_NS_20FunctionNullHandlingENS_14FunctionErrorsE(ptr noundef nonnull align 8 dereferenceable(172) %41, ptr noundef %35, ptr noundef %36, ptr noundef %39, i8 noundef zeroext 0, ptr noundef %40, i8 noundef zeroext %48, i8 noundef zeroext 0)
+          to label %49 unwind label %91
+
+49:                                               ; preds = %47
+  call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %40) #17
+  call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %39) #17
+  call void @_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %36) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %35) #17
+  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb17AggregateFunctionE, i32 0, i32 0, i32 2), ptr %41, align 8, !tbaa !42
+  %50 = getelementptr inbounds nuw %"class.duckdb::AggregateFunction", ptr %41, i32 0, i32 1
+  %51 = load ptr, ptr %22, align 8, !tbaa !75
+  store ptr %51, ptr %50, align 8, !tbaa !186
+  %52 = getelementptr inbounds nuw %"class.duckdb::AggregateFunction", ptr %41, i32 0, i32 2
+  %53 = load ptr, ptr %23, align 8, !tbaa !75
+  store ptr %53, ptr %52, align 8, !tbaa !194
+  %54 = getelementptr inbounds nuw %"class.duckdb::AggregateFunction", ptr %41, i32 0, i32 3
+  %55 = load ptr, ptr %24, align 8, !tbaa !75
+  store ptr %55, ptr %54, align 8, !tbaa !195
+  %56 = getelementptr inbounds nuw %"class.duckdb::AggregateFunction", ptr %41, i32 0, i32 4
+  %57 = load ptr, ptr %25, align 8, !tbaa !75
+  store ptr %57, ptr %56, align 8, !tbaa !196
+  %58 = getelementptr inbounds nuw %"class.duckdb::AggregateFunction", ptr %41, i32 0, i32 5
+  %59 = load ptr, ptr %26, align 8, !tbaa !75
+  store ptr %59, ptr %58, align 8, !tbaa !197
+  %60 = getelementptr inbounds nuw %"class.duckdb::AggregateFunction", ptr %41, i32 0, i32 6
+  %61 = load ptr, ptr %28, align 8, !tbaa !75
+  store ptr %61, ptr %60, align 8, !tbaa !198
+  %62 = getelementptr inbounds nuw %"class.duckdb::AggregateFunction", ptr %41, i32 0, i32 7
+  %63 = load ptr, ptr %32, align 8, !tbaa !75
+  store ptr %63, ptr %62, align 8, !tbaa !199
+  %64 = getelementptr inbounds nuw %"class.duckdb::AggregateFunction", ptr %41, i32 0, i32 8
+  store ptr null, ptr %64, align 8, !tbaa !200
+  %65 = getelementptr inbounds nuw %"class.duckdb::AggregateFunction", ptr %41, i32 0, i32 9
+  %66 = load ptr, ptr %29, align 8, !tbaa !75
+  store ptr %66, ptr %65, align 8, !tbaa !201
+  %67 = getelementptr inbounds nuw %"class.duckdb::AggregateFunction", ptr %41, i32 0, i32 10
+  %68 = load ptr, ptr %30, align 8, !tbaa !75
+  store ptr %68, ptr %67, align 8, !tbaa !202
+  %69 = getelementptr inbounds nuw %"class.duckdb::AggregateFunction", ptr %41, i32 0, i32 11
+  %70 = load ptr, ptr %31, align 8, !tbaa !75
+  store ptr %70, ptr %69, align 8, !tbaa !203
+  %71 = getelementptr inbounds nuw %"class.duckdb::AggregateFunction", ptr %41, i32 0, i32 12
+  %72 = load ptr, ptr %33, align 8, !tbaa !75
+  store ptr %72, ptr %71, align 8, !tbaa !204
+  %73 = getelementptr inbounds nuw %"class.duckdb::AggregateFunction", ptr %41, i32 0, i32 13
+  %74 = load ptr, ptr %34, align 8, !tbaa !75
+  store ptr %74, ptr %73, align 8, !tbaa !205
+  %75 = getelementptr inbounds nuw %"class.duckdb::AggregateFunction", ptr %41, i32 0, i32 14
+  store i8 1, ptr %75, align 8, !tbaa !206
+  %76 = getelementptr inbounds nuw %"class.duckdb::AggregateFunction", ptr %41, i32 0, i32 15
+  store i8 1, ptr %76, align 1, !tbaa !207
+  %77 = getelementptr inbounds nuw %"class.duckdb::AggregateFunction", ptr %41, i32 0, i32 16
+  invoke void @_ZN6duckdb10shared_ptrINS_21AggregateFunctionInfoELb1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %77)
+          to label %78 unwind label %98
+
+78:                                               ; preds = %49
+  ret void
+
+79:                                               ; preds = %17
+  %80 = landingpad { ptr, i32 }
+          cleanup
+  %81 = extractvalue { ptr, i32 } %80, 0
+  store ptr %81, ptr %37, align 8
+  %82 = extractvalue { ptr, i32 } %80, 1
+  store i32 %82, ptr %38, align 4
+  br label %97
+
+83:                                               ; preds = %44
+  %84 = landingpad { ptr, i32 }
+          cleanup
+  %85 = extractvalue { ptr, i32 } %84, 0
+  store ptr %85, ptr %37, align 8
+  %86 = extractvalue { ptr, i32 } %84, 1
+  store i32 %86, ptr %38, align 4
+  br label %96
+
+87:                                               ; preds = %46
+  %88 = landingpad { ptr, i32 }
+          cleanup
+  %89 = extractvalue { ptr, i32 } %88, 0
+  store ptr %89, ptr %37, align 8
+  %90 = extractvalue { ptr, i32 } %88, 1
+  store i32 %90, ptr %38, align 4
+  br label %95
+
+91:                                               ; preds = %47
+  %92 = landingpad { ptr, i32 }
+          cleanup
+  %93 = extractvalue { ptr, i32 } %92, 0
+  store ptr %93, ptr %37, align 8
+  %94 = extractvalue { ptr, i32 } %92, 1
+  store i32 %94, ptr %38, align 4
+  call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %40) #17
+  br label %95
+
+95:                                               ; preds = %91, %87
+  call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %39) #17
+  br label %96
+
+96:                                               ; preds = %95, %83
+  call void @_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %36) #17
+  br label %97
+
+97:                                               ; preds = %96, %79
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %35) #17
+  br label %102
+
+98:                                               ; preds = %49
+  %99 = landingpad { ptr, i32 }
+          cleanup
+  %100 = extractvalue { ptr, i32 } %99, 0
+  store ptr %100, ptr %37, align 8
+  %101 = extractvalue { ptr, i32 } %99, 1
+  store i32 %101, ptr %38, align 4
+  call void @_ZN6duckdb18BaseScalarFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(172) %41) #17
+  br label %102
+
+102:                                              ; preds = %98, %97
+  %103 = load ptr, ptr %37, align 8
+  %104 = load i32, ptr %38, align 4
+  %105 = insertvalue { ptr, i32 } poison, ptr %103, 0
+  %106 = insertvalue { ptr, i32 } %105, i32 %104, 1
+  resume { ptr, i32 } %106
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC2EPcOS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #5 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !172
+  store ptr %1, ptr %5, align 8, !tbaa !39
+  store ptr %2, ptr %6, align 8, !tbaa !168
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %6, align 8, !tbaa !168
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 1 dereferenceable(1) %8) #17
+  %9 = getelementptr inbounds nuw %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", ptr %7, i32 0, i32 0
+  %10 = load ptr, ptr %5, align 8, !tbaa !39
+  store ptr %10, ptr %9, align 8, !tbaa !174
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %"class.std::allocator", align 1
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !37
+  store ptr %1, ptr %4, align 8, !tbaa !37
+  %8 = load ptr, ptr %3, align 8
+  %9 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %8, i32 0, i32 0
+  %10 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %8)
+  call void @llvm.lifetime.start.p0(i64 1, ptr %5) #17
+  %11 = load ptr, ptr %4, align 8, !tbaa !37
+  %12 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE16_M_get_allocatorEv(ptr noundef nonnull align 8 dereferenceable(32) %11)
+  call void @_ZN9__gnu_cxx14__alloc_traitsISaIcEcE17_S_select_on_copyERKS1_(ptr dead_on_unwind writable sret(%"class.std::allocator") align 1 %5, ptr noundef nonnull align 1 dereferenceable(1) %12)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC2EPcOS3_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %10, ptr noundef nonnull align 1 dereferenceable(1) %5)
+          to label %13 unwind label %22
+
+13:                                               ; preds = %2
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #17
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #17
+  %14 = load ptr, ptr %4, align 8, !tbaa !37
+  %15 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %14)
+  %16 = load ptr, ptr %4, align 8, !tbaa !37
+  %17 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %16)
+  %18 = load ptr, ptr %4, align 8, !tbaa !37
+  %19 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %18) #17
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 %19
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef %15, ptr noundef %20)
+          to label %21 unwind label %26
+
+21:                                               ; preds = %13
+  ret void
+
+22:                                               ; preds = %2
+  %23 = landingpad { ptr, i32 }
+          cleanup
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %6, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %7, align 4
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #17
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #17
+  br label %30
+
+26:                                               ; preds = %13
+  %27 = landingpad { ptr, i32 }
+          cleanup
+  %28 = extractvalue { ptr, i32 } %27, 0
+  store ptr %28, ptr %6, align 8
+  %29 = extractvalue { ptr, i32 } %27, 1
+  store i32 %29, ptr %7, align 4
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #17
+  br label %30
+
+30:                                               ; preds = %26, %22
+  %31 = load ptr, ptr %6, align 8
+  %32 = load i32, ptr %7, align 4
+  %33 = insertvalue { ptr, i32 } poison, ptr %31, 0
+  %34 = insertvalue { ptr, i32 } %33, i32 %32, 1
+  resume { ptr, i32 } %34
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb6vectorINS_11LogicalTypeELb1EEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #12 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !68
+  store ptr %1, ptr %4, align 8, !tbaa !68
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !68
+  call void @_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
+  ret void
+}
+
+declare void @_ZN6duckdb18BaseScalarFunctionC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6vectorINS_11LogicalTypeELb1EEES8_NS_17FunctionStabilityES8_NS_20FunctionNullHandlingENS_14FunctionErrorsE(ptr noundef nonnull align 8 dereferenceable(172), ptr noundef, ptr noundef, ptr noundef, i8 noundef zeroext, ptr noundef, i8 noundef zeroext, i8 noundef zeroext) unnamed_addr #2
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN6duckdb10shared_ptrINS_21AggregateFunctionInfoELb1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !44
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.duckdb::shared_ptr.3", ptr %3, i32 0, i32 0
+  call void @_ZNSt10shared_ptrIN6duckdb21AggregateFunctionInfoEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #17
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN9__gnu_cxx14__alloc_traitsISaIcEcE17_S_select_on_copyERKS1_(ptr dead_on_unwind noalias writable sret(%"class.std::allocator") align 1 %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8, !tbaa !168
+  %5 = load ptr, ptr %4, align 8, !tbaa !168
+  call void @_ZNSt16allocator_traitsISaIcEE37select_on_container_copy_constructionERKS0_(ptr dead_on_unwind writable sret(%"class.std::allocator") align 1 %0, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE16_M_get_allocatorEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #5 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !37
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca %struct._Guard.20, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !37
+  store ptr %1, ptr %5, align 8, !tbaa !39
+  store ptr %2, ptr %6, align 8, !tbaa !39
+  %11 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #17
+  %12 = load ptr, ptr %5, align 8, !tbaa !39
+  %13 = load ptr, ptr %6, align 8, !tbaa !39
+  %14 = call noundef i64 @_ZSt8distanceIPcENSt15iterator_traitsIT_E15difference_typeES2_S2_(ptr noundef %12, ptr noundef %13)
+  store i64 %14, ptr %7, align 8, !tbaa !74
+  %15 = load i64, ptr %7, align 8, !tbaa !74
+  %16 = icmp ugt i64 %15, 15
+  br i1 %16, label %17, label %20
+
+17:                                               ; preds = %3
+  %18 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(8) %7, i64 noundef 0)
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef %18)
+  %19 = load i64, ptr %7, align 8, !tbaa !74
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEm(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef %19)
+  br label %22
+
+20:                                               ; preds = %3
+  %21 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_M_use_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #17
+  br label %22
+
+22:                                               ; preds = %20, %17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #17
+  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tagEN6_GuardC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %11)
+  %23 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %11)
+  %24 = load ptr, ptr %5, align 8, !tbaa !39
+  %25 = load ptr, ptr %6, align 8, !tbaa !39
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcS5_S5_(ptr noundef %23, ptr noundef %24, ptr noundef %25) #17
+  %26 = getelementptr inbounds nuw %struct._Guard.20, ptr %8, i32 0, i32 0
+  store ptr null, ptr %26, align 8, !tbaa !208
+  %27 = load i64, ptr %7, align 8, !tbaa !74
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef %27)
+          to label %28 unwind label %29
+
+28:                                               ; preds = %22
+  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #17
+  ret void
+
+29:                                               ; preds = %22
+  %30 = landingpad { ptr, i32 }
+          cleanup
+  %31 = extractvalue { ptr, i32 } %30, 0
+  store ptr %31, ptr %9, align 8
+  %32 = extractvalue { ptr, i32 } %30, 1
+  store i32 %32, ptr %10, align 4
+  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #17
+  br label %33
+
+33:                                               ; preds = %29
+  %34 = load ptr, ptr %9, align 8
+  %35 = load i32, ptr %10, align 4
+  %36 = insertvalue { ptr, i32 } poison, ptr %34, 0
+  %37 = insertvalue { ptr, i32 } %36, i32 %35, 1
+  resume { ptr, i32 } %37
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #5 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !37
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 1
+  %5 = load i64, ptr %4, align 8, !tbaa !182
+  ret i64 %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt16allocator_traitsISaIcEE37select_on_container_copy_constructionERKS0_(ptr dead_on_unwind noalias writable sret(%"class.std::allocator") align 1 %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8, !tbaa !168
+  %5 = load ptr, ptr %4, align 8, !tbaa !168
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %5) #17
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #5 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !168
+  store ptr %1, ptr %4, align 8, !tbaa !168
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !168
+  call void @_ZNSt15__new_allocatorIcEC2ERKS0_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #17
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef i64 @_ZSt8distanceIPcENSt15iterator_traitsIT_E15difference_typeES2_S2_(ptr noundef %0, ptr noundef %1) #12 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !39
+  store ptr %1, ptr %4, align 8, !tbaa !39
+  %5 = load ptr, ptr %3, align 8, !tbaa !39
+  %6 = load ptr, ptr %4, align 8, !tbaa !39
+  call void @_ZSt19__iterator_categoryIPcENSt15iterator_traitsIT_E17iterator_categoryERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %7 = call noundef i64 @_ZSt10__distanceIPcENSt15iterator_traitsIT_E15difference_typeES2_S2_St26random_access_iterator_tag(ptr noundef %5, ptr noundef %6)
+  ret i64 %7
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tagEN6_GuardC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !210
+  store ptr %1, ptr %4, align 8, !tbaa !37
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %struct._Guard.20, ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !37
+  store ptr %7, ptr %6, align 8, !tbaa !208
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcS5_S5_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #5 align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !39
+  store ptr %1, ptr %5, align 8, !tbaa !39
+  store ptr %2, ptr %6, align 8, !tbaa !39
+  %7 = load ptr, ptr %4, align 8, !tbaa !39
+  %8 = load ptr, ptr %5, align 8, !tbaa !39
+  %9 = load ptr, ptr %6, align 8, !tbaa !39
+  %10 = load ptr, ptr %5, align 8, !tbaa !39
+  %11 = ptrtoint ptr %9 to i64
+  %12 = ptrtoint ptr %10 to i64
+  %13 = sub i64 %11, %12
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm(ptr noundef %7, ptr noundef %8, i64 noundef %13)
+          to label %14 unwind label %15
+
+14:                                               ; preds = %3
+  ret void
+
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          catch ptr null
+  %17 = extractvalue { ptr, i32 } %16, 0
+  call void @__clang_call_terminate(ptr %17) #19
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !210
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %struct._Guard.20, ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !208
+  %6 = icmp ne ptr %5, null
+  br i1 %6, label %7, label %11
+
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds nuw %struct._Guard.20, ptr %3, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !208
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32) %9)
+          to label %10 unwind label %12
+
+10:                                               ; preds = %7
+  br label %11
+
+11:                                               ; preds = %10, %1
+  ret void
+
+12:                                               ; preds = %7
+  %13 = landingpad { ptr, i32 }
+          catch ptr null
+  %14 = extractvalue { ptr, i32 } %13, 0
+  call void @__clang_call_terminate(ptr %14) #19
+  unreachable
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZSt10__distanceIPcENSt15iterator_traitsIT_E15difference_typeES2_S2_St26random_access_iterator_tag(ptr noundef %0, ptr noundef %1) #4 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !39
+  store ptr %1, ptr %4, align 8, !tbaa !39
+  %5 = load ptr, ptr %4, align 8, !tbaa !39
+  %6 = load ptr, ptr %3, align 8, !tbaa !39
+  %7 = ptrtoint ptr %5 to i64
+  %8 = ptrtoint ptr %6 to i64
+  %9 = sub i64 %7, %8
+  ret i64 %9
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt19__iterator_categoryIPcENSt15iterator_traitsIT_E17iterator_categoryERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !180
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %"class.std::allocator.0", align 1
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %9 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  store ptr %0, ptr %3, align 8, !tbaa !76
+  store ptr %1, ptr %4, align 8, !tbaa !76
+  %10 = load ptr, ptr %3, align 8
+  %11 = load ptr, ptr %4, align 8, !tbaa !76
+  %12 = call noundef i64 @_ZNKSt6vectorIN6duckdb11LogicalTypeESaIS1_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %11) #17
+  call void @llvm.lifetime.start.p0(i64 1, ptr %5) #17
+  %13 = load ptr, ptr %4, align 8, !tbaa !76
+  %14 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt12_Vector_baseIN6duckdb11LogicalTypeESaIS1_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #17
+  call void @_ZN9__gnu_cxx14__alloc_traitsISaIN6duckdb11LogicalTypeEES2_E17_S_select_on_copyERKS3_(ptr dead_on_unwind writable sret(%"class.std::allocator.0") align 1 %5, ptr noundef nonnull align 1 dereferenceable(1) %14)
+  invoke void @_ZNSt12_Vector_baseIN6duckdb11LogicalTypeESaIS1_EEC2EmRKS2_(ptr noundef nonnull align 8 dereferenceable(24) %10, i64 noundef %12, ptr noundef nonnull align 1 dereferenceable(1) %5)
+          to label %15 unwind label %34
+
+15:                                               ; preds = %2
+  call void @_ZNSt15__new_allocatorIN6duckdb11LogicalTypeEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #17
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #17
+  %16 = load ptr, ptr %4, align 8, !tbaa !76
+  %17 = call ptr @_ZNKSt6vectorIN6duckdb11LogicalTypeESaIS1_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %16) #17
+  %18 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %8, i32 0, i32 0
+  store ptr %17, ptr %18, align 8
+  %19 = load ptr, ptr %4, align 8, !tbaa !76
+  %20 = call ptr @_ZNKSt6vectorIN6duckdb11LogicalTypeESaIS1_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %19) #17
+  %21 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %9, i32 0, i32 0
+  store ptr %20, ptr %21, align 8
+  %22 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %10, i32 0, i32 0
+  %23 = getelementptr inbounds nuw %"struct.std::_Vector_base<duckdb::LogicalType, std::allocator<duckdb::LogicalType>>::_Vector_impl_data", ptr %22, i32 0, i32 0
+  %24 = load ptr, ptr %23, align 8, !tbaa !78
+  %25 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN6duckdb11LogicalTypeESaIS1_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #17
+  %26 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %8, i32 0, i32 0
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %9, i32 0, i32 0
+  %29 = load ptr, ptr %28, align 8
+  %30 = invoke noundef ptr @_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN6duckdb11LogicalTypeESt6vectorIS3_SaIS3_EEEEPS3_S3_ET0_T_SC_SB_RSaIT1_E(ptr %27, ptr %29, ptr noundef %24, ptr noundef nonnull align 1 dereferenceable(1) %25)
+          to label %31 unwind label %38
+
+31:                                               ; preds = %15
+  %32 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %10, i32 0, i32 0
+  %33 = getelementptr inbounds nuw %"struct.std::_Vector_base<duckdb::LogicalType, std::allocator<duckdb::LogicalType>>::_Vector_impl_data", ptr %32, i32 0, i32 1
+  store ptr %30, ptr %33, align 8, !tbaa !79
+  ret void
+
+34:                                               ; preds = %2
+  %35 = landingpad { ptr, i32 }
+          cleanup
+  %36 = extractvalue { ptr, i32 } %35, 0
+  store ptr %36, ptr %6, align 8
+  %37 = extractvalue { ptr, i32 } %35, 1
+  store i32 %37, ptr %7, align 4
+  call void @_ZNSt15__new_allocatorIN6duckdb11LogicalTypeEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #17
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #17
+  br label %42
+
+38:                                               ; preds = %15
+  %39 = landingpad { ptr, i32 }
+          cleanup
+  %40 = extractvalue { ptr, i32 } %39, 0
+  store ptr %40, ptr %6, align 8
+  %41 = extractvalue { ptr, i32 } %39, 1
+  store i32 %41, ptr %7, align 4
+  call void @_ZNSt12_Vector_baseIN6duckdb11LogicalTypeESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #17
+  br label %42
+
+42:                                               ; preds = %38, %34
+  %43 = load ptr, ptr %6, align 8
+  %44 = load i32, ptr %7, align 4
+  %45 = insertvalue { ptr, i32 } poison, ptr %43, 0
+  %46 = insertvalue { ptr, i32 } %45, i32 %44, 1
+  resume { ptr, i32 } %46
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNKSt6vectorIN6duckdb11LogicalTypeESaIS1_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !76
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<duckdb::LogicalType, std::allocator<duckdb::LogicalType>>::_Vector_impl_data", ptr %4, i32 0, i32 1
+  %6 = load ptr, ptr %5, align 8, !tbaa !79
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base<duckdb::LogicalType, std::allocator<duckdb::LogicalType>>::_Vector_impl_data", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !78
+  %10 = ptrtoint ptr %6 to i64
+  %11 = ptrtoint ptr %9 to i64
+  %12 = sub i64 %10, %11
+  %13 = sdiv exact i64 %12, 24
+  ret i64 %13
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN9__gnu_cxx14__alloc_traitsISaIN6duckdb11LogicalTypeEES2_E17_S_select_on_copyERKS3_(ptr dead_on_unwind noalias writable sret(%"class.std::allocator.0") align 1 %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8, !tbaa !66
+  %5 = load ptr, ptr %4, align 8, !tbaa !66
+  call void @_ZNSt16allocator_traitsISaIN6duckdb11LogicalTypeEEE37select_on_container_copy_constructionERKS2_(ptr dead_on_unwind writable sret(%"class.std::allocator.0") align 1 %0, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt12_Vector_baseIN6duckdb11LogicalTypeESaIS1_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !82
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt12_Vector_baseIN6duckdb11LogicalTypeESaIS1_EEC2EmRKS2_(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !82
+  store i64 %1, ptr %5, align 8, !tbaa !74
+  store ptr %2, ptr %6, align 8, !tbaa !66
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %9, i32 0, i32 0
+  %11 = load ptr, ptr %6, align 8, !tbaa !66
+  call void @_ZNSt12_Vector_baseIN6duckdb11LogicalTypeESaIS1_EE12_Vector_implC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 1 dereferenceable(1) %11) #17
+  %12 = load i64, ptr %5, align 8, !tbaa !74
+  invoke void @_ZNSt12_Vector_baseIN6duckdb11LogicalTypeESaIS1_EE17_M_create_storageEm(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %12)
+          to label %13 unwind label %14
+
+13:                                               ; preds = %3
+  ret void
+
+14:                                               ; preds = %3
+  %15 = landingpad { ptr, i32 }
+          cleanup
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %7, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %8, align 4
+  call void @_ZNSt15__new_allocatorIN6duckdb11LogicalTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #17
+  br label %18
+
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %7, align 8
+  %20 = load i32, ptr %8, align 4
+  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
+  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
+  resume { ptr, i32 } %22
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef ptr @_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN6duckdb11LogicalTypeESt6vectorIS3_SaIS3_EEEEPS3_S3_ET0_T_SC_SB_RSaIT1_E(ptr %0, ptr %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #12 comdat {
+  %5 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %6 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %10 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %11 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %5, i32 0, i32 0
+  store ptr %0, ptr %11, align 8
+  %12 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %6, i32 0, i32 0
+  store ptr %1, ptr %12, align 8
+  store ptr %2, ptr %7, align 8, !tbaa !3
+  store ptr %3, ptr %8, align 8, !tbaa !66
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %5, i64 8, i1 false), !tbaa.struct !212
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %6, i64 8, i1 false), !tbaa.struct !212
+  %13 = load ptr, ptr %7, align 8, !tbaa !3
+  %14 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %9, i32 0, i32 0
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %10, i32 0, i32 0
+  %17 = load ptr, ptr %16, align 8
+  %18 = call noundef ptr @_ZSt18uninitialized_copyIN9__gnu_cxx17__normal_iteratorIPKN6duckdb11LogicalTypeESt6vectorIS3_SaIS3_EEEEPS3_ET0_T_SC_SB_(ptr %15, ptr %17, ptr noundef %13)
+  ret ptr %18
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr ptr @_ZNKSt6vectorIN6duckdb11LogicalTypeESaIS1_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #5 comdat align 2 {
+  %2 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !76
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %4, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %"struct.std::_Vector_base<duckdb::LogicalType, std::allocator<duckdb::LogicalType>>::_Vector_impl_data", ptr %5, i32 0, i32 0
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPKN6duckdb11LogicalTypeESt6vectorIS2_SaIS2_EEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #17
+  %7 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %2, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8
+  ret ptr %8
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr ptr @_ZNKSt6vectorIN6duckdb11LogicalTypeESaIS1_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #5 comdat align 2 {
+  %2 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !76
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %4, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %"struct.std::_Vector_base<duckdb::LogicalType, std::allocator<duckdb::LogicalType>>::_Vector_impl_data", ptr %5, i32 0, i32 1
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPKN6duckdb11LogicalTypeESt6vectorIS2_SaIS2_EEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #17
+  %7 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %2, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8
+  ret ptr %8
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt16allocator_traitsISaIN6duckdb11LogicalTypeEEE37select_on_container_copy_constructionERKS2_(ptr dead_on_unwind noalias writable sret(%"class.std::allocator.0") align 1 %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8, !tbaa !66
+  %5 = load ptr, ptr %4, align 8, !tbaa !66
+  call void @_ZNSaIN6duckdb11LogicalTypeEEC2ERKS1_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %5) #17
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt12_Vector_baseIN6duckdb11LogicalTypeESaIS1_EE17_M_create_storageEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !82
+  store i64 %1, ptr %4, align 8, !tbaa !74
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8, !tbaa !74
+  %7 = call noundef ptr @_ZNSt12_Vector_baseIN6duckdb11LogicalTypeESaIS1_EE11_M_allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %6)
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %5, i32 0, i32 0
+  %9 = getelementptr inbounds nuw %"struct.std::_Vector_base<duckdb::LogicalType, std::allocator<duckdb::LogicalType>>::_Vector_impl_data", ptr %8, i32 0, i32 0
+  store ptr %7, ptr %9, align 8, !tbaa !78
+  %10 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %5, i32 0, i32 0
+  %11 = getelementptr inbounds nuw %"struct.std::_Vector_base<duckdb::LogicalType, std::allocator<duckdb::LogicalType>>::_Vector_impl_data", ptr %10, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8, !tbaa !78
+  %13 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %5, i32 0, i32 0
+  %14 = getelementptr inbounds nuw %"struct.std::_Vector_base<duckdb::LogicalType, std::allocator<duckdb::LogicalType>>::_Vector_impl_data", ptr %13, i32 0, i32 1
+  store ptr %12, ptr %14, align 8, !tbaa !79
+  %15 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %5, i32 0, i32 0
+  %16 = getelementptr inbounds nuw %"struct.std::_Vector_base<duckdb::LogicalType, std::allocator<duckdb::LogicalType>>::_Vector_impl_data", ptr %15, i32 0, i32 0
+  %17 = load ptr, ptr %16, align 8, !tbaa !78
+  %18 = load i64, ptr %4, align 8, !tbaa !74
+  %19 = getelementptr inbounds nuw %"struct.duckdb::LogicalType", ptr %17, i64 %18
+  %20 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %5, i32 0, i32 0
+  %21 = getelementptr inbounds nuw %"struct.std::_Vector_base<duckdb::LogicalType, std::allocator<duckdb::LogicalType>>::_Vector_impl_data", ptr %20, i32 0, i32 2
+  store ptr %19, ptr %21, align 8, !tbaa !84
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef ptr @_ZSt18uninitialized_copyIN9__gnu_cxx17__normal_iteratorIPKN6duckdb11LogicalTypeESt6vectorIS3_SaIS3_EEEEPS3_ET0_T_SC_SB_(ptr %0, ptr %1, ptr noundef %2) #12 comdat {
+  %4 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %5 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i8, align 1
+  %8 = alloca i8, align 1
+  %9 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %10 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %11 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %4, i32 0, i32 0
+  store ptr %0, ptr %11, align 8
+  %12 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %5, i32 0, i32 0
+  store ptr %1, ptr %12, align 8
+  store ptr %2, ptr %6, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %7) #17
+  store i8 0, ptr %7, align 1, !tbaa !52
+  call void @llvm.lifetime.start.p0(i64 1, ptr %8) #17
+  store i8 0, ptr %8, align 1, !tbaa !52
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %4, i64 8, i1 false), !tbaa.struct !212
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %5, i64 8, i1 false), !tbaa.struct !212
+  %13 = load ptr, ptr %6, align 8, !tbaa !3
+  %14 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %9, i32 0, i32 0
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %10, i32 0, i32 0
+  %17 = load ptr, ptr %16, align 8
+  %18 = call noundef ptr @_ZNSt20__uninitialized_copyILb0EE13__uninit_copyIN9__gnu_cxx17__normal_iteratorIPKN6duckdb11LogicalTypeESt6vectorIS5_SaIS5_EEEEPS5_EET0_T_SE_SD_(ptr %15, ptr %17, ptr noundef %13)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %8) #17
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #17
+  ret ptr %18
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZNSt20__uninitialized_copyILb0EE13__uninit_copyIN9__gnu_cxx17__normal_iteratorIPKN6duckdb11LogicalTypeESt6vectorIS5_SaIS5_EEEEPS5_EET0_T_SE_SD_(ptr %0, ptr %1, ptr noundef %2) #0 comdat align 2 {
+  %4 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %5 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %8 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %9 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %4, i32 0, i32 0
+  store ptr %0, ptr %9, align 8
+  %10 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %5, i32 0, i32 0
+  store ptr %1, ptr %10, align 8
+  store ptr %2, ptr %6, align 8, !tbaa !3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %4, i64 8, i1 false), !tbaa.struct !212
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %5, i64 8, i1 false), !tbaa.struct !212
+  %11 = load ptr, ptr %6, align 8, !tbaa !3
+  %12 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %7, i32 0, i32 0
+  %13 = load ptr, ptr %12, align 8
+  %14 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %8, i32 0, i32 0
+  %15 = load ptr, ptr %14, align 8
+  %16 = call noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_iteratorIPKN6duckdb11LogicalTypeESt6vectorIS3_SaIS3_EEEEPS3_ET0_T_SC_SB_(ptr %13, ptr %15, ptr noundef %11)
+  ret ptr %16
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_iteratorIPKN6duckdb11LogicalTypeESt6vectorIS3_SaIS3_EEEEPS3_ET0_T_SC_SB_(ptr %0, ptr %1, ptr noundef %2) #0 comdat personality ptr @__gxx_personality_v0 {
+  %4 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %5 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %4, i32 0, i32 0
+  store ptr %0, ptr %10, align 8
+  %11 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %5, i32 0, i32 0
+  store ptr %1, ptr %11, align 8
+  store ptr %2, ptr %6, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #17
+  %12 = load ptr, ptr %6, align 8, !tbaa !3
+  store ptr %12, ptr %7, align 8, !tbaa !3
+  br label %13
+
+13:                                               ; preds = %19, %3
+  %14 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPKN6duckdb11LogicalTypeESt6vectorIS2_SaIS2_EEEEbRKNS_17__normal_iteratorIT_T0_EESD_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5) #17
+  br i1 %14, label %15, label %33
+
+15:                                               ; preds = %13
+  %16 = load ptr, ptr %7, align 8, !tbaa !3
+  %17 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKN6duckdb11LogicalTypeESt6vectorIS2_SaIS2_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #17
+  invoke void @_ZSt10_ConstructIN6duckdb11LogicalTypeEJRKS1_EEvPT_DpOT0_(ptr noundef %16, ptr noundef nonnull align 8 dereferenceable(24) %17)
+          to label %18 unwind label %23
+
+18:                                               ; preds = %15
+  br label %19
+
+19:                                               ; preds = %18
+  %20 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPKN6duckdb11LogicalTypeESt6vectorIS2_SaIS2_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #17
+  %21 = load ptr, ptr %7, align 8, !tbaa !3
+  %22 = getelementptr inbounds nuw %"struct.duckdb::LogicalType", ptr %21, i32 1
+  store ptr %22, ptr %7, align 8, !tbaa !3
+  br label %13, !llvm.loop !213
+
+23:                                               ; preds = %15
+  %24 = landingpad { ptr, i32 }
+          catch ptr null
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %8, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %9, align 4
+  br label %27
+
+27:                                               ; preds = %23
+  %28 = load ptr, ptr %8, align 8
+  %29 = call ptr @__cxa_begin_catch(ptr %28) #17
+  %30 = load ptr, ptr %6, align 8, !tbaa !3
+  %31 = load ptr, ptr %7, align 8, !tbaa !3
+  invoke void @_ZSt8_DestroyIPN6duckdb11LogicalTypeEEvT_S3_(ptr noundef %30, ptr noundef %31)
+          to label %32 unwind label %35
+
+32:                                               ; preds = %27
+  invoke void @__cxa_rethrow() #20
+          to label %49 unwind label %35
+
+33:                                               ; preds = %13
+  %34 = load ptr, ptr %7, align 8, !tbaa !3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #17
+  ret ptr %34
+
+35:                                               ; preds = %32, %27
+  %36 = landingpad { ptr, i32 }
+          cleanup
+  %37 = extractvalue { ptr, i32 } %36, 0
+  store ptr %37, ptr %8, align 8
+  %38 = extractvalue { ptr, i32 } %36, 1
+  store i32 %38, ptr %9, align 4
+  invoke void @__cxa_end_catch()
+          to label %39 unwind label %46
+
+39:                                               ; preds = %35
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #17
+  br label %41
+
+40:                                               ; No predecessors!
+  unreachable
+
+41:                                               ; preds = %39
+  %42 = load ptr, ptr %8, align 8
+  %43 = load i32, ptr %9, align 4
+  %44 = insertvalue { ptr, i32 } poison, ptr %42, 0
+  %45 = insertvalue { ptr, i32 } %44, i32 %43, 1
+  resume { ptr, i32 } %45
+
+46:                                               ; preds = %35
+  %47 = landingpad { ptr, i32 }
+          catch ptr null
+  %48 = extractvalue { ptr, i32 } %47, 0
+  call void @__clang_call_terminate(ptr %48) #19
+  unreachable
+
+49:                                               ; preds = %32
+  unreachable
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZN9__gnu_cxxneIPKN6duckdb11LogicalTypeESt6vectorIS2_SaIS2_EEEEbRKNS_17__normal_iteratorIT_T0_EESD_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !214
+  store ptr %1, ptr %4, align 8, !tbaa !214
+  %5 = load ptr, ptr %3, align 8, !tbaa !214
+  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKN6duckdb11LogicalTypeESt6vectorIS2_SaIS2_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #17
+  %7 = load ptr, ptr %6, align 8, !tbaa !3
+  %8 = load ptr, ptr %4, align 8, !tbaa !214
+  %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKN6duckdb11LogicalTypeESt6vectorIS2_SaIS2_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #17
+  %10 = load ptr, ptr %9, align 8, !tbaa !3
+  %11 = icmp ne ptr %7, %10
+  ret i1 %11
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKN6duckdb11LogicalTypeESt6vectorIS2_SaIS2_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !214
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !216
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPKN6duckdb11LogicalTypeESt6vectorIS2_SaIS2_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !214
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !216
+  %6 = getelementptr inbounds nuw %"struct.duckdb::LogicalType", ptr %5, i32 1
+  store ptr %6, ptr %4, align 8, !tbaa !216
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKN6duckdb11LogicalTypeESt6vectorIS2_SaIS2_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !214
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN9__gnu_cxx17__normal_iteratorIPKN6duckdb11LogicalTypeESt6vectorIS2_SaIS2_EEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !214
+  store ptr %1, ptr %4, align 8, !tbaa !91
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !91
+  %8 = load ptr, ptr %7, align 8, !tbaa !3
+  store ptr %8, ptr %6, align 8, !tbaa !216
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt10shared_ptrIN6duckdb21AggregateFunctionInfoEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !218
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt12__shared_ptrIN6duckdb21AggregateFunctionInfoELN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #17
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt12__shared_ptrIN6duckdb21AggregateFunctionInfoELN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !46
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__shared_ptr.5", ptr %3, i32 0, i32 0
+  store ptr null, ptr %4, align 8, !tbaa !220
+  %5 = getelementptr inbounds nuw %"class.std::__shared_ptr.5", ptr %3, i32 0, i32 1
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #17
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !48
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %3, i32 0, i32 0
+  store ptr null, ptr %4, align 8, !tbaa !50
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZSt8_DestroyIPN6duckdb11LogicalTypeES1_EvT_S3_RSaIT0_E(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #12 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !3
+  store ptr %2, ptr %6, align 8, !tbaa !66
+  %7 = load ptr, ptr %4, align 8, !tbaa !3
+  %8 = load ptr, ptr %5, align 8, !tbaa !3
+  call void @_ZSt8_DestroyIPN6duckdb11LogicalTypeEEvT_S3_(ptr noundef %7, ptr noundef %8)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZN6duckdb17AggregateFunction9StateSizeINS_18RegrInterceptStateEEEmRKS0_(ptr noundef nonnull align 8 dereferenceable(304) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !40
+  ret i64 80
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateFunction15StateInitializeINS_18RegrInterceptStateENS_22RegrInterceptOperationELNS_23AggregateDestructorTypeE0EEEvRKS0_Ph(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !40
+  store ptr %1, ptr %4, align 8, !tbaa !39
+  %5 = load ptr, ptr %4, align 8, !tbaa !39
+  call void @_ZN6duckdb22RegrInterceptOperation10InitializeINS_18RegrInterceptStateEEEvRT_(ptr noundef nonnull align 8 dereferenceable(80) %5)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateFunction19BinaryScatterUpdateINS_18RegrInterceptStateEddNS_22RegrInterceptOperationEEEvPNS_6VectorERNS_18AggregateInputDataEmRS4_m(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(17) %1, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(104) %3, i64 noundef %4) #0 comdat align 2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !70
+  store ptr %1, ptr %7, align 8, !tbaa !72
+  store i64 %2, ptr %8, align 8, !tbaa !74
+  store ptr %3, ptr %9, align 8, !tbaa !70
+  store i64 %4, ptr %10, align 8, !tbaa !74
+  %11 = load ptr, ptr %7, align 8, !tbaa !72
+  %12 = load ptr, ptr %6, align 8, !tbaa !70
+  %13 = getelementptr inbounds %"class.duckdb::Vector", ptr %12, i64 0
+  %14 = load ptr, ptr %6, align 8, !tbaa !70
+  %15 = getelementptr inbounds %"class.duckdb::Vector", ptr %14, i64 1
+  %16 = load ptr, ptr %9, align 8, !tbaa !70
+  %17 = load i64, ptr %10, align 8, !tbaa !74
+  call void @_ZN6duckdb17AggregateExecutor13BinaryScatterINS_18RegrInterceptStateEddNS_22RegrInterceptOperationEEEvRNS_18AggregateInputDataERNS_6VectorES7_S7_m(ptr noundef nonnull align 8 dereferenceable(17) %11, ptr noundef nonnull align 8 dereferenceable(104) %13, ptr noundef nonnull align 8 dereferenceable(104) %15, ptr noundef nonnull align 8 dereferenceable(104) %16, i64 noundef %17)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateFunction12StateCombineINS_18RegrInterceptStateENS_22RegrInterceptOperationEEEvRNS_6VectorES5_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(17) %2, i64 noundef %3) #0 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !70
+  store ptr %1, ptr %6, align 8, !tbaa !70
+  store ptr %2, ptr %7, align 8, !tbaa !72
+  store i64 %3, ptr %8, align 8, !tbaa !74
+  %9 = load ptr, ptr %5, align 8, !tbaa !70
+  %10 = load ptr, ptr %6, align 8, !tbaa !70
+  %11 = load ptr, ptr %7, align 8, !tbaa !72
+  %12 = load i64, ptr %8, align 8, !tbaa !74
+  call void @_ZN6duckdb17AggregateExecutor7CombineINS_18RegrInterceptStateENS_22RegrInterceptOperationEEEvRNS_6VectorES5_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %9, ptr noundef nonnull align 8 dereferenceable(104) %10, ptr noundef nonnull align 8 dereferenceable(17) %11, i64 noundef %12)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateFunction13StateFinalizeINS_18RegrInterceptStateEdNS_22RegrInterceptOperationEEEvRNS_6VectorERNS_18AggregateInputDataES5_mm(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(17) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, i64 noundef %3, i64 noundef %4) #0 comdat align 2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !70
+  store ptr %1, ptr %7, align 8, !tbaa !72
+  store ptr %2, ptr %8, align 8, !tbaa !70
+  store i64 %3, ptr %9, align 8, !tbaa !74
+  store i64 %4, ptr %10, align 8, !tbaa !74
+  %11 = load ptr, ptr %6, align 8, !tbaa !70
+  %12 = load ptr, ptr %7, align 8, !tbaa !72
+  %13 = load ptr, ptr %8, align 8, !tbaa !70
+  %14 = load i64, ptr %9, align 8, !tbaa !74
+  %15 = load i64, ptr %10, align 8, !tbaa !74
+  call void @_ZN6duckdb17AggregateExecutor8FinalizeINS_18RegrInterceptStateEdNS_22RegrInterceptOperationEEEvRNS_6VectorERNS_18AggregateInputDataES5_mm(ptr noundef nonnull align 8 dereferenceable(104) %11, ptr noundef nonnull align 8 dereferenceable(17) %12, ptr noundef nonnull align 8 dereferenceable(104) %13, i64 noundef %14, i64 noundef %15)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateFunction12BinaryUpdateINS_18RegrInterceptStateEddNS_22RegrInterceptOperationEEEvPNS_6VectorERNS_18AggregateInputDataEmPhm(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(17) %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) #0 comdat align 2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !70
+  store ptr %1, ptr %7, align 8, !tbaa !72
+  store i64 %2, ptr %8, align 8, !tbaa !74
+  store ptr %3, ptr %9, align 8, !tbaa !39
+  store i64 %4, ptr %10, align 8, !tbaa !74
+  %11 = load ptr, ptr %7, align 8, !tbaa !72
+  %12 = load ptr, ptr %6, align 8, !tbaa !70
+  %13 = getelementptr inbounds %"class.duckdb::Vector", ptr %12, i64 0
+  %14 = load ptr, ptr %6, align 8, !tbaa !70
+  %15 = getelementptr inbounds %"class.duckdb::Vector", ptr %14, i64 1
+  %16 = load ptr, ptr %9, align 8, !tbaa !39
+  %17 = load i64, ptr %10, align 8, !tbaa !74
+  call void @_ZN6duckdb17AggregateExecutor12BinaryUpdateINS_18RegrInterceptStateEddNS_22RegrInterceptOperationEEEvRNS_18AggregateInputDataERNS_6VectorES7_Phm(ptr noundef nonnull align 8 dereferenceable(17) %11, ptr noundef nonnull align 8 dereferenceable(104) %13, ptr noundef nonnull align 8 dereferenceable(104) %15, ptr noundef %16, i64 noundef %17)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb22RegrInterceptOperation10InitializeINS_18RegrInterceptStateEEEvRT_(ptr noundef nonnull align 8 dereferenceable(80) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !221
+  %3 = load ptr, ptr %2, align 8, !tbaa !221
+  %4 = getelementptr inbounds nuw %"struct.duckdb::RegrInterceptState", ptr %3, i32 0, i32 0
+  store i64 0, ptr %4, align 8, !tbaa !223
+  %5 = load ptr, ptr %2, align 8, !tbaa !221
+  %6 = getelementptr inbounds nuw %"struct.duckdb::RegrInterceptState", ptr %5, i32 0, i32 1
+  store double 0.000000e+00, ptr %6, align 8, !tbaa !227
+  %7 = load ptr, ptr %2, align 8, !tbaa !221
+  %8 = getelementptr inbounds nuw %"struct.duckdb::RegrInterceptState", ptr %7, i32 0, i32 2
+  store double 0.000000e+00, ptr %8, align 8, !tbaa !228
+  %9 = load ptr, ptr %2, align 8, !tbaa !221
+  %10 = getelementptr inbounds nuw %"struct.duckdb::RegrInterceptState", ptr %9, i32 0, i32 3
+  call void @_ZN6duckdb18RegrSlopeOperation10InitializeINS_14RegrSlopeStateEEEvRT_(ptr noundef nonnull align 8 dereferenceable(56) %10)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb18RegrSlopeOperation10InitializeINS_14RegrSlopeStateEEEvRT_(ptr noundef nonnull align 8 dereferenceable(56) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !229
+  %3 = load ptr, ptr %2, align 8, !tbaa !229
+  %4 = getelementptr inbounds nuw %"struct.duckdb::RegrSlopeState", ptr %3, i32 0, i32 0
+  call void @_ZN6duckdb14CovarOperation10InitializeINS_10CovarStateEEEvRT_(ptr noundef nonnull align 8 dereferenceable(32) %4)
+  %5 = load ptr, ptr %2, align 8, !tbaa !229
+  %6 = getelementptr inbounds nuw %"struct.duckdb::RegrSlopeState", ptr %5, i32 0, i32 1
+  call void @_ZN6duckdb19STDDevBaseOperation10InitializeINS_11StddevStateEEEvRT_(ptr noundef nonnull align 8 dereferenceable(24) %6)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN6duckdb19STDDevBaseOperation10InitializeINS_11StddevStateEEEvRT_(ptr noundef nonnull align 8 dereferenceable(24) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !231
+  %3 = load ptr, ptr %2, align 8, !tbaa !231
+  %4 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %3, i32 0, i32 0
+  store i64 0, ptr %4, align 8, !tbaa !233
+  %5 = load ptr, ptr %2, align 8, !tbaa !231
+  %6 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %5, i32 0, i32 1
+  store double 0.000000e+00, ptr %6, align 8, !tbaa !234
+  %7 = load ptr, ptr %2, align 8, !tbaa !231
+  %8 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %7, i32 0, i32 2
+  store double 0.000000e+00, ptr %8, align 8, !tbaa !235
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateExecutor13BinaryScatterINS_18RegrInterceptStateEddNS_22RegrInterceptOperationEEEvRNS_18AggregateInputDataERNS_6VectorES7_S7_m(ptr noundef nonnull align 8 dereferenceable(17) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, ptr noundef nonnull align 8 dereferenceable(104) %3, i64 noundef %4) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
+  %12 = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
+  store ptr %0, ptr %6, align 8, !tbaa !72
+  store ptr %1, ptr %7, align 8, !tbaa !70
+  store ptr %2, ptr %8, align 8, !tbaa !70
+  store ptr %3, ptr %9, align 8, !tbaa !70
+  store i64 %4, ptr %10, align 8, !tbaa !74
+  call void @llvm.lifetime.start.p0(i64 72, ptr %11) #17
+  call void @_ZN6duckdb19UnifiedVectorFormatC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %11)
+  call void @llvm.lifetime.start.p0(i64 72, ptr %12) #17
+  invoke void @_ZN6duckdb19UnifiedVectorFormatC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %12)
+          to label %16 unwind label %42
+
+16:                                               ; preds = %5
+  call void @llvm.lifetime.start.p0(i64 72, ptr %15) #17
+  invoke void @_ZN6duckdb19UnifiedVectorFormatC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %15)
+          to label %17 unwind label %46
+
+17:                                               ; preds = %16
+  %18 = load ptr, ptr %7, align 8, !tbaa !70
+  %19 = load i64, ptr %10, align 8, !tbaa !74
+  invoke void @_ZN6duckdb6Vector15ToUnifiedFormatEmRNS_19UnifiedVectorFormatE(ptr noundef nonnull align 8 dereferenceable(104) %18, i64 noundef %19, ptr noundef nonnull align 8 dereferenceable(72) %11)
+          to label %20 unwind label %50
+
+20:                                               ; preds = %17
+  %21 = load ptr, ptr %8, align 8, !tbaa !70
+  %22 = load i64, ptr %10, align 8, !tbaa !74
+  invoke void @_ZN6duckdb6Vector15ToUnifiedFormatEmRNS_19UnifiedVectorFormatE(ptr noundef nonnull align 8 dereferenceable(104) %21, i64 noundef %22, ptr noundef nonnull align 8 dereferenceable(72) %12)
+          to label %23 unwind label %50
+
+23:                                               ; preds = %20
+  %24 = load ptr, ptr %9, align 8, !tbaa !70
+  %25 = load i64, ptr %10, align 8, !tbaa !74
+  invoke void @_ZN6duckdb6Vector15ToUnifiedFormatEmRNS_19UnifiedVectorFormatE(ptr noundef nonnull align 8 dereferenceable(104) %24, i64 noundef %25, ptr noundef nonnull align 8 dereferenceable(72) %15)
+          to label %26 unwind label %50
+
+26:                                               ; preds = %23
+  %27 = call noundef ptr @_ZN6duckdb19UnifiedVectorFormat7GetDataIdEEPKT_RKS0_(ptr noundef nonnull align 8 dereferenceable(72) %11)
+  %28 = load ptr, ptr %6, align 8, !tbaa !72
+  %29 = call noundef ptr @_ZN6duckdb19UnifiedVectorFormat7GetDataIdEEPKT_RKS0_(ptr noundef nonnull align 8 dereferenceable(72) %12)
+  %30 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %15, i32 0, i32 1
+  %31 = load ptr, ptr %30, align 8, !tbaa !108
+  %32 = load i64, ptr %10, align 8, !tbaa !74
+  %33 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %11, i32 0, i32 0
+  %34 = load ptr, ptr %33, align 8, !tbaa !122
+  %35 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %12, i32 0, i32 0
+  %36 = load ptr, ptr %35, align 8, !tbaa !122
+  %37 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %15, i32 0, i32 0
+  %38 = load ptr, ptr %37, align 8, !tbaa !122
+  %39 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %11, i32 0, i32 2
+  %40 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %12, i32 0, i32 2
+  invoke void @_ZN6duckdb17AggregateExecutor17BinaryScatterLoopINS_18RegrInterceptStateEddNS_22RegrInterceptOperationEEEvPKT0_RNS_18AggregateInputDataEPKT1_PPT_mRKNS_15SelectionVectorESH_SH_RNS_12ValidityMaskESJ_(ptr noundef %27, ptr noundef nonnull align 8 dereferenceable(17) %28, ptr noundef %29, ptr noundef %31, i64 noundef %32, ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef nonnull align 8 dereferenceable(24) %36, ptr noundef nonnull align 8 dereferenceable(24) %38, ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef nonnull align 8 dereferenceable(32) %40)
+          to label %41 unwind label %50
+
+41:                                               ; preds = %26
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %15) #17
+  call void @llvm.lifetime.end.p0(i64 72, ptr %15) #17
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %12) #17
+  call void @llvm.lifetime.end.p0(i64 72, ptr %12) #17
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %11) #17
+  call void @llvm.lifetime.end.p0(i64 72, ptr %11) #17
+  ret void
+
+42:                                               ; preds = %5
+  %43 = landingpad { ptr, i32 }
+          cleanup
+  %44 = extractvalue { ptr, i32 } %43, 0
+  store ptr %44, ptr %13, align 8
+  %45 = extractvalue { ptr, i32 } %43, 1
+  store i32 %45, ptr %14, align 4
+  br label %55
+
+46:                                               ; preds = %16
+  %47 = landingpad { ptr, i32 }
+          cleanup
+  %48 = extractvalue { ptr, i32 } %47, 0
+  store ptr %48, ptr %13, align 8
+  %49 = extractvalue { ptr, i32 } %47, 1
+  store i32 %49, ptr %14, align 4
+  br label %54
+
+50:                                               ; preds = %26, %23, %20, %17
+  %51 = landingpad { ptr, i32 }
+          cleanup
+  %52 = extractvalue { ptr, i32 } %51, 0
+  store ptr %52, ptr %13, align 8
+  %53 = extractvalue { ptr, i32 } %51, 1
+  store i32 %53, ptr %14, align 4
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %15) #17
+  br label %54
+
+54:                                               ; preds = %50, %46
+  call void @llvm.lifetime.end.p0(i64 72, ptr %15) #17
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %12) #17
+  br label %55
+
+55:                                               ; preds = %54, %42
+  call void @llvm.lifetime.end.p0(i64 72, ptr %12) #17
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %11) #17
+  call void @llvm.lifetime.end.p0(i64 72, ptr %11) #17
+  br label %56
+
+56:                                               ; preds = %55
+  %57 = load ptr, ptr %13, align 8
+  %58 = load i32, ptr %14, align 4
+  %59 = insertvalue { ptr, i32 } poison, ptr %57, 0
+  %60 = insertvalue { ptr, i32 } %59, i32 %58, 1
+  resume { ptr, i32 } %60
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateExecutor17BinaryScatterLoopINS_18RegrInterceptStateEddNS_22RegrInterceptOperationEEEvPKT0_RNS_18AggregateInputDataEPKT1_PPT_mRKNS_15SelectionVectorESH_SH_RNS_12ValidityMaskESJ_(ptr noalias noundef %0, ptr noundef nonnull align 8 dereferenceable(17) %1, ptr noalias noundef %2, ptr noalias noundef %3, i64 noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9) #12 comdat align 2 {
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca i64, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca ptr, align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca ptr, align 8
+  %20 = alloca ptr, align 8
+  %21 = alloca %"struct.duckdb::AggregateBinaryInput", align 8
+  %22 = alloca i64, align 8
+  %23 = alloca i64, align 8
+  %24 = alloca i64, align 8
+  %25 = alloca i64, align 8
+  store ptr %0, ptr %11, align 8, !tbaa !123
+  store ptr %1, ptr %12, align 8, !tbaa !72
+  store ptr %2, ptr %13, align 8, !tbaa !123
+  store ptr %3, ptr %14, align 8, !tbaa !236
+  store i64 %4, ptr %15, align 8, !tbaa !74
+  store ptr %5, ptr %16, align 8, !tbaa !127
+  store ptr %6, ptr %17, align 8, !tbaa !127
+  store ptr %7, ptr %18, align 8, !tbaa !127
+  store ptr %8, ptr %19, align 8, !tbaa !128
+  store ptr %9, ptr %20, align 8, !tbaa !128
+  call void @llvm.lifetime.start.p0(i64 40, ptr %21) #17
+  %26 = load ptr, ptr %12, align 8, !tbaa !72
+  %27 = load ptr, ptr %19, align 8, !tbaa !128
+  %28 = load ptr, ptr %20, align 8, !tbaa !128
+  call void @_ZN6duckdb20AggregateBinaryInputC2ERNS_18AggregateInputDataERNS_12ValidityMaskES4_(ptr noundef nonnull align 8 dereferenceable(40) %21, ptr noundef nonnull align 8 dereferenceable(17) %26, ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %28)
+  %29 = call noundef zeroext i1 @_ZN6duckdb22RegrInterceptOperation10IgnoreNullEv()
+  br i1 %29, label %30, label %81
+
+30:                                               ; preds = %10
+  %31 = load ptr, ptr %19, align 8, !tbaa !128
+  %32 = call noundef zeroext i1 @_ZNK6duckdb21TemplatedValidityMaskImE8AllValidEv(ptr noundef nonnull align 8 dereferenceable(32) %31)
+  br i1 %32, label %33, label %36
+
+33:                                               ; preds = %30
+  %34 = load ptr, ptr %20, align 8, !tbaa !128
+  %35 = call noundef zeroext i1 @_ZNK6duckdb21TemplatedValidityMaskImE8AllValidEv(ptr noundef nonnull align 8 dereferenceable(32) %34)
+  br i1 %35, label %81, label %36
+
+36:                                               ; preds = %33, %30
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #17
+  store i64 0, ptr %22, align 8, !tbaa !74
+  br label %37
+
+37:                                               ; preds = %77, %36
+  %38 = load i64, ptr %22, align 8, !tbaa !74
+  %39 = load i64, ptr %15, align 8, !tbaa !74
+  %40 = icmp ult i64 %38, %39
+  br i1 %40, label %42, label %41
+
+41:                                               ; preds = %37
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #17
+  br label %80
+
+42:                                               ; preds = %37
+  %43 = load ptr, ptr %16, align 8, !tbaa !127
+  %44 = load i64, ptr %22, align 8, !tbaa !74
+  %45 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %43, i64 noundef %44)
+  %46 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 3
+  store i64 %45, ptr %46, align 8, !tbaa !130
+  %47 = load ptr, ptr %17, align 8, !tbaa !127
+  %48 = load i64, ptr %22, align 8, !tbaa !74
+  %49 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %47, i64 noundef %48)
+  %50 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 4
+  store i64 %49, ptr %50, align 8, !tbaa !132
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #17
+  %51 = load ptr, ptr %18, align 8, !tbaa !127
+  %52 = load i64, ptr %22, align 8, !tbaa !74
+  %53 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %51, i64 noundef %52)
+  store i64 %53, ptr %23, align 8, !tbaa !74
+  %54 = load ptr, ptr %19, align 8, !tbaa !128
+  %55 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 3
+  %56 = load i64, ptr %55, align 8, !tbaa !130
+  %57 = call noundef zeroext i1 @_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm(ptr noundef nonnull align 8 dereferenceable(32) %54, i64 noundef %56)
+  br i1 %57, label %58, label %76
+
+58:                                               ; preds = %42
+  %59 = load ptr, ptr %20, align 8, !tbaa !128
+  %60 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 4
+  %61 = load i64, ptr %60, align 8, !tbaa !132
+  %62 = call noundef zeroext i1 @_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm(ptr noundef nonnull align 8 dereferenceable(32) %59, i64 noundef %61)
+  br i1 %62, label %63, label %76
+
+63:                                               ; preds = %58
+  %64 = load ptr, ptr %14, align 8, !tbaa !236
+  %65 = load i64, ptr %23, align 8, !tbaa !74
+  %66 = getelementptr inbounds nuw ptr, ptr %64, i64 %65
+  %67 = load ptr, ptr %66, align 8, !tbaa !221
+  %68 = load ptr, ptr %11, align 8, !tbaa !123
+  %69 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 3
+  %70 = load i64, ptr %69, align 8, !tbaa !130
+  %71 = getelementptr inbounds nuw double, ptr %68, i64 %70
+  %72 = load ptr, ptr %13, align 8, !tbaa !123
+  %73 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 4
+  %74 = load i64, ptr %73, align 8, !tbaa !132
+  %75 = getelementptr inbounds nuw double, ptr %72, i64 %74
+  call void @_ZN6duckdb22RegrInterceptOperation9OperationIddNS_18RegrInterceptStateES0_EEvRT1_RKT_RKT0_RNS_20AggregateBinaryInputE(ptr noundef nonnull align 8 dereferenceable(80) %67, ptr noundef nonnull align 8 dereferenceable(8) %71, ptr noundef nonnull align 8 dereferenceable(8) %75, ptr noundef nonnull align 8 dereferenceable(40) %21)
+  br label %76
+
+76:                                               ; preds = %63, %58, %42
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #17
+  br label %77
+
+77:                                               ; preds = %76
+  %78 = load i64, ptr %22, align 8, !tbaa !74
+  %79 = add i64 %78, 1
+  store i64 %79, ptr %22, align 8, !tbaa !74
+  br label %37, !llvm.loop !238
+
+80:                                               ; preds = %41
+  br label %115
+
+81:                                               ; preds = %33, %10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #17
+  store i64 0, ptr %24, align 8, !tbaa !74
+  br label %82
+
+82:                                               ; preds = %111, %81
+  %83 = load i64, ptr %24, align 8, !tbaa !74
+  %84 = load i64, ptr %15, align 8, !tbaa !74
+  %85 = icmp ult i64 %83, %84
+  br i1 %85, label %87, label %86
+
+86:                                               ; preds = %82
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #17
+  br label %114
+
+87:                                               ; preds = %82
+  %88 = load ptr, ptr %16, align 8, !tbaa !127
+  %89 = load i64, ptr %24, align 8, !tbaa !74
+  %90 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %88, i64 noundef %89)
+  %91 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 3
+  store i64 %90, ptr %91, align 8, !tbaa !130
+  %92 = load ptr, ptr %17, align 8, !tbaa !127
+  %93 = load i64, ptr %24, align 8, !tbaa !74
+  %94 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %92, i64 noundef %93)
+  %95 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 4
+  store i64 %94, ptr %95, align 8, !tbaa !132
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #17
+  %96 = load ptr, ptr %18, align 8, !tbaa !127
+  %97 = load i64, ptr %24, align 8, !tbaa !74
+  %98 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %96, i64 noundef %97)
+  store i64 %98, ptr %25, align 8, !tbaa !74
+  %99 = load ptr, ptr %14, align 8, !tbaa !236
+  %100 = load i64, ptr %25, align 8, !tbaa !74
+  %101 = getelementptr inbounds nuw ptr, ptr %99, i64 %100
+  %102 = load ptr, ptr %101, align 8, !tbaa !221
+  %103 = load ptr, ptr %11, align 8, !tbaa !123
+  %104 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 3
+  %105 = load i64, ptr %104, align 8, !tbaa !130
+  %106 = getelementptr inbounds nuw double, ptr %103, i64 %105
+  %107 = load ptr, ptr %13, align 8, !tbaa !123
+  %108 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 4
+  %109 = load i64, ptr %108, align 8, !tbaa !132
+  %110 = getelementptr inbounds nuw double, ptr %107, i64 %109
+  call void @_ZN6duckdb22RegrInterceptOperation9OperationIddNS_18RegrInterceptStateES0_EEvRT1_RKT_RKT0_RNS_20AggregateBinaryInputE(ptr noundef nonnull align 8 dereferenceable(80) %102, ptr noundef nonnull align 8 dereferenceable(8) %106, ptr noundef nonnull align 8 dereferenceable(8) %110, ptr noundef nonnull align 8 dereferenceable(40) %21)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #17
+  br label %111
+
+111:                                              ; preds = %87
+  %112 = load i64, ptr %24, align 8, !tbaa !74
+  %113 = add i64 %112, 1
+  store i64 %113, ptr %24, align 8, !tbaa !74
+  br label %82, !llvm.loop !239
+
+114:                                              ; preds = %86
+  br label %115
+
+115:                                              ; preds = %114, %80
+  call void @llvm.lifetime.end.p0(i64 40, ptr %21) #17
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZN6duckdb22RegrInterceptOperation10IgnoreNullEv() #5 comdat align 2 {
+  ret i1 true
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb22RegrInterceptOperation9OperationIddNS_18RegrInterceptStateES0_EEvRT1_RKT_RKT0_RNS_20AggregateBinaryInputE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(40) %3) #0 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !221
+  store ptr %1, ptr %6, align 8, !tbaa !123
+  store ptr %2, ptr %7, align 8, !tbaa !123
+  store ptr %3, ptr %8, align 8, !tbaa !137
+  %9 = load ptr, ptr %5, align 8, !tbaa !221
+  %10 = getelementptr inbounds nuw %"struct.duckdb::RegrInterceptState", ptr %9, i32 0, i32 0
+  %11 = load i64, ptr %10, align 8, !tbaa !223
+  %12 = add i64 %11, 1
+  store i64 %12, ptr %10, align 8, !tbaa !223
+  %13 = load ptr, ptr %7, align 8, !tbaa !123
+  %14 = load double, ptr %13, align 8, !tbaa !143
+  %15 = load ptr, ptr %5, align 8, !tbaa !221
+  %16 = getelementptr inbounds nuw %"struct.duckdb::RegrInterceptState", ptr %15, i32 0, i32 1
+  %17 = load double, ptr %16, align 8, !tbaa !227
+  %18 = fadd double %17, %14
+  store double %18, ptr %16, align 8, !tbaa !227
+  %19 = load ptr, ptr %6, align 8, !tbaa !123
+  %20 = load double, ptr %19, align 8, !tbaa !143
+  %21 = load ptr, ptr %5, align 8, !tbaa !221
+  %22 = getelementptr inbounds nuw %"struct.duckdb::RegrInterceptState", ptr %21, i32 0, i32 2
+  %23 = load double, ptr %22, align 8, !tbaa !228
+  %24 = fadd double %23, %20
+  store double %24, ptr %22, align 8, !tbaa !228
+  %25 = load ptr, ptr %5, align 8, !tbaa !221
+  %26 = getelementptr inbounds nuw %"struct.duckdb::RegrInterceptState", ptr %25, i32 0, i32 3
+  %27 = load ptr, ptr %6, align 8, !tbaa !123
+  %28 = load ptr, ptr %7, align 8, !tbaa !123
+  %29 = load ptr, ptr %8, align 8, !tbaa !137
+  call void @_ZN6duckdb18RegrSlopeOperation9OperationIddNS_14RegrSlopeStateENS_22RegrInterceptOperationEEEvRT1_RKT_RKT0_RNS_20AggregateBinaryInputE(ptr noundef nonnull align 8 dereferenceable(56) %26, ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull align 8 dereferenceable(40) %29)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb18RegrSlopeOperation9OperationIddNS_14RegrSlopeStateENS_22RegrInterceptOperationEEEvRT1_RKT_RKT0_RNS_20AggregateBinaryInputE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(40) %3) #0 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !229
+  store ptr %1, ptr %6, align 8, !tbaa !123
+  store ptr %2, ptr %7, align 8, !tbaa !123
+  store ptr %3, ptr %8, align 8, !tbaa !137
+  %9 = load ptr, ptr %5, align 8, !tbaa !229
+  %10 = getelementptr inbounds nuw %"struct.duckdb::RegrSlopeState", ptr %9, i32 0, i32 0
+  %11 = load ptr, ptr %6, align 8, !tbaa !123
+  %12 = load ptr, ptr %7, align 8, !tbaa !123
+  %13 = load ptr, ptr %8, align 8, !tbaa !137
+  call void @_ZN6duckdb14CovarOperation9OperationIddNS_10CovarStateENS_22RegrInterceptOperationEEEvRT1_RKT_RKT0_RNS_20AggregateBinaryInputE(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(40) %13)
+  %14 = load ptr, ptr %5, align 8, !tbaa !229
+  %15 = getelementptr inbounds nuw %"struct.duckdb::RegrSlopeState", ptr %14, i32 0, i32 1
+  %16 = load ptr, ptr %7, align 8, !tbaa !123
+  call void @_ZN6duckdb19STDDevBaseOperation7ExecuteIdNS_11StddevStateEEEvRT0_RKT_(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(8) %16)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN6duckdb14CovarOperation9OperationIddNS_10CovarStateENS_22RegrInterceptOperationEEEvRT1_RKT_RKT0_RNS_20AggregateBinaryInputE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(40) %3) #5 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca double, align 8
+  %10 = alloca double, align 8
+  %11 = alloca double, align 8
+  %12 = alloca double, align 8
+  %13 = alloca double, align 8
+  %14 = alloca double, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !100
+  store ptr %1, ptr %6, align 8, !tbaa !123
+  store ptr %2, ptr %7, align 8, !tbaa !123
+  store ptr %3, ptr %8, align 8, !tbaa !137
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #17
+  %15 = load ptr, ptr %5, align 8, !tbaa !100
+  %16 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %15, i32 0, i32 0
+  %17 = load i64, ptr %16, align 8, !tbaa !102
+  %18 = add i64 %17, 1
+  store i64 %18, ptr %16, align 8, !tbaa !102
+  %19 = uitofp i64 %18 to double
+  store double %19, ptr %9, align 8, !tbaa !143
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #17
+  %20 = load ptr, ptr %7, align 8, !tbaa !123
+  %21 = load double, ptr %20, align 8, !tbaa !143
+  %22 = load ptr, ptr %5, align 8, !tbaa !100
+  %23 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %22, i32 0, i32 1
+  %24 = load double, ptr %23, align 8, !tbaa !105
+  %25 = fsub double %21, %24
+  store double %25, ptr %10, align 8, !tbaa !143
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #17
+  %26 = load ptr, ptr %5, align 8, !tbaa !100
+  %27 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %26, i32 0, i32 1
+  %28 = load double, ptr %27, align 8, !tbaa !105
+  %29 = load double, ptr %10, align 8, !tbaa !143
+  %30 = load double, ptr %9, align 8, !tbaa !143
+  %31 = fdiv double %29, %30
+  %32 = fadd double %28, %31
+  store double %32, ptr %11, align 8, !tbaa !143
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #17
+  %33 = load ptr, ptr %6, align 8, !tbaa !123
+  %34 = load double, ptr %33, align 8, !tbaa !143
+  %35 = load ptr, ptr %5, align 8, !tbaa !100
+  %36 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %35, i32 0, i32 2
+  %37 = load double, ptr %36, align 8, !tbaa !106
+  %38 = fsub double %34, %37
+  store double %38, ptr %12, align 8, !tbaa !143
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #17
+  %39 = load ptr, ptr %5, align 8, !tbaa !100
+  %40 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %39, i32 0, i32 2
+  %41 = load double, ptr %40, align 8, !tbaa !106
+  %42 = load double, ptr %12, align 8, !tbaa !143
+  %43 = load double, ptr %9, align 8, !tbaa !143
+  %44 = fdiv double %42, %43
+  %45 = fadd double %41, %44
+  store double %45, ptr %13, align 8, !tbaa !143
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #17
+  %46 = load ptr, ptr %5, align 8, !tbaa !100
+  %47 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %46, i32 0, i32 3
+  %48 = load double, ptr %47, align 8, !tbaa !107
+  %49 = load double, ptr %10, align 8, !tbaa !143
+  %50 = load ptr, ptr %6, align 8, !tbaa !123
+  %51 = load double, ptr %50, align 8, !tbaa !143
+  %52 = load double, ptr %13, align 8, !tbaa !143
+  %53 = fsub double %51, %52
+  %54 = call double @llvm.fmuladd.f64(double %49, double %53, double %48)
+  store double %54, ptr %14, align 8, !tbaa !143
+  %55 = load double, ptr %11, align 8, !tbaa !143
+  %56 = load ptr, ptr %5, align 8, !tbaa !100
+  %57 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %56, i32 0, i32 1
+  store double %55, ptr %57, align 8, !tbaa !105
+  %58 = load double, ptr %13, align 8, !tbaa !143
+  %59 = load ptr, ptr %5, align 8, !tbaa !100
+  %60 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %59, i32 0, i32 2
+  store double %58, ptr %60, align 8, !tbaa !106
+  %61 = load double, ptr %14, align 8, !tbaa !143
+  %62 = load ptr, ptr %5, align 8, !tbaa !100
+  %63 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %62, i32 0, i32 3
+  store double %61, ptr %63, align 8, !tbaa !107
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #17
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN6duckdb19STDDevBaseOperation7ExecuteIdNS_11StddevStateEEEvRT0_RKT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca double, align 8
+  %6 = alloca double, align 8
+  %7 = alloca double, align 8
+  %8 = alloca double, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !231
+  store ptr %1, ptr %4, align 8, !tbaa !123
+  %9 = load ptr, ptr %3, align 8, !tbaa !231
+  %10 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %9, i32 0, i32 0
+  %11 = load i64, ptr %10, align 8, !tbaa !233
+  %12 = add i64 %11, 1
+  store i64 %12, ptr %10, align 8, !tbaa !233
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #17
+  %13 = load ptr, ptr %4, align 8, !tbaa !123
+  %14 = load double, ptr %13, align 8, !tbaa !143
+  %15 = load ptr, ptr %3, align 8, !tbaa !231
+  %16 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %15, i32 0, i32 1
+  %17 = load double, ptr %16, align 8, !tbaa !234
+  %18 = fsub double %14, %17
+  %19 = load ptr, ptr %3, align 8, !tbaa !231
+  %20 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %19, i32 0, i32 0
+  %21 = load i64, ptr %20, align 8, !tbaa !233
+  %22 = uitofp i64 %21 to double
+  %23 = fdiv double %18, %22
+  store double %23, ptr %5, align 8, !tbaa !143
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #17
+  %24 = load ptr, ptr %3, align 8, !tbaa !231
+  %25 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %24, i32 0, i32 1
+  %26 = load double, ptr %25, align 8, !tbaa !234
+  %27 = load double, ptr %5, align 8, !tbaa !143
+  %28 = fadd double %26, %27
+  store double %28, ptr %6, align 8, !tbaa !143
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #17
+  %29 = load ptr, ptr %4, align 8, !tbaa !123
+  %30 = load double, ptr %29, align 8, !tbaa !143
+  %31 = load double, ptr %6, align 8, !tbaa !143
+  %32 = fsub double %30, %31
+  %33 = load ptr, ptr %4, align 8, !tbaa !123
+  %34 = load double, ptr %33, align 8, !tbaa !143
+  %35 = load ptr, ptr %3, align 8, !tbaa !231
+  %36 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %35, i32 0, i32 1
+  %37 = load double, ptr %36, align 8, !tbaa !234
+  %38 = fsub double %34, %37
+  %39 = fmul double %32, %38
+  store double %39, ptr %7, align 8, !tbaa !143
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #17
+  %40 = load ptr, ptr %3, align 8, !tbaa !231
+  %41 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %40, i32 0, i32 2
+  %42 = load double, ptr %41, align 8, !tbaa !235
+  %43 = load double, ptr %7, align 8, !tbaa !143
+  %44 = fadd double %42, %43
+  store double %44, ptr %8, align 8, !tbaa !143
+  %45 = load double, ptr %6, align 8, !tbaa !143
+  %46 = load ptr, ptr %3, align 8, !tbaa !231
+  %47 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %46, i32 0, i32 1
+  store double %45, ptr %47, align 8, !tbaa !234
+  %48 = load double, ptr %8, align 8, !tbaa !143
+  %49 = load ptr, ptr %3, align 8, !tbaa !231
+  %50 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %49, i32 0, i32 2
+  store double %48, ptr %50, align 8, !tbaa !235
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #17
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateExecutor7CombineINS_18RegrInterceptStateENS_22RegrInterceptOperationEEEvRNS_6VectorES5_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(17) %2, i64 noundef %3) #0 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !70
+  store ptr %1, ptr %6, align 8, !tbaa !70
+  store ptr %2, ptr %7, align 8, !tbaa !72
+  store i64 %3, ptr %8, align 8, !tbaa !74
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #17
+  %12 = load ptr, ptr %5, align 8, !tbaa !70
+  %13 = call noundef ptr @_ZN6duckdb10FlatVector7GetDataIPKNS_18RegrInterceptStateEEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %12)
+  store ptr %13, ptr %9, align 8, !tbaa !236
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #17
+  %14 = load ptr, ptr %6, align 8, !tbaa !70
+  %15 = call noundef ptr @_ZN6duckdb10FlatVector7GetDataIPNS_18RegrInterceptStateEEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %14)
+  store ptr %15, ptr %10, align 8, !tbaa !236
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #17
+  store i64 0, ptr %11, align 8, !tbaa !74
+  br label %16
+
+16:                                               ; preds = %31, %4
+  %17 = load i64, ptr %11, align 8, !tbaa !74
+  %18 = load i64, ptr %8, align 8, !tbaa !74
+  %19 = icmp ult i64 %17, %18
+  br i1 %19, label %21, label %20
+
+20:                                               ; preds = %16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #17
+  br label %34
+
+21:                                               ; preds = %16
+  %22 = load ptr, ptr %9, align 8, !tbaa !236
+  %23 = load i64, ptr %11, align 8, !tbaa !74
+  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %25 = load ptr, ptr %24, align 8, !tbaa !221
+  %26 = load ptr, ptr %10, align 8, !tbaa !236
+  %27 = load i64, ptr %11, align 8, !tbaa !74
+  %28 = getelementptr inbounds nuw ptr, ptr %26, i64 %27
+  %29 = load ptr, ptr %28, align 8, !tbaa !221
+  %30 = load ptr, ptr %7, align 8, !tbaa !72
+  call void @_ZN6duckdb22RegrInterceptOperation7CombineINS_18RegrInterceptStateES0_EEvRKT_RS3_RNS_18AggregateInputDataE(ptr noundef nonnull align 8 dereferenceable(80) %25, ptr noundef nonnull align 8 dereferenceable(80) %29, ptr noundef nonnull align 8 dereferenceable(17) %30)
+  br label %31
+
+31:                                               ; preds = %21
+  %32 = load i64, ptr %11, align 8, !tbaa !74
+  %33 = add i64 %32, 1
+  store i64 %33, ptr %11, align 8, !tbaa !74
+  br label %16, !llvm.loop !240
+
+34:                                               ; preds = %20
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #17
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef ptr @_ZN6duckdb10FlatVector7GetDataIPKNS_18RegrInterceptStateEEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %0) #12 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !70
+  %3 = load ptr, ptr %2, align 8, !tbaa !70
+  %4 = call noundef ptr @_ZN6duckdb14ConstantVector7GetDataIPKNS_18RegrInterceptStateEEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %3)
+  ret ptr %4
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef ptr @_ZN6duckdb10FlatVector7GetDataIPNS_18RegrInterceptStateEEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %0) #12 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !70
+  %3 = load ptr, ptr %2, align 8, !tbaa !70
+  %4 = call noundef ptr @_ZN6duckdb14ConstantVector7GetDataIPNS_18RegrInterceptStateEEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %3)
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb22RegrInterceptOperation7CombineINS_18RegrInterceptStateES0_EEvRKT_RS3_RNS_18AggregateInputDataE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull align 8 dereferenceable(17) %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !221
+  store ptr %1, ptr %5, align 8, !tbaa !221
+  store ptr %2, ptr %6, align 8, !tbaa !72
+  %7 = load ptr, ptr %4, align 8, !tbaa !221
+  %8 = getelementptr inbounds nuw %"struct.duckdb::RegrInterceptState", ptr %7, i32 0, i32 0
+  %9 = load i64, ptr %8, align 8, !tbaa !223
+  %10 = load ptr, ptr %5, align 8, !tbaa !221
+  %11 = getelementptr inbounds nuw %"struct.duckdb::RegrInterceptState", ptr %10, i32 0, i32 0
+  %12 = load i64, ptr %11, align 8, !tbaa !223
+  %13 = add i64 %12, %9
+  store i64 %13, ptr %11, align 8, !tbaa !223
+  %14 = load ptr, ptr %4, align 8, !tbaa !221
+  %15 = getelementptr inbounds nuw %"struct.duckdb::RegrInterceptState", ptr %14, i32 0, i32 1
+  %16 = load double, ptr %15, align 8, !tbaa !227
+  %17 = load ptr, ptr %5, align 8, !tbaa !221
+  %18 = getelementptr inbounds nuw %"struct.duckdb::RegrInterceptState", ptr %17, i32 0, i32 1
+  %19 = load double, ptr %18, align 8, !tbaa !227
+  %20 = fadd double %19, %16
+  store double %20, ptr %18, align 8, !tbaa !227
+  %21 = load ptr, ptr %4, align 8, !tbaa !221
+  %22 = getelementptr inbounds nuw %"struct.duckdb::RegrInterceptState", ptr %21, i32 0, i32 2
+  %23 = load double, ptr %22, align 8, !tbaa !228
+  %24 = load ptr, ptr %5, align 8, !tbaa !221
+  %25 = getelementptr inbounds nuw %"struct.duckdb::RegrInterceptState", ptr %24, i32 0, i32 2
+  %26 = load double, ptr %25, align 8, !tbaa !228
+  %27 = fadd double %26, %23
+  store double %27, ptr %25, align 8, !tbaa !228
+  %28 = load ptr, ptr %4, align 8, !tbaa !221
+  %29 = getelementptr inbounds nuw %"struct.duckdb::RegrInterceptState", ptr %28, i32 0, i32 3
+  %30 = load ptr, ptr %5, align 8, !tbaa !221
+  %31 = getelementptr inbounds nuw %"struct.duckdb::RegrInterceptState", ptr %30, i32 0, i32 3
+  %32 = load ptr, ptr %6, align 8, !tbaa !72
+  call void @_ZN6duckdb18RegrSlopeOperation7CombineINS_14RegrSlopeStateENS_22RegrInterceptOperationEEEvRKT_RS4_RNS_18AggregateInputDataE(ptr noundef nonnull align 8 dereferenceable(56) %29, ptr noundef nonnull align 8 dereferenceable(56) %31, ptr noundef nonnull align 8 dereferenceable(17) %32)
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZN6duckdb14ConstantVector7GetDataIPKNS_18RegrInterceptStateEEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !70
+  %3 = load ptr, ptr %2, align 8, !tbaa !70
+  %4 = call noundef ptr @_ZN6duckdb14ConstantVector7GetDataERNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %3)
+  ret ptr %4
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZN6duckdb14ConstantVector7GetDataIPNS_18RegrInterceptStateEEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !70
+  %3 = load ptr, ptr %2, align 8, !tbaa !70
+  %4 = call noundef ptr @_ZN6duckdb14ConstantVector7GetDataERNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %3)
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb18RegrSlopeOperation7CombineINS_14RegrSlopeStateENS_22RegrInterceptOperationEEEvRKT_RS4_RNS_18AggregateInputDataE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(17) %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !229
+  store ptr %1, ptr %5, align 8, !tbaa !229
+  store ptr %2, ptr %6, align 8, !tbaa !72
+  %7 = load ptr, ptr %4, align 8, !tbaa !229
+  %8 = getelementptr inbounds nuw %"struct.duckdb::RegrSlopeState", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %5, align 8, !tbaa !229
+  %10 = getelementptr inbounds nuw %"struct.duckdb::RegrSlopeState", ptr %9, i32 0, i32 0
+  %11 = load ptr, ptr %6, align 8, !tbaa !72
+  call void @_ZN6duckdb14CovarOperation7CombineINS_10CovarStateENS_22RegrInterceptOperationEEEvRKT_RS4_RNS_18AggregateInputDataE(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(17) %11)
+  %12 = load ptr, ptr %4, align 8, !tbaa !229
+  %13 = getelementptr inbounds nuw %"struct.duckdb::RegrSlopeState", ptr %12, i32 0, i32 1
+  %14 = load ptr, ptr %5, align 8, !tbaa !229
+  %15 = getelementptr inbounds nuw %"struct.duckdb::RegrSlopeState", ptr %14, i32 0, i32 1
+  %16 = load ptr, ptr %6, align 8, !tbaa !72
+  call void @_ZN6duckdb19STDDevBaseOperation7CombineINS_11StddevStateENS_22RegrInterceptOperationEEEvRKT_RS4_RNS_18AggregateInputDataE(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(17) %16)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN6duckdb14CovarOperation7CombineINS_10CovarStateENS_22RegrInterceptOperationEEEvRKT_RS4_RNS_18AggregateInputDataE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(17) %2) #5 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca double, align 8
+  %9 = alloca double, align 8
+  %10 = alloca double, align 8
+  %11 = alloca double, align 8
+  %12 = alloca double, align 8
+  %13 = alloca double, align 8
+  %14 = alloca double, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !100
+  store ptr %1, ptr %5, align 8, !tbaa !100
+  store ptr %2, ptr %6, align 8, !tbaa !72
+  %15 = load ptr, ptr %5, align 8, !tbaa !100
+  %16 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %15, i32 0, i32 0
+  %17 = load i64, ptr %16, align 8, !tbaa !102
+  %18 = icmp eq i64 %17, 0
+  br i1 %18, label %19, label %22
+
+19:                                               ; preds = %3
+  %20 = load ptr, ptr %4, align 8, !tbaa !100
+  %21 = load ptr, ptr %5, align 8, !tbaa !100
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %21, ptr align 8 %20, i64 32, i1 false), !tbaa.struct !160
+  br label %112
+
+22:                                               ; preds = %3
+  %23 = load ptr, ptr %4, align 8, !tbaa !100
+  %24 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %23, i32 0, i32 0
+  %25 = load i64, ptr %24, align 8, !tbaa !102
+  %26 = icmp ugt i64 %25, 0
+  br i1 %26, label %27, label %111
+
+27:                                               ; preds = %22
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #17
+  %28 = load ptr, ptr %5, align 8, !tbaa !100
+  %29 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %28, i32 0, i32 0
+  %30 = load i64, ptr %29, align 8, !tbaa !102
+  %31 = load ptr, ptr %4, align 8, !tbaa !100
+  %32 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %31, i32 0, i32 0
+  %33 = load i64, ptr %32, align 8, !tbaa !102
+  %34 = add i64 %30, %33
+  store i64 %34, ptr %7, align 8, !tbaa !74
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #17
+  %35 = load ptr, ptr %5, align 8, !tbaa !100
+  %36 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %35, i32 0, i32 0
+  %37 = load i64, ptr %36, align 8, !tbaa !102
+  %38 = uitofp i64 %37 to double
+  store double %38, ptr %8, align 8, !tbaa !143
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #17
+  %39 = load ptr, ptr %4, align 8, !tbaa !100
+  %40 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %39, i32 0, i32 0
+  %41 = load i64, ptr %40, align 8, !tbaa !102
+  %42 = uitofp i64 %41 to double
+  store double %42, ptr %9, align 8, !tbaa !143
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #17
+  %43 = load i64, ptr %7, align 8, !tbaa !74
+  %44 = uitofp i64 %43 to double
+  store double %44, ptr %10, align 8, !tbaa !143
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #17
+  %45 = load double, ptr %9, align 8, !tbaa !143
+  %46 = load ptr, ptr %4, align 8, !tbaa !100
+  %47 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %46, i32 0, i32 1
+  %48 = load double, ptr %47, align 8, !tbaa !105
+  %49 = load double, ptr %8, align 8, !tbaa !143
+  %50 = load ptr, ptr %5, align 8, !tbaa !100
+  %51 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %50, i32 0, i32 1
+  %52 = load double, ptr %51, align 8, !tbaa !105
+  %53 = fmul double %49, %52
+  %54 = call double @llvm.fmuladd.f64(double %45, double %48, double %53)
+  %55 = load double, ptr %10, align 8, !tbaa !143
+  %56 = fdiv double %54, %55
+  store double %56, ptr %11, align 8, !tbaa !143
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #17
+  %57 = load double, ptr %9, align 8, !tbaa !143
+  %58 = load ptr, ptr %4, align 8, !tbaa !100
+  %59 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %58, i32 0, i32 2
+  %60 = load double, ptr %59, align 8, !tbaa !106
+  %61 = load double, ptr %8, align 8, !tbaa !143
+  %62 = load ptr, ptr %5, align 8, !tbaa !100
+  %63 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %62, i32 0, i32 2
+  %64 = load double, ptr %63, align 8, !tbaa !106
+  %65 = fmul double %61, %64
+  %66 = call double @llvm.fmuladd.f64(double %57, double %60, double %65)
+  %67 = load double, ptr %10, align 8, !tbaa !143
+  %68 = fdiv double %66, %67
+  store double %68, ptr %12, align 8, !tbaa !143
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #17
+  %69 = load ptr, ptr %5, align 8, !tbaa !100
+  %70 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %69, i32 0, i32 1
+  %71 = load double, ptr %70, align 8, !tbaa !105
+  %72 = load ptr, ptr %4, align 8, !tbaa !100
+  %73 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %72, i32 0, i32 1
+  %74 = load double, ptr %73, align 8, !tbaa !105
+  %75 = fsub double %71, %74
+  store double %75, ptr %13, align 8, !tbaa !143
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #17
+  %76 = load ptr, ptr %5, align 8, !tbaa !100
+  %77 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %76, i32 0, i32 2
+  %78 = load double, ptr %77, align 8, !tbaa !106
+  %79 = load ptr, ptr %4, align 8, !tbaa !100
+  %80 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %79, i32 0, i32 2
+  %81 = load double, ptr %80, align 8, !tbaa !106
+  %82 = fsub double %78, %81
+  store double %82, ptr %14, align 8, !tbaa !143
+  %83 = load ptr, ptr %4, align 8, !tbaa !100
+  %84 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %83, i32 0, i32 3
+  %85 = load double, ptr %84, align 8, !tbaa !107
+  %86 = load ptr, ptr %5, align 8, !tbaa !100
+  %87 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %86, i32 0, i32 3
+  %88 = load double, ptr %87, align 8, !tbaa !107
+  %89 = fadd double %85, %88
+  %90 = load double, ptr %13, align 8, !tbaa !143
+  %91 = load double, ptr %14, align 8, !tbaa !143
+  %92 = fmul double %90, %91
+  %93 = load double, ptr %9, align 8, !tbaa !143
+  %94 = fmul double %92, %93
+  %95 = load double, ptr %8, align 8, !tbaa !143
+  %96 = fmul double %94, %95
+  %97 = load double, ptr %10, align 8, !tbaa !143
+  %98 = fdiv double %96, %97
+  %99 = fadd double %89, %98
+  %100 = load ptr, ptr %5, align 8, !tbaa !100
+  %101 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %100, i32 0, i32 3
+  store double %99, ptr %101, align 8, !tbaa !107
+  %102 = load double, ptr %11, align 8, !tbaa !143
+  %103 = load ptr, ptr %5, align 8, !tbaa !100
+  %104 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %103, i32 0, i32 1
+  store double %102, ptr %104, align 8, !tbaa !105
+  %105 = load double, ptr %12, align 8, !tbaa !143
+  %106 = load ptr, ptr %5, align 8, !tbaa !100
+  %107 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %106, i32 0, i32 2
+  store double %105, ptr %107, align 8, !tbaa !106
+  %108 = load i64, ptr %7, align 8, !tbaa !74
+  %109 = load ptr, ptr %5, align 8, !tbaa !100
+  %110 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %109, i32 0, i32 0
+  store i64 %108, ptr %110, align 8, !tbaa !102
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #17
+  br label %111
+
+111:                                              ; preds = %27, %22
+  br label %112
+
+112:                                              ; preds = %111, %19
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN6duckdb19STDDevBaseOperation7CombineINS_11StddevStateENS_22RegrInterceptOperationEEEvRKT_RS4_RNS_18AggregateInputDataE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(17) %2) #5 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca double, align 8
+  %9 = alloca double, align 8
+  %10 = alloca double, align 8
+  %11 = alloca double, align 8
+  %12 = alloca double, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !231
+  store ptr %1, ptr %5, align 8, !tbaa !231
+  store ptr %2, ptr %6, align 8, !tbaa !72
+  %13 = load ptr, ptr %5, align 8, !tbaa !231
+  %14 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %13, i32 0, i32 0
+  %15 = load i64, ptr %14, align 8, !tbaa !233
+  %16 = icmp eq i64 %15, 0
+  br i1 %16, label %17, label %20
+
+17:                                               ; preds = %3
+  %18 = load ptr, ptr %4, align 8, !tbaa !231
+  %19 = load ptr, ptr %5, align 8, !tbaa !231
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %19, ptr align 8 %18, i64 24, i1 false), !tbaa.struct !241
+  br label %88
+
+20:                                               ; preds = %3
+  %21 = load ptr, ptr %4, align 8, !tbaa !231
+  %22 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %21, i32 0, i32 0
+  %23 = load i64, ptr %22, align 8, !tbaa !233
+  %24 = icmp ugt i64 %23, 0
+  br i1 %24, label %25, label %87
+
+25:                                               ; preds = %20
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #17
+  %26 = load ptr, ptr %5, align 8, !tbaa !231
+  %27 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %26, i32 0, i32 0
+  %28 = load i64, ptr %27, align 8, !tbaa !233
+  %29 = load ptr, ptr %4, align 8, !tbaa !231
+  %30 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %29, i32 0, i32 0
+  %31 = load i64, ptr %30, align 8, !tbaa !233
+  %32 = add i64 %28, %31
+  store i64 %32, ptr %7, align 8, !tbaa !74
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #17
+  %33 = load ptr, ptr %5, align 8, !tbaa !231
+  %34 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %33, i32 0, i32 0
+  %35 = load i64, ptr %34, align 8, !tbaa !233
+  %36 = uitofp i64 %35 to double
+  store double %36, ptr %8, align 8, !tbaa !143
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #17
+  %37 = load ptr, ptr %4, align 8, !tbaa !231
+  %38 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %37, i32 0, i32 0
+  %39 = load i64, ptr %38, align 8, !tbaa !233
+  %40 = uitofp i64 %39 to double
+  store double %40, ptr %9, align 8, !tbaa !143
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #17
+  %41 = load i64, ptr %7, align 8, !tbaa !74
+  %42 = uitofp i64 %41 to double
+  store double %42, ptr %10, align 8, !tbaa !143
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #17
+  %43 = load double, ptr %9, align 8, !tbaa !143
+  %44 = load ptr, ptr %4, align 8, !tbaa !231
+  %45 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %44, i32 0, i32 1
+  %46 = load double, ptr %45, align 8, !tbaa !234
+  %47 = load double, ptr %8, align 8, !tbaa !143
+  %48 = load ptr, ptr %5, align 8, !tbaa !231
+  %49 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %48, i32 0, i32 1
+  %50 = load double, ptr %49, align 8, !tbaa !234
+  %51 = fmul double %47, %50
+  %52 = call double @llvm.fmuladd.f64(double %43, double %46, double %51)
+  %53 = load double, ptr %10, align 8, !tbaa !143
+  %54 = fdiv double %52, %53
+  store double %54, ptr %11, align 8, !tbaa !143
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #17
+  %55 = load ptr, ptr %4, align 8, !tbaa !231
+  %56 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %55, i32 0, i32 1
+  %57 = load double, ptr %56, align 8, !tbaa !234
+  %58 = load ptr, ptr %5, align 8, !tbaa !231
+  %59 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %58, i32 0, i32 1
+  %60 = load double, ptr %59, align 8, !tbaa !234
+  %61 = fsub double %57, %60
+  store double %61, ptr %12, align 8, !tbaa !143
+  %62 = load ptr, ptr %4, align 8, !tbaa !231
+  %63 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %62, i32 0, i32 2
+  %64 = load double, ptr %63, align 8, !tbaa !235
+  %65 = load ptr, ptr %5, align 8, !tbaa !231
+  %66 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %65, i32 0, i32 2
+  %67 = load double, ptr %66, align 8, !tbaa !235
+  %68 = fadd double %64, %67
+  %69 = load double, ptr %12, align 8, !tbaa !143
+  %70 = load double, ptr %12, align 8, !tbaa !143
+  %71 = fmul double %69, %70
+  %72 = load double, ptr %9, align 8, !tbaa !143
+  %73 = fmul double %71, %72
+  %74 = load double, ptr %8, align 8, !tbaa !143
+  %75 = fmul double %73, %74
+  %76 = load double, ptr %10, align 8, !tbaa !143
+  %77 = fdiv double %75, %76
+  %78 = fadd double %68, %77
+  %79 = load ptr, ptr %5, align 8, !tbaa !231
+  %80 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %79, i32 0, i32 2
+  store double %78, ptr %80, align 8, !tbaa !235
+  %81 = load double, ptr %11, align 8, !tbaa !143
+  %82 = load ptr, ptr %5, align 8, !tbaa !231
+  %83 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %82, i32 0, i32 1
+  store double %81, ptr %83, align 8, !tbaa !234
+  %84 = load i64, ptr %7, align 8, !tbaa !74
+  %85 = load ptr, ptr %5, align 8, !tbaa !231
+  %86 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %85, i32 0, i32 0
+  store i64 %84, ptr %86, align 8, !tbaa !233
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #17
+  br label %87
+
+87:                                               ; preds = %25, %20
+  br label %88
+
+88:                                               ; preds = %87, %17
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateExecutor8FinalizeINS_18RegrInterceptStateEdNS_22RegrInterceptOperationEEEvRNS_6VectorERNS_18AggregateInputDataES5_mm(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(17) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, i64 noundef %3, i64 noundef %4) #0 comdat align 2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca %"struct.duckdb::AggregateFinalizeData", align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca %"struct.duckdb::AggregateFinalizeData", align 8
+  %17 = alloca i64, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !70
+  store ptr %1, ptr %7, align 8, !tbaa !72
+  store ptr %2, ptr %8, align 8, !tbaa !70
+  store i64 %3, ptr %9, align 8, !tbaa !74
+  store i64 %4, ptr %10, align 8, !tbaa !74
+  %18 = load ptr, ptr %6, align 8, !tbaa !70
+  %19 = call noundef zeroext i8 @_ZNK6duckdb6Vector13GetVectorTypeEv(ptr noundef nonnull align 8 dereferenceable(104) %18)
+  %20 = icmp eq i8 %19, 2
+  br i1 %20, label %21, label %32
+
+21:                                               ; preds = %5
+  %22 = load ptr, ptr %8, align 8, !tbaa !70
+  call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %22, i8 noundef zeroext 2)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #17
+  %23 = load ptr, ptr %6, align 8, !tbaa !70
+  %24 = call noundef ptr @_ZN6duckdb14ConstantVector7GetDataIPNS_18RegrInterceptStateEEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %23)
+  store ptr %24, ptr %11, align 8, !tbaa !236
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #17
+  %25 = load ptr, ptr %8, align 8, !tbaa !70
+  %26 = call noundef ptr @_ZN6duckdb14ConstantVector7GetDataIdEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %25)
+  store ptr %26, ptr %12, align 8, !tbaa !123
+  call void @llvm.lifetime.start.p0(i64 24, ptr %13) #17
+  %27 = load ptr, ptr %8, align 8, !tbaa !70
+  %28 = load ptr, ptr %7, align 8, !tbaa !72
+  call void @_ZN6duckdb21AggregateFinalizeDataC2ERNS_6VectorERNS_18AggregateInputDataE(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(104) %27, ptr noundef nonnull align 8 dereferenceable(17) %28)
+  %29 = load ptr, ptr %11, align 8, !tbaa !236
+  %30 = load ptr, ptr %29, align 8, !tbaa !221
+  %31 = load ptr, ptr %12, align 8, !tbaa !123
+  call void @_ZN6duckdb22RegrInterceptOperation8FinalizeIdNS_18RegrInterceptStateEEEvRT0_RT_RNS_21AggregateFinalizeDataE(ptr noundef nonnull align 8 dereferenceable(80) %30, ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull align 8 dereferenceable(24) %13)
+  call void @llvm.lifetime.end.p0(i64 24, ptr %13) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #17
+  br label %62
+
+32:                                               ; preds = %5
+  %33 = load ptr, ptr %8, align 8, !tbaa !70
+  call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %33, i8 noundef zeroext 0)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #17
+  %34 = load ptr, ptr %6, align 8, !tbaa !70
+  %35 = call noundef ptr @_ZN6duckdb10FlatVector7GetDataIPNS_18RegrInterceptStateEEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %34)
+  store ptr %35, ptr %14, align 8, !tbaa !236
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #17
+  %36 = load ptr, ptr %8, align 8, !tbaa !70
+  %37 = call noundef ptr @_ZN6duckdb10FlatVector7GetDataIdEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %36)
+  store ptr %37, ptr %15, align 8, !tbaa !123
+  call void @llvm.lifetime.start.p0(i64 24, ptr %16) #17
+  %38 = load ptr, ptr %8, align 8, !tbaa !70
+  %39 = load ptr, ptr %7, align 8, !tbaa !72
+  call void @_ZN6duckdb21AggregateFinalizeDataC2ERNS_6VectorERNS_18AggregateInputDataE(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(104) %38, ptr noundef nonnull align 8 dereferenceable(17) %39)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #17
+  store i64 0, ptr %17, align 8, !tbaa !74
+  br label %40
+
+40:                                               ; preds = %58, %32
+  %41 = load i64, ptr %17, align 8, !tbaa !74
+  %42 = load i64, ptr %9, align 8, !tbaa !74
+  %43 = icmp ult i64 %41, %42
+  br i1 %43, label %45, label %44
+
+44:                                               ; preds = %40
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #17
+  br label %61
+
+45:                                               ; preds = %40
+  %46 = load i64, ptr %17, align 8, !tbaa !74
+  %47 = load i64, ptr %10, align 8, !tbaa !74
+  %48 = add i64 %46, %47
+  %49 = getelementptr inbounds nuw %"struct.duckdb::AggregateFinalizeData", ptr %16, i32 0, i32 2
+  store i64 %48, ptr %49, align 8, !tbaa !161
+  %50 = load ptr, ptr %14, align 8, !tbaa !236
+  %51 = load i64, ptr %17, align 8, !tbaa !74
+  %52 = getelementptr inbounds nuw ptr, ptr %50, i64 %51
+  %53 = load ptr, ptr %52, align 8, !tbaa !221
+  %54 = load ptr, ptr %15, align 8, !tbaa !123
+  %55 = getelementptr inbounds nuw %"struct.duckdb::AggregateFinalizeData", ptr %16, i32 0, i32 2
+  %56 = load i64, ptr %55, align 8, !tbaa !161
+  %57 = getelementptr inbounds nuw double, ptr %54, i64 %56
+  call void @_ZN6duckdb22RegrInterceptOperation8FinalizeIdNS_18RegrInterceptStateEEEvRT0_RT_RNS_21AggregateFinalizeDataE(ptr noundef nonnull align 8 dereferenceable(80) %53, ptr noundef nonnull align 8 dereferenceable(8) %57, ptr noundef nonnull align 8 dereferenceable(24) %16)
+  br label %58
+
+58:                                               ; preds = %45
+  %59 = load i64, ptr %17, align 8, !tbaa !74
+  %60 = add i64 %59, 1
+  store i64 %60, ptr %17, align 8, !tbaa !74
+  br label %40, !llvm.loop !242
+
+61:                                               ; preds = %44
+  call void @llvm.lifetime.end.p0(i64 24, ptr %16) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #17
+  br label %62
+
+62:                                               ; preds = %61, %21
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb22RegrInterceptOperation8FinalizeIdNS_18RegrInterceptStateEEEvRT0_RT_RNS_21AggregateFinalizeDataE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca double, align 8
+  %8 = alloca double, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !221
+  store ptr %1, ptr %5, align 8, !tbaa !123
+  store ptr %2, ptr %6, align 8, !tbaa !165
+  %9 = load ptr, ptr %4, align 8, !tbaa !221
+  %10 = getelementptr inbounds nuw %"struct.duckdb::RegrInterceptState", ptr %9, i32 0, i32 0
+  %11 = load i64, ptr %10, align 8, !tbaa !223
+  %12 = icmp eq i64 %11, 0
+  br i1 %12, label %13, label %15
+
+13:                                               ; preds = %3
+  %14 = load ptr, ptr %6, align 8, !tbaa !165
+  call void @_ZN6duckdb21AggregateFinalizeData10ReturnNullEv(ptr noundef nonnull align 8 dereferenceable(24) %14)
+  br label %49
+
+15:                                               ; preds = %3
+  %16 = load ptr, ptr %4, align 8, !tbaa !221
+  %17 = getelementptr inbounds nuw %"struct.duckdb::RegrInterceptState", ptr %16, i32 0, i32 3
+  %18 = load ptr, ptr %5, align 8, !tbaa !123
+  %19 = load ptr, ptr %6, align 8, !tbaa !165
+  call void @_ZN6duckdb18RegrSlopeOperation8FinalizeIdNS_14RegrSlopeStateEEEvRT0_RT_RNS_21AggregateFinalizeDataE(ptr noundef nonnull align 8 dereferenceable(56) %17, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(24) %19)
+  %20 = load ptr, ptr %5, align 8, !tbaa !123
+  %21 = load double, ptr %20, align 8, !tbaa !143
+  %22 = call noundef zeroext i1 @_ZN6duckdb5Value5IsNanIdEEbT_(double noundef %21)
+  br i1 %22, label %23, label %25
+
+23:                                               ; preds = %15
+  %24 = load ptr, ptr %6, align 8, !tbaa !165
+  call void @_ZN6duckdb21AggregateFinalizeData10ReturnNullEv(ptr noundef nonnull align 8 dereferenceable(24) %24)
+  br label %49
+
+25:                                               ; preds = %15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #17
+  %26 = load ptr, ptr %4, align 8, !tbaa !221
+  %27 = getelementptr inbounds nuw %"struct.duckdb::RegrInterceptState", ptr %26, i32 0, i32 1
+  %28 = load double, ptr %27, align 8, !tbaa !227
+  %29 = load ptr, ptr %4, align 8, !tbaa !221
+  %30 = getelementptr inbounds nuw %"struct.duckdb::RegrInterceptState", ptr %29, i32 0, i32 0
+  %31 = load i64, ptr %30, align 8, !tbaa !223
+  %32 = uitofp i64 %31 to double
+  %33 = fdiv double %28, %32
+  store double %33, ptr %7, align 8, !tbaa !143
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #17
+  %34 = load ptr, ptr %4, align 8, !tbaa !221
+  %35 = getelementptr inbounds nuw %"struct.duckdb::RegrInterceptState", ptr %34, i32 0, i32 2
+  %36 = load double, ptr %35, align 8, !tbaa !228
+  %37 = load ptr, ptr %4, align 8, !tbaa !221
+  %38 = getelementptr inbounds nuw %"struct.duckdb::RegrInterceptState", ptr %37, i32 0, i32 0
+  %39 = load i64, ptr %38, align 8, !tbaa !223
+  %40 = uitofp i64 %39 to double
+  %41 = fdiv double %36, %40
+  store double %41, ptr %8, align 8, !tbaa !143
+  %42 = load double, ptr %8, align 8, !tbaa !143
+  %43 = load ptr, ptr %5, align 8, !tbaa !123
+  %44 = load double, ptr %43, align 8, !tbaa !143
+  %45 = load double, ptr %7, align 8, !tbaa !143
+  %46 = fneg double %44
+  %47 = call double @llvm.fmuladd.f64(double %46, double %45, double %42)
+  %48 = load ptr, ptr %5, align 8, !tbaa !123
+  store double %47, ptr %48, align 8, !tbaa !143
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #17
+  br label %49
+
+49:                                               ; preds = %25, %23, %13
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb18RegrSlopeOperation8FinalizeIdNS_14RegrSlopeStateEEEvRT0_RT_RNS_21AggregateFinalizeDataE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca double, align 8
+  %8 = alloca double, align 8
+  %9 = alloca %"class.std::__cxx11::basic_string", align 8
+  %10 = alloca %"class.std::allocator", align 1
+  %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
+  %13 = alloca i1, align 1
+  store ptr %0, ptr %4, align 8, !tbaa !229
+  store ptr %1, ptr %5, align 8, !tbaa !123
+  store ptr %2, ptr %6, align 8, !tbaa !165
+  %14 = load ptr, ptr %4, align 8, !tbaa !229
+  %15 = getelementptr inbounds nuw %"struct.duckdb::RegrSlopeState", ptr %14, i32 0, i32 0
+  %16 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %15, i32 0, i32 0
+  %17 = load i64, ptr %16, align 8, !tbaa !243
+  %18 = icmp eq i64 %17, 0
+  br i1 %18, label %25, label %19
+
+19:                                               ; preds = %3
+  %20 = load ptr, ptr %4, align 8, !tbaa !229
+  %21 = getelementptr inbounds nuw %"struct.duckdb::RegrSlopeState", ptr %20, i32 0, i32 1
+  %22 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %21, i32 0, i32 0
+  %23 = load i64, ptr %22, align 8, !tbaa !244
+  %24 = icmp eq i64 %23, 0
+  br i1 %24, label %25, label %27
+
+25:                                               ; preds = %19, %3
+  %26 = load ptr, ptr %6, align 8, !tbaa !165
+  call void @_ZN6duckdb21AggregateFinalizeData10ReturnNullEv(ptr noundef nonnull align 8 dereferenceable(24) %26)
+  br label %86
+
+27:                                               ; preds = %19
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #17
+  %28 = load ptr, ptr %4, align 8, !tbaa !229
+  %29 = getelementptr inbounds nuw %"struct.duckdb::RegrSlopeState", ptr %28, i32 0, i32 0
+  %30 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %29, i32 0, i32 3
+  %31 = load double, ptr %30, align 8, !tbaa !245
+  %32 = load ptr, ptr %4, align 8, !tbaa !229
+  %33 = getelementptr inbounds nuw %"struct.duckdb::RegrSlopeState", ptr %32, i32 0, i32 0
+  %34 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %33, i32 0, i32 0
+  %35 = load i64, ptr %34, align 8, !tbaa !243
+  %36 = uitofp i64 %35 to double
+  %37 = fdiv double %31, %36
+  store double %37, ptr %7, align 8, !tbaa !143
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #17
+  %38 = load ptr, ptr %4, align 8, !tbaa !229
+  %39 = getelementptr inbounds nuw %"struct.duckdb::RegrSlopeState", ptr %38, i32 0, i32 1
+  %40 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %39, i32 0, i32 0
+  %41 = load i64, ptr %40, align 8, !tbaa !244
+  %42 = icmp ugt i64 %41, 1
+  br i1 %42, label %43, label %54
+
+43:                                               ; preds = %27
+  %44 = load ptr, ptr %4, align 8, !tbaa !229
+  %45 = getelementptr inbounds nuw %"struct.duckdb::RegrSlopeState", ptr %44, i32 0, i32 1
+  %46 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %45, i32 0, i32 2
+  %47 = load double, ptr %46, align 8, !tbaa !246
+  %48 = load ptr, ptr %4, align 8, !tbaa !229
+  %49 = getelementptr inbounds nuw %"struct.duckdb::RegrSlopeState", ptr %48, i32 0, i32 1
+  %50 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %49, i32 0, i32 0
+  %51 = load i64, ptr %50, align 8, !tbaa !244
+  %52 = uitofp i64 %51 to double
+  %53 = fdiv double %47, %52
+  br label %55
+
+54:                                               ; preds = %27
+  br label %55
+
+55:                                               ; preds = %54, %43
+  %56 = phi double [ %53, %43 ], [ 0.000000e+00, %54 ]
+  store double %56, ptr %8, align 8, !tbaa !143
+  %57 = load double, ptr %8, align 8, !tbaa !143
+  %58 = call noundef zeroext i1 @_ZN6duckdb5Value14DoubleIsFiniteEd(double noundef %57)
+  br i1 %58, label %75, label %59
+
+59:                                               ; preds = %55
+  store i1 true, ptr %13, align 1
+  %60 = call ptr @__cxa_allocate_exception(i64 16) #17
+  call void @llvm.lifetime.start.p0(i64 32, ptr %9) #17
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #17
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #17
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef @.str.4, ptr noundef nonnull align 1 dereferenceable(1) %10)
+          to label %61 unwind label %63
+
+61:                                               ; preds = %59
+  invoke void @_ZN6duckdb19OutOfRangeExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %60, ptr noundef nonnull align 8 dereferenceable(32) %9)
+          to label %62 unwind label %67
+
+62:                                               ; preds = %61
+  store i1 false, ptr %13, align 1
+  invoke void @__cxa_throw(ptr %60, ptr @_ZTIN6duckdb19OutOfRangeExceptionE, ptr @_ZNSt13runtime_errorD2Ev) #20
+          to label %92 unwind label %67
+
+63:                                               ; preds = %59
+  %64 = landingpad { ptr, i32 }
+          cleanup
+  %65 = extractvalue { ptr, i32 } %64, 0
+  store ptr %65, ptr %11, align 8
+  %66 = extractvalue { ptr, i32 } %64, 1
+  store i32 %66, ptr %12, align 4
+  br label %71
+
+67:                                               ; preds = %62, %61
+  %68 = landingpad { ptr, i32 }
+          cleanup
+  %69 = extractvalue { ptr, i32 } %68, 0
+  store ptr %69, ptr %11, align 8
+  %70 = extractvalue { ptr, i32 } %68, 1
+  store i32 %70, ptr %12, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #17
+  br label %71
+
+71:                                               ; preds = %67, %63
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #17
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #17
+  call void @llvm.lifetime.end.p0(i64 32, ptr %9) #17
+  %72 = load i1, ptr %13, align 1
+  br i1 %72, label %73, label %74
+
+73:                                               ; preds = %71
+  call void @__cxa_free_exception(ptr %60) #17
+  br label %74
+
+74:                                               ; preds = %73, %71
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #17
+  br label %87
+
+75:                                               ; preds = %55
+  %76 = load double, ptr %8, align 8, !tbaa !143
+  %77 = fcmp une double %76, 0.000000e+00
+  br i1 %77, label %78, label %82
+
+78:                                               ; preds = %75
+  %79 = load double, ptr %7, align 8, !tbaa !143
+  %80 = load double, ptr %8, align 8, !tbaa !143
+  %81 = fdiv double %79, %80
+  br label %83
+
+82:                                               ; preds = %75
+  br label %83
+
+83:                                               ; preds = %82, %78
+  %84 = phi double [ %81, %78 ], [ 0x7FF8000000000000, %82 ]
+  %85 = load ptr, ptr %5, align 8, !tbaa !123
+  store double %84, ptr %85, align 8, !tbaa !143
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #17
+  br label %86
+
+86:                                               ; preds = %83, %25
+  ret void
+
+87:                                               ; preds = %74
+  %88 = load ptr, ptr %11, align 8
+  %89 = load i32, ptr %12, align 4
+  %90 = insertvalue { ptr, i32 } poison, ptr %88, 0
+  %91 = insertvalue { ptr, i32 } %90, i32 %89, 1
+  resume { ptr, i32 } %91
+
+92:                                               ; preds = %62
+  unreachable
+}
+
+declare noundef zeroext i1 @_ZN6duckdb5Value5IsNanIdEEbT_(double noundef) #2
+
+declare noundef zeroext i1 @_ZN6duckdb5Value14DoubleIsFiniteEd(double noundef) #2
+
+declare void @_ZN6duckdb19OutOfRangeExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+
+; Function Attrs: nounwind
+declare void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #3
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateExecutor12BinaryUpdateINS_18RegrInterceptStateEddNS_22RegrInterceptOperationEEEvRNS_18AggregateInputDataERNS_6VectorES7_Phm(ptr noundef nonnull align 8 dereferenceable(17) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, ptr noundef %3, i64 noundef %4) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
+  %12 = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !72
+  store ptr %1, ptr %7, align 8, !tbaa !70
+  store ptr %2, ptr %8, align 8, !tbaa !70
+  store ptr %3, ptr %9, align 8, !tbaa !39
+  store i64 %4, ptr %10, align 8, !tbaa !74
+  call void @llvm.lifetime.start.p0(i64 72, ptr %11) #17
+  call void @_ZN6duckdb19UnifiedVectorFormatC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %11)
+  call void @llvm.lifetime.start.p0(i64 72, ptr %12) #17
+  invoke void @_ZN6duckdb19UnifiedVectorFormatC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %12)
+          to label %15 unwind label %34
+
+15:                                               ; preds = %5
+  %16 = load ptr, ptr %7, align 8, !tbaa !70
+  %17 = load i64, ptr %10, align 8, !tbaa !74
+  invoke void @_ZN6duckdb6Vector15ToUnifiedFormatEmRNS_19UnifiedVectorFormatE(ptr noundef nonnull align 8 dereferenceable(104) %16, i64 noundef %17, ptr noundef nonnull align 8 dereferenceable(72) %11)
+          to label %18 unwind label %38
+
+18:                                               ; preds = %15
+  %19 = load ptr, ptr %8, align 8, !tbaa !70
+  %20 = load i64, ptr %10, align 8, !tbaa !74
+  invoke void @_ZN6duckdb6Vector15ToUnifiedFormatEmRNS_19UnifiedVectorFormatE(ptr noundef nonnull align 8 dereferenceable(104) %19, i64 noundef %20, ptr noundef nonnull align 8 dereferenceable(72) %12)
+          to label %21 unwind label %38
+
+21:                                               ; preds = %18
+  %22 = call noundef ptr @_ZN6duckdb19UnifiedVectorFormat7GetDataIdEEPKT_RKS0_(ptr noundef nonnull align 8 dereferenceable(72) %11)
+  %23 = load ptr, ptr %6, align 8, !tbaa !72
+  %24 = call noundef ptr @_ZN6duckdb19UnifiedVectorFormat7GetDataIdEEPKT_RKS0_(ptr noundef nonnull align 8 dereferenceable(72) %12)
+  %25 = load ptr, ptr %9, align 8, !tbaa !39
+  %26 = load i64, ptr %10, align 8, !tbaa !74
+  %27 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %11, i32 0, i32 0
+  %28 = load ptr, ptr %27, align 8, !tbaa !122
+  %29 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %12, i32 0, i32 0
+  %30 = load ptr, ptr %29, align 8, !tbaa !122
+  %31 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %11, i32 0, i32 2
+  %32 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %12, i32 0, i32 2
+  invoke void @_ZN6duckdb17AggregateExecutor16BinaryUpdateLoopINS_18RegrInterceptStateEddNS_22RegrInterceptOperationEEEvPKT0_RNS_18AggregateInputDataEPKT1_PT_mRKNS_15SelectionVectorESG_RNS_12ValidityMaskESI_(ptr noundef %22, ptr noundef nonnull align 8 dereferenceable(17) %23, ptr noundef %24, ptr noundef %25, i64 noundef %26, ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(32) %32)
+          to label %33 unwind label %38
+
+33:                                               ; preds = %21
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %12) #17
+  call void @llvm.lifetime.end.p0(i64 72, ptr %12) #17
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %11) #17
+  call void @llvm.lifetime.end.p0(i64 72, ptr %11) #17
+  ret void
+
+34:                                               ; preds = %5
+  %35 = landingpad { ptr, i32 }
+          cleanup
+  %36 = extractvalue { ptr, i32 } %35, 0
+  store ptr %36, ptr %13, align 8
+  %37 = extractvalue { ptr, i32 } %35, 1
+  store i32 %37, ptr %14, align 4
+  br label %42
+
+38:                                               ; preds = %21, %18, %15
+  %39 = landingpad { ptr, i32 }
+          cleanup
+  %40 = extractvalue { ptr, i32 } %39, 0
+  store ptr %40, ptr %13, align 8
+  %41 = extractvalue { ptr, i32 } %39, 1
+  store i32 %41, ptr %14, align 4
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %12) #17
+  br label %42
+
+42:                                               ; preds = %38, %34
+  call void @llvm.lifetime.end.p0(i64 72, ptr %12) #17
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %11) #17
+  call void @llvm.lifetime.end.p0(i64 72, ptr %11) #17
+  br label %43
+
+43:                                               ; preds = %42
+  %44 = load ptr, ptr %13, align 8
+  %45 = load i32, ptr %14, align 4
+  %46 = insertvalue { ptr, i32 } poison, ptr %44, 0
+  %47 = insertvalue { ptr, i32 } %46, i32 %45, 1
+  resume { ptr, i32 } %47
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateExecutor16BinaryUpdateLoopINS_18RegrInterceptStateEddNS_22RegrInterceptOperationEEEvPKT0_RNS_18AggregateInputDataEPKT1_PT_mRKNS_15SelectionVectorESG_RNS_12ValidityMaskESI_(ptr noalias noundef %0, ptr noundef nonnull align 8 dereferenceable(17) %1, ptr noalias noundef %2, ptr noalias noundef %3, i64 noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %8) #12 comdat align 2 {
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i64, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca ptr, align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca %"struct.duckdb::AggregateBinaryInput", align 8
+  %20 = alloca i64, align 8
+  %21 = alloca i64, align 8
+  store ptr %0, ptr %10, align 8, !tbaa !123
+  store ptr %1, ptr %11, align 8, !tbaa !72
+  store ptr %2, ptr %12, align 8, !tbaa !123
+  store ptr %3, ptr %13, align 8, !tbaa !221
+  store i64 %4, ptr %14, align 8, !tbaa !74
+  store ptr %5, ptr %15, align 8, !tbaa !127
+  store ptr %6, ptr %16, align 8, !tbaa !127
+  store ptr %7, ptr %17, align 8, !tbaa !128
+  store ptr %8, ptr %18, align 8, !tbaa !128
+  call void @llvm.lifetime.start.p0(i64 40, ptr %19) #17
+  %22 = load ptr, ptr %11, align 8, !tbaa !72
+  %23 = load ptr, ptr %17, align 8, !tbaa !128
+  %24 = load ptr, ptr %18, align 8, !tbaa !128
+  call void @_ZN6duckdb20AggregateBinaryInputC2ERNS_18AggregateInputDataERNS_12ValidityMaskES4_(ptr noundef nonnull align 8 dereferenceable(40) %19, ptr noundef nonnull align 8 dereferenceable(17) %22, ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %24)
+  %25 = call noundef zeroext i1 @_ZN6duckdb22RegrInterceptOperation10IgnoreNullEv()
+  br i1 %25, label %26, label %71
+
+26:                                               ; preds = %9
+  %27 = load ptr, ptr %17, align 8, !tbaa !128
+  %28 = call noundef zeroext i1 @_ZNK6duckdb21TemplatedValidityMaskImE8AllValidEv(ptr noundef nonnull align 8 dereferenceable(32) %27)
+  br i1 %28, label %29, label %32
+
+29:                                               ; preds = %26
+  %30 = load ptr, ptr %18, align 8, !tbaa !128
+  %31 = call noundef zeroext i1 @_ZNK6duckdb21TemplatedValidityMaskImE8AllValidEv(ptr noundef nonnull align 8 dereferenceable(32) %30)
+  br i1 %31, label %71, label %32
+
+32:                                               ; preds = %29, %26
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #17
+  store i64 0, ptr %20, align 8, !tbaa !74
+  br label %33
+
+33:                                               ; preds = %67, %32
+  %34 = load i64, ptr %20, align 8, !tbaa !74
+  %35 = load i64, ptr %14, align 8, !tbaa !74
+  %36 = icmp ult i64 %34, %35
+  br i1 %36, label %38, label %37
+
+37:                                               ; preds = %33
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #17
+  br label %70
+
+38:                                               ; preds = %33
+  %39 = load ptr, ptr %15, align 8, !tbaa !127
+  %40 = load i64, ptr %20, align 8, !tbaa !74
+  %41 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %39, i64 noundef %40)
+  %42 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 3
+  store i64 %41, ptr %42, align 8, !tbaa !130
+  %43 = load ptr, ptr %16, align 8, !tbaa !127
+  %44 = load i64, ptr %20, align 8, !tbaa !74
+  %45 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %43, i64 noundef %44)
+  %46 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 4
+  store i64 %45, ptr %46, align 8, !tbaa !132
+  %47 = load ptr, ptr %17, align 8, !tbaa !128
+  %48 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 3
+  %49 = load i64, ptr %48, align 8, !tbaa !130
+  %50 = call noundef zeroext i1 @_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm(ptr noundef nonnull align 8 dereferenceable(32) %47, i64 noundef %49)
+  br i1 %50, label %51, label %66
+
+51:                                               ; preds = %38
+  %52 = load ptr, ptr %18, align 8, !tbaa !128
+  %53 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 4
+  %54 = load i64, ptr %53, align 8, !tbaa !132
+  %55 = call noundef zeroext i1 @_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm(ptr noundef nonnull align 8 dereferenceable(32) %52, i64 noundef %54)
+  br i1 %55, label %56, label %66
+
+56:                                               ; preds = %51
+  %57 = load ptr, ptr %13, align 8, !tbaa !221
+  %58 = load ptr, ptr %10, align 8, !tbaa !123
+  %59 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 3
+  %60 = load i64, ptr %59, align 8, !tbaa !130
+  %61 = getelementptr inbounds nuw double, ptr %58, i64 %60
+  %62 = load ptr, ptr %12, align 8, !tbaa !123
+  %63 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 4
+  %64 = load i64, ptr %63, align 8, !tbaa !132
+  %65 = getelementptr inbounds nuw double, ptr %62, i64 %64
+  call void @_ZN6duckdb22RegrInterceptOperation9OperationIddNS_18RegrInterceptStateES0_EEvRT1_RKT_RKT0_RNS_20AggregateBinaryInputE(ptr noundef nonnull align 8 dereferenceable(80) %57, ptr noundef nonnull align 8 dereferenceable(8) %61, ptr noundef nonnull align 8 dereferenceable(8) %65, ptr noundef nonnull align 8 dereferenceable(40) %19)
+  br label %66
+
+66:                                               ; preds = %56, %51, %38
+  br label %67
+
+67:                                               ; preds = %66
+  %68 = load i64, ptr %20, align 8, !tbaa !74
+  %69 = add i64 %68, 1
+  store i64 %69, ptr %20, align 8, !tbaa !74
+  br label %33, !llvm.loop !247
+
+70:                                               ; preds = %37
+  br label %99
+
+71:                                               ; preds = %29, %9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #17
+  store i64 0, ptr %21, align 8, !tbaa !74
+  br label %72
+
+72:                                               ; preds = %95, %71
+  %73 = load i64, ptr %21, align 8, !tbaa !74
+  %74 = load i64, ptr %14, align 8, !tbaa !74
+  %75 = icmp ult i64 %73, %74
+  br i1 %75, label %77, label %76
+
+76:                                               ; preds = %72
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #17
+  br label %98
+
+77:                                               ; preds = %72
+  %78 = load ptr, ptr %15, align 8, !tbaa !127
+  %79 = load i64, ptr %21, align 8, !tbaa !74
+  %80 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %78, i64 noundef %79)
+  %81 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 3
+  store i64 %80, ptr %81, align 8, !tbaa !130
+  %82 = load ptr, ptr %16, align 8, !tbaa !127
+  %83 = load i64, ptr %21, align 8, !tbaa !74
+  %84 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %82, i64 noundef %83)
+  %85 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 4
+  store i64 %84, ptr %85, align 8, !tbaa !132
+  %86 = load ptr, ptr %13, align 8, !tbaa !221
+  %87 = load ptr, ptr %10, align 8, !tbaa !123
+  %88 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 3
+  %89 = load i64, ptr %88, align 8, !tbaa !130
+  %90 = getelementptr inbounds nuw double, ptr %87, i64 %89
+  %91 = load ptr, ptr %12, align 8, !tbaa !123
+  %92 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 4
+  %93 = load i64, ptr %92, align 8, !tbaa !132
+  %94 = getelementptr inbounds nuw double, ptr %91, i64 %93
+  call void @_ZN6duckdb22RegrInterceptOperation9OperationIddNS_18RegrInterceptStateES0_EEvRT1_RKT_RKT0_RNS_20AggregateBinaryInputE(ptr noundef nonnull align 8 dereferenceable(80) %86, ptr noundef nonnull align 8 dereferenceable(8) %90, ptr noundef nonnull align 8 dereferenceable(8) %94, ptr noundef nonnull align 8 dereferenceable(40) %19)
+  br label %95
+
+95:                                               ; preds = %77
+  %96 = load i64, ptr %21, align 8, !tbaa !74
+  %97 = add i64 %96, 1
+  store i64 %97, ptr %21, align 8, !tbaa !74
+  br label %72, !llvm.loop !248
+
+98:                                               ; preds = %76
+  br label %99
+
+99:                                               ; preds = %98, %70
+  call void @llvm.lifetime.end.p0(i64 40, ptr %19) #17
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZN6duckdb17AggregateFunction9StateSizeImEEmRKS0_(ptr noundef nonnull align 8 dereferenceable(304) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !40
+  ret i64 8
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateFunction15StateInitializeImNS_17RegrCountFunctionELNS_23AggregateDestructorTypeE0EEEvRKS0_Ph(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef %1) #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !40
+  store ptr %1, ptr %4, align 8, !tbaa !39
+  %5 = load ptr, ptr %4, align 8, !tbaa !39
+  call void @_ZN6duckdb17RegrCountFunction10InitializeImEEvRT_(ptr noundef nonnull align 8 dereferenceable(8) %5)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateFunction19BinaryScatterUpdateImddNS_17RegrCountFunctionEEEvPNS_6VectorERNS_18AggregateInputDataEmRS3_m(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(17) %1, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(104) %3, i64 noundef %4) #0 comdat align 2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !70
+  store ptr %1, ptr %7, align 8, !tbaa !72
+  store i64 %2, ptr %8, align 8, !tbaa !74
+  store ptr %3, ptr %9, align 8, !tbaa !70
+  store i64 %4, ptr %10, align 8, !tbaa !74
+  %11 = load ptr, ptr %7, align 8, !tbaa !72
+  %12 = load ptr, ptr %6, align 8, !tbaa !70
+  %13 = getelementptr inbounds %"class.duckdb::Vector", ptr %12, i64 0
+  %14 = load ptr, ptr %6, align 8, !tbaa !70
+  %15 = getelementptr inbounds %"class.duckdb::Vector", ptr %14, i64 1
+  %16 = load ptr, ptr %9, align 8, !tbaa !70
+  %17 = load i64, ptr %10, align 8, !tbaa !74
+  call void @_ZN6duckdb17AggregateExecutor13BinaryScatterImddNS_17RegrCountFunctionEEEvRNS_18AggregateInputDataERNS_6VectorES6_S6_m(ptr noundef nonnull align 8 dereferenceable(17) %11, ptr noundef nonnull align 8 dereferenceable(104) %13, ptr noundef nonnull align 8 dereferenceable(104) %15, ptr noundef nonnull align 8 dereferenceable(104) %16, i64 noundef %17)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateFunction12StateCombineImNS_17RegrCountFunctionEEEvRNS_6VectorES4_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(17) %2, i64 noundef %3) #0 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !70
+  store ptr %1, ptr %6, align 8, !tbaa !70
+  store ptr %2, ptr %7, align 8, !tbaa !72
+  store i64 %3, ptr %8, align 8, !tbaa !74
+  %9 = load ptr, ptr %5, align 8, !tbaa !70
+  %10 = load ptr, ptr %6, align 8, !tbaa !70
+  %11 = load ptr, ptr %7, align 8, !tbaa !72
+  %12 = load i64, ptr %8, align 8, !tbaa !74
+  call void @_ZN6duckdb17AggregateExecutor7CombineImNS_17RegrCountFunctionEEEvRNS_6VectorES4_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %9, ptr noundef nonnull align 8 dereferenceable(104) %10, ptr noundef nonnull align 8 dereferenceable(17) %11, i64 noundef %12)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateFunction13StateFinalizeImjNS_17RegrCountFunctionEEEvRNS_6VectorERNS_18AggregateInputDataES4_mm(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(17) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, i64 noundef %3, i64 noundef %4) #0 comdat align 2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !70
+  store ptr %1, ptr %7, align 8, !tbaa !72
+  store ptr %2, ptr %8, align 8, !tbaa !70
+  store i64 %3, ptr %9, align 8, !tbaa !74
+  store i64 %4, ptr %10, align 8, !tbaa !74
+  %11 = load ptr, ptr %6, align 8, !tbaa !70
+  %12 = load ptr, ptr %7, align 8, !tbaa !72
+  %13 = load ptr, ptr %8, align 8, !tbaa !70
+  %14 = load i64, ptr %9, align 8, !tbaa !74
+  %15 = load i64, ptr %10, align 8, !tbaa !74
+  call void @_ZN6duckdb17AggregateExecutor8FinalizeImjNS_17RegrCountFunctionEEEvRNS_6VectorERNS_18AggregateInputDataES4_mm(ptr noundef nonnull align 8 dereferenceable(104) %11, ptr noundef nonnull align 8 dereferenceable(17) %12, ptr noundef nonnull align 8 dereferenceable(104) %13, i64 noundef %14, i64 noundef %15)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateFunction12BinaryUpdateImddNS_17RegrCountFunctionEEEvPNS_6VectorERNS_18AggregateInputDataEmPhm(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(17) %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) #0 comdat align 2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !70
+  store ptr %1, ptr %7, align 8, !tbaa !72
+  store i64 %2, ptr %8, align 8, !tbaa !74
+  store ptr %3, ptr %9, align 8, !tbaa !39
+  store i64 %4, ptr %10, align 8, !tbaa !74
+  %11 = load ptr, ptr %7, align 8, !tbaa !72
+  %12 = load ptr, ptr %6, align 8, !tbaa !70
+  %13 = getelementptr inbounds %"class.duckdb::Vector", ptr %12, i64 0
+  %14 = load ptr, ptr %6, align 8, !tbaa !70
+  %15 = getelementptr inbounds %"class.duckdb::Vector", ptr %14, i64 1
+  %16 = load ptr, ptr %9, align 8, !tbaa !39
+  %17 = load i64, ptr %10, align 8, !tbaa !74
+  call void @_ZN6duckdb17AggregateExecutor12BinaryUpdateImddNS_17RegrCountFunctionEEEvRNS_18AggregateInputDataERNS_6VectorES6_Phm(ptr noundef nonnull align 8 dereferenceable(17) %11, ptr noundef nonnull align 8 dereferenceable(104) %13, ptr noundef nonnull align 8 dereferenceable(104) %15, ptr noundef %16, i64 noundef %17)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateExecutor13BinaryScatterImddNS_17RegrCountFunctionEEEvRNS_18AggregateInputDataERNS_6VectorES6_S6_m(ptr noundef nonnull align 8 dereferenceable(17) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, ptr noundef nonnull align 8 dereferenceable(104) %3, i64 noundef %4) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
+  %12 = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
+  store ptr %0, ptr %6, align 8, !tbaa !72
+  store ptr %1, ptr %7, align 8, !tbaa !70
+  store ptr %2, ptr %8, align 8, !tbaa !70
+  store ptr %3, ptr %9, align 8, !tbaa !70
+  store i64 %4, ptr %10, align 8, !tbaa !74
+  call void @llvm.lifetime.start.p0(i64 72, ptr %11) #17
+  call void @_ZN6duckdb19UnifiedVectorFormatC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %11)
+  call void @llvm.lifetime.start.p0(i64 72, ptr %12) #17
+  invoke void @_ZN6duckdb19UnifiedVectorFormatC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %12)
+          to label %16 unwind label %42
+
+16:                                               ; preds = %5
+  call void @llvm.lifetime.start.p0(i64 72, ptr %15) #17
+  invoke void @_ZN6duckdb19UnifiedVectorFormatC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %15)
+          to label %17 unwind label %46
+
+17:                                               ; preds = %16
+  %18 = load ptr, ptr %7, align 8, !tbaa !70
+  %19 = load i64, ptr %10, align 8, !tbaa !74
+  invoke void @_ZN6duckdb6Vector15ToUnifiedFormatEmRNS_19UnifiedVectorFormatE(ptr noundef nonnull align 8 dereferenceable(104) %18, i64 noundef %19, ptr noundef nonnull align 8 dereferenceable(72) %11)
+          to label %20 unwind label %50
+
+20:                                               ; preds = %17
+  %21 = load ptr, ptr %8, align 8, !tbaa !70
+  %22 = load i64, ptr %10, align 8, !tbaa !74
+  invoke void @_ZN6duckdb6Vector15ToUnifiedFormatEmRNS_19UnifiedVectorFormatE(ptr noundef nonnull align 8 dereferenceable(104) %21, i64 noundef %22, ptr noundef nonnull align 8 dereferenceable(72) %12)
+          to label %23 unwind label %50
+
+23:                                               ; preds = %20
+  %24 = load ptr, ptr %9, align 8, !tbaa !70
+  %25 = load i64, ptr %10, align 8, !tbaa !74
+  invoke void @_ZN6duckdb6Vector15ToUnifiedFormatEmRNS_19UnifiedVectorFormatE(ptr noundef nonnull align 8 dereferenceable(104) %24, i64 noundef %25, ptr noundef nonnull align 8 dereferenceable(72) %15)
+          to label %26 unwind label %50
+
+26:                                               ; preds = %23
+  %27 = call noundef ptr @_ZN6duckdb19UnifiedVectorFormat7GetDataIdEEPKT_RKS0_(ptr noundef nonnull align 8 dereferenceable(72) %11)
+  %28 = load ptr, ptr %6, align 8, !tbaa !72
+  %29 = call noundef ptr @_ZN6duckdb19UnifiedVectorFormat7GetDataIdEEPKT_RKS0_(ptr noundef nonnull align 8 dereferenceable(72) %12)
+  %30 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %15, i32 0, i32 1
+  %31 = load ptr, ptr %30, align 8, !tbaa !108
+  %32 = load i64, ptr %10, align 8, !tbaa !74
+  %33 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %11, i32 0, i32 0
+  %34 = load ptr, ptr %33, align 8, !tbaa !122
+  %35 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %12, i32 0, i32 0
+  %36 = load ptr, ptr %35, align 8, !tbaa !122
+  %37 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %15, i32 0, i32 0
+  %38 = load ptr, ptr %37, align 8, !tbaa !122
+  %39 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %11, i32 0, i32 2
+  %40 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %12, i32 0, i32 2
+  invoke void @_ZN6duckdb17AggregateExecutor17BinaryScatterLoopImddNS_17RegrCountFunctionEEEvPKT0_RNS_18AggregateInputDataEPKT1_PPT_mRKNS_15SelectionVectorESG_SG_RNS_12ValidityMaskESI_(ptr noundef %27, ptr noundef nonnull align 8 dereferenceable(17) %28, ptr noundef %29, ptr noundef %31, i64 noundef %32, ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef nonnull align 8 dereferenceable(24) %36, ptr noundef nonnull align 8 dereferenceable(24) %38, ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef nonnull align 8 dereferenceable(32) %40)
+          to label %41 unwind label %50
+
+41:                                               ; preds = %26
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %15) #17
+  call void @llvm.lifetime.end.p0(i64 72, ptr %15) #17
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %12) #17
+  call void @llvm.lifetime.end.p0(i64 72, ptr %12) #17
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %11) #17
+  call void @llvm.lifetime.end.p0(i64 72, ptr %11) #17
+  ret void
+
+42:                                               ; preds = %5
+  %43 = landingpad { ptr, i32 }
+          cleanup
+  %44 = extractvalue { ptr, i32 } %43, 0
+  store ptr %44, ptr %13, align 8
+  %45 = extractvalue { ptr, i32 } %43, 1
+  store i32 %45, ptr %14, align 4
+  br label %55
+
+46:                                               ; preds = %16
+  %47 = landingpad { ptr, i32 }
+          cleanup
+  %48 = extractvalue { ptr, i32 } %47, 0
+  store ptr %48, ptr %13, align 8
+  %49 = extractvalue { ptr, i32 } %47, 1
+  store i32 %49, ptr %14, align 4
+  br label %54
+
+50:                                               ; preds = %26, %23, %20, %17
+  %51 = landingpad { ptr, i32 }
+          cleanup
+  %52 = extractvalue { ptr, i32 } %51, 0
+  store ptr %52, ptr %13, align 8
+  %53 = extractvalue { ptr, i32 } %51, 1
+  store i32 %53, ptr %14, align 4
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %15) #17
+  br label %54
+
+54:                                               ; preds = %50, %46
+  call void @llvm.lifetime.end.p0(i64 72, ptr %15) #17
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %12) #17
+  br label %55
+
+55:                                               ; preds = %54, %42
+  call void @llvm.lifetime.end.p0(i64 72, ptr %12) #17
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %11) #17
+  call void @llvm.lifetime.end.p0(i64 72, ptr %11) #17
+  br label %56
+
+56:                                               ; preds = %55
+  %57 = load ptr, ptr %13, align 8
+  %58 = load i32, ptr %14, align 4
+  %59 = insertvalue { ptr, i32 } poison, ptr %57, 0
+  %60 = insertvalue { ptr, i32 } %59, i32 %58, 1
+  resume { ptr, i32 } %60
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateExecutor17BinaryScatterLoopImddNS_17RegrCountFunctionEEEvPKT0_RNS_18AggregateInputDataEPKT1_PPT_mRKNS_15SelectionVectorESG_SG_RNS_12ValidityMaskESI_(ptr noalias noundef %0, ptr noundef nonnull align 8 dereferenceable(17) %1, ptr noalias noundef %2, ptr noalias noundef %3, i64 noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9) #12 comdat align 2 {
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca i64, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca ptr, align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca ptr, align 8
+  %20 = alloca ptr, align 8
+  %21 = alloca %"struct.duckdb::AggregateBinaryInput", align 8
+  %22 = alloca i64, align 8
+  %23 = alloca i64, align 8
+  %24 = alloca i64, align 8
+  %25 = alloca i64, align 8
+  store ptr %0, ptr %11, align 8, !tbaa !123
+  store ptr %1, ptr %12, align 8, !tbaa !72
+  store ptr %2, ptr %13, align 8, !tbaa !123
+  store ptr %3, ptr %14, align 8, !tbaa !249
+  store i64 %4, ptr %15, align 8, !tbaa !74
+  store ptr %5, ptr %16, align 8, !tbaa !127
+  store ptr %6, ptr %17, align 8, !tbaa !127
+  store ptr %7, ptr %18, align 8, !tbaa !127
+  store ptr %8, ptr %19, align 8, !tbaa !128
+  store ptr %9, ptr %20, align 8, !tbaa !128
+  call void @llvm.lifetime.start.p0(i64 40, ptr %21) #17
+  %26 = load ptr, ptr %12, align 8, !tbaa !72
+  %27 = load ptr, ptr %19, align 8, !tbaa !128
+  %28 = load ptr, ptr %20, align 8, !tbaa !128
+  call void @_ZN6duckdb20AggregateBinaryInputC2ERNS_18AggregateInputDataERNS_12ValidityMaskES4_(ptr noundef nonnull align 8 dereferenceable(40) %21, ptr noundef nonnull align 8 dereferenceable(17) %26, ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %28)
+  %29 = call noundef zeroext i1 @_ZN6duckdb17RegrCountFunction10IgnoreNullEv()
+  br i1 %29, label %30, label %81
+
+30:                                               ; preds = %10
+  %31 = load ptr, ptr %19, align 8, !tbaa !128
+  %32 = call noundef zeroext i1 @_ZNK6duckdb21TemplatedValidityMaskImE8AllValidEv(ptr noundef nonnull align 8 dereferenceable(32) %31)
+  br i1 %32, label %33, label %36
+
+33:                                               ; preds = %30
+  %34 = load ptr, ptr %20, align 8, !tbaa !128
+  %35 = call noundef zeroext i1 @_ZNK6duckdb21TemplatedValidityMaskImE8AllValidEv(ptr noundef nonnull align 8 dereferenceable(32) %34)
+  br i1 %35, label %81, label %36
+
+36:                                               ; preds = %33, %30
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #17
+  store i64 0, ptr %22, align 8, !tbaa !74
+  br label %37
+
+37:                                               ; preds = %77, %36
+  %38 = load i64, ptr %22, align 8, !tbaa !74
+  %39 = load i64, ptr %15, align 8, !tbaa !74
+  %40 = icmp ult i64 %38, %39
+  br i1 %40, label %42, label %41
+
+41:                                               ; preds = %37
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #17
+  br label %80
+
+42:                                               ; preds = %37
+  %43 = load ptr, ptr %16, align 8, !tbaa !127
+  %44 = load i64, ptr %22, align 8, !tbaa !74
+  %45 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %43, i64 noundef %44)
+  %46 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 3
+  store i64 %45, ptr %46, align 8, !tbaa !130
+  %47 = load ptr, ptr %17, align 8, !tbaa !127
+  %48 = load i64, ptr %22, align 8, !tbaa !74
+  %49 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %47, i64 noundef %48)
+  %50 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 4
+  store i64 %49, ptr %50, align 8, !tbaa !132
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #17
+  %51 = load ptr, ptr %18, align 8, !tbaa !127
+  %52 = load i64, ptr %22, align 8, !tbaa !74
+  %53 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %51, i64 noundef %52)
+  store i64 %53, ptr %23, align 8, !tbaa !74
+  %54 = load ptr, ptr %19, align 8, !tbaa !128
+  %55 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 3
+  %56 = load i64, ptr %55, align 8, !tbaa !130
+  %57 = call noundef zeroext i1 @_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm(ptr noundef nonnull align 8 dereferenceable(32) %54, i64 noundef %56)
+  br i1 %57, label %58, label %76
+
+58:                                               ; preds = %42
+  %59 = load ptr, ptr %20, align 8, !tbaa !128
+  %60 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 4
+  %61 = load i64, ptr %60, align 8, !tbaa !132
+  %62 = call noundef zeroext i1 @_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm(ptr noundef nonnull align 8 dereferenceable(32) %59, i64 noundef %61)
+  br i1 %62, label %63, label %76
+
+63:                                               ; preds = %58
+  %64 = load ptr, ptr %14, align 8, !tbaa !249
+  %65 = load i64, ptr %23, align 8, !tbaa !74
+  %66 = getelementptr inbounds nuw ptr, ptr %64, i64 %65
+  %67 = load ptr, ptr %66, align 8, !tbaa !93
+  %68 = load ptr, ptr %11, align 8, !tbaa !123
+  %69 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 3
+  %70 = load i64, ptr %69, align 8, !tbaa !130
+  %71 = getelementptr inbounds nuw double, ptr %68, i64 %70
+  %72 = load ptr, ptr %13, align 8, !tbaa !123
+  %73 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 4
+  %74 = load i64, ptr %73, align 8, !tbaa !132
+  %75 = getelementptr inbounds nuw double, ptr %72, i64 %74
+  call void @_ZN6duckdb17RegrCountFunction9OperationIddmS0_EEvRT1_RKT_RKT0_RNS_20AggregateBinaryInputE(ptr noundef nonnull align 8 dereferenceable(8) %67, ptr noundef nonnull align 8 dereferenceable(8) %71, ptr noundef nonnull align 8 dereferenceable(8) %75, ptr noundef nonnull align 8 dereferenceable(40) %21)
+  br label %76
+
+76:                                               ; preds = %63, %58, %42
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #17
+  br label %77
+
+77:                                               ; preds = %76
+  %78 = load i64, ptr %22, align 8, !tbaa !74
+  %79 = add i64 %78, 1
+  store i64 %79, ptr %22, align 8, !tbaa !74
+  br label %37, !llvm.loop !251
+
+80:                                               ; preds = %41
+  br label %115
+
+81:                                               ; preds = %33, %10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #17
+  store i64 0, ptr %24, align 8, !tbaa !74
+  br label %82
+
+82:                                               ; preds = %111, %81
+  %83 = load i64, ptr %24, align 8, !tbaa !74
+  %84 = load i64, ptr %15, align 8, !tbaa !74
+  %85 = icmp ult i64 %83, %84
+  br i1 %85, label %87, label %86
+
+86:                                               ; preds = %82
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #17
+  br label %114
+
+87:                                               ; preds = %82
+  %88 = load ptr, ptr %16, align 8, !tbaa !127
+  %89 = load i64, ptr %24, align 8, !tbaa !74
+  %90 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %88, i64 noundef %89)
+  %91 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 3
+  store i64 %90, ptr %91, align 8, !tbaa !130
+  %92 = load ptr, ptr %17, align 8, !tbaa !127
+  %93 = load i64, ptr %24, align 8, !tbaa !74
+  %94 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %92, i64 noundef %93)
+  %95 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 4
+  store i64 %94, ptr %95, align 8, !tbaa !132
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #17
+  %96 = load ptr, ptr %18, align 8, !tbaa !127
+  %97 = load i64, ptr %24, align 8, !tbaa !74
+  %98 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %96, i64 noundef %97)
+  store i64 %98, ptr %25, align 8, !tbaa !74
+  %99 = load ptr, ptr %14, align 8, !tbaa !249
+  %100 = load i64, ptr %25, align 8, !tbaa !74
+  %101 = getelementptr inbounds nuw ptr, ptr %99, i64 %100
+  %102 = load ptr, ptr %101, align 8, !tbaa !93
+  %103 = load ptr, ptr %11, align 8, !tbaa !123
+  %104 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 3
+  %105 = load i64, ptr %104, align 8, !tbaa !130
+  %106 = getelementptr inbounds nuw double, ptr %103, i64 %105
+  %107 = load ptr, ptr %13, align 8, !tbaa !123
+  %108 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 4
+  %109 = load i64, ptr %108, align 8, !tbaa !132
+  %110 = getelementptr inbounds nuw double, ptr %107, i64 %109
+  call void @_ZN6duckdb17RegrCountFunction9OperationIddmS0_EEvRT1_RKT_RKT0_RNS_20AggregateBinaryInputE(ptr noundef nonnull align 8 dereferenceable(8) %102, ptr noundef nonnull align 8 dereferenceable(8) %106, ptr noundef nonnull align 8 dereferenceable(8) %110, ptr noundef nonnull align 8 dereferenceable(40) %21)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #17
+  br label %111
+
+111:                                              ; preds = %87
+  %112 = load i64, ptr %24, align 8, !tbaa !74
+  %113 = add i64 %112, 1
+  store i64 %113, ptr %24, align 8, !tbaa !74
+  br label %82, !llvm.loop !252
+
+114:                                              ; preds = %86
+  br label %115
+
+115:                                              ; preds = %114, %80
+  call void @llvm.lifetime.end.p0(i64 40, ptr %21) #17
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZN6duckdb17RegrCountFunction10IgnoreNullEv() #5 comdat align 2 {
+  ret i1 true
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN6duckdb17RegrCountFunction9OperationIddmS0_EEvRT1_RKT_RKT0_RNS_20AggregateBinaryInputE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(40) %3) #5 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !93
+  store ptr %1, ptr %6, align 8, !tbaa !123
+  store ptr %2, ptr %7, align 8, !tbaa !123
+  store ptr %3, ptr %8, align 8, !tbaa !137
+  %9 = load ptr, ptr %5, align 8, !tbaa !93
+  %10 = load i64, ptr %9, align 8, !tbaa !74
+  %11 = add i64 %10, 1
+  store i64 %11, ptr %9, align 8, !tbaa !74
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateExecutor7CombineImNS_17RegrCountFunctionEEEvRNS_6VectorES4_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(17) %2, i64 noundef %3) #0 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !70
+  store ptr %1, ptr %6, align 8, !tbaa !70
+  store ptr %2, ptr %7, align 8, !tbaa !72
+  store i64 %3, ptr %8, align 8, !tbaa !74
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #17
+  %12 = load ptr, ptr %5, align 8, !tbaa !70
+  %13 = call noundef ptr @_ZN6duckdb10FlatVector7GetDataIPKmEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %12)
+  store ptr %13, ptr %9, align 8, !tbaa !249
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #17
+  %14 = load ptr, ptr %6, align 8, !tbaa !70
+  %15 = call noundef ptr @_ZN6duckdb10FlatVector7GetDataIPmEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %14)
+  store ptr %15, ptr %10, align 8, !tbaa !249
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #17
+  store i64 0, ptr %11, align 8, !tbaa !74
+  br label %16
+
+16:                                               ; preds = %31, %4
+  %17 = load i64, ptr %11, align 8, !tbaa !74
+  %18 = load i64, ptr %8, align 8, !tbaa !74
+  %19 = icmp ult i64 %17, %18
+  br i1 %19, label %21, label %20
+
+20:                                               ; preds = %16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #17
+  br label %34
+
+21:                                               ; preds = %16
+  %22 = load ptr, ptr %9, align 8, !tbaa !249
+  %23 = load i64, ptr %11, align 8, !tbaa !74
+  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %25 = load ptr, ptr %24, align 8, !tbaa !93
+  %26 = load ptr, ptr %10, align 8, !tbaa !249
+  %27 = load i64, ptr %11, align 8, !tbaa !74
+  %28 = getelementptr inbounds nuw ptr, ptr %26, i64 %27
+  %29 = load ptr, ptr %28, align 8, !tbaa !93
+  %30 = load ptr, ptr %7, align 8, !tbaa !72
+  call void @_ZN6duckdb17RegrCountFunction7CombineImS0_EEvRKT_RS2_RNS_18AggregateInputDataE(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull align 8 dereferenceable(17) %30)
+  br label %31
+
+31:                                               ; preds = %21
+  %32 = load i64, ptr %11, align 8, !tbaa !74
+  %33 = add i64 %32, 1
+  store i64 %33, ptr %11, align 8, !tbaa !74
+  br label %16, !llvm.loop !253
+
+34:                                               ; preds = %20
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #17
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef ptr @_ZN6duckdb10FlatVector7GetDataIPKmEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %0) #12 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !70
+  %3 = load ptr, ptr %2, align 8, !tbaa !70
+  %4 = call noundef ptr @_ZN6duckdb14ConstantVector7GetDataIPKmEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %3)
+  ret ptr %4
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef ptr @_ZN6duckdb10FlatVector7GetDataIPmEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %0) #12 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !70
+  %3 = load ptr, ptr %2, align 8, !tbaa !70
+  %4 = call noundef ptr @_ZN6duckdb14ConstantVector7GetDataIPmEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %3)
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN6duckdb17RegrCountFunction7CombineImS0_EEvRKT_RS2_RNS_18AggregateInputDataE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(17) %2) #5 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !93
+  store ptr %1, ptr %5, align 8, !tbaa !93
+  store ptr %2, ptr %6, align 8, !tbaa !72
+  %7 = load ptr, ptr %4, align 8, !tbaa !93
+  %8 = load i64, ptr %7, align 8, !tbaa !74
+  %9 = load ptr, ptr %5, align 8, !tbaa !93
+  %10 = load i64, ptr %9, align 8, !tbaa !74
+  %11 = add i64 %10, %8
+  store i64 %11, ptr %9, align 8, !tbaa !74
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZN6duckdb14ConstantVector7GetDataIPKmEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !70
+  %3 = load ptr, ptr %2, align 8, !tbaa !70
+  %4 = call noundef ptr @_ZN6duckdb14ConstantVector7GetDataERNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %3)
+  ret ptr %4
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZN6duckdb14ConstantVector7GetDataIPmEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !70
+  %3 = load ptr, ptr %2, align 8, !tbaa !70
+  %4 = call noundef ptr @_ZN6duckdb14ConstantVector7GetDataERNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %3)
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateExecutor8FinalizeImjNS_17RegrCountFunctionEEEvRNS_6VectorERNS_18AggregateInputDataES4_mm(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(17) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, i64 noundef %3, i64 noundef %4) #0 comdat align 2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca %"struct.duckdb::AggregateFinalizeData", align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca %"struct.duckdb::AggregateFinalizeData", align 8
+  %17 = alloca i64, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !70
+  store ptr %1, ptr %7, align 8, !tbaa !72
+  store ptr %2, ptr %8, align 8, !tbaa !70
+  store i64 %3, ptr %9, align 8, !tbaa !74
+  store i64 %4, ptr %10, align 8, !tbaa !74
+  %18 = load ptr, ptr %6, align 8, !tbaa !70
+  %19 = call noundef zeroext i8 @_ZNK6duckdb6Vector13GetVectorTypeEv(ptr noundef nonnull align 8 dereferenceable(104) %18)
+  %20 = icmp eq i8 %19, 2
+  br i1 %20, label %21, label %32
+
+21:                                               ; preds = %5
+  %22 = load ptr, ptr %8, align 8, !tbaa !70
+  call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %22, i8 noundef zeroext 2)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #17
+  %23 = load ptr, ptr %6, align 8, !tbaa !70
+  %24 = call noundef ptr @_ZN6duckdb14ConstantVector7GetDataIPmEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %23)
+  store ptr %24, ptr %11, align 8, !tbaa !249
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #17
+  %25 = load ptr, ptr %8, align 8, !tbaa !70
+  %26 = call noundef ptr @_ZN6duckdb14ConstantVector7GetDataIjEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %25)
+  store ptr %26, ptr %12, align 8, !tbaa !63
+  call void @llvm.lifetime.start.p0(i64 24, ptr %13) #17
+  %27 = load ptr, ptr %8, align 8, !tbaa !70
+  %28 = load ptr, ptr %7, align 8, !tbaa !72
+  call void @_ZN6duckdb21AggregateFinalizeDataC2ERNS_6VectorERNS_18AggregateInputDataE(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(104) %27, ptr noundef nonnull align 8 dereferenceable(17) %28)
+  %29 = load ptr, ptr %11, align 8, !tbaa !249
+  %30 = load ptr, ptr %29, align 8, !tbaa !93
+  %31 = load ptr, ptr %12, align 8, !tbaa !63
+  call void @_ZN6duckdb17RegrCountFunction8FinalizeIjmEEvRT0_RT_RNS_21AggregateFinalizeDataE(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull align 4 dereferenceable(4) %31, ptr noundef nonnull align 8 dereferenceable(24) %13)
+  call void @llvm.lifetime.end.p0(i64 24, ptr %13) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #17
+  br label %62
+
+32:                                               ; preds = %5
+  %33 = load ptr, ptr %8, align 8, !tbaa !70
+  call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %33, i8 noundef zeroext 0)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #17
+  %34 = load ptr, ptr %6, align 8, !tbaa !70
+  %35 = call noundef ptr @_ZN6duckdb10FlatVector7GetDataIPmEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %34)
+  store ptr %35, ptr %14, align 8, !tbaa !249
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #17
+  %36 = load ptr, ptr %8, align 8, !tbaa !70
+  %37 = call noundef ptr @_ZN6duckdb10FlatVector7GetDataIjEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %36)
+  store ptr %37, ptr %15, align 8, !tbaa !63
+  call void @llvm.lifetime.start.p0(i64 24, ptr %16) #17
+  %38 = load ptr, ptr %8, align 8, !tbaa !70
+  %39 = load ptr, ptr %7, align 8, !tbaa !72
+  call void @_ZN6duckdb21AggregateFinalizeDataC2ERNS_6VectorERNS_18AggregateInputDataE(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(104) %38, ptr noundef nonnull align 8 dereferenceable(17) %39)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #17
+  store i64 0, ptr %17, align 8, !tbaa !74
+  br label %40
+
+40:                                               ; preds = %58, %32
+  %41 = load i64, ptr %17, align 8, !tbaa !74
+  %42 = load i64, ptr %9, align 8, !tbaa !74
+  %43 = icmp ult i64 %41, %42
+  br i1 %43, label %45, label %44
+
+44:                                               ; preds = %40
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #17
+  br label %61
+
+45:                                               ; preds = %40
+  %46 = load i64, ptr %17, align 8, !tbaa !74
+  %47 = load i64, ptr %10, align 8, !tbaa !74
+  %48 = add i64 %46, %47
+  %49 = getelementptr inbounds nuw %"struct.duckdb::AggregateFinalizeData", ptr %16, i32 0, i32 2
+  store i64 %48, ptr %49, align 8, !tbaa !161
+  %50 = load ptr, ptr %14, align 8, !tbaa !249
+  %51 = load i64, ptr %17, align 8, !tbaa !74
+  %52 = getelementptr inbounds nuw ptr, ptr %50, i64 %51
+  %53 = load ptr, ptr %52, align 8, !tbaa !93
+  %54 = load ptr, ptr %15, align 8, !tbaa !63
+  %55 = getelementptr inbounds nuw %"struct.duckdb::AggregateFinalizeData", ptr %16, i32 0, i32 2
+  %56 = load i64, ptr %55, align 8, !tbaa !161
+  %57 = getelementptr inbounds nuw i32, ptr %54, i64 %56
+  call void @_ZN6duckdb17RegrCountFunction8FinalizeIjmEEvRT0_RT_RNS_21AggregateFinalizeDataE(ptr noundef nonnull align 8 dereferenceable(8) %53, ptr noundef nonnull align 4 dereferenceable(4) %57, ptr noundef nonnull align 8 dereferenceable(24) %16)
+  br label %58
+
+58:                                               ; preds = %45
+  %59 = load i64, ptr %17, align 8, !tbaa !74
+  %60 = add i64 %59, 1
+  store i64 %60, ptr %17, align 8, !tbaa !74
+  br label %40, !llvm.loop !254
+
+61:                                               ; preds = %44
+  call void @llvm.lifetime.end.p0(i64 24, ptr %16) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #17
+  br label %62
+
+62:                                               ; preds = %61, %21
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZN6duckdb14ConstantVector7GetDataIjEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !70
+  %3 = load ptr, ptr %2, align 8, !tbaa !70
+  %4 = call noundef ptr @_ZN6duckdb14ConstantVector7GetDataERNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %3)
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN6duckdb17RegrCountFunction8FinalizeIjmEEvRT0_RT_RNS_21AggregateFinalizeDataE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) #5 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !93
+  store ptr %1, ptr %5, align 8, !tbaa !63
+  store ptr %2, ptr %6, align 8, !tbaa !165
+  %7 = load ptr, ptr %4, align 8, !tbaa !93
+  %8 = load i64, ptr %7, align 8, !tbaa !74
+  %9 = trunc i64 %8 to i32
+  %10 = load ptr, ptr %5, align 8, !tbaa !63
+  store i32 %9, ptr %10, align 4, !tbaa !54
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZN6duckdb10FlatVector7GetDataIjEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !70
+  %3 = load ptr, ptr %2, align 8, !tbaa !70
+  %4 = call noundef ptr @_ZN6duckdb14ConstantVector7GetDataIjEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %3)
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateExecutor12BinaryUpdateImddNS_17RegrCountFunctionEEEvRNS_18AggregateInputDataERNS_6VectorES6_Phm(ptr noundef nonnull align 8 dereferenceable(17) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, ptr noundef %3, i64 noundef %4) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
+  %12 = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !72
+  store ptr %1, ptr %7, align 8, !tbaa !70
+  store ptr %2, ptr %8, align 8, !tbaa !70
+  store ptr %3, ptr %9, align 8, !tbaa !39
+  store i64 %4, ptr %10, align 8, !tbaa !74
+  call void @llvm.lifetime.start.p0(i64 72, ptr %11) #17
+  call void @_ZN6duckdb19UnifiedVectorFormatC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %11)
+  call void @llvm.lifetime.start.p0(i64 72, ptr %12) #17
+  invoke void @_ZN6duckdb19UnifiedVectorFormatC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %12)
+          to label %15 unwind label %34
+
+15:                                               ; preds = %5
+  %16 = load ptr, ptr %7, align 8, !tbaa !70
+  %17 = load i64, ptr %10, align 8, !tbaa !74
+  invoke void @_ZN6duckdb6Vector15ToUnifiedFormatEmRNS_19UnifiedVectorFormatE(ptr noundef nonnull align 8 dereferenceable(104) %16, i64 noundef %17, ptr noundef nonnull align 8 dereferenceable(72) %11)
+          to label %18 unwind label %38
+
+18:                                               ; preds = %15
+  %19 = load ptr, ptr %8, align 8, !tbaa !70
+  %20 = load i64, ptr %10, align 8, !tbaa !74
+  invoke void @_ZN6duckdb6Vector15ToUnifiedFormatEmRNS_19UnifiedVectorFormatE(ptr noundef nonnull align 8 dereferenceable(104) %19, i64 noundef %20, ptr noundef nonnull align 8 dereferenceable(72) %12)
+          to label %21 unwind label %38
+
+21:                                               ; preds = %18
+  %22 = call noundef ptr @_ZN6duckdb19UnifiedVectorFormat7GetDataIdEEPKT_RKS0_(ptr noundef nonnull align 8 dereferenceable(72) %11)
+  %23 = load ptr, ptr %6, align 8, !tbaa !72
+  %24 = call noundef ptr @_ZN6duckdb19UnifiedVectorFormat7GetDataIdEEPKT_RKS0_(ptr noundef nonnull align 8 dereferenceable(72) %12)
+  %25 = load ptr, ptr %9, align 8, !tbaa !39
+  %26 = load i64, ptr %10, align 8, !tbaa !74
+  %27 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %11, i32 0, i32 0
+  %28 = load ptr, ptr %27, align 8, !tbaa !122
+  %29 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %12, i32 0, i32 0
+  %30 = load ptr, ptr %29, align 8, !tbaa !122
+  %31 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %11, i32 0, i32 2
+  %32 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %12, i32 0, i32 2
+  invoke void @_ZN6duckdb17AggregateExecutor16BinaryUpdateLoopImddNS_17RegrCountFunctionEEEvPKT0_RNS_18AggregateInputDataEPKT1_PT_mRKNS_15SelectionVectorESF_RNS_12ValidityMaskESH_(ptr noundef %22, ptr noundef nonnull align 8 dereferenceable(17) %23, ptr noundef %24, ptr noundef %25, i64 noundef %26, ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(32) %32)
+          to label %33 unwind label %38
+
+33:                                               ; preds = %21
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %12) #17
+  call void @llvm.lifetime.end.p0(i64 72, ptr %12) #17
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %11) #17
+  call void @llvm.lifetime.end.p0(i64 72, ptr %11) #17
+  ret void
+
+34:                                               ; preds = %5
+  %35 = landingpad { ptr, i32 }
+          cleanup
+  %36 = extractvalue { ptr, i32 } %35, 0
+  store ptr %36, ptr %13, align 8
+  %37 = extractvalue { ptr, i32 } %35, 1
+  store i32 %37, ptr %14, align 4
+  br label %42
+
+38:                                               ; preds = %21, %18, %15
+  %39 = landingpad { ptr, i32 }
+          cleanup
+  %40 = extractvalue { ptr, i32 } %39, 0
+  store ptr %40, ptr %13, align 8
+  %41 = extractvalue { ptr, i32 } %39, 1
+  store i32 %41, ptr %14, align 4
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %12) #17
+  br label %42
+
+42:                                               ; preds = %38, %34
+  call void @llvm.lifetime.end.p0(i64 72, ptr %12) #17
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %11) #17
+  call void @llvm.lifetime.end.p0(i64 72, ptr %11) #17
+  br label %43
+
+43:                                               ; preds = %42
+  %44 = load ptr, ptr %13, align 8
+  %45 = load i32, ptr %14, align 4
+  %46 = insertvalue { ptr, i32 } poison, ptr %44, 0
+  %47 = insertvalue { ptr, i32 } %46, i32 %45, 1
+  resume { ptr, i32 } %47
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateExecutor16BinaryUpdateLoopImddNS_17RegrCountFunctionEEEvPKT0_RNS_18AggregateInputDataEPKT1_PT_mRKNS_15SelectionVectorESF_RNS_12ValidityMaskESH_(ptr noalias noundef %0, ptr noundef nonnull align 8 dereferenceable(17) %1, ptr noalias noundef %2, ptr noalias noundef %3, i64 noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %8) #12 comdat align 2 {
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i64, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca ptr, align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca %"struct.duckdb::AggregateBinaryInput", align 8
+  %20 = alloca i64, align 8
+  %21 = alloca i64, align 8
+  store ptr %0, ptr %10, align 8, !tbaa !123
+  store ptr %1, ptr %11, align 8, !tbaa !72
+  store ptr %2, ptr %12, align 8, !tbaa !123
+  store ptr %3, ptr %13, align 8, !tbaa !93
+  store i64 %4, ptr %14, align 8, !tbaa !74
+  store ptr %5, ptr %15, align 8, !tbaa !127
+  store ptr %6, ptr %16, align 8, !tbaa !127
+  store ptr %7, ptr %17, align 8, !tbaa !128
+  store ptr %8, ptr %18, align 8, !tbaa !128
+  call void @llvm.lifetime.start.p0(i64 40, ptr %19) #17
+  %22 = load ptr, ptr %11, align 8, !tbaa !72
+  %23 = load ptr, ptr %17, align 8, !tbaa !128
+  %24 = load ptr, ptr %18, align 8, !tbaa !128
+  call void @_ZN6duckdb20AggregateBinaryInputC2ERNS_18AggregateInputDataERNS_12ValidityMaskES4_(ptr noundef nonnull align 8 dereferenceable(40) %19, ptr noundef nonnull align 8 dereferenceable(17) %22, ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %24)
+  %25 = call noundef zeroext i1 @_ZN6duckdb17RegrCountFunction10IgnoreNullEv()
+  br i1 %25, label %26, label %71
+
+26:                                               ; preds = %9
+  %27 = load ptr, ptr %17, align 8, !tbaa !128
+  %28 = call noundef zeroext i1 @_ZNK6duckdb21TemplatedValidityMaskImE8AllValidEv(ptr noundef nonnull align 8 dereferenceable(32) %27)
+  br i1 %28, label %29, label %32
+
+29:                                               ; preds = %26
+  %30 = load ptr, ptr %18, align 8, !tbaa !128
+  %31 = call noundef zeroext i1 @_ZNK6duckdb21TemplatedValidityMaskImE8AllValidEv(ptr noundef nonnull align 8 dereferenceable(32) %30)
+  br i1 %31, label %71, label %32
+
+32:                                               ; preds = %29, %26
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #17
+  store i64 0, ptr %20, align 8, !tbaa !74
+  br label %33
+
+33:                                               ; preds = %67, %32
+  %34 = load i64, ptr %20, align 8, !tbaa !74
+  %35 = load i64, ptr %14, align 8, !tbaa !74
+  %36 = icmp ult i64 %34, %35
+  br i1 %36, label %38, label %37
+
+37:                                               ; preds = %33
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #17
+  br label %70
+
+38:                                               ; preds = %33
+  %39 = load ptr, ptr %15, align 8, !tbaa !127
+  %40 = load i64, ptr %20, align 8, !tbaa !74
+  %41 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %39, i64 noundef %40)
+  %42 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 3
+  store i64 %41, ptr %42, align 8, !tbaa !130
+  %43 = load ptr, ptr %16, align 8, !tbaa !127
+  %44 = load i64, ptr %20, align 8, !tbaa !74
+  %45 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %43, i64 noundef %44)
+  %46 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 4
+  store i64 %45, ptr %46, align 8, !tbaa !132
+  %47 = load ptr, ptr %17, align 8, !tbaa !128
+  %48 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 3
+  %49 = load i64, ptr %48, align 8, !tbaa !130
+  %50 = call noundef zeroext i1 @_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm(ptr noundef nonnull align 8 dereferenceable(32) %47, i64 noundef %49)
+  br i1 %50, label %51, label %66
+
+51:                                               ; preds = %38
+  %52 = load ptr, ptr %18, align 8, !tbaa !128
+  %53 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 4
+  %54 = load i64, ptr %53, align 8, !tbaa !132
+  %55 = call noundef zeroext i1 @_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm(ptr noundef nonnull align 8 dereferenceable(32) %52, i64 noundef %54)
+  br i1 %55, label %56, label %66
+
+56:                                               ; preds = %51
+  %57 = load ptr, ptr %13, align 8, !tbaa !93
+  %58 = load ptr, ptr %10, align 8, !tbaa !123
+  %59 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 3
+  %60 = load i64, ptr %59, align 8, !tbaa !130
+  %61 = getelementptr inbounds nuw double, ptr %58, i64 %60
+  %62 = load ptr, ptr %12, align 8, !tbaa !123
+  %63 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 4
+  %64 = load i64, ptr %63, align 8, !tbaa !132
+  %65 = getelementptr inbounds nuw double, ptr %62, i64 %64
+  call void @_ZN6duckdb17RegrCountFunction9OperationIddmS0_EEvRT1_RKT_RKT0_RNS_20AggregateBinaryInputE(ptr noundef nonnull align 8 dereferenceable(8) %57, ptr noundef nonnull align 8 dereferenceable(8) %61, ptr noundef nonnull align 8 dereferenceable(8) %65, ptr noundef nonnull align 8 dereferenceable(40) %19)
+  br label %66
+
+66:                                               ; preds = %56, %51, %38
+  br label %67
+
+67:                                               ; preds = %66
+  %68 = load i64, ptr %20, align 8, !tbaa !74
+  %69 = add i64 %68, 1
+  store i64 %69, ptr %20, align 8, !tbaa !74
+  br label %33, !llvm.loop !255
+
+70:                                               ; preds = %37
+  br label %99
+
+71:                                               ; preds = %29, %9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #17
+  store i64 0, ptr %21, align 8, !tbaa !74
+  br label %72
+
+72:                                               ; preds = %95, %71
+  %73 = load i64, ptr %21, align 8, !tbaa !74
+  %74 = load i64, ptr %14, align 8, !tbaa !74
+  %75 = icmp ult i64 %73, %74
+  br i1 %75, label %77, label %76
+
+76:                                               ; preds = %72
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #17
+  br label %98
+
+77:                                               ; preds = %72
+  %78 = load ptr, ptr %15, align 8, !tbaa !127
+  %79 = load i64, ptr %21, align 8, !tbaa !74
+  %80 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %78, i64 noundef %79)
+  %81 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 3
+  store i64 %80, ptr %81, align 8, !tbaa !130
+  %82 = load ptr, ptr %16, align 8, !tbaa !127
+  %83 = load i64, ptr %21, align 8, !tbaa !74
+  %84 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %82, i64 noundef %83)
+  %85 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 4
+  store i64 %84, ptr %85, align 8, !tbaa !132
+  %86 = load ptr, ptr %13, align 8, !tbaa !93
+  %87 = load ptr, ptr %10, align 8, !tbaa !123
+  %88 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 3
+  %89 = load i64, ptr %88, align 8, !tbaa !130
+  %90 = getelementptr inbounds nuw double, ptr %87, i64 %89
+  %91 = load ptr, ptr %12, align 8, !tbaa !123
+  %92 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 4
+  %93 = load i64, ptr %92, align 8, !tbaa !132
+  %94 = getelementptr inbounds nuw double, ptr %91, i64 %93
+  call void @_ZN6duckdb17RegrCountFunction9OperationIddmS0_EEvRT1_RKT_RKT0_RNS_20AggregateBinaryInputE(ptr noundef nonnull align 8 dereferenceable(8) %86, ptr noundef nonnull align 8 dereferenceable(8) %90, ptr noundef nonnull align 8 dereferenceable(8) %94, ptr noundef nonnull align 8 dereferenceable(40) %19)
+  br label %95
+
+95:                                               ; preds = %77
+  %96 = load i64, ptr %21, align 8, !tbaa !74
+  %97 = add i64 %96, 1
+  store i64 %97, ptr %21, align 8, !tbaa !74
+  br label %72, !llvm.loop !256
+
+98:                                               ; preds = %76
+  br label %99
+
+99:                                               ; preds = %98, %70
+  call void @llvm.lifetime.end.p0(i64 40, ptr %19) #17
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define available_externally noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !37
+  store ptr %1, ptr %4, align 8, !tbaa !39
+  %5 = load ptr, ptr %3, align 8
+  %6 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
+  %7 = load ptr, ptr %4, align 8, !tbaa !39
+  %8 = load ptr, ptr %4, align 8, !tbaa !39
+  %9 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %8)
+  %10 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %5, i64 noundef 0, i64 noundef %6, ptr noundef %7, i64 noundef %9)
+  ret ptr %10
+}
+
+declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef, ptr noundef, i64 noundef) #2
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #5 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !37
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 1
+  %5 = load i64, ptr %4, align 8, !tbaa !182
+  ret i64 %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZN6duckdb17AggregateFunction9StateSizeINS_11RegrR2StateEEEmRKS0_(ptr noundef nonnull align 8 dereferenceable(304) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !40
+  ret i64 128
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateFunction15StateInitializeINS_11RegrR2StateENS_15RegrR2OperationELNS_23AggregateDestructorTypeE0EEEvRKS0_Ph(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !40
+  store ptr %1, ptr %4, align 8, !tbaa !39
+  %5 = load ptr, ptr %4, align 8, !tbaa !39
+  call void @_ZN6duckdb15RegrR2Operation10InitializeINS_11RegrR2StateEEEvRT_(ptr noundef nonnull align 8 dereferenceable(128) %5)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateFunction19BinaryScatterUpdateINS_11RegrR2StateEddNS_15RegrR2OperationEEEvPNS_6VectorERNS_18AggregateInputDataEmRS4_m(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(17) %1, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(104) %3, i64 noundef %4) #0 comdat align 2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !70
+  store ptr %1, ptr %7, align 8, !tbaa !72
+  store i64 %2, ptr %8, align 8, !tbaa !74
+  store ptr %3, ptr %9, align 8, !tbaa !70
+  store i64 %4, ptr %10, align 8, !tbaa !74
+  %11 = load ptr, ptr %7, align 8, !tbaa !72
+  %12 = load ptr, ptr %6, align 8, !tbaa !70
+  %13 = getelementptr inbounds %"class.duckdb::Vector", ptr %12, i64 0
+  %14 = load ptr, ptr %6, align 8, !tbaa !70
+  %15 = getelementptr inbounds %"class.duckdb::Vector", ptr %14, i64 1
+  %16 = load ptr, ptr %9, align 8, !tbaa !70
+  %17 = load i64, ptr %10, align 8, !tbaa !74
+  call void @_ZN6duckdb17AggregateExecutor13BinaryScatterINS_11RegrR2StateEddNS_15RegrR2OperationEEEvRNS_18AggregateInputDataERNS_6VectorES7_S7_m(ptr noundef nonnull align 8 dereferenceable(17) %11, ptr noundef nonnull align 8 dereferenceable(104) %13, ptr noundef nonnull align 8 dereferenceable(104) %15, ptr noundef nonnull align 8 dereferenceable(104) %16, i64 noundef %17)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateFunction12StateCombineINS_11RegrR2StateENS_15RegrR2OperationEEEvRNS_6VectorES5_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(17) %2, i64 noundef %3) #0 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !70
+  store ptr %1, ptr %6, align 8, !tbaa !70
+  store ptr %2, ptr %7, align 8, !tbaa !72
+  store i64 %3, ptr %8, align 8, !tbaa !74
+  %9 = load ptr, ptr %5, align 8, !tbaa !70
+  %10 = load ptr, ptr %6, align 8, !tbaa !70
+  %11 = load ptr, ptr %7, align 8, !tbaa !72
+  %12 = load i64, ptr %8, align 8, !tbaa !74
+  call void @_ZN6duckdb17AggregateExecutor7CombineINS_11RegrR2StateENS_15RegrR2OperationEEEvRNS_6VectorES5_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %9, ptr noundef nonnull align 8 dereferenceable(104) %10, ptr noundef nonnull align 8 dereferenceable(17) %11, i64 noundef %12)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateFunction13StateFinalizeINS_11RegrR2StateEdNS_15RegrR2OperationEEEvRNS_6VectorERNS_18AggregateInputDataES5_mm(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(17) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, i64 noundef %3, i64 noundef %4) #0 comdat align 2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !70
+  store ptr %1, ptr %7, align 8, !tbaa !72
+  store ptr %2, ptr %8, align 8, !tbaa !70
+  store i64 %3, ptr %9, align 8, !tbaa !74
+  store i64 %4, ptr %10, align 8, !tbaa !74
+  %11 = load ptr, ptr %6, align 8, !tbaa !70
+  %12 = load ptr, ptr %7, align 8, !tbaa !72
+  %13 = load ptr, ptr %8, align 8, !tbaa !70
+  %14 = load i64, ptr %9, align 8, !tbaa !74
+  %15 = load i64, ptr %10, align 8, !tbaa !74
+  call void @_ZN6duckdb17AggregateExecutor8FinalizeINS_11RegrR2StateEdNS_15RegrR2OperationEEEvRNS_6VectorERNS_18AggregateInputDataES5_mm(ptr noundef nonnull align 8 dereferenceable(104) %11, ptr noundef nonnull align 8 dereferenceable(17) %12, ptr noundef nonnull align 8 dereferenceable(104) %13, i64 noundef %14, i64 noundef %15)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateFunction12BinaryUpdateINS_11RegrR2StateEddNS_15RegrR2OperationEEEvPNS_6VectorERNS_18AggregateInputDataEmPhm(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(17) %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) #0 comdat align 2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !70
+  store ptr %1, ptr %7, align 8, !tbaa !72
+  store i64 %2, ptr %8, align 8, !tbaa !74
+  store ptr %3, ptr %9, align 8, !tbaa !39
+  store i64 %4, ptr %10, align 8, !tbaa !74
+  %11 = load ptr, ptr %7, align 8, !tbaa !72
+  %12 = load ptr, ptr %6, align 8, !tbaa !70
+  %13 = getelementptr inbounds %"class.duckdb::Vector", ptr %12, i64 0
+  %14 = load ptr, ptr %6, align 8, !tbaa !70
+  %15 = getelementptr inbounds %"class.duckdb::Vector", ptr %14, i64 1
+  %16 = load ptr, ptr %9, align 8, !tbaa !39
+  %17 = load i64, ptr %10, align 8, !tbaa !74
+  call void @_ZN6duckdb17AggregateExecutor12BinaryUpdateINS_11RegrR2StateEddNS_15RegrR2OperationEEEvRNS_18AggregateInputDataERNS_6VectorES7_Phm(ptr noundef nonnull align 8 dereferenceable(17) %11, ptr noundef nonnull align 8 dereferenceable(104) %13, ptr noundef nonnull align 8 dereferenceable(104) %15, ptr noundef %16, i64 noundef %17)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb15RegrR2Operation10InitializeINS_11RegrR2StateEEEvRT_(ptr noundef nonnull align 8 dereferenceable(128) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !257
+  %3 = load ptr, ptr %2, align 8, !tbaa !257
+  %4 = getelementptr inbounds nuw %"struct.duckdb::RegrR2State", ptr %3, i32 0, i32 0
+  call void @_ZN6duckdb13CorrOperation10InitializeINS_9CorrStateEEEvRT_(ptr noundef nonnull align 8 dereferenceable(80) %4)
+  %5 = load ptr, ptr %2, align 8, !tbaa !257
+  %6 = getelementptr inbounds nuw %"struct.duckdb::RegrR2State", ptr %5, i32 0, i32 1
+  call void @_ZN6duckdb19STDDevBaseOperation10InitializeINS_11StddevStateEEEvRT_(ptr noundef nonnull align 8 dereferenceable(24) %6)
+  %7 = load ptr, ptr %2, align 8, !tbaa !257
+  %8 = getelementptr inbounds nuw %"struct.duckdb::RegrR2State", ptr %7, i32 0, i32 2
+  call void @_ZN6duckdb19STDDevBaseOperation10InitializeINS_11StddevStateEEEvRT_(ptr noundef nonnull align 8 dereferenceable(24) %8)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN6duckdb13CorrOperation10InitializeINS_9CorrStateEEEvRT_(ptr noundef nonnull align 8 dereferenceable(80) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !259
+  %3 = load ptr, ptr %2, align 8, !tbaa !259
+  %4 = getelementptr inbounds nuw %"struct.duckdb::CorrState", ptr %3, i32 0, i32 0
+  call void @_ZN6duckdb14CovarOperation10InitializeINS_10CovarStateEEEvRT_(ptr noundef nonnull align 8 dereferenceable(32) %4)
+  %5 = load ptr, ptr %2, align 8, !tbaa !259
+  %6 = getelementptr inbounds nuw %"struct.duckdb::CorrState", ptr %5, i32 0, i32 1
+  call void @_ZN6duckdb19STDDevBaseOperation10InitializeINS_11StddevStateEEEvRT_(ptr noundef nonnull align 8 dereferenceable(24) %6)
+  %7 = load ptr, ptr %2, align 8, !tbaa !259
+  %8 = getelementptr inbounds nuw %"struct.duckdb::CorrState", ptr %7, i32 0, i32 2
+  call void @_ZN6duckdb19STDDevBaseOperation10InitializeINS_11StddevStateEEEvRT_(ptr noundef nonnull align 8 dereferenceable(24) %8)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateExecutor13BinaryScatterINS_11RegrR2StateEddNS_15RegrR2OperationEEEvRNS_18AggregateInputDataERNS_6VectorES7_S7_m(ptr noundef nonnull align 8 dereferenceable(17) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, ptr noundef nonnull align 8 dereferenceable(104) %3, i64 noundef %4) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
+  %12 = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
+  store ptr %0, ptr %6, align 8, !tbaa !72
+  store ptr %1, ptr %7, align 8, !tbaa !70
+  store ptr %2, ptr %8, align 8, !tbaa !70
+  store ptr %3, ptr %9, align 8, !tbaa !70
+  store i64 %4, ptr %10, align 8, !tbaa !74
+  call void @llvm.lifetime.start.p0(i64 72, ptr %11) #17
+  call void @_ZN6duckdb19UnifiedVectorFormatC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %11)
+  call void @llvm.lifetime.start.p0(i64 72, ptr %12) #17
+  invoke void @_ZN6duckdb19UnifiedVectorFormatC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %12)
+          to label %16 unwind label %42
+
+16:                                               ; preds = %5
+  call void @llvm.lifetime.start.p0(i64 72, ptr %15) #17
+  invoke void @_ZN6duckdb19UnifiedVectorFormatC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %15)
+          to label %17 unwind label %46
+
+17:                                               ; preds = %16
+  %18 = load ptr, ptr %7, align 8, !tbaa !70
+  %19 = load i64, ptr %10, align 8, !tbaa !74
+  invoke void @_ZN6duckdb6Vector15ToUnifiedFormatEmRNS_19UnifiedVectorFormatE(ptr noundef nonnull align 8 dereferenceable(104) %18, i64 noundef %19, ptr noundef nonnull align 8 dereferenceable(72) %11)
+          to label %20 unwind label %50
+
+20:                                               ; preds = %17
+  %21 = load ptr, ptr %8, align 8, !tbaa !70
+  %22 = load i64, ptr %10, align 8, !tbaa !74
+  invoke void @_ZN6duckdb6Vector15ToUnifiedFormatEmRNS_19UnifiedVectorFormatE(ptr noundef nonnull align 8 dereferenceable(104) %21, i64 noundef %22, ptr noundef nonnull align 8 dereferenceable(72) %12)
+          to label %23 unwind label %50
+
+23:                                               ; preds = %20
+  %24 = load ptr, ptr %9, align 8, !tbaa !70
+  %25 = load i64, ptr %10, align 8, !tbaa !74
+  invoke void @_ZN6duckdb6Vector15ToUnifiedFormatEmRNS_19UnifiedVectorFormatE(ptr noundef nonnull align 8 dereferenceable(104) %24, i64 noundef %25, ptr noundef nonnull align 8 dereferenceable(72) %15)
+          to label %26 unwind label %50
+
+26:                                               ; preds = %23
+  %27 = call noundef ptr @_ZN6duckdb19UnifiedVectorFormat7GetDataIdEEPKT_RKS0_(ptr noundef nonnull align 8 dereferenceable(72) %11)
+  %28 = load ptr, ptr %6, align 8, !tbaa !72
+  %29 = call noundef ptr @_ZN6duckdb19UnifiedVectorFormat7GetDataIdEEPKT_RKS0_(ptr noundef nonnull align 8 dereferenceable(72) %12)
+  %30 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %15, i32 0, i32 1
+  %31 = load ptr, ptr %30, align 8, !tbaa !108
+  %32 = load i64, ptr %10, align 8, !tbaa !74
+  %33 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %11, i32 0, i32 0
+  %34 = load ptr, ptr %33, align 8, !tbaa !122
+  %35 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %12, i32 0, i32 0
+  %36 = load ptr, ptr %35, align 8, !tbaa !122
+  %37 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %15, i32 0, i32 0
+  %38 = load ptr, ptr %37, align 8, !tbaa !122
+  %39 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %11, i32 0, i32 2
+  %40 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %12, i32 0, i32 2
+  invoke void @_ZN6duckdb17AggregateExecutor17BinaryScatterLoopINS_11RegrR2StateEddNS_15RegrR2OperationEEEvPKT0_RNS_18AggregateInputDataEPKT1_PPT_mRKNS_15SelectionVectorESH_SH_RNS_12ValidityMaskESJ_(ptr noundef %27, ptr noundef nonnull align 8 dereferenceable(17) %28, ptr noundef %29, ptr noundef %31, i64 noundef %32, ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef nonnull align 8 dereferenceable(24) %36, ptr noundef nonnull align 8 dereferenceable(24) %38, ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef nonnull align 8 dereferenceable(32) %40)
+          to label %41 unwind label %50
+
+41:                                               ; preds = %26
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %15) #17
+  call void @llvm.lifetime.end.p0(i64 72, ptr %15) #17
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %12) #17
+  call void @llvm.lifetime.end.p0(i64 72, ptr %12) #17
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %11) #17
+  call void @llvm.lifetime.end.p0(i64 72, ptr %11) #17
+  ret void
+
+42:                                               ; preds = %5
+  %43 = landingpad { ptr, i32 }
+          cleanup
+  %44 = extractvalue { ptr, i32 } %43, 0
+  store ptr %44, ptr %13, align 8
+  %45 = extractvalue { ptr, i32 } %43, 1
+  store i32 %45, ptr %14, align 4
+  br label %55
+
+46:                                               ; preds = %16
+  %47 = landingpad { ptr, i32 }
+          cleanup
+  %48 = extractvalue { ptr, i32 } %47, 0
+  store ptr %48, ptr %13, align 8
+  %49 = extractvalue { ptr, i32 } %47, 1
+  store i32 %49, ptr %14, align 4
+  br label %54
+
+50:                                               ; preds = %26, %23, %20, %17
+  %51 = landingpad { ptr, i32 }
+          cleanup
+  %52 = extractvalue { ptr, i32 } %51, 0
+  store ptr %52, ptr %13, align 8
+  %53 = extractvalue { ptr, i32 } %51, 1
+  store i32 %53, ptr %14, align 4
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %15) #17
+  br label %54
+
+54:                                               ; preds = %50, %46
+  call void @llvm.lifetime.end.p0(i64 72, ptr %15) #17
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %12) #17
+  br label %55
+
+55:                                               ; preds = %54, %42
+  call void @llvm.lifetime.end.p0(i64 72, ptr %12) #17
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %11) #17
+  call void @llvm.lifetime.end.p0(i64 72, ptr %11) #17
+  br label %56
+
+56:                                               ; preds = %55
+  %57 = load ptr, ptr %13, align 8
+  %58 = load i32, ptr %14, align 4
+  %59 = insertvalue { ptr, i32 } poison, ptr %57, 0
+  %60 = insertvalue { ptr, i32 } %59, i32 %58, 1
+  resume { ptr, i32 } %60
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateExecutor17BinaryScatterLoopINS_11RegrR2StateEddNS_15RegrR2OperationEEEvPKT0_RNS_18AggregateInputDataEPKT1_PPT_mRKNS_15SelectionVectorESH_SH_RNS_12ValidityMaskESJ_(ptr noalias noundef %0, ptr noundef nonnull align 8 dereferenceable(17) %1, ptr noalias noundef %2, ptr noalias noundef %3, i64 noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9) #12 comdat align 2 {
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca i64, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca ptr, align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca ptr, align 8
+  %20 = alloca ptr, align 8
+  %21 = alloca %"struct.duckdb::AggregateBinaryInput", align 8
+  %22 = alloca i64, align 8
+  %23 = alloca i64, align 8
+  %24 = alloca i64, align 8
+  %25 = alloca i64, align 8
+  store ptr %0, ptr %11, align 8, !tbaa !123
+  store ptr %1, ptr %12, align 8, !tbaa !72
+  store ptr %2, ptr %13, align 8, !tbaa !123
+  store ptr %3, ptr %14, align 8, !tbaa !261
+  store i64 %4, ptr %15, align 8, !tbaa !74
+  store ptr %5, ptr %16, align 8, !tbaa !127
+  store ptr %6, ptr %17, align 8, !tbaa !127
+  store ptr %7, ptr %18, align 8, !tbaa !127
+  store ptr %8, ptr %19, align 8, !tbaa !128
+  store ptr %9, ptr %20, align 8, !tbaa !128
+  call void @llvm.lifetime.start.p0(i64 40, ptr %21) #17
+  %26 = load ptr, ptr %12, align 8, !tbaa !72
+  %27 = load ptr, ptr %19, align 8, !tbaa !128
+  %28 = load ptr, ptr %20, align 8, !tbaa !128
+  call void @_ZN6duckdb20AggregateBinaryInputC2ERNS_18AggregateInputDataERNS_12ValidityMaskES4_(ptr noundef nonnull align 8 dereferenceable(40) %21, ptr noundef nonnull align 8 dereferenceable(17) %26, ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %28)
+  %29 = call noundef zeroext i1 @_ZN6duckdb15RegrR2Operation10IgnoreNullEv()
+  br i1 %29, label %30, label %81
+
+30:                                               ; preds = %10
+  %31 = load ptr, ptr %19, align 8, !tbaa !128
+  %32 = call noundef zeroext i1 @_ZNK6duckdb21TemplatedValidityMaskImE8AllValidEv(ptr noundef nonnull align 8 dereferenceable(32) %31)
+  br i1 %32, label %33, label %36
+
+33:                                               ; preds = %30
+  %34 = load ptr, ptr %20, align 8, !tbaa !128
+  %35 = call noundef zeroext i1 @_ZNK6duckdb21TemplatedValidityMaskImE8AllValidEv(ptr noundef nonnull align 8 dereferenceable(32) %34)
+  br i1 %35, label %81, label %36
+
+36:                                               ; preds = %33, %30
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #17
+  store i64 0, ptr %22, align 8, !tbaa !74
+  br label %37
+
+37:                                               ; preds = %77, %36
+  %38 = load i64, ptr %22, align 8, !tbaa !74
+  %39 = load i64, ptr %15, align 8, !tbaa !74
+  %40 = icmp ult i64 %38, %39
+  br i1 %40, label %42, label %41
+
+41:                                               ; preds = %37
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #17
+  br label %80
+
+42:                                               ; preds = %37
+  %43 = load ptr, ptr %16, align 8, !tbaa !127
+  %44 = load i64, ptr %22, align 8, !tbaa !74
+  %45 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %43, i64 noundef %44)
+  %46 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 3
+  store i64 %45, ptr %46, align 8, !tbaa !130
+  %47 = load ptr, ptr %17, align 8, !tbaa !127
+  %48 = load i64, ptr %22, align 8, !tbaa !74
+  %49 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %47, i64 noundef %48)
+  %50 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 4
+  store i64 %49, ptr %50, align 8, !tbaa !132
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #17
+  %51 = load ptr, ptr %18, align 8, !tbaa !127
+  %52 = load i64, ptr %22, align 8, !tbaa !74
+  %53 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %51, i64 noundef %52)
+  store i64 %53, ptr %23, align 8, !tbaa !74
+  %54 = load ptr, ptr %19, align 8, !tbaa !128
+  %55 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 3
+  %56 = load i64, ptr %55, align 8, !tbaa !130
+  %57 = call noundef zeroext i1 @_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm(ptr noundef nonnull align 8 dereferenceable(32) %54, i64 noundef %56)
+  br i1 %57, label %58, label %76
+
+58:                                               ; preds = %42
+  %59 = load ptr, ptr %20, align 8, !tbaa !128
+  %60 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 4
+  %61 = load i64, ptr %60, align 8, !tbaa !132
+  %62 = call noundef zeroext i1 @_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm(ptr noundef nonnull align 8 dereferenceable(32) %59, i64 noundef %61)
+  br i1 %62, label %63, label %76
+
+63:                                               ; preds = %58
+  %64 = load ptr, ptr %14, align 8, !tbaa !261
+  %65 = load i64, ptr %23, align 8, !tbaa !74
+  %66 = getelementptr inbounds nuw ptr, ptr %64, i64 %65
+  %67 = load ptr, ptr %66, align 8, !tbaa !257
+  %68 = load ptr, ptr %11, align 8, !tbaa !123
+  %69 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 3
+  %70 = load i64, ptr %69, align 8, !tbaa !130
+  %71 = getelementptr inbounds nuw double, ptr %68, i64 %70
+  %72 = load ptr, ptr %13, align 8, !tbaa !123
+  %73 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 4
+  %74 = load i64, ptr %73, align 8, !tbaa !132
+  %75 = getelementptr inbounds nuw double, ptr %72, i64 %74
+  call void @_ZN6duckdb15RegrR2Operation9OperationIddNS_11RegrR2StateES0_EEvRT1_RKT_RKT0_RNS_20AggregateBinaryInputE(ptr noundef nonnull align 8 dereferenceable(128) %67, ptr noundef nonnull align 8 dereferenceable(8) %71, ptr noundef nonnull align 8 dereferenceable(8) %75, ptr noundef nonnull align 8 dereferenceable(40) %21)
+  br label %76
+
+76:                                               ; preds = %63, %58, %42
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #17
+  br label %77
+
+77:                                               ; preds = %76
+  %78 = load i64, ptr %22, align 8, !tbaa !74
+  %79 = add i64 %78, 1
+  store i64 %79, ptr %22, align 8, !tbaa !74
+  br label %37, !llvm.loop !263
+
+80:                                               ; preds = %41
+  br label %115
+
+81:                                               ; preds = %33, %10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #17
+  store i64 0, ptr %24, align 8, !tbaa !74
+  br label %82
+
+82:                                               ; preds = %111, %81
+  %83 = load i64, ptr %24, align 8, !tbaa !74
+  %84 = load i64, ptr %15, align 8, !tbaa !74
+  %85 = icmp ult i64 %83, %84
+  br i1 %85, label %87, label %86
+
+86:                                               ; preds = %82
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #17
+  br label %114
+
+87:                                               ; preds = %82
+  %88 = load ptr, ptr %16, align 8, !tbaa !127
+  %89 = load i64, ptr %24, align 8, !tbaa !74
+  %90 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %88, i64 noundef %89)
+  %91 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 3
+  store i64 %90, ptr %91, align 8, !tbaa !130
+  %92 = load ptr, ptr %17, align 8, !tbaa !127
+  %93 = load i64, ptr %24, align 8, !tbaa !74
+  %94 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %92, i64 noundef %93)
+  %95 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 4
+  store i64 %94, ptr %95, align 8, !tbaa !132
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #17
+  %96 = load ptr, ptr %18, align 8, !tbaa !127
+  %97 = load i64, ptr %24, align 8, !tbaa !74
+  %98 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %96, i64 noundef %97)
+  store i64 %98, ptr %25, align 8, !tbaa !74
+  %99 = load ptr, ptr %14, align 8, !tbaa !261
+  %100 = load i64, ptr %25, align 8, !tbaa !74
+  %101 = getelementptr inbounds nuw ptr, ptr %99, i64 %100
+  %102 = load ptr, ptr %101, align 8, !tbaa !257
+  %103 = load ptr, ptr %11, align 8, !tbaa !123
+  %104 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 3
+  %105 = load i64, ptr %104, align 8, !tbaa !130
+  %106 = getelementptr inbounds nuw double, ptr %103, i64 %105
+  %107 = load ptr, ptr %13, align 8, !tbaa !123
+  %108 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 4
+  %109 = load i64, ptr %108, align 8, !tbaa !132
+  %110 = getelementptr inbounds nuw double, ptr %107, i64 %109
+  call void @_ZN6duckdb15RegrR2Operation9OperationIddNS_11RegrR2StateES0_EEvRT1_RKT_RKT0_RNS_20AggregateBinaryInputE(ptr noundef nonnull align 8 dereferenceable(128) %102, ptr noundef nonnull align 8 dereferenceable(8) %106, ptr noundef nonnull align 8 dereferenceable(8) %110, ptr noundef nonnull align 8 dereferenceable(40) %21)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #17
+  br label %111
+
+111:                                              ; preds = %87
+  %112 = load i64, ptr %24, align 8, !tbaa !74
+  %113 = add i64 %112, 1
+  store i64 %113, ptr %24, align 8, !tbaa !74
+  br label %82, !llvm.loop !264
+
+114:                                              ; preds = %86
+  br label %115
+
+115:                                              ; preds = %114, %80
+  call void @llvm.lifetime.end.p0(i64 40, ptr %21) #17
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZN6duckdb15RegrR2Operation10IgnoreNullEv() #5 comdat align 2 {
+  ret i1 true
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb15RegrR2Operation9OperationIddNS_11RegrR2StateES0_EEvRT1_RKT_RKT0_RNS_20AggregateBinaryInputE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(40) %3) #0 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !257
+  store ptr %1, ptr %6, align 8, !tbaa !123
+  store ptr %2, ptr %7, align 8, !tbaa !123
+  store ptr %3, ptr %8, align 8, !tbaa !137
+  %9 = load ptr, ptr %5, align 8, !tbaa !257
+  %10 = getelementptr inbounds nuw %"struct.duckdb::RegrR2State", ptr %9, i32 0, i32 0
+  %11 = load ptr, ptr %6, align 8, !tbaa !123
+  %12 = load ptr, ptr %7, align 8, !tbaa !123
+  %13 = load ptr, ptr %8, align 8, !tbaa !137
+  call void @_ZN6duckdb13CorrOperation9OperationIddNS_9CorrStateENS_15RegrR2OperationEEEvRT1_RKT_RKT0_RNS_20AggregateBinaryInputE(ptr noundef nonnull align 8 dereferenceable(80) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(40) %13)
+  %14 = load ptr, ptr %5, align 8, !tbaa !257
+  %15 = getelementptr inbounds nuw %"struct.duckdb::RegrR2State", ptr %14, i32 0, i32 1
+  %16 = load ptr, ptr %7, align 8, !tbaa !123
+  call void @_ZN6duckdb19STDDevBaseOperation7ExecuteIdNS_11StddevStateEEEvRT0_RKT_(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(8) %16)
+  %17 = load ptr, ptr %5, align 8, !tbaa !257
+  %18 = getelementptr inbounds nuw %"struct.duckdb::RegrR2State", ptr %17, i32 0, i32 2
+  %19 = load ptr, ptr %6, align 8, !tbaa !123
+  call void @_ZN6duckdb19STDDevBaseOperation7ExecuteIdNS_11StddevStateEEEvRT0_RKT_(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(8) %19)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb13CorrOperation9OperationIddNS_9CorrStateENS_15RegrR2OperationEEEvRT1_RKT_RKT0_RNS_20AggregateBinaryInputE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(40) %3) #0 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !259
+  store ptr %1, ptr %6, align 8, !tbaa !123
+  store ptr %2, ptr %7, align 8, !tbaa !123
+  store ptr %3, ptr %8, align 8, !tbaa !137
+  %9 = load ptr, ptr %5, align 8, !tbaa !259
+  %10 = getelementptr inbounds nuw %"struct.duckdb::CorrState", ptr %9, i32 0, i32 0
+  %11 = load ptr, ptr %6, align 8, !tbaa !123
+  %12 = load ptr, ptr %7, align 8, !tbaa !123
+  %13 = load ptr, ptr %8, align 8, !tbaa !137
+  call void @_ZN6duckdb14CovarOperation9OperationIddNS_10CovarStateENS_15RegrR2OperationEEEvRT1_RKT_RKT0_RNS_20AggregateBinaryInputE(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(40) %13)
+  %14 = load ptr, ptr %5, align 8, !tbaa !259
+  %15 = getelementptr inbounds nuw %"struct.duckdb::CorrState", ptr %14, i32 0, i32 1
+  %16 = load ptr, ptr %7, align 8, !tbaa !123
+  call void @_ZN6duckdb19STDDevBaseOperation7ExecuteIdNS_11StddevStateEEEvRT0_RKT_(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(8) %16)
+  %17 = load ptr, ptr %5, align 8, !tbaa !259
+  %18 = getelementptr inbounds nuw %"struct.duckdb::CorrState", ptr %17, i32 0, i32 2
+  %19 = load ptr, ptr %6, align 8, !tbaa !123
+  call void @_ZN6duckdb19STDDevBaseOperation7ExecuteIdNS_11StddevStateEEEvRT0_RKT_(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(8) %19)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN6duckdb14CovarOperation9OperationIddNS_10CovarStateENS_15RegrR2OperationEEEvRT1_RKT_RKT0_RNS_20AggregateBinaryInputE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(40) %3) #5 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca double, align 8
+  %10 = alloca double, align 8
+  %11 = alloca double, align 8
+  %12 = alloca double, align 8
+  %13 = alloca double, align 8
+  %14 = alloca double, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !100
+  store ptr %1, ptr %6, align 8, !tbaa !123
+  store ptr %2, ptr %7, align 8, !tbaa !123
+  store ptr %3, ptr %8, align 8, !tbaa !137
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #17
+  %15 = load ptr, ptr %5, align 8, !tbaa !100
+  %16 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %15, i32 0, i32 0
+  %17 = load i64, ptr %16, align 8, !tbaa !102
+  %18 = add i64 %17, 1
+  store i64 %18, ptr %16, align 8, !tbaa !102
+  %19 = uitofp i64 %18 to double
+  store double %19, ptr %9, align 8, !tbaa !143
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #17
+  %20 = load ptr, ptr %7, align 8, !tbaa !123
+  %21 = load double, ptr %20, align 8, !tbaa !143
+  %22 = load ptr, ptr %5, align 8, !tbaa !100
+  %23 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %22, i32 0, i32 1
+  %24 = load double, ptr %23, align 8, !tbaa !105
+  %25 = fsub double %21, %24
+  store double %25, ptr %10, align 8, !tbaa !143
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #17
+  %26 = load ptr, ptr %5, align 8, !tbaa !100
+  %27 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %26, i32 0, i32 1
+  %28 = load double, ptr %27, align 8, !tbaa !105
+  %29 = load double, ptr %10, align 8, !tbaa !143
+  %30 = load double, ptr %9, align 8, !tbaa !143
+  %31 = fdiv double %29, %30
+  %32 = fadd double %28, %31
+  store double %32, ptr %11, align 8, !tbaa !143
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #17
+  %33 = load ptr, ptr %6, align 8, !tbaa !123
+  %34 = load double, ptr %33, align 8, !tbaa !143
+  %35 = load ptr, ptr %5, align 8, !tbaa !100
+  %36 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %35, i32 0, i32 2
+  %37 = load double, ptr %36, align 8, !tbaa !106
+  %38 = fsub double %34, %37
+  store double %38, ptr %12, align 8, !tbaa !143
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #17
+  %39 = load ptr, ptr %5, align 8, !tbaa !100
+  %40 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %39, i32 0, i32 2
+  %41 = load double, ptr %40, align 8, !tbaa !106
+  %42 = load double, ptr %12, align 8, !tbaa !143
+  %43 = load double, ptr %9, align 8, !tbaa !143
+  %44 = fdiv double %42, %43
+  %45 = fadd double %41, %44
+  store double %45, ptr %13, align 8, !tbaa !143
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #17
+  %46 = load ptr, ptr %5, align 8, !tbaa !100
+  %47 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %46, i32 0, i32 3
+  %48 = load double, ptr %47, align 8, !tbaa !107
+  %49 = load double, ptr %10, align 8, !tbaa !143
+  %50 = load ptr, ptr %6, align 8, !tbaa !123
+  %51 = load double, ptr %50, align 8, !tbaa !143
+  %52 = load double, ptr %13, align 8, !tbaa !143
+  %53 = fsub double %51, %52
+  %54 = call double @llvm.fmuladd.f64(double %49, double %53, double %48)
+  store double %54, ptr %14, align 8, !tbaa !143
+  %55 = load double, ptr %11, align 8, !tbaa !143
+  %56 = load ptr, ptr %5, align 8, !tbaa !100
+  %57 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %56, i32 0, i32 1
+  store double %55, ptr %57, align 8, !tbaa !105
+  %58 = load double, ptr %13, align 8, !tbaa !143
+  %59 = load ptr, ptr %5, align 8, !tbaa !100
+  %60 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %59, i32 0, i32 2
+  store double %58, ptr %60, align 8, !tbaa !106
+  %61 = load double, ptr %14, align 8, !tbaa !143
+  %62 = load ptr, ptr %5, align 8, !tbaa !100
+  %63 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %62, i32 0, i32 3
+  store double %61, ptr %63, align 8, !tbaa !107
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #17
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateExecutor7CombineINS_11RegrR2StateENS_15RegrR2OperationEEEvRNS_6VectorES5_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(17) %2, i64 noundef %3) #0 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !70
+  store ptr %1, ptr %6, align 8, !tbaa !70
+  store ptr %2, ptr %7, align 8, !tbaa !72
+  store i64 %3, ptr %8, align 8, !tbaa !74
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #17
+  %12 = load ptr, ptr %5, align 8, !tbaa !70
+  %13 = call noundef ptr @_ZN6duckdb10FlatVector7GetDataIPKNS_11RegrR2StateEEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %12)
+  store ptr %13, ptr %9, align 8, !tbaa !261
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #17
+  %14 = load ptr, ptr %6, align 8, !tbaa !70
+  %15 = call noundef ptr @_ZN6duckdb10FlatVector7GetDataIPNS_11RegrR2StateEEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %14)
+  store ptr %15, ptr %10, align 8, !tbaa !261
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #17
+  store i64 0, ptr %11, align 8, !tbaa !74
+  br label %16
+
+16:                                               ; preds = %31, %4
+  %17 = load i64, ptr %11, align 8, !tbaa !74
+  %18 = load i64, ptr %8, align 8, !tbaa !74
+  %19 = icmp ult i64 %17, %18
+  br i1 %19, label %21, label %20
+
+20:                                               ; preds = %16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #17
+  br label %34
+
+21:                                               ; preds = %16
+  %22 = load ptr, ptr %9, align 8, !tbaa !261
+  %23 = load i64, ptr %11, align 8, !tbaa !74
+  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %25 = load ptr, ptr %24, align 8, !tbaa !257
+  %26 = load ptr, ptr %10, align 8, !tbaa !261
+  %27 = load i64, ptr %11, align 8, !tbaa !74
+  %28 = getelementptr inbounds nuw ptr, ptr %26, i64 %27
+  %29 = load ptr, ptr %28, align 8, !tbaa !257
+  %30 = load ptr, ptr %7, align 8, !tbaa !72
+  call void @_ZN6duckdb15RegrR2Operation7CombineINS_11RegrR2StateES0_EEvRKT_RS3_RNS_18AggregateInputDataE(ptr noundef nonnull align 8 dereferenceable(128) %25, ptr noundef nonnull align 8 dereferenceable(128) %29, ptr noundef nonnull align 8 dereferenceable(17) %30)
+  br label %31
+
+31:                                               ; preds = %21
+  %32 = load i64, ptr %11, align 8, !tbaa !74
+  %33 = add i64 %32, 1
+  store i64 %33, ptr %11, align 8, !tbaa !74
+  br label %16, !llvm.loop !265
+
+34:                                               ; preds = %20
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #17
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef ptr @_ZN6duckdb10FlatVector7GetDataIPKNS_11RegrR2StateEEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %0) #12 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !70
+  %3 = load ptr, ptr %2, align 8, !tbaa !70
+  %4 = call noundef ptr @_ZN6duckdb14ConstantVector7GetDataIPKNS_11RegrR2StateEEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %3)
+  ret ptr %4
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef ptr @_ZN6duckdb10FlatVector7GetDataIPNS_11RegrR2StateEEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %0) #12 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !70
+  %3 = load ptr, ptr %2, align 8, !tbaa !70
+  %4 = call noundef ptr @_ZN6duckdb14ConstantVector7GetDataIPNS_11RegrR2StateEEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %3)
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb15RegrR2Operation7CombineINS_11RegrR2StateES0_EEvRKT_RS3_RNS_18AggregateInputDataE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull align 8 dereferenceable(17) %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !257
+  store ptr %1, ptr %5, align 8, !tbaa !257
+  store ptr %2, ptr %6, align 8, !tbaa !72
+  %7 = load ptr, ptr %4, align 8, !tbaa !257
+  %8 = getelementptr inbounds nuw %"struct.duckdb::RegrR2State", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %5, align 8, !tbaa !257
+  %10 = getelementptr inbounds nuw %"struct.duckdb::RegrR2State", ptr %9, i32 0, i32 0
+  %11 = load ptr, ptr %6, align 8, !tbaa !72
+  call void @_ZN6duckdb13CorrOperation7CombineINS_9CorrStateENS_15RegrR2OperationEEEvRKT_RS4_RNS_18AggregateInputDataE(ptr noundef nonnull align 8 dereferenceable(80) %8, ptr noundef nonnull align 8 dereferenceable(80) %10, ptr noundef nonnull align 8 dereferenceable(17) %11)
+  %12 = load ptr, ptr %4, align 8, !tbaa !257
+  %13 = getelementptr inbounds nuw %"struct.duckdb::RegrR2State", ptr %12, i32 0, i32 1
+  %14 = load ptr, ptr %5, align 8, !tbaa !257
+  %15 = getelementptr inbounds nuw %"struct.duckdb::RegrR2State", ptr %14, i32 0, i32 1
+  %16 = load ptr, ptr %6, align 8, !tbaa !72
+  call void @_ZN6duckdb19STDDevBaseOperation7CombineINS_11StddevStateENS_15RegrR2OperationEEEvRKT_RS4_RNS_18AggregateInputDataE(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(17) %16)
+  %17 = load ptr, ptr %4, align 8, !tbaa !257
+  %18 = getelementptr inbounds nuw %"struct.duckdb::RegrR2State", ptr %17, i32 0, i32 2
+  %19 = load ptr, ptr %5, align 8, !tbaa !257
+  %20 = getelementptr inbounds nuw %"struct.duckdb::RegrR2State", ptr %19, i32 0, i32 2
+  %21 = load ptr, ptr %6, align 8, !tbaa !72
+  call void @_ZN6duckdb19STDDevBaseOperation7CombineINS_11StddevStateENS_15RegrR2OperationEEEvRKT_RS4_RNS_18AggregateInputDataE(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(17) %21)
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZN6duckdb14ConstantVector7GetDataIPKNS_11RegrR2StateEEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !70
+  %3 = load ptr, ptr %2, align 8, !tbaa !70
+  %4 = call noundef ptr @_ZN6duckdb14ConstantVector7GetDataERNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %3)
+  ret ptr %4
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZN6duckdb14ConstantVector7GetDataIPNS_11RegrR2StateEEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !70
+  %3 = load ptr, ptr %2, align 8, !tbaa !70
+  %4 = call noundef ptr @_ZN6duckdb14ConstantVector7GetDataERNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %3)
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb13CorrOperation7CombineINS_9CorrStateENS_15RegrR2OperationEEEvRKT_RS4_RNS_18AggregateInputDataE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull align 8 dereferenceable(17) %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !259
+  store ptr %1, ptr %5, align 8, !tbaa !259
+  store ptr %2, ptr %6, align 8, !tbaa !72
+  %7 = load ptr, ptr %4, align 8, !tbaa !259
+  %8 = getelementptr inbounds nuw %"struct.duckdb::CorrState", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %5, align 8, !tbaa !259
+  %10 = getelementptr inbounds nuw %"struct.duckdb::CorrState", ptr %9, i32 0, i32 0
+  %11 = load ptr, ptr %6, align 8, !tbaa !72
+  call void @_ZN6duckdb14CovarOperation7CombineINS_10CovarStateENS_15RegrR2OperationEEEvRKT_RS4_RNS_18AggregateInputDataE(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(17) %11)
+  %12 = load ptr, ptr %4, align 8, !tbaa !259
+  %13 = getelementptr inbounds nuw %"struct.duckdb::CorrState", ptr %12, i32 0, i32 1
+  %14 = load ptr, ptr %5, align 8, !tbaa !259
+  %15 = getelementptr inbounds nuw %"struct.duckdb::CorrState", ptr %14, i32 0, i32 1
+  %16 = load ptr, ptr %6, align 8, !tbaa !72
+  call void @_ZN6duckdb19STDDevBaseOperation7CombineINS_11StddevStateENS_15RegrR2OperationEEEvRKT_RS4_RNS_18AggregateInputDataE(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(17) %16)
+  %17 = load ptr, ptr %4, align 8, !tbaa !259
+  %18 = getelementptr inbounds nuw %"struct.duckdb::CorrState", ptr %17, i32 0, i32 2
+  %19 = load ptr, ptr %5, align 8, !tbaa !259
+  %20 = getelementptr inbounds nuw %"struct.duckdb::CorrState", ptr %19, i32 0, i32 2
+  %21 = load ptr, ptr %6, align 8, !tbaa !72
+  call void @_ZN6duckdb19STDDevBaseOperation7CombineINS_11StddevStateENS_15RegrR2OperationEEEvRKT_RS4_RNS_18AggregateInputDataE(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(17) %21)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN6duckdb19STDDevBaseOperation7CombineINS_11StddevStateENS_15RegrR2OperationEEEvRKT_RS4_RNS_18AggregateInputDataE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(17) %2) #5 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca double, align 8
+  %9 = alloca double, align 8
+  %10 = alloca double, align 8
+  %11 = alloca double, align 8
+  %12 = alloca double, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !231
+  store ptr %1, ptr %5, align 8, !tbaa !231
+  store ptr %2, ptr %6, align 8, !tbaa !72
+  %13 = load ptr, ptr %5, align 8, !tbaa !231
+  %14 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %13, i32 0, i32 0
+  %15 = load i64, ptr %14, align 8, !tbaa !233
+  %16 = icmp eq i64 %15, 0
+  br i1 %16, label %17, label %20
+
+17:                                               ; preds = %3
+  %18 = load ptr, ptr %4, align 8, !tbaa !231
+  %19 = load ptr, ptr %5, align 8, !tbaa !231
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %19, ptr align 8 %18, i64 24, i1 false), !tbaa.struct !241
+  br label %88
+
+20:                                               ; preds = %3
+  %21 = load ptr, ptr %4, align 8, !tbaa !231
+  %22 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %21, i32 0, i32 0
+  %23 = load i64, ptr %22, align 8, !tbaa !233
+  %24 = icmp ugt i64 %23, 0
+  br i1 %24, label %25, label %87
+
+25:                                               ; preds = %20
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #17
+  %26 = load ptr, ptr %5, align 8, !tbaa !231
+  %27 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %26, i32 0, i32 0
+  %28 = load i64, ptr %27, align 8, !tbaa !233
+  %29 = load ptr, ptr %4, align 8, !tbaa !231
+  %30 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %29, i32 0, i32 0
+  %31 = load i64, ptr %30, align 8, !tbaa !233
+  %32 = add i64 %28, %31
+  store i64 %32, ptr %7, align 8, !tbaa !74
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #17
+  %33 = load ptr, ptr %5, align 8, !tbaa !231
+  %34 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %33, i32 0, i32 0
+  %35 = load i64, ptr %34, align 8, !tbaa !233
+  %36 = uitofp i64 %35 to double
+  store double %36, ptr %8, align 8, !tbaa !143
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #17
+  %37 = load ptr, ptr %4, align 8, !tbaa !231
+  %38 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %37, i32 0, i32 0
+  %39 = load i64, ptr %38, align 8, !tbaa !233
+  %40 = uitofp i64 %39 to double
+  store double %40, ptr %9, align 8, !tbaa !143
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #17
+  %41 = load i64, ptr %7, align 8, !tbaa !74
+  %42 = uitofp i64 %41 to double
+  store double %42, ptr %10, align 8, !tbaa !143
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #17
+  %43 = load double, ptr %9, align 8, !tbaa !143
+  %44 = load ptr, ptr %4, align 8, !tbaa !231
+  %45 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %44, i32 0, i32 1
+  %46 = load double, ptr %45, align 8, !tbaa !234
+  %47 = load double, ptr %8, align 8, !tbaa !143
+  %48 = load ptr, ptr %5, align 8, !tbaa !231
+  %49 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %48, i32 0, i32 1
+  %50 = load double, ptr %49, align 8, !tbaa !234
+  %51 = fmul double %47, %50
+  %52 = call double @llvm.fmuladd.f64(double %43, double %46, double %51)
+  %53 = load double, ptr %10, align 8, !tbaa !143
+  %54 = fdiv double %52, %53
+  store double %54, ptr %11, align 8, !tbaa !143
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #17
+  %55 = load ptr, ptr %4, align 8, !tbaa !231
+  %56 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %55, i32 0, i32 1
+  %57 = load double, ptr %56, align 8, !tbaa !234
+  %58 = load ptr, ptr %5, align 8, !tbaa !231
+  %59 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %58, i32 0, i32 1
+  %60 = load double, ptr %59, align 8, !tbaa !234
+  %61 = fsub double %57, %60
+  store double %61, ptr %12, align 8, !tbaa !143
+  %62 = load ptr, ptr %4, align 8, !tbaa !231
+  %63 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %62, i32 0, i32 2
+  %64 = load double, ptr %63, align 8, !tbaa !235
+  %65 = load ptr, ptr %5, align 8, !tbaa !231
+  %66 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %65, i32 0, i32 2
+  %67 = load double, ptr %66, align 8, !tbaa !235
+  %68 = fadd double %64, %67
+  %69 = load double, ptr %12, align 8, !tbaa !143
+  %70 = load double, ptr %12, align 8, !tbaa !143
+  %71 = fmul double %69, %70
+  %72 = load double, ptr %9, align 8, !tbaa !143
+  %73 = fmul double %71, %72
+  %74 = load double, ptr %8, align 8, !tbaa !143
+  %75 = fmul double %73, %74
+  %76 = load double, ptr %10, align 8, !tbaa !143
+  %77 = fdiv double %75, %76
+  %78 = fadd double %68, %77
+  %79 = load ptr, ptr %5, align 8, !tbaa !231
+  %80 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %79, i32 0, i32 2
+  store double %78, ptr %80, align 8, !tbaa !235
+  %81 = load double, ptr %11, align 8, !tbaa !143
+  %82 = load ptr, ptr %5, align 8, !tbaa !231
+  %83 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %82, i32 0, i32 1
+  store double %81, ptr %83, align 8, !tbaa !234
+  %84 = load i64, ptr %7, align 8, !tbaa !74
+  %85 = load ptr, ptr %5, align 8, !tbaa !231
+  %86 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %85, i32 0, i32 0
+  store i64 %84, ptr %86, align 8, !tbaa !233
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #17
+  br label %87
+
+87:                                               ; preds = %25, %20
+  br label %88
+
+88:                                               ; preds = %87, %17
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN6duckdb14CovarOperation7CombineINS_10CovarStateENS_15RegrR2OperationEEEvRKT_RS4_RNS_18AggregateInputDataE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(17) %2) #5 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca double, align 8
+  %9 = alloca double, align 8
+  %10 = alloca double, align 8
+  %11 = alloca double, align 8
+  %12 = alloca double, align 8
+  %13 = alloca double, align 8
+  %14 = alloca double, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !100
+  store ptr %1, ptr %5, align 8, !tbaa !100
+  store ptr %2, ptr %6, align 8, !tbaa !72
+  %15 = load ptr, ptr %5, align 8, !tbaa !100
+  %16 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %15, i32 0, i32 0
+  %17 = load i64, ptr %16, align 8, !tbaa !102
+  %18 = icmp eq i64 %17, 0
+  br i1 %18, label %19, label %22
+
+19:                                               ; preds = %3
+  %20 = load ptr, ptr %4, align 8, !tbaa !100
+  %21 = load ptr, ptr %5, align 8, !tbaa !100
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %21, ptr align 8 %20, i64 32, i1 false), !tbaa.struct !160
+  br label %112
+
+22:                                               ; preds = %3
+  %23 = load ptr, ptr %4, align 8, !tbaa !100
+  %24 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %23, i32 0, i32 0
+  %25 = load i64, ptr %24, align 8, !tbaa !102
+  %26 = icmp ugt i64 %25, 0
+  br i1 %26, label %27, label %111
+
+27:                                               ; preds = %22
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #17
+  %28 = load ptr, ptr %5, align 8, !tbaa !100
+  %29 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %28, i32 0, i32 0
+  %30 = load i64, ptr %29, align 8, !tbaa !102
+  %31 = load ptr, ptr %4, align 8, !tbaa !100
+  %32 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %31, i32 0, i32 0
+  %33 = load i64, ptr %32, align 8, !tbaa !102
+  %34 = add i64 %30, %33
+  store i64 %34, ptr %7, align 8, !tbaa !74
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #17
+  %35 = load ptr, ptr %5, align 8, !tbaa !100
+  %36 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %35, i32 0, i32 0
+  %37 = load i64, ptr %36, align 8, !tbaa !102
+  %38 = uitofp i64 %37 to double
+  store double %38, ptr %8, align 8, !tbaa !143
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #17
+  %39 = load ptr, ptr %4, align 8, !tbaa !100
+  %40 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %39, i32 0, i32 0
+  %41 = load i64, ptr %40, align 8, !tbaa !102
+  %42 = uitofp i64 %41 to double
+  store double %42, ptr %9, align 8, !tbaa !143
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #17
+  %43 = load i64, ptr %7, align 8, !tbaa !74
+  %44 = uitofp i64 %43 to double
+  store double %44, ptr %10, align 8, !tbaa !143
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #17
+  %45 = load double, ptr %9, align 8, !tbaa !143
+  %46 = load ptr, ptr %4, align 8, !tbaa !100
+  %47 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %46, i32 0, i32 1
+  %48 = load double, ptr %47, align 8, !tbaa !105
+  %49 = load double, ptr %8, align 8, !tbaa !143
+  %50 = load ptr, ptr %5, align 8, !tbaa !100
+  %51 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %50, i32 0, i32 1
+  %52 = load double, ptr %51, align 8, !tbaa !105
+  %53 = fmul double %49, %52
+  %54 = call double @llvm.fmuladd.f64(double %45, double %48, double %53)
+  %55 = load double, ptr %10, align 8, !tbaa !143
+  %56 = fdiv double %54, %55
+  store double %56, ptr %11, align 8, !tbaa !143
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #17
+  %57 = load double, ptr %9, align 8, !tbaa !143
+  %58 = load ptr, ptr %4, align 8, !tbaa !100
+  %59 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %58, i32 0, i32 2
+  %60 = load double, ptr %59, align 8, !tbaa !106
+  %61 = load double, ptr %8, align 8, !tbaa !143
+  %62 = load ptr, ptr %5, align 8, !tbaa !100
+  %63 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %62, i32 0, i32 2
+  %64 = load double, ptr %63, align 8, !tbaa !106
+  %65 = fmul double %61, %64
+  %66 = call double @llvm.fmuladd.f64(double %57, double %60, double %65)
+  %67 = load double, ptr %10, align 8, !tbaa !143
+  %68 = fdiv double %66, %67
+  store double %68, ptr %12, align 8, !tbaa !143
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #17
+  %69 = load ptr, ptr %5, align 8, !tbaa !100
+  %70 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %69, i32 0, i32 1
+  %71 = load double, ptr %70, align 8, !tbaa !105
+  %72 = load ptr, ptr %4, align 8, !tbaa !100
+  %73 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %72, i32 0, i32 1
+  %74 = load double, ptr %73, align 8, !tbaa !105
+  %75 = fsub double %71, %74
+  store double %75, ptr %13, align 8, !tbaa !143
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #17
+  %76 = load ptr, ptr %5, align 8, !tbaa !100
+  %77 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %76, i32 0, i32 2
+  %78 = load double, ptr %77, align 8, !tbaa !106
+  %79 = load ptr, ptr %4, align 8, !tbaa !100
+  %80 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %79, i32 0, i32 2
+  %81 = load double, ptr %80, align 8, !tbaa !106
+  %82 = fsub double %78, %81
+  store double %82, ptr %14, align 8, !tbaa !143
+  %83 = load ptr, ptr %4, align 8, !tbaa !100
+  %84 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %83, i32 0, i32 3
+  %85 = load double, ptr %84, align 8, !tbaa !107
+  %86 = load ptr, ptr %5, align 8, !tbaa !100
+  %87 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %86, i32 0, i32 3
+  %88 = load double, ptr %87, align 8, !tbaa !107
+  %89 = fadd double %85, %88
+  %90 = load double, ptr %13, align 8, !tbaa !143
+  %91 = load double, ptr %14, align 8, !tbaa !143
+  %92 = fmul double %90, %91
+  %93 = load double, ptr %9, align 8, !tbaa !143
+  %94 = fmul double %92, %93
+  %95 = load double, ptr %8, align 8, !tbaa !143
+  %96 = fmul double %94, %95
+  %97 = load double, ptr %10, align 8, !tbaa !143
+  %98 = fdiv double %96, %97
+  %99 = fadd double %89, %98
+  %100 = load ptr, ptr %5, align 8, !tbaa !100
+  %101 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %100, i32 0, i32 3
+  store double %99, ptr %101, align 8, !tbaa !107
+  %102 = load double, ptr %11, align 8, !tbaa !143
+  %103 = load ptr, ptr %5, align 8, !tbaa !100
+  %104 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %103, i32 0, i32 1
+  store double %102, ptr %104, align 8, !tbaa !105
+  %105 = load double, ptr %12, align 8, !tbaa !143
+  %106 = load ptr, ptr %5, align 8, !tbaa !100
+  %107 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %106, i32 0, i32 2
+  store double %105, ptr %107, align 8, !tbaa !106
+  %108 = load i64, ptr %7, align 8, !tbaa !74
+  %109 = load ptr, ptr %5, align 8, !tbaa !100
+  %110 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %109, i32 0, i32 0
+  store i64 %108, ptr %110, align 8, !tbaa !102
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #17
+  br label %111
+
+111:                                              ; preds = %27, %22
+  br label %112
+
+112:                                              ; preds = %111, %19
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateExecutor8FinalizeINS_11RegrR2StateEdNS_15RegrR2OperationEEEvRNS_6VectorERNS_18AggregateInputDataES5_mm(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(17) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, i64 noundef %3, i64 noundef %4) #0 comdat align 2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca %"struct.duckdb::AggregateFinalizeData", align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca %"struct.duckdb::AggregateFinalizeData", align 8
+  %17 = alloca i64, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !70
+  store ptr %1, ptr %7, align 8, !tbaa !72
+  store ptr %2, ptr %8, align 8, !tbaa !70
+  store i64 %3, ptr %9, align 8, !tbaa !74
+  store i64 %4, ptr %10, align 8, !tbaa !74
+  %18 = load ptr, ptr %6, align 8, !tbaa !70
+  %19 = call noundef zeroext i8 @_ZNK6duckdb6Vector13GetVectorTypeEv(ptr noundef nonnull align 8 dereferenceable(104) %18)
+  %20 = icmp eq i8 %19, 2
+  br i1 %20, label %21, label %32
+
+21:                                               ; preds = %5
+  %22 = load ptr, ptr %8, align 8, !tbaa !70
+  call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %22, i8 noundef zeroext 2)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #17
+  %23 = load ptr, ptr %6, align 8, !tbaa !70
+  %24 = call noundef ptr @_ZN6duckdb14ConstantVector7GetDataIPNS_11RegrR2StateEEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %23)
+  store ptr %24, ptr %11, align 8, !tbaa !261
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #17
+  %25 = load ptr, ptr %8, align 8, !tbaa !70
+  %26 = call noundef ptr @_ZN6duckdb14ConstantVector7GetDataIdEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %25)
+  store ptr %26, ptr %12, align 8, !tbaa !123
+  call void @llvm.lifetime.start.p0(i64 24, ptr %13) #17
+  %27 = load ptr, ptr %8, align 8, !tbaa !70
+  %28 = load ptr, ptr %7, align 8, !tbaa !72
+  call void @_ZN6duckdb21AggregateFinalizeDataC2ERNS_6VectorERNS_18AggregateInputDataE(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(104) %27, ptr noundef nonnull align 8 dereferenceable(17) %28)
+  %29 = load ptr, ptr %11, align 8, !tbaa !261
+  %30 = load ptr, ptr %29, align 8, !tbaa !257
+  %31 = load ptr, ptr %12, align 8, !tbaa !123
+  call void @_ZN6duckdb15RegrR2Operation8FinalizeIdNS_11RegrR2StateEEEvRT0_RT_RNS_21AggregateFinalizeDataE(ptr noundef nonnull align 8 dereferenceable(128) %30, ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull align 8 dereferenceable(24) %13)
+  call void @llvm.lifetime.end.p0(i64 24, ptr %13) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #17
+  br label %62
+
+32:                                               ; preds = %5
+  %33 = load ptr, ptr %8, align 8, !tbaa !70
+  call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %33, i8 noundef zeroext 0)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #17
+  %34 = load ptr, ptr %6, align 8, !tbaa !70
+  %35 = call noundef ptr @_ZN6duckdb10FlatVector7GetDataIPNS_11RegrR2StateEEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %34)
+  store ptr %35, ptr %14, align 8, !tbaa !261
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #17
+  %36 = load ptr, ptr %8, align 8, !tbaa !70
+  %37 = call noundef ptr @_ZN6duckdb10FlatVector7GetDataIdEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %36)
+  store ptr %37, ptr %15, align 8, !tbaa !123
+  call void @llvm.lifetime.start.p0(i64 24, ptr %16) #17
+  %38 = load ptr, ptr %8, align 8, !tbaa !70
+  %39 = load ptr, ptr %7, align 8, !tbaa !72
+  call void @_ZN6duckdb21AggregateFinalizeDataC2ERNS_6VectorERNS_18AggregateInputDataE(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(104) %38, ptr noundef nonnull align 8 dereferenceable(17) %39)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #17
+  store i64 0, ptr %17, align 8, !tbaa !74
+  br label %40
+
+40:                                               ; preds = %58, %32
+  %41 = load i64, ptr %17, align 8, !tbaa !74
+  %42 = load i64, ptr %9, align 8, !tbaa !74
+  %43 = icmp ult i64 %41, %42
+  br i1 %43, label %45, label %44
+
+44:                                               ; preds = %40
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #17
+  br label %61
+
+45:                                               ; preds = %40
+  %46 = load i64, ptr %17, align 8, !tbaa !74
+  %47 = load i64, ptr %10, align 8, !tbaa !74
+  %48 = add i64 %46, %47
+  %49 = getelementptr inbounds nuw %"struct.duckdb::AggregateFinalizeData", ptr %16, i32 0, i32 2
+  store i64 %48, ptr %49, align 8, !tbaa !161
+  %50 = load ptr, ptr %14, align 8, !tbaa !261
+  %51 = load i64, ptr %17, align 8, !tbaa !74
+  %52 = getelementptr inbounds nuw ptr, ptr %50, i64 %51
+  %53 = load ptr, ptr %52, align 8, !tbaa !257
+  %54 = load ptr, ptr %15, align 8, !tbaa !123
+  %55 = getelementptr inbounds nuw %"struct.duckdb::AggregateFinalizeData", ptr %16, i32 0, i32 2
+  %56 = load i64, ptr %55, align 8, !tbaa !161
+  %57 = getelementptr inbounds nuw double, ptr %54, i64 %56
+  call void @_ZN6duckdb15RegrR2Operation8FinalizeIdNS_11RegrR2StateEEEvRT0_RT_RNS_21AggregateFinalizeDataE(ptr noundef nonnull align 8 dereferenceable(128) %53, ptr noundef nonnull align 8 dereferenceable(8) %57, ptr noundef nonnull align 8 dereferenceable(24) %16)
+  br label %58
+
+58:                                               ; preds = %45
+  %59 = load i64, ptr %17, align 8, !tbaa !74
+  %60 = add i64 %59, 1
+  store i64 %60, ptr %17, align 8, !tbaa !74
+  br label %40, !llvm.loop !266
+
+61:                                               ; preds = %44
+  call void @llvm.lifetime.end.p0(i64 24, ptr %16) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #17
+  br label %62
+
+62:                                               ; preds = %61, %21
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb15RegrR2Operation8FinalizeIdNS_11RegrR2StateEEEvRT0_RT_RNS_21AggregateFinalizeDataE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca double, align 8
+  %8 = alloca %"class.std::__cxx11::basic_string", align 8
+  %9 = alloca %"class.std::allocator", align 1
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i1, align 1
+  %13 = alloca i32, align 4
+  %14 = alloca double, align 8
+  %15 = alloca %"class.std::__cxx11::basic_string", align 8
+  %16 = alloca %"class.std::allocator", align 1
+  %17 = alloca i1, align 1
+  store ptr %0, ptr %4, align 8, !tbaa !257
+  store ptr %1, ptr %5, align 8, !tbaa !123
+  store ptr %2, ptr %6, align 8, !tbaa !165
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #17
+  %18 = load ptr, ptr %4, align 8, !tbaa !257
+  %19 = getelementptr inbounds nuw %"struct.duckdb::RegrR2State", ptr %18, i32 0, i32 1
+  %20 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %19, i32 0, i32 0
+  %21 = load i64, ptr %20, align 8, !tbaa !267
+  %22 = icmp ugt i64 %21, 1
+  br i1 %22, label %23, label %34
+
+23:                                               ; preds = %3
+  %24 = load ptr, ptr %4, align 8, !tbaa !257
+  %25 = getelementptr inbounds nuw %"struct.duckdb::RegrR2State", ptr %24, i32 0, i32 1
+  %26 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %25, i32 0, i32 2
+  %27 = load double, ptr %26, align 8, !tbaa !270
+  %28 = load ptr, ptr %4, align 8, !tbaa !257
+  %29 = getelementptr inbounds nuw %"struct.duckdb::RegrR2State", ptr %28, i32 0, i32 1
+  %30 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %29, i32 0, i32 0
+  %31 = load i64, ptr %30, align 8, !tbaa !267
+  %32 = uitofp i64 %31 to double
+  %33 = fdiv double %27, %32
+  br label %35
+
+34:                                               ; preds = %3
+  br label %35
+
+35:                                               ; preds = %34, %23
+  %36 = phi double [ %33, %23 ], [ 0.000000e+00, %34 ]
+  store double %36, ptr %7, align 8, !tbaa !143
+  %37 = load double, ptr %7, align 8, !tbaa !143
+  %38 = call noundef zeroext i1 @_ZN6duckdb5Value14DoubleIsFiniteEd(double noundef %37)
+  br i1 %38, label %55, label %39
+
+39:                                               ; preds = %35
+  store i1 true, ptr %12, align 1
+  %40 = call ptr @__cxa_allocate_exception(i64 16) #17
+  call void @llvm.lifetime.start.p0(i64 32, ptr %8) #17
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #17
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #17
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef @.str.5, ptr noundef nonnull align 1 dereferenceable(1) %9)
+          to label %41 unwind label %43
+
+41:                                               ; preds = %39
+  invoke void @_ZN6duckdb19OutOfRangeExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(32) %8)
+          to label %42 unwind label %47
+
+42:                                               ; preds = %41
+  store i1 false, ptr %12, align 1
+  invoke void @__cxa_throw(ptr %40, ptr @_ZTIN6duckdb19OutOfRangeExceptionE, ptr @_ZNSt13runtime_errorD2Ev) #20
+          to label %122 unwind label %47
+
+43:                                               ; preds = %39
+  %44 = landingpad { ptr, i32 }
+          cleanup
+  %45 = extractvalue { ptr, i32 } %44, 0
+  store ptr %45, ptr %10, align 8
+  %46 = extractvalue { ptr, i32 } %44, 1
+  store i32 %46, ptr %11, align 4
+  br label %51
+
+47:                                               ; preds = %42, %41
+  %48 = landingpad { ptr, i32 }
+          cleanup
+  %49 = extractvalue { ptr, i32 } %48, 0
+  store ptr %49, ptr %10, align 8
+  %50 = extractvalue { ptr, i32 } %48, 1
+  store i32 %50, ptr %11, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #17
+  br label %51
+
+51:                                               ; preds = %47, %43
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #17
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #17
+  call void @llvm.lifetime.end.p0(i64 32, ptr %8) #17
+  %52 = load i1, ptr %12, align 1
+  br i1 %52, label %53, label %54
+
+53:                                               ; preds = %51
+  call void @__cxa_free_exception(ptr %40) #17
+  br label %54
+
+54:                                               ; preds = %53, %51
+  br label %116
+
+55:                                               ; preds = %35
+  %56 = load double, ptr %7, align 8, !tbaa !143
+  %57 = fcmp oeq double %56, 0.000000e+00
+  br i1 %57, label %58, label %60
+
+58:                                               ; preds = %55
+  %59 = load ptr, ptr %6, align 8, !tbaa !165
+  call void @_ZN6duckdb21AggregateFinalizeData10ReturnNullEv(ptr noundef nonnull align 8 dereferenceable(24) %59)
+  store i32 1, ptr %13, align 4
+  br label %113
+
+60:                                               ; preds = %55
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #17
+  %61 = load ptr, ptr %4, align 8, !tbaa !257
+  %62 = getelementptr inbounds nuw %"struct.duckdb::RegrR2State", ptr %61, i32 0, i32 2
+  %63 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %62, i32 0, i32 0
+  %64 = load i64, ptr %63, align 8, !tbaa !271
+  %65 = icmp ugt i64 %64, 1
+  br i1 %65, label %66, label %77
+
+66:                                               ; preds = %60
+  %67 = load ptr, ptr %4, align 8, !tbaa !257
+  %68 = getelementptr inbounds nuw %"struct.duckdb::RegrR2State", ptr %67, i32 0, i32 2
+  %69 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %68, i32 0, i32 2
+  %70 = load double, ptr %69, align 8, !tbaa !272
+  %71 = load ptr, ptr %4, align 8, !tbaa !257
+  %72 = getelementptr inbounds nuw %"struct.duckdb::RegrR2State", ptr %71, i32 0, i32 2
+  %73 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %72, i32 0, i32 0
+  %74 = load i64, ptr %73, align 8, !tbaa !271
+  %75 = uitofp i64 %74 to double
+  %76 = fdiv double %70, %75
+  br label %78
+
+77:                                               ; preds = %60
+  br label %78
+
+78:                                               ; preds = %77, %66
+  %79 = phi double [ %76, %66 ], [ 0.000000e+00, %77 ]
+  store double %79, ptr %14, align 8, !tbaa !143
+  %80 = load double, ptr %14, align 8, !tbaa !143
+  %81 = call noundef zeroext i1 @_ZN6duckdb5Value14DoubleIsFiniteEd(double noundef %80)
+  br i1 %81, label %98, label %82
+
+82:                                               ; preds = %78
+  store i1 true, ptr %17, align 1
+  %83 = call ptr @__cxa_allocate_exception(i64 16) #17
+  call void @llvm.lifetime.start.p0(i64 32, ptr %15) #17
+  call void @llvm.lifetime.start.p0(i64 1, ptr %16) #17
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #17
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef @.str.6, ptr noundef nonnull align 1 dereferenceable(1) %16)
+          to label %84 unwind label %86
+
+84:                                               ; preds = %82
+  invoke void @_ZN6duckdb19OutOfRangeExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %83, ptr noundef nonnull align 8 dereferenceable(32) %15)
+          to label %85 unwind label %90
+
+85:                                               ; preds = %84
+  store i1 false, ptr %17, align 1
+  invoke void @__cxa_throw(ptr %83, ptr @_ZTIN6duckdb19OutOfRangeExceptionE, ptr @_ZNSt13runtime_errorD2Ev) #20
+          to label %122 unwind label %90
+
+86:                                               ; preds = %82
+  %87 = landingpad { ptr, i32 }
+          cleanup
+  %88 = extractvalue { ptr, i32 } %87, 0
+  store ptr %88, ptr %10, align 8
+  %89 = extractvalue { ptr, i32 } %87, 1
+  store i32 %89, ptr %11, align 4
+  br label %94
+
+90:                                               ; preds = %85, %84
+  %91 = landingpad { ptr, i32 }
+          cleanup
+  %92 = extractvalue { ptr, i32 } %91, 0
+  store ptr %92, ptr %10, align 8
+  %93 = extractvalue { ptr, i32 } %91, 1
+  store i32 %93, ptr %11, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #17
+  br label %94
+
+94:                                               ; preds = %90, %86
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #17
+  call void @llvm.lifetime.end.p0(i64 1, ptr %16) #17
+  call void @llvm.lifetime.end.p0(i64 32, ptr %15) #17
+  %95 = load i1, ptr %17, align 1
+  br i1 %95, label %96, label %97
+
+96:                                               ; preds = %94
+  call void @__cxa_free_exception(ptr %83) #17
+  br label %97
+
+97:                                               ; preds = %96, %94
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #17
+  br label %116
+
+98:                                               ; preds = %78
+  %99 = load double, ptr %14, align 8, !tbaa !143
+  %100 = fcmp oeq double %99, 0.000000e+00
+  br i1 %100, label %101, label %103
+
+101:                                              ; preds = %98
+  %102 = load ptr, ptr %5, align 8, !tbaa !123
+  store double 1.000000e+00, ptr %102, align 8, !tbaa !143
+  store i32 1, ptr %13, align 4
+  br label %112
+
+103:                                              ; preds = %98
+  %104 = load ptr, ptr %4, align 8, !tbaa !257
+  %105 = getelementptr inbounds nuw %"struct.duckdb::RegrR2State", ptr %104, i32 0, i32 0
+  %106 = load ptr, ptr %5, align 8, !tbaa !123
+  %107 = load ptr, ptr %6, align 8, !tbaa !165
+  call void @_ZN6duckdb13CorrOperation8FinalizeIdNS_9CorrStateEEEvRT0_RT_RNS_21AggregateFinalizeDataE(ptr noundef nonnull align 8 dereferenceable(80) %105, ptr noundef nonnull align 8 dereferenceable(8) %106, ptr noundef nonnull align 8 dereferenceable(24) %107)
+  %108 = load ptr, ptr %5, align 8, !tbaa !123
+  %109 = load double, ptr %108, align 8, !tbaa !143
+  %110 = call double @pow(double noundef %109, double noundef 2.000000e+00) #17, !tbaa !54
+  %111 = load ptr, ptr %5, align 8, !tbaa !123
+  store double %110, ptr %111, align 8, !tbaa !143
+  store i32 0, ptr %13, align 4
+  br label %112
+
+112:                                              ; preds = %103, %101
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #17
+  br label %113
+
+113:                                              ; preds = %112, %58
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #17
+  %114 = load i32, ptr %13, align 4
+  switch i32 %114, label %122 [
+    i32 0, label %115
+    i32 1, label %115
+  ]
+
+115:                                              ; preds = %113, %113
+  ret void
+
+116:                                              ; preds = %97, %54
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #17
+  br label %117
+
+117:                                              ; preds = %116
+  %118 = load ptr, ptr %10, align 8
+  %119 = load i32, ptr %11, align 4
+  %120 = insertvalue { ptr, i32 } poison, ptr %118, 0
+  %121 = insertvalue { ptr, i32 } %120, i32 %119, 1
+  resume { ptr, i32 } %121
+
+122:                                              ; preds = %113, %85, %42
+  unreachable
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb13CorrOperation8FinalizeIdNS_9CorrStateEEEvRT0_RT_RNS_21AggregateFinalizeDataE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca double, align 8
+  %8 = alloca double, align 8
+  %9 = alloca %"class.std::__cxx11::basic_string", align 8
+  %10 = alloca %"class.std::allocator", align 1
+  %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
+  %13 = alloca i1, align 1
+  %14 = alloca double, align 8
+  %15 = alloca %"class.std::__cxx11::basic_string", align 8
+  %16 = alloca %"class.std::allocator", align 1
+  %17 = alloca i1, align 1
+  store ptr %0, ptr %4, align 8, !tbaa !259
+  store ptr %1, ptr %5, align 8, !tbaa !123
+  store ptr %2, ptr %6, align 8, !tbaa !165
+  %18 = load ptr, ptr %4, align 8, !tbaa !259
+  %19 = getelementptr inbounds nuw %"struct.duckdb::CorrState", ptr %18, i32 0, i32 0
+  %20 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %19, i32 0, i32 0
+  %21 = load i64, ptr %20, align 8, !tbaa !273
+  %22 = icmp eq i64 %21, 0
+  br i1 %22, label %35, label %23
+
+23:                                               ; preds = %3
+  %24 = load ptr, ptr %4, align 8, !tbaa !259
+  %25 = getelementptr inbounds nuw %"struct.duckdb::CorrState", ptr %24, i32 0, i32 1
+  %26 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %25, i32 0, i32 0
+  %27 = load i64, ptr %26, align 8, !tbaa !274
+  %28 = icmp eq i64 %27, 0
+  br i1 %28, label %35, label %29
+
+29:                                               ; preds = %23
+  %30 = load ptr, ptr %4, align 8, !tbaa !259
+  %31 = getelementptr inbounds nuw %"struct.duckdb::CorrState", ptr %30, i32 0, i32 2
+  %32 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %31, i32 0, i32 0
+  %33 = load i64, ptr %32, align 8, !tbaa !275
+  %34 = icmp eq i64 %33, 0
+  br i1 %34, label %35, label %37
+
+35:                                               ; preds = %29, %23, %3
+  %36 = load ptr, ptr %6, align 8, !tbaa !165
+  call void @_ZN6duckdb21AggregateFinalizeData10ReturnNullEv(ptr noundef nonnull align 8 dereferenceable(24) %36)
+  br label %141
+
+37:                                               ; preds = %29
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #17
+  %38 = load ptr, ptr %4, align 8, !tbaa !259
+  %39 = getelementptr inbounds nuw %"struct.duckdb::CorrState", ptr %38, i32 0, i32 0
+  %40 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %39, i32 0, i32 3
+  %41 = load double, ptr %40, align 8, !tbaa !276
+  %42 = load ptr, ptr %4, align 8, !tbaa !259
+  %43 = getelementptr inbounds nuw %"struct.duckdb::CorrState", ptr %42, i32 0, i32 0
+  %44 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %43, i32 0, i32 0
+  %45 = load i64, ptr %44, align 8, !tbaa !273
+  %46 = uitofp i64 %45 to double
+  %47 = fdiv double %41, %46
+  store double %47, ptr %7, align 8, !tbaa !143
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #17
+  %48 = load ptr, ptr %4, align 8, !tbaa !259
+  %49 = getelementptr inbounds nuw %"struct.duckdb::CorrState", ptr %48, i32 0, i32 1
+  %50 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %49, i32 0, i32 0
+  %51 = load i64, ptr %50, align 8, !tbaa !274
+  %52 = icmp ugt i64 %51, 1
+  br i1 %52, label %53, label %65
+
+53:                                               ; preds = %37
+  %54 = load ptr, ptr %4, align 8, !tbaa !259
+  %55 = getelementptr inbounds nuw %"struct.duckdb::CorrState", ptr %54, i32 0, i32 1
+  %56 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %55, i32 0, i32 2
+  %57 = load double, ptr %56, align 8, !tbaa !277
+  %58 = load ptr, ptr %4, align 8, !tbaa !259
+  %59 = getelementptr inbounds nuw %"struct.duckdb::CorrState", ptr %58, i32 0, i32 1
+  %60 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %59, i32 0, i32 0
+  %61 = load i64, ptr %60, align 8, !tbaa !274
+  %62 = uitofp i64 %61 to double
+  %63 = fdiv double %57, %62
+  %64 = call double @sqrt(double noundef %63) #17, !tbaa !54
+  br label %66
+
+65:                                               ; preds = %37
+  br label %66
+
+66:                                               ; preds = %65, %53
+  %67 = phi double [ %64, %53 ], [ 0.000000e+00, %65 ]
+  store double %67, ptr %8, align 8, !tbaa !143
+  %68 = load double, ptr %8, align 8, !tbaa !143
+  %69 = call noundef zeroext i1 @_ZN6duckdb5Value14DoubleIsFiniteEd(double noundef %68)
+  br i1 %69, label %86, label %70
+
+70:                                               ; preds = %66
+  store i1 true, ptr %13, align 1
+  %71 = call ptr @__cxa_allocate_exception(i64 16) #17
+  call void @llvm.lifetime.start.p0(i64 32, ptr %9) #17
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #17
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #17
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef @.str.7, ptr noundef nonnull align 1 dereferenceable(1) %10)
+          to label %72 unwind label %74
+
+72:                                               ; preds = %70
+  invoke void @_ZN6duckdb19OutOfRangeExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull align 8 dereferenceable(32) %9)
+          to label %73 unwind label %78
+
+73:                                               ; preds = %72
+  store i1 false, ptr %13, align 1
+  invoke void @__cxa_throw(ptr %71, ptr @_ZTIN6duckdb19OutOfRangeExceptionE, ptr @_ZNSt13runtime_errorD2Ev) #20
+          to label %147 unwind label %78
+
+74:                                               ; preds = %70
+  %75 = landingpad { ptr, i32 }
+          cleanup
+  %76 = extractvalue { ptr, i32 } %75, 0
+  store ptr %76, ptr %11, align 8
+  %77 = extractvalue { ptr, i32 } %75, 1
+  store i32 %77, ptr %12, align 4
+  br label %82
+
+78:                                               ; preds = %73, %72
+  %79 = landingpad { ptr, i32 }
+          cleanup
+  %80 = extractvalue { ptr, i32 } %79, 0
+  store ptr %80, ptr %11, align 8
+  %81 = extractvalue { ptr, i32 } %79, 1
+  store i32 %81, ptr %12, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #17
+  br label %82
+
+82:                                               ; preds = %78, %74
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #17
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #17
+  call void @llvm.lifetime.end.p0(i64 32, ptr %9) #17
+  %83 = load i1, ptr %13, align 1
+  br i1 %83, label %84, label %85
+
+84:                                               ; preds = %82
+  call void @__cxa_free_exception(ptr %71) #17
+  br label %85
+
+85:                                               ; preds = %84, %82
+  br label %140
+
+86:                                               ; preds = %66
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #17
+  %87 = load ptr, ptr %4, align 8, !tbaa !259
+  %88 = getelementptr inbounds nuw %"struct.duckdb::CorrState", ptr %87, i32 0, i32 2
+  %89 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %88, i32 0, i32 0
+  %90 = load i64, ptr %89, align 8, !tbaa !275
+  %91 = icmp ugt i64 %90, 1
+  br i1 %91, label %92, label %104
+
+92:                                               ; preds = %86
+  %93 = load ptr, ptr %4, align 8, !tbaa !259
+  %94 = getelementptr inbounds nuw %"struct.duckdb::CorrState", ptr %93, i32 0, i32 2
+  %95 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %94, i32 0, i32 2
+  %96 = load double, ptr %95, align 8, !tbaa !278
+  %97 = load ptr, ptr %4, align 8, !tbaa !259
+  %98 = getelementptr inbounds nuw %"struct.duckdb::CorrState", ptr %97, i32 0, i32 2
+  %99 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %98, i32 0, i32 0
+  %100 = load i64, ptr %99, align 8, !tbaa !275
+  %101 = uitofp i64 %100 to double
+  %102 = fdiv double %96, %101
+  %103 = call double @sqrt(double noundef %102) #17, !tbaa !54
+  br label %105
+
+104:                                              ; preds = %86
+  br label %105
+
+105:                                              ; preds = %104, %92
+  %106 = phi double [ %103, %92 ], [ 0.000000e+00, %104 ]
+  store double %106, ptr %14, align 8, !tbaa !143
+  %107 = load double, ptr %14, align 8, !tbaa !143
+  %108 = call noundef zeroext i1 @_ZN6duckdb5Value14DoubleIsFiniteEd(double noundef %107)
+  br i1 %108, label %125, label %109
+
+109:                                              ; preds = %105
+  store i1 true, ptr %17, align 1
+  %110 = call ptr @__cxa_allocate_exception(i64 16) #17
+  call void @llvm.lifetime.start.p0(i64 32, ptr %15) #17
+  call void @llvm.lifetime.start.p0(i64 1, ptr %16) #17
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #17
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef @.str.8, ptr noundef nonnull align 1 dereferenceable(1) %16)
+          to label %111 unwind label %113
+
+111:                                              ; preds = %109
+  invoke void @_ZN6duckdb19OutOfRangeExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %110, ptr noundef nonnull align 8 dereferenceable(32) %15)
+          to label %112 unwind label %117
+
+112:                                              ; preds = %111
+  store i1 false, ptr %17, align 1
+  invoke void @__cxa_throw(ptr %110, ptr @_ZTIN6duckdb19OutOfRangeExceptionE, ptr @_ZNSt13runtime_errorD2Ev) #20
+          to label %147 unwind label %117
+
+113:                                              ; preds = %109
+  %114 = landingpad { ptr, i32 }
+          cleanup
+  %115 = extractvalue { ptr, i32 } %114, 0
+  store ptr %115, ptr %11, align 8
+  %116 = extractvalue { ptr, i32 } %114, 1
+  store i32 %116, ptr %12, align 4
+  br label %121
+
+117:                                              ; preds = %112, %111
+  %118 = landingpad { ptr, i32 }
+          cleanup
+  %119 = extractvalue { ptr, i32 } %118, 0
+  store ptr %119, ptr %11, align 8
+  %120 = extractvalue { ptr, i32 } %118, 1
+  store i32 %120, ptr %12, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #17
+  br label %121
+
+121:                                              ; preds = %117, %113
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #17
+  call void @llvm.lifetime.end.p0(i64 1, ptr %16) #17
+  call void @llvm.lifetime.end.p0(i64 32, ptr %15) #17
+  %122 = load i1, ptr %17, align 1
+  br i1 %122, label %123, label %124
+
+123:                                              ; preds = %121
+  call void @__cxa_free_exception(ptr %110) #17
+  br label %124
+
+124:                                              ; preds = %123, %121
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #17
+  br label %140
+
+125:                                              ; preds = %105
+  %126 = load double, ptr %8, align 8, !tbaa !143
+  %127 = load double, ptr %14, align 8, !tbaa !143
+  %128 = fmul double %126, %127
+  %129 = fcmp une double %128, 0.000000e+00
+  br i1 %129, label %130, label %136
+
+130:                                              ; preds = %125
+  %131 = load double, ptr %7, align 8, !tbaa !143
+  %132 = load double, ptr %8, align 8, !tbaa !143
+  %133 = load double, ptr %14, align 8, !tbaa !143
+  %134 = fmul double %132, %133
+  %135 = fdiv double %131, %134
+  br label %137
+
+136:                                              ; preds = %125
+  br label %137
+
+137:                                              ; preds = %136, %130
+  %138 = phi double [ %135, %130 ], [ 0x7FF8000000000000, %136 ]
+  %139 = load ptr, ptr %5, align 8, !tbaa !123
+  store double %138, ptr %139, align 8, !tbaa !143
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #17
+  br label %141
+
+140:                                              ; preds = %124, %85
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #17
+  br label %142
+
+141:                                              ; preds = %137, %35
+  ret void
+
+142:                                              ; preds = %140
+  %143 = load ptr, ptr %11, align 8
+  %144 = load i32, ptr %12, align 4
+  %145 = insertvalue { ptr, i32 } poison, ptr %143, 0
+  %146 = insertvalue { ptr, i32 } %145, i32 %144, 1
+  resume { ptr, i32 } %146
+
+147:                                              ; preds = %112, %73
+  unreachable
+}
+
+; Function Attrs: nounwind
+declare double @pow(double noundef, double noundef) #3
+
+; Function Attrs: nounwind
+declare double @sqrt(double noundef) #3
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateExecutor12BinaryUpdateINS_11RegrR2StateEddNS_15RegrR2OperationEEEvRNS_18AggregateInputDataERNS_6VectorES7_Phm(ptr noundef nonnull align 8 dereferenceable(17) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, ptr noundef %3, i64 noundef %4) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
+  %12 = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !72
+  store ptr %1, ptr %7, align 8, !tbaa !70
+  store ptr %2, ptr %8, align 8, !tbaa !70
+  store ptr %3, ptr %9, align 8, !tbaa !39
+  store i64 %4, ptr %10, align 8, !tbaa !74
+  call void @llvm.lifetime.start.p0(i64 72, ptr %11) #17
+  call void @_ZN6duckdb19UnifiedVectorFormatC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %11)
+  call void @llvm.lifetime.start.p0(i64 72, ptr %12) #17
+  invoke void @_ZN6duckdb19UnifiedVectorFormatC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %12)
+          to label %15 unwind label %34
+
+15:                                               ; preds = %5
+  %16 = load ptr, ptr %7, align 8, !tbaa !70
+  %17 = load i64, ptr %10, align 8, !tbaa !74
+  invoke void @_ZN6duckdb6Vector15ToUnifiedFormatEmRNS_19UnifiedVectorFormatE(ptr noundef nonnull align 8 dereferenceable(104) %16, i64 noundef %17, ptr noundef nonnull align 8 dereferenceable(72) %11)
+          to label %18 unwind label %38
+
+18:                                               ; preds = %15
+  %19 = load ptr, ptr %8, align 8, !tbaa !70
+  %20 = load i64, ptr %10, align 8, !tbaa !74
+  invoke void @_ZN6duckdb6Vector15ToUnifiedFormatEmRNS_19UnifiedVectorFormatE(ptr noundef nonnull align 8 dereferenceable(104) %19, i64 noundef %20, ptr noundef nonnull align 8 dereferenceable(72) %12)
+          to label %21 unwind label %38
+
+21:                                               ; preds = %18
+  %22 = call noundef ptr @_ZN6duckdb19UnifiedVectorFormat7GetDataIdEEPKT_RKS0_(ptr noundef nonnull align 8 dereferenceable(72) %11)
+  %23 = load ptr, ptr %6, align 8, !tbaa !72
+  %24 = call noundef ptr @_ZN6duckdb19UnifiedVectorFormat7GetDataIdEEPKT_RKS0_(ptr noundef nonnull align 8 dereferenceable(72) %12)
+  %25 = load ptr, ptr %9, align 8, !tbaa !39
+  %26 = load i64, ptr %10, align 8, !tbaa !74
+  %27 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %11, i32 0, i32 0
+  %28 = load ptr, ptr %27, align 8, !tbaa !122
+  %29 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %12, i32 0, i32 0
+  %30 = load ptr, ptr %29, align 8, !tbaa !122
+  %31 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %11, i32 0, i32 2
+  %32 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %12, i32 0, i32 2
+  invoke void @_ZN6duckdb17AggregateExecutor16BinaryUpdateLoopINS_11RegrR2StateEddNS_15RegrR2OperationEEEvPKT0_RNS_18AggregateInputDataEPKT1_PT_mRKNS_15SelectionVectorESG_RNS_12ValidityMaskESI_(ptr noundef %22, ptr noundef nonnull align 8 dereferenceable(17) %23, ptr noundef %24, ptr noundef %25, i64 noundef %26, ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(32) %32)
+          to label %33 unwind label %38
+
+33:                                               ; preds = %21
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %12) #17
+  call void @llvm.lifetime.end.p0(i64 72, ptr %12) #17
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %11) #17
+  call void @llvm.lifetime.end.p0(i64 72, ptr %11) #17
+  ret void
+
+34:                                               ; preds = %5
+  %35 = landingpad { ptr, i32 }
+          cleanup
+  %36 = extractvalue { ptr, i32 } %35, 0
+  store ptr %36, ptr %13, align 8
+  %37 = extractvalue { ptr, i32 } %35, 1
+  store i32 %37, ptr %14, align 4
+  br label %42
+
+38:                                               ; preds = %21, %18, %15
+  %39 = landingpad { ptr, i32 }
+          cleanup
+  %40 = extractvalue { ptr, i32 } %39, 0
+  store ptr %40, ptr %13, align 8
+  %41 = extractvalue { ptr, i32 } %39, 1
+  store i32 %41, ptr %14, align 4
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %12) #17
+  br label %42
+
+42:                                               ; preds = %38, %34
+  call void @llvm.lifetime.end.p0(i64 72, ptr %12) #17
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %11) #17
+  call void @llvm.lifetime.end.p0(i64 72, ptr %11) #17
+  br label %43
+
+43:                                               ; preds = %42
+  %44 = load ptr, ptr %13, align 8
+  %45 = load i32, ptr %14, align 4
+  %46 = insertvalue { ptr, i32 } poison, ptr %44, 0
+  %47 = insertvalue { ptr, i32 } %46, i32 %45, 1
+  resume { ptr, i32 } %47
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateExecutor16BinaryUpdateLoopINS_11RegrR2StateEddNS_15RegrR2OperationEEEvPKT0_RNS_18AggregateInputDataEPKT1_PT_mRKNS_15SelectionVectorESG_RNS_12ValidityMaskESI_(ptr noalias noundef %0, ptr noundef nonnull align 8 dereferenceable(17) %1, ptr noalias noundef %2, ptr noalias noundef %3, i64 noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %8) #12 comdat align 2 {
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i64, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca ptr, align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca %"struct.duckdb::AggregateBinaryInput", align 8
+  %20 = alloca i64, align 8
+  %21 = alloca i64, align 8
+  store ptr %0, ptr %10, align 8, !tbaa !123
+  store ptr %1, ptr %11, align 8, !tbaa !72
+  store ptr %2, ptr %12, align 8, !tbaa !123
+  store ptr %3, ptr %13, align 8, !tbaa !257
+  store i64 %4, ptr %14, align 8, !tbaa !74
+  store ptr %5, ptr %15, align 8, !tbaa !127
+  store ptr %6, ptr %16, align 8, !tbaa !127
+  store ptr %7, ptr %17, align 8, !tbaa !128
+  store ptr %8, ptr %18, align 8, !tbaa !128
+  call void @llvm.lifetime.start.p0(i64 40, ptr %19) #17
+  %22 = load ptr, ptr %11, align 8, !tbaa !72
+  %23 = load ptr, ptr %17, align 8, !tbaa !128
+  %24 = load ptr, ptr %18, align 8, !tbaa !128
+  call void @_ZN6duckdb20AggregateBinaryInputC2ERNS_18AggregateInputDataERNS_12ValidityMaskES4_(ptr noundef nonnull align 8 dereferenceable(40) %19, ptr noundef nonnull align 8 dereferenceable(17) %22, ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %24)
+  %25 = call noundef zeroext i1 @_ZN6duckdb15RegrR2Operation10IgnoreNullEv()
+  br i1 %25, label %26, label %71
+
+26:                                               ; preds = %9
+  %27 = load ptr, ptr %17, align 8, !tbaa !128
+  %28 = call noundef zeroext i1 @_ZNK6duckdb21TemplatedValidityMaskImE8AllValidEv(ptr noundef nonnull align 8 dereferenceable(32) %27)
+  br i1 %28, label %29, label %32
+
+29:                                               ; preds = %26
+  %30 = load ptr, ptr %18, align 8, !tbaa !128
+  %31 = call noundef zeroext i1 @_ZNK6duckdb21TemplatedValidityMaskImE8AllValidEv(ptr noundef nonnull align 8 dereferenceable(32) %30)
+  br i1 %31, label %71, label %32
+
+32:                                               ; preds = %29, %26
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #17
+  store i64 0, ptr %20, align 8, !tbaa !74
+  br label %33
+
+33:                                               ; preds = %67, %32
+  %34 = load i64, ptr %20, align 8, !tbaa !74
+  %35 = load i64, ptr %14, align 8, !tbaa !74
+  %36 = icmp ult i64 %34, %35
+  br i1 %36, label %38, label %37
+
+37:                                               ; preds = %33
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #17
+  br label %70
+
+38:                                               ; preds = %33
+  %39 = load ptr, ptr %15, align 8, !tbaa !127
+  %40 = load i64, ptr %20, align 8, !tbaa !74
+  %41 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %39, i64 noundef %40)
+  %42 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 3
+  store i64 %41, ptr %42, align 8, !tbaa !130
+  %43 = load ptr, ptr %16, align 8, !tbaa !127
+  %44 = load i64, ptr %20, align 8, !tbaa !74
+  %45 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %43, i64 noundef %44)
+  %46 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 4
+  store i64 %45, ptr %46, align 8, !tbaa !132
+  %47 = load ptr, ptr %17, align 8, !tbaa !128
+  %48 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 3
+  %49 = load i64, ptr %48, align 8, !tbaa !130
+  %50 = call noundef zeroext i1 @_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm(ptr noundef nonnull align 8 dereferenceable(32) %47, i64 noundef %49)
+  br i1 %50, label %51, label %66
+
+51:                                               ; preds = %38
+  %52 = load ptr, ptr %18, align 8, !tbaa !128
+  %53 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 4
+  %54 = load i64, ptr %53, align 8, !tbaa !132
+  %55 = call noundef zeroext i1 @_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm(ptr noundef nonnull align 8 dereferenceable(32) %52, i64 noundef %54)
+  br i1 %55, label %56, label %66
+
+56:                                               ; preds = %51
+  %57 = load ptr, ptr %13, align 8, !tbaa !257
+  %58 = load ptr, ptr %10, align 8, !tbaa !123
+  %59 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 3
+  %60 = load i64, ptr %59, align 8, !tbaa !130
+  %61 = getelementptr inbounds nuw double, ptr %58, i64 %60
+  %62 = load ptr, ptr %12, align 8, !tbaa !123
+  %63 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 4
+  %64 = load i64, ptr %63, align 8, !tbaa !132
+  %65 = getelementptr inbounds nuw double, ptr %62, i64 %64
+  call void @_ZN6duckdb15RegrR2Operation9OperationIddNS_11RegrR2StateES0_EEvRT1_RKT_RKT0_RNS_20AggregateBinaryInputE(ptr noundef nonnull align 8 dereferenceable(128) %57, ptr noundef nonnull align 8 dereferenceable(8) %61, ptr noundef nonnull align 8 dereferenceable(8) %65, ptr noundef nonnull align 8 dereferenceable(40) %19)
+  br label %66
+
+66:                                               ; preds = %56, %51, %38
+  br label %67
+
+67:                                               ; preds = %66
+  %68 = load i64, ptr %20, align 8, !tbaa !74
+  %69 = add i64 %68, 1
+  store i64 %69, ptr %20, align 8, !tbaa !74
+  br label %33, !llvm.loop !279
+
+70:                                               ; preds = %37
+  br label %99
+
+71:                                               ; preds = %29, %9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #17
+  store i64 0, ptr %21, align 8, !tbaa !74
+  br label %72
+
+72:                                               ; preds = %95, %71
+  %73 = load i64, ptr %21, align 8, !tbaa !74
+  %74 = load i64, ptr %14, align 8, !tbaa !74
+  %75 = icmp ult i64 %73, %74
+  br i1 %75, label %77, label %76
+
+76:                                               ; preds = %72
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #17
+  br label %98
+
+77:                                               ; preds = %72
+  %78 = load ptr, ptr %15, align 8, !tbaa !127
+  %79 = load i64, ptr %21, align 8, !tbaa !74
+  %80 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %78, i64 noundef %79)
+  %81 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 3
+  store i64 %80, ptr %81, align 8, !tbaa !130
+  %82 = load ptr, ptr %16, align 8, !tbaa !127
+  %83 = load i64, ptr %21, align 8, !tbaa !74
+  %84 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %82, i64 noundef %83)
+  %85 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 4
+  store i64 %84, ptr %85, align 8, !tbaa !132
+  %86 = load ptr, ptr %13, align 8, !tbaa !257
+  %87 = load ptr, ptr %10, align 8, !tbaa !123
+  %88 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 3
+  %89 = load i64, ptr %88, align 8, !tbaa !130
+  %90 = getelementptr inbounds nuw double, ptr %87, i64 %89
+  %91 = load ptr, ptr %12, align 8, !tbaa !123
+  %92 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 4
+  %93 = load i64, ptr %92, align 8, !tbaa !132
+  %94 = getelementptr inbounds nuw double, ptr %91, i64 %93
+  call void @_ZN6duckdb15RegrR2Operation9OperationIddNS_11RegrR2StateES0_EEvRT1_RKT_RKT0_RNS_20AggregateBinaryInputE(ptr noundef nonnull align 8 dereferenceable(128) %86, ptr noundef nonnull align 8 dereferenceable(8) %90, ptr noundef nonnull align 8 dereferenceable(8) %94, ptr noundef nonnull align 8 dereferenceable(40) %19)
+  br label %95
+
+95:                                               ; preds = %77
+  %96 = load i64, ptr %21, align 8, !tbaa !74
+  %97 = add i64 %96, 1
+  store i64 %97, ptr %21, align 8, !tbaa !74
+  br label %72, !llvm.loop !280
+
+98:                                               ; preds = %76
+  br label %99
+
+99:                                               ; preds = %98, %70
+  call void @llvm.lifetime.end.p0(i64 40, ptr %19) #17
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZN6duckdb17AggregateFunction9StateSizeINS_9RegrStateEEEmRKS0_(ptr noundef nonnull align 8 dereferenceable(304) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !40
+  ret i64 16
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateFunction15StateInitializeINS_9RegrStateENS_16RegrAvgXFunctionELNS_23AggregateDestructorTypeE0EEEvRKS0_Ph(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !40
+  store ptr %1, ptr %4, align 8, !tbaa !39
+  %5 = load ptr, ptr %4, align 8, !tbaa !39
+  call void @_ZN6duckdb15RegrAvgFunction10InitializeINS_9RegrStateEEEvRT_(ptr noundef nonnull align 8 dereferenceable(16) %5)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateFunction19BinaryScatterUpdateINS_9RegrStateEddNS_16RegrAvgXFunctionEEEvPNS_6VectorERNS_18AggregateInputDataEmRS4_m(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(17) %1, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(104) %3, i64 noundef %4) #0 comdat align 2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !70
+  store ptr %1, ptr %7, align 8, !tbaa !72
+  store i64 %2, ptr %8, align 8, !tbaa !74
+  store ptr %3, ptr %9, align 8, !tbaa !70
+  store i64 %4, ptr %10, align 8, !tbaa !74
+  %11 = load ptr, ptr %7, align 8, !tbaa !72
+  %12 = load ptr, ptr %6, align 8, !tbaa !70
+  %13 = getelementptr inbounds %"class.duckdb::Vector", ptr %12, i64 0
+  %14 = load ptr, ptr %6, align 8, !tbaa !70
+  %15 = getelementptr inbounds %"class.duckdb::Vector", ptr %14, i64 1
+  %16 = load ptr, ptr %9, align 8, !tbaa !70
+  %17 = load i64, ptr %10, align 8, !tbaa !74
+  call void @_ZN6duckdb17AggregateExecutor13BinaryScatterINS_9RegrStateEddNS_16RegrAvgXFunctionEEEvRNS_18AggregateInputDataERNS_6VectorES7_S7_m(ptr noundef nonnull align 8 dereferenceable(17) %11, ptr noundef nonnull align 8 dereferenceable(104) %13, ptr noundef nonnull align 8 dereferenceable(104) %15, ptr noundef nonnull align 8 dereferenceable(104) %16, i64 noundef %17)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateFunction12StateCombineINS_9RegrStateENS_16RegrAvgXFunctionEEEvRNS_6VectorES5_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(17) %2, i64 noundef %3) #0 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !70
+  store ptr %1, ptr %6, align 8, !tbaa !70
+  store ptr %2, ptr %7, align 8, !tbaa !72
+  store i64 %3, ptr %8, align 8, !tbaa !74
+  %9 = load ptr, ptr %5, align 8, !tbaa !70
+  %10 = load ptr, ptr %6, align 8, !tbaa !70
+  %11 = load ptr, ptr %7, align 8, !tbaa !72
+  %12 = load i64, ptr %8, align 8, !tbaa !74
+  call void @_ZN6duckdb17AggregateExecutor7CombineINS_9RegrStateENS_16RegrAvgXFunctionEEEvRNS_6VectorES5_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %9, ptr noundef nonnull align 8 dereferenceable(104) %10, ptr noundef nonnull align 8 dereferenceable(17) %11, i64 noundef %12)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateFunction13StateFinalizeINS_9RegrStateEdNS_16RegrAvgXFunctionEEEvRNS_6VectorERNS_18AggregateInputDataES5_mm(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(17) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, i64 noundef %3, i64 noundef %4) #0 comdat align 2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !70
+  store ptr %1, ptr %7, align 8, !tbaa !72
+  store ptr %2, ptr %8, align 8, !tbaa !70
+  store i64 %3, ptr %9, align 8, !tbaa !74
+  store i64 %4, ptr %10, align 8, !tbaa !74
+  %11 = load ptr, ptr %6, align 8, !tbaa !70
+  %12 = load ptr, ptr %7, align 8, !tbaa !72
+  %13 = load ptr, ptr %8, align 8, !tbaa !70
+  %14 = load i64, ptr %9, align 8, !tbaa !74
+  %15 = load i64, ptr %10, align 8, !tbaa !74
+  call void @_ZN6duckdb17AggregateExecutor8FinalizeINS_9RegrStateEdNS_16RegrAvgXFunctionEEEvRNS_6VectorERNS_18AggregateInputDataES5_mm(ptr noundef nonnull align 8 dereferenceable(104) %11, ptr noundef nonnull align 8 dereferenceable(17) %12, ptr noundef nonnull align 8 dereferenceable(104) %13, i64 noundef %14, i64 noundef %15)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateFunction12BinaryUpdateINS_9RegrStateEddNS_16RegrAvgXFunctionEEEvPNS_6VectorERNS_18AggregateInputDataEmPhm(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(17) %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) #0 comdat align 2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !70
+  store ptr %1, ptr %7, align 8, !tbaa !72
+  store i64 %2, ptr %8, align 8, !tbaa !74
+  store ptr %3, ptr %9, align 8, !tbaa !39
+  store i64 %4, ptr %10, align 8, !tbaa !74
+  %11 = load ptr, ptr %7, align 8, !tbaa !72
+  %12 = load ptr, ptr %6, align 8, !tbaa !70
+  %13 = getelementptr inbounds %"class.duckdb::Vector", ptr %12, i64 0
+  %14 = load ptr, ptr %6, align 8, !tbaa !70
+  %15 = getelementptr inbounds %"class.duckdb::Vector", ptr %14, i64 1
+  %16 = load ptr, ptr %9, align 8, !tbaa !39
+  %17 = load i64, ptr %10, align 8, !tbaa !74
+  call void @_ZN6duckdb17AggregateExecutor12BinaryUpdateINS_9RegrStateEddNS_16RegrAvgXFunctionEEEvRNS_18AggregateInputDataERNS_6VectorES7_Phm(ptr noundef nonnull align 8 dereferenceable(17) %11, ptr noundef nonnull align 8 dereferenceable(104) %13, ptr noundef nonnull align 8 dereferenceable(104) %15, ptr noundef %16, i64 noundef %17)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN6duckdb15RegrAvgFunction10InitializeINS_9RegrStateEEEvRT_(ptr noundef nonnull align 8 dereferenceable(16) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !281
+  %3 = load ptr, ptr %2, align 8, !tbaa !281
+  %4 = getelementptr inbounds nuw %"struct.duckdb::RegrState", ptr %3, i32 0, i32 0
+  store double 0.000000e+00, ptr %4, align 8, !tbaa !283
+  %5 = load ptr, ptr %2, align 8, !tbaa !281
+  %6 = getelementptr inbounds nuw %"struct.duckdb::RegrState", ptr %5, i32 0, i32 1
+  store i64 0, ptr %6, align 8, !tbaa !285
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateExecutor13BinaryScatterINS_9RegrStateEddNS_16RegrAvgXFunctionEEEvRNS_18AggregateInputDataERNS_6VectorES7_S7_m(ptr noundef nonnull align 8 dereferenceable(17) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, ptr noundef nonnull align 8 dereferenceable(104) %3, i64 noundef %4) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
+  %12 = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
+  store ptr %0, ptr %6, align 8, !tbaa !72
+  store ptr %1, ptr %7, align 8, !tbaa !70
+  store ptr %2, ptr %8, align 8, !tbaa !70
+  store ptr %3, ptr %9, align 8, !tbaa !70
+  store i64 %4, ptr %10, align 8, !tbaa !74
+  call void @llvm.lifetime.start.p0(i64 72, ptr %11) #17
+  call void @_ZN6duckdb19UnifiedVectorFormatC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %11)
+  call void @llvm.lifetime.start.p0(i64 72, ptr %12) #17
+  invoke void @_ZN6duckdb19UnifiedVectorFormatC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %12)
+          to label %16 unwind label %42
+
+16:                                               ; preds = %5
+  call void @llvm.lifetime.start.p0(i64 72, ptr %15) #17
+  invoke void @_ZN6duckdb19UnifiedVectorFormatC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %15)
+          to label %17 unwind label %46
+
+17:                                               ; preds = %16
+  %18 = load ptr, ptr %7, align 8, !tbaa !70
+  %19 = load i64, ptr %10, align 8, !tbaa !74
+  invoke void @_ZN6duckdb6Vector15ToUnifiedFormatEmRNS_19UnifiedVectorFormatE(ptr noundef nonnull align 8 dereferenceable(104) %18, i64 noundef %19, ptr noundef nonnull align 8 dereferenceable(72) %11)
+          to label %20 unwind label %50
+
+20:                                               ; preds = %17
+  %21 = load ptr, ptr %8, align 8, !tbaa !70
+  %22 = load i64, ptr %10, align 8, !tbaa !74
+  invoke void @_ZN6duckdb6Vector15ToUnifiedFormatEmRNS_19UnifiedVectorFormatE(ptr noundef nonnull align 8 dereferenceable(104) %21, i64 noundef %22, ptr noundef nonnull align 8 dereferenceable(72) %12)
+          to label %23 unwind label %50
+
+23:                                               ; preds = %20
+  %24 = load ptr, ptr %9, align 8, !tbaa !70
+  %25 = load i64, ptr %10, align 8, !tbaa !74
+  invoke void @_ZN6duckdb6Vector15ToUnifiedFormatEmRNS_19UnifiedVectorFormatE(ptr noundef nonnull align 8 dereferenceable(104) %24, i64 noundef %25, ptr noundef nonnull align 8 dereferenceable(72) %15)
+          to label %26 unwind label %50
+
+26:                                               ; preds = %23
+  %27 = call noundef ptr @_ZN6duckdb19UnifiedVectorFormat7GetDataIdEEPKT_RKS0_(ptr noundef nonnull align 8 dereferenceable(72) %11)
+  %28 = load ptr, ptr %6, align 8, !tbaa !72
+  %29 = call noundef ptr @_ZN6duckdb19UnifiedVectorFormat7GetDataIdEEPKT_RKS0_(ptr noundef nonnull align 8 dereferenceable(72) %12)
+  %30 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %15, i32 0, i32 1
+  %31 = load ptr, ptr %30, align 8, !tbaa !108
+  %32 = load i64, ptr %10, align 8, !tbaa !74
+  %33 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %11, i32 0, i32 0
+  %34 = load ptr, ptr %33, align 8, !tbaa !122
+  %35 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %12, i32 0, i32 0
+  %36 = load ptr, ptr %35, align 8, !tbaa !122
+  %37 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %15, i32 0, i32 0
+  %38 = load ptr, ptr %37, align 8, !tbaa !122
+  %39 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %11, i32 0, i32 2
+  %40 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %12, i32 0, i32 2
+  invoke void @_ZN6duckdb17AggregateExecutor17BinaryScatterLoopINS_9RegrStateEddNS_16RegrAvgXFunctionEEEvPKT0_RNS_18AggregateInputDataEPKT1_PPT_mRKNS_15SelectionVectorESH_SH_RNS_12ValidityMaskESJ_(ptr noundef %27, ptr noundef nonnull align 8 dereferenceable(17) %28, ptr noundef %29, ptr noundef %31, i64 noundef %32, ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef nonnull align 8 dereferenceable(24) %36, ptr noundef nonnull align 8 dereferenceable(24) %38, ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef nonnull align 8 dereferenceable(32) %40)
+          to label %41 unwind label %50
+
+41:                                               ; preds = %26
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %15) #17
+  call void @llvm.lifetime.end.p0(i64 72, ptr %15) #17
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %12) #17
+  call void @llvm.lifetime.end.p0(i64 72, ptr %12) #17
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %11) #17
+  call void @llvm.lifetime.end.p0(i64 72, ptr %11) #17
+  ret void
+
+42:                                               ; preds = %5
+  %43 = landingpad { ptr, i32 }
+          cleanup
+  %44 = extractvalue { ptr, i32 } %43, 0
+  store ptr %44, ptr %13, align 8
+  %45 = extractvalue { ptr, i32 } %43, 1
+  store i32 %45, ptr %14, align 4
+  br label %55
+
+46:                                               ; preds = %16
+  %47 = landingpad { ptr, i32 }
+          cleanup
+  %48 = extractvalue { ptr, i32 } %47, 0
+  store ptr %48, ptr %13, align 8
+  %49 = extractvalue { ptr, i32 } %47, 1
+  store i32 %49, ptr %14, align 4
+  br label %54
+
+50:                                               ; preds = %26, %23, %20, %17
+  %51 = landingpad { ptr, i32 }
+          cleanup
+  %52 = extractvalue { ptr, i32 } %51, 0
+  store ptr %52, ptr %13, align 8
+  %53 = extractvalue { ptr, i32 } %51, 1
+  store i32 %53, ptr %14, align 4
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %15) #17
+  br label %54
+
+54:                                               ; preds = %50, %46
+  call void @llvm.lifetime.end.p0(i64 72, ptr %15) #17
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %12) #17
+  br label %55
+
+55:                                               ; preds = %54, %42
+  call void @llvm.lifetime.end.p0(i64 72, ptr %12) #17
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %11) #17
+  call void @llvm.lifetime.end.p0(i64 72, ptr %11) #17
+  br label %56
+
+56:                                               ; preds = %55
+  %57 = load ptr, ptr %13, align 8
+  %58 = load i32, ptr %14, align 4
+  %59 = insertvalue { ptr, i32 } poison, ptr %57, 0
+  %60 = insertvalue { ptr, i32 } %59, i32 %58, 1
+  resume { ptr, i32 } %60
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateExecutor17BinaryScatterLoopINS_9RegrStateEddNS_16RegrAvgXFunctionEEEvPKT0_RNS_18AggregateInputDataEPKT1_PPT_mRKNS_15SelectionVectorESH_SH_RNS_12ValidityMaskESJ_(ptr noalias noundef %0, ptr noundef nonnull align 8 dereferenceable(17) %1, ptr noalias noundef %2, ptr noalias noundef %3, i64 noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9) #12 comdat align 2 {
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca i64, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca ptr, align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca ptr, align 8
+  %20 = alloca ptr, align 8
+  %21 = alloca %"struct.duckdb::AggregateBinaryInput", align 8
+  %22 = alloca i64, align 8
+  %23 = alloca i64, align 8
+  %24 = alloca i64, align 8
+  %25 = alloca i64, align 8
+  store ptr %0, ptr %11, align 8, !tbaa !123
+  store ptr %1, ptr %12, align 8, !tbaa !72
+  store ptr %2, ptr %13, align 8, !tbaa !123
+  store ptr %3, ptr %14, align 8, !tbaa !286
+  store i64 %4, ptr %15, align 8, !tbaa !74
+  store ptr %5, ptr %16, align 8, !tbaa !127
+  store ptr %6, ptr %17, align 8, !tbaa !127
+  store ptr %7, ptr %18, align 8, !tbaa !127
+  store ptr %8, ptr %19, align 8, !tbaa !128
+  store ptr %9, ptr %20, align 8, !tbaa !128
+  call void @llvm.lifetime.start.p0(i64 40, ptr %21) #17
+  %26 = load ptr, ptr %12, align 8, !tbaa !72
+  %27 = load ptr, ptr %19, align 8, !tbaa !128
+  %28 = load ptr, ptr %20, align 8, !tbaa !128
+  call void @_ZN6duckdb20AggregateBinaryInputC2ERNS_18AggregateInputDataERNS_12ValidityMaskES4_(ptr noundef nonnull align 8 dereferenceable(40) %21, ptr noundef nonnull align 8 dereferenceable(17) %26, ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %28)
+  %29 = call noundef zeroext i1 @_ZN6duckdb15RegrAvgFunction10IgnoreNullEv()
+  br i1 %29, label %30, label %81
+
+30:                                               ; preds = %10
+  %31 = load ptr, ptr %19, align 8, !tbaa !128
+  %32 = call noundef zeroext i1 @_ZNK6duckdb21TemplatedValidityMaskImE8AllValidEv(ptr noundef nonnull align 8 dereferenceable(32) %31)
+  br i1 %32, label %33, label %36
+
+33:                                               ; preds = %30
+  %34 = load ptr, ptr %20, align 8, !tbaa !128
+  %35 = call noundef zeroext i1 @_ZNK6duckdb21TemplatedValidityMaskImE8AllValidEv(ptr noundef nonnull align 8 dereferenceable(32) %34)
+  br i1 %35, label %81, label %36
+
+36:                                               ; preds = %33, %30
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #17
+  store i64 0, ptr %22, align 8, !tbaa !74
+  br label %37
+
+37:                                               ; preds = %77, %36
+  %38 = load i64, ptr %22, align 8, !tbaa !74
+  %39 = load i64, ptr %15, align 8, !tbaa !74
+  %40 = icmp ult i64 %38, %39
+  br i1 %40, label %42, label %41
+
+41:                                               ; preds = %37
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #17
+  br label %80
+
+42:                                               ; preds = %37
+  %43 = load ptr, ptr %16, align 8, !tbaa !127
+  %44 = load i64, ptr %22, align 8, !tbaa !74
+  %45 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %43, i64 noundef %44)
+  %46 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 3
+  store i64 %45, ptr %46, align 8, !tbaa !130
+  %47 = load ptr, ptr %17, align 8, !tbaa !127
+  %48 = load i64, ptr %22, align 8, !tbaa !74
+  %49 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %47, i64 noundef %48)
+  %50 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 4
+  store i64 %49, ptr %50, align 8, !tbaa !132
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #17
+  %51 = load ptr, ptr %18, align 8, !tbaa !127
+  %52 = load i64, ptr %22, align 8, !tbaa !74
+  %53 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %51, i64 noundef %52)
+  store i64 %53, ptr %23, align 8, !tbaa !74
+  %54 = load ptr, ptr %19, align 8, !tbaa !128
+  %55 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 3
+  %56 = load i64, ptr %55, align 8, !tbaa !130
+  %57 = call noundef zeroext i1 @_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm(ptr noundef nonnull align 8 dereferenceable(32) %54, i64 noundef %56)
+  br i1 %57, label %58, label %76
+
+58:                                               ; preds = %42
+  %59 = load ptr, ptr %20, align 8, !tbaa !128
+  %60 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 4
+  %61 = load i64, ptr %60, align 8, !tbaa !132
+  %62 = call noundef zeroext i1 @_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm(ptr noundef nonnull align 8 dereferenceable(32) %59, i64 noundef %61)
+  br i1 %62, label %63, label %76
+
+63:                                               ; preds = %58
+  %64 = load ptr, ptr %14, align 8, !tbaa !286
+  %65 = load i64, ptr %23, align 8, !tbaa !74
+  %66 = getelementptr inbounds nuw ptr, ptr %64, i64 %65
+  %67 = load ptr, ptr %66, align 8, !tbaa !281
+  %68 = load ptr, ptr %11, align 8, !tbaa !123
+  %69 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 3
+  %70 = load i64, ptr %69, align 8, !tbaa !130
+  %71 = getelementptr inbounds nuw double, ptr %68, i64 %70
+  %72 = load ptr, ptr %13, align 8, !tbaa !123
+  %73 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 4
+  %74 = load i64, ptr %73, align 8, !tbaa !132
+  %75 = getelementptr inbounds nuw double, ptr %72, i64 %74
+  call void @_ZN6duckdb16RegrAvgXFunction9OperationIddNS_9RegrStateES0_EEvRT1_RKT_RKT0_RNS_20AggregateBinaryInputE(ptr noundef nonnull align 8 dereferenceable(16) %67, ptr noundef nonnull align 8 dereferenceable(8) %71, ptr noundef nonnull align 8 dereferenceable(8) %75, ptr noundef nonnull align 8 dereferenceable(40) %21)
+  br label %76
+
+76:                                               ; preds = %63, %58, %42
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #17
+  br label %77
+
+77:                                               ; preds = %76
+  %78 = load i64, ptr %22, align 8, !tbaa !74
+  %79 = add i64 %78, 1
+  store i64 %79, ptr %22, align 8, !tbaa !74
+  br label %37, !llvm.loop !288
+
+80:                                               ; preds = %41
+  br label %115
+
+81:                                               ; preds = %33, %10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #17
+  store i64 0, ptr %24, align 8, !tbaa !74
+  br label %82
+
+82:                                               ; preds = %111, %81
+  %83 = load i64, ptr %24, align 8, !tbaa !74
+  %84 = load i64, ptr %15, align 8, !tbaa !74
+  %85 = icmp ult i64 %83, %84
+  br i1 %85, label %87, label %86
+
+86:                                               ; preds = %82
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #17
+  br label %114
+
+87:                                               ; preds = %82
+  %88 = load ptr, ptr %16, align 8, !tbaa !127
+  %89 = load i64, ptr %24, align 8, !tbaa !74
+  %90 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %88, i64 noundef %89)
+  %91 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 3
+  store i64 %90, ptr %91, align 8, !tbaa !130
+  %92 = load ptr, ptr %17, align 8, !tbaa !127
+  %93 = load i64, ptr %24, align 8, !tbaa !74
+  %94 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %92, i64 noundef %93)
+  %95 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 4
+  store i64 %94, ptr %95, align 8, !tbaa !132
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #17
+  %96 = load ptr, ptr %18, align 8, !tbaa !127
+  %97 = load i64, ptr %24, align 8, !tbaa !74
+  %98 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %96, i64 noundef %97)
+  store i64 %98, ptr %25, align 8, !tbaa !74
+  %99 = load ptr, ptr %14, align 8, !tbaa !286
+  %100 = load i64, ptr %25, align 8, !tbaa !74
+  %101 = getelementptr inbounds nuw ptr, ptr %99, i64 %100
+  %102 = load ptr, ptr %101, align 8, !tbaa !281
+  %103 = load ptr, ptr %11, align 8, !tbaa !123
+  %104 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 3
+  %105 = load i64, ptr %104, align 8, !tbaa !130
+  %106 = getelementptr inbounds nuw double, ptr %103, i64 %105
+  %107 = load ptr, ptr %13, align 8, !tbaa !123
+  %108 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 4
+  %109 = load i64, ptr %108, align 8, !tbaa !132
+  %110 = getelementptr inbounds nuw double, ptr %107, i64 %109
+  call void @_ZN6duckdb16RegrAvgXFunction9OperationIddNS_9RegrStateES0_EEvRT1_RKT_RKT0_RNS_20AggregateBinaryInputE(ptr noundef nonnull align 8 dereferenceable(16) %102, ptr noundef nonnull align 8 dereferenceable(8) %106, ptr noundef nonnull align 8 dereferenceable(8) %110, ptr noundef nonnull align 8 dereferenceable(40) %21)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #17
+  br label %111
+
+111:                                              ; preds = %87
+  %112 = load i64, ptr %24, align 8, !tbaa !74
+  %113 = add i64 %112, 1
+  store i64 %113, ptr %24, align 8, !tbaa !74
+  br label %82, !llvm.loop !289
+
+114:                                              ; preds = %86
+  br label %115
+
+115:                                              ; preds = %114, %80
+  call void @llvm.lifetime.end.p0(i64 40, ptr %21) #17
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZN6duckdb15RegrAvgFunction10IgnoreNullEv() #5 comdat align 2 {
+  ret i1 true
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN6duckdb16RegrAvgXFunction9OperationIddNS_9RegrStateES0_EEvRT1_RKT_RKT0_RNS_20AggregateBinaryInputE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(40) %3) #5 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !281
+  store ptr %1, ptr %6, align 8, !tbaa !123
+  store ptr %2, ptr %7, align 8, !tbaa !123
+  store ptr %3, ptr %8, align 8, !tbaa !137
+  %9 = load ptr, ptr %7, align 8, !tbaa !123
+  %10 = load double, ptr %9, align 8, !tbaa !143
+  %11 = load ptr, ptr %5, align 8, !tbaa !281
+  %12 = getelementptr inbounds nuw %"struct.duckdb::RegrState", ptr %11, i32 0, i32 0
+  %13 = load double, ptr %12, align 8, !tbaa !283
+  %14 = fadd double %13, %10
+  store double %14, ptr %12, align 8, !tbaa !283
+  %15 = load ptr, ptr %5, align 8, !tbaa !281
+  %16 = getelementptr inbounds nuw %"struct.duckdb::RegrState", ptr %15, i32 0, i32 1
+  %17 = load i64, ptr %16, align 8, !tbaa !285
+  %18 = add i64 %17, 1
+  store i64 %18, ptr %16, align 8, !tbaa !285
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateExecutor7CombineINS_9RegrStateENS_16RegrAvgXFunctionEEEvRNS_6VectorES5_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(17) %2, i64 noundef %3) #0 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !70
+  store ptr %1, ptr %6, align 8, !tbaa !70
+  store ptr %2, ptr %7, align 8, !tbaa !72
+  store i64 %3, ptr %8, align 8, !tbaa !74
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #17
+  %12 = load ptr, ptr %5, align 8, !tbaa !70
+  %13 = call noundef ptr @_ZN6duckdb10FlatVector7GetDataIPKNS_9RegrStateEEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %12)
+  store ptr %13, ptr %9, align 8, !tbaa !286
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #17
+  %14 = load ptr, ptr %6, align 8, !tbaa !70
+  %15 = call noundef ptr @_ZN6duckdb10FlatVector7GetDataIPNS_9RegrStateEEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %14)
+  store ptr %15, ptr %10, align 8, !tbaa !286
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #17
+  store i64 0, ptr %11, align 8, !tbaa !74
+  br label %16
+
+16:                                               ; preds = %31, %4
+  %17 = load i64, ptr %11, align 8, !tbaa !74
+  %18 = load i64, ptr %8, align 8, !tbaa !74
+  %19 = icmp ult i64 %17, %18
+  br i1 %19, label %21, label %20
+
+20:                                               ; preds = %16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #17
+  br label %34
+
+21:                                               ; preds = %16
+  %22 = load ptr, ptr %9, align 8, !tbaa !286
+  %23 = load i64, ptr %11, align 8, !tbaa !74
+  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %25 = load ptr, ptr %24, align 8, !tbaa !281
+  %26 = load ptr, ptr %10, align 8, !tbaa !286
+  %27 = load i64, ptr %11, align 8, !tbaa !74
+  %28 = getelementptr inbounds nuw ptr, ptr %26, i64 %27
+  %29 = load ptr, ptr %28, align 8, !tbaa !281
+  %30 = load ptr, ptr %7, align 8, !tbaa !72
+  call void @_ZN6duckdb15RegrAvgFunction7CombineINS_9RegrStateENS_16RegrAvgXFunctionEEEvRKT_RS4_RNS_18AggregateInputDataE(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(17) %30)
+  br label %31
+
+31:                                               ; preds = %21
+  %32 = load i64, ptr %11, align 8, !tbaa !74
+  %33 = add i64 %32, 1
+  store i64 %33, ptr %11, align 8, !tbaa !74
+  br label %16, !llvm.loop !290
+
+34:                                               ; preds = %20
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #17
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef ptr @_ZN6duckdb10FlatVector7GetDataIPKNS_9RegrStateEEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %0) #12 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !70
+  %3 = load ptr, ptr %2, align 8, !tbaa !70
+  %4 = call noundef ptr @_ZN6duckdb14ConstantVector7GetDataIPKNS_9RegrStateEEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %3)
+  ret ptr %4
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef ptr @_ZN6duckdb10FlatVector7GetDataIPNS_9RegrStateEEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %0) #12 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !70
+  %3 = load ptr, ptr %2, align 8, !tbaa !70
+  %4 = call noundef ptr @_ZN6duckdb14ConstantVector7GetDataIPNS_9RegrStateEEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %3)
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN6duckdb15RegrAvgFunction7CombineINS_9RegrStateENS_16RegrAvgXFunctionEEEvRKT_RS4_RNS_18AggregateInputDataE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(17) %2) #5 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !281
+  store ptr %1, ptr %5, align 8, !tbaa !281
+  store ptr %2, ptr %6, align 8, !tbaa !72
+  %7 = load ptr, ptr %4, align 8, !tbaa !281
+  %8 = getelementptr inbounds nuw %"struct.duckdb::RegrState", ptr %7, i32 0, i32 0
+  %9 = load double, ptr %8, align 8, !tbaa !283
+  %10 = load ptr, ptr %5, align 8, !tbaa !281
+  %11 = getelementptr inbounds nuw %"struct.duckdb::RegrState", ptr %10, i32 0, i32 0
+  %12 = load double, ptr %11, align 8, !tbaa !283
+  %13 = fadd double %12, %9
+  store double %13, ptr %11, align 8, !tbaa !283
+  %14 = load ptr, ptr %4, align 8, !tbaa !281
+  %15 = getelementptr inbounds nuw %"struct.duckdb::RegrState", ptr %14, i32 0, i32 1
+  %16 = load i64, ptr %15, align 8, !tbaa !285
+  %17 = load ptr, ptr %5, align 8, !tbaa !281
+  %18 = getelementptr inbounds nuw %"struct.duckdb::RegrState", ptr %17, i32 0, i32 1
+  %19 = load i64, ptr %18, align 8, !tbaa !285
+  %20 = add i64 %19, %16
+  store i64 %20, ptr %18, align 8, !tbaa !285
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZN6duckdb14ConstantVector7GetDataIPKNS_9RegrStateEEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !70
+  %3 = load ptr, ptr %2, align 8, !tbaa !70
+  %4 = call noundef ptr @_ZN6duckdb14ConstantVector7GetDataERNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %3)
+  ret ptr %4
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZN6duckdb14ConstantVector7GetDataIPNS_9RegrStateEEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !70
+  %3 = load ptr, ptr %2, align 8, !tbaa !70
+  %4 = call noundef ptr @_ZN6duckdb14ConstantVector7GetDataERNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %3)
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateExecutor8FinalizeINS_9RegrStateEdNS_16RegrAvgXFunctionEEEvRNS_6VectorERNS_18AggregateInputDataES5_mm(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(17) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, i64 noundef %3, i64 noundef %4) #0 comdat align 2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca %"struct.duckdb::AggregateFinalizeData", align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca %"struct.duckdb::AggregateFinalizeData", align 8
+  %17 = alloca i64, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !70
+  store ptr %1, ptr %7, align 8, !tbaa !72
+  store ptr %2, ptr %8, align 8, !tbaa !70
+  store i64 %3, ptr %9, align 8, !tbaa !74
+  store i64 %4, ptr %10, align 8, !tbaa !74
+  %18 = load ptr, ptr %6, align 8, !tbaa !70
+  %19 = call noundef zeroext i8 @_ZNK6duckdb6Vector13GetVectorTypeEv(ptr noundef nonnull align 8 dereferenceable(104) %18)
+  %20 = icmp eq i8 %19, 2
+  br i1 %20, label %21, label %32
+
+21:                                               ; preds = %5
+  %22 = load ptr, ptr %8, align 8, !tbaa !70
+  call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %22, i8 noundef zeroext 2)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #17
+  %23 = load ptr, ptr %6, align 8, !tbaa !70
+  %24 = call noundef ptr @_ZN6duckdb14ConstantVector7GetDataIPNS_9RegrStateEEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %23)
+  store ptr %24, ptr %11, align 8, !tbaa !286
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #17
+  %25 = load ptr, ptr %8, align 8, !tbaa !70
+  %26 = call noundef ptr @_ZN6duckdb14ConstantVector7GetDataIdEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %25)
+  store ptr %26, ptr %12, align 8, !tbaa !123
+  call void @llvm.lifetime.start.p0(i64 24, ptr %13) #17
+  %27 = load ptr, ptr %8, align 8, !tbaa !70
+  %28 = load ptr, ptr %7, align 8, !tbaa !72
+  call void @_ZN6duckdb21AggregateFinalizeDataC2ERNS_6VectorERNS_18AggregateInputDataE(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(104) %27, ptr noundef nonnull align 8 dereferenceable(17) %28)
+  %29 = load ptr, ptr %11, align 8, !tbaa !286
+  %30 = load ptr, ptr %29, align 8, !tbaa !281
+  %31 = load ptr, ptr %12, align 8, !tbaa !123
+  call void @_ZN6duckdb15RegrAvgFunction8FinalizeIdNS_9RegrStateEEEvRT0_RT_RNS_21AggregateFinalizeDataE(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull align 8 dereferenceable(24) %13)
+  call void @llvm.lifetime.end.p0(i64 24, ptr %13) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #17
+  br label %62
+
+32:                                               ; preds = %5
+  %33 = load ptr, ptr %8, align 8, !tbaa !70
+  call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %33, i8 noundef zeroext 0)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #17
+  %34 = load ptr, ptr %6, align 8, !tbaa !70
+  %35 = call noundef ptr @_ZN6duckdb10FlatVector7GetDataIPNS_9RegrStateEEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %34)
+  store ptr %35, ptr %14, align 8, !tbaa !286
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #17
+  %36 = load ptr, ptr %8, align 8, !tbaa !70
+  %37 = call noundef ptr @_ZN6duckdb10FlatVector7GetDataIdEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %36)
+  store ptr %37, ptr %15, align 8, !tbaa !123
+  call void @llvm.lifetime.start.p0(i64 24, ptr %16) #17
+  %38 = load ptr, ptr %8, align 8, !tbaa !70
+  %39 = load ptr, ptr %7, align 8, !tbaa !72
+  call void @_ZN6duckdb21AggregateFinalizeDataC2ERNS_6VectorERNS_18AggregateInputDataE(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(104) %38, ptr noundef nonnull align 8 dereferenceable(17) %39)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #17
+  store i64 0, ptr %17, align 8, !tbaa !74
+  br label %40
+
+40:                                               ; preds = %58, %32
+  %41 = load i64, ptr %17, align 8, !tbaa !74
+  %42 = load i64, ptr %9, align 8, !tbaa !74
+  %43 = icmp ult i64 %41, %42
+  br i1 %43, label %45, label %44
+
+44:                                               ; preds = %40
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #17
+  br label %61
+
+45:                                               ; preds = %40
+  %46 = load i64, ptr %17, align 8, !tbaa !74
+  %47 = load i64, ptr %10, align 8, !tbaa !74
+  %48 = add i64 %46, %47
+  %49 = getelementptr inbounds nuw %"struct.duckdb::AggregateFinalizeData", ptr %16, i32 0, i32 2
+  store i64 %48, ptr %49, align 8, !tbaa !161
+  %50 = load ptr, ptr %14, align 8, !tbaa !286
+  %51 = load i64, ptr %17, align 8, !tbaa !74
+  %52 = getelementptr inbounds nuw ptr, ptr %50, i64 %51
+  %53 = load ptr, ptr %52, align 8, !tbaa !281
+  %54 = load ptr, ptr %15, align 8, !tbaa !123
+  %55 = getelementptr inbounds nuw %"struct.duckdb::AggregateFinalizeData", ptr %16, i32 0, i32 2
+  %56 = load i64, ptr %55, align 8, !tbaa !161
+  %57 = getelementptr inbounds nuw double, ptr %54, i64 %56
+  call void @_ZN6duckdb15RegrAvgFunction8FinalizeIdNS_9RegrStateEEEvRT0_RT_RNS_21AggregateFinalizeDataE(ptr noundef nonnull align 8 dereferenceable(16) %53, ptr noundef nonnull align 8 dereferenceable(8) %57, ptr noundef nonnull align 8 dereferenceable(24) %16)
+  br label %58
+
+58:                                               ; preds = %45
+  %59 = load i64, ptr %17, align 8, !tbaa !74
+  %60 = add i64 %59, 1
+  store i64 %60, ptr %17, align 8, !tbaa !74
+  br label %40, !llvm.loop !291
+
+61:                                               ; preds = %44
+  call void @llvm.lifetime.end.p0(i64 24, ptr %16) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #17
+  br label %62
+
+62:                                               ; preds = %61, %21
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb15RegrAvgFunction8FinalizeIdNS_9RegrStateEEEvRT0_RT_RNS_21AggregateFinalizeDataE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !281
+  store ptr %1, ptr %5, align 8, !tbaa !123
+  store ptr %2, ptr %6, align 8, !tbaa !165
+  %7 = load ptr, ptr %4, align 8, !tbaa !281
+  %8 = getelementptr inbounds nuw %"struct.duckdb::RegrState", ptr %7, i32 0, i32 1
+  %9 = load i64, ptr %8, align 8, !tbaa !285
+  %10 = icmp eq i64 %9, 0
+  br i1 %10, label %11, label %13
+
+11:                                               ; preds = %3
+  %12 = load ptr, ptr %6, align 8, !tbaa !165
+  call void @_ZN6duckdb21AggregateFinalizeData10ReturnNullEv(ptr noundef nonnull align 8 dereferenceable(24) %12)
+  br label %23
+
+13:                                               ; preds = %3
+  %14 = load ptr, ptr %4, align 8, !tbaa !281
+  %15 = getelementptr inbounds nuw %"struct.duckdb::RegrState", ptr %14, i32 0, i32 0
+  %16 = load double, ptr %15, align 8, !tbaa !283
+  %17 = load ptr, ptr %4, align 8, !tbaa !281
+  %18 = getelementptr inbounds nuw %"struct.duckdb::RegrState", ptr %17, i32 0, i32 1
+  %19 = load i64, ptr %18, align 8, !tbaa !285
+  %20 = uitofp i64 %19 to double
+  %21 = fdiv double %16, %20
+  %22 = load ptr, ptr %5, align 8, !tbaa !123
+  store double %21, ptr %22, align 8, !tbaa !143
+  br label %23
+
+23:                                               ; preds = %13, %11
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateExecutor12BinaryUpdateINS_9RegrStateEddNS_16RegrAvgXFunctionEEEvRNS_18AggregateInputDataERNS_6VectorES7_Phm(ptr noundef nonnull align 8 dereferenceable(17) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, ptr noundef %3, i64 noundef %4) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
+  %12 = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !72
+  store ptr %1, ptr %7, align 8, !tbaa !70
+  store ptr %2, ptr %8, align 8, !tbaa !70
+  store ptr %3, ptr %9, align 8, !tbaa !39
+  store i64 %4, ptr %10, align 8, !tbaa !74
+  call void @llvm.lifetime.start.p0(i64 72, ptr %11) #17
+  call void @_ZN6duckdb19UnifiedVectorFormatC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %11)
+  call void @llvm.lifetime.start.p0(i64 72, ptr %12) #17
+  invoke void @_ZN6duckdb19UnifiedVectorFormatC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %12)
+          to label %15 unwind label %34
+
+15:                                               ; preds = %5
+  %16 = load ptr, ptr %7, align 8, !tbaa !70
+  %17 = load i64, ptr %10, align 8, !tbaa !74
+  invoke void @_ZN6duckdb6Vector15ToUnifiedFormatEmRNS_19UnifiedVectorFormatE(ptr noundef nonnull align 8 dereferenceable(104) %16, i64 noundef %17, ptr noundef nonnull align 8 dereferenceable(72) %11)
+          to label %18 unwind label %38
+
+18:                                               ; preds = %15
+  %19 = load ptr, ptr %8, align 8, !tbaa !70
+  %20 = load i64, ptr %10, align 8, !tbaa !74
+  invoke void @_ZN6duckdb6Vector15ToUnifiedFormatEmRNS_19UnifiedVectorFormatE(ptr noundef nonnull align 8 dereferenceable(104) %19, i64 noundef %20, ptr noundef nonnull align 8 dereferenceable(72) %12)
+          to label %21 unwind label %38
+
+21:                                               ; preds = %18
+  %22 = call noundef ptr @_ZN6duckdb19UnifiedVectorFormat7GetDataIdEEPKT_RKS0_(ptr noundef nonnull align 8 dereferenceable(72) %11)
+  %23 = load ptr, ptr %6, align 8, !tbaa !72
+  %24 = call noundef ptr @_ZN6duckdb19UnifiedVectorFormat7GetDataIdEEPKT_RKS0_(ptr noundef nonnull align 8 dereferenceable(72) %12)
+  %25 = load ptr, ptr %9, align 8, !tbaa !39
+  %26 = load i64, ptr %10, align 8, !tbaa !74
+  %27 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %11, i32 0, i32 0
+  %28 = load ptr, ptr %27, align 8, !tbaa !122
+  %29 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %12, i32 0, i32 0
+  %30 = load ptr, ptr %29, align 8, !tbaa !122
+  %31 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %11, i32 0, i32 2
+  %32 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %12, i32 0, i32 2
+  invoke void @_ZN6duckdb17AggregateExecutor16BinaryUpdateLoopINS_9RegrStateEddNS_16RegrAvgXFunctionEEEvPKT0_RNS_18AggregateInputDataEPKT1_PT_mRKNS_15SelectionVectorESG_RNS_12ValidityMaskESI_(ptr noundef %22, ptr noundef nonnull align 8 dereferenceable(17) %23, ptr noundef %24, ptr noundef %25, i64 noundef %26, ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(32) %32)
+          to label %33 unwind label %38
+
+33:                                               ; preds = %21
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %12) #17
+  call void @llvm.lifetime.end.p0(i64 72, ptr %12) #17
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %11) #17
+  call void @llvm.lifetime.end.p0(i64 72, ptr %11) #17
+  ret void
+
+34:                                               ; preds = %5
+  %35 = landingpad { ptr, i32 }
+          cleanup
+  %36 = extractvalue { ptr, i32 } %35, 0
+  store ptr %36, ptr %13, align 8
+  %37 = extractvalue { ptr, i32 } %35, 1
+  store i32 %37, ptr %14, align 4
+  br label %42
+
+38:                                               ; preds = %21, %18, %15
+  %39 = landingpad { ptr, i32 }
+          cleanup
+  %40 = extractvalue { ptr, i32 } %39, 0
+  store ptr %40, ptr %13, align 8
+  %41 = extractvalue { ptr, i32 } %39, 1
+  store i32 %41, ptr %14, align 4
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %12) #17
+  br label %42
+
+42:                                               ; preds = %38, %34
+  call void @llvm.lifetime.end.p0(i64 72, ptr %12) #17
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %11) #17
+  call void @llvm.lifetime.end.p0(i64 72, ptr %11) #17
+  br label %43
+
+43:                                               ; preds = %42
+  %44 = load ptr, ptr %13, align 8
+  %45 = load i32, ptr %14, align 4
+  %46 = insertvalue { ptr, i32 } poison, ptr %44, 0
+  %47 = insertvalue { ptr, i32 } %46, i32 %45, 1
+  resume { ptr, i32 } %47
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateExecutor16BinaryUpdateLoopINS_9RegrStateEddNS_16RegrAvgXFunctionEEEvPKT0_RNS_18AggregateInputDataEPKT1_PT_mRKNS_15SelectionVectorESG_RNS_12ValidityMaskESI_(ptr noalias noundef %0, ptr noundef nonnull align 8 dereferenceable(17) %1, ptr noalias noundef %2, ptr noalias noundef %3, i64 noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %8) #12 comdat align 2 {
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i64, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca ptr, align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca %"struct.duckdb::AggregateBinaryInput", align 8
+  %20 = alloca i64, align 8
+  %21 = alloca i64, align 8
+  store ptr %0, ptr %10, align 8, !tbaa !123
+  store ptr %1, ptr %11, align 8, !tbaa !72
+  store ptr %2, ptr %12, align 8, !tbaa !123
+  store ptr %3, ptr %13, align 8, !tbaa !281
+  store i64 %4, ptr %14, align 8, !tbaa !74
+  store ptr %5, ptr %15, align 8, !tbaa !127
+  store ptr %6, ptr %16, align 8, !tbaa !127
+  store ptr %7, ptr %17, align 8, !tbaa !128
+  store ptr %8, ptr %18, align 8, !tbaa !128
+  call void @llvm.lifetime.start.p0(i64 40, ptr %19) #17
+  %22 = load ptr, ptr %11, align 8, !tbaa !72
+  %23 = load ptr, ptr %17, align 8, !tbaa !128
+  %24 = load ptr, ptr %18, align 8, !tbaa !128
+  call void @_ZN6duckdb20AggregateBinaryInputC2ERNS_18AggregateInputDataERNS_12ValidityMaskES4_(ptr noundef nonnull align 8 dereferenceable(40) %19, ptr noundef nonnull align 8 dereferenceable(17) %22, ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %24)
+  %25 = call noundef zeroext i1 @_ZN6duckdb15RegrAvgFunction10IgnoreNullEv()
+  br i1 %25, label %26, label %71
+
+26:                                               ; preds = %9
+  %27 = load ptr, ptr %17, align 8, !tbaa !128
+  %28 = call noundef zeroext i1 @_ZNK6duckdb21TemplatedValidityMaskImE8AllValidEv(ptr noundef nonnull align 8 dereferenceable(32) %27)
+  br i1 %28, label %29, label %32
+
+29:                                               ; preds = %26
+  %30 = load ptr, ptr %18, align 8, !tbaa !128
+  %31 = call noundef zeroext i1 @_ZNK6duckdb21TemplatedValidityMaskImE8AllValidEv(ptr noundef nonnull align 8 dereferenceable(32) %30)
+  br i1 %31, label %71, label %32
+
+32:                                               ; preds = %29, %26
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #17
+  store i64 0, ptr %20, align 8, !tbaa !74
+  br label %33
+
+33:                                               ; preds = %67, %32
+  %34 = load i64, ptr %20, align 8, !tbaa !74
+  %35 = load i64, ptr %14, align 8, !tbaa !74
+  %36 = icmp ult i64 %34, %35
+  br i1 %36, label %38, label %37
+
+37:                                               ; preds = %33
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #17
+  br label %70
+
+38:                                               ; preds = %33
+  %39 = load ptr, ptr %15, align 8, !tbaa !127
+  %40 = load i64, ptr %20, align 8, !tbaa !74
+  %41 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %39, i64 noundef %40)
+  %42 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 3
+  store i64 %41, ptr %42, align 8, !tbaa !130
+  %43 = load ptr, ptr %16, align 8, !tbaa !127
+  %44 = load i64, ptr %20, align 8, !tbaa !74
+  %45 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %43, i64 noundef %44)
+  %46 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 4
+  store i64 %45, ptr %46, align 8, !tbaa !132
+  %47 = load ptr, ptr %17, align 8, !tbaa !128
+  %48 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 3
+  %49 = load i64, ptr %48, align 8, !tbaa !130
+  %50 = call noundef zeroext i1 @_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm(ptr noundef nonnull align 8 dereferenceable(32) %47, i64 noundef %49)
+  br i1 %50, label %51, label %66
+
+51:                                               ; preds = %38
+  %52 = load ptr, ptr %18, align 8, !tbaa !128
+  %53 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 4
+  %54 = load i64, ptr %53, align 8, !tbaa !132
+  %55 = call noundef zeroext i1 @_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm(ptr noundef nonnull align 8 dereferenceable(32) %52, i64 noundef %54)
+  br i1 %55, label %56, label %66
+
+56:                                               ; preds = %51
+  %57 = load ptr, ptr %13, align 8, !tbaa !281
+  %58 = load ptr, ptr %10, align 8, !tbaa !123
+  %59 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 3
+  %60 = load i64, ptr %59, align 8, !tbaa !130
+  %61 = getelementptr inbounds nuw double, ptr %58, i64 %60
+  %62 = load ptr, ptr %12, align 8, !tbaa !123
+  %63 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 4
+  %64 = load i64, ptr %63, align 8, !tbaa !132
+  %65 = getelementptr inbounds nuw double, ptr %62, i64 %64
+  call void @_ZN6duckdb16RegrAvgXFunction9OperationIddNS_9RegrStateES0_EEvRT1_RKT_RKT0_RNS_20AggregateBinaryInputE(ptr noundef nonnull align 8 dereferenceable(16) %57, ptr noundef nonnull align 8 dereferenceable(8) %61, ptr noundef nonnull align 8 dereferenceable(8) %65, ptr noundef nonnull align 8 dereferenceable(40) %19)
+  br label %66
+
+66:                                               ; preds = %56, %51, %38
+  br label %67
+
+67:                                               ; preds = %66
+  %68 = load i64, ptr %20, align 8, !tbaa !74
+  %69 = add i64 %68, 1
+  store i64 %69, ptr %20, align 8, !tbaa !74
+  br label %33, !llvm.loop !292
+
+70:                                               ; preds = %37
+  br label %99
+
+71:                                               ; preds = %29, %9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #17
+  store i64 0, ptr %21, align 8, !tbaa !74
+  br label %72
+
+72:                                               ; preds = %95, %71
+  %73 = load i64, ptr %21, align 8, !tbaa !74
+  %74 = load i64, ptr %14, align 8, !tbaa !74
+  %75 = icmp ult i64 %73, %74
+  br i1 %75, label %77, label %76
+
+76:                                               ; preds = %72
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #17
+  br label %98
+
+77:                                               ; preds = %72
+  %78 = load ptr, ptr %15, align 8, !tbaa !127
+  %79 = load i64, ptr %21, align 8, !tbaa !74
+  %80 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %78, i64 noundef %79)
+  %81 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 3
+  store i64 %80, ptr %81, align 8, !tbaa !130
+  %82 = load ptr, ptr %16, align 8, !tbaa !127
+  %83 = load i64, ptr %21, align 8, !tbaa !74
+  %84 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %82, i64 noundef %83)
+  %85 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 4
+  store i64 %84, ptr %85, align 8, !tbaa !132
+  %86 = load ptr, ptr %13, align 8, !tbaa !281
+  %87 = load ptr, ptr %10, align 8, !tbaa !123
+  %88 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 3
+  %89 = load i64, ptr %88, align 8, !tbaa !130
+  %90 = getelementptr inbounds nuw double, ptr %87, i64 %89
+  %91 = load ptr, ptr %12, align 8, !tbaa !123
+  %92 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 4
+  %93 = load i64, ptr %92, align 8, !tbaa !132
+  %94 = getelementptr inbounds nuw double, ptr %91, i64 %93
+  call void @_ZN6duckdb16RegrAvgXFunction9OperationIddNS_9RegrStateES0_EEvRT1_RKT_RKT0_RNS_20AggregateBinaryInputE(ptr noundef nonnull align 8 dereferenceable(16) %86, ptr noundef nonnull align 8 dereferenceable(8) %90, ptr noundef nonnull align 8 dereferenceable(8) %94, ptr noundef nonnull align 8 dereferenceable(40) %19)
+  br label %95
+
+95:                                               ; preds = %77
+  %96 = load i64, ptr %21, align 8, !tbaa !74
+  %97 = add i64 %96, 1
+  store i64 %97, ptr %21, align 8, !tbaa !74
+  br label %72, !llvm.loop !293
+
+98:                                               ; preds = %76
+  br label %99
+
+99:                                               ; preds = %98, %70
+  call void @llvm.lifetime.end.p0(i64 40, ptr %19) #17
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateFunction15StateInitializeINS_9RegrStateENS_16RegrAvgYFunctionELNS_23AggregateDestructorTypeE0EEEvRKS0_Ph(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef %1) #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !40
+  store ptr %1, ptr %4, align 8, !tbaa !39
+  %5 = load ptr, ptr %4, align 8, !tbaa !39
+  call void @_ZN6duckdb15RegrAvgFunction10InitializeINS_9RegrStateEEEvRT_(ptr noundef nonnull align 8 dereferenceable(16) %5)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateFunction19BinaryScatterUpdateINS_9RegrStateEddNS_16RegrAvgYFunctionEEEvPNS_6VectorERNS_18AggregateInputDataEmRS4_m(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(17) %1, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(104) %3, i64 noundef %4) #0 comdat align 2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !70
+  store ptr %1, ptr %7, align 8, !tbaa !72
+  store i64 %2, ptr %8, align 8, !tbaa !74
+  store ptr %3, ptr %9, align 8, !tbaa !70
+  store i64 %4, ptr %10, align 8, !tbaa !74
+  %11 = load ptr, ptr %7, align 8, !tbaa !72
+  %12 = load ptr, ptr %6, align 8, !tbaa !70
+  %13 = getelementptr inbounds %"class.duckdb::Vector", ptr %12, i64 0
+  %14 = load ptr, ptr %6, align 8, !tbaa !70
+  %15 = getelementptr inbounds %"class.duckdb::Vector", ptr %14, i64 1
+  %16 = load ptr, ptr %9, align 8, !tbaa !70
+  %17 = load i64, ptr %10, align 8, !tbaa !74
+  call void @_ZN6duckdb17AggregateExecutor13BinaryScatterINS_9RegrStateEddNS_16RegrAvgYFunctionEEEvRNS_18AggregateInputDataERNS_6VectorES7_S7_m(ptr noundef nonnull align 8 dereferenceable(17) %11, ptr noundef nonnull align 8 dereferenceable(104) %13, ptr noundef nonnull align 8 dereferenceable(104) %15, ptr noundef nonnull align 8 dereferenceable(104) %16, i64 noundef %17)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateFunction12StateCombineINS_9RegrStateENS_16RegrAvgYFunctionEEEvRNS_6VectorES5_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(17) %2, i64 noundef %3) #0 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !70
+  store ptr %1, ptr %6, align 8, !tbaa !70
+  store ptr %2, ptr %7, align 8, !tbaa !72
+  store i64 %3, ptr %8, align 8, !tbaa !74
+  %9 = load ptr, ptr %5, align 8, !tbaa !70
+  %10 = load ptr, ptr %6, align 8, !tbaa !70
+  %11 = load ptr, ptr %7, align 8, !tbaa !72
+  %12 = load i64, ptr %8, align 8, !tbaa !74
+  call void @_ZN6duckdb17AggregateExecutor7CombineINS_9RegrStateENS_16RegrAvgYFunctionEEEvRNS_6VectorES5_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %9, ptr noundef nonnull align 8 dereferenceable(104) %10, ptr noundef nonnull align 8 dereferenceable(17) %11, i64 noundef %12)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateFunction13StateFinalizeINS_9RegrStateEdNS_16RegrAvgYFunctionEEEvRNS_6VectorERNS_18AggregateInputDataES5_mm(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(17) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, i64 noundef %3, i64 noundef %4) #0 comdat align 2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !70
+  store ptr %1, ptr %7, align 8, !tbaa !72
+  store ptr %2, ptr %8, align 8, !tbaa !70
+  store i64 %3, ptr %9, align 8, !tbaa !74
+  store i64 %4, ptr %10, align 8, !tbaa !74
+  %11 = load ptr, ptr %6, align 8, !tbaa !70
+  %12 = load ptr, ptr %7, align 8, !tbaa !72
+  %13 = load ptr, ptr %8, align 8, !tbaa !70
+  %14 = load i64, ptr %9, align 8, !tbaa !74
+  %15 = load i64, ptr %10, align 8, !tbaa !74
+  call void @_ZN6duckdb17AggregateExecutor8FinalizeINS_9RegrStateEdNS_16RegrAvgYFunctionEEEvRNS_6VectorERNS_18AggregateInputDataES5_mm(ptr noundef nonnull align 8 dereferenceable(104) %11, ptr noundef nonnull align 8 dereferenceable(17) %12, ptr noundef nonnull align 8 dereferenceable(104) %13, i64 noundef %14, i64 noundef %15)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateFunction12BinaryUpdateINS_9RegrStateEddNS_16RegrAvgYFunctionEEEvPNS_6VectorERNS_18AggregateInputDataEmPhm(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(17) %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) #0 comdat align 2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !70
+  store ptr %1, ptr %7, align 8, !tbaa !72
+  store i64 %2, ptr %8, align 8, !tbaa !74
+  store ptr %3, ptr %9, align 8, !tbaa !39
+  store i64 %4, ptr %10, align 8, !tbaa !74
+  %11 = load ptr, ptr %7, align 8, !tbaa !72
+  %12 = load ptr, ptr %6, align 8, !tbaa !70
+  %13 = getelementptr inbounds %"class.duckdb::Vector", ptr %12, i64 0
+  %14 = load ptr, ptr %6, align 8, !tbaa !70
+  %15 = getelementptr inbounds %"class.duckdb::Vector", ptr %14, i64 1
+  %16 = load ptr, ptr %9, align 8, !tbaa !39
+  %17 = load i64, ptr %10, align 8, !tbaa !74
+  call void @_ZN6duckdb17AggregateExecutor12BinaryUpdateINS_9RegrStateEddNS_16RegrAvgYFunctionEEEvRNS_18AggregateInputDataERNS_6VectorES7_Phm(ptr noundef nonnull align 8 dereferenceable(17) %11, ptr noundef nonnull align 8 dereferenceable(104) %13, ptr noundef nonnull align 8 dereferenceable(104) %15, ptr noundef %16, i64 noundef %17)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateExecutor13BinaryScatterINS_9RegrStateEddNS_16RegrAvgYFunctionEEEvRNS_18AggregateInputDataERNS_6VectorES7_S7_m(ptr noundef nonnull align 8 dereferenceable(17) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, ptr noundef nonnull align 8 dereferenceable(104) %3, i64 noundef %4) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
+  %12 = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
+  store ptr %0, ptr %6, align 8, !tbaa !72
+  store ptr %1, ptr %7, align 8, !tbaa !70
+  store ptr %2, ptr %8, align 8, !tbaa !70
+  store ptr %3, ptr %9, align 8, !tbaa !70
+  store i64 %4, ptr %10, align 8, !tbaa !74
+  call void @llvm.lifetime.start.p0(i64 72, ptr %11) #17
+  call void @_ZN6duckdb19UnifiedVectorFormatC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %11)
+  call void @llvm.lifetime.start.p0(i64 72, ptr %12) #17
+  invoke void @_ZN6duckdb19UnifiedVectorFormatC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %12)
+          to label %16 unwind label %42
+
+16:                                               ; preds = %5
+  call void @llvm.lifetime.start.p0(i64 72, ptr %15) #17
+  invoke void @_ZN6duckdb19UnifiedVectorFormatC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %15)
+          to label %17 unwind label %46
+
+17:                                               ; preds = %16
+  %18 = load ptr, ptr %7, align 8, !tbaa !70
+  %19 = load i64, ptr %10, align 8, !tbaa !74
+  invoke void @_ZN6duckdb6Vector15ToUnifiedFormatEmRNS_19UnifiedVectorFormatE(ptr noundef nonnull align 8 dereferenceable(104) %18, i64 noundef %19, ptr noundef nonnull align 8 dereferenceable(72) %11)
+          to label %20 unwind label %50
+
+20:                                               ; preds = %17
+  %21 = load ptr, ptr %8, align 8, !tbaa !70
+  %22 = load i64, ptr %10, align 8, !tbaa !74
+  invoke void @_ZN6duckdb6Vector15ToUnifiedFormatEmRNS_19UnifiedVectorFormatE(ptr noundef nonnull align 8 dereferenceable(104) %21, i64 noundef %22, ptr noundef nonnull align 8 dereferenceable(72) %12)
+          to label %23 unwind label %50
+
+23:                                               ; preds = %20
+  %24 = load ptr, ptr %9, align 8, !tbaa !70
+  %25 = load i64, ptr %10, align 8, !tbaa !74
+  invoke void @_ZN6duckdb6Vector15ToUnifiedFormatEmRNS_19UnifiedVectorFormatE(ptr noundef nonnull align 8 dereferenceable(104) %24, i64 noundef %25, ptr noundef nonnull align 8 dereferenceable(72) %15)
+          to label %26 unwind label %50
+
+26:                                               ; preds = %23
+  %27 = call noundef ptr @_ZN6duckdb19UnifiedVectorFormat7GetDataIdEEPKT_RKS0_(ptr noundef nonnull align 8 dereferenceable(72) %11)
+  %28 = load ptr, ptr %6, align 8, !tbaa !72
+  %29 = call noundef ptr @_ZN6duckdb19UnifiedVectorFormat7GetDataIdEEPKT_RKS0_(ptr noundef nonnull align 8 dereferenceable(72) %12)
+  %30 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %15, i32 0, i32 1
+  %31 = load ptr, ptr %30, align 8, !tbaa !108
+  %32 = load i64, ptr %10, align 8, !tbaa !74
+  %33 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %11, i32 0, i32 0
+  %34 = load ptr, ptr %33, align 8, !tbaa !122
+  %35 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %12, i32 0, i32 0
+  %36 = load ptr, ptr %35, align 8, !tbaa !122
+  %37 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %15, i32 0, i32 0
+  %38 = load ptr, ptr %37, align 8, !tbaa !122
+  %39 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %11, i32 0, i32 2
+  %40 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %12, i32 0, i32 2
+  invoke void @_ZN6duckdb17AggregateExecutor17BinaryScatterLoopINS_9RegrStateEddNS_16RegrAvgYFunctionEEEvPKT0_RNS_18AggregateInputDataEPKT1_PPT_mRKNS_15SelectionVectorESH_SH_RNS_12ValidityMaskESJ_(ptr noundef %27, ptr noundef nonnull align 8 dereferenceable(17) %28, ptr noundef %29, ptr noundef %31, i64 noundef %32, ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef nonnull align 8 dereferenceable(24) %36, ptr noundef nonnull align 8 dereferenceable(24) %38, ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef nonnull align 8 dereferenceable(32) %40)
+          to label %41 unwind label %50
+
+41:                                               ; preds = %26
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %15) #17
+  call void @llvm.lifetime.end.p0(i64 72, ptr %15) #17
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %12) #17
+  call void @llvm.lifetime.end.p0(i64 72, ptr %12) #17
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %11) #17
+  call void @llvm.lifetime.end.p0(i64 72, ptr %11) #17
+  ret void
+
+42:                                               ; preds = %5
+  %43 = landingpad { ptr, i32 }
+          cleanup
+  %44 = extractvalue { ptr, i32 } %43, 0
+  store ptr %44, ptr %13, align 8
+  %45 = extractvalue { ptr, i32 } %43, 1
+  store i32 %45, ptr %14, align 4
+  br label %55
+
+46:                                               ; preds = %16
+  %47 = landingpad { ptr, i32 }
+          cleanup
+  %48 = extractvalue { ptr, i32 } %47, 0
+  store ptr %48, ptr %13, align 8
+  %49 = extractvalue { ptr, i32 } %47, 1
+  store i32 %49, ptr %14, align 4
+  br label %54
+
+50:                                               ; preds = %26, %23, %20, %17
+  %51 = landingpad { ptr, i32 }
+          cleanup
+  %52 = extractvalue { ptr, i32 } %51, 0
+  store ptr %52, ptr %13, align 8
+  %53 = extractvalue { ptr, i32 } %51, 1
+  store i32 %53, ptr %14, align 4
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %15) #17
+  br label %54
+
+54:                                               ; preds = %50, %46
+  call void @llvm.lifetime.end.p0(i64 72, ptr %15) #17
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %12) #17
+  br label %55
+
+55:                                               ; preds = %54, %42
+  call void @llvm.lifetime.end.p0(i64 72, ptr %12) #17
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %11) #17
+  call void @llvm.lifetime.end.p0(i64 72, ptr %11) #17
+  br label %56
+
+56:                                               ; preds = %55
+  %57 = load ptr, ptr %13, align 8
+  %58 = load i32, ptr %14, align 4
+  %59 = insertvalue { ptr, i32 } poison, ptr %57, 0
+  %60 = insertvalue { ptr, i32 } %59, i32 %58, 1
+  resume { ptr, i32 } %60
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateExecutor17BinaryScatterLoopINS_9RegrStateEddNS_16RegrAvgYFunctionEEEvPKT0_RNS_18AggregateInputDataEPKT1_PPT_mRKNS_15SelectionVectorESH_SH_RNS_12ValidityMaskESJ_(ptr noalias noundef %0, ptr noundef nonnull align 8 dereferenceable(17) %1, ptr noalias noundef %2, ptr noalias noundef %3, i64 noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9) #12 comdat align 2 {
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca i64, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca ptr, align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca ptr, align 8
+  %20 = alloca ptr, align 8
+  %21 = alloca %"struct.duckdb::AggregateBinaryInput", align 8
+  %22 = alloca i64, align 8
+  %23 = alloca i64, align 8
+  %24 = alloca i64, align 8
+  %25 = alloca i64, align 8
+  store ptr %0, ptr %11, align 8, !tbaa !123
+  store ptr %1, ptr %12, align 8, !tbaa !72
+  store ptr %2, ptr %13, align 8, !tbaa !123
+  store ptr %3, ptr %14, align 8, !tbaa !286
+  store i64 %4, ptr %15, align 8, !tbaa !74
+  store ptr %5, ptr %16, align 8, !tbaa !127
+  store ptr %6, ptr %17, align 8, !tbaa !127
+  store ptr %7, ptr %18, align 8, !tbaa !127
+  store ptr %8, ptr %19, align 8, !tbaa !128
+  store ptr %9, ptr %20, align 8, !tbaa !128
+  call void @llvm.lifetime.start.p0(i64 40, ptr %21) #17
+  %26 = load ptr, ptr %12, align 8, !tbaa !72
+  %27 = load ptr, ptr %19, align 8, !tbaa !128
+  %28 = load ptr, ptr %20, align 8, !tbaa !128
+  call void @_ZN6duckdb20AggregateBinaryInputC2ERNS_18AggregateInputDataERNS_12ValidityMaskES4_(ptr noundef nonnull align 8 dereferenceable(40) %21, ptr noundef nonnull align 8 dereferenceable(17) %26, ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %28)
+  %29 = call noundef zeroext i1 @_ZN6duckdb15RegrAvgFunction10IgnoreNullEv()
+  br i1 %29, label %30, label %81
+
+30:                                               ; preds = %10
+  %31 = load ptr, ptr %19, align 8, !tbaa !128
+  %32 = call noundef zeroext i1 @_ZNK6duckdb21TemplatedValidityMaskImE8AllValidEv(ptr noundef nonnull align 8 dereferenceable(32) %31)
+  br i1 %32, label %33, label %36
+
+33:                                               ; preds = %30
+  %34 = load ptr, ptr %20, align 8, !tbaa !128
+  %35 = call noundef zeroext i1 @_ZNK6duckdb21TemplatedValidityMaskImE8AllValidEv(ptr noundef nonnull align 8 dereferenceable(32) %34)
+  br i1 %35, label %81, label %36
+
+36:                                               ; preds = %33, %30
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #17
+  store i64 0, ptr %22, align 8, !tbaa !74
+  br label %37
+
+37:                                               ; preds = %77, %36
+  %38 = load i64, ptr %22, align 8, !tbaa !74
+  %39 = load i64, ptr %15, align 8, !tbaa !74
+  %40 = icmp ult i64 %38, %39
+  br i1 %40, label %42, label %41
+
+41:                                               ; preds = %37
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #17
+  br label %80
+
+42:                                               ; preds = %37
+  %43 = load ptr, ptr %16, align 8, !tbaa !127
+  %44 = load i64, ptr %22, align 8, !tbaa !74
+  %45 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %43, i64 noundef %44)
+  %46 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 3
+  store i64 %45, ptr %46, align 8, !tbaa !130
+  %47 = load ptr, ptr %17, align 8, !tbaa !127
+  %48 = load i64, ptr %22, align 8, !tbaa !74
+  %49 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %47, i64 noundef %48)
+  %50 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 4
+  store i64 %49, ptr %50, align 8, !tbaa !132
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #17
+  %51 = load ptr, ptr %18, align 8, !tbaa !127
+  %52 = load i64, ptr %22, align 8, !tbaa !74
+  %53 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %51, i64 noundef %52)
+  store i64 %53, ptr %23, align 8, !tbaa !74
+  %54 = load ptr, ptr %19, align 8, !tbaa !128
+  %55 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 3
+  %56 = load i64, ptr %55, align 8, !tbaa !130
+  %57 = call noundef zeroext i1 @_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm(ptr noundef nonnull align 8 dereferenceable(32) %54, i64 noundef %56)
+  br i1 %57, label %58, label %76
+
+58:                                               ; preds = %42
+  %59 = load ptr, ptr %20, align 8, !tbaa !128
+  %60 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 4
+  %61 = load i64, ptr %60, align 8, !tbaa !132
+  %62 = call noundef zeroext i1 @_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm(ptr noundef nonnull align 8 dereferenceable(32) %59, i64 noundef %61)
+  br i1 %62, label %63, label %76
+
+63:                                               ; preds = %58
+  %64 = load ptr, ptr %14, align 8, !tbaa !286
+  %65 = load i64, ptr %23, align 8, !tbaa !74
+  %66 = getelementptr inbounds nuw ptr, ptr %64, i64 %65
+  %67 = load ptr, ptr %66, align 8, !tbaa !281
+  %68 = load ptr, ptr %11, align 8, !tbaa !123
+  %69 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 3
+  %70 = load i64, ptr %69, align 8, !tbaa !130
+  %71 = getelementptr inbounds nuw double, ptr %68, i64 %70
+  %72 = load ptr, ptr %13, align 8, !tbaa !123
+  %73 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 4
+  %74 = load i64, ptr %73, align 8, !tbaa !132
+  %75 = getelementptr inbounds nuw double, ptr %72, i64 %74
+  call void @_ZN6duckdb16RegrAvgYFunction9OperationIddNS_9RegrStateES0_EEvRT1_RKT_RKT0_RNS_20AggregateBinaryInputE(ptr noundef nonnull align 8 dereferenceable(16) %67, ptr noundef nonnull align 8 dereferenceable(8) %71, ptr noundef nonnull align 8 dereferenceable(8) %75, ptr noundef nonnull align 8 dereferenceable(40) %21)
+  br label %76
+
+76:                                               ; preds = %63, %58, %42
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #17
+  br label %77
+
+77:                                               ; preds = %76
+  %78 = load i64, ptr %22, align 8, !tbaa !74
+  %79 = add i64 %78, 1
+  store i64 %79, ptr %22, align 8, !tbaa !74
+  br label %37, !llvm.loop !294
+
+80:                                               ; preds = %41
+  br label %115
+
+81:                                               ; preds = %33, %10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #17
+  store i64 0, ptr %24, align 8, !tbaa !74
+  br label %82
+
+82:                                               ; preds = %111, %81
+  %83 = load i64, ptr %24, align 8, !tbaa !74
+  %84 = load i64, ptr %15, align 8, !tbaa !74
+  %85 = icmp ult i64 %83, %84
+  br i1 %85, label %87, label %86
+
+86:                                               ; preds = %82
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #17
+  br label %114
+
+87:                                               ; preds = %82
+  %88 = load ptr, ptr %16, align 8, !tbaa !127
+  %89 = load i64, ptr %24, align 8, !tbaa !74
+  %90 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %88, i64 noundef %89)
+  %91 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 3
+  store i64 %90, ptr %91, align 8, !tbaa !130
+  %92 = load ptr, ptr %17, align 8, !tbaa !127
+  %93 = load i64, ptr %24, align 8, !tbaa !74
+  %94 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %92, i64 noundef %93)
+  %95 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 4
+  store i64 %94, ptr %95, align 8, !tbaa !132
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #17
+  %96 = load ptr, ptr %18, align 8, !tbaa !127
+  %97 = load i64, ptr %24, align 8, !tbaa !74
+  %98 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %96, i64 noundef %97)
+  store i64 %98, ptr %25, align 8, !tbaa !74
+  %99 = load ptr, ptr %14, align 8, !tbaa !286
+  %100 = load i64, ptr %25, align 8, !tbaa !74
+  %101 = getelementptr inbounds nuw ptr, ptr %99, i64 %100
+  %102 = load ptr, ptr %101, align 8, !tbaa !281
+  %103 = load ptr, ptr %11, align 8, !tbaa !123
+  %104 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 3
+  %105 = load i64, ptr %104, align 8, !tbaa !130
+  %106 = getelementptr inbounds nuw double, ptr %103, i64 %105
+  %107 = load ptr, ptr %13, align 8, !tbaa !123
+  %108 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 4
+  %109 = load i64, ptr %108, align 8, !tbaa !132
+  %110 = getelementptr inbounds nuw double, ptr %107, i64 %109
+  call void @_ZN6duckdb16RegrAvgYFunction9OperationIddNS_9RegrStateES0_EEvRT1_RKT_RKT0_RNS_20AggregateBinaryInputE(ptr noundef nonnull align 8 dereferenceable(16) %102, ptr noundef nonnull align 8 dereferenceable(8) %106, ptr noundef nonnull align 8 dereferenceable(8) %110, ptr noundef nonnull align 8 dereferenceable(40) %21)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #17
+  br label %111
+
+111:                                              ; preds = %87
+  %112 = load i64, ptr %24, align 8, !tbaa !74
+  %113 = add i64 %112, 1
+  store i64 %113, ptr %24, align 8, !tbaa !74
+  br label %82, !llvm.loop !295
+
+114:                                              ; preds = %86
+  br label %115
+
+115:                                              ; preds = %114, %80
+  call void @llvm.lifetime.end.p0(i64 40, ptr %21) #17
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN6duckdb16RegrAvgYFunction9OperationIddNS_9RegrStateES0_EEvRT1_RKT_RKT0_RNS_20AggregateBinaryInputE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(40) %3) #5 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !281
+  store ptr %1, ptr %6, align 8, !tbaa !123
+  store ptr %2, ptr %7, align 8, !tbaa !123
+  store ptr %3, ptr %8, align 8, !tbaa !137
+  %9 = load ptr, ptr %6, align 8, !tbaa !123
+  %10 = load double, ptr %9, align 8, !tbaa !143
+  %11 = load ptr, ptr %5, align 8, !tbaa !281
+  %12 = getelementptr inbounds nuw %"struct.duckdb::RegrState", ptr %11, i32 0, i32 0
+  %13 = load double, ptr %12, align 8, !tbaa !283
+  %14 = fadd double %13, %10
+  store double %14, ptr %12, align 8, !tbaa !283
+  %15 = load ptr, ptr %5, align 8, !tbaa !281
+  %16 = getelementptr inbounds nuw %"struct.duckdb::RegrState", ptr %15, i32 0, i32 1
+  %17 = load i64, ptr %16, align 8, !tbaa !285
+  %18 = add i64 %17, 1
+  store i64 %18, ptr %16, align 8, !tbaa !285
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateExecutor7CombineINS_9RegrStateENS_16RegrAvgYFunctionEEEvRNS_6VectorES5_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(17) %2, i64 noundef %3) #0 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !70
+  store ptr %1, ptr %6, align 8, !tbaa !70
+  store ptr %2, ptr %7, align 8, !tbaa !72
+  store i64 %3, ptr %8, align 8, !tbaa !74
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #17
+  %12 = load ptr, ptr %5, align 8, !tbaa !70
+  %13 = call noundef ptr @_ZN6duckdb10FlatVector7GetDataIPKNS_9RegrStateEEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %12)
+  store ptr %13, ptr %9, align 8, !tbaa !286
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #17
+  %14 = load ptr, ptr %6, align 8, !tbaa !70
+  %15 = call noundef ptr @_ZN6duckdb10FlatVector7GetDataIPNS_9RegrStateEEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %14)
+  store ptr %15, ptr %10, align 8, !tbaa !286
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #17
+  store i64 0, ptr %11, align 8, !tbaa !74
+  br label %16
+
+16:                                               ; preds = %31, %4
+  %17 = load i64, ptr %11, align 8, !tbaa !74
+  %18 = load i64, ptr %8, align 8, !tbaa !74
+  %19 = icmp ult i64 %17, %18
+  br i1 %19, label %21, label %20
+
+20:                                               ; preds = %16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #17
+  br label %34
+
+21:                                               ; preds = %16
+  %22 = load ptr, ptr %9, align 8, !tbaa !286
+  %23 = load i64, ptr %11, align 8, !tbaa !74
+  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %25 = load ptr, ptr %24, align 8, !tbaa !281
+  %26 = load ptr, ptr %10, align 8, !tbaa !286
+  %27 = load i64, ptr %11, align 8, !tbaa !74
+  %28 = getelementptr inbounds nuw ptr, ptr %26, i64 %27
+  %29 = load ptr, ptr %28, align 8, !tbaa !281
+  %30 = load ptr, ptr %7, align 8, !tbaa !72
+  call void @_ZN6duckdb15RegrAvgFunction7CombineINS_9RegrStateENS_16RegrAvgYFunctionEEEvRKT_RS4_RNS_18AggregateInputDataE(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(17) %30)
+  br label %31
+
+31:                                               ; preds = %21
+  %32 = load i64, ptr %11, align 8, !tbaa !74
+  %33 = add i64 %32, 1
+  store i64 %33, ptr %11, align 8, !tbaa !74
+  br label %16, !llvm.loop !296
+
+34:                                               ; preds = %20
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #17
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN6duckdb15RegrAvgFunction7CombineINS_9RegrStateENS_16RegrAvgYFunctionEEEvRKT_RS4_RNS_18AggregateInputDataE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(17) %2) #5 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !281
+  store ptr %1, ptr %5, align 8, !tbaa !281
+  store ptr %2, ptr %6, align 8, !tbaa !72
+  %7 = load ptr, ptr %4, align 8, !tbaa !281
+  %8 = getelementptr inbounds nuw %"struct.duckdb::RegrState", ptr %7, i32 0, i32 0
+  %9 = load double, ptr %8, align 8, !tbaa !283
+  %10 = load ptr, ptr %5, align 8, !tbaa !281
+  %11 = getelementptr inbounds nuw %"struct.duckdb::RegrState", ptr %10, i32 0, i32 0
+  %12 = load double, ptr %11, align 8, !tbaa !283
+  %13 = fadd double %12, %9
+  store double %13, ptr %11, align 8, !tbaa !283
+  %14 = load ptr, ptr %4, align 8, !tbaa !281
+  %15 = getelementptr inbounds nuw %"struct.duckdb::RegrState", ptr %14, i32 0, i32 1
+  %16 = load i64, ptr %15, align 8, !tbaa !285
+  %17 = load ptr, ptr %5, align 8, !tbaa !281
+  %18 = getelementptr inbounds nuw %"struct.duckdb::RegrState", ptr %17, i32 0, i32 1
+  %19 = load i64, ptr %18, align 8, !tbaa !285
+  %20 = add i64 %19, %16
+  store i64 %20, ptr %18, align 8, !tbaa !285
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateExecutor8FinalizeINS_9RegrStateEdNS_16RegrAvgYFunctionEEEvRNS_6VectorERNS_18AggregateInputDataES5_mm(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(17) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, i64 noundef %3, i64 noundef %4) #0 comdat align 2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca %"struct.duckdb::AggregateFinalizeData", align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca %"struct.duckdb::AggregateFinalizeData", align 8
+  %17 = alloca i64, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !70
+  store ptr %1, ptr %7, align 8, !tbaa !72
+  store ptr %2, ptr %8, align 8, !tbaa !70
+  store i64 %3, ptr %9, align 8, !tbaa !74
+  store i64 %4, ptr %10, align 8, !tbaa !74
+  %18 = load ptr, ptr %6, align 8, !tbaa !70
+  %19 = call noundef zeroext i8 @_ZNK6duckdb6Vector13GetVectorTypeEv(ptr noundef nonnull align 8 dereferenceable(104) %18)
+  %20 = icmp eq i8 %19, 2
+  br i1 %20, label %21, label %32
+
+21:                                               ; preds = %5
+  %22 = load ptr, ptr %8, align 8, !tbaa !70
+  call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %22, i8 noundef zeroext 2)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #17
+  %23 = load ptr, ptr %6, align 8, !tbaa !70
+  %24 = call noundef ptr @_ZN6duckdb14ConstantVector7GetDataIPNS_9RegrStateEEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %23)
+  store ptr %24, ptr %11, align 8, !tbaa !286
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #17
+  %25 = load ptr, ptr %8, align 8, !tbaa !70
+  %26 = call noundef ptr @_ZN6duckdb14ConstantVector7GetDataIdEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %25)
+  store ptr %26, ptr %12, align 8, !tbaa !123
+  call void @llvm.lifetime.start.p0(i64 24, ptr %13) #17
+  %27 = load ptr, ptr %8, align 8, !tbaa !70
+  %28 = load ptr, ptr %7, align 8, !tbaa !72
+  call void @_ZN6duckdb21AggregateFinalizeDataC2ERNS_6VectorERNS_18AggregateInputDataE(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(104) %27, ptr noundef nonnull align 8 dereferenceable(17) %28)
+  %29 = load ptr, ptr %11, align 8, !tbaa !286
+  %30 = load ptr, ptr %29, align 8, !tbaa !281
+  %31 = load ptr, ptr %12, align 8, !tbaa !123
+  call void @_ZN6duckdb15RegrAvgFunction8FinalizeIdNS_9RegrStateEEEvRT0_RT_RNS_21AggregateFinalizeDataE(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull align 8 dereferenceable(24) %13)
+  call void @llvm.lifetime.end.p0(i64 24, ptr %13) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #17
+  br label %62
+
+32:                                               ; preds = %5
+  %33 = load ptr, ptr %8, align 8, !tbaa !70
+  call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %33, i8 noundef zeroext 0)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #17
+  %34 = load ptr, ptr %6, align 8, !tbaa !70
+  %35 = call noundef ptr @_ZN6duckdb10FlatVector7GetDataIPNS_9RegrStateEEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %34)
+  store ptr %35, ptr %14, align 8, !tbaa !286
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #17
+  %36 = load ptr, ptr %8, align 8, !tbaa !70
+  %37 = call noundef ptr @_ZN6duckdb10FlatVector7GetDataIdEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %36)
+  store ptr %37, ptr %15, align 8, !tbaa !123
+  call void @llvm.lifetime.start.p0(i64 24, ptr %16) #17
+  %38 = load ptr, ptr %8, align 8, !tbaa !70
+  %39 = load ptr, ptr %7, align 8, !tbaa !72
+  call void @_ZN6duckdb21AggregateFinalizeDataC2ERNS_6VectorERNS_18AggregateInputDataE(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(104) %38, ptr noundef nonnull align 8 dereferenceable(17) %39)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #17
+  store i64 0, ptr %17, align 8, !tbaa !74
+  br label %40
+
+40:                                               ; preds = %58, %32
+  %41 = load i64, ptr %17, align 8, !tbaa !74
+  %42 = load i64, ptr %9, align 8, !tbaa !74
+  %43 = icmp ult i64 %41, %42
+  br i1 %43, label %45, label %44
+
+44:                                               ; preds = %40
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #17
+  br label %61
+
+45:                                               ; preds = %40
+  %46 = load i64, ptr %17, align 8, !tbaa !74
+  %47 = load i64, ptr %10, align 8, !tbaa !74
+  %48 = add i64 %46, %47
+  %49 = getelementptr inbounds nuw %"struct.duckdb::AggregateFinalizeData", ptr %16, i32 0, i32 2
+  store i64 %48, ptr %49, align 8, !tbaa !161
+  %50 = load ptr, ptr %14, align 8, !tbaa !286
+  %51 = load i64, ptr %17, align 8, !tbaa !74
+  %52 = getelementptr inbounds nuw ptr, ptr %50, i64 %51
+  %53 = load ptr, ptr %52, align 8, !tbaa !281
+  %54 = load ptr, ptr %15, align 8, !tbaa !123
+  %55 = getelementptr inbounds nuw %"struct.duckdb::AggregateFinalizeData", ptr %16, i32 0, i32 2
+  %56 = load i64, ptr %55, align 8, !tbaa !161
+  %57 = getelementptr inbounds nuw double, ptr %54, i64 %56
+  call void @_ZN6duckdb15RegrAvgFunction8FinalizeIdNS_9RegrStateEEEvRT0_RT_RNS_21AggregateFinalizeDataE(ptr noundef nonnull align 8 dereferenceable(16) %53, ptr noundef nonnull align 8 dereferenceable(8) %57, ptr noundef nonnull align 8 dereferenceable(24) %16)
+  br label %58
+
+58:                                               ; preds = %45
+  %59 = load i64, ptr %17, align 8, !tbaa !74
+  %60 = add i64 %59, 1
+  store i64 %60, ptr %17, align 8, !tbaa !74
+  br label %40, !llvm.loop !297
+
+61:                                               ; preds = %44
+  call void @llvm.lifetime.end.p0(i64 24, ptr %16) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #17
+  br label %62
+
+62:                                               ; preds = %61, %21
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateExecutor12BinaryUpdateINS_9RegrStateEddNS_16RegrAvgYFunctionEEEvRNS_18AggregateInputDataERNS_6VectorES7_Phm(ptr noundef nonnull align 8 dereferenceable(17) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, ptr noundef %3, i64 noundef %4) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
+  %12 = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !72
+  store ptr %1, ptr %7, align 8, !tbaa !70
+  store ptr %2, ptr %8, align 8, !tbaa !70
+  store ptr %3, ptr %9, align 8, !tbaa !39
+  store i64 %4, ptr %10, align 8, !tbaa !74
+  call void @llvm.lifetime.start.p0(i64 72, ptr %11) #17
+  call void @_ZN6duckdb19UnifiedVectorFormatC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %11)
+  call void @llvm.lifetime.start.p0(i64 72, ptr %12) #17
+  invoke void @_ZN6duckdb19UnifiedVectorFormatC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %12)
+          to label %15 unwind label %34
+
+15:                                               ; preds = %5
+  %16 = load ptr, ptr %7, align 8, !tbaa !70
+  %17 = load i64, ptr %10, align 8, !tbaa !74
+  invoke void @_ZN6duckdb6Vector15ToUnifiedFormatEmRNS_19UnifiedVectorFormatE(ptr noundef nonnull align 8 dereferenceable(104) %16, i64 noundef %17, ptr noundef nonnull align 8 dereferenceable(72) %11)
+          to label %18 unwind label %38
+
+18:                                               ; preds = %15
+  %19 = load ptr, ptr %8, align 8, !tbaa !70
+  %20 = load i64, ptr %10, align 8, !tbaa !74
+  invoke void @_ZN6duckdb6Vector15ToUnifiedFormatEmRNS_19UnifiedVectorFormatE(ptr noundef nonnull align 8 dereferenceable(104) %19, i64 noundef %20, ptr noundef nonnull align 8 dereferenceable(72) %12)
+          to label %21 unwind label %38
+
+21:                                               ; preds = %18
+  %22 = call noundef ptr @_ZN6duckdb19UnifiedVectorFormat7GetDataIdEEPKT_RKS0_(ptr noundef nonnull align 8 dereferenceable(72) %11)
+  %23 = load ptr, ptr %6, align 8, !tbaa !72
+  %24 = call noundef ptr @_ZN6duckdb19UnifiedVectorFormat7GetDataIdEEPKT_RKS0_(ptr noundef nonnull align 8 dereferenceable(72) %12)
+  %25 = load ptr, ptr %9, align 8, !tbaa !39
+  %26 = load i64, ptr %10, align 8, !tbaa !74
+  %27 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %11, i32 0, i32 0
+  %28 = load ptr, ptr %27, align 8, !tbaa !122
+  %29 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %12, i32 0, i32 0
+  %30 = load ptr, ptr %29, align 8, !tbaa !122
+  %31 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %11, i32 0, i32 2
+  %32 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %12, i32 0, i32 2
+  invoke void @_ZN6duckdb17AggregateExecutor16BinaryUpdateLoopINS_9RegrStateEddNS_16RegrAvgYFunctionEEEvPKT0_RNS_18AggregateInputDataEPKT1_PT_mRKNS_15SelectionVectorESG_RNS_12ValidityMaskESI_(ptr noundef %22, ptr noundef nonnull align 8 dereferenceable(17) %23, ptr noundef %24, ptr noundef %25, i64 noundef %26, ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(32) %32)
+          to label %33 unwind label %38
+
+33:                                               ; preds = %21
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %12) #17
+  call void @llvm.lifetime.end.p0(i64 72, ptr %12) #17
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %11) #17
+  call void @llvm.lifetime.end.p0(i64 72, ptr %11) #17
+  ret void
+
+34:                                               ; preds = %5
+  %35 = landingpad { ptr, i32 }
+          cleanup
+  %36 = extractvalue { ptr, i32 } %35, 0
+  store ptr %36, ptr %13, align 8
+  %37 = extractvalue { ptr, i32 } %35, 1
+  store i32 %37, ptr %14, align 4
+  br label %42
+
+38:                                               ; preds = %21, %18, %15
+  %39 = landingpad { ptr, i32 }
+          cleanup
+  %40 = extractvalue { ptr, i32 } %39, 0
+  store ptr %40, ptr %13, align 8
+  %41 = extractvalue { ptr, i32 } %39, 1
+  store i32 %41, ptr %14, align 4
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %12) #17
+  br label %42
+
+42:                                               ; preds = %38, %34
+  call void @llvm.lifetime.end.p0(i64 72, ptr %12) #17
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %11) #17
+  call void @llvm.lifetime.end.p0(i64 72, ptr %11) #17
+  br label %43
+
+43:                                               ; preds = %42
+  %44 = load ptr, ptr %13, align 8
+  %45 = load i32, ptr %14, align 4
+  %46 = insertvalue { ptr, i32 } poison, ptr %44, 0
+  %47 = insertvalue { ptr, i32 } %46, i32 %45, 1
+  resume { ptr, i32 } %47
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateExecutor16BinaryUpdateLoopINS_9RegrStateEddNS_16RegrAvgYFunctionEEEvPKT0_RNS_18AggregateInputDataEPKT1_PT_mRKNS_15SelectionVectorESG_RNS_12ValidityMaskESI_(ptr noalias noundef %0, ptr noundef nonnull align 8 dereferenceable(17) %1, ptr noalias noundef %2, ptr noalias noundef %3, i64 noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %8) #12 comdat align 2 {
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i64, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca ptr, align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca %"struct.duckdb::AggregateBinaryInput", align 8
+  %20 = alloca i64, align 8
+  %21 = alloca i64, align 8
+  store ptr %0, ptr %10, align 8, !tbaa !123
+  store ptr %1, ptr %11, align 8, !tbaa !72
+  store ptr %2, ptr %12, align 8, !tbaa !123
+  store ptr %3, ptr %13, align 8, !tbaa !281
+  store i64 %4, ptr %14, align 8, !tbaa !74
+  store ptr %5, ptr %15, align 8, !tbaa !127
+  store ptr %6, ptr %16, align 8, !tbaa !127
+  store ptr %7, ptr %17, align 8, !tbaa !128
+  store ptr %8, ptr %18, align 8, !tbaa !128
+  call void @llvm.lifetime.start.p0(i64 40, ptr %19) #17
+  %22 = load ptr, ptr %11, align 8, !tbaa !72
+  %23 = load ptr, ptr %17, align 8, !tbaa !128
+  %24 = load ptr, ptr %18, align 8, !tbaa !128
+  call void @_ZN6duckdb20AggregateBinaryInputC2ERNS_18AggregateInputDataERNS_12ValidityMaskES4_(ptr noundef nonnull align 8 dereferenceable(40) %19, ptr noundef nonnull align 8 dereferenceable(17) %22, ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %24)
+  %25 = call noundef zeroext i1 @_ZN6duckdb15RegrAvgFunction10IgnoreNullEv()
+  br i1 %25, label %26, label %71
+
+26:                                               ; preds = %9
+  %27 = load ptr, ptr %17, align 8, !tbaa !128
+  %28 = call noundef zeroext i1 @_ZNK6duckdb21TemplatedValidityMaskImE8AllValidEv(ptr noundef nonnull align 8 dereferenceable(32) %27)
+  br i1 %28, label %29, label %32
+
+29:                                               ; preds = %26
+  %30 = load ptr, ptr %18, align 8, !tbaa !128
+  %31 = call noundef zeroext i1 @_ZNK6duckdb21TemplatedValidityMaskImE8AllValidEv(ptr noundef nonnull align 8 dereferenceable(32) %30)
+  br i1 %31, label %71, label %32
+
+32:                                               ; preds = %29, %26
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #17
+  store i64 0, ptr %20, align 8, !tbaa !74
+  br label %33
+
+33:                                               ; preds = %67, %32
+  %34 = load i64, ptr %20, align 8, !tbaa !74
+  %35 = load i64, ptr %14, align 8, !tbaa !74
+  %36 = icmp ult i64 %34, %35
+  br i1 %36, label %38, label %37
+
+37:                                               ; preds = %33
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #17
+  br label %70
+
+38:                                               ; preds = %33
+  %39 = load ptr, ptr %15, align 8, !tbaa !127
+  %40 = load i64, ptr %20, align 8, !tbaa !74
+  %41 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %39, i64 noundef %40)
+  %42 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 3
+  store i64 %41, ptr %42, align 8, !tbaa !130
+  %43 = load ptr, ptr %16, align 8, !tbaa !127
+  %44 = load i64, ptr %20, align 8, !tbaa !74
+  %45 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %43, i64 noundef %44)
+  %46 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 4
+  store i64 %45, ptr %46, align 8, !tbaa !132
+  %47 = load ptr, ptr %17, align 8, !tbaa !128
+  %48 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 3
+  %49 = load i64, ptr %48, align 8, !tbaa !130
+  %50 = call noundef zeroext i1 @_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm(ptr noundef nonnull align 8 dereferenceable(32) %47, i64 noundef %49)
+  br i1 %50, label %51, label %66
+
+51:                                               ; preds = %38
+  %52 = load ptr, ptr %18, align 8, !tbaa !128
+  %53 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 4
+  %54 = load i64, ptr %53, align 8, !tbaa !132
+  %55 = call noundef zeroext i1 @_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm(ptr noundef nonnull align 8 dereferenceable(32) %52, i64 noundef %54)
+  br i1 %55, label %56, label %66
+
+56:                                               ; preds = %51
+  %57 = load ptr, ptr %13, align 8, !tbaa !281
+  %58 = load ptr, ptr %10, align 8, !tbaa !123
+  %59 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 3
+  %60 = load i64, ptr %59, align 8, !tbaa !130
+  %61 = getelementptr inbounds nuw double, ptr %58, i64 %60
+  %62 = load ptr, ptr %12, align 8, !tbaa !123
+  %63 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 4
+  %64 = load i64, ptr %63, align 8, !tbaa !132
+  %65 = getelementptr inbounds nuw double, ptr %62, i64 %64
+  call void @_ZN6duckdb16RegrAvgYFunction9OperationIddNS_9RegrStateES0_EEvRT1_RKT_RKT0_RNS_20AggregateBinaryInputE(ptr noundef nonnull align 8 dereferenceable(16) %57, ptr noundef nonnull align 8 dereferenceable(8) %61, ptr noundef nonnull align 8 dereferenceable(8) %65, ptr noundef nonnull align 8 dereferenceable(40) %19)
+  br label %66
+
+66:                                               ; preds = %56, %51, %38
+  br label %67
+
+67:                                               ; preds = %66
+  %68 = load i64, ptr %20, align 8, !tbaa !74
+  %69 = add i64 %68, 1
+  store i64 %69, ptr %20, align 8, !tbaa !74
+  br label %33, !llvm.loop !298
+
+70:                                               ; preds = %37
+  br label %99
+
+71:                                               ; preds = %29, %9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #17
+  store i64 0, ptr %21, align 8, !tbaa !74
+  br label %72
+
+72:                                               ; preds = %95, %71
+  %73 = load i64, ptr %21, align 8, !tbaa !74
+  %74 = load i64, ptr %14, align 8, !tbaa !74
+  %75 = icmp ult i64 %73, %74
+  br i1 %75, label %77, label %76
+
+76:                                               ; preds = %72
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #17
+  br label %98
+
+77:                                               ; preds = %72
+  %78 = load ptr, ptr %15, align 8, !tbaa !127
+  %79 = load i64, ptr %21, align 8, !tbaa !74
+  %80 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %78, i64 noundef %79)
+  %81 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 3
+  store i64 %80, ptr %81, align 8, !tbaa !130
+  %82 = load ptr, ptr %16, align 8, !tbaa !127
+  %83 = load i64, ptr %21, align 8, !tbaa !74
+  %84 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %82, i64 noundef %83)
+  %85 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 4
+  store i64 %84, ptr %85, align 8, !tbaa !132
+  %86 = load ptr, ptr %13, align 8, !tbaa !281
+  %87 = load ptr, ptr %10, align 8, !tbaa !123
+  %88 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 3
+  %89 = load i64, ptr %88, align 8, !tbaa !130
+  %90 = getelementptr inbounds nuw double, ptr %87, i64 %89
+  %91 = load ptr, ptr %12, align 8, !tbaa !123
+  %92 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 4
+  %93 = load i64, ptr %92, align 8, !tbaa !132
+  %94 = getelementptr inbounds nuw double, ptr %91, i64 %93
+  call void @_ZN6duckdb16RegrAvgYFunction9OperationIddNS_9RegrStateES0_EEvRT1_RKT_RKT0_RNS_20AggregateBinaryInputE(ptr noundef nonnull align 8 dereferenceable(16) %86, ptr noundef nonnull align 8 dereferenceable(8) %90, ptr noundef nonnull align 8 dereferenceable(8) %94, ptr noundef nonnull align 8 dereferenceable(40) %19)
+  br label %95
+
+95:                                               ; preds = %77
+  %96 = load i64, ptr %21, align 8, !tbaa !74
+  %97 = add i64 %96, 1
+  store i64 %97, ptr %21, align 8, !tbaa !74
+  br label %72, !llvm.loop !299
+
+98:                                               ; preds = %76
+  br label %99
+
+99:                                               ; preds = %98, %70
+  call void @llvm.lifetime.end.p0(i64 40, ptr %19) #17
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZN6duckdb17AggregateFunction9StateSizeINS_14RegrSlopeStateEEEmRKS0_(ptr noundef nonnull align 8 dereferenceable(304) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !40
+  ret i64 56
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateFunction15StateInitializeINS_14RegrSlopeStateENS_18RegrSlopeOperationELNS_23AggregateDestructorTypeE0EEEvRKS0_Ph(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !40
+  store ptr %1, ptr %4, align 8, !tbaa !39
+  %5 = load ptr, ptr %4, align 8, !tbaa !39
+  call void @_ZN6duckdb18RegrSlopeOperation10InitializeINS_14RegrSlopeStateEEEvRT_(ptr noundef nonnull align 8 dereferenceable(56) %5)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateFunction19BinaryScatterUpdateINS_14RegrSlopeStateEddNS_18RegrSlopeOperationEEEvPNS_6VectorERNS_18AggregateInputDataEmRS4_m(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(17) %1, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(104) %3, i64 noundef %4) #0 comdat align 2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !70
+  store ptr %1, ptr %7, align 8, !tbaa !72
+  store i64 %2, ptr %8, align 8, !tbaa !74
+  store ptr %3, ptr %9, align 8, !tbaa !70
+  store i64 %4, ptr %10, align 8, !tbaa !74
+  %11 = load ptr, ptr %7, align 8, !tbaa !72
+  %12 = load ptr, ptr %6, align 8, !tbaa !70
+  %13 = getelementptr inbounds %"class.duckdb::Vector", ptr %12, i64 0
+  %14 = load ptr, ptr %6, align 8, !tbaa !70
+  %15 = getelementptr inbounds %"class.duckdb::Vector", ptr %14, i64 1
+  %16 = load ptr, ptr %9, align 8, !tbaa !70
+  %17 = load i64, ptr %10, align 8, !tbaa !74
+  call void @_ZN6duckdb17AggregateExecutor13BinaryScatterINS_14RegrSlopeStateEddNS_18RegrSlopeOperationEEEvRNS_18AggregateInputDataERNS_6VectorES7_S7_m(ptr noundef nonnull align 8 dereferenceable(17) %11, ptr noundef nonnull align 8 dereferenceable(104) %13, ptr noundef nonnull align 8 dereferenceable(104) %15, ptr noundef nonnull align 8 dereferenceable(104) %16, i64 noundef %17)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateFunction12StateCombineINS_14RegrSlopeStateENS_18RegrSlopeOperationEEEvRNS_6VectorES5_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(17) %2, i64 noundef %3) #0 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !70
+  store ptr %1, ptr %6, align 8, !tbaa !70
+  store ptr %2, ptr %7, align 8, !tbaa !72
+  store i64 %3, ptr %8, align 8, !tbaa !74
+  %9 = load ptr, ptr %5, align 8, !tbaa !70
+  %10 = load ptr, ptr %6, align 8, !tbaa !70
+  %11 = load ptr, ptr %7, align 8, !tbaa !72
+  %12 = load i64, ptr %8, align 8, !tbaa !74
+  call void @_ZN6duckdb17AggregateExecutor7CombineINS_14RegrSlopeStateENS_18RegrSlopeOperationEEEvRNS_6VectorES5_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %9, ptr noundef nonnull align 8 dereferenceable(104) %10, ptr noundef nonnull align 8 dereferenceable(17) %11, i64 noundef %12)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateFunction13StateFinalizeINS_14RegrSlopeStateEdNS_18RegrSlopeOperationEEEvRNS_6VectorERNS_18AggregateInputDataES5_mm(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(17) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, i64 noundef %3, i64 noundef %4) #0 comdat align 2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !70
+  store ptr %1, ptr %7, align 8, !tbaa !72
+  store ptr %2, ptr %8, align 8, !tbaa !70
+  store i64 %3, ptr %9, align 8, !tbaa !74
+  store i64 %4, ptr %10, align 8, !tbaa !74
+  %11 = load ptr, ptr %6, align 8, !tbaa !70
+  %12 = load ptr, ptr %7, align 8, !tbaa !72
+  %13 = load ptr, ptr %8, align 8, !tbaa !70
+  %14 = load i64, ptr %9, align 8, !tbaa !74
+  %15 = load i64, ptr %10, align 8, !tbaa !74
+  call void @_ZN6duckdb17AggregateExecutor8FinalizeINS_14RegrSlopeStateEdNS_18RegrSlopeOperationEEEvRNS_6VectorERNS_18AggregateInputDataES5_mm(ptr noundef nonnull align 8 dereferenceable(104) %11, ptr noundef nonnull align 8 dereferenceable(17) %12, ptr noundef nonnull align 8 dereferenceable(104) %13, i64 noundef %14, i64 noundef %15)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateFunction12BinaryUpdateINS_14RegrSlopeStateEddNS_18RegrSlopeOperationEEEvPNS_6VectorERNS_18AggregateInputDataEmPhm(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(17) %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) #0 comdat align 2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !70
+  store ptr %1, ptr %7, align 8, !tbaa !72
+  store i64 %2, ptr %8, align 8, !tbaa !74
+  store ptr %3, ptr %9, align 8, !tbaa !39
+  store i64 %4, ptr %10, align 8, !tbaa !74
+  %11 = load ptr, ptr %7, align 8, !tbaa !72
+  %12 = load ptr, ptr %6, align 8, !tbaa !70
+  %13 = getelementptr inbounds %"class.duckdb::Vector", ptr %12, i64 0
+  %14 = load ptr, ptr %6, align 8, !tbaa !70
+  %15 = getelementptr inbounds %"class.duckdb::Vector", ptr %14, i64 1
+  %16 = load ptr, ptr %9, align 8, !tbaa !39
+  %17 = load i64, ptr %10, align 8, !tbaa !74
+  call void @_ZN6duckdb17AggregateExecutor12BinaryUpdateINS_14RegrSlopeStateEddNS_18RegrSlopeOperationEEEvRNS_18AggregateInputDataERNS_6VectorES7_Phm(ptr noundef nonnull align 8 dereferenceable(17) %11, ptr noundef nonnull align 8 dereferenceable(104) %13, ptr noundef nonnull align 8 dereferenceable(104) %15, ptr noundef %16, i64 noundef %17)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateExecutor13BinaryScatterINS_14RegrSlopeStateEddNS_18RegrSlopeOperationEEEvRNS_18AggregateInputDataERNS_6VectorES7_S7_m(ptr noundef nonnull align 8 dereferenceable(17) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, ptr noundef nonnull align 8 dereferenceable(104) %3, i64 noundef %4) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
+  %12 = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
+  store ptr %0, ptr %6, align 8, !tbaa !72
+  store ptr %1, ptr %7, align 8, !tbaa !70
+  store ptr %2, ptr %8, align 8, !tbaa !70
+  store ptr %3, ptr %9, align 8, !tbaa !70
+  store i64 %4, ptr %10, align 8, !tbaa !74
+  call void @llvm.lifetime.start.p0(i64 72, ptr %11) #17
+  call void @_ZN6duckdb19UnifiedVectorFormatC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %11)
+  call void @llvm.lifetime.start.p0(i64 72, ptr %12) #17
+  invoke void @_ZN6duckdb19UnifiedVectorFormatC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %12)
+          to label %16 unwind label %42
+
+16:                                               ; preds = %5
+  call void @llvm.lifetime.start.p0(i64 72, ptr %15) #17
+  invoke void @_ZN6duckdb19UnifiedVectorFormatC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %15)
+          to label %17 unwind label %46
+
+17:                                               ; preds = %16
+  %18 = load ptr, ptr %7, align 8, !tbaa !70
+  %19 = load i64, ptr %10, align 8, !tbaa !74
+  invoke void @_ZN6duckdb6Vector15ToUnifiedFormatEmRNS_19UnifiedVectorFormatE(ptr noundef nonnull align 8 dereferenceable(104) %18, i64 noundef %19, ptr noundef nonnull align 8 dereferenceable(72) %11)
+          to label %20 unwind label %50
+
+20:                                               ; preds = %17
+  %21 = load ptr, ptr %8, align 8, !tbaa !70
+  %22 = load i64, ptr %10, align 8, !tbaa !74
+  invoke void @_ZN6duckdb6Vector15ToUnifiedFormatEmRNS_19UnifiedVectorFormatE(ptr noundef nonnull align 8 dereferenceable(104) %21, i64 noundef %22, ptr noundef nonnull align 8 dereferenceable(72) %12)
+          to label %23 unwind label %50
+
+23:                                               ; preds = %20
+  %24 = load ptr, ptr %9, align 8, !tbaa !70
+  %25 = load i64, ptr %10, align 8, !tbaa !74
+  invoke void @_ZN6duckdb6Vector15ToUnifiedFormatEmRNS_19UnifiedVectorFormatE(ptr noundef nonnull align 8 dereferenceable(104) %24, i64 noundef %25, ptr noundef nonnull align 8 dereferenceable(72) %15)
+          to label %26 unwind label %50
+
+26:                                               ; preds = %23
+  %27 = call noundef ptr @_ZN6duckdb19UnifiedVectorFormat7GetDataIdEEPKT_RKS0_(ptr noundef nonnull align 8 dereferenceable(72) %11)
+  %28 = load ptr, ptr %6, align 8, !tbaa !72
+  %29 = call noundef ptr @_ZN6duckdb19UnifiedVectorFormat7GetDataIdEEPKT_RKS0_(ptr noundef nonnull align 8 dereferenceable(72) %12)
+  %30 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %15, i32 0, i32 1
+  %31 = load ptr, ptr %30, align 8, !tbaa !108
+  %32 = load i64, ptr %10, align 8, !tbaa !74
+  %33 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %11, i32 0, i32 0
+  %34 = load ptr, ptr %33, align 8, !tbaa !122
+  %35 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %12, i32 0, i32 0
+  %36 = load ptr, ptr %35, align 8, !tbaa !122
+  %37 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %15, i32 0, i32 0
+  %38 = load ptr, ptr %37, align 8, !tbaa !122
+  %39 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %11, i32 0, i32 2
+  %40 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %12, i32 0, i32 2
+  invoke void @_ZN6duckdb17AggregateExecutor17BinaryScatterLoopINS_14RegrSlopeStateEddNS_18RegrSlopeOperationEEEvPKT0_RNS_18AggregateInputDataEPKT1_PPT_mRKNS_15SelectionVectorESH_SH_RNS_12ValidityMaskESJ_(ptr noundef %27, ptr noundef nonnull align 8 dereferenceable(17) %28, ptr noundef %29, ptr noundef %31, i64 noundef %32, ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef nonnull align 8 dereferenceable(24) %36, ptr noundef nonnull align 8 dereferenceable(24) %38, ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef nonnull align 8 dereferenceable(32) %40)
+          to label %41 unwind label %50
+
+41:                                               ; preds = %26
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %15) #17
+  call void @llvm.lifetime.end.p0(i64 72, ptr %15) #17
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %12) #17
+  call void @llvm.lifetime.end.p0(i64 72, ptr %12) #17
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %11) #17
+  call void @llvm.lifetime.end.p0(i64 72, ptr %11) #17
+  ret void
+
+42:                                               ; preds = %5
+  %43 = landingpad { ptr, i32 }
+          cleanup
+  %44 = extractvalue { ptr, i32 } %43, 0
+  store ptr %44, ptr %13, align 8
+  %45 = extractvalue { ptr, i32 } %43, 1
+  store i32 %45, ptr %14, align 4
+  br label %55
+
+46:                                               ; preds = %16
+  %47 = landingpad { ptr, i32 }
+          cleanup
+  %48 = extractvalue { ptr, i32 } %47, 0
+  store ptr %48, ptr %13, align 8
+  %49 = extractvalue { ptr, i32 } %47, 1
+  store i32 %49, ptr %14, align 4
+  br label %54
+
+50:                                               ; preds = %26, %23, %20, %17
+  %51 = landingpad { ptr, i32 }
+          cleanup
+  %52 = extractvalue { ptr, i32 } %51, 0
+  store ptr %52, ptr %13, align 8
+  %53 = extractvalue { ptr, i32 } %51, 1
+  store i32 %53, ptr %14, align 4
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %15) #17
+  br label %54
+
+54:                                               ; preds = %50, %46
+  call void @llvm.lifetime.end.p0(i64 72, ptr %15) #17
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %12) #17
+  br label %55
+
+55:                                               ; preds = %54, %42
+  call void @llvm.lifetime.end.p0(i64 72, ptr %12) #17
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %11) #17
+  call void @llvm.lifetime.end.p0(i64 72, ptr %11) #17
+  br label %56
+
+56:                                               ; preds = %55
+  %57 = load ptr, ptr %13, align 8
+  %58 = load i32, ptr %14, align 4
+  %59 = insertvalue { ptr, i32 } poison, ptr %57, 0
+  %60 = insertvalue { ptr, i32 } %59, i32 %58, 1
+  resume { ptr, i32 } %60
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateExecutor17BinaryScatterLoopINS_14RegrSlopeStateEddNS_18RegrSlopeOperationEEEvPKT0_RNS_18AggregateInputDataEPKT1_PPT_mRKNS_15SelectionVectorESH_SH_RNS_12ValidityMaskESJ_(ptr noalias noundef %0, ptr noundef nonnull align 8 dereferenceable(17) %1, ptr noalias noundef %2, ptr noalias noundef %3, i64 noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9) #12 comdat align 2 {
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca i64, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca ptr, align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca ptr, align 8
+  %20 = alloca ptr, align 8
+  %21 = alloca %"struct.duckdb::AggregateBinaryInput", align 8
+  %22 = alloca i64, align 8
+  %23 = alloca i64, align 8
+  %24 = alloca i64, align 8
+  %25 = alloca i64, align 8
+  store ptr %0, ptr %11, align 8, !tbaa !123
+  store ptr %1, ptr %12, align 8, !tbaa !72
+  store ptr %2, ptr %13, align 8, !tbaa !123
+  store ptr %3, ptr %14, align 8, !tbaa !300
+  store i64 %4, ptr %15, align 8, !tbaa !74
+  store ptr %5, ptr %16, align 8, !tbaa !127
+  store ptr %6, ptr %17, align 8, !tbaa !127
+  store ptr %7, ptr %18, align 8, !tbaa !127
+  store ptr %8, ptr %19, align 8, !tbaa !128
+  store ptr %9, ptr %20, align 8, !tbaa !128
+  call void @llvm.lifetime.start.p0(i64 40, ptr %21) #17
+  %26 = load ptr, ptr %12, align 8, !tbaa !72
+  %27 = load ptr, ptr %19, align 8, !tbaa !128
+  %28 = load ptr, ptr %20, align 8, !tbaa !128
+  call void @_ZN6duckdb20AggregateBinaryInputC2ERNS_18AggregateInputDataERNS_12ValidityMaskES4_(ptr noundef nonnull align 8 dereferenceable(40) %21, ptr noundef nonnull align 8 dereferenceable(17) %26, ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %28)
+  %29 = call noundef zeroext i1 @_ZN6duckdb18RegrSlopeOperation10IgnoreNullEv()
+  br i1 %29, label %30, label %81
+
+30:                                               ; preds = %10
+  %31 = load ptr, ptr %19, align 8, !tbaa !128
+  %32 = call noundef zeroext i1 @_ZNK6duckdb21TemplatedValidityMaskImE8AllValidEv(ptr noundef nonnull align 8 dereferenceable(32) %31)
+  br i1 %32, label %33, label %36
+
+33:                                               ; preds = %30
+  %34 = load ptr, ptr %20, align 8, !tbaa !128
+  %35 = call noundef zeroext i1 @_ZNK6duckdb21TemplatedValidityMaskImE8AllValidEv(ptr noundef nonnull align 8 dereferenceable(32) %34)
+  br i1 %35, label %81, label %36
+
+36:                                               ; preds = %33, %30
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #17
+  store i64 0, ptr %22, align 8, !tbaa !74
+  br label %37
+
+37:                                               ; preds = %77, %36
+  %38 = load i64, ptr %22, align 8, !tbaa !74
+  %39 = load i64, ptr %15, align 8, !tbaa !74
+  %40 = icmp ult i64 %38, %39
+  br i1 %40, label %42, label %41
+
+41:                                               ; preds = %37
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #17
+  br label %80
+
+42:                                               ; preds = %37
+  %43 = load ptr, ptr %16, align 8, !tbaa !127
+  %44 = load i64, ptr %22, align 8, !tbaa !74
+  %45 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %43, i64 noundef %44)
+  %46 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 3
+  store i64 %45, ptr %46, align 8, !tbaa !130
+  %47 = load ptr, ptr %17, align 8, !tbaa !127
+  %48 = load i64, ptr %22, align 8, !tbaa !74
+  %49 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %47, i64 noundef %48)
+  %50 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 4
+  store i64 %49, ptr %50, align 8, !tbaa !132
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #17
+  %51 = load ptr, ptr %18, align 8, !tbaa !127
+  %52 = load i64, ptr %22, align 8, !tbaa !74
+  %53 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %51, i64 noundef %52)
+  store i64 %53, ptr %23, align 8, !tbaa !74
+  %54 = load ptr, ptr %19, align 8, !tbaa !128
+  %55 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 3
+  %56 = load i64, ptr %55, align 8, !tbaa !130
+  %57 = call noundef zeroext i1 @_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm(ptr noundef nonnull align 8 dereferenceable(32) %54, i64 noundef %56)
+  br i1 %57, label %58, label %76
+
+58:                                               ; preds = %42
+  %59 = load ptr, ptr %20, align 8, !tbaa !128
+  %60 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 4
+  %61 = load i64, ptr %60, align 8, !tbaa !132
+  %62 = call noundef zeroext i1 @_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm(ptr noundef nonnull align 8 dereferenceable(32) %59, i64 noundef %61)
+  br i1 %62, label %63, label %76
+
+63:                                               ; preds = %58
+  %64 = load ptr, ptr %14, align 8, !tbaa !300
+  %65 = load i64, ptr %23, align 8, !tbaa !74
+  %66 = getelementptr inbounds nuw ptr, ptr %64, i64 %65
+  %67 = load ptr, ptr %66, align 8, !tbaa !229
+  %68 = load ptr, ptr %11, align 8, !tbaa !123
+  %69 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 3
+  %70 = load i64, ptr %69, align 8, !tbaa !130
+  %71 = getelementptr inbounds nuw double, ptr %68, i64 %70
+  %72 = load ptr, ptr %13, align 8, !tbaa !123
+  %73 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 4
+  %74 = load i64, ptr %73, align 8, !tbaa !132
+  %75 = getelementptr inbounds nuw double, ptr %72, i64 %74
+  call void @_ZN6duckdb18RegrSlopeOperation9OperationIddNS_14RegrSlopeStateES0_EEvRT1_RKT_RKT0_RNS_20AggregateBinaryInputE(ptr noundef nonnull align 8 dereferenceable(56) %67, ptr noundef nonnull align 8 dereferenceable(8) %71, ptr noundef nonnull align 8 dereferenceable(8) %75, ptr noundef nonnull align 8 dereferenceable(40) %21)
+  br label %76
+
+76:                                               ; preds = %63, %58, %42
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #17
+  br label %77
+
+77:                                               ; preds = %76
+  %78 = load i64, ptr %22, align 8, !tbaa !74
+  %79 = add i64 %78, 1
+  store i64 %79, ptr %22, align 8, !tbaa !74
+  br label %37, !llvm.loop !302
+
+80:                                               ; preds = %41
+  br label %115
+
+81:                                               ; preds = %33, %10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #17
+  store i64 0, ptr %24, align 8, !tbaa !74
+  br label %82
+
+82:                                               ; preds = %111, %81
+  %83 = load i64, ptr %24, align 8, !tbaa !74
+  %84 = load i64, ptr %15, align 8, !tbaa !74
+  %85 = icmp ult i64 %83, %84
+  br i1 %85, label %87, label %86
+
+86:                                               ; preds = %82
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #17
+  br label %114
+
+87:                                               ; preds = %82
+  %88 = load ptr, ptr %16, align 8, !tbaa !127
+  %89 = load i64, ptr %24, align 8, !tbaa !74
+  %90 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %88, i64 noundef %89)
+  %91 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 3
+  store i64 %90, ptr %91, align 8, !tbaa !130
+  %92 = load ptr, ptr %17, align 8, !tbaa !127
+  %93 = load i64, ptr %24, align 8, !tbaa !74
+  %94 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %92, i64 noundef %93)
+  %95 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 4
+  store i64 %94, ptr %95, align 8, !tbaa !132
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #17
+  %96 = load ptr, ptr %18, align 8, !tbaa !127
+  %97 = load i64, ptr %24, align 8, !tbaa !74
+  %98 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %96, i64 noundef %97)
+  store i64 %98, ptr %25, align 8, !tbaa !74
+  %99 = load ptr, ptr %14, align 8, !tbaa !300
+  %100 = load i64, ptr %25, align 8, !tbaa !74
+  %101 = getelementptr inbounds nuw ptr, ptr %99, i64 %100
+  %102 = load ptr, ptr %101, align 8, !tbaa !229
+  %103 = load ptr, ptr %11, align 8, !tbaa !123
+  %104 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 3
+  %105 = load i64, ptr %104, align 8, !tbaa !130
+  %106 = getelementptr inbounds nuw double, ptr %103, i64 %105
+  %107 = load ptr, ptr %13, align 8, !tbaa !123
+  %108 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 4
+  %109 = load i64, ptr %108, align 8, !tbaa !132
+  %110 = getelementptr inbounds nuw double, ptr %107, i64 %109
+  call void @_ZN6duckdb18RegrSlopeOperation9OperationIddNS_14RegrSlopeStateES0_EEvRT1_RKT_RKT0_RNS_20AggregateBinaryInputE(ptr noundef nonnull align 8 dereferenceable(56) %102, ptr noundef nonnull align 8 dereferenceable(8) %106, ptr noundef nonnull align 8 dereferenceable(8) %110, ptr noundef nonnull align 8 dereferenceable(40) %21)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #17
+  br label %111
+
+111:                                              ; preds = %87
+  %112 = load i64, ptr %24, align 8, !tbaa !74
+  %113 = add i64 %112, 1
+  store i64 %113, ptr %24, align 8, !tbaa !74
+  br label %82, !llvm.loop !303
+
+114:                                              ; preds = %86
+  br label %115
+
+115:                                              ; preds = %114, %80
+  call void @llvm.lifetime.end.p0(i64 40, ptr %21) #17
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZN6duckdb18RegrSlopeOperation10IgnoreNullEv() #5 comdat align 2 {
+  ret i1 true
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb18RegrSlopeOperation9OperationIddNS_14RegrSlopeStateES0_EEvRT1_RKT_RKT0_RNS_20AggregateBinaryInputE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(40) %3) #0 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !229
+  store ptr %1, ptr %6, align 8, !tbaa !123
+  store ptr %2, ptr %7, align 8, !tbaa !123
+  store ptr %3, ptr %8, align 8, !tbaa !137
+  %9 = load ptr, ptr %5, align 8, !tbaa !229
+  %10 = getelementptr inbounds nuw %"struct.duckdb::RegrSlopeState", ptr %9, i32 0, i32 0
+  %11 = load ptr, ptr %6, align 8, !tbaa !123
+  %12 = load ptr, ptr %7, align 8, !tbaa !123
+  %13 = load ptr, ptr %8, align 8, !tbaa !137
+  call void @_ZN6duckdb14CovarOperation9OperationIddNS_10CovarStateENS_18RegrSlopeOperationEEEvRT1_RKT_RKT0_RNS_20AggregateBinaryInputE(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(40) %13)
+  %14 = load ptr, ptr %5, align 8, !tbaa !229
+  %15 = getelementptr inbounds nuw %"struct.duckdb::RegrSlopeState", ptr %14, i32 0, i32 1
+  %16 = load ptr, ptr %7, align 8, !tbaa !123
+  call void @_ZN6duckdb19STDDevBaseOperation7ExecuteIdNS_11StddevStateEEEvRT0_RKT_(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(8) %16)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN6duckdb14CovarOperation9OperationIddNS_10CovarStateENS_18RegrSlopeOperationEEEvRT1_RKT_RKT0_RNS_20AggregateBinaryInputE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(40) %3) #5 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca double, align 8
+  %10 = alloca double, align 8
+  %11 = alloca double, align 8
+  %12 = alloca double, align 8
+  %13 = alloca double, align 8
+  %14 = alloca double, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !100
+  store ptr %1, ptr %6, align 8, !tbaa !123
+  store ptr %2, ptr %7, align 8, !tbaa !123
+  store ptr %3, ptr %8, align 8, !tbaa !137
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #17
+  %15 = load ptr, ptr %5, align 8, !tbaa !100
+  %16 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %15, i32 0, i32 0
+  %17 = load i64, ptr %16, align 8, !tbaa !102
+  %18 = add i64 %17, 1
+  store i64 %18, ptr %16, align 8, !tbaa !102
+  %19 = uitofp i64 %18 to double
+  store double %19, ptr %9, align 8, !tbaa !143
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #17
+  %20 = load ptr, ptr %7, align 8, !tbaa !123
+  %21 = load double, ptr %20, align 8, !tbaa !143
+  %22 = load ptr, ptr %5, align 8, !tbaa !100
+  %23 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %22, i32 0, i32 1
+  %24 = load double, ptr %23, align 8, !tbaa !105
+  %25 = fsub double %21, %24
+  store double %25, ptr %10, align 8, !tbaa !143
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #17
+  %26 = load ptr, ptr %5, align 8, !tbaa !100
+  %27 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %26, i32 0, i32 1
+  %28 = load double, ptr %27, align 8, !tbaa !105
+  %29 = load double, ptr %10, align 8, !tbaa !143
+  %30 = load double, ptr %9, align 8, !tbaa !143
+  %31 = fdiv double %29, %30
+  %32 = fadd double %28, %31
+  store double %32, ptr %11, align 8, !tbaa !143
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #17
+  %33 = load ptr, ptr %6, align 8, !tbaa !123
+  %34 = load double, ptr %33, align 8, !tbaa !143
+  %35 = load ptr, ptr %5, align 8, !tbaa !100
+  %36 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %35, i32 0, i32 2
+  %37 = load double, ptr %36, align 8, !tbaa !106
+  %38 = fsub double %34, %37
+  store double %38, ptr %12, align 8, !tbaa !143
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #17
+  %39 = load ptr, ptr %5, align 8, !tbaa !100
+  %40 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %39, i32 0, i32 2
+  %41 = load double, ptr %40, align 8, !tbaa !106
+  %42 = load double, ptr %12, align 8, !tbaa !143
+  %43 = load double, ptr %9, align 8, !tbaa !143
+  %44 = fdiv double %42, %43
+  %45 = fadd double %41, %44
+  store double %45, ptr %13, align 8, !tbaa !143
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #17
+  %46 = load ptr, ptr %5, align 8, !tbaa !100
+  %47 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %46, i32 0, i32 3
+  %48 = load double, ptr %47, align 8, !tbaa !107
+  %49 = load double, ptr %10, align 8, !tbaa !143
+  %50 = load ptr, ptr %6, align 8, !tbaa !123
+  %51 = load double, ptr %50, align 8, !tbaa !143
+  %52 = load double, ptr %13, align 8, !tbaa !143
+  %53 = fsub double %51, %52
+  %54 = call double @llvm.fmuladd.f64(double %49, double %53, double %48)
+  store double %54, ptr %14, align 8, !tbaa !143
+  %55 = load double, ptr %11, align 8, !tbaa !143
+  %56 = load ptr, ptr %5, align 8, !tbaa !100
+  %57 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %56, i32 0, i32 1
+  store double %55, ptr %57, align 8, !tbaa !105
+  %58 = load double, ptr %13, align 8, !tbaa !143
+  %59 = load ptr, ptr %5, align 8, !tbaa !100
+  %60 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %59, i32 0, i32 2
+  store double %58, ptr %60, align 8, !tbaa !106
+  %61 = load double, ptr %14, align 8, !tbaa !143
+  %62 = load ptr, ptr %5, align 8, !tbaa !100
+  %63 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %62, i32 0, i32 3
+  store double %61, ptr %63, align 8, !tbaa !107
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #17
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateExecutor7CombineINS_14RegrSlopeStateENS_18RegrSlopeOperationEEEvRNS_6VectorES5_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(17) %2, i64 noundef %3) #0 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !70
+  store ptr %1, ptr %6, align 8, !tbaa !70
+  store ptr %2, ptr %7, align 8, !tbaa !72
+  store i64 %3, ptr %8, align 8, !tbaa !74
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #17
+  %12 = load ptr, ptr %5, align 8, !tbaa !70
+  %13 = call noundef ptr @_ZN6duckdb10FlatVector7GetDataIPKNS_14RegrSlopeStateEEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %12)
+  store ptr %13, ptr %9, align 8, !tbaa !300
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #17
+  %14 = load ptr, ptr %6, align 8, !tbaa !70
+  %15 = call noundef ptr @_ZN6duckdb10FlatVector7GetDataIPNS_14RegrSlopeStateEEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %14)
+  store ptr %15, ptr %10, align 8, !tbaa !300
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #17
+  store i64 0, ptr %11, align 8, !tbaa !74
+  br label %16
+
+16:                                               ; preds = %31, %4
+  %17 = load i64, ptr %11, align 8, !tbaa !74
+  %18 = load i64, ptr %8, align 8, !tbaa !74
+  %19 = icmp ult i64 %17, %18
+  br i1 %19, label %21, label %20
+
+20:                                               ; preds = %16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #17
+  br label %34
+
+21:                                               ; preds = %16
+  %22 = load ptr, ptr %9, align 8, !tbaa !300
+  %23 = load i64, ptr %11, align 8, !tbaa !74
+  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %25 = load ptr, ptr %24, align 8, !tbaa !229
+  %26 = load ptr, ptr %10, align 8, !tbaa !300
+  %27 = load i64, ptr %11, align 8, !tbaa !74
+  %28 = getelementptr inbounds nuw ptr, ptr %26, i64 %27
+  %29 = load ptr, ptr %28, align 8, !tbaa !229
+  %30 = load ptr, ptr %7, align 8, !tbaa !72
+  call void @_ZN6duckdb18RegrSlopeOperation7CombineINS_14RegrSlopeStateES0_EEvRKT_RS3_RNS_18AggregateInputDataE(ptr noundef nonnull align 8 dereferenceable(56) %25, ptr noundef nonnull align 8 dereferenceable(56) %29, ptr noundef nonnull align 8 dereferenceable(17) %30)
+  br label %31
+
+31:                                               ; preds = %21
+  %32 = load i64, ptr %11, align 8, !tbaa !74
+  %33 = add i64 %32, 1
+  store i64 %33, ptr %11, align 8, !tbaa !74
+  br label %16, !llvm.loop !304
+
+34:                                               ; preds = %20
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #17
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef ptr @_ZN6duckdb10FlatVector7GetDataIPKNS_14RegrSlopeStateEEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %0) #12 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !70
+  %3 = load ptr, ptr %2, align 8, !tbaa !70
+  %4 = call noundef ptr @_ZN6duckdb14ConstantVector7GetDataIPKNS_14RegrSlopeStateEEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %3)
+  ret ptr %4
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef ptr @_ZN6duckdb10FlatVector7GetDataIPNS_14RegrSlopeStateEEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %0) #12 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !70
+  %3 = load ptr, ptr %2, align 8, !tbaa !70
+  %4 = call noundef ptr @_ZN6duckdb14ConstantVector7GetDataIPNS_14RegrSlopeStateEEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %3)
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb18RegrSlopeOperation7CombineINS_14RegrSlopeStateES0_EEvRKT_RS3_RNS_18AggregateInputDataE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(17) %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !229
+  store ptr %1, ptr %5, align 8, !tbaa !229
+  store ptr %2, ptr %6, align 8, !tbaa !72
+  %7 = load ptr, ptr %4, align 8, !tbaa !229
+  %8 = getelementptr inbounds nuw %"struct.duckdb::RegrSlopeState", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %5, align 8, !tbaa !229
+  %10 = getelementptr inbounds nuw %"struct.duckdb::RegrSlopeState", ptr %9, i32 0, i32 0
+  %11 = load ptr, ptr %6, align 8, !tbaa !72
+  call void @_ZN6duckdb14CovarOperation7CombineINS_10CovarStateENS_18RegrSlopeOperationEEEvRKT_RS4_RNS_18AggregateInputDataE(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(17) %11)
+  %12 = load ptr, ptr %4, align 8, !tbaa !229
+  %13 = getelementptr inbounds nuw %"struct.duckdb::RegrSlopeState", ptr %12, i32 0, i32 1
+  %14 = load ptr, ptr %5, align 8, !tbaa !229
+  %15 = getelementptr inbounds nuw %"struct.duckdb::RegrSlopeState", ptr %14, i32 0, i32 1
+  %16 = load ptr, ptr %6, align 8, !tbaa !72
+  call void @_ZN6duckdb19STDDevBaseOperation7CombineINS_11StddevStateENS_18RegrSlopeOperationEEEvRKT_RS4_RNS_18AggregateInputDataE(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(17) %16)
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZN6duckdb14ConstantVector7GetDataIPKNS_14RegrSlopeStateEEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !70
+  %3 = load ptr, ptr %2, align 8, !tbaa !70
+  %4 = call noundef ptr @_ZN6duckdb14ConstantVector7GetDataERNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %3)
+  ret ptr %4
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZN6duckdb14ConstantVector7GetDataIPNS_14RegrSlopeStateEEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !70
+  %3 = load ptr, ptr %2, align 8, !tbaa !70
+  %4 = call noundef ptr @_ZN6duckdb14ConstantVector7GetDataERNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %3)
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN6duckdb14CovarOperation7CombineINS_10CovarStateENS_18RegrSlopeOperationEEEvRKT_RS4_RNS_18AggregateInputDataE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(17) %2) #5 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca double, align 8
+  %9 = alloca double, align 8
+  %10 = alloca double, align 8
+  %11 = alloca double, align 8
+  %12 = alloca double, align 8
+  %13 = alloca double, align 8
+  %14 = alloca double, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !100
+  store ptr %1, ptr %5, align 8, !tbaa !100
+  store ptr %2, ptr %6, align 8, !tbaa !72
+  %15 = load ptr, ptr %5, align 8, !tbaa !100
+  %16 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %15, i32 0, i32 0
+  %17 = load i64, ptr %16, align 8, !tbaa !102
+  %18 = icmp eq i64 %17, 0
+  br i1 %18, label %19, label %22
+
+19:                                               ; preds = %3
+  %20 = load ptr, ptr %4, align 8, !tbaa !100
+  %21 = load ptr, ptr %5, align 8, !tbaa !100
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %21, ptr align 8 %20, i64 32, i1 false), !tbaa.struct !160
+  br label %112
+
+22:                                               ; preds = %3
+  %23 = load ptr, ptr %4, align 8, !tbaa !100
+  %24 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %23, i32 0, i32 0
+  %25 = load i64, ptr %24, align 8, !tbaa !102
+  %26 = icmp ugt i64 %25, 0
+  br i1 %26, label %27, label %111
+
+27:                                               ; preds = %22
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #17
+  %28 = load ptr, ptr %5, align 8, !tbaa !100
+  %29 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %28, i32 0, i32 0
+  %30 = load i64, ptr %29, align 8, !tbaa !102
+  %31 = load ptr, ptr %4, align 8, !tbaa !100
+  %32 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %31, i32 0, i32 0
+  %33 = load i64, ptr %32, align 8, !tbaa !102
+  %34 = add i64 %30, %33
+  store i64 %34, ptr %7, align 8, !tbaa !74
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #17
+  %35 = load ptr, ptr %5, align 8, !tbaa !100
+  %36 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %35, i32 0, i32 0
+  %37 = load i64, ptr %36, align 8, !tbaa !102
+  %38 = uitofp i64 %37 to double
+  store double %38, ptr %8, align 8, !tbaa !143
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #17
+  %39 = load ptr, ptr %4, align 8, !tbaa !100
+  %40 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %39, i32 0, i32 0
+  %41 = load i64, ptr %40, align 8, !tbaa !102
+  %42 = uitofp i64 %41 to double
+  store double %42, ptr %9, align 8, !tbaa !143
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #17
+  %43 = load i64, ptr %7, align 8, !tbaa !74
+  %44 = uitofp i64 %43 to double
+  store double %44, ptr %10, align 8, !tbaa !143
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #17
+  %45 = load double, ptr %9, align 8, !tbaa !143
+  %46 = load ptr, ptr %4, align 8, !tbaa !100
+  %47 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %46, i32 0, i32 1
+  %48 = load double, ptr %47, align 8, !tbaa !105
+  %49 = load double, ptr %8, align 8, !tbaa !143
+  %50 = load ptr, ptr %5, align 8, !tbaa !100
+  %51 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %50, i32 0, i32 1
+  %52 = load double, ptr %51, align 8, !tbaa !105
+  %53 = fmul double %49, %52
+  %54 = call double @llvm.fmuladd.f64(double %45, double %48, double %53)
+  %55 = load double, ptr %10, align 8, !tbaa !143
+  %56 = fdiv double %54, %55
+  store double %56, ptr %11, align 8, !tbaa !143
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #17
+  %57 = load double, ptr %9, align 8, !tbaa !143
+  %58 = load ptr, ptr %4, align 8, !tbaa !100
+  %59 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %58, i32 0, i32 2
+  %60 = load double, ptr %59, align 8, !tbaa !106
+  %61 = load double, ptr %8, align 8, !tbaa !143
+  %62 = load ptr, ptr %5, align 8, !tbaa !100
+  %63 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %62, i32 0, i32 2
+  %64 = load double, ptr %63, align 8, !tbaa !106
+  %65 = fmul double %61, %64
+  %66 = call double @llvm.fmuladd.f64(double %57, double %60, double %65)
+  %67 = load double, ptr %10, align 8, !tbaa !143
+  %68 = fdiv double %66, %67
+  store double %68, ptr %12, align 8, !tbaa !143
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #17
+  %69 = load ptr, ptr %5, align 8, !tbaa !100
+  %70 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %69, i32 0, i32 1
+  %71 = load double, ptr %70, align 8, !tbaa !105
+  %72 = load ptr, ptr %4, align 8, !tbaa !100
+  %73 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %72, i32 0, i32 1
+  %74 = load double, ptr %73, align 8, !tbaa !105
+  %75 = fsub double %71, %74
+  store double %75, ptr %13, align 8, !tbaa !143
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #17
+  %76 = load ptr, ptr %5, align 8, !tbaa !100
+  %77 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %76, i32 0, i32 2
+  %78 = load double, ptr %77, align 8, !tbaa !106
+  %79 = load ptr, ptr %4, align 8, !tbaa !100
+  %80 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %79, i32 0, i32 2
+  %81 = load double, ptr %80, align 8, !tbaa !106
+  %82 = fsub double %78, %81
+  store double %82, ptr %14, align 8, !tbaa !143
+  %83 = load ptr, ptr %4, align 8, !tbaa !100
+  %84 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %83, i32 0, i32 3
+  %85 = load double, ptr %84, align 8, !tbaa !107
+  %86 = load ptr, ptr %5, align 8, !tbaa !100
+  %87 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %86, i32 0, i32 3
+  %88 = load double, ptr %87, align 8, !tbaa !107
+  %89 = fadd double %85, %88
+  %90 = load double, ptr %13, align 8, !tbaa !143
+  %91 = load double, ptr %14, align 8, !tbaa !143
+  %92 = fmul double %90, %91
+  %93 = load double, ptr %9, align 8, !tbaa !143
+  %94 = fmul double %92, %93
+  %95 = load double, ptr %8, align 8, !tbaa !143
+  %96 = fmul double %94, %95
+  %97 = load double, ptr %10, align 8, !tbaa !143
+  %98 = fdiv double %96, %97
+  %99 = fadd double %89, %98
+  %100 = load ptr, ptr %5, align 8, !tbaa !100
+  %101 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %100, i32 0, i32 3
+  store double %99, ptr %101, align 8, !tbaa !107
+  %102 = load double, ptr %11, align 8, !tbaa !143
+  %103 = load ptr, ptr %5, align 8, !tbaa !100
+  %104 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %103, i32 0, i32 1
+  store double %102, ptr %104, align 8, !tbaa !105
+  %105 = load double, ptr %12, align 8, !tbaa !143
+  %106 = load ptr, ptr %5, align 8, !tbaa !100
+  %107 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %106, i32 0, i32 2
+  store double %105, ptr %107, align 8, !tbaa !106
+  %108 = load i64, ptr %7, align 8, !tbaa !74
+  %109 = load ptr, ptr %5, align 8, !tbaa !100
+  %110 = getelementptr inbounds nuw %"struct.duckdb::CovarState", ptr %109, i32 0, i32 0
+  store i64 %108, ptr %110, align 8, !tbaa !102
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #17
+  br label %111
+
+111:                                              ; preds = %27, %22
+  br label %112
+
+112:                                              ; preds = %111, %19
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN6duckdb19STDDevBaseOperation7CombineINS_11StddevStateENS_18RegrSlopeOperationEEEvRKT_RS4_RNS_18AggregateInputDataE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(17) %2) #5 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca double, align 8
+  %9 = alloca double, align 8
+  %10 = alloca double, align 8
+  %11 = alloca double, align 8
+  %12 = alloca double, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !231
+  store ptr %1, ptr %5, align 8, !tbaa !231
+  store ptr %2, ptr %6, align 8, !tbaa !72
+  %13 = load ptr, ptr %5, align 8, !tbaa !231
+  %14 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %13, i32 0, i32 0
+  %15 = load i64, ptr %14, align 8, !tbaa !233
+  %16 = icmp eq i64 %15, 0
+  br i1 %16, label %17, label %20
+
+17:                                               ; preds = %3
+  %18 = load ptr, ptr %4, align 8, !tbaa !231
+  %19 = load ptr, ptr %5, align 8, !tbaa !231
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %19, ptr align 8 %18, i64 24, i1 false), !tbaa.struct !241
+  br label %88
+
+20:                                               ; preds = %3
+  %21 = load ptr, ptr %4, align 8, !tbaa !231
+  %22 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %21, i32 0, i32 0
+  %23 = load i64, ptr %22, align 8, !tbaa !233
+  %24 = icmp ugt i64 %23, 0
+  br i1 %24, label %25, label %87
+
+25:                                               ; preds = %20
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #17
+  %26 = load ptr, ptr %5, align 8, !tbaa !231
+  %27 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %26, i32 0, i32 0
+  %28 = load i64, ptr %27, align 8, !tbaa !233
+  %29 = load ptr, ptr %4, align 8, !tbaa !231
+  %30 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %29, i32 0, i32 0
+  %31 = load i64, ptr %30, align 8, !tbaa !233
+  %32 = add i64 %28, %31
+  store i64 %32, ptr %7, align 8, !tbaa !74
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #17
+  %33 = load ptr, ptr %5, align 8, !tbaa !231
+  %34 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %33, i32 0, i32 0
+  %35 = load i64, ptr %34, align 8, !tbaa !233
+  %36 = uitofp i64 %35 to double
+  store double %36, ptr %8, align 8, !tbaa !143
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #17
+  %37 = load ptr, ptr %4, align 8, !tbaa !231
+  %38 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %37, i32 0, i32 0
+  %39 = load i64, ptr %38, align 8, !tbaa !233
+  %40 = uitofp i64 %39 to double
+  store double %40, ptr %9, align 8, !tbaa !143
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #17
+  %41 = load i64, ptr %7, align 8, !tbaa !74
+  %42 = uitofp i64 %41 to double
+  store double %42, ptr %10, align 8, !tbaa !143
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #17
+  %43 = load double, ptr %9, align 8, !tbaa !143
+  %44 = load ptr, ptr %4, align 8, !tbaa !231
+  %45 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %44, i32 0, i32 1
+  %46 = load double, ptr %45, align 8, !tbaa !234
+  %47 = load double, ptr %8, align 8, !tbaa !143
+  %48 = load ptr, ptr %5, align 8, !tbaa !231
+  %49 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %48, i32 0, i32 1
+  %50 = load double, ptr %49, align 8, !tbaa !234
+  %51 = fmul double %47, %50
+  %52 = call double @llvm.fmuladd.f64(double %43, double %46, double %51)
+  %53 = load double, ptr %10, align 8, !tbaa !143
+  %54 = fdiv double %52, %53
+  store double %54, ptr %11, align 8, !tbaa !143
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #17
+  %55 = load ptr, ptr %4, align 8, !tbaa !231
+  %56 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %55, i32 0, i32 1
+  %57 = load double, ptr %56, align 8, !tbaa !234
+  %58 = load ptr, ptr %5, align 8, !tbaa !231
+  %59 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %58, i32 0, i32 1
+  %60 = load double, ptr %59, align 8, !tbaa !234
+  %61 = fsub double %57, %60
+  store double %61, ptr %12, align 8, !tbaa !143
+  %62 = load ptr, ptr %4, align 8, !tbaa !231
+  %63 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %62, i32 0, i32 2
+  %64 = load double, ptr %63, align 8, !tbaa !235
+  %65 = load ptr, ptr %5, align 8, !tbaa !231
+  %66 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %65, i32 0, i32 2
+  %67 = load double, ptr %66, align 8, !tbaa !235
+  %68 = fadd double %64, %67
+  %69 = load double, ptr %12, align 8, !tbaa !143
+  %70 = load double, ptr %12, align 8, !tbaa !143
+  %71 = fmul double %69, %70
+  %72 = load double, ptr %9, align 8, !tbaa !143
+  %73 = fmul double %71, %72
+  %74 = load double, ptr %8, align 8, !tbaa !143
+  %75 = fmul double %73, %74
+  %76 = load double, ptr %10, align 8, !tbaa !143
+  %77 = fdiv double %75, %76
+  %78 = fadd double %68, %77
+  %79 = load ptr, ptr %5, align 8, !tbaa !231
+  %80 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %79, i32 0, i32 2
+  store double %78, ptr %80, align 8, !tbaa !235
+  %81 = load double, ptr %11, align 8, !tbaa !143
+  %82 = load ptr, ptr %5, align 8, !tbaa !231
+  %83 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %82, i32 0, i32 1
+  store double %81, ptr %83, align 8, !tbaa !234
+  %84 = load i64, ptr %7, align 8, !tbaa !74
+  %85 = load ptr, ptr %5, align 8, !tbaa !231
+  %86 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %85, i32 0, i32 0
+  store i64 %84, ptr %86, align 8, !tbaa !233
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #17
+  br label %87
+
+87:                                               ; preds = %25, %20
+  br label %88
+
+88:                                               ; preds = %87, %17
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateExecutor8FinalizeINS_14RegrSlopeStateEdNS_18RegrSlopeOperationEEEvRNS_6VectorERNS_18AggregateInputDataES5_mm(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(17) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, i64 noundef %3, i64 noundef %4) #0 comdat align 2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca %"struct.duckdb::AggregateFinalizeData", align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca %"struct.duckdb::AggregateFinalizeData", align 8
+  %17 = alloca i64, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !70
+  store ptr %1, ptr %7, align 8, !tbaa !72
+  store ptr %2, ptr %8, align 8, !tbaa !70
+  store i64 %3, ptr %9, align 8, !tbaa !74
+  store i64 %4, ptr %10, align 8, !tbaa !74
+  %18 = load ptr, ptr %6, align 8, !tbaa !70
+  %19 = call noundef zeroext i8 @_ZNK6duckdb6Vector13GetVectorTypeEv(ptr noundef nonnull align 8 dereferenceable(104) %18)
+  %20 = icmp eq i8 %19, 2
+  br i1 %20, label %21, label %32
+
+21:                                               ; preds = %5
+  %22 = load ptr, ptr %8, align 8, !tbaa !70
+  call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %22, i8 noundef zeroext 2)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #17
+  %23 = load ptr, ptr %6, align 8, !tbaa !70
+  %24 = call noundef ptr @_ZN6duckdb14ConstantVector7GetDataIPNS_14RegrSlopeStateEEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %23)
+  store ptr %24, ptr %11, align 8, !tbaa !300
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #17
+  %25 = load ptr, ptr %8, align 8, !tbaa !70
+  %26 = call noundef ptr @_ZN6duckdb14ConstantVector7GetDataIdEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %25)
+  store ptr %26, ptr %12, align 8, !tbaa !123
+  call void @llvm.lifetime.start.p0(i64 24, ptr %13) #17
+  %27 = load ptr, ptr %8, align 8, !tbaa !70
+  %28 = load ptr, ptr %7, align 8, !tbaa !72
+  call void @_ZN6duckdb21AggregateFinalizeDataC2ERNS_6VectorERNS_18AggregateInputDataE(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(104) %27, ptr noundef nonnull align 8 dereferenceable(17) %28)
+  %29 = load ptr, ptr %11, align 8, !tbaa !300
+  %30 = load ptr, ptr %29, align 8, !tbaa !229
+  %31 = load ptr, ptr %12, align 8, !tbaa !123
+  call void @_ZN6duckdb18RegrSlopeOperation8FinalizeIdNS_14RegrSlopeStateEEEvRT0_RT_RNS_21AggregateFinalizeDataE(ptr noundef nonnull align 8 dereferenceable(56) %30, ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull align 8 dereferenceable(24) %13)
+  call void @llvm.lifetime.end.p0(i64 24, ptr %13) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #17
+  br label %62
+
+32:                                               ; preds = %5
+  %33 = load ptr, ptr %8, align 8, !tbaa !70
+  call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %33, i8 noundef zeroext 0)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #17
+  %34 = load ptr, ptr %6, align 8, !tbaa !70
+  %35 = call noundef ptr @_ZN6duckdb10FlatVector7GetDataIPNS_14RegrSlopeStateEEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %34)
+  store ptr %35, ptr %14, align 8, !tbaa !300
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #17
+  %36 = load ptr, ptr %8, align 8, !tbaa !70
+  %37 = call noundef ptr @_ZN6duckdb10FlatVector7GetDataIdEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %36)
+  store ptr %37, ptr %15, align 8, !tbaa !123
+  call void @llvm.lifetime.start.p0(i64 24, ptr %16) #17
+  %38 = load ptr, ptr %8, align 8, !tbaa !70
+  %39 = load ptr, ptr %7, align 8, !tbaa !72
+  call void @_ZN6duckdb21AggregateFinalizeDataC2ERNS_6VectorERNS_18AggregateInputDataE(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(104) %38, ptr noundef nonnull align 8 dereferenceable(17) %39)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #17
+  store i64 0, ptr %17, align 8, !tbaa !74
+  br label %40
+
+40:                                               ; preds = %58, %32
+  %41 = load i64, ptr %17, align 8, !tbaa !74
+  %42 = load i64, ptr %9, align 8, !tbaa !74
+  %43 = icmp ult i64 %41, %42
+  br i1 %43, label %45, label %44
+
+44:                                               ; preds = %40
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #17
+  br label %61
+
+45:                                               ; preds = %40
+  %46 = load i64, ptr %17, align 8, !tbaa !74
+  %47 = load i64, ptr %10, align 8, !tbaa !74
+  %48 = add i64 %46, %47
+  %49 = getelementptr inbounds nuw %"struct.duckdb::AggregateFinalizeData", ptr %16, i32 0, i32 2
+  store i64 %48, ptr %49, align 8, !tbaa !161
+  %50 = load ptr, ptr %14, align 8, !tbaa !300
+  %51 = load i64, ptr %17, align 8, !tbaa !74
+  %52 = getelementptr inbounds nuw ptr, ptr %50, i64 %51
+  %53 = load ptr, ptr %52, align 8, !tbaa !229
+  %54 = load ptr, ptr %15, align 8, !tbaa !123
+  %55 = getelementptr inbounds nuw %"struct.duckdb::AggregateFinalizeData", ptr %16, i32 0, i32 2
+  %56 = load i64, ptr %55, align 8, !tbaa !161
+  %57 = getelementptr inbounds nuw double, ptr %54, i64 %56
+  call void @_ZN6duckdb18RegrSlopeOperation8FinalizeIdNS_14RegrSlopeStateEEEvRT0_RT_RNS_21AggregateFinalizeDataE(ptr noundef nonnull align 8 dereferenceable(56) %53, ptr noundef nonnull align 8 dereferenceable(8) %57, ptr noundef nonnull align 8 dereferenceable(24) %16)
+  br label %58
+
+58:                                               ; preds = %45
+  %59 = load i64, ptr %17, align 8, !tbaa !74
+  %60 = add i64 %59, 1
+  store i64 %60, ptr %17, align 8, !tbaa !74
+  br label %40, !llvm.loop !305
+
+61:                                               ; preds = %44
+  call void @llvm.lifetime.end.p0(i64 24, ptr %16) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #17
+  br label %62
+
+62:                                               ; preds = %61, %21
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateExecutor12BinaryUpdateINS_14RegrSlopeStateEddNS_18RegrSlopeOperationEEEvRNS_18AggregateInputDataERNS_6VectorES7_Phm(ptr noundef nonnull align 8 dereferenceable(17) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, ptr noundef %3, i64 noundef %4) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
+  %12 = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !72
+  store ptr %1, ptr %7, align 8, !tbaa !70
+  store ptr %2, ptr %8, align 8, !tbaa !70
+  store ptr %3, ptr %9, align 8, !tbaa !39
+  store i64 %4, ptr %10, align 8, !tbaa !74
+  call void @llvm.lifetime.start.p0(i64 72, ptr %11) #17
+  call void @_ZN6duckdb19UnifiedVectorFormatC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %11)
+  call void @llvm.lifetime.start.p0(i64 72, ptr %12) #17
+  invoke void @_ZN6duckdb19UnifiedVectorFormatC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %12)
+          to label %15 unwind label %34
+
+15:                                               ; preds = %5
+  %16 = load ptr, ptr %7, align 8, !tbaa !70
+  %17 = load i64, ptr %10, align 8, !tbaa !74
+  invoke void @_ZN6duckdb6Vector15ToUnifiedFormatEmRNS_19UnifiedVectorFormatE(ptr noundef nonnull align 8 dereferenceable(104) %16, i64 noundef %17, ptr noundef nonnull align 8 dereferenceable(72) %11)
+          to label %18 unwind label %38
+
+18:                                               ; preds = %15
+  %19 = load ptr, ptr %8, align 8, !tbaa !70
+  %20 = load i64, ptr %10, align 8, !tbaa !74
+  invoke void @_ZN6duckdb6Vector15ToUnifiedFormatEmRNS_19UnifiedVectorFormatE(ptr noundef nonnull align 8 dereferenceable(104) %19, i64 noundef %20, ptr noundef nonnull align 8 dereferenceable(72) %12)
+          to label %21 unwind label %38
+
+21:                                               ; preds = %18
+  %22 = call noundef ptr @_ZN6duckdb19UnifiedVectorFormat7GetDataIdEEPKT_RKS0_(ptr noundef nonnull align 8 dereferenceable(72) %11)
+  %23 = load ptr, ptr %6, align 8, !tbaa !72
+  %24 = call noundef ptr @_ZN6duckdb19UnifiedVectorFormat7GetDataIdEEPKT_RKS0_(ptr noundef nonnull align 8 dereferenceable(72) %12)
+  %25 = load ptr, ptr %9, align 8, !tbaa !39
+  %26 = load i64, ptr %10, align 8, !tbaa !74
+  %27 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %11, i32 0, i32 0
+  %28 = load ptr, ptr %27, align 8, !tbaa !122
+  %29 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %12, i32 0, i32 0
+  %30 = load ptr, ptr %29, align 8, !tbaa !122
+  %31 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %11, i32 0, i32 2
+  %32 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %12, i32 0, i32 2
+  invoke void @_ZN6duckdb17AggregateExecutor16BinaryUpdateLoopINS_14RegrSlopeStateEddNS_18RegrSlopeOperationEEEvPKT0_RNS_18AggregateInputDataEPKT1_PT_mRKNS_15SelectionVectorESG_RNS_12ValidityMaskESI_(ptr noundef %22, ptr noundef nonnull align 8 dereferenceable(17) %23, ptr noundef %24, ptr noundef %25, i64 noundef %26, ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(32) %32)
+          to label %33 unwind label %38
+
+33:                                               ; preds = %21
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %12) #17
+  call void @llvm.lifetime.end.p0(i64 72, ptr %12) #17
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %11) #17
+  call void @llvm.lifetime.end.p0(i64 72, ptr %11) #17
+  ret void
+
+34:                                               ; preds = %5
+  %35 = landingpad { ptr, i32 }
+          cleanup
+  %36 = extractvalue { ptr, i32 } %35, 0
+  store ptr %36, ptr %13, align 8
+  %37 = extractvalue { ptr, i32 } %35, 1
+  store i32 %37, ptr %14, align 4
+  br label %42
+
+38:                                               ; preds = %21, %18, %15
+  %39 = landingpad { ptr, i32 }
+          cleanup
+  %40 = extractvalue { ptr, i32 } %39, 0
+  store ptr %40, ptr %13, align 8
+  %41 = extractvalue { ptr, i32 } %39, 1
+  store i32 %41, ptr %14, align 4
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %12) #17
+  br label %42
+
+42:                                               ; preds = %38, %34
+  call void @llvm.lifetime.end.p0(i64 72, ptr %12) #17
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %11) #17
+  call void @llvm.lifetime.end.p0(i64 72, ptr %11) #17
+  br label %43
+
+43:                                               ; preds = %42
+  %44 = load ptr, ptr %13, align 8
+  %45 = load i32, ptr %14, align 4
+  %46 = insertvalue { ptr, i32 } poison, ptr %44, 0
+  %47 = insertvalue { ptr, i32 } %46, i32 %45, 1
+  resume { ptr, i32 } %47
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateExecutor16BinaryUpdateLoopINS_14RegrSlopeStateEddNS_18RegrSlopeOperationEEEvPKT0_RNS_18AggregateInputDataEPKT1_PT_mRKNS_15SelectionVectorESG_RNS_12ValidityMaskESI_(ptr noalias noundef %0, ptr noundef nonnull align 8 dereferenceable(17) %1, ptr noalias noundef %2, ptr noalias noundef %3, i64 noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %8) #12 comdat align 2 {
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i64, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca ptr, align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca %"struct.duckdb::AggregateBinaryInput", align 8
+  %20 = alloca i64, align 8
+  %21 = alloca i64, align 8
+  store ptr %0, ptr %10, align 8, !tbaa !123
+  store ptr %1, ptr %11, align 8, !tbaa !72
+  store ptr %2, ptr %12, align 8, !tbaa !123
+  store ptr %3, ptr %13, align 8, !tbaa !229
+  store i64 %4, ptr %14, align 8, !tbaa !74
+  store ptr %5, ptr %15, align 8, !tbaa !127
+  store ptr %6, ptr %16, align 8, !tbaa !127
+  store ptr %7, ptr %17, align 8, !tbaa !128
+  store ptr %8, ptr %18, align 8, !tbaa !128
+  call void @llvm.lifetime.start.p0(i64 40, ptr %19) #17
+  %22 = load ptr, ptr %11, align 8, !tbaa !72
+  %23 = load ptr, ptr %17, align 8, !tbaa !128
+  %24 = load ptr, ptr %18, align 8, !tbaa !128
+  call void @_ZN6duckdb20AggregateBinaryInputC2ERNS_18AggregateInputDataERNS_12ValidityMaskES4_(ptr noundef nonnull align 8 dereferenceable(40) %19, ptr noundef nonnull align 8 dereferenceable(17) %22, ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %24)
+  %25 = call noundef zeroext i1 @_ZN6duckdb18RegrSlopeOperation10IgnoreNullEv()
+  br i1 %25, label %26, label %71
+
+26:                                               ; preds = %9
+  %27 = load ptr, ptr %17, align 8, !tbaa !128
+  %28 = call noundef zeroext i1 @_ZNK6duckdb21TemplatedValidityMaskImE8AllValidEv(ptr noundef nonnull align 8 dereferenceable(32) %27)
+  br i1 %28, label %29, label %32
+
+29:                                               ; preds = %26
+  %30 = load ptr, ptr %18, align 8, !tbaa !128
+  %31 = call noundef zeroext i1 @_ZNK6duckdb21TemplatedValidityMaskImE8AllValidEv(ptr noundef nonnull align 8 dereferenceable(32) %30)
+  br i1 %31, label %71, label %32
+
+32:                                               ; preds = %29, %26
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #17
+  store i64 0, ptr %20, align 8, !tbaa !74
+  br label %33
+
+33:                                               ; preds = %67, %32
+  %34 = load i64, ptr %20, align 8, !tbaa !74
+  %35 = load i64, ptr %14, align 8, !tbaa !74
+  %36 = icmp ult i64 %34, %35
+  br i1 %36, label %38, label %37
+
+37:                                               ; preds = %33
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #17
+  br label %70
+
+38:                                               ; preds = %33
+  %39 = load ptr, ptr %15, align 8, !tbaa !127
+  %40 = load i64, ptr %20, align 8, !tbaa !74
+  %41 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %39, i64 noundef %40)
+  %42 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 3
+  store i64 %41, ptr %42, align 8, !tbaa !130
+  %43 = load ptr, ptr %16, align 8, !tbaa !127
+  %44 = load i64, ptr %20, align 8, !tbaa !74
+  %45 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %43, i64 noundef %44)
+  %46 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 4
+  store i64 %45, ptr %46, align 8, !tbaa !132
+  %47 = load ptr, ptr %17, align 8, !tbaa !128
+  %48 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 3
+  %49 = load i64, ptr %48, align 8, !tbaa !130
+  %50 = call noundef zeroext i1 @_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm(ptr noundef nonnull align 8 dereferenceable(32) %47, i64 noundef %49)
+  br i1 %50, label %51, label %66
+
+51:                                               ; preds = %38
+  %52 = load ptr, ptr %18, align 8, !tbaa !128
+  %53 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 4
+  %54 = load i64, ptr %53, align 8, !tbaa !132
+  %55 = call noundef zeroext i1 @_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm(ptr noundef nonnull align 8 dereferenceable(32) %52, i64 noundef %54)
+  br i1 %55, label %56, label %66
+
+56:                                               ; preds = %51
+  %57 = load ptr, ptr %13, align 8, !tbaa !229
+  %58 = load ptr, ptr %10, align 8, !tbaa !123
+  %59 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 3
+  %60 = load i64, ptr %59, align 8, !tbaa !130
+  %61 = getelementptr inbounds nuw double, ptr %58, i64 %60
+  %62 = load ptr, ptr %12, align 8, !tbaa !123
+  %63 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 4
+  %64 = load i64, ptr %63, align 8, !tbaa !132
+  %65 = getelementptr inbounds nuw double, ptr %62, i64 %64
+  call void @_ZN6duckdb18RegrSlopeOperation9OperationIddNS_14RegrSlopeStateES0_EEvRT1_RKT_RKT0_RNS_20AggregateBinaryInputE(ptr noundef nonnull align 8 dereferenceable(56) %57, ptr noundef nonnull align 8 dereferenceable(8) %61, ptr noundef nonnull align 8 dereferenceable(8) %65, ptr noundef nonnull align 8 dereferenceable(40) %19)
+  br label %66
+
+66:                                               ; preds = %56, %51, %38
+  br label %67
+
+67:                                               ; preds = %66
+  %68 = load i64, ptr %20, align 8, !tbaa !74
+  %69 = add i64 %68, 1
+  store i64 %69, ptr %20, align 8, !tbaa !74
+  br label %33, !llvm.loop !306
+
+70:                                               ; preds = %37
+  br label %99
+
+71:                                               ; preds = %29, %9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #17
+  store i64 0, ptr %21, align 8, !tbaa !74
+  br label %72
+
+72:                                               ; preds = %95, %71
+  %73 = load i64, ptr %21, align 8, !tbaa !74
+  %74 = load i64, ptr %14, align 8, !tbaa !74
+  %75 = icmp ult i64 %73, %74
+  br i1 %75, label %77, label %76
+
+76:                                               ; preds = %72
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #17
+  br label %98
+
+77:                                               ; preds = %72
+  %78 = load ptr, ptr %15, align 8, !tbaa !127
+  %79 = load i64, ptr %21, align 8, !tbaa !74
+  %80 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %78, i64 noundef %79)
+  %81 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 3
+  store i64 %80, ptr %81, align 8, !tbaa !130
+  %82 = load ptr, ptr %16, align 8, !tbaa !127
+  %83 = load i64, ptr %21, align 8, !tbaa !74
+  %84 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %82, i64 noundef %83)
+  %85 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 4
+  store i64 %84, ptr %85, align 8, !tbaa !132
+  %86 = load ptr, ptr %13, align 8, !tbaa !229
+  %87 = load ptr, ptr %10, align 8, !tbaa !123
+  %88 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 3
+  %89 = load i64, ptr %88, align 8, !tbaa !130
+  %90 = getelementptr inbounds nuw double, ptr %87, i64 %89
+  %91 = load ptr, ptr %12, align 8, !tbaa !123
+  %92 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 4
+  %93 = load i64, ptr %92, align 8, !tbaa !132
+  %94 = getelementptr inbounds nuw double, ptr %91, i64 %93
+  call void @_ZN6duckdb18RegrSlopeOperation9OperationIddNS_14RegrSlopeStateES0_EEvRT1_RKT_RKT0_RNS_20AggregateBinaryInputE(ptr noundef nonnull align 8 dereferenceable(56) %86, ptr noundef nonnull align 8 dereferenceable(8) %90, ptr noundef nonnull align 8 dereferenceable(8) %94, ptr noundef nonnull align 8 dereferenceable(40) %19)
+  br label %95
+
+95:                                               ; preds = %77
+  %96 = load i64, ptr %21, align 8, !tbaa !74
+  %97 = add i64 %96, 1
+  store i64 %97, ptr %21, align 8, !tbaa !74
+  br label %72, !llvm.loop !307
+
+98:                                               ; preds = %76
+  br label %99
+
+99:                                               ; preds = %98, %70
+  call void @llvm.lifetime.end.p0(i64 40, ptr %19) #17
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZN6duckdb17AggregateFunction9StateSizeINS_10RegrSStateEEEmRKS0_(ptr noundef nonnull align 8 dereferenceable(304) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !40
+  ret i64 32
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateFunction15StateInitializeINS_10RegrSStateENS_16RegrSXXOperationELNS_23AggregateDestructorTypeE0EEEvRKS0_Ph(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !40
+  store ptr %1, ptr %4, align 8, !tbaa !39
+  %5 = load ptr, ptr %4, align 8, !tbaa !39
+  call void @_ZN6duckdb17RegrBaseOperation10InitializeINS_10RegrSStateEEEvRT_(ptr noundef nonnull align 8 dereferenceable(32) %5)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateFunction19BinaryScatterUpdateINS_10RegrSStateEddNS_16RegrSXXOperationEEEvPNS_6VectorERNS_18AggregateInputDataEmRS4_m(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(17) %1, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(104) %3, i64 noundef %4) #0 comdat align 2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !70
+  store ptr %1, ptr %7, align 8, !tbaa !72
+  store i64 %2, ptr %8, align 8, !tbaa !74
+  store ptr %3, ptr %9, align 8, !tbaa !70
+  store i64 %4, ptr %10, align 8, !tbaa !74
+  %11 = load ptr, ptr %7, align 8, !tbaa !72
+  %12 = load ptr, ptr %6, align 8, !tbaa !70
+  %13 = getelementptr inbounds %"class.duckdb::Vector", ptr %12, i64 0
+  %14 = load ptr, ptr %6, align 8, !tbaa !70
+  %15 = getelementptr inbounds %"class.duckdb::Vector", ptr %14, i64 1
+  %16 = load ptr, ptr %9, align 8, !tbaa !70
+  %17 = load i64, ptr %10, align 8, !tbaa !74
+  call void @_ZN6duckdb17AggregateExecutor13BinaryScatterINS_10RegrSStateEddNS_16RegrSXXOperationEEEvRNS_18AggregateInputDataERNS_6VectorES7_S7_m(ptr noundef nonnull align 8 dereferenceable(17) %11, ptr noundef nonnull align 8 dereferenceable(104) %13, ptr noundef nonnull align 8 dereferenceable(104) %15, ptr noundef nonnull align 8 dereferenceable(104) %16, i64 noundef %17)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateFunction12StateCombineINS_10RegrSStateENS_16RegrSXXOperationEEEvRNS_6VectorES5_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(17) %2, i64 noundef %3) #0 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !70
+  store ptr %1, ptr %6, align 8, !tbaa !70
+  store ptr %2, ptr %7, align 8, !tbaa !72
+  store i64 %3, ptr %8, align 8, !tbaa !74
+  %9 = load ptr, ptr %5, align 8, !tbaa !70
+  %10 = load ptr, ptr %6, align 8, !tbaa !70
+  %11 = load ptr, ptr %7, align 8, !tbaa !72
+  %12 = load i64, ptr %8, align 8, !tbaa !74
+  call void @_ZN6duckdb17AggregateExecutor7CombineINS_10RegrSStateENS_16RegrSXXOperationEEEvRNS_6VectorES5_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %9, ptr noundef nonnull align 8 dereferenceable(104) %10, ptr noundef nonnull align 8 dereferenceable(17) %11, i64 noundef %12)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateFunction13StateFinalizeINS_10RegrSStateEdNS_16RegrSXXOperationEEEvRNS_6VectorERNS_18AggregateInputDataES5_mm(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(17) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, i64 noundef %3, i64 noundef %4) #0 comdat align 2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !70
+  store ptr %1, ptr %7, align 8, !tbaa !72
+  store ptr %2, ptr %8, align 8, !tbaa !70
+  store i64 %3, ptr %9, align 8, !tbaa !74
+  store i64 %4, ptr %10, align 8, !tbaa !74
+  %11 = load ptr, ptr %6, align 8, !tbaa !70
+  %12 = load ptr, ptr %7, align 8, !tbaa !72
+  %13 = load ptr, ptr %8, align 8, !tbaa !70
+  %14 = load i64, ptr %9, align 8, !tbaa !74
+  %15 = load i64, ptr %10, align 8, !tbaa !74
+  call void @_ZN6duckdb17AggregateExecutor8FinalizeINS_10RegrSStateEdNS_16RegrSXXOperationEEEvRNS_6VectorERNS_18AggregateInputDataES5_mm(ptr noundef nonnull align 8 dereferenceable(104) %11, ptr noundef nonnull align 8 dereferenceable(17) %12, ptr noundef nonnull align 8 dereferenceable(104) %13, i64 noundef %14, i64 noundef %15)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateFunction12BinaryUpdateINS_10RegrSStateEddNS_16RegrSXXOperationEEEvPNS_6VectorERNS_18AggregateInputDataEmPhm(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(17) %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) #0 comdat align 2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !70
+  store ptr %1, ptr %7, align 8, !tbaa !72
+  store i64 %2, ptr %8, align 8, !tbaa !74
+  store ptr %3, ptr %9, align 8, !tbaa !39
+  store i64 %4, ptr %10, align 8, !tbaa !74
+  %11 = load ptr, ptr %7, align 8, !tbaa !72
+  %12 = load ptr, ptr %6, align 8, !tbaa !70
+  %13 = getelementptr inbounds %"class.duckdb::Vector", ptr %12, i64 0
+  %14 = load ptr, ptr %6, align 8, !tbaa !70
+  %15 = getelementptr inbounds %"class.duckdb::Vector", ptr %14, i64 1
+  %16 = load ptr, ptr %9, align 8, !tbaa !39
+  %17 = load i64, ptr %10, align 8, !tbaa !74
+  call void @_ZN6duckdb17AggregateExecutor12BinaryUpdateINS_10RegrSStateEddNS_16RegrSXXOperationEEEvRNS_18AggregateInputDataERNS_6VectorES7_Phm(ptr noundef nonnull align 8 dereferenceable(17) %11, ptr noundef nonnull align 8 dereferenceable(104) %13, ptr noundef nonnull align 8 dereferenceable(104) %15, ptr noundef %16, i64 noundef %17)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN6duckdb17RegrBaseOperation10InitializeINS_10RegrSStateEEEvRT_(ptr noundef nonnull align 8 dereferenceable(32) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !308
+  %3 = load ptr, ptr %2, align 8, !tbaa !308
+  %4 = getelementptr inbounds nuw %"struct.duckdb::RegrSState", ptr %3, i32 0, i32 0
+  call void @_ZN6duckdb17RegrCountFunction10InitializeImEEvRT_(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %5 = load ptr, ptr %2, align 8, !tbaa !308
+  %6 = getelementptr inbounds nuw %"struct.duckdb::RegrSState", ptr %5, i32 0, i32 1
+  call void @_ZN6duckdb19STDDevBaseOperation10InitializeINS_11StddevStateEEEvRT_(ptr noundef nonnull align 8 dereferenceable(24) %6)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateExecutor13BinaryScatterINS_10RegrSStateEddNS_16RegrSXXOperationEEEvRNS_18AggregateInputDataERNS_6VectorES7_S7_m(ptr noundef nonnull align 8 dereferenceable(17) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, ptr noundef nonnull align 8 dereferenceable(104) %3, i64 noundef %4) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
+  %12 = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
+  store ptr %0, ptr %6, align 8, !tbaa !72
+  store ptr %1, ptr %7, align 8, !tbaa !70
+  store ptr %2, ptr %8, align 8, !tbaa !70
+  store ptr %3, ptr %9, align 8, !tbaa !70
+  store i64 %4, ptr %10, align 8, !tbaa !74
+  call void @llvm.lifetime.start.p0(i64 72, ptr %11) #17
+  call void @_ZN6duckdb19UnifiedVectorFormatC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %11)
+  call void @llvm.lifetime.start.p0(i64 72, ptr %12) #17
+  invoke void @_ZN6duckdb19UnifiedVectorFormatC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %12)
+          to label %16 unwind label %42
+
+16:                                               ; preds = %5
+  call void @llvm.lifetime.start.p0(i64 72, ptr %15) #17
+  invoke void @_ZN6duckdb19UnifiedVectorFormatC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %15)
+          to label %17 unwind label %46
+
+17:                                               ; preds = %16
+  %18 = load ptr, ptr %7, align 8, !tbaa !70
+  %19 = load i64, ptr %10, align 8, !tbaa !74
+  invoke void @_ZN6duckdb6Vector15ToUnifiedFormatEmRNS_19UnifiedVectorFormatE(ptr noundef nonnull align 8 dereferenceable(104) %18, i64 noundef %19, ptr noundef nonnull align 8 dereferenceable(72) %11)
+          to label %20 unwind label %50
+
+20:                                               ; preds = %17
+  %21 = load ptr, ptr %8, align 8, !tbaa !70
+  %22 = load i64, ptr %10, align 8, !tbaa !74
+  invoke void @_ZN6duckdb6Vector15ToUnifiedFormatEmRNS_19UnifiedVectorFormatE(ptr noundef nonnull align 8 dereferenceable(104) %21, i64 noundef %22, ptr noundef nonnull align 8 dereferenceable(72) %12)
+          to label %23 unwind label %50
+
+23:                                               ; preds = %20
+  %24 = load ptr, ptr %9, align 8, !tbaa !70
+  %25 = load i64, ptr %10, align 8, !tbaa !74
+  invoke void @_ZN6duckdb6Vector15ToUnifiedFormatEmRNS_19UnifiedVectorFormatE(ptr noundef nonnull align 8 dereferenceable(104) %24, i64 noundef %25, ptr noundef nonnull align 8 dereferenceable(72) %15)
+          to label %26 unwind label %50
+
+26:                                               ; preds = %23
+  %27 = call noundef ptr @_ZN6duckdb19UnifiedVectorFormat7GetDataIdEEPKT_RKS0_(ptr noundef nonnull align 8 dereferenceable(72) %11)
+  %28 = load ptr, ptr %6, align 8, !tbaa !72
+  %29 = call noundef ptr @_ZN6duckdb19UnifiedVectorFormat7GetDataIdEEPKT_RKS0_(ptr noundef nonnull align 8 dereferenceable(72) %12)
+  %30 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %15, i32 0, i32 1
+  %31 = load ptr, ptr %30, align 8, !tbaa !108
+  %32 = load i64, ptr %10, align 8, !tbaa !74
+  %33 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %11, i32 0, i32 0
+  %34 = load ptr, ptr %33, align 8, !tbaa !122
+  %35 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %12, i32 0, i32 0
+  %36 = load ptr, ptr %35, align 8, !tbaa !122
+  %37 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %15, i32 0, i32 0
+  %38 = load ptr, ptr %37, align 8, !tbaa !122
+  %39 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %11, i32 0, i32 2
+  %40 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %12, i32 0, i32 2
+  invoke void @_ZN6duckdb17AggregateExecutor17BinaryScatterLoopINS_10RegrSStateEddNS_16RegrSXXOperationEEEvPKT0_RNS_18AggregateInputDataEPKT1_PPT_mRKNS_15SelectionVectorESH_SH_RNS_12ValidityMaskESJ_(ptr noundef %27, ptr noundef nonnull align 8 dereferenceable(17) %28, ptr noundef %29, ptr noundef %31, i64 noundef %32, ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef nonnull align 8 dereferenceable(24) %36, ptr noundef nonnull align 8 dereferenceable(24) %38, ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef nonnull align 8 dereferenceable(32) %40)
+          to label %41 unwind label %50
+
+41:                                               ; preds = %26
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %15) #17
+  call void @llvm.lifetime.end.p0(i64 72, ptr %15) #17
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %12) #17
+  call void @llvm.lifetime.end.p0(i64 72, ptr %12) #17
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %11) #17
+  call void @llvm.lifetime.end.p0(i64 72, ptr %11) #17
+  ret void
+
+42:                                               ; preds = %5
+  %43 = landingpad { ptr, i32 }
+          cleanup
+  %44 = extractvalue { ptr, i32 } %43, 0
+  store ptr %44, ptr %13, align 8
+  %45 = extractvalue { ptr, i32 } %43, 1
+  store i32 %45, ptr %14, align 4
+  br label %55
+
+46:                                               ; preds = %16
+  %47 = landingpad { ptr, i32 }
+          cleanup
+  %48 = extractvalue { ptr, i32 } %47, 0
+  store ptr %48, ptr %13, align 8
+  %49 = extractvalue { ptr, i32 } %47, 1
+  store i32 %49, ptr %14, align 4
+  br label %54
+
+50:                                               ; preds = %26, %23, %20, %17
+  %51 = landingpad { ptr, i32 }
+          cleanup
+  %52 = extractvalue { ptr, i32 } %51, 0
+  store ptr %52, ptr %13, align 8
+  %53 = extractvalue { ptr, i32 } %51, 1
+  store i32 %53, ptr %14, align 4
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %15) #17
+  br label %54
+
+54:                                               ; preds = %50, %46
+  call void @llvm.lifetime.end.p0(i64 72, ptr %15) #17
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %12) #17
+  br label %55
+
+55:                                               ; preds = %54, %42
+  call void @llvm.lifetime.end.p0(i64 72, ptr %12) #17
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %11) #17
+  call void @llvm.lifetime.end.p0(i64 72, ptr %11) #17
+  br label %56
+
+56:                                               ; preds = %55
+  %57 = load ptr, ptr %13, align 8
+  %58 = load i32, ptr %14, align 4
+  %59 = insertvalue { ptr, i32 } poison, ptr %57, 0
+  %60 = insertvalue { ptr, i32 } %59, i32 %58, 1
+  resume { ptr, i32 } %60
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateExecutor17BinaryScatterLoopINS_10RegrSStateEddNS_16RegrSXXOperationEEEvPKT0_RNS_18AggregateInputDataEPKT1_PPT_mRKNS_15SelectionVectorESH_SH_RNS_12ValidityMaskESJ_(ptr noalias noundef %0, ptr noundef nonnull align 8 dereferenceable(17) %1, ptr noalias noundef %2, ptr noalias noundef %3, i64 noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9) #12 comdat align 2 {
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca i64, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca ptr, align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca ptr, align 8
+  %20 = alloca ptr, align 8
+  %21 = alloca %"struct.duckdb::AggregateBinaryInput", align 8
+  %22 = alloca i64, align 8
+  %23 = alloca i64, align 8
+  %24 = alloca i64, align 8
+  %25 = alloca i64, align 8
+  store ptr %0, ptr %11, align 8, !tbaa !123
+  store ptr %1, ptr %12, align 8, !tbaa !72
+  store ptr %2, ptr %13, align 8, !tbaa !123
+  store ptr %3, ptr %14, align 8, !tbaa !310
+  store i64 %4, ptr %15, align 8, !tbaa !74
+  store ptr %5, ptr %16, align 8, !tbaa !127
+  store ptr %6, ptr %17, align 8, !tbaa !127
+  store ptr %7, ptr %18, align 8, !tbaa !127
+  store ptr %8, ptr %19, align 8, !tbaa !128
+  store ptr %9, ptr %20, align 8, !tbaa !128
+  call void @llvm.lifetime.start.p0(i64 40, ptr %21) #17
+  %26 = load ptr, ptr %12, align 8, !tbaa !72
+  %27 = load ptr, ptr %19, align 8, !tbaa !128
+  %28 = load ptr, ptr %20, align 8, !tbaa !128
+  call void @_ZN6duckdb20AggregateBinaryInputC2ERNS_18AggregateInputDataERNS_12ValidityMaskES4_(ptr noundef nonnull align 8 dereferenceable(40) %21, ptr noundef nonnull align 8 dereferenceable(17) %26, ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %28)
+  %29 = call noundef zeroext i1 @_ZN6duckdb17RegrBaseOperation10IgnoreNullEv()
+  br i1 %29, label %30, label %81
+
+30:                                               ; preds = %10
+  %31 = load ptr, ptr %19, align 8, !tbaa !128
+  %32 = call noundef zeroext i1 @_ZNK6duckdb21TemplatedValidityMaskImE8AllValidEv(ptr noundef nonnull align 8 dereferenceable(32) %31)
+  br i1 %32, label %33, label %36
+
+33:                                               ; preds = %30
+  %34 = load ptr, ptr %20, align 8, !tbaa !128
+  %35 = call noundef zeroext i1 @_ZNK6duckdb21TemplatedValidityMaskImE8AllValidEv(ptr noundef nonnull align 8 dereferenceable(32) %34)
+  br i1 %35, label %81, label %36
+
+36:                                               ; preds = %33, %30
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #17
+  store i64 0, ptr %22, align 8, !tbaa !74
+  br label %37
+
+37:                                               ; preds = %77, %36
+  %38 = load i64, ptr %22, align 8, !tbaa !74
+  %39 = load i64, ptr %15, align 8, !tbaa !74
+  %40 = icmp ult i64 %38, %39
+  br i1 %40, label %42, label %41
+
+41:                                               ; preds = %37
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #17
+  br label %80
+
+42:                                               ; preds = %37
+  %43 = load ptr, ptr %16, align 8, !tbaa !127
+  %44 = load i64, ptr %22, align 8, !tbaa !74
+  %45 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %43, i64 noundef %44)
+  %46 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 3
+  store i64 %45, ptr %46, align 8, !tbaa !130
+  %47 = load ptr, ptr %17, align 8, !tbaa !127
+  %48 = load i64, ptr %22, align 8, !tbaa !74
+  %49 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %47, i64 noundef %48)
+  %50 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 4
+  store i64 %49, ptr %50, align 8, !tbaa !132
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #17
+  %51 = load ptr, ptr %18, align 8, !tbaa !127
+  %52 = load i64, ptr %22, align 8, !tbaa !74
+  %53 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %51, i64 noundef %52)
+  store i64 %53, ptr %23, align 8, !tbaa !74
+  %54 = load ptr, ptr %19, align 8, !tbaa !128
+  %55 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 3
+  %56 = load i64, ptr %55, align 8, !tbaa !130
+  %57 = call noundef zeroext i1 @_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm(ptr noundef nonnull align 8 dereferenceable(32) %54, i64 noundef %56)
+  br i1 %57, label %58, label %76
+
+58:                                               ; preds = %42
+  %59 = load ptr, ptr %20, align 8, !tbaa !128
+  %60 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 4
+  %61 = load i64, ptr %60, align 8, !tbaa !132
+  %62 = call noundef zeroext i1 @_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm(ptr noundef nonnull align 8 dereferenceable(32) %59, i64 noundef %61)
+  br i1 %62, label %63, label %76
+
+63:                                               ; preds = %58
+  %64 = load ptr, ptr %14, align 8, !tbaa !310
+  %65 = load i64, ptr %23, align 8, !tbaa !74
+  %66 = getelementptr inbounds nuw ptr, ptr %64, i64 %65
+  %67 = load ptr, ptr %66, align 8, !tbaa !308
+  %68 = load ptr, ptr %11, align 8, !tbaa !123
+  %69 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 3
+  %70 = load i64, ptr %69, align 8, !tbaa !130
+  %71 = getelementptr inbounds nuw double, ptr %68, i64 %70
+  %72 = load ptr, ptr %13, align 8, !tbaa !123
+  %73 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 4
+  %74 = load i64, ptr %73, align 8, !tbaa !132
+  %75 = getelementptr inbounds nuw double, ptr %72, i64 %74
+  call void @_ZN6duckdb16RegrSXXOperation9OperationIddNS_10RegrSStateES0_EEvRT1_RKT_RKT0_RNS_20AggregateBinaryInputE(ptr noundef nonnull align 8 dereferenceable(32) %67, ptr noundef nonnull align 8 dereferenceable(8) %71, ptr noundef nonnull align 8 dereferenceable(8) %75, ptr noundef nonnull align 8 dereferenceable(40) %21)
+  br label %76
+
+76:                                               ; preds = %63, %58, %42
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #17
+  br label %77
+
+77:                                               ; preds = %76
+  %78 = load i64, ptr %22, align 8, !tbaa !74
+  %79 = add i64 %78, 1
+  store i64 %79, ptr %22, align 8, !tbaa !74
+  br label %37, !llvm.loop !312
+
+80:                                               ; preds = %41
+  br label %115
+
+81:                                               ; preds = %33, %10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #17
+  store i64 0, ptr %24, align 8, !tbaa !74
+  br label %82
+
+82:                                               ; preds = %111, %81
+  %83 = load i64, ptr %24, align 8, !tbaa !74
+  %84 = load i64, ptr %15, align 8, !tbaa !74
+  %85 = icmp ult i64 %83, %84
+  br i1 %85, label %87, label %86
+
+86:                                               ; preds = %82
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #17
+  br label %114
+
+87:                                               ; preds = %82
+  %88 = load ptr, ptr %16, align 8, !tbaa !127
+  %89 = load i64, ptr %24, align 8, !tbaa !74
+  %90 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %88, i64 noundef %89)
+  %91 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 3
+  store i64 %90, ptr %91, align 8, !tbaa !130
+  %92 = load ptr, ptr %17, align 8, !tbaa !127
+  %93 = load i64, ptr %24, align 8, !tbaa !74
+  %94 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %92, i64 noundef %93)
+  %95 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 4
+  store i64 %94, ptr %95, align 8, !tbaa !132
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #17
+  %96 = load ptr, ptr %18, align 8, !tbaa !127
+  %97 = load i64, ptr %24, align 8, !tbaa !74
+  %98 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %96, i64 noundef %97)
+  store i64 %98, ptr %25, align 8, !tbaa !74
+  %99 = load ptr, ptr %14, align 8, !tbaa !310
+  %100 = load i64, ptr %25, align 8, !tbaa !74
+  %101 = getelementptr inbounds nuw ptr, ptr %99, i64 %100
+  %102 = load ptr, ptr %101, align 8, !tbaa !308
+  %103 = load ptr, ptr %11, align 8, !tbaa !123
+  %104 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 3
+  %105 = load i64, ptr %104, align 8, !tbaa !130
+  %106 = getelementptr inbounds nuw double, ptr %103, i64 %105
+  %107 = load ptr, ptr %13, align 8, !tbaa !123
+  %108 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 4
+  %109 = load i64, ptr %108, align 8, !tbaa !132
+  %110 = getelementptr inbounds nuw double, ptr %107, i64 %109
+  call void @_ZN6duckdb16RegrSXXOperation9OperationIddNS_10RegrSStateES0_EEvRT1_RKT_RKT0_RNS_20AggregateBinaryInputE(ptr noundef nonnull align 8 dereferenceable(32) %102, ptr noundef nonnull align 8 dereferenceable(8) %106, ptr noundef nonnull align 8 dereferenceable(8) %110, ptr noundef nonnull align 8 dereferenceable(40) %21)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #17
+  br label %111
+
+111:                                              ; preds = %87
+  %112 = load i64, ptr %24, align 8, !tbaa !74
+  %113 = add i64 %112, 1
+  store i64 %113, ptr %24, align 8, !tbaa !74
+  br label %82, !llvm.loop !313
+
+114:                                              ; preds = %86
+  br label %115
+
+115:                                              ; preds = %114, %80
+  call void @llvm.lifetime.end.p0(i64 40, ptr %21) #17
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZN6duckdb17RegrBaseOperation10IgnoreNullEv() #5 comdat align 2 {
+  ret i1 true
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb16RegrSXXOperation9OperationIddNS_10RegrSStateES0_EEvRT1_RKT_RKT0_RNS_20AggregateBinaryInputE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(40) %3) #0 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !308
+  store ptr %1, ptr %6, align 8, !tbaa !123
+  store ptr %2, ptr %7, align 8, !tbaa !123
+  store ptr %3, ptr %8, align 8, !tbaa !137
+  %9 = load ptr, ptr %5, align 8, !tbaa !308
+  %10 = getelementptr inbounds nuw %"struct.duckdb::RegrSState", ptr %9, i32 0, i32 0
+  %11 = load ptr, ptr %6, align 8, !tbaa !123
+  %12 = load ptr, ptr %7, align 8, !tbaa !123
+  %13 = load ptr, ptr %8, align 8, !tbaa !137
+  call void @_ZN6duckdb17RegrCountFunction9OperationIddmNS_16RegrSXXOperationEEEvRT1_RKT_RKT0_RNS_20AggregateBinaryInputE(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(40) %13)
+  %14 = load ptr, ptr %5, align 8, !tbaa !308
+  %15 = getelementptr inbounds nuw %"struct.duckdb::RegrSState", ptr %14, i32 0, i32 1
+  %16 = load ptr, ptr %7, align 8, !tbaa !123
+  call void @_ZN6duckdb19STDDevBaseOperation7ExecuteIdNS_11StddevStateEEEvRT0_RKT_(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(8) %16)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN6duckdb17RegrCountFunction9OperationIddmNS_16RegrSXXOperationEEEvRT1_RKT_RKT0_RNS_20AggregateBinaryInputE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(40) %3) #5 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !93
+  store ptr %1, ptr %6, align 8, !tbaa !123
+  store ptr %2, ptr %7, align 8, !tbaa !123
+  store ptr %3, ptr %8, align 8, !tbaa !137
+  %9 = load ptr, ptr %5, align 8, !tbaa !93
+  %10 = load i64, ptr %9, align 8, !tbaa !74
+  %11 = add i64 %10, 1
+  store i64 %11, ptr %9, align 8, !tbaa !74
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateExecutor7CombineINS_10RegrSStateENS_16RegrSXXOperationEEEvRNS_6VectorES5_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(17) %2, i64 noundef %3) #0 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !70
+  store ptr %1, ptr %6, align 8, !tbaa !70
+  store ptr %2, ptr %7, align 8, !tbaa !72
+  store i64 %3, ptr %8, align 8, !tbaa !74
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #17
+  %12 = load ptr, ptr %5, align 8, !tbaa !70
+  %13 = call noundef ptr @_ZN6duckdb10FlatVector7GetDataIPKNS_10RegrSStateEEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %12)
+  store ptr %13, ptr %9, align 8, !tbaa !310
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #17
+  %14 = load ptr, ptr %6, align 8, !tbaa !70
+  %15 = call noundef ptr @_ZN6duckdb10FlatVector7GetDataIPNS_10RegrSStateEEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %14)
+  store ptr %15, ptr %10, align 8, !tbaa !310
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #17
+  store i64 0, ptr %11, align 8, !tbaa !74
+  br label %16
+
+16:                                               ; preds = %31, %4
+  %17 = load i64, ptr %11, align 8, !tbaa !74
+  %18 = load i64, ptr %8, align 8, !tbaa !74
+  %19 = icmp ult i64 %17, %18
+  br i1 %19, label %21, label %20
+
+20:                                               ; preds = %16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #17
+  br label %34
+
+21:                                               ; preds = %16
+  %22 = load ptr, ptr %9, align 8, !tbaa !310
+  %23 = load i64, ptr %11, align 8, !tbaa !74
+  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %25 = load ptr, ptr %24, align 8, !tbaa !308
+  %26 = load ptr, ptr %10, align 8, !tbaa !310
+  %27 = load i64, ptr %11, align 8, !tbaa !74
+  %28 = getelementptr inbounds nuw ptr, ptr %26, i64 %27
+  %29 = load ptr, ptr %28, align 8, !tbaa !308
+  %30 = load ptr, ptr %7, align 8, !tbaa !72
+  call void @_ZN6duckdb17RegrBaseOperation7CombineINS_10RegrSStateENS_16RegrSXXOperationEEEvRKT_RS4_RNS_18AggregateInputDataE(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(17) %30)
+  br label %31
+
+31:                                               ; preds = %21
+  %32 = load i64, ptr %11, align 8, !tbaa !74
+  %33 = add i64 %32, 1
+  store i64 %33, ptr %11, align 8, !tbaa !74
+  br label %16, !llvm.loop !314
+
+34:                                               ; preds = %20
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #17
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef ptr @_ZN6duckdb10FlatVector7GetDataIPKNS_10RegrSStateEEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %0) #12 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !70
+  %3 = load ptr, ptr %2, align 8, !tbaa !70
+  %4 = call noundef ptr @_ZN6duckdb14ConstantVector7GetDataIPKNS_10RegrSStateEEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %3)
+  ret ptr %4
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef ptr @_ZN6duckdb10FlatVector7GetDataIPNS_10RegrSStateEEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %0) #12 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !70
+  %3 = load ptr, ptr %2, align 8, !tbaa !70
+  %4 = call noundef ptr @_ZN6duckdb14ConstantVector7GetDataIPNS_10RegrSStateEEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %3)
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17RegrBaseOperation7CombineINS_10RegrSStateENS_16RegrSXXOperationEEEvRKT_RS4_RNS_18AggregateInputDataE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(17) %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !308
+  store ptr %1, ptr %5, align 8, !tbaa !308
+  store ptr %2, ptr %6, align 8, !tbaa !72
+  %7 = load ptr, ptr %4, align 8, !tbaa !308
+  %8 = getelementptr inbounds nuw %"struct.duckdb::RegrSState", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %5, align 8, !tbaa !308
+  %10 = getelementptr inbounds nuw %"struct.duckdb::RegrSState", ptr %9, i32 0, i32 0
+  %11 = load ptr, ptr %6, align 8, !tbaa !72
+  call void @_ZN6duckdb17RegrCountFunction7CombineImNS_16RegrSXXOperationEEEvRKT_RS3_RNS_18AggregateInputDataE(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(17) %11)
+  %12 = load ptr, ptr %4, align 8, !tbaa !308
+  %13 = getelementptr inbounds nuw %"struct.duckdb::RegrSState", ptr %12, i32 0, i32 1
+  %14 = load ptr, ptr %5, align 8, !tbaa !308
+  %15 = getelementptr inbounds nuw %"struct.duckdb::RegrSState", ptr %14, i32 0, i32 1
+  %16 = load ptr, ptr %6, align 8, !tbaa !72
+  call void @_ZN6duckdb19STDDevBaseOperation7CombineINS_11StddevStateENS_16RegrSXXOperationEEEvRKT_RS4_RNS_18AggregateInputDataE(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(17) %16)
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZN6duckdb14ConstantVector7GetDataIPKNS_10RegrSStateEEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !70
+  %3 = load ptr, ptr %2, align 8, !tbaa !70
+  %4 = call noundef ptr @_ZN6duckdb14ConstantVector7GetDataERNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %3)
+  ret ptr %4
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZN6duckdb14ConstantVector7GetDataIPNS_10RegrSStateEEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !70
+  %3 = load ptr, ptr %2, align 8, !tbaa !70
+  %4 = call noundef ptr @_ZN6duckdb14ConstantVector7GetDataERNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %3)
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN6duckdb17RegrCountFunction7CombineImNS_16RegrSXXOperationEEEvRKT_RS3_RNS_18AggregateInputDataE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(17) %2) #5 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !93
+  store ptr %1, ptr %5, align 8, !tbaa !93
+  store ptr %2, ptr %6, align 8, !tbaa !72
+  %7 = load ptr, ptr %4, align 8, !tbaa !93
+  %8 = load i64, ptr %7, align 8, !tbaa !74
+  %9 = load ptr, ptr %5, align 8, !tbaa !93
+  %10 = load i64, ptr %9, align 8, !tbaa !74
+  %11 = add i64 %10, %8
+  store i64 %11, ptr %9, align 8, !tbaa !74
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN6duckdb19STDDevBaseOperation7CombineINS_11StddevStateENS_16RegrSXXOperationEEEvRKT_RS4_RNS_18AggregateInputDataE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(17) %2) #5 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca double, align 8
+  %9 = alloca double, align 8
+  %10 = alloca double, align 8
+  %11 = alloca double, align 8
+  %12 = alloca double, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !231
+  store ptr %1, ptr %5, align 8, !tbaa !231
+  store ptr %2, ptr %6, align 8, !tbaa !72
+  %13 = load ptr, ptr %5, align 8, !tbaa !231
+  %14 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %13, i32 0, i32 0
+  %15 = load i64, ptr %14, align 8, !tbaa !233
+  %16 = icmp eq i64 %15, 0
+  br i1 %16, label %17, label %20
+
+17:                                               ; preds = %3
+  %18 = load ptr, ptr %4, align 8, !tbaa !231
+  %19 = load ptr, ptr %5, align 8, !tbaa !231
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %19, ptr align 8 %18, i64 24, i1 false), !tbaa.struct !241
+  br label %88
+
+20:                                               ; preds = %3
+  %21 = load ptr, ptr %4, align 8, !tbaa !231
+  %22 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %21, i32 0, i32 0
+  %23 = load i64, ptr %22, align 8, !tbaa !233
+  %24 = icmp ugt i64 %23, 0
+  br i1 %24, label %25, label %87
+
+25:                                               ; preds = %20
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #17
+  %26 = load ptr, ptr %5, align 8, !tbaa !231
+  %27 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %26, i32 0, i32 0
+  %28 = load i64, ptr %27, align 8, !tbaa !233
+  %29 = load ptr, ptr %4, align 8, !tbaa !231
+  %30 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %29, i32 0, i32 0
+  %31 = load i64, ptr %30, align 8, !tbaa !233
+  %32 = add i64 %28, %31
+  store i64 %32, ptr %7, align 8, !tbaa !74
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #17
+  %33 = load ptr, ptr %5, align 8, !tbaa !231
+  %34 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %33, i32 0, i32 0
+  %35 = load i64, ptr %34, align 8, !tbaa !233
+  %36 = uitofp i64 %35 to double
+  store double %36, ptr %8, align 8, !tbaa !143
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #17
+  %37 = load ptr, ptr %4, align 8, !tbaa !231
+  %38 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %37, i32 0, i32 0
+  %39 = load i64, ptr %38, align 8, !tbaa !233
+  %40 = uitofp i64 %39 to double
+  store double %40, ptr %9, align 8, !tbaa !143
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #17
+  %41 = load i64, ptr %7, align 8, !tbaa !74
+  %42 = uitofp i64 %41 to double
+  store double %42, ptr %10, align 8, !tbaa !143
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #17
+  %43 = load double, ptr %9, align 8, !tbaa !143
+  %44 = load ptr, ptr %4, align 8, !tbaa !231
+  %45 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %44, i32 0, i32 1
+  %46 = load double, ptr %45, align 8, !tbaa !234
+  %47 = load double, ptr %8, align 8, !tbaa !143
+  %48 = load ptr, ptr %5, align 8, !tbaa !231
+  %49 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %48, i32 0, i32 1
+  %50 = load double, ptr %49, align 8, !tbaa !234
+  %51 = fmul double %47, %50
+  %52 = call double @llvm.fmuladd.f64(double %43, double %46, double %51)
+  %53 = load double, ptr %10, align 8, !tbaa !143
+  %54 = fdiv double %52, %53
+  store double %54, ptr %11, align 8, !tbaa !143
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #17
+  %55 = load ptr, ptr %4, align 8, !tbaa !231
+  %56 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %55, i32 0, i32 1
+  %57 = load double, ptr %56, align 8, !tbaa !234
+  %58 = load ptr, ptr %5, align 8, !tbaa !231
+  %59 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %58, i32 0, i32 1
+  %60 = load double, ptr %59, align 8, !tbaa !234
+  %61 = fsub double %57, %60
+  store double %61, ptr %12, align 8, !tbaa !143
+  %62 = load ptr, ptr %4, align 8, !tbaa !231
+  %63 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %62, i32 0, i32 2
+  %64 = load double, ptr %63, align 8, !tbaa !235
+  %65 = load ptr, ptr %5, align 8, !tbaa !231
+  %66 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %65, i32 0, i32 2
+  %67 = load double, ptr %66, align 8, !tbaa !235
+  %68 = fadd double %64, %67
+  %69 = load double, ptr %12, align 8, !tbaa !143
+  %70 = load double, ptr %12, align 8, !tbaa !143
+  %71 = fmul double %69, %70
+  %72 = load double, ptr %9, align 8, !tbaa !143
+  %73 = fmul double %71, %72
+  %74 = load double, ptr %8, align 8, !tbaa !143
+  %75 = fmul double %73, %74
+  %76 = load double, ptr %10, align 8, !tbaa !143
+  %77 = fdiv double %75, %76
+  %78 = fadd double %68, %77
+  %79 = load ptr, ptr %5, align 8, !tbaa !231
+  %80 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %79, i32 0, i32 2
+  store double %78, ptr %80, align 8, !tbaa !235
+  %81 = load double, ptr %11, align 8, !tbaa !143
+  %82 = load ptr, ptr %5, align 8, !tbaa !231
+  %83 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %82, i32 0, i32 1
+  store double %81, ptr %83, align 8, !tbaa !234
+  %84 = load i64, ptr %7, align 8, !tbaa !74
+  %85 = load ptr, ptr %5, align 8, !tbaa !231
+  %86 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %85, i32 0, i32 0
+  store i64 %84, ptr %86, align 8, !tbaa !233
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #17
+  br label %87
+
+87:                                               ; preds = %25, %20
+  br label %88
+
+88:                                               ; preds = %87, %17
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateExecutor8FinalizeINS_10RegrSStateEdNS_16RegrSXXOperationEEEvRNS_6VectorERNS_18AggregateInputDataES5_mm(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(17) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, i64 noundef %3, i64 noundef %4) #0 comdat align 2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca %"struct.duckdb::AggregateFinalizeData", align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca %"struct.duckdb::AggregateFinalizeData", align 8
+  %17 = alloca i64, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !70
+  store ptr %1, ptr %7, align 8, !tbaa !72
+  store ptr %2, ptr %8, align 8, !tbaa !70
+  store i64 %3, ptr %9, align 8, !tbaa !74
+  store i64 %4, ptr %10, align 8, !tbaa !74
+  %18 = load ptr, ptr %6, align 8, !tbaa !70
+  %19 = call noundef zeroext i8 @_ZNK6duckdb6Vector13GetVectorTypeEv(ptr noundef nonnull align 8 dereferenceable(104) %18)
+  %20 = icmp eq i8 %19, 2
+  br i1 %20, label %21, label %32
+
+21:                                               ; preds = %5
+  %22 = load ptr, ptr %8, align 8, !tbaa !70
+  call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %22, i8 noundef zeroext 2)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #17
+  %23 = load ptr, ptr %6, align 8, !tbaa !70
+  %24 = call noundef ptr @_ZN6duckdb14ConstantVector7GetDataIPNS_10RegrSStateEEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %23)
+  store ptr %24, ptr %11, align 8, !tbaa !310
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #17
+  %25 = load ptr, ptr %8, align 8, !tbaa !70
+  %26 = call noundef ptr @_ZN6duckdb14ConstantVector7GetDataIdEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %25)
+  store ptr %26, ptr %12, align 8, !tbaa !123
+  call void @llvm.lifetime.start.p0(i64 24, ptr %13) #17
+  %27 = load ptr, ptr %8, align 8, !tbaa !70
+  %28 = load ptr, ptr %7, align 8, !tbaa !72
+  call void @_ZN6duckdb21AggregateFinalizeDataC2ERNS_6VectorERNS_18AggregateInputDataE(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(104) %27, ptr noundef nonnull align 8 dereferenceable(17) %28)
+  %29 = load ptr, ptr %11, align 8, !tbaa !310
+  %30 = load ptr, ptr %29, align 8, !tbaa !308
+  %31 = load ptr, ptr %12, align 8, !tbaa !123
+  call void @_ZN6duckdb17RegrBaseOperation8FinalizeIdNS_10RegrSStateEEEvRT0_RT_RNS_21AggregateFinalizeDataE(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull align 8 dereferenceable(24) %13)
+  call void @llvm.lifetime.end.p0(i64 24, ptr %13) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #17
+  br label %62
+
+32:                                               ; preds = %5
+  %33 = load ptr, ptr %8, align 8, !tbaa !70
+  call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %33, i8 noundef zeroext 0)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #17
+  %34 = load ptr, ptr %6, align 8, !tbaa !70
+  %35 = call noundef ptr @_ZN6duckdb10FlatVector7GetDataIPNS_10RegrSStateEEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %34)
+  store ptr %35, ptr %14, align 8, !tbaa !310
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #17
+  %36 = load ptr, ptr %8, align 8, !tbaa !70
+  %37 = call noundef ptr @_ZN6duckdb10FlatVector7GetDataIdEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %36)
+  store ptr %37, ptr %15, align 8, !tbaa !123
+  call void @llvm.lifetime.start.p0(i64 24, ptr %16) #17
+  %38 = load ptr, ptr %8, align 8, !tbaa !70
+  %39 = load ptr, ptr %7, align 8, !tbaa !72
+  call void @_ZN6duckdb21AggregateFinalizeDataC2ERNS_6VectorERNS_18AggregateInputDataE(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(104) %38, ptr noundef nonnull align 8 dereferenceable(17) %39)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #17
+  store i64 0, ptr %17, align 8, !tbaa !74
+  br label %40
+
+40:                                               ; preds = %58, %32
+  %41 = load i64, ptr %17, align 8, !tbaa !74
+  %42 = load i64, ptr %9, align 8, !tbaa !74
+  %43 = icmp ult i64 %41, %42
+  br i1 %43, label %45, label %44
+
+44:                                               ; preds = %40
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #17
+  br label %61
+
+45:                                               ; preds = %40
+  %46 = load i64, ptr %17, align 8, !tbaa !74
+  %47 = load i64, ptr %10, align 8, !tbaa !74
+  %48 = add i64 %46, %47
+  %49 = getelementptr inbounds nuw %"struct.duckdb::AggregateFinalizeData", ptr %16, i32 0, i32 2
+  store i64 %48, ptr %49, align 8, !tbaa !161
+  %50 = load ptr, ptr %14, align 8, !tbaa !310
+  %51 = load i64, ptr %17, align 8, !tbaa !74
+  %52 = getelementptr inbounds nuw ptr, ptr %50, i64 %51
+  %53 = load ptr, ptr %52, align 8, !tbaa !308
+  %54 = load ptr, ptr %15, align 8, !tbaa !123
+  %55 = getelementptr inbounds nuw %"struct.duckdb::AggregateFinalizeData", ptr %16, i32 0, i32 2
+  %56 = load i64, ptr %55, align 8, !tbaa !161
+  %57 = getelementptr inbounds nuw double, ptr %54, i64 %56
+  call void @_ZN6duckdb17RegrBaseOperation8FinalizeIdNS_10RegrSStateEEEvRT0_RT_RNS_21AggregateFinalizeDataE(ptr noundef nonnull align 8 dereferenceable(32) %53, ptr noundef nonnull align 8 dereferenceable(8) %57, ptr noundef nonnull align 8 dereferenceable(24) %16)
+  br label %58
+
+58:                                               ; preds = %45
+  %59 = load i64, ptr %17, align 8, !tbaa !74
+  %60 = add i64 %59, 1
+  store i64 %60, ptr %17, align 8, !tbaa !74
+  br label %40, !llvm.loop !315
+
+61:                                               ; preds = %44
+  call void @llvm.lifetime.end.p0(i64 24, ptr %16) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #17
+  br label %62
+
+62:                                               ; preds = %61, %21
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17RegrBaseOperation8FinalizeIdNS_10RegrSStateEEEvRT0_RT_RNS_21AggregateFinalizeDataE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca double, align 8
+  %8 = alloca %"class.std::__cxx11::basic_string", align 8
+  %9 = alloca %"class.std::allocator", align 1
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i1, align 1
+  store ptr %0, ptr %4, align 8, !tbaa !308
+  store ptr %1, ptr %5, align 8, !tbaa !123
+  store ptr %2, ptr %6, align 8, !tbaa !165
+  %13 = load ptr, ptr %4, align 8, !tbaa !308
+  %14 = getelementptr inbounds nuw %"struct.duckdb::RegrSState", ptr %13, i32 0, i32 1
+  %15 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %14, i32 0, i32 0
+  %16 = load i64, ptr %15, align 8, !tbaa !316
+  %17 = icmp eq i64 %16, 0
+  br i1 %17, label %18, label %20
+
+18:                                               ; preds = %3
+  %19 = load ptr, ptr %6, align 8, !tbaa !165
+  call void @_ZN6duckdb21AggregateFinalizeData10ReturnNullEv(ptr noundef nonnull align 8 dereferenceable(24) %19)
+  br label %67
+
+20:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #17
+  %21 = load ptr, ptr %4, align 8, !tbaa !308
+  %22 = getelementptr inbounds nuw %"struct.duckdb::RegrSState", ptr %21, i32 0, i32 1
+  %23 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %22, i32 0, i32 0
+  %24 = load i64, ptr %23, align 8, !tbaa !316
+  %25 = icmp ugt i64 %24, 1
+  br i1 %25, label %26, label %37
+
+26:                                               ; preds = %20
+  %27 = load ptr, ptr %4, align 8, !tbaa !308
+  %28 = getelementptr inbounds nuw %"struct.duckdb::RegrSState", ptr %27, i32 0, i32 1
+  %29 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %28, i32 0, i32 2
+  %30 = load double, ptr %29, align 8, !tbaa !318
+  %31 = load ptr, ptr %4, align 8, !tbaa !308
+  %32 = getelementptr inbounds nuw %"struct.duckdb::RegrSState", ptr %31, i32 0, i32 1
+  %33 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %32, i32 0, i32 0
+  %34 = load i64, ptr %33, align 8, !tbaa !316
+  %35 = uitofp i64 %34 to double
+  %36 = fdiv double %30, %35
+  br label %38
+
+37:                                               ; preds = %20
+  br label %38
+
+38:                                               ; preds = %37, %26
+  %39 = phi double [ %36, %26 ], [ 0.000000e+00, %37 ]
+  store double %39, ptr %7, align 8, !tbaa !143
+  %40 = load double, ptr %7, align 8, !tbaa !143
+  %41 = call noundef zeroext i1 @_ZN6duckdb5Value14DoubleIsFiniteEd(double noundef %40)
+  br i1 %41, label %58, label %42
+
+42:                                               ; preds = %38
+  store i1 true, ptr %12, align 1
+  %43 = call ptr @__cxa_allocate_exception(i64 16) #17
+  call void @llvm.lifetime.start.p0(i64 32, ptr %8) #17
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #17
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #17
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef @.str.4, ptr noundef nonnull align 1 dereferenceable(1) %9)
+          to label %44 unwind label %46
+
+44:                                               ; preds = %42
+  invoke void @_ZN6duckdb19OutOfRangeExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %43, ptr noundef nonnull align 8 dereferenceable(32) %8)
+          to label %45 unwind label %50
+
+45:                                               ; preds = %44
+  store i1 false, ptr %12, align 1
+  invoke void @__cxa_throw(ptr %43, ptr @_ZTIN6duckdb19OutOfRangeExceptionE, ptr @_ZNSt13runtime_errorD2Ev) #20
+          to label %73 unwind label %50
+
+46:                                               ; preds = %42
+  %47 = landingpad { ptr, i32 }
+          cleanup
+  %48 = extractvalue { ptr, i32 } %47, 0
+  store ptr %48, ptr %10, align 8
+  %49 = extractvalue { ptr, i32 } %47, 1
+  store i32 %49, ptr %11, align 4
+  br label %54
+
+50:                                               ; preds = %45, %44
+  %51 = landingpad { ptr, i32 }
+          cleanup
+  %52 = extractvalue { ptr, i32 } %51, 0
+  store ptr %52, ptr %10, align 8
+  %53 = extractvalue { ptr, i32 } %51, 1
+  store i32 %53, ptr %11, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #17
+  br label %54
+
+54:                                               ; preds = %50, %46
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #17
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #17
+  call void @llvm.lifetime.end.p0(i64 32, ptr %8) #17
+  %55 = load i1, ptr %12, align 1
+  br i1 %55, label %56, label %57
+
+56:                                               ; preds = %54
+  call void @__cxa_free_exception(ptr %43) #17
+  br label %57
+
+57:                                               ; preds = %56, %54
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #17
+  br label %68
+
+58:                                               ; preds = %38
+  %59 = load ptr, ptr %4, align 8, !tbaa !308
+  %60 = getelementptr inbounds nuw %"struct.duckdb::RegrSState", ptr %59, i32 0, i32 0
+  %61 = load ptr, ptr %5, align 8, !tbaa !123
+  %62 = load ptr, ptr %6, align 8, !tbaa !165
+  call void @_ZN6duckdb17RegrCountFunction8FinalizeIdmEEvRT0_RT_RNS_21AggregateFinalizeDataE(ptr noundef nonnull align 8 dereferenceable(8) %60, ptr noundef nonnull align 8 dereferenceable(8) %61, ptr noundef nonnull align 8 dereferenceable(24) %62)
+  %63 = load double, ptr %7, align 8, !tbaa !143
+  %64 = load ptr, ptr %5, align 8, !tbaa !123
+  %65 = load double, ptr %64, align 8, !tbaa !143
+  %66 = fmul double %65, %63
+  store double %66, ptr %64, align 8, !tbaa !143
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #17
+  br label %67
+
+67:                                               ; preds = %58, %18
+  ret void
+
+68:                                               ; preds = %57
+  %69 = load ptr, ptr %10, align 8
+  %70 = load i32, ptr %11, align 4
+  %71 = insertvalue { ptr, i32 } poison, ptr %69, 0
+  %72 = insertvalue { ptr, i32 } %71, i32 %70, 1
+  resume { ptr, i32 } %72
+
+73:                                               ; preds = %45
+  unreachable
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateExecutor12BinaryUpdateINS_10RegrSStateEddNS_16RegrSXXOperationEEEvRNS_18AggregateInputDataERNS_6VectorES7_Phm(ptr noundef nonnull align 8 dereferenceable(17) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, ptr noundef %3, i64 noundef %4) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
+  %12 = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !72
+  store ptr %1, ptr %7, align 8, !tbaa !70
+  store ptr %2, ptr %8, align 8, !tbaa !70
+  store ptr %3, ptr %9, align 8, !tbaa !39
+  store i64 %4, ptr %10, align 8, !tbaa !74
+  call void @llvm.lifetime.start.p0(i64 72, ptr %11) #17
+  call void @_ZN6duckdb19UnifiedVectorFormatC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %11)
+  call void @llvm.lifetime.start.p0(i64 72, ptr %12) #17
+  invoke void @_ZN6duckdb19UnifiedVectorFormatC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %12)
+          to label %15 unwind label %34
+
+15:                                               ; preds = %5
+  %16 = load ptr, ptr %7, align 8, !tbaa !70
+  %17 = load i64, ptr %10, align 8, !tbaa !74
+  invoke void @_ZN6duckdb6Vector15ToUnifiedFormatEmRNS_19UnifiedVectorFormatE(ptr noundef nonnull align 8 dereferenceable(104) %16, i64 noundef %17, ptr noundef nonnull align 8 dereferenceable(72) %11)
+          to label %18 unwind label %38
+
+18:                                               ; preds = %15
+  %19 = load ptr, ptr %8, align 8, !tbaa !70
+  %20 = load i64, ptr %10, align 8, !tbaa !74
+  invoke void @_ZN6duckdb6Vector15ToUnifiedFormatEmRNS_19UnifiedVectorFormatE(ptr noundef nonnull align 8 dereferenceable(104) %19, i64 noundef %20, ptr noundef nonnull align 8 dereferenceable(72) %12)
+          to label %21 unwind label %38
+
+21:                                               ; preds = %18
+  %22 = call noundef ptr @_ZN6duckdb19UnifiedVectorFormat7GetDataIdEEPKT_RKS0_(ptr noundef nonnull align 8 dereferenceable(72) %11)
+  %23 = load ptr, ptr %6, align 8, !tbaa !72
+  %24 = call noundef ptr @_ZN6duckdb19UnifiedVectorFormat7GetDataIdEEPKT_RKS0_(ptr noundef nonnull align 8 dereferenceable(72) %12)
+  %25 = load ptr, ptr %9, align 8, !tbaa !39
+  %26 = load i64, ptr %10, align 8, !tbaa !74
+  %27 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %11, i32 0, i32 0
+  %28 = load ptr, ptr %27, align 8, !tbaa !122
+  %29 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %12, i32 0, i32 0
+  %30 = load ptr, ptr %29, align 8, !tbaa !122
+  %31 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %11, i32 0, i32 2
+  %32 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %12, i32 0, i32 2
+  invoke void @_ZN6duckdb17AggregateExecutor16BinaryUpdateLoopINS_10RegrSStateEddNS_16RegrSXXOperationEEEvPKT0_RNS_18AggregateInputDataEPKT1_PT_mRKNS_15SelectionVectorESG_RNS_12ValidityMaskESI_(ptr noundef %22, ptr noundef nonnull align 8 dereferenceable(17) %23, ptr noundef %24, ptr noundef %25, i64 noundef %26, ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(32) %32)
+          to label %33 unwind label %38
+
+33:                                               ; preds = %21
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %12) #17
+  call void @llvm.lifetime.end.p0(i64 72, ptr %12) #17
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %11) #17
+  call void @llvm.lifetime.end.p0(i64 72, ptr %11) #17
+  ret void
+
+34:                                               ; preds = %5
+  %35 = landingpad { ptr, i32 }
+          cleanup
+  %36 = extractvalue { ptr, i32 } %35, 0
+  store ptr %36, ptr %13, align 8
+  %37 = extractvalue { ptr, i32 } %35, 1
+  store i32 %37, ptr %14, align 4
+  br label %42
+
+38:                                               ; preds = %21, %18, %15
+  %39 = landingpad { ptr, i32 }
+          cleanup
+  %40 = extractvalue { ptr, i32 } %39, 0
+  store ptr %40, ptr %13, align 8
+  %41 = extractvalue { ptr, i32 } %39, 1
+  store i32 %41, ptr %14, align 4
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %12) #17
+  br label %42
+
+42:                                               ; preds = %38, %34
+  call void @llvm.lifetime.end.p0(i64 72, ptr %12) #17
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %11) #17
+  call void @llvm.lifetime.end.p0(i64 72, ptr %11) #17
+  br label %43
+
+43:                                               ; preds = %42
+  %44 = load ptr, ptr %13, align 8
+  %45 = load i32, ptr %14, align 4
+  %46 = insertvalue { ptr, i32 } poison, ptr %44, 0
+  %47 = insertvalue { ptr, i32 } %46, i32 %45, 1
+  resume { ptr, i32 } %47
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateExecutor16BinaryUpdateLoopINS_10RegrSStateEddNS_16RegrSXXOperationEEEvPKT0_RNS_18AggregateInputDataEPKT1_PT_mRKNS_15SelectionVectorESG_RNS_12ValidityMaskESI_(ptr noalias noundef %0, ptr noundef nonnull align 8 dereferenceable(17) %1, ptr noalias noundef %2, ptr noalias noundef %3, i64 noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %8) #12 comdat align 2 {
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i64, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca ptr, align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca %"struct.duckdb::AggregateBinaryInput", align 8
+  %20 = alloca i64, align 8
+  %21 = alloca i64, align 8
+  store ptr %0, ptr %10, align 8, !tbaa !123
+  store ptr %1, ptr %11, align 8, !tbaa !72
+  store ptr %2, ptr %12, align 8, !tbaa !123
+  store ptr %3, ptr %13, align 8, !tbaa !308
+  store i64 %4, ptr %14, align 8, !tbaa !74
+  store ptr %5, ptr %15, align 8, !tbaa !127
+  store ptr %6, ptr %16, align 8, !tbaa !127
+  store ptr %7, ptr %17, align 8, !tbaa !128
+  store ptr %8, ptr %18, align 8, !tbaa !128
+  call void @llvm.lifetime.start.p0(i64 40, ptr %19) #17
+  %22 = load ptr, ptr %11, align 8, !tbaa !72
+  %23 = load ptr, ptr %17, align 8, !tbaa !128
+  %24 = load ptr, ptr %18, align 8, !tbaa !128
+  call void @_ZN6duckdb20AggregateBinaryInputC2ERNS_18AggregateInputDataERNS_12ValidityMaskES4_(ptr noundef nonnull align 8 dereferenceable(40) %19, ptr noundef nonnull align 8 dereferenceable(17) %22, ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %24)
+  %25 = call noundef zeroext i1 @_ZN6duckdb17RegrBaseOperation10IgnoreNullEv()
+  br i1 %25, label %26, label %71
+
+26:                                               ; preds = %9
+  %27 = load ptr, ptr %17, align 8, !tbaa !128
+  %28 = call noundef zeroext i1 @_ZNK6duckdb21TemplatedValidityMaskImE8AllValidEv(ptr noundef nonnull align 8 dereferenceable(32) %27)
+  br i1 %28, label %29, label %32
+
+29:                                               ; preds = %26
+  %30 = load ptr, ptr %18, align 8, !tbaa !128
+  %31 = call noundef zeroext i1 @_ZNK6duckdb21TemplatedValidityMaskImE8AllValidEv(ptr noundef nonnull align 8 dereferenceable(32) %30)
+  br i1 %31, label %71, label %32
+
+32:                                               ; preds = %29, %26
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #17
+  store i64 0, ptr %20, align 8, !tbaa !74
+  br label %33
+
+33:                                               ; preds = %67, %32
+  %34 = load i64, ptr %20, align 8, !tbaa !74
+  %35 = load i64, ptr %14, align 8, !tbaa !74
+  %36 = icmp ult i64 %34, %35
+  br i1 %36, label %38, label %37
+
+37:                                               ; preds = %33
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #17
+  br label %70
+
+38:                                               ; preds = %33
+  %39 = load ptr, ptr %15, align 8, !tbaa !127
+  %40 = load i64, ptr %20, align 8, !tbaa !74
+  %41 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %39, i64 noundef %40)
+  %42 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 3
+  store i64 %41, ptr %42, align 8, !tbaa !130
+  %43 = load ptr, ptr %16, align 8, !tbaa !127
+  %44 = load i64, ptr %20, align 8, !tbaa !74
+  %45 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %43, i64 noundef %44)
+  %46 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 4
+  store i64 %45, ptr %46, align 8, !tbaa !132
+  %47 = load ptr, ptr %17, align 8, !tbaa !128
+  %48 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 3
+  %49 = load i64, ptr %48, align 8, !tbaa !130
+  %50 = call noundef zeroext i1 @_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm(ptr noundef nonnull align 8 dereferenceable(32) %47, i64 noundef %49)
+  br i1 %50, label %51, label %66
+
+51:                                               ; preds = %38
+  %52 = load ptr, ptr %18, align 8, !tbaa !128
+  %53 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 4
+  %54 = load i64, ptr %53, align 8, !tbaa !132
+  %55 = call noundef zeroext i1 @_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm(ptr noundef nonnull align 8 dereferenceable(32) %52, i64 noundef %54)
+  br i1 %55, label %56, label %66
+
+56:                                               ; preds = %51
+  %57 = load ptr, ptr %13, align 8, !tbaa !308
+  %58 = load ptr, ptr %10, align 8, !tbaa !123
+  %59 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 3
+  %60 = load i64, ptr %59, align 8, !tbaa !130
+  %61 = getelementptr inbounds nuw double, ptr %58, i64 %60
+  %62 = load ptr, ptr %12, align 8, !tbaa !123
+  %63 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 4
+  %64 = load i64, ptr %63, align 8, !tbaa !132
+  %65 = getelementptr inbounds nuw double, ptr %62, i64 %64
+  call void @_ZN6duckdb16RegrSXXOperation9OperationIddNS_10RegrSStateES0_EEvRT1_RKT_RKT0_RNS_20AggregateBinaryInputE(ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull align 8 dereferenceable(8) %61, ptr noundef nonnull align 8 dereferenceable(8) %65, ptr noundef nonnull align 8 dereferenceable(40) %19)
+  br label %66
+
+66:                                               ; preds = %56, %51, %38
+  br label %67
+
+67:                                               ; preds = %66
+  %68 = load i64, ptr %20, align 8, !tbaa !74
+  %69 = add i64 %68, 1
+  store i64 %69, ptr %20, align 8, !tbaa !74
+  br label %33, !llvm.loop !319
+
+70:                                               ; preds = %37
+  br label %99
+
+71:                                               ; preds = %29, %9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #17
+  store i64 0, ptr %21, align 8, !tbaa !74
+  br label %72
+
+72:                                               ; preds = %95, %71
+  %73 = load i64, ptr %21, align 8, !tbaa !74
+  %74 = load i64, ptr %14, align 8, !tbaa !74
+  %75 = icmp ult i64 %73, %74
+  br i1 %75, label %77, label %76
+
+76:                                               ; preds = %72
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #17
+  br label %98
+
+77:                                               ; preds = %72
+  %78 = load ptr, ptr %15, align 8, !tbaa !127
+  %79 = load i64, ptr %21, align 8, !tbaa !74
+  %80 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %78, i64 noundef %79)
+  %81 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 3
+  store i64 %80, ptr %81, align 8, !tbaa !130
+  %82 = load ptr, ptr %16, align 8, !tbaa !127
+  %83 = load i64, ptr %21, align 8, !tbaa !74
+  %84 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %82, i64 noundef %83)
+  %85 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 4
+  store i64 %84, ptr %85, align 8, !tbaa !132
+  %86 = load ptr, ptr %13, align 8, !tbaa !308
+  %87 = load ptr, ptr %10, align 8, !tbaa !123
+  %88 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 3
+  %89 = load i64, ptr %88, align 8, !tbaa !130
+  %90 = getelementptr inbounds nuw double, ptr %87, i64 %89
+  %91 = load ptr, ptr %12, align 8, !tbaa !123
+  %92 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 4
+  %93 = load i64, ptr %92, align 8, !tbaa !132
+  %94 = getelementptr inbounds nuw double, ptr %91, i64 %93
+  call void @_ZN6duckdb16RegrSXXOperation9OperationIddNS_10RegrSStateES0_EEvRT1_RKT_RKT0_RNS_20AggregateBinaryInputE(ptr noundef nonnull align 8 dereferenceable(32) %86, ptr noundef nonnull align 8 dereferenceable(8) %90, ptr noundef nonnull align 8 dereferenceable(8) %94, ptr noundef nonnull align 8 dereferenceable(40) %19)
+  br label %95
+
+95:                                               ; preds = %77
+  %96 = load i64, ptr %21, align 8, !tbaa !74
+  %97 = add i64 %96, 1
+  store i64 %97, ptr %21, align 8, !tbaa !74
+  br label %72, !llvm.loop !320
+
+98:                                               ; preds = %76
+  br label %99
+
+99:                                               ; preds = %98, %70
+  call void @llvm.lifetime.end.p0(i64 40, ptr %19) #17
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateFunction15StateInitializeINS_10RegrSStateENS_16RegrSYYOperationELNS_23AggregateDestructorTypeE0EEEvRKS0_Ph(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef %1) #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !40
+  store ptr %1, ptr %4, align 8, !tbaa !39
+  %5 = load ptr, ptr %4, align 8, !tbaa !39
+  call void @_ZN6duckdb17RegrBaseOperation10InitializeINS_10RegrSStateEEEvRT_(ptr noundef nonnull align 8 dereferenceable(32) %5)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateFunction19BinaryScatterUpdateINS_10RegrSStateEddNS_16RegrSYYOperationEEEvPNS_6VectorERNS_18AggregateInputDataEmRS4_m(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(17) %1, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(104) %3, i64 noundef %4) #0 comdat align 2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !70
+  store ptr %1, ptr %7, align 8, !tbaa !72
+  store i64 %2, ptr %8, align 8, !tbaa !74
+  store ptr %3, ptr %9, align 8, !tbaa !70
+  store i64 %4, ptr %10, align 8, !tbaa !74
+  %11 = load ptr, ptr %7, align 8, !tbaa !72
+  %12 = load ptr, ptr %6, align 8, !tbaa !70
+  %13 = getelementptr inbounds %"class.duckdb::Vector", ptr %12, i64 0
+  %14 = load ptr, ptr %6, align 8, !tbaa !70
+  %15 = getelementptr inbounds %"class.duckdb::Vector", ptr %14, i64 1
+  %16 = load ptr, ptr %9, align 8, !tbaa !70
+  %17 = load i64, ptr %10, align 8, !tbaa !74
+  call void @_ZN6duckdb17AggregateExecutor13BinaryScatterINS_10RegrSStateEddNS_16RegrSYYOperationEEEvRNS_18AggregateInputDataERNS_6VectorES7_S7_m(ptr noundef nonnull align 8 dereferenceable(17) %11, ptr noundef nonnull align 8 dereferenceable(104) %13, ptr noundef nonnull align 8 dereferenceable(104) %15, ptr noundef nonnull align 8 dereferenceable(104) %16, i64 noundef %17)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateFunction12StateCombineINS_10RegrSStateENS_16RegrSYYOperationEEEvRNS_6VectorES5_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(17) %2, i64 noundef %3) #0 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !70
+  store ptr %1, ptr %6, align 8, !tbaa !70
+  store ptr %2, ptr %7, align 8, !tbaa !72
+  store i64 %3, ptr %8, align 8, !tbaa !74
+  %9 = load ptr, ptr %5, align 8, !tbaa !70
+  %10 = load ptr, ptr %6, align 8, !tbaa !70
+  %11 = load ptr, ptr %7, align 8, !tbaa !72
+  %12 = load i64, ptr %8, align 8, !tbaa !74
+  call void @_ZN6duckdb17AggregateExecutor7CombineINS_10RegrSStateENS_16RegrSYYOperationEEEvRNS_6VectorES5_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %9, ptr noundef nonnull align 8 dereferenceable(104) %10, ptr noundef nonnull align 8 dereferenceable(17) %11, i64 noundef %12)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateFunction13StateFinalizeINS_10RegrSStateEdNS_16RegrSYYOperationEEEvRNS_6VectorERNS_18AggregateInputDataES5_mm(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(17) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, i64 noundef %3, i64 noundef %4) #0 comdat align 2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !70
+  store ptr %1, ptr %7, align 8, !tbaa !72
+  store ptr %2, ptr %8, align 8, !tbaa !70
+  store i64 %3, ptr %9, align 8, !tbaa !74
+  store i64 %4, ptr %10, align 8, !tbaa !74
+  %11 = load ptr, ptr %6, align 8, !tbaa !70
+  %12 = load ptr, ptr %7, align 8, !tbaa !72
+  %13 = load ptr, ptr %8, align 8, !tbaa !70
+  %14 = load i64, ptr %9, align 8, !tbaa !74
+  %15 = load i64, ptr %10, align 8, !tbaa !74
+  call void @_ZN6duckdb17AggregateExecutor8FinalizeINS_10RegrSStateEdNS_16RegrSYYOperationEEEvRNS_6VectorERNS_18AggregateInputDataES5_mm(ptr noundef nonnull align 8 dereferenceable(104) %11, ptr noundef nonnull align 8 dereferenceable(17) %12, ptr noundef nonnull align 8 dereferenceable(104) %13, i64 noundef %14, i64 noundef %15)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateFunction12BinaryUpdateINS_10RegrSStateEddNS_16RegrSYYOperationEEEvPNS_6VectorERNS_18AggregateInputDataEmPhm(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(17) %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) #0 comdat align 2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !70
+  store ptr %1, ptr %7, align 8, !tbaa !72
+  store i64 %2, ptr %8, align 8, !tbaa !74
+  store ptr %3, ptr %9, align 8, !tbaa !39
+  store i64 %4, ptr %10, align 8, !tbaa !74
+  %11 = load ptr, ptr %7, align 8, !tbaa !72
+  %12 = load ptr, ptr %6, align 8, !tbaa !70
+  %13 = getelementptr inbounds %"class.duckdb::Vector", ptr %12, i64 0
+  %14 = load ptr, ptr %6, align 8, !tbaa !70
+  %15 = getelementptr inbounds %"class.duckdb::Vector", ptr %14, i64 1
+  %16 = load ptr, ptr %9, align 8, !tbaa !39
+  %17 = load i64, ptr %10, align 8, !tbaa !74
+  call void @_ZN6duckdb17AggregateExecutor12BinaryUpdateINS_10RegrSStateEddNS_16RegrSYYOperationEEEvRNS_18AggregateInputDataERNS_6VectorES7_Phm(ptr noundef nonnull align 8 dereferenceable(17) %11, ptr noundef nonnull align 8 dereferenceable(104) %13, ptr noundef nonnull align 8 dereferenceable(104) %15, ptr noundef %16, i64 noundef %17)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateExecutor13BinaryScatterINS_10RegrSStateEddNS_16RegrSYYOperationEEEvRNS_18AggregateInputDataERNS_6VectorES7_S7_m(ptr noundef nonnull align 8 dereferenceable(17) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, ptr noundef nonnull align 8 dereferenceable(104) %3, i64 noundef %4) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
+  %12 = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
+  store ptr %0, ptr %6, align 8, !tbaa !72
+  store ptr %1, ptr %7, align 8, !tbaa !70
+  store ptr %2, ptr %8, align 8, !tbaa !70
+  store ptr %3, ptr %9, align 8, !tbaa !70
+  store i64 %4, ptr %10, align 8, !tbaa !74
+  call void @llvm.lifetime.start.p0(i64 72, ptr %11) #17
+  call void @_ZN6duckdb19UnifiedVectorFormatC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %11)
+  call void @llvm.lifetime.start.p0(i64 72, ptr %12) #17
+  invoke void @_ZN6duckdb19UnifiedVectorFormatC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %12)
+          to label %16 unwind label %42
+
+16:                                               ; preds = %5
+  call void @llvm.lifetime.start.p0(i64 72, ptr %15) #17
+  invoke void @_ZN6duckdb19UnifiedVectorFormatC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %15)
+          to label %17 unwind label %46
+
+17:                                               ; preds = %16
+  %18 = load ptr, ptr %7, align 8, !tbaa !70
+  %19 = load i64, ptr %10, align 8, !tbaa !74
+  invoke void @_ZN6duckdb6Vector15ToUnifiedFormatEmRNS_19UnifiedVectorFormatE(ptr noundef nonnull align 8 dereferenceable(104) %18, i64 noundef %19, ptr noundef nonnull align 8 dereferenceable(72) %11)
+          to label %20 unwind label %50
+
+20:                                               ; preds = %17
+  %21 = load ptr, ptr %8, align 8, !tbaa !70
+  %22 = load i64, ptr %10, align 8, !tbaa !74
+  invoke void @_ZN6duckdb6Vector15ToUnifiedFormatEmRNS_19UnifiedVectorFormatE(ptr noundef nonnull align 8 dereferenceable(104) %21, i64 noundef %22, ptr noundef nonnull align 8 dereferenceable(72) %12)
+          to label %23 unwind label %50
+
+23:                                               ; preds = %20
+  %24 = load ptr, ptr %9, align 8, !tbaa !70
+  %25 = load i64, ptr %10, align 8, !tbaa !74
+  invoke void @_ZN6duckdb6Vector15ToUnifiedFormatEmRNS_19UnifiedVectorFormatE(ptr noundef nonnull align 8 dereferenceable(104) %24, i64 noundef %25, ptr noundef nonnull align 8 dereferenceable(72) %15)
+          to label %26 unwind label %50
+
+26:                                               ; preds = %23
+  %27 = call noundef ptr @_ZN6duckdb19UnifiedVectorFormat7GetDataIdEEPKT_RKS0_(ptr noundef nonnull align 8 dereferenceable(72) %11)
+  %28 = load ptr, ptr %6, align 8, !tbaa !72
+  %29 = call noundef ptr @_ZN6duckdb19UnifiedVectorFormat7GetDataIdEEPKT_RKS0_(ptr noundef nonnull align 8 dereferenceable(72) %12)
+  %30 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %15, i32 0, i32 1
+  %31 = load ptr, ptr %30, align 8, !tbaa !108
+  %32 = load i64, ptr %10, align 8, !tbaa !74
+  %33 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %11, i32 0, i32 0
+  %34 = load ptr, ptr %33, align 8, !tbaa !122
+  %35 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %12, i32 0, i32 0
+  %36 = load ptr, ptr %35, align 8, !tbaa !122
+  %37 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %15, i32 0, i32 0
+  %38 = load ptr, ptr %37, align 8, !tbaa !122
+  %39 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %11, i32 0, i32 2
+  %40 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %12, i32 0, i32 2
+  invoke void @_ZN6duckdb17AggregateExecutor17BinaryScatterLoopINS_10RegrSStateEddNS_16RegrSYYOperationEEEvPKT0_RNS_18AggregateInputDataEPKT1_PPT_mRKNS_15SelectionVectorESH_SH_RNS_12ValidityMaskESJ_(ptr noundef %27, ptr noundef nonnull align 8 dereferenceable(17) %28, ptr noundef %29, ptr noundef %31, i64 noundef %32, ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef nonnull align 8 dereferenceable(24) %36, ptr noundef nonnull align 8 dereferenceable(24) %38, ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef nonnull align 8 dereferenceable(32) %40)
+          to label %41 unwind label %50
+
+41:                                               ; preds = %26
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %15) #17
+  call void @llvm.lifetime.end.p0(i64 72, ptr %15) #17
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %12) #17
+  call void @llvm.lifetime.end.p0(i64 72, ptr %12) #17
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %11) #17
+  call void @llvm.lifetime.end.p0(i64 72, ptr %11) #17
+  ret void
+
+42:                                               ; preds = %5
+  %43 = landingpad { ptr, i32 }
+          cleanup
+  %44 = extractvalue { ptr, i32 } %43, 0
+  store ptr %44, ptr %13, align 8
+  %45 = extractvalue { ptr, i32 } %43, 1
+  store i32 %45, ptr %14, align 4
+  br label %55
+
+46:                                               ; preds = %16
+  %47 = landingpad { ptr, i32 }
+          cleanup
+  %48 = extractvalue { ptr, i32 } %47, 0
+  store ptr %48, ptr %13, align 8
+  %49 = extractvalue { ptr, i32 } %47, 1
+  store i32 %49, ptr %14, align 4
+  br label %54
+
+50:                                               ; preds = %26, %23, %20, %17
+  %51 = landingpad { ptr, i32 }
+          cleanup
+  %52 = extractvalue { ptr, i32 } %51, 0
+  store ptr %52, ptr %13, align 8
+  %53 = extractvalue { ptr, i32 } %51, 1
+  store i32 %53, ptr %14, align 4
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %15) #17
+  br label %54
+
+54:                                               ; preds = %50, %46
+  call void @llvm.lifetime.end.p0(i64 72, ptr %15) #17
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %12) #17
+  br label %55
+
+55:                                               ; preds = %54, %42
+  call void @llvm.lifetime.end.p0(i64 72, ptr %12) #17
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %11) #17
+  call void @llvm.lifetime.end.p0(i64 72, ptr %11) #17
+  br label %56
+
+56:                                               ; preds = %55
+  %57 = load ptr, ptr %13, align 8
+  %58 = load i32, ptr %14, align 4
+  %59 = insertvalue { ptr, i32 } poison, ptr %57, 0
+  %60 = insertvalue { ptr, i32 } %59, i32 %58, 1
+  resume { ptr, i32 } %60
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateExecutor17BinaryScatterLoopINS_10RegrSStateEddNS_16RegrSYYOperationEEEvPKT0_RNS_18AggregateInputDataEPKT1_PPT_mRKNS_15SelectionVectorESH_SH_RNS_12ValidityMaskESJ_(ptr noalias noundef %0, ptr noundef nonnull align 8 dereferenceable(17) %1, ptr noalias noundef %2, ptr noalias noundef %3, i64 noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9) #12 comdat align 2 {
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca i64, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca ptr, align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca ptr, align 8
+  %20 = alloca ptr, align 8
+  %21 = alloca %"struct.duckdb::AggregateBinaryInput", align 8
+  %22 = alloca i64, align 8
+  %23 = alloca i64, align 8
+  %24 = alloca i64, align 8
+  %25 = alloca i64, align 8
+  store ptr %0, ptr %11, align 8, !tbaa !123
+  store ptr %1, ptr %12, align 8, !tbaa !72
+  store ptr %2, ptr %13, align 8, !tbaa !123
+  store ptr %3, ptr %14, align 8, !tbaa !310
+  store i64 %4, ptr %15, align 8, !tbaa !74
+  store ptr %5, ptr %16, align 8, !tbaa !127
+  store ptr %6, ptr %17, align 8, !tbaa !127
+  store ptr %7, ptr %18, align 8, !tbaa !127
+  store ptr %8, ptr %19, align 8, !tbaa !128
+  store ptr %9, ptr %20, align 8, !tbaa !128
+  call void @llvm.lifetime.start.p0(i64 40, ptr %21) #17
+  %26 = load ptr, ptr %12, align 8, !tbaa !72
+  %27 = load ptr, ptr %19, align 8, !tbaa !128
+  %28 = load ptr, ptr %20, align 8, !tbaa !128
+  call void @_ZN6duckdb20AggregateBinaryInputC2ERNS_18AggregateInputDataERNS_12ValidityMaskES4_(ptr noundef nonnull align 8 dereferenceable(40) %21, ptr noundef nonnull align 8 dereferenceable(17) %26, ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %28)
+  %29 = call noundef zeroext i1 @_ZN6duckdb17RegrBaseOperation10IgnoreNullEv()
+  br i1 %29, label %30, label %81
+
+30:                                               ; preds = %10
+  %31 = load ptr, ptr %19, align 8, !tbaa !128
+  %32 = call noundef zeroext i1 @_ZNK6duckdb21TemplatedValidityMaskImE8AllValidEv(ptr noundef nonnull align 8 dereferenceable(32) %31)
+  br i1 %32, label %33, label %36
+
+33:                                               ; preds = %30
+  %34 = load ptr, ptr %20, align 8, !tbaa !128
+  %35 = call noundef zeroext i1 @_ZNK6duckdb21TemplatedValidityMaskImE8AllValidEv(ptr noundef nonnull align 8 dereferenceable(32) %34)
+  br i1 %35, label %81, label %36
+
+36:                                               ; preds = %33, %30
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #17
+  store i64 0, ptr %22, align 8, !tbaa !74
+  br label %37
+
+37:                                               ; preds = %77, %36
+  %38 = load i64, ptr %22, align 8, !tbaa !74
+  %39 = load i64, ptr %15, align 8, !tbaa !74
+  %40 = icmp ult i64 %38, %39
+  br i1 %40, label %42, label %41
+
+41:                                               ; preds = %37
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #17
+  br label %80
+
+42:                                               ; preds = %37
+  %43 = load ptr, ptr %16, align 8, !tbaa !127
+  %44 = load i64, ptr %22, align 8, !tbaa !74
+  %45 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %43, i64 noundef %44)
+  %46 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 3
+  store i64 %45, ptr %46, align 8, !tbaa !130
+  %47 = load ptr, ptr %17, align 8, !tbaa !127
+  %48 = load i64, ptr %22, align 8, !tbaa !74
+  %49 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %47, i64 noundef %48)
+  %50 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 4
+  store i64 %49, ptr %50, align 8, !tbaa !132
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #17
+  %51 = load ptr, ptr %18, align 8, !tbaa !127
+  %52 = load i64, ptr %22, align 8, !tbaa !74
+  %53 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %51, i64 noundef %52)
+  store i64 %53, ptr %23, align 8, !tbaa !74
+  %54 = load ptr, ptr %19, align 8, !tbaa !128
+  %55 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 3
+  %56 = load i64, ptr %55, align 8, !tbaa !130
+  %57 = call noundef zeroext i1 @_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm(ptr noundef nonnull align 8 dereferenceable(32) %54, i64 noundef %56)
+  br i1 %57, label %58, label %76
+
+58:                                               ; preds = %42
+  %59 = load ptr, ptr %20, align 8, !tbaa !128
+  %60 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 4
+  %61 = load i64, ptr %60, align 8, !tbaa !132
+  %62 = call noundef zeroext i1 @_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm(ptr noundef nonnull align 8 dereferenceable(32) %59, i64 noundef %61)
+  br i1 %62, label %63, label %76
+
+63:                                               ; preds = %58
+  %64 = load ptr, ptr %14, align 8, !tbaa !310
+  %65 = load i64, ptr %23, align 8, !tbaa !74
+  %66 = getelementptr inbounds nuw ptr, ptr %64, i64 %65
+  %67 = load ptr, ptr %66, align 8, !tbaa !308
+  %68 = load ptr, ptr %11, align 8, !tbaa !123
+  %69 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 3
+  %70 = load i64, ptr %69, align 8, !tbaa !130
+  %71 = getelementptr inbounds nuw double, ptr %68, i64 %70
+  %72 = load ptr, ptr %13, align 8, !tbaa !123
+  %73 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 4
+  %74 = load i64, ptr %73, align 8, !tbaa !132
+  %75 = getelementptr inbounds nuw double, ptr %72, i64 %74
+  call void @_ZN6duckdb16RegrSYYOperation9OperationIddNS_10RegrSStateES0_EEvRT1_RKT_RKT0_RNS_20AggregateBinaryInputE(ptr noundef nonnull align 8 dereferenceable(32) %67, ptr noundef nonnull align 8 dereferenceable(8) %71, ptr noundef nonnull align 8 dereferenceable(8) %75, ptr noundef nonnull align 8 dereferenceable(40) %21)
+  br label %76
+
+76:                                               ; preds = %63, %58, %42
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #17
+  br label %77
+
+77:                                               ; preds = %76
+  %78 = load i64, ptr %22, align 8, !tbaa !74
+  %79 = add i64 %78, 1
+  store i64 %79, ptr %22, align 8, !tbaa !74
+  br label %37, !llvm.loop !321
+
+80:                                               ; preds = %41
+  br label %115
+
+81:                                               ; preds = %33, %10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #17
+  store i64 0, ptr %24, align 8, !tbaa !74
+  br label %82
+
+82:                                               ; preds = %111, %81
+  %83 = load i64, ptr %24, align 8, !tbaa !74
+  %84 = load i64, ptr %15, align 8, !tbaa !74
+  %85 = icmp ult i64 %83, %84
+  br i1 %85, label %87, label %86
+
+86:                                               ; preds = %82
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #17
+  br label %114
+
+87:                                               ; preds = %82
+  %88 = load ptr, ptr %16, align 8, !tbaa !127
+  %89 = load i64, ptr %24, align 8, !tbaa !74
+  %90 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %88, i64 noundef %89)
+  %91 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 3
+  store i64 %90, ptr %91, align 8, !tbaa !130
+  %92 = load ptr, ptr %17, align 8, !tbaa !127
+  %93 = load i64, ptr %24, align 8, !tbaa !74
+  %94 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %92, i64 noundef %93)
+  %95 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 4
+  store i64 %94, ptr %95, align 8, !tbaa !132
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #17
+  %96 = load ptr, ptr %18, align 8, !tbaa !127
+  %97 = load i64, ptr %24, align 8, !tbaa !74
+  %98 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %96, i64 noundef %97)
+  store i64 %98, ptr %25, align 8, !tbaa !74
+  %99 = load ptr, ptr %14, align 8, !tbaa !310
+  %100 = load i64, ptr %25, align 8, !tbaa !74
+  %101 = getelementptr inbounds nuw ptr, ptr %99, i64 %100
+  %102 = load ptr, ptr %101, align 8, !tbaa !308
+  %103 = load ptr, ptr %11, align 8, !tbaa !123
+  %104 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 3
+  %105 = load i64, ptr %104, align 8, !tbaa !130
+  %106 = getelementptr inbounds nuw double, ptr %103, i64 %105
+  %107 = load ptr, ptr %13, align 8, !tbaa !123
+  %108 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %21, i32 0, i32 4
+  %109 = load i64, ptr %108, align 8, !tbaa !132
+  %110 = getelementptr inbounds nuw double, ptr %107, i64 %109
+  call void @_ZN6duckdb16RegrSYYOperation9OperationIddNS_10RegrSStateES0_EEvRT1_RKT_RKT0_RNS_20AggregateBinaryInputE(ptr noundef nonnull align 8 dereferenceable(32) %102, ptr noundef nonnull align 8 dereferenceable(8) %106, ptr noundef nonnull align 8 dereferenceable(8) %110, ptr noundef nonnull align 8 dereferenceable(40) %21)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #17
+  br label %111
+
+111:                                              ; preds = %87
+  %112 = load i64, ptr %24, align 8, !tbaa !74
+  %113 = add i64 %112, 1
+  store i64 %113, ptr %24, align 8, !tbaa !74
+  br label %82, !llvm.loop !322
+
+114:                                              ; preds = %86
+  br label %115
+
+115:                                              ; preds = %114, %80
+  call void @llvm.lifetime.end.p0(i64 40, ptr %21) #17
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb16RegrSYYOperation9OperationIddNS_10RegrSStateES0_EEvRT1_RKT_RKT0_RNS_20AggregateBinaryInputE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(40) %3) #0 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !308
+  store ptr %1, ptr %6, align 8, !tbaa !123
+  store ptr %2, ptr %7, align 8, !tbaa !123
+  store ptr %3, ptr %8, align 8, !tbaa !137
+  %9 = load ptr, ptr %5, align 8, !tbaa !308
+  %10 = getelementptr inbounds nuw %"struct.duckdb::RegrSState", ptr %9, i32 0, i32 0
+  %11 = load ptr, ptr %6, align 8, !tbaa !123
+  %12 = load ptr, ptr %7, align 8, !tbaa !123
+  %13 = load ptr, ptr %8, align 8, !tbaa !137
+  call void @_ZN6duckdb17RegrCountFunction9OperationIddmNS_16RegrSYYOperationEEEvRT1_RKT_RKT0_RNS_20AggregateBinaryInputE(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(40) %13)
+  %14 = load ptr, ptr %5, align 8, !tbaa !308
+  %15 = getelementptr inbounds nuw %"struct.duckdb::RegrSState", ptr %14, i32 0, i32 1
+  %16 = load ptr, ptr %6, align 8, !tbaa !123
+  call void @_ZN6duckdb19STDDevBaseOperation7ExecuteIdNS_11StddevStateEEEvRT0_RKT_(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(8) %16)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN6duckdb17RegrCountFunction9OperationIddmNS_16RegrSYYOperationEEEvRT1_RKT_RKT0_RNS_20AggregateBinaryInputE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(40) %3) #5 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !93
+  store ptr %1, ptr %6, align 8, !tbaa !123
+  store ptr %2, ptr %7, align 8, !tbaa !123
+  store ptr %3, ptr %8, align 8, !tbaa !137
+  %9 = load ptr, ptr %5, align 8, !tbaa !93
+  %10 = load i64, ptr %9, align 8, !tbaa !74
+  %11 = add i64 %10, 1
+  store i64 %11, ptr %9, align 8, !tbaa !74
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateExecutor7CombineINS_10RegrSStateENS_16RegrSYYOperationEEEvRNS_6VectorES5_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(17) %2, i64 noundef %3) #0 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !70
+  store ptr %1, ptr %6, align 8, !tbaa !70
+  store ptr %2, ptr %7, align 8, !tbaa !72
+  store i64 %3, ptr %8, align 8, !tbaa !74
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #17
+  %12 = load ptr, ptr %5, align 8, !tbaa !70
+  %13 = call noundef ptr @_ZN6duckdb10FlatVector7GetDataIPKNS_10RegrSStateEEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %12)
+  store ptr %13, ptr %9, align 8, !tbaa !310
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #17
+  %14 = load ptr, ptr %6, align 8, !tbaa !70
+  %15 = call noundef ptr @_ZN6duckdb10FlatVector7GetDataIPNS_10RegrSStateEEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %14)
+  store ptr %15, ptr %10, align 8, !tbaa !310
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #17
+  store i64 0, ptr %11, align 8, !tbaa !74
+  br label %16
+
+16:                                               ; preds = %31, %4
+  %17 = load i64, ptr %11, align 8, !tbaa !74
+  %18 = load i64, ptr %8, align 8, !tbaa !74
+  %19 = icmp ult i64 %17, %18
+  br i1 %19, label %21, label %20
+
+20:                                               ; preds = %16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #17
+  br label %34
+
+21:                                               ; preds = %16
+  %22 = load ptr, ptr %9, align 8, !tbaa !310
+  %23 = load i64, ptr %11, align 8, !tbaa !74
+  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %25 = load ptr, ptr %24, align 8, !tbaa !308
+  %26 = load ptr, ptr %10, align 8, !tbaa !310
+  %27 = load i64, ptr %11, align 8, !tbaa !74
+  %28 = getelementptr inbounds nuw ptr, ptr %26, i64 %27
+  %29 = load ptr, ptr %28, align 8, !tbaa !308
+  %30 = load ptr, ptr %7, align 8, !tbaa !72
+  call void @_ZN6duckdb17RegrBaseOperation7CombineINS_10RegrSStateENS_16RegrSYYOperationEEEvRKT_RS4_RNS_18AggregateInputDataE(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(17) %30)
+  br label %31
+
+31:                                               ; preds = %21
+  %32 = load i64, ptr %11, align 8, !tbaa !74
+  %33 = add i64 %32, 1
+  store i64 %33, ptr %11, align 8, !tbaa !74
+  br label %16, !llvm.loop !323
+
+34:                                               ; preds = %20
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #17
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17RegrBaseOperation7CombineINS_10RegrSStateENS_16RegrSYYOperationEEEvRKT_RS4_RNS_18AggregateInputDataE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(17) %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !308
+  store ptr %1, ptr %5, align 8, !tbaa !308
+  store ptr %2, ptr %6, align 8, !tbaa !72
+  %7 = load ptr, ptr %4, align 8, !tbaa !308
+  %8 = getelementptr inbounds nuw %"struct.duckdb::RegrSState", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %5, align 8, !tbaa !308
+  %10 = getelementptr inbounds nuw %"struct.duckdb::RegrSState", ptr %9, i32 0, i32 0
+  %11 = load ptr, ptr %6, align 8, !tbaa !72
+  call void @_ZN6duckdb17RegrCountFunction7CombineImNS_16RegrSYYOperationEEEvRKT_RS3_RNS_18AggregateInputDataE(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(17) %11)
+  %12 = load ptr, ptr %4, align 8, !tbaa !308
+  %13 = getelementptr inbounds nuw %"struct.duckdb::RegrSState", ptr %12, i32 0, i32 1
+  %14 = load ptr, ptr %5, align 8, !tbaa !308
+  %15 = getelementptr inbounds nuw %"struct.duckdb::RegrSState", ptr %14, i32 0, i32 1
+  %16 = load ptr, ptr %6, align 8, !tbaa !72
+  call void @_ZN6duckdb19STDDevBaseOperation7CombineINS_11StddevStateENS_16RegrSYYOperationEEEvRKT_RS4_RNS_18AggregateInputDataE(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(17) %16)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN6duckdb17RegrCountFunction7CombineImNS_16RegrSYYOperationEEEvRKT_RS3_RNS_18AggregateInputDataE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(17) %2) #5 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !93
+  store ptr %1, ptr %5, align 8, !tbaa !93
+  store ptr %2, ptr %6, align 8, !tbaa !72
+  %7 = load ptr, ptr %4, align 8, !tbaa !93
+  %8 = load i64, ptr %7, align 8, !tbaa !74
+  %9 = load ptr, ptr %5, align 8, !tbaa !93
+  %10 = load i64, ptr %9, align 8, !tbaa !74
+  %11 = add i64 %10, %8
+  store i64 %11, ptr %9, align 8, !tbaa !74
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN6duckdb19STDDevBaseOperation7CombineINS_11StddevStateENS_16RegrSYYOperationEEEvRKT_RS4_RNS_18AggregateInputDataE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(17) %2) #5 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca double, align 8
+  %9 = alloca double, align 8
+  %10 = alloca double, align 8
+  %11 = alloca double, align 8
+  %12 = alloca double, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !231
+  store ptr %1, ptr %5, align 8, !tbaa !231
+  store ptr %2, ptr %6, align 8, !tbaa !72
+  %13 = load ptr, ptr %5, align 8, !tbaa !231
+  %14 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %13, i32 0, i32 0
+  %15 = load i64, ptr %14, align 8, !tbaa !233
+  %16 = icmp eq i64 %15, 0
+  br i1 %16, label %17, label %20
+
+17:                                               ; preds = %3
+  %18 = load ptr, ptr %4, align 8, !tbaa !231
+  %19 = load ptr, ptr %5, align 8, !tbaa !231
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %19, ptr align 8 %18, i64 24, i1 false), !tbaa.struct !241
+  br label %88
+
+20:                                               ; preds = %3
+  %21 = load ptr, ptr %4, align 8, !tbaa !231
+  %22 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %21, i32 0, i32 0
+  %23 = load i64, ptr %22, align 8, !tbaa !233
+  %24 = icmp ugt i64 %23, 0
+  br i1 %24, label %25, label %87
+
+25:                                               ; preds = %20
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #17
+  %26 = load ptr, ptr %5, align 8, !tbaa !231
+  %27 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %26, i32 0, i32 0
+  %28 = load i64, ptr %27, align 8, !tbaa !233
+  %29 = load ptr, ptr %4, align 8, !tbaa !231
+  %30 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %29, i32 0, i32 0
+  %31 = load i64, ptr %30, align 8, !tbaa !233
+  %32 = add i64 %28, %31
+  store i64 %32, ptr %7, align 8, !tbaa !74
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #17
+  %33 = load ptr, ptr %5, align 8, !tbaa !231
+  %34 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %33, i32 0, i32 0
+  %35 = load i64, ptr %34, align 8, !tbaa !233
+  %36 = uitofp i64 %35 to double
+  store double %36, ptr %8, align 8, !tbaa !143
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #17
+  %37 = load ptr, ptr %4, align 8, !tbaa !231
+  %38 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %37, i32 0, i32 0
+  %39 = load i64, ptr %38, align 8, !tbaa !233
+  %40 = uitofp i64 %39 to double
+  store double %40, ptr %9, align 8, !tbaa !143
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #17
+  %41 = load i64, ptr %7, align 8, !tbaa !74
+  %42 = uitofp i64 %41 to double
+  store double %42, ptr %10, align 8, !tbaa !143
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #17
+  %43 = load double, ptr %9, align 8, !tbaa !143
+  %44 = load ptr, ptr %4, align 8, !tbaa !231
+  %45 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %44, i32 0, i32 1
+  %46 = load double, ptr %45, align 8, !tbaa !234
+  %47 = load double, ptr %8, align 8, !tbaa !143
+  %48 = load ptr, ptr %5, align 8, !tbaa !231
+  %49 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %48, i32 0, i32 1
+  %50 = load double, ptr %49, align 8, !tbaa !234
+  %51 = fmul double %47, %50
+  %52 = call double @llvm.fmuladd.f64(double %43, double %46, double %51)
+  %53 = load double, ptr %10, align 8, !tbaa !143
+  %54 = fdiv double %52, %53
+  store double %54, ptr %11, align 8, !tbaa !143
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #17
+  %55 = load ptr, ptr %4, align 8, !tbaa !231
+  %56 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %55, i32 0, i32 1
+  %57 = load double, ptr %56, align 8, !tbaa !234
+  %58 = load ptr, ptr %5, align 8, !tbaa !231
+  %59 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %58, i32 0, i32 1
+  %60 = load double, ptr %59, align 8, !tbaa !234
+  %61 = fsub double %57, %60
+  store double %61, ptr %12, align 8, !tbaa !143
+  %62 = load ptr, ptr %4, align 8, !tbaa !231
+  %63 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %62, i32 0, i32 2
+  %64 = load double, ptr %63, align 8, !tbaa !235
+  %65 = load ptr, ptr %5, align 8, !tbaa !231
+  %66 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %65, i32 0, i32 2
+  %67 = load double, ptr %66, align 8, !tbaa !235
+  %68 = fadd double %64, %67
+  %69 = load double, ptr %12, align 8, !tbaa !143
+  %70 = load double, ptr %12, align 8, !tbaa !143
+  %71 = fmul double %69, %70
+  %72 = load double, ptr %9, align 8, !tbaa !143
+  %73 = fmul double %71, %72
+  %74 = load double, ptr %8, align 8, !tbaa !143
+  %75 = fmul double %73, %74
+  %76 = load double, ptr %10, align 8, !tbaa !143
+  %77 = fdiv double %75, %76
+  %78 = fadd double %68, %77
+  %79 = load ptr, ptr %5, align 8, !tbaa !231
+  %80 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %79, i32 0, i32 2
+  store double %78, ptr %80, align 8, !tbaa !235
+  %81 = load double, ptr %11, align 8, !tbaa !143
+  %82 = load ptr, ptr %5, align 8, !tbaa !231
+  %83 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %82, i32 0, i32 1
+  store double %81, ptr %83, align 8, !tbaa !234
+  %84 = load i64, ptr %7, align 8, !tbaa !74
+  %85 = load ptr, ptr %5, align 8, !tbaa !231
+  %86 = getelementptr inbounds nuw %"struct.duckdb::StddevState", ptr %85, i32 0, i32 0
+  store i64 %84, ptr %86, align 8, !tbaa !233
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #17
+  br label %87
+
+87:                                               ; preds = %25, %20
+  br label %88
+
+88:                                               ; preds = %87, %17
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateExecutor8FinalizeINS_10RegrSStateEdNS_16RegrSYYOperationEEEvRNS_6VectorERNS_18AggregateInputDataES5_mm(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(17) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, i64 noundef %3, i64 noundef %4) #0 comdat align 2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca %"struct.duckdb::AggregateFinalizeData", align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca %"struct.duckdb::AggregateFinalizeData", align 8
+  %17 = alloca i64, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !70
+  store ptr %1, ptr %7, align 8, !tbaa !72
+  store ptr %2, ptr %8, align 8, !tbaa !70
+  store i64 %3, ptr %9, align 8, !tbaa !74
+  store i64 %4, ptr %10, align 8, !tbaa !74
+  %18 = load ptr, ptr %6, align 8, !tbaa !70
+  %19 = call noundef zeroext i8 @_ZNK6duckdb6Vector13GetVectorTypeEv(ptr noundef nonnull align 8 dereferenceable(104) %18)
+  %20 = icmp eq i8 %19, 2
+  br i1 %20, label %21, label %32
+
+21:                                               ; preds = %5
+  %22 = load ptr, ptr %8, align 8, !tbaa !70
+  call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %22, i8 noundef zeroext 2)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #17
+  %23 = load ptr, ptr %6, align 8, !tbaa !70
+  %24 = call noundef ptr @_ZN6duckdb14ConstantVector7GetDataIPNS_10RegrSStateEEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %23)
+  store ptr %24, ptr %11, align 8, !tbaa !310
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #17
+  %25 = load ptr, ptr %8, align 8, !tbaa !70
+  %26 = call noundef ptr @_ZN6duckdb14ConstantVector7GetDataIdEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %25)
+  store ptr %26, ptr %12, align 8, !tbaa !123
+  call void @llvm.lifetime.start.p0(i64 24, ptr %13) #17
+  %27 = load ptr, ptr %8, align 8, !tbaa !70
+  %28 = load ptr, ptr %7, align 8, !tbaa !72
+  call void @_ZN6duckdb21AggregateFinalizeDataC2ERNS_6VectorERNS_18AggregateInputDataE(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(104) %27, ptr noundef nonnull align 8 dereferenceable(17) %28)
+  %29 = load ptr, ptr %11, align 8, !tbaa !310
+  %30 = load ptr, ptr %29, align 8, !tbaa !308
+  %31 = load ptr, ptr %12, align 8, !tbaa !123
+  call void @_ZN6duckdb17RegrBaseOperation8FinalizeIdNS_10RegrSStateEEEvRT0_RT_RNS_21AggregateFinalizeDataE(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull align 8 dereferenceable(24) %13)
+  call void @llvm.lifetime.end.p0(i64 24, ptr %13) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #17
+  br label %62
+
+32:                                               ; preds = %5
+  %33 = load ptr, ptr %8, align 8, !tbaa !70
+  call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %33, i8 noundef zeroext 0)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #17
+  %34 = load ptr, ptr %6, align 8, !tbaa !70
+  %35 = call noundef ptr @_ZN6duckdb10FlatVector7GetDataIPNS_10RegrSStateEEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %34)
+  store ptr %35, ptr %14, align 8, !tbaa !310
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #17
+  %36 = load ptr, ptr %8, align 8, !tbaa !70
+  %37 = call noundef ptr @_ZN6duckdb10FlatVector7GetDataIdEEPT_RNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %36)
+  store ptr %37, ptr %15, align 8, !tbaa !123
+  call void @llvm.lifetime.start.p0(i64 24, ptr %16) #17
+  %38 = load ptr, ptr %8, align 8, !tbaa !70
+  %39 = load ptr, ptr %7, align 8, !tbaa !72
+  call void @_ZN6duckdb21AggregateFinalizeDataC2ERNS_6VectorERNS_18AggregateInputDataE(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(104) %38, ptr noundef nonnull align 8 dereferenceable(17) %39)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #17
+  store i64 0, ptr %17, align 8, !tbaa !74
+  br label %40
+
+40:                                               ; preds = %58, %32
+  %41 = load i64, ptr %17, align 8, !tbaa !74
+  %42 = load i64, ptr %9, align 8, !tbaa !74
+  %43 = icmp ult i64 %41, %42
+  br i1 %43, label %45, label %44
+
+44:                                               ; preds = %40
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #17
+  br label %61
+
+45:                                               ; preds = %40
+  %46 = load i64, ptr %17, align 8, !tbaa !74
+  %47 = load i64, ptr %10, align 8, !tbaa !74
+  %48 = add i64 %46, %47
+  %49 = getelementptr inbounds nuw %"struct.duckdb::AggregateFinalizeData", ptr %16, i32 0, i32 2
+  store i64 %48, ptr %49, align 8, !tbaa !161
+  %50 = load ptr, ptr %14, align 8, !tbaa !310
+  %51 = load i64, ptr %17, align 8, !tbaa !74
+  %52 = getelementptr inbounds nuw ptr, ptr %50, i64 %51
+  %53 = load ptr, ptr %52, align 8, !tbaa !308
+  %54 = load ptr, ptr %15, align 8, !tbaa !123
+  %55 = getelementptr inbounds nuw %"struct.duckdb::AggregateFinalizeData", ptr %16, i32 0, i32 2
+  %56 = load i64, ptr %55, align 8, !tbaa !161
+  %57 = getelementptr inbounds nuw double, ptr %54, i64 %56
+  call void @_ZN6duckdb17RegrBaseOperation8FinalizeIdNS_10RegrSStateEEEvRT0_RT_RNS_21AggregateFinalizeDataE(ptr noundef nonnull align 8 dereferenceable(32) %53, ptr noundef nonnull align 8 dereferenceable(8) %57, ptr noundef nonnull align 8 dereferenceable(24) %16)
+  br label %58
+
+58:                                               ; preds = %45
+  %59 = load i64, ptr %17, align 8, !tbaa !74
+  %60 = add i64 %59, 1
+  store i64 %60, ptr %17, align 8, !tbaa !74
+  br label %40, !llvm.loop !324
+
+61:                                               ; preds = %44
+  call void @llvm.lifetime.end.p0(i64 24, ptr %16) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #17
+  br label %62
+
+62:                                               ; preds = %61, %21
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateExecutor12BinaryUpdateINS_10RegrSStateEddNS_16RegrSYYOperationEEEvRNS_18AggregateInputDataERNS_6VectorES7_Phm(ptr noundef nonnull align 8 dereferenceable(17) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, ptr noundef %3, i64 noundef %4) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
+  %12 = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !72
+  store ptr %1, ptr %7, align 8, !tbaa !70
+  store ptr %2, ptr %8, align 8, !tbaa !70
+  store ptr %3, ptr %9, align 8, !tbaa !39
+  store i64 %4, ptr %10, align 8, !tbaa !74
+  call void @llvm.lifetime.start.p0(i64 72, ptr %11) #17
+  call void @_ZN6duckdb19UnifiedVectorFormatC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %11)
+  call void @llvm.lifetime.start.p0(i64 72, ptr %12) #17
+  invoke void @_ZN6duckdb19UnifiedVectorFormatC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %12)
+          to label %15 unwind label %34
+
+15:                                               ; preds = %5
+  %16 = load ptr, ptr %7, align 8, !tbaa !70
+  %17 = load i64, ptr %10, align 8, !tbaa !74
+  invoke void @_ZN6duckdb6Vector15ToUnifiedFormatEmRNS_19UnifiedVectorFormatE(ptr noundef nonnull align 8 dereferenceable(104) %16, i64 noundef %17, ptr noundef nonnull align 8 dereferenceable(72) %11)
+          to label %18 unwind label %38
+
+18:                                               ; preds = %15
+  %19 = load ptr, ptr %8, align 8, !tbaa !70
+  %20 = load i64, ptr %10, align 8, !tbaa !74
+  invoke void @_ZN6duckdb6Vector15ToUnifiedFormatEmRNS_19UnifiedVectorFormatE(ptr noundef nonnull align 8 dereferenceable(104) %19, i64 noundef %20, ptr noundef nonnull align 8 dereferenceable(72) %12)
+          to label %21 unwind label %38
+
+21:                                               ; preds = %18
+  %22 = call noundef ptr @_ZN6duckdb19UnifiedVectorFormat7GetDataIdEEPKT_RKS0_(ptr noundef nonnull align 8 dereferenceable(72) %11)
+  %23 = load ptr, ptr %6, align 8, !tbaa !72
+  %24 = call noundef ptr @_ZN6duckdb19UnifiedVectorFormat7GetDataIdEEPKT_RKS0_(ptr noundef nonnull align 8 dereferenceable(72) %12)
+  %25 = load ptr, ptr %9, align 8, !tbaa !39
+  %26 = load i64, ptr %10, align 8, !tbaa !74
+  %27 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %11, i32 0, i32 0
+  %28 = load ptr, ptr %27, align 8, !tbaa !122
+  %29 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %12, i32 0, i32 0
+  %30 = load ptr, ptr %29, align 8, !tbaa !122
+  %31 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %11, i32 0, i32 2
+  %32 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %12, i32 0, i32 2
+  invoke void @_ZN6duckdb17AggregateExecutor16BinaryUpdateLoopINS_10RegrSStateEddNS_16RegrSYYOperationEEEvPKT0_RNS_18AggregateInputDataEPKT1_PT_mRKNS_15SelectionVectorESG_RNS_12ValidityMaskESI_(ptr noundef %22, ptr noundef nonnull align 8 dereferenceable(17) %23, ptr noundef %24, ptr noundef %25, i64 noundef %26, ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(32) %32)
+          to label %33 unwind label %38
+
+33:                                               ; preds = %21
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %12) #17
+  call void @llvm.lifetime.end.p0(i64 72, ptr %12) #17
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %11) #17
+  call void @llvm.lifetime.end.p0(i64 72, ptr %11) #17
+  ret void
+
+34:                                               ; preds = %5
+  %35 = landingpad { ptr, i32 }
+          cleanup
+  %36 = extractvalue { ptr, i32 } %35, 0
+  store ptr %36, ptr %13, align 8
+  %37 = extractvalue { ptr, i32 } %35, 1
+  store i32 %37, ptr %14, align 4
+  br label %42
+
+38:                                               ; preds = %21, %18, %15
+  %39 = landingpad { ptr, i32 }
+          cleanup
+  %40 = extractvalue { ptr, i32 } %39, 0
+  store ptr %40, ptr %13, align 8
+  %41 = extractvalue { ptr, i32 } %39, 1
+  store i32 %41, ptr %14, align 4
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %12) #17
+  br label %42
+
+42:                                               ; preds = %38, %34
+  call void @llvm.lifetime.end.p0(i64 72, ptr %12) #17
+  call void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %11) #17
+  call void @llvm.lifetime.end.p0(i64 72, ptr %11) #17
+  br label %43
+
+43:                                               ; preds = %42
+  %44 = load ptr, ptr %13, align 8
+  %45 = load i32, ptr %14, align 4
+  %46 = insertvalue { ptr, i32 } poison, ptr %44, 0
+  %47 = insertvalue { ptr, i32 } %46, i32 %45, 1
+  resume { ptr, i32 } %47
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZN6duckdb17AggregateExecutor16BinaryUpdateLoopINS_10RegrSStateEddNS_16RegrSYYOperationEEEvPKT0_RNS_18AggregateInputDataEPKT1_PT_mRKNS_15SelectionVectorESG_RNS_12ValidityMaskESI_(ptr noalias noundef %0, ptr noundef nonnull align 8 dereferenceable(17) %1, ptr noalias noundef %2, ptr noalias noundef %3, i64 noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %8) #12 comdat align 2 {
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i64, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca ptr, align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca %"struct.duckdb::AggregateBinaryInput", align 8
+  %20 = alloca i64, align 8
+  %21 = alloca i64, align 8
+  store ptr %0, ptr %10, align 8, !tbaa !123
+  store ptr %1, ptr %11, align 8, !tbaa !72
+  store ptr %2, ptr %12, align 8, !tbaa !123
+  store ptr %3, ptr %13, align 8, !tbaa !308
+  store i64 %4, ptr %14, align 8, !tbaa !74
+  store ptr %5, ptr %15, align 8, !tbaa !127
+  store ptr %6, ptr %16, align 8, !tbaa !127
+  store ptr %7, ptr %17, align 8, !tbaa !128
+  store ptr %8, ptr %18, align 8, !tbaa !128
+  call void @llvm.lifetime.start.p0(i64 40, ptr %19) #17
+  %22 = load ptr, ptr %11, align 8, !tbaa !72
+  %23 = load ptr, ptr %17, align 8, !tbaa !128
+  %24 = load ptr, ptr %18, align 8, !tbaa !128
+  call void @_ZN6duckdb20AggregateBinaryInputC2ERNS_18AggregateInputDataERNS_12ValidityMaskES4_(ptr noundef nonnull align 8 dereferenceable(40) %19, ptr noundef nonnull align 8 dereferenceable(17) %22, ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %24)
+  %25 = call noundef zeroext i1 @_ZN6duckdb17RegrBaseOperation10IgnoreNullEv()
+  br i1 %25, label %26, label %71
+
+26:                                               ; preds = %9
+  %27 = load ptr, ptr %17, align 8, !tbaa !128
+  %28 = call noundef zeroext i1 @_ZNK6duckdb21TemplatedValidityMaskImE8AllValidEv(ptr noundef nonnull align 8 dereferenceable(32) %27)
+  br i1 %28, label %29, label %32
+
+29:                                               ; preds = %26
+  %30 = load ptr, ptr %18, align 8, !tbaa !128
+  %31 = call noundef zeroext i1 @_ZNK6duckdb21TemplatedValidityMaskImE8AllValidEv(ptr noundef nonnull align 8 dereferenceable(32) %30)
+  br i1 %31, label %71, label %32
+
+32:                                               ; preds = %29, %26
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #17
+  store i64 0, ptr %20, align 8, !tbaa !74
+  br label %33
+
+33:                                               ; preds = %67, %32
+  %34 = load i64, ptr %20, align 8, !tbaa !74
+  %35 = load i64, ptr %14, align 8, !tbaa !74
+  %36 = icmp ult i64 %34, %35
+  br i1 %36, label %38, label %37
+
+37:                                               ; preds = %33
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #17
+  br label %70
+
+38:                                               ; preds = %33
+  %39 = load ptr, ptr %15, align 8, !tbaa !127
+  %40 = load i64, ptr %20, align 8, !tbaa !74
+  %41 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %39, i64 noundef %40)
+  %42 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 3
+  store i64 %41, ptr %42, align 8, !tbaa !130
+  %43 = load ptr, ptr %16, align 8, !tbaa !127
+  %44 = load i64, ptr %20, align 8, !tbaa !74
+  %45 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %43, i64 noundef %44)
+  %46 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 4
+  store i64 %45, ptr %46, align 8, !tbaa !132
+  %47 = load ptr, ptr %17, align 8, !tbaa !128
+  %48 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 3
+  %49 = load i64, ptr %48, align 8, !tbaa !130
+  %50 = call noundef zeroext i1 @_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm(ptr noundef nonnull align 8 dereferenceable(32) %47, i64 noundef %49)
+  br i1 %50, label %51, label %66
+
+51:                                               ; preds = %38
+  %52 = load ptr, ptr %18, align 8, !tbaa !128
+  %53 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 4
+  %54 = load i64, ptr %53, align 8, !tbaa !132
+  %55 = call noundef zeroext i1 @_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm(ptr noundef nonnull align 8 dereferenceable(32) %52, i64 noundef %54)
+  br i1 %55, label %56, label %66
+
+56:                                               ; preds = %51
+  %57 = load ptr, ptr %13, align 8, !tbaa !308
+  %58 = load ptr, ptr %10, align 8, !tbaa !123
+  %59 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 3
+  %60 = load i64, ptr %59, align 8, !tbaa !130
+  %61 = getelementptr inbounds nuw double, ptr %58, i64 %60
+  %62 = load ptr, ptr %12, align 8, !tbaa !123
+  %63 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 4
+  %64 = load i64, ptr %63, align 8, !tbaa !132
+  %65 = getelementptr inbounds nuw double, ptr %62, i64 %64
+  call void @_ZN6duckdb16RegrSYYOperation9OperationIddNS_10RegrSStateES0_EEvRT1_RKT_RKT0_RNS_20AggregateBinaryInputE(ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull align 8 dereferenceable(8) %61, ptr noundef nonnull align 8 dereferenceable(8) %65, ptr noundef nonnull align 8 dereferenceable(40) %19)
+  br label %66
+
+66:                                               ; preds = %56, %51, %38
+  br label %67
+
+67:                                               ; preds = %66
+  %68 = load i64, ptr %20, align 8, !tbaa !74
+  %69 = add i64 %68, 1
+  store i64 %69, ptr %20, align 8, !tbaa !74
+  br label %33, !llvm.loop !325
+
+70:                                               ; preds = %37
+  br label %99
+
+71:                                               ; preds = %29, %9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #17
+  store i64 0, ptr %21, align 8, !tbaa !74
+  br label %72
+
+72:                                               ; preds = %95, %71
+  %73 = load i64, ptr %21, align 8, !tbaa !74
+  %74 = load i64, ptr %14, align 8, !tbaa !74
+  %75 = icmp ult i64 %73, %74
+  br i1 %75, label %77, label %76
+
+76:                                               ; preds = %72
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #17
+  br label %98
+
+77:                                               ; preds = %72
+  %78 = load ptr, ptr %15, align 8, !tbaa !127
+  %79 = load i64, ptr %21, align 8, !tbaa !74
+  %80 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %78, i64 noundef %79)
+  %81 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 3
+  store i64 %80, ptr %81, align 8, !tbaa !130
+  %82 = load ptr, ptr %16, align 8, !tbaa !127
+  %83 = load i64, ptr %21, align 8, !tbaa !74
+  %84 = call noundef i64 @_ZNK6duckdb15SelectionVector9get_indexEm(ptr noundef nonnull align 8 dereferenceable(24) %82, i64 noundef %83)
+  %85 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 4
+  store i64 %84, ptr %85, align 8, !tbaa !132
+  %86 = load ptr, ptr %13, align 8, !tbaa !308
+  %87 = load ptr, ptr %10, align 8, !tbaa !123
+  %88 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 3
+  %89 = load i64, ptr %88, align 8, !tbaa !130
+  %90 = getelementptr inbounds nuw double, ptr %87, i64 %89
+  %91 = load ptr, ptr %12, align 8, !tbaa !123
+  %92 = getelementptr inbounds nuw %"struct.duckdb::AggregateBinaryInput", ptr %19, i32 0, i32 4
+  %93 = load i64, ptr %92, align 8, !tbaa !132
+  %94 = getelementptr inbounds nuw double, ptr %91, i64 %93
+  call void @_ZN6duckdb16RegrSYYOperation9OperationIddNS_10RegrSStateES0_EEvRT1_RKT_RKT0_RNS_20AggregateBinaryInputE(ptr noundef nonnull align 8 dereferenceable(32) %86, ptr noundef nonnull align 8 dereferenceable(8) %90, ptr noundef nonnull align 8 dereferenceable(8) %94, ptr noundef nonnull align 8 dereferenceable(40) %19)
+  br label %95
+
+95:                                               ; preds = %77
+  %96 = load i64, ptr %21, align 8, !tbaa !74
+  %97 = add i64 %96, 1
+  store i64 %97, ptr %21, align 8, !tbaa !74
+  br label %72, !llvm.loop !326
+
+98:                                               ; preds = %76
+  br label %99
+
+99:                                               ; preds = %98, %70
+  call void @llvm.lifetime.end.p0(i64 40, ptr %19) #17
+  ret void
+}
+
+attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { alwaysinline mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #9 = { mustprogress noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { alwaysinline mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #16 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #17 = { nounwind }
+attributes #18 = { builtin nounwind }
+attributes #19 = { noreturn nounwind }
+attributes #20 = { noreturn }
+attributes #21 = { builtin allocsize(0) }
+
+!llvm.module.flags = !{!0, !1, !2}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 8, !"PIC Level", i32 2}
+!2 = !{i32 7, !"uwtable", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTSN6duckdb11LogicalTypeE", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = !{!9, !4, i64 0}
+!9 = !{!"_ZTSSt16initializer_listIN6duckdb11LogicalTypeEE", !4, i64 0, !10, i64 8}
+!10 = !{!"long", !6, i64 0}
+!11 = !{!9, !10, i64 8}
+!12 = !{!13, !34, i64 169}
+!13 = !{!"_ZTSN6duckdb18BaseScalarFunctionE", !14, i64 0, !24, i64 144, !33, i64 168, !34, i64 169, !35, i64 170, !36, i64 171}
+!14 = !{!"_ZTSN6duckdb14SimpleFunctionE", !15, i64 0, !19, i64 72, !19, i64 96, !24, i64 120}
+!15 = !{!"_ZTSN6duckdb8FunctionE", !16, i64 8, !16, i64 40}
+!16 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !17, i64 0, !10, i64 8, !6, i64 16}
+!17 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !18, i64 0}
+!18 = !{!"p1 omnipotent char", !5, i64 0}
+!19 = !{!"_ZTSN6duckdb6vectorINS_11LogicalTypeELb1EEE", !20, i64 0}
+!20 = !{!"_ZTSSt6vectorIN6duckdb11LogicalTypeESaIS1_EE", !21, i64 0}
+!21 = !{!"_ZTSSt12_Vector_baseIN6duckdb11LogicalTypeESaIS1_EE", !22, i64 0}
+!22 = !{!"_ZTSNSt12_Vector_baseIN6duckdb11LogicalTypeESaIS1_EE12_Vector_implE", !23, i64 0}
+!23 = !{!"_ZTSNSt12_Vector_baseIN6duckdb11LogicalTypeESaIS1_EE17_Vector_impl_dataE", !4, i64 0, !4, i64 8, !4, i64 16}
+!24 = !{!"_ZTSN6duckdb11LogicalTypeE", !25, i64 0, !26, i64 1, !27, i64 8}
+!25 = !{!"_ZTSN6duckdb13LogicalTypeIdE", !6, i64 0}
+!26 = !{!"_ZTSN6duckdb12PhysicalTypeE", !6, i64 0}
+!27 = !{!"_ZTSN6duckdb10shared_ptrINS_13ExtraTypeInfoELb1EEE", !28, i64 0}
+!28 = !{!"_ZTSSt10shared_ptrIN6duckdb13ExtraTypeInfoEE", !29, i64 0}
+!29 = !{!"_ZTSSt12__shared_ptrIN6duckdb13ExtraTypeInfoELN9__gnu_cxx12_Lock_policyE2EE", !30, i64 0, !31, i64 8}
+!30 = !{!"p1 _ZTSN6duckdb13ExtraTypeInfoE", !5, i64 0}
+!31 = !{!"_ZTSSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE", !32, i64 0}
+!32 = !{!"p1 _ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !5, i64 0}
+!33 = !{!"_ZTSN6duckdb17FunctionStabilityE", !6, i64 0}
+!34 = !{!"_ZTSN6duckdb20FunctionNullHandlingE", !6, i64 0}
+!35 = !{!"_ZTSN6duckdb14FunctionErrorsE", !6, i64 0}
+!36 = !{!"_ZTSN6duckdb25FunctionCollationHandlingE", !6, i64 0}
+!37 = !{!38, !38, i64 0}
+!38 = !{!"p1 _ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !5, i64 0}
+!39 = !{!18, !18, i64 0}
+!40 = !{!41, !41, i64 0}
+!41 = !{!"p1 _ZTSN6duckdb17AggregateFunctionE", !5, i64 0}
+!42 = !{!43, !43, i64 0}
+!43 = !{!"vtable pointer", !7, i64 0}
+!44 = !{!45, !45, i64 0}
+!45 = !{!"p1 _ZTSN6duckdb10shared_ptrINS_21AggregateFunctionInfoELb1EEE", !5, i64 0}
+!46 = !{!47, !47, i64 0}
+!47 = !{!"p1 _ZTSSt12__shared_ptrIN6duckdb21AggregateFunctionInfoELN9__gnu_cxx12_Lock_policyE2EE", !5, i64 0}
+!48 = !{!49, !49, i64 0}
+!49 = !{!"p1 _ZTSSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE", !5, i64 0}
+!50 = !{!31, !32, i64 0}
+!51 = !{!32, !32, i64 0}
+!52 = !{!53, !53, i64 0}
+!53 = !{!"bool", !6, i64 0}
+!54 = !{!55, !55, i64 0}
+!55 = !{!"int", !6, i64 0}
+!56 = !{!57, !57, i64 0}
+!57 = !{!"long long", !6, i64 0}
+!58 = !{!59, !59, i64 0}
+!59 = !{!"p1 long long", !5, i64 0}
+!60 = !{!61, !55, i64 8}
+!61 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !55, i64 8, !55, i64 12}
+!62 = !{!61, !55, i64 12}
+!63 = !{!64, !64, i64 0}
+!64 = !{!"p1 int", !5, i64 0}
+!65 = !{!6, !6, i64 0}
+!66 = !{!67, !67, i64 0}
+!67 = !{!"p1 _ZTSSaIN6duckdb11LogicalTypeEE", !5, i64 0}
+!68 = !{!69, !69, i64 0}
+!69 = !{!"p1 _ZTSN6duckdb6vectorINS_11LogicalTypeELb1EEE", !5, i64 0}
+!70 = !{!71, !71, i64 0}
+!71 = !{!"p1 _ZTSN6duckdb6VectorE", !5, i64 0}
+!72 = !{!73, !73, i64 0}
+!73 = !{!"p1 _ZTSN6duckdb18AggregateInputDataE", !5, i64 0}
+!74 = !{!10, !10, i64 0}
+!75 = !{!5, !5, i64 0}
+!76 = !{!77, !77, i64 0}
+!77 = !{!"p1 _ZTSSt6vectorIN6duckdb11LogicalTypeESaIS1_EE", !5, i64 0}
+!78 = !{!23, !4, i64 0}
+!79 = !{!23, !4, i64 8}
+!80 = !{!81, !81, i64 0}
+!81 = !{!"p1 _ZTSSt15__new_allocatorIN6duckdb11LogicalTypeEE", !5, i64 0}
+!82 = !{!83, !83, i64 0}
+!83 = !{!"p1 _ZTSSt12_Vector_baseIN6duckdb11LogicalTypeESaIS1_EE", !5, i64 0}
+!84 = !{!23, !4, i64 16}
+!85 = !{!86, !86, i64 0}
+!86 = !{!"p1 _ZTSSt16initializer_listIN6duckdb11LogicalTypeEE", !5, i64 0}
+!87 = !{!88, !88, i64 0}
+!88 = !{!"p1 _ZTSNSt12_Vector_baseIN6duckdb11LogicalTypeESaIS1_EE12_Vector_implE", !5, i64 0}
+!89 = !{!90, !90, i64 0}
+!90 = !{!"p1 _ZTSNSt12_Vector_baseIN6duckdb11LogicalTypeESaIS1_EE17_Vector_impl_dataE", !5, i64 0}
+!91 = !{!92, !92, i64 0}
+!92 = !{!"p2 _ZTSN6duckdb11LogicalTypeE", !5, i64 0}
+!93 = !{!94, !94, i64 0}
+!94 = !{!"p1 long", !5, i64 0}
+!95 = distinct !{!95, !96}
+!96 = !{!"llvm.loop.mustprogress"}
+!97 = distinct !{!97, !96}
+!98 = !{!99, !99, i64 0}
+!99 = !{!"p1 _ZTSN6duckdb12RegrSXyStateE", !5, i64 0}
+!100 = !{!101, !101, i64 0}
+!101 = !{!"p1 _ZTSN6duckdb10CovarStateE", !5, i64 0}
+!102 = !{!103, !10, i64 0}
+!103 = !{!"_ZTSN6duckdb10CovarStateE", !10, i64 0, !104, i64 8, !104, i64 16, !104, i64 24}
+!104 = !{!"double", !6, i64 0}
+!105 = !{!103, !104, i64 8}
+!106 = !{!103, !104, i64 16}
+!107 = !{!103, !104, i64 24}
+!108 = !{!109, !18, i64 8}
+!109 = !{!"_ZTSN6duckdb19UnifiedVectorFormatE", !110, i64 0, !18, i64 8, !111, i64 16, !117, i64 48}
+!110 = !{!"p1 _ZTSN6duckdb15SelectionVectorE", !5, i64 0}
+!111 = !{!"_ZTSN6duckdb12ValidityMaskE", !112, i64 0}
+!112 = !{!"_ZTSN6duckdb21TemplatedValidityMaskImEE", !94, i64 0, !113, i64 8, !10, i64 24}
+!113 = !{!"_ZTSN6duckdb10shared_ptrINS_21TemplatedValidityDataImEELb1EEE", !114, i64 0}
+!114 = !{!"_ZTSSt10shared_ptrIN6duckdb21TemplatedValidityDataImEEE", !115, i64 0}
+!115 = !{!"_ZTSSt12__shared_ptrIN6duckdb21TemplatedValidityDataImEELN9__gnu_cxx12_Lock_policyE2EE", !116, i64 0, !31, i64 8}
+!116 = !{!"p1 _ZTSN6duckdb21TemplatedValidityDataImEE", !5, i64 0}
+!117 = !{!"_ZTSN6duckdb15SelectionVectorE", !64, i64 0, !118, i64 8}
+!118 = !{!"_ZTSN6duckdb10shared_ptrINS_13SelectionDataELb1EEE", !119, i64 0}
+!119 = !{!"_ZTSSt10shared_ptrIN6duckdb13SelectionDataEE", !120, i64 0}
+!120 = !{!"_ZTSSt12__shared_ptrIN6duckdb13SelectionDataELN9__gnu_cxx12_Lock_policyE2EE", !121, i64 0, !31, i64 8}
+!121 = !{!"p1 _ZTSN6duckdb13SelectionDataE", !5, i64 0}
+!122 = !{!109, !110, i64 0}
+!123 = !{!124, !124, i64 0}
+!124 = !{!"p1 double", !5, i64 0}
+!125 = !{!126, !126, i64 0}
+!126 = !{!"p2 _ZTSN6duckdb12RegrSXyStateE", !5, i64 0}
+!127 = !{!110, !110, i64 0}
+!128 = !{!129, !129, i64 0}
+!129 = !{!"p1 _ZTSN6duckdb12ValidityMaskE", !5, i64 0}
+!130 = !{!131, !10, i64 24}
+!131 = !{!"_ZTSN6duckdb20AggregateBinaryInputE", !73, i64 0, !129, i64 8, !129, i64 16, !10, i64 24, !10, i64 32}
+!132 = !{!131, !10, i64 32}
+!133 = distinct !{!133, !96}
+!134 = distinct !{!134, !96}
+!135 = !{!136, !136, i64 0}
+!136 = !{!"p1 _ZTSN6duckdb19UnifiedVectorFormatE", !5, i64 0}
+!137 = !{!138, !138, i64 0}
+!138 = !{!"p1 _ZTSN6duckdb20AggregateBinaryInputE", !5, i64 0}
+!139 = !{!140, !140, i64 0}
+!140 = !{!"p1 _ZTSN6duckdb21TemplatedValidityMaskImEE", !5, i64 0}
+!141 = !{!112, !94, i64 0}
+!142 = !{!117, !64, i64 0}
+!143 = !{!104, !104, i64 0}
+!144 = !{!145, !145, i64 0}
+!145 = !{!"p1 _ZTSN6duckdb10shared_ptrINS_13SelectionDataELb1EEE", !5, i64 0}
+!146 = !{!147, !147, i64 0}
+!147 = !{!"p1 _ZTSSt12__shared_ptrIN6duckdb13SelectionDataELN9__gnu_cxx12_Lock_policyE2EE", !5, i64 0}
+!148 = !{!149, !149, i64 0}
+!149 = !{!"p1 _ZTSN6duckdb10shared_ptrINS_21TemplatedValidityDataImEELb1EEE", !5, i64 0}
+!150 = !{!151, !151, i64 0}
+!151 = !{!"p1 _ZTSSt12__shared_ptrIN6duckdb21TemplatedValidityDataImEELN9__gnu_cxx12_Lock_policyE2EE", !5, i64 0}
+!152 = distinct !{!152, !96}
+!153 = !{!154, !18, i64 32}
+!154 = !{!"_ZTSN6duckdb6VectorE", !155, i64 0, !24, i64 8, !18, i64 32, !111, i64 40, !156, i64 72, !156, i64 88}
+!155 = !{!"_ZTSN6duckdb10VectorTypeE", !6, i64 0}
+!156 = !{!"_ZTSN6duckdb10shared_ptrINS_12VectorBufferELb1EEE", !157, i64 0}
+!157 = !{!"_ZTSSt10shared_ptrIN6duckdb12VectorBufferEE", !158, i64 0}
+!158 = !{!"_ZTSSt12__shared_ptrIN6duckdb12VectorBufferELN9__gnu_cxx12_Lock_policyE2EE", !159, i64 0, !31, i64 8}
+!159 = !{!"p1 _ZTSN6duckdb12VectorBufferE", !5, i64 0}
+!160 = !{i64 0, i64 8, !74, i64 8, i64 8, !143, i64 16, i64 8, !143, i64 24, i64 8, !143}
+!161 = !{!162, !10, i64 16}
+!162 = !{!"_ZTSN6duckdb21AggregateFinalizeDataE", !71, i64 0, !73, i64 8, !10, i64 16}
+!163 = distinct !{!163, !96}
+!164 = !{!154, !155, i64 0}
+!165 = !{!166, !166, i64 0}
+!166 = !{!"p1 _ZTSN6duckdb21AggregateFinalizeDataE", !5, i64 0}
+!167 = !{!162, !71, i64 0}
+!168 = !{!169, !169, i64 0}
+!169 = !{!"p1 _ZTSSaIcE", !5, i64 0}
+!170 = !{!171, !171, i64 0}
+!171 = !{!"p1 _ZTSSt15__new_allocatorIcE", !5, i64 0}
+!172 = !{!173, !173, i64 0}
+!173 = !{!"p1 _ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !5, i64 0}
+!174 = !{!17, !18, i64 0}
+!175 = !{!176, !38, i64 0}
+!176 = !{!"_ZTSZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagE6_Guard", !38, i64 0}
+!177 = !{!16, !18, i64 0}
+!178 = !{!179, !179, i64 0}
+!179 = !{!"p1 _ZTSZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagE6_Guard", !5, i64 0}
+!180 = !{!181, !181, i64 0}
+!181 = !{!"p2 omnipotent char", !5, i64 0}
+!182 = !{!16, !10, i64 8}
+!183 = distinct !{!183, !96}
+!184 = distinct !{!184, !96}
+!185 = !{!34, !34, i64 0}
+!186 = !{!187, !5, i64 176}
+!187 = !{!"_ZTSN6duckdb17AggregateFunctionE", !13, i64 0, !5, i64 176, !5, i64 184, !5, i64 192, !5, i64 200, !5, i64 208, !5, i64 216, !5, i64 224, !5, i64 232, !5, i64 240, !5, i64 248, !5, i64 256, !5, i64 264, !5, i64 272, !188, i64 280, !189, i64 281, !190, i64 288}
+!188 = !{!"_ZTSN6duckdb23AggregateOrderDependentE", !6, i64 0}
+!189 = !{!"_ZTSN6duckdb26AggregateDistinctDependentE", !6, i64 0}
+!190 = !{!"_ZTSN6duckdb10shared_ptrINS_21AggregateFunctionInfoELb1EEE", !191, i64 0}
+!191 = !{!"_ZTSSt10shared_ptrIN6duckdb21AggregateFunctionInfoEE", !192, i64 0}
+!192 = !{!"_ZTSSt12__shared_ptrIN6duckdb21AggregateFunctionInfoELN9__gnu_cxx12_Lock_policyE2EE", !193, i64 0, !31, i64 8}
+!193 = !{!"p1 _ZTSN6duckdb21AggregateFunctionInfoE", !5, i64 0}
+!194 = !{!187, !5, i64 184}
+!195 = !{!187, !5, i64 192}
+!196 = !{!187, !5, i64 200}
+!197 = !{!187, !5, i64 208}
+!198 = !{!187, !5, i64 216}
+!199 = !{!187, !5, i64 224}
+!200 = !{!187, !5, i64 232}
+!201 = !{!187, !5, i64 240}
+!202 = !{!187, !5, i64 248}
+!203 = !{!187, !5, i64 256}
+!204 = !{!187, !5, i64 264}
+!205 = !{!187, !5, i64 272}
+!206 = !{!187, !188, i64 280}
+!207 = !{!187, !189, i64 281}
+!208 = !{!209, !38, i64 0}
+!209 = !{!"_ZTSZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tagE6_Guard", !38, i64 0}
+!210 = !{!211, !211, i64 0}
+!211 = !{!"p1 _ZTSZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tagE6_Guard", !5, i64 0}
+!212 = !{i64 0, i64 8, !3}
+!213 = distinct !{!213, !96}
+!214 = !{!215, !215, i64 0}
+!215 = !{!"p1 _ZTSN9__gnu_cxx17__normal_iteratorIPKN6duckdb11LogicalTypeESt6vectorIS2_SaIS2_EEEE", !5, i64 0}
+!216 = !{!217, !4, i64 0}
+!217 = !{!"_ZTSN9__gnu_cxx17__normal_iteratorIPKN6duckdb11LogicalTypeESt6vectorIS2_SaIS2_EEEE", !4, i64 0}
+!218 = !{!219, !219, i64 0}
+!219 = !{!"p1 _ZTSSt10shared_ptrIN6duckdb21AggregateFunctionInfoEE", !5, i64 0}
+!220 = !{!192, !193, i64 0}
+!221 = !{!222, !222, i64 0}
+!222 = !{!"p1 _ZTSN6duckdb18RegrInterceptStateE", !5, i64 0}
+!223 = !{!224, !10, i64 0}
+!224 = !{!"_ZTSN6duckdb18RegrInterceptStateE", !10, i64 0, !104, i64 8, !104, i64 16, !225, i64 24}
+!225 = !{!"_ZTSN6duckdb14RegrSlopeStateE", !103, i64 0, !226, i64 32}
+!226 = !{!"_ZTSN6duckdb11StddevStateE", !10, i64 0, !104, i64 8, !104, i64 16}
+!227 = !{!224, !104, i64 8}
+!228 = !{!224, !104, i64 16}
+!229 = !{!230, !230, i64 0}
+!230 = !{!"p1 _ZTSN6duckdb14RegrSlopeStateE", !5, i64 0}
+!231 = !{!232, !232, i64 0}
+!232 = !{!"p1 _ZTSN6duckdb11StddevStateE", !5, i64 0}
+!233 = !{!226, !10, i64 0}
+!234 = !{!226, !104, i64 8}
+!235 = !{!226, !104, i64 16}
+!236 = !{!237, !237, i64 0}
+!237 = !{!"p2 _ZTSN6duckdb18RegrInterceptStateE", !5, i64 0}
+!238 = distinct !{!238, !96}
+!239 = distinct !{!239, !96}
+!240 = distinct !{!240, !96}
+!241 = !{i64 0, i64 8, !74, i64 8, i64 8, !143, i64 16, i64 8, !143}
+!242 = distinct !{!242, !96}
+!243 = !{!225, !10, i64 0}
+!244 = !{!225, !10, i64 32}
+!245 = !{!225, !104, i64 24}
+!246 = !{!225, !104, i64 48}
+!247 = distinct !{!247, !96}
+!248 = distinct !{!248, !96}
+!249 = !{!250, !250, i64 0}
+!250 = !{!"p2 long", !5, i64 0}
+!251 = distinct !{!251, !96}
+!252 = distinct !{!252, !96}
+!253 = distinct !{!253, !96}
+!254 = distinct !{!254, !96}
+!255 = distinct !{!255, !96}
+!256 = distinct !{!256, !96}
+!257 = !{!258, !258, i64 0}
+!258 = !{!"p1 _ZTSN6duckdb11RegrR2StateE", !5, i64 0}
+!259 = !{!260, !260, i64 0}
+!260 = !{!"p1 _ZTSN6duckdb9CorrStateE", !5, i64 0}
+!261 = !{!262, !262, i64 0}
+!262 = !{!"p2 _ZTSN6duckdb11RegrR2StateE", !5, i64 0}
+!263 = distinct !{!263, !96}
+!264 = distinct !{!264, !96}
+!265 = distinct !{!265, !96}
+!266 = distinct !{!266, !96}
+!267 = !{!268, !10, i64 80}
+!268 = !{!"_ZTSN6duckdb11RegrR2StateE", !269, i64 0, !226, i64 80, !226, i64 104}
+!269 = !{!"_ZTSN6duckdb9CorrStateE", !103, i64 0, !226, i64 32, !226, i64 56}
+!270 = !{!268, !104, i64 96}
+!271 = !{!268, !10, i64 104}
+!272 = !{!268, !104, i64 120}
+!273 = !{!269, !10, i64 0}
+!274 = !{!269, !10, i64 32}
+!275 = !{!269, !10, i64 56}
+!276 = !{!269, !104, i64 24}
+!277 = !{!269, !104, i64 48}
+!278 = !{!269, !104, i64 72}
+!279 = distinct !{!279, !96}
+!280 = distinct !{!280, !96}
+!281 = !{!282, !282, i64 0}
+!282 = !{!"p1 _ZTSN6duckdb9RegrStateE", !5, i64 0}
+!283 = !{!284, !104, i64 0}
+!284 = !{!"_ZTSN6duckdb9RegrStateE", !104, i64 0, !10, i64 8}
+!285 = !{!284, !10, i64 8}
+!286 = !{!287, !287, i64 0}
+!287 = !{!"p2 _ZTSN6duckdb9RegrStateE", !5, i64 0}
+!288 = distinct !{!288, !96}
+!289 = distinct !{!289, !96}
+!290 = distinct !{!290, !96}
+!291 = distinct !{!291, !96}
+!292 = distinct !{!292, !96}
+!293 = distinct !{!293, !96}
+!294 = distinct !{!294, !96}
+!295 = distinct !{!295, !96}
+!296 = distinct !{!296, !96}
+!297 = distinct !{!297, !96}
+!298 = distinct !{!298, !96}
+!299 = distinct !{!299, !96}
+!300 = !{!301, !301, i64 0}
+!301 = !{!"p2 _ZTSN6duckdb14RegrSlopeStateE", !5, i64 0}
+!302 = distinct !{!302, !96}
+!303 = distinct !{!303, !96}
+!304 = distinct !{!304, !96}
+!305 = distinct !{!305, !96}
+!306 = distinct !{!306, !96}
+!307 = distinct !{!307, !96}
+!308 = !{!309, !309, i64 0}
+!309 = !{!"p1 _ZTSN6duckdb10RegrSStateE", !5, i64 0}
+!310 = !{!311, !311, i64 0}
+!311 = !{!"p2 _ZTSN6duckdb10RegrSStateE", !5, i64 0}
+!312 = distinct !{!312, !96}
+!313 = distinct !{!313, !96}
+!314 = distinct !{!314, !96}
+!315 = distinct !{!315, !96}
+!316 = !{!317, !10, i64 8}
+!317 = !{!"_ZTSN6duckdb10RegrSStateE", !10, i64 0, !226, i64 8}
+!318 = !{!317, !104, i64 24}
+!319 = distinct !{!319, !96}
+!320 = distinct !{!320, !96}
+!321 = distinct !{!321, !96}
+!322 = distinct !{!322, !96}
+!323 = distinct !{!323, !96}
+!324 = distinct !{!324, !96}
+!325 = distinct !{!325, !96}
+!326 = distinct !{!326, !96}
