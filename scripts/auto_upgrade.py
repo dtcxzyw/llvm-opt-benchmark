@@ -36,6 +36,7 @@ supported_project = [
     "lua",
     "luajit",
     "lvgl",
+    "lz4",
 ]
 
 modify_only = [
