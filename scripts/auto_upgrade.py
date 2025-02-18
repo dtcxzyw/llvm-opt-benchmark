@@ -59,6 +59,7 @@ supported_project = [
     "ruby",
     "slurm",
     "sqlite",
+    "stb",
 ]
 
 modify_only = [

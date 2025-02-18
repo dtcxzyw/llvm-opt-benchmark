@@ -1,261 +1,254 @@
 ; ModuleID = 'bench/stb/original/stb_divide.ll'
 source_filename = "bench/stb/original/stb_divide.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @stb_div_trunc(i32 noundef %v1, i32 noundef %v2) local_unnamed_addr #0 {
-entry:
-  %cmp = icmp sgt i32 %v1, -1
-  %cmp1 = icmp slt i32 %v2, 1
-  %or.cond = and i1 %cmp, %cmp1
-  br i1 %or.cond, label %if.then, label %if.end
+define i32 @stb_div_trunc(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+  %3 = icmp sgt i32 %0, -1
+  %4 = icmp slt i32 %1, 1
+  %or.cond = and i1 %3, %4
+  br i1 %or.cond, label %5, label %7
 
-if.then:                                          ; preds = %entry
-  %v2.nonneg = sub i32 0, %v2
-  %div1415 = udiv i32 %v1, %v2.nonneg
-  %div1415.neg = sub nsw i32 0, %div1415
-  br label %return
+5:                                                ; preds = %2
+  %.nonneg = sub i32 0, %1
+  %6 = udiv i32 %0, %.nonneg
+  %.neg = sub nsw i32 0, %6
+  br label %19
 
-if.end:                                           ; preds = %entry
-  %cmp3 = icmp slt i32 %v1, 1
-  %cmp5 = icmp sgt i32 %v2, -1
-  %or.cond1 = and i1 %cmp3, %cmp5
-  br i1 %or.cond1, label %if.then6, label %if.else16
+7:                                                ; preds = %2
+  %8 = icmp slt i32 %0, 1
+  %9 = icmp sgt i32 %1, -1
+  %or.cond3 = and i1 %8, %9
+  br i1 %or.cond3, label %10, label %17
 
-if.then6:                                         ; preds = %if.end
-  %cmp7.not = icmp eq i32 %v1, -2147483648
-  br i1 %cmp7.not, label %if.else, label %if.then8
+10:                                               ; preds = %7
+  %.not = icmp eq i32 %0, -2147483648
+  br i1 %.not, label %14, label %11
 
-if.then8:                                         ; preds = %if.then6
-  %v1.nonneg = sub nsw i32 0, %v1
-  %div1017 = udiv i32 %v1.nonneg, %v2
-  %sub11 = sub nsw i32 0, %div1017
-  br label %return
+11:                                               ; preds = %10
+  %.nonneg23 = sub nsw i32 0, %0
+  %12 = udiv i32 %.nonneg23, %1
+  %13 = sub nsw i32 0, %12
+  br label %19
 
-if.else:                                          ; preds = %if.then6
-  %add.neg = sub nuw i32 -2147483648, %v2
-  %div1316 = udiv i32 %add.neg, %v2
-  %sub15 = xor i32 %div1316, -1
-  br label %return
+14:                                               ; preds = %10
+  %.neg25 = sub nuw i32 -2147483648, %1
+  %15 = udiv i32 %.neg25, %1
+  %16 = xor i32 %15, -1
+  br label %19
 
-if.else16:                                        ; preds = %if.end
-  %div17 = sdiv i32 %v1, %v2
-  br label %return
+17:                                               ; preds = %7
+  %18 = sdiv i32 %0, %1
+  br label %19
 
-return:                                           ; preds = %if.else16, %if.else, %if.then8, %if.then
-  %retval.0 = phi i32 [ %div1415.neg, %if.then ], [ %sub11, %if.then8 ], [ %sub15, %if.else ], [ %div17, %if.else16 ]
-  ret i32 %retval.0
+19:                                               ; preds = %17, %14, %11, %5
+  %.0 = phi i32 [ %.neg, %5 ], [ %13, %11 ], [ %16, %14 ], [ %18, %17 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @stb_div_floor(i32 noundef %v1, i32 noundef %v2) local_unnamed_addr #0 {
-entry:
-  %cmp = icmp sgt i32 %v1, -1
-  %cmp1 = icmp slt i32 %v2, 0
-  %or.cond = and i1 %cmp, %cmp1
-  br i1 %or.cond, label %if.then, label %if.end
+define i32 @stb_div_floor(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+  %3 = icmp sgt i32 %0, -1
+  %4 = icmp slt i32 %1, 0
+  %or.cond = and i1 %3, %4
+  br i1 %or.cond, label %5, label %16
 
-if.then:                                          ; preds = %entry
-  %add = add nsw i32 %v2, 1
-  %add2 = or disjoint i32 %v1, -2147483648
-  %cmp3.not = icmp slt i32 %add, %add2
-  br i1 %cmp3.not, label %if.else, label %if.then4
+5:                                                ; preds = %2
+  %6 = add nsw i32 %1, 1
+  %7 = or disjoint i32 %0, -2147483648
+  %.not43 = icmp slt i32 %6, %7
+  br i1 %.not43, label %11, label %8
 
-if.then4:                                         ; preds = %if.then
-  %sub.neg = sub i32 %v1, %add
-  %v2.nonneg35 = sub i32 0, %v2
-  %div36 = udiv i32 %sub.neg, %v2.nonneg35
-  %sub6 = sub nsw i32 0, %div36
-  br label %return
+8:                                                ; preds = %5
+  %.neg57 = sub i32 %0, %6
+  %.nonneg50 = sub i32 0, %1
+  %9 = udiv i32 %.neg57, %.nonneg50
+  %10 = sub nsw i32 0, %9
+  br label %39
 
-if.else:                                          ; preds = %if.then
-  %v2.nonneg = sub i32 0, %v2
-  %div831 = udiv i32 %v1, %v2.nonneg
-  %rem34 = urem i32 %v1, %v2.nonneg
-  %tobool.not = icmp ne i32 %rem34, 0
-  %cond = sext i1 %tobool.not to i32
-  %add11 = sub nsw i32 %cond, %div831
-  br label %return
+11:                                               ; preds = %5
+  %.nonneg45 = sub i32 0, %1
+  %12 = udiv i32 %0, %.nonneg45
+  %13 = urem i32 %0, %.nonneg45
+  %.not44 = icmp ne i32 %13, 0
+  %14 = sext i1 %.not44 to i32
+  %15 = sub nsw i32 %14, %12
+  br label %39
 
-if.end:                                           ; preds = %entry
-  %cmp12 = icmp slt i32 %v1, 0
-  %cmp14 = icmp sgt i32 %v2, -1
-  %or.cond1 = and i1 %cmp12, %cmp14
-  br i1 %or.cond1, label %if.then15, label %if.else47
+16:                                               ; preds = %2
+  %17 = icmp slt i32 %0, 0
+  %18 = icmp sgt i32 %1, -1
+  %or.cond3 = and i1 %17, %18
+  br i1 %or.cond3, label %19, label %37
 
-if.then15:                                        ; preds = %if.end
-  %cmp16.not = icmp eq i32 %v1, -2147483648
-  br i1 %cmp16.not, label %if.else36, label %if.then17
+19:                                               ; preds = %16
+  %.not = icmp eq i32 %0, -2147483648
+  br i1 %.not, label %32, label %20
 
-if.then17:                                        ; preds = %if.then15
-  %add18 = add nsw i32 %v1, 1
-  %add19 = or disjoint i32 %v2, -2147483648
-  %cmp20.not = icmp slt i32 %add18, %add19
-  br i1 %cmp20.not, label %if.else27, label %if.then21
+20:                                               ; preds = %19
+  %21 = add nsw i32 %0, 1
+  %22 = or disjoint i32 %1, -2147483648
+  %.not41 = icmp slt i32 %21, %22
+  br i1 %.not41, label %26, label %23
 
-if.then21:                                        ; preds = %if.then17
-  %sub23.neg = sub i32 %v2, %add18
-  %div2538 = udiv i32 %sub23.neg, %v2
-  %sub26 = sub nsw i32 0, %div2538
-  br label %return
+23:                                               ; preds = %20
+  %.neg56 = sub i32 %1, %21
+  %24 = udiv i32 %.neg56, %1
+  %25 = sub nsw i32 0, %24
+  br label %39
 
-if.else27:                                        ; preds = %if.then17
-  %sub28 = sub nsw i32 0, %v1
-  %div29 = udiv i32 %sub28, %v2
-  %rem3237 = urem i32 %sub28, %v2
-  %tobool33.not = icmp ne i32 %rem3237, 0
-  %cond34 = sext i1 %tobool33.not to i32
-  %add35 = sub nsw i32 %cond34, %div29
-  br label %return
+26:                                               ; preds = %20
+  %27 = sub nsw i32 0, %0
+  %28 = udiv i32 %27, %1
+  %29 = urem i32 %27, %1
+  %.not42 = icmp ne i32 %29, 0
+  %30 = sext i1 %.not42 to i32
+  %31 = sub nsw i32 %30, %28
+  br label %39
 
-if.else36:                                        ; preds = %if.then15
-  %add37.neg = sub nuw i32 -2147483648, %v2
-  %div39 = udiv i32 %add37.neg, %v2
-  %rem43 = urem i32 %add37.neg, %v2
-  %tobool44.not = icmp eq i32 %rem43, 0
-  %cond45 = select i1 %tobool44.not, i32 -1, i32 -2
-  %add46 = sub nuw nsw i32 %cond45, %div39
-  br label %return
+32:                                               ; preds = %19
+  %.neg = sub nuw i32 -2147483648, %1
+  %33 = udiv i32 %.neg, %1
+  %34 = urem i32 %.neg, %1
+  %.not40 = icmp eq i32 %34, 0
+  %35 = select i1 %.not40, i32 -1, i32 -2
+  %36 = sub nuw nsw i32 %35, %33
+  br label %39
 
-if.else47:                                        ; preds = %if.end
-  %div48 = sdiv i32 %v1, %v2
-  br label %return
+37:                                               ; preds = %16
+  %38 = sdiv i32 %0, %1
+  br label %39
 
-return:                                           ; preds = %if.else47, %if.else36, %if.else27, %if.then21, %if.else, %if.then4
-  %retval.0 = phi i32 [ %sub6, %if.then4 ], [ %add11, %if.else ], [ %sub26, %if.then21 ], [ %add35, %if.else27 ], [ %add46, %if.else36 ], [ %div48, %if.else47 ]
-  ret i32 %retval.0
+39:                                               ; preds = %37, %32, %26, %23, %11, %8
+  %.0 = phi i32 [ %10, %8 ], [ %15, %11 ], [ %25, %23 ], [ %31, %26 ], [ %36, %32 ], [ %38, %37 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @stb_div_eucl(i32 noundef %v1, i32 noundef %v2) local_unnamed_addr #0 {
-entry:
-  %cmp = icmp sgt i32 %v1, -1
-  br i1 %cmp, label %if.then, label %if.else10
+define i32 @stb_div_eucl(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+  %3 = icmp sgt i32 %0, -1
+  br i1 %3, label %4, label %13
 
-if.then:                                          ; preds = %entry
-  %cmp1 = icmp sgt i32 %v2, -1
-  br i1 %cmp1, label %if.then2, label %if.else
+4:                                                ; preds = %2
+  %5 = icmp sgt i32 %1, -1
+  br i1 %5, label %6, label %8
 
-if.then2:                                         ; preds = %if.then
-  %div = udiv i32 %v1, %v2
-  br label %return
+6:                                                ; preds = %4
+  %7 = udiv i32 %0, %1
+  br label %.thread
 
-if.else:                                          ; preds = %if.then
-  %cmp3.not = icmp eq i32 %v2, -2147483648
-  br i1 %cmp3.not, label %return, label %if.then4
+8:                                                ; preds = %4
+  %.not51 = icmp eq i32 %1, -2147483648
+  br i1 %.not51, label %.thread, label %9
 
-if.then4:                                         ; preds = %if.else
-  %sub = sub nsw i32 0, %v2
-  %div5 = udiv i32 %v1, %sub
-  %sub6 = sub nsw i32 0, %div5
-  br label %return
+9:                                                ; preds = %8
+  %10 = sub nsw i32 0, %1
+  %11 = udiv i32 %0, %10
+  %12 = sub nsw i32 0, %11
+  br label %.thread
 
-if.else10:                                        ; preds = %entry
-  %cmp11.not = icmp eq i32 %v1, -2147483648
-  %cmp36 = icmp sgt i32 %v2, -1
-  br i1 %cmp11.not, label %if.else35, label %if.then12
+13:                                               ; preds = %2
+  %.not = icmp eq i32 %0, -2147483648
+  %14 = icmp sgt i32 %1, -1
+  br i1 %.not, label %27, label %15
 
-if.then12:                                        ; preds = %if.else10
-  br i1 %cmp36, label %if.then14, label %if.else21
+15:                                               ; preds = %13
+  br i1 %14, label %16, label %21
 
-if.then14:                                        ; preds = %if.then12
-  %sub15 = sub nsw i32 0, %v1
-  %div16 = udiv i32 %sub15, %v2
-  %sub17 = sub nsw i32 0, %div16
-  %rem19 = urem i32 %sub15, %v2
-  br label %if.end63
+16:                                               ; preds = %15
+  %17 = sub nsw i32 0, %0
+  %18 = udiv i32 %17, %1
+  %19 = sub nsw i32 0, %18
+  %20 = urem i32 %17, %1
+  br label %38
 
-if.else21:                                        ; preds = %if.then12
-  %cmp22.not = icmp eq i32 %v2, -2147483648
-  br i1 %cmp22.not, label %return, label %if.then23
+21:                                               ; preds = %15
+  %.not50 = icmp eq i32 %1, -2147483648
+  br i1 %.not50, label %.thread, label %22
 
-if.then23:                                        ; preds = %if.else21
-  %sub24 = sub nsw i32 0, %v1
-  %sub25 = sub nsw i32 0, %v2
-  %div26 = udiv i32 %sub24, %sub25
-  %rem29 = urem i32 %sub24, %sub25
-  br label %if.end63
+22:                                               ; preds = %21
+  %23 = sub nsw i32 0, %0
+  %24 = sub nsw i32 0, %1
+  %25 = udiv i32 %23, %24
+  %26 = urem i32 %23, %24
+  br label %38
 
-if.else35:                                        ; preds = %if.else10
-  br i1 %cmp36, label %if.then37, label %if.else46
+27:                                               ; preds = %13
+  br i1 %14, label %28, label %32
 
-if.then37:                                        ; preds = %if.else35
-  %add.neg = sub nuw i32 -2147483648, %v2
-  %div39 = udiv i32 %add.neg, %v2
-  %sub41 = xor i32 %div39, -1
-  %rem44 = urem i32 %add.neg, %v2
-  br label %if.end63
+28:                                               ; preds = %27
+  %.neg49 = sub nuw i32 -2147483648, %1
+  %29 = udiv i32 %.neg49, %1
+  %30 = xor i32 %29, -1
+  %31 = urem i32 %.neg49, %1
+  br label %38
 
-if.else46:                                        ; preds = %if.else35
-  %cmp47.not = icmp eq i32 %v2, -2147483648
-  br i1 %cmp47.not, label %return, label %if.then48
+32:                                               ; preds = %27
+  %.not48 = icmp eq i32 %1, -2147483648
+  br i1 %.not48, label %.thread, label %33
 
-if.then48:                                        ; preds = %if.else46
-  %sub49.neg = and i32 %v2, 2147483647
-  %sub51 = sub nsw i32 0, %v2
-  %div52 = udiv i32 %sub49.neg, %sub51
-  %add53 = add nuw nsw i32 %div52, 1
-  %rem57 = urem i32 %sub49.neg, %sub51
-  br label %if.end63
+33:                                               ; preds = %32
+  %.neg = and i32 %1, 2147483647
+  %34 = sub nsw i32 0, %1
+  %35 = udiv i32 %.neg, %34
+  %36 = add nuw nsw i32 %35, 1
+  %37 = urem i32 %.neg, %34
+  br label %38
 
-if.end63:                                         ; preds = %if.then23, %if.then14, %if.then48, %if.then37
-  %q.0 = phi i32 [ %sub17, %if.then14 ], [ %div26, %if.then23 ], [ %sub41, %if.then37 ], [ %add53, %if.then48 ]
-  %rem19.pn = phi i32 [ %rem19, %if.then14 ], [ %rem29, %if.then23 ], [ %rem44, %if.then37 ], [ %rem57, %if.then48 ]
-  %cmp64 = icmp eq i32 %rem19.pn, 0
-  br i1 %cmp64, label %return, label %if.else66
+38:                                               ; preds = %22, %16, %33, %28
+  %.043 = phi i32 [ %19, %16 ], [ %25, %22 ], [ %30, %28 ], [ %36, %33 ]
+  %.pn = phi i32 [ %20, %16 ], [ %26, %22 ], [ %31, %28 ], [ %37, %33 ]
+  %39 = icmp eq i32 %.pn, 0
+  br i1 %39, label %.thread, label %40
 
-if.else66:                                        ; preds = %if.end63
-  %cmp67.inv = icmp slt i32 %v2, 1
-  %cond = select i1 %cmp67.inv, i32 1, i32 -1
-  %add68 = add nsw i32 %q.0, %cond
-  br label %return
+40:                                               ; preds = %38
+  %.inv = icmp slt i32 %1, 1
+  %41 = select i1 %.inv, i32 1, i32 -1
+  %42 = add nsw i32 %.043, %41
+  br label %.thread
 
-return:                                           ; preds = %if.else21, %if.else46, %if.else, %if.then4, %if.end63, %if.else66, %if.then2
-  %retval.0 = phi i32 [ %div, %if.then2 ], [ %add68, %if.else66 ], [ %q.0, %if.end63 ], [ 1, %if.else46 ], [ 0, %if.else ], [ %sub6, %if.then4 ], [ 1, %if.else21 ]
-  ret i32 %retval.0
+.thread:                                          ; preds = %21, %32, %8, %9, %38, %40, %6
+  %.044 = phi i32 [ %7, %6 ], [ %42, %40 ], [ %.043, %38 ], [ 1, %32 ], [ 0, %8 ], [ %12, %9 ], [ 1, %21 ]
+  ret i32 %.044
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define range(i32 -2147483647, -2147483648) i32 @stb_mod_trunc(i32 noundef %v1, i32 noundef %v2) local_unnamed_addr #0 {
-entry:
-  %retval.0 = srem i32 %v1, %v2
-  ret i32 %retval.0
+define range(i32 -2147483647, -2147483648) i32 @stb_mod_trunc(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+  %.1 = srem i32 %0, %1
+  ret i32 %.1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define range(i32 -2147483647, 2147483647) i32 @stb_mod_floor(i32 noundef %v1, i32 noundef %v2) local_unnamed_addr #0 {
-entry:
-  %rem = srem i32 %v1, %v2
-  %cmp6.inv = icmp sgt i32 %rem, 0
-  %cmp111 = icmp slt i32 %rem, 0
-  %cmp12 = icmp slt i32 %v2, 0
-  %cmp6.inv.sink = select i1 %cmp12, i1 %cmp6.inv, i1 %cmp111
-  %add9 = select i1 %cmp6.inv.sink, i32 %v2, i32 0
-  %spec.select10 = add nsw i32 %add9, %rem
-  ret i32 %spec.select10
+define range(i32 -2147483647, 2147483647) i32 @stb_mod_floor(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+  %3 = srem i32 %0, %1
+  %.inv = icmp sgt i32 %3, 0
+  %4 = icmp slt i32 %3, 0
+  %5 = icmp slt i32 %1, 0
+  %.inv.sink = select i1 %5, i1 %.inv, i1 %4
+  %6 = select i1 %.inv.sink, i32 %1, i32 0
+  %.2 = add nsw i32 %6, %3
+  ret i32 %.2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @stb_mod_eucl(i32 noundef %v1, i32 noundef %v2) local_unnamed_addr #0 {
-entry:
-  %rem = srem i32 %v1, %v2
-  %0 = tail call i32 @llvm.abs.i32(i32 %v2, i1 false)
-  %cmp6 = icmp slt i32 %rem, 0
-  %sub2 = select i1 %cmp6, i32 %0, i32 0
-  %retval.0 = add i32 %sub2, %rem
-  ret i32 %retval.0
+define noundef i32 @stb_mod_eucl(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+  %3 = srem i32 %0, %1
+  %4 = tail call i32 @llvm.abs.i32(i32 %1, i1 false)
+  %5 = icmp slt i32 %3, 0
+  %6 = select i1 %5, i32 %4, i32 0
+  %.0 = add i32 %6, %3
+  ret i32 %.0
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #1
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}

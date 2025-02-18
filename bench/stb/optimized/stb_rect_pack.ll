@@ -1,792 +1,783 @@
 ; ModuleID = 'bench/stb/original/stb_rect_pack.ll'
 source_filename = "bench/stb/original/stb_rect_pack.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.stbrp_node = type { i32, i32, ptr }
 %struct.stbrp_rect = type { i32, i32, i32, i32, i32, i32 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @stbrp_setup_heuristic(ptr noundef captures(none) %context, i32 noundef %heuristic) local_unnamed_addr #0 {
-entry:
-  %init_mode = getelementptr inbounds nuw i8, ptr %context, i64 12
-  %0 = load i32, ptr %init_mode, align 4
-  %cond = icmp eq i32 %0, 1
-  br i1 %cond, label %sw.bb, label %sw.epilog
+define void @stbrp_setup_heuristic(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %4 = load i32, ptr %3, align 4, !tbaa !3
+  %cond = icmp eq i32 %4, 1
+  br i1 %cond, label %5, label %7
 
-sw.bb:                                            ; preds = %entry
-  %heuristic1 = getelementptr inbounds nuw i8, ptr %context, i64 16
-  store i32 %heuristic, ptr %heuristic1, align 8
-  br label %sw.epilog
+5:                                                ; preds = %2
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %1, ptr %6, align 8, !tbaa !10
+  br label %7
 
-sw.epilog:                                        ; preds = %entry, %sw.bb
+7:                                                ; preds = %2, %5
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @stbrp_setup_allow_out_of_mem(ptr noundef captures(none) initializes((8, 12)) %context, i32 noundef %allow_out_of_mem) local_unnamed_addr #0 {
-entry:
-  %tobool.not = icmp eq i32 %allow_out_of_mem, 0
-  br i1 %tobool.not, label %if.else, label %if.end
+define void @stbrp_setup_allow_out_of_mem(ptr noundef captures(none) initializes((8, 12)) %0, i32 noundef %1) local_unnamed_addr #0 {
+  %.not = icmp eq i32 %1, 0
+  br i1 %.not, label %3, label %10
 
-if.else:                                          ; preds = %entry
-  %0 = load i32, ptr %context, align 8
-  %num_nodes = getelementptr inbounds nuw i8, ptr %context, i64 20
-  %1 = load i32, ptr %num_nodes, align 4
-  %add = add i32 %0, -1
-  %sub = add i32 %add, %1
-  %div = sdiv i32 %sub, %1
-  br label %if.end
+3:                                                ; preds = %2
+  %4 = load i32, ptr %0, align 8, !tbaa !11
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %6 = load i32, ptr %5, align 4, !tbaa !12
+  %7 = add i32 %4, -1
+  %8 = add i32 %7, %6
+  %9 = sdiv i32 %8, %6
+  br label %10
 
-if.end:                                           ; preds = %entry, %if.else
-  %.sink = phi i32 [ %div, %if.else ], [ 1, %entry ]
-  %2 = getelementptr inbounds nuw i8, ptr %context, i64 8
-  store i32 %.sink, ptr %2, align 8
+10:                                               ; preds = %2, %3
+  %.sink = phi i32 [ %9, %3 ], [ 1, %2 ]
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %.sink, ptr %11, align 8, !tbaa !13
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define void @stbrp_init_target(ptr noundef %context, i32 noundef %width, i32 noundef %height, ptr noundef %nodes, i32 noundef %num_nodes) local_unnamed_addr #1 {
-entry:
-  %sub = add i32 %num_nodes, -1
-  %cmp25 = icmp sgt i32 %num_nodes, 1
-  br i1 %cmp25, label %for.body.preheader, label %for.end
+define void @stbrp_init_target(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #1 {
+  %6 = add i32 %4, -1
+  %7 = icmp sgt i32 %4, 1
+  br i1 %7, label %.lr.ph.preheader, label %._crit_edge
 
-for.body.preheader:                               ; preds = %entry
-  %wide.trip.count = zext nneg i32 %sub to i64
-  br label %for.body
+.lr.ph.preheader:                                 ; preds = %5
+  %wide.trip.count = zext nneg i32 %6 to i64
+  br label %.lr.ph
 
-for.body:                                         ; preds = %for.body.preheader, %for.body
-  %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %arrayidx = getelementptr inbounds nuw %struct.stbrp_node, ptr %nodes, i64 %indvars.iv.next
-  %next = getelementptr inbounds nuw %struct.stbrp_node, ptr %nodes, i64 %indvars.iv, i32 2
-  store ptr %arrayidx, ptr %next, align 8
+  %8 = getelementptr inbounds nuw %struct.stbrp_node, ptr %3, i64 %indvars.iv.next
+  %9 = getelementptr inbounds nuw %struct.stbrp_node, ptr %3, i64 %indvars.iv, i32 2
+  store ptr %8, ptr %9, align 8, !tbaa !14
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !4
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !16
 
-for.end.loopexit:                                 ; preds = %for.body
-  %0 = zext nneg i32 %sub to i64
-  br label %for.end
+._crit_edge.loopexit:                             ; preds = %.lr.ph
+  %10 = zext nneg i32 %6 to i64
+  br label %._crit_edge
 
-for.end:                                          ; preds = %entry, %for.end.loopexit
-  %i.0.lcssa = phi i64 [ %0, %for.end.loopexit ], [ 0, %entry ]
-  %next5 = getelementptr inbounds nuw %struct.stbrp_node, ptr %nodes, i64 %i.0.lcssa, i32 2
-  store ptr null, ptr %next5, align 8
-  %init_mode = getelementptr inbounds nuw i8, ptr %context, i64 12
-  store i32 1, ptr %init_mode, align 4
-  %heuristic = getelementptr inbounds nuw i8, ptr %context, i64 16
-  store i32 0, ptr %heuristic, align 8
-  %free_head = getelementptr inbounds nuw i8, ptr %context, i64 32
-  store ptr %nodes, ptr %free_head, align 8
-  %extra = getelementptr inbounds nuw i8, ptr %context, i64 40
-  %active_head = getelementptr inbounds nuw i8, ptr %context, i64 24
-  store ptr %extra, ptr %active_head, align 8
-  store i32 %width, ptr %context, align 8
-  %height9 = getelementptr inbounds nuw i8, ptr %context, i64 4
-  store i32 %height, ptr %height9, align 4
-  %num_nodes10 = getelementptr inbounds nuw i8, ptr %context, i64 20
-  store i32 %num_nodes, ptr %num_nodes10, align 4
-  %sub.i = add i32 %sub, %width
-  %div.i = sdiv i32 %sub.i, %num_nodes
-  %1 = getelementptr inbounds nuw i8, ptr %context, i64 8
-  store i32 %div.i, ptr %1, align 8
-  store i32 0, ptr %extra, align 8
-  %y = getelementptr inbounds nuw i8, ptr %context, i64 44
-  store i32 0, ptr %y, align 4
-  %arrayidx16 = getelementptr inbounds nuw i8, ptr %context, i64 56
-  %next19 = getelementptr inbounds nuw i8, ptr %context, i64 48
-  store ptr %arrayidx16, ptr %next19, align 8
-  store i32 %width, ptr %arrayidx16, align 8
-  %y25 = getelementptr inbounds nuw i8, ptr %context, i64 60
-  store i32 1073741824, ptr %y25, align 4
-  %next28 = getelementptr inbounds nuw i8, ptr %context, i64 64
-  store ptr null, ptr %next28, align 8
+._crit_edge:                                      ; preds = %5, %._crit_edge.loopexit
+  %.0.lcssa = phi i64 [ %10, %._crit_edge.loopexit ], [ 0, %5 ]
+  %11 = getelementptr inbounds nuw %struct.stbrp_node, ptr %3, i64 %.0.lcssa, i32 2
+  store ptr null, ptr %11, align 8, !tbaa !14
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 1, ptr %12, align 4, !tbaa !3
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 0, ptr %13, align 8, !tbaa !10
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr %3, ptr %14, align 8, !tbaa !18
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %15, ptr %16, align 8, !tbaa !19
+  store i32 %1, ptr %0, align 8, !tbaa !11
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %2, ptr %17, align 4, !tbaa !20
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 %4, ptr %18, align 4, !tbaa !12
+  %19 = add i32 %6, %1
+  %20 = sdiv i32 %19, %4
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %20, ptr %21, align 8, !tbaa !13
+  store i32 0, ptr %15, align 8, !tbaa !21
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  store i32 0, ptr %22, align 4, !tbaa !22
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store ptr %23, ptr %24, align 8, !tbaa !14
+  store i32 %1, ptr %23, align 8, !tbaa !21
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  store i32 1073741824, ptr %25, align 4, !tbaa !22
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store ptr null, ptr %26, align 8, !tbaa !14
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, -2147483648) i32 @stbrp__skyline_find_min_y(ptr noundef readnone captures(none) %c, ptr noundef readonly captures(none) %first, i32 noundef %x0, i32 noundef %width, ptr noundef writeonly captures(none) %pwaste) local_unnamed_addr #2 {
-entry:
-  %add = add nsw i32 %width, %x0
-  %0 = load i32, ptr %first, align 8
-  %cmp29 = icmp slt i32 %0, %add
-  br i1 %cmp29, label %while.body, label %while.end
+define range(i32 0, -2147483648) i32 @stbrp__skyline_find_min_y(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #2 {
+  %6 = add nsw i32 %3, %2
+  %7 = load i32, ptr %1, align 8, !tbaa !21
+  %8 = icmp slt i32 %7, %6
+  br i1 %8, label %.lr.ph, label %._crit_edge
 
-while.body:                                       ; preds = %entry, %if.end31
-  %1 = phi i32 [ %7, %if.end31 ], [ %0, %entry ]
-  %waste_area.033 = phi i32 [ %waste_area.1, %if.end31 ], [ 0, %entry ]
-  %visited_width.032 = phi i32 [ %visited_width.1, %if.end31 ], [ 0, %entry ]
-  %min_y.031 = phi i32 [ %min_y.1, %if.end31 ], [ 0, %entry ]
-  %node.030 = phi ptr [ %8, %if.end31 ], [ %first, %entry ]
-  %y = getelementptr inbounds nuw i8, ptr %node.030, i64 4
-  %2 = load i32, ptr %y, align 4
-  %cmp1 = icmp sgt i32 %2, %min_y.031
-  br i1 %cmp1, label %if.then, label %if.else16
+.lr.ph:                                           ; preds = %5, %34
+  %9 = phi i32 [ %35, %34 ], [ %7, %5 ]
+  %.03650 = phi i32 [ %.1, %34 ], [ 0, %5 ]
+  %.03749 = phi i32 [ %.138, %34 ], [ 0, %5 ]
+  %.03948 = phi i32 [ %.140, %34 ], [ 0, %5 ]
+  %.04147 = phi ptr [ %36, %34 ], [ %1, %5 ]
+  %10 = getelementptr inbounds nuw i8, ptr %.04147, i64 4
+  %11 = load i32, ptr %10, align 4, !tbaa !22
+  %12 = icmp sgt i32 %11, %.03948
+  br i1 %12, label %13, label %24
 
-if.then:                                          ; preds = %while.body
-  %sub = sub nsw i32 %2, %min_y.031
-  %mul = mul nsw i32 %sub, %visited_width.032
-  %cmp6 = icmp slt i32 %1, %x0
-  %next = getelementptr inbounds nuw i8, ptr %node.030, i64 8
-  %3 = load ptr, ptr %next, align 8
-  %4 = load i32, ptr %3, align 8
-  br i1 %cmp6, label %if.then7, label %if.else
+13:                                               ; preds = %.lr.ph
+  %14 = sub nsw i32 %11, %.03948
+  %15 = mul nsw i32 %14, %.03749
+  %16 = icmp slt i32 %9, %2
+  %17 = getelementptr inbounds nuw i8, ptr %.04147, i64 8
+  %18 = load ptr, ptr %17, align 8, !tbaa !14
+  %19 = load i32, ptr %18, align 8, !tbaa !21
+  br i1 %16, label %20, label %22
 
-if.then7:                                         ; preds = %if.then
-  %sub9 = sub nsw i32 %4, %x0
-  br label %if.end31
+20:                                               ; preds = %13
+  %21 = sub nsw i32 %19, %2
+  br label %34
 
-if.else:                                          ; preds = %if.then
-  %sub14 = sub nsw i32 %4, %1
-  br label %if.end31
+22:                                               ; preds = %13
+  %23 = sub nsw i32 %19, %9
+  br label %34
 
-if.else16:                                        ; preds = %while.body
-  %next17 = getelementptr inbounds nuw i8, ptr %node.030, i64 8
-  %5 = load ptr, ptr %next17, align 8
-  %6 = load i32, ptr %5, align 8
-  %sub20 = sub nsw i32 %6, %1
-  %add21 = add nsw i32 %sub20, %visited_width.032
-  %cmp22 = icmp sgt i32 %add21, %width
-  %sub24 = sub nsw i32 %width, %visited_width.032
-  %spec.select = select i1 %cmp22, i32 %sub24, i32 %sub20
-  %sub27 = sub nsw i32 %min_y.031, %2
-  %mul28 = mul nsw i32 %spec.select, %sub27
-  br label %if.end31
+24:                                               ; preds = %.lr.ph
+  %25 = getelementptr inbounds nuw i8, ptr %.04147, i64 8
+  %26 = load ptr, ptr %25, align 8, !tbaa !14
+  %27 = load i32, ptr %26, align 8, !tbaa !21
+  %28 = sub nsw i32 %27, %9
+  %29 = add nsw i32 %28, %.03749
+  %30 = icmp sgt i32 %29, %3
+  %31 = sub nsw i32 %3, %.03749
+  %spec.select = select i1 %30, i32 %31, i32 %28
+  %32 = sub nsw i32 %.03948, %11
+  %33 = mul nsw i32 %spec.select, %32
+  br label %34
 
-if.end31:                                         ; preds = %if.then7, %if.else, %if.else16
-  %7 = phi i32 [ %4, %if.then7 ], [ %4, %if.else ], [ %6, %if.else16 ]
-  %8 = phi ptr [ %3, %if.then7 ], [ %3, %if.else ], [ %5, %if.else16 ]
-  %min_y.1 = phi i32 [ %2, %if.then7 ], [ %2, %if.else ], [ %min_y.031, %if.else16 ]
-  %sub9.pn = phi i32 [ %sub9, %if.then7 ], [ %sub14, %if.else ], [ %spec.select, %if.else16 ]
-  %mul.pn = phi i32 [ %mul, %if.then7 ], [ %mul, %if.else ], [ %mul28, %if.else16 ]
-  %waste_area.1 = add nsw i32 %mul.pn, %waste_area.033
-  %visited_width.1 = add nsw i32 %sub9.pn, %visited_width.032
-  %cmp = icmp slt i32 %7, %add
-  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !6
+34:                                               ; preds = %20, %22, %24
+  %35 = phi i32 [ %19, %20 ], [ %19, %22 ], [ %27, %24 ]
+  %36 = phi ptr [ %18, %20 ], [ %18, %22 ], [ %26, %24 ]
+  %.140 = phi i32 [ %11, %20 ], [ %11, %22 ], [ %.03948, %24 ]
+  %.pn = phi i32 [ %21, %20 ], [ %23, %22 ], [ %spec.select, %24 ]
+  %.pn46 = phi i32 [ %15, %20 ], [ %15, %22 ], [ %33, %24 ]
+  %.1 = add nsw i32 %.pn46, %.03650
+  %.138 = add nsw i32 %.pn, %.03749
+  %37 = icmp slt i32 %35, %6
+  br i1 %37, label %.lr.ph, label %._crit_edge, !llvm.loop !23
 
-while.end:                                        ; preds = %if.end31, %entry
-  %min_y.0.lcssa = phi i32 [ 0, %entry ], [ %min_y.1, %if.end31 ]
-  %waste_area.0.lcssa = phi i32 [ 0, %entry ], [ %waste_area.1, %if.end31 ]
-  store i32 %waste_area.0.lcssa, ptr %pwaste, align 4
-  ret i32 %min_y.0.lcssa
+._crit_edge:                                      ; preds = %34, %5
+  %.039.lcssa = phi i32 [ 0, %5 ], [ %.140, %34 ]
+  %.036.lcssa = phi i32 [ 0, %5 ], [ %.1, %34 ]
+  store i32 %.036.lcssa, ptr %4, align 4, !tbaa !24
+  ret i32 %.039.lcssa
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define { i64, ptr } @stbrp__skyline_find_best_pos(ptr noundef %c, i32 noundef %width, i32 noundef %height) local_unnamed_addr #3 {
-entry:
-  %align = getelementptr inbounds nuw i8, ptr %c, i64 8
-  %0 = load i32, ptr %align, align 8
-  %add = add i32 %width, -1
-  %sub = add i32 %add, %0
-  %rem = srem i32 %sub, %0
-  %sub2 = sub nsw i32 %sub, %rem
-  %1 = load i32, ptr %c, align 8
-  %cmp = icmp sgt i32 %sub2, %1
-  br i1 %cmp, label %return, label %lor.lhs.false
+define { i64, ptr } @stbrp__skyline_find_best_pos(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = load i32, ptr %4, align 8, !tbaa !13
+  %6 = add i32 %1, -1
+  %7 = add i32 %6, %5
+  %8 = srem i32 %7, %5
+  %9 = sub nsw i32 %7, %8
+  %10 = load i32, ptr %0, align 8, !tbaa !11
+  %11 = icmp sgt i32 %9, %10
+  br i1 %11, label %136, label %12
 
-lor.lhs.false:                                    ; preds = %entry
-  %height4 = getelementptr inbounds nuw i8, ptr %c, i64 4
-  %2 = load i32, ptr %height4, align 4
-  %cmp5 = icmp sgt i32 %height, %2
-  br i1 %cmp5, label %return, label %if.end
+12:                                               ; preds = %3
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %14 = load i32, ptr %13, align 4, !tbaa !20
+  %15 = icmp sgt i32 %2, %14
+  br i1 %15, label %136, label %16
 
-if.end:                                           ; preds = %lor.lhs.false
-  %active_head = getelementptr inbounds nuw i8, ptr %c, i64 24
-  %node.0104 = load ptr, ptr %active_head, align 8
-  %3 = load i32, ptr %node.0104, align 8
-  %add8105 = add nsw i32 %3, %sub2
-  %cmp10.not106 = icmp sgt i32 %add8105, %1
-  br i1 %cmp10.not106, label %cond.end, label %while.body.lr.ph
+16:                                               ; preds = %12
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %18 = load ptr, ptr %17, align 8, !tbaa !19
+  %19 = load i32, ptr %18, align 8, !tbaa !21
+  %20 = add nsw i32 %19, %9
+  %.not127 = icmp sgt i32 %20, %10
+  br i1 %.not127, label %._crit_edge.thread, label %.lr.ph
 
-while.body.lr.ph:                                 ; preds = %if.end
-  %cmp29.i = icmp sgt i32 %sub2, 0
-  %heuristic = getelementptr inbounds nuw i8, ptr %c, i64 16
-  %4 = load i32, ptr %heuristic, align 8
-  %cmp13 = icmp eq i32 %4, 0
-  br i1 %cmp29.i, label %while.body.us, label %while.body.lr.ph.split
+.lr.ph:                                           ; preds = %16
+  %21 = icmp sgt i32 %9, 0
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %23 = load i32, ptr %22, align 8, !tbaa !10
+  %24 = icmp eq i32 %23, 0
+  br i1 %21, label %.lr.ph.i.preheader.us, label %.lr.ph.split
 
-while.body.us:                                    ; preds = %while.body.lr.ph, %if.end29.us
-  %add8112.us = phi i32 [ %add8.us, %if.end29.us ], [ %add8105, %while.body.lr.ph ]
-  %5 = phi i32 [ %14, %if.end29.us ], [ %3, %while.body.lr.ph ]
-  %node.0111.us = phi ptr [ %node.0.us, %if.end29.us ], [ %node.0104, %while.body.lr.ph ]
-  %best.0110.us = phi ptr [ %best.1.us, %if.end29.us ], [ null, %while.body.lr.ph ]
-  %prev.0109.us = phi ptr [ %next.us, %if.end29.us ], [ %active_head, %while.body.lr.ph ]
-  %best_y.0108.us = phi i32 [ %best_y.1.us, %if.end29.us ], [ 1073741824, %while.body.lr.ph ]
-  %best_waste.0107.us = phi i32 [ %best_waste.1.us, %if.end29.us ], [ 1073741824, %while.body.lr.ph ]
-  br label %while.body.i.us
+.lr.ph.i.preheader.us:                            ; preds = %.lr.ph, %66
+  %25 = phi i32 [ %70, %66 ], [ %20, %.lr.ph ]
+  %26 = phi i32 [ %69, %66 ], [ %19, %.lr.ph ]
+  %.0132.us = phi ptr [ %.1.us, %66 ], [ null, %.lr.ph ]
+  %.074131.us = phi ptr [ %68, %66 ], [ %18, %.lr.ph ]
+  %.077130.us = phi ptr [ %67, %66 ], [ %17, %.lr.ph ]
+  %.080129.us = phi i32 [ %.181.us, %66 ], [ 1073741824, %.lr.ph ]
+  %.088128.us = phi i32 [ %.189.us, %66 ], [ 1073741824, %.lr.ph ]
+  br label %.lr.ph.i.us
 
-while.body.i.us:                                  ; preds = %while.body.us, %if.end31.i.us
-  %6 = phi i32 [ %12, %if.end31.i.us ], [ %5, %while.body.us ]
-  %waste_area.033.i.us = phi i32 [ %waste_area.1.i.us, %if.end31.i.us ], [ 0, %while.body.us ]
-  %visited_width.032.i.us = phi i32 [ %visited_width.1.i.us, %if.end31.i.us ], [ 0, %while.body.us ]
-  %min_y.031.i.us = phi i32 [ %min_y.1.i.us, %if.end31.i.us ], [ 0, %while.body.us ]
-  %node.030.i.us = phi ptr [ %13, %if.end31.i.us ], [ %node.0111.us, %while.body.us ]
-  %y.i.us = getelementptr inbounds nuw i8, ptr %node.030.i.us, i64 4
-  %7 = load i32, ptr %y.i.us, align 4
-  %cmp1.i.us = icmp sgt i32 %7, %min_y.031.i.us
-  br i1 %cmp1.i.us, label %if.then.i.us, label %if.else16.i.us
+.lr.ph.i.us:                                      ; preds = %.lr.ph.i.preheader.us, %52
+  %27 = phi i32 [ %53, %52 ], [ %26, %.lr.ph.i.preheader.us ]
+  %.03650.i.us = phi i32 [ %.1.i.us, %52 ], [ 0, %.lr.ph.i.preheader.us ]
+  %.03749.i.us = phi i32 [ %.138.i.us, %52 ], [ 0, %.lr.ph.i.preheader.us ]
+  %.03948.i.us = phi i32 [ %.140.i.us, %52 ], [ 0, %.lr.ph.i.preheader.us ]
+  %.04147.i.us = phi ptr [ %54, %52 ], [ %.074131.us, %.lr.ph.i.preheader.us ]
+  %28 = getelementptr inbounds nuw i8, ptr %.04147.i.us, i64 4
+  %29 = load i32, ptr %28, align 4, !tbaa !22
+  %30 = icmp sgt i32 %29, %.03948.i.us
+  br i1 %30, label %41, label %31
 
-if.else16.i.us:                                   ; preds = %while.body.i.us
-  %next17.i.us = getelementptr inbounds nuw i8, ptr %node.030.i.us, i64 8
-  %8 = load ptr, ptr %next17.i.us, align 8
-  %9 = load i32, ptr %8, align 8
-  %sub20.i.us = sub nsw i32 %9, %6
-  %add21.i.us = add nsw i32 %sub20.i.us, %visited_width.032.i.us
-  %cmp22.i.us = icmp sgt i32 %add21.i.us, %sub2
-  %sub24.i.us = sub nsw i32 %sub2, %visited_width.032.i.us
-  %spec.select.i.us = select i1 %cmp22.i.us, i32 %sub24.i.us, i32 %sub20.i.us
-  %sub27.i.us = sub nsw i32 %min_y.031.i.us, %7
-  %mul28.i.us = mul nsw i32 %spec.select.i.us, %sub27.i.us
-  br label %if.end31.i.us
+31:                                               ; preds = %.lr.ph.i.us
+  %32 = getelementptr inbounds nuw i8, ptr %.04147.i.us, i64 8
+  %33 = load ptr, ptr %32, align 8, !tbaa !14
+  %34 = load i32, ptr %33, align 8, !tbaa !21
+  %35 = sub nsw i32 %34, %27
+  %36 = add nsw i32 %35, %.03749.i.us
+  %37 = icmp sgt i32 %36, %9
+  %38 = sub nsw i32 %9, %.03749.i.us
+  %spec.select.i.us = select i1 %37, i32 %38, i32 %35
+  %39 = sub nsw i32 %.03948.i.us, %29
+  %40 = mul nsw i32 %spec.select.i.us, %39
+  br label %52
 
-if.then.i.us:                                     ; preds = %while.body.i.us
-  %sub.i.us = sub nsw i32 %7, %min_y.031.i.us
-  %mul.i.us = mul nsw i32 %sub.i.us, %visited_width.032.i.us
-  %cmp6.i.us = icmp slt i32 %6, %5
-  %next.i.us = getelementptr inbounds nuw i8, ptr %node.030.i.us, i64 8
-  %10 = load ptr, ptr %next.i.us, align 8
-  %11 = load i32, ptr %10, align 8
-  br i1 %cmp6.i.us, label %if.then7.i.us, label %if.else.i.us
+41:                                               ; preds = %.lr.ph.i.us
+  %42 = sub nsw i32 %29, %.03948.i.us
+  %43 = mul nsw i32 %42, %.03749.i.us
+  %44 = icmp slt i32 %27, %26
+  %45 = getelementptr inbounds nuw i8, ptr %.04147.i.us, i64 8
+  %46 = load ptr, ptr %45, align 8, !tbaa !14
+  %47 = load i32, ptr %46, align 8, !tbaa !21
+  br i1 %44, label %50, label %48
 
-if.else.i.us:                                     ; preds = %if.then.i.us
-  %sub14.i.us = sub nsw i32 %11, %6
-  br label %if.end31.i.us
+48:                                               ; preds = %41
+  %49 = sub nsw i32 %47, %27
+  br label %52
 
-if.then7.i.us:                                    ; preds = %if.then.i.us
-  %sub9.i.us = sub nsw i32 %11, %5
-  br label %if.end31.i.us
+50:                                               ; preds = %41
+  %51 = sub nsw i32 %47, %26
+  br label %52
 
-if.end31.i.us:                                    ; preds = %if.then7.i.us, %if.else.i.us, %if.else16.i.us
-  %12 = phi i32 [ %11, %if.then7.i.us ], [ %11, %if.else.i.us ], [ %9, %if.else16.i.us ]
-  %13 = phi ptr [ %10, %if.then7.i.us ], [ %10, %if.else.i.us ], [ %8, %if.else16.i.us ]
-  %min_y.1.i.us = phi i32 [ %7, %if.then7.i.us ], [ %7, %if.else.i.us ], [ %min_y.031.i.us, %if.else16.i.us ]
-  %sub9.pn.i.us = phi i32 [ %sub9.i.us, %if.then7.i.us ], [ %sub14.i.us, %if.else.i.us ], [ %spec.select.i.us, %if.else16.i.us ]
-  %mul.pn.i.us = phi i32 [ %mul.i.us, %if.then7.i.us ], [ %mul.i.us, %if.else.i.us ], [ %mul28.i.us, %if.else16.i.us ]
-  %waste_area.1.i.us = add nsw i32 %mul.pn.i.us, %waste_area.033.i.us
-  %visited_width.1.i.us = add nsw i32 %sub9.pn.i.us, %visited_width.032.i.us
-  %cmp.i.us = icmp slt i32 %12, %add8112.us
-  br i1 %cmp.i.us, label %while.body.i.us, label %stbrp__skyline_find_min_y.exit.loopexit.us, !llvm.loop !6
+52:                                               ; preds = %50, %48, %31
+  %53 = phi i32 [ %47, %50 ], [ %47, %48 ], [ %34, %31 ]
+  %54 = phi ptr [ %46, %50 ], [ %46, %48 ], [ %33, %31 ]
+  %.140.i.us = phi i32 [ %29, %50 ], [ %29, %48 ], [ %.03948.i.us, %31 ]
+  %.pn.i.us = phi i32 [ %51, %50 ], [ %49, %48 ], [ %spec.select.i.us, %31 ]
+  %.pn46.i.us = phi i32 [ %43, %50 ], [ %43, %48 ], [ %40, %31 ]
+  %.1.i.us = add nsw i32 %.pn46.i.us, %.03650.i.us
+  %.138.i.us = add nsw i32 %.pn.i.us, %.03749.i.us
+  %55 = icmp slt i32 %53, %25
+  br i1 %55, label %.lr.ph.i.us, label %stbrp__skyline_find_min_y.exit.loopexit.us, !llvm.loop !23
 
-if.else.us:                                       ; preds = %stbrp__skyline_find_min_y.exit.loopexit.us
-  %add18.us = add nsw i32 %min_y.1.i.us, %height
-  %cmp20.not.us = icmp sgt i32 %add18.us, %2
-  br i1 %cmp20.not.us, label %if.end29.us, label %if.then21.us
+56:                                               ; preds = %stbrp__skyline_find_min_y.exit.loopexit.us
+  %57 = add nsw i32 %.140.i.us, %2
+  %.not103.us = icmp sgt i32 %57, %14
+  br i1 %.not103.us, label %66, label %58
 
-if.then21.us:                                     ; preds = %if.else.us
-  %cmp22.us = icmp slt i32 %min_y.1.i.us, %best_y.0108.us
-  br i1 %cmp22.us, label %if.then26.us, label %lor.lhs.false23.us
+58:                                               ; preds = %56
+  %59 = icmp slt i32 %.140.i.us, %.080129.us
+  br i1 %59, label %63, label %60
 
-lor.lhs.false23.us:                               ; preds = %if.then21.us
-  %cmp24.us = icmp eq i32 %min_y.1.i.us, %best_y.0108.us
-  %cmp25.us = icmp slt i32 %waste_area.1.i.us, %best_waste.0107.us
-  %or.cond.us = select i1 %cmp24.us, i1 %cmp25.us, i1 false
-  br i1 %or.cond.us, label %if.then26.us, label %if.end29.us
+60:                                               ; preds = %58
+  %61 = icmp eq i32 %.140.i.us, %.080129.us
+  %62 = icmp slt i32 %.1.i.us, %.088128.us
+  %or.cond.us = select i1 %61, i1 %62, i1 false
+  br i1 %or.cond.us, label %63, label %66
 
-if.then26.us:                                     ; preds = %lor.lhs.false23.us, %if.then21.us
-  br label %if.end29.us
+63:                                               ; preds = %60, %58
+  br label %66
 
-if.then14.us:                                     ; preds = %stbrp__skyline_find_min_y.exit.loopexit.us
-  %cmp15.us = icmp slt i32 %min_y.1.i.us, %best_y.0108.us
-  %spec.select.us = tail call i32 @llvm.smin.i32(i32 %min_y.1.i.us, i32 %best_y.0108.us)
-  %spec.select61.us = select i1 %cmp15.us, ptr %prev.0109.us, ptr %best.0110.us
-  br label %if.end29.us
+64:                                               ; preds = %stbrp__skyline_find_min_y.exit.loopexit.us
+  %65 = icmp slt i32 %.140.i.us, %.080129.us
+  %spec.select.us = tail call i32 @llvm.smin.i32(i32 %.140.i.us, i32 %.080129.us)
+  %spec.select104.us = select i1 %65, ptr %.077130.us, ptr %.0132.us
+  br label %66
 
-if.end29.us:                                      ; preds = %if.then14.us, %if.then26.us, %lor.lhs.false23.us, %if.else.us
-  %best_waste.1.us = phi i32 [ %waste_area.1.i.us, %if.then26.us ], [ %best_waste.0107.us, %lor.lhs.false23.us ], [ %best_waste.0107.us, %if.else.us ], [ %best_waste.0107.us, %if.then14.us ]
-  %best_y.1.us = phi i32 [ %min_y.1.i.us, %if.then26.us ], [ %best_y.0108.us, %lor.lhs.false23.us ], [ %best_y.0108.us, %if.else.us ], [ %spec.select.us, %if.then14.us ]
-  %best.1.us = phi ptr [ %prev.0109.us, %if.then26.us ], [ %best.0110.us, %lor.lhs.false23.us ], [ %best.0110.us, %if.else.us ], [ %spec.select61.us, %if.then14.us ]
-  %next.us = getelementptr inbounds nuw i8, ptr %node.0111.us, i64 8
-  %node.0.us = load ptr, ptr %next.us, align 8
-  %14 = load i32, ptr %node.0.us, align 8
-  %add8.us = add nsw i32 %14, %sub2
-  %cmp10.not.us = icmp sgt i32 %add8.us, %1
-  br i1 %cmp10.not.us, label %while.end, label %while.body.us, !llvm.loop !7
+66:                                               ; preds = %64, %63, %60, %56
+  %.189.us = phi i32 [ %.1.i.us, %63 ], [ %.088128.us, %60 ], [ %.088128.us, %56 ], [ %.088128.us, %64 ]
+  %.181.us = phi i32 [ %.140.i.us, %63 ], [ %.080129.us, %60 ], [ %.080129.us, %56 ], [ %spec.select.us, %64 ]
+  %.1.us = phi ptr [ %.077130.us, %63 ], [ %.0132.us, %60 ], [ %.0132.us, %56 ], [ %spec.select104.us, %64 ]
+  %67 = getelementptr inbounds nuw i8, ptr %.074131.us, i64 8
+  %68 = load ptr, ptr %67, align 8, !tbaa !14
+  %69 = load i32, ptr %68, align 8, !tbaa !21
+  %70 = add nsw i32 %69, %9
+  %.not.us = icmp sgt i32 %70, %10
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.i.preheader.us, !llvm.loop !25
 
-stbrp__skyline_find_min_y.exit.loopexit.us:       ; preds = %if.end31.i.us
-  br i1 %cmp13, label %if.then14.us, label %if.else.us
+stbrp__skyline_find_min_y.exit.loopexit.us:       ; preds = %52
+  br i1 %24, label %64, label %56
 
-while.body.lr.ph.split:                           ; preds = %while.body.lr.ph
-  br i1 %cmp13, label %cond.false, label %while.end
+.lr.ph.split:                                     ; preds = %.lr.ph
+  br i1 %24, label %._crit_edge.thread193, label %._crit_edge
 
-while.end:                                        ; preds = %if.end29.us, %while.body.lr.ph.split
-  %best_waste.0.lcssa = phi i32 [ 0, %while.body.lr.ph.split ], [ %best_waste.1.us, %if.end29.us ]
-  %best_y.0.lcssa = phi i32 [ 0, %while.body.lr.ph.split ], [ %best_y.1.us, %if.end29.us ]
-  %best.0.lcssa = phi ptr [ %active_head, %while.body.lr.ph.split ], [ %best.1.us, %if.end29.us ]
-  %cmp31 = icmp eq ptr %best.0.lcssa, null
-  br i1 %cmp31, label %cond.end, label %cond.false
+._crit_edge:                                      ; preds = %66, %.lr.ph.split
+  %.088.lcssa = phi i32 [ 0, %.lr.ph.split ], [ %.189.us, %66 ]
+  %.080.lcssa = phi i32 [ 0, %.lr.ph.split ], [ %.181.us, %66 ]
+  %.0.lcssa = phi ptr [ %17, %.lr.ph.split ], [ %.1.us, %66 ]
+  %71 = icmp eq ptr %.0.lcssa, null
+  br i1 %71, label %._crit_edge.thread, label %._crit_edge.thread193
 
-cond.false:                                       ; preds = %while.body.lr.ph.split, %while.end
-  %best.0.lcssa188 = phi ptr [ %best.0.lcssa, %while.end ], [ %active_head, %while.body.lr.ph.split ]
-  %best_y.0.lcssa187 = phi i32 [ %best_y.0.lcssa, %while.end ], [ 0, %while.body.lr.ph.split ]
-  %best_waste.0.lcssa186 = phi i32 [ %best_waste.0.lcssa, %while.end ], [ 1073741824, %while.body.lr.ph.split ]
-  %15 = load ptr, ptr %best.0.lcssa188, align 8
-  %16 = load i32, ptr %15, align 8
-  br label %cond.end
+._crit_edge.thread193:                            ; preds = %.lr.ph.split, %._crit_edge
+  %.0.lcssa199 = phi ptr [ %.0.lcssa, %._crit_edge ], [ %17, %.lr.ph.split ]
+  %.080.lcssa198 = phi i32 [ %.080.lcssa, %._crit_edge ], [ 0, %.lr.ph.split ]
+  %.088.lcssa197 = phi i32 [ %.088.lcssa, %._crit_edge ], [ 1073741824, %.lr.ph.split ]
+  %72 = load ptr, ptr %.0.lcssa199, align 8, !tbaa !26
+  %73 = load i32, ptr %72, align 8, !tbaa !21
+  br label %._crit_edge.thread
 
-cond.end:                                         ; preds = %if.end, %while.end, %cond.false
-  %best.0.lcssa180 = phi ptr [ %best.0.lcssa188, %cond.false ], [ null, %while.end ], [ null, %if.end ]
-  %best_y.0.lcssa179 = phi i32 [ %best_y.0.lcssa187, %cond.false ], [ %best_y.0.lcssa, %while.end ], [ 1073741824, %if.end ]
-  %best_waste.0.lcssa178 = phi i32 [ %best_waste.0.lcssa186, %cond.false ], [ %best_waste.0.lcssa, %while.end ], [ 1073741824, %if.end ]
-  %cond = phi i32 [ %16, %cond.false ], [ 0, %while.end ], [ 0, %if.end ]
-  %heuristic33 = getelementptr inbounds nuw i8, ptr %c, i64 16
-  %17 = load i32, ptr %heuristic33, align 8
-  %cmp34 = icmp eq i32 %17, 1
-  br i1 %cmp34, label %if.then35, label %if.end79
+._crit_edge.thread:                               ; preds = %16, %._crit_edge, %._crit_edge.thread193
+  %.0.lcssa192 = phi ptr [ %.0.lcssa199, %._crit_edge.thread193 ], [ null, %._crit_edge ], [ null, %16 ]
+  %.080.lcssa191 = phi i32 [ %.080.lcssa198, %._crit_edge.thread193 ], [ %.080.lcssa, %._crit_edge ], [ 1073741824, %16 ]
+  %.088.lcssa190 = phi i32 [ %.088.lcssa197, %._crit_edge.thread193 ], [ %.088.lcssa, %._crit_edge ], [ 1073741824, %16 ]
+  %74 = phi i32 [ %73, %._crit_edge.thread193 ], [ 0, %._crit_edge ], [ 0, %16 ]
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %76 = load i32, ptr %75, align 8, !tbaa !10
+  %77 = icmp eq i32 %76, 1
+  br i1 %77, label %.preheader126, label %.loopexit
 
-if.then35:                                        ; preds = %cond.end
-  %cmp41161 = icmp slt i32 %3, %sub2
-  br i1 %cmp41161, label %while.body42, label %while.body46.preheader
+.preheader126:                                    ; preds = %._crit_edge.thread
+  %78 = icmp slt i32 %19, %9
+  br i1 %78, label %.lr.ph172, label %.preheader.preheader
 
-while.body42:                                     ; preds = %if.then35, %while.body42
-  %tail.0162 = phi ptr [ %18, %while.body42 ], [ %node.0104, %if.then35 ]
-  %next43 = getelementptr inbounds nuw i8, ptr %tail.0162, i64 8
-  %18 = load ptr, ptr %next43, align 8
-  %19 = load i32, ptr %18, align 8
-  %cmp41 = icmp slt i32 %19, %sub2
-  br i1 %cmp41, label %while.body42, label %while.body46.preheader, !llvm.loop !8
+.lr.ph172:                                        ; preds = %.preheader126, %.lr.ph172
+  %.072171 = phi ptr [ %80, %.lr.ph172 ], [ %18, %.preheader126 ]
+  %79 = getelementptr inbounds nuw i8, ptr %.072171, i64 8
+  %80 = load ptr, ptr %79, align 8, !tbaa !14
+  %81 = load i32, ptr %80, align 8, !tbaa !21
+  %82 = icmp slt i32 %81, %9
+  br i1 %82, label %.lr.ph172, label %.preheader.preheader, !llvm.loop !27
 
-while.body46.preheader:                           ; preds = %while.body42, %if.then35
-  %tail.1169.ph = phi ptr [ %node.0104, %if.then35 ], [ %18, %while.body42 ]
-  br label %while.body46
+.preheader.preheader:                             ; preds = %.lr.ph172, %.preheader126
+  %.173179.ph = phi ptr [ %18, %.preheader126 ], [ %80, %.lr.ph172 ]
+  br label %.preheader
 
-while.body46:                                     ; preds = %while.body46.preheader, %if.end76
-  %best.3170 = phi ptr [ %best.4, %if.end76 ], [ %best.0.lcssa180, %while.body46.preheader ]
-  %tail.1169 = phi ptr [ %32, %if.end76 ], [ %tail.1169.ph, %while.body46.preheader ]
-  %node.1168 = phi ptr [ %node.2, %if.end76 ], [ %node.0104, %while.body46.preheader ]
-  %prev.1167 = phi ptr [ %prev.2, %if.end76 ], [ %active_head, %while.body46.preheader ]
-  %best_y.3166 = phi i32 [ %best_y.4, %if.end76 ], [ %best_y.0.lcssa179, %while.body46.preheader ]
-  %best_x.1165 = phi i32 [ %best_x.2, %if.end76 ], [ %cond, %while.body46.preheader ]
-  %best_waste.2164 = phi i32 [ %best_waste.3, %if.end76 ], [ %best_waste.0.lcssa178, %while.body46.preheader ]
-  %20 = load i32, ptr %tail.1169, align 8
-  %sub48 = sub nsw i32 %20, %sub2
-  br label %while.cond51
+.preheader:                                       ; preds = %.preheader.preheader, %129
+  %.3180 = phi ptr [ %.4, %129 ], [ %.0.lcssa192, %.preheader.preheader ]
+  %.173179 = phi ptr [ %131, %129 ], [ %.173179.ph, %.preheader.preheader ]
+  %.175178 = phi ptr [ %.276, %129 ], [ %18, %.preheader.preheader ]
+  %.178177 = phi ptr [ %.279, %129 ], [ %17, %.preheader.preheader ]
+  %.383176 = phi i32 [ %.484, %129 ], [ %.080.lcssa191, %.preheader.preheader ]
+  %.186175 = phi i32 [ %.287, %129 ], [ %74, %.preheader.preheader ]
+  %.290174 = phi i32 [ %.391, %129 ], [ %.088.lcssa190, %.preheader.preheader ]
+  %83 = load i32, ptr %.173179, align 8, !tbaa !21
+  %84 = sub nsw i32 %83, %9
+  br label %85
 
-while.cond51:                                     ; preds = %while.cond51, %while.body46
-  %prev.2 = phi ptr [ %prev.1167, %while.body46 ], [ %next52, %while.cond51 ]
-  %node.2 = phi ptr [ %node.1168, %while.body46 ], [ %21, %while.cond51 ]
-  %next52 = getelementptr inbounds nuw i8, ptr %node.2, i64 8
-  %21 = load ptr, ptr %next52, align 8
-  %22 = load i32, ptr %21, align 8
-  %cmp54.not = icmp sgt i32 %22, %sub48
-  br i1 %cmp54.not, label %while.end58, label %while.cond51, !llvm.loop !9
+85:                                               ; preds = %85, %.preheader
+  %.279 = phi ptr [ %.178177, %.preheader ], [ %86, %85 ]
+  %.276 = phi ptr [ %.175178, %.preheader ], [ %87, %85 ]
+  %86 = getelementptr inbounds nuw i8, ptr %.276, i64 8
+  %87 = load ptr, ptr %86, align 8, !tbaa !14
+  %88 = load i32, ptr %87, align 8, !tbaa !21
+  %.not100 = icmp sgt i32 %88, %84
+  br i1 %.not100, label %89, label %85, !llvm.loop !28
 
-while.end58:                                      ; preds = %while.cond51
-  %23 = load i32, ptr %node.2, align 8
-  %cmp29.i65 = icmp slt i32 %23, %20
-  br i1 %cmp29.i65, label %while.body.i68, label %stbrp__skyline_find_min_y.exit100
+89:                                               ; preds = %85
+  %90 = load i32, ptr %.276, align 8, !tbaa !21
+  %91 = icmp slt i32 %90, %83
+  br i1 %91, label %.lr.ph.i110, label %stbrp__skyline_find_min_y.exit121
 
-while.body.i68:                                   ; preds = %while.end58, %if.end31.i84
-  %24 = phi i32 [ %30, %if.end31.i84 ], [ %23, %while.end58 ]
-  %waste_area.033.i69 = phi i32 [ %waste_area.1.i88, %if.end31.i84 ], [ 0, %while.end58 ]
-  %visited_width.032.i70 = phi i32 [ %visited_width.1.i89, %if.end31.i84 ], [ 0, %while.end58 ]
-  %min_y.031.i71 = phi i32 [ %min_y.1.i85, %if.end31.i84 ], [ 0, %while.end58 ]
-  %node.030.i72 = phi ptr [ %31, %if.end31.i84 ], [ %node.2, %while.end58 ]
-  %y.i73 = getelementptr inbounds nuw i8, ptr %node.030.i72, i64 4
-  %25 = load i32, ptr %y.i73, align 4
-  %cmp1.i74 = icmp sgt i32 %25, %min_y.031.i71
-  br i1 %cmp1.i74, label %if.then.i91, label %if.else16.i75
+.lr.ph.i110:                                      ; preds = %89, %117
+  %92 = phi i32 [ %118, %117 ], [ %90, %89 ]
+  %.03650.i111 = phi i32 [ %.1.i119, %117 ], [ 0, %89 ]
+  %.03749.i112 = phi i32 [ %.138.i120, %117 ], [ 0, %89 ]
+  %.03948.i113 = phi i32 [ %.140.i116, %117 ], [ 0, %89 ]
+  %.04147.i114 = phi ptr [ %119, %117 ], [ %.276, %89 ]
+  %93 = getelementptr inbounds nuw i8, ptr %.04147.i114, i64 4
+  %94 = load i32, ptr %93, align 4, !tbaa !22
+  %95 = icmp sgt i32 %94, %.03948.i113
+  br i1 %95, label %96, label %107
 
-if.then.i91:                                      ; preds = %while.body.i68
-  %sub.i92 = sub nsw i32 %25, %min_y.031.i71
-  %mul.i93 = mul nsw i32 %sub.i92, %visited_width.032.i70
-  %cmp6.i94 = icmp slt i32 %24, %sub48
-  %next.i95 = getelementptr inbounds nuw i8, ptr %node.030.i72, i64 8
-  %26 = load ptr, ptr %next.i95, align 8
-  %27 = load i32, ptr %26, align 8
-  br i1 %cmp6.i94, label %if.then7.i98, label %if.else.i96
+96:                                               ; preds = %.lr.ph.i110
+  %97 = sub nsw i32 %94, %.03948.i113
+  %98 = mul nsw i32 %97, %.03749.i112
+  %99 = icmp slt i32 %92, %84
+  %100 = getelementptr inbounds nuw i8, ptr %.04147.i114, i64 8
+  %101 = load ptr, ptr %100, align 8, !tbaa !14
+  %102 = load i32, ptr %101, align 8, !tbaa !21
+  br i1 %99, label %103, label %105
 
-if.then7.i98:                                     ; preds = %if.then.i91
-  %sub9.i99 = sub nsw i32 %27, %sub48
-  br label %if.end31.i84
+103:                                              ; preds = %96
+  %104 = sub nsw i32 %102, %84
+  br label %117
 
-if.else.i96:                                      ; preds = %if.then.i91
-  %sub14.i97 = sub nsw i32 %27, %24
-  br label %if.end31.i84
+105:                                              ; preds = %96
+  %106 = sub nsw i32 %102, %92
+  br label %117
 
-if.else16.i75:                                    ; preds = %while.body.i68
-  %next17.i76 = getelementptr inbounds nuw i8, ptr %node.030.i72, i64 8
-  %28 = load ptr, ptr %next17.i76, align 8
-  %29 = load i32, ptr %28, align 8
-  %sub20.i77 = sub nsw i32 %29, %24
-  %add21.i78 = add nsw i32 %sub20.i77, %visited_width.032.i70
-  %cmp22.i79 = icmp sgt i32 %add21.i78, %sub2
-  %sub24.i80 = sub nsw i32 %sub2, %visited_width.032.i70
-  %spec.select.i81 = select i1 %cmp22.i79, i32 %sub24.i80, i32 %sub20.i77
-  %sub27.i82 = sub nsw i32 %min_y.031.i71, %25
-  %mul28.i83 = mul nsw i32 %spec.select.i81, %sub27.i82
-  br label %if.end31.i84
+107:                                              ; preds = %.lr.ph.i110
+  %108 = getelementptr inbounds nuw i8, ptr %.04147.i114, i64 8
+  %109 = load ptr, ptr %108, align 8, !tbaa !14
+  %110 = load i32, ptr %109, align 8, !tbaa !21
+  %111 = sub nsw i32 %110, %92
+  %112 = add nsw i32 %111, %.03749.i112
+  %113 = icmp sgt i32 %112, %9
+  %114 = sub nsw i32 %9, %.03749.i112
+  %spec.select.i115 = select i1 %113, i32 %114, i32 %111
+  %115 = sub nsw i32 %.03948.i113, %94
+  %116 = mul nsw i32 %spec.select.i115, %115
+  br label %117
 
-if.end31.i84:                                     ; preds = %if.else16.i75, %if.else.i96, %if.then7.i98
-  %30 = phi i32 [ %27, %if.then7.i98 ], [ %27, %if.else.i96 ], [ %29, %if.else16.i75 ]
-  %31 = phi ptr [ %26, %if.then7.i98 ], [ %26, %if.else.i96 ], [ %28, %if.else16.i75 ]
-  %min_y.1.i85 = phi i32 [ %25, %if.then7.i98 ], [ %25, %if.else.i96 ], [ %min_y.031.i71, %if.else16.i75 ]
-  %sub9.pn.i86 = phi i32 [ %sub9.i99, %if.then7.i98 ], [ %sub14.i97, %if.else.i96 ], [ %spec.select.i81, %if.else16.i75 ]
-  %mul.pn.i87 = phi i32 [ %mul.i93, %if.then7.i98 ], [ %mul.i93, %if.else.i96 ], [ %mul28.i83, %if.else16.i75 ]
-  %waste_area.1.i88 = add nsw i32 %mul.pn.i87, %waste_area.033.i69
-  %visited_width.1.i89 = add nsw i32 %sub9.pn.i86, %visited_width.032.i70
-  %cmp.i90 = icmp slt i32 %30, %20
-  br i1 %cmp.i90, label %while.body.i68, label %stbrp__skyline_find_min_y.exit100, !llvm.loop !6
+117:                                              ; preds = %107, %105, %103
+  %118 = phi i32 [ %102, %103 ], [ %102, %105 ], [ %110, %107 ]
+  %119 = phi ptr [ %101, %103 ], [ %101, %105 ], [ %109, %107 ]
+  %.140.i116 = phi i32 [ %94, %103 ], [ %94, %105 ], [ %.03948.i113, %107 ]
+  %.pn.i117 = phi i32 [ %104, %103 ], [ %106, %105 ], [ %spec.select.i115, %107 ]
+  %.pn46.i118 = phi i32 [ %98, %103 ], [ %98, %105 ], [ %116, %107 ]
+  %.1.i119 = add nsw i32 %.pn46.i118, %.03650.i111
+  %.138.i120 = add nsw i32 %.pn.i117, %.03749.i112
+  %120 = icmp slt i32 %118, %83
+  br i1 %120, label %.lr.ph.i110, label %stbrp__skyline_find_min_y.exit121, !llvm.loop !23
 
-stbrp__skyline_find_min_y.exit100:                ; preds = %if.end31.i84, %while.end58
-  %min_y.0.lcssa.i66 = phi i32 [ 0, %while.end58 ], [ %min_y.1.i85, %if.end31.i84 ]
-  %waste_area.0.lcssa.i67 = phi i32 [ 0, %while.end58 ], [ %waste_area.1.i88, %if.end31.i84 ]
-  %add60 = add nsw i32 %min_y.0.lcssa.i66, %height
-  %cmp62.not = icmp sgt i32 %add60, %2
-  %cmp64.not = icmp sgt i32 %min_y.0.lcssa.i66, %best_y.3166
-  %or.cond62 = select i1 %cmp62.not, i1 true, i1 %cmp64.not
-  br i1 %or.cond62, label %if.end76, label %if.then65
+stbrp__skyline_find_min_y.exit121:                ; preds = %117, %89
+  %.039.lcssa.i108 = phi i32 [ 0, %89 ], [ %.140.i116, %117 ]
+  %.036.lcssa.i109 = phi i32 [ 0, %89 ], [ %.1.i119, %117 ]
+  %121 = add nsw i32 %.039.lcssa.i108, %2
+  %.not101 = icmp sgt i32 %121, %14
+  %.not102 = icmp sgt i32 %.039.lcssa.i108, %.383176
+  %or.cond106 = select i1 %.not101, i1 true, i1 %.not102
+  br i1 %or.cond106, label %129, label %122
 
-if.then65:                                        ; preds = %stbrp__skyline_find_min_y.exit100
-  %cmp66 = icmp slt i32 %min_y.0.lcssa.i66, %best_y.3166
-  %cmp68 = icmp slt i32 %waste_area.0.lcssa.i67, %best_waste.2164
-  %or.cond103 = select i1 %cmp66, i1 true, i1 %cmp68
-  br i1 %or.cond103, label %if.then73, label %lor.lhs.false69
+122:                                              ; preds = %stbrp__skyline_find_min_y.exit121
+  %123 = icmp slt i32 %.039.lcssa.i108, %.383176
+  %124 = icmp slt i32 %.036.lcssa.i109, %.290174
+  %or.cond125 = select i1 %123, i1 true, i1 %124
+  br i1 %or.cond125, label %128, label %125
 
-lor.lhs.false69:                                  ; preds = %if.then65
-  %cmp70 = icmp eq i32 %waste_area.0.lcssa.i67, %best_waste.2164
-  %cmp72 = icmp slt i32 %sub48, %best_x.1165
-  %or.cond63 = select i1 %cmp70, i1 %cmp72, i1 false
-  br i1 %or.cond63, label %if.then73, label %if.end76
+125:                                              ; preds = %122
+  %126 = icmp eq i32 %.036.lcssa.i109, %.290174
+  %127 = icmp slt i32 %84, %.186175
+  %or.cond107 = select i1 %126, i1 %127, i1 false
+  br i1 %or.cond107, label %128, label %129
 
-if.then73:                                        ; preds = %lor.lhs.false69, %if.then65
-  br label %if.end76
+128:                                              ; preds = %125, %122
+  br label %129
 
-if.end76:                                         ; preds = %if.then73, %lor.lhs.false69, %stbrp__skyline_find_min_y.exit100
-  %best_waste.3 = phi i32 [ %waste_area.0.lcssa.i67, %if.then73 ], [ %best_waste.2164, %lor.lhs.false69 ], [ %best_waste.2164, %stbrp__skyline_find_min_y.exit100 ]
-  %best_x.2 = phi i32 [ %sub48, %if.then73 ], [ %best_x.1165, %lor.lhs.false69 ], [ %best_x.1165, %stbrp__skyline_find_min_y.exit100 ]
-  %best_y.4 = phi i32 [ %min_y.0.lcssa.i66, %if.then73 ], [ %best_y.3166, %lor.lhs.false69 ], [ %best_y.3166, %stbrp__skyline_find_min_y.exit100 ]
-  %best.4 = phi ptr [ %prev.2, %if.then73 ], [ %best.3170, %lor.lhs.false69 ], [ %best.3170, %stbrp__skyline_find_min_y.exit100 ]
-  %next77 = getelementptr inbounds nuw i8, ptr %tail.1169, i64 8
-  %32 = load ptr, ptr %next77, align 8
-  %tobool.not = icmp eq ptr %32, null
-  br i1 %tobool.not, label %if.end79, label %while.body46, !llvm.loop !10
+129:                                              ; preds = %128, %125, %stbrp__skyline_find_min_y.exit121
+  %.391 = phi i32 [ %.036.lcssa.i109, %128 ], [ %.290174, %125 ], [ %.290174, %stbrp__skyline_find_min_y.exit121 ]
+  %.287 = phi i32 [ %84, %128 ], [ %.186175, %125 ], [ %.186175, %stbrp__skyline_find_min_y.exit121 ]
+  %.484 = phi i32 [ %.039.lcssa.i108, %128 ], [ %.383176, %125 ], [ %.383176, %stbrp__skyline_find_min_y.exit121 ]
+  %.4 = phi ptr [ %.279, %128 ], [ %.3180, %125 ], [ %.3180, %stbrp__skyline_find_min_y.exit121 ]
+  %130 = getelementptr inbounds nuw i8, ptr %.173179, i64 8
+  %131 = load ptr, ptr %130, align 8, !tbaa !14
+  %.not99 = icmp eq ptr %131, null
+  br i1 %.not99, label %.loopexit, label %.preheader, !llvm.loop !29
 
-if.end79:                                         ; preds = %if.end76, %cond.end
-  %best_x.0 = phi i32 [ %cond, %cond.end ], [ %best_x.2, %if.end76 ]
-  %best_y.2 = phi i32 [ %best_y.0.lcssa179, %cond.end ], [ %best_y.4, %if.end76 ]
-  %best.2 = phi ptr [ %best.0.lcssa180, %cond.end ], [ %best.4, %if.end76 ]
-  %33 = zext i32 %best_y.2 to i64
-  %34 = shl nuw i64 %33, 32
-  %35 = zext i32 %best_x.0 to i64
-  %36 = or disjoint i64 %34, %35
-  br label %return
+.loopexit:                                        ; preds = %129, %._crit_edge.thread
+  %.085 = phi i32 [ %74, %._crit_edge.thread ], [ %.287, %129 ]
+  %.282 = phi i32 [ %.080.lcssa191, %._crit_edge.thread ], [ %.484, %129 ]
+  %.2 = phi ptr [ %.0.lcssa192, %._crit_edge.thread ], [ %.4, %129 ]
+  %132 = zext i32 %.282 to i64
+  %133 = shl nuw i64 %132, 32
+  %134 = zext i32 %.085 to i64
+  %135 = or disjoint i64 %133, %134
+  br label %136
 
-return:                                           ; preds = %entry, %lor.lhs.false, %if.end79
-  %retval.sroa.5.0 = phi ptr [ %best.2, %if.end79 ], [ null, %lor.lhs.false ], [ null, %entry ]
-  %retval.sroa.0.0.insert.insert = phi i64 [ %36, %if.end79 ], [ 0, %lor.lhs.false ], [ 0, %entry ]
-  %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %retval.sroa.0.0.insert.insert, 0
-  %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %retval.sroa.5.0, 1
+136:                                              ; preds = %3, %12, %.loopexit
+  %.sroa.5.0 = phi ptr [ %.2, %.loopexit ], [ null, %12 ], [ null, %3 ]
+  %.sroa.0.0.insert.insert = phi i64 [ %135, %.loopexit ], [ 0, %12 ], [ 0, %3 ]
+  %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.0.0.insert.insert, 0
+  %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %.sroa.5.0, 1
   ret { i64, ptr } %.fca.1.insert
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define { i64, ptr } @stbrp__skyline_pack_rectangle(ptr noundef %context, i32 noundef %width, i32 noundef %height) local_unnamed_addr #4 {
-entry:
-  %call = tail call { i64, ptr } @stbrp__skyline_find_best_pos(ptr noundef %context, i32 noundef %width, i32 noundef %height)
-  %0 = extractvalue { i64, ptr } %call, 0
-  %retval.sroa.0.0.extract.trunc = trunc i64 %0 to i32
-  %1 = extractvalue { i64, ptr } %call, 1
-  %cmp = icmp eq ptr %1, null
-  br i1 %cmp, label %return, label %lor.lhs.false
+define { i64, ptr } @stbrp__skyline_pack_rectangle(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 {
+  %4 = tail call { i64, ptr } @stbrp__skyline_find_best_pos(ptr noundef %0, i32 noundef %1, i32 noundef %2)
+  %5 = extractvalue { i64, ptr } %4, 0
+  %.sroa.0.0.extract.trunc = trunc i64 %5 to i32
+  %6 = extractvalue { i64, ptr } %4, 1
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %41, label %8
 
-lor.lhs.false:                                    ; preds = %entry
-  %retval.sroa.7.0.extract.shift = lshr i64 %0, 32
-  %retval.sroa.7.0.extract.trunc = trunc nuw i64 %retval.sroa.7.0.extract.shift to i32
-  %add = add nsw i32 %height, %retval.sroa.7.0.extract.trunc
-  %height1 = getelementptr inbounds nuw i8, ptr %context, i64 4
-  %2 = load i32, ptr %height1, align 4
-  %cmp2 = icmp sgt i32 %add, %2
-  br i1 %cmp2, label %return, label %lor.lhs.false3
+8:                                                ; preds = %3
+  %.sroa.7.0.extract.shift = lshr i64 %5, 32
+  %.sroa.7.0.extract.trunc = trunc nuw i64 %.sroa.7.0.extract.shift to i32
+  %9 = add nsw i32 %2, %.sroa.7.0.extract.trunc
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %11 = load i32, ptr %10, align 4, !tbaa !20
+  %12 = icmp sgt i32 %9, %11
+  br i1 %12, label %41, label %13
 
-lor.lhs.false3:                                   ; preds = %lor.lhs.false
-  %free_head = getelementptr inbounds nuw i8, ptr %context, i64 32
-  %3 = load ptr, ptr %free_head, align 8
-  %cmp4 = icmp eq ptr %3, null
-  br i1 %cmp4, label %return, label %if.end
+13:                                               ; preds = %8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %15 = load ptr, ptr %14, align 8, !tbaa !18
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %41, label %17
 
-if.end:                                           ; preds = %lor.lhs.false3
-  store i32 %retval.sroa.0.0.extract.trunc, ptr %3, align 8
-  %y10 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 %add, ptr %y10, align 4
-  %next = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %4 = load ptr, ptr %next, align 8
-  store ptr %4, ptr %free_head, align 8
-  %5 = load ptr, ptr %1, align 8
-  %6 = load i32, ptr %5, align 8
-  %cmp15 = icmp slt i32 %6, %retval.sroa.0.0.extract.trunc
-  br i1 %cmp15, label %if.then16, label %if.else
+17:                                               ; preds = %13
+  store i32 %.sroa.0.0.extract.trunc, ptr %15, align 8, !tbaa !21
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 4
+  store i32 %9, ptr %18, align 4, !tbaa !22
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %20 = load ptr, ptr %19, align 8, !tbaa !14
+  store ptr %20, ptr %14, align 8, !tbaa !18
+  %21 = load ptr, ptr %6, align 8, !tbaa !26
+  %22 = load i32, ptr %21, align 8, !tbaa !21
+  %23 = icmp slt i32 %22, %.sroa.0.0.extract.trunc
+  br i1 %23, label %24, label %27
 
-if.then16:                                        ; preds = %if.end
-  %next18 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %7 = load ptr, ptr %next18, align 8
-  store ptr %3, ptr %next18, align 8
-  br label %if.end21
+24:                                               ; preds = %17
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %26 = load ptr, ptr %25, align 8, !tbaa !14
+  store ptr %15, ptr %25, align 8, !tbaa !14
+  br label %28
 
-if.else:                                          ; preds = %if.end
-  store ptr %3, ptr %1, align 8
-  br label %if.end21
+27:                                               ; preds = %17
+  store ptr %15, ptr %6, align 8, !tbaa !26
+  br label %28
 
-if.end21:                                         ; preds = %if.else, %if.then16
-  %cur.0 = phi ptr [ %7, %if.then16 ], [ %5, %if.else ]
-  %next2236 = getelementptr inbounds nuw i8, ptr %cur.0, i64 8
-  %8 = load ptr, ptr %next2236, align 8
-  %tobool.not37 = icmp eq ptr %8, null
-  %.pre = add nsw i32 %width, %retval.sroa.0.0.extract.trunc
-  br i1 %tobool.not37, label %while.end, label %land.rhs
+28:                                               ; preds = %27, %24
+  %.0 = phi ptr [ %26, %24 ], [ %21, %27 ]
+  %29 = getelementptr inbounds nuw i8, ptr %.0, i64 8
+  %30 = load ptr, ptr %29, align 8, !tbaa !14
+  %.not45 = icmp eq ptr %30, null
+  %.pre = add nsw i32 %1, %.sroa.0.0.extract.trunc
+  br i1 %.not45, label %.critedge, label %.lr.ph
 
-land.rhs:                                         ; preds = %if.end21, %while.body
-  %9 = phi ptr [ %12, %while.body ], [ %8, %if.end21 ]
-  %next2239 = phi ptr [ %next22, %while.body ], [ %next2236, %if.end21 ]
-  %cur.138 = phi ptr [ %9, %while.body ], [ %cur.0, %if.end21 ]
-  %10 = load i32, ptr %9, align 8
-  %cmp27.not = icmp sgt i32 %10, %.pre
-  br i1 %cmp27.not, label %while.end, label %while.body
+.lr.ph:                                           ; preds = %28, %34
+  %31 = phi ptr [ %37, %34 ], [ %30, %28 ]
+  %32 = phi ptr [ %36, %34 ], [ %29, %28 ]
+  %.146 = phi ptr [ %31, %34 ], [ %.0, %28 ]
+  %33 = load i32, ptr %31, align 8, !tbaa !21
+  %.not44 = icmp sgt i32 %33, %.pre
+  br i1 %.not44, label %.critedge, label %34
 
-while.body:                                       ; preds = %land.rhs
-  %11 = load ptr, ptr %free_head, align 8
-  store ptr %11, ptr %next2239, align 8
-  store ptr %cur.138, ptr %free_head, align 8
-  %next22 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %12 = load ptr, ptr %next22, align 8
-  %tobool.not = icmp eq ptr %12, null
-  br i1 %tobool.not, label %while.end, label %land.rhs, !llvm.loop !11
+34:                                               ; preds = %.lr.ph
+  %35 = load ptr, ptr %14, align 8, !tbaa !18
+  store ptr %35, ptr %32, align 8, !tbaa !14
+  store ptr %.146, ptr %14, align 8, !tbaa !18
+  %36 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %37 = load ptr, ptr %36, align 8, !tbaa !14
+  %.not = icmp eq ptr %37, null
+  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !30
 
-while.end:                                        ; preds = %land.rhs, %while.body, %if.end21
-  %cur.1.lcssa = phi ptr [ %cur.0, %if.end21 ], [ %9, %while.body ], [ %cur.138, %land.rhs ]
-  store ptr %cur.1.lcssa, ptr %next, align 8
-  %13 = load i32, ptr %cur.1.lcssa, align 8
-  %cmp37 = icmp slt i32 %13, %.pre
-  br i1 %cmp37, label %if.then38, label %return
+.critedge:                                        ; preds = %.lr.ph, %34, %28
+  %.1.lcssa = phi ptr [ %.0, %28 ], [ %31, %34 ], [ %.146, %.lr.ph ]
+  store ptr %.1.lcssa, ptr %19, align 8, !tbaa !14
+  %38 = load i32, ptr %.1.lcssa, align 8, !tbaa !21
+  %39 = icmp slt i32 %38, %.pre
+  br i1 %39, label %40, label %41
 
-if.then38:                                        ; preds = %while.end
-  store i32 %.pre, ptr %cur.1.lcssa, align 8
-  br label %return
+40:                                               ; preds = %.critedge
+  store i32 %.pre, ptr %.1.lcssa, align 8, !tbaa !21
+  br label %41
 
-return:                                           ; preds = %entry, %lor.lhs.false, %lor.lhs.false3, %while.end, %if.then38
-  %retval.sroa.9.0 = phi ptr [ %1, %if.then38 ], [ %1, %while.end ], [ null, %lor.lhs.false3 ], [ null, %lor.lhs.false ], [ null, %entry ]
-  %.fca.1.insert = insertvalue { i64, ptr } %call, ptr %retval.sroa.9.0, 1
+41:                                               ; preds = %.critedge, %40, %3, %8, %13
+  %.sroa.9.0 = phi ptr [ null, %13 ], [ null, %8 ], [ null, %3 ], [ %6, %40 ], [ %6, %.critedge ]
+  %.fca.1.insert = insertvalue { i64, ptr } %4, ptr %.sroa.9.0, 1
   ret { i64, ptr } %.fca.1.insert
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 -1, 2) i32 @rect_height_compare(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #5 {
-entry:
-  %h = getelementptr inbounds nuw i8, ptr %a, i64 8
-  %0 = load i32, ptr %h, align 4
-  %h1 = getelementptr inbounds nuw i8, ptr %b, i64 8
-  %1 = load i32, ptr %h1, align 4
-  %cmp = icmp sgt i32 %0, %1
-  br i1 %cmp, label %return, label %if.end
+define range(i32 -1, 2) i32 @rect_height_compare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load i32, ptr %3, align 4, !tbaa !31
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %6 = load i32, ptr %5, align 4, !tbaa !31
+  %7 = icmp sgt i32 %4, %6
+  br i1 %7, label %16, label %8
 
-if.end:                                           ; preds = %entry
-  %cmp4 = icmp slt i32 %0, %1
-  br i1 %cmp4, label %return, label %if.end6
+8:                                                ; preds = %2
+  %9 = icmp slt i32 %4, %6
+  br i1 %9, label %16, label %10
 
-if.end6:                                          ; preds = %if.end
-  %w = getelementptr inbounds nuw i8, ptr %a, i64 4
-  %2 = load i32, ptr %w, align 4
-  %w7 = getelementptr inbounds nuw i8, ptr %b, i64 4
-  %3 = load i32, ptr %w7, align 4
-  %cond = tail call i32 @llvm.scmp.i32.i32(i32 %3, i32 %2)
-  br label %return
+10:                                               ; preds = %8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %12 = load i32, ptr %11, align 4, !tbaa !33
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %14 = load i32, ptr %13, align 4, !tbaa !33
+  %15 = tail call i32 @llvm.scmp.i32.i32(i32 %14, i32 %12)
+  br label %16
 
-return:                                           ; preds = %if.end, %entry, %if.end6
-  %retval.0 = phi i32 [ %cond, %if.end6 ], [ -1, %entry ], [ 1, %if.end ]
-  ret i32 %retval.0
+16:                                               ; preds = %8, %2, %10
+  %.0 = phi i32 [ %15, %10 ], [ -1, %2 ], [ 1, %8 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 -1, 2) i32 @rect_original_order(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #5 {
-entry:
-  %was_packed = getelementptr inbounds nuw i8, ptr %a, i64 20
-  %0 = load i32, ptr %was_packed, align 4
-  %was_packed1 = getelementptr inbounds nuw i8, ptr %b, i64 20
-  %1 = load i32, ptr %was_packed1, align 4
-  %cond = tail call i32 @llvm.scmp.i32.i32(i32 %0, i32 %1)
-  ret i32 %cond
+define range(i32 -1, 2) i32 @rect_original_order(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %4 = load i32, ptr %3, align 4, !tbaa !34
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %6 = load i32, ptr %5, align 4, !tbaa !34
+  %7 = tail call i32 @llvm.scmp.i32.i32(i32 %4, i32 %6)
+  ret i32 %7
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 0, 2) i32 @stbrp_pack_rects(ptr noundef %context, ptr noundef %rects, i32 noundef %num_rects) local_unnamed_addr #6 {
-entry:
-  %cmp50 = icmp sgt i32 %num_rects, 0
-  br i1 %cmp50, label %for.body.preheader, label %for.end.thread
+define range(i32 0, 2) i32 @stbrp_pack_rects(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #6 {
+  %4 = icmp sgt i32 %2, 0
+  br i1 %4, label %.lr.ph.preheader, label %._crit_edge.thread
 
-for.end.thread:                                   ; preds = %entry
-  %conv68 = sext i32 %num_rects to i64
-  tail call void @qsort(ptr noundef %rects, i64 noundef %conv68, i64 noundef 24, ptr noundef nonnull @rect_height_compare) #9
-  tail call void @qsort(ptr noundef %rects, i64 noundef %conv68, i64 noundef 24, ptr noundef nonnull @rect_original_order) #9
-  br label %for.end69
+._crit_edge.thread:                               ; preds = %3
+  %5 = sext i32 %2 to i64
+  tail call void @qsort(ptr noundef %1, i64 noundef %5, i64 noundef 24, ptr noundef nonnull @rect_height_compare) #9
+  tail call void @qsort(ptr noundef %1, i64 noundef %5, i64 noundef 24, ptr noundef nonnull @rect_original_order) #9
+  br label %._crit_edge63
 
-for.body.preheader:                               ; preds = %entry
-  %wide.trip.count = zext nneg i32 %num_rects to i64
-  br label %for.body
+.lr.ph.preheader:                                 ; preds = %3
+  %wide.trip.count = zext nneg i32 %2 to i64
+  br label %.lr.ph
 
-for.body:                                         ; preds = %for.body.preheader, %for.body
-  %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %was_packed = getelementptr inbounds nuw %struct.stbrp_rect, ptr %rects, i64 %indvars.iv, i32 5
-  %0 = trunc nuw nsw i64 %indvars.iv to i32
-  store i32 %0, ptr %was_packed, align 4
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
+  %6 = getelementptr inbounds nuw %struct.stbrp_rect, ptr %1, i64 %indvars.iv, i32 5
+  %7 = trunc nuw nsw i64 %indvars.iv to i32
+  store i32 %7, ptr %6, align 4, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !35
 
-for.end:                                          ; preds = %for.body
-  %conv = zext nneg i32 %num_rects to i64
-  tail call void @qsort(ptr noundef nonnull %rects, i64 noundef %conv, i64 noundef 24, ptr noundef nonnull @rect_height_compare) #9
-  %height1.i = getelementptr inbounds nuw i8, ptr %context, i64 4
-  %free_head.i = getelementptr inbounds nuw i8, ptr %context, i64 32
-  %wide.trip.count61 = zext nneg i32 %num_rects to i64
-  br label %for.body4
+._crit_edge:                                      ; preds = %.lr.ph
+  %8 = zext nneg i32 %2 to i64
+  tail call void @qsort(ptr noundef nonnull %1, i64 noundef %8, i64 noundef 24, ptr noundef nonnull @rect_height_compare) #9
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %wide.trip.count68 = zext nneg i32 %2 to i64
+  br label %11
 
-for.body4:                                        ; preds = %for.end, %for.inc40
-  %indvars.iv58 = phi i64 [ 0, %for.end ], [ %indvars.iv.next59, %for.inc40 ]
-  %arrayidx6 = getelementptr inbounds nuw %struct.stbrp_rect, ptr %rects, i64 %indvars.iv58
-  %w = getelementptr inbounds nuw i8, ptr %arrayidx6, i64 4
-  %1 = load i32, ptr %w, align 4
-  %cmp7 = icmp eq i32 %1, 0
-  br i1 %cmp7, label %for.inc40, label %lor.lhs.false
+11:                                               ; preds = %._crit_edge, %stbrp__skyline_pack_rectangle.exit
+  %indvars.iv65 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next66, %stbrp__skyline_pack_rectangle.exit ]
+  %12 = getelementptr inbounds nuw %struct.stbrp_rect, ptr %1, i64 %indvars.iv65
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  %14 = load i32, ptr %13, align 4, !tbaa !33
+  %15 = icmp eq i32 %14, 0
+  br i1 %15, label %stbrp__skyline_pack_rectangle.exit, label %16
 
-lor.lhs.false:                                    ; preds = %for.body4
-  %h = getelementptr inbounds nuw i8, ptr %arrayidx6, i64 8
-  %2 = load i32, ptr %h, align 4
-  %cmp11 = icmp eq i32 %2, 0
-  br i1 %cmp11, label %for.inc40, label %if.else
+16:                                               ; preds = %11
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %18 = load i32, ptr %17, align 4, !tbaa !31
+  %19 = icmp eq i32 %18, 0
+  br i1 %19, label %stbrp__skyline_pack_rectangle.exit, label %20
 
-if.else:                                          ; preds = %lor.lhs.false
-  %call.i = tail call { i64, ptr } @stbrp__skyline_find_best_pos(ptr noundef %context, i32 noundef %1, i32 noundef %2)
-  %3 = extractvalue { i64, ptr } %call.i, 0
-  %retval.sroa.0.0.extract.trunc.i = trunc i64 %3 to i32
-  %4 = extractvalue { i64, ptr } %call.i, 1
-  %cmp.i = icmp eq ptr %4, null
-  br i1 %cmp.i, label %for.inc40, label %lor.lhs.false.i
+20:                                               ; preds = %16
+  %21 = tail call { i64, ptr } @stbrp__skyline_find_best_pos(ptr noundef %0, i32 noundef %14, i32 noundef %18)
+  %22 = extractvalue { i64, ptr } %21, 0
+  %.sroa.0.0.extract.trunc.i = trunc i64 %22 to i32
+  %23 = extractvalue { i64, ptr } %21, 1
+  %24 = icmp eq ptr %23, null
+  br i1 %24, label %stbrp__skyline_pack_rectangle.exit, label %25
 
-lor.lhs.false.i:                                  ; preds = %if.else
-  %retval.sroa.7.0.extract.shift.i = lshr i64 %3, 32
-  %retval.sroa.7.0.extract.trunc.i = trunc nuw i64 %retval.sroa.7.0.extract.shift.i to i32
-  %add.i = add nsw i32 %2, %retval.sroa.7.0.extract.trunc.i
-  %5 = load i32, ptr %height1.i, align 4
-  %cmp2.i = icmp sgt i32 %add.i, %5
-  br i1 %cmp2.i, label %for.inc40, label %lor.lhs.false3.i
+25:                                               ; preds = %20
+  %.sroa.7.0.extract.shift.i = lshr i64 %22, 32
+  %.sroa.7.0.extract.trunc.i = trunc nuw i64 %.sroa.7.0.extract.shift.i to i32
+  %26 = add nsw i32 %18, %.sroa.7.0.extract.trunc.i
+  %27 = load i32, ptr %9, align 4, !tbaa !20
+  %28 = icmp sgt i32 %26, %27
+  br i1 %28, label %stbrp__skyline_pack_rectangle.exit, label %29
 
-lor.lhs.false3.i:                                 ; preds = %lor.lhs.false.i
-  %6 = load ptr, ptr %free_head.i, align 8
-  %cmp4.i = icmp eq ptr %6, null
-  br i1 %cmp4.i, label %for.inc40, label %if.end.i
+29:                                               ; preds = %25
+  %30 = load ptr, ptr %10, align 8, !tbaa !18
+  %31 = icmp eq ptr %30, null
+  br i1 %31, label %stbrp__skyline_pack_rectangle.exit, label %32
 
-if.end.i:                                         ; preds = %lor.lhs.false3.i
-  store i32 %retval.sroa.0.0.extract.trunc.i, ptr %6, align 8
-  %y10.i = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i32 %add.i, ptr %y10.i, align 4
-  %next.i = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %7 = load ptr, ptr %next.i, align 8
-  store ptr %7, ptr %free_head.i, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = load i32, ptr %8, align 8
-  %cmp15.i = icmp slt i32 %9, %retval.sroa.0.0.extract.trunc.i
-  br i1 %cmp15.i, label %if.then16.i, label %if.else.i
+32:                                               ; preds = %29
+  store i32 %.sroa.0.0.extract.trunc.i, ptr %30, align 8, !tbaa !21
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 4
+  store i32 %26, ptr %33, align 4, !tbaa !22
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %35 = load ptr, ptr %34, align 8, !tbaa !14
+  store ptr %35, ptr %10, align 8, !tbaa !18
+  %36 = load ptr, ptr %23, align 8, !tbaa !26
+  %37 = load i32, ptr %36, align 8, !tbaa !21
+  %38 = icmp slt i32 %37, %.sroa.0.0.extract.trunc.i
+  br i1 %38, label %39, label %42
 
-if.then16.i:                                      ; preds = %if.end.i
-  %next18.i = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %10 = load ptr, ptr %next18.i, align 8
-  store ptr %6, ptr %next18.i, align 8
-  br label %if.end21.i
+39:                                               ; preds = %32
+  %40 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  %41 = load ptr, ptr %40, align 8, !tbaa !14
+  store ptr %30, ptr %40, align 8, !tbaa !14
+  br label %43
 
-if.else.i:                                        ; preds = %if.end.i
-  store ptr %6, ptr %4, align 8
-  br label %if.end21.i
+42:                                               ; preds = %32
+  store ptr %30, ptr %23, align 8, !tbaa !26
+  br label %43
 
-if.end21.i:                                       ; preds = %if.else.i, %if.then16.i
-  %cur.0.i = phi ptr [ %10, %if.then16.i ], [ %8, %if.else.i ]
-  %next2236.i = getelementptr inbounds nuw i8, ptr %cur.0.i, i64 8
-  %11 = load ptr, ptr %next2236.i, align 8
-  %tobool.not37.i = icmp eq ptr %11, null
-  %.pre.i = add nsw i32 %1, %retval.sroa.0.0.extract.trunc.i
-  br i1 %tobool.not37.i, label %while.end.i, label %land.rhs.i
+43:                                               ; preds = %42, %39
+  %.0.i = phi ptr [ %41, %39 ], [ %36, %42 ]
+  %44 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
+  %45 = load ptr, ptr %44, align 8, !tbaa !14
+  %.not45.i = icmp eq ptr %45, null
+  %.pre.i = add nsw i32 %14, %.sroa.0.0.extract.trunc.i
+  br i1 %.not45.i, label %.critedge.i, label %.lr.ph.i
 
-land.rhs.i:                                       ; preds = %if.end21.i, %while.body.i
-  %12 = phi ptr [ %15, %while.body.i ], [ %11, %if.end21.i ]
-  %next2239.i = phi ptr [ %next22.i, %while.body.i ], [ %next2236.i, %if.end21.i ]
-  %cur.138.i = phi ptr [ %12, %while.body.i ], [ %cur.0.i, %if.end21.i ]
-  %13 = load i32, ptr %12, align 8
-  %cmp27.not.i = icmp sgt i32 %13, %.pre.i
-  br i1 %cmp27.not.i, label %while.end.i, label %while.body.i
+.lr.ph.i:                                         ; preds = %43, %49
+  %46 = phi ptr [ %52, %49 ], [ %45, %43 ]
+  %47 = phi ptr [ %51, %49 ], [ %44, %43 ]
+  %.146.i = phi ptr [ %46, %49 ], [ %.0.i, %43 ]
+  %48 = load i32, ptr %46, align 8, !tbaa !21
+  %.not44.i = icmp sgt i32 %48, %.pre.i
+  br i1 %.not44.i, label %.critedge.i, label %49
 
-while.body.i:                                     ; preds = %land.rhs.i
-  %14 = load ptr, ptr %free_head.i, align 8
-  store ptr %14, ptr %next2239.i, align 8
-  store ptr %cur.138.i, ptr %free_head.i, align 8
-  %next22.i = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %15 = load ptr, ptr %next22.i, align 8
-  %tobool.not.i = icmp eq ptr %15, null
-  br i1 %tobool.not.i, label %while.end.i, label %land.rhs.i, !llvm.loop !11
+49:                                               ; preds = %.lr.ph.i
+  %50 = load ptr, ptr %10, align 8, !tbaa !18
+  store ptr %50, ptr %47, align 8, !tbaa !14
+  store ptr %.146.i, ptr %10, align 8, !tbaa !18
+  %51 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  %52 = load ptr, ptr %51, align 8, !tbaa !14
+  %.not.i = icmp eq ptr %52, null
+  br i1 %.not.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !30
 
-while.end.i:                                      ; preds = %while.body.i, %land.rhs.i, %if.end21.i
-  %cur.1.lcssa.i = phi ptr [ %cur.0.i, %if.end21.i ], [ %cur.138.i, %land.rhs.i ], [ %12, %while.body.i ]
-  store ptr %cur.1.lcssa.i, ptr %next.i, align 8
-  %16 = load i32, ptr %cur.1.lcssa.i, align 8
-  %cmp37.i = icmp slt i32 %16, %.pre.i
-  br i1 %cmp37.i, label %if.then38.i, label %for.inc40
+.critedge.i:                                      ; preds = %49, %.lr.ph.i, %43
+  %.1.lcssa.i = phi ptr [ %.0.i, %43 ], [ %.146.i, %.lr.ph.i ], [ %46, %49 ]
+  store ptr %.1.lcssa.i, ptr %34, align 8, !tbaa !14
+  %53 = load i32, ptr %.1.lcssa.i, align 8, !tbaa !21
+  %54 = icmp slt i32 %53, %.pre.i
+  br i1 %54, label %55, label %stbrp__skyline_pack_rectangle.exit
 
-if.then38.i:                                      ; preds = %while.end.i
-  store i32 %.pre.i, ptr %cur.1.lcssa.i, align 8
-  br label %for.inc40
+55:                                               ; preds = %.critedge.i
+  store i32 %.pre.i, ptr %.1.lcssa.i, align 8, !tbaa !21
+  br label %stbrp__skyline_pack_rectangle.exit
 
-for.inc40:                                        ; preds = %lor.lhs.false3.i, %lor.lhs.false.i, %if.else, %while.end.i, %if.then38.i, %for.body4, %lor.lhs.false
-  %.sink73 = phi i64 [ 16, %lor.lhs.false ], [ 16, %for.body4 ], [ 12, %if.then38.i ], [ 12, %while.end.i ], [ 16, %if.else ], [ 16, %lor.lhs.false.i ], [ 16, %lor.lhs.false3.i ]
-  %.sink72 = phi i32 [ 0, %lor.lhs.false ], [ 0, %for.body4 ], [ %retval.sroa.0.0.extract.trunc.i, %if.then38.i ], [ %retval.sroa.0.0.extract.trunc.i, %while.end.i ], [ 2147483647, %if.else ], [ 2147483647, %lor.lhs.false.i ], [ 2147483647, %lor.lhs.false3.i ]
-  %.sink71 = phi i64 [ 12, %lor.lhs.false ], [ 12, %for.body4 ], [ 16, %if.then38.i ], [ 16, %while.end.i ], [ 12, %if.else ], [ 12, %lor.lhs.false.i ], [ 12, %lor.lhs.false3.i ]
-  %.sink = phi i32 [ 0, %lor.lhs.false ], [ 0, %for.body4 ], [ %retval.sroa.7.0.extract.trunc.i, %if.then38.i ], [ %retval.sroa.7.0.extract.trunc.i, %while.end.i ], [ 2147483647, %if.else ], [ 2147483647, %lor.lhs.false.i ], [ 2147483647, %lor.lhs.false3.i ]
-  %y = getelementptr inbounds nuw i8, ptr %arrayidx6, i64 %.sink73
-  store i32 %.sink72, ptr %y, align 4
-  %x = getelementptr inbounds nuw i8, ptr %arrayidx6, i64 %.sink71
-  store i32 %.sink, ptr %x, align 4
-  %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
-  %exitcond62.not = icmp eq i64 %indvars.iv.next59, %wide.trip.count61
-  br i1 %exitcond62.not, label %for.end42, label %for.body4, !llvm.loop !13
+stbrp__skyline_pack_rectangle.exit:               ; preds = %29, %25, %20, %.critedge.i, %55, %11, %16
+  %.sink76 = phi i64 [ 16, %16 ], [ 16, %11 ], [ 12, %55 ], [ 12, %.critedge.i ], [ 16, %20 ], [ 16, %25 ], [ 16, %29 ]
+  %.sroa.0.0.extract.trunc.i.sink = phi i32 [ 0, %16 ], [ 0, %11 ], [ %.sroa.0.0.extract.trunc.i, %55 ], [ %.sroa.0.0.extract.trunc.i, %.critedge.i ], [ 2147483647, %20 ], [ 2147483647, %25 ], [ 2147483647, %29 ]
+  %.sink75 = phi i64 [ 12, %16 ], [ 12, %11 ], [ 16, %55 ], [ 16, %.critedge.i ], [ 12, %20 ], [ 12, %25 ], [ 12, %29 ]
+  %.sroa.7.0.extract.trunc.i.sink = phi i32 [ 0, %16 ], [ 0, %11 ], [ %.sroa.7.0.extract.trunc.i, %55 ], [ %.sroa.7.0.extract.trunc.i, %.critedge.i ], [ 2147483647, %20 ], [ 2147483647, %25 ], [ 2147483647, %29 ]
+  %56 = getelementptr inbounds nuw i8, ptr %12, i64 %.sink76
+  store i32 %.sroa.0.0.extract.trunc.i.sink, ptr %56, align 4, !tbaa !24
+  %57 = getelementptr inbounds nuw i8, ptr %12, i64 %.sink75
+  store i32 %.sroa.7.0.extract.trunc.i.sink, ptr %57, align 4, !tbaa !24
+  %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
+  %exitcond69.not = icmp eq i64 %indvars.iv.next66, %wide.trip.count68
+  br i1 %exitcond69.not, label %._crit_edge58, label %11, !llvm.loop !36
 
-for.end42:                                        ; preds = %for.inc40
-  tail call void @qsort(ptr noundef nonnull %rects, i64 noundef %conv, i64 noundef 24, ptr noundef nonnull @rect_original_order) #9
-  %wide.trip.count66 = zext nneg i32 %num_rects to i64
-  br label %for.body47
+._crit_edge58:                                    ; preds = %stbrp__skyline_pack_rectangle.exit
+  tail call void @qsort(ptr noundef nonnull %1, i64 noundef %8, i64 noundef 24, ptr noundef nonnull @rect_original_order) #9
+  %wide.trip.count73 = zext nneg i32 %2 to i64
+  br label %.lr.ph62
 
-for.body47:                                       ; preds = %for.end42, %for.cond44
-  %indvars.iv63 = phi i64 [ 0, %for.end42 ], [ %indvars.iv.next64, %for.cond44 ]
-  %all_rects_packed.055 = phi i32 [ 1, %for.end42 ], [ %20, %for.cond44 ]
-  %arrayidx49 = getelementptr inbounds nuw %struct.stbrp_rect, ptr %rects, i64 %indvars.iv63
-  %x50 = getelementptr inbounds nuw i8, ptr %arrayidx49, i64 12
-  %17 = load i32, ptr %x50, align 4
-  %cmp51 = icmp eq i32 %17, 2147483647
-  br i1 %cmp51, label %land.end, label %land.end.thread
+.lr.ph62:                                         ; preds = %._crit_edge58, %70
+  %indvars.iv70 = phi i64 [ 0, %._crit_edge58 ], [ %indvars.iv.next71, %70 ]
+  %.04559 = phi i32 [ 1, %._crit_edge58 ], [ %71, %70 ]
+  %58 = getelementptr inbounds nuw %struct.stbrp_rect, ptr %1, i64 %indvars.iv70
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 12
+  %60 = load i32, ptr %59, align 4, !tbaa !37
+  %61 = icmp eq i32 %60, 2147483647
+  br i1 %61, label %63, label %.thread
 
-land.end.thread:                                  ; preds = %for.body47
-  %was_packed6048 = getelementptr inbounds nuw i8, ptr %arrayidx49, i64 20
-  store i32 1, ptr %was_packed6048, align 4
-  br label %19
+.thread:                                          ; preds = %.lr.ph62
+  %62 = getelementptr inbounds nuw i8, ptr %58, i64 20
+  store i32 1, ptr %62, align 4, !tbaa !34
+  br label %69
 
-land.end:                                         ; preds = %for.body47
-  %y55 = getelementptr inbounds nuw i8, ptr %arrayidx49, i64 16
-  %18 = load i32, ptr %y55, align 4
-  %.fr = freeze i32 %18
-  %cmp56 = icmp ne i32 %.fr, 2147483647
-  %lnot.ext = zext i1 %cmp56 to i32
-  %was_packed60 = getelementptr inbounds nuw i8, ptr %arrayidx49, i64 20
-  store i32 %lnot.ext, ptr %was_packed60, align 4
-  br i1 %cmp56, label %19, label %for.cond44
+63:                                               ; preds = %.lr.ph62
+  %64 = getelementptr inbounds nuw i8, ptr %58, i64 16
+  %65 = load i32, ptr %64, align 4, !tbaa !38
+  %.fr = freeze i32 %65
+  %66 = icmp ne i32 %.fr, 2147483647
+  %67 = zext i1 %66 to i32
+  %68 = getelementptr inbounds nuw i8, ptr %58, i64 20
+  store i32 %67, ptr %68, align 4, !tbaa !34
+  br i1 %66, label %69, label %70
 
-19:                                               ; preds = %land.end.thread, %land.end
-  br label %for.cond44
+69:                                               ; preds = %.thread, %63
+  br label %70
 
-for.cond44:                                       ; preds = %land.end, %19
-  %20 = phi i32 [ %all_rects_packed.055, %19 ], [ 0, %land.end ]
-  %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
-  %exitcond67.not = icmp eq i64 %indvars.iv.next64, %wide.trip.count66
-  br i1 %exitcond67.not, label %for.end69, label %for.body47, !llvm.loop !14
+70:                                               ; preds = %63, %69
+  %71 = phi i32 [ %.04559, %69 ], [ 0, %63 ]
+  %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
+  %exitcond74.not = icmp eq i64 %indvars.iv.next71, %wide.trip.count73
+  br i1 %exitcond74.not, label %._crit_edge63, label %.lr.ph62, !llvm.loop !39
 
-for.end69:                                        ; preds = %for.cond44, %for.end.thread
-  %all_rects_packed.0.lcssa = phi i32 [ 1, %for.end.thread ], [ %20, %for.cond44 ]
-  ret i32 %all_rects_packed.0.lcssa
+._crit_edge63:                                    ; preds = %70, %._crit_edge.thread
+  %.045.lcssa = phi i32 [ 1, %._crit_edge.thread ], [ %71, %70 ]
+  ret i32 %.045.lcssa
 }
 
 ; Function Attrs: nofree
@@ -798,31 +789,56 @@ declare i32 @llvm.smin.i32(i32, i32) #8
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.scmp.i32.i32(i32, i32) #8
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
+!3 = !{!4, !5, i64 12}
+!4 = !{!"stbrp_context", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !8, i64 24, !8, i64 32, !6, i64 40}
+!5 = !{!"int", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!"p1 _ZTS10stbrp_node", !9, i64 0}
+!9 = !{!"any pointer", !6, i64 0}
+!10 = !{!4, !5, i64 16}
+!11 = !{!4, !5, i64 0}
+!12 = !{!4, !5, i64 20}
+!13 = !{!4, !5, i64 8}
+!14 = !{!15, !8, i64 8}
+!15 = !{!"stbrp_node", !5, i64 0, !5, i64 4, !8, i64 8}
+!16 = distinct !{!16, !17}
+!17 = !{!"llvm.loop.mustprogress"}
+!18 = !{!4, !8, i64 32}
+!19 = !{!4, !8, i64 24}
+!20 = !{!4, !5, i64 4}
+!21 = !{!15, !5, i64 0}
+!22 = !{!15, !5, i64 4}
+!23 = distinct !{!23, !17}
+!24 = !{!5, !5, i64 0}
+!25 = distinct !{!25, !17}
+!26 = !{!8, !8, i64 0}
+!27 = distinct !{!27, !17}
+!28 = distinct !{!28, !17}
+!29 = distinct !{!29, !17}
+!30 = distinct !{!30, !17}
+!31 = !{!32, !5, i64 8}
+!32 = !{!"stbrp_rect", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20}
+!33 = !{!32, !5, i64 4}
+!34 = !{!32, !5, i64 20}
+!35 = distinct !{!35, !17}
+!36 = distinct !{!36, !17}
+!37 = !{!32, !5, i64 12}
+!38 = !{!32, !5, i64 16}
+!39 = distinct !{!39, !17}

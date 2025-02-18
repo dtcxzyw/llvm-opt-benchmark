@@ -1,626 +1,674 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define i32 @stb_div_trunc(i32 noundef %v1, i32 noundef %v2) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %v1.addr = alloca i32, align 4
-  %v2.addr = alloca i32, align 4
-  store i32 %v1, ptr %v1.addr, align 4
-  store i32 %v2, ptr %v2.addr, align 4
-  %0 = load i32, ptr %v1.addr, align 4
-  %cmp = icmp sge i32 %0, 0
-  br i1 %cmp, label %land.lhs.true, label %if.end
+define i32 @stb_div_trunc(i32 noundef %0, i32 noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  store i32 %0, ptr %4, align 4, !tbaa !3
+  store i32 %1, ptr %5, align 4, !tbaa !3
+  %6 = load i32, ptr %4, align 4, !tbaa !3
+  %7 = icmp sge i32 %6, 0
+  br i1 %7, label %8, label %17
 
-land.lhs.true:                                    ; preds = %entry
-  %1 = load i32, ptr %v2.addr, align 4
-  %cmp1 = icmp sle i32 %1, 0
-  br i1 %cmp1, label %if.then, label %if.end
+8:                                                ; preds = %2
+  %9 = load i32, ptr %5, align 4, !tbaa !3
+  %10 = icmp sle i32 %9, 0
+  br i1 %10, label %11, label %17
 
-if.then:                                          ; preds = %land.lhs.true
-  %2 = load i32, ptr %v1.addr, align 4
-  %sub = sub nsw i32 0, %2
-  %3 = load i32, ptr %v2.addr, align 4
-  %div = sdiv i32 %sub, %3
-  %sub2 = sub nsw i32 0, %div
-  store i32 %sub2, ptr %retval, align 4
-  br label %return
+11:                                               ; preds = %8
+  %12 = load i32, ptr %4, align 4, !tbaa !3
+  %13 = sub nsw i32 0, %12
+  %14 = load i32, ptr %5, align 4, !tbaa !3
+  %15 = sdiv i32 %13, %14
+  %16 = sub nsw i32 0, %15
+  store i32 %16, ptr %3, align 4
+  br label %45
 
-if.end:                                           ; preds = %land.lhs.true, %entry
-  %4 = load i32, ptr %v1.addr, align 4
-  %cmp3 = icmp sle i32 %4, 0
-  br i1 %cmp3, label %land.lhs.true4, label %if.else16
+17:                                               ; preds = %8, %2
+  %18 = load i32, ptr %4, align 4, !tbaa !3
+  %19 = icmp sle i32 %18, 0
+  br i1 %19, label %20, label %41
 
-land.lhs.true4:                                   ; preds = %if.end
-  %5 = load i32, ptr %v2.addr, align 4
-  %cmp5 = icmp sge i32 %5, 0
-  br i1 %cmp5, label %if.then6, label %if.else16
+20:                                               ; preds = %17
+  %21 = load i32, ptr %5, align 4, !tbaa !3
+  %22 = icmp sge i32 %21, 0
+  br i1 %22, label %23, label %41
 
-if.then6:                                         ; preds = %land.lhs.true4
-  %6 = load i32, ptr %v1.addr, align 4
-  %cmp7 = icmp ne i32 %6, -2147483648
-  br i1 %cmp7, label %if.then8, label %if.else
+23:                                               ; preds = %20
+  %24 = load i32, ptr %4, align 4, !tbaa !3
+  %25 = icmp ne i32 %24, -2147483648
+  br i1 %25, label %26, label %32
 
-if.then8:                                         ; preds = %if.then6
-  %7 = load i32, ptr %v1.addr, align 4
-  %8 = load i32, ptr %v2.addr, align 4
-  %sub9 = sub nsw i32 0, %8
-  %div10 = sdiv i32 %7, %sub9
-  %sub11 = sub nsw i32 0, %div10
-  store i32 %sub11, ptr %retval, align 4
-  br label %return
+26:                                               ; preds = %23
+  %27 = load i32, ptr %4, align 4, !tbaa !3
+  %28 = load i32, ptr %5, align 4, !tbaa !3
+  %29 = sub nsw i32 0, %28
+  %30 = sdiv i32 %27, %29
+  %31 = sub nsw i32 0, %30
+  store i32 %31, ptr %3, align 4
+  br label %45
 
-if.else:                                          ; preds = %if.then6
-  %9 = load i32, ptr %v1.addr, align 4
-  %10 = load i32, ptr %v2.addr, align 4
-  %add = add nsw i32 %9, %10
-  %11 = load i32, ptr %v2.addr, align 4
-  %sub12 = sub nsw i32 0, %11
-  %div13 = sdiv i32 %add, %sub12
-  %sub14 = sub nsw i32 0, %div13
-  %sub15 = sub nsw i32 %sub14, 1
-  store i32 %sub15, ptr %retval, align 4
-  br label %return
+32:                                               ; preds = %23
+  %33 = load i32, ptr %4, align 4, !tbaa !3
+  %34 = load i32, ptr %5, align 4, !tbaa !3
+  %35 = add nsw i32 %33, %34
+  %36 = load i32, ptr %5, align 4, !tbaa !3
+  %37 = sub nsw i32 0, %36
+  %38 = sdiv i32 %35, %37
+  %39 = sub nsw i32 0, %38
+  %40 = sub nsw i32 %39, 1
+  store i32 %40, ptr %3, align 4
+  br label %45
 
-if.else16:                                        ; preds = %land.lhs.true4, %if.end
-  %12 = load i32, ptr %v1.addr, align 4
-  %13 = load i32, ptr %v2.addr, align 4
-  %div17 = sdiv i32 %12, %13
-  store i32 %div17, ptr %retval, align 4
-  br label %return
+41:                                               ; preds = %20, %17
+  %42 = load i32, ptr %4, align 4, !tbaa !3
+  %43 = load i32, ptr %5, align 4, !tbaa !3
+  %44 = sdiv i32 %42, %43
+  store i32 %44, ptr %3, align 4
+  br label %45
 
-return:                                           ; preds = %if.else16, %if.else, %if.then8, %if.then
-  %14 = load i32, ptr %retval, align 4
-  ret i32 %14
+45:                                               ; preds = %41, %32, %26, %11
+  %46 = load i32, ptr %3, align 4
+  ret i32 %46
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stb_div_floor(i32 noundef %v1, i32 noundef %v2) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %v1.addr = alloca i32, align 4
-  %v2.addr = alloca i32, align 4
-  store i32 %v1, ptr %v1.addr, align 4
-  store i32 %v2, ptr %v2.addr, align 4
-  %0 = load i32, ptr %v1.addr, align 4
-  %cmp = icmp sge i32 %0, 0
-  br i1 %cmp, label %land.lhs.true, label %if.end
+define i32 @stb_div_floor(i32 noundef %0, i32 noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  store i32 %0, ptr %4, align 4, !tbaa !3
+  store i32 %1, ptr %5, align 4, !tbaa !3
+  %6 = load i32, ptr %4, align 4, !tbaa !3
+  %7 = icmp sge i32 %6, 0
+  br i1 %7, label %8, label %38
 
-land.lhs.true:                                    ; preds = %entry
-  %1 = load i32, ptr %v2.addr, align 4
-  %cmp1 = icmp slt i32 %1, 0
-  br i1 %cmp1, label %if.then, label %if.end
+8:                                                ; preds = %2
+  %9 = load i32, ptr %5, align 4, !tbaa !3
+  %10 = icmp slt i32 %9, 0
+  br i1 %10, label %11, label %38
 
-if.then:                                          ; preds = %land.lhs.true
-  %2 = load i32, ptr %v2.addr, align 4
-  %add = add nsw i32 %2, 1
-  %3 = load i32, ptr %v1.addr, align 4
-  %add2 = add nsw i32 -2147483648, %3
-  %cmp3 = icmp sge i32 %add, %add2
-  br i1 %cmp3, label %if.then4, label %if.else
+11:                                               ; preds = %8
+  %12 = load i32, ptr %5, align 4, !tbaa !3
+  %13 = add nsw i32 %12, 1
+  %14 = load i32, ptr %4, align 4, !tbaa !3
+  %15 = add nsw i32 -2147483648, %14
+  %16 = icmp sge i32 %13, %15
+  br i1 %16, label %17, label %25
 
-if.then4:                                         ; preds = %if.then
-  %4 = load i32, ptr %v2.addr, align 4
-  %add5 = add nsw i32 %4, 1
-  %5 = load i32, ptr %v1.addr, align 4
-  %sub = sub nsw i32 %add5, %5
-  %6 = load i32, ptr %v2.addr, align 4
-  %div = sdiv i32 %sub, %6
-  %sub6 = sub nsw i32 0, %div
-  store i32 %sub6, ptr %retval, align 4
-  br label %return
+17:                                               ; preds = %11
+  %18 = load i32, ptr %5, align 4, !tbaa !3
+  %19 = add nsw i32 %18, 1
+  %20 = load i32, ptr %4, align 4, !tbaa !3
+  %21 = sub nsw i32 %19, %20
+  %22 = load i32, ptr %5, align 4, !tbaa !3
+  %23 = sdiv i32 %21, %22
+  %24 = sub nsw i32 0, %23
+  store i32 %24, ptr %3, align 4
+  br label %96
 
-if.else:                                          ; preds = %if.then
-  %7 = load i32, ptr %v1.addr, align 4
-  %sub7 = sub nsw i32 0, %7
-  %8 = load i32, ptr %v2.addr, align 4
-  %div8 = sdiv i32 %sub7, %8
-  %sub9 = sub nsw i32 0, %div8
-  %9 = load i32, ptr %v1.addr, align 4
-  %sub10 = sub nsw i32 0, %9
-  %10 = load i32, ptr %v2.addr, align 4
-  %rem = srem i32 %sub10, %10
-  %tobool = icmp ne i32 %rem, 0
-  %cond = select i1 %tobool, i32 -1, i32 0
-  %add11 = add nsw i32 %sub9, %cond
-  store i32 %add11, ptr %retval, align 4
-  br label %return
+25:                                               ; preds = %11
+  %26 = load i32, ptr %4, align 4, !tbaa !3
+  %27 = sub nsw i32 0, %26
+  %28 = load i32, ptr %5, align 4, !tbaa !3
+  %29 = sdiv i32 %27, %28
+  %30 = sub nsw i32 0, %29
+  %31 = load i32, ptr %4, align 4, !tbaa !3
+  %32 = sub nsw i32 0, %31
+  %33 = load i32, ptr %5, align 4, !tbaa !3
+  %34 = srem i32 %32, %33
+  %35 = icmp ne i32 %34, 0
+  %36 = select i1 %35, i32 -1, i32 0
+  %37 = add nsw i32 %30, %36
+  store i32 %37, ptr %3, align 4
+  br label %96
 
-if.end:                                           ; preds = %land.lhs.true, %entry
-  %11 = load i32, ptr %v1.addr, align 4
-  %cmp12 = icmp slt i32 %11, 0
-  br i1 %cmp12, label %land.lhs.true13, label %if.else47
+38:                                               ; preds = %8, %2
+  %39 = load i32, ptr %4, align 4, !tbaa !3
+  %40 = icmp slt i32 %39, 0
+  br i1 %40, label %41, label %92
 
-land.lhs.true13:                                  ; preds = %if.end
-  %12 = load i32, ptr %v2.addr, align 4
-  %cmp14 = icmp sge i32 %12, 0
-  br i1 %cmp14, label %if.then15, label %if.else47
+41:                                               ; preds = %38
+  %42 = load i32, ptr %5, align 4, !tbaa !3
+  %43 = icmp sge i32 %42, 0
+  br i1 %43, label %44, label %92
 
-if.then15:                                        ; preds = %land.lhs.true13
-  %13 = load i32, ptr %v1.addr, align 4
-  %cmp16 = icmp ne i32 %13, -2147483648
-  br i1 %cmp16, label %if.then17, label %if.else36
+44:                                               ; preds = %41
+  %45 = load i32, ptr %4, align 4, !tbaa !3
+  %46 = icmp ne i32 %45, -2147483648
+  br i1 %46, label %47, label %75
 
-if.then17:                                        ; preds = %if.then15
-  %14 = load i32, ptr %v1.addr, align 4
-  %add18 = add nsw i32 %14, 1
-  %15 = load i32, ptr %v2.addr, align 4
-  %add19 = add nsw i32 -2147483648, %15
-  %cmp20 = icmp sge i32 %add18, %add19
-  br i1 %cmp20, label %if.then21, label %if.else27
+47:                                               ; preds = %44
+  %48 = load i32, ptr %4, align 4, !tbaa !3
+  %49 = add nsw i32 %48, 1
+  %50 = load i32, ptr %5, align 4, !tbaa !3
+  %51 = add nsw i32 -2147483648, %50
+  %52 = icmp sge i32 %49, %51
+  br i1 %52, label %53, label %62
 
-if.then21:                                        ; preds = %if.then17
-  %16 = load i32, ptr %v1.addr, align 4
-  %add22 = add nsw i32 %16, 1
-  %17 = load i32, ptr %v2.addr, align 4
-  %sub23 = sub nsw i32 %add22, %17
-  %18 = load i32, ptr %v2.addr, align 4
-  %sub24 = sub nsw i32 0, %18
-  %div25 = sdiv i32 %sub23, %sub24
-  %sub26 = sub nsw i32 0, %div25
-  store i32 %sub26, ptr %retval, align 4
-  br label %return
+53:                                               ; preds = %47
+  %54 = load i32, ptr %4, align 4, !tbaa !3
+  %55 = add nsw i32 %54, 1
+  %56 = load i32, ptr %5, align 4, !tbaa !3
+  %57 = sub nsw i32 %55, %56
+  %58 = load i32, ptr %5, align 4, !tbaa !3
+  %59 = sub nsw i32 0, %58
+  %60 = sdiv i32 %57, %59
+  %61 = sub nsw i32 0, %60
+  store i32 %61, ptr %3, align 4
+  br label %96
 
-if.else27:                                        ; preds = %if.then17
-  %19 = load i32, ptr %v1.addr, align 4
-  %sub28 = sub nsw i32 0, %19
-  %20 = load i32, ptr %v2.addr, align 4
-  %div29 = sdiv i32 %sub28, %20
-  %sub30 = sub nsw i32 0, %div29
-  %21 = load i32, ptr %v1.addr, align 4
-  %22 = load i32, ptr %v2.addr, align 4
-  %sub31 = sub nsw i32 0, %22
-  %rem32 = srem i32 %21, %sub31
-  %tobool33 = icmp ne i32 %rem32, 0
-  %cond34 = select i1 %tobool33, i32 -1, i32 0
-  %add35 = add nsw i32 %sub30, %cond34
-  store i32 %add35, ptr %retval, align 4
-  br label %return
+62:                                               ; preds = %47
+  %63 = load i32, ptr %4, align 4, !tbaa !3
+  %64 = sub nsw i32 0, %63
+  %65 = load i32, ptr %5, align 4, !tbaa !3
+  %66 = sdiv i32 %64, %65
+  %67 = sub nsw i32 0, %66
+  %68 = load i32, ptr %4, align 4, !tbaa !3
+  %69 = load i32, ptr %5, align 4, !tbaa !3
+  %70 = sub nsw i32 0, %69
+  %71 = srem i32 %68, %70
+  %72 = icmp ne i32 %71, 0
+  %73 = select i1 %72, i32 -1, i32 0
+  %74 = add nsw i32 %67, %73
+  store i32 %74, ptr %3, align 4
+  br label %96
 
-if.else36:                                        ; preds = %if.then15
-  %23 = load i32, ptr %v1.addr, align 4
-  %24 = load i32, ptr %v2.addr, align 4
-  %add37 = add nsw i32 %23, %24
-  %sub38 = sub nsw i32 0, %add37
-  %25 = load i32, ptr %v2.addr, align 4
-  %div39 = sdiv i32 %sub38, %25
-  %sub40 = sub nsw i32 0, %div39
-  %26 = load i32, ptr %v1.addr, align 4
-  %27 = load i32, ptr %v2.addr, align 4
-  %add41 = add nsw i32 %26, %27
-  %sub42 = sub nsw i32 0, %add41
-  %28 = load i32, ptr %v2.addr, align 4
-  %rem43 = srem i32 %sub42, %28
-  %tobool44 = icmp ne i32 %rem43, 0
-  %cond45 = select i1 %tobool44, i32 -2, i32 -1
-  %add46 = add nsw i32 %sub40, %cond45
-  store i32 %add46, ptr %retval, align 4
-  br label %return
+75:                                               ; preds = %44
+  %76 = load i32, ptr %4, align 4, !tbaa !3
+  %77 = load i32, ptr %5, align 4, !tbaa !3
+  %78 = add nsw i32 %76, %77
+  %79 = sub nsw i32 0, %78
+  %80 = load i32, ptr %5, align 4, !tbaa !3
+  %81 = sdiv i32 %79, %80
+  %82 = sub nsw i32 0, %81
+  %83 = load i32, ptr %4, align 4, !tbaa !3
+  %84 = load i32, ptr %5, align 4, !tbaa !3
+  %85 = add nsw i32 %83, %84
+  %86 = sub nsw i32 0, %85
+  %87 = load i32, ptr %5, align 4, !tbaa !3
+  %88 = srem i32 %86, %87
+  %89 = icmp ne i32 %88, 0
+  %90 = select i1 %89, i32 -2, i32 -1
+  %91 = add nsw i32 %82, %90
+  store i32 %91, ptr %3, align 4
+  br label %96
 
-if.else47:                                        ; preds = %land.lhs.true13, %if.end
-  %29 = load i32, ptr %v1.addr, align 4
-  %30 = load i32, ptr %v2.addr, align 4
-  %div48 = sdiv i32 %29, %30
-  store i32 %div48, ptr %retval, align 4
-  br label %return
+92:                                               ; preds = %41, %38
+  %93 = load i32, ptr %4, align 4, !tbaa !3
+  %94 = load i32, ptr %5, align 4, !tbaa !3
+  %95 = sdiv i32 %93, %94
+  store i32 %95, ptr %3, align 4
+  br label %96
 
-return:                                           ; preds = %if.else47, %if.else36, %if.else27, %if.then21, %if.else, %if.then4
-  %31 = load i32, ptr %retval, align 4
-  ret i32 %31
+96:                                               ; preds = %92, %75, %62, %53, %25, %17
+  %97 = load i32, ptr %3, align 4
+  ret i32 %97
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stb_div_eucl(i32 noundef %v1, i32 noundef %v2) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %v1.addr = alloca i32, align 4
-  %v2.addr = alloca i32, align 4
-  %q = alloca i32, align 4
-  %r = alloca i32, align 4
-  store i32 %v1, ptr %v1.addr, align 4
-  store i32 %v2, ptr %v2.addr, align 4
-  %0 = load i32, ptr %v1.addr, align 4
-  %cmp = icmp sge i32 %0, 0
-  br i1 %cmp, label %if.then, label %if.else10
+define i32 @stb_div_eucl(i32 noundef %0, i32 noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  store i32 %0, ptr %4, align 4, !tbaa !3
+  store i32 %1, ptr %5, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #2
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #2
+  %9 = load i32, ptr %4, align 4, !tbaa !3
+  %10 = icmp sge i32 %9, 0
+  br i1 %10, label %11, label %35
 
-if.then:                                          ; preds = %entry
-  %1 = load i32, ptr %v2.addr, align 4
-  %cmp1 = icmp sge i32 %1, 0
-  br i1 %cmp1, label %if.then2, label %if.else
+11:                                               ; preds = %2
+  %12 = load i32, ptr %5, align 4, !tbaa !3
+  %13 = icmp sge i32 %12, 0
+  br i1 %13, label %14, label %18
 
-if.then2:                                         ; preds = %if.then
-  %2 = load i32, ptr %v1.addr, align 4
-  %3 = load i32, ptr %v2.addr, align 4
-  %div = sdiv i32 %2, %3
-  store i32 %div, ptr %retval, align 4
-  br label %return
+14:                                               ; preds = %11
+  %15 = load i32, ptr %4, align 4, !tbaa !3
+  %16 = load i32, ptr %5, align 4, !tbaa !3
+  %17 = sdiv i32 %15, %16
+  store i32 %17, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %129
 
-if.else:                                          ; preds = %if.then
-  %4 = load i32, ptr %v2.addr, align 4
-  %cmp3 = icmp ne i32 %4, -2147483648
-  br i1 %cmp3, label %if.then4, label %if.else8
+18:                                               ; preds = %11
+  %19 = load i32, ptr %5, align 4, !tbaa !3
+  %20 = icmp ne i32 %19, -2147483648
+  br i1 %20, label %21, label %31
 
-if.then4:                                         ; preds = %if.else
-  %5 = load i32, ptr %v1.addr, align 4
-  %6 = load i32, ptr %v2.addr, align 4
-  %sub = sub nsw i32 0, %6
-  %div5 = sdiv i32 %5, %sub
-  %sub6 = sub nsw i32 0, %div5
-  store i32 %sub6, ptr %q, align 4
-  %7 = load i32, ptr %v1.addr, align 4
-  %8 = load i32, ptr %v2.addr, align 4
-  %sub7 = sub nsw i32 0, %8
-  %rem = srem i32 %7, %sub7
-  store i32 %rem, ptr %r, align 4
-  br label %if.end
+21:                                               ; preds = %18
+  %22 = load i32, ptr %4, align 4, !tbaa !3
+  %23 = load i32, ptr %5, align 4, !tbaa !3
+  %24 = sub nsw i32 0, %23
+  %25 = sdiv i32 %22, %24
+  %26 = sub nsw i32 0, %25
+  store i32 %26, ptr %6, align 4, !tbaa !3
+  %27 = load i32, ptr %4, align 4, !tbaa !3
+  %28 = load i32, ptr %5, align 4, !tbaa !3
+  %29 = sub nsw i32 0, %28
+  %30 = srem i32 %27, %29
+  store i32 %30, ptr %7, align 4, !tbaa !3
+  br label %33
 
-if.else8:                                         ; preds = %if.else
-  store i32 0, ptr %q, align 4
-  %9 = load i32, ptr %v1.addr, align 4
-  store i32 %9, ptr %r, align 4
-  br label %if.end
+31:                                               ; preds = %18
+  store i32 0, ptr %6, align 4, !tbaa !3
+  %32 = load i32, ptr %4, align 4, !tbaa !3
+  store i32 %32, ptr %7, align 4, !tbaa !3
+  br label %33
 
-if.end:                                           ; preds = %if.else8, %if.then4
-  br label %if.end9
+33:                                               ; preds = %31, %21
+  br label %34
 
-if.end9:                                          ; preds = %if.end
-  br label %if.end63
+34:                                               ; preds = %33
+  br label %118
 
-if.else10:                                        ; preds = %entry
-  %10 = load i32, ptr %v1.addr, align 4
-  %cmp11 = icmp ne i32 %10, -2147483648
-  br i1 %cmp11, label %if.then12, label %if.else35
+35:                                               ; preds = %2
+  %36 = load i32, ptr %4, align 4, !tbaa !3
+  %37 = icmp ne i32 %36, -2147483648
+  br i1 %37, label %38, label %75
 
-if.then12:                                        ; preds = %if.else10
-  %11 = load i32, ptr %v2.addr, align 4
-  %cmp13 = icmp sge i32 %11, 0
-  br i1 %cmp13, label %if.then14, label %if.else21
+38:                                               ; preds = %35
+  %39 = load i32, ptr %5, align 4, !tbaa !3
+  %40 = icmp sge i32 %39, 0
+  br i1 %40, label %41, label %52
 
-if.then14:                                        ; preds = %if.then12
-  %12 = load i32, ptr %v1.addr, align 4
-  %sub15 = sub nsw i32 0, %12
-  %13 = load i32, ptr %v2.addr, align 4
-  %div16 = sdiv i32 %sub15, %13
-  %sub17 = sub nsw i32 0, %div16
-  store i32 %sub17, ptr %q, align 4
-  %14 = load i32, ptr %v1.addr, align 4
-  %sub18 = sub nsw i32 0, %14
-  %15 = load i32, ptr %v2.addr, align 4
-  %rem19 = srem i32 %sub18, %15
-  %sub20 = sub nsw i32 0, %rem19
-  store i32 %sub20, ptr %r, align 4
-  br label %if.end34
+41:                                               ; preds = %38
+  %42 = load i32, ptr %4, align 4, !tbaa !3
+  %43 = sub nsw i32 0, %42
+  %44 = load i32, ptr %5, align 4, !tbaa !3
+  %45 = sdiv i32 %43, %44
+  %46 = sub nsw i32 0, %45
+  store i32 %46, ptr %6, align 4, !tbaa !3
+  %47 = load i32, ptr %4, align 4, !tbaa !3
+  %48 = sub nsw i32 0, %47
+  %49 = load i32, ptr %5, align 4, !tbaa !3
+  %50 = srem i32 %48, %49
+  %51 = sub nsw i32 0, %50
+  store i32 %51, ptr %7, align 4, !tbaa !3
+  br label %74
 
-if.else21:                                        ; preds = %if.then12
-  %16 = load i32, ptr %v2.addr, align 4
-  %cmp22 = icmp ne i32 %16, -2147483648
-  br i1 %cmp22, label %if.then23, label %if.else31
+52:                                               ; preds = %38
+  %53 = load i32, ptr %5, align 4, !tbaa !3
+  %54 = icmp ne i32 %53, -2147483648
+  br i1 %54, label %55, label %67
 
-if.then23:                                        ; preds = %if.else21
-  %17 = load i32, ptr %v1.addr, align 4
-  %sub24 = sub nsw i32 0, %17
-  %18 = load i32, ptr %v2.addr, align 4
-  %sub25 = sub nsw i32 0, %18
-  %div26 = sdiv i32 %sub24, %sub25
-  store i32 %div26, ptr %q, align 4
-  %19 = load i32, ptr %v1.addr, align 4
-  %sub27 = sub nsw i32 0, %19
-  %20 = load i32, ptr %v2.addr, align 4
-  %sub28 = sub nsw i32 0, %20
-  %rem29 = srem i32 %sub27, %sub28
-  %sub30 = sub nsw i32 0, %rem29
-  store i32 %sub30, ptr %r, align 4
-  br label %if.end33
+55:                                               ; preds = %52
+  %56 = load i32, ptr %4, align 4, !tbaa !3
+  %57 = sub nsw i32 0, %56
+  %58 = load i32, ptr %5, align 4, !tbaa !3
+  %59 = sub nsw i32 0, %58
+  %60 = sdiv i32 %57, %59
+  store i32 %60, ptr %6, align 4, !tbaa !3
+  %61 = load i32, ptr %4, align 4, !tbaa !3
+  %62 = sub nsw i32 0, %61
+  %63 = load i32, ptr %5, align 4, !tbaa !3
+  %64 = sub nsw i32 0, %63
+  %65 = srem i32 %62, %64
+  %66 = sub nsw i32 0, %65
+  store i32 %66, ptr %7, align 4, !tbaa !3
+  br label %73
 
-if.else31:                                        ; preds = %if.else21
-  store i32 1, ptr %q, align 4
-  %21 = load i32, ptr %v1.addr, align 4
-  %22 = load i32, ptr %q, align 4
-  %23 = load i32, ptr %v2.addr, align 4
-  %mul = mul nsw i32 %22, %23
-  %sub32 = sub nsw i32 %21, %mul
-  store i32 %sub32, ptr %r, align 4
-  br label %if.end33
+67:                                               ; preds = %52
+  store i32 1, ptr %6, align 4, !tbaa !3
+  %68 = load i32, ptr %4, align 4, !tbaa !3
+  %69 = load i32, ptr %6, align 4, !tbaa !3
+  %70 = load i32, ptr %5, align 4, !tbaa !3
+  %71 = mul nsw i32 %69, %70
+  %72 = sub nsw i32 %68, %71
+  store i32 %72, ptr %7, align 4, !tbaa !3
+  br label %73
 
-if.end33:                                         ; preds = %if.else31, %if.then23
-  br label %if.end34
+73:                                               ; preds = %67, %55
+  br label %74
 
-if.end34:                                         ; preds = %if.end33, %if.then14
-  br label %if.end62
+74:                                               ; preds = %73, %41
+  br label %117
 
-if.else35:                                        ; preds = %if.else10
-  %24 = load i32, ptr %v2.addr, align 4
-  %cmp36 = icmp sge i32 %24, 0
-  br i1 %cmp36, label %if.then37, label %if.else46
+75:                                               ; preds = %35
+  %76 = load i32, ptr %5, align 4, !tbaa !3
+  %77 = icmp sge i32 %76, 0
+  br i1 %77, label %78, label %94
 
-if.then37:                                        ; preds = %if.else35
-  %25 = load i32, ptr %v1.addr, align 4
-  %26 = load i32, ptr %v2.addr, align 4
-  %add = add nsw i32 %25, %26
-  %sub38 = sub nsw i32 0, %add
-  %27 = load i32, ptr %v2.addr, align 4
-  %div39 = sdiv i32 %sub38, %27
-  %sub40 = sub nsw i32 0, %div39
-  %sub41 = sub nsw i32 %sub40, 1
-  store i32 %sub41, ptr %q, align 4
-  %28 = load i32, ptr %v1.addr, align 4
-  %29 = load i32, ptr %v2.addr, align 4
-  %add42 = add nsw i32 %28, %29
-  %sub43 = sub nsw i32 0, %add42
-  %30 = load i32, ptr %v2.addr, align 4
-  %rem44 = srem i32 %sub43, %30
-  %sub45 = sub nsw i32 0, %rem44
-  store i32 %sub45, ptr %r, align 4
-  br label %if.end61
+78:                                               ; preds = %75
+  %79 = load i32, ptr %4, align 4, !tbaa !3
+  %80 = load i32, ptr %5, align 4, !tbaa !3
+  %81 = add nsw i32 %79, %80
+  %82 = sub nsw i32 0, %81
+  %83 = load i32, ptr %5, align 4, !tbaa !3
+  %84 = sdiv i32 %82, %83
+  %85 = sub nsw i32 0, %84
+  %86 = sub nsw i32 %85, 1
+  store i32 %86, ptr %6, align 4, !tbaa !3
+  %87 = load i32, ptr %4, align 4, !tbaa !3
+  %88 = load i32, ptr %5, align 4, !tbaa !3
+  %89 = add nsw i32 %87, %88
+  %90 = sub nsw i32 0, %89
+  %91 = load i32, ptr %5, align 4, !tbaa !3
+  %92 = srem i32 %90, %91
+  %93 = sub nsw i32 0, %92
+  store i32 %93, ptr %7, align 4, !tbaa !3
+  br label %116
 
-if.else46:                                        ; preds = %if.else35
-  %31 = load i32, ptr %v2.addr, align 4
-  %cmp47 = icmp ne i32 %31, -2147483648
-  br i1 %cmp47, label %if.then48, label %if.else59
+94:                                               ; preds = %75
+  %95 = load i32, ptr %5, align 4, !tbaa !3
+  %96 = icmp ne i32 %95, -2147483648
+  br i1 %96, label %97, label %114
 
-if.then48:                                        ; preds = %if.else46
-  %32 = load i32, ptr %v1.addr, align 4
-  %33 = load i32, ptr %v2.addr, align 4
-  %sub49 = sub nsw i32 %32, %33
-  %sub50 = sub nsw i32 0, %sub49
-  %34 = load i32, ptr %v2.addr, align 4
-  %sub51 = sub nsw i32 0, %34
-  %div52 = sdiv i32 %sub50, %sub51
-  %add53 = add nsw i32 %div52, 1
-  store i32 %add53, ptr %q, align 4
-  %35 = load i32, ptr %v1.addr, align 4
-  %36 = load i32, ptr %v2.addr, align 4
-  %sub54 = sub nsw i32 %35, %36
-  %sub55 = sub nsw i32 0, %sub54
-  %37 = load i32, ptr %v2.addr, align 4
-  %sub56 = sub nsw i32 0, %37
-  %rem57 = srem i32 %sub55, %sub56
-  %sub58 = sub nsw i32 0, %rem57
-  store i32 %sub58, ptr %r, align 4
-  br label %if.end60
+97:                                               ; preds = %94
+  %98 = load i32, ptr %4, align 4, !tbaa !3
+  %99 = load i32, ptr %5, align 4, !tbaa !3
+  %100 = sub nsw i32 %98, %99
+  %101 = sub nsw i32 0, %100
+  %102 = load i32, ptr %5, align 4, !tbaa !3
+  %103 = sub nsw i32 0, %102
+  %104 = sdiv i32 %101, %103
+  %105 = add nsw i32 %104, 1
+  store i32 %105, ptr %6, align 4, !tbaa !3
+  %106 = load i32, ptr %4, align 4, !tbaa !3
+  %107 = load i32, ptr %5, align 4, !tbaa !3
+  %108 = sub nsw i32 %106, %107
+  %109 = sub nsw i32 0, %108
+  %110 = load i32, ptr %5, align 4, !tbaa !3
+  %111 = sub nsw i32 0, %110
+  %112 = srem i32 %109, %111
+  %113 = sub nsw i32 0, %112
+  store i32 %113, ptr %7, align 4, !tbaa !3
+  br label %115
 
-if.else59:                                        ; preds = %if.else46
-  store i32 1, ptr %q, align 4
-  store i32 0, ptr %r, align 4
-  br label %if.end60
+114:                                              ; preds = %94
+  store i32 1, ptr %6, align 4, !tbaa !3
+  store i32 0, ptr %7, align 4, !tbaa !3
+  br label %115
 
-if.end60:                                         ; preds = %if.else59, %if.then48
-  br label %if.end61
+115:                                              ; preds = %114, %97
+  br label %116
 
-if.end61:                                         ; preds = %if.end60, %if.then37
-  br label %if.end62
+116:                                              ; preds = %115, %78
+  br label %117
 
-if.end62:                                         ; preds = %if.end61, %if.end34
-  br label %if.end63
+117:                                              ; preds = %116, %74
+  br label %118
 
-if.end63:                                         ; preds = %if.end62, %if.end9
-  %38 = load i32, ptr %r, align 4
-  %cmp64 = icmp sge i32 %38, 0
-  br i1 %cmp64, label %if.then65, label %if.else66
+118:                                              ; preds = %117, %34
+  %119 = load i32, ptr %7, align 4, !tbaa !3
+  %120 = icmp sge i32 %119, 0
+  br i1 %120, label %121, label %123
 
-if.then65:                                        ; preds = %if.end63
-  %39 = load i32, ptr %q, align 4
-  store i32 %39, ptr %retval, align 4
-  br label %return
+121:                                              ; preds = %118
+  %122 = load i32, ptr %6, align 4, !tbaa !3
+  store i32 %122, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %129
 
-if.else66:                                        ; preds = %if.end63
-  %40 = load i32, ptr %q, align 4
-  %41 = load i32, ptr %v2.addr, align 4
-  %cmp67 = icmp sgt i32 %41, 0
-  %cond = select i1 %cmp67, i32 -1, i32 1
-  %add68 = add nsw i32 %40, %cond
-  store i32 %add68, ptr %retval, align 4
-  br label %return
+123:                                              ; preds = %118
+  %124 = load i32, ptr %6, align 4, !tbaa !3
+  %125 = load i32, ptr %5, align 4, !tbaa !3
+  %126 = icmp sgt i32 %125, 0
+  %127 = select i1 %126, i32 -1, i32 1
+  %128 = add nsw i32 %124, %127
+  store i32 %128, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %129
 
-return:                                           ; preds = %if.else66, %if.then65, %if.then2
-  %42 = load i32, ptr %retval, align 4
-  ret i32 %42
+129:                                              ; preds = %123, %121, %14
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #2
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #2
+  %130 = load i32, ptr %3, align 4
+  ret i32 %130
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: nounwind uwtable
+define i32 @stb_mod_trunc(i32 noundef %0, i32 noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  store i32 %0, ptr %4, align 4, !tbaa !3
+  store i32 %1, ptr %5, align 4, !tbaa !3
+  %9 = load i32, ptr %4, align 4, !tbaa !3
+  %10 = icmp sge i32 %9, 0
+  br i1 %10, label %11, label %32
+
+11:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #2
+  %12 = load i32, ptr %4, align 4, !tbaa !3
+  %13 = load i32, ptr %5, align 4, !tbaa !3
+  %14 = srem i32 %12, %13
+  store i32 %14, ptr %6, align 4, !tbaa !3
+  %15 = load i32, ptr %6, align 4, !tbaa !3
+  %16 = icmp sge i32 %15, 0
+  br i1 %16, label %17, label %19
+
+17:                                               ; preds = %11
+  %18 = load i32, ptr %6, align 4, !tbaa !3
+  store i32 %18, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %31
+
+19:                                               ; preds = %11
+  %20 = load i32, ptr %6, align 4, !tbaa !3
+  %21 = load i32, ptr %5, align 4, !tbaa !3
+  %22 = icmp slt i32 %21, 0
+  br i1 %22, label %23, label %25
+
+23:                                               ; preds = %19
+  %24 = load i32, ptr %5, align 4, !tbaa !3
+  br label %28
+
+25:                                               ; preds = %19
+  %26 = load i32, ptr %5, align 4, !tbaa !3
+  %27 = sub nsw i32 0, %26
+  br label %28
+
+28:                                               ; preds = %25, %23
+  %29 = phi i32 [ %24, %23 ], [ %27, %25 ]
+  %30 = sub nsw i32 %20, %29
+  store i32 %30, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %31
+
+31:                                               ; preds = %28, %17
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #2
+  br label %53
+
+32:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #2
+  %33 = load i32, ptr %4, align 4, !tbaa !3
+  %34 = load i32, ptr %5, align 4, !tbaa !3
+  %35 = srem i32 %33, %34
+  store i32 %35, ptr %8, align 4, !tbaa !3
+  %36 = load i32, ptr %8, align 4, !tbaa !3
+  %37 = icmp sle i32 %36, 0
+  br i1 %37, label %38, label %40
+
+38:                                               ; preds = %32
+  %39 = load i32, ptr %8, align 4, !tbaa !3
+  store i32 %39, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %52
+
+40:                                               ; preds = %32
+  %41 = load i32, ptr %8, align 4, !tbaa !3
+  %42 = load i32, ptr %5, align 4, !tbaa !3
+  %43 = icmp slt i32 %42, 0
+  br i1 %43, label %44, label %46
+
+44:                                               ; preds = %40
+  %45 = load i32, ptr %5, align 4, !tbaa !3
+  br label %49
+
+46:                                               ; preds = %40
+  %47 = load i32, ptr %5, align 4, !tbaa !3
+  %48 = sub nsw i32 0, %47
+  br label %49
+
+49:                                               ; preds = %46, %44
+  %50 = phi i32 [ %45, %44 ], [ %48, %46 ]
+  %51 = add nsw i32 %41, %50
+  store i32 %51, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %52
+
+52:                                               ; preds = %49, %38
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #2
+  br label %53
+
+53:                                               ; preds = %52, %31
+  %54 = load i32, ptr %3, align 4
+  ret i32 %54
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stb_mod_trunc(i32 noundef %v1, i32 noundef %v2) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %v1.addr = alloca i32, align 4
-  %v2.addr = alloca i32, align 4
-  %r = alloca i32, align 4
-  %r6 = alloca i32, align 4
-  store i32 %v1, ptr %v1.addr, align 4
-  store i32 %v2, ptr %v2.addr, align 4
-  %0 = load i32, ptr %v1.addr, align 4
-  %cmp = icmp sge i32 %0, 0
-  br i1 %cmp, label %if.then, label %if.else5
+define i32 @stb_mod_floor(i32 noundef %0, i32 noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  store i32 %0, ptr %4, align 4, !tbaa !3
+  store i32 %1, ptr %5, align 4, !tbaa !3
+  %9 = load i32, ptr %5, align 4, !tbaa !3
+  %10 = icmp sge i32 %9, 0
+  br i1 %10, label %11, label %24
 
-if.then:                                          ; preds = %entry
-  %1 = load i32, ptr %v1.addr, align 4
-  %2 = load i32, ptr %v2.addr, align 4
-  %rem = srem i32 %1, %2
-  store i32 %rem, ptr %r, align 4
-  %3 = load i32, ptr %r, align 4
-  %cmp1 = icmp sge i32 %3, 0
-  br i1 %cmp1, label %if.then2, label %if.else
+11:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #2
+  %12 = load i32, ptr %4, align 4, !tbaa !3
+  %13 = load i32, ptr %5, align 4, !tbaa !3
+  %14 = srem i32 %12, %13
+  store i32 %14, ptr %6, align 4, !tbaa !3
+  %15 = load i32, ptr %6, align 4, !tbaa !3
+  %16 = icmp sge i32 %15, 0
+  br i1 %16, label %17, label %19
 
-if.then2:                                         ; preds = %if.then
-  %4 = load i32, ptr %r, align 4
-  store i32 %4, ptr %retval, align 4
-  br label %return
+17:                                               ; preds = %11
+  %18 = load i32, ptr %6, align 4, !tbaa !3
+  store i32 %18, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %23
 
-if.else:                                          ; preds = %if.then
-  %5 = load i32, ptr %r, align 4
-  %6 = load i32, ptr %v2.addr, align 4
-  %cmp3 = icmp slt i32 %6, 0
-  br i1 %cmp3, label %cond.true, label %cond.false
+19:                                               ; preds = %11
+  %20 = load i32, ptr %6, align 4, !tbaa !3
+  %21 = load i32, ptr %5, align 4, !tbaa !3
+  %22 = add nsw i32 %20, %21
+  store i32 %22, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %23
 
-cond.true:                                        ; preds = %if.else
-  %7 = load i32, ptr %v2.addr, align 4
-  br label %cond.end
+23:                                               ; preds = %19, %17
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #2
+  br label %37
 
-cond.false:                                       ; preds = %if.else
-  %8 = load i32, ptr %v2.addr, align 4
-  %sub = sub nsw i32 0, %8
-  br label %cond.end
+24:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #2
+  %25 = load i32, ptr %4, align 4, !tbaa !3
+  %26 = load i32, ptr %5, align 4, !tbaa !3
+  %27 = srem i32 %25, %26
+  store i32 %27, ptr %8, align 4, !tbaa !3
+  %28 = load i32, ptr %8, align 4, !tbaa !3
+  %29 = icmp sle i32 %28, 0
+  br i1 %29, label %30, label %32
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ %7, %cond.true ], [ %sub, %cond.false ]
-  %sub4 = sub nsw i32 %5, %cond
-  store i32 %sub4, ptr %retval, align 4
-  br label %return
+30:                                               ; preds = %24
+  %31 = load i32, ptr %8, align 4, !tbaa !3
+  store i32 %31, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %36
 
-if.else5:                                         ; preds = %entry
-  %9 = load i32, ptr %v1.addr, align 4
-  %10 = load i32, ptr %v2.addr, align 4
-  %rem7 = srem i32 %9, %10
-  store i32 %rem7, ptr %r6, align 4
-  %11 = load i32, ptr %r6, align 4
-  %cmp8 = icmp sle i32 %11, 0
-  br i1 %cmp8, label %if.then9, label %if.else10
+32:                                               ; preds = %24
+  %33 = load i32, ptr %8, align 4, !tbaa !3
+  %34 = load i32, ptr %5, align 4, !tbaa !3
+  %35 = add nsw i32 %33, %34
+  store i32 %35, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %36
 
-if.then9:                                         ; preds = %if.else5
-  %12 = load i32, ptr %r6, align 4
-  store i32 %12, ptr %retval, align 4
-  br label %return
+36:                                               ; preds = %32, %30
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #2
+  br label %37
 
-if.else10:                                        ; preds = %if.else5
-  %13 = load i32, ptr %r6, align 4
-  %14 = load i32, ptr %v2.addr, align 4
-  %cmp11 = icmp slt i32 %14, 0
-  br i1 %cmp11, label %cond.true12, label %cond.false13
-
-cond.true12:                                      ; preds = %if.else10
-  %15 = load i32, ptr %v2.addr, align 4
-  br label %cond.end15
-
-cond.false13:                                     ; preds = %if.else10
-  %16 = load i32, ptr %v2.addr, align 4
-  %sub14 = sub nsw i32 0, %16
-  br label %cond.end15
-
-cond.end15:                                       ; preds = %cond.false13, %cond.true12
-  %cond16 = phi i32 [ %15, %cond.true12 ], [ %sub14, %cond.false13 ]
-  %add = add nsw i32 %13, %cond16
-  store i32 %add, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %cond.end15, %if.then9, %cond.end, %if.then2
-  %17 = load i32, ptr %retval, align 4
-  ret i32 %17
+37:                                               ; preds = %36, %23
+  %38 = load i32, ptr %3, align 4
+  ret i32 %38
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stb_mod_floor(i32 noundef %v1, i32 noundef %v2) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %v1.addr = alloca i32, align 4
-  %v2.addr = alloca i32, align 4
-  %r = alloca i32, align 4
-  %r4 = alloca i32, align 4
-  store i32 %v1, ptr %v1.addr, align 4
-  store i32 %v2, ptr %v2.addr, align 4
-  %0 = load i32, ptr %v2.addr, align 4
-  %cmp = icmp sge i32 %0, 0
-  br i1 %cmp, label %if.then, label %if.else3
+define i32 @stb_mod_eucl(i32 noundef %0, i32 noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  store i32 %0, ptr %4, align 4, !tbaa !3
+  store i32 %1, ptr %5, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #2
+  %8 = load i32, ptr %4, align 4, !tbaa !3
+  %9 = load i32, ptr %5, align 4, !tbaa !3
+  %10 = srem i32 %8, %9
+  store i32 %10, ptr %6, align 4, !tbaa !3
+  %11 = load i32, ptr %6, align 4, !tbaa !3
+  %12 = icmp sge i32 %11, 0
+  br i1 %12, label %13, label %15
 
-if.then:                                          ; preds = %entry
-  %1 = load i32, ptr %v1.addr, align 4
-  %2 = load i32, ptr %v2.addr, align 4
-  %rem = srem i32 %1, %2
-  store i32 %rem, ptr %r, align 4
-  %3 = load i32, ptr %r, align 4
-  %cmp1 = icmp sge i32 %3, 0
-  br i1 %cmp1, label %if.then2, label %if.else
+13:                                               ; preds = %2
+  %14 = load i32, ptr %6, align 4, !tbaa !3
+  store i32 %14, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %27
 
-if.then2:                                         ; preds = %if.then
-  %4 = load i32, ptr %r, align 4
-  store i32 %4, ptr %retval, align 4
-  br label %return
+15:                                               ; preds = %2
+  %16 = load i32, ptr %6, align 4, !tbaa !3
+  %17 = load i32, ptr %5, align 4, !tbaa !3
+  %18 = icmp slt i32 %17, 0
+  br i1 %18, label %19, label %21
 
-if.else:                                          ; preds = %if.then
-  %5 = load i32, ptr %r, align 4
-  %6 = load i32, ptr %v2.addr, align 4
-  %add = add nsw i32 %5, %6
-  store i32 %add, ptr %retval, align 4
-  br label %return
+19:                                               ; preds = %15
+  %20 = load i32, ptr %5, align 4, !tbaa !3
+  br label %24
 
-if.else3:                                         ; preds = %entry
-  %7 = load i32, ptr %v1.addr, align 4
-  %8 = load i32, ptr %v2.addr, align 4
-  %rem5 = srem i32 %7, %8
-  store i32 %rem5, ptr %r4, align 4
-  %9 = load i32, ptr %r4, align 4
-  %cmp6 = icmp sle i32 %9, 0
-  br i1 %cmp6, label %if.then7, label %if.else8
+21:                                               ; preds = %15
+  %22 = load i32, ptr %5, align 4, !tbaa !3
+  %23 = sub nsw i32 0, %22
+  br label %24
 
-if.then7:                                         ; preds = %if.else3
-  %10 = load i32, ptr %r4, align 4
-  store i32 %10, ptr %retval, align 4
-  br label %return
+24:                                               ; preds = %21, %19
+  %25 = phi i32 [ %20, %19 ], [ %23, %21 ]
+  %26 = sub nsw i32 %16, %25
+  store i32 %26, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %27
 
-if.else8:                                         ; preds = %if.else3
-  %11 = load i32, ptr %r4, align 4
-  %12 = load i32, ptr %v2.addr, align 4
-  %add9 = add nsw i32 %11, %12
-  store i32 %add9, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.else8, %if.then7, %if.else, %if.then2
-  %13 = load i32, ptr %retval, align 4
-  ret i32 %13
+27:                                               ; preds = %24, %13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #2
+  %28 = load i32, ptr %3, align 4
+  ret i32 %28
 }
 
-; Function Attrs: nounwind uwtable
-define i32 @stb_mod_eucl(i32 noundef %v1, i32 noundef %v2) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %v1.addr = alloca i32, align 4
-  %v2.addr = alloca i32, align 4
-  %r = alloca i32, align 4
-  store i32 %v1, ptr %v1.addr, align 4
-  store i32 %v2, ptr %v2.addr, align 4
-  %0 = load i32, ptr %v1.addr, align 4
-  %1 = load i32, ptr %v2.addr, align 4
-  %rem = srem i32 %0, %1
-  store i32 %rem, ptr %r, align 4
-  %2 = load i32, ptr %r, align 4
-  %cmp = icmp sge i32 %2, 0
-  br i1 %cmp, label %if.then, label %if.else
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nounwind }
 
-if.then:                                          ; preds = %entry
-  %3 = load i32, ptr %r, align 4
-  store i32 %3, ptr %retval, align 4
-  br label %return
-
-if.else:                                          ; preds = %entry
-  %4 = load i32, ptr %r, align 4
-  %5 = load i32, ptr %v2.addr, align 4
-  %cmp1 = icmp slt i32 %5, 0
-  br i1 %cmp1, label %cond.true, label %cond.false
-
-cond.true:                                        ; preds = %if.else
-  %6 = load i32, ptr %v2.addr, align 4
-  br label %cond.end
-
-cond.false:                                       ; preds = %if.else
-  %7 = load i32, ptr %v2.addr, align 4
-  %sub = sub nsw i32 0, %7
-  br label %cond.end
-
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ %6, %cond.true ], [ %sub, %cond.false ]
-  %sub2 = sub nsw i32 %4, %cond
-  store i32 %sub2, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %cond.end, %if.then
-  %8 = load i32, ptr %retval, align 4
-  ret i32 %8
-}
-
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"int", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}

@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.stb_easy_font_info_struct = type { i8, i8, i8 }
 %struct.stb_easy_font_color = type { [4 x i8] }
@@ -11,596 +11,650 @@ target triple = "x86_64-unknown-linux-gnu"
 @__const.stb_easy_font_print.c = private unnamed_addr constant %struct.stb_easy_font_color { [4 x i8] c"\FF\FF\FF\FF" }, align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @stb_easy_font_draw_segs(float noundef %x, float noundef %y, ptr noundef %segs, i32 noundef %num_segs, i32 noundef %vertical, i32 %c.coerce, ptr noundef %vbuf, i32 noundef %vbuf_size, i32 noundef %offset) #0 {
-entry:
-  %c = alloca %struct.stb_easy_font_color, align 1
-  %x.addr = alloca float, align 4
-  %y.addr = alloca float, align 4
-  %segs.addr = alloca ptr, align 8
-  %num_segs.addr = alloca i32, align 4
-  %vertical.addr = alloca i32, align 4
-  %vbuf.addr = alloca ptr, align 8
-  %vbuf_size.addr = alloca i32, align 4
-  %offset.addr = alloca i32, align 4
-  %i = alloca i32, align 4
-  %j = alloca i32, align 4
-  %len = alloca i32, align 4
-  %y0 = alloca float, align 4
-  %coerce.dive = getelementptr inbounds %struct.stb_easy_font_color, ptr %c, i32 0, i32 0
-  store i32 %c.coerce, ptr %coerce.dive, align 1
-  store float %x, ptr %x.addr, align 4
-  store float %y, ptr %y.addr, align 4
-  store ptr %segs, ptr %segs.addr, align 8
-  store i32 %num_segs, ptr %num_segs.addr, align 4
-  store i32 %vertical, ptr %vertical.addr, align 4
-  store ptr %vbuf, ptr %vbuf.addr, align 8
-  store i32 %vbuf_size, ptr %vbuf_size.addr, align 4
-  store i32 %offset, ptr %offset.addr, align 4
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+define i32 @stb_easy_font_draw_segs(float noundef %0, float noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 %5, ptr noundef %6, i32 noundef %7, i32 noundef %8) #0 {
+  %10 = alloca %struct.stb_easy_font_color, align 1
+  %11 = alloca float, align 4
+  %12 = alloca float, align 4
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  %16 = alloca ptr, align 8
+  %17 = alloca i32, align 4
+  %18 = alloca i32, align 4
+  %19 = alloca i32, align 4
+  %20 = alloca i32, align 4
+  %21 = alloca i32, align 4
+  %22 = alloca float, align 4
+  %23 = getelementptr inbounds nuw %struct.stb_easy_font_color, ptr %10, i32 0, i32 0
+  store i32 %5, ptr %23, align 1
+  store float %0, ptr %11, align 4, !tbaa !3
+  store float %1, ptr %12, align 4, !tbaa !3
+  store ptr %2, ptr %13, align 8, !tbaa !7
+  store i32 %3, ptr %14, align 4, !tbaa !10
+  store i32 %4, ptr %15, align 4, !tbaa !10
+  store ptr %6, ptr %16, align 8, !tbaa !7
+  store i32 %7, ptr %17, align 4, !tbaa !10
+  store i32 %8, ptr %18, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #4
+  store i32 0, ptr %19, align 4, !tbaa !10
+  br label %24
 
-for.cond:                                         ; preds = %for.inc54, %entry
-  %0 = load i32, ptr %i, align 4
-  %1 = load i32, ptr %num_segs.addr, align 4
-  %cmp = icmp slt i32 %0, %1
-  br i1 %cmp, label %for.body, label %for.end56
+24:                                               ; preds = %131, %9
+  %25 = load i32, ptr %19, align 4, !tbaa !10
+  %26 = load i32, ptr %14, align 4, !tbaa !10
+  %27 = icmp slt i32 %25, %26
+  br i1 %27, label %28, label %134
 
-for.body:                                         ; preds = %for.cond
-  %2 = load ptr, ptr %segs.addr, align 8
-  %3 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %3 to i64
-  %arrayidx = getelementptr inbounds i8, ptr %2, i64 %idxprom
-  %4 = load i8, ptr %arrayidx, align 1
-  %conv = zext i8 %4 to i32
-  %and = and i32 %conv, 7
-  store i32 %and, ptr %len, align 4
-  %5 = load ptr, ptr %segs.addr, align 8
-  %6 = load i32, ptr %i, align 4
-  %idxprom1 = sext i32 %6 to i64
-  %arrayidx2 = getelementptr inbounds i8, ptr %5, i64 %idxprom1
-  %7 = load i8, ptr %arrayidx2, align 1
-  %conv3 = zext i8 %7 to i32
-  %shr = ashr i32 %conv3, 3
-  %and4 = and i32 %shr, 1
-  %conv5 = sitofp i32 %and4 to float
-  %8 = load float, ptr %x.addr, align 4
-  %add = fadd float %8, %conv5
-  store float %add, ptr %x.addr, align 4
-  %9 = load i32, ptr %len, align 4
-  %tobool = icmp ne i32 %9, 0
-  br i1 %tobool, label %land.lhs.true, label %if.end
+28:                                               ; preds = %24
+  call void @llvm.lifetime.start.p0(i64 4, ptr %21) #4
+  %29 = load ptr, ptr %13, align 8, !tbaa !7
+  %30 = load i32, ptr %19, align 4, !tbaa !10
+  %31 = sext i32 %30 to i64
+  %32 = getelementptr inbounds i8, ptr %29, i64 %31
+  %33 = load i8, ptr %32, align 1, !tbaa !12
+  %34 = zext i8 %33 to i32
+  %35 = and i32 %34, 7
+  store i32 %35, ptr %21, align 4, !tbaa !10
+  %36 = load ptr, ptr %13, align 8, !tbaa !7
+  %37 = load i32, ptr %19, align 4, !tbaa !10
+  %38 = sext i32 %37 to i64
+  %39 = getelementptr inbounds i8, ptr %36, i64 %38
+  %40 = load i8, ptr %39, align 1, !tbaa !12
+  %41 = zext i8 %40 to i32
+  %42 = ashr i32 %41, 3
+  %43 = and i32 %42, 1
+  %44 = sitofp i32 %43 to float
+  %45 = load float, ptr %11, align 4, !tbaa !3
+  %46 = fadd float %45, %44
+  store float %46, ptr %11, align 4, !tbaa !3
+  %47 = load i32, ptr %21, align 4, !tbaa !10
+  %48 = icmp ne i32 %47, 0
+  br i1 %48, label %49, label %130
 
-land.lhs.true:                                    ; preds = %for.body
-  %10 = load i32, ptr %offset.addr, align 4
-  %add6 = add nsw i32 %10, 64
-  %11 = load i32, ptr %vbuf_size.addr, align 4
-  %cmp7 = icmp sle i32 %add6, %11
-  br i1 %cmp7, label %if.then, label %if.end
+49:                                               ; preds = %28
+  %50 = load i32, ptr %18, align 4, !tbaa !10
+  %51 = add nsw i32 %50, 64
+  %52 = load i32, ptr %17, align 4, !tbaa !10
+  %53 = icmp sle i32 %51, %52
+  br i1 %53, label %54, label %130
 
-if.then:                                          ; preds = %land.lhs.true
-  %12 = load float, ptr %y.addr, align 4
-  %13 = load ptr, ptr %segs.addr, align 8
-  %14 = load i32, ptr %i, align 4
-  %idxprom9 = sext i32 %14 to i64
-  %arrayidx10 = getelementptr inbounds i8, ptr %13, i64 %idxprom9
-  %15 = load i8, ptr %arrayidx10, align 1
-  %conv11 = zext i8 %15 to i32
-  %shr12 = ashr i32 %conv11, 4
-  %conv13 = sitofp i32 %shr12 to float
-  %add14 = fadd float %12, %conv13
-  store float %add14, ptr %y0, align 4
-  store i32 0, ptr %j, align 4
-  br label %for.cond15
+54:                                               ; preds = %49
+  call void @llvm.lifetime.start.p0(i64 4, ptr %22) #4
+  %55 = load float, ptr %12, align 4, !tbaa !3
+  %56 = load ptr, ptr %13, align 8, !tbaa !7
+  %57 = load i32, ptr %19, align 4, !tbaa !10
+  %58 = sext i32 %57 to i64
+  %59 = getelementptr inbounds i8, ptr %56, i64 %58
+  %60 = load i8, ptr %59, align 1, !tbaa !12
+  %61 = zext i8 %60 to i32
+  %62 = ashr i32 %61, 4
+  %63 = sitofp i32 %62 to float
+  %64 = fadd float %55, %63
+  store float %64, ptr %22, align 4, !tbaa !3
+  store i32 0, ptr %20, align 4, !tbaa !10
+  br label %65
 
-for.cond15:                                       ; preds = %for.inc, %if.then
-  %16 = load i32, ptr %j, align 4
-  %cmp16 = icmp slt i32 %16, 4
-  br i1 %cmp16, label %for.body18, label %for.end
+65:                                               ; preds = %126, %54
+  %66 = load i32, ptr %20, align 4, !tbaa !10
+  %67 = icmp slt i32 %66, 4
+  br i1 %67, label %68, label %129
 
-for.body18:                                       ; preds = %for.cond15
-  %17 = load float, ptr %x.addr, align 4
-  %18 = load i32, ptr %j, align 4
-  %cmp19 = icmp eq i32 %18, 1
-  br i1 %cmp19, label %cond.true, label %lor.lhs.false
+68:                                               ; preds = %65
+  %69 = load float, ptr %11, align 4, !tbaa !3
+  %70 = load i32, ptr %20, align 4, !tbaa !10
+  %71 = icmp eq i32 %70, 1
+  br i1 %71, label %75, label %72
 
-lor.lhs.false:                                    ; preds = %for.body18
-  %19 = load i32, ptr %j, align 4
-  %cmp21 = icmp eq i32 %19, 2
-  br i1 %cmp21, label %cond.true, label %cond.false25
+72:                                               ; preds = %68
+  %73 = load i32, ptr %20, align 4, !tbaa !10
+  %74 = icmp eq i32 %73, 2
+  br i1 %74, label %75, label %83
 
-cond.true:                                        ; preds = %lor.lhs.false, %for.body18
-  %20 = load i32, ptr %vertical.addr, align 4
-  %tobool23 = icmp ne i32 %20, 0
-  br i1 %tobool23, label %cond.true24, label %cond.false
+75:                                               ; preds = %72, %68
+  %76 = load i32, ptr %15, align 4, !tbaa !10
+  %77 = icmp ne i32 %76, 0
+  br i1 %77, label %78, label %79
 
-cond.true24:                                      ; preds = %cond.true
-  br label %cond.end
+78:                                               ; preds = %75
+  br label %81
 
-cond.false:                                       ; preds = %cond.true
-  %21 = load i32, ptr %len, align 4
-  br label %cond.end
+79:                                               ; preds = %75
+  %80 = load i32, ptr %21, align 4, !tbaa !10
+  br label %81
 
-cond.end:                                         ; preds = %cond.false, %cond.true24
-  %cond = phi i32 [ 1, %cond.true24 ], [ %21, %cond.false ]
-  br label %cond.end26
+81:                                               ; preds = %79, %78
+  %82 = phi i32 [ 1, %78 ], [ %80, %79 ]
+  br label %84
 
-cond.false25:                                     ; preds = %lor.lhs.false
-  br label %cond.end26
+83:                                               ; preds = %72
+  br label %84
 
-cond.end26:                                       ; preds = %cond.false25, %cond.end
-  %cond27 = phi i32 [ %cond, %cond.end ], [ 0, %cond.false25 ]
-  %conv28 = sitofp i32 %cond27 to float
-  %add29 = fadd float %17, %conv28
-  %22 = load ptr, ptr %vbuf.addr, align 8
-  %23 = load i32, ptr %offset.addr, align 4
-  %idx.ext = sext i32 %23 to i64
-  %add.ptr = getelementptr inbounds i8, ptr %22, i64 %idx.ext
-  %add.ptr30 = getelementptr inbounds i8, ptr %add.ptr, i64 0
-  store float %add29, ptr %add.ptr30, align 4
-  %24 = load float, ptr %y0, align 4
-  %25 = load i32, ptr %j, align 4
-  %cmp31 = icmp sge i32 %25, 2
-  br i1 %cmp31, label %cond.true33, label %cond.false39
+84:                                               ; preds = %83, %81
+  %85 = phi i32 [ %82, %81 ], [ 0, %83 ]
+  %86 = sitofp i32 %85 to float
+  %87 = fadd float %69, %86
+  %88 = load ptr, ptr %16, align 8, !tbaa !7
+  %89 = load i32, ptr %18, align 4, !tbaa !10
+  %90 = sext i32 %89 to i64
+  %91 = getelementptr inbounds i8, ptr %88, i64 %90
+  %92 = getelementptr inbounds i8, ptr %91, i64 0
+  store float %87, ptr %92, align 4, !tbaa !3
+  %93 = load float, ptr %22, align 4, !tbaa !3
+  %94 = load i32, ptr %20, align 4, !tbaa !10
+  %95 = icmp sge i32 %94, 2
+  br i1 %95, label %96, label %104
 
-cond.true33:                                      ; preds = %cond.end26
-  %26 = load i32, ptr %vertical.addr, align 4
-  %tobool34 = icmp ne i32 %26, 0
-  br i1 %tobool34, label %cond.true35, label %cond.false36
+96:                                               ; preds = %84
+  %97 = load i32, ptr %15, align 4, !tbaa !10
+  %98 = icmp ne i32 %97, 0
+  br i1 %98, label %99, label %101
 
-cond.true35:                                      ; preds = %cond.true33
-  %27 = load i32, ptr %len, align 4
-  br label %cond.end37
+99:                                               ; preds = %96
+  %100 = load i32, ptr %21, align 4, !tbaa !10
+  br label %102
 
-cond.false36:                                     ; preds = %cond.true33
-  br label %cond.end37
+101:                                              ; preds = %96
+  br label %102
 
-cond.end37:                                       ; preds = %cond.false36, %cond.true35
-  %cond38 = phi i32 [ %27, %cond.true35 ], [ 1, %cond.false36 ]
-  br label %cond.end40
+102:                                              ; preds = %101, %99
+  %103 = phi i32 [ %100, %99 ], [ 1, %101 ]
+  br label %105
 
-cond.false39:                                     ; preds = %cond.end26
-  br label %cond.end40
+104:                                              ; preds = %84
+  br label %105
 
-cond.end40:                                       ; preds = %cond.false39, %cond.end37
-  %cond41 = phi i32 [ %cond38, %cond.end37 ], [ 0, %cond.false39 ]
-  %conv42 = sitofp i32 %cond41 to float
-  %add43 = fadd float %24, %conv42
-  %28 = load ptr, ptr %vbuf.addr, align 8
-  %29 = load i32, ptr %offset.addr, align 4
-  %idx.ext44 = sext i32 %29 to i64
-  %add.ptr45 = getelementptr inbounds i8, ptr %28, i64 %idx.ext44
-  %add.ptr46 = getelementptr inbounds i8, ptr %add.ptr45, i64 4
-  store float %add43, ptr %add.ptr46, align 4
-  %30 = load ptr, ptr %vbuf.addr, align 8
-  %31 = load i32, ptr %offset.addr, align 4
-  %idx.ext47 = sext i32 %31 to i64
-  %add.ptr48 = getelementptr inbounds i8, ptr %30, i64 %idx.ext47
-  %add.ptr49 = getelementptr inbounds i8, ptr %add.ptr48, i64 8
-  store float 0.000000e+00, ptr %add.ptr49, align 4
-  %32 = load ptr, ptr %vbuf.addr, align 8
-  %33 = load i32, ptr %offset.addr, align 4
-  %idx.ext50 = sext i32 %33 to i64
-  %add.ptr51 = getelementptr inbounds i8, ptr %32, i64 %idx.ext50
-  %add.ptr52 = getelementptr inbounds i8, ptr %add.ptr51, i64 12
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr52, ptr align 1 %c, i64 4, i1 false)
-  %34 = load i32, ptr %offset.addr, align 4
-  %add53 = add nsw i32 %34, 16
-  store i32 %add53, ptr %offset.addr, align 4
-  br label %for.inc
+105:                                              ; preds = %104, %102
+  %106 = phi i32 [ %103, %102 ], [ 0, %104 ]
+  %107 = sitofp i32 %106 to float
+  %108 = fadd float %93, %107
+  %109 = load ptr, ptr %16, align 8, !tbaa !7
+  %110 = load i32, ptr %18, align 4, !tbaa !10
+  %111 = sext i32 %110 to i64
+  %112 = getelementptr inbounds i8, ptr %109, i64 %111
+  %113 = getelementptr inbounds i8, ptr %112, i64 4
+  store float %108, ptr %113, align 4, !tbaa !3
+  %114 = load ptr, ptr %16, align 8, !tbaa !7
+  %115 = load i32, ptr %18, align 4, !tbaa !10
+  %116 = sext i32 %115 to i64
+  %117 = getelementptr inbounds i8, ptr %114, i64 %116
+  %118 = getelementptr inbounds i8, ptr %117, i64 8
+  store float 0.000000e+00, ptr %118, align 4, !tbaa !3
+  %119 = load ptr, ptr %16, align 8, !tbaa !7
+  %120 = load i32, ptr %18, align 4, !tbaa !10
+  %121 = sext i32 %120 to i64
+  %122 = getelementptr inbounds i8, ptr %119, i64 %121
+  %123 = getelementptr inbounds i8, ptr %122, i64 12
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %123, ptr align 1 %10, i64 4, i1 false), !tbaa.struct !13
+  %124 = load i32, ptr %18, align 4, !tbaa !10
+  %125 = add nsw i32 %124, 16
+  store i32 %125, ptr %18, align 4, !tbaa !10
+  br label %126
 
-for.inc:                                          ; preds = %cond.end40
-  %35 = load i32, ptr %j, align 4
-  %inc = add nsw i32 %35, 1
-  store i32 %inc, ptr %j, align 4
-  br label %for.cond15, !llvm.loop !4
+126:                                              ; preds = %105
+  %127 = load i32, ptr %20, align 4, !tbaa !10
+  %128 = add nsw i32 %127, 1
+  store i32 %128, ptr %20, align 4, !tbaa !10
+  br label %65, !llvm.loop !14
 
-for.end:                                          ; preds = %for.cond15
-  br label %if.end
+129:                                              ; preds = %65
+  call void @llvm.lifetime.end.p0(i64 4, ptr %22) #4
+  br label %130
 
-if.end:                                           ; preds = %for.end, %land.lhs.true, %for.body
-  br label %for.inc54
+130:                                              ; preds = %129, %49, %28
+  call void @llvm.lifetime.end.p0(i64 4, ptr %21) #4
+  br label %131
 
-for.inc54:                                        ; preds = %if.end
-  %36 = load i32, ptr %i, align 4
-  %inc55 = add nsw i32 %36, 1
-  store i32 %inc55, ptr %i, align 4
-  br label %for.cond, !llvm.loop !6
+131:                                              ; preds = %130
+  %132 = load i32, ptr %19, align 4, !tbaa !10
+  %133 = add nsw i32 %132, 1
+  store i32 %133, ptr %19, align 4, !tbaa !10
+  br label %24, !llvm.loop !16
 
-for.end56:                                        ; preds = %for.cond
-  %37 = load i32, ptr %offset.addr, align 4
-  ret i32 %37
+134:                                              ; preds = %24
+  %135 = load i32, ptr %18, align 4, !tbaa !10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #4
+  ret i32 %135
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define void @stb_easy_font_spacing(float noundef %spacing) #0 {
-entry:
-  %spacing.addr = alloca float, align 4
-  store float %spacing, ptr %spacing.addr, align 4
-  %0 = load float, ptr %spacing.addr, align 4
-  store float %0, ptr @stb_easy_font_spacing_val, align 4
+define void @stb_easy_font_spacing(float noundef %0) #0 {
+  %2 = alloca float, align 4
+  store float %0, ptr %2, align 4, !tbaa !3
+  %3 = load float, ptr %2, align 4, !tbaa !3
+  store float %3, ptr @stb_easy_font_spacing_val, align 4, !tbaa !3
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stb_easy_font_print(float noundef %x, float noundef %y, ptr noundef %text, ptr noundef %color, ptr noundef %vertex_buffer, i32 noundef %vbuf_size) #0 {
-entry:
-  %x.addr = alloca float, align 4
-  %y.addr = alloca float, align 4
-  %text.addr = alloca ptr, align 8
-  %color.addr = alloca ptr, align 8
-  %vertex_buffer.addr = alloca ptr, align 8
-  %vbuf_size.addr = alloca i32, align 4
-  %vbuf = alloca ptr, align 8
-  %start_x = alloca float, align 4
-  %offset = alloca i32, align 4
-  %c = alloca %struct.stb_easy_font_color, align 1
-  %advance = alloca i8, align 1
-  %y_ch = alloca float, align 4
-  %h_seg = alloca i32, align 4
-  %v_seg = alloca i32, align 4
-  %num_h = alloca i32, align 4
-  %num_v = alloca i32, align 4
-  store float %x, ptr %x.addr, align 4
-  store float %y, ptr %y.addr, align 4
-  store ptr %text, ptr %text.addr, align 8
-  store ptr %color, ptr %color.addr, align 8
-  store ptr %vertex_buffer, ptr %vertex_buffer.addr, align 8
-  store i32 %vbuf_size, ptr %vbuf_size.addr, align 4
-  %0 = load ptr, ptr %vertex_buffer.addr, align 8
-  store ptr %0, ptr %vbuf, align 8
-  %1 = load float, ptr %x.addr, align 4
-  store float %1, ptr %start_x, align 4
-  store i32 0, ptr %offset, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %c, ptr align 1 @__const.stb_easy_font_print.c, i64 4, i1 false)
-  %2 = load ptr, ptr %color.addr, align 8
-  %tobool = icmp ne ptr %2, null
-  br i1 %tobool, label %if.then, label %if.end
+define i32 @stb_easy_font_print(float noundef %0, float noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
+  %7 = alloca float, align 4
+  %8 = alloca float, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
+  %13 = alloca ptr, align 8
+  %14 = alloca float, align 4
+  %15 = alloca i32, align 4
+  %16 = alloca %struct.stb_easy_font_color, align 1
+  %17 = alloca i8, align 1
+  %18 = alloca float, align 4
+  %19 = alloca i32, align 4
+  %20 = alloca i32, align 4
+  %21 = alloca i32, align 4
+  %22 = alloca i32, align 4
+  store float %0, ptr %7, align 4, !tbaa !3
+  store float %1, ptr %8, align 4, !tbaa !3
+  store ptr %2, ptr %9, align 8, !tbaa !7
+  store ptr %3, ptr %10, align 8, !tbaa !7
+  store ptr %4, ptr %11, align 8, !tbaa !17
+  store i32 %5, ptr %12, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #4
+  %23 = load ptr, ptr %11, align 8, !tbaa !17
+  store ptr %23, ptr %13, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #4
+  %24 = load float, ptr %7, align 4, !tbaa !3
+  store float %24, ptr %14, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #4
+  store i32 0, ptr %15, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %16, ptr align 1 @__const.stb_easy_font_print.c, i64 4, i1 false)
+  %25 = load ptr, ptr %10, align 8, !tbaa !7
+  %26 = icmp ne ptr %25, null
+  br i1 %26, label %27, label %48
 
-if.then:                                          ; preds = %entry
-  %3 = load ptr, ptr %color.addr, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %3, i64 0
-  %4 = load i8, ptr %arrayidx, align 1
-  %c1 = getelementptr inbounds %struct.stb_easy_font_color, ptr %c, i32 0, i32 0
-  %arrayidx2 = getelementptr inbounds [4 x i8], ptr %c1, i64 0, i64 0
-  store i8 %4, ptr %arrayidx2, align 1
-  %5 = load ptr, ptr %color.addr, align 8
-  %arrayidx3 = getelementptr inbounds i8, ptr %5, i64 1
-  %6 = load i8, ptr %arrayidx3, align 1
-  %c4 = getelementptr inbounds %struct.stb_easy_font_color, ptr %c, i32 0, i32 0
-  %arrayidx5 = getelementptr inbounds [4 x i8], ptr %c4, i64 0, i64 1
-  store i8 %6, ptr %arrayidx5, align 1
-  %7 = load ptr, ptr %color.addr, align 8
-  %arrayidx6 = getelementptr inbounds i8, ptr %7, i64 2
-  %8 = load i8, ptr %arrayidx6, align 1
-  %c7 = getelementptr inbounds %struct.stb_easy_font_color, ptr %c, i32 0, i32 0
-  %arrayidx8 = getelementptr inbounds [4 x i8], ptr %c7, i64 0, i64 2
-  store i8 %8, ptr %arrayidx8, align 1
-  %9 = load ptr, ptr %color.addr, align 8
-  %arrayidx9 = getelementptr inbounds i8, ptr %9, i64 3
-  %10 = load i8, ptr %arrayidx9, align 1
-  %c10 = getelementptr inbounds %struct.stb_easy_font_color, ptr %c, i32 0, i32 0
-  %arrayidx11 = getelementptr inbounds [4 x i8], ptr %c10, i64 0, i64 3
-  store i8 %10, ptr %arrayidx11, align 1
-  br label %if.end
+27:                                               ; preds = %6
+  %28 = load ptr, ptr %10, align 8, !tbaa !7
+  %29 = getelementptr inbounds i8, ptr %28, i64 0
+  %30 = load i8, ptr %29, align 1, !tbaa !12
+  %31 = getelementptr inbounds nuw %struct.stb_easy_font_color, ptr %16, i32 0, i32 0
+  %32 = getelementptr inbounds [4 x i8], ptr %31, i64 0, i64 0
+  store i8 %30, ptr %32, align 1, !tbaa !12
+  %33 = load ptr, ptr %10, align 8, !tbaa !7
+  %34 = getelementptr inbounds i8, ptr %33, i64 1
+  %35 = load i8, ptr %34, align 1, !tbaa !12
+  %36 = getelementptr inbounds nuw %struct.stb_easy_font_color, ptr %16, i32 0, i32 0
+  %37 = getelementptr inbounds [4 x i8], ptr %36, i64 0, i64 1
+  store i8 %35, ptr %37, align 1, !tbaa !12
+  %38 = load ptr, ptr %10, align 8, !tbaa !7
+  %39 = getelementptr inbounds i8, ptr %38, i64 2
+  %40 = load i8, ptr %39, align 1, !tbaa !12
+  %41 = getelementptr inbounds nuw %struct.stb_easy_font_color, ptr %16, i32 0, i32 0
+  %42 = getelementptr inbounds [4 x i8], ptr %41, i64 0, i64 2
+  store i8 %40, ptr %42, align 1, !tbaa !12
+  %43 = load ptr, ptr %10, align 8, !tbaa !7
+  %44 = getelementptr inbounds i8, ptr %43, i64 3
+  %45 = load i8, ptr %44, align 1, !tbaa !12
+  %46 = getelementptr inbounds nuw %struct.stb_easy_font_color, ptr %16, i32 0, i32 0
+  %47 = getelementptr inbounds [4 x i8], ptr %46, i64 0, i64 3
+  store i8 %45, ptr %47, align 1, !tbaa !12
+  br label %48
 
-if.end:                                           ; preds = %if.then, %entry
-  br label %while.cond
+48:                                               ; preds = %27, %6
+  br label %49
 
-while.cond:                                       ; preds = %if.end63, %if.end
-  %11 = load ptr, ptr %text.addr, align 8
-  %12 = load i8, ptr %11, align 1
-  %conv = sext i8 %12 to i32
-  %tobool12 = icmp ne i32 %conv, 0
-  br i1 %tobool12, label %land.rhs, label %land.end
+49:                                               ; preds = %164, %48
+  %50 = load ptr, ptr %9, align 8, !tbaa !7
+  %51 = load i8, ptr %50, align 1, !tbaa !12
+  %52 = sext i8 %51 to i32
+  %53 = icmp ne i32 %52, 0
+  br i1 %53, label %54, label %58
 
-land.rhs:                                         ; preds = %while.cond
-  %13 = load i32, ptr %offset, align 4
-  %14 = load i32, ptr %vbuf_size.addr, align 4
-  %cmp = icmp slt i32 %13, %14
-  br label %land.end
+54:                                               ; preds = %49
+  %55 = load i32, ptr %15, align 4, !tbaa !10
+  %56 = load i32, ptr %12, align 4, !tbaa !10
+  %57 = icmp slt i32 %55, %56
+  br label %58
 
-land.end:                                         ; preds = %land.rhs, %while.cond
-  %15 = phi i1 [ false, %while.cond ], [ %cmp, %land.rhs ]
-  br i1 %15, label %while.body, label %while.end
+58:                                               ; preds = %54, %49
+  %59 = phi i1 [ false, %49 ], [ %57, %54 ]
+  br i1 %59, label %60, label %167
 
-while.body:                                       ; preds = %land.end
-  %16 = load ptr, ptr %text.addr, align 8
-  %17 = load i8, ptr %16, align 1
-  %conv14 = sext i8 %17 to i32
-  %cmp15 = icmp eq i32 %conv14, 10
-  br i1 %cmp15, label %if.then17, label %if.else
+60:                                               ; preds = %58
+  %61 = load ptr, ptr %9, align 8, !tbaa !7
+  %62 = load i8, ptr %61, align 1, !tbaa !12
+  %63 = sext i8 %62 to i32
+  %64 = icmp eq i32 %63, 10
+  br i1 %64, label %65, label %69
 
-if.then17:                                        ; preds = %while.body
-  %18 = load float, ptr %y.addr, align 4
-  %add = fadd float %18, 1.200000e+01
-  store float %add, ptr %y.addr, align 4
-  %19 = load float, ptr %start_x, align 4
-  store float %19, ptr %x.addr, align 4
-  br label %if.end63
+65:                                               ; preds = %60
+  %66 = load float, ptr %8, align 4, !tbaa !3
+  %67 = fadd float %66, 1.200000e+01
+  store float %67, ptr %8, align 4, !tbaa !3
+  %68 = load float, ptr %14, align 4, !tbaa !3
+  store float %68, ptr %7, align 4, !tbaa !3
+  br label %164
 
-if.else:                                          ; preds = %while.body
-  %20 = load ptr, ptr %text.addr, align 8
-  %21 = load i8, ptr %20, align 1
-  %conv18 = sext i8 %21 to i32
-  %sub = sub nsw i32 %conv18, 32
-  %idxprom = sext i32 %sub to i64
-  %arrayidx19 = getelementptr inbounds [96 x %struct.stb_easy_font_info_struct], ptr @stb_easy_font_charinfo, i64 0, i64 %idxprom
-  %advance20 = getelementptr inbounds %struct.stb_easy_font_info_struct, ptr %arrayidx19, i32 0, i32 0
-  %22 = load i8, ptr %advance20, align 1
-  store i8 %22, ptr %advance, align 1
-  %23 = load i8, ptr %advance, align 1
-  %conv21 = zext i8 %23 to i32
-  %and = and i32 %conv21, 16
-  %tobool22 = icmp ne i32 %and, 0
-  br i1 %tobool22, label %cond.true, label %cond.false
+69:                                               ; preds = %60
+  call void @llvm.lifetime.start.p0(i64 1, ptr %17) #4
+  %70 = load ptr, ptr %9, align 8, !tbaa !7
+  %71 = load i8, ptr %70, align 1, !tbaa !12
+  %72 = sext i8 %71 to i32
+  %73 = sub nsw i32 %72, 32
+  %74 = sext i32 %73 to i64
+  %75 = getelementptr inbounds [96 x %struct.stb_easy_font_info_struct], ptr @stb_easy_font_charinfo, i64 0, i64 %74
+  %76 = getelementptr inbounds nuw %struct.stb_easy_font_info_struct, ptr %75, i32 0, i32 0
+  %77 = load i8, ptr %76, align 1, !tbaa !18
+  store i8 %77, ptr %17, align 1, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #4
+  %78 = load i8, ptr %17, align 1, !tbaa !12
+  %79 = zext i8 %78 to i32
+  %80 = and i32 %79, 16
+  %81 = icmp ne i32 %80, 0
+  br i1 %81, label %82, label %85
 
-cond.true:                                        ; preds = %if.else
-  %24 = load float, ptr %y.addr, align 4
-  %add23 = fadd float %24, 1.000000e+00
-  br label %cond.end
+82:                                               ; preds = %69
+  %83 = load float, ptr %8, align 4, !tbaa !3
+  %84 = fadd float %83, 1.000000e+00
+  br label %87
 
-cond.false:                                       ; preds = %if.else
-  %25 = load float, ptr %y.addr, align 4
-  br label %cond.end
+85:                                               ; preds = %69
+  %86 = load float, ptr %8, align 4, !tbaa !3
+  br label %87
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi float [ %add23, %cond.true ], [ %25, %cond.false ]
-  store float %cond, ptr %y_ch, align 4
-  %26 = load ptr, ptr %text.addr, align 8
-  %27 = load i8, ptr %26, align 1
-  %conv24 = sext i8 %27 to i32
-  %sub25 = sub nsw i32 %conv24, 32
-  %idxprom26 = sext i32 %sub25 to i64
-  %arrayidx27 = getelementptr inbounds [96 x %struct.stb_easy_font_info_struct], ptr @stb_easy_font_charinfo, i64 0, i64 %idxprom26
-  %h_seg28 = getelementptr inbounds %struct.stb_easy_font_info_struct, ptr %arrayidx27, i32 0, i32 1
-  %28 = load i8, ptr %h_seg28, align 1
-  %conv29 = zext i8 %28 to i32
-  store i32 %conv29, ptr %h_seg, align 4
-  %29 = load ptr, ptr %text.addr, align 8
-  %30 = load i8, ptr %29, align 1
-  %conv30 = sext i8 %30 to i32
-  %sub31 = sub nsw i32 %conv30, 32
-  %idxprom32 = sext i32 %sub31 to i64
-  %arrayidx33 = getelementptr inbounds [96 x %struct.stb_easy_font_info_struct], ptr @stb_easy_font_charinfo, i64 0, i64 %idxprom32
-  %v_seg34 = getelementptr inbounds %struct.stb_easy_font_info_struct, ptr %arrayidx33, i32 0, i32 2
-  %31 = load i8, ptr %v_seg34, align 1
-  %conv35 = zext i8 %31 to i32
-  store i32 %conv35, ptr %v_seg, align 4
-  %32 = load ptr, ptr %text.addr, align 8
-  %33 = load i8, ptr %32, align 1
-  %conv36 = sext i8 %33 to i32
-  %sub37 = sub nsw i32 %conv36, 32
-  %add38 = add nsw i32 %sub37, 1
-  %idxprom39 = sext i32 %add38 to i64
-  %arrayidx40 = getelementptr inbounds [96 x %struct.stb_easy_font_info_struct], ptr @stb_easy_font_charinfo, i64 0, i64 %idxprom39
-  %h_seg41 = getelementptr inbounds %struct.stb_easy_font_info_struct, ptr %arrayidx40, i32 0, i32 1
-  %34 = load i8, ptr %h_seg41, align 1
-  %conv42 = zext i8 %34 to i32
-  %35 = load i32, ptr %h_seg, align 4
-  %sub43 = sub nsw i32 %conv42, %35
-  store i32 %sub43, ptr %num_h, align 4
-  %36 = load ptr, ptr %text.addr, align 8
-  %37 = load i8, ptr %36, align 1
-  %conv44 = sext i8 %37 to i32
-  %sub45 = sub nsw i32 %conv44, 32
-  %add46 = add nsw i32 %sub45, 1
-  %idxprom47 = sext i32 %add46 to i64
-  %arrayidx48 = getelementptr inbounds [96 x %struct.stb_easy_font_info_struct], ptr @stb_easy_font_charinfo, i64 0, i64 %idxprom47
-  %v_seg49 = getelementptr inbounds %struct.stb_easy_font_info_struct, ptr %arrayidx48, i32 0, i32 2
-  %38 = load i8, ptr %v_seg49, align 1
-  %conv50 = zext i8 %38 to i32
-  %39 = load i32, ptr %v_seg, align 4
-  %sub51 = sub nsw i32 %conv50, %39
-  store i32 %sub51, ptr %num_v, align 4
-  %40 = load float, ptr %x.addr, align 4
-  %41 = load float, ptr %y_ch, align 4
-  %42 = load i32, ptr %h_seg, align 4
-  %idxprom52 = sext i32 %42 to i64
-  %arrayidx53 = getelementptr inbounds [214 x i8], ptr @stb_easy_font_hseg, i64 0, i64 %idxprom52
-  %43 = load i32, ptr %num_h, align 4
-  %44 = load ptr, ptr %vbuf, align 8
-  %45 = load i32, ptr %vbuf_size.addr, align 4
-  %46 = load i32, ptr %offset, align 4
-  %coerce.dive = getelementptr inbounds %struct.stb_easy_font_color, ptr %c, i32 0, i32 0
-  %47 = load i32, ptr %coerce.dive, align 1
-  %call = call i32 @stb_easy_font_draw_segs(float noundef %40, float noundef %41, ptr noundef %arrayidx53, i32 noundef %43, i32 noundef 0, i32 %47, ptr noundef %44, i32 noundef %45, i32 noundef %46)
-  store i32 %call, ptr %offset, align 4
-  %48 = load float, ptr %x.addr, align 4
-  %49 = load float, ptr %y_ch, align 4
-  %50 = load i32, ptr %v_seg, align 4
-  %idxprom54 = sext i32 %50 to i64
-  %arrayidx55 = getelementptr inbounds [253 x i8], ptr @stb_easy_font_vseg, i64 0, i64 %idxprom54
-  %51 = load i32, ptr %num_v, align 4
-  %52 = load ptr, ptr %vbuf, align 8
-  %53 = load i32, ptr %vbuf_size.addr, align 4
-  %54 = load i32, ptr %offset, align 4
-  %coerce.dive56 = getelementptr inbounds %struct.stb_easy_font_color, ptr %c, i32 0, i32 0
-  %55 = load i32, ptr %coerce.dive56, align 1
-  %call57 = call i32 @stb_easy_font_draw_segs(float noundef %48, float noundef %49, ptr noundef %arrayidx55, i32 noundef %51, i32 noundef 1, i32 %55, ptr noundef %52, i32 noundef %53, i32 noundef %54)
-  store i32 %call57, ptr %offset, align 4
-  %56 = load i8, ptr %advance, align 1
-  %conv58 = zext i8 %56 to i32
-  %and59 = and i32 %conv58, 15
-  %conv60 = sitofp i32 %and59 to float
-  %57 = load float, ptr %x.addr, align 4
-  %add61 = fadd float %57, %conv60
-  store float %add61, ptr %x.addr, align 4
-  %58 = load float, ptr @stb_easy_font_spacing_val, align 4
-  %59 = load float, ptr %x.addr, align 4
-  %add62 = fadd float %59, %58
-  store float %add62, ptr %x.addr, align 4
-  br label %if.end63
+87:                                               ; preds = %85, %82
+  %88 = phi float [ %84, %82 ], [ %86, %85 ]
+  store float %88, ptr %18, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %21) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %22) #4
+  %89 = load ptr, ptr %9, align 8, !tbaa !7
+  %90 = load i8, ptr %89, align 1, !tbaa !12
+  %91 = sext i8 %90 to i32
+  %92 = sub nsw i32 %91, 32
+  %93 = sext i32 %92 to i64
+  %94 = getelementptr inbounds [96 x %struct.stb_easy_font_info_struct], ptr @stb_easy_font_charinfo, i64 0, i64 %93
+  %95 = getelementptr inbounds nuw %struct.stb_easy_font_info_struct, ptr %94, i32 0, i32 1
+  %96 = load i8, ptr %95, align 1, !tbaa !20
+  %97 = zext i8 %96 to i32
+  store i32 %97, ptr %19, align 4, !tbaa !10
+  %98 = load ptr, ptr %9, align 8, !tbaa !7
+  %99 = load i8, ptr %98, align 1, !tbaa !12
+  %100 = sext i8 %99 to i32
+  %101 = sub nsw i32 %100, 32
+  %102 = sext i32 %101 to i64
+  %103 = getelementptr inbounds [96 x %struct.stb_easy_font_info_struct], ptr @stb_easy_font_charinfo, i64 0, i64 %102
+  %104 = getelementptr inbounds nuw %struct.stb_easy_font_info_struct, ptr %103, i32 0, i32 2
+  %105 = load i8, ptr %104, align 1, !tbaa !21
+  %106 = zext i8 %105 to i32
+  store i32 %106, ptr %20, align 4, !tbaa !10
+  %107 = load ptr, ptr %9, align 8, !tbaa !7
+  %108 = load i8, ptr %107, align 1, !tbaa !12
+  %109 = sext i8 %108 to i32
+  %110 = sub nsw i32 %109, 32
+  %111 = add nsw i32 %110, 1
+  %112 = sext i32 %111 to i64
+  %113 = getelementptr inbounds [96 x %struct.stb_easy_font_info_struct], ptr @stb_easy_font_charinfo, i64 0, i64 %112
+  %114 = getelementptr inbounds nuw %struct.stb_easy_font_info_struct, ptr %113, i32 0, i32 1
+  %115 = load i8, ptr %114, align 1, !tbaa !20
+  %116 = zext i8 %115 to i32
+  %117 = load i32, ptr %19, align 4, !tbaa !10
+  %118 = sub nsw i32 %116, %117
+  store i32 %118, ptr %21, align 4, !tbaa !10
+  %119 = load ptr, ptr %9, align 8, !tbaa !7
+  %120 = load i8, ptr %119, align 1, !tbaa !12
+  %121 = sext i8 %120 to i32
+  %122 = sub nsw i32 %121, 32
+  %123 = add nsw i32 %122, 1
+  %124 = sext i32 %123 to i64
+  %125 = getelementptr inbounds [96 x %struct.stb_easy_font_info_struct], ptr @stb_easy_font_charinfo, i64 0, i64 %124
+  %126 = getelementptr inbounds nuw %struct.stb_easy_font_info_struct, ptr %125, i32 0, i32 2
+  %127 = load i8, ptr %126, align 1, !tbaa !21
+  %128 = zext i8 %127 to i32
+  %129 = load i32, ptr %20, align 4, !tbaa !10
+  %130 = sub nsw i32 %128, %129
+  store i32 %130, ptr %22, align 4, !tbaa !10
+  %131 = load float, ptr %7, align 4, !tbaa !3
+  %132 = load float, ptr %18, align 4, !tbaa !3
+  %133 = load i32, ptr %19, align 4, !tbaa !10
+  %134 = sext i32 %133 to i64
+  %135 = getelementptr inbounds [214 x i8], ptr @stb_easy_font_hseg, i64 0, i64 %134
+  %136 = load i32, ptr %21, align 4, !tbaa !10
+  %137 = load ptr, ptr %13, align 8, !tbaa !7
+  %138 = load i32, ptr %12, align 4, !tbaa !10
+  %139 = load i32, ptr %15, align 4, !tbaa !10
+  %140 = getelementptr inbounds nuw %struct.stb_easy_font_color, ptr %16, i32 0, i32 0
+  %141 = load i32, ptr %140, align 1
+  %142 = call i32 @stb_easy_font_draw_segs(float noundef %131, float noundef %132, ptr noundef %135, i32 noundef %136, i32 noundef 0, i32 %141, ptr noundef %137, i32 noundef %138, i32 noundef %139)
+  store i32 %142, ptr %15, align 4, !tbaa !10
+  %143 = load float, ptr %7, align 4, !tbaa !3
+  %144 = load float, ptr %18, align 4, !tbaa !3
+  %145 = load i32, ptr %20, align 4, !tbaa !10
+  %146 = sext i32 %145 to i64
+  %147 = getelementptr inbounds [253 x i8], ptr @stb_easy_font_vseg, i64 0, i64 %146
+  %148 = load i32, ptr %22, align 4, !tbaa !10
+  %149 = load ptr, ptr %13, align 8, !tbaa !7
+  %150 = load i32, ptr %12, align 4, !tbaa !10
+  %151 = load i32, ptr %15, align 4, !tbaa !10
+  %152 = getelementptr inbounds nuw %struct.stb_easy_font_color, ptr %16, i32 0, i32 0
+  %153 = load i32, ptr %152, align 1
+  %154 = call i32 @stb_easy_font_draw_segs(float noundef %143, float noundef %144, ptr noundef %147, i32 noundef %148, i32 noundef 1, i32 %153, ptr noundef %149, i32 noundef %150, i32 noundef %151)
+  store i32 %154, ptr %15, align 4, !tbaa !10
+  %155 = load i8, ptr %17, align 1, !tbaa !12
+  %156 = zext i8 %155 to i32
+  %157 = and i32 %156, 15
+  %158 = sitofp i32 %157 to float
+  %159 = load float, ptr %7, align 4, !tbaa !3
+  %160 = fadd float %159, %158
+  store float %160, ptr %7, align 4, !tbaa !3
+  %161 = load float, ptr @stb_easy_font_spacing_val, align 4, !tbaa !3
+  %162 = load float, ptr %7, align 4, !tbaa !3
+  %163 = fadd float %162, %161
+  store float %163, ptr %7, align 4, !tbaa !3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %22) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %21) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %17) #4
+  br label %164
 
-if.end63:                                         ; preds = %cond.end, %if.then17
-  %60 = load ptr, ptr %text.addr, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %60, i32 1
-  store ptr %incdec.ptr, ptr %text.addr, align 8
-  br label %while.cond, !llvm.loop !7
+164:                                              ; preds = %87, %65
+  %165 = load ptr, ptr %9, align 8, !tbaa !7
+  %166 = getelementptr inbounds nuw i8, ptr %165, i32 1
+  store ptr %166, ptr %9, align 8, !tbaa !7
+  br label %49, !llvm.loop !22
 
-while.end:                                        ; preds = %land.end
-  %61 = load i32, ptr %offset, align 4
-  %div = udiv i32 %61, 64
-  ret i32 %div
+167:                                              ; preds = %58
+  %168 = load i32, ptr %15, align 4, !tbaa !10
+  %169 = udiv i32 %168, 64
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #4
+  ret i32 %169
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stb_easy_font_width(ptr noundef %text) #0 {
-entry:
-  %text.addr = alloca ptr, align 8
-  %len = alloca float, align 4
-  %max_len = alloca float, align 4
-  store ptr %text, ptr %text.addr, align 8
-  store float 0.000000e+00, ptr %len, align 4
-  store float 0.000000e+00, ptr %max_len, align 4
-  br label %while.cond
+define i32 @stb_easy_font_width(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca float, align 4
+  %4 = alloca float, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #4
+  store float 0.000000e+00, ptr %3, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #4
+  store float 0.000000e+00, ptr %4, align 4, !tbaa !3
+  br label %5
 
-while.cond:                                       ; preds = %if.end9, %entry
-  %0 = load ptr, ptr %text.addr, align 8
-  %1 = load i8, ptr %0, align 1
-  %tobool = icmp ne i8 %1, 0
-  br i1 %tobool, label %while.body, label %while.end
+5:                                                ; preds = %38, %1
+  %6 = load ptr, ptr %2, align 8, !tbaa !7
+  %7 = load i8, ptr %6, align 1, !tbaa !12
+  %8 = icmp ne i8 %7, 0
+  br i1 %8, label %9, label %41
 
-while.body:                                       ; preds = %while.cond
-  %2 = load ptr, ptr %text.addr, align 8
-  %3 = load i8, ptr %2, align 1
-  %conv = sext i8 %3 to i32
-  %cmp = icmp eq i32 %conv, 10
-  br i1 %cmp, label %if.then, label %if.else
+9:                                                ; preds = %5
+  %10 = load ptr, ptr %2, align 8, !tbaa !7
+  %11 = load i8, ptr %10, align 1, !tbaa !12
+  %12 = sext i8 %11 to i32
+  %13 = icmp eq i32 %12, 10
+  br i1 %13, label %14, label %21
 
-if.then:                                          ; preds = %while.body
-  %4 = load float, ptr %len, align 4
-  %5 = load float, ptr %max_len, align 4
-  %cmp2 = fcmp ogt float %4, %5
-  br i1 %cmp2, label %if.then4, label %if.end
+14:                                               ; preds = %9
+  %15 = load float, ptr %3, align 4, !tbaa !3
+  %16 = load float, ptr %4, align 4, !tbaa !3
+  %17 = fcmp ogt float %15, %16
+  br i1 %17, label %18, label %20
 
-if.then4:                                         ; preds = %if.then
-  %6 = load float, ptr %len, align 4
-  store float %6, ptr %max_len, align 4
-  br label %if.end
+18:                                               ; preds = %14
+  %19 = load float, ptr %3, align 4, !tbaa !3
+  store float %19, ptr %4, align 4, !tbaa !3
+  br label %20
 
-if.end:                                           ; preds = %if.then4, %if.then
-  store float 0.000000e+00, ptr %len, align 4
-  br label %if.end9
+20:                                               ; preds = %18, %14
+  store float 0.000000e+00, ptr %3, align 4, !tbaa !3
+  br label %38
 
-if.else:                                          ; preds = %while.body
-  %7 = load ptr, ptr %text.addr, align 8
-  %8 = load i8, ptr %7, align 1
-  %conv5 = sext i8 %8 to i32
-  %sub = sub nsw i32 %conv5, 32
-  %idxprom = sext i32 %sub to i64
-  %arrayidx = getelementptr inbounds [96 x %struct.stb_easy_font_info_struct], ptr @stb_easy_font_charinfo, i64 0, i64 %idxprom
-  %advance = getelementptr inbounds %struct.stb_easy_font_info_struct, ptr %arrayidx, i32 0, i32 0
-  %9 = load i8, ptr %advance, align 1
-  %conv6 = zext i8 %9 to i32
-  %and = and i32 %conv6, 15
-  %conv7 = sitofp i32 %and to float
-  %10 = load float, ptr %len, align 4
-  %add = fadd float %10, %conv7
-  store float %add, ptr %len, align 4
-  %11 = load float, ptr @stb_easy_font_spacing_val, align 4
-  %12 = load float, ptr %len, align 4
-  %add8 = fadd float %12, %11
-  store float %add8, ptr %len, align 4
-  br label %if.end9
+21:                                               ; preds = %9
+  %22 = load ptr, ptr %2, align 8, !tbaa !7
+  %23 = load i8, ptr %22, align 1, !tbaa !12
+  %24 = sext i8 %23 to i32
+  %25 = sub nsw i32 %24, 32
+  %26 = sext i32 %25 to i64
+  %27 = getelementptr inbounds [96 x %struct.stb_easy_font_info_struct], ptr @stb_easy_font_charinfo, i64 0, i64 %26
+  %28 = getelementptr inbounds nuw %struct.stb_easy_font_info_struct, ptr %27, i32 0, i32 0
+  %29 = load i8, ptr %28, align 1, !tbaa !18
+  %30 = zext i8 %29 to i32
+  %31 = and i32 %30, 15
+  %32 = sitofp i32 %31 to float
+  %33 = load float, ptr %3, align 4, !tbaa !3
+  %34 = fadd float %33, %32
+  store float %34, ptr %3, align 4, !tbaa !3
+  %35 = load float, ptr @stb_easy_font_spacing_val, align 4, !tbaa !3
+  %36 = load float, ptr %3, align 4, !tbaa !3
+  %37 = fadd float %36, %35
+  store float %37, ptr %3, align 4, !tbaa !3
+  br label %38
 
-if.end9:                                          ; preds = %if.else, %if.end
-  %13 = load ptr, ptr %text.addr, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %13, i32 1
-  store ptr %incdec.ptr, ptr %text.addr, align 8
-  br label %while.cond, !llvm.loop !8
+38:                                               ; preds = %21, %20
+  %39 = load ptr, ptr %2, align 8, !tbaa !7
+  %40 = getelementptr inbounds nuw i8, ptr %39, i32 1
+  store ptr %40, ptr %2, align 8, !tbaa !7
+  br label %5, !llvm.loop !23
 
-while.end:                                        ; preds = %while.cond
-  %14 = load float, ptr %len, align 4
-  %15 = load float, ptr %max_len, align 4
-  %cmp10 = fcmp ogt float %14, %15
-  br i1 %cmp10, label %if.then12, label %if.end13
+41:                                               ; preds = %5
+  %42 = load float, ptr %3, align 4, !tbaa !3
+  %43 = load float, ptr %4, align 4, !tbaa !3
+  %44 = fcmp ogt float %42, %43
+  br i1 %44, label %45, label %47
 
-if.then12:                                        ; preds = %while.end
-  %16 = load float, ptr %len, align 4
-  store float %16, ptr %max_len, align 4
-  br label %if.end13
+45:                                               ; preds = %41
+  %46 = load float, ptr %3, align 4, !tbaa !3
+  store float %46, ptr %4, align 4, !tbaa !3
+  br label %47
 
-if.end13:                                         ; preds = %if.then12, %while.end
-  %17 = load float, ptr %max_len, align 4
-  %conv14 = fpext float %17 to double
-  %18 = call double @llvm.ceil.f64(double %conv14)
-  %conv15 = fptosi double %18 to i32
-  ret i32 %conv15
+47:                                               ; preds = %45, %41
+  %48 = load float, ptr %4, align 4, !tbaa !3
+  %49 = fpext float %48 to double
+  %50 = call double @llvm.ceil.f64(double %49)
+  %51 = fptosi double %50 to i32
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #4
+  ret i32 %51
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.ceil.f64(double) #2
+declare double @llvm.ceil.f64(double) #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @stb_easy_font_height(ptr noundef %text) #0 {
-entry:
-  %text.addr = alloca ptr, align 8
-  %y = alloca float, align 4
-  %nonempty_line = alloca i32, align 4
-  store ptr %text, ptr %text.addr, align 8
-  store float 0.000000e+00, ptr %y, align 4
-  store i32 0, ptr %nonempty_line, align 4
-  br label %while.cond
+define i32 @stb_easy_font_height(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca float, align 4
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #4
+  store float 0.000000e+00, ptr %3, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #4
+  store i32 0, ptr %4, align 4, !tbaa !10
+  br label %5
 
-while.cond:                                       ; preds = %if.end, %entry
-  %0 = load ptr, ptr %text.addr, align 8
-  %1 = load i8, ptr %0, align 1
-  %tobool = icmp ne i8 %1, 0
-  br i1 %tobool, label %while.body, label %while.end
+5:                                                ; preds = %18, %1
+  %6 = load ptr, ptr %2, align 8, !tbaa !7
+  %7 = load i8, ptr %6, align 1, !tbaa !12
+  %8 = icmp ne i8 %7, 0
+  br i1 %8, label %9, label %21
 
-while.body:                                       ; preds = %while.cond
-  %2 = load ptr, ptr %text.addr, align 8
-  %3 = load i8, ptr %2, align 1
-  %conv = sext i8 %3 to i32
-  %cmp = icmp eq i32 %conv, 10
-  br i1 %cmp, label %if.then, label %if.else
+9:                                                ; preds = %5
+  %10 = load ptr, ptr %2, align 8, !tbaa !7
+  %11 = load i8, ptr %10, align 1, !tbaa !12
+  %12 = sext i8 %11 to i32
+  %13 = icmp eq i32 %12, 10
+  br i1 %13, label %14, label %17
 
-if.then:                                          ; preds = %while.body
-  %4 = load float, ptr %y, align 4
-  %add = fadd float %4, 1.200000e+01
-  store float %add, ptr %y, align 4
-  store i32 0, ptr %nonempty_line, align 4
-  br label %if.end
+14:                                               ; preds = %9
+  %15 = load float, ptr %3, align 4, !tbaa !3
+  %16 = fadd float %15, 1.200000e+01
+  store float %16, ptr %3, align 4, !tbaa !3
+  store i32 0, ptr %4, align 4, !tbaa !10
+  br label %18
 
-if.else:                                          ; preds = %while.body
-  store i32 1, ptr %nonempty_line, align 4
-  br label %if.end
+17:                                               ; preds = %9
+  store i32 1, ptr %4, align 4, !tbaa !10
+  br label %18
 
-if.end:                                           ; preds = %if.else, %if.then
-  %5 = load ptr, ptr %text.addr, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %5, i32 1
-  store ptr %incdec.ptr, ptr %text.addr, align 8
-  br label %while.cond, !llvm.loop !9
+18:                                               ; preds = %17, %14
+  %19 = load ptr, ptr %2, align 8, !tbaa !7
+  %20 = getelementptr inbounds nuw i8, ptr %19, i32 1
+  store ptr %20, ptr %2, align 8, !tbaa !7
+  br label %5, !llvm.loop !24
 
-while.end:                                        ; preds = %while.cond
-  %6 = load float, ptr %y, align 4
-  %7 = load i32, ptr %nonempty_line, align 4
-  %tobool2 = icmp ne i32 %7, 0
-  %cond = select i1 %tobool2, i32 12, i32 0
-  %conv3 = sitofp i32 %cond to float
-  %add4 = fadd float %6, %conv3
-  %conv5 = fpext float %add4 to double
-  %8 = call double @llvm.ceil.f64(double %conv5)
-  %conv6 = fptosi double %8 to i32
-  ret i32 %conv6
+21:                                               ; preds = %5
+  %22 = load float, ptr %3, align 4, !tbaa !3
+  %23 = load i32, ptr %4, align 4, !tbaa !10
+  %24 = icmp ne i32 %23, 0
+  %25 = select i1 %24, i32 12, i32 0
+  %26 = sitofp i32 %25 to float
+  %27 = fadd float %22, %26
+  %28 = fpext float %27 to double
+  %29 = call double @llvm.ceil.f64(double %28)
+  %30 = fptosi double %29 to i32
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #4
+  ret i32 %30
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"float", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"p1 omnipotent char", !9, i64 0}
+!9 = !{!"any pointer", !5, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"int", !5, i64 0}
+!12 = !{!5, !5, i64 0}
+!13 = !{i64 0, i64 4, !12}
+!14 = distinct !{!14, !15}
+!15 = !{!"llvm.loop.mustprogress"}
+!16 = distinct !{!16, !15}
+!17 = !{!9, !9, i64 0}
+!18 = !{!19, !5, i64 0}
+!19 = !{!"stb_easy_font_info_struct", !5, i64 0, !5, i64 1, !5, i64 2}
+!20 = !{!19, !5, i64 1}
+!21 = !{!19, !5, i64 2}
+!22 = distinct !{!22, !15}
+!23 = distinct !{!23, !15}
+!24 = distinct !{!24, !15}

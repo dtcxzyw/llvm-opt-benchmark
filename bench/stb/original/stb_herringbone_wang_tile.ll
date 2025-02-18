@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.stbhw__process = type { ptr, ptr, ptr, ptr, ptr, i32, i32, i32 }
 %struct.stbhw_config = type { i32, i32, [6 x i32], i32, i32, [4 x [4 x i32]] }
@@ -21,5839 +21,6215 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define ptr @stbhw_get_last_error() #0 {
-entry:
-  %temp = alloca ptr, align 8
-  %0 = load ptr, ptr @stbhw_error, align 8
-  store ptr %0, ptr %temp, align 8
-  store ptr null, ptr @stbhw_error, align 8
-  %1 = load ptr, ptr %temp, align 8
-  ret ptr %1
+  %1 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #6
+  %2 = load ptr, ptr @stbhw_error, align 8, !tbaa !3
+  store ptr %2, ptr %1, align 8, !tbaa !3
+  store ptr null, ptr @stbhw_error, align 8, !tbaa !3
+  %3 = load ptr, ptr %1, align 8, !tbaa !3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #6
+  ret ptr %3
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nounwind uwtable
-define void @stbhw__process_h_row(ptr noundef %p, i32 noundef %xpos, i32 noundef %ypos, i32 noundef %a0, i32 noundef %a1, i32 noundef %b0, i32 noundef %b1, i32 noundef %c0, i32 noundef %c1, i32 noundef %d0, i32 noundef %d1, i32 noundef %e0, i32 noundef %e1, i32 noundef %f0, i32 noundef %f1, i32 noundef %variants) #0 {
-entry:
-  %p.addr = alloca ptr, align 8
-  %xpos.addr = alloca i32, align 4
-  %ypos.addr = alloca i32, align 4
-  %a0.addr = alloca i32, align 4
-  %a1.addr = alloca i32, align 4
-  %b0.addr = alloca i32, align 4
-  %b1.addr = alloca i32, align 4
-  %c0.addr = alloca i32, align 4
-  %c1.addr = alloca i32, align 4
-  %d0.addr = alloca i32, align 4
-  %d1.addr = alloca i32, align 4
-  %e0.addr = alloca i32, align 4
-  %e1.addr = alloca i32, align 4
-  %f0.addr = alloca i32, align 4
-  %f1.addr = alloca i32, align 4
-  %variants.addr = alloca i32, align 4
-  %a = alloca i32, align 4
-  %b = alloca i32, align 4
-  %c = alloca i32, align 4
-  %d = alloca i32, align 4
-  %e = alloca i32, align 4
-  %f = alloca i32, align 4
-  %v = alloca i32, align 4
-  store ptr %p, ptr %p.addr, align 8
-  store i32 %xpos, ptr %xpos.addr, align 4
-  store i32 %ypos, ptr %ypos.addr, align 4
-  store i32 %a0, ptr %a0.addr, align 4
-  store i32 %a1, ptr %a1.addr, align 4
-  store i32 %b0, ptr %b0.addr, align 4
-  store i32 %b1, ptr %b1.addr, align 4
-  store i32 %c0, ptr %c0.addr, align 4
-  store i32 %c1, ptr %c1.addr, align 4
-  store i32 %d0, ptr %d0.addr, align 4
-  store i32 %d1, ptr %d1.addr, align 4
-  store i32 %e0, ptr %e0.addr, align 4
-  store i32 %e1, ptr %e1.addr, align 4
-  store i32 %f0, ptr %f0.addr, align 4
-  store i32 %f1, ptr %f1.addr, align 4
-  store i32 %variants, ptr %variants.addr, align 4
-  store i32 0, ptr %v, align 4
-  br label %for.cond
+define void @stbhw__process_h_row(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11, i32 noundef %12, i32 noundef %13, i32 noundef %14, i32 noundef %15) #0 {
+  %17 = alloca ptr, align 8
+  %18 = alloca i32, align 4
+  %19 = alloca i32, align 4
+  %20 = alloca i32, align 4
+  %21 = alloca i32, align 4
+  %22 = alloca i32, align 4
+  %23 = alloca i32, align 4
+  %24 = alloca i32, align 4
+  %25 = alloca i32, align 4
+  %26 = alloca i32, align 4
+  %27 = alloca i32, align 4
+  %28 = alloca i32, align 4
+  %29 = alloca i32, align 4
+  %30 = alloca i32, align 4
+  %31 = alloca i32, align 4
+  %32 = alloca i32, align 4
+  %33 = alloca i32, align 4
+  %34 = alloca i32, align 4
+  %35 = alloca i32, align 4
+  %36 = alloca i32, align 4
+  %37 = alloca i32, align 4
+  %38 = alloca i32, align 4
+  %39 = alloca i32, align 4
+  store ptr %0, ptr %17, align 8, !tbaa !8
+  store i32 %1, ptr %18, align 4, !tbaa !10
+  store i32 %2, ptr %19, align 4, !tbaa !10
+  store i32 %3, ptr %20, align 4, !tbaa !10
+  store i32 %4, ptr %21, align 4, !tbaa !10
+  store i32 %5, ptr %22, align 4, !tbaa !10
+  store i32 %6, ptr %23, align 4, !tbaa !10
+  store i32 %7, ptr %24, align 4, !tbaa !10
+  store i32 %8, ptr %25, align 4, !tbaa !10
+  store i32 %9, ptr %26, align 4, !tbaa !10
+  store i32 %10, ptr %27, align 4, !tbaa !10
+  store i32 %11, ptr %28, align 4, !tbaa !10
+  store i32 %12, ptr %29, align 4, !tbaa !10
+  store i32 %13, ptr %30, align 4, !tbaa !10
+  store i32 %14, ptr %31, align 4, !tbaa !10
+  store i32 %15, ptr %32, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %33) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %34) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %35) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %36) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %37) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %38) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %39) #6
+  store i32 0, ptr %39, align 4, !tbaa !10
+  br label %40
 
-for.cond:                                         ; preds = %for.inc36, %entry
-  %0 = load i32, ptr %v, align 4
-  %1 = load i32, ptr %variants.addr, align 4
-  %cmp = icmp slt i32 %0, %1
-  br i1 %cmp, label %for.body, label %for.end38
+40:                                               ; preds = %126, %16
+  %41 = load i32, ptr %39, align 4, !tbaa !10
+  %42 = load i32, ptr %32, align 4, !tbaa !10
+  %43 = icmp slt i32 %41, %42
+  br i1 %43, label %44, label %129
 
-for.body:                                         ; preds = %for.cond
-  %2 = load i32, ptr %f0.addr, align 4
-  store i32 %2, ptr %f, align 4
-  br label %for.cond1
+44:                                               ; preds = %40
+  %45 = load i32, ptr %30, align 4, !tbaa !10
+  store i32 %45, ptr %38, align 4, !tbaa !10
+  br label %46
 
-for.cond1:                                        ; preds = %for.inc33, %for.body
-  %3 = load i32, ptr %f, align 4
-  %4 = load i32, ptr %f1.addr, align 4
-  %cmp2 = icmp sle i32 %3, %4
-  br i1 %cmp2, label %for.body3, label %for.end35
+46:                                               ; preds = %122, %44
+  %47 = load i32, ptr %38, align 4, !tbaa !10
+  %48 = load i32, ptr %31, align 4, !tbaa !10
+  %49 = icmp sle i32 %47, %48
+  br i1 %49, label %50, label %125
 
-for.body3:                                        ; preds = %for.cond1
-  %5 = load i32, ptr %e0.addr, align 4
-  store i32 %5, ptr %e, align 4
-  br label %for.cond4
+50:                                               ; preds = %46
+  %51 = load i32, ptr %28, align 4, !tbaa !10
+  store i32 %51, ptr %37, align 4, !tbaa !10
+  br label %52
 
-for.cond4:                                        ; preds = %for.inc30, %for.body3
-  %6 = load i32, ptr %e, align 4
-  %7 = load i32, ptr %e1.addr, align 4
-  %cmp5 = icmp sle i32 %6, %7
-  br i1 %cmp5, label %for.body6, label %for.end32
+52:                                               ; preds = %118, %50
+  %53 = load i32, ptr %37, align 4, !tbaa !10
+  %54 = load i32, ptr %29, align 4, !tbaa !10
+  %55 = icmp sle i32 %53, %54
+  br i1 %55, label %56, label %121
 
-for.body6:                                        ; preds = %for.cond4
-  %8 = load i32, ptr %d0.addr, align 4
-  store i32 %8, ptr %d, align 4
-  br label %for.cond7
+56:                                               ; preds = %52
+  %57 = load i32, ptr %26, align 4, !tbaa !10
+  store i32 %57, ptr %36, align 4, !tbaa !10
+  br label %58
 
-for.cond7:                                        ; preds = %for.inc27, %for.body6
-  %9 = load i32, ptr %d, align 4
-  %10 = load i32, ptr %d1.addr, align 4
-  %cmp8 = icmp sle i32 %9, %10
-  br i1 %cmp8, label %for.body9, label %for.end29
+58:                                               ; preds = %114, %56
+  %59 = load i32, ptr %36, align 4, !tbaa !10
+  %60 = load i32, ptr %27, align 4, !tbaa !10
+  %61 = icmp sle i32 %59, %60
+  br i1 %61, label %62, label %117
 
-for.body9:                                        ; preds = %for.cond7
-  %11 = load i32, ptr %c0.addr, align 4
-  store i32 %11, ptr %c, align 4
-  br label %for.cond10
+62:                                               ; preds = %58
+  %63 = load i32, ptr %24, align 4, !tbaa !10
+  store i32 %63, ptr %35, align 4, !tbaa !10
+  br label %64
 
-for.cond10:                                       ; preds = %for.inc24, %for.body9
-  %12 = load i32, ptr %c, align 4
-  %13 = load i32, ptr %c1.addr, align 4
-  %cmp11 = icmp sle i32 %12, %13
-  br i1 %cmp11, label %for.body12, label %for.end26
+64:                                               ; preds = %110, %62
+  %65 = load i32, ptr %35, align 4, !tbaa !10
+  %66 = load i32, ptr %25, align 4, !tbaa !10
+  %67 = icmp sle i32 %65, %66
+  br i1 %67, label %68, label %113
 
-for.body12:                                       ; preds = %for.cond10
-  %14 = load i32, ptr %b0.addr, align 4
-  store i32 %14, ptr %b, align 4
-  br label %for.cond13
+68:                                               ; preds = %64
+  %69 = load i32, ptr %22, align 4, !tbaa !10
+  store i32 %69, ptr %34, align 4, !tbaa !10
+  br label %70
 
-for.cond13:                                       ; preds = %for.inc21, %for.body12
-  %15 = load i32, ptr %b, align 4
-  %16 = load i32, ptr %b1.addr, align 4
-  %cmp14 = icmp sle i32 %15, %16
-  br i1 %cmp14, label %for.body15, label %for.end23
+70:                                               ; preds = %106, %68
+  %71 = load i32, ptr %34, align 4, !tbaa !10
+  %72 = load i32, ptr %23, align 4, !tbaa !10
+  %73 = icmp sle i32 %71, %72
+  br i1 %73, label %74, label %109
 
-for.body15:                                       ; preds = %for.cond13
-  %17 = load i32, ptr %a0.addr, align 4
-  store i32 %17, ptr %a, align 4
-  br label %for.cond16
+74:                                               ; preds = %70
+  %75 = load i32, ptr %20, align 4, !tbaa !10
+  store i32 %75, ptr %33, align 4, !tbaa !10
+  br label %76
 
-for.cond16:                                       ; preds = %for.inc, %for.body15
-  %18 = load i32, ptr %a, align 4
-  %19 = load i32, ptr %a1.addr, align 4
-  %cmp17 = icmp sle i32 %18, %19
-  br i1 %cmp17, label %for.body18, label %for.end
+76:                                               ; preds = %102, %74
+  %77 = load i32, ptr %33, align 4, !tbaa !10
+  %78 = load i32, ptr %21, align 4, !tbaa !10
+  %79 = icmp sle i32 %77, %78
+  br i1 %79, label %80, label %105
 
-for.body18:                                       ; preds = %for.cond16
-  %20 = load ptr, ptr %p.addr, align 8
-  %process_h_rect = getelementptr inbounds %struct.stbhw__process, ptr %20, i32 0, i32 2
-  %21 = load ptr, ptr %process_h_rect, align 8
-  %22 = load ptr, ptr %p.addr, align 8
-  %23 = load i32, ptr %xpos.addr, align 4
-  %24 = load i32, ptr %ypos.addr, align 4
-  %25 = load i32, ptr %a, align 4
-  %26 = load i32, ptr %b, align 4
-  %27 = load i32, ptr %c, align 4
-  %28 = load i32, ptr %d, align 4
-  %29 = load i32, ptr %e, align 4
-  %30 = load i32, ptr %f, align 4
-  call void %21(ptr noundef %22, i32 noundef %23, i32 noundef %24, i32 noundef %25, i32 noundef %26, i32 noundef %27, i32 noundef %28, i32 noundef %29, i32 noundef %30)
-  %31 = load ptr, ptr %p.addr, align 8
-  %c19 = getelementptr inbounds %struct.stbhw__process, ptr %31, i32 0, i32 1
-  %32 = load ptr, ptr %c19, align 8
-  %short_side_len = getelementptr inbounds %struct.stbhw_config, ptr %32, i32 0, i32 1
-  %33 = load i32, ptr %short_side_len, align 4
-  %mul = mul nsw i32 2, %33
-  %add = add nsw i32 %mul, 3
-  %34 = load i32, ptr %xpos.addr, align 4
-  %add20 = add nsw i32 %34, %add
-  store i32 %add20, ptr %xpos.addr, align 4
-  br label %for.inc
+80:                                               ; preds = %76
+  %81 = load ptr, ptr %17, align 8, !tbaa !8
+  %82 = getelementptr inbounds nuw %struct.stbhw__process, ptr %81, i32 0, i32 2
+  %83 = load ptr, ptr %82, align 8, !tbaa !12
+  %84 = load ptr, ptr %17, align 8, !tbaa !8
+  %85 = load i32, ptr %18, align 4, !tbaa !10
+  %86 = load i32, ptr %19, align 4, !tbaa !10
+  %87 = load i32, ptr %33, align 4, !tbaa !10
+  %88 = load i32, ptr %34, align 4, !tbaa !10
+  %89 = load i32, ptr %35, align 4, !tbaa !10
+  %90 = load i32, ptr %36, align 4, !tbaa !10
+  %91 = load i32, ptr %37, align 4, !tbaa !10
+  %92 = load i32, ptr %38, align 4, !tbaa !10
+  call void %83(ptr noundef %84, i32 noundef %85, i32 noundef %86, i32 noundef %87, i32 noundef %88, i32 noundef %89, i32 noundef %90, i32 noundef %91, i32 noundef %92)
+  %93 = load ptr, ptr %17, align 8, !tbaa !8
+  %94 = getelementptr inbounds nuw %struct.stbhw__process, ptr %93, i32 0, i32 1
+  %95 = load ptr, ptr %94, align 8, !tbaa !15
+  %96 = getelementptr inbounds nuw %struct.stbhw_config, ptr %95, i32 0, i32 1
+  %97 = load i32, ptr %96, align 4, !tbaa !16
+  %98 = mul nsw i32 2, %97
+  %99 = add nsw i32 %98, 3
+  %100 = load i32, ptr %18, align 4, !tbaa !10
+  %101 = add nsw i32 %100, %99
+  store i32 %101, ptr %18, align 4, !tbaa !10
+  br label %102
 
-for.inc:                                          ; preds = %for.body18
-  %35 = load i32, ptr %a, align 4
-  %inc = add nsw i32 %35, 1
-  store i32 %inc, ptr %a, align 4
-  br label %for.cond16, !llvm.loop !4
+102:                                              ; preds = %80
+  %103 = load i32, ptr %33, align 4, !tbaa !10
+  %104 = add nsw i32 %103, 1
+  store i32 %104, ptr %33, align 4, !tbaa !10
+  br label %76, !llvm.loop !18
 
-for.end:                                          ; preds = %for.cond16
-  br label %for.inc21
+105:                                              ; preds = %76
+  br label %106
 
-for.inc21:                                        ; preds = %for.end
-  %36 = load i32, ptr %b, align 4
-  %inc22 = add nsw i32 %36, 1
-  store i32 %inc22, ptr %b, align 4
-  br label %for.cond13, !llvm.loop !6
+106:                                              ; preds = %105
+  %107 = load i32, ptr %34, align 4, !tbaa !10
+  %108 = add nsw i32 %107, 1
+  store i32 %108, ptr %34, align 4, !tbaa !10
+  br label %70, !llvm.loop !20
 
-for.end23:                                        ; preds = %for.cond13
-  br label %for.inc24
+109:                                              ; preds = %70
+  br label %110
 
-for.inc24:                                        ; preds = %for.end23
-  %37 = load i32, ptr %c, align 4
-  %inc25 = add nsw i32 %37, 1
-  store i32 %inc25, ptr %c, align 4
-  br label %for.cond10, !llvm.loop !7
+110:                                              ; preds = %109
+  %111 = load i32, ptr %35, align 4, !tbaa !10
+  %112 = add nsw i32 %111, 1
+  store i32 %112, ptr %35, align 4, !tbaa !10
+  br label %64, !llvm.loop !21
 
-for.end26:                                        ; preds = %for.cond10
-  br label %for.inc27
+113:                                              ; preds = %64
+  br label %114
 
-for.inc27:                                        ; preds = %for.end26
-  %38 = load i32, ptr %d, align 4
-  %inc28 = add nsw i32 %38, 1
-  store i32 %inc28, ptr %d, align 4
-  br label %for.cond7, !llvm.loop !8
+114:                                              ; preds = %113
+  %115 = load i32, ptr %36, align 4, !tbaa !10
+  %116 = add nsw i32 %115, 1
+  store i32 %116, ptr %36, align 4, !tbaa !10
+  br label %58, !llvm.loop !22
 
-for.end29:                                        ; preds = %for.cond7
-  br label %for.inc30
+117:                                              ; preds = %58
+  br label %118
 
-for.inc30:                                        ; preds = %for.end29
-  %39 = load i32, ptr %e, align 4
-  %inc31 = add nsw i32 %39, 1
-  store i32 %inc31, ptr %e, align 4
-  br label %for.cond4, !llvm.loop !9
+118:                                              ; preds = %117
+  %119 = load i32, ptr %37, align 4, !tbaa !10
+  %120 = add nsw i32 %119, 1
+  store i32 %120, ptr %37, align 4, !tbaa !10
+  br label %52, !llvm.loop !23
 
-for.end32:                                        ; preds = %for.cond4
-  br label %for.inc33
+121:                                              ; preds = %52
+  br label %122
 
-for.inc33:                                        ; preds = %for.end32
-  %40 = load i32, ptr %f, align 4
-  %inc34 = add nsw i32 %40, 1
-  store i32 %inc34, ptr %f, align 4
-  br label %for.cond1, !llvm.loop !10
+122:                                              ; preds = %121
+  %123 = load i32, ptr %38, align 4, !tbaa !10
+  %124 = add nsw i32 %123, 1
+  store i32 %124, ptr %38, align 4, !tbaa !10
+  br label %46, !llvm.loop !24
 
-for.end35:                                        ; preds = %for.cond1
-  br label %for.inc36
+125:                                              ; preds = %46
+  br label %126
 
-for.inc36:                                        ; preds = %for.end35
-  %41 = load i32, ptr %v, align 4
-  %inc37 = add nsw i32 %41, 1
-  store i32 %inc37, ptr %v, align 4
-  br label %for.cond, !llvm.loop !11
+126:                                              ; preds = %125
+  %127 = load i32, ptr %39, align 4, !tbaa !10
+  %128 = add nsw i32 %127, 1
+  store i32 %128, ptr %39, align 4, !tbaa !10
+  br label %40, !llvm.loop !25
 
-for.end38:                                        ; preds = %for.cond
+129:                                              ; preds = %40
+  call void @llvm.lifetime.end.p0(i64 4, ptr %39) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %38) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %37) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %36) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %35) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %34) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %33) #6
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbhw__process_v_row(ptr noundef %p, i32 noundef %xpos, i32 noundef %ypos, i32 noundef %a0, i32 noundef %a1, i32 noundef %b0, i32 noundef %b1, i32 noundef %c0, i32 noundef %c1, i32 noundef %d0, i32 noundef %d1, i32 noundef %e0, i32 noundef %e1, i32 noundef %f0, i32 noundef %f1, i32 noundef %variants) #0 {
-entry:
-  %p.addr = alloca ptr, align 8
-  %xpos.addr = alloca i32, align 4
-  %ypos.addr = alloca i32, align 4
-  %a0.addr = alloca i32, align 4
-  %a1.addr = alloca i32, align 4
-  %b0.addr = alloca i32, align 4
-  %b1.addr = alloca i32, align 4
-  %c0.addr = alloca i32, align 4
-  %c1.addr = alloca i32, align 4
-  %d0.addr = alloca i32, align 4
-  %d1.addr = alloca i32, align 4
-  %e0.addr = alloca i32, align 4
-  %e1.addr = alloca i32, align 4
-  %f0.addr = alloca i32, align 4
-  %f1.addr = alloca i32, align 4
-  %variants.addr = alloca i32, align 4
-  %a = alloca i32, align 4
-  %b = alloca i32, align 4
-  %c = alloca i32, align 4
-  %d = alloca i32, align 4
-  %e = alloca i32, align 4
-  %f = alloca i32, align 4
-  %v = alloca i32, align 4
-  store ptr %p, ptr %p.addr, align 8
-  store i32 %xpos, ptr %xpos.addr, align 4
-  store i32 %ypos, ptr %ypos.addr, align 4
-  store i32 %a0, ptr %a0.addr, align 4
-  store i32 %a1, ptr %a1.addr, align 4
-  store i32 %b0, ptr %b0.addr, align 4
-  store i32 %b1, ptr %b1.addr, align 4
-  store i32 %c0, ptr %c0.addr, align 4
-  store i32 %c1, ptr %c1.addr, align 4
-  store i32 %d0, ptr %d0.addr, align 4
-  store i32 %d1, ptr %d1.addr, align 4
-  store i32 %e0, ptr %e0.addr, align 4
-  store i32 %e1, ptr %e1.addr, align 4
-  store i32 %f0, ptr %f0.addr, align 4
-  store i32 %f1, ptr %f1.addr, align 4
-  store i32 %variants, ptr %variants.addr, align 4
-  store i32 0, ptr %v, align 4
-  br label %for.cond
+define void @stbhw__process_v_row(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11, i32 noundef %12, i32 noundef %13, i32 noundef %14, i32 noundef %15) #0 {
+  %17 = alloca ptr, align 8
+  %18 = alloca i32, align 4
+  %19 = alloca i32, align 4
+  %20 = alloca i32, align 4
+  %21 = alloca i32, align 4
+  %22 = alloca i32, align 4
+  %23 = alloca i32, align 4
+  %24 = alloca i32, align 4
+  %25 = alloca i32, align 4
+  %26 = alloca i32, align 4
+  %27 = alloca i32, align 4
+  %28 = alloca i32, align 4
+  %29 = alloca i32, align 4
+  %30 = alloca i32, align 4
+  %31 = alloca i32, align 4
+  %32 = alloca i32, align 4
+  %33 = alloca i32, align 4
+  %34 = alloca i32, align 4
+  %35 = alloca i32, align 4
+  %36 = alloca i32, align 4
+  %37 = alloca i32, align 4
+  %38 = alloca i32, align 4
+  %39 = alloca i32, align 4
+  store ptr %0, ptr %17, align 8, !tbaa !8
+  store i32 %1, ptr %18, align 4, !tbaa !10
+  store i32 %2, ptr %19, align 4, !tbaa !10
+  store i32 %3, ptr %20, align 4, !tbaa !10
+  store i32 %4, ptr %21, align 4, !tbaa !10
+  store i32 %5, ptr %22, align 4, !tbaa !10
+  store i32 %6, ptr %23, align 4, !tbaa !10
+  store i32 %7, ptr %24, align 4, !tbaa !10
+  store i32 %8, ptr %25, align 4, !tbaa !10
+  store i32 %9, ptr %26, align 4, !tbaa !10
+  store i32 %10, ptr %27, align 4, !tbaa !10
+  store i32 %11, ptr %28, align 4, !tbaa !10
+  store i32 %12, ptr %29, align 4, !tbaa !10
+  store i32 %13, ptr %30, align 4, !tbaa !10
+  store i32 %14, ptr %31, align 4, !tbaa !10
+  store i32 %15, ptr %32, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %33) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %34) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %35) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %36) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %37) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %38) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %39) #6
+  store i32 0, ptr %39, align 4, !tbaa !10
+  br label %40
 
-for.cond:                                         ; preds = %for.inc36, %entry
-  %0 = load i32, ptr %v, align 4
-  %1 = load i32, ptr %variants.addr, align 4
-  %cmp = icmp slt i32 %0, %1
-  br i1 %cmp, label %for.body, label %for.end38
+40:                                               ; preds = %125, %16
+  %41 = load i32, ptr %39, align 4, !tbaa !10
+  %42 = load i32, ptr %32, align 4, !tbaa !10
+  %43 = icmp slt i32 %41, %42
+  br i1 %43, label %44, label %128
 
-for.body:                                         ; preds = %for.cond
-  %2 = load i32, ptr %f0.addr, align 4
-  store i32 %2, ptr %f, align 4
-  br label %for.cond1
+44:                                               ; preds = %40
+  %45 = load i32, ptr %30, align 4, !tbaa !10
+  store i32 %45, ptr %38, align 4, !tbaa !10
+  br label %46
 
-for.cond1:                                        ; preds = %for.inc33, %for.body
-  %3 = load i32, ptr %f, align 4
-  %4 = load i32, ptr %f1.addr, align 4
-  %cmp2 = icmp sle i32 %3, %4
-  br i1 %cmp2, label %for.body3, label %for.end35
+46:                                               ; preds = %121, %44
+  %47 = load i32, ptr %38, align 4, !tbaa !10
+  %48 = load i32, ptr %31, align 4, !tbaa !10
+  %49 = icmp sle i32 %47, %48
+  br i1 %49, label %50, label %124
 
-for.body3:                                        ; preds = %for.cond1
-  %5 = load i32, ptr %e0.addr, align 4
-  store i32 %5, ptr %e, align 4
-  br label %for.cond4
+50:                                               ; preds = %46
+  %51 = load i32, ptr %28, align 4, !tbaa !10
+  store i32 %51, ptr %37, align 4, !tbaa !10
+  br label %52
 
-for.cond4:                                        ; preds = %for.inc30, %for.body3
-  %6 = load i32, ptr %e, align 4
-  %7 = load i32, ptr %e1.addr, align 4
-  %cmp5 = icmp sle i32 %6, %7
-  br i1 %cmp5, label %for.body6, label %for.end32
+52:                                               ; preds = %117, %50
+  %53 = load i32, ptr %37, align 4, !tbaa !10
+  %54 = load i32, ptr %29, align 4, !tbaa !10
+  %55 = icmp sle i32 %53, %54
+  br i1 %55, label %56, label %120
 
-for.body6:                                        ; preds = %for.cond4
-  %8 = load i32, ptr %d0.addr, align 4
-  store i32 %8, ptr %d, align 4
-  br label %for.cond7
+56:                                               ; preds = %52
+  %57 = load i32, ptr %26, align 4, !tbaa !10
+  store i32 %57, ptr %36, align 4, !tbaa !10
+  br label %58
 
-for.cond7:                                        ; preds = %for.inc27, %for.body6
-  %9 = load i32, ptr %d, align 4
-  %10 = load i32, ptr %d1.addr, align 4
-  %cmp8 = icmp sle i32 %9, %10
-  br i1 %cmp8, label %for.body9, label %for.end29
+58:                                               ; preds = %113, %56
+  %59 = load i32, ptr %36, align 4, !tbaa !10
+  %60 = load i32, ptr %27, align 4, !tbaa !10
+  %61 = icmp sle i32 %59, %60
+  br i1 %61, label %62, label %116
 
-for.body9:                                        ; preds = %for.cond7
-  %11 = load i32, ptr %c0.addr, align 4
-  store i32 %11, ptr %c, align 4
-  br label %for.cond10
+62:                                               ; preds = %58
+  %63 = load i32, ptr %24, align 4, !tbaa !10
+  store i32 %63, ptr %35, align 4, !tbaa !10
+  br label %64
 
-for.cond10:                                       ; preds = %for.inc24, %for.body9
-  %12 = load i32, ptr %c, align 4
-  %13 = load i32, ptr %c1.addr, align 4
-  %cmp11 = icmp sle i32 %12, %13
-  br i1 %cmp11, label %for.body12, label %for.end26
+64:                                               ; preds = %109, %62
+  %65 = load i32, ptr %35, align 4, !tbaa !10
+  %66 = load i32, ptr %25, align 4, !tbaa !10
+  %67 = icmp sle i32 %65, %66
+  br i1 %67, label %68, label %112
 
-for.body12:                                       ; preds = %for.cond10
-  %14 = load i32, ptr %b0.addr, align 4
-  store i32 %14, ptr %b, align 4
-  br label %for.cond13
+68:                                               ; preds = %64
+  %69 = load i32, ptr %22, align 4, !tbaa !10
+  store i32 %69, ptr %34, align 4, !tbaa !10
+  br label %70
 
-for.cond13:                                       ; preds = %for.inc21, %for.body12
-  %15 = load i32, ptr %b, align 4
-  %16 = load i32, ptr %b1.addr, align 4
-  %cmp14 = icmp sle i32 %15, %16
-  br i1 %cmp14, label %for.body15, label %for.end23
+70:                                               ; preds = %105, %68
+  %71 = load i32, ptr %34, align 4, !tbaa !10
+  %72 = load i32, ptr %23, align 4, !tbaa !10
+  %73 = icmp sle i32 %71, %72
+  br i1 %73, label %74, label %108
 
-for.body15:                                       ; preds = %for.cond13
-  %17 = load i32, ptr %a0.addr, align 4
-  store i32 %17, ptr %a, align 4
-  br label %for.cond16
+74:                                               ; preds = %70
+  %75 = load i32, ptr %20, align 4, !tbaa !10
+  store i32 %75, ptr %33, align 4, !tbaa !10
+  br label %76
 
-for.cond16:                                       ; preds = %for.inc, %for.body15
-  %18 = load i32, ptr %a, align 4
-  %19 = load i32, ptr %a1.addr, align 4
-  %cmp17 = icmp sle i32 %18, %19
-  br i1 %cmp17, label %for.body18, label %for.end
+76:                                               ; preds = %101, %74
+  %77 = load i32, ptr %33, align 4, !tbaa !10
+  %78 = load i32, ptr %21, align 4, !tbaa !10
+  %79 = icmp sle i32 %77, %78
+  br i1 %79, label %80, label %104
 
-for.body18:                                       ; preds = %for.cond16
-  %20 = load ptr, ptr %p.addr, align 8
-  %process_v_rect = getelementptr inbounds %struct.stbhw__process, ptr %20, i32 0, i32 3
-  %21 = load ptr, ptr %process_v_rect, align 8
-  %22 = load ptr, ptr %p.addr, align 8
-  %23 = load i32, ptr %xpos.addr, align 4
-  %24 = load i32, ptr %ypos.addr, align 4
-  %25 = load i32, ptr %a, align 4
-  %26 = load i32, ptr %b, align 4
-  %27 = load i32, ptr %c, align 4
-  %28 = load i32, ptr %d, align 4
-  %29 = load i32, ptr %e, align 4
-  %30 = load i32, ptr %f, align 4
-  call void %21(ptr noundef %22, i32 noundef %23, i32 noundef %24, i32 noundef %25, i32 noundef %26, i32 noundef %27, i32 noundef %28, i32 noundef %29, i32 noundef %30)
-  %31 = load ptr, ptr %p.addr, align 8
-  %c19 = getelementptr inbounds %struct.stbhw__process, ptr %31, i32 0, i32 1
-  %32 = load ptr, ptr %c19, align 8
-  %short_side_len = getelementptr inbounds %struct.stbhw_config, ptr %32, i32 0, i32 1
-  %33 = load i32, ptr %short_side_len, align 4
-  %add = add nsw i32 %33, 3
-  %34 = load i32, ptr %xpos.addr, align 4
-  %add20 = add nsw i32 %34, %add
-  store i32 %add20, ptr %xpos.addr, align 4
-  br label %for.inc
+80:                                               ; preds = %76
+  %81 = load ptr, ptr %17, align 8, !tbaa !8
+  %82 = getelementptr inbounds nuw %struct.stbhw__process, ptr %81, i32 0, i32 3
+  %83 = load ptr, ptr %82, align 8, !tbaa !26
+  %84 = load ptr, ptr %17, align 8, !tbaa !8
+  %85 = load i32, ptr %18, align 4, !tbaa !10
+  %86 = load i32, ptr %19, align 4, !tbaa !10
+  %87 = load i32, ptr %33, align 4, !tbaa !10
+  %88 = load i32, ptr %34, align 4, !tbaa !10
+  %89 = load i32, ptr %35, align 4, !tbaa !10
+  %90 = load i32, ptr %36, align 4, !tbaa !10
+  %91 = load i32, ptr %37, align 4, !tbaa !10
+  %92 = load i32, ptr %38, align 4, !tbaa !10
+  call void %83(ptr noundef %84, i32 noundef %85, i32 noundef %86, i32 noundef %87, i32 noundef %88, i32 noundef %89, i32 noundef %90, i32 noundef %91, i32 noundef %92)
+  %93 = load ptr, ptr %17, align 8, !tbaa !8
+  %94 = getelementptr inbounds nuw %struct.stbhw__process, ptr %93, i32 0, i32 1
+  %95 = load ptr, ptr %94, align 8, !tbaa !15
+  %96 = getelementptr inbounds nuw %struct.stbhw_config, ptr %95, i32 0, i32 1
+  %97 = load i32, ptr %96, align 4, !tbaa !16
+  %98 = add nsw i32 %97, 3
+  %99 = load i32, ptr %18, align 4, !tbaa !10
+  %100 = add nsw i32 %99, %98
+  store i32 %100, ptr %18, align 4, !tbaa !10
+  br label %101
 
-for.inc:                                          ; preds = %for.body18
-  %35 = load i32, ptr %a, align 4
-  %inc = add nsw i32 %35, 1
-  store i32 %inc, ptr %a, align 4
-  br label %for.cond16, !llvm.loop !12
+101:                                              ; preds = %80
+  %102 = load i32, ptr %33, align 4, !tbaa !10
+  %103 = add nsw i32 %102, 1
+  store i32 %103, ptr %33, align 4, !tbaa !10
+  br label %76, !llvm.loop !27
 
-for.end:                                          ; preds = %for.cond16
-  br label %for.inc21
+104:                                              ; preds = %76
+  br label %105
 
-for.inc21:                                        ; preds = %for.end
-  %36 = load i32, ptr %b, align 4
-  %inc22 = add nsw i32 %36, 1
-  store i32 %inc22, ptr %b, align 4
-  br label %for.cond13, !llvm.loop !13
+105:                                              ; preds = %104
+  %106 = load i32, ptr %34, align 4, !tbaa !10
+  %107 = add nsw i32 %106, 1
+  store i32 %107, ptr %34, align 4, !tbaa !10
+  br label %70, !llvm.loop !28
 
-for.end23:                                        ; preds = %for.cond13
-  br label %for.inc24
+108:                                              ; preds = %70
+  br label %109
 
-for.inc24:                                        ; preds = %for.end23
-  %37 = load i32, ptr %c, align 4
-  %inc25 = add nsw i32 %37, 1
-  store i32 %inc25, ptr %c, align 4
-  br label %for.cond10, !llvm.loop !14
+109:                                              ; preds = %108
+  %110 = load i32, ptr %35, align 4, !tbaa !10
+  %111 = add nsw i32 %110, 1
+  store i32 %111, ptr %35, align 4, !tbaa !10
+  br label %64, !llvm.loop !29
 
-for.end26:                                        ; preds = %for.cond10
-  br label %for.inc27
+112:                                              ; preds = %64
+  br label %113
 
-for.inc27:                                        ; preds = %for.end26
-  %38 = load i32, ptr %d, align 4
-  %inc28 = add nsw i32 %38, 1
-  store i32 %inc28, ptr %d, align 4
-  br label %for.cond7, !llvm.loop !15
+113:                                              ; preds = %112
+  %114 = load i32, ptr %36, align 4, !tbaa !10
+  %115 = add nsw i32 %114, 1
+  store i32 %115, ptr %36, align 4, !tbaa !10
+  br label %58, !llvm.loop !30
 
-for.end29:                                        ; preds = %for.cond7
-  br label %for.inc30
+116:                                              ; preds = %58
+  br label %117
 
-for.inc30:                                        ; preds = %for.end29
-  %39 = load i32, ptr %e, align 4
-  %inc31 = add nsw i32 %39, 1
-  store i32 %inc31, ptr %e, align 4
-  br label %for.cond4, !llvm.loop !16
+117:                                              ; preds = %116
+  %118 = load i32, ptr %37, align 4, !tbaa !10
+  %119 = add nsw i32 %118, 1
+  store i32 %119, ptr %37, align 4, !tbaa !10
+  br label %52, !llvm.loop !31
 
-for.end32:                                        ; preds = %for.cond4
-  br label %for.inc33
+120:                                              ; preds = %52
+  br label %121
 
-for.inc33:                                        ; preds = %for.end32
-  %40 = load i32, ptr %f, align 4
-  %inc34 = add nsw i32 %40, 1
-  store i32 %inc34, ptr %f, align 4
-  br label %for.cond1, !llvm.loop !17
+121:                                              ; preds = %120
+  %122 = load i32, ptr %38, align 4, !tbaa !10
+  %123 = add nsw i32 %122, 1
+  store i32 %123, ptr %38, align 4, !tbaa !10
+  br label %46, !llvm.loop !32
 
-for.end35:                                        ; preds = %for.cond1
-  br label %for.inc36
+124:                                              ; preds = %46
+  br label %125
 
-for.inc36:                                        ; preds = %for.end35
-  %41 = load i32, ptr %v, align 4
-  %inc37 = add nsw i32 %41, 1
-  store i32 %inc37, ptr %v, align 4
-  br label %for.cond, !llvm.loop !18
+125:                                              ; preds = %124
+  %126 = load i32, ptr %39, align 4, !tbaa !10
+  %127 = add nsw i32 %126, 1
+  store i32 %127, ptr %39, align 4, !tbaa !10
+  br label %40, !llvm.loop !33
 
-for.end38:                                        ; preds = %for.cond
+128:                                              ; preds = %40
+  call void @llvm.lifetime.end.p0(i64 4, ptr %39) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %38) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %37) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %36) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %35) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %34) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %33) #6
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbhw__get_template_info(ptr noundef %c, ptr noundef %w, ptr noundef %h, ptr noundef %h_count, ptr noundef %v_count) #0 {
-entry:
-  %c.addr = alloca ptr, align 8
-  %w.addr = alloca ptr, align 8
-  %h.addr = alloca ptr, align 8
-  %h_count.addr = alloca ptr, align 8
-  %v_count.addr = alloca ptr, align 8
-  %size_x = alloca i32, align 4
-  %size_y = alloca i32, align 4
-  %horz_count = alloca i32, align 4
-  %vert_count = alloca i32, align 4
-  %horz_w = alloca i32, align 4
-  %horz_h = alloca i32, align 4
-  %vert_w = alloca i32, align 4
-  %vert_h = alloca i32, align 4
-  %horz_x = alloca i32, align 4
-  %horz_y = alloca i32, align 4
-  %vert_x = alloca i32, align 4
-  %vert_y = alloca i32, align 4
-  %horz_w53 = alloca i32, align 4
-  %horz_h64 = alloca i32, align 4
-  %vert_w75 = alloca i32, align 4
-  %vert_h86 = alloca i32, align 4
-  %horz_x97 = alloca i32, align 4
-  %horz_y102 = alloca i32, align 4
-  %vert_x106 = alloca i32, align 4
-  %vert_y110 = alloca i32, align 4
-  store ptr %c, ptr %c.addr, align 8
-  store ptr %w, ptr %w.addr, align 8
-  store ptr %h, ptr %h.addr, align 8
-  store ptr %h_count, ptr %h_count.addr, align 8
-  store ptr %v_count, ptr %v_count.addr, align 8
-  %0 = load ptr, ptr %c.addr, align 8
-  %is_corner = getelementptr inbounds %struct.stbhw_config, ptr %0, i32 0, i32 0
-  %1 = load i32, ptr %is_corner, align 4
-  %tobool = icmp ne i32 %1, 0
-  br i1 %tobool, label %if.then, label %if.else
+define void @stbhw__get_template_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  %16 = alloca i32, align 4
+  %17 = alloca i32, align 4
+  %18 = alloca i32, align 4
+  %19 = alloca i32, align 4
+  %20 = alloca i32, align 4
+  %21 = alloca i32, align 4
+  %22 = alloca i32, align 4
+  %23 = alloca i32, align 4
+  %24 = alloca i32, align 4
+  %25 = alloca i32, align 4
+  %26 = alloca i32, align 4
+  %27 = alloca i32, align 4
+  %28 = alloca i32, align 4
+  %29 = alloca i32, align 4
+  %30 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !34
+  store ptr %1, ptr %7, align 8, !tbaa !35
+  store ptr %2, ptr %8, align 8, !tbaa !35
+  store ptr %3, ptr %9, align 8, !tbaa !35
+  store ptr %4, ptr %10, align 8, !tbaa !35
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #6
+  %31 = load ptr, ptr %6, align 8, !tbaa !34
+  %32 = getelementptr inbounds nuw %struct.stbhw_config, ptr %31, i32 0, i32 0
+  %33 = load i32, ptr %32, align 4, !tbaa !37
+  %34 = icmp ne i32 %33, 0
+  br i1 %34, label %35, label %154
 
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %c.addr, align 8
-  %num_color = getelementptr inbounds %struct.stbhw_config, ptr %2, i32 0, i32 2
-  %arrayidx = getelementptr inbounds [6 x i32], ptr %num_color, i64 0, i64 1
-  %3 = load i32, ptr %arrayidx, align 4
-  %4 = load ptr, ptr %c.addr, align 8
-  %num_color1 = getelementptr inbounds %struct.stbhw_config, ptr %4, i32 0, i32 2
-  %arrayidx2 = getelementptr inbounds [6 x i32], ptr %num_color1, i64 0, i64 2
-  %5 = load i32, ptr %arrayidx2, align 4
-  %mul = mul nsw i32 %3, %5
-  %6 = load ptr, ptr %c.addr, align 8
-  %num_color3 = getelementptr inbounds %struct.stbhw_config, ptr %6, i32 0, i32 2
-  %arrayidx4 = getelementptr inbounds [6 x i32], ptr %num_color3, i64 0, i64 3
-  %7 = load i32, ptr %arrayidx4, align 4
-  %mul5 = mul nsw i32 %mul, %7
-  %8 = load ptr, ptr %c.addr, align 8
-  %num_vary_x = getelementptr inbounds %struct.stbhw_config, ptr %8, i32 0, i32 3
-  %9 = load i32, ptr %num_vary_x, align 4
-  %mul6 = mul nsw i32 %mul5, %9
-  store i32 %mul6, ptr %horz_w, align 4
-  %10 = load ptr, ptr %c.addr, align 8
-  %num_color7 = getelementptr inbounds %struct.stbhw_config, ptr %10, i32 0, i32 2
-  %arrayidx8 = getelementptr inbounds [6 x i32], ptr %num_color7, i64 0, i64 0
-  %11 = load i32, ptr %arrayidx8, align 4
-  %12 = load ptr, ptr %c.addr, align 8
-  %num_color9 = getelementptr inbounds %struct.stbhw_config, ptr %12, i32 0, i32 2
-  %arrayidx10 = getelementptr inbounds [6 x i32], ptr %num_color9, i64 0, i64 1
-  %13 = load i32, ptr %arrayidx10, align 4
-  %mul11 = mul nsw i32 %11, %13
-  %14 = load ptr, ptr %c.addr, align 8
-  %num_color12 = getelementptr inbounds %struct.stbhw_config, ptr %14, i32 0, i32 2
-  %arrayidx13 = getelementptr inbounds [6 x i32], ptr %num_color12, i64 0, i64 2
-  %15 = load i32, ptr %arrayidx13, align 4
-  %mul14 = mul nsw i32 %mul11, %15
-  %16 = load ptr, ptr %c.addr, align 8
-  %num_vary_y = getelementptr inbounds %struct.stbhw_config, ptr %16, i32 0, i32 4
-  %17 = load i32, ptr %num_vary_y, align 4
-  %mul15 = mul nsw i32 %mul14, %17
-  store i32 %mul15, ptr %horz_h, align 4
-  %18 = load ptr, ptr %c.addr, align 8
-  %num_color16 = getelementptr inbounds %struct.stbhw_config, ptr %18, i32 0, i32 2
-  %arrayidx17 = getelementptr inbounds [6 x i32], ptr %num_color16, i64 0, i64 0
-  %19 = load i32, ptr %arrayidx17, align 4
-  %20 = load ptr, ptr %c.addr, align 8
-  %num_color18 = getelementptr inbounds %struct.stbhw_config, ptr %20, i32 0, i32 2
-  %arrayidx19 = getelementptr inbounds [6 x i32], ptr %num_color18, i64 0, i64 3
-  %21 = load i32, ptr %arrayidx19, align 4
-  %mul20 = mul nsw i32 %19, %21
-  %22 = load ptr, ptr %c.addr, align 8
-  %num_color21 = getelementptr inbounds %struct.stbhw_config, ptr %22, i32 0, i32 2
-  %arrayidx22 = getelementptr inbounds [6 x i32], ptr %num_color21, i64 0, i64 2
-  %23 = load i32, ptr %arrayidx22, align 4
-  %mul23 = mul nsw i32 %mul20, %23
-  %24 = load ptr, ptr %c.addr, align 8
-  %num_vary_y24 = getelementptr inbounds %struct.stbhw_config, ptr %24, i32 0, i32 4
-  %25 = load i32, ptr %num_vary_y24, align 4
-  %mul25 = mul nsw i32 %mul23, %25
-  store i32 %mul25, ptr %vert_w, align 4
-  %26 = load ptr, ptr %c.addr, align 8
-  %num_color26 = getelementptr inbounds %struct.stbhw_config, ptr %26, i32 0, i32 2
-  %arrayidx27 = getelementptr inbounds [6 x i32], ptr %num_color26, i64 0, i64 1
-  %27 = load i32, ptr %arrayidx27, align 4
-  %28 = load ptr, ptr %c.addr, align 8
-  %num_color28 = getelementptr inbounds %struct.stbhw_config, ptr %28, i32 0, i32 2
-  %arrayidx29 = getelementptr inbounds [6 x i32], ptr %num_color28, i64 0, i64 0
-  %29 = load i32, ptr %arrayidx29, align 4
-  %mul30 = mul nsw i32 %27, %29
-  %30 = load ptr, ptr %c.addr, align 8
-  %num_color31 = getelementptr inbounds %struct.stbhw_config, ptr %30, i32 0, i32 2
-  %arrayidx32 = getelementptr inbounds [6 x i32], ptr %num_color31, i64 0, i64 3
-  %31 = load i32, ptr %arrayidx32, align 4
-  %mul33 = mul nsw i32 %mul30, %31
-  %32 = load ptr, ptr %c.addr, align 8
-  %num_vary_x34 = getelementptr inbounds %struct.stbhw_config, ptr %32, i32 0, i32 3
-  %33 = load i32, ptr %num_vary_x34, align 4
-  %mul35 = mul nsw i32 %mul33, %33
-  store i32 %mul35, ptr %vert_h, align 4
-  %34 = load i32, ptr %horz_w, align 4
-  %35 = load ptr, ptr %c.addr, align 8
-  %short_side_len = getelementptr inbounds %struct.stbhw_config, ptr %35, i32 0, i32 1
-  %36 = load i32, ptr %short_side_len, align 4
-  %mul36 = mul nsw i32 2, %36
-  %add = add nsw i32 %mul36, 3
-  %mul37 = mul nsw i32 %34, %add
-  store i32 %mul37, ptr %horz_x, align 4
-  %37 = load i32, ptr %horz_h, align 4
-  %38 = load ptr, ptr %c.addr, align 8
-  %short_side_len38 = getelementptr inbounds %struct.stbhw_config, ptr %38, i32 0, i32 1
-  %39 = load i32, ptr %short_side_len38, align 4
-  %add39 = add nsw i32 %39, 3
-  %mul40 = mul nsw i32 %37, %add39
-  store i32 %mul40, ptr %horz_y, align 4
-  %40 = load i32, ptr %vert_w, align 4
-  %41 = load ptr, ptr %c.addr, align 8
-  %short_side_len41 = getelementptr inbounds %struct.stbhw_config, ptr %41, i32 0, i32 1
-  %42 = load i32, ptr %short_side_len41, align 4
-  %add42 = add nsw i32 %42, 3
-  %mul43 = mul nsw i32 %40, %add42
-  store i32 %mul43, ptr %vert_x, align 4
-  %43 = load i32, ptr %vert_h, align 4
-  %44 = load ptr, ptr %c.addr, align 8
-  %short_side_len44 = getelementptr inbounds %struct.stbhw_config, ptr %44, i32 0, i32 1
-  %45 = load i32, ptr %short_side_len44, align 4
-  %mul45 = mul nsw i32 2, %45
-  %add46 = add nsw i32 %mul45, 3
-  %mul47 = mul nsw i32 %43, %add46
-  store i32 %mul47, ptr %vert_y, align 4
-  %46 = load i32, ptr %horz_w, align 4
-  %47 = load i32, ptr %horz_h, align 4
-  %mul48 = mul nsw i32 %46, %47
-  store i32 %mul48, ptr %horz_count, align 4
-  %48 = load i32, ptr %vert_w, align 4
-  %49 = load i32, ptr %vert_h, align 4
-  %mul49 = mul nsw i32 %48, %49
-  store i32 %mul49, ptr %vert_count, align 4
-  %50 = load i32, ptr %horz_x, align 4
-  %51 = load i32, ptr %vert_x, align 4
-  %cmp = icmp sgt i32 %50, %51
-  br i1 %cmp, label %cond.true, label %cond.false
+35:                                               ; preds = %5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #6
+  %36 = load ptr, ptr %6, align 8, !tbaa !34
+  %37 = getelementptr inbounds nuw %struct.stbhw_config, ptr %36, i32 0, i32 2
+  %38 = getelementptr inbounds [6 x i32], ptr %37, i64 0, i64 1
+  %39 = load i32, ptr %38, align 4, !tbaa !10
+  %40 = load ptr, ptr %6, align 8, !tbaa !34
+  %41 = getelementptr inbounds nuw %struct.stbhw_config, ptr %40, i32 0, i32 2
+  %42 = getelementptr inbounds [6 x i32], ptr %41, i64 0, i64 2
+  %43 = load i32, ptr %42, align 4, !tbaa !10
+  %44 = mul nsw i32 %39, %43
+  %45 = load ptr, ptr %6, align 8, !tbaa !34
+  %46 = getelementptr inbounds nuw %struct.stbhw_config, ptr %45, i32 0, i32 2
+  %47 = getelementptr inbounds [6 x i32], ptr %46, i64 0, i64 3
+  %48 = load i32, ptr %47, align 4, !tbaa !10
+  %49 = mul nsw i32 %44, %48
+  %50 = load ptr, ptr %6, align 8, !tbaa !34
+  %51 = getelementptr inbounds nuw %struct.stbhw_config, ptr %50, i32 0, i32 3
+  %52 = load i32, ptr %51, align 4, !tbaa !38
+  %53 = mul nsw i32 %49, %52
+  store i32 %53, ptr %15, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #6
+  %54 = load ptr, ptr %6, align 8, !tbaa !34
+  %55 = getelementptr inbounds nuw %struct.stbhw_config, ptr %54, i32 0, i32 2
+  %56 = getelementptr inbounds [6 x i32], ptr %55, i64 0, i64 0
+  %57 = load i32, ptr %56, align 4, !tbaa !10
+  %58 = load ptr, ptr %6, align 8, !tbaa !34
+  %59 = getelementptr inbounds nuw %struct.stbhw_config, ptr %58, i32 0, i32 2
+  %60 = getelementptr inbounds [6 x i32], ptr %59, i64 0, i64 1
+  %61 = load i32, ptr %60, align 4, !tbaa !10
+  %62 = mul nsw i32 %57, %61
+  %63 = load ptr, ptr %6, align 8, !tbaa !34
+  %64 = getelementptr inbounds nuw %struct.stbhw_config, ptr %63, i32 0, i32 2
+  %65 = getelementptr inbounds [6 x i32], ptr %64, i64 0, i64 2
+  %66 = load i32, ptr %65, align 4, !tbaa !10
+  %67 = mul nsw i32 %62, %66
+  %68 = load ptr, ptr %6, align 8, !tbaa !34
+  %69 = getelementptr inbounds nuw %struct.stbhw_config, ptr %68, i32 0, i32 4
+  %70 = load i32, ptr %69, align 4, !tbaa !39
+  %71 = mul nsw i32 %67, %70
+  store i32 %71, ptr %16, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #6
+  %72 = load ptr, ptr %6, align 8, !tbaa !34
+  %73 = getelementptr inbounds nuw %struct.stbhw_config, ptr %72, i32 0, i32 2
+  %74 = getelementptr inbounds [6 x i32], ptr %73, i64 0, i64 0
+  %75 = load i32, ptr %74, align 4, !tbaa !10
+  %76 = load ptr, ptr %6, align 8, !tbaa !34
+  %77 = getelementptr inbounds nuw %struct.stbhw_config, ptr %76, i32 0, i32 2
+  %78 = getelementptr inbounds [6 x i32], ptr %77, i64 0, i64 3
+  %79 = load i32, ptr %78, align 4, !tbaa !10
+  %80 = mul nsw i32 %75, %79
+  %81 = load ptr, ptr %6, align 8, !tbaa !34
+  %82 = getelementptr inbounds nuw %struct.stbhw_config, ptr %81, i32 0, i32 2
+  %83 = getelementptr inbounds [6 x i32], ptr %82, i64 0, i64 2
+  %84 = load i32, ptr %83, align 4, !tbaa !10
+  %85 = mul nsw i32 %80, %84
+  %86 = load ptr, ptr %6, align 8, !tbaa !34
+  %87 = getelementptr inbounds nuw %struct.stbhw_config, ptr %86, i32 0, i32 4
+  %88 = load i32, ptr %87, align 4, !tbaa !39
+  %89 = mul nsw i32 %85, %88
+  store i32 %89, ptr %17, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #6
+  %90 = load ptr, ptr %6, align 8, !tbaa !34
+  %91 = getelementptr inbounds nuw %struct.stbhw_config, ptr %90, i32 0, i32 2
+  %92 = getelementptr inbounds [6 x i32], ptr %91, i64 0, i64 1
+  %93 = load i32, ptr %92, align 4, !tbaa !10
+  %94 = load ptr, ptr %6, align 8, !tbaa !34
+  %95 = getelementptr inbounds nuw %struct.stbhw_config, ptr %94, i32 0, i32 2
+  %96 = getelementptr inbounds [6 x i32], ptr %95, i64 0, i64 0
+  %97 = load i32, ptr %96, align 4, !tbaa !10
+  %98 = mul nsw i32 %93, %97
+  %99 = load ptr, ptr %6, align 8, !tbaa !34
+  %100 = getelementptr inbounds nuw %struct.stbhw_config, ptr %99, i32 0, i32 2
+  %101 = getelementptr inbounds [6 x i32], ptr %100, i64 0, i64 3
+  %102 = load i32, ptr %101, align 4, !tbaa !10
+  %103 = mul nsw i32 %98, %102
+  %104 = load ptr, ptr %6, align 8, !tbaa !34
+  %105 = getelementptr inbounds nuw %struct.stbhw_config, ptr %104, i32 0, i32 3
+  %106 = load i32, ptr %105, align 4, !tbaa !38
+  %107 = mul nsw i32 %103, %106
+  store i32 %107, ptr %18, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #6
+  %108 = load i32, ptr %15, align 4, !tbaa !10
+  %109 = load ptr, ptr %6, align 8, !tbaa !34
+  %110 = getelementptr inbounds nuw %struct.stbhw_config, ptr %109, i32 0, i32 1
+  %111 = load i32, ptr %110, align 4, !tbaa !16
+  %112 = mul nsw i32 2, %111
+  %113 = add nsw i32 %112, 3
+  %114 = mul nsw i32 %108, %113
+  store i32 %114, ptr %19, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #6
+  %115 = load i32, ptr %16, align 4, !tbaa !10
+  %116 = load ptr, ptr %6, align 8, !tbaa !34
+  %117 = getelementptr inbounds nuw %struct.stbhw_config, ptr %116, i32 0, i32 1
+  %118 = load i32, ptr %117, align 4, !tbaa !16
+  %119 = add nsw i32 %118, 3
+  %120 = mul nsw i32 %115, %119
+  store i32 %120, ptr %20, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %21) #6
+  %121 = load i32, ptr %17, align 4, !tbaa !10
+  %122 = load ptr, ptr %6, align 8, !tbaa !34
+  %123 = getelementptr inbounds nuw %struct.stbhw_config, ptr %122, i32 0, i32 1
+  %124 = load i32, ptr %123, align 4, !tbaa !16
+  %125 = add nsw i32 %124, 3
+  %126 = mul nsw i32 %121, %125
+  store i32 %126, ptr %21, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %22) #6
+  %127 = load i32, ptr %18, align 4, !tbaa !10
+  %128 = load ptr, ptr %6, align 8, !tbaa !34
+  %129 = getelementptr inbounds nuw %struct.stbhw_config, ptr %128, i32 0, i32 1
+  %130 = load i32, ptr %129, align 4, !tbaa !16
+  %131 = mul nsw i32 2, %130
+  %132 = add nsw i32 %131, 3
+  %133 = mul nsw i32 %127, %132
+  store i32 %133, ptr %22, align 4, !tbaa !10
+  %134 = load i32, ptr %15, align 4, !tbaa !10
+  %135 = load i32, ptr %16, align 4, !tbaa !10
+  %136 = mul nsw i32 %134, %135
+  store i32 %136, ptr %13, align 4, !tbaa !10
+  %137 = load i32, ptr %17, align 4, !tbaa !10
+  %138 = load i32, ptr %18, align 4, !tbaa !10
+  %139 = mul nsw i32 %137, %138
+  store i32 %139, ptr %14, align 4, !tbaa !10
+  %140 = load i32, ptr %19, align 4, !tbaa !10
+  %141 = load i32, ptr %21, align 4, !tbaa !10
+  %142 = icmp sgt i32 %140, %141
+  br i1 %142, label %143, label %145
 
-cond.true:                                        ; preds = %if.then
-  %52 = load i32, ptr %horz_x, align 4
-  br label %cond.end
+143:                                              ; preds = %35
+  %144 = load i32, ptr %19, align 4, !tbaa !10
+  br label %147
 
-cond.false:                                       ; preds = %if.then
-  %53 = load i32, ptr %vert_x, align 4
-  br label %cond.end
+145:                                              ; preds = %35
+  %146 = load i32, ptr %21, align 4, !tbaa !10
+  br label %147
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ %52, %cond.true ], [ %53, %cond.false ]
-  store i32 %cond, ptr %size_x, align 4
-  %54 = load i32, ptr %horz_y, align 4
-  %add50 = add nsw i32 2, %54
-  %add51 = add nsw i32 %add50, 2
-  %55 = load i32, ptr %vert_y, align 4
-  %add52 = add nsw i32 %add51, %55
-  store i32 %add52, ptr %size_y, align 4
-  br label %if.end
+147:                                              ; preds = %145, %143
+  %148 = phi i32 [ %144, %143 ], [ %146, %145 ]
+  store i32 %148, ptr %11, align 4, !tbaa !10
+  %149 = load i32, ptr %20, align 4, !tbaa !10
+  %150 = add nsw i32 2, %149
+  %151 = add nsw i32 %150, 2
+  %152 = load i32, ptr %22, align 4, !tbaa !10
+  %153 = add nsw i32 %151, %152
+  store i32 %153, ptr %12, align 4, !tbaa !10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %22) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %21) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #6
+  br label %273
 
-if.else:                                          ; preds = %entry
-  %56 = load ptr, ptr %c.addr, align 8
-  %num_color54 = getelementptr inbounds %struct.stbhw_config, ptr %56, i32 0, i32 2
-  %arrayidx55 = getelementptr inbounds [6 x i32], ptr %num_color54, i64 0, i64 0
-  %57 = load i32, ptr %arrayidx55, align 4
-  %58 = load ptr, ptr %c.addr, align 8
-  %num_color56 = getelementptr inbounds %struct.stbhw_config, ptr %58, i32 0, i32 2
-  %arrayidx57 = getelementptr inbounds [6 x i32], ptr %num_color56, i64 0, i64 1
-  %59 = load i32, ptr %arrayidx57, align 4
-  %mul58 = mul nsw i32 %57, %59
-  %60 = load ptr, ptr %c.addr, align 8
-  %num_color59 = getelementptr inbounds %struct.stbhw_config, ptr %60, i32 0, i32 2
-  %arrayidx60 = getelementptr inbounds [6 x i32], ptr %num_color59, i64 0, i64 2
-  %61 = load i32, ptr %arrayidx60, align 4
-  %mul61 = mul nsw i32 %mul58, %61
-  %62 = load ptr, ptr %c.addr, align 8
-  %num_vary_x62 = getelementptr inbounds %struct.stbhw_config, ptr %62, i32 0, i32 3
-  %63 = load i32, ptr %num_vary_x62, align 4
-  %mul63 = mul nsw i32 %mul61, %63
-  store i32 %mul63, ptr %horz_w53, align 4
-  %64 = load ptr, ptr %c.addr, align 8
-  %num_color65 = getelementptr inbounds %struct.stbhw_config, ptr %64, i32 0, i32 2
-  %arrayidx66 = getelementptr inbounds [6 x i32], ptr %num_color65, i64 0, i64 3
-  %65 = load i32, ptr %arrayidx66, align 4
-  %66 = load ptr, ptr %c.addr, align 8
-  %num_color67 = getelementptr inbounds %struct.stbhw_config, ptr %66, i32 0, i32 2
-  %arrayidx68 = getelementptr inbounds [6 x i32], ptr %num_color67, i64 0, i64 4
-  %67 = load i32, ptr %arrayidx68, align 4
-  %mul69 = mul nsw i32 %65, %67
-  %68 = load ptr, ptr %c.addr, align 8
-  %num_color70 = getelementptr inbounds %struct.stbhw_config, ptr %68, i32 0, i32 2
-  %arrayidx71 = getelementptr inbounds [6 x i32], ptr %num_color70, i64 0, i64 2
-  %69 = load i32, ptr %arrayidx71, align 4
-  %mul72 = mul nsw i32 %mul69, %69
-  %70 = load ptr, ptr %c.addr, align 8
-  %num_vary_y73 = getelementptr inbounds %struct.stbhw_config, ptr %70, i32 0, i32 4
-  %71 = load i32, ptr %num_vary_y73, align 4
-  %mul74 = mul nsw i32 %mul72, %71
-  store i32 %mul74, ptr %horz_h64, align 4
-  %72 = load ptr, ptr %c.addr, align 8
-  %num_color76 = getelementptr inbounds %struct.stbhw_config, ptr %72, i32 0, i32 2
-  %arrayidx77 = getelementptr inbounds [6 x i32], ptr %num_color76, i64 0, i64 0
-  %73 = load i32, ptr %arrayidx77, align 4
-  %74 = load ptr, ptr %c.addr, align 8
-  %num_color78 = getelementptr inbounds %struct.stbhw_config, ptr %74, i32 0, i32 2
-  %arrayidx79 = getelementptr inbounds [6 x i32], ptr %num_color78, i64 0, i64 5
-  %75 = load i32, ptr %arrayidx79, align 4
-  %mul80 = mul nsw i32 %73, %75
-  %76 = load ptr, ptr %c.addr, align 8
-  %num_color81 = getelementptr inbounds %struct.stbhw_config, ptr %76, i32 0, i32 2
-  %arrayidx82 = getelementptr inbounds [6 x i32], ptr %num_color81, i64 0, i64 1
-  %77 = load i32, ptr %arrayidx82, align 4
-  %mul83 = mul nsw i32 %mul80, %77
-  %78 = load ptr, ptr %c.addr, align 8
-  %num_vary_y84 = getelementptr inbounds %struct.stbhw_config, ptr %78, i32 0, i32 4
-  %79 = load i32, ptr %num_vary_y84, align 4
-  %mul85 = mul nsw i32 %mul83, %79
-  store i32 %mul85, ptr %vert_w75, align 4
-  %80 = load ptr, ptr %c.addr, align 8
-  %num_color87 = getelementptr inbounds %struct.stbhw_config, ptr %80, i32 0, i32 2
-  %arrayidx88 = getelementptr inbounds [6 x i32], ptr %num_color87, i64 0, i64 3
-  %81 = load i32, ptr %arrayidx88, align 4
-  %82 = load ptr, ptr %c.addr, align 8
-  %num_color89 = getelementptr inbounds %struct.stbhw_config, ptr %82, i32 0, i32 2
-  %arrayidx90 = getelementptr inbounds [6 x i32], ptr %num_color89, i64 0, i64 4
-  %83 = load i32, ptr %arrayidx90, align 4
-  %mul91 = mul nsw i32 %81, %83
-  %84 = load ptr, ptr %c.addr, align 8
-  %num_color92 = getelementptr inbounds %struct.stbhw_config, ptr %84, i32 0, i32 2
-  %arrayidx93 = getelementptr inbounds [6 x i32], ptr %num_color92, i64 0, i64 5
-  %85 = load i32, ptr %arrayidx93, align 4
-  %mul94 = mul nsw i32 %mul91, %85
-  %86 = load ptr, ptr %c.addr, align 8
-  %num_vary_x95 = getelementptr inbounds %struct.stbhw_config, ptr %86, i32 0, i32 3
-  %87 = load i32, ptr %num_vary_x95, align 4
-  %mul96 = mul nsw i32 %mul94, %87
-  store i32 %mul96, ptr %vert_h86, align 4
-  %88 = load i32, ptr %horz_w53, align 4
-  %89 = load ptr, ptr %c.addr, align 8
-  %short_side_len98 = getelementptr inbounds %struct.stbhw_config, ptr %89, i32 0, i32 1
-  %90 = load i32, ptr %short_side_len98, align 4
-  %mul99 = mul nsw i32 2, %90
-  %add100 = add nsw i32 %mul99, 3
-  %mul101 = mul nsw i32 %88, %add100
-  store i32 %mul101, ptr %horz_x97, align 4
-  %91 = load i32, ptr %horz_h64, align 4
-  %92 = load ptr, ptr %c.addr, align 8
-  %short_side_len103 = getelementptr inbounds %struct.stbhw_config, ptr %92, i32 0, i32 1
-  %93 = load i32, ptr %short_side_len103, align 4
-  %add104 = add nsw i32 %93, 3
-  %mul105 = mul nsw i32 %91, %add104
-  store i32 %mul105, ptr %horz_y102, align 4
-  %94 = load i32, ptr %vert_w75, align 4
-  %95 = load ptr, ptr %c.addr, align 8
-  %short_side_len107 = getelementptr inbounds %struct.stbhw_config, ptr %95, i32 0, i32 1
-  %96 = load i32, ptr %short_side_len107, align 4
-  %add108 = add nsw i32 %96, 3
-  %mul109 = mul nsw i32 %94, %add108
-  store i32 %mul109, ptr %vert_x106, align 4
-  %97 = load i32, ptr %vert_h86, align 4
-  %98 = load ptr, ptr %c.addr, align 8
-  %short_side_len111 = getelementptr inbounds %struct.stbhw_config, ptr %98, i32 0, i32 1
-  %99 = load i32, ptr %short_side_len111, align 4
-  %mul112 = mul nsw i32 2, %99
-  %add113 = add nsw i32 %mul112, 3
-  %mul114 = mul nsw i32 %97, %add113
-  store i32 %mul114, ptr %vert_y110, align 4
-  %100 = load i32, ptr %horz_w53, align 4
-  %101 = load i32, ptr %horz_h64, align 4
-  %mul115 = mul nsw i32 %100, %101
-  store i32 %mul115, ptr %horz_count, align 4
-  %102 = load i32, ptr %vert_w75, align 4
-  %103 = load i32, ptr %vert_h86, align 4
-  %mul116 = mul nsw i32 %102, %103
-  store i32 %mul116, ptr %vert_count, align 4
-  %104 = load i32, ptr %horz_x97, align 4
-  %105 = load i32, ptr %vert_x106, align 4
-  %cmp117 = icmp sgt i32 %104, %105
-  br i1 %cmp117, label %cond.true118, label %cond.false119
+154:                                              ; preds = %5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %23) #6
+  %155 = load ptr, ptr %6, align 8, !tbaa !34
+  %156 = getelementptr inbounds nuw %struct.stbhw_config, ptr %155, i32 0, i32 2
+  %157 = getelementptr inbounds [6 x i32], ptr %156, i64 0, i64 0
+  %158 = load i32, ptr %157, align 4, !tbaa !10
+  %159 = load ptr, ptr %6, align 8, !tbaa !34
+  %160 = getelementptr inbounds nuw %struct.stbhw_config, ptr %159, i32 0, i32 2
+  %161 = getelementptr inbounds [6 x i32], ptr %160, i64 0, i64 1
+  %162 = load i32, ptr %161, align 4, !tbaa !10
+  %163 = mul nsw i32 %158, %162
+  %164 = load ptr, ptr %6, align 8, !tbaa !34
+  %165 = getelementptr inbounds nuw %struct.stbhw_config, ptr %164, i32 0, i32 2
+  %166 = getelementptr inbounds [6 x i32], ptr %165, i64 0, i64 2
+  %167 = load i32, ptr %166, align 4, !tbaa !10
+  %168 = mul nsw i32 %163, %167
+  %169 = load ptr, ptr %6, align 8, !tbaa !34
+  %170 = getelementptr inbounds nuw %struct.stbhw_config, ptr %169, i32 0, i32 3
+  %171 = load i32, ptr %170, align 4, !tbaa !38
+  %172 = mul nsw i32 %168, %171
+  store i32 %172, ptr %23, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %24) #6
+  %173 = load ptr, ptr %6, align 8, !tbaa !34
+  %174 = getelementptr inbounds nuw %struct.stbhw_config, ptr %173, i32 0, i32 2
+  %175 = getelementptr inbounds [6 x i32], ptr %174, i64 0, i64 3
+  %176 = load i32, ptr %175, align 4, !tbaa !10
+  %177 = load ptr, ptr %6, align 8, !tbaa !34
+  %178 = getelementptr inbounds nuw %struct.stbhw_config, ptr %177, i32 0, i32 2
+  %179 = getelementptr inbounds [6 x i32], ptr %178, i64 0, i64 4
+  %180 = load i32, ptr %179, align 4, !tbaa !10
+  %181 = mul nsw i32 %176, %180
+  %182 = load ptr, ptr %6, align 8, !tbaa !34
+  %183 = getelementptr inbounds nuw %struct.stbhw_config, ptr %182, i32 0, i32 2
+  %184 = getelementptr inbounds [6 x i32], ptr %183, i64 0, i64 2
+  %185 = load i32, ptr %184, align 4, !tbaa !10
+  %186 = mul nsw i32 %181, %185
+  %187 = load ptr, ptr %6, align 8, !tbaa !34
+  %188 = getelementptr inbounds nuw %struct.stbhw_config, ptr %187, i32 0, i32 4
+  %189 = load i32, ptr %188, align 4, !tbaa !39
+  %190 = mul nsw i32 %186, %189
+  store i32 %190, ptr %24, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %25) #6
+  %191 = load ptr, ptr %6, align 8, !tbaa !34
+  %192 = getelementptr inbounds nuw %struct.stbhw_config, ptr %191, i32 0, i32 2
+  %193 = getelementptr inbounds [6 x i32], ptr %192, i64 0, i64 0
+  %194 = load i32, ptr %193, align 4, !tbaa !10
+  %195 = load ptr, ptr %6, align 8, !tbaa !34
+  %196 = getelementptr inbounds nuw %struct.stbhw_config, ptr %195, i32 0, i32 2
+  %197 = getelementptr inbounds [6 x i32], ptr %196, i64 0, i64 5
+  %198 = load i32, ptr %197, align 4, !tbaa !10
+  %199 = mul nsw i32 %194, %198
+  %200 = load ptr, ptr %6, align 8, !tbaa !34
+  %201 = getelementptr inbounds nuw %struct.stbhw_config, ptr %200, i32 0, i32 2
+  %202 = getelementptr inbounds [6 x i32], ptr %201, i64 0, i64 1
+  %203 = load i32, ptr %202, align 4, !tbaa !10
+  %204 = mul nsw i32 %199, %203
+  %205 = load ptr, ptr %6, align 8, !tbaa !34
+  %206 = getelementptr inbounds nuw %struct.stbhw_config, ptr %205, i32 0, i32 4
+  %207 = load i32, ptr %206, align 4, !tbaa !39
+  %208 = mul nsw i32 %204, %207
+  store i32 %208, ptr %25, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %26) #6
+  %209 = load ptr, ptr %6, align 8, !tbaa !34
+  %210 = getelementptr inbounds nuw %struct.stbhw_config, ptr %209, i32 0, i32 2
+  %211 = getelementptr inbounds [6 x i32], ptr %210, i64 0, i64 3
+  %212 = load i32, ptr %211, align 4, !tbaa !10
+  %213 = load ptr, ptr %6, align 8, !tbaa !34
+  %214 = getelementptr inbounds nuw %struct.stbhw_config, ptr %213, i32 0, i32 2
+  %215 = getelementptr inbounds [6 x i32], ptr %214, i64 0, i64 4
+  %216 = load i32, ptr %215, align 4, !tbaa !10
+  %217 = mul nsw i32 %212, %216
+  %218 = load ptr, ptr %6, align 8, !tbaa !34
+  %219 = getelementptr inbounds nuw %struct.stbhw_config, ptr %218, i32 0, i32 2
+  %220 = getelementptr inbounds [6 x i32], ptr %219, i64 0, i64 5
+  %221 = load i32, ptr %220, align 4, !tbaa !10
+  %222 = mul nsw i32 %217, %221
+  %223 = load ptr, ptr %6, align 8, !tbaa !34
+  %224 = getelementptr inbounds nuw %struct.stbhw_config, ptr %223, i32 0, i32 3
+  %225 = load i32, ptr %224, align 4, !tbaa !38
+  %226 = mul nsw i32 %222, %225
+  store i32 %226, ptr %26, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %27) #6
+  %227 = load i32, ptr %23, align 4, !tbaa !10
+  %228 = load ptr, ptr %6, align 8, !tbaa !34
+  %229 = getelementptr inbounds nuw %struct.stbhw_config, ptr %228, i32 0, i32 1
+  %230 = load i32, ptr %229, align 4, !tbaa !16
+  %231 = mul nsw i32 2, %230
+  %232 = add nsw i32 %231, 3
+  %233 = mul nsw i32 %227, %232
+  store i32 %233, ptr %27, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %28) #6
+  %234 = load i32, ptr %24, align 4, !tbaa !10
+  %235 = load ptr, ptr %6, align 8, !tbaa !34
+  %236 = getelementptr inbounds nuw %struct.stbhw_config, ptr %235, i32 0, i32 1
+  %237 = load i32, ptr %236, align 4, !tbaa !16
+  %238 = add nsw i32 %237, 3
+  %239 = mul nsw i32 %234, %238
+  store i32 %239, ptr %28, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %29) #6
+  %240 = load i32, ptr %25, align 4, !tbaa !10
+  %241 = load ptr, ptr %6, align 8, !tbaa !34
+  %242 = getelementptr inbounds nuw %struct.stbhw_config, ptr %241, i32 0, i32 1
+  %243 = load i32, ptr %242, align 4, !tbaa !16
+  %244 = add nsw i32 %243, 3
+  %245 = mul nsw i32 %240, %244
+  store i32 %245, ptr %29, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %30) #6
+  %246 = load i32, ptr %26, align 4, !tbaa !10
+  %247 = load ptr, ptr %6, align 8, !tbaa !34
+  %248 = getelementptr inbounds nuw %struct.stbhw_config, ptr %247, i32 0, i32 1
+  %249 = load i32, ptr %248, align 4, !tbaa !16
+  %250 = mul nsw i32 2, %249
+  %251 = add nsw i32 %250, 3
+  %252 = mul nsw i32 %246, %251
+  store i32 %252, ptr %30, align 4, !tbaa !10
+  %253 = load i32, ptr %23, align 4, !tbaa !10
+  %254 = load i32, ptr %24, align 4, !tbaa !10
+  %255 = mul nsw i32 %253, %254
+  store i32 %255, ptr %13, align 4, !tbaa !10
+  %256 = load i32, ptr %25, align 4, !tbaa !10
+  %257 = load i32, ptr %26, align 4, !tbaa !10
+  %258 = mul nsw i32 %256, %257
+  store i32 %258, ptr %14, align 4, !tbaa !10
+  %259 = load i32, ptr %27, align 4, !tbaa !10
+  %260 = load i32, ptr %29, align 4, !tbaa !10
+  %261 = icmp sgt i32 %259, %260
+  br i1 %261, label %262, label %264
 
-cond.true118:                                     ; preds = %if.else
-  %106 = load i32, ptr %horz_x97, align 4
-  br label %cond.end120
+262:                                              ; preds = %154
+  %263 = load i32, ptr %27, align 4, !tbaa !10
+  br label %266
 
-cond.false119:                                    ; preds = %if.else
-  %107 = load i32, ptr %vert_x106, align 4
-  br label %cond.end120
+264:                                              ; preds = %154
+  %265 = load i32, ptr %29, align 4, !tbaa !10
+  br label %266
 
-cond.end120:                                      ; preds = %cond.false119, %cond.true118
-  %cond121 = phi i32 [ %106, %cond.true118 ], [ %107, %cond.false119 ]
-  store i32 %cond121, ptr %size_x, align 4
-  %108 = load i32, ptr %horz_y102, align 4
-  %add122 = add nsw i32 2, %108
-  %add123 = add nsw i32 %add122, 2
-  %109 = load i32, ptr %vert_y110, align 4
-  %add124 = add nsw i32 %add123, %109
-  store i32 %add124, ptr %size_y, align 4
-  br label %if.end
+266:                                              ; preds = %264, %262
+  %267 = phi i32 [ %263, %262 ], [ %265, %264 ]
+  store i32 %267, ptr %11, align 4, !tbaa !10
+  %268 = load i32, ptr %28, align 4, !tbaa !10
+  %269 = add nsw i32 2, %268
+  %270 = add nsw i32 %269, 2
+  %271 = load i32, ptr %30, align 4, !tbaa !10
+  %272 = add nsw i32 %270, %271
+  store i32 %272, ptr %12, align 4, !tbaa !10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %30) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %29) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %28) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %27) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %26) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %25) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %24) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %23) #6
+  br label %273
 
-if.end:                                           ; preds = %cond.end120, %cond.end
-  %110 = load ptr, ptr %w.addr, align 8
-  %tobool125 = icmp ne ptr %110, null
-  br i1 %tobool125, label %if.then126, label %if.end127
+273:                                              ; preds = %266, %147
+  %274 = load ptr, ptr %7, align 8, !tbaa !35
+  %275 = icmp ne ptr %274, null
+  br i1 %275, label %276, label %279
 
-if.then126:                                       ; preds = %if.end
-  %111 = load i32, ptr %size_x, align 4
-  %112 = load ptr, ptr %w.addr, align 8
-  store i32 %111, ptr %112, align 4
-  br label %if.end127
+276:                                              ; preds = %273
+  %277 = load i32, ptr %11, align 4, !tbaa !10
+  %278 = load ptr, ptr %7, align 8, !tbaa !35
+  store i32 %277, ptr %278, align 4, !tbaa !10
+  br label %279
 
-if.end127:                                        ; preds = %if.then126, %if.end
-  %113 = load ptr, ptr %h.addr, align 8
-  %tobool128 = icmp ne ptr %113, null
-  br i1 %tobool128, label %if.then129, label %if.end130
+279:                                              ; preds = %276, %273
+  %280 = load ptr, ptr %8, align 8, !tbaa !35
+  %281 = icmp ne ptr %280, null
+  br i1 %281, label %282, label %285
 
-if.then129:                                       ; preds = %if.end127
-  %114 = load i32, ptr %size_y, align 4
-  %115 = load ptr, ptr %h.addr, align 8
-  store i32 %114, ptr %115, align 4
-  br label %if.end130
+282:                                              ; preds = %279
+  %283 = load i32, ptr %12, align 4, !tbaa !10
+  %284 = load ptr, ptr %8, align 8, !tbaa !35
+  store i32 %283, ptr %284, align 4, !tbaa !10
+  br label %285
 
-if.end130:                                        ; preds = %if.then129, %if.end127
-  %116 = load ptr, ptr %h_count.addr, align 8
-  %tobool131 = icmp ne ptr %116, null
-  br i1 %tobool131, label %if.then132, label %if.end133
+285:                                              ; preds = %282, %279
+  %286 = load ptr, ptr %9, align 8, !tbaa !35
+  %287 = icmp ne ptr %286, null
+  br i1 %287, label %288, label %291
 
-if.then132:                                       ; preds = %if.end130
-  %117 = load i32, ptr %horz_count, align 4
-  %118 = load ptr, ptr %h_count.addr, align 8
-  store i32 %117, ptr %118, align 4
-  br label %if.end133
+288:                                              ; preds = %285
+  %289 = load i32, ptr %13, align 4, !tbaa !10
+  %290 = load ptr, ptr %9, align 8, !tbaa !35
+  store i32 %289, ptr %290, align 4, !tbaa !10
+  br label %291
 
-if.end133:                                        ; preds = %if.then132, %if.end130
-  %119 = load ptr, ptr %v_count.addr, align 8
-  %tobool134 = icmp ne ptr %119, null
-  br i1 %tobool134, label %if.then135, label %if.end136
+291:                                              ; preds = %288, %285
+  %292 = load ptr, ptr %10, align 8, !tbaa !35
+  %293 = icmp ne ptr %292, null
+  br i1 %293, label %294, label %297
 
-if.then135:                                       ; preds = %if.end133
-  %120 = load i32, ptr %vert_count, align 4
-  %121 = load ptr, ptr %v_count.addr, align 8
-  store i32 %120, ptr %121, align 4
-  br label %if.end136
+294:                                              ; preds = %291
+  %295 = load i32, ptr %14, align 4, !tbaa !10
+  %296 = load ptr, ptr %10, align 8, !tbaa !35
+  store i32 %295, ptr %296, align 4, !tbaa !10
+  br label %297
 
-if.end136:                                        ; preds = %if.then135, %if.end133
+297:                                              ; preds = %294, %291
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #6
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbhw_get_template_size(ptr noundef %c, ptr noundef %w, ptr noundef %h) #0 {
-entry:
-  %c.addr = alloca ptr, align 8
-  %w.addr = alloca ptr, align 8
-  %h.addr = alloca ptr, align 8
-  store ptr %c, ptr %c.addr, align 8
-  store ptr %w, ptr %w.addr, align 8
-  store ptr %h, ptr %h.addr, align 8
-  %0 = load ptr, ptr %c.addr, align 8
-  %1 = load ptr, ptr %w.addr, align 8
-  %2 = load ptr, ptr %h.addr, align 8
-  call void @stbhw__get_template_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef null, ptr noundef null)
+define void @stbhw_get_template_size(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !34
+  store ptr %1, ptr %5, align 8, !tbaa !35
+  store ptr %2, ptr %6, align 8, !tbaa !35
+  %7 = load ptr, ptr %4, align 8, !tbaa !34
+  %8 = load ptr, ptr %5, align 8, !tbaa !35
+  %9 = load ptr, ptr %6, align 8, !tbaa !35
+  call void @stbhw__get_template_info(ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef null, ptr noundef null)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbhw__process_template(ptr noundef %p) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %p.addr = alloca ptr, align 8
-  %i = alloca i32, align 4
-  %j = alloca i32, align 4
-  %k = alloca i32, align 4
-  %q = alloca i32, align 4
-  %ypos = alloca i32, align 4
-  %size_x = alloca i32, align 4
-  %size_y = alloca i32, align 4
-  %c = alloca ptr, align 8
-  store ptr %p, ptr %p.addr, align 8
-  %0 = load ptr, ptr %p.addr, align 8
-  %c1 = getelementptr inbounds %struct.stbhw__process, ptr %0, i32 0, i32 1
-  %1 = load ptr, ptr %c1, align 8
-  store ptr %1, ptr %c, align 8
-  %2 = load ptr, ptr %c, align 8
-  call void @stbhw__get_template_info(ptr noundef %2, ptr noundef %size_x, ptr noundef %size_y, ptr noundef null, ptr noundef null)
-  %3 = load ptr, ptr %p.addr, align 8
-  %w = getelementptr inbounds %struct.stbhw__process, ptr %3, i32 0, i32 6
-  %4 = load i32, ptr %w, align 4
-  %5 = load i32, ptr %size_x, align 4
-  %cmp = icmp slt i32 %4, %5
-  br i1 %cmp, label %if.then, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %entry
-  %6 = load ptr, ptr %p.addr, align 8
-  %h = getelementptr inbounds %struct.stbhw__process, ptr %6, i32 0, i32 7
-  %7 = load i32, ptr %h, align 8
-  %8 = load i32, ptr %size_y, align 4
-  %cmp2 = icmp slt i32 %7, %8
-  br i1 %cmp2, label %if.then, label %if.end
-
-if.then:                                          ; preds = %lor.lhs.false, %entry
-  store ptr @.str, ptr @stbhw_error, align 8
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %lor.lhs.false
-  %9 = load ptr, ptr %c, align 8
-  %is_corner = getelementptr inbounds %struct.stbhw_config, ptr %9, i32 0, i32 0
-  %10 = load i32, ptr %is_corner, align 4
-  %tobool = icmp ne i32 %10, 0
-  br i1 %tobool, label %if.then3, label %if.else
-
-if.then3:                                         ; preds = %if.end
-  store i32 2, ptr %ypos, align 4
-  store i32 0, ptr %k, align 4
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc33, %if.then3
-  %11 = load i32, ptr %k, align 4
-  %12 = load ptr, ptr %c, align 8
-  %num_color = getelementptr inbounds %struct.stbhw_config, ptr %12, i32 0, i32 2
-  %arrayidx = getelementptr inbounds [6 x i32], ptr %num_color, i64 0, i64 2
-  %13 = load i32, ptr %arrayidx, align 4
-  %cmp4 = icmp slt i32 %11, %13
-  br i1 %cmp4, label %for.body, label %for.end35
-
-for.body:                                         ; preds = %for.cond
-  store i32 0, ptr %j, align 4
-  br label %for.cond5
-
-for.cond5:                                        ; preds = %for.inc30, %for.body
-  %14 = load i32, ptr %j, align 4
-  %15 = load ptr, ptr %c, align 8
-  %num_color6 = getelementptr inbounds %struct.stbhw_config, ptr %15, i32 0, i32 2
-  %arrayidx7 = getelementptr inbounds [6 x i32], ptr %num_color6, i64 0, i64 1
-  %16 = load i32, ptr %arrayidx7, align 4
-  %cmp8 = icmp slt i32 %14, %16
-  br i1 %cmp8, label %for.body9, label %for.end32
-
-for.body9:                                        ; preds = %for.cond5
-  store i32 0, ptr %i, align 4
-  br label %for.cond10
-
-for.cond10:                                       ; preds = %for.inc27, %for.body9
-  %17 = load i32, ptr %i, align 4
-  %18 = load ptr, ptr %c, align 8
-  %num_color11 = getelementptr inbounds %struct.stbhw_config, ptr %18, i32 0, i32 2
-  %arrayidx12 = getelementptr inbounds [6 x i32], ptr %num_color11, i64 0, i64 0
-  %19 = load i32, ptr %arrayidx12, align 4
-  %cmp13 = icmp slt i32 %17, %19
-  br i1 %cmp13, label %for.body14, label %for.end29
-
-for.body14:                                       ; preds = %for.cond10
-  store i32 0, ptr %q, align 4
-  br label %for.cond15
-
-for.cond15:                                       ; preds = %for.inc, %for.body14
-  %20 = load i32, ptr %q, align 4
-  %21 = load ptr, ptr %c, align 8
-  %num_vary_y = getelementptr inbounds %struct.stbhw_config, ptr %21, i32 0, i32 4
-  %22 = load i32, ptr %num_vary_y, align 4
-  %cmp16 = icmp slt i32 %20, %22
-  br i1 %cmp16, label %for.body17, label %for.end
-
-for.body17:                                       ; preds = %for.cond15
-  %23 = load ptr, ptr %p.addr, align 8
-  %24 = load i32, ptr %ypos, align 4
-  %25 = load ptr, ptr %c, align 8
-  %num_color18 = getelementptr inbounds %struct.stbhw_config, ptr %25, i32 0, i32 2
-  %arrayidx19 = getelementptr inbounds [6 x i32], ptr %num_color18, i64 0, i64 1
-  %26 = load i32, ptr %arrayidx19, align 4
-  %sub = sub nsw i32 %26, 1
-  %27 = load ptr, ptr %c, align 8
-  %num_color20 = getelementptr inbounds %struct.stbhw_config, ptr %27, i32 0, i32 2
-  %arrayidx21 = getelementptr inbounds [6 x i32], ptr %num_color20, i64 0, i64 2
-  %28 = load i32, ptr %arrayidx21, align 4
-  %sub22 = sub nsw i32 %28, 1
-  %29 = load ptr, ptr %c, align 8
-  %num_color23 = getelementptr inbounds %struct.stbhw_config, ptr %29, i32 0, i32 2
-  %arrayidx24 = getelementptr inbounds [6 x i32], ptr %num_color23, i64 0, i64 3
-  %30 = load i32, ptr %arrayidx24, align 4
-  %sub25 = sub nsw i32 %30, 1
-  %31 = load i32, ptr %i, align 4
-  %32 = load i32, ptr %i, align 4
-  %33 = load i32, ptr %j, align 4
-  %34 = load i32, ptr %j, align 4
-  %35 = load i32, ptr %k, align 4
-  %36 = load i32, ptr %k, align 4
-  %37 = load ptr, ptr %c, align 8
-  %num_vary_x = getelementptr inbounds %struct.stbhw_config, ptr %37, i32 0, i32 3
-  %38 = load i32, ptr %num_vary_x, align 4
-  call void @stbhw__process_h_row(ptr noundef %23, i32 noundef 0, i32 noundef %24, i32 noundef 0, i32 noundef %sub, i32 noundef 0, i32 noundef %sub22, i32 noundef 0, i32 noundef %sub25, i32 noundef %31, i32 noundef %32, i32 noundef %33, i32 noundef %34, i32 noundef %35, i32 noundef %36, i32 noundef %38)
-  %39 = load ptr, ptr %c, align 8
-  %short_side_len = getelementptr inbounds %struct.stbhw_config, ptr %39, i32 0, i32 1
-  %40 = load i32, ptr %short_side_len, align 4
-  %add = add nsw i32 %40, 3
-  %41 = load i32, ptr %ypos, align 4
-  %add26 = add nsw i32 %41, %add
-  store i32 %add26, ptr %ypos, align 4
-  br label %for.inc
-
-for.inc:                                          ; preds = %for.body17
-  %42 = load i32, ptr %q, align 4
-  %inc = add nsw i32 %42, 1
-  store i32 %inc, ptr %q, align 4
-  br label %for.cond15, !llvm.loop !19
-
-for.end:                                          ; preds = %for.cond15
-  br label %for.inc27
-
-for.inc27:                                        ; preds = %for.end
-  %43 = load i32, ptr %i, align 4
-  %inc28 = add nsw i32 %43, 1
-  store i32 %inc28, ptr %i, align 4
-  br label %for.cond10, !llvm.loop !20
-
-for.end29:                                        ; preds = %for.cond10
-  br label %for.inc30
-
-for.inc30:                                        ; preds = %for.end29
-  %44 = load i32, ptr %j, align 4
-  %inc31 = add nsw i32 %44, 1
-  store i32 %inc31, ptr %j, align 4
-  br label %for.cond5, !llvm.loop !21
-
-for.end32:                                        ; preds = %for.cond5
-  br label %for.inc33
-
-for.inc33:                                        ; preds = %for.end32
-  %45 = load i32, ptr %k, align 4
-  %inc34 = add nsw i32 %45, 1
-  store i32 %inc34, ptr %k, align 4
-  br label %for.cond, !llvm.loop !22
-
-for.end35:                                        ; preds = %for.cond
-  %46 = load i32, ptr %ypos, align 4
-  %add36 = add nsw i32 %46, 2
-  store i32 %add36, ptr %ypos, align 4
-  store i32 0, ptr %k, align 4
-  br label %for.cond37
-
-for.cond37:                                       ; preds = %for.inc78, %for.end35
-  %47 = load i32, ptr %k, align 4
-  %48 = load ptr, ptr %c, align 8
-  %num_color38 = getelementptr inbounds %struct.stbhw_config, ptr %48, i32 0, i32 2
-  %arrayidx39 = getelementptr inbounds [6 x i32], ptr %num_color38, i64 0, i64 3
-  %49 = load i32, ptr %arrayidx39, align 4
-  %cmp40 = icmp slt i32 %47, %49
-  br i1 %cmp40, label %for.body41, label %for.end80
-
-for.body41:                                       ; preds = %for.cond37
-  store i32 0, ptr %j, align 4
-  br label %for.cond42
-
-for.cond42:                                       ; preds = %for.inc75, %for.body41
-  %50 = load i32, ptr %j, align 4
-  %51 = load ptr, ptr %c, align 8
-  %num_color43 = getelementptr inbounds %struct.stbhw_config, ptr %51, i32 0, i32 2
-  %arrayidx44 = getelementptr inbounds [6 x i32], ptr %num_color43, i64 0, i64 0
-  %52 = load i32, ptr %arrayidx44, align 4
-  %cmp45 = icmp slt i32 %50, %52
-  br i1 %cmp45, label %for.body46, label %for.end77
-
-for.body46:                                       ; preds = %for.cond42
-  store i32 0, ptr %i, align 4
-  br label %for.cond47
-
-for.cond47:                                       ; preds = %for.inc72, %for.body46
-  %53 = load i32, ptr %i, align 4
-  %54 = load ptr, ptr %c, align 8
-  %num_color48 = getelementptr inbounds %struct.stbhw_config, ptr %54, i32 0, i32 2
-  %arrayidx49 = getelementptr inbounds [6 x i32], ptr %num_color48, i64 0, i64 1
-  %55 = load i32, ptr %arrayidx49, align 4
-  %cmp50 = icmp slt i32 %53, %55
-  br i1 %cmp50, label %for.body51, label %for.end74
-
-for.body51:                                       ; preds = %for.cond47
-  store i32 0, ptr %q, align 4
-  br label %for.cond52
-
-for.cond52:                                       ; preds = %for.inc69, %for.body51
-  %56 = load i32, ptr %q, align 4
-  %57 = load ptr, ptr %c, align 8
-  %num_vary_x53 = getelementptr inbounds %struct.stbhw_config, ptr %57, i32 0, i32 3
-  %58 = load i32, ptr %num_vary_x53, align 4
-  %cmp54 = icmp slt i32 %56, %58
-  br i1 %cmp54, label %for.body55, label %for.end71
-
-for.body55:                                       ; preds = %for.cond52
-  %59 = load ptr, ptr %p.addr, align 8
-  %60 = load i32, ptr %ypos, align 4
-  %61 = load ptr, ptr %c, align 8
-  %num_color56 = getelementptr inbounds %struct.stbhw_config, ptr %61, i32 0, i32 2
-  %arrayidx57 = getelementptr inbounds [6 x i32], ptr %num_color56, i64 0, i64 0
-  %62 = load i32, ptr %arrayidx57, align 4
-  %sub58 = sub nsw i32 %62, 1
-  %63 = load ptr, ptr %c, align 8
-  %num_color59 = getelementptr inbounds %struct.stbhw_config, ptr %63, i32 0, i32 2
-  %arrayidx60 = getelementptr inbounds [6 x i32], ptr %num_color59, i64 0, i64 3
-  %64 = load i32, ptr %arrayidx60, align 4
-  %sub61 = sub nsw i32 %64, 1
-  %65 = load ptr, ptr %c, align 8
-  %num_color62 = getelementptr inbounds %struct.stbhw_config, ptr %65, i32 0, i32 2
-  %arrayidx63 = getelementptr inbounds [6 x i32], ptr %num_color62, i64 0, i64 2
-  %66 = load i32, ptr %arrayidx63, align 4
-  %sub64 = sub nsw i32 %66, 1
-  %67 = load i32, ptr %i, align 4
-  %68 = load i32, ptr %i, align 4
-  %69 = load i32, ptr %j, align 4
-  %70 = load i32, ptr %j, align 4
-  %71 = load i32, ptr %k, align 4
-  %72 = load i32, ptr %k, align 4
-  %73 = load ptr, ptr %c, align 8
-  %num_vary_y65 = getelementptr inbounds %struct.stbhw_config, ptr %73, i32 0, i32 4
-  %74 = load i32, ptr %num_vary_y65, align 4
-  call void @stbhw__process_v_row(ptr noundef %59, i32 noundef 0, i32 noundef %60, i32 noundef 0, i32 noundef %sub58, i32 noundef 0, i32 noundef %sub61, i32 noundef 0, i32 noundef %sub64, i32 noundef %67, i32 noundef %68, i32 noundef %69, i32 noundef %70, i32 noundef %71, i32 noundef %72, i32 noundef %74)
-  %75 = load ptr, ptr %c, align 8
-  %short_side_len66 = getelementptr inbounds %struct.stbhw_config, ptr %75, i32 0, i32 1
-  %76 = load i32, ptr %short_side_len66, align 4
-  %mul = mul nsw i32 %76, 2
-  %add67 = add nsw i32 %mul, 3
-  %77 = load i32, ptr %ypos, align 4
-  %add68 = add nsw i32 %77, %add67
-  store i32 %add68, ptr %ypos, align 4
-  br label %for.inc69
-
-for.inc69:                                        ; preds = %for.body55
-  %78 = load i32, ptr %q, align 4
-  %inc70 = add nsw i32 %78, 1
-  store i32 %inc70, ptr %q, align 4
-  br label %for.cond52, !llvm.loop !23
-
-for.end71:                                        ; preds = %for.cond52
-  br label %for.inc72
-
-for.inc72:                                        ; preds = %for.end71
-  %79 = load i32, ptr %i, align 4
-  %inc73 = add nsw i32 %79, 1
-  store i32 %inc73, ptr %i, align 4
-  br label %for.cond47, !llvm.loop !24
-
-for.end74:                                        ; preds = %for.cond47
-  br label %for.inc75
-
-for.inc75:                                        ; preds = %for.end74
-  %80 = load i32, ptr %j, align 4
-  %inc76 = add nsw i32 %80, 1
-  store i32 %inc76, ptr %j, align 4
-  br label %for.cond42, !llvm.loop !25
-
-for.end77:                                        ; preds = %for.cond42
-  br label %for.inc78
-
-for.inc78:                                        ; preds = %for.end77
-  %81 = load i32, ptr %k, align 4
-  %inc79 = add nsw i32 %81, 1
-  store i32 %inc79, ptr %k, align 4
-  br label %for.cond37, !llvm.loop !26
-
-for.end80:                                        ; preds = %for.cond37
-  br label %if.end171
-
-if.else:                                          ; preds = %if.end
-  store i32 2, ptr %ypos, align 4
-  store i32 0, ptr %k, align 4
-  br label %for.cond81
-
-for.cond81:                                       ; preds = %for.inc122, %if.else
-  %82 = load i32, ptr %k, align 4
-  %83 = load ptr, ptr %c, align 8
-  %num_color82 = getelementptr inbounds %struct.stbhw_config, ptr %83, i32 0, i32 2
-  %arrayidx83 = getelementptr inbounds [6 x i32], ptr %num_color82, i64 0, i64 3
-  %84 = load i32, ptr %arrayidx83, align 4
-  %cmp84 = icmp slt i32 %82, %84
-  br i1 %cmp84, label %for.body85, label %for.end124
-
-for.body85:                                       ; preds = %for.cond81
-  store i32 0, ptr %j, align 4
-  br label %for.cond86
-
-for.cond86:                                       ; preds = %for.inc119, %for.body85
-  %85 = load i32, ptr %j, align 4
-  %86 = load ptr, ptr %c, align 8
-  %num_color87 = getelementptr inbounds %struct.stbhw_config, ptr %86, i32 0, i32 2
-  %arrayidx88 = getelementptr inbounds [6 x i32], ptr %num_color87, i64 0, i64 4
-  %87 = load i32, ptr %arrayidx88, align 4
-  %cmp89 = icmp slt i32 %85, %87
-  br i1 %cmp89, label %for.body90, label %for.end121
-
-for.body90:                                       ; preds = %for.cond86
-  store i32 0, ptr %i, align 4
-  br label %for.cond91
-
-for.cond91:                                       ; preds = %for.inc116, %for.body90
-  %88 = load i32, ptr %i, align 4
-  %89 = load ptr, ptr %c, align 8
-  %num_color92 = getelementptr inbounds %struct.stbhw_config, ptr %89, i32 0, i32 2
-  %arrayidx93 = getelementptr inbounds [6 x i32], ptr %num_color92, i64 0, i64 2
-  %90 = load i32, ptr %arrayidx93, align 4
-  %cmp94 = icmp slt i32 %88, %90
-  br i1 %cmp94, label %for.body95, label %for.end118
-
-for.body95:                                       ; preds = %for.cond91
-  store i32 0, ptr %q, align 4
-  br label %for.cond96
-
-for.cond96:                                       ; preds = %for.inc113, %for.body95
-  %91 = load i32, ptr %q, align 4
-  %92 = load ptr, ptr %c, align 8
-  %num_vary_y97 = getelementptr inbounds %struct.stbhw_config, ptr %92, i32 0, i32 4
-  %93 = load i32, ptr %num_vary_y97, align 4
-  %cmp98 = icmp slt i32 %91, %93
-  br i1 %cmp98, label %for.body99, label %for.end115
-
-for.body99:                                       ; preds = %for.cond96
-  %94 = load ptr, ptr %p.addr, align 8
-  %95 = load i32, ptr %ypos, align 4
-  %96 = load ptr, ptr %c, align 8
-  %num_color100 = getelementptr inbounds %struct.stbhw_config, ptr %96, i32 0, i32 2
-  %arrayidx101 = getelementptr inbounds [6 x i32], ptr %num_color100, i64 0, i64 2
-  %97 = load i32, ptr %arrayidx101, align 4
-  %sub102 = sub nsw i32 %97, 1
-  %98 = load i32, ptr %k, align 4
-  %99 = load i32, ptr %k, align 4
-  %100 = load ptr, ptr %c, align 8
-  %num_color103 = getelementptr inbounds %struct.stbhw_config, ptr %100, i32 0, i32 2
-  %arrayidx104 = getelementptr inbounds [6 x i32], ptr %num_color103, i64 0, i64 1
-  %101 = load i32, ptr %arrayidx104, align 4
-  %sub105 = sub nsw i32 %101, 1
-  %102 = load i32, ptr %j, align 4
-  %103 = load i32, ptr %j, align 4
-  %104 = load ptr, ptr %c, align 8
-  %num_color106 = getelementptr inbounds %struct.stbhw_config, ptr %104, i32 0, i32 2
-  %arrayidx107 = getelementptr inbounds [6 x i32], ptr %num_color106, i64 0, i64 0
-  %105 = load i32, ptr %arrayidx107, align 4
-  %sub108 = sub nsw i32 %105, 1
-  %106 = load i32, ptr %i, align 4
-  %107 = load i32, ptr %i, align 4
-  %108 = load ptr, ptr %c, align 8
-  %num_vary_x109 = getelementptr inbounds %struct.stbhw_config, ptr %108, i32 0, i32 3
-  %109 = load i32, ptr %num_vary_x109, align 4
-  call void @stbhw__process_h_row(ptr noundef %94, i32 noundef 0, i32 noundef %95, i32 noundef 0, i32 noundef %sub102, i32 noundef %98, i32 noundef %99, i32 noundef 0, i32 noundef %sub105, i32 noundef %102, i32 noundef %103, i32 noundef 0, i32 noundef %sub108, i32 noundef %106, i32 noundef %107, i32 noundef %109)
-  %110 = load ptr, ptr %c, align 8
-  %short_side_len110 = getelementptr inbounds %struct.stbhw_config, ptr %110, i32 0, i32 1
-  %111 = load i32, ptr %short_side_len110, align 4
-  %add111 = add nsw i32 %111, 3
-  %112 = load i32, ptr %ypos, align 4
-  %add112 = add nsw i32 %112, %add111
-  store i32 %add112, ptr %ypos, align 4
-  br label %for.inc113
-
-for.inc113:                                       ; preds = %for.body99
-  %113 = load i32, ptr %q, align 4
-  %inc114 = add nsw i32 %113, 1
-  store i32 %inc114, ptr %q, align 4
-  br label %for.cond96, !llvm.loop !27
-
-for.end115:                                       ; preds = %for.cond96
-  br label %for.inc116
-
-for.inc116:                                       ; preds = %for.end115
-  %114 = load i32, ptr %i, align 4
-  %inc117 = add nsw i32 %114, 1
-  store i32 %inc117, ptr %i, align 4
-  br label %for.cond91, !llvm.loop !28
-
-for.end118:                                       ; preds = %for.cond91
-  br label %for.inc119
-
-for.inc119:                                       ; preds = %for.end118
-  %115 = load i32, ptr %j, align 4
-  %inc120 = add nsw i32 %115, 1
-  store i32 %inc120, ptr %j, align 4
-  br label %for.cond86, !llvm.loop !29
-
-for.end121:                                       ; preds = %for.cond86
-  br label %for.inc122
-
-for.inc122:                                       ; preds = %for.end121
-  %116 = load i32, ptr %k, align 4
-  %inc123 = add nsw i32 %116, 1
-  store i32 %inc123, ptr %k, align 4
-  br label %for.cond81, !llvm.loop !30
-
-for.end124:                                       ; preds = %for.cond81
-  %117 = load i32, ptr %ypos, align 4
-  %add125 = add nsw i32 %117, 2
-  store i32 %add125, ptr %ypos, align 4
-  store i32 0, ptr %k, align 4
-  br label %for.cond126
-
-for.cond126:                                      ; preds = %for.inc168, %for.end124
-  %118 = load i32, ptr %k, align 4
-  %119 = load ptr, ptr %c, align 8
-  %num_color127 = getelementptr inbounds %struct.stbhw_config, ptr %119, i32 0, i32 2
-  %arrayidx128 = getelementptr inbounds [6 x i32], ptr %num_color127, i64 0, i64 3
-  %120 = load i32, ptr %arrayidx128, align 4
-  %cmp129 = icmp slt i32 %118, %120
-  br i1 %cmp129, label %for.body130, label %for.end170
-
-for.body130:                                      ; preds = %for.cond126
-  store i32 0, ptr %j, align 4
-  br label %for.cond131
-
-for.cond131:                                      ; preds = %for.inc165, %for.body130
-  %121 = load i32, ptr %j, align 4
-  %122 = load ptr, ptr %c, align 8
-  %num_color132 = getelementptr inbounds %struct.stbhw_config, ptr %122, i32 0, i32 2
-  %arrayidx133 = getelementptr inbounds [6 x i32], ptr %num_color132, i64 0, i64 4
-  %123 = load i32, ptr %arrayidx133, align 4
-  %cmp134 = icmp slt i32 %121, %123
-  br i1 %cmp134, label %for.body135, label %for.end167
-
-for.body135:                                      ; preds = %for.cond131
-  store i32 0, ptr %i, align 4
-  br label %for.cond136
-
-for.cond136:                                      ; preds = %for.inc162, %for.body135
-  %124 = load i32, ptr %i, align 4
-  %125 = load ptr, ptr %c, align 8
-  %num_color137 = getelementptr inbounds %struct.stbhw_config, ptr %125, i32 0, i32 2
-  %arrayidx138 = getelementptr inbounds [6 x i32], ptr %num_color137, i64 0, i64 5
-  %126 = load i32, ptr %arrayidx138, align 4
-  %cmp139 = icmp slt i32 %124, %126
-  br i1 %cmp139, label %for.body140, label %for.end164
-
-for.body140:                                      ; preds = %for.cond136
-  store i32 0, ptr %q, align 4
-  br label %for.cond141
-
-for.cond141:                                      ; preds = %for.inc159, %for.body140
-  %127 = load i32, ptr %q, align 4
-  %128 = load ptr, ptr %c, align 8
-  %num_vary_x142 = getelementptr inbounds %struct.stbhw_config, ptr %128, i32 0, i32 3
-  %129 = load i32, ptr %num_vary_x142, align 4
-  %cmp143 = icmp slt i32 %127, %129
-  br i1 %cmp143, label %for.body144, label %for.end161
-
-for.body144:                                      ; preds = %for.cond141
-  %130 = load ptr, ptr %p.addr, align 8
-  %131 = load i32, ptr %ypos, align 4
-  %132 = load ptr, ptr %c, align 8
-  %num_color145 = getelementptr inbounds %struct.stbhw_config, ptr %132, i32 0, i32 2
-  %arrayidx146 = getelementptr inbounds [6 x i32], ptr %num_color145, i64 0, i64 0
-  %133 = load i32, ptr %arrayidx146, align 4
-  %sub147 = sub nsw i32 %133, 1
-  %134 = load i32, ptr %i, align 4
-  %135 = load i32, ptr %i, align 4
-  %136 = load ptr, ptr %c, align 8
-  %num_color148 = getelementptr inbounds %struct.stbhw_config, ptr %136, i32 0, i32 2
-  %arrayidx149 = getelementptr inbounds [6 x i32], ptr %num_color148, i64 0, i64 1
-  %137 = load i32, ptr %arrayidx149, align 4
-  %sub150 = sub nsw i32 %137, 1
-  %138 = load i32, ptr %j, align 4
-  %139 = load i32, ptr %j, align 4
-  %140 = load ptr, ptr %c, align 8
-  %num_color151 = getelementptr inbounds %struct.stbhw_config, ptr %140, i32 0, i32 2
-  %arrayidx152 = getelementptr inbounds [6 x i32], ptr %num_color151, i64 0, i64 5
-  %141 = load i32, ptr %arrayidx152, align 4
-  %sub153 = sub nsw i32 %141, 1
-  %142 = load i32, ptr %k, align 4
-  %143 = load i32, ptr %k, align 4
-  %144 = load ptr, ptr %c, align 8
-  %num_vary_y154 = getelementptr inbounds %struct.stbhw_config, ptr %144, i32 0, i32 4
-  %145 = load i32, ptr %num_vary_y154, align 4
-  call void @stbhw__process_v_row(ptr noundef %130, i32 noundef 0, i32 noundef %131, i32 noundef 0, i32 noundef %sub147, i32 noundef %134, i32 noundef %135, i32 noundef 0, i32 noundef %sub150, i32 noundef %138, i32 noundef %139, i32 noundef 0, i32 noundef %sub153, i32 noundef %142, i32 noundef %143, i32 noundef %145)
-  %146 = load ptr, ptr %c, align 8
-  %short_side_len155 = getelementptr inbounds %struct.stbhw_config, ptr %146, i32 0, i32 1
-  %147 = load i32, ptr %short_side_len155, align 4
-  %mul156 = mul nsw i32 %147, 2
-  %add157 = add nsw i32 %mul156, 3
-  %148 = load i32, ptr %ypos, align 4
-  %add158 = add nsw i32 %148, %add157
-  store i32 %add158, ptr %ypos, align 4
-  br label %for.inc159
-
-for.inc159:                                       ; preds = %for.body144
-  %149 = load i32, ptr %q, align 4
-  %inc160 = add nsw i32 %149, 1
-  store i32 %inc160, ptr %q, align 4
-  br label %for.cond141, !llvm.loop !31
-
-for.end161:                                       ; preds = %for.cond141
-  br label %for.inc162
-
-for.inc162:                                       ; preds = %for.end161
-  %150 = load i32, ptr %i, align 4
-  %inc163 = add nsw i32 %150, 1
-  store i32 %inc163, ptr %i, align 4
-  br label %for.cond136, !llvm.loop !32
-
-for.end164:                                       ; preds = %for.cond136
-  br label %for.inc165
-
-for.inc165:                                       ; preds = %for.end164
-  %151 = load i32, ptr %j, align 4
-  %inc166 = add nsw i32 %151, 1
-  store i32 %inc166, ptr %j, align 4
-  br label %for.cond131, !llvm.loop !33
-
-for.end167:                                       ; preds = %for.cond131
-  br label %for.inc168
-
-for.inc168:                                       ; preds = %for.end167
-  %152 = load i32, ptr %k, align 4
-  %inc169 = add nsw i32 %152, 1
-  store i32 %inc169, ptr %k, align 4
-  br label %for.cond126, !llvm.loop !34
-
-for.end170:                                       ; preds = %for.cond126
-  br label %if.end171
-
-if.end171:                                        ; preds = %for.end170, %for.end80
-  store i32 1, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end171, %if.then
-  %153 = load i32, ptr %retval, align 4
-  ret i32 %153
+define i32 @stbhw__process_template(ptr noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #6
+  %13 = load ptr, ptr %3, align 8, !tbaa !8
+  %14 = getelementptr inbounds nuw %struct.stbhw__process, ptr %13, i32 0, i32 1
+  %15 = load ptr, ptr %14, align 8, !tbaa !15
+  store ptr %15, ptr %11, align 8, !tbaa !34
+  %16 = load ptr, ptr %11, align 8, !tbaa !34
+  call void @stbhw__get_template_info(ptr noundef %16, ptr noundef %9, ptr noundef %10, ptr noundef null, ptr noundef null)
+  %17 = load ptr, ptr %3, align 8, !tbaa !8
+  %18 = getelementptr inbounds nuw %struct.stbhw__process, ptr %17, i32 0, i32 6
+  %19 = load i32, ptr %18, align 4, !tbaa !40
+  %20 = load i32, ptr %9, align 4, !tbaa !10
+  %21 = icmp slt i32 %19, %20
+  br i1 %21, label %28, label %22
+
+22:                                               ; preds = %1
+  %23 = load ptr, ptr %3, align 8, !tbaa !8
+  %24 = getelementptr inbounds nuw %struct.stbhw__process, ptr %23, i32 0, i32 7
+  %25 = load i32, ptr %24, align 8, !tbaa !41
+  %26 = load i32, ptr %10, align 4, !tbaa !10
+  %27 = icmp slt i32 %25, %26
+  br i1 %27, label %28, label %29
+
+28:                                               ; preds = %22, %1
+  store ptr @.str, ptr @stbhw_error, align 8, !tbaa !3
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %12, align 4
+  br label %359
+
+29:                                               ; preds = %22
+  %30 = load ptr, ptr %11, align 8, !tbaa !34
+  %31 = getelementptr inbounds nuw %struct.stbhw_config, ptr %30, i32 0, i32 0
+  %32 = load i32, ptr %31, align 4, !tbaa !37
+  %33 = icmp ne i32 %32, 0
+  br i1 %33, label %34, label %196
+
+34:                                               ; preds = %29
+  store i32 2, ptr %8, align 4, !tbaa !10
+  store i32 0, ptr %6, align 4, !tbaa !10
+  br label %35
+
+35:                                               ; preds = %110, %34
+  %36 = load i32, ptr %6, align 4, !tbaa !10
+  %37 = load ptr, ptr %11, align 8, !tbaa !34
+  %38 = getelementptr inbounds nuw %struct.stbhw_config, ptr %37, i32 0, i32 2
+  %39 = getelementptr inbounds [6 x i32], ptr %38, i64 0, i64 2
+  %40 = load i32, ptr %39, align 4, !tbaa !10
+  %41 = icmp slt i32 %36, %40
+  br i1 %41, label %42, label %113
+
+42:                                               ; preds = %35
+  store i32 0, ptr %5, align 4, !tbaa !10
+  br label %43
+
+43:                                               ; preds = %106, %42
+  %44 = load i32, ptr %5, align 4, !tbaa !10
+  %45 = load ptr, ptr %11, align 8, !tbaa !34
+  %46 = getelementptr inbounds nuw %struct.stbhw_config, ptr %45, i32 0, i32 2
+  %47 = getelementptr inbounds [6 x i32], ptr %46, i64 0, i64 1
+  %48 = load i32, ptr %47, align 4, !tbaa !10
+  %49 = icmp slt i32 %44, %48
+  br i1 %49, label %50, label %109
+
+50:                                               ; preds = %43
+  store i32 0, ptr %4, align 4, !tbaa !10
+  br label %51
+
+51:                                               ; preds = %102, %50
+  %52 = load i32, ptr %4, align 4, !tbaa !10
+  %53 = load ptr, ptr %11, align 8, !tbaa !34
+  %54 = getelementptr inbounds nuw %struct.stbhw_config, ptr %53, i32 0, i32 2
+  %55 = getelementptr inbounds [6 x i32], ptr %54, i64 0, i64 0
+  %56 = load i32, ptr %55, align 4, !tbaa !10
+  %57 = icmp slt i32 %52, %56
+  br i1 %57, label %58, label %105
+
+58:                                               ; preds = %51
+  store i32 0, ptr %7, align 4, !tbaa !10
+  br label %59
+
+59:                                               ; preds = %98, %58
+  %60 = load i32, ptr %7, align 4, !tbaa !10
+  %61 = load ptr, ptr %11, align 8, !tbaa !34
+  %62 = getelementptr inbounds nuw %struct.stbhw_config, ptr %61, i32 0, i32 4
+  %63 = load i32, ptr %62, align 4, !tbaa !39
+  %64 = icmp slt i32 %60, %63
+  br i1 %64, label %65, label %101
+
+65:                                               ; preds = %59
+  %66 = load ptr, ptr %3, align 8, !tbaa !8
+  %67 = load i32, ptr %8, align 4, !tbaa !10
+  %68 = load ptr, ptr %11, align 8, !tbaa !34
+  %69 = getelementptr inbounds nuw %struct.stbhw_config, ptr %68, i32 0, i32 2
+  %70 = getelementptr inbounds [6 x i32], ptr %69, i64 0, i64 1
+  %71 = load i32, ptr %70, align 4, !tbaa !10
+  %72 = sub nsw i32 %71, 1
+  %73 = load ptr, ptr %11, align 8, !tbaa !34
+  %74 = getelementptr inbounds nuw %struct.stbhw_config, ptr %73, i32 0, i32 2
+  %75 = getelementptr inbounds [6 x i32], ptr %74, i64 0, i64 2
+  %76 = load i32, ptr %75, align 4, !tbaa !10
+  %77 = sub nsw i32 %76, 1
+  %78 = load ptr, ptr %11, align 8, !tbaa !34
+  %79 = getelementptr inbounds nuw %struct.stbhw_config, ptr %78, i32 0, i32 2
+  %80 = getelementptr inbounds [6 x i32], ptr %79, i64 0, i64 3
+  %81 = load i32, ptr %80, align 4, !tbaa !10
+  %82 = sub nsw i32 %81, 1
+  %83 = load i32, ptr %4, align 4, !tbaa !10
+  %84 = load i32, ptr %4, align 4, !tbaa !10
+  %85 = load i32, ptr %5, align 4, !tbaa !10
+  %86 = load i32, ptr %5, align 4, !tbaa !10
+  %87 = load i32, ptr %6, align 4, !tbaa !10
+  %88 = load i32, ptr %6, align 4, !tbaa !10
+  %89 = load ptr, ptr %11, align 8, !tbaa !34
+  %90 = getelementptr inbounds nuw %struct.stbhw_config, ptr %89, i32 0, i32 3
+  %91 = load i32, ptr %90, align 4, !tbaa !38
+  call void @stbhw__process_h_row(ptr noundef %66, i32 noundef 0, i32 noundef %67, i32 noundef 0, i32 noundef %72, i32 noundef 0, i32 noundef %77, i32 noundef 0, i32 noundef %82, i32 noundef %83, i32 noundef %84, i32 noundef %85, i32 noundef %86, i32 noundef %87, i32 noundef %88, i32 noundef %91)
+  %92 = load ptr, ptr %11, align 8, !tbaa !34
+  %93 = getelementptr inbounds nuw %struct.stbhw_config, ptr %92, i32 0, i32 1
+  %94 = load i32, ptr %93, align 4, !tbaa !16
+  %95 = add nsw i32 %94, 3
+  %96 = load i32, ptr %8, align 4, !tbaa !10
+  %97 = add nsw i32 %96, %95
+  store i32 %97, ptr %8, align 4, !tbaa !10
+  br label %98
+
+98:                                               ; preds = %65
+  %99 = load i32, ptr %7, align 4, !tbaa !10
+  %100 = add nsw i32 %99, 1
+  store i32 %100, ptr %7, align 4, !tbaa !10
+  br label %59, !llvm.loop !42
+
+101:                                              ; preds = %59
+  br label %102
+
+102:                                              ; preds = %101
+  %103 = load i32, ptr %4, align 4, !tbaa !10
+  %104 = add nsw i32 %103, 1
+  store i32 %104, ptr %4, align 4, !tbaa !10
+  br label %51, !llvm.loop !43
+
+105:                                              ; preds = %51
+  br label %106
+
+106:                                              ; preds = %105
+  %107 = load i32, ptr %5, align 4, !tbaa !10
+  %108 = add nsw i32 %107, 1
+  store i32 %108, ptr %5, align 4, !tbaa !10
+  br label %43, !llvm.loop !44
+
+109:                                              ; preds = %43
+  br label %110
+
+110:                                              ; preds = %109
+  %111 = load i32, ptr %6, align 4, !tbaa !10
+  %112 = add nsw i32 %111, 1
+  store i32 %112, ptr %6, align 4, !tbaa !10
+  br label %35, !llvm.loop !45
+
+113:                                              ; preds = %35
+  %114 = load i32, ptr %8, align 4, !tbaa !10
+  %115 = add nsw i32 %114, 2
+  store i32 %115, ptr %8, align 4, !tbaa !10
+  store i32 0, ptr %6, align 4, !tbaa !10
+  br label %116
+
+116:                                              ; preds = %192, %113
+  %117 = load i32, ptr %6, align 4, !tbaa !10
+  %118 = load ptr, ptr %11, align 8, !tbaa !34
+  %119 = getelementptr inbounds nuw %struct.stbhw_config, ptr %118, i32 0, i32 2
+  %120 = getelementptr inbounds [6 x i32], ptr %119, i64 0, i64 3
+  %121 = load i32, ptr %120, align 4, !tbaa !10
+  %122 = icmp slt i32 %117, %121
+  br i1 %122, label %123, label %195
+
+123:                                              ; preds = %116
+  store i32 0, ptr %5, align 4, !tbaa !10
+  br label %124
+
+124:                                              ; preds = %188, %123
+  %125 = load i32, ptr %5, align 4, !tbaa !10
+  %126 = load ptr, ptr %11, align 8, !tbaa !34
+  %127 = getelementptr inbounds nuw %struct.stbhw_config, ptr %126, i32 0, i32 2
+  %128 = getelementptr inbounds [6 x i32], ptr %127, i64 0, i64 0
+  %129 = load i32, ptr %128, align 4, !tbaa !10
+  %130 = icmp slt i32 %125, %129
+  br i1 %130, label %131, label %191
+
+131:                                              ; preds = %124
+  store i32 0, ptr %4, align 4, !tbaa !10
+  br label %132
+
+132:                                              ; preds = %184, %131
+  %133 = load i32, ptr %4, align 4, !tbaa !10
+  %134 = load ptr, ptr %11, align 8, !tbaa !34
+  %135 = getelementptr inbounds nuw %struct.stbhw_config, ptr %134, i32 0, i32 2
+  %136 = getelementptr inbounds [6 x i32], ptr %135, i64 0, i64 1
+  %137 = load i32, ptr %136, align 4, !tbaa !10
+  %138 = icmp slt i32 %133, %137
+  br i1 %138, label %139, label %187
+
+139:                                              ; preds = %132
+  store i32 0, ptr %7, align 4, !tbaa !10
+  br label %140
+
+140:                                              ; preds = %180, %139
+  %141 = load i32, ptr %7, align 4, !tbaa !10
+  %142 = load ptr, ptr %11, align 8, !tbaa !34
+  %143 = getelementptr inbounds nuw %struct.stbhw_config, ptr %142, i32 0, i32 3
+  %144 = load i32, ptr %143, align 4, !tbaa !38
+  %145 = icmp slt i32 %141, %144
+  br i1 %145, label %146, label %183
+
+146:                                              ; preds = %140
+  %147 = load ptr, ptr %3, align 8, !tbaa !8
+  %148 = load i32, ptr %8, align 4, !tbaa !10
+  %149 = load ptr, ptr %11, align 8, !tbaa !34
+  %150 = getelementptr inbounds nuw %struct.stbhw_config, ptr %149, i32 0, i32 2
+  %151 = getelementptr inbounds [6 x i32], ptr %150, i64 0, i64 0
+  %152 = load i32, ptr %151, align 4, !tbaa !10
+  %153 = sub nsw i32 %152, 1
+  %154 = load ptr, ptr %11, align 8, !tbaa !34
+  %155 = getelementptr inbounds nuw %struct.stbhw_config, ptr %154, i32 0, i32 2
+  %156 = getelementptr inbounds [6 x i32], ptr %155, i64 0, i64 3
+  %157 = load i32, ptr %156, align 4, !tbaa !10
+  %158 = sub nsw i32 %157, 1
+  %159 = load ptr, ptr %11, align 8, !tbaa !34
+  %160 = getelementptr inbounds nuw %struct.stbhw_config, ptr %159, i32 0, i32 2
+  %161 = getelementptr inbounds [6 x i32], ptr %160, i64 0, i64 2
+  %162 = load i32, ptr %161, align 4, !tbaa !10
+  %163 = sub nsw i32 %162, 1
+  %164 = load i32, ptr %4, align 4, !tbaa !10
+  %165 = load i32, ptr %4, align 4, !tbaa !10
+  %166 = load i32, ptr %5, align 4, !tbaa !10
+  %167 = load i32, ptr %5, align 4, !tbaa !10
+  %168 = load i32, ptr %6, align 4, !tbaa !10
+  %169 = load i32, ptr %6, align 4, !tbaa !10
+  %170 = load ptr, ptr %11, align 8, !tbaa !34
+  %171 = getelementptr inbounds nuw %struct.stbhw_config, ptr %170, i32 0, i32 4
+  %172 = load i32, ptr %171, align 4, !tbaa !39
+  call void @stbhw__process_v_row(ptr noundef %147, i32 noundef 0, i32 noundef %148, i32 noundef 0, i32 noundef %153, i32 noundef 0, i32 noundef %158, i32 noundef 0, i32 noundef %163, i32 noundef %164, i32 noundef %165, i32 noundef %166, i32 noundef %167, i32 noundef %168, i32 noundef %169, i32 noundef %172)
+  %173 = load ptr, ptr %11, align 8, !tbaa !34
+  %174 = getelementptr inbounds nuw %struct.stbhw_config, ptr %173, i32 0, i32 1
+  %175 = load i32, ptr %174, align 4, !tbaa !16
+  %176 = mul nsw i32 %175, 2
+  %177 = add nsw i32 %176, 3
+  %178 = load i32, ptr %8, align 4, !tbaa !10
+  %179 = add nsw i32 %178, %177
+  store i32 %179, ptr %8, align 4, !tbaa !10
+  br label %180
+
+180:                                              ; preds = %146
+  %181 = load i32, ptr %7, align 4, !tbaa !10
+  %182 = add nsw i32 %181, 1
+  store i32 %182, ptr %7, align 4, !tbaa !10
+  br label %140, !llvm.loop !46
+
+183:                                              ; preds = %140
+  br label %184
+
+184:                                              ; preds = %183
+  %185 = load i32, ptr %4, align 4, !tbaa !10
+  %186 = add nsw i32 %185, 1
+  store i32 %186, ptr %4, align 4, !tbaa !10
+  br label %132, !llvm.loop !47
+
+187:                                              ; preds = %132
+  br label %188
+
+188:                                              ; preds = %187
+  %189 = load i32, ptr %5, align 4, !tbaa !10
+  %190 = add nsw i32 %189, 1
+  store i32 %190, ptr %5, align 4, !tbaa !10
+  br label %124, !llvm.loop !48
+
+191:                                              ; preds = %124
+  br label %192
+
+192:                                              ; preds = %191
+  %193 = load i32, ptr %6, align 4, !tbaa !10
+  %194 = add nsw i32 %193, 1
+  store i32 %194, ptr %6, align 4, !tbaa !10
+  br label %116, !llvm.loop !49
+
+195:                                              ; preds = %116
+  br label %358
+
+196:                                              ; preds = %29
+  store i32 2, ptr %8, align 4, !tbaa !10
+  store i32 0, ptr %6, align 4, !tbaa !10
+  br label %197
+
+197:                                              ; preds = %272, %196
+  %198 = load i32, ptr %6, align 4, !tbaa !10
+  %199 = load ptr, ptr %11, align 8, !tbaa !34
+  %200 = getelementptr inbounds nuw %struct.stbhw_config, ptr %199, i32 0, i32 2
+  %201 = getelementptr inbounds [6 x i32], ptr %200, i64 0, i64 3
+  %202 = load i32, ptr %201, align 4, !tbaa !10
+  %203 = icmp slt i32 %198, %202
+  br i1 %203, label %204, label %275
+
+204:                                              ; preds = %197
+  store i32 0, ptr %5, align 4, !tbaa !10
+  br label %205
+
+205:                                              ; preds = %268, %204
+  %206 = load i32, ptr %5, align 4, !tbaa !10
+  %207 = load ptr, ptr %11, align 8, !tbaa !34
+  %208 = getelementptr inbounds nuw %struct.stbhw_config, ptr %207, i32 0, i32 2
+  %209 = getelementptr inbounds [6 x i32], ptr %208, i64 0, i64 4
+  %210 = load i32, ptr %209, align 4, !tbaa !10
+  %211 = icmp slt i32 %206, %210
+  br i1 %211, label %212, label %271
+
+212:                                              ; preds = %205
+  store i32 0, ptr %4, align 4, !tbaa !10
+  br label %213
+
+213:                                              ; preds = %264, %212
+  %214 = load i32, ptr %4, align 4, !tbaa !10
+  %215 = load ptr, ptr %11, align 8, !tbaa !34
+  %216 = getelementptr inbounds nuw %struct.stbhw_config, ptr %215, i32 0, i32 2
+  %217 = getelementptr inbounds [6 x i32], ptr %216, i64 0, i64 2
+  %218 = load i32, ptr %217, align 4, !tbaa !10
+  %219 = icmp slt i32 %214, %218
+  br i1 %219, label %220, label %267
+
+220:                                              ; preds = %213
+  store i32 0, ptr %7, align 4, !tbaa !10
+  br label %221
+
+221:                                              ; preds = %260, %220
+  %222 = load i32, ptr %7, align 4, !tbaa !10
+  %223 = load ptr, ptr %11, align 8, !tbaa !34
+  %224 = getelementptr inbounds nuw %struct.stbhw_config, ptr %223, i32 0, i32 4
+  %225 = load i32, ptr %224, align 4, !tbaa !39
+  %226 = icmp slt i32 %222, %225
+  br i1 %226, label %227, label %263
+
+227:                                              ; preds = %221
+  %228 = load ptr, ptr %3, align 8, !tbaa !8
+  %229 = load i32, ptr %8, align 4, !tbaa !10
+  %230 = load ptr, ptr %11, align 8, !tbaa !34
+  %231 = getelementptr inbounds nuw %struct.stbhw_config, ptr %230, i32 0, i32 2
+  %232 = getelementptr inbounds [6 x i32], ptr %231, i64 0, i64 2
+  %233 = load i32, ptr %232, align 4, !tbaa !10
+  %234 = sub nsw i32 %233, 1
+  %235 = load i32, ptr %6, align 4, !tbaa !10
+  %236 = load i32, ptr %6, align 4, !tbaa !10
+  %237 = load ptr, ptr %11, align 8, !tbaa !34
+  %238 = getelementptr inbounds nuw %struct.stbhw_config, ptr %237, i32 0, i32 2
+  %239 = getelementptr inbounds [6 x i32], ptr %238, i64 0, i64 1
+  %240 = load i32, ptr %239, align 4, !tbaa !10
+  %241 = sub nsw i32 %240, 1
+  %242 = load i32, ptr %5, align 4, !tbaa !10
+  %243 = load i32, ptr %5, align 4, !tbaa !10
+  %244 = load ptr, ptr %11, align 8, !tbaa !34
+  %245 = getelementptr inbounds nuw %struct.stbhw_config, ptr %244, i32 0, i32 2
+  %246 = getelementptr inbounds [6 x i32], ptr %245, i64 0, i64 0
+  %247 = load i32, ptr %246, align 4, !tbaa !10
+  %248 = sub nsw i32 %247, 1
+  %249 = load i32, ptr %4, align 4, !tbaa !10
+  %250 = load i32, ptr %4, align 4, !tbaa !10
+  %251 = load ptr, ptr %11, align 8, !tbaa !34
+  %252 = getelementptr inbounds nuw %struct.stbhw_config, ptr %251, i32 0, i32 3
+  %253 = load i32, ptr %252, align 4, !tbaa !38
+  call void @stbhw__process_h_row(ptr noundef %228, i32 noundef 0, i32 noundef %229, i32 noundef 0, i32 noundef %234, i32 noundef %235, i32 noundef %236, i32 noundef 0, i32 noundef %241, i32 noundef %242, i32 noundef %243, i32 noundef 0, i32 noundef %248, i32 noundef %249, i32 noundef %250, i32 noundef %253)
+  %254 = load ptr, ptr %11, align 8, !tbaa !34
+  %255 = getelementptr inbounds nuw %struct.stbhw_config, ptr %254, i32 0, i32 1
+  %256 = load i32, ptr %255, align 4, !tbaa !16
+  %257 = add nsw i32 %256, 3
+  %258 = load i32, ptr %8, align 4, !tbaa !10
+  %259 = add nsw i32 %258, %257
+  store i32 %259, ptr %8, align 4, !tbaa !10
+  br label %260
+
+260:                                              ; preds = %227
+  %261 = load i32, ptr %7, align 4, !tbaa !10
+  %262 = add nsw i32 %261, 1
+  store i32 %262, ptr %7, align 4, !tbaa !10
+  br label %221, !llvm.loop !50
+
+263:                                              ; preds = %221
+  br label %264
+
+264:                                              ; preds = %263
+  %265 = load i32, ptr %4, align 4, !tbaa !10
+  %266 = add nsw i32 %265, 1
+  store i32 %266, ptr %4, align 4, !tbaa !10
+  br label %213, !llvm.loop !51
+
+267:                                              ; preds = %213
+  br label %268
+
+268:                                              ; preds = %267
+  %269 = load i32, ptr %5, align 4, !tbaa !10
+  %270 = add nsw i32 %269, 1
+  store i32 %270, ptr %5, align 4, !tbaa !10
+  br label %205, !llvm.loop !52
+
+271:                                              ; preds = %205
+  br label %272
+
+272:                                              ; preds = %271
+  %273 = load i32, ptr %6, align 4, !tbaa !10
+  %274 = add nsw i32 %273, 1
+  store i32 %274, ptr %6, align 4, !tbaa !10
+  br label %197, !llvm.loop !53
+
+275:                                              ; preds = %197
+  %276 = load i32, ptr %8, align 4, !tbaa !10
+  %277 = add nsw i32 %276, 2
+  store i32 %277, ptr %8, align 4, !tbaa !10
+  store i32 0, ptr %6, align 4, !tbaa !10
+  br label %278
+
+278:                                              ; preds = %354, %275
+  %279 = load i32, ptr %6, align 4, !tbaa !10
+  %280 = load ptr, ptr %11, align 8, !tbaa !34
+  %281 = getelementptr inbounds nuw %struct.stbhw_config, ptr %280, i32 0, i32 2
+  %282 = getelementptr inbounds [6 x i32], ptr %281, i64 0, i64 3
+  %283 = load i32, ptr %282, align 4, !tbaa !10
+  %284 = icmp slt i32 %279, %283
+  br i1 %284, label %285, label %357
+
+285:                                              ; preds = %278
+  store i32 0, ptr %5, align 4, !tbaa !10
+  br label %286
+
+286:                                              ; preds = %350, %285
+  %287 = load i32, ptr %5, align 4, !tbaa !10
+  %288 = load ptr, ptr %11, align 8, !tbaa !34
+  %289 = getelementptr inbounds nuw %struct.stbhw_config, ptr %288, i32 0, i32 2
+  %290 = getelementptr inbounds [6 x i32], ptr %289, i64 0, i64 4
+  %291 = load i32, ptr %290, align 4, !tbaa !10
+  %292 = icmp slt i32 %287, %291
+  br i1 %292, label %293, label %353
+
+293:                                              ; preds = %286
+  store i32 0, ptr %4, align 4, !tbaa !10
+  br label %294
+
+294:                                              ; preds = %346, %293
+  %295 = load i32, ptr %4, align 4, !tbaa !10
+  %296 = load ptr, ptr %11, align 8, !tbaa !34
+  %297 = getelementptr inbounds nuw %struct.stbhw_config, ptr %296, i32 0, i32 2
+  %298 = getelementptr inbounds [6 x i32], ptr %297, i64 0, i64 5
+  %299 = load i32, ptr %298, align 4, !tbaa !10
+  %300 = icmp slt i32 %295, %299
+  br i1 %300, label %301, label %349
+
+301:                                              ; preds = %294
+  store i32 0, ptr %7, align 4, !tbaa !10
+  br label %302
+
+302:                                              ; preds = %342, %301
+  %303 = load i32, ptr %7, align 4, !tbaa !10
+  %304 = load ptr, ptr %11, align 8, !tbaa !34
+  %305 = getelementptr inbounds nuw %struct.stbhw_config, ptr %304, i32 0, i32 3
+  %306 = load i32, ptr %305, align 4, !tbaa !38
+  %307 = icmp slt i32 %303, %306
+  br i1 %307, label %308, label %345
+
+308:                                              ; preds = %302
+  %309 = load ptr, ptr %3, align 8, !tbaa !8
+  %310 = load i32, ptr %8, align 4, !tbaa !10
+  %311 = load ptr, ptr %11, align 8, !tbaa !34
+  %312 = getelementptr inbounds nuw %struct.stbhw_config, ptr %311, i32 0, i32 2
+  %313 = getelementptr inbounds [6 x i32], ptr %312, i64 0, i64 0
+  %314 = load i32, ptr %313, align 4, !tbaa !10
+  %315 = sub nsw i32 %314, 1
+  %316 = load i32, ptr %4, align 4, !tbaa !10
+  %317 = load i32, ptr %4, align 4, !tbaa !10
+  %318 = load ptr, ptr %11, align 8, !tbaa !34
+  %319 = getelementptr inbounds nuw %struct.stbhw_config, ptr %318, i32 0, i32 2
+  %320 = getelementptr inbounds [6 x i32], ptr %319, i64 0, i64 1
+  %321 = load i32, ptr %320, align 4, !tbaa !10
+  %322 = sub nsw i32 %321, 1
+  %323 = load i32, ptr %5, align 4, !tbaa !10
+  %324 = load i32, ptr %5, align 4, !tbaa !10
+  %325 = load ptr, ptr %11, align 8, !tbaa !34
+  %326 = getelementptr inbounds nuw %struct.stbhw_config, ptr %325, i32 0, i32 2
+  %327 = getelementptr inbounds [6 x i32], ptr %326, i64 0, i64 5
+  %328 = load i32, ptr %327, align 4, !tbaa !10
+  %329 = sub nsw i32 %328, 1
+  %330 = load i32, ptr %6, align 4, !tbaa !10
+  %331 = load i32, ptr %6, align 4, !tbaa !10
+  %332 = load ptr, ptr %11, align 8, !tbaa !34
+  %333 = getelementptr inbounds nuw %struct.stbhw_config, ptr %332, i32 0, i32 4
+  %334 = load i32, ptr %333, align 4, !tbaa !39
+  call void @stbhw__process_v_row(ptr noundef %309, i32 noundef 0, i32 noundef %310, i32 noundef 0, i32 noundef %315, i32 noundef %316, i32 noundef %317, i32 noundef 0, i32 noundef %322, i32 noundef %323, i32 noundef %324, i32 noundef 0, i32 noundef %329, i32 noundef %330, i32 noundef %331, i32 noundef %334)
+  %335 = load ptr, ptr %11, align 8, !tbaa !34
+  %336 = getelementptr inbounds nuw %struct.stbhw_config, ptr %335, i32 0, i32 1
+  %337 = load i32, ptr %336, align 4, !tbaa !16
+  %338 = mul nsw i32 %337, 2
+  %339 = add nsw i32 %338, 3
+  %340 = load i32, ptr %8, align 4, !tbaa !10
+  %341 = add nsw i32 %340, %339
+  store i32 %341, ptr %8, align 4, !tbaa !10
+  br label %342
+
+342:                                              ; preds = %308
+  %343 = load i32, ptr %7, align 4, !tbaa !10
+  %344 = add nsw i32 %343, 1
+  store i32 %344, ptr %7, align 4, !tbaa !10
+  br label %302, !llvm.loop !54
+
+345:                                              ; preds = %302
+  br label %346
+
+346:                                              ; preds = %345
+  %347 = load i32, ptr %4, align 4, !tbaa !10
+  %348 = add nsw i32 %347, 1
+  store i32 %348, ptr %4, align 4, !tbaa !10
+  br label %294, !llvm.loop !55
+
+349:                                              ; preds = %294
+  br label %350
+
+350:                                              ; preds = %349
+  %351 = load i32, ptr %5, align 4, !tbaa !10
+  %352 = add nsw i32 %351, 1
+  store i32 %352, ptr %5, align 4, !tbaa !10
+  br label %286, !llvm.loop !56
+
+353:                                              ; preds = %286
+  br label %354
+
+354:                                              ; preds = %353
+  %355 = load i32, ptr %6, align 4, !tbaa !10
+  %356 = add nsw i32 %355, 1
+  store i32 %356, ptr %6, align 4, !tbaa !10
+  br label %278, !llvm.loop !57
+
+357:                                              ; preds = %278
+  br label %358
+
+358:                                              ; preds = %357, %195
+  store i32 1, ptr %2, align 4
+  store i32 1, ptr %12, align 4
+  br label %359
+
+359:                                              ; preds = %358, %28
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #6
+  %360 = load i32, ptr %2, align 4
+  ret i32 %360
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbhw__draw_pixel(ptr noundef %output, i32 noundef %stride, i32 noundef %x, i32 noundef %y, ptr noundef %c) #0 {
-entry:
-  %output.addr = alloca ptr, align 8
-  %stride.addr = alloca i32, align 4
-  %x.addr = alloca i32, align 4
-  %y.addr = alloca i32, align 4
-  %c.addr = alloca ptr, align 8
-  store ptr %output, ptr %output.addr, align 8
-  store i32 %stride, ptr %stride.addr, align 4
-  store i32 %x, ptr %x.addr, align 4
-  store i32 %y, ptr %y.addr, align 4
-  store ptr %c, ptr %c.addr, align 8
-  %0 = load ptr, ptr %output.addr, align 8
-  %1 = load i32, ptr %y.addr, align 4
-  %2 = load i32, ptr %stride.addr, align 4
-  %mul = mul nsw i32 %1, %2
-  %idx.ext = sext i32 %mul to i64
-  %add.ptr = getelementptr inbounds i8, ptr %0, i64 %idx.ext
-  %3 = load i32, ptr %x.addr, align 4
-  %mul1 = mul nsw i32 %3, 3
-  %idx.ext2 = sext i32 %mul1 to i64
-  %add.ptr3 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext2
-  %4 = load ptr, ptr %c.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr3, ptr align 1 %4, i64 3, i1 false)
+define void @stbhw__draw_pixel(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) #0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store i32 %1, ptr %7, align 4, !tbaa !10
+  store i32 %2, ptr %8, align 4, !tbaa !10
+  store i32 %3, ptr %9, align 4, !tbaa !10
+  store ptr %4, ptr %10, align 8, !tbaa !3
+  %11 = load ptr, ptr %6, align 8, !tbaa !3
+  %12 = load i32, ptr %9, align 4, !tbaa !10
+  %13 = load i32, ptr %7, align 4, !tbaa !10
+  %14 = mul nsw i32 %12, %13
+  %15 = sext i32 %14 to i64
+  %16 = getelementptr inbounds i8, ptr %11, i64 %15
+  %17 = load i32, ptr %8, align 4, !tbaa !10
+  %18 = mul nsw i32 %17, 3
+  %19 = sext i32 %18 to i64
+  %20 = getelementptr inbounds i8, ptr %16, i64 %19
+  %21 = load ptr, ptr %10, align 8, !tbaa !3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %20, ptr align 1 %21, i64 3, i1 false)
   ret void
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define void @stbhw__draw_h_tile(ptr noundef %output, i32 noundef %stride, i32 noundef %xmax, i32 noundef %ymax, i32 noundef %x, i32 noundef %y, ptr noundef %h, i32 noundef %sz) #0 {
-entry:
-  %output.addr = alloca ptr, align 8
-  %stride.addr = alloca i32, align 4
-  %xmax.addr = alloca i32, align 4
-  %ymax.addr = alloca i32, align 4
-  %x.addr = alloca i32, align 4
-  %y.addr = alloca i32, align 4
-  %h.addr = alloca ptr, align 8
-  %sz.addr = alloca i32, align 4
-  %i = alloca i32, align 4
-  %j = alloca i32, align 4
-  store ptr %output, ptr %output.addr, align 8
-  store i32 %stride, ptr %stride.addr, align 4
-  store i32 %xmax, ptr %xmax.addr, align 4
-  store i32 %ymax, ptr %ymax.addr, align 4
-  store i32 %x, ptr %x.addr, align 4
-  store i32 %y, ptr %y.addr, align 4
-  store ptr %h, ptr %h.addr, align 8
-  store i32 %sz, ptr %sz.addr, align 4
-  store i32 0, ptr %j, align 4
-  br label %for.cond
+define void @stbhw__draw_h_tile(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7) #0 {
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca ptr, align 8
+  %16 = alloca i32, align 4
+  %17 = alloca i32, align 4
+  %18 = alloca i32, align 4
+  store ptr %0, ptr %9, align 8, !tbaa !3
+  store i32 %1, ptr %10, align 4, !tbaa !10
+  store i32 %2, ptr %11, align 4, !tbaa !10
+  store i32 %3, ptr %12, align 4, !tbaa !10
+  store i32 %4, ptr %13, align 4, !tbaa !10
+  store i32 %5, ptr %14, align 4, !tbaa !10
+  store ptr %6, ptr %15, align 8, !tbaa !34
+  store i32 %7, ptr %16, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #6
+  store i32 0, ptr %18, align 4, !tbaa !10
+  br label %19
 
-for.cond:                                         ; preds = %for.inc20, %entry
-  %0 = load i32, ptr %j, align 4
-  %1 = load i32, ptr %sz.addr, align 4
-  %cmp = icmp slt i32 %0, %1
-  br i1 %cmp, label %for.body, label %for.end22
+19:                                               ; preds = %77, %8
+  %20 = load i32, ptr %18, align 4, !tbaa !10
+  %21 = load i32, ptr %16, align 4, !tbaa !10
+  %22 = icmp slt i32 %20, %21
+  br i1 %22, label %23, label %80
 
-for.body:                                         ; preds = %for.cond
-  %2 = load i32, ptr %y.addr, align 4
-  %3 = load i32, ptr %j, align 4
-  %add = add nsw i32 %2, %3
-  %cmp1 = icmp sge i32 %add, 0
-  br i1 %cmp1, label %land.lhs.true, label %if.end19
+23:                                               ; preds = %19
+  %24 = load i32, ptr %14, align 4, !tbaa !10
+  %25 = load i32, ptr %18, align 4, !tbaa !10
+  %26 = add nsw i32 %24, %25
+  %27 = icmp sge i32 %26, 0
+  br i1 %27, label %28, label %76
 
-land.lhs.true:                                    ; preds = %for.body
-  %4 = load i32, ptr %y.addr, align 4
-  %5 = load i32, ptr %j, align 4
-  %add2 = add nsw i32 %4, %5
-  %6 = load i32, ptr %ymax.addr, align 4
-  %cmp3 = icmp slt i32 %add2, %6
-  br i1 %cmp3, label %if.then, label %if.end19
+28:                                               ; preds = %23
+  %29 = load i32, ptr %14, align 4, !tbaa !10
+  %30 = load i32, ptr %18, align 4, !tbaa !10
+  %31 = add nsw i32 %29, %30
+  %32 = load i32, ptr %12, align 4, !tbaa !10
+  %33 = icmp slt i32 %31, %32
+  br i1 %33, label %34, label %76
 
-if.then:                                          ; preds = %land.lhs.true
-  store i32 0, ptr %i, align 4
-  br label %for.cond4
+34:                                               ; preds = %28
+  store i32 0, ptr %17, align 4, !tbaa !10
+  br label %35
 
-for.cond4:                                        ; preds = %for.inc, %if.then
-  %7 = load i32, ptr %i, align 4
-  %8 = load i32, ptr %sz.addr, align 4
-  %mul = mul nsw i32 %8, 2
-  %cmp5 = icmp slt i32 %7, %mul
-  br i1 %cmp5, label %for.body6, label %for.end
+35:                                               ; preds = %72, %34
+  %36 = load i32, ptr %17, align 4, !tbaa !10
+  %37 = load i32, ptr %16, align 4, !tbaa !10
+  %38 = mul nsw i32 %37, 2
+  %39 = icmp slt i32 %36, %38
+  br i1 %39, label %40, label %75
 
-for.body6:                                        ; preds = %for.cond4
-  %9 = load i32, ptr %x.addr, align 4
-  %10 = load i32, ptr %i, align 4
-  %add7 = add nsw i32 %9, %10
-  %cmp8 = icmp sge i32 %add7, 0
-  br i1 %cmp8, label %land.lhs.true9, label %if.end
+40:                                               ; preds = %35
+  %41 = load i32, ptr %13, align 4, !tbaa !10
+  %42 = load i32, ptr %17, align 4, !tbaa !10
+  %43 = add nsw i32 %41, %42
+  %44 = icmp sge i32 %43, 0
+  br i1 %44, label %45, label %71
 
-land.lhs.true9:                                   ; preds = %for.body6
-  %11 = load i32, ptr %x.addr, align 4
-  %12 = load i32, ptr %i, align 4
-  %add10 = add nsw i32 %11, %12
-  %13 = load i32, ptr %xmax.addr, align 4
-  %cmp11 = icmp slt i32 %add10, %13
-  br i1 %cmp11, label %if.then12, label %if.end
+45:                                               ; preds = %40
+  %46 = load i32, ptr %13, align 4, !tbaa !10
+  %47 = load i32, ptr %17, align 4, !tbaa !10
+  %48 = add nsw i32 %46, %47
+  %49 = load i32, ptr %11, align 4, !tbaa !10
+  %50 = icmp slt i32 %48, %49
+  br i1 %50, label %51, label %71
 
-if.then12:                                        ; preds = %land.lhs.true9
-  %14 = load ptr, ptr %output.addr, align 8
-  %15 = load i32, ptr %stride.addr, align 4
-  %16 = load i32, ptr %x.addr, align 4
-  %17 = load i32, ptr %i, align 4
-  %add13 = add nsw i32 %16, %17
-  %18 = load i32, ptr %y.addr, align 4
-  %19 = load i32, ptr %j, align 4
-  %add14 = add nsw i32 %18, %19
-  %20 = load ptr, ptr %h.addr, align 8
-  %pixels = getelementptr inbounds %struct.stbhw_tile, ptr %20, i32 0, i32 6
-  %21 = load i32, ptr %j, align 4
-  %22 = load i32, ptr %sz.addr, align 4
-  %mul15 = mul nsw i32 %21, %22
-  %mul16 = mul nsw i32 %mul15, 2
-  %23 = load i32, ptr %i, align 4
-  %add17 = add nsw i32 %mul16, %23
-  %mul18 = mul nsw i32 %add17, 3
-  %idxprom = sext i32 %mul18 to i64
-  %arrayidx = getelementptr inbounds [1 x i8], ptr %pixels, i64 0, i64 %idxprom
-  call void @stbhw__draw_pixel(ptr noundef %14, i32 noundef %15, i32 noundef %add13, i32 noundef %add14, ptr noundef %arrayidx)
-  br label %if.end
+51:                                               ; preds = %45
+  %52 = load ptr, ptr %9, align 8, !tbaa !3
+  %53 = load i32, ptr %10, align 4, !tbaa !10
+  %54 = load i32, ptr %13, align 4, !tbaa !10
+  %55 = load i32, ptr %17, align 4, !tbaa !10
+  %56 = add nsw i32 %54, %55
+  %57 = load i32, ptr %14, align 4, !tbaa !10
+  %58 = load i32, ptr %18, align 4, !tbaa !10
+  %59 = add nsw i32 %57, %58
+  %60 = load ptr, ptr %15, align 8, !tbaa !34
+  %61 = getelementptr inbounds nuw %struct.stbhw_tile, ptr %60, i32 0, i32 6
+  %62 = load i32, ptr %18, align 4, !tbaa !10
+  %63 = load i32, ptr %16, align 4, !tbaa !10
+  %64 = mul nsw i32 %62, %63
+  %65 = mul nsw i32 %64, 2
+  %66 = load i32, ptr %17, align 4, !tbaa !10
+  %67 = add nsw i32 %65, %66
+  %68 = mul nsw i32 %67, 3
+  %69 = sext i32 %68 to i64
+  %70 = getelementptr inbounds [1 x i8], ptr %61, i64 0, i64 %69
+  call void @stbhw__draw_pixel(ptr noundef %52, i32 noundef %53, i32 noundef %56, i32 noundef %59, ptr noundef %70)
+  br label %71
 
-if.end:                                           ; preds = %if.then12, %land.lhs.true9, %for.body6
-  br label %for.inc
+71:                                               ; preds = %51, %45, %40
+  br label %72
 
-for.inc:                                          ; preds = %if.end
-  %24 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %24, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond4, !llvm.loop !35
+72:                                               ; preds = %71
+  %73 = load i32, ptr %17, align 4, !tbaa !10
+  %74 = add nsw i32 %73, 1
+  store i32 %74, ptr %17, align 4, !tbaa !10
+  br label %35, !llvm.loop !58
 
-for.end:                                          ; preds = %for.cond4
-  br label %if.end19
+75:                                               ; preds = %35
+  br label %76
 
-if.end19:                                         ; preds = %for.end, %land.lhs.true, %for.body
-  br label %for.inc20
+76:                                               ; preds = %75, %28, %23
+  br label %77
 
-for.inc20:                                        ; preds = %if.end19
-  %25 = load i32, ptr %j, align 4
-  %inc21 = add nsw i32 %25, 1
-  store i32 %inc21, ptr %j, align 4
-  br label %for.cond, !llvm.loop !36
+77:                                               ; preds = %76
+  %78 = load i32, ptr %18, align 4, !tbaa !10
+  %79 = add nsw i32 %78, 1
+  store i32 %79, ptr %18, align 4, !tbaa !10
+  br label %19, !llvm.loop !59
 
-for.end22:                                        ; preds = %for.cond
+80:                                               ; preds = %19
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #6
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbhw__draw_v_tile(ptr noundef %output, i32 noundef %stride, i32 noundef %xmax, i32 noundef %ymax, i32 noundef %x, i32 noundef %y, ptr noundef %h, i32 noundef %sz) #0 {
-entry:
-  %output.addr = alloca ptr, align 8
-  %stride.addr = alloca i32, align 4
-  %xmax.addr = alloca i32, align 4
-  %ymax.addr = alloca i32, align 4
-  %x.addr = alloca i32, align 4
-  %y.addr = alloca i32, align 4
-  %h.addr = alloca ptr, align 8
-  %sz.addr = alloca i32, align 4
-  %i = alloca i32, align 4
-  %j = alloca i32, align 4
-  store ptr %output, ptr %output.addr, align 8
-  store i32 %stride, ptr %stride.addr, align 4
-  store i32 %xmax, ptr %xmax.addr, align 4
-  store i32 %ymax, ptr %ymax.addr, align 4
-  store i32 %x, ptr %x.addr, align 4
-  store i32 %y, ptr %y.addr, align 4
-  store ptr %h, ptr %h.addr, align 8
-  store i32 %sz, ptr %sz.addr, align 4
-  store i32 0, ptr %j, align 4
-  br label %for.cond
+define void @stbhw__draw_v_tile(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7) #0 {
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca ptr, align 8
+  %16 = alloca i32, align 4
+  %17 = alloca i32, align 4
+  %18 = alloca i32, align 4
+  store ptr %0, ptr %9, align 8, !tbaa !3
+  store i32 %1, ptr %10, align 4, !tbaa !10
+  store i32 %2, ptr %11, align 4, !tbaa !10
+  store i32 %3, ptr %12, align 4, !tbaa !10
+  store i32 %4, ptr %13, align 4, !tbaa !10
+  store i32 %5, ptr %14, align 4, !tbaa !10
+  store ptr %6, ptr %15, align 8, !tbaa !34
+  store i32 %7, ptr %16, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #6
+  store i32 0, ptr %18, align 4, !tbaa !10
+  br label %19
 
-for.cond:                                         ; preds = %for.inc19, %entry
-  %0 = load i32, ptr %j, align 4
-  %1 = load i32, ptr %sz.addr, align 4
-  %mul = mul nsw i32 %1, 2
-  %cmp = icmp slt i32 %0, %mul
-  br i1 %cmp, label %for.body, label %for.end21
+19:                                               ; preds = %76, %8
+  %20 = load i32, ptr %18, align 4, !tbaa !10
+  %21 = load i32, ptr %16, align 4, !tbaa !10
+  %22 = mul nsw i32 %21, 2
+  %23 = icmp slt i32 %20, %22
+  br i1 %23, label %24, label %79
 
-for.body:                                         ; preds = %for.cond
-  %2 = load i32, ptr %y.addr, align 4
-  %3 = load i32, ptr %j, align 4
-  %add = add nsw i32 %2, %3
-  %cmp1 = icmp sge i32 %add, 0
-  br i1 %cmp1, label %land.lhs.true, label %if.end18
+24:                                               ; preds = %19
+  %25 = load i32, ptr %14, align 4, !tbaa !10
+  %26 = load i32, ptr %18, align 4, !tbaa !10
+  %27 = add nsw i32 %25, %26
+  %28 = icmp sge i32 %27, 0
+  br i1 %28, label %29, label %75
 
-land.lhs.true:                                    ; preds = %for.body
-  %4 = load i32, ptr %y.addr, align 4
-  %5 = load i32, ptr %j, align 4
-  %add2 = add nsw i32 %4, %5
-  %6 = load i32, ptr %ymax.addr, align 4
-  %cmp3 = icmp slt i32 %add2, %6
-  br i1 %cmp3, label %if.then, label %if.end18
+29:                                               ; preds = %24
+  %30 = load i32, ptr %14, align 4, !tbaa !10
+  %31 = load i32, ptr %18, align 4, !tbaa !10
+  %32 = add nsw i32 %30, %31
+  %33 = load i32, ptr %12, align 4, !tbaa !10
+  %34 = icmp slt i32 %32, %33
+  br i1 %34, label %35, label %75
 
-if.then:                                          ; preds = %land.lhs.true
-  store i32 0, ptr %i, align 4
-  br label %for.cond4
+35:                                               ; preds = %29
+  store i32 0, ptr %17, align 4, !tbaa !10
+  br label %36
 
-for.cond4:                                        ; preds = %for.inc, %if.then
-  %7 = load i32, ptr %i, align 4
-  %8 = load i32, ptr %sz.addr, align 4
-  %cmp5 = icmp slt i32 %7, %8
-  br i1 %cmp5, label %for.body6, label %for.end
+36:                                               ; preds = %71, %35
+  %37 = load i32, ptr %17, align 4, !tbaa !10
+  %38 = load i32, ptr %16, align 4, !tbaa !10
+  %39 = icmp slt i32 %37, %38
+  br i1 %39, label %40, label %74
 
-for.body6:                                        ; preds = %for.cond4
-  %9 = load i32, ptr %x.addr, align 4
-  %10 = load i32, ptr %i, align 4
-  %add7 = add nsw i32 %9, %10
-  %cmp8 = icmp sge i32 %add7, 0
-  br i1 %cmp8, label %land.lhs.true9, label %if.end
+40:                                               ; preds = %36
+  %41 = load i32, ptr %13, align 4, !tbaa !10
+  %42 = load i32, ptr %17, align 4, !tbaa !10
+  %43 = add nsw i32 %41, %42
+  %44 = icmp sge i32 %43, 0
+  br i1 %44, label %45, label %70
 
-land.lhs.true9:                                   ; preds = %for.body6
-  %11 = load i32, ptr %x.addr, align 4
-  %12 = load i32, ptr %i, align 4
-  %add10 = add nsw i32 %11, %12
-  %13 = load i32, ptr %xmax.addr, align 4
-  %cmp11 = icmp slt i32 %add10, %13
-  br i1 %cmp11, label %if.then12, label %if.end
+45:                                               ; preds = %40
+  %46 = load i32, ptr %13, align 4, !tbaa !10
+  %47 = load i32, ptr %17, align 4, !tbaa !10
+  %48 = add nsw i32 %46, %47
+  %49 = load i32, ptr %11, align 4, !tbaa !10
+  %50 = icmp slt i32 %48, %49
+  br i1 %50, label %51, label %70
 
-if.then12:                                        ; preds = %land.lhs.true9
-  %14 = load ptr, ptr %output.addr, align 8
-  %15 = load i32, ptr %stride.addr, align 4
-  %16 = load i32, ptr %x.addr, align 4
-  %17 = load i32, ptr %i, align 4
-  %add13 = add nsw i32 %16, %17
-  %18 = load i32, ptr %y.addr, align 4
-  %19 = load i32, ptr %j, align 4
-  %add14 = add nsw i32 %18, %19
-  %20 = load ptr, ptr %h.addr, align 8
-  %pixels = getelementptr inbounds %struct.stbhw_tile, ptr %20, i32 0, i32 6
-  %21 = load i32, ptr %j, align 4
-  %22 = load i32, ptr %sz.addr, align 4
-  %mul15 = mul nsw i32 %21, %22
-  %23 = load i32, ptr %i, align 4
-  %add16 = add nsw i32 %mul15, %23
-  %mul17 = mul nsw i32 %add16, 3
-  %idxprom = sext i32 %mul17 to i64
-  %arrayidx = getelementptr inbounds [1 x i8], ptr %pixels, i64 0, i64 %idxprom
-  call void @stbhw__draw_pixel(ptr noundef %14, i32 noundef %15, i32 noundef %add13, i32 noundef %add14, ptr noundef %arrayidx)
-  br label %if.end
+51:                                               ; preds = %45
+  %52 = load ptr, ptr %9, align 8, !tbaa !3
+  %53 = load i32, ptr %10, align 4, !tbaa !10
+  %54 = load i32, ptr %13, align 4, !tbaa !10
+  %55 = load i32, ptr %17, align 4, !tbaa !10
+  %56 = add nsw i32 %54, %55
+  %57 = load i32, ptr %14, align 4, !tbaa !10
+  %58 = load i32, ptr %18, align 4, !tbaa !10
+  %59 = add nsw i32 %57, %58
+  %60 = load ptr, ptr %15, align 8, !tbaa !34
+  %61 = getelementptr inbounds nuw %struct.stbhw_tile, ptr %60, i32 0, i32 6
+  %62 = load i32, ptr %18, align 4, !tbaa !10
+  %63 = load i32, ptr %16, align 4, !tbaa !10
+  %64 = mul nsw i32 %62, %63
+  %65 = load i32, ptr %17, align 4, !tbaa !10
+  %66 = add nsw i32 %64, %65
+  %67 = mul nsw i32 %66, 3
+  %68 = sext i32 %67 to i64
+  %69 = getelementptr inbounds [1 x i8], ptr %61, i64 0, i64 %68
+  call void @stbhw__draw_pixel(ptr noundef %52, i32 noundef %53, i32 noundef %56, i32 noundef %59, ptr noundef %69)
+  br label %70
 
-if.end:                                           ; preds = %if.then12, %land.lhs.true9, %for.body6
-  br label %for.inc
+70:                                               ; preds = %51, %45, %40
+  br label %71
 
-for.inc:                                          ; preds = %if.end
-  %24 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %24, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond4, !llvm.loop !37
+71:                                               ; preds = %70
+  %72 = load i32, ptr %17, align 4, !tbaa !10
+  %73 = add nsw i32 %72, 1
+  store i32 %73, ptr %17, align 4, !tbaa !10
+  br label %36, !llvm.loop !60
 
-for.end:                                          ; preds = %for.cond4
-  br label %if.end18
+74:                                               ; preds = %36
+  br label %75
 
-if.end18:                                         ; preds = %for.end, %land.lhs.true, %for.body
-  br label %for.inc19
+75:                                               ; preds = %74, %29, %24
+  br label %76
 
-for.inc19:                                        ; preds = %if.end18
-  %25 = load i32, ptr %j, align 4
-  %inc20 = add nsw i32 %25, 1
-  store i32 %inc20, ptr %j, align 4
-  br label %for.cond, !llvm.loop !38
+76:                                               ; preds = %75
+  %77 = load i32, ptr %18, align 4, !tbaa !10
+  %78 = add nsw i32 %77, 1
+  store i32 %78, ptr %18, align 4, !tbaa !10
+  br label %19, !llvm.loop !61
 
-for.end21:                                        ; preds = %for.cond
+79:                                               ; preds = %19
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #6
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @stbhw__choose_tile(ptr noundef %list, i32 noundef %numlist, ptr noundef %a, ptr noundef %b, ptr noundef %c, ptr noundef %d, ptr noundef %e, ptr noundef %f, ptr noundef %weighting) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %list.addr = alloca ptr, align 8
-  %numlist.addr = alloca i32, align 4
-  %a.addr = alloca ptr, align 8
-  %b.addr = alloca ptr, align 8
-  %c.addr = alloca ptr, align 8
-  %d.addr = alloca ptr, align 8
-  %e.addr = alloca ptr, align 8
-  %f.addr = alloca ptr, align 8
-  %weighting.addr = alloca ptr, align 8
-  %i = alloca i32, align 4
-  %n = alloca i32, align 4
-  %m = alloca i32, align 4
-  %pass = alloca i32, align 4
-  %h = alloca ptr, align 8
-  store ptr %list, ptr %list.addr, align 8
-  store i32 %numlist, ptr %numlist.addr, align 4
-  store ptr %a, ptr %a.addr, align 8
-  store ptr %b, ptr %b.addr, align 8
-  store ptr %c, ptr %c.addr, align 8
-  store ptr %d, ptr %d.addr, align 8
-  store ptr %e, ptr %e.addr, align 8
-  store ptr %f, ptr %f.addr, align 8
-  store ptr %weighting, ptr %weighting.addr, align 8
-  store i32 1073741824, ptr %m, align 4
-  store i32 0, ptr %pass, align 4
-  br label %for.cond
+define ptr @stbhw__choose_tile(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) #0 {
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca ptr, align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca ptr, align 8
+  %20 = alloca i32, align 4
+  %21 = alloca i32, align 4
+  %22 = alloca i32, align 4
+  %23 = alloca i32, align 4
+  %24 = alloca ptr, align 8
+  %25 = alloca i32, align 4
+  store ptr %0, ptr %11, align 8, !tbaa !34
+  store i32 %1, ptr %12, align 4, !tbaa !10
+  store ptr %2, ptr %13, align 8, !tbaa !3
+  store ptr %3, ptr %14, align 8, !tbaa !3
+  store ptr %4, ptr %15, align 8, !tbaa !3
+  store ptr %5, ptr %16, align 8, !tbaa !3
+  store ptr %6, ptr %17, align 8, !tbaa !3
+  store ptr %7, ptr %18, align 8, !tbaa !3
+  store ptr %8, ptr %19, align 8, !tbaa !62
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %21) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %22) #6
+  store i32 1073741824, ptr %22, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %23) #6
+  store i32 0, ptr %23, align 4, !tbaa !10
+  br label %26
 
-for.cond:                                         ; preds = %for.inc80, %entry
-  %0 = load i32, ptr %pass, align 4
-  %cmp = icmp slt i32 %0, 2
-  br i1 %cmp, label %for.body, label %for.end82
+26:                                               ; preds = %186, %9
+  %27 = load i32, ptr %23, align 4, !tbaa !10
+  %28 = icmp slt i32 %27, 2
+  br i1 %28, label %29, label %189
 
-for.body:                                         ; preds = %for.cond
-  store i32 0, ptr %n, align 4
-  store i32 0, ptr %i, align 4
-  br label %for.cond1
+29:                                               ; preds = %26
+  store i32 0, ptr %21, align 4, !tbaa !10
+  store i32 0, ptr %20, align 4, !tbaa !10
+  br label %30
 
-for.cond1:                                        ; preds = %for.inc, %for.body
-  %1 = load i32, ptr %i, align 4
-  %2 = load i32, ptr %numlist.addr, align 4
-  %cmp2 = icmp slt i32 %1, %2
-  br i1 %cmp2, label %for.body3, label %for.end
+30:                                               ; preds = %174, %29
+  %31 = load i32, ptr %20, align 4, !tbaa !10
+  %32 = load i32, ptr %12, align 4, !tbaa !10
+  %33 = icmp slt i32 %31, %32
+  br i1 %33, label %34, label %177
 
-for.body3:                                        ; preds = %for.cond1
-  %3 = load ptr, ptr %list.addr, align 8
-  %4 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %4 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %idxprom
-  %5 = load ptr, ptr %arrayidx, align 8
-  store ptr %5, ptr %h, align 8
-  %6 = load ptr, ptr %a.addr, align 8
-  %7 = load i8, ptr %6, align 1
-  %conv = sext i8 %7 to i32
-  %cmp4 = icmp slt i32 %conv, 0
-  br i1 %cmp4, label %land.lhs.true, label %lor.lhs.false
+34:                                               ; preds = %30
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #6
+  %35 = load ptr, ptr %11, align 8, !tbaa !34
+  %36 = load i32, ptr %20, align 4, !tbaa !10
+  %37 = sext i32 %36 to i64
+  %38 = getelementptr inbounds ptr, ptr %35, i64 %37
+  %39 = load ptr, ptr %38, align 8, !tbaa !34
+  store ptr %39, ptr %24, align 8, !tbaa !34
+  %40 = load ptr, ptr %13, align 8, !tbaa !3
+  %41 = load i8, ptr %40, align 1, !tbaa !64
+  %42 = sext i8 %41 to i32
+  %43 = icmp slt i32 %42, 0
+  br i1 %43, label %53, label %44
 
-lor.lhs.false:                                    ; preds = %for.body3
-  %8 = load ptr, ptr %a.addr, align 8
-  %9 = load i8, ptr %8, align 1
-  %conv6 = sext i8 %9 to i32
-  %10 = load ptr, ptr %h, align 8
-  %a7 = getelementptr inbounds %struct.stbhw_tile, ptr %10, i32 0, i32 0
-  %11 = load i8, ptr %a7, align 1
-  %conv8 = sext i8 %11 to i32
-  %cmp9 = icmp eq i32 %conv6, %conv8
-  br i1 %cmp9, label %land.lhs.true, label %if.end75
+44:                                               ; preds = %34
+  %45 = load ptr, ptr %13, align 8, !tbaa !3
+  %46 = load i8, ptr %45, align 1, !tbaa !64
+  %47 = sext i8 %46 to i32
+  %48 = load ptr, ptr %24, align 8, !tbaa !34
+  %49 = getelementptr inbounds nuw %struct.stbhw_tile, ptr %48, i32 0, i32 0
+  %50 = load i8, ptr %49, align 1, !tbaa !65
+  %51 = sext i8 %50 to i32
+  %52 = icmp eq i32 %47, %51
+  br i1 %52, label %53, label %170
 
-land.lhs.true:                                    ; preds = %lor.lhs.false, %for.body3
-  %12 = load ptr, ptr %b.addr, align 8
-  %13 = load i8, ptr %12, align 1
-  %conv11 = sext i8 %13 to i32
-  %cmp12 = icmp slt i32 %conv11, 0
-  br i1 %cmp12, label %land.lhs.true20, label %lor.lhs.false14
+53:                                               ; preds = %44, %34
+  %54 = load ptr, ptr %14, align 8, !tbaa !3
+  %55 = load i8, ptr %54, align 1, !tbaa !64
+  %56 = sext i8 %55 to i32
+  %57 = icmp slt i32 %56, 0
+  br i1 %57, label %67, label %58
 
-lor.lhs.false14:                                  ; preds = %land.lhs.true
-  %14 = load ptr, ptr %b.addr, align 8
-  %15 = load i8, ptr %14, align 1
-  %conv15 = sext i8 %15 to i32
-  %16 = load ptr, ptr %h, align 8
-  %b16 = getelementptr inbounds %struct.stbhw_tile, ptr %16, i32 0, i32 1
-  %17 = load i8, ptr %b16, align 1
-  %conv17 = sext i8 %17 to i32
-  %cmp18 = icmp eq i32 %conv15, %conv17
-  br i1 %cmp18, label %land.lhs.true20, label %if.end75
+58:                                               ; preds = %53
+  %59 = load ptr, ptr %14, align 8, !tbaa !3
+  %60 = load i8, ptr %59, align 1, !tbaa !64
+  %61 = sext i8 %60 to i32
+  %62 = load ptr, ptr %24, align 8, !tbaa !34
+  %63 = getelementptr inbounds nuw %struct.stbhw_tile, ptr %62, i32 0, i32 1
+  %64 = load i8, ptr %63, align 1, !tbaa !67
+  %65 = sext i8 %64 to i32
+  %66 = icmp eq i32 %61, %65
+  br i1 %66, label %67, label %170
 
-land.lhs.true20:                                  ; preds = %lor.lhs.false14, %land.lhs.true
-  %18 = load ptr, ptr %c.addr, align 8
-  %19 = load i8, ptr %18, align 1
-  %conv21 = sext i8 %19 to i32
-  %cmp22 = icmp slt i32 %conv21, 0
-  br i1 %cmp22, label %land.lhs.true30, label %lor.lhs.false24
+67:                                               ; preds = %58, %53
+  %68 = load ptr, ptr %15, align 8, !tbaa !3
+  %69 = load i8, ptr %68, align 1, !tbaa !64
+  %70 = sext i8 %69 to i32
+  %71 = icmp slt i32 %70, 0
+  br i1 %71, label %81, label %72
 
-lor.lhs.false24:                                  ; preds = %land.lhs.true20
-  %20 = load ptr, ptr %c.addr, align 8
-  %21 = load i8, ptr %20, align 1
-  %conv25 = sext i8 %21 to i32
-  %22 = load ptr, ptr %h, align 8
-  %c26 = getelementptr inbounds %struct.stbhw_tile, ptr %22, i32 0, i32 2
-  %23 = load i8, ptr %c26, align 1
-  %conv27 = sext i8 %23 to i32
-  %cmp28 = icmp eq i32 %conv25, %conv27
-  br i1 %cmp28, label %land.lhs.true30, label %if.end75
+72:                                               ; preds = %67
+  %73 = load ptr, ptr %15, align 8, !tbaa !3
+  %74 = load i8, ptr %73, align 1, !tbaa !64
+  %75 = sext i8 %74 to i32
+  %76 = load ptr, ptr %24, align 8, !tbaa !34
+  %77 = getelementptr inbounds nuw %struct.stbhw_tile, ptr %76, i32 0, i32 2
+  %78 = load i8, ptr %77, align 1, !tbaa !68
+  %79 = sext i8 %78 to i32
+  %80 = icmp eq i32 %75, %79
+  br i1 %80, label %81, label %170
 
-land.lhs.true30:                                  ; preds = %lor.lhs.false24, %land.lhs.true20
-  %24 = load ptr, ptr %d.addr, align 8
-  %25 = load i8, ptr %24, align 1
-  %conv31 = sext i8 %25 to i32
-  %cmp32 = icmp slt i32 %conv31, 0
-  br i1 %cmp32, label %land.lhs.true40, label %lor.lhs.false34
+81:                                               ; preds = %72, %67
+  %82 = load ptr, ptr %16, align 8, !tbaa !3
+  %83 = load i8, ptr %82, align 1, !tbaa !64
+  %84 = sext i8 %83 to i32
+  %85 = icmp slt i32 %84, 0
+  br i1 %85, label %95, label %86
 
-lor.lhs.false34:                                  ; preds = %land.lhs.true30
-  %26 = load ptr, ptr %d.addr, align 8
-  %27 = load i8, ptr %26, align 1
-  %conv35 = sext i8 %27 to i32
-  %28 = load ptr, ptr %h, align 8
-  %d36 = getelementptr inbounds %struct.stbhw_tile, ptr %28, i32 0, i32 3
-  %29 = load i8, ptr %d36, align 1
-  %conv37 = sext i8 %29 to i32
-  %cmp38 = icmp eq i32 %conv35, %conv37
-  br i1 %cmp38, label %land.lhs.true40, label %if.end75
+86:                                               ; preds = %81
+  %87 = load ptr, ptr %16, align 8, !tbaa !3
+  %88 = load i8, ptr %87, align 1, !tbaa !64
+  %89 = sext i8 %88 to i32
+  %90 = load ptr, ptr %24, align 8, !tbaa !34
+  %91 = getelementptr inbounds nuw %struct.stbhw_tile, ptr %90, i32 0, i32 3
+  %92 = load i8, ptr %91, align 1, !tbaa !69
+  %93 = sext i8 %92 to i32
+  %94 = icmp eq i32 %89, %93
+  br i1 %94, label %95, label %170
 
-land.lhs.true40:                                  ; preds = %lor.lhs.false34, %land.lhs.true30
-  %30 = load ptr, ptr %e.addr, align 8
-  %31 = load i8, ptr %30, align 1
-  %conv41 = sext i8 %31 to i32
-  %cmp42 = icmp slt i32 %conv41, 0
-  br i1 %cmp42, label %land.lhs.true50, label %lor.lhs.false44
+95:                                               ; preds = %86, %81
+  %96 = load ptr, ptr %17, align 8, !tbaa !3
+  %97 = load i8, ptr %96, align 1, !tbaa !64
+  %98 = sext i8 %97 to i32
+  %99 = icmp slt i32 %98, 0
+  br i1 %99, label %109, label %100
 
-lor.lhs.false44:                                  ; preds = %land.lhs.true40
-  %32 = load ptr, ptr %e.addr, align 8
-  %33 = load i8, ptr %32, align 1
-  %conv45 = sext i8 %33 to i32
-  %34 = load ptr, ptr %h, align 8
-  %e46 = getelementptr inbounds %struct.stbhw_tile, ptr %34, i32 0, i32 4
-  %35 = load i8, ptr %e46, align 1
-  %conv47 = sext i8 %35 to i32
-  %cmp48 = icmp eq i32 %conv45, %conv47
-  br i1 %cmp48, label %land.lhs.true50, label %if.end75
+100:                                              ; preds = %95
+  %101 = load ptr, ptr %17, align 8, !tbaa !3
+  %102 = load i8, ptr %101, align 1, !tbaa !64
+  %103 = sext i8 %102 to i32
+  %104 = load ptr, ptr %24, align 8, !tbaa !34
+  %105 = getelementptr inbounds nuw %struct.stbhw_tile, ptr %104, i32 0, i32 4
+  %106 = load i8, ptr %105, align 1, !tbaa !70
+  %107 = sext i8 %106 to i32
+  %108 = icmp eq i32 %103, %107
+  br i1 %108, label %109, label %170
 
-land.lhs.true50:                                  ; preds = %lor.lhs.false44, %land.lhs.true40
-  %36 = load ptr, ptr %f.addr, align 8
-  %37 = load i8, ptr %36, align 1
-  %conv51 = sext i8 %37 to i32
-  %cmp52 = icmp slt i32 %conv51, 0
-  br i1 %cmp52, label %if.then, label %lor.lhs.false54
+109:                                              ; preds = %100, %95
+  %110 = load ptr, ptr %18, align 8, !tbaa !3
+  %111 = load i8, ptr %110, align 1, !tbaa !64
+  %112 = sext i8 %111 to i32
+  %113 = icmp slt i32 %112, 0
+  br i1 %113, label %123, label %114
 
-lor.lhs.false54:                                  ; preds = %land.lhs.true50
-  %38 = load ptr, ptr %f.addr, align 8
-  %39 = load i8, ptr %38, align 1
-  %conv55 = sext i8 %39 to i32
-  %40 = load ptr, ptr %h, align 8
-  %f56 = getelementptr inbounds %struct.stbhw_tile, ptr %40, i32 0, i32 5
-  %41 = load i8, ptr %f56, align 1
-  %conv57 = sext i8 %41 to i32
-  %cmp58 = icmp eq i32 %conv55, %conv57
-  br i1 %cmp58, label %if.then, label %if.end75
+114:                                              ; preds = %109
+  %115 = load ptr, ptr %18, align 8, !tbaa !3
+  %116 = load i8, ptr %115, align 1, !tbaa !64
+  %117 = sext i8 %116 to i32
+  %118 = load ptr, ptr %24, align 8, !tbaa !34
+  %119 = getelementptr inbounds nuw %struct.stbhw_tile, ptr %118, i32 0, i32 5
+  %120 = load i8, ptr %119, align 1, !tbaa !71
+  %121 = sext i8 %120 to i32
+  %122 = icmp eq i32 %117, %121
+  br i1 %122, label %123, label %170
 
-if.then:                                          ; preds = %lor.lhs.false54, %land.lhs.true50
-  %42 = load ptr, ptr %weighting.addr, align 8
-  %tobool = icmp ne ptr %42, null
-  br i1 %tobool, label %if.then60, label %if.else
+123:                                              ; preds = %114, %109
+  %124 = load ptr, ptr %19, align 8, !tbaa !62
+  %125 = icmp ne ptr %124, null
+  br i1 %125, label %126, label %136
 
-if.then60:                                        ; preds = %if.then
-  %43 = load ptr, ptr %weighting.addr, align 8
-  %arrayidx61 = getelementptr inbounds ptr, ptr %43, i64 0
-  %44 = load ptr, ptr %arrayidx61, align 8
-  %45 = load i32, ptr %i, align 4
-  %idxprom62 = sext i32 %45 to i64
-  %arrayidx63 = getelementptr inbounds i32, ptr %44, i64 %idxprom62
-  %46 = load i32, ptr %arrayidx63, align 4
-  %47 = load i32, ptr %n, align 4
-  %add = add nsw i32 %47, %46
-  store i32 %add, ptr %n, align 4
-  br label %if.end
+126:                                              ; preds = %123
+  %127 = load ptr, ptr %19, align 8, !tbaa !62
+  %128 = getelementptr inbounds ptr, ptr %127, i64 0
+  %129 = load ptr, ptr %128, align 8, !tbaa !35
+  %130 = load i32, ptr %20, align 4, !tbaa !10
+  %131 = sext i32 %130 to i64
+  %132 = getelementptr inbounds i32, ptr %129, i64 %131
+  %133 = load i32, ptr %132, align 4, !tbaa !10
+  %134 = load i32, ptr %21, align 4, !tbaa !10
+  %135 = add nsw i32 %134, %133
+  store i32 %135, ptr %21, align 4, !tbaa !10
+  br label %139
 
-if.else:                                          ; preds = %if.then
-  %48 = load i32, ptr %n, align 4
-  %add64 = add nsw i32 %48, 1
-  store i32 %add64, ptr %n, align 4
-  br label %if.end
+136:                                              ; preds = %123
+  %137 = load i32, ptr %21, align 4, !tbaa !10
+  %138 = add nsw i32 %137, 1
+  store i32 %138, ptr %21, align 4, !tbaa !10
+  br label %139
 
-if.end:                                           ; preds = %if.else, %if.then60
-  %49 = load i32, ptr %n, align 4
-  %50 = load i32, ptr %m, align 4
-  %cmp65 = icmp sgt i32 %49, %50
-  br i1 %cmp65, label %if.then67, label %if.end74
+139:                                              ; preds = %136, %126
+  %140 = load i32, ptr %21, align 4, !tbaa !10
+  %141 = load i32, ptr %22, align 4, !tbaa !10
+  %142 = icmp sgt i32 %140, %141
+  br i1 %142, label %143, label %169
 
-if.then67:                                        ; preds = %if.end
-  %51 = load ptr, ptr %h, align 8
-  %a68 = getelementptr inbounds %struct.stbhw_tile, ptr %51, i32 0, i32 0
-  %52 = load i8, ptr %a68, align 1
-  %53 = load ptr, ptr %a.addr, align 8
-  store i8 %52, ptr %53, align 1
-  %54 = load ptr, ptr %h, align 8
-  %b69 = getelementptr inbounds %struct.stbhw_tile, ptr %54, i32 0, i32 1
-  %55 = load i8, ptr %b69, align 1
-  %56 = load ptr, ptr %b.addr, align 8
-  store i8 %55, ptr %56, align 1
-  %57 = load ptr, ptr %h, align 8
-  %c70 = getelementptr inbounds %struct.stbhw_tile, ptr %57, i32 0, i32 2
-  %58 = load i8, ptr %c70, align 1
-  %59 = load ptr, ptr %c.addr, align 8
-  store i8 %58, ptr %59, align 1
-  %60 = load ptr, ptr %h, align 8
-  %d71 = getelementptr inbounds %struct.stbhw_tile, ptr %60, i32 0, i32 3
-  %61 = load i8, ptr %d71, align 1
-  %62 = load ptr, ptr %d.addr, align 8
-  store i8 %61, ptr %62, align 1
-  %63 = load ptr, ptr %h, align 8
-  %e72 = getelementptr inbounds %struct.stbhw_tile, ptr %63, i32 0, i32 4
-  %64 = load i8, ptr %e72, align 1
-  %65 = load ptr, ptr %e.addr, align 8
-  store i8 %64, ptr %65, align 1
-  %66 = load ptr, ptr %h, align 8
-  %f73 = getelementptr inbounds %struct.stbhw_tile, ptr %66, i32 0, i32 5
-  %67 = load i8, ptr %f73, align 1
-  %68 = load ptr, ptr %f.addr, align 8
-  store i8 %67, ptr %68, align 1
-  %69 = load ptr, ptr %h, align 8
-  store ptr %69, ptr %retval, align 8
-  br label %return
+143:                                              ; preds = %139
+  %144 = load ptr, ptr %24, align 8, !tbaa !34
+  %145 = getelementptr inbounds nuw %struct.stbhw_tile, ptr %144, i32 0, i32 0
+  %146 = load i8, ptr %145, align 1, !tbaa !65
+  %147 = load ptr, ptr %13, align 8, !tbaa !3
+  store i8 %146, ptr %147, align 1, !tbaa !64
+  %148 = load ptr, ptr %24, align 8, !tbaa !34
+  %149 = getelementptr inbounds nuw %struct.stbhw_tile, ptr %148, i32 0, i32 1
+  %150 = load i8, ptr %149, align 1, !tbaa !67
+  %151 = load ptr, ptr %14, align 8, !tbaa !3
+  store i8 %150, ptr %151, align 1, !tbaa !64
+  %152 = load ptr, ptr %24, align 8, !tbaa !34
+  %153 = getelementptr inbounds nuw %struct.stbhw_tile, ptr %152, i32 0, i32 2
+  %154 = load i8, ptr %153, align 1, !tbaa !68
+  %155 = load ptr, ptr %15, align 8, !tbaa !3
+  store i8 %154, ptr %155, align 1, !tbaa !64
+  %156 = load ptr, ptr %24, align 8, !tbaa !34
+  %157 = getelementptr inbounds nuw %struct.stbhw_tile, ptr %156, i32 0, i32 3
+  %158 = load i8, ptr %157, align 1, !tbaa !69
+  %159 = load ptr, ptr %16, align 8, !tbaa !3
+  store i8 %158, ptr %159, align 1, !tbaa !64
+  %160 = load ptr, ptr %24, align 8, !tbaa !34
+  %161 = getelementptr inbounds nuw %struct.stbhw_tile, ptr %160, i32 0, i32 4
+  %162 = load i8, ptr %161, align 1, !tbaa !70
+  %163 = load ptr, ptr %17, align 8, !tbaa !3
+  store i8 %162, ptr %163, align 1, !tbaa !64
+  %164 = load ptr, ptr %24, align 8, !tbaa !34
+  %165 = getelementptr inbounds nuw %struct.stbhw_tile, ptr %164, i32 0, i32 5
+  %166 = load i8, ptr %165, align 1, !tbaa !71
+  %167 = load ptr, ptr %18, align 8, !tbaa !3
+  store i8 %166, ptr %167, align 1, !tbaa !64
+  %168 = load ptr, ptr %24, align 8, !tbaa !34
+  store ptr %168, ptr %10, align 8
+  store i32 1, ptr %25, align 4
+  br label %171
 
-if.end74:                                         ; preds = %if.end
-  br label %if.end75
+169:                                              ; preds = %139
+  br label %170
 
-if.end75:                                         ; preds = %if.end74, %lor.lhs.false54, %lor.lhs.false44, %lor.lhs.false34, %lor.lhs.false24, %lor.lhs.false14, %lor.lhs.false
-  br label %for.inc
+170:                                              ; preds = %169, %114, %100, %86, %72, %58, %44
+  store i32 0, ptr %25, align 4
+  br label %171
 
-for.inc:                                          ; preds = %if.end75
-  %70 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %70, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond1, !llvm.loop !39
+171:                                              ; preds = %170, %143
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #6
+  %172 = load i32, ptr %25, align 4
+  switch i32 %172, label %190 [
+    i32 0, label %173
+  ]
 
-for.end:                                          ; preds = %for.cond1
-  %71 = load i32, ptr %n, align 4
-  %cmp76 = icmp eq i32 %71, 0
-  br i1 %cmp76, label %if.then78, label %if.end79
+173:                                              ; preds = %171
+  br label %174
 
-if.then78:                                        ; preds = %for.end
-  store ptr @.str.1, ptr @stbhw_error, align 8
-  store ptr null, ptr %retval, align 8
-  br label %return
+174:                                              ; preds = %173
+  %175 = load i32, ptr %20, align 4, !tbaa !10
+  %176 = add nsw i32 %175, 1
+  store i32 %176, ptr %20, align 4, !tbaa !10
+  br label %30, !llvm.loop !72
 
-if.end79:                                         ; preds = %for.end
-  %call = call i32 @rand() #5
-  %shr = ashr i32 %call, 4
-  %72 = load i32, ptr %n, align 4
-  %rem = srem i32 %shr, %72
-  store i32 %rem, ptr %m, align 4
-  br label %for.inc80
+177:                                              ; preds = %30
+  %178 = load i32, ptr %21, align 4, !tbaa !10
+  %179 = icmp eq i32 %178, 0
+  br i1 %179, label %180, label %181
 
-for.inc80:                                        ; preds = %if.end79
-  %73 = load i32, ptr %pass, align 4
-  %inc81 = add nsw i32 %73, 1
-  store i32 %inc81, ptr %pass, align 4
-  br label %for.cond, !llvm.loop !40
+180:                                              ; preds = %177
+  store ptr @.str.1, ptr @stbhw_error, align 8, !tbaa !3
+  store ptr null, ptr %10, align 8
+  store i32 1, ptr %25, align 4
+  br label %190
 
-for.end82:                                        ; preds = %for.cond
-  store ptr null, ptr %retval, align 8
-  br label %return
+181:                                              ; preds = %177
+  %182 = call i32 @rand() #6
+  %183 = ashr i32 %182, 4
+  %184 = load i32, ptr %21, align 4, !tbaa !10
+  %185 = srem i32 %183, %184
+  store i32 %185, ptr %22, align 4, !tbaa !10
+  br label %186
 
-return:                                           ; preds = %for.end82, %if.then78, %if.then67
-  %74 = load ptr, ptr %retval, align 8
-  ret ptr %74
+186:                                              ; preds = %181
+  %187 = load i32, ptr %23, align 4, !tbaa !10
+  %188 = add nsw i32 %187, 1
+  store i32 %188, ptr %23, align 4, !tbaa !10
+  br label %26, !llvm.loop !73
+
+189:                                              ; preds = %26
+  store ptr null, ptr %10, align 8
+  store i32 1, ptr %25, align 4
+  br label %190
+
+190:                                              ; preds = %189, %180, %171
+  call void @llvm.lifetime.end.p0(i64 4, ptr %23) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %22) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %21) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #6
+  %191 = load ptr, ptr %10, align 8
+  ret ptr %191
 }
 
 ; Function Attrs: nounwind
-declare i32 @rand() #2
+declare i32 @rand() #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbhw__match(i32 noundef %x, i32 noundef %y) #0 {
-entry:
-  %x.addr = alloca i32, align 4
-  %y.addr = alloca i32, align 4
-  store i32 %x, ptr %x.addr, align 4
-  store i32 %y, ptr %y.addr, align 4
-  %0 = load i32, ptr %y.addr, align 4
-  %idxprom = sext i32 %0 to i64
-  %arrayidx = getelementptr inbounds [106 x [106 x i8]], ptr @c_color, i64 0, i64 %idxprom
-  %1 = load i32, ptr %x.addr, align 4
-  %idxprom1 = sext i32 %1 to i64
-  %arrayidx2 = getelementptr inbounds [106 x i8], ptr %arrayidx, i64 0, i64 %idxprom1
-  %2 = load i8, ptr %arrayidx2, align 1
-  %conv = sext i8 %2 to i32
-  %3 = load i32, ptr %y.addr, align 4
-  %add = add nsw i32 %3, 1
-  %idxprom3 = sext i32 %add to i64
-  %arrayidx4 = getelementptr inbounds [106 x [106 x i8]], ptr @c_color, i64 0, i64 %idxprom3
-  %4 = load i32, ptr %x.addr, align 4
-  %add5 = add nsw i32 %4, 1
-  %idxprom6 = sext i32 %add5 to i64
-  %arrayidx7 = getelementptr inbounds [106 x i8], ptr %arrayidx4, i64 0, i64 %idxprom6
-  %5 = load i8, ptr %arrayidx7, align 1
-  %conv8 = sext i8 %5 to i32
-  %cmp = icmp eq i32 %conv, %conv8
-  %conv9 = zext i1 %cmp to i32
-  ret i32 %conv9
+define i32 @stbhw__match(i32 noundef %0, i32 noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !10
+  store i32 %1, ptr %4, align 4, !tbaa !10
+  %5 = load i32, ptr %4, align 4, !tbaa !10
+  %6 = sext i32 %5 to i64
+  %7 = getelementptr inbounds [106 x [106 x i8]], ptr @c_color, i64 0, i64 %6
+  %8 = load i32, ptr %3, align 4, !tbaa !10
+  %9 = sext i32 %8 to i64
+  %10 = getelementptr inbounds [106 x i8], ptr %7, i64 0, i64 %9
+  %11 = load i8, ptr %10, align 1, !tbaa !64
+  %12 = sext i8 %11 to i32
+  %13 = load i32, ptr %4, align 4, !tbaa !10
+  %14 = add nsw i32 %13, 1
+  %15 = sext i32 %14 to i64
+  %16 = getelementptr inbounds [106 x [106 x i8]], ptr @c_color, i64 0, i64 %15
+  %17 = load i32, ptr %3, align 4, !tbaa !10
+  %18 = add nsw i32 %17, 1
+  %19 = sext i32 %18 to i64
+  %20 = getelementptr inbounds [106 x i8], ptr %16, i64 0, i64 %19
+  %21 = load i8, ptr %20, align 1, !tbaa !64
+  %22 = sext i8 %21 to i32
+  %23 = icmp eq i32 %12, %22
+  %24 = zext i1 %23 to i32
+  ret i32 %24
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbhw__weighted(i32 noundef %num_options, ptr noundef %weights) #0 {
-entry:
-  %num_options.addr = alloca i32, align 4
-  %weights.addr = alloca ptr, align 8
-  %k = alloca i32, align 4
-  %total = alloca i32, align 4
-  %choice = alloca i32, align 4
-  store i32 %num_options, ptr %num_options.addr, align 4
-  store ptr %weights, ptr %weights.addr, align 8
-  store i32 0, ptr %total, align 4
-  store i32 0, ptr %k, align 4
-  br label %for.cond
+define i32 @stbhw__weighted(i32 noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !10
+  store ptr %1, ptr %4, align 8, !tbaa !35
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #6
+  store i32 0, ptr %6, align 4, !tbaa !10
+  store i32 0, ptr %5, align 4, !tbaa !10
+  br label %8
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i32, ptr %k, align 4
-  %1 = load i32, ptr %num_options.addr, align 4
-  %cmp = icmp slt i32 %0, %1
-  br i1 %cmp, label %for.body, label %for.end
+8:                                                ; preds = %20, %2
+  %9 = load i32, ptr %5, align 4, !tbaa !10
+  %10 = load i32, ptr %3, align 4, !tbaa !10
+  %11 = icmp slt i32 %9, %10
+  br i1 %11, label %12, label %23
 
-for.body:                                         ; preds = %for.cond
-  %2 = load ptr, ptr %weights.addr, align 8
-  %3 = load i32, ptr %k, align 4
-  %idxprom = sext i32 %3 to i64
-  %arrayidx = getelementptr inbounds i32, ptr %2, i64 %idxprom
-  %4 = load i32, ptr %arrayidx, align 4
-  %5 = load i32, ptr %total, align 4
-  %add = add nsw i32 %5, %4
-  store i32 %add, ptr %total, align 4
-  br label %for.inc
+12:                                               ; preds = %8
+  %13 = load ptr, ptr %4, align 8, !tbaa !35
+  %14 = load i32, ptr %5, align 4, !tbaa !10
+  %15 = sext i32 %14 to i64
+  %16 = getelementptr inbounds i32, ptr %13, i64 %15
+  %17 = load i32, ptr %16, align 4, !tbaa !10
+  %18 = load i32, ptr %6, align 4, !tbaa !10
+  %19 = add nsw i32 %18, %17
+  store i32 %19, ptr %6, align 4, !tbaa !10
+  br label %20
 
-for.inc:                                          ; preds = %for.body
-  %6 = load i32, ptr %k, align 4
-  %inc = add nsw i32 %6, 1
-  store i32 %inc, ptr %k, align 4
-  br label %for.cond, !llvm.loop !41
+20:                                               ; preds = %12
+  %21 = load i32, ptr %5, align 4, !tbaa !10
+  %22 = add nsw i32 %21, 1
+  store i32 %22, ptr %5, align 4, !tbaa !10
+  br label %8, !llvm.loop !74
 
-for.end:                                          ; preds = %for.cond
-  %call = call i32 @rand() #5
-  %shr = ashr i32 %call, 4
-  %7 = load i32, ptr %total, align 4
-  %rem = srem i32 %shr, %7
-  store i32 %rem, ptr %choice, align 4
-  store i32 0, ptr %total, align 4
-  store i32 0, ptr %k, align 4
-  br label %for.cond1
+23:                                               ; preds = %8
+  %24 = call i32 @rand() #6
+  %25 = ashr i32 %24, 4
+  %26 = load i32, ptr %6, align 4, !tbaa !10
+  %27 = srem i32 %25, %26
+  store i32 %27, ptr %7, align 4, !tbaa !10
+  store i32 0, ptr %6, align 4, !tbaa !10
+  store i32 0, ptr %5, align 4, !tbaa !10
+  br label %28
 
-for.cond1:                                        ; preds = %for.inc8, %for.end
-  %8 = load i32, ptr %k, align 4
-  %9 = load i32, ptr %num_options.addr, align 4
-  %cmp2 = icmp slt i32 %8, %9
-  br i1 %cmp2, label %for.body3, label %for.end10
+28:                                               ; preds = %45, %23
+  %29 = load i32, ptr %5, align 4, !tbaa !10
+  %30 = load i32, ptr %3, align 4, !tbaa !10
+  %31 = icmp slt i32 %29, %30
+  br i1 %31, label %32, label %48
 
-for.body3:                                        ; preds = %for.cond1
-  %10 = load ptr, ptr %weights.addr, align 8
-  %11 = load i32, ptr %k, align 4
-  %idxprom4 = sext i32 %11 to i64
-  %arrayidx5 = getelementptr inbounds i32, ptr %10, i64 %idxprom4
-  %12 = load i32, ptr %arrayidx5, align 4
-  %13 = load i32, ptr %total, align 4
-  %add6 = add nsw i32 %13, %12
-  store i32 %add6, ptr %total, align 4
-  %14 = load i32, ptr %choice, align 4
-  %15 = load i32, ptr %total, align 4
-  %cmp7 = icmp slt i32 %14, %15
-  br i1 %cmp7, label %if.then, label %if.end
+32:                                               ; preds = %28
+  %33 = load ptr, ptr %4, align 8, !tbaa !35
+  %34 = load i32, ptr %5, align 4, !tbaa !10
+  %35 = sext i32 %34 to i64
+  %36 = getelementptr inbounds i32, ptr %33, i64 %35
+  %37 = load i32, ptr %36, align 4, !tbaa !10
+  %38 = load i32, ptr %6, align 4, !tbaa !10
+  %39 = add nsw i32 %38, %37
+  store i32 %39, ptr %6, align 4, !tbaa !10
+  %40 = load i32, ptr %7, align 4, !tbaa !10
+  %41 = load i32, ptr %6, align 4, !tbaa !10
+  %42 = icmp slt i32 %40, %41
+  br i1 %42, label %43, label %44
 
-if.then:                                          ; preds = %for.body3
-  br label %for.end10
+43:                                               ; preds = %32
+  br label %48
 
-if.end:                                           ; preds = %for.body3
-  br label %for.inc8
+44:                                               ; preds = %32
+  br label %45
 
-for.inc8:                                         ; preds = %if.end
-  %16 = load i32, ptr %k, align 4
-  %inc9 = add nsw i32 %16, 1
-  store i32 %inc9, ptr %k, align 4
-  br label %for.cond1, !llvm.loop !42
+45:                                               ; preds = %44
+  %46 = load i32, ptr %5, align 4, !tbaa !10
+  %47 = add nsw i32 %46, 1
+  store i32 %47, ptr %5, align 4, !tbaa !10
+  br label %28, !llvm.loop !75
 
-for.end10:                                        ; preds = %if.then, %for.cond1
-  %17 = load i32, ptr %k, align 4
-  ret i32 %17
+48:                                               ; preds = %43, %28
+  %49 = load i32, ptr %5, align 4, !tbaa !10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #6
+  ret i32 %49
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbhw__change_color(i32 noundef %old_color, i32 noundef %num_options, ptr noundef %weights) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %old_color.addr = alloca i32, align 4
-  %num_options.addr = alloca i32, align 4
-  %weights.addr = alloca ptr, align 8
-  %k = alloca i32, align 4
-  %total = alloca i32, align 4
-  %choice = alloca i32, align 4
-  %offset = alloca i32, align 4
-  store i32 %old_color, ptr %old_color.addr, align 4
-  store i32 %num_options, ptr %num_options.addr, align 4
-  store ptr %weights, ptr %weights.addr, align 8
-  %0 = load ptr, ptr %weights.addr, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %if.then, label %if.else
+define i32 @stbhw__change_color(i32 noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  store i32 %0, ptr %5, align 4, !tbaa !10
+  store i32 %1, ptr %6, align 4, !tbaa !10
+  store ptr %2, ptr %7, align 8, !tbaa !35
+  %12 = load ptr, ptr %7, align 8, !tbaa !35
+  %13 = icmp ne ptr %12, null
+  br i1 %13, label %14, label %67
 
-if.then:                                          ; preds = %entry
-  store i32 0, ptr %total, align 4
-  store i32 0, ptr %k, align 4
-  br label %for.cond
+14:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #6
+  store i32 0, ptr %9, align 4, !tbaa !10
+  store i32 0, ptr %8, align 4, !tbaa !10
+  br label %15
 
-for.cond:                                         ; preds = %for.inc, %if.then
-  %1 = load i32, ptr %k, align 4
-  %2 = load i32, ptr %num_options.addr, align 4
-  %cmp = icmp slt i32 %1, %2
-  br i1 %cmp, label %for.body, label %for.end
+15:                                               ; preds = %32, %14
+  %16 = load i32, ptr %8, align 4, !tbaa !10
+  %17 = load i32, ptr %6, align 4, !tbaa !10
+  %18 = icmp slt i32 %16, %17
+  br i1 %18, label %19, label %35
 
-for.body:                                         ; preds = %for.cond
-  %3 = load i32, ptr %k, align 4
-  %4 = load i32, ptr %old_color.addr, align 4
-  %cmp1 = icmp ne i32 %3, %4
-  br i1 %cmp1, label %if.then2, label %if.end
+19:                                               ; preds = %15
+  %20 = load i32, ptr %8, align 4, !tbaa !10
+  %21 = load i32, ptr %5, align 4, !tbaa !10
+  %22 = icmp ne i32 %20, %21
+  br i1 %22, label %23, label %31
 
-if.then2:                                         ; preds = %for.body
-  %5 = load ptr, ptr %weights.addr, align 8
-  %6 = load i32, ptr %k, align 4
-  %idxprom = sext i32 %6 to i64
-  %arrayidx = getelementptr inbounds i32, ptr %5, i64 %idxprom
-  %7 = load i32, ptr %arrayidx, align 4
-  %8 = load i32, ptr %total, align 4
-  %add = add nsw i32 %8, %7
-  store i32 %add, ptr %total, align 4
-  br label %if.end
+23:                                               ; preds = %19
+  %24 = load ptr, ptr %7, align 8, !tbaa !35
+  %25 = load i32, ptr %8, align 4, !tbaa !10
+  %26 = sext i32 %25 to i64
+  %27 = getelementptr inbounds i32, ptr %24, i64 %26
+  %28 = load i32, ptr %27, align 4, !tbaa !10
+  %29 = load i32, ptr %9, align 4, !tbaa !10
+  %30 = add nsw i32 %29, %28
+  store i32 %30, ptr %9, align 4, !tbaa !10
+  br label %31
 
-if.end:                                           ; preds = %if.then2, %for.body
-  br label %for.inc
+31:                                               ; preds = %23, %19
+  br label %32
 
-for.inc:                                          ; preds = %if.end
-  %9 = load i32, ptr %k, align 4
-  %inc = add nsw i32 %9, 1
-  store i32 %inc, ptr %k, align 4
-  br label %for.cond, !llvm.loop !43
+32:                                               ; preds = %31
+  %33 = load i32, ptr %8, align 4, !tbaa !10
+  %34 = add nsw i32 %33, 1
+  store i32 %34, ptr %8, align 4, !tbaa !10
+  br label %15, !llvm.loop !76
 
-for.end:                                          ; preds = %for.cond
-  %call = call i32 @rand() #5
-  %shr = ashr i32 %call, 4
-  %10 = load i32, ptr %total, align 4
-  %rem = srem i32 %shr, %10
-  store i32 %rem, ptr %choice, align 4
-  store i32 0, ptr %total, align 4
-  store i32 0, ptr %k, align 4
-  br label %for.cond3
+35:                                               ; preds = %15
+  %36 = call i32 @rand() #6
+  %37 = ashr i32 %36, 4
+  %38 = load i32, ptr %9, align 4, !tbaa !10
+  %39 = srem i32 %37, %38
+  store i32 %39, ptr %10, align 4, !tbaa !10
+  store i32 0, ptr %9, align 4, !tbaa !10
+  store i32 0, ptr %8, align 4, !tbaa !10
+  br label %40
 
-for.cond3:                                        ; preds = %for.inc15, %for.end
-  %11 = load i32, ptr %k, align 4
-  %12 = load i32, ptr %num_options.addr, align 4
-  %cmp4 = icmp slt i32 %11, %12
-  br i1 %cmp4, label %for.body5, label %for.end17
+40:                                               ; preds = %62, %35
+  %41 = load i32, ptr %8, align 4, !tbaa !10
+  %42 = load i32, ptr %6, align 4, !tbaa !10
+  %43 = icmp slt i32 %41, %42
+  br i1 %43, label %44, label %65
 
-for.body5:                                        ; preds = %for.cond3
-  %13 = load i32, ptr %k, align 4
-  %14 = load i32, ptr %old_color.addr, align 4
-  %cmp6 = icmp ne i32 %13, %14
-  br i1 %cmp6, label %if.then7, label %if.end14
+44:                                               ; preds = %40
+  %45 = load i32, ptr %8, align 4, !tbaa !10
+  %46 = load i32, ptr %5, align 4, !tbaa !10
+  %47 = icmp ne i32 %45, %46
+  br i1 %47, label %48, label %61
 
-if.then7:                                         ; preds = %for.body5
-  %15 = load ptr, ptr %weights.addr, align 8
-  %16 = load i32, ptr %k, align 4
-  %idxprom8 = sext i32 %16 to i64
-  %arrayidx9 = getelementptr inbounds i32, ptr %15, i64 %idxprom8
-  %17 = load i32, ptr %arrayidx9, align 4
-  %18 = load i32, ptr %total, align 4
-  %add10 = add nsw i32 %18, %17
-  store i32 %add10, ptr %total, align 4
-  %19 = load i32, ptr %choice, align 4
-  %20 = load i32, ptr %total, align 4
-  %cmp11 = icmp slt i32 %19, %20
-  br i1 %cmp11, label %if.then12, label %if.end13
+48:                                               ; preds = %44
+  %49 = load ptr, ptr %7, align 8, !tbaa !35
+  %50 = load i32, ptr %8, align 4, !tbaa !10
+  %51 = sext i32 %50 to i64
+  %52 = getelementptr inbounds i32, ptr %49, i64 %51
+  %53 = load i32, ptr %52, align 4, !tbaa !10
+  %54 = load i32, ptr %9, align 4, !tbaa !10
+  %55 = add nsw i32 %54, %53
+  store i32 %55, ptr %9, align 4, !tbaa !10
+  %56 = load i32, ptr %10, align 4, !tbaa !10
+  %57 = load i32, ptr %9, align 4, !tbaa !10
+  %58 = icmp slt i32 %56, %57
+  br i1 %58, label %59, label %60
 
-if.then12:                                        ; preds = %if.then7
-  br label %for.end17
+59:                                               ; preds = %48
+  br label %65
 
-if.end13:                                         ; preds = %if.then7
-  br label %if.end14
+60:                                               ; preds = %48
+  br label %61
 
-if.end14:                                         ; preds = %if.end13, %for.body5
-  br label %for.inc15
+61:                                               ; preds = %60, %44
+  br label %62
 
-for.inc15:                                        ; preds = %if.end14
-  %21 = load i32, ptr %k, align 4
-  %inc16 = add nsw i32 %21, 1
-  store i32 %inc16, ptr %k, align 4
-  br label %for.cond3, !llvm.loop !44
+62:                                               ; preds = %61
+  %63 = load i32, ptr %8, align 4, !tbaa !10
+  %64 = add nsw i32 %63, 1
+  store i32 %64, ptr %8, align 4, !tbaa !10
+  br label %40, !llvm.loop !77
 
-for.end17:                                        ; preds = %if.then12, %for.cond3
-  %22 = load i32, ptr %k, align 4
-  store i32 %22, ptr %retval, align 4
-  br label %return
+65:                                               ; preds = %59, %40
+  %66 = load i32, ptr %8, align 4, !tbaa !10
+  store i32 %66, ptr %4, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #6
+  br label %79
 
-if.else:                                          ; preds = %entry
-  %call18 = call i32 @rand() #5
-  %shr19 = ashr i32 %call18, 4
-  %23 = load i32, ptr %num_options.addr, align 4
-  %sub = sub nsw i32 %23, 1
-  %rem20 = srem i32 %shr19, %sub
-  %add21 = add nsw i32 1, %rem20
-  store i32 %add21, ptr %offset, align 4
-  %24 = load i32, ptr %old_color.addr, align 4
-  %25 = load i32, ptr %offset, align 4
-  %add22 = add nsw i32 %24, %25
-  %26 = load i32, ptr %num_options.addr, align 4
-  %rem23 = srem i32 %add22, %26
-  store i32 %rem23, ptr %retval, align 4
-  br label %return
+67:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #6
+  %68 = call i32 @rand() #6
+  %69 = ashr i32 %68, 4
+  %70 = load i32, ptr %6, align 4, !tbaa !10
+  %71 = sub nsw i32 %70, 1
+  %72 = srem i32 %69, %71
+  %73 = add nsw i32 1, %72
+  store i32 %73, ptr %11, align 4, !tbaa !10
+  %74 = load i32, ptr %5, align 4, !tbaa !10
+  %75 = load i32, ptr %11, align 4, !tbaa !10
+  %76 = add nsw i32 %74, %75
+  %77 = load i32, ptr %6, align 4, !tbaa !10
+  %78 = srem i32 %76, %77
+  store i32 %78, ptr %4, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #6
+  br label %79
 
-return:                                           ; preds = %if.else, %for.end17
-  %27 = load i32, ptr %retval, align 4
-  ret i32 %27
+79:                                               ; preds = %67, %65
+  %80 = load i32, ptr %4, align 4
+  ret i32 %80
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbhw_generate_image(ptr noundef %ts, ptr noundef %weighting, ptr noundef %output, i32 noundef %stride, i32 noundef %w, i32 noundef %h) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %ts.addr = alloca ptr, align 8
-  %weighting.addr = alloca ptr, align 8
-  %output.addr = alloca ptr, align 8
-  %stride.addr = alloca i32, align 4
-  %w.addr = alloca i32, align 4
-  %h.addr = alloca i32, align 4
-  %sidelen = alloca i32, align 4
-  %xmax = alloca i32, align 4
-  %ymax = alloca i32, align 4
-  %i = alloca i32, align 4
-  %j = alloca i32, align 4
-  %ypos = alloca i32, align 4
-  %cc = alloca ptr, align 8
-  %p = alloca i32, align 4
-  %p72 = alloca i32, align 4
-  %p130 = alloca i32, align 4
-  %phase = alloca i32, align 4
-  %xpos = alloca i32, align 4
-  %t = alloca ptr, align 8
-  %t246 = alloca ptr, align 8
-  %i297 = alloca i32, align 4
-  %j298 = alloca i32, align 4
-  %ypos299 = alloca i32, align 4
-  %phase305 = alloca i32, align 4
-  %xpos314 = alloca i32, align 4
-  %t328 = alloca ptr, align 8
-  %t379 = alloca ptr, align 8
-  store ptr %ts, ptr %ts.addr, align 8
-  store ptr %weighting, ptr %weighting.addr, align 8
-  store ptr %output, ptr %output.addr, align 8
-  store i32 %stride, ptr %stride.addr, align 4
-  store i32 %w, ptr %w.addr, align 4
-  store i32 %h, ptr %h.addr, align 4
-  %0 = load ptr, ptr %ts.addr, align 8
-  %short_side_len = getelementptr inbounds %struct.stbhw_tileset, ptr %0, i32 0, i32 2
-  %1 = load i32, ptr %short_side_len, align 4
-  store i32 %1, ptr %sidelen, align 4
-  %2 = load i32, ptr %w.addr, align 4
-  %3 = load i32, ptr %sidelen, align 4
-  %div = sdiv i32 %2, %3
-  %add = add nsw i32 %div, 6
-  store i32 %add, ptr %xmax, align 4
-  %4 = load i32, ptr %h.addr, align 4
-  %5 = load i32, ptr %sidelen, align 4
-  %div1 = sdiv i32 %4, %5
-  %add2 = add nsw i32 %div1, 6
-  store i32 %add2, ptr %ymax, align 4
-  %6 = load i32, ptr %xmax, align 4
-  %cmp = icmp sgt i32 %6, 106
-  br i1 %cmp, label %if.then, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %entry
-  %7 = load i32, ptr %ymax, align 4
-  %cmp3 = icmp sgt i32 %7, 106
-  br i1 %cmp3, label %if.then, label %if.end
-
-if.then:                                          ; preds = %lor.lhs.false, %entry
-  store ptr @.str.2, ptr @stbhw_error, align 8
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %lor.lhs.false
-  %8 = load ptr, ptr %ts.addr, align 8
-  %is_corner = getelementptr inbounds %struct.stbhw_tileset, ptr %8, i32 0, i32 0
-  %9 = load i32, ptr %is_corner, align 8
-  %tobool = icmp ne i32 %9, 0
-  br i1 %tobool, label %if.then4, label %if.else296
-
-if.then4:                                         ; preds = %if.end
-  %10 = load ptr, ptr %ts.addr, align 8
-  %num_color = getelementptr inbounds %struct.stbhw_tileset, ptr %10, i32 0, i32 1
-  %arraydecay = getelementptr inbounds [6 x i32], ptr %num_color, i64 0, i64 0
-  store ptr %arraydecay, ptr %cc, align 8
-  store i32 0, ptr %j, align 4
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc35, %if.then4
-  %11 = load i32, ptr %j, align 4
-  %12 = load i32, ptr %ymax, align 4
-  %cmp5 = icmp slt i32 %11, %12
-  br i1 %cmp5, label %for.body, label %for.end37
-
-for.body:                                         ; preds = %for.cond
-  store i32 0, ptr %i, align 4
-  br label %for.cond6
-
-for.cond6:                                        ; preds = %for.inc, %for.body
-  %13 = load i32, ptr %i, align 4
-  %14 = load i32, ptr %xmax, align 4
-  %cmp7 = icmp slt i32 %13, %14
-  br i1 %cmp7, label %for.body8, label %for.end
-
-for.body8:                                        ; preds = %for.cond6
-  %15 = load i32, ptr %i, align 4
-  %16 = load i32, ptr %j, align 4
-  %sub = sub nsw i32 %15, %16
-  %add9 = add nsw i32 %sub, 1
-  %and = and i32 %add9, 3
-  store i32 %and, ptr %p, align 4
-  %17 = load ptr, ptr %weighting.addr, align 8
-  %cmp10 = icmp eq ptr %17, null
-  br i1 %cmp10, label %if.then17, label %lor.lhs.false11
-
-lor.lhs.false11:                                  ; preds = %for.body8
-  %18 = load ptr, ptr %weighting.addr, align 8
-  %19 = load i32, ptr %p, align 4
-  %idxprom = sext i32 %19 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %18, i64 %idxprom
-  %20 = load ptr, ptr %arrayidx, align 8
-  %cmp12 = icmp eq ptr %20, null
-  br i1 %cmp12, label %if.then17, label %lor.lhs.false13
-
-lor.lhs.false13:                                  ; preds = %lor.lhs.false11
-  %21 = load ptr, ptr %cc, align 8
-  %22 = load i32, ptr %p, align 4
-  %idxprom14 = sext i32 %22 to i64
-  %arrayidx15 = getelementptr inbounds i32, ptr %21, i64 %idxprom14
-  %23 = load i32, ptr %arrayidx15, align 4
-  %cmp16 = icmp eq i32 %23, 1
-  br i1 %cmp16, label %if.then17, label %if.else
-
-if.then17:                                        ; preds = %lor.lhs.false13, %lor.lhs.false11, %for.body8
-  %call = call i32 @rand() #5
-  %shr = ashr i32 %call, 4
-  %24 = load ptr, ptr %cc, align 8
-  %25 = load i32, ptr %p, align 4
-  %idxprom18 = sext i32 %25 to i64
-  %arrayidx19 = getelementptr inbounds i32, ptr %24, i64 %idxprom18
-  %26 = load i32, ptr %arrayidx19, align 4
-  %rem = srem i32 %shr, %26
-  %conv = trunc i32 %rem to i8
-  %27 = load i32, ptr %j, align 4
-  %idxprom20 = sext i32 %27 to i64
-  %arrayidx21 = getelementptr inbounds [106 x [106 x i8]], ptr @c_color, i64 0, i64 %idxprom20
-  %28 = load i32, ptr %i, align 4
-  %idxprom22 = sext i32 %28 to i64
-  %arrayidx23 = getelementptr inbounds [106 x i8], ptr %arrayidx21, i64 0, i64 %idxprom22
-  store i8 %conv, ptr %arrayidx23, align 1
-  br label %if.end34
-
-if.else:                                          ; preds = %lor.lhs.false13
-  %29 = load ptr, ptr %cc, align 8
-  %30 = load i32, ptr %p, align 4
-  %idxprom24 = sext i32 %30 to i64
-  %arrayidx25 = getelementptr inbounds i32, ptr %29, i64 %idxprom24
-  %31 = load i32, ptr %arrayidx25, align 4
-  %32 = load ptr, ptr %weighting.addr, align 8
-  %33 = load i32, ptr %p, align 4
-  %idxprom26 = sext i32 %33 to i64
-  %arrayidx27 = getelementptr inbounds ptr, ptr %32, i64 %idxprom26
-  %34 = load ptr, ptr %arrayidx27, align 8
-  %call28 = call i32 @stbhw__weighted(i32 noundef %31, ptr noundef %34)
-  %conv29 = trunc i32 %call28 to i8
-  %35 = load i32, ptr %j, align 4
-  %idxprom30 = sext i32 %35 to i64
-  %arrayidx31 = getelementptr inbounds [106 x [106 x i8]], ptr @c_color, i64 0, i64 %idxprom30
-  %36 = load i32, ptr %i, align 4
-  %idxprom32 = sext i32 %36 to i64
-  %arrayidx33 = getelementptr inbounds [106 x i8], ptr %arrayidx31, i64 0, i64 %idxprom32
-  store i8 %conv29, ptr %arrayidx33, align 1
-  br label %if.end34
-
-if.end34:                                         ; preds = %if.else, %if.then17
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end34
-  %37 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %37, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond6, !llvm.loop !45
-
-for.end:                                          ; preds = %for.cond6
-  br label %for.inc35
-
-for.inc35:                                        ; preds = %for.end
-  %38 = load i32, ptr %j, align 4
-  %inc36 = add nsw i32 %38, 1
-  store i32 %inc36, ptr %j, align 4
-  br label %for.cond, !llvm.loop !46
-
-for.end37:                                        ; preds = %for.cond
-  store i32 0, ptr %j, align 4
-  br label %for.cond38
-
-for.cond38:                                       ; preds = %for.inc170, %for.end37
-  %39 = load i32, ptr %j, align 4
-  %40 = load i32, ptr %ymax, align 4
-  %sub39 = sub nsw i32 %40, 3
-  %cmp40 = icmp slt i32 %39, %sub39
-  br i1 %cmp40, label %for.body42, label %for.end172
-
-for.body42:                                       ; preds = %for.cond38
-  store i32 0, ptr %i, align 4
-  br label %for.cond43
-
-for.cond43:                                       ; preds = %for.inc167, %for.body42
-  %41 = load i32, ptr %i, align 4
-  %42 = load i32, ptr %xmax, align 4
-  %sub44 = sub nsw i32 %42, 3
-  %cmp45 = icmp slt i32 %41, %sub44
-  br i1 %cmp45, label %for.body47, label %for.end169
-
-for.body47:                                       ; preds = %for.cond43
-  %43 = load i32, ptr %i, align 4
-  %44 = load i32, ptr %j, align 4
-  %call48 = call i32 @stbhw__match(i32 noundef %43, i32 noundef %44)
-  %tobool49 = icmp ne i32 %call48, 0
-  br i1 %tobool49, label %land.lhs.true, label %if.end104
-
-land.lhs.true:                                    ; preds = %for.body47
-  %45 = load i32, ptr %i, align 4
-  %46 = load i32, ptr %j, align 4
-  %add50 = add nsw i32 %46, 1
-  %call51 = call i32 @stbhw__match(i32 noundef %45, i32 noundef %add50)
-  %tobool52 = icmp ne i32 %call51, 0
-  br i1 %tobool52, label %land.lhs.true53, label %if.end104
-
-land.lhs.true53:                                  ; preds = %land.lhs.true
-  %47 = load i32, ptr %i, align 4
-  %48 = load i32, ptr %j, align 4
-  %add54 = add nsw i32 %48, 2
-  %call55 = call i32 @stbhw__match(i32 noundef %47, i32 noundef %add54)
-  %tobool56 = icmp ne i32 %call55, 0
-  br i1 %tobool56, label %land.lhs.true57, label %if.end104
-
-land.lhs.true57:                                  ; preds = %land.lhs.true53
-  %49 = load i32, ptr %i, align 4
-  %add58 = add nsw i32 %49, 1
-  %50 = load i32, ptr %j, align 4
-  %call59 = call i32 @stbhw__match(i32 noundef %add58, i32 noundef %50)
-  %tobool60 = icmp ne i32 %call59, 0
-  br i1 %tobool60, label %land.lhs.true61, label %if.end104
-
-land.lhs.true61:                                  ; preds = %land.lhs.true57
-  %51 = load i32, ptr %i, align 4
-  %add62 = add nsw i32 %51, 1
-  %52 = load i32, ptr %j, align 4
-  %add63 = add nsw i32 %52, 1
-  %call64 = call i32 @stbhw__match(i32 noundef %add62, i32 noundef %add63)
-  %tobool65 = icmp ne i32 %call64, 0
-  br i1 %tobool65, label %land.lhs.true66, label %if.end104
-
-land.lhs.true66:                                  ; preds = %land.lhs.true61
-  %53 = load i32, ptr %i, align 4
-  %add67 = add nsw i32 %53, 1
-  %54 = load i32, ptr %j, align 4
-  %add68 = add nsw i32 %54, 2
-  %call69 = call i32 @stbhw__match(i32 noundef %add67, i32 noundef %add68)
-  %tobool70 = icmp ne i32 %call69, 0
-  br i1 %tobool70, label %if.then71, label %if.end104
-
-if.then71:                                        ; preds = %land.lhs.true66
-  %55 = load i32, ptr %i, align 4
-  %add73 = add nsw i32 %55, 1
-  %56 = load i32, ptr %j, align 4
-  %add74 = add nsw i32 %56, 1
-  %sub75 = sub nsw i32 %add73, %add74
-  %add76 = add nsw i32 %sub75, 1
-  %and77 = and i32 %add76, 3
-  store i32 %and77, ptr %p72, align 4
-  %57 = load ptr, ptr %cc, align 8
-  %58 = load i32, ptr %p72, align 4
-  %idxprom78 = sext i32 %58 to i64
-  %arrayidx79 = getelementptr inbounds i32, ptr %57, i64 %idxprom78
-  %59 = load i32, ptr %arrayidx79, align 4
-  %cmp80 = icmp sgt i32 %59, 1
-  br i1 %cmp80, label %if.then82, label %if.end103
-
-if.then82:                                        ; preds = %if.then71
-  %60 = load i32, ptr %j, align 4
-  %add83 = add nsw i32 %60, 1
-  %idxprom84 = sext i32 %add83 to i64
-  %arrayidx85 = getelementptr inbounds [106 x [106 x i8]], ptr @c_color, i64 0, i64 %idxprom84
-  %61 = load i32, ptr %i, align 4
-  %add86 = add nsw i32 %61, 1
-  %idxprom87 = sext i32 %add86 to i64
-  %arrayidx88 = getelementptr inbounds [106 x i8], ptr %arrayidx85, i64 0, i64 %idxprom87
-  %62 = load i8, ptr %arrayidx88, align 1
-  %conv89 = sext i8 %62 to i32
-  %63 = load ptr, ptr %cc, align 8
-  %64 = load i32, ptr %p72, align 4
-  %idxprom90 = sext i32 %64 to i64
-  %arrayidx91 = getelementptr inbounds i32, ptr %63, i64 %idxprom90
-  %65 = load i32, ptr %arrayidx91, align 4
-  %66 = load ptr, ptr %weighting.addr, align 8
-  %tobool92 = icmp ne ptr %66, null
-  br i1 %tobool92, label %cond.true, label %cond.false
-
-cond.true:                                        ; preds = %if.then82
-  %67 = load ptr, ptr %weighting.addr, align 8
-  %68 = load i32, ptr %p72, align 4
-  %idxprom93 = sext i32 %68 to i64
-  %arrayidx94 = getelementptr inbounds ptr, ptr %67, i64 %idxprom93
-  %69 = load ptr, ptr %arrayidx94, align 8
-  br label %cond.end
-
-cond.false:                                       ; preds = %if.then82
-  br label %cond.end
-
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi ptr [ %69, %cond.true ], [ null, %cond.false ]
-  %call95 = call i32 @stbhw__change_color(i32 noundef %conv89, i32 noundef %65, ptr noundef %cond)
-  %conv96 = trunc i32 %call95 to i8
-  %70 = load i32, ptr %j, align 4
-  %add97 = add nsw i32 %70, 1
-  %idxprom98 = sext i32 %add97 to i64
-  %arrayidx99 = getelementptr inbounds [106 x [106 x i8]], ptr @c_color, i64 0, i64 %idxprom98
-  %71 = load i32, ptr %i, align 4
-  %add100 = add nsw i32 %71, 1
-  %idxprom101 = sext i32 %add100 to i64
-  %arrayidx102 = getelementptr inbounds [106 x i8], ptr %arrayidx99, i64 0, i64 %idxprom101
-  store i8 %conv96, ptr %arrayidx102, align 1
-  br label %if.end103
-
-if.end103:                                        ; preds = %cond.end, %if.then71
-  br label %if.end104
-
-if.end104:                                        ; preds = %if.end103, %land.lhs.true66, %land.lhs.true61, %land.lhs.true57, %land.lhs.true53, %land.lhs.true, %for.body47
-  %72 = load i32, ptr %i, align 4
-  %73 = load i32, ptr %j, align 4
-  %call105 = call i32 @stbhw__match(i32 noundef %72, i32 noundef %73)
-  %tobool106 = icmp ne i32 %call105, 0
-  br i1 %tobool106, label %land.lhs.true107, label %if.end166
-
-land.lhs.true107:                                 ; preds = %if.end104
-  %74 = load i32, ptr %i, align 4
-  %add108 = add nsw i32 %74, 1
-  %75 = load i32, ptr %j, align 4
-  %call109 = call i32 @stbhw__match(i32 noundef %add108, i32 noundef %75)
-  %tobool110 = icmp ne i32 %call109, 0
-  br i1 %tobool110, label %land.lhs.true111, label %if.end166
-
-land.lhs.true111:                                 ; preds = %land.lhs.true107
-  %76 = load i32, ptr %i, align 4
-  %add112 = add nsw i32 %76, 2
-  %77 = load i32, ptr %j, align 4
-  %call113 = call i32 @stbhw__match(i32 noundef %add112, i32 noundef %77)
-  %tobool114 = icmp ne i32 %call113, 0
-  br i1 %tobool114, label %land.lhs.true115, label %if.end166
-
-land.lhs.true115:                                 ; preds = %land.lhs.true111
-  %78 = load i32, ptr %i, align 4
-  %79 = load i32, ptr %j, align 4
-  %add116 = add nsw i32 %79, 1
-  %call117 = call i32 @stbhw__match(i32 noundef %78, i32 noundef %add116)
-  %tobool118 = icmp ne i32 %call117, 0
-  br i1 %tobool118, label %land.lhs.true119, label %if.end166
-
-land.lhs.true119:                                 ; preds = %land.lhs.true115
-  %80 = load i32, ptr %i, align 4
-  %add120 = add nsw i32 %80, 1
-  %81 = load i32, ptr %j, align 4
-  %add121 = add nsw i32 %81, 1
-  %call122 = call i32 @stbhw__match(i32 noundef %add120, i32 noundef %add121)
-  %tobool123 = icmp ne i32 %call122, 0
-  br i1 %tobool123, label %land.lhs.true124, label %if.end166
-
-land.lhs.true124:                                 ; preds = %land.lhs.true119
-  %82 = load i32, ptr %i, align 4
-  %add125 = add nsw i32 %82, 2
-  %83 = load i32, ptr %j, align 4
-  %add126 = add nsw i32 %83, 1
-  %call127 = call i32 @stbhw__match(i32 noundef %add125, i32 noundef %add126)
-  %tobool128 = icmp ne i32 %call127, 0
-  br i1 %tobool128, label %if.then129, label %if.end166
-
-if.then129:                                       ; preds = %land.lhs.true124
-  %84 = load i32, ptr %i, align 4
-  %add131 = add nsw i32 %84, 2
-  %85 = load i32, ptr %j, align 4
-  %add132 = add nsw i32 %85, 1
-  %sub133 = sub nsw i32 %add131, %add132
-  %add134 = add nsw i32 %sub133, 1
-  %and135 = and i32 %add134, 3
-  store i32 %and135, ptr %p130, align 4
-  %86 = load ptr, ptr %cc, align 8
-  %87 = load i32, ptr %p130, align 4
-  %idxprom136 = sext i32 %87 to i64
-  %arrayidx137 = getelementptr inbounds i32, ptr %86, i64 %idxprom136
-  %88 = load i32, ptr %arrayidx137, align 4
-  %cmp138 = icmp sgt i32 %88, 1
-  br i1 %cmp138, label %if.then140, label %if.end165
-
-if.then140:                                       ; preds = %if.then129
-  %89 = load i32, ptr %j, align 4
-  %add141 = add nsw i32 %89, 1
-  %idxprom142 = sext i32 %add141 to i64
-  %arrayidx143 = getelementptr inbounds [106 x [106 x i8]], ptr @c_color, i64 0, i64 %idxprom142
-  %90 = load i32, ptr %i, align 4
-  %add144 = add nsw i32 %90, 2
-  %idxprom145 = sext i32 %add144 to i64
-  %arrayidx146 = getelementptr inbounds [106 x i8], ptr %arrayidx143, i64 0, i64 %idxprom145
-  %91 = load i8, ptr %arrayidx146, align 1
-  %conv147 = sext i8 %91 to i32
-  %92 = load ptr, ptr %cc, align 8
-  %93 = load i32, ptr %p130, align 4
-  %idxprom148 = sext i32 %93 to i64
-  %arrayidx149 = getelementptr inbounds i32, ptr %92, i64 %idxprom148
-  %94 = load i32, ptr %arrayidx149, align 4
-  %95 = load ptr, ptr %weighting.addr, align 8
-  %tobool150 = icmp ne ptr %95, null
-  br i1 %tobool150, label %cond.true151, label %cond.false154
-
-cond.true151:                                     ; preds = %if.then140
-  %96 = load ptr, ptr %weighting.addr, align 8
-  %97 = load i32, ptr %p130, align 4
-  %idxprom152 = sext i32 %97 to i64
-  %arrayidx153 = getelementptr inbounds ptr, ptr %96, i64 %idxprom152
-  %98 = load ptr, ptr %arrayidx153, align 8
-  br label %cond.end155
-
-cond.false154:                                    ; preds = %if.then140
-  br label %cond.end155
-
-cond.end155:                                      ; preds = %cond.false154, %cond.true151
-  %cond156 = phi ptr [ %98, %cond.true151 ], [ null, %cond.false154 ]
-  %call157 = call i32 @stbhw__change_color(i32 noundef %conv147, i32 noundef %94, ptr noundef %cond156)
-  %conv158 = trunc i32 %call157 to i8
-  %99 = load i32, ptr %j, align 4
-  %add159 = add nsw i32 %99, 1
-  %idxprom160 = sext i32 %add159 to i64
-  %arrayidx161 = getelementptr inbounds [106 x [106 x i8]], ptr @c_color, i64 0, i64 %idxprom160
-  %100 = load i32, ptr %i, align 4
-  %add162 = add nsw i32 %100, 2
-  %idxprom163 = sext i32 %add162 to i64
-  %arrayidx164 = getelementptr inbounds [106 x i8], ptr %arrayidx161, i64 0, i64 %idxprom163
-  store i8 %conv158, ptr %arrayidx164, align 1
-  br label %if.end165
-
-if.end165:                                        ; preds = %cond.end155, %if.then129
-  br label %if.end166
-
-if.end166:                                        ; preds = %if.end165, %land.lhs.true124, %land.lhs.true119, %land.lhs.true115, %land.lhs.true111, %land.lhs.true107, %if.end104
-  br label %for.inc167
-
-for.inc167:                                       ; preds = %if.end166
-  %101 = load i32, ptr %i, align 4
-  %inc168 = add nsw i32 %101, 1
-  store i32 %inc168, ptr %i, align 4
-  br label %for.cond43, !llvm.loop !47
-
-for.end169:                                       ; preds = %for.cond43
-  br label %for.inc170
-
-for.inc170:                                       ; preds = %for.end169
-  %102 = load i32, ptr %j, align 4
-  %inc171 = add nsw i32 %102, 1
-  store i32 %inc171, ptr %j, align 4
-  br label %for.cond38, !llvm.loop !48
-
-for.end172:                                       ; preds = %for.cond38
-  %103 = load i32, ptr %sidelen, align 4
-  %mul = mul nsw i32 -1, %103
-  store i32 %mul, ptr %ypos, align 4
-  store i32 -1, ptr %j, align 4
-  br label %for.cond173
-
-for.cond173:                                      ; preds = %for.inc293, %for.end172
-  %104 = load i32, ptr %ypos, align 4
-  %105 = load i32, ptr %h.addr, align 4
-  %cmp174 = icmp slt i32 %104, %105
-  br i1 %cmp174, label %for.body176, label %for.end295
-
-for.body176:                                      ; preds = %for.cond173
-  %106 = load i32, ptr %j, align 4
-  %and177 = and i32 %106, 3
-  store i32 %and177, ptr %phase, align 4
-  %107 = load i32, ptr %phase, align 4
-  %cmp178 = icmp eq i32 %107, 0
-  br i1 %cmp178, label %if.then180, label %if.else181
-
-if.then180:                                       ; preds = %for.body176
-  store i32 0, ptr %i, align 4
-  br label %if.end183
-
-if.else181:                                       ; preds = %for.body176
-  %108 = load i32, ptr %phase, align 4
-  %sub182 = sub nsw i32 %108, 4
-  store i32 %sub182, ptr %i, align 4
-  br label %if.end183
-
-if.end183:                                        ; preds = %if.else181, %if.then180
-  br label %for.cond184
-
-for.cond184:                                      ; preds = %for.inc289, %if.end183
-  %109 = load i32, ptr %i, align 4
-  %110 = load i32, ptr %sidelen, align 4
-  %mul185 = mul nsw i32 %109, %110
-  store i32 %mul185, ptr %xpos, align 4
-  %111 = load i32, ptr %xpos, align 4
-  %112 = load i32, ptr %w.addr, align 4
-  %cmp186 = icmp sge i32 %111, %112
-  br i1 %cmp186, label %if.then188, label %if.end189
-
-if.then188:                                       ; preds = %for.cond184
-  br label %for.end291
-
-if.end189:                                        ; preds = %for.cond184
-  %113 = load i32, ptr %xpos, align 4
-  %114 = load i32, ptr %sidelen, align 4
-  %mul190 = mul nsw i32 %114, 2
-  %add191 = add nsw i32 %113, %mul190
-  %cmp192 = icmp sge i32 %add191, 0
-  br i1 %cmp192, label %land.lhs.true194, label %if.end239
-
-land.lhs.true194:                                 ; preds = %if.end189
-  %115 = load i32, ptr %ypos, align 4
-  %cmp195 = icmp sge i32 %115, 0
-  br i1 %cmp195, label %if.then197, label %if.end239
-
-if.then197:                                       ; preds = %land.lhs.true194
-  %116 = load ptr, ptr %ts.addr, align 8
-  %h_tiles = getelementptr inbounds %struct.stbhw_tileset, ptr %116, i32 0, i32 3
-  %117 = load ptr, ptr %h_tiles, align 8
-  %118 = load ptr, ptr %ts.addr, align 8
-  %num_h_tiles = getelementptr inbounds %struct.stbhw_tileset, ptr %118, i32 0, i32 5
-  %119 = load i32, ptr %num_h_tiles, align 8
-  %120 = load i32, ptr %j, align 4
-  %add198 = add nsw i32 %120, 2
-  %idxprom199 = sext i32 %add198 to i64
-  %arrayidx200 = getelementptr inbounds [106 x [106 x i8]], ptr @c_color, i64 0, i64 %idxprom199
-  %121 = load i32, ptr %i, align 4
-  %add201 = add nsw i32 %121, 2
-  %idxprom202 = sext i32 %add201 to i64
-  %arrayidx203 = getelementptr inbounds [106 x i8], ptr %arrayidx200, i64 0, i64 %idxprom202
-  %122 = load i32, ptr %j, align 4
-  %add204 = add nsw i32 %122, 2
-  %idxprom205 = sext i32 %add204 to i64
-  %arrayidx206 = getelementptr inbounds [106 x [106 x i8]], ptr @c_color, i64 0, i64 %idxprom205
-  %123 = load i32, ptr %i, align 4
-  %add207 = add nsw i32 %123, 3
-  %idxprom208 = sext i32 %add207 to i64
-  %arrayidx209 = getelementptr inbounds [106 x i8], ptr %arrayidx206, i64 0, i64 %idxprom208
-  %124 = load i32, ptr %j, align 4
-  %add210 = add nsw i32 %124, 2
-  %idxprom211 = sext i32 %add210 to i64
-  %arrayidx212 = getelementptr inbounds [106 x [106 x i8]], ptr @c_color, i64 0, i64 %idxprom211
-  %125 = load i32, ptr %i, align 4
-  %add213 = add nsw i32 %125, 4
-  %idxprom214 = sext i32 %add213 to i64
-  %arrayidx215 = getelementptr inbounds [106 x i8], ptr %arrayidx212, i64 0, i64 %idxprom214
-  %126 = load i32, ptr %j, align 4
-  %add216 = add nsw i32 %126, 3
-  %idxprom217 = sext i32 %add216 to i64
-  %arrayidx218 = getelementptr inbounds [106 x [106 x i8]], ptr @c_color, i64 0, i64 %idxprom217
-  %127 = load i32, ptr %i, align 4
-  %add219 = add nsw i32 %127, 2
-  %idxprom220 = sext i32 %add219 to i64
-  %arrayidx221 = getelementptr inbounds [106 x i8], ptr %arrayidx218, i64 0, i64 %idxprom220
-  %128 = load i32, ptr %j, align 4
-  %add222 = add nsw i32 %128, 3
-  %idxprom223 = sext i32 %add222 to i64
-  %arrayidx224 = getelementptr inbounds [106 x [106 x i8]], ptr @c_color, i64 0, i64 %idxprom223
-  %129 = load i32, ptr %i, align 4
-  %add225 = add nsw i32 %129, 3
-  %idxprom226 = sext i32 %add225 to i64
-  %arrayidx227 = getelementptr inbounds [106 x i8], ptr %arrayidx224, i64 0, i64 %idxprom226
-  %130 = load i32, ptr %j, align 4
-  %add228 = add nsw i32 %130, 3
-  %idxprom229 = sext i32 %add228 to i64
-  %arrayidx230 = getelementptr inbounds [106 x [106 x i8]], ptr @c_color, i64 0, i64 %idxprom229
-  %131 = load i32, ptr %i, align 4
-  %add231 = add nsw i32 %131, 4
-  %idxprom232 = sext i32 %add231 to i64
-  %arrayidx233 = getelementptr inbounds [106 x i8], ptr %arrayidx230, i64 0, i64 %idxprom232
-  %132 = load ptr, ptr %weighting.addr, align 8
-  %call234 = call ptr @stbhw__choose_tile(ptr noundef %117, i32 noundef %119, ptr noundef %arrayidx203, ptr noundef %arrayidx209, ptr noundef %arrayidx215, ptr noundef %arrayidx221, ptr noundef %arrayidx227, ptr noundef %arrayidx233, ptr noundef %132)
-  store ptr %call234, ptr %t, align 8
-  %133 = load ptr, ptr %t, align 8
-  %cmp235 = icmp eq ptr %133, null
-  br i1 %cmp235, label %if.then237, label %if.end238
-
-if.then237:                                       ; preds = %if.then197
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end238:                                        ; preds = %if.then197
-  %134 = load ptr, ptr %output.addr, align 8
-  %135 = load i32, ptr %stride.addr, align 4
-  %136 = load i32, ptr %w.addr, align 4
-  %137 = load i32, ptr %h.addr, align 4
-  %138 = load i32, ptr %xpos, align 4
-  %139 = load i32, ptr %ypos, align 4
-  %140 = load ptr, ptr %t, align 8
-  %141 = load i32, ptr %sidelen, align 4
-  call void @stbhw__draw_h_tile(ptr noundef %134, i32 noundef %135, i32 noundef %136, i32 noundef %137, i32 noundef %138, i32 noundef %139, ptr noundef %140, i32 noundef %141)
-  br label %if.end239
-
-if.end239:                                        ; preds = %if.end238, %land.lhs.true194, %if.end189
-  %142 = load i32, ptr %sidelen, align 4
-  %mul240 = mul nsw i32 %142, 2
-  %143 = load i32, ptr %xpos, align 4
-  %add241 = add nsw i32 %143, %mul240
-  store i32 %add241, ptr %xpos, align 4
-  %144 = load i32, ptr %sidelen, align 4
-  %145 = load i32, ptr %xpos, align 4
-  %add242 = add nsw i32 %145, %144
-  store i32 %add242, ptr %xpos, align 4
-  %146 = load i32, ptr %xpos, align 4
-  %147 = load i32, ptr %w.addr, align 4
-  %cmp243 = icmp slt i32 %146, %147
-  br i1 %cmp243, label %if.then245, label %if.end288
-
-if.then245:                                       ; preds = %if.end239
-  %148 = load ptr, ptr %ts.addr, align 8
-  %v_tiles = getelementptr inbounds %struct.stbhw_tileset, ptr %148, i32 0, i32 4
-  %149 = load ptr, ptr %v_tiles, align 8
-  %150 = load ptr, ptr %ts.addr, align 8
-  %num_v_tiles = getelementptr inbounds %struct.stbhw_tileset, ptr %150, i32 0, i32 7
-  %151 = load i32, ptr %num_v_tiles, align 8
-  %152 = load i32, ptr %j, align 4
-  %add247 = add nsw i32 %152, 2
-  %idxprom248 = sext i32 %add247 to i64
-  %arrayidx249 = getelementptr inbounds [106 x [106 x i8]], ptr @c_color, i64 0, i64 %idxprom248
-  %153 = load i32, ptr %i, align 4
-  %add250 = add nsw i32 %153, 5
-  %idxprom251 = sext i32 %add250 to i64
-  %arrayidx252 = getelementptr inbounds [106 x i8], ptr %arrayidx249, i64 0, i64 %idxprom251
-  %154 = load i32, ptr %j, align 4
-  %add253 = add nsw i32 %154, 3
-  %idxprom254 = sext i32 %add253 to i64
-  %arrayidx255 = getelementptr inbounds [106 x [106 x i8]], ptr @c_color, i64 0, i64 %idxprom254
-  %155 = load i32, ptr %i, align 4
-  %add256 = add nsw i32 %155, 5
-  %idxprom257 = sext i32 %add256 to i64
-  %arrayidx258 = getelementptr inbounds [106 x i8], ptr %arrayidx255, i64 0, i64 %idxprom257
-  %156 = load i32, ptr %j, align 4
-  %add259 = add nsw i32 %156, 4
-  %idxprom260 = sext i32 %add259 to i64
-  %arrayidx261 = getelementptr inbounds [106 x [106 x i8]], ptr @c_color, i64 0, i64 %idxprom260
-  %157 = load i32, ptr %i, align 4
-  %add262 = add nsw i32 %157, 5
-  %idxprom263 = sext i32 %add262 to i64
-  %arrayidx264 = getelementptr inbounds [106 x i8], ptr %arrayidx261, i64 0, i64 %idxprom263
-  %158 = load i32, ptr %j, align 4
-  %add265 = add nsw i32 %158, 2
-  %idxprom266 = sext i32 %add265 to i64
-  %arrayidx267 = getelementptr inbounds [106 x [106 x i8]], ptr @c_color, i64 0, i64 %idxprom266
-  %159 = load i32, ptr %i, align 4
-  %add268 = add nsw i32 %159, 6
-  %idxprom269 = sext i32 %add268 to i64
-  %arrayidx270 = getelementptr inbounds [106 x i8], ptr %arrayidx267, i64 0, i64 %idxprom269
-  %160 = load i32, ptr %j, align 4
-  %add271 = add nsw i32 %160, 3
-  %idxprom272 = sext i32 %add271 to i64
-  %arrayidx273 = getelementptr inbounds [106 x [106 x i8]], ptr @c_color, i64 0, i64 %idxprom272
-  %161 = load i32, ptr %i, align 4
-  %add274 = add nsw i32 %161, 6
-  %idxprom275 = sext i32 %add274 to i64
-  %arrayidx276 = getelementptr inbounds [106 x i8], ptr %arrayidx273, i64 0, i64 %idxprom275
-  %162 = load i32, ptr %j, align 4
-  %add277 = add nsw i32 %162, 4
-  %idxprom278 = sext i32 %add277 to i64
-  %arrayidx279 = getelementptr inbounds [106 x [106 x i8]], ptr @c_color, i64 0, i64 %idxprom278
-  %163 = load i32, ptr %i, align 4
-  %add280 = add nsw i32 %163, 6
-  %idxprom281 = sext i32 %add280 to i64
-  %arrayidx282 = getelementptr inbounds [106 x i8], ptr %arrayidx279, i64 0, i64 %idxprom281
-  %164 = load ptr, ptr %weighting.addr, align 8
-  %call283 = call ptr @stbhw__choose_tile(ptr noundef %149, i32 noundef %151, ptr noundef %arrayidx252, ptr noundef %arrayidx258, ptr noundef %arrayidx264, ptr noundef %arrayidx270, ptr noundef %arrayidx276, ptr noundef %arrayidx282, ptr noundef %164)
-  store ptr %call283, ptr %t246, align 8
-  %165 = load ptr, ptr %t246, align 8
-  %cmp284 = icmp eq ptr %165, null
-  br i1 %cmp284, label %if.then286, label %if.end287
-
-if.then286:                                       ; preds = %if.then245
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end287:                                        ; preds = %if.then245
-  %166 = load ptr, ptr %output.addr, align 8
-  %167 = load i32, ptr %stride.addr, align 4
-  %168 = load i32, ptr %w.addr, align 4
-  %169 = load i32, ptr %h.addr, align 4
-  %170 = load i32, ptr %xpos, align 4
-  %171 = load i32, ptr %ypos, align 4
-  %172 = load ptr, ptr %t246, align 8
-  %173 = load i32, ptr %sidelen, align 4
-  call void @stbhw__draw_v_tile(ptr noundef %166, i32 noundef %167, i32 noundef %168, i32 noundef %169, i32 noundef %170, i32 noundef %171, ptr noundef %172, i32 noundef %173)
-  br label %if.end288
-
-if.end288:                                        ; preds = %if.end287, %if.end239
-  br label %for.inc289
-
-for.inc289:                                       ; preds = %if.end288
-  %174 = load i32, ptr %i, align 4
-  %add290 = add nsw i32 %174, 4
-  store i32 %add290, ptr %i, align 4
-  br label %for.cond184
-
-for.end291:                                       ; preds = %if.then188
-  %175 = load i32, ptr %sidelen, align 4
-  %176 = load i32, ptr %ypos, align 4
-  %add292 = add nsw i32 %176, %175
-  store i32 %add292, ptr %ypos, align 4
-  br label %for.inc293
-
-for.inc293:                                       ; preds = %for.end291
-  %177 = load i32, ptr %j, align 4
-  %inc294 = add nsw i32 %177, 1
-  store i32 %inc294, ptr %j, align 4
-  br label %for.cond173, !llvm.loop !49
-
-for.end295:                                       ; preds = %for.cond173
-  br label %if.end431
-
-if.else296:                                       ; preds = %if.end
+define i32 @stbhw_generate_image(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #0 {
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  %16 = alloca i32, align 4
+  %17 = alloca i32, align 4
+  %18 = alloca i32, align 4
+  %19 = alloca i32, align 4
+  %20 = alloca i32, align 4
+  %21 = alloca ptr, align 8
+  %22 = alloca i32, align 4
+  %23 = alloca i32, align 4
+  %24 = alloca i32, align 4
+  %25 = alloca i32, align 4
+  %26 = alloca i32, align 4
+  %27 = alloca ptr, align 8
+  %28 = alloca ptr, align 8
+  %29 = alloca i32, align 4
+  %30 = alloca i32, align 4
+  %31 = alloca i32, align 4
+  %32 = alloca i32, align 4
+  %33 = alloca i32, align 4
+  %34 = alloca ptr, align 8
+  %35 = alloca ptr, align 8
+  store ptr %0, ptr %8, align 8, !tbaa !78
+  store ptr %1, ptr %9, align 8, !tbaa !62
+  store ptr %2, ptr %10, align 8, !tbaa !3
+  store i32 %3, ptr %11, align 4, !tbaa !10
+  store i32 %4, ptr %12, align 4, !tbaa !10
+  store i32 %5, ptr %13, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #6
+  %36 = load ptr, ptr %8, align 8, !tbaa !78
+  %37 = getelementptr inbounds nuw %struct.stbhw_tileset, ptr %36, i32 0, i32 2
+  %38 = load i32, ptr %37, align 4, !tbaa !79
+  store i32 %38, ptr %14, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #6
+  %39 = load i32, ptr %12, align 4, !tbaa !10
+  %40 = load i32, ptr %14, align 4, !tbaa !10
+  %41 = sdiv i32 %39, %40
+  %42 = add nsw i32 %41, 6
+  store i32 %42, ptr %15, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #6
+  %43 = load i32, ptr %13, align 4, !tbaa !10
+  %44 = load i32, ptr %14, align 4, !tbaa !10
+  %45 = sdiv i32 %43, %44
+  %46 = add nsw i32 %45, 6
+  store i32 %46, ptr %16, align 4, !tbaa !10
+  %47 = load i32, ptr %15, align 4, !tbaa !10
+  %48 = icmp sgt i32 %47, 106
+  br i1 %48, label %52, label %49
+
+49:                                               ; preds = %6
+  %50 = load i32, ptr %16, align 4, !tbaa !10
+  %51 = icmp sgt i32 %50, 106
+  br i1 %51, label %52, label %53
+
+52:                                               ; preds = %49, %6
+  store ptr @.str.2, ptr @stbhw_error, align 8, !tbaa !3
+  store i32 0, ptr %7, align 4
+  store i32 1, ptr %17, align 4
+  br label %755
+
+53:                                               ; preds = %49
+  %54 = load ptr, ptr %8, align 8, !tbaa !78
+  %55 = getelementptr inbounds nuw %struct.stbhw_tileset, ptr %54, i32 0, i32 0
+  %56 = load i32, ptr %55, align 8, !tbaa !81
+  %57 = icmp ne i32 %56, 0
+  br i1 %57, label %58, label %544
+
+58:                                               ; preds = %53
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #6
+  %59 = load ptr, ptr %8, align 8, !tbaa !78
+  %60 = getelementptr inbounds nuw %struct.stbhw_tileset, ptr %59, i32 0, i32 1
+  %61 = getelementptr inbounds [6 x i32], ptr %60, i64 0, i64 0
+  store ptr %61, ptr %21, align 8, !tbaa !35
+  store i32 0, ptr %19, align 4, !tbaa !10
+  br label %62
+
+62:                                               ; preds = %133, %58
+  %63 = load i32, ptr %19, align 4, !tbaa !10
+  %64 = load i32, ptr %16, align 4, !tbaa !10
+  %65 = icmp slt i32 %63, %64
+  br i1 %65, label %66, label %136
+
+66:                                               ; preds = %62
+  store i32 0, ptr %18, align 4, !tbaa !10
+  br label %67
+
+67:                                               ; preds = %129, %66
+  %68 = load i32, ptr %18, align 4, !tbaa !10
+  %69 = load i32, ptr %15, align 4, !tbaa !10
+  %70 = icmp slt i32 %68, %69
+  br i1 %70, label %71, label %132
+
+71:                                               ; preds = %67
+  call void @llvm.lifetime.start.p0(i64 4, ptr %22) #6
+  %72 = load i32, ptr %18, align 4, !tbaa !10
+  %73 = load i32, ptr %19, align 4, !tbaa !10
+  %74 = sub nsw i32 %72, %73
+  %75 = add nsw i32 %74, 1
+  %76 = and i32 %75, 3
+  store i32 %76, ptr %22, align 4, !tbaa !10
+  %77 = load ptr, ptr %9, align 8, !tbaa !62
+  %78 = icmp eq ptr %77, null
+  br i1 %78, label %93, label %79
+
+79:                                               ; preds = %71
+  %80 = load ptr, ptr %9, align 8, !tbaa !62
+  %81 = load i32, ptr %22, align 4, !tbaa !10
+  %82 = sext i32 %81 to i64
+  %83 = getelementptr inbounds ptr, ptr %80, i64 %82
+  %84 = load ptr, ptr %83, align 8, !tbaa !35
+  %85 = icmp eq ptr %84, null
+  br i1 %85, label %93, label %86
+
+86:                                               ; preds = %79
+  %87 = load ptr, ptr %21, align 8, !tbaa !35
+  %88 = load i32, ptr %22, align 4, !tbaa !10
+  %89 = sext i32 %88 to i64
+  %90 = getelementptr inbounds i32, ptr %87, i64 %89
+  %91 = load i32, ptr %90, align 4, !tbaa !10
+  %92 = icmp eq i32 %91, 1
+  br i1 %92, label %93, label %109
+
+93:                                               ; preds = %86, %79, %71
+  %94 = call i32 @rand() #6
+  %95 = ashr i32 %94, 4
+  %96 = load ptr, ptr %21, align 8, !tbaa !35
+  %97 = load i32, ptr %22, align 4, !tbaa !10
+  %98 = sext i32 %97 to i64
+  %99 = getelementptr inbounds i32, ptr %96, i64 %98
+  %100 = load i32, ptr %99, align 4, !tbaa !10
+  %101 = srem i32 %95, %100
+  %102 = trunc i32 %101 to i8
+  %103 = load i32, ptr %19, align 4, !tbaa !10
+  %104 = sext i32 %103 to i64
+  %105 = getelementptr inbounds [106 x [106 x i8]], ptr @c_color, i64 0, i64 %104
+  %106 = load i32, ptr %18, align 4, !tbaa !10
+  %107 = sext i32 %106 to i64
+  %108 = getelementptr inbounds [106 x i8], ptr %105, i64 0, i64 %107
+  store i8 %102, ptr %108, align 1, !tbaa !64
+  br label %128
+
+109:                                              ; preds = %86
+  %110 = load ptr, ptr %21, align 8, !tbaa !35
+  %111 = load i32, ptr %22, align 4, !tbaa !10
+  %112 = sext i32 %111 to i64
+  %113 = getelementptr inbounds i32, ptr %110, i64 %112
+  %114 = load i32, ptr %113, align 4, !tbaa !10
+  %115 = load ptr, ptr %9, align 8, !tbaa !62
+  %116 = load i32, ptr %22, align 4, !tbaa !10
+  %117 = sext i32 %116 to i64
+  %118 = getelementptr inbounds ptr, ptr %115, i64 %117
+  %119 = load ptr, ptr %118, align 8, !tbaa !35
+  %120 = call i32 @stbhw__weighted(i32 noundef %114, ptr noundef %119)
+  %121 = trunc i32 %120 to i8
+  %122 = load i32, ptr %19, align 4, !tbaa !10
+  %123 = sext i32 %122 to i64
+  %124 = getelementptr inbounds [106 x [106 x i8]], ptr @c_color, i64 0, i64 %123
+  %125 = load i32, ptr %18, align 4, !tbaa !10
+  %126 = sext i32 %125 to i64
+  %127 = getelementptr inbounds [106 x i8], ptr %124, i64 0, i64 %126
+  store i8 %121, ptr %127, align 1, !tbaa !64
+  br label %128
+
+128:                                              ; preds = %109, %93
+  call void @llvm.lifetime.end.p0(i64 4, ptr %22) #6
+  br label %129
+
+129:                                              ; preds = %128
+  %130 = load i32, ptr %18, align 4, !tbaa !10
+  %131 = add nsw i32 %130, 1
+  store i32 %131, ptr %18, align 4, !tbaa !10
+  br label %67, !llvm.loop !82
+
+132:                                              ; preds = %67
+  br label %133
+
+133:                                              ; preds = %132
+  %134 = load i32, ptr %19, align 4, !tbaa !10
+  %135 = add nsw i32 %134, 1
+  store i32 %135, ptr %19, align 4, !tbaa !10
+  br label %62, !llvm.loop !83
+
+136:                                              ; preds = %62
+  store i32 0, ptr %19, align 4, !tbaa !10
+  br label %137
+
+137:                                              ; preds = %331, %136
+  %138 = load i32, ptr %19, align 4, !tbaa !10
+  %139 = load i32, ptr %16, align 4, !tbaa !10
+  %140 = sub nsw i32 %139, 3
+  %141 = icmp slt i32 %138, %140
+  br i1 %141, label %142, label %334
+
+142:                                              ; preds = %137
+  store i32 0, ptr %18, align 4, !tbaa !10
+  br label %143
+
+143:                                              ; preds = %327, %142
+  %144 = load i32, ptr %18, align 4, !tbaa !10
+  %145 = load i32, ptr %15, align 4, !tbaa !10
+  %146 = sub nsw i32 %145, 3
+  %147 = icmp slt i32 %144, %146
+  br i1 %147, label %148, label %330
+
+148:                                              ; preds = %143
+  %149 = load i32, ptr %18, align 4, !tbaa !10
+  %150 = load i32, ptr %19, align 4, !tbaa !10
+  %151 = call i32 @stbhw__match(i32 noundef %149, i32 noundef %150)
+  %152 = icmp ne i32 %151, 0
+  br i1 %152, label %153, label %237
+
+153:                                              ; preds = %148
+  %154 = load i32, ptr %18, align 4, !tbaa !10
+  %155 = load i32, ptr %19, align 4, !tbaa !10
+  %156 = add nsw i32 %155, 1
+  %157 = call i32 @stbhw__match(i32 noundef %154, i32 noundef %156)
+  %158 = icmp ne i32 %157, 0
+  br i1 %158, label %159, label %237
+
+159:                                              ; preds = %153
+  %160 = load i32, ptr %18, align 4, !tbaa !10
+  %161 = load i32, ptr %19, align 4, !tbaa !10
+  %162 = add nsw i32 %161, 2
+  %163 = call i32 @stbhw__match(i32 noundef %160, i32 noundef %162)
+  %164 = icmp ne i32 %163, 0
+  br i1 %164, label %165, label %237
+
+165:                                              ; preds = %159
+  %166 = load i32, ptr %18, align 4, !tbaa !10
+  %167 = add nsw i32 %166, 1
+  %168 = load i32, ptr %19, align 4, !tbaa !10
+  %169 = call i32 @stbhw__match(i32 noundef %167, i32 noundef %168)
+  %170 = icmp ne i32 %169, 0
+  br i1 %170, label %171, label %237
+
+171:                                              ; preds = %165
+  %172 = load i32, ptr %18, align 4, !tbaa !10
+  %173 = add nsw i32 %172, 1
+  %174 = load i32, ptr %19, align 4, !tbaa !10
+  %175 = add nsw i32 %174, 1
+  %176 = call i32 @stbhw__match(i32 noundef %173, i32 noundef %175)
+  %177 = icmp ne i32 %176, 0
+  br i1 %177, label %178, label %237
+
+178:                                              ; preds = %171
+  %179 = load i32, ptr %18, align 4, !tbaa !10
+  %180 = add nsw i32 %179, 1
+  %181 = load i32, ptr %19, align 4, !tbaa !10
+  %182 = add nsw i32 %181, 2
+  %183 = call i32 @stbhw__match(i32 noundef %180, i32 noundef %182)
+  %184 = icmp ne i32 %183, 0
+  br i1 %184, label %185, label %237
+
+185:                                              ; preds = %178
+  call void @llvm.lifetime.start.p0(i64 4, ptr %23) #6
+  %186 = load i32, ptr %18, align 4, !tbaa !10
+  %187 = add nsw i32 %186, 1
+  %188 = load i32, ptr %19, align 4, !tbaa !10
+  %189 = add nsw i32 %188, 1
+  %190 = sub nsw i32 %187, %189
+  %191 = add nsw i32 %190, 1
+  %192 = and i32 %191, 3
+  store i32 %192, ptr %23, align 4, !tbaa !10
+  %193 = load ptr, ptr %21, align 8, !tbaa !35
+  %194 = load i32, ptr %23, align 4, !tbaa !10
+  %195 = sext i32 %194 to i64
+  %196 = getelementptr inbounds i32, ptr %193, i64 %195
+  %197 = load i32, ptr %196, align 4, !tbaa !10
+  %198 = icmp sgt i32 %197, 1
+  br i1 %198, label %199, label %236
+
+199:                                              ; preds = %185
+  %200 = load i32, ptr %19, align 4, !tbaa !10
+  %201 = add nsw i32 %200, 1
+  %202 = sext i32 %201 to i64
+  %203 = getelementptr inbounds [106 x [106 x i8]], ptr @c_color, i64 0, i64 %202
+  %204 = load i32, ptr %18, align 4, !tbaa !10
+  %205 = add nsw i32 %204, 1
+  %206 = sext i32 %205 to i64
+  %207 = getelementptr inbounds [106 x i8], ptr %203, i64 0, i64 %206
+  %208 = load i8, ptr %207, align 1, !tbaa !64
+  %209 = sext i8 %208 to i32
+  %210 = load ptr, ptr %21, align 8, !tbaa !35
+  %211 = load i32, ptr %23, align 4, !tbaa !10
+  %212 = sext i32 %211 to i64
+  %213 = getelementptr inbounds i32, ptr %210, i64 %212
+  %214 = load i32, ptr %213, align 4, !tbaa !10
+  %215 = load ptr, ptr %9, align 8, !tbaa !62
+  %216 = icmp ne ptr %215, null
+  br i1 %216, label %217, label %223
+
+217:                                              ; preds = %199
+  %218 = load ptr, ptr %9, align 8, !tbaa !62
+  %219 = load i32, ptr %23, align 4, !tbaa !10
+  %220 = sext i32 %219 to i64
+  %221 = getelementptr inbounds ptr, ptr %218, i64 %220
+  %222 = load ptr, ptr %221, align 8, !tbaa !35
+  br label %224
+
+223:                                              ; preds = %199
+  br label %224
+
+224:                                              ; preds = %223, %217
+  %225 = phi ptr [ %222, %217 ], [ null, %223 ]
+  %226 = call i32 @stbhw__change_color(i32 noundef %209, i32 noundef %214, ptr noundef %225)
+  %227 = trunc i32 %226 to i8
+  %228 = load i32, ptr %19, align 4, !tbaa !10
+  %229 = add nsw i32 %228, 1
+  %230 = sext i32 %229 to i64
+  %231 = getelementptr inbounds [106 x [106 x i8]], ptr @c_color, i64 0, i64 %230
+  %232 = load i32, ptr %18, align 4, !tbaa !10
+  %233 = add nsw i32 %232, 1
+  %234 = sext i32 %233 to i64
+  %235 = getelementptr inbounds [106 x i8], ptr %231, i64 0, i64 %234
+  store i8 %227, ptr %235, align 1, !tbaa !64
+  br label %236
+
+236:                                              ; preds = %224, %185
+  call void @llvm.lifetime.end.p0(i64 4, ptr %23) #6
+  br label %237
+
+237:                                              ; preds = %236, %178, %171, %165, %159, %153, %148
+  %238 = load i32, ptr %18, align 4, !tbaa !10
+  %239 = load i32, ptr %19, align 4, !tbaa !10
+  %240 = call i32 @stbhw__match(i32 noundef %238, i32 noundef %239)
+  %241 = icmp ne i32 %240, 0
+  br i1 %241, label %242, label %326
+
+242:                                              ; preds = %237
+  %243 = load i32, ptr %18, align 4, !tbaa !10
+  %244 = add nsw i32 %243, 1
+  %245 = load i32, ptr %19, align 4, !tbaa !10
+  %246 = call i32 @stbhw__match(i32 noundef %244, i32 noundef %245)
+  %247 = icmp ne i32 %246, 0
+  br i1 %247, label %248, label %326
+
+248:                                              ; preds = %242
+  %249 = load i32, ptr %18, align 4, !tbaa !10
+  %250 = add nsw i32 %249, 2
+  %251 = load i32, ptr %19, align 4, !tbaa !10
+  %252 = call i32 @stbhw__match(i32 noundef %250, i32 noundef %251)
+  %253 = icmp ne i32 %252, 0
+  br i1 %253, label %254, label %326
+
+254:                                              ; preds = %248
+  %255 = load i32, ptr %18, align 4, !tbaa !10
+  %256 = load i32, ptr %19, align 4, !tbaa !10
+  %257 = add nsw i32 %256, 1
+  %258 = call i32 @stbhw__match(i32 noundef %255, i32 noundef %257)
+  %259 = icmp ne i32 %258, 0
+  br i1 %259, label %260, label %326
+
+260:                                              ; preds = %254
+  %261 = load i32, ptr %18, align 4, !tbaa !10
+  %262 = add nsw i32 %261, 1
+  %263 = load i32, ptr %19, align 4, !tbaa !10
+  %264 = add nsw i32 %263, 1
+  %265 = call i32 @stbhw__match(i32 noundef %262, i32 noundef %264)
+  %266 = icmp ne i32 %265, 0
+  br i1 %266, label %267, label %326
+
+267:                                              ; preds = %260
+  %268 = load i32, ptr %18, align 4, !tbaa !10
+  %269 = add nsw i32 %268, 2
+  %270 = load i32, ptr %19, align 4, !tbaa !10
+  %271 = add nsw i32 %270, 1
+  %272 = call i32 @stbhw__match(i32 noundef %269, i32 noundef %271)
+  %273 = icmp ne i32 %272, 0
+  br i1 %273, label %274, label %326
+
+274:                                              ; preds = %267
+  call void @llvm.lifetime.start.p0(i64 4, ptr %24) #6
+  %275 = load i32, ptr %18, align 4, !tbaa !10
+  %276 = add nsw i32 %275, 2
+  %277 = load i32, ptr %19, align 4, !tbaa !10
+  %278 = add nsw i32 %277, 1
+  %279 = sub nsw i32 %276, %278
+  %280 = add nsw i32 %279, 1
+  %281 = and i32 %280, 3
+  store i32 %281, ptr %24, align 4, !tbaa !10
+  %282 = load ptr, ptr %21, align 8, !tbaa !35
+  %283 = load i32, ptr %24, align 4, !tbaa !10
+  %284 = sext i32 %283 to i64
+  %285 = getelementptr inbounds i32, ptr %282, i64 %284
+  %286 = load i32, ptr %285, align 4, !tbaa !10
+  %287 = icmp sgt i32 %286, 1
+  br i1 %287, label %288, label %325
+
+288:                                              ; preds = %274
+  %289 = load i32, ptr %19, align 4, !tbaa !10
+  %290 = add nsw i32 %289, 1
+  %291 = sext i32 %290 to i64
+  %292 = getelementptr inbounds [106 x [106 x i8]], ptr @c_color, i64 0, i64 %291
+  %293 = load i32, ptr %18, align 4, !tbaa !10
+  %294 = add nsw i32 %293, 2
+  %295 = sext i32 %294 to i64
+  %296 = getelementptr inbounds [106 x i8], ptr %292, i64 0, i64 %295
+  %297 = load i8, ptr %296, align 1, !tbaa !64
+  %298 = sext i8 %297 to i32
+  %299 = load ptr, ptr %21, align 8, !tbaa !35
+  %300 = load i32, ptr %24, align 4, !tbaa !10
+  %301 = sext i32 %300 to i64
+  %302 = getelementptr inbounds i32, ptr %299, i64 %301
+  %303 = load i32, ptr %302, align 4, !tbaa !10
+  %304 = load ptr, ptr %9, align 8, !tbaa !62
+  %305 = icmp ne ptr %304, null
+  br i1 %305, label %306, label %312
+
+306:                                              ; preds = %288
+  %307 = load ptr, ptr %9, align 8, !tbaa !62
+  %308 = load i32, ptr %24, align 4, !tbaa !10
+  %309 = sext i32 %308 to i64
+  %310 = getelementptr inbounds ptr, ptr %307, i64 %309
+  %311 = load ptr, ptr %310, align 8, !tbaa !35
+  br label %313
+
+312:                                              ; preds = %288
+  br label %313
+
+313:                                              ; preds = %312, %306
+  %314 = phi ptr [ %311, %306 ], [ null, %312 ]
+  %315 = call i32 @stbhw__change_color(i32 noundef %298, i32 noundef %303, ptr noundef %314)
+  %316 = trunc i32 %315 to i8
+  %317 = load i32, ptr %19, align 4, !tbaa !10
+  %318 = add nsw i32 %317, 1
+  %319 = sext i32 %318 to i64
+  %320 = getelementptr inbounds [106 x [106 x i8]], ptr @c_color, i64 0, i64 %319
+  %321 = load i32, ptr %18, align 4, !tbaa !10
+  %322 = add nsw i32 %321, 2
+  %323 = sext i32 %322 to i64
+  %324 = getelementptr inbounds [106 x i8], ptr %320, i64 0, i64 %323
+  store i8 %316, ptr %324, align 1, !tbaa !64
+  br label %325
+
+325:                                              ; preds = %313, %274
+  call void @llvm.lifetime.end.p0(i64 4, ptr %24) #6
+  br label %326
+
+326:                                              ; preds = %325, %267, %260, %254, %248, %242, %237
+  br label %327
+
+327:                                              ; preds = %326
+  %328 = load i32, ptr %18, align 4, !tbaa !10
+  %329 = add nsw i32 %328, 1
+  store i32 %329, ptr %18, align 4, !tbaa !10
+  br label %143, !llvm.loop !84
+
+330:                                              ; preds = %143
+  br label %331
+
+331:                                              ; preds = %330
+  %332 = load i32, ptr %19, align 4, !tbaa !10
+  %333 = add nsw i32 %332, 1
+  store i32 %333, ptr %19, align 4, !tbaa !10
+  br label %137, !llvm.loop !85
+
+334:                                              ; preds = %137
+  %335 = load i32, ptr %14, align 4, !tbaa !10
+  %336 = mul nsw i32 -1, %335
+  store i32 %336, ptr %20, align 4, !tbaa !10
+  store i32 -1, ptr %19, align 4, !tbaa !10
+  br label %337
+
+337:                                              ; preds = %537, %334
+  %338 = load i32, ptr %20, align 4, !tbaa !10
+  %339 = load i32, ptr %13, align 4, !tbaa !10
+  %340 = icmp slt i32 %338, %339
+  br i1 %340, label %341, label %540
+
+341:                                              ; preds = %337
+  call void @llvm.lifetime.start.p0(i64 4, ptr %25) #6
+  %342 = load i32, ptr %19, align 4, !tbaa !10
+  %343 = and i32 %342, 3
+  store i32 %343, ptr %25, align 4, !tbaa !10
+  %344 = load i32, ptr %25, align 4, !tbaa !10
+  %345 = icmp eq i32 %344, 0
+  br i1 %345, label %346, label %347
+
+346:                                              ; preds = %341
+  store i32 0, ptr %18, align 4, !tbaa !10
+  br label %350
+
+347:                                              ; preds = %341
+  %348 = load i32, ptr %25, align 4, !tbaa !10
+  %349 = sub nsw i32 %348, 4
+  store i32 %349, ptr %18, align 4, !tbaa !10
+  br label %350
+
+350:                                              ; preds = %347, %346
+  br label %351
+
+351:                                              ; preds = %527, %350
+  call void @llvm.lifetime.start.p0(i64 4, ptr %26) #6
+  %352 = load i32, ptr %18, align 4, !tbaa !10
+  %353 = load i32, ptr %14, align 4, !tbaa !10
+  %354 = mul nsw i32 %352, %353
+  store i32 %354, ptr %26, align 4, !tbaa !10
+  %355 = load i32, ptr %26, align 4, !tbaa !10
+  %356 = load i32, ptr %12, align 4, !tbaa !10
+  %357 = icmp sge i32 %355, %356
+  br i1 %357, label %358, label %359
+
+358:                                              ; preds = %351
+  store i32 17, ptr %17, align 4
+  br label %524
+
+359:                                              ; preds = %351
+  %360 = load i32, ptr %26, align 4, !tbaa !10
+  %361 = load i32, ptr %14, align 4, !tbaa !10
+  %362 = mul nsw i32 %361, 2
+  %363 = add nsw i32 %360, %362
+  %364 = icmp sge i32 %363, 0
+  br i1 %364, label %365, label %440
+
+365:                                              ; preds = %359
+  %366 = load i32, ptr %20, align 4, !tbaa !10
+  %367 = icmp sge i32 %366, 0
+  br i1 %367, label %368, label %440
+
+368:                                              ; preds = %365
+  call void @llvm.lifetime.start.p0(i64 8, ptr %27) #6
+  %369 = load ptr, ptr %8, align 8, !tbaa !78
+  %370 = getelementptr inbounds nuw %struct.stbhw_tileset, ptr %369, i32 0, i32 3
+  %371 = load ptr, ptr %370, align 8, !tbaa !86
+  %372 = load ptr, ptr %8, align 8, !tbaa !78
+  %373 = getelementptr inbounds nuw %struct.stbhw_tileset, ptr %372, i32 0, i32 5
+  %374 = load i32, ptr %373, align 8, !tbaa !87
+  %375 = load i32, ptr %19, align 4, !tbaa !10
+  %376 = add nsw i32 %375, 2
+  %377 = sext i32 %376 to i64
+  %378 = getelementptr inbounds [106 x [106 x i8]], ptr @c_color, i64 0, i64 %377
+  %379 = load i32, ptr %18, align 4, !tbaa !10
+  %380 = add nsw i32 %379, 2
+  %381 = sext i32 %380 to i64
+  %382 = getelementptr inbounds [106 x i8], ptr %378, i64 0, i64 %381
+  %383 = load i32, ptr %19, align 4, !tbaa !10
+  %384 = add nsw i32 %383, 2
+  %385 = sext i32 %384 to i64
+  %386 = getelementptr inbounds [106 x [106 x i8]], ptr @c_color, i64 0, i64 %385
+  %387 = load i32, ptr %18, align 4, !tbaa !10
+  %388 = add nsw i32 %387, 3
+  %389 = sext i32 %388 to i64
+  %390 = getelementptr inbounds [106 x i8], ptr %386, i64 0, i64 %389
+  %391 = load i32, ptr %19, align 4, !tbaa !10
+  %392 = add nsw i32 %391, 2
+  %393 = sext i32 %392 to i64
+  %394 = getelementptr inbounds [106 x [106 x i8]], ptr @c_color, i64 0, i64 %393
+  %395 = load i32, ptr %18, align 4, !tbaa !10
+  %396 = add nsw i32 %395, 4
+  %397 = sext i32 %396 to i64
+  %398 = getelementptr inbounds [106 x i8], ptr %394, i64 0, i64 %397
+  %399 = load i32, ptr %19, align 4, !tbaa !10
+  %400 = add nsw i32 %399, 3
+  %401 = sext i32 %400 to i64
+  %402 = getelementptr inbounds [106 x [106 x i8]], ptr @c_color, i64 0, i64 %401
+  %403 = load i32, ptr %18, align 4, !tbaa !10
+  %404 = add nsw i32 %403, 2
+  %405 = sext i32 %404 to i64
+  %406 = getelementptr inbounds [106 x i8], ptr %402, i64 0, i64 %405
+  %407 = load i32, ptr %19, align 4, !tbaa !10
+  %408 = add nsw i32 %407, 3
+  %409 = sext i32 %408 to i64
+  %410 = getelementptr inbounds [106 x [106 x i8]], ptr @c_color, i64 0, i64 %409
+  %411 = load i32, ptr %18, align 4, !tbaa !10
+  %412 = add nsw i32 %411, 3
+  %413 = sext i32 %412 to i64
+  %414 = getelementptr inbounds [106 x i8], ptr %410, i64 0, i64 %413
+  %415 = load i32, ptr %19, align 4, !tbaa !10
+  %416 = add nsw i32 %415, 3
+  %417 = sext i32 %416 to i64
+  %418 = getelementptr inbounds [106 x [106 x i8]], ptr @c_color, i64 0, i64 %417
+  %419 = load i32, ptr %18, align 4, !tbaa !10
+  %420 = add nsw i32 %419, 4
+  %421 = sext i32 %420 to i64
+  %422 = getelementptr inbounds [106 x i8], ptr %418, i64 0, i64 %421
+  %423 = load ptr, ptr %9, align 8, !tbaa !62
+  %424 = call ptr @stbhw__choose_tile(ptr noundef %371, i32 noundef %374, ptr noundef %382, ptr noundef %390, ptr noundef %398, ptr noundef %406, ptr noundef %414, ptr noundef %422, ptr noundef %423)
+  store ptr %424, ptr %27, align 8, !tbaa !34
+  %425 = load ptr, ptr %27, align 8, !tbaa !34
+  %426 = icmp eq ptr %425, null
+  br i1 %426, label %427, label %428
+
+427:                                              ; preds = %368
+  store i32 0, ptr %7, align 4
+  store i32 1, ptr %17, align 4
+  br label %437
+
+428:                                              ; preds = %368
+  %429 = load ptr, ptr %10, align 8, !tbaa !3
+  %430 = load i32, ptr %11, align 4, !tbaa !10
+  %431 = load i32, ptr %12, align 4, !tbaa !10
+  %432 = load i32, ptr %13, align 4, !tbaa !10
+  %433 = load i32, ptr %26, align 4, !tbaa !10
+  %434 = load i32, ptr %20, align 4, !tbaa !10
+  %435 = load ptr, ptr %27, align 8, !tbaa !34
+  %436 = load i32, ptr %14, align 4, !tbaa !10
+  call void @stbhw__draw_h_tile(ptr noundef %429, i32 noundef %430, i32 noundef %431, i32 noundef %432, i32 noundef %433, i32 noundef %434, ptr noundef %435, i32 noundef %436)
+  store i32 0, ptr %17, align 4
+  br label %437
+
+437:                                              ; preds = %428, %427
+  call void @llvm.lifetime.end.p0(i64 8, ptr %27) #6
+  %438 = load i32, ptr %17, align 4
+  switch i32 %438, label %524 [
+    i32 0, label %439
+  ]
+
+439:                                              ; preds = %437
+  br label %440
+
+440:                                              ; preds = %439, %365, %359
+  %441 = load i32, ptr %14, align 4, !tbaa !10
+  %442 = mul nsw i32 %441, 2
+  %443 = load i32, ptr %26, align 4, !tbaa !10
+  %444 = add nsw i32 %443, %442
+  store i32 %444, ptr %26, align 4, !tbaa !10
+  %445 = load i32, ptr %14, align 4, !tbaa !10
+  %446 = load i32, ptr %26, align 4, !tbaa !10
+  %447 = add nsw i32 %446, %445
+  store i32 %447, ptr %26, align 4, !tbaa !10
+  %448 = load i32, ptr %26, align 4, !tbaa !10
+  %449 = load i32, ptr %12, align 4, !tbaa !10
+  %450 = icmp slt i32 %448, %449
+  br i1 %450, label %451, label %523
+
+451:                                              ; preds = %440
+  call void @llvm.lifetime.start.p0(i64 8, ptr %28) #6
+  %452 = load ptr, ptr %8, align 8, !tbaa !78
+  %453 = getelementptr inbounds nuw %struct.stbhw_tileset, ptr %452, i32 0, i32 4
+  %454 = load ptr, ptr %453, align 8, !tbaa !88
+  %455 = load ptr, ptr %8, align 8, !tbaa !78
+  %456 = getelementptr inbounds nuw %struct.stbhw_tileset, ptr %455, i32 0, i32 7
+  %457 = load i32, ptr %456, align 8, !tbaa !89
+  %458 = load i32, ptr %19, align 4, !tbaa !10
+  %459 = add nsw i32 %458, 2
+  %460 = sext i32 %459 to i64
+  %461 = getelementptr inbounds [106 x [106 x i8]], ptr @c_color, i64 0, i64 %460
+  %462 = load i32, ptr %18, align 4, !tbaa !10
+  %463 = add nsw i32 %462, 5
+  %464 = sext i32 %463 to i64
+  %465 = getelementptr inbounds [106 x i8], ptr %461, i64 0, i64 %464
+  %466 = load i32, ptr %19, align 4, !tbaa !10
+  %467 = add nsw i32 %466, 3
+  %468 = sext i32 %467 to i64
+  %469 = getelementptr inbounds [106 x [106 x i8]], ptr @c_color, i64 0, i64 %468
+  %470 = load i32, ptr %18, align 4, !tbaa !10
+  %471 = add nsw i32 %470, 5
+  %472 = sext i32 %471 to i64
+  %473 = getelementptr inbounds [106 x i8], ptr %469, i64 0, i64 %472
+  %474 = load i32, ptr %19, align 4, !tbaa !10
+  %475 = add nsw i32 %474, 4
+  %476 = sext i32 %475 to i64
+  %477 = getelementptr inbounds [106 x [106 x i8]], ptr @c_color, i64 0, i64 %476
+  %478 = load i32, ptr %18, align 4, !tbaa !10
+  %479 = add nsw i32 %478, 5
+  %480 = sext i32 %479 to i64
+  %481 = getelementptr inbounds [106 x i8], ptr %477, i64 0, i64 %480
+  %482 = load i32, ptr %19, align 4, !tbaa !10
+  %483 = add nsw i32 %482, 2
+  %484 = sext i32 %483 to i64
+  %485 = getelementptr inbounds [106 x [106 x i8]], ptr @c_color, i64 0, i64 %484
+  %486 = load i32, ptr %18, align 4, !tbaa !10
+  %487 = add nsw i32 %486, 6
+  %488 = sext i32 %487 to i64
+  %489 = getelementptr inbounds [106 x i8], ptr %485, i64 0, i64 %488
+  %490 = load i32, ptr %19, align 4, !tbaa !10
+  %491 = add nsw i32 %490, 3
+  %492 = sext i32 %491 to i64
+  %493 = getelementptr inbounds [106 x [106 x i8]], ptr @c_color, i64 0, i64 %492
+  %494 = load i32, ptr %18, align 4, !tbaa !10
+  %495 = add nsw i32 %494, 6
+  %496 = sext i32 %495 to i64
+  %497 = getelementptr inbounds [106 x i8], ptr %493, i64 0, i64 %496
+  %498 = load i32, ptr %19, align 4, !tbaa !10
+  %499 = add nsw i32 %498, 4
+  %500 = sext i32 %499 to i64
+  %501 = getelementptr inbounds [106 x [106 x i8]], ptr @c_color, i64 0, i64 %500
+  %502 = load i32, ptr %18, align 4, !tbaa !10
+  %503 = add nsw i32 %502, 6
+  %504 = sext i32 %503 to i64
+  %505 = getelementptr inbounds [106 x i8], ptr %501, i64 0, i64 %504
+  %506 = load ptr, ptr %9, align 8, !tbaa !62
+  %507 = call ptr @stbhw__choose_tile(ptr noundef %454, i32 noundef %457, ptr noundef %465, ptr noundef %473, ptr noundef %481, ptr noundef %489, ptr noundef %497, ptr noundef %505, ptr noundef %506)
+  store ptr %507, ptr %28, align 8, !tbaa !34
+  %508 = load ptr, ptr %28, align 8, !tbaa !34
+  %509 = icmp eq ptr %508, null
+  br i1 %509, label %510, label %511
+
+510:                                              ; preds = %451
+  store i32 0, ptr %7, align 4
+  store i32 1, ptr %17, align 4
+  br label %520
+
+511:                                              ; preds = %451
+  %512 = load ptr, ptr %10, align 8, !tbaa !3
+  %513 = load i32, ptr %11, align 4, !tbaa !10
+  %514 = load i32, ptr %12, align 4, !tbaa !10
+  %515 = load i32, ptr %13, align 4, !tbaa !10
+  %516 = load i32, ptr %26, align 4, !tbaa !10
+  %517 = load i32, ptr %20, align 4, !tbaa !10
+  %518 = load ptr, ptr %28, align 8, !tbaa !34
+  %519 = load i32, ptr %14, align 4, !tbaa !10
+  call void @stbhw__draw_v_tile(ptr noundef %512, i32 noundef %513, i32 noundef %514, i32 noundef %515, i32 noundef %516, i32 noundef %517, ptr noundef %518, i32 noundef %519)
+  store i32 0, ptr %17, align 4
+  br label %520
+
+520:                                              ; preds = %511, %510
+  call void @llvm.lifetime.end.p0(i64 8, ptr %28) #6
+  %521 = load i32, ptr %17, align 4
+  switch i32 %521, label %524 [
+    i32 0, label %522
+  ]
+
+522:                                              ; preds = %520
+  br label %523
+
+523:                                              ; preds = %522, %440
+  store i32 0, ptr %17, align 4
+  br label %524
+
+524:                                              ; preds = %523, %520, %437, %358
+  call void @llvm.lifetime.end.p0(i64 4, ptr %26) #6
+  %525 = load i32, ptr %17, align 4
+  switch i32 %525, label %534 [
+    i32 0, label %526
+    i32 17, label %530
+  ]
+
+526:                                              ; preds = %524
+  br label %527
+
+527:                                              ; preds = %526
+  %528 = load i32, ptr %18, align 4, !tbaa !10
+  %529 = add nsw i32 %528, 4
+  store i32 %529, ptr %18, align 4, !tbaa !10
+  br label %351
+
+530:                                              ; preds = %524
+  %531 = load i32, ptr %14, align 4, !tbaa !10
+  %532 = load i32, ptr %20, align 4, !tbaa !10
+  %533 = add nsw i32 %532, %531
+  store i32 %533, ptr %20, align 4, !tbaa !10
+  store i32 0, ptr %17, align 4
+  br label %534
+
+534:                                              ; preds = %530, %524
+  call void @llvm.lifetime.end.p0(i64 4, ptr %25) #6
+  %535 = load i32, ptr %17, align 4
+  switch i32 %535, label %541 [
+    i32 0, label %536
+  ]
+
+536:                                              ; preds = %534
+  br label %537
+
+537:                                              ; preds = %536
+  %538 = load i32, ptr %19, align 4, !tbaa !10
+  %539 = add nsw i32 %538, 1
+  store i32 %539, ptr %19, align 4, !tbaa !10
+  br label %337, !llvm.loop !90
+
+540:                                              ; preds = %337
+  store i32 0, ptr %17, align 4
+  br label %541
+
+541:                                              ; preds = %540, %534
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #6
+  %542 = load i32, ptr %17, align 4
+  switch i32 %542, label %755 [
+    i32 0, label %543
+  ]
+
+543:                                              ; preds = %541
+  br label %754
+
+544:                                              ; preds = %53
+  call void @llvm.lifetime.start.p0(i64 4, ptr %29) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %30) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %31) #6
   call void @llvm.memset.p0.i64(ptr align 16 @v_color, i8 -1, i64 11130, i1 false)
   call void @llvm.memset.p0.i64(ptr align 16 @h_color, i8 -1, i64 11130, i1 false)
-  %178 = load i32, ptr %sidelen, align 4
-  %mul300 = mul nsw i32 -1, %178
-  store i32 %mul300, ptr %ypos299, align 4
-  store i32 -1, ptr %j298, align 4
-  br label %for.cond301
+  %545 = load i32, ptr %14, align 4, !tbaa !10
+  %546 = mul nsw i32 -1, %545
+  store i32 %546, ptr %31, align 4, !tbaa !10
+  store i32 -1, ptr %30, align 4, !tbaa !10
+  br label %547
 
-for.cond301:                                      ; preds = %for.inc428, %if.else296
-  %179 = load i32, ptr %ypos299, align 4
-  %180 = load i32, ptr %h.addr, align 4
-  %cmp302 = icmp slt i32 %179, %180
-  br i1 %cmp302, label %for.body304, label %for.end430
+547:                                              ; preds = %747, %544
+  %548 = load i32, ptr %31, align 4, !tbaa !10
+  %549 = load i32, ptr %13, align 4, !tbaa !10
+  %550 = icmp slt i32 %548, %549
+  br i1 %550, label %551, label %750
 
-for.body304:                                      ; preds = %for.cond301
-  %181 = load i32, ptr %j298, align 4
-  %and306 = and i32 %181, 3
-  store i32 %and306, ptr %phase305, align 4
-  %182 = load i32, ptr %phase305, align 4
-  %cmp307 = icmp eq i32 %182, 0
-  br i1 %cmp307, label %if.then309, label %if.else310
+551:                                              ; preds = %547
+  call void @llvm.lifetime.start.p0(i64 4, ptr %32) #6
+  %552 = load i32, ptr %30, align 4, !tbaa !10
+  %553 = and i32 %552, 3
+  store i32 %553, ptr %32, align 4, !tbaa !10
+  %554 = load i32, ptr %32, align 4, !tbaa !10
+  %555 = icmp eq i32 %554, 0
+  br i1 %555, label %556, label %557
 
-if.then309:                                       ; preds = %for.body304
-  store i32 0, ptr %i297, align 4
-  br label %if.end312
+556:                                              ; preds = %551
+  store i32 0, ptr %29, align 4, !tbaa !10
+  br label %560
 
-if.else310:                                       ; preds = %for.body304
-  %183 = load i32, ptr %phase305, align 4
-  %sub311 = sub nsw i32 %183, 4
-  store i32 %sub311, ptr %i297, align 4
-  br label %if.end312
+557:                                              ; preds = %551
+  %558 = load i32, ptr %32, align 4, !tbaa !10
+  %559 = sub nsw i32 %558, 4
+  store i32 %559, ptr %29, align 4, !tbaa !10
+  br label %560
 
-if.end312:                                        ; preds = %if.else310, %if.then309
-  br label %for.cond313
+560:                                              ; preds = %557, %556
+  br label %561
 
-for.cond313:                                      ; preds = %for.inc424, %if.end312
-  %184 = load i32, ptr %i297, align 4
-  %185 = load i32, ptr %sidelen, align 4
-  %mul315 = mul nsw i32 %184, %185
-  store i32 %mul315, ptr %xpos314, align 4
-  %186 = load i32, ptr %xpos314, align 4
-  %187 = load i32, ptr %w.addr, align 4
-  %cmp316 = icmp sge i32 %186, %187
-  br i1 %cmp316, label %if.then318, label %if.end319
+561:                                              ; preds = %737, %560
+  call void @llvm.lifetime.start.p0(i64 4, ptr %33) #6
+  %562 = load i32, ptr %29, align 4, !tbaa !10
+  %563 = load i32, ptr %14, align 4, !tbaa !10
+  %564 = mul nsw i32 %562, %563
+  store i32 %564, ptr %33, align 4, !tbaa !10
+  %565 = load i32, ptr %33, align 4, !tbaa !10
+  %566 = load i32, ptr %12, align 4, !tbaa !10
+  %567 = icmp sge i32 %565, %566
+  br i1 %567, label %568, label %569
 
-if.then318:                                       ; preds = %for.cond313
-  br label %for.end426
+568:                                              ; preds = %561
+  store i32 23, ptr %17, align 4
+  br label %734
 
-if.end319:                                        ; preds = %for.cond313
-  %188 = load i32, ptr %xpos314, align 4
-  %189 = load i32, ptr %sidelen, align 4
-  %mul320 = mul nsw i32 %189, 2
-  %add321 = add nsw i32 %188, %mul320
-  %cmp322 = icmp sge i32 %add321, 0
-  br i1 %cmp322, label %land.lhs.true324, label %if.end372
+569:                                              ; preds = %561
+  %570 = load i32, ptr %33, align 4, !tbaa !10
+  %571 = load i32, ptr %14, align 4, !tbaa !10
+  %572 = mul nsw i32 %571, 2
+  %573 = add nsw i32 %570, %572
+  %574 = icmp sge i32 %573, 0
+  br i1 %574, label %575, label %650
 
-land.lhs.true324:                                 ; preds = %if.end319
-  %190 = load i32, ptr %ypos299, align 4
-  %cmp325 = icmp sge i32 %190, 0
-  br i1 %cmp325, label %if.then327, label %if.end372
+575:                                              ; preds = %569
+  %576 = load i32, ptr %31, align 4, !tbaa !10
+  %577 = icmp sge i32 %576, 0
+  br i1 %577, label %578, label %650
 
-if.then327:                                       ; preds = %land.lhs.true324
-  %191 = load ptr, ptr %ts.addr, align 8
-  %h_tiles329 = getelementptr inbounds %struct.stbhw_tileset, ptr %191, i32 0, i32 3
-  %192 = load ptr, ptr %h_tiles329, align 8
-  %193 = load ptr, ptr %ts.addr, align 8
-  %num_h_tiles330 = getelementptr inbounds %struct.stbhw_tileset, ptr %193, i32 0, i32 5
-  %194 = load i32, ptr %num_h_tiles330, align 8
-  %195 = load i32, ptr %j298, align 4
-  %add331 = add nsw i32 %195, 2
-  %idxprom332 = sext i32 %add331 to i64
-  %arrayidx333 = getelementptr inbounds [105 x [106 x i8]], ptr @h_color, i64 0, i64 %idxprom332
-  %196 = load i32, ptr %i297, align 4
-  %add334 = add nsw i32 %196, 2
-  %idxprom335 = sext i32 %add334 to i64
-  %arrayidx336 = getelementptr inbounds [106 x i8], ptr %arrayidx333, i64 0, i64 %idxprom335
-  %197 = load i32, ptr %j298, align 4
-  %add337 = add nsw i32 %197, 2
-  %idxprom338 = sext i32 %add337 to i64
-  %arrayidx339 = getelementptr inbounds [105 x [106 x i8]], ptr @h_color, i64 0, i64 %idxprom338
-  %198 = load i32, ptr %i297, align 4
-  %add340 = add nsw i32 %198, 3
-  %idxprom341 = sext i32 %add340 to i64
-  %arrayidx342 = getelementptr inbounds [106 x i8], ptr %arrayidx339, i64 0, i64 %idxprom341
-  %199 = load i32, ptr %j298, align 4
-  %add343 = add nsw i32 %199, 2
-  %idxprom344 = sext i32 %add343 to i64
-  %arrayidx345 = getelementptr inbounds [106 x [105 x i8]], ptr @v_color, i64 0, i64 %idxprom344
-  %200 = load i32, ptr %i297, align 4
-  %add346 = add nsw i32 %200, 2
-  %idxprom347 = sext i32 %add346 to i64
-  %arrayidx348 = getelementptr inbounds [105 x i8], ptr %arrayidx345, i64 0, i64 %idxprom347
-  %201 = load i32, ptr %j298, align 4
-  %add349 = add nsw i32 %201, 2
-  %idxprom350 = sext i32 %add349 to i64
-  %arrayidx351 = getelementptr inbounds [106 x [105 x i8]], ptr @v_color, i64 0, i64 %idxprom350
-  %202 = load i32, ptr %i297, align 4
-  %add352 = add nsw i32 %202, 4
-  %idxprom353 = sext i32 %add352 to i64
-  %arrayidx354 = getelementptr inbounds [105 x i8], ptr %arrayidx351, i64 0, i64 %idxprom353
-  %203 = load i32, ptr %j298, align 4
-  %add355 = add nsw i32 %203, 3
-  %idxprom356 = sext i32 %add355 to i64
-  %arrayidx357 = getelementptr inbounds [105 x [106 x i8]], ptr @h_color, i64 0, i64 %idxprom356
-  %204 = load i32, ptr %i297, align 4
-  %add358 = add nsw i32 %204, 2
-  %idxprom359 = sext i32 %add358 to i64
-  %arrayidx360 = getelementptr inbounds [106 x i8], ptr %arrayidx357, i64 0, i64 %idxprom359
-  %205 = load i32, ptr %j298, align 4
-  %add361 = add nsw i32 %205, 3
-  %idxprom362 = sext i32 %add361 to i64
-  %arrayidx363 = getelementptr inbounds [105 x [106 x i8]], ptr @h_color, i64 0, i64 %idxprom362
-  %206 = load i32, ptr %i297, align 4
-  %add364 = add nsw i32 %206, 3
-  %idxprom365 = sext i32 %add364 to i64
-  %arrayidx366 = getelementptr inbounds [106 x i8], ptr %arrayidx363, i64 0, i64 %idxprom365
-  %207 = load ptr, ptr %weighting.addr, align 8
-  %call367 = call ptr @stbhw__choose_tile(ptr noundef %192, i32 noundef %194, ptr noundef %arrayidx336, ptr noundef %arrayidx342, ptr noundef %arrayidx348, ptr noundef %arrayidx354, ptr noundef %arrayidx360, ptr noundef %arrayidx366, ptr noundef %207)
-  store ptr %call367, ptr %t328, align 8
-  %208 = load ptr, ptr %t328, align 8
-  %cmp368 = icmp eq ptr %208, null
-  br i1 %cmp368, label %if.then370, label %if.end371
+578:                                              ; preds = %575
+  call void @llvm.lifetime.start.p0(i64 8, ptr %34) #6
+  %579 = load ptr, ptr %8, align 8, !tbaa !78
+  %580 = getelementptr inbounds nuw %struct.stbhw_tileset, ptr %579, i32 0, i32 3
+  %581 = load ptr, ptr %580, align 8, !tbaa !86
+  %582 = load ptr, ptr %8, align 8, !tbaa !78
+  %583 = getelementptr inbounds nuw %struct.stbhw_tileset, ptr %582, i32 0, i32 5
+  %584 = load i32, ptr %583, align 8, !tbaa !87
+  %585 = load i32, ptr %30, align 4, !tbaa !10
+  %586 = add nsw i32 %585, 2
+  %587 = sext i32 %586 to i64
+  %588 = getelementptr inbounds [105 x [106 x i8]], ptr @h_color, i64 0, i64 %587
+  %589 = load i32, ptr %29, align 4, !tbaa !10
+  %590 = add nsw i32 %589, 2
+  %591 = sext i32 %590 to i64
+  %592 = getelementptr inbounds [106 x i8], ptr %588, i64 0, i64 %591
+  %593 = load i32, ptr %30, align 4, !tbaa !10
+  %594 = add nsw i32 %593, 2
+  %595 = sext i32 %594 to i64
+  %596 = getelementptr inbounds [105 x [106 x i8]], ptr @h_color, i64 0, i64 %595
+  %597 = load i32, ptr %29, align 4, !tbaa !10
+  %598 = add nsw i32 %597, 3
+  %599 = sext i32 %598 to i64
+  %600 = getelementptr inbounds [106 x i8], ptr %596, i64 0, i64 %599
+  %601 = load i32, ptr %30, align 4, !tbaa !10
+  %602 = add nsw i32 %601, 2
+  %603 = sext i32 %602 to i64
+  %604 = getelementptr inbounds [106 x [105 x i8]], ptr @v_color, i64 0, i64 %603
+  %605 = load i32, ptr %29, align 4, !tbaa !10
+  %606 = add nsw i32 %605, 2
+  %607 = sext i32 %606 to i64
+  %608 = getelementptr inbounds [105 x i8], ptr %604, i64 0, i64 %607
+  %609 = load i32, ptr %30, align 4, !tbaa !10
+  %610 = add nsw i32 %609, 2
+  %611 = sext i32 %610 to i64
+  %612 = getelementptr inbounds [106 x [105 x i8]], ptr @v_color, i64 0, i64 %611
+  %613 = load i32, ptr %29, align 4, !tbaa !10
+  %614 = add nsw i32 %613, 4
+  %615 = sext i32 %614 to i64
+  %616 = getelementptr inbounds [105 x i8], ptr %612, i64 0, i64 %615
+  %617 = load i32, ptr %30, align 4, !tbaa !10
+  %618 = add nsw i32 %617, 3
+  %619 = sext i32 %618 to i64
+  %620 = getelementptr inbounds [105 x [106 x i8]], ptr @h_color, i64 0, i64 %619
+  %621 = load i32, ptr %29, align 4, !tbaa !10
+  %622 = add nsw i32 %621, 2
+  %623 = sext i32 %622 to i64
+  %624 = getelementptr inbounds [106 x i8], ptr %620, i64 0, i64 %623
+  %625 = load i32, ptr %30, align 4, !tbaa !10
+  %626 = add nsw i32 %625, 3
+  %627 = sext i32 %626 to i64
+  %628 = getelementptr inbounds [105 x [106 x i8]], ptr @h_color, i64 0, i64 %627
+  %629 = load i32, ptr %29, align 4, !tbaa !10
+  %630 = add nsw i32 %629, 3
+  %631 = sext i32 %630 to i64
+  %632 = getelementptr inbounds [106 x i8], ptr %628, i64 0, i64 %631
+  %633 = load ptr, ptr %9, align 8, !tbaa !62
+  %634 = call ptr @stbhw__choose_tile(ptr noundef %581, i32 noundef %584, ptr noundef %592, ptr noundef %600, ptr noundef %608, ptr noundef %616, ptr noundef %624, ptr noundef %632, ptr noundef %633)
+  store ptr %634, ptr %34, align 8, !tbaa !34
+  %635 = load ptr, ptr %34, align 8, !tbaa !34
+  %636 = icmp eq ptr %635, null
+  br i1 %636, label %637, label %638
 
-if.then370:                                       ; preds = %if.then327
-  store i32 0, ptr %retval, align 4
-  br label %return
+637:                                              ; preds = %578
+  store i32 0, ptr %7, align 4
+  store i32 1, ptr %17, align 4
+  br label %647
 
-if.end371:                                        ; preds = %if.then327
-  %209 = load ptr, ptr %output.addr, align 8
-  %210 = load i32, ptr %stride.addr, align 4
-  %211 = load i32, ptr %w.addr, align 4
-  %212 = load i32, ptr %h.addr, align 4
-  %213 = load i32, ptr %xpos314, align 4
-  %214 = load i32, ptr %ypos299, align 4
-  %215 = load ptr, ptr %t328, align 8
-  %216 = load i32, ptr %sidelen, align 4
-  call void @stbhw__draw_h_tile(ptr noundef %209, i32 noundef %210, i32 noundef %211, i32 noundef %212, i32 noundef %213, i32 noundef %214, ptr noundef %215, i32 noundef %216)
-  br label %if.end372
+638:                                              ; preds = %578
+  %639 = load ptr, ptr %10, align 8, !tbaa !3
+  %640 = load i32, ptr %11, align 4, !tbaa !10
+  %641 = load i32, ptr %12, align 4, !tbaa !10
+  %642 = load i32, ptr %13, align 4, !tbaa !10
+  %643 = load i32, ptr %33, align 4, !tbaa !10
+  %644 = load i32, ptr %31, align 4, !tbaa !10
+  %645 = load ptr, ptr %34, align 8, !tbaa !34
+  %646 = load i32, ptr %14, align 4, !tbaa !10
+  call void @stbhw__draw_h_tile(ptr noundef %639, i32 noundef %640, i32 noundef %641, i32 noundef %642, i32 noundef %643, i32 noundef %644, ptr noundef %645, i32 noundef %646)
+  store i32 0, ptr %17, align 4
+  br label %647
 
-if.end372:                                        ; preds = %if.end371, %land.lhs.true324, %if.end319
-  %217 = load i32, ptr %sidelen, align 4
-  %mul373 = mul nsw i32 %217, 2
-  %218 = load i32, ptr %xpos314, align 4
-  %add374 = add nsw i32 %218, %mul373
-  store i32 %add374, ptr %xpos314, align 4
-  %219 = load i32, ptr %sidelen, align 4
-  %220 = load i32, ptr %xpos314, align 4
-  %add375 = add nsw i32 %220, %219
-  store i32 %add375, ptr %xpos314, align 4
-  %221 = load i32, ptr %xpos314, align 4
-  %222 = load i32, ptr %w.addr, align 4
-  %cmp376 = icmp slt i32 %221, %222
-  br i1 %cmp376, label %if.then378, label %if.end423
+647:                                              ; preds = %638, %637
+  call void @llvm.lifetime.end.p0(i64 8, ptr %34) #6
+  %648 = load i32, ptr %17, align 4
+  switch i32 %648, label %734 [
+    i32 0, label %649
+  ]
 
-if.then378:                                       ; preds = %if.end372
-  %223 = load ptr, ptr %ts.addr, align 8
-  %v_tiles380 = getelementptr inbounds %struct.stbhw_tileset, ptr %223, i32 0, i32 4
-  %224 = load ptr, ptr %v_tiles380, align 8
-  %225 = load ptr, ptr %ts.addr, align 8
-  %num_v_tiles381 = getelementptr inbounds %struct.stbhw_tileset, ptr %225, i32 0, i32 7
-  %226 = load i32, ptr %num_v_tiles381, align 8
-  %227 = load i32, ptr %j298, align 4
-  %add382 = add nsw i32 %227, 2
-  %idxprom383 = sext i32 %add382 to i64
-  %arrayidx384 = getelementptr inbounds [105 x [106 x i8]], ptr @h_color, i64 0, i64 %idxprom383
-  %228 = load i32, ptr %i297, align 4
-  %add385 = add nsw i32 %228, 5
-  %idxprom386 = sext i32 %add385 to i64
-  %arrayidx387 = getelementptr inbounds [106 x i8], ptr %arrayidx384, i64 0, i64 %idxprom386
-  %229 = load i32, ptr %j298, align 4
-  %add388 = add nsw i32 %229, 2
-  %idxprom389 = sext i32 %add388 to i64
-  %arrayidx390 = getelementptr inbounds [106 x [105 x i8]], ptr @v_color, i64 0, i64 %idxprom389
-  %230 = load i32, ptr %i297, align 4
-  %add391 = add nsw i32 %230, 5
-  %idxprom392 = sext i32 %add391 to i64
-  %arrayidx393 = getelementptr inbounds [105 x i8], ptr %arrayidx390, i64 0, i64 %idxprom392
-  %231 = load i32, ptr %j298, align 4
-  %add394 = add nsw i32 %231, 2
-  %idxprom395 = sext i32 %add394 to i64
-  %arrayidx396 = getelementptr inbounds [106 x [105 x i8]], ptr @v_color, i64 0, i64 %idxprom395
-  %232 = load i32, ptr %i297, align 4
-  %add397 = add nsw i32 %232, 6
-  %idxprom398 = sext i32 %add397 to i64
-  %arrayidx399 = getelementptr inbounds [105 x i8], ptr %arrayidx396, i64 0, i64 %idxprom398
-  %233 = load i32, ptr %j298, align 4
-  %add400 = add nsw i32 %233, 3
-  %idxprom401 = sext i32 %add400 to i64
-  %arrayidx402 = getelementptr inbounds [106 x [105 x i8]], ptr @v_color, i64 0, i64 %idxprom401
-  %234 = load i32, ptr %i297, align 4
-  %add403 = add nsw i32 %234, 5
-  %idxprom404 = sext i32 %add403 to i64
-  %arrayidx405 = getelementptr inbounds [105 x i8], ptr %arrayidx402, i64 0, i64 %idxprom404
-  %235 = load i32, ptr %j298, align 4
-  %add406 = add nsw i32 %235, 3
-  %idxprom407 = sext i32 %add406 to i64
-  %arrayidx408 = getelementptr inbounds [106 x [105 x i8]], ptr @v_color, i64 0, i64 %idxprom407
-  %236 = load i32, ptr %i297, align 4
-  %add409 = add nsw i32 %236, 6
-  %idxprom410 = sext i32 %add409 to i64
-  %arrayidx411 = getelementptr inbounds [105 x i8], ptr %arrayidx408, i64 0, i64 %idxprom410
-  %237 = load i32, ptr %j298, align 4
-  %add412 = add nsw i32 %237, 4
-  %idxprom413 = sext i32 %add412 to i64
-  %arrayidx414 = getelementptr inbounds [105 x [106 x i8]], ptr @h_color, i64 0, i64 %idxprom413
-  %238 = load i32, ptr %i297, align 4
-  %add415 = add nsw i32 %238, 5
-  %idxprom416 = sext i32 %add415 to i64
-  %arrayidx417 = getelementptr inbounds [106 x i8], ptr %arrayidx414, i64 0, i64 %idxprom416
-  %239 = load ptr, ptr %weighting.addr, align 8
-  %call418 = call ptr @stbhw__choose_tile(ptr noundef %224, i32 noundef %226, ptr noundef %arrayidx387, ptr noundef %arrayidx393, ptr noundef %arrayidx399, ptr noundef %arrayidx405, ptr noundef %arrayidx411, ptr noundef %arrayidx417, ptr noundef %239)
-  store ptr %call418, ptr %t379, align 8
-  %240 = load ptr, ptr %t379, align 8
-  %cmp419 = icmp eq ptr %240, null
-  br i1 %cmp419, label %if.then421, label %if.end422
+649:                                              ; preds = %647
+  br label %650
 
-if.then421:                                       ; preds = %if.then378
-  store i32 0, ptr %retval, align 4
-  br label %return
+650:                                              ; preds = %649, %575, %569
+  %651 = load i32, ptr %14, align 4, !tbaa !10
+  %652 = mul nsw i32 %651, 2
+  %653 = load i32, ptr %33, align 4, !tbaa !10
+  %654 = add nsw i32 %653, %652
+  store i32 %654, ptr %33, align 4, !tbaa !10
+  %655 = load i32, ptr %14, align 4, !tbaa !10
+  %656 = load i32, ptr %33, align 4, !tbaa !10
+  %657 = add nsw i32 %656, %655
+  store i32 %657, ptr %33, align 4, !tbaa !10
+  %658 = load i32, ptr %33, align 4, !tbaa !10
+  %659 = load i32, ptr %12, align 4, !tbaa !10
+  %660 = icmp slt i32 %658, %659
+  br i1 %660, label %661, label %733
 
-if.end422:                                        ; preds = %if.then378
-  %241 = load ptr, ptr %output.addr, align 8
-  %242 = load i32, ptr %stride.addr, align 4
-  %243 = load i32, ptr %w.addr, align 4
-  %244 = load i32, ptr %h.addr, align 4
-  %245 = load i32, ptr %xpos314, align 4
-  %246 = load i32, ptr %ypos299, align 4
-  %247 = load ptr, ptr %t379, align 8
-  %248 = load i32, ptr %sidelen, align 4
-  call void @stbhw__draw_v_tile(ptr noundef %241, i32 noundef %242, i32 noundef %243, i32 noundef %244, i32 noundef %245, i32 noundef %246, ptr noundef %247, i32 noundef %248)
-  br label %if.end423
+661:                                              ; preds = %650
+  call void @llvm.lifetime.start.p0(i64 8, ptr %35) #6
+  %662 = load ptr, ptr %8, align 8, !tbaa !78
+  %663 = getelementptr inbounds nuw %struct.stbhw_tileset, ptr %662, i32 0, i32 4
+  %664 = load ptr, ptr %663, align 8, !tbaa !88
+  %665 = load ptr, ptr %8, align 8, !tbaa !78
+  %666 = getelementptr inbounds nuw %struct.stbhw_tileset, ptr %665, i32 0, i32 7
+  %667 = load i32, ptr %666, align 8, !tbaa !89
+  %668 = load i32, ptr %30, align 4, !tbaa !10
+  %669 = add nsw i32 %668, 2
+  %670 = sext i32 %669 to i64
+  %671 = getelementptr inbounds [105 x [106 x i8]], ptr @h_color, i64 0, i64 %670
+  %672 = load i32, ptr %29, align 4, !tbaa !10
+  %673 = add nsw i32 %672, 5
+  %674 = sext i32 %673 to i64
+  %675 = getelementptr inbounds [106 x i8], ptr %671, i64 0, i64 %674
+  %676 = load i32, ptr %30, align 4, !tbaa !10
+  %677 = add nsw i32 %676, 2
+  %678 = sext i32 %677 to i64
+  %679 = getelementptr inbounds [106 x [105 x i8]], ptr @v_color, i64 0, i64 %678
+  %680 = load i32, ptr %29, align 4, !tbaa !10
+  %681 = add nsw i32 %680, 5
+  %682 = sext i32 %681 to i64
+  %683 = getelementptr inbounds [105 x i8], ptr %679, i64 0, i64 %682
+  %684 = load i32, ptr %30, align 4, !tbaa !10
+  %685 = add nsw i32 %684, 2
+  %686 = sext i32 %685 to i64
+  %687 = getelementptr inbounds [106 x [105 x i8]], ptr @v_color, i64 0, i64 %686
+  %688 = load i32, ptr %29, align 4, !tbaa !10
+  %689 = add nsw i32 %688, 6
+  %690 = sext i32 %689 to i64
+  %691 = getelementptr inbounds [105 x i8], ptr %687, i64 0, i64 %690
+  %692 = load i32, ptr %30, align 4, !tbaa !10
+  %693 = add nsw i32 %692, 3
+  %694 = sext i32 %693 to i64
+  %695 = getelementptr inbounds [106 x [105 x i8]], ptr @v_color, i64 0, i64 %694
+  %696 = load i32, ptr %29, align 4, !tbaa !10
+  %697 = add nsw i32 %696, 5
+  %698 = sext i32 %697 to i64
+  %699 = getelementptr inbounds [105 x i8], ptr %695, i64 0, i64 %698
+  %700 = load i32, ptr %30, align 4, !tbaa !10
+  %701 = add nsw i32 %700, 3
+  %702 = sext i32 %701 to i64
+  %703 = getelementptr inbounds [106 x [105 x i8]], ptr @v_color, i64 0, i64 %702
+  %704 = load i32, ptr %29, align 4, !tbaa !10
+  %705 = add nsw i32 %704, 6
+  %706 = sext i32 %705 to i64
+  %707 = getelementptr inbounds [105 x i8], ptr %703, i64 0, i64 %706
+  %708 = load i32, ptr %30, align 4, !tbaa !10
+  %709 = add nsw i32 %708, 4
+  %710 = sext i32 %709 to i64
+  %711 = getelementptr inbounds [105 x [106 x i8]], ptr @h_color, i64 0, i64 %710
+  %712 = load i32, ptr %29, align 4, !tbaa !10
+  %713 = add nsw i32 %712, 5
+  %714 = sext i32 %713 to i64
+  %715 = getelementptr inbounds [106 x i8], ptr %711, i64 0, i64 %714
+  %716 = load ptr, ptr %9, align 8, !tbaa !62
+  %717 = call ptr @stbhw__choose_tile(ptr noundef %664, i32 noundef %667, ptr noundef %675, ptr noundef %683, ptr noundef %691, ptr noundef %699, ptr noundef %707, ptr noundef %715, ptr noundef %716)
+  store ptr %717, ptr %35, align 8, !tbaa !34
+  %718 = load ptr, ptr %35, align 8, !tbaa !34
+  %719 = icmp eq ptr %718, null
+  br i1 %719, label %720, label %721
 
-if.end423:                                        ; preds = %if.end422, %if.end372
-  br label %for.inc424
+720:                                              ; preds = %661
+  store i32 0, ptr %7, align 4
+  store i32 1, ptr %17, align 4
+  br label %730
 
-for.inc424:                                       ; preds = %if.end423
-  %249 = load i32, ptr %i297, align 4
-  %add425 = add nsw i32 %249, 4
-  store i32 %add425, ptr %i297, align 4
-  br label %for.cond313
+721:                                              ; preds = %661
+  %722 = load ptr, ptr %10, align 8, !tbaa !3
+  %723 = load i32, ptr %11, align 4, !tbaa !10
+  %724 = load i32, ptr %12, align 4, !tbaa !10
+  %725 = load i32, ptr %13, align 4, !tbaa !10
+  %726 = load i32, ptr %33, align 4, !tbaa !10
+  %727 = load i32, ptr %31, align 4, !tbaa !10
+  %728 = load ptr, ptr %35, align 8, !tbaa !34
+  %729 = load i32, ptr %14, align 4, !tbaa !10
+  call void @stbhw__draw_v_tile(ptr noundef %722, i32 noundef %723, i32 noundef %724, i32 noundef %725, i32 noundef %726, i32 noundef %727, ptr noundef %728, i32 noundef %729)
+  store i32 0, ptr %17, align 4
+  br label %730
 
-for.end426:                                       ; preds = %if.then318
-  %250 = load i32, ptr %sidelen, align 4
-  %251 = load i32, ptr %ypos299, align 4
-  %add427 = add nsw i32 %251, %250
-  store i32 %add427, ptr %ypos299, align 4
-  br label %for.inc428
+730:                                              ; preds = %721, %720
+  call void @llvm.lifetime.end.p0(i64 8, ptr %35) #6
+  %731 = load i32, ptr %17, align 4
+  switch i32 %731, label %734 [
+    i32 0, label %732
+  ]
 
-for.inc428:                                       ; preds = %for.end426
-  %252 = load i32, ptr %j298, align 4
-  %inc429 = add nsw i32 %252, 1
-  store i32 %inc429, ptr %j298, align 4
-  br label %for.cond301, !llvm.loop !50
+732:                                              ; preds = %730
+  br label %733
 
-for.end430:                                       ; preds = %for.cond301
-  br label %if.end431
+733:                                              ; preds = %732, %650
+  store i32 0, ptr %17, align 4
+  br label %734
 
-if.end431:                                        ; preds = %for.end430, %for.end295
-  store i32 1, ptr %retval, align 4
-  br label %return
+734:                                              ; preds = %733, %730, %647, %568
+  call void @llvm.lifetime.end.p0(i64 4, ptr %33) #6
+  %735 = load i32, ptr %17, align 4
+  switch i32 %735, label %744 [
+    i32 0, label %736
+    i32 23, label %740
+  ]
 
-return:                                           ; preds = %if.end431, %if.then421, %if.then370, %if.then286, %if.then237, %if.then
-  %253 = load i32, ptr %retval, align 4
-  ret i32 %253
+736:                                              ; preds = %734
+  br label %737
+
+737:                                              ; preds = %736
+  %738 = load i32, ptr %29, align 4, !tbaa !10
+  %739 = add nsw i32 %738, 4
+  store i32 %739, ptr %29, align 4, !tbaa !10
+  br label %561
+
+740:                                              ; preds = %734
+  %741 = load i32, ptr %14, align 4, !tbaa !10
+  %742 = load i32, ptr %31, align 4, !tbaa !10
+  %743 = add nsw i32 %742, %741
+  store i32 %743, ptr %31, align 4, !tbaa !10
+  store i32 0, ptr %17, align 4
+  br label %744
+
+744:                                              ; preds = %740, %734
+  call void @llvm.lifetime.end.p0(i64 4, ptr %32) #6
+  %745 = load i32, ptr %17, align 4
+  switch i32 %745, label %751 [
+    i32 0, label %746
+  ]
+
+746:                                              ; preds = %744
+  br label %747
+
+747:                                              ; preds = %746
+  %748 = load i32, ptr %30, align 4, !tbaa !10
+  %749 = add nsw i32 %748, 1
+  store i32 %749, ptr %30, align 4, !tbaa !10
+  br label %547, !llvm.loop !91
+
+750:                                              ; preds = %547
+  store i32 0, ptr %17, align 4
+  br label %751
+
+751:                                              ; preds = %750, %744
+  call void @llvm.lifetime.end.p0(i64 4, ptr %31) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %30) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %29) #6
+  %752 = load i32, ptr %17, align 4
+  switch i32 %752, label %755 [
+    i32 0, label %753
+  ]
+
+753:                                              ; preds = %751
+  br label %754
+
+754:                                              ; preds = %753, %543
+  store i32 1, ptr %7, align 4
+  store i32 1, ptr %17, align 4
+  br label %755
+
+755:                                              ; preds = %754, %751, %541, %52
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #6
+  %756 = load i32, ptr %7, align 4
+  ret i32 %756
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define void @stbhw__parse_h_rect(ptr noundef %p, i32 noundef %xpos, i32 noundef %ypos, i32 noundef %a, i32 noundef %b, i32 noundef %c, i32 noundef %d, i32 noundef %e, i32 noundef %f) #0 {
-entry:
-  %p.addr = alloca ptr, align 8
-  %xpos.addr = alloca i32, align 4
-  %ypos.addr = alloca i32, align 4
-  %a.addr = alloca i32, align 4
-  %b.addr = alloca i32, align 4
-  %c.addr = alloca i32, align 4
-  %d.addr = alloca i32, align 4
-  %e.addr = alloca i32, align 4
-  %f.addr = alloca i32, align 4
-  %len = alloca i32, align 4
-  %h = alloca ptr, align 8
-  %i = alloca i32, align 4
-  %j = alloca i32, align 4
-  store ptr %p, ptr %p.addr, align 8
-  store i32 %xpos, ptr %xpos.addr, align 4
-  store i32 %ypos, ptr %ypos.addr, align 4
-  store i32 %a, ptr %a.addr, align 4
-  store i32 %b, ptr %b.addr, align 4
-  store i32 %c, ptr %c.addr, align 4
-  store i32 %d, ptr %d.addr, align 4
-  store i32 %e, ptr %e.addr, align 4
-  store i32 %f, ptr %f.addr, align 4
-  %0 = load ptr, ptr %p.addr, align 8
-  %c1 = getelementptr inbounds %struct.stbhw__process, ptr %0, i32 0, i32 1
-  %1 = load ptr, ptr %c1, align 8
-  %short_side_len = getelementptr inbounds %struct.stbhw_config, ptr %1, i32 0, i32 1
-  %2 = load i32, ptr %short_side_len, align 4
-  store i32 %2, ptr %len, align 4
-  %3 = load i32, ptr %len, align 4
-  %mul = mul nsw i32 %3, 2
-  %mul2 = mul nsw i32 3, %mul
-  %4 = load i32, ptr %len, align 4
-  %mul3 = mul nsw i32 %mul2, %4
-  %conv = sext i32 %mul3 to i64
-  %add = add i64 6, %conv
-  %call = call noalias ptr @malloc(i64 noundef %add) #6
-  store ptr %call, ptr %h, align 8
-  %5 = load i32, ptr %xpos.addr, align 4
-  %inc = add nsw i32 %5, 1
-  store i32 %inc, ptr %xpos.addr, align 4
-  %6 = load i32, ptr %ypos.addr, align 4
-  %inc4 = add nsw i32 %6, 1
-  store i32 %inc4, ptr %ypos.addr, align 4
-  %7 = load i32, ptr %a.addr, align 4
-  %conv5 = trunc i32 %7 to i8
-  %8 = load ptr, ptr %h, align 8
-  %a6 = getelementptr inbounds %struct.stbhw_tile, ptr %8, i32 0, i32 0
-  store i8 %conv5, ptr %a6, align 1
-  %9 = load i32, ptr %b.addr, align 4
-  %conv7 = trunc i32 %9 to i8
-  %10 = load ptr, ptr %h, align 8
-  %b8 = getelementptr inbounds %struct.stbhw_tile, ptr %10, i32 0, i32 1
-  store i8 %conv7, ptr %b8, align 1
-  %11 = load i32, ptr %c.addr, align 4
-  %conv9 = trunc i32 %11 to i8
-  %12 = load ptr, ptr %h, align 8
-  %c10 = getelementptr inbounds %struct.stbhw_tile, ptr %12, i32 0, i32 2
-  store i8 %conv9, ptr %c10, align 1
-  %13 = load i32, ptr %d.addr, align 4
-  %conv11 = trunc i32 %13 to i8
-  %14 = load ptr, ptr %h, align 8
-  %d12 = getelementptr inbounds %struct.stbhw_tile, ptr %14, i32 0, i32 3
-  store i8 %conv11, ptr %d12, align 1
-  %15 = load i32, ptr %e.addr, align 4
-  %conv13 = trunc i32 %15 to i8
-  %16 = load ptr, ptr %h, align 8
-  %e14 = getelementptr inbounds %struct.stbhw_tile, ptr %16, i32 0, i32 4
-  store i8 %conv13, ptr %e14, align 1
-  %17 = load i32, ptr %f.addr, align 4
-  %conv15 = trunc i32 %17 to i8
-  %18 = load ptr, ptr %h, align 8
-  %f16 = getelementptr inbounds %struct.stbhw_tile, ptr %18, i32 0, i32 5
-  store i8 %conv15, ptr %f16, align 1
-  store i32 0, ptr %j, align 4
-  br label %for.cond
+define void @stbhw__parse_h_rect(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #0 {
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  %16 = alloca i32, align 4
+  %17 = alloca i32, align 4
+  %18 = alloca i32, align 4
+  %19 = alloca i32, align 4
+  %20 = alloca ptr, align 8
+  %21 = alloca i32, align 4
+  %22 = alloca i32, align 4
+  store ptr %0, ptr %10, align 8, !tbaa !8
+  store i32 %1, ptr %11, align 4, !tbaa !10
+  store i32 %2, ptr %12, align 4, !tbaa !10
+  store i32 %3, ptr %13, align 4, !tbaa !10
+  store i32 %4, ptr %14, align 4, !tbaa !10
+  store i32 %5, ptr %15, align 4, !tbaa !10
+  store i32 %6, ptr %16, align 4, !tbaa !10
+  store i32 %7, ptr %17, align 4, !tbaa !10
+  store i32 %8, ptr %18, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #6
+  %23 = load ptr, ptr %10, align 8, !tbaa !8
+  %24 = getelementptr inbounds nuw %struct.stbhw__process, ptr %23, i32 0, i32 1
+  %25 = load ptr, ptr %24, align 8, !tbaa !15
+  %26 = getelementptr inbounds nuw %struct.stbhw_config, ptr %25, i32 0, i32 1
+  %27 = load i32, ptr %26, align 4, !tbaa !16
+  store i32 %27, ptr %19, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #6
+  %28 = load i32, ptr %19, align 4, !tbaa !10
+  %29 = mul nsw i32 %28, 2
+  %30 = mul nsw i32 3, %29
+  %31 = load i32, ptr %19, align 4, !tbaa !10
+  %32 = mul nsw i32 %30, %31
+  %33 = sext i32 %32 to i64
+  %34 = add i64 6, %33
+  %35 = call noalias ptr @malloc(i64 noundef %34) #7
+  store ptr %35, ptr %20, align 8, !tbaa !34
+  call void @llvm.lifetime.start.p0(i64 4, ptr %21) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %22) #6
+  %36 = load i32, ptr %11, align 4, !tbaa !10
+  %37 = add nsw i32 %36, 1
+  store i32 %37, ptr %11, align 4, !tbaa !10
+  %38 = load i32, ptr %12, align 4, !tbaa !10
+  %39 = add nsw i32 %38, 1
+  store i32 %39, ptr %12, align 4, !tbaa !10
+  %40 = load i32, ptr %13, align 4, !tbaa !10
+  %41 = trunc i32 %40 to i8
+  %42 = load ptr, ptr %20, align 8, !tbaa !34
+  %43 = getelementptr inbounds nuw %struct.stbhw_tile, ptr %42, i32 0, i32 0
+  store i8 %41, ptr %43, align 1, !tbaa !65
+  %44 = load i32, ptr %14, align 4, !tbaa !10
+  %45 = trunc i32 %44 to i8
+  %46 = load ptr, ptr %20, align 8, !tbaa !34
+  %47 = getelementptr inbounds nuw %struct.stbhw_tile, ptr %46, i32 0, i32 1
+  store i8 %45, ptr %47, align 1, !tbaa !67
+  %48 = load i32, ptr %15, align 4, !tbaa !10
+  %49 = trunc i32 %48 to i8
+  %50 = load ptr, ptr %20, align 8, !tbaa !34
+  %51 = getelementptr inbounds nuw %struct.stbhw_tile, ptr %50, i32 0, i32 2
+  store i8 %49, ptr %51, align 1, !tbaa !68
+  %52 = load i32, ptr %16, align 4, !tbaa !10
+  %53 = trunc i32 %52 to i8
+  %54 = load ptr, ptr %20, align 8, !tbaa !34
+  %55 = getelementptr inbounds nuw %struct.stbhw_tile, ptr %54, i32 0, i32 3
+  store i8 %53, ptr %55, align 1, !tbaa !69
+  %56 = load i32, ptr %17, align 4, !tbaa !10
+  %57 = trunc i32 %56 to i8
+  %58 = load ptr, ptr %20, align 8, !tbaa !34
+  %59 = getelementptr inbounds nuw %struct.stbhw_tile, ptr %58, i32 0, i32 4
+  store i8 %57, ptr %59, align 1, !tbaa !70
+  %60 = load i32, ptr %18, align 4, !tbaa !10
+  %61 = trunc i32 %60 to i8
+  %62 = load ptr, ptr %20, align 8, !tbaa !34
+  %63 = getelementptr inbounds nuw %struct.stbhw_tile, ptr %62, i32 0, i32 5
+  store i8 %61, ptr %63, align 1, !tbaa !71
+  store i32 0, ptr %22, align 4, !tbaa !10
+  br label %64
 
-for.cond:                                         ; preds = %for.inc38, %entry
-  %19 = load i32, ptr %j, align 4
-  %20 = load i32, ptr %len, align 4
-  %cmp = icmp slt i32 %19, %20
-  br i1 %cmp, label %for.body, label %for.end40
+64:                                               ; preds = %111, %9
+  %65 = load i32, ptr %22, align 4, !tbaa !10
+  %66 = load i32, ptr %19, align 4, !tbaa !10
+  %67 = icmp slt i32 %65, %66
+  br i1 %67, label %68, label %114
 
-for.body:                                         ; preds = %for.cond
-  store i32 0, ptr %i, align 4
-  br label %for.cond18
+68:                                               ; preds = %64
+  store i32 0, ptr %21, align 4, !tbaa !10
+  br label %69
 
-for.cond18:                                       ; preds = %for.inc, %for.body
-  %21 = load i32, ptr %i, align 4
-  %22 = load i32, ptr %len, align 4
-  %mul19 = mul nsw i32 %22, 2
-  %cmp20 = icmp slt i32 %21, %mul19
-  br i1 %cmp20, label %for.body22, label %for.end
+69:                                               ; preds = %107, %68
+  %70 = load i32, ptr %21, align 4, !tbaa !10
+  %71 = load i32, ptr %19, align 4, !tbaa !10
+  %72 = mul nsw i32 %71, 2
+  %73 = icmp slt i32 %70, %72
+  br i1 %73, label %74, label %110
 
-for.body22:                                       ; preds = %for.cond18
-  %23 = load ptr, ptr %h, align 8
-  %pixels = getelementptr inbounds %struct.stbhw_tile, ptr %23, i32 0, i32 6
-  %arraydecay = getelementptr inbounds [1 x i8], ptr %pixels, i64 0, i64 0
-  %24 = load i32, ptr %j, align 4
-  %25 = load i32, ptr %len, align 4
-  %mul23 = mul nsw i32 3, %25
-  %mul24 = mul nsw i32 %mul23, 2
-  %mul25 = mul nsw i32 %24, %mul24
-  %idx.ext = sext i32 %mul25 to i64
-  %add.ptr = getelementptr inbounds i8, ptr %arraydecay, i64 %idx.ext
-  %26 = load i32, ptr %i, align 4
-  %mul26 = mul nsw i32 %26, 3
-  %idx.ext27 = sext i32 %mul26 to i64
-  %add.ptr28 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext27
-  %27 = load ptr, ptr %p.addr, align 8
-  %data = getelementptr inbounds %struct.stbhw__process, ptr %27, i32 0, i32 4
-  %28 = load ptr, ptr %data, align 8
-  %29 = load i32, ptr %ypos.addr, align 4
-  %30 = load i32, ptr %j, align 4
-  %add29 = add nsw i32 %29, %30
-  %31 = load ptr, ptr %p.addr, align 8
-  %stride = getelementptr inbounds %struct.stbhw__process, ptr %31, i32 0, i32 5
-  %32 = load i32, ptr %stride, align 8
-  %mul30 = mul nsw i32 %add29, %32
-  %idx.ext31 = sext i32 %mul30 to i64
-  %add.ptr32 = getelementptr inbounds i8, ptr %28, i64 %idx.ext31
-  %33 = load i32, ptr %xpos.addr, align 4
-  %34 = load i32, ptr %i, align 4
-  %add33 = add nsw i32 %33, %34
-  %mul34 = mul nsw i32 %add33, 3
-  %idx.ext35 = sext i32 %mul34 to i64
-  %add.ptr36 = getelementptr inbounds i8, ptr %add.ptr32, i64 %idx.ext35
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr28, ptr align 1 %add.ptr36, i64 3, i1 false)
-  br label %for.inc
+74:                                               ; preds = %69
+  %75 = load ptr, ptr %20, align 8, !tbaa !34
+  %76 = getelementptr inbounds nuw %struct.stbhw_tile, ptr %75, i32 0, i32 6
+  %77 = getelementptr inbounds [1 x i8], ptr %76, i64 0, i64 0
+  %78 = load i32, ptr %22, align 4, !tbaa !10
+  %79 = load i32, ptr %19, align 4, !tbaa !10
+  %80 = mul nsw i32 3, %79
+  %81 = mul nsw i32 %80, 2
+  %82 = mul nsw i32 %78, %81
+  %83 = sext i32 %82 to i64
+  %84 = getelementptr inbounds i8, ptr %77, i64 %83
+  %85 = load i32, ptr %21, align 4, !tbaa !10
+  %86 = mul nsw i32 %85, 3
+  %87 = sext i32 %86 to i64
+  %88 = getelementptr inbounds i8, ptr %84, i64 %87
+  %89 = load ptr, ptr %10, align 8, !tbaa !8
+  %90 = getelementptr inbounds nuw %struct.stbhw__process, ptr %89, i32 0, i32 4
+  %91 = load ptr, ptr %90, align 8, !tbaa !92
+  %92 = load i32, ptr %12, align 4, !tbaa !10
+  %93 = load i32, ptr %22, align 4, !tbaa !10
+  %94 = add nsw i32 %92, %93
+  %95 = load ptr, ptr %10, align 8, !tbaa !8
+  %96 = getelementptr inbounds nuw %struct.stbhw__process, ptr %95, i32 0, i32 5
+  %97 = load i32, ptr %96, align 8, !tbaa !93
+  %98 = mul nsw i32 %94, %97
+  %99 = sext i32 %98 to i64
+  %100 = getelementptr inbounds i8, ptr %91, i64 %99
+  %101 = load i32, ptr %11, align 4, !tbaa !10
+  %102 = load i32, ptr %21, align 4, !tbaa !10
+  %103 = add nsw i32 %101, %102
+  %104 = mul nsw i32 %103, 3
+  %105 = sext i32 %104 to i64
+  %106 = getelementptr inbounds i8, ptr %100, i64 %105
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %88, ptr align 1 %106, i64 3, i1 false)
+  br label %107
 
-for.inc:                                          ; preds = %for.body22
-  %35 = load i32, ptr %i, align 4
-  %inc37 = add nsw i32 %35, 1
-  store i32 %inc37, ptr %i, align 4
-  br label %for.cond18, !llvm.loop !51
+107:                                              ; preds = %74
+  %108 = load i32, ptr %21, align 4, !tbaa !10
+  %109 = add nsw i32 %108, 1
+  store i32 %109, ptr %21, align 4, !tbaa !10
+  br label %69, !llvm.loop !94
 
-for.end:                                          ; preds = %for.cond18
-  br label %for.inc38
+110:                                              ; preds = %69
+  br label %111
 
-for.inc38:                                        ; preds = %for.end
-  %36 = load i32, ptr %j, align 4
-  %inc39 = add nsw i32 %36, 1
-  store i32 %inc39, ptr %j, align 4
-  br label %for.cond, !llvm.loop !52
+111:                                              ; preds = %110
+  %112 = load i32, ptr %22, align 4, !tbaa !10
+  %113 = add nsw i32 %112, 1
+  store i32 %113, ptr %22, align 4, !tbaa !10
+  br label %64, !llvm.loop !95
 
-for.end40:                                        ; preds = %for.cond
-  %37 = load ptr, ptr %h, align 8
-  %38 = load ptr, ptr %p.addr, align 8
-  %ts = getelementptr inbounds %struct.stbhw__process, ptr %38, i32 0, i32 0
-  %39 = load ptr, ptr %ts, align 8
-  %h_tiles = getelementptr inbounds %struct.stbhw_tileset, ptr %39, i32 0, i32 3
-  %40 = load ptr, ptr %h_tiles, align 8
-  %41 = load ptr, ptr %p.addr, align 8
-  %ts41 = getelementptr inbounds %struct.stbhw__process, ptr %41, i32 0, i32 0
-  %42 = load ptr, ptr %ts41, align 8
-  %num_h_tiles = getelementptr inbounds %struct.stbhw_tileset, ptr %42, i32 0, i32 5
-  %43 = load i32, ptr %num_h_tiles, align 8
-  %inc42 = add nsw i32 %43, 1
-  store i32 %inc42, ptr %num_h_tiles, align 8
-  %idxprom = sext i32 %43 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %40, i64 %idxprom
-  store ptr %37, ptr %arrayidx, align 8
+114:                                              ; preds = %64
+  %115 = load ptr, ptr %20, align 8, !tbaa !34
+  %116 = load ptr, ptr %10, align 8, !tbaa !8
+  %117 = getelementptr inbounds nuw %struct.stbhw__process, ptr %116, i32 0, i32 0
+  %118 = load ptr, ptr %117, align 8, !tbaa !96
+  %119 = getelementptr inbounds nuw %struct.stbhw_tileset, ptr %118, i32 0, i32 3
+  %120 = load ptr, ptr %119, align 8, !tbaa !86
+  %121 = load ptr, ptr %10, align 8, !tbaa !8
+  %122 = getelementptr inbounds nuw %struct.stbhw__process, ptr %121, i32 0, i32 0
+  %123 = load ptr, ptr %122, align 8, !tbaa !96
+  %124 = getelementptr inbounds nuw %struct.stbhw_tileset, ptr %123, i32 0, i32 5
+  %125 = load i32, ptr %124, align 8, !tbaa !87
+  %126 = add nsw i32 %125, 1
+  store i32 %126, ptr %124, align 8, !tbaa !87
+  %127 = sext i32 %125 to i64
+  %128 = getelementptr inbounds ptr, ptr %120, i64 %127
+  store ptr %115, ptr %128, align 8, !tbaa !34
+  call void @llvm.lifetime.end.p0(i64 4, ptr %22) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %21) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #6
   ret void
 }
 
 ; Function Attrs: nounwind allocsize(0)
-declare noalias ptr @malloc(i64 noundef) #4
+declare noalias ptr @malloc(i64 noundef) #5
 
 ; Function Attrs: nounwind uwtable
-define void @stbhw__parse_v_rect(ptr noundef %p, i32 noundef %xpos, i32 noundef %ypos, i32 noundef %a, i32 noundef %b, i32 noundef %c, i32 noundef %d, i32 noundef %e, i32 noundef %f) #0 {
-entry:
-  %p.addr = alloca ptr, align 8
-  %xpos.addr = alloca i32, align 4
-  %ypos.addr = alloca i32, align 4
-  %a.addr = alloca i32, align 4
-  %b.addr = alloca i32, align 4
-  %c.addr = alloca i32, align 4
-  %d.addr = alloca i32, align 4
-  %e.addr = alloca i32, align 4
-  %f.addr = alloca i32, align 4
-  %len = alloca i32, align 4
-  %h = alloca ptr, align 8
-  %i = alloca i32, align 4
-  %j = alloca i32, align 4
-  store ptr %p, ptr %p.addr, align 8
-  store i32 %xpos, ptr %xpos.addr, align 4
-  store i32 %ypos, ptr %ypos.addr, align 4
-  store i32 %a, ptr %a.addr, align 4
-  store i32 %b, ptr %b.addr, align 4
-  store i32 %c, ptr %c.addr, align 4
-  store i32 %d, ptr %d.addr, align 4
-  store i32 %e, ptr %e.addr, align 4
-  store i32 %f, ptr %f.addr, align 4
-  %0 = load ptr, ptr %p.addr, align 8
-  %c1 = getelementptr inbounds %struct.stbhw__process, ptr %0, i32 0, i32 1
-  %1 = load ptr, ptr %c1, align 8
-  %short_side_len = getelementptr inbounds %struct.stbhw_config, ptr %1, i32 0, i32 1
-  %2 = load i32, ptr %short_side_len, align 4
-  store i32 %2, ptr %len, align 4
-  %3 = load i32, ptr %len, align 4
-  %mul = mul nsw i32 %3, 2
-  %mul2 = mul nsw i32 3, %mul
-  %4 = load i32, ptr %len, align 4
-  %mul3 = mul nsw i32 %mul2, %4
-  %conv = sext i32 %mul3 to i64
-  %add = add i64 6, %conv
-  %call = call noalias ptr @malloc(i64 noundef %add) #6
-  store ptr %call, ptr %h, align 8
-  %5 = load i32, ptr %xpos.addr, align 4
-  %inc = add nsw i32 %5, 1
-  store i32 %inc, ptr %xpos.addr, align 4
-  %6 = load i32, ptr %ypos.addr, align 4
-  %inc4 = add nsw i32 %6, 1
-  store i32 %inc4, ptr %ypos.addr, align 4
-  %7 = load i32, ptr %a.addr, align 4
-  %conv5 = trunc i32 %7 to i8
-  %8 = load ptr, ptr %h, align 8
-  %a6 = getelementptr inbounds %struct.stbhw_tile, ptr %8, i32 0, i32 0
-  store i8 %conv5, ptr %a6, align 1
-  %9 = load i32, ptr %b.addr, align 4
-  %conv7 = trunc i32 %9 to i8
-  %10 = load ptr, ptr %h, align 8
-  %b8 = getelementptr inbounds %struct.stbhw_tile, ptr %10, i32 0, i32 1
-  store i8 %conv7, ptr %b8, align 1
-  %11 = load i32, ptr %c.addr, align 4
-  %conv9 = trunc i32 %11 to i8
-  %12 = load ptr, ptr %h, align 8
-  %c10 = getelementptr inbounds %struct.stbhw_tile, ptr %12, i32 0, i32 2
-  store i8 %conv9, ptr %c10, align 1
-  %13 = load i32, ptr %d.addr, align 4
-  %conv11 = trunc i32 %13 to i8
-  %14 = load ptr, ptr %h, align 8
-  %d12 = getelementptr inbounds %struct.stbhw_tile, ptr %14, i32 0, i32 3
-  store i8 %conv11, ptr %d12, align 1
-  %15 = load i32, ptr %e.addr, align 4
-  %conv13 = trunc i32 %15 to i8
-  %16 = load ptr, ptr %h, align 8
-  %e14 = getelementptr inbounds %struct.stbhw_tile, ptr %16, i32 0, i32 4
-  store i8 %conv13, ptr %e14, align 1
-  %17 = load i32, ptr %f.addr, align 4
-  %conv15 = trunc i32 %17 to i8
-  %18 = load ptr, ptr %h, align 8
-  %f16 = getelementptr inbounds %struct.stbhw_tile, ptr %18, i32 0, i32 5
-  store i8 %conv15, ptr %f16, align 1
-  store i32 0, ptr %j, align 4
-  br label %for.cond
+define void @stbhw__parse_v_rect(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #0 {
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  %16 = alloca i32, align 4
+  %17 = alloca i32, align 4
+  %18 = alloca i32, align 4
+  %19 = alloca i32, align 4
+  %20 = alloca ptr, align 8
+  %21 = alloca i32, align 4
+  %22 = alloca i32, align 4
+  store ptr %0, ptr %10, align 8, !tbaa !8
+  store i32 %1, ptr %11, align 4, !tbaa !10
+  store i32 %2, ptr %12, align 4, !tbaa !10
+  store i32 %3, ptr %13, align 4, !tbaa !10
+  store i32 %4, ptr %14, align 4, !tbaa !10
+  store i32 %5, ptr %15, align 4, !tbaa !10
+  store i32 %6, ptr %16, align 4, !tbaa !10
+  store i32 %7, ptr %17, align 4, !tbaa !10
+  store i32 %8, ptr %18, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #6
+  %23 = load ptr, ptr %10, align 8, !tbaa !8
+  %24 = getelementptr inbounds nuw %struct.stbhw__process, ptr %23, i32 0, i32 1
+  %25 = load ptr, ptr %24, align 8, !tbaa !15
+  %26 = getelementptr inbounds nuw %struct.stbhw_config, ptr %25, i32 0, i32 1
+  %27 = load i32, ptr %26, align 4, !tbaa !16
+  store i32 %27, ptr %19, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #6
+  %28 = load i32, ptr %19, align 4, !tbaa !10
+  %29 = mul nsw i32 %28, 2
+  %30 = mul nsw i32 3, %29
+  %31 = load i32, ptr %19, align 4, !tbaa !10
+  %32 = mul nsw i32 %30, %31
+  %33 = sext i32 %32 to i64
+  %34 = add i64 6, %33
+  %35 = call noalias ptr @malloc(i64 noundef %34) #7
+  store ptr %35, ptr %20, align 8, !tbaa !34
+  call void @llvm.lifetime.start.p0(i64 4, ptr %21) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %22) #6
+  %36 = load i32, ptr %11, align 4, !tbaa !10
+  %37 = add nsw i32 %36, 1
+  store i32 %37, ptr %11, align 4, !tbaa !10
+  %38 = load i32, ptr %12, align 4, !tbaa !10
+  %39 = add nsw i32 %38, 1
+  store i32 %39, ptr %12, align 4, !tbaa !10
+  %40 = load i32, ptr %13, align 4, !tbaa !10
+  %41 = trunc i32 %40 to i8
+  %42 = load ptr, ptr %20, align 8, !tbaa !34
+  %43 = getelementptr inbounds nuw %struct.stbhw_tile, ptr %42, i32 0, i32 0
+  store i8 %41, ptr %43, align 1, !tbaa !65
+  %44 = load i32, ptr %14, align 4, !tbaa !10
+  %45 = trunc i32 %44 to i8
+  %46 = load ptr, ptr %20, align 8, !tbaa !34
+  %47 = getelementptr inbounds nuw %struct.stbhw_tile, ptr %46, i32 0, i32 1
+  store i8 %45, ptr %47, align 1, !tbaa !67
+  %48 = load i32, ptr %15, align 4, !tbaa !10
+  %49 = trunc i32 %48 to i8
+  %50 = load ptr, ptr %20, align 8, !tbaa !34
+  %51 = getelementptr inbounds nuw %struct.stbhw_tile, ptr %50, i32 0, i32 2
+  store i8 %49, ptr %51, align 1, !tbaa !68
+  %52 = load i32, ptr %16, align 4, !tbaa !10
+  %53 = trunc i32 %52 to i8
+  %54 = load ptr, ptr %20, align 8, !tbaa !34
+  %55 = getelementptr inbounds nuw %struct.stbhw_tile, ptr %54, i32 0, i32 3
+  store i8 %53, ptr %55, align 1, !tbaa !69
+  %56 = load i32, ptr %17, align 4, !tbaa !10
+  %57 = trunc i32 %56 to i8
+  %58 = load ptr, ptr %20, align 8, !tbaa !34
+  %59 = getelementptr inbounds nuw %struct.stbhw_tile, ptr %58, i32 0, i32 4
+  store i8 %57, ptr %59, align 1, !tbaa !70
+  %60 = load i32, ptr %18, align 4, !tbaa !10
+  %61 = trunc i32 %60 to i8
+  %62 = load ptr, ptr %20, align 8, !tbaa !34
+  %63 = getelementptr inbounds nuw %struct.stbhw_tile, ptr %62, i32 0, i32 5
+  store i8 %61, ptr %63, align 1, !tbaa !71
+  store i32 0, ptr %22, align 4, !tbaa !10
+  br label %64
 
-for.cond:                                         ; preds = %for.inc37, %entry
-  %19 = load i32, ptr %j, align 4
-  %20 = load i32, ptr %len, align 4
-  %mul17 = mul nsw i32 %20, 2
-  %cmp = icmp slt i32 %19, %mul17
-  br i1 %cmp, label %for.body, label %for.end39
+64:                                               ; preds = %110, %9
+  %65 = load i32, ptr %22, align 4, !tbaa !10
+  %66 = load i32, ptr %19, align 4, !tbaa !10
+  %67 = mul nsw i32 %66, 2
+  %68 = icmp slt i32 %65, %67
+  br i1 %68, label %69, label %113
 
-for.body:                                         ; preds = %for.cond
-  store i32 0, ptr %i, align 4
-  br label %for.cond19
+69:                                               ; preds = %64
+  store i32 0, ptr %21, align 4, !tbaa !10
+  br label %70
 
-for.cond19:                                       ; preds = %for.inc, %for.body
-  %21 = load i32, ptr %i, align 4
-  %22 = load i32, ptr %len, align 4
-  %cmp20 = icmp slt i32 %21, %22
-  br i1 %cmp20, label %for.body22, label %for.end
+70:                                               ; preds = %106, %69
+  %71 = load i32, ptr %21, align 4, !tbaa !10
+  %72 = load i32, ptr %19, align 4, !tbaa !10
+  %73 = icmp slt i32 %71, %72
+  br i1 %73, label %74, label %109
 
-for.body22:                                       ; preds = %for.cond19
-  %23 = load ptr, ptr %h, align 8
-  %pixels = getelementptr inbounds %struct.stbhw_tile, ptr %23, i32 0, i32 6
-  %arraydecay = getelementptr inbounds [1 x i8], ptr %pixels, i64 0, i64 0
-  %24 = load i32, ptr %j, align 4
-  %25 = load i32, ptr %len, align 4
-  %mul23 = mul nsw i32 3, %25
-  %mul24 = mul nsw i32 %24, %mul23
-  %idx.ext = sext i32 %mul24 to i64
-  %add.ptr = getelementptr inbounds i8, ptr %arraydecay, i64 %idx.ext
-  %26 = load i32, ptr %i, align 4
-  %mul25 = mul nsw i32 %26, 3
-  %idx.ext26 = sext i32 %mul25 to i64
-  %add.ptr27 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext26
-  %27 = load ptr, ptr %p.addr, align 8
-  %data = getelementptr inbounds %struct.stbhw__process, ptr %27, i32 0, i32 4
-  %28 = load ptr, ptr %data, align 8
-  %29 = load i32, ptr %ypos.addr, align 4
-  %30 = load i32, ptr %j, align 4
-  %add28 = add nsw i32 %29, %30
-  %31 = load ptr, ptr %p.addr, align 8
-  %stride = getelementptr inbounds %struct.stbhw__process, ptr %31, i32 0, i32 5
-  %32 = load i32, ptr %stride, align 8
-  %mul29 = mul nsw i32 %add28, %32
-  %idx.ext30 = sext i32 %mul29 to i64
-  %add.ptr31 = getelementptr inbounds i8, ptr %28, i64 %idx.ext30
-  %33 = load i32, ptr %xpos.addr, align 4
-  %34 = load i32, ptr %i, align 4
-  %add32 = add nsw i32 %33, %34
-  %mul33 = mul nsw i32 %add32, 3
-  %idx.ext34 = sext i32 %mul33 to i64
-  %add.ptr35 = getelementptr inbounds i8, ptr %add.ptr31, i64 %idx.ext34
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr27, ptr align 1 %add.ptr35, i64 3, i1 false)
-  br label %for.inc
+74:                                               ; preds = %70
+  %75 = load ptr, ptr %20, align 8, !tbaa !34
+  %76 = getelementptr inbounds nuw %struct.stbhw_tile, ptr %75, i32 0, i32 6
+  %77 = getelementptr inbounds [1 x i8], ptr %76, i64 0, i64 0
+  %78 = load i32, ptr %22, align 4, !tbaa !10
+  %79 = load i32, ptr %19, align 4, !tbaa !10
+  %80 = mul nsw i32 3, %79
+  %81 = mul nsw i32 %78, %80
+  %82 = sext i32 %81 to i64
+  %83 = getelementptr inbounds i8, ptr %77, i64 %82
+  %84 = load i32, ptr %21, align 4, !tbaa !10
+  %85 = mul nsw i32 %84, 3
+  %86 = sext i32 %85 to i64
+  %87 = getelementptr inbounds i8, ptr %83, i64 %86
+  %88 = load ptr, ptr %10, align 8, !tbaa !8
+  %89 = getelementptr inbounds nuw %struct.stbhw__process, ptr %88, i32 0, i32 4
+  %90 = load ptr, ptr %89, align 8, !tbaa !92
+  %91 = load i32, ptr %12, align 4, !tbaa !10
+  %92 = load i32, ptr %22, align 4, !tbaa !10
+  %93 = add nsw i32 %91, %92
+  %94 = load ptr, ptr %10, align 8, !tbaa !8
+  %95 = getelementptr inbounds nuw %struct.stbhw__process, ptr %94, i32 0, i32 5
+  %96 = load i32, ptr %95, align 8, !tbaa !93
+  %97 = mul nsw i32 %93, %96
+  %98 = sext i32 %97 to i64
+  %99 = getelementptr inbounds i8, ptr %90, i64 %98
+  %100 = load i32, ptr %11, align 4, !tbaa !10
+  %101 = load i32, ptr %21, align 4, !tbaa !10
+  %102 = add nsw i32 %100, %101
+  %103 = mul nsw i32 %102, 3
+  %104 = sext i32 %103 to i64
+  %105 = getelementptr inbounds i8, ptr %99, i64 %104
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %87, ptr align 1 %105, i64 3, i1 false)
+  br label %106
 
-for.inc:                                          ; preds = %for.body22
-  %35 = load i32, ptr %i, align 4
-  %inc36 = add nsw i32 %35, 1
-  store i32 %inc36, ptr %i, align 4
-  br label %for.cond19, !llvm.loop !53
+106:                                              ; preds = %74
+  %107 = load i32, ptr %21, align 4, !tbaa !10
+  %108 = add nsw i32 %107, 1
+  store i32 %108, ptr %21, align 4, !tbaa !10
+  br label %70, !llvm.loop !97
 
-for.end:                                          ; preds = %for.cond19
-  br label %for.inc37
+109:                                              ; preds = %70
+  br label %110
 
-for.inc37:                                        ; preds = %for.end
-  %36 = load i32, ptr %j, align 4
-  %inc38 = add nsw i32 %36, 1
-  store i32 %inc38, ptr %j, align 4
-  br label %for.cond, !llvm.loop !54
+110:                                              ; preds = %109
+  %111 = load i32, ptr %22, align 4, !tbaa !10
+  %112 = add nsw i32 %111, 1
+  store i32 %112, ptr %22, align 4, !tbaa !10
+  br label %64, !llvm.loop !98
 
-for.end39:                                        ; preds = %for.cond
-  %37 = load ptr, ptr %h, align 8
-  %38 = load ptr, ptr %p.addr, align 8
-  %ts = getelementptr inbounds %struct.stbhw__process, ptr %38, i32 0, i32 0
-  %39 = load ptr, ptr %ts, align 8
-  %v_tiles = getelementptr inbounds %struct.stbhw_tileset, ptr %39, i32 0, i32 4
-  %40 = load ptr, ptr %v_tiles, align 8
-  %41 = load ptr, ptr %p.addr, align 8
-  %ts40 = getelementptr inbounds %struct.stbhw__process, ptr %41, i32 0, i32 0
-  %42 = load ptr, ptr %ts40, align 8
-  %num_v_tiles = getelementptr inbounds %struct.stbhw_tileset, ptr %42, i32 0, i32 7
-  %43 = load i32, ptr %num_v_tiles, align 8
-  %inc41 = add nsw i32 %43, 1
-  store i32 %inc41, ptr %num_v_tiles, align 8
-  %idxprom = sext i32 %43 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %40, i64 %idxprom
-  store ptr %37, ptr %arrayidx, align 8
+113:                                              ; preds = %64
+  %114 = load ptr, ptr %20, align 8, !tbaa !34
+  %115 = load ptr, ptr %10, align 8, !tbaa !8
+  %116 = getelementptr inbounds nuw %struct.stbhw__process, ptr %115, i32 0, i32 0
+  %117 = load ptr, ptr %116, align 8, !tbaa !96
+  %118 = getelementptr inbounds nuw %struct.stbhw_tileset, ptr %117, i32 0, i32 4
+  %119 = load ptr, ptr %118, align 8, !tbaa !88
+  %120 = load ptr, ptr %10, align 8, !tbaa !8
+  %121 = getelementptr inbounds nuw %struct.stbhw__process, ptr %120, i32 0, i32 0
+  %122 = load ptr, ptr %121, align 8, !tbaa !96
+  %123 = getelementptr inbounds nuw %struct.stbhw_tileset, ptr %122, i32 0, i32 7
+  %124 = load i32, ptr %123, align 8, !tbaa !89
+  %125 = add nsw i32 %124, 1
+  store i32 %125, ptr %123, align 8, !tbaa !89
+  %126 = sext i32 %124 to i64
+  %127 = getelementptr inbounds ptr, ptr %119, i64 %126
+  store ptr %114, ptr %127, align 8, !tbaa !34
+  call void @llvm.lifetime.end.p0(i64 4, ptr %22) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %21) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #6
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbhw_build_tileset_from_image(ptr noundef %ts, ptr noundef %data, i32 noundef %stride, i32 noundef %w, i32 noundef %h) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %ts.addr = alloca ptr, align 8
-  %data.addr = alloca ptr, align 8
-  %stride.addr = alloca i32, align 4
-  %w.addr = alloca i32, align 4
-  %h.addr = alloca i32, align 4
-  %i = alloca i32, align 4
-  %h_count = alloca i32, align 4
-  %v_count = alloca i32, align 4
-  %header = alloca [9 x i8], align 1
-  %c = alloca %struct.stbhw_config, align 4
-  %p = alloca %struct.stbhw__process, align 8
-  store ptr %ts, ptr %ts.addr, align 8
-  store ptr %data, ptr %data.addr, align 8
-  store i32 %stride, ptr %stride.addr, align 4
-  store i32 %w, ptr %w.addr, align 4
-  store i32 %h, ptr %h.addr, align 4
-  call void @llvm.memset.p0.i64(ptr align 4 %c, i8 0, i64 104, i1 false)
-  call void @llvm.memset.p0.i64(ptr align 8 %p, i8 0, i64 56, i1 false)
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+define i32 @stbhw_build_tileset_from_image(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #0 {
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca [9 x i8], align 1
+  %16 = alloca %struct.stbhw_config, align 4
+  %17 = alloca %struct.stbhw__process, align 8
+  %18 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8, !tbaa !78
+  store ptr %1, ptr %8, align 8, !tbaa !3
+  store i32 %2, ptr %9, align 4, !tbaa !10
+  store i32 %3, ptr %10, align 4, !tbaa !10
+  store i32 %4, ptr %11, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #6
+  call void @llvm.lifetime.start.p0(i64 9, ptr %15) #6
+  call void @llvm.lifetime.start.p0(i64 104, ptr %16) #6
+  call void @llvm.memset.p0.i64(ptr align 4 %16, i8 0, i64 104, i1 false)
+  call void @llvm.lifetime.start.p0(i64 56, ptr %17) #6
+  call void @llvm.memset.p0.i64(ptr align 8 %17, i8 0, i64 56, i1 false)
+  store i32 0, ptr %12, align 4, !tbaa !10
+  br label %19
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i32, ptr %i, align 4
-  %cmp = icmp slt i32 %0, 9
-  br i1 %cmp, label %for.body, label %for.end
+19:                                               ; preds = %40, %5
+  %20 = load i32, ptr %12, align 4, !tbaa !10
+  %21 = icmp slt i32 %20, 9
+  br i1 %21, label %22, label %43
 
-for.body:                                         ; preds = %for.cond
-  %1 = load ptr, ptr %data.addr, align 8
-  %2 = load i32, ptr %w.addr, align 4
-  %mul = mul nsw i32 %2, 3
-  %sub = sub nsw i32 %mul, 1
-  %3 = load i32, ptr %i, align 4
-  %sub1 = sub nsw i32 %sub, %3
-  %idxprom = sext i32 %sub1 to i64
-  %arrayidx = getelementptr inbounds i8, ptr %1, i64 %idxprom
-  %4 = load i8, ptr %arrayidx, align 1
-  %conv = zext i8 %4 to i32
-  %5 = load i32, ptr %i, align 4
-  %mul2 = mul nsw i32 %5, 55
-  %xor = xor i32 %conv, %mul2
-  %conv3 = trunc i32 %xor to i8
-  %6 = load i32, ptr %i, align 4
-  %idxprom4 = sext i32 %6 to i64
-  %arrayidx5 = getelementptr inbounds [9 x i8], ptr %header, i64 0, i64 %idxprom4
-  store i8 %conv3, ptr %arrayidx5, align 1
-  br label %for.inc
+22:                                               ; preds = %19
+  %23 = load ptr, ptr %8, align 8, !tbaa !3
+  %24 = load i32, ptr %10, align 4, !tbaa !10
+  %25 = mul nsw i32 %24, 3
+  %26 = sub nsw i32 %25, 1
+  %27 = load i32, ptr %12, align 4, !tbaa !10
+  %28 = sub nsw i32 %26, %27
+  %29 = sext i32 %28 to i64
+  %30 = getelementptr inbounds i8, ptr %23, i64 %29
+  %31 = load i8, ptr %30, align 1, !tbaa !64
+  %32 = zext i8 %31 to i32
+  %33 = load i32, ptr %12, align 4, !tbaa !10
+  %34 = mul nsw i32 %33, 55
+  %35 = xor i32 %32, %34
+  %36 = trunc i32 %35 to i8
+  %37 = load i32, ptr %12, align 4, !tbaa !10
+  %38 = sext i32 %37 to i64
+  %39 = getelementptr inbounds [9 x i8], ptr %15, i64 0, i64 %38
+  store i8 %36, ptr %39, align 1, !tbaa !64
+  br label %40
 
-for.inc:                                          ; preds = %for.body
-  %7 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %7, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !55
+40:                                               ; preds = %22
+  %41 = load i32, ptr %12, align 4, !tbaa !10
+  %42 = add nsw i32 %41, 1
+  store i32 %42, ptr %12, align 4, !tbaa !10
+  br label %19, !llvm.loop !99
 
-for.end:                                          ; preds = %for.cond
-  %arrayidx6 = getelementptr inbounds [9 x i8], ptr %header, i64 0, i64 7
-  %8 = load i8, ptr %arrayidx6, align 1
-  %conv7 = zext i8 %8 to i32
-  %cmp8 = icmp eq i32 %conv7, 192
-  br i1 %cmp8, label %if.then, label %if.else
+43:                                               ; preds = %19
+  %44 = getelementptr inbounds [9 x i8], ptr %15, i64 0, i64 7
+  %45 = load i8, ptr %44, align 1, !tbaa !64
+  %46 = zext i8 %45 to i32
+  %47 = icmp eq i32 %46, 192
+  br i1 %47, label %48, label %79
 
-if.then:                                          ; preds = %for.end
-  %is_corner = getelementptr inbounds %struct.stbhw_config, ptr %c, i32 0, i32 0
-  store i32 1, ptr %is_corner, align 4
-  store i32 0, ptr %i, align 4
-  br label %for.cond10
+48:                                               ; preds = %43
+  %49 = getelementptr inbounds nuw %struct.stbhw_config, ptr %16, i32 0, i32 0
+  store i32 1, ptr %49, align 4, !tbaa !37
+  store i32 0, ptr %12, align 4, !tbaa !10
+  br label %50
 
-for.cond10:                                       ; preds = %for.inc19, %if.then
-  %9 = load i32, ptr %i, align 4
-  %cmp11 = icmp slt i32 %9, 4
-  br i1 %cmp11, label %for.body13, label %for.end21
+50:                                               ; preds = %63, %48
+  %51 = load i32, ptr %12, align 4, !tbaa !10
+  %52 = icmp slt i32 %51, 4
+  br i1 %52, label %53, label %66
 
-for.body13:                                       ; preds = %for.cond10
-  %10 = load i32, ptr %i, align 4
-  %idxprom14 = sext i32 %10 to i64
-  %arrayidx15 = getelementptr inbounds [9 x i8], ptr %header, i64 0, i64 %idxprom14
-  %11 = load i8, ptr %arrayidx15, align 1
-  %conv16 = zext i8 %11 to i32
-  %num_color = getelementptr inbounds %struct.stbhw_config, ptr %c, i32 0, i32 2
-  %12 = load i32, ptr %i, align 4
-  %idxprom17 = sext i32 %12 to i64
-  %arrayidx18 = getelementptr inbounds [6 x i32], ptr %num_color, i64 0, i64 %idxprom17
-  store i32 %conv16, ptr %arrayidx18, align 4
-  br label %for.inc19
+53:                                               ; preds = %50
+  %54 = load i32, ptr %12, align 4, !tbaa !10
+  %55 = sext i32 %54 to i64
+  %56 = getelementptr inbounds [9 x i8], ptr %15, i64 0, i64 %55
+  %57 = load i8, ptr %56, align 1, !tbaa !64
+  %58 = zext i8 %57 to i32
+  %59 = getelementptr inbounds nuw %struct.stbhw_config, ptr %16, i32 0, i32 2
+  %60 = load i32, ptr %12, align 4, !tbaa !10
+  %61 = sext i32 %60 to i64
+  %62 = getelementptr inbounds [6 x i32], ptr %59, i64 0, i64 %61
+  store i32 %58, ptr %62, align 4, !tbaa !10
+  br label %63
 
-for.inc19:                                        ; preds = %for.body13
-  %13 = load i32, ptr %i, align 4
-  %inc20 = add nsw i32 %13, 1
-  store i32 %inc20, ptr %i, align 4
-  br label %for.cond10, !llvm.loop !56
+63:                                               ; preds = %53
+  %64 = load i32, ptr %12, align 4, !tbaa !10
+  %65 = add nsw i32 %64, 1
+  store i32 %65, ptr %12, align 4, !tbaa !10
+  br label %50, !llvm.loop !100
 
-for.end21:                                        ; preds = %for.cond10
-  %arrayidx22 = getelementptr inbounds [9 x i8], ptr %header, i64 0, i64 4
-  %14 = load i8, ptr %arrayidx22, align 1
-  %conv23 = zext i8 %14 to i32
-  %num_vary_x = getelementptr inbounds %struct.stbhw_config, ptr %c, i32 0, i32 3
-  store i32 %conv23, ptr %num_vary_x, align 4
-  %arrayidx24 = getelementptr inbounds [9 x i8], ptr %header, i64 0, i64 5
-  %15 = load i8, ptr %arrayidx24, align 1
-  %conv25 = zext i8 %15 to i32
-  %num_vary_y = getelementptr inbounds %struct.stbhw_config, ptr %c, i32 0, i32 4
-  store i32 %conv25, ptr %num_vary_y, align 4
-  %arrayidx26 = getelementptr inbounds [9 x i8], ptr %header, i64 0, i64 6
-  %16 = load i8, ptr %arrayidx26, align 1
-  %conv27 = zext i8 %16 to i32
-  %short_side_len = getelementptr inbounds %struct.stbhw_config, ptr %c, i32 0, i32 1
-  store i32 %conv27, ptr %short_side_len, align 4
-  br label %if.end
+66:                                               ; preds = %50
+  %67 = getelementptr inbounds [9 x i8], ptr %15, i64 0, i64 4
+  %68 = load i8, ptr %67, align 1, !tbaa !64
+  %69 = zext i8 %68 to i32
+  %70 = getelementptr inbounds nuw %struct.stbhw_config, ptr %16, i32 0, i32 3
+  store i32 %69, ptr %70, align 4, !tbaa !38
+  %71 = getelementptr inbounds [9 x i8], ptr %15, i64 0, i64 5
+  %72 = load i8, ptr %71, align 1, !tbaa !64
+  %73 = zext i8 %72 to i32
+  %74 = getelementptr inbounds nuw %struct.stbhw_config, ptr %16, i32 0, i32 4
+  store i32 %73, ptr %74, align 4, !tbaa !39
+  %75 = getelementptr inbounds [9 x i8], ptr %15, i64 0, i64 6
+  %76 = load i8, ptr %75, align 1, !tbaa !64
+  %77 = zext i8 %76 to i32
+  %78 = getelementptr inbounds nuw %struct.stbhw_config, ptr %16, i32 0, i32 1
+  store i32 %77, ptr %78, align 4, !tbaa !16
+  br label %110
 
-if.else:                                          ; preds = %for.end
-  %is_corner28 = getelementptr inbounds %struct.stbhw_config, ptr %c, i32 0, i32 0
-  store i32 0, ptr %is_corner28, align 4
-  store i32 0, ptr %i, align 4
-  br label %for.cond29
+79:                                               ; preds = %43
+  %80 = getelementptr inbounds nuw %struct.stbhw_config, ptr %16, i32 0, i32 0
+  store i32 0, ptr %80, align 4, !tbaa !37
+  store i32 0, ptr %12, align 4, !tbaa !10
+  br label %81
 
-for.cond29:                                       ; preds = %for.inc39, %if.else
-  %17 = load i32, ptr %i, align 4
-  %cmp30 = icmp slt i32 %17, 6
-  br i1 %cmp30, label %for.body32, label %for.end41
+81:                                               ; preds = %94, %79
+  %82 = load i32, ptr %12, align 4, !tbaa !10
+  %83 = icmp slt i32 %82, 6
+  br i1 %83, label %84, label %97
 
-for.body32:                                       ; preds = %for.cond29
-  %18 = load i32, ptr %i, align 4
-  %idxprom33 = sext i32 %18 to i64
-  %arrayidx34 = getelementptr inbounds [9 x i8], ptr %header, i64 0, i64 %idxprom33
-  %19 = load i8, ptr %arrayidx34, align 1
-  %conv35 = zext i8 %19 to i32
-  %num_color36 = getelementptr inbounds %struct.stbhw_config, ptr %c, i32 0, i32 2
-  %20 = load i32, ptr %i, align 4
-  %idxprom37 = sext i32 %20 to i64
-  %arrayidx38 = getelementptr inbounds [6 x i32], ptr %num_color36, i64 0, i64 %idxprom37
-  store i32 %conv35, ptr %arrayidx38, align 4
-  br label %for.inc39
+84:                                               ; preds = %81
+  %85 = load i32, ptr %12, align 4, !tbaa !10
+  %86 = sext i32 %85 to i64
+  %87 = getelementptr inbounds [9 x i8], ptr %15, i64 0, i64 %86
+  %88 = load i8, ptr %87, align 1, !tbaa !64
+  %89 = zext i8 %88 to i32
+  %90 = getelementptr inbounds nuw %struct.stbhw_config, ptr %16, i32 0, i32 2
+  %91 = load i32, ptr %12, align 4, !tbaa !10
+  %92 = sext i32 %91 to i64
+  %93 = getelementptr inbounds [6 x i32], ptr %90, i64 0, i64 %92
+  store i32 %89, ptr %93, align 4, !tbaa !10
+  br label %94
 
-for.inc39:                                        ; preds = %for.body32
-  %21 = load i32, ptr %i, align 4
-  %inc40 = add nsw i32 %21, 1
-  store i32 %inc40, ptr %i, align 4
-  br label %for.cond29, !llvm.loop !57
+94:                                               ; preds = %84
+  %95 = load i32, ptr %12, align 4, !tbaa !10
+  %96 = add nsw i32 %95, 1
+  store i32 %96, ptr %12, align 4, !tbaa !10
+  br label %81, !llvm.loop !101
 
-for.end41:                                        ; preds = %for.cond29
-  %arrayidx42 = getelementptr inbounds [9 x i8], ptr %header, i64 0, i64 6
-  %22 = load i8, ptr %arrayidx42, align 1
-  %conv43 = zext i8 %22 to i32
-  %num_vary_x44 = getelementptr inbounds %struct.stbhw_config, ptr %c, i32 0, i32 3
-  store i32 %conv43, ptr %num_vary_x44, align 4
-  %arrayidx45 = getelementptr inbounds [9 x i8], ptr %header, i64 0, i64 7
-  %23 = load i8, ptr %arrayidx45, align 1
-  %conv46 = zext i8 %23 to i32
-  %num_vary_y47 = getelementptr inbounds %struct.stbhw_config, ptr %c, i32 0, i32 4
-  store i32 %conv46, ptr %num_vary_y47, align 4
-  %arrayidx48 = getelementptr inbounds [9 x i8], ptr %header, i64 0, i64 8
-  %24 = load i8, ptr %arrayidx48, align 1
-  %conv49 = zext i8 %24 to i32
-  %short_side_len50 = getelementptr inbounds %struct.stbhw_config, ptr %c, i32 0, i32 1
-  store i32 %conv49, ptr %short_side_len50, align 4
-  br label %if.end
+97:                                               ; preds = %81
+  %98 = getelementptr inbounds [9 x i8], ptr %15, i64 0, i64 6
+  %99 = load i8, ptr %98, align 1, !tbaa !64
+  %100 = zext i8 %99 to i32
+  %101 = getelementptr inbounds nuw %struct.stbhw_config, ptr %16, i32 0, i32 3
+  store i32 %100, ptr %101, align 4, !tbaa !38
+  %102 = getelementptr inbounds [9 x i8], ptr %15, i64 0, i64 7
+  %103 = load i8, ptr %102, align 1, !tbaa !64
+  %104 = zext i8 %103 to i32
+  %105 = getelementptr inbounds nuw %struct.stbhw_config, ptr %16, i32 0, i32 4
+  store i32 %104, ptr %105, align 4, !tbaa !39
+  %106 = getelementptr inbounds [9 x i8], ptr %15, i64 0, i64 8
+  %107 = load i8, ptr %106, align 1, !tbaa !64
+  %108 = zext i8 %107 to i32
+  %109 = getelementptr inbounds nuw %struct.stbhw_config, ptr %16, i32 0, i32 1
+  store i32 %108, ptr %109, align 4, !tbaa !16
+  br label %110
 
-if.end:                                           ; preds = %for.end41, %for.end21
-  %num_vary_x51 = getelementptr inbounds %struct.stbhw_config, ptr %c, i32 0, i32 3
-  %25 = load i32, ptr %num_vary_x51, align 4
-  %cmp52 = icmp slt i32 %25, 0
-  br i1 %cmp52, label %if.then65, label %lor.lhs.false
+110:                                              ; preds = %97, %66
+  %111 = getelementptr inbounds nuw %struct.stbhw_config, ptr %16, i32 0, i32 3
+  %112 = load i32, ptr %111, align 4, !tbaa !38
+  %113 = icmp slt i32 %112, 0
+  br i1 %113, label %126, label %114
 
-lor.lhs.false:                                    ; preds = %if.end
-  %num_vary_x54 = getelementptr inbounds %struct.stbhw_config, ptr %c, i32 0, i32 3
-  %26 = load i32, ptr %num_vary_x54, align 4
-  %cmp55 = icmp sgt i32 %26, 64
-  br i1 %cmp55, label %if.then65, label %lor.lhs.false57
+114:                                              ; preds = %110
+  %115 = getelementptr inbounds nuw %struct.stbhw_config, ptr %16, i32 0, i32 3
+  %116 = load i32, ptr %115, align 4, !tbaa !38
+  %117 = icmp sgt i32 %116, 64
+  br i1 %117, label %126, label %118
 
-lor.lhs.false57:                                  ; preds = %lor.lhs.false
-  %num_vary_y58 = getelementptr inbounds %struct.stbhw_config, ptr %c, i32 0, i32 4
-  %27 = load i32, ptr %num_vary_y58, align 4
-  %cmp59 = icmp slt i32 %27, 0
-  br i1 %cmp59, label %if.then65, label %lor.lhs.false61
+118:                                              ; preds = %114
+  %119 = getelementptr inbounds nuw %struct.stbhw_config, ptr %16, i32 0, i32 4
+  %120 = load i32, ptr %119, align 4, !tbaa !39
+  %121 = icmp slt i32 %120, 0
+  br i1 %121, label %126, label %122
 
-lor.lhs.false61:                                  ; preds = %lor.lhs.false57
-  %num_vary_y62 = getelementptr inbounds %struct.stbhw_config, ptr %c, i32 0, i32 4
-  %28 = load i32, ptr %num_vary_y62, align 4
-  %cmp63 = icmp sgt i32 %28, 64
-  br i1 %cmp63, label %if.then65, label %if.end66
+122:                                              ; preds = %118
+  %123 = getelementptr inbounds nuw %struct.stbhw_config, ptr %16, i32 0, i32 4
+  %124 = load i32, ptr %123, align 4, !tbaa !39
+  %125 = icmp sgt i32 %124, 64
+  br i1 %125, label %126, label %127
 
-if.then65:                                        ; preds = %lor.lhs.false61, %lor.lhs.false57, %lor.lhs.false, %if.end
-  store i32 0, ptr %retval, align 4
-  br label %return
+126:                                              ; preds = %122, %118, %114, %110
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %18, align 4
+  br label %203
 
-if.end66:                                         ; preds = %lor.lhs.false61
-  %short_side_len67 = getelementptr inbounds %struct.stbhw_config, ptr %c, i32 0, i32 1
-  %29 = load i32, ptr %short_side_len67, align 4
-  %cmp68 = icmp eq i32 %29, 0
-  br i1 %cmp68, label %if.then70, label %if.end71
+127:                                              ; preds = %122
+  %128 = getelementptr inbounds nuw %struct.stbhw_config, ptr %16, i32 0, i32 1
+  %129 = load i32, ptr %128, align 4, !tbaa !16
+  %130 = icmp eq i32 %129, 0
+  br i1 %130, label %131, label %132
 
-if.then70:                                        ; preds = %if.end66
-  store i32 0, ptr %retval, align 4
-  br label %return
+131:                                              ; preds = %127
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %18, align 4
+  br label %203
 
-if.end71:                                         ; preds = %if.end66
-  %num_color72 = getelementptr inbounds %struct.stbhw_config, ptr %c, i32 0, i32 2
-  %arrayidx73 = getelementptr inbounds [6 x i32], ptr %num_color72, i64 0, i64 0
-  %30 = load i32, ptr %arrayidx73, align 4
-  %cmp74 = icmp sgt i32 %30, 32
-  br i1 %cmp74, label %if.then91, label %lor.lhs.false76
+132:                                              ; preds = %127
+  %133 = getelementptr inbounds nuw %struct.stbhw_config, ptr %16, i32 0, i32 2
+  %134 = getelementptr inbounds [6 x i32], ptr %133, i64 0, i64 0
+  %135 = load i32, ptr %134, align 4, !tbaa !10
+  %136 = icmp sgt i32 %135, 32
+  br i1 %136, label %152, label %137
 
-lor.lhs.false76:                                  ; preds = %if.end71
-  %num_color77 = getelementptr inbounds %struct.stbhw_config, ptr %c, i32 0, i32 2
-  %arrayidx78 = getelementptr inbounds [6 x i32], ptr %num_color77, i64 0, i64 1
-  %31 = load i32, ptr %arrayidx78, align 4
-  %cmp79 = icmp sgt i32 %31, 32
-  br i1 %cmp79, label %if.then91, label %lor.lhs.false81
+137:                                              ; preds = %132
+  %138 = getelementptr inbounds nuw %struct.stbhw_config, ptr %16, i32 0, i32 2
+  %139 = getelementptr inbounds [6 x i32], ptr %138, i64 0, i64 1
+  %140 = load i32, ptr %139, align 4, !tbaa !10
+  %141 = icmp sgt i32 %140, 32
+  br i1 %141, label %152, label %142
 
-lor.lhs.false81:                                  ; preds = %lor.lhs.false76
-  %num_color82 = getelementptr inbounds %struct.stbhw_config, ptr %c, i32 0, i32 2
-  %arrayidx83 = getelementptr inbounds [6 x i32], ptr %num_color82, i64 0, i64 2
-  %32 = load i32, ptr %arrayidx83, align 4
-  %cmp84 = icmp sgt i32 %32, 32
-  br i1 %cmp84, label %if.then91, label %lor.lhs.false86
+142:                                              ; preds = %137
+  %143 = getelementptr inbounds nuw %struct.stbhw_config, ptr %16, i32 0, i32 2
+  %144 = getelementptr inbounds [6 x i32], ptr %143, i64 0, i64 2
+  %145 = load i32, ptr %144, align 4, !tbaa !10
+  %146 = icmp sgt i32 %145, 32
+  br i1 %146, label %152, label %147
 
-lor.lhs.false86:                                  ; preds = %lor.lhs.false81
-  %num_color87 = getelementptr inbounds %struct.stbhw_config, ptr %c, i32 0, i32 2
-  %arrayidx88 = getelementptr inbounds [6 x i32], ptr %num_color87, i64 0, i64 3
-  %33 = load i32, ptr %arrayidx88, align 4
-  %cmp89 = icmp sgt i32 %33, 32
-  br i1 %cmp89, label %if.then91, label %if.end92
+147:                                              ; preds = %142
+  %148 = getelementptr inbounds nuw %struct.stbhw_config, ptr %16, i32 0, i32 2
+  %149 = getelementptr inbounds [6 x i32], ptr %148, i64 0, i64 3
+  %150 = load i32, ptr %149, align 4, !tbaa !10
+  %151 = icmp sgt i32 %150, 32
+  br i1 %151, label %152, label %153
 
-if.then91:                                        ; preds = %lor.lhs.false86, %lor.lhs.false81, %lor.lhs.false76, %if.end71
-  store i32 0, ptr %retval, align 4
-  br label %return
+152:                                              ; preds = %147, %142, %137, %132
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %18, align 4
+  br label %203
 
-if.end92:                                         ; preds = %lor.lhs.false86
-  call void @stbhw__get_template_info(ptr noundef %c, ptr noundef null, ptr noundef null, ptr noundef %h_count, ptr noundef %v_count)
-  %is_corner93 = getelementptr inbounds %struct.stbhw_config, ptr %c, i32 0, i32 0
-  %34 = load i32, ptr %is_corner93, align 4
-  %35 = load ptr, ptr %ts.addr, align 8
-  %is_corner94 = getelementptr inbounds %struct.stbhw_tileset, ptr %35, i32 0, i32 0
-  store i32 %34, ptr %is_corner94, align 8
-  %short_side_len95 = getelementptr inbounds %struct.stbhw_config, ptr %c, i32 0, i32 1
-  %36 = load i32, ptr %short_side_len95, align 4
-  %37 = load ptr, ptr %ts.addr, align 8
-  %short_side_len96 = getelementptr inbounds %struct.stbhw_tileset, ptr %37, i32 0, i32 2
-  store i32 %36, ptr %short_side_len96, align 4
-  %38 = load ptr, ptr %ts.addr, align 8
-  %num_color97 = getelementptr inbounds %struct.stbhw_tileset, ptr %38, i32 0, i32 1
-  %arraydecay = getelementptr inbounds [6 x i32], ptr %num_color97, i64 0, i64 0
-  %num_color98 = getelementptr inbounds %struct.stbhw_config, ptr %c, i32 0, i32 2
-  %arraydecay99 = getelementptr inbounds [6 x i32], ptr %num_color98, i64 0, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arraydecay, ptr align 4 %arraydecay99, i64 24, i1 false)
-  %39 = load i32, ptr %h_count, align 4
-  %40 = load ptr, ptr %ts.addr, align 8
-  %max_h_tiles = getelementptr inbounds %struct.stbhw_tileset, ptr %40, i32 0, i32 6
-  store i32 %39, ptr %max_h_tiles, align 4
-  %41 = load i32, ptr %v_count, align 4
-  %42 = load ptr, ptr %ts.addr, align 8
-  %max_v_tiles = getelementptr inbounds %struct.stbhw_tileset, ptr %42, i32 0, i32 8
-  store i32 %41, ptr %max_v_tiles, align 4
-  %43 = load ptr, ptr %ts.addr, align 8
-  %num_v_tiles = getelementptr inbounds %struct.stbhw_tileset, ptr %43, i32 0, i32 7
-  store i32 0, ptr %num_v_tiles, align 8
-  %44 = load ptr, ptr %ts.addr, align 8
-  %num_h_tiles = getelementptr inbounds %struct.stbhw_tileset, ptr %44, i32 0, i32 5
-  store i32 0, ptr %num_h_tiles, align 8
-  %45 = load i32, ptr %h_count, align 4
-  %conv100 = sext i32 %45 to i64
-  %mul101 = mul i64 8, %conv100
-  %call = call noalias ptr @malloc(i64 noundef %mul101) #6
-  %46 = load ptr, ptr %ts.addr, align 8
-  %h_tiles = getelementptr inbounds %struct.stbhw_tileset, ptr %46, i32 0, i32 3
-  store ptr %call, ptr %h_tiles, align 8
-  %47 = load i32, ptr %v_count, align 4
-  %conv102 = sext i32 %47 to i64
-  %mul103 = mul i64 8, %conv102
-  %call104 = call noalias ptr @malloc(i64 noundef %mul103) #6
-  %48 = load ptr, ptr %ts.addr, align 8
-  %v_tiles = getelementptr inbounds %struct.stbhw_tileset, ptr %48, i32 0, i32 4
-  store ptr %call104, ptr %v_tiles, align 8
-  %49 = load ptr, ptr %ts.addr, align 8
-  %ts105 = getelementptr inbounds %struct.stbhw__process, ptr %p, i32 0, i32 0
-  store ptr %49, ptr %ts105, align 8
-  %50 = load ptr, ptr %data.addr, align 8
-  %data106 = getelementptr inbounds %struct.stbhw__process, ptr %p, i32 0, i32 4
-  store ptr %50, ptr %data106, align 8
-  %51 = load i32, ptr %stride.addr, align 4
-  %stride107 = getelementptr inbounds %struct.stbhw__process, ptr %p, i32 0, i32 5
-  store i32 %51, ptr %stride107, align 8
-  %process_h_rect = getelementptr inbounds %struct.stbhw__process, ptr %p, i32 0, i32 2
-  store ptr @stbhw__parse_h_rect, ptr %process_h_rect, align 8
-  %process_v_rect = getelementptr inbounds %struct.stbhw__process, ptr %p, i32 0, i32 3
-  store ptr @stbhw__parse_v_rect, ptr %process_v_rect, align 8
-  %52 = load i32, ptr %w.addr, align 4
-  %w108 = getelementptr inbounds %struct.stbhw__process, ptr %p, i32 0, i32 6
-  store i32 %52, ptr %w108, align 4
-  %53 = load i32, ptr %h.addr, align 4
-  %h109 = getelementptr inbounds %struct.stbhw__process, ptr %p, i32 0, i32 7
-  store i32 %53, ptr %h109, align 8
-  %c110 = getelementptr inbounds %struct.stbhw__process, ptr %p, i32 0, i32 1
-  store ptr %c, ptr %c110, align 8
-  %call111 = call i32 @stbhw__process_template(ptr noundef %p)
-  store i32 %call111, ptr %retval, align 4
-  br label %return
+153:                                              ; preds = %147
+  call void @stbhw__get_template_info(ptr noundef %16, ptr noundef null, ptr noundef null, ptr noundef %13, ptr noundef %14)
+  %154 = getelementptr inbounds nuw %struct.stbhw_config, ptr %16, i32 0, i32 0
+  %155 = load i32, ptr %154, align 4, !tbaa !37
+  %156 = load ptr, ptr %7, align 8, !tbaa !78
+  %157 = getelementptr inbounds nuw %struct.stbhw_tileset, ptr %156, i32 0, i32 0
+  store i32 %155, ptr %157, align 8, !tbaa !81
+  %158 = getelementptr inbounds nuw %struct.stbhw_config, ptr %16, i32 0, i32 1
+  %159 = load i32, ptr %158, align 4, !tbaa !16
+  %160 = load ptr, ptr %7, align 8, !tbaa !78
+  %161 = getelementptr inbounds nuw %struct.stbhw_tileset, ptr %160, i32 0, i32 2
+  store i32 %159, ptr %161, align 4, !tbaa !79
+  %162 = load ptr, ptr %7, align 8, !tbaa !78
+  %163 = getelementptr inbounds nuw %struct.stbhw_tileset, ptr %162, i32 0, i32 1
+  %164 = getelementptr inbounds [6 x i32], ptr %163, i64 0, i64 0
+  %165 = getelementptr inbounds nuw %struct.stbhw_config, ptr %16, i32 0, i32 2
+  %166 = getelementptr inbounds [6 x i32], ptr %165, i64 0, i64 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %164, ptr align 4 %166, i64 24, i1 false)
+  %167 = load i32, ptr %13, align 4, !tbaa !10
+  %168 = load ptr, ptr %7, align 8, !tbaa !78
+  %169 = getelementptr inbounds nuw %struct.stbhw_tileset, ptr %168, i32 0, i32 6
+  store i32 %167, ptr %169, align 4, !tbaa !102
+  %170 = load i32, ptr %14, align 4, !tbaa !10
+  %171 = load ptr, ptr %7, align 8, !tbaa !78
+  %172 = getelementptr inbounds nuw %struct.stbhw_tileset, ptr %171, i32 0, i32 8
+  store i32 %170, ptr %172, align 4, !tbaa !103
+  %173 = load ptr, ptr %7, align 8, !tbaa !78
+  %174 = getelementptr inbounds nuw %struct.stbhw_tileset, ptr %173, i32 0, i32 7
+  store i32 0, ptr %174, align 8, !tbaa !89
+  %175 = load ptr, ptr %7, align 8, !tbaa !78
+  %176 = getelementptr inbounds nuw %struct.stbhw_tileset, ptr %175, i32 0, i32 5
+  store i32 0, ptr %176, align 8, !tbaa !87
+  %177 = load i32, ptr %13, align 4, !tbaa !10
+  %178 = sext i32 %177 to i64
+  %179 = mul i64 8, %178
+  %180 = call noalias ptr @malloc(i64 noundef %179) #7
+  %181 = load ptr, ptr %7, align 8, !tbaa !78
+  %182 = getelementptr inbounds nuw %struct.stbhw_tileset, ptr %181, i32 0, i32 3
+  store ptr %180, ptr %182, align 8, !tbaa !86
+  %183 = load i32, ptr %14, align 4, !tbaa !10
+  %184 = sext i32 %183 to i64
+  %185 = mul i64 8, %184
+  %186 = call noalias ptr @malloc(i64 noundef %185) #7
+  %187 = load ptr, ptr %7, align 8, !tbaa !78
+  %188 = getelementptr inbounds nuw %struct.stbhw_tileset, ptr %187, i32 0, i32 4
+  store ptr %186, ptr %188, align 8, !tbaa !88
+  %189 = load ptr, ptr %7, align 8, !tbaa !78
+  %190 = getelementptr inbounds nuw %struct.stbhw__process, ptr %17, i32 0, i32 0
+  store ptr %189, ptr %190, align 8, !tbaa !96
+  %191 = load ptr, ptr %8, align 8, !tbaa !3
+  %192 = getelementptr inbounds nuw %struct.stbhw__process, ptr %17, i32 0, i32 4
+  store ptr %191, ptr %192, align 8, !tbaa !92
+  %193 = load i32, ptr %9, align 4, !tbaa !10
+  %194 = getelementptr inbounds nuw %struct.stbhw__process, ptr %17, i32 0, i32 5
+  store i32 %193, ptr %194, align 8, !tbaa !93
+  %195 = getelementptr inbounds nuw %struct.stbhw__process, ptr %17, i32 0, i32 2
+  store ptr @stbhw__parse_h_rect, ptr %195, align 8, !tbaa !12
+  %196 = getelementptr inbounds nuw %struct.stbhw__process, ptr %17, i32 0, i32 3
+  store ptr @stbhw__parse_v_rect, ptr %196, align 8, !tbaa !26
+  %197 = load i32, ptr %10, align 4, !tbaa !10
+  %198 = getelementptr inbounds nuw %struct.stbhw__process, ptr %17, i32 0, i32 6
+  store i32 %197, ptr %198, align 4, !tbaa !40
+  %199 = load i32, ptr %11, align 4, !tbaa !10
+  %200 = getelementptr inbounds nuw %struct.stbhw__process, ptr %17, i32 0, i32 7
+  store i32 %199, ptr %200, align 8, !tbaa !41
+  %201 = getelementptr inbounds nuw %struct.stbhw__process, ptr %17, i32 0, i32 1
+  store ptr %16, ptr %201, align 8, !tbaa !15
+  %202 = call i32 @stbhw__process_template(ptr noundef %17)
+  store i32 %202, ptr %6, align 4
+  store i32 1, ptr %18, align 4
+  br label %203
 
-return:                                           ; preds = %if.end92, %if.then91, %if.then70, %if.then65
-  %54 = load i32, ptr %retval, align 4
-  ret i32 %54
+203:                                              ; preds = %153, %152, %131, %126
+  call void @llvm.lifetime.end.p0(i64 56, ptr %17) #6
+  call void @llvm.lifetime.end.p0(i64 104, ptr %16) #6
+  call void @llvm.lifetime.end.p0(i64 9, ptr %15) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #6
+  %204 = load i32, ptr %6, align 4
+  ret i32 %204
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbhw_free_tileset(ptr noundef %ts) #0 {
-entry:
-  %ts.addr = alloca ptr, align 8
-  %i = alloca i32, align 4
-  store ptr %ts, ptr %ts.addr, align 8
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+define void @stbhw_free_tileset(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !78
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #6
+  store i32 0, ptr %3, align 4, !tbaa !10
+  br label %4
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i32, ptr %i, align 4
-  %1 = load ptr, ptr %ts.addr, align 8
-  %num_h_tiles = getelementptr inbounds %struct.stbhw_tileset, ptr %1, i32 0, i32 5
-  %2 = load i32, ptr %num_h_tiles, align 8
-  %cmp = icmp slt i32 %0, %2
-  br i1 %cmp, label %for.body, label %for.end
+4:                                                ; preds = %18, %1
+  %5 = load i32, ptr %3, align 4, !tbaa !10
+  %6 = load ptr, ptr %2, align 8, !tbaa !78
+  %7 = getelementptr inbounds nuw %struct.stbhw_tileset, ptr %6, i32 0, i32 5
+  %8 = load i32, ptr %7, align 8, !tbaa !87
+  %9 = icmp slt i32 %5, %8
+  br i1 %9, label %10, label %21
 
-for.body:                                         ; preds = %for.cond
-  %3 = load ptr, ptr %ts.addr, align 8
-  %h_tiles = getelementptr inbounds %struct.stbhw_tileset, ptr %3, i32 0, i32 3
-  %4 = load ptr, ptr %h_tiles, align 8
-  %5 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %5 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %4, i64 %idxprom
-  %6 = load ptr, ptr %arrayidx, align 8
-  call void @free(ptr noundef %6) #5
-  br label %for.inc
+10:                                               ; preds = %4
+  %11 = load ptr, ptr %2, align 8, !tbaa !78
+  %12 = getelementptr inbounds nuw %struct.stbhw_tileset, ptr %11, i32 0, i32 3
+  %13 = load ptr, ptr %12, align 8, !tbaa !86
+  %14 = load i32, ptr %3, align 4, !tbaa !10
+  %15 = sext i32 %14 to i64
+  %16 = getelementptr inbounds ptr, ptr %13, i64 %15
+  %17 = load ptr, ptr %16, align 8, !tbaa !34
+  call void @free(ptr noundef %17) #6
+  br label %18
 
-for.inc:                                          ; preds = %for.body
-  %7 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %7, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !58
+18:                                               ; preds = %10
+  %19 = load i32, ptr %3, align 4, !tbaa !10
+  %20 = add nsw i32 %19, 1
+  store i32 %20, ptr %3, align 4, !tbaa !10
+  br label %4, !llvm.loop !104
 
-for.end:                                          ; preds = %for.cond
-  store i32 0, ptr %i, align 4
-  br label %for.cond1
+21:                                               ; preds = %4
+  store i32 0, ptr %3, align 4, !tbaa !10
+  br label %22
 
-for.cond1:                                        ; preds = %for.inc6, %for.end
-  %8 = load i32, ptr %i, align 4
-  %9 = load ptr, ptr %ts.addr, align 8
-  %num_v_tiles = getelementptr inbounds %struct.stbhw_tileset, ptr %9, i32 0, i32 7
-  %10 = load i32, ptr %num_v_tiles, align 8
-  %cmp2 = icmp slt i32 %8, %10
-  br i1 %cmp2, label %for.body3, label %for.end8
+22:                                               ; preds = %36, %21
+  %23 = load i32, ptr %3, align 4, !tbaa !10
+  %24 = load ptr, ptr %2, align 8, !tbaa !78
+  %25 = getelementptr inbounds nuw %struct.stbhw_tileset, ptr %24, i32 0, i32 7
+  %26 = load i32, ptr %25, align 8, !tbaa !89
+  %27 = icmp slt i32 %23, %26
+  br i1 %27, label %28, label %39
 
-for.body3:                                        ; preds = %for.cond1
-  %11 = load ptr, ptr %ts.addr, align 8
-  %v_tiles = getelementptr inbounds %struct.stbhw_tileset, ptr %11, i32 0, i32 4
-  %12 = load ptr, ptr %v_tiles, align 8
-  %13 = load i32, ptr %i, align 4
-  %idxprom4 = sext i32 %13 to i64
-  %arrayidx5 = getelementptr inbounds ptr, ptr %12, i64 %idxprom4
-  %14 = load ptr, ptr %arrayidx5, align 8
-  call void @free(ptr noundef %14) #5
-  br label %for.inc6
+28:                                               ; preds = %22
+  %29 = load ptr, ptr %2, align 8, !tbaa !78
+  %30 = getelementptr inbounds nuw %struct.stbhw_tileset, ptr %29, i32 0, i32 4
+  %31 = load ptr, ptr %30, align 8, !tbaa !88
+  %32 = load i32, ptr %3, align 4, !tbaa !10
+  %33 = sext i32 %32 to i64
+  %34 = getelementptr inbounds ptr, ptr %31, i64 %33
+  %35 = load ptr, ptr %34, align 8, !tbaa !34
+  call void @free(ptr noundef %35) #6
+  br label %36
 
-for.inc6:                                         ; preds = %for.body3
-  %15 = load i32, ptr %i, align 4
-  %inc7 = add nsw i32 %15, 1
-  store i32 %inc7, ptr %i, align 4
-  br label %for.cond1, !llvm.loop !59
+36:                                               ; preds = %28
+  %37 = load i32, ptr %3, align 4, !tbaa !10
+  %38 = add nsw i32 %37, 1
+  store i32 %38, ptr %3, align 4, !tbaa !10
+  br label %22, !llvm.loop !105
 
-for.end8:                                         ; preds = %for.cond1
-  %16 = load ptr, ptr %ts.addr, align 8
-  %h_tiles9 = getelementptr inbounds %struct.stbhw_tileset, ptr %16, i32 0, i32 3
-  %17 = load ptr, ptr %h_tiles9, align 8
-  call void @free(ptr noundef %17) #5
-  %18 = load ptr, ptr %ts.addr, align 8
-  %v_tiles10 = getelementptr inbounds %struct.stbhw_tileset, ptr %18, i32 0, i32 4
-  %19 = load ptr, ptr %v_tiles10, align 8
-  call void @free(ptr noundef %19) #5
-  %20 = load ptr, ptr %ts.addr, align 8
-  %h_tiles11 = getelementptr inbounds %struct.stbhw_tileset, ptr %20, i32 0, i32 3
-  store ptr null, ptr %h_tiles11, align 8
-  %21 = load ptr, ptr %ts.addr, align 8
-  %v_tiles12 = getelementptr inbounds %struct.stbhw_tileset, ptr %21, i32 0, i32 4
-  store ptr null, ptr %v_tiles12, align 8
-  %22 = load ptr, ptr %ts.addr, align 8
-  %max_h_tiles = getelementptr inbounds %struct.stbhw_tileset, ptr %22, i32 0, i32 6
-  store i32 0, ptr %max_h_tiles, align 4
-  %23 = load ptr, ptr %ts.addr, align 8
-  %num_h_tiles13 = getelementptr inbounds %struct.stbhw_tileset, ptr %23, i32 0, i32 5
-  store i32 0, ptr %num_h_tiles13, align 8
-  %24 = load ptr, ptr %ts.addr, align 8
-  %max_v_tiles = getelementptr inbounds %struct.stbhw_tileset, ptr %24, i32 0, i32 8
-  store i32 0, ptr %max_v_tiles, align 4
-  %25 = load ptr, ptr %ts.addr, align 8
-  %num_v_tiles14 = getelementptr inbounds %struct.stbhw_tileset, ptr %25, i32 0, i32 7
-  store i32 0, ptr %num_v_tiles14, align 8
+39:                                               ; preds = %22
+  %40 = load ptr, ptr %2, align 8, !tbaa !78
+  %41 = getelementptr inbounds nuw %struct.stbhw_tileset, ptr %40, i32 0, i32 3
+  %42 = load ptr, ptr %41, align 8, !tbaa !86
+  call void @free(ptr noundef %42) #6
+  %43 = load ptr, ptr %2, align 8, !tbaa !78
+  %44 = getelementptr inbounds nuw %struct.stbhw_tileset, ptr %43, i32 0, i32 4
+  %45 = load ptr, ptr %44, align 8, !tbaa !88
+  call void @free(ptr noundef %45) #6
+  %46 = load ptr, ptr %2, align 8, !tbaa !78
+  %47 = getelementptr inbounds nuw %struct.stbhw_tileset, ptr %46, i32 0, i32 3
+  store ptr null, ptr %47, align 8, !tbaa !86
+  %48 = load ptr, ptr %2, align 8, !tbaa !78
+  %49 = getelementptr inbounds nuw %struct.stbhw_tileset, ptr %48, i32 0, i32 4
+  store ptr null, ptr %49, align 8, !tbaa !88
+  %50 = load ptr, ptr %2, align 8, !tbaa !78
+  %51 = getelementptr inbounds nuw %struct.stbhw_tileset, ptr %50, i32 0, i32 6
+  store i32 0, ptr %51, align 4, !tbaa !102
+  %52 = load ptr, ptr %2, align 8, !tbaa !78
+  %53 = getelementptr inbounds nuw %struct.stbhw_tileset, ptr %52, i32 0, i32 5
+  store i32 0, ptr %53, align 8, !tbaa !87
+  %54 = load ptr, ptr %2, align 8, !tbaa !78
+  %55 = getelementptr inbounds nuw %struct.stbhw_tileset, ptr %54, i32 0, i32 8
+  store i32 0, ptr %55, align 4, !tbaa !103
+  %56 = load ptr, ptr %2, align 8, !tbaa !78
+  %57 = getelementptr inbounds nuw %struct.stbhw_tileset, ptr %56, i32 0, i32 7
+  store i32 0, ptr %57, align 8, !tbaa !89
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #6
   ret void
 }
 
 ; Function Attrs: nounwind
-declare void @free(ptr noundef) #2
+declare void @free(ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define void @stbhw__set_pixel(ptr noundef %data, i32 noundef %stride, i32 noundef %xpos, i32 noundef %ypos, ptr noundef %color) #0 {
-entry:
-  %data.addr = alloca ptr, align 8
-  %stride.addr = alloca i32, align 4
-  %xpos.addr = alloca i32, align 4
-  %ypos.addr = alloca i32, align 4
-  %color.addr = alloca ptr, align 8
-  store ptr %data, ptr %data.addr, align 8
-  store i32 %stride, ptr %stride.addr, align 4
-  store i32 %xpos, ptr %xpos.addr, align 4
-  store i32 %ypos, ptr %ypos.addr, align 4
-  store ptr %color, ptr %color.addr, align 8
-  %0 = load ptr, ptr %data.addr, align 8
-  %1 = load i32, ptr %ypos.addr, align 4
-  %2 = load i32, ptr %stride.addr, align 4
-  %mul = mul nsw i32 %1, %2
-  %idx.ext = sext i32 %mul to i64
-  %add.ptr = getelementptr inbounds i8, ptr %0, i64 %idx.ext
-  %3 = load i32, ptr %xpos.addr, align 4
-  %mul1 = mul nsw i32 %3, 3
-  %idx.ext2 = sext i32 %mul1 to i64
-  %add.ptr3 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext2
-  %4 = load ptr, ptr %color.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr3, ptr align 1 %4, i64 3, i1 false)
+define void @stbhw__set_pixel(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) #0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store i32 %1, ptr %7, align 4, !tbaa !10
+  store i32 %2, ptr %8, align 4, !tbaa !10
+  store i32 %3, ptr %9, align 4, !tbaa !10
+  store ptr %4, ptr %10, align 8, !tbaa !3
+  %11 = load ptr, ptr %6, align 8, !tbaa !3
+  %12 = load i32, ptr %9, align 4, !tbaa !10
+  %13 = load i32, ptr %7, align 4, !tbaa !10
+  %14 = mul nsw i32 %12, %13
+  %15 = sext i32 %14 to i64
+  %16 = getelementptr inbounds i8, ptr %11, i64 %15
+  %17 = load i32, ptr %8, align 4, !tbaa !10
+  %18 = mul nsw i32 %17, 3
+  %19 = sext i32 %18 to i64
+  %20 = getelementptr inbounds i8, ptr %16, i64 %19
+  %21 = load ptr, ptr %10, align 8, !tbaa !3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %20, ptr align 1 %21, i64 3, i1 false)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbhw__stbhw__set_pixel_whiten(ptr noundef %data, i32 noundef %stride, i32 noundef %xpos, i32 noundef %ypos, ptr noundef %color) #0 {
-entry:
-  %data.addr = alloca ptr, align 8
-  %stride.addr = alloca i32, align 4
-  %xpos.addr = alloca i32, align 4
-  %ypos.addr = alloca i32, align 4
-  %color.addr = alloca ptr, align 8
-  %c2 = alloca [3 x i8], align 1
-  %i = alloca i32, align 4
-  store ptr %data, ptr %data.addr, align 8
-  store i32 %stride, ptr %stride.addr, align 4
-  store i32 %xpos, ptr %xpos.addr, align 4
-  store i32 %ypos, ptr %ypos.addr, align 4
-  store ptr %color, ptr %color.addr, align 8
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+define void @stbhw__stbhw__set_pixel_whiten(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) #0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  %11 = alloca [3 x i8], align 1
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store i32 %1, ptr %7, align 4, !tbaa !10
+  store i32 %2, ptr %8, align 4, !tbaa !10
+  store i32 %3, ptr %9, align 4, !tbaa !10
+  store ptr %4, ptr %10, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 3, ptr %11) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #6
+  store i32 0, ptr %12, align 4, !tbaa !10
+  br label %13
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i32, ptr %i, align 4
-  %cmp = icmp slt i32 %0, 3
-  br i1 %cmp, label %for.body, label %for.end
+13:                                               ; preds = %30, %5
+  %14 = load i32, ptr %12, align 4, !tbaa !10
+  %15 = icmp slt i32 %14, 3
+  br i1 %15, label %16, label %33
 
-for.body:                                         ; preds = %for.cond
-  %1 = load ptr, ptr %color.addr, align 8
-  %2 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %2 to i64
-  %arrayidx = getelementptr inbounds i8, ptr %1, i64 %idxprom
-  %3 = load i8, ptr %arrayidx, align 1
-  %conv = zext i8 %3 to i32
-  %mul = mul nsw i32 %conv, 2
-  %add = add nsw i32 %mul, 255
-  %div = sdiv i32 %add, 3
-  %conv1 = trunc i32 %div to i8
-  %4 = load i32, ptr %i, align 4
-  %idxprom2 = sext i32 %4 to i64
-  %arrayidx3 = getelementptr inbounds [3 x i8], ptr %c2, i64 0, i64 %idxprom2
-  store i8 %conv1, ptr %arrayidx3, align 1
-  br label %for.inc
+16:                                               ; preds = %13
+  %17 = load ptr, ptr %10, align 8, !tbaa !3
+  %18 = load i32, ptr %12, align 4, !tbaa !10
+  %19 = sext i32 %18 to i64
+  %20 = getelementptr inbounds i8, ptr %17, i64 %19
+  %21 = load i8, ptr %20, align 1, !tbaa !64
+  %22 = zext i8 %21 to i32
+  %23 = mul nsw i32 %22, 2
+  %24 = add nsw i32 %23, 255
+  %25 = sdiv i32 %24, 3
+  %26 = trunc i32 %25 to i8
+  %27 = load i32, ptr %12, align 4, !tbaa !10
+  %28 = sext i32 %27 to i64
+  %29 = getelementptr inbounds [3 x i8], ptr %11, i64 0, i64 %28
+  store i8 %26, ptr %29, align 1, !tbaa !64
+  br label %30
 
-for.inc:                                          ; preds = %for.body
-  %5 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %5, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !60
+30:                                               ; preds = %16
+  %31 = load i32, ptr %12, align 4, !tbaa !10
+  %32 = add nsw i32 %31, 1
+  store i32 %32, ptr %12, align 4, !tbaa !10
+  br label %13, !llvm.loop !106
 
-for.end:                                          ; preds = %for.cond
-  %6 = load ptr, ptr %data.addr, align 8
-  %7 = load i32, ptr %ypos.addr, align 4
-  %8 = load i32, ptr %stride.addr, align 4
-  %mul4 = mul nsw i32 %7, %8
-  %idx.ext = sext i32 %mul4 to i64
-  %add.ptr = getelementptr inbounds i8, ptr %6, i64 %idx.ext
-  %9 = load i32, ptr %xpos.addr, align 4
-  %mul5 = mul nsw i32 %9, 3
-  %idx.ext6 = sext i32 %mul5 to i64
-  %add.ptr7 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext6
-  %arraydecay = getelementptr inbounds [3 x i8], ptr %c2, i64 0, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr7, ptr align 1 %arraydecay, i64 3, i1 false)
+33:                                               ; preds = %13
+  %34 = load ptr, ptr %6, align 8, !tbaa !3
+  %35 = load i32, ptr %9, align 4, !tbaa !10
+  %36 = load i32, ptr %7, align 4, !tbaa !10
+  %37 = mul nsw i32 %35, %36
+  %38 = sext i32 %37 to i64
+  %39 = getelementptr inbounds i8, ptr %34, i64 %38
+  %40 = load i32, ptr %8, align 4, !tbaa !10
+  %41 = mul nsw i32 %40, 3
+  %42 = sext i32 %41 to i64
+  %43 = getelementptr inbounds i8, ptr %39, i64 %42
+  %44 = getelementptr inbounds [3 x i8], ptr %11, i64 0, i64 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %43, ptr align 1 %44, i64 3, i1 false)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #6
+  call void @llvm.lifetime.end.p0(i64 3, ptr %11) #6
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbhw__draw_hline(ptr noundef %data, i32 noundef %stride, i32 noundef %xpos, i32 noundef %ypos, i32 noundef %color, i32 noundef %len, i32 noundef %slot) #0 {
-entry:
-  %data.addr = alloca ptr, align 8
-  %stride.addr = alloca i32, align 4
-  %xpos.addr = alloca i32, align 4
-  %ypos.addr = alloca i32, align 4
-  %color.addr = alloca i32, align 4
-  %len.addr = alloca i32, align 4
-  %slot.addr = alloca i32, align 4
-  %i = alloca i32, align 4
-  %j = alloca i32, align 4
-  %k = alloca i32, align 4
-  store ptr %data, ptr %data.addr, align 8
-  store i32 %stride, ptr %stride.addr, align 4
-  store i32 %xpos, ptr %xpos.addr, align 4
-  store i32 %ypos, ptr %ypos.addr, align 4
-  store i32 %color, ptr %color.addr, align 4
-  store i32 %len, ptr %len.addr, align 4
-  store i32 %slot, ptr %slot.addr, align 4
-  %0 = load i32, ptr %len.addr, align 4
-  %mul = mul nsw i32 %0, 6
-  %div = sdiv i32 %mul, 16
-  store i32 %div, ptr %j, align 4
-  %1 = load i32, ptr %len.addr, align 4
-  %mul1 = mul nsw i32 %1, 10
-  %div2 = sdiv i32 %mul1, 16
-  store i32 %div2, ptr %k, align 4
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+define void @stbhw__draw_hline(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #0 {
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  %16 = alloca i32, align 4
+  %17 = alloca i32, align 4
+  store ptr %0, ptr %8, align 8, !tbaa !3
+  store i32 %1, ptr %9, align 4, !tbaa !10
+  store i32 %2, ptr %10, align 4, !tbaa !10
+  store i32 %3, ptr %11, align 4, !tbaa !10
+  store i32 %4, ptr %12, align 4, !tbaa !10
+  store i32 %5, ptr %13, align 4, !tbaa !10
+  store i32 %6, ptr %14, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #6
+  %18 = load i32, ptr %13, align 4, !tbaa !10
+  %19 = mul nsw i32 %18, 6
+  %20 = sdiv i32 %19, 16
+  store i32 %20, ptr %16, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #6
+  %21 = load i32, ptr %13, align 4, !tbaa !10
+  %22 = mul nsw i32 %21, 10
+  %23 = sdiv i32 %22, 16
+  store i32 %23, ptr %17, align 4, !tbaa !10
+  store i32 0, ptr %15, align 4, !tbaa !10
+  br label %24
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %2 = load i32, ptr %i, align 4
-  %3 = load i32, ptr %len.addr, align 4
-  %cmp = icmp slt i32 %2, %3
-  br i1 %cmp, label %for.body, label %for.end
+24:                                               ; preds = %35, %7
+  %25 = load i32, ptr %15, align 4, !tbaa !10
+  %26 = load i32, ptr %13, align 4, !tbaa !10
+  %27 = icmp slt i32 %25, %26
+  br i1 %27, label %28, label %38
 
-for.body:                                         ; preds = %for.cond
-  %4 = load ptr, ptr %data.addr, align 8
-  %5 = load i32, ptr %stride.addr, align 4
-  %6 = load i32, ptr %xpos.addr, align 4
-  %7 = load i32, ptr %i, align 4
-  %add = add nsw i32 %6, %7
-  %8 = load i32, ptr %ypos.addr, align 4
-  call void @stbhw__set_pixel(ptr noundef %4, i32 noundef %5, i32 noundef %add, i32 noundef %8, ptr noundef @stbhw__black)
-  br label %for.inc
+28:                                               ; preds = %24
+  %29 = load ptr, ptr %8, align 8, !tbaa !3
+  %30 = load i32, ptr %9, align 4, !tbaa !10
+  %31 = load i32, ptr %10, align 4, !tbaa !10
+  %32 = load i32, ptr %15, align 4, !tbaa !10
+  %33 = add nsw i32 %31, %32
+  %34 = load i32, ptr %11, align 4, !tbaa !10
+  call void @stbhw__set_pixel(ptr noundef %29, i32 noundef %30, i32 noundef %33, i32 noundef %34, ptr noundef @stbhw__black)
+  br label %35
 
-for.inc:                                          ; preds = %for.body
-  %9 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %9, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !61
+35:                                               ; preds = %28
+  %36 = load i32, ptr %15, align 4, !tbaa !10
+  %37 = add nsw i32 %36, 1
+  store i32 %37, ptr %15, align 4, !tbaa !10
+  br label %24, !llvm.loop !107
 
-for.end:                                          ; preds = %for.cond
-  %10 = load i32, ptr %k, align 4
-  %11 = load i32, ptr %j, align 4
-  %sub = sub nsw i32 %10, %11
-  %cmp3 = icmp slt i32 %sub, 2
-  br i1 %cmp3, label %if.then, label %if.end9
+38:                                               ; preds = %24
+  %39 = load i32, ptr %17, align 4, !tbaa !10
+  %40 = load i32, ptr %16, align 4, !tbaa !10
+  %41 = sub nsw i32 %39, %40
+  %42 = icmp slt i32 %41, 2
+  br i1 %42, label %43, label %56
 
-if.then:                                          ; preds = %for.end
-  %12 = load i32, ptr %len.addr, align 4
-  %div4 = sdiv i32 %12, 2
-  %sub5 = sub nsw i32 %div4, 1
-  store i32 %sub5, ptr %j, align 4
-  %13 = load i32, ptr %j, align 4
-  %add6 = add nsw i32 %13, 2
-  store i32 %add6, ptr %k, align 4
-  %14 = load i32, ptr %len.addr, align 4
-  %and = and i32 %14, 1
-  %tobool = icmp ne i32 %and, 0
-  br i1 %tobool, label %if.then7, label %if.end
+43:                                               ; preds = %38
+  %44 = load i32, ptr %13, align 4, !tbaa !10
+  %45 = sdiv i32 %44, 2
+  %46 = sub nsw i32 %45, 1
+  store i32 %46, ptr %16, align 4, !tbaa !10
+  %47 = load i32, ptr %16, align 4, !tbaa !10
+  %48 = add nsw i32 %47, 2
+  store i32 %48, ptr %17, align 4, !tbaa !10
+  %49 = load i32, ptr %13, align 4, !tbaa !10
+  %50 = and i32 %49, 1
+  %51 = icmp ne i32 %50, 0
+  br i1 %51, label %52, label %55
 
-if.then7:                                         ; preds = %if.then
-  %15 = load i32, ptr %k, align 4
-  %inc8 = add nsw i32 %15, 1
-  store i32 %inc8, ptr %k, align 4
-  br label %if.end
+52:                                               ; preds = %43
+  %53 = load i32, ptr %17, align 4, !tbaa !10
+  %54 = add nsw i32 %53, 1
+  store i32 %54, ptr %17, align 4, !tbaa !10
+  br label %55
 
-if.end:                                           ; preds = %if.then7, %if.then
-  br label %if.end9
+55:                                               ; preds = %52, %43
+  br label %56
 
-if.end9:                                          ; preds = %if.end, %for.end
-  %16 = load i32, ptr %j, align 4
-  store i32 %16, ptr %i, align 4
-  br label %for.cond10
+56:                                               ; preds = %55, %38
+  %57 = load i32, ptr %16, align 4, !tbaa !10
+  store i32 %57, ptr %15, align 4, !tbaa !10
+  br label %58
 
-for.cond10:                                       ; preds = %for.inc16, %if.end9
-  %17 = load i32, ptr %i, align 4
-  %18 = load i32, ptr %k, align 4
-  %cmp11 = icmp slt i32 %17, %18
-  br i1 %cmp11, label %for.body12, label %for.end18
+58:                                               ; preds = %76, %56
+  %59 = load i32, ptr %15, align 4, !tbaa !10
+  %60 = load i32, ptr %17, align 4, !tbaa !10
+  %61 = icmp slt i32 %59, %60
+  br i1 %61, label %62, label %79
 
-for.body12:                                       ; preds = %for.cond10
-  %19 = load ptr, ptr %data.addr, align 8
-  %20 = load i32, ptr %stride.addr, align 4
-  %21 = load i32, ptr %xpos.addr, align 4
-  %22 = load i32, ptr %i, align 4
-  %add13 = add nsw i32 %21, %22
-  %23 = load i32, ptr %ypos.addr, align 4
-  %24 = load i32, ptr %slot.addr, align 4
-  %idxprom = sext i32 %24 to i64
-  %arrayidx = getelementptr inbounds [7 x [8 x [3 x i8]]], ptr @stbhw__color, i64 0, i64 %idxprom
-  %25 = load i32, ptr %color.addr, align 4
-  %idxprom14 = sext i32 %25 to i64
-  %arrayidx15 = getelementptr inbounds [8 x [3 x i8]], ptr %arrayidx, i64 0, i64 %idxprom14
-  %arraydecay = getelementptr inbounds [3 x i8], ptr %arrayidx15, i64 0, i64 0
-  call void @stbhw__stbhw__set_pixel_whiten(ptr noundef %19, i32 noundef %20, i32 noundef %add13, i32 noundef %23, ptr noundef %arraydecay)
-  br label %for.inc16
+62:                                               ; preds = %58
+  %63 = load ptr, ptr %8, align 8, !tbaa !3
+  %64 = load i32, ptr %9, align 4, !tbaa !10
+  %65 = load i32, ptr %10, align 4, !tbaa !10
+  %66 = load i32, ptr %15, align 4, !tbaa !10
+  %67 = add nsw i32 %65, %66
+  %68 = load i32, ptr %11, align 4, !tbaa !10
+  %69 = load i32, ptr %14, align 4, !tbaa !10
+  %70 = sext i32 %69 to i64
+  %71 = getelementptr inbounds [7 x [8 x [3 x i8]]], ptr @stbhw__color, i64 0, i64 %70
+  %72 = load i32, ptr %12, align 4, !tbaa !10
+  %73 = sext i32 %72 to i64
+  %74 = getelementptr inbounds [8 x [3 x i8]], ptr %71, i64 0, i64 %73
+  %75 = getelementptr inbounds [3 x i8], ptr %74, i64 0, i64 0
+  call void @stbhw__stbhw__set_pixel_whiten(ptr noundef %63, i32 noundef %64, i32 noundef %67, i32 noundef %68, ptr noundef %75)
+  br label %76
 
-for.inc16:                                        ; preds = %for.body12
-  %26 = load i32, ptr %i, align 4
-  %inc17 = add nsw i32 %26, 1
-  store i32 %inc17, ptr %i, align 4
-  br label %for.cond10, !llvm.loop !62
+76:                                               ; preds = %62
+  %77 = load i32, ptr %15, align 4, !tbaa !10
+  %78 = add nsw i32 %77, 1
+  store i32 %78, ptr %15, align 4, !tbaa !10
+  br label %58, !llvm.loop !108
 
-for.end18:                                        ; preds = %for.cond10
+79:                                               ; preds = %58
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #6
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbhw__draw_vline(ptr noundef %data, i32 noundef %stride, i32 noundef %xpos, i32 noundef %ypos, i32 noundef %color, i32 noundef %len, i32 noundef %slot) #0 {
-entry:
-  %data.addr = alloca ptr, align 8
-  %stride.addr = alloca i32, align 4
-  %xpos.addr = alloca i32, align 4
-  %ypos.addr = alloca i32, align 4
-  %color.addr = alloca i32, align 4
-  %len.addr = alloca i32, align 4
-  %slot.addr = alloca i32, align 4
-  %i = alloca i32, align 4
-  %j = alloca i32, align 4
-  %k = alloca i32, align 4
-  store ptr %data, ptr %data.addr, align 8
-  store i32 %stride, ptr %stride.addr, align 4
-  store i32 %xpos, ptr %xpos.addr, align 4
-  store i32 %ypos, ptr %ypos.addr, align 4
-  store i32 %color, ptr %color.addr, align 4
-  store i32 %len, ptr %len.addr, align 4
-  store i32 %slot, ptr %slot.addr, align 4
-  %0 = load i32, ptr %len.addr, align 4
-  %mul = mul nsw i32 %0, 6
-  %div = sdiv i32 %mul, 16
-  store i32 %div, ptr %j, align 4
-  %1 = load i32, ptr %len.addr, align 4
-  %mul1 = mul nsw i32 %1, 10
-  %div2 = sdiv i32 %mul1, 16
-  store i32 %div2, ptr %k, align 4
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+define void @stbhw__draw_vline(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #0 {
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  %16 = alloca i32, align 4
+  %17 = alloca i32, align 4
+  store ptr %0, ptr %8, align 8, !tbaa !3
+  store i32 %1, ptr %9, align 4, !tbaa !10
+  store i32 %2, ptr %10, align 4, !tbaa !10
+  store i32 %3, ptr %11, align 4, !tbaa !10
+  store i32 %4, ptr %12, align 4, !tbaa !10
+  store i32 %5, ptr %13, align 4, !tbaa !10
+  store i32 %6, ptr %14, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #6
+  %18 = load i32, ptr %13, align 4, !tbaa !10
+  %19 = mul nsw i32 %18, 6
+  %20 = sdiv i32 %19, 16
+  store i32 %20, ptr %16, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #6
+  %21 = load i32, ptr %13, align 4, !tbaa !10
+  %22 = mul nsw i32 %21, 10
+  %23 = sdiv i32 %22, 16
+  store i32 %23, ptr %17, align 4, !tbaa !10
+  store i32 0, ptr %15, align 4, !tbaa !10
+  br label %24
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %2 = load i32, ptr %i, align 4
-  %3 = load i32, ptr %len.addr, align 4
-  %cmp = icmp slt i32 %2, %3
-  br i1 %cmp, label %for.body, label %for.end
+24:                                               ; preds = %35, %7
+  %25 = load i32, ptr %15, align 4, !tbaa !10
+  %26 = load i32, ptr %13, align 4, !tbaa !10
+  %27 = icmp slt i32 %25, %26
+  br i1 %27, label %28, label %38
 
-for.body:                                         ; preds = %for.cond
-  %4 = load ptr, ptr %data.addr, align 8
-  %5 = load i32, ptr %stride.addr, align 4
-  %6 = load i32, ptr %xpos.addr, align 4
-  %7 = load i32, ptr %ypos.addr, align 4
-  %8 = load i32, ptr %i, align 4
-  %add = add nsw i32 %7, %8
-  call void @stbhw__set_pixel(ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %add, ptr noundef @stbhw__black)
-  br label %for.inc
+28:                                               ; preds = %24
+  %29 = load ptr, ptr %8, align 8, !tbaa !3
+  %30 = load i32, ptr %9, align 4, !tbaa !10
+  %31 = load i32, ptr %10, align 4, !tbaa !10
+  %32 = load i32, ptr %11, align 4, !tbaa !10
+  %33 = load i32, ptr %15, align 4, !tbaa !10
+  %34 = add nsw i32 %32, %33
+  call void @stbhw__set_pixel(ptr noundef %29, i32 noundef %30, i32 noundef %31, i32 noundef %34, ptr noundef @stbhw__black)
+  br label %35
 
-for.inc:                                          ; preds = %for.body
-  %9 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %9, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !63
+35:                                               ; preds = %28
+  %36 = load i32, ptr %15, align 4, !tbaa !10
+  %37 = add nsw i32 %36, 1
+  store i32 %37, ptr %15, align 4, !tbaa !10
+  br label %24, !llvm.loop !109
 
-for.end:                                          ; preds = %for.cond
-  %10 = load i32, ptr %k, align 4
-  %11 = load i32, ptr %j, align 4
-  %sub = sub nsw i32 %10, %11
-  %cmp3 = icmp slt i32 %sub, 2
-  br i1 %cmp3, label %if.then, label %if.end9
+38:                                               ; preds = %24
+  %39 = load i32, ptr %17, align 4, !tbaa !10
+  %40 = load i32, ptr %16, align 4, !tbaa !10
+  %41 = sub nsw i32 %39, %40
+  %42 = icmp slt i32 %41, 2
+  br i1 %42, label %43, label %56
 
-if.then:                                          ; preds = %for.end
-  %12 = load i32, ptr %len.addr, align 4
-  %div4 = sdiv i32 %12, 2
-  %sub5 = sub nsw i32 %div4, 1
-  store i32 %sub5, ptr %j, align 4
-  %13 = load i32, ptr %j, align 4
-  %add6 = add nsw i32 %13, 2
-  store i32 %add6, ptr %k, align 4
-  %14 = load i32, ptr %len.addr, align 4
-  %and = and i32 %14, 1
-  %tobool = icmp ne i32 %and, 0
-  br i1 %tobool, label %if.then7, label %if.end
+43:                                               ; preds = %38
+  %44 = load i32, ptr %13, align 4, !tbaa !10
+  %45 = sdiv i32 %44, 2
+  %46 = sub nsw i32 %45, 1
+  store i32 %46, ptr %16, align 4, !tbaa !10
+  %47 = load i32, ptr %16, align 4, !tbaa !10
+  %48 = add nsw i32 %47, 2
+  store i32 %48, ptr %17, align 4, !tbaa !10
+  %49 = load i32, ptr %13, align 4, !tbaa !10
+  %50 = and i32 %49, 1
+  %51 = icmp ne i32 %50, 0
+  br i1 %51, label %52, label %55
 
-if.then7:                                         ; preds = %if.then
-  %15 = load i32, ptr %k, align 4
-  %inc8 = add nsw i32 %15, 1
-  store i32 %inc8, ptr %k, align 4
-  br label %if.end
+52:                                               ; preds = %43
+  %53 = load i32, ptr %17, align 4, !tbaa !10
+  %54 = add nsw i32 %53, 1
+  store i32 %54, ptr %17, align 4, !tbaa !10
+  br label %55
 
-if.end:                                           ; preds = %if.then7, %if.then
-  br label %if.end9
+55:                                               ; preds = %52, %43
+  br label %56
 
-if.end9:                                          ; preds = %if.end, %for.end
-  %16 = load i32, ptr %j, align 4
-  store i32 %16, ptr %i, align 4
-  br label %for.cond10
+56:                                               ; preds = %55, %38
+  %57 = load i32, ptr %16, align 4, !tbaa !10
+  store i32 %57, ptr %15, align 4, !tbaa !10
+  br label %58
 
-for.cond10:                                       ; preds = %for.inc16, %if.end9
-  %17 = load i32, ptr %i, align 4
-  %18 = load i32, ptr %k, align 4
-  %cmp11 = icmp slt i32 %17, %18
-  br i1 %cmp11, label %for.body12, label %for.end18
+58:                                               ; preds = %76, %56
+  %59 = load i32, ptr %15, align 4, !tbaa !10
+  %60 = load i32, ptr %17, align 4, !tbaa !10
+  %61 = icmp slt i32 %59, %60
+  br i1 %61, label %62, label %79
 
-for.body12:                                       ; preds = %for.cond10
-  %19 = load ptr, ptr %data.addr, align 8
-  %20 = load i32, ptr %stride.addr, align 4
-  %21 = load i32, ptr %xpos.addr, align 4
-  %22 = load i32, ptr %ypos.addr, align 4
-  %23 = load i32, ptr %i, align 4
-  %add13 = add nsw i32 %22, %23
-  %24 = load i32, ptr %slot.addr, align 4
-  %idxprom = sext i32 %24 to i64
-  %arrayidx = getelementptr inbounds [7 x [8 x [3 x i8]]], ptr @stbhw__color, i64 0, i64 %idxprom
-  %25 = load i32, ptr %color.addr, align 4
-  %idxprom14 = sext i32 %25 to i64
-  %arrayidx15 = getelementptr inbounds [8 x [3 x i8]], ptr %arrayidx, i64 0, i64 %idxprom14
-  %arraydecay = getelementptr inbounds [3 x i8], ptr %arrayidx15, i64 0, i64 0
-  call void @stbhw__stbhw__set_pixel_whiten(ptr noundef %19, i32 noundef %20, i32 noundef %21, i32 noundef %add13, ptr noundef %arraydecay)
-  br label %for.inc16
+62:                                               ; preds = %58
+  %63 = load ptr, ptr %8, align 8, !tbaa !3
+  %64 = load i32, ptr %9, align 4, !tbaa !10
+  %65 = load i32, ptr %10, align 4, !tbaa !10
+  %66 = load i32, ptr %11, align 4, !tbaa !10
+  %67 = load i32, ptr %15, align 4, !tbaa !10
+  %68 = add nsw i32 %66, %67
+  %69 = load i32, ptr %14, align 4, !tbaa !10
+  %70 = sext i32 %69 to i64
+  %71 = getelementptr inbounds [7 x [8 x [3 x i8]]], ptr @stbhw__color, i64 0, i64 %70
+  %72 = load i32, ptr %12, align 4, !tbaa !10
+  %73 = sext i32 %72 to i64
+  %74 = getelementptr inbounds [8 x [3 x i8]], ptr %71, i64 0, i64 %73
+  %75 = getelementptr inbounds [3 x i8], ptr %74, i64 0, i64 0
+  call void @stbhw__stbhw__set_pixel_whiten(ptr noundef %63, i32 noundef %64, i32 noundef %65, i32 noundef %68, ptr noundef %75)
+  br label %76
 
-for.inc16:                                        ; preds = %for.body12
-  %26 = load i32, ptr %i, align 4
-  %inc17 = add nsw i32 %26, 1
-  store i32 %inc17, ptr %i, align 4
-  br label %for.cond10, !llvm.loop !64
+76:                                               ; preds = %62
+  %77 = load i32, ptr %15, align 4, !tbaa !10
+  %78 = add nsw i32 %77, 1
+  store i32 %78, ptr %15, align 4, !tbaa !10
+  br label %58, !llvm.loop !110
 
-for.end18:                                        ; preds = %for.cond10
+79:                                               ; preds = %58
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #6
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbhw__draw_clipped_corner(ptr noundef %data, i32 noundef %stride, i32 noundef %xpos, i32 noundef %ypos, i32 noundef %w, i32 noundef %h, i32 noundef %x, i32 noundef %y) #0 {
-entry:
-  %data.addr = alloca ptr, align 8
-  %stride.addr = alloca i32, align 4
-  %xpos.addr = alloca i32, align 4
-  %ypos.addr = alloca i32, align 4
-  %w.addr = alloca i32, align 4
-  %h.addr = alloca i32, align 4
-  %x.addr = alloca i32, align 4
-  %y.addr = alloca i32, align 4
-  %template_color = alloca [3 x i8], align 1
-  %i = alloca i32, align 4
-  %j = alloca i32, align 4
-  store ptr %data, ptr %data.addr, align 8
-  store i32 %stride, ptr %stride.addr, align 4
-  store i32 %xpos, ptr %xpos.addr, align 4
-  store i32 %ypos, ptr %ypos.addr, align 4
-  store i32 %w, ptr %w.addr, align 4
-  store i32 %h, ptr %h.addr, align 4
-  store i32 %x, ptr %x.addr, align 4
-  store i32 %y, ptr %y.addr, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %template_color, ptr align 1 @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
-  store i32 -2, ptr %j, align 4
-  br label %for.cond
+define void @stbhw__draw_clipped_corner(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) #0 {
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  %16 = alloca i32, align 4
+  %17 = alloca [3 x i8], align 1
+  %18 = alloca i32, align 4
+  %19 = alloca i32, align 4
+  store ptr %0, ptr %9, align 8, !tbaa !3
+  store i32 %1, ptr %10, align 4, !tbaa !10
+  store i32 %2, ptr %11, align 4, !tbaa !10
+  store i32 %3, ptr %12, align 4, !tbaa !10
+  store i32 %4, ptr %13, align 4, !tbaa !10
+  store i32 %5, ptr %14, align 4, !tbaa !10
+  store i32 %6, ptr %15, align 4, !tbaa !10
+  store i32 %7, ptr %16, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 3, ptr %17) #6
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %17, ptr align 1 @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #6
+  store i32 -2, ptr %19, align 4, !tbaa !10
+  br label %20
 
-for.cond:                                         ; preds = %for.inc26, %entry
-  %0 = load i32, ptr %j, align 4
-  %cmp = icmp sle i32 %0, 1
-  br i1 %cmp, label %for.body, label %for.end28
+20:                                               ; preds = %83, %8
+  %21 = load i32, ptr %19, align 4, !tbaa !10
+  %22 = icmp sle i32 %21, 1
+  br i1 %22, label %23, label %86
 
-for.body:                                         ; preds = %for.cond
-  store i32 -2, ptr %i, align 4
-  br label %for.cond1
+23:                                               ; preds = %20
+  store i32 -2, ptr %18, align 4, !tbaa !10
+  br label %24
 
-for.cond1:                                        ; preds = %for.inc, %for.body
-  %1 = load i32, ptr %i, align 4
-  %cmp2 = icmp sle i32 %1, 1
-  br i1 %cmp2, label %for.body3, label %for.end
+24:                                               ; preds = %79, %23
+  %25 = load i32, ptr %18, align 4, !tbaa !10
+  %26 = icmp sle i32 %25, 1
+  br i1 %26, label %27, label %82
 
-for.body3:                                        ; preds = %for.cond1
-  %2 = load i32, ptr %i, align 4
-  %cmp4 = icmp eq i32 %2, -2
-  br i1 %cmp4, label %land.lhs.true, label %lor.lhs.false
+27:                                               ; preds = %24
+  %28 = load i32, ptr %18, align 4, !tbaa !10
+  %29 = icmp eq i32 %28, -2
+  br i1 %29, label %33, label %30
 
-lor.lhs.false:                                    ; preds = %for.body3
-  %3 = load i32, ptr %i, align 4
-  %cmp5 = icmp eq i32 %3, 1
-  br i1 %cmp5, label %land.lhs.true, label %if.else
+30:                                               ; preds = %27
+  %31 = load i32, ptr %18, align 4, !tbaa !10
+  %32 = icmp eq i32 %31, 1
+  br i1 %32, label %33, label %40
 
-land.lhs.true:                                    ; preds = %lor.lhs.false, %for.body3
-  %4 = load i32, ptr %j, align 4
-  %cmp6 = icmp eq i32 %4, -2
-  br i1 %cmp6, label %if.then, label %lor.lhs.false7
+33:                                               ; preds = %30, %27
+  %34 = load i32, ptr %19, align 4, !tbaa !10
+  %35 = icmp eq i32 %34, -2
+  br i1 %35, label %39, label %36
 
-lor.lhs.false7:                                   ; preds = %land.lhs.true
-  %5 = load i32, ptr %j, align 4
-  %cmp8 = icmp eq i32 %5, 1
-  br i1 %cmp8, label %if.then, label %if.else
+36:                                               ; preds = %33
+  %37 = load i32, ptr %19, align 4, !tbaa !10
+  %38 = icmp eq i32 %37, 1
+  br i1 %38, label %39, label %40
 
-if.then:                                          ; preds = %lor.lhs.false7, %land.lhs.true
-  br label %for.inc
+39:                                               ; preds = %36, %33
+  br label %79
 
-if.else:                                          ; preds = %lor.lhs.false7, %lor.lhs.false
-  %6 = load i32, ptr %x.addr, align 4
-  %7 = load i32, ptr %i, align 4
-  %add = add nsw i32 %6, %7
-  %cmp9 = icmp slt i32 %add, 1
-  br i1 %cmp9, label %if.then13, label %lor.lhs.false10
+40:                                               ; preds = %36, %30
+  %41 = load i32, ptr %15, align 4, !tbaa !10
+  %42 = load i32, ptr %18, align 4, !tbaa !10
+  %43 = add nsw i32 %41, %42
+  %44 = icmp slt i32 %43, 1
+  br i1 %44, label %51, label %45
 
-lor.lhs.false10:                                  ; preds = %if.else
-  %8 = load i32, ptr %x.addr, align 4
-  %9 = load i32, ptr %i, align 4
-  %add11 = add nsw i32 %8, %9
-  %10 = load i32, ptr %w.addr, align 4
-  %cmp12 = icmp sgt i32 %add11, %10
-  br i1 %cmp12, label %if.then13, label %if.end
+45:                                               ; preds = %40
+  %46 = load i32, ptr %15, align 4, !tbaa !10
+  %47 = load i32, ptr %18, align 4, !tbaa !10
+  %48 = add nsw i32 %46, %47
+  %49 = load i32, ptr %13, align 4, !tbaa !10
+  %50 = icmp sgt i32 %48, %49
+  br i1 %50, label %51, label %52
 
-if.then13:                                        ; preds = %lor.lhs.false10, %if.else
-  br label %for.inc
+51:                                               ; preds = %45, %40
+  br label %79
 
-if.end:                                           ; preds = %lor.lhs.false10
-  %11 = load i32, ptr %y.addr, align 4
-  %12 = load i32, ptr %j, align 4
-  %add14 = add nsw i32 %11, %12
-  %cmp15 = icmp slt i32 %add14, 1
-  br i1 %cmp15, label %if.then19, label %lor.lhs.false16
+52:                                               ; preds = %45
+  %53 = load i32, ptr %16, align 4, !tbaa !10
+  %54 = load i32, ptr %19, align 4, !tbaa !10
+  %55 = add nsw i32 %53, %54
+  %56 = icmp slt i32 %55, 1
+  br i1 %56, label %63, label %57
 
-lor.lhs.false16:                                  ; preds = %if.end
-  %13 = load i32, ptr %y.addr, align 4
-  %14 = load i32, ptr %j, align 4
-  %add17 = add nsw i32 %13, %14
-  %15 = load i32, ptr %h.addr, align 4
-  %cmp18 = icmp sgt i32 %add17, %15
-  br i1 %cmp18, label %if.then19, label %if.end20
+57:                                               ; preds = %52
+  %58 = load i32, ptr %16, align 4, !tbaa !10
+  %59 = load i32, ptr %19, align 4, !tbaa !10
+  %60 = add nsw i32 %58, %59
+  %61 = load i32, ptr %14, align 4, !tbaa !10
+  %62 = icmp sgt i32 %60, %61
+  br i1 %62, label %63, label %64
 
-if.then19:                                        ; preds = %lor.lhs.false16, %if.end
-  br label %for.inc
+63:                                               ; preds = %57, %52
+  br label %79
 
-if.end20:                                         ; preds = %lor.lhs.false16
-  %16 = load ptr, ptr %data.addr, align 8
-  %17 = load i32, ptr %stride.addr, align 4
-  %18 = load i32, ptr %xpos.addr, align 4
-  %19 = load i32, ptr %x.addr, align 4
-  %add21 = add nsw i32 %18, %19
-  %20 = load i32, ptr %i, align 4
-  %add22 = add nsw i32 %add21, %20
-  %21 = load i32, ptr %ypos.addr, align 4
-  %22 = load i32, ptr %y.addr, align 4
-  %add23 = add nsw i32 %21, %22
-  %23 = load i32, ptr %j, align 4
-  %add24 = add nsw i32 %add23, %23
-  %arraydecay = getelementptr inbounds [3 x i8], ptr %template_color, i64 0, i64 0
-  call void @stbhw__set_pixel(ptr noundef %16, i32 noundef %17, i32 noundef %add22, i32 noundef %add24, ptr noundef %arraydecay)
-  br label %if.end25
+64:                                               ; preds = %57
+  %65 = load ptr, ptr %9, align 8, !tbaa !3
+  %66 = load i32, ptr %10, align 4, !tbaa !10
+  %67 = load i32, ptr %11, align 4, !tbaa !10
+  %68 = load i32, ptr %15, align 4, !tbaa !10
+  %69 = add nsw i32 %67, %68
+  %70 = load i32, ptr %18, align 4, !tbaa !10
+  %71 = add nsw i32 %69, %70
+  %72 = load i32, ptr %12, align 4, !tbaa !10
+  %73 = load i32, ptr %16, align 4, !tbaa !10
+  %74 = add nsw i32 %72, %73
+  %75 = load i32, ptr %19, align 4, !tbaa !10
+  %76 = add nsw i32 %74, %75
+  %77 = getelementptr inbounds [3 x i8], ptr %17, i64 0, i64 0
+  call void @stbhw__set_pixel(ptr noundef %65, i32 noundef %66, i32 noundef %71, i32 noundef %76, ptr noundef %77)
+  br label %78
 
-if.end25:                                         ; preds = %if.end20
-  br label %for.inc
+78:                                               ; preds = %64
+  br label %79
 
-for.inc:                                          ; preds = %if.end25, %if.then19, %if.then13, %if.then
-  %24 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %24, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond1, !llvm.loop !65
+79:                                               ; preds = %78, %63, %51, %39
+  %80 = load i32, ptr %18, align 4, !tbaa !10
+  %81 = add nsw i32 %80, 1
+  store i32 %81, ptr %18, align 4, !tbaa !10
+  br label %24, !llvm.loop !111
 
-for.end:                                          ; preds = %for.cond1
-  br label %for.inc26
+82:                                               ; preds = %24
+  br label %83
 
-for.inc26:                                        ; preds = %for.end
-  %25 = load i32, ptr %j, align 4
-  %inc27 = add nsw i32 %25, 1
-  store i32 %inc27, ptr %j, align 4
-  br label %for.cond, !llvm.loop !66
+83:                                               ; preds = %82
+  %84 = load i32, ptr %19, align 4, !tbaa !10
+  %85 = add nsw i32 %84, 1
+  store i32 %85, ptr %19, align 4, !tbaa !10
+  br label %20, !llvm.loop !112
 
-for.end28:                                        ; preds = %for.cond
+86:                                               ; preds = %20
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #6
+  call void @llvm.lifetime.end.p0(i64 3, ptr %17) #6
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbhw__edge_process_h_rect(ptr noundef %p, i32 noundef %xpos, i32 noundef %ypos, i32 noundef %a, i32 noundef %b, i32 noundef %c, i32 noundef %d, i32 noundef %e, i32 noundef %f) #0 {
-entry:
-  %p.addr = alloca ptr, align 8
-  %xpos.addr = alloca i32, align 4
-  %ypos.addr = alloca i32, align 4
-  %a.addr = alloca i32, align 4
-  %b.addr = alloca i32, align 4
-  %c.addr = alloca i32, align 4
-  %d.addr = alloca i32, align 4
-  %e.addr = alloca i32, align 4
-  %f.addr = alloca i32, align 4
-  %len = alloca i32, align 4
-  store ptr %p, ptr %p.addr, align 8
-  store i32 %xpos, ptr %xpos.addr, align 4
-  store i32 %ypos, ptr %ypos.addr, align 4
-  store i32 %a, ptr %a.addr, align 4
-  store i32 %b, ptr %b.addr, align 4
-  store i32 %c, ptr %c.addr, align 4
-  store i32 %d, ptr %d.addr, align 4
-  store i32 %e, ptr %e.addr, align 4
-  store i32 %f, ptr %f.addr, align 4
-  %0 = load ptr, ptr %p.addr, align 8
-  %c1 = getelementptr inbounds %struct.stbhw__process, ptr %0, i32 0, i32 1
-  %1 = load ptr, ptr %c1, align 8
-  %short_side_len = getelementptr inbounds %struct.stbhw_config, ptr %1, i32 0, i32 1
-  %2 = load i32, ptr %short_side_len, align 4
-  store i32 %2, ptr %len, align 4
-  %3 = load ptr, ptr %p.addr, align 8
-  %data = getelementptr inbounds %struct.stbhw__process, ptr %3, i32 0, i32 4
-  %4 = load ptr, ptr %data, align 8
-  %5 = load ptr, ptr %p.addr, align 8
-  %stride = getelementptr inbounds %struct.stbhw__process, ptr %5, i32 0, i32 5
-  %6 = load i32, ptr %stride, align 8
-  %7 = load i32, ptr %xpos.addr, align 4
-  %add = add nsw i32 %7, 1
-  %8 = load i32, ptr %ypos.addr, align 4
-  %9 = load i32, ptr %a.addr, align 4
-  %10 = load i32, ptr %len, align 4
-  call void @stbhw__draw_hline(ptr noundef %4, i32 noundef %6, i32 noundef %add, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef 2)
-  %11 = load ptr, ptr %p.addr, align 8
-  %data2 = getelementptr inbounds %struct.stbhw__process, ptr %11, i32 0, i32 4
-  %12 = load ptr, ptr %data2, align 8
-  %13 = load ptr, ptr %p.addr, align 8
-  %stride3 = getelementptr inbounds %struct.stbhw__process, ptr %13, i32 0, i32 5
-  %14 = load i32, ptr %stride3, align 8
-  %15 = load i32, ptr %xpos.addr, align 4
-  %16 = load i32, ptr %len, align 4
-  %add4 = add nsw i32 %15, %16
-  %add5 = add nsw i32 %add4, 1
-  %17 = load i32, ptr %ypos.addr, align 4
-  %18 = load i32, ptr %b.addr, align 4
-  %19 = load i32, ptr %len, align 4
-  call void @stbhw__draw_hline(ptr noundef %12, i32 noundef %14, i32 noundef %add5, i32 noundef %17, i32 noundef %18, i32 noundef %19, i32 noundef 3)
-  %20 = load ptr, ptr %p.addr, align 8
-  %data6 = getelementptr inbounds %struct.stbhw__process, ptr %20, i32 0, i32 4
-  %21 = load ptr, ptr %data6, align 8
-  %22 = load ptr, ptr %p.addr, align 8
-  %stride7 = getelementptr inbounds %struct.stbhw__process, ptr %22, i32 0, i32 5
-  %23 = load i32, ptr %stride7, align 8
-  %24 = load i32, ptr %xpos.addr, align 4
-  %25 = load i32, ptr %ypos.addr, align 4
-  %add8 = add nsw i32 %25, 1
-  %26 = load i32, ptr %c.addr, align 4
-  %27 = load i32, ptr %len, align 4
-  call void @stbhw__draw_vline(ptr noundef %21, i32 noundef %23, i32 noundef %24, i32 noundef %add8, i32 noundef %26, i32 noundef %27, i32 noundef 1)
-  %28 = load ptr, ptr %p.addr, align 8
-  %data9 = getelementptr inbounds %struct.stbhw__process, ptr %28, i32 0, i32 4
-  %29 = load ptr, ptr %data9, align 8
-  %30 = load ptr, ptr %p.addr, align 8
-  %stride10 = getelementptr inbounds %struct.stbhw__process, ptr %30, i32 0, i32 5
-  %31 = load i32, ptr %stride10, align 8
-  %32 = load i32, ptr %xpos.addr, align 4
-  %33 = load i32, ptr %len, align 4
-  %mul = mul nsw i32 2, %33
-  %add11 = add nsw i32 %32, %mul
-  %add12 = add nsw i32 %add11, 1
-  %34 = load i32, ptr %ypos.addr, align 4
-  %add13 = add nsw i32 %34, 1
-  %35 = load i32, ptr %d.addr, align 4
-  %36 = load i32, ptr %len, align 4
-  call void @stbhw__draw_vline(ptr noundef %29, i32 noundef %31, i32 noundef %add12, i32 noundef %add13, i32 noundef %35, i32 noundef %36, i32 noundef 4)
-  %37 = load ptr, ptr %p.addr, align 8
-  %data14 = getelementptr inbounds %struct.stbhw__process, ptr %37, i32 0, i32 4
-  %38 = load ptr, ptr %data14, align 8
-  %39 = load ptr, ptr %p.addr, align 8
-  %stride15 = getelementptr inbounds %struct.stbhw__process, ptr %39, i32 0, i32 5
-  %40 = load i32, ptr %stride15, align 8
-  %41 = load i32, ptr %xpos.addr, align 4
-  %add16 = add nsw i32 %41, 1
-  %42 = load i32, ptr %ypos.addr, align 4
-  %43 = load i32, ptr %len, align 4
-  %add17 = add nsw i32 %42, %43
-  %add18 = add nsw i32 %add17, 1
-  %44 = load i32, ptr %e.addr, align 4
-  %45 = load i32, ptr %len, align 4
-  call void @stbhw__draw_hline(ptr noundef %38, i32 noundef %40, i32 noundef %add16, i32 noundef %add18, i32 noundef %44, i32 noundef %45, i32 noundef 0)
-  %46 = load ptr, ptr %p.addr, align 8
-  %data19 = getelementptr inbounds %struct.stbhw__process, ptr %46, i32 0, i32 4
-  %47 = load ptr, ptr %data19, align 8
-  %48 = load ptr, ptr %p.addr, align 8
-  %stride20 = getelementptr inbounds %struct.stbhw__process, ptr %48, i32 0, i32 5
-  %49 = load i32, ptr %stride20, align 8
-  %50 = load i32, ptr %xpos.addr, align 4
-  %51 = load i32, ptr %len, align 4
-  %add21 = add nsw i32 %50, %51
-  %add22 = add nsw i32 %add21, 1
-  %52 = load i32, ptr %ypos.addr, align 4
-  %53 = load i32, ptr %len, align 4
-  %add23 = add nsw i32 %52, %53
-  %add24 = add nsw i32 %add23, 1
-  %54 = load i32, ptr %f.addr, align 4
-  %55 = load i32, ptr %len, align 4
-  call void @stbhw__draw_hline(ptr noundef %47, i32 noundef %49, i32 noundef %add22, i32 noundef %add24, i32 noundef %54, i32 noundef %55, i32 noundef 2)
+define void @stbhw__edge_process_h_rect(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #0 {
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  %16 = alloca i32, align 4
+  %17 = alloca i32, align 4
+  %18 = alloca i32, align 4
+  %19 = alloca i32, align 4
+  store ptr %0, ptr %10, align 8, !tbaa !8
+  store i32 %1, ptr %11, align 4, !tbaa !10
+  store i32 %2, ptr %12, align 4, !tbaa !10
+  store i32 %3, ptr %13, align 4, !tbaa !10
+  store i32 %4, ptr %14, align 4, !tbaa !10
+  store i32 %5, ptr %15, align 4, !tbaa !10
+  store i32 %6, ptr %16, align 4, !tbaa !10
+  store i32 %7, ptr %17, align 4, !tbaa !10
+  store i32 %8, ptr %18, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #6
+  %20 = load ptr, ptr %10, align 8, !tbaa !8
+  %21 = getelementptr inbounds nuw %struct.stbhw__process, ptr %20, i32 0, i32 1
+  %22 = load ptr, ptr %21, align 8, !tbaa !15
+  %23 = getelementptr inbounds nuw %struct.stbhw_config, ptr %22, i32 0, i32 1
+  %24 = load i32, ptr %23, align 4, !tbaa !16
+  store i32 %24, ptr %19, align 4, !tbaa !10
+  %25 = load ptr, ptr %10, align 8, !tbaa !8
+  %26 = getelementptr inbounds nuw %struct.stbhw__process, ptr %25, i32 0, i32 4
+  %27 = load ptr, ptr %26, align 8, !tbaa !92
+  %28 = load ptr, ptr %10, align 8, !tbaa !8
+  %29 = getelementptr inbounds nuw %struct.stbhw__process, ptr %28, i32 0, i32 5
+  %30 = load i32, ptr %29, align 8, !tbaa !93
+  %31 = load i32, ptr %11, align 4, !tbaa !10
+  %32 = add nsw i32 %31, 1
+  %33 = load i32, ptr %12, align 4, !tbaa !10
+  %34 = load i32, ptr %13, align 4, !tbaa !10
+  %35 = load i32, ptr %19, align 4, !tbaa !10
+  call void @stbhw__draw_hline(ptr noundef %27, i32 noundef %30, i32 noundef %32, i32 noundef %33, i32 noundef %34, i32 noundef %35, i32 noundef 2)
+  %36 = load ptr, ptr %10, align 8, !tbaa !8
+  %37 = getelementptr inbounds nuw %struct.stbhw__process, ptr %36, i32 0, i32 4
+  %38 = load ptr, ptr %37, align 8, !tbaa !92
+  %39 = load ptr, ptr %10, align 8, !tbaa !8
+  %40 = getelementptr inbounds nuw %struct.stbhw__process, ptr %39, i32 0, i32 5
+  %41 = load i32, ptr %40, align 8, !tbaa !93
+  %42 = load i32, ptr %11, align 4, !tbaa !10
+  %43 = load i32, ptr %19, align 4, !tbaa !10
+  %44 = add nsw i32 %42, %43
+  %45 = add nsw i32 %44, 1
+  %46 = load i32, ptr %12, align 4, !tbaa !10
+  %47 = load i32, ptr %14, align 4, !tbaa !10
+  %48 = load i32, ptr %19, align 4, !tbaa !10
+  call void @stbhw__draw_hline(ptr noundef %38, i32 noundef %41, i32 noundef %45, i32 noundef %46, i32 noundef %47, i32 noundef %48, i32 noundef 3)
+  %49 = load ptr, ptr %10, align 8, !tbaa !8
+  %50 = getelementptr inbounds nuw %struct.stbhw__process, ptr %49, i32 0, i32 4
+  %51 = load ptr, ptr %50, align 8, !tbaa !92
+  %52 = load ptr, ptr %10, align 8, !tbaa !8
+  %53 = getelementptr inbounds nuw %struct.stbhw__process, ptr %52, i32 0, i32 5
+  %54 = load i32, ptr %53, align 8, !tbaa !93
+  %55 = load i32, ptr %11, align 4, !tbaa !10
+  %56 = load i32, ptr %12, align 4, !tbaa !10
+  %57 = add nsw i32 %56, 1
+  %58 = load i32, ptr %15, align 4, !tbaa !10
+  %59 = load i32, ptr %19, align 4, !tbaa !10
+  call void @stbhw__draw_vline(ptr noundef %51, i32 noundef %54, i32 noundef %55, i32 noundef %57, i32 noundef %58, i32 noundef %59, i32 noundef 1)
+  %60 = load ptr, ptr %10, align 8, !tbaa !8
+  %61 = getelementptr inbounds nuw %struct.stbhw__process, ptr %60, i32 0, i32 4
+  %62 = load ptr, ptr %61, align 8, !tbaa !92
+  %63 = load ptr, ptr %10, align 8, !tbaa !8
+  %64 = getelementptr inbounds nuw %struct.stbhw__process, ptr %63, i32 0, i32 5
+  %65 = load i32, ptr %64, align 8, !tbaa !93
+  %66 = load i32, ptr %11, align 4, !tbaa !10
+  %67 = load i32, ptr %19, align 4, !tbaa !10
+  %68 = mul nsw i32 2, %67
+  %69 = add nsw i32 %66, %68
+  %70 = add nsw i32 %69, 1
+  %71 = load i32, ptr %12, align 4, !tbaa !10
+  %72 = add nsw i32 %71, 1
+  %73 = load i32, ptr %16, align 4, !tbaa !10
+  %74 = load i32, ptr %19, align 4, !tbaa !10
+  call void @stbhw__draw_vline(ptr noundef %62, i32 noundef %65, i32 noundef %70, i32 noundef %72, i32 noundef %73, i32 noundef %74, i32 noundef 4)
+  %75 = load ptr, ptr %10, align 8, !tbaa !8
+  %76 = getelementptr inbounds nuw %struct.stbhw__process, ptr %75, i32 0, i32 4
+  %77 = load ptr, ptr %76, align 8, !tbaa !92
+  %78 = load ptr, ptr %10, align 8, !tbaa !8
+  %79 = getelementptr inbounds nuw %struct.stbhw__process, ptr %78, i32 0, i32 5
+  %80 = load i32, ptr %79, align 8, !tbaa !93
+  %81 = load i32, ptr %11, align 4, !tbaa !10
+  %82 = add nsw i32 %81, 1
+  %83 = load i32, ptr %12, align 4, !tbaa !10
+  %84 = load i32, ptr %19, align 4, !tbaa !10
+  %85 = add nsw i32 %83, %84
+  %86 = add nsw i32 %85, 1
+  %87 = load i32, ptr %17, align 4, !tbaa !10
+  %88 = load i32, ptr %19, align 4, !tbaa !10
+  call void @stbhw__draw_hline(ptr noundef %77, i32 noundef %80, i32 noundef %82, i32 noundef %86, i32 noundef %87, i32 noundef %88, i32 noundef 0)
+  %89 = load ptr, ptr %10, align 8, !tbaa !8
+  %90 = getelementptr inbounds nuw %struct.stbhw__process, ptr %89, i32 0, i32 4
+  %91 = load ptr, ptr %90, align 8, !tbaa !92
+  %92 = load ptr, ptr %10, align 8, !tbaa !8
+  %93 = getelementptr inbounds nuw %struct.stbhw__process, ptr %92, i32 0, i32 5
+  %94 = load i32, ptr %93, align 8, !tbaa !93
+  %95 = load i32, ptr %11, align 4, !tbaa !10
+  %96 = load i32, ptr %19, align 4, !tbaa !10
+  %97 = add nsw i32 %95, %96
+  %98 = add nsw i32 %97, 1
+  %99 = load i32, ptr %12, align 4, !tbaa !10
+  %100 = load i32, ptr %19, align 4, !tbaa !10
+  %101 = add nsw i32 %99, %100
+  %102 = add nsw i32 %101, 1
+  %103 = load i32, ptr %18, align 4, !tbaa !10
+  %104 = load i32, ptr %19, align 4, !tbaa !10
+  call void @stbhw__draw_hline(ptr noundef %91, i32 noundef %94, i32 noundef %98, i32 noundef %102, i32 noundef %103, i32 noundef %104, i32 noundef 2)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #6
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbhw__edge_process_v_rect(ptr noundef %p, i32 noundef %xpos, i32 noundef %ypos, i32 noundef %a, i32 noundef %b, i32 noundef %c, i32 noundef %d, i32 noundef %e, i32 noundef %f) #0 {
-entry:
-  %p.addr = alloca ptr, align 8
-  %xpos.addr = alloca i32, align 4
-  %ypos.addr = alloca i32, align 4
-  %a.addr = alloca i32, align 4
-  %b.addr = alloca i32, align 4
-  %c.addr = alloca i32, align 4
-  %d.addr = alloca i32, align 4
-  %e.addr = alloca i32, align 4
-  %f.addr = alloca i32, align 4
-  %len = alloca i32, align 4
-  store ptr %p, ptr %p.addr, align 8
-  store i32 %xpos, ptr %xpos.addr, align 4
-  store i32 %ypos, ptr %ypos.addr, align 4
-  store i32 %a, ptr %a.addr, align 4
-  store i32 %b, ptr %b.addr, align 4
-  store i32 %c, ptr %c.addr, align 4
-  store i32 %d, ptr %d.addr, align 4
-  store i32 %e, ptr %e.addr, align 4
-  store i32 %f, ptr %f.addr, align 4
-  %0 = load ptr, ptr %p.addr, align 8
-  %c1 = getelementptr inbounds %struct.stbhw__process, ptr %0, i32 0, i32 1
-  %1 = load ptr, ptr %c1, align 8
-  %short_side_len = getelementptr inbounds %struct.stbhw_config, ptr %1, i32 0, i32 1
-  %2 = load i32, ptr %short_side_len, align 4
-  store i32 %2, ptr %len, align 4
-  %3 = load ptr, ptr %p.addr, align 8
-  %data = getelementptr inbounds %struct.stbhw__process, ptr %3, i32 0, i32 4
-  %4 = load ptr, ptr %data, align 8
-  %5 = load ptr, ptr %p.addr, align 8
-  %stride = getelementptr inbounds %struct.stbhw__process, ptr %5, i32 0, i32 5
-  %6 = load i32, ptr %stride, align 8
-  %7 = load i32, ptr %xpos.addr, align 4
-  %add = add nsw i32 %7, 1
-  %8 = load i32, ptr %ypos.addr, align 4
-  %9 = load i32, ptr %a.addr, align 4
-  %10 = load i32, ptr %len, align 4
-  call void @stbhw__draw_hline(ptr noundef %4, i32 noundef %6, i32 noundef %add, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef 0)
-  %11 = load ptr, ptr %p.addr, align 8
-  %data2 = getelementptr inbounds %struct.stbhw__process, ptr %11, i32 0, i32 4
-  %12 = load ptr, ptr %data2, align 8
-  %13 = load ptr, ptr %p.addr, align 8
-  %stride3 = getelementptr inbounds %struct.stbhw__process, ptr %13, i32 0, i32 5
-  %14 = load i32, ptr %stride3, align 8
-  %15 = load i32, ptr %xpos.addr, align 4
-  %16 = load i32, ptr %ypos.addr, align 4
-  %add4 = add nsw i32 %16, 1
-  %17 = load i32, ptr %b.addr, align 4
-  %18 = load i32, ptr %len, align 4
-  call void @stbhw__draw_vline(ptr noundef %12, i32 noundef %14, i32 noundef %15, i32 noundef %add4, i32 noundef %17, i32 noundef %18, i32 noundef 5)
-  %19 = load ptr, ptr %p.addr, align 8
-  %data5 = getelementptr inbounds %struct.stbhw__process, ptr %19, i32 0, i32 4
-  %20 = load ptr, ptr %data5, align 8
-  %21 = load ptr, ptr %p.addr, align 8
-  %stride6 = getelementptr inbounds %struct.stbhw__process, ptr %21, i32 0, i32 5
-  %22 = load i32, ptr %stride6, align 8
-  %23 = load i32, ptr %xpos.addr, align 4
-  %24 = load i32, ptr %len, align 4
-  %add7 = add nsw i32 %23, %24
-  %add8 = add nsw i32 %add7, 1
-  %25 = load i32, ptr %ypos.addr, align 4
-  %add9 = add nsw i32 %25, 1
-  %26 = load i32, ptr %c.addr, align 4
-  %27 = load i32, ptr %len, align 4
-  call void @stbhw__draw_vline(ptr noundef %20, i32 noundef %22, i32 noundef %add8, i32 noundef %add9, i32 noundef %26, i32 noundef %27, i32 noundef 1)
-  %28 = load ptr, ptr %p.addr, align 8
-  %data10 = getelementptr inbounds %struct.stbhw__process, ptr %28, i32 0, i32 4
-  %29 = load ptr, ptr %data10, align 8
-  %30 = load ptr, ptr %p.addr, align 8
-  %stride11 = getelementptr inbounds %struct.stbhw__process, ptr %30, i32 0, i32 5
-  %31 = load i32, ptr %stride11, align 8
-  %32 = load i32, ptr %xpos.addr, align 4
-  %33 = load i32, ptr %ypos.addr, align 4
-  %34 = load i32, ptr %len, align 4
-  %add12 = add nsw i32 %33, %34
-  %add13 = add nsw i32 %add12, 1
-  %35 = load i32, ptr %d.addr, align 4
-  %36 = load i32, ptr %len, align 4
-  call void @stbhw__draw_vline(ptr noundef %29, i32 noundef %31, i32 noundef %32, i32 noundef %add13, i32 noundef %35, i32 noundef %36, i32 noundef 4)
-  %37 = load ptr, ptr %p.addr, align 8
-  %data14 = getelementptr inbounds %struct.stbhw__process, ptr %37, i32 0, i32 4
-  %38 = load ptr, ptr %data14, align 8
-  %39 = load ptr, ptr %p.addr, align 8
-  %stride15 = getelementptr inbounds %struct.stbhw__process, ptr %39, i32 0, i32 5
-  %40 = load i32, ptr %stride15, align 8
-  %41 = load i32, ptr %xpos.addr, align 4
-  %42 = load i32, ptr %len, align 4
-  %add16 = add nsw i32 %41, %42
-  %add17 = add nsw i32 %add16, 1
-  %43 = load i32, ptr %ypos.addr, align 4
-  %44 = load i32, ptr %len, align 4
-  %add18 = add nsw i32 %43, %44
-  %add19 = add nsw i32 %add18, 1
-  %45 = load i32, ptr %e.addr, align 4
-  %46 = load i32, ptr %len, align 4
-  call void @stbhw__draw_vline(ptr noundef %38, i32 noundef %40, i32 noundef %add17, i32 noundef %add19, i32 noundef %45, i32 noundef %46, i32 noundef 5)
-  %47 = load ptr, ptr %p.addr, align 8
-  %data20 = getelementptr inbounds %struct.stbhw__process, ptr %47, i32 0, i32 4
-  %48 = load ptr, ptr %data20, align 8
-  %49 = load ptr, ptr %p.addr, align 8
-  %stride21 = getelementptr inbounds %struct.stbhw__process, ptr %49, i32 0, i32 5
-  %50 = load i32, ptr %stride21, align 8
-  %51 = load i32, ptr %xpos.addr, align 4
-  %add22 = add nsw i32 %51, 1
-  %52 = load i32, ptr %ypos.addr, align 4
-  %53 = load i32, ptr %len, align 4
-  %mul = mul nsw i32 2, %53
-  %add23 = add nsw i32 %52, %mul
-  %add24 = add nsw i32 %add23, 1
-  %54 = load i32, ptr %f.addr, align 4
-  %55 = load i32, ptr %len, align 4
-  call void @stbhw__draw_hline(ptr noundef %48, i32 noundef %50, i32 noundef %add22, i32 noundef %add24, i32 noundef %54, i32 noundef %55, i32 noundef 3)
+define void @stbhw__edge_process_v_rect(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #0 {
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  %16 = alloca i32, align 4
+  %17 = alloca i32, align 4
+  %18 = alloca i32, align 4
+  %19 = alloca i32, align 4
+  store ptr %0, ptr %10, align 8, !tbaa !8
+  store i32 %1, ptr %11, align 4, !tbaa !10
+  store i32 %2, ptr %12, align 4, !tbaa !10
+  store i32 %3, ptr %13, align 4, !tbaa !10
+  store i32 %4, ptr %14, align 4, !tbaa !10
+  store i32 %5, ptr %15, align 4, !tbaa !10
+  store i32 %6, ptr %16, align 4, !tbaa !10
+  store i32 %7, ptr %17, align 4, !tbaa !10
+  store i32 %8, ptr %18, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #6
+  %20 = load ptr, ptr %10, align 8, !tbaa !8
+  %21 = getelementptr inbounds nuw %struct.stbhw__process, ptr %20, i32 0, i32 1
+  %22 = load ptr, ptr %21, align 8, !tbaa !15
+  %23 = getelementptr inbounds nuw %struct.stbhw_config, ptr %22, i32 0, i32 1
+  %24 = load i32, ptr %23, align 4, !tbaa !16
+  store i32 %24, ptr %19, align 4, !tbaa !10
+  %25 = load ptr, ptr %10, align 8, !tbaa !8
+  %26 = getelementptr inbounds nuw %struct.stbhw__process, ptr %25, i32 0, i32 4
+  %27 = load ptr, ptr %26, align 8, !tbaa !92
+  %28 = load ptr, ptr %10, align 8, !tbaa !8
+  %29 = getelementptr inbounds nuw %struct.stbhw__process, ptr %28, i32 0, i32 5
+  %30 = load i32, ptr %29, align 8, !tbaa !93
+  %31 = load i32, ptr %11, align 4, !tbaa !10
+  %32 = add nsw i32 %31, 1
+  %33 = load i32, ptr %12, align 4, !tbaa !10
+  %34 = load i32, ptr %13, align 4, !tbaa !10
+  %35 = load i32, ptr %19, align 4, !tbaa !10
+  call void @stbhw__draw_hline(ptr noundef %27, i32 noundef %30, i32 noundef %32, i32 noundef %33, i32 noundef %34, i32 noundef %35, i32 noundef 0)
+  %36 = load ptr, ptr %10, align 8, !tbaa !8
+  %37 = getelementptr inbounds nuw %struct.stbhw__process, ptr %36, i32 0, i32 4
+  %38 = load ptr, ptr %37, align 8, !tbaa !92
+  %39 = load ptr, ptr %10, align 8, !tbaa !8
+  %40 = getelementptr inbounds nuw %struct.stbhw__process, ptr %39, i32 0, i32 5
+  %41 = load i32, ptr %40, align 8, !tbaa !93
+  %42 = load i32, ptr %11, align 4, !tbaa !10
+  %43 = load i32, ptr %12, align 4, !tbaa !10
+  %44 = add nsw i32 %43, 1
+  %45 = load i32, ptr %14, align 4, !tbaa !10
+  %46 = load i32, ptr %19, align 4, !tbaa !10
+  call void @stbhw__draw_vline(ptr noundef %38, i32 noundef %41, i32 noundef %42, i32 noundef %44, i32 noundef %45, i32 noundef %46, i32 noundef 5)
+  %47 = load ptr, ptr %10, align 8, !tbaa !8
+  %48 = getelementptr inbounds nuw %struct.stbhw__process, ptr %47, i32 0, i32 4
+  %49 = load ptr, ptr %48, align 8, !tbaa !92
+  %50 = load ptr, ptr %10, align 8, !tbaa !8
+  %51 = getelementptr inbounds nuw %struct.stbhw__process, ptr %50, i32 0, i32 5
+  %52 = load i32, ptr %51, align 8, !tbaa !93
+  %53 = load i32, ptr %11, align 4, !tbaa !10
+  %54 = load i32, ptr %19, align 4, !tbaa !10
+  %55 = add nsw i32 %53, %54
+  %56 = add nsw i32 %55, 1
+  %57 = load i32, ptr %12, align 4, !tbaa !10
+  %58 = add nsw i32 %57, 1
+  %59 = load i32, ptr %15, align 4, !tbaa !10
+  %60 = load i32, ptr %19, align 4, !tbaa !10
+  call void @stbhw__draw_vline(ptr noundef %49, i32 noundef %52, i32 noundef %56, i32 noundef %58, i32 noundef %59, i32 noundef %60, i32 noundef 1)
+  %61 = load ptr, ptr %10, align 8, !tbaa !8
+  %62 = getelementptr inbounds nuw %struct.stbhw__process, ptr %61, i32 0, i32 4
+  %63 = load ptr, ptr %62, align 8, !tbaa !92
+  %64 = load ptr, ptr %10, align 8, !tbaa !8
+  %65 = getelementptr inbounds nuw %struct.stbhw__process, ptr %64, i32 0, i32 5
+  %66 = load i32, ptr %65, align 8, !tbaa !93
+  %67 = load i32, ptr %11, align 4, !tbaa !10
+  %68 = load i32, ptr %12, align 4, !tbaa !10
+  %69 = load i32, ptr %19, align 4, !tbaa !10
+  %70 = add nsw i32 %68, %69
+  %71 = add nsw i32 %70, 1
+  %72 = load i32, ptr %16, align 4, !tbaa !10
+  %73 = load i32, ptr %19, align 4, !tbaa !10
+  call void @stbhw__draw_vline(ptr noundef %63, i32 noundef %66, i32 noundef %67, i32 noundef %71, i32 noundef %72, i32 noundef %73, i32 noundef 4)
+  %74 = load ptr, ptr %10, align 8, !tbaa !8
+  %75 = getelementptr inbounds nuw %struct.stbhw__process, ptr %74, i32 0, i32 4
+  %76 = load ptr, ptr %75, align 8, !tbaa !92
+  %77 = load ptr, ptr %10, align 8, !tbaa !8
+  %78 = getelementptr inbounds nuw %struct.stbhw__process, ptr %77, i32 0, i32 5
+  %79 = load i32, ptr %78, align 8, !tbaa !93
+  %80 = load i32, ptr %11, align 4, !tbaa !10
+  %81 = load i32, ptr %19, align 4, !tbaa !10
+  %82 = add nsw i32 %80, %81
+  %83 = add nsw i32 %82, 1
+  %84 = load i32, ptr %12, align 4, !tbaa !10
+  %85 = load i32, ptr %19, align 4, !tbaa !10
+  %86 = add nsw i32 %84, %85
+  %87 = add nsw i32 %86, 1
+  %88 = load i32, ptr %17, align 4, !tbaa !10
+  %89 = load i32, ptr %19, align 4, !tbaa !10
+  call void @stbhw__draw_vline(ptr noundef %76, i32 noundef %79, i32 noundef %83, i32 noundef %87, i32 noundef %88, i32 noundef %89, i32 noundef 5)
+  %90 = load ptr, ptr %10, align 8, !tbaa !8
+  %91 = getelementptr inbounds nuw %struct.stbhw__process, ptr %90, i32 0, i32 4
+  %92 = load ptr, ptr %91, align 8, !tbaa !92
+  %93 = load ptr, ptr %10, align 8, !tbaa !8
+  %94 = getelementptr inbounds nuw %struct.stbhw__process, ptr %93, i32 0, i32 5
+  %95 = load i32, ptr %94, align 8, !tbaa !93
+  %96 = load i32, ptr %11, align 4, !tbaa !10
+  %97 = add nsw i32 %96, 1
+  %98 = load i32, ptr %12, align 4, !tbaa !10
+  %99 = load i32, ptr %19, align 4, !tbaa !10
+  %100 = mul nsw i32 2, %99
+  %101 = add nsw i32 %98, %100
+  %102 = add nsw i32 %101, 1
+  %103 = load i32, ptr %18, align 4, !tbaa !10
+  %104 = load i32, ptr %19, align 4, !tbaa !10
+  call void @stbhw__draw_hline(ptr noundef %92, i32 noundef %95, i32 noundef %97, i32 noundef %102, i32 noundef %103, i32 noundef %104, i32 noundef 3)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #6
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbhw__corner_process_h_rect(ptr noundef %p, i32 noundef %xpos, i32 noundef %ypos, i32 noundef %a, i32 noundef %b, i32 noundef %c, i32 noundef %d, i32 noundef %e, i32 noundef %f) #0 {
-entry:
-  %p.addr = alloca ptr, align 8
-  %xpos.addr = alloca i32, align 4
-  %ypos.addr = alloca i32, align 4
-  %a.addr = alloca i32, align 4
-  %b.addr = alloca i32, align 4
-  %c.addr = alloca i32, align 4
-  %d.addr = alloca i32, align 4
-  %e.addr = alloca i32, align 4
-  %f.addr = alloca i32, align 4
-  %len = alloca i32, align 4
-  store ptr %p, ptr %p.addr, align 8
-  store i32 %xpos, ptr %xpos.addr, align 4
-  store i32 %ypos, ptr %ypos.addr, align 4
-  store i32 %a, ptr %a.addr, align 4
-  store i32 %b, ptr %b.addr, align 4
-  store i32 %c, ptr %c.addr, align 4
-  store i32 %d, ptr %d.addr, align 4
-  store i32 %e, ptr %e.addr, align 4
-  store i32 %f, ptr %f.addr, align 4
-  %0 = load ptr, ptr %p.addr, align 8
-  %c1 = getelementptr inbounds %struct.stbhw__process, ptr %0, i32 0, i32 1
-  %1 = load ptr, ptr %c1, align 8
-  %short_side_len = getelementptr inbounds %struct.stbhw_config, ptr %1, i32 0, i32 1
-  %2 = load i32, ptr %short_side_len, align 4
-  store i32 %2, ptr %len, align 4
-  %3 = load ptr, ptr %p.addr, align 8
-  %data = getelementptr inbounds %struct.stbhw__process, ptr %3, i32 0, i32 4
-  %4 = load ptr, ptr %data, align 8
-  %5 = load ptr, ptr %p.addr, align 8
-  %stride = getelementptr inbounds %struct.stbhw__process, ptr %5, i32 0, i32 5
-  %6 = load i32, ptr %stride, align 8
-  %7 = load i32, ptr %xpos.addr, align 4
-  %add = add nsw i32 %7, 1
-  %8 = load i32, ptr %ypos.addr, align 4
-  %9 = load i32, ptr %a.addr, align 4
-  %idxprom = sext i32 %9 to i64
-  %arrayidx = getelementptr inbounds [4 x [4 x i32]], ptr @stbhw__corner_colors_to_edge_color, i64 0, i64 %idxprom
-  %10 = load i32, ptr %b.addr, align 4
-  %idxprom2 = sext i32 %10 to i64
-  %arrayidx3 = getelementptr inbounds [4 x i32], ptr %arrayidx, i64 0, i64 %idxprom2
-  %11 = load i32, ptr %arrayidx3, align 4
-  %12 = load i32, ptr %len, align 4
-  call void @stbhw__draw_hline(ptr noundef %4, i32 noundef %6, i32 noundef %add, i32 noundef %8, i32 noundef %11, i32 noundef %12, i32 noundef 2)
-  %13 = load ptr, ptr %p.addr, align 8
-  %data4 = getelementptr inbounds %struct.stbhw__process, ptr %13, i32 0, i32 4
-  %14 = load ptr, ptr %data4, align 8
-  %15 = load ptr, ptr %p.addr, align 8
-  %stride5 = getelementptr inbounds %struct.stbhw__process, ptr %15, i32 0, i32 5
-  %16 = load i32, ptr %stride5, align 8
-  %17 = load i32, ptr %xpos.addr, align 4
-  %18 = load i32, ptr %len, align 4
-  %add6 = add nsw i32 %17, %18
-  %add7 = add nsw i32 %add6, 1
-  %19 = load i32, ptr %ypos.addr, align 4
-  %20 = load i32, ptr %b.addr, align 4
-  %idxprom8 = sext i32 %20 to i64
-  %arrayidx9 = getelementptr inbounds [4 x [4 x i32]], ptr @stbhw__corner_colors_to_edge_color, i64 0, i64 %idxprom8
-  %21 = load i32, ptr %c.addr, align 4
-  %idxprom10 = sext i32 %21 to i64
-  %arrayidx11 = getelementptr inbounds [4 x i32], ptr %arrayidx9, i64 0, i64 %idxprom10
-  %22 = load i32, ptr %arrayidx11, align 4
-  %23 = load i32, ptr %len, align 4
-  call void @stbhw__draw_hline(ptr noundef %14, i32 noundef %16, i32 noundef %add7, i32 noundef %19, i32 noundef %22, i32 noundef %23, i32 noundef 3)
-  %24 = load ptr, ptr %p.addr, align 8
-  %data12 = getelementptr inbounds %struct.stbhw__process, ptr %24, i32 0, i32 4
-  %25 = load ptr, ptr %data12, align 8
-  %26 = load ptr, ptr %p.addr, align 8
-  %stride13 = getelementptr inbounds %struct.stbhw__process, ptr %26, i32 0, i32 5
-  %27 = load i32, ptr %stride13, align 8
-  %28 = load i32, ptr %xpos.addr, align 4
-  %29 = load i32, ptr %ypos.addr, align 4
-  %add14 = add nsw i32 %29, 1
-  %30 = load i32, ptr %a.addr, align 4
-  %idxprom15 = sext i32 %30 to i64
-  %arrayidx16 = getelementptr inbounds [4 x [4 x i32]], ptr @stbhw__corner_colors_to_edge_color, i64 0, i64 %idxprom15
-  %31 = load i32, ptr %d.addr, align 4
-  %idxprom17 = sext i32 %31 to i64
-  %arrayidx18 = getelementptr inbounds [4 x i32], ptr %arrayidx16, i64 0, i64 %idxprom17
-  %32 = load i32, ptr %arrayidx18, align 4
-  %33 = load i32, ptr %len, align 4
-  call void @stbhw__draw_vline(ptr noundef %25, i32 noundef %27, i32 noundef %28, i32 noundef %add14, i32 noundef %32, i32 noundef %33, i32 noundef 1)
-  %34 = load ptr, ptr %p.addr, align 8
-  %data19 = getelementptr inbounds %struct.stbhw__process, ptr %34, i32 0, i32 4
-  %35 = load ptr, ptr %data19, align 8
-  %36 = load ptr, ptr %p.addr, align 8
-  %stride20 = getelementptr inbounds %struct.stbhw__process, ptr %36, i32 0, i32 5
-  %37 = load i32, ptr %stride20, align 8
-  %38 = load i32, ptr %xpos.addr, align 4
-  %39 = load i32, ptr %len, align 4
-  %mul = mul nsw i32 2, %39
-  %add21 = add nsw i32 %38, %mul
-  %add22 = add nsw i32 %add21, 1
-  %40 = load i32, ptr %ypos.addr, align 4
-  %add23 = add nsw i32 %40, 1
-  %41 = load i32, ptr %c.addr, align 4
-  %idxprom24 = sext i32 %41 to i64
-  %arrayidx25 = getelementptr inbounds [4 x [4 x i32]], ptr @stbhw__corner_colors_to_edge_color, i64 0, i64 %idxprom24
-  %42 = load i32, ptr %f.addr, align 4
-  %idxprom26 = sext i32 %42 to i64
-  %arrayidx27 = getelementptr inbounds [4 x i32], ptr %arrayidx25, i64 0, i64 %idxprom26
-  %43 = load i32, ptr %arrayidx27, align 4
-  %44 = load i32, ptr %len, align 4
-  call void @stbhw__draw_vline(ptr noundef %35, i32 noundef %37, i32 noundef %add22, i32 noundef %add23, i32 noundef %43, i32 noundef %44, i32 noundef 4)
-  %45 = load ptr, ptr %p.addr, align 8
-  %data28 = getelementptr inbounds %struct.stbhw__process, ptr %45, i32 0, i32 4
-  %46 = load ptr, ptr %data28, align 8
-  %47 = load ptr, ptr %p.addr, align 8
-  %stride29 = getelementptr inbounds %struct.stbhw__process, ptr %47, i32 0, i32 5
-  %48 = load i32, ptr %stride29, align 8
-  %49 = load i32, ptr %xpos.addr, align 4
-  %add30 = add nsw i32 %49, 1
-  %50 = load i32, ptr %ypos.addr, align 4
-  %51 = load i32, ptr %len, align 4
-  %add31 = add nsw i32 %50, %51
-  %add32 = add nsw i32 %add31, 1
-  %52 = load i32, ptr %d.addr, align 4
-  %idxprom33 = sext i32 %52 to i64
-  %arrayidx34 = getelementptr inbounds [4 x [4 x i32]], ptr @stbhw__corner_colors_to_edge_color, i64 0, i64 %idxprom33
-  %53 = load i32, ptr %e.addr, align 4
-  %idxprom35 = sext i32 %53 to i64
-  %arrayidx36 = getelementptr inbounds [4 x i32], ptr %arrayidx34, i64 0, i64 %idxprom35
-  %54 = load i32, ptr %arrayidx36, align 4
-  %55 = load i32, ptr %len, align 4
-  call void @stbhw__draw_hline(ptr noundef %46, i32 noundef %48, i32 noundef %add30, i32 noundef %add32, i32 noundef %54, i32 noundef %55, i32 noundef 0)
-  %56 = load ptr, ptr %p.addr, align 8
-  %data37 = getelementptr inbounds %struct.stbhw__process, ptr %56, i32 0, i32 4
-  %57 = load ptr, ptr %data37, align 8
-  %58 = load ptr, ptr %p.addr, align 8
-  %stride38 = getelementptr inbounds %struct.stbhw__process, ptr %58, i32 0, i32 5
-  %59 = load i32, ptr %stride38, align 8
-  %60 = load i32, ptr %xpos.addr, align 4
-  %61 = load i32, ptr %len, align 4
-  %add39 = add nsw i32 %60, %61
-  %add40 = add nsw i32 %add39, 1
-  %62 = load i32, ptr %ypos.addr, align 4
-  %63 = load i32, ptr %len, align 4
-  %add41 = add nsw i32 %62, %63
-  %add42 = add nsw i32 %add41, 1
-  %64 = load i32, ptr %e.addr, align 4
-  %idxprom43 = sext i32 %64 to i64
-  %arrayidx44 = getelementptr inbounds [4 x [4 x i32]], ptr @stbhw__corner_colors_to_edge_color, i64 0, i64 %idxprom43
-  %65 = load i32, ptr %f.addr, align 4
-  %idxprom45 = sext i32 %65 to i64
-  %arrayidx46 = getelementptr inbounds [4 x i32], ptr %arrayidx44, i64 0, i64 %idxprom45
-  %66 = load i32, ptr %arrayidx46, align 4
-  %67 = load i32, ptr %len, align 4
-  call void @stbhw__draw_hline(ptr noundef %57, i32 noundef %59, i32 noundef %add40, i32 noundef %add42, i32 noundef %66, i32 noundef %67, i32 noundef 2)
-  %68 = load ptr, ptr %p.addr, align 8
-  %c47 = getelementptr inbounds %struct.stbhw__process, ptr %68, i32 0, i32 1
-  %69 = load ptr, ptr %c47, align 8
-  %corner_type_color_template = getelementptr inbounds %struct.stbhw_config, ptr %69, i32 0, i32 5
-  %arrayidx48 = getelementptr inbounds [4 x [4 x i32]], ptr %corner_type_color_template, i64 0, i64 1
-  %70 = load i32, ptr %a.addr, align 4
-  %idxprom49 = sext i32 %70 to i64
-  %arrayidx50 = getelementptr inbounds [4 x i32], ptr %arrayidx48, i64 0, i64 %idxprom49
-  %71 = load i32, ptr %arrayidx50, align 4
-  %tobool = icmp ne i32 %71, 0
-  br i1 %tobool, label %if.then, label %if.end
+define void @stbhw__corner_process_h_rect(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #0 {
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  %16 = alloca i32, align 4
+  %17 = alloca i32, align 4
+  %18 = alloca i32, align 4
+  %19 = alloca i32, align 4
+  store ptr %0, ptr %10, align 8, !tbaa !8
+  store i32 %1, ptr %11, align 4, !tbaa !10
+  store i32 %2, ptr %12, align 4, !tbaa !10
+  store i32 %3, ptr %13, align 4, !tbaa !10
+  store i32 %4, ptr %14, align 4, !tbaa !10
+  store i32 %5, ptr %15, align 4, !tbaa !10
+  store i32 %6, ptr %16, align 4, !tbaa !10
+  store i32 %7, ptr %17, align 4, !tbaa !10
+  store i32 %8, ptr %18, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #6
+  %20 = load ptr, ptr %10, align 8, !tbaa !8
+  %21 = getelementptr inbounds nuw %struct.stbhw__process, ptr %20, i32 0, i32 1
+  %22 = load ptr, ptr %21, align 8, !tbaa !15
+  %23 = getelementptr inbounds nuw %struct.stbhw_config, ptr %22, i32 0, i32 1
+  %24 = load i32, ptr %23, align 4, !tbaa !16
+  store i32 %24, ptr %19, align 4, !tbaa !10
+  %25 = load ptr, ptr %10, align 8, !tbaa !8
+  %26 = getelementptr inbounds nuw %struct.stbhw__process, ptr %25, i32 0, i32 4
+  %27 = load ptr, ptr %26, align 8, !tbaa !92
+  %28 = load ptr, ptr %10, align 8, !tbaa !8
+  %29 = getelementptr inbounds nuw %struct.stbhw__process, ptr %28, i32 0, i32 5
+  %30 = load i32, ptr %29, align 8, !tbaa !93
+  %31 = load i32, ptr %11, align 4, !tbaa !10
+  %32 = add nsw i32 %31, 1
+  %33 = load i32, ptr %12, align 4, !tbaa !10
+  %34 = load i32, ptr %13, align 4, !tbaa !10
+  %35 = sext i32 %34 to i64
+  %36 = getelementptr inbounds [4 x [4 x i32]], ptr @stbhw__corner_colors_to_edge_color, i64 0, i64 %35
+  %37 = load i32, ptr %14, align 4, !tbaa !10
+  %38 = sext i32 %37 to i64
+  %39 = getelementptr inbounds [4 x i32], ptr %36, i64 0, i64 %38
+  %40 = load i32, ptr %39, align 4, !tbaa !10
+  %41 = load i32, ptr %19, align 4, !tbaa !10
+  call void @stbhw__draw_hline(ptr noundef %27, i32 noundef %30, i32 noundef %32, i32 noundef %33, i32 noundef %40, i32 noundef %41, i32 noundef 2)
+  %42 = load ptr, ptr %10, align 8, !tbaa !8
+  %43 = getelementptr inbounds nuw %struct.stbhw__process, ptr %42, i32 0, i32 4
+  %44 = load ptr, ptr %43, align 8, !tbaa !92
+  %45 = load ptr, ptr %10, align 8, !tbaa !8
+  %46 = getelementptr inbounds nuw %struct.stbhw__process, ptr %45, i32 0, i32 5
+  %47 = load i32, ptr %46, align 8, !tbaa !93
+  %48 = load i32, ptr %11, align 4, !tbaa !10
+  %49 = load i32, ptr %19, align 4, !tbaa !10
+  %50 = add nsw i32 %48, %49
+  %51 = add nsw i32 %50, 1
+  %52 = load i32, ptr %12, align 4, !tbaa !10
+  %53 = load i32, ptr %14, align 4, !tbaa !10
+  %54 = sext i32 %53 to i64
+  %55 = getelementptr inbounds [4 x [4 x i32]], ptr @stbhw__corner_colors_to_edge_color, i64 0, i64 %54
+  %56 = load i32, ptr %15, align 4, !tbaa !10
+  %57 = sext i32 %56 to i64
+  %58 = getelementptr inbounds [4 x i32], ptr %55, i64 0, i64 %57
+  %59 = load i32, ptr %58, align 4, !tbaa !10
+  %60 = load i32, ptr %19, align 4, !tbaa !10
+  call void @stbhw__draw_hline(ptr noundef %44, i32 noundef %47, i32 noundef %51, i32 noundef %52, i32 noundef %59, i32 noundef %60, i32 noundef 3)
+  %61 = load ptr, ptr %10, align 8, !tbaa !8
+  %62 = getelementptr inbounds nuw %struct.stbhw__process, ptr %61, i32 0, i32 4
+  %63 = load ptr, ptr %62, align 8, !tbaa !92
+  %64 = load ptr, ptr %10, align 8, !tbaa !8
+  %65 = getelementptr inbounds nuw %struct.stbhw__process, ptr %64, i32 0, i32 5
+  %66 = load i32, ptr %65, align 8, !tbaa !93
+  %67 = load i32, ptr %11, align 4, !tbaa !10
+  %68 = load i32, ptr %12, align 4, !tbaa !10
+  %69 = add nsw i32 %68, 1
+  %70 = load i32, ptr %13, align 4, !tbaa !10
+  %71 = sext i32 %70 to i64
+  %72 = getelementptr inbounds [4 x [4 x i32]], ptr @stbhw__corner_colors_to_edge_color, i64 0, i64 %71
+  %73 = load i32, ptr %16, align 4, !tbaa !10
+  %74 = sext i32 %73 to i64
+  %75 = getelementptr inbounds [4 x i32], ptr %72, i64 0, i64 %74
+  %76 = load i32, ptr %75, align 4, !tbaa !10
+  %77 = load i32, ptr %19, align 4, !tbaa !10
+  call void @stbhw__draw_vline(ptr noundef %63, i32 noundef %66, i32 noundef %67, i32 noundef %69, i32 noundef %76, i32 noundef %77, i32 noundef 1)
+  %78 = load ptr, ptr %10, align 8, !tbaa !8
+  %79 = getelementptr inbounds nuw %struct.stbhw__process, ptr %78, i32 0, i32 4
+  %80 = load ptr, ptr %79, align 8, !tbaa !92
+  %81 = load ptr, ptr %10, align 8, !tbaa !8
+  %82 = getelementptr inbounds nuw %struct.stbhw__process, ptr %81, i32 0, i32 5
+  %83 = load i32, ptr %82, align 8, !tbaa !93
+  %84 = load i32, ptr %11, align 4, !tbaa !10
+  %85 = load i32, ptr %19, align 4, !tbaa !10
+  %86 = mul nsw i32 2, %85
+  %87 = add nsw i32 %84, %86
+  %88 = add nsw i32 %87, 1
+  %89 = load i32, ptr %12, align 4, !tbaa !10
+  %90 = add nsw i32 %89, 1
+  %91 = load i32, ptr %15, align 4, !tbaa !10
+  %92 = sext i32 %91 to i64
+  %93 = getelementptr inbounds [4 x [4 x i32]], ptr @stbhw__corner_colors_to_edge_color, i64 0, i64 %92
+  %94 = load i32, ptr %18, align 4, !tbaa !10
+  %95 = sext i32 %94 to i64
+  %96 = getelementptr inbounds [4 x i32], ptr %93, i64 0, i64 %95
+  %97 = load i32, ptr %96, align 4, !tbaa !10
+  %98 = load i32, ptr %19, align 4, !tbaa !10
+  call void @stbhw__draw_vline(ptr noundef %80, i32 noundef %83, i32 noundef %88, i32 noundef %90, i32 noundef %97, i32 noundef %98, i32 noundef 4)
+  %99 = load ptr, ptr %10, align 8, !tbaa !8
+  %100 = getelementptr inbounds nuw %struct.stbhw__process, ptr %99, i32 0, i32 4
+  %101 = load ptr, ptr %100, align 8, !tbaa !92
+  %102 = load ptr, ptr %10, align 8, !tbaa !8
+  %103 = getelementptr inbounds nuw %struct.stbhw__process, ptr %102, i32 0, i32 5
+  %104 = load i32, ptr %103, align 8, !tbaa !93
+  %105 = load i32, ptr %11, align 4, !tbaa !10
+  %106 = add nsw i32 %105, 1
+  %107 = load i32, ptr %12, align 4, !tbaa !10
+  %108 = load i32, ptr %19, align 4, !tbaa !10
+  %109 = add nsw i32 %107, %108
+  %110 = add nsw i32 %109, 1
+  %111 = load i32, ptr %16, align 4, !tbaa !10
+  %112 = sext i32 %111 to i64
+  %113 = getelementptr inbounds [4 x [4 x i32]], ptr @stbhw__corner_colors_to_edge_color, i64 0, i64 %112
+  %114 = load i32, ptr %17, align 4, !tbaa !10
+  %115 = sext i32 %114 to i64
+  %116 = getelementptr inbounds [4 x i32], ptr %113, i64 0, i64 %115
+  %117 = load i32, ptr %116, align 4, !tbaa !10
+  %118 = load i32, ptr %19, align 4, !tbaa !10
+  call void @stbhw__draw_hline(ptr noundef %101, i32 noundef %104, i32 noundef %106, i32 noundef %110, i32 noundef %117, i32 noundef %118, i32 noundef 0)
+  %119 = load ptr, ptr %10, align 8, !tbaa !8
+  %120 = getelementptr inbounds nuw %struct.stbhw__process, ptr %119, i32 0, i32 4
+  %121 = load ptr, ptr %120, align 8, !tbaa !92
+  %122 = load ptr, ptr %10, align 8, !tbaa !8
+  %123 = getelementptr inbounds nuw %struct.stbhw__process, ptr %122, i32 0, i32 5
+  %124 = load i32, ptr %123, align 8, !tbaa !93
+  %125 = load i32, ptr %11, align 4, !tbaa !10
+  %126 = load i32, ptr %19, align 4, !tbaa !10
+  %127 = add nsw i32 %125, %126
+  %128 = add nsw i32 %127, 1
+  %129 = load i32, ptr %12, align 4, !tbaa !10
+  %130 = load i32, ptr %19, align 4, !tbaa !10
+  %131 = add nsw i32 %129, %130
+  %132 = add nsw i32 %131, 1
+  %133 = load i32, ptr %17, align 4, !tbaa !10
+  %134 = sext i32 %133 to i64
+  %135 = getelementptr inbounds [4 x [4 x i32]], ptr @stbhw__corner_colors_to_edge_color, i64 0, i64 %134
+  %136 = load i32, ptr %18, align 4, !tbaa !10
+  %137 = sext i32 %136 to i64
+  %138 = getelementptr inbounds [4 x i32], ptr %135, i64 0, i64 %137
+  %139 = load i32, ptr %138, align 4, !tbaa !10
+  %140 = load i32, ptr %19, align 4, !tbaa !10
+  call void @stbhw__draw_hline(ptr noundef %121, i32 noundef %124, i32 noundef %128, i32 noundef %132, i32 noundef %139, i32 noundef %140, i32 noundef 2)
+  %141 = load ptr, ptr %10, align 8, !tbaa !8
+  %142 = getelementptr inbounds nuw %struct.stbhw__process, ptr %141, i32 0, i32 1
+  %143 = load ptr, ptr %142, align 8, !tbaa !15
+  %144 = getelementptr inbounds nuw %struct.stbhw_config, ptr %143, i32 0, i32 5
+  %145 = getelementptr inbounds [4 x [4 x i32]], ptr %144, i64 0, i64 1
+  %146 = load i32, ptr %13, align 4, !tbaa !10
+  %147 = sext i32 %146 to i64
+  %148 = getelementptr inbounds [4 x i32], ptr %145, i64 0, i64 %147
+  %149 = load i32, ptr %148, align 4, !tbaa !10
+  %150 = icmp ne i32 %149, 0
+  br i1 %150, label %151, label %163
 
-if.then:                                          ; preds = %entry
-  %72 = load ptr, ptr %p.addr, align 8
-  %data51 = getelementptr inbounds %struct.stbhw__process, ptr %72, i32 0, i32 4
-  %73 = load ptr, ptr %data51, align 8
-  %74 = load ptr, ptr %p.addr, align 8
-  %stride52 = getelementptr inbounds %struct.stbhw__process, ptr %74, i32 0, i32 5
-  %75 = load i32, ptr %stride52, align 8
-  %76 = load i32, ptr %xpos.addr, align 4
-  %77 = load i32, ptr %ypos.addr, align 4
-  %78 = load i32, ptr %len, align 4
-  %mul53 = mul nsw i32 %78, 2
-  %79 = load i32, ptr %len, align 4
-  call void @stbhw__draw_clipped_corner(ptr noundef %73, i32 noundef %75, i32 noundef %76, i32 noundef %77, i32 noundef %mul53, i32 noundef %79, i32 noundef 1, i32 noundef 1)
-  br label %if.end
+151:                                              ; preds = %9
+  %152 = load ptr, ptr %10, align 8, !tbaa !8
+  %153 = getelementptr inbounds nuw %struct.stbhw__process, ptr %152, i32 0, i32 4
+  %154 = load ptr, ptr %153, align 8, !tbaa !92
+  %155 = load ptr, ptr %10, align 8, !tbaa !8
+  %156 = getelementptr inbounds nuw %struct.stbhw__process, ptr %155, i32 0, i32 5
+  %157 = load i32, ptr %156, align 8, !tbaa !93
+  %158 = load i32, ptr %11, align 4, !tbaa !10
+  %159 = load i32, ptr %12, align 4, !tbaa !10
+  %160 = load i32, ptr %19, align 4, !tbaa !10
+  %161 = mul nsw i32 %160, 2
+  %162 = load i32, ptr %19, align 4, !tbaa !10
+  call void @stbhw__draw_clipped_corner(ptr noundef %154, i32 noundef %157, i32 noundef %158, i32 noundef %159, i32 noundef %161, i32 noundef %162, i32 noundef 1, i32 noundef 1)
+  br label %163
 
-if.end:                                           ; preds = %if.then, %entry
-  %80 = load ptr, ptr %p.addr, align 8
-  %c54 = getelementptr inbounds %struct.stbhw__process, ptr %80, i32 0, i32 1
-  %81 = load ptr, ptr %c54, align 8
-  %corner_type_color_template55 = getelementptr inbounds %struct.stbhw_config, ptr %81, i32 0, i32 5
-  %arrayidx56 = getelementptr inbounds [4 x [4 x i32]], ptr %corner_type_color_template55, i64 0, i64 2
-  %82 = load i32, ptr %b.addr, align 4
-  %idxprom57 = sext i32 %82 to i64
-  %arrayidx58 = getelementptr inbounds [4 x i32], ptr %arrayidx56, i64 0, i64 %idxprom57
-  %83 = load i32, ptr %arrayidx58, align 4
-  %tobool59 = icmp ne i32 %83, 0
-  br i1 %tobool59, label %if.then60, label %if.end65
+163:                                              ; preds = %151, %9
+  %164 = load ptr, ptr %10, align 8, !tbaa !8
+  %165 = getelementptr inbounds nuw %struct.stbhw__process, ptr %164, i32 0, i32 1
+  %166 = load ptr, ptr %165, align 8, !tbaa !15
+  %167 = getelementptr inbounds nuw %struct.stbhw_config, ptr %166, i32 0, i32 5
+  %168 = getelementptr inbounds [4 x [4 x i32]], ptr %167, i64 0, i64 2
+  %169 = load i32, ptr %14, align 4, !tbaa !10
+  %170 = sext i32 %169 to i64
+  %171 = getelementptr inbounds [4 x i32], ptr %168, i64 0, i64 %170
+  %172 = load i32, ptr %171, align 4, !tbaa !10
+  %173 = icmp ne i32 %172, 0
+  br i1 %173, label %174, label %188
 
-if.then60:                                        ; preds = %if.end
-  %84 = load ptr, ptr %p.addr, align 8
-  %data61 = getelementptr inbounds %struct.stbhw__process, ptr %84, i32 0, i32 4
-  %85 = load ptr, ptr %data61, align 8
-  %86 = load ptr, ptr %p.addr, align 8
-  %stride62 = getelementptr inbounds %struct.stbhw__process, ptr %86, i32 0, i32 5
-  %87 = load i32, ptr %stride62, align 8
-  %88 = load i32, ptr %xpos.addr, align 4
-  %89 = load i32, ptr %ypos.addr, align 4
-  %90 = load i32, ptr %len, align 4
-  %mul63 = mul nsw i32 %90, 2
-  %91 = load i32, ptr %len, align 4
-  %92 = load i32, ptr %len, align 4
-  %add64 = add nsw i32 %92, 1
-  call void @stbhw__draw_clipped_corner(ptr noundef %85, i32 noundef %87, i32 noundef %88, i32 noundef %89, i32 noundef %mul63, i32 noundef %91, i32 noundef %add64, i32 noundef 1)
-  br label %if.end65
+174:                                              ; preds = %163
+  %175 = load ptr, ptr %10, align 8, !tbaa !8
+  %176 = getelementptr inbounds nuw %struct.stbhw__process, ptr %175, i32 0, i32 4
+  %177 = load ptr, ptr %176, align 8, !tbaa !92
+  %178 = load ptr, ptr %10, align 8, !tbaa !8
+  %179 = getelementptr inbounds nuw %struct.stbhw__process, ptr %178, i32 0, i32 5
+  %180 = load i32, ptr %179, align 8, !tbaa !93
+  %181 = load i32, ptr %11, align 4, !tbaa !10
+  %182 = load i32, ptr %12, align 4, !tbaa !10
+  %183 = load i32, ptr %19, align 4, !tbaa !10
+  %184 = mul nsw i32 %183, 2
+  %185 = load i32, ptr %19, align 4, !tbaa !10
+  %186 = load i32, ptr %19, align 4, !tbaa !10
+  %187 = add nsw i32 %186, 1
+  call void @stbhw__draw_clipped_corner(ptr noundef %177, i32 noundef %180, i32 noundef %181, i32 noundef %182, i32 noundef %184, i32 noundef %185, i32 noundef %187, i32 noundef 1)
+  br label %188
 
-if.end65:                                         ; preds = %if.then60, %if.end
-  %93 = load ptr, ptr %p.addr, align 8
-  %c66 = getelementptr inbounds %struct.stbhw__process, ptr %93, i32 0, i32 1
-  %94 = load ptr, ptr %c66, align 8
-  %corner_type_color_template67 = getelementptr inbounds %struct.stbhw_config, ptr %94, i32 0, i32 5
-  %arrayidx68 = getelementptr inbounds [4 x [4 x i32]], ptr %corner_type_color_template67, i64 0, i64 3
-  %95 = load i32, ptr %c.addr, align 4
-  %idxprom69 = sext i32 %95 to i64
-  %arrayidx70 = getelementptr inbounds [4 x i32], ptr %arrayidx68, i64 0, i64 %idxprom69
-  %96 = load i32, ptr %arrayidx70, align 4
-  %tobool71 = icmp ne i32 %96, 0
-  br i1 %tobool71, label %if.then72, label %if.end78
+188:                                              ; preds = %174, %163
+  %189 = load ptr, ptr %10, align 8, !tbaa !8
+  %190 = getelementptr inbounds nuw %struct.stbhw__process, ptr %189, i32 0, i32 1
+  %191 = load ptr, ptr %190, align 8, !tbaa !15
+  %192 = getelementptr inbounds nuw %struct.stbhw_config, ptr %191, i32 0, i32 5
+  %193 = getelementptr inbounds [4 x [4 x i32]], ptr %192, i64 0, i64 3
+  %194 = load i32, ptr %15, align 4, !tbaa !10
+  %195 = sext i32 %194 to i64
+  %196 = getelementptr inbounds [4 x i32], ptr %193, i64 0, i64 %195
+  %197 = load i32, ptr %196, align 4, !tbaa !10
+  %198 = icmp ne i32 %197, 0
+  br i1 %198, label %199, label %214
 
-if.then72:                                        ; preds = %if.end65
-  %97 = load ptr, ptr %p.addr, align 8
-  %data73 = getelementptr inbounds %struct.stbhw__process, ptr %97, i32 0, i32 4
-  %98 = load ptr, ptr %data73, align 8
-  %99 = load ptr, ptr %p.addr, align 8
-  %stride74 = getelementptr inbounds %struct.stbhw__process, ptr %99, i32 0, i32 5
-  %100 = load i32, ptr %stride74, align 8
-  %101 = load i32, ptr %xpos.addr, align 4
-  %102 = load i32, ptr %ypos.addr, align 4
-  %103 = load i32, ptr %len, align 4
-  %mul75 = mul nsw i32 %103, 2
-  %104 = load i32, ptr %len, align 4
-  %105 = load i32, ptr %len, align 4
-  %mul76 = mul nsw i32 %105, 2
-  %add77 = add nsw i32 %mul76, 1
-  call void @stbhw__draw_clipped_corner(ptr noundef %98, i32 noundef %100, i32 noundef %101, i32 noundef %102, i32 noundef %mul75, i32 noundef %104, i32 noundef %add77, i32 noundef 1)
-  br label %if.end78
+199:                                              ; preds = %188
+  %200 = load ptr, ptr %10, align 8, !tbaa !8
+  %201 = getelementptr inbounds nuw %struct.stbhw__process, ptr %200, i32 0, i32 4
+  %202 = load ptr, ptr %201, align 8, !tbaa !92
+  %203 = load ptr, ptr %10, align 8, !tbaa !8
+  %204 = getelementptr inbounds nuw %struct.stbhw__process, ptr %203, i32 0, i32 5
+  %205 = load i32, ptr %204, align 8, !tbaa !93
+  %206 = load i32, ptr %11, align 4, !tbaa !10
+  %207 = load i32, ptr %12, align 4, !tbaa !10
+  %208 = load i32, ptr %19, align 4, !tbaa !10
+  %209 = mul nsw i32 %208, 2
+  %210 = load i32, ptr %19, align 4, !tbaa !10
+  %211 = load i32, ptr %19, align 4, !tbaa !10
+  %212 = mul nsw i32 %211, 2
+  %213 = add nsw i32 %212, 1
+  call void @stbhw__draw_clipped_corner(ptr noundef %202, i32 noundef %205, i32 noundef %206, i32 noundef %207, i32 noundef %209, i32 noundef %210, i32 noundef %213, i32 noundef 1)
+  br label %214
 
-if.end78:                                         ; preds = %if.then72, %if.end65
-  %106 = load ptr, ptr %p.addr, align 8
-  %c79 = getelementptr inbounds %struct.stbhw__process, ptr %106, i32 0, i32 1
-  %107 = load ptr, ptr %c79, align 8
-  %corner_type_color_template80 = getelementptr inbounds %struct.stbhw_config, ptr %107, i32 0, i32 5
-  %arrayidx81 = getelementptr inbounds [4 x [4 x i32]], ptr %corner_type_color_template80, i64 0, i64 0
-  %108 = load i32, ptr %d.addr, align 4
-  %idxprom82 = sext i32 %108 to i64
-  %arrayidx83 = getelementptr inbounds [4 x i32], ptr %arrayidx81, i64 0, i64 %idxprom82
-  %109 = load i32, ptr %arrayidx83, align 4
-  %tobool84 = icmp ne i32 %109, 0
-  br i1 %tobool84, label %if.then85, label %if.end90
+214:                                              ; preds = %199, %188
+  %215 = load ptr, ptr %10, align 8, !tbaa !8
+  %216 = getelementptr inbounds nuw %struct.stbhw__process, ptr %215, i32 0, i32 1
+  %217 = load ptr, ptr %216, align 8, !tbaa !15
+  %218 = getelementptr inbounds nuw %struct.stbhw_config, ptr %217, i32 0, i32 5
+  %219 = getelementptr inbounds [4 x [4 x i32]], ptr %218, i64 0, i64 0
+  %220 = load i32, ptr %16, align 4, !tbaa !10
+  %221 = sext i32 %220 to i64
+  %222 = getelementptr inbounds [4 x i32], ptr %219, i64 0, i64 %221
+  %223 = load i32, ptr %222, align 4, !tbaa !10
+  %224 = icmp ne i32 %223, 0
+  br i1 %224, label %225, label %239
 
-if.then85:                                        ; preds = %if.end78
-  %110 = load ptr, ptr %p.addr, align 8
-  %data86 = getelementptr inbounds %struct.stbhw__process, ptr %110, i32 0, i32 4
-  %111 = load ptr, ptr %data86, align 8
-  %112 = load ptr, ptr %p.addr, align 8
-  %stride87 = getelementptr inbounds %struct.stbhw__process, ptr %112, i32 0, i32 5
-  %113 = load i32, ptr %stride87, align 8
-  %114 = load i32, ptr %xpos.addr, align 4
-  %115 = load i32, ptr %ypos.addr, align 4
-  %116 = load i32, ptr %len, align 4
-  %mul88 = mul nsw i32 %116, 2
-  %117 = load i32, ptr %len, align 4
-  %118 = load i32, ptr %len, align 4
-  %add89 = add nsw i32 %118, 1
-  call void @stbhw__draw_clipped_corner(ptr noundef %111, i32 noundef %113, i32 noundef %114, i32 noundef %115, i32 noundef %mul88, i32 noundef %117, i32 noundef 1, i32 noundef %add89)
-  br label %if.end90
+225:                                              ; preds = %214
+  %226 = load ptr, ptr %10, align 8, !tbaa !8
+  %227 = getelementptr inbounds nuw %struct.stbhw__process, ptr %226, i32 0, i32 4
+  %228 = load ptr, ptr %227, align 8, !tbaa !92
+  %229 = load ptr, ptr %10, align 8, !tbaa !8
+  %230 = getelementptr inbounds nuw %struct.stbhw__process, ptr %229, i32 0, i32 5
+  %231 = load i32, ptr %230, align 8, !tbaa !93
+  %232 = load i32, ptr %11, align 4, !tbaa !10
+  %233 = load i32, ptr %12, align 4, !tbaa !10
+  %234 = load i32, ptr %19, align 4, !tbaa !10
+  %235 = mul nsw i32 %234, 2
+  %236 = load i32, ptr %19, align 4, !tbaa !10
+  %237 = load i32, ptr %19, align 4, !tbaa !10
+  %238 = add nsw i32 %237, 1
+  call void @stbhw__draw_clipped_corner(ptr noundef %228, i32 noundef %231, i32 noundef %232, i32 noundef %233, i32 noundef %235, i32 noundef %236, i32 noundef 1, i32 noundef %238)
+  br label %239
 
-if.end90:                                         ; preds = %if.then85, %if.end78
-  %119 = load ptr, ptr %p.addr, align 8
-  %c91 = getelementptr inbounds %struct.stbhw__process, ptr %119, i32 0, i32 1
-  %120 = load ptr, ptr %c91, align 8
-  %corner_type_color_template92 = getelementptr inbounds %struct.stbhw_config, ptr %120, i32 0, i32 5
-  %arrayidx93 = getelementptr inbounds [4 x [4 x i32]], ptr %corner_type_color_template92, i64 0, i64 1
-  %121 = load i32, ptr %e.addr, align 4
-  %idxprom94 = sext i32 %121 to i64
-  %arrayidx95 = getelementptr inbounds [4 x i32], ptr %arrayidx93, i64 0, i64 %idxprom94
-  %122 = load i32, ptr %arrayidx95, align 4
-  %tobool96 = icmp ne i32 %122, 0
-  br i1 %tobool96, label %if.then97, label %if.end103
+239:                                              ; preds = %225, %214
+  %240 = load ptr, ptr %10, align 8, !tbaa !8
+  %241 = getelementptr inbounds nuw %struct.stbhw__process, ptr %240, i32 0, i32 1
+  %242 = load ptr, ptr %241, align 8, !tbaa !15
+  %243 = getelementptr inbounds nuw %struct.stbhw_config, ptr %242, i32 0, i32 5
+  %244 = getelementptr inbounds [4 x [4 x i32]], ptr %243, i64 0, i64 1
+  %245 = load i32, ptr %17, align 4, !tbaa !10
+  %246 = sext i32 %245 to i64
+  %247 = getelementptr inbounds [4 x i32], ptr %244, i64 0, i64 %246
+  %248 = load i32, ptr %247, align 4, !tbaa !10
+  %249 = icmp ne i32 %248, 0
+  br i1 %249, label %250, label %266
 
-if.then97:                                        ; preds = %if.end90
-  %123 = load ptr, ptr %p.addr, align 8
-  %data98 = getelementptr inbounds %struct.stbhw__process, ptr %123, i32 0, i32 4
-  %124 = load ptr, ptr %data98, align 8
-  %125 = load ptr, ptr %p.addr, align 8
-  %stride99 = getelementptr inbounds %struct.stbhw__process, ptr %125, i32 0, i32 5
-  %126 = load i32, ptr %stride99, align 8
-  %127 = load i32, ptr %xpos.addr, align 4
-  %128 = load i32, ptr %ypos.addr, align 4
-  %129 = load i32, ptr %len, align 4
-  %mul100 = mul nsw i32 %129, 2
-  %130 = load i32, ptr %len, align 4
-  %131 = load i32, ptr %len, align 4
-  %add101 = add nsw i32 %131, 1
-  %132 = load i32, ptr %len, align 4
-  %add102 = add nsw i32 %132, 1
-  call void @stbhw__draw_clipped_corner(ptr noundef %124, i32 noundef %126, i32 noundef %127, i32 noundef %128, i32 noundef %mul100, i32 noundef %130, i32 noundef %add101, i32 noundef %add102)
-  br label %if.end103
+250:                                              ; preds = %239
+  %251 = load ptr, ptr %10, align 8, !tbaa !8
+  %252 = getelementptr inbounds nuw %struct.stbhw__process, ptr %251, i32 0, i32 4
+  %253 = load ptr, ptr %252, align 8, !tbaa !92
+  %254 = load ptr, ptr %10, align 8, !tbaa !8
+  %255 = getelementptr inbounds nuw %struct.stbhw__process, ptr %254, i32 0, i32 5
+  %256 = load i32, ptr %255, align 8, !tbaa !93
+  %257 = load i32, ptr %11, align 4, !tbaa !10
+  %258 = load i32, ptr %12, align 4, !tbaa !10
+  %259 = load i32, ptr %19, align 4, !tbaa !10
+  %260 = mul nsw i32 %259, 2
+  %261 = load i32, ptr %19, align 4, !tbaa !10
+  %262 = load i32, ptr %19, align 4, !tbaa !10
+  %263 = add nsw i32 %262, 1
+  %264 = load i32, ptr %19, align 4, !tbaa !10
+  %265 = add nsw i32 %264, 1
+  call void @stbhw__draw_clipped_corner(ptr noundef %253, i32 noundef %256, i32 noundef %257, i32 noundef %258, i32 noundef %260, i32 noundef %261, i32 noundef %263, i32 noundef %265)
+  br label %266
 
-if.end103:                                        ; preds = %if.then97, %if.end90
-  %133 = load ptr, ptr %p.addr, align 8
-  %c104 = getelementptr inbounds %struct.stbhw__process, ptr %133, i32 0, i32 1
-  %134 = load ptr, ptr %c104, align 8
-  %corner_type_color_template105 = getelementptr inbounds %struct.stbhw_config, ptr %134, i32 0, i32 5
-  %arrayidx106 = getelementptr inbounds [4 x [4 x i32]], ptr %corner_type_color_template105, i64 0, i64 2
-  %135 = load i32, ptr %f.addr, align 4
-  %idxprom107 = sext i32 %135 to i64
-  %arrayidx108 = getelementptr inbounds [4 x i32], ptr %arrayidx106, i64 0, i64 %idxprom107
-  %136 = load i32, ptr %arrayidx108, align 4
-  %tobool109 = icmp ne i32 %136, 0
-  br i1 %tobool109, label %if.then110, label %if.end117
+266:                                              ; preds = %250, %239
+  %267 = load ptr, ptr %10, align 8, !tbaa !8
+  %268 = getelementptr inbounds nuw %struct.stbhw__process, ptr %267, i32 0, i32 1
+  %269 = load ptr, ptr %268, align 8, !tbaa !15
+  %270 = getelementptr inbounds nuw %struct.stbhw_config, ptr %269, i32 0, i32 5
+  %271 = getelementptr inbounds [4 x [4 x i32]], ptr %270, i64 0, i64 2
+  %272 = load i32, ptr %18, align 4, !tbaa !10
+  %273 = sext i32 %272 to i64
+  %274 = getelementptr inbounds [4 x i32], ptr %271, i64 0, i64 %273
+  %275 = load i32, ptr %274, align 4, !tbaa !10
+  %276 = icmp ne i32 %275, 0
+  br i1 %276, label %277, label %294
 
-if.then110:                                       ; preds = %if.end103
-  %137 = load ptr, ptr %p.addr, align 8
-  %data111 = getelementptr inbounds %struct.stbhw__process, ptr %137, i32 0, i32 4
-  %138 = load ptr, ptr %data111, align 8
-  %139 = load ptr, ptr %p.addr, align 8
-  %stride112 = getelementptr inbounds %struct.stbhw__process, ptr %139, i32 0, i32 5
-  %140 = load i32, ptr %stride112, align 8
-  %141 = load i32, ptr %xpos.addr, align 4
-  %142 = load i32, ptr %ypos.addr, align 4
-  %143 = load i32, ptr %len, align 4
-  %mul113 = mul nsw i32 %143, 2
-  %144 = load i32, ptr %len, align 4
-  %145 = load i32, ptr %len, align 4
-  %mul114 = mul nsw i32 %145, 2
-  %add115 = add nsw i32 %mul114, 1
-  %146 = load i32, ptr %len, align 4
-  %add116 = add nsw i32 %146, 1
-  call void @stbhw__draw_clipped_corner(ptr noundef %138, i32 noundef %140, i32 noundef %141, i32 noundef %142, i32 noundef %mul113, i32 noundef %144, i32 noundef %add115, i32 noundef %add116)
-  br label %if.end117
+277:                                              ; preds = %266
+  %278 = load ptr, ptr %10, align 8, !tbaa !8
+  %279 = getelementptr inbounds nuw %struct.stbhw__process, ptr %278, i32 0, i32 4
+  %280 = load ptr, ptr %279, align 8, !tbaa !92
+  %281 = load ptr, ptr %10, align 8, !tbaa !8
+  %282 = getelementptr inbounds nuw %struct.stbhw__process, ptr %281, i32 0, i32 5
+  %283 = load i32, ptr %282, align 8, !tbaa !93
+  %284 = load i32, ptr %11, align 4, !tbaa !10
+  %285 = load i32, ptr %12, align 4, !tbaa !10
+  %286 = load i32, ptr %19, align 4, !tbaa !10
+  %287 = mul nsw i32 %286, 2
+  %288 = load i32, ptr %19, align 4, !tbaa !10
+  %289 = load i32, ptr %19, align 4, !tbaa !10
+  %290 = mul nsw i32 %289, 2
+  %291 = add nsw i32 %290, 1
+  %292 = load i32, ptr %19, align 4, !tbaa !10
+  %293 = add nsw i32 %292, 1
+  call void @stbhw__draw_clipped_corner(ptr noundef %280, i32 noundef %283, i32 noundef %284, i32 noundef %285, i32 noundef %287, i32 noundef %288, i32 noundef %291, i32 noundef %293)
+  br label %294
 
-if.end117:                                        ; preds = %if.then110, %if.end103
-  %147 = load ptr, ptr %p.addr, align 8
-  %data118 = getelementptr inbounds %struct.stbhw__process, ptr %147, i32 0, i32 4
-  %148 = load ptr, ptr %data118, align 8
-  %149 = load ptr, ptr %p.addr, align 8
-  %stride119 = getelementptr inbounds %struct.stbhw__process, ptr %149, i32 0, i32 5
-  %150 = load i32, ptr %stride119, align 8
-  %151 = load i32, ptr %xpos.addr, align 4
-  %152 = load i32, ptr %ypos.addr, align 4
-  %153 = load i32, ptr %a.addr, align 4
-  %idxprom120 = sext i32 %153 to i64
-  %154 = getelementptr inbounds [4 x [4 x [3 x i8]]], ptr @stbhw__corner_colors, i64 0, i64 1
-  %arrayidx121 = getelementptr inbounds [4 x [3 x i8]], ptr %154, i64 0, i64 %idxprom120
-  %arraydecay = getelementptr inbounds [3 x i8], ptr %arrayidx121, i64 0, i64 0
-  call void @stbhw__set_pixel(ptr noundef %148, i32 noundef %150, i32 noundef %151, i32 noundef %152, ptr noundef %arraydecay)
-  %155 = load ptr, ptr %p.addr, align 8
-  %data122 = getelementptr inbounds %struct.stbhw__process, ptr %155, i32 0, i32 4
-  %156 = load ptr, ptr %data122, align 8
-  %157 = load ptr, ptr %p.addr, align 8
-  %stride123 = getelementptr inbounds %struct.stbhw__process, ptr %157, i32 0, i32 5
-  %158 = load i32, ptr %stride123, align 8
-  %159 = load i32, ptr %xpos.addr, align 4
-  %160 = load i32, ptr %len, align 4
-  %add124 = add nsw i32 %159, %160
-  %161 = load i32, ptr %ypos.addr, align 4
-  %162 = load i32, ptr %b.addr, align 4
-  %idxprom125 = sext i32 %162 to i64
-  %163 = getelementptr inbounds [4 x [4 x [3 x i8]]], ptr @stbhw__corner_colors, i64 0, i64 2
-  %arrayidx126 = getelementptr inbounds [4 x [3 x i8]], ptr %163, i64 0, i64 %idxprom125
-  %arraydecay127 = getelementptr inbounds [3 x i8], ptr %arrayidx126, i64 0, i64 0
-  call void @stbhw__set_pixel(ptr noundef %156, i32 noundef %158, i32 noundef %add124, i32 noundef %161, ptr noundef %arraydecay127)
-  %164 = load ptr, ptr %p.addr, align 8
-  %data128 = getelementptr inbounds %struct.stbhw__process, ptr %164, i32 0, i32 4
-  %165 = load ptr, ptr %data128, align 8
-  %166 = load ptr, ptr %p.addr, align 8
-  %stride129 = getelementptr inbounds %struct.stbhw__process, ptr %166, i32 0, i32 5
-  %167 = load i32, ptr %stride129, align 8
-  %168 = load i32, ptr %xpos.addr, align 4
-  %169 = load i32, ptr %len, align 4
-  %mul130 = mul nsw i32 2, %169
-  %add131 = add nsw i32 %168, %mul130
-  %add132 = add nsw i32 %add131, 1
-  %170 = load i32, ptr %ypos.addr, align 4
-  %171 = load i32, ptr %c.addr, align 4
-  %idxprom133 = sext i32 %171 to i64
-  %172 = getelementptr inbounds [4 x [4 x [3 x i8]]], ptr @stbhw__corner_colors, i64 0, i64 3
-  %arrayidx134 = getelementptr inbounds [4 x [3 x i8]], ptr %172, i64 0, i64 %idxprom133
-  %arraydecay135 = getelementptr inbounds [3 x i8], ptr %arrayidx134, i64 0, i64 0
-  call void @stbhw__set_pixel(ptr noundef %165, i32 noundef %167, i32 noundef %add132, i32 noundef %170, ptr noundef %arraydecay135)
-  %173 = load ptr, ptr %p.addr, align 8
-  %data136 = getelementptr inbounds %struct.stbhw__process, ptr %173, i32 0, i32 4
-  %174 = load ptr, ptr %data136, align 8
-  %175 = load ptr, ptr %p.addr, align 8
-  %stride137 = getelementptr inbounds %struct.stbhw__process, ptr %175, i32 0, i32 5
-  %176 = load i32, ptr %stride137, align 8
-  %177 = load i32, ptr %xpos.addr, align 4
-  %178 = load i32, ptr %ypos.addr, align 4
-  %179 = load i32, ptr %len, align 4
-  %add138 = add nsw i32 %178, %179
-  %add139 = add nsw i32 %add138, 1
-  %180 = load i32, ptr %d.addr, align 4
-  %idxprom140 = sext i32 %180 to i64
-  %arrayidx141 = getelementptr inbounds [4 x [3 x i8]], ptr @stbhw__corner_colors, i64 0, i64 %idxprom140
-  %arraydecay142 = getelementptr inbounds [3 x i8], ptr %arrayidx141, i64 0, i64 0
-  call void @stbhw__set_pixel(ptr noundef %174, i32 noundef %176, i32 noundef %177, i32 noundef %add139, ptr noundef %arraydecay142)
-  %181 = load ptr, ptr %p.addr, align 8
-  %data143 = getelementptr inbounds %struct.stbhw__process, ptr %181, i32 0, i32 4
-  %182 = load ptr, ptr %data143, align 8
-  %183 = load ptr, ptr %p.addr, align 8
-  %stride144 = getelementptr inbounds %struct.stbhw__process, ptr %183, i32 0, i32 5
-  %184 = load i32, ptr %stride144, align 8
-  %185 = load i32, ptr %xpos.addr, align 4
-  %186 = load i32, ptr %len, align 4
-  %add145 = add nsw i32 %185, %186
-  %187 = load i32, ptr %ypos.addr, align 4
-  %188 = load i32, ptr %len, align 4
-  %add146 = add nsw i32 %187, %188
-  %add147 = add nsw i32 %add146, 1
-  %189 = load i32, ptr %e.addr, align 4
-  %idxprom148 = sext i32 %189 to i64
-  %190 = getelementptr inbounds [4 x [4 x [3 x i8]]], ptr @stbhw__corner_colors, i64 0, i64 1
-  %arrayidx149 = getelementptr inbounds [4 x [3 x i8]], ptr %190, i64 0, i64 %idxprom148
-  %arraydecay150 = getelementptr inbounds [3 x i8], ptr %arrayidx149, i64 0, i64 0
-  call void @stbhw__set_pixel(ptr noundef %182, i32 noundef %184, i32 noundef %add145, i32 noundef %add147, ptr noundef %arraydecay150)
-  %191 = load ptr, ptr %p.addr, align 8
-  %data151 = getelementptr inbounds %struct.stbhw__process, ptr %191, i32 0, i32 4
-  %192 = load ptr, ptr %data151, align 8
-  %193 = load ptr, ptr %p.addr, align 8
-  %stride152 = getelementptr inbounds %struct.stbhw__process, ptr %193, i32 0, i32 5
-  %194 = load i32, ptr %stride152, align 8
-  %195 = load i32, ptr %xpos.addr, align 4
-  %196 = load i32, ptr %len, align 4
-  %mul153 = mul nsw i32 2, %196
-  %add154 = add nsw i32 %195, %mul153
-  %add155 = add nsw i32 %add154, 1
-  %197 = load i32, ptr %ypos.addr, align 4
-  %198 = load i32, ptr %len, align 4
-  %add156 = add nsw i32 %197, %198
-  %add157 = add nsw i32 %add156, 1
-  %199 = load i32, ptr %f.addr, align 4
-  %idxprom158 = sext i32 %199 to i64
-  %200 = getelementptr inbounds [4 x [4 x [3 x i8]]], ptr @stbhw__corner_colors, i64 0, i64 2
-  %arrayidx159 = getelementptr inbounds [4 x [3 x i8]], ptr %200, i64 0, i64 %idxprom158
-  %arraydecay160 = getelementptr inbounds [3 x i8], ptr %arrayidx159, i64 0, i64 0
-  call void @stbhw__set_pixel(ptr noundef %192, i32 noundef %194, i32 noundef %add155, i32 noundef %add157, ptr noundef %arraydecay160)
+294:                                              ; preds = %277, %266
+  %295 = load ptr, ptr %10, align 8, !tbaa !8
+  %296 = getelementptr inbounds nuw %struct.stbhw__process, ptr %295, i32 0, i32 4
+  %297 = load ptr, ptr %296, align 8, !tbaa !92
+  %298 = load ptr, ptr %10, align 8, !tbaa !8
+  %299 = getelementptr inbounds nuw %struct.stbhw__process, ptr %298, i32 0, i32 5
+  %300 = load i32, ptr %299, align 8, !tbaa !93
+  %301 = load i32, ptr %11, align 4, !tbaa !10
+  %302 = load i32, ptr %12, align 4, !tbaa !10
+  %303 = load i32, ptr %13, align 4, !tbaa !10
+  %304 = sext i32 %303 to i64
+  %305 = getelementptr inbounds [4 x [3 x i8]], ptr getelementptr inbounds ([4 x [4 x [3 x i8]]], ptr @stbhw__corner_colors, i64 0, i64 1), i64 0, i64 %304
+  %306 = getelementptr inbounds [3 x i8], ptr %305, i64 0, i64 0
+  call void @stbhw__set_pixel(ptr noundef %297, i32 noundef %300, i32 noundef %301, i32 noundef %302, ptr noundef %306)
+  %307 = load ptr, ptr %10, align 8, !tbaa !8
+  %308 = getelementptr inbounds nuw %struct.stbhw__process, ptr %307, i32 0, i32 4
+  %309 = load ptr, ptr %308, align 8, !tbaa !92
+  %310 = load ptr, ptr %10, align 8, !tbaa !8
+  %311 = getelementptr inbounds nuw %struct.stbhw__process, ptr %310, i32 0, i32 5
+  %312 = load i32, ptr %311, align 8, !tbaa !93
+  %313 = load i32, ptr %11, align 4, !tbaa !10
+  %314 = load i32, ptr %19, align 4, !tbaa !10
+  %315 = add nsw i32 %313, %314
+  %316 = load i32, ptr %12, align 4, !tbaa !10
+  %317 = load i32, ptr %14, align 4, !tbaa !10
+  %318 = sext i32 %317 to i64
+  %319 = getelementptr inbounds [4 x [3 x i8]], ptr getelementptr inbounds ([4 x [4 x [3 x i8]]], ptr @stbhw__corner_colors, i64 0, i64 2), i64 0, i64 %318
+  %320 = getelementptr inbounds [3 x i8], ptr %319, i64 0, i64 0
+  call void @stbhw__set_pixel(ptr noundef %309, i32 noundef %312, i32 noundef %315, i32 noundef %316, ptr noundef %320)
+  %321 = load ptr, ptr %10, align 8, !tbaa !8
+  %322 = getelementptr inbounds nuw %struct.stbhw__process, ptr %321, i32 0, i32 4
+  %323 = load ptr, ptr %322, align 8, !tbaa !92
+  %324 = load ptr, ptr %10, align 8, !tbaa !8
+  %325 = getelementptr inbounds nuw %struct.stbhw__process, ptr %324, i32 0, i32 5
+  %326 = load i32, ptr %325, align 8, !tbaa !93
+  %327 = load i32, ptr %11, align 4, !tbaa !10
+  %328 = load i32, ptr %19, align 4, !tbaa !10
+  %329 = mul nsw i32 2, %328
+  %330 = add nsw i32 %327, %329
+  %331 = add nsw i32 %330, 1
+  %332 = load i32, ptr %12, align 4, !tbaa !10
+  %333 = load i32, ptr %15, align 4, !tbaa !10
+  %334 = sext i32 %333 to i64
+  %335 = getelementptr inbounds [4 x [3 x i8]], ptr getelementptr inbounds ([4 x [4 x [3 x i8]]], ptr @stbhw__corner_colors, i64 0, i64 3), i64 0, i64 %334
+  %336 = getelementptr inbounds [3 x i8], ptr %335, i64 0, i64 0
+  call void @stbhw__set_pixel(ptr noundef %323, i32 noundef %326, i32 noundef %331, i32 noundef %332, ptr noundef %336)
+  %337 = load ptr, ptr %10, align 8, !tbaa !8
+  %338 = getelementptr inbounds nuw %struct.stbhw__process, ptr %337, i32 0, i32 4
+  %339 = load ptr, ptr %338, align 8, !tbaa !92
+  %340 = load ptr, ptr %10, align 8, !tbaa !8
+  %341 = getelementptr inbounds nuw %struct.stbhw__process, ptr %340, i32 0, i32 5
+  %342 = load i32, ptr %341, align 8, !tbaa !93
+  %343 = load i32, ptr %11, align 4, !tbaa !10
+  %344 = load i32, ptr %12, align 4, !tbaa !10
+  %345 = load i32, ptr %19, align 4, !tbaa !10
+  %346 = add nsw i32 %344, %345
+  %347 = add nsw i32 %346, 1
+  %348 = load i32, ptr %16, align 4, !tbaa !10
+  %349 = sext i32 %348 to i64
+  %350 = getelementptr inbounds [4 x [3 x i8]], ptr @stbhw__corner_colors, i64 0, i64 %349
+  %351 = getelementptr inbounds [3 x i8], ptr %350, i64 0, i64 0
+  call void @stbhw__set_pixel(ptr noundef %339, i32 noundef %342, i32 noundef %343, i32 noundef %347, ptr noundef %351)
+  %352 = load ptr, ptr %10, align 8, !tbaa !8
+  %353 = getelementptr inbounds nuw %struct.stbhw__process, ptr %352, i32 0, i32 4
+  %354 = load ptr, ptr %353, align 8, !tbaa !92
+  %355 = load ptr, ptr %10, align 8, !tbaa !8
+  %356 = getelementptr inbounds nuw %struct.stbhw__process, ptr %355, i32 0, i32 5
+  %357 = load i32, ptr %356, align 8, !tbaa !93
+  %358 = load i32, ptr %11, align 4, !tbaa !10
+  %359 = load i32, ptr %19, align 4, !tbaa !10
+  %360 = add nsw i32 %358, %359
+  %361 = load i32, ptr %12, align 4, !tbaa !10
+  %362 = load i32, ptr %19, align 4, !tbaa !10
+  %363 = add nsw i32 %361, %362
+  %364 = add nsw i32 %363, 1
+  %365 = load i32, ptr %17, align 4, !tbaa !10
+  %366 = sext i32 %365 to i64
+  %367 = getelementptr inbounds [4 x [3 x i8]], ptr getelementptr inbounds ([4 x [4 x [3 x i8]]], ptr @stbhw__corner_colors, i64 0, i64 1), i64 0, i64 %366
+  %368 = getelementptr inbounds [3 x i8], ptr %367, i64 0, i64 0
+  call void @stbhw__set_pixel(ptr noundef %354, i32 noundef %357, i32 noundef %360, i32 noundef %364, ptr noundef %368)
+  %369 = load ptr, ptr %10, align 8, !tbaa !8
+  %370 = getelementptr inbounds nuw %struct.stbhw__process, ptr %369, i32 0, i32 4
+  %371 = load ptr, ptr %370, align 8, !tbaa !92
+  %372 = load ptr, ptr %10, align 8, !tbaa !8
+  %373 = getelementptr inbounds nuw %struct.stbhw__process, ptr %372, i32 0, i32 5
+  %374 = load i32, ptr %373, align 8, !tbaa !93
+  %375 = load i32, ptr %11, align 4, !tbaa !10
+  %376 = load i32, ptr %19, align 4, !tbaa !10
+  %377 = mul nsw i32 2, %376
+  %378 = add nsw i32 %375, %377
+  %379 = add nsw i32 %378, 1
+  %380 = load i32, ptr %12, align 4, !tbaa !10
+  %381 = load i32, ptr %19, align 4, !tbaa !10
+  %382 = add nsw i32 %380, %381
+  %383 = add nsw i32 %382, 1
+  %384 = load i32, ptr %18, align 4, !tbaa !10
+  %385 = sext i32 %384 to i64
+  %386 = getelementptr inbounds [4 x [3 x i8]], ptr getelementptr inbounds ([4 x [4 x [3 x i8]]], ptr @stbhw__corner_colors, i64 0, i64 2), i64 0, i64 %385
+  %387 = getelementptr inbounds [3 x i8], ptr %386, i64 0, i64 0
+  call void @stbhw__set_pixel(ptr noundef %371, i32 noundef %374, i32 noundef %379, i32 noundef %383, ptr noundef %387)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #6
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbhw__corner_process_v_rect(ptr noundef %p, i32 noundef %xpos, i32 noundef %ypos, i32 noundef %a, i32 noundef %b, i32 noundef %c, i32 noundef %d, i32 noundef %e, i32 noundef %f) #0 {
-entry:
-  %p.addr = alloca ptr, align 8
-  %xpos.addr = alloca i32, align 4
-  %ypos.addr = alloca i32, align 4
-  %a.addr = alloca i32, align 4
-  %b.addr = alloca i32, align 4
-  %c.addr = alloca i32, align 4
-  %d.addr = alloca i32, align 4
-  %e.addr = alloca i32, align 4
-  %f.addr = alloca i32, align 4
-  %len = alloca i32, align 4
-  store ptr %p, ptr %p.addr, align 8
-  store i32 %xpos, ptr %xpos.addr, align 4
-  store i32 %ypos, ptr %ypos.addr, align 4
-  store i32 %a, ptr %a.addr, align 4
-  store i32 %b, ptr %b.addr, align 4
-  store i32 %c, ptr %c.addr, align 4
-  store i32 %d, ptr %d.addr, align 4
-  store i32 %e, ptr %e.addr, align 4
-  store i32 %f, ptr %f.addr, align 4
-  %0 = load ptr, ptr %p.addr, align 8
-  %c1 = getelementptr inbounds %struct.stbhw__process, ptr %0, i32 0, i32 1
-  %1 = load ptr, ptr %c1, align 8
-  %short_side_len = getelementptr inbounds %struct.stbhw_config, ptr %1, i32 0, i32 1
-  %2 = load i32, ptr %short_side_len, align 4
-  store i32 %2, ptr %len, align 4
-  %3 = load ptr, ptr %p.addr, align 8
-  %data = getelementptr inbounds %struct.stbhw__process, ptr %3, i32 0, i32 4
-  %4 = load ptr, ptr %data, align 8
-  %5 = load ptr, ptr %p.addr, align 8
-  %stride = getelementptr inbounds %struct.stbhw__process, ptr %5, i32 0, i32 5
-  %6 = load i32, ptr %stride, align 8
-  %7 = load i32, ptr %xpos.addr, align 4
-  %add = add nsw i32 %7, 1
-  %8 = load i32, ptr %ypos.addr, align 4
-  %9 = load i32, ptr %a.addr, align 4
-  %idxprom = sext i32 %9 to i64
-  %arrayidx = getelementptr inbounds [4 x [4 x i32]], ptr @stbhw__corner_colors_to_edge_color, i64 0, i64 %idxprom
-  %10 = load i32, ptr %d.addr, align 4
-  %idxprom2 = sext i32 %10 to i64
-  %arrayidx3 = getelementptr inbounds [4 x i32], ptr %arrayidx, i64 0, i64 %idxprom2
-  %11 = load i32, ptr %arrayidx3, align 4
-  %12 = load i32, ptr %len, align 4
-  call void @stbhw__draw_hline(ptr noundef %4, i32 noundef %6, i32 noundef %add, i32 noundef %8, i32 noundef %11, i32 noundef %12, i32 noundef 0)
-  %13 = load ptr, ptr %p.addr, align 8
-  %data4 = getelementptr inbounds %struct.stbhw__process, ptr %13, i32 0, i32 4
-  %14 = load ptr, ptr %data4, align 8
-  %15 = load ptr, ptr %p.addr, align 8
-  %stride5 = getelementptr inbounds %struct.stbhw__process, ptr %15, i32 0, i32 5
-  %16 = load i32, ptr %stride5, align 8
-  %17 = load i32, ptr %xpos.addr, align 4
-  %18 = load i32, ptr %ypos.addr, align 4
-  %add6 = add nsw i32 %18, 1
-  %19 = load i32, ptr %a.addr, align 4
-  %idxprom7 = sext i32 %19 to i64
-  %arrayidx8 = getelementptr inbounds [4 x [4 x i32]], ptr @stbhw__corner_colors_to_edge_color, i64 0, i64 %idxprom7
-  %20 = load i32, ptr %b.addr, align 4
-  %idxprom9 = sext i32 %20 to i64
-  %arrayidx10 = getelementptr inbounds [4 x i32], ptr %arrayidx8, i64 0, i64 %idxprom9
-  %21 = load i32, ptr %arrayidx10, align 4
-  %22 = load i32, ptr %len, align 4
-  call void @stbhw__draw_vline(ptr noundef %14, i32 noundef %16, i32 noundef %17, i32 noundef %add6, i32 noundef %21, i32 noundef %22, i32 noundef 5)
-  %23 = load ptr, ptr %p.addr, align 8
-  %data11 = getelementptr inbounds %struct.stbhw__process, ptr %23, i32 0, i32 4
-  %24 = load ptr, ptr %data11, align 8
-  %25 = load ptr, ptr %p.addr, align 8
-  %stride12 = getelementptr inbounds %struct.stbhw__process, ptr %25, i32 0, i32 5
-  %26 = load i32, ptr %stride12, align 8
-  %27 = load i32, ptr %xpos.addr, align 4
-  %28 = load i32, ptr %len, align 4
-  %add13 = add nsw i32 %27, %28
-  %add14 = add nsw i32 %add13, 1
-  %29 = load i32, ptr %ypos.addr, align 4
-  %add15 = add nsw i32 %29, 1
-  %30 = load i32, ptr %d.addr, align 4
-  %idxprom16 = sext i32 %30 to i64
-  %arrayidx17 = getelementptr inbounds [4 x [4 x i32]], ptr @stbhw__corner_colors_to_edge_color, i64 0, i64 %idxprom16
-  %31 = load i32, ptr %e.addr, align 4
-  %idxprom18 = sext i32 %31 to i64
-  %arrayidx19 = getelementptr inbounds [4 x i32], ptr %arrayidx17, i64 0, i64 %idxprom18
-  %32 = load i32, ptr %arrayidx19, align 4
-  %33 = load i32, ptr %len, align 4
-  call void @stbhw__draw_vline(ptr noundef %24, i32 noundef %26, i32 noundef %add14, i32 noundef %add15, i32 noundef %32, i32 noundef %33, i32 noundef 1)
-  %34 = load ptr, ptr %p.addr, align 8
-  %data20 = getelementptr inbounds %struct.stbhw__process, ptr %34, i32 0, i32 4
-  %35 = load ptr, ptr %data20, align 8
-  %36 = load ptr, ptr %p.addr, align 8
-  %stride21 = getelementptr inbounds %struct.stbhw__process, ptr %36, i32 0, i32 5
-  %37 = load i32, ptr %stride21, align 8
-  %38 = load i32, ptr %xpos.addr, align 4
-  %39 = load i32, ptr %ypos.addr, align 4
-  %40 = load i32, ptr %len, align 4
-  %add22 = add nsw i32 %39, %40
-  %add23 = add nsw i32 %add22, 1
-  %41 = load i32, ptr %b.addr, align 4
-  %idxprom24 = sext i32 %41 to i64
-  %arrayidx25 = getelementptr inbounds [4 x [4 x i32]], ptr @stbhw__corner_colors_to_edge_color, i64 0, i64 %idxprom24
-  %42 = load i32, ptr %c.addr, align 4
-  %idxprom26 = sext i32 %42 to i64
-  %arrayidx27 = getelementptr inbounds [4 x i32], ptr %arrayidx25, i64 0, i64 %idxprom26
-  %43 = load i32, ptr %arrayidx27, align 4
-  %44 = load i32, ptr %len, align 4
-  call void @stbhw__draw_vline(ptr noundef %35, i32 noundef %37, i32 noundef %38, i32 noundef %add23, i32 noundef %43, i32 noundef %44, i32 noundef 4)
-  %45 = load ptr, ptr %p.addr, align 8
-  %data28 = getelementptr inbounds %struct.stbhw__process, ptr %45, i32 0, i32 4
-  %46 = load ptr, ptr %data28, align 8
-  %47 = load ptr, ptr %p.addr, align 8
-  %stride29 = getelementptr inbounds %struct.stbhw__process, ptr %47, i32 0, i32 5
-  %48 = load i32, ptr %stride29, align 8
-  %49 = load i32, ptr %xpos.addr, align 4
-  %50 = load i32, ptr %len, align 4
-  %add30 = add nsw i32 %49, %50
-  %add31 = add nsw i32 %add30, 1
-  %51 = load i32, ptr %ypos.addr, align 4
-  %52 = load i32, ptr %len, align 4
-  %add32 = add nsw i32 %51, %52
-  %add33 = add nsw i32 %add32, 1
-  %53 = load i32, ptr %e.addr, align 4
-  %idxprom34 = sext i32 %53 to i64
-  %arrayidx35 = getelementptr inbounds [4 x [4 x i32]], ptr @stbhw__corner_colors_to_edge_color, i64 0, i64 %idxprom34
-  %54 = load i32, ptr %f.addr, align 4
-  %idxprom36 = sext i32 %54 to i64
-  %arrayidx37 = getelementptr inbounds [4 x i32], ptr %arrayidx35, i64 0, i64 %idxprom36
-  %55 = load i32, ptr %arrayidx37, align 4
-  %56 = load i32, ptr %len, align 4
-  call void @stbhw__draw_vline(ptr noundef %46, i32 noundef %48, i32 noundef %add31, i32 noundef %add33, i32 noundef %55, i32 noundef %56, i32 noundef 5)
-  %57 = load ptr, ptr %p.addr, align 8
-  %data38 = getelementptr inbounds %struct.stbhw__process, ptr %57, i32 0, i32 4
-  %58 = load ptr, ptr %data38, align 8
-  %59 = load ptr, ptr %p.addr, align 8
-  %stride39 = getelementptr inbounds %struct.stbhw__process, ptr %59, i32 0, i32 5
-  %60 = load i32, ptr %stride39, align 8
-  %61 = load i32, ptr %xpos.addr, align 4
-  %add40 = add nsw i32 %61, 1
-  %62 = load i32, ptr %ypos.addr, align 4
-  %63 = load i32, ptr %len, align 4
-  %mul = mul nsw i32 2, %63
-  %add41 = add nsw i32 %62, %mul
-  %add42 = add nsw i32 %add41, 1
-  %64 = load i32, ptr %c.addr, align 4
-  %idxprom43 = sext i32 %64 to i64
-  %arrayidx44 = getelementptr inbounds [4 x [4 x i32]], ptr @stbhw__corner_colors_to_edge_color, i64 0, i64 %idxprom43
-  %65 = load i32, ptr %f.addr, align 4
-  %idxprom45 = sext i32 %65 to i64
-  %arrayidx46 = getelementptr inbounds [4 x i32], ptr %arrayidx44, i64 0, i64 %idxprom45
-  %66 = load i32, ptr %arrayidx46, align 4
-  %67 = load i32, ptr %len, align 4
-  call void @stbhw__draw_hline(ptr noundef %58, i32 noundef %60, i32 noundef %add40, i32 noundef %add42, i32 noundef %66, i32 noundef %67, i32 noundef 3)
-  %68 = load ptr, ptr %p.addr, align 8
-  %c47 = getelementptr inbounds %struct.stbhw__process, ptr %68, i32 0, i32 1
-  %69 = load ptr, ptr %c47, align 8
-  %corner_type_color_template = getelementptr inbounds %struct.stbhw_config, ptr %69, i32 0, i32 5
-  %arrayidx48 = getelementptr inbounds [4 x [4 x i32]], ptr %corner_type_color_template, i64 0, i64 0
-  %70 = load i32, ptr %a.addr, align 4
-  %idxprom49 = sext i32 %70 to i64
-  %arrayidx50 = getelementptr inbounds [4 x i32], ptr %arrayidx48, i64 0, i64 %idxprom49
-  %71 = load i32, ptr %arrayidx50, align 4
-  %tobool = icmp ne i32 %71, 0
-  br i1 %tobool, label %if.then, label %if.end
+define void @stbhw__corner_process_v_rect(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #0 {
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  %16 = alloca i32, align 4
+  %17 = alloca i32, align 4
+  %18 = alloca i32, align 4
+  %19 = alloca i32, align 4
+  store ptr %0, ptr %10, align 8, !tbaa !8
+  store i32 %1, ptr %11, align 4, !tbaa !10
+  store i32 %2, ptr %12, align 4, !tbaa !10
+  store i32 %3, ptr %13, align 4, !tbaa !10
+  store i32 %4, ptr %14, align 4, !tbaa !10
+  store i32 %5, ptr %15, align 4, !tbaa !10
+  store i32 %6, ptr %16, align 4, !tbaa !10
+  store i32 %7, ptr %17, align 4, !tbaa !10
+  store i32 %8, ptr %18, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #6
+  %20 = load ptr, ptr %10, align 8, !tbaa !8
+  %21 = getelementptr inbounds nuw %struct.stbhw__process, ptr %20, i32 0, i32 1
+  %22 = load ptr, ptr %21, align 8, !tbaa !15
+  %23 = getelementptr inbounds nuw %struct.stbhw_config, ptr %22, i32 0, i32 1
+  %24 = load i32, ptr %23, align 4, !tbaa !16
+  store i32 %24, ptr %19, align 4, !tbaa !10
+  %25 = load ptr, ptr %10, align 8, !tbaa !8
+  %26 = getelementptr inbounds nuw %struct.stbhw__process, ptr %25, i32 0, i32 4
+  %27 = load ptr, ptr %26, align 8, !tbaa !92
+  %28 = load ptr, ptr %10, align 8, !tbaa !8
+  %29 = getelementptr inbounds nuw %struct.stbhw__process, ptr %28, i32 0, i32 5
+  %30 = load i32, ptr %29, align 8, !tbaa !93
+  %31 = load i32, ptr %11, align 4, !tbaa !10
+  %32 = add nsw i32 %31, 1
+  %33 = load i32, ptr %12, align 4, !tbaa !10
+  %34 = load i32, ptr %13, align 4, !tbaa !10
+  %35 = sext i32 %34 to i64
+  %36 = getelementptr inbounds [4 x [4 x i32]], ptr @stbhw__corner_colors_to_edge_color, i64 0, i64 %35
+  %37 = load i32, ptr %16, align 4, !tbaa !10
+  %38 = sext i32 %37 to i64
+  %39 = getelementptr inbounds [4 x i32], ptr %36, i64 0, i64 %38
+  %40 = load i32, ptr %39, align 4, !tbaa !10
+  %41 = load i32, ptr %19, align 4, !tbaa !10
+  call void @stbhw__draw_hline(ptr noundef %27, i32 noundef %30, i32 noundef %32, i32 noundef %33, i32 noundef %40, i32 noundef %41, i32 noundef 0)
+  %42 = load ptr, ptr %10, align 8, !tbaa !8
+  %43 = getelementptr inbounds nuw %struct.stbhw__process, ptr %42, i32 0, i32 4
+  %44 = load ptr, ptr %43, align 8, !tbaa !92
+  %45 = load ptr, ptr %10, align 8, !tbaa !8
+  %46 = getelementptr inbounds nuw %struct.stbhw__process, ptr %45, i32 0, i32 5
+  %47 = load i32, ptr %46, align 8, !tbaa !93
+  %48 = load i32, ptr %11, align 4, !tbaa !10
+  %49 = load i32, ptr %12, align 4, !tbaa !10
+  %50 = add nsw i32 %49, 1
+  %51 = load i32, ptr %13, align 4, !tbaa !10
+  %52 = sext i32 %51 to i64
+  %53 = getelementptr inbounds [4 x [4 x i32]], ptr @stbhw__corner_colors_to_edge_color, i64 0, i64 %52
+  %54 = load i32, ptr %14, align 4, !tbaa !10
+  %55 = sext i32 %54 to i64
+  %56 = getelementptr inbounds [4 x i32], ptr %53, i64 0, i64 %55
+  %57 = load i32, ptr %56, align 4, !tbaa !10
+  %58 = load i32, ptr %19, align 4, !tbaa !10
+  call void @stbhw__draw_vline(ptr noundef %44, i32 noundef %47, i32 noundef %48, i32 noundef %50, i32 noundef %57, i32 noundef %58, i32 noundef 5)
+  %59 = load ptr, ptr %10, align 8, !tbaa !8
+  %60 = getelementptr inbounds nuw %struct.stbhw__process, ptr %59, i32 0, i32 4
+  %61 = load ptr, ptr %60, align 8, !tbaa !92
+  %62 = load ptr, ptr %10, align 8, !tbaa !8
+  %63 = getelementptr inbounds nuw %struct.stbhw__process, ptr %62, i32 0, i32 5
+  %64 = load i32, ptr %63, align 8, !tbaa !93
+  %65 = load i32, ptr %11, align 4, !tbaa !10
+  %66 = load i32, ptr %19, align 4, !tbaa !10
+  %67 = add nsw i32 %65, %66
+  %68 = add nsw i32 %67, 1
+  %69 = load i32, ptr %12, align 4, !tbaa !10
+  %70 = add nsw i32 %69, 1
+  %71 = load i32, ptr %16, align 4, !tbaa !10
+  %72 = sext i32 %71 to i64
+  %73 = getelementptr inbounds [4 x [4 x i32]], ptr @stbhw__corner_colors_to_edge_color, i64 0, i64 %72
+  %74 = load i32, ptr %17, align 4, !tbaa !10
+  %75 = sext i32 %74 to i64
+  %76 = getelementptr inbounds [4 x i32], ptr %73, i64 0, i64 %75
+  %77 = load i32, ptr %76, align 4, !tbaa !10
+  %78 = load i32, ptr %19, align 4, !tbaa !10
+  call void @stbhw__draw_vline(ptr noundef %61, i32 noundef %64, i32 noundef %68, i32 noundef %70, i32 noundef %77, i32 noundef %78, i32 noundef 1)
+  %79 = load ptr, ptr %10, align 8, !tbaa !8
+  %80 = getelementptr inbounds nuw %struct.stbhw__process, ptr %79, i32 0, i32 4
+  %81 = load ptr, ptr %80, align 8, !tbaa !92
+  %82 = load ptr, ptr %10, align 8, !tbaa !8
+  %83 = getelementptr inbounds nuw %struct.stbhw__process, ptr %82, i32 0, i32 5
+  %84 = load i32, ptr %83, align 8, !tbaa !93
+  %85 = load i32, ptr %11, align 4, !tbaa !10
+  %86 = load i32, ptr %12, align 4, !tbaa !10
+  %87 = load i32, ptr %19, align 4, !tbaa !10
+  %88 = add nsw i32 %86, %87
+  %89 = add nsw i32 %88, 1
+  %90 = load i32, ptr %14, align 4, !tbaa !10
+  %91 = sext i32 %90 to i64
+  %92 = getelementptr inbounds [4 x [4 x i32]], ptr @stbhw__corner_colors_to_edge_color, i64 0, i64 %91
+  %93 = load i32, ptr %15, align 4, !tbaa !10
+  %94 = sext i32 %93 to i64
+  %95 = getelementptr inbounds [4 x i32], ptr %92, i64 0, i64 %94
+  %96 = load i32, ptr %95, align 4, !tbaa !10
+  %97 = load i32, ptr %19, align 4, !tbaa !10
+  call void @stbhw__draw_vline(ptr noundef %81, i32 noundef %84, i32 noundef %85, i32 noundef %89, i32 noundef %96, i32 noundef %97, i32 noundef 4)
+  %98 = load ptr, ptr %10, align 8, !tbaa !8
+  %99 = getelementptr inbounds nuw %struct.stbhw__process, ptr %98, i32 0, i32 4
+  %100 = load ptr, ptr %99, align 8, !tbaa !92
+  %101 = load ptr, ptr %10, align 8, !tbaa !8
+  %102 = getelementptr inbounds nuw %struct.stbhw__process, ptr %101, i32 0, i32 5
+  %103 = load i32, ptr %102, align 8, !tbaa !93
+  %104 = load i32, ptr %11, align 4, !tbaa !10
+  %105 = load i32, ptr %19, align 4, !tbaa !10
+  %106 = add nsw i32 %104, %105
+  %107 = add nsw i32 %106, 1
+  %108 = load i32, ptr %12, align 4, !tbaa !10
+  %109 = load i32, ptr %19, align 4, !tbaa !10
+  %110 = add nsw i32 %108, %109
+  %111 = add nsw i32 %110, 1
+  %112 = load i32, ptr %17, align 4, !tbaa !10
+  %113 = sext i32 %112 to i64
+  %114 = getelementptr inbounds [4 x [4 x i32]], ptr @stbhw__corner_colors_to_edge_color, i64 0, i64 %113
+  %115 = load i32, ptr %18, align 4, !tbaa !10
+  %116 = sext i32 %115 to i64
+  %117 = getelementptr inbounds [4 x i32], ptr %114, i64 0, i64 %116
+  %118 = load i32, ptr %117, align 4, !tbaa !10
+  %119 = load i32, ptr %19, align 4, !tbaa !10
+  call void @stbhw__draw_vline(ptr noundef %100, i32 noundef %103, i32 noundef %107, i32 noundef %111, i32 noundef %118, i32 noundef %119, i32 noundef 5)
+  %120 = load ptr, ptr %10, align 8, !tbaa !8
+  %121 = getelementptr inbounds nuw %struct.stbhw__process, ptr %120, i32 0, i32 4
+  %122 = load ptr, ptr %121, align 8, !tbaa !92
+  %123 = load ptr, ptr %10, align 8, !tbaa !8
+  %124 = getelementptr inbounds nuw %struct.stbhw__process, ptr %123, i32 0, i32 5
+  %125 = load i32, ptr %124, align 8, !tbaa !93
+  %126 = load i32, ptr %11, align 4, !tbaa !10
+  %127 = add nsw i32 %126, 1
+  %128 = load i32, ptr %12, align 4, !tbaa !10
+  %129 = load i32, ptr %19, align 4, !tbaa !10
+  %130 = mul nsw i32 2, %129
+  %131 = add nsw i32 %128, %130
+  %132 = add nsw i32 %131, 1
+  %133 = load i32, ptr %15, align 4, !tbaa !10
+  %134 = sext i32 %133 to i64
+  %135 = getelementptr inbounds [4 x [4 x i32]], ptr @stbhw__corner_colors_to_edge_color, i64 0, i64 %134
+  %136 = load i32, ptr %18, align 4, !tbaa !10
+  %137 = sext i32 %136 to i64
+  %138 = getelementptr inbounds [4 x i32], ptr %135, i64 0, i64 %137
+  %139 = load i32, ptr %138, align 4, !tbaa !10
+  %140 = load i32, ptr %19, align 4, !tbaa !10
+  call void @stbhw__draw_hline(ptr noundef %122, i32 noundef %125, i32 noundef %127, i32 noundef %132, i32 noundef %139, i32 noundef %140, i32 noundef 3)
+  %141 = load ptr, ptr %10, align 8, !tbaa !8
+  %142 = getelementptr inbounds nuw %struct.stbhw__process, ptr %141, i32 0, i32 1
+  %143 = load ptr, ptr %142, align 8, !tbaa !15
+  %144 = getelementptr inbounds nuw %struct.stbhw_config, ptr %143, i32 0, i32 5
+  %145 = getelementptr inbounds [4 x [4 x i32]], ptr %144, i64 0, i64 0
+  %146 = load i32, ptr %13, align 4, !tbaa !10
+  %147 = sext i32 %146 to i64
+  %148 = getelementptr inbounds [4 x i32], ptr %145, i64 0, i64 %147
+  %149 = load i32, ptr %148, align 4, !tbaa !10
+  %150 = icmp ne i32 %149, 0
+  br i1 %150, label %151, label %163
 
-if.then:                                          ; preds = %entry
-  %72 = load ptr, ptr %p.addr, align 8
-  %data51 = getelementptr inbounds %struct.stbhw__process, ptr %72, i32 0, i32 4
-  %73 = load ptr, ptr %data51, align 8
-  %74 = load ptr, ptr %p.addr, align 8
-  %stride52 = getelementptr inbounds %struct.stbhw__process, ptr %74, i32 0, i32 5
-  %75 = load i32, ptr %stride52, align 8
-  %76 = load i32, ptr %xpos.addr, align 4
-  %77 = load i32, ptr %ypos.addr, align 4
-  %78 = load i32, ptr %len, align 4
-  %79 = load i32, ptr %len, align 4
-  %mul53 = mul nsw i32 %79, 2
-  call void @stbhw__draw_clipped_corner(ptr noundef %73, i32 noundef %75, i32 noundef %76, i32 noundef %77, i32 noundef %78, i32 noundef %mul53, i32 noundef 1, i32 noundef 1)
-  br label %if.end
+151:                                              ; preds = %9
+  %152 = load ptr, ptr %10, align 8, !tbaa !8
+  %153 = getelementptr inbounds nuw %struct.stbhw__process, ptr %152, i32 0, i32 4
+  %154 = load ptr, ptr %153, align 8, !tbaa !92
+  %155 = load ptr, ptr %10, align 8, !tbaa !8
+  %156 = getelementptr inbounds nuw %struct.stbhw__process, ptr %155, i32 0, i32 5
+  %157 = load i32, ptr %156, align 8, !tbaa !93
+  %158 = load i32, ptr %11, align 4, !tbaa !10
+  %159 = load i32, ptr %12, align 4, !tbaa !10
+  %160 = load i32, ptr %19, align 4, !tbaa !10
+  %161 = load i32, ptr %19, align 4, !tbaa !10
+  %162 = mul nsw i32 %161, 2
+  call void @stbhw__draw_clipped_corner(ptr noundef %154, i32 noundef %157, i32 noundef %158, i32 noundef %159, i32 noundef %160, i32 noundef %162, i32 noundef 1, i32 noundef 1)
+  br label %163
 
-if.end:                                           ; preds = %if.then, %entry
-  %80 = load ptr, ptr %p.addr, align 8
-  %c54 = getelementptr inbounds %struct.stbhw__process, ptr %80, i32 0, i32 1
-  %81 = load ptr, ptr %c54, align 8
-  %corner_type_color_template55 = getelementptr inbounds %struct.stbhw_config, ptr %81, i32 0, i32 5
-  %arrayidx56 = getelementptr inbounds [4 x [4 x i32]], ptr %corner_type_color_template55, i64 0, i64 3
-  %82 = load i32, ptr %b.addr, align 4
-  %idxprom57 = sext i32 %82 to i64
-  %arrayidx58 = getelementptr inbounds [4 x i32], ptr %arrayidx56, i64 0, i64 %idxprom57
-  %83 = load i32, ptr %arrayidx58, align 4
-  %tobool59 = icmp ne i32 %83, 0
-  br i1 %tobool59, label %if.then60, label %if.end65
+163:                                              ; preds = %151, %9
+  %164 = load ptr, ptr %10, align 8, !tbaa !8
+  %165 = getelementptr inbounds nuw %struct.stbhw__process, ptr %164, i32 0, i32 1
+  %166 = load ptr, ptr %165, align 8, !tbaa !15
+  %167 = getelementptr inbounds nuw %struct.stbhw_config, ptr %166, i32 0, i32 5
+  %168 = getelementptr inbounds [4 x [4 x i32]], ptr %167, i64 0, i64 3
+  %169 = load i32, ptr %14, align 4, !tbaa !10
+  %170 = sext i32 %169 to i64
+  %171 = getelementptr inbounds [4 x i32], ptr %168, i64 0, i64 %170
+  %172 = load i32, ptr %171, align 4, !tbaa !10
+  %173 = icmp ne i32 %172, 0
+  br i1 %173, label %174, label %188
 
-if.then60:                                        ; preds = %if.end
-  %84 = load ptr, ptr %p.addr, align 8
-  %data61 = getelementptr inbounds %struct.stbhw__process, ptr %84, i32 0, i32 4
-  %85 = load ptr, ptr %data61, align 8
-  %86 = load ptr, ptr %p.addr, align 8
-  %stride62 = getelementptr inbounds %struct.stbhw__process, ptr %86, i32 0, i32 5
-  %87 = load i32, ptr %stride62, align 8
-  %88 = load i32, ptr %xpos.addr, align 4
-  %89 = load i32, ptr %ypos.addr, align 4
-  %90 = load i32, ptr %len, align 4
-  %91 = load i32, ptr %len, align 4
-  %mul63 = mul nsw i32 %91, 2
-  %92 = load i32, ptr %len, align 4
-  %add64 = add nsw i32 %92, 1
-  call void @stbhw__draw_clipped_corner(ptr noundef %85, i32 noundef %87, i32 noundef %88, i32 noundef %89, i32 noundef %90, i32 noundef %mul63, i32 noundef 1, i32 noundef %add64)
-  br label %if.end65
+174:                                              ; preds = %163
+  %175 = load ptr, ptr %10, align 8, !tbaa !8
+  %176 = getelementptr inbounds nuw %struct.stbhw__process, ptr %175, i32 0, i32 4
+  %177 = load ptr, ptr %176, align 8, !tbaa !92
+  %178 = load ptr, ptr %10, align 8, !tbaa !8
+  %179 = getelementptr inbounds nuw %struct.stbhw__process, ptr %178, i32 0, i32 5
+  %180 = load i32, ptr %179, align 8, !tbaa !93
+  %181 = load i32, ptr %11, align 4, !tbaa !10
+  %182 = load i32, ptr %12, align 4, !tbaa !10
+  %183 = load i32, ptr %19, align 4, !tbaa !10
+  %184 = load i32, ptr %19, align 4, !tbaa !10
+  %185 = mul nsw i32 %184, 2
+  %186 = load i32, ptr %19, align 4, !tbaa !10
+  %187 = add nsw i32 %186, 1
+  call void @stbhw__draw_clipped_corner(ptr noundef %177, i32 noundef %180, i32 noundef %181, i32 noundef %182, i32 noundef %183, i32 noundef %185, i32 noundef 1, i32 noundef %187)
+  br label %188
 
-if.end65:                                         ; preds = %if.then60, %if.end
-  %93 = load ptr, ptr %p.addr, align 8
-  %c66 = getelementptr inbounds %struct.stbhw__process, ptr %93, i32 0, i32 1
-  %94 = load ptr, ptr %c66, align 8
-  %corner_type_color_template67 = getelementptr inbounds %struct.stbhw_config, ptr %94, i32 0, i32 5
-  %arrayidx68 = getelementptr inbounds [4 x [4 x i32]], ptr %corner_type_color_template67, i64 0, i64 2
-  %95 = load i32, ptr %c.addr, align 4
-  %idxprom69 = sext i32 %95 to i64
-  %arrayidx70 = getelementptr inbounds [4 x i32], ptr %arrayidx68, i64 0, i64 %idxprom69
-  %96 = load i32, ptr %arrayidx70, align 4
-  %tobool71 = icmp ne i32 %96, 0
-  br i1 %tobool71, label %if.then72, label %if.end78
+188:                                              ; preds = %174, %163
+  %189 = load ptr, ptr %10, align 8, !tbaa !8
+  %190 = getelementptr inbounds nuw %struct.stbhw__process, ptr %189, i32 0, i32 1
+  %191 = load ptr, ptr %190, align 8, !tbaa !15
+  %192 = getelementptr inbounds nuw %struct.stbhw_config, ptr %191, i32 0, i32 5
+  %193 = getelementptr inbounds [4 x [4 x i32]], ptr %192, i64 0, i64 2
+  %194 = load i32, ptr %15, align 4, !tbaa !10
+  %195 = sext i32 %194 to i64
+  %196 = getelementptr inbounds [4 x i32], ptr %193, i64 0, i64 %195
+  %197 = load i32, ptr %196, align 4, !tbaa !10
+  %198 = icmp ne i32 %197, 0
+  br i1 %198, label %199, label %214
 
-if.then72:                                        ; preds = %if.end65
-  %97 = load ptr, ptr %p.addr, align 8
-  %data73 = getelementptr inbounds %struct.stbhw__process, ptr %97, i32 0, i32 4
-  %98 = load ptr, ptr %data73, align 8
-  %99 = load ptr, ptr %p.addr, align 8
-  %stride74 = getelementptr inbounds %struct.stbhw__process, ptr %99, i32 0, i32 5
-  %100 = load i32, ptr %stride74, align 8
-  %101 = load i32, ptr %xpos.addr, align 4
-  %102 = load i32, ptr %ypos.addr, align 4
-  %103 = load i32, ptr %len, align 4
-  %104 = load i32, ptr %len, align 4
-  %mul75 = mul nsw i32 %104, 2
-  %105 = load i32, ptr %len, align 4
-  %mul76 = mul nsw i32 %105, 2
-  %add77 = add nsw i32 %mul76, 1
-  call void @stbhw__draw_clipped_corner(ptr noundef %98, i32 noundef %100, i32 noundef %101, i32 noundef %102, i32 noundef %103, i32 noundef %mul75, i32 noundef 1, i32 noundef %add77)
-  br label %if.end78
+199:                                              ; preds = %188
+  %200 = load ptr, ptr %10, align 8, !tbaa !8
+  %201 = getelementptr inbounds nuw %struct.stbhw__process, ptr %200, i32 0, i32 4
+  %202 = load ptr, ptr %201, align 8, !tbaa !92
+  %203 = load ptr, ptr %10, align 8, !tbaa !8
+  %204 = getelementptr inbounds nuw %struct.stbhw__process, ptr %203, i32 0, i32 5
+  %205 = load i32, ptr %204, align 8, !tbaa !93
+  %206 = load i32, ptr %11, align 4, !tbaa !10
+  %207 = load i32, ptr %12, align 4, !tbaa !10
+  %208 = load i32, ptr %19, align 4, !tbaa !10
+  %209 = load i32, ptr %19, align 4, !tbaa !10
+  %210 = mul nsw i32 %209, 2
+  %211 = load i32, ptr %19, align 4, !tbaa !10
+  %212 = mul nsw i32 %211, 2
+  %213 = add nsw i32 %212, 1
+  call void @stbhw__draw_clipped_corner(ptr noundef %202, i32 noundef %205, i32 noundef %206, i32 noundef %207, i32 noundef %208, i32 noundef %210, i32 noundef 1, i32 noundef %213)
+  br label %214
 
-if.end78:                                         ; preds = %if.then72, %if.end65
-  %106 = load ptr, ptr %p.addr, align 8
-  %c79 = getelementptr inbounds %struct.stbhw__process, ptr %106, i32 0, i32 1
-  %107 = load ptr, ptr %c79, align 8
-  %corner_type_color_template80 = getelementptr inbounds %struct.stbhw_config, ptr %107, i32 0, i32 5
-  %arrayidx81 = getelementptr inbounds [4 x [4 x i32]], ptr %corner_type_color_template80, i64 0, i64 1
-  %108 = load i32, ptr %d.addr, align 4
-  %idxprom82 = sext i32 %108 to i64
-  %arrayidx83 = getelementptr inbounds [4 x i32], ptr %arrayidx81, i64 0, i64 %idxprom82
-  %109 = load i32, ptr %arrayidx83, align 4
-  %tobool84 = icmp ne i32 %109, 0
-  br i1 %tobool84, label %if.then85, label %if.end90
+214:                                              ; preds = %199, %188
+  %215 = load ptr, ptr %10, align 8, !tbaa !8
+  %216 = getelementptr inbounds nuw %struct.stbhw__process, ptr %215, i32 0, i32 1
+  %217 = load ptr, ptr %216, align 8, !tbaa !15
+  %218 = getelementptr inbounds nuw %struct.stbhw_config, ptr %217, i32 0, i32 5
+  %219 = getelementptr inbounds [4 x [4 x i32]], ptr %218, i64 0, i64 1
+  %220 = load i32, ptr %16, align 4, !tbaa !10
+  %221 = sext i32 %220 to i64
+  %222 = getelementptr inbounds [4 x i32], ptr %219, i64 0, i64 %221
+  %223 = load i32, ptr %222, align 4, !tbaa !10
+  %224 = icmp ne i32 %223, 0
+  br i1 %224, label %225, label %239
 
-if.then85:                                        ; preds = %if.end78
-  %110 = load ptr, ptr %p.addr, align 8
-  %data86 = getelementptr inbounds %struct.stbhw__process, ptr %110, i32 0, i32 4
-  %111 = load ptr, ptr %data86, align 8
-  %112 = load ptr, ptr %p.addr, align 8
-  %stride87 = getelementptr inbounds %struct.stbhw__process, ptr %112, i32 0, i32 5
-  %113 = load i32, ptr %stride87, align 8
-  %114 = load i32, ptr %xpos.addr, align 4
-  %115 = load i32, ptr %ypos.addr, align 4
-  %116 = load i32, ptr %len, align 4
-  %117 = load i32, ptr %len, align 4
-  %mul88 = mul nsw i32 %117, 2
-  %118 = load i32, ptr %len, align 4
-  %add89 = add nsw i32 %118, 1
-  call void @stbhw__draw_clipped_corner(ptr noundef %111, i32 noundef %113, i32 noundef %114, i32 noundef %115, i32 noundef %116, i32 noundef %mul88, i32 noundef %add89, i32 noundef 1)
-  br label %if.end90
+225:                                              ; preds = %214
+  %226 = load ptr, ptr %10, align 8, !tbaa !8
+  %227 = getelementptr inbounds nuw %struct.stbhw__process, ptr %226, i32 0, i32 4
+  %228 = load ptr, ptr %227, align 8, !tbaa !92
+  %229 = load ptr, ptr %10, align 8, !tbaa !8
+  %230 = getelementptr inbounds nuw %struct.stbhw__process, ptr %229, i32 0, i32 5
+  %231 = load i32, ptr %230, align 8, !tbaa !93
+  %232 = load i32, ptr %11, align 4, !tbaa !10
+  %233 = load i32, ptr %12, align 4, !tbaa !10
+  %234 = load i32, ptr %19, align 4, !tbaa !10
+  %235 = load i32, ptr %19, align 4, !tbaa !10
+  %236 = mul nsw i32 %235, 2
+  %237 = load i32, ptr %19, align 4, !tbaa !10
+  %238 = add nsw i32 %237, 1
+  call void @stbhw__draw_clipped_corner(ptr noundef %228, i32 noundef %231, i32 noundef %232, i32 noundef %233, i32 noundef %234, i32 noundef %236, i32 noundef %238, i32 noundef 1)
+  br label %239
 
-if.end90:                                         ; preds = %if.then85, %if.end78
-  %119 = load ptr, ptr %p.addr, align 8
-  %c91 = getelementptr inbounds %struct.stbhw__process, ptr %119, i32 0, i32 1
-  %120 = load ptr, ptr %c91, align 8
-  %corner_type_color_template92 = getelementptr inbounds %struct.stbhw_config, ptr %120, i32 0, i32 5
-  %arrayidx93 = getelementptr inbounds [4 x [4 x i32]], ptr %corner_type_color_template92, i64 0, i64 0
-  %121 = load i32, ptr %e.addr, align 4
-  %idxprom94 = sext i32 %121 to i64
-  %arrayidx95 = getelementptr inbounds [4 x i32], ptr %arrayidx93, i64 0, i64 %idxprom94
-  %122 = load i32, ptr %arrayidx95, align 4
-  %tobool96 = icmp ne i32 %122, 0
-  br i1 %tobool96, label %if.then97, label %if.end103
+239:                                              ; preds = %225, %214
+  %240 = load ptr, ptr %10, align 8, !tbaa !8
+  %241 = getelementptr inbounds nuw %struct.stbhw__process, ptr %240, i32 0, i32 1
+  %242 = load ptr, ptr %241, align 8, !tbaa !15
+  %243 = getelementptr inbounds nuw %struct.stbhw_config, ptr %242, i32 0, i32 5
+  %244 = getelementptr inbounds [4 x [4 x i32]], ptr %243, i64 0, i64 0
+  %245 = load i32, ptr %17, align 4, !tbaa !10
+  %246 = sext i32 %245 to i64
+  %247 = getelementptr inbounds [4 x i32], ptr %244, i64 0, i64 %246
+  %248 = load i32, ptr %247, align 4, !tbaa !10
+  %249 = icmp ne i32 %248, 0
+  br i1 %249, label %250, label %266
 
-if.then97:                                        ; preds = %if.end90
-  %123 = load ptr, ptr %p.addr, align 8
-  %data98 = getelementptr inbounds %struct.stbhw__process, ptr %123, i32 0, i32 4
-  %124 = load ptr, ptr %data98, align 8
-  %125 = load ptr, ptr %p.addr, align 8
-  %stride99 = getelementptr inbounds %struct.stbhw__process, ptr %125, i32 0, i32 5
-  %126 = load i32, ptr %stride99, align 8
-  %127 = load i32, ptr %xpos.addr, align 4
-  %128 = load i32, ptr %ypos.addr, align 4
-  %129 = load i32, ptr %len, align 4
-  %130 = load i32, ptr %len, align 4
-  %mul100 = mul nsw i32 %130, 2
-  %131 = load i32, ptr %len, align 4
-  %add101 = add nsw i32 %131, 1
-  %132 = load i32, ptr %len, align 4
-  %add102 = add nsw i32 %132, 1
-  call void @stbhw__draw_clipped_corner(ptr noundef %124, i32 noundef %126, i32 noundef %127, i32 noundef %128, i32 noundef %129, i32 noundef %mul100, i32 noundef %add101, i32 noundef %add102)
-  br label %if.end103
+250:                                              ; preds = %239
+  %251 = load ptr, ptr %10, align 8, !tbaa !8
+  %252 = getelementptr inbounds nuw %struct.stbhw__process, ptr %251, i32 0, i32 4
+  %253 = load ptr, ptr %252, align 8, !tbaa !92
+  %254 = load ptr, ptr %10, align 8, !tbaa !8
+  %255 = getelementptr inbounds nuw %struct.stbhw__process, ptr %254, i32 0, i32 5
+  %256 = load i32, ptr %255, align 8, !tbaa !93
+  %257 = load i32, ptr %11, align 4, !tbaa !10
+  %258 = load i32, ptr %12, align 4, !tbaa !10
+  %259 = load i32, ptr %19, align 4, !tbaa !10
+  %260 = load i32, ptr %19, align 4, !tbaa !10
+  %261 = mul nsw i32 %260, 2
+  %262 = load i32, ptr %19, align 4, !tbaa !10
+  %263 = add nsw i32 %262, 1
+  %264 = load i32, ptr %19, align 4, !tbaa !10
+  %265 = add nsw i32 %264, 1
+  call void @stbhw__draw_clipped_corner(ptr noundef %253, i32 noundef %256, i32 noundef %257, i32 noundef %258, i32 noundef %259, i32 noundef %261, i32 noundef %263, i32 noundef %265)
+  br label %266
 
-if.end103:                                        ; preds = %if.then97, %if.end90
-  %133 = load ptr, ptr %p.addr, align 8
-  %c104 = getelementptr inbounds %struct.stbhw__process, ptr %133, i32 0, i32 1
-  %134 = load ptr, ptr %c104, align 8
-  %corner_type_color_template105 = getelementptr inbounds %struct.stbhw_config, ptr %134, i32 0, i32 5
-  %arrayidx106 = getelementptr inbounds [4 x [4 x i32]], ptr %corner_type_color_template105, i64 0, i64 3
-  %135 = load i32, ptr %f.addr, align 4
-  %idxprom107 = sext i32 %135 to i64
-  %arrayidx108 = getelementptr inbounds [4 x i32], ptr %arrayidx106, i64 0, i64 %idxprom107
-  %136 = load i32, ptr %arrayidx108, align 4
-  %tobool109 = icmp ne i32 %136, 0
-  br i1 %tobool109, label %if.then110, label %if.end117
+266:                                              ; preds = %250, %239
+  %267 = load ptr, ptr %10, align 8, !tbaa !8
+  %268 = getelementptr inbounds nuw %struct.stbhw__process, ptr %267, i32 0, i32 1
+  %269 = load ptr, ptr %268, align 8, !tbaa !15
+  %270 = getelementptr inbounds nuw %struct.stbhw_config, ptr %269, i32 0, i32 5
+  %271 = getelementptr inbounds [4 x [4 x i32]], ptr %270, i64 0, i64 3
+  %272 = load i32, ptr %18, align 4, !tbaa !10
+  %273 = sext i32 %272 to i64
+  %274 = getelementptr inbounds [4 x i32], ptr %271, i64 0, i64 %273
+  %275 = load i32, ptr %274, align 4, !tbaa !10
+  %276 = icmp ne i32 %275, 0
+  br i1 %276, label %277, label %294
 
-if.then110:                                       ; preds = %if.end103
-  %137 = load ptr, ptr %p.addr, align 8
-  %data111 = getelementptr inbounds %struct.stbhw__process, ptr %137, i32 0, i32 4
-  %138 = load ptr, ptr %data111, align 8
-  %139 = load ptr, ptr %p.addr, align 8
-  %stride112 = getelementptr inbounds %struct.stbhw__process, ptr %139, i32 0, i32 5
-  %140 = load i32, ptr %stride112, align 8
-  %141 = load i32, ptr %xpos.addr, align 4
-  %142 = load i32, ptr %ypos.addr, align 4
-  %143 = load i32, ptr %len, align 4
-  %144 = load i32, ptr %len, align 4
-  %mul113 = mul nsw i32 %144, 2
-  %145 = load i32, ptr %len, align 4
-  %add114 = add nsw i32 %145, 1
-  %146 = load i32, ptr %len, align 4
-  %mul115 = mul nsw i32 %146, 2
-  %add116 = add nsw i32 %mul115, 1
-  call void @stbhw__draw_clipped_corner(ptr noundef %138, i32 noundef %140, i32 noundef %141, i32 noundef %142, i32 noundef %143, i32 noundef %mul113, i32 noundef %add114, i32 noundef %add116)
-  br label %if.end117
+277:                                              ; preds = %266
+  %278 = load ptr, ptr %10, align 8, !tbaa !8
+  %279 = getelementptr inbounds nuw %struct.stbhw__process, ptr %278, i32 0, i32 4
+  %280 = load ptr, ptr %279, align 8, !tbaa !92
+  %281 = load ptr, ptr %10, align 8, !tbaa !8
+  %282 = getelementptr inbounds nuw %struct.stbhw__process, ptr %281, i32 0, i32 5
+  %283 = load i32, ptr %282, align 8, !tbaa !93
+  %284 = load i32, ptr %11, align 4, !tbaa !10
+  %285 = load i32, ptr %12, align 4, !tbaa !10
+  %286 = load i32, ptr %19, align 4, !tbaa !10
+  %287 = load i32, ptr %19, align 4, !tbaa !10
+  %288 = mul nsw i32 %287, 2
+  %289 = load i32, ptr %19, align 4, !tbaa !10
+  %290 = add nsw i32 %289, 1
+  %291 = load i32, ptr %19, align 4, !tbaa !10
+  %292 = mul nsw i32 %291, 2
+  %293 = add nsw i32 %292, 1
+  call void @stbhw__draw_clipped_corner(ptr noundef %280, i32 noundef %283, i32 noundef %284, i32 noundef %285, i32 noundef %286, i32 noundef %288, i32 noundef %290, i32 noundef %293)
+  br label %294
 
-if.end117:                                        ; preds = %if.then110, %if.end103
-  %147 = load ptr, ptr %p.addr, align 8
-  %data118 = getelementptr inbounds %struct.stbhw__process, ptr %147, i32 0, i32 4
-  %148 = load ptr, ptr %data118, align 8
-  %149 = load ptr, ptr %p.addr, align 8
-  %stride119 = getelementptr inbounds %struct.stbhw__process, ptr %149, i32 0, i32 5
-  %150 = load i32, ptr %stride119, align 8
-  %151 = load i32, ptr %xpos.addr, align 4
-  %152 = load i32, ptr %ypos.addr, align 4
-  %153 = load i32, ptr %a.addr, align 4
-  %idxprom120 = sext i32 %153 to i64
-  %arrayidx121 = getelementptr inbounds [4 x [3 x i8]], ptr @stbhw__corner_colors, i64 0, i64 %idxprom120
-  %arraydecay = getelementptr inbounds [3 x i8], ptr %arrayidx121, i64 0, i64 0
-  call void @stbhw__set_pixel(ptr noundef %148, i32 noundef %150, i32 noundef %151, i32 noundef %152, ptr noundef %arraydecay)
-  %154 = load ptr, ptr %p.addr, align 8
-  %data122 = getelementptr inbounds %struct.stbhw__process, ptr %154, i32 0, i32 4
-  %155 = load ptr, ptr %data122, align 8
-  %156 = load ptr, ptr %p.addr, align 8
-  %stride123 = getelementptr inbounds %struct.stbhw__process, ptr %156, i32 0, i32 5
-  %157 = load i32, ptr %stride123, align 8
-  %158 = load i32, ptr %xpos.addr, align 4
-  %159 = load i32, ptr %ypos.addr, align 4
-  %160 = load i32, ptr %len, align 4
-  %add124 = add nsw i32 %159, %160
-  %161 = load i32, ptr %b.addr, align 4
-  %idxprom125 = sext i32 %161 to i64
-  %162 = getelementptr inbounds [4 x [4 x [3 x i8]]], ptr @stbhw__corner_colors, i64 0, i64 3
-  %arrayidx126 = getelementptr inbounds [4 x [3 x i8]], ptr %162, i64 0, i64 %idxprom125
-  %arraydecay127 = getelementptr inbounds [3 x i8], ptr %arrayidx126, i64 0, i64 0
-  call void @stbhw__set_pixel(ptr noundef %155, i32 noundef %157, i32 noundef %158, i32 noundef %add124, ptr noundef %arraydecay127)
-  %163 = load ptr, ptr %p.addr, align 8
-  %data128 = getelementptr inbounds %struct.stbhw__process, ptr %163, i32 0, i32 4
-  %164 = load ptr, ptr %data128, align 8
-  %165 = load ptr, ptr %p.addr, align 8
-  %stride129 = getelementptr inbounds %struct.stbhw__process, ptr %165, i32 0, i32 5
-  %166 = load i32, ptr %stride129, align 8
-  %167 = load i32, ptr %xpos.addr, align 4
-  %168 = load i32, ptr %ypos.addr, align 4
-  %169 = load i32, ptr %len, align 4
-  %mul130 = mul nsw i32 2, %169
-  %add131 = add nsw i32 %168, %mul130
-  %add132 = add nsw i32 %add131, 1
-  %170 = load i32, ptr %c.addr, align 4
-  %idxprom133 = sext i32 %170 to i64
-  %171 = getelementptr inbounds [4 x [4 x [3 x i8]]], ptr @stbhw__corner_colors, i64 0, i64 2
-  %arrayidx134 = getelementptr inbounds [4 x [3 x i8]], ptr %171, i64 0, i64 %idxprom133
-  %arraydecay135 = getelementptr inbounds [3 x i8], ptr %arrayidx134, i64 0, i64 0
-  call void @stbhw__set_pixel(ptr noundef %164, i32 noundef %166, i32 noundef %167, i32 noundef %add132, ptr noundef %arraydecay135)
-  %172 = load ptr, ptr %p.addr, align 8
-  %data136 = getelementptr inbounds %struct.stbhw__process, ptr %172, i32 0, i32 4
-  %173 = load ptr, ptr %data136, align 8
-  %174 = load ptr, ptr %p.addr, align 8
-  %stride137 = getelementptr inbounds %struct.stbhw__process, ptr %174, i32 0, i32 5
-  %175 = load i32, ptr %stride137, align 8
-  %176 = load i32, ptr %xpos.addr, align 4
-  %177 = load i32, ptr %len, align 4
-  %add138 = add nsw i32 %176, %177
-  %add139 = add nsw i32 %add138, 1
-  %178 = load i32, ptr %ypos.addr, align 4
-  %179 = load i32, ptr %d.addr, align 4
-  %idxprom140 = sext i32 %179 to i64
-  %180 = getelementptr inbounds [4 x [4 x [3 x i8]]], ptr @stbhw__corner_colors, i64 0, i64 1
-  %arrayidx141 = getelementptr inbounds [4 x [3 x i8]], ptr %180, i64 0, i64 %idxprom140
-  %arraydecay142 = getelementptr inbounds [3 x i8], ptr %arrayidx141, i64 0, i64 0
-  call void @stbhw__set_pixel(ptr noundef %173, i32 noundef %175, i32 noundef %add139, i32 noundef %178, ptr noundef %arraydecay142)
-  %181 = load ptr, ptr %p.addr, align 8
-  %data143 = getelementptr inbounds %struct.stbhw__process, ptr %181, i32 0, i32 4
-  %182 = load ptr, ptr %data143, align 8
-  %183 = load ptr, ptr %p.addr, align 8
-  %stride144 = getelementptr inbounds %struct.stbhw__process, ptr %183, i32 0, i32 5
-  %184 = load i32, ptr %stride144, align 8
-  %185 = load i32, ptr %xpos.addr, align 4
-  %186 = load i32, ptr %len, align 4
-  %add145 = add nsw i32 %185, %186
-  %add146 = add nsw i32 %add145, 1
-  %187 = load i32, ptr %ypos.addr, align 4
-  %188 = load i32, ptr %len, align 4
-  %add147 = add nsw i32 %187, %188
-  %189 = load i32, ptr %e.addr, align 4
-  %idxprom148 = sext i32 %189 to i64
-  %arrayidx149 = getelementptr inbounds [4 x [3 x i8]], ptr @stbhw__corner_colors, i64 0, i64 %idxprom148
-  %arraydecay150 = getelementptr inbounds [3 x i8], ptr %arrayidx149, i64 0, i64 0
-  call void @stbhw__set_pixel(ptr noundef %182, i32 noundef %184, i32 noundef %add146, i32 noundef %add147, ptr noundef %arraydecay150)
-  %190 = load ptr, ptr %p.addr, align 8
-  %data151 = getelementptr inbounds %struct.stbhw__process, ptr %190, i32 0, i32 4
-  %191 = load ptr, ptr %data151, align 8
-  %192 = load ptr, ptr %p.addr, align 8
-  %stride152 = getelementptr inbounds %struct.stbhw__process, ptr %192, i32 0, i32 5
-  %193 = load i32, ptr %stride152, align 8
-  %194 = load i32, ptr %xpos.addr, align 4
-  %195 = load i32, ptr %len, align 4
-  %add153 = add nsw i32 %194, %195
-  %add154 = add nsw i32 %add153, 1
-  %196 = load i32, ptr %ypos.addr, align 4
-  %197 = load i32, ptr %len, align 4
-  %mul155 = mul nsw i32 2, %197
-  %add156 = add nsw i32 %196, %mul155
-  %add157 = add nsw i32 %add156, 1
-  %198 = load i32, ptr %f.addr, align 4
-  %idxprom158 = sext i32 %198 to i64
-  %199 = getelementptr inbounds [4 x [4 x [3 x i8]]], ptr @stbhw__corner_colors, i64 0, i64 3
-  %arrayidx159 = getelementptr inbounds [4 x [3 x i8]], ptr %199, i64 0, i64 %idxprom158
-  %arraydecay160 = getelementptr inbounds [3 x i8], ptr %arrayidx159, i64 0, i64 0
-  call void @stbhw__set_pixel(ptr noundef %191, i32 noundef %193, i32 noundef %add154, i32 noundef %add157, ptr noundef %arraydecay160)
+294:                                              ; preds = %277, %266
+  %295 = load ptr, ptr %10, align 8, !tbaa !8
+  %296 = getelementptr inbounds nuw %struct.stbhw__process, ptr %295, i32 0, i32 4
+  %297 = load ptr, ptr %296, align 8, !tbaa !92
+  %298 = load ptr, ptr %10, align 8, !tbaa !8
+  %299 = getelementptr inbounds nuw %struct.stbhw__process, ptr %298, i32 0, i32 5
+  %300 = load i32, ptr %299, align 8, !tbaa !93
+  %301 = load i32, ptr %11, align 4, !tbaa !10
+  %302 = load i32, ptr %12, align 4, !tbaa !10
+  %303 = load i32, ptr %13, align 4, !tbaa !10
+  %304 = sext i32 %303 to i64
+  %305 = getelementptr inbounds [4 x [3 x i8]], ptr @stbhw__corner_colors, i64 0, i64 %304
+  %306 = getelementptr inbounds [3 x i8], ptr %305, i64 0, i64 0
+  call void @stbhw__set_pixel(ptr noundef %297, i32 noundef %300, i32 noundef %301, i32 noundef %302, ptr noundef %306)
+  %307 = load ptr, ptr %10, align 8, !tbaa !8
+  %308 = getelementptr inbounds nuw %struct.stbhw__process, ptr %307, i32 0, i32 4
+  %309 = load ptr, ptr %308, align 8, !tbaa !92
+  %310 = load ptr, ptr %10, align 8, !tbaa !8
+  %311 = getelementptr inbounds nuw %struct.stbhw__process, ptr %310, i32 0, i32 5
+  %312 = load i32, ptr %311, align 8, !tbaa !93
+  %313 = load i32, ptr %11, align 4, !tbaa !10
+  %314 = load i32, ptr %12, align 4, !tbaa !10
+  %315 = load i32, ptr %19, align 4, !tbaa !10
+  %316 = add nsw i32 %314, %315
+  %317 = load i32, ptr %14, align 4, !tbaa !10
+  %318 = sext i32 %317 to i64
+  %319 = getelementptr inbounds [4 x [3 x i8]], ptr getelementptr inbounds ([4 x [4 x [3 x i8]]], ptr @stbhw__corner_colors, i64 0, i64 3), i64 0, i64 %318
+  %320 = getelementptr inbounds [3 x i8], ptr %319, i64 0, i64 0
+  call void @stbhw__set_pixel(ptr noundef %309, i32 noundef %312, i32 noundef %313, i32 noundef %316, ptr noundef %320)
+  %321 = load ptr, ptr %10, align 8, !tbaa !8
+  %322 = getelementptr inbounds nuw %struct.stbhw__process, ptr %321, i32 0, i32 4
+  %323 = load ptr, ptr %322, align 8, !tbaa !92
+  %324 = load ptr, ptr %10, align 8, !tbaa !8
+  %325 = getelementptr inbounds nuw %struct.stbhw__process, ptr %324, i32 0, i32 5
+  %326 = load i32, ptr %325, align 8, !tbaa !93
+  %327 = load i32, ptr %11, align 4, !tbaa !10
+  %328 = load i32, ptr %12, align 4, !tbaa !10
+  %329 = load i32, ptr %19, align 4, !tbaa !10
+  %330 = mul nsw i32 2, %329
+  %331 = add nsw i32 %328, %330
+  %332 = add nsw i32 %331, 1
+  %333 = load i32, ptr %15, align 4, !tbaa !10
+  %334 = sext i32 %333 to i64
+  %335 = getelementptr inbounds [4 x [3 x i8]], ptr getelementptr inbounds ([4 x [4 x [3 x i8]]], ptr @stbhw__corner_colors, i64 0, i64 2), i64 0, i64 %334
+  %336 = getelementptr inbounds [3 x i8], ptr %335, i64 0, i64 0
+  call void @stbhw__set_pixel(ptr noundef %323, i32 noundef %326, i32 noundef %327, i32 noundef %332, ptr noundef %336)
+  %337 = load ptr, ptr %10, align 8, !tbaa !8
+  %338 = getelementptr inbounds nuw %struct.stbhw__process, ptr %337, i32 0, i32 4
+  %339 = load ptr, ptr %338, align 8, !tbaa !92
+  %340 = load ptr, ptr %10, align 8, !tbaa !8
+  %341 = getelementptr inbounds nuw %struct.stbhw__process, ptr %340, i32 0, i32 5
+  %342 = load i32, ptr %341, align 8, !tbaa !93
+  %343 = load i32, ptr %11, align 4, !tbaa !10
+  %344 = load i32, ptr %19, align 4, !tbaa !10
+  %345 = add nsw i32 %343, %344
+  %346 = add nsw i32 %345, 1
+  %347 = load i32, ptr %12, align 4, !tbaa !10
+  %348 = load i32, ptr %16, align 4, !tbaa !10
+  %349 = sext i32 %348 to i64
+  %350 = getelementptr inbounds [4 x [3 x i8]], ptr getelementptr inbounds ([4 x [4 x [3 x i8]]], ptr @stbhw__corner_colors, i64 0, i64 1), i64 0, i64 %349
+  %351 = getelementptr inbounds [3 x i8], ptr %350, i64 0, i64 0
+  call void @stbhw__set_pixel(ptr noundef %339, i32 noundef %342, i32 noundef %346, i32 noundef %347, ptr noundef %351)
+  %352 = load ptr, ptr %10, align 8, !tbaa !8
+  %353 = getelementptr inbounds nuw %struct.stbhw__process, ptr %352, i32 0, i32 4
+  %354 = load ptr, ptr %353, align 8, !tbaa !92
+  %355 = load ptr, ptr %10, align 8, !tbaa !8
+  %356 = getelementptr inbounds nuw %struct.stbhw__process, ptr %355, i32 0, i32 5
+  %357 = load i32, ptr %356, align 8, !tbaa !93
+  %358 = load i32, ptr %11, align 4, !tbaa !10
+  %359 = load i32, ptr %19, align 4, !tbaa !10
+  %360 = add nsw i32 %358, %359
+  %361 = add nsw i32 %360, 1
+  %362 = load i32, ptr %12, align 4, !tbaa !10
+  %363 = load i32, ptr %19, align 4, !tbaa !10
+  %364 = add nsw i32 %362, %363
+  %365 = load i32, ptr %17, align 4, !tbaa !10
+  %366 = sext i32 %365 to i64
+  %367 = getelementptr inbounds [4 x [3 x i8]], ptr @stbhw__corner_colors, i64 0, i64 %366
+  %368 = getelementptr inbounds [3 x i8], ptr %367, i64 0, i64 0
+  call void @stbhw__set_pixel(ptr noundef %354, i32 noundef %357, i32 noundef %361, i32 noundef %364, ptr noundef %368)
+  %369 = load ptr, ptr %10, align 8, !tbaa !8
+  %370 = getelementptr inbounds nuw %struct.stbhw__process, ptr %369, i32 0, i32 4
+  %371 = load ptr, ptr %370, align 8, !tbaa !92
+  %372 = load ptr, ptr %10, align 8, !tbaa !8
+  %373 = getelementptr inbounds nuw %struct.stbhw__process, ptr %372, i32 0, i32 5
+  %374 = load i32, ptr %373, align 8, !tbaa !93
+  %375 = load i32, ptr %11, align 4, !tbaa !10
+  %376 = load i32, ptr %19, align 4, !tbaa !10
+  %377 = add nsw i32 %375, %376
+  %378 = add nsw i32 %377, 1
+  %379 = load i32, ptr %12, align 4, !tbaa !10
+  %380 = load i32, ptr %19, align 4, !tbaa !10
+  %381 = mul nsw i32 2, %380
+  %382 = add nsw i32 %379, %381
+  %383 = add nsw i32 %382, 1
+  %384 = load i32, ptr %18, align 4, !tbaa !10
+  %385 = sext i32 %384 to i64
+  %386 = getelementptr inbounds [4 x [3 x i8]], ptr getelementptr inbounds ([4 x [4 x [3 x i8]]], ptr @stbhw__corner_colors, i64 0, i64 3), i64 0, i64 %385
+  %387 = getelementptr inbounds [3 x i8], ptr %386, i64 0, i64 0
+  call void @stbhw__set_pixel(ptr noundef %371, i32 noundef %374, i32 noundef %378, i32 noundef %383, ptr noundef %387)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #6
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbhw_make_template(ptr noundef %c, ptr noundef %data, i32 noundef %w, i32 noundef %h, i32 noundef %stride_in_bytes) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %c.addr = alloca ptr, align 8
-  %data.addr = alloca ptr, align 8
-  %w.addr = alloca i32, align 4
-  %h.addr = alloca i32, align 4
-  %stride_in_bytes.addr = alloca i32, align 4
-  %p = alloca %struct.stbhw__process, align 8
-  %i = alloca i32, align 4
-  store ptr %c, ptr %c.addr, align 8
-  store ptr %data, ptr %data.addr, align 8
-  store i32 %w, ptr %w.addr, align 4
-  store i32 %h, ptr %h.addr, align 4
-  store i32 %stride_in_bytes, ptr %stride_in_bytes.addr, align 4
-  %0 = load ptr, ptr %data.addr, align 8
-  %data1 = getelementptr inbounds %struct.stbhw__process, ptr %p, i32 0, i32 4
-  store ptr %0, ptr %data1, align 8
-  %1 = load i32, ptr %w.addr, align 4
-  %w2 = getelementptr inbounds %struct.stbhw__process, ptr %p, i32 0, i32 6
-  store i32 %1, ptr %w2, align 4
-  %2 = load i32, ptr %h.addr, align 4
-  %h3 = getelementptr inbounds %struct.stbhw__process, ptr %p, i32 0, i32 7
-  store i32 %2, ptr %h3, align 8
-  %3 = load i32, ptr %stride_in_bytes.addr, align 4
-  %stride = getelementptr inbounds %struct.stbhw__process, ptr %p, i32 0, i32 5
-  store i32 %3, ptr %stride, align 8
-  %ts = getelementptr inbounds %struct.stbhw__process, ptr %p, i32 0, i32 0
-  store ptr null, ptr %ts, align 8
-  %4 = load ptr, ptr %c.addr, align 8
-  %c4 = getelementptr inbounds %struct.stbhw__process, ptr %p, i32 0, i32 1
-  store ptr %4, ptr %c4, align 8
-  %5 = load ptr, ptr %c.addr, align 8
-  %is_corner = getelementptr inbounds %struct.stbhw_config, ptr %5, i32 0, i32 0
-  %6 = load i32, ptr %is_corner, align 4
-  %tobool = icmp ne i32 %6, 0
-  br i1 %tobool, label %if.then, label %if.else
+define i32 @stbhw_make_template(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #0 {
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca %struct.stbhw__process, align 8
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8, !tbaa !34
+  store ptr %1, ptr %8, align 8, !tbaa !3
+  store i32 %2, ptr %9, align 4, !tbaa !10
+  store i32 %3, ptr %10, align 4, !tbaa !10
+  store i32 %4, ptr %11, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 56, ptr %12) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #6
+  %15 = load ptr, ptr %8, align 8, !tbaa !3
+  %16 = getelementptr inbounds nuw %struct.stbhw__process, ptr %12, i32 0, i32 4
+  store ptr %15, ptr %16, align 8, !tbaa !92
+  %17 = load i32, ptr %9, align 4, !tbaa !10
+  %18 = getelementptr inbounds nuw %struct.stbhw__process, ptr %12, i32 0, i32 6
+  store i32 %17, ptr %18, align 4, !tbaa !40
+  %19 = load i32, ptr %10, align 4, !tbaa !10
+  %20 = getelementptr inbounds nuw %struct.stbhw__process, ptr %12, i32 0, i32 7
+  store i32 %19, ptr %20, align 8, !tbaa !41
+  %21 = load i32, ptr %11, align 4, !tbaa !10
+  %22 = getelementptr inbounds nuw %struct.stbhw__process, ptr %12, i32 0, i32 5
+  store i32 %21, ptr %22, align 8, !tbaa !93
+  %23 = getelementptr inbounds nuw %struct.stbhw__process, ptr %12, i32 0, i32 0
+  store ptr null, ptr %23, align 8, !tbaa !96
+  %24 = load ptr, ptr %7, align 8, !tbaa !34
+  %25 = getelementptr inbounds nuw %struct.stbhw__process, ptr %12, i32 0, i32 1
+  store ptr %24, ptr %25, align 8, !tbaa !15
+  %26 = load ptr, ptr %7, align 8, !tbaa !34
+  %27 = getelementptr inbounds nuw %struct.stbhw_config, ptr %26, i32 0, i32 0
+  %28 = load i32, ptr %27, align 4, !tbaa !37
+  %29 = icmp ne i32 %28, 0
+  br i1 %29, label %30, label %33
 
-if.then:                                          ; preds = %entry
-  %process_h_rect = getelementptr inbounds %struct.stbhw__process, ptr %p, i32 0, i32 2
-  store ptr @stbhw__corner_process_h_rect, ptr %process_h_rect, align 8
-  %process_v_rect = getelementptr inbounds %struct.stbhw__process, ptr %p, i32 0, i32 3
-  store ptr @stbhw__corner_process_v_rect, ptr %process_v_rect, align 8
-  br label %if.end
+30:                                               ; preds = %5
+  %31 = getelementptr inbounds nuw %struct.stbhw__process, ptr %12, i32 0, i32 2
+  store ptr @stbhw__corner_process_h_rect, ptr %31, align 8, !tbaa !12
+  %32 = getelementptr inbounds nuw %struct.stbhw__process, ptr %12, i32 0, i32 3
+  store ptr @stbhw__corner_process_v_rect, ptr %32, align 8, !tbaa !26
+  br label %36
 
-if.else:                                          ; preds = %entry
-  %process_h_rect5 = getelementptr inbounds %struct.stbhw__process, ptr %p, i32 0, i32 2
-  store ptr @stbhw__edge_process_h_rect, ptr %process_h_rect5, align 8
-  %process_v_rect6 = getelementptr inbounds %struct.stbhw__process, ptr %p, i32 0, i32 3
-  store ptr @stbhw__edge_process_v_rect, ptr %process_v_rect6, align 8
-  br label %if.end
+33:                                               ; preds = %5
+  %34 = getelementptr inbounds nuw %struct.stbhw__process, ptr %12, i32 0, i32 2
+  store ptr @stbhw__edge_process_h_rect, ptr %34, align 8, !tbaa !12
+  %35 = getelementptr inbounds nuw %struct.stbhw__process, ptr %12, i32 0, i32 3
+  store ptr @stbhw__edge_process_v_rect, ptr %35, align 8, !tbaa !26
+  br label %36
 
-if.end:                                           ; preds = %if.else, %if.then
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+36:                                               ; preds = %33, %30
+  store i32 0, ptr %13, align 4, !tbaa !10
+  br label %37
 
-for.cond:                                         ; preds = %for.inc, %if.end
-  %7 = load i32, ptr %i, align 4
-  %h7 = getelementptr inbounds %struct.stbhw__process, ptr %p, i32 0, i32 7
-  %8 = load i32, ptr %h7, align 8
-  %cmp = icmp slt i32 %7, %8
-  br i1 %cmp, label %for.body, label %for.end
+37:                                               ; preds = %55, %36
+  %38 = load i32, ptr %13, align 4, !tbaa !10
+  %39 = getelementptr inbounds nuw %struct.stbhw__process, ptr %12, i32 0, i32 7
+  %40 = load i32, ptr %39, align 8, !tbaa !41
+  %41 = icmp slt i32 %38, %40
+  br i1 %41, label %42, label %58
 
-for.body:                                         ; preds = %for.cond
-  %data8 = getelementptr inbounds %struct.stbhw__process, ptr %p, i32 0, i32 4
-  %9 = load ptr, ptr %data8, align 8
-  %10 = load i32, ptr %i, align 4
-  %stride9 = getelementptr inbounds %struct.stbhw__process, ptr %p, i32 0, i32 5
-  %11 = load i32, ptr %stride9, align 8
-  %mul = mul nsw i32 %10, %11
-  %idx.ext = sext i32 %mul to i64
-  %add.ptr = getelementptr inbounds i8, ptr %9, i64 %idx.ext
-  %w10 = getelementptr inbounds %struct.stbhw__process, ptr %p, i32 0, i32 6
-  %12 = load i32, ptr %w10, align 4
-  %mul11 = mul nsw i32 3, %12
-  %conv = sext i32 %mul11 to i64
-  call void @llvm.memset.p0.i64(ptr align 1 %add.ptr, i8 -1, i64 %conv, i1 false)
-  br label %for.inc
+42:                                               ; preds = %37
+  %43 = getelementptr inbounds nuw %struct.stbhw__process, ptr %12, i32 0, i32 4
+  %44 = load ptr, ptr %43, align 8, !tbaa !92
+  %45 = load i32, ptr %13, align 4, !tbaa !10
+  %46 = getelementptr inbounds nuw %struct.stbhw__process, ptr %12, i32 0, i32 5
+  %47 = load i32, ptr %46, align 8, !tbaa !93
+  %48 = mul nsw i32 %45, %47
+  %49 = sext i32 %48 to i64
+  %50 = getelementptr inbounds i8, ptr %44, i64 %49
+  %51 = getelementptr inbounds nuw %struct.stbhw__process, ptr %12, i32 0, i32 6
+  %52 = load i32, ptr %51, align 4, !tbaa !40
+  %53 = mul nsw i32 3, %52
+  %54 = sext i32 %53 to i64
+  call void @llvm.memset.p0.i64(ptr align 1 %50, i8 -1, i64 %54, i1 false)
+  br label %55
 
-for.inc:                                          ; preds = %for.body
-  %13 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %13, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !67
+55:                                               ; preds = %42
+  %56 = load i32, ptr %13, align 4, !tbaa !10
+  %57 = add nsw i32 %56, 1
+  store i32 %57, ptr %13, align 4, !tbaa !10
+  br label %37, !llvm.loop !113
 
-for.end:                                          ; preds = %for.cond
-  %call = call i32 @stbhw__process_template(ptr noundef %p)
-  %tobool12 = icmp ne i32 %call, 0
-  br i1 %tobool12, label %if.end14, label %if.then13
+58:                                               ; preds = %37
+  %59 = call i32 @stbhw__process_template(ptr noundef %12)
+  %60 = icmp ne i32 %59, 0
+  br i1 %60, label %62, label %61
 
-if.then13:                                        ; preds = %for.end
-  store i32 0, ptr %retval, align 4
-  br label %return
+61:                                               ; preds = %58
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %14, align 4
+  br label %220
 
-if.end14:                                         ; preds = %for.end
-  %14 = load ptr, ptr %c.addr, align 8
-  %is_corner15 = getelementptr inbounds %struct.stbhw_config, ptr %14, i32 0, i32 0
-  %15 = load i32, ptr %is_corner15, align 4
-  %tobool16 = icmp ne i32 %15, 0
-  br i1 %tobool16, label %if.then17, label %if.else53
+62:                                               ; preds = %58
+  %63 = load ptr, ptr %7, align 8, !tbaa !34
+  %64 = getelementptr inbounds nuw %struct.stbhw_config, ptr %63, i32 0, i32 0
+  %65 = load i32, ptr %64, align 4, !tbaa !37
+  %66 = icmp ne i32 %65, 0
+  br i1 %66, label %67, label %135
 
-if.then17:                                        ; preds = %if.end14
-  store i32 0, ptr %i, align 4
-  br label %for.cond18
+67:                                               ; preds = %62
+  store i32 0, ptr %13, align 4, !tbaa !10
+  br label %68
 
-for.cond18:                                       ; preds = %for.inc27, %if.then17
-  %16 = load i32, ptr %i, align 4
-  %cmp19 = icmp slt i32 %16, 4
-  br i1 %cmp19, label %for.body21, label %for.end29
+68:                                               ; preds = %87, %67
+  %69 = load i32, ptr %13, align 4, !tbaa !10
+  %70 = icmp slt i32 %69, 4
+  br i1 %70, label %71, label %90
 
-for.body21:                                       ; preds = %for.cond18
-  %17 = load ptr, ptr %c.addr, align 8
-  %num_color = getelementptr inbounds %struct.stbhw_config, ptr %17, i32 0, i32 2
-  %18 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %18 to i64
-  %arrayidx = getelementptr inbounds [6 x i32], ptr %num_color, i64 0, i64 %idxprom
-  %19 = load i32, ptr %arrayidx, align 4
-  %conv22 = trunc i32 %19 to i8
-  %20 = load ptr, ptr %data.addr, align 8
-  %21 = load i32, ptr %w.addr, align 4
-  %mul23 = mul nsw i32 %21, 3
-  %sub = sub nsw i32 %mul23, 1
-  %22 = load i32, ptr %i, align 4
-  %sub24 = sub nsw i32 %sub, %22
-  %idxprom25 = sext i32 %sub24 to i64
-  %arrayidx26 = getelementptr inbounds i8, ptr %20, i64 %idxprom25
-  store i8 %conv22, ptr %arrayidx26, align 1
-  br label %for.inc27
+71:                                               ; preds = %68
+  %72 = load ptr, ptr %7, align 8, !tbaa !34
+  %73 = getelementptr inbounds nuw %struct.stbhw_config, ptr %72, i32 0, i32 2
+  %74 = load i32, ptr %13, align 4, !tbaa !10
+  %75 = sext i32 %74 to i64
+  %76 = getelementptr inbounds [6 x i32], ptr %73, i64 0, i64 %75
+  %77 = load i32, ptr %76, align 4, !tbaa !10
+  %78 = trunc i32 %77 to i8
+  %79 = load ptr, ptr %8, align 8, !tbaa !3
+  %80 = load i32, ptr %9, align 4, !tbaa !10
+  %81 = mul nsw i32 %80, 3
+  %82 = sub nsw i32 %81, 1
+  %83 = load i32, ptr %13, align 4, !tbaa !10
+  %84 = sub nsw i32 %82, %83
+  %85 = sext i32 %84 to i64
+  %86 = getelementptr inbounds i8, ptr %79, i64 %85
+  store i8 %78, ptr %86, align 1, !tbaa !64
+  br label %87
 
-for.inc27:                                        ; preds = %for.body21
-  %23 = load i32, ptr %i, align 4
-  %inc28 = add nsw i32 %23, 1
-  store i32 %inc28, ptr %i, align 4
-  br label %for.cond18, !llvm.loop !68
+87:                                               ; preds = %71
+  %88 = load i32, ptr %13, align 4, !tbaa !10
+  %89 = add nsw i32 %88, 1
+  store i32 %89, ptr %13, align 4, !tbaa !10
+  br label %68, !llvm.loop !114
 
-for.end29:                                        ; preds = %for.cond18
-  %24 = load ptr, ptr %c.addr, align 8
-  %num_vary_x = getelementptr inbounds %struct.stbhw_config, ptr %24, i32 0, i32 3
-  %25 = load i32, ptr %num_vary_x, align 4
-  %conv30 = trunc i32 %25 to i8
-  %26 = load ptr, ptr %data.addr, align 8
-  %27 = load i32, ptr %w.addr, align 4
-  %mul31 = mul nsw i32 %27, 3
-  %sub32 = sub nsw i32 %mul31, 1
-  %28 = load i32, ptr %i, align 4
-  %sub33 = sub nsw i32 %sub32, %28
-  %idxprom34 = sext i32 %sub33 to i64
-  %arrayidx35 = getelementptr inbounds i8, ptr %26, i64 %idxprom34
-  store i8 %conv30, ptr %arrayidx35, align 1
-  %29 = load ptr, ptr %c.addr, align 8
-  %num_vary_y = getelementptr inbounds %struct.stbhw_config, ptr %29, i32 0, i32 4
-  %30 = load i32, ptr %num_vary_y, align 4
-  %conv36 = trunc i32 %30 to i8
-  %31 = load ptr, ptr %data.addr, align 8
-  %32 = load i32, ptr %w.addr, align 4
-  %mul37 = mul nsw i32 %32, 3
-  %sub38 = sub nsw i32 %mul37, 2
-  %33 = load i32, ptr %i, align 4
-  %sub39 = sub nsw i32 %sub38, %33
-  %idxprom40 = sext i32 %sub39 to i64
-  %arrayidx41 = getelementptr inbounds i8, ptr %31, i64 %idxprom40
-  store i8 %conv36, ptr %arrayidx41, align 1
-  %34 = load ptr, ptr %c.addr, align 8
-  %short_side_len = getelementptr inbounds %struct.stbhw_config, ptr %34, i32 0, i32 1
-  %35 = load i32, ptr %short_side_len, align 4
-  %conv42 = trunc i32 %35 to i8
-  %36 = load ptr, ptr %data.addr, align 8
-  %37 = load i32, ptr %w.addr, align 4
-  %mul43 = mul nsw i32 %37, 3
-  %sub44 = sub nsw i32 %mul43, 3
-  %38 = load i32, ptr %i, align 4
-  %sub45 = sub nsw i32 %sub44, %38
-  %idxprom46 = sext i32 %sub45 to i64
-  %arrayidx47 = getelementptr inbounds i8, ptr %36, i64 %idxprom46
-  store i8 %conv42, ptr %arrayidx47, align 1
-  %39 = load ptr, ptr %data.addr, align 8
-  %40 = load i32, ptr %w.addr, align 4
-  %mul48 = mul nsw i32 %40, 3
-  %sub49 = sub nsw i32 %mul48, 4
-  %41 = load i32, ptr %i, align 4
-  %sub50 = sub nsw i32 %sub49, %41
-  %idxprom51 = sext i32 %sub50 to i64
-  %arrayidx52 = getelementptr inbounds i8, ptr %39, i64 %idxprom51
-  store i8 -64, ptr %arrayidx52, align 1
-  br label %if.end91
+90:                                               ; preds = %68
+  %91 = load ptr, ptr %7, align 8, !tbaa !34
+  %92 = getelementptr inbounds nuw %struct.stbhw_config, ptr %91, i32 0, i32 3
+  %93 = load i32, ptr %92, align 4, !tbaa !38
+  %94 = trunc i32 %93 to i8
+  %95 = load ptr, ptr %8, align 8, !tbaa !3
+  %96 = load i32, ptr %9, align 4, !tbaa !10
+  %97 = mul nsw i32 %96, 3
+  %98 = sub nsw i32 %97, 1
+  %99 = load i32, ptr %13, align 4, !tbaa !10
+  %100 = sub nsw i32 %98, %99
+  %101 = sext i32 %100 to i64
+  %102 = getelementptr inbounds i8, ptr %95, i64 %101
+  store i8 %94, ptr %102, align 1, !tbaa !64
+  %103 = load ptr, ptr %7, align 8, !tbaa !34
+  %104 = getelementptr inbounds nuw %struct.stbhw_config, ptr %103, i32 0, i32 4
+  %105 = load i32, ptr %104, align 4, !tbaa !39
+  %106 = trunc i32 %105 to i8
+  %107 = load ptr, ptr %8, align 8, !tbaa !3
+  %108 = load i32, ptr %9, align 4, !tbaa !10
+  %109 = mul nsw i32 %108, 3
+  %110 = sub nsw i32 %109, 2
+  %111 = load i32, ptr %13, align 4, !tbaa !10
+  %112 = sub nsw i32 %110, %111
+  %113 = sext i32 %112 to i64
+  %114 = getelementptr inbounds i8, ptr %107, i64 %113
+  store i8 %106, ptr %114, align 1, !tbaa !64
+  %115 = load ptr, ptr %7, align 8, !tbaa !34
+  %116 = getelementptr inbounds nuw %struct.stbhw_config, ptr %115, i32 0, i32 1
+  %117 = load i32, ptr %116, align 4, !tbaa !16
+  %118 = trunc i32 %117 to i8
+  %119 = load ptr, ptr %8, align 8, !tbaa !3
+  %120 = load i32, ptr %9, align 4, !tbaa !10
+  %121 = mul nsw i32 %120, 3
+  %122 = sub nsw i32 %121, 3
+  %123 = load i32, ptr %13, align 4, !tbaa !10
+  %124 = sub nsw i32 %122, %123
+  %125 = sext i32 %124 to i64
+  %126 = getelementptr inbounds i8, ptr %119, i64 %125
+  store i8 %118, ptr %126, align 1, !tbaa !64
+  %127 = load ptr, ptr %8, align 8, !tbaa !3
+  %128 = load i32, ptr %9, align 4, !tbaa !10
+  %129 = mul nsw i32 %128, 3
+  %130 = sub nsw i32 %129, 4
+  %131 = load i32, ptr %13, align 4, !tbaa !10
+  %132 = sub nsw i32 %130, %131
+  %133 = sext i32 %132 to i64
+  %134 = getelementptr inbounds i8, ptr %127, i64 %133
+  store i8 -64, ptr %134, align 1, !tbaa !64
+  br label %195
 
-if.else53:                                        ; preds = %if.end14
-  store i32 0, ptr %i, align 4
-  br label %for.cond54
+135:                                              ; preds = %62
+  store i32 0, ptr %13, align 4, !tbaa !10
+  br label %136
 
-for.cond54:                                       ; preds = %for.inc67, %if.else53
-  %42 = load i32, ptr %i, align 4
-  %cmp55 = icmp slt i32 %42, 6
-  br i1 %cmp55, label %for.body57, label %for.end69
+136:                                              ; preds = %155, %135
+  %137 = load i32, ptr %13, align 4, !tbaa !10
+  %138 = icmp slt i32 %137, 6
+  br i1 %138, label %139, label %158
 
-for.body57:                                       ; preds = %for.cond54
-  %43 = load ptr, ptr %c.addr, align 8
-  %num_color58 = getelementptr inbounds %struct.stbhw_config, ptr %43, i32 0, i32 2
-  %44 = load i32, ptr %i, align 4
-  %idxprom59 = sext i32 %44 to i64
-  %arrayidx60 = getelementptr inbounds [6 x i32], ptr %num_color58, i64 0, i64 %idxprom59
-  %45 = load i32, ptr %arrayidx60, align 4
-  %conv61 = trunc i32 %45 to i8
-  %46 = load ptr, ptr %data.addr, align 8
-  %47 = load i32, ptr %w.addr, align 4
-  %mul62 = mul nsw i32 %47, 3
-  %sub63 = sub nsw i32 %mul62, 1
-  %48 = load i32, ptr %i, align 4
-  %sub64 = sub nsw i32 %sub63, %48
-  %idxprom65 = sext i32 %sub64 to i64
-  %arrayidx66 = getelementptr inbounds i8, ptr %46, i64 %idxprom65
-  store i8 %conv61, ptr %arrayidx66, align 1
-  br label %for.inc67
+139:                                              ; preds = %136
+  %140 = load ptr, ptr %7, align 8, !tbaa !34
+  %141 = getelementptr inbounds nuw %struct.stbhw_config, ptr %140, i32 0, i32 2
+  %142 = load i32, ptr %13, align 4, !tbaa !10
+  %143 = sext i32 %142 to i64
+  %144 = getelementptr inbounds [6 x i32], ptr %141, i64 0, i64 %143
+  %145 = load i32, ptr %144, align 4, !tbaa !10
+  %146 = trunc i32 %145 to i8
+  %147 = load ptr, ptr %8, align 8, !tbaa !3
+  %148 = load i32, ptr %9, align 4, !tbaa !10
+  %149 = mul nsw i32 %148, 3
+  %150 = sub nsw i32 %149, 1
+  %151 = load i32, ptr %13, align 4, !tbaa !10
+  %152 = sub nsw i32 %150, %151
+  %153 = sext i32 %152 to i64
+  %154 = getelementptr inbounds i8, ptr %147, i64 %153
+  store i8 %146, ptr %154, align 1, !tbaa !64
+  br label %155
 
-for.inc67:                                        ; preds = %for.body57
-  %49 = load i32, ptr %i, align 4
-  %inc68 = add nsw i32 %49, 1
-  store i32 %inc68, ptr %i, align 4
-  br label %for.cond54, !llvm.loop !69
+155:                                              ; preds = %139
+  %156 = load i32, ptr %13, align 4, !tbaa !10
+  %157 = add nsw i32 %156, 1
+  store i32 %157, ptr %13, align 4, !tbaa !10
+  br label %136, !llvm.loop !115
 
-for.end69:                                        ; preds = %for.cond54
-  %50 = load ptr, ptr %c.addr, align 8
-  %num_vary_x70 = getelementptr inbounds %struct.stbhw_config, ptr %50, i32 0, i32 3
-  %51 = load i32, ptr %num_vary_x70, align 4
-  %conv71 = trunc i32 %51 to i8
-  %52 = load ptr, ptr %data.addr, align 8
-  %53 = load i32, ptr %w.addr, align 4
-  %mul72 = mul nsw i32 %53, 3
-  %sub73 = sub nsw i32 %mul72, 1
-  %54 = load i32, ptr %i, align 4
-  %sub74 = sub nsw i32 %sub73, %54
-  %idxprom75 = sext i32 %sub74 to i64
-  %arrayidx76 = getelementptr inbounds i8, ptr %52, i64 %idxprom75
-  store i8 %conv71, ptr %arrayidx76, align 1
-  %55 = load ptr, ptr %c.addr, align 8
-  %num_vary_y77 = getelementptr inbounds %struct.stbhw_config, ptr %55, i32 0, i32 4
-  %56 = load i32, ptr %num_vary_y77, align 4
-  %conv78 = trunc i32 %56 to i8
-  %57 = load ptr, ptr %data.addr, align 8
-  %58 = load i32, ptr %w.addr, align 4
-  %mul79 = mul nsw i32 %58, 3
-  %sub80 = sub nsw i32 %mul79, 2
-  %59 = load i32, ptr %i, align 4
-  %sub81 = sub nsw i32 %sub80, %59
-  %idxprom82 = sext i32 %sub81 to i64
-  %arrayidx83 = getelementptr inbounds i8, ptr %57, i64 %idxprom82
-  store i8 %conv78, ptr %arrayidx83, align 1
-  %60 = load ptr, ptr %c.addr, align 8
-  %short_side_len84 = getelementptr inbounds %struct.stbhw_config, ptr %60, i32 0, i32 1
-  %61 = load i32, ptr %short_side_len84, align 4
-  %conv85 = trunc i32 %61 to i8
-  %62 = load ptr, ptr %data.addr, align 8
-  %63 = load i32, ptr %w.addr, align 4
-  %mul86 = mul nsw i32 %63, 3
-  %sub87 = sub nsw i32 %mul86, 3
-  %64 = load i32, ptr %i, align 4
-  %sub88 = sub nsw i32 %sub87, %64
-  %idxprom89 = sext i32 %sub88 to i64
-  %arrayidx90 = getelementptr inbounds i8, ptr %62, i64 %idxprom89
-  store i8 %conv85, ptr %arrayidx90, align 1
-  br label %if.end91
+158:                                              ; preds = %136
+  %159 = load ptr, ptr %7, align 8, !tbaa !34
+  %160 = getelementptr inbounds nuw %struct.stbhw_config, ptr %159, i32 0, i32 3
+  %161 = load i32, ptr %160, align 4, !tbaa !38
+  %162 = trunc i32 %161 to i8
+  %163 = load ptr, ptr %8, align 8, !tbaa !3
+  %164 = load i32, ptr %9, align 4, !tbaa !10
+  %165 = mul nsw i32 %164, 3
+  %166 = sub nsw i32 %165, 1
+  %167 = load i32, ptr %13, align 4, !tbaa !10
+  %168 = sub nsw i32 %166, %167
+  %169 = sext i32 %168 to i64
+  %170 = getelementptr inbounds i8, ptr %163, i64 %169
+  store i8 %162, ptr %170, align 1, !tbaa !64
+  %171 = load ptr, ptr %7, align 8, !tbaa !34
+  %172 = getelementptr inbounds nuw %struct.stbhw_config, ptr %171, i32 0, i32 4
+  %173 = load i32, ptr %172, align 4, !tbaa !39
+  %174 = trunc i32 %173 to i8
+  %175 = load ptr, ptr %8, align 8, !tbaa !3
+  %176 = load i32, ptr %9, align 4, !tbaa !10
+  %177 = mul nsw i32 %176, 3
+  %178 = sub nsw i32 %177, 2
+  %179 = load i32, ptr %13, align 4, !tbaa !10
+  %180 = sub nsw i32 %178, %179
+  %181 = sext i32 %180 to i64
+  %182 = getelementptr inbounds i8, ptr %175, i64 %181
+  store i8 %174, ptr %182, align 1, !tbaa !64
+  %183 = load ptr, ptr %7, align 8, !tbaa !34
+  %184 = getelementptr inbounds nuw %struct.stbhw_config, ptr %183, i32 0, i32 1
+  %185 = load i32, ptr %184, align 4, !tbaa !16
+  %186 = trunc i32 %185 to i8
+  %187 = load ptr, ptr %8, align 8, !tbaa !3
+  %188 = load i32, ptr %9, align 4, !tbaa !10
+  %189 = mul nsw i32 %188, 3
+  %190 = sub nsw i32 %189, 3
+  %191 = load i32, ptr %13, align 4, !tbaa !10
+  %192 = sub nsw i32 %190, %191
+  %193 = sext i32 %192 to i64
+  %194 = getelementptr inbounds i8, ptr %187, i64 %193
+  store i8 %186, ptr %194, align 1, !tbaa !64
+  br label %195
 
-if.end91:                                         ; preds = %for.end69, %for.end29
-  store i32 0, ptr %i, align 4
-  br label %for.cond92
+195:                                              ; preds = %158, %90
+  store i32 0, ptr %13, align 4, !tbaa !10
+  br label %196
 
-for.cond92:                                       ; preds = %for.inc106, %if.end91
-  %65 = load i32, ptr %i, align 4
-  %cmp93 = icmp slt i32 %65, 9
-  br i1 %cmp93, label %for.body95, label %for.end108
+196:                                              ; preds = %216, %195
+  %197 = load i32, ptr %13, align 4, !tbaa !10
+  %198 = icmp slt i32 %197, 9
+  br i1 %198, label %199, label %219
 
-for.body95:                                       ; preds = %for.cond92
-  %66 = load i32, ptr %i, align 4
-  %mul96 = mul nsw i32 %66, 55
-  %data97 = getelementptr inbounds %struct.stbhw__process, ptr %p, i32 0, i32 4
-  %67 = load ptr, ptr %data97, align 8
-  %w98 = getelementptr inbounds %struct.stbhw__process, ptr %p, i32 0, i32 6
-  %68 = load i32, ptr %w98, align 4
-  %mul99 = mul nsw i32 %68, 3
-  %sub100 = sub nsw i32 %mul99, 1
-  %69 = load i32, ptr %i, align 4
-  %sub101 = sub nsw i32 %sub100, %69
-  %idxprom102 = sext i32 %sub101 to i64
-  %arrayidx103 = getelementptr inbounds i8, ptr %67, i64 %idxprom102
-  %70 = load i8, ptr %arrayidx103, align 1
-  %conv104 = zext i8 %70 to i32
-  %xor = xor i32 %conv104, %mul96
-  %conv105 = trunc i32 %xor to i8
-  store i8 %conv105, ptr %arrayidx103, align 1
-  br label %for.inc106
+199:                                              ; preds = %196
+  %200 = load i32, ptr %13, align 4, !tbaa !10
+  %201 = mul nsw i32 %200, 55
+  %202 = getelementptr inbounds nuw %struct.stbhw__process, ptr %12, i32 0, i32 4
+  %203 = load ptr, ptr %202, align 8, !tbaa !92
+  %204 = getelementptr inbounds nuw %struct.stbhw__process, ptr %12, i32 0, i32 6
+  %205 = load i32, ptr %204, align 4, !tbaa !40
+  %206 = mul nsw i32 %205, 3
+  %207 = sub nsw i32 %206, 1
+  %208 = load i32, ptr %13, align 4, !tbaa !10
+  %209 = sub nsw i32 %207, %208
+  %210 = sext i32 %209 to i64
+  %211 = getelementptr inbounds i8, ptr %203, i64 %210
+  %212 = load i8, ptr %211, align 1, !tbaa !64
+  %213 = zext i8 %212 to i32
+  %214 = xor i32 %213, %201
+  %215 = trunc i32 %214 to i8
+  store i8 %215, ptr %211, align 1, !tbaa !64
+  br label %216
 
-for.inc106:                                       ; preds = %for.body95
-  %71 = load i32, ptr %i, align 4
-  %inc107 = add nsw i32 %71, 1
-  store i32 %inc107, ptr %i, align 4
-  br label %for.cond92, !llvm.loop !70
+216:                                              ; preds = %199
+  %217 = load i32, ptr %13, align 4, !tbaa !10
+  %218 = add nsw i32 %217, 1
+  store i32 %218, ptr %13, align 4, !tbaa !10
+  br label %196, !llvm.loop !116
 
-for.end108:                                       ; preds = %for.cond92
-  store i32 1, ptr %retval, align 4
-  br label %return
+219:                                              ; preds = %196
+  store i32 1, ptr %6, align 4
+  store i32 1, ptr %14, align 4
+  br label %220
 
-return:                                           ; preds = %for.end108, %if.then13
-  %72 = load i32, ptr %retval, align 4
-  ret i32 %72
+220:                                              ; preds = %219, %61
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #6
+  call void @llvm.lifetime.end.p0(i64 56, ptr %12) #6
+  %221 = load i32, ptr %6, align 4
+  ret i32 %221
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind }
-attributes #6 = { nounwind allocsize(0) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { nounwind allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind }
+attributes #7 = { nounwind allocsize(0) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}
-!24 = distinct !{!24, !5}
-!25 = distinct !{!25, !5}
-!26 = distinct !{!26, !5}
-!27 = distinct !{!27, !5}
-!28 = distinct !{!28, !5}
-!29 = distinct !{!29, !5}
-!30 = distinct !{!30, !5}
-!31 = distinct !{!31, !5}
-!32 = distinct !{!32, !5}
-!33 = distinct !{!33, !5}
-!34 = distinct !{!34, !5}
-!35 = distinct !{!35, !5}
-!36 = distinct !{!36, !5}
-!37 = distinct !{!37, !5}
-!38 = distinct !{!38, !5}
-!39 = distinct !{!39, !5}
-!40 = distinct !{!40, !5}
-!41 = distinct !{!41, !5}
-!42 = distinct !{!42, !5}
-!43 = distinct !{!43, !5}
-!44 = distinct !{!44, !5}
-!45 = distinct !{!45, !5}
-!46 = distinct !{!46, !5}
-!47 = distinct !{!47, !5}
-!48 = distinct !{!48, !5}
-!49 = distinct !{!49, !5}
-!50 = distinct !{!50, !5}
-!51 = distinct !{!51, !5}
-!52 = distinct !{!52, !5}
-!53 = distinct !{!53, !5}
-!54 = distinct !{!54, !5}
-!55 = distinct !{!55, !5}
-!56 = distinct !{!56, !5}
-!57 = distinct !{!57, !5}
-!58 = distinct !{!58, !5}
-!59 = distinct !{!59, !5}
-!60 = distinct !{!60, !5}
-!61 = distinct !{!61, !5}
-!62 = distinct !{!62, !5}
-!63 = distinct !{!63, !5}
-!64 = distinct !{!64, !5}
-!65 = distinct !{!65, !5}
-!66 = distinct !{!66, !5}
-!67 = distinct !{!67, !5}
-!68 = distinct !{!68, !5}
-!69 = distinct !{!69, !5}
-!70 = distinct !{!70, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 omnipotent char", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"p1 _ZTS14stbhw__process", !5, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"int", !6, i64 0}
+!12 = !{!13, !5, i64 16}
+!13 = !{!"stbhw__process", !14, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !4, i64 32, !11, i64 40, !11, i64 44, !11, i64 48}
+!14 = !{!"p1 _ZTS13stbhw_tileset", !5, i64 0}
+!15 = !{!13, !5, i64 8}
+!16 = !{!17, !11, i64 4}
+!17 = !{!"", !11, i64 0, !11, i64 4, !6, i64 8, !11, i64 32, !11, i64 36, !6, i64 40}
+!18 = distinct !{!18, !19}
+!19 = !{!"llvm.loop.mustprogress"}
+!20 = distinct !{!20, !19}
+!21 = distinct !{!21, !19}
+!22 = distinct !{!22, !19}
+!23 = distinct !{!23, !19}
+!24 = distinct !{!24, !19}
+!25 = distinct !{!25, !19}
+!26 = !{!13, !5, i64 24}
+!27 = distinct !{!27, !19}
+!28 = distinct !{!28, !19}
+!29 = distinct !{!29, !19}
+!30 = distinct !{!30, !19}
+!31 = distinct !{!31, !19}
+!32 = distinct !{!32, !19}
+!33 = distinct !{!33, !19}
+!34 = !{!5, !5, i64 0}
+!35 = !{!36, !36, i64 0}
+!36 = !{!"p1 int", !5, i64 0}
+!37 = !{!17, !11, i64 0}
+!38 = !{!17, !11, i64 32}
+!39 = !{!17, !11, i64 36}
+!40 = !{!13, !11, i64 44}
+!41 = !{!13, !11, i64 48}
+!42 = distinct !{!42, !19}
+!43 = distinct !{!43, !19}
+!44 = distinct !{!44, !19}
+!45 = distinct !{!45, !19}
+!46 = distinct !{!46, !19}
+!47 = distinct !{!47, !19}
+!48 = distinct !{!48, !19}
+!49 = distinct !{!49, !19}
+!50 = distinct !{!50, !19}
+!51 = distinct !{!51, !19}
+!52 = distinct !{!52, !19}
+!53 = distinct !{!53, !19}
+!54 = distinct !{!54, !19}
+!55 = distinct !{!55, !19}
+!56 = distinct !{!56, !19}
+!57 = distinct !{!57, !19}
+!58 = distinct !{!58, !19}
+!59 = distinct !{!59, !19}
+!60 = distinct !{!60, !19}
+!61 = distinct !{!61, !19}
+!62 = !{!63, !63, i64 0}
+!63 = !{!"p2 int", !5, i64 0}
+!64 = !{!6, !6, i64 0}
+!65 = !{!66, !6, i64 0}
+!66 = !{!"", !6, i64 0, !6, i64 1, !6, i64 2, !6, i64 3, !6, i64 4, !6, i64 5, !6, i64 6}
+!67 = !{!66, !6, i64 1}
+!68 = !{!66, !6, i64 2}
+!69 = !{!66, !6, i64 3}
+!70 = !{!66, !6, i64 4}
+!71 = !{!66, !6, i64 5}
+!72 = distinct !{!72, !19}
+!73 = distinct !{!73, !19}
+!74 = distinct !{!74, !19}
+!75 = distinct !{!75, !19}
+!76 = distinct !{!76, !19}
+!77 = distinct !{!77, !19}
+!78 = !{!14, !14, i64 0}
+!79 = !{!80, !11, i64 28}
+!80 = !{!"stbhw_tileset", !11, i64 0, !6, i64 4, !11, i64 28, !5, i64 32, !5, i64 40, !11, i64 48, !11, i64 52, !11, i64 56, !11, i64 60}
+!81 = !{!80, !11, i64 0}
+!82 = distinct !{!82, !19}
+!83 = distinct !{!83, !19}
+!84 = distinct !{!84, !19}
+!85 = distinct !{!85, !19}
+!86 = !{!80, !5, i64 32}
+!87 = !{!80, !11, i64 48}
+!88 = !{!80, !5, i64 40}
+!89 = !{!80, !11, i64 56}
+!90 = distinct !{!90, !19}
+!91 = distinct !{!91, !19}
+!92 = !{!13, !4, i64 32}
+!93 = !{!13, !11, i64 40}
+!94 = distinct !{!94, !19}
+!95 = distinct !{!95, !19}
+!96 = !{!13, !14, i64 0}
+!97 = distinct !{!97, !19}
+!98 = distinct !{!98, !19}
+!99 = distinct !{!99, !19}
+!100 = distinct !{!100, !19}
+!101 = distinct !{!101, !19}
+!102 = !{!80, !11, i64 52}
+!103 = !{!80, !11, i64 60}
+!104 = distinct !{!104, !19}
+!105 = distinct !{!105, !19}
+!106 = distinct !{!106, !19}
+!107 = distinct !{!107, !19}
+!108 = distinct !{!108, !19}
+!109 = distinct !{!109, !19}
+!110 = distinct !{!110, !19}
+!111 = distinct !{!111, !19}
+!112 = distinct !{!112, !19}
+!113 = distinct !{!113, !19}
+!114 = distinct !{!114, !19}
+!115 = distinct !{!115, !19}
+!116 = distinct !{!116, !19}
