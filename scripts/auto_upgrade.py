@@ -40,6 +40,7 @@ supported_project = [
     "memcached",
     "mimalloc",
     "miniaudio",
+    "nanosvg",
 ]
 
 modify_only = [
