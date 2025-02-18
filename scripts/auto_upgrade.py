@@ -65,6 +65,7 @@ supported_project = [
     "wolfssl",
     "yyjson",
     "zlib",
+    "zstd",
 ]
 
 modify_only = [
@@ -87,6 +88,7 @@ modify_only = [
     "slurm",
     "wireshark",
     "wolfssl",
+    "zstd",
 ]
 
 

@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.COVER_epoch_info_t = type { i32, i32 }
 %struct.ZDICT_cover_params_t = type { i32, i32, i32, i32, double, i32, i32, %struct.ZDICT_params_t }
@@ -44,4234 +44,4748 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.20 = private unnamed_addr constant [40 x i8] c"Testing on %u samples of total size %u\0A\00", align 1
 @.str.21 = private unnamed_addr constant [36 x i8] c"Failed to allocate scratch buffers\0A\00", align 1
 @.str.22 = private unnamed_addr constant [35 x i8] c"Constructing partial suffix array\0A\00", align 1
-@g_coverCtx = internal global ptr null, align 8
 @.str.23 = private unnamed_addr constant [23 x i8] c"Computing frequencies\0A\00", align 1
 @.str.24 = private unnamed_addr constant [44 x i8] c"Breaking content into %u epochs of size %u\0A\00", align 1
 @.str.25 = private unnamed_addr constant [43 x i8] c"Failed to allocate buffers: out of memory\0A\00", align 1
 @.str.26 = private unnamed_addr constant [29 x i8] c"Failed to select dictionary\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i64 @COVER_sum(ptr noundef %samplesSizes, i32 noundef %nbSamples) #0 {
-entry:
-  %samplesSizes.addr = alloca ptr, align 8
-  %nbSamples.addr = alloca i32, align 4
-  %sum = alloca i64, align 8
-  %i = alloca i32, align 4
-  store ptr %samplesSizes, ptr %samplesSizes.addr, align 8
-  store i32 %nbSamples, ptr %nbSamples.addr, align 4
-  store i64 0, ptr %sum, align 8
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+define i64 @COVER_sum(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i64, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store i32 %1, ptr %4, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #10
+  store i64 0, ptr %5, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #10
+  store i32 0, ptr %6, align 4, !tbaa !8
+  br label %7
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i32, ptr %i, align 4
-  %1 = load i32, ptr %nbSamples.addr, align 4
-  %cmp = icmp ult i32 %0, %1
-  br i1 %cmp, label %for.body, label %for.end
+7:                                                ; preds = %19, %2
+  %8 = load i32, ptr %6, align 4, !tbaa !8
+  %9 = load i32, ptr %4, align 4, !tbaa !8
+  %10 = icmp ult i32 %8, %9
+  br i1 %10, label %11, label %22
 
-for.body:                                         ; preds = %for.cond
-  %2 = load ptr, ptr %samplesSizes.addr, align 8
-  %3 = load i32, ptr %i, align 4
-  %idxprom = zext i32 %3 to i64
-  %arrayidx = getelementptr inbounds i64, ptr %2, i64 %idxprom
-  %4 = load i64, ptr %arrayidx, align 8
-  %5 = load i64, ptr %sum, align 8
-  %add = add i64 %5, %4
-  store i64 %add, ptr %sum, align 8
-  br label %for.inc
+11:                                               ; preds = %7
+  %12 = load ptr, ptr %3, align 8, !tbaa !3
+  %13 = load i32, ptr %6, align 4, !tbaa !8
+  %14 = zext i32 %13 to i64
+  %15 = getelementptr inbounds nuw i64, ptr %12, i64 %14
+  %16 = load i64, ptr %15, align 8, !tbaa !10
+  %17 = load i64, ptr %5, align 8, !tbaa !10
+  %18 = add i64 %17, %16
+  store i64 %18, ptr %5, align 8, !tbaa !10
+  br label %19
 
-for.inc:                                          ; preds = %for.body
-  %6 = load i32, ptr %i, align 4
-  %inc = add i32 %6, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !4
+19:                                               ; preds = %11
+  %20 = load i32, ptr %6, align 4, !tbaa !8
+  %21 = add i32 %20, 1
+  store i32 %21, ptr %6, align 4, !tbaa !8
+  br label %7, !llvm.loop !12
 
-for.end:                                          ; preds = %for.cond
-  %7 = load i64, ptr %sum, align 8
-  ret i64 %7
+22:                                               ; preds = %7
+  %23 = load i64, ptr %5, align 8, !tbaa !10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #10
+  ret i64 %23
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nounwind uwtable
-define void @COVER_warnOnSmallCorpus(i64 noundef %maxDictSize, i64 noundef %nbDmers, i32 noundef %displayLevel) #0 {
-entry:
-  %maxDictSize.addr = alloca i64, align 8
-  %nbDmers.addr = alloca i64, align 8
-  %displayLevel.addr = alloca i32, align 4
-  %ratio = alloca double, align 8
-  store i64 %maxDictSize, ptr %maxDictSize.addr, align 8
-  store i64 %nbDmers, ptr %nbDmers.addr, align 8
-  store i32 %displayLevel, ptr %displayLevel.addr, align 4
-  %0 = load i64, ptr %nbDmers.addr, align 8
-  %conv = uitofp i64 %0 to double
-  %1 = load i64, ptr %maxDictSize.addr, align 8
-  %conv1 = uitofp i64 %1 to double
-  %div = fdiv double %conv, %conv1
-  store double %div, ptr %ratio, align 8
-  %2 = load double, ptr %ratio, align 8
-  %cmp = fcmp oge double %2, 1.000000e+01
-  br i1 %cmp, label %if.then, label %if.end
+define void @COVER_warnOnSmallCorpus(i64 noundef %0, i64 noundef %1, i32 noundef %2) #0 {
+  %4 = alloca i64, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca double, align 8
+  %8 = alloca i32, align 4
+  store i64 %0, ptr %4, align 8, !tbaa !10
+  store i64 %1, ptr %5, align 8, !tbaa !10
+  store i32 %2, ptr %6, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #10
+  %9 = load i64, ptr %5, align 8, !tbaa !10
+  %10 = uitofp i64 %9 to double
+  %11 = load i64, ptr %4, align 8, !tbaa !10
+  %12 = uitofp i64 %11 to double
+  %13 = fdiv double %10, %12
+  store double %13, ptr %7, align 8, !tbaa !14
+  %14 = load double, ptr %7, align 8, !tbaa !14
+  %15 = fcmp oge double %14, 1.000000e+01
+  br i1 %15, label %16, label %17
 
-if.then:                                          ; preds = %entry
-  br label %if.end9
+16:                                               ; preds = %3
+  store i32 1, ptr %8, align 4
+  br label %31
 
-if.end:                                           ; preds = %entry
-  %3 = load i32, ptr %displayLevel.addr, align 4
-  %cmp3 = icmp sge i32 %3, 1
-  br i1 %cmp3, label %if.then5, label %if.end9
+17:                                               ; preds = %3
+  %18 = load i32, ptr %6, align 4, !tbaa !8
+  %19 = icmp sge i32 %18, 1
+  br i1 %19, label %20, label %30
 
-if.then5:                                         ; preds = %if.end
-  %4 = load ptr, ptr @stderr, align 8
-  %5 = load i64, ptr %maxDictSize.addr, align 8
-  %conv6 = trunc i64 %5 to i32
-  %6 = load i64, ptr %nbDmers.addr, align 8
-  %conv7 = trunc i64 %6 to i32
-  %7 = load double, ptr %ratio, align 8
-  %call = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef @.str, i32 noundef %conv6, i32 noundef %conv7, double noundef %7)
-  %8 = load ptr, ptr @stderr, align 8
-  %call8 = call i32 @fflush(ptr noundef %8)
-  br label %if.end9
+20:                                               ; preds = %17
+  %21 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %22 = load i64, ptr %4, align 8, !tbaa !10
+  %23 = trunc i64 %22 to i32
+  %24 = load i64, ptr %5, align 8, !tbaa !10
+  %25 = trunc i64 %24 to i32
+  %26 = load double, ptr %7, align 8, !tbaa !14
+  %27 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef @.str, i32 noundef %23, i32 noundef %25, double noundef %26) #10
+  %28 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %29 = call i32 @fflush(ptr noundef %28)
+  br label %30
 
-if.end9:                                          ; preds = %if.then5, %if.end, %if.then
+30:                                               ; preds = %20, %17
+  store i32 0, ptr %8, align 4
+  br label %31
+
+31:                                               ; preds = %30, %16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #10
+  %32 = load i32, ptr %8, align 4
+  switch i32 %32, label %34 [
+    i32 0, label %33
+    i32 1, label %33
+  ]
+
+33:                                               ; preds = %31, %31
   ret void
+
+34:                                               ; preds = %31
+  unreachable
 }
 
-declare i32 @fprintf(ptr noundef, ptr noundef, ...) #1
+; Function Attrs: nounwind
+declare i32 @fprintf(ptr noundef, ptr noundef, ...) #2
 
-declare i32 @fflush(ptr noundef) #1
-
-; Function Attrs: nounwind uwtable
-define i64 @COVER_computeEpochs(i32 noundef %maxDictSize, i32 noundef %nbDmers, i32 noundef %k, i32 noundef %passes) #0 {
-entry:
-  %retval = alloca %struct.COVER_epoch_info_t, align 4
-  %maxDictSize.addr = alloca i32, align 4
-  %nbDmers.addr = alloca i32, align 4
-  %k.addr = alloca i32, align 4
-  %passes.addr = alloca i32, align 4
-  %minEpochSize = alloca i32, align 4
-  store i32 %maxDictSize, ptr %maxDictSize.addr, align 4
-  store i32 %nbDmers, ptr %nbDmers.addr, align 4
-  store i32 %k, ptr %k.addr, align 4
-  store i32 %passes, ptr %passes.addr, align 4
-  %0 = load i32, ptr %k.addr, align 4
-  %mul = mul i32 %0, 10
-  store i32 %mul, ptr %minEpochSize, align 4
-  %1 = load i32, ptr %maxDictSize.addr, align 4
-  %2 = load i32, ptr %k.addr, align 4
-  %div = udiv i32 %1, %2
-  %3 = load i32, ptr %passes.addr, align 4
-  %div1 = udiv i32 %div, %3
-  %cmp = icmp ugt i32 1, %div1
-  br i1 %cmp, label %cond.true, label %cond.false
-
-cond.true:                                        ; preds = %entry
-  br label %cond.end
-
-cond.false:                                       ; preds = %entry
-  %4 = load i32, ptr %maxDictSize.addr, align 4
-  %5 = load i32, ptr %k.addr, align 4
-  %div2 = udiv i32 %4, %5
-  %6 = load i32, ptr %passes.addr, align 4
-  %div3 = udiv i32 %div2, %6
-  br label %cond.end
-
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ 1, %cond.true ], [ %div3, %cond.false ]
-  %num = getelementptr inbounds %struct.COVER_epoch_info_t, ptr %retval, i32 0, i32 0
-  store i32 %cond, ptr %num, align 4
-  %7 = load i32, ptr %nbDmers.addr, align 4
-  %num4 = getelementptr inbounds %struct.COVER_epoch_info_t, ptr %retval, i32 0, i32 0
-  %8 = load i32, ptr %num4, align 4
-  %div5 = udiv i32 %7, %8
-  %size = getelementptr inbounds %struct.COVER_epoch_info_t, ptr %retval, i32 0, i32 1
-  store i32 %div5, ptr %size, align 4
-  %size6 = getelementptr inbounds %struct.COVER_epoch_info_t, ptr %retval, i32 0, i32 1
-  %9 = load i32, ptr %size6, align 4
-  %10 = load i32, ptr %minEpochSize, align 4
-  %cmp7 = icmp uge i32 %9, %10
-  br i1 %cmp7, label %if.then, label %if.end
-
-if.then:                                          ; preds = %cond.end
-  br label %return
-
-if.end:                                           ; preds = %cond.end
-  %11 = load i32, ptr %minEpochSize, align 4
-  %12 = load i32, ptr %nbDmers.addr, align 4
-  %cmp8 = icmp ult i32 %11, %12
-  br i1 %cmp8, label %cond.true9, label %cond.false10
-
-cond.true9:                                       ; preds = %if.end
-  %13 = load i32, ptr %minEpochSize, align 4
-  br label %cond.end11
-
-cond.false10:                                     ; preds = %if.end
-  %14 = load i32, ptr %nbDmers.addr, align 4
-  br label %cond.end11
-
-cond.end11:                                       ; preds = %cond.false10, %cond.true9
-  %cond12 = phi i32 [ %13, %cond.true9 ], [ %14, %cond.false10 ]
-  %size13 = getelementptr inbounds %struct.COVER_epoch_info_t, ptr %retval, i32 0, i32 1
-  store i32 %cond12, ptr %size13, align 4
-  %15 = load i32, ptr %nbDmers.addr, align 4
-  %size14 = getelementptr inbounds %struct.COVER_epoch_info_t, ptr %retval, i32 0, i32 1
-  %16 = load i32, ptr %size14, align 4
-  %div15 = udiv i32 %15, %16
-  %num16 = getelementptr inbounds %struct.COVER_epoch_info_t, ptr %retval, i32 0, i32 0
-  store i32 %div15, ptr %num16, align 4
-  br label %return
-
-return:                                           ; preds = %cond.end11, %if.then
-  %17 = load i64, ptr %retval, align 4
-  ret i64 %17
-}
+declare i32 @fflush(ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZDICT_trainFromBuffer_cover(ptr noundef %dictBuffer, i64 noundef %dictBufferCapacity, ptr noundef %samplesBuffer, ptr noundef %samplesSizes, i32 noundef %nbSamples, ptr noundef byval(%struct.ZDICT_cover_params_t) align 8 %parameters) #0 {
-entry:
-  %retval = alloca i64, align 8
-  %dictBuffer.addr = alloca ptr, align 8
-  %dictBufferCapacity.addr = alloca i64, align 8
-  %samplesBuffer.addr = alloca ptr, align 8
-  %samplesSizes.addr = alloca ptr, align 8
-  %nbSamples.addr = alloca i32, align 4
-  %dict = alloca ptr, align 8
-  %ctx = alloca %struct.COVER_ctx_t, align 8
-  %activeDmers = alloca %struct.COVER_map_s, align 8
-  %initVal = alloca i64, align 8
-  %tail = alloca i64, align 8
-  %dictionarySize = alloca i64, align 8
-  store ptr %dictBuffer, ptr %dictBuffer.addr, align 8
-  store i64 %dictBufferCapacity, ptr %dictBufferCapacity.addr, align 8
-  store ptr %samplesBuffer, ptr %samplesBuffer.addr, align 8
-  store ptr %samplesSizes, ptr %samplesSizes.addr, align 8
-  store i32 %nbSamples, ptr %nbSamples.addr, align 4
-  %0 = load ptr, ptr %dictBuffer.addr, align 8
-  store ptr %0, ptr %dict, align 8
-  %splitPoint = getelementptr inbounds %struct.ZDICT_cover_params_t, ptr %parameters, i32 0, i32 4
-  store double 1.000000e+00, ptr %splitPoint, align 8
-  %zParams = getelementptr inbounds %struct.ZDICT_cover_params_t, ptr %parameters, i32 0, i32 7
-  %notificationLevel = getelementptr inbounds %struct.ZDICT_params_t, ptr %zParams, i32 0, i32 1
-  %1 = load i32, ptr %notificationLevel, align 4
-  store i32 %1, ptr @g_displayLevel, align 4
-  %2 = load i64, ptr %dictBufferCapacity.addr, align 8
-  %call = call i32 @COVER_checkParameters(ptr noundef byval(%struct.ZDICT_cover_params_t) align 8 %parameters, i64 noundef %2)
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.end4, label %if.then
+define i64 @COVER_computeEpochs(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #0 {
+  %5 = alloca %struct.COVER_epoch_info_t, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  store i32 %0, ptr %6, align 4, !tbaa !8
+  store i32 %1, ptr %7, align 4, !tbaa !8
+  store i32 %2, ptr %8, align 4, !tbaa !8
+  store i32 %3, ptr %9, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #10
+  %12 = load i32, ptr %8, align 4, !tbaa !8
+  %13 = mul i32 %12, 10
+  store i32 %13, ptr %10, align 4, !tbaa !8
+  %14 = load i32, ptr %6, align 4, !tbaa !8
+  %15 = load i32, ptr %8, align 4, !tbaa !8
+  %16 = udiv i32 %14, %15
+  %17 = load i32, ptr %9, align 4, !tbaa !8
+  %18 = udiv i32 %16, %17
+  %19 = icmp ugt i32 1, %18
+  br i1 %19, label %20, label %21
 
-if.then:                                          ; preds = %entry
-  %3 = load i32, ptr @g_displayLevel, align 4
-  %cmp = icmp sge i32 %3, 1
-  br i1 %cmp, label %if.then1, label %if.end
+20:                                               ; preds = %4
+  br label %27
 
-if.then1:                                         ; preds = %if.then
-  %4 = load ptr, ptr @stderr, align 8
-  %call2 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef @.str.1)
-  %5 = load ptr, ptr @stderr, align 8
-  %call3 = call i32 @fflush(ptr noundef %5)
-  br label %if.end
+21:                                               ; preds = %4
+  %22 = load i32, ptr %6, align 4, !tbaa !8
+  %23 = load i32, ptr %8, align 4, !tbaa !8
+  %24 = udiv i32 %22, %23
+  %25 = load i32, ptr %9, align 4, !tbaa !8
+  %26 = udiv i32 %24, %25
+  br label %27
 
-if.end:                                           ; preds = %if.then1, %if.then
-  store i64 -42, ptr %retval, align 8
-  br label %return
+27:                                               ; preds = %21, %20
+  %28 = phi i32 [ 1, %20 ], [ %26, %21 ]
+  %29 = getelementptr inbounds nuw %struct.COVER_epoch_info_t, ptr %5, i32 0, i32 0
+  store i32 %28, ptr %29, align 4, !tbaa !18
+  %30 = load i32, ptr %7, align 4, !tbaa !8
+  %31 = getelementptr inbounds nuw %struct.COVER_epoch_info_t, ptr %5, i32 0, i32 0
+  %32 = load i32, ptr %31, align 4, !tbaa !18
+  %33 = udiv i32 %30, %32
+  %34 = getelementptr inbounds nuw %struct.COVER_epoch_info_t, ptr %5, i32 0, i32 1
+  store i32 %33, ptr %34, align 4, !tbaa !20
+  %35 = getelementptr inbounds nuw %struct.COVER_epoch_info_t, ptr %5, i32 0, i32 1
+  %36 = load i32, ptr %35, align 4, !tbaa !20
+  %37 = load i32, ptr %10, align 4, !tbaa !8
+  %38 = icmp uge i32 %36, %37
+  br i1 %38, label %39, label %40
 
-if.end4:                                          ; preds = %entry
-  %6 = load i32, ptr %nbSamples.addr, align 4
-  %cmp5 = icmp eq i32 %6, 0
-  br i1 %cmp5, label %if.then6, label %if.end12
+39:                                               ; preds = %27
+  store i32 1, ptr %11, align 4
+  br label %56
 
-if.then6:                                         ; preds = %if.end4
-  %7 = load i32, ptr @g_displayLevel, align 4
-  %cmp7 = icmp sge i32 %7, 1
-  br i1 %cmp7, label %if.then8, label %if.end11
+40:                                               ; preds = %27
+  %41 = load i32, ptr %10, align 4, !tbaa !8
+  %42 = load i32, ptr %7, align 4, !tbaa !8
+  %43 = icmp ult i32 %41, %42
+  br i1 %43, label %44, label %46
 
-if.then8:                                         ; preds = %if.then6
-  %8 = load ptr, ptr @stderr, align 8
-  %call9 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef @.str.2)
-  %9 = load ptr, ptr @stderr, align 8
-  %call10 = call i32 @fflush(ptr noundef %9)
-  br label %if.end11
+44:                                               ; preds = %40
+  %45 = load i32, ptr %10, align 4, !tbaa !8
+  br label %48
 
-if.end11:                                         ; preds = %if.then8, %if.then6
-  store i64 -72, ptr %retval, align 8
-  br label %return
+46:                                               ; preds = %40
+  %47 = load i32, ptr %7, align 4, !tbaa !8
+  br label %48
 
-if.end12:                                         ; preds = %if.end4
-  %10 = load i64, ptr %dictBufferCapacity.addr, align 8
-  %cmp13 = icmp ult i64 %10, 256
-  br i1 %cmp13, label %if.then14, label %if.end20
+48:                                               ; preds = %46, %44
+  %49 = phi i32 [ %45, %44 ], [ %47, %46 ]
+  %50 = getelementptr inbounds nuw %struct.COVER_epoch_info_t, ptr %5, i32 0, i32 1
+  store i32 %49, ptr %50, align 4, !tbaa !20
+  %51 = load i32, ptr %7, align 4, !tbaa !8
+  %52 = getelementptr inbounds nuw %struct.COVER_epoch_info_t, ptr %5, i32 0, i32 1
+  %53 = load i32, ptr %52, align 4, !tbaa !20
+  %54 = udiv i32 %51, %53
+  %55 = getelementptr inbounds nuw %struct.COVER_epoch_info_t, ptr %5, i32 0, i32 0
+  store i32 %54, ptr %55, align 4, !tbaa !18
+  store i32 1, ptr %11, align 4
+  br label %56
 
-if.then14:                                        ; preds = %if.end12
-  %11 = load i32, ptr @g_displayLevel, align 4
-  %cmp15 = icmp sge i32 %11, 1
-  br i1 %cmp15, label %if.then16, label %if.end19
-
-if.then16:                                        ; preds = %if.then14
-  %12 = load ptr, ptr @stderr, align 8
-  %call17 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef @.str.3, i32 noundef 256)
-  %13 = load ptr, ptr @stderr, align 8
-  %call18 = call i32 @fflush(ptr noundef %13)
-  br label %if.end19
-
-if.end19:                                         ; preds = %if.then16, %if.then14
-  store i64 -70, ptr %retval, align 8
-  br label %return
-
-if.end20:                                         ; preds = %if.end12
-  %14 = load ptr, ptr %samplesBuffer.addr, align 8
-  %15 = load ptr, ptr %samplesSizes.addr, align 8
-  %16 = load i32, ptr %nbSamples.addr, align 4
-  %d = getelementptr inbounds %struct.ZDICT_cover_params_t, ptr %parameters, i32 0, i32 1
-  %17 = load i32, ptr %d, align 4
-  %splitPoint21 = getelementptr inbounds %struct.ZDICT_cover_params_t, ptr %parameters, i32 0, i32 4
-  %18 = load double, ptr %splitPoint21, align 8
-  %call22 = call i64 @COVER_ctx_init(ptr noundef %ctx, ptr noundef %14, ptr noundef %15, i32 noundef %16, i32 noundef %17, double noundef %18)
-  store i64 %call22, ptr %initVal, align 8
-  %19 = load i64, ptr %initVal, align 8
-  %call23 = call i32 @ERR_isError(i64 noundef %19)
-  %tobool24 = icmp ne i32 %call23, 0
-  br i1 %tobool24, label %if.then25, label %if.end26
-
-if.then25:                                        ; preds = %if.end20
-  %20 = load i64, ptr %initVal, align 8
-  store i64 %20, ptr %retval, align 8
-  br label %return
-
-if.end26:                                         ; preds = %if.end20
-  %21 = load i64, ptr %dictBufferCapacity.addr, align 8
-  %suffixSize = getelementptr inbounds %struct.COVER_ctx_t, ptr %ctx, i32 0, i32 7
-  %22 = load i64, ptr %suffixSize, align 8
-  %23 = load i32, ptr @g_displayLevel, align 4
-  call void @COVER_warnOnSmallCorpus(i64 noundef %21, i64 noundef %22, i32 noundef %23)
-  %k = getelementptr inbounds %struct.ZDICT_cover_params_t, ptr %parameters, i32 0, i32 0
-  %24 = load i32, ptr %k, align 8
-  %d27 = getelementptr inbounds %struct.ZDICT_cover_params_t, ptr %parameters, i32 0, i32 1
-  %25 = load i32, ptr %d27, align 4
-  %sub = sub i32 %24, %25
-  %add = add i32 %sub, 1
-  %call28 = call i32 @COVER_map_init(ptr noundef %activeDmers, i32 noundef %add)
-  %tobool29 = icmp ne i32 %call28, 0
-  br i1 %tobool29, label %if.end36, label %if.then30
-
-if.then30:                                        ; preds = %if.end26
-  %26 = load i32, ptr @g_displayLevel, align 4
-  %cmp31 = icmp sge i32 %26, 1
-  br i1 %cmp31, label %if.then32, label %if.end35
-
-if.then32:                                        ; preds = %if.then30
-  %27 = load ptr, ptr @stderr, align 8
-  %call33 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef @.str.4)
-  %28 = load ptr, ptr @stderr, align 8
-  %call34 = call i32 @fflush(ptr noundef %28)
-  br label %if.end35
-
-if.end35:                                         ; preds = %if.then32, %if.then30
-  call void @COVER_ctx_destroy(ptr noundef %ctx)
-  store i64 -64, ptr %retval, align 8
-  br label %return
-
-if.end36:                                         ; preds = %if.end26
-  %29 = load i32, ptr @g_displayLevel, align 4
-  %cmp37 = icmp sge i32 %29, 2
-  br i1 %cmp37, label %if.then38, label %if.end41
-
-if.then38:                                        ; preds = %if.end36
-  %30 = load ptr, ptr @stderr, align 8
-  %call39 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %30, ptr noundef @.str.5)
-  %31 = load ptr, ptr @stderr, align 8
-  %call40 = call i32 @fflush(ptr noundef %31)
-  br label %if.end41
-
-if.end41:                                         ; preds = %if.then38, %if.end36
-  %freqs = getelementptr inbounds %struct.COVER_ctx_t, ptr %ctx, i32 0, i32 8
-  %32 = load ptr, ptr %freqs, align 8
-  %33 = load ptr, ptr %dictBuffer.addr, align 8
-  %34 = load i64, ptr %dictBufferCapacity.addr, align 8
-  %call42 = call i64 @COVER_buildDictionary(ptr noundef %ctx, ptr noundef %32, ptr noundef %activeDmers, ptr noundef %33, i64 noundef %34, ptr noundef byval(%struct.ZDICT_cover_params_t) align 8 %parameters)
-  store i64 %call42, ptr %tail, align 8
-  %35 = load ptr, ptr %dict, align 8
-  %36 = load i64, ptr %dictBufferCapacity.addr, align 8
-  %37 = load ptr, ptr %dict, align 8
-  %38 = load i64, ptr %tail, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %37, i64 %38
-  %39 = load i64, ptr %dictBufferCapacity.addr, align 8
-  %40 = load i64, ptr %tail, align 8
-  %sub43 = sub i64 %39, %40
-  %41 = load ptr, ptr %samplesBuffer.addr, align 8
-  %42 = load ptr, ptr %samplesSizes.addr, align 8
-  %43 = load i32, ptr %nbSamples.addr, align 4
-  %zParams44 = getelementptr inbounds %struct.ZDICT_cover_params_t, ptr %parameters, i32 0, i32 7
-  %call45 = call i64 @ZDICT_finalizeDictionary(ptr noundef %35, i64 noundef %36, ptr noundef %add.ptr, i64 noundef %sub43, ptr noundef %41, ptr noundef %42, i32 noundef %43, ptr noundef byval(%struct.ZDICT_params_t) align 8 %zParams44)
-  store i64 %call45, ptr %dictionarySize, align 8
-  %44 = load i64, ptr %dictionarySize, align 8
-  %call46 = call i32 @ERR_isError(i64 noundef %44)
-  %tobool47 = icmp ne i32 %call46, 0
-  br i1 %tobool47, label %if.end54, label %if.then48
-
-if.then48:                                        ; preds = %if.end41
-  %45 = load i32, ptr @g_displayLevel, align 4
-  %cmp49 = icmp sge i32 %45, 2
-  br i1 %cmp49, label %if.then50, label %if.end53
-
-if.then50:                                        ; preds = %if.then48
-  %46 = load ptr, ptr @stderr, align 8
-  %47 = load i64, ptr %dictionarySize, align 8
-  %conv = trunc i64 %47 to i32
-  %call51 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %46, ptr noundef @.str.6, i32 noundef %conv)
-  %48 = load ptr, ptr @stderr, align 8
-  %call52 = call i32 @fflush(ptr noundef %48)
-  br label %if.end53
-
-if.end53:                                         ; preds = %if.then50, %if.then48
-  br label %if.end54
-
-if.end54:                                         ; preds = %if.end53, %if.end41
-  call void @COVER_ctx_destroy(ptr noundef %ctx)
-  call void @COVER_map_destroy(ptr noundef %activeDmers)
-  %49 = load i64, ptr %dictionarySize, align 8
-  store i64 %49, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.end54, %if.end35, %if.then25, %if.end19, %if.end11, %if.end
-  %50 = load i64, ptr %retval, align 8
-  ret i64 %50
+56:                                               ; preds = %48, %39
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #10
+  %57 = load i64, ptr %5, align 4
+  ret i64 %57
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @COVER_checkParameters(ptr noundef byval(%struct.ZDICT_cover_params_t) align 8 %parameters, i64 noundef %maxDictSize) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %maxDictSize.addr = alloca i64, align 8
-  store i64 %maxDictSize, ptr %maxDictSize.addr, align 8
-  %d = getelementptr inbounds %struct.ZDICT_cover_params_t, ptr %parameters, i32 0, i32 1
-  %0 = load i32, ptr %d, align 4
-  %cmp = icmp eq i32 %0, 0
-  br i1 %cmp, label %if.then, label %lor.lhs.false
+define i64 @ZDICT_trainFromBuffer_cover(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef byval(%struct.ZDICT_cover_params_t) align 8 %5) #0 {
+  %7 = alloca i64, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
+  %13 = alloca ptr, align 8
+  %14 = alloca %struct.COVER_ctx_t, align 8
+  %15 = alloca %struct.COVER_map_s, align 8
+  %16 = alloca i32, align 4
+  %17 = alloca i64, align 8
+  %18 = alloca i64, align 8
+  %19 = alloca i64, align 8
+  store ptr %0, ptr %8, align 8, !tbaa !21
+  store i64 %1, ptr %9, align 8, !tbaa !10
+  store ptr %2, ptr %10, align 8, !tbaa !21
+  store ptr %3, ptr %11, align 8, !tbaa !3
+  store i32 %4, ptr %12, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #10
+  %20 = load ptr, ptr %8, align 8, !tbaa !21
+  store ptr %20, ptr %13, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 88, ptr %14) #10
+  call void @llvm.lifetime.start.p0(i64 24, ptr %15) #10
+  %21 = getelementptr inbounds nuw %struct.ZDICT_cover_params_t, ptr %5, i32 0, i32 4
+  store double 1.000000e+00, ptr %21, align 8, !tbaa !24
+  %22 = getelementptr inbounds nuw %struct.ZDICT_cover_params_t, ptr %5, i32 0, i32 7
+  %23 = getelementptr inbounds nuw %struct.ZDICT_params_t, ptr %22, i32 0, i32 1
+  %24 = load i32, ptr %23, align 4, !tbaa !27
+  store i32 %24, ptr @g_displayLevel, align 4, !tbaa !8
+  %25 = load i64, ptr %9, align 8, !tbaa !10
+  %26 = call i32 @COVER_checkParameters(ptr noundef byval(%struct.ZDICT_cover_params_t) align 8 %5, i64 noundef %25)
+  %27 = icmp ne i32 %26, 0
+  br i1 %27, label %37, label %28
 
-lor.lhs.false:                                    ; preds = %entry
-  %k = getelementptr inbounds %struct.ZDICT_cover_params_t, ptr %parameters, i32 0, i32 0
-  %1 = load i32, ptr %k, align 8
-  %cmp1 = icmp eq i32 %1, 0
-  br i1 %cmp1, label %if.then, label %if.end
+28:                                               ; preds = %6
+  %29 = load i32, ptr @g_displayLevel, align 4, !tbaa !8
+  %30 = icmp sge i32 %29, 1
+  br i1 %30, label %31, label %36
 
-if.then:                                          ; preds = %lor.lhs.false, %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
+31:                                               ; preds = %28
+  %32 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %33 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %32, ptr noundef @.str.1) #10
+  %34 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %35 = call i32 @fflush(ptr noundef %34)
+  br label %36
 
-if.end:                                           ; preds = %lor.lhs.false
-  %k2 = getelementptr inbounds %struct.ZDICT_cover_params_t, ptr %parameters, i32 0, i32 0
-  %2 = load i32, ptr %k2, align 8
-  %conv = zext i32 %2 to i64
-  %3 = load i64, ptr %maxDictSize.addr, align 8
-  %cmp3 = icmp ugt i64 %conv, %3
-  br i1 %cmp3, label %if.then5, label %if.end6
+36:                                               ; preds = %31, %28
+  store i64 -42, ptr %7, align 8
+  store i32 1, ptr %16, align 4
+  br label %143
 
-if.then5:                                         ; preds = %if.end
-  store i32 0, ptr %retval, align 4
-  br label %return
+37:                                               ; preds = %6
+  %38 = load i32, ptr %12, align 4, !tbaa !8
+  %39 = icmp eq i32 %38, 0
+  br i1 %39, label %40, label %49
 
-if.end6:                                          ; preds = %if.end
-  %d7 = getelementptr inbounds %struct.ZDICT_cover_params_t, ptr %parameters, i32 0, i32 1
-  %4 = load i32, ptr %d7, align 4
-  %k8 = getelementptr inbounds %struct.ZDICT_cover_params_t, ptr %parameters, i32 0, i32 0
-  %5 = load i32, ptr %k8, align 8
-  %cmp9 = icmp ugt i32 %4, %5
-  br i1 %cmp9, label %if.then11, label %if.end12
+40:                                               ; preds = %37
+  %41 = load i32, ptr @g_displayLevel, align 4, !tbaa !8
+  %42 = icmp sge i32 %41, 1
+  br i1 %42, label %43, label %48
 
-if.then11:                                        ; preds = %if.end6
-  store i32 0, ptr %retval, align 4
-  br label %return
+43:                                               ; preds = %40
+  %44 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %45 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %44, ptr noundef @.str.2) #10
+  %46 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %47 = call i32 @fflush(ptr noundef %46)
+  br label %48
 
-if.end12:                                         ; preds = %if.end6
-  %splitPoint = getelementptr inbounds %struct.ZDICT_cover_params_t, ptr %parameters, i32 0, i32 4
-  %6 = load double, ptr %splitPoint, align 8
-  %cmp13 = fcmp ole double %6, 0.000000e+00
-  br i1 %cmp13, label %if.then19, label %lor.lhs.false15
+48:                                               ; preds = %43, %40
+  store i64 -72, ptr %7, align 8
+  store i32 1, ptr %16, align 4
+  br label %143
 
-lor.lhs.false15:                                  ; preds = %if.end12
-  %splitPoint16 = getelementptr inbounds %struct.ZDICT_cover_params_t, ptr %parameters, i32 0, i32 4
-  %7 = load double, ptr %splitPoint16, align 8
-  %cmp17 = fcmp ogt double %7, 1.000000e+00
-  br i1 %cmp17, label %if.then19, label %if.end20
+49:                                               ; preds = %37
+  %50 = load i64, ptr %9, align 8, !tbaa !10
+  %51 = icmp ult i64 %50, 256
+  br i1 %51, label %52, label %61
 
-if.then19:                                        ; preds = %lor.lhs.false15, %if.end12
-  store i32 0, ptr %retval, align 4
-  br label %return
+52:                                               ; preds = %49
+  %53 = load i32, ptr @g_displayLevel, align 4, !tbaa !8
+  %54 = icmp sge i32 %53, 1
+  br i1 %54, label %55, label %60
 
-if.end20:                                         ; preds = %lor.lhs.false15
-  store i32 1, ptr %retval, align 4
-  br label %return
+55:                                               ; preds = %52
+  %56 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %57 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %56, ptr noundef @.str.3, i32 noundef 256) #10
+  %58 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %59 = call i32 @fflush(ptr noundef %58)
+  br label %60
 
-return:                                           ; preds = %if.end20, %if.then19, %if.then11, %if.then5, %if.then
-  %8 = load i32, ptr %retval, align 4
-  ret i32 %8
+60:                                               ; preds = %55, %52
+  store i64 -70, ptr %7, align 8
+  store i32 1, ptr %16, align 4
+  br label %143
+
+61:                                               ; preds = %49
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #10
+  %62 = load ptr, ptr %10, align 8, !tbaa !21
+  %63 = load ptr, ptr %11, align 8, !tbaa !3
+  %64 = load i32, ptr %12, align 4, !tbaa !8
+  %65 = getelementptr inbounds nuw %struct.ZDICT_cover_params_t, ptr %5, i32 0, i32 1
+  %66 = load i32, ptr %65, align 4, !tbaa !28
+  %67 = getelementptr inbounds nuw %struct.ZDICT_cover_params_t, ptr %5, i32 0, i32 4
+  %68 = load double, ptr %67, align 8, !tbaa !24
+  %69 = call i64 @COVER_ctx_init(ptr noundef %14, ptr noundef %62, ptr noundef %63, i32 noundef %64, i32 noundef %66, double noundef %68)
+  store i64 %69, ptr %17, align 8, !tbaa !10
+  %70 = load i64, ptr %17, align 8, !tbaa !10
+  %71 = call i32 @ERR_isError(i64 noundef %70)
+  %72 = icmp ne i32 %71, 0
+  br i1 %72, label %73, label %75
+
+73:                                               ; preds = %61
+  %74 = load i64, ptr %17, align 8, !tbaa !10
+  store i64 %74, ptr %7, align 8
+  store i32 1, ptr %16, align 4
+  br label %76
+
+75:                                               ; preds = %61
+  store i32 0, ptr %16, align 4
+  br label %76
+
+76:                                               ; preds = %75, %73
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #10
+  %77 = load i32, ptr %16, align 4
+  switch i32 %77, label %143 [
+    i32 0, label %78
+  ]
+
+78:                                               ; preds = %76
+  %79 = load i64, ptr %9, align 8, !tbaa !10
+  %80 = getelementptr inbounds nuw %struct.COVER_ctx_t, ptr %14, i32 0, i32 7
+  %81 = load i64, ptr %80, align 8, !tbaa !29
+  %82 = load i32, ptr @g_displayLevel, align 4, !tbaa !8
+  call void @COVER_warnOnSmallCorpus(i64 noundef %79, i64 noundef %81, i32 noundef %82)
+  %83 = getelementptr inbounds nuw %struct.ZDICT_cover_params_t, ptr %5, i32 0, i32 0
+  %84 = load i32, ptr %83, align 8, !tbaa !32
+  %85 = getelementptr inbounds nuw %struct.ZDICT_cover_params_t, ptr %5, i32 0, i32 1
+  %86 = load i32, ptr %85, align 4, !tbaa !28
+  %87 = sub i32 %84, %86
+  %88 = add i32 %87, 1
+  %89 = call i32 @COVER_map_init(ptr noundef %15, i32 noundef %88)
+  %90 = icmp ne i32 %89, 0
+  br i1 %90, label %100, label %91
+
+91:                                               ; preds = %78
+  %92 = load i32, ptr @g_displayLevel, align 4, !tbaa !8
+  %93 = icmp sge i32 %92, 1
+  br i1 %93, label %94, label %99
+
+94:                                               ; preds = %91
+  %95 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %96 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %95, ptr noundef @.str.4) #10
+  %97 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %98 = call i32 @fflush(ptr noundef %97)
+  br label %99
+
+99:                                               ; preds = %94, %91
+  call void @COVER_ctx_destroy(ptr noundef %14)
+  store i64 -64, ptr %7, align 8
+  store i32 1, ptr %16, align 4
+  br label %143
+
+100:                                              ; preds = %78
+  %101 = load i32, ptr @g_displayLevel, align 4, !tbaa !8
+  %102 = icmp sge i32 %101, 2
+  br i1 %102, label %103, label %108
+
+103:                                              ; preds = %100
+  %104 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %105 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %104, ptr noundef @.str.5) #10
+  %106 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %107 = call i32 @fflush(ptr noundef %106)
+  br label %108
+
+108:                                              ; preds = %103, %100
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #10
+  %109 = getelementptr inbounds nuw %struct.COVER_ctx_t, ptr %14, i32 0, i32 8
+  %110 = load ptr, ptr %109, align 8, !tbaa !33
+  %111 = load ptr, ptr %8, align 8, !tbaa !21
+  %112 = load i64, ptr %9, align 8, !tbaa !10
+  %113 = call i64 @COVER_buildDictionary(ptr noundef %14, ptr noundef %110, ptr noundef %15, ptr noundef %111, i64 noundef %112, ptr noundef byval(%struct.ZDICT_cover_params_t) align 8 %5)
+  store i64 %113, ptr %18, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #10
+  %114 = load ptr, ptr %13, align 8, !tbaa !22
+  %115 = load i64, ptr %9, align 8, !tbaa !10
+  %116 = load ptr, ptr %13, align 8, !tbaa !22
+  %117 = load i64, ptr %18, align 8, !tbaa !10
+  %118 = getelementptr inbounds nuw i8, ptr %116, i64 %117
+  %119 = load i64, ptr %9, align 8, !tbaa !10
+  %120 = load i64, ptr %18, align 8, !tbaa !10
+  %121 = sub i64 %119, %120
+  %122 = load ptr, ptr %10, align 8, !tbaa !21
+  %123 = load ptr, ptr %11, align 8, !tbaa !3
+  %124 = load i32, ptr %12, align 4, !tbaa !8
+  %125 = getelementptr inbounds nuw %struct.ZDICT_cover_params_t, ptr %5, i32 0, i32 7
+  %126 = call i64 @ZDICT_finalizeDictionary(ptr noundef %114, i64 noundef %115, ptr noundef %118, i64 noundef %121, ptr noundef %122, ptr noundef %123, i32 noundef %124, ptr noundef byval(%struct.ZDICT_params_t) align 8 %125)
+  store i64 %126, ptr %19, align 8, !tbaa !10
+  %127 = load i64, ptr %19, align 8, !tbaa !10
+  %128 = call i32 @ERR_isError(i64 noundef %127)
+  %129 = icmp ne i32 %128, 0
+  br i1 %129, label %141, label %130
+
+130:                                              ; preds = %108
+  %131 = load i32, ptr @g_displayLevel, align 4, !tbaa !8
+  %132 = icmp sge i32 %131, 2
+  br i1 %132, label %133, label %140
+
+133:                                              ; preds = %130
+  %134 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %135 = load i64, ptr %19, align 8, !tbaa !10
+  %136 = trunc i64 %135 to i32
+  %137 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %134, ptr noundef @.str.6, i32 noundef %136) #10
+  %138 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %139 = call i32 @fflush(ptr noundef %138)
+  br label %140
+
+140:                                              ; preds = %133, %130
+  br label %141
+
+141:                                              ; preds = %140, %108
+  call void @COVER_ctx_destroy(ptr noundef %14)
+  call void @COVER_map_destroy(ptr noundef %15)
+  %142 = load i64, ptr %19, align 8, !tbaa !10
+  store i64 %142, ptr %7, align 8
+  store i32 1, ptr %16, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #10
+  br label %143
+
+143:                                              ; preds = %141, %99, %76, %60, %48, %36
+  call void @llvm.lifetime.end.p0(i64 24, ptr %15) #10
+  call void @llvm.lifetime.end.p0(i64 88, ptr %14) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #10
+  %144 = load i64, ptr %7, align 8
+  ret i64 %144
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @COVER_ctx_init(ptr noundef %ctx, ptr noundef %samplesBuffer, ptr noundef %samplesSizes, i32 noundef %nbSamples, i32 noundef %d, double noundef %splitPoint) #0 {
-entry:
-  %retval = alloca i64, align 8
-  %ctx.addr = alloca ptr, align 8
-  %samplesBuffer.addr = alloca ptr, align 8
-  %samplesSizes.addr = alloca ptr, align 8
-  %nbSamples.addr = alloca i32, align 4
-  %d.addr = alloca i32, align 4
-  %splitPoint.addr = alloca double, align 8
-  %samples = alloca ptr, align 8
-  %totalSamplesSize = alloca i64, align 8
-  %nbTrainSamples = alloca i32, align 4
-  %nbTestSamples = alloca i32, align 4
-  %trainingSamplesSize = alloca i64, align 8
-  %testSamplesSize = alloca i64, align 8
-  %i = alloca i32, align 4
-  %i137 = alloca i32, align 4
-  store ptr %ctx, ptr %ctx.addr, align 8
-  store ptr %samplesBuffer, ptr %samplesBuffer.addr, align 8
-  store ptr %samplesSizes, ptr %samplesSizes.addr, align 8
-  store i32 %nbSamples, ptr %nbSamples.addr, align 4
-  store i32 %d, ptr %d.addr, align 4
-  store double %splitPoint, ptr %splitPoint.addr, align 8
-  %0 = load ptr, ptr %samplesBuffer.addr, align 8
-  store ptr %0, ptr %samples, align 8
-  %1 = load ptr, ptr %samplesSizes.addr, align 8
-  %2 = load i32, ptr %nbSamples.addr, align 4
-  %call = call i64 @COVER_sum(ptr noundef %1, i32 noundef %2)
-  store i64 %call, ptr %totalSamplesSize, align 8
-  %3 = load double, ptr %splitPoint.addr, align 8
-  %cmp = fcmp olt double %3, 1.000000e+00
-  br i1 %cmp, label %cond.true, label %cond.false
+define internal i32 @COVER_checkParameters(ptr noundef byval(%struct.ZDICT_cover_params_t) align 8 %0, i64 noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca i64, align 8
+  store i64 %1, ptr %4, align 8, !tbaa !10
+  %5 = getelementptr inbounds nuw %struct.ZDICT_cover_params_t, ptr %0, i32 0, i32 1
+  %6 = load i32, ptr %5, align 4, !tbaa !28
+  %7 = icmp eq i32 %6, 0
+  br i1 %7, label %12, label %8
 
-cond.true:                                        ; preds = %entry
-  %4 = load i32, ptr %nbSamples.addr, align 4
-  %conv = uitofp i32 %4 to double
-  %5 = load double, ptr %splitPoint.addr, align 8
-  %mul = fmul double %conv, %5
-  %conv1 = fptoui double %mul to i32
-  br label %cond.end
+8:                                                ; preds = %2
+  %9 = getelementptr inbounds nuw %struct.ZDICT_cover_params_t, ptr %0, i32 0, i32 0
+  %10 = load i32, ptr %9, align 8, !tbaa !32
+  %11 = icmp eq i32 %10, 0
+  br i1 %11, label %12, label %13
 
-cond.false:                                       ; preds = %entry
-  %6 = load i32, ptr %nbSamples.addr, align 4
-  br label %cond.end
+12:                                               ; preds = %8, %2
+  store i32 0, ptr %3, align 4
+  br label %37
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ %conv1, %cond.true ], [ %6, %cond.false ]
-  store i32 %cond, ptr %nbTrainSamples, align 4
-  %7 = load double, ptr %splitPoint.addr, align 8
-  %cmp2 = fcmp olt double %7, 1.000000e+00
-  br i1 %cmp2, label %cond.true4, label %cond.false5
+13:                                               ; preds = %8
+  %14 = getelementptr inbounds nuw %struct.ZDICT_cover_params_t, ptr %0, i32 0, i32 0
+  %15 = load i32, ptr %14, align 8, !tbaa !32
+  %16 = zext i32 %15 to i64
+  %17 = load i64, ptr %4, align 8, !tbaa !10
+  %18 = icmp ugt i64 %16, %17
+  br i1 %18, label %19, label %20
 
-cond.true4:                                       ; preds = %cond.end
-  %8 = load i32, ptr %nbSamples.addr, align 4
-  %9 = load i32, ptr %nbTrainSamples, align 4
-  %sub = sub i32 %8, %9
-  br label %cond.end6
+19:                                               ; preds = %13
+  store i32 0, ptr %3, align 4
+  br label %37
 
-cond.false5:                                      ; preds = %cond.end
-  %10 = load i32, ptr %nbSamples.addr, align 4
-  br label %cond.end6
+20:                                               ; preds = %13
+  %21 = getelementptr inbounds nuw %struct.ZDICT_cover_params_t, ptr %0, i32 0, i32 1
+  %22 = load i32, ptr %21, align 4, !tbaa !28
+  %23 = getelementptr inbounds nuw %struct.ZDICT_cover_params_t, ptr %0, i32 0, i32 0
+  %24 = load i32, ptr %23, align 8, !tbaa !32
+  %25 = icmp ugt i32 %22, %24
+  br i1 %25, label %26, label %27
 
-cond.end6:                                        ; preds = %cond.false5, %cond.true4
-  %cond7 = phi i32 [ %sub, %cond.true4 ], [ %10, %cond.false5 ]
-  store i32 %cond7, ptr %nbTestSamples, align 4
-  %11 = load double, ptr %splitPoint.addr, align 8
-  %cmp8 = fcmp olt double %11, 1.000000e+00
-  br i1 %cmp8, label %cond.true10, label %cond.false12
+26:                                               ; preds = %20
+  store i32 0, ptr %3, align 4
+  br label %37
 
-cond.true10:                                      ; preds = %cond.end6
-  %12 = load ptr, ptr %samplesSizes.addr, align 8
-  %13 = load i32, ptr %nbTrainSamples, align 4
-  %call11 = call i64 @COVER_sum(ptr noundef %12, i32 noundef %13)
-  br label %cond.end13
+27:                                               ; preds = %20
+  %28 = getelementptr inbounds nuw %struct.ZDICT_cover_params_t, ptr %0, i32 0, i32 4
+  %29 = load double, ptr %28, align 8, !tbaa !24
+  %30 = fcmp ole double %29, 0.000000e+00
+  br i1 %30, label %35, label %31
 
-cond.false12:                                     ; preds = %cond.end6
-  %14 = load i64, ptr %totalSamplesSize, align 8
-  br label %cond.end13
+31:                                               ; preds = %27
+  %32 = getelementptr inbounds nuw %struct.ZDICT_cover_params_t, ptr %0, i32 0, i32 4
+  %33 = load double, ptr %32, align 8, !tbaa !24
+  %34 = fcmp ogt double %33, 1.000000e+00
+  br i1 %34, label %35, label %36
 
-cond.end13:                                       ; preds = %cond.false12, %cond.true10
-  %cond14 = phi i64 [ %call11, %cond.true10 ], [ %14, %cond.false12 ]
-  store i64 %cond14, ptr %trainingSamplesSize, align 8
-  %15 = load double, ptr %splitPoint.addr, align 8
-  %cmp15 = fcmp olt double %15, 1.000000e+00
-  br i1 %cmp15, label %cond.true17, label %cond.false19
+35:                                               ; preds = %31, %27
+  store i32 0, ptr %3, align 4
+  br label %37
 
-cond.true17:                                      ; preds = %cond.end13
-  %16 = load ptr, ptr %samplesSizes.addr, align 8
-  %17 = load i32, ptr %nbTrainSamples, align 4
-  %idx.ext = zext i32 %17 to i64
-  %add.ptr = getelementptr inbounds i64, ptr %16, i64 %idx.ext
-  %18 = load i32, ptr %nbTestSamples, align 4
-  %call18 = call i64 @COVER_sum(ptr noundef %add.ptr, i32 noundef %18)
-  br label %cond.end20
+36:                                               ; preds = %31
+  store i32 1, ptr %3, align 4
+  br label %37
 
-cond.false19:                                     ; preds = %cond.end13
-  %19 = load i64, ptr %totalSamplesSize, align 8
-  br label %cond.end20
-
-cond.end20:                                       ; preds = %cond.false19, %cond.true17
-  %cond21 = phi i64 [ %call18, %cond.true17 ], [ %19, %cond.false19 ]
-  store i64 %cond21, ptr %testSamplesSize, align 8
-  %20 = load i64, ptr %totalSamplesSize, align 8
-  %21 = load i32, ptr %d.addr, align 4
-  %conv22 = zext i32 %21 to i64
-  %cmp23 = icmp ugt i64 %conv22, 8
-  br i1 %cmp23, label %cond.true25, label %cond.false27
-
-cond.true25:                                      ; preds = %cond.end20
-  %22 = load i32, ptr %d.addr, align 4
-  %conv26 = zext i32 %22 to i64
-  br label %cond.end28
-
-cond.false27:                                     ; preds = %cond.end20
-  br label %cond.end28
-
-cond.end28:                                       ; preds = %cond.false27, %cond.true25
-  %cond29 = phi i64 [ %conv26, %cond.true25 ], [ 8, %cond.false27 ]
-  %cmp30 = icmp ult i64 %20, %cond29
-  br i1 %cmp30, label %if.then, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %cond.end28
-  %23 = load i64, ptr %totalSamplesSize, align 8
-  %cmp32 = icmp uge i64 %23, 4294967295
-  br i1 %cmp32, label %if.then, label %if.end40
-
-if.then:                                          ; preds = %lor.lhs.false, %cond.end28
-  %24 = load i32, ptr @g_displayLevel, align 4
-  %cmp34 = icmp sge i32 %24, 1
-  br i1 %cmp34, label %if.then36, label %if.end
-
-if.then36:                                        ; preds = %if.then
-  %25 = load ptr, ptr @stderr, align 8
-  %26 = load i64, ptr %totalSamplesSize, align 8
-  %shr = lshr i64 %26, 20
-  %conv37 = trunc i64 %shr to i32
-  %call38 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef @.str.16, i32 noundef %conv37, i32 noundef 4095)
-  %27 = load ptr, ptr @stderr, align 8
-  %call39 = call i32 @fflush(ptr noundef %27)
-  br label %if.end
-
-if.end:                                           ; preds = %if.then36, %if.then
-  store i64 -72, ptr %retval, align 8
-  br label %return
-
-if.end40:                                         ; preds = %lor.lhs.false
-  %28 = load i32, ptr %nbTrainSamples, align 4
-  %cmp41 = icmp ult i32 %28, 5
-  br i1 %cmp41, label %if.then43, label %if.end50
-
-if.then43:                                        ; preds = %if.end40
-  %29 = load i32, ptr @g_displayLevel, align 4
-  %cmp44 = icmp sge i32 %29, 1
-  br i1 %cmp44, label %if.then46, label %if.end49
-
-if.then46:                                        ; preds = %if.then43
-  %30 = load ptr, ptr @stderr, align 8
-  %31 = load i32, ptr %nbTrainSamples, align 4
-  %call47 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %30, ptr noundef @.str.17, i32 noundef %31)
-  %32 = load ptr, ptr @stderr, align 8
-  %call48 = call i32 @fflush(ptr noundef %32)
-  br label %if.end49
-
-if.end49:                                         ; preds = %if.then46, %if.then43
-  store i64 -72, ptr %retval, align 8
-  br label %return
-
-if.end50:                                         ; preds = %if.end40
-  %33 = load i32, ptr %nbTestSamples, align 4
-  %cmp51 = icmp ult i32 %33, 1
-  br i1 %cmp51, label %if.then53, label %if.end60
-
-if.then53:                                        ; preds = %if.end50
-  %34 = load i32, ptr @g_displayLevel, align 4
-  %cmp54 = icmp sge i32 %34, 1
-  br i1 %cmp54, label %if.then56, label %if.end59
-
-if.then56:                                        ; preds = %if.then53
-  %35 = load ptr, ptr @stderr, align 8
-  %36 = load i32, ptr %nbTestSamples, align 4
-  %call57 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %35, ptr noundef @.str.18, i32 noundef %36)
-  %37 = load ptr, ptr @stderr, align 8
-  %call58 = call i32 @fflush(ptr noundef %37)
-  br label %if.end59
-
-if.end59:                                         ; preds = %if.then56, %if.then53
-  store i64 -72, ptr %retval, align 8
-  br label %return
-
-if.end60:                                         ; preds = %if.end50
-  %38 = load ptr, ptr %ctx.addr, align 8
-  call void @llvm.memset.p0.i64(ptr align 8 %38, i8 0, i64 88, i1 false)
-  %39 = load i32, ptr @g_displayLevel, align 4
-  %cmp61 = icmp sge i32 %39, 2
-  br i1 %cmp61, label %if.then63, label %if.end67
-
-if.then63:                                        ; preds = %if.end60
-  %40 = load ptr, ptr @stderr, align 8
-  %41 = load i32, ptr %nbTrainSamples, align 4
-  %42 = load i64, ptr %trainingSamplesSize, align 8
-  %conv64 = trunc i64 %42 to i32
-  %call65 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %40, ptr noundef @.str.19, i32 noundef %41, i32 noundef %conv64)
-  %43 = load ptr, ptr @stderr, align 8
-  %call66 = call i32 @fflush(ptr noundef %43)
-  br label %if.end67
-
-if.end67:                                         ; preds = %if.then63, %if.end60
-  %44 = load i32, ptr @g_displayLevel, align 4
-  %cmp68 = icmp sge i32 %44, 2
-  br i1 %cmp68, label %if.then70, label %if.end74
-
-if.then70:                                        ; preds = %if.end67
-  %45 = load ptr, ptr @stderr, align 8
-  %46 = load i32, ptr %nbTestSamples, align 4
-  %47 = load i64, ptr %testSamplesSize, align 8
-  %conv71 = trunc i64 %47 to i32
-  %call72 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %45, ptr noundef @.str.20, i32 noundef %46, i32 noundef %conv71)
-  %48 = load ptr, ptr @stderr, align 8
-  %call73 = call i32 @fflush(ptr noundef %48)
-  br label %if.end74
-
-if.end74:                                         ; preds = %if.then70, %if.end67
-  %49 = load ptr, ptr %samples, align 8
-  %50 = load ptr, ptr %ctx.addr, align 8
-  %samples75 = getelementptr inbounds %struct.COVER_ctx_t, ptr %50, i32 0, i32 0
-  store ptr %49, ptr %samples75, align 8
-  %51 = load ptr, ptr %samplesSizes.addr, align 8
-  %52 = load ptr, ptr %ctx.addr, align 8
-  %samplesSizes76 = getelementptr inbounds %struct.COVER_ctx_t, ptr %52, i32 0, i32 2
-  store ptr %51, ptr %samplesSizes76, align 8
-  %53 = load i32, ptr %nbSamples.addr, align 4
-  %conv77 = zext i32 %53 to i64
-  %54 = load ptr, ptr %ctx.addr, align 8
-  %nbSamples78 = getelementptr inbounds %struct.COVER_ctx_t, ptr %54, i32 0, i32 3
-  store i64 %conv77, ptr %nbSamples78, align 8
-  %55 = load i32, ptr %nbTrainSamples, align 4
-  %conv79 = zext i32 %55 to i64
-  %56 = load ptr, ptr %ctx.addr, align 8
-  %nbTrainSamples80 = getelementptr inbounds %struct.COVER_ctx_t, ptr %56, i32 0, i32 4
-  store i64 %conv79, ptr %nbTrainSamples80, align 8
-  %57 = load i32, ptr %nbTestSamples, align 4
-  %conv81 = zext i32 %57 to i64
-  %58 = load ptr, ptr %ctx.addr, align 8
-  %nbTestSamples82 = getelementptr inbounds %struct.COVER_ctx_t, ptr %58, i32 0, i32 5
-  store i64 %conv81, ptr %nbTestSamples82, align 8
-  %59 = load i64, ptr %trainingSamplesSize, align 8
-  %60 = load i32, ptr %d.addr, align 4
-  %conv83 = zext i32 %60 to i64
-  %cmp84 = icmp ugt i64 %conv83, 8
-  br i1 %cmp84, label %cond.true86, label %cond.false88
-
-cond.true86:                                      ; preds = %if.end74
-  %61 = load i32, ptr %d.addr, align 4
-  %conv87 = zext i32 %61 to i64
-  br label %cond.end89
-
-cond.false88:                                     ; preds = %if.end74
-  br label %cond.end89
-
-cond.end89:                                       ; preds = %cond.false88, %cond.true86
-  %cond90 = phi i64 [ %conv87, %cond.true86 ], [ 8, %cond.false88 ]
-  %sub91 = sub i64 %59, %cond90
-  %add = add i64 %sub91, 1
-  %62 = load ptr, ptr %ctx.addr, align 8
-  %suffixSize = getelementptr inbounds %struct.COVER_ctx_t, ptr %62, i32 0, i32 7
-  store i64 %add, ptr %suffixSize, align 8
-  %63 = load ptr, ptr %ctx.addr, align 8
-  %suffixSize92 = getelementptr inbounds %struct.COVER_ctx_t, ptr %63, i32 0, i32 7
-  %64 = load i64, ptr %suffixSize92, align 8
-  %mul93 = mul i64 %64, 4
-  %call94 = call noalias ptr @malloc(i64 noundef %mul93) #8
-  %65 = load ptr, ptr %ctx.addr, align 8
-  %suffix = getelementptr inbounds %struct.COVER_ctx_t, ptr %65, i32 0, i32 6
-  store ptr %call94, ptr %suffix, align 8
-  %66 = load ptr, ptr %ctx.addr, align 8
-  %suffixSize95 = getelementptr inbounds %struct.COVER_ctx_t, ptr %66, i32 0, i32 7
-  %67 = load i64, ptr %suffixSize95, align 8
-  %mul96 = mul i64 %67, 4
-  %call97 = call noalias ptr @malloc(i64 noundef %mul96) #8
-  %68 = load ptr, ptr %ctx.addr, align 8
-  %dmerAt = getelementptr inbounds %struct.COVER_ctx_t, ptr %68, i32 0, i32 9
-  store ptr %call97, ptr %dmerAt, align 8
-  %69 = load i32, ptr %nbSamples.addr, align 4
-  %add98 = add i32 %69, 1
-  %conv99 = zext i32 %add98 to i64
-  %mul100 = mul i64 %conv99, 8
-  %call101 = call noalias ptr @malloc(i64 noundef %mul100) #8
-  %70 = load ptr, ptr %ctx.addr, align 8
-  %offsets = getelementptr inbounds %struct.COVER_ctx_t, ptr %70, i32 0, i32 1
-  store ptr %call101, ptr %offsets, align 8
-  %71 = load ptr, ptr %ctx.addr, align 8
-  %suffix102 = getelementptr inbounds %struct.COVER_ctx_t, ptr %71, i32 0, i32 6
-  %72 = load ptr, ptr %suffix102, align 8
-  %tobool = icmp ne ptr %72, null
-  br i1 %tobool, label %lor.lhs.false103, label %if.then109
-
-lor.lhs.false103:                                 ; preds = %cond.end89
-  %73 = load ptr, ptr %ctx.addr, align 8
-  %dmerAt104 = getelementptr inbounds %struct.COVER_ctx_t, ptr %73, i32 0, i32 9
-  %74 = load ptr, ptr %dmerAt104, align 8
-  %tobool105 = icmp ne ptr %74, null
-  br i1 %tobool105, label %lor.lhs.false106, label %if.then109
-
-lor.lhs.false106:                                 ; preds = %lor.lhs.false103
-  %75 = load ptr, ptr %ctx.addr, align 8
-  %offsets107 = getelementptr inbounds %struct.COVER_ctx_t, ptr %75, i32 0, i32 1
-  %76 = load ptr, ptr %offsets107, align 8
-  %tobool108 = icmp ne ptr %76, null
-  br i1 %tobool108, label %if.end116, label %if.then109
-
-if.then109:                                       ; preds = %lor.lhs.false106, %lor.lhs.false103, %cond.end89
-  %77 = load i32, ptr @g_displayLevel, align 4
-  %cmp110 = icmp sge i32 %77, 1
-  br i1 %cmp110, label %if.then112, label %if.end115
-
-if.then112:                                       ; preds = %if.then109
-  %78 = load ptr, ptr @stderr, align 8
-  %call113 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %78, ptr noundef @.str.21)
-  %79 = load ptr, ptr @stderr, align 8
-  %call114 = call i32 @fflush(ptr noundef %79)
-  br label %if.end115
-
-if.end115:                                        ; preds = %if.then112, %if.then109
-  %80 = load ptr, ptr %ctx.addr, align 8
-  call void @COVER_ctx_destroy(ptr noundef %80)
-  store i64 -64, ptr %retval, align 8
-  br label %return
-
-if.end116:                                        ; preds = %lor.lhs.false106
-  %81 = load ptr, ptr %ctx.addr, align 8
-  %freqs = getelementptr inbounds %struct.COVER_ctx_t, ptr %81, i32 0, i32 8
-  store ptr null, ptr %freqs, align 8
-  %82 = load i32, ptr %d.addr, align 4
-  %83 = load ptr, ptr %ctx.addr, align 8
-  %d117 = getelementptr inbounds %struct.COVER_ctx_t, ptr %83, i32 0, i32 10
-  store i32 %82, ptr %d117, align 8
-  %84 = load ptr, ptr %ctx.addr, align 8
-  %offsets118 = getelementptr inbounds %struct.COVER_ctx_t, ptr %84, i32 0, i32 1
-  %85 = load ptr, ptr %offsets118, align 8
-  %arrayidx = getelementptr inbounds i64, ptr %85, i64 0
-  store i64 0, ptr %arrayidx, align 8
-  store i32 1, ptr %i, align 4
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %if.end116
-  %86 = load i32, ptr %i, align 4
-  %87 = load i32, ptr %nbSamples.addr, align 4
-  %cmp119 = icmp ule i32 %86, %87
-  br i1 %cmp119, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %88 = load ptr, ptr %ctx.addr, align 8
-  %offsets121 = getelementptr inbounds %struct.COVER_ctx_t, ptr %88, i32 0, i32 1
-  %89 = load ptr, ptr %offsets121, align 8
-  %90 = load i32, ptr %i, align 4
-  %sub122 = sub i32 %90, 1
-  %idxprom = zext i32 %sub122 to i64
-  %arrayidx123 = getelementptr inbounds i64, ptr %89, i64 %idxprom
-  %91 = load i64, ptr %arrayidx123, align 8
-  %92 = load ptr, ptr %samplesSizes.addr, align 8
-  %93 = load i32, ptr %i, align 4
-  %sub124 = sub i32 %93, 1
-  %idxprom125 = zext i32 %sub124 to i64
-  %arrayidx126 = getelementptr inbounds i64, ptr %92, i64 %idxprom125
-  %94 = load i64, ptr %arrayidx126, align 8
-  %add127 = add i64 %91, %94
-  %95 = load ptr, ptr %ctx.addr, align 8
-  %offsets128 = getelementptr inbounds %struct.COVER_ctx_t, ptr %95, i32 0, i32 1
-  %96 = load ptr, ptr %offsets128, align 8
-  %97 = load i32, ptr %i, align 4
-  %idxprom129 = zext i32 %97 to i64
-  %arrayidx130 = getelementptr inbounds i64, ptr %96, i64 %idxprom129
-  store i64 %add127, ptr %arrayidx130, align 8
-  br label %for.inc
-
-for.inc:                                          ; preds = %for.body
-  %98 = load i32, ptr %i, align 4
-  %inc = add i32 %98, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !6
-
-for.end:                                          ; preds = %for.cond
-  %99 = load i32, ptr @g_displayLevel, align 4
-  %cmp131 = icmp sge i32 %99, 2
-  br i1 %cmp131, label %if.then133, label %if.end136
-
-if.then133:                                       ; preds = %for.end
-  %100 = load ptr, ptr @stderr, align 8
-  %call134 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %100, ptr noundef @.str.22)
-  %101 = load ptr, ptr @stderr, align 8
-  %call135 = call i32 @fflush(ptr noundef %101)
-  br label %if.end136
-
-if.end136:                                        ; preds = %if.then133, %for.end
-  store i32 0, ptr %i137, align 4
-  br label %for.cond138
-
-for.cond138:                                      ; preds = %for.inc147, %if.end136
-  %102 = load i32, ptr %i137, align 4
-  %conv139 = zext i32 %102 to i64
-  %103 = load ptr, ptr %ctx.addr, align 8
-  %suffixSize140 = getelementptr inbounds %struct.COVER_ctx_t, ptr %103, i32 0, i32 7
-  %104 = load i64, ptr %suffixSize140, align 8
-  %cmp141 = icmp ult i64 %conv139, %104
-  br i1 %cmp141, label %for.body143, label %for.end149
-
-for.body143:                                      ; preds = %for.cond138
-  %105 = load i32, ptr %i137, align 4
-  %106 = load ptr, ptr %ctx.addr, align 8
-  %suffix144 = getelementptr inbounds %struct.COVER_ctx_t, ptr %106, i32 0, i32 6
-  %107 = load ptr, ptr %suffix144, align 8
-  %108 = load i32, ptr %i137, align 4
-  %idxprom145 = zext i32 %108 to i64
-  %arrayidx146 = getelementptr inbounds i32, ptr %107, i64 %idxprom145
-  store i32 %105, ptr %arrayidx146, align 4
-  br label %for.inc147
-
-for.inc147:                                       ; preds = %for.body143
-  %109 = load i32, ptr %i137, align 4
-  %inc148 = add i32 %109, 1
-  store i32 %inc148, ptr %i137, align 4
-  br label %for.cond138, !llvm.loop !7
-
-for.end149:                                       ; preds = %for.cond138
-  %110 = load ptr, ptr %ctx.addr, align 8
-  store ptr %110, ptr @g_coverCtx, align 8
-  %111 = load ptr, ptr %ctx.addr, align 8
-  %suffix150 = getelementptr inbounds %struct.COVER_ctx_t, ptr %111, i32 0, i32 6
-  %112 = load ptr, ptr %suffix150, align 8
-  %113 = load ptr, ptr %ctx.addr, align 8
-  %suffixSize151 = getelementptr inbounds %struct.COVER_ctx_t, ptr %113, i32 0, i32 7
-  %114 = load i64, ptr %suffixSize151, align 8
-  %115 = load ptr, ptr %ctx.addr, align 8
-  %d152 = getelementptr inbounds %struct.COVER_ctx_t, ptr %115, i32 0, i32 10
-  %116 = load i32, ptr %d152, align 8
-  %cmp153 = icmp ule i32 %116, 8
-  %cond155 = select i1 %cmp153, ptr @COVER_strict_cmp8, ptr @COVER_strict_cmp
-  call void @qsort(ptr noundef %112, i64 noundef %114, i64 noundef 4, ptr noundef %cond155)
-  %117 = load i32, ptr @g_displayLevel, align 4
-  %cmp156 = icmp sge i32 %117, 2
-  br i1 %cmp156, label %if.then158, label %if.end161
-
-if.then158:                                       ; preds = %for.end149
-  %118 = load ptr, ptr @stderr, align 8
-  %call159 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %118, ptr noundef @.str.23)
-  %119 = load ptr, ptr @stderr, align 8
-  %call160 = call i32 @fflush(ptr noundef %119)
-  br label %if.end161
-
-if.end161:                                        ; preds = %if.then158, %for.end149
-  %120 = load ptr, ptr %ctx.addr, align 8
-  %suffix162 = getelementptr inbounds %struct.COVER_ctx_t, ptr %120, i32 0, i32 6
-  %121 = load ptr, ptr %suffix162, align 8
-  %122 = load ptr, ptr %ctx.addr, align 8
-  %suffixSize163 = getelementptr inbounds %struct.COVER_ctx_t, ptr %122, i32 0, i32 7
-  %123 = load i64, ptr %suffixSize163, align 8
-  %124 = load ptr, ptr %ctx.addr, align 8
-  %125 = load ptr, ptr %ctx.addr, align 8
-  %d164 = getelementptr inbounds %struct.COVER_ctx_t, ptr %125, i32 0, i32 10
-  %126 = load i32, ptr %d164, align 8
-  %cmp165 = icmp ule i32 %126, 8
-  %cond167 = select i1 %cmp165, ptr @COVER_cmp8, ptr @COVER_cmp
-  call void @COVER_groupBy(ptr noundef %121, i64 noundef %123, i64 noundef 4, ptr noundef %124, ptr noundef %cond167, ptr noundef @COVER_group)
-  %127 = load ptr, ptr %ctx.addr, align 8
-  %suffix168 = getelementptr inbounds %struct.COVER_ctx_t, ptr %127, i32 0, i32 6
-  %128 = load ptr, ptr %suffix168, align 8
-  %129 = load ptr, ptr %ctx.addr, align 8
-  %freqs169 = getelementptr inbounds %struct.COVER_ctx_t, ptr %129, i32 0, i32 8
-  store ptr %128, ptr %freqs169, align 8
-  %130 = load ptr, ptr %ctx.addr, align 8
-  %suffix170 = getelementptr inbounds %struct.COVER_ctx_t, ptr %130, i32 0, i32 6
-  store ptr null, ptr %suffix170, align 8
-  store i64 0, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.end161, %if.end115, %if.end59, %if.end49, %if.end
-  %131 = load i64, ptr %retval, align 8
-  ret i64 %131
+37:                                               ; preds = %36, %35, %26, %19, %12
+  %38 = load i32, ptr %3, align 4
+  ret i32 %38
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ERR_isError(i64 noundef %code) #0 {
-entry:
-  %code.addr = alloca i64, align 8
-  store i64 %code, ptr %code.addr, align 8
-  %0 = load i64, ptr %code.addr, align 8
-  %cmp = icmp ugt i64 %0, -120
-  %conv = zext i1 %cmp to i32
-  ret i32 %conv
+define internal i64 @COVER_ctx_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, double noundef %5) #0 {
+  %7 = alloca i64, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca double, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca i64, align 8
+  %16 = alloca i32, align 4
+  %17 = alloca i32, align 4
+  %18 = alloca i64, align 8
+  %19 = alloca i64, align 8
+  %20 = alloca i32, align 4
+  %21 = alloca i32, align 4
+  %22 = alloca i32, align 4
+  store ptr %0, ptr %8, align 8, !tbaa !21
+  store ptr %1, ptr %9, align 8, !tbaa !21
+  store ptr %2, ptr %10, align 8, !tbaa !3
+  store i32 %3, ptr %11, align 4, !tbaa !8
+  store i32 %4, ptr %12, align 4, !tbaa !8
+  store double %5, ptr %13, align 8, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #10
+  %23 = load ptr, ptr %9, align 8, !tbaa !21
+  store ptr %23, ptr %14, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #10
+  %24 = load ptr, ptr %10, align 8, !tbaa !3
+  %25 = load i32, ptr %11, align 4, !tbaa !8
+  %26 = call i64 @COVER_sum(ptr noundef %24, i32 noundef %25)
+  store i64 %26, ptr %15, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #10
+  %27 = load double, ptr %13, align 8, !tbaa !14
+  %28 = fcmp olt double %27, 1.000000e+00
+  br i1 %28, label %29, label %35
+
+29:                                               ; preds = %6
+  %30 = load i32, ptr %11, align 4, !tbaa !8
+  %31 = uitofp i32 %30 to double
+  %32 = load double, ptr %13, align 8, !tbaa !14
+  %33 = fmul double %31, %32
+  %34 = fptoui double %33 to i32
+  br label %37
+
+35:                                               ; preds = %6
+  %36 = load i32, ptr %11, align 4, !tbaa !8
+  br label %37
+
+37:                                               ; preds = %35, %29
+  %38 = phi i32 [ %34, %29 ], [ %36, %35 ]
+  store i32 %38, ptr %16, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #10
+  %39 = load double, ptr %13, align 8, !tbaa !14
+  %40 = fcmp olt double %39, 1.000000e+00
+  br i1 %40, label %41, label %45
+
+41:                                               ; preds = %37
+  %42 = load i32, ptr %11, align 4, !tbaa !8
+  %43 = load i32, ptr %16, align 4, !tbaa !8
+  %44 = sub i32 %42, %43
+  br label %47
+
+45:                                               ; preds = %37
+  %46 = load i32, ptr %11, align 4, !tbaa !8
+  br label %47
+
+47:                                               ; preds = %45, %41
+  %48 = phi i32 [ %44, %41 ], [ %46, %45 ]
+  store i32 %48, ptr %17, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #10
+  %49 = load double, ptr %13, align 8, !tbaa !14
+  %50 = fcmp olt double %49, 1.000000e+00
+  br i1 %50, label %51, label %55
+
+51:                                               ; preds = %47
+  %52 = load ptr, ptr %10, align 8, !tbaa !3
+  %53 = load i32, ptr %16, align 4, !tbaa !8
+  %54 = call i64 @COVER_sum(ptr noundef %52, i32 noundef %53)
+  br label %57
+
+55:                                               ; preds = %47
+  %56 = load i64, ptr %15, align 8, !tbaa !10
+  br label %57
+
+57:                                               ; preds = %55, %51
+  %58 = phi i64 [ %54, %51 ], [ %56, %55 ]
+  store i64 %58, ptr %18, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #10
+  %59 = load double, ptr %13, align 8, !tbaa !14
+  %60 = fcmp olt double %59, 1.000000e+00
+  br i1 %60, label %61, label %68
+
+61:                                               ; preds = %57
+  %62 = load ptr, ptr %10, align 8, !tbaa !3
+  %63 = load i32, ptr %16, align 4, !tbaa !8
+  %64 = zext i32 %63 to i64
+  %65 = getelementptr inbounds nuw i64, ptr %62, i64 %64
+  %66 = load i32, ptr %17, align 4, !tbaa !8
+  %67 = call i64 @COVER_sum(ptr noundef %65, i32 noundef %66)
+  br label %70
+
+68:                                               ; preds = %57
+  %69 = load i64, ptr %15, align 8, !tbaa !10
+  br label %70
+
+70:                                               ; preds = %68, %61
+  %71 = phi i64 [ %67, %61 ], [ %69, %68 ]
+  store i64 %71, ptr %19, align 8, !tbaa !10
+  %72 = load i64, ptr %15, align 8, !tbaa !10
+  %73 = load i32, ptr %12, align 4, !tbaa !8
+  %74 = zext i32 %73 to i64
+  %75 = icmp ugt i64 %74, 8
+  br i1 %75, label %76, label %79
+
+76:                                               ; preds = %70
+  %77 = load i32, ptr %12, align 4, !tbaa !8
+  %78 = zext i32 %77 to i64
+  br label %80
+
+79:                                               ; preds = %70
+  br label %80
+
+80:                                               ; preds = %79, %76
+  %81 = phi i64 [ %78, %76 ], [ 8, %79 ]
+  %82 = icmp ult i64 %72, %81
+  br i1 %82, label %86, label %83
+
+83:                                               ; preds = %80
+  %84 = load i64, ptr %15, align 8, !tbaa !10
+  %85 = icmp uge i64 %84, 4294967295
+  br i1 %85, label %86, label %98
+
+86:                                               ; preds = %83, %80
+  %87 = load i32, ptr @g_displayLevel, align 4, !tbaa !8
+  %88 = icmp sge i32 %87, 1
+  br i1 %88, label %89, label %97
+
+89:                                               ; preds = %86
+  %90 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %91 = load i64, ptr %15, align 8, !tbaa !10
+  %92 = lshr i64 %91, 20
+  %93 = trunc i64 %92 to i32
+  %94 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %90, ptr noundef @.str.16, i32 noundef %93, i32 noundef 4095) #10
+  %95 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %96 = call i32 @fflush(ptr noundef %95)
+  br label %97
+
+97:                                               ; preds = %89, %86
+  store i64 -72, ptr %7, align 8
+  store i32 1, ptr %20, align 4
+  br label %320
+
+98:                                               ; preds = %83
+  %99 = load i32, ptr %16, align 4, !tbaa !8
+  %100 = icmp ult i32 %99, 5
+  br i1 %100, label %101, label %111
+
+101:                                              ; preds = %98
+  %102 = load i32, ptr @g_displayLevel, align 4, !tbaa !8
+  %103 = icmp sge i32 %102, 1
+  br i1 %103, label %104, label %110
+
+104:                                              ; preds = %101
+  %105 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %106 = load i32, ptr %16, align 4, !tbaa !8
+  %107 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %105, ptr noundef @.str.17, i32 noundef %106) #10
+  %108 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %109 = call i32 @fflush(ptr noundef %108)
+  br label %110
+
+110:                                              ; preds = %104, %101
+  store i64 -72, ptr %7, align 8
+  store i32 1, ptr %20, align 4
+  br label %320
+
+111:                                              ; preds = %98
+  %112 = load i32, ptr %17, align 4, !tbaa !8
+  %113 = icmp ult i32 %112, 1
+  br i1 %113, label %114, label %124
+
+114:                                              ; preds = %111
+  %115 = load i32, ptr @g_displayLevel, align 4, !tbaa !8
+  %116 = icmp sge i32 %115, 1
+  br i1 %116, label %117, label %123
+
+117:                                              ; preds = %114
+  %118 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %119 = load i32, ptr %17, align 4, !tbaa !8
+  %120 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %118, ptr noundef @.str.18, i32 noundef %119) #10
+  %121 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %122 = call i32 @fflush(ptr noundef %121)
+  br label %123
+
+123:                                              ; preds = %117, %114
+  store i64 -72, ptr %7, align 8
+  store i32 1, ptr %20, align 4
+  br label %320
+
+124:                                              ; preds = %111
+  %125 = load ptr, ptr %8, align 8, !tbaa !21
+  call void @llvm.memset.p0.i64(ptr align 8 %125, i8 0, i64 88, i1 false)
+  %126 = load i32, ptr @g_displayLevel, align 4, !tbaa !8
+  %127 = icmp sge i32 %126, 2
+  br i1 %127, label %128, label %136
+
+128:                                              ; preds = %124
+  %129 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %130 = load i32, ptr %16, align 4, !tbaa !8
+  %131 = load i64, ptr %18, align 8, !tbaa !10
+  %132 = trunc i64 %131 to i32
+  %133 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %129, ptr noundef @.str.19, i32 noundef %130, i32 noundef %132) #10
+  %134 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %135 = call i32 @fflush(ptr noundef %134)
+  br label %136
+
+136:                                              ; preds = %128, %124
+  %137 = load i32, ptr @g_displayLevel, align 4, !tbaa !8
+  %138 = icmp sge i32 %137, 2
+  br i1 %138, label %139, label %147
+
+139:                                              ; preds = %136
+  %140 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %141 = load i32, ptr %17, align 4, !tbaa !8
+  %142 = load i64, ptr %19, align 8, !tbaa !10
+  %143 = trunc i64 %142 to i32
+  %144 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %140, ptr noundef @.str.20, i32 noundef %141, i32 noundef %143) #10
+  %145 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %146 = call i32 @fflush(ptr noundef %145)
+  br label %147
+
+147:                                              ; preds = %139, %136
+  %148 = load ptr, ptr %14, align 8, !tbaa !22
+  %149 = load ptr, ptr %8, align 8, !tbaa !21
+  %150 = getelementptr inbounds nuw %struct.COVER_ctx_t, ptr %149, i32 0, i32 0
+  store ptr %148, ptr %150, align 8, !tbaa !34
+  %151 = load ptr, ptr %10, align 8, !tbaa !3
+  %152 = load ptr, ptr %8, align 8, !tbaa !21
+  %153 = getelementptr inbounds nuw %struct.COVER_ctx_t, ptr %152, i32 0, i32 2
+  store ptr %151, ptr %153, align 8, !tbaa !35
+  %154 = load i32, ptr %11, align 4, !tbaa !8
+  %155 = zext i32 %154 to i64
+  %156 = load ptr, ptr %8, align 8, !tbaa !21
+  %157 = getelementptr inbounds nuw %struct.COVER_ctx_t, ptr %156, i32 0, i32 3
+  store i64 %155, ptr %157, align 8, !tbaa !36
+  %158 = load i32, ptr %16, align 4, !tbaa !8
+  %159 = zext i32 %158 to i64
+  %160 = load ptr, ptr %8, align 8, !tbaa !21
+  %161 = getelementptr inbounds nuw %struct.COVER_ctx_t, ptr %160, i32 0, i32 4
+  store i64 %159, ptr %161, align 8, !tbaa !37
+  %162 = load i32, ptr %17, align 4, !tbaa !8
+  %163 = zext i32 %162 to i64
+  %164 = load ptr, ptr %8, align 8, !tbaa !21
+  %165 = getelementptr inbounds nuw %struct.COVER_ctx_t, ptr %164, i32 0, i32 5
+  store i64 %163, ptr %165, align 8, !tbaa !38
+  %166 = load i64, ptr %18, align 8, !tbaa !10
+  %167 = load i32, ptr %12, align 4, !tbaa !8
+  %168 = zext i32 %167 to i64
+  %169 = icmp ugt i64 %168, 8
+  br i1 %169, label %170, label %173
+
+170:                                              ; preds = %147
+  %171 = load i32, ptr %12, align 4, !tbaa !8
+  %172 = zext i32 %171 to i64
+  br label %174
+
+173:                                              ; preds = %147
+  br label %174
+
+174:                                              ; preds = %173, %170
+  %175 = phi i64 [ %172, %170 ], [ 8, %173 ]
+  %176 = sub i64 %166, %175
+  %177 = add i64 %176, 1
+  %178 = load ptr, ptr %8, align 8, !tbaa !21
+  %179 = getelementptr inbounds nuw %struct.COVER_ctx_t, ptr %178, i32 0, i32 7
+  store i64 %177, ptr %179, align 8, !tbaa !29
+  %180 = load ptr, ptr %8, align 8, !tbaa !21
+  %181 = getelementptr inbounds nuw %struct.COVER_ctx_t, ptr %180, i32 0, i32 7
+  %182 = load i64, ptr %181, align 8, !tbaa !29
+  %183 = mul i64 %182, 4
+  %184 = call noalias ptr @malloc(i64 noundef %183) #11
+  %185 = load ptr, ptr %8, align 8, !tbaa !21
+  %186 = getelementptr inbounds nuw %struct.COVER_ctx_t, ptr %185, i32 0, i32 6
+  store ptr %184, ptr %186, align 8, !tbaa !39
+  %187 = load ptr, ptr %8, align 8, !tbaa !21
+  %188 = getelementptr inbounds nuw %struct.COVER_ctx_t, ptr %187, i32 0, i32 7
+  %189 = load i64, ptr %188, align 8, !tbaa !29
+  %190 = mul i64 %189, 4
+  %191 = call noalias ptr @malloc(i64 noundef %190) #11
+  %192 = load ptr, ptr %8, align 8, !tbaa !21
+  %193 = getelementptr inbounds nuw %struct.COVER_ctx_t, ptr %192, i32 0, i32 9
+  store ptr %191, ptr %193, align 8, !tbaa !40
+  %194 = load i32, ptr %11, align 4, !tbaa !8
+  %195 = add i32 %194, 1
+  %196 = zext i32 %195 to i64
+  %197 = mul i64 %196, 8
+  %198 = call noalias ptr @malloc(i64 noundef %197) #11
+  %199 = load ptr, ptr %8, align 8, !tbaa !21
+  %200 = getelementptr inbounds nuw %struct.COVER_ctx_t, ptr %199, i32 0, i32 1
+  store ptr %198, ptr %200, align 8, !tbaa !41
+  %201 = load ptr, ptr %8, align 8, !tbaa !21
+  %202 = getelementptr inbounds nuw %struct.COVER_ctx_t, ptr %201, i32 0, i32 6
+  %203 = load ptr, ptr %202, align 8, !tbaa !39
+  %204 = icmp ne ptr %203, null
+  br i1 %204, label %205, label %215
+
+205:                                              ; preds = %174
+  %206 = load ptr, ptr %8, align 8, !tbaa !21
+  %207 = getelementptr inbounds nuw %struct.COVER_ctx_t, ptr %206, i32 0, i32 9
+  %208 = load ptr, ptr %207, align 8, !tbaa !40
+  %209 = icmp ne ptr %208, null
+  br i1 %209, label %210, label %215
+
+210:                                              ; preds = %205
+  %211 = load ptr, ptr %8, align 8, !tbaa !21
+  %212 = getelementptr inbounds nuw %struct.COVER_ctx_t, ptr %211, i32 0, i32 1
+  %213 = load ptr, ptr %212, align 8, !tbaa !41
+  %214 = icmp ne ptr %213, null
+  br i1 %214, label %225, label %215
+
+215:                                              ; preds = %210, %205, %174
+  %216 = load i32, ptr @g_displayLevel, align 4, !tbaa !8
+  %217 = icmp sge i32 %216, 1
+  br i1 %217, label %218, label %223
+
+218:                                              ; preds = %215
+  %219 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %220 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %219, ptr noundef @.str.21) #10
+  %221 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %222 = call i32 @fflush(ptr noundef %221)
+  br label %223
+
+223:                                              ; preds = %218, %215
+  %224 = load ptr, ptr %8, align 8, !tbaa !21
+  call void @COVER_ctx_destroy(ptr noundef %224)
+  store i64 -64, ptr %7, align 8
+  store i32 1, ptr %20, align 4
+  br label %320
+
+225:                                              ; preds = %210
+  %226 = load ptr, ptr %8, align 8, !tbaa !21
+  %227 = getelementptr inbounds nuw %struct.COVER_ctx_t, ptr %226, i32 0, i32 8
+  store ptr null, ptr %227, align 8, !tbaa !33
+  %228 = load i32, ptr %12, align 4, !tbaa !8
+  %229 = load ptr, ptr %8, align 8, !tbaa !21
+  %230 = getelementptr inbounds nuw %struct.COVER_ctx_t, ptr %229, i32 0, i32 10
+  store i32 %228, ptr %230, align 8, !tbaa !42
+  call void @llvm.lifetime.start.p0(i64 4, ptr %21) #10
+  %231 = load ptr, ptr %8, align 8, !tbaa !21
+  %232 = getelementptr inbounds nuw %struct.COVER_ctx_t, ptr %231, i32 0, i32 1
+  %233 = load ptr, ptr %232, align 8, !tbaa !41
+  %234 = getelementptr inbounds i64, ptr %233, i64 0
+  store i64 0, ptr %234, align 8, !tbaa !10
+  store i32 1, ptr %21, align 4, !tbaa !8
+  br label %235
+
+235:                                              ; preds = %261, %225
+  %236 = load i32, ptr %21, align 4, !tbaa !8
+  %237 = load i32, ptr %11, align 4, !tbaa !8
+  %238 = icmp ule i32 %236, %237
+  br i1 %238, label %239, label %264
+
+239:                                              ; preds = %235
+  %240 = load ptr, ptr %8, align 8, !tbaa !21
+  %241 = getelementptr inbounds nuw %struct.COVER_ctx_t, ptr %240, i32 0, i32 1
+  %242 = load ptr, ptr %241, align 8, !tbaa !41
+  %243 = load i32, ptr %21, align 4, !tbaa !8
+  %244 = sub i32 %243, 1
+  %245 = zext i32 %244 to i64
+  %246 = getelementptr inbounds nuw i64, ptr %242, i64 %245
+  %247 = load i64, ptr %246, align 8, !tbaa !10
+  %248 = load ptr, ptr %10, align 8, !tbaa !3
+  %249 = load i32, ptr %21, align 4, !tbaa !8
+  %250 = sub i32 %249, 1
+  %251 = zext i32 %250 to i64
+  %252 = getelementptr inbounds nuw i64, ptr %248, i64 %251
+  %253 = load i64, ptr %252, align 8, !tbaa !10
+  %254 = add i64 %247, %253
+  %255 = load ptr, ptr %8, align 8, !tbaa !21
+  %256 = getelementptr inbounds nuw %struct.COVER_ctx_t, ptr %255, i32 0, i32 1
+  %257 = load ptr, ptr %256, align 8, !tbaa !41
+  %258 = load i32, ptr %21, align 4, !tbaa !8
+  %259 = zext i32 %258 to i64
+  %260 = getelementptr inbounds nuw i64, ptr %257, i64 %259
+  store i64 %254, ptr %260, align 8, !tbaa !10
+  br label %261
+
+261:                                              ; preds = %239
+  %262 = load i32, ptr %21, align 4, !tbaa !8
+  %263 = add i32 %262, 1
+  store i32 %263, ptr %21, align 4, !tbaa !8
+  br label %235, !llvm.loop !43
+
+264:                                              ; preds = %235
+  call void @llvm.lifetime.end.p0(i64 4, ptr %21) #10
+  %265 = load i32, ptr @g_displayLevel, align 4, !tbaa !8
+  %266 = icmp sge i32 %265, 2
+  br i1 %266, label %267, label %272
+
+267:                                              ; preds = %264
+  %268 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %269 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %268, ptr noundef @.str.22) #10
+  %270 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %271 = call i32 @fflush(ptr noundef %270)
+  br label %272
+
+272:                                              ; preds = %267, %264
+  call void @llvm.lifetime.start.p0(i64 4, ptr %22) #10
+  store i32 0, ptr %22, align 4, !tbaa !8
+  br label %273
+
+273:                                              ; preds = %288, %272
+  %274 = load i32, ptr %22, align 4, !tbaa !8
+  %275 = zext i32 %274 to i64
+  %276 = load ptr, ptr %8, align 8, !tbaa !21
+  %277 = getelementptr inbounds nuw %struct.COVER_ctx_t, ptr %276, i32 0, i32 7
+  %278 = load i64, ptr %277, align 8, !tbaa !29
+  %279 = icmp ult i64 %275, %278
+  br i1 %279, label %280, label %291
+
+280:                                              ; preds = %273
+  %281 = load i32, ptr %22, align 4, !tbaa !8
+  %282 = load ptr, ptr %8, align 8, !tbaa !21
+  %283 = getelementptr inbounds nuw %struct.COVER_ctx_t, ptr %282, i32 0, i32 6
+  %284 = load ptr, ptr %283, align 8, !tbaa !39
+  %285 = load i32, ptr %22, align 4, !tbaa !8
+  %286 = zext i32 %285 to i64
+  %287 = getelementptr inbounds nuw i32, ptr %284, i64 %286
+  store i32 %281, ptr %287, align 4, !tbaa !8
+  br label %288
+
+288:                                              ; preds = %280
+  %289 = load i32, ptr %22, align 4, !tbaa !8
+  %290 = add i32 %289, 1
+  store i32 %290, ptr %22, align 4, !tbaa !8
+  br label %273, !llvm.loop !44
+
+291:                                              ; preds = %273
+  %292 = load ptr, ptr %8, align 8, !tbaa !21
+  call void @stableSort(ptr noundef %292)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %22) #10
+  %293 = load i32, ptr @g_displayLevel, align 4, !tbaa !8
+  %294 = icmp sge i32 %293, 2
+  br i1 %294, label %295, label %300
+
+295:                                              ; preds = %291
+  %296 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %297 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %296, ptr noundef @.str.23) #10
+  %298 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %299 = call i32 @fflush(ptr noundef %298)
+  br label %300
+
+300:                                              ; preds = %295, %291
+  %301 = load ptr, ptr %8, align 8, !tbaa !21
+  %302 = getelementptr inbounds nuw %struct.COVER_ctx_t, ptr %301, i32 0, i32 6
+  %303 = load ptr, ptr %302, align 8, !tbaa !39
+  %304 = load ptr, ptr %8, align 8, !tbaa !21
+  %305 = getelementptr inbounds nuw %struct.COVER_ctx_t, ptr %304, i32 0, i32 7
+  %306 = load i64, ptr %305, align 8, !tbaa !29
+  %307 = load ptr, ptr %8, align 8, !tbaa !21
+  %308 = load ptr, ptr %8, align 8, !tbaa !21
+  %309 = getelementptr inbounds nuw %struct.COVER_ctx_t, ptr %308, i32 0, i32 10
+  %310 = load i32, ptr %309, align 8, !tbaa !42
+  %311 = icmp ule i32 %310, 8
+  %312 = select i1 %311, ptr @COVER_cmp8, ptr @COVER_cmp
+  call void @COVER_groupBy(ptr noundef %303, i64 noundef %306, i64 noundef 4, ptr noundef %307, ptr noundef %312, ptr noundef @COVER_group)
+  %313 = load ptr, ptr %8, align 8, !tbaa !21
+  %314 = getelementptr inbounds nuw %struct.COVER_ctx_t, ptr %313, i32 0, i32 6
+  %315 = load ptr, ptr %314, align 8, !tbaa !39
+  %316 = load ptr, ptr %8, align 8, !tbaa !21
+  %317 = getelementptr inbounds nuw %struct.COVER_ctx_t, ptr %316, i32 0, i32 8
+  store ptr %315, ptr %317, align 8, !tbaa !33
+  %318 = load ptr, ptr %8, align 8, !tbaa !21
+  %319 = getelementptr inbounds nuw %struct.COVER_ctx_t, ptr %318, i32 0, i32 6
+  store ptr null, ptr %319, align 8, !tbaa !39
+  store i64 0, ptr %7, align 8
+  store i32 1, ptr %20, align 4
+  br label %320
+
+320:                                              ; preds = %300, %223, %123, %110, %97
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #10
+  %321 = load i64, ptr %7, align 8
+  ret i64 %321
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @COVER_map_init(ptr noundef %map, i32 noundef %size) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %map.addr = alloca ptr, align 8
-  %size.addr = alloca i32, align 4
-  store ptr %map, ptr %map.addr, align 8
-  store i32 %size, ptr %size.addr, align 4
-  %0 = load i32, ptr %size.addr, align 4
-  %call = call i32 @ZSTD_highbit32(i32 noundef %0)
-  %add = add i32 %call, 2
-  %1 = load ptr, ptr %map.addr, align 8
-  %sizeLog = getelementptr inbounds %struct.COVER_map_s, ptr %1, i32 0, i32 1
-  store i32 %add, ptr %sizeLog, align 8
-  %2 = load ptr, ptr %map.addr, align 8
-  %sizeLog1 = getelementptr inbounds %struct.COVER_map_s, ptr %2, i32 0, i32 1
-  %3 = load i32, ptr %sizeLog1, align 8
-  %shl = shl i32 1, %3
-  %4 = load ptr, ptr %map.addr, align 8
-  %size2 = getelementptr inbounds %struct.COVER_map_s, ptr %4, i32 0, i32 2
-  store i32 %shl, ptr %size2, align 4
-  %5 = load ptr, ptr %map.addr, align 8
-  %size3 = getelementptr inbounds %struct.COVER_map_s, ptr %5, i32 0, i32 2
-  %6 = load i32, ptr %size3, align 4
-  %sub = sub i32 %6, 1
-  %7 = load ptr, ptr %map.addr, align 8
-  %sizeMask = getelementptr inbounds %struct.COVER_map_s, ptr %7, i32 0, i32 3
-  store i32 %sub, ptr %sizeMask, align 8
-  %8 = load ptr, ptr %map.addr, align 8
-  %size4 = getelementptr inbounds %struct.COVER_map_s, ptr %8, i32 0, i32 2
-  %9 = load i32, ptr %size4, align 4
-  %conv = zext i32 %9 to i64
-  %mul = mul i64 %conv, 8
-  %call5 = call noalias ptr @malloc(i64 noundef %mul) #8
-  %10 = load ptr, ptr %map.addr, align 8
-  %data = getelementptr inbounds %struct.COVER_map_s, ptr %10, i32 0, i32 0
-  store ptr %call5, ptr %data, align 8
-  %11 = load ptr, ptr %map.addr, align 8
-  %data6 = getelementptr inbounds %struct.COVER_map_s, ptr %11, i32 0, i32 0
-  %12 = load ptr, ptr %data6, align 8
-  %tobool = icmp ne ptr %12, null
-  br i1 %tobool, label %if.end, label %if.then
-
-if.then:                                          ; preds = %entry
-  %13 = load ptr, ptr %map.addr, align 8
-  %sizeLog7 = getelementptr inbounds %struct.COVER_map_s, ptr %13, i32 0, i32 1
-  store i32 0, ptr %sizeLog7, align 8
-  %14 = load ptr, ptr %map.addr, align 8
-  %size8 = getelementptr inbounds %struct.COVER_map_s, ptr %14, i32 0, i32 2
-  store i32 0, ptr %size8, align 4
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %15 = load ptr, ptr %map.addr, align 8
-  call void @COVER_map_clear(ptr noundef %15)
-  store i32 1, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end, %if.then
-  %16 = load i32, ptr %retval, align 4
-  ret i32 %16
+define internal i32 @ERR_isError(i64 noundef %0) #0 {
+  %2 = alloca i64, align 8
+  store i64 %0, ptr %2, align 8, !tbaa !10
+  %3 = load i64, ptr %2, align 8, !tbaa !10
+  %4 = icmp ugt i64 %3, -120
+  %5 = zext i1 %4 to i32
+  ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @COVER_ctx_destroy(ptr noundef %ctx) #0 {
-entry:
-  %ctx.addr = alloca ptr, align 8
-  store ptr %ctx, ptr %ctx.addr, align 8
-  %0 = load ptr, ptr %ctx.addr, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %if.end, label %if.then
+define internal i32 @COVER_map_init(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !45
+  store i32 %1, ptr %5, align 4, !tbaa !8
+  %6 = load i32, ptr %5, align 4, !tbaa !8
+  %7 = call i32 @ZSTD_highbit32(i32 noundef %6)
+  %8 = add i32 %7, 2
+  %9 = load ptr, ptr %4, align 8, !tbaa !45
+  %10 = getelementptr inbounds nuw %struct.COVER_map_s, ptr %9, i32 0, i32 1
+  store i32 %8, ptr %10, align 8, !tbaa !47
+  %11 = load ptr, ptr %4, align 8, !tbaa !45
+  %12 = getelementptr inbounds nuw %struct.COVER_map_s, ptr %11, i32 0, i32 1
+  %13 = load i32, ptr %12, align 8, !tbaa !47
+  %14 = shl i32 1, %13
+  %15 = load ptr, ptr %4, align 8, !tbaa !45
+  %16 = getelementptr inbounds nuw %struct.COVER_map_s, ptr %15, i32 0, i32 2
+  store i32 %14, ptr %16, align 4, !tbaa !50
+  %17 = load ptr, ptr %4, align 8, !tbaa !45
+  %18 = getelementptr inbounds nuw %struct.COVER_map_s, ptr %17, i32 0, i32 2
+  %19 = load i32, ptr %18, align 4, !tbaa !50
+  %20 = sub i32 %19, 1
+  %21 = load ptr, ptr %4, align 8, !tbaa !45
+  %22 = getelementptr inbounds nuw %struct.COVER_map_s, ptr %21, i32 0, i32 3
+  store i32 %20, ptr %22, align 8, !tbaa !51
+  %23 = load ptr, ptr %4, align 8, !tbaa !45
+  %24 = getelementptr inbounds nuw %struct.COVER_map_s, ptr %23, i32 0, i32 2
+  %25 = load i32, ptr %24, align 4, !tbaa !50
+  %26 = zext i32 %25 to i64
+  %27 = mul i64 %26, 8
+  %28 = call noalias ptr @malloc(i64 noundef %27) #11
+  %29 = load ptr, ptr %4, align 8, !tbaa !45
+  %30 = getelementptr inbounds nuw %struct.COVER_map_s, ptr %29, i32 0, i32 0
+  store ptr %28, ptr %30, align 8, !tbaa !52
+  %31 = load ptr, ptr %4, align 8, !tbaa !45
+  %32 = getelementptr inbounds nuw %struct.COVER_map_s, ptr %31, i32 0, i32 0
+  %33 = load ptr, ptr %32, align 8, !tbaa !52
+  %34 = icmp ne ptr %33, null
+  br i1 %34, label %40, label %35
 
-if.then:                                          ; preds = %entry
-  br label %if.end20
+35:                                               ; preds = %2
+  %36 = load ptr, ptr %4, align 8, !tbaa !45
+  %37 = getelementptr inbounds nuw %struct.COVER_map_s, ptr %36, i32 0, i32 1
+  store i32 0, ptr %37, align 8, !tbaa !47
+  %38 = load ptr, ptr %4, align 8, !tbaa !45
+  %39 = getelementptr inbounds nuw %struct.COVER_map_s, ptr %38, i32 0, i32 2
+  store i32 0, ptr %39, align 4, !tbaa !50
+  store i32 0, ptr %3, align 4
+  br label %42
 
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %ctx.addr, align 8
-  %suffix = getelementptr inbounds %struct.COVER_ctx_t, ptr %1, i32 0, i32 6
-  %2 = load ptr, ptr %suffix, align 8
-  %tobool1 = icmp ne ptr %2, null
-  br i1 %tobool1, label %if.then2, label %if.end5
+40:                                               ; preds = %2
+  %41 = load ptr, ptr %4, align 8, !tbaa !45
+  call void @COVER_map_clear(ptr noundef %41)
+  store i32 1, ptr %3, align 4
+  br label %42
 
-if.then2:                                         ; preds = %if.end
-  %3 = load ptr, ptr %ctx.addr, align 8
-  %suffix3 = getelementptr inbounds %struct.COVER_ctx_t, ptr %3, i32 0, i32 6
-  %4 = load ptr, ptr %suffix3, align 8
-  call void @free(ptr noundef %4) #9
-  %5 = load ptr, ptr %ctx.addr, align 8
-  %suffix4 = getelementptr inbounds %struct.COVER_ctx_t, ptr %5, i32 0, i32 6
-  store ptr null, ptr %suffix4, align 8
-  br label %if.end5
-
-if.end5:                                          ; preds = %if.then2, %if.end
-  %6 = load ptr, ptr %ctx.addr, align 8
-  %freqs = getelementptr inbounds %struct.COVER_ctx_t, ptr %6, i32 0, i32 8
-  %7 = load ptr, ptr %freqs, align 8
-  %tobool6 = icmp ne ptr %7, null
-  br i1 %tobool6, label %if.then7, label %if.end10
-
-if.then7:                                         ; preds = %if.end5
-  %8 = load ptr, ptr %ctx.addr, align 8
-  %freqs8 = getelementptr inbounds %struct.COVER_ctx_t, ptr %8, i32 0, i32 8
-  %9 = load ptr, ptr %freqs8, align 8
-  call void @free(ptr noundef %9) #9
-  %10 = load ptr, ptr %ctx.addr, align 8
-  %freqs9 = getelementptr inbounds %struct.COVER_ctx_t, ptr %10, i32 0, i32 8
-  store ptr null, ptr %freqs9, align 8
-  br label %if.end10
-
-if.end10:                                         ; preds = %if.then7, %if.end5
-  %11 = load ptr, ptr %ctx.addr, align 8
-  %dmerAt = getelementptr inbounds %struct.COVER_ctx_t, ptr %11, i32 0, i32 9
-  %12 = load ptr, ptr %dmerAt, align 8
-  %tobool11 = icmp ne ptr %12, null
-  br i1 %tobool11, label %if.then12, label %if.end15
-
-if.then12:                                        ; preds = %if.end10
-  %13 = load ptr, ptr %ctx.addr, align 8
-  %dmerAt13 = getelementptr inbounds %struct.COVER_ctx_t, ptr %13, i32 0, i32 9
-  %14 = load ptr, ptr %dmerAt13, align 8
-  call void @free(ptr noundef %14) #9
-  %15 = load ptr, ptr %ctx.addr, align 8
-  %dmerAt14 = getelementptr inbounds %struct.COVER_ctx_t, ptr %15, i32 0, i32 9
-  store ptr null, ptr %dmerAt14, align 8
-  br label %if.end15
-
-if.end15:                                         ; preds = %if.then12, %if.end10
-  %16 = load ptr, ptr %ctx.addr, align 8
-  %offsets = getelementptr inbounds %struct.COVER_ctx_t, ptr %16, i32 0, i32 1
-  %17 = load ptr, ptr %offsets, align 8
-  %tobool16 = icmp ne ptr %17, null
-  br i1 %tobool16, label %if.then17, label %if.end20
-
-if.then17:                                        ; preds = %if.end15
-  %18 = load ptr, ptr %ctx.addr, align 8
-  %offsets18 = getelementptr inbounds %struct.COVER_ctx_t, ptr %18, i32 0, i32 1
-  %19 = load ptr, ptr %offsets18, align 8
-  call void @free(ptr noundef %19) #9
-  %20 = load ptr, ptr %ctx.addr, align 8
-  %offsets19 = getelementptr inbounds %struct.COVER_ctx_t, ptr %20, i32 0, i32 1
-  store ptr null, ptr %offsets19, align 8
-  br label %if.end20
-
-if.end20:                                         ; preds = %if.then17, %if.end15, %if.then
-  ret void
+42:                                               ; preds = %40, %35
+  %43 = load i32, ptr %3, align 4
+  ret i32 %43
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @COVER_buildDictionary(ptr noundef %ctx, ptr noundef %freqs, ptr noundef %activeDmers, ptr noundef %dictBuffer, i64 noundef %dictBufferCapacity, ptr noundef byval(%struct.ZDICT_cover_params_t) align 8 %parameters) #0 {
-entry:
-  %ctx.addr = alloca ptr, align 8
-  %freqs.addr = alloca ptr, align 8
-  %activeDmers.addr = alloca ptr, align 8
-  %dictBuffer.addr = alloca ptr, align 8
-  %dictBufferCapacity.addr = alloca i64, align 8
-  %dict = alloca ptr, align 8
-  %tail = alloca i64, align 8
-  %epochs = alloca %struct.COVER_epoch_info_t, align 4
-  %maxZeroScoreRun = alloca i64, align 8
-  %zeroScoreRun = alloca i64, align 8
-  %epoch = alloca i64, align 8
-  %epochBegin = alloca i32, align 4
-  %epochEnd = alloca i32, align 4
-  %segmentSize = alloca i64, align 8
-  %segment = alloca %struct.COVER_segment_t, align 4
-  %tmp.coerce = alloca { i64, i32 }, align 8
-  store ptr %ctx, ptr %ctx.addr, align 8
-  store ptr %freqs, ptr %freqs.addr, align 8
-  store ptr %activeDmers, ptr %activeDmers.addr, align 8
-  store ptr %dictBuffer, ptr %dictBuffer.addr, align 8
-  store i64 %dictBufferCapacity, ptr %dictBufferCapacity.addr, align 8
-  %0 = load ptr, ptr %dictBuffer.addr, align 8
-  store ptr %0, ptr %dict, align 8
-  %1 = load i64, ptr %dictBufferCapacity.addr, align 8
-  store i64 %1, ptr %tail, align 8
-  %2 = load i64, ptr %dictBufferCapacity.addr, align 8
-  %conv = trunc i64 %2 to i32
-  %3 = load ptr, ptr %ctx.addr, align 8
-  %suffixSize = getelementptr inbounds %struct.COVER_ctx_t, ptr %3, i32 0, i32 7
-  %4 = load i64, ptr %suffixSize, align 8
-  %conv1 = trunc i64 %4 to i32
-  %k = getelementptr inbounds %struct.ZDICT_cover_params_t, ptr %parameters, i32 0, i32 0
-  %5 = load i32, ptr %k, align 8
-  %call = call i64 @COVER_computeEpochs(i32 noundef %conv, i32 noundef %conv1, i32 noundef %5, i32 noundef 4)
-  store i64 %call, ptr %epochs, align 4
-  %num = getelementptr inbounds %struct.COVER_epoch_info_t, ptr %epochs, i32 0, i32 0
-  %6 = load i32, ptr %num, align 4
-  %shr = lshr i32 %6, 3
-  %cmp = icmp ult i32 100, %shr
-  br i1 %cmp, label %cond.true, label %cond.false
+define internal void @COVER_ctx_destroy(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !21
+  %3 = load ptr, ptr %2, align 8, !tbaa !21
+  %4 = icmp ne ptr %3, null
+  br i1 %4, label %6, label %5
 
-cond.true:                                        ; preds = %entry
-  br label %cond.end
+5:                                                ; preds = %1
+  br label %50
 
-cond.false:                                       ; preds = %entry
-  %num3 = getelementptr inbounds %struct.COVER_epoch_info_t, ptr %epochs, i32 0, i32 0
-  %7 = load i32, ptr %num3, align 4
-  %shr4 = lshr i32 %7, 3
-  br label %cond.end
+6:                                                ; preds = %1
+  %7 = load ptr, ptr %2, align 8, !tbaa !21
+  %8 = getelementptr inbounds nuw %struct.COVER_ctx_t, ptr %7, i32 0, i32 6
+  %9 = load ptr, ptr %8, align 8, !tbaa !39
+  %10 = icmp ne ptr %9, null
+  br i1 %10, label %11, label %17
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ 100, %cond.true ], [ %shr4, %cond.false ]
-  %cmp5 = icmp ugt i32 10, %cond
-  br i1 %cmp5, label %cond.true7, label %cond.false8
+11:                                               ; preds = %6
+  %12 = load ptr, ptr %2, align 8, !tbaa !21
+  %13 = getelementptr inbounds nuw %struct.COVER_ctx_t, ptr %12, i32 0, i32 6
+  %14 = load ptr, ptr %13, align 8, !tbaa !39
+  call void @free(ptr noundef %14) #10
+  %15 = load ptr, ptr %2, align 8, !tbaa !21
+  %16 = getelementptr inbounds nuw %struct.COVER_ctx_t, ptr %15, i32 0, i32 6
+  store ptr null, ptr %16, align 8, !tbaa !39
+  br label %17
 
-cond.true7:                                       ; preds = %cond.end
-  br label %cond.end19
+17:                                               ; preds = %11, %6
+  %18 = load ptr, ptr %2, align 8, !tbaa !21
+  %19 = getelementptr inbounds nuw %struct.COVER_ctx_t, ptr %18, i32 0, i32 8
+  %20 = load ptr, ptr %19, align 8, !tbaa !33
+  %21 = icmp ne ptr %20, null
+  br i1 %21, label %22, label %28
 
-cond.false8:                                      ; preds = %cond.end
-  %num9 = getelementptr inbounds %struct.COVER_epoch_info_t, ptr %epochs, i32 0, i32 0
-  %8 = load i32, ptr %num9, align 4
-  %shr10 = lshr i32 %8, 3
-  %cmp11 = icmp ult i32 100, %shr10
-  br i1 %cmp11, label %cond.true13, label %cond.false14
+22:                                               ; preds = %17
+  %23 = load ptr, ptr %2, align 8, !tbaa !21
+  %24 = getelementptr inbounds nuw %struct.COVER_ctx_t, ptr %23, i32 0, i32 8
+  %25 = load ptr, ptr %24, align 8, !tbaa !33
+  call void @free(ptr noundef %25) #10
+  %26 = load ptr, ptr %2, align 8, !tbaa !21
+  %27 = getelementptr inbounds nuw %struct.COVER_ctx_t, ptr %26, i32 0, i32 8
+  store ptr null, ptr %27, align 8, !tbaa !33
+  br label %28
 
-cond.true13:                                      ; preds = %cond.false8
-  br label %cond.end17
+28:                                               ; preds = %22, %17
+  %29 = load ptr, ptr %2, align 8, !tbaa !21
+  %30 = getelementptr inbounds nuw %struct.COVER_ctx_t, ptr %29, i32 0, i32 9
+  %31 = load ptr, ptr %30, align 8, !tbaa !40
+  %32 = icmp ne ptr %31, null
+  br i1 %32, label %33, label %39
 
-cond.false14:                                     ; preds = %cond.false8
-  %num15 = getelementptr inbounds %struct.COVER_epoch_info_t, ptr %epochs, i32 0, i32 0
-  %9 = load i32, ptr %num15, align 4
-  %shr16 = lshr i32 %9, 3
-  br label %cond.end17
+33:                                               ; preds = %28
+  %34 = load ptr, ptr %2, align 8, !tbaa !21
+  %35 = getelementptr inbounds nuw %struct.COVER_ctx_t, ptr %34, i32 0, i32 9
+  %36 = load ptr, ptr %35, align 8, !tbaa !40
+  call void @free(ptr noundef %36) #10
+  %37 = load ptr, ptr %2, align 8, !tbaa !21
+  %38 = getelementptr inbounds nuw %struct.COVER_ctx_t, ptr %37, i32 0, i32 9
+  store ptr null, ptr %38, align 8, !tbaa !40
+  br label %39
 
-cond.end17:                                       ; preds = %cond.false14, %cond.true13
-  %cond18 = phi i32 [ 100, %cond.true13 ], [ %shr16, %cond.false14 ]
-  br label %cond.end19
+39:                                               ; preds = %33, %28
+  %40 = load ptr, ptr %2, align 8, !tbaa !21
+  %41 = getelementptr inbounds nuw %struct.COVER_ctx_t, ptr %40, i32 0, i32 1
+  %42 = load ptr, ptr %41, align 8, !tbaa !41
+  %43 = icmp ne ptr %42, null
+  br i1 %43, label %44, label %50
 
-cond.end19:                                       ; preds = %cond.end17, %cond.true7
-  %cond20 = phi i32 [ 10, %cond.true7 ], [ %cond18, %cond.end17 ]
-  %conv21 = zext i32 %cond20 to i64
-  store i64 %conv21, ptr %maxZeroScoreRun, align 8
-  store i64 0, ptr %zeroScoreRun, align 8
-  %10 = load i32, ptr @g_displayLevel, align 4
-  %cmp22 = icmp sge i32 %10, 2
-  br i1 %cmp22, label %if.then, label %if.end
+44:                                               ; preds = %39
+  %45 = load ptr, ptr %2, align 8, !tbaa !21
+  %46 = getelementptr inbounds nuw %struct.COVER_ctx_t, ptr %45, i32 0, i32 1
+  %47 = load ptr, ptr %46, align 8, !tbaa !41
+  call void @free(ptr noundef %47) #10
+  %48 = load ptr, ptr %2, align 8, !tbaa !21
+  %49 = getelementptr inbounds nuw %struct.COVER_ctx_t, ptr %48, i32 0, i32 1
+  store ptr null, ptr %49, align 8, !tbaa !41
+  br label %50
 
-if.then:                                          ; preds = %cond.end19
-  %11 = load ptr, ptr @stderr, align 8
-  %num24 = getelementptr inbounds %struct.COVER_epoch_info_t, ptr %epochs, i32 0, i32 0
-  %12 = load i32, ptr %num24, align 4
-  %size = getelementptr inbounds %struct.COVER_epoch_info_t, ptr %epochs, i32 0, i32 1
-  %13 = load i32, ptr %size, align 4
-  %call25 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef @.str.24, i32 noundef %12, i32 noundef %13)
-  %14 = load ptr, ptr @stderr, align 8
-  %call26 = call i32 @fflush(ptr noundef %14)
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %cond.end19
-  store i64 0, ptr %epoch, align 8
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %if.end
-  %15 = load i64, ptr %tail, align 8
-  %cmp27 = icmp ugt i64 %15, 0
-  br i1 %cmp27, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %16 = load i64, ptr %epoch, align 8
-  %size29 = getelementptr inbounds %struct.COVER_epoch_info_t, ptr %epochs, i32 0, i32 1
-  %17 = load i32, ptr %size29, align 4
-  %conv30 = zext i32 %17 to i64
-  %mul = mul i64 %16, %conv30
-  %conv31 = trunc i64 %mul to i32
-  store i32 %conv31, ptr %epochBegin, align 4
-  %18 = load i32, ptr %epochBegin, align 4
-  %size32 = getelementptr inbounds %struct.COVER_epoch_info_t, ptr %epochs, i32 0, i32 1
-  %19 = load i32, ptr %size32, align 4
-  %add = add i32 %18, %19
-  store i32 %add, ptr %epochEnd, align 4
-  %20 = load ptr, ptr %ctx.addr, align 8
-  %21 = load ptr, ptr %freqs.addr, align 8
-  %22 = load ptr, ptr %activeDmers.addr, align 8
-  %23 = load i32, ptr %epochBegin, align 4
-  %24 = load i32, ptr %epochEnd, align 4
-  %call33 = call { i64, i32 } @COVER_selectSegment(ptr noundef %20, ptr noundef %21, ptr noundef %22, i32 noundef %23, i32 noundef %24, ptr noundef byval(%struct.ZDICT_cover_params_t) align 8 %parameters)
-  store { i64, i32 } %call33, ptr %tmp.coerce, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %segment, ptr align 8 %tmp.coerce, i64 12, i1 false)
-  %score = getelementptr inbounds %struct.COVER_segment_t, ptr %segment, i32 0, i32 2
-  %25 = load i32, ptr %score, align 4
-  %cmp34 = icmp eq i32 %25, 0
-  br i1 %cmp34, label %if.then36, label %if.end41
-
-if.then36:                                        ; preds = %for.body
-  %26 = load i64, ptr %zeroScoreRun, align 8
-  %inc = add i64 %26, 1
-  store i64 %inc, ptr %zeroScoreRun, align 8
-  %27 = load i64, ptr %maxZeroScoreRun, align 8
-  %cmp37 = icmp uge i64 %inc, %27
-  br i1 %cmp37, label %if.then39, label %if.end40
-
-if.then39:                                        ; preds = %if.then36
-  br label %for.end
-
-if.end40:                                         ; preds = %if.then36
-  br label %for.inc
-
-if.end41:                                         ; preds = %for.body
-  store i64 0, ptr %zeroScoreRun, align 8
-  %end = getelementptr inbounds %struct.COVER_segment_t, ptr %segment, i32 0, i32 1
-  %28 = load i32, ptr %end, align 4
-  %begin = getelementptr inbounds %struct.COVER_segment_t, ptr %segment, i32 0, i32 0
-  %29 = load i32, ptr %begin, align 4
-  %sub = sub i32 %28, %29
-  %d = getelementptr inbounds %struct.ZDICT_cover_params_t, ptr %parameters, i32 0, i32 1
-  %30 = load i32, ptr %d, align 4
-  %add42 = add i32 %sub, %30
-  %sub43 = sub i32 %add42, 1
-  %conv44 = zext i32 %sub43 to i64
-  %31 = load i64, ptr %tail, align 8
-  %cmp45 = icmp ult i64 %conv44, %31
-  br i1 %cmp45, label %cond.true47, label %cond.false55
-
-cond.true47:                                      ; preds = %if.end41
-  %end48 = getelementptr inbounds %struct.COVER_segment_t, ptr %segment, i32 0, i32 1
-  %32 = load i32, ptr %end48, align 4
-  %begin49 = getelementptr inbounds %struct.COVER_segment_t, ptr %segment, i32 0, i32 0
-  %33 = load i32, ptr %begin49, align 4
-  %sub50 = sub i32 %32, %33
-  %d51 = getelementptr inbounds %struct.ZDICT_cover_params_t, ptr %parameters, i32 0, i32 1
-  %34 = load i32, ptr %d51, align 4
-  %add52 = add i32 %sub50, %34
-  %sub53 = sub i32 %add52, 1
-  %conv54 = zext i32 %sub53 to i64
-  br label %cond.end56
-
-cond.false55:                                     ; preds = %if.end41
-  %35 = load i64, ptr %tail, align 8
-  br label %cond.end56
-
-cond.end56:                                       ; preds = %cond.false55, %cond.true47
-  %cond57 = phi i64 [ %conv54, %cond.true47 ], [ %35, %cond.false55 ]
-  store i64 %cond57, ptr %segmentSize, align 8
-  %36 = load i64, ptr %segmentSize, align 8
-  %d58 = getelementptr inbounds %struct.ZDICT_cover_params_t, ptr %parameters, i32 0, i32 1
-  %37 = load i32, ptr %d58, align 4
-  %conv59 = zext i32 %37 to i64
-  %cmp60 = icmp ult i64 %36, %conv59
-  br i1 %cmp60, label %if.then62, label %if.end63
-
-if.then62:                                        ; preds = %cond.end56
-  br label %for.end
-
-if.end63:                                         ; preds = %cond.end56
-  %38 = load i64, ptr %segmentSize, align 8
-  %39 = load i64, ptr %tail, align 8
-  %sub64 = sub i64 %39, %38
-  store i64 %sub64, ptr %tail, align 8
-  %40 = load ptr, ptr %dict, align 8
-  %41 = load i64, ptr %tail, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %40, i64 %41
-  %42 = load ptr, ptr %ctx.addr, align 8
-  %samples = getelementptr inbounds %struct.COVER_ctx_t, ptr %42, i32 0, i32 0
-  %43 = load ptr, ptr %samples, align 8
-  %begin65 = getelementptr inbounds %struct.COVER_segment_t, ptr %segment, i32 0, i32 0
-  %44 = load i32, ptr %begin65, align 4
-  %idx.ext = zext i32 %44 to i64
-  %add.ptr66 = getelementptr inbounds i8, ptr %43, i64 %idx.ext
-  %45 = load i64, ptr %segmentSize, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr align 1 %add.ptr66, i64 %45, i1 false)
-  %46 = load i32, ptr @g_displayLevel, align 4
-  %cmp67 = icmp sge i32 %46, 2
-  br i1 %cmp67, label %if.then69, label %if.end84
-
-if.then69:                                        ; preds = %if.end63
-  %call70 = call i64 @clock() #9
-  %47 = load i64, ptr @g_time, align 8
-  %sub71 = sub nsw i64 %call70, %47
-  %cmp72 = icmp sgt i64 %sub71, 150000
-  br i1 %cmp72, label %if.then76, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %if.then69
-  %48 = load i32, ptr @g_displayLevel, align 4
-  %cmp74 = icmp sge i32 %48, 4
-  br i1 %cmp74, label %if.then76, label %if.end83
-
-if.then76:                                        ; preds = %lor.lhs.false, %if.then69
-  %call77 = call i64 @clock() #9
-  store i64 %call77, ptr @g_time, align 8
-  %49 = load ptr, ptr @stderr, align 8
-  %50 = load i64, ptr %dictBufferCapacity.addr, align 8
-  %51 = load i64, ptr %tail, align 8
-  %sub78 = sub i64 %50, %51
-  %mul79 = mul i64 %sub78, 100
-  %52 = load i64, ptr %dictBufferCapacity.addr, align 8
-  %div = udiv i64 %mul79, %52
-  %conv80 = trunc i64 %div to i32
-  %call81 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %49, ptr noundef @.str.13, i32 noundef %conv80)
-  %53 = load ptr, ptr @stderr, align 8
-  %call82 = call i32 @fflush(ptr noundef %53)
-  br label %if.end83
-
-if.end83:                                         ; preds = %if.then76, %lor.lhs.false
-  br label %if.end84
-
-if.end84:                                         ; preds = %if.end83, %if.end63
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end84, %if.end40
-  %54 = load i64, ptr %epoch, align 8
-  %add85 = add i64 %54, 1
-  %num86 = getelementptr inbounds %struct.COVER_epoch_info_t, ptr %epochs, i32 0, i32 0
-  %55 = load i32, ptr %num86, align 4
-  %conv87 = zext i32 %55 to i64
-  %rem = urem i64 %add85, %conv87
-  store i64 %rem, ptr %epoch, align 8
-  br label %for.cond, !llvm.loop !8
-
-for.end:                                          ; preds = %if.then62, %if.then39, %for.cond
-  %56 = load i32, ptr @g_displayLevel, align 4
-  %cmp88 = icmp sge i32 %56, 2
-  br i1 %cmp88, label %if.then90, label %if.end93
-
-if.then90:                                        ; preds = %for.end
-  %57 = load ptr, ptr @stderr, align 8
-  %call91 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %57, ptr noundef @.str.14, ptr noundef @.str.15)
-  %58 = load ptr, ptr @stderr, align 8
-  %call92 = call i32 @fflush(ptr noundef %58)
-  br label %if.end93
-
-if.end93:                                         ; preds = %if.then90, %for.end
-  %59 = load i64, ptr %tail, align 8
-  ret i64 %59
-}
-
-declare i64 @ZDICT_finalizeDictionary(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef byval(%struct.ZDICT_params_t) align 8) #1
-
-; Function Attrs: nounwind uwtable
-define internal void @COVER_map_destroy(ptr noundef %map) #0 {
-entry:
-  %map.addr = alloca ptr, align 8
-  store ptr %map, ptr %map.addr, align 8
-  %0 = load ptr, ptr %map.addr, align 8
-  %data = getelementptr inbounds %struct.COVER_map_s, ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %data, align 8
-  %tobool = icmp ne ptr %1, null
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %map.addr, align 8
-  %data1 = getelementptr inbounds %struct.COVER_map_s, ptr %2, i32 0, i32 0
-  %3 = load ptr, ptr %data1, align 8
-  call void @free(ptr noundef %3) #9
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %entry
-  %4 = load ptr, ptr %map.addr, align 8
-  %data2 = getelementptr inbounds %struct.COVER_map_s, ptr %4, i32 0, i32 0
-  store ptr null, ptr %data2, align 8
-  %5 = load ptr, ptr %map.addr, align 8
-  %size = getelementptr inbounds %struct.COVER_map_s, ptr %5, i32 0, i32 2
-  store i32 0, ptr %size, align 4
+50:                                               ; preds = %5, %44, %39
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @COVER_checkTotalCompressedSize(ptr noundef byval(%struct.ZDICT_cover_params_t) align 8 %parameters, ptr noundef %samplesSizes, ptr noundef %samples, ptr noundef %offsets, i64 noundef %nbTrainSamples, i64 noundef %nbSamples, ptr noundef %dict, i64 noundef %dictBufferCapacity) #0 {
-entry:
-  %samplesSizes.addr = alloca ptr, align 8
-  %samples.addr = alloca ptr, align 8
-  %offsets.addr = alloca ptr, align 8
-  %nbTrainSamples.addr = alloca i64, align 8
-  %nbSamples.addr = alloca i64, align 8
-  %dict.addr = alloca ptr, align 8
-  %dictBufferCapacity.addr = alloca i64, align 8
-  %totalCompressedSize = alloca i64, align 8
-  %cctx = alloca ptr, align 8
-  %cdict = alloca ptr, align 8
-  %dst = alloca ptr, align 8
-  %dstCapacity = alloca i64, align 8
-  %i = alloca i64, align 8
-  %maxSampleSize = alloca i64, align 8
-  %size = alloca i64, align 8
-  store ptr %samplesSizes, ptr %samplesSizes.addr, align 8
-  store ptr %samples, ptr %samples.addr, align 8
-  store ptr %offsets, ptr %offsets.addr, align 8
-  store i64 %nbTrainSamples, ptr %nbTrainSamples.addr, align 8
-  store i64 %nbSamples, ptr %nbSamples.addr, align 8
-  store ptr %dict, ptr %dict.addr, align 8
-  store i64 %dictBufferCapacity, ptr %dictBufferCapacity.addr, align 8
-  store i64 -1, ptr %totalCompressedSize, align 8
-  store i64 0, ptr %maxSampleSize, align 8
-  %splitPoint = getelementptr inbounds %struct.ZDICT_cover_params_t, ptr %parameters, i32 0, i32 4
-  %0 = load double, ptr %splitPoint, align 8
-  %cmp = fcmp olt double %0, 1.000000e+00
-  br i1 %cmp, label %cond.true, label %cond.false
+define internal i64 @COVER_buildDictionary(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef byval(%struct.ZDICT_cover_params_t) align 8 %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i64, align 8
+  %14 = alloca %struct.COVER_epoch_info_t, align 4
+  %15 = alloca i64, align 8
+  %16 = alloca i64, align 8
+  %17 = alloca i64, align 8
+  %18 = alloca i32, align 4
+  %19 = alloca i32, align 4
+  %20 = alloca i64, align 8
+  %21 = alloca %struct.COVER_segment_t, align 4
+  %22 = alloca { i64, i32 }, align 8
+  %23 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8, !tbaa !21
+  store ptr %1, ptr %8, align 8, !tbaa !53
+  store ptr %2, ptr %9, align 8, !tbaa !45
+  store ptr %3, ptr %10, align 8, !tbaa !21
+  store i64 %4, ptr %11, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #10
+  %24 = load ptr, ptr %10, align 8, !tbaa !21
+  store ptr %24, ptr %12, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #10
+  %25 = load i64, ptr %11, align 8, !tbaa !10
+  store i64 %25, ptr %13, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #10
+  %26 = load i64, ptr %11, align 8, !tbaa !10
+  %27 = trunc i64 %26 to i32
+  %28 = load ptr, ptr %7, align 8, !tbaa !21
+  %29 = getelementptr inbounds nuw %struct.COVER_ctx_t, ptr %28, i32 0, i32 7
+  %30 = load i64, ptr %29, align 8, !tbaa !29
+  %31 = trunc i64 %30 to i32
+  %32 = getelementptr inbounds nuw %struct.ZDICT_cover_params_t, ptr %5, i32 0, i32 0
+  %33 = load i32, ptr %32, align 8, !tbaa !32
+  %34 = call i64 @COVER_computeEpochs(i32 noundef %27, i32 noundef %31, i32 noundef %33, i32 noundef 4)
+  store i64 %34, ptr %14, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #10
+  %35 = getelementptr inbounds nuw %struct.COVER_epoch_info_t, ptr %14, i32 0, i32 0
+  %36 = load i32, ptr %35, align 4, !tbaa !18
+  %37 = lshr i32 %36, 3
+  %38 = icmp ult i32 100, %37
+  br i1 %38, label %39, label %40
 
-cond.true:                                        ; preds = %entry
-  %1 = load i64, ptr %nbTrainSamples.addr, align 8
-  br label %cond.end
+39:                                               ; preds = %6
+  br label %44
 
-cond.false:                                       ; preds = %entry
-  br label %cond.end
+40:                                               ; preds = %6
+  %41 = getelementptr inbounds nuw %struct.COVER_epoch_info_t, ptr %14, i32 0, i32 0
+  %42 = load i32, ptr %41, align 4, !tbaa !18
+  %43 = lshr i32 %42, 3
+  br label %44
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i64 [ %1, %cond.true ], [ 0, %cond.false ]
-  store i64 %cond, ptr %i, align 8
-  br label %for.cond
+44:                                               ; preds = %40, %39
+  %45 = phi i32 [ 100, %39 ], [ %43, %40 ]
+  %46 = icmp ugt i32 10, %45
+  br i1 %46, label %47, label %48
 
-for.cond:                                         ; preds = %for.inc, %cond.end
-  %2 = load i64, ptr %i, align 8
-  %3 = load i64, ptr %nbSamples.addr, align 8
-  %cmp1 = icmp ult i64 %2, %3
-  br i1 %cmp1, label %for.body, label %for.end
+47:                                               ; preds = %44
+  br label %60
 
-for.body:                                         ; preds = %for.cond
-  %4 = load ptr, ptr %samplesSizes.addr, align 8
-  %5 = load i64, ptr %i, align 8
-  %arrayidx = getelementptr inbounds i64, ptr %4, i64 %5
-  %6 = load i64, ptr %arrayidx, align 8
-  %7 = load i64, ptr %maxSampleSize, align 8
-  %cmp2 = icmp ugt i64 %6, %7
-  br i1 %cmp2, label %cond.true3, label %cond.false5
+48:                                               ; preds = %44
+  %49 = getelementptr inbounds nuw %struct.COVER_epoch_info_t, ptr %14, i32 0, i32 0
+  %50 = load i32, ptr %49, align 4, !tbaa !18
+  %51 = lshr i32 %50, 3
+  %52 = icmp ult i32 100, %51
+  br i1 %52, label %53, label %54
 
-cond.true3:                                       ; preds = %for.body
-  %8 = load ptr, ptr %samplesSizes.addr, align 8
-  %9 = load i64, ptr %i, align 8
-  %arrayidx4 = getelementptr inbounds i64, ptr %8, i64 %9
-  %10 = load i64, ptr %arrayidx4, align 8
-  br label %cond.end6
+53:                                               ; preds = %48
+  br label %58
 
-cond.false5:                                      ; preds = %for.body
-  %11 = load i64, ptr %maxSampleSize, align 8
-  br label %cond.end6
+54:                                               ; preds = %48
+  %55 = getelementptr inbounds nuw %struct.COVER_epoch_info_t, ptr %14, i32 0, i32 0
+  %56 = load i32, ptr %55, align 4, !tbaa !18
+  %57 = lshr i32 %56, 3
+  br label %58
 
-cond.end6:                                        ; preds = %cond.false5, %cond.true3
-  %cond7 = phi i64 [ %10, %cond.true3 ], [ %11, %cond.false5 ]
-  store i64 %cond7, ptr %maxSampleSize, align 8
-  br label %for.inc
+58:                                               ; preds = %54, %53
+  %59 = phi i32 [ 100, %53 ], [ %57, %54 ]
+  br label %60
 
-for.inc:                                          ; preds = %cond.end6
-  %12 = load i64, ptr %i, align 8
-  %inc = add i64 %12, 1
-  store i64 %inc, ptr %i, align 8
-  br label %for.cond, !llvm.loop !9
+60:                                               ; preds = %58, %47
+  %61 = phi i32 [ 10, %47 ], [ %59, %58 ]
+  %62 = zext i32 %61 to i64
+  store i64 %62, ptr %15, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #10
+  store i64 0, ptr %16, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #10
+  %63 = load i32, ptr @g_displayLevel, align 4, !tbaa !8
+  %64 = icmp sge i32 %63, 2
+  br i1 %64, label %65, label %74
 
-for.end:                                          ; preds = %for.cond
-  %13 = load i64, ptr %maxSampleSize, align 8
-  %call = call i64 @ZSTD_compressBound(i64 noundef %13)
-  store i64 %call, ptr %dstCapacity, align 8
-  %14 = load i64, ptr %dstCapacity, align 8
-  %call8 = call noalias ptr @malloc(i64 noundef %14) #8
-  store ptr %call8, ptr %dst, align 8
-  %call9 = call ptr @ZSTD_createCCtx()
-  store ptr %call9, ptr %cctx, align 8
-  %15 = load ptr, ptr %dict.addr, align 8
-  %16 = load i64, ptr %dictBufferCapacity.addr, align 8
-  %zParams = getelementptr inbounds %struct.ZDICT_cover_params_t, ptr %parameters, i32 0, i32 7
-  %compressionLevel = getelementptr inbounds %struct.ZDICT_params_t, ptr %zParams, i32 0, i32 0
-  %17 = load i32, ptr %compressionLevel, align 8
-  %call10 = call ptr @ZSTD_createCDict(ptr noundef %15, i64 noundef %16, i32 noundef %17)
-  store ptr %call10, ptr %cdict, align 8
-  %18 = load ptr, ptr %dst, align 8
-  %tobool = icmp ne ptr %18, null
-  br i1 %tobool, label %lor.lhs.false, label %if.then
+65:                                               ; preds = %60
+  %66 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %67 = getelementptr inbounds nuw %struct.COVER_epoch_info_t, ptr %14, i32 0, i32 0
+  %68 = load i32, ptr %67, align 4, !tbaa !18
+  %69 = getelementptr inbounds nuw %struct.COVER_epoch_info_t, ptr %14, i32 0, i32 1
+  %70 = load i32, ptr %69, align 4, !tbaa !20
+  %71 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %66, ptr noundef @.str.24, i32 noundef %68, i32 noundef %70) #10
+  %72 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %73 = call i32 @fflush(ptr noundef %72)
+  br label %74
 
-lor.lhs.false:                                    ; preds = %for.end
-  %19 = load ptr, ptr %cctx, align 8
-  %tobool11 = icmp ne ptr %19, null
-  br i1 %tobool11, label %lor.lhs.false12, label %if.then
+74:                                               ; preds = %65, %60
+  store i64 0, ptr %17, align 8, !tbaa !10
+  br label %75
 
-lor.lhs.false12:                                  ; preds = %lor.lhs.false
-  %20 = load ptr, ptr %cdict, align 8
-  %tobool13 = icmp ne ptr %20, null
-  br i1 %tobool13, label %if.end, label %if.then
+75:                                               ; preds = %182, %74
+  %76 = load i64, ptr %13, align 8, !tbaa !10
+  %77 = icmp ugt i64 %76, 0
+  br i1 %77, label %78, label %189
 
-if.then:                                          ; preds = %lor.lhs.false12, %lor.lhs.false, %for.end
-  br label %_compressCleanup
+78:                                               ; preds = %75
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #10
+  %79 = load i64, ptr %17, align 8, !tbaa !10
+  %80 = getelementptr inbounds nuw %struct.COVER_epoch_info_t, ptr %14, i32 0, i32 1
+  %81 = load i32, ptr %80, align 4, !tbaa !20
+  %82 = zext i32 %81 to i64
+  %83 = mul i64 %79, %82
+  %84 = trunc i64 %83 to i32
+  store i32 %84, ptr %18, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #10
+  %85 = load i32, ptr %18, align 4, !tbaa !8
+  %86 = getelementptr inbounds nuw %struct.COVER_epoch_info_t, ptr %14, i32 0, i32 1
+  %87 = load i32, ptr %86, align 4, !tbaa !20
+  %88 = add i32 %85, %87
+  store i32 %88, ptr %19, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #10
+  call void @llvm.lifetime.start.p0(i64 12, ptr %21) #10
+  %89 = load ptr, ptr %7, align 8, !tbaa !21
+  %90 = load ptr, ptr %8, align 8, !tbaa !53
+  %91 = load ptr, ptr %9, align 8, !tbaa !45
+  %92 = load i32, ptr %18, align 4, !tbaa !8
+  %93 = load i32, ptr %19, align 4, !tbaa !8
+  %94 = call { i64, i32 } @COVER_selectSegment(ptr noundef %89, ptr noundef %90, ptr noundef %91, i32 noundef %92, i32 noundef %93, ptr noundef byval(%struct.ZDICT_cover_params_t) align 8 %5)
+  store { i64, i32 } %94, ptr %22, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %21, ptr align 8 %22, i64 12, i1 false)
+  %95 = getelementptr inbounds nuw %struct.COVER_segment_t, ptr %21, i32 0, i32 2
+  %96 = load i32, ptr %95, align 4, !tbaa !54
+  %97 = icmp eq i32 %96, 0
+  br i1 %97, label %98, label %105
 
-if.end:                                           ; preds = %lor.lhs.false12
-  %21 = load i64, ptr %dictBufferCapacity.addr, align 8
-  store i64 %21, ptr %totalCompressedSize, align 8
-  %splitPoint14 = getelementptr inbounds %struct.ZDICT_cover_params_t, ptr %parameters, i32 0, i32 4
-  %22 = load double, ptr %splitPoint14, align 8
-  %cmp15 = fcmp olt double %22, 1.000000e+00
-  br i1 %cmp15, label %cond.true16, label %cond.false17
+98:                                               ; preds = %78
+  %99 = load i64, ptr %16, align 8, !tbaa !10
+  %100 = add i64 %99, 1
+  store i64 %100, ptr %16, align 8, !tbaa !10
+  %101 = load i64, ptr %15, align 8, !tbaa !10
+  %102 = icmp uge i64 %100, %101
+  br i1 %102, label %103, label %104
 
-cond.true16:                                      ; preds = %if.end
-  %23 = load i64, ptr %nbTrainSamples.addr, align 8
-  br label %cond.end18
+103:                                              ; preds = %98
+  store i32 2, ptr %23, align 4
+  br label %179
 
-cond.false17:                                     ; preds = %if.end
-  br label %cond.end18
+104:                                              ; preds = %98
+  store i32 4, ptr %23, align 4
+  br label %179
 
-cond.end18:                                       ; preds = %cond.false17, %cond.true16
-  %cond19 = phi i64 [ %23, %cond.true16 ], [ 0, %cond.false17 ]
-  store i64 %cond19, ptr %i, align 8
-  br label %for.cond20
+105:                                              ; preds = %78
+  store i64 0, ptr %16, align 8, !tbaa !10
+  %106 = getelementptr inbounds nuw %struct.COVER_segment_t, ptr %21, i32 0, i32 1
+  %107 = load i32, ptr %106, align 4, !tbaa !55
+  %108 = getelementptr inbounds nuw %struct.COVER_segment_t, ptr %21, i32 0, i32 0
+  %109 = load i32, ptr %108, align 4, !tbaa !56
+  %110 = sub i32 %107, %109
+  %111 = getelementptr inbounds nuw %struct.ZDICT_cover_params_t, ptr %5, i32 0, i32 1
+  %112 = load i32, ptr %111, align 4, !tbaa !28
+  %113 = add i32 %110, %112
+  %114 = sub i32 %113, 1
+  %115 = zext i32 %114 to i64
+  %116 = load i64, ptr %13, align 8, !tbaa !10
+  %117 = icmp ult i64 %115, %116
+  br i1 %117, label %118, label %129
 
-for.cond20:                                       ; preds = %for.inc30, %cond.end18
-  %24 = load i64, ptr %i, align 8
-  %25 = load i64, ptr %nbSamples.addr, align 8
-  %cmp21 = icmp ult i64 %24, %25
-  br i1 %cmp21, label %for.body22, label %for.end32
+118:                                              ; preds = %105
+  %119 = getelementptr inbounds nuw %struct.COVER_segment_t, ptr %21, i32 0, i32 1
+  %120 = load i32, ptr %119, align 4, !tbaa !55
+  %121 = getelementptr inbounds nuw %struct.COVER_segment_t, ptr %21, i32 0, i32 0
+  %122 = load i32, ptr %121, align 4, !tbaa !56
+  %123 = sub i32 %120, %122
+  %124 = getelementptr inbounds nuw %struct.ZDICT_cover_params_t, ptr %5, i32 0, i32 1
+  %125 = load i32, ptr %124, align 4, !tbaa !28
+  %126 = add i32 %123, %125
+  %127 = sub i32 %126, 1
+  %128 = zext i32 %127 to i64
+  br label %131
 
-for.body22:                                       ; preds = %for.cond20
-  %26 = load ptr, ptr %cctx, align 8
-  %27 = load ptr, ptr %dst, align 8
-  %28 = load i64, ptr %dstCapacity, align 8
-  %29 = load ptr, ptr %samples.addr, align 8
-  %30 = load ptr, ptr %offsets.addr, align 8
-  %31 = load i64, ptr %i, align 8
-  %arrayidx23 = getelementptr inbounds i64, ptr %30, i64 %31
-  %32 = load i64, ptr %arrayidx23, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %29, i64 %32
-  %33 = load ptr, ptr %samplesSizes.addr, align 8
-  %34 = load i64, ptr %i, align 8
-  %arrayidx24 = getelementptr inbounds i64, ptr %33, i64 %34
-  %35 = load i64, ptr %arrayidx24, align 8
-  %36 = load ptr, ptr %cdict, align 8
-  %call25 = call i64 @ZSTD_compress_usingCDict(ptr noundef %26, ptr noundef %27, i64 noundef %28, ptr noundef %add.ptr, i64 noundef %35, ptr noundef %36)
-  store i64 %call25, ptr %size, align 8
-  %37 = load i64, ptr %size, align 8
-  %call26 = call i32 @ERR_isError(i64 noundef %37)
-  %tobool27 = icmp ne i32 %call26, 0
-  br i1 %tobool27, label %if.then28, label %if.end29
+129:                                              ; preds = %105
+  %130 = load i64, ptr %13, align 8, !tbaa !10
+  br label %131
 
-if.then28:                                        ; preds = %for.body22
-  %38 = load i64, ptr %size, align 8
-  store i64 %38, ptr %totalCompressedSize, align 8
-  br label %_compressCleanup
+131:                                              ; preds = %129, %118
+  %132 = phi i64 [ %128, %118 ], [ %130, %129 ]
+  store i64 %132, ptr %20, align 8, !tbaa !10
+  %133 = load i64, ptr %20, align 8, !tbaa !10
+  %134 = getelementptr inbounds nuw %struct.ZDICT_cover_params_t, ptr %5, i32 0, i32 1
+  %135 = load i32, ptr %134, align 4, !tbaa !28
+  %136 = zext i32 %135 to i64
+  %137 = icmp ult i64 %133, %136
+  br i1 %137, label %138, label %139
 
-if.end29:                                         ; preds = %for.body22
-  %39 = load i64, ptr %size, align 8
-  %40 = load i64, ptr %totalCompressedSize, align 8
-  %add = add i64 %40, %39
-  store i64 %add, ptr %totalCompressedSize, align 8
-  br label %for.inc30
+138:                                              ; preds = %131
+  store i32 2, ptr %23, align 4
+  br label %179
 
-for.inc30:                                        ; preds = %if.end29
-  %41 = load i64, ptr %i, align 8
-  %inc31 = add i64 %41, 1
-  store i64 %inc31, ptr %i, align 8
-  br label %for.cond20, !llvm.loop !10
+139:                                              ; preds = %131
+  %140 = load i64, ptr %20, align 8, !tbaa !10
+  %141 = load i64, ptr %13, align 8, !tbaa !10
+  %142 = sub i64 %141, %140
+  store i64 %142, ptr %13, align 8, !tbaa !10
+  %143 = load ptr, ptr %12, align 8, !tbaa !22
+  %144 = load i64, ptr %13, align 8, !tbaa !10
+  %145 = getelementptr inbounds nuw i8, ptr %143, i64 %144
+  %146 = load ptr, ptr %7, align 8, !tbaa !21
+  %147 = getelementptr inbounds nuw %struct.COVER_ctx_t, ptr %146, i32 0, i32 0
+  %148 = load ptr, ptr %147, align 8, !tbaa !34
+  %149 = getelementptr inbounds nuw %struct.COVER_segment_t, ptr %21, i32 0, i32 0
+  %150 = load i32, ptr %149, align 4, !tbaa !56
+  %151 = zext i32 %150 to i64
+  %152 = getelementptr inbounds nuw i8, ptr %148, i64 %151
+  %153 = load i64, ptr %20, align 8, !tbaa !10
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %145, ptr align 1 %152, i64 %153, i1 false)
+  %154 = load i32, ptr @g_displayLevel, align 4, !tbaa !8
+  %155 = icmp sge i32 %154, 2
+  br i1 %155, label %156, label %178
 
-for.end32:                                        ; preds = %for.cond20
-  br label %_compressCleanup
+156:                                              ; preds = %139
+  %157 = call i64 @clock() #10
+  %158 = load i64, ptr @g_time, align 8, !tbaa !10
+  %159 = sub nsw i64 %157, %158
+  %160 = icmp sgt i64 %159, 150000
+  br i1 %160, label %164, label %161
 
-_compressCleanup:                                 ; preds = %for.end32, %if.then28, %if.then
-  %42 = load ptr, ptr %cctx, align 8
-  %call33 = call i64 @ZSTD_freeCCtx(ptr noundef %42)
-  %43 = load ptr, ptr %cdict, align 8
-  %call34 = call i64 @ZSTD_freeCDict(ptr noundef %43)
-  %44 = load ptr, ptr %dst, align 8
-  %tobool35 = icmp ne ptr %44, null
-  br i1 %tobool35, label %if.then36, label %if.end37
+161:                                              ; preds = %156
+  %162 = load i32, ptr @g_displayLevel, align 4, !tbaa !8
+  %163 = icmp sge i32 %162, 4
+  br i1 %163, label %164, label %177
 
-if.then36:                                        ; preds = %_compressCleanup
-  %45 = load ptr, ptr %dst, align 8
-  call void @free(ptr noundef %45) #9
-  br label %if.end37
+164:                                              ; preds = %161, %156
+  %165 = call i64 @clock() #10
+  store i64 %165, ptr @g_time, align 8, !tbaa !10
+  %166 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %167 = load i64, ptr %11, align 8, !tbaa !10
+  %168 = load i64, ptr %13, align 8, !tbaa !10
+  %169 = sub i64 %167, %168
+  %170 = mul i64 %169, 100
+  %171 = load i64, ptr %11, align 8, !tbaa !10
+  %172 = udiv i64 %170, %171
+  %173 = trunc i64 %172 to i32
+  %174 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %166, ptr noundef @.str.13, i32 noundef %173) #10
+  %175 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %176 = call i32 @fflush(ptr noundef %175)
+  br label %177
 
-if.end37:                                         ; preds = %if.then36, %_compressCleanup
-  %46 = load i64, ptr %totalCompressedSize, align 8
-  ret i64 %46
+177:                                              ; preds = %164, %161
+  br label %178
+
+178:                                              ; preds = %177, %139
+  store i32 0, ptr %23, align 4
+  br label %179
+
+179:                                              ; preds = %178, %138, %104, %103
+  call void @llvm.lifetime.end.p0(i64 12, ptr %21) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #10
+  %180 = load i32, ptr %23, align 4
+  switch i32 %180, label %199 [
+    i32 0, label %181
+    i32 2, label %189
+    i32 4, label %182
+  ]
+
+181:                                              ; preds = %179
+  br label %182
+
+182:                                              ; preds = %181, %179
+  %183 = load i64, ptr %17, align 8, !tbaa !10
+  %184 = add i64 %183, 1
+  %185 = getelementptr inbounds nuw %struct.COVER_epoch_info_t, ptr %14, i32 0, i32 0
+  %186 = load i32, ptr %185, align 4, !tbaa !18
+  %187 = zext i32 %186 to i64
+  %188 = urem i64 %184, %187
+  store i64 %188, ptr %17, align 8, !tbaa !10
+  br label %75, !llvm.loop !57
+
+189:                                              ; preds = %179, %75
+  %190 = load i32, ptr @g_displayLevel, align 4, !tbaa !8
+  %191 = icmp sge i32 %190, 2
+  br i1 %191, label %192, label %197
+
+192:                                              ; preds = %189
+  %193 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %194 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %193, ptr noundef @.str.14, ptr noundef @.str.15) #10
+  %195 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %196 = call i32 @fflush(ptr noundef %195)
+  br label %197
+
+197:                                              ; preds = %192, %189
+  %198 = load i64, ptr %13, align 8, !tbaa !10
+  store i32 1, ptr %23, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #10
+  ret i64 %198
+
+199:                                              ; preds = %179
+  unreachable
 }
 
-declare i64 @ZSTD_compressBound(i64 noundef) #1
+declare i64 @ZDICT_finalizeDictionary(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef byval(%struct.ZDICT_params_t) align 8) #3
+
+; Function Attrs: nounwind uwtable
+define internal void @COVER_map_destroy(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !45
+  %3 = load ptr, ptr %2, align 8, !tbaa !45
+  %4 = getelementptr inbounds nuw %struct.COVER_map_s, ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !52
+  %6 = icmp ne ptr %5, null
+  br i1 %6, label %7, label %11
+
+7:                                                ; preds = %1
+  %8 = load ptr, ptr %2, align 8, !tbaa !45
+  %9 = getelementptr inbounds nuw %struct.COVER_map_s, ptr %8, i32 0, i32 0
+  %10 = load ptr, ptr %9, align 8, !tbaa !52
+  call void @free(ptr noundef %10) #10
+  br label %11
+
+11:                                               ; preds = %7, %1
+  %12 = load ptr, ptr %2, align 8, !tbaa !45
+  %13 = getelementptr inbounds nuw %struct.COVER_map_s, ptr %12, i32 0, i32 0
+  store ptr null, ptr %13, align 8, !tbaa !52
+  %14 = load ptr, ptr %2, align 8, !tbaa !45
+  %15 = getelementptr inbounds nuw %struct.COVER_map_s, ptr %14, i32 0, i32 2
+  store i32 0, ptr %15, align 4, !tbaa !50
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define i64 @COVER_checkTotalCompressedSize(ptr noundef byval(%struct.ZDICT_cover_params_t) align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef %6, i64 noundef %7) #0 {
+  %9 = alloca i64, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i64, align 8
+  %14 = alloca i64, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca i64, align 8
+  %17 = alloca i64, align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca ptr, align 8
+  %20 = alloca ptr, align 8
+  %21 = alloca i64, align 8
+  %22 = alloca i64, align 8
+  %23 = alloca i64, align 8
+  %24 = alloca i64, align 8
+  %25 = alloca i32, align 4
+  store ptr %1, ptr %10, align 8, !tbaa !3
+  store ptr %2, ptr %11, align 8, !tbaa !22
+  store ptr %3, ptr %12, align 8, !tbaa !3
+  store i64 %4, ptr %13, align 8, !tbaa !10
+  store i64 %5, ptr %14, align 8, !tbaa !10
+  store ptr %6, ptr %15, align 8, !tbaa !22
+  store i64 %7, ptr %16, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #10
+  store i64 -1, ptr %17, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #10
+  store i64 0, ptr %23, align 8, !tbaa !10
+  %26 = getelementptr inbounds nuw %struct.ZDICT_cover_params_t, ptr %0, i32 0, i32 4
+  %27 = load double, ptr %26, align 8, !tbaa !24
+  %28 = fcmp olt double %27, 1.000000e+00
+  br i1 %28, label %29, label %31
+
+29:                                               ; preds = %8
+  %30 = load i64, ptr %13, align 8, !tbaa !10
+  br label %32
+
+31:                                               ; preds = %8
+  br label %32
+
+32:                                               ; preds = %31, %29
+  %33 = phi i64 [ %30, %29 ], [ 0, %31 ]
+  store i64 %33, ptr %22, align 8, !tbaa !10
+  br label %34
+
+34:                                               ; preds = %54, %32
+  %35 = load i64, ptr %22, align 8, !tbaa !10
+  %36 = load i64, ptr %14, align 8, !tbaa !10
+  %37 = icmp ult i64 %35, %36
+  br i1 %37, label %38, label %57
+
+38:                                               ; preds = %34
+  %39 = load ptr, ptr %10, align 8, !tbaa !3
+  %40 = load i64, ptr %22, align 8, !tbaa !10
+  %41 = getelementptr inbounds nuw i64, ptr %39, i64 %40
+  %42 = load i64, ptr %41, align 8, !tbaa !10
+  %43 = load i64, ptr %23, align 8, !tbaa !10
+  %44 = icmp ugt i64 %42, %43
+  br i1 %44, label %45, label %50
+
+45:                                               ; preds = %38
+  %46 = load ptr, ptr %10, align 8, !tbaa !3
+  %47 = load i64, ptr %22, align 8, !tbaa !10
+  %48 = getelementptr inbounds nuw i64, ptr %46, i64 %47
+  %49 = load i64, ptr %48, align 8, !tbaa !10
+  br label %52
+
+50:                                               ; preds = %38
+  %51 = load i64, ptr %23, align 8, !tbaa !10
+  br label %52
+
+52:                                               ; preds = %50, %45
+  %53 = phi i64 [ %49, %45 ], [ %51, %50 ]
+  store i64 %53, ptr %23, align 8, !tbaa !10
+  br label %54
+
+54:                                               ; preds = %52
+  %55 = load i64, ptr %22, align 8, !tbaa !10
+  %56 = add i64 %55, 1
+  store i64 %56, ptr %22, align 8, !tbaa !10
+  br label %34, !llvm.loop !58
+
+57:                                               ; preds = %34
+  %58 = load i64, ptr %23, align 8, !tbaa !10
+  %59 = call i64 @ZSTD_compressBound(i64 noundef %58)
+  store i64 %59, ptr %21, align 8, !tbaa !10
+  %60 = load i64, ptr %21, align 8, !tbaa !10
+  %61 = call noalias ptr @malloc(i64 noundef %60) #11
+  store ptr %61, ptr %20, align 8, !tbaa !21
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #10
+  %62 = call ptr @ZSTD_createCCtx()
+  store ptr %62, ptr %18, align 8, !tbaa !59
+  %63 = load ptr, ptr %15, align 8, !tbaa !22
+  %64 = load i64, ptr %16, align 8, !tbaa !10
+  %65 = getelementptr inbounds nuw %struct.ZDICT_cover_params_t, ptr %0, i32 0, i32 7
+  %66 = getelementptr inbounds nuw %struct.ZDICT_params_t, ptr %65, i32 0, i32 0
+  %67 = load i32, ptr %66, align 8, !tbaa !61
+  %68 = call ptr @ZSTD_createCDict(ptr noundef %63, i64 noundef %64, i32 noundef %67)
+  store ptr %68, ptr %19, align 8, !tbaa !62
+  %69 = load ptr, ptr %20, align 8, !tbaa !21
+  %70 = icmp ne ptr %69, null
+  br i1 %70, label %71, label %77
+
+71:                                               ; preds = %57
+  %72 = load ptr, ptr %18, align 8, !tbaa !59
+  %73 = icmp ne ptr %72, null
+  br i1 %73, label %74, label %77
+
+74:                                               ; preds = %71
+  %75 = load ptr, ptr %19, align 8, !tbaa !62
+  %76 = icmp ne ptr %75, null
+  br i1 %76, label %78, label %77
+
+77:                                               ; preds = %74, %71, %57
+  br label %124
+
+78:                                               ; preds = %74
+  %79 = load i64, ptr %16, align 8, !tbaa !10
+  store i64 %79, ptr %17, align 8, !tbaa !10
+  %80 = getelementptr inbounds nuw %struct.ZDICT_cover_params_t, ptr %0, i32 0, i32 4
+  %81 = load double, ptr %80, align 8, !tbaa !24
+  %82 = fcmp olt double %81, 1.000000e+00
+  br i1 %82, label %83, label %85
+
+83:                                               ; preds = %78
+  %84 = load i64, ptr %13, align 8, !tbaa !10
+  br label %86
+
+85:                                               ; preds = %78
+  br label %86
+
+86:                                               ; preds = %85, %83
+  %87 = phi i64 [ %84, %83 ], [ 0, %85 ]
+  store i64 %87, ptr %22, align 8, !tbaa !10
+  br label %88
+
+88:                                               ; preds = %120, %86
+  %89 = load i64, ptr %22, align 8, !tbaa !10
+  %90 = load i64, ptr %14, align 8, !tbaa !10
+  %91 = icmp ult i64 %89, %90
+  br i1 %91, label %92, label %123
+
+92:                                               ; preds = %88
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #10
+  %93 = load ptr, ptr %18, align 8, !tbaa !59
+  %94 = load ptr, ptr %20, align 8, !tbaa !21
+  %95 = load i64, ptr %21, align 8, !tbaa !10
+  %96 = load ptr, ptr %11, align 8, !tbaa !22
+  %97 = load ptr, ptr %12, align 8, !tbaa !3
+  %98 = load i64, ptr %22, align 8, !tbaa !10
+  %99 = getelementptr inbounds nuw i64, ptr %97, i64 %98
+  %100 = load i64, ptr %99, align 8, !tbaa !10
+  %101 = getelementptr inbounds nuw i8, ptr %96, i64 %100
+  %102 = load ptr, ptr %10, align 8, !tbaa !3
+  %103 = load i64, ptr %22, align 8, !tbaa !10
+  %104 = getelementptr inbounds nuw i64, ptr %102, i64 %103
+  %105 = load i64, ptr %104, align 8, !tbaa !10
+  %106 = load ptr, ptr %19, align 8, !tbaa !62
+  %107 = call i64 @ZSTD_compress_usingCDict(ptr noundef %93, ptr noundef %94, i64 noundef %95, ptr noundef %101, i64 noundef %105, ptr noundef %106)
+  store i64 %107, ptr %24, align 8, !tbaa !10
+  %108 = load i64, ptr %24, align 8, !tbaa !10
+  %109 = call i32 @ERR_isError(i64 noundef %108)
+  %110 = icmp ne i32 %109, 0
+  br i1 %110, label %111, label %113
+
+111:                                              ; preds = %92
+  %112 = load i64, ptr %24, align 8, !tbaa !10
+  store i64 %112, ptr %17, align 8, !tbaa !10
+  store i32 5, ptr %25, align 4
+  br label %117
+
+113:                                              ; preds = %92
+  %114 = load i64, ptr %24, align 8, !tbaa !10
+  %115 = load i64, ptr %17, align 8, !tbaa !10
+  %116 = add i64 %115, %114
+  store i64 %116, ptr %17, align 8, !tbaa !10
+  store i32 0, ptr %25, align 4
+  br label %117
+
+117:                                              ; preds = %111, %113
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #10
+  %118 = load i32, ptr %25, align 4
+  switch i32 %118, label %135 [
+    i32 0, label %119
+    i32 5, label %124
+  ]
+
+119:                                              ; preds = %117
+  br label %120
+
+120:                                              ; preds = %119
+  %121 = load i64, ptr %22, align 8, !tbaa !10
+  %122 = add i64 %121, 1
+  store i64 %122, ptr %22, align 8, !tbaa !10
+  br label %88, !llvm.loop !64
+
+123:                                              ; preds = %88
+  br label %124
+
+124:                                              ; preds = %123, %117, %77
+  %125 = load ptr, ptr %18, align 8, !tbaa !59
+  %126 = call i64 @ZSTD_freeCCtx(ptr noundef %125)
+  %127 = load ptr, ptr %19, align 8, !tbaa !62
+  %128 = call i64 @ZSTD_freeCDict(ptr noundef %127)
+  %129 = load ptr, ptr %20, align 8, !tbaa !21
+  %130 = icmp ne ptr %129, null
+  br i1 %130, label %131, label %133
+
+131:                                              ; preds = %124
+  %132 = load ptr, ptr %20, align 8, !tbaa !21
+  call void @free(ptr noundef %132) #10
+  br label %133
+
+133:                                              ; preds = %131, %124
+  %134 = load i64, ptr %17, align 8, !tbaa !10
+  store i64 %134, ptr %9, align 8
+  store i32 1, ptr %25, align 4
+  br label %135
+
+135:                                              ; preds = %133, %117
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #10
+  %136 = load i64, ptr %9, align 8
+  ret i64 %136
+}
+
+declare i64 @ZSTD_compressBound(i64 noundef) #3
 
 ; Function Attrs: nounwind allocsize(0)
-declare noalias ptr @malloc(i64 noundef) #2
+declare noalias ptr @malloc(i64 noundef) #4
 
-declare ptr @ZSTD_createCCtx() #1
+declare ptr @ZSTD_createCCtx() #3
 
-declare ptr @ZSTD_createCDict(ptr noundef, i64 noundef, i32 noundef) #1
+declare ptr @ZSTD_createCDict(ptr noundef, i64 noundef, i32 noundef) #3
 
-declare i64 @ZSTD_compress_usingCDict(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) #1
+declare i64 @ZSTD_compress_usingCDict(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) #3
 
-declare i64 @ZSTD_freeCCtx(ptr noundef) #1
+declare i64 @ZSTD_freeCCtx(ptr noundef) #3
 
-declare i64 @ZSTD_freeCDict(ptr noundef) #1
+declare i64 @ZSTD_freeCDict(ptr noundef) #3
 
 ; Function Attrs: nounwind
-declare void @free(ptr noundef) #3
+declare void @free(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define void @COVER_best_init(ptr noundef %best) #0 {
-entry:
-  %best.addr = alloca ptr, align 8
-  store ptr %best, ptr %best.addr, align 8
-  %0 = load ptr, ptr %best.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
+define void @COVER_best_init(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !65
+  %3 = load ptr, ptr %2, align 8, !tbaa !65
+  %4 = icmp eq ptr %3, null
+  br i1 %4, label %5, label %6
 
-if.then:                                          ; preds = %entry
-  br label %return
+5:                                                ; preds = %1
+  br label %23
 
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %best.addr, align 8
-  %mutex = getelementptr inbounds %struct.COVER_best_s, ptr %1, i32 0, i32 0
-  %call = call i32 @pthread_mutex_init(ptr noundef %mutex, ptr noundef null) #9
-  %2 = load ptr, ptr %best.addr, align 8
-  %cond = getelementptr inbounds %struct.COVER_best_s, ptr %2, i32 0, i32 1
-  %call1 = call i32 @pthread_cond_init(ptr noundef %cond, ptr noundef null) #9
-  %3 = load ptr, ptr %best.addr, align 8
-  %liveJobs = getelementptr inbounds %struct.COVER_best_s, ptr %3, i32 0, i32 2
-  store i64 0, ptr %liveJobs, align 8
-  %4 = load ptr, ptr %best.addr, align 8
-  %dict = getelementptr inbounds %struct.COVER_best_s, ptr %4, i32 0, i32 3
-  store ptr null, ptr %dict, align 8
-  %5 = load ptr, ptr %best.addr, align 8
-  %dictSize = getelementptr inbounds %struct.COVER_best_s, ptr %5, i32 0, i32 4
-  store i64 0, ptr %dictSize, align 8
-  %6 = load ptr, ptr %best.addr, align 8
-  %compressedSize = getelementptr inbounds %struct.COVER_best_s, ptr %6, i32 0, i32 6
-  store i64 -1, ptr %compressedSize, align 8
-  %7 = load ptr, ptr %best.addr, align 8
-  %parameters = getelementptr inbounds %struct.COVER_best_s, ptr %7, i32 0, i32 5
-  call void @llvm.memset.p0.i64(ptr align 8 %parameters, i8 0, i64 48, i1 false)
-  br label %return
+6:                                                ; preds = %1
+  %7 = load ptr, ptr %2, align 8, !tbaa !65
+  %8 = getelementptr inbounds nuw %struct.COVER_best_s, ptr %7, i32 0, i32 0
+  %9 = call i32 @pthread_mutex_init(ptr noundef %8, ptr noundef null) #10
+  %10 = load ptr, ptr %2, align 8, !tbaa !65
+  %11 = getelementptr inbounds nuw %struct.COVER_best_s, ptr %10, i32 0, i32 1
+  %12 = call i32 @pthread_cond_init(ptr noundef %11, ptr noundef null) #10
+  %13 = load ptr, ptr %2, align 8, !tbaa !65
+  %14 = getelementptr inbounds nuw %struct.COVER_best_s, ptr %13, i32 0, i32 2
+  store i64 0, ptr %14, align 8, !tbaa !67
+  %15 = load ptr, ptr %2, align 8, !tbaa !65
+  %16 = getelementptr inbounds nuw %struct.COVER_best_s, ptr %15, i32 0, i32 3
+  store ptr null, ptr %16, align 8, !tbaa !69
+  %17 = load ptr, ptr %2, align 8, !tbaa !65
+  %18 = getelementptr inbounds nuw %struct.COVER_best_s, ptr %17, i32 0, i32 4
+  store i64 0, ptr %18, align 8, !tbaa !70
+  %19 = load ptr, ptr %2, align 8, !tbaa !65
+  %20 = getelementptr inbounds nuw %struct.COVER_best_s, ptr %19, i32 0, i32 6
+  store i64 -1, ptr %20, align 8, !tbaa !71
+  %21 = load ptr, ptr %2, align 8, !tbaa !65
+  %22 = getelementptr inbounds nuw %struct.COVER_best_s, ptr %21, i32 0, i32 5
+  call void @llvm.memset.p0.i64(ptr align 8 %22, i8 0, i64 48, i1 false)
+  br label %23
 
-return:                                           ; preds = %if.end, %if.then
+23:                                               ; preds = %6, %5
   ret void
 }
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_init(ptr noundef, ptr noundef) #3
+declare i32 @pthread_mutex_init(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind
-declare i32 @pthread_cond_init(ptr noundef, ptr noundef) #3
+declare i32 @pthread_cond_init(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define void @COVER_best_wait(ptr noundef %best) #0 {
-entry:
-  %best.addr = alloca ptr, align 8
-  store ptr %best, ptr %best.addr, align 8
-  %0 = load ptr, ptr %best.addr, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %if.end, label %if.then
+define void @COVER_best_wait(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !65
+  %3 = load ptr, ptr %2, align 8, !tbaa !65
+  %4 = icmp ne ptr %3, null
+  br i1 %4, label %6, label %5
 
-if.then:                                          ; preds = %entry
-  br label %return
+5:                                                ; preds = %1
+  br label %25
 
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %best.addr, align 8
-  %mutex = getelementptr inbounds %struct.COVER_best_s, ptr %1, i32 0, i32 0
-  %call = call i32 @pthread_mutex_lock(ptr noundef %mutex) #9
-  br label %while.cond
+6:                                                ; preds = %1
+  %7 = load ptr, ptr %2, align 8, !tbaa !65
+  %8 = getelementptr inbounds nuw %struct.COVER_best_s, ptr %7, i32 0, i32 0
+  %9 = call i32 @pthread_mutex_lock(ptr noundef %8) #10
+  br label %10
 
-while.cond:                                       ; preds = %while.body, %if.end
-  %2 = load ptr, ptr %best.addr, align 8
-  %liveJobs = getelementptr inbounds %struct.COVER_best_s, ptr %2, i32 0, i32 2
-  %3 = load i64, ptr %liveJobs, align 8
-  %cmp = icmp ne i64 %3, 0
-  br i1 %cmp, label %while.body, label %while.end
+10:                                               ; preds = %15, %6
+  %11 = load ptr, ptr %2, align 8, !tbaa !65
+  %12 = getelementptr inbounds nuw %struct.COVER_best_s, ptr %11, i32 0, i32 2
+  %13 = load i64, ptr %12, align 8, !tbaa !67
+  %14 = icmp ne i64 %13, 0
+  br i1 %14, label %15, label %21
 
-while.body:                                       ; preds = %while.cond
-  %4 = load ptr, ptr %best.addr, align 8
-  %cond = getelementptr inbounds %struct.COVER_best_s, ptr %4, i32 0, i32 1
-  %5 = load ptr, ptr %best.addr, align 8
-  %mutex1 = getelementptr inbounds %struct.COVER_best_s, ptr %5, i32 0, i32 0
-  %call2 = call i32 @pthread_cond_wait(ptr noundef %cond, ptr noundef %mutex1)
-  br label %while.cond, !llvm.loop !11
+15:                                               ; preds = %10
+  %16 = load ptr, ptr %2, align 8, !tbaa !65
+  %17 = getelementptr inbounds nuw %struct.COVER_best_s, ptr %16, i32 0, i32 1
+  %18 = load ptr, ptr %2, align 8, !tbaa !65
+  %19 = getelementptr inbounds nuw %struct.COVER_best_s, ptr %18, i32 0, i32 0
+  %20 = call i32 @pthread_cond_wait(ptr noundef %17, ptr noundef %19)
+  br label %10, !llvm.loop !72
 
-while.end:                                        ; preds = %while.cond
-  %6 = load ptr, ptr %best.addr, align 8
-  %mutex3 = getelementptr inbounds %struct.COVER_best_s, ptr %6, i32 0, i32 0
-  %call4 = call i32 @pthread_mutex_unlock(ptr noundef %mutex3) #9
-  br label %return
+21:                                               ; preds = %10
+  %22 = load ptr, ptr %2, align 8, !tbaa !65
+  %23 = getelementptr inbounds nuw %struct.COVER_best_s, ptr %22, i32 0, i32 0
+  %24 = call i32 @pthread_mutex_unlock(ptr noundef %23) #10
+  br label %25
 
-return:                                           ; preds = %while.end, %if.then
+25:                                               ; preds = %21, %5
   ret void
 }
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_lock(ptr noundef) #3
+declare i32 @pthread_mutex_lock(ptr noundef) #2
 
-declare i32 @pthread_cond_wait(ptr noundef, ptr noundef) #1
+declare i32 @pthread_cond_wait(ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_unlock(ptr noundef) #3
+declare i32 @pthread_mutex_unlock(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define void @COVER_best_destroy(ptr noundef %best) #0 {
-entry:
-  %best.addr = alloca ptr, align 8
-  store ptr %best, ptr %best.addr, align 8
-  %0 = load ptr, ptr %best.addr, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %if.end, label %if.then
+define void @COVER_best_destroy(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !65
+  %3 = load ptr, ptr %2, align 8, !tbaa !65
+  %4 = icmp ne ptr %3, null
+  br i1 %4, label %6, label %5
 
-if.then:                                          ; preds = %entry
-  br label %return
+5:                                                ; preds = %1
+  br label %23
 
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %best.addr, align 8
-  call void @COVER_best_wait(ptr noundef %1)
-  %2 = load ptr, ptr %best.addr, align 8
-  %dict = getelementptr inbounds %struct.COVER_best_s, ptr %2, i32 0, i32 3
-  %3 = load ptr, ptr %dict, align 8
-  %tobool1 = icmp ne ptr %3, null
-  br i1 %tobool1, label %if.then2, label %if.end4
+6:                                                ; preds = %1
+  %7 = load ptr, ptr %2, align 8, !tbaa !65
+  call void @COVER_best_wait(ptr noundef %7)
+  %8 = load ptr, ptr %2, align 8, !tbaa !65
+  %9 = getelementptr inbounds nuw %struct.COVER_best_s, ptr %8, i32 0, i32 3
+  %10 = load ptr, ptr %9, align 8, !tbaa !69
+  %11 = icmp ne ptr %10, null
+  br i1 %11, label %12, label %16
 
-if.then2:                                         ; preds = %if.end
-  %4 = load ptr, ptr %best.addr, align 8
-  %dict3 = getelementptr inbounds %struct.COVER_best_s, ptr %4, i32 0, i32 3
-  %5 = load ptr, ptr %dict3, align 8
-  call void @free(ptr noundef %5) #9
-  br label %if.end4
+12:                                               ; preds = %6
+  %13 = load ptr, ptr %2, align 8, !tbaa !65
+  %14 = getelementptr inbounds nuw %struct.COVER_best_s, ptr %13, i32 0, i32 3
+  %15 = load ptr, ptr %14, align 8, !tbaa !69
+  call void @free(ptr noundef %15) #10
+  br label %16
 
-if.end4:                                          ; preds = %if.then2, %if.end
-  %6 = load ptr, ptr %best.addr, align 8
-  %mutex = getelementptr inbounds %struct.COVER_best_s, ptr %6, i32 0, i32 0
-  %call = call i32 @pthread_mutex_destroy(ptr noundef %mutex) #9
-  %7 = load ptr, ptr %best.addr, align 8
-  %cond = getelementptr inbounds %struct.COVER_best_s, ptr %7, i32 0, i32 1
-  %call5 = call i32 @pthread_cond_destroy(ptr noundef %cond) #9
-  br label %return
+16:                                               ; preds = %12, %6
+  %17 = load ptr, ptr %2, align 8, !tbaa !65
+  %18 = getelementptr inbounds nuw %struct.COVER_best_s, ptr %17, i32 0, i32 0
+  %19 = call i32 @pthread_mutex_destroy(ptr noundef %18) #10
+  %20 = load ptr, ptr %2, align 8, !tbaa !65
+  %21 = getelementptr inbounds nuw %struct.COVER_best_s, ptr %20, i32 0, i32 1
+  %22 = call i32 @pthread_cond_destroy(ptr noundef %21) #10
+  br label %23
 
-return:                                           ; preds = %if.end4, %if.then
+23:                                               ; preds = %16, %5
   ret void
 }
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_destroy(ptr noundef) #3
+declare i32 @pthread_mutex_destroy(ptr noundef) #2
 
 ; Function Attrs: nounwind
-declare i32 @pthread_cond_destroy(ptr noundef) #3
+declare i32 @pthread_cond_destroy(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define void @COVER_best_start(ptr noundef %best) #0 {
-entry:
-  %best.addr = alloca ptr, align 8
-  store ptr %best, ptr %best.addr, align 8
-  %0 = load ptr, ptr %best.addr, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %if.end, label %if.then
+define void @COVER_best_start(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !65
+  %3 = load ptr, ptr %2, align 8, !tbaa !65
+  %4 = icmp ne ptr %3, null
+  br i1 %4, label %6, label %5
 
-if.then:                                          ; preds = %entry
-  br label %return
+5:                                                ; preds = %1
+  br label %17
 
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %best.addr, align 8
-  %mutex = getelementptr inbounds %struct.COVER_best_s, ptr %1, i32 0, i32 0
-  %call = call i32 @pthread_mutex_lock(ptr noundef %mutex) #9
-  %2 = load ptr, ptr %best.addr, align 8
-  %liveJobs = getelementptr inbounds %struct.COVER_best_s, ptr %2, i32 0, i32 2
-  %3 = load i64, ptr %liveJobs, align 8
-  %inc = add i64 %3, 1
-  store i64 %inc, ptr %liveJobs, align 8
-  %4 = load ptr, ptr %best.addr, align 8
-  %mutex1 = getelementptr inbounds %struct.COVER_best_s, ptr %4, i32 0, i32 0
-  %call2 = call i32 @pthread_mutex_unlock(ptr noundef %mutex1) #9
-  br label %return
+6:                                                ; preds = %1
+  %7 = load ptr, ptr %2, align 8, !tbaa !65
+  %8 = getelementptr inbounds nuw %struct.COVER_best_s, ptr %7, i32 0, i32 0
+  %9 = call i32 @pthread_mutex_lock(ptr noundef %8) #10
+  %10 = load ptr, ptr %2, align 8, !tbaa !65
+  %11 = getelementptr inbounds nuw %struct.COVER_best_s, ptr %10, i32 0, i32 2
+  %12 = load i64, ptr %11, align 8, !tbaa !67
+  %13 = add i64 %12, 1
+  store i64 %13, ptr %11, align 8, !tbaa !67
+  %14 = load ptr, ptr %2, align 8, !tbaa !65
+  %15 = getelementptr inbounds nuw %struct.COVER_best_s, ptr %14, i32 0, i32 0
+  %16 = call i32 @pthread_mutex_unlock(ptr noundef %15) #10
+  br label %17
 
-return:                                           ; preds = %if.end, %if.then
+17:                                               ; preds = %6, %5
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @COVER_best_finish(ptr noundef %best, ptr noundef byval(%struct.ZDICT_cover_params_t) align 8 %parameters, ptr noundef byval(%struct.COVER_dictSelection) align 8 %selection) #0 {
-entry:
-  %best.addr = alloca ptr, align 8
-  %dict = alloca ptr, align 8
-  %compressedSize = alloca i64, align 8
-  %dictSize = alloca i64, align 8
-  %liveJobs = alloca i64, align 8
-  store ptr %best, ptr %best.addr, align 8
-  %dictContent = getelementptr inbounds %struct.COVER_dictSelection, ptr %selection, i32 0, i32 0
-  %0 = load ptr, ptr %dictContent, align 8
-  store ptr %0, ptr %dict, align 8
-  %totalCompressedSize = getelementptr inbounds %struct.COVER_dictSelection, ptr %selection, i32 0, i32 2
-  %1 = load i64, ptr %totalCompressedSize, align 8
-  store i64 %1, ptr %compressedSize, align 8
-  %dictSize1 = getelementptr inbounds %struct.COVER_dictSelection, ptr %selection, i32 0, i32 1
-  %2 = load i64, ptr %dictSize1, align 8
-  store i64 %2, ptr %dictSize, align 8
-  %3 = load ptr, ptr %best.addr, align 8
-  %tobool = icmp ne ptr %3, null
-  br i1 %tobool, label %if.end, label %if.then
+define void @COVER_best_finish(ptr noundef %0, ptr noundef byval(%struct.ZDICT_cover_params_t) align 8 %1, ptr noundef byval(%struct.COVER_dictSelection) align 8 %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !65
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #10
+  %10 = getelementptr inbounds nuw %struct.COVER_dictSelection, ptr %2, i32 0, i32 0
+  %11 = load ptr, ptr %10, align 8, !tbaa !73
+  store ptr %11, ptr %5, align 8, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #10
+  %12 = getelementptr inbounds nuw %struct.COVER_dictSelection, ptr %2, i32 0, i32 2
+  %13 = load i64, ptr %12, align 8, !tbaa !75
+  store i64 %13, ptr %6, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #10
+  %14 = getelementptr inbounds nuw %struct.COVER_dictSelection, ptr %2, i32 0, i32 1
+  %15 = load i64, ptr %14, align 8, !tbaa !76
+  store i64 %15, ptr %7, align 8, !tbaa !10
+  %16 = load ptr, ptr %4, align 8, !tbaa !65
+  %17 = icmp ne ptr %16, null
+  br i1 %17, label %19, label %18
 
-if.then:                                          ; preds = %entry
-  br label %return
+18:                                               ; preds = %3
+  store i32 1, ptr %8, align 4
+  br label %108
 
-if.end:                                           ; preds = %entry
-  %4 = load ptr, ptr %best.addr, align 8
-  %mutex = getelementptr inbounds %struct.COVER_best_s, ptr %4, i32 0, i32 0
-  %call = call i32 @pthread_mutex_lock(ptr noundef %mutex) #9
-  %5 = load ptr, ptr %best.addr, align 8
-  %liveJobs2 = getelementptr inbounds %struct.COVER_best_s, ptr %5, i32 0, i32 2
-  %6 = load i64, ptr %liveJobs2, align 8
-  %dec = add i64 %6, -1
-  store i64 %dec, ptr %liveJobs2, align 8
-  %7 = load ptr, ptr %best.addr, align 8
-  %liveJobs3 = getelementptr inbounds %struct.COVER_best_s, ptr %7, i32 0, i32 2
-  %8 = load i64, ptr %liveJobs3, align 8
-  store i64 %8, ptr %liveJobs, align 8
-  %9 = load i64, ptr %compressedSize, align 8
-  %10 = load ptr, ptr %best.addr, align 8
-  %compressedSize4 = getelementptr inbounds %struct.COVER_best_s, ptr %10, i32 0, i32 6
-  %11 = load i64, ptr %compressedSize4, align 8
-  %cmp = icmp ult i64 %9, %11
-  br i1 %cmp, label %if.then5, label %if.end35
+19:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #10
+  %20 = load ptr, ptr %4, align 8, !tbaa !65
+  %21 = getelementptr inbounds nuw %struct.COVER_best_s, ptr %20, i32 0, i32 0
+  %22 = call i32 @pthread_mutex_lock(ptr noundef %21) #10
+  %23 = load ptr, ptr %4, align 8, !tbaa !65
+  %24 = getelementptr inbounds nuw %struct.COVER_best_s, ptr %23, i32 0, i32 2
+  %25 = load i64, ptr %24, align 8, !tbaa !67
+  %26 = add i64 %25, -1
+  store i64 %26, ptr %24, align 8, !tbaa !67
+  %27 = load ptr, ptr %4, align 8, !tbaa !65
+  %28 = getelementptr inbounds nuw %struct.COVER_best_s, ptr %27, i32 0, i32 2
+  %29 = load i64, ptr %28, align 8, !tbaa !67
+  store i64 %29, ptr %9, align 8, !tbaa !10
+  %30 = load i64, ptr %6, align 8, !tbaa !10
+  %31 = load ptr, ptr %4, align 8, !tbaa !65
+  %32 = getelementptr inbounds nuw %struct.COVER_best_s, ptr %31, i32 0, i32 6
+  %33 = load i64, ptr %32, align 8, !tbaa !71
+  %34 = icmp ult i64 %30, %33
+  br i1 %34, label %35, label %94
 
-if.then5:                                         ; preds = %if.end
-  %12 = load ptr, ptr %best.addr, align 8
-  %dict6 = getelementptr inbounds %struct.COVER_best_s, ptr %12, i32 0, i32 3
-  %13 = load ptr, ptr %dict6, align 8
-  %tobool7 = icmp ne ptr %13, null
-  br i1 %tobool7, label %lor.lhs.false, label %if.then10
+35:                                               ; preds = %19
+  %36 = load ptr, ptr %4, align 8, !tbaa !65
+  %37 = getelementptr inbounds nuw %struct.COVER_best_s, ptr %36, i32 0, i32 3
+  %38 = load ptr, ptr %37, align 8, !tbaa !69
+  %39 = icmp ne ptr %38, null
+  br i1 %39, label %40, label %46
 
-lor.lhs.false:                                    ; preds = %if.then5
-  %14 = load ptr, ptr %best.addr, align 8
-  %dictSize8 = getelementptr inbounds %struct.COVER_best_s, ptr %14, i32 0, i32 4
-  %15 = load i64, ptr %dictSize8, align 8
-  %16 = load i64, ptr %dictSize, align 8
-  %cmp9 = icmp ult i64 %15, %16
-  br i1 %cmp9, label %if.then10, label %if.end27
+40:                                               ; preds = %35
+  %41 = load ptr, ptr %4, align 8, !tbaa !65
+  %42 = getelementptr inbounds nuw %struct.COVER_best_s, ptr %41, i32 0, i32 4
+  %43 = load i64, ptr %42, align 8, !tbaa !70
+  %44 = load i64, ptr %7, align 8, !tbaa !10
+  %45 = icmp ult i64 %43, %44
+  br i1 %45, label %46, label %76
 
-if.then10:                                        ; preds = %lor.lhs.false, %if.then5
-  %17 = load ptr, ptr %best.addr, align 8
-  %dict11 = getelementptr inbounds %struct.COVER_best_s, ptr %17, i32 0, i32 3
-  %18 = load ptr, ptr %dict11, align 8
-  %tobool12 = icmp ne ptr %18, null
-  br i1 %tobool12, label %if.then13, label %if.end15
+46:                                               ; preds = %40, %35
+  %47 = load ptr, ptr %4, align 8, !tbaa !65
+  %48 = getelementptr inbounds nuw %struct.COVER_best_s, ptr %47, i32 0, i32 3
+  %49 = load ptr, ptr %48, align 8, !tbaa !69
+  %50 = icmp ne ptr %49, null
+  br i1 %50, label %51, label %55
 
-if.then13:                                        ; preds = %if.then10
-  %19 = load ptr, ptr %best.addr, align 8
-  %dict14 = getelementptr inbounds %struct.COVER_best_s, ptr %19, i32 0, i32 3
-  %20 = load ptr, ptr %dict14, align 8
-  call void @free(ptr noundef %20) #9
-  br label %if.end15
+51:                                               ; preds = %46
+  %52 = load ptr, ptr %4, align 8, !tbaa !65
+  %53 = getelementptr inbounds nuw %struct.COVER_best_s, ptr %52, i32 0, i32 3
+  %54 = load ptr, ptr %53, align 8, !tbaa !69
+  call void @free(ptr noundef %54) #10
+  br label %55
 
-if.end15:                                         ; preds = %if.then13, %if.then10
-  %21 = load i64, ptr %dictSize, align 8
-  %call16 = call noalias ptr @malloc(i64 noundef %21) #8
-  %22 = load ptr, ptr %best.addr, align 8
-  %dict17 = getelementptr inbounds %struct.COVER_best_s, ptr %22, i32 0, i32 3
-  store ptr %call16, ptr %dict17, align 8
-  %23 = load ptr, ptr %best.addr, align 8
-  %dict18 = getelementptr inbounds %struct.COVER_best_s, ptr %23, i32 0, i32 3
-  %24 = load ptr, ptr %dict18, align 8
-  %tobool19 = icmp ne ptr %24, null
-  br i1 %tobool19, label %if.end26, label %if.then20
+55:                                               ; preds = %51, %46
+  %56 = load i64, ptr %7, align 8, !tbaa !10
+  %57 = call noalias ptr @malloc(i64 noundef %56) #11
+  %58 = load ptr, ptr %4, align 8, !tbaa !65
+  %59 = getelementptr inbounds nuw %struct.COVER_best_s, ptr %58, i32 0, i32 3
+  store ptr %57, ptr %59, align 8, !tbaa !69
+  %60 = load ptr, ptr %4, align 8, !tbaa !65
+  %61 = getelementptr inbounds nuw %struct.COVER_best_s, ptr %60, i32 0, i32 3
+  %62 = load ptr, ptr %61, align 8, !tbaa !69
+  %63 = icmp ne ptr %62, null
+  br i1 %63, label %75, label %64
 
-if.then20:                                        ; preds = %if.end15
-  %25 = load ptr, ptr %best.addr, align 8
-  %compressedSize21 = getelementptr inbounds %struct.COVER_best_s, ptr %25, i32 0, i32 6
-  store i64 -1, ptr %compressedSize21, align 8
-  %26 = load ptr, ptr %best.addr, align 8
-  %dictSize22 = getelementptr inbounds %struct.COVER_best_s, ptr %26, i32 0, i32 4
-  store i64 0, ptr %dictSize22, align 8
-  %27 = load ptr, ptr %best.addr, align 8
-  %cond = getelementptr inbounds %struct.COVER_best_s, ptr %27, i32 0, i32 1
-  %call23 = call i32 @pthread_cond_signal(ptr noundef %cond) #9
-  %28 = load ptr, ptr %best.addr, align 8
-  %mutex24 = getelementptr inbounds %struct.COVER_best_s, ptr %28, i32 0, i32 0
-  %call25 = call i32 @pthread_mutex_unlock(ptr noundef %mutex24) #9
-  br label %return
+64:                                               ; preds = %55
+  %65 = load ptr, ptr %4, align 8, !tbaa !65
+  %66 = getelementptr inbounds nuw %struct.COVER_best_s, ptr %65, i32 0, i32 6
+  store i64 -1, ptr %66, align 8, !tbaa !71
+  %67 = load ptr, ptr %4, align 8, !tbaa !65
+  %68 = getelementptr inbounds nuw %struct.COVER_best_s, ptr %67, i32 0, i32 4
+  store i64 0, ptr %68, align 8, !tbaa !70
+  %69 = load ptr, ptr %4, align 8, !tbaa !65
+  %70 = getelementptr inbounds nuw %struct.COVER_best_s, ptr %69, i32 0, i32 1
+  %71 = call i32 @pthread_cond_signal(ptr noundef %70) #10
+  %72 = load ptr, ptr %4, align 8, !tbaa !65
+  %73 = getelementptr inbounds nuw %struct.COVER_best_s, ptr %72, i32 0, i32 0
+  %74 = call i32 @pthread_mutex_unlock(ptr noundef %73) #10
+  store i32 1, ptr %8, align 4
+  br label %105
 
-if.end26:                                         ; preds = %if.end15
-  br label %if.end27
+75:                                               ; preds = %55
+  br label %76
 
-if.end27:                                         ; preds = %if.end26, %lor.lhs.false
-  %29 = load ptr, ptr %dict, align 8
-  %tobool28 = icmp ne ptr %29, null
-  br i1 %tobool28, label %if.then29, label %if.end34
+76:                                               ; preds = %75, %40
+  %77 = load ptr, ptr %5, align 8, !tbaa !21
+  %78 = icmp ne ptr %77, null
+  br i1 %78, label %79, label %93
 
-if.then29:                                        ; preds = %if.end27
-  %30 = load ptr, ptr %best.addr, align 8
-  %dict30 = getelementptr inbounds %struct.COVER_best_s, ptr %30, i32 0, i32 3
-  %31 = load ptr, ptr %dict30, align 8
-  %32 = load ptr, ptr %dict, align 8
-  %33 = load i64, ptr %dictSize, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %31, ptr align 1 %32, i64 %33, i1 false)
-  %34 = load i64, ptr %dictSize, align 8
-  %35 = load ptr, ptr %best.addr, align 8
-  %dictSize31 = getelementptr inbounds %struct.COVER_best_s, ptr %35, i32 0, i32 4
-  store i64 %34, ptr %dictSize31, align 8
-  %36 = load ptr, ptr %best.addr, align 8
-  %parameters32 = getelementptr inbounds %struct.COVER_best_s, ptr %36, i32 0, i32 5
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %parameters32, ptr align 8 %parameters, i64 48, i1 false)
-  %37 = load i64, ptr %compressedSize, align 8
-  %38 = load ptr, ptr %best.addr, align 8
-  %compressedSize33 = getelementptr inbounds %struct.COVER_best_s, ptr %38, i32 0, i32 6
-  store i64 %37, ptr %compressedSize33, align 8
-  br label %if.end34
+79:                                               ; preds = %76
+  %80 = load ptr, ptr %4, align 8, !tbaa !65
+  %81 = getelementptr inbounds nuw %struct.COVER_best_s, ptr %80, i32 0, i32 3
+  %82 = load ptr, ptr %81, align 8, !tbaa !69
+  %83 = load ptr, ptr %5, align 8, !tbaa !21
+  %84 = load i64, ptr %7, align 8, !tbaa !10
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %82, ptr align 1 %83, i64 %84, i1 false)
+  %85 = load i64, ptr %7, align 8, !tbaa !10
+  %86 = load ptr, ptr %4, align 8, !tbaa !65
+  %87 = getelementptr inbounds nuw %struct.COVER_best_s, ptr %86, i32 0, i32 4
+  store i64 %85, ptr %87, align 8, !tbaa !70
+  %88 = load ptr, ptr %4, align 8, !tbaa !65
+  %89 = getelementptr inbounds nuw %struct.COVER_best_s, ptr %88, i32 0, i32 5
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %89, ptr align 8 %1, i64 48, i1 false), !tbaa.struct !77
+  %90 = load i64, ptr %6, align 8, !tbaa !10
+  %91 = load ptr, ptr %4, align 8, !tbaa !65
+  %92 = getelementptr inbounds nuw %struct.COVER_best_s, ptr %91, i32 0, i32 6
+  store i64 %90, ptr %92, align 8, !tbaa !71
+  br label %93
 
-if.end34:                                         ; preds = %if.then29, %if.end27
-  br label %if.end35
+93:                                               ; preds = %79, %76
+  br label %94
 
-if.end35:                                         ; preds = %if.end34, %if.end
-  %39 = load i64, ptr %liveJobs, align 8
-  %cmp36 = icmp eq i64 %39, 0
-  br i1 %cmp36, label %if.then37, label %if.end40
+94:                                               ; preds = %93, %19
+  %95 = load i64, ptr %9, align 8, !tbaa !10
+  %96 = icmp eq i64 %95, 0
+  br i1 %96, label %97, label %101
 
-if.then37:                                        ; preds = %if.end35
-  %40 = load ptr, ptr %best.addr, align 8
-  %cond38 = getelementptr inbounds %struct.COVER_best_s, ptr %40, i32 0, i32 1
-  %call39 = call i32 @pthread_cond_broadcast(ptr noundef %cond38) #9
-  br label %if.end40
+97:                                               ; preds = %94
+  %98 = load ptr, ptr %4, align 8, !tbaa !65
+  %99 = getelementptr inbounds nuw %struct.COVER_best_s, ptr %98, i32 0, i32 1
+  %100 = call i32 @pthread_cond_broadcast(ptr noundef %99) #10
+  br label %101
 
-if.end40:                                         ; preds = %if.then37, %if.end35
-  %41 = load ptr, ptr %best.addr, align 8
-  %mutex41 = getelementptr inbounds %struct.COVER_best_s, ptr %41, i32 0, i32 0
-  %call42 = call i32 @pthread_mutex_unlock(ptr noundef %mutex41) #9
-  br label %return
+101:                                              ; preds = %97, %94
+  %102 = load ptr, ptr %4, align 8, !tbaa !65
+  %103 = getelementptr inbounds nuw %struct.COVER_best_s, ptr %102, i32 0, i32 0
+  %104 = call i32 @pthread_mutex_unlock(ptr noundef %103) #10
+  store i32 0, ptr %8, align 4
+  br label %105
 
-return:                                           ; preds = %if.end40, %if.then20, %if.then
+105:                                              ; preds = %101, %64
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #10
+  %106 = load i32, ptr %8, align 4
+  switch i32 %106, label %108 [
+    i32 0, label %107
+  ]
+
+107:                                              ; preds = %105
+  store i32 0, ptr %8, align 4
+  br label %108
+
+108:                                              ; preds = %107, %105, %18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #10
+  %109 = load i32, ptr %8, align 4
+  switch i32 %109, label %111 [
+    i32 0, label %110
+    i32 1, label %110
+  ]
+
+110:                                              ; preds = %108, %108
   ret void
+
+111:                                              ; preds = %108
+  unreachable
 }
 
 ; Function Attrs: nounwind
-declare i32 @pthread_cond_signal(ptr noundef) #3
+declare i32 @pthread_cond_signal(ptr noundef) #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nounwind
-declare i32 @pthread_cond_broadcast(ptr noundef) #3
+declare i32 @pthread_cond_broadcast(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define void @COVER_dictSelectionError(ptr noalias sret(%struct.COVER_dictSelection) align 8 %agg.result, i64 noundef %error) #0 {
-entry:
-  %error.addr = alloca i64, align 8
-  store i64 %error, ptr %error.addr, align 8
-  %0 = load i64, ptr %error.addr, align 8
-  call void @setDictSelection(ptr sret(%struct.COVER_dictSelection) align 8 %agg.result, ptr noundef null, i64 noundef 0, i64 noundef %0)
+define void @COVER_dictSelectionError(ptr dead_on_unwind noalias writable sret(%struct.COVER_dictSelection) align 8 %0, i64 noundef %1) #0 {
+  %3 = alloca i64, align 8
+  store i64 %1, ptr %3, align 8, !tbaa !10
+  %4 = load i64, ptr %3, align 8, !tbaa !10
+  call void @setDictSelection(ptr dead_on_unwind writable sret(%struct.COVER_dictSelection) align 8 %0, ptr noundef null, i64 noundef 0, i64 noundef %4)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @setDictSelection(ptr noalias sret(%struct.COVER_dictSelection) align 8 %agg.result, ptr noundef %buf, i64 noundef %s, i64 noundef %csz) #0 {
-entry:
-  %buf.addr = alloca ptr, align 8
-  %s.addr = alloca i64, align 8
-  %csz.addr = alloca i64, align 8
-  store ptr %buf, ptr %buf.addr, align 8
-  store i64 %s, ptr %s.addr, align 8
-  store i64 %csz, ptr %csz.addr, align 8
-  %0 = load ptr, ptr %buf.addr, align 8
-  %dictContent = getelementptr inbounds %struct.COVER_dictSelection, ptr %agg.result, i32 0, i32 0
-  store ptr %0, ptr %dictContent, align 8
-  %1 = load i64, ptr %s.addr, align 8
-  %dictSize = getelementptr inbounds %struct.COVER_dictSelection, ptr %agg.result, i32 0, i32 1
-  store i64 %1, ptr %dictSize, align 8
-  %2 = load i64, ptr %csz.addr, align 8
-  %totalCompressedSize = getelementptr inbounds %struct.COVER_dictSelection, ptr %agg.result, i32 0, i32 2
-  store i64 %2, ptr %totalCompressedSize, align 8
+define internal void @setDictSelection(ptr dead_on_unwind noalias writable sret(%struct.COVER_dictSelection) align 8 %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  store ptr %1, ptr %5, align 8, !tbaa !22
+  store i64 %2, ptr %6, align 8, !tbaa !10
+  store i64 %3, ptr %7, align 8, !tbaa !10
+  %8 = load ptr, ptr %5, align 8, !tbaa !22
+  %9 = getelementptr inbounds nuw %struct.COVER_dictSelection, ptr %0, i32 0, i32 0
+  store ptr %8, ptr %9, align 8, !tbaa !73
+  %10 = load i64, ptr %6, align 8, !tbaa !10
+  %11 = getelementptr inbounds nuw %struct.COVER_dictSelection, ptr %0, i32 0, i32 1
+  store i64 %10, ptr %11, align 8, !tbaa !76
+  %12 = load i64, ptr %7, align 8, !tbaa !10
+  %13 = getelementptr inbounds nuw %struct.COVER_dictSelection, ptr %0, i32 0, i32 2
+  store i64 %12, ptr %13, align 8, !tbaa !75
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @COVER_dictSelectionIsError(ptr noundef byval(%struct.COVER_dictSelection) align 8 %selection) #0 {
-entry:
-  %totalCompressedSize = getelementptr inbounds %struct.COVER_dictSelection, ptr %selection, i32 0, i32 2
-  %0 = load i64, ptr %totalCompressedSize, align 8
-  %call = call i32 @ERR_isError(i64 noundef %0)
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %lor.end, label %lor.rhs
+define i32 @COVER_dictSelectionIsError(ptr noundef byval(%struct.COVER_dictSelection) align 8 %0) #0 {
+  %2 = getelementptr inbounds nuw %struct.COVER_dictSelection, ptr %0, i32 0, i32 2
+  %3 = load i64, ptr %2, align 8, !tbaa !75
+  %4 = call i32 @ERR_isError(i64 noundef %3)
+  %5 = icmp ne i32 %4, 0
+  br i1 %5, label %11, label %6
 
-lor.rhs:                                          ; preds = %entry
-  %dictContent = getelementptr inbounds %struct.COVER_dictSelection, ptr %selection, i32 0, i32 0
-  %1 = load ptr, ptr %dictContent, align 8
-  %tobool1 = icmp ne ptr %1, null
-  %lnot = xor i1 %tobool1, true
-  br label %lor.end
+6:                                                ; preds = %1
+  %7 = getelementptr inbounds nuw %struct.COVER_dictSelection, ptr %0, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8, !tbaa !73
+  %9 = icmp ne ptr %8, null
+  %10 = xor i1 %9, true
+  br label %11
 
-lor.end:                                          ; preds = %lor.rhs, %entry
-  %2 = phi i1 [ true, %entry ], [ %lnot, %lor.rhs ]
-  %lor.ext = zext i1 %2 to i32
-  ret i32 %lor.ext
+11:                                               ; preds = %6, %1
+  %12 = phi i1 [ true, %1 ], [ %10, %6 ]
+  %13 = zext i1 %12 to i32
+  ret i32 %13
 }
 
 ; Function Attrs: nounwind uwtable
-define void @COVER_dictSelectionFree(ptr noundef byval(%struct.COVER_dictSelection) align 8 %selection) #0 {
-entry:
-  %dictContent = getelementptr inbounds %struct.COVER_dictSelection, ptr %selection, i32 0, i32 0
-  %0 = load ptr, ptr %dictContent, align 8
-  call void @free(ptr noundef %0) #9
+define void @COVER_dictSelectionFree(ptr noundef byval(%struct.COVER_dictSelection) align 8 %0) #0 {
+  %2 = getelementptr inbounds nuw %struct.COVER_dictSelection, ptr %0, i32 0, i32 0
+  %3 = load ptr, ptr %2, align 8, !tbaa !73
+  call void @free(ptr noundef %3) #10
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @COVER_selectDict(ptr noalias sret(%struct.COVER_dictSelection) align 8 %agg.result, ptr noundef %customDictContent, i64 noundef %dictBufferCapacity, i64 noundef %dictContentSize, ptr noundef %samplesBuffer, ptr noundef %samplesSizes, i32 noundef %nbFinalizeSamples, i64 noundef %nbCheckSamples, i64 noundef %nbSamples, ptr noundef byval(%struct.ZDICT_cover_params_t) align 8 %params, ptr noundef %offsets, i64 noundef %totalCompressedSize) #0 {
-entry:
-  %customDictContent.addr = alloca ptr, align 8
-  %dictBufferCapacity.addr = alloca i64, align 8
-  %dictContentSize.addr = alloca i64, align 8
-  %samplesBuffer.addr = alloca ptr, align 8
-  %samplesSizes.addr = alloca ptr, align 8
-  %nbFinalizeSamples.addr = alloca i32, align 4
-  %nbCheckSamples.addr = alloca i64, align 8
-  %nbSamples.addr = alloca i64, align 8
-  %offsets.addr = alloca ptr, align 8
-  %totalCompressedSize.addr = alloca i64, align 8
-  %largestDict = alloca i64, align 8
-  %largestCompressed = alloca i64, align 8
-  %customDictContentEnd = alloca ptr, align 8
-  %largestDictbuffer = alloca ptr, align 8
-  %candidateDictBuffer = alloca ptr, align 8
-  %regressionTolerance = alloca double, align 8
-  store ptr %customDictContent, ptr %customDictContent.addr, align 8
-  store i64 %dictBufferCapacity, ptr %dictBufferCapacity.addr, align 8
-  store i64 %dictContentSize, ptr %dictContentSize.addr, align 8
-  store ptr %samplesBuffer, ptr %samplesBuffer.addr, align 8
-  store ptr %samplesSizes, ptr %samplesSizes.addr, align 8
-  store i32 %nbFinalizeSamples, ptr %nbFinalizeSamples.addr, align 4
-  store i64 %nbCheckSamples, ptr %nbCheckSamples.addr, align 8
-  store i64 %nbSamples, ptr %nbSamples.addr, align 8
-  store ptr %offsets, ptr %offsets.addr, align 8
-  store i64 %totalCompressedSize, ptr %totalCompressedSize.addr, align 8
-  store i64 0, ptr %largestDict, align 8
-  store i64 0, ptr %largestCompressed, align 8
-  %0 = load ptr, ptr %customDictContent.addr, align 8
-  %1 = load i64, ptr %dictContentSize.addr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %0, i64 %1
-  store ptr %add.ptr, ptr %customDictContentEnd, align 8
-  %2 = load i64, ptr %dictBufferCapacity.addr, align 8
-  %call = call noalias ptr @malloc(i64 noundef %2) #8
-  store ptr %call, ptr %largestDictbuffer, align 8
-  %3 = load i64, ptr %dictBufferCapacity.addr, align 8
-  %call1 = call noalias ptr @malloc(i64 noundef %3) #8
-  store ptr %call1, ptr %candidateDictBuffer, align 8
-  %shrinkDictMaxRegression = getelementptr inbounds %struct.ZDICT_cover_params_t, ptr %params, i32 0, i32 6
-  %4 = load i32, ptr %shrinkDictMaxRegression, align 4
-  %conv = uitofp i32 %4 to double
-  %div = fdiv double %conv, 1.000000e+02
-  %add = fadd double %div, 1.000000e+00
-  store double %add, ptr %regressionTolerance, align 8
-  %5 = load ptr, ptr %largestDictbuffer, align 8
-  %tobool = icmp ne ptr %5, null
-  br i1 %tobool, label %lor.lhs.false, label %if.then
+define void @COVER_selectDict(ptr dead_on_unwind noalias writable sret(%struct.COVER_dictSelection) align 8 %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i64 noundef %7, i64 noundef %8, ptr noundef byval(%struct.ZDICT_cover_params_t) align 8 %9, ptr noundef %10, i64 noundef %11) #0 {
+  %13 = alloca ptr, align 8
+  %14 = alloca i64, align 8
+  %15 = alloca i64, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca ptr, align 8
+  %18 = alloca i32, align 4
+  %19 = alloca i64, align 8
+  %20 = alloca i64, align 8
+  %21 = alloca ptr, align 8
+  %22 = alloca i64, align 8
+  %23 = alloca i64, align 8
+  %24 = alloca i64, align 8
+  %25 = alloca ptr, align 8
+  %26 = alloca ptr, align 8
+  %27 = alloca ptr, align 8
+  %28 = alloca double, align 8
+  %29 = alloca i32, align 4
+  store ptr %1, ptr %13, align 8, !tbaa !22
+  store i64 %2, ptr %14, align 8, !tbaa !10
+  store i64 %3, ptr %15, align 8, !tbaa !10
+  store ptr %4, ptr %16, align 8, !tbaa !22
+  store ptr %5, ptr %17, align 8, !tbaa !3
+  store i32 %6, ptr %18, align 4, !tbaa !8
+  store i64 %7, ptr %19, align 8, !tbaa !10
+  store i64 %8, ptr %20, align 8, !tbaa !10
+  store ptr %10, ptr %21, align 8, !tbaa !3
+  store i64 %11, ptr %22, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #10
+  store i64 0, ptr %23, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #10
+  store i64 0, ptr %24, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #10
+  %30 = load ptr, ptr %13, align 8, !tbaa !22
+  %31 = load i64, ptr %15, align 8, !tbaa !10
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 %31
+  store ptr %32, ptr %25, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 8, ptr %26) #10
+  %33 = load i64, ptr %14, align 8, !tbaa !10
+  %34 = call noalias ptr @malloc(i64 noundef %33) #11
+  store ptr %34, ptr %26, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 8, ptr %27) #10
+  %35 = load i64, ptr %14, align 8, !tbaa !10
+  %36 = call noalias ptr @malloc(i64 noundef %35) #11
+  store ptr %36, ptr %27, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 8, ptr %28) #10
+  %37 = getelementptr inbounds nuw %struct.ZDICT_cover_params_t, ptr %9, i32 0, i32 6
+  %38 = load i32, ptr %37, align 4, !tbaa !78
+  %39 = uitofp i32 %38 to double
+  %40 = fdiv double %39, 1.000000e+02
+  %41 = fadd double %40, 1.000000e+00
+  store double %41, ptr %28, align 8, !tbaa !14
+  %42 = load ptr, ptr %26, align 8, !tbaa !22
+  %43 = icmp ne ptr %42, null
+  br i1 %43, label %44, label %47
 
-lor.lhs.false:                                    ; preds = %entry
-  %6 = load ptr, ptr %candidateDictBuffer, align 8
-  %tobool2 = icmp ne ptr %6, null
-  br i1 %tobool2, label %if.end, label %if.then
+44:                                               ; preds = %12
+  %45 = load ptr, ptr %27, align 8, !tbaa !22
+  %46 = icmp ne ptr %45, null
+  br i1 %46, label %51, label %47
 
-if.then:                                          ; preds = %lor.lhs.false, %entry
-  %7 = load ptr, ptr %largestDictbuffer, align 8
-  call void @free(ptr noundef %7) #9
-  %8 = load ptr, ptr %candidateDictBuffer, align 8
-  call void @free(ptr noundef %8) #9
-  %9 = load i64, ptr %dictContentSize.addr, align 8
-  call void @COVER_dictSelectionError(ptr sret(%struct.COVER_dictSelection) align 8 %agg.result, i64 noundef %9)
-  br label %return
+47:                                               ; preds = %44, %12
+  %48 = load ptr, ptr %26, align 8, !tbaa !22
+  call void @free(ptr noundef %48) #10
+  %49 = load ptr, ptr %27, align 8, !tbaa !22
+  call void @free(ptr noundef %49) #10
+  %50 = load i64, ptr %15, align 8, !tbaa !10
+  call void @COVER_dictSelectionError(ptr dead_on_unwind writable sret(%struct.COVER_dictSelection) align 8 %0, i64 noundef %50)
+  store i32 1, ptr %29, align 4
+  br label %165
 
-if.end:                                           ; preds = %lor.lhs.false
-  %10 = load ptr, ptr %largestDictbuffer, align 8
-  %11 = load ptr, ptr %customDictContent.addr, align 8
-  %12 = load i64, ptr %dictContentSize.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %10, ptr align 1 %11, i64 %12, i1 false)
-  %13 = load ptr, ptr %largestDictbuffer, align 8
-  %14 = load i64, ptr %dictBufferCapacity.addr, align 8
-  %15 = load ptr, ptr %customDictContent.addr, align 8
-  %16 = load i64, ptr %dictContentSize.addr, align 8
-  %17 = load ptr, ptr %samplesBuffer.addr, align 8
-  %18 = load ptr, ptr %samplesSizes.addr, align 8
-  %19 = load i32, ptr %nbFinalizeSamples.addr, align 4
-  %zParams = getelementptr inbounds %struct.ZDICT_cover_params_t, ptr %params, i32 0, i32 7
-  %call3 = call i64 @ZDICT_finalizeDictionary(ptr noundef %13, i64 noundef %14, ptr noundef %15, i64 noundef %16, ptr noundef %17, ptr noundef %18, i32 noundef %19, ptr noundef byval(%struct.ZDICT_params_t) align 8 %zParams)
-  store i64 %call3, ptr %dictContentSize.addr, align 8
-  %20 = load i64, ptr %dictContentSize.addr, align 8
-  %call4 = call i32 @ZDICT_isError(i64 noundef %20)
-  %tobool5 = icmp ne i32 %call4, 0
-  br i1 %tobool5, label %if.then6, label %if.end7
+51:                                               ; preds = %44
+  %52 = load ptr, ptr %26, align 8, !tbaa !22
+  %53 = load ptr, ptr %13, align 8, !tbaa !22
+  %54 = load i64, ptr %15, align 8, !tbaa !10
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %52, ptr align 1 %53, i64 %54, i1 false)
+  %55 = load ptr, ptr %26, align 8, !tbaa !22
+  %56 = load i64, ptr %14, align 8, !tbaa !10
+  %57 = load ptr, ptr %13, align 8, !tbaa !22
+  %58 = load i64, ptr %15, align 8, !tbaa !10
+  %59 = load ptr, ptr %16, align 8, !tbaa !22
+  %60 = load ptr, ptr %17, align 8, !tbaa !3
+  %61 = load i32, ptr %18, align 4, !tbaa !8
+  %62 = getelementptr inbounds nuw %struct.ZDICT_cover_params_t, ptr %9, i32 0, i32 7
+  %63 = call i64 @ZDICT_finalizeDictionary(ptr noundef %55, i64 noundef %56, ptr noundef %57, i64 noundef %58, ptr noundef %59, ptr noundef %60, i32 noundef %61, ptr noundef byval(%struct.ZDICT_params_t) align 8 %62)
+  store i64 %63, ptr %15, align 8, !tbaa !10
+  %64 = load i64, ptr %15, align 8, !tbaa !10
+  %65 = call i32 @ZDICT_isError(i64 noundef %64)
+  %66 = icmp ne i32 %65, 0
+  br i1 %66, label %67, label %71
 
-if.then6:                                         ; preds = %if.end
-  %21 = load ptr, ptr %largestDictbuffer, align 8
-  call void @free(ptr noundef %21) #9
-  %22 = load ptr, ptr %candidateDictBuffer, align 8
-  call void @free(ptr noundef %22) #9
-  %23 = load i64, ptr %dictContentSize.addr, align 8
-  call void @COVER_dictSelectionError(ptr sret(%struct.COVER_dictSelection) align 8 %agg.result, i64 noundef %23)
-  br label %return
+67:                                               ; preds = %51
+  %68 = load ptr, ptr %26, align 8, !tbaa !22
+  call void @free(ptr noundef %68) #10
+  %69 = load ptr, ptr %27, align 8, !tbaa !22
+  call void @free(ptr noundef %69) #10
+  %70 = load i64, ptr %15, align 8, !tbaa !10
+  call void @COVER_dictSelectionError(ptr dead_on_unwind writable sret(%struct.COVER_dictSelection) align 8 %0, i64 noundef %70)
+  store i32 1, ptr %29, align 4
+  br label %165
 
-if.end7:                                          ; preds = %if.end
-  %24 = load ptr, ptr %samplesSizes.addr, align 8
-  %25 = load ptr, ptr %samplesBuffer.addr, align 8
-  %26 = load ptr, ptr %offsets.addr, align 8
-  %27 = load i64, ptr %nbCheckSamples.addr, align 8
-  %28 = load i64, ptr %nbSamples.addr, align 8
-  %29 = load ptr, ptr %largestDictbuffer, align 8
-  %30 = load i64, ptr %dictContentSize.addr, align 8
-  %call8 = call i64 @COVER_checkTotalCompressedSize(ptr noundef byval(%struct.ZDICT_cover_params_t) align 8 %params, ptr noundef %24, ptr noundef %25, ptr noundef %26, i64 noundef %27, i64 noundef %28, ptr noundef %29, i64 noundef %30)
-  store i64 %call8, ptr %totalCompressedSize.addr, align 8
-  %31 = load i64, ptr %totalCompressedSize.addr, align 8
-  %call9 = call i32 @ERR_isError(i64 noundef %31)
-  %tobool10 = icmp ne i32 %call9, 0
-  br i1 %tobool10, label %if.then11, label %if.end12
+71:                                               ; preds = %51
+  %72 = load ptr, ptr %17, align 8, !tbaa !3
+  %73 = load ptr, ptr %16, align 8, !tbaa !22
+  %74 = load ptr, ptr %21, align 8, !tbaa !3
+  %75 = load i64, ptr %19, align 8, !tbaa !10
+  %76 = load i64, ptr %20, align 8, !tbaa !10
+  %77 = load ptr, ptr %26, align 8, !tbaa !22
+  %78 = load i64, ptr %15, align 8, !tbaa !10
+  %79 = call i64 @COVER_checkTotalCompressedSize(ptr noundef byval(%struct.ZDICT_cover_params_t) align 8 %9, ptr noundef %72, ptr noundef %73, ptr noundef %74, i64 noundef %75, i64 noundef %76, ptr noundef %77, i64 noundef %78)
+  store i64 %79, ptr %22, align 8, !tbaa !10
+  %80 = load i64, ptr %22, align 8, !tbaa !10
+  %81 = call i32 @ERR_isError(i64 noundef %80)
+  %82 = icmp ne i32 %81, 0
+  br i1 %82, label %83, label %87
 
-if.then11:                                        ; preds = %if.end7
-  %32 = load ptr, ptr %largestDictbuffer, align 8
-  call void @free(ptr noundef %32) #9
-  %33 = load ptr, ptr %candidateDictBuffer, align 8
-  call void @free(ptr noundef %33) #9
-  %34 = load i64, ptr %totalCompressedSize.addr, align 8
-  call void @COVER_dictSelectionError(ptr sret(%struct.COVER_dictSelection) align 8 %agg.result, i64 noundef %34)
-  br label %return
+83:                                               ; preds = %71
+  %84 = load ptr, ptr %26, align 8, !tbaa !22
+  call void @free(ptr noundef %84) #10
+  %85 = load ptr, ptr %27, align 8, !tbaa !22
+  call void @free(ptr noundef %85) #10
+  %86 = load i64, ptr %22, align 8, !tbaa !10
+  call void @COVER_dictSelectionError(ptr dead_on_unwind writable sret(%struct.COVER_dictSelection) align 8 %0, i64 noundef %86)
+  store i32 1, ptr %29, align 4
+  br label %165
 
-if.end12:                                         ; preds = %if.end7
-  %shrinkDict = getelementptr inbounds %struct.ZDICT_cover_params_t, ptr %params, i32 0, i32 5
-  %35 = load i32, ptr %shrinkDict, align 8
-  %cmp = icmp eq i32 %35, 0
-  br i1 %cmp, label %if.then14, label %if.end15
+87:                                               ; preds = %71
+  %88 = getelementptr inbounds nuw %struct.ZDICT_cover_params_t, ptr %9, i32 0, i32 5
+  %89 = load i32, ptr %88, align 8, !tbaa !79
+  %90 = icmp eq i32 %89, 0
+  br i1 %90, label %91, label %96
 
-if.then14:                                        ; preds = %if.end12
-  %36 = load ptr, ptr %candidateDictBuffer, align 8
-  call void @free(ptr noundef %36) #9
-  %37 = load ptr, ptr %largestDictbuffer, align 8
-  %38 = load i64, ptr %dictContentSize.addr, align 8
-  %39 = load i64, ptr %totalCompressedSize.addr, align 8
-  call void @setDictSelection(ptr sret(%struct.COVER_dictSelection) align 8 %agg.result, ptr noundef %37, i64 noundef %38, i64 noundef %39)
-  br label %return
+91:                                               ; preds = %87
+  %92 = load ptr, ptr %27, align 8, !tbaa !22
+  call void @free(ptr noundef %92) #10
+  %93 = load ptr, ptr %26, align 8, !tbaa !22
+  %94 = load i64, ptr %15, align 8, !tbaa !10
+  %95 = load i64, ptr %22, align 8, !tbaa !10
+  call void @setDictSelection(ptr dead_on_unwind writable sret(%struct.COVER_dictSelection) align 8 %0, ptr noundef %93, i64 noundef %94, i64 noundef %95)
+  store i32 1, ptr %29, align 4
+  br label %165
 
-if.end15:                                         ; preds = %if.end12
-  %40 = load i64, ptr %dictContentSize.addr, align 8
-  store i64 %40, ptr %largestDict, align 8
-  %41 = load i64, ptr %totalCompressedSize.addr, align 8
-  store i64 %41, ptr %largestCompressed, align 8
-  store i64 256, ptr %dictContentSize.addr, align 8
-  br label %while.cond
+96:                                               ; preds = %87
+  %97 = load i64, ptr %15, align 8, !tbaa !10
+  store i64 %97, ptr %23, align 8, !tbaa !10
+  %98 = load i64, ptr %22, align 8, !tbaa !10
+  store i64 %98, ptr %24, align 8, !tbaa !10
+  store i64 256, ptr %15, align 8, !tbaa !10
+  br label %99
 
-while.cond:                                       ; preds = %if.end35, %if.end15
-  %42 = load i64, ptr %dictContentSize.addr, align 8
-  %43 = load i64, ptr %largestDict, align 8
-  %cmp16 = icmp ult i64 %42, %43
-  br i1 %cmp16, label %while.body, label %while.end
+99:                                               ; preds = %155, %96
+  %100 = load i64, ptr %15, align 8, !tbaa !10
+  %101 = load i64, ptr %23, align 8, !tbaa !10
+  %102 = icmp ult i64 %100, %101
+  br i1 %102, label %103, label %158
 
-while.body:                                       ; preds = %while.cond
-  %44 = load ptr, ptr %candidateDictBuffer, align 8
-  %45 = load ptr, ptr %largestDictbuffer, align 8
-  %46 = load i64, ptr %largestDict, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %44, ptr align 1 %45, i64 %46, i1 false)
-  %47 = load ptr, ptr %candidateDictBuffer, align 8
-  %48 = load i64, ptr %dictBufferCapacity.addr, align 8
-  %49 = load ptr, ptr %customDictContentEnd, align 8
-  %50 = load i64, ptr %dictContentSize.addr, align 8
-  %idx.neg = sub i64 0, %50
-  %add.ptr18 = getelementptr inbounds i8, ptr %49, i64 %idx.neg
-  %51 = load i64, ptr %dictContentSize.addr, align 8
-  %52 = load ptr, ptr %samplesBuffer.addr, align 8
-  %53 = load ptr, ptr %samplesSizes.addr, align 8
-  %54 = load i32, ptr %nbFinalizeSamples.addr, align 4
-  %zParams19 = getelementptr inbounds %struct.ZDICT_cover_params_t, ptr %params, i32 0, i32 7
-  %call20 = call i64 @ZDICT_finalizeDictionary(ptr noundef %47, i64 noundef %48, ptr noundef %add.ptr18, i64 noundef %51, ptr noundef %52, ptr noundef %53, i32 noundef %54, ptr noundef byval(%struct.ZDICT_params_t) align 8 %zParams19)
-  store i64 %call20, ptr %dictContentSize.addr, align 8
-  %55 = load i64, ptr %dictContentSize.addr, align 8
-  %call21 = call i32 @ZDICT_isError(i64 noundef %55)
-  %tobool22 = icmp ne i32 %call21, 0
-  br i1 %tobool22, label %if.then23, label %if.end24
+103:                                              ; preds = %99
+  %104 = load ptr, ptr %27, align 8, !tbaa !22
+  %105 = load ptr, ptr %26, align 8, !tbaa !22
+  %106 = load i64, ptr %23, align 8, !tbaa !10
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %104, ptr align 1 %105, i64 %106, i1 false)
+  %107 = load ptr, ptr %27, align 8, !tbaa !22
+  %108 = load i64, ptr %14, align 8, !tbaa !10
+  %109 = load ptr, ptr %25, align 8, !tbaa !22
+  %110 = load i64, ptr %15, align 8, !tbaa !10
+  %111 = sub i64 0, %110
+  %112 = getelementptr inbounds i8, ptr %109, i64 %111
+  %113 = load i64, ptr %15, align 8, !tbaa !10
+  %114 = load ptr, ptr %16, align 8, !tbaa !22
+  %115 = load ptr, ptr %17, align 8, !tbaa !3
+  %116 = load i32, ptr %18, align 4, !tbaa !8
+  %117 = getelementptr inbounds nuw %struct.ZDICT_cover_params_t, ptr %9, i32 0, i32 7
+  %118 = call i64 @ZDICT_finalizeDictionary(ptr noundef %107, i64 noundef %108, ptr noundef %112, i64 noundef %113, ptr noundef %114, ptr noundef %115, i32 noundef %116, ptr noundef byval(%struct.ZDICT_params_t) align 8 %117)
+  store i64 %118, ptr %15, align 8, !tbaa !10
+  %119 = load i64, ptr %15, align 8, !tbaa !10
+  %120 = call i32 @ZDICT_isError(i64 noundef %119)
+  %121 = icmp ne i32 %120, 0
+  br i1 %121, label %122, label %126
 
-if.then23:                                        ; preds = %while.body
-  %56 = load ptr, ptr %largestDictbuffer, align 8
-  call void @free(ptr noundef %56) #9
-  %57 = load ptr, ptr %candidateDictBuffer, align 8
-  call void @free(ptr noundef %57) #9
-  %58 = load i64, ptr %dictContentSize.addr, align 8
-  call void @COVER_dictSelectionError(ptr sret(%struct.COVER_dictSelection) align 8 %agg.result, i64 noundef %58)
-  br label %return
+122:                                              ; preds = %103
+  %123 = load ptr, ptr %26, align 8, !tbaa !22
+  call void @free(ptr noundef %123) #10
+  %124 = load ptr, ptr %27, align 8, !tbaa !22
+  call void @free(ptr noundef %124) #10
+  %125 = load i64, ptr %15, align 8, !tbaa !10
+  call void @COVER_dictSelectionError(ptr dead_on_unwind writable sret(%struct.COVER_dictSelection) align 8 %0, i64 noundef %125)
+  store i32 1, ptr %29, align 4
+  br label %165
 
-if.end24:                                         ; preds = %while.body
-  %59 = load ptr, ptr %samplesSizes.addr, align 8
-  %60 = load ptr, ptr %samplesBuffer.addr, align 8
-  %61 = load ptr, ptr %offsets.addr, align 8
-  %62 = load i64, ptr %nbCheckSamples.addr, align 8
-  %63 = load i64, ptr %nbSamples.addr, align 8
-  %64 = load ptr, ptr %candidateDictBuffer, align 8
-  %65 = load i64, ptr %dictContentSize.addr, align 8
-  %call25 = call i64 @COVER_checkTotalCompressedSize(ptr noundef byval(%struct.ZDICT_cover_params_t) align 8 %params, ptr noundef %59, ptr noundef %60, ptr noundef %61, i64 noundef %62, i64 noundef %63, ptr noundef %64, i64 noundef %65)
-  store i64 %call25, ptr %totalCompressedSize.addr, align 8
-  %66 = load i64, ptr %totalCompressedSize.addr, align 8
-  %call26 = call i32 @ERR_isError(i64 noundef %66)
-  %tobool27 = icmp ne i32 %call26, 0
-  br i1 %tobool27, label %if.then28, label %if.end29
+126:                                              ; preds = %103
+  %127 = load ptr, ptr %17, align 8, !tbaa !3
+  %128 = load ptr, ptr %16, align 8, !tbaa !22
+  %129 = load ptr, ptr %21, align 8, !tbaa !3
+  %130 = load i64, ptr %19, align 8, !tbaa !10
+  %131 = load i64, ptr %20, align 8, !tbaa !10
+  %132 = load ptr, ptr %27, align 8, !tbaa !22
+  %133 = load i64, ptr %15, align 8, !tbaa !10
+  %134 = call i64 @COVER_checkTotalCompressedSize(ptr noundef byval(%struct.ZDICT_cover_params_t) align 8 %9, ptr noundef %127, ptr noundef %128, ptr noundef %129, i64 noundef %130, i64 noundef %131, ptr noundef %132, i64 noundef %133)
+  store i64 %134, ptr %22, align 8, !tbaa !10
+  %135 = load i64, ptr %22, align 8, !tbaa !10
+  %136 = call i32 @ERR_isError(i64 noundef %135)
+  %137 = icmp ne i32 %136, 0
+  br i1 %137, label %138, label %142
 
-if.then28:                                        ; preds = %if.end24
-  %67 = load ptr, ptr %largestDictbuffer, align 8
-  call void @free(ptr noundef %67) #9
-  %68 = load ptr, ptr %candidateDictBuffer, align 8
-  call void @free(ptr noundef %68) #9
-  %69 = load i64, ptr %totalCompressedSize.addr, align 8
-  call void @COVER_dictSelectionError(ptr sret(%struct.COVER_dictSelection) align 8 %agg.result, i64 noundef %69)
-  br label %return
+138:                                              ; preds = %126
+  %139 = load ptr, ptr %26, align 8, !tbaa !22
+  call void @free(ptr noundef %139) #10
+  %140 = load ptr, ptr %27, align 8, !tbaa !22
+  call void @free(ptr noundef %140) #10
+  %141 = load i64, ptr %22, align 8, !tbaa !10
+  call void @COVER_dictSelectionError(ptr dead_on_unwind writable sret(%struct.COVER_dictSelection) align 8 %0, i64 noundef %141)
+  store i32 1, ptr %29, align 4
+  br label %165
 
-if.end29:                                         ; preds = %if.end24
-  %70 = load i64, ptr %totalCompressedSize.addr, align 8
-  %conv30 = uitofp i64 %70 to double
-  %71 = load i64, ptr %largestCompressed, align 8
-  %conv31 = uitofp i64 %71 to double
-  %72 = load double, ptr %regressionTolerance, align 8
-  %mul = fmul double %conv31, %72
-  %cmp32 = fcmp ole double %conv30, %mul
-  br i1 %cmp32, label %if.then34, label %if.end35
+142:                                              ; preds = %126
+  %143 = load i64, ptr %22, align 8, !tbaa !10
+  %144 = uitofp i64 %143 to double
+  %145 = load i64, ptr %24, align 8, !tbaa !10
+  %146 = uitofp i64 %145 to double
+  %147 = load double, ptr %28, align 8, !tbaa !14
+  %148 = fmul double %146, %147
+  %149 = fcmp ole double %144, %148
+  br i1 %149, label %150, label %155
 
-if.then34:                                        ; preds = %if.end29
-  %73 = load ptr, ptr %largestDictbuffer, align 8
-  call void @free(ptr noundef %73) #9
-  %74 = load ptr, ptr %candidateDictBuffer, align 8
-  %75 = load i64, ptr %dictContentSize.addr, align 8
-  %76 = load i64, ptr %totalCompressedSize.addr, align 8
-  call void @setDictSelection(ptr sret(%struct.COVER_dictSelection) align 8 %agg.result, ptr noundef %74, i64 noundef %75, i64 noundef %76)
-  br label %return
+150:                                              ; preds = %142
+  %151 = load ptr, ptr %26, align 8, !tbaa !22
+  call void @free(ptr noundef %151) #10
+  %152 = load ptr, ptr %27, align 8, !tbaa !22
+  %153 = load i64, ptr %15, align 8, !tbaa !10
+  %154 = load i64, ptr %22, align 8, !tbaa !10
+  call void @setDictSelection(ptr dead_on_unwind writable sret(%struct.COVER_dictSelection) align 8 %0, ptr noundef %152, i64 noundef %153, i64 noundef %154)
+  store i32 1, ptr %29, align 4
+  br label %165
 
-if.end35:                                         ; preds = %if.end29
-  %77 = load i64, ptr %dictContentSize.addr, align 8
-  %mul36 = mul i64 %77, 2
-  store i64 %mul36, ptr %dictContentSize.addr, align 8
-  br label %while.cond, !llvm.loop !12
+155:                                              ; preds = %142
+  %156 = load i64, ptr %15, align 8, !tbaa !10
+  %157 = mul i64 %156, 2
+  store i64 %157, ptr %15, align 8, !tbaa !10
+  br label %99, !llvm.loop !80
 
-while.end:                                        ; preds = %while.cond
-  %78 = load i64, ptr %largestDict, align 8
-  store i64 %78, ptr %dictContentSize.addr, align 8
-  %79 = load i64, ptr %largestCompressed, align 8
-  store i64 %79, ptr %totalCompressedSize.addr, align 8
-  %80 = load ptr, ptr %candidateDictBuffer, align 8
-  call void @free(ptr noundef %80) #9
-  %81 = load ptr, ptr %largestDictbuffer, align 8
-  %82 = load i64, ptr %dictContentSize.addr, align 8
-  %83 = load i64, ptr %totalCompressedSize.addr, align 8
-  call void @setDictSelection(ptr sret(%struct.COVER_dictSelection) align 8 %agg.result, ptr noundef %81, i64 noundef %82, i64 noundef %83)
-  br label %return
+158:                                              ; preds = %99
+  %159 = load i64, ptr %23, align 8, !tbaa !10
+  store i64 %159, ptr %15, align 8, !tbaa !10
+  %160 = load i64, ptr %24, align 8, !tbaa !10
+  store i64 %160, ptr %22, align 8, !tbaa !10
+  %161 = load ptr, ptr %27, align 8, !tbaa !22
+  call void @free(ptr noundef %161) #10
+  %162 = load ptr, ptr %26, align 8, !tbaa !22
+  %163 = load i64, ptr %15, align 8, !tbaa !10
+  %164 = load i64, ptr %22, align 8, !tbaa !10
+  call void @setDictSelection(ptr dead_on_unwind writable sret(%struct.COVER_dictSelection) align 8 %0, ptr noundef %162, i64 noundef %163, i64 noundef %164)
+  store i32 1, ptr %29, align 4
+  br label %165
 
-return:                                           ; preds = %while.end, %if.then34, %if.then28, %if.then23, %if.then14, %if.then11, %if.then6, %if.then
+165:                                              ; preds = %158, %150, %138, %122, %91, %83, %67, %47
+  call void @llvm.lifetime.end.p0(i64 8, ptr %28) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %27) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %26) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #10
   ret void
 }
 
-declare i32 @ZDICT_isError(i64 noundef) #1
+declare i32 @ZDICT_isError(i64 noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZDICT_optimizeTrainFromBuffer_cover(ptr noundef %dictBuffer, i64 noundef %dictBufferCapacity, ptr noundef %samplesBuffer, ptr noundef %samplesSizes, i32 noundef %nbSamples, ptr noundef %parameters) #0 {
-entry:
-  %retval = alloca i64, align 8
-  %dictBuffer.addr = alloca ptr, align 8
-  %dictBufferCapacity.addr = alloca i64, align 8
-  %samplesBuffer.addr = alloca ptr, align 8
-  %samplesSizes.addr = alloca ptr, align 8
-  %nbSamples.addr = alloca i32, align 4
-  %parameters.addr = alloca ptr, align 8
-  %nbThreads = alloca i32, align 4
-  %splitPoint = alloca double, align 8
-  %kMinD = alloca i32, align 4
-  %kMaxD = alloca i32, align 4
-  %kMinK = alloca i32, align 4
-  %kMaxK = alloca i32, align 4
-  %kSteps = alloca i32, align 4
-  %kStepSize = alloca i32, align 4
-  %kIterations = alloca i32, align 4
-  %shrinkDict = alloca i32, align 4
-  %displayLevel = alloca i32, align 4
-  %iteration = alloca i32, align 4
-  %d48 = alloca i32, align 4
-  %k49 = alloca i32, align 4
-  %best = alloca %struct.COVER_best_s, align 8
-  %pool = alloca ptr, align 8
-  %warned = alloca i32, align 4
-  %ctx = alloca %struct.COVER_ctx_t, align 8
-  %initVal = alloca i64, align 8
-  %data = alloca ptr, align 8
-  %dictSize = alloca i64, align 8
-  %compressedSize206 = alloca i64, align 8
-  store ptr %dictBuffer, ptr %dictBuffer.addr, align 8
-  store i64 %dictBufferCapacity, ptr %dictBufferCapacity.addr, align 8
-  store ptr %samplesBuffer, ptr %samplesBuffer.addr, align 8
-  store ptr %samplesSizes, ptr %samplesSizes.addr, align 8
-  store i32 %nbSamples, ptr %nbSamples.addr, align 4
-  store ptr %parameters, ptr %parameters.addr, align 8
-  %0 = load ptr, ptr %parameters.addr, align 8
-  %nbThreads1 = getelementptr inbounds %struct.ZDICT_cover_params_t, ptr %0, i32 0, i32 3
-  %1 = load i32, ptr %nbThreads1, align 4
-  store i32 %1, ptr %nbThreads, align 4
-  %2 = load ptr, ptr %parameters.addr, align 8
-  %splitPoint2 = getelementptr inbounds %struct.ZDICT_cover_params_t, ptr %2, i32 0, i32 4
-  %3 = load double, ptr %splitPoint2, align 8
-  %cmp = fcmp ole double %3, 0.000000e+00
-  br i1 %cmp, label %cond.true, label %cond.false
-
-cond.true:                                        ; preds = %entry
-  br label %cond.end
-
-cond.false:                                       ; preds = %entry
-  %4 = load ptr, ptr %parameters.addr, align 8
-  %splitPoint3 = getelementptr inbounds %struct.ZDICT_cover_params_t, ptr %4, i32 0, i32 4
-  %5 = load double, ptr %splitPoint3, align 8
-  br label %cond.end
-
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi double [ 1.000000e+00, %cond.true ], [ %5, %cond.false ]
-  store double %cond, ptr %splitPoint, align 8
-  %6 = load ptr, ptr %parameters.addr, align 8
-  %d = getelementptr inbounds %struct.ZDICT_cover_params_t, ptr %6, i32 0, i32 1
-  %7 = load i32, ptr %d, align 4
-  %cmp4 = icmp eq i32 %7, 0
-  br i1 %cmp4, label %cond.true5, label %cond.false6
-
-cond.true5:                                       ; preds = %cond.end
-  br label %cond.end8
-
-cond.false6:                                      ; preds = %cond.end
-  %8 = load ptr, ptr %parameters.addr, align 8
-  %d7 = getelementptr inbounds %struct.ZDICT_cover_params_t, ptr %8, i32 0, i32 1
-  %9 = load i32, ptr %d7, align 4
-  br label %cond.end8
-
-cond.end8:                                        ; preds = %cond.false6, %cond.true5
-  %cond9 = phi i32 [ 6, %cond.true5 ], [ %9, %cond.false6 ]
-  store i32 %cond9, ptr %kMinD, align 4
-  %10 = load ptr, ptr %parameters.addr, align 8
-  %d10 = getelementptr inbounds %struct.ZDICT_cover_params_t, ptr %10, i32 0, i32 1
-  %11 = load i32, ptr %d10, align 4
-  %cmp11 = icmp eq i32 %11, 0
-  br i1 %cmp11, label %cond.true12, label %cond.false13
-
-cond.true12:                                      ; preds = %cond.end8
-  br label %cond.end15
-
-cond.false13:                                     ; preds = %cond.end8
-  %12 = load ptr, ptr %parameters.addr, align 8
-  %d14 = getelementptr inbounds %struct.ZDICT_cover_params_t, ptr %12, i32 0, i32 1
-  %13 = load i32, ptr %d14, align 4
-  br label %cond.end15
-
-cond.end15:                                       ; preds = %cond.false13, %cond.true12
-  %cond16 = phi i32 [ 8, %cond.true12 ], [ %13, %cond.false13 ]
-  store i32 %cond16, ptr %kMaxD, align 4
-  %14 = load ptr, ptr %parameters.addr, align 8
-  %k = getelementptr inbounds %struct.ZDICT_cover_params_t, ptr %14, i32 0, i32 0
-  %15 = load i32, ptr %k, align 8
-  %cmp17 = icmp eq i32 %15, 0
-  br i1 %cmp17, label %cond.true18, label %cond.false19
-
-cond.true18:                                      ; preds = %cond.end15
-  br label %cond.end21
-
-cond.false19:                                     ; preds = %cond.end15
-  %16 = load ptr, ptr %parameters.addr, align 8
-  %k20 = getelementptr inbounds %struct.ZDICT_cover_params_t, ptr %16, i32 0, i32 0
-  %17 = load i32, ptr %k20, align 8
-  br label %cond.end21
-
-cond.end21:                                       ; preds = %cond.false19, %cond.true18
-  %cond22 = phi i32 [ 50, %cond.true18 ], [ %17, %cond.false19 ]
-  store i32 %cond22, ptr %kMinK, align 4
-  %18 = load ptr, ptr %parameters.addr, align 8
-  %k23 = getelementptr inbounds %struct.ZDICT_cover_params_t, ptr %18, i32 0, i32 0
-  %19 = load i32, ptr %k23, align 8
-  %cmp24 = icmp eq i32 %19, 0
-  br i1 %cmp24, label %cond.true25, label %cond.false26
-
-cond.true25:                                      ; preds = %cond.end21
-  br label %cond.end28
-
-cond.false26:                                     ; preds = %cond.end21
-  %20 = load ptr, ptr %parameters.addr, align 8
-  %k27 = getelementptr inbounds %struct.ZDICT_cover_params_t, ptr %20, i32 0, i32 0
-  %21 = load i32, ptr %k27, align 8
-  br label %cond.end28
-
-cond.end28:                                       ; preds = %cond.false26, %cond.true25
-  %cond29 = phi i32 [ 2000, %cond.true25 ], [ %21, %cond.false26 ]
-  store i32 %cond29, ptr %kMaxK, align 4
-  %22 = load ptr, ptr %parameters.addr, align 8
-  %steps = getelementptr inbounds %struct.ZDICT_cover_params_t, ptr %22, i32 0, i32 2
-  %23 = load i32, ptr %steps, align 8
-  %cmp30 = icmp eq i32 %23, 0
-  br i1 %cmp30, label %cond.true31, label %cond.false32
-
-cond.true31:                                      ; preds = %cond.end28
-  br label %cond.end34
-
-cond.false32:                                     ; preds = %cond.end28
-  %24 = load ptr, ptr %parameters.addr, align 8
-  %steps33 = getelementptr inbounds %struct.ZDICT_cover_params_t, ptr %24, i32 0, i32 2
-  %25 = load i32, ptr %steps33, align 8
-  br label %cond.end34
-
-cond.end34:                                       ; preds = %cond.false32, %cond.true31
-  %cond35 = phi i32 [ 40, %cond.true31 ], [ %25, %cond.false32 ]
-  store i32 %cond35, ptr %kSteps, align 4
-  %26 = load i32, ptr %kMaxK, align 4
-  %27 = load i32, ptr %kMinK, align 4
-  %sub = sub i32 %26, %27
-  %28 = load i32, ptr %kSteps, align 4
-  %div = udiv i32 %sub, %28
-  %cmp36 = icmp ugt i32 %div, 1
-  br i1 %cmp36, label %cond.true37, label %cond.false40
-
-cond.true37:                                      ; preds = %cond.end34
-  %29 = load i32, ptr %kMaxK, align 4
-  %30 = load i32, ptr %kMinK, align 4
-  %sub38 = sub i32 %29, %30
-  %31 = load i32, ptr %kSteps, align 4
-  %div39 = udiv i32 %sub38, %31
-  br label %cond.end41
-
-cond.false40:                                     ; preds = %cond.end34
-  br label %cond.end41
-
-cond.end41:                                       ; preds = %cond.false40, %cond.true37
-  %cond42 = phi i32 [ %div39, %cond.true37 ], [ 1, %cond.false40 ]
-  store i32 %cond42, ptr %kStepSize, align 4
-  %32 = load i32, ptr %kMaxD, align 4
-  %33 = load i32, ptr %kMinD, align 4
-  %sub43 = sub i32 %32, %33
-  %div44 = udiv i32 %sub43, 2
-  %add = add i32 1, %div44
-  %34 = load i32, ptr %kMaxK, align 4
-  %35 = load i32, ptr %kMinK, align 4
-  %sub45 = sub i32 %34, %35
-  %36 = load i32, ptr %kStepSize, align 4
-  %div46 = udiv i32 %sub45, %36
-  %add47 = add i32 1, %div46
-  %mul = mul i32 %add, %add47
-  store i32 %mul, ptr %kIterations, align 4
-  store i32 0, ptr %shrinkDict, align 4
-  %37 = load ptr, ptr %parameters.addr, align 8
-  %zParams = getelementptr inbounds %struct.ZDICT_cover_params_t, ptr %37, i32 0, i32 7
-  %notificationLevel = getelementptr inbounds %struct.ZDICT_params_t, ptr %zParams, i32 0, i32 1
-  %38 = load i32, ptr %notificationLevel, align 4
-  store i32 %38, ptr %displayLevel, align 4
-  store i32 1, ptr %iteration, align 4
-  store ptr null, ptr %pool, align 8
-  store i32 0, ptr %warned, align 4
-  %39 = load double, ptr %splitPoint, align 8
-  %cmp50 = fcmp ole double %39, 0.000000e+00
-  br i1 %cmp50, label %if.then, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %cond.end41
-  %40 = load double, ptr %splitPoint, align 8
-  %cmp51 = fcmp ogt double %40, 1.000000e+00
-  br i1 %cmp51, label %if.then, label %if.end55
-
-if.then:                                          ; preds = %lor.lhs.false, %cond.end41
-  %41 = load i32, ptr %displayLevel, align 4
-  %cmp52 = icmp sge i32 %41, 1
-  br i1 %cmp52, label %if.then53, label %if.end
-
-if.then53:                                        ; preds = %if.then
-  %42 = load ptr, ptr @stderr, align 8
-  %call = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %42, ptr noundef @.str.7)
-  %43 = load ptr, ptr @stderr, align 8
-  %call54 = call i32 @fflush(ptr noundef %43)
-  br label %if.end
-
-if.end:                                           ; preds = %if.then53, %if.then
-  store i64 -42, ptr %retval, align 8
-  br label %return
-
-if.end55:                                         ; preds = %lor.lhs.false
-  %44 = load i32, ptr %kMinK, align 4
-  %45 = load i32, ptr %kMaxD, align 4
-  %cmp56 = icmp ult i32 %44, %45
-  br i1 %cmp56, label %if.then59, label %lor.lhs.false57
-
-lor.lhs.false57:                                  ; preds = %if.end55
-  %46 = load i32, ptr %kMaxK, align 4
-  %47 = load i32, ptr %kMinK, align 4
-  %cmp58 = icmp ult i32 %46, %47
-  br i1 %cmp58, label %if.then59, label %if.end65
-
-if.then59:                                        ; preds = %lor.lhs.false57, %if.end55
-  %48 = load i32, ptr %displayLevel, align 4
-  %cmp60 = icmp sge i32 %48, 1
-  br i1 %cmp60, label %if.then61, label %if.end64
-
-if.then61:                                        ; preds = %if.then59
-  %49 = load ptr, ptr @stderr, align 8
-  %call62 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %49, ptr noundef @.str.7)
-  %50 = load ptr, ptr @stderr, align 8
-  %call63 = call i32 @fflush(ptr noundef %50)
-  br label %if.end64
-
-if.end64:                                         ; preds = %if.then61, %if.then59
-  store i64 -42, ptr %retval, align 8
-  br label %return
-
-if.end65:                                         ; preds = %lor.lhs.false57
-  %51 = load i32, ptr %nbSamples.addr, align 4
-  %cmp66 = icmp eq i32 %51, 0
-  br i1 %cmp66, label %if.then67, label %if.end73
-
-if.then67:                                        ; preds = %if.end65
-  %52 = load i32, ptr @g_displayLevel, align 4
-  %cmp68 = icmp sge i32 %52, 1
-  br i1 %cmp68, label %if.then69, label %if.end72
-
-if.then69:                                        ; preds = %if.then67
-  %53 = load ptr, ptr @stderr, align 8
-  %call70 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %53, ptr noundef @.str.2)
-  %54 = load ptr, ptr @stderr, align 8
-  %call71 = call i32 @fflush(ptr noundef %54)
-  br label %if.end72
-
-if.end72:                                         ; preds = %if.then69, %if.then67
-  store i64 -72, ptr %retval, align 8
-  br label %return
-
-if.end73:                                         ; preds = %if.end65
-  %55 = load i64, ptr %dictBufferCapacity.addr, align 8
-  %cmp74 = icmp ult i64 %55, 256
-  br i1 %cmp74, label %if.then75, label %if.end81
-
-if.then75:                                        ; preds = %if.end73
-  %56 = load i32, ptr @g_displayLevel, align 4
-  %cmp76 = icmp sge i32 %56, 1
-  br i1 %cmp76, label %if.then77, label %if.end80
-
-if.then77:                                        ; preds = %if.then75
-  %57 = load ptr, ptr @stderr, align 8
-  %call78 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %57, ptr noundef @.str.3, i32 noundef 256)
-  %58 = load ptr, ptr @stderr, align 8
-  %call79 = call i32 @fflush(ptr noundef %58)
-  br label %if.end80
-
-if.end80:                                         ; preds = %if.then77, %if.then75
-  store i64 -70, ptr %retval, align 8
-  br label %return
-
-if.end81:                                         ; preds = %if.end73
-  %59 = load i32, ptr %nbThreads, align 4
-  %cmp82 = icmp ugt i32 %59, 1
-  br i1 %cmp82, label %if.then83, label %if.end87
-
-if.then83:                                        ; preds = %if.end81
-  %60 = load i32, ptr %nbThreads, align 4
-  %conv = zext i32 %60 to i64
-  %call84 = call ptr @POOL_create(i64 noundef %conv, i64 noundef 1)
-  store ptr %call84, ptr %pool, align 8
-  %61 = load ptr, ptr %pool, align 8
-  %tobool = icmp ne ptr %61, null
-  br i1 %tobool, label %if.end86, label %if.then85
-
-if.then85:                                        ; preds = %if.then83
-  store i64 -64, ptr %retval, align 8
-  br label %return
-
-if.end86:                                         ; preds = %if.then83
-  br label %if.end87
-
-if.end87:                                         ; preds = %if.end86, %if.end81
-  call void @COVER_best_init(ptr noundef %best)
-  %62 = load i32, ptr %displayLevel, align 4
-  %cmp88 = icmp eq i32 %62, 0
-  br i1 %cmp88, label %cond.true90, label %cond.false91
-
-cond.true90:                                      ; preds = %if.end87
-  br label %cond.end93
-
-cond.false91:                                     ; preds = %if.end87
-  %63 = load i32, ptr %displayLevel, align 4
-  %sub92 = sub nsw i32 %63, 1
-  br label %cond.end93
-
-cond.end93:                                       ; preds = %cond.false91, %cond.true90
-  %cond94 = phi i32 [ 0, %cond.true90 ], [ %sub92, %cond.false91 ]
-  store i32 %cond94, ptr @g_displayLevel, align 4
-  %64 = load i32, ptr %displayLevel, align 4
-  %cmp95 = icmp sge i32 %64, 2
-  br i1 %cmp95, label %if.then97, label %if.end100
-
-if.then97:                                        ; preds = %cond.end93
-  %65 = load ptr, ptr @stderr, align 8
-  %66 = load i32, ptr %kIterations, align 4
-  %call98 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %65, ptr noundef @.str.8, i32 noundef %66)
-  %67 = load ptr, ptr @stderr, align 8
-  %call99 = call i32 @fflush(ptr noundef %67)
-  br label %if.end100
-
-if.end100:                                        ; preds = %if.then97, %cond.end93
-  %68 = load i32, ptr %kMinD, align 4
-  store i32 %68, ptr %d48, align 4
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc193, %if.end100
-  %69 = load i32, ptr %d48, align 4
-  %70 = load i32, ptr %kMaxD, align 4
-  %cmp101 = icmp ule i32 %69, %70
-  br i1 %cmp101, label %for.body, label %for.end195
-
-for.body:                                         ; preds = %for.cond
-  %71 = load i32, ptr %displayLevel, align 4
-  %cmp103 = icmp sge i32 %71, 3
-  br i1 %cmp103, label %if.then105, label %if.end108
-
-if.then105:                                       ; preds = %for.body
-  %72 = load ptr, ptr @stderr, align 8
-  %73 = load i32, ptr %d48, align 4
-  %call106 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %72, ptr noundef @.str.9, i32 noundef %73)
-  %74 = load ptr, ptr @stderr, align 8
-  %call107 = call i32 @fflush(ptr noundef %74)
-  br label %if.end108
-
-if.end108:                                        ; preds = %if.then105, %for.body
-  %75 = load ptr, ptr %samplesBuffer.addr, align 8
-  %76 = load ptr, ptr %samplesSizes.addr, align 8
-  %77 = load i32, ptr %nbSamples.addr, align 4
-  %78 = load i32, ptr %d48, align 4
-  %79 = load double, ptr %splitPoint, align 8
-  %call109 = call i64 @COVER_ctx_init(ptr noundef %ctx, ptr noundef %75, ptr noundef %76, i32 noundef %77, i32 noundef %78, double noundef %79)
-  store i64 %call109, ptr %initVal, align 8
-  %80 = load i64, ptr %initVal, align 8
-  %call110 = call i32 @ERR_isError(i64 noundef %80)
-  %tobool111 = icmp ne i32 %call110, 0
-  br i1 %tobool111, label %if.then112, label %if.end119
-
-if.then112:                                       ; preds = %if.end108
-  %81 = load i32, ptr %displayLevel, align 4
-  %cmp113 = icmp sge i32 %81, 1
-  br i1 %cmp113, label %if.then115, label %if.end118
-
-if.then115:                                       ; preds = %if.then112
-  %82 = load ptr, ptr @stderr, align 8
-  %call116 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %82, ptr noundef @.str.10)
-  %83 = load ptr, ptr @stderr, align 8
-  %call117 = call i32 @fflush(ptr noundef %83)
-  br label %if.end118
-
-if.end118:                                        ; preds = %if.then115, %if.then112
-  call void @COVER_best_destroy(ptr noundef %best)
-  %84 = load ptr, ptr %pool, align 8
-  call void @POOL_free(ptr noundef %84)
-  %85 = load i64, ptr %initVal, align 8
-  store i64 %85, ptr %retval, align 8
-  br label %return
-
-if.end119:                                        ; preds = %if.end108
-  %86 = load i32, ptr %warned, align 4
-  %tobool120 = icmp ne i32 %86, 0
-  br i1 %tobool120, label %if.end122, label %if.then121
-
-if.then121:                                       ; preds = %if.end119
-  %87 = load i64, ptr %dictBufferCapacity.addr, align 8
-  %suffixSize = getelementptr inbounds %struct.COVER_ctx_t, ptr %ctx, i32 0, i32 7
-  %88 = load i64, ptr %suffixSize, align 8
-  %89 = load i32, ptr %displayLevel, align 4
-  call void @COVER_warnOnSmallCorpus(i64 noundef %87, i64 noundef %88, i32 noundef %89)
-  store i32 1, ptr %warned, align 4
-  br label %if.end122
-
-if.end122:                                        ; preds = %if.then121, %if.end119
-  %90 = load i32, ptr %kMinK, align 4
-  store i32 %90, ptr %k49, align 4
-  br label %for.cond123
-
-for.cond123:                                      ; preds = %for.inc, %if.end122
-  %91 = load i32, ptr %k49, align 4
-  %92 = load i32, ptr %kMaxK, align 4
-  %cmp124 = icmp ule i32 %91, %92
-  br i1 %cmp124, label %for.body126, label %for.end
-
-for.body126:                                      ; preds = %for.cond123
-  %call127 = call noalias ptr @malloc(i64 noundef 72) #8
-  store ptr %call127, ptr %data, align 8
-  %93 = load i32, ptr %displayLevel, align 4
-  %cmp128 = icmp sge i32 %93, 3
-  br i1 %cmp128, label %if.then130, label %if.end133
-
-if.then130:                                       ; preds = %for.body126
-  %94 = load ptr, ptr @stderr, align 8
-  %95 = load i32, ptr %k49, align 4
-  %call131 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %94, ptr noundef @.str.11, i32 noundef %95)
-  %96 = load ptr, ptr @stderr, align 8
-  %call132 = call i32 @fflush(ptr noundef %96)
-  br label %if.end133
-
-if.end133:                                        ; preds = %if.then130, %for.body126
-  %97 = load ptr, ptr %data, align 8
-  %tobool134 = icmp ne ptr %97, null
-  br i1 %tobool134, label %if.end142, label %if.then135
-
-if.then135:                                       ; preds = %if.end133
-  %98 = load i32, ptr %displayLevel, align 4
-  %cmp136 = icmp sge i32 %98, 1
-  br i1 %cmp136, label %if.then138, label %if.end141
-
-if.then138:                                       ; preds = %if.then135
-  %99 = load ptr, ptr @stderr, align 8
-  %call139 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %99, ptr noundef @.str.12)
-  %100 = load ptr, ptr @stderr, align 8
-  %call140 = call i32 @fflush(ptr noundef %100)
-  br label %if.end141
-
-if.end141:                                        ; preds = %if.then138, %if.then135
-  call void @COVER_best_destroy(ptr noundef %best)
-  call void @COVER_ctx_destroy(ptr noundef %ctx)
-  %101 = load ptr, ptr %pool, align 8
-  call void @POOL_free(ptr noundef %101)
-  store i64 -64, ptr %retval, align 8
-  br label %return
-
-if.end142:                                        ; preds = %if.end133
-  %102 = load ptr, ptr %data, align 8
-  %ctx143 = getelementptr inbounds %struct.COVER_tryParameters_data_s, ptr %102, i32 0, i32 0
-  store ptr %ctx, ptr %ctx143, align 8
-  %103 = load ptr, ptr %data, align 8
-  %best144 = getelementptr inbounds %struct.COVER_tryParameters_data_s, ptr %103, i32 0, i32 1
-  store ptr %best, ptr %best144, align 8
-  %104 = load i64, ptr %dictBufferCapacity.addr, align 8
-  %105 = load ptr, ptr %data, align 8
-  %dictBufferCapacity145 = getelementptr inbounds %struct.COVER_tryParameters_data_s, ptr %105, i32 0, i32 2
-  store i64 %104, ptr %dictBufferCapacity145, align 8
-  %106 = load ptr, ptr %data, align 8
-  %parameters146 = getelementptr inbounds %struct.COVER_tryParameters_data_s, ptr %106, i32 0, i32 3
-  %107 = load ptr, ptr %parameters.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %parameters146, ptr align 8 %107, i64 48, i1 false)
-  %108 = load i32, ptr %k49, align 4
-  %109 = load ptr, ptr %data, align 8
-  %parameters147 = getelementptr inbounds %struct.COVER_tryParameters_data_s, ptr %109, i32 0, i32 3
-  %k148 = getelementptr inbounds %struct.ZDICT_cover_params_t, ptr %parameters147, i32 0, i32 0
-  store i32 %108, ptr %k148, align 8
-  %110 = load i32, ptr %d48, align 4
-  %111 = load ptr, ptr %data, align 8
-  %parameters149 = getelementptr inbounds %struct.COVER_tryParameters_data_s, ptr %111, i32 0, i32 3
-  %d150 = getelementptr inbounds %struct.ZDICT_cover_params_t, ptr %parameters149, i32 0, i32 1
-  store i32 %110, ptr %d150, align 4
-  %112 = load double, ptr %splitPoint, align 8
-  %113 = load ptr, ptr %data, align 8
-  %parameters151 = getelementptr inbounds %struct.COVER_tryParameters_data_s, ptr %113, i32 0, i32 3
-  %splitPoint152 = getelementptr inbounds %struct.ZDICT_cover_params_t, ptr %parameters151, i32 0, i32 4
-  store double %112, ptr %splitPoint152, align 8
-  %114 = load i32, ptr %kSteps, align 4
-  %115 = load ptr, ptr %data, align 8
-  %parameters153 = getelementptr inbounds %struct.COVER_tryParameters_data_s, ptr %115, i32 0, i32 3
-  %steps154 = getelementptr inbounds %struct.ZDICT_cover_params_t, ptr %parameters153, i32 0, i32 2
-  store i32 %114, ptr %steps154, align 8
-  %116 = load ptr, ptr %data, align 8
-  %parameters155 = getelementptr inbounds %struct.COVER_tryParameters_data_s, ptr %116, i32 0, i32 3
-  %shrinkDict156 = getelementptr inbounds %struct.ZDICT_cover_params_t, ptr %parameters155, i32 0, i32 5
-  store i32 0, ptr %shrinkDict156, align 8
-  %117 = load i32, ptr @g_displayLevel, align 4
-  %118 = load ptr, ptr %data, align 8
-  %parameters157 = getelementptr inbounds %struct.COVER_tryParameters_data_s, ptr %118, i32 0, i32 3
-  %zParams158 = getelementptr inbounds %struct.ZDICT_cover_params_t, ptr %parameters157, i32 0, i32 7
-  %notificationLevel159 = getelementptr inbounds %struct.ZDICT_params_t, ptr %zParams158, i32 0, i32 1
-  store i32 %117, ptr %notificationLevel159, align 4
-  %119 = load ptr, ptr %data, align 8
-  %parameters160 = getelementptr inbounds %struct.COVER_tryParameters_data_s, ptr %119, i32 0, i32 3
-  %120 = load i64, ptr %dictBufferCapacity.addr, align 8
-  %call161 = call i32 @COVER_checkParameters(ptr noundef byval(%struct.ZDICT_cover_params_t) align 8 %parameters160, i64 noundef %120)
-  %tobool162 = icmp ne i32 %call161, 0
-  br i1 %tobool162, label %if.end170, label %if.then163
-
-if.then163:                                       ; preds = %if.end142
-  %121 = load i32, ptr @g_displayLevel, align 4
-  %cmp164 = icmp sge i32 %121, 1
-  br i1 %cmp164, label %if.then166, label %if.end169
-
-if.then166:                                       ; preds = %if.then163
-  %122 = load ptr, ptr @stderr, align 8
-  %call167 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %122, ptr noundef @.str.1)
-  %123 = load ptr, ptr @stderr, align 8
-  %call168 = call i32 @fflush(ptr noundef %123)
-  br label %if.end169
-
-if.end169:                                        ; preds = %if.then166, %if.then163
-  %124 = load ptr, ptr %data, align 8
-  call void @free(ptr noundef %124) #9
-  br label %for.inc
-
-if.end170:                                        ; preds = %if.end142
-  call void @COVER_best_start(ptr noundef %best)
-  %125 = load ptr, ptr %pool, align 8
-  %tobool171 = icmp ne ptr %125, null
-  br i1 %tobool171, label %if.then172, label %if.else
-
-if.then172:                                       ; preds = %if.end170
-  %126 = load ptr, ptr %pool, align 8
-  %127 = load ptr, ptr %data, align 8
-  call void @POOL_add(ptr noundef %126, ptr noundef @COVER_tryParameters, ptr noundef %127)
-  br label %if.end173
-
-if.else:                                          ; preds = %if.end170
-  %128 = load ptr, ptr %data, align 8
-  call void @COVER_tryParameters(ptr noundef %128)
-  br label %if.end173
-
-if.end173:                                        ; preds = %if.else, %if.then172
-  %129 = load i32, ptr %displayLevel, align 4
-  %cmp174 = icmp sge i32 %129, 2
-  br i1 %cmp174, label %if.then176, label %if.end191
-
-if.then176:                                       ; preds = %if.end173
-  %call177 = call i64 @clock() #9
-  %130 = load i64, ptr @g_time, align 8
-  %sub178 = sub nsw i64 %call177, %130
-  %cmp179 = icmp sgt i64 %sub178, 150000
-  br i1 %cmp179, label %if.then184, label %lor.lhs.false181
-
-lor.lhs.false181:                                 ; preds = %if.then176
-  %131 = load i32, ptr %displayLevel, align 4
-  %cmp182 = icmp sge i32 %131, 4
-  br i1 %cmp182, label %if.then184, label %if.end190
-
-if.then184:                                       ; preds = %lor.lhs.false181, %if.then176
-  %call185 = call i64 @clock() #9
-  store i64 %call185, ptr @g_time, align 8
-  %132 = load ptr, ptr @stderr, align 8
-  %133 = load i32, ptr %iteration, align 4
-  %mul186 = mul i32 %133, 100
-  %134 = load i32, ptr %kIterations, align 4
-  %div187 = udiv i32 %mul186, %134
-  %call188 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %132, ptr noundef @.str.13, i32 noundef %div187)
-  %135 = load ptr, ptr @stderr, align 8
-  %call189 = call i32 @fflush(ptr noundef %135)
-  br label %if.end190
-
-if.end190:                                        ; preds = %if.then184, %lor.lhs.false181
-  br label %if.end191
-
-if.end191:                                        ; preds = %if.end190, %if.end173
-  %136 = load i32, ptr %iteration, align 4
-  %inc = add i32 %136, 1
-  store i32 %inc, ptr %iteration, align 4
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end191, %if.end169
-  %137 = load i32, ptr %kStepSize, align 4
-  %138 = load i32, ptr %k49, align 4
-  %add192 = add i32 %138, %137
-  store i32 %add192, ptr %k49, align 4
-  br label %for.cond123, !llvm.loop !13
-
-for.end:                                          ; preds = %for.cond123
-  call void @COVER_best_wait(ptr noundef %best)
-  call void @COVER_ctx_destroy(ptr noundef %ctx)
-  br label %for.inc193
-
-for.inc193:                                       ; preds = %for.end
-  %139 = load i32, ptr %d48, align 4
-  %add194 = add i32 %139, 2
-  store i32 %add194, ptr %d48, align 4
-  br label %for.cond, !llvm.loop !14
-
-for.end195:                                       ; preds = %for.cond
-  %140 = load i32, ptr %displayLevel, align 4
-  %cmp196 = icmp sge i32 %140, 2
-  br i1 %cmp196, label %if.then198, label %if.end201
-
-if.then198:                                       ; preds = %for.end195
-  %141 = load ptr, ptr @stderr, align 8
-  %call199 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %141, ptr noundef @.str.14, ptr noundef @.str.15)
-  %142 = load ptr, ptr @stderr, align 8
-  %call200 = call i32 @fflush(ptr noundef %142)
-  br label %if.end201
-
-if.end201:                                        ; preds = %if.then198, %for.end195
-  %dictSize202 = getelementptr inbounds %struct.COVER_best_s, ptr %best, i32 0, i32 4
-  %143 = load i64, ptr %dictSize202, align 8
-  store i64 %143, ptr %dictSize, align 8
-  %compressedSize = getelementptr inbounds %struct.COVER_best_s, ptr %best, i32 0, i32 6
-  %144 = load i64, ptr %compressedSize, align 8
-  %call203 = call i32 @ERR_isError(i64 noundef %144)
-  %tobool204 = icmp ne i32 %call203, 0
-  br i1 %tobool204, label %if.then205, label %if.end208
-
-if.then205:                                       ; preds = %if.end201
-  %compressedSize207 = getelementptr inbounds %struct.COVER_best_s, ptr %best, i32 0, i32 6
-  %145 = load i64, ptr %compressedSize207, align 8
-  store i64 %145, ptr %compressedSize206, align 8
-  call void @COVER_best_destroy(ptr noundef %best)
-  %146 = load ptr, ptr %pool, align 8
-  call void @POOL_free(ptr noundef %146)
-  %147 = load i64, ptr %compressedSize206, align 8
-  store i64 %147, ptr %retval, align 8
-  br label %return
-
-if.end208:                                        ; preds = %if.end201
-  %148 = load ptr, ptr %parameters.addr, align 8
-  %parameters209 = getelementptr inbounds %struct.COVER_best_s, ptr %best, i32 0, i32 5
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %148, ptr align 8 %parameters209, i64 48, i1 false)
-  %149 = load ptr, ptr %dictBuffer.addr, align 8
-  %dict = getelementptr inbounds %struct.COVER_best_s, ptr %best, i32 0, i32 3
-  %150 = load ptr, ptr %dict, align 8
-  %151 = load i64, ptr %dictSize, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %149, ptr align 1 %150, i64 %151, i1 false)
-  call void @COVER_best_destroy(ptr noundef %best)
-  %152 = load ptr, ptr %pool, align 8
-  call void @POOL_free(ptr noundef %152)
-  %153 = load i64, ptr %dictSize, align 8
-  store i64 %153, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.end208, %if.then205, %if.end141, %if.end118, %if.then85, %if.end80, %if.end72, %if.end64, %if.end
-  %154 = load i64, ptr %retval, align 8
-  ret i64 %154
+define i64 @ZDICT_optimizeTrainFromBuffer_cover(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) #0 {
+  %7 = alloca i64, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca double, align 8
+  %16 = alloca i32, align 4
+  %17 = alloca i32, align 4
+  %18 = alloca i32, align 4
+  %19 = alloca i32, align 4
+  %20 = alloca i32, align 4
+  %21 = alloca i32, align 4
+  %22 = alloca i32, align 4
+  %23 = alloca i32, align 4
+  %24 = alloca i32, align 4
+  %25 = alloca i32, align 4
+  %26 = alloca i32, align 4
+  %27 = alloca i32, align 4
+  %28 = alloca %struct.COVER_best_s, align 8
+  %29 = alloca ptr, align 8
+  %30 = alloca i32, align 4
+  %31 = alloca i32, align 4
+  %32 = alloca %struct.COVER_ctx_t, align 8
+  %33 = alloca i64, align 8
+  %34 = alloca ptr, align 8
+  %35 = alloca i64, align 8
+  %36 = alloca i64, align 8
+  store ptr %0, ptr %8, align 8, !tbaa !21
+  store i64 %1, ptr %9, align 8, !tbaa !10
+  store ptr %2, ptr %10, align 8, !tbaa !21
+  store ptr %3, ptr %11, align 8, !tbaa !3
+  store i32 %4, ptr %12, align 4, !tbaa !8
+  store ptr %5, ptr %13, align 8, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #10
+  %37 = load ptr, ptr %13, align 8, !tbaa !21
+  %38 = getelementptr inbounds nuw %struct.ZDICT_cover_params_t, ptr %37, i32 0, i32 3
+  %39 = load i32, ptr %38, align 4, !tbaa !81
+  store i32 %39, ptr %14, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #10
+  %40 = load ptr, ptr %13, align 8, !tbaa !21
+  %41 = getelementptr inbounds nuw %struct.ZDICT_cover_params_t, ptr %40, i32 0, i32 4
+  %42 = load double, ptr %41, align 8, !tbaa !24
+  %43 = fcmp ole double %42, 0.000000e+00
+  br i1 %43, label %44, label %45
+
+44:                                               ; preds = %6
+  br label %49
+
+45:                                               ; preds = %6
+  %46 = load ptr, ptr %13, align 8, !tbaa !21
+  %47 = getelementptr inbounds nuw %struct.ZDICT_cover_params_t, ptr %46, i32 0, i32 4
+  %48 = load double, ptr %47, align 8, !tbaa !24
+  br label %49
+
+49:                                               ; preds = %45, %44
+  %50 = phi double [ 1.000000e+00, %44 ], [ %48, %45 ]
+  store double %50, ptr %15, align 8, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #10
+  %51 = load ptr, ptr %13, align 8, !tbaa !21
+  %52 = getelementptr inbounds nuw %struct.ZDICT_cover_params_t, ptr %51, i32 0, i32 1
+  %53 = load i32, ptr %52, align 4, !tbaa !28
+  %54 = icmp eq i32 %53, 0
+  br i1 %54, label %55, label %56
+
+55:                                               ; preds = %49
+  br label %60
+
+56:                                               ; preds = %49
+  %57 = load ptr, ptr %13, align 8, !tbaa !21
+  %58 = getelementptr inbounds nuw %struct.ZDICT_cover_params_t, ptr %57, i32 0, i32 1
+  %59 = load i32, ptr %58, align 4, !tbaa !28
+  br label %60
+
+60:                                               ; preds = %56, %55
+  %61 = phi i32 [ 6, %55 ], [ %59, %56 ]
+  store i32 %61, ptr %16, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #10
+  %62 = load ptr, ptr %13, align 8, !tbaa !21
+  %63 = getelementptr inbounds nuw %struct.ZDICT_cover_params_t, ptr %62, i32 0, i32 1
+  %64 = load i32, ptr %63, align 4, !tbaa !28
+  %65 = icmp eq i32 %64, 0
+  br i1 %65, label %66, label %67
+
+66:                                               ; preds = %60
+  br label %71
+
+67:                                               ; preds = %60
+  %68 = load ptr, ptr %13, align 8, !tbaa !21
+  %69 = getelementptr inbounds nuw %struct.ZDICT_cover_params_t, ptr %68, i32 0, i32 1
+  %70 = load i32, ptr %69, align 4, !tbaa !28
+  br label %71
+
+71:                                               ; preds = %67, %66
+  %72 = phi i32 [ 8, %66 ], [ %70, %67 ]
+  store i32 %72, ptr %17, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #10
+  %73 = load ptr, ptr %13, align 8, !tbaa !21
+  %74 = getelementptr inbounds nuw %struct.ZDICT_cover_params_t, ptr %73, i32 0, i32 0
+  %75 = load i32, ptr %74, align 8, !tbaa !32
+  %76 = icmp eq i32 %75, 0
+  br i1 %76, label %77, label %78
+
+77:                                               ; preds = %71
+  br label %82
+
+78:                                               ; preds = %71
+  %79 = load ptr, ptr %13, align 8, !tbaa !21
+  %80 = getelementptr inbounds nuw %struct.ZDICT_cover_params_t, ptr %79, i32 0, i32 0
+  %81 = load i32, ptr %80, align 8, !tbaa !32
+  br label %82
+
+82:                                               ; preds = %78, %77
+  %83 = phi i32 [ 50, %77 ], [ %81, %78 ]
+  store i32 %83, ptr %18, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #10
+  %84 = load ptr, ptr %13, align 8, !tbaa !21
+  %85 = getelementptr inbounds nuw %struct.ZDICT_cover_params_t, ptr %84, i32 0, i32 0
+  %86 = load i32, ptr %85, align 8, !tbaa !32
+  %87 = icmp eq i32 %86, 0
+  br i1 %87, label %88, label %89
+
+88:                                               ; preds = %82
+  br label %93
+
+89:                                               ; preds = %82
+  %90 = load ptr, ptr %13, align 8, !tbaa !21
+  %91 = getelementptr inbounds nuw %struct.ZDICT_cover_params_t, ptr %90, i32 0, i32 0
+  %92 = load i32, ptr %91, align 8, !tbaa !32
+  br label %93
+
+93:                                               ; preds = %89, %88
+  %94 = phi i32 [ 2000, %88 ], [ %92, %89 ]
+  store i32 %94, ptr %19, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #10
+  %95 = load ptr, ptr %13, align 8, !tbaa !21
+  %96 = getelementptr inbounds nuw %struct.ZDICT_cover_params_t, ptr %95, i32 0, i32 2
+  %97 = load i32, ptr %96, align 8, !tbaa !82
+  %98 = icmp eq i32 %97, 0
+  br i1 %98, label %99, label %100
+
+99:                                               ; preds = %93
+  br label %104
+
+100:                                              ; preds = %93
+  %101 = load ptr, ptr %13, align 8, !tbaa !21
+  %102 = getelementptr inbounds nuw %struct.ZDICT_cover_params_t, ptr %101, i32 0, i32 2
+  %103 = load i32, ptr %102, align 8, !tbaa !82
+  br label %104
+
+104:                                              ; preds = %100, %99
+  %105 = phi i32 [ 40, %99 ], [ %103, %100 ]
+  store i32 %105, ptr %20, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %21) #10
+  %106 = load i32, ptr %19, align 4, !tbaa !8
+  %107 = load i32, ptr %18, align 4, !tbaa !8
+  %108 = sub i32 %106, %107
+  %109 = load i32, ptr %20, align 4, !tbaa !8
+  %110 = udiv i32 %108, %109
+  %111 = icmp ugt i32 %110, 1
+  br i1 %111, label %112, label %118
+
+112:                                              ; preds = %104
+  %113 = load i32, ptr %19, align 4, !tbaa !8
+  %114 = load i32, ptr %18, align 4, !tbaa !8
+  %115 = sub i32 %113, %114
+  %116 = load i32, ptr %20, align 4, !tbaa !8
+  %117 = udiv i32 %115, %116
+  br label %119
+
+118:                                              ; preds = %104
+  br label %119
+
+119:                                              ; preds = %118, %112
+  %120 = phi i32 [ %117, %112 ], [ 1, %118 ]
+  store i32 %120, ptr %21, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %22) #10
+  %121 = load i32, ptr %17, align 4, !tbaa !8
+  %122 = load i32, ptr %16, align 4, !tbaa !8
+  %123 = sub i32 %121, %122
+  %124 = udiv i32 %123, 2
+  %125 = add i32 1, %124
+  %126 = load i32, ptr %19, align 4, !tbaa !8
+  %127 = load i32, ptr %18, align 4, !tbaa !8
+  %128 = sub i32 %126, %127
+  %129 = load i32, ptr %21, align 4, !tbaa !8
+  %130 = udiv i32 %128, %129
+  %131 = add i32 1, %130
+  %132 = mul i32 %125, %131
+  store i32 %132, ptr %22, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %23) #10
+  store i32 0, ptr %23, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %24) #10
+  %133 = load ptr, ptr %13, align 8, !tbaa !21
+  %134 = getelementptr inbounds nuw %struct.ZDICT_cover_params_t, ptr %133, i32 0, i32 7
+  %135 = getelementptr inbounds nuw %struct.ZDICT_params_t, ptr %134, i32 0, i32 1
+  %136 = load i32, ptr %135, align 4, !tbaa !27
+  store i32 %136, ptr %24, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %25) #10
+  store i32 1, ptr %25, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %26) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %27) #10
+  call void @llvm.lifetime.start.p0(i64 168, ptr %28) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %29) #10
+  store ptr null, ptr %29, align 8, !tbaa !83
+  call void @llvm.lifetime.start.p0(i64 4, ptr %30) #10
+  store i32 0, ptr %30, align 4, !tbaa !8
+  %137 = load double, ptr %15, align 8, !tbaa !14
+  %138 = fcmp ole double %137, 0.000000e+00
+  br i1 %138, label %142, label %139
+
+139:                                              ; preds = %119
+  %140 = load double, ptr %15, align 8, !tbaa !14
+  %141 = fcmp ogt double %140, 1.000000e+00
+  br i1 %141, label %142, label %151
+
+142:                                              ; preds = %139, %119
+  %143 = load i32, ptr %24, align 4, !tbaa !8
+  %144 = icmp sge i32 %143, 1
+  br i1 %144, label %145, label %150
+
+145:                                              ; preds = %142
+  %146 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %147 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %146, ptr noundef @.str.7) #10
+  %148 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %149 = call i32 @fflush(ptr noundef %148)
+  br label %150
+
+150:                                              ; preds = %145, %142
+  store i64 -42, ptr %7, align 8
+  store i32 1, ptr %31, align 4
+  br label %423
+
+151:                                              ; preds = %139
+  %152 = load i32, ptr %18, align 4, !tbaa !8
+  %153 = load i32, ptr %17, align 4, !tbaa !8
+  %154 = icmp ult i32 %152, %153
+  br i1 %154, label %159, label %155
+
+155:                                              ; preds = %151
+  %156 = load i32, ptr %19, align 4, !tbaa !8
+  %157 = load i32, ptr %18, align 4, !tbaa !8
+  %158 = icmp ult i32 %156, %157
+  br i1 %158, label %159, label %168
+
+159:                                              ; preds = %155, %151
+  %160 = load i32, ptr %24, align 4, !tbaa !8
+  %161 = icmp sge i32 %160, 1
+  br i1 %161, label %162, label %167
+
+162:                                              ; preds = %159
+  %163 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %164 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %163, ptr noundef @.str.7) #10
+  %165 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %166 = call i32 @fflush(ptr noundef %165)
+  br label %167
+
+167:                                              ; preds = %162, %159
+  store i64 -42, ptr %7, align 8
+  store i32 1, ptr %31, align 4
+  br label %423
+
+168:                                              ; preds = %155
+  %169 = load i32, ptr %12, align 4, !tbaa !8
+  %170 = icmp eq i32 %169, 0
+  br i1 %170, label %171, label %180
+
+171:                                              ; preds = %168
+  %172 = load i32, ptr @g_displayLevel, align 4, !tbaa !8
+  %173 = icmp sge i32 %172, 1
+  br i1 %173, label %174, label %179
+
+174:                                              ; preds = %171
+  %175 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %176 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %175, ptr noundef @.str.2) #10
+  %177 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %178 = call i32 @fflush(ptr noundef %177)
+  br label %179
+
+179:                                              ; preds = %174, %171
+  store i64 -72, ptr %7, align 8
+  store i32 1, ptr %31, align 4
+  br label %423
+
+180:                                              ; preds = %168
+  %181 = load i64, ptr %9, align 8, !tbaa !10
+  %182 = icmp ult i64 %181, 256
+  br i1 %182, label %183, label %192
+
+183:                                              ; preds = %180
+  %184 = load i32, ptr @g_displayLevel, align 4, !tbaa !8
+  %185 = icmp sge i32 %184, 1
+  br i1 %185, label %186, label %191
+
+186:                                              ; preds = %183
+  %187 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %188 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %187, ptr noundef @.str.3, i32 noundef 256) #10
+  %189 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %190 = call i32 @fflush(ptr noundef %189)
+  br label %191
+
+191:                                              ; preds = %186, %183
+  store i64 -70, ptr %7, align 8
+  store i32 1, ptr %31, align 4
+  br label %423
+
+192:                                              ; preds = %180
+  %193 = load i32, ptr %14, align 4, !tbaa !8
+  %194 = icmp ugt i32 %193, 1
+  br i1 %194, label %195, label %203
+
+195:                                              ; preds = %192
+  %196 = load i32, ptr %14, align 4, !tbaa !8
+  %197 = zext i32 %196 to i64
+  %198 = call ptr @POOL_create(i64 noundef %197, i64 noundef 1)
+  store ptr %198, ptr %29, align 8, !tbaa !83
+  %199 = load ptr, ptr %29, align 8, !tbaa !83
+  %200 = icmp ne ptr %199, null
+  br i1 %200, label %202, label %201
+
+201:                                              ; preds = %195
+  store i64 -64, ptr %7, align 8
+  store i32 1, ptr %31, align 4
+  br label %423
+
+202:                                              ; preds = %195
+  br label %203
+
+203:                                              ; preds = %202, %192
+  call void @COVER_best_init(ptr noundef %28)
+  %204 = load i32, ptr %24, align 4, !tbaa !8
+  %205 = icmp eq i32 %204, 0
+  br i1 %205, label %206, label %207
+
+206:                                              ; preds = %203
+  br label %210
+
+207:                                              ; preds = %203
+  %208 = load i32, ptr %24, align 4, !tbaa !8
+  %209 = sub nsw i32 %208, 1
+  br label %210
+
+210:                                              ; preds = %207, %206
+  %211 = phi i32 [ 0, %206 ], [ %209, %207 ]
+  store i32 %211, ptr @g_displayLevel, align 4, !tbaa !8
+  %212 = load i32, ptr %24, align 4, !tbaa !8
+  %213 = icmp sge i32 %212, 2
+  br i1 %213, label %214, label %220
+
+214:                                              ; preds = %210
+  %215 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %216 = load i32, ptr %22, align 4, !tbaa !8
+  %217 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %215, ptr noundef @.str.8, i32 noundef %216) #10
+  %218 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %219 = call i32 @fflush(ptr noundef %218)
+  br label %220
+
+220:                                              ; preds = %214, %210
+  %221 = load i32, ptr %16, align 4, !tbaa !8
+  store i32 %221, ptr %26, align 4, !tbaa !8
+  br label %222
+
+222:                                              ; preds = %390, %220
+  %223 = load i32, ptr %26, align 4, !tbaa !8
+  %224 = load i32, ptr %17, align 4, !tbaa !8
+  %225 = icmp ule i32 %223, %224
+  br i1 %225, label %226, label %393
+
+226:                                              ; preds = %222
+  call void @llvm.lifetime.start.p0(i64 88, ptr %32) #10
+  %227 = load i32, ptr %24, align 4, !tbaa !8
+  %228 = icmp sge i32 %227, 3
+  br i1 %228, label %229, label %235
+
+229:                                              ; preds = %226
+  %230 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %231 = load i32, ptr %26, align 4, !tbaa !8
+  %232 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %230, ptr noundef @.str.9, i32 noundef %231) #10
+  %233 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %234 = call i32 @fflush(ptr noundef %233)
+  br label %235
+
+235:                                              ; preds = %229, %226
+  call void @llvm.lifetime.start.p0(i64 8, ptr %33) #10
+  %236 = load ptr, ptr %10, align 8, !tbaa !21
+  %237 = load ptr, ptr %11, align 8, !tbaa !3
+  %238 = load i32, ptr %12, align 4, !tbaa !8
+  %239 = load i32, ptr %26, align 4, !tbaa !8
+  %240 = load double, ptr %15, align 8, !tbaa !14
+  %241 = call i64 @COVER_ctx_init(ptr noundef %32, ptr noundef %236, ptr noundef %237, i32 noundef %238, i32 noundef %239, double noundef %240)
+  store i64 %241, ptr %33, align 8, !tbaa !10
+  %242 = load i64, ptr %33, align 8, !tbaa !10
+  %243 = call i32 @ERR_isError(i64 noundef %242)
+  %244 = icmp ne i32 %243, 0
+  br i1 %244, label %245, label %256
+
+245:                                              ; preds = %235
+  %246 = load i32, ptr %24, align 4, !tbaa !8
+  %247 = icmp sge i32 %246, 1
+  br i1 %247, label %248, label %253
+
+248:                                              ; preds = %245
+  %249 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %250 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %249, ptr noundef @.str.10) #10
+  %251 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %252 = call i32 @fflush(ptr noundef %251)
+  br label %253
+
+253:                                              ; preds = %248, %245
+  call void @COVER_best_destroy(ptr noundef %28)
+  %254 = load ptr, ptr %29, align 8, !tbaa !83
+  call void @POOL_free(ptr noundef %254)
+  %255 = load i64, ptr %33, align 8, !tbaa !10
+  store i64 %255, ptr %7, align 8
+  store i32 1, ptr %31, align 4
+  br label %257
+
+256:                                              ; preds = %235
+  store i32 0, ptr %31, align 4
+  br label %257
+
+257:                                              ; preds = %256, %253
+  call void @llvm.lifetime.end.p0(i64 8, ptr %33) #10
+  %258 = load i32, ptr %31, align 4
+  switch i32 %258, label %387 [
+    i32 0, label %259
+  ]
+
+259:                                              ; preds = %257
+  %260 = load i32, ptr %30, align 4, !tbaa !8
+  %261 = icmp ne i32 %260, 0
+  br i1 %261, label %267, label %262
+
+262:                                              ; preds = %259
+  %263 = load i64, ptr %9, align 8, !tbaa !10
+  %264 = getelementptr inbounds nuw %struct.COVER_ctx_t, ptr %32, i32 0, i32 7
+  %265 = load i64, ptr %264, align 8, !tbaa !29
+  %266 = load i32, ptr %24, align 4, !tbaa !8
+  call void @COVER_warnOnSmallCorpus(i64 noundef %263, i64 noundef %265, i32 noundef %266)
+  store i32 1, ptr %30, align 4, !tbaa !8
+  br label %267
+
+267:                                              ; preds = %262, %259
+  %268 = load i32, ptr %18, align 4, !tbaa !8
+  store i32 %268, ptr %27, align 4, !tbaa !8
+  br label %269
+
+269:                                              ; preds = %382, %267
+  %270 = load i32, ptr %27, align 4, !tbaa !8
+  %271 = load i32, ptr %19, align 4, !tbaa !8
+  %272 = icmp ule i32 %270, %271
+  br i1 %272, label %273, label %386
+
+273:                                              ; preds = %269
+  call void @llvm.lifetime.start.p0(i64 8, ptr %34) #10
+  %274 = call noalias ptr @malloc(i64 noundef 72) #11
+  store ptr %274, ptr %34, align 8, !tbaa !85
+  %275 = load i32, ptr %24, align 4, !tbaa !8
+  %276 = icmp sge i32 %275, 3
+  br i1 %276, label %277, label %283
+
+277:                                              ; preds = %273
+  %278 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %279 = load i32, ptr %27, align 4, !tbaa !8
+  %280 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %278, ptr noundef @.str.11, i32 noundef %279) #10
+  %281 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %282 = call i32 @fflush(ptr noundef %281)
+  br label %283
+
+283:                                              ; preds = %277, %273
+  %284 = load ptr, ptr %34, align 8, !tbaa !85
+  %285 = icmp ne ptr %284, null
+  br i1 %285, label %296, label %286
+
+286:                                              ; preds = %283
+  %287 = load i32, ptr %24, align 4, !tbaa !8
+  %288 = icmp sge i32 %287, 1
+  br i1 %288, label %289, label %294
+
+289:                                              ; preds = %286
+  %290 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %291 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %290, ptr noundef @.str.12) #10
+  %292 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %293 = call i32 @fflush(ptr noundef %292)
+  br label %294
+
+294:                                              ; preds = %289, %286
+  call void @COVER_best_destroy(ptr noundef %28)
+  call void @COVER_ctx_destroy(ptr noundef %32)
+  %295 = load ptr, ptr %29, align 8, !tbaa !83
+  call void @POOL_free(ptr noundef %295)
+  store i64 -64, ptr %7, align 8
+  store i32 1, ptr %31, align 4
+  br label %379
+
+296:                                              ; preds = %283
+  %297 = load ptr, ptr %34, align 8, !tbaa !85
+  %298 = getelementptr inbounds nuw %struct.COVER_tryParameters_data_s, ptr %297, i32 0, i32 0
+  store ptr %32, ptr %298, align 8, !tbaa !87
+  %299 = load ptr, ptr %34, align 8, !tbaa !85
+  %300 = getelementptr inbounds nuw %struct.COVER_tryParameters_data_s, ptr %299, i32 0, i32 1
+  store ptr %28, ptr %300, align 8, !tbaa !89
+  %301 = load i64, ptr %9, align 8, !tbaa !10
+  %302 = load ptr, ptr %34, align 8, !tbaa !85
+  %303 = getelementptr inbounds nuw %struct.COVER_tryParameters_data_s, ptr %302, i32 0, i32 2
+  store i64 %301, ptr %303, align 8, !tbaa !90
+  %304 = load ptr, ptr %34, align 8, !tbaa !85
+  %305 = getelementptr inbounds nuw %struct.COVER_tryParameters_data_s, ptr %304, i32 0, i32 3
+  %306 = load ptr, ptr %13, align 8, !tbaa !21
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %305, ptr align 8 %306, i64 48, i1 false), !tbaa.struct !77
+  %307 = load i32, ptr %27, align 4, !tbaa !8
+  %308 = load ptr, ptr %34, align 8, !tbaa !85
+  %309 = getelementptr inbounds nuw %struct.COVER_tryParameters_data_s, ptr %308, i32 0, i32 3
+  %310 = getelementptr inbounds nuw %struct.ZDICT_cover_params_t, ptr %309, i32 0, i32 0
+  store i32 %307, ptr %310, align 8, !tbaa !91
+  %311 = load i32, ptr %26, align 4, !tbaa !8
+  %312 = load ptr, ptr %34, align 8, !tbaa !85
+  %313 = getelementptr inbounds nuw %struct.COVER_tryParameters_data_s, ptr %312, i32 0, i32 3
+  %314 = getelementptr inbounds nuw %struct.ZDICT_cover_params_t, ptr %313, i32 0, i32 1
+  store i32 %311, ptr %314, align 4, !tbaa !92
+  %315 = load double, ptr %15, align 8, !tbaa !14
+  %316 = load ptr, ptr %34, align 8, !tbaa !85
+  %317 = getelementptr inbounds nuw %struct.COVER_tryParameters_data_s, ptr %316, i32 0, i32 3
+  %318 = getelementptr inbounds nuw %struct.ZDICT_cover_params_t, ptr %317, i32 0, i32 4
+  store double %315, ptr %318, align 8, !tbaa !93
+  %319 = load i32, ptr %20, align 4, !tbaa !8
+  %320 = load ptr, ptr %34, align 8, !tbaa !85
+  %321 = getelementptr inbounds nuw %struct.COVER_tryParameters_data_s, ptr %320, i32 0, i32 3
+  %322 = getelementptr inbounds nuw %struct.ZDICT_cover_params_t, ptr %321, i32 0, i32 2
+  store i32 %319, ptr %322, align 8, !tbaa !94
+  %323 = load ptr, ptr %34, align 8, !tbaa !85
+  %324 = getelementptr inbounds nuw %struct.COVER_tryParameters_data_s, ptr %323, i32 0, i32 3
+  %325 = getelementptr inbounds nuw %struct.ZDICT_cover_params_t, ptr %324, i32 0, i32 5
+  store i32 0, ptr %325, align 8, !tbaa !95
+  %326 = load i32, ptr @g_displayLevel, align 4, !tbaa !8
+  %327 = load ptr, ptr %34, align 8, !tbaa !85
+  %328 = getelementptr inbounds nuw %struct.COVER_tryParameters_data_s, ptr %327, i32 0, i32 3
+  %329 = getelementptr inbounds nuw %struct.ZDICT_cover_params_t, ptr %328, i32 0, i32 7
+  %330 = getelementptr inbounds nuw %struct.ZDICT_params_t, ptr %329, i32 0, i32 1
+  store i32 %326, ptr %330, align 4, !tbaa !96
+  %331 = load ptr, ptr %34, align 8, !tbaa !85
+  %332 = getelementptr inbounds nuw %struct.COVER_tryParameters_data_s, ptr %331, i32 0, i32 3
+  %333 = load i64, ptr %9, align 8, !tbaa !10
+  %334 = call i32 @COVER_checkParameters(ptr noundef byval(%struct.ZDICT_cover_params_t) align 8 %332, i64 noundef %333)
+  %335 = icmp ne i32 %334, 0
+  br i1 %335, label %346, label %336
+
+336:                                              ; preds = %296
+  %337 = load i32, ptr @g_displayLevel, align 4, !tbaa !8
+  %338 = icmp sge i32 %337, 1
+  br i1 %338, label %339, label %344
+
+339:                                              ; preds = %336
+  %340 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %341 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %340, ptr noundef @.str.1) #10
+  %342 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %343 = call i32 @fflush(ptr noundef %342)
+  br label %344
+
+344:                                              ; preds = %339, %336
+  %345 = load ptr, ptr %34, align 8, !tbaa !85
+  call void @free(ptr noundef %345) #10
+  store i32 7, ptr %31, align 4
+  br label %379
+
+346:                                              ; preds = %296
+  call void @COVER_best_start(ptr noundef %28)
+  %347 = load ptr, ptr %29, align 8, !tbaa !83
+  %348 = icmp ne ptr %347, null
+  br i1 %348, label %349, label %352
+
+349:                                              ; preds = %346
+  %350 = load ptr, ptr %29, align 8, !tbaa !83
+  %351 = load ptr, ptr %34, align 8, !tbaa !85
+  call void @POOL_add(ptr noundef %350, ptr noundef @COVER_tryParameters, ptr noundef %351)
+  br label %354
+
+352:                                              ; preds = %346
+  %353 = load ptr, ptr %34, align 8, !tbaa !85
+  call void @COVER_tryParameters(ptr noundef %353)
+  br label %354
+
+354:                                              ; preds = %352, %349
+  %355 = load i32, ptr %24, align 4, !tbaa !8
+  %356 = icmp sge i32 %355, 2
+  br i1 %356, label %357, label %376
+
+357:                                              ; preds = %354
+  %358 = call i64 @clock() #10
+  %359 = load i64, ptr @g_time, align 8, !tbaa !10
+  %360 = sub nsw i64 %358, %359
+  %361 = icmp sgt i64 %360, 150000
+  br i1 %361, label %365, label %362
+
+362:                                              ; preds = %357
+  %363 = load i32, ptr %24, align 4, !tbaa !8
+  %364 = icmp sge i32 %363, 4
+  br i1 %364, label %365, label %375
+
+365:                                              ; preds = %362, %357
+  %366 = call i64 @clock() #10
+  store i64 %366, ptr @g_time, align 8, !tbaa !10
+  %367 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %368 = load i32, ptr %25, align 4, !tbaa !8
+  %369 = mul i32 %368, 100
+  %370 = load i32, ptr %22, align 4, !tbaa !8
+  %371 = udiv i32 %369, %370
+  %372 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %367, ptr noundef @.str.13, i32 noundef %371) #10
+  %373 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %374 = call i32 @fflush(ptr noundef %373)
+  br label %375
+
+375:                                              ; preds = %365, %362
+  br label %376
+
+376:                                              ; preds = %375, %354
+  %377 = load i32, ptr %25, align 4, !tbaa !8
+  %378 = add i32 %377, 1
+  store i32 %378, ptr %25, align 4, !tbaa !8
+  store i32 0, ptr %31, align 4
+  br label %379
+
+379:                                              ; preds = %376, %344, %294
+  call void @llvm.lifetime.end.p0(i64 8, ptr %34) #10
+  %380 = load i32, ptr %31, align 4
+  switch i32 %380, label %387 [
+    i32 0, label %381
+    i32 7, label %382
+  ]
+
+381:                                              ; preds = %379
+  br label %382
+
+382:                                              ; preds = %381, %379
+  %383 = load i32, ptr %21, align 4, !tbaa !8
+  %384 = load i32, ptr %27, align 4, !tbaa !8
+  %385 = add i32 %384, %383
+  store i32 %385, ptr %27, align 4, !tbaa !8
+  br label %269, !llvm.loop !97
+
+386:                                              ; preds = %269
+  call void @COVER_best_wait(ptr noundef %28)
+  call void @COVER_ctx_destroy(ptr noundef %32)
+  store i32 0, ptr %31, align 4
+  br label %387
+
+387:                                              ; preds = %386, %379, %257
+  call void @llvm.lifetime.end.p0(i64 88, ptr %32) #10
+  %388 = load i32, ptr %31, align 4
+  switch i32 %388, label %423 [
+    i32 0, label %389
+  ]
+
+389:                                              ; preds = %387
+  br label %390
+
+390:                                              ; preds = %389
+  %391 = load i32, ptr %26, align 4, !tbaa !8
+  %392 = add i32 %391, 2
+  store i32 %392, ptr %26, align 4, !tbaa !8
+  br label %222, !llvm.loop !98
+
+393:                                              ; preds = %222
+  %394 = load i32, ptr %24, align 4, !tbaa !8
+  %395 = icmp sge i32 %394, 2
+  br i1 %395, label %396, label %401
+
+396:                                              ; preds = %393
+  %397 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %398 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %397, ptr noundef @.str.14, ptr noundef @.str.15) #10
+  %399 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %400 = call i32 @fflush(ptr noundef %399)
+  br label %401
+
+401:                                              ; preds = %396, %393
+  call void @llvm.lifetime.start.p0(i64 8, ptr %35) #10
+  %402 = getelementptr inbounds nuw %struct.COVER_best_s, ptr %28, i32 0, i32 4
+  %403 = load i64, ptr %402, align 8, !tbaa !70
+  store i64 %403, ptr %35, align 8, !tbaa !10
+  %404 = getelementptr inbounds nuw %struct.COVER_best_s, ptr %28, i32 0, i32 6
+  %405 = load i64, ptr %404, align 8, !tbaa !71
+  %406 = call i32 @ERR_isError(i64 noundef %405)
+  %407 = icmp ne i32 %406, 0
+  br i1 %407, label %408, label %413
+
+408:                                              ; preds = %401
+  call void @llvm.lifetime.start.p0(i64 8, ptr %36) #10
+  %409 = getelementptr inbounds nuw %struct.COVER_best_s, ptr %28, i32 0, i32 6
+  %410 = load i64, ptr %409, align 8, !tbaa !71
+  store i64 %410, ptr %36, align 8, !tbaa !10
+  call void @COVER_best_destroy(ptr noundef %28)
+  %411 = load ptr, ptr %29, align 8, !tbaa !83
+  call void @POOL_free(ptr noundef %411)
+  %412 = load i64, ptr %36, align 8, !tbaa !10
+  store i64 %412, ptr %7, align 8
+  store i32 1, ptr %31, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %36) #10
+  br label %422
+
+413:                                              ; preds = %401
+  %414 = load ptr, ptr %13, align 8, !tbaa !21
+  %415 = getelementptr inbounds nuw %struct.COVER_best_s, ptr %28, i32 0, i32 5
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %414, ptr align 8 %415, i64 48, i1 false), !tbaa.struct !77
+  %416 = load ptr, ptr %8, align 8, !tbaa !21
+  %417 = getelementptr inbounds nuw %struct.COVER_best_s, ptr %28, i32 0, i32 3
+  %418 = load ptr, ptr %417, align 8, !tbaa !69
+  %419 = load i64, ptr %35, align 8, !tbaa !10
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %416, ptr align 1 %418, i64 %419, i1 false)
+  call void @COVER_best_destroy(ptr noundef %28)
+  %420 = load ptr, ptr %29, align 8, !tbaa !83
+  call void @POOL_free(ptr noundef %420)
+  %421 = load i64, ptr %35, align 8, !tbaa !10
+  store i64 %421, ptr %7, align 8
+  store i32 1, ptr %31, align 4
+  br label %422
+
+422:                                              ; preds = %413, %408
+  call void @llvm.lifetime.end.p0(i64 8, ptr %35) #10
+  br label %423
+
+423:                                              ; preds = %422, %387, %201, %191, %179, %167, %150
+  call void @llvm.lifetime.end.p0(i64 4, ptr %30) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %29) #10
+  call void @llvm.lifetime.end.p0(i64 168, ptr %28) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %27) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %26) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %25) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %24) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %23) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %22) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %21) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #10
+  %424 = load i64, ptr %7, align 8
+  ret i64 %424
 }
 
-declare ptr @POOL_create(i64 noundef, i64 noundef) #1
+declare ptr @POOL_create(i64 noundef, i64 noundef) #3
 
-declare void @POOL_free(ptr noundef) #1
+declare void @POOL_free(ptr noundef) #3
 
-declare void @POOL_add(ptr noundef, ptr noundef, ptr noundef) #1
+declare void @POOL_add(ptr noundef, ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @COVER_tryParameters(ptr noundef %opaque) #0 {
-entry:
-  %opaque.addr = alloca ptr, align 8
-  %data = alloca ptr, align 8
-  %ctx = alloca ptr, align 8
-  %parameters = alloca %struct.ZDICT_cover_params_t, align 8
-  %dictBufferCapacity = alloca i64, align 8
-  %totalCompressedSize = alloca i64, align 8
-  %activeDmers = alloca %struct.COVER_map_s, align 8
-  %dict = alloca ptr, align 8
-  %selection = alloca %struct.COVER_dictSelection, align 8
-  %freqs = alloca ptr, align 8
-  %tail = alloca i64, align 8
-  %tmp = alloca %struct.COVER_dictSelection, align 8
-  store ptr %opaque, ptr %opaque.addr, align 8
-  %0 = load ptr, ptr %opaque.addr, align 8
-  store ptr %0, ptr %data, align 8
-  %1 = load ptr, ptr %data, align 8
-  %ctx1 = getelementptr inbounds %struct.COVER_tryParameters_data_s, ptr %1, i32 0, i32 0
-  %2 = load ptr, ptr %ctx1, align 8
-  store ptr %2, ptr %ctx, align 8
-  %3 = load ptr, ptr %data, align 8
-  %parameters2 = getelementptr inbounds %struct.COVER_tryParameters_data_s, ptr %3, i32 0, i32 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %parameters, ptr align 8 %parameters2, i64 48, i1 false)
-  %4 = load ptr, ptr %data, align 8
-  %dictBufferCapacity3 = getelementptr inbounds %struct.COVER_tryParameters_data_s, ptr %4, i32 0, i32 2
-  %5 = load i64, ptr %dictBufferCapacity3, align 8
-  store i64 %5, ptr %dictBufferCapacity, align 8
-  store i64 -1, ptr %totalCompressedSize, align 8
-  %6 = load i64, ptr %dictBufferCapacity, align 8
-  %call = call noalias ptr @malloc(i64 noundef %6) #8
-  store ptr %call, ptr %dict, align 8
-  call void @COVER_dictSelectionError(ptr sret(%struct.COVER_dictSelection) align 8 %selection, i64 noundef -1)
-  %7 = load ptr, ptr %ctx, align 8
-  %suffixSize = getelementptr inbounds %struct.COVER_ctx_t, ptr %7, i32 0, i32 7
-  %8 = load i64, ptr %suffixSize, align 8
-  %mul = mul i64 %8, 4
-  %call4 = call noalias ptr @malloc(i64 noundef %mul) #8
-  store ptr %call4, ptr %freqs, align 8
-  %k = getelementptr inbounds %struct.ZDICT_cover_params_t, ptr %parameters, i32 0, i32 0
-  %9 = load i32, ptr %k, align 8
-  %d = getelementptr inbounds %struct.ZDICT_cover_params_t, ptr %parameters, i32 0, i32 1
-  %10 = load i32, ptr %d, align 4
-  %sub = sub i32 %9, %10
-  %add = add i32 %sub, 1
-  %call5 = call i32 @COVER_map_init(ptr noundef %activeDmers, i32 noundef %add)
-  %tobool = icmp ne i32 %call5, 0
-  br i1 %tobool, label %if.end9, label %if.then
+define internal void @COVER_tryParameters(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %struct.ZDICT_cover_params_t, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca %struct.COVER_map_s, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca %struct.COVER_dictSelection, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i64, align 8
+  %13 = alloca %struct.COVER_dictSelection, align 8
+  %14 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #10
+  %15 = load ptr, ptr %2, align 8, !tbaa !21
+  store ptr %15, ptr %3, align 8, !tbaa !85
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #10
+  %16 = load ptr, ptr %3, align 8, !tbaa !85
+  %17 = getelementptr inbounds nuw %struct.COVER_tryParameters_data_s, ptr %16, i32 0, i32 0
+  %18 = load ptr, ptr %17, align 8, !tbaa !87
+  store ptr %18, ptr %4, align 8, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 48, ptr %5) #10
+  %19 = load ptr, ptr %3, align 8, !tbaa !85
+  %20 = getelementptr inbounds nuw %struct.COVER_tryParameters_data_s, ptr %19, i32 0, i32 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %5, ptr align 8 %20, i64 48, i1 false), !tbaa.struct !77
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #10
+  %21 = load ptr, ptr %3, align 8, !tbaa !85
+  %22 = getelementptr inbounds nuw %struct.COVER_tryParameters_data_s, ptr %21, i32 0, i32 2
+  %23 = load i64, ptr %22, align 8, !tbaa !90
+  store i64 %23, ptr %6, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #10
+  store i64 -1, ptr %7, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 24, ptr %8) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #10
+  %24 = load i64, ptr %6, align 8, !tbaa !10
+  %25 = call noalias ptr @malloc(i64 noundef %24) #11
+  store ptr %25, ptr %9, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 24, ptr %10) #10
+  call void @COVER_dictSelectionError(ptr dead_on_unwind writable sret(%struct.COVER_dictSelection) align 8 %10, i64 noundef -1)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #10
+  %26 = load ptr, ptr %4, align 8, !tbaa !21
+  %27 = getelementptr inbounds nuw %struct.COVER_ctx_t, ptr %26, i32 0, i32 7
+  %28 = load i64, ptr %27, align 8, !tbaa !29
+  %29 = mul i64 %28, 4
+  %30 = call noalias ptr @malloc(i64 noundef %29) #11
+  store ptr %30, ptr %11, align 8, !tbaa !53
+  %31 = getelementptr inbounds nuw %struct.ZDICT_cover_params_t, ptr %5, i32 0, i32 0
+  %32 = load i32, ptr %31, align 8, !tbaa !32
+  %33 = getelementptr inbounds nuw %struct.ZDICT_cover_params_t, ptr %5, i32 0, i32 1
+  %34 = load i32, ptr %33, align 4, !tbaa !28
+  %35 = sub i32 %32, %34
+  %36 = add i32 %35, 1
+  %37 = call i32 @COVER_map_init(ptr noundef %8, i32 noundef %36)
+  %38 = icmp ne i32 %37, 0
+  br i1 %38, label %48, label %39
 
-if.then:                                          ; preds = %entry
-  %11 = load i32, ptr @g_displayLevel, align 4
-  %cmp = icmp sge i32 %11, 1
-  br i1 %cmp, label %if.then6, label %if.end
+39:                                               ; preds = %1
+  %40 = load i32, ptr @g_displayLevel, align 4, !tbaa !8
+  %41 = icmp sge i32 %40, 1
+  br i1 %41, label %42, label %47
 
-if.then6:                                         ; preds = %if.then
-  %12 = load ptr, ptr @stderr, align 8
-  %call7 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef @.str.4)
-  %13 = load ptr, ptr @stderr, align 8
-  %call8 = call i32 @fflush(ptr noundef %13)
-  br label %if.end
+42:                                               ; preds = %39
+  %43 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %44 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %43, ptr noundef @.str.4) #10
+  %45 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %46 = call i32 @fflush(ptr noundef %45)
+  br label %47
 
-if.end:                                           ; preds = %if.then6, %if.then
-  br label %_cleanup
+47:                                               ; preds = %42, %39
+  br label %119
 
-if.end9:                                          ; preds = %entry
-  %14 = load ptr, ptr %dict, align 8
-  %tobool10 = icmp ne ptr %14, null
-  br i1 %tobool10, label %lor.lhs.false, label %if.then12
+48:                                               ; preds = %1
+  %49 = load ptr, ptr %9, align 8, !tbaa !22
+  %50 = icmp ne ptr %49, null
+  br i1 %50, label %51, label %54
 
-lor.lhs.false:                                    ; preds = %if.end9
-  %15 = load ptr, ptr %freqs, align 8
-  %tobool11 = icmp ne ptr %15, null
-  br i1 %tobool11, label %if.end18, label %if.then12
+51:                                               ; preds = %48
+  %52 = load ptr, ptr %11, align 8, !tbaa !53
+  %53 = icmp ne ptr %52, null
+  br i1 %53, label %63, label %54
 
-if.then12:                                        ; preds = %lor.lhs.false, %if.end9
-  %16 = load i32, ptr @g_displayLevel, align 4
-  %cmp13 = icmp sge i32 %16, 1
-  br i1 %cmp13, label %if.then14, label %if.end17
+54:                                               ; preds = %51, %48
+  %55 = load i32, ptr @g_displayLevel, align 4, !tbaa !8
+  %56 = icmp sge i32 %55, 1
+  br i1 %56, label %57, label %62
 
-if.then14:                                        ; preds = %if.then12
-  %17 = load ptr, ptr @stderr, align 8
-  %call15 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef @.str.25)
-  %18 = load ptr, ptr @stderr, align 8
-  %call16 = call i32 @fflush(ptr noundef %18)
-  br label %if.end17
+57:                                               ; preds = %54
+  %58 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %59 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %58, ptr noundef @.str.25) #10
+  %60 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %61 = call i32 @fflush(ptr noundef %60)
+  br label %62
 
-if.end17:                                         ; preds = %if.then14, %if.then12
-  br label %_cleanup
+62:                                               ; preds = %57, %54
+  br label %119
 
-if.end18:                                         ; preds = %lor.lhs.false
-  %19 = load ptr, ptr %freqs, align 8
-  %20 = load ptr, ptr %ctx, align 8
-  %freqs19 = getelementptr inbounds %struct.COVER_ctx_t, ptr %20, i32 0, i32 8
-  %21 = load ptr, ptr %freqs19, align 8
-  %22 = load ptr, ptr %ctx, align 8
-  %suffixSize20 = getelementptr inbounds %struct.COVER_ctx_t, ptr %22, i32 0, i32 7
-  %23 = load i64, ptr %suffixSize20, align 8
-  %mul21 = mul i64 %23, 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %19, ptr align 4 %21, i64 %mul21, i1 false)
-  %24 = load ptr, ptr %ctx, align 8
-  %25 = load ptr, ptr %freqs, align 8
-  %26 = load ptr, ptr %dict, align 8
-  %27 = load i64, ptr %dictBufferCapacity, align 8
-  %call22 = call i64 @COVER_buildDictionary(ptr noundef %24, ptr noundef %25, ptr noundef %activeDmers, ptr noundef %26, i64 noundef %27, ptr noundef byval(%struct.ZDICT_cover_params_t) align 8 %parameters)
-  store i64 %call22, ptr %tail, align 8
-  %28 = load ptr, ptr %dict, align 8
-  %29 = load i64, ptr %tail, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %28, i64 %29
-  %30 = load i64, ptr %dictBufferCapacity, align 8
-  %31 = load i64, ptr %dictBufferCapacity, align 8
-  %32 = load i64, ptr %tail, align 8
-  %sub23 = sub i64 %31, %32
-  %33 = load ptr, ptr %ctx, align 8
-  %samples = getelementptr inbounds %struct.COVER_ctx_t, ptr %33, i32 0, i32 0
-  %34 = load ptr, ptr %samples, align 8
-  %35 = load ptr, ptr %ctx, align 8
-  %samplesSizes = getelementptr inbounds %struct.COVER_ctx_t, ptr %35, i32 0, i32 2
-  %36 = load ptr, ptr %samplesSizes, align 8
-  %37 = load ptr, ptr %ctx, align 8
-  %nbTrainSamples = getelementptr inbounds %struct.COVER_ctx_t, ptr %37, i32 0, i32 4
-  %38 = load i64, ptr %nbTrainSamples, align 8
-  %conv = trunc i64 %38 to i32
-  %39 = load ptr, ptr %ctx, align 8
-  %nbTrainSamples24 = getelementptr inbounds %struct.COVER_ctx_t, ptr %39, i32 0, i32 4
-  %40 = load i64, ptr %nbTrainSamples24, align 8
-  %41 = load ptr, ptr %ctx, align 8
-  %nbSamples = getelementptr inbounds %struct.COVER_ctx_t, ptr %41, i32 0, i32 3
-  %42 = load i64, ptr %nbSamples, align 8
-  %43 = load ptr, ptr %ctx, align 8
-  %offsets = getelementptr inbounds %struct.COVER_ctx_t, ptr %43, i32 0, i32 1
-  %44 = load ptr, ptr %offsets, align 8
-  %45 = load i64, ptr %totalCompressedSize, align 8
-  call void @COVER_selectDict(ptr sret(%struct.COVER_dictSelection) align 8 %tmp, ptr noundef %add.ptr, i64 noundef %30, i64 noundef %sub23, ptr noundef %34, ptr noundef %36, i32 noundef %conv, i64 noundef %40, i64 noundef %42, ptr noundef byval(%struct.ZDICT_cover_params_t) align 8 %parameters, ptr noundef %44, i64 noundef %45)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %selection, ptr align 8 %tmp, i64 24, i1 false)
-  %call25 = call i32 @COVER_dictSelectionIsError(ptr noundef byval(%struct.COVER_dictSelection) align 8 %selection)
-  %tobool26 = icmp ne i32 %call25, 0
-  br i1 %tobool26, label %if.then27, label %if.end34
+63:                                               ; preds = %51
+  %64 = load ptr, ptr %11, align 8, !tbaa !53
+  %65 = load ptr, ptr %4, align 8, !tbaa !21
+  %66 = getelementptr inbounds nuw %struct.COVER_ctx_t, ptr %65, i32 0, i32 8
+  %67 = load ptr, ptr %66, align 8, !tbaa !33
+  %68 = load ptr, ptr %4, align 8, !tbaa !21
+  %69 = getelementptr inbounds nuw %struct.COVER_ctx_t, ptr %68, i32 0, i32 7
+  %70 = load i64, ptr %69, align 8, !tbaa !29
+  %71 = mul i64 %70, 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %64, ptr align 4 %67, i64 %71, i1 false)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #10
+  %72 = load ptr, ptr %4, align 8, !tbaa !21
+  %73 = load ptr, ptr %11, align 8, !tbaa !53
+  %74 = load ptr, ptr %9, align 8, !tbaa !22
+  %75 = load i64, ptr %6, align 8, !tbaa !10
+  %76 = call i64 @COVER_buildDictionary(ptr noundef %72, ptr noundef %73, ptr noundef %8, ptr noundef %74, i64 noundef %75, ptr noundef byval(%struct.ZDICT_cover_params_t) align 8 %5)
+  store i64 %76, ptr %12, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 24, ptr %13) #10
+  %77 = load ptr, ptr %9, align 8, !tbaa !22
+  %78 = load i64, ptr %12, align 8, !tbaa !10
+  %79 = getelementptr inbounds nuw i8, ptr %77, i64 %78
+  %80 = load i64, ptr %6, align 8, !tbaa !10
+  %81 = load i64, ptr %6, align 8, !tbaa !10
+  %82 = load i64, ptr %12, align 8, !tbaa !10
+  %83 = sub i64 %81, %82
+  %84 = load ptr, ptr %4, align 8, !tbaa !21
+  %85 = getelementptr inbounds nuw %struct.COVER_ctx_t, ptr %84, i32 0, i32 0
+  %86 = load ptr, ptr %85, align 8, !tbaa !34
+  %87 = load ptr, ptr %4, align 8, !tbaa !21
+  %88 = getelementptr inbounds nuw %struct.COVER_ctx_t, ptr %87, i32 0, i32 2
+  %89 = load ptr, ptr %88, align 8, !tbaa !35
+  %90 = load ptr, ptr %4, align 8, !tbaa !21
+  %91 = getelementptr inbounds nuw %struct.COVER_ctx_t, ptr %90, i32 0, i32 4
+  %92 = load i64, ptr %91, align 8, !tbaa !37
+  %93 = trunc i64 %92 to i32
+  %94 = load ptr, ptr %4, align 8, !tbaa !21
+  %95 = getelementptr inbounds nuw %struct.COVER_ctx_t, ptr %94, i32 0, i32 4
+  %96 = load i64, ptr %95, align 8, !tbaa !37
+  %97 = load ptr, ptr %4, align 8, !tbaa !21
+  %98 = getelementptr inbounds nuw %struct.COVER_ctx_t, ptr %97, i32 0, i32 3
+  %99 = load i64, ptr %98, align 8, !tbaa !36
+  %100 = load ptr, ptr %4, align 8, !tbaa !21
+  %101 = getelementptr inbounds nuw %struct.COVER_ctx_t, ptr %100, i32 0, i32 1
+  %102 = load ptr, ptr %101, align 8, !tbaa !41
+  %103 = load i64, ptr %7, align 8, !tbaa !10
+  call void @COVER_selectDict(ptr dead_on_unwind writable sret(%struct.COVER_dictSelection) align 8 %13, ptr noundef %79, i64 noundef %80, i64 noundef %83, ptr noundef %86, ptr noundef %89, i32 noundef %93, i64 noundef %96, i64 noundef %99, ptr noundef byval(%struct.ZDICT_cover_params_t) align 8 %5, ptr noundef %102, i64 noundef %103)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %13, i64 24, i1 false), !tbaa.struct !99
+  call void @llvm.lifetime.end.p0(i64 24, ptr %13) #10
+  %104 = call i32 @COVER_dictSelectionIsError(ptr noundef byval(%struct.COVER_dictSelection) align 8 %10)
+  %105 = icmp ne i32 %104, 0
+  br i1 %105, label %106, label %115
 
-if.then27:                                        ; preds = %if.end18
-  %46 = load i32, ptr @g_displayLevel, align 4
-  %cmp28 = icmp sge i32 %46, 1
-  br i1 %cmp28, label %if.then30, label %if.end33
+106:                                              ; preds = %63
+  %107 = load i32, ptr @g_displayLevel, align 4, !tbaa !8
+  %108 = icmp sge i32 %107, 1
+  br i1 %108, label %109, label %114
 
-if.then30:                                        ; preds = %if.then27
-  %47 = load ptr, ptr @stderr, align 8
-  %call31 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %47, ptr noundef @.str.26)
-  %48 = load ptr, ptr @stderr, align 8
-  %call32 = call i32 @fflush(ptr noundef %48)
-  br label %if.end33
+109:                                              ; preds = %106
+  %110 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %111 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %110, ptr noundef @.str.26) #10
+  %112 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %113 = call i32 @fflush(ptr noundef %112)
+  br label %114
 
-if.end33:                                         ; preds = %if.then30, %if.then27
-  br label %_cleanup
+114:                                              ; preds = %109, %106
+  store i32 2, ptr %14, align 4
+  br label %116
 
-if.end34:                                         ; preds = %if.end18
-  br label %_cleanup
+115:                                              ; preds = %63
+  store i32 0, ptr %14, align 4
+  br label %116
 
-_cleanup:                                         ; preds = %if.end34, %if.end33, %if.end17, %if.end
-  %49 = load ptr, ptr %dict, align 8
-  call void @free(ptr noundef %49) #9
-  %50 = load ptr, ptr %data, align 8
-  %best = getelementptr inbounds %struct.COVER_tryParameters_data_s, ptr %50, i32 0, i32 1
-  %51 = load ptr, ptr %best, align 8
-  call void @COVER_best_finish(ptr noundef %51, ptr noundef byval(%struct.ZDICT_cover_params_t) align 8 %parameters, ptr noundef byval(%struct.COVER_dictSelection) align 8 %selection)
-  %52 = load ptr, ptr %data, align 8
-  call void @free(ptr noundef %52) #9
-  call void @COVER_map_destroy(ptr noundef %activeDmers)
-  call void @COVER_dictSelectionFree(ptr noundef byval(%struct.COVER_dictSelection) align 8 %selection)
-  %53 = load ptr, ptr %freqs, align 8
-  call void @free(ptr noundef %53) #9
+116:                                              ; preds = %114, %115
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #10
+  %117 = load i32, ptr %14, align 4
+  switch i32 %117, label %126 [
+    i32 0, label %118
+    i32 2, label %119
+  ]
+
+118:                                              ; preds = %116
+  br label %119
+
+119:                                              ; preds = %118, %116, %62, %47
+  %120 = load ptr, ptr %9, align 8, !tbaa !22
+  call void @free(ptr noundef %120) #10
+  %121 = load ptr, ptr %3, align 8, !tbaa !85
+  %122 = getelementptr inbounds nuw %struct.COVER_tryParameters_data_s, ptr %121, i32 0, i32 1
+  %123 = load ptr, ptr %122, align 8, !tbaa !89
+  call void @COVER_best_finish(ptr noundef %123, ptr noundef byval(%struct.ZDICT_cover_params_t) align 8 %5, ptr noundef byval(%struct.COVER_dictSelection) align 8 %10)
+  %124 = load ptr, ptr %3, align 8, !tbaa !85
+  call void @free(ptr noundef %124) #10
+  call void @COVER_map_destroy(ptr noundef %8)
+  call void @COVER_dictSelectionFree(ptr noundef byval(%struct.COVER_dictSelection) align 8 %10)
+  %125 = load ptr, ptr %11, align 8, !tbaa !53
+  call void @free(ptr noundef %125) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #10
+  call void @llvm.lifetime.end.p0(i64 24, ptr %10) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #10
+  call void @llvm.lifetime.end.p0(i64 24, ptr %8) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #10
+  call void @llvm.lifetime.end.p0(i64 48, ptr %5) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #10
   ret void
+
+126:                                              ; preds = %116
+  unreachable
 }
 
 ; Function Attrs: nounwind
-declare i64 @clock() #3
-
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) #1
+declare i64 @clock() #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @COVER_strict_cmp8(ptr noundef %lp, ptr noundef %rp) #0 {
-entry:
-  %lp.addr = alloca ptr, align 8
-  %rp.addr = alloca ptr, align 8
-  %result = alloca i32, align 4
-  store ptr %lp, ptr %lp.addr, align 8
-  store ptr %rp, ptr %rp.addr, align 8
-  %0 = load ptr, ptr @g_coverCtx, align 8
-  %1 = load ptr, ptr %lp.addr, align 8
-  %2 = load ptr, ptr %rp.addr, align 8
-  %call = call i32 @COVER_cmp8(ptr noundef %0, ptr noundef %1, ptr noundef %2)
-  store i32 %call, ptr %result, align 4
-  %3 = load i32, ptr %result, align 4
-  %cmp = icmp eq i32 %3, 0
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr %lp.addr, align 8
-  %5 = load ptr, ptr %rp.addr, align 8
-  %cmp1 = icmp ult ptr %4, %5
-  %cond = select i1 %cmp1, i32 -1, i32 1
-  store i32 %cond, ptr %result, align 4
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %entry
-  %6 = load i32, ptr %result, align 4
-  ret i32 %6
-}
-
-; Function Attrs: nounwind uwtable
-define internal i32 @COVER_strict_cmp(ptr noundef %lp, ptr noundef %rp) #0 {
-entry:
-  %lp.addr = alloca ptr, align 8
-  %rp.addr = alloca ptr, align 8
-  %result = alloca i32, align 4
-  store ptr %lp, ptr %lp.addr, align 8
-  store ptr %rp, ptr %rp.addr, align 8
-  %0 = load ptr, ptr @g_coverCtx, align 8
-  %1 = load ptr, ptr %lp.addr, align 8
-  %2 = load ptr, ptr %rp.addr, align 8
-  %call = call i32 @COVER_cmp(ptr noundef %0, ptr noundef %1, ptr noundef %2)
-  store i32 %call, ptr %result, align 4
-  %3 = load i32, ptr %result, align 4
-  %cmp = icmp eq i32 %3, 0
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr %lp.addr, align 8
-  %5 = load ptr, ptr %rp.addr, align 8
-  %cmp1 = icmp ult ptr %4, %5
-  %cond = select i1 %cmp1, i32 -1, i32 1
-  store i32 %cond, ptr %result, align 4
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %entry
-  %6 = load i32, ptr %result, align 4
-  ret i32 %6
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @COVER_groupBy(ptr noundef %data, i64 noundef %count, i64 noundef %size, ptr noundef %ctx, ptr noundef %cmp, ptr noundef %grp) #0 {
-entry:
-  %data.addr = alloca ptr, align 8
-  %count.addr = alloca i64, align 8
-  %size.addr = alloca i64, align 8
-  %ctx.addr = alloca ptr, align 8
-  %cmp.addr = alloca ptr, align 8
-  %grp.addr = alloca ptr, align 8
-  %ptr = alloca ptr, align 8
-  %num = alloca i64, align 8
-  %grpEnd = alloca ptr, align 8
-  store ptr %data, ptr %data.addr, align 8
-  store i64 %count, ptr %count.addr, align 8
-  store i64 %size, ptr %size.addr, align 8
-  store ptr %ctx, ptr %ctx.addr, align 8
-  store ptr %cmp, ptr %cmp.addr, align 8
-  store ptr %grp, ptr %grp.addr, align 8
-  %0 = load ptr, ptr %data.addr, align 8
-  store ptr %0, ptr %ptr, align 8
-  store i64 0, ptr %num, align 8
-  br label %while.cond
-
-while.cond:                                       ; preds = %while.end, %entry
-  %1 = load i64, ptr %num, align 8
-  %2 = load i64, ptr %count.addr, align 8
-  %cmp1 = icmp ult i64 %1, %2
-  br i1 %cmp1, label %while.body, label %while.end8
-
-while.body:                                       ; preds = %while.cond
-  %3 = load ptr, ptr %ptr, align 8
-  %4 = load i64, ptr %size.addr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %3, i64 %4
-  store ptr %add.ptr, ptr %grpEnd, align 8
-  %5 = load i64, ptr %num, align 8
-  %inc = add i64 %5, 1
-  store i64 %inc, ptr %num, align 8
-  br label %while.cond2
-
-while.cond2:                                      ; preds = %while.body5, %while.body
-  %6 = load i64, ptr %num, align 8
-  %7 = load i64, ptr %count.addr, align 8
-  %cmp3 = icmp ult i64 %6, %7
-  br i1 %cmp3, label %land.rhs, label %land.end
-
-land.rhs:                                         ; preds = %while.cond2
-  %8 = load ptr, ptr %cmp.addr, align 8
-  %9 = load ptr, ptr %ctx.addr, align 8
-  %10 = load ptr, ptr %ptr, align 8
-  %11 = load ptr, ptr %grpEnd, align 8
-  %call = call i32 %8(ptr noundef %9, ptr noundef %10, ptr noundef %11)
-  %cmp4 = icmp eq i32 %call, 0
-  br label %land.end
-
-land.end:                                         ; preds = %land.rhs, %while.cond2
-  %12 = phi i1 [ false, %while.cond2 ], [ %cmp4, %land.rhs ]
-  br i1 %12, label %while.body5, label %while.end
-
-while.body5:                                      ; preds = %land.end
-  %13 = load i64, ptr %size.addr, align 8
-  %14 = load ptr, ptr %grpEnd, align 8
-  %add.ptr6 = getelementptr inbounds i8, ptr %14, i64 %13
-  store ptr %add.ptr6, ptr %grpEnd, align 8
-  %15 = load i64, ptr %num, align 8
-  %inc7 = add i64 %15, 1
-  store i64 %inc7, ptr %num, align 8
-  br label %while.cond2, !llvm.loop !15
-
-while.end:                                        ; preds = %land.end
-  %16 = load ptr, ptr %grp.addr, align 8
-  %17 = load ptr, ptr %ctx.addr, align 8
-  %18 = load ptr, ptr %ptr, align 8
-  %19 = load ptr, ptr %grpEnd, align 8
-  call void %16(ptr noundef %17, ptr noundef %18, ptr noundef %19)
-  %20 = load ptr, ptr %grpEnd, align 8
-  store ptr %20, ptr %ptr, align 8
-  br label %while.cond, !llvm.loop !16
-
-while.end8:                                       ; preds = %while.cond
+define internal void @stableSort(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !21
+  %3 = load ptr, ptr %2, align 8, !tbaa !21
+  %4 = getelementptr inbounds nuw %struct.COVER_ctx_t, ptr %3, i32 0, i32 6
+  %5 = load ptr, ptr %4, align 8, !tbaa !39
+  %6 = load ptr, ptr %2, align 8, !tbaa !21
+  %7 = getelementptr inbounds nuw %struct.COVER_ctx_t, ptr %6, i32 0, i32 7
+  %8 = load i64, ptr %7, align 8, !tbaa !29
+  %9 = load ptr, ptr %2, align 8, !tbaa !21
+  %10 = getelementptr inbounds nuw %struct.COVER_ctx_t, ptr %9, i32 0, i32 10
+  %11 = load i32, ptr %10, align 8, !tbaa !42
+  %12 = icmp ule i32 %11, 8
+  %13 = select i1 %12, ptr @COVER_strict_cmp8, ptr @COVER_strict_cmp
+  %14 = load ptr, ptr %2, align 8, !tbaa !21
+  call void @qsort_r(ptr noundef %5, i64 noundef %8, i64 noundef 4, ptr noundef %13, ptr noundef %14)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @COVER_cmp8(ptr noundef %ctx, ptr noundef %lp, ptr noundef %rp) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %ctx.addr = alloca ptr, align 8
-  %lp.addr = alloca ptr, align 8
-  %rp.addr = alloca ptr, align 8
-  %mask = alloca i64, align 8
-  %lhs = alloca i64, align 8
-  %rhs = alloca i64, align 8
-  store ptr %ctx, ptr %ctx.addr, align 8
-  store ptr %lp, ptr %lp.addr, align 8
-  store ptr %rp, ptr %rp.addr, align 8
-  %0 = load ptr, ptr %ctx.addr, align 8
-  %d = getelementptr inbounds %struct.COVER_ctx_t, ptr %0, i32 0, i32 10
-  %1 = load i32, ptr %d, align 8
-  %cmp = icmp eq i32 %1, 8
-  br i1 %cmp, label %cond.true, label %cond.false
+define internal void @COVER_groupBy(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i64, align 8
+  %15 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8, !tbaa !21
+  store i64 %1, ptr %8, align 8, !tbaa !10
+  store i64 %2, ptr %9, align 8, !tbaa !10
+  store ptr %3, ptr %10, align 8, !tbaa !21
+  store ptr %4, ptr %11, align 8, !tbaa !21
+  store ptr %5, ptr %12, align 8, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #10
+  %16 = load ptr, ptr %7, align 8, !tbaa !21
+  store ptr %16, ptr %13, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #10
+  store i64 0, ptr %14, align 8, !tbaa !10
+  br label %17
 
-cond.true:                                        ; preds = %entry
-  br label %cond.end
+17:                                               ; preds = %46, %6
+  %18 = load i64, ptr %14, align 8, !tbaa !10
+  %19 = load i64, ptr %8, align 8, !tbaa !10
+  %20 = icmp ult i64 %18, %19
+  br i1 %20, label %21, label %52
 
-cond.false:                                       ; preds = %entry
-  %2 = load ptr, ptr %ctx.addr, align 8
-  %d1 = getelementptr inbounds %struct.COVER_ctx_t, ptr %2, i32 0, i32 10
-  %3 = load i32, ptr %d1, align 8
-  %mul = mul i32 8, %3
-  %sh_prom = zext i32 %mul to i64
-  %shl = shl i64 1, %sh_prom
-  %sub = sub i64 %shl, 1
-  br label %cond.end
+21:                                               ; preds = %17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #10
+  %22 = load ptr, ptr %13, align 8, !tbaa !22
+  %23 = load i64, ptr %9, align 8, !tbaa !10
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 %23
+  store ptr %24, ptr %15, align 8, !tbaa !22
+  %25 = load i64, ptr %14, align 8, !tbaa !10
+  %26 = add i64 %25, 1
+  store i64 %26, ptr %14, align 8, !tbaa !10
+  br label %27
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i64 [ -1, %cond.true ], [ %sub, %cond.false ]
-  store i64 %cond, ptr %mask, align 8
-  %4 = load ptr, ptr %ctx.addr, align 8
-  %samples = getelementptr inbounds %struct.COVER_ctx_t, ptr %4, i32 0, i32 0
-  %5 = load ptr, ptr %samples, align 8
-  %6 = load ptr, ptr %lp.addr, align 8
-  %7 = load i32, ptr %6, align 4
-  %idx.ext = zext i32 %7 to i64
-  %add.ptr = getelementptr inbounds i8, ptr %5, i64 %idx.ext
-  %call = call i64 @MEM_readLE64(ptr noundef %add.ptr)
-  %8 = load i64, ptr %mask, align 8
-  %and = and i64 %call, %8
-  store i64 %and, ptr %lhs, align 8
-  %9 = load ptr, ptr %ctx.addr, align 8
-  %samples2 = getelementptr inbounds %struct.COVER_ctx_t, ptr %9, i32 0, i32 0
-  %10 = load ptr, ptr %samples2, align 8
-  %11 = load ptr, ptr %rp.addr, align 8
-  %12 = load i32, ptr %11, align 4
-  %idx.ext3 = zext i32 %12 to i64
-  %add.ptr4 = getelementptr inbounds i8, ptr %10, i64 %idx.ext3
-  %call5 = call i64 @MEM_readLE64(ptr noundef %add.ptr4)
-  %13 = load i64, ptr %mask, align 8
-  %and6 = and i64 %call5, %13
-  store i64 %and6, ptr %rhs, align 8
-  %14 = load i64, ptr %lhs, align 8
-  %15 = load i64, ptr %rhs, align 8
-  %cmp7 = icmp ult i64 %14, %15
-  br i1 %cmp7, label %if.then, label %if.end
+27:                                               ; preds = %40, %21
+  %28 = load i64, ptr %14, align 8, !tbaa !10
+  %29 = load i64, ptr %8, align 8, !tbaa !10
+  %30 = icmp ult i64 %28, %29
+  br i1 %30, label %31, label %38
 
-if.then:                                          ; preds = %cond.end
-  store i32 -1, ptr %retval, align 4
-  br label %return
+31:                                               ; preds = %27
+  %32 = load ptr, ptr %11, align 8, !tbaa !21
+  %33 = load ptr, ptr %10, align 8, !tbaa !21
+  %34 = load ptr, ptr %13, align 8, !tbaa !22
+  %35 = load ptr, ptr %15, align 8, !tbaa !22
+  %36 = call i32 %32(ptr noundef %33, ptr noundef %34, ptr noundef %35)
+  %37 = icmp eq i32 %36, 0
+  br label %38
 
-if.end:                                           ; preds = %cond.end
-  %16 = load i64, ptr %lhs, align 8
-  %17 = load i64, ptr %rhs, align 8
-  %cmp8 = icmp ugt i64 %16, %17
-  %conv = zext i1 %cmp8 to i32
-  store i32 %conv, ptr %retval, align 4
-  br label %return
+38:                                               ; preds = %31, %27
+  %39 = phi i1 [ false, %27 ], [ %37, %31 ]
+  br i1 %39, label %40, label %46
 
-return:                                           ; preds = %if.end, %if.then
-  %18 = load i32, ptr %retval, align 4
-  ret i32 %18
-}
+40:                                               ; preds = %38
+  %41 = load i64, ptr %9, align 8, !tbaa !10
+  %42 = load ptr, ptr %15, align 8, !tbaa !22
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 %41
+  store ptr %43, ptr %15, align 8, !tbaa !22
+  %44 = load i64, ptr %14, align 8, !tbaa !10
+  %45 = add i64 %44, 1
+  store i64 %45, ptr %14, align 8, !tbaa !10
+  br label %27, !llvm.loop !100
 
-; Function Attrs: nounwind uwtable
-define internal i32 @COVER_cmp(ptr noundef %ctx, ptr noundef %lp, ptr noundef %rp) #0 {
-entry:
-  %ctx.addr = alloca ptr, align 8
-  %lp.addr = alloca ptr, align 8
-  %rp.addr = alloca ptr, align 8
-  %lhs = alloca i32, align 4
-  %rhs = alloca i32, align 4
-  store ptr %ctx, ptr %ctx.addr, align 8
-  store ptr %lp, ptr %lp.addr, align 8
-  store ptr %rp, ptr %rp.addr, align 8
-  %0 = load ptr, ptr %lp.addr, align 8
-  %1 = load i32, ptr %0, align 4
-  store i32 %1, ptr %lhs, align 4
-  %2 = load ptr, ptr %rp.addr, align 8
-  %3 = load i32, ptr %2, align 4
-  store i32 %3, ptr %rhs, align 4
-  %4 = load ptr, ptr %ctx.addr, align 8
-  %samples = getelementptr inbounds %struct.COVER_ctx_t, ptr %4, i32 0, i32 0
-  %5 = load ptr, ptr %samples, align 8
-  %6 = load i32, ptr %lhs, align 4
-  %idx.ext = zext i32 %6 to i64
-  %add.ptr = getelementptr inbounds i8, ptr %5, i64 %idx.ext
-  %7 = load ptr, ptr %ctx.addr, align 8
-  %samples1 = getelementptr inbounds %struct.COVER_ctx_t, ptr %7, i32 0, i32 0
-  %8 = load ptr, ptr %samples1, align 8
-  %9 = load i32, ptr %rhs, align 4
-  %idx.ext2 = zext i32 %9 to i64
-  %add.ptr3 = getelementptr inbounds i8, ptr %8, i64 %idx.ext2
-  %10 = load ptr, ptr %ctx.addr, align 8
-  %d = getelementptr inbounds %struct.COVER_ctx_t, ptr %10, i32 0, i32 10
-  %11 = load i32, ptr %d, align 8
-  %conv = zext i32 %11 to i64
-  %call = call i32 @memcmp(ptr noundef %add.ptr, ptr noundef %add.ptr3, i64 noundef %conv) #10
-  ret i32 %call
-}
+46:                                               ; preds = %38
+  %47 = load ptr, ptr %12, align 8, !tbaa !21
+  %48 = load ptr, ptr %10, align 8, !tbaa !21
+  %49 = load ptr, ptr %13, align 8, !tbaa !22
+  %50 = load ptr, ptr %15, align 8, !tbaa !22
+  call void %47(ptr noundef %48, ptr noundef %49, ptr noundef %50)
+  %51 = load ptr, ptr %15, align 8, !tbaa !22
+  store ptr %51, ptr %13, align 8, !tbaa !22
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #10
+  br label %17, !llvm.loop !101
 
-; Function Attrs: nounwind uwtable
-define internal void @COVER_group(ptr noundef %ctx, ptr noundef %group, ptr noundef %groupEnd) #0 {
-entry:
-  %ctx.addr = alloca ptr, align 8
-  %group.addr = alloca ptr, align 8
-  %groupEnd.addr = alloca ptr, align 8
-  %grpPtr = alloca ptr, align 8
-  %grpEnd = alloca ptr, align 8
-  %dmerId = alloca i32, align 4
-  %freq = alloca i32, align 4
-  %curOffsetPtr = alloca ptr, align 8
-  %offsetsEnd = alloca ptr, align 8
-  %curSampleEnd = alloca i64, align 8
-  %sampleEndPtr = alloca ptr, align 8
-  store ptr %ctx, ptr %ctx.addr, align 8
-  store ptr %group, ptr %group.addr, align 8
-  store ptr %groupEnd, ptr %groupEnd.addr, align 8
-  %0 = load ptr, ptr %group.addr, align 8
-  store ptr %0, ptr %grpPtr, align 8
-  %1 = load ptr, ptr %groupEnd.addr, align 8
-  store ptr %1, ptr %grpEnd, align 8
-  %2 = load ptr, ptr %grpPtr, align 8
-  %3 = load ptr, ptr %ctx.addr, align 8
-  %suffix = getelementptr inbounds %struct.COVER_ctx_t, ptr %3, i32 0, i32 6
-  %4 = load ptr, ptr %suffix, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %2 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %4 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 4
-  %conv = trunc i64 %sub.ptr.div to i32
-  store i32 %conv, ptr %dmerId, align 4
-  store i32 0, ptr %freq, align 4
-  %5 = load ptr, ptr %ctx.addr, align 8
-  %offsets = getelementptr inbounds %struct.COVER_ctx_t, ptr %5, i32 0, i32 1
-  %6 = load ptr, ptr %offsets, align 8
-  store ptr %6, ptr %curOffsetPtr, align 8
-  %7 = load ptr, ptr %ctx.addr, align 8
-  %offsets1 = getelementptr inbounds %struct.COVER_ctx_t, ptr %7, i32 0, i32 1
-  %8 = load ptr, ptr %offsets1, align 8
-  %9 = load ptr, ptr %ctx.addr, align 8
-  %nbSamples = getelementptr inbounds %struct.COVER_ctx_t, ptr %9, i32 0, i32 3
-  %10 = load i64, ptr %nbSamples, align 8
-  %add.ptr = getelementptr inbounds i64, ptr %8, i64 %10
-  store ptr %add.ptr, ptr %offsetsEnd, align 8
-  %11 = load ptr, ptr %ctx.addr, align 8
-  %offsets2 = getelementptr inbounds %struct.COVER_ctx_t, ptr %11, i32 0, i32 1
-  %12 = load ptr, ptr %offsets2, align 8
-  %arrayidx = getelementptr inbounds i64, ptr %12, i64 0
-  %13 = load i64, ptr %arrayidx, align 8
-  store i64 %13, ptr %curSampleEnd, align 8
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %entry
-  %14 = load ptr, ptr %grpPtr, align 8
-  %15 = load ptr, ptr %grpEnd, align 8
-  %cmp = icmp ne ptr %14, %15
-  br i1 %cmp, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %16 = load i32, ptr %dmerId, align 4
-  %17 = load ptr, ptr %ctx.addr, align 8
-  %dmerAt = getelementptr inbounds %struct.COVER_ctx_t, ptr %17, i32 0, i32 9
-  %18 = load ptr, ptr %dmerAt, align 8
-  %19 = load ptr, ptr %grpPtr, align 8
-  %20 = load i32, ptr %19, align 4
-  %idxprom = zext i32 %20 to i64
-  %arrayidx4 = getelementptr inbounds i32, ptr %18, i64 %idxprom
-  store i32 %16, ptr %arrayidx4, align 4
-  %21 = load ptr, ptr %grpPtr, align 8
-  %22 = load i32, ptr %21, align 4
-  %conv5 = zext i32 %22 to i64
-  %23 = load i64, ptr %curSampleEnd, align 8
-  %cmp6 = icmp ult i64 %conv5, %23
-  br i1 %cmp6, label %if.then, label %if.end
-
-if.then:                                          ; preds = %for.body
-  br label %for.inc
-
-if.end:                                           ; preds = %for.body
-  %24 = load i32, ptr %freq, align 4
-  %add = add i32 %24, 1
-  store i32 %add, ptr %freq, align 4
-  %25 = load ptr, ptr %grpPtr, align 8
-  %add.ptr8 = getelementptr inbounds i32, ptr %25, i64 1
-  %26 = load ptr, ptr %grpEnd, align 8
-  %cmp9 = icmp ne ptr %add.ptr8, %26
-  br i1 %cmp9, label %if.then11, label %if.end14
-
-if.then11:                                        ; preds = %if.end
-  %27 = load ptr, ptr %curOffsetPtr, align 8
-  %28 = load ptr, ptr %offsetsEnd, align 8
-  %29 = load ptr, ptr %grpPtr, align 8
-  %30 = load i32, ptr %29, align 4
-  %conv12 = zext i32 %30 to i64
-  %call = call ptr @COVER_lower_bound(ptr noundef %27, ptr noundef %28, i64 noundef %conv12)
-  store ptr %call, ptr %sampleEndPtr, align 8
-  %31 = load ptr, ptr %sampleEndPtr, align 8
-  %32 = load i64, ptr %31, align 8
-  store i64 %32, ptr %curSampleEnd, align 8
-  %33 = load ptr, ptr %sampleEndPtr, align 8
-  %add.ptr13 = getelementptr inbounds i64, ptr %33, i64 1
-  store ptr %add.ptr13, ptr %curOffsetPtr, align 8
-  br label %if.end14
-
-if.end14:                                         ; preds = %if.then11, %if.end
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end14, %if.then
-  %34 = load ptr, ptr %grpPtr, align 8
-  %incdec.ptr = getelementptr inbounds i32, ptr %34, i32 1
-  store ptr %incdec.ptr, ptr %grpPtr, align 8
-  br label %for.cond, !llvm.loop !17
-
-for.end:                                          ; preds = %for.cond
-  %35 = load i32, ptr %freq, align 4
-  %36 = load ptr, ptr %ctx.addr, align 8
-  %suffix15 = getelementptr inbounds %struct.COVER_ctx_t, ptr %36, i32 0, i32 6
-  %37 = load ptr, ptr %suffix15, align 8
-  %38 = load i32, ptr %dmerId, align 4
-  %idxprom16 = zext i32 %38 to i64
-  %arrayidx17 = getelementptr inbounds i32, ptr %37, i64 %idxprom16
-  store i32 %35, ptr %arrayidx17, align 4
+52:                                               ; preds = %17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #10
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @MEM_readLE64(ptr noundef %memPtr) #0 {
-entry:
-  %retval = alloca i64, align 8
-  %memPtr.addr = alloca ptr, align 8
-  store ptr %memPtr, ptr %memPtr.addr, align 8
-  %call = call i32 @MEM_isLittleEndian()
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.then, label %if.else
+define internal i32 @COVER_cmp8(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !21
+  store ptr %1, ptr %6, align 8, !tbaa !21
+  store ptr %2, ptr %7, align 8, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #10
+  %12 = load ptr, ptr %5, align 8, !tbaa !21
+  %13 = getelementptr inbounds nuw %struct.COVER_ctx_t, ptr %12, i32 0, i32 10
+  %14 = load i32, ptr %13, align 8, !tbaa !42
+  %15 = icmp eq i32 %14, 8
+  br i1 %15, label %16, label %17
 
-if.then:                                          ; preds = %entry
-  %0 = load ptr, ptr %memPtr.addr, align 8
-  %call1 = call i64 @MEM_read64(ptr noundef %0)
-  store i64 %call1, ptr %retval, align 8
-  br label %return
+16:                                               ; preds = %3
+  br label %25
 
-if.else:                                          ; preds = %entry
-  %1 = load ptr, ptr %memPtr.addr, align 8
-  %call2 = call i64 @MEM_read64(ptr noundef %1)
-  %call3 = call i64 @MEM_swap64(i64 noundef %call2)
-  store i64 %call3, ptr %retval, align 8
-  br label %return
+17:                                               ; preds = %3
+  %18 = load ptr, ptr %5, align 8, !tbaa !21
+  %19 = getelementptr inbounds nuw %struct.COVER_ctx_t, ptr %18, i32 0, i32 10
+  %20 = load i32, ptr %19, align 8, !tbaa !42
+  %21 = mul i32 8, %20
+  %22 = zext i32 %21 to i64
+  %23 = shl i64 1, %22
+  %24 = sub i64 %23, 1
+  br label %25
 
-return:                                           ; preds = %if.else, %if.then
-  %2 = load i64, ptr %retval, align 8
-  ret i64 %2
+25:                                               ; preds = %17, %16
+  %26 = phi i64 [ -1, %16 ], [ %24, %17 ]
+  store i64 %26, ptr %8, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #10
+  %27 = load ptr, ptr %5, align 8, !tbaa !21
+  %28 = getelementptr inbounds nuw %struct.COVER_ctx_t, ptr %27, i32 0, i32 0
+  %29 = load ptr, ptr %28, align 8, !tbaa !34
+  %30 = load ptr, ptr %6, align 8, !tbaa !21
+  %31 = load i32, ptr %30, align 4, !tbaa !8
+  %32 = zext i32 %31 to i64
+  %33 = getelementptr inbounds nuw i8, ptr %29, i64 %32
+  %34 = call i64 @MEM_readLE64(ptr noundef %33)
+  %35 = load i64, ptr %8, align 8, !tbaa !10
+  %36 = and i64 %34, %35
+  store i64 %36, ptr %9, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #10
+  %37 = load ptr, ptr %5, align 8, !tbaa !21
+  %38 = getelementptr inbounds nuw %struct.COVER_ctx_t, ptr %37, i32 0, i32 0
+  %39 = load ptr, ptr %38, align 8, !tbaa !34
+  %40 = load ptr, ptr %7, align 8, !tbaa !21
+  %41 = load i32, ptr %40, align 4, !tbaa !8
+  %42 = zext i32 %41 to i64
+  %43 = getelementptr inbounds nuw i8, ptr %39, i64 %42
+  %44 = call i64 @MEM_readLE64(ptr noundef %43)
+  %45 = load i64, ptr %8, align 8, !tbaa !10
+  %46 = and i64 %44, %45
+  store i64 %46, ptr %10, align 8, !tbaa !10
+  %47 = load i64, ptr %9, align 8, !tbaa !10
+  %48 = load i64, ptr %10, align 8, !tbaa !10
+  %49 = icmp ult i64 %47, %48
+  br i1 %49, label %50, label %51
+
+50:                                               ; preds = %25
+  store i32 -1, ptr %4, align 4
+  store i32 1, ptr %11, align 4
+  br label %56
+
+51:                                               ; preds = %25
+  %52 = load i64, ptr %9, align 8, !tbaa !10
+  %53 = load i64, ptr %10, align 8, !tbaa !10
+  %54 = icmp ugt i64 %52, %53
+  %55 = zext i1 %54 to i32
+  store i32 %55, ptr %4, align 4
+  store i32 1, ptr %11, align 4
+  br label %56
+
+56:                                               ; preds = %51, %50
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #10
+  %57 = load i32, ptr %4, align 4
+  ret i32 %57
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @MEM_isLittleEndian() #0 {
-entry:
+define internal i32 @COVER_cmp(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !21
+  store ptr %1, ptr %5, align 8, !tbaa !21
+  store ptr %2, ptr %6, align 8, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #10
+  %9 = load ptr, ptr %5, align 8, !tbaa !21
+  %10 = load i32, ptr %9, align 4, !tbaa !8
+  store i32 %10, ptr %7, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #10
+  %11 = load ptr, ptr %6, align 8, !tbaa !21
+  %12 = load i32, ptr %11, align 4, !tbaa !8
+  store i32 %12, ptr %8, align 4, !tbaa !8
+  %13 = load ptr, ptr %4, align 8, !tbaa !21
+  %14 = getelementptr inbounds nuw %struct.COVER_ctx_t, ptr %13, i32 0, i32 0
+  %15 = load ptr, ptr %14, align 8, !tbaa !34
+  %16 = load i32, ptr %7, align 4, !tbaa !8
+  %17 = zext i32 %16 to i64
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 %17
+  %19 = load ptr, ptr %4, align 8, !tbaa !21
+  %20 = getelementptr inbounds nuw %struct.COVER_ctx_t, ptr %19, i32 0, i32 0
+  %21 = load ptr, ptr %20, align 8, !tbaa !34
+  %22 = load i32, ptr %8, align 4, !tbaa !8
+  %23 = zext i32 %22 to i64
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 %23
+  %25 = load ptr, ptr %4, align 8, !tbaa !21
+  %26 = getelementptr inbounds nuw %struct.COVER_ctx_t, ptr %25, i32 0, i32 10
+  %27 = load i32, ptr %26, align 8, !tbaa !42
+  %28 = zext i32 %27 to i64
+  %29 = call i32 @memcmp(ptr noundef %18, ptr noundef %24, i64 noundef %28) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #10
+  ret i32 %29
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @COVER_group(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i64, align 8
+  %14 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !21
+  store ptr %1, ptr %5, align 8, !tbaa !21
+  store ptr %2, ptr %6, align 8, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #10
+  %15 = load ptr, ptr %5, align 8, !tbaa !21
+  store ptr %15, ptr %7, align 8, !tbaa !53
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #10
+  %16 = load ptr, ptr %6, align 8, !tbaa !21
+  store ptr %16, ptr %8, align 8, !tbaa !53
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #10
+  %17 = load ptr, ptr %7, align 8, !tbaa !53
+  %18 = load ptr, ptr %4, align 8, !tbaa !21
+  %19 = getelementptr inbounds nuw %struct.COVER_ctx_t, ptr %18, i32 0, i32 6
+  %20 = load ptr, ptr %19, align 8, !tbaa !39
+  %21 = ptrtoint ptr %17 to i64
+  %22 = ptrtoint ptr %20 to i64
+  %23 = sub i64 %21, %22
+  %24 = sdiv exact i64 %23, 4
+  %25 = trunc i64 %24 to i32
+  store i32 %25, ptr %9, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #10
+  store i32 0, ptr %10, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #10
+  %26 = load ptr, ptr %4, align 8, !tbaa !21
+  %27 = getelementptr inbounds nuw %struct.COVER_ctx_t, ptr %26, i32 0, i32 1
+  %28 = load ptr, ptr %27, align 8, !tbaa !41
+  store ptr %28, ptr %11, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #10
+  %29 = load ptr, ptr %4, align 8, !tbaa !21
+  %30 = getelementptr inbounds nuw %struct.COVER_ctx_t, ptr %29, i32 0, i32 1
+  %31 = load ptr, ptr %30, align 8, !tbaa !41
+  %32 = load ptr, ptr %4, align 8, !tbaa !21
+  %33 = getelementptr inbounds nuw %struct.COVER_ctx_t, ptr %32, i32 0, i32 3
+  %34 = load i64, ptr %33, align 8, !tbaa !36
+  %35 = getelementptr inbounds nuw i64, ptr %31, i64 %34
+  store ptr %35, ptr %12, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #10
+  %36 = load ptr, ptr %4, align 8, !tbaa !21
+  %37 = getelementptr inbounds nuw %struct.COVER_ctx_t, ptr %36, i32 0, i32 1
+  %38 = load ptr, ptr %37, align 8, !tbaa !41
+  %39 = getelementptr inbounds i64, ptr %38, i64 0
+  %40 = load i64, ptr %39, align 8, !tbaa !10
+  store i64 %40, ptr %13, align 8, !tbaa !10
+  br label %41
+
+41:                                               ; preds = %79, %3
+  %42 = load ptr, ptr %7, align 8, !tbaa !53
+  %43 = load ptr, ptr %8, align 8, !tbaa !53
+  %44 = icmp ne ptr %42, %43
+  br i1 %44, label %45, label %82
+
+45:                                               ; preds = %41
+  %46 = load i32, ptr %9, align 4, !tbaa !8
+  %47 = load ptr, ptr %4, align 8, !tbaa !21
+  %48 = getelementptr inbounds nuw %struct.COVER_ctx_t, ptr %47, i32 0, i32 9
+  %49 = load ptr, ptr %48, align 8, !tbaa !40
+  %50 = load ptr, ptr %7, align 8, !tbaa !53
+  %51 = load i32, ptr %50, align 4, !tbaa !8
+  %52 = zext i32 %51 to i64
+  %53 = getelementptr inbounds nuw i32, ptr %49, i64 %52
+  store i32 %46, ptr %53, align 4, !tbaa !8
+  %54 = load ptr, ptr %7, align 8, !tbaa !53
+  %55 = load i32, ptr %54, align 4, !tbaa !8
+  %56 = zext i32 %55 to i64
+  %57 = load i64, ptr %13, align 8, !tbaa !10
+  %58 = icmp ult i64 %56, %57
+  br i1 %58, label %59, label %60
+
+59:                                               ; preds = %45
+  br label %79
+
+60:                                               ; preds = %45
+  %61 = load i32, ptr %10, align 4, !tbaa !8
+  %62 = add i32 %61, 1
+  store i32 %62, ptr %10, align 4, !tbaa !8
+  %63 = load ptr, ptr %7, align 8, !tbaa !53
+  %64 = getelementptr inbounds i32, ptr %63, i64 1
+  %65 = load ptr, ptr %8, align 8, !tbaa !53
+  %66 = icmp ne ptr %64, %65
+  br i1 %66, label %67, label %78
+
+67:                                               ; preds = %60
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #10
+  %68 = load ptr, ptr %11, align 8, !tbaa !3
+  %69 = load ptr, ptr %12, align 8, !tbaa !3
+  %70 = load ptr, ptr %7, align 8, !tbaa !53
+  %71 = load i32, ptr %70, align 4, !tbaa !8
+  %72 = zext i32 %71 to i64
+  %73 = call ptr @COVER_lower_bound(ptr noundef %68, ptr noundef %69, i64 noundef %72)
+  store ptr %73, ptr %14, align 8, !tbaa !3
+  %74 = load ptr, ptr %14, align 8, !tbaa !3
+  %75 = load i64, ptr %74, align 8, !tbaa !10
+  store i64 %75, ptr %13, align 8, !tbaa !10
+  %76 = load ptr, ptr %14, align 8, !tbaa !3
+  %77 = getelementptr inbounds i64, ptr %76, i64 1
+  store ptr %77, ptr %11, align 8, !tbaa !3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #10
+  br label %78
+
+78:                                               ; preds = %67, %60
+  br label %79
+
+79:                                               ; preds = %78, %59
+  %80 = load ptr, ptr %7, align 8, !tbaa !53
+  %81 = getelementptr inbounds nuw i32, ptr %80, i32 1
+  store ptr %81, ptr %7, align 8, !tbaa !53
+  br label %41, !llvm.loop !102
+
+82:                                               ; preds = %41
+  %83 = load i32, ptr %10, align 4, !tbaa !8
+  %84 = load ptr, ptr %4, align 8, !tbaa !21
+  %85 = getelementptr inbounds nuw %struct.COVER_ctx_t, ptr %84, i32 0, i32 6
+  %86 = load ptr, ptr %85, align 8, !tbaa !39
+  %87 = load i32, ptr %9, align 4, !tbaa !8
+  %88 = zext i32 %87 to i64
+  %89 = getelementptr inbounds nuw i32, ptr %86, i64 %88
+  store i32 %83, ptr %89, align 4, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #10
+  ret void
+}
+
+declare void @qsort_r(ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) #3
+
+; Function Attrs: nounwind uwtable
+define internal i32 @COVER_strict_cmp8(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !21
+  store ptr %1, ptr %5, align 8, !tbaa !21
+  store ptr %2, ptr %6, align 8, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #10
+  %8 = load ptr, ptr %6, align 8, !tbaa !21
+  %9 = load ptr, ptr %4, align 8, !tbaa !21
+  %10 = load ptr, ptr %5, align 8, !tbaa !21
+  %11 = call i32 @COVER_cmp8(ptr noundef %8, ptr noundef %9, ptr noundef %10)
+  store i32 %11, ptr %7, align 4, !tbaa !8
+  %12 = load i32, ptr %7, align 4, !tbaa !8
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %14, label %19
+
+14:                                               ; preds = %3
+  %15 = load ptr, ptr %4, align 8, !tbaa !21
+  %16 = load ptr, ptr %5, align 8, !tbaa !21
+  %17 = icmp ult ptr %15, %16
+  %18 = select i1 %17, i32 -1, i32 1
+  store i32 %18, ptr %7, align 4, !tbaa !8
+  br label %19
+
+19:                                               ; preds = %14, %3
+  %20 = load i32, ptr %7, align 4, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #10
+  ret i32 %20
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @COVER_strict_cmp(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !21
+  store ptr %1, ptr %5, align 8, !tbaa !21
+  store ptr %2, ptr %6, align 8, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #10
+  %8 = load ptr, ptr %6, align 8, !tbaa !21
+  %9 = load ptr, ptr %4, align 8, !tbaa !21
+  %10 = load ptr, ptr %5, align 8, !tbaa !21
+  %11 = call i32 @COVER_cmp(ptr noundef %8, ptr noundef %9, ptr noundef %10)
+  store i32 %11, ptr %7, align 4, !tbaa !8
+  %12 = load i32, ptr %7, align 4, !tbaa !8
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %14, label %19
+
+14:                                               ; preds = %3
+  %15 = load ptr, ptr %4, align 8, !tbaa !21
+  %16 = load ptr, ptr %5, align 8, !tbaa !21
+  %17 = icmp ult ptr %15, %16
+  %18 = select i1 %17, i32 -1, i32 1
+  store i32 %18, ptr %7, align 4, !tbaa !8
+  br label %19
+
+19:                                               ; preds = %14, %3
+  %20 = load i32, ptr %7, align 4, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #10
+  ret i32 %20
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @MEM_readLE64(ptr noundef %0) #7 {
+  %2 = alloca i64, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !21
+  %4 = call i32 @MEM_isLittleEndian()
+  %5 = icmp ne i32 %4, 0
+  br i1 %5, label %6, label %9
+
+6:                                                ; preds = %1
+  %7 = load ptr, ptr %3, align 8, !tbaa !21
+  %8 = call i64 @MEM_read64(ptr noundef %7)
+  store i64 %8, ptr %2, align 8
+  br label %13
+
+9:                                                ; preds = %1
+  %10 = load ptr, ptr %3, align 8, !tbaa !21
+  %11 = call i64 @MEM_read64(ptr noundef %10)
+  %12 = call i64 @MEM_swap64(i64 noundef %11)
+  store i64 %12, ptr %2, align 8
+  br label %13
+
+13:                                               ; preds = %9, %6
+  %14 = load i64, ptr %2, align 8
+  ret i64 %14
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @MEM_isLittleEndian() #7 {
   ret i32 1
 }
 
-; Function Attrs: nounwind uwtable
-define internal i64 @MEM_read64(ptr noundef %ptr) #0 {
-entry:
-  %ptr.addr = alloca ptr, align 8
-  store ptr %ptr, ptr %ptr.addr, align 8
-  %0 = load ptr, ptr %ptr.addr, align 8
-  %1 = load i64, ptr %0, align 1
-  ret i64 %1
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @MEM_read64(ptr noundef %0) #7 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !21
+  %3 = load ptr, ptr %2, align 8, !tbaa !21
+  %4 = load i64, ptr %3, align 1, !tbaa !10
+  ret i64 %4
 }
 
-; Function Attrs: nounwind uwtable
-define internal i64 @MEM_swap64(i64 noundef %in) #0 {
-entry:
-  %in.addr = alloca i64, align 8
-  store i64 %in, ptr %in.addr, align 8
-  %0 = load i64, ptr %in.addr, align 8
-  %1 = call i64 @llvm.bswap.i64(i64 %0)
-  ret i64 %1
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @MEM_swap64(i64 noundef %0) #7 {
+  %2 = alloca i64, align 8
+  store i64 %0, ptr %2, align 8, !tbaa !10
+  %3 = load i64, ptr %2, align 8, !tbaa !10
+  %4 = call i64 @llvm.bswap.i64(i64 %3)
+  ret i64 %4
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.bswap.i64(i64) #6
+declare i64 @llvm.bswap.i64(i64) #8
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #7
+declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #9
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @COVER_lower_bound(ptr noundef %first, ptr noundef %last, i64 noundef %value) #0 {
-entry:
-  %first.addr = alloca ptr, align 8
-  %last.addr = alloca ptr, align 8
-  %value.addr = alloca i64, align 8
-  %count = alloca i64, align 8
-  %step = alloca i64, align 8
-  %ptr = alloca ptr, align 8
-  store ptr %first, ptr %first.addr, align 8
-  store ptr %last, ptr %last.addr, align 8
-  store i64 %value, ptr %value.addr, align 8
-  %0 = load ptr, ptr %last.addr, align 8
-  %1 = load ptr, ptr %first.addr, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 8
-  store i64 %sub.ptr.div, ptr %count, align 8
-  br label %while.cond
+define internal ptr @COVER_lower_bound(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !3
+  store i64 %2, ptr %6, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #10
+  %10 = load ptr, ptr %5, align 8, !tbaa !3
+  %11 = load ptr, ptr %4, align 8, !tbaa !3
+  %12 = ptrtoint ptr %10 to i64
+  %13 = ptrtoint ptr %11 to i64
+  %14 = sub i64 %12, %13
+  %15 = sdiv exact i64 %14, 8
+  store i64 %15, ptr %7, align 8, !tbaa !10
+  br label %16
 
-while.cond:                                       ; preds = %if.end, %entry
-  %2 = load i64, ptr %count, align 8
-  %cmp = icmp ne i64 %2, 0
-  br i1 %cmp, label %while.body, label %while.end
+16:                                               ; preds = %39, %3
+  %17 = load i64, ptr %7, align 8, !tbaa !10
+  %18 = icmp ne i64 %17, 0
+  br i1 %18, label %19, label %40
 
-while.body:                                       ; preds = %while.cond
-  %3 = load i64, ptr %count, align 8
-  %div = udiv i64 %3, 2
-  store i64 %div, ptr %step, align 8
-  %4 = load ptr, ptr %first.addr, align 8
-  store ptr %4, ptr %ptr, align 8
-  %5 = load i64, ptr %step, align 8
-  %6 = load ptr, ptr %ptr, align 8
-  %add.ptr = getelementptr inbounds i64, ptr %6, i64 %5
-  store ptr %add.ptr, ptr %ptr, align 8
-  %7 = load ptr, ptr %ptr, align 8
-  %8 = load i64, ptr %7, align 8
-  %9 = load i64, ptr %value.addr, align 8
-  %cmp1 = icmp ult i64 %8, %9
-  br i1 %cmp1, label %if.then, label %if.else
+19:                                               ; preds = %16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #10
+  %20 = load i64, ptr %7, align 8, !tbaa !10
+  %21 = udiv i64 %20, 2
+  store i64 %21, ptr %8, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #10
+  %22 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %22, ptr %9, align 8, !tbaa !3
+  %23 = load i64, ptr %8, align 8, !tbaa !10
+  %24 = load ptr, ptr %9, align 8, !tbaa !3
+  %25 = getelementptr inbounds nuw i64, ptr %24, i64 %23
+  store ptr %25, ptr %9, align 8, !tbaa !3
+  %26 = load ptr, ptr %9, align 8, !tbaa !3
+  %27 = load i64, ptr %26, align 8, !tbaa !10
+  %28 = load i64, ptr %6, align 8, !tbaa !10
+  %29 = icmp ult i64 %27, %28
+  br i1 %29, label %30, label %37
 
-if.then:                                          ; preds = %while.body
-  %10 = load ptr, ptr %ptr, align 8
-  %incdec.ptr = getelementptr inbounds i64, ptr %10, i32 1
-  store ptr %incdec.ptr, ptr %ptr, align 8
-  store ptr %incdec.ptr, ptr %first.addr, align 8
-  %11 = load i64, ptr %step, align 8
-  %add = add i64 %11, 1
-  %12 = load i64, ptr %count, align 8
-  %sub = sub i64 %12, %add
-  store i64 %sub, ptr %count, align 8
-  br label %if.end
+30:                                               ; preds = %19
+  %31 = load ptr, ptr %9, align 8, !tbaa !3
+  %32 = getelementptr inbounds nuw i64, ptr %31, i32 1
+  store ptr %32, ptr %9, align 8, !tbaa !3
+  store ptr %32, ptr %4, align 8, !tbaa !3
+  %33 = load i64, ptr %8, align 8, !tbaa !10
+  %34 = add i64 %33, 1
+  %35 = load i64, ptr %7, align 8, !tbaa !10
+  %36 = sub i64 %35, %34
+  store i64 %36, ptr %7, align 8, !tbaa !10
+  br label %39
 
-if.else:                                          ; preds = %while.body
-  %13 = load i64, ptr %step, align 8
-  store i64 %13, ptr %count, align 8
-  br label %if.end
+37:                                               ; preds = %19
+  %38 = load i64, ptr %8, align 8, !tbaa !10
+  store i64 %38, ptr %7, align 8, !tbaa !10
+  br label %39
 
-if.end:                                           ; preds = %if.else, %if.then
-  br label %while.cond, !llvm.loop !18
+39:                                               ; preds = %37, %30
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #10
+  br label %16, !llvm.loop !103
 
-while.end:                                        ; preds = %while.cond
-  %14 = load ptr, ptr %first.addr, align 8
-  ret ptr %14
+40:                                               ; preds = %16
+  %41 = load ptr, ptr %4, align 8, !tbaa !3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #10
+  ret ptr %41
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @ZSTD_highbit32(i32 noundef %0) #7 {
+  %2 = alloca i32, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !8
+  %3 = load i32, ptr %2, align 4, !tbaa !8
+  %4 = call i32 @ZSTD_countLeadingZeros32(i32 noundef %3)
+  %5 = sub i32 31, %4
+  ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ZSTD_highbit32(i32 noundef %val) #0 {
-entry:
-  %val.addr = alloca i32, align 4
-  store i32 %val, ptr %val.addr, align 4
-  %0 = load i32, ptr %val.addr, align 4
-  %call = call i32 @ZSTD_countLeadingZeros32(i32 noundef %0)
-  %sub = sub i32 31, %call
-  ret i32 %sub
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @COVER_map_clear(ptr noundef %map) #0 {
-entry:
-  %map.addr = alloca ptr, align 8
-  store ptr %map, ptr %map.addr, align 8
-  %0 = load ptr, ptr %map.addr, align 8
-  %data = getelementptr inbounds %struct.COVER_map_s, ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %data, align 8
-  %2 = load ptr, ptr %map.addr, align 8
-  %size = getelementptr inbounds %struct.COVER_map_s, ptr %2, i32 0, i32 2
-  %3 = load i32, ptr %size, align 4
-  %conv = zext i32 %3 to i64
-  %mul = mul i64 %conv, 8
-  call void @llvm.memset.p0.i64(ptr align 4 %1, i8 -1, i64 %mul, i1 false)
+define internal void @COVER_map_clear(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !45
+  %3 = load ptr, ptr %2, align 8, !tbaa !45
+  %4 = getelementptr inbounds nuw %struct.COVER_map_s, ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !52
+  %6 = load ptr, ptr %2, align 8, !tbaa !45
+  %7 = getelementptr inbounds nuw %struct.COVER_map_s, ptr %6, i32 0, i32 2
+  %8 = load i32, ptr %7, align 4, !tbaa !50
+  %9 = zext i32 %8 to i64
+  %10 = mul i64 %9, 8
+  call void @llvm.memset.p0.i64(ptr align 4 %5, i8 -1, i64 %10, i1 false)
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @ZSTD_countLeadingZeros32(i32 noundef %val) #0 {
-entry:
-  %val.addr = alloca i32, align 4
-  store i32 %val, ptr %val.addr, align 4
-  %0 = load i32, ptr %val.addr, align 4
-  %1 = call i32 @llvm.ctlz.i32(i32 %0, i1 true)
-  ret i32 %1
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @ZSTD_countLeadingZeros32(i32 noundef %0) #7 {
+  %2 = alloca i32, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !8
+  %3 = load i32, ptr %2, align 4, !tbaa !8
+  %4 = call i32 @llvm.ctlz.i32(i32 %3, i1 true)
+  ret i32 %4
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #6
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i32 } @COVER_selectSegment(ptr noundef %ctx, ptr noundef %freqs, ptr noundef %activeDmers, i32 noundef %begin, i32 noundef %end, ptr noundef byval(%struct.ZDICT_cover_params_t) align 8 %parameters) #0 {
-entry:
-  %retval = alloca %struct.COVER_segment_t, align 4
-  %ctx.addr = alloca ptr, align 8
-  %freqs.addr = alloca ptr, align 8
-  %activeDmers.addr = alloca ptr, align 8
-  %begin.addr = alloca i32, align 4
-  %end.addr = alloca i32, align 4
-  %k = alloca i32, align 4
-  %d = alloca i32, align 4
-  %dmersInK = alloca i32, align 4
-  %activeSegment = alloca %struct.COVER_segment_t, align 4
-  %newDmer = alloca i32, align 4
-  %newDmerOcc = alloca ptr, align 8
-  %delDmer = alloca i32, align 4
-  %delDmerOcc = alloca ptr, align 8
-  %newBegin = alloca i32, align 4
-  %newEnd = alloca i32, align 4
-  %pos = alloca i32, align 4
-  %freq = alloca i32, align 4
-  %pos59 = alloca i32, align 4
-  %retval.coerce = alloca { i64, i32 }, align 8
-  store ptr %ctx, ptr %ctx.addr, align 8
-  store ptr %freqs, ptr %freqs.addr, align 8
-  store ptr %activeDmers, ptr %activeDmers.addr, align 8
-  store i32 %begin, ptr %begin.addr, align 4
-  store i32 %end, ptr %end.addr, align 4
-  %k1 = getelementptr inbounds %struct.ZDICT_cover_params_t, ptr %parameters, i32 0, i32 0
-  %0 = load i32, ptr %k1, align 8
-  store i32 %0, ptr %k, align 4
-  %d2 = getelementptr inbounds %struct.ZDICT_cover_params_t, ptr %parameters, i32 0, i32 1
-  %1 = load i32, ptr %d2, align 4
-  store i32 %1, ptr %d, align 4
-  %2 = load i32, ptr %k, align 4
-  %3 = load i32, ptr %d, align 4
-  %sub = sub i32 %2, %3
-  %add = add i32 %sub, 1
-  store i32 %add, ptr %dmersInK, align 4
-  call void @llvm.memset.p0.i64(ptr align 4 %retval, i8 0, i64 12, i1 false)
-  %4 = load ptr, ptr %activeDmers.addr, align 8
-  call void @COVER_map_clear(ptr noundef %4)
-  %5 = load i32, ptr %begin.addr, align 4
-  %begin3 = getelementptr inbounds %struct.COVER_segment_t, ptr %activeSegment, i32 0, i32 0
-  store i32 %5, ptr %begin3, align 4
-  %6 = load i32, ptr %begin.addr, align 4
-  %end4 = getelementptr inbounds %struct.COVER_segment_t, ptr %activeSegment, i32 0, i32 1
-  store i32 %6, ptr %end4, align 4
-  %score = getelementptr inbounds %struct.COVER_segment_t, ptr %activeSegment, i32 0, i32 2
-  store i32 0, ptr %score, align 4
-  br label %while.cond
+define internal { i64, i32 } @COVER_selectSegment(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef byval(%struct.ZDICT_cover_params_t) align 8 %5) #0 {
+  %7 = alloca %struct.COVER_segment_t, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  %16 = alloca %struct.COVER_segment_t, align 4
+  %17 = alloca i32, align 4
+  %18 = alloca ptr, align 8
+  %19 = alloca i32, align 4
+  %20 = alloca ptr, align 8
+  %21 = alloca i32, align 4
+  %22 = alloca i32, align 4
+  %23 = alloca i32, align 4
+  %24 = alloca i32, align 4
+  %25 = alloca i32, align 4
+  %26 = alloca { i64, i32 }, align 8
+  store ptr %0, ptr %8, align 8, !tbaa !21
+  store ptr %1, ptr %9, align 8, !tbaa !53
+  store ptr %2, ptr %10, align 8, !tbaa !45
+  store i32 %3, ptr %11, align 4, !tbaa !8
+  store i32 %4, ptr %12, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #10
+  %27 = getelementptr inbounds nuw %struct.ZDICT_cover_params_t, ptr %5, i32 0, i32 0
+  %28 = load i32, ptr %27, align 8, !tbaa !32
+  store i32 %28, ptr %13, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #10
+  %29 = getelementptr inbounds nuw %struct.ZDICT_cover_params_t, ptr %5, i32 0, i32 1
+  %30 = load i32, ptr %29, align 4, !tbaa !28
+  store i32 %30, ptr %14, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #10
+  %31 = load i32, ptr %13, align 4, !tbaa !8
+  %32 = load i32, ptr %14, align 4, !tbaa !8
+  %33 = sub i32 %31, %32
+  %34 = add i32 %33, 1
+  store i32 %34, ptr %15, align 4, !tbaa !8
+  call void @llvm.memset.p0.i64(ptr align 4 %7, i8 0, i64 12, i1 false)
+  call void @llvm.lifetime.start.p0(i64 12, ptr %16) #10
+  %35 = load ptr, ptr %10, align 8, !tbaa !45
+  call void @COVER_map_clear(ptr noundef %35)
+  %36 = load i32, ptr %11, align 4, !tbaa !8
+  %37 = getelementptr inbounds nuw %struct.COVER_segment_t, ptr %16, i32 0, i32 0
+  store i32 %36, ptr %37, align 4, !tbaa !56
+  %38 = load i32, ptr %11, align 4, !tbaa !8
+  %39 = getelementptr inbounds nuw %struct.COVER_segment_t, ptr %16, i32 0, i32 1
+  store i32 %38, ptr %39, align 4, !tbaa !55
+  %40 = getelementptr inbounds nuw %struct.COVER_segment_t, ptr %16, i32 0, i32 2
+  store i32 0, ptr %40, align 4, !tbaa !54
+  br label %41
 
-while.cond:                                       ; preds = %if.end41, %entry
-  %end5 = getelementptr inbounds %struct.COVER_segment_t, ptr %activeSegment, i32 0, i32 1
-  %7 = load i32, ptr %end5, align 4
-  %8 = load i32, ptr %end.addr, align 4
-  %cmp = icmp ult i32 %7, %8
-  br i1 %cmp, label %while.body, label %while.end
+41:                                               ; preds = %125, %6
+  %42 = getelementptr inbounds nuw %struct.COVER_segment_t, ptr %16, i32 0, i32 1
+  %43 = load i32, ptr %42, align 4, !tbaa !55
+  %44 = load i32, ptr %12, align 4, !tbaa !8
+  %45 = icmp ult i32 %43, %44
+  br i1 %45, label %46, label %126
 
-while.body:                                       ; preds = %while.cond
-  %9 = load ptr, ptr %ctx.addr, align 8
-  %dmerAt = getelementptr inbounds %struct.COVER_ctx_t, ptr %9, i32 0, i32 9
-  %10 = load ptr, ptr %dmerAt, align 8
-  %end6 = getelementptr inbounds %struct.COVER_segment_t, ptr %activeSegment, i32 0, i32 1
-  %11 = load i32, ptr %end6, align 4
-  %idxprom = zext i32 %11 to i64
-  %arrayidx = getelementptr inbounds i32, ptr %10, i64 %idxprom
-  %12 = load i32, ptr %arrayidx, align 4
-  store i32 %12, ptr %newDmer, align 4
-  %13 = load ptr, ptr %activeDmers.addr, align 8
-  %14 = load i32, ptr %newDmer, align 4
-  %call = call ptr @COVER_map_at(ptr noundef %13, i32 noundef %14)
-  store ptr %call, ptr %newDmerOcc, align 8
-  %15 = load ptr, ptr %newDmerOcc, align 8
-  %16 = load i32, ptr %15, align 4
-  %cmp7 = icmp eq i32 %16, 0
-  br i1 %cmp7, label %if.then, label %if.end
+46:                                               ; preds = %41
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #10
+  %47 = load ptr, ptr %8, align 8, !tbaa !21
+  %48 = getelementptr inbounds nuw %struct.COVER_ctx_t, ptr %47, i32 0, i32 9
+  %49 = load ptr, ptr %48, align 8, !tbaa !40
+  %50 = getelementptr inbounds nuw %struct.COVER_segment_t, ptr %16, i32 0, i32 1
+  %51 = load i32, ptr %50, align 4, !tbaa !55
+  %52 = zext i32 %51 to i64
+  %53 = getelementptr inbounds nuw i32, ptr %49, i64 %52
+  %54 = load i32, ptr %53, align 4, !tbaa !8
+  store i32 %54, ptr %17, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #10
+  %55 = load ptr, ptr %10, align 8, !tbaa !45
+  %56 = load i32, ptr %17, align 4, !tbaa !8
+  %57 = call ptr @COVER_map_at(ptr noundef %55, i32 noundef %56)
+  store ptr %57, ptr %18, align 8, !tbaa !53
+  %58 = load ptr, ptr %18, align 8, !tbaa !53
+  %59 = load i32, ptr %58, align 4, !tbaa !8
+  %60 = icmp eq i32 %59, 0
+  br i1 %60, label %61, label %70
 
-if.then:                                          ; preds = %while.body
-  %17 = load ptr, ptr %freqs.addr, align 8
-  %18 = load i32, ptr %newDmer, align 4
-  %idxprom8 = zext i32 %18 to i64
-  %arrayidx9 = getelementptr inbounds i32, ptr %17, i64 %idxprom8
-  %19 = load i32, ptr %arrayidx9, align 4
-  %score10 = getelementptr inbounds %struct.COVER_segment_t, ptr %activeSegment, i32 0, i32 2
-  %20 = load i32, ptr %score10, align 4
-  %add11 = add i32 %20, %19
-  store i32 %add11, ptr %score10, align 4
-  br label %if.end
+61:                                               ; preds = %46
+  %62 = load ptr, ptr %9, align 8, !tbaa !53
+  %63 = load i32, ptr %17, align 4, !tbaa !8
+  %64 = zext i32 %63 to i64
+  %65 = getelementptr inbounds nuw i32, ptr %62, i64 %64
+  %66 = load i32, ptr %65, align 4, !tbaa !8
+  %67 = getelementptr inbounds nuw %struct.COVER_segment_t, ptr %16, i32 0, i32 2
+  %68 = load i32, ptr %67, align 4, !tbaa !54
+  %69 = add i32 %68, %66
+  store i32 %69, ptr %67, align 4, !tbaa !54
+  br label %70
 
-if.end:                                           ; preds = %if.then, %while.body
-  %end12 = getelementptr inbounds %struct.COVER_segment_t, ptr %activeSegment, i32 0, i32 1
-  %21 = load i32, ptr %end12, align 4
-  %add13 = add i32 %21, 1
-  store i32 %add13, ptr %end12, align 4
-  %22 = load ptr, ptr %newDmerOcc, align 8
-  %23 = load i32, ptr %22, align 4
-  %add14 = add i32 %23, 1
-  store i32 %add14, ptr %22, align 4
-  %end15 = getelementptr inbounds %struct.COVER_segment_t, ptr %activeSegment, i32 0, i32 1
-  %24 = load i32, ptr %end15, align 4
-  %begin16 = getelementptr inbounds %struct.COVER_segment_t, ptr %activeSegment, i32 0, i32 0
-  %25 = load i32, ptr %begin16, align 4
-  %sub17 = sub i32 %24, %25
-  %26 = load i32, ptr %dmersInK, align 4
-  %add18 = add i32 %26, 1
-  %cmp19 = icmp eq i32 %sub17, %add18
-  br i1 %cmp19, label %if.then20, label %if.end36
+70:                                               ; preds = %61, %46
+  %71 = getelementptr inbounds nuw %struct.COVER_segment_t, ptr %16, i32 0, i32 1
+  %72 = load i32, ptr %71, align 4, !tbaa !55
+  %73 = add i32 %72, 1
+  store i32 %73, ptr %71, align 4, !tbaa !55
+  %74 = load ptr, ptr %18, align 8, !tbaa !53
+  %75 = load i32, ptr %74, align 4, !tbaa !8
+  %76 = add i32 %75, 1
+  store i32 %76, ptr %74, align 4, !tbaa !8
+  %77 = getelementptr inbounds nuw %struct.COVER_segment_t, ptr %16, i32 0, i32 1
+  %78 = load i32, ptr %77, align 4, !tbaa !55
+  %79 = getelementptr inbounds nuw %struct.COVER_segment_t, ptr %16, i32 0, i32 0
+  %80 = load i32, ptr %79, align 4, !tbaa !56
+  %81 = sub i32 %78, %80
+  %82 = load i32, ptr %15, align 4, !tbaa !8
+  %83 = add i32 %82, 1
+  %84 = icmp eq i32 %81, %83
+  br i1 %84, label %85, label %118
 
-if.then20:                                        ; preds = %if.end
-  %27 = load ptr, ptr %ctx.addr, align 8
-  %dmerAt21 = getelementptr inbounds %struct.COVER_ctx_t, ptr %27, i32 0, i32 9
-  %28 = load ptr, ptr %dmerAt21, align 8
-  %begin22 = getelementptr inbounds %struct.COVER_segment_t, ptr %activeSegment, i32 0, i32 0
-  %29 = load i32, ptr %begin22, align 4
-  %idxprom23 = zext i32 %29 to i64
-  %arrayidx24 = getelementptr inbounds i32, ptr %28, i64 %idxprom23
-  %30 = load i32, ptr %arrayidx24, align 4
-  store i32 %30, ptr %delDmer, align 4
-  %31 = load ptr, ptr %activeDmers.addr, align 8
-  %32 = load i32, ptr %delDmer, align 4
-  %call25 = call ptr @COVER_map_at(ptr noundef %31, i32 noundef %32)
-  store ptr %call25, ptr %delDmerOcc, align 8
-  %begin26 = getelementptr inbounds %struct.COVER_segment_t, ptr %activeSegment, i32 0, i32 0
-  %33 = load i32, ptr %begin26, align 4
-  %add27 = add i32 %33, 1
-  store i32 %add27, ptr %begin26, align 4
-  %34 = load ptr, ptr %delDmerOcc, align 8
-  %35 = load i32, ptr %34, align 4
-  %sub28 = sub i32 %35, 1
-  store i32 %sub28, ptr %34, align 4
-  %36 = load ptr, ptr %delDmerOcc, align 8
-  %37 = load i32, ptr %36, align 4
-  %cmp29 = icmp eq i32 %37, 0
-  br i1 %cmp29, label %if.then30, label %if.end35
+85:                                               ; preds = %70
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #10
+  %86 = load ptr, ptr %8, align 8, !tbaa !21
+  %87 = getelementptr inbounds nuw %struct.COVER_ctx_t, ptr %86, i32 0, i32 9
+  %88 = load ptr, ptr %87, align 8, !tbaa !40
+  %89 = getelementptr inbounds nuw %struct.COVER_segment_t, ptr %16, i32 0, i32 0
+  %90 = load i32, ptr %89, align 4, !tbaa !56
+  %91 = zext i32 %90 to i64
+  %92 = getelementptr inbounds nuw i32, ptr %88, i64 %91
+  %93 = load i32, ptr %92, align 4, !tbaa !8
+  store i32 %93, ptr %19, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #10
+  %94 = load ptr, ptr %10, align 8, !tbaa !45
+  %95 = load i32, ptr %19, align 4, !tbaa !8
+  %96 = call ptr @COVER_map_at(ptr noundef %94, i32 noundef %95)
+  store ptr %96, ptr %20, align 8, !tbaa !53
+  %97 = getelementptr inbounds nuw %struct.COVER_segment_t, ptr %16, i32 0, i32 0
+  %98 = load i32, ptr %97, align 4, !tbaa !56
+  %99 = add i32 %98, 1
+  store i32 %99, ptr %97, align 4, !tbaa !56
+  %100 = load ptr, ptr %20, align 8, !tbaa !53
+  %101 = load i32, ptr %100, align 4, !tbaa !8
+  %102 = sub i32 %101, 1
+  store i32 %102, ptr %100, align 4, !tbaa !8
+  %103 = load ptr, ptr %20, align 8, !tbaa !53
+  %104 = load i32, ptr %103, align 4, !tbaa !8
+  %105 = icmp eq i32 %104, 0
+  br i1 %105, label %106, label %117
 
-if.then30:                                        ; preds = %if.then20
-  %38 = load ptr, ptr %activeDmers.addr, align 8
-  %39 = load i32, ptr %delDmer, align 4
-  call void @COVER_map_remove(ptr noundef %38, i32 noundef %39)
-  %40 = load ptr, ptr %freqs.addr, align 8
-  %41 = load i32, ptr %delDmer, align 4
-  %idxprom31 = zext i32 %41 to i64
-  %arrayidx32 = getelementptr inbounds i32, ptr %40, i64 %idxprom31
-  %42 = load i32, ptr %arrayidx32, align 4
-  %score33 = getelementptr inbounds %struct.COVER_segment_t, ptr %activeSegment, i32 0, i32 2
-  %43 = load i32, ptr %score33, align 4
-  %sub34 = sub i32 %43, %42
-  store i32 %sub34, ptr %score33, align 4
-  br label %if.end35
+106:                                              ; preds = %85
+  %107 = load ptr, ptr %10, align 8, !tbaa !45
+  %108 = load i32, ptr %19, align 4, !tbaa !8
+  call void @COVER_map_remove(ptr noundef %107, i32 noundef %108)
+  %109 = load ptr, ptr %9, align 8, !tbaa !53
+  %110 = load i32, ptr %19, align 4, !tbaa !8
+  %111 = zext i32 %110 to i64
+  %112 = getelementptr inbounds nuw i32, ptr %109, i64 %111
+  %113 = load i32, ptr %112, align 4, !tbaa !8
+  %114 = getelementptr inbounds nuw %struct.COVER_segment_t, ptr %16, i32 0, i32 2
+  %115 = load i32, ptr %114, align 4, !tbaa !54
+  %116 = sub i32 %115, %113
+  store i32 %116, ptr %114, align 4, !tbaa !54
+  br label %117
 
-if.end35:                                         ; preds = %if.then30, %if.then20
-  br label %if.end36
+117:                                              ; preds = %106, %85
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #10
+  br label %118
 
-if.end36:                                         ; preds = %if.end35, %if.end
-  %score37 = getelementptr inbounds %struct.COVER_segment_t, ptr %activeSegment, i32 0, i32 2
-  %44 = load i32, ptr %score37, align 4
-  %score38 = getelementptr inbounds %struct.COVER_segment_t, ptr %retval, i32 0, i32 2
-  %45 = load i32, ptr %score38, align 4
-  %cmp39 = icmp ugt i32 %44, %45
-  br i1 %cmp39, label %if.then40, label %if.end41
+118:                                              ; preds = %117, %70
+  %119 = getelementptr inbounds nuw %struct.COVER_segment_t, ptr %16, i32 0, i32 2
+  %120 = load i32, ptr %119, align 4, !tbaa !54
+  %121 = getelementptr inbounds nuw %struct.COVER_segment_t, ptr %7, i32 0, i32 2
+  %122 = load i32, ptr %121, align 4, !tbaa !54
+  %123 = icmp ugt i32 %120, %122
+  br i1 %123, label %124, label %125
 
-if.then40:                                        ; preds = %if.end36
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %retval, ptr align 4 %activeSegment, i64 12, i1 false)
-  br label %if.end41
+124:                                              ; preds = %118
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %7, ptr align 4 %16, i64 12, i1 false), !tbaa.struct !104
+  br label %125
 
-if.end41:                                         ; preds = %if.then40, %if.end36
-  br label %while.cond, !llvm.loop !19
+125:                                              ; preds = %124, %118
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #10
+  br label %41, !llvm.loop !105
 
-while.end:                                        ; preds = %while.cond
-  %end42 = getelementptr inbounds %struct.COVER_segment_t, ptr %retval, i32 0, i32 1
-  %46 = load i32, ptr %end42, align 4
-  store i32 %46, ptr %newBegin, align 4
-  %begin43 = getelementptr inbounds %struct.COVER_segment_t, ptr %retval, i32 0, i32 0
-  %47 = load i32, ptr %begin43, align 4
-  store i32 %47, ptr %newEnd, align 4
-  %begin44 = getelementptr inbounds %struct.COVER_segment_t, ptr %retval, i32 0, i32 0
-  %48 = load i32, ptr %begin44, align 4
-  store i32 %48, ptr %pos, align 4
-  br label %for.cond
+126:                                              ; preds = %41
+  call void @llvm.lifetime.start.p0(i64 4, ptr %21) #10
+  %127 = getelementptr inbounds nuw %struct.COVER_segment_t, ptr %7, i32 0, i32 1
+  %128 = load i32, ptr %127, align 4, !tbaa !55
+  store i32 %128, ptr %21, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %22) #10
+  %129 = getelementptr inbounds nuw %struct.COVER_segment_t, ptr %7, i32 0, i32 0
+  %130 = load i32, ptr %129, align 4, !tbaa !56
+  store i32 %130, ptr %22, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %23) #10
+  %131 = getelementptr inbounds nuw %struct.COVER_segment_t, ptr %7, i32 0, i32 0
+  %132 = load i32, ptr %131, align 4, !tbaa !56
+  store i32 %132, ptr %23, align 4, !tbaa !8
+  br label %133
 
-for.cond:                                         ; preds = %for.inc, %while.end
-  %49 = load i32, ptr %pos, align 4
-  %end45 = getelementptr inbounds %struct.COVER_segment_t, ptr %retval, i32 0, i32 1
-  %50 = load i32, ptr %end45, align 4
-  %cmp46 = icmp ne i32 %49, %50
-  br i1 %cmp46, label %for.body, label %for.end
+133:                                              ; preds = %165, %126
+  %134 = load i32, ptr %23, align 4, !tbaa !8
+  %135 = getelementptr inbounds nuw %struct.COVER_segment_t, ptr %7, i32 0, i32 1
+  %136 = load i32, ptr %135, align 4, !tbaa !55
+  %137 = icmp ne i32 %134, %136
+  br i1 %137, label %138, label %168
 
-for.body:                                         ; preds = %for.cond
-  %51 = load ptr, ptr %freqs.addr, align 8
-  %52 = load ptr, ptr %ctx.addr, align 8
-  %dmerAt47 = getelementptr inbounds %struct.COVER_ctx_t, ptr %52, i32 0, i32 9
-  %53 = load ptr, ptr %dmerAt47, align 8
-  %54 = load i32, ptr %pos, align 4
-  %idxprom48 = zext i32 %54 to i64
-  %arrayidx49 = getelementptr inbounds i32, ptr %53, i64 %idxprom48
-  %55 = load i32, ptr %arrayidx49, align 4
-  %idxprom50 = zext i32 %55 to i64
-  %arrayidx51 = getelementptr inbounds i32, ptr %51, i64 %idxprom50
-  %56 = load i32, ptr %arrayidx51, align 4
-  store i32 %56, ptr %freq, align 4
-  %57 = load i32, ptr %freq, align 4
-  %cmp52 = icmp ne i32 %57, 0
-  br i1 %cmp52, label %if.then53, label %if.end56
+138:                                              ; preds = %133
+  call void @llvm.lifetime.start.p0(i64 4, ptr %24) #10
+  %139 = load ptr, ptr %9, align 8, !tbaa !53
+  %140 = load ptr, ptr %8, align 8, !tbaa !21
+  %141 = getelementptr inbounds nuw %struct.COVER_ctx_t, ptr %140, i32 0, i32 9
+  %142 = load ptr, ptr %141, align 8, !tbaa !40
+  %143 = load i32, ptr %23, align 4, !tbaa !8
+  %144 = zext i32 %143 to i64
+  %145 = getelementptr inbounds nuw i32, ptr %142, i64 %144
+  %146 = load i32, ptr %145, align 4, !tbaa !8
+  %147 = zext i32 %146 to i64
+  %148 = getelementptr inbounds nuw i32, ptr %139, i64 %147
+  %149 = load i32, ptr %148, align 4, !tbaa !8
+  store i32 %149, ptr %24, align 4, !tbaa !8
+  %150 = load i32, ptr %24, align 4, !tbaa !8
+  %151 = icmp ne i32 %150, 0
+  br i1 %151, label %152, label %164
 
-if.then53:                                        ; preds = %for.body
-  %58 = load i32, ptr %newBegin, align 4
-  %59 = load i32, ptr %pos, align 4
-  %cmp54 = icmp ult i32 %58, %59
-  br i1 %cmp54, label %cond.true, label %cond.false
+152:                                              ; preds = %138
+  %153 = load i32, ptr %21, align 4, !tbaa !8
+  %154 = load i32, ptr %23, align 4, !tbaa !8
+  %155 = icmp ult i32 %153, %154
+  br i1 %155, label %156, label %158
 
-cond.true:                                        ; preds = %if.then53
-  %60 = load i32, ptr %newBegin, align 4
-  br label %cond.end
+156:                                              ; preds = %152
+  %157 = load i32, ptr %21, align 4, !tbaa !8
+  br label %160
 
-cond.false:                                       ; preds = %if.then53
-  %61 = load i32, ptr %pos, align 4
-  br label %cond.end
+158:                                              ; preds = %152
+  %159 = load i32, ptr %23, align 4, !tbaa !8
+  br label %160
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ %60, %cond.true ], [ %61, %cond.false ]
-  store i32 %cond, ptr %newBegin, align 4
-  %62 = load i32, ptr %pos, align 4
-  %add55 = add i32 %62, 1
-  store i32 %add55, ptr %newEnd, align 4
-  br label %if.end56
+160:                                              ; preds = %158, %156
+  %161 = phi i32 [ %157, %156 ], [ %159, %158 ]
+  store i32 %161, ptr %21, align 4, !tbaa !8
+  %162 = load i32, ptr %23, align 4, !tbaa !8
+  %163 = add i32 %162, 1
+  store i32 %163, ptr %22, align 4, !tbaa !8
+  br label %164
 
-if.end56:                                         ; preds = %cond.end, %for.body
-  br label %for.inc
+164:                                              ; preds = %160, %138
+  call void @llvm.lifetime.end.p0(i64 4, ptr %24) #10
+  br label %165
 
-for.inc:                                          ; preds = %if.end56
-  %63 = load i32, ptr %pos, align 4
-  %inc = add i32 %63, 1
-  store i32 %inc, ptr %pos, align 4
-  br label %for.cond, !llvm.loop !20
+165:                                              ; preds = %164
+  %166 = load i32, ptr %23, align 4, !tbaa !8
+  %167 = add i32 %166, 1
+  store i32 %167, ptr %23, align 4, !tbaa !8
+  br label %133, !llvm.loop !106
 
-for.end:                                          ; preds = %for.cond
-  %64 = load i32, ptr %newBegin, align 4
-  %begin57 = getelementptr inbounds %struct.COVER_segment_t, ptr %retval, i32 0, i32 0
-  store i32 %64, ptr %begin57, align 4
-  %65 = load i32, ptr %newEnd, align 4
-  %end58 = getelementptr inbounds %struct.COVER_segment_t, ptr %retval, i32 0, i32 1
-  store i32 %65, ptr %end58, align 4
-  %begin60 = getelementptr inbounds %struct.COVER_segment_t, ptr %retval, i32 0, i32 0
-  %66 = load i32, ptr %begin60, align 4
-  store i32 %66, ptr %pos59, align 4
-  br label %for.cond61
+168:                                              ; preds = %133
+  %169 = load i32, ptr %21, align 4, !tbaa !8
+  %170 = getelementptr inbounds nuw %struct.COVER_segment_t, ptr %7, i32 0, i32 0
+  store i32 %169, ptr %170, align 4, !tbaa !56
+  %171 = load i32, ptr %22, align 4, !tbaa !8
+  %172 = getelementptr inbounds nuw %struct.COVER_segment_t, ptr %7, i32 0, i32 1
+  store i32 %171, ptr %172, align 4, !tbaa !55
+  call void @llvm.lifetime.end.p0(i64 4, ptr %23) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %22) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %21) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %25) #10
+  %173 = getelementptr inbounds nuw %struct.COVER_segment_t, ptr %7, i32 0, i32 0
+  %174 = load i32, ptr %173, align 4, !tbaa !56
+  store i32 %174, ptr %25, align 4, !tbaa !8
+  br label %175
 
-for.cond61:                                       ; preds = %for.inc70, %for.end
-  %67 = load i32, ptr %pos59, align 4
-  %end62 = getelementptr inbounds %struct.COVER_segment_t, ptr %retval, i32 0, i32 1
-  %68 = load i32, ptr %end62, align 4
-  %cmp63 = icmp ne i32 %67, %68
-  br i1 %cmp63, label %for.body64, label %for.end72
+175:                                              ; preds = %191, %168
+  %176 = load i32, ptr %25, align 4, !tbaa !8
+  %177 = getelementptr inbounds nuw %struct.COVER_segment_t, ptr %7, i32 0, i32 1
+  %178 = load i32, ptr %177, align 4, !tbaa !55
+  %179 = icmp ne i32 %176, %178
+  br i1 %179, label %180, label %194
 
-for.body64:                                       ; preds = %for.cond61
-  %69 = load ptr, ptr %freqs.addr, align 8
-  %70 = load ptr, ptr %ctx.addr, align 8
-  %dmerAt65 = getelementptr inbounds %struct.COVER_ctx_t, ptr %70, i32 0, i32 9
-  %71 = load ptr, ptr %dmerAt65, align 8
-  %72 = load i32, ptr %pos59, align 4
-  %idxprom66 = zext i32 %72 to i64
-  %arrayidx67 = getelementptr inbounds i32, ptr %71, i64 %idxprom66
-  %73 = load i32, ptr %arrayidx67, align 4
-  %idxprom68 = zext i32 %73 to i64
-  %arrayidx69 = getelementptr inbounds i32, ptr %69, i64 %idxprom68
-  store i32 0, ptr %arrayidx69, align 4
-  br label %for.inc70
+180:                                              ; preds = %175
+  %181 = load ptr, ptr %9, align 8, !tbaa !53
+  %182 = load ptr, ptr %8, align 8, !tbaa !21
+  %183 = getelementptr inbounds nuw %struct.COVER_ctx_t, ptr %182, i32 0, i32 9
+  %184 = load ptr, ptr %183, align 8, !tbaa !40
+  %185 = load i32, ptr %25, align 4, !tbaa !8
+  %186 = zext i32 %185 to i64
+  %187 = getelementptr inbounds nuw i32, ptr %184, i64 %186
+  %188 = load i32, ptr %187, align 4, !tbaa !8
+  %189 = zext i32 %188 to i64
+  %190 = getelementptr inbounds nuw i32, ptr %181, i64 %189
+  store i32 0, ptr %190, align 4, !tbaa !8
+  br label %191
 
-for.inc70:                                        ; preds = %for.body64
-  %74 = load i32, ptr %pos59, align 4
-  %inc71 = add i32 %74, 1
-  store i32 %inc71, ptr %pos59, align 4
-  br label %for.cond61, !llvm.loop !21
+191:                                              ; preds = %180
+  %192 = load i32, ptr %25, align 4, !tbaa !8
+  %193 = add i32 %192, 1
+  store i32 %193, ptr %25, align 4, !tbaa !8
+  br label %175, !llvm.loop !107
 
-for.end72:                                        ; preds = %for.cond61
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %retval.coerce, ptr align 4 %retval, i64 12, i1 false)
-  %75 = load { i64, i32 }, ptr %retval.coerce, align 8
-  ret { i64, i32 } %75
+194:                                              ; preds = %175
+  call void @llvm.lifetime.end.p0(i64 4, ptr %25) #10
+  call void @llvm.lifetime.end.p0(i64 12, ptr %16) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #10
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %26, ptr align 4 %7, i64 12, i1 false)
+  %195 = load { i64, i32 }, ptr %26, align 8
+  ret { i64, i32 } %195
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @COVER_map_at(ptr noundef %map, i32 noundef %key) #0 {
-entry:
-  %map.addr = alloca ptr, align 8
-  %key.addr = alloca i32, align 4
-  %pos = alloca ptr, align 8
-  store ptr %map, ptr %map.addr, align 8
-  store i32 %key, ptr %key.addr, align 4
-  %0 = load ptr, ptr %map.addr, align 8
-  %data = getelementptr inbounds %struct.COVER_map_s, ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %data, align 8
-  %2 = load ptr, ptr %map.addr, align 8
-  %3 = load i32, ptr %key.addr, align 4
-  %call = call i32 @COVER_map_index(ptr noundef %2, i32 noundef %3)
-  %idxprom = zext i32 %call to i64
-  %arrayidx = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %1, i64 %idxprom
-  store ptr %arrayidx, ptr %pos, align 8
-  %4 = load ptr, ptr %pos, align 8
-  %value = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %4, i32 0, i32 1
-  %5 = load i32, ptr %value, align 4
-  %cmp = icmp eq i32 %5, -1
-  br i1 %cmp, label %if.then, label %if.end
+define internal ptr @COVER_map_at(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !45
+  store i32 %1, ptr %4, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #10
+  %6 = load ptr, ptr %3, align 8, !tbaa !45
+  %7 = getelementptr inbounds nuw %struct.COVER_map_s, ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8, !tbaa !52
+  %9 = load ptr, ptr %3, align 8, !tbaa !45
+  %10 = load i32, ptr %4, align 4, !tbaa !8
+  %11 = call i32 @COVER_map_index(ptr noundef %9, i32 noundef %10)
+  %12 = zext i32 %11 to i64
+  %13 = getelementptr inbounds nuw %struct.COVER_map_pair_t_s, ptr %8, i64 %12
+  store ptr %13, ptr %5, align 8, !tbaa !108
+  %14 = load ptr, ptr %5, align 8, !tbaa !108
+  %15 = getelementptr inbounds nuw %struct.COVER_map_pair_t_s, ptr %14, i32 0, i32 1
+  %16 = load i32, ptr %15, align 4, !tbaa !109
+  %17 = icmp eq i32 %16, -1
+  br i1 %17, label %18, label %24
 
-if.then:                                          ; preds = %entry
-  %6 = load i32, ptr %key.addr, align 4
-  %7 = load ptr, ptr %pos, align 8
-  %key1 = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %7, i32 0, i32 0
-  store i32 %6, ptr %key1, align 4
-  %8 = load ptr, ptr %pos, align 8
-  %value2 = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %8, i32 0, i32 1
-  store i32 0, ptr %value2, align 4
-  br label %if.end
+18:                                               ; preds = %2
+  %19 = load i32, ptr %4, align 4, !tbaa !8
+  %20 = load ptr, ptr %5, align 8, !tbaa !108
+  %21 = getelementptr inbounds nuw %struct.COVER_map_pair_t_s, ptr %20, i32 0, i32 0
+  store i32 %19, ptr %21, align 4, !tbaa !111
+  %22 = load ptr, ptr %5, align 8, !tbaa !108
+  %23 = getelementptr inbounds nuw %struct.COVER_map_pair_t_s, ptr %22, i32 0, i32 1
+  store i32 0, ptr %23, align 4, !tbaa !109
+  br label %24
 
-if.end:                                           ; preds = %if.then, %entry
-  %9 = load ptr, ptr %pos, align 8
-  %value3 = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %9, i32 0, i32 1
-  ret ptr %value3
+24:                                               ; preds = %18, %2
+  %25 = load ptr, ptr %5, align 8, !tbaa !108
+  %26 = getelementptr inbounds nuw %struct.COVER_map_pair_t_s, ptr %25, i32 0, i32 1
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #10
+  ret ptr %26
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @COVER_map_remove(ptr noundef %map, i32 noundef %key) #0 {
-entry:
-  %map.addr = alloca ptr, align 8
-  %key.addr = alloca i32, align 4
-  %i = alloca i32, align 4
-  %del = alloca ptr, align 8
-  %shift = alloca i32, align 4
-  %pos = alloca ptr, align 8
-  store ptr %map, ptr %map.addr, align 8
-  store i32 %key, ptr %key.addr, align 4
-  %0 = load ptr, ptr %map.addr, align 8
-  %1 = load i32, ptr %key.addr, align 4
-  %call = call i32 @COVER_map_index(ptr noundef %0, i32 noundef %1)
-  store i32 %call, ptr %i, align 4
-  %2 = load ptr, ptr %map.addr, align 8
-  %data = getelementptr inbounds %struct.COVER_map_s, ptr %2, i32 0, i32 0
-  %3 = load ptr, ptr %data, align 8
-  %4 = load i32, ptr %i, align 4
-  %idxprom = zext i32 %4 to i64
-  %arrayidx = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %3, i64 %idxprom
-  store ptr %arrayidx, ptr %del, align 8
-  store i32 1, ptr %shift, align 4
-  %5 = load ptr, ptr %del, align 8
-  %value = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %5, i32 0, i32 1
-  %6 = load i32, ptr %value, align 4
-  %cmp = icmp eq i32 %6, -1
-  br i1 %cmp, label %if.then, label %if.end
+define internal void @COVER_map_remove(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !45
+  store i32 %1, ptr %4, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #10
+  %10 = load ptr, ptr %3, align 8, !tbaa !45
+  %11 = load i32, ptr %4, align 4, !tbaa !8
+  %12 = call i32 @COVER_map_index(ptr noundef %10, i32 noundef %11)
+  store i32 %12, ptr %5, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #10
+  %13 = load ptr, ptr %3, align 8, !tbaa !45
+  %14 = getelementptr inbounds nuw %struct.COVER_map_s, ptr %13, i32 0, i32 0
+  %15 = load ptr, ptr %14, align 8, !tbaa !52
+  %16 = load i32, ptr %5, align 4, !tbaa !8
+  %17 = zext i32 %16 to i64
+  %18 = getelementptr inbounds nuw %struct.COVER_map_pair_t_s, ptr %15, i64 %17
+  store ptr %18, ptr %6, align 8, !tbaa !108
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #10
+  store i32 1, ptr %7, align 4, !tbaa !8
+  %19 = load ptr, ptr %6, align 8, !tbaa !108
+  %20 = getelementptr inbounds nuw %struct.COVER_map_pair_t_s, ptr %19, i32 0, i32 1
+  %21 = load i32, ptr %20, align 4, !tbaa !109
+  %22 = icmp eq i32 %21, -1
+  br i1 %22, label %23, label %24
 
-if.then:                                          ; preds = %entry
-  br label %return
+23:                                               ; preds = %2
+  store i32 1, ptr %8, align 4
+  br label %85
 
-if.end:                                           ; preds = %entry
-  %7 = load i32, ptr %i, align 4
-  %add = add i32 %7, 1
-  %8 = load ptr, ptr %map.addr, align 8
-  %sizeMask = getelementptr inbounds %struct.COVER_map_s, ptr %8, i32 0, i32 3
-  %9 = load i32, ptr %sizeMask, align 8
-  %and = and i32 %add, %9
-  store i32 %and, ptr %i, align 4
-  br label %for.cond
+24:                                               ; preds = %2
+  %25 = load i32, ptr %5, align 4, !tbaa !8
+  %26 = add i32 %25, 1
+  %27 = load ptr, ptr %3, align 8, !tbaa !45
+  %28 = getelementptr inbounds nuw %struct.COVER_map_s, ptr %27, i32 0, i32 3
+  %29 = load i32, ptr %28, align 8, !tbaa !51
+  %30 = and i32 %26, %29
+  store i32 %30, ptr %5, align 4, !tbaa !8
+  br label %31
 
-for.cond:                                         ; preds = %for.inc, %if.end
-  %10 = load ptr, ptr %map.addr, align 8
-  %data1 = getelementptr inbounds %struct.COVER_map_s, ptr %10, i32 0, i32 0
-  %11 = load ptr, ptr %data1, align 8
-  %12 = load i32, ptr %i, align 4
-  %idxprom2 = zext i32 %12 to i64
-  %arrayidx3 = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %11, i64 %idxprom2
-  store ptr %arrayidx3, ptr %pos, align 8
-  %13 = load ptr, ptr %pos, align 8
-  %value4 = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %13, i32 0, i32 1
-  %14 = load i32, ptr %value4, align 4
-  %cmp5 = icmp eq i32 %14, -1
-  br i1 %cmp5, label %if.then6, label %if.end8
+31:                                               ; preds = %78, %24
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #10
+  %32 = load ptr, ptr %3, align 8, !tbaa !45
+  %33 = getelementptr inbounds nuw %struct.COVER_map_s, ptr %32, i32 0, i32 0
+  %34 = load ptr, ptr %33, align 8, !tbaa !52
+  %35 = load i32, ptr %5, align 4, !tbaa !8
+  %36 = zext i32 %35 to i64
+  %37 = getelementptr inbounds nuw %struct.COVER_map_pair_t_s, ptr %34, i64 %36
+  store ptr %37, ptr %9, align 8, !tbaa !108
+  %38 = load ptr, ptr %9, align 8, !tbaa !108
+  %39 = getelementptr inbounds nuw %struct.COVER_map_pair_t_s, ptr %38, i32 0, i32 1
+  %40 = load i32, ptr %39, align 4, !tbaa !109
+  %41 = icmp eq i32 %40, -1
+  br i1 %41, label %42, label %45
 
-if.then6:                                         ; preds = %for.cond
-  %15 = load ptr, ptr %del, align 8
-  %value7 = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %15, i32 0, i32 1
-  store i32 -1, ptr %value7, align 4
-  br label %return
+42:                                               ; preds = %31
+  %43 = load ptr, ptr %6, align 8, !tbaa !108
+  %44 = getelementptr inbounds nuw %struct.COVER_map_pair_t_s, ptr %43, i32 0, i32 1
+  store i32 -1, ptr %44, align 4, !tbaa !109
+  store i32 1, ptr %8, align 4
+  br label %75
 
-if.end8:                                          ; preds = %for.cond
-  %16 = load i32, ptr %i, align 4
-  %17 = load ptr, ptr %map.addr, align 8
-  %18 = load ptr, ptr %pos, align 8
-  %key9 = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %18, i32 0, i32 0
-  %19 = load i32, ptr %key9, align 4
-  %call10 = call i32 @COVER_map_hash(ptr noundef %17, i32 noundef %19)
-  %sub = sub i32 %16, %call10
-  %20 = load ptr, ptr %map.addr, align 8
-  %sizeMask11 = getelementptr inbounds %struct.COVER_map_s, ptr %20, i32 0, i32 3
-  %21 = load i32, ptr %sizeMask11, align 8
-  %and12 = and i32 %sub, %21
-  %22 = load i32, ptr %shift, align 4
-  %cmp13 = icmp uge i32 %and12, %22
-  br i1 %cmp13, label %if.then14, label %if.else
+45:                                               ; preds = %31
+  %46 = load i32, ptr %5, align 4, !tbaa !8
+  %47 = load ptr, ptr %3, align 8, !tbaa !45
+  %48 = load ptr, ptr %9, align 8, !tbaa !108
+  %49 = getelementptr inbounds nuw %struct.COVER_map_pair_t_s, ptr %48, i32 0, i32 0
+  %50 = load i32, ptr %49, align 4, !tbaa !111
+  %51 = call i32 @COVER_map_hash(ptr noundef %47, i32 noundef %50)
+  %52 = sub i32 %46, %51
+  %53 = load ptr, ptr %3, align 8, !tbaa !45
+  %54 = getelementptr inbounds nuw %struct.COVER_map_s, ptr %53, i32 0, i32 3
+  %55 = load i32, ptr %54, align 8, !tbaa !51
+  %56 = and i32 %52, %55
+  %57 = load i32, ptr %7, align 4, !tbaa !8
+  %58 = icmp uge i32 %56, %57
+  br i1 %58, label %59, label %71
 
-if.then14:                                        ; preds = %if.end8
-  %23 = load ptr, ptr %pos, align 8
-  %key15 = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %23, i32 0, i32 0
-  %24 = load i32, ptr %key15, align 4
-  %25 = load ptr, ptr %del, align 8
-  %key16 = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %25, i32 0, i32 0
-  store i32 %24, ptr %key16, align 4
-  %26 = load ptr, ptr %pos, align 8
-  %value17 = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %26, i32 0, i32 1
-  %27 = load i32, ptr %value17, align 4
-  %28 = load ptr, ptr %del, align 8
-  %value18 = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %28, i32 0, i32 1
-  store i32 %27, ptr %value18, align 4
-  %29 = load ptr, ptr %pos, align 8
-  store ptr %29, ptr %del, align 8
-  store i32 1, ptr %shift, align 4
-  br label %if.end19
+59:                                               ; preds = %45
+  %60 = load ptr, ptr %9, align 8, !tbaa !108
+  %61 = getelementptr inbounds nuw %struct.COVER_map_pair_t_s, ptr %60, i32 0, i32 0
+  %62 = load i32, ptr %61, align 4, !tbaa !111
+  %63 = load ptr, ptr %6, align 8, !tbaa !108
+  %64 = getelementptr inbounds nuw %struct.COVER_map_pair_t_s, ptr %63, i32 0, i32 0
+  store i32 %62, ptr %64, align 4, !tbaa !111
+  %65 = load ptr, ptr %9, align 8, !tbaa !108
+  %66 = getelementptr inbounds nuw %struct.COVER_map_pair_t_s, ptr %65, i32 0, i32 1
+  %67 = load i32, ptr %66, align 4, !tbaa !109
+  %68 = load ptr, ptr %6, align 8, !tbaa !108
+  %69 = getelementptr inbounds nuw %struct.COVER_map_pair_t_s, ptr %68, i32 0, i32 1
+  store i32 %67, ptr %69, align 4, !tbaa !109
+  %70 = load ptr, ptr %9, align 8, !tbaa !108
+  store ptr %70, ptr %6, align 8, !tbaa !108
+  store i32 1, ptr %7, align 4, !tbaa !8
+  br label %74
 
-if.else:                                          ; preds = %if.end8
-  %30 = load i32, ptr %shift, align 4
-  %inc = add i32 %30, 1
-  store i32 %inc, ptr %shift, align 4
-  br label %if.end19
+71:                                               ; preds = %45
+  %72 = load i32, ptr %7, align 4, !tbaa !8
+  %73 = add i32 %72, 1
+  store i32 %73, ptr %7, align 4, !tbaa !8
+  br label %74
 
-if.end19:                                         ; preds = %if.else, %if.then14
-  br label %for.inc
+74:                                               ; preds = %71, %59
+  store i32 0, ptr %8, align 4
+  br label %75
 
-for.inc:                                          ; preds = %if.end19
-  %31 = load i32, ptr %i, align 4
-  %add20 = add i32 %31, 1
-  %32 = load ptr, ptr %map.addr, align 8
-  %sizeMask21 = getelementptr inbounds %struct.COVER_map_s, ptr %32, i32 0, i32 3
-  %33 = load i32, ptr %sizeMask21, align 8
-  %and22 = and i32 %add20, %33
-  store i32 %and22, ptr %i, align 4
-  br label %for.cond
+75:                                               ; preds = %74, %42
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #10
+  %76 = load i32, ptr %8, align 4
+  switch i32 %76, label %85 [
+    i32 0, label %77
+  ]
 
-return:                                           ; preds = %if.then6, %if.then
+77:                                               ; preds = %75
+  br label %78
+
+78:                                               ; preds = %77
+  %79 = load i32, ptr %5, align 4, !tbaa !8
+  %80 = add i32 %79, 1
+  %81 = load ptr, ptr %3, align 8, !tbaa !45
+  %82 = getelementptr inbounds nuw %struct.COVER_map_s, ptr %81, i32 0, i32 3
+  %83 = load i32, ptr %82, align 8, !tbaa !51
+  %84 = and i32 %80, %83
+  store i32 %84, ptr %5, align 4, !tbaa !8
+  br label %31
+
+85:                                               ; preds = %75, %23
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #10
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @COVER_map_index(ptr noundef %map, i32 noundef %key) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %map.addr = alloca ptr, align 8
-  %key.addr = alloca i32, align 4
-  %hash = alloca i32, align 4
-  %i = alloca i32, align 4
-  %pos = alloca ptr, align 8
-  store ptr %map, ptr %map.addr, align 8
-  store i32 %key, ptr %key.addr, align 4
-  %0 = load ptr, ptr %map.addr, align 8
-  %1 = load i32, ptr %key.addr, align 4
-  %call = call i32 @COVER_map_hash(ptr noundef %0, i32 noundef %1)
-  store i32 %call, ptr %hash, align 4
-  %2 = load i32, ptr %hash, align 4
-  store i32 %2, ptr %i, align 4
-  br label %for.cond
+define internal i32 @COVER_map_index(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !45
+  store i32 %1, ptr %5, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #10
+  %10 = load ptr, ptr %4, align 8, !tbaa !45
+  %11 = load i32, ptr %5, align 4, !tbaa !8
+  %12 = call i32 @COVER_map_hash(ptr noundef %10, i32 noundef %11)
+  store i32 %12, ptr %6, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #10
+  %13 = load i32, ptr %6, align 4, !tbaa !8
+  store i32 %13, ptr %7, align 4, !tbaa !8
+  br label %14
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %3 = load ptr, ptr %map.addr, align 8
-  %data = getelementptr inbounds %struct.COVER_map_s, ptr %3, i32 0, i32 0
-  %4 = load ptr, ptr %data, align 8
-  %5 = load i32, ptr %i, align 4
-  %idxprom = zext i32 %5 to i64
-  %arrayidx = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %4, i64 %idxprom
-  store ptr %arrayidx, ptr %pos, align 8
-  %6 = load ptr, ptr %pos, align 8
-  %value = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %6, i32 0, i32 1
-  %7 = load i32, ptr %value, align 4
-  %cmp = icmp eq i32 %7, -1
-  br i1 %cmp, label %if.then, label %if.end
+14:                                               ; preds = %39, %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #10
+  %15 = load ptr, ptr %4, align 8, !tbaa !45
+  %16 = getelementptr inbounds nuw %struct.COVER_map_s, ptr %15, i32 0, i32 0
+  %17 = load ptr, ptr %16, align 8, !tbaa !52
+  %18 = load i32, ptr %7, align 4, !tbaa !8
+  %19 = zext i32 %18 to i64
+  %20 = getelementptr inbounds nuw %struct.COVER_map_pair_t_s, ptr %17, i64 %19
+  store ptr %20, ptr %8, align 8, !tbaa !108
+  %21 = load ptr, ptr %8, align 8, !tbaa !108
+  %22 = getelementptr inbounds nuw %struct.COVER_map_pair_t_s, ptr %21, i32 0, i32 1
+  %23 = load i32, ptr %22, align 4, !tbaa !109
+  %24 = icmp eq i32 %23, -1
+  br i1 %24, label %25, label %27
 
-if.then:                                          ; preds = %for.cond
-  %8 = load i32, ptr %i, align 4
-  store i32 %8, ptr %retval, align 4
-  br label %return
+25:                                               ; preds = %14
+  %26 = load i32, ptr %7, align 4, !tbaa !8
+  store i32 %26, ptr %3, align 4
+  store i32 1, ptr %9, align 4
+  br label %36
 
-if.end:                                           ; preds = %for.cond
-  %9 = load ptr, ptr %pos, align 8
-  %key1 = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %9, i32 0, i32 0
-  %10 = load i32, ptr %key1, align 4
-  %11 = load i32, ptr %key.addr, align 4
-  %cmp2 = icmp eq i32 %10, %11
-  br i1 %cmp2, label %if.then3, label %if.end4
+27:                                               ; preds = %14
+  %28 = load ptr, ptr %8, align 8, !tbaa !108
+  %29 = getelementptr inbounds nuw %struct.COVER_map_pair_t_s, ptr %28, i32 0, i32 0
+  %30 = load i32, ptr %29, align 4, !tbaa !111
+  %31 = load i32, ptr %5, align 4, !tbaa !8
+  %32 = icmp eq i32 %30, %31
+  br i1 %32, label %33, label %35
 
-if.then3:                                         ; preds = %if.end
-  %12 = load i32, ptr %i, align 4
-  store i32 %12, ptr %retval, align 4
-  br label %return
+33:                                               ; preds = %27
+  %34 = load i32, ptr %7, align 4, !tbaa !8
+  store i32 %34, ptr %3, align 4
+  store i32 1, ptr %9, align 4
+  br label %36
 
-if.end4:                                          ; preds = %if.end
-  br label %for.inc
+35:                                               ; preds = %27
+  store i32 0, ptr %9, align 4
+  br label %36
 
-for.inc:                                          ; preds = %if.end4
-  %13 = load i32, ptr %i, align 4
-  %add = add i32 %13, 1
-  %14 = load ptr, ptr %map.addr, align 8
-  %sizeMask = getelementptr inbounds %struct.COVER_map_s, ptr %14, i32 0, i32 3
-  %15 = load i32, ptr %sizeMask, align 8
-  %and = and i32 %add, %15
-  store i32 %and, ptr %i, align 4
-  br label %for.cond
+36:                                               ; preds = %35, %33, %25
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #10
+  %37 = load i32, ptr %9, align 4
+  switch i32 %37, label %46 [
+    i32 0, label %38
+  ]
 
-return:                                           ; preds = %if.then3, %if.then
-  %16 = load i32, ptr %retval, align 4
-  ret i32 %16
+38:                                               ; preds = %36
+  br label %39
+
+39:                                               ; preds = %38
+  %40 = load i32, ptr %7, align 4, !tbaa !8
+  %41 = add i32 %40, 1
+  %42 = load ptr, ptr %4, align 8, !tbaa !45
+  %43 = getelementptr inbounds nuw %struct.COVER_map_s, ptr %42, i32 0, i32 3
+  %44 = load i32, ptr %43, align 8, !tbaa !51
+  %45 = and i32 %41, %44
+  store i32 %45, ptr %7, align 4, !tbaa !8
+  br label %14
+
+46:                                               ; preds = %36
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #10
+  %47 = load i32, ptr %3, align 4
+  ret i32 %47
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @COVER_map_hash(ptr noundef %map, i32 noundef %key) #0 {
-entry:
-  %map.addr = alloca ptr, align 8
-  %key.addr = alloca i32, align 4
-  store ptr %map, ptr %map.addr, align 8
-  store i32 %key, ptr %key.addr, align 4
-  %0 = load i32, ptr %key.addr, align 4
-  %mul = mul i32 %0, -1640531535
-  %1 = load ptr, ptr %map.addr, align 8
-  %sizeLog = getelementptr inbounds %struct.COVER_map_s, ptr %1, i32 0, i32 1
-  %2 = load i32, ptr %sizeLog, align 8
-  %sub = sub i32 32, %2
-  %shr = lshr i32 %mul, %sub
-  ret i32 %shr
+define internal i32 @COVER_map_hash(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !45
+  store i32 %1, ptr %4, align 4, !tbaa !8
+  %5 = load i32, ptr %4, align 4, !tbaa !8
+  %6 = mul i32 %5, -1640531535
+  %7 = load ptr, ptr %3, align 8, !tbaa !45
+  %8 = getelementptr inbounds nuw %struct.COVER_map_s, ptr %7, i32 0, i32 1
+  %9 = load i32, ptr %8, align 8, !tbaa !47
+  %10 = sub i32 32, %9
+  %11 = lshr i32 %6, %10
+  ret i32 %11
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind allocsize(0) }
-attributes #9 = { nounwind }
-attributes #10 = { nounwind willreturn memory(read) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nounwind }
+attributes #11 = { nounwind allocsize(0) }
+attributes #12 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 long", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"int", !6, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"long", !6, i64 0}
+!12 = distinct !{!12, !13}
+!13 = !{!"llvm.loop.mustprogress"}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"double", !6, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p1 _ZTS8_IO_FILE", !5, i64 0}
+!18 = !{!19, !9, i64 0}
+!19 = !{!"", !9, i64 0, !9, i64 4}
+!20 = !{!19, !9, i64 4}
+!21 = !{!5, !5, i64 0}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"p1 omnipotent char", !5, i64 0}
+!24 = !{!25, !15, i64 16}
+!25 = !{!"", !9, i64 0, !9, i64 4, !9, i64 8, !9, i64 12, !15, i64 16, !9, i64 24, !9, i64 28, !26, i64 32}
+!26 = !{!"", !9, i64 0, !9, i64 4, !9, i64 8}
+!27 = !{!25, !9, i64 36}
+!28 = !{!25, !9, i64 4}
+!29 = !{!30, !11, i64 56}
+!30 = !{!"", !23, i64 0, !4, i64 8, !4, i64 16, !11, i64 24, !11, i64 32, !11, i64 40, !31, i64 48, !11, i64 56, !31, i64 64, !31, i64 72, !9, i64 80}
+!31 = !{!"p1 int", !5, i64 0}
+!32 = !{!25, !9, i64 0}
+!33 = !{!30, !31, i64 64}
+!34 = !{!30, !23, i64 0}
+!35 = !{!30, !4, i64 16}
+!36 = !{!30, !11, i64 24}
+!37 = !{!30, !11, i64 32}
+!38 = !{!30, !11, i64 40}
+!39 = !{!30, !31, i64 48}
+!40 = !{!30, !31, i64 72}
+!41 = !{!30, !4, i64 8}
+!42 = !{!30, !9, i64 80}
+!43 = distinct !{!43, !13}
+!44 = distinct !{!44, !13}
+!45 = !{!46, !46, i64 0}
+!46 = !{!"p1 _ZTS11COVER_map_s", !5, i64 0}
+!47 = !{!48, !9, i64 8}
+!48 = !{!"COVER_map_s", !49, i64 0, !9, i64 8, !9, i64 12, !9, i64 16}
+!49 = !{!"p1 _ZTS18COVER_map_pair_t_s", !5, i64 0}
+!50 = !{!48, !9, i64 12}
+!51 = !{!48, !9, i64 16}
+!52 = !{!48, !49, i64 0}
+!53 = !{!31, !31, i64 0}
+!54 = !{!26, !9, i64 8}
+!55 = !{!26, !9, i64 4}
+!56 = !{!26, !9, i64 0}
+!57 = distinct !{!57, !13}
+!58 = distinct !{!58, !13}
+!59 = !{!60, !60, i64 0}
+!60 = !{!"p1 _ZTS11ZSTD_CCtx_s", !5, i64 0}
+!61 = !{!25, !9, i64 32}
+!62 = !{!63, !63, i64 0}
+!63 = !{!"p1 _ZTS12ZSTD_CDict_s", !5, i64 0}
+!64 = distinct !{!64, !13}
+!65 = !{!66, !66, i64 0}
+!66 = !{!"p1 _ZTS12COVER_best_s", !5, i64 0}
+!67 = !{!68, !11, i64 88}
+!68 = !{!"COVER_best_s", !6, i64 0, !6, i64 40, !11, i64 88, !5, i64 96, !11, i64 104, !25, i64 112, !11, i64 160}
+!69 = !{!68, !5, i64 96}
+!70 = !{!68, !11, i64 104}
+!71 = !{!68, !11, i64 160}
+!72 = distinct !{!72, !13}
+!73 = !{!74, !23, i64 0}
+!74 = !{!"COVER_dictSelection", !23, i64 0, !11, i64 8, !11, i64 16}
+!75 = !{!74, !11, i64 16}
+!76 = !{!74, !11, i64 8}
+!77 = !{i64 0, i64 4, !8, i64 4, i64 4, !8, i64 8, i64 4, !8, i64 12, i64 4, !8, i64 16, i64 8, !14, i64 24, i64 4, !8, i64 28, i64 4, !8, i64 32, i64 4, !8, i64 36, i64 4, !8, i64 40, i64 4, !8}
+!78 = !{!25, !9, i64 28}
+!79 = !{!25, !9, i64 24}
+!80 = distinct !{!80, !13}
+!81 = !{!25, !9, i64 12}
+!82 = !{!25, !9, i64 8}
+!83 = !{!84, !84, i64 0}
+!84 = !{!"p1 _ZTS10POOL_ctx_s", !5, i64 0}
+!85 = !{!86, !86, i64 0}
+!86 = !{!"p1 _ZTS26COVER_tryParameters_data_s", !5, i64 0}
+!87 = !{!88, !5, i64 0}
+!88 = !{!"COVER_tryParameters_data_s", !5, i64 0, !66, i64 8, !11, i64 16, !25, i64 24}
+!89 = !{!88, !66, i64 8}
+!90 = !{!88, !11, i64 16}
+!91 = !{!88, !9, i64 24}
+!92 = !{!88, !9, i64 28}
+!93 = !{!88, !15, i64 40}
+!94 = !{!88, !9, i64 32}
+!95 = !{!88, !9, i64 48}
+!96 = !{!88, !9, i64 60}
+!97 = distinct !{!97, !13}
+!98 = distinct !{!98, !13}
+!99 = !{i64 0, i64 8, !22, i64 8, i64 8, !10, i64 16, i64 8, !10}
+!100 = distinct !{!100, !13}
+!101 = distinct !{!101, !13}
+!102 = distinct !{!102, !13}
+!103 = distinct !{!103, !13}
+!104 = !{i64 0, i64 4, !8, i64 4, i64 4, !8, i64 8, i64 4, !8}
+!105 = distinct !{!105, !13}
+!106 = distinct !{!106, !13}
+!107 = distinct !{!107, !13}
+!108 = !{!49, !49, i64 0}
+!109 = !{!110, !9, i64 4}
+!110 = !{!"COVER_map_pair_t_s", !9, i64 0, !9, i64 4}
+!111 = !{!110, !9, i64 0}

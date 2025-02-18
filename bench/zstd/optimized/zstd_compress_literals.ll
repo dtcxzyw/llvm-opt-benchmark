@@ -1,432 +1,446 @@
 ; ModuleID = 'bench/zstd/original/zstd_compress_literals.ll'
 source_filename = "bench/zstd/original/zstd_compress_literals.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i64 @ZSTD_noCompressLiterals(ptr noundef writeonly captures(none) %dst, i64 noundef %dstCapacity, ptr noundef readonly captures(none) %src, i64 noundef %srcSize) local_unnamed_addr #0 {
-entry:
-  %cmp = icmp ugt i64 %srcSize, 31
-  %add = select i1 %cmp, i32 2, i32 1
-  %cmp1 = icmp ugt i64 %srcSize, 4095
-  %conv2 = zext i1 %cmp1 to i32
-  %add3 = add nuw nsw i32 %add, %conv2
-  %conv5 = zext nneg i32 %add3 to i64
-  %add6 = add i64 %srcSize, %conv5
-  %cmp7 = icmp ugt i64 %add6, %dstCapacity
-  br i1 %cmp7, label %return, label %do.end17
+define i64 @ZSTD_noCompressLiterals(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3) local_unnamed_addr #0 {
+  %5 = icmp ugt i64 %3, 31
+  %6 = select i1 %5, i32 2, i32 1
+  %7 = icmp ugt i64 %3, 4095
+  %8 = zext i1 %7 to i32
+  %9 = add nuw nsw i32 %6, %8
+  %10 = zext nneg i32 %9 to i64
+  %11 = add i64 %3, %10
+  %12 = icmp ugt i64 %11, %1
+  br i1 %12, label %24, label %13
 
-do.end17:                                         ; preds = %entry
-  switch i32 %add3, label %default.unreachable16 [
-    i32 1, label %sw.bb
-    i32 2, label %sw.bb20
-    i32 3, label %sw.bb24
+13:                                               ; preds = %4
+  switch i32 %9, label %default.unreachable22 [
+    i32 1, label %14
+    i32 2, label %16
+    i32 3, label %19
   ]
 
-sw.bb:                                            ; preds = %do.end17
-  %srcSize.tr15 = trunc i64 %srcSize to i8
-  %conv19 = shl i8 %srcSize.tr15, 3
-  store i8 %conv19, ptr %dst, align 1
-  br label %sw.epilog
+14:                                               ; preds = %13
+  %.tr21 = trunc i64 %3 to i8
+  %15 = shl i8 %.tr21, 3
+  store i8 %15, ptr %0, align 1, !tbaa !3
+  br label %22
 
-sw.bb20:                                          ; preds = %do.end17
-  %srcSize.tr14 = trunc i64 %srcSize to i16
-  %0 = shl i16 %srcSize.tr14, 4
-  %conv23 = or disjoint i16 %0, 4
-  store i16 %conv23, ptr %dst, align 1
-  br label %sw.epilog
+16:                                               ; preds = %13
+  %.tr20 = trunc i64 %3 to i16
+  %17 = shl i16 %.tr20, 4
+  %18 = or disjoint i16 %17, 4
+  store i16 %18, ptr %0, align 1, !tbaa !6
+  br label %22
 
-sw.bb24:                                          ; preds = %do.end17
-  %srcSize.tr = trunc i64 %srcSize to i32
-  %1 = shl i32 %srcSize.tr, 4
-  %conv27 = or disjoint i32 %1, 12
-  store i32 %conv27, ptr %dst, align 1
-  br label %sw.epilog
+19:                                               ; preds = %13
+  %.tr = trunc i64 %3 to i32
+  %20 = shl i32 %.tr, 4
+  %21 = or disjoint i32 %20, 12
+  store i32 %21, ptr %0, align 1, !tbaa !8
+  br label %22
 
-default.unreachable16:                            ; preds = %do.end17
+default.unreachable22:                            ; preds = %13
   unreachable
 
-sw.epilog:                                        ; preds = %sw.bb24, %sw.bb20, %sw.bb
-  %add.ptr = getelementptr inbounds nuw i8, ptr %dst, i64 %conv5
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr align 1 %src, i64 %srcSize, i1 false)
-  br label %return
+22:                                               ; preds = %19, %16, %14
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 %10
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr align 1 %2, i64 %3, i1 false)
+  br label %24
 
-return:                                           ; preds = %entry, %sw.epilog
-  %retval.0 = phi i64 [ %add6, %sw.epilog ], [ -70, %entry ]
-  ret i64 %retval.0
+24:                                               ; preds = %4, %22
+  %.0 = phi i64 [ %11, %22 ], [ -70, %4 ]
+  ret i64 %.0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i64 2, 5) i64 @ZSTD_compressRleLiteralsBlock(ptr noundef writeonly captures(none) %dst, i64 %dstCapacity, ptr noundef readonly captures(none) %src, i64 noundef %srcSize) local_unnamed_addr #0 {
-entry:
-  %cmp = icmp ugt i64 %srcSize, 31
-  %add = select i1 %cmp, i32 2, i32 1
-  %cmp1 = icmp ugt i64 %srcSize, 4095
-  %conv2 = zext i1 %cmp1 to i32
-  %add3 = add nuw nsw i32 %add, %conv2
-  switch i32 %add3, label %default.unreachable12 [
-    i32 1, label %sw.bb
-    i32 2, label %sw.bb6
-    i32 3, label %sw.bb10
+define range(i64 2, 5) i64 @ZSTD_compressRleLiteralsBlock(ptr noundef writeonly captures(none) %0, i64 %1, ptr noundef readonly captures(none) %2, i64 noundef %3) local_unnamed_addr #0 {
+  %5 = icmp ugt i64 %3, 31
+  %6 = select i1 %5, i32 2, i32 1
+  %7 = icmp ugt i64 %3, 4095
+  %8 = zext i1 %7 to i32
+  %9 = add nuw nsw i32 %6, %8
+  switch i32 %9, label %default.unreachable15 [
+    i32 1, label %10
+    i32 2, label %13
+    i32 3, label %16
   ]
 
-sw.bb:                                            ; preds = %entry
-  %srcSize.tr11 = trunc i64 %srcSize to i8
-  %0 = shl i8 %srcSize.tr11, 3
-  %conv5 = or disjoint i8 %0, 1
-  store i8 %conv5, ptr %dst, align 1
-  br label %sw.epilog
+10:                                               ; preds = %4
+  %.tr14 = trunc i64 %3 to i8
+  %11 = shl i8 %.tr14, 3
+  %12 = or disjoint i8 %11, 1
+  store i8 %12, ptr %0, align 1, !tbaa !3
+  br label %19
 
-sw.bb6:                                           ; preds = %entry
-  %srcSize.tr10 = trunc i64 %srcSize to i16
-  %1 = shl i16 %srcSize.tr10, 4
-  %conv9 = or disjoint i16 %1, 5
-  store i16 %conv9, ptr %dst, align 1
-  br label %sw.epilog
+13:                                               ; preds = %4
+  %.tr13 = trunc i64 %3 to i16
+  %14 = shl i16 %.tr13, 4
+  %15 = or disjoint i16 %14, 5
+  store i16 %15, ptr %0, align 1, !tbaa !6
+  br label %19
 
-sw.bb10:                                          ; preds = %entry
-  %srcSize.tr = trunc i64 %srcSize to i32
-  %2 = shl i32 %srcSize.tr, 4
-  %conv13 = or disjoint i32 %2, 13
-  store i32 %conv13, ptr %dst, align 1
-  br label %sw.epilog
+16:                                               ; preds = %4
+  %.tr = trunc i64 %3 to i32
+  %17 = shl i32 %.tr, 4
+  %18 = or disjoint i32 %17, 13
+  store i32 %18, ptr %0, align 1, !tbaa !8
+  br label %19
 
-default.unreachable12:                            ; preds = %entry
+default.unreachable15:                            ; preds = %4
   unreachable
 
-sw.epilog:                                        ; preds = %sw.bb10, %sw.bb6, %sw.bb
-  %3 = load i8, ptr %src, align 1
-  %idxprom = zext nneg i32 %add3 to i64
-  %arrayidx14 = getelementptr inbounds nuw i8, ptr %dst, i64 %idxprom
-  store i8 %3, ptr %arrayidx14, align 1
-  %add15 = add nuw nsw i32 %add3, 1
-  %conv16 = zext nneg i32 %add15 to i64
-  ret i64 %conv16
+19:                                               ; preds = %16, %13, %10
+  %20 = load i8, ptr %2, align 1, !tbaa !3
+  %21 = zext nneg i32 %9 to i64
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 %21
+  store i8 %20, ptr %22, align 1, !tbaa !3
+  %23 = add nuw nsw i32 %9, 1
+  %24 = zext nneg i32 %23 to i64
+  ret i64 %24
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_compressLiterals(ptr noundef %dst, i64 noundef %dstCapacity, ptr noundef %src, i64 noundef %srcSize, ptr noundef %entropyWorkspace, i64 noundef %entropyWorkspaceSize, ptr noundef readonly captures(none) %prevHuf, ptr noundef initializes((0, 2064)) %nextHuf, i32 noundef %strategy, i32 noundef %disableLiteralCompression, i32 noundef %suspectUncompressible, i32 noundef %bmi2) local_unnamed_addr #2 {
-entry:
-  %repeat = alloca i32, align 4
-  %cmp = icmp ugt i64 %srcSize, 1023
-  %add = select i1 %cmp, i64 4, i64 3
-  %cmp1 = icmp ugt i64 %srcSize, 16383
-  %conv2 = zext i1 %cmp1 to i64
-  %add3 = add nuw nsw i64 %add, %conv2
-  %cmp5 = icmp ugt i64 %srcSize, 255
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2064) %nextHuf, ptr noundef nonnull align 8 dereferenceable(2064) %prevHuf, i64 2064, i1 false)
-  %tobool.not = icmp eq i32 %disableLiteralCompression, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+define i64 @ZSTD_compressLiterals(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef readonly captures(none) %6, ptr noundef initializes((0, 2064)) %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #3 {
+  %13 = alloca i32, align 4
+  %14 = icmp ugt i64 %3, 1023
+  %15 = select i1 %14, i64 4, i64 3
+  %16 = icmp ugt i64 %3, 16383
+  %17 = zext i1 %16 to i64
+  %18 = add nuw nsw i64 %15, %17
+  %19 = icmp ugt i64 %3, 255
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2064) %7, ptr noundef nonnull align 8 dereferenceable(2064) %6, i64 2064, i1 false)
+  %.not = icmp eq i32 %9, 0
+  br i1 %.not, label %40, label %20
 
-if.then:                                          ; preds = %entry
-  %cmp.i = icmp ugt i64 %srcSize, 31
-  %add.i = select i1 %cmp.i, i32 2, i32 1
-  %cmp1.i = icmp ugt i64 %srcSize, 4095
-  %conv2.i = zext i1 %cmp1.i to i32
-  %add3.i = add nuw nsw i32 %add.i, %conv2.i
-  %conv5.i = zext nneg i32 %add3.i to i64
-  %add6.i = add i64 %srcSize, %conv5.i
-  %cmp7.i = icmp ugt i64 %add6.i, %dstCapacity
-  br i1 %cmp7.i, label %return, label %do.end17.i
+20:                                               ; preds = %12
+  %21 = icmp ugt i64 %3, 31
+  %22 = select i1 %21, i32 2, i32 1
+  %23 = icmp ugt i64 %3, 4095
+  %24 = zext i1 %23 to i32
+  %25 = add nuw nsw i32 %22, %24
+  %26 = zext nneg i32 %25 to i64
+  %27 = add i64 %3, %26
+  %28 = icmp ugt i64 %27, %1
+  br i1 %28, label %ZSTD_noCompressLiterals.exit, label %29
 
-do.end17.i:                                       ; preds = %if.then
-  switch i32 %add3.i, label %default.unreachable120 [
-    i32 1, label %sw.bb.i
-    i32 2, label %sw.bb20.i
-    i32 3, label %sw.bb24.i
+29:                                               ; preds = %20
+  switch i32 %25, label %default.unreachable123 [
+    i32 1, label %30
+    i32 2, label %32
+    i32 3, label %35
   ]
 
-sw.bb.i:                                          ; preds = %do.end17.i
-  %srcSize.tr15.i = trunc i64 %srcSize to i8
-  %conv19.i = shl i8 %srcSize.tr15.i, 3
-  store i8 %conv19.i, ptr %dst, align 1
-  br label %sw.epilog.i
+30:                                               ; preds = %29
+  %.tr21.i = trunc i64 %3 to i8
+  %31 = shl i8 %.tr21.i, 3
+  store i8 %31, ptr %0, align 1, !tbaa !3
+  br label %38
 
-sw.bb20.i:                                        ; preds = %do.end17.i
-  %srcSize.tr14.i = trunc i64 %srcSize to i16
-  %0 = shl i16 %srcSize.tr14.i, 4
-  %conv23.i = or disjoint i16 %0, 4
-  store i16 %conv23.i, ptr %dst, align 1
-  br label %sw.epilog.i
+32:                                               ; preds = %29
+  %.tr20.i = trunc i64 %3 to i16
+  %33 = shl i16 %.tr20.i, 4
+  %34 = or disjoint i16 %33, 4
+  store i16 %34, ptr %0, align 1, !tbaa !6
+  br label %38
 
-sw.bb24.i:                                        ; preds = %do.end17.i
-  %srcSize.tr.i = trunc i64 %srcSize to i32
-  %1 = shl i32 %srcSize.tr.i, 4
-  %conv27.i = or disjoint i32 %1, 12
-  store i32 %conv27.i, ptr %dst, align 1
-  br label %sw.epilog.i
+35:                                               ; preds = %29
+  %.tr.i = trunc i64 %3 to i32
+  %36 = shl i32 %.tr.i, 4
+  %37 = or disjoint i32 %36, 12
+  store i32 %37, ptr %0, align 1, !tbaa !8
+  br label %38
 
-default.unreachable120:                           ; preds = %if.end90, %do.end17.i100, %do.end17.i73, %do.end17.i
+default.unreachable123:                           ; preds = %129, %105, %59, %29
   unreachable
 
-sw.epilog.i:                                      ; preds = %sw.bb24.i, %sw.bb20.i, %sw.bb.i
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %dst, i64 %conv5.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr readonly align 1 %src, i64 %srcSize, i1 false)
-  br label %return
+38:                                               ; preds = %35, %32, %30
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 %26
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %39, ptr readonly align 1 %2, i64 %3, i1 false)
+  br label %ZSTD_noCompressLiterals.exit
 
-if.end:                                           ; preds = %entry
-  %repeatMode = getelementptr inbounds nuw i8, ptr %prevHuf, i64 2056
-  %2 = load i32, ptr %repeatMode, align 8
-  %sub.i = sub nsw i32 9, %strategy
-  %cond.i = tail call i32 @llvm.smin.i32(i32 %sub.i, i32 3)
-  %cmp2.i = icmp ne i32 %2, 2
-  %sh_prom.i = zext nneg i32 %cond.i to i64
-  %shl.i = shl i64 8, %sh_prom.i
-  %cond6.i = select i1 %cmp2.i, i64 %shl.i, i64 6
-  %cmp10 = icmp ult i64 %srcSize, %cond6.i
-  br i1 %cmp10, label %if.then12, label %do.body15
+40:                                               ; preds = %12
+  %41 = getelementptr inbounds nuw i8, ptr %6, i64 2056
+  %42 = load i32, ptr %41, align 8, !tbaa !10
+  %43 = sub nsw i32 9, %8
+  %44 = tail call i32 @llvm.smin.i32(i32 %43, i32 3)
+  %45 = icmp ne i32 %42, 2
+  %46 = zext nneg i32 %44 to i64
+  %47 = shl i64 8, %46
+  %48 = select i1 %45, i64 %47, i64 6
+  %49 = icmp ult i64 %3, %48
+  br i1 %49, label %50, label %70
 
-if.then12:                                        ; preds = %if.end
-  %cmp.i65 = icmp ugt i64 %srcSize, 31
-  %add.i66 = select i1 %cmp.i65, i32 2, i32 1
-  %cmp1.i67 = icmp ugt i64 %srcSize, 4095
-  %conv2.i68 = zext i1 %cmp1.i67 to i32
-  %add3.i69 = add nuw nsw i32 %add.i66, %conv2.i68
-  %conv5.i70 = zext nneg i32 %add3.i69 to i64
-  %add6.i71 = add i64 %srcSize, %conv5.i70
-  %cmp7.i72 = icmp ugt i64 %add6.i71, %dstCapacity
-  br i1 %cmp7.i72, label %return, label %do.end17.i73
+50:                                               ; preds = %40
+  %51 = icmp ugt i64 %3, 31
+  %52 = select i1 %51, i32 2, i32 1
+  %53 = icmp ugt i64 %3, 4095
+  %54 = zext i1 %53 to i32
+  %55 = add nuw nsw i32 %52, %54
+  %56 = zext nneg i32 %55 to i64
+  %57 = add i64 %3, %56
+  %58 = icmp ugt i64 %57, %1
+  br i1 %58, label %ZSTD_noCompressLiterals.exit, label %59
 
-do.end17.i73:                                     ; preds = %if.then12
-  switch i32 %add3.i69, label %default.unreachable120 [
-    i32 1, label %sw.bb.i83
-    i32 2, label %sw.bb20.i80
-    i32 3, label %sw.bb24.i74
+59:                                               ; preds = %50
+  switch i32 %55, label %default.unreachable123 [
+    i32 1, label %60
+    i32 2, label %62
+    i32 3, label %65
   ]
 
-sw.bb.i83:                                        ; preds = %do.end17.i73
-  %srcSize.tr15.i84 = trunc i64 %srcSize to i8
-  %conv19.i85 = shl i8 %srcSize.tr15.i84, 3
-  store i8 %conv19.i85, ptr %dst, align 1
-  br label %sw.epilog.i77
+60:                                               ; preds = %59
+  %.tr21.i107 = trunc i64 %3 to i8
+  %61 = shl i8 %.tr21.i107, 3
+  store i8 %61, ptr %0, align 1, !tbaa !3
+  br label %68
 
-sw.bb20.i80:                                      ; preds = %do.end17.i73
-  %srcSize.tr14.i81 = trunc i64 %srcSize to i16
-  %3 = shl i16 %srcSize.tr14.i81, 4
-  %conv23.i82 = or disjoint i16 %3, 4
-  store i16 %conv23.i82, ptr %dst, align 1
-  br label %sw.epilog.i77
+62:                                               ; preds = %59
+  %.tr20.i106 = trunc i64 %3 to i16
+  %63 = shl i16 %.tr20.i106, 4
+  %64 = or disjoint i16 %63, 4
+  store i16 %64, ptr %0, align 1, !tbaa !6
+  br label %68
 
-sw.bb24.i74:                                      ; preds = %do.end17.i73
-  %srcSize.tr.i75 = trunc i64 %srcSize to i32
-  %4 = shl i32 %srcSize.tr.i75, 4
-  %conv27.i76 = or disjoint i32 %4, 12
-  store i32 %conv27.i76, ptr %dst, align 1
-  br label %sw.epilog.i77
+65:                                               ; preds = %59
+  %.tr.i104 = trunc i64 %3 to i32
+  %66 = shl i32 %.tr.i104, 4
+  %67 = or disjoint i32 %66, 12
+  store i32 %67, ptr %0, align 1, !tbaa !8
+  br label %68
 
-sw.epilog.i77:                                    ; preds = %sw.bb24.i74, %sw.bb20.i80, %sw.bb.i83
-  %add.ptr.i78 = getelementptr inbounds nuw i8, ptr %dst, i64 %conv5.i70
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i78, ptr readonly align 1 %src, i64 %srcSize, i1 false)
-  br label %return
+68:                                               ; preds = %65, %62, %60
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 %56
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %69, ptr readonly align 1 %2, i64 %3, i1 false)
+  br label %ZSTD_noCompressLiterals.exit
 
-do.body15:                                        ; preds = %if.end
-  %cmp17.not = icmp ugt i64 %dstCapacity, %add3
-  br i1 %cmp17.not, label %do.end29, label %return
+70:                                               ; preds = %40
+  %.not95 = icmp ugt i64 %1, %18
+  br i1 %.not95, label %71, label %ZSTD_noCompressLiterals.exit
 
-do.end29:                                         ; preds = %do.body15
-  store i32 %2, ptr %repeat, align 4
-  %tobool31.not = icmp ne i32 %bmi2, 0
-  %cond = zext i1 %tobool31.not to i32
-  %cmp32 = icmp ult i32 %strategy, 4
-  %cmp34 = icmp ult i64 %srcSize, 1025
-  %5 = and i1 %cmp34, %cmp32
-  %cond36 = select i1 %5, i32 4, i32 0
-  %cmp38 = icmp ugt i32 %strategy, 7
-  %cond40 = select i1 %cmp38, i32 2, i32 0
-  %tobool42.not = icmp eq i32 %suspectUncompressible, 0
-  %cond43 = select i1 %tobool42.not, i32 0, i32 8
-  %or37 = or disjoint i32 %cond36, %cond40
-  %or41 = or disjoint i32 %or37, %cond43
-  %or44 = or disjoint i32 %or41, %cond
-  %cmp47 = icmp ne i64 %add3, 3
-  %or.cond.not = select i1 %cmp2.i, i1 true, i1 %cmp47
-  %spec.select = and i1 %cmp5, %or.cond.not
-  %cond52 = select i1 %spec.select, ptr @HUF_compress4X_repeat, ptr @HUF_compress1X_repeat
-  %add.ptr = getelementptr inbounds nuw i8, ptr %dst, i64 %add3
-  %sub = sub nuw i64 %dstCapacity, %add3
-  %call53 = call i64 %cond52(ptr noundef nonnull %add.ptr, i64 noundef %sub, ptr noundef %src, i64 noundef %srcSize, i32 noundef 255, i32 noundef 11, ptr noundef %entropyWorkspace, i64 noundef %entropyWorkspaceSize, ptr noundef nonnull %nextHuf, ptr noundef nonnull %repeat, i32 noundef %or44) #5, !callees !4
-  %6 = load i32, ptr %repeat, align 4
-  %cmp56.not = icmp eq i32 %6, 0
-  %hType.0 = select i1 %cmp56.not, i32 2, i32 3
-  %7 = call i32 @llvm.umax.i32(i32 %strategy, i32 7)
-  %cond.i88 = add i32 %7, -1
-  %sh_prom.i89 = zext nneg i32 %cond.i88 to i64
-  %shr.i = lshr i64 %srcSize, %sh_prom.i89
-  %add.i90.neg = add i64 %srcSize, -2
-  %sub65 = sub i64 %add.i90.neg, %shr.i
-  %cmp66.not = icmp ult i64 %call53, %sub65
-  %8 = add i64 %call53, -1
-  %9 = icmp ult i64 %8, -120
-  %or.cond = select i1 %9, i1 %cmp66.not, i1 false
-  br i1 %or.cond, label %if.end73, label %if.then71
+71:                                               ; preds = %70
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #6
+  store i32 %42, ptr %13, align 4, !tbaa !8
+  %.not96 = icmp ne i32 %11, 0
+  %72 = zext i1 %.not96 to i32
+  %73 = icmp ult i32 %8, 4
+  %74 = icmp ult i64 %3, 1025
+  %75 = and i1 %74, %73
+  %76 = select i1 %75, i32 4, i32 0
+  %77 = icmp ugt i32 %8, 7
+  %78 = select i1 %77, i32 2, i32 0
+  %.not97 = icmp eq i32 %10, 0
+  %79 = select i1 %.not97, i32 0, i32 8
+  %80 = or disjoint i32 %76, %78
+  %81 = or disjoint i32 %80, %79
+  %82 = or disjoint i32 %81, %72
+  %83 = icmp ne i64 %18, 3
+  %or.cond.not = select i1 %45, i1 true, i1 %83
+  %spec.select = and i1 %19, %or.cond.not
+  %84 = select i1 %spec.select, ptr @HUF_compress4X_repeat, ptr @HUF_compress1X_repeat
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 %18
+  %86 = sub nuw i64 %1, %18
+  %87 = call i64 %84(ptr noundef nonnull %85, i64 noundef %86, ptr noundef %2, i64 noundef %3, i32 noundef 255, i32 noundef 11, ptr noundef %4, i64 noundef %5, ptr noundef nonnull %7, ptr noundef nonnull %13, i32 noundef %82) #6, !callees !12
+  %88 = load i32, ptr %13, align 4, !tbaa !8
+  %.not99 = icmp eq i32 %88, 0
+  %.089 = select i1 %.not99, i32 2, i32 3
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #6
+  %89 = call i32 @llvm.umax.i32(i32 %8, i32 7)
+  %90 = add i32 %89, -1
+  %91 = zext nneg i32 %90 to i64
+  %92 = lshr i64 %3, %91
+  %.neg122 = add i64 %3, -2
+  %93 = sub i64 %.neg122, %92
+  %.not100 = icmp ult i64 %87, %93
+  %94 = add i64 %87, -1
+  %95 = icmp ult i64 %94, -120
+  %or.cond = select i1 %95, i1 %.not100, i1 false
+  br i1 %or.cond, label %ZSTD_noCompressLiterals.exit115, label %96
 
-if.then71:                                        ; preds = %do.end29
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2064) %nextHuf, ptr noundef nonnull align 8 dereferenceable(2064) %prevHuf, i64 2064, i1 false)
-  %cmp.i92 = icmp ugt i64 %srcSize, 31
-  %add.i93 = select i1 %cmp.i92, i32 2, i32 1
-  %cmp1.i94 = icmp ugt i64 %srcSize, 4095
-  %conv2.i95 = zext i1 %cmp1.i94 to i32
-  %add3.i96 = add nuw nsw i32 %add.i93, %conv2.i95
-  %conv5.i97 = zext nneg i32 %add3.i96 to i64
-  %add6.i98 = add i64 %srcSize, %conv5.i97
-  %cmp7.i99 = icmp ugt i64 %add6.i98, %dstCapacity
-  br i1 %cmp7.i99, label %return, label %do.end17.i100
+96:                                               ; preds = %71
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2064) %7, ptr noundef nonnull align 8 dereferenceable(2064) %6, i64 2064, i1 false)
+  %97 = icmp ugt i64 %3, 31
+  %98 = select i1 %97, i32 2, i32 1
+  %99 = icmp ugt i64 %3, 4095
+  %100 = zext i1 %99 to i32
+  %101 = add nuw nsw i32 %98, %100
+  %102 = zext nneg i32 %101 to i64
+  %103 = add i64 %3, %102
+  %104 = icmp ugt i64 %103, %1
+  br i1 %104, label %ZSTD_noCompressLiterals.exit, label %105
 
-do.end17.i100:                                    ; preds = %if.then71
-  switch i32 %add3.i96, label %default.unreachable120 [
-    i32 1, label %sw.bb.i110
-    i32 2, label %sw.bb20.i107
-    i32 3, label %sw.bb24.i101
+105:                                              ; preds = %96
+  switch i32 %101, label %default.unreachable123 [
+    i32 1, label %106
+    i32 2, label %108
+    i32 3, label %111
   ]
 
-sw.bb.i110:                                       ; preds = %do.end17.i100
-  %srcSize.tr15.i111 = trunc i64 %srcSize to i8
-  %conv19.i112 = shl i8 %srcSize.tr15.i111, 3
-  store i8 %conv19.i112, ptr %dst, align 1
-  br label %sw.epilog.i104
+106:                                              ; preds = %105
+  %.tr21.i113 = trunc i64 %3 to i8
+  %107 = shl i8 %.tr21.i113, 3
+  store i8 %107, ptr %0, align 1, !tbaa !3
+  br label %114
 
-sw.bb20.i107:                                     ; preds = %do.end17.i100
-  %srcSize.tr14.i108 = trunc i64 %srcSize to i16
-  %10 = shl i16 %srcSize.tr14.i108, 4
-  %conv23.i109 = or disjoint i16 %10, 4
-  store i16 %conv23.i109, ptr %dst, align 1
-  br label %sw.epilog.i104
+108:                                              ; preds = %105
+  %.tr20.i112 = trunc i64 %3 to i16
+  %109 = shl i16 %.tr20.i112, 4
+  %110 = or disjoint i16 %109, 4
+  store i16 %110, ptr %0, align 1, !tbaa !6
+  br label %114
 
-sw.bb24.i101:                                     ; preds = %do.end17.i100
-  %srcSize.tr.i102 = trunc i64 %srcSize to i32
-  %11 = shl i32 %srcSize.tr.i102, 4
-  %conv27.i103 = or disjoint i32 %11, 12
-  store i32 %conv27.i103, ptr %dst, align 1
-  br label %sw.epilog.i104
+111:                                              ; preds = %105
+  %.tr.i110 = trunc i64 %3 to i32
+  %112 = shl i32 %.tr.i110, 4
+  %113 = or disjoint i32 %112, 12
+  store i32 %113, ptr %0, align 1, !tbaa !8
+  br label %114
 
-sw.epilog.i104:                                   ; preds = %sw.bb24.i101, %sw.bb20.i107, %sw.bb.i110
-  %add.ptr.i105 = getelementptr inbounds nuw i8, ptr %dst, i64 %conv5.i97
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i105, ptr readonly align 1 %src, i64 %srcSize, i1 false)
-  br label %return
+114:                                              ; preds = %111, %108, %106
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 %102
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %115, ptr readonly align 1 %2, i64 %3, i1 false)
+  br label %ZSTD_noCompressLiterals.exit
 
-if.end73:                                         ; preds = %do.end29
-  %cmp74 = icmp eq i64 %call53, 1
-  br i1 %cmp74, label %if.then76, label %if.end85
+ZSTD_noCompressLiterals.exit115:                  ; preds = %71
+  %116 = icmp eq i64 %87, 1
+  br i1 %116, label %117, label %allBytesIdentical.exit
 
-if.then76:                                        ; preds = %if.end73
-  %cmp77 = icmp ugt i64 %srcSize, 7
-  br i1 %cmp77, label %if.then82, label %lor.lhs.false79
+117:                                              ; preds = %ZSTD_noCompressLiterals.exit115
+  %118 = icmp ugt i64 %3, 7
+  br i1 %118, label %allBytesIdentical.exit.thread, label %119
 
-lor.lhs.false79:                                  ; preds = %if.then76
-  %12 = load i8, ptr %src, align 1
-  %cmp4.i = icmp samesign ugt i64 %srcSize, 1
-  br i1 %cmp4.i, label %for.body.i, label %if.then82
+119:                                              ; preds = %117
+  %120 = load i8, ptr %2, align 1, !tbaa !3
+  %121 = icmp samesign ugt i64 %3, 1
+  br i1 %121, label %.lr.ph.i, label %allBytesIdentical.exit.thread
 
-for.cond.i:                                       ; preds = %for.body.i
-  %inc.i = add nuw nsw i64 %p.05.i, 1
-  %exitcond.not.i = icmp eq i64 %inc.i, %srcSize
-  br i1 %exitcond.not.i, label %if.then82, label %for.body.i, !llvm.loop !5
+122:                                              ; preds = %.lr.ph.i
+  %123 = add nuw nsw i64 %.08.i, 1
+  %exitcond.not.i = icmp eq i64 %123, %3
+  br i1 %exitcond.not.i, label %allBytesIdentical.exit.thread, label %.lr.ph.i, !llvm.loop !13
 
-for.body.i:                                       ; preds = %lor.lhs.false79, %for.cond.i
-  %p.05.i = phi i64 [ %inc.i, %for.cond.i ], [ 1, %lor.lhs.false79 ]
-  %arrayidx1.i = getelementptr inbounds nuw i8, ptr %src, i64 %p.05.i
-  %13 = load i8, ptr %arrayidx1.i, align 1
-  %cmp3.not.i = icmp eq i8 %13, %12
-  br i1 %cmp3.not.i, label %for.cond.i, label %if.end85
+.lr.ph.i:                                         ; preds = %119, %122
+  %.08.i = phi i64 [ %123, %122 ], [ 1, %119 ]
+  %124 = getelementptr inbounds nuw i8, ptr %2, i64 %.08.i
+  %125 = load i8, ptr %124, align 1, !tbaa !3
+  %.not.i = icmp eq i8 %125, %120
+  br i1 %.not.i, label %122, label %allBytesIdentical.exit
 
-if.then82:                                        ; preds = %for.cond.i, %lor.lhs.false79, %if.then76
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2064) %nextHuf, ptr noundef nonnull align 8 dereferenceable(2064) %prevHuf, i64 2064, i1 false)
-  %call83 = call i64 @ZSTD_compressRleLiteralsBlock(ptr noundef %dst, i64 poison, ptr noundef %src, i64 noundef %srcSize)
-  br label %return
+allBytesIdentical.exit.thread:                    ; preds = %122, %119, %117
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2064) %7, ptr noundef nonnull align 8 dereferenceable(2064) %6, i64 2064, i1 false)
+  %126 = call i64 @ZSTD_compressRleLiteralsBlock(ptr noundef %0, i64 poison, ptr noundef %2, i64 noundef %3)
+  br label %ZSTD_noCompressLiterals.exit
 
-if.end85:                                         ; preds = %for.body.i, %if.end73
-  br i1 %cmp56.not, label %if.then88, label %if.end90
+allBytesIdentical.exit:                           ; preds = %.lr.ph.i, %ZSTD_noCompressLiterals.exit115
+  br i1 %.not99, label %127, label %129
 
-if.then88:                                        ; preds = %if.end85
-  %repeatMode89 = getelementptr inbounds nuw i8, ptr %nextHuf, i64 2056
-  store i32 1, ptr %repeatMode89, align 8
-  br label %if.end90
+127:                                              ; preds = %allBytesIdentical.exit
+  %128 = getelementptr inbounds nuw i8, ptr %7, i64 2056
+  store i32 1, ptr %128, align 8, !tbaa !10
+  br label %129
 
-if.end90:                                         ; preds = %if.then88, %if.end85
-  switch i64 %add3, label %default.unreachable120 [
-    i64 3, label %sw.bb
-    i64 4, label %sw.bb102
-    i64 5, label %sw.bb111
+129:                                              ; preds = %127, %allBytesIdentical.exit
+  switch i64 %18, label %default.unreachable123 [
+    i64 3, label %130
+    i64 4, label %143
+    i64 5, label %151
   ]
 
-sw.bb:                                            ; preds = %if.end90
-  %shl = select i1 %spec.select, i32 4, i32 0
-  %conv96 = trunc i64 %srcSize to i32
-  %shl97 = shl i32 %conv96, 4
-  %14 = or disjoint i32 %shl, %shl97
-  %conv99 = trunc i64 %call53 to i32
-  %shl100 = shl i32 %conv99, 14
-  %add98 = add i32 %14, %shl100
-  %add101 = or disjoint i32 %add98, %hType.0
-  %conv.i116 = trunc i32 %add101 to i16
-  store i16 %conv.i116, ptr %dst, align 1
-  %shr.i117 = lshr i32 %add98, 16
-  %conv1.i = trunc i32 %shr.i117 to i8
-  %arrayidx.i = getelementptr inbounds nuw i8, ptr %dst, i64 2
-  store i8 %conv1.i, ptr %arrayidx.i, align 1
-  br label %do.end122
+130:                                              ; preds = %129
+  %131 = select i1 %spec.select, i32 4, i32 0
+  %132 = trunc i64 %3 to i32
+  %133 = shl i32 %132, 4
+  %134 = or disjoint i32 %131, %133
+  %135 = trunc i64 %87 to i32
+  %136 = shl i32 %135, 14
+  %137 = add i32 %134, %136
+  %138 = or disjoint i32 %137, %.089
+  %139 = trunc i32 %138 to i16
+  store i16 %139, ptr %0, align 1, !tbaa !6
+  %140 = lshr i32 %137, 16
+  %141 = trunc i32 %140 to i8
+  %142 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  store i8 %141, ptr %142, align 1, !tbaa !3
+  br label %162
 
-sw.bb102:                                         ; preds = %if.end90
-  %conv105 = trunc i64 %srcSize to i32
-  %shl106 = shl i32 %conv105, 4
-  %conv108 = trunc i64 %call53 to i32
-  %shl109 = shl i32 %conv108, 18
-  %add107 = or disjoint i32 %shl106, 8
-  %add104 = add i32 %add107, %shl109
-  %add110 = or disjoint i32 %add104, %hType.0
-  store i32 %add110, ptr %dst, align 1
-  br label %do.end122
+143:                                              ; preds = %129
+  %144 = trunc i64 %3 to i32
+  %145 = shl i32 %144, 4
+  %146 = trunc i64 %87 to i32
+  %147 = shl i32 %146, 18
+  %148 = or disjoint i32 %145, 8
+  %149 = add i32 %148, %147
+  %150 = or disjoint i32 %149, %.089
+  store i32 %150, ptr %0, align 1, !tbaa !8
+  br label %162
 
-sw.bb111:                                         ; preds = %if.end90
-  %conv114 = trunc i64 %srcSize to i32
-  %shl115 = shl i32 %conv114, 4
-  %conv117 = trunc i64 %call53 to i32
-  %shl118 = shl i32 %conv117, 22
-  %add116 = or disjoint i32 %shl115, 12
-  %add113 = add i32 %add116, %shl118
-  %add119 = or disjoint i32 %add113, %hType.0
-  store i32 %add119, ptr %dst, align 1
-  %shr = lshr i64 %call53, 10
-  %conv120 = trunc i64 %shr to i8
-  %arrayidx = getelementptr inbounds nuw i8, ptr %dst, i64 4
-  store i8 %conv120, ptr %arrayidx, align 1
-  br label %do.end122
+151:                                              ; preds = %129
+  %152 = trunc i64 %3 to i32
+  %153 = shl i32 %152, 4
+  %154 = trunc i64 %87 to i32
+  %155 = shl i32 %154, 22
+  %156 = or disjoint i32 %153, 12
+  %157 = add i32 %156, %155
+  %158 = or disjoint i32 %157, %.089
+  store i32 %158, ptr %0, align 1, !tbaa !8
+  %159 = lshr i64 %87, 10
+  %160 = trunc i64 %159 to i8
+  %161 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i8 %160, ptr %161, align 1, !tbaa !3
+  br label %162
 
-do.end122:                                        ; preds = %sw.bb111, %sw.bb102, %sw.bb
-  %add123 = add i64 %call53, %add3
-  br label %return
+162:                                              ; preds = %130, %143, %151
+  %163 = add i64 %87, %18
+  br label %ZSTD_noCompressLiterals.exit
 
-return:                                           ; preds = %sw.epilog.i104, %if.then71, %sw.epilog.i77, %if.then12, %sw.epilog.i, %if.then, %do.body15, %do.end122, %if.then82
-  %retval.0 = phi i64 [ %call83, %if.then82 ], [ %add123, %do.end122 ], [ -70, %do.body15 ], [ %add6.i, %sw.epilog.i ], [ -70, %if.then ], [ %add6.i71, %sw.epilog.i77 ], [ -70, %if.then12 ], [ %add6.i98, %sw.epilog.i104 ], [ -70, %if.then71 ]
-  ret i64 %retval.0
+ZSTD_noCompressLiterals.exit:                     ; preds = %114, %96, %68, %50, %38, %20, %70, %162, %allBytesIdentical.exit.thread
+  %.0 = phi i64 [ %126, %allBytesIdentical.exit.thread ], [ %163, %162 ], [ -70, %70 ], [ %27, %38 ], [ -70, %20 ], [ %57, %68 ], [ -70, %50 ], [ -70, %96 ], [ %103, %114 ]
+  ret i64 %.0
 }
 
-declare i64 @HUF_compress1X_repeat(ptr noundef, i64 noundef, ptr noundef, i64 noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i64 @HUF_compress1X_repeat(ptr noundef, i64 noundef, ptr noundef, i64 noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare i64 @HUF_compress4X_repeat(ptr noundef, i64 noundef, ptr noundef, i64 noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #4
+declare i64 @HUF_compress4X_repeat(ptr noundef, i64 noundef, ptr noundef, i64 noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #4
+declare i32 @llvm.smin.i32(i32, i32) #5
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nounwind }
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #5
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nounwind }
+
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{ptr @HUF_compress1X_repeat, ptr @HUF_compress4X_repeat}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"omnipotent char", !5, i64 0}
+!5 = !{!"Simple C/C++ TBAA"}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"short", !4, i64 0}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"int", !4, i64 0}
+!10 = !{!11, !9, i64 2056}
+!11 = !{!"", !4, i64 0, !9, i64 2056}
+!12 = !{ptr @HUF_compress1X_repeat, ptr @HUF_compress4X_repeat}
+!13 = distinct !{!13, !14}
+!14 = !{!"llvm.loop.mustprogress"}

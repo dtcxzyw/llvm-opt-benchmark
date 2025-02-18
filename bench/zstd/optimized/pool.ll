@@ -1,7 +1,7 @@
 ; ModuleID = 'bench/zstd/original/pool.ll'
 source_filename = "bench/zstd/original/pool.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.ZSTD_customMem = type { ptr, ptr, ptr }
 %struct.POOL_job_s = type { ptr, ptr }
@@ -9,146 +9,143 @@ target triple = "x86_64-unknown-linux-gnu"
 @ZSTD_defaultCMem = internal constant %struct.ZSTD_customMem zeroinitializer, align 8
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ZSTD_createThreadPool(i64 noundef %numThreads) local_unnamed_addr #0 {
-entry:
-  %call.i = tail call noundef ptr @POOL_create_advanced(i64 noundef %numThreads, i64 noundef 0, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 @ZSTD_defaultCMem)
-  ret ptr %call.i
+define noundef ptr @ZSTD_createThreadPool(i64 noundef %0) local_unnamed_addr #0 {
+  %2 = tail call noundef ptr @POOL_create_advanced(i64 noundef %0, i64 noundef 0, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 @ZSTD_defaultCMem)
+  ret ptr %2
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @POOL_create(i64 noundef %numThreads, i64 noundef %queueSize) local_unnamed_addr #0 {
-entry:
-  %call = tail call ptr @POOL_create_advanced(i64 noundef %numThreads, i64 noundef %queueSize, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 @ZSTD_defaultCMem)
-  ret ptr %call
+define noundef ptr @POOL_create(i64 noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+  %3 = tail call ptr @POOL_create_advanced(i64 noundef %0, i64 noundef %1, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 @ZSTD_defaultCMem)
+  ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @POOL_create_advanced(i64 noundef %numThreads, i64 noundef %queueSize, ptr noundef readonly byval(%struct.ZSTD_customMem) align 8 captures(none) %customMem) local_unnamed_addr #0 {
-entry:
-  %tobool.not = icmp eq i64 %numThreads, 0
-  br i1 %tobool.not, label %return, label %if.end
+define noundef ptr @POOL_create_advanced(i64 noundef %0, i64 noundef %1, ptr noundef readonly byval(%struct.ZSTD_customMem) align 8 captures(none) %2) local_unnamed_addr #0 {
+  %.not = icmp eq i64 %0, 0
+  br i1 %.not, label %50, label %4
 
-if.end:                                           ; preds = %entry
-  %customMem.val = load ptr, ptr %customMem, align 8
-  %0 = getelementptr inbounds nuw i8, ptr %customMem, i64 16
-  %tobool.not.i = icmp eq ptr %customMem.val, null
-  br i1 %tobool.not.i, label %ZSTD_customCalloc.exit, label %if.then.i42
+4:                                                ; preds = %3
+  %.val = load ptr, ptr %2, align 8, !tbaa !3
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %.not.i = icmp eq ptr %.val, null
+  br i1 %.not.i, label %ZSTD_customCalloc.exit, label %7
 
-ZSTD_customCalloc.exit:                           ; preds = %if.end
-  %call2.i = tail call noalias dereferenceable_or_null(240) ptr @calloc(i64 noundef 1, i64 noundef 240) #8
-  %tobool1.not = icmp eq ptr %call2.i, null
-  br i1 %tobool1.not, label %return, label %if.end.i45
+ZSTD_customCalloc.exit:                           ; preds = %4
+  %6 = tail call noalias dereferenceable_or_null(240) ptr @calloc(i64 noundef 1, i64 noundef 240) #8
+  %.not48 = icmp eq ptr %6, null
+  br i1 %.not48, label %50, label %13
 
-if.then.i42:                                      ; preds = %if.end
-  %customMem.val36 = load ptr, ptr %0, align 8
-  %call.i = tail call ptr %customMem.val(ptr noundef %customMem.val36, i64 noundef 240) #9
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(240) %call.i, i8 0, i64 240, i1 false)
-  %add = add i64 %queueSize, 1
-  %queueSize4 = getelementptr inbounds nuw i8, ptr %call.i, i64 72
-  store i64 %add, ptr %queueSize4, align 8
-  %mul = shl i64 %add, 4
-  %call.i43 = tail call ptr %customMem.val(ptr noundef %customMem.val36, i64 noundef %mul) #9
-  tail call void @llvm.memset.p0.i64(ptr align 1 %call.i43, i8 0, i64 %mul, i1 false)
-  br label %ZSTD_customCalloc.exit47
+7:                                                ; preds = %4
+  %.val54 = load ptr, ptr %5, align 8
+  %8 = tail call ptr %.val(ptr noundef %.val54, i64 noundef 240) #9
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(240) %8, i8 0, i64 240, i1 false)
+  %9 = add i64 %1, 1
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 72
+  store i64 %9, ptr %10, align 8, !tbaa !8
+  %11 = shl i64 %9, 4
+  %12 = tail call ptr %.val(ptr noundef %.val54, i64 noundef %11) #9
+  tail call void @llvm.memset.p0.i64(ptr align 1 %12, i8 0, i64 %11, i1 false)
+  br label %ZSTD_customCalloc.exit61
 
-if.end.i45:                                       ; preds = %ZSTD_customCalloc.exit
-  %add59 = add i64 %queueSize, 1
-  %queueSize460 = getelementptr inbounds nuw i8, ptr %call2.i, i64 72
-  store i64 %add59, ptr %queueSize460, align 8
-  %mul61 = shl i64 %add59, 4
-  %call2.i46 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %mul61) #8
-  br label %ZSTD_customCalloc.exit47
+13:                                               ; preds = %ZSTD_customCalloc.exit
+  %14 = add i64 %1, 1
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 72
+  store i64 %14, ptr %15, align 8, !tbaa !8
+  %16 = shl i64 %14, 4
+  %17 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %16) #8
+  br label %ZSTD_customCalloc.exit61
 
-ZSTD_customCalloc.exit47:                         ; preds = %if.then.i42, %if.end.i45
-  %retval.0.i5762 = phi ptr [ %call.i, %if.then.i42 ], [ %call2.i, %if.end.i45 ]
-  %retval.0.i44 = phi ptr [ %call.i43, %if.then.i42 ], [ %call2.i46, %if.end.i45 ]
-  %queue = getelementptr inbounds nuw i8, ptr %retval.0.i5762, i64 48
-  store ptr %retval.0.i44, ptr %queue, align 8
-  %queueHead = getelementptr inbounds nuw i8, ptr %retval.0.i5762, i64 56
-  %numThreadsBusy = getelementptr inbounds nuw i8, ptr %retval.0.i5762, i64 80
-  store i64 0, ptr %numThreadsBusy, align 8
-  %queueEmpty = getelementptr inbounds nuw i8, ptr %retval.0.i5762, i64 88
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %queueHead, i8 0, i64 16, i1 false)
-  store i32 1, ptr %queueEmpty, align 8
-  %queueMutex = getelementptr inbounds nuw i8, ptr %retval.0.i5762, i64 96
-  %call7 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %queueMutex, ptr noundef null) #9
-  %queuePushCond = getelementptr inbounds nuw i8, ptr %retval.0.i5762, i64 136
-  %call8 = tail call i32 @pthread_cond_init(ptr noundef nonnull %queuePushCond, ptr noundef null) #9
-  %or9 = or i32 %call8, %call7
-  %queuePopCond = getelementptr inbounds nuw i8, ptr %retval.0.i5762, i64 184
-  %call10 = tail call i32 @pthread_cond_init(ptr noundef nonnull %queuePopCond, ptr noundef null) #9
-  %or11 = or i32 %or9, %call10
-  %tobool12.not = icmp eq i32 %or11, 0
-  br i1 %tobool12.not, label %if.end14, label %if.then13
+ZSTD_customCalloc.exit61:                         ; preds = %7, %13
+  %.0.i6769 = phi ptr [ %8, %7 ], [ %6, %13 ]
+  %.0.i60 = phi ptr [ %12, %7 ], [ %17, %13 ]
+  %18 = getelementptr inbounds nuw i8, ptr %.0.i6769, i64 48
+  store ptr %.0.i60, ptr %18, align 8, !tbaa !14
+  %19 = getelementptr inbounds nuw i8, ptr %.0.i6769, i64 56
+  %20 = getelementptr inbounds nuw i8, ptr %.0.i6769, i64 80
+  store i64 0, ptr %20, align 8, !tbaa !15
+  %21 = getelementptr inbounds nuw i8, ptr %.0.i6769, i64 88
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
+  store i32 1, ptr %21, align 8, !tbaa !16
+  %22 = getelementptr inbounds nuw i8, ptr %.0.i6769, i64 96
+  %23 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %22, ptr noundef null) #9
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i6769, i64 136
+  %25 = tail call i32 @pthread_cond_init(ptr noundef nonnull %24, ptr noundef null) #9
+  %26 = or i32 %25, %23
+  %27 = getelementptr inbounds nuw i8, ptr %.0.i6769, i64 184
+  %28 = tail call i32 @pthread_cond_init(ptr noundef nonnull %27, ptr noundef null) #9
+  %29 = or i32 %26, %28
+  %.not49 = icmp eq i32 %29, 0
+  br i1 %.not49, label %.critedge, label %30
 
-if.then13:                                        ; preds = %ZSTD_customCalloc.exit47
-  tail call void @POOL_free(ptr noundef nonnull %retval.0.i5762)
-  br label %return
+30:                                               ; preds = %ZSTD_customCalloc.exit61
+  tail call void @POOL_free(ptr noundef nonnull %.0.i6769)
+  br label %50
 
-if.end14:                                         ; preds = %ZSTD_customCalloc.exit47
-  %shutdown = getelementptr inbounds nuw i8, ptr %retval.0.i5762, i64 232
-  store i32 0, ptr %shutdown, align 8
-  %mul15 = shl i64 %numThreads, 3
-  %customMem.val39 = load ptr, ptr %customMem, align 8
-  %tobool.not.i48 = icmp eq ptr %customMem.val39, null
-  br i1 %tobool.not.i48, label %if.end.i52, label %if.then.i49
+.critedge:                                        ; preds = %ZSTD_customCalloc.exit61
+  %31 = getelementptr inbounds nuw i8, ptr %.0.i6769, i64 232
+  store i32 0, ptr %31, align 8, !tbaa !17
+  %32 = shl i64 %0, 3
+  %.val57 = load ptr, ptr %2, align 8, !tbaa !3
+  %.not.i62 = icmp eq ptr %.val57, null
+  br i1 %.not.i62, label %35, label %33
 
-if.then.i49:                                      ; preds = %if.end14
-  %customMem.val40 = load ptr, ptr %0, align 8
-  %call.i50 = tail call ptr %customMem.val39(ptr noundef %customMem.val40, i64 noundef %mul15) #9
-  tail call void @llvm.memset.p0.i64(ptr align 1 %call.i50, i8 0, i64 %mul15, i1 false)
-  br label %ZSTD_customCalloc.exit54
+33:                                               ; preds = %.critedge
+  %.val58 = load ptr, ptr %5, align 8
+  %34 = tail call ptr %.val57(ptr noundef %.val58, i64 noundef %32) #9
+  tail call void @llvm.memset.p0.i64(ptr align 1 %34, i8 0, i64 %32, i1 false)
+  br label %ZSTD_customCalloc.exit64
 
-if.end.i52:                                       ; preds = %if.end14
-  %call2.i53 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %mul15) #8
-  br label %ZSTD_customCalloc.exit54
+35:                                               ; preds = %.critedge
+  %36 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %32) #8
+  br label %ZSTD_customCalloc.exit64
 
-ZSTD_customCalloc.exit54:                         ; preds = %if.then.i49, %if.end.i52
-  %retval.0.i51 = phi ptr [ %call.i50, %if.then.i49 ], [ %call2.i53, %if.end.i52 ]
-  %threads = getelementptr inbounds nuw i8, ptr %retval.0.i5762, i64 24
-  store ptr %retval.0.i51, ptr %threads, align 8
-  %threadCapacity = getelementptr inbounds nuw i8, ptr %retval.0.i5762, i64 32
-  store i64 0, ptr %threadCapacity, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %retval.0.i5762, ptr noundef nonnull align 8 dereferenceable(24) %customMem, i64 24, i1 false)
-  %tobool19.not = icmp eq ptr %retval.0.i51, null
-  br i1 %tobool19.not, label %if.then22, label %lor.lhs.false
+ZSTD_customCalloc.exit64:                         ; preds = %33, %35
+  %.0.i63 = phi ptr [ %34, %33 ], [ %36, %35 ]
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i6769, i64 24
+  store ptr %.0.i63, ptr %37, align 8, !tbaa !18
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i6769, i64 32
+  store i64 0, ptr %38, align 8, !tbaa !19
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0.i6769, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false), !tbaa.struct !20
+  %.not50 = icmp eq ptr %.0.i63, null
+  br i1 %.not50, label %41, label %39
 
-lor.lhs.false:                                    ; preds = %ZSTD_customCalloc.exit54
-  %1 = load ptr, ptr %queue, align 8
-  %tobool21.not = icmp eq ptr %1, null
-  br i1 %tobool21.not, label %if.then22, label %for.body
+39:                                               ; preds = %ZSTD_customCalloc.exit64
+  %40 = load ptr, ptr %18, align 8, !tbaa !14
+  %.not51 = icmp eq ptr %40, null
+  br i1 %.not51, label %41, label %.preheader
 
-if.then22:                                        ; preds = %lor.lhs.false, %ZSTD_customCalloc.exit54
-  tail call void @POOL_free(ptr noundef nonnull %retval.0.i5762)
-  br label %return
+41:                                               ; preds = %39, %ZSTD_customCalloc.exit64
+  tail call void @POOL_free(ptr noundef nonnull %.0.i6769)
+  br label %50
 
-for.body:                                         ; preds = %lor.lhs.false, %for.inc
-  %i.066 = phi i64 [ %inc, %for.inc ], [ 0, %lor.lhs.false ]
-  %2 = load ptr, ptr %threads, align 8
-  %arrayidx = getelementptr inbounds i64, ptr %2, i64 %i.066
-  %call25 = tail call i32 @pthread_create(ptr noundef %arrayidx, ptr noundef null, ptr noundef nonnull @POOL_thread, ptr noundef nonnull %retval.0.i5762) #9
-  %tobool26.not = icmp eq i32 %call25, 0
-  br i1 %tobool26.not, label %for.inc, label %if.then27
+.preheader:                                       ; preds = %39, %46
+  %.072 = phi i64 [ %47, %46 ], [ 0, %39 ]
+  %42 = load ptr, ptr %37, align 8, !tbaa !18
+  %43 = getelementptr inbounds nuw i64, ptr %42, i64 %.072
+  %44 = tail call i32 @pthread_create(ptr noundef %43, ptr noundef null, ptr noundef nonnull @POOL_thread, ptr noundef nonnull %.0.i6769) #9
+  %.not52 = icmp eq i32 %44, 0
+  br i1 %.not52, label %46, label %45
 
-if.then27:                                        ; preds = %for.body
-  store i64 %i.066, ptr %threadCapacity, align 8
-  tail call void @POOL_free(ptr noundef nonnull %retval.0.i5762)
-  br label %return
+45:                                               ; preds = %.preheader
+  store i64 %.072, ptr %38, align 8, !tbaa !19
+  tail call void @POOL_free(ptr noundef nonnull %.0.i6769)
+  br label %50
 
-for.inc:                                          ; preds = %for.body
-  %inc = add nuw i64 %i.066, 1
-  %exitcond.not = icmp eq i64 %inc, %numThreads
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !4
+46:                                               ; preds = %.preheader
+  %47 = add nuw i64 %.072, 1
+  %exitcond.not = icmp eq i64 %47, %0
+  br i1 %exitcond.not, label %48, label %.preheader, !llvm.loop !22
 
-for.end:                                          ; preds = %for.inc
-  store i64 %numThreads, ptr %threadCapacity, align 8
-  %threadLimit = getelementptr inbounds nuw i8, ptr %retval.0.i5762, i64 40
-  store i64 %numThreads, ptr %threadLimit, align 8
-  br label %return
+48:                                               ; preds = %46
+  store i64 %0, ptr %38, align 8, !tbaa !19
+  %49 = getelementptr inbounds nuw i8, ptr %.0.i6769, i64 40
+  store i64 %0, ptr %49, align 8, !tbaa !24
+  br label %50
 
-return:                                           ; preds = %ZSTD_customCalloc.exit, %entry, %for.end, %if.then27, %if.then22, %if.then13
-  %retval.0 = phi ptr [ null, %if.then13 ], [ null, %if.then27 ], [ %retval.0.i5762, %for.end ], [ null, %if.then22 ], [ null, %entry ], [ null, %ZSTD_customCalloc.exit ]
-  ret ptr %retval.0
+50:                                               ; preds = %45, %48, %30, %ZSTD_customCalloc.exit, %3, %41
+  %.043 = phi ptr [ null, %41 ], [ null, %30 ], [ null, %3 ], [ null, %ZSTD_customCalloc.exit ], [ %.0.i6769, %48 ], [ null, %45 ]
+  ret ptr %.043
 }
 
 ; Function Attrs: nounwind
@@ -158,106 +155,105 @@ declare i32 @pthread_mutex_init(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @pthread_cond_init(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @POOL_free(ptr noundef %ctx) local_unnamed_addr #0 {
-entry:
-  %tobool.not = icmp eq ptr %ctx, null
-  br i1 %tobool.not, label %return, label %if.end
+define void @POOL_free(ptr noundef %0) local_unnamed_addr #0 {
+  %.not = icmp eq ptr %0, null
+  br i1 %.not, label %ZSTD_customFree.exit22, label %2
 
-if.end:                                           ; preds = %entry
-  %queueMutex.i = getelementptr inbounds nuw i8, ptr %ctx, i64 96
-  %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %queueMutex.i) #9
-  %shutdown.i = getelementptr inbounds nuw i8, ptr %ctx, i64 232
-  store i32 1, ptr %shutdown.i, align 8
-  %call2.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %queueMutex.i) #9
-  %queuePushCond.i = getelementptr inbounds nuw i8, ptr %ctx, i64 136
-  %call3.i = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull %queuePushCond.i) #9
-  %queuePopCond.i = getelementptr inbounds nuw i8, ptr %ctx, i64 184
-  %call4.i = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull %queuePopCond.i) #9
-  %threadCapacity.i = getelementptr inbounds nuw i8, ptr %ctx, i64 32
-  %0 = load i64, ptr %threadCapacity.i, align 8
-  %cmp9.not.i = icmp eq i64 %0, 0
-  br i1 %cmp9.not.i, label %POOL_join.exit, label %for.body.lr.ph.i
+2:                                                ; preds = %1
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %3) #9
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  store i32 1, ptr %5, align 8, !tbaa !17
+  %6 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %3) #9
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %8 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull %7) #9
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %10 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull %9) #9
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %12 = load i64, ptr %11, align 8, !tbaa !19
+  %.not.i = icmp eq i64 %12, 0
+  br i1 %.not.i, label %POOL_join.exit, label %.lr.ph.i
 
-for.body.lr.ph.i:                                 ; preds = %if.end
-  %threads.i = getelementptr inbounds nuw i8, ptr %ctx, i64 24
-  br label %for.body.i
+.lr.ph.i:                                         ; preds = %2
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  br label %14
 
-for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
-  %i.010.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i, %for.body.i ]
-  %1 = load ptr, ptr %threads.i, align 8
-  %arrayidx.i = getelementptr inbounds i64, ptr %1, i64 %i.010.i
-  %2 = load i64, ptr %arrayidx.i, align 8
-  %call5.i = tail call i32 @pthread_join(i64 noundef %2, ptr noundef null) #9
-  %inc.i = add nuw i64 %i.010.i, 1
-  %3 = load i64, ptr %threadCapacity.i, align 8
-  %cmp.i = icmp ult i64 %inc.i, %3
-  br i1 %cmp.i, label %for.body.i, label %POOL_join.exit, !llvm.loop !6
+14:                                               ; preds = %14, %.lr.ph.i
+  %.09.i = phi i64 [ 0, %.lr.ph.i ], [ %19, %14 ]
+  %15 = load ptr, ptr %13, align 8, !tbaa !18
+  %16 = getelementptr inbounds nuw i64, ptr %15, i64 %.09.i
+  %17 = load i64, ptr %16, align 8, !tbaa !25
+  %18 = tail call i32 @pthread_join(i64 noundef %17, ptr noundef null) #9
+  %19 = add nuw i64 %.09.i, 1
+  %20 = load i64, ptr %11, align 8, !tbaa !19
+  %21 = icmp ult i64 %19, %20
+  br i1 %21, label %14, label %POOL_join.exit, !llvm.loop !26
 
-POOL_join.exit:                                   ; preds = %for.body.i, %if.end
-  %call = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %queueMutex.i) #9
-  %call1 = tail call i32 @pthread_cond_destroy(ptr noundef nonnull %queuePushCond.i) #9
-  %call2 = tail call i32 @pthread_cond_destroy(ptr noundef nonnull %queuePopCond.i) #9
-  %queue = getelementptr inbounds nuw i8, ptr %ctx, i64 48
-  %4 = load ptr, ptr %queue, align 8
-  %5 = getelementptr i8, ptr %ctx, i64 8
-  %ctx.val = load ptr, ptr %5, align 8
-  %6 = getelementptr i8, ptr %ctx, i64 16
-  %ctx.val11 = load ptr, ptr %6, align 8
-  %cmp.not.i = icmp eq ptr %4, null
-  br i1 %cmp.not.i, label %ZSTD_customFree.exit, label %if.then.i
+POOL_join.exit:                                   ; preds = %14, %2
+  %22 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %3) #9
+  %23 = tail call i32 @pthread_cond_destroy(ptr noundef nonnull %7) #9
+  %24 = tail call i32 @pthread_cond_destroy(ptr noundef nonnull %9) #9
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %26 = load ptr, ptr %25, align 8, !tbaa !14
+  %27 = getelementptr i8, ptr %0, i64 8
+  %.val = load ptr, ptr %27, align 8
+  %28 = getelementptr i8, ptr %0, i64 16
+  %.val11 = load ptr, ptr %28, align 8
+  %.not.i16 = icmp eq ptr %26, null
+  br i1 %.not.i16, label %ZSTD_customFree.exit, label %29
 
-if.then.i:                                        ; preds = %POOL_join.exit
-  %tobool.not.i = icmp eq ptr %ctx.val, null
-  br i1 %tobool.not.i, label %if.else.i, label %if.then1.i
+29:                                               ; preds = %POOL_join.exit
+  %.not4.i = icmp eq ptr %.val, null
+  br i1 %.not4.i, label %31, label %30
 
-if.then1.i:                                       ; preds = %if.then.i
-  tail call void %ctx.val(ptr noundef %ctx.val11, ptr noundef nonnull %4) #9
+30:                                               ; preds = %29
+  tail call void %.val(ptr noundef %.val11, ptr noundef nonnull %26) #9
   br label %ZSTD_customFree.exitthread-pre-split
 
-if.else.i:                                        ; preds = %if.then.i
-  tail call void @free(ptr noundef nonnull %4) #9
+31:                                               ; preds = %29
+  tail call void @free(ptr noundef nonnull %26) #9
   br label %ZSTD_customFree.exitthread-pre-split
 
-ZSTD_customFree.exitthread-pre-split:             ; preds = %if.else.i, %if.then1.i
-  %ctx.val12.pr = load ptr, ptr %5, align 8
-  %ctx.val13.pre = load ptr, ptr %6, align 8
+ZSTD_customFree.exitthread-pre-split:             ; preds = %31, %30
+  %.val12.pr = load ptr, ptr %27, align 8
+  %.val13.pre = load ptr, ptr %28, align 8
   br label %ZSTD_customFree.exit
 
 ZSTD_customFree.exit:                             ; preds = %ZSTD_customFree.exitthread-pre-split, %POOL_join.exit
-  %ctx.val13 = phi ptr [ %ctx.val13.pre, %ZSTD_customFree.exitthread-pre-split ], [ %ctx.val11, %POOL_join.exit ]
-  %ctx.val12 = phi ptr [ %ctx.val12.pr, %ZSTD_customFree.exitthread-pre-split ], [ %ctx.val, %POOL_join.exit ]
-  %threads = getelementptr inbounds nuw i8, ptr %ctx, i64 24
-  %7 = load ptr, ptr %threads, align 8
-  %cmp.not.i16 = icmp eq ptr %7, null
-  br i1 %cmp.not.i16, label %if.then.i23, label %if.then.i17
+  %.val13 = phi ptr [ %.val13.pre, %ZSTD_customFree.exitthread-pre-split ], [ %.val11, %POOL_join.exit ]
+  %.val12 = phi ptr [ %.val12.pr, %ZSTD_customFree.exitthread-pre-split ], [ %.val, %POOL_join.exit ]
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %33 = load ptr, ptr %32, align 8, !tbaa !18
+  %.not.i17 = icmp eq ptr %33, null
+  br i1 %.not.i17, label %37, label %34
 
-if.then.i17:                                      ; preds = %ZSTD_customFree.exit
-  %tobool.not.i18 = icmp eq ptr %ctx.val12, null
-  br i1 %tobool.not.i18, label %if.else.i20, label %if.then1.i19
+34:                                               ; preds = %ZSTD_customFree.exit
+  %.not4.i18 = icmp eq ptr %.val12, null
+  br i1 %.not4.i18, label %36, label %35
 
-if.then1.i19:                                     ; preds = %if.then.i17
-  tail call void %ctx.val12(ptr noundef %ctx.val13, ptr noundef nonnull %7) #9
-  br label %if.then.i23
+35:                                               ; preds = %34
+  tail call void %.val12(ptr noundef %.val13, ptr noundef nonnull %33) #9
+  br label %37
 
-if.else.i20:                                      ; preds = %if.then.i17
-  tail call void @free(ptr noundef nonnull %7) #9
-  br label %if.then.i23
+36:                                               ; preds = %34
+  tail call void @free(ptr noundef nonnull %33) #9
+  br label %37
 
-if.then.i23:                                      ; preds = %if.else.i20, %if.then1.i19, %ZSTD_customFree.exit
-  %ctx.val14 = load ptr, ptr %5, align 8
-  %tobool.not.i24 = icmp eq ptr %ctx.val14, null
-  br i1 %tobool.not.i24, label %if.else.i26, label %if.then1.i25
+37:                                               ; preds = %36, %35, %ZSTD_customFree.exit
+  %.val14 = load ptr, ptr %27, align 8
+  %.not4.i21 = icmp eq ptr %.val14, null
+  br i1 %.not4.i21, label %39, label %38
 
-if.then1.i25:                                     ; preds = %if.then.i23
-  %ctx.val15 = load ptr, ptr %6, align 8
-  tail call void %ctx.val14(ptr noundef %ctx.val15, ptr noundef nonnull %ctx) #9
-  br label %return
+38:                                               ; preds = %37
+  %.val15 = load ptr, ptr %28, align 8
+  tail call void %.val14(ptr noundef %.val15, ptr noundef nonnull %0) #9
+  br label %ZSTD_customFree.exit22
 
-if.else.i26:                                      ; preds = %if.then.i23
-  tail call void @free(ptr noundef nonnull %ctx) #9
-  br label %return
+39:                                               ; preds = %37
+  tail call void @free(ptr noundef nonnull %0) #9
+  br label %ZSTD_customFree.exit22
 
-return:                                           ; preds = %if.else.i26, %if.then1.i25, %entry
+ZSTD_customFree.exit22:                           ; preds = %39, %38, %1
   ret void
 }
 
@@ -268,83 +264,82 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @POOL_thread(ptr noundef returned %opaque) #0 {
-entry:
-  %tobool.not = icmp eq ptr %opaque, null
-  br i1 %tobool.not, label %return, label %for.cond.preheader
+define internal noundef ptr @POOL_thread(ptr noundef returned %0) #0 {
+  %.not = icmp eq ptr %0, null
+  br i1 %.not, label %43, label %.preheader
 
-for.cond.preheader:                               ; preds = %entry
-  %queueMutex = getelementptr inbounds nuw i8, ptr %opaque, i64 96
-  %queueEmpty = getelementptr inbounds nuw i8, ptr %opaque, i64 88
-  %numThreadsBusy = getelementptr inbounds nuw i8, ptr %opaque, i64 80
-  %threadLimit = getelementptr inbounds nuw i8, ptr %opaque, i64 40
-  %shutdown = getelementptr inbounds nuw i8, ptr %opaque, i64 232
-  %queuePopCond = getelementptr inbounds nuw i8, ptr %opaque, i64 184
-  %queue = getelementptr inbounds nuw i8, ptr %opaque, i64 48
-  %queueHead = getelementptr inbounds nuw i8, ptr %opaque, i64 56
-  %queueSize = getelementptr inbounds nuw i8, ptr %opaque, i64 72
-  %queueTail = getelementptr inbounds nuw i8, ptr %opaque, i64 64
-  %queuePushCond = getelementptr inbounds nuw i8, ptr %opaque, i64 136
-  br label %for.cond
+.preheader:                                       ; preds = %1
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  br label %13
 
-for.cond:                                         ; preds = %for.cond.preheader, %while.end
-  %call = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %queueMutex) #9
-  br label %while.cond
+13:                                               ; preds = %.preheader, %25
+  %14 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %2) #9
+  br label %15
 
-while.cond:                                       ; preds = %if.end6, %for.cond
-  %0 = load i32, ptr %queueEmpty, align 8
-  %tobool1.not = icmp eq i32 %0, 0
-  br i1 %tobool1.not, label %lor.rhs, label %while.body
+15:                                               ; preds = %23, %13
+  %16 = load i32, ptr %3, align 8, !tbaa !16
+  %.not27 = icmp eq i32 %16, 0
+  br i1 %.not27, label %17, label %.critedge
 
-lor.rhs:                                          ; preds = %while.cond
-  %1 = load i64, ptr %numThreadsBusy, align 8
-  %2 = load i64, ptr %threadLimit, align 8
-  %cmp.not = icmp ult i64 %1, %2
-  br i1 %cmp.not, label %while.end, label %while.body
+17:                                               ; preds = %15
+  %18 = load i64, ptr %4, align 8, !tbaa !15
+  %19 = load i64, ptr %5, align 8, !tbaa !24
+  %.not28 = icmp ult i64 %18, %19
+  br i1 %.not28, label %25, label %.critedge
 
-while.body:                                       ; preds = %while.cond, %lor.rhs
-  %3 = load i32, ptr %shutdown, align 8
-  %tobool2.not = icmp eq i32 %3, 0
-  br i1 %tobool2.not, label %if.end6, label %if.then3
+.critedge:                                        ; preds = %15, %17
+  %20 = load i32, ptr %6, align 8, !tbaa !17
+  %.not29 = icmp eq i32 %20, 0
+  br i1 %.not29, label %23, label %21
 
-if.then3:                                         ; preds = %while.body
-  %call5 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %queueMutex) #9
-  br label %return
+21:                                               ; preds = %.critedge
+  %22 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %2) #9
+  br label %43
 
-if.end6:                                          ; preds = %while.body
-  %call8 = tail call i32 @pthread_cond_wait(ptr noundef nonnull %queuePopCond, ptr noundef nonnull %queueMutex) #9
-  br label %while.cond, !llvm.loop !7
+23:                                               ; preds = %.critedge
+  %24 = tail call i32 @pthread_cond_wait(ptr noundef nonnull %7, ptr noundef nonnull %2) #9
+  br label %15, !llvm.loop !27
 
-while.end:                                        ; preds = %lor.rhs
-  %4 = load ptr, ptr %queue, align 8
-  %5 = load i64, ptr %queueHead, align 8
-  %arrayidx = getelementptr inbounds %struct.POOL_job_s, ptr %4, i64 %5
-  %job.sroa.0.0.copyload = load ptr, ptr %arrayidx, align 8
-  %job.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
-  %job.sroa.2.0.copyload = load ptr, ptr %job.sroa.2.0.arrayidx.sroa_idx, align 8
-  %add = add i64 %5, 1
-  %6 = load i64, ptr %queueSize, align 8
-  %rem = urem i64 %add, %6
-  store i64 %rem, ptr %queueHead, align 8
-  %inc = add nuw i64 %1, 1
-  store i64 %inc, ptr %numThreadsBusy, align 8
-  %7 = load i64, ptr %queueTail, align 8
-  %cmp13 = icmp eq i64 %rem, %7
-  %conv = zext i1 %cmp13 to i32
-  store i32 %conv, ptr %queueEmpty, align 8
-  %call15 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %queuePushCond) #9
-  %call17 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %queueMutex) #9
-  tail call void %job.sroa.0.0.copyload(ptr noundef %job.sroa.2.0.copyload) #9
-  %call20 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %queueMutex) #9
-  %8 = load i64, ptr %numThreadsBusy, align 8
-  %dec = add i64 %8, -1
-  store i64 %dec, ptr %numThreadsBusy, align 8
-  %call23 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %queuePushCond) #9
-  %call25 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %queueMutex) #9
-  br label %for.cond
+25:                                               ; preds = %17
+  %26 = load ptr, ptr %8, align 8, !tbaa !14
+  %27 = load i64, ptr %9, align 8, !tbaa !28
+  %28 = getelementptr inbounds nuw %struct.POOL_job_s, ptr %26, i64 %27
+  %.sroa.0.0.copyload = load ptr, ptr %28, align 8, !tbaa !21
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !21
+  %29 = add i64 %27, 1
+  %30 = load i64, ptr %10, align 8, !tbaa !8
+  %31 = urem i64 %29, %30
+  store i64 %31, ptr %9, align 8, !tbaa !28
+  %32 = add nuw i64 %18, 1
+  store i64 %32, ptr %4, align 8, !tbaa !15
+  %33 = load i64, ptr %11, align 8, !tbaa !29
+  %34 = icmp eq i64 %31, %33
+  %35 = zext i1 %34 to i32
+  store i32 %35, ptr %3, align 8, !tbaa !16
+  %36 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %12) #9
+  %37 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %2) #9
+  tail call void %.sroa.0.0.copyload(ptr noundef %.sroa.4.0.copyload) #9
+  %38 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %2) #9
+  %39 = load i64, ptr %4, align 8, !tbaa !15
+  %40 = add i64 %39, -1
+  store i64 %40, ptr %4, align 8, !tbaa !15
+  %41 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %12) #9
+  %42 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %2) #9
+  br label %13
 
-return:                                           ; preds = %entry, %if.then3
-  ret ptr %opaque
+43:                                               ; preds = %1, %21
+  ret ptr %0
 }
 
 ; Function Attrs: nounwind
@@ -354,31 +349,30 @@ declare i32 @pthread_mutex_destroy(ptr noundef) local_unnamed_addr #1
 declare i32 @pthread_cond_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @POOL_joinJobs(ptr noundef %ctx) local_unnamed_addr #0 {
-entry:
-  %queueMutex = getelementptr inbounds nuw i8, ptr %ctx, i64 96
-  %call = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %queueMutex) #9
-  %numThreadsBusy = getelementptr inbounds nuw i8, ptr %ctx, i64 80
-  %queueEmpty = getelementptr inbounds nuw i8, ptr %ctx, i64 88
-  %queuePushCond = getelementptr inbounds nuw i8, ptr %ctx, i64 136
-  br label %while.cond
+define void @POOL_joinJobs(ptr noundef %0) local_unnamed_addr #0 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %3 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %2) #9
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  br label %7
 
-while.cond:                                       ; preds = %while.body, %entry
-  %0 = load i32, ptr %queueEmpty, align 8
-  %tobool.not = icmp eq i32 %0, 0
-  br i1 %tobool.not, label %while.body, label %lor.rhs
+7:                                                ; preds = %.critedge, %1
+  %8 = load i32, ptr %5, align 8, !tbaa !16
+  %.not = icmp eq i32 %8, 0
+  br i1 %.not, label %.critedge, label %9
 
-lor.rhs:                                          ; preds = %while.cond
-  %1 = load i64, ptr %numThreadsBusy, align 8
-  %cmp.not = icmp eq i64 %1, 0
-  br i1 %cmp.not, label %while.end, label %while.body
+9:                                                ; preds = %7
+  %10 = load i64, ptr %4, align 8, !tbaa !15
+  %.not6 = icmp eq i64 %10, 0
+  br i1 %.not6, label %12, label %.critedge
 
-while.body:                                       ; preds = %while.cond, %lor.rhs
-  %call2 = tail call i32 @pthread_cond_wait(ptr noundef nonnull %queuePushCond, ptr noundef nonnull %queueMutex) #9
-  br label %while.cond, !llvm.loop !8
+.critedge:                                        ; preds = %7, %9
+  %11 = tail call i32 @pthread_cond_wait(ptr noundef nonnull %6, ptr noundef nonnull %2) #9
+  br label %7, !llvm.loop !30
 
-while.end:                                        ; preds = %lor.rhs
-  %call4 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %queueMutex) #9
+12:                                               ; preds = %9
+  %13 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %2) #9
   ret void
 }
 
@@ -391,287 +385,278 @@ declare i32 @pthread_cond_wait(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @ZSTD_freeThreadPool(ptr noundef %pool) local_unnamed_addr #0 {
-entry:
-  tail call void @POOL_free(ptr noundef %pool)
+define void @ZSTD_freeThreadPool(ptr noundef %0) local_unnamed_addr #0 {
+  tail call void @POOL_free(ptr noundef %0)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @POOL_sizeof(ptr noundef readonly captures(address_is_null) %ctx) local_unnamed_addr #4 {
-entry:
-  %cmp = icmp eq ptr %ctx, null
-  br i1 %cmp, label %return, label %if.end
+define i64 @POOL_sizeof(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
+  %2 = icmp eq ptr %0, null
+  br i1 %2, label %12, label %3
 
-if.end:                                           ; preds = %entry
-  %queueSize = getelementptr inbounds nuw i8, ptr %ctx, i64 72
-  %0 = load i64, ptr %queueSize, align 8
-  %mul = shl i64 %0, 4
-  %add = add i64 %mul, 240
-  %threadCapacity = getelementptr inbounds nuw i8, ptr %ctx, i64 32
-  %1 = load i64, ptr %threadCapacity, align 8
-  %mul1 = shl i64 %1, 3
-  %add2 = add i64 %add, %mul1
-  br label %return
+3:                                                ; preds = %1
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %5 = load i64, ptr %4, align 8, !tbaa !8
+  %6 = shl i64 %5, 4
+  %7 = add i64 %6, 240
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %9 = load i64, ptr %8, align 8, !tbaa !19
+  %10 = shl i64 %9, 3
+  %11 = add i64 %7, %10
+  br label %12
 
-return:                                           ; preds = %entry, %if.end
-  %retval.0 = phi i64 [ %add2, %if.end ], [ 0, %entry ]
-  ret i64 %retval.0
+12:                                               ; preds = %1, %3
+  %.0 = phi i64 [ %11, %3 ], [ 0, %1 ]
+  ret i64 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @POOL_resize(ptr noundef %ctx, i64 noundef %numThreads) local_unnamed_addr #0 {
-entry:
-  %cmp = icmp eq ptr %ctx, null
-  br i1 %cmp, label %return, label %if.end
+define range(i32 0, 2) i32 @POOL_resize(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+  %3 = icmp eq ptr %0, null
+  br i1 %3, label %40, label %4
 
-if.end:                                           ; preds = %entry
-  %queueMutex = getelementptr inbounds nuw i8, ptr %ctx, i64 96
-  %call = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %queueMutex) #9
-  %threadCapacity.i = getelementptr inbounds nuw i8, ptr %ctx, i64 32
-  %0 = load i64, ptr %threadCapacity.i, align 8
-  %cmp.not.i = icmp ugt i64 %numThreads, %0
-  br i1 %cmp.not.i, label %if.end2.i, label %if.then.i
+4:                                                ; preds = %2
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %6 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %5) #9
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %8 = load i64, ptr %7, align 8, !tbaa !19
+  %.not.i = icmp ugt i64 %1, %8
+  br i1 %.not.i, label %12, label %9
 
-if.then.i:                                        ; preds = %if.end
-  %tobool.not.i = icmp eq i64 %numThreads, 0
-  br i1 %tobool.not.i, label %POOL_resize_internal.exit, label %if.end.i
+9:                                                ; preds = %4
+  %.not37.i = icmp eq i64 %1, 0
+  br i1 %.not37.i, label %POOL_resize_internal.exit, label %10
 
-if.end.i:                                         ; preds = %if.then.i
-  %threadLimit.i = getelementptr inbounds nuw i8, ptr %ctx, i64 40
-  store i64 %numThreads, ptr %threadLimit.i, align 8
+10:                                               ; preds = %9
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i64 %1, ptr %11, align 8, !tbaa !24
   br label %POOL_resize_internal.exit
 
-if.end2.i:                                        ; preds = %if.end
-  %mul.i = shl i64 %numThreads, 3
-  %ctx.val.i = load ptr, ptr %ctx, align 8
-  %1 = getelementptr i8, ptr %ctx, i64 16
-  %tobool.not.i.i = icmp eq ptr %ctx.val.i, null
-  br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
+12:                                               ; preds = %4
+  %13 = shl i64 %1, 3
+  %.val.i = load ptr, ptr %0, align 8, !tbaa !3
+  %14 = getelementptr i8, ptr %0, i64 16
+  %.not.i.i = icmp eq ptr %.val.i, null
+  br i1 %.not.i.i, label %17, label %15
 
-if.then.i.i:                                      ; preds = %if.end2.i
-  %ctx.val25.i = load ptr, ptr %1, align 8
-  %call.i.i = tail call ptr %ctx.val.i(ptr noundef %ctx.val25.i, i64 noundef %mul.i) #9
-  tail call void @llvm.memset.p0.i64(ptr align 1 %call.i.i, i8 0, i64 %mul.i, i1 false)
+15:                                               ; preds = %12
+  %.val38.i = load ptr, ptr %14, align 8
+  %16 = tail call ptr %.val.i(ptr noundef %.val38.i, i64 noundef %13) #9
+  tail call void @llvm.memset.p0.i64(ptr align 1 %16, i8 0, i64 %13, i1 false)
   br label %ZSTD_customCalloc.exit.i
 
-if.end.i.i:                                       ; preds = %if.end2.i
-  %call2.i.i = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %mul.i) #8
+17:                                               ; preds = %12
+  %18 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %13) #8
   br label %ZSTD_customCalloc.exit.i
 
-ZSTD_customCalloc.exit.i:                         ; preds = %if.end.i.i, %if.then.i.i
-  %retval.0.i.i = phi ptr [ %call.i.i, %if.then.i.i ], [ %call2.i.i, %if.end.i.i ]
-  %tobool3.not.i = icmp eq ptr %retval.0.i.i, null
-  br i1 %tobool3.not.i, label %POOL_resize_internal.exit, label %if.end5.i
+ZSTD_customCalloc.exit.i:                         ; preds = %17, %15
+  %.0.i.i = phi ptr [ %16, %15 ], [ %18, %17 ]
+  %.not35.i = icmp eq ptr %.0.i.i, null
+  br i1 %.not35.i, label %POOL_resize_internal.exit, label %19
 
-if.end5.i:                                        ; preds = %ZSTD_customCalloc.exit.i
-  %threads.i = getelementptr inbounds nuw i8, ptr %ctx, i64 24
-  %2 = load ptr, ptr %threads.i, align 8
-  %3 = load i64, ptr %threadCapacity.i, align 8
-  %mul7.i = shl i64 %3, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %retval.0.i.i, ptr align 8 %2, i64 %mul7.i, i1 false)
-  %4 = load ptr, ptr %threads.i, align 8
-  %5 = getelementptr i8, ptr %ctx, i64 8
-  %ctx.val26.i = load ptr, ptr %5, align 8
-  %ctx.val27.i = load ptr, ptr %1, align 8
-  %cmp.not.i.i = icmp eq ptr %4, null
-  br i1 %cmp.not.i.i, label %ZSTD_customFree.exit.i, label %if.then.i28.i
+19:                                               ; preds = %ZSTD_customCalloc.exit.i
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %21 = load ptr, ptr %20, align 8, !tbaa !18
+  %22 = load i64, ptr %7, align 8, !tbaa !19
+  %23 = shl i64 %22, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.0.i.i, ptr align 8 %21, i64 %23, i1 false)
+  %24 = load ptr, ptr %20, align 8, !tbaa !18
+  %25 = getelementptr i8, ptr %0, i64 8
+  %.val39.i = load ptr, ptr %25, align 8
+  %.val40.i = load ptr, ptr %14, align 8
+  %.not.i41.i = icmp eq ptr %24, null
+  br i1 %.not.i41.i, label %ZSTD_customFree.exit.i, label %26
 
-if.then.i28.i:                                    ; preds = %if.end5.i
-  %tobool.not.i29.i = icmp eq ptr %ctx.val26.i, null
-  br i1 %tobool.not.i29.i, label %if.else.i.i, label %if.then1.i.i
+26:                                               ; preds = %19
+  %.not4.i.i = icmp eq ptr %.val39.i, null
+  br i1 %.not4.i.i, label %28, label %27
 
-if.then1.i.i:                                     ; preds = %if.then.i28.i
-  tail call void %ctx.val26.i(ptr noundef %ctx.val27.i, ptr noundef nonnull %4) #9
+27:                                               ; preds = %26
+  tail call void %.val39.i(ptr noundef %.val40.i, ptr noundef nonnull %24) #9
   br label %ZSTD_customFree.exit.i
 
-if.else.i.i:                                      ; preds = %if.then.i28.i
-  tail call void @free(ptr noundef nonnull %4) #9
+28:                                               ; preds = %26
+  tail call void @free(ptr noundef nonnull %24) #9
   br label %ZSTD_customFree.exit.i
 
-ZSTD_customFree.exit.i:                           ; preds = %if.else.i.i, %if.then1.i.i, %if.end5.i
-  store ptr %retval.0.i.i, ptr %threads.i, align 8
-  %6 = load i64, ptr %threadCapacity.i, align 8
-  %cmp1231.i = icmp ult i64 %6, %numThreads
-  br i1 %cmp1231.i, label %for.body.i, label %for.end.i
+ZSTD_customFree.exit.i:                           ; preds = %28, %27, %19
+  store ptr %.0.i.i, ptr %20, align 8, !tbaa !18
+  %29 = load i64, ptr %7, align 8, !tbaa !19
+  %30 = icmp ult i64 %29, %1
+  br i1 %30, label %.lr.ph.i, label %._crit_edge.i
 
-for.body.i:                                       ; preds = %ZSTD_customFree.exit.i, %for.inc.i
-  %threadId.032.i = phi i64 [ %inc.i, %for.inc.i ], [ %6, %ZSTD_customFree.exit.i ]
-  %arrayidx.i = getelementptr inbounds i64, ptr %retval.0.i.i, i64 %threadId.032.i
-  %call13.i = tail call i32 @pthread_create(ptr noundef nonnull %arrayidx.i, ptr noundef null, ptr noundef nonnull @POOL_thread, ptr noundef nonnull %ctx) #9
-  %tobool14.not.i = icmp eq i32 %call13.i, 0
-  br i1 %tobool14.not.i, label %for.inc.i, label %if.then15.i
+.lr.ph.i:                                         ; preds = %ZSTD_customFree.exit.i, %34
+  %.045.i = phi i64 [ %35, %34 ], [ %29, %ZSTD_customFree.exit.i ]
+  %31 = getelementptr inbounds nuw i64, ptr %.0.i.i, i64 %.045.i
+  %32 = tail call i32 @pthread_create(ptr noundef nonnull %31, ptr noundef null, ptr noundef nonnull @POOL_thread, ptr noundef nonnull %0) #9
+  %.not36.i = icmp eq i32 %32, 0
+  br i1 %.not36.i, label %34, label %33
 
-if.then15.i:                                      ; preds = %for.body.i
-  store i64 %threadId.032.i, ptr %threadCapacity.i, align 8
+33:                                               ; preds = %.lr.ph.i
+  store i64 %.045.i, ptr %7, align 8, !tbaa !19
   br label %POOL_resize_internal.exit
 
-for.inc.i:                                        ; preds = %for.body.i
-  %inc.i = add i64 %threadId.032.i, 1
-  %exitcond.not.i = icmp eq i64 %inc.i, %numThreads
-  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !9
+34:                                               ; preds = %.lr.ph.i
+  %35 = add i64 %.045.i, 1
+  %exitcond.not.i = icmp eq i64 %35, %1
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !31
 
-for.end.i:                                        ; preds = %for.inc.i, %ZSTD_customFree.exit.i
-  store i64 %numThreads, ptr %threadCapacity.i, align 8
-  %threadLimit19.i = getelementptr inbounds nuw i8, ptr %ctx, i64 40
-  store i64 %numThreads, ptr %threadLimit19.i, align 8
+._crit_edge.i:                                    ; preds = %34, %ZSTD_customFree.exit.i
+  store i64 %1, ptr %7, align 8, !tbaa !19
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i64 %1, ptr %36, align 8, !tbaa !24
   br label %POOL_resize_internal.exit
 
-POOL_resize_internal.exit:                        ; preds = %if.then.i, %if.end.i, %ZSTD_customCalloc.exit.i, %if.then15.i, %for.end.i
-  %retval.0.i = phi i32 [ 0, %if.end.i ], [ 1, %if.then15.i ], [ 0, %for.end.i ], [ 1, %if.then.i ], [ 1, %ZSTD_customCalloc.exit.i ]
-  %queuePopCond = getelementptr inbounds nuw i8, ptr %ctx, i64 184
-  %call2 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull %queuePopCond) #9
-  %call4 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %queueMutex) #9
-  br label %return
+POOL_resize_internal.exit:                        ; preds = %9, %10, %ZSTD_customCalloc.exit.i, %33, %._crit_edge.i
+  %.031.i = phi i32 [ 0, %10 ], [ 0, %._crit_edge.i ], [ 1, %9 ], [ 1, %ZSTD_customCalloc.exit.i ], [ 1, %33 ]
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %38 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull %37) #9
+  %39 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %5) #9
+  br label %40
 
-return:                                           ; preds = %entry, %POOL_resize_internal.exit
-  %retval.0 = phi i32 [ %retval.0.i, %POOL_resize_internal.exit ], [ 1, %entry ]
-  ret i32 %retval.0
+40:                                               ; preds = %2, %POOL_resize_internal.exit
+  %.0 = phi i32 [ %.031.i, %POOL_resize_internal.exit ], [ 1, %2 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind
 declare i32 @pthread_cond_broadcast(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @POOL_add(ptr noundef %ctx, ptr noundef %function, ptr noundef %opaque) local_unnamed_addr #0 {
-entry:
-  %queueMutex = getelementptr inbounds nuw i8, ptr %ctx, i64 96
-  %call = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %queueMutex) #9
-  %queueSize.i = getelementptr inbounds nuw i8, ptr %ctx, i64 72
-  %numThreadsBusy.i = getelementptr inbounds nuw i8, ptr %ctx, i64 80
-  %threadLimit.i = getelementptr inbounds nuw i8, ptr %ctx, i64 40
-  %queueEmpty.i = getelementptr inbounds nuw i8, ptr %ctx, i64 88
-  %queueHead.i = getelementptr inbounds nuw i8, ptr %ctx, i64 56
-  %queueTail.i = getelementptr inbounds nuw i8, ptr %ctx, i64 64
-  %shutdown = getelementptr inbounds nuw i8, ptr %ctx, i64 232
-  %queuePushCond = getelementptr inbounds nuw i8, ptr %ctx, i64 136
-  br label %while.cond
+define void @POOL_add(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %5 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %4) #9
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  br label %14
 
-while.cond:                                       ; preds = %while.body, %entry
-  %0 = load i64, ptr %queueSize.i, align 8
-  %cmp.i = icmp ugt i64 %0, 1
-  br i1 %cmp.i, label %if.then.i, label %if.else.i
+14:                                               ; preds = %29, %3
+  %15 = load i64, ptr %6, align 8, !tbaa !8
+  %16 = icmp ugt i64 %15, 1
+  br i1 %16, label %17, label %23
 
-if.then.i:                                        ; preds = %while.cond
-  %1 = load i64, ptr %queueHead.i, align 8
-  %2 = load i64, ptr %queueTail.i, align 8
-  %add.i = add i64 %2, 1
-  %rem.i = urem i64 %add.i, %0
-  %cmp2.i = icmp eq i64 %1, %rem.i
-  br i1 %cmp2.i, label %land.rhs, label %while.end
+17:                                               ; preds = %14
+  %18 = load i64, ptr %10, align 8, !tbaa !28
+  %19 = load i64, ptr %11, align 8, !tbaa !29
+  %20 = add i64 %19, 1
+  %21 = urem i64 %20, %15
+  %22 = icmp eq i64 %18, %21
+  br i1 %22, label %isQueueFull.exit.thread, label %.critedge
 
-if.else.i:                                        ; preds = %while.cond
-  %3 = load i64, ptr %numThreadsBusy.i, align 8
-  %4 = load i64, ptr %threadLimit.i, align 8
-  %cmp3.i = icmp eq i64 %3, %4
-  br i1 %cmp3.i, label %land.rhs, label %isQueueFull.exit
+23:                                               ; preds = %14
+  %24 = load i64, ptr %7, align 8, !tbaa !15
+  %25 = load i64, ptr %8, align 8, !tbaa !24
+  %26 = icmp eq i64 %24, %25
+  br i1 %26, label %isQueueFull.exit.thread, label %isQueueFull.exit
 
-isQueueFull.exit:                                 ; preds = %if.else.i
-  %5 = load i32, ptr %queueEmpty.i, align 8
-  %tobool.not.i = icmp eq i32 %5, 0
-  br i1 %tobool.not.i, label %land.rhs, label %while.end
+isQueueFull.exit:                                 ; preds = %23
+  %27 = load i32, ptr %9, align 8, !tbaa !16
+  %.not.i = icmp eq i32 %27, 0
+  br i1 %.not.i, label %isQueueFull.exit.thread, label %.critedge
 
-land.rhs:                                         ; preds = %if.then.i, %if.else.i, %isQueueFull.exit
-  %6 = load i32, ptr %shutdown, align 8
-  %tobool2.not = icmp eq i32 %6, 0
-  br i1 %tobool2.not, label %while.body, label %POOL_add_internal.exit
+isQueueFull.exit.thread:                          ; preds = %17, %23, %isQueueFull.exit
+  %28 = load i32, ptr %12, align 8, !tbaa !17
+  %.not9 = icmp eq i32 %28, 0
+  br i1 %.not9, label %29, label %POOL_add_internal.exit
 
-while.body:                                       ; preds = %land.rhs
-  %call4 = tail call i32 @pthread_cond_wait(ptr noundef nonnull %queuePushCond, ptr noundef nonnull %queueMutex) #9
-  br label %while.cond, !llvm.loop !10
+29:                                               ; preds = %isQueueFull.exit.thread
+  %30 = tail call i32 @pthread_cond_wait(ptr noundef nonnull %13, ptr noundef nonnull %4) #9
+  br label %14, !llvm.loop !32
 
-while.end:                                        ; preds = %isQueueFull.exit, %if.then.i
-  %.pre = load i32, ptr %shutdown, align 8
-  %7 = icmp eq i32 %.pre, 0
-  br i1 %7, label %if.end.i, label %POOL_add_internal.exit
+.critedge:                                        ; preds = %isQueueFull.exit, %17
+  %.pre = load i32, ptr %12, align 8, !tbaa !17
+  %31 = icmp eq i32 %.pre, 0
+  br i1 %31, label %32, label %POOL_add_internal.exit
 
-if.end.i:                                         ; preds = %while.end
-  store i32 0, ptr %queueEmpty.i, align 8
-  %queue.i = getelementptr inbounds nuw i8, ptr %ctx, i64 48
-  %8 = load ptr, ptr %queue.i, align 8
-  %9 = load i64, ptr %queueTail.i, align 8
-  %arrayidx.i = getelementptr inbounds %struct.POOL_job_s, ptr %8, i64 %9
-  store ptr %function, ptr %arrayidx.i, align 8
-  %job.sroa.2.0.arrayidx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
-  store ptr %opaque, ptr %job.sroa.2.0.arrayidx.sroa_idx.i, align 8
-  %10 = load i64, ptr %queueTail.i, align 8
-  %add.i10 = add i64 %10, 1
-  %11 = load i64, ptr %queueSize.i, align 8
-  %rem.i12 = urem i64 %add.i10, %11
-  store i64 %rem.i12, ptr %queueTail.i, align 8
-  %queuePopCond.i = getelementptr inbounds nuw i8, ptr %ctx, i64 184
-  %call.i = tail call i32 @pthread_cond_signal(ptr noundef nonnull %queuePopCond.i) #9
+32:                                               ; preds = %.critedge
+  store i32 0, ptr %9, align 8, !tbaa !16
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %34 = load ptr, ptr %33, align 8, !tbaa !14
+  %35 = load i64, ptr %11, align 8, !tbaa !29
+  %36 = getelementptr inbounds nuw %struct.POOL_job_s, ptr %34, i64 %35
+  store ptr %1, ptr %36, align 8, !tbaa !21
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %36, i64 8
+  store ptr %2, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !21
+  %37 = add i64 %35, 1
+  %38 = urem i64 %37, %15
+  store i64 %38, ptr %11, align 8, !tbaa !29
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %40 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %39) #9
   br label %POOL_add_internal.exit
 
-POOL_add_internal.exit:                           ; preds = %land.rhs, %while.end, %if.end.i
-  %call6 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %queueMutex) #9
+POOL_add_internal.exit:                           ; preds = %isQueueFull.exit.thread, %.critedge, %32
+  %41 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %4) #9
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @POOL_tryAdd(ptr noundef %ctx, ptr noundef %function, ptr noundef %opaque) local_unnamed_addr #0 {
-entry:
-  %queueMutex = getelementptr inbounds nuw i8, ptr %ctx, i64 96
-  %call = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %queueMutex) #9
-  %queueSize.i = getelementptr inbounds nuw i8, ptr %ctx, i64 72
-  %0 = load i64, ptr %queueSize.i, align 8
-  %cmp.i = icmp ugt i64 %0, 1
-  br i1 %cmp.i, label %if.then.i, label %if.else.i
+define range(i32 0, 2) i32 @POOL_tryAdd(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %5 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %4) #9
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %7 = load i64, ptr %6, align 8, !tbaa !8
+  %8 = icmp ugt i64 %7, 1
+  br i1 %8, label %9, label %17
 
-if.then.i:                                        ; preds = %entry
-  %queueHead.i = getelementptr inbounds nuw i8, ptr %ctx, i64 56
-  %1 = load i64, ptr %queueHead.i, align 8
-  %queueTail.i = getelementptr inbounds nuw i8, ptr %ctx, i64 64
-  %2 = load i64, ptr %queueTail.i, align 8
-  %add.i = add i64 %2, 1
-  %rem.i = urem i64 %add.i, %0
-  %cmp2.i = icmp eq i64 %1, %rem.i
-  br i1 %cmp2.i, label %return, label %if.end
+9:                                                ; preds = %3
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %11 = load i64, ptr %10, align 8, !tbaa !28
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %13 = load i64, ptr %12, align 8, !tbaa !29
+  %14 = add i64 %13, 1
+  %15 = urem i64 %14, %7
+  %16 = icmp eq i64 %11, %15
+  br i1 %16, label %isQueueFull.exit.thread, label %25
 
-if.else.i:                                        ; preds = %entry
-  %numThreadsBusy.i = getelementptr inbounds nuw i8, ptr %ctx, i64 80
-  %3 = load i64, ptr %numThreadsBusy.i, align 8
-  %threadLimit.i = getelementptr inbounds nuw i8, ptr %ctx, i64 40
-  %4 = load i64, ptr %threadLimit.i, align 8
-  %cmp3.i = icmp eq i64 %3, %4
-  br i1 %cmp3.i, label %return, label %isQueueFull.exit
+17:                                               ; preds = %3
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %19 = load i64, ptr %18, align 8, !tbaa !15
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %21 = load i64, ptr %20, align 8, !tbaa !24
+  %22 = icmp eq i64 %19, %21
+  br i1 %22, label %isQueueFull.exit.thread, label %isQueueFull.exit
 
-isQueueFull.exit:                                 ; preds = %if.else.i
-  %queueEmpty.i = getelementptr inbounds nuw i8, ptr %ctx, i64 88
-  %5 = load i32, ptr %queueEmpty.i, align 8
-  %tobool.not.i = icmp eq i32 %5, 0
-  br i1 %tobool.not.i, label %return, label %if.end
+isQueueFull.exit:                                 ; preds = %17
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %24 = load i32, ptr %23, align 8, !tbaa !16
+  %.not.i = icmp eq i32 %24, 0
+  br i1 %.not.i, label %isQueueFull.exit.thread, label %25
 
-if.end:                                           ; preds = %if.then.i, %isQueueFull.exit
-  %shutdown.i = getelementptr inbounds nuw i8, ptr %ctx, i64 232
-  %6 = load i32, ptr %shutdown.i, align 8
-  %tobool.not.i5 = icmp eq i32 %6, 0
-  br i1 %tobool.not.i5, label %if.end.i, label %return
+25:                                               ; preds = %9, %isQueueFull.exit
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  %27 = load i32, ptr %26, align 8, !tbaa !17
+  %.not.i7 = icmp eq i32 %27, 0
+  br i1 %.not.i7, label %28, label %isQueueFull.exit.thread
 
-if.end.i:                                         ; preds = %if.end
-  %queueEmpty.i6 = getelementptr inbounds nuw i8, ptr %ctx, i64 88
-  store i32 0, ptr %queueEmpty.i6, align 8
-  %queue.i = getelementptr inbounds nuw i8, ptr %ctx, i64 48
-  %7 = load ptr, ptr %queue.i, align 8
-  %queueTail.i7 = getelementptr inbounds nuw i8, ptr %ctx, i64 64
-  %8 = load i64, ptr %queueTail.i7, align 8
-  %arrayidx.i = getelementptr inbounds %struct.POOL_job_s, ptr %7, i64 %8
-  store ptr %function, ptr %arrayidx.i, align 8
-  %job.sroa.2.0.arrayidx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
-  store ptr %opaque, ptr %job.sroa.2.0.arrayidx.sroa_idx.i, align 8
-  %9 = load i64, ptr %queueTail.i7, align 8
-  %add.i8 = add i64 %9, 1
-  %10 = load i64, ptr %queueSize.i, align 8
-  %rem.i10 = urem i64 %add.i8, %10
-  store i64 %rem.i10, ptr %queueTail.i7, align 8
-  %queuePopCond.i = getelementptr inbounds nuw i8, ptr %ctx, i64 184
-  %call.i = tail call i32 @pthread_cond_signal(ptr noundef nonnull %queuePopCond.i) #9
-  br label %return
+28:                                               ; preds = %25
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i32 0, ptr %29, align 8, !tbaa !16
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %31 = load ptr, ptr %30, align 8, !tbaa !14
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %33 = load i64, ptr %32, align 8, !tbaa !29
+  %34 = getelementptr inbounds nuw %struct.POOL_job_s, ptr %31, i64 %33
+  store ptr %1, ptr %34, align 8, !tbaa !21
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %34, i64 8
+  store ptr %2, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !21
+  %35 = add i64 %33, 1
+  %36 = urem i64 %35, %7
+  store i64 %36, ptr %32, align 8, !tbaa !29
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %38 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %37) #9
+  br label %isQueueFull.exit.thread
 
-return:                                           ; preds = %if.end.i, %if.end, %isQueueFull.exit, %if.else.i, %if.then.i
-  %retval.0 = phi i32 [ 0, %if.then.i ], [ 0, %if.else.i ], [ 0, %isQueueFull.exit ], [ 1, %if.end ], [ 1, %if.end.i ]
-  %call5 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %queueMutex) #9
-  ret i32 %retval.0
+isQueueFull.exit.thread:                          ; preds = %28, %25, %isQueueFull.exit, %17, %9
+  %.0 = phi i32 [ 0, %9 ], [ 0, %17 ], [ 0, %isQueueFull.exit ], [ 1, %25 ], [ 1, %28 ]
+  %39 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %4) #9
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -688,27 +673,49 @@ declare i32 @pthread_join(i64 noundef, ptr noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nounwind allocsize(0,1) }
 attributes #9 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
+!3 = !{!4, !5, i64 0}
+!4 = !{!"", !5, i64 0, !5, i64 8, !5, i64 16}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !11, i64 72}
+!9 = !{!"POOL_ctx_s", !4, i64 0, !10, i64 24, !11, i64 32, !11, i64 40, !12, i64 48, !11, i64 56, !11, i64 64, !11, i64 72, !11, i64 80, !13, i64 88, !6, i64 96, !6, i64 136, !6, i64 184, !13, i64 232}
+!10 = !{!"p1 long", !5, i64 0}
+!11 = !{!"long", !6, i64 0}
+!12 = !{!"p1 _ZTS10POOL_job_s", !5, i64 0}
+!13 = !{!"int", !6, i64 0}
+!14 = !{!9, !12, i64 48}
+!15 = !{!9, !11, i64 80}
+!16 = !{!9, !13, i64 88}
+!17 = !{!9, !13, i64 232}
+!18 = !{!9, !10, i64 24}
+!19 = !{!9, !11, i64 32}
+!20 = !{i64 0, i64 8, !21, i64 8, i64 8, !21, i64 16, i64 8, !21}
+!21 = !{!5, !5, i64 0}
+!22 = distinct !{!22, !23}
+!23 = !{!"llvm.loop.mustprogress"}
+!24 = !{!9, !11, i64 40}
+!25 = !{!11, !11, i64 0}
+!26 = distinct !{!26, !23}
+!27 = distinct !{!27, !23}
+!28 = !{!9, !11, i64 56}
+!29 = !{!9, !11, i64 64}
+!30 = distinct !{!30, !23}
+!31 = distinct !{!31, !23}
+!32 = distinct !{!32, !23}
