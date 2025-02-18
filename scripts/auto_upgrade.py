@@ -41,6 +41,7 @@ supported_project = [
     "mimalloc",
     "miniaudio",
     "nanosvg",
+    "nuklear",
 ]
 
 modify_only = [
