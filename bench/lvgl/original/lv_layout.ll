@@ -22,7 +22,7 @@ define void @lv_layout_init() #0 {
   %2 = zext i32 %1 to i64
   %3 = mul i64 %2, 16
   %4 = call ptr @lv_malloc(i64 noundef %3)
-  store ptr %4, ptr getelementptr inbounds nuw (%struct._lv_global_t, ptr @lv_global, i32 0, i32 16), align 8, !tbaa !19
+  store ptr %4, ptr getelementptr inbounds nuw (%struct._lv_global_t, ptr @lv_global, i32 0, i32 16), align 8, !tbaa !30
   call void @lv_flex_init()
   call void @lv_grid_init()
   ret void
@@ -36,7 +36,7 @@ declare void @lv_grid_init() #1
 
 ; Function Attrs: nounwind uwtable
 define void @lv_layout_deinit() #0 {
-  %1 = load ptr, ptr getelementptr inbounds nuw (%struct._lv_global_t, ptr @lv_global, i32 0, i32 16), align 8, !tbaa !19
+  %1 = load ptr, ptr getelementptr inbounds nuw (%struct._lv_global_t, ptr @lv_global, i32 0, i32 16), align 8, !tbaa !30
   call void @lv_free(ptr noundef %1)
   ret void
 }
@@ -47,19 +47,19 @@ declare void @lv_free(ptr noundef) #1
 define i32 @lv_layout_register(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8, !tbaa !20
-  store ptr %1, ptr %4, align 8, !tbaa !20
-  %5 = load ptr, ptr getelementptr inbounds nuw (%struct._lv_global_t, ptr @lv_global, i32 0, i32 16), align 8, !tbaa !19
+  store ptr %0, ptr %3, align 8, !tbaa !31
+  store ptr %1, ptr %4, align 8, !tbaa !31
+  %5 = load ptr, ptr getelementptr inbounds nuw (%struct._lv_global_t, ptr @lv_global, i32 0, i32 16), align 8, !tbaa !30
   %6 = load i32, ptr getelementptr inbounds nuw (%struct._lv_global_t, ptr @lv_global, i32 0, i32 15), align 8, !tbaa !3
   %7 = add i32 %6, 1
   %8 = zext i32 %7 to i64
   %9 = mul i64 %8, 16
   %10 = call ptr @lv_realloc(ptr noundef %5, i64 noundef %9)
-  store ptr %10, ptr getelementptr inbounds nuw (%struct._lv_global_t, ptr @lv_global, i32 0, i32 16), align 8, !tbaa !19
+  store ptr %10, ptr getelementptr inbounds nuw (%struct._lv_global_t, ptr @lv_global, i32 0, i32 16), align 8, !tbaa !30
   br label %11
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr getelementptr inbounds nuw (%struct._lv_global_t, ptr @lv_global, i32 0, i32 16), align 8, !tbaa !19
+  %12 = load ptr, ptr getelementptr inbounds nuw (%struct._lv_global_t, ptr @lv_global, i32 0, i32 16), align 8, !tbaa !30
   %13 = icmp ne ptr %12, null
   br i1 %13, label %18, label %14
 
@@ -79,20 +79,20 @@ define i32 @lv_layout_register(ptr noundef %0, ptr noundef %1) #0 {
   br label %19
 
 19:                                               ; preds = %18
-  %20 = load ptr, ptr %3, align 8, !tbaa !20
-  %21 = load ptr, ptr getelementptr inbounds nuw (%struct._lv_global_t, ptr @lv_global, i32 0, i32 16), align 8, !tbaa !19
+  %20 = load ptr, ptr %3, align 8, !tbaa !31
+  %21 = load ptr, ptr getelementptr inbounds nuw (%struct._lv_global_t, ptr @lv_global, i32 0, i32 16), align 8, !tbaa !30
   %22 = load i32, ptr getelementptr inbounds nuw (%struct._lv_global_t, ptr @lv_global, i32 0, i32 15), align 8, !tbaa !3
   %23 = zext i32 %22 to i64
   %24 = getelementptr inbounds nuw %struct.lv_layout_dsc_t, ptr %21, i64 %23
   %25 = getelementptr inbounds nuw %struct.lv_layout_dsc_t, ptr %24, i32 0, i32 0
-  store ptr %20, ptr %25, align 8, !tbaa !21
-  %26 = load ptr, ptr %4, align 8, !tbaa !20
-  %27 = load ptr, ptr getelementptr inbounds nuw (%struct._lv_global_t, ptr @lv_global, i32 0, i32 16), align 8, !tbaa !19
+  store ptr %20, ptr %25, align 8, !tbaa !32
+  %26 = load ptr, ptr %4, align 8, !tbaa !31
+  %27 = load ptr, ptr getelementptr inbounds nuw (%struct._lv_global_t, ptr @lv_global, i32 0, i32 16), align 8, !tbaa !30
   %28 = load i32, ptr getelementptr inbounds nuw (%struct._lv_global_t, ptr @lv_global, i32 0, i32 15), align 8, !tbaa !3
   %29 = zext i32 %28 to i64
   %30 = getelementptr inbounds nuw %struct.lv_layout_dsc_t, ptr %27, i64 %29
   %31 = getelementptr inbounds nuw %struct.lv_layout_dsc_t, ptr %30, i32 0, i32 1
-  store ptr %26, ptr %31, align 8, !tbaa !23
+  store ptr %26, ptr %31, align 8, !tbaa !34
   %32 = load i32, ptr getelementptr inbounds nuw (%struct._lv_global_t, ptr @lv_global, i32 0, i32 15), align 8, !tbaa !3
   %33 = add i32 %32, 1
   store i32 %33, ptr getelementptr inbounds nuw (%struct._lv_global_t, ptr @lv_global, i32 0, i32 15), align 8, !tbaa !3
@@ -106,39 +106,39 @@ define void @lv_layout_apply(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8, !tbaa !20
+  store ptr %0, ptr %2, align 8, !tbaa !35
   call void @llvm.lifetime.start.p0(i64 4, ptr %3) #4
-  %5 = load ptr, ptr %2, align 8, !tbaa !20
+  %5 = load ptr, ptr %2, align 8, !tbaa !35
   %6 = call zeroext i16 @lv_obj_get_style_layout(ptr noundef %5, i32 noundef 0)
   %7 = zext i16 %6 to i32
-  store i32 %7, ptr %3, align 4, !tbaa !24
-  %8 = load i32, ptr %3, align 4, !tbaa !24
+  store i32 %7, ptr %3, align 4, !tbaa !36
+  %8 = load i32, ptr %3, align 4, !tbaa !36
   %9 = icmp ugt i32 %8, 0
   br i1 %9, label %10, label %29
 
 10:                                               ; preds = %1
-  %11 = load i32, ptr %3, align 4, !tbaa !24
+  %11 = load i32, ptr %3, align 4, !tbaa !36
   %12 = load i32, ptr getelementptr inbounds nuw (%struct._lv_global_t, ptr @lv_global, i32 0, i32 15), align 8, !tbaa !3
   %13 = icmp ule i32 %11, %12
   br i1 %13, label %14, label %29
 
 14:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(i64 8, ptr %4) #4
-  %15 = load ptr, ptr getelementptr inbounds nuw (%struct._lv_global_t, ptr @lv_global, i32 0, i32 16), align 8, !tbaa !19
-  %16 = load i32, ptr %3, align 4, !tbaa !24
+  %15 = load ptr, ptr getelementptr inbounds nuw (%struct._lv_global_t, ptr @lv_global, i32 0, i32 16), align 8, !tbaa !30
+  %16 = load i32, ptr %3, align 4, !tbaa !36
   %17 = zext i32 %16 to i64
   %18 = getelementptr inbounds nuw %struct.lv_layout_dsc_t, ptr %15, i64 %17
   %19 = getelementptr inbounds nuw %struct.lv_layout_dsc_t, ptr %18, i32 0, i32 1
-  %20 = load ptr, ptr %19, align 8, !tbaa !23
-  store ptr %20, ptr %4, align 8, !tbaa !20
-  %21 = load ptr, ptr getelementptr inbounds nuw (%struct._lv_global_t, ptr @lv_global, i32 0, i32 16), align 8, !tbaa !19
-  %22 = load i32, ptr %3, align 4, !tbaa !24
+  %20 = load ptr, ptr %19, align 8, !tbaa !34
+  store ptr %20, ptr %4, align 8, !tbaa !31
+  %21 = load ptr, ptr getelementptr inbounds nuw (%struct._lv_global_t, ptr @lv_global, i32 0, i32 16), align 8, !tbaa !30
+  %22 = load i32, ptr %3, align 4, !tbaa !36
   %23 = zext i32 %22 to i64
   %24 = getelementptr inbounds nuw %struct.lv_layout_dsc_t, ptr %21, i64 %23
   %25 = getelementptr inbounds nuw %struct.lv_layout_dsc_t, ptr %24, i32 0, i32 0
-  %26 = load ptr, ptr %25, align 8, !tbaa !21
-  %27 = load ptr, ptr %2, align 8, !tbaa !20
-  %28 = load ptr, ptr %4, align 8, !tbaa !20
+  %26 = load ptr, ptr %25, align 8, !tbaa !32
+  %27 = load ptr, ptr %2, align 8, !tbaa !35
+  %28 = load ptr, ptr %4, align 8, !tbaa !31
   call void %26(ptr noundef %27, ptr noundef %28)
   call void @llvm.lifetime.end.p0(i64 8, ptr %4) #4
   br label %29
@@ -149,29 +149,29 @@ define void @lv_layout_apply(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: inlinehint nounwind uwtable
 define internal zeroext i16 @lv_obj_get_style_layout(ptr noundef %0, i32 noundef %1) #3 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca %union.lv_style_value_t, align 8
-  store ptr %0, ptr %3, align 8, !tbaa !20
-  store i32 %1, ptr %4, align 4, !tbaa !24
+  store ptr %0, ptr %3, align 8, !tbaa !35
+  store i32 %1, ptr %4, align 4, !tbaa !36
   call void @llvm.lifetime.start.p0(i64 8, ptr %5) #4
-  %6 = load ptr, ptr %3, align 8, !tbaa !20
-  %7 = load i32, ptr %4, align 4, !tbaa !24
+  %6 = load ptr, ptr %3, align 8, !tbaa !35
+  %7 = load i32, ptr %4, align 4, !tbaa !36
   %8 = call ptr @lv_obj_get_style_prop(ptr noundef %6, i32 noundef %7, i8 noundef zeroext 22)
   %9 = getelementptr inbounds nuw %union.lv_style_value_t, ptr %5, i32 0, i32 0
   store ptr %8, ptr %9, align 8
-  %10 = load i32, ptr %5, align 8, !tbaa !25
+  %10 = load i32, ptr %5, align 8, !tbaa !37
   %11 = trunc i32 %10 to i16
   call void @llvm.lifetime.end.p0(i64 8, ptr %5) #4
   ret i16 %11
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare ptr @lv_obj_get_style_prop(ptr noundef, i32 noundef, i8 noundef zeroext) #1
 
@@ -187,25 +187,37 @@ attributes #4 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{!4, !9, i64 168}
-!4 = !{!"_lv_global_t", !5, i64 0, !5, i64 1, !8, i64 8, !10, i64 32, !10, i64 40, !8, i64 48, !5, i64 72, !9, i64 76, !9, i64 80, !10, i64 88, !8, i64 96, !10, i64 120, !8, i64 128, !10, i64 152, !10, i64 160, !9, i64 168, !10, i64 176, !5, i64 184, !9, i64 188, !9, i64 192, !10, i64 200, !9, i64 208, !11, i64 216, !12, i64 288, !13, i64 328, !14, i64 352, !14, i64 400, !14, i64 448, !8, i64 496, !10, i64 520, !10, i64 528, !15, i64 536, !6, i64 568, !10, i64 760, !10, i64 768, !10, i64 776, !16, i64 784, !8, i64 832, !10, i64 856, !10, i64 864, !18, i64 872, !17, i64 888, !10, i64 896, !9, i64 904, !10, i64 912}
+!4 = !{!"_lv_global_t", !5, i64 0, !5, i64 1, !8, i64 8, !12, i64 32, !12, i64 40, !8, i64 48, !5, i64 72, !9, i64 76, !9, i64 80, !10, i64 88, !8, i64 96, !13, i64 120, !8, i64 128, !14, i64 152, !15, i64 160, !9, i64 168, !11, i64 176, !5, i64 184, !9, i64 188, !9, i64 192, !16, i64 200, !9, i64 208, !17, i64 216, !18, i64 288, !20, i64 328, !21, i64 352, !21, i64 400, !21, i64 448, !8, i64 496, !22, i64 520, !22, i64 528, !23, i64 536, !6, i64 568, !11, i64 760, !11, i64 768, !11, i64 776, !25, i64 784, !8, i64 832, !27, i64 856, !28, i64 864, !29, i64 872, !26, i64 888, !11, i64 896, !9, i64 904, !11, i64 912}
 !5 = !{!"_Bool", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
 !8 = !{!"", !9, i64 0, !10, i64 8, !10, i64 16}
 !9 = !{!"int", !6, i64 0}
-!10 = !{!"any pointer", !6, i64 0}
-!11 = !{!"", !8, i64 0, !5, i64 24, !6, i64 25, !5, i64 26, !5, i64 27, !9, i64 28, !5, i64 32, !9, i64 36, !9, i64 40, !9, i64 44, !9, i64 48, !10, i64 56, !10, i64 64}
-!12 = !{!"", !5, i64 0, !5, i64 1, !10, i64 8, !8, i64 16}
-!13 = !{!"", !9, i64 0, !6, i64 4, !10, i64 8, !10, i64 16}
-!14 = !{!"_lv_draw_buf_handlers_t", !10, i64 0, !10, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !10, i64 40}
-!15 = !{!"", !10, i64 0, !9, i64 8, !9, i64 12, !9, i64 16, !9, i64 20, !5, i64 24}
-!16 = !{!"", !10, i64 0, !17, i64 8, !17, i64 16, !8, i64 24}
-!17 = !{!"long", !6, i64 0}
-!18 = !{!"", !10, i64 0, !9, i64 8, !6, i64 12}
-!19 = !{!4, !10, i64 176}
-!20 = !{!10, !10, i64 0}
-!21 = !{!22, !10, i64 0}
-!22 = !{!"", !10, i64 0, !10, i64 8}
-!23 = !{!22, !10, i64 8}
-!24 = !{!9, !9, i64 0}
-!25 = !{!6, !6, i64 0}
+!10 = !{!"p1 omnipotent char", !11, i64 0}
+!11 = !{!"any pointer", !6, i64 0}
+!12 = !{!"p1 _ZTS13_lv_display_t", !11, i64 0}
+!13 = !{!"p1 _ZTS11_lv_group_t", !11, i64 0}
+!14 = !{!"p1 _ZTS11_lv_indev_t", !11, i64 0}
+!15 = !{!"p1 _ZTS9_lv_obj_t", !11, i64 0}
+!16 = !{!"p1 _ZTS11_lv_event_t", !11, i64 0}
+!17 = !{!"", !8, i64 0, !5, i64 24, !6, i64 25, !5, i64 26, !5, i64 27, !9, i64 28, !5, i64 32, !9, i64 36, !9, i64 40, !9, i64 44, !9, i64 48, !11, i64 56, !11, i64 64}
+!18 = !{!"", !5, i64 0, !5, i64 1, !19, i64 8, !8, i64 16}
+!19 = !{!"p1 _ZTS11_lv_timer_t", !11, i64 0}
+!20 = !{!"", !9, i64 0, !6, i64 4, !11, i64 8, !11, i64 16}
+!21 = !{!"_lv_draw_buf_handlers_t", !11, i64 0, !11, i64 8, !11, i64 16, !11, i64 24, !11, i64 32, !11, i64 40}
+!22 = !{!"p1 _ZTS11_lv_cache_t", !11, i64 0}
+!23 = !{!"", !24, i64 0, !9, i64 8, !9, i64 12, !9, i64 16, !9, i64 20, !5, i64 24}
+!24 = !{!"p1 _ZTS15_lv_draw_unit_t", !11, i64 0}
+!25 = !{!"", !11, i64 0, !26, i64 8, !26, i64 16, !8, i64 24}
+!26 = !{!"long", !6, i64 0}
+!27 = !{!"p1 _ZTS22_lv_freetype_context_t", !11, i64 0}
+!28 = !{!"p1 _ZTS14_snippet_stack", !11, i64 0}
+!29 = !{!"", !11, i64 0, !9, i64 8, !6, i64 12}
+!30 = !{!4, !11, i64 176}
+!31 = !{!11, !11, i64 0}
+!32 = !{!33, !11, i64 0}
+!33 = !{!"", !11, i64 0, !11, i64 8}
+!34 = !{!33, !11, i64 8}
+!35 = !{!15, !15, i64 0}
+!36 = !{!9, !9, i64 0}
+!37 = !{!6, !6, i64 0}

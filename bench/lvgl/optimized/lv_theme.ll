@@ -65,7 +65,7 @@ declare void @lv_obj_remove_style_all(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @apply_theme_recursion(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load ptr, ptr %1, align 8, !tbaa !3
-  %4 = load ptr, ptr %3, align 8, !tbaa !11
+  %4 = load ptr, ptr %3, align 8, !tbaa !15
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %10, label %5
 
@@ -90,13 +90,13 @@ define internal fastcc void @apply_theme_recursion(ptr noundef nonnull %0, ptr n
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @lv_theme_set_parent(ptr noundef writeonly captures(none) initializes((8, 16)) %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %1, ptr %3, align 8, !tbaa !13
+  store ptr %1, ptr %3, align 8, !tbaa !18
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @lv_theme_set_apply_cb(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef %1) local_unnamed_addr #2 {
-  store ptr %1, ptr %0, align 8, !tbaa !16
+  store ptr %1, ptr %0, align 8, !tbaa !24
   ret void
 }
 
@@ -121,7 +121,7 @@ lv_theme_get_from_obj.exit:                       ; preds = %2, %4
 
 8:                                                ; preds = %lv_theme_get_from_obj.exit
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  %10 = load ptr, ptr %9, align 8, !tbaa !17
+  %10 = load ptr, ptr %9, align 8, !tbaa !25
   br label %11
 
 11:                                               ; preds = %lv_theme_get_from_obj.exit, %8
@@ -150,7 +150,7 @@ lv_theme_get_from_obj.exit:                       ; preds = %2, %4
 
 8:                                                ; preds = %lv_theme_get_from_obj.exit
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %10 = load ptr, ptr %9, align 8, !tbaa !18
+  %10 = load ptr, ptr %9, align 8, !tbaa !26
   br label %11
 
 11:                                               ; preds = %lv_theme_get_from_obj.exit, %8
@@ -179,7 +179,7 @@ lv_theme_get_from_obj.exit:                       ; preds = %2, %4
 
 8:                                                ; preds = %lv_theme_get_from_obj.exit
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 56
-  %10 = load ptr, ptr %9, align 8, !tbaa !19
+  %10 = load ptr, ptr %9, align 8, !tbaa !27
   br label %11
 
 11:                                               ; preds = %lv_theme_get_from_obj.exit, %8
@@ -258,7 +258,7 @@ lv_theme_get_from_obj.exit:                       ; preds = %2, %4
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @apply_theme(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !13
+  %4 = load ptr, ptr %3, align 8, !tbaa !18
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %6, label %5
 
@@ -267,7 +267,7 @@ define internal fastcc void @apply_theme(ptr noundef nonnull %0, ptr noundef %1)
   br label %6
 
 6:                                                ; preds = %5, %2
-  %7 = load ptr, ptr %0, align 8, !tbaa !16
+  %7 = load ptr, ptr %0, align 8, !tbaa !24
   %.not8 = icmp eq ptr %7, null
   br i1 %.not8, label %9, label %8
 
@@ -290,19 +290,27 @@ attributes #3 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{!4, !5, i64 0}
-!4 = !{!"_lv_obj_t", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !8, i64 40, !9, i64 56, !10, i64 60, !10, i64 62, !10, i64 62, !10, i64 62, !10, i64 62, !10, i64 62, !10, i64 63, !10, i64 63, !10, i64 63}
-!5 = !{!"any pointer", !6, i64 0}
-!6 = !{!"omnipotent char", !7, i64 0}
-!7 = !{!"Simple C/C++ TBAA"}
-!8 = !{!"", !9, i64 0, !9, i64 4, !9, i64 8, !9, i64 12}
-!9 = !{!"int", !6, i64 0}
-!10 = !{!"short", !6, i64 0}
-!11 = !{!12, !5, i64 0}
-!12 = !{!"_lv_obj_class_t", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !5, i64 40, !9, i64 48, !9, i64 52, !9, i64 56, !9, i64 56, !9, i64 56, !9, i64 58}
-!13 = !{!14, !5, i64 8}
-!14 = !{!"_lv_theme_t", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !15, i64 32, !15, i64 35, !5, i64 40, !5, i64 48, !5, i64 56, !9, i64 64}
-!15 = !{!"", !6, i64 0, !6, i64 1, !6, i64 2}
-!16 = !{!14, !5, i64 0}
-!17 = !{!14, !5, i64 40}
-!18 = !{!14, !5, i64 48}
-!19 = !{!14, !5, i64 56}
+!4 = !{!"_lv_obj_t", !5, i64 0, !9, i64 8, !10, i64 16, !11, i64 24, !6, i64 32, !12, i64 40, !13, i64 56, !14, i64 60, !14, i64 62, !14, i64 62, !14, i64 62, !14, i64 62, !14, i64 62, !14, i64 63, !14, i64 63, !14, i64 63}
+!5 = !{!"p1 _ZTS15_lv_obj_class_t", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!"p1 _ZTS9_lv_obj_t", !6, i64 0}
+!10 = !{!"p1 _ZTS19_lv_obj_spec_attr_t", !6, i64 0}
+!11 = !{!"p1 _ZTS15_lv_obj_style_t", !6, i64 0}
+!12 = !{!"", !13, i64 0, !13, i64 4, !13, i64 8, !13, i64 12}
+!13 = !{!"int", !7, i64 0}
+!14 = !{!"short", !7, i64 0}
+!15 = !{!16, !5, i64 0}
+!16 = !{!"_lv_obj_class_t", !5, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !17, i64 40, !13, i64 48, !13, i64 52, !13, i64 56, !13, i64 56, !13, i64 56, !13, i64 58}
+!17 = !{!"p1 omnipotent char", !6, i64 0}
+!18 = !{!19, !20, i64 8}
+!19 = !{!"_lv_theme_t", !6, i64 0, !20, i64 8, !6, i64 16, !21, i64 24, !22, i64 32, !22, i64 35, !23, i64 40, !23, i64 48, !23, i64 56, !13, i64 64}
+!20 = !{!"p1 _ZTS11_lv_theme_t", !6, i64 0}
+!21 = !{!"p1 _ZTS13_lv_display_t", !6, i64 0}
+!22 = !{!"", !7, i64 0, !7, i64 1, !7, i64 2}
+!23 = !{!"p1 _ZTS10_lv_font_t", !6, i64 0}
+!24 = !{!19, !6, i64 0}
+!25 = !{!19, !23, i64 40}
+!26 = !{!19, !23, i64 48}
+!27 = !{!19, !23, i64 56}

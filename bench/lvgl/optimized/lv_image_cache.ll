@@ -31,11 +31,11 @@ define range(i32 0, 2) i32 @lv_image_cache_init(i32 noundef %0) local_unnamed_ad
 
 4:                                                ; preds = %1
   %5 = zext i32 %0 to i64
-  store ptr @image_cache_compare_cb, ptr %2, align 8, !tbaa !19
+  store ptr @image_cache_compare_cb, ptr %2, align 8, !tbaa !30
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr null, ptr %6, align 8, !tbaa !21
+  store ptr null, ptr %6, align 8, !tbaa !32
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store ptr @image_cache_free_cb, ptr %7, align 8, !tbaa !22
+  store ptr @image_cache_free_cb, ptr %7, align 8, !tbaa !33
   %8 = tail call ptr @lv_cache_create(ptr noundef nonnull @lv_cache_class_lru_rb_size, i64 noundef 48, i64 noundef %5, ptr noundef nonnull byval(%struct._lv_cache_ops_t) align 8 %2) #4
   store ptr %8, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 520), align 8, !tbaa !3
   tail call void @lv_cache_set_name(ptr noundef %8, ptr noundef nonnull @.str) #4
@@ -54,13 +54,13 @@ declare ptr @lv_cache_create(ptr noundef, i64 noundef, i64 noundef, ptr noundef 
 ; Function Attrs: nounwind uwtable
 define internal signext range(i8 -1, 2) i8 @image_cache_compare_cb(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !23
+  %4 = load ptr, ptr %3, align 8, !tbaa !34
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load i32, ptr %5, align 8, !tbaa !26
+  %6 = load i32, ptr %5, align 8, !tbaa !39
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !23
+  %8 = load ptr, ptr %7, align 8, !tbaa !34
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %10 = load i32, ptr %9, align 8, !tbaa !26
+  %10 = load i32, ptr %9, align 8, !tbaa !39
   %11 = icmp eq i32 %6, %10
   br i1 %11, label %12, label %21
 
@@ -102,7 +102,7 @@ image_cache_common_compare.exit:                  ; preds = %13, %17, %20, %21
 ; Function Attrs: nounwind uwtable
 define internal void @image_cache_free_cb(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !27
+  %4 = load ptr, ptr %3, align 8, !tbaa !40
   %5 = tail call zeroext i1 @lv_draw_buf_has_flag(ptr noundef %4, i32 noundef 16) #4
   br i1 %5, label %6, label %7
 
@@ -112,13 +112,13 @@ define internal void @image_cache_free_cb(ptr noundef readonly captures(none) %0
 
 7:                                                ; preds = %6, %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %9 = load i32, ptr %8, align 8, !tbaa !26
+  %9 = load i32, ptr %8, align 8, !tbaa !39
   %10 = icmp eq i32 %9, 1
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !23
+  %13 = load ptr, ptr %12, align 8, !tbaa !34
   tail call void @lv_free(ptr noundef %13) #4
   br label %14
 
@@ -164,10 +164,10 @@ define void @lv_image_cache_drop(ptr noundef %0) local_unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, i8 0, i64 48, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr %0, ptr %7, align 8, !tbaa !23
+  store ptr %0, ptr %7, align 8, !tbaa !34
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = tail call i32 @lv_image_src_get_type(ptr noundef nonnull %0) #4
-  store i32 %9, ptr %8, align 8, !tbaa !26
+  store i32 %9, ptr %8, align 8, !tbaa !39
   %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 520), align 8, !tbaa !3
   call void @lv_cache_drop(ptr noundef %10, ptr noundef nonnull %2, ptr noundef null) #4
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #4
@@ -233,7 +233,7 @@ declare void @lv_iter_inspect(ptr noundef, ptr noundef) local_unnamed_addr #1
 define internal void @iter_inspect_cb(ptr noundef %0) #0 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 520), align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %4 = load i32, ptr %3, align 8, !tbaa !28
+  %4 = load i32, ptr %3, align 8, !tbaa !41
   %5 = tail call ptr @lv_cache_entry_get_entry(ptr noundef %0, i32 noundef %4) #4
   ret void
 }
@@ -259,30 +259,44 @@ attributes #4 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{!4, !10, i64 520}
-!4 = !{!"_lv_global_t", !5, i64 0, !5, i64 1, !8, i64 8, !10, i64 32, !10, i64 40, !8, i64 48, !5, i64 72, !9, i64 76, !9, i64 80, !10, i64 88, !8, i64 96, !10, i64 120, !8, i64 128, !10, i64 152, !10, i64 160, !9, i64 168, !10, i64 176, !5, i64 184, !9, i64 188, !9, i64 192, !10, i64 200, !9, i64 208, !11, i64 216, !12, i64 288, !13, i64 328, !14, i64 352, !14, i64 400, !14, i64 448, !8, i64 496, !10, i64 520, !10, i64 528, !15, i64 536, !6, i64 568, !10, i64 760, !10, i64 768, !10, i64 776, !16, i64 784, !8, i64 832, !10, i64 856, !10, i64 864, !18, i64 872, !17, i64 888, !10, i64 896, !9, i64 904, !10, i64 912}
+!3 = !{!4, !22, i64 520}
+!4 = !{!"_lv_global_t", !5, i64 0, !5, i64 1, !8, i64 8, !12, i64 32, !12, i64 40, !8, i64 48, !5, i64 72, !9, i64 76, !9, i64 80, !10, i64 88, !8, i64 96, !13, i64 120, !8, i64 128, !14, i64 152, !15, i64 160, !9, i64 168, !11, i64 176, !5, i64 184, !9, i64 188, !9, i64 192, !16, i64 200, !9, i64 208, !17, i64 216, !18, i64 288, !20, i64 328, !21, i64 352, !21, i64 400, !21, i64 448, !8, i64 496, !22, i64 520, !22, i64 528, !23, i64 536, !6, i64 568, !11, i64 760, !11, i64 768, !11, i64 776, !25, i64 784, !8, i64 832, !27, i64 856, !28, i64 864, !29, i64 872, !26, i64 888, !11, i64 896, !9, i64 904, !11, i64 912}
 !5 = !{!"_Bool", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
 !8 = !{!"", !9, i64 0, !10, i64 8, !10, i64 16}
 !9 = !{!"int", !6, i64 0}
-!10 = !{!"any pointer", !6, i64 0}
-!11 = !{!"", !8, i64 0, !5, i64 24, !6, i64 25, !5, i64 26, !5, i64 27, !9, i64 28, !5, i64 32, !9, i64 36, !9, i64 40, !9, i64 44, !9, i64 48, !10, i64 56, !10, i64 64}
-!12 = !{!"", !5, i64 0, !5, i64 1, !10, i64 8, !8, i64 16}
-!13 = !{!"", !9, i64 0, !6, i64 4, !10, i64 8, !10, i64 16}
-!14 = !{!"_lv_draw_buf_handlers_t", !10, i64 0, !10, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !10, i64 40}
-!15 = !{!"", !10, i64 0, !9, i64 8, !9, i64 12, !9, i64 16, !9, i64 20, !5, i64 24}
-!16 = !{!"", !10, i64 0, !17, i64 8, !17, i64 16, !8, i64 24}
-!17 = !{!"long", !6, i64 0}
-!18 = !{!"", !10, i64 0, !9, i64 8, !6, i64 12}
-!19 = !{!20, !10, i64 0}
-!20 = !{!"_lv_cache_ops_t", !10, i64 0, !10, i64 8, !10, i64 16}
-!21 = !{!20, !10, i64 8}
-!22 = !{!20, !10, i64 16}
-!23 = !{!24, !10, i64 8}
-!24 = !{!"_lv_image_cache_data_t", !25, i64 0, !10, i64 8, !9, i64 16, !10, i64 24, !10, i64 32, !10, i64 40}
-!25 = !{!"_lv_cache_slot_size_t", !17, i64 0}
-!26 = !{!24, !9, i64 16}
-!27 = !{!24, !10, i64 24}
-!28 = !{!29, !9, i64 8}
-!29 = !{!"_lv_cache_t", !10, i64 0, !9, i64 8, !9, i64 12, !9, i64 16, !20, i64 24, !9, i64 48, !10, i64 56}
+!10 = !{!"p1 omnipotent char", !11, i64 0}
+!11 = !{!"any pointer", !6, i64 0}
+!12 = !{!"p1 _ZTS13_lv_display_t", !11, i64 0}
+!13 = !{!"p1 _ZTS11_lv_group_t", !11, i64 0}
+!14 = !{!"p1 _ZTS11_lv_indev_t", !11, i64 0}
+!15 = !{!"p1 _ZTS9_lv_obj_t", !11, i64 0}
+!16 = !{!"p1 _ZTS11_lv_event_t", !11, i64 0}
+!17 = !{!"", !8, i64 0, !5, i64 24, !6, i64 25, !5, i64 26, !5, i64 27, !9, i64 28, !5, i64 32, !9, i64 36, !9, i64 40, !9, i64 44, !9, i64 48, !11, i64 56, !11, i64 64}
+!18 = !{!"", !5, i64 0, !5, i64 1, !19, i64 8, !8, i64 16}
+!19 = !{!"p1 _ZTS11_lv_timer_t", !11, i64 0}
+!20 = !{!"", !9, i64 0, !6, i64 4, !11, i64 8, !11, i64 16}
+!21 = !{!"_lv_draw_buf_handlers_t", !11, i64 0, !11, i64 8, !11, i64 16, !11, i64 24, !11, i64 32, !11, i64 40}
+!22 = !{!"p1 _ZTS11_lv_cache_t", !11, i64 0}
+!23 = !{!"", !24, i64 0, !9, i64 8, !9, i64 12, !9, i64 16, !9, i64 20, !5, i64 24}
+!24 = !{!"p1 _ZTS15_lv_draw_unit_t", !11, i64 0}
+!25 = !{!"", !11, i64 0, !26, i64 8, !26, i64 16, !8, i64 24}
+!26 = !{!"long", !6, i64 0}
+!27 = !{!"p1 _ZTS22_lv_freetype_context_t", !11, i64 0}
+!28 = !{!"p1 _ZTS14_snippet_stack", !11, i64 0}
+!29 = !{!"", !11, i64 0, !9, i64 8, !6, i64 12}
+!30 = !{!31, !11, i64 0}
+!31 = !{!"_lv_cache_ops_t", !11, i64 0, !11, i64 8, !11, i64 16}
+!32 = !{!31, !11, i64 8}
+!33 = !{!31, !11, i64 16}
+!34 = !{!35, !11, i64 8}
+!35 = !{!"_lv_image_cache_data_t", !36, i64 0, !11, i64 8, !9, i64 16, !37, i64 24, !38, i64 32, !11, i64 40}
+!36 = !{!"_lv_cache_slot_size_t", !26, i64 0}
+!37 = !{!"p1 _ZTS14_lv_draw_buf_t", !11, i64 0}
+!38 = !{!"p1 _ZTS19_lv_image_decoder_t", !11, i64 0}
+!39 = !{!35, !9, i64 16}
+!40 = !{!35, !37, i64 24}
+!41 = !{!42, !9, i64 8}
+!42 = !{!"_lv_cache_t", !43, i64 0, !9, i64 8, !9, i64 12, !9, i64 16, !31, i64 24, !9, i64 48, !10, i64 56}
+!43 = !{!"p1 _ZTS17_lv_cache_class_t", !11, i64 0}

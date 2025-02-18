@@ -724,79 +724,79 @@ define internal void @lv_ime_pinyin_constructor(ptr noundef %0, ptr noundef %1) 
   %10 = alloca %struct.lv_color_t, align 1
   %11 = alloca i24, align 4
   store ptr %0, ptr %3, align 8, !tbaa !3
-  store ptr %1, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 8, ptr %5) #6
-  %12 = load ptr, ptr %4, align 8, !tbaa !3
-  store ptr %12, ptr %5, align 8, !tbaa !3
+  %12 = load ptr, ptr %4, align 8, !tbaa !8
+  store ptr %12, ptr %5, align 8, !tbaa !10
   call void @llvm.lifetime.start.p0(i64 2, ptr %6) #6
-  store i16 0, ptr %6, align 2, !tbaa !7
+  store i16 0, ptr %6, align 2, !tbaa !12
   call void @llvm.lifetime.start.p0(i64 2, ptr %7) #6
-  store i16 0, ptr %7, align 2, !tbaa !7
-  store i16 0, ptr %7, align 2, !tbaa !7
+  store i16 0, ptr %7, align 2, !tbaa !12
+  store i16 0, ptr %7, align 2, !tbaa !12
   br label %13
 
 13:                                               ; preds = %58, %2
-  %14 = load i16, ptr %7, align 2, !tbaa !7
+  %14 = load i16, ptr %7, align 2, !tbaa !12
   %15 = zext i16 %14 to i32
   %16 = icmp slt i32 %15, 9
   br i1 %16, label %17, label %61
 
 17:                                               ; preds = %13
-  %18 = load i16, ptr %7, align 2, !tbaa !7
+  %18 = load i16, ptr %7, align 2, !tbaa !12
   %19 = zext i16 %18 to i32
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %21, label %25
 
 21:                                               ; preds = %17
-  %22 = load i16, ptr %7, align 2, !tbaa !7
+  %22 = load i16, ptr %7, align 2, !tbaa !12
   %23 = zext i16 %22 to i64
   %24 = getelementptr inbounds nuw [9 x ptr], ptr @lv_btnm_def_pinyin_sel_map, i64 0, i64 %23
-  store ptr @.str.20, ptr %24, align 8, !tbaa !3
+  store ptr @.str.20, ptr %24, align 8, !tbaa !14
   br label %57
 
 25:                                               ; preds = %17
-  %26 = load i16, ptr %7, align 2, !tbaa !7
+  %26 = load i16, ptr %7, align 2, !tbaa !12
   %27 = zext i16 %26 to i32
   %28 = icmp eq i32 %27, 7
   br i1 %28, label %29, label %33
 
 29:                                               ; preds = %25
-  %30 = load i16, ptr %7, align 2, !tbaa !7
+  %30 = load i16, ptr %7, align 2, !tbaa !12
   %31 = zext i16 %30 to i64
   %32 = getelementptr inbounds nuw [9 x ptr], ptr @lv_btnm_def_pinyin_sel_map, i64 0, i64 %31
-  store ptr @.str.21, ptr %32, align 8, !tbaa !3
+  store ptr @.str.21, ptr %32, align 8, !tbaa !14
   br label %56
 
 33:                                               ; preds = %25
-  %34 = load i16, ptr %7, align 2, !tbaa !7
+  %34 = load i16, ptr %7, align 2, !tbaa !12
   %35 = zext i16 %34 to i32
   %36 = icmp eq i32 %35, 8
   br i1 %36, label %37, label %41
 
 37:                                               ; preds = %33
-  %38 = load i16, ptr %7, align 2, !tbaa !7
+  %38 = load i16, ptr %7, align 2, !tbaa !12
   %39 = zext i16 %38 to i64
   %40 = getelementptr inbounds nuw [9 x ptr], ptr @lv_btnm_def_pinyin_sel_map, i64 0, i64 %39
-  store ptr @.str.22, ptr %40, align 8, !tbaa !3
+  store ptr @.str.22, ptr %40, align 8, !tbaa !14
   br label %55
 
 41:                                               ; preds = %33
-  %42 = load i16, ptr %6, align 2, !tbaa !7
+  %42 = load i16, ptr %6, align 2, !tbaa !12
   %43 = zext i16 %42 to i64
   %44 = getelementptr inbounds nuw [6 x [4 x i8]], ptr @lv_pinyin_cand_str, i64 0, i64 %43
   %45 = getelementptr inbounds [4 x i8], ptr %44, i64 0, i64 0
-  store i8 32, ptr %45, align 4, !tbaa !9
-  %46 = load i16, ptr %6, align 2, !tbaa !7
+  store i8 32, ptr %45, align 4, !tbaa !16
+  %46 = load i16, ptr %6, align 2, !tbaa !12
   %47 = zext i16 %46 to i64
   %48 = getelementptr inbounds nuw [6 x [4 x i8]], ptr @lv_pinyin_cand_str, i64 0, i64 %47
   %49 = getelementptr inbounds [4 x i8], ptr %48, i64 0, i64 0
-  %50 = load i16, ptr %7, align 2, !tbaa !7
+  %50 = load i16, ptr %7, align 2, !tbaa !12
   %51 = zext i16 %50 to i64
   %52 = getelementptr inbounds nuw [9 x ptr], ptr @lv_btnm_def_pinyin_sel_map, i64 0, i64 %51
-  store ptr %49, ptr %52, align 8, !tbaa !3
-  %53 = load i16, ptr %6, align 2, !tbaa !7
+  store ptr %49, ptr %52, align 8, !tbaa !14
+  %53 = load i16, ptr %6, align 2, !tbaa !12
   %54 = add i16 %53, 1
-  store i16 %54, ptr %6, align 2, !tbaa !7
+  store i16 %54, ptr %6, align 2, !tbaa !12
   br label %55
 
 55:                                               ; preds = %41, %37
@@ -809,149 +809,149 @@ define internal void @lv_ime_pinyin_constructor(ptr noundef %0, ptr noundef %1) 
   br label %58
 
 58:                                               ; preds = %57
-  %59 = load i16, ptr %7, align 2, !tbaa !7
+  %59 = load i16, ptr %7, align 2, !tbaa !12
   %60 = add i16 %59, 1
-  store i16 %60, ptr %7, align 2, !tbaa !7
-  br label %13, !llvm.loop !10
+  store i16 %60, ptr %7, align 2, !tbaa !12
+  br label %13, !llvm.loop !17
 
 61:                                               ; preds = %13
-  %62 = load ptr, ptr %5, align 8, !tbaa !3
+  %62 = load ptr, ptr %5, align 8, !tbaa !10
   %63 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %62, i32 0, i32 16
-  store i32 0, ptr %63, align 4, !tbaa !12
-  %64 = load ptr, ptr %5, align 8, !tbaa !3
+  store i32 0, ptr %63, align 4, !tbaa !19
+  %64 = load ptr, ptr %5, align 8, !tbaa !10
   %65 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %64, i32 0, i32 13
-  store i16 0, ptr %65, align 2, !tbaa !18
-  %66 = load ptr, ptr %5, align 8, !tbaa !3
+  store i16 0, ptr %65, align 2, !tbaa !27
+  %66 = load ptr, ptr %5, align 8, !tbaa !10
   %67 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %66, i32 0, i32 11
-  store i16 0, ptr %67, align 2, !tbaa !19
-  %68 = load ptr, ptr %5, align 8, !tbaa !3
+  store i16 0, ptr %67, align 2, !tbaa !28
+  %68 = load ptr, ptr %5, align 8, !tbaa !10
   %69 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %68, i32 0, i32 12
-  store i16 0, ptr %69, align 8, !tbaa !20
-  %70 = load ptr, ptr %5, align 8, !tbaa !3
+  store i16 0, ptr %69, align 8, !tbaa !29
+  %70 = load ptr, ptr %5, align 8, !tbaa !10
   %71 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %70, i32 0, i32 6
   %72 = getelementptr inbounds [16 x i8], ptr %71, i64 0, i64 0
   call void @lv_memzero(ptr noundef %72, i64 noundef 16)
-  %73 = load ptr, ptr %5, align 8, !tbaa !3
+  %73 = load ptr, ptr %5, align 8, !tbaa !10
   %74 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %73, i32 0, i32 14
   %75 = getelementptr inbounds [26 x i16], ptr %74, i64 0, i64 0
   call void @lv_memzero(ptr noundef %75, i64 noundef 52)
-  %76 = load ptr, ptr %5, align 8, !tbaa !3
+  %76 = load ptr, ptr %5, align 8, !tbaa !10
   %77 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %76, i32 0, i32 15
   %78 = getelementptr inbounds [26 x i16], ptr %77, i64 0, i64 0
   call void @lv_memzero(ptr noundef %78, i64 noundef 52)
-  %79 = load ptr, ptr %4, align 8, !tbaa !3
+  %79 = load ptr, ptr %4, align 8, !tbaa !8
   call void @lv_obj_add_flag(ptr noundef %79, i32 noundef 1)
-  %80 = load ptr, ptr %4, align 8, !tbaa !3
+  %80 = load ptr, ptr %4, align 8, !tbaa !8
   call void @init_pinyin_dict(ptr noundef %80, ptr noundef @lv_ime_pinyin_def_dict)
-  %81 = load ptr, ptr %4, align 8, !tbaa !3
+  %81 = load ptr, ptr %4, align 8, !tbaa !8
   %82 = call ptr @lv_obj_get_parent(ptr noundef %81)
   %83 = call ptr @lv_buttonmatrix_create(ptr noundef %82)
-  %84 = load ptr, ptr %5, align 8, !tbaa !3
+  %84 = load ptr, ptr %5, align 8, !tbaa !10
   %85 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %84, i32 0, i32 2
-  store ptr %83, ptr %85, align 8, !tbaa !21
-  %86 = load ptr, ptr %5, align 8, !tbaa !3
+  store ptr %83, ptr %85, align 8, !tbaa !30
+  %86 = load ptr, ptr %5, align 8, !tbaa !10
   %87 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %86, i32 0, i32 2
-  %88 = load ptr, ptr %87, align 8, !tbaa !21
+  %88 = load ptr, ptr %87, align 8, !tbaa !30
   call void @lv_buttonmatrix_set_map(ptr noundef %88, ptr noundef @lv_btnm_def_pinyin_sel_map)
-  %89 = load ptr, ptr %5, align 8, !tbaa !3
+  %89 = load ptr, ptr %5, align 8, !tbaa !10
   %90 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %89, i32 0, i32 2
-  %91 = load ptr, ptr %90, align 8, !tbaa !21
+  %91 = load ptr, ptr %90, align 8, !tbaa !30
   call void @lv_obj_set_size(ptr noundef %91, i32 noundef 536871012, i32 noundef 536870917)
-  %92 = load ptr, ptr %5, align 8, !tbaa !3
+  %92 = load ptr, ptr %5, align 8, !tbaa !10
   %93 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %92, i32 0, i32 2
-  %94 = load ptr, ptr %93, align 8, !tbaa !21
+  %94 = load ptr, ptr %93, align 8, !tbaa !30
   call void @lv_obj_add_flag(ptr noundef %94, i32 noundef 1)
-  %95 = load ptr, ptr %5, align 8, !tbaa !3
+  %95 = load ptr, ptr %5, align 8, !tbaa !10
   %96 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %95, i32 0, i32 2
-  %97 = load ptr, ptr %96, align 8, !tbaa !21
+  %97 = load ptr, ptr %96, align 8, !tbaa !30
   call void @lv_buttonmatrix_set_one_checked(ptr noundef %97, i1 noundef zeroext true)
-  %98 = load ptr, ptr %5, align 8, !tbaa !3
+  %98 = load ptr, ptr %5, align 8, !tbaa !10
   %99 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %98, i32 0, i32 2
-  %100 = load ptr, ptr %99, align 8, !tbaa !21
+  %100 = load ptr, ptr %99, align 8, !tbaa !30
   call void @lv_obj_remove_flag(ptr noundef %100, i32 noundef 4)
-  %101 = load ptr, ptr %5, align 8, !tbaa !3
+  %101 = load ptr, ptr %5, align 8, !tbaa !10
   %102 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %101, i32 0, i32 2
-  %103 = load ptr, ptr %102, align 8, !tbaa !21
+  %103 = load ptr, ptr %102, align 8, !tbaa !30
   call void @lv_obj_set_style_bg_opa(ptr noundef %103, i8 noundef zeroext 0, i32 noundef 0)
-  %104 = load ptr, ptr %5, align 8, !tbaa !3
+  %104 = load ptr, ptr %5, align 8, !tbaa !10
   %105 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %104, i32 0, i32 2
-  %106 = load ptr, ptr %105, align 8, !tbaa !21
+  %106 = load ptr, ptr %105, align 8, !tbaa !30
   call void @lv_obj_set_style_border_width(ptr noundef %106, i32 noundef 0, i32 noundef 0)
-  %107 = load ptr, ptr %5, align 8, !tbaa !3
+  %107 = load ptr, ptr %5, align 8, !tbaa !10
   %108 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %107, i32 0, i32 2
-  %109 = load ptr, ptr %108, align 8, !tbaa !21
+  %109 = load ptr, ptr %108, align 8, !tbaa !30
   call void @lv_obj_set_style_pad_all(ptr noundef %109, i32 noundef 8, i32 noundef 0)
-  %110 = load ptr, ptr %5, align 8, !tbaa !3
+  %110 = load ptr, ptr %5, align 8, !tbaa !10
   %111 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %110, i32 0, i32 2
-  %112 = load ptr, ptr %111, align 8, !tbaa !21
+  %112 = load ptr, ptr %111, align 8, !tbaa !30
   call void @lv_obj_set_style_pad_gap(ptr noundef %112, i32 noundef 0, i32 noundef 0)
-  %113 = load ptr, ptr %5, align 8, !tbaa !3
+  %113 = load ptr, ptr %5, align 8, !tbaa !10
   %114 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %113, i32 0, i32 2
-  %115 = load ptr, ptr %114, align 8, !tbaa !21
+  %115 = load ptr, ptr %114, align 8, !tbaa !30
   call void @lv_obj_set_style_radius(ptr noundef %115, i32 noundef 0, i32 noundef 0)
-  %116 = load ptr, ptr %5, align 8, !tbaa !3
+  %116 = load ptr, ptr %5, align 8, !tbaa !10
   %117 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %116, i32 0, i32 2
-  %118 = load ptr, ptr %117, align 8, !tbaa !21
+  %118 = load ptr, ptr %117, align 8, !tbaa !30
   call void @lv_obj_set_style_pad_gap(ptr noundef %118, i32 noundef 0, i32 noundef 0)
-  %119 = load ptr, ptr %5, align 8, !tbaa !3
+  %119 = load ptr, ptr %5, align 8, !tbaa !10
   %120 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %119, i32 0, i32 2
-  %121 = load ptr, ptr %120, align 8, !tbaa !21
+  %121 = load ptr, ptr %120, align 8, !tbaa !30
   call void @lv_obj_set_style_base_dir(ptr noundef %121, i32 noundef 0, i32 noundef 0)
-  %122 = load ptr, ptr %5, align 8, !tbaa !3
+  %122 = load ptr, ptr %5, align 8, !tbaa !10
   %123 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %122, i32 0, i32 2
-  %124 = load ptr, ptr %123, align 8, !tbaa !21
+  %124 = load ptr, ptr %123, align 8, !tbaa !30
   call void @lv_obj_set_style_radius(ptr noundef %124, i32 noundef 12, i32 noundef 327680)
-  %125 = load ptr, ptr %5, align 8, !tbaa !3
+  %125 = load ptr, ptr %5, align 8, !tbaa !10
   %126 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %125, i32 0, i32 2
-  %127 = load ptr, ptr %126, align 8, !tbaa !21
+  %127 = load ptr, ptr %126, align 8, !tbaa !30
   %128 = call i24 @lv_color_white()
   store i24 %128, ptr %8, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %9, ptr align 1 %8, i64 3, i1 false)
   %129 = load i24, ptr %9, align 4
   call void @lv_obj_set_style_bg_color(ptr noundef %127, i24 %129, i32 noundef 327680)
-  %130 = load ptr, ptr %5, align 8, !tbaa !3
+  %130 = load ptr, ptr %5, align 8, !tbaa !10
   %131 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %130, i32 0, i32 2
-  %132 = load ptr, ptr %131, align 8, !tbaa !21
+  %132 = load ptr, ptr %131, align 8, !tbaa !30
   call void @lv_obj_set_style_bg_opa(ptr noundef %132, i8 noundef zeroext 0, i32 noundef 327680)
-  %133 = load ptr, ptr %5, align 8, !tbaa !3
+  %133 = load ptr, ptr %5, align 8, !tbaa !10
   %134 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %133, i32 0, i32 2
-  %135 = load ptr, ptr %134, align 8, !tbaa !21
+  %135 = load ptr, ptr %134, align 8, !tbaa !30
   call void @lv_obj_set_style_shadow_opa(ptr noundef %135, i8 noundef zeroext 0, i32 noundef 327680)
-  %136 = load ptr, ptr %5, align 8, !tbaa !3
+  %136 = load ptr, ptr %5, align 8, !tbaa !10
   %137 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %136, i32 0, i32 2
-  %138 = load ptr, ptr %137, align 8, !tbaa !21
+  %138 = load ptr, ptr %137, align 8, !tbaa !30
   call void @lv_obj_set_style_bg_opa(ptr noundef %138, i8 noundef zeroext -1, i32 noundef 327712)
-  %139 = load ptr, ptr %5, align 8, !tbaa !3
+  %139 = load ptr, ptr %5, align 8, !tbaa !10
   %140 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %139, i32 0, i32 2
-  %141 = load ptr, ptr %140, align 8, !tbaa !21
+  %141 = load ptr, ptr %140, align 8, !tbaa !30
   %142 = call i24 @lv_color_white()
   store i24 %142, ptr %10, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %11, ptr align 1 %10, i64 3, i1 false)
   %143 = load i24, ptr %11, align 4
   call void @lv_obj_set_style_bg_color(ptr noundef %141, i24 %143, i32 noundef 327712)
-  %144 = load ptr, ptr %5, align 8, !tbaa !3
+  %144 = load ptr, ptr %5, align 8, !tbaa !10
   %145 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %144, i32 0, i32 2
-  %146 = load ptr, ptr %145, align 8, !tbaa !21
-  %147 = load ptr, ptr %4, align 8, !tbaa !3
+  %146 = load ptr, ptr %145, align 8, !tbaa !30
+  %147 = load ptr, ptr %4, align 8, !tbaa !8
   %148 = call ptr @lv_obj_add_event_cb(ptr noundef %146, ptr noundef @lv_ime_pinyin_cand_panel_event, i32 noundef 35, ptr noundef %147)
-  %149 = load ptr, ptr %4, align 8, !tbaa !3
+  %149 = load ptr, ptr %4, align 8, !tbaa !8
   %150 = call ptr @lv_obj_add_event_cb(ptr noundef %149, ptr noundef @lv_ime_pinyin_style_change_event, i32 noundef 50, ptr noundef null)
-  %151 = load ptr, ptr %5, align 8, !tbaa !3
+  %151 = load ptr, ptr %5, align 8, !tbaa !10
   %152 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %151, i32 0, i32 10
-  store i16 0, ptr %152, align 4, !tbaa !22
-  %153 = load ptr, ptr %5, align 8, !tbaa !3
+  store i16 0, ptr %152, align 4, !tbaa !31
+  %153 = load ptr, ptr %5, align 8, !tbaa !10
   %154 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %153, i32 0, i32 8
-  store i16 0, ptr %154, align 8, !tbaa !23
-  %155 = load ptr, ptr %5, align 8, !tbaa !3
+  store i16 0, ptr %154, align 8, !tbaa !32
+  %155 = load ptr, ptr %5, align 8, !tbaa !10
   %156 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %155, i32 0, i32 9
-  store i16 0, ptr %156, align 2, !tbaa !24
-  %157 = load ptr, ptr %5, align 8, !tbaa !3
+  store i16 0, ptr %156, align 2, !tbaa !33
+  %157 = load ptr, ptr %5, align 8, !tbaa !10
   %158 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %157, i32 0, i32 7
   %159 = getelementptr inbounds [8 x i8], ptr %158, i64 0, i64 0
   call void @lv_memzero(ptr noundef %159, i64 noundef 7)
-  %160 = load ptr, ptr %4, align 8, !tbaa !3
+  %160 = load ptr, ptr %4, align 8, !tbaa !8
   call void @pinyin_k9_init_data(ptr noundef %160)
-  %161 = load ptr, ptr %5, align 8, !tbaa !3
+  %161 = load ptr, ptr %5, align 8, !tbaa !10
   %162 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %161, i32 0, i32 4
   call void @lv_ll_init(ptr noundef %162, i32 noundef 7)
   call void @llvm.lifetime.end.p0(i64 2, ptr %7) #6
@@ -966,34 +966,34 @@ define internal void @lv_ime_pinyin_destructor(ptr noundef %0, ptr noundef %1) #
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8, !tbaa !3
-  store ptr %1, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 8, ptr %5) #6
-  %6 = load ptr, ptr %4, align 8, !tbaa !3
-  store ptr %6, ptr %5, align 8, !tbaa !3
-  %7 = load ptr, ptr %5, align 8, !tbaa !3
+  %6 = load ptr, ptr %4, align 8, !tbaa !8
+  store ptr %6, ptr %5, align 8, !tbaa !10
+  %7 = load ptr, ptr %5, align 8, !tbaa !10
   %8 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %8, align 8, !tbaa !25
+  %9 = load ptr, ptr %8, align 8, !tbaa !34
   %10 = call zeroext i1 @lv_obj_is_valid(ptr noundef %9)
   br i1 %10, label %11, label %15
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr %5, align 8, !tbaa !3
+  %12 = load ptr, ptr %5, align 8, !tbaa !10
   %13 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %12, i32 0, i32 1
-  %14 = load ptr, ptr %13, align 8, !tbaa !25
+  %14 = load ptr, ptr %13, align 8, !tbaa !34
   call void @lv_obj_delete(ptr noundef %14)
   br label %15
 
 15:                                               ; preds = %11, %2
-  %16 = load ptr, ptr %5, align 8, !tbaa !3
+  %16 = load ptr, ptr %5, align 8, !tbaa !10
   %17 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %16, i32 0, i32 2
-  %18 = load ptr, ptr %17, align 8, !tbaa !21
+  %18 = load ptr, ptr %17, align 8, !tbaa !30
   %19 = call zeroext i1 @lv_obj_is_valid(ptr noundef %18)
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %15
-  %21 = load ptr, ptr %5, align 8, !tbaa !3
+  %21 = load ptr, ptr %5, align 8, !tbaa !10
   %22 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %21, i32 0, i32 2
-  %23 = load ptr, ptr %22, align 8, !tbaa !21
+  %23 = load ptr, ptr %22, align 8, !tbaa !30
   call void @lv_obj_delete(ptr noundef %23)
   br label %24
 
@@ -1006,7 +1006,7 @@ define internal void @lv_ime_pinyin_destructor(ptr noundef %0, ptr noundef %1) #
 define ptr @lv_ime_pinyin_create(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8, !tbaa !3
+  store ptr %0, ptr %2, align 8, !tbaa !8
   br label %4
 
 4:                                                ; preds = %1
@@ -1014,82 +1014,116 @@ define ptr @lv_ime_pinyin_create(ptr noundef %0) #0 {
 
 5:                                                ; preds = %4
   call void @llvm.lifetime.start.p0(i64 8, ptr %3) #6
-  %6 = load ptr, ptr %2, align 8, !tbaa !3
+  %6 = load ptr, ptr %2, align 8, !tbaa !8
   %7 = call ptr @lv_obj_class_create_obj(ptr noundef @lv_ime_pinyin_class, ptr noundef %6)
-  store ptr %7, ptr %3, align 8, !tbaa !3
-  %8 = load ptr, ptr %3, align 8, !tbaa !3
+  store ptr %7, ptr %3, align 8, !tbaa !8
+  %8 = load ptr, ptr %3, align 8, !tbaa !8
   call void @lv_obj_class_init_obj(ptr noundef %8)
-  %9 = load ptr, ptr %3, align 8, !tbaa !3
+  %9 = load ptr, ptr %3, align 8, !tbaa !8
   call void @llvm.lifetime.end.p0(i64 8, ptr %3) #6
   ret ptr %9
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 declare ptr @lv_obj_class_create_obj(ptr noundef, ptr noundef) #2
 
 declare void @lv_obj_class_init_obj(ptr noundef) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define void @lv_ime_pinyin_set_keyboard(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8, !tbaa !3
-  store ptr %1, ptr %4, align 8, !tbaa !3
-  %6 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store ptr %1, ptr %4, align 8, !tbaa !8
+  %6 = load ptr, ptr %4, align 8, !tbaa !8
   %7 = icmp ne ptr %6, null
-  br i1 %7, label %8, label %11
+  br i1 %7, label %8, label %18
 
 8:                                                ; preds = %2
   br label %9
 
 9:                                                ; preds = %8
-  br label %10
+  %10 = load ptr, ptr %4, align 8, !tbaa !8
+  %11 = icmp ne ptr %10, null
+  br i1 %11, label %16, label %12
 
-10:                                               ; preds = %9
-  br label %11
-
-11:                                               ; preds = %10, %2
-  br label %12
-
-12:                                               ; preds = %11
+12:                                               ; preds = %9
   br label %13
 
 13:                                               ; preds = %12
+  br label %14
+
+14:                                               ; preds = %13
+  br label %15
+
+15:                                               ; preds = %14, %15
+  br label %15
+
+16:                                               ; preds = %9
+  br label %17
+
+17:                                               ; preds = %16
+  br label %18
+
+18:                                               ; preds = %17, %2
+  br label %19
+
+19:                                               ; preds = %18
+  %20 = load ptr, ptr %3, align 8, !tbaa !8
+  %21 = icmp ne ptr %20, null
+  br i1 %21, label %26, label %22
+
+22:                                               ; preds = %19
+  br label %23
+
+23:                                               ; preds = %22
+  br label %24
+
+24:                                               ; preds = %23
+  br label %25
+
+25:                                               ; preds = %24, %25
+  br label %25
+
+26:                                               ; preds = %19
+  br label %27
+
+27:                                               ; preds = %26
   call void @llvm.lifetime.start.p0(i64 8, ptr %5) #6
-  %14 = load ptr, ptr %3, align 8, !tbaa !3
-  store ptr %14, ptr %5, align 8, !tbaa !3
-  %15 = load ptr, ptr %4, align 8, !tbaa !3
-  %16 = load ptr, ptr %5, align 8, !tbaa !3
-  %17 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %16, i32 0, i32 1
-  store ptr %15, ptr %17, align 8, !tbaa !25
-  %18 = load ptr, ptr %3, align 8, !tbaa !3
-  %19 = load ptr, ptr %4, align 8, !tbaa !3
-  %20 = call ptr @lv_obj_get_parent(ptr noundef %19)
-  call void @lv_obj_set_parent(ptr noundef %18, ptr noundef %20)
-  %21 = load ptr, ptr %5, align 8, !tbaa !3
-  %22 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %21, i32 0, i32 2
-  %23 = load ptr, ptr %22, align 8, !tbaa !21
-  %24 = load ptr, ptr %4, align 8, !tbaa !3
-  %25 = call ptr @lv_obj_get_parent(ptr noundef %24)
-  call void @lv_obj_set_parent(ptr noundef %23, ptr noundef %25)
-  %26 = load ptr, ptr %5, align 8, !tbaa !3
-  %27 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %26, i32 0, i32 1
-  %28 = load ptr, ptr %27, align 8, !tbaa !25
-  %29 = load ptr, ptr %3, align 8, !tbaa !3
-  %30 = call ptr @lv_obj_add_event_cb(ptr noundef %28, ptr noundef @lv_ime_pinyin_kb_event, i32 noundef 35, ptr noundef %29)
-  %31 = load ptr, ptr %5, align 8, !tbaa !3
-  %32 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %31, i32 0, i32 2
-  %33 = load ptr, ptr %32, align 8, !tbaa !21
-  %34 = load ptr, ptr %5, align 8, !tbaa !3
-  %35 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %34, i32 0, i32 1
-  %36 = load ptr, ptr %35, align 8, !tbaa !25
-  call void @lv_obj_align_to(ptr noundef %33, ptr noundef %36, i32 noundef 11, i32 noundef 0, i32 noundef 0)
+  %28 = load ptr, ptr %3, align 8, !tbaa !8
+  store ptr %28, ptr %5, align 8, !tbaa !10
+  %29 = load ptr, ptr %4, align 8, !tbaa !8
+  %30 = load ptr, ptr %5, align 8, !tbaa !10
+  %31 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %30, i32 0, i32 1
+  store ptr %29, ptr %31, align 8, !tbaa !34
+  %32 = load ptr, ptr %3, align 8, !tbaa !8
+  %33 = load ptr, ptr %4, align 8, !tbaa !8
+  %34 = call ptr @lv_obj_get_parent(ptr noundef %33)
+  call void @lv_obj_set_parent(ptr noundef %32, ptr noundef %34)
+  %35 = load ptr, ptr %5, align 8, !tbaa !10
+  %36 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %35, i32 0, i32 2
+  %37 = load ptr, ptr %36, align 8, !tbaa !30
+  %38 = load ptr, ptr %4, align 8, !tbaa !8
+  %39 = call ptr @lv_obj_get_parent(ptr noundef %38)
+  call void @lv_obj_set_parent(ptr noundef %37, ptr noundef %39)
+  %40 = load ptr, ptr %5, align 8, !tbaa !10
+  %41 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %40, i32 0, i32 1
+  %42 = load ptr, ptr %41, align 8, !tbaa !34
+  %43 = load ptr, ptr %3, align 8, !tbaa !8
+  %44 = call ptr @lv_obj_add_event_cb(ptr noundef %42, ptr noundef @lv_ime_pinyin_kb_event, i32 noundef 35, ptr noundef %43)
+  %45 = load ptr, ptr %5, align 8, !tbaa !10
+  %46 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %45, i32 0, i32 2
+  %47 = load ptr, ptr %46, align 8, !tbaa !30
+  %48 = load ptr, ptr %5, align 8, !tbaa !10
+  %49 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %48, i32 0, i32 1
+  %50 = load ptr, ptr %49, align 8, !tbaa !34
+  call void @lv_obj_align_to(ptr noundef %47, ptr noundef %50, i32 noundef 11, i32 noundef 0, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr %5) #6
   ret void
 }
@@ -1116,33 +1150,33 @@ define internal void @lv_ime_pinyin_kb_event(ptr noundef %0) #0 {
   %13 = alloca i16, align 2
   %14 = alloca i16, align 2
   %15 = alloca i16, align 2
-  store ptr %0, ptr %2, align 8, !tbaa !3
+  store ptr %0, ptr %2, align 8, !tbaa !35
   call void @llvm.lifetime.start.p0(i64 4, ptr %3) #6
-  %16 = load ptr, ptr %2, align 8, !tbaa !3
+  %16 = load ptr, ptr %2, align 8, !tbaa !35
   %17 = call i32 @lv_event_get_code(ptr noundef %16)
-  store i32 %17, ptr %3, align 4, !tbaa !26
+  store i32 %17, ptr %3, align 4, !tbaa !37
   call void @llvm.lifetime.start.p0(i64 8, ptr %4) #6
-  %18 = load ptr, ptr %2, align 8, !tbaa !3
+  %18 = load ptr, ptr %2, align 8, !tbaa !35
   %19 = call ptr @lv_event_get_current_target(ptr noundef %18)
-  store ptr %19, ptr %4, align 8, !tbaa !3
+  store ptr %19, ptr %4, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 8, ptr %5) #6
-  %20 = load ptr, ptr %2, align 8, !tbaa !3
+  %20 = load ptr, ptr %2, align 8, !tbaa !35
   %21 = call ptr @lv_event_get_user_data(ptr noundef %20)
-  store ptr %21, ptr %5, align 8, !tbaa !3
+  store ptr %21, ptr %5, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 8, ptr %6) #6
-  %22 = load ptr, ptr %5, align 8, !tbaa !3
-  store ptr %22, ptr %6, align 8, !tbaa !3
-  %23 = load i32, ptr %3, align 4, !tbaa !26
+  %22 = load ptr, ptr %5, align 8, !tbaa !8
+  store ptr %22, ptr %6, align 8, !tbaa !10
+  %23 = load i32, ptr %3, align 4, !tbaa !37
   %24 = icmp eq i32 %23, 35
   br i1 %24, label %25, label %456
 
 25:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 2, ptr %7) #6
-  %26 = load ptr, ptr %4, align 8, !tbaa !3
+  %26 = load ptr, ptr %4, align 8, !tbaa !8
   %27 = call i32 @lv_buttonmatrix_get_selected_button(ptr noundef %26)
   %28 = trunc i32 %27 to i16
-  store i16 %28, ptr %7, align 2, !tbaa !7
-  %29 = load i16, ptr %7, align 2, !tbaa !7
+  store i16 %28, ptr %7, align 2, !tbaa !12
+  %29 = load i16, ptr %7, align 2, !tbaa !12
   %30 = zext i16 %29 to i32
   %31 = icmp eq i32 %30, 65535
   br i1 %31, label %32, label %33
@@ -1153,12 +1187,12 @@ define internal void @lv_ime_pinyin_kb_event(ptr noundef %0) #0 {
 
 33:                                               ; preds = %25
   call void @llvm.lifetime.start.p0(i64 8, ptr %9) #6
-  %34 = load ptr, ptr %4, align 8, !tbaa !3
-  %35 = load ptr, ptr %4, align 8, !tbaa !3
+  %34 = load ptr, ptr %4, align 8, !tbaa !8
+  %35 = load ptr, ptr %4, align 8, !tbaa !8
   %36 = call i32 @lv_buttonmatrix_get_selected_button(ptr noundef %35)
   %37 = call ptr @lv_buttonmatrix_get_button_text(ptr noundef %34, i32 noundef %36)
-  store ptr %37, ptr %9, align 8, !tbaa !3
-  %38 = load ptr, ptr %9, align 8, !tbaa !3
+  store ptr %37, ptr %9, align 8, !tbaa !14
+  %38 = load ptr, ptr %9, align 8, !tbaa !14
   %39 = icmp eq ptr %38, null
   br i1 %39, label %40, label %41
 
@@ -1168,65 +1202,65 @@ define internal void @lv_ime_pinyin_kb_event(ptr noundef %0) #0 {
 
 41:                                               ; preds = %33
   call void @llvm.lifetime.start.p0(i64 8, ptr %10) #6
-  %42 = load ptr, ptr %6, align 8, !tbaa !3
+  %42 = load ptr, ptr %6, align 8, !tbaa !10
   %43 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %42, i32 0, i32 1
-  %44 = load ptr, ptr %43, align 8, !tbaa !25
+  %44 = load ptr, ptr %43, align 8, !tbaa !34
   %45 = call ptr @lv_keyboard_get_textarea(ptr noundef %44)
-  store ptr %45, ptr %10, align 8, !tbaa !3
-  %46 = load ptr, ptr %6, align 8, !tbaa !3
+  store ptr %45, ptr %10, align 8, !tbaa !8
+  %46 = load ptr, ptr %6, align 8, !tbaa !10
   %47 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %46, i32 0, i32 16
-  %48 = load i32, ptr %47, align 4, !tbaa !12
+  %48 = load i32, ptr %47, align 4, !tbaa !19
   %49 = icmp eq i32 %48, 1
   br i1 %49, label %50, label %108
 
 50:                                               ; preds = %41
   call void @llvm.lifetime.start.p0(i64 2, ptr %11) #6
-  %51 = load ptr, ptr %6, align 8, !tbaa !3
+  %51 = load ptr, ptr %6, align 8, !tbaa !10
   %52 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %51, i32 0, i32 6
   %53 = getelementptr inbounds [16 x i8], ptr %52, i64 0, i64 0
   %54 = call i64 @lv_strlen(ptr noundef %53)
   %55 = trunc i64 %54 to i16
-  store i16 %55, ptr %11, align 2, !tbaa !7
-  %56 = load i16, ptr %7, align 2, !tbaa !7
+  store i16 %55, ptr %11, align 2, !tbaa !12
+  %56 = load i16, ptr %7, align 2, !tbaa !12
   %57 = zext i16 %56 to i32
   %58 = icmp sge i32 %57, 16
   br i1 %58, label %59, label %104
 
 59:                                               ; preds = %50
-  %60 = load i16, ptr %11, align 2, !tbaa !7
+  %60 = load i16, ptr %11, align 2, !tbaa !12
   %61 = zext i16 %60 to i32
   %62 = icmp sgt i32 %61, 0
   br i1 %62, label %63, label %104
 
 63:                                               ; preds = %59
-  %64 = load i16, ptr %7, align 2, !tbaa !7
+  %64 = load i16, ptr %7, align 2, !tbaa !12
   %65 = zext i16 %64 to i32
   %66 = icmp slt i32 %65, 19
   br i1 %66, label %67, label %104
 
 67:                                               ; preds = %63
-  %68 = load ptr, ptr %6, align 8, !tbaa !3
+  %68 = load ptr, ptr %6, align 8, !tbaa !10
   %69 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %68, i32 0, i32 6
   %70 = getelementptr inbounds [16 x i8], ptr %69, i64 0, i64 0
   call void @lv_memzero(ptr noundef %70, i64 noundef 16)
-  %71 = load ptr, ptr %6, align 8, !tbaa !3
+  %71 = load ptr, ptr %6, align 8, !tbaa !10
   %72 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %71, i32 0, i32 6
   %73 = getelementptr inbounds [16 x i8], ptr %72, i64 0, i64 0
-  %74 = load ptr, ptr %9, align 8, !tbaa !3
+  %74 = load ptr, ptr %9, align 8, !tbaa !14
   %75 = call ptr @lv_strcat(ptr noundef %73, ptr noundef %74)
-  %76 = load ptr, ptr %5, align 8, !tbaa !3
+  %76 = load ptr, ptr %5, align 8, !tbaa !8
   call void @pinyin_input_proc(ptr noundef %76)
   call void @llvm.lifetime.start.p0(i64 4, ptr %12) #6
-  store i32 0, ptr %12, align 4, !tbaa !26
+  store i32 0, ptr %12, align 4, !tbaa !37
   br label %77
 
 77:                                               ; preds = %90, %67
-  %78 = load i32, ptr %12, align 4, !tbaa !26
-  %79 = load ptr, ptr %6, align 8, !tbaa !3
+  %78 = load i32, ptr %12, align 4, !tbaa !37
+  %79 = load ptr, ptr %6, align 8, !tbaa !10
   %80 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %79, i32 0, i32 11
-  %81 = load i16, ptr %80, align 2, !tbaa !19
+  %81 = load i16, ptr %80, align 2, !tbaa !28
   %82 = zext i16 %81 to i32
-  %83 = load i16, ptr %11, align 2, !tbaa !7
+  %83 = load i16, ptr %11, align 2, !tbaa !12
   %84 = zext i16 %83 to i32
   %85 = add nsw i32 %82, %84
   %86 = icmp slt i32 %78, %85
@@ -1238,27 +1272,27 @@ define internal void @lv_ime_pinyin_kb_event(ptr noundef %0) #0 {
   br label %93
 
 88:                                               ; preds = %77
-  %89 = load ptr, ptr %10, align 8, !tbaa !3
+  %89 = load ptr, ptr %10, align 8, !tbaa !8
   call void @lv_textarea_delete_char(ptr noundef %89)
   br label %90
 
 90:                                               ; preds = %88
-  %91 = load i32, ptr %12, align 4, !tbaa !26
+  %91 = load i32, ptr %12, align 4, !tbaa !37
   %92 = add nsw i32 %91, 1
-  store i32 %92, ptr %12, align 4, !tbaa !26
-  br label %77, !llvm.loop !27
+  store i32 %92, ptr %12, align 4, !tbaa !37
+  br label %77, !llvm.loop !38
 
 93:                                               ; preds = %87
-  %94 = load i16, ptr %11, align 2, !tbaa !7
-  %95 = load ptr, ptr %6, align 8, !tbaa !3
+  %94 = load i16, ptr %11, align 2, !tbaa !12
+  %95 = load ptr, ptr %6, align 8, !tbaa !10
   %96 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %95, i32 0, i32 11
-  store i16 %94, ptr %96, align 2, !tbaa !19
-  %97 = load i16, ptr %11, align 2, !tbaa !7
-  %98 = load ptr, ptr %6, align 8, !tbaa !3
+  store i16 %94, ptr %96, align 2, !tbaa !28
+  %97 = load i16, ptr %11, align 2, !tbaa !12
+  %98 = load ptr, ptr %6, align 8, !tbaa !10
   %99 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %98, i32 0, i32 10
-  store i16 %97, ptr %99, align 4, !tbaa !22
-  %100 = load ptr, ptr %10, align 8, !tbaa !3
-  %101 = load ptr, ptr %6, align 8, !tbaa !3
+  store i16 %97, ptr %99, align 4, !tbaa !31
+  %100 = load ptr, ptr %10, align 8, !tbaa !8
+  %101 = load ptr, ptr %6, align 8, !tbaa !10
   %102 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %101, i32 0, i32 6
   %103 = getelementptr inbounds [16 x i8], ptr %102, i64 0, i64 0
   call void @lv_textarea_add_text(ptr noundef %100, ptr noundef %103)
@@ -1280,138 +1314,138 @@ define internal void @lv_ime_pinyin_kb_event(ptr noundef %0) #0 {
   br label %108
 
 108:                                              ; preds = %107, %41
-  %109 = load ptr, ptr %9, align 8, !tbaa !3
+  %109 = load ptr, ptr %9, align 8, !tbaa !14
   %110 = call i32 @lv_strcmp(ptr noundef %109, ptr noundef @.str.669)
   %111 = icmp eq i32 %110, 0
   br i1 %111, label %116, label %112
 
 112:                                              ; preds = %108
-  %113 = load ptr, ptr %9, align 8, !tbaa !3
+  %113 = load ptr, ptr %9, align 8, !tbaa !14
   %114 = call i32 @lv_strcmp(ptr noundef %113, ptr noundef @.str.670)
   %115 = icmp eq i32 %114, 0
   br i1 %115, label %116, label %121
 
 116:                                              ; preds = %112, %108
-  %117 = load ptr, ptr %5, align 8, !tbaa !3
+  %117 = load ptr, ptr %5, align 8, !tbaa !8
   call void @pinyin_ime_clear_data(ptr noundef %117)
-  %118 = load ptr, ptr %6, align 8, !tbaa !3
+  %118 = load ptr, ptr %6, align 8, !tbaa !10
   %119 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %118, i32 0, i32 2
-  %120 = load ptr, ptr %119, align 8, !tbaa !21
+  %120 = load ptr, ptr %119, align 8, !tbaa !30
   call void @lv_obj_add_flag(ptr noundef %120, i32 noundef 1)
   br label %450
 
 121:                                              ; preds = %112
-  %122 = load ptr, ptr %9, align 8, !tbaa !3
+  %122 = load ptr, ptr %9, align 8, !tbaa !14
   %123 = call i32 @lv_strcmp(ptr noundef %122, ptr noundef @.str.671)
   %124 = icmp eq i32 %123, 0
   br i1 %124, label %125, label %206
 
 125:                                              ; preds = %121
-  %126 = load ptr, ptr %6, align 8, !tbaa !3
+  %126 = load ptr, ptr %6, align 8, !tbaa !10
   %127 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %126, i32 0, i32 11
-  %128 = load i16, ptr %127, align 2, !tbaa !19
+  %128 = load i16, ptr %127, align 2, !tbaa !28
   %129 = zext i16 %128 to i32
   %130 = icmp sgt i32 %129, 0
   br i1 %130, label %131, label %205
 
 131:                                              ; preds = %125
-  %132 = load ptr, ptr %6, align 8, !tbaa !3
+  %132 = load ptr, ptr %6, align 8, !tbaa !10
   %133 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %132, i32 0, i32 16
-  %134 = load i32, ptr %133, align 4, !tbaa !12
+  %134 = load i32, ptr %133, align 4, !tbaa !19
   %135 = icmp eq i32 %134, 0
   br i1 %135, label %136, label %146
 
 136:                                              ; preds = %131
-  %137 = load ptr, ptr %6, align 8, !tbaa !3
+  %137 = load ptr, ptr %6, align 8, !tbaa !10
   %138 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %137, i32 0, i32 6
-  %139 = load ptr, ptr %6, align 8, !tbaa !3
+  %139 = load ptr, ptr %6, align 8, !tbaa !10
   %140 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %139, i32 0, i32 11
-  %141 = load i16, ptr %140, align 2, !tbaa !19
+  %141 = load i16, ptr %140, align 2, !tbaa !28
   %142 = zext i16 %141 to i32
   %143 = sub nsw i32 %142, 1
   %144 = sext i32 %143 to i64
   %145 = getelementptr inbounds [16 x i8], ptr %138, i64 0, i64 %144
-  store i8 0, ptr %145, align 1, !tbaa !9
+  store i8 0, ptr %145, align 1, !tbaa !16
   br label %156
 
 146:                                              ; preds = %131
-  %147 = load ptr, ptr %6, align 8, !tbaa !3
+  %147 = load ptr, ptr %6, align 8, !tbaa !10
   %148 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %147, i32 0, i32 7
-  %149 = load ptr, ptr %6, align 8, !tbaa !3
+  %149 = load ptr, ptr %6, align 8, !tbaa !10
   %150 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %149, i32 0, i32 11
-  %151 = load i16, ptr %150, align 2, !tbaa !19
+  %151 = load i16, ptr %150, align 2, !tbaa !28
   %152 = zext i16 %151 to i32
   %153 = sub nsw i32 %152, 1
   %154 = sext i32 %153 to i64
   %155 = getelementptr inbounds [8 x i8], ptr %148, i64 0, i64 %154
-  store i8 0, ptr %155, align 1, !tbaa !9
+  store i8 0, ptr %155, align 1, !tbaa !16
   br label %156
 
 156:                                              ; preds = %146, %136
-  %157 = load ptr, ptr %6, align 8, !tbaa !3
+  %157 = load ptr, ptr %6, align 8, !tbaa !10
   %158 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %157, i32 0, i32 11
-  %159 = load i16, ptr %158, align 2, !tbaa !19
+  %159 = load i16, ptr %158, align 2, !tbaa !28
   %160 = add i16 %159, -1
-  store i16 %160, ptr %158, align 2, !tbaa !19
-  %161 = load ptr, ptr %6, align 8, !tbaa !3
+  store i16 %160, ptr %158, align 2, !tbaa !28
+  %161 = load ptr, ptr %6, align 8, !tbaa !10
   %162 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %161, i32 0, i32 11
-  %163 = load i16, ptr %162, align 2, !tbaa !19
+  %163 = load i16, ptr %162, align 2, !tbaa !28
   %164 = zext i16 %163 to i32
   %165 = icmp sle i32 %164, 0
   br i1 %165, label %166, label %171
 
 166:                                              ; preds = %156
-  %167 = load ptr, ptr %5, align 8, !tbaa !3
+  %167 = load ptr, ptr %5, align 8, !tbaa !8
   call void @pinyin_ime_clear_data(ptr noundef %167)
-  %168 = load ptr, ptr %6, align 8, !tbaa !3
+  %168 = load ptr, ptr %6, align 8, !tbaa !10
   %169 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %168, i32 0, i32 2
-  %170 = load ptr, ptr %169, align 8, !tbaa !21
+  %170 = load ptr, ptr %169, align 8, !tbaa !30
   call void @lv_obj_add_flag(ptr noundef %170, i32 noundef 1)
   br label %204
 
 171:                                              ; preds = %156
-  %172 = load ptr, ptr %6, align 8, !tbaa !3
+  %172 = load ptr, ptr %6, align 8, !tbaa !10
   %173 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %172, i32 0, i32 16
-  %174 = load i32, ptr %173, align 4, !tbaa !12
+  %174 = load i32, ptr %173, align 4, !tbaa !19
   %175 = icmp eq i32 %174, 0
   br i1 %175, label %176, label %178
 
 176:                                              ; preds = %171
-  %177 = load ptr, ptr %5, align 8, !tbaa !3
+  %177 = load ptr, ptr %5, align 8, !tbaa !8
   call void @pinyin_input_proc(ptr noundef %177)
   br label %203
 
 178:                                              ; preds = %171
-  %179 = load ptr, ptr %6, align 8, !tbaa !3
+  %179 = load ptr, ptr %6, align 8, !tbaa !10
   %180 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %179, i32 0, i32 16
-  %181 = load i32, ptr %180, align 4, !tbaa !12
+  %181 = load i32, ptr %180, align 4, !tbaa !19
   %182 = icmp eq i32 %181, 1
   br i1 %182, label %183, label %202
 
 183:                                              ; preds = %178
-  %184 = load ptr, ptr %6, align 8, !tbaa !3
+  %184 = load ptr, ptr %6, align 8, !tbaa !10
   %185 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %184, i32 0, i32 6
   %186 = getelementptr inbounds [16 x i8], ptr %185, i64 0, i64 0
   %187 = call i64 @lv_strlen(ptr noundef %186)
   %188 = sub i64 %187, 1
   %189 = trunc i64 %188 to i16
-  %190 = load ptr, ptr %6, align 8, !tbaa !3
+  %190 = load ptr, ptr %6, align 8, !tbaa !10
   %191 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %190, i32 0, i32 10
-  store i16 %189, ptr %191, align 4, !tbaa !22
-  %192 = load ptr, ptr %5, align 8, !tbaa !3
-  %193 = load ptr, ptr %6, align 8, !tbaa !3
+  store i16 %189, ptr %191, align 4, !tbaa !31
+  %192 = load ptr, ptr %5, align 8, !tbaa !8
+  %193 = load ptr, ptr %6, align 8, !tbaa !10
   %194 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %193, i32 0, i32 7
   %195 = getelementptr inbounds [8 x i8], ptr %194, i64 0, i64 0
   call void @pinyin_k9_get_legal_py(ptr noundef %192, ptr noundef %195, ptr noundef @lv_ime_pinyin_kb_event.k9_py_map)
-  %196 = load ptr, ptr %5, align 8, !tbaa !3
+  %196 = load ptr, ptr %5, align 8, !tbaa !8
   call void @pinyin_k9_fill_cand(ptr noundef %196)
-  %197 = load ptr, ptr %5, align 8, !tbaa !3
+  %197 = load ptr, ptr %5, align 8, !tbaa !8
   call void @pinyin_input_proc(ptr noundef %197)
-  %198 = load ptr, ptr %6, align 8, !tbaa !3
+  %198 = load ptr, ptr %6, align 8, !tbaa !10
   %199 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %198, i32 0, i32 11
-  %200 = load i16, ptr %199, align 2, !tbaa !19
+  %200 = load i16, ptr %199, align 2, !tbaa !28
   %201 = add i16 %200, -1
-  store i16 %201, ptr %199, align 2, !tbaa !19
+  store i16 %201, ptr %199, align 2, !tbaa !28
   br label %202
 
 202:                                              ; preds = %183, %178
@@ -1427,50 +1461,50 @@ define internal void @lv_ime_pinyin_kb_event(ptr noundef %0) #0 {
   br label %449
 
 206:                                              ; preds = %121
-  %207 = load ptr, ptr %9, align 8, !tbaa !3
+  %207 = load ptr, ptr %9, align 8, !tbaa !14
   %208 = call i32 @lv_strcmp(ptr noundef %207, ptr noundef @.str.672)
   %209 = icmp eq i32 %208, 0
   br i1 %209, label %222, label %210
 
 210:                                              ; preds = %206
-  %211 = load ptr, ptr %9, align 8, !tbaa !3
+  %211 = load ptr, ptr %9, align 8, !tbaa !14
   %212 = call i32 @lv_strcmp(ptr noundef %211, ptr noundef @.str.661)
   %213 = icmp eq i32 %212, 0
   br i1 %213, label %222, label %214
 
 214:                                              ; preds = %210
-  %215 = load ptr, ptr %9, align 8, !tbaa !3
+  %215 = load ptr, ptr %9, align 8, !tbaa !14
   %216 = call i32 @lv_strcmp(ptr noundef %215, ptr noundef @.str.673)
   %217 = icmp eq i32 %216, 0
   br i1 %217, label %222, label %218
 
 218:                                              ; preds = %214
-  %219 = load ptr, ptr %9, align 8, !tbaa !3
+  %219 = load ptr, ptr %9, align 8, !tbaa !14
   %220 = call i32 @lv_strcmp(ptr noundef %219, ptr noundef @.str.674)
   %221 = icmp eq i32 %220, 0
   br i1 %221, label %222, label %224
 
 222:                                              ; preds = %218, %214, %210, %206
-  %223 = load ptr, ptr %5, align 8, !tbaa !3
+  %223 = load ptr, ptr %5, align 8, !tbaa !8
   call void @pinyin_ime_clear_data(ptr noundef %223)
   store i32 1, ptr %8, align 4
   br label %451
 
 224:                                              ; preds = %218
-  %225 = load ptr, ptr %9, align 8, !tbaa !3
+  %225 = load ptr, ptr %9, align 8, !tbaa !14
   %226 = call i32 @lv_strcmp(ptr noundef %225, ptr noundef @.str.675)
   %227 = icmp eq i32 %226, 0
   br i1 %227, label %228, label %249
 
 228:                                              ; preds = %224
   call void @llvm.lifetime.start.p0(i64 2, ptr %13) #6
-  store i16 0, ptr %13, align 2, !tbaa !7
+  store i16 0, ptr %13, align 2, !tbaa !12
   br label %229
 
 229:                                              ; preds = %238, %228
-  %230 = load i16, ptr %13, align 2, !tbaa !7
+  %230 = load i16, ptr %13, align 2, !tbaa !12
   %231 = zext i16 %230 to i64
-  %232 = load ptr, ptr %9, align 8, !tbaa !3
+  %232 = load ptr, ptr %9, align 8, !tbaa !14
   %233 = call i64 @lv_strlen(ptr noundef %232)
   %234 = icmp ult i64 %231, %233
   br i1 %234, label %236, label %235
@@ -1481,74 +1515,74 @@ define internal void @lv_ime_pinyin_kb_event(ptr noundef %0) #0 {
   br label %241
 
 236:                                              ; preds = %229
-  %237 = load ptr, ptr %10, align 8, !tbaa !3
+  %237 = load ptr, ptr %10, align 8, !tbaa !8
   call void @lv_textarea_delete_char(ptr noundef %237)
   br label %238
 
 238:                                              ; preds = %236
-  %239 = load i16, ptr %13, align 2, !tbaa !7
+  %239 = load i16, ptr %13, align 2, !tbaa !12
   %240 = add i16 %239, 1
-  store i16 %240, ptr %13, align 2, !tbaa !7
-  br label %229, !llvm.loop !28
+  store i16 %240, ptr %13, align 2, !tbaa !12
+  br label %229, !llvm.loop !39
 
 241:                                              ; preds = %235
-  %242 = load ptr, ptr %5, align 8, !tbaa !3
+  %242 = load ptr, ptr %5, align 8, !tbaa !8
   call void @pinyin_ime_clear_data(ptr noundef %242)
-  %243 = load ptr, ptr %10, align 8, !tbaa !3
+  %243 = load ptr, ptr %10, align 8, !tbaa !8
   call void @lv_textarea_set_cursor_pos(ptr noundef %243, i32 noundef 32767)
-  %244 = load ptr, ptr %5, align 8, !tbaa !3
+  %244 = load ptr, ptr %5, align 8, !tbaa !8
   call void @lv_ime_pinyin_set_mode(ptr noundef %244, i32 noundef 2)
-  %245 = load ptr, ptr %4, align 8, !tbaa !3
+  %245 = load ptr, ptr %4, align 8, !tbaa !8
   call void @lv_keyboard_set_mode(ptr noundef %245, i32 noundef 3)
-  %246 = load ptr, ptr %6, align 8, !tbaa !3
+  %246 = load ptr, ptr %6, align 8, !tbaa !10
   %247 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %246, i32 0, i32 2
-  %248 = load ptr, ptr %247, align 8, !tbaa !21
+  %248 = load ptr, ptr %247, align 8, !tbaa !30
   call void @lv_obj_add_flag(ptr noundef %248, i32 noundef 1)
   br label %447
 
 249:                                              ; preds = %224
-  %250 = load ptr, ptr %9, align 8, !tbaa !3
+  %250 = load ptr, ptr %9, align 8, !tbaa !14
   %251 = call i32 @lv_strcmp(ptr noundef %250, ptr noundef @.str.676)
   %252 = icmp eq i32 %251, 0
   br i1 %252, label %253, label %281
 
 253:                                              ; preds = %249
-  %254 = load ptr, ptr %6, align 8, !tbaa !3
+  %254 = load ptr, ptr %6, align 8, !tbaa !10
   %255 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %254, i32 0, i32 16
-  %256 = load i32, ptr %255, align 4, !tbaa !12
+  %256 = load i32, ptr %255, align 4, !tbaa !19
   %257 = icmp eq i32 %256, 0
   br i1 %257, label %258, label %260
 
 258:                                              ; preds = %253
-  %259 = load ptr, ptr %5, align 8, !tbaa !3
+  %259 = load ptr, ptr %5, align 8, !tbaa !8
   call void @lv_ime_pinyin_set_mode(ptr noundef %259, i32 noundef 1)
   br label %279
 
 260:                                              ; preds = %253
-  %261 = load ptr, ptr %6, align 8, !tbaa !3
+  %261 = load ptr, ptr %6, align 8, !tbaa !10
   %262 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %261, i32 0, i32 16
-  %263 = load i32, ptr %262, align 4, !tbaa !12
+  %263 = load i32, ptr %262, align 4, !tbaa !19
   %264 = icmp eq i32 %263, 1
   br i1 %264, label %265, label %270
 
 265:                                              ; preds = %260
-  %266 = load ptr, ptr %5, align 8, !tbaa !3
+  %266 = load ptr, ptr %5, align 8, !tbaa !8
   call void @lv_ime_pinyin_set_mode(ptr noundef %266, i32 noundef 0)
-  %267 = load ptr, ptr %6, align 8, !tbaa !3
+  %267 = load ptr, ptr %6, align 8, !tbaa !10
   %268 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %267, i32 0, i32 1
-  %269 = load ptr, ptr %268, align 8, !tbaa !25
+  %269 = load ptr, ptr %268, align 8, !tbaa !34
   call void @lv_keyboard_set_mode(ptr noundef %269, i32 noundef 0)
   br label %278
 
 270:                                              ; preds = %260
-  %271 = load ptr, ptr %6, align 8, !tbaa !3
+  %271 = load ptr, ptr %6, align 8, !tbaa !10
   %272 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %271, i32 0, i32 16
-  %273 = load i32, ptr %272, align 4, !tbaa !12
+  %273 = load i32, ptr %272, align 4, !tbaa !19
   %274 = icmp eq i32 %273, 2
   br i1 %274, label %275, label %277
 
 275:                                              ; preds = %270
-  %276 = load ptr, ptr %5, align 8, !tbaa !3
+  %276 = load ptr, ptr %5, align 8, !tbaa !8
   call void @lv_ime_pinyin_set_mode(ptr noundef %276, i32 noundef 1)
   br label %277
 
@@ -1559,109 +1593,109 @@ define internal void @lv_ime_pinyin_kb_event(ptr noundef %0) #0 {
   br label %279
 
 279:                                              ; preds = %278, %258
-  %280 = load ptr, ptr %5, align 8, !tbaa !3
+  %280 = load ptr, ptr %5, align 8, !tbaa !8
   call void @pinyin_ime_clear_data(ptr noundef %280)
   br label %446
 
 281:                                              ; preds = %249
-  %282 = load ptr, ptr %6, align 8, !tbaa !3
+  %282 = load ptr, ptr %6, align 8, !tbaa !10
   %283 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %282, i32 0, i32 16
-  %284 = load i32, ptr %283, align 4, !tbaa !12
+  %284 = load i32, ptr %283, align 4, !tbaa !19
   %285 = icmp eq i32 %284, 0
   br i1 %285, label %286, label %333
 
 286:                                              ; preds = %281
-  %287 = load ptr, ptr %9, align 8, !tbaa !3
+  %287 = load ptr, ptr %9, align 8, !tbaa !14
   %288 = getelementptr inbounds i8, ptr %287, i64 0
-  %289 = load i8, ptr %288, align 1, !tbaa !9
+  %289 = load i8, ptr %288, align 1, !tbaa !16
   %290 = sext i8 %289 to i32
   %291 = icmp sge i32 %290, 97
   br i1 %291, label %292, label %298
 
 292:                                              ; preds = %286
-  %293 = load ptr, ptr %9, align 8, !tbaa !3
+  %293 = load ptr, ptr %9, align 8, !tbaa !14
   %294 = getelementptr inbounds i8, ptr %293, i64 0
-  %295 = load i8, ptr %294, align 1, !tbaa !9
+  %295 = load i8, ptr %294, align 1, !tbaa !16
   %296 = sext i8 %295 to i32
   %297 = icmp sle i32 %296, 122
   br i1 %297, label %310, label %298
 
 298:                                              ; preds = %292, %286
-  %299 = load ptr, ptr %9, align 8, !tbaa !3
+  %299 = load ptr, ptr %9, align 8, !tbaa !14
   %300 = getelementptr inbounds i8, ptr %299, i64 0
-  %301 = load i8, ptr %300, align 1, !tbaa !9
+  %301 = load i8, ptr %300, align 1, !tbaa !16
   %302 = sext i8 %301 to i32
   %303 = icmp sge i32 %302, 65
   br i1 %303, label %304, label %333
 
 304:                                              ; preds = %298
-  %305 = load ptr, ptr %9, align 8, !tbaa !3
+  %305 = load ptr, ptr %9, align 8, !tbaa !14
   %306 = getelementptr inbounds i8, ptr %305, i64 0
-  %307 = load i8, ptr %306, align 1, !tbaa !9
+  %307 = load i8, ptr %306, align 1, !tbaa !16
   %308 = sext i8 %307 to i32
   %309 = icmp sle i32 %308, 90
   br i1 %309, label %310, label %333
 
 310:                                              ; preds = %304, %292
   call void @llvm.lifetime.start.p0(i64 2, ptr %14) #6
-  %311 = load ptr, ptr %6, align 8, !tbaa !3
+  %311 = load ptr, ptr %6, align 8, !tbaa !10
   %312 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %311, i32 0, i32 6
   %313 = getelementptr inbounds [16 x i8], ptr %312, i64 0, i64 0
   %314 = call i64 @lv_strlen(ptr noundef %313)
   %315 = trunc i64 %314 to i16
-  store i16 %315, ptr %14, align 2, !tbaa !7
-  %316 = load ptr, ptr %6, align 8, !tbaa !3
+  store i16 %315, ptr %14, align 2, !tbaa !12
+  %316 = load ptr, ptr %6, align 8, !tbaa !10
   %317 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %316, i32 0, i32 6
   %318 = getelementptr inbounds [16 x i8], ptr %317, i64 0, i64 0
-  %319 = load i16, ptr %14, align 2, !tbaa !7
+  %319 = load i16, ptr %14, align 2, !tbaa !12
   %320 = zext i16 %319 to i32
   %321 = sext i32 %320 to i64
   %322 = getelementptr inbounds i8, ptr %318, i64 %321
-  %323 = load i16, ptr %14, align 2, !tbaa !7
+  %323 = load i16, ptr %14, align 2, !tbaa !12
   %324 = zext i16 %323 to i64
   %325 = sub i64 16, %324
-  %326 = load ptr, ptr %9, align 8, !tbaa !3
+  %326 = load ptr, ptr %9, align 8, !tbaa !14
   %327 = call i32 (ptr, i64, ptr, ...) @lv_snprintf(ptr noundef %322, i64 noundef %325, ptr noundef @.str.677, ptr noundef %326)
-  %328 = load ptr, ptr %5, align 8, !tbaa !3
+  %328 = load ptr, ptr %5, align 8, !tbaa !8
   call void @pinyin_input_proc(ptr noundef %328)
-  %329 = load ptr, ptr %6, align 8, !tbaa !3
+  %329 = load ptr, ptr %6, align 8, !tbaa !10
   %330 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %329, i32 0, i32 11
-  %331 = load i16, ptr %330, align 2, !tbaa !19
+  %331 = load i16, ptr %330, align 2, !tbaa !28
   %332 = add i16 %331, 1
-  store i16 %332, ptr %330, align 2, !tbaa !19
+  store i16 %332, ptr %330, align 2, !tbaa !28
   call void @llvm.lifetime.end.p0(i64 2, ptr %14) #6
   br label %445
 
 333:                                              ; preds = %304, %298, %281
-  %334 = load ptr, ptr %6, align 8, !tbaa !3
+  %334 = load ptr, ptr %6, align 8, !tbaa !10
   %335 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %334, i32 0, i32 16
-  %336 = load i32, ptr %335, align 4, !tbaa !12
+  %336 = load i32, ptr %335, align 4, !tbaa !19
   %337 = icmp eq i32 %336, 1
   br i1 %337, label %338, label %430
 
 338:                                              ; preds = %333
-  %339 = load ptr, ptr %9, align 8, !tbaa !3
+  %339 = load ptr, ptr %9, align 8, !tbaa !14
   %340 = getelementptr inbounds i8, ptr %339, i64 0
-  %341 = load i8, ptr %340, align 1, !tbaa !9
+  %341 = load i8, ptr %340, align 1, !tbaa !16
   %342 = sext i8 %341 to i32
   %343 = icmp sge i32 %342, 97
   br i1 %343, label %344, label %430
 
 344:                                              ; preds = %338
-  %345 = load ptr, ptr %9, align 8, !tbaa !3
+  %345 = load ptr, ptr %9, align 8, !tbaa !14
   %346 = getelementptr inbounds i8, ptr %345, i64 0
-  %347 = load i8, ptr %346, align 1, !tbaa !9
+  %347 = load i8, ptr %346, align 1, !tbaa !16
   %348 = sext i8 %347 to i32
   %349 = icmp sle i32 %348, 122
   br i1 %349, label %350, label %430
 
 350:                                              ; preds = %344
   call void @llvm.lifetime.start.p0(i64 2, ptr %15) #6
-  store i16 0, ptr %15, align 2, !tbaa !7
+  store i16 0, ptr %15, align 2, !tbaa !12
   br label %351
 
 351:                                              ; preds = %419, %350
-  %352 = load i16, ptr %15, align 2, !tbaa !7
+  %352 = load i16, ptr %15, align 2, !tbaa !12
   %353 = zext i16 %352 to i32
   %354 = icmp slt i32 %353, 8
   br i1 %354, label %356, label %355
@@ -1671,81 +1705,81 @@ define internal void @lv_ime_pinyin_kb_event(ptr noundef %0) #0 {
   br label %422
 
 356:                                              ; preds = %351
-  %357 = load ptr, ptr %9, align 8, !tbaa !3
-  %358 = load i16, ptr %15, align 2, !tbaa !7
+  %357 = load ptr, ptr %9, align 8, !tbaa !14
+  %358 = load i16, ptr %15, align 2, !tbaa !12
   %359 = zext i16 %358 to i64
   %360 = getelementptr inbounds nuw [8 x ptr], ptr @lv_ime_pinyin_kb_event.k9_py_map, i64 0, i64 %359
-  %361 = load ptr, ptr %360, align 8, !tbaa !3
+  %361 = load ptr, ptr %360, align 8, !tbaa !14
   %362 = call i32 @lv_strcmp(ptr noundef %357, ptr noundef %361)
   %363 = icmp eq i32 %362, 0
   br i1 %363, label %368, label %364
 
 364:                                              ; preds = %356
-  %365 = load ptr, ptr %9, align 8, !tbaa !3
+  %365 = load ptr, ptr %9, align 8, !tbaa !14
   %366 = call i32 @lv_strcmp(ptr noundef %365, ptr noundef @.str.678)
   %367 = icmp eq i32 %366, 0
   br i1 %367, label %368, label %418
 
 368:                                              ; preds = %364, %356
-  %369 = load ptr, ptr %9, align 8, !tbaa !3
+  %369 = load ptr, ptr %9, align 8, !tbaa !14
   %370 = call i32 @lv_strcmp(ptr noundef %369, ptr noundef @.str.678)
   %371 = icmp eq i32 %370, 0
   br i1 %371, label %372, label %385
 
 372:                                              ; preds = %368
-  %373 = load i16, ptr %15, align 2, !tbaa !7
+  %373 = load i16, ptr %15, align 2, !tbaa !12
   %374 = zext i16 %373 to i64
   %375 = getelementptr inbounds nuw [8 x ptr], ptr @lv_ime_pinyin_kb_event.k9_py_map, i64 0, i64 %374
-  %376 = load ptr, ptr %375, align 8, !tbaa !3
+  %376 = load ptr, ptr %375, align 8, !tbaa !14
   %377 = call i64 @lv_strlen(ptr noundef %376)
   %378 = add i64 %377, 1
-  %379 = load ptr, ptr %6, align 8, !tbaa !3
+  %379 = load ptr, ptr %6, align 8, !tbaa !10
   %380 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %379, i32 0, i32 10
-  %381 = load i16, ptr %380, align 4, !tbaa !22
+  %381 = load i16, ptr %380, align 4, !tbaa !31
   %382 = zext i16 %381 to i64
   %383 = add i64 %382, %378
   %384 = trunc i64 %383 to i16
-  store i16 %384, ptr %380, align 4, !tbaa !22
+  store i16 %384, ptr %380, align 4, !tbaa !31
   br label %397
 
 385:                                              ; preds = %368
-  %386 = load i16, ptr %15, align 2, !tbaa !7
+  %386 = load i16, ptr %15, align 2, !tbaa !12
   %387 = zext i16 %386 to i64
   %388 = getelementptr inbounds nuw [8 x ptr], ptr @lv_ime_pinyin_kb_event.k9_py_map, i64 0, i64 %387
-  %389 = load ptr, ptr %388, align 8, !tbaa !3
+  %389 = load ptr, ptr %388, align 8, !tbaa !14
   %390 = call i64 @lv_strlen(ptr noundef %389)
-  %391 = load ptr, ptr %6, align 8, !tbaa !3
+  %391 = load ptr, ptr %6, align 8, !tbaa !10
   %392 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %391, i32 0, i32 10
-  %393 = load i16, ptr %392, align 4, !tbaa !22
+  %393 = load i16, ptr %392, align 4, !tbaa !31
   %394 = zext i16 %393 to i64
   %395 = add i64 %394, %390
   %396 = trunc i64 %395 to i16
-  store i16 %396, ptr %392, align 4, !tbaa !22
+  store i16 %396, ptr %392, align 4, !tbaa !31
   br label %397
 
 397:                                              ; preds = %385, %372
-  %398 = load i16, ptr %15, align 2, !tbaa !7
+  %398 = load i16, ptr %15, align 2, !tbaa !12
   %399 = zext i16 %398 to i32
   %400 = add nsw i32 50, %399
   %401 = trunc i32 %400 to i8
-  %402 = load ptr, ptr %6, align 8, !tbaa !3
+  %402 = load ptr, ptr %6, align 8, !tbaa !10
   %403 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %402, i32 0, i32 7
-  %404 = load ptr, ptr %6, align 8, !tbaa !3
+  %404 = load ptr, ptr %6, align 8, !tbaa !10
   %405 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %404, i32 0, i32 11
-  %406 = load i16, ptr %405, align 2, !tbaa !19
+  %406 = load i16, ptr %405, align 2, !tbaa !28
   %407 = zext i16 %406 to i64
   %408 = getelementptr inbounds nuw [8 x i8], ptr %403, i64 0, i64 %407
-  store i8 %401, ptr %408, align 1, !tbaa !9
-  %409 = load ptr, ptr %6, align 8, !tbaa !3
+  store i8 %401, ptr %408, align 1, !tbaa !16
+  %409 = load ptr, ptr %6, align 8, !tbaa !10
   %410 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %409, i32 0, i32 7
-  %411 = load ptr, ptr %6, align 8, !tbaa !3
+  %411 = load ptr, ptr %6, align 8, !tbaa !10
   %412 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %411, i32 0, i32 11
-  %413 = load i16, ptr %412, align 2, !tbaa !19
+  %413 = load i16, ptr %412, align 2, !tbaa !28
   %414 = zext i16 %413 to i32
   %415 = add nsw i32 %414, 1
   %416 = sext i32 %415 to i64
   %417 = getelementptr inbounds [8 x i8], ptr %410, i64 0, i64 %416
-  store i8 0, ptr %417, align 1, !tbaa !9
+  store i8 0, ptr %417, align 1, !tbaa !16
   store i32 8, ptr %8, align 4
   br label %422
 
@@ -1753,46 +1787,46 @@ define internal void @lv_ime_pinyin_kb_event(ptr noundef %0) #0 {
   br label %419
 
 419:                                              ; preds = %418
-  %420 = load i16, ptr %15, align 2, !tbaa !7
+  %420 = load i16, ptr %15, align 2, !tbaa !12
   %421 = add i16 %420, 1
-  store i16 %421, ptr %15, align 2, !tbaa !7
-  br label %351, !llvm.loop !29
+  store i16 %421, ptr %15, align 2, !tbaa !12
+  br label %351, !llvm.loop !40
 
 422:                                              ; preds = %397, %355
   call void @llvm.lifetime.end.p0(i64 2, ptr %15) #6
   br label %423
 
 423:                                              ; preds = %422
-  %424 = load ptr, ptr %5, align 8, !tbaa !3
-  %425 = load ptr, ptr %6, align 8, !tbaa !3
+  %424 = load ptr, ptr %5, align 8, !tbaa !8
+  %425 = load ptr, ptr %6, align 8, !tbaa !10
   %426 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %425, i32 0, i32 7
   %427 = getelementptr inbounds [8 x i8], ptr %426, i64 0, i64 0
   call void @pinyin_k9_get_legal_py(ptr noundef %424, ptr noundef %427, ptr noundef @lv_ime_pinyin_kb_event.k9_py_map)
-  %428 = load ptr, ptr %5, align 8, !tbaa !3
+  %428 = load ptr, ptr %5, align 8, !tbaa !8
   call void @pinyin_k9_fill_cand(ptr noundef %428)
-  %429 = load ptr, ptr %5, align 8, !tbaa !3
+  %429 = load ptr, ptr %5, align 8, !tbaa !8
   call void @pinyin_input_proc(ptr noundef %429)
   br label %444
 
 430:                                              ; preds = %344, %338, %333
-  %431 = load ptr, ptr %9, align 8, !tbaa !3
+  %431 = load ptr, ptr %9, align 8, !tbaa !14
   %432 = call i32 @lv_strcmp(ptr noundef %431, ptr noundef @.str.679)
   %433 = icmp eq i32 %432, 0
   br i1 %433, label %434, label %436
 
 434:                                              ; preds = %430
-  %435 = load ptr, ptr %5, align 8, !tbaa !3
+  %435 = load ptr, ptr %5, align 8, !tbaa !8
   call void @pinyin_k9_cand_page_proc(ptr noundef %435, i16 noundef zeroext 0)
   br label %443
 
 436:                                              ; preds = %430
-  %437 = load ptr, ptr %9, align 8, !tbaa !3
+  %437 = load ptr, ptr %9, align 8, !tbaa !14
   %438 = call i32 @lv_strcmp(ptr noundef %437, ptr noundef @.str.680)
   %439 = icmp eq i32 %438, 0
   br i1 %439, label %440, label %442
 
 440:                                              ; preds = %436
-  %441 = load ptr, ptr %5, align 8, !tbaa !3
+  %441 = load ptr, ptr %5, align 8, !tbaa !8
   call void @pinyin_k9_cand_page_proc(ptr noundef %441, i16 noundef zeroext 1)
   br label %442
 
@@ -1870,17 +1904,34 @@ declare void @lv_obj_align_to(ptr noundef, ptr noundef, i32 noundef, i32 noundef
 define void @lv_ime_pinyin_set_dict(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8, !tbaa !3
-  store ptr %1, ptr %4, align 8, !tbaa !3
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store ptr %1, ptr %4, align 8, !tbaa !41
   br label %5
 
 5:                                                ; preds = %2
-  br label %6
+  %6 = load ptr, ptr %3, align 8, !tbaa !8
+  %7 = icmp ne ptr %6, null
+  br i1 %7, label %12, label %8
 
-6:                                                ; preds = %5
-  %7 = load ptr, ptr %3, align 8, !tbaa !3
-  %8 = load ptr, ptr %4, align 8, !tbaa !3
-  call void @init_pinyin_dict(ptr noundef %7, ptr noundef %8)
+8:                                                ; preds = %5
+  br label %9
+
+9:                                                ; preds = %8
+  br label %10
+
+10:                                               ; preds = %9
+  br label %11
+
+11:                                               ; preds = %10, %11
+  br label %11
+
+12:                                               ; preds = %5
+  br label %13
+
+13:                                               ; preds = %12
+  %14 = load ptr, ptr %3, align 8, !tbaa !8
+  %15 = load ptr, ptr %4, align 8, !tbaa !41
+  call void @init_pinyin_dict(ptr noundef %14, ptr noundef %15)
   ret void
 }
 
@@ -1894,141 +1945,141 @@ define internal void @init_pinyin_dict(ptr noundef %0, ptr noundef %1) #0 {
   %8 = alloca i16, align 2
   %9 = alloca i16, align 2
   %10 = alloca i16, align 2
-  store ptr %0, ptr %3, align 8, !tbaa !3
-  store ptr %1, ptr %4, align 8, !tbaa !3
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store ptr %1, ptr %4, align 8, !tbaa !41
   call void @llvm.lifetime.start.p0(i64 8, ptr %5) #6
-  %11 = load ptr, ptr %3, align 8, !tbaa !3
-  store ptr %11, ptr %5, align 8, !tbaa !3
+  %11 = load ptr, ptr %3, align 8, !tbaa !8
+  store ptr %11, ptr %5, align 8, !tbaa !10
   call void @llvm.lifetime.start.p0(i64 1, ptr %6) #6
-  store i8 97, ptr %6, align 1, !tbaa !9
+  store i8 97, ptr %6, align 1, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 2, ptr %7) #6
-  store i16 0, ptr %7, align 2, !tbaa !7
+  store i16 0, ptr %7, align 2, !tbaa !12
   call void @llvm.lifetime.start.p0(i64 2, ptr %8) #6
-  store i16 0, ptr %8, align 2, !tbaa !7
+  store i16 0, ptr %8, align 2, !tbaa !12
   call void @llvm.lifetime.start.p0(i64 2, ptr %9) #6
-  store i16 0, ptr %9, align 2, !tbaa !7
-  %12 = load ptr, ptr %4, align 8, !tbaa !3
-  %13 = load ptr, ptr %5, align 8, !tbaa !3
+  store i16 0, ptr %9, align 2, !tbaa !12
+  %12 = load ptr, ptr %4, align 8, !tbaa !41
+  %13 = load ptr, ptr %5, align 8, !tbaa !10
   %14 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %13, i32 0, i32 3
-  store ptr %12, ptr %14, align 8, !tbaa !30
+  store ptr %12, ptr %14, align 8, !tbaa !42
   call void @llvm.lifetime.start.p0(i64 2, ptr %10) #6
-  store i16 0, ptr %10, align 2, !tbaa !7
+  store i16 0, ptr %10, align 2, !tbaa !12
   br label %15
 
 15:                                               ; preds = %100, %2
-  %16 = load ptr, ptr %4, align 8, !tbaa !3
-  %17 = load i16, ptr %10, align 2, !tbaa !7
+  %16 = load ptr, ptr %4, align 8, !tbaa !41
+  %17 = load i16, ptr %10, align 2, !tbaa !12
   %18 = zext i16 %17 to i64
   %19 = getelementptr inbounds nuw %struct.lv_pinyin_dict_t, ptr %16, i64 %18
   %20 = getelementptr inbounds nuw %struct.lv_pinyin_dict_t, ptr %19, i32 0, i32 0
-  %21 = load ptr, ptr %20, align 8, !tbaa !31
+  %21 = load ptr, ptr %20, align 8, !tbaa !43
   %22 = icmp eq ptr null, %21
   br i1 %22, label %31, label %23
 
 23:                                               ; preds = %15
-  %24 = load ptr, ptr %4, align 8, !tbaa !3
-  %25 = load i16, ptr %10, align 2, !tbaa !7
+  %24 = load ptr, ptr %4, align 8, !tbaa !41
+  %25 = load i16, ptr %10, align 2, !tbaa !12
   %26 = zext i16 %25 to i64
   %27 = getelementptr inbounds nuw %struct.lv_pinyin_dict_t, ptr %24, i64 %26
   %28 = getelementptr inbounds nuw %struct.lv_pinyin_dict_t, ptr %27, i32 0, i32 1
-  %29 = load ptr, ptr %28, align 8, !tbaa !33
+  %29 = load ptr, ptr %28, align 8, !tbaa !45
   %30 = icmp eq ptr null, %29
   br i1 %30, label %31, label %52
 
 31:                                               ; preds = %23, %15
-  %32 = load ptr, ptr %4, align 8, !tbaa !3
-  %33 = load i16, ptr %10, align 2, !tbaa !7
+  %32 = load ptr, ptr %4, align 8, !tbaa !41
+  %33 = load i16, ptr %10, align 2, !tbaa !12
   %34 = zext i16 %33 to i32
   %35 = sub nsw i32 %34, 1
   %36 = sext i32 %35 to i64
   %37 = getelementptr inbounds %struct.lv_pinyin_dict_t, ptr %32, i64 %36
   %38 = getelementptr inbounds nuw %struct.lv_pinyin_dict_t, ptr %37, i32 0, i32 0
-  %39 = load ptr, ptr %38, align 8, !tbaa !31
+  %39 = load ptr, ptr %38, align 8, !tbaa !43
   %40 = getelementptr inbounds i8, ptr %39, i64 0
-  %41 = load i8, ptr %40, align 1, !tbaa !9
-  store i8 %41, ptr %6, align 1, !tbaa !9
-  %42 = load i8, ptr %6, align 1, !tbaa !9
+  %41 = load i8, ptr %40, align 1, !tbaa !16
+  store i8 %41, ptr %6, align 1, !tbaa !16
+  %42 = load i8, ptr %6, align 1, !tbaa !16
   %43 = sext i8 %42 to i32
   %44 = sub nsw i32 %43, 97
   %45 = trunc i32 %44 to i16
-  store i16 %45, ptr %9, align 2, !tbaa !7
-  %46 = load i16, ptr %8, align 2, !tbaa !7
-  %47 = load ptr, ptr %5, align 8, !tbaa !3
+  store i16 %45, ptr %9, align 2, !tbaa !12
+  %46 = load i16, ptr %8, align 2, !tbaa !12
+  %47 = load ptr, ptr %5, align 8, !tbaa !10
   %48 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %47, i32 0, i32 14
-  %49 = load i16, ptr %9, align 2, !tbaa !7
+  %49 = load i16, ptr %9, align 2, !tbaa !12
   %50 = zext i16 %49 to i64
   %51 = getelementptr inbounds nuw [26 x i16], ptr %48, i64 0, i64 %50
-  store i16 %46, ptr %51, align 2, !tbaa !7
+  store i16 %46, ptr %51, align 2, !tbaa !12
   call void @llvm.lifetime.end.p0(i64 2, ptr %10) #6
   br label %103
 
 52:                                               ; preds = %23
-  %53 = load i8, ptr %6, align 1, !tbaa !9
+  %53 = load i8, ptr %6, align 1, !tbaa !16
   %54 = sext i8 %53 to i32
-  %55 = load ptr, ptr %4, align 8, !tbaa !3
-  %56 = load i16, ptr %10, align 2, !tbaa !7
+  %55 = load ptr, ptr %4, align 8, !tbaa !41
+  %56 = load i16, ptr %10, align 2, !tbaa !12
   %57 = zext i16 %56 to i64
   %58 = getelementptr inbounds nuw %struct.lv_pinyin_dict_t, ptr %55, i64 %57
   %59 = getelementptr inbounds nuw %struct.lv_pinyin_dict_t, ptr %58, i32 0, i32 0
-  %60 = load ptr, ptr %59, align 8, !tbaa !31
+  %60 = load ptr, ptr %59, align 8, !tbaa !43
   %61 = getelementptr inbounds i8, ptr %60, i64 0
-  %62 = load i8, ptr %61, align 1, !tbaa !9
+  %62 = load i8, ptr %61, align 1, !tbaa !16
   %63 = sext i8 %62 to i32
   %64 = icmp eq i32 %54, %63
   br i1 %64, label %65, label %68
 
 65:                                               ; preds = %52
-  %66 = load i16, ptr %8, align 2, !tbaa !7
+  %66 = load i16, ptr %8, align 2, !tbaa !12
   %67 = add i16 %66, 1
-  store i16 %67, ptr %8, align 2, !tbaa !7
+  store i16 %67, ptr %8, align 2, !tbaa !12
   br label %99
 
 68:                                               ; preds = %52
-  %69 = load ptr, ptr %4, align 8, !tbaa !3
-  %70 = load i16, ptr %10, align 2, !tbaa !7
+  %69 = load ptr, ptr %4, align 8, !tbaa !41
+  %70 = load i16, ptr %10, align 2, !tbaa !12
   %71 = zext i16 %70 to i64
   %72 = getelementptr inbounds nuw %struct.lv_pinyin_dict_t, ptr %69, i64 %71
   %73 = getelementptr inbounds nuw %struct.lv_pinyin_dict_t, ptr %72, i32 0, i32 0
-  %74 = load ptr, ptr %73, align 8, !tbaa !31
+  %74 = load ptr, ptr %73, align 8, !tbaa !43
   %75 = getelementptr inbounds i8, ptr %74, i64 0
-  %76 = load i8, ptr %75, align 1, !tbaa !9
-  store i8 %76, ptr %6, align 1, !tbaa !9
-  %77 = load i16, ptr %8, align 2, !tbaa !7
-  %78 = load ptr, ptr %5, align 8, !tbaa !3
+  %76 = load i8, ptr %75, align 1, !tbaa !16
+  store i8 %76, ptr %6, align 1, !tbaa !16
+  %77 = load i16, ptr %8, align 2, !tbaa !12
+  %78 = load ptr, ptr %5, align 8, !tbaa !10
   %79 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %78, i32 0, i32 14
-  %80 = load i16, ptr %9, align 2, !tbaa !7
+  %80 = load i16, ptr %9, align 2, !tbaa !12
   %81 = zext i16 %80 to i64
   %82 = getelementptr inbounds nuw [26 x i16], ptr %79, i64 0, i64 %81
-  store i16 %77, ptr %82, align 2, !tbaa !7
-  %83 = load i8, ptr %6, align 1, !tbaa !9
+  store i16 %77, ptr %82, align 2, !tbaa !12
+  %83 = load i8, ptr %6, align 1, !tbaa !16
   %84 = sext i8 %83 to i32
   %85 = sub nsw i32 %84, 97
   %86 = trunc i32 %85 to i16
-  store i16 %86, ptr %9, align 2, !tbaa !7
-  %87 = load i16, ptr %8, align 2, !tbaa !7
+  store i16 %86, ptr %9, align 2, !tbaa !12
+  %87 = load i16, ptr %8, align 2, !tbaa !12
   %88 = zext i16 %87 to i32
-  %89 = load i16, ptr %7, align 2, !tbaa !7
+  %89 = load i16, ptr %7, align 2, !tbaa !12
   %90 = zext i16 %89 to i32
   %91 = add nsw i32 %90, %88
   %92 = trunc i32 %91 to i16
-  store i16 %92, ptr %7, align 2, !tbaa !7
-  %93 = load i16, ptr %7, align 2, !tbaa !7
-  %94 = load ptr, ptr %5, align 8, !tbaa !3
+  store i16 %92, ptr %7, align 2, !tbaa !12
+  %93 = load i16, ptr %7, align 2, !tbaa !12
+  %94 = load ptr, ptr %5, align 8, !tbaa !10
   %95 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %94, i32 0, i32 15
-  %96 = load i16, ptr %9, align 2, !tbaa !7
+  %96 = load i16, ptr %9, align 2, !tbaa !12
   %97 = zext i16 %96 to i64
   %98 = getelementptr inbounds nuw [26 x i16], ptr %95, i64 0, i64 %97
-  store i16 %93, ptr %98, align 2, !tbaa !7
-  store i16 1, ptr %8, align 2, !tbaa !7
+  store i16 %93, ptr %98, align 2, !tbaa !12
+  store i16 1, ptr %8, align 2, !tbaa !12
   br label %99
 
 99:                                               ; preds = %68, %65
   br label %100
 
 100:                                              ; preds = %99
-  %101 = load i16, ptr %10, align 2, !tbaa !7
+  %101 = load i16, ptr %10, align 2, !tbaa !12
   %102 = add i16 %101, 1
-  store i16 %102, ptr %10, align 2, !tbaa !7
+  store i16 %102, ptr %10, align 2, !tbaa !12
   br label %15
 
 103:                                              ; preds = %31
@@ -2045,50 +2096,92 @@ define void @lv_ime_pinyin_set_mode(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8, !tbaa !3
-  store i32 %1, ptr %4, align 4, !tbaa !26
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store i32 %1, ptr %4, align 4, !tbaa !37
   br label %6
 
 6:                                                ; preds = %2
-  br label %7
+  %7 = load ptr, ptr %3, align 8, !tbaa !8
+  %8 = icmp ne ptr %7, null
+  br i1 %8, label %13, label %9
 
-7:                                                ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #6
-  %8 = load ptr, ptr %3, align 8, !tbaa !3
-  store ptr %8, ptr %5, align 8, !tbaa !3
-  br label %9
-
-9:                                                ; preds = %7
+9:                                                ; preds = %6
   br label %10
 
 10:                                               ; preds = %9
   br label %11
 
 11:                                               ; preds = %10
-  %12 = load i32, ptr %4, align 4, !tbaa !26
-  %13 = load ptr, ptr %5, align 8, !tbaa !3
-  %14 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %13, i32 0, i32 16
-  store i32 %12, ptr %14, align 4, !tbaa !12
-  %15 = load ptr, ptr %5, align 8, !tbaa !3
-  %16 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %15, i32 0, i32 16
-  %17 = load i32, ptr %16, align 4, !tbaa !12
-  %18 = icmp eq i32 %17, 1
-  br i1 %18, label %19, label %27
+  br label %12
 
-19:                                               ; preds = %11
-  %20 = load ptr, ptr %3, align 8, !tbaa !3
-  call void @pinyin_k9_init_data(ptr noundef %20)
-  %21 = load ptr, ptr %5, align 8, !tbaa !3
-  %22 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %21, i32 0, i32 1
-  %23 = load ptr, ptr %22, align 8, !tbaa !25
-  call void @lv_keyboard_set_map(ptr noundef %23, i32 noundef 4, ptr noundef @lv_btnm_def_pinyin_k9_map, ptr noundef @default_kb_ctrl_k9_map)
-  %24 = load ptr, ptr %5, align 8, !tbaa !3
-  %25 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %24, i32 0, i32 1
-  %26 = load ptr, ptr %25, align 8, !tbaa !25
-  call void @lv_keyboard_set_mode(ptr noundef %26, i32 noundef 4)
-  br label %27
+12:                                               ; preds = %11, %12
+  br label %12
 
-27:                                               ; preds = %19, %11
+13:                                               ; preds = %6
+  br label %14
+
+14:                                               ; preds = %13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #6
+  %15 = load ptr, ptr %3, align 8, !tbaa !8
+  store ptr %15, ptr %5, align 8, !tbaa !10
+  br label %16
+
+16:                                               ; preds = %14
+  %17 = load ptr, ptr %5, align 8, !tbaa !10
+  %18 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %17, i32 0, i32 1
+  %19 = load ptr, ptr %18, align 8, !tbaa !34
+  %20 = icmp ne ptr %19, null
+  br i1 %20, label %27, label %21
+
+21:                                               ; preds = %16
+  br label %22
+
+22:                                               ; preds = %21
+  br label %23
+
+23:                                               ; preds = %22
+  br label %24
+
+24:                                               ; preds = %23
+  br label %25
+
+25:                                               ; preds = %26, %24
+  br label %26
+
+26:                                               ; preds = %25
+  br label %25
+
+27:                                               ; preds = %16
+  br label %28
+
+28:                                               ; preds = %27
+  br label %29
+
+29:                                               ; preds = %28
+  %30 = load i32, ptr %4, align 4, !tbaa !37
+  %31 = load ptr, ptr %5, align 8, !tbaa !10
+  %32 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %31, i32 0, i32 16
+  store i32 %30, ptr %32, align 4, !tbaa !19
+  %33 = load ptr, ptr %5, align 8, !tbaa !10
+  %34 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %33, i32 0, i32 16
+  %35 = load i32, ptr %34, align 4, !tbaa !19
+  %36 = icmp eq i32 %35, 1
+  br i1 %36, label %37, label %45
+
+37:                                               ; preds = %29
+  %38 = load ptr, ptr %3, align 8, !tbaa !8
+  call void @pinyin_k9_init_data(ptr noundef %38)
+  %39 = load ptr, ptr %5, align 8, !tbaa !10
+  %40 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %39, i32 0, i32 1
+  %41 = load ptr, ptr %40, align 8, !tbaa !34
+  call void @lv_keyboard_set_map(ptr noundef %41, i32 noundef 4, ptr noundef @lv_btnm_def_pinyin_k9_map, ptr noundef @default_kb_ctrl_k9_map)
+  %42 = load ptr, ptr %5, align 8, !tbaa !10
+  %43 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %42, i32 0, i32 1
+  %44 = load ptr, ptr %43, align 8, !tbaa !34
+  call void @lv_keyboard_set_mode(ptr noundef %44, i32 noundef 4)
+  br label %45
+
+45:                                               ; preds = %37, %29
   call void @llvm.lifetime.end.p0(i64 8, ptr %5) #6
   ret void
 }
@@ -2098,28 +2191,28 @@ define internal void @pinyin_k9_init_data(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca i16, align 2
   %4 = alloca i16, align 2
-  store ptr %0, ptr %2, align 8, !tbaa !3
+  store ptr %0, ptr %2, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 2, ptr %3) #6
-  store i16 0, ptr %3, align 2, !tbaa !7
+  store i16 0, ptr %3, align 2, !tbaa !12
   call void @llvm.lifetime.start.p0(i64 2, ptr %4) #6
-  store i16 0, ptr %4, align 2, !tbaa !7
-  store i16 19, ptr %4, align 2, !tbaa !7
+  store i16 0, ptr %4, align 2, !tbaa !12
+  store i16 19, ptr %4, align 2, !tbaa !12
   br label %5
 
 5:                                                ; preds = %46, %1
-  %6 = load i16, ptr %4, align 2, !tbaa !7
+  %6 = load i16, ptr %4, align 2, !tbaa !12
   %7 = zext i16 %6 to i32
   %8 = icmp slt i32 %7, 24
   br i1 %8, label %9, label %49
 
 9:                                                ; preds = %5
-  %10 = load i16, ptr %3, align 2, !tbaa !7
+  %10 = load i16, ptr %3, align 2, !tbaa !12
   %11 = zext i16 %10 to i32
   %12 = icmp eq i32 %11, 3
   br i1 %12, label %13, label %19
 
 13:                                               ; preds = %9
-  %14 = load i16, ptr %3, align 2, !tbaa !7
+  %14 = load i16, ptr %3, align 2, !tbaa !12
   %15 = zext i16 %14 to i64
   %16 = getelementptr inbounds nuw [5 x [7 x i8]], ptr @lv_pinyin_k9_cand_str, i64 0, i64 %15
   %17 = getelementptr inbounds [7 x i8], ptr %16, i64 0, i64 0
@@ -2127,13 +2220,13 @@ define internal void @pinyin_k9_init_data(ptr noundef %0) #0 {
   br label %36
 
 19:                                               ; preds = %9
-  %20 = load i16, ptr %3, align 2, !tbaa !7
+  %20 = load i16, ptr %3, align 2, !tbaa !12
   %21 = zext i16 %20 to i32
   %22 = icmp eq i32 %21, 4
   br i1 %22, label %23, label %29
 
 23:                                               ; preds = %19
-  %24 = load i16, ptr %3, align 2, !tbaa !7
+  %24 = load i16, ptr %3, align 2, !tbaa !12
   %25 = zext i16 %24 to i64
   %26 = getelementptr inbounds nuw [5 x [7 x i8]], ptr @lv_pinyin_k9_cand_str, i64 0, i64 %25
   %27 = getelementptr inbounds [7 x i8], ptr %26, i64 0, i64 0
@@ -2141,7 +2234,7 @@ define internal void @pinyin_k9_init_data(ptr noundef %0) #0 {
   br label %35
 
 29:                                               ; preds = %19
-  %30 = load i16, ptr %3, align 2, !tbaa !7
+  %30 = load i16, ptr %3, align 2, !tbaa !12
   %31 = zext i16 %30 to i64
   %32 = getelementptr inbounds nuw [5 x [7 x i8]], ptr @lv_pinyin_k9_cand_str, i64 0, i64 %31
   %33 = getelementptr inbounds [7 x i8], ptr %32, i64 0, i64 0
@@ -2152,35 +2245,35 @@ define internal void @pinyin_k9_init_data(ptr noundef %0) #0 {
   br label %36
 
 36:                                               ; preds = %35, %13
-  %37 = load i16, ptr %3, align 2, !tbaa !7
+  %37 = load i16, ptr %3, align 2, !tbaa !12
   %38 = zext i16 %37 to i64
   %39 = getelementptr inbounds nuw [5 x [7 x i8]], ptr @lv_pinyin_k9_cand_str, i64 0, i64 %38
   %40 = getelementptr inbounds [7 x i8], ptr %39, i64 0, i64 0
-  %41 = load i16, ptr %4, align 2, !tbaa !7
+  %41 = load i16, ptr %4, align 2, !tbaa !12
   %42 = zext i16 %41 to i64
   %43 = getelementptr inbounds nuw [24 x ptr], ptr @lv_btnm_def_pinyin_k9_map, i64 0, i64 %42
-  store ptr %40, ptr %43, align 8, !tbaa !3
-  %44 = load i16, ptr %3, align 2, !tbaa !7
+  store ptr %40, ptr %43, align 8, !tbaa !14
+  %44 = load i16, ptr %3, align 2, !tbaa !12
   %45 = add i16 %44, 1
-  store i16 %45, ptr %3, align 2, !tbaa !7
+  store i16 %45, ptr %3, align 2, !tbaa !12
   br label %46
 
 46:                                               ; preds = %36
-  %47 = load i16, ptr %4, align 2, !tbaa !7
+  %47 = load i16, ptr %4, align 2, !tbaa !12
   %48 = add i16 %47, 1
-  store i16 %48, ptr %4, align 2, !tbaa !7
-  br label %5, !llvm.loop !34
+  store i16 %48, ptr %4, align 2, !tbaa !12
+  br label %5, !llvm.loop !46
 
 49:                                               ; preds = %5
-  store i32 257, ptr @default_kb_ctrl_k9_map, align 16, !tbaa !26
-  store i32 545, ptr getelementptr inbounds ([20 x i32], ptr @default_kb_ctrl_k9_map, i64 0, i64 1), align 4, !tbaa !26
-  store i32 257, ptr getelementptr inbounds ([20 x i32], ptr @default_kb_ctrl_k9_map, i64 0, i64 4), align 16, !tbaa !26
-  store i32 257, ptr getelementptr inbounds ([20 x i32], ptr @default_kb_ctrl_k9_map, i64 0, i64 5), align 4, !tbaa !26
-  store i32 801, ptr getelementptr inbounds ([20 x i32], ptr @default_kb_ctrl_k9_map, i64 0, i64 9), align 4, !tbaa !26
-  store i32 257, ptr getelementptr inbounds ([20 x i32], ptr @default_kb_ctrl_k9_map, i64 0, i64 10), align 8, !tbaa !26
-  store i32 257, ptr getelementptr inbounds ([20 x i32], ptr @default_kb_ctrl_k9_map, i64 0, i64 14), align 8, !tbaa !26
-  store i32 257, ptr getelementptr inbounds ([20 x i32], ptr @default_kb_ctrl_k9_map, i64 0, i64 15), align 4, !tbaa !26
-  store i32 257, ptr getelementptr inbounds ([20 x i32], ptr @default_kb_ctrl_k9_map, i64 0, i64 19), align 4, !tbaa !26
+  store i32 257, ptr @default_kb_ctrl_k9_map, align 16, !tbaa !37
+  store i32 545, ptr getelementptr inbounds ([20 x i32], ptr @default_kb_ctrl_k9_map, i64 0, i64 1), align 4, !tbaa !37
+  store i32 257, ptr getelementptr inbounds ([20 x i32], ptr @default_kb_ctrl_k9_map, i64 0, i64 4), align 16, !tbaa !37
+  store i32 257, ptr getelementptr inbounds ([20 x i32], ptr @default_kb_ctrl_k9_map, i64 0, i64 5), align 4, !tbaa !37
+  store i32 801, ptr getelementptr inbounds ([20 x i32], ptr @default_kb_ctrl_k9_map, i64 0, i64 9), align 4, !tbaa !37
+  store i32 257, ptr getelementptr inbounds ([20 x i32], ptr @default_kb_ctrl_k9_map, i64 0, i64 10), align 8, !tbaa !37
+  store i32 257, ptr getelementptr inbounds ([20 x i32], ptr @default_kb_ctrl_k9_map, i64 0, i64 14), align 8, !tbaa !37
+  store i32 257, ptr getelementptr inbounds ([20 x i32], ptr @default_kb_ctrl_k9_map, i64 0, i64 15), align 4, !tbaa !37
+  store i32 257, ptr getelementptr inbounds ([20 x i32], ptr @default_kb_ctrl_k9_map, i64 0, i64 19), align 4, !tbaa !37
   call void @llvm.lifetime.end.p0(i64 2, ptr %4) #6
   call void @llvm.lifetime.end.p0(i64 2, ptr %3) #6
   ret void
@@ -2194,73 +2287,124 @@ declare void @lv_keyboard_set_mode(ptr noundef, i32 noundef) #2
 define ptr @lv_ime_pinyin_get_kb(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8, !tbaa !3
+  store ptr %0, ptr %2, align 8, !tbaa !8
   br label %4
 
 4:                                                ; preds = %1
-  br label %5
+  %5 = load ptr, ptr %2, align 8, !tbaa !8
+  %6 = icmp ne ptr %5, null
+  br i1 %6, label %11, label %7
 
-5:                                                ; preds = %4
+7:                                                ; preds = %4
+  br label %8
+
+8:                                                ; preds = %7
+  br label %9
+
+9:                                                ; preds = %8
+  br label %10
+
+10:                                               ; preds = %9, %10
+  br label %10
+
+11:                                               ; preds = %4
+  br label %12
+
+12:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(i64 8, ptr %3) #6
-  %6 = load ptr, ptr %2, align 8, !tbaa !3
-  store ptr %6, ptr %3, align 8, !tbaa !3
-  %7 = load ptr, ptr %3, align 8, !tbaa !3
-  %8 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %8, align 8, !tbaa !25
+  %13 = load ptr, ptr %2, align 8, !tbaa !8
+  store ptr %13, ptr %3, align 8, !tbaa !10
+  %14 = load ptr, ptr %3, align 8, !tbaa !10
+  %15 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %14, i32 0, i32 1
+  %16 = load ptr, ptr %15, align 8, !tbaa !34
   call void @llvm.lifetime.end.p0(i64 8, ptr %3) #6
-  ret ptr %9
+  ret ptr %16
 }
 
 ; Function Attrs: nounwind uwtable
 define ptr @lv_ime_pinyin_get_cand_panel(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8, !tbaa !3
+  store ptr %0, ptr %2, align 8, !tbaa !8
   br label %4
 
 4:                                                ; preds = %1
-  br label %5
+  %5 = load ptr, ptr %2, align 8, !tbaa !8
+  %6 = icmp ne ptr %5, null
+  br i1 %6, label %11, label %7
 
-5:                                                ; preds = %4
+7:                                                ; preds = %4
+  br label %8
+
+8:                                                ; preds = %7
+  br label %9
+
+9:                                                ; preds = %8
+  br label %10
+
+10:                                               ; preds = %9, %10
+  br label %10
+
+11:                                               ; preds = %4
+  br label %12
+
+12:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(i64 8, ptr %3) #6
-  %6 = load ptr, ptr %2, align 8, !tbaa !3
-  store ptr %6, ptr %3, align 8, !tbaa !3
-  %7 = load ptr, ptr %3, align 8, !tbaa !3
-  %8 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %7, i32 0, i32 2
-  %9 = load ptr, ptr %8, align 8, !tbaa !21
+  %13 = load ptr, ptr %2, align 8, !tbaa !8
+  store ptr %13, ptr %3, align 8, !tbaa !10
+  %14 = load ptr, ptr %3, align 8, !tbaa !10
+  %15 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %14, i32 0, i32 2
+  %16 = load ptr, ptr %15, align 8, !tbaa !30
   call void @llvm.lifetime.end.p0(i64 8, ptr %3) #6
-  ret ptr %9
+  ret ptr %16
 }
 
 ; Function Attrs: nounwind uwtable
 define ptr @lv_ime_pinyin_get_dict(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8, !tbaa !3
+  store ptr %0, ptr %2, align 8, !tbaa !8
   br label %4
 
 4:                                                ; preds = %1
-  br label %5
+  %5 = load ptr, ptr %2, align 8, !tbaa !8
+  %6 = icmp ne ptr %5, null
+  br i1 %6, label %11, label %7
 
-5:                                                ; preds = %4
+7:                                                ; preds = %4
+  br label %8
+
+8:                                                ; preds = %7
+  br label %9
+
+9:                                                ; preds = %8
+  br label %10
+
+10:                                               ; preds = %9, %10
+  br label %10
+
+11:                                               ; preds = %4
+  br label %12
+
+12:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(i64 8, ptr %3) #6
-  %6 = load ptr, ptr %2, align 8, !tbaa !3
-  store ptr %6, ptr %3, align 8, !tbaa !3
-  %7 = load ptr, ptr %3, align 8, !tbaa !3
-  %8 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %7, i32 0, i32 3
-  %9 = load ptr, ptr %8, align 8, !tbaa !30
+  %13 = load ptr, ptr %2, align 8, !tbaa !8
+  store ptr %13, ptr %3, align 8, !tbaa !10
+  %14 = load ptr, ptr %3, align 8, !tbaa !10
+  %15 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %14, i32 0, i32 3
+  %16 = load ptr, ptr %15, align 8, !tbaa !42
   call void @llvm.lifetime.end.p0(i64 8, ptr %3) #6
-  ret ptr %9
+  ret ptr %16
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
 define internal void @lv_memzero(ptr noundef %0, i64 noundef %1) #3 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8, !tbaa !3
-  store i64 %1, ptr %4, align 8, !tbaa !35
-  %5 = load ptr, ptr %3, align 8, !tbaa !3
-  %6 = load i64, ptr %4, align 8, !tbaa !35
+  store ptr %0, ptr %3, align 8, !tbaa !41
+  store i64 %1, ptr %4, align 8, !tbaa !47
+  %5 = load ptr, ptr %3, align 8, !tbaa !41
+  %6 = load i64, ptr %4, align 8, !tbaa !47
   call void @lv_memset(ptr noundef %5, i8 noundef zeroext 0, i64 noundef %6)
   ret void
 }
@@ -2286,24 +2430,24 @@ define internal void @lv_obj_set_style_pad_all(ptr noundef %0, i32 noundef %1, i
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8, !tbaa !3
-  store i32 %1, ptr %5, align 4, !tbaa !26
-  store i32 %2, ptr %6, align 4, !tbaa !26
-  %7 = load ptr, ptr %4, align 8, !tbaa !3
-  %8 = load i32, ptr %5, align 4, !tbaa !26
-  %9 = load i32, ptr %6, align 4, !tbaa !26
+  store ptr %0, ptr %4, align 8, !tbaa !8
+  store i32 %1, ptr %5, align 4, !tbaa !37
+  store i32 %2, ptr %6, align 4, !tbaa !37
+  %7 = load ptr, ptr %4, align 8, !tbaa !8
+  %8 = load i32, ptr %5, align 4, !tbaa !37
+  %9 = load i32, ptr %6, align 4, !tbaa !37
   call void @lv_obj_set_style_pad_left(ptr noundef %7, i32 noundef %8, i32 noundef %9)
-  %10 = load ptr, ptr %4, align 8, !tbaa !3
-  %11 = load i32, ptr %5, align 4, !tbaa !26
-  %12 = load i32, ptr %6, align 4, !tbaa !26
+  %10 = load ptr, ptr %4, align 8, !tbaa !8
+  %11 = load i32, ptr %5, align 4, !tbaa !37
+  %12 = load i32, ptr %6, align 4, !tbaa !37
   call void @lv_obj_set_style_pad_right(ptr noundef %10, i32 noundef %11, i32 noundef %12)
-  %13 = load ptr, ptr %4, align 8, !tbaa !3
-  %14 = load i32, ptr %5, align 4, !tbaa !26
-  %15 = load i32, ptr %6, align 4, !tbaa !26
+  %13 = load ptr, ptr %4, align 8, !tbaa !8
+  %14 = load i32, ptr %5, align 4, !tbaa !37
+  %15 = load i32, ptr %6, align 4, !tbaa !37
   call void @lv_obj_set_style_pad_top(ptr noundef %13, i32 noundef %14, i32 noundef %15)
-  %16 = load ptr, ptr %4, align 8, !tbaa !3
-  %17 = load i32, ptr %5, align 4, !tbaa !26
-  %18 = load i32, ptr %6, align 4, !tbaa !26
+  %16 = load ptr, ptr %4, align 8, !tbaa !8
+  %17 = load i32, ptr %5, align 4, !tbaa !37
+  %18 = load i32, ptr %6, align 4, !tbaa !37
   call void @lv_obj_set_style_pad_bottom(ptr noundef %16, i32 noundef %17, i32 noundef %18)
   ret void
 }
@@ -2313,16 +2457,16 @@ define internal void @lv_obj_set_style_pad_gap(ptr noundef %0, i32 noundef %1, i
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8, !tbaa !3
-  store i32 %1, ptr %5, align 4, !tbaa !26
-  store i32 %2, ptr %6, align 4, !tbaa !26
-  %7 = load ptr, ptr %4, align 8, !tbaa !3
-  %8 = load i32, ptr %5, align 4, !tbaa !26
-  %9 = load i32, ptr %6, align 4, !tbaa !26
+  store ptr %0, ptr %4, align 8, !tbaa !8
+  store i32 %1, ptr %5, align 4, !tbaa !37
+  store i32 %2, ptr %6, align 4, !tbaa !37
+  %7 = load ptr, ptr %4, align 8, !tbaa !8
+  %8 = load i32, ptr %5, align 4, !tbaa !37
+  %9 = load i32, ptr %6, align 4, !tbaa !37
   call void @lv_obj_set_style_pad_row(ptr noundef %7, i32 noundef %8, i32 noundef %9)
-  %10 = load ptr, ptr %4, align 8, !tbaa !3
-  %11 = load i32, ptr %5, align 4, !tbaa !26
-  %12 = load i32, ptr %6, align 4, !tbaa !26
+  %10 = load ptr, ptr %4, align 8, !tbaa !8
+  %11 = load i32, ptr %5, align 4, !tbaa !37
+  %12 = load i32, ptr %6, align 4, !tbaa !37
   call void @lv_obj_set_style_pad_column(ptr noundef %10, i32 noundef %11, i32 noundef %12)
   ret void
 }
@@ -2336,7 +2480,7 @@ declare void @lv_obj_set_style_bg_color(ptr noundef, i24, i32 noundef) #2
 declare i24 @lv_color_white() #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare void @lv_obj_set_style_shadow_opa(ptr noundef, i8 noundef zeroext, i32 noundef) #2
 
@@ -2352,34 +2496,34 @@ define internal void @lv_ime_pinyin_cand_panel_event(ptr noundef %0) #0 {
   %9 = alloca i32, align 4
   %10 = alloca ptr, align 8
   %11 = alloca i16, align 2
-  store ptr %0, ptr %2, align 8, !tbaa !3
+  store ptr %0, ptr %2, align 8, !tbaa !35
   call void @llvm.lifetime.start.p0(i64 4, ptr %3) #6
-  %12 = load ptr, ptr %2, align 8, !tbaa !3
+  %12 = load ptr, ptr %2, align 8, !tbaa !35
   %13 = call i32 @lv_event_get_code(ptr noundef %12)
-  store i32 %13, ptr %3, align 4, !tbaa !26
+  store i32 %13, ptr %3, align 4, !tbaa !37
   call void @llvm.lifetime.start.p0(i64 8, ptr %4) #6
-  %14 = load ptr, ptr %2, align 8, !tbaa !3
+  %14 = load ptr, ptr %2, align 8, !tbaa !35
   %15 = call ptr @lv_event_get_current_target(ptr noundef %14)
-  store ptr %15, ptr %4, align 8, !tbaa !3
+  store ptr %15, ptr %4, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 8, ptr %5) #6
-  %16 = load ptr, ptr %2, align 8, !tbaa !3
+  %16 = load ptr, ptr %2, align 8, !tbaa !35
   %17 = call ptr @lv_event_get_user_data(ptr noundef %16)
-  store ptr %17, ptr %5, align 8, !tbaa !3
+  store ptr %17, ptr %5, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 8, ptr %6) #6
-  %18 = load ptr, ptr %5, align 8, !tbaa !3
-  store ptr %18, ptr %6, align 8, !tbaa !3
-  %19 = load i32, ptr %3, align 4, !tbaa !26
+  %18 = load ptr, ptr %5, align 8, !tbaa !8
+  store ptr %18, ptr %6, align 8, !tbaa !10
+  %19 = load i32, ptr %3, align 4, !tbaa !37
   %20 = icmp eq i32 %19, 35
   br i1 %20, label %21, label %72
 
 21:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 8, ptr %7) #6
-  %22 = load ptr, ptr %6, align 8, !tbaa !3
+  %22 = load ptr, ptr %6, align 8, !tbaa !10
   %23 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %22, i32 0, i32 1
-  %24 = load ptr, ptr %23, align 8, !tbaa !25
+  %24 = load ptr, ptr %23, align 8, !tbaa !34
   %25 = call ptr @lv_keyboard_get_textarea(ptr noundef %24)
-  store ptr %25, ptr %7, align 8, !tbaa !3
-  %26 = load ptr, ptr %7, align 8, !tbaa !3
+  store ptr %25, ptr %7, align 8, !tbaa !8
+  %26 = load ptr, ptr %7, align 8, !tbaa !8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %28, label %29
 
@@ -2389,10 +2533,10 @@ define internal void @lv_ime_pinyin_cand_panel_event(ptr noundef %0) #0 {
 
 29:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(i64 4, ptr %9) #6
-  %30 = load ptr, ptr %4, align 8, !tbaa !3
+  %30 = load ptr, ptr %4, align 8, !tbaa !8
   %31 = call i32 @lv_buttonmatrix_get_selected_button(ptr noundef %30)
-  store i32 %31, ptr %9, align 4, !tbaa !26
-  %32 = load i32, ptr %9, align 4, !tbaa !26
+  store i32 %31, ptr %9, align 4, !tbaa !37
+  %32 = load i32, ptr %9, align 4, !tbaa !37
   %33 = icmp eq i32 %32, 65535
   br i1 %33, label %34, label %35
 
@@ -2401,23 +2545,23 @@ define internal void @lv_ime_pinyin_cand_panel_event(ptr noundef %0) #0 {
   br label %68
 
 35:                                               ; preds = %29
-  %36 = load i32, ptr %9, align 4, !tbaa !26
+  %36 = load i32, ptr %9, align 4, !tbaa !37
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %35
-  %39 = load ptr, ptr %5, align 8, !tbaa !3
+  %39 = load ptr, ptr %5, align 8, !tbaa !8
   call void @pinyin_page_proc(ptr noundef %39, i16 noundef zeroext 0)
   store i32 1, ptr %8, align 4
   br label %68
 
 40:                                               ; preds = %35
-  %41 = load i32, ptr %9, align 4, !tbaa !26
+  %41 = load i32, ptr %9, align 4, !tbaa !37
   %42 = icmp eq i32 %41, 7
   br i1 %42, label %43, label %45
 
 43:                                               ; preds = %40
-  %44 = load ptr, ptr %5, align 8, !tbaa !3
+  %44 = load ptr, ptr %5, align 8, !tbaa !8
   call void @pinyin_page_proc(ptr noundef %44, i16 noundef zeroext 1)
   store i32 1, ptr %8, align 4
   br label %68
@@ -2430,41 +2574,41 @@ define internal void @lv_ime_pinyin_cand_panel_event(ptr noundef %0) #0 {
 
 47:                                               ; preds = %46
   call void @llvm.lifetime.start.p0(i64 8, ptr %10) #6
-  %48 = load ptr, ptr %4, align 8, !tbaa !3
-  %49 = load i32, ptr %9, align 4, !tbaa !26
+  %48 = load ptr, ptr %4, align 8, !tbaa !8
+  %49 = load i32, ptr %9, align 4, !tbaa !37
   %50 = call ptr @lv_buttonmatrix_get_button_text(ptr noundef %48, i32 noundef %49)
-  store ptr %50, ptr %10, align 8, !tbaa !3
+  store ptr %50, ptr %10, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(i64 2, ptr %11) #6
-  store i16 0, ptr %11, align 2, !tbaa !7
-  store i16 0, ptr %11, align 2, !tbaa !7
+  store i16 0, ptr %11, align 2, !tbaa !12
+  store i16 0, ptr %11, align 2, !tbaa !12
   br label %51
 
 51:                                               ; preds = %61, %47
-  %52 = load i16, ptr %11, align 2, !tbaa !7
+  %52 = load i16, ptr %11, align 2, !tbaa !12
   %53 = zext i16 %52 to i32
-  %54 = load ptr, ptr %6, align 8, !tbaa !3
+  %54 = load ptr, ptr %6, align 8, !tbaa !10
   %55 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %54, i32 0, i32 11
-  %56 = load i16, ptr %55, align 2, !tbaa !19
+  %56 = load i16, ptr %55, align 2, !tbaa !28
   %57 = zext i16 %56 to i32
   %58 = icmp slt i32 %53, %57
   br i1 %58, label %59, label %64
 
 59:                                               ; preds = %51
-  %60 = load ptr, ptr %7, align 8, !tbaa !3
+  %60 = load ptr, ptr %7, align 8, !tbaa !8
   call void @lv_textarea_delete_char(ptr noundef %60)
   br label %61
 
 61:                                               ; preds = %59
-  %62 = load i16, ptr %11, align 2, !tbaa !7
+  %62 = load i16, ptr %11, align 2, !tbaa !12
   %63 = add i16 %62, 1
-  store i16 %63, ptr %11, align 2, !tbaa !7
-  br label %51, !llvm.loop !37
+  store i16 %63, ptr %11, align 2, !tbaa !12
+  br label %51, !llvm.loop !49
 
 64:                                               ; preds = %51
-  %65 = load ptr, ptr %7, align 8, !tbaa !3
-  %66 = load ptr, ptr %10, align 8, !tbaa !3
+  %65 = load ptr, ptr %7, align 8, !tbaa !8
+  %66 = load ptr, ptr %10, align 8, !tbaa !14
   call void @lv_textarea_add_text(ptr noundef %65, ptr noundef %66)
-  %67 = load ptr, ptr %5, align 8, !tbaa !3
+  %67 = load ptr, ptr %5, align 8, !tbaa !8
   call void @pinyin_ime_clear_data(ptr noundef %67)
   call void @llvm.lifetime.end.p0(i64 2, ptr %11) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr %10) #6
@@ -2514,31 +2658,31 @@ define internal void @lv_ime_pinyin_style_change_event(ptr noundef %0) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8, !tbaa !3
+  store ptr %0, ptr %2, align 8, !tbaa !35
   call void @llvm.lifetime.start.p0(i64 4, ptr %3) #6
-  %7 = load ptr, ptr %2, align 8, !tbaa !3
+  %7 = load ptr, ptr %2, align 8, !tbaa !35
   %8 = call i32 @lv_event_get_code(ptr noundef %7)
-  store i32 %8, ptr %3, align 4, !tbaa !26
+  store i32 %8, ptr %3, align 4, !tbaa !37
   call void @llvm.lifetime.start.p0(i64 8, ptr %4) #6
-  %9 = load ptr, ptr %2, align 8, !tbaa !3
+  %9 = load ptr, ptr %2, align 8, !tbaa !35
   %10 = call ptr @lv_event_get_current_target(ptr noundef %9)
-  store ptr %10, ptr %4, align 8, !tbaa !3
+  store ptr %10, ptr %4, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 8, ptr %5) #6
-  %11 = load ptr, ptr %4, align 8, !tbaa !3
-  store ptr %11, ptr %5, align 8, !tbaa !3
-  %12 = load i32, ptr %3, align 4, !tbaa !26
+  %11 = load ptr, ptr %4, align 8, !tbaa !8
+  store ptr %11, ptr %5, align 8, !tbaa !10
+  %12 = load i32, ptr %3, align 4, !tbaa !37
   %13 = icmp eq i32 %12, 50
   br i1 %13, label %14, label %21
 
 14:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 8, ptr %6) #6
-  %15 = load ptr, ptr %4, align 8, !tbaa !3
+  %15 = load ptr, ptr %4, align 8, !tbaa !8
   %16 = call ptr @lv_obj_get_style_text_font(ptr noundef %15, i32 noundef 0)
-  store ptr %16, ptr %6, align 8, !tbaa !3
-  %17 = load ptr, ptr %5, align 8, !tbaa !3
+  store ptr %16, ptr %6, align 8, !tbaa !50
+  %17 = load ptr, ptr %5, align 8, !tbaa !10
   %18 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %17, i32 0, i32 2
-  %19 = load ptr, ptr %18, align 8, !tbaa !21
-  %20 = load ptr, ptr %6, align 8, !tbaa !3
+  %19 = load ptr, ptr %18, align 8, !tbaa !30
+  %20 = load ptr, ptr %6, align 8, !tbaa !50
   call void @lv_obj_set_style_text_font(ptr noundef %19, ptr noundef %20, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr %6) #6
   br label %21
@@ -2588,30 +2732,30 @@ define internal void @pinyin_page_proc(ptr noundef %0, i16 noundef zeroext %1) #
   %10 = alloca i16, align 2
   %11 = alloca i8, align 1
   %12 = alloca i8, align 1
-  store ptr %0, ptr %3, align 8, !tbaa !3
-  store i16 %1, ptr %4, align 2, !tbaa !7
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store i16 %1, ptr %4, align 2, !tbaa !12
   call void @llvm.lifetime.start.p0(i64 8, ptr %5) #6
-  %13 = load ptr, ptr %3, align 8, !tbaa !3
-  store ptr %13, ptr %5, align 8, !tbaa !3
+  %13 = load ptr, ptr %3, align 8, !tbaa !8
+  store ptr %13, ptr %5, align 8, !tbaa !10
   call void @llvm.lifetime.start.p0(i64 2, ptr %6) #6
-  %14 = load ptr, ptr %5, align 8, !tbaa !3
+  %14 = load ptr, ptr %5, align 8, !tbaa !10
   %15 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %14, i32 0, i32 12
-  %16 = load i16, ptr %15, align 8, !tbaa !20
+  %16 = load i16, ptr %15, align 8, !tbaa !29
   %17 = zext i16 %16 to i32
   %18 = sdiv i32 %17, 6
   %19 = trunc i32 %18 to i16
-  store i16 %19, ptr %6, align 2, !tbaa !7
+  store i16 %19, ptr %6, align 2, !tbaa !12
   call void @llvm.lifetime.start.p0(i64 2, ptr %7) #6
-  %20 = load ptr, ptr %5, align 8, !tbaa !3
+  %20 = load ptr, ptr %5, align 8, !tbaa !10
   %21 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %20, i32 0, i32 12
-  %22 = load i16, ptr %21, align 8, !tbaa !20
+  %22 = load i16, ptr %21, align 8, !tbaa !29
   %23 = zext i16 %22 to i32
   %24 = srem i32 %23, 6
   %25 = trunc i32 %24 to i16
-  store i16 %25, ptr %7, align 2, !tbaa !7
-  %26 = load ptr, ptr %5, align 8, !tbaa !3
+  store i16 %25, ptr %7, align 2, !tbaa !12
+  %26 = load ptr, ptr %5, align 8, !tbaa !10
   %27 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %26, i32 0, i32 5
-  %28 = load ptr, ptr %27, align 8, !tbaa !38
+  %28 = load ptr, ptr %27, align 8, !tbaa !52
   %29 = icmp ne ptr %28, null
   br i1 %29, label %31, label %30
 
@@ -2620,59 +2764,59 @@ define internal void @pinyin_page_proc(ptr noundef %0, i16 noundef zeroext %1) #
   br label %167
 
 31:                                               ; preds = %2
-  %32 = load i16, ptr %4, align 2, !tbaa !7
+  %32 = load i16, ptr %4, align 2, !tbaa !12
   %33 = zext i16 %32 to i32
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %35, label %46
 
 35:                                               ; preds = %31
-  %36 = load ptr, ptr %5, align 8, !tbaa !3
+  %36 = load ptr, ptr %5, align 8, !tbaa !10
   %37 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %36, i32 0, i32 13
-  %38 = load i16, ptr %37, align 2, !tbaa !18
+  %38 = load i16, ptr %37, align 2, !tbaa !27
   %39 = icmp ne i16 %38, 0
   br i1 %39, label %40, label %45
 
 40:                                               ; preds = %35
-  %41 = load ptr, ptr %5, align 8, !tbaa !3
+  %41 = load ptr, ptr %5, align 8, !tbaa !10
   %42 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %41, i32 0, i32 13
-  %43 = load i16, ptr %42, align 2, !tbaa !18
+  %43 = load i16, ptr %42, align 2, !tbaa !27
   %44 = add i16 %43, -1
-  store i16 %44, ptr %42, align 2, !tbaa !18
+  store i16 %44, ptr %42, align 2, !tbaa !27
   br label %45
 
 45:                                               ; preds = %40, %35
   br label %70
 
 46:                                               ; preds = %31
-  %47 = load i16, ptr %7, align 2, !tbaa !7
+  %47 = load i16, ptr %7, align 2, !tbaa !12
   %48 = zext i16 %47 to i32
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %50, label %55
 
 50:                                               ; preds = %46
-  %51 = load i16, ptr %6, align 2, !tbaa !7
+  %51 = load i16, ptr %6, align 2, !tbaa !12
   %52 = zext i16 %51 to i32
   %53 = sub nsw i32 %52, 1
   %54 = trunc i32 %53 to i16
-  store i16 %54, ptr %6, align 2, !tbaa !7
+  store i16 %54, ptr %6, align 2, !tbaa !12
   br label %55
 
 55:                                               ; preds = %50, %46
-  %56 = load ptr, ptr %5, align 8, !tbaa !3
+  %56 = load ptr, ptr %5, align 8, !tbaa !10
   %57 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %56, i32 0, i32 13
-  %58 = load i16, ptr %57, align 2, !tbaa !18
+  %58 = load i16, ptr %57, align 2, !tbaa !27
   %59 = zext i16 %58 to i32
-  %60 = load i16, ptr %6, align 2, !tbaa !7
+  %60 = load i16, ptr %6, align 2, !tbaa !12
   %61 = zext i16 %60 to i32
   %62 = icmp slt i32 %59, %61
   br i1 %62, label %63, label %68
 
 63:                                               ; preds = %55
-  %64 = load ptr, ptr %5, align 8, !tbaa !3
+  %64 = load ptr, ptr %5, align 8, !tbaa !10
   %65 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %64, i32 0, i32 13
-  %66 = load i16, ptr %65, align 2, !tbaa !18
+  %66 = load i16, ptr %65, align 2, !tbaa !27
   %67 = add i16 %66, 1
-  store i16 %67, ptr %65, align 2, !tbaa !18
+  store i16 %67, ptr %65, align 2, !tbaa !27
   br label %69
 
 68:                                               ; preds = %55
@@ -2684,11 +2828,11 @@ define internal void @pinyin_page_proc(ptr noundef %0, i16 noundef zeroext %1) #
 
 70:                                               ; preds = %69, %45
   call void @llvm.lifetime.start.p0(i64 1, ptr %9) #6
-  store i8 0, ptr %9, align 1, !tbaa !9
+  store i8 0, ptr %9, align 1, !tbaa !16
   br label %71
 
 71:                                               ; preds = %85, %70
-  %72 = load i8, ptr %9, align 1, !tbaa !9
+  %72 = load i8, ptr %9, align 1, !tbaa !16
   %73 = zext i8 %72 to i32
   %74 = icmp slt i32 %73, 6
   br i1 %74, label %76, label %75
@@ -2699,49 +2843,49 @@ define internal void @pinyin_page_proc(ptr noundef %0, i16 noundef zeroext %1) #
   br label %88
 
 76:                                               ; preds = %71
-  %77 = load i8, ptr %9, align 1, !tbaa !9
+  %77 = load i8, ptr %9, align 1, !tbaa !16
   %78 = zext i8 %77 to i64
   %79 = getelementptr inbounds nuw [6 x [4 x i8]], ptr @lv_pinyin_cand_str, i64 0, i64 %78
   %80 = getelementptr inbounds [4 x i8], ptr %79, i64 0, i64 0
   call void @lv_memset(ptr noundef %80, i8 noundef zeroext 0, i64 noundef 4)
-  %81 = load i8, ptr %9, align 1, !tbaa !9
+  %81 = load i8, ptr %9, align 1, !tbaa !16
   %82 = zext i8 %81 to i64
   %83 = getelementptr inbounds nuw [6 x [4 x i8]], ptr @lv_pinyin_cand_str, i64 0, i64 %82
   %84 = getelementptr inbounds [4 x i8], ptr %83, i64 0, i64 0
-  store i8 32, ptr %84, align 4, !tbaa !9
+  store i8 32, ptr %84, align 4, !tbaa !16
   br label %85
 
 85:                                               ; preds = %76
-  %86 = load i8, ptr %9, align 1, !tbaa !9
+  %86 = load i8, ptr %9, align 1, !tbaa !16
   %87 = add i8 %86, 1
-  store i8 %87, ptr %9, align 1, !tbaa !9
-  br label %71, !llvm.loop !39
+  store i8 %87, ptr %9, align 1, !tbaa !16
+  br label %71, !llvm.loop !53
 
 88:                                               ; preds = %75
   call void @llvm.lifetime.start.p0(i64 2, ptr %10) #6
-  %89 = load ptr, ptr %5, align 8, !tbaa !3
+  %89 = load ptr, ptr %5, align 8, !tbaa !10
   %90 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %89, i32 0, i32 13
-  %91 = load i16, ptr %90, align 2, !tbaa !18
+  %91 = load i16, ptr %90, align 2, !tbaa !27
   %92 = zext i16 %91 to i32
   %93 = mul nsw i32 %92, 18
   %94 = trunc i32 %93 to i16
-  store i16 %94, ptr %10, align 2, !tbaa !7
+  store i16 %94, ptr %10, align 2, !tbaa !12
   call void @llvm.lifetime.start.p0(i64 1, ptr %11) #6
-  store i8 0, ptr %11, align 1, !tbaa !9
+  store i8 0, ptr %11, align 1, !tbaa !16
   br label %95
 
 95:                                               ; preds = %162, %88
-  %96 = load i8, ptr %11, align 1, !tbaa !9
+  %96 = load i8, ptr %11, align 1, !tbaa !16
   %97 = zext i8 %96 to i32
-  %98 = load ptr, ptr %5, align 8, !tbaa !3
+  %98 = load ptr, ptr %5, align 8, !tbaa !10
   %99 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %98, i32 0, i32 12
-  %100 = load i16, ptr %99, align 8, !tbaa !20
+  %100 = load i16, ptr %99, align 8, !tbaa !29
   %101 = zext i16 %100 to i32
   %102 = icmp slt i32 %97, %101
   br i1 %102, label %103, label %107
 
 103:                                              ; preds = %95
-  %104 = load i8, ptr %11, align 1, !tbaa !9
+  %104 = load i8, ptr %11, align 1, !tbaa !16
   %105 = zext i8 %104 to i32
   %106 = icmp slt i32 %105, 6
   br label %107
@@ -2755,25 +2899,25 @@ define internal void @pinyin_page_proc(ptr noundef %0, i16 noundef zeroext %1) #
   br label %165
 
 110:                                              ; preds = %107
-  %111 = load i16, ptr %7, align 2, !tbaa !7
+  %111 = load i16, ptr %7, align 2, !tbaa !12
   %112 = zext i16 %111 to i32
   %113 = icmp sgt i32 %112, 0
   br i1 %113, label %114, label %130
 
 114:                                              ; preds = %110
-  %115 = load ptr, ptr %5, align 8, !tbaa !3
+  %115 = load ptr, ptr %5, align 8, !tbaa !10
   %116 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %115, i32 0, i32 13
-  %117 = load i16, ptr %116, align 2, !tbaa !18
+  %117 = load i16, ptr %116, align 2, !tbaa !27
   %118 = zext i16 %117 to i32
-  %119 = load i16, ptr %6, align 2, !tbaa !7
+  %119 = load i16, ptr %6, align 2, !tbaa !12
   %120 = zext i16 %119 to i32
   %121 = icmp eq i32 %118, %120
   br i1 %121, label %122, label %130
 
 122:                                              ; preds = %114
-  %123 = load i8, ptr %11, align 1, !tbaa !9
+  %123 = load i8, ptr %11, align 1, !tbaa !16
   %124 = zext i8 %123 to i32
-  %125 = load i16, ptr %7, align 2, !tbaa !7
+  %125 = load i16, ptr %7, align 2, !tbaa !12
   %126 = zext i16 %125 to i32
   %127 = icmp sge i32 %124, %126
   br i1 %127, label %128, label %129
@@ -2787,11 +2931,11 @@ define internal void @pinyin_page_proc(ptr noundef %0, i16 noundef zeroext %1) #
 
 130:                                              ; preds = %129, %114, %110
   call void @llvm.lifetime.start.p0(i64 1, ptr %12) #6
-  store i8 0, ptr %12, align 1, !tbaa !9
+  store i8 0, ptr %12, align 1, !tbaa !16
   br label %131
 
 131:                                              ; preds = %158, %130
-  %132 = load i8, ptr %12, align 1, !tbaa !9
+  %132 = load i8, ptr %12, align 1, !tbaa !16
   %133 = zext i8 %132 to i32
   %134 = icmp slt i32 %133, 3
   br i1 %134, label %136, label %135
@@ -2802,44 +2946,44 @@ define internal void @pinyin_page_proc(ptr noundef %0, i16 noundef zeroext %1) #
   br label %161
 
 136:                                              ; preds = %131
-  %137 = load ptr, ptr %5, align 8, !tbaa !3
+  %137 = load ptr, ptr %5, align 8, !tbaa !10
   %138 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %137, i32 0, i32 5
-  %139 = load ptr, ptr %138, align 8, !tbaa !38
-  %140 = load i16, ptr %10, align 2, !tbaa !7
+  %139 = load ptr, ptr %138, align 8, !tbaa !52
+  %140 = load i16, ptr %10, align 2, !tbaa !12
   %141 = zext i16 %140 to i32
-  %142 = load i8, ptr %11, align 1, !tbaa !9
+  %142 = load i8, ptr %11, align 1, !tbaa !16
   %143 = zext i8 %142 to i32
   %144 = mul nsw i32 %143, 3
   %145 = add nsw i32 %141, %144
-  %146 = load i8, ptr %12, align 1, !tbaa !9
+  %146 = load i8, ptr %12, align 1, !tbaa !16
   %147 = zext i8 %146 to i32
   %148 = add nsw i32 %145, %147
   %149 = sext i32 %148 to i64
   %150 = getelementptr inbounds i8, ptr %139, i64 %149
-  %151 = load i8, ptr %150, align 1, !tbaa !9
-  %152 = load i8, ptr %11, align 1, !tbaa !9
+  %151 = load i8, ptr %150, align 1, !tbaa !16
+  %152 = load i8, ptr %11, align 1, !tbaa !16
   %153 = zext i8 %152 to i64
   %154 = getelementptr inbounds nuw [6 x [4 x i8]], ptr @lv_pinyin_cand_str, i64 0, i64 %153
-  %155 = load i8, ptr %12, align 1, !tbaa !9
+  %155 = load i8, ptr %12, align 1, !tbaa !16
   %156 = zext i8 %155 to i64
   %157 = getelementptr inbounds nuw [4 x i8], ptr %154, i64 0, i64 %156
-  store i8 %151, ptr %157, align 1, !tbaa !9
+  store i8 %151, ptr %157, align 1, !tbaa !16
   br label %158
 
 158:                                              ; preds = %136
-  %159 = load i8, ptr %12, align 1, !tbaa !9
+  %159 = load i8, ptr %12, align 1, !tbaa !16
   %160 = add i8 %159, 1
-  store i8 %160, ptr %12, align 1, !tbaa !9
-  br label %131, !llvm.loop !40
+  store i8 %160, ptr %12, align 1, !tbaa !16
+  br label %131, !llvm.loop !54
 
 161:                                              ; preds = %135
   br label %162
 
 162:                                              ; preds = %161
-  %163 = load i8, ptr %11, align 1, !tbaa !9
+  %163 = load i8, ptr %11, align 1, !tbaa !16
   %164 = add i8 %163, 1
-  store i8 %164, ptr %11, align 1, !tbaa !9
-  br label %95, !llvm.loop !41
+  store i8 %164, ptr %11, align 1, !tbaa !16
+  br label %95, !llvm.loop !55
 
 165:                                              ; preds = %128, %109
   call void @llvm.lifetime.end.p0(i64 1, ptr %11) #6
@@ -2879,37 +3023,37 @@ define internal void @pinyin_ime_clear_data(ptr noundef %0) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
-  store ptr %0, ptr %2, align 8, !tbaa !3
+  store ptr %0, ptr %2, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 8, ptr %3) #6
-  %6 = load ptr, ptr %2, align 8, !tbaa !3
-  store ptr %6, ptr %3, align 8, !tbaa !3
-  %7 = load ptr, ptr %3, align 8, !tbaa !3
+  %6 = load ptr, ptr %2, align 8, !tbaa !8
+  store ptr %6, ptr %3, align 8, !tbaa !10
+  %7 = load ptr, ptr %3, align 8, !tbaa !10
   %8 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %7, i32 0, i32 16
-  %9 = load i32, ptr %8, align 4, !tbaa !12
+  %9 = load i32, ptr %8, align 4, !tbaa !19
   %10 = icmp eq i32 %9, 1
   br i1 %10, label %11, label %41
 
 11:                                               ; preds = %1
-  %12 = load ptr, ptr %3, align 8, !tbaa !3
+  %12 = load ptr, ptr %3, align 8, !tbaa !10
   %13 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %12, i32 0, i32 10
-  store i16 0, ptr %13, align 4, !tbaa !22
-  %14 = load ptr, ptr %3, align 8, !tbaa !3
+  store i16 0, ptr %13, align 4, !tbaa !31
+  %14 = load ptr, ptr %3, align 8, !tbaa !10
   %15 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %14, i32 0, i32 8
-  store i16 0, ptr %15, align 8, !tbaa !23
-  %16 = load ptr, ptr %3, align 8, !tbaa !3
+  store i16 0, ptr %15, align 8, !tbaa !32
+  %16 = load ptr, ptr %3, align 8, !tbaa !10
   %17 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %16, i32 0, i32 9
-  store i16 0, ptr %17, align 2, !tbaa !24
-  %18 = load ptr, ptr %3, align 8, !tbaa !3
+  store i16 0, ptr %17, align 2, !tbaa !33
+  %18 = load ptr, ptr %3, align 8, !tbaa !10
   %19 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %18, i32 0, i32 7
   %20 = getelementptr inbounds [8 x i8], ptr %19, i64 0, i64 0
   call void @lv_memzero(ptr noundef %20, i64 noundef 7)
   call void @lv_memzero(ptr noundef @lv_pinyin_k9_cand_str, i64 noundef 35)
   call void @llvm.lifetime.start.p0(i64 1, ptr %4) #6
-  store i8 0, ptr %4, align 1, !tbaa !9
+  store i8 0, ptr %4, align 1, !tbaa !16
   br label %21
 
 21:                                               ; preds = %32, %11
-  %22 = load i8, ptr %4, align 1, !tbaa !9
+  %22 = load i8, ptr %4, align 1, !tbaa !16
   %23 = zext i8 %22 to i32
   %24 = icmp slt i32 %23, 6
   br i1 %24, label %26, label %25
@@ -2919,7 +3063,7 @@ define internal void @pinyin_ime_clear_data(ptr noundef %0) #0 {
   br label %35
 
 26:                                               ; preds = %21
-  %27 = load i8, ptr %4, align 1, !tbaa !9
+  %27 = load i8, ptr %4, align 1, !tbaa !16
   %28 = zext i8 %27 to i64
   %29 = getelementptr inbounds nuw [5 x [7 x i8]], ptr @lv_pinyin_k9_cand_str, i64 0, i64 %28
   %30 = getelementptr inbounds [7 x i8], ptr %29, i64 0, i64 0
@@ -2927,30 +3071,30 @@ define internal void @pinyin_ime_clear_data(ptr noundef %0) #0 {
   br label %32
 
 32:                                               ; preds = %26
-  %33 = load i8, ptr %4, align 1, !tbaa !9
+  %33 = load i8, ptr %4, align 1, !tbaa !16
   %34 = add i8 %33, 1
-  store i8 %34, ptr %4, align 1, !tbaa !9
-  br label %21, !llvm.loop !42
+  store i8 %34, ptr %4, align 1, !tbaa !16
+  br label %21, !llvm.loop !56
 
 35:                                               ; preds = %25
   %36 = call ptr @lv_strcpy(ptr noundef getelementptr inbounds ([5 x [7 x i8]], ptr @lv_pinyin_k9_cand_str, i64 0, i64 3), ptr noundef @.str.660)
   %37 = call ptr @lv_strcpy(ptr noundef getelementptr inbounds ([5 x [7 x i8]], ptr @lv_pinyin_k9_cand_str, i64 0, i64 4), ptr noundef @.str.18)
-  %38 = load ptr, ptr %3, align 8, !tbaa !3
+  %38 = load ptr, ptr %3, align 8, !tbaa !10
   %39 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %38, i32 0, i32 1
-  %40 = load ptr, ptr %39, align 8, !tbaa !25
+  %40 = load ptr, ptr %39, align 8, !tbaa !34
   call void @lv_buttonmatrix_set_map(ptr noundef %40, ptr noundef @lv_btnm_def_pinyin_k9_map)
   br label %41
 
 41:                                               ; preds = %35, %1
-  %42 = load ptr, ptr %3, align 8, !tbaa !3
+  %42 = load ptr, ptr %3, align 8, !tbaa !10
   %43 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %42, i32 0, i32 11
-  store i16 0, ptr %43, align 2, !tbaa !19
+  store i16 0, ptr %43, align 2, !tbaa !28
   call void @llvm.lifetime.start.p0(i64 1, ptr %5) #6
-  store i8 0, ptr %5, align 1, !tbaa !9
+  store i8 0, ptr %5, align 1, !tbaa !16
   br label %44
 
 44:                                               ; preds = %58, %41
-  %45 = load i8, ptr %5, align 1, !tbaa !9
+  %45 = load i8, ptr %5, align 1, !tbaa !16
   %46 = zext i8 %45 to i32
   %47 = icmp slt i32 %46, 6
   br i1 %47, label %49, label %48
@@ -2960,32 +3104,32 @@ define internal void @pinyin_ime_clear_data(ptr noundef %0) #0 {
   br label %61
 
 49:                                               ; preds = %44
-  %50 = load i8, ptr %5, align 1, !tbaa !9
+  %50 = load i8, ptr %5, align 1, !tbaa !16
   %51 = zext i8 %50 to i64
   %52 = getelementptr inbounds nuw [6 x [4 x i8]], ptr @lv_pinyin_cand_str, i64 0, i64 %51
   %53 = getelementptr inbounds [4 x i8], ptr %52, i64 0, i64 0
   call void @lv_memset(ptr noundef %53, i8 noundef zeroext 0, i64 noundef 4)
-  %54 = load i8, ptr %5, align 1, !tbaa !9
+  %54 = load i8, ptr %5, align 1, !tbaa !16
   %55 = zext i8 %54 to i64
   %56 = getelementptr inbounds nuw [6 x [4 x i8]], ptr @lv_pinyin_cand_str, i64 0, i64 %55
   %57 = getelementptr inbounds [4 x i8], ptr %56, i64 0, i64 0
-  store i8 32, ptr %57, align 4, !tbaa !9
+  store i8 32, ptr %57, align 4, !tbaa !16
   br label %58
 
 58:                                               ; preds = %49
-  %59 = load i8, ptr %5, align 1, !tbaa !9
+  %59 = load i8, ptr %5, align 1, !tbaa !16
   %60 = add i8 %59, 1
-  store i8 %60, ptr %5, align 1, !tbaa !9
-  br label %44, !llvm.loop !43
+  store i8 %60, ptr %5, align 1, !tbaa !16
+  br label %44, !llvm.loop !57
 
 61:                                               ; preds = %48
-  %62 = load ptr, ptr %3, align 8, !tbaa !3
+  %62 = load ptr, ptr %3, align 8, !tbaa !10
   %63 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %62, i32 0, i32 6
   %64 = getelementptr inbounds [16 x i8], ptr %63, i64 0, i64 0
   call void @lv_memzero(ptr noundef %64, i64 noundef 16)
-  %65 = load ptr, ptr %3, align 8, !tbaa !3
+  %65 = load ptr, ptr %3, align 8, !tbaa !10
   %66 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %65, i32 0, i32 2
-  %67 = load ptr, ptr %66, align 8, !tbaa !21
+  %67 = load ptr, ptr %66, align 8, !tbaa !30
   call void @lv_obj_add_flag(ptr noundef %67, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 8, ptr %3) #6
   ret void
@@ -2998,15 +3142,15 @@ define internal ptr @lv_obj_get_style_text_font(ptr noundef %0, i32 noundef %1) 
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca %union.lv_style_value_t, align 8
-  store ptr %0, ptr %3, align 8, !tbaa !3
-  store i32 %1, ptr %4, align 4, !tbaa !26
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store i32 %1, ptr %4, align 4, !tbaa !37
   call void @llvm.lifetime.start.p0(i64 8, ptr %5) #6
-  %6 = load ptr, ptr %3, align 8, !tbaa !3
-  %7 = load i32, ptr %4, align 4, !tbaa !26
+  %6 = load ptr, ptr %3, align 8, !tbaa !8
+  %7 = load i32, ptr %4, align 4, !tbaa !37
   %8 = call ptr @lv_obj_get_style_prop(ptr noundef %6, i32 noundef %7, i8 noundef zeroext 90)
   %9 = getelementptr inbounds nuw %union.lv_style_value_t, ptr %5, i32 0, i32 0
   store ptr %8, ptr %9, align 8
-  %10 = load ptr, ptr %5, align 8, !tbaa !9
+  %10 = load ptr, ptr %5, align 8, !tbaa !16
   call void @llvm.lifetime.end.p0(i64 8, ptr %5) #6
   ret ptr %10
 }
@@ -3031,23 +3175,23 @@ define internal void @pinyin_input_proc(ptr noundef %0) #0 {
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
-  store ptr %0, ptr %2, align 8, !tbaa !3
+  store ptr %0, ptr %2, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 8, ptr %3) #6
-  %8 = load ptr, ptr %2, align 8, !tbaa !3
-  store ptr %8, ptr %3, align 8, !tbaa !3
-  %9 = load ptr, ptr %2, align 8, !tbaa !3
-  %10 = load ptr, ptr %3, align 8, !tbaa !3
+  %8 = load ptr, ptr %2, align 8, !tbaa !8
+  store ptr %8, ptr %3, align 8, !tbaa !10
+  %9 = load ptr, ptr %2, align 8, !tbaa !8
+  %10 = load ptr, ptr %3, align 8, !tbaa !10
   %11 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %10, i32 0, i32 6
   %12 = getelementptr inbounds [16 x i8], ptr %11, i64 0, i64 0
-  %13 = load ptr, ptr %3, align 8, !tbaa !3
+  %13 = load ptr, ptr %3, align 8, !tbaa !10
   %14 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %13, i32 0, i32 12
   %15 = call ptr @pinyin_search_matching(ptr noundef %9, ptr noundef %12, ptr noundef %14)
-  %16 = load ptr, ptr %3, align 8, !tbaa !3
+  %16 = load ptr, ptr %3, align 8, !tbaa !10
   %17 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %16, i32 0, i32 5
-  store ptr %15, ptr %17, align 8, !tbaa !38
-  %18 = load ptr, ptr %3, align 8, !tbaa !3
+  store ptr %15, ptr %17, align 8, !tbaa !52
+  %18 = load ptr, ptr %3, align 8, !tbaa !10
   %19 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %18, i32 0, i32 5
-  %20 = load ptr, ptr %19, align 8, !tbaa !38
+  %20 = load ptr, ptr %19, align 8, !tbaa !52
   %21 = icmp eq ptr %20, null
   br i1 %21, label %22, label %23
 
@@ -3056,15 +3200,15 @@ define internal void @pinyin_input_proc(ptr noundef %0) #0 {
   br label %95
 
 23:                                               ; preds = %1
-  %24 = load ptr, ptr %3, align 8, !tbaa !3
+  %24 = load ptr, ptr %3, align 8, !tbaa !10
   %25 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %24, i32 0, i32 13
-  store i16 0, ptr %25, align 2, !tbaa !18
+  store i16 0, ptr %25, align 2, !tbaa !27
   call void @llvm.lifetime.start.p0(i64 1, ptr %5) #6
-  store i8 0, ptr %5, align 1, !tbaa !9
+  store i8 0, ptr %5, align 1, !tbaa !16
   br label %26
 
 26:                                               ; preds = %40, %23
-  %27 = load i8, ptr %5, align 1, !tbaa !9
+  %27 = load i8, ptr %5, align 1, !tbaa !16
   %28 = zext i8 %27 to i32
   %29 = icmp slt i32 %28, 6
   br i1 %29, label %31, label %30
@@ -3075,41 +3219,41 @@ define internal void @pinyin_input_proc(ptr noundef %0) #0 {
   br label %43
 
 31:                                               ; preds = %26
-  %32 = load i8, ptr %5, align 1, !tbaa !9
+  %32 = load i8, ptr %5, align 1, !tbaa !16
   %33 = zext i8 %32 to i64
   %34 = getelementptr inbounds nuw [6 x [4 x i8]], ptr @lv_pinyin_cand_str, i64 0, i64 %33
   %35 = getelementptr inbounds [4 x i8], ptr %34, i64 0, i64 0
   call void @lv_memset(ptr noundef %35, i8 noundef zeroext 0, i64 noundef 4)
-  %36 = load i8, ptr %5, align 1, !tbaa !9
+  %36 = load i8, ptr %5, align 1, !tbaa !16
   %37 = zext i8 %36 to i64
   %38 = getelementptr inbounds nuw [6 x [4 x i8]], ptr @lv_pinyin_cand_str, i64 0, i64 %37
   %39 = getelementptr inbounds [4 x i8], ptr %38, i64 0, i64 0
-  store i8 32, ptr %39, align 4, !tbaa !9
+  store i8 32, ptr %39, align 4, !tbaa !16
   br label %40
 
 40:                                               ; preds = %31
-  %41 = load i8, ptr %5, align 1, !tbaa !9
+  %41 = load i8, ptr %5, align 1, !tbaa !16
   %42 = add i8 %41, 1
-  store i8 %42, ptr %5, align 1, !tbaa !9
-  br label %26, !llvm.loop !44
+  store i8 %42, ptr %5, align 1, !tbaa !16
+  br label %26, !llvm.loop !58
 
 43:                                               ; preds = %30
   call void @llvm.lifetime.start.p0(i64 1, ptr %6) #6
-  store i8 0, ptr %6, align 1, !tbaa !9
+  store i8 0, ptr %6, align 1, !tbaa !16
   br label %44
 
 44:                                               ; preds = %88, %43
-  %45 = load i8, ptr %6, align 1, !tbaa !9
+  %45 = load i8, ptr %6, align 1, !tbaa !16
   %46 = zext i8 %45 to i32
-  %47 = load ptr, ptr %3, align 8, !tbaa !3
+  %47 = load ptr, ptr %3, align 8, !tbaa !10
   %48 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %47, i32 0, i32 12
-  %49 = load i16, ptr %48, align 8, !tbaa !20
+  %49 = load i16, ptr %48, align 8, !tbaa !29
   %50 = zext i16 %49 to i32
   %51 = icmp slt i32 %46, %50
   br i1 %51, label %52, label %56
 
 52:                                               ; preds = %44
-  %53 = load i8, ptr %6, align 1, !tbaa !9
+  %53 = load i8, ptr %6, align 1, !tbaa !16
   %54 = zext i8 %53 to i32
   %55 = icmp slt i32 %54, 6
   br label %56
@@ -3125,11 +3269,11 @@ define internal void @pinyin_input_proc(ptr noundef %0) #0 {
 
 59:                                               ; preds = %56
   call void @llvm.lifetime.start.p0(i64 1, ptr %7) #6
-  store i8 0, ptr %7, align 1, !tbaa !9
+  store i8 0, ptr %7, align 1, !tbaa !16
   br label %60
 
 60:                                               ; preds = %84, %59
-  %61 = load i8, ptr %7, align 1, !tbaa !9
+  %61 = load i8, ptr %7, align 1, !tbaa !16
   %62 = zext i8 %61 to i32
   %63 = icmp slt i32 %62, 3
   br i1 %63, label %65, label %64
@@ -3140,46 +3284,46 @@ define internal void @pinyin_input_proc(ptr noundef %0) #0 {
   br label %87
 
 65:                                               ; preds = %60
-  %66 = load ptr, ptr %3, align 8, !tbaa !3
+  %66 = load ptr, ptr %3, align 8, !tbaa !10
   %67 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %66, i32 0, i32 5
-  %68 = load ptr, ptr %67, align 8, !tbaa !38
-  %69 = load i8, ptr %6, align 1, !tbaa !9
+  %68 = load ptr, ptr %67, align 8, !tbaa !52
+  %69 = load i8, ptr %6, align 1, !tbaa !16
   %70 = zext i8 %69 to i32
   %71 = mul nsw i32 %70, 3
-  %72 = load i8, ptr %7, align 1, !tbaa !9
+  %72 = load i8, ptr %7, align 1, !tbaa !16
   %73 = zext i8 %72 to i32
   %74 = add nsw i32 %71, %73
   %75 = sext i32 %74 to i64
   %76 = getelementptr inbounds i8, ptr %68, i64 %75
-  %77 = load i8, ptr %76, align 1, !tbaa !9
-  %78 = load i8, ptr %6, align 1, !tbaa !9
+  %77 = load i8, ptr %76, align 1, !tbaa !16
+  %78 = load i8, ptr %6, align 1, !tbaa !16
   %79 = zext i8 %78 to i64
   %80 = getelementptr inbounds nuw [6 x [4 x i8]], ptr @lv_pinyin_cand_str, i64 0, i64 %79
-  %81 = load i8, ptr %7, align 1, !tbaa !9
+  %81 = load i8, ptr %7, align 1, !tbaa !16
   %82 = zext i8 %81 to i64
   %83 = getelementptr inbounds nuw [4 x i8], ptr %80, i64 0, i64 %82
-  store i8 %77, ptr %83, align 1, !tbaa !9
+  store i8 %77, ptr %83, align 1, !tbaa !16
   br label %84
 
 84:                                               ; preds = %65
-  %85 = load i8, ptr %7, align 1, !tbaa !9
+  %85 = load i8, ptr %7, align 1, !tbaa !16
   %86 = add i8 %85, 1
-  store i8 %86, ptr %7, align 1, !tbaa !9
-  br label %60, !llvm.loop !45
+  store i8 %86, ptr %7, align 1, !tbaa !16
+  br label %60, !llvm.loop !59
 
 87:                                               ; preds = %64
   br label %88
 
 88:                                               ; preds = %87
-  %89 = load i8, ptr %6, align 1, !tbaa !9
+  %89 = load i8, ptr %6, align 1, !tbaa !16
   %90 = add i8 %89, 1
-  store i8 %90, ptr %6, align 1, !tbaa !9
-  br label %44, !llvm.loop !46
+  store i8 %90, ptr %6, align 1, !tbaa !16
+  br label %44, !llvm.loop !60
 
 91:                                               ; preds = %58
-  %92 = load ptr, ptr %3, align 8, !tbaa !3
+  %92 = load ptr, ptr %3, align 8, !tbaa !10
   %93 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %92, i32 0, i32 2
-  %94 = load ptr, ptr %93, align 8, !tbaa !21
+  %94 = load ptr, ptr %93, align 8, !tbaa !30
   call void @lv_obj_remove_flag(ptr noundef %94, i32 noundef 1)
   store i32 0, ptr %4, align 4
   br label %95
@@ -3216,24 +3360,24 @@ define internal void @pinyin_k9_get_legal_py(ptr noundef %0, ptr noundef %1, ptr
   %14 = alloca i16, align 2
   %15 = alloca i32, align 4
   %16 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8, !tbaa !3
-  store ptr %1, ptr %5, align 8, !tbaa !3
-  store ptr %2, ptr %6, align 8, !tbaa !3
+  store ptr %0, ptr %4, align 8, !tbaa !8
+  store ptr %1, ptr %5, align 8, !tbaa !14
+  store ptr %2, ptr %6, align 8, !tbaa !61
   call void @llvm.lifetime.start.p0(i64 8, ptr %7) #6
-  %17 = load ptr, ptr %4, align 8, !tbaa !3
-  store ptr %17, ptr %7, align 8, !tbaa !3
+  %17 = load ptr, ptr %4, align 8, !tbaa !8
+  store ptr %17, ptr %7, align 8, !tbaa !10
   call void @llvm.lifetime.start.p0(i64 2, ptr %8) #6
-  %18 = load ptr, ptr %5, align 8, !tbaa !3
+  %18 = load ptr, ptr %5, align 8, !tbaa !14
   %19 = call i64 @lv_strlen(ptr noundef %18)
   %20 = trunc i64 %19 to i16
-  store i16 %20, ptr %8, align 2, !tbaa !7
-  %21 = load i16, ptr %8, align 2, !tbaa !7
+  store i16 %20, ptr %8, align 2, !tbaa !12
+  %21 = load i16, ptr %8, align 2, !tbaa !12
   %22 = zext i16 %21 to i32
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %28, label %24
 
 24:                                               ; preds = %3
-  %25 = load i16, ptr %8, align 2, !tbaa !7
+  %25 = load i16, ptr %8, align 2, !tbaa !12
   %26 = zext i16 %25 to i32
   %27 = icmp sge i32 %26, 7
   br i1 %27, label %28, label %29
@@ -3248,61 +3392,61 @@ define internal void @pinyin_k9_get_legal_py(ptr noundef %0, ptr noundef %1, ptr
   call void @llvm.lifetime.start.p0(i64 28, ptr %11) #6
   call void @llvm.memset.p0.i64(ptr align 16 %11, i8 0, i64 28, i1 false)
   call void @llvm.lifetime.start.p0(i64 4, ptr %12) #6
-  store i32 0, ptr %12, align 4, !tbaa !26
+  store i32 0, ptr %12, align 4, !tbaa !37
   call void @llvm.lifetime.start.p0(i64 4, ptr %13) #6
-  store i32 0, ptr %13, align 4, !tbaa !26
+  store i32 0, ptr %13, align 4, !tbaa !37
   call void @llvm.lifetime.start.p0(i64 2, ptr %14) #6
-  store i16 0, ptr %14, align 2, !tbaa !7
+  store i16 0, ptr %14, align 2, !tbaa !12
   call void @llvm.lifetime.start.p0(i64 4, ptr %15) #6
-  store i32 0, ptr %15, align 4, !tbaa !26
+  store i32 0, ptr %15, align 4, !tbaa !37
   call void @llvm.lifetime.start.p0(i64 8, ptr %16) #6
-  store ptr null, ptr %16, align 8, !tbaa !3
-  %30 = load ptr, ptr %7, align 8, !tbaa !3
+  store ptr null, ptr %16, align 8, !tbaa !41
+  %30 = load ptr, ptr %7, align 8, !tbaa !10
   %31 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %30, i32 0, i32 4
   %32 = call i32 @lv_ll_get_len(ptr noundef %31)
-  store i32 %32, ptr %15, align 4, !tbaa !26
-  %33 = load ptr, ptr %7, align 8, !tbaa !3
+  store i32 %32, ptr %15, align 4, !tbaa !37
+  %33 = load ptr, ptr %7, align 8, !tbaa !10
   %34 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %33, i32 0, i32 4
   %35 = call ptr @lv_ll_get_head(ptr noundef %34)
-  store ptr %35, ptr %16, align 8, !tbaa !3
+  store ptr %35, ptr %16, align 8, !tbaa !41
   br label %36
 
 36:                                               ; preds = %143, %29
-  %37 = load i32, ptr %12, align 4, !tbaa !26
+  %37 = load i32, ptr %12, align 4, !tbaa !37
   %38 = icmp ne i32 %37, -1
   br i1 %38, label %39, label %144
 
 39:                                               ; preds = %36
-  %40 = load i32, ptr %12, align 4, !tbaa !26
-  %41 = load i16, ptr %8, align 2, !tbaa !7
+  %40 = load i32, ptr %12, align 4, !tbaa !37
+  %41 = load i16, ptr %8, align 2, !tbaa !12
   %42 = zext i16 %41 to i32
   %43 = icmp eq i32 %40, %42
   br i1 %43, label %44, label %87
 
 44:                                               ; preds = %39
-  %45 = load ptr, ptr %4, align 8, !tbaa !3
+  %45 = load ptr, ptr %4, align 8, !tbaa !8
   %46 = getelementptr inbounds [7 x i8], ptr %10, i64 0, i64 0
   %47 = call zeroext i1 @pinyin_k9_is_valid_py(ptr noundef %45, ptr noundef %46)
   br i1 %47, label %48, label %84
 
 48:                                               ; preds = %44
-  %49 = load i16, ptr %14, align 2, !tbaa !7
+  %49 = load i16, ptr %14, align 2, !tbaa !12
   %50 = zext i16 %49 to i32
-  %51 = load i32, ptr %15, align 4, !tbaa !26
+  %51 = load i32, ptr %15, align 4, !tbaa !37
   %52 = icmp uge i32 %50, %51
   br i1 %52, label %56, label %53
 
 53:                                               ; preds = %48
-  %54 = load i32, ptr %15, align 4, !tbaa !26
+  %54 = load i32, ptr %15, align 4, !tbaa !37
   %55 = icmp eq i32 %54, 0
   br i1 %55, label %56, label %65
 
 56:                                               ; preds = %53, %48
-  %57 = load ptr, ptr %7, align 8, !tbaa !3
+  %57 = load ptr, ptr %7, align 8, !tbaa !10
   %58 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %57, i32 0, i32 4
   %59 = call ptr @lv_ll_ins_tail(ptr noundef %58)
-  store ptr %59, ptr %16, align 8, !tbaa !3
-  %60 = load ptr, ptr %16, align 8, !tbaa !3
+  store ptr %59, ptr %16, align 8, !tbaa !41
+  %60 = load ptr, ptr %16, align 8, !tbaa !41
   %61 = getelementptr inbounds nuw %struct.ime_pinyin_k9_py_str_t, ptr %60, i32 0, i32 0
   %62 = getelementptr inbounds [7 x i8], ptr %61, i64 0, i64 0
   %63 = getelementptr inbounds [7 x i8], ptr %10, i64 0, i64 0
@@ -3310,129 +3454,129 @@ define internal void @pinyin_k9_get_legal_py(ptr noundef %0, ptr noundef %1, ptr
   br label %81
 
 65:                                               ; preds = %53
-  %66 = load i16, ptr %14, align 2, !tbaa !7
+  %66 = load i16, ptr %14, align 2, !tbaa !12
   %67 = zext i16 %66 to i32
-  %68 = load i32, ptr %15, align 4, !tbaa !26
+  %68 = load i32, ptr %15, align 4, !tbaa !37
   %69 = icmp ult i32 %67, %68
   br i1 %69, label %70, label %80
 
 70:                                               ; preds = %65
-  %71 = load ptr, ptr %16, align 8, !tbaa !3
+  %71 = load ptr, ptr %16, align 8, !tbaa !41
   %72 = getelementptr inbounds nuw %struct.ime_pinyin_k9_py_str_t, ptr %71, i32 0, i32 0
   %73 = getelementptr inbounds [7 x i8], ptr %72, i64 0, i64 0
   %74 = getelementptr inbounds [7 x i8], ptr %10, i64 0, i64 0
   %75 = call ptr @lv_strcpy(ptr noundef %73, ptr noundef %74)
-  %76 = load ptr, ptr %7, align 8, !tbaa !3
+  %76 = load ptr, ptr %7, align 8, !tbaa !10
   %77 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %76, i32 0, i32 4
-  %78 = load ptr, ptr %16, align 8, !tbaa !3
+  %78 = load ptr, ptr %16, align 8, !tbaa !41
   %79 = call ptr @lv_ll_get_next(ptr noundef %77, ptr noundef %78)
-  store ptr %79, ptr %16, align 8, !tbaa !3
+  store ptr %79, ptr %16, align 8, !tbaa !41
   br label %80
 
 80:                                               ; preds = %70, %65
   br label %81
 
 81:                                               ; preds = %80, %56
-  %82 = load i16, ptr %14, align 2, !tbaa !7
+  %82 = load i16, ptr %14, align 2, !tbaa !12
   %83 = add i16 %82, 1
-  store i16 %83, ptr %14, align 2, !tbaa !7
+  store i16 %83, ptr %14, align 2, !tbaa !12
   br label %84
 
 84:                                               ; preds = %81, %44
-  %85 = load i32, ptr %12, align 4, !tbaa !26
+  %85 = load i32, ptr %12, align 4, !tbaa !37
   %86 = add nsw i32 %85, -1
-  store i32 %86, ptr %12, align 4, !tbaa !26
+  store i32 %86, ptr %12, align 4, !tbaa !37
   br label %143
 
 87:                                               ; preds = %39
-  %88 = load i32, ptr %12, align 4, !tbaa !26
+  %88 = load i32, ptr %12, align 4, !tbaa !37
   %89 = sext i32 %88 to i64
   %90 = getelementptr inbounds [7 x i32], ptr %11, i64 0, i64 %89
-  %91 = load i32, ptr %90, align 4, !tbaa !26
-  store i32 %91, ptr %13, align 4, !tbaa !26
-  %92 = load i32, ptr %13, align 4, !tbaa !26
+  %91 = load i32, ptr %90, align 4, !tbaa !37
+  store i32 %91, ptr %13, align 4, !tbaa !37
+  %92 = load i32, ptr %13, align 4, !tbaa !37
   %93 = sext i32 %92 to i64
-  %94 = load ptr, ptr %6, align 8, !tbaa !3
-  %95 = load ptr, ptr %5, align 8, !tbaa !3
-  %96 = load i32, ptr %12, align 4, !tbaa !26
+  %94 = load ptr, ptr %6, align 8, !tbaa !61
+  %95 = load ptr, ptr %5, align 8, !tbaa !14
+  %96 = load i32, ptr %12, align 4, !tbaa !37
   %97 = sext i32 %96 to i64
   %98 = getelementptr inbounds i8, ptr %95, i64 %97
-  %99 = load i8, ptr %98, align 1, !tbaa !9
+  %99 = load i8, ptr %98, align 1, !tbaa !16
   %100 = sext i8 %99 to i32
   %101 = sub nsw i32 %100, 50
   %102 = sext i32 %101 to i64
   %103 = getelementptr inbounds ptr, ptr %94, i64 %102
-  %104 = load ptr, ptr %103, align 8, !tbaa !3
+  %104 = load ptr, ptr %103, align 8, !tbaa !14
   %105 = call i64 @lv_strlen(ptr noundef %104)
   %106 = icmp ult i64 %93, %105
   br i1 %106, label %107, label %136
 
 107:                                              ; preds = %87
-  %108 = load ptr, ptr %6, align 8, !tbaa !3
-  %109 = load ptr, ptr %5, align 8, !tbaa !3
-  %110 = load i32, ptr %12, align 4, !tbaa !26
+  %108 = load ptr, ptr %6, align 8, !tbaa !61
+  %109 = load ptr, ptr %5, align 8, !tbaa !14
+  %110 = load i32, ptr %12, align 4, !tbaa !37
   %111 = sext i32 %110 to i64
   %112 = getelementptr inbounds i8, ptr %109, i64 %111
-  %113 = load i8, ptr %112, align 1, !tbaa !9
+  %113 = load i8, ptr %112, align 1, !tbaa !16
   %114 = sext i8 %113 to i32
   %115 = sub nsw i32 %114, 50
   %116 = sext i32 %115 to i64
   %117 = getelementptr inbounds ptr, ptr %108, i64 %116
-  %118 = load ptr, ptr %117, align 8, !tbaa !3
-  %119 = load i32, ptr %13, align 4, !tbaa !26
+  %118 = load ptr, ptr %117, align 8, !tbaa !14
+  %119 = load i32, ptr %13, align 4, !tbaa !37
   %120 = sext i32 %119 to i64
   %121 = getelementptr inbounds i8, ptr %118, i64 %120
-  %122 = load i8, ptr %121, align 1, !tbaa !9
-  %123 = load i32, ptr %12, align 4, !tbaa !26
+  %122 = load i8, ptr %121, align 1, !tbaa !16
+  %123 = load i32, ptr %12, align 4, !tbaa !37
   %124 = sext i32 %123 to i64
   %125 = getelementptr inbounds [7 x i8], ptr %10, i64 0, i64 %124
-  store i8 %122, ptr %125, align 1, !tbaa !9
-  %126 = load i32, ptr %12, align 4, !tbaa !26
+  store i8 %122, ptr %125, align 1, !tbaa !16
+  %126 = load i32, ptr %12, align 4, !tbaa !37
   %127 = sext i32 %126 to i64
   %128 = getelementptr inbounds [7 x i32], ptr %11, i64 0, i64 %127
-  %129 = load i32, ptr %128, align 4, !tbaa !26
+  %129 = load i32, ptr %128, align 4, !tbaa !37
   %130 = add nsw i32 %129, 1
-  %131 = load i32, ptr %12, align 4, !tbaa !26
+  %131 = load i32, ptr %12, align 4, !tbaa !37
   %132 = sext i32 %131 to i64
   %133 = getelementptr inbounds [7 x i32], ptr %11, i64 0, i64 %132
-  store i32 %130, ptr %133, align 4, !tbaa !26
-  %134 = load i32, ptr %12, align 4, !tbaa !26
+  store i32 %130, ptr %133, align 4, !tbaa !37
+  %134 = load i32, ptr %12, align 4, !tbaa !37
   %135 = add nsw i32 %134, 1
-  store i32 %135, ptr %12, align 4, !tbaa !26
+  store i32 %135, ptr %12, align 4, !tbaa !37
   br label %142
 
 136:                                              ; preds = %87
-  %137 = load i32, ptr %12, align 4, !tbaa !26
+  %137 = load i32, ptr %12, align 4, !tbaa !37
   %138 = sext i32 %137 to i64
   %139 = getelementptr inbounds [7 x i32], ptr %11, i64 0, i64 %138
-  store i32 0, ptr %139, align 4, !tbaa !26
-  %140 = load i32, ptr %12, align 4, !tbaa !26
+  store i32 0, ptr %139, align 4, !tbaa !37
+  %140 = load i32, ptr %12, align 4, !tbaa !37
   %141 = add nsw i32 %140, -1
-  store i32 %141, ptr %12, align 4, !tbaa !26
+  store i32 %141, ptr %12, align 4, !tbaa !37
   br label %142
 
 142:                                              ; preds = %136, %107
   br label %143
 
 143:                                              ; preds = %142, %84
-  br label %36, !llvm.loop !47
+  br label %36, !llvm.loop !63
 
 144:                                              ; preds = %36
-  %145 = load i16, ptr %14, align 2, !tbaa !7
+  %145 = load i16, ptr %14, align 2, !tbaa !12
   %146 = zext i16 %145 to i32
   %147 = icmp sgt i32 %146, 0
   br i1 %147, label %148, label %156
 
 148:                                              ; preds = %144
-  %149 = load ptr, ptr %7, align 8, !tbaa !3
+  %149 = load ptr, ptr %7, align 8, !tbaa !10
   %150 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %149, i32 0, i32 11
-  %151 = load i16, ptr %150, align 2, !tbaa !19
+  %151 = load i16, ptr %150, align 2, !tbaa !28
   %152 = add i16 %151, 1
-  store i16 %152, ptr %150, align 2, !tbaa !19
-  %153 = load i16, ptr %14, align 2, !tbaa !7
-  %154 = load ptr, ptr %7, align 8, !tbaa !3
+  store i16 %152, ptr %150, align 2, !tbaa !28
+  %153 = load i16, ptr %14, align 2, !tbaa !12
+  %154 = load ptr, ptr %7, align 8, !tbaa !10
   %155 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %154, i32 0, i32 9
-  store i16 %153, ptr %155, align 2, !tbaa !24
+  store i16 %153, ptr %155, align 2, !tbaa !33
   br label %156
 
 156:                                              ; preds = %148, %144
@@ -3471,23 +3615,23 @@ define internal void @pinyin_k9_fill_cand(ptr noundef %0) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i8, align 1
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8, !tbaa !3
+  store ptr %0, ptr %2, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 2, ptr %3) #6
-  store i16 0, ptr %3, align 2, !tbaa !7
+  store i16 0, ptr %3, align 2, !tbaa !12
   call void @llvm.lifetime.start.p0(i64 2, ptr %4) #6
-  store i16 0, ptr %4, align 2, !tbaa !7
+  store i16 0, ptr %4, align 2, !tbaa !12
   call void @llvm.lifetime.start.p0(i64 8, ptr %5) #6
-  store ptr null, ptr %5, align 8, !tbaa !3
+  store ptr null, ptr %5, align 8, !tbaa !41
   call void @llvm.lifetime.start.p0(i64 8, ptr %6) #6
-  %9 = load ptr, ptr %2, align 8, !tbaa !3
-  store ptr %9, ptr %6, align 8, !tbaa !3
-  %10 = load ptr, ptr %6, align 8, !tbaa !3
+  %9 = load ptr, ptr %2, align 8, !tbaa !8
+  store ptr %9, ptr %6, align 8, !tbaa !10
+  %10 = load ptr, ptr %6, align 8, !tbaa !10
   %11 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %10, i32 0, i32 9
-  %12 = load i16, ptr %11, align 2, !tbaa !24
-  store i16 %12, ptr %4, align 2, !tbaa !7
-  %13 = load i16, ptr %4, align 2, !tbaa !7
+  %12 = load i16, ptr %11, align 2, !tbaa !33
+  store i16 %12, ptr %4, align 2, !tbaa !12
+  %13 = load i16, ptr %4, align 2, !tbaa !12
   %14 = zext i16 %13 to i64
-  %15 = load i64, ptr getelementptr inbounds nuw (%struct._lv_global_t, ptr @lv_global, i32 0, i32 41), align 8, !tbaa !48
+  %15 = load i64, ptr getelementptr inbounds nuw (%struct._lv_global_t, ptr @lv_global, i32 0, i32 41), align 8, !tbaa !64
   %16 = icmp ne i64 %14, %15
   br i1 %16, label %17, label %22
 
@@ -3495,29 +3639,29 @@ define internal void @pinyin_k9_fill_cand(ptr noundef %0) #0 {
   call void @lv_memzero(ptr noundef @lv_pinyin_k9_cand_str, i64 noundef 35)
   %18 = call ptr @lv_strcpy(ptr noundef getelementptr inbounds ([5 x [7 x i8]], ptr @lv_pinyin_k9_cand_str, i64 0, i64 3), ptr noundef @.str.660)
   %19 = call ptr @lv_strcpy(ptr noundef getelementptr inbounds ([5 x [7 x i8]], ptr @lv_pinyin_k9_cand_str, i64 0, i64 4), ptr noundef @.str.18)
-  %20 = load i16, ptr %4, align 2, !tbaa !7
+  %20 = load i16, ptr %4, align 2, !tbaa !12
   %21 = zext i16 %20 to i64
-  store i64 %21, ptr getelementptr inbounds nuw (%struct._lv_global_t, ptr @lv_global, i32 0, i32 41), align 8, !tbaa !48
+  store i64 %21, ptr getelementptr inbounds nuw (%struct._lv_global_t, ptr @lv_global, i32 0, i32 41), align 8, !tbaa !64
   br label %22
 
 22:                                               ; preds = %17, %1
-  %23 = load ptr, ptr %6, align 8, !tbaa !3
+  %23 = load ptr, ptr %6, align 8, !tbaa !10
   %24 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %23, i32 0, i32 4
   %25 = call ptr @lv_ll_get_head(ptr noundef %24)
-  store ptr %25, ptr %5, align 8, !tbaa !3
-  %26 = load ptr, ptr %6, align 8, !tbaa !3
+  store ptr %25, ptr %5, align 8, !tbaa !41
+  %26 = load ptr, ptr %6, align 8, !tbaa !10
   %27 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %26, i32 0, i32 6
   %28 = getelementptr inbounds [16 x i8], ptr %27, i64 0, i64 0
-  %29 = load ptr, ptr %5, align 8, !tbaa !3
+  %29 = load ptr, ptr %5, align 8, !tbaa !41
   %30 = getelementptr inbounds nuw %struct.ime_pinyin_k9_py_str_t, ptr %29, i32 0, i32 0
   %31 = getelementptr inbounds [7 x i8], ptr %30, i64 0, i64 0
   %32 = call ptr @lv_strcpy(ptr noundef %28, ptr noundef %31)
   call void @llvm.lifetime.start.p0(i64 1, ptr %7) #6
-  store i8 0, ptr %7, align 1, !tbaa !9
+  store i8 0, ptr %7, align 1, !tbaa !16
   br label %33
 
 33:                                               ; preds = %44, %22
-  %34 = load i8, ptr %7, align 1, !tbaa !9
+  %34 = load i8, ptr %7, align 1, !tbaa !16
   %35 = zext i8 %34 to i32
   %36 = icmp slt i32 %35, 3
   br i1 %36, label %38, label %37
@@ -3527,7 +3671,7 @@ define internal void @pinyin_k9_fill_cand(ptr noundef %0) #0 {
   br label %47
 
 38:                                               ; preds = %33
-  %39 = load i8, ptr %7, align 1, !tbaa !9
+  %39 = load i8, ptr %7, align 1, !tbaa !16
   %40 = zext i8 %39 to i64
   %41 = getelementptr inbounds nuw [5 x [7 x i8]], ptr @lv_pinyin_k9_cand_str, i64 0, i64 %40
   %42 = getelementptr inbounds [7 x i8], ptr %41, i64 0, i64 0
@@ -3535,21 +3679,21 @@ define internal void @pinyin_k9_fill_cand(ptr noundef %0) #0 {
   br label %44
 
 44:                                               ; preds = %38
-  %45 = load i8, ptr %7, align 1, !tbaa !9
+  %45 = load i8, ptr %7, align 1, !tbaa !16
   %46 = add i8 %45, 1
-  store i8 %46, ptr %7, align 1, !tbaa !9
-  br label %33, !llvm.loop !58
+  store i8 %46, ptr %7, align 1, !tbaa !16
+  br label %33, !llvm.loop !82
 
 47:                                               ; preds = %37
   br label %48
 
 48:                                               ; preds = %73, %47
-  %49 = load ptr, ptr %5, align 8, !tbaa !3
+  %49 = load ptr, ptr %5, align 8, !tbaa !41
   %50 = icmp ne ptr %49, null
   br i1 %50, label %51, label %80
 
 51:                                               ; preds = %48
-  %52 = load i16, ptr %3, align 2, !tbaa !7
+  %52 = load i16, ptr %3, align 2, !tbaa !12
   %53 = zext i16 %52 to i32
   %54 = icmp sge i32 %53, 3
   br i1 %54, label %55, label %56
@@ -3558,83 +3702,83 @@ define internal void @pinyin_k9_fill_cand(ptr noundef %0) #0 {
   br label %80
 
 56:                                               ; preds = %51
-  %57 = load i16, ptr %3, align 2, !tbaa !7
+  %57 = load i16, ptr %3, align 2, !tbaa !12
   %58 = zext i16 %57 to i32
-  %59 = load ptr, ptr %6, align 8, !tbaa !3
+  %59 = load ptr, ptr %6, align 8, !tbaa !10
   %60 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %59, i32 0, i32 9
-  %61 = load i16, ptr %60, align 2, !tbaa !24
+  %61 = load i16, ptr %60, align 2, !tbaa !33
   %62 = zext i16 %61 to i32
   %63 = icmp slt i32 %58, %62
   br i1 %63, label %64, label %73
 
 64:                                               ; preds = %56
-  %65 = load i16, ptr %3, align 2, !tbaa !7
+  %65 = load i16, ptr %3, align 2, !tbaa !12
   %66 = zext i16 %65 to i64
   %67 = getelementptr inbounds nuw [5 x [7 x i8]], ptr @lv_pinyin_k9_cand_str, i64 0, i64 %66
   %68 = getelementptr inbounds [7 x i8], ptr %67, i64 0, i64 0
-  %69 = load ptr, ptr %5, align 8, !tbaa !3
+  %69 = load ptr, ptr %5, align 8, !tbaa !41
   %70 = getelementptr inbounds nuw %struct.ime_pinyin_k9_py_str_t, ptr %69, i32 0, i32 0
   %71 = getelementptr inbounds [7 x i8], ptr %70, i64 0, i64 0
   %72 = call ptr @lv_strcpy(ptr noundef %68, ptr noundef %71)
   br label %73
 
 73:                                               ; preds = %64, %56
-  %74 = load ptr, ptr %6, align 8, !tbaa !3
+  %74 = load ptr, ptr %6, align 8, !tbaa !10
   %75 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %74, i32 0, i32 4
-  %76 = load ptr, ptr %5, align 8, !tbaa !3
+  %76 = load ptr, ptr %5, align 8, !tbaa !41
   %77 = call ptr @lv_ll_get_next(ptr noundef %75, ptr noundef %76)
-  store ptr %77, ptr %5, align 8, !tbaa !3
-  %78 = load i16, ptr %3, align 2, !tbaa !7
+  store ptr %77, ptr %5, align 8, !tbaa !41
+  %78 = load i16, ptr %3, align 2, !tbaa !12
   %79 = add i16 %78, 1
-  store i16 %79, ptr %3, align 2, !tbaa !7
-  br label %48, !llvm.loop !59
+  store i16 %79, ptr %3, align 2, !tbaa !12
+  br label %48, !llvm.loop !83
 
 80:                                               ; preds = %55, %48
-  %81 = load i16, ptr %3, align 2, !tbaa !7
-  %82 = load ptr, ptr %6, align 8, !tbaa !3
+  %81 = load i16, ptr %3, align 2, !tbaa !12
+  %82 = load ptr, ptr %6, align 8, !tbaa !10
   %83 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %82, i32 0, i32 8
-  store i16 %81, ptr %83, align 8, !tbaa !23
+  store i16 %81, ptr %83, align 8, !tbaa !32
   call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
-  %84 = load ptr, ptr %6, align 8, !tbaa !3
+  %84 = load ptr, ptr %6, align 8, !tbaa !10
   %85 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %84, i32 0, i32 1
-  %86 = load ptr, ptr %85, align 8, !tbaa !25
+  %86 = load ptr, ptr %85, align 8, !tbaa !34
   %87 = call ptr @lv_keyboard_get_textarea(ptr noundef %86)
-  store ptr %87, ptr %8, align 8, !tbaa !3
-  store i16 0, ptr %3, align 2, !tbaa !7
+  store ptr %87, ptr %8, align 8, !tbaa !8
+  store i16 0, ptr %3, align 2, !tbaa !12
   br label %88
 
 88:                                               ; preds = %98, %80
-  %89 = load i16, ptr %3, align 2, !tbaa !7
+  %89 = load i16, ptr %3, align 2, !tbaa !12
   %90 = zext i16 %89 to i32
-  %91 = load ptr, ptr %6, align 8, !tbaa !3
+  %91 = load ptr, ptr %6, align 8, !tbaa !10
   %92 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %91, i32 0, i32 10
-  %93 = load i16, ptr %92, align 4, !tbaa !22
+  %93 = load i16, ptr %92, align 4, !tbaa !31
   %94 = zext i16 %93 to i32
   %95 = icmp slt i32 %90, %94
   br i1 %95, label %96, label %101
 
 96:                                               ; preds = %88
-  %97 = load ptr, ptr %8, align 8, !tbaa !3
+  %97 = load ptr, ptr %8, align 8, !tbaa !8
   call void @lv_textarea_delete_char(ptr noundef %97)
   br label %98
 
 98:                                               ; preds = %96
-  %99 = load i16, ptr %3, align 2, !tbaa !7
+  %99 = load i16, ptr %3, align 2, !tbaa !12
   %100 = add i16 %99, 1
-  store i16 %100, ptr %3, align 2, !tbaa !7
-  br label %88, !llvm.loop !60
+  store i16 %100, ptr %3, align 2, !tbaa !12
+  br label %88, !llvm.loop !84
 
 101:                                              ; preds = %88
-  %102 = load ptr, ptr %6, align 8, !tbaa !3
+  %102 = load ptr, ptr %6, align 8, !tbaa !10
   %103 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %102, i32 0, i32 6
   %104 = getelementptr inbounds [16 x i8], ptr %103, i64 0, i64 0
   %105 = call i64 @lv_strlen(ptr noundef %104)
   %106 = trunc i64 %105 to i16
-  %107 = load ptr, ptr %6, align 8, !tbaa !3
+  %107 = load ptr, ptr %6, align 8, !tbaa !10
   %108 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %107, i32 0, i32 10
-  store i16 %106, ptr %108, align 4, !tbaa !22
-  %109 = load ptr, ptr %8, align 8, !tbaa !3
-  %110 = load ptr, ptr %6, align 8, !tbaa !3
+  store i16 %106, ptr %108, align 4, !tbaa !31
+  %109 = load ptr, ptr %8, align 8, !tbaa !8
+  %110 = load ptr, ptr %6, align 8, !tbaa !10
   %111 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %110, i32 0, i32 6
   %112 = getelementptr inbounds [16 x i8], ptr %111, i64 0, i64 0
   call void @lv_textarea_add_text(ptr noundef %109, ptr noundef %112)
@@ -3662,57 +3806,57 @@ define internal void @pinyin_k9_cand_page_proc(ptr noundef %0, i16 noundef zeroe
   %10 = alloca i32, align 4
   %11 = alloca i8, align 1
   %12 = alloca i8, align 1
-  store ptr %0, ptr %3, align 8, !tbaa !3
-  store i16 %1, ptr %4, align 2, !tbaa !7
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store i16 %1, ptr %4, align 2, !tbaa !12
   call void @llvm.lifetime.start.p0(i64 8, ptr %5) #6
-  %13 = load ptr, ptr %3, align 8, !tbaa !3
-  store ptr %13, ptr %5, align 8, !tbaa !3
+  %13 = load ptr, ptr %3, align 8, !tbaa !8
+  store ptr %13, ptr %5, align 8, !tbaa !10
   call void @llvm.lifetime.start.p0(i64 8, ptr %6) #6
-  %14 = load ptr, ptr %5, align 8, !tbaa !3
+  %14 = load ptr, ptr %5, align 8, !tbaa !10
   %15 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %14, i32 0, i32 1
-  %16 = load ptr, ptr %15, align 8, !tbaa !25
+  %16 = load ptr, ptr %15, align 8, !tbaa !34
   %17 = call ptr @lv_keyboard_get_textarea(ptr noundef %16)
-  store ptr %17, ptr %6, align 8, !tbaa !3
+  store ptr %17, ptr %6, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 2, ptr %7) #6
-  %18 = load ptr, ptr %5, align 8, !tbaa !3
+  %18 = load ptr, ptr %5, align 8, !tbaa !10
   %19 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %18, i32 0, i32 4
   %20 = call i32 @lv_ll_get_len(ptr noundef %19)
   %21 = trunc i32 %20 to i16
-  store i16 %21, ptr %7, align 2, !tbaa !7
-  %22 = load i16, ptr %7, align 2, !tbaa !7
+  store i16 %21, ptr %7, align 2, !tbaa !12
+  %22 = load i16, ptr %7, align 2, !tbaa !12
   %23 = zext i16 %22 to i32
   %24 = icmp sgt i32 %23, 3
   br i1 %24, label %25, label %175
 
 25:                                               ; preds = %2
-  %26 = load ptr, ptr %5, align 8, !tbaa !3
+  %26 = load ptr, ptr %5, align 8, !tbaa !10
   %27 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %26, i32 0, i32 9
-  %28 = load i16, ptr %27, align 2, !tbaa !24
+  %28 = load i16, ptr %27, align 2, !tbaa !33
   %29 = zext i16 %28 to i32
   %30 = icmp sgt i32 %29, 3
   br i1 %30, label %31, label %175
 
 31:                                               ; preds = %25
   call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
-  store ptr null, ptr %8, align 8, !tbaa !3
+  store ptr null, ptr %8, align 8, !tbaa !41
   call void @llvm.lifetime.start.p0(i64 4, ptr %9) #6
-  store i32 0, ptr %9, align 4, !tbaa !26
-  %32 = load ptr, ptr %5, align 8, !tbaa !3
+  store i32 0, ptr %9, align 4, !tbaa !37
+  %32 = load ptr, ptr %5, align 8, !tbaa !10
   %33 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %32, i32 0, i32 4
   %34 = call ptr @lv_ll_get_head(ptr noundef %33)
-  store ptr %34, ptr %8, align 8, !tbaa !3
+  store ptr %34, ptr %8, align 8, !tbaa !41
   br label %35
 
 35:                                               ; preds = %46, %31
-  %36 = load ptr, ptr %8, align 8, !tbaa !3
+  %36 = load ptr, ptr %8, align 8, !tbaa !41
   %37 = icmp ne ptr %36, null
   br i1 %37, label %38, label %53
 
 38:                                               ; preds = %35
-  %39 = load i32, ptr %9, align 4, !tbaa !26
-  %40 = load ptr, ptr %5, align 8, !tbaa !3
+  %39 = load i32, ptr %9, align 4, !tbaa !37
+  %40 = load ptr, ptr %5, align 8, !tbaa !10
   %41 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %40, i32 0, i32 8
-  %42 = load i16, ptr %41, align 8, !tbaa !23
+  %42 = load i16, ptr %41, align 8, !tbaa !32
   %43 = zext i16 %42 to i32
   %44 = icmp sge i32 %39, %43
   br i1 %44, label %45, label %46
@@ -3721,23 +3865,23 @@ define internal void @pinyin_k9_cand_page_proc(ptr noundef %0, i16 noundef zeroe
   br label %53
 
 46:                                               ; preds = %38
-  %47 = load ptr, ptr %5, align 8, !tbaa !3
+  %47 = load ptr, ptr %5, align 8, !tbaa !10
   %48 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %47, i32 0, i32 4
-  %49 = load ptr, ptr %8, align 8, !tbaa !3
+  %49 = load ptr, ptr %8, align 8, !tbaa !41
   %50 = call ptr @lv_ll_get_next(ptr noundef %48, ptr noundef %49)
-  store ptr %50, ptr %8, align 8, !tbaa !3
-  %51 = load i32, ptr %9, align 4, !tbaa !26
+  store ptr %50, ptr %8, align 8, !tbaa !41
+  %51 = load i32, ptr %9, align 4, !tbaa !37
   %52 = add nsw i32 %51, 1
-  store i32 %52, ptr %9, align 4, !tbaa !26
-  br label %35, !llvm.loop !61
+  store i32 %52, ptr %9, align 4, !tbaa !37
+  br label %35, !llvm.loop !85
 
 53:                                               ; preds = %45, %35
-  %54 = load ptr, ptr %8, align 8, !tbaa !3
+  %54 = load ptr, ptr %8, align 8, !tbaa !41
   %55 = icmp eq ptr null, %54
   br i1 %55, label %56, label %61
 
 56:                                               ; preds = %53
-  %57 = load i16, ptr %4, align 2, !tbaa !7
+  %57 = load i16, ptr %4, align 2, !tbaa !12
   %58 = zext i16 %57 to i32
   %59 = icmp eq i32 %58, 1
   br i1 %59, label %60, label %61
@@ -3750,18 +3894,18 @@ define internal void @pinyin_k9_cand_page_proc(ptr noundef %0, i16 noundef zeroe
   call void @lv_memzero(ptr noundef @lv_pinyin_k9_cand_str, i64 noundef 35)
   %62 = call ptr @lv_strcpy(ptr noundef getelementptr inbounds ([5 x [7 x i8]], ptr @lv_pinyin_k9_cand_str, i64 0, i64 3), ptr noundef @.str.660)
   %63 = call ptr @lv_strcpy(ptr noundef getelementptr inbounds ([5 x [7 x i8]], ptr @lv_pinyin_k9_cand_str, i64 0, i64 4), ptr noundef @.str.18)
-  %64 = load i16, ptr %4, align 2, !tbaa !7
+  %64 = load i16, ptr %4, align 2, !tbaa !12
   %65 = zext i16 %64 to i32
   %66 = icmp eq i32 %65, 1
   br i1 %66, label %67, label %114
 
 67:                                               ; preds = %61
   call void @llvm.lifetime.start.p0(i64 1, ptr %11) #6
-  store i8 0, ptr %11, align 1, !tbaa !9
+  store i8 0, ptr %11, align 1, !tbaa !16
   br label %68
 
 68:                                               ; preds = %79, %67
-  %69 = load i8, ptr %11, align 1, !tbaa !9
+  %69 = load i8, ptr %11, align 1, !tbaa !16
   %70 = zext i8 %69 to i32
   %71 = icmp slt i32 %70, 3
   br i1 %71, label %73, label %72
@@ -3772,7 +3916,7 @@ define internal void @pinyin_k9_cand_page_proc(ptr noundef %0, i16 noundef zeroe
   br label %82
 
 73:                                               ; preds = %68
-  %74 = load i8, ptr %11, align 1, !tbaa !9
+  %74 = load i8, ptr %11, align 1, !tbaa !16
   %75 = zext i8 %74 to i64
   %76 = getelementptr inbounds nuw [5 x [7 x i8]], ptr @lv_pinyin_k9_cand_str, i64 0, i64 %75
   %77 = getelementptr inbounds [7 x i8], ptr %76, i64 0, i64 0
@@ -3780,22 +3924,22 @@ define internal void @pinyin_k9_cand_page_proc(ptr noundef %0, i16 noundef zeroe
   br label %79
 
 79:                                               ; preds = %73
-  %80 = load i8, ptr %11, align 1, !tbaa !9
+  %80 = load i8, ptr %11, align 1, !tbaa !16
   %81 = add i8 %80, 1
-  store i8 %81, ptr %11, align 1, !tbaa !9
-  br label %68, !llvm.loop !62
+  store i8 %81, ptr %11, align 1, !tbaa !16
+  br label %68, !llvm.loop !86
 
 82:                                               ; preds = %72
-  store i32 0, ptr %9, align 4, !tbaa !26
+  store i32 0, ptr %9, align 4, !tbaa !37
   br label %83
 
 83:                                               ; preds = %90, %82
-  %84 = load ptr, ptr %8, align 8, !tbaa !3
+  %84 = load ptr, ptr %8, align 8, !tbaa !41
   %85 = icmp ne ptr %84, null
   br i1 %85, label %86, label %105
 
 86:                                               ; preds = %83
-  %87 = load i32, ptr %9, align 4, !tbaa !26
+  %87 = load i32, ptr %9, align 4, !tbaa !37
   %88 = icmp sge i32 %87, 2
   br i1 %88, label %89, label %90
 
@@ -3803,43 +3947,43 @@ define internal void @pinyin_k9_cand_page_proc(ptr noundef %0, i16 noundef zeroe
   br label %105
 
 90:                                               ; preds = %86
-  %91 = load i32, ptr %9, align 4, !tbaa !26
+  %91 = load i32, ptr %9, align 4, !tbaa !37
   %92 = sext i32 %91 to i64
   %93 = getelementptr inbounds [5 x [7 x i8]], ptr @lv_pinyin_k9_cand_str, i64 0, i64 %92
   %94 = getelementptr inbounds [7 x i8], ptr %93, i64 0, i64 0
-  %95 = load ptr, ptr %8, align 8, !tbaa !3
+  %95 = load ptr, ptr %8, align 8, !tbaa !41
   %96 = getelementptr inbounds nuw %struct.ime_pinyin_k9_py_str_t, ptr %95, i32 0, i32 0
   %97 = getelementptr inbounds [7 x i8], ptr %96, i64 0, i64 0
   %98 = call ptr @lv_strcpy(ptr noundef %94, ptr noundef %97)
-  %99 = load ptr, ptr %5, align 8, !tbaa !3
+  %99 = load ptr, ptr %5, align 8, !tbaa !10
   %100 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %99, i32 0, i32 4
-  %101 = load ptr, ptr %8, align 8, !tbaa !3
+  %101 = load ptr, ptr %8, align 8, !tbaa !41
   %102 = call ptr @lv_ll_get_next(ptr noundef %100, ptr noundef %101)
-  store ptr %102, ptr %8, align 8, !tbaa !3
-  %103 = load i32, ptr %9, align 4, !tbaa !26
+  store ptr %102, ptr %8, align 8, !tbaa !41
+  %103 = load i32, ptr %9, align 4, !tbaa !37
   %104 = add nsw i32 %103, 1
-  store i32 %104, ptr %9, align 4, !tbaa !26
-  br label %83, !llvm.loop !63
+  store i32 %104, ptr %9, align 4, !tbaa !37
+  br label %83, !llvm.loop !87
 
 105:                                              ; preds = %89, %83
-  %106 = load i32, ptr %9, align 4, !tbaa !26
+  %106 = load i32, ptr %9, align 4, !tbaa !37
   %107 = sub nsw i32 %106, 1
-  %108 = load ptr, ptr %5, align 8, !tbaa !3
+  %108 = load ptr, ptr %5, align 8, !tbaa !10
   %109 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %108, i32 0, i32 8
-  %110 = load i16, ptr %109, align 8, !tbaa !23
+  %110 = load i16, ptr %109, align 8, !tbaa !32
   %111 = zext i16 %110 to i32
   %112 = add nsw i32 %111, %107
   %113 = trunc i32 %112 to i16
-  store i16 %113, ptr %109, align 8, !tbaa !23
+  store i16 %113, ptr %109, align 8, !tbaa !32
   br label %170
 
 114:                                              ; preds = %61
   call void @llvm.lifetime.start.p0(i64 1, ptr %12) #6
-  store i8 0, ptr %12, align 1, !tbaa !9
+  store i8 0, ptr %12, align 1, !tbaa !16
   br label %115
 
 115:                                              ; preds = %126, %114
-  %116 = load i8, ptr %12, align 1, !tbaa !9
+  %116 = load i8, ptr %12, align 1, !tbaa !16
   %117 = zext i8 %116 to i32
   %118 = icmp slt i32 %117, 3
   br i1 %118, label %120, label %119
@@ -3850,7 +3994,7 @@ define internal void @pinyin_k9_cand_page_proc(ptr noundef %0, i16 noundef zeroe
   br label %129
 
 120:                                              ; preds = %115
-  %121 = load i8, ptr %12, align 1, !tbaa !9
+  %121 = load i8, ptr %12, align 1, !tbaa !16
   %122 = zext i8 %121 to i64
   %123 = getelementptr inbounds nuw [5 x [7 x i8]], ptr @lv_pinyin_k9_cand_str, i64 0, i64 %122
   %124 = getelementptr inbounds [7 x i8], ptr %123, i64 0, i64 0
@@ -3858,27 +4002,27 @@ define internal void @pinyin_k9_cand_page_proc(ptr noundef %0, i16 noundef zeroe
   br label %126
 
 126:                                              ; preds = %120
-  %127 = load i8, ptr %12, align 1, !tbaa !9
+  %127 = load i8, ptr %12, align 1, !tbaa !16
   %128 = add i8 %127, 1
-  store i8 %128, ptr %12, align 1, !tbaa !9
-  br label %115, !llvm.loop !64
+  store i8 %128, ptr %12, align 1, !tbaa !16
+  br label %115, !llvm.loop !88
 
 129:                                              ; preds = %119
-  store i32 2, ptr %9, align 4, !tbaa !26
-  %130 = load ptr, ptr %5, align 8, !tbaa !3
+  store i32 2, ptr %9, align 4, !tbaa !37
+  %130 = load ptr, ptr %5, align 8, !tbaa !10
   %131 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %130, i32 0, i32 4
-  %132 = load ptr, ptr %8, align 8, !tbaa !3
+  %132 = load ptr, ptr %8, align 8, !tbaa !41
   %133 = call ptr @lv_ll_get_prev(ptr noundef %131, ptr noundef %132)
-  store ptr %133, ptr %8, align 8, !tbaa !3
+  store ptr %133, ptr %8, align 8, !tbaa !41
   br label %134
 
 134:                                              ; preds = %141, %129
-  %135 = load ptr, ptr %8, align 8, !tbaa !3
+  %135 = load ptr, ptr %8, align 8, !tbaa !41
   %136 = icmp ne ptr %135, null
   br i1 %136, label %137, label %156
 
 137:                                              ; preds = %134
-  %138 = load i32, ptr %9, align 4, !tbaa !26
+  %138 = load i32, ptr %9, align 4, !tbaa !37
   %139 = icmp slt i32 %138, 0
   br i1 %139, label %140, label %141
 
@@ -3886,47 +4030,47 @@ define internal void @pinyin_k9_cand_page_proc(ptr noundef %0, i16 noundef zeroe
   br label %156
 
 141:                                              ; preds = %137
-  %142 = load i32, ptr %9, align 4, !tbaa !26
+  %142 = load i32, ptr %9, align 4, !tbaa !37
   %143 = sext i32 %142 to i64
   %144 = getelementptr inbounds [5 x [7 x i8]], ptr @lv_pinyin_k9_cand_str, i64 0, i64 %143
   %145 = getelementptr inbounds [7 x i8], ptr %144, i64 0, i64 0
-  %146 = load ptr, ptr %8, align 8, !tbaa !3
+  %146 = load ptr, ptr %8, align 8, !tbaa !41
   %147 = getelementptr inbounds nuw %struct.ime_pinyin_k9_py_str_t, ptr %146, i32 0, i32 0
   %148 = getelementptr inbounds [7 x i8], ptr %147, i64 0, i64 0
   %149 = call ptr @lv_strcpy(ptr noundef %145, ptr noundef %148)
-  %150 = load ptr, ptr %5, align 8, !tbaa !3
+  %150 = load ptr, ptr %5, align 8, !tbaa !10
   %151 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %150, i32 0, i32 4
-  %152 = load ptr, ptr %8, align 8, !tbaa !3
+  %152 = load ptr, ptr %8, align 8, !tbaa !41
   %153 = call ptr @lv_ll_get_prev(ptr noundef %151, ptr noundef %152)
-  store ptr %153, ptr %8, align 8, !tbaa !3
-  %154 = load i32, ptr %9, align 4, !tbaa !26
+  store ptr %153, ptr %8, align 8, !tbaa !41
+  %154 = load i32, ptr %9, align 4, !tbaa !37
   %155 = add nsw i32 %154, -1
-  store i32 %155, ptr %9, align 4, !tbaa !26
-  br label %134, !llvm.loop !65
+  store i32 %155, ptr %9, align 4, !tbaa !37
+  br label %134, !llvm.loop !89
 
 156:                                              ; preds = %140, %134
-  %157 = load ptr, ptr %5, align 8, !tbaa !3
+  %157 = load ptr, ptr %5, align 8, !tbaa !10
   %158 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %157, i32 0, i32 8
-  %159 = load i16, ptr %158, align 8, !tbaa !23
+  %159 = load i16, ptr %158, align 8, !tbaa !32
   %160 = zext i16 %159 to i32
   %161 = icmp sgt i32 %160, 3
   br i1 %161, label %162, label %169
 
 162:                                              ; preds = %156
-  %163 = load ptr, ptr %5, align 8, !tbaa !3
+  %163 = load ptr, ptr %5, align 8, !tbaa !10
   %164 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %163, i32 0, i32 8
-  %165 = load i16, ptr %164, align 8, !tbaa !23
+  %165 = load i16, ptr %164, align 8, !tbaa !32
   %166 = zext i16 %165 to i32
   %167 = sub nsw i32 %166, 1
   %168 = trunc i32 %167 to i16
-  store i16 %168, ptr %164, align 8, !tbaa !23
+  store i16 %168, ptr %164, align 8, !tbaa !32
   br label %169
 
 169:                                              ; preds = %162, %156
   br label %170
 
 170:                                              ; preds = %169, %105
-  %171 = load ptr, ptr %6, align 8, !tbaa !3
+  %171 = load ptr, ptr %6, align 8, !tbaa !8
   call void @lv_textarea_set_cursor_pos(ptr noundef %171, i32 noundef 32767)
   store i32 0, ptr %10, align 4
   br label %172
@@ -3976,21 +4120,21 @@ define internal ptr @pinyin_search_matching(ptr noundef %0, ptr noundef %1, ptr 
   %12 = alloca i8, align 1
   %13 = alloca i8, align 1
   %14 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8, !tbaa !3
-  store ptr %1, ptr %6, align 8, !tbaa !3
-  store ptr %2, ptr %7, align 8, !tbaa !3
+  store ptr %0, ptr %5, align 8, !tbaa !8
+  store ptr %1, ptr %6, align 8, !tbaa !14
+  store ptr %2, ptr %7, align 8, !tbaa !90
   call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
-  %15 = load ptr, ptr %5, align 8, !tbaa !3
-  store ptr %15, ptr %8, align 8, !tbaa !3
+  %15 = load ptr, ptr %5, align 8, !tbaa !8
+  store ptr %15, ptr %8, align 8, !tbaa !10
   call void @llvm.lifetime.start.p0(i64 8, ptr %9) #6
   call void @llvm.lifetime.start.p0(i64 1, ptr %10) #6
   call void @llvm.lifetime.start.p0(i64 1, ptr %11) #6
-  store i8 0, ptr %11, align 1, !tbaa !9
+  store i8 0, ptr %11, align 1, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 1, ptr %12) #6
   call void @llvm.lifetime.start.p0(i64 1, ptr %13) #6
-  store volatile i8 0, ptr %13, align 1, !tbaa !9
-  %16 = load ptr, ptr %6, align 8, !tbaa !3
-  %17 = load i8, ptr %16, align 1, !tbaa !9
+  store volatile i8 0, ptr %13, align 1, !tbaa !16
+  %16 = load ptr, ptr %6, align 8, !tbaa !14
+  %17 = load i8, ptr %16, align 1, !tbaa !16
   %18 = sext i8 %17 to i32
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %20, label %21
@@ -4001,8 +4145,8 @@ define internal ptr @pinyin_search_matching(ptr noundef %0, ptr noundef %1, ptr 
   br label %132
 
 21:                                               ; preds = %3
-  %22 = load ptr, ptr %6, align 8, !tbaa !3
-  %23 = load i8, ptr %22, align 1, !tbaa !9
+  %22 = load ptr, ptr %6, align 8, !tbaa !14
+  %23 = load i8, ptr %22, align 1, !tbaa !16
   %24 = sext i8 %23 to i32
   %25 = icmp eq i32 %24, 105
   br i1 %25, label %26, label %27
@@ -4013,8 +4157,8 @@ define internal ptr @pinyin_search_matching(ptr noundef %0, ptr noundef %1, ptr 
   br label %132
 
 27:                                               ; preds = %21
-  %28 = load ptr, ptr %6, align 8, !tbaa !3
-  %29 = load i8, ptr %28, align 1, !tbaa !9
+  %28 = load ptr, ptr %6, align 8, !tbaa !14
+  %29 = load i8, ptr %28, align 1, !tbaa !16
   %30 = sext i8 %29 to i32
   %31 = icmp eq i32 %30, 117
   br i1 %31, label %32, label %33
@@ -4025,8 +4169,8 @@ define internal ptr @pinyin_search_matching(ptr noundef %0, ptr noundef %1, ptr 
   br label %132
 
 33:                                               ; preds = %27
-  %34 = load ptr, ptr %6, align 8, !tbaa !3
-  %35 = load i8, ptr %34, align 1, !tbaa !9
+  %34 = load ptr, ptr %6, align 8, !tbaa !14
+  %35 = load i8, ptr %34, align 1, !tbaa !16
   %36 = sext i8 %35 to i32
   %37 = icmp eq i32 %36, 118
   br i1 %37, label %38, label %39
@@ -4037,8 +4181,8 @@ define internal ptr @pinyin_search_matching(ptr noundef %0, ptr noundef %1, ptr 
   br label %132
 
 39:                                               ; preds = %33
-  %40 = load ptr, ptr %6, align 8, !tbaa !3
-  %41 = load i8, ptr %40, align 1, !tbaa !9
+  %40 = load ptr, ptr %6, align 8, !tbaa !14
+  %41 = load i8, ptr %40, align 1, !tbaa !16
   %42 = sext i8 %41 to i32
   %43 = icmp eq i32 %42, 32
   br i1 %43, label %44, label %45
@@ -4049,74 +4193,74 @@ define internal ptr @pinyin_search_matching(ptr noundef %0, ptr noundef %1, ptr 
   br label %132
 
 45:                                               ; preds = %39
-  %46 = load ptr, ptr %6, align 8, !tbaa !3
+  %46 = load ptr, ptr %6, align 8, !tbaa !14
   %47 = getelementptr inbounds i8, ptr %46, i64 0
-  %48 = load i8, ptr %47, align 1, !tbaa !9
+  %48 = load i8, ptr %47, align 1, !tbaa !16
   %49 = sext i8 %48 to i32
   %50 = sub nsw i32 %49, 97
   %51 = trunc i32 %50 to i8
-  store i8 %51, ptr %12, align 1, !tbaa !9
-  %52 = load ptr, ptr %6, align 8, !tbaa !3
+  store i8 %51, ptr %12, align 1, !tbaa !16
+  %52 = load ptr, ptr %6, align 8, !tbaa !14
   %53 = call i64 @lv_strlen(ptr noundef %52)
   %54 = trunc i64 %53 to i8
-  store i8 %54, ptr %11, align 1, !tbaa !9
-  %55 = load ptr, ptr %8, align 8, !tbaa !3
+  store i8 %54, ptr %11, align 1, !tbaa !16
+  %55 = load ptr, ptr %8, align 8, !tbaa !10
   %56 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %55, i32 0, i32 3
-  %57 = load ptr, ptr %56, align 8, !tbaa !30
-  %58 = load ptr, ptr %8, align 8, !tbaa !3
+  %57 = load ptr, ptr %56, align 8, !tbaa !42
+  %58 = load ptr, ptr %8, align 8, !tbaa !10
   %59 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %58, i32 0, i32 15
-  %60 = load i8, ptr %12, align 1, !tbaa !9
+  %60 = load i8, ptr %12, align 1, !tbaa !16
   %61 = zext i8 %60 to i64
   %62 = getelementptr inbounds nuw [26 x i16], ptr %59, i64 0, i64 %61
-  %63 = load i16, ptr %62, align 2, !tbaa !7
+  %63 = load i16, ptr %62, align 2, !tbaa !12
   %64 = zext i16 %63 to i64
   %65 = getelementptr inbounds nuw %struct.lv_pinyin_dict_t, ptr %57, i64 %64
-  store ptr %65, ptr %9, align 8, !tbaa !3
-  %66 = load ptr, ptr %8, align 8, !tbaa !3
+  store ptr %65, ptr %9, align 8, !tbaa !41
+  %66 = load ptr, ptr %8, align 8, !tbaa !10
   %67 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %66, i32 0, i32 14
-  %68 = load i8, ptr %12, align 1, !tbaa !9
+  %68 = load i8, ptr %12, align 1, !tbaa !16
   %69 = zext i8 %68 to i64
   %70 = getelementptr inbounds nuw [26 x i16], ptr %67, i64 0, i64 %69
-  %71 = load i16, ptr %70, align 2, !tbaa !7
+  %71 = load i16, ptr %70, align 2, !tbaa !12
   %72 = trunc i16 %71 to i8
-  store volatile i8 %72, ptr %13, align 1, !tbaa !9
+  store volatile i8 %72, ptr %13, align 1, !tbaa !16
   br label %73
 
 73:                                               ; preds = %128, %45
-  %74 = load volatile i8, ptr %13, align 1, !tbaa !9
+  %74 = load volatile i8, ptr %13, align 1, !tbaa !16
   %75 = add i8 %74, -1
-  store volatile i8 %75, ptr %13, align 1, !tbaa !9
+  store volatile i8 %75, ptr %13, align 1, !tbaa !16
   %76 = icmp ne i8 %74, 0
   br i1 %76, label %77, label %131
 
 77:                                               ; preds = %73
-  store i8 0, ptr %10, align 1, !tbaa !9
+  store i8 0, ptr %10, align 1, !tbaa !16
   br label %78
 
 78:                                               ; preds = %104, %77
-  %79 = load i8, ptr %10, align 1, !tbaa !9
+  %79 = load i8, ptr %10, align 1, !tbaa !16
   %80 = zext i8 %79 to i32
-  %81 = load i8, ptr %11, align 1, !tbaa !9
+  %81 = load i8, ptr %11, align 1, !tbaa !16
   %82 = zext i8 %81 to i32
   %83 = icmp slt i32 %80, %82
   br i1 %83, label %84, label %107
 
 84:                                               ; preds = %78
-  %85 = load ptr, ptr %6, align 8, !tbaa !3
-  %86 = load i8, ptr %10, align 1, !tbaa !9
+  %85 = load ptr, ptr %6, align 8, !tbaa !14
+  %86 = load i8, ptr %10, align 1, !tbaa !16
   %87 = zext i8 %86 to i32
   %88 = sext i32 %87 to i64
   %89 = getelementptr inbounds i8, ptr %85, i64 %88
-  %90 = load i8, ptr %89, align 1, !tbaa !9
+  %90 = load i8, ptr %89, align 1, !tbaa !16
   %91 = sext i8 %90 to i32
-  %92 = load ptr, ptr %9, align 8, !tbaa !3
+  %92 = load ptr, ptr %9, align 8, !tbaa !41
   %93 = getelementptr inbounds nuw %struct.lv_pinyin_dict_t, ptr %92, i32 0, i32 0
-  %94 = load ptr, ptr %93, align 8, !tbaa !31
-  %95 = load i8, ptr %10, align 1, !tbaa !9
+  %94 = load ptr, ptr %93, align 8, !tbaa !43
+  %95 = load i8, ptr %10, align 1, !tbaa !16
   %96 = zext i8 %95 to i32
   %97 = sext i32 %96 to i64
   %98 = getelementptr inbounds i8, ptr %94, i64 %97
-  %99 = load i8, ptr %98, align 1, !tbaa !9
+  %99 = load i8, ptr %98, align 1, !tbaa !16
   %100 = sext i8 %99 to i32
   %101 = icmp ne i32 %91, %100
   br i1 %101, label %102, label %103
@@ -4128,46 +4272,46 @@ define internal ptr @pinyin_search_matching(ptr noundef %0, ptr noundef %1, ptr 
   br label %104
 
 104:                                              ; preds = %103
-  %105 = load i8, ptr %10, align 1, !tbaa !9
+  %105 = load i8, ptr %10, align 1, !tbaa !16
   %106 = add i8 %105, 1
-  store i8 %106, ptr %10, align 1, !tbaa !9
-  br label %78, !llvm.loop !66
+  store i8 %106, ptr %10, align 1, !tbaa !16
+  br label %78, !llvm.loop !92
 
 107:                                              ; preds = %102, %78
-  %108 = load i8, ptr %11, align 1, !tbaa !9
+  %108 = load i8, ptr %11, align 1, !tbaa !16
   %109 = zext i8 %108 to i32
   %110 = icmp eq i32 %109, 1
   br i1 %110, label %117, label %111
 
 111:                                              ; preds = %107
-  %112 = load i8, ptr %10, align 1, !tbaa !9
+  %112 = load i8, ptr %10, align 1, !tbaa !16
   %113 = zext i8 %112 to i32
-  %114 = load i8, ptr %11, align 1, !tbaa !9
+  %114 = load i8, ptr %11, align 1, !tbaa !16
   %115 = zext i8 %114 to i32
   %116 = icmp eq i32 %113, %115
   br i1 %116, label %117, label %128
 
 117:                                              ; preds = %111, %107
-  %118 = load ptr, ptr %9, align 8, !tbaa !3
+  %118 = load ptr, ptr %9, align 8, !tbaa !41
   %119 = getelementptr inbounds nuw %struct.lv_pinyin_dict_t, ptr %118, i32 0, i32 1
-  %120 = load ptr, ptr %119, align 8, !tbaa !33
+  %120 = load ptr, ptr %119, align 8, !tbaa !45
   %121 = call i64 @lv_strlen(ptr noundef %120)
   %122 = udiv i64 %121, 3
   %123 = trunc i64 %122 to i16
-  %124 = load ptr, ptr %7, align 8, !tbaa !3
-  store i16 %123, ptr %124, align 2, !tbaa !7
-  %125 = load ptr, ptr %9, align 8, !tbaa !3
+  %124 = load ptr, ptr %7, align 8, !tbaa !90
+  store i16 %123, ptr %124, align 2, !tbaa !12
+  %125 = load ptr, ptr %9, align 8, !tbaa !41
   %126 = getelementptr inbounds nuw %struct.lv_pinyin_dict_t, ptr %125, i32 0, i32 1
-  %127 = load ptr, ptr %126, align 8, !tbaa !33
+  %127 = load ptr, ptr %126, align 8, !tbaa !45
   store ptr %127, ptr %4, align 8
   store i32 1, ptr %14, align 4
   br label %132
 
 128:                                              ; preds = %111
-  %129 = load ptr, ptr %9, align 8, !tbaa !3
+  %129 = load ptr, ptr %9, align 8, !tbaa !41
   %130 = getelementptr inbounds nuw %struct.lv_pinyin_dict_t, ptr %129, i32 1
-  store ptr %130, ptr %9, align 8, !tbaa !3
-  br label %73, !llvm.loop !67
+  store ptr %130, ptr %9, align 8, !tbaa !41
+  br label %73, !llvm.loop !93
 
 131:                                              ; preds = %73
   store ptr null, ptr %4, align 8
@@ -4186,7 +4330,7 @@ define internal ptr @pinyin_search_matching(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare i32 @lv_ll_get_len(ptr noundef) #2
 
@@ -4204,23 +4348,23 @@ define internal zeroext i1 @pinyin_k9_is_valid_py(ptr noundef %0, ptr noundef %1
   %10 = alloca i8, align 1
   %11 = alloca i8, align 1
   %12 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8, !tbaa !3
-  store ptr %1, ptr %5, align 8, !tbaa !3
+  store ptr %0, ptr %4, align 8, !tbaa !8
+  store ptr %1, ptr %5, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(i64 8, ptr %6) #6
-  %13 = load ptr, ptr %4, align 8, !tbaa !3
-  store ptr %13, ptr %6, align 8, !tbaa !3
+  %13 = load ptr, ptr %4, align 8, !tbaa !8
+  store ptr %13, ptr %6, align 8, !tbaa !10
   call void @llvm.lifetime.start.p0(i64 8, ptr %7) #6
-  store ptr null, ptr %7, align 8, !tbaa !3
+  store ptr null, ptr %7, align 8, !tbaa !41
   call void @llvm.lifetime.start.p0(i64 1, ptr %8) #6
-  store i8 0, ptr %8, align 1, !tbaa !9
+  store i8 0, ptr %8, align 1, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 1, ptr %9) #6
-  store i8 0, ptr %9, align 1, !tbaa !9
+  store i8 0, ptr %9, align 1, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 1, ptr %10) #6
-  store i8 0, ptr %10, align 1, !tbaa !9
+  store i8 0, ptr %10, align 1, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 1, ptr %11) #6
-  store volatile i8 0, ptr %11, align 1, !tbaa !9
-  %14 = load ptr, ptr %5, align 8, !tbaa !3
-  %15 = load i8, ptr %14, align 1, !tbaa !9
+  store volatile i8 0, ptr %11, align 1, !tbaa !16
+  %14 = load ptr, ptr %5, align 8, !tbaa !14
+  %15 = load i8, ptr %14, align 1, !tbaa !16
   %16 = sext i8 %15 to i32
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %18, label %19
@@ -4231,8 +4375,8 @@ define internal zeroext i1 @pinyin_k9_is_valid_py(ptr noundef %0, ptr noundef %1
   br label %114
 
 19:                                               ; preds = %2
-  %20 = load ptr, ptr %5, align 8, !tbaa !3
-  %21 = load i8, ptr %20, align 1, !tbaa !9
+  %20 = load ptr, ptr %5, align 8, !tbaa !14
+  %21 = load i8, ptr %20, align 1, !tbaa !16
   %22 = sext i8 %21 to i32
   %23 = icmp eq i32 %22, 105
   br i1 %23, label %24, label %25
@@ -4243,8 +4387,8 @@ define internal zeroext i1 @pinyin_k9_is_valid_py(ptr noundef %0, ptr noundef %1
   br label %114
 
 25:                                               ; preds = %19
-  %26 = load ptr, ptr %5, align 8, !tbaa !3
-  %27 = load i8, ptr %26, align 1, !tbaa !9
+  %26 = load ptr, ptr %5, align 8, !tbaa !14
+  %27 = load i8, ptr %26, align 1, !tbaa !16
   %28 = sext i8 %27 to i32
   %29 = icmp eq i32 %28, 117
   br i1 %29, label %30, label %31
@@ -4255,8 +4399,8 @@ define internal zeroext i1 @pinyin_k9_is_valid_py(ptr noundef %0, ptr noundef %1
   br label %114
 
 31:                                               ; preds = %25
-  %32 = load ptr, ptr %5, align 8, !tbaa !3
-  %33 = load i8, ptr %32, align 1, !tbaa !9
+  %32 = load ptr, ptr %5, align 8, !tbaa !14
+  %33 = load i8, ptr %32, align 1, !tbaa !16
   %34 = sext i8 %33 to i32
   %35 = icmp eq i32 %34, 118
   br i1 %35, label %36, label %37
@@ -4267,74 +4411,74 @@ define internal zeroext i1 @pinyin_k9_is_valid_py(ptr noundef %0, ptr noundef %1
   br label %114
 
 37:                                               ; preds = %31
-  %38 = load ptr, ptr %5, align 8, !tbaa !3
+  %38 = load ptr, ptr %5, align 8, !tbaa !14
   %39 = getelementptr inbounds i8, ptr %38, i64 0
-  %40 = load i8, ptr %39, align 1, !tbaa !9
+  %40 = load i8, ptr %39, align 1, !tbaa !16
   %41 = sext i8 %40 to i32
   %42 = sub nsw i32 %41, 97
   %43 = trunc i32 %42 to i8
-  store i8 %43, ptr %10, align 1, !tbaa !9
-  %44 = load ptr, ptr %5, align 8, !tbaa !3
+  store i8 %43, ptr %10, align 1, !tbaa !16
+  %44 = load ptr, ptr %5, align 8, !tbaa !14
   %45 = call i64 @lv_strlen(ptr noundef %44)
   %46 = trunc i64 %45 to i8
-  store i8 %46, ptr %9, align 1, !tbaa !9
-  %47 = load ptr, ptr %6, align 8, !tbaa !3
+  store i8 %46, ptr %9, align 1, !tbaa !16
+  %47 = load ptr, ptr %6, align 8, !tbaa !10
   %48 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %47, i32 0, i32 3
-  %49 = load ptr, ptr %48, align 8, !tbaa !30
-  %50 = load ptr, ptr %6, align 8, !tbaa !3
+  %49 = load ptr, ptr %48, align 8, !tbaa !42
+  %50 = load ptr, ptr %6, align 8, !tbaa !10
   %51 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %50, i32 0, i32 15
-  %52 = load i8, ptr %10, align 1, !tbaa !9
+  %52 = load i8, ptr %10, align 1, !tbaa !16
   %53 = zext i8 %52 to i64
   %54 = getelementptr inbounds nuw [26 x i16], ptr %51, i64 0, i64 %53
-  %55 = load i16, ptr %54, align 2, !tbaa !7
+  %55 = load i16, ptr %54, align 2, !tbaa !12
   %56 = zext i16 %55 to i64
   %57 = getelementptr inbounds nuw %struct.lv_pinyin_dict_t, ptr %49, i64 %56
-  store ptr %57, ptr %7, align 8, !tbaa !3
-  %58 = load ptr, ptr %6, align 8, !tbaa !3
+  store ptr %57, ptr %7, align 8, !tbaa !41
+  %58 = load ptr, ptr %6, align 8, !tbaa !10
   %59 = getelementptr inbounds nuw %struct._lv_ime_pinyin_t, ptr %58, i32 0, i32 14
-  %60 = load i8, ptr %10, align 1, !tbaa !9
+  %60 = load i8, ptr %10, align 1, !tbaa !16
   %61 = zext i8 %60 to i64
   %62 = getelementptr inbounds nuw [26 x i16], ptr %59, i64 0, i64 %61
-  %63 = load i16, ptr %62, align 2, !tbaa !7
+  %63 = load i16, ptr %62, align 2, !tbaa !12
   %64 = trunc i16 %63 to i8
-  store volatile i8 %64, ptr %11, align 1, !tbaa !9
+  store volatile i8 %64, ptr %11, align 1, !tbaa !16
   br label %65
 
 65:                                               ; preds = %110, %37
-  %66 = load volatile i8, ptr %11, align 1, !tbaa !9
+  %66 = load volatile i8, ptr %11, align 1, !tbaa !16
   %67 = add i8 %66, -1
-  store volatile i8 %67, ptr %11, align 1, !tbaa !9
+  store volatile i8 %67, ptr %11, align 1, !tbaa !16
   %68 = icmp ne i8 %66, 0
   br i1 %68, label %69, label %113
 
 69:                                               ; preds = %65
-  store i8 0, ptr %8, align 1, !tbaa !9
+  store i8 0, ptr %8, align 1, !tbaa !16
   br label %70
 
 70:                                               ; preds = %96, %69
-  %71 = load i8, ptr %8, align 1, !tbaa !9
+  %71 = load i8, ptr %8, align 1, !tbaa !16
   %72 = zext i8 %71 to i32
-  %73 = load i8, ptr %9, align 1, !tbaa !9
+  %73 = load i8, ptr %9, align 1, !tbaa !16
   %74 = zext i8 %73 to i32
   %75 = icmp slt i32 %72, %74
   br i1 %75, label %76, label %99
 
 76:                                               ; preds = %70
-  %77 = load ptr, ptr %5, align 8, !tbaa !3
-  %78 = load i8, ptr %8, align 1, !tbaa !9
+  %77 = load ptr, ptr %5, align 8, !tbaa !14
+  %78 = load i8, ptr %8, align 1, !tbaa !16
   %79 = zext i8 %78 to i32
   %80 = sext i32 %79 to i64
   %81 = getelementptr inbounds i8, ptr %77, i64 %80
-  %82 = load i8, ptr %81, align 1, !tbaa !9
+  %82 = load i8, ptr %81, align 1, !tbaa !16
   %83 = sext i8 %82 to i32
-  %84 = load ptr, ptr %7, align 8, !tbaa !3
+  %84 = load ptr, ptr %7, align 8, !tbaa !41
   %85 = getelementptr inbounds nuw %struct.lv_pinyin_dict_t, ptr %84, i32 0, i32 0
-  %86 = load ptr, ptr %85, align 8, !tbaa !31
-  %87 = load i8, ptr %8, align 1, !tbaa !9
+  %86 = load ptr, ptr %85, align 8, !tbaa !43
+  %87 = load i8, ptr %8, align 1, !tbaa !16
   %88 = zext i8 %87 to i32
   %89 = sext i32 %88 to i64
   %90 = getelementptr inbounds i8, ptr %86, i64 %89
-  %91 = load i8, ptr %90, align 1, !tbaa !9
+  %91 = load i8, ptr %90, align 1, !tbaa !16
   %92 = sext i8 %91 to i32
   %93 = icmp ne i32 %83, %92
   br i1 %93, label %94, label %95
@@ -4346,21 +4490,21 @@ define internal zeroext i1 @pinyin_k9_is_valid_py(ptr noundef %0, ptr noundef %1
   br label %96
 
 96:                                               ; preds = %95
-  %97 = load i8, ptr %8, align 1, !tbaa !9
+  %97 = load i8, ptr %8, align 1, !tbaa !16
   %98 = add i8 %97, 1
-  store i8 %98, ptr %8, align 1, !tbaa !9
-  br label %70, !llvm.loop !68
+  store i8 %98, ptr %8, align 1, !tbaa !16
+  br label %70, !llvm.loop !94
 
 99:                                               ; preds = %94, %70
-  %100 = load i8, ptr %9, align 1, !tbaa !9
+  %100 = load i8, ptr %9, align 1, !tbaa !16
   %101 = zext i8 %100 to i32
   %102 = icmp eq i32 %101, 1
   br i1 %102, label %109, label %103
 
 103:                                              ; preds = %99
-  %104 = load i8, ptr %8, align 1, !tbaa !9
+  %104 = load i8, ptr %8, align 1, !tbaa !16
   %105 = zext i8 %104 to i32
-  %106 = load i8, ptr %9, align 1, !tbaa !9
+  %106 = load i8, ptr %9, align 1, !tbaa !16
   %107 = zext i8 %106 to i32
   %108 = icmp eq i32 %105, %107
   br i1 %108, label %109, label %110
@@ -4371,10 +4515,10 @@ define internal zeroext i1 @pinyin_k9_is_valid_py(ptr noundef %0, ptr noundef %1
   br label %114
 
 110:                                              ; preds = %103
-  %111 = load ptr, ptr %7, align 8, !tbaa !3
+  %111 = load ptr, ptr %7, align 8, !tbaa !41
   %112 = getelementptr inbounds nuw %struct.lv_pinyin_dict_t, ptr %111, i32 1
-  store ptr %112, ptr %7, align 8, !tbaa !3
-  br label %65, !llvm.loop !69
+  store ptr %112, ptr %7, align 8, !tbaa !41
+  br label %65, !llvm.loop !95
 
 113:                                              ; preds = %65
   store i1 false, ptr %3, align 1
@@ -4412,69 +4556,95 @@ attributes #6 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{!4, !4, i64 0}
-!4 = !{!"any pointer", !5, i64 0}
-!5 = !{!"omnipotent char", !6, i64 0}
-!6 = !{!"Simple C/C++ TBAA"}
-!7 = !{!8, !8, i64 0}
-!8 = !{!"short", !5, i64 0}
-!9 = !{!5, !5, i64 0}
-!10 = distinct !{!10, !11}
-!11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!13, !16, i64 260}
-!13 = !{!"_lv_ime_pinyin_t", !14, i64 0, !4, i64 64, !4, i64 72, !4, i64 80, !17, i64 88, !4, i64 112, !5, i64 120, !5, i64 136, !8, i64 144, !8, i64 146, !8, i64 148, !8, i64 150, !8, i64 152, !8, i64 154, !5, i64 156, !5, i64 208, !16, i64 260}
-!14 = !{!"_lv_obj_t", !4, i64 0, !4, i64 8, !4, i64 16, !4, i64 24, !4, i64 32, !15, i64 40, !16, i64 56, !8, i64 60, !8, i64 62, !8, i64 62, !8, i64 62, !8, i64 62, !8, i64 62, !8, i64 63, !8, i64 63, !8, i64 63}
-!15 = !{!"", !16, i64 0, !16, i64 4, !16, i64 8, !16, i64 12}
-!16 = !{!"int", !5, i64 0}
-!17 = !{!"", !16, i64 0, !4, i64 8, !4, i64 16}
-!18 = !{!13, !8, i64 154}
-!19 = !{!13, !8, i64 150}
-!20 = !{!13, !8, i64 152}
-!21 = !{!13, !4, i64 72}
-!22 = !{!13, !8, i64 148}
-!23 = !{!13, !8, i64 144}
-!24 = !{!13, !8, i64 146}
-!25 = !{!13, !4, i64 64}
-!26 = !{!16, !16, i64 0}
-!27 = distinct !{!27, !11}
-!28 = distinct !{!28, !11}
-!29 = distinct !{!29, !11}
-!30 = !{!13, !4, i64 80}
-!31 = !{!32, !4, i64 0}
-!32 = !{!"", !4, i64 0, !4, i64 8}
-!33 = !{!32, !4, i64 8}
-!34 = distinct !{!34, !11}
+!4 = !{!"p1 _ZTS15_lv_obj_class_t", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"p1 _ZTS9_lv_obj_t", !5, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"p1 _ZTS16_lv_ime_pinyin_t", !5, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"short", !6, i64 0}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"p1 omnipotent char", !5, i64 0}
+!16 = !{!6, !6, i64 0}
+!17 = distinct !{!17, !18}
+!18 = !{!"llvm.loop.mustprogress"}
+!19 = !{!20, !25, i64 260}
+!20 = !{!"_lv_ime_pinyin_t", !21, i64 0, !9, i64 64, !9, i64 72, !5, i64 80, !26, i64 88, !15, i64 112, !6, i64 120, !6, i64 136, !13, i64 144, !13, i64 146, !13, i64 148, !13, i64 150, !13, i64 152, !13, i64 154, !6, i64 156, !6, i64 208, !25, i64 260}
+!21 = !{!"_lv_obj_t", !4, i64 0, !9, i64 8, !22, i64 16, !23, i64 24, !5, i64 32, !24, i64 40, !25, i64 56, !13, i64 60, !13, i64 62, !13, i64 62, !13, i64 62, !13, i64 62, !13, i64 62, !13, i64 63, !13, i64 63, !13, i64 63}
+!22 = !{!"p1 _ZTS19_lv_obj_spec_attr_t", !5, i64 0}
+!23 = !{!"p1 _ZTS15_lv_obj_style_t", !5, i64 0}
+!24 = !{!"", !25, i64 0, !25, i64 4, !25, i64 8, !25, i64 12}
+!25 = !{!"int", !6, i64 0}
+!26 = !{!"", !25, i64 0, !15, i64 8, !15, i64 16}
+!27 = !{!20, !13, i64 154}
+!28 = !{!20, !13, i64 150}
+!29 = !{!20, !13, i64 152}
+!30 = !{!20, !9, i64 72}
+!31 = !{!20, !13, i64 148}
+!32 = !{!20, !13, i64 144}
+!33 = !{!20, !13, i64 146}
+!34 = !{!20, !9, i64 64}
 !35 = !{!36, !36, i64 0}
-!36 = !{!"long", !5, i64 0}
-!37 = distinct !{!37, !11}
-!38 = !{!13, !4, i64 112}
-!39 = distinct !{!39, !11}
-!40 = distinct !{!40, !11}
-!41 = distinct !{!41, !11}
-!42 = distinct !{!42, !11}
-!43 = distinct !{!43, !11}
-!44 = distinct !{!44, !11}
-!45 = distinct !{!45, !11}
-!46 = distinct !{!46, !11}
-!47 = distinct !{!47, !11}
-!48 = !{!49, !36, i64 888}
-!49 = !{!"_lv_global_t", !50, i64 0, !50, i64 1, !17, i64 8, !4, i64 32, !4, i64 40, !17, i64 48, !50, i64 72, !16, i64 76, !16, i64 80, !4, i64 88, !17, i64 96, !4, i64 120, !17, i64 128, !4, i64 152, !4, i64 160, !16, i64 168, !4, i64 176, !50, i64 184, !16, i64 188, !16, i64 192, !4, i64 200, !16, i64 208, !51, i64 216, !52, i64 288, !53, i64 328, !54, i64 352, !54, i64 400, !54, i64 448, !17, i64 496, !4, i64 520, !4, i64 528, !55, i64 536, !5, i64 568, !4, i64 760, !4, i64 768, !4, i64 776, !56, i64 784, !17, i64 832, !4, i64 856, !4, i64 864, !57, i64 872, !36, i64 888, !4, i64 896, !16, i64 904, !4, i64 912}
-!50 = !{!"_Bool", !5, i64 0}
-!51 = !{!"", !17, i64 0, !50, i64 24, !5, i64 25, !50, i64 26, !50, i64 27, !16, i64 28, !50, i64 32, !16, i64 36, !16, i64 40, !16, i64 44, !16, i64 48, !4, i64 56, !4, i64 64}
-!52 = !{!"", !50, i64 0, !50, i64 1, !4, i64 8, !17, i64 16}
-!53 = !{!"", !16, i64 0, !5, i64 4, !4, i64 8, !4, i64 16}
-!54 = !{!"_lv_draw_buf_handlers_t", !4, i64 0, !4, i64 8, !4, i64 16, !4, i64 24, !4, i64 32, !4, i64 40}
-!55 = !{!"", !4, i64 0, !16, i64 8, !16, i64 12, !16, i64 16, !16, i64 20, !50, i64 24}
-!56 = !{!"", !4, i64 0, !36, i64 8, !36, i64 16, !17, i64 24}
-!57 = !{!"", !4, i64 0, !16, i64 8, !5, i64 12}
-!58 = distinct !{!58, !11}
-!59 = distinct !{!59, !11}
-!60 = distinct !{!60, !11}
-!61 = distinct !{!61, !11}
-!62 = distinct !{!62, !11}
-!63 = distinct !{!63, !11}
-!64 = distinct !{!64, !11}
-!65 = distinct !{!65, !11}
-!66 = distinct !{!66, !11}
-!67 = distinct !{!67, !11}
-!68 = distinct !{!68, !11}
-!69 = distinct !{!69, !11}
+!36 = !{!"p1 _ZTS11_lv_event_t", !5, i64 0}
+!37 = !{!25, !25, i64 0}
+!38 = distinct !{!38, !18}
+!39 = distinct !{!39, !18}
+!40 = distinct !{!40, !18}
+!41 = !{!5, !5, i64 0}
+!42 = !{!20, !5, i64 80}
+!43 = !{!44, !15, i64 0}
+!44 = !{!"", !15, i64 0, !15, i64 8}
+!45 = !{!44, !15, i64 8}
+!46 = distinct !{!46, !18}
+!47 = !{!48, !48, i64 0}
+!48 = !{!"long", !6, i64 0}
+!49 = distinct !{!49, !18}
+!50 = !{!51, !51, i64 0}
+!51 = !{!"p1 _ZTS10_lv_font_t", !5, i64 0}
+!52 = !{!20, !15, i64 112}
+!53 = distinct !{!53, !18}
+!54 = distinct !{!54, !18}
+!55 = distinct !{!55, !18}
+!56 = distinct !{!56, !18}
+!57 = distinct !{!57, !18}
+!58 = distinct !{!58, !18}
+!59 = distinct !{!59, !18}
+!60 = distinct !{!60, !18}
+!61 = !{!62, !62, i64 0}
+!62 = !{!"p2 omnipotent char", !5, i64 0}
+!63 = distinct !{!63, !18}
+!64 = !{!65, !48, i64 888}
+!65 = !{!"_lv_global_t", !66, i64 0, !66, i64 1, !26, i64 8, !67, i64 32, !67, i64 40, !26, i64 48, !66, i64 72, !25, i64 76, !25, i64 80, !15, i64 88, !26, i64 96, !68, i64 120, !26, i64 128, !69, i64 152, !9, i64 160, !25, i64 168, !5, i64 176, !66, i64 184, !25, i64 188, !25, i64 192, !36, i64 200, !25, i64 208, !70, i64 216, !71, i64 288, !73, i64 328, !74, i64 352, !74, i64 400, !74, i64 448, !26, i64 496, !75, i64 520, !75, i64 528, !76, i64 536, !6, i64 568, !5, i64 760, !5, i64 768, !5, i64 776, !78, i64 784, !26, i64 832, !79, i64 856, !80, i64 864, !81, i64 872, !48, i64 888, !5, i64 896, !25, i64 904, !5, i64 912}
+!66 = !{!"_Bool", !6, i64 0}
+!67 = !{!"p1 _ZTS13_lv_display_t", !5, i64 0}
+!68 = !{!"p1 _ZTS11_lv_group_t", !5, i64 0}
+!69 = !{!"p1 _ZTS11_lv_indev_t", !5, i64 0}
+!70 = !{!"", !26, i64 0, !66, i64 24, !6, i64 25, !66, i64 26, !66, i64 27, !25, i64 28, !66, i64 32, !25, i64 36, !25, i64 40, !25, i64 44, !25, i64 48, !5, i64 56, !5, i64 64}
+!71 = !{!"", !66, i64 0, !66, i64 1, !72, i64 8, !26, i64 16}
+!72 = !{!"p1 _ZTS11_lv_timer_t", !5, i64 0}
+!73 = !{!"", !25, i64 0, !6, i64 4, !5, i64 8, !5, i64 16}
+!74 = !{!"_lv_draw_buf_handlers_t", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !5, i64 40}
+!75 = !{!"p1 _ZTS11_lv_cache_t", !5, i64 0}
+!76 = !{!"", !77, i64 0, !25, i64 8, !25, i64 12, !25, i64 16, !25, i64 20, !66, i64 24}
+!77 = !{!"p1 _ZTS15_lv_draw_unit_t", !5, i64 0}
+!78 = !{!"", !5, i64 0, !48, i64 8, !48, i64 16, !26, i64 24}
+!79 = !{!"p1 _ZTS22_lv_freetype_context_t", !5, i64 0}
+!80 = !{!"p1 _ZTS14_snippet_stack", !5, i64 0}
+!81 = !{!"", !5, i64 0, !25, i64 8, !6, i64 12}
+!82 = distinct !{!82, !18}
+!83 = distinct !{!83, !18}
+!84 = distinct !{!84, !18}
+!85 = distinct !{!85, !18}
+!86 = distinct !{!86, !18}
+!87 = distinct !{!87, !18}
+!88 = distinct !{!88, !18}
+!89 = distinct !{!89, !18}
+!90 = !{!91, !91, i64 0}
+!91 = !{!"p1 short", !5, i64 0}
+!92 = distinct !{!92, !18}
+!93 = distinct !{!93, !18}
+!94 = distinct !{!94, !18}
+!95 = distinct !{!95, !18}

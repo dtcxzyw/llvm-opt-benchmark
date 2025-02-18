@@ -31,15 +31,15 @@ define ptr @lv_theme_get_from_obj(ptr noundef %0) #0 {
 
 11:                                               ; preds = %9, %6
   %12 = phi ptr [ %8, %6 ], [ %10, %9 ]
-  store ptr %12, ptr %3, align 8, !tbaa !3
-  %13 = load ptr, ptr %3, align 8, !tbaa !3
+  store ptr %12, ptr %3, align 8, !tbaa !8
+  %13 = load ptr, ptr %3, align 8, !tbaa !8
   %14 = call ptr @lv_display_get_theme(ptr noundef %13)
   call void @llvm.lifetime.end.p0(i64 8, ptr %3) #4
   ret ptr %14
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 declare ptr @lv_obj_get_display(ptr noundef) #2
 
@@ -48,7 +48,7 @@ declare ptr @lv_display_get_default() #2
 declare ptr @lv_display_get_theme(ptr noundef) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define void @lv_theme_apply(ptr noundef %0) #0 {
@@ -59,8 +59,8 @@ define void @lv_theme_apply(ptr noundef %0) #0 {
   call void @llvm.lifetime.start.p0(i64 8, ptr %3) #4
   %5 = load ptr, ptr %2, align 8, !tbaa !3
   %6 = call ptr @lv_theme_get_from_obj(ptr noundef %5)
-  store ptr %6, ptr %3, align 8, !tbaa !3
-  %7 = load ptr, ptr %3, align 8, !tbaa !3
+  store ptr %6, ptr %3, align 8, !tbaa !10
+  %7 = load ptr, ptr %3, align 8, !tbaa !10
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %10
 
@@ -71,7 +71,7 @@ define void @lv_theme_apply(ptr noundef %0) #0 {
 10:                                               ; preds = %1
   %11 = load ptr, ptr %2, align 8, !tbaa !3
   call void @lv_obj_remove_style_all(ptr noundef %11)
-  %12 = load ptr, ptr %3, align 8, !tbaa !3
+  %12 = load ptr, ptr %3, align 8, !tbaa !10
   %13 = load ptr, ptr %2, align 8, !tbaa !3
   call void @apply_theme_recursion(ptr noundef %12, ptr noundef %13)
   store i32 0, ptr %4, align 4
@@ -99,25 +99,25 @@ define internal void @apply_theme_recursion(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %0, ptr %3, align 8, !tbaa !10
   store ptr %1, ptr %4, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(i64 8, ptr %5) #4
   %6 = load ptr, ptr %4, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw %struct._lv_obj_t, ptr %6, i32 0, i32 0
-  %8 = load ptr, ptr %7, align 8, !tbaa !7
-  store ptr %8, ptr %5, align 8, !tbaa !3
+  %8 = load ptr, ptr %7, align 8, !tbaa !12
+  store ptr %8, ptr %5, align 8, !tbaa !20
   %9 = load ptr, ptr %4, align 8, !tbaa !3
   %10 = getelementptr inbounds nuw %struct._lv_obj_t, ptr %9, i32 0, i32 0
-  %11 = load ptr, ptr %10, align 8, !tbaa !7
+  %11 = load ptr, ptr %10, align 8, !tbaa !12
   %12 = getelementptr inbounds nuw %struct._lv_obj_class_t, ptr %11, i32 0, i32 0
-  %13 = load ptr, ptr %12, align 8, !tbaa !12
+  %13 = load ptr, ptr %12, align 8, !tbaa !21
   %14 = icmp ne ptr %13, null
   br i1 %14, label %15, label %34
 
 15:                                               ; preds = %2
   %16 = load ptr, ptr %4, align 8, !tbaa !3
   %17 = getelementptr inbounds nuw %struct._lv_obj_t, ptr %16, i32 0, i32 0
-  %18 = load ptr, ptr %17, align 8, !tbaa !7
+  %18 = load ptr, ptr %17, align 8, !tbaa !12
   %19 = getelementptr inbounds nuw %struct._lv_obj_class_t, ptr %18, i32 0, i32 8
   %20 = load i32, ptr %19, align 8
   %21 = lshr i32 %20, 20
@@ -128,23 +128,23 @@ define internal void @apply_theme_recursion(ptr noundef %0, ptr noundef %1) #0 {
 24:                                               ; preds = %15
   %25 = load ptr, ptr %4, align 8, !tbaa !3
   %26 = getelementptr inbounds nuw %struct._lv_obj_t, ptr %25, i32 0, i32 0
-  %27 = load ptr, ptr %26, align 8, !tbaa !7
+  %27 = load ptr, ptr %26, align 8, !tbaa !12
   %28 = getelementptr inbounds nuw %struct._lv_obj_class_t, ptr %27, i32 0, i32 0
-  %29 = load ptr, ptr %28, align 8, !tbaa !12
+  %29 = load ptr, ptr %28, align 8, !tbaa !21
   %30 = load ptr, ptr %4, align 8, !tbaa !3
   %31 = getelementptr inbounds nuw %struct._lv_obj_t, ptr %30, i32 0, i32 0
-  store ptr %29, ptr %31, align 8, !tbaa !7
-  %32 = load ptr, ptr %3, align 8, !tbaa !3
+  store ptr %29, ptr %31, align 8, !tbaa !12
+  %32 = load ptr, ptr %3, align 8, !tbaa !10
   %33 = load ptr, ptr %4, align 8, !tbaa !3
   call void @apply_theme_recursion(ptr noundef %32, ptr noundef %33)
   br label %34
 
 34:                                               ; preds = %24, %15, %2
-  %35 = load ptr, ptr %5, align 8, !tbaa !3
+  %35 = load ptr, ptr %5, align 8, !tbaa !20
   %36 = load ptr, ptr %4, align 8, !tbaa !3
   %37 = getelementptr inbounds nuw %struct._lv_obj_t, ptr %36, i32 0, i32 0
-  store ptr %35, ptr %37, align 8, !tbaa !7
-  %38 = load ptr, ptr %3, align 8, !tbaa !3
+  store ptr %35, ptr %37, align 8, !tbaa !12
+  %38 = load ptr, ptr %3, align 8, !tbaa !10
   %39 = load ptr, ptr %4, align 8, !tbaa !3
   call void @apply_theme(ptr noundef %38, ptr noundef %39)
   call void @llvm.lifetime.end.p0(i64 8, ptr %5) #4
@@ -155,12 +155,12 @@ define internal void @apply_theme_recursion(ptr noundef %0, ptr noundef %1) #0 {
 define void @lv_theme_set_parent(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8, !tbaa !3
-  store ptr %1, ptr %4, align 8, !tbaa !3
-  %5 = load ptr, ptr %4, align 8, !tbaa !3
-  %6 = load ptr, ptr %3, align 8, !tbaa !3
+  store ptr %0, ptr %3, align 8, !tbaa !10
+  store ptr %1, ptr %4, align 8, !tbaa !10
+  %5 = load ptr, ptr %4, align 8, !tbaa !10
+  %6 = load ptr, ptr %3, align 8, !tbaa !10
   %7 = getelementptr inbounds nuw %struct._lv_theme_t, ptr %6, i32 0, i32 1
-  store ptr %5, ptr %7, align 8, !tbaa !14
+  store ptr %5, ptr %7, align 8, !tbaa !24
   ret void
 }
 
@@ -168,12 +168,12 @@ define void @lv_theme_set_parent(ptr noundef %0, ptr noundef %1) #0 {
 define void @lv_theme_set_apply_cb(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8, !tbaa !3
-  store ptr %1, ptr %4, align 8, !tbaa !3
-  %5 = load ptr, ptr %4, align 8, !tbaa !3
-  %6 = load ptr, ptr %3, align 8, !tbaa !3
+  store ptr %0, ptr %3, align 8, !tbaa !10
+  store ptr %1, ptr %4, align 8, !tbaa !28
+  %5 = load ptr, ptr %4, align 8, !tbaa !28
+  %6 = load ptr, ptr %3, align 8, !tbaa !10
   %7 = getelementptr inbounds nuw %struct._lv_theme_t, ptr %6, i32 0, i32 0
-  store ptr %5, ptr %7, align 8, !tbaa !17
+  store ptr %5, ptr %7, align 8, !tbaa !29
   ret void
 }
 
@@ -185,15 +185,15 @@ define ptr @lv_theme_get_font_small(ptr noundef %0) #0 {
   call void @llvm.lifetime.start.p0(i64 8, ptr %3) #4
   %4 = load ptr, ptr %2, align 8, !tbaa !3
   %5 = call ptr @lv_theme_get_from_obj(ptr noundef %4)
-  store ptr %5, ptr %3, align 8, !tbaa !3
-  %6 = load ptr, ptr %3, align 8, !tbaa !3
+  store ptr %5, ptr %3, align 8, !tbaa !10
+  %6 = load ptr, ptr %3, align 8, !tbaa !10
   %7 = icmp ne ptr %6, null
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %1
-  %9 = load ptr, ptr %3, align 8, !tbaa !3
+  %9 = load ptr, ptr %3, align 8, !tbaa !10
   %10 = getelementptr inbounds nuw %struct._lv_theme_t, ptr %9, i32 0, i32 6
-  %11 = load ptr, ptr %10, align 8, !tbaa !18
+  %11 = load ptr, ptr %10, align 8, !tbaa !30
   br label %13
 
 12:                                               ; preds = %1
@@ -213,15 +213,15 @@ define ptr @lv_theme_get_font_normal(ptr noundef %0) #0 {
   call void @llvm.lifetime.start.p0(i64 8, ptr %3) #4
   %4 = load ptr, ptr %2, align 8, !tbaa !3
   %5 = call ptr @lv_theme_get_from_obj(ptr noundef %4)
-  store ptr %5, ptr %3, align 8, !tbaa !3
-  %6 = load ptr, ptr %3, align 8, !tbaa !3
+  store ptr %5, ptr %3, align 8, !tbaa !10
+  %6 = load ptr, ptr %3, align 8, !tbaa !10
   %7 = icmp ne ptr %6, null
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %1
-  %9 = load ptr, ptr %3, align 8, !tbaa !3
+  %9 = load ptr, ptr %3, align 8, !tbaa !10
   %10 = getelementptr inbounds nuw %struct._lv_theme_t, ptr %9, i32 0, i32 7
-  %11 = load ptr, ptr %10, align 8, !tbaa !19
+  %11 = load ptr, ptr %10, align 8, !tbaa !31
   br label %13
 
 12:                                               ; preds = %1
@@ -241,15 +241,15 @@ define ptr @lv_theme_get_font_large(ptr noundef %0) #0 {
   call void @llvm.lifetime.start.p0(i64 8, ptr %3) #4
   %4 = load ptr, ptr %2, align 8, !tbaa !3
   %5 = call ptr @lv_theme_get_from_obj(ptr noundef %4)
-  store ptr %5, ptr %3, align 8, !tbaa !3
-  %6 = load ptr, ptr %3, align 8, !tbaa !3
+  store ptr %5, ptr %3, align 8, !tbaa !10
+  %6 = load ptr, ptr %3, align 8, !tbaa !10
   %7 = icmp ne ptr %6, null
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %1
-  %9 = load ptr, ptr %3, align 8, !tbaa !3
+  %9 = load ptr, ptr %3, align 8, !tbaa !10
   %10 = getelementptr inbounds nuw %struct._lv_theme_t, ptr %9, i32 0, i32 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !20
+  %11 = load ptr, ptr %10, align 8, !tbaa !32
   br label %13
 
 12:                                               ; preds = %1
@@ -271,15 +271,15 @@ define i24 @lv_theme_get_color_primary(ptr noundef %0) #0 {
   call void @llvm.lifetime.start.p0(i64 8, ptr %4) #4
   %6 = load ptr, ptr %3, align 8, !tbaa !3
   %7 = call ptr @lv_theme_get_from_obj(ptr noundef %6)
-  store ptr %7, ptr %4, align 8, !tbaa !3
-  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %7, ptr %4, align 8, !tbaa !10
+  %8 = load ptr, ptr %4, align 8, !tbaa !10
   %9 = icmp ne ptr %8, null
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %1
-  %11 = load ptr, ptr %4, align 8, !tbaa !3
+  %11 = load ptr, ptr %4, align 8, !tbaa !10
   %12 = getelementptr inbounds nuw %struct._lv_theme_t, ptr %11, i32 0, i32 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr align 8 %12, i64 3, i1 false), !tbaa.struct !21
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr align 8 %12, i64 3, i1 false), !tbaa.struct !33
   br label %15
 
 13:                                               ; preds = %1
@@ -295,7 +295,7 @@ define i24 @lv_theme_get_color_primary(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i24 @lv_palette_main(i32 noundef) #2
 
@@ -309,15 +309,15 @@ define i24 @lv_theme_get_color_secondary(ptr noundef %0) #0 {
   call void @llvm.lifetime.start.p0(i64 8, ptr %4) #4
   %6 = load ptr, ptr %3, align 8, !tbaa !3
   %7 = call ptr @lv_theme_get_from_obj(ptr noundef %6)
-  store ptr %7, ptr %4, align 8, !tbaa !3
-  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %7, ptr %4, align 8, !tbaa !10
+  %8 = load ptr, ptr %4, align 8, !tbaa !10
   %9 = icmp ne ptr %8, null
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %1
-  %11 = load ptr, ptr %4, align 8, !tbaa !3
+  %11 = load ptr, ptr %4, align 8, !tbaa !10
   %12 = getelementptr inbounds nuw %struct._lv_theme_t, ptr %11, i32 0, i32 5
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr align 1 %12, i64 3, i1 false), !tbaa.struct !21
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr align 1 %12, i64 3, i1 false), !tbaa.struct !33
   br label %15
 
 13:                                               ; preds = %1
@@ -336,34 +336,34 @@ define i24 @lv_theme_get_color_secondary(ptr noundef %0) #0 {
 define internal void @apply_theme(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %0, ptr %3, align 8, !tbaa !10
   store ptr %1, ptr %4, align 8, !tbaa !3
-  %5 = load ptr, ptr %3, align 8, !tbaa !3
+  %5 = load ptr, ptr %3, align 8, !tbaa !10
   %6 = getelementptr inbounds nuw %struct._lv_theme_t, ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %6, align 8, !tbaa !14
+  %7 = load ptr, ptr %6, align 8, !tbaa !24
   %8 = icmp ne ptr %7, null
   br i1 %8, label %9, label %14
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr %3, align 8, !tbaa !3
+  %10 = load ptr, ptr %3, align 8, !tbaa !10
   %11 = getelementptr inbounds nuw %struct._lv_theme_t, ptr %10, i32 0, i32 1
-  %12 = load ptr, ptr %11, align 8, !tbaa !14
+  %12 = load ptr, ptr %11, align 8, !tbaa !24
   %13 = load ptr, ptr %4, align 8, !tbaa !3
   call void @apply_theme(ptr noundef %12, ptr noundef %13)
   br label %14
 
 14:                                               ; preds = %9, %2
-  %15 = load ptr, ptr %3, align 8, !tbaa !3
+  %15 = load ptr, ptr %3, align 8, !tbaa !10
   %16 = getelementptr inbounds nuw %struct._lv_theme_t, ptr %15, i32 0, i32 0
-  %17 = load ptr, ptr %16, align 8, !tbaa !17
+  %17 = load ptr, ptr %16, align 8, !tbaa !29
   %18 = icmp ne ptr %17, null
   br i1 %18, label %19, label %25
 
 19:                                               ; preds = %14
-  %20 = load ptr, ptr %3, align 8, !tbaa !3
+  %20 = load ptr, ptr %3, align 8, !tbaa !10
   %21 = getelementptr inbounds nuw %struct._lv_theme_t, ptr %20, i32 0, i32 0
-  %22 = load ptr, ptr %21, align 8, !tbaa !17
-  %23 = load ptr, ptr %3, align 8, !tbaa !3
+  %22 = load ptr, ptr %21, align 8, !tbaa !29
+  %23 = load ptr, ptr %3, align 8, !tbaa !10
   %24 = load ptr, ptr %4, align 8, !tbaa !3
   call void %22(ptr noundef %23, ptr noundef %24)
   br label %25
@@ -384,22 +384,34 @@ attributes #4 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{!4, !4, i64 0}
-!4 = !{!"any pointer", !5, i64 0}
-!5 = !{!"omnipotent char", !6, i64 0}
-!6 = !{!"Simple C/C++ TBAA"}
-!7 = !{!8, !4, i64 0}
-!8 = !{!"_lv_obj_t", !4, i64 0, !4, i64 8, !4, i64 16, !4, i64 24, !4, i64 32, !9, i64 40, !10, i64 56, !11, i64 60, !11, i64 62, !11, i64 62, !11, i64 62, !11, i64 62, !11, i64 62, !11, i64 63, !11, i64 63, !11, i64 63}
-!9 = !{!"", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12}
-!10 = !{!"int", !5, i64 0}
-!11 = !{!"short", !5, i64 0}
-!12 = !{!13, !4, i64 0}
-!13 = !{!"_lv_obj_class_t", !4, i64 0, !4, i64 8, !4, i64 16, !4, i64 24, !4, i64 32, !4, i64 40, !10, i64 48, !10, i64 52, !10, i64 56, !10, i64 56, !10, i64 56, !10, i64 58}
-!14 = !{!15, !4, i64 8}
-!15 = !{!"_lv_theme_t", !4, i64 0, !4, i64 8, !4, i64 16, !4, i64 24, !16, i64 32, !16, i64 35, !4, i64 40, !4, i64 48, !4, i64 56, !10, i64 64}
-!16 = !{!"", !5, i64 0, !5, i64 1, !5, i64 2}
-!17 = !{!15, !4, i64 0}
-!18 = !{!15, !4, i64 40}
-!19 = !{!15, !4, i64 48}
-!20 = !{!15, !4, i64 56}
-!21 = !{i64 0, i64 1, !22, i64 1, i64 1, !22, i64 2, i64 1, !22}
-!22 = !{!5, !5, i64 0}
+!4 = !{!"p1 _ZTS9_lv_obj_t", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"p1 _ZTS13_lv_display_t", !5, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"p1 _ZTS11_lv_theme_t", !5, i64 0}
+!12 = !{!13, !14, i64 0}
+!13 = !{!"_lv_obj_t", !14, i64 0, !4, i64 8, !15, i64 16, !16, i64 24, !5, i64 32, !17, i64 40, !18, i64 56, !19, i64 60, !19, i64 62, !19, i64 62, !19, i64 62, !19, i64 62, !19, i64 62, !19, i64 63, !19, i64 63, !19, i64 63}
+!14 = !{!"p1 _ZTS15_lv_obj_class_t", !5, i64 0}
+!15 = !{!"p1 _ZTS19_lv_obj_spec_attr_t", !5, i64 0}
+!16 = !{!"p1 _ZTS15_lv_obj_style_t", !5, i64 0}
+!17 = !{!"", !18, i64 0, !18, i64 4, !18, i64 8, !18, i64 12}
+!18 = !{!"int", !6, i64 0}
+!19 = !{!"short", !6, i64 0}
+!20 = !{!14, !14, i64 0}
+!21 = !{!22, !14, i64 0}
+!22 = !{!"_lv_obj_class_t", !14, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !23, i64 40, !18, i64 48, !18, i64 52, !18, i64 56, !18, i64 56, !18, i64 56, !18, i64 58}
+!23 = !{!"p1 omnipotent char", !5, i64 0}
+!24 = !{!25, !11, i64 8}
+!25 = !{!"_lv_theme_t", !5, i64 0, !11, i64 8, !5, i64 16, !9, i64 24, !26, i64 32, !26, i64 35, !27, i64 40, !27, i64 48, !27, i64 56, !18, i64 64}
+!26 = !{!"", !6, i64 0, !6, i64 1, !6, i64 2}
+!27 = !{!"p1 _ZTS10_lv_font_t", !5, i64 0}
+!28 = !{!5, !5, i64 0}
+!29 = !{!25, !5, i64 0}
+!30 = !{!25, !27, i64 40}
+!31 = !{!25, !27, i64 48}
+!32 = !{!25, !27, i64 56}
+!33 = !{i64 0, i64 1, !34, i64 1, i64 1, !34, i64 2, i64 1, !34}
+!34 = !{!6, !6, i64 0}

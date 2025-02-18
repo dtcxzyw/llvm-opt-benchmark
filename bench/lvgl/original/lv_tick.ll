@@ -35,10 +35,10 @@ define void @lv_tick_inc(i32 noundef %0) #0 {
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @lv_tick_get() #0 {
@@ -188,12 +188,12 @@ define void @lv_delay_ms(i32 noundef %0) #0 {
   %27 = load volatile i32, ptr %4, align 4, !tbaa !3
   %28 = add i32 %27, 1
   store volatile i32 %28, ptr %4, align 4, !tbaa !3
-  br label %20, !llvm.loop !26
+  br label %20, !llvm.loop !37
 
 29:                                               ; preds = %20
   call void @llvm.lifetime.end.p0(i64 4, ptr %5) #2
   call void @llvm.lifetime.end.p0(i64 4, ptr %4) #2
-  br label %13, !llvm.loop !27
+  br label %13, !llvm.loop !38
 
 30:                                               ; preds = %13
   call void @llvm.lifetime.end.p0(i64 4, ptr %3) #2
@@ -208,7 +208,7 @@ define void @lv_tick_set_cb(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8, !tbaa !7
   %3 = load ptr, ptr %2, align 8, !tbaa !7
-  store ptr %3, ptr getelementptr inbounds nuw (%struct.lv_tick_state_t, ptr getelementptr inbounds nuw (%struct._lv_global_t, ptr @lv_global, i32 0, i32 24), i32 0, i32 2), align 8, !tbaa !28
+  store ptr %3, ptr getelementptr inbounds nuw (%struct.lv_tick_state_t, ptr getelementptr inbounds nuw (%struct._lv_global_t, ptr @lv_global, i32 0, i32 24), i32 0, i32 2), align 8, !tbaa !39
   ret void
 }
 
@@ -243,16 +243,27 @@ attributes #2 = { nounwind }
 !13 = distinct !{!13, !14}
 !14 = !{!"llvm.loop.mustprogress"}
 !15 = !{!16, !8, i64 344}
-!16 = !{!"_lv_global_t", !17, i64 0, !17, i64 1, !18, i64 8, !8, i64 32, !8, i64 40, !18, i64 48, !17, i64 72, !4, i64 76, !4, i64 80, !8, i64 88, !18, i64 96, !8, i64 120, !18, i64 128, !8, i64 152, !8, i64 160, !4, i64 168, !8, i64 176, !17, i64 184, !4, i64 188, !4, i64 192, !8, i64 200, !4, i64 208, !19, i64 216, !20, i64 288, !10, i64 328, !21, i64 352, !21, i64 400, !21, i64 448, !18, i64 496, !8, i64 520, !8, i64 528, !22, i64 536, !5, i64 568, !8, i64 760, !8, i64 768, !8, i64 776, !23, i64 784, !18, i64 832, !8, i64 856, !8, i64 864, !25, i64 872, !24, i64 888, !8, i64 896, !4, i64 904, !8, i64 912}
+!16 = !{!"_lv_global_t", !17, i64 0, !17, i64 1, !18, i64 8, !20, i64 32, !20, i64 40, !18, i64 48, !17, i64 72, !4, i64 76, !4, i64 80, !19, i64 88, !18, i64 96, !21, i64 120, !18, i64 128, !22, i64 152, !23, i64 160, !4, i64 168, !8, i64 176, !17, i64 184, !4, i64 188, !4, i64 192, !24, i64 200, !4, i64 208, !25, i64 216, !26, i64 288, !10, i64 328, !28, i64 352, !28, i64 400, !28, i64 448, !18, i64 496, !29, i64 520, !29, i64 528, !30, i64 536, !5, i64 568, !8, i64 760, !8, i64 768, !8, i64 776, !32, i64 784, !18, i64 832, !34, i64 856, !35, i64 864, !36, i64 872, !33, i64 888, !8, i64 896, !4, i64 904, !8, i64 912}
 !17 = !{!"_Bool", !5, i64 0}
-!18 = !{!"", !4, i64 0, !8, i64 8, !8, i64 16}
-!19 = !{!"", !18, i64 0, !17, i64 24, !5, i64 25, !17, i64 26, !17, i64 27, !4, i64 28, !17, i64 32, !4, i64 36, !4, i64 40, !4, i64 44, !4, i64 48, !8, i64 56, !8, i64 64}
-!20 = !{!"", !17, i64 0, !17, i64 1, !8, i64 8, !18, i64 16}
-!21 = !{!"_lv_draw_buf_handlers_t", !8, i64 0, !8, i64 8, !8, i64 16, !8, i64 24, !8, i64 32, !8, i64 40}
-!22 = !{!"", !8, i64 0, !4, i64 8, !4, i64 12, !4, i64 16, !4, i64 20, !17, i64 24}
-!23 = !{!"", !8, i64 0, !24, i64 8, !24, i64 16, !18, i64 24}
-!24 = !{!"long", !5, i64 0}
-!25 = !{!"", !8, i64 0, !4, i64 8, !5, i64 12}
-!26 = distinct !{!26, !14}
-!27 = distinct !{!27, !14}
-!28 = !{!16, !8, i64 336}
+!18 = !{!"", !4, i64 0, !19, i64 8, !19, i64 16}
+!19 = !{!"p1 omnipotent char", !8, i64 0}
+!20 = !{!"p1 _ZTS13_lv_display_t", !8, i64 0}
+!21 = !{!"p1 _ZTS11_lv_group_t", !8, i64 0}
+!22 = !{!"p1 _ZTS11_lv_indev_t", !8, i64 0}
+!23 = !{!"p1 _ZTS9_lv_obj_t", !8, i64 0}
+!24 = !{!"p1 _ZTS11_lv_event_t", !8, i64 0}
+!25 = !{!"", !18, i64 0, !17, i64 24, !5, i64 25, !17, i64 26, !17, i64 27, !4, i64 28, !17, i64 32, !4, i64 36, !4, i64 40, !4, i64 44, !4, i64 48, !8, i64 56, !8, i64 64}
+!26 = !{!"", !17, i64 0, !17, i64 1, !27, i64 8, !18, i64 16}
+!27 = !{!"p1 _ZTS11_lv_timer_t", !8, i64 0}
+!28 = !{!"_lv_draw_buf_handlers_t", !8, i64 0, !8, i64 8, !8, i64 16, !8, i64 24, !8, i64 32, !8, i64 40}
+!29 = !{!"p1 _ZTS11_lv_cache_t", !8, i64 0}
+!30 = !{!"", !31, i64 0, !4, i64 8, !4, i64 12, !4, i64 16, !4, i64 20, !17, i64 24}
+!31 = !{!"p1 _ZTS15_lv_draw_unit_t", !8, i64 0}
+!32 = !{!"", !8, i64 0, !33, i64 8, !33, i64 16, !18, i64 24}
+!33 = !{!"long", !5, i64 0}
+!34 = !{!"p1 _ZTS22_lv_freetype_context_t", !8, i64 0}
+!35 = !{!"p1 _ZTS14_snippet_stack", !8, i64 0}
+!36 = !{!"", !8, i64 0, !4, i64 8, !5, i64 12}
+!37 = distinct !{!37, !14}
+!38 = distinct !{!38, !14}
+!39 = !{!16, !8, i64 336}

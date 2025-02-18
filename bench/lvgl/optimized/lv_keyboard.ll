@@ -126,31 +126,31 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define internal void @lv_keyboard_constructor(ptr readnone captures(none) %0, ptr noundef %1) #0 {
-  tail call void @lv_obj_remove_flag(ptr noundef %1, i32 noundef 4) #3
+  tail call void @lv_obj_remove_flag(ptr noundef %1, i32 noundef 4) #4
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store ptr null, ptr %3, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  store i32 0, ptr %4, align 8, !tbaa !13
+  store i32 0, ptr %4, align 8, !tbaa !18
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %6 = load i8, ptr %5, align 4
   %7 = and i8 %6, -2
   store i8 %7, ptr %5, align 4
-  tail call void @lv_obj_align(ptr noundef %1, i32 noundef 5, i32 noundef 0, i32 noundef 0) #3
-  %8 = tail call ptr @lv_obj_add_event_cb(ptr noundef %1, ptr noundef nonnull @lv_keyboard_def_event_cb, i32 noundef 35, ptr noundef null) #3
-  tail call void @lv_obj_set_style_base_dir(ptr noundef %1, i32 noundef 0, i32 noundef 0) #3
-  %9 = load i32, ptr %4, align 8, !tbaa !13
+  tail call void @lv_obj_align(ptr noundef %1, i32 noundef 5, i32 noundef 0, i32 noundef 0) #4
+  %8 = tail call ptr @lv_obj_add_event_cb(ptr noundef %1, ptr noundef nonnull @lv_keyboard_def_event_cb, i32 noundef 35, ptr noundef null) #4
+  tail call void @lv_obj_set_style_base_dir(ptr noundef %1, i32 noundef 0, i32 noundef 0) #4
+  %9 = load i32, ptr %4, align 8, !tbaa !18
   %10 = zext i32 %9 to i64
   %11 = getelementptr inbounds nuw [10 x ptr], ptr @kb_map, i64 0, i64 %10
-  %12 = load ptr, ptr %11, align 8, !tbaa !14
-  tail call void @lv_buttonmatrix_set_map(ptr noundef %1, ptr noundef %12) #3
+  %12 = load ptr, ptr %11, align 8, !tbaa !19
+  tail call void @lv_buttonmatrix_set_map(ptr noundef %1, ptr noundef %12) #4
   tail call fastcc void @lv_keyboard_update_ctrl_map(ptr noundef %1)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @lv_keyboard_create(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call ptr @lv_obj_class_create_obj(ptr noundef nonnull @lv_keyboard_class, ptr noundef %0) #3
-  tail call void @lv_obj_class_init_obj(ptr noundef %2) #3
+  %2 = tail call ptr @lv_obj_class_create_obj(ptr noundef nonnull @lv_keyboard_class, ptr noundef %0) #4
+  tail call void @lv_obj_class_init_obj(ptr noundef %2) #4
   ret ptr %2
 }
 
@@ -160,25 +160,32 @@ declare void @lv_obj_class_init_obj(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @lv_keyboard_set_textarea(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %4 = load ptr, ptr %3, align 8, !tbaa !3
-  %.not = icmp eq ptr %4, null
-  br i1 %.not, label %6, label %5
+  %.not = icmp eq ptr %1, null
+  %.not11 = icmp eq ptr %0, null
+  br i1 %.not11, label %.preheader, label %3
 
-5:                                                ; preds = %2
-  tail call void @lv_obj_remove_state(ptr noundef nonnull %0, i16 noundef zeroext 2) #3
-  br label %6
+.preheader:                                       ; preds = %2, %.preheader
+  br label %.preheader
 
-6:                                                ; preds = %5, %2
-  store ptr %1, ptr %3, align 8, !tbaa !3
-  %.not8 = icmp eq ptr %1, null
-  br i1 %.not8, label %8, label %7
+3:                                                ; preds = %2
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %5 = load ptr, ptr %4, align 8, !tbaa !3
+  %.not12 = icmp eq ptr %5, null
+  br i1 %.not12, label %7, label %6
 
-7:                                                ; preds = %6
-  tail call void @lv_obj_add_state(ptr noundef nonnull %0, i16 noundef zeroext 2) #3
-  br label %8
+6:                                                ; preds = %3
+  tail call void @lv_obj_remove_state(ptr noundef nonnull %0, i16 noundef zeroext 2) #4
+  br label %7
 
-8:                                                ; preds = %7, %6
+7:                                                ; preds = %6, %3
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  br i1 %.not, label %9, label %8
+
+8:                                                ; preds = %7
+  tail call void @lv_obj_add_state(ptr noundef nonnull %0, i16 noundef zeroext 2) #4
+  br label %9
+
+9:                                                ; preds = %8, %7
   ret void
 }
 
@@ -188,21 +195,28 @@ declare void @lv_obj_add_state(ptr noundef, i16 noundef zeroext) local_unnamed_a
 
 ; Function Attrs: nounwind uwtable
 define void @lv_keyboard_set_mode(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %4 = load i32, ptr %3, align 8, !tbaa !13
-  %5 = icmp eq i32 %4, %1
-  br i1 %5, label %10, label %6
+  %.not = icmp eq ptr %0, null
+  br i1 %.not, label %.preheader, label %3
 
-6:                                                ; preds = %2
-  store i32 %1, ptr %3, align 8, !tbaa !13
-  %7 = zext i32 %1 to i64
-  %8 = getelementptr inbounds nuw [10 x ptr], ptr @kb_map, i64 0, i64 %7
-  %9 = load ptr, ptr %8, align 8, !tbaa !14
-  tail call void @lv_buttonmatrix_set_map(ptr noundef nonnull %0, ptr noundef %9) #3
+.preheader:                                       ; preds = %2, %.preheader
+  br label %.preheader
+
+3:                                                ; preds = %2
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %5 = load i32, ptr %4, align 8, !tbaa !18
+  %6 = icmp eq i32 %5, %1
+  br i1 %6, label %11, label %7
+
+7:                                                ; preds = %3
+  store i32 %1, ptr %4, align 8, !tbaa !18
+  %8 = zext i32 %1 to i64
+  %9 = getelementptr inbounds nuw [10 x ptr], ptr @kb_map, i64 0, i64 %8
+  %10 = load ptr, ptr %9, align 8, !tbaa !19
+  tail call void @lv_buttonmatrix_set_map(ptr noundef nonnull %0, ptr noundef %10) #4
   tail call fastcc void @lv_keyboard_update_ctrl_map(ptr noundef nonnull %0)
-  br label %10
+  br label %11
 
-10:                                               ; preds = %2, %6
+11:                                               ; preds = %3, %7
   ret void
 }
 
@@ -236,47 +250,47 @@ define internal fastcc void @lv_keyboard_update_ctrl_map(ptr noundef %0) unnamed
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %7 = load i32, ptr %6, align 8, !tbaa !13
+  %7 = load i32, ptr %6, align 8, !tbaa !18
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds nuw [10 x ptr], ptr @kb_ctrl, i64 0, i64 %8
-  %10 = load ptr, ptr %9, align 8, !tbaa !14
-  tail call void @lv_buttonmatrix_set_ctrl_map(ptr noundef nonnull %0, ptr noundef %10) #3
+  %10 = load ptr, ptr %9, align 8, !tbaa !20
+  tail call void @lv_buttonmatrix_set_ctrl_map(ptr noundef nonnull %0, ptr noundef %10) #4
   br label %33
 
 11:                                               ; preds = %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %13 = load i32, ptr %12, align 8, !tbaa !15
+  %13 = load i32, ptr %12, align 8, !tbaa !21
   %14 = zext i32 %13 to i64
   %15 = shl nuw nsw i64 %14, 2
-  %16 = tail call ptr @lv_malloc(i64 noundef %15) #3
+  %16 = tail call ptr @lv_malloc(i64 noundef %15) #4
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %18 = load i32, ptr %17, align 8, !tbaa !13
+  %18 = load i32, ptr %17, align 8, !tbaa !18
   %19 = zext i32 %18 to i64
   %20 = getelementptr inbounds nuw [10 x ptr], ptr @kb_ctrl, i64 0, i64 %19
-  %21 = load ptr, ptr %20, align 8, !tbaa !14
-  %22 = load i32, ptr %12, align 8, !tbaa !15
+  %21 = load ptr, ptr %20, align 8, !tbaa !20
+  %22 = load i32, ptr %12, align 8, !tbaa !21
   %23 = zext i32 %22 to i64
   %24 = shl nuw nsw i64 %23, 2
-  %25 = tail call ptr @lv_memcpy(ptr noundef %16, ptr noundef %21, i64 noundef %24) #3
-  %26 = load i32, ptr %12, align 8, !tbaa !15
+  %25 = tail call ptr @lv_memcpy(ptr noundef %16, ptr noundef %21, i64 noundef %24) #4
+  %26 = load i32, ptr %12, align 8, !tbaa !21
   %.not17 = icmp eq i32 %26, 0
   br i1 %.not17, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %11 ]
   %27 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv
-  %28 = load i32, ptr %27, align 4, !tbaa !16
+  %28 = load i32, ptr %27, align 4, !tbaa !22
   %29 = and i32 %28, -1025
-  store i32 %29, ptr %27, align 4, !tbaa !16
+  store i32 %29, ptr %27, align 4, !tbaa !22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %30 = load i32, ptr %12, align 8, !tbaa !15
+  %30 = load i32, ptr %12, align 8, !tbaa !21
   %31 = zext i32 %30 to i64
   %32 = icmp samesign ult i64 %indvars.iv.next, %31
-  br i1 %32, label %.lr.ph, label %._crit_edge, !llvm.loop !17
+  br i1 %32, label %.lr.ph, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph, %11
-  tail call void @lv_buttonmatrix_set_ctrl_map(ptr noundef nonnull %0, ptr noundef %16) #3
-  tail call void @lv_free(ptr noundef %16) #3
+  tail call void @lv_buttonmatrix_set_ctrl_map(ptr noundef nonnull %0, ptr noundef %16) #4
+  tail call void @lv_free(ptr noundef %16) #4
   br label %33
 
 33:                                               ; preds = %._crit_edge, %5
@@ -285,37 +299,58 @@ define internal fastcc void @lv_keyboard_update_ctrl_map(ptr noundef %0) unnamed
 
 ; Function Attrs: nounwind uwtable
 define void @lv_keyboard_set_map(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
-  %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw [10 x ptr], ptr @kb_map, i64 0, i64 %5
-  store ptr %2, ptr %6, align 8, !tbaa !14
-  %7 = getelementptr inbounds nuw [10 x ptr], ptr @kb_ctrl, i64 0, i64 %5
-  store ptr %3, ptr %7, align 8, !tbaa !14
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %9 = load i32, ptr %8, align 8, !tbaa !13
-  %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw [10 x ptr], ptr @kb_map, i64 0, i64 %10
-  %12 = load ptr, ptr %11, align 8, !tbaa !14
-  tail call void @lv_buttonmatrix_set_map(ptr noundef %0, ptr noundef %12) #3
-  tail call fastcc void @lv_keyboard_update_ctrl_map(ptr noundef %0)
+  %.not = icmp eq ptr %0, null
+  br i1 %.not, label %.preheader, label %5
+
+.preheader:                                       ; preds = %4, %.preheader
+  br label %.preheader
+
+5:                                                ; preds = %4
+  %6 = zext i32 %1 to i64
+  %7 = getelementptr inbounds nuw [10 x ptr], ptr @kb_map, i64 0, i64 %6
+  store ptr %2, ptr %7, align 8, !tbaa !19
+  %8 = getelementptr inbounds nuw [10 x ptr], ptr @kb_ctrl, i64 0, i64 %6
+  store ptr %3, ptr %8, align 8, !tbaa !20
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %10 = load i32, ptr %9, align 8, !tbaa !18
+  %11 = zext i32 %10 to i64
+  %12 = getelementptr inbounds nuw [10 x ptr], ptr @kb_map, i64 0, i64 %11
+  %13 = load ptr, ptr %12, align 8, !tbaa !19
+  tail call void @lv_buttonmatrix_set_map(ptr noundef nonnull %0, ptr noundef %13) #4
+  tail call fastcc void @lv_keyboard_update_ctrl_map(ptr noundef nonnull %0)
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @lv_keyboard_get_textarea(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %3 = load ptr, ptr %2, align 8, !tbaa !3
-  ret ptr %3
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
+define ptr @lv_keyboard_get_textarea(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
+  %.not = icmp eq ptr %0, null
+  br i1 %.not, label %.preheader, label %2
+
+.preheader:                                       ; preds = %1, %.preheader
+  br label %.preheader
+
+2:                                                ; preds = %1
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %4 = load ptr, ptr %3, align 8, !tbaa !3
+  ret ptr %4
+}
+
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
+define i32 @lv_keyboard_get_mode(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
+  %.not = icmp eq ptr %0, null
+  br i1 %.not, label %.preheader, label %2
+
+.preheader:                                       ; preds = %1, %.preheader
+  br label %.preheader
+
+2:                                                ; preds = %1
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %4 = load i32, ptr %3, align 8, !tbaa !18
+  ret i32 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @lv_keyboard_get_mode(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %3 = load i32, ptr %2, align 8, !tbaa !13
-  ret i32 %3
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i1 @lv_keyboard_get_popovers(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
+define zeroext i1 @lv_keyboard_get_popovers(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %3 = load i8, ptr %2, align 4
   %4 = and i8 %3, 1
@@ -325,209 +360,216 @@ define zeroext i1 @lv_keyboard_get_popovers(ptr noundef readonly captures(none) 
 
 ; Function Attrs: nounwind uwtable
 define void @lv_keyboard_def_event_cb(ptr noundef %0) #0 {
-  %2 = tail call ptr @lv_event_get_current_target(ptr noundef %0) #3
-  %3 = tail call i32 @lv_buttonmatrix_get_selected_button(ptr noundef %2) #3
-  %4 = icmp eq i32 %3, 65535
-  br i1 %4, label %104, label %5
+  %2 = tail call ptr @lv_event_get_current_target(ptr noundef %0) #4
+  %.not = icmp eq ptr %2, null
+  br i1 %.not, label %.preheader, label %3
 
-5:                                                ; preds = %1
-  %6 = tail call ptr @lv_buttonmatrix_get_button_text(ptr noundef %2, i32 noundef %3) #3
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %104, label %8
+.preheader:                                       ; preds = %1, %.preheader
+  br label %.preheader
 
-8:                                                ; preds = %5
-  %9 = tail call i32 @lv_strcmp(ptr noundef nonnull %6, ptr noundef nonnull @.str.1) #3
-  %10 = icmp eq i32 %9, 0
-  br i1 %10, label %11, label %14
+3:                                                ; preds = %1
+  %4 = tail call i32 @lv_buttonmatrix_get_selected_button(ptr noundef nonnull %2) #4
+  %5 = icmp eq i32 %4, 65535
+  br i1 %5, label %105, label %6
 
-11:                                               ; preds = %8
-  %12 = getelementptr inbounds nuw i8, ptr %2, i64 112
-  store i32 0, ptr %12, align 8, !tbaa !13
-  %13 = load ptr, ptr @kb_map, align 16, !tbaa !14
-  tail call void @lv_buttonmatrix_set_map(ptr noundef %2, ptr noundef %13) #3
-  tail call fastcc void @lv_keyboard_update_ctrl_map(ptr noundef %2)
-  br label %104
+6:                                                ; preds = %3
+  %7 = tail call ptr @lv_buttonmatrix_get_button_text(ptr noundef nonnull %2, i32 noundef %4) #4
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %105, label %9
 
-14:                                               ; preds = %8
-  %15 = tail call i32 @lv_strcmp(ptr noundef nonnull %6, ptr noundef nonnull @.str.2) #3
-  %16 = icmp eq i32 %15, 0
-  br i1 %16, label %17, label %20
+9:                                                ; preds = %6
+  %10 = tail call i32 @lv_strcmp(ptr noundef nonnull %7, ptr noundef nonnull @.str.1) #4
+  %11 = icmp eq i32 %10, 0
+  br i1 %11, label %12, label %15
 
-17:                                               ; preds = %14
-  %18 = getelementptr inbounds nuw i8, ptr %2, i64 112
-  store i32 1, ptr %18, align 8, !tbaa !13
-  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kb_map, i64 8), align 8, !tbaa !14
-  tail call void @lv_buttonmatrix_set_map(ptr noundef %2, ptr noundef %19) #3
-  tail call fastcc void @lv_keyboard_update_ctrl_map(ptr noundef %2)
-  br label %104
+12:                                               ; preds = %9
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 112
+  store i32 0, ptr %13, align 8, !tbaa !18
+  %14 = load ptr, ptr @kb_map, align 16, !tbaa !19
+  tail call void @lv_buttonmatrix_set_map(ptr noundef nonnull %2, ptr noundef %14) #4
+  tail call fastcc void @lv_keyboard_update_ctrl_map(ptr noundef nonnull %2)
+  br label %105
 
-20:                                               ; preds = %14
-  %21 = tail call i32 @lv_strcmp(ptr noundef nonnull %6, ptr noundef nonnull @.str.3) #3
-  %22 = icmp eq i32 %21, 0
-  br i1 %22, label %23, label %26
+15:                                               ; preds = %9
+  %16 = tail call i32 @lv_strcmp(ptr noundef nonnull %7, ptr noundef nonnull @.str.2) #4
+  %17 = icmp eq i32 %16, 0
+  br i1 %17, label %18, label %21
 
-23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw i8, ptr %2, i64 112
-  store i32 2, ptr %24, align 8, !tbaa !13
-  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kb_map, i64 16), align 16, !tbaa !14
-  tail call void @lv_buttonmatrix_set_map(ptr noundef %2, ptr noundef %25) #3
-  tail call fastcc void @lv_keyboard_update_ctrl_map(ptr noundef %2)
-  br label %104
+18:                                               ; preds = %15
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 112
+  store i32 1, ptr %19, align 8, !tbaa !18
+  %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kb_map, i64 8), align 8, !tbaa !19
+  tail call void @lv_buttonmatrix_set_map(ptr noundef nonnull %2, ptr noundef %20) #4
+  tail call fastcc void @lv_keyboard_update_ctrl_map(ptr noundef nonnull %2)
+  br label %105
 
-26:                                               ; preds = %20
-  %27 = tail call i32 @lv_strcmp(ptr noundef nonnull %6, ptr noundef nonnull @.str.4) #3
-  %28 = icmp eq i32 %27, 0
-  br i1 %28, label %32, label %29
+21:                                               ; preds = %15
+  %22 = tail call i32 @lv_strcmp(ptr noundef nonnull %7, ptr noundef nonnull @.str.3) #4
+  %23 = icmp eq i32 %22, 0
+  br i1 %23, label %24, label %27
 
-29:                                               ; preds = %26
-  %30 = tail call i32 @lv_strcmp(ptr noundef nonnull %6, ptr noundef nonnull @.str.5) #3
-  %31 = icmp eq i32 %30, 0
-  br i1 %31, label %32, label %39
+24:                                               ; preds = %21
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 112
+  store i32 2, ptr %25, align 8, !tbaa !18
+  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kb_map, i64 16), align 16, !tbaa !19
+  tail call void @lv_buttonmatrix_set_map(ptr noundef nonnull %2, ptr noundef %26) #4
+  tail call fastcc void @lv_keyboard_update_ctrl_map(ptr noundef nonnull %2)
+  br label %105
 
-32:                                               ; preds = %29, %26
-  %33 = tail call i32 @lv_obj_send_event(ptr noundef %2, i32 noundef 39, ptr noundef null) #3
-  %.not74 = icmp eq i32 %33, 1
-  br i1 %.not74, label %34, label %104
+27:                                               ; preds = %21
+  %28 = tail call i32 @lv_strcmp(ptr noundef nonnull %7, ptr noundef nonnull @.str.4) #4
+  %29 = icmp eq i32 %28, 0
+  br i1 %29, label %33, label %30
 
-34:                                               ; preds = %32
-  %35 = getelementptr inbounds nuw i8, ptr %2, i64 104
-  %36 = load ptr, ptr %35, align 8, !tbaa !3
-  %.not75 = icmp eq ptr %36, null
-  br i1 %.not75, label %104, label %37
+30:                                               ; preds = %27
+  %31 = tail call i32 @lv_strcmp(ptr noundef nonnull %7, ptr noundef nonnull @.str.5) #4
+  %32 = icmp eq i32 %31, 0
+  br i1 %32, label %33, label %40
 
-37:                                               ; preds = %34
-  %38 = tail call i32 @lv_obj_send_event(ptr noundef nonnull %36, i32 noundef 39, ptr noundef null) #3
-  br label %104
+33:                                               ; preds = %30, %27
+  %34 = tail call i32 @lv_obj_send_event(ptr noundef nonnull %2, i32 noundef 39, ptr noundef null) #4
+  %.not77 = icmp eq i32 %34, 1
+  br i1 %.not77, label %35, label %105
 
-39:                                               ; preds = %29
-  %40 = tail call i32 @lv_strcmp(ptr noundef nonnull %6, ptr noundef nonnull @.str.6) #3
-  %41 = icmp eq i32 %40, 0
-  br i1 %41, label %42, label %49
+35:                                               ; preds = %33
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 104
+  %37 = load ptr, ptr %36, align 8, !tbaa !3
+  %.not78 = icmp eq ptr %37, null
+  br i1 %.not78, label %105, label %38
 
-42:                                               ; preds = %39
-  %43 = tail call i32 @lv_obj_send_event(ptr noundef %2, i32 noundef 38, ptr noundef null) #3
-  %.not71 = icmp eq i32 %43, 1
-  br i1 %.not71, label %44, label %104
+38:                                               ; preds = %35
+  %39 = tail call i32 @lv_obj_send_event(ptr noundef nonnull %37, i32 noundef 39, ptr noundef null) #4
+  br label %105
 
-44:                                               ; preds = %42
-  %45 = getelementptr inbounds nuw i8, ptr %2, i64 104
-  %46 = load ptr, ptr %45, align 8, !tbaa !3
-  %.not72 = icmp eq ptr %46, null
-  br i1 %.not72, label %104, label %47
+40:                                               ; preds = %30
+  %41 = tail call i32 @lv_strcmp(ptr noundef nonnull %7, ptr noundef nonnull @.str.6) #4
+  %42 = icmp eq i32 %41, 0
+  br i1 %42, label %43, label %50
 
-47:                                               ; preds = %44
-  %48 = tail call i32 @lv_obj_send_event(ptr noundef nonnull %46, i32 noundef 38, ptr noundef null) #3
-  br label %104
+43:                                               ; preds = %40
+  %44 = tail call i32 @lv_obj_send_event(ptr noundef nonnull %2, i32 noundef 38, ptr noundef null) #4
+  %.not74 = icmp eq i32 %44, 1
+  br i1 %.not74, label %45, label %105
 
-49:                                               ; preds = %39
-  %50 = getelementptr inbounds nuw i8, ptr %2, i64 104
-  %51 = load ptr, ptr %50, align 8, !tbaa !3
-  %52 = icmp eq ptr %51, null
-  br i1 %52, label %104, label %53
+45:                                               ; preds = %43
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 104
+  %47 = load ptr, ptr %46, align 8, !tbaa !3
+  %.not75 = icmp eq ptr %47, null
+  br i1 %.not75, label %105, label %48
 
-53:                                               ; preds = %49
-  %54 = tail call i32 @lv_strcmp(ptr noundef nonnull %6, ptr noundef nonnull @.str.7) #3
-  %55 = icmp eq i32 %54, 0
-  br i1 %55, label %59, label %56
+48:                                               ; preds = %45
+  %49 = tail call i32 @lv_obj_send_event(ptr noundef nonnull %47, i32 noundef 38, ptr noundef null) #4
+  br label %105
 
-56:                                               ; preds = %53
-  %57 = tail call i32 @lv_strcmp(ptr noundef nonnull %6, ptr noundef nonnull @.str.8) #3
-  %58 = icmp eq i32 %57, 0
-  br i1 %58, label %59, label %66
+50:                                               ; preds = %40
+  %51 = getelementptr inbounds nuw i8, ptr %2, i64 104
+  %52 = load ptr, ptr %51, align 8, !tbaa !3
+  %53 = icmp eq ptr %52, null
+  br i1 %53, label %105, label %54
 
-59:                                               ; preds = %56, %53
-  %60 = load ptr, ptr %50, align 8, !tbaa !3
-  tail call void @lv_textarea_add_char(ptr noundef %60, i32 noundef 10) #3
-  %61 = load ptr, ptr %50, align 8, !tbaa !3
-  %62 = tail call zeroext i1 @lv_textarea_get_one_line(ptr noundef %61) #3
-  br i1 %62, label %63, label %104
+54:                                               ; preds = %50
+  %55 = tail call i32 @lv_strcmp(ptr noundef nonnull %7, ptr noundef nonnull @.str.7) #4
+  %56 = icmp eq i32 %55, 0
+  br i1 %56, label %60, label %57
 
-63:                                               ; preds = %59
-  %64 = load ptr, ptr %50, align 8, !tbaa !3
-  %65 = tail call i32 @lv_obj_send_event(ptr noundef %64, i32 noundef 38, ptr noundef null) #3
-  br label %104
+57:                                               ; preds = %54
+  %58 = tail call i32 @lv_strcmp(ptr noundef nonnull %7, ptr noundef nonnull @.str.8) #4
+  %59 = icmp eq i32 %58, 0
+  br i1 %59, label %60, label %67
 
-66:                                               ; preds = %56
-  %67 = tail call i32 @lv_strcmp(ptr noundef nonnull %6, ptr noundef nonnull @.str.9) #3
-  %68 = icmp eq i32 %67, 0
-  br i1 %68, label %69, label %71
+60:                                               ; preds = %57, %54
+  %61 = load ptr, ptr %51, align 8, !tbaa !3
+  tail call void @lv_textarea_add_char(ptr noundef %61, i32 noundef 10) #4
+  %62 = load ptr, ptr %51, align 8, !tbaa !3
+  %63 = tail call zeroext i1 @lv_textarea_get_one_line(ptr noundef %62) #4
+  br i1 %63, label %64, label %105
 
-69:                                               ; preds = %66
-  %70 = load ptr, ptr %50, align 8, !tbaa !3
-  tail call void @lv_textarea_cursor_left(ptr noundef %70) #3
-  br label %104
+64:                                               ; preds = %60
+  %65 = load ptr, ptr %51, align 8, !tbaa !3
+  %66 = tail call i32 @lv_obj_send_event(ptr noundef %65, i32 noundef 38, ptr noundef null) #4
+  br label %105
 
-71:                                               ; preds = %66
-  %72 = tail call i32 @lv_strcmp(ptr noundef nonnull %6, ptr noundef nonnull @.str.10) #3
-  %73 = icmp eq i32 %72, 0
-  br i1 %73, label %74, label %76
+67:                                               ; preds = %57
+  %68 = tail call i32 @lv_strcmp(ptr noundef nonnull %7, ptr noundef nonnull @.str.9) #4
+  %69 = icmp eq i32 %68, 0
+  br i1 %69, label %70, label %72
 
-74:                                               ; preds = %71
-  %75 = load ptr, ptr %50, align 8, !tbaa !3
-  tail call void @lv_textarea_cursor_right(ptr noundef %75) #3
-  br label %104
+70:                                               ; preds = %67
+  %71 = load ptr, ptr %51, align 8, !tbaa !3
+  tail call void @lv_textarea_cursor_left(ptr noundef %71) #4
+  br label %105
 
-76:                                               ; preds = %71
-  %77 = tail call i32 @lv_strcmp(ptr noundef nonnull %6, ptr noundef nonnull @.str.11) #3
-  %78 = icmp eq i32 %77, 0
-  br i1 %78, label %79, label %81
+72:                                               ; preds = %67
+  %73 = tail call i32 @lv_strcmp(ptr noundef nonnull %7, ptr noundef nonnull @.str.10) #4
+  %74 = icmp eq i32 %73, 0
+  br i1 %74, label %75, label %77
 
-79:                                               ; preds = %76
-  %80 = load ptr, ptr %50, align 8, !tbaa !3
-  tail call void @lv_textarea_delete_char(ptr noundef %80) #3
-  br label %104
+75:                                               ; preds = %72
+  %76 = load ptr, ptr %51, align 8, !tbaa !3
+  tail call void @lv_textarea_cursor_right(ptr noundef %76) #4
+  br label %105
 
-81:                                               ; preds = %76
-  %82 = tail call i32 @lv_strcmp(ptr noundef nonnull %6, ptr noundef nonnull @.str.12) #3
-  %83 = icmp eq i32 %82, 0
-  %84 = load ptr, ptr %50, align 8, !tbaa !3
-  br i1 %83, label %85, label %103
+77:                                               ; preds = %72
+  %78 = tail call i32 @lv_strcmp(ptr noundef nonnull %7, ptr noundef nonnull @.str.11) #4
+  %79 = icmp eq i32 %78, 0
+  br i1 %79, label %80, label %82
 
-85:                                               ; preds = %81
-  %86 = tail call i32 @lv_textarea_get_cursor_pos(ptr noundef %84) #3
-  %87 = load ptr, ptr %50, align 8, !tbaa !3
-  %88 = tail call ptr @lv_textarea_get_text(ptr noundef %87) #3
-  %89 = load i8, ptr %88, align 1, !tbaa !19
-  %90 = load ptr, ptr %50, align 8, !tbaa !3
-  switch i8 %89, label %99 [
-    i8 45, label %91
-    i8 43, label %95
+80:                                               ; preds = %77
+  %81 = load ptr, ptr %51, align 8, !tbaa !3
+  tail call void @lv_textarea_delete_char(ptr noundef %81) #4
+  br label %105
+
+82:                                               ; preds = %77
+  %83 = tail call i32 @lv_strcmp(ptr noundef nonnull %7, ptr noundef nonnull @.str.12) #4
+  %84 = icmp eq i32 %83, 0
+  %85 = load ptr, ptr %51, align 8, !tbaa !3
+  br i1 %84, label %86, label %104
+
+86:                                               ; preds = %82
+  %87 = tail call i32 @lv_textarea_get_cursor_pos(ptr noundef %85) #4
+  %88 = load ptr, ptr %51, align 8, !tbaa !3
+  %89 = tail call ptr @lv_textarea_get_text(ptr noundef %88) #4
+  %90 = load i8, ptr %89, align 1, !tbaa !25
+  %91 = load ptr, ptr %51, align 8, !tbaa !3
+  switch i8 %90, label %100 [
+    i8 45, label %92
+    i8 43, label %96
   ]
 
-91:                                               ; preds = %85
-  tail call void @lv_textarea_set_cursor_pos(ptr noundef %90, i32 noundef 1) #3
-  %92 = load ptr, ptr %50, align 8, !tbaa !3
-  tail call void @lv_textarea_delete_char(ptr noundef %92) #3
-  %93 = load ptr, ptr %50, align 8, !tbaa !3
-  tail call void @lv_textarea_add_char(ptr noundef %93, i32 noundef 43) #3
-  %94 = load ptr, ptr %50, align 8, !tbaa !3
-  tail call void @lv_textarea_set_cursor_pos(ptr noundef %94, i32 noundef %86) #3
-  br label %104
+92:                                               ; preds = %86
+  tail call void @lv_textarea_set_cursor_pos(ptr noundef %91, i32 noundef 1) #4
+  %93 = load ptr, ptr %51, align 8, !tbaa !3
+  tail call void @lv_textarea_delete_char(ptr noundef %93) #4
+  %94 = load ptr, ptr %51, align 8, !tbaa !3
+  tail call void @lv_textarea_add_char(ptr noundef %94, i32 noundef 43) #4
+  %95 = load ptr, ptr %51, align 8, !tbaa !3
+  tail call void @lv_textarea_set_cursor_pos(ptr noundef %95, i32 noundef %87) #4
+  br label %105
 
-95:                                               ; preds = %85
-  tail call void @lv_textarea_set_cursor_pos(ptr noundef %90, i32 noundef 1) #3
-  %96 = load ptr, ptr %50, align 8, !tbaa !3
-  tail call void @lv_textarea_delete_char(ptr noundef %96) #3
-  %97 = load ptr, ptr %50, align 8, !tbaa !3
-  tail call void @lv_textarea_add_char(ptr noundef %97, i32 noundef 45) #3
-  %98 = load ptr, ptr %50, align 8, !tbaa !3
-  tail call void @lv_textarea_set_cursor_pos(ptr noundef %98, i32 noundef %86) #3
-  br label %104
+96:                                               ; preds = %86
+  tail call void @lv_textarea_set_cursor_pos(ptr noundef %91, i32 noundef 1) #4
+  %97 = load ptr, ptr %51, align 8, !tbaa !3
+  tail call void @lv_textarea_delete_char(ptr noundef %97) #4
+  %98 = load ptr, ptr %51, align 8, !tbaa !3
+  tail call void @lv_textarea_add_char(ptr noundef %98, i32 noundef 45) #4
+  %99 = load ptr, ptr %51, align 8, !tbaa !3
+  tail call void @lv_textarea_set_cursor_pos(ptr noundef %99, i32 noundef %87) #4
+  br label %105
 
-99:                                               ; preds = %85
-  tail call void @lv_textarea_set_cursor_pos(ptr noundef %90, i32 noundef 0) #3
-  %100 = load ptr, ptr %50, align 8, !tbaa !3
-  tail call void @lv_textarea_add_char(ptr noundef %100, i32 noundef 45) #3
-  %101 = load ptr, ptr %50, align 8, !tbaa !3
-  %102 = add i32 %86, 1
-  tail call void @lv_textarea_set_cursor_pos(ptr noundef %101, i32 noundef %102) #3
-  br label %104
+100:                                              ; preds = %86
+  tail call void @lv_textarea_set_cursor_pos(ptr noundef %91, i32 noundef 0) #4
+  %101 = load ptr, ptr %51, align 8, !tbaa !3
+  tail call void @lv_textarea_add_char(ptr noundef %101, i32 noundef 45) #4
+  %102 = load ptr, ptr %51, align 8, !tbaa !3
+  %103 = add i32 %87, 1
+  tail call void @lv_textarea_set_cursor_pos(ptr noundef %102, i32 noundef %103) #4
+  br label %105
 
-103:                                              ; preds = %81
-  tail call void @lv_textarea_add_text(ptr noundef %84, ptr noundef nonnull %6) #3
-  br label %104
+104:                                              ; preds = %82
+  tail call void @lv_textarea_add_text(ptr noundef %85, ptr noundef nonnull %7) #4
+  br label %105
 
-104:                                              ; preds = %63, %47, %37, %11, %17, %23, %5, %34, %32, %44, %42, %49, %91, %99, %95, %69, %79, %103, %74, %59, %1
+105:                                              ; preds = %64, %48, %38, %12, %18, %24, %6, %35, %33, %45, %43, %50, %92, %100, %96, %70, %80, %104, %75, %60, %3
   ret void
 }
 
@@ -563,7 +605,7 @@ declare void @lv_textarea_add_text(ptr noundef, ptr noundef) local_unnamed_addr 
 
 ; Function Attrs: nounwind uwtable
 define ptr @lv_keyboard_get_map_array(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call ptr @lv_buttonmatrix_get_map(ptr noundef %0) #3
+  %2 = tail call ptr @lv_buttonmatrix_get_map(ptr noundef %0) #4
   ret ptr %2
 }
 
@@ -571,13 +613,13 @@ declare ptr @lv_buttonmatrix_get_map(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @lv_keyboard_get_selected_button(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call i32 @lv_buttonmatrix_get_selected_button(ptr noundef %0) #3
+  %2 = tail call i32 @lv_buttonmatrix_get_selected_button(ptr noundef %0) #4
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define ptr @lv_keyboard_get_button_text(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @lv_buttonmatrix_get_button_text(ptr noundef %0, i32 noundef %1) #3
+  %3 = tail call ptr @lv_buttonmatrix_get_button_text(ptr noundef %0, i32 noundef %1) #4
   ret ptr %3
 }
 
@@ -599,28 +641,35 @@ declare void @lv_free(ptr noundef) local_unnamed_addr #1
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind }
+attributes #2 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{!4, !7, i64 104}
-!4 = !{!"_lv_keyboard_t", !5, i64 0, !7, i64 104, !11, i64 112, !8, i64 116}
-!5 = !{!"_lv_buttonmatrix_t", !6, i64 0, !7, i64 64, !7, i64 72, !7, i64 80, !11, i64 88, !11, i64 92, !11, i64 96, !11, i64 100}
-!6 = !{!"_lv_obj_t", !7, i64 0, !7, i64 8, !7, i64 16, !7, i64 24, !7, i64 32, !10, i64 40, !11, i64 56, !12, i64 60, !12, i64 62, !12, i64 62, !12, i64 62, !12, i64 62, !12, i64 62, !12, i64 63, !12, i64 63, !12, i64 63}
-!7 = !{!"any pointer", !8, i64 0}
-!8 = !{!"omnipotent char", !9, i64 0}
-!9 = !{!"Simple C/C++ TBAA"}
-!10 = !{!"", !11, i64 0, !11, i64 4, !11, i64 8, !11, i64 12}
-!11 = !{!"int", !8, i64 0}
-!12 = !{!"short", !8, i64 0}
-!13 = !{!4, !11, i64 112}
-!14 = !{!7, !7, i64 0}
-!15 = !{!5, !11, i64 88}
-!16 = !{!11, !11, i64 0}
-!17 = distinct !{!17, !18}
-!18 = !{!"llvm.loop.mustprogress"}
-!19 = !{!8, !8, i64 0}
+!3 = !{!4, !11, i64 104}
+!4 = !{!"_lv_keyboard_t", !5, i64 0, !11, i64 104, !15, i64 112, !9, i64 116}
+!5 = !{!"_lv_buttonmatrix_t", !6, i64 0, !17, i64 64, !8, i64 72, !8, i64 80, !15, i64 88, !15, i64 92, !15, i64 96, !15, i64 100, !15, i64 100}
+!6 = !{!"_lv_obj_t", !7, i64 0, !11, i64 8, !12, i64 16, !13, i64 24, !8, i64 32, !14, i64 40, !15, i64 56, !16, i64 60, !16, i64 62, !16, i64 62, !16, i64 62, !16, i64 62, !16, i64 62, !16, i64 63, !16, i64 63, !16, i64 63}
+!7 = !{!"p1 _ZTS15_lv_obj_class_t", !8, i64 0}
+!8 = !{!"any pointer", !9, i64 0}
+!9 = !{!"omnipotent char", !10, i64 0}
+!10 = !{!"Simple C/C++ TBAA"}
+!11 = !{!"p1 _ZTS9_lv_obj_t", !8, i64 0}
+!12 = !{!"p1 _ZTS19_lv_obj_spec_attr_t", !8, i64 0}
+!13 = !{!"p1 _ZTS15_lv_obj_style_t", !8, i64 0}
+!14 = !{!"", !15, i64 0, !15, i64 4, !15, i64 8, !15, i64 12}
+!15 = !{!"int", !9, i64 0}
+!16 = !{!"short", !9, i64 0}
+!17 = !{!"p2 omnipotent char", !8, i64 0}
+!18 = !{!4, !15, i64 112}
+!19 = !{!17, !17, i64 0}
+!20 = !{!8, !8, i64 0}
+!21 = !{!5, !15, i64 88}
+!22 = !{!15, !15, i64 0}
+!23 = distinct !{!23, !24}
+!24 = !{!"llvm.loop.mustprogress"}
+!25 = !{!9, !9, i64 0}

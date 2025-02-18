@@ -21,71 +21,88 @@ define i32 @lv_obj_send_event(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0
   %8 = alloca %struct._lv_event_t, align 8
   %9 = alloca i32, align 4
   store ptr %0, ptr %5, align 8, !tbaa !3
-  store i32 %1, ptr %6, align 4, !tbaa !7
-  store ptr %2, ptr %7, align 8, !tbaa !3
+  store i32 %1, ptr %6, align 4, !tbaa !8
+  store ptr %2, ptr %7, align 8, !tbaa !10
   %10 = load ptr, ptr %5, align 8, !tbaa !3
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %13
 
 12:                                               ; preds = %3
   store i32 1, ptr %4, align 4
-  br label %39
+  br label %46
 
 13:                                               ; preds = %3
   br label %14
 
 14:                                               ; preds = %13
-  br label %15
+  %15 = load ptr, ptr %5, align 8, !tbaa !3
+  %16 = icmp ne ptr %15, null
+  br i1 %16, label %21, label %17
 
-15:                                               ; preds = %14
+17:                                               ; preds = %14
+  br label %18
+
+18:                                               ; preds = %17
+  br label %19
+
+19:                                               ; preds = %18
+  br label %20
+
+20:                                               ; preds = %19, %20
+  br label %20
+
+21:                                               ; preds = %14
+  br label %22
+
+22:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(i64 56, ptr %8) #3
-  %16 = load ptr, ptr %5, align 8, !tbaa !3
-  %17 = getelementptr inbounds nuw %struct._lv_event_t, ptr %8, i32 0, i32 0
-  store ptr %16, ptr %17, align 8, !tbaa !9
-  %18 = load ptr, ptr %5, align 8, !tbaa !3
-  %19 = getelementptr inbounds nuw %struct._lv_event_t, ptr %8, i32 0, i32 1
-  store ptr %18, ptr %19, align 8, !tbaa !11
-  %20 = load i32, ptr %6, align 4, !tbaa !7
-  %21 = getelementptr inbounds nuw %struct._lv_event_t, ptr %8, i32 0, i32 2
-  store i32 %20, ptr %21, align 8, !tbaa !12
-  %22 = getelementptr inbounds nuw %struct._lv_event_t, ptr %8, i32 0, i32 3
-  store ptr null, ptr %22, align 8, !tbaa !13
-  %23 = load ptr, ptr %7, align 8, !tbaa !3
-  %24 = getelementptr inbounds nuw %struct._lv_event_t, ptr %8, i32 0, i32 4
-  store ptr %23, ptr %24, align 8, !tbaa !14
-  %25 = getelementptr inbounds nuw %struct._lv_event_t, ptr %8, i32 0, i32 6
-  %26 = load i8, ptr %25, align 8
-  %27 = and i8 %26, -2
-  %28 = or i8 %27, 0
-  store i8 %28, ptr %25, align 8
-  %29 = getelementptr inbounds nuw %struct._lv_event_t, ptr %8, i32 0, i32 6
-  %30 = load i8, ptr %29, align 8
-  %31 = and i8 %30, -5
-  %32 = or i8 %31, 0
-  store i8 %32, ptr %29, align 8
-  %33 = getelementptr inbounds nuw %struct._lv_event_t, ptr %8, i32 0, i32 6
-  %34 = load i8, ptr %33, align 8
-  %35 = and i8 %34, -3
-  %36 = or i8 %35, 0
-  store i8 %36, ptr %33, align 8
+  %23 = load ptr, ptr %5, align 8, !tbaa !3
+  %24 = getelementptr inbounds nuw %struct._lv_event_t, ptr %8, i32 0, i32 0
+  store ptr %23, ptr %24, align 8, !tbaa !11
+  %25 = load ptr, ptr %5, align 8, !tbaa !3
+  %26 = getelementptr inbounds nuw %struct._lv_event_t, ptr %8, i32 0, i32 1
+  store ptr %25, ptr %26, align 8, !tbaa !14
+  %27 = load i32, ptr %6, align 4, !tbaa !8
+  %28 = getelementptr inbounds nuw %struct._lv_event_t, ptr %8, i32 0, i32 2
+  store i32 %27, ptr %28, align 8, !tbaa !15
+  %29 = getelementptr inbounds nuw %struct._lv_event_t, ptr %8, i32 0, i32 3
+  store ptr null, ptr %29, align 8, !tbaa !16
+  %30 = load ptr, ptr %7, align 8, !tbaa !10
+  %31 = getelementptr inbounds nuw %struct._lv_event_t, ptr %8, i32 0, i32 4
+  store ptr %30, ptr %31, align 8, !tbaa !17
+  %32 = getelementptr inbounds nuw %struct._lv_event_t, ptr %8, i32 0, i32 6
+  %33 = load i8, ptr %32, align 8
+  %34 = and i8 %33, -2
+  %35 = or i8 %34, 0
+  store i8 %35, ptr %32, align 8
+  %36 = getelementptr inbounds nuw %struct._lv_event_t, ptr %8, i32 0, i32 6
+  %37 = load i8, ptr %36, align 8
+  %38 = and i8 %37, -5
+  %39 = or i8 %38, 0
+  store i8 %39, ptr %36, align 8
+  %40 = getelementptr inbounds nuw %struct._lv_event_t, ptr %8, i32 0, i32 6
+  %41 = load i8, ptr %40, align 8
+  %42 = and i8 %41, -3
+  %43 = or i8 %42, 0
+  store i8 %43, ptr %40, align 8
   call void @lv_event_push(ptr noundef %8)
   call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
-  %37 = call i32 @event_send_core(ptr noundef %8)
-  store i32 %37, ptr %9, align 4, !tbaa !7
+  %44 = call i32 @event_send_core(ptr noundef %8)
+  store i32 %44, ptr %9, align 4, !tbaa !8
   call void @lv_event_pop(ptr noundef %8)
-  %38 = load i32, ptr %9, align 4, !tbaa !7
-  store i32 %38, ptr %4, align 4
+  %45 = load i32, ptr %9, align 4, !tbaa !8
+  store i32 %45, ptr %4, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
   call void @llvm.lifetime.end.p0(i64 56, ptr %8) #3
-  br label %39
+  br label %46
 
-39:                                               ; preds = %15, %12
-  %40 = load i32, ptr %4, align 4
-  ret i32 %40
+46:                                               ; preds = %22, %12
+  %47 = load i32, ptr %4, align 4
+  ret i32 %47
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 declare void @lv_event_push(ptr noundef) #2
 
@@ -99,16 +116,16 @@ define internal i32 @event_send_core(ptr noundef %0) #0 {
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %0, ptr %3, align 8, !tbaa !18
   call void @llvm.lifetime.start.p0(i64 8, ptr %4) #3
   %10 = call ptr @lv_indev_active()
-  store ptr %10, ptr %4, align 8, !tbaa !3
-  %11 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %10, ptr %4, align 8, !tbaa !19
+  %11 = load ptr, ptr %4, align 8, !tbaa !19
   %12 = icmp ne ptr %11, null
   br i1 %12, label %13, label %29
 
 13:                                               ; preds = %1
-  %14 = load ptr, ptr %3, align 8, !tbaa !3
+  %14 = load ptr, ptr %3, align 8, !tbaa !18
   %15 = getelementptr inbounds nuw %struct._lv_event_t, ptr %14, i32 0, i32 6
   %16 = load i8, ptr %15, align 8
   %17 = lshr i8 %16, 1
@@ -119,10 +136,10 @@ define internal i32 @event_send_core(ptr noundef %0) #0 {
 20:                                               ; preds = %13
   store i32 1, ptr %2, align 4
   store i32 1, ptr %5, align 4
-  br label %132
+  br label %110
 
 21:                                               ; preds = %13
-  %22 = load ptr, ptr %3, align 8, !tbaa !3
+  %22 = load ptr, ptr %3, align 8, !tbaa !18
   %23 = getelementptr inbounds nuw %struct._lv_event_t, ptr %22, i32 0, i32 6
   %24 = load i8, ptr %23, align 8
   %25 = and i8 %24, 1
@@ -132,30 +149,30 @@ define internal i32 @event_send_core(ptr noundef %0) #0 {
 27:                                               ; preds = %21
   store i32 0, ptr %2, align 4
   store i32 1, ptr %5, align 4
-  br label %132
+  br label %110
 
 28:                                               ; preds = %21
   br label %29
 
 29:                                               ; preds = %28, %1
   call void @llvm.lifetime.start.p0(i64 8, ptr %6) #3
-  %30 = load ptr, ptr %3, align 8, !tbaa !3
+  %30 = load ptr, ptr %3, align 8, !tbaa !18
   %31 = getelementptr inbounds nuw %struct._lv_event_t, ptr %30, i32 0, i32 0
-  %32 = load ptr, ptr %31, align 8, !tbaa !9
+  %32 = load ptr, ptr %31, align 8, !tbaa !11
   store ptr %32, ptr %6, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(i64 4, ptr %7) #3
-  store i32 1, ptr %7, align 4, !tbaa !7
+  store i32 1, ptr %7, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 8, ptr %8) #3
   %33 = load ptr, ptr %6, align 8, !tbaa !3
   %34 = getelementptr inbounds nuw %struct._lv_obj_t, ptr %33, i32 0, i32 2
-  %35 = load ptr, ptr %34, align 8, !tbaa !15
+  %35 = load ptr, ptr %34, align 8, !tbaa !21
   %36 = icmp ne ptr %35, null
   br i1 %36, label %37, label %42
 
 37:                                               ; preds = %29
   %38 = load ptr, ptr %6, align 8, !tbaa !3
   %39 = getelementptr inbounds nuw %struct._lv_obj_t, ptr %38, i32 0, i32 2
-  %40 = load ptr, ptr %39, align 8, !tbaa !15
+  %40 = load ptr, ptr %39, align 8, !tbaa !21
   %41 = getelementptr inbounds nuw %struct._lv_obj_spec_attr_t, ptr %40, i32 0, i32 2
   br label %43
 
@@ -164,17 +181,17 @@ define internal i32 @event_send_core(ptr noundef %0) #0 {
 
 43:                                               ; preds = %42, %37
   %44 = phi ptr [ %41, %37 ], [ null, %42 ]
-  store ptr %44, ptr %8, align 8, !tbaa !3
-  %45 = load ptr, ptr %8, align 8, !tbaa !3
-  %46 = load ptr, ptr %3, align 8, !tbaa !3
+  store ptr %44, ptr %8, align 8, !tbaa !10
+  %45 = load ptr, ptr %8, align 8, !tbaa !10
+  %46 = load ptr, ptr %3, align 8, !tbaa !18
   %47 = call i32 @lv_event_send(ptr noundef %45, ptr noundef %46, i1 noundef zeroext true)
-  store i32 %47, ptr %7, align 4, !tbaa !7
-  %48 = load i32, ptr %7, align 4, !tbaa !7
+  store i32 %47, ptr %7, align 4, !tbaa !8
+  %48 = load i32, ptr %7, align 4, !tbaa !8
   %49 = icmp ne i32 %48, 1
   br i1 %49, label %58, label %50
 
 50:                                               ; preds = %43
-  %51 = load ptr, ptr %3, align 8, !tbaa !3
+  %51 = load ptr, ptr %3, align 8, !tbaa !18
   %52 = getelementptr inbounds nuw %struct._lv_event_t, ptr %51, i32 0, i32 6
   %53 = load i8, ptr %52, align 8
   %54 = lshr i8 %53, 1
@@ -184,21 +201,21 @@ define internal i32 @event_send_core(ptr noundef %0) #0 {
   br i1 %57, label %58, label %60
 
 58:                                               ; preds = %50, %43
-  %59 = load i32, ptr %7, align 4, !tbaa !7
+  %59 = load i32, ptr %7, align 4, !tbaa !8
   store i32 %59, ptr %2, align 4
   store i32 1, ptr %5, align 4
-  br label %131
+  br label %109
 
 60:                                               ; preds = %50
-  %61 = load ptr, ptr %3, align 8, !tbaa !3
+  %61 = load ptr, ptr %3, align 8, !tbaa !18
   %62 = call i32 @lv_obj_event_base(ptr noundef null, ptr noundef %61)
-  store i32 %62, ptr %7, align 4, !tbaa !7
-  %63 = load i32, ptr %7, align 4, !tbaa !7
+  store i32 %62, ptr %7, align 4, !tbaa !8
+  %63 = load i32, ptr %7, align 4, !tbaa !8
   %64 = icmp ne i32 %63, 1
   br i1 %64, label %73, label %65
 
 65:                                               ; preds = %60
-  %66 = load ptr, ptr %3, align 8, !tbaa !3
+  %66 = load ptr, ptr %3, align 8, !tbaa !18
   %67 = getelementptr inbounds nuw %struct._lv_event_t, ptr %66, i32 0, i32 6
   %68 = load i8, ptr %67, align 8
   %69 = lshr i8 %68, 1
@@ -208,22 +225,22 @@ define internal i32 @event_send_core(ptr noundef %0) #0 {
   br i1 %72, label %73, label %75
 
 73:                                               ; preds = %65, %60
-  %74 = load i32, ptr %7, align 4, !tbaa !7
+  %74 = load i32, ptr %7, align 4, !tbaa !8
   store i32 %74, ptr %2, align 4
   store i32 1, ptr %5, align 4
-  br label %131
+  br label %109
 
 75:                                               ; preds = %65
-  %76 = load ptr, ptr %8, align 8, !tbaa !3
-  %77 = load ptr, ptr %3, align 8, !tbaa !3
+  %76 = load ptr, ptr %8, align 8, !tbaa !10
+  %77 = load ptr, ptr %3, align 8, !tbaa !18
   %78 = call i32 @lv_event_send(ptr noundef %76, ptr noundef %77, i1 noundef zeroext false)
-  store i32 %78, ptr %7, align 4, !tbaa !7
-  %79 = load i32, ptr %7, align 4, !tbaa !7
+  store i32 %78, ptr %7, align 4, !tbaa !8
+  %79 = load i32, ptr %7, align 4, !tbaa !8
   %80 = icmp ne i32 %79, 1
   br i1 %80, label %89, label %81
 
 81:                                               ; preds = %75
-  %82 = load ptr, ptr %3, align 8, !tbaa !3
+  %82 = load ptr, ptr %3, align 8, !tbaa !18
   %83 = getelementptr inbounds nuw %struct._lv_event_t, ptr %82, i32 0, i32 6
   %84 = load i8, ptr %83, align 8
   %85 = lshr i8 %84, 1
@@ -233,94 +250,60 @@ define internal i32 @event_send_core(ptr noundef %0) #0 {
   br i1 %88, label %89, label %91
 
 89:                                               ; preds = %81, %75
-  %90 = load i32, ptr %7, align 4, !tbaa !7
+  %90 = load i32, ptr %7, align 4, !tbaa !8
   store i32 %90, ptr %2, align 4
   store i32 1, ptr %5, align 4
-  br label %131
+  br label %109
 
 91:                                               ; preds = %81
   call void @llvm.lifetime.start.p0(i64 8, ptr %9) #3
-  %92 = load ptr, ptr %3, align 8, !tbaa !3
+  %92 = load ptr, ptr %3, align 8, !tbaa !18
   %93 = getelementptr inbounds nuw %struct._lv_event_t, ptr %92, i32 0, i32 0
-  %94 = load ptr, ptr %93, align 8, !tbaa !9
+  %94 = load ptr, ptr %93, align 8, !tbaa !11
   %95 = call ptr @lv_obj_get_parent(ptr noundef %94)
   store ptr %95, ptr %9, align 8, !tbaa !3
   %96 = load ptr, ptr %9, align 8, !tbaa !3
   %97 = icmp ne ptr %96, null
-  br i1 %97, label %98, label %128
+  br i1 %97, label %98, label %107
 
 98:                                               ; preds = %91
-  %99 = load ptr, ptr %3, align 8, !tbaa !3
+  %99 = load ptr, ptr %3, align 8, !tbaa !18
   %100 = call zeroext i1 @event_is_bubbled(ptr noundef %99)
-  br i1 %100, label %101, label %128
+  br i1 %100, label %101, label %107
 
 101:                                              ; preds = %98
   %102 = load ptr, ptr %9, align 8, !tbaa !3
-  %103 = load ptr, ptr %3, align 8, !tbaa !3
+  %103 = load ptr, ptr %3, align 8, !tbaa !18
   %104 = getelementptr inbounds nuw %struct._lv_event_t, ptr %103, i32 0, i32 0
-  store ptr %102, ptr %104, align 8, !tbaa !9
-  %105 = load ptr, ptr %3, align 8, !tbaa !3
+  store ptr %102, ptr %104, align 8, !tbaa !11
+  %105 = load ptr, ptr %3, align 8, !tbaa !18
   %106 = call i32 @event_send_core(ptr noundef %105)
-  store i32 %106, ptr %7, align 4, !tbaa !7
-  %107 = load i32, ptr %7, align 4, !tbaa !7
-  %108 = icmp ne i32 %107, 1
-  br i1 %108, label %125, label %109
+  store i32 %106, ptr %7, align 4, !tbaa !8
+  br label %107
 
-109:                                              ; preds = %101
-  %110 = load ptr, ptr %3, align 8, !tbaa !3
-  %111 = getelementptr inbounds nuw %struct._lv_event_t, ptr %110, i32 0, i32 6
-  %112 = load i8, ptr %111, align 8
-  %113 = lshr i8 %112, 1
-  %114 = and i8 %113, 1
-  %115 = zext i8 %114 to i32
-  %116 = icmp ne i32 %115, 0
-  br i1 %116, label %125, label %117
-
-117:                                              ; preds = %109
-  %118 = load ptr, ptr %3, align 8, !tbaa !3
-  %119 = getelementptr inbounds nuw %struct._lv_event_t, ptr %118, i32 0, i32 6
-  %120 = load i8, ptr %119, align 8
-  %121 = lshr i8 %120, 2
-  %122 = and i8 %121, 1
-  %123 = zext i8 %122 to i32
-  %124 = icmp ne i32 %123, 0
-  br i1 %124, label %125, label %127
-
-125:                                              ; preds = %117, %109, %101
-  %126 = load i32, ptr %7, align 4, !tbaa !7
-  store i32 %126, ptr %2, align 4
+107:                                              ; preds = %101, %98, %91
+  %108 = load i32, ptr %7, align 4, !tbaa !8
+  store i32 %108, ptr %2, align 4
   store i32 1, ptr %5, align 4
-  br label %130
-
-127:                                              ; preds = %117
-  br label %128
-
-128:                                              ; preds = %127, %98, %91
-  %129 = load i32, ptr %7, align 4, !tbaa !7
-  store i32 %129, ptr %2, align 4
-  store i32 1, ptr %5, align 4
-  br label %130
-
-130:                                              ; preds = %128, %125
   call void @llvm.lifetime.end.p0(i64 8, ptr %9) #3
-  br label %131
+  br label %109
 
-131:                                              ; preds = %130, %89, %73, %58
+109:                                              ; preds = %107, %89, %73, %58
   call void @llvm.lifetime.end.p0(i64 8, ptr %8) #3
   call void @llvm.lifetime.end.p0(i64 4, ptr %7) #3
   call void @llvm.lifetime.end.p0(i64 8, ptr %6) #3
-  br label %132
+  br label %110
 
-132:                                              ; preds = %131, %27, %20
+110:                                              ; preds = %109, %27, %20
   call void @llvm.lifetime.end.p0(i64 8, ptr %4) #3
-  %133 = load i32, ptr %2, align 4
-  ret i32 %133
+  %111 = load i32, ptr %2, align 4
+  ret i32 %111
 }
 
 declare void @lv_event_pop(ptr noundef) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @lv_obj_event_base(ptr noundef %0, ptr noundef %1) #0 {
@@ -330,41 +313,41 @@ define i32 @lv_obj_event_base(ptr noundef %0, ptr noundef %1) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8, !tbaa !3
-  store ptr %1, ptr %5, align 8, !tbaa !3
+  store ptr %0, ptr %4, align 8, !tbaa !28
+  store ptr %1, ptr %5, align 8, !tbaa !18
   call void @llvm.lifetime.start.p0(i64 8, ptr %6) #3
-  %9 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = load ptr, ptr %4, align 8, !tbaa !28
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %17
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr %5, align 8, !tbaa !3
+  %12 = load ptr, ptr %5, align 8, !tbaa !18
   %13 = getelementptr inbounds nuw %struct._lv_event_t, ptr %12, i32 0, i32 0
-  %14 = load ptr, ptr %13, align 8, !tbaa !9
+  %14 = load ptr, ptr %13, align 8, !tbaa !11
   %15 = getelementptr inbounds nuw %struct._lv_obj_t, ptr %14, i32 0, i32 0
-  %16 = load ptr, ptr %15, align 8, !tbaa !19
-  store ptr %16, ptr %6, align 8, !tbaa !3
+  %16 = load ptr, ptr %15, align 8, !tbaa !29
+  store ptr %16, ptr %6, align 8, !tbaa !28
   br label %21
 
 17:                                               ; preds = %2
-  %18 = load ptr, ptr %4, align 8, !tbaa !3
+  %18 = load ptr, ptr %4, align 8, !tbaa !28
   %19 = getelementptr inbounds nuw %struct._lv_obj_class_t, ptr %18, i32 0, i32 0
-  %20 = load ptr, ptr %19, align 8, !tbaa !20
-  store ptr %20, ptr %6, align 8, !tbaa !3
+  %20 = load ptr, ptr %19, align 8, !tbaa !30
+  store ptr %20, ptr %6, align 8, !tbaa !28
   br label %21
 
 21:                                               ; preds = %17, %11
   br label %22
 
 22:                                               ; preds = %32, %21
-  %23 = load ptr, ptr %6, align 8, !tbaa !3
+  %23 = load ptr, ptr %6, align 8, !tbaa !28
   %24 = icmp ne ptr %23, null
   br i1 %24, label %25, label %30
 
 25:                                               ; preds = %22
-  %26 = load ptr, ptr %6, align 8, !tbaa !3
+  %26 = load ptr, ptr %6, align 8, !tbaa !28
   %27 = getelementptr inbounds nuw %struct._lv_obj_class_t, ptr %26, i32 0, i32 3
-  %28 = load ptr, ptr %27, align 8, !tbaa !22
+  %28 = load ptr, ptr %27, align 8, !tbaa !33
   %29 = icmp eq ptr %28, null
   br label %30
 
@@ -373,14 +356,14 @@ define i32 @lv_obj_event_base(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %31, label %32, label %36
 
 32:                                               ; preds = %30
-  %33 = load ptr, ptr %6, align 8, !tbaa !3
+  %33 = load ptr, ptr %6, align 8, !tbaa !28
   %34 = getelementptr inbounds nuw %struct._lv_obj_class_t, ptr %33, i32 0, i32 0
-  %35 = load ptr, ptr %34, align 8, !tbaa !20
-  store ptr %35, ptr %6, align 8, !tbaa !3
-  br label %22, !llvm.loop !23
+  %35 = load ptr, ptr %34, align 8, !tbaa !30
+  store ptr %35, ptr %6, align 8, !tbaa !28
+  br label %22, !llvm.loop !34
 
 36:                                               ; preds = %30
-  %37 = load ptr, ptr %6, align 8, !tbaa !3
+  %37 = load ptr, ptr %6, align 8, !tbaa !28
   %38 = icmp eq ptr %37, null
   br i1 %38, label %39, label %40
 
@@ -390,9 +373,9 @@ define i32 @lv_obj_event_base(ptr noundef %0, ptr noundef %1) #0 {
   br label %62
 
 40:                                               ; preds = %36
-  %41 = load ptr, ptr %6, align 8, !tbaa !3
+  %41 = load ptr, ptr %6, align 8, !tbaa !28
   %42 = getelementptr inbounds nuw %struct._lv_obj_class_t, ptr %41, i32 0, i32 3
-  %43 = load ptr, ptr %42, align 8, !tbaa !22
+  %43 = load ptr, ptr %42, align 8, !tbaa !33
   %44 = icmp eq ptr %43, null
   br i1 %44, label %45, label %46
 
@@ -402,18 +385,18 @@ define i32 @lv_obj_event_base(ptr noundef %0, ptr noundef %1) #0 {
   br label %62
 
 46:                                               ; preds = %40
-  %47 = load ptr, ptr %5, align 8, !tbaa !3
+  %47 = load ptr, ptr %5, align 8, !tbaa !18
   %48 = getelementptr inbounds nuw %struct._lv_event_t, ptr %47, i32 0, i32 3
-  store ptr null, ptr %48, align 8, !tbaa !13
-  %49 = load ptr, ptr %6, align 8, !tbaa !3
+  store ptr null, ptr %48, align 8, !tbaa !16
+  %49 = load ptr, ptr %6, align 8, !tbaa !28
   %50 = getelementptr inbounds nuw %struct._lv_obj_class_t, ptr %49, i32 0, i32 3
-  %51 = load ptr, ptr %50, align 8, !tbaa !22
-  %52 = load ptr, ptr %6, align 8, !tbaa !3
-  %53 = load ptr, ptr %5, align 8, !tbaa !3
+  %51 = load ptr, ptr %50, align 8, !tbaa !33
+  %52 = load ptr, ptr %6, align 8, !tbaa !28
+  %53 = load ptr, ptr %5, align 8, !tbaa !18
   call void %51(ptr noundef %52, ptr noundef %53)
   call void @llvm.lifetime.start.p0(i64 4, ptr %8) #3
-  store i32 1, ptr %8, align 4, !tbaa !7
-  %54 = load ptr, ptr %5, align 8, !tbaa !3
+  store i32 1, ptr %8, align 4, !tbaa !8
+  %54 = load ptr, ptr %5, align 8, !tbaa !18
   %55 = getelementptr inbounds nuw %struct._lv_event_t, ptr %54, i32 0, i32 6
   %56 = load i8, ptr %55, align 8
   %57 = and i8 %56, 1
@@ -421,11 +404,11 @@ define i32 @lv_obj_event_base(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %58, label %59, label %60
 
 59:                                               ; preds = %46
-  store i32 0, ptr %8, align 4, !tbaa !7
+  store i32 0, ptr %8, align 4, !tbaa !8
   br label %60
 
 60:                                               ; preds = %59, %46
-  %61 = load i32, ptr %8, align 4, !tbaa !7
+  %61 = load i32, ptr %8, align 4, !tbaa !8
   store i32 %61, ptr %3, align 4
   store i32 1, ptr %7, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr %8) #3
@@ -444,26 +427,43 @@ define ptr @lv_obj_add_event_cb(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
   store ptr %0, ptr %5, align 8, !tbaa !3
-  store ptr %1, ptr %6, align 8, !tbaa !3
-  store i32 %2, ptr %7, align 4, !tbaa !7
-  store ptr %3, ptr %8, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !10
+  store i32 %2, ptr %7, align 4, !tbaa !8
+  store ptr %3, ptr %8, align 8, !tbaa !10
   br label %9
 
 9:                                                ; preds = %4
-  br label %10
+  %10 = load ptr, ptr %5, align 8, !tbaa !3
+  %11 = icmp ne ptr %10, null
+  br i1 %11, label %16, label %12
 
-10:                                               ; preds = %9
-  %11 = load ptr, ptr %5, align 8, !tbaa !3
-  call void @lv_obj_allocate_spec_attr(ptr noundef %11)
-  %12 = load ptr, ptr %5, align 8, !tbaa !3
-  %13 = getelementptr inbounds nuw %struct._lv_obj_t, ptr %12, i32 0, i32 2
-  %14 = load ptr, ptr %13, align 8, !tbaa !15
-  %15 = getelementptr inbounds nuw %struct._lv_obj_spec_attr_t, ptr %14, i32 0, i32 2
-  %16 = load ptr, ptr %6, align 8, !tbaa !3
-  %17 = load i32, ptr %7, align 4, !tbaa !7
-  %18 = load ptr, ptr %8, align 8, !tbaa !3
-  %19 = call ptr @lv_event_add(ptr noundef %15, ptr noundef %16, i32 noundef %17, ptr noundef %18)
-  ret ptr %19
+12:                                               ; preds = %9
+  br label %13
+
+13:                                               ; preds = %12
+  br label %14
+
+14:                                               ; preds = %13
+  br label %15
+
+15:                                               ; preds = %14, %15
+  br label %15
+
+16:                                               ; preds = %9
+  br label %17
+
+17:                                               ; preds = %16
+  %18 = load ptr, ptr %5, align 8, !tbaa !3
+  call void @lv_obj_allocate_spec_attr(ptr noundef %18)
+  %19 = load ptr, ptr %5, align 8, !tbaa !3
+  %20 = getelementptr inbounds nuw %struct._lv_obj_t, ptr %19, i32 0, i32 2
+  %21 = load ptr, ptr %20, align 8, !tbaa !21
+  %22 = getelementptr inbounds nuw %struct._lv_obj_spec_attr_t, ptr %21, i32 0, i32 2
+  %23 = load ptr, ptr %6, align 8, !tbaa !10
+  %24 = load i32, ptr %7, align 4, !tbaa !8
+  %25 = load ptr, ptr %8, align 8, !tbaa !10
+  %26 = call ptr @lv_event_add(ptr noundef %22, ptr noundef %23, i32 noundef %24, ptr noundef %25)
+  ret ptr %26
 }
 
 declare void @lv_obj_allocate_spec_attr(ptr noundef) #2
@@ -500,7 +500,7 @@ define i32 @lv_obj_get_event_count(ptr noundef %0) #0 {
 12:                                               ; preds = %11
   %13 = load ptr, ptr %3, align 8, !tbaa !3
   %14 = getelementptr inbounds nuw %struct._lv_obj_t, ptr %13, i32 0, i32 2
-  %15 = load ptr, ptr %14, align 8, !tbaa !15
+  %15 = load ptr, ptr %14, align 8, !tbaa !21
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %18
 
@@ -511,7 +511,7 @@ define i32 @lv_obj_get_event_count(ptr noundef %0) #0 {
 18:                                               ; preds = %12
   %19 = load ptr, ptr %3, align 8, !tbaa !3
   %20 = getelementptr inbounds nuw %struct._lv_obj_t, ptr %19, i32 0, i32 2
-  %21 = load ptr, ptr %20, align 8, !tbaa !15
+  %21 = load ptr, ptr %20, align 8, !tbaa !21
   %22 = getelementptr inbounds nuw %struct._lv_obj_spec_attr_t, ptr %21, i32 0, i32 2
   %23 = call i32 @lv_event_get_count(ptr noundef %22)
   store i32 %23, ptr %2, align 4
@@ -530,7 +530,7 @@ define ptr @lv_obj_get_event_dsc(ptr noundef %0, i32 noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   store ptr %0, ptr %4, align 8, !tbaa !3
-  store i32 %1, ptr %5, align 4, !tbaa !7
+  store i32 %1, ptr %5, align 4, !tbaa !8
   br label %6
 
 6:                                                ; preds = %2
@@ -556,7 +556,7 @@ define ptr @lv_obj_get_event_dsc(ptr noundef %0, i32 noundef %1) #0 {
 14:                                               ; preds = %13
   %15 = load ptr, ptr %4, align 8, !tbaa !3
   %16 = getelementptr inbounds nuw %struct._lv_obj_t, ptr %15, i32 0, i32 2
-  %17 = load ptr, ptr %16, align 8, !tbaa !15
+  %17 = load ptr, ptr %16, align 8, !tbaa !21
   %18 = icmp eq ptr %17, null
   br i1 %18, label %19, label %20
 
@@ -567,9 +567,9 @@ define ptr @lv_obj_get_event_dsc(ptr noundef %0, i32 noundef %1) #0 {
 20:                                               ; preds = %14
   %21 = load ptr, ptr %4, align 8, !tbaa !3
   %22 = getelementptr inbounds nuw %struct._lv_obj_t, ptr %21, i32 0, i32 2
-  %23 = load ptr, ptr %22, align 8, !tbaa !15
+  %23 = load ptr, ptr %22, align 8, !tbaa !21
   %24 = getelementptr inbounds nuw %struct._lv_obj_spec_attr_t, ptr %23, i32 0, i32 2
-  %25 = load i32, ptr %5, align 4, !tbaa !7
+  %25 = load i32, ptr %5, align 4, !tbaa !8
   %26 = call ptr @lv_event_get_dsc(ptr noundef %24, i32 noundef %25)
   store ptr %26, ptr %3, align 8
   br label %27
@@ -587,7 +587,7 @@ define zeroext i1 @lv_obj_remove_event(ptr noundef %0, i32 noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   store ptr %0, ptr %4, align 8, !tbaa !3
-  store i32 %1, ptr %5, align 4, !tbaa !7
+  store i32 %1, ptr %5, align 4, !tbaa !8
   br label %6
 
 6:                                                ; preds = %2
@@ -613,7 +613,7 @@ define zeroext i1 @lv_obj_remove_event(ptr noundef %0, i32 noundef %1) #0 {
 14:                                               ; preds = %13
   %15 = load ptr, ptr %4, align 8, !tbaa !3
   %16 = getelementptr inbounds nuw %struct._lv_obj_t, ptr %15, i32 0, i32 2
-  %17 = load ptr, ptr %16, align 8, !tbaa !15
+  %17 = load ptr, ptr %16, align 8, !tbaa !21
   %18 = icmp eq ptr %17, null
   br i1 %18, label %19, label %20
 
@@ -624,9 +624,9 @@ define zeroext i1 @lv_obj_remove_event(ptr noundef %0, i32 noundef %1) #0 {
 20:                                               ; preds = %14
   %21 = load ptr, ptr %4, align 8, !tbaa !3
   %22 = getelementptr inbounds nuw %struct._lv_obj_t, ptr %21, i32 0, i32 2
-  %23 = load ptr, ptr %22, align 8, !tbaa !15
+  %23 = load ptr, ptr %22, align 8, !tbaa !21
   %24 = getelementptr inbounds nuw %struct._lv_obj_spec_attr_t, ptr %23, i32 0, i32 2
-  %25 = load i32, ptr %5, align 4, !tbaa !7
+  %25 = load i32, ptr %5, align 4, !tbaa !8
   %26 = call zeroext i1 @lv_event_remove(ptr noundef %24, i32 noundef %25)
   store i1 %26, ptr %3, align 1
   br label %27
@@ -648,7 +648,7 @@ define zeroext i1 @lv_obj_remove_event_cb(ptr noundef %0, ptr noundef %1) #0 {
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
   store ptr %0, ptr %4, align 8, !tbaa !3
-  store ptr %1, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !10
   br label %10
 
 10:                                               ; preds = %2
@@ -675,38 +675,38 @@ define zeroext i1 @lv_obj_remove_event_cb(ptr noundef %0, ptr noundef %1) #0 {
   call void @llvm.lifetime.start.p0(i64 4, ptr %6) #3
   %19 = load ptr, ptr %4, align 8, !tbaa !3
   %20 = call i32 @lv_obj_get_event_count(ptr noundef %19)
-  store i32 %20, ptr %6, align 4, !tbaa !7
+  store i32 %20, ptr %6, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 4, ptr %7) #3
-  store i32 0, ptr %7, align 4, !tbaa !7
+  store i32 0, ptr %7, align 4, !tbaa !8
   br label %21
 
 21:                                               ; preds = %45, %18
-  %22 = load i32, ptr %7, align 4, !tbaa !7
-  %23 = load i32, ptr %6, align 4, !tbaa !7
+  %22 = load i32, ptr %7, align 4, !tbaa !8
+  %23 = load i32, ptr %6, align 4, !tbaa !8
   %24 = icmp ult i32 %22, %23
   br i1 %24, label %25, label %48
 
 25:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(i64 8, ptr %8) #3
   %26 = load ptr, ptr %4, align 8, !tbaa !3
-  %27 = load i32, ptr %7, align 4, !tbaa !7
+  %27 = load i32, ptr %7, align 4, !tbaa !8
   %28 = call ptr @lv_obj_get_event_dsc(ptr noundef %26, i32 noundef %27)
-  store ptr %28, ptr %8, align 8, !tbaa !3
-  %29 = load ptr, ptr %8, align 8, !tbaa !3
+  store ptr %28, ptr %8, align 8, !tbaa !36
+  %29 = load ptr, ptr %8, align 8, !tbaa !36
   %30 = icmp ne ptr %29, null
   br i1 %30, label %31, label %41
 
 31:                                               ; preds = %25
-  %32 = load ptr, ptr %8, align 8, !tbaa !3
+  %32 = load ptr, ptr %8, align 8, !tbaa !36
   %33 = getelementptr inbounds nuw %struct._lv_event_dsc_t, ptr %32, i32 0, i32 0
-  %34 = load ptr, ptr %33, align 8, !tbaa !25
-  %35 = load ptr, ptr %5, align 8, !tbaa !3
+  %34 = load ptr, ptr %33, align 8, !tbaa !38
+  %35 = load ptr, ptr %5, align 8, !tbaa !10
   %36 = icmp eq ptr %34, %35
   br i1 %36, label %37, label %41
 
 37:                                               ; preds = %31
   %38 = load ptr, ptr %4, align 8, !tbaa !3
-  %39 = load i32, ptr %7, align 4, !tbaa !7
+  %39 = load i32, ptr %7, align 4, !tbaa !8
   %40 = call zeroext i1 @lv_obj_remove_event(ptr noundef %38, i32 noundef %39)
   store i1 true, ptr %3, align 1
   store i32 1, ptr %9, align 4
@@ -727,10 +727,10 @@ define zeroext i1 @lv_obj_remove_event_cb(ptr noundef %0, ptr noundef %1) #0 {
   br label %45
 
 45:                                               ; preds = %44
-  %46 = load i32, ptr %7, align 4, !tbaa !7
+  %46 = load i32, ptr %7, align 4, !tbaa !8
   %47 = add i32 %46, 1
-  store i32 %47, ptr %7, align 4, !tbaa !7
-  br label %21, !llvm.loop !27
+  store i32 %47, ptr %7, align 4, !tbaa !8
+  br label %21, !llvm.loop !40
 
 48:                                               ; preds = %21
   store i1 false, ptr %3, align 1
@@ -750,7 +750,7 @@ define zeroext i1 @lv_obj_remove_event_dsc(ptr noundef %0, ptr noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   store ptr %0, ptr %4, align 8, !tbaa !3
-  store ptr %1, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !36
   br label %6
 
 6:                                                ; preds = %2
@@ -777,7 +777,7 @@ define zeroext i1 @lv_obj_remove_event_dsc(ptr noundef %0, ptr noundef %1) #0 {
   br label %15
 
 15:                                               ; preds = %14
-  %16 = load ptr, ptr %5, align 8, !tbaa !3
+  %16 = load ptr, ptr %5, align 8, !tbaa !36
   %17 = icmp ne ptr %16, null
   br i1 %17, label %22, label %18
 
@@ -799,7 +799,7 @@ define zeroext i1 @lv_obj_remove_event_dsc(ptr noundef %0, ptr noundef %1) #0 {
 23:                                               ; preds = %22
   %24 = load ptr, ptr %4, align 8, !tbaa !3
   %25 = getelementptr inbounds nuw %struct._lv_obj_t, ptr %24, i32 0, i32 2
-  %26 = load ptr, ptr %25, align 8, !tbaa !15
+  %26 = load ptr, ptr %25, align 8, !tbaa !21
   %27 = icmp eq ptr %26, null
   br i1 %27, label %28, label %29
 
@@ -810,9 +810,9 @@ define zeroext i1 @lv_obj_remove_event_dsc(ptr noundef %0, ptr noundef %1) #0 {
 29:                                               ; preds = %23
   %30 = load ptr, ptr %4, align 8, !tbaa !3
   %31 = getelementptr inbounds nuw %struct._lv_obj_t, ptr %30, i32 0, i32 2
-  %32 = load ptr, ptr %31, align 8, !tbaa !15
+  %32 = load ptr, ptr %31, align 8, !tbaa !21
   %33 = getelementptr inbounds nuw %struct._lv_obj_spec_attr_t, ptr %32, i32 0, i32 2
-  %34 = load ptr, ptr %5, align 8, !tbaa !3
+  %34 = load ptr, ptr %5, align 8, !tbaa !36
   %35 = call zeroext i1 @lv_event_remove_dsc(ptr noundef %33, ptr noundef %34)
   store i1 %35, ptr %3, align 1
   br label %36
@@ -834,8 +834,8 @@ define i32 @lv_obj_remove_event_cb_with_user_data(ptr noundef %0, ptr noundef %1
   %9 = alloca i32, align 4
   %10 = alloca ptr, align 8
   store ptr %0, ptr %4, align 8, !tbaa !3
-  store ptr %1, ptr %5, align 8, !tbaa !3
-  store ptr %2, ptr %6, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !10
+  store ptr %2, ptr %6, align 8, !tbaa !10
   br label %11
 
 11:                                               ; preds = %3
@@ -862,78 +862,83 @@ define i32 @lv_obj_remove_event_cb_with_user_data(ptr noundef %0, ptr noundef %1
   call void @llvm.lifetime.start.p0(i64 4, ptr %7) #3
   %20 = load ptr, ptr %4, align 8, !tbaa !3
   %21 = call i32 @lv_obj_get_event_count(ptr noundef %20)
-  store i32 %21, ptr %7, align 4, !tbaa !7
+  store i32 %21, ptr %7, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 4, ptr %8) #3
-  store i32 0, ptr %8, align 4, !tbaa !7
+  store i32 0, ptr %8, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
-  %22 = load i32, ptr %7, align 4, !tbaa !7
+  %22 = load i32, ptr %7, align 4, !tbaa !8
   %23 = sub i32 %22, 1
-  store i32 %23, ptr %9, align 4, !tbaa !7
+  store i32 %23, ptr %9, align 4, !tbaa !8
   br label %24
 
-24:                                               ; preds = %52, %19
-  %25 = load i32, ptr %9, align 4, !tbaa !7
+24:                                               ; preds = %55, %19
+  %25 = load i32, ptr %9, align 4, !tbaa !8
   %26 = icmp sge i32 %25, 0
-  br i1 %26, label %27, label %55
+  br i1 %26, label %27, label %58
 
 27:                                               ; preds = %24
   call void @llvm.lifetime.start.p0(i64 8, ptr %10) #3
   %28 = load ptr, ptr %4, align 8, !tbaa !3
-  %29 = load i32, ptr %9, align 4, !tbaa !7
+  %29 = load i32, ptr %9, align 4, !tbaa !8
   %30 = call ptr @lv_obj_get_event_dsc(ptr noundef %28, i32 noundef %29)
-  store ptr %30, ptr %10, align 8, !tbaa !3
-  %31 = load ptr, ptr %10, align 8, !tbaa !3
+  store ptr %30, ptr %10, align 8, !tbaa !36
+  %31 = load ptr, ptr %10, align 8, !tbaa !36
   %32 = icmp ne ptr %31, null
-  br i1 %32, label %33, label %51
+  br i1 %32, label %33, label %54
 
 33:                                               ; preds = %27
-  %34 = load ptr, ptr %10, align 8, !tbaa !3
-  %35 = getelementptr inbounds nuw %struct._lv_event_dsc_t, ptr %34, i32 0, i32 0
-  %36 = load ptr, ptr %35, align 8, !tbaa !25
-  %37 = load ptr, ptr %5, align 8, !tbaa !3
-  %38 = icmp eq ptr %36, %37
-  br i1 %38, label %39, label %51
+  %34 = load ptr, ptr %5, align 8, !tbaa !10
+  %35 = icmp eq ptr %34, null
+  br i1 %35, label %42, label %36
 
-39:                                               ; preds = %33
-  %40 = load ptr, ptr %10, align 8, !tbaa !3
-  %41 = getelementptr inbounds nuw %struct._lv_event_dsc_t, ptr %40, i32 0, i32 1
-  %42 = load ptr, ptr %41, align 8, !tbaa !28
-  %43 = load ptr, ptr %6, align 8, !tbaa !3
-  %44 = icmp eq ptr %42, %43
-  br i1 %44, label %45, label %51
+36:                                               ; preds = %33
+  %37 = load ptr, ptr %10, align 8, !tbaa !36
+  %38 = getelementptr inbounds nuw %struct._lv_event_dsc_t, ptr %37, i32 0, i32 0
+  %39 = load ptr, ptr %38, align 8, !tbaa !38
+  %40 = load ptr, ptr %5, align 8, !tbaa !10
+  %41 = icmp eq ptr %39, %40
+  br i1 %41, label %42, label %54
 
-45:                                               ; preds = %39
-  %46 = load ptr, ptr %4, align 8, !tbaa !3
-  %47 = load i32, ptr %9, align 4, !tbaa !7
-  %48 = call zeroext i1 @lv_obj_remove_event(ptr noundef %46, i32 noundef %47)
-  %49 = load i32, ptr %8, align 4, !tbaa !7
-  %50 = add i32 %49, 1
-  store i32 %50, ptr %8, align 4, !tbaa !7
-  br label %51
+42:                                               ; preds = %36, %33
+  %43 = load ptr, ptr %10, align 8, !tbaa !36
+  %44 = getelementptr inbounds nuw %struct._lv_event_dsc_t, ptr %43, i32 0, i32 1
+  %45 = load ptr, ptr %44, align 8, !tbaa !41
+  %46 = load ptr, ptr %6, align 8, !tbaa !10
+  %47 = icmp eq ptr %45, %46
+  br i1 %47, label %48, label %54
 
-51:                                               ; preds = %45, %39, %33, %27
+48:                                               ; preds = %42
+  %49 = load ptr, ptr %4, align 8, !tbaa !3
+  %50 = load i32, ptr %9, align 4, !tbaa !8
+  %51 = call zeroext i1 @lv_obj_remove_event(ptr noundef %49, i32 noundef %50)
+  %52 = load i32, ptr %8, align 4, !tbaa !8
+  %53 = add i32 %52, 1
+  store i32 %53, ptr %8, align 4, !tbaa !8
+  br label %54
+
+54:                                               ; preds = %48, %42, %36, %27
   call void @llvm.lifetime.end.p0(i64 8, ptr %10) #3
-  br label %52
+  br label %55
 
-52:                                               ; preds = %51
-  %53 = load i32, ptr %9, align 4, !tbaa !7
-  %54 = add nsw i32 %53, -1
-  store i32 %54, ptr %9, align 4, !tbaa !7
-  br label %24, !llvm.loop !29
+55:                                               ; preds = %54
+  %56 = load i32, ptr %9, align 4, !tbaa !8
+  %57 = add nsw i32 %56, -1
+  store i32 %57, ptr %9, align 4, !tbaa !8
+  br label %24, !llvm.loop !42
 
-55:                                               ; preds = %24
-  %56 = load i32, ptr %8, align 4, !tbaa !7
+58:                                               ; preds = %24
+  %59 = load i32, ptr %8, align 4, !tbaa !8
   call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
   call void @llvm.lifetime.end.p0(i64 4, ptr %8) #3
   call void @llvm.lifetime.end.p0(i64 4, ptr %7) #3
-  ret i32 %56
+  ret i32 %59
 }
 
 ; Function Attrs: nounwind uwtable
 define ptr @lv_event_get_current_target_obj(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8, !tbaa !3
-  %3 = load ptr, ptr %2, align 8, !tbaa !3
+  store ptr %0, ptr %2, align 8, !tbaa !18
+  %3 = load ptr, ptr %2, align 8, !tbaa !18
   %4 = call ptr @lv_event_get_current_target(ptr noundef %3)
   ret ptr %4
 }
@@ -943,8 +948,8 @@ declare ptr @lv_event_get_current_target(ptr noundef) #2
 ; Function Attrs: nounwind uwtable
 define ptr @lv_event_get_target_obj(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8, !tbaa !3
-  %3 = load ptr, ptr %2, align 8, !tbaa !3
+  store ptr %0, ptr %2, align 8, !tbaa !18
+  %3 = load ptr, ptr %2, align 8, !tbaa !18
   %4 = call ptr @lv_event_get_target(ptr noundef %3)
   ret ptr %4
 }
@@ -955,134 +960,134 @@ declare ptr @lv_event_get_target(ptr noundef) #2
 define ptr @lv_event_get_indev(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8, !tbaa !3
-  %4 = load ptr, ptr %3, align 8, !tbaa !3
+  store ptr %0, ptr %3, align 8, !tbaa !18
+  %4 = load ptr, ptr %3, align 8, !tbaa !18
   %5 = getelementptr inbounds nuw %struct._lv_event_t, ptr %4, i32 0, i32 2
-  %6 = load i32, ptr %5, align 8, !tbaa !12
+  %6 = load i32, ptr %5, align 8, !tbaa !15
   %7 = icmp eq i32 %6, 1
   br i1 %7, label %93, label %8
 
 8:                                                ; preds = %1
-  %9 = load ptr, ptr %3, align 8, !tbaa !3
+  %9 = load ptr, ptr %3, align 8, !tbaa !18
   %10 = getelementptr inbounds nuw %struct._lv_event_t, ptr %9, i32 0, i32 2
-  %11 = load i32, ptr %10, align 8, !tbaa !12
+  %11 = load i32, ptr %10, align 8, !tbaa !15
   %12 = icmp eq i32 %11, 2
   br i1 %12, label %93, label %13
 
 13:                                               ; preds = %8
-  %14 = load ptr, ptr %3, align 8, !tbaa !3
+  %14 = load ptr, ptr %3, align 8, !tbaa !18
   %15 = getelementptr inbounds nuw %struct._lv_event_t, ptr %14, i32 0, i32 2
-  %16 = load i32, ptr %15, align 8, !tbaa !12
+  %16 = load i32, ptr %15, align 8, !tbaa !15
   %17 = icmp eq i32 %16, 3
   br i1 %17, label %93, label %18
 
 18:                                               ; preds = %13
-  %19 = load ptr, ptr %3, align 8, !tbaa !3
+  %19 = load ptr, ptr %3, align 8, !tbaa !18
   %20 = getelementptr inbounds nuw %struct._lv_event_t, ptr %19, i32 0, i32 2
-  %21 = load i32, ptr %20, align 8, !tbaa !12
+  %21 = load i32, ptr %20, align 8, !tbaa !15
   %22 = icmp eq i32 %21, 4
   br i1 %22, label %93, label %23
 
 23:                                               ; preds = %18
-  %24 = load ptr, ptr %3, align 8, !tbaa !3
+  %24 = load ptr, ptr %3, align 8, !tbaa !18
   %25 = getelementptr inbounds nuw %struct._lv_event_t, ptr %24, i32 0, i32 2
-  %26 = load i32, ptr %25, align 8, !tbaa !12
+  %26 = load i32, ptr %25, align 8, !tbaa !15
   %27 = icmp eq i32 %26, 8
   br i1 %27, label %93, label %28
 
 28:                                               ; preds = %23
-  %29 = load ptr, ptr %3, align 8, !tbaa !3
+  %29 = load ptr, ptr %3, align 8, !tbaa !18
   %30 = getelementptr inbounds nuw %struct._lv_event_t, ptr %29, i32 0, i32 2
-  %31 = load i32, ptr %30, align 8, !tbaa !12
+  %31 = load i32, ptr %30, align 8, !tbaa !15
   %32 = icmp eq i32 %31, 9
   br i1 %32, label %93, label %33
 
 33:                                               ; preds = %28
-  %34 = load ptr, ptr %3, align 8, !tbaa !3
+  %34 = load ptr, ptr %3, align 8, !tbaa !18
   %35 = getelementptr inbounds nuw %struct._lv_event_t, ptr %34, i32 0, i32 2
-  %36 = load i32, ptr %35, align 8, !tbaa !12
+  %36 = load i32, ptr %35, align 8, !tbaa !15
   %37 = icmp eq i32 %36, 10
   br i1 %37, label %93, label %38
 
 38:                                               ; preds = %33
-  %39 = load ptr, ptr %3, align 8, !tbaa !3
+  %39 = load ptr, ptr %3, align 8, !tbaa !18
   %40 = getelementptr inbounds nuw %struct._lv_event_t, ptr %39, i32 0, i32 2
-  %41 = load i32, ptr %40, align 8, !tbaa !12
+  %41 = load i32, ptr %40, align 8, !tbaa !15
   %42 = icmp eq i32 %41, 11
   br i1 %42, label %93, label %43
 
 43:                                               ; preds = %38
-  %44 = load ptr, ptr %3, align 8, !tbaa !3
+  %44 = load ptr, ptr %3, align 8, !tbaa !18
   %45 = getelementptr inbounds nuw %struct._lv_event_t, ptr %44, i32 0, i32 2
-  %46 = load i32, ptr %45, align 8, !tbaa !12
+  %46 = load i32, ptr %45, align 8, !tbaa !15
   %47 = icmp eq i32 %46, 12
   br i1 %47, label %93, label %48
 
 48:                                               ; preds = %43
-  %49 = load ptr, ptr %3, align 8, !tbaa !3
+  %49 = load ptr, ptr %3, align 8, !tbaa !18
   %50 = getelementptr inbounds nuw %struct._lv_event_t, ptr %49, i32 0, i32 2
-  %51 = load i32, ptr %50, align 8, !tbaa !12
+  %51 = load i32, ptr %50, align 8, !tbaa !15
   %52 = icmp eq i32 %51, 14
   br i1 %52, label %93, label %53
 
 53:                                               ; preds = %48
-  %54 = load ptr, ptr %3, align 8, !tbaa !3
+  %54 = load ptr, ptr %3, align 8, !tbaa !18
   %55 = getelementptr inbounds nuw %struct._lv_event_t, ptr %54, i32 0, i32 2
-  %56 = load i32, ptr %55, align 8, !tbaa !12
+  %56 = load i32, ptr %55, align 8, !tbaa !15
   %57 = icmp eq i32 %56, 15
   br i1 %57, label %93, label %58
 
 58:                                               ; preds = %53
-  %59 = load ptr, ptr %3, align 8, !tbaa !3
+  %59 = load ptr, ptr %3, align 8, !tbaa !18
   %60 = getelementptr inbounds nuw %struct._lv_event_t, ptr %59, i32 0, i32 2
-  %61 = load i32, ptr %60, align 8, !tbaa !12
+  %61 = load i32, ptr %60, align 8, !tbaa !15
   %62 = icmp eq i32 %61, 16
   br i1 %62, label %93, label %63
 
 63:                                               ; preds = %58
-  %64 = load ptr, ptr %3, align 8, !tbaa !3
+  %64 = load ptr, ptr %3, align 8, !tbaa !18
   %65 = getelementptr inbounds nuw %struct._lv_event_t, ptr %64, i32 0, i32 2
-  %66 = load i32, ptr %65, align 8, !tbaa !12
+  %66 = load i32, ptr %65, align 8, !tbaa !15
   %67 = icmp eq i32 %66, 17
   br i1 %67, label %93, label %68
 
 68:                                               ; preds = %63
-  %69 = load ptr, ptr %3, align 8, !tbaa !3
+  %69 = load ptr, ptr %3, align 8, !tbaa !18
   %70 = getelementptr inbounds nuw %struct._lv_event_t, ptr %69, i32 0, i32 2
-  %71 = load i32, ptr %70, align 8, !tbaa !12
+  %71 = load i32, ptr %70, align 8, !tbaa !15
   %72 = icmp eq i32 %71, 19
   br i1 %72, label %93, label %73
 
 73:                                               ; preds = %68
-  %74 = load ptr, ptr %3, align 8, !tbaa !3
+  %74 = load ptr, ptr %3, align 8, !tbaa !18
   %75 = getelementptr inbounds nuw %struct._lv_event_t, ptr %74, i32 0, i32 2
-  %76 = load i32, ptr %75, align 8, !tbaa !12
+  %76 = load i32, ptr %75, align 8, !tbaa !15
   %77 = icmp eq i32 %76, 20
   br i1 %77, label %93, label %78
 
 78:                                               ; preds = %73
-  %79 = load ptr, ptr %3, align 8, !tbaa !3
+  %79 = load ptr, ptr %3, align 8, !tbaa !18
   %80 = getelementptr inbounds nuw %struct._lv_event_t, ptr %79, i32 0, i32 2
-  %81 = load i32, ptr %80, align 8, !tbaa !12
+  %81 = load i32, ptr %80, align 8, !tbaa !15
   %82 = icmp eq i32 %81, 21
   br i1 %82, label %93, label %83
 
 83:                                               ; preds = %78
-  %84 = load ptr, ptr %3, align 8, !tbaa !3
+  %84 = load ptr, ptr %3, align 8, !tbaa !18
   %85 = getelementptr inbounds nuw %struct._lv_event_t, ptr %84, i32 0, i32 2
-  %86 = load i32, ptr %85, align 8, !tbaa !12
+  %86 = load i32, ptr %85, align 8, !tbaa !15
   %87 = icmp eq i32 %86, 24
   br i1 %87, label %93, label %88
 
 88:                                               ; preds = %83
-  %89 = load ptr, ptr %3, align 8, !tbaa !3
+  %89 = load ptr, ptr %3, align 8, !tbaa !18
   %90 = getelementptr inbounds nuw %struct._lv_event_t, ptr %89, i32 0, i32 2
-  %91 = load i32, ptr %90, align 8, !tbaa !12
+  %91 = load i32, ptr %90, align 8, !tbaa !15
   %92 = icmp eq i32 %91, 25
   br i1 %92, label %93, label %96
 
 93:                                               ; preds = %88, %83, %78, %73, %68, %63, %58, %53, %48, %43, %38, %33, %28, %23, %18, %13, %8, %1
-  %94 = load ptr, ptr %3, align 8, !tbaa !3
+  %94 = load ptr, ptr %3, align 8, !tbaa !18
   %95 = call ptr @lv_event_get_param(ptr noundef %94)
   store ptr %95, ptr %2, align 8
   br label %99
@@ -1108,50 +1113,50 @@ declare ptr @lv_event_get_param(ptr noundef) #2
 define ptr @lv_event_get_layer(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8, !tbaa !3
-  %4 = load ptr, ptr %3, align 8, !tbaa !3
+  store ptr %0, ptr %3, align 8, !tbaa !18
+  %4 = load ptr, ptr %3, align 8, !tbaa !18
   %5 = getelementptr inbounds nuw %struct._lv_event_t, ptr %4, i32 0, i32 2
-  %6 = load i32, ptr %5, align 8, !tbaa !12
+  %6 = load i32, ptr %5, align 8, !tbaa !15
   %7 = icmp eq i32 %6, 29
   br i1 %7, label %33, label %8
 
 8:                                                ; preds = %1
-  %9 = load ptr, ptr %3, align 8, !tbaa !3
+  %9 = load ptr, ptr %3, align 8, !tbaa !18
   %10 = getelementptr inbounds nuw %struct._lv_event_t, ptr %9, i32 0, i32 2
-  %11 = load i32, ptr %10, align 8, !tbaa !12
+  %11 = load i32, ptr %10, align 8, !tbaa !15
   %12 = icmp eq i32 %11, 28
   br i1 %12, label %33, label %13
 
 13:                                               ; preds = %8
-  %14 = load ptr, ptr %3, align 8, !tbaa !3
+  %14 = load ptr, ptr %3, align 8, !tbaa !18
   %15 = getelementptr inbounds nuw %struct._lv_event_t, ptr %14, i32 0, i32 2
-  %16 = load i32, ptr %15, align 8, !tbaa !12
+  %16 = load i32, ptr %15, align 8, !tbaa !15
   %17 = icmp eq i32 %16, 30
   br i1 %17, label %33, label %18
 
 18:                                               ; preds = %13
-  %19 = load ptr, ptr %3, align 8, !tbaa !3
+  %19 = load ptr, ptr %3, align 8, !tbaa !18
   %20 = getelementptr inbounds nuw %struct._lv_event_t, ptr %19, i32 0, i32 2
-  %21 = load i32, ptr %20, align 8, !tbaa !12
+  %21 = load i32, ptr %20, align 8, !tbaa !15
   %22 = icmp eq i32 %21, 32
   br i1 %22, label %33, label %23
 
 23:                                               ; preds = %18
-  %24 = load ptr, ptr %3, align 8, !tbaa !3
+  %24 = load ptr, ptr %3, align 8, !tbaa !18
   %25 = getelementptr inbounds nuw %struct._lv_event_t, ptr %24, i32 0, i32 2
-  %26 = load i32, ptr %25, align 8, !tbaa !12
+  %26 = load i32, ptr %25, align 8, !tbaa !15
   %27 = icmp eq i32 %26, 31
   br i1 %27, label %33, label %28
 
 28:                                               ; preds = %23
-  %29 = load ptr, ptr %3, align 8, !tbaa !3
+  %29 = load ptr, ptr %3, align 8, !tbaa !18
   %30 = getelementptr inbounds nuw %struct._lv_event_t, ptr %29, i32 0, i32 2
-  %31 = load i32, ptr %30, align 8, !tbaa !12
+  %31 = load i32, ptr %30, align 8, !tbaa !15
   %32 = icmp eq i32 %31, 33
   br i1 %32, label %33, label %36
 
 33:                                               ; preds = %28, %23, %18, %13, %8, %1
-  %34 = load ptr, ptr %3, align 8, !tbaa !3
+  %34 = load ptr, ptr %3, align 8, !tbaa !18
   %35 = call ptr @lv_event_get_param(ptr noundef %34)
   store ptr %35, ptr %2, align 8
   br label %39
@@ -1175,15 +1180,15 @@ define ptr @lv_event_get_layer(ptr noundef %0) #0 {
 define ptr @lv_event_get_old_size(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8, !tbaa !3
-  %4 = load ptr, ptr %3, align 8, !tbaa !3
+  store ptr %0, ptr %3, align 8, !tbaa !18
+  %4 = load ptr, ptr %3, align 8, !tbaa !18
   %5 = getelementptr inbounds nuw %struct._lv_event_t, ptr %4, i32 0, i32 2
-  %6 = load i32, ptr %5, align 8, !tbaa !12
+  %6 = load i32, ptr %5, align 8, !tbaa !15
   %7 = icmp eq i32 %6, 49
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %1
-  %9 = load ptr, ptr %3, align 8, !tbaa !3
+  %9 = load ptr, ptr %3, align 8, !tbaa !18
   %10 = call ptr @lv_event_get_param(ptr noundef %9)
   store ptr %10, ptr %2, align 8
   br label %14
@@ -1209,25 +1214,25 @@ define i32 @lv_event_get_key(ptr noundef %0) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8, !tbaa !3
-  %6 = load ptr, ptr %3, align 8, !tbaa !3
+  store ptr %0, ptr %3, align 8, !tbaa !18
+  %6 = load ptr, ptr %3, align 8, !tbaa !18
   %7 = getelementptr inbounds nuw %struct._lv_event_t, ptr %6, i32 0, i32 2
-  %8 = load i32, ptr %7, align 8, !tbaa !12
+  %8 = load i32, ptr %7, align 8, !tbaa !15
   %9 = icmp eq i32 %8, 17
   br i1 %9, label %10, label %20
 
 10:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 8, ptr %4) #3
-  %11 = load ptr, ptr %3, align 8, !tbaa !3
+  %11 = load ptr, ptr %3, align 8, !tbaa !18
   %12 = call ptr @lv_event_get_param(ptr noundef %11)
-  store ptr %12, ptr %4, align 8, !tbaa !3
-  %13 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %12, ptr %4, align 8, !tbaa !43
+  %13 = load ptr, ptr %4, align 8, !tbaa !43
   %14 = icmp ne ptr %13, null
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %10
-  %16 = load ptr, ptr %4, align 8, !tbaa !3
-  %17 = load i32, ptr %16, align 4, !tbaa !7
+  %16 = load ptr, ptr %4, align 8, !tbaa !43
+  %17 = load i32, ptr %16, align 4, !tbaa !8
   store i32 %17, ptr %2, align 4
   store i32 1, ptr %5, align 4
   br label %19
@@ -1262,25 +1267,25 @@ define i32 @lv_event_get_rotary_diff(ptr noundef %0) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8, !tbaa !3
-  %6 = load ptr, ptr %3, align 8, !tbaa !3
+  store ptr %0, ptr %3, align 8, !tbaa !18
+  %6 = load ptr, ptr %3, align 8, !tbaa !18
   %7 = getelementptr inbounds nuw %struct._lv_event_t, ptr %6, i32 0, i32 2
-  %8 = load i32, ptr %7, align 8, !tbaa !12
+  %8 = load i32, ptr %7, align 8, !tbaa !15
   %9 = icmp eq i32 %8, 18
   br i1 %9, label %10, label %20
 
 10:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 8, ptr %4) #3
-  %11 = load ptr, ptr %3, align 8, !tbaa !3
+  %11 = load ptr, ptr %3, align 8, !tbaa !18
   %12 = call ptr @lv_event_get_param(ptr noundef %11)
-  store ptr %12, ptr %4, align 8, !tbaa !3
-  %13 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %12, ptr %4, align 8, !tbaa !43
+  %13 = load ptr, ptr %4, align 8, !tbaa !43
   %14 = icmp ne ptr %13, null
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %10
-  %16 = load ptr, ptr %4, align 8, !tbaa !3
-  %17 = load i32, ptr %16, align 4, !tbaa !7
+  %16 = load ptr, ptr %4, align 8, !tbaa !43
+  %17 = load i32, ptr %16, align 4, !tbaa !8
   store i32 %17, ptr %2, align 4
   store i32 1, ptr %5, align 4
   br label %19
@@ -1313,15 +1318,15 @@ define i32 @lv_event_get_rotary_diff(ptr noundef %0) #0 {
 define ptr @lv_event_get_scroll_anim(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8, !tbaa !3
-  %4 = load ptr, ptr %3, align 8, !tbaa !3
+  store ptr %0, ptr %3, align 8, !tbaa !18
+  %4 = load ptr, ptr %3, align 8, !tbaa !18
   %5 = getelementptr inbounds nuw %struct._lv_event_t, ptr %4, i32 0, i32 2
-  %6 = load i32, ptr %5, align 8, !tbaa !12
+  %6 = load i32, ptr %5, align 8, !tbaa !15
   %7 = icmp eq i32 %6, 12
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %1
-  %9 = load ptr, ptr %3, align 8, !tbaa !3
+  %9 = load ptr, ptr %3, align 8, !tbaa !18
   %10 = call ptr @lv_event_get_param(ptr noundef %9)
   store ptr %10, ptr %2, align 8
   br label %14
@@ -1346,38 +1351,38 @@ define void @lv_event_set_ext_draw_size(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8, !tbaa !3
-  store i32 %1, ptr %4, align 4, !tbaa !7
-  %6 = load ptr, ptr %3, align 8, !tbaa !3
+  store ptr %0, ptr %3, align 8, !tbaa !18
+  store i32 %1, ptr %4, align 4, !tbaa !8
+  %6 = load ptr, ptr %3, align 8, !tbaa !18
   %7 = getelementptr inbounds nuw %struct._lv_event_t, ptr %6, i32 0, i32 2
-  %8 = load i32, ptr %7, align 8, !tbaa !12
+  %8 = load i32, ptr %7, align 8, !tbaa !15
   %9 = icmp eq i32 %8, 27
   br i1 %9, label %10, label %25
 
 10:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr %5) #3
-  %11 = load ptr, ptr %3, align 8, !tbaa !3
+  %11 = load ptr, ptr %3, align 8, !tbaa !18
   %12 = call ptr @lv_event_get_param(ptr noundef %11)
-  store ptr %12, ptr %5, align 8, !tbaa !3
-  %13 = load ptr, ptr %5, align 8, !tbaa !3
-  %14 = load i32, ptr %13, align 4, !tbaa !7
-  %15 = load i32, ptr %4, align 4, !tbaa !7
+  store ptr %12, ptr %5, align 8, !tbaa !43
+  %13 = load ptr, ptr %5, align 8, !tbaa !43
+  %14 = load i32, ptr %13, align 4, !tbaa !8
+  %15 = load i32, ptr %4, align 4, !tbaa !8
   %16 = icmp sgt i32 %14, %15
   br i1 %16, label %17, label %20
 
 17:                                               ; preds = %10
-  %18 = load ptr, ptr %5, align 8, !tbaa !3
-  %19 = load i32, ptr %18, align 4, !tbaa !7
+  %18 = load ptr, ptr %5, align 8, !tbaa !43
+  %19 = load i32, ptr %18, align 4, !tbaa !8
   br label %22
 
 20:                                               ; preds = %10
-  %21 = load i32, ptr %4, align 4, !tbaa !7
+  %21 = load i32, ptr %4, align 4, !tbaa !8
   br label %22
 
 22:                                               ; preds = %20, %17
   %23 = phi i32 [ %19, %17 ], [ %21, %20 ]
-  %24 = load ptr, ptr %5, align 8, !tbaa !3
-  store i32 %23, ptr %24, align 4, !tbaa !7
+  %24 = load ptr, ptr %5, align 8, !tbaa !43
+  store i32 %23, ptr %24, align 4, !tbaa !8
   call void @llvm.lifetime.end.p0(i64 8, ptr %5) #3
   br label %28
 
@@ -1398,15 +1403,15 @@ define void @lv_event_set_ext_draw_size(ptr noundef %0, i32 noundef %1) #0 {
 define ptr @lv_event_get_self_size_info(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8, !tbaa !3
-  %4 = load ptr, ptr %3, align 8, !tbaa !3
+  store ptr %0, ptr %3, align 8, !tbaa !18
+  %4 = load ptr, ptr %3, align 8, !tbaa !18
   %5 = getelementptr inbounds nuw %struct._lv_event_t, ptr %4, i32 0, i32 2
-  %6 = load i32, ptr %5, align 8, !tbaa !12
+  %6 = load i32, ptr %5, align 8, !tbaa !15
   %7 = icmp eq i32 %6, 52
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %1
-  %9 = load ptr, ptr %3, align 8, !tbaa !3
+  %9 = load ptr, ptr %3, align 8, !tbaa !18
   %10 = call ptr @lv_event_get_param(ptr noundef %9)
   store ptr %10, ptr %2, align 8
   br label %14
@@ -1430,15 +1435,15 @@ define ptr @lv_event_get_self_size_info(ptr noundef %0) #0 {
 define ptr @lv_event_get_hit_test_info(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8, !tbaa !3
-  %4 = load ptr, ptr %3, align 8, !tbaa !3
+  store ptr %0, ptr %3, align 8, !tbaa !18
+  %4 = load ptr, ptr %3, align 8, !tbaa !18
   %5 = getelementptr inbounds nuw %struct._lv_event_t, ptr %4, i32 0, i32 2
-  %6 = load i32, ptr %5, align 8, !tbaa !12
+  %6 = load i32, ptr %5, align 8, !tbaa !15
   %7 = icmp eq i32 %6, 22
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %1
-  %9 = load ptr, ptr %3, align 8, !tbaa !3
+  %9 = load ptr, ptr %3, align 8, !tbaa !18
   %10 = call ptr @lv_event_get_param(ptr noundef %9)
   store ptr %10, ptr %2, align 8
   br label %14
@@ -1463,21 +1468,21 @@ define ptr @lv_event_get_cover_area(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8, !tbaa !3
-  %5 = load ptr, ptr %3, align 8, !tbaa !3
+  store ptr %0, ptr %3, align 8, !tbaa !18
+  %5 = load ptr, ptr %3, align 8, !tbaa !18
   %6 = getelementptr inbounds nuw %struct._lv_event_t, ptr %5, i32 0, i32 2
-  %7 = load i32, ptr %6, align 8, !tbaa !12
+  %7 = load i32, ptr %6, align 8, !tbaa !15
   %8 = icmp eq i32 %7, 26
   br i1 %8, label %9, label %15
 
 9:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 8, ptr %4) #3
-  %10 = load ptr, ptr %3, align 8, !tbaa !3
+  %10 = load ptr, ptr %3, align 8, !tbaa !18
   %11 = call ptr @lv_event_get_param(ptr noundef %10)
-  store ptr %11, ptr %4, align 8, !tbaa !3
-  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %11, ptr %4, align 8, !tbaa !45
+  %12 = load ptr, ptr %4, align 8, !tbaa !45
   %13 = getelementptr inbounds nuw %struct._lv_cover_check_info_t, ptr %12, i32 0, i32 1
-  %14 = load ptr, ptr %13, align 8, !tbaa !30
+  %14 = load ptr, ptr %13, align 8, !tbaa !47
   store ptr %14, ptr %2, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr %4) #3
   br label %18
@@ -1502,31 +1507,31 @@ define void @lv_event_set_cover_res(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8, !tbaa !3
-  store i32 %1, ptr %4, align 4, !tbaa !7
-  %6 = load ptr, ptr %3, align 8, !tbaa !3
+  store ptr %0, ptr %3, align 8, !tbaa !18
+  store i32 %1, ptr %4, align 4, !tbaa !8
+  %6 = load ptr, ptr %3, align 8, !tbaa !18
   %7 = getelementptr inbounds nuw %struct._lv_event_t, ptr %6, i32 0, i32 2
-  %8 = load i32, ptr %7, align 8, !tbaa !12
+  %8 = load i32, ptr %7, align 8, !tbaa !15
   %9 = icmp eq i32 %8, 26
   br i1 %9, label %10, label %23
 
 10:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr %5) #3
-  %11 = load ptr, ptr %3, align 8, !tbaa !3
+  %11 = load ptr, ptr %3, align 8, !tbaa !18
   %12 = call ptr @lv_event_get_param(ptr noundef %11)
-  store ptr %12, ptr %5, align 8, !tbaa !3
-  %13 = load i32, ptr %4, align 4, !tbaa !7
-  %14 = load ptr, ptr %5, align 8, !tbaa !3
+  store ptr %12, ptr %5, align 8, !tbaa !45
+  %13 = load i32, ptr %4, align 4, !tbaa !8
+  %14 = load ptr, ptr %5, align 8, !tbaa !45
   %15 = getelementptr inbounds nuw %struct._lv_cover_check_info_t, ptr %14, i32 0, i32 0
-  %16 = load i32, ptr %15, align 8, !tbaa !32
+  %16 = load i32, ptr %15, align 8, !tbaa !49
   %17 = icmp ugt i32 %13, %16
   br i1 %17, label %18, label %22
 
 18:                                               ; preds = %10
-  %19 = load i32, ptr %4, align 4, !tbaa !7
-  %20 = load ptr, ptr %5, align 8, !tbaa !3
+  %19 = load i32, ptr %4, align 4, !tbaa !8
+  %20 = load ptr, ptr %5, align 8, !tbaa !45
   %21 = getelementptr inbounds nuw %struct._lv_cover_check_info_t, ptr %20, i32 0, i32 0
-  store i32 %19, ptr %21, align 8, !tbaa !32
+  store i32 %19, ptr %21, align 8, !tbaa !49
   br label %22
 
 22:                                               ; preds = %18, %10
@@ -1550,15 +1555,15 @@ define void @lv_event_set_cover_res(ptr noundef %0, i32 noundef %1) #0 {
 define ptr @lv_event_get_draw_task(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8, !tbaa !3
-  %4 = load ptr, ptr %3, align 8, !tbaa !3
+  store ptr %0, ptr %3, align 8, !tbaa !18
+  %4 = load ptr, ptr %3, align 8, !tbaa !18
   %5 = getelementptr inbounds nuw %struct._lv_event_t, ptr %4, i32 0, i32 2
-  %6 = load i32, ptr %5, align 8, !tbaa !12
+  %6 = load i32, ptr %5, align 8, !tbaa !15
   %7 = icmp eq i32 %6, 34
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %1
-  %9 = load ptr, ptr %3, align 8, !tbaa !3
+  %9 = load ptr, ptr %3, align 8, !tbaa !18
   %10 = call ptr @lv_event_get_param(ptr noundef %9)
   store ptr %10, ptr %2, align 8
   br label %14
@@ -1588,8 +1593,8 @@ declare ptr @lv_obj_get_parent(ptr noundef) #2
 define internal zeroext i1 @event_is_bubbled(ptr noundef %0) #0 {
   %2 = alloca i1, align 1
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8, !tbaa !3
-  %4 = load ptr, ptr %3, align 8, !tbaa !3
+  store ptr %0, ptr %3, align 8, !tbaa !18
+  %4 = load ptr, ptr %3, align 8, !tbaa !18
   %5 = getelementptr inbounds nuw %struct._lv_event_t, ptr %4, i32 0, i32 6
   %6 = load i8, ptr %5, align 8
   %7 = lshr i8 %6, 2
@@ -1602,9 +1607,9 @@ define internal zeroext i1 @event_is_bubbled(ptr noundef %0) #0 {
   br label %31
 
 11:                                               ; preds = %1
-  %12 = load ptr, ptr %3, align 8, !tbaa !3
+  %12 = load ptr, ptr %3, align 8, !tbaa !18
   %13 = getelementptr inbounds nuw %struct._lv_event_t, ptr %12, i32 0, i32 2
-  %14 = load i32, ptr %13, align 8, !tbaa !12
+  %14 = load i32, ptr %13, align 8, !tbaa !15
   switch i32 %14, label %16 [
     i32 43, label %15
     i32 44, label %15
@@ -1618,9 +1623,9 @@ define internal zeroext i1 @event_is_bubbled(ptr noundef %0) #0 {
   br label %17
 
 17:                                               ; preds = %16
-  %18 = load ptr, ptr %3, align 8, !tbaa !3
+  %18 = load ptr, ptr %3, align 8, !tbaa !18
   %19 = getelementptr inbounds nuw %struct._lv_event_t, ptr %18, i32 0, i32 0
-  %20 = load ptr, ptr %19, align 8, !tbaa !9
+  %20 = load ptr, ptr %19, align 8, !tbaa !11
   %21 = call zeroext i1 @lv_obj_has_flag(ptr noundef %20, i32 noundef 16384)
   %22 = zext i1 %21 to i32
   %23 = icmp eq i32 %22, 0
@@ -1631,9 +1636,9 @@ define internal zeroext i1 @event_is_bubbled(ptr noundef %0) #0 {
   br label %31
 
 25:                                               ; preds = %17
-  %26 = load ptr, ptr %3, align 8, !tbaa !3
+  %26 = load ptr, ptr %3, align 8, !tbaa !18
   %27 = getelementptr inbounds nuw %struct._lv_event_t, ptr %26, i32 0, i32 2
-  %28 = load i32, ptr %27, align 8, !tbaa !12
+  %28 = load i32, ptr %27, align 8, !tbaa !15
   switch i32 %28, label %30 [
     i32 22, label %29
     i32 26, label %29
@@ -1681,32 +1686,49 @@ attributes #3 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{!4, !4, i64 0}
-!4 = !{!"any pointer", !5, i64 0}
-!5 = !{!"omnipotent char", !6, i64 0}
-!6 = !{!"Simple C/C++ TBAA"}
-!7 = !{!8, !8, i64 0}
-!8 = !{!"int", !5, i64 0}
-!9 = !{!10, !4, i64 0}
-!10 = !{!"_lv_event_t", !4, i64 0, !4, i64 8, !8, i64 16, !4, i64 24, !4, i64 32, !4, i64 40, !5, i64 48, !5, i64 48, !5, i64 48}
-!11 = !{!10, !4, i64 8}
-!12 = !{!10, !8, i64 16}
-!13 = !{!10, !4, i64 24}
-!14 = !{!10, !4, i64 32}
-!15 = !{!16, !4, i64 16}
-!16 = !{!"_lv_obj_t", !4, i64 0, !4, i64 8, !4, i64 16, !4, i64 24, !4, i64 32, !17, i64 40, !8, i64 56, !18, i64 60, !18, i64 62, !18, i64 62, !18, i64 62, !18, i64 62, !18, i64 62, !18, i64 63, !18, i64 63, !18, i64 63}
-!17 = !{!"", !8, i64 0, !8, i64 4, !8, i64 8, !8, i64 12}
-!18 = !{!"short", !5, i64 0}
-!19 = !{!16, !4, i64 0}
-!20 = !{!21, !4, i64 0}
-!21 = !{!"_lv_obj_class_t", !4, i64 0, !4, i64 8, !4, i64 16, !4, i64 24, !4, i64 32, !4, i64 40, !8, i64 48, !8, i64 52, !8, i64 56, !8, i64 56, !8, i64 56, !8, i64 58}
-!22 = !{!21, !4, i64 24}
-!23 = distinct !{!23, !24}
-!24 = !{!"llvm.loop.mustprogress"}
-!25 = !{!26, !4, i64 0}
-!26 = !{!"_lv_event_dsc_t", !4, i64 0, !4, i64 8, !8, i64 16}
-!27 = distinct !{!27, !24}
-!28 = !{!26, !4, i64 8}
-!29 = distinct !{!29, !24}
-!30 = !{!31, !4, i64 8}
-!31 = !{!"_lv_cover_check_info_t", !8, i64 0, !4, i64 8}
-!32 = !{!31, !8, i64 0}
+!4 = !{!"p1 _ZTS9_lv_obj_t", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"int", !6, i64 0}
+!10 = !{!5, !5, i64 0}
+!11 = !{!12, !5, i64 0}
+!12 = !{!"_lv_event_t", !5, i64 0, !5, i64 8, !9, i64 16, !5, i64 24, !5, i64 32, !13, i64 40, !6, i64 48, !6, i64 48, !6, i64 48}
+!13 = !{!"p1 _ZTS11_lv_event_t", !5, i64 0}
+!14 = !{!12, !5, i64 8}
+!15 = !{!12, !9, i64 16}
+!16 = !{!12, !5, i64 24}
+!17 = !{!12, !5, i64 32}
+!18 = !{!13, !13, i64 0}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"p1 _ZTS11_lv_indev_t", !5, i64 0}
+!21 = !{!22, !24, i64 16}
+!22 = !{!"_lv_obj_t", !23, i64 0, !4, i64 8, !24, i64 16, !25, i64 24, !5, i64 32, !26, i64 40, !9, i64 56, !27, i64 60, !27, i64 62, !27, i64 62, !27, i64 62, !27, i64 62, !27, i64 62, !27, i64 63, !27, i64 63, !27, i64 63}
+!23 = !{!"p1 _ZTS15_lv_obj_class_t", !5, i64 0}
+!24 = !{!"p1 _ZTS19_lv_obj_spec_attr_t", !5, i64 0}
+!25 = !{!"p1 _ZTS15_lv_obj_style_t", !5, i64 0}
+!26 = !{!"", !9, i64 0, !9, i64 4, !9, i64 8, !9, i64 12}
+!27 = !{!"short", !6, i64 0}
+!28 = !{!23, !23, i64 0}
+!29 = !{!22, !23, i64 0}
+!30 = !{!31, !23, i64 0}
+!31 = !{!"_lv_obj_class_t", !23, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !32, i64 40, !9, i64 48, !9, i64 52, !9, i64 56, !9, i64 56, !9, i64 56, !9, i64 58}
+!32 = !{!"p1 omnipotent char", !5, i64 0}
+!33 = !{!31, !5, i64 24}
+!34 = distinct !{!34, !35}
+!35 = !{!"llvm.loop.mustprogress"}
+!36 = !{!37, !37, i64 0}
+!37 = !{!"p1 _ZTS15_lv_event_dsc_t", !5, i64 0}
+!38 = !{!39, !5, i64 0}
+!39 = !{!"_lv_event_dsc_t", !5, i64 0, !5, i64 8, !9, i64 16}
+!40 = distinct !{!40, !35}
+!41 = !{!39, !5, i64 8}
+!42 = distinct !{!42, !35}
+!43 = !{!44, !44, i64 0}
+!44 = !{!"p1 int", !5, i64 0}
+!45 = !{!46, !46, i64 0}
+!46 = !{!"p1 _ZTS22_lv_cover_check_info_t", !5, i64 0}
+!47 = !{!48, !5, i64 8}
+!48 = !{!"_lv_cover_check_info_t", !9, i64 0, !5, i64 8}
+!49 = !{!48, !9, i64 0}

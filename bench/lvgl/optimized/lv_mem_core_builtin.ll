@@ -32,7 +32,7 @@ define void @lv_mem_init() local_unnamed_addr #0 {
 3:                                                ; preds = %0
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 784), align 8, !tbaa !3
   %5 = tail call ptr @lv_tlsf_get_pool(ptr noundef %4) #4
-  store ptr %5, ptr %2, align 8, !tbaa !19
+  store ptr %5, ptr %2, align 8, !tbaa !30
   ret void
 }
 
@@ -72,7 +72,7 @@ define ptr @lv_mem_add_pool(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   br label %.preheader
 
 7:                                                ; preds = %5
-  store ptr %4, ptr %6, align 8, !tbaa !19
+  store ptr %4, ptr %6, align 8, !tbaa !30
   br label %8
 
 8:                                                ; preds = %2, %7
@@ -89,7 +89,7 @@ define void @lv_mem_remove_pool(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %1, %7
   %.010 = phi ptr [ %8, %7 ], [ %2, %1 ]
-  %3 = load ptr, ptr %.010, align 8, !tbaa !19
+  %3 = load ptr, ptr %.010, align 8, !tbaa !30
   %4 = icmp eq ptr %3, %0
   br i1 %4, label %5, label %7
 
@@ -103,7 +103,7 @@ define void @lv_mem_remove_pool(ptr noundef %0) local_unnamed_addr #0 {
 7:                                                ; preds = %.lr.ph
   %8 = tail call ptr @lv_ll_get_next(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 808), ptr noundef nonnull %.010) #4
   %.not = icmp eq ptr %8, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !20
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !31
 
 .loopexit:                                        ; preds = %7, %1, %5
   ret void
@@ -128,12 +128,12 @@ define ptr @lv_malloc_core(i64 noundef %0) local_unnamed_addr #0 {
 
 4:                                                ; preds = %1
   %5 = tail call i64 @lv_tlsf_block_size(ptr noundef nonnull %3) #4
-  %6 = load i64, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 792), align 8, !tbaa !22
+  %6 = load i64, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 792), align 8, !tbaa !33
   %7 = add i64 %6, %5
-  store i64 %7, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 792), align 8, !tbaa !22
-  %8 = load i64, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 800), align 8, !tbaa !23
+  store i64 %7, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 792), align 8, !tbaa !33
+  %8 = load i64, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 800), align 8, !tbaa !34
   %9 = tail call i64 @llvm.umax.i64(i64 %7, i64 %8)
-  store i64 %9, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 800), align 8, !tbaa !23
+  store i64 %9, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 800), align 8, !tbaa !34
   br label %10
 
 10:                                               ; preds = %4, %1
@@ -153,16 +153,16 @@ define ptr @lv_realloc_core(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %2
-  %7 = load i64, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 792), align 8, !tbaa !22
+  %7 = load i64, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 792), align 8, !tbaa !33
   %8 = sub i64 %7, %3
-  store i64 %8, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 792), align 8, !tbaa !22
+  store i64 %8, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 792), align 8, !tbaa !33
   %9 = tail call i64 @lv_tlsf_block_size(ptr noundef nonnull %5) #4
-  %10 = load i64, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 792), align 8, !tbaa !22
+  %10 = load i64, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 792), align 8, !tbaa !33
   %11 = add i64 %10, %9
-  store i64 %11, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 792), align 8, !tbaa !22
-  %12 = load i64, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 800), align 8, !tbaa !23
+  store i64 %11, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 792), align 8, !tbaa !33
+  %12 = load i64, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 800), align 8, !tbaa !34
   %13 = tail call i64 @llvm.umax.i64(i64 %11, i64 %12)
-  store i64 %13, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 800), align 8, !tbaa !23
+  store i64 %13, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 800), align 8, !tbaa !34
   br label %14
 
 14:                                               ; preds = %6, %2
@@ -176,9 +176,9 @@ define void @lv_free_core(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i64 @lv_tlsf_block_size(ptr noundef %0) #4
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 784), align 8, !tbaa !3
   %4 = tail call i64 @lv_tlsf_free(ptr noundef %3, ptr noundef %0) #4
-  %5 = load i64, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 792), align 8, !tbaa !22
+  %5 = load i64, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 792), align 8, !tbaa !33
   %storemerge = tail call i64 @llvm.usub.sat.i64(i64 %5, i64 %2)
-  store i64 %storemerge, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 792), align 8, !tbaa !22
+  store i64 %storemerge, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 792), align 8, !tbaa !33
   ret void
 }
 
@@ -193,28 +193,28 @@ define void @lv_mem_monitor_core(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.019 = phi ptr [ %4, %.lr.ph ], [ %2, %1 ]
-  %3 = load ptr, ptr %.019, align 8, !tbaa !19
+  %3 = load ptr, ptr %.019, align 8, !tbaa !30
   tail call void @lv_tlsf_walk_pool(ptr noundef %3, ptr noundef nonnull @lv_mem_walker, ptr noundef %0) #4
   %4 = tail call ptr @lv_ll_get_next(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 808), ptr noundef nonnull %.019) #4
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load i64, ptr %5, align 8, !tbaa !25
+  %6 = load i64, ptr %5, align 8, !tbaa !36
   %7 = mul i64 %6, 100
-  %8 = load i64, ptr %0, align 8, !tbaa !27
+  %8 = load i64, ptr %0, align 8, !tbaa !38
   %9 = udiv i64 %7, %8
   %10 = trunc i64 %9 to i8
   %11 = sub i8 100, %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i8 %11, ptr %12, align 8, !tbaa !28
+  store i8 %11, ptr %12, align 8, !tbaa !39
   %.not17 = icmp eq i64 %6, 0
   br i1 %.not17, label %20, label %13
 
 13:                                               ; preds = %._crit_edge
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %15 = load i64, ptr %14, align 8, !tbaa !29
+  %15 = load i64, ptr %14, align 8, !tbaa !40
   %16 = mul i64 %15, 100
   %17 = udiv i64 %16, %6
   %18 = trunc i64 %17 to i8
@@ -224,10 +224,10 @@ define void @lv_mem_monitor_core(ptr noundef %0) local_unnamed_addr #0 {
 20:                                               ; preds = %._crit_edge, %13
   %.sink = phi i8 [ %19, %13 ], [ 0, %._crit_edge ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 49
-  store i8 %.sink, ptr %21, align 1, !tbaa !30
-  %22 = load i64, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 800), align 8, !tbaa !23
+  store i8 %.sink, ptr %21, align 1, !tbaa !41
+  %22 = load i64, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 800), align 8, !tbaa !34
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 %22, ptr %23, align 8, !tbaa !31
+  store i64 %22, ptr %23, align 8, !tbaa !42
   ret void
 }
 
@@ -235,35 +235,35 @@ declare void @lv_tlsf_walk_pool(ptr noundef, ptr noundef, ptr noundef) local_unn
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @lv_mem_walker(ptr readnone captures(none) %0, i64 noundef %1, i32 noundef %2, ptr noundef captures(none) %3) #2 {
-  %5 = load i64, ptr %3, align 8, !tbaa !27
+  %5 = load i64, ptr %3, align 8, !tbaa !38
   %6 = add i64 %5, %1
-  store i64 %6, ptr %3, align 8, !tbaa !27
+  store i64 %6, ptr %3, align 8, !tbaa !38
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %11, label %7
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %9 = load i64, ptr %8, align 8, !tbaa !32
+  %9 = load i64, ptr %8, align 8, !tbaa !43
   %10 = add i64 %9, 1
-  store i64 %10, ptr %8, align 8, !tbaa !32
+  store i64 %10, ptr %8, align 8, !tbaa !43
   br label %22
 
 11:                                               ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %13 = load i64, ptr %12, align 8, !tbaa !33
+  %13 = load i64, ptr %12, align 8, !tbaa !44
   %14 = add i64 %13, 1
-  store i64 %14, ptr %12, align 8, !tbaa !33
+  store i64 %14, ptr %12, align 8, !tbaa !44
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %16 = load i64, ptr %15, align 8, !tbaa !25
+  %16 = load i64, ptr %15, align 8, !tbaa !36
   %17 = add i64 %16, %1
-  store i64 %17, ptr %15, align 8, !tbaa !25
+  store i64 %17, ptr %15, align 8, !tbaa !36
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %19 = load i64, ptr %18, align 8, !tbaa !29
+  %19 = load i64, ptr %18, align 8, !tbaa !40
   %20 = icmp ugt i64 %1, %19
   br i1 %20, label %21, label %22
 
 21:                                               ; preds = %11
-  store i64 %1, ptr %18, align 8, !tbaa !29
+  store i64 %1, ptr %18, align 8, !tbaa !40
   br label %22
 
 22:                                               ; preds = %11, %21, %7
@@ -284,7 +284,7 @@ define range(i32 0, 2) i32 @lv_mem_test_core() local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %3, %7
   %.07 = phi ptr [ %8, %7 ], [ %4, %3 ]
-  %5 = load ptr, ptr %.07, align 8, !tbaa !19
+  %5 = load ptr, ptr %.07, align 8, !tbaa !30
   %6 = tail call i32 @lv_tlsf_check_pool(ptr noundef %5) #4
   %.not5 = icmp eq i32 %6, 0
   br i1 %.not5, label %7, label %.loopexit
@@ -292,7 +292,7 @@ define range(i32 0, 2) i32 @lv_mem_test_core() local_unnamed_addr #0 {
 7:                                                ; preds = %.lr.ph
   %8 = tail call ptr @lv_ll_get_next(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 808), ptr noundef nonnull %.07) #4
   %.not4 = icmp eq ptr %8, null
-  br i1 %.not4, label %.loopexit, label %.lr.ph, !llvm.loop !34
+  br i1 %.not4, label %.loopexit, label %.lr.ph, !llvm.loop !45
 
 .loopexit:                                        ; preds = %7, %.lr.ph, %3, %0
   %.03 = phi i32 [ 0, %0 ], [ 1, %3 ], [ 1, %7 ], [ 0, %.lr.ph ]
@@ -322,35 +322,46 @@ attributes #4 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{!4, !10, i64 784}
-!4 = !{!"_lv_global_t", !5, i64 0, !5, i64 1, !8, i64 8, !10, i64 32, !10, i64 40, !8, i64 48, !5, i64 72, !9, i64 76, !9, i64 80, !10, i64 88, !8, i64 96, !10, i64 120, !8, i64 128, !10, i64 152, !10, i64 160, !9, i64 168, !10, i64 176, !5, i64 184, !9, i64 188, !9, i64 192, !10, i64 200, !9, i64 208, !11, i64 216, !12, i64 288, !13, i64 328, !14, i64 352, !14, i64 400, !14, i64 448, !8, i64 496, !10, i64 520, !10, i64 528, !15, i64 536, !6, i64 568, !10, i64 760, !10, i64 768, !10, i64 776, !16, i64 784, !8, i64 832, !10, i64 856, !10, i64 864, !18, i64 872, !17, i64 888, !10, i64 896, !9, i64 904, !10, i64 912}
+!3 = !{!4, !11, i64 784}
+!4 = !{!"_lv_global_t", !5, i64 0, !5, i64 1, !8, i64 8, !12, i64 32, !12, i64 40, !8, i64 48, !5, i64 72, !9, i64 76, !9, i64 80, !10, i64 88, !8, i64 96, !13, i64 120, !8, i64 128, !14, i64 152, !15, i64 160, !9, i64 168, !11, i64 176, !5, i64 184, !9, i64 188, !9, i64 192, !16, i64 200, !9, i64 208, !17, i64 216, !18, i64 288, !20, i64 328, !21, i64 352, !21, i64 400, !21, i64 448, !8, i64 496, !22, i64 520, !22, i64 528, !23, i64 536, !6, i64 568, !11, i64 760, !11, i64 768, !11, i64 776, !25, i64 784, !8, i64 832, !27, i64 856, !28, i64 864, !29, i64 872, !26, i64 888, !11, i64 896, !9, i64 904, !11, i64 912}
 !5 = !{!"_Bool", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
 !8 = !{!"", !9, i64 0, !10, i64 8, !10, i64 16}
 !9 = !{!"int", !6, i64 0}
-!10 = !{!"any pointer", !6, i64 0}
-!11 = !{!"", !8, i64 0, !5, i64 24, !6, i64 25, !5, i64 26, !5, i64 27, !9, i64 28, !5, i64 32, !9, i64 36, !9, i64 40, !9, i64 44, !9, i64 48, !10, i64 56, !10, i64 64}
-!12 = !{!"", !5, i64 0, !5, i64 1, !10, i64 8, !8, i64 16}
-!13 = !{!"", !9, i64 0, !6, i64 4, !10, i64 8, !10, i64 16}
-!14 = !{!"_lv_draw_buf_handlers_t", !10, i64 0, !10, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !10, i64 40}
-!15 = !{!"", !10, i64 0, !9, i64 8, !9, i64 12, !9, i64 16, !9, i64 20, !5, i64 24}
-!16 = !{!"", !10, i64 0, !17, i64 8, !17, i64 16, !8, i64 24}
-!17 = !{!"long", !6, i64 0}
-!18 = !{!"", !10, i64 0, !9, i64 8, !6, i64 12}
-!19 = !{!10, !10, i64 0}
-!20 = distinct !{!20, !21}
-!21 = !{!"llvm.loop.mustprogress"}
-!22 = !{!4, !17, i64 792}
-!23 = !{!4, !17, i64 800}
-!24 = distinct !{!24, !21}
-!25 = !{!26, !17, i64 16}
-!26 = !{!"", !17, i64 0, !17, i64 8, !17, i64 16, !17, i64 24, !17, i64 32, !17, i64 40, !6, i64 48, !6, i64 49}
-!27 = !{!26, !17, i64 0}
-!28 = !{!26, !6, i64 48}
-!29 = !{!26, !17, i64 24}
-!30 = !{!26, !6, i64 49}
-!31 = !{!26, !17, i64 40}
-!32 = !{!26, !17, i64 32}
-!33 = !{!26, !17, i64 8}
-!34 = distinct !{!34, !21}
+!10 = !{!"p1 omnipotent char", !11, i64 0}
+!11 = !{!"any pointer", !6, i64 0}
+!12 = !{!"p1 _ZTS13_lv_display_t", !11, i64 0}
+!13 = !{!"p1 _ZTS11_lv_group_t", !11, i64 0}
+!14 = !{!"p1 _ZTS11_lv_indev_t", !11, i64 0}
+!15 = !{!"p1 _ZTS9_lv_obj_t", !11, i64 0}
+!16 = !{!"p1 _ZTS11_lv_event_t", !11, i64 0}
+!17 = !{!"", !8, i64 0, !5, i64 24, !6, i64 25, !5, i64 26, !5, i64 27, !9, i64 28, !5, i64 32, !9, i64 36, !9, i64 40, !9, i64 44, !9, i64 48, !11, i64 56, !11, i64 64}
+!18 = !{!"", !5, i64 0, !5, i64 1, !19, i64 8, !8, i64 16}
+!19 = !{!"p1 _ZTS11_lv_timer_t", !11, i64 0}
+!20 = !{!"", !9, i64 0, !6, i64 4, !11, i64 8, !11, i64 16}
+!21 = !{!"_lv_draw_buf_handlers_t", !11, i64 0, !11, i64 8, !11, i64 16, !11, i64 24, !11, i64 32, !11, i64 40}
+!22 = !{!"p1 _ZTS11_lv_cache_t", !11, i64 0}
+!23 = !{!"", !24, i64 0, !9, i64 8, !9, i64 12, !9, i64 16, !9, i64 20, !5, i64 24}
+!24 = !{!"p1 _ZTS15_lv_draw_unit_t", !11, i64 0}
+!25 = !{!"", !11, i64 0, !26, i64 8, !26, i64 16, !8, i64 24}
+!26 = !{!"long", !6, i64 0}
+!27 = !{!"p1 _ZTS22_lv_freetype_context_t", !11, i64 0}
+!28 = !{!"p1 _ZTS14_snippet_stack", !11, i64 0}
+!29 = !{!"", !11, i64 0, !9, i64 8, !6, i64 12}
+!30 = !{!11, !11, i64 0}
+!31 = distinct !{!31, !32}
+!32 = !{!"llvm.loop.mustprogress"}
+!33 = !{!4, !26, i64 792}
+!34 = !{!4, !26, i64 800}
+!35 = distinct !{!35, !32}
+!36 = !{!37, !26, i64 16}
+!37 = !{!"", !26, i64 0, !26, i64 8, !26, i64 16, !26, i64 24, !26, i64 32, !26, i64 40, !6, i64 48, !6, i64 49}
+!38 = !{!37, !26, i64 0}
+!39 = !{!37, !6, i64 48}
+!40 = !{!37, !26, i64 24}
+!41 = !{!37, !6, i64 49}
+!42 = !{!37, !26, i64 40}
+!43 = !{!37, !26, i64 32}
+!44 = !{!37, !26, i64 8}
+!45 = distinct !{!45, !32}

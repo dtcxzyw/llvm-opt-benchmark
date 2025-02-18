@@ -25,15 +25,15 @@ define void @lv_style_set_width(ptr noundef %0, i32 noundef %1) #0 {
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare void @lv_style_set_prop(ptr noundef, i8 noundef zeroext, ptr) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define void @lv_style_set_min_width(ptr noundef %0, i32 noundef %1) #0 {
@@ -695,7 +695,7 @@ define void @lv_style_set_bg_color(ptr noundef %0, i24 %1) #0 {
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define void @lv_style_set_bg_opa(ptr noundef %0, i8 noundef zeroext %1) #0 {
@@ -1593,9 +1593,9 @@ define void @lv_style_set_text_font(ptr noundef %0, ptr noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca %union.lv_style_value_t, align 8
   store ptr %0, ptr %3, align 8, !tbaa !3
-  store ptr %1, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !15
   call void @llvm.lifetime.start.p0(i64 8, ptr %5) #5
-  %6 = load ptr, ptr %4, align 8, !tbaa !3
+  %6 = load ptr, ptr %4, align 8, !tbaa !15
   store ptr %6, ptr %5, align 8, !tbaa !9
   %7 = load ptr, ptr %3, align 8, !tbaa !3
   %8 = getelementptr inbounds nuw %union.lv_style_value_t, ptr %5, i32 0, i32 0
@@ -1796,9 +1796,9 @@ define void @lv_style_set_color_filter_dsc(ptr noundef %0, ptr noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca %union.lv_style_value_t, align 8
   store ptr %0, ptr %3, align 8, !tbaa !3
-  store ptr %1, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !17
   call void @llvm.lifetime.start.p0(i64 8, ptr %5) #5
-  %6 = load ptr, ptr %4, align 8, !tbaa !3
+  %6 = load ptr, ptr %4, align 8, !tbaa !17
   store ptr %6, ptr %5, align 8, !tbaa !9
   %7 = load ptr, ptr %3, align 8, !tbaa !3
   %8 = getelementptr inbounds nuw %union.lv_style_value_t, ptr %5, i32 0, i32 0
@@ -1835,9 +1835,9 @@ define void @lv_style_set_anim(ptr noundef %0, ptr noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca %union.lv_style_value_t, align 8
   store ptr %0, ptr %3, align 8, !tbaa !3
-  store ptr %1, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !19
   call void @llvm.lifetime.start.p0(i64 8, ptr %5) #5
-  %6 = load ptr, ptr %4, align 8, !tbaa !3
+  %6 = load ptr, ptr %4, align 8, !tbaa !19
   store ptr %6, ptr %5, align 8, !tbaa !9
   %7 = load ptr, ptr %3, align 8, !tbaa !3
   %8 = getelementptr inbounds nuw %union.lv_style_value_t, ptr %5, i32 0, i32 0
@@ -1911,9 +1911,9 @@ define void @lv_style_set_layout(ptr noundef %0, i16 noundef zeroext %1) #0 {
   %4 = alloca i16, align 2
   %5 = alloca %union.lv_style_value_t, align 8
   store ptr %0, ptr %3, align 8, !tbaa !3
-  store i16 %1, ptr %4, align 2, !tbaa !15
+  store i16 %1, ptr %4, align 2, !tbaa !21
   call void @llvm.lifetime.start.p0(i64 8, ptr %5) #5
-  %6 = load i16, ptr %4, align 2, !tbaa !15
+  %6 = load i16, ptr %4, align 2, !tbaa !21
   %7 = zext i16 %6 to i32
   store i32 %7, ptr %5, align 8, !tbaa !9
   %8 = getelementptr i8, ptr %5, i64 4
@@ -2091,9 +2091,9 @@ define void @lv_style_set_grid_column_dsc_array(ptr noundef %0, ptr noundef %1) 
   %4 = alloca ptr, align 8
   %5 = alloca %union.lv_style_value_t, align 8
   store ptr %0, ptr %3, align 8, !tbaa !3
-  store ptr %1, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(i64 8, ptr %5) #5
-  %6 = load ptr, ptr %4, align 8, !tbaa !3
+  %6 = load ptr, ptr %4, align 8, !tbaa !23
   store ptr %6, ptr %5, align 8, !tbaa !9
   %7 = load ptr, ptr %3, align 8, !tbaa !3
   %8 = getelementptr inbounds nuw %union.lv_style_value_t, ptr %5, i32 0, i32 0
@@ -2129,9 +2129,9 @@ define void @lv_style_set_grid_row_dsc_array(ptr noundef %0, ptr noundef %1) #0 
   %4 = alloca ptr, align 8
   %5 = alloca %union.lv_style_value_t, align 8
   store ptr %0, ptr %3, align 8, !tbaa !3
-  store ptr %1, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(i64 8, ptr %5) #5
-  %6 = load ptr, ptr %4, align 8, !tbaa !3
+  %6 = load ptr, ptr %4, align 8, !tbaa !23
   store ptr %6, ptr %5, align 8, !tbaa !9
   %7 = load ptr, ptr %3, align 8, !tbaa !3
   %8 = getelementptr inbounds nuw %union.lv_style_value_t, ptr %5, i32 0, i32 0
@@ -2306,4 +2306,12 @@ attributes #5 = { nounwind }
 !13 = !{i8 0, i8 2}
 !14 = !{}
 !15 = !{!16, !16, i64 0}
-!16 = !{!"short", !5, i64 0}
+!16 = !{!"p1 _ZTS10_lv_font_t", !4, i64 0}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"p1 _ZTS22_lv_color_filter_dsc_t", !4, i64 0}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"p1 _ZTS10_lv_anim_t", !4, i64 0}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"short", !5, i64 0}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"p1 int", !4, i64 0}

@@ -71,22 +71,22 @@ define ptr @lv_imgfont_create(i16 noundef zeroext %0, ptr noundef %1, ptr nounde
   %31 = load ptr, ptr %7, align 8, !tbaa !7
   %32 = load ptr, ptr %8, align 8, !tbaa !7
   %33 = getelementptr inbounds nuw %struct.imgfont_dsc_t, ptr %32, i32 0, i32 2
-  store ptr %31, ptr %33, align 8, !tbaa !13
+  store ptr %31, ptr %33, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(i64 8, ptr %10) #3
   %34 = load ptr, ptr %8, align 8, !tbaa !7
   %35 = getelementptr inbounds nuw %struct.imgfont_dsc_t, ptr %34, i32 0, i32 0
-  store ptr %35, ptr %10, align 8, !tbaa !7
+  store ptr %35, ptr %10, align 8, !tbaa !15
   %36 = load ptr, ptr %8, align 8, !tbaa !7
-  %37 = load ptr, ptr %10, align 8, !tbaa !7
+  %37 = load ptr, ptr %10, align 8, !tbaa !15
   %38 = getelementptr inbounds nuw %struct._lv_font_t, ptr %37, i32 0, i32 8
-  store ptr %36, ptr %38, align 8, !tbaa !14
-  %39 = load ptr, ptr %10, align 8, !tbaa !7
+  store ptr %36, ptr %38, align 8, !tbaa !16
+  %39 = load ptr, ptr %10, align 8, !tbaa !15
   %40 = getelementptr inbounds nuw %struct._lv_font_t, ptr %39, i32 0, i32 0
-  store ptr @imgfont_get_glyph_dsc, ptr %40, align 8, !tbaa !15
-  %41 = load ptr, ptr %10, align 8, !tbaa !7
+  store ptr @imgfont_get_glyph_dsc, ptr %40, align 8, !tbaa !17
+  %41 = load ptr, ptr %10, align 8, !tbaa !15
   %42 = getelementptr inbounds nuw %struct._lv_font_t, ptr %41, i32 0, i32 1
-  store ptr @imgfont_get_glyph_bitmap, ptr %42, align 8, !tbaa !16
-  %43 = load ptr, ptr %10, align 8, !tbaa !7
+  store ptr @imgfont_get_glyph_bitmap, ptr %42, align 8, !tbaa !18
+  %43 = load ptr, ptr %10, align 8, !tbaa !15
   %44 = getelementptr inbounds nuw %struct._lv_font_t, ptr %43, i32 0, i32 5
   %45 = load i8, ptr %44, align 8
   %46 = and i8 %45, -4
@@ -94,19 +94,19 @@ define ptr @lv_imgfont_create(i16 noundef zeroext %0, ptr noundef %1, ptr nounde
   store i8 %47, ptr %44, align 8
   %48 = load i16, ptr %5, align 2, !tbaa !3
   %49 = zext i16 %48 to i32
-  %50 = load ptr, ptr %10, align 8, !tbaa !7
+  %50 = load ptr, ptr %10, align 8, !tbaa !15
   %51 = getelementptr inbounds nuw %struct._lv_font_t, ptr %50, i32 0, i32 3
-  store i32 %49, ptr %51, align 8, !tbaa !17
-  %52 = load ptr, ptr %10, align 8, !tbaa !7
+  store i32 %49, ptr %51, align 8, !tbaa !19
+  %52 = load ptr, ptr %10, align 8, !tbaa !15
   %53 = getelementptr inbounds nuw %struct._lv_font_t, ptr %52, i32 0, i32 4
-  store i32 0, ptr %53, align 4, !tbaa !18
-  %54 = load ptr, ptr %10, align 8, !tbaa !7
+  store i32 0, ptr %53, align 4, !tbaa !20
+  %54 = load ptr, ptr %10, align 8, !tbaa !15
   %55 = getelementptr inbounds nuw %struct._lv_font_t, ptr %54, i32 0, i32 6
-  store i8 0, ptr %55, align 1, !tbaa !19
-  %56 = load ptr, ptr %10, align 8, !tbaa !7
+  store i8 0, ptr %55, align 1, !tbaa !21
+  %56 = load ptr, ptr %10, align 8, !tbaa !15
   %57 = getelementptr inbounds nuw %struct._lv_font_t, ptr %56, i32 0, i32 7
-  store i8 0, ptr %57, align 2, !tbaa !20
-  %58 = load ptr, ptr %10, align 8, !tbaa !7
+  store i8 0, ptr %57, align 2, !tbaa !22
+  %58 = load ptr, ptr %10, align 8, !tbaa !15
   store ptr %58, ptr %4, align 8
   store i32 1, ptr %9, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr %10) #3
@@ -119,7 +119,7 @@ define ptr @lv_imgfont_create(i16 noundef zeroext %0, ptr noundef %1, ptr nounde
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 declare ptr @lv_malloc_zeroed(i64 noundef) #2
 
@@ -135,14 +135,14 @@ define internal zeroext i1 @imgfont_get_glyph_dsc(ptr noundef %0, ptr noundef %1
   %12 = alloca i32, align 4
   %13 = alloca ptr, align 8
   %14 = alloca %struct.lv_image_header_t, align 4
-  store ptr %0, ptr %6, align 8, !tbaa !7
+  store ptr %0, ptr %6, align 8, !tbaa !15
   store ptr %1, ptr %7, align 8, !tbaa !7
-  store i32 %2, ptr %8, align 4, !tbaa !21
-  store i32 %3, ptr %9, align 4, !tbaa !21
+  store i32 %2, ptr %8, align 4, !tbaa !23
+  store i32 %3, ptr %9, align 4, !tbaa !23
   br label %15
 
 15:                                               ; preds = %4
-  %16 = load ptr, ptr %6, align 8, !tbaa !7
+  %16 = load ptr, ptr %6, align 8, !tbaa !15
   %17 = icmp ne ptr %16, null
   br i1 %17, label %22, label %18
 
@@ -163,9 +163,9 @@ define internal zeroext i1 @imgfont_get_glyph_dsc(ptr noundef %0, ptr noundef %1
 
 23:                                               ; preds = %22
   call void @llvm.lifetime.start.p0(i64 8, ptr %10) #3
-  %24 = load ptr, ptr %6, align 8, !tbaa !7
+  %24 = load ptr, ptr %6, align 8, !tbaa !15
   %25 = getelementptr inbounds nuw %struct._lv_font_t, ptr %24, i32 0, i32 8
-  %26 = load ptr, ptr %25, align 8, !tbaa !14
+  %26 = load ptr, ptr %25, align 8, !tbaa !16
   store ptr %26, ptr %10, align 8, !tbaa !7
   br label %27
 
@@ -212,17 +212,17 @@ define internal zeroext i1 @imgfont_get_glyph_dsc(ptr noundef %0, ptr noundef %1
 
 44:                                               ; preds = %38
   call void @llvm.lifetime.start.p0(i64 4, ptr %12) #3
-  store i32 0, ptr %12, align 4, !tbaa !21
+  store i32 0, ptr %12, align 4, !tbaa !23
   call void @llvm.lifetime.start.p0(i64 8, ptr %13) #3
   %45 = load ptr, ptr %10, align 8, !tbaa !7
   %46 = getelementptr inbounds nuw %struct.imgfont_dsc_t, ptr %45, i32 0, i32 1
   %47 = load ptr, ptr %46, align 8, !tbaa !9
-  %48 = load ptr, ptr %6, align 8, !tbaa !7
-  %49 = load i32, ptr %8, align 4, !tbaa !21
-  %50 = load i32, ptr %9, align 4, !tbaa !21
+  %48 = load ptr, ptr %6, align 8, !tbaa !15
+  %49 = load i32, ptr %8, align 4, !tbaa !23
+  %50 = load i32, ptr %9, align 4, !tbaa !23
   %51 = load ptr, ptr %10, align 8, !tbaa !7
   %52 = getelementptr inbounds nuw %struct.imgfont_dsc_t, ptr %51, i32 0, i32 2
-  %53 = load ptr, ptr %52, align 8, !tbaa !13
+  %53 = load ptr, ptr %52, align 8, !tbaa !14
   %54 = call ptr %47(ptr noundef %48, i32 noundef %49, i32 noundef %50, ptr noundef %12, ptr noundef %53)
   store ptr %54, ptr %13, align 8, !tbaa !7
   %55 = load ptr, ptr %13, align 8, !tbaa !7
@@ -260,7 +260,7 @@ define internal zeroext i1 @imgfont_get_glyph_dsc(ptr noundef %0, ptr noundef %1
   %73 = trunc i32 %72 to i16
   %74 = load ptr, ptr %7, align 8, !tbaa !7
   %75 = getelementptr inbounds nuw %struct.lv_font_glyph_dsc_t, ptr %74, i32 0, i32 1
-  store i16 %73, ptr %75, align 8, !tbaa !22
+  store i16 %73, ptr %75, align 8, !tbaa !24
   %76 = load i64, ptr %14, align 4
   %77 = lshr i64 %76, 32
   %78 = and i64 %77, 65535
@@ -268,29 +268,29 @@ define internal zeroext i1 @imgfont_get_glyph_dsc(ptr noundef %0, ptr noundef %1
   %80 = trunc i32 %79 to i16
   %81 = load ptr, ptr %7, align 8, !tbaa !7
   %82 = getelementptr inbounds nuw %struct.lv_font_glyph_dsc_t, ptr %81, i32 0, i32 2
-  store i16 %80, ptr %82, align 2, !tbaa !24
+  store i16 %80, ptr %82, align 2, !tbaa !27
   %83 = load i64, ptr %14, align 4
   %84 = lshr i64 %83, 48
   %85 = trunc i64 %84 to i32
   %86 = trunc i32 %85 to i16
   %87 = load ptr, ptr %7, align 8, !tbaa !7
   %88 = getelementptr inbounds nuw %struct.lv_font_glyph_dsc_t, ptr %87, i32 0, i32 3
-  store i16 %86, ptr %88, align 4, !tbaa !25
+  store i16 %86, ptr %88, align 4, !tbaa !28
   %89 = load ptr, ptr %7, align 8, !tbaa !7
   %90 = getelementptr inbounds nuw %struct.lv_font_glyph_dsc_t, ptr %89, i32 0, i32 4
-  store i16 0, ptr %90, align 2, !tbaa !26
-  %91 = load i32, ptr %12, align 4, !tbaa !21
+  store i16 0, ptr %90, align 2, !tbaa !29
+  %91 = load i32, ptr %12, align 4, !tbaa !23
   %92 = trunc i32 %91 to i16
   %93 = load ptr, ptr %7, align 8, !tbaa !7
   %94 = getelementptr inbounds nuw %struct.lv_font_glyph_dsc_t, ptr %93, i32 0, i32 5
-  store i16 %92, ptr %94, align 8, !tbaa !27
+  store i16 %92, ptr %94, align 8, !tbaa !30
   %95 = load ptr, ptr %7, align 8, !tbaa !7
   %96 = getelementptr inbounds nuw %struct.lv_font_glyph_dsc_t, ptr %95, i32 0, i32 6
-  store i32 9, ptr %96, align 4, !tbaa !28
+  store i32 25, ptr %96, align 4, !tbaa !31
   %97 = load ptr, ptr %13, align 8, !tbaa !7
   %98 = load ptr, ptr %7, align 8, !tbaa !7
   %99 = getelementptr inbounds nuw %struct.lv_font_glyph_dsc_t, ptr %98, i32 0, i32 8
-  store ptr %97, ptr %99, align 8, !tbaa !29
+  store ptr %97, ptr %99, align 8, !tbaa !32
   store i1 true, ptr %5, align 1
   store i32 1, ptr %11, align 4
   br label %100
@@ -316,11 +316,11 @@ define internal ptr @imgfont_get_glyph_bitmap(ptr noundef %0, ptr noundef %1) #0
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8, !tbaa !7
-  store ptr %1, ptr %4, align 8, !tbaa !7
+  store ptr %1, ptr %4, align 8, !tbaa !33
   call void @llvm.lifetime.start.p0(i64 8, ptr %5) #3
   %6 = load ptr, ptr %3, align 8, !tbaa !7
   %7 = getelementptr inbounds nuw %struct.lv_font_glyph_dsc_t, ptr %6, i32 0, i32 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !29
+  %8 = load ptr, ptr %7, align 8, !tbaa !32
   store ptr %8, ptr %5, align 8, !tbaa !7
   %9 = load ptr, ptr %5, align 8, !tbaa !7
   call void @llvm.lifetime.end.p0(i64 8, ptr %5) #3
@@ -328,17 +328,17 @@ define internal ptr @imgfont_get_glyph_bitmap(ptr noundef %0, ptr noundef %1) #0
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define void @lv_imgfont_destroy(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8, !tbaa !7
+  store ptr %0, ptr %2, align 8, !tbaa !15
   br label %4
 
 4:                                                ; preds = %1
-  %5 = load ptr, ptr %2, align 8, !tbaa !7
+  %5 = load ptr, ptr %2, align 8, !tbaa !15
   %6 = icmp ne ptr %5, null
   br i1 %6, label %11, label %7
 
@@ -359,9 +359,9 @@ define void @lv_imgfont_destroy(ptr noundef %0) #0 {
 
 12:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(i64 8, ptr %3) #3
-  %13 = load ptr, ptr %2, align 8, !tbaa !7
+  %13 = load ptr, ptr %2, align 8, !tbaa !15
   %14 = getelementptr inbounds nuw %struct._lv_font_t, ptr %13, i32 0, i32 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !14
+  %15 = load ptr, ptr %14, align 8, !tbaa !16
   store ptr %15, ptr %3, align 8, !tbaa !7
   %16 = load ptr, ptr %3, align 8, !tbaa !7
   call void @lv_free(ptr noundef %16)
@@ -391,22 +391,27 @@ attributes #3 = { nounwind }
 !8 = !{!"any pointer", !5, i64 0}
 !9 = !{!10, !8, i64 64}
 !10 = !{!"", !11, i64 0, !8, i64 64, !8, i64 72}
-!11 = !{!"_lv_font_t", !8, i64 0, !8, i64 8, !8, i64 16, !12, i64 24, !12, i64 28, !5, i64 32, !5, i64 32, !5, i64 33, !5, i64 34, !8, i64 40, !8, i64 48, !8, i64 56}
+!11 = !{!"_lv_font_t", !8, i64 0, !8, i64 8, !8, i64 16, !12, i64 24, !12, i64 28, !5, i64 32, !5, i64 32, !5, i64 33, !5, i64 34, !8, i64 40, !13, i64 48, !8, i64 56}
 !12 = !{!"int", !5, i64 0}
-!13 = !{!10, !8, i64 72}
-!14 = !{!11, !8, i64 40}
-!15 = !{!11, !8, i64 0}
-!16 = !{!11, !8, i64 8}
-!17 = !{!11, !12, i64 24}
-!18 = !{!11, !12, i64 28}
-!19 = !{!11, !5, i64 33}
-!20 = !{!11, !5, i64 34}
-!21 = !{!12, !12, i64 0}
-!22 = !{!23, !4, i64 8}
-!23 = !{!"", !8, i64 0, !4, i64 8, !4, i64 10, !4, i64 12, !4, i64 14, !4, i64 16, !12, i64 20, !5, i64 24, !5, i64 32, !8, i64 40}
-!24 = !{!23, !4, i64 10}
-!25 = !{!23, !4, i64 12}
-!26 = !{!23, !4, i64 14}
-!27 = !{!23, !4, i64 16}
-!28 = !{!23, !12, i64 20}
-!29 = !{!5, !5, i64 0}
+!13 = !{!"p1 _ZTS10_lv_font_t", !8, i64 0}
+!14 = !{!10, !8, i64 72}
+!15 = !{!13, !13, i64 0}
+!16 = !{!11, !8, i64 40}
+!17 = !{!11, !8, i64 0}
+!18 = !{!11, !8, i64 8}
+!19 = !{!11, !12, i64 24}
+!20 = !{!11, !12, i64 28}
+!21 = !{!11, !5, i64 33}
+!22 = !{!11, !5, i64 34}
+!23 = !{!12, !12, i64 0}
+!24 = !{!25, !4, i64 8}
+!25 = !{!"", !13, i64 0, !4, i64 8, !4, i64 10, !4, i64 12, !4, i64 14, !4, i64 16, !12, i64 20, !5, i64 24, !5, i64 24, !5, i64 32, !26, i64 40}
+!26 = !{!"p1 _ZTS17_lv_cache_entry_t", !8, i64 0}
+!27 = !{!25, !4, i64 10}
+!28 = !{!25, !4, i64 12}
+!29 = !{!25, !4, i64 14}
+!30 = !{!25, !4, i64 16}
+!31 = !{!25, !12, i64 20}
+!32 = !{!5, !5, i64 0}
+!33 = !{!34, !34, i64 0}
+!34 = !{!"p1 _ZTS14_lv_draw_buf_t", !8, i64 0}

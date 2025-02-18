@@ -42,7 +42,7 @@ define void @view_ctrl_pad_create(ptr noundef %0, ptr noundef %1) #0 {
   %9 = alloca %struct.lv_color_t, align 1
   %10 = alloca i24, align 4
   store ptr %0, ptr %3, align 8, !tbaa !3
-  store ptr %1, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 8, ptr %5) #5
   %11 = load ptr, ptr %3, align 8, !tbaa !3
   %12 = call ptr @lv_tabview_create(ptr noundef %11)
@@ -79,58 +79,58 @@ define void @view_ctrl_pad_create(ptr noundef %0, ptr noundef %1) #0 {
   %28 = load ptr, ptr %8, align 8, !tbaa !3
   call void @lv_obj_set_height(ptr noundef %28, i32 noundef 40)
   %29 = load ptr, ptr %5, align 8, !tbaa !3
-  %30 = load ptr, ptr %4, align 8, !tbaa !3
+  %30 = load ptr, ptr %4, align 8, !tbaa !8
   %31 = getelementptr inbounds nuw %struct.view_t, ptr %30, i32 0, i32 4
   %32 = getelementptr inbounds nuw %struct.anon, ptr %31, i32 0, i32 1
   %33 = getelementptr inbounds nuw %struct.anon.0, ptr %32, i32 0, i32 0
-  store ptr %29, ptr %33, align 8, !tbaa !7
+  store ptr %29, ptr %33, align 8, !tbaa !9
   %34 = load ptr, ptr %5, align 8, !tbaa !3
   %35 = call ptr @lv_tabview_add_tab(ptr noundef %34, ptr noundef @.str)
-  %36 = load ptr, ptr %4, align 8, !tbaa !3
+  %36 = load ptr, ptr %4, align 8, !tbaa !8
   %37 = getelementptr inbounds nuw %struct.view_t, ptr %36, i32 0, i32 4
   %38 = getelementptr inbounds nuw %struct.anon, ptr %37, i32 0, i32 1
   %39 = getelementptr inbounds nuw %struct.anon.0, ptr %38, i32 0, i32 1
   %40 = getelementptr inbounds nuw %struct.anon.1, ptr %39, i32 0, i32 0
-  store ptr %35, ptr %40, align 8, !tbaa !16
+  store ptr %35, ptr %40, align 8, !tbaa !18
   %41 = load ptr, ptr %5, align 8, !tbaa !3
   %42 = call ptr @lv_tabview_add_tab(ptr noundef %41, ptr noundef @.str.1)
-  %43 = load ptr, ptr %4, align 8, !tbaa !3
+  %43 = load ptr, ptr %4, align 8, !tbaa !8
   %44 = getelementptr inbounds nuw %struct.view_t, ptr %43, i32 0, i32 4
   %45 = getelementptr inbounds nuw %struct.anon, ptr %44, i32 0, i32 1
   %46 = getelementptr inbounds nuw %struct.anon.0, ptr %45, i32 0, i32 2
   %47 = getelementptr inbounds nuw %struct.anon.2, ptr %46, i32 0, i32 0
-  store ptr %42, ptr %47, align 8, !tbaa !17
+  store ptr %42, ptr %47, align 8, !tbaa !19
   %48 = load ptr, ptr %5, align 8, !tbaa !3
   %49 = call ptr @lv_tabview_add_tab(ptr noundef %48, ptr noundef @.str.2)
-  %50 = load ptr, ptr %4, align 8, !tbaa !3
+  %50 = load ptr, ptr %4, align 8, !tbaa !8
   %51 = getelementptr inbounds nuw %struct.view_t, ptr %50, i32 0, i32 4
   %52 = getelementptr inbounds nuw %struct.anon, ptr %51, i32 0, i32 1
   %53 = getelementptr inbounds nuw %struct.anon.0, ptr %52, i32 0, i32 3
   %54 = getelementptr inbounds nuw %struct.anon.3, ptr %53, i32 0, i32 0
-  store ptr %49, ptr %54, align 8, !tbaa !18
-  %55 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %49, ptr %54, align 8, !tbaa !20
+  %55 = load ptr, ptr %4, align 8, !tbaa !8
   %56 = getelementptr inbounds nuw %struct.view_t, ptr %55, i32 0, i32 4
   %57 = getelementptr inbounds nuw %struct.anon, ptr %56, i32 0, i32 1
   %58 = getelementptr inbounds nuw %struct.anon.0, ptr %57, i32 0, i32 1
   %59 = getelementptr inbounds nuw %struct.anon.1, ptr %58, i32 0, i32 0
-  %60 = load ptr, ptr %59, align 8, !tbaa !16
-  %61 = load ptr, ptr %4, align 8, !tbaa !3
+  %60 = load ptr, ptr %59, align 8, !tbaa !18
+  %61 = load ptr, ptr %4, align 8, !tbaa !8
   call void @tab_flex_create(ptr noundef %60, ptr noundef %61)
-  %62 = load ptr, ptr %4, align 8, !tbaa !3
+  %62 = load ptr, ptr %4, align 8, !tbaa !8
   %63 = getelementptr inbounds nuw %struct.view_t, ptr %62, i32 0, i32 4
   %64 = getelementptr inbounds nuw %struct.anon, ptr %63, i32 0, i32 1
   %65 = getelementptr inbounds nuw %struct.anon.0, ptr %64, i32 0, i32 2
   %66 = getelementptr inbounds nuw %struct.anon.2, ptr %65, i32 0, i32 0
-  %67 = load ptr, ptr %66, align 8, !tbaa !17
-  %68 = load ptr, ptr %4, align 8, !tbaa !3
+  %67 = load ptr, ptr %66, align 8, !tbaa !19
+  %68 = load ptr, ptr %4, align 8, !tbaa !8
   call void @tab_align_create(ptr noundef %67, ptr noundef %68)
-  %69 = load ptr, ptr %4, align 8, !tbaa !3
+  %69 = load ptr, ptr %4, align 8, !tbaa !8
   %70 = getelementptr inbounds nuw %struct.view_t, ptr %69, i32 0, i32 4
   %71 = getelementptr inbounds nuw %struct.anon, ptr %70, i32 0, i32 1
   %72 = getelementptr inbounds nuw %struct.anon.0, ptr %71, i32 0, i32 3
   %73 = getelementptr inbounds nuw %struct.anon.3, ptr %72, i32 0, i32 0
-  %74 = load ptr, ptr %73, align 8, !tbaa !18
-  %75 = load ptr, ptr %4, align 8, !tbaa !3
+  %74 = load ptr, ptr %73, align 8, !tbaa !20
+  %75 = load ptr, ptr %4, align 8, !tbaa !8
   call void @tab_layout_create(ptr noundef %74, ptr noundef %75)
   call void @llvm.lifetime.end.p0(i64 8, ptr %8) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr %5) #5
@@ -138,7 +138,7 @@ define void @view_ctrl_pad_create(ptr noundef %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 declare ptr @lv_tabview_create(ptr noundef) #2
 
@@ -157,7 +157,7 @@ declare void @lv_obj_set_style_bg_color(ptr noundef, i24, i32 noundef) #2
 declare i24 @lv_color_hex(i32 noundef) #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare ptr @lv_tabview_get_tab_bar(ptr noundef) #2
 
@@ -175,19 +175,19 @@ define internal void @tab_flex_create(ptr noundef %0, ptr noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8, !tbaa !3
-  store ptr %1, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !8
   %6 = load ptr, ptr %3, align 8, !tbaa !3
   call void @lv_obj_set_flex_flow(ptr noundef %6, i32 noundef 1)
   %7 = load ptr, ptr %3, align 8, !tbaa !3
   call void @lv_obj_set_flex_align(ptr noundef %7, i32 noundef 0, i32 noundef 2, i32 noundef 2)
   %8 = load ptr, ptr %3, align 8, !tbaa !3
   %9 = call ptr @ddlist_create(ptr noundef %8, ptr noundef @.str.3, ptr noundef @.str.4)
-  %10 = load ptr, ptr %4, align 8, !tbaa !3
+  %10 = load ptr, ptr %4, align 8, !tbaa !8
   %11 = getelementptr inbounds nuw %struct.view_t, ptr %10, i32 0, i32 4
   %12 = getelementptr inbounds nuw %struct.anon, ptr %11, i32 0, i32 1
   %13 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 1
   %14 = getelementptr inbounds nuw %struct.anon.1, ptr %13, i32 0, i32 1
-  store ptr %9, ptr %14, align 8, !tbaa !19
+  store ptr %9, ptr %14, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(i64 8, ptr %5) #5
   %15 = load ptr, ptr %3, align 8, !tbaa !3
   %16 = call ptr @lv_checkbox_create(ptr noundef %15)
@@ -195,12 +195,12 @@ define internal void @tab_flex_create(ptr noundef %0, ptr noundef %1) #0 {
   %17 = load ptr, ptr %5, align 8, !tbaa !3
   call void @lv_checkbox_set_text(ptr noundef %17, ptr noundef @.str.5)
   %18 = load ptr, ptr %5, align 8, !tbaa !3
-  %19 = load ptr, ptr %4, align 8, !tbaa !3
+  %19 = load ptr, ptr %4, align 8, !tbaa !8
   %20 = getelementptr inbounds nuw %struct.view_t, ptr %19, i32 0, i32 4
   %21 = getelementptr inbounds nuw %struct.anon, ptr %20, i32 0, i32 1
   %22 = getelementptr inbounds nuw %struct.anon.0, ptr %21, i32 0, i32 1
   %23 = getelementptr inbounds nuw %struct.anon.1, ptr %22, i32 0, i32 2
-  store ptr %18, ptr %23, align 8, !tbaa !20
+  store ptr %18, ptr %23, align 8, !tbaa !22
   call void @llvm.lifetime.end.p0(i64 8, ptr %5) #5
   ret void
 }
@@ -210,7 +210,7 @@ define internal void @tab_align_create(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8, !tbaa !3
-  store ptr %1, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !8
   %5 = load ptr, ptr %3, align 8, !tbaa !3
   call void @lv_obj_set_flex_flow(ptr noundef %5, i32 noundef 1)
   %6 = load ptr, ptr %3, align 8, !tbaa !3
@@ -220,12 +220,12 @@ define internal void @tab_align_create(ptr noundef %0, ptr noundef %1) #0 {
 7:                                                ; preds = %2
   %8 = load ptr, ptr %3, align 8, !tbaa !3
   %9 = call ptr @ddlist_create(ptr noundef %8, ptr noundef @.str.6, ptr noundef @.str.7)
-  %10 = load ptr, ptr %4, align 8, !tbaa !3
+  %10 = load ptr, ptr %4, align 8, !tbaa !8
   %11 = getelementptr inbounds nuw %struct.view_t, ptr %10, i32 0, i32 4
   %12 = getelementptr inbounds nuw %struct.anon, ptr %11, i32 0, i32 1
   %13 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 2
   %14 = getelementptr inbounds nuw %struct.anon.2, ptr %13, i32 0, i32 1
-  store ptr %9, ptr %14, align 8, !tbaa !21
+  store ptr %9, ptr %14, align 8, !tbaa !23
   br label %15
 
 15:                                               ; preds = %7
@@ -234,12 +234,12 @@ define internal void @tab_align_create(ptr noundef %0, ptr noundef %1) #0 {
 16:                                               ; preds = %15
   %17 = load ptr, ptr %3, align 8, !tbaa !3
   %18 = call ptr @ddlist_create(ptr noundef %17, ptr noundef @.str.8, ptr noundef @.str.7)
-  %19 = load ptr, ptr %4, align 8, !tbaa !3
+  %19 = load ptr, ptr %4, align 8, !tbaa !8
   %20 = getelementptr inbounds nuw %struct.view_t, ptr %19, i32 0, i32 4
   %21 = getelementptr inbounds nuw %struct.anon, ptr %20, i32 0, i32 1
   %22 = getelementptr inbounds nuw %struct.anon.0, ptr %21, i32 0, i32 2
   %23 = getelementptr inbounds nuw %struct.anon.2, ptr %22, i32 0, i32 2
-  store ptr %18, ptr %23, align 8, !tbaa !22
+  store ptr %18, ptr %23, align 8, !tbaa !24
   br label %24
 
 24:                                               ; preds = %16
@@ -248,12 +248,12 @@ define internal void @tab_align_create(ptr noundef %0, ptr noundef %1) #0 {
 25:                                               ; preds = %24
   %26 = load ptr, ptr %3, align 8, !tbaa !3
   %27 = call ptr @ddlist_create(ptr noundef %26, ptr noundef @.str.9, ptr noundef @.str.7)
-  %28 = load ptr, ptr %4, align 8, !tbaa !3
+  %28 = load ptr, ptr %4, align 8, !tbaa !8
   %29 = getelementptr inbounds nuw %struct.view_t, ptr %28, i32 0, i32 4
   %30 = getelementptr inbounds nuw %struct.anon, ptr %29, i32 0, i32 1
   %31 = getelementptr inbounds nuw %struct.anon.0, ptr %30, i32 0, i32 2
   %32 = getelementptr inbounds nuw %struct.anon.2, ptr %31, i32 0, i32 3
-  store ptr %27, ptr %32, align 8, !tbaa !23
+  store ptr %27, ptr %32, align 8, !tbaa !25
   br label %33
 
 33:                                               ; preds = %25
@@ -268,7 +268,7 @@ define internal void @tab_layout_create(ptr noundef %0, ptr noundef %1) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8, !tbaa !3
-  store ptr %1, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !8
   %8 = load ptr, ptr %3, align 8, !tbaa !3
   call void @lv_obj_set_flex_flow(ptr noundef %8, i32 noundef 1)
   %9 = load ptr, ptr %3, align 8, !tbaa !3
@@ -293,12 +293,12 @@ define internal void @tab_layout_create(ptr noundef %0, ptr noundef %1) #0 {
   %16 = call ptr @lv_obj_create(ptr noundef %15)
   store ptr %16, ptr %6, align 8, !tbaa !3
   %17 = load ptr, ptr %6, align 8, !tbaa !3
-  %18 = load ptr, ptr %4, align 8, !tbaa !3
+  %18 = load ptr, ptr %4, align 8, !tbaa !8
   %19 = getelementptr inbounds nuw %struct.view_t, ptr %18, i32 0, i32 4
   %20 = getelementptr inbounds nuw %struct.anon, ptr %19, i32 0, i32 1
   %21 = getelementptr inbounds nuw %struct.anon.0, ptr %20, i32 0, i32 3
   %22 = getelementptr inbounds nuw %struct.anon.3, ptr %21, i32 0, i32 1
-  store ptr %17, ptr %22, align 8, !tbaa !24
+  store ptr %17, ptr %22, align 8, !tbaa !26
   %23 = load ptr, ptr %6, align 8, !tbaa !3
   call void @lv_obj_add_style(ptr noundef %23, ptr noundef @tab_layout_create.group_style, i32 noundef 0)
   %24 = load ptr, ptr %6, align 8, !tbaa !3
@@ -307,20 +307,20 @@ define internal void @tab_layout_create(ptr noundef %0, ptr noundef %1) #0 {
   call void @lv_obj_set_flex_align(ptr noundef %25, i32 noundef 0, i32 noundef 2, i32 noundef 2)
   %26 = load ptr, ptr %6, align 8, !tbaa !3
   %27 = call ptr @spinbox_ctrl_create(ptr noundef %26, i8 noundef zeroext 1, ptr noundef null)
-  %28 = load ptr, ptr %4, align 8, !tbaa !3
+  %28 = load ptr, ptr %4, align 8, !tbaa !8
   %29 = getelementptr inbounds nuw %struct.view_t, ptr %28, i32 0, i32 4
   %30 = getelementptr inbounds nuw %struct.anon, ptr %29, i32 0, i32 1
   %31 = getelementptr inbounds nuw %struct.anon.0, ptr %30, i32 0, i32 3
   %32 = getelementptr inbounds nuw %struct.anon.3, ptr %31, i32 0, i32 2
-  store ptr %27, ptr %32, align 8, !tbaa !25
+  store ptr %27, ptr %32, align 8, !tbaa !27
   %33 = load ptr, ptr %6, align 8, !tbaa !3
   %34 = call ptr @spinbox_ctrl_create(ptr noundef %33, i8 noundef zeroext 2, ptr noundef null)
-  %35 = load ptr, ptr %4, align 8, !tbaa !3
+  %35 = load ptr, ptr %4, align 8, !tbaa !8
   %36 = getelementptr inbounds nuw %struct.view_t, ptr %35, i32 0, i32 4
   %37 = getelementptr inbounds nuw %struct.anon, ptr %36, i32 0, i32 1
   %38 = getelementptr inbounds nuw %struct.anon.0, ptr %37, i32 0, i32 3
   %39 = getelementptr inbounds nuw %struct.anon.3, ptr %38, i32 0, i32 3
-  store ptr %34, ptr %39, align 8, !tbaa !26
+  store ptr %34, ptr %39, align 8, !tbaa !28
   %40 = load ptr, ptr %3, align 8, !tbaa !3
   %41 = call ptr @lv_label_create(ptr noundef %40)
   store ptr %41, ptr %5, align 8, !tbaa !3
@@ -332,12 +332,12 @@ define internal void @tab_layout_create(ptr noundef %0, ptr noundef %1) #0 {
   %45 = call ptr @lv_obj_create(ptr noundef %44)
   store ptr %45, ptr %6, align 8, !tbaa !3
   %46 = load ptr, ptr %6, align 8, !tbaa !3
-  %47 = load ptr, ptr %4, align 8, !tbaa !3
+  %47 = load ptr, ptr %4, align 8, !tbaa !8
   %48 = getelementptr inbounds nuw %struct.view_t, ptr %47, i32 0, i32 4
   %49 = getelementptr inbounds nuw %struct.anon, ptr %48, i32 0, i32 1
   %50 = getelementptr inbounds nuw %struct.anon.0, ptr %49, i32 0, i32 3
   %51 = getelementptr inbounds nuw %struct.anon.3, ptr %50, i32 0, i32 4
-  store ptr %46, ptr %51, align 8, !tbaa !27
+  store ptr %46, ptr %51, align 8, !tbaa !29
   %52 = load ptr, ptr %6, align 8, !tbaa !3
   call void @lv_obj_add_style(ptr noundef %52, ptr noundef @tab_layout_create.group_style, i32 noundef 0)
   %53 = load ptr, ptr %6, align 8, !tbaa !3
@@ -346,20 +346,20 @@ define internal void @tab_layout_create(ptr noundef %0, ptr noundef %1) #0 {
   call void @lv_obj_set_flex_align(ptr noundef %54, i32 noundef 0, i32 noundef 2, i32 noundef 2)
   %55 = load ptr, ptr %6, align 8, !tbaa !3
   %56 = call ptr @spinbox_ctrl_create(ptr noundef %55, i8 noundef zeroext 4, ptr noundef null)
-  %57 = load ptr, ptr %4, align 8, !tbaa !3
+  %57 = load ptr, ptr %4, align 8, !tbaa !8
   %58 = getelementptr inbounds nuw %struct.view_t, ptr %57, i32 0, i32 4
   %59 = getelementptr inbounds nuw %struct.anon, ptr %58, i32 0, i32 1
   %60 = getelementptr inbounds nuw %struct.anon.0, ptr %59, i32 0, i32 3
   %61 = getelementptr inbounds nuw %struct.anon.3, ptr %60, i32 0, i32 5
-  store ptr %56, ptr %61, align 8, !tbaa !28
+  store ptr %56, ptr %61, align 8, !tbaa !30
   %62 = load ptr, ptr %6, align 8, !tbaa !3
   %63 = call ptr @spinbox_ctrl_create(ptr noundef %62, i8 noundef zeroext 6, ptr noundef null)
-  %64 = load ptr, ptr %4, align 8, !tbaa !3
+  %64 = load ptr, ptr %4, align 8, !tbaa !8
   %65 = getelementptr inbounds nuw %struct.view_t, ptr %64, i32 0, i32 4
   %66 = getelementptr inbounds nuw %struct.anon, ptr %65, i32 0, i32 1
   %67 = getelementptr inbounds nuw %struct.anon.0, ptr %66, i32 0, i32 3
   %68 = getelementptr inbounds nuw %struct.anon.3, ptr %67, i32 0, i32 6
-  store ptr %63, ptr %68, align 8, !tbaa !29
+  store ptr %63, ptr %68, align 8, !tbaa !31
   %69 = load ptr, ptr %3, align 8, !tbaa !3
   %70 = call ptr @lv_label_create(ptr noundef %69)
   store ptr %70, ptr %5, align 8, !tbaa !3
@@ -371,12 +371,12 @@ define internal void @tab_layout_create(ptr noundef %0, ptr noundef %1) #0 {
   %74 = call ptr @lv_obj_create(ptr noundef %73)
   store ptr %74, ptr %6, align 8, !tbaa !3
   %75 = load ptr, ptr %6, align 8, !tbaa !3
-  %76 = load ptr, ptr %4, align 8, !tbaa !3
+  %76 = load ptr, ptr %4, align 8, !tbaa !8
   %77 = getelementptr inbounds nuw %struct.view_t, ptr %76, i32 0, i32 4
   %78 = getelementptr inbounds nuw %struct.anon, ptr %77, i32 0, i32 1
   %79 = getelementptr inbounds nuw %struct.anon.0, ptr %78, i32 0, i32 3
   %80 = getelementptr inbounds nuw %struct.anon.3, ptr %79, i32 0, i32 7
-  store ptr %75, ptr %80, align 8, !tbaa !30
+  store ptr %75, ptr %80, align 8, !tbaa !32
   %81 = load ptr, ptr %6, align 8, !tbaa !3
   call void @lv_obj_add_style(ptr noundef %81, ptr noundef @tab_layout_create.group_style, i32 noundef 0)
   %82 = load ptr, ptr %6, align 8, !tbaa !3
@@ -385,30 +385,30 @@ define internal void @tab_layout_create(ptr noundef %0, ptr noundef %1) #0 {
   call void @lv_obj_set_flex_align(ptr noundef %83, i32 noundef 0, i32 noundef 2, i32 noundef 2)
   %84 = load ptr, ptr %6, align 8, !tbaa !3
   %85 = call ptr @spinbox_ctrl_create(ptr noundef %84, i8 noundef zeroext 5, ptr noundef null)
-  %86 = load ptr, ptr %4, align 8, !tbaa !3
+  %86 = load ptr, ptr %4, align 8, !tbaa !8
   %87 = getelementptr inbounds nuw %struct.view_t, ptr %86, i32 0, i32 4
   %88 = getelementptr inbounds nuw %struct.anon, ptr %87, i32 0, i32 1
   %89 = getelementptr inbounds nuw %struct.anon.0, ptr %88, i32 0, i32 3
   %90 = getelementptr inbounds nuw %struct.anon.3, ptr %89, i32 0, i32 8
-  store ptr %85, ptr %90, align 8, !tbaa !31
+  store ptr %85, ptr %90, align 8, !tbaa !33
   %91 = load ptr, ptr %6, align 8, !tbaa !3
   %92 = call ptr @spinbox_ctrl_create(ptr noundef %91, i8 noundef zeroext 7, ptr noundef null)
-  %93 = load ptr, ptr %4, align 8, !tbaa !3
+  %93 = load ptr, ptr %4, align 8, !tbaa !8
   %94 = getelementptr inbounds nuw %struct.view_t, ptr %93, i32 0, i32 4
   %95 = getelementptr inbounds nuw %struct.anon, ptr %94, i32 0, i32 1
   %96 = getelementptr inbounds nuw %struct.anon.0, ptr %95, i32 0, i32 3
   %97 = getelementptr inbounds nuw %struct.anon.3, ptr %96, i32 0, i32 9
-  store ptr %92, ptr %97, align 8, !tbaa !32
+  store ptr %92, ptr %97, align 8, !tbaa !34
   %98 = load ptr, ptr %3, align 8, !tbaa !3
   %99 = call ptr @lv_obj_create(ptr noundef %98)
   store ptr %99, ptr %6, align 8, !tbaa !3
   %100 = load ptr, ptr %6, align 8, !tbaa !3
-  %101 = load ptr, ptr %4, align 8, !tbaa !3
+  %101 = load ptr, ptr %4, align 8, !tbaa !8
   %102 = getelementptr inbounds nuw %struct.view_t, ptr %101, i32 0, i32 4
   %103 = getelementptr inbounds nuw %struct.anon, ptr %102, i32 0, i32 1
   %104 = getelementptr inbounds nuw %struct.anon.0, ptr %103, i32 0, i32 3
   %105 = getelementptr inbounds nuw %struct.anon.3, ptr %104, i32 0, i32 7
-  store ptr %100, ptr %105, align 8, !tbaa !30
+  store ptr %100, ptr %105, align 8, !tbaa !32
   %106 = load ptr, ptr %6, align 8, !tbaa !3
   call void @lv_obj_add_style(ptr noundef %106, ptr noundef @tab_layout_create.group_style, i32 noundef 0)
   %107 = load ptr, ptr %6, align 8, !tbaa !3
@@ -420,29 +420,29 @@ define internal void @tab_layout_create(ptr noundef %0, ptr noundef %1) #0 {
   call void @llvm.lifetime.start.p0(i64 8, ptr %7) #5
   %110 = load ptr, ptr %6, align 8, !tbaa !3
   %111 = call ptr @spinbox_ctrl_create(ptr noundef %110, i8 noundef zeroext 16, ptr noundef %7)
-  %112 = load ptr, ptr %4, align 8, !tbaa !3
+  %112 = load ptr, ptr %4, align 8, !tbaa !8
   %113 = getelementptr inbounds nuw %struct.view_t, ptr %112, i32 0, i32 4
   %114 = getelementptr inbounds nuw %struct.anon, ptr %113, i32 0, i32 1
   %115 = getelementptr inbounds nuw %struct.anon.0, ptr %114, i32 0, i32 3
   %116 = getelementptr inbounds nuw %struct.anon.3, ptr %115, i32 0, i32 10
-  store ptr %111, ptr %116, align 8, !tbaa !33
-  %117 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %111, ptr %116, align 8, !tbaa !35
+  %117 = load ptr, ptr %4, align 8, !tbaa !8
   %118 = getelementptr inbounds nuw %struct.view_t, ptr %117, i32 0, i32 4
   %119 = getelementptr inbounds nuw %struct.anon, ptr %118, i32 0, i32 1
   %120 = getelementptr inbounds nuw %struct.anon.0, ptr %119, i32 0, i32 3
   %121 = getelementptr inbounds nuw %struct.anon.3, ptr %120, i32 0, i32 10
-  %122 = load ptr, ptr %121, align 8, !tbaa !33
+  %122 = load ptr, ptr %121, align 8, !tbaa !35
   call void @lv_obj_set_style_width(ptr noundef %122, i32 noundef 30, i32 noundef 0)
   %123 = load ptr, ptr %7, align 8, !tbaa !3
   call void @lv_obj_set_flex_grow(ptr noundef %123, i8 noundef zeroext 0)
   %124 = load ptr, ptr %6, align 8, !tbaa !3
   %125 = call ptr @spinbox_ctrl_create(ptr noundef %124, i8 noundef zeroext 18, ptr noundef %7)
-  %126 = load ptr, ptr %4, align 8, !tbaa !3
+  %126 = load ptr, ptr %4, align 8, !tbaa !8
   %127 = getelementptr inbounds nuw %struct.view_t, ptr %126, i32 0, i32 4
   %128 = getelementptr inbounds nuw %struct.anon, ptr %127, i32 0, i32 1
   %129 = getelementptr inbounds nuw %struct.anon.0, ptr %128, i32 0, i32 3
   %130 = getelementptr inbounds nuw %struct.anon.3, ptr %129, i32 0, i32 12
-  store ptr %125, ptr %130, align 8, !tbaa !34
+  store ptr %125, ptr %130, align 8, !tbaa !36
   %131 = load ptr, ptr %7, align 8, !tbaa !3
   call void @lv_obj_add_flag(ptr noundef %131, i32 noundef 2097152)
   %132 = load ptr, ptr %6, align 8, !tbaa !3
@@ -452,20 +452,20 @@ define internal void @tab_layout_create(ptr noundef %0, ptr noundef %1) #0 {
   call void @lv_checkbox_set_text(ptr noundef %134, ptr noundef @.str.13)
   %135 = load ptr, ptr %6, align 8, !tbaa !3
   %136 = call ptr @spinbox_ctrl_create(ptr noundef %135, i8 noundef zeroext 19, ptr noundef null)
-  %137 = load ptr, ptr %4, align 8, !tbaa !3
+  %137 = load ptr, ptr %4, align 8, !tbaa !8
   %138 = getelementptr inbounds nuw %struct.view_t, ptr %137, i32 0, i32 4
   %139 = getelementptr inbounds nuw %struct.anon, ptr %138, i32 0, i32 1
   %140 = getelementptr inbounds nuw %struct.anon.0, ptr %139, i32 0, i32 3
   %141 = getelementptr inbounds nuw %struct.anon.3, ptr %140, i32 0, i32 13
-  store ptr %136, ptr %141, align 8, !tbaa !35
+  store ptr %136, ptr %141, align 8, !tbaa !37
   %142 = load ptr, ptr %6, align 8, !tbaa !3
   %143 = call ptr @spinbox_ctrl_create(ptr noundef %142, i8 noundef zeroext 17, ptr noundef %7)
-  %144 = load ptr, ptr %4, align 8, !tbaa !3
+  %144 = load ptr, ptr %4, align 8, !tbaa !8
   %145 = getelementptr inbounds nuw %struct.view_t, ptr %144, i32 0, i32 4
   %146 = getelementptr inbounds nuw %struct.anon, ptr %145, i32 0, i32 1
   %147 = getelementptr inbounds nuw %struct.anon.0, ptr %146, i32 0, i32 3
   %148 = getelementptr inbounds nuw %struct.anon.3, ptr %147, i32 0, i32 11
-  store ptr %143, ptr %148, align 8, !tbaa !36
+  store ptr %143, ptr %148, align 8, !tbaa !38
   %149 = load ptr, ptr %7, align 8, !tbaa !3
   call void @lv_obj_set_flex_grow(ptr noundef %149, i8 noundef zeroext 0)
   %150 = load ptr, ptr %7, align 8, !tbaa !3
@@ -481,12 +481,12 @@ define internal void @tab_layout_create(ptr noundef %0, ptr noundef %1) #0 {
   %156 = call ptr @lv_obj_create(ptr noundef %155)
   store ptr %156, ptr %6, align 8, !tbaa !3
   %157 = load ptr, ptr %6, align 8, !tbaa !3
-  %158 = load ptr, ptr %4, align 8, !tbaa !3
+  %158 = load ptr, ptr %4, align 8, !tbaa !8
   %159 = getelementptr inbounds nuw %struct.view_t, ptr %158, i32 0, i32 4
   %160 = getelementptr inbounds nuw %struct.anon, ptr %159, i32 0, i32 1
   %161 = getelementptr inbounds nuw %struct.anon.0, ptr %160, i32 0, i32 3
   %162 = getelementptr inbounds nuw %struct.anon.3, ptr %161, i32 0, i32 7
-  store ptr %157, ptr %162, align 8, !tbaa !30
+  store ptr %157, ptr %162, align 8, !tbaa !32
   %163 = load ptr, ptr %6, align 8, !tbaa !3
   call void @lv_obj_add_style(ptr noundef %163, ptr noundef @tab_layout_create.group_style, i32 noundef 0)
   %164 = load ptr, ptr %6, align 8, !tbaa !3
@@ -495,28 +495,28 @@ define internal void @tab_layout_create(ptr noundef %0, ptr noundef %1) #0 {
   call void @lv_obj_set_flex_align(ptr noundef %165, i32 noundef 0, i32 noundef 2, i32 noundef 2)
   %166 = load ptr, ptr %6, align 8, !tbaa !3
   %167 = call ptr @spinbox_ctrl_create(ptr noundef %166, i8 noundef zeroext 21, ptr noundef null)
-  %168 = load ptr, ptr %4, align 8, !tbaa !3
+  %168 = load ptr, ptr %4, align 8, !tbaa !8
   %169 = getelementptr inbounds nuw %struct.view_t, ptr %168, i32 0, i32 4
   %170 = getelementptr inbounds nuw %struct.anon, ptr %169, i32 0, i32 1
   %171 = getelementptr inbounds nuw %struct.anon.0, ptr %170, i32 0, i32 3
   %172 = getelementptr inbounds nuw %struct.anon.3, ptr %171, i32 0, i32 14
-  store ptr %167, ptr %172, align 8, !tbaa !37
+  store ptr %167, ptr %172, align 8, !tbaa !39
   %173 = load ptr, ptr %6, align 8, !tbaa !3
   %174 = call ptr @spinbox_ctrl_create(ptr noundef %173, i8 noundef zeroext 20, ptr noundef null)
-  %175 = load ptr, ptr %4, align 8, !tbaa !3
+  %175 = load ptr, ptr %4, align 8, !tbaa !8
   %176 = getelementptr inbounds nuw %struct.view_t, ptr %175, i32 0, i32 4
   %177 = getelementptr inbounds nuw %struct.anon, ptr %176, i32 0, i32 1
   %178 = getelementptr inbounds nuw %struct.anon.0, ptr %177, i32 0, i32 3
   %179 = getelementptr inbounds nuw %struct.anon.3, ptr %178, i32 0, i32 15
-  store ptr %174, ptr %179, align 8, !tbaa !38
+  store ptr %174, ptr %179, align 8, !tbaa !40
   %180 = load ptr, ptr %6, align 8, !tbaa !3
   %181 = call ptr @spinbox_ctrl_create(ptr noundef %180, i8 noundef zeroext -127, ptr noundef null)
-  %182 = load ptr, ptr %4, align 8, !tbaa !3
+  %182 = load ptr, ptr %4, align 8, !tbaa !8
   %183 = getelementptr inbounds nuw %struct.view_t, ptr %182, i32 0, i32 4
   %184 = getelementptr inbounds nuw %struct.anon, ptr %183, i32 0, i32 1
   %185 = getelementptr inbounds nuw %struct.anon.0, ptr %184, i32 0, i32 3
   %186 = getelementptr inbounds nuw %struct.anon.3, ptr %185, i32 0, i32 16
-  store ptr %181, ptr %186, align 8, !tbaa !39
+  store ptr %181, ptr %186, align 8, !tbaa !41
   call void @llvm.lifetime.end.p0(i64 8, ptr %7) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr %5) #5
@@ -524,7 +524,7 @@ define internal void @tab_layout_create(ptr noundef %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 declare void @lv_obj_set_flex_flow(ptr noundef, i32 noundef) #2
 
@@ -539,8 +539,8 @@ define internal ptr @ddlist_create(ptr noundef %0, ptr noundef %1, ptr noundef %
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   store ptr %0, ptr %4, align 8, !tbaa !3
-  store ptr %1, ptr %5, align 8, !tbaa !3
-  store ptr %2, ptr %6, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !42
+  store ptr %2, ptr %6, align 8, !tbaa !42
   call void @llvm.lifetime.start.p0(i64 8, ptr %7) #5
   %10 = load ptr, ptr %4, align 8, !tbaa !3
   %11 = call ptr @lv_obj_create(ptr noundef %10)
@@ -557,7 +557,7 @@ define internal ptr @ddlist_create(ptr noundef %0, ptr noundef %1, ptr noundef %
   %17 = call ptr @lv_label_create(ptr noundef %16)
   store ptr %17, ptr %8, align 8, !tbaa !3
   %18 = load ptr, ptr %8, align 8, !tbaa !3
-  %19 = load ptr, ptr %5, align 8, !tbaa !3
+  %19 = load ptr, ptr %5, align 8, !tbaa !42
   call void @lv_label_set_text(ptr noundef %18, ptr noundef %19)
   call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
   %20 = load ptr, ptr %7, align 8, !tbaa !3
@@ -567,7 +567,7 @@ define internal ptr @ddlist_create(ptr noundef %0, ptr noundef %1, ptr noundef %
   %23 = call i32 @lv_pct(i32 noundef 100)
   call void @lv_obj_set_width(ptr noundef %22, i32 noundef %23)
   %24 = load ptr, ptr %9, align 8, !tbaa !3
-  %25 = load ptr, ptr %6, align 8, !tbaa !3
+  %25 = load ptr, ptr %6, align 8, !tbaa !42
   call void @lv_dropdown_set_options_static(ptr noundef %24, ptr noundef %25)
   %26 = load ptr, ptr %9, align 8, !tbaa !3
   call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
@@ -600,15 +600,15 @@ define internal void @lv_obj_set_style_pad_gap(ptr noundef %0, i32 noundef %1, i
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   store ptr %0, ptr %4, align 8, !tbaa !3
-  store i32 %1, ptr %5, align 4, !tbaa !40
-  store i32 %2, ptr %6, align 4, !tbaa !40
+  store i32 %1, ptr %5, align 4, !tbaa !44
+  store i32 %2, ptr %6, align 4, !tbaa !44
   %7 = load ptr, ptr %4, align 8, !tbaa !3
-  %8 = load i32, ptr %5, align 4, !tbaa !40
-  %9 = load i32, ptr %6, align 4, !tbaa !40
+  %8 = load i32, ptr %5, align 4, !tbaa !44
+  %9 = load i32, ptr %6, align 4, !tbaa !44
   call void @lv_obj_set_style_pad_row(ptr noundef %7, i32 noundef %8, i32 noundef %9)
   %10 = load ptr, ptr %4, align 8, !tbaa !3
-  %11 = load i32, ptr %5, align 4, !tbaa !40
-  %12 = load i32, ptr %6, align 4, !tbaa !40
+  %11 = load i32, ptr %5, align 4, !tbaa !44
+  %12 = load i32, ptr %6, align 4, !tbaa !44
   call void @lv_obj_set_style_pad_column(ptr noundef %10, i32 noundef %11, i32 noundef %12)
   ret void
 }
@@ -619,19 +619,19 @@ declare void @lv_style_init(ptr noundef) #2
 define internal void @lv_style_set_pad_all(ptr noundef %0, i32 noundef %1) #4 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8, !tbaa !3
-  store i32 %1, ptr %4, align 4, !tbaa !40
-  %5 = load ptr, ptr %3, align 8, !tbaa !3
-  %6 = load i32, ptr %4, align 4, !tbaa !40
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store i32 %1, ptr %4, align 4, !tbaa !44
+  %5 = load ptr, ptr %3, align 8, !tbaa !8
+  %6 = load i32, ptr %4, align 4, !tbaa !44
   call void @lv_style_set_pad_left(ptr noundef %5, i32 noundef %6)
-  %7 = load ptr, ptr %3, align 8, !tbaa !3
-  %8 = load i32, ptr %4, align 4, !tbaa !40
+  %7 = load ptr, ptr %3, align 8, !tbaa !8
+  %8 = load i32, ptr %4, align 4, !tbaa !44
   call void @lv_style_set_pad_right(ptr noundef %7, i32 noundef %8)
-  %9 = load ptr, ptr %3, align 8, !tbaa !3
-  %10 = load i32, ptr %4, align 4, !tbaa !40
+  %9 = load ptr, ptr %3, align 8, !tbaa !8
+  %10 = load i32, ptr %4, align 4, !tbaa !44
   call void @lv_style_set_pad_top(ptr noundef %9, i32 noundef %10)
-  %11 = load ptr, ptr %3, align 8, !tbaa !3
-  %12 = load i32, ptr %4, align 4, !tbaa !40
+  %11 = load ptr, ptr %3, align 8, !tbaa !8
+  %12 = load i32, ptr %4, align 4, !tbaa !44
   call void @lv_style_set_pad_bottom(ptr noundef %11, i32 noundef %12)
   ret void
 }
@@ -668,8 +668,8 @@ define internal ptr @spinbox_ctrl_create(ptr noundef %0, i8 noundef zeroext %1, 
   %21 = alloca i24, align 4
   %22 = alloca ptr, align 8
   store ptr %0, ptr %4, align 8, !tbaa !3
-  store i8 %1, ptr %5, align 1, !tbaa !41
-  store ptr %2, ptr %6, align 8, !tbaa !3
+  store i8 %1, ptr %5, align 1, !tbaa !45
+  store ptr %2, ptr %6, align 8, !tbaa !46
   call void @llvm.lifetime.start.p0(i64 8, ptr %7) #5
   %23 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %23, ptr %7, align 8, !tbaa !3
@@ -678,13 +678,13 @@ define internal ptr @spinbox_ctrl_create(ptr noundef %0, i8 noundef zeroext %1, 
   %24 = load ptr, ptr %7, align 8, !tbaa !3
   %25 = call ptr @lv_obj_create(ptr noundef %24)
   store ptr %25, ptr %9, align 8, !tbaa !3
-  %26 = load ptr, ptr %6, align 8, !tbaa !3
+  %26 = load ptr, ptr %6, align 8, !tbaa !46
   %27 = icmp ne ptr %26, null
   br i1 %27, label %28, label %31
 
 28:                                               ; preds = %3
   %29 = load ptr, ptr %9, align 8, !tbaa !3
-  %30 = load ptr, ptr %6, align 8, !tbaa !3
+  %30 = load ptr, ptr %6, align 8, !tbaa !46
   store ptr %29, ptr %30, align 8, !tbaa !3
   br label %31
 
@@ -711,7 +711,7 @@ define internal ptr @spinbox_ctrl_create(ptr noundef %0, i8 noundef zeroext %1, 
   call void @lv_obj_set_flex_flow(ptr noundef %41, i32 noundef 0)
   %42 = load ptr, ptr %9, align 8, !tbaa !3
   call void @lv_obj_set_style_flex_main_place(ptr noundef %42, i32 noundef 2, i32 noundef 0)
-  %43 = load i8, ptr getelementptr inbounds nuw (%struct.lv_style_t, ptr @spinbox_ctrl_create.btn_style, i32 0, i32 2), align 4, !tbaa !42
+  %43 = load i8, ptr getelementptr inbounds nuw (%struct.lv_style_t, ptr @spinbox_ctrl_create.btn_style, i32 0, i32 2), align 4, !tbaa !48
   %44 = zext i8 %43 to i32
   %45 = icmp slt i32 %44, 1
   br i1 %45, label %46, label %54
@@ -779,7 +779,7 @@ define internal ptr @spinbox_ctrl_create(ptr noundef %0, i8 noundef zeroext %1, 
   %73 = load ptr, ptr %19, align 8, !tbaa !3
   call void @lv_obj_set_style_radius(ptr noundef %73, i32 noundef 0, i32 noundef 0)
   %74 = load ptr, ptr %19, align 8, !tbaa !3
-  %75 = load i8, ptr %5, align 1, !tbaa !41
+  %75 = load i8, ptr %5, align 1, !tbaa !45
   %76 = zext i8 %75 to i64
   %77 = inttoptr i64 %76 to ptr
   call void @lv_obj_set_user_data(ptr noundef %74, ptr noundef %77)
@@ -887,21 +887,21 @@ define internal void @btn_inc_event_handler(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8, !tbaa !3
+  store ptr %0, ptr %2, align 8, !tbaa !49
   call void @llvm.lifetime.start.p0(i64 8, ptr %3) #5
-  %5 = load ptr, ptr %2, align 8, !tbaa !3
+  %5 = load ptr, ptr %2, align 8, !tbaa !49
   %6 = call ptr @lv_event_get_user_data(ptr noundef %5)
   store ptr %6, ptr %3, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(i64 4, ptr %4) #5
-  %7 = load ptr, ptr %2, align 8, !tbaa !3
+  %7 = load ptr, ptr %2, align 8, !tbaa !49
   %8 = call i32 @lv_event_get_code(ptr noundef %7)
-  store i32 %8, ptr %4, align 4, !tbaa !40
-  %9 = load i32, ptr %4, align 4, !tbaa !40
+  store i32 %8, ptr %4, align 4, !tbaa !44
+  %9 = load i32, ptr %4, align 4, !tbaa !44
   %10 = icmp eq i32 %9, 4
   br i1 %10, label %14, label %11
 
 11:                                               ; preds = %1
-  %12 = load i32, ptr %4, align 4, !tbaa !40
+  %12 = load i32, ptr %4, align 4, !tbaa !44
   %13 = icmp eq i32 %12, 9
   br i1 %13, label %14, label %16
 
@@ -921,21 +921,21 @@ define internal void @btn_dec_event_handler(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8, !tbaa !3
+  store ptr %0, ptr %2, align 8, !tbaa !49
   call void @llvm.lifetime.start.p0(i64 8, ptr %3) #5
-  %5 = load ptr, ptr %2, align 8, !tbaa !3
+  %5 = load ptr, ptr %2, align 8, !tbaa !49
   %6 = call ptr @lv_event_get_user_data(ptr noundef %5)
   store ptr %6, ptr %3, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(i64 4, ptr %4) #5
-  %7 = load ptr, ptr %2, align 8, !tbaa !3
+  %7 = load ptr, ptr %2, align 8, !tbaa !49
   %8 = call i32 @lv_event_get_code(ptr noundef %7)
-  store i32 %8, ptr %4, align 4, !tbaa !40
-  %9 = load i32, ptr %4, align 4, !tbaa !40
+  store i32 %8, ptr %4, align 4, !tbaa !44
+  %9 = load i32, ptr %4, align 4, !tbaa !44
   %10 = icmp eq i32 %9, 4
   br i1 %10, label %14, label %11
 
 11:                                               ; preds = %1
-  %12 = load i32, ptr %4, align 4, !tbaa !40
+  %12 = load i32, ptr %4, align 4, !tbaa !44
   %13 = icmp eq i32 %12, 9
   br i1 %13, label %14, label %16
 
@@ -971,42 +971,50 @@ attributes #5 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{!4, !4, i64 0}
-!4 = !{!"any pointer", !5, i64 0}
-!5 = !{!"omnipotent char", !6, i64 0}
-!6 = !{!"Simple C/C++ TBAA"}
-!7 = !{!8, !4, i64 56}
-!8 = !{!"", !4, i64 0, !4, i64 8, !9, i64 16, !9, i64 32, !11, i64 48}
-!9 = !{!"", !4, i64 0, !10, i64 8, !5, i64 12}
-!10 = !{!"int", !5, i64 0}
-!11 = !{!"", !4, i64 0, !12, i64 8, !13, i64 208}
-!12 = !{!"", !4, i64 0, !13, i64 8, !14, i64 32, !15, i64 64}
-!13 = !{!"", !4, i64 0, !4, i64 8, !4, i64 16}
-!14 = !{!"", !4, i64 0, !4, i64 8, !4, i64 16, !4, i64 24}
-!15 = !{!"", !4, i64 0, !4, i64 8, !4, i64 16, !4, i64 24, !4, i64 32, !4, i64 40, !4, i64 48, !4, i64 56, !4, i64 64, !4, i64 72, !4, i64 80, !4, i64 88, !4, i64 96, !4, i64 104, !4, i64 112, !4, i64 120, !4, i64 128}
-!16 = !{!8, !4, i64 64}
-!17 = !{!8, !4, i64 88}
-!18 = !{!8, !4, i64 120}
-!19 = !{!8, !4, i64 72}
-!20 = !{!8, !4, i64 80}
-!21 = !{!8, !4, i64 96}
-!22 = !{!8, !4, i64 104}
-!23 = !{!8, !4, i64 112}
-!24 = !{!8, !4, i64 128}
-!25 = !{!8, !4, i64 136}
-!26 = !{!8, !4, i64 144}
-!27 = !{!8, !4, i64 152}
-!28 = !{!8, !4, i64 160}
-!29 = !{!8, !4, i64 168}
-!30 = !{!8, !4, i64 176}
-!31 = !{!8, !4, i64 184}
-!32 = !{!8, !4, i64 192}
-!33 = !{!8, !4, i64 200}
-!34 = !{!8, !4, i64 216}
-!35 = !{!8, !4, i64 224}
-!36 = !{!8, !4, i64 208}
-!37 = !{!8, !4, i64 232}
-!38 = !{!8, !4, i64 240}
-!39 = !{!8, !4, i64 248}
-!40 = !{!10, !10, i64 0}
-!41 = !{!5, !5, i64 0}
-!42 = !{!9, !5, i64 12}
+!4 = !{!"p1 _ZTS9_lv_obj_t", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!5, !5, i64 0}
+!9 = !{!10, !4, i64 56}
+!10 = !{!"", !4, i64 0, !4, i64 8, !11, i64 16, !11, i64 32, !13, i64 48}
+!11 = !{!"", !5, i64 0, !12, i64 8, !6, i64 12}
+!12 = !{!"int", !6, i64 0}
+!13 = !{!"", !4, i64 0, !14, i64 8, !15, i64 208}
+!14 = !{!"", !4, i64 0, !15, i64 8, !16, i64 32, !17, i64 64}
+!15 = !{!"", !4, i64 0, !4, i64 8, !4, i64 16}
+!16 = !{!"", !4, i64 0, !4, i64 8, !4, i64 16, !4, i64 24}
+!17 = !{!"", !4, i64 0, !4, i64 8, !4, i64 16, !4, i64 24, !4, i64 32, !4, i64 40, !4, i64 48, !4, i64 56, !4, i64 64, !4, i64 72, !4, i64 80, !4, i64 88, !4, i64 96, !4, i64 104, !4, i64 112, !4, i64 120, !4, i64 128}
+!18 = !{!10, !4, i64 64}
+!19 = !{!10, !4, i64 88}
+!20 = !{!10, !4, i64 120}
+!21 = !{!10, !4, i64 72}
+!22 = !{!10, !4, i64 80}
+!23 = !{!10, !4, i64 96}
+!24 = !{!10, !4, i64 104}
+!25 = !{!10, !4, i64 112}
+!26 = !{!10, !4, i64 128}
+!27 = !{!10, !4, i64 136}
+!28 = !{!10, !4, i64 144}
+!29 = !{!10, !4, i64 152}
+!30 = !{!10, !4, i64 160}
+!31 = !{!10, !4, i64 168}
+!32 = !{!10, !4, i64 176}
+!33 = !{!10, !4, i64 184}
+!34 = !{!10, !4, i64 192}
+!35 = !{!10, !4, i64 200}
+!36 = !{!10, !4, i64 216}
+!37 = !{!10, !4, i64 224}
+!38 = !{!10, !4, i64 208}
+!39 = !{!10, !4, i64 232}
+!40 = !{!10, !4, i64 240}
+!41 = !{!10, !4, i64 248}
+!42 = !{!43, !43, i64 0}
+!43 = !{!"p1 omnipotent char", !5, i64 0}
+!44 = !{!12, !12, i64 0}
+!45 = !{!6, !6, i64 0}
+!46 = !{!47, !47, i64 0}
+!47 = !{!"p2 _ZTS9_lv_obj_t", !5, i64 0}
+!48 = !{!11, !6, i64 12}
+!49 = !{!50, !50, i64 0}
+!50 = !{!"p1 _ZTS11_lv_event_t", !5, i64 0}

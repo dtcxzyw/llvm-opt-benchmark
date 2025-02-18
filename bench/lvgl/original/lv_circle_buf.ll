@@ -65,13 +65,13 @@ define ptr @lv_circle_buf_create(i32 noundef %0, i32 noundef %1) #0 {
   call void @lv_array_init(ptr noundef %26, i32 noundef %27, i32 noundef %28)
   %29 = load ptr, ptr %6, align 8, !tbaa !7
   %30 = getelementptr inbounds nuw %struct._lv_circle_buf_t, ptr %29, i32 0, i32 1
-  store i32 0, ptr %30, align 8, !tbaa !9
+  store i32 0, ptr %30, align 8, !tbaa !10
   %31 = load ptr, ptr %6, align 8, !tbaa !7
   %32 = getelementptr inbounds nuw %struct._lv_circle_buf_t, ptr %31, i32 0, i32 2
-  store i32 0, ptr %32, align 4, !tbaa !13
+  store i32 0, ptr %32, align 4, !tbaa !15
   %33 = load ptr, ptr %6, align 8, !tbaa !7
   %34 = getelementptr inbounds nuw %struct._lv_circle_buf_t, ptr %33, i32 0, i32 3
-  store i8 1, ptr %34, align 8, !tbaa !14
+  store i8 1, ptr %34, align 8, !tbaa !16
   %35 = load ptr, ptr %6, align 8, !tbaa !7
   call void @circle_buf_prepare_empty(ptr noundef %35)
   %36 = load ptr, ptr %6, align 8, !tbaa !7
@@ -86,7 +86,7 @@ define ptr @lv_circle_buf_create(i32 noundef %0, i32 noundef %1) #0 {
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 declare ptr @lv_malloc(i64 noundef) #2
 
@@ -131,7 +131,7 @@ define internal void @circle_buf_prepare_empty(ptr noundef %0) #0 {
   %22 = load i32, ptr %4, align 4, !tbaa !3
   %23 = add i32 %22, 1
   store i32 %23, ptr %4, align 4, !tbaa !3
-  br label %12, !llvm.loop !15
+  br label %12, !llvm.loop !17
 
 24:                                               ; preds = %16
   call void @llvm.lifetime.end.p0(i64 4, ptr %3) #4
@@ -139,7 +139,7 @@ define internal void @circle_buf_prepare_empty(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @lv_circle_buf_create_from_buf(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 {
@@ -149,13 +149,13 @@ define ptr @lv_circle_buf_create_from_buf(ptr noundef %0, i32 noundef %1, i32 no
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8, !tbaa !7
+  store ptr %0, ptr %5, align 8, !tbaa !19
   store i32 %1, ptr %6, align 4, !tbaa !3
   store i32 %2, ptr %7, align 4, !tbaa !3
   br label %10
 
 10:                                               ; preds = %3
-  %11 = load ptr, ptr %5, align 8, !tbaa !7
+  %11 = load ptr, ptr %5, align 8, !tbaa !19
   %12 = icmp ne ptr %11, null
   br i1 %12, label %17, label %13
 
@@ -222,19 +222,19 @@ define ptr @lv_circle_buf_create_from_buf(ptr noundef %0, i32 noundef %1, i32 no
 35:                                               ; preds = %31
   %36 = load ptr, ptr %8, align 8, !tbaa !7
   %37 = getelementptr inbounds nuw %struct._lv_circle_buf_t, ptr %36, i32 0, i32 0
-  %38 = load ptr, ptr %5, align 8, !tbaa !7
+  %38 = load ptr, ptr %5, align 8, !tbaa !19
   %39 = load i32, ptr %6, align 4, !tbaa !3
   %40 = load i32, ptr %7, align 4, !tbaa !3
   call void @lv_array_init_from_buf(ptr noundef %37, ptr noundef %38, i32 noundef %39, i32 noundef %40)
   %41 = load ptr, ptr %8, align 8, !tbaa !7
   %42 = getelementptr inbounds nuw %struct._lv_circle_buf_t, ptr %41, i32 0, i32 1
-  store i32 0, ptr %42, align 8, !tbaa !9
+  store i32 0, ptr %42, align 8, !tbaa !10
   %43 = load ptr, ptr %8, align 8, !tbaa !7
   %44 = getelementptr inbounds nuw %struct._lv_circle_buf_t, ptr %43, i32 0, i32 2
-  store i32 0, ptr %44, align 4, !tbaa !13
+  store i32 0, ptr %44, align 4, !tbaa !15
   %45 = load ptr, ptr %8, align 8, !tbaa !7
   %46 = getelementptr inbounds nuw %struct._lv_circle_buf_t, ptr %45, i32 0, i32 3
-  store i8 0, ptr %46, align 8, !tbaa !14
+  store i8 0, ptr %46, align 8, !tbaa !16
   %47 = load ptr, ptr %8, align 8, !tbaa !7
   call void @circle_buf_prepare_empty(ptr noundef %47)
   %48 = load ptr, ptr %8, align 8, !tbaa !7
@@ -256,11 +256,11 @@ define ptr @lv_circle_buf_create_from_array(ptr noundef %0) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8, !tbaa !7
+  store ptr %0, ptr %3, align 8, !tbaa !20
   br label %6
 
 6:                                                ; preds = %1
-  %7 = load ptr, ptr %3, align 8, !tbaa !7
+  %7 = load ptr, ptr %3, align 8, !tbaa !20
   %8 = icmp ne ptr %7, null
   br i1 %8, label %13, label %9
 
@@ -280,7 +280,7 @@ define ptr @lv_circle_buf_create_from_array(ptr noundef %0) #0 {
   br label %14
 
 14:                                               ; preds = %13
-  %15 = load ptr, ptr %3, align 8, !tbaa !7
+  %15 = load ptr, ptr %3, align 8, !tbaa !20
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %18
 
@@ -336,17 +336,17 @@ define ptr @lv_circle_buf_create_from_array(ptr noundef %0) #0 {
 35:                                               ; preds = %31
   %36 = load ptr, ptr %4, align 8, !tbaa !7
   %37 = getelementptr inbounds nuw %struct._lv_circle_buf_t, ptr %36, i32 0, i32 0
-  %38 = load ptr, ptr %3, align 8, !tbaa !7
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %37, ptr align 8 %38, i64 24, i1 false), !tbaa.struct !17
+  %38 = load ptr, ptr %3, align 8, !tbaa !20
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %37, ptr align 8 %38, i64 24, i1 false), !tbaa.struct !22
   %39 = load ptr, ptr %4, align 8, !tbaa !7
   %40 = getelementptr inbounds nuw %struct._lv_circle_buf_t, ptr %39, i32 0, i32 1
-  store i32 0, ptr %40, align 8, !tbaa !9
+  store i32 0, ptr %40, align 8, !tbaa !10
   %41 = load ptr, ptr %4, align 8, !tbaa !7
   %42 = getelementptr inbounds nuw %struct._lv_circle_buf_t, ptr %41, i32 0, i32 2
-  store i32 0, ptr %42, align 4, !tbaa !13
+  store i32 0, ptr %42, align 4, !tbaa !15
   %43 = load ptr, ptr %4, align 8, !tbaa !7
   %44 = getelementptr inbounds nuw %struct._lv_circle_buf_t, ptr %43, i32 0, i32 3
-  store i8 0, ptr %44, align 8, !tbaa !14
+  store i8 0, ptr %44, align 8, !tbaa !16
   %45 = load ptr, ptr %4, align 8, !tbaa !7
   call void @circle_buf_prepare_empty(ptr noundef %45)
   %46 = load ptr, ptr %4, align 8, !tbaa !7
@@ -364,7 +364,7 @@ define ptr @lv_circle_buf_create_from_array(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define i32 @lv_circle_buf_resize(ptr noundef %0, i32 noundef %1) #0 {
@@ -411,10 +411,10 @@ define i32 @lv_circle_buf_resize(ptr noundef %0, i32 noundef %1) #0 {
 22:                                               ; preds = %14
   %23 = load ptr, ptr %4, align 8, !tbaa !7
   %24 = getelementptr inbounds nuw %struct._lv_circle_buf_t, ptr %23, i32 0, i32 1
-  store i32 0, ptr %24, align 8, !tbaa !9
+  store i32 0, ptr %24, align 8, !tbaa !10
   %25 = load ptr, ptr %4, align 8, !tbaa !7
   %26 = getelementptr inbounds nuw %struct._lv_circle_buf_t, ptr %25, i32 0, i32 2
-  store i32 0, ptr %26, align 4, !tbaa !13
+  store i32 0, ptr %26, align 4, !tbaa !15
   %27 = load ptr, ptr %4, align 8, !tbaa !7
   call void @circle_buf_prepare_empty(ptr noundef %27)
   store i32 1, ptr %3, align 4
@@ -495,10 +495,10 @@ define i32 @lv_circle_buf_size(ptr noundef %0) #0 {
 11:                                               ; preds = %10
   %12 = load ptr, ptr %2, align 8, !tbaa !7
   %13 = getelementptr inbounds nuw %struct._lv_circle_buf_t, ptr %12, i32 0, i32 2
-  %14 = load i32, ptr %13, align 4, !tbaa !13
+  %14 = load i32, ptr %13, align 4, !tbaa !15
   %15 = load ptr, ptr %2, align 8, !tbaa !7
   %16 = getelementptr inbounds nuw %struct._lv_circle_buf_t, ptr %15, i32 0, i32 1
-  %17 = load i32, ptr %16, align 8, !tbaa !9
+  %17 = load i32, ptr %16, align 8, !tbaa !10
   %18 = sub i32 %14, %17
   ret i32 %18
 }
@@ -673,10 +673,10 @@ define void @lv_circle_buf_reset(ptr noundef %0) #0 {
   call void @lv_array_clear(ptr noundef %13)
   %14 = load ptr, ptr %2, align 8, !tbaa !7
   %15 = getelementptr inbounds nuw %struct._lv_circle_buf_t, ptr %14, i32 0, i32 1
-  store i32 0, ptr %15, align 8, !tbaa !9
+  store i32 0, ptr %15, align 8, !tbaa !10
   %16 = load ptr, ptr %2, align 8, !tbaa !7
   %17 = getelementptr inbounds nuw %struct._lv_circle_buf_t, ptr %16, i32 0, i32 2
-  store i32 0, ptr %17, align 4, !tbaa !13
+  store i32 0, ptr %17, align 4, !tbaa !15
   ret void
 }
 
@@ -713,7 +713,7 @@ define ptr @lv_circle_buf_head(ptr noundef %0) #0 {
   %13 = getelementptr inbounds nuw %struct._lv_circle_buf_t, ptr %12, i32 0, i32 0
   %14 = load ptr, ptr %2, align 8, !tbaa !7
   %15 = getelementptr inbounds nuw %struct._lv_circle_buf_t, ptr %14, i32 0, i32 1
-  %16 = load i32, ptr %15, align 8, !tbaa !9
+  %16 = load i32, ptr %15, align 8, !tbaa !10
   %17 = load ptr, ptr %2, align 8, !tbaa !7
   %18 = call i32 @lv_circle_buf_capacity(ptr noundef %17)
   %19 = urem i32 %16, %18
@@ -754,7 +754,7 @@ define ptr @lv_circle_buf_tail(ptr noundef %0) #0 {
   %13 = getelementptr inbounds nuw %struct._lv_circle_buf_t, ptr %12, i32 0, i32 0
   %14 = load ptr, ptr %2, align 8, !tbaa !7
   %15 = getelementptr inbounds nuw %struct._lv_circle_buf_t, ptr %14, i32 0, i32 2
-  %16 = load i32, ptr %15, align 4, !tbaa !13
+  %16 = load i32, ptr %15, align 4, !tbaa !15
   %17 = load ptr, ptr %2, align 8, !tbaa !7
   %18 = call i32 @lv_circle_buf_capacity(ptr noundef %17)
   %19 = urem i32 %16, %18
@@ -768,7 +768,7 @@ define i32 @lv_circle_buf_read(ptr noundef %0, ptr noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   store ptr %0, ptr %4, align 8, !tbaa !7
-  store ptr %1, ptr %5, align 8, !tbaa !7
+  store ptr %1, ptr %5, align 8, !tbaa !19
   br label %6
 
 6:                                                ; preds = %2
@@ -799,22 +799,22 @@ define i32 @lv_circle_buf_read(ptr noundef %0, ptr noundef %1) #0 {
 17:                                               ; preds = %14
   %18 = load ptr, ptr %4, align 8, !tbaa !7
   %19 = getelementptr inbounds nuw %struct._lv_circle_buf_t, ptr %18, i32 0, i32 1
-  store i32 0, ptr %19, align 8, !tbaa !9
+  store i32 0, ptr %19, align 8, !tbaa !10
   %20 = load ptr, ptr %4, align 8, !tbaa !7
   %21 = getelementptr inbounds nuw %struct._lv_circle_buf_t, ptr %20, i32 0, i32 2
-  store i32 0, ptr %21, align 4, !tbaa !13
+  store i32 0, ptr %21, align 4, !tbaa !15
   store i32 0, ptr %3, align 4
   br label %30
 
 22:                                               ; preds = %14
   %23 = load ptr, ptr %4, align 8, !tbaa !7
-  %24 = load ptr, ptr %5, align 8, !tbaa !7
+  %24 = load ptr, ptr %5, align 8, !tbaa !19
   %25 = call i32 @lv_circle_buf_peek_at(ptr noundef %23, i32 noundef 0, ptr noundef %24)
   %26 = load ptr, ptr %4, align 8, !tbaa !7
   %27 = getelementptr inbounds nuw %struct._lv_circle_buf_t, ptr %26, i32 0, i32 1
-  %28 = load i32, ptr %27, align 8, !tbaa !9
+  %28 = load i32, ptr %27, align 8, !tbaa !10
   %29 = add i32 %28, 1
-  store i32 %29, ptr %27, align 8, !tbaa !9
+  store i32 %29, ptr %27, align 8, !tbaa !10
   store i32 1, ptr %3, align 4
   br label %30
 
@@ -831,7 +831,7 @@ define i32 @lv_circle_buf_peek_at(ptr noundef %0, i32 noundef %1, ptr noundef %2
   %7 = alloca i32, align 4
   store ptr %0, ptr %4, align 8, !tbaa !7
   store i32 %1, ptr %5, align 4, !tbaa !3
-  store ptr %2, ptr %6, align 8, !tbaa !7
+  store ptr %2, ptr %6, align 8, !tbaa !19
   br label %8
 
 8:                                                ; preds = %3
@@ -858,7 +858,7 @@ define i32 @lv_circle_buf_peek_at(ptr noundef %0, i32 noundef %1, ptr noundef %2
   br label %17
 
 17:                                               ; preds = %16
-  %18 = load ptr, ptr %6, align 8, !tbaa !7
+  %18 = load ptr, ptr %6, align 8, !tbaa !19
   %19 = icmp ne ptr %18, null
   br i1 %19, label %24, label %20
 
@@ -885,13 +885,13 @@ define i32 @lv_circle_buf_peek_at(ptr noundef %0, i32 noundef %1, ptr noundef %2
   %29 = urem i32 %26, %28
   %30 = load ptr, ptr %4, align 8, !tbaa !7
   %31 = getelementptr inbounds nuw %struct._lv_circle_buf_t, ptr %30, i32 0, i32 1
-  %32 = load i32, ptr %31, align 8, !tbaa !9
+  %32 = load i32, ptr %31, align 8, !tbaa !10
   %33 = add i32 %29, %32
   %34 = load ptr, ptr %4, align 8, !tbaa !7
   %35 = call i32 @lv_circle_buf_capacity(ptr noundef %34)
   %36 = urem i32 %33, %35
   store i32 %36, ptr %7, align 4, !tbaa !3
-  %37 = load ptr, ptr %6, align 8, !tbaa !7
+  %37 = load ptr, ptr %6, align 8, !tbaa !19
   %38 = load ptr, ptr %4, align 8, !tbaa !7
   %39 = getelementptr inbounds nuw %struct._lv_circle_buf_t, ptr %38, i32 0, i32 0
   %40 = load i32, ptr %7, align 4, !tbaa !3
@@ -899,7 +899,7 @@ define i32 @lv_circle_buf_peek_at(ptr noundef %0, i32 noundef %1, ptr noundef %2
   %42 = load ptr, ptr %4, align 8, !tbaa !7
   %43 = getelementptr inbounds nuw %struct._lv_circle_buf_t, ptr %42, i32 0, i32 0
   %44 = getelementptr inbounds nuw %struct._lv_array_t, ptr %43, i32 0, i32 3
-  %45 = load i32, ptr %44, align 8, !tbaa !19
+  %45 = load i32, ptr %44, align 8, !tbaa !25
   %46 = zext i32 %45 to i64
   %47 = call ptr @lv_memcpy(ptr noundef %37, ptr noundef %41, i64 noundef %46)
   call void @llvm.lifetime.end.p0(i64 4, ptr %7) #4
@@ -912,7 +912,7 @@ define i32 @lv_circle_buf_write(ptr noundef %0, ptr noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   store ptr %0, ptr %4, align 8, !tbaa !7
-  store ptr %1, ptr %5, align 8, !tbaa !7
+  store ptr %1, ptr %5, align 8, !tbaa !19
   br label %6
 
 6:                                                ; preds = %2
@@ -949,17 +949,17 @@ define i32 @lv_circle_buf_write(ptr noundef %0, ptr noundef %1) #0 {
   %20 = getelementptr inbounds nuw %struct._lv_circle_buf_t, ptr %19, i32 0, i32 0
   %21 = load ptr, ptr %4, align 8, !tbaa !7
   %22 = getelementptr inbounds nuw %struct._lv_circle_buf_t, ptr %21, i32 0, i32 2
-  %23 = load i32, ptr %22, align 4, !tbaa !13
+  %23 = load i32, ptr %22, align 4, !tbaa !15
   %24 = load ptr, ptr %4, align 8, !tbaa !7
   %25 = call i32 @lv_circle_buf_capacity(ptr noundef %24)
   %26 = urem i32 %23, %25
-  %27 = load ptr, ptr %5, align 8, !tbaa !7
+  %27 = load ptr, ptr %5, align 8, !tbaa !19
   %28 = call i32 @lv_array_assign(ptr noundef %20, i32 noundef %26, ptr noundef %27)
   %29 = load ptr, ptr %4, align 8, !tbaa !7
   %30 = getelementptr inbounds nuw %struct._lv_circle_buf_t, ptr %29, i32 0, i32 2
-  %31 = load i32, ptr %30, align 4, !tbaa !13
+  %31 = load i32, ptr %30, align 4, !tbaa !15
   %32 = add i32 %31, 1
-  store i32 %32, ptr %30, align 4, !tbaa !13
+  store i32 %32, ptr %30, align 4, !tbaa !15
   store i32 1, ptr %3, align 4
   br label %33
 
@@ -981,8 +981,8 @@ define i32 @lv_circle_buf_fill(ptr noundef %0, i32 noundef %1, ptr noundef %2, p
   %11 = alloca i32, align 4
   store ptr %0, ptr %5, align 8, !tbaa !7
   store i32 %1, ptr %6, align 4, !tbaa !3
-  store ptr %2, ptr %7, align 8, !tbaa !7
-  store ptr %3, ptr %8, align 8, !tbaa !7
+  store ptr %2, ptr %7, align 8, !tbaa !19
+  store ptr %3, ptr %8, align 8, !tbaa !19
   br label %12
 
 12:                                               ; preds = %4
@@ -1009,7 +1009,7 @@ define i32 @lv_circle_buf_fill(ptr noundef %0, i32 noundef %1, ptr noundef %2, p
   br label %21
 
 21:                                               ; preds = %20
-  %22 = load ptr, ptr %7, align 8, !tbaa !7
+  %22 = load ptr, ptr %7, align 8, !tbaa !19
   %23 = icmp ne ptr %22, null
   br i1 %23, label %28, label %24
 
@@ -1052,15 +1052,15 @@ define i32 @lv_circle_buf_fill(ptr noundef %0, i32 noundef %1, ptr noundef %2, p
   call void @llvm.lifetime.start.p0(i64 8, ptr %10) #4
   %40 = load ptr, ptr %5, align 8, !tbaa !7
   %41 = call ptr @lv_circle_buf_tail(ptr noundef %40)
-  store ptr %41, ptr %10, align 8, !tbaa !7
-  %42 = load ptr, ptr %7, align 8, !tbaa !7
-  %43 = load ptr, ptr %10, align 8, !tbaa !7
+  store ptr %41, ptr %10, align 8, !tbaa !19
+  %42 = load ptr, ptr %7, align 8, !tbaa !19
+  %43 = load ptr, ptr %10, align 8, !tbaa !19
   %44 = load ptr, ptr %5, align 8, !tbaa !7
   %45 = getelementptr inbounds nuw %struct._lv_circle_buf_t, ptr %44, i32 0, i32 0
   %46 = getelementptr inbounds nuw %struct._lv_array_t, ptr %45, i32 0, i32 3
-  %47 = load i32, ptr %46, align 8, !tbaa !19
+  %47 = load i32, ptr %46, align 8, !tbaa !25
   %48 = load i32, ptr %9, align 4, !tbaa !3
-  %49 = load ptr, ptr %8, align 8, !tbaa !7
+  %49 = load ptr, ptr %8, align 8, !tbaa !19
   %50 = call zeroext i1 %42(ptr noundef %43, i32 noundef %47, i32 noundef %48, ptr noundef %49)
   %51 = zext i1 %50 to i32
   %52 = icmp eq i32 %51, 1
@@ -1069,9 +1069,9 @@ define i32 @lv_circle_buf_fill(ptr noundef %0, i32 noundef %1, ptr noundef %2, p
 53:                                               ; preds = %39
   %54 = load ptr, ptr %5, align 8, !tbaa !7
   %55 = getelementptr inbounds nuw %struct._lv_circle_buf_t, ptr %54, i32 0, i32 2
-  %56 = load i32, ptr %55, align 4, !tbaa !13
+  %56 = load i32, ptr %55, align 4, !tbaa !15
   %57 = add i32 %56, 1
-  store i32 %57, ptr %55, align 4, !tbaa !13
+  store i32 %57, ptr %55, align 4, !tbaa !15
   %58 = load i32, ptr %9, align 4, !tbaa !3
   %59 = add i32 %58, 1
   store i32 %59, ptr %9, align 4, !tbaa !3
@@ -1097,7 +1097,7 @@ define i32 @lv_circle_buf_fill(ptr noundef %0, i32 noundef %1, ptr noundef %2, p
   ]
 
 66:                                               ; preds = %64
-  br label %30, !llvm.loop !20
+  br label %30, !llvm.loop !26
 
 67:                                               ; preds = %64, %37
   %68 = load i32, ptr %9, align 4, !tbaa !3
@@ -1144,19 +1144,19 @@ define i32 @lv_circle_buf_skip(ptr noundef %0) #0 {
 15:                                               ; preds = %12
   %16 = load ptr, ptr %3, align 8, !tbaa !7
   %17 = getelementptr inbounds nuw %struct._lv_circle_buf_t, ptr %16, i32 0, i32 1
-  store i32 0, ptr %17, align 8, !tbaa !9
+  store i32 0, ptr %17, align 8, !tbaa !10
   %18 = load ptr, ptr %3, align 8, !tbaa !7
   %19 = getelementptr inbounds nuw %struct._lv_circle_buf_t, ptr %18, i32 0, i32 2
-  store i32 0, ptr %19, align 4, !tbaa !13
+  store i32 0, ptr %19, align 4, !tbaa !15
   store i32 0, ptr %2, align 4
   br label %25
 
 20:                                               ; preds = %12
   %21 = load ptr, ptr %3, align 8, !tbaa !7
   %22 = getelementptr inbounds nuw %struct._lv_circle_buf_t, ptr %21, i32 0, i32 1
-  %23 = load i32, ptr %22, align 8, !tbaa !9
+  %23 = load i32, ptr %22, align 8, !tbaa !10
   %24 = add i32 %23, 1
-  store i32 %24, ptr %22, align 8, !tbaa !9
+  store i32 %24, ptr %22, align 8, !tbaa !10
   store i32 1, ptr %2, align 4
   br label %25
 
@@ -1170,7 +1170,7 @@ define i32 @lv_circle_buf_peek(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8, !tbaa !7
-  store ptr %1, ptr %4, align 8, !tbaa !7
+  store ptr %1, ptr %4, align 8, !tbaa !19
   br label %5
 
 5:                                                ; preds = %2
@@ -1197,7 +1197,7 @@ define i32 @lv_circle_buf_peek(ptr noundef %0, ptr noundef %1) #0 {
   br label %14
 
 14:                                               ; preds = %13
-  %15 = load ptr, ptr %4, align 8, !tbaa !7
+  %15 = load ptr, ptr %4, align 8, !tbaa !19
   %16 = icmp ne ptr %15, null
   br i1 %16, label %21, label %17
 
@@ -1218,7 +1218,7 @@ define i32 @lv_circle_buf_peek(ptr noundef %0, ptr noundef %1) #0 {
 
 22:                                               ; preds = %21
   %23 = load ptr, ptr %3, align 8, !tbaa !7
-  %24 = load ptr, ptr %4, align 8, !tbaa !7
+  %24 = load ptr, ptr %4, align 8, !tbaa !19
   %25 = call i32 @lv_circle_buf_peek_at(ptr noundef %23, i32 noundef 0, ptr noundef %24)
   ret i32 %25
 }
@@ -1245,16 +1245,22 @@ attributes #4 = { nounwind }
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
-!8 = !{!"any pointer", !5, i64 0}
-!9 = !{!10, !4, i64 24}
-!10 = !{!"_lv_circle_buf_t", !11, i64 0, !4, i64 24, !4, i64 28, !12, i64 32}
-!11 = !{!"_lv_array_t", !8, i64 0, !4, i64 8, !4, i64 12, !4, i64 16, !12, i64 20}
-!12 = !{!"_Bool", !5, i64 0}
-!13 = !{!10, !4, i64 28}
-!14 = !{!10, !12, i64 32}
-!15 = distinct !{!15, !16}
-!16 = !{!"llvm.loop.mustprogress"}
-!17 = !{i64 0, i64 8, !7, i64 8, i64 4, !3, i64 12, i64 4, !3, i64 16, i64 4, !3, i64 20, i64 1, !18}
-!18 = !{!12, !12, i64 0}
-!19 = !{!10, !4, i64 16}
-!20 = distinct !{!20, !16}
+!8 = !{!"p1 _ZTS16_lv_circle_buf_t", !9, i64 0}
+!9 = !{!"any pointer", !5, i64 0}
+!10 = !{!11, !4, i64 24}
+!11 = !{!"_lv_circle_buf_t", !12, i64 0, !4, i64 24, !4, i64 28, !14, i64 32}
+!12 = !{!"_lv_array_t", !13, i64 0, !4, i64 8, !4, i64 12, !4, i64 16, !14, i64 20}
+!13 = !{!"p1 omnipotent char", !9, i64 0}
+!14 = !{!"_Bool", !5, i64 0}
+!15 = !{!11, !4, i64 28}
+!16 = !{!11, !14, i64 32}
+!17 = distinct !{!17, !18}
+!18 = !{!"llvm.loop.mustprogress"}
+!19 = !{!9, !9, i64 0}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"p1 _ZTS11_lv_array_t", !9, i64 0}
+!22 = !{i64 0, i64 8, !23, i64 8, i64 4, !3, i64 12, i64 4, !3, i64 16, i64 4, !3, i64 20, i64 1, !24}
+!23 = !{!13, !13, i64 0}
+!24 = !{!14, !14, i64 0}
+!25 = !{!11, !4, i64 16}
+!26 = distinct !{!26, !18}

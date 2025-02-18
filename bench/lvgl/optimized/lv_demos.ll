@@ -31,13 +31,13 @@ define noundef zeroext i1 @lv_demos_create(ptr noundef readonly captures(address
   %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %7 ]
   %.122 = phi ptr [ null, %5 ], [ %spec.select, %7 ]
   %8 = getelementptr inbounds nuw [7 x %struct.demo_entry_info_t], ptr @demos_entry_info, i64 0, i64 %indvars.iv
-  %9 = load ptr, ptr %8, align 16, !tbaa !7
+  %9 = load ptr, ptr %8, align 16, !tbaa !8
   %10 = tail call i32 @lv_strcmp(ptr noundef %6, ptr noundef %9) #3
   %11 = icmp eq i32 %10, 0
   %spec.select = select i1 %11, ptr %8, ptr %.122
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %12, label %7, !llvm.loop !9
+  br i1 %exitcond.not, label %12, label %7, !llvm.loop !10
 
 12:                                               ; preds = %7
   %13 = icmp eq ptr %spec.select, null
@@ -46,7 +46,7 @@ define noundef zeroext i1 @lv_demos_create(ptr noundef readonly captures(address
 .thread19:                                        ; preds = %2, %12
   %.01421 = phi ptr [ %spec.select, %12 ], [ @demos_entry_info, %2 ]
   %14 = getelementptr inbounds nuw i8, ptr %.01421, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !11
+  %15 = load ptr, ptr %14, align 8, !tbaa !12
   %.not17 = icmp eq ptr %15, null
   br i1 %.not17, label %.thread, label %16
 
@@ -89,11 +89,12 @@ attributes #3 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{!4, !4, i64 0}
-!4 = !{!"any pointer", !5, i64 0}
-!5 = !{!"omnipotent char", !6, i64 0}
-!6 = !{!"Simple C/C++ TBAA"}
-!7 = !{!8, !4, i64 0}
-!8 = !{!"", !4, i64 0, !4, i64 8}
-!9 = distinct !{!9, !10}
-!10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!8, !4, i64 8}
+!4 = !{!"p1 omnipotent char", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !4, i64 0}
+!9 = !{!"", !4, i64 0, !5, i64 8}
+!10 = distinct !{!10, !11}
+!11 = !{!"llvm.loop.mustprogress"}
+!12 = !{!9, !5, i64 8}

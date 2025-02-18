@@ -12,15 +12,15 @@ define void @lv_draw_sw_blend_color_to_l8(ptr noundef readonly captures(none) %0
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %5 = load i32, ptr %4, align 4, !tbaa !11
+  %5 = load i32, ptr %4, align 4, !tbaa !12
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 39
-  %7 = load i8, ptr %6, align 1, !tbaa !12
+  %7 = load i8, ptr %6, align 1, !tbaa !13
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %9 = load ptr, ptr %8, align 8, !tbaa !13
+  %9 = load ptr, ptr %8, align 8, !tbaa !14
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %11 = load i32, ptr %10, align 8, !tbaa !14
+  %11 = load i32, ptr %10, align 8, !tbaa !15
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = load i32, ptr %12, align 8, !tbaa !15
+  %13 = load i32, ptr %12, align 8, !tbaa !16
   %14 = icmp eq ptr %9, null
   %15 = zext i8 %7 to i16
   %16 = icmp ugt i8 %7, -4
@@ -35,7 +35,7 @@ define void @lv_draw_sw_blend_color_to_l8(ptr noundef readonly captures(none) %0
   br i1 %20, label %.preheader156.lr.ph, label %.loopexit
 
 .preheader156.lr.ph:                              ; preds = %17
-  %21 = load ptr, ptr %0, align 8, !tbaa !16
+  %21 = load ptr, ptr %0, align 8, !tbaa !17
   %22 = add nsw i32 %3, -16
   %23 = icmp sgt i32 %3, 16
   %24 = zext i32 %13 to i64
@@ -52,7 +52,7 @@ define void @lv_draw_sw_blend_color_to_l8(ptr noundef readonly captures(none) %0
   br i1 %23, label %.lr.ph.preheader, label %.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader156
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.0147182, i8 %19, i64 %28, i1 false), !tbaa !17
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.0147182, i8 %19, i64 %28, i1 false), !tbaa !18
   br label %.lr.ph
 
 .preheader.loopexit:                              ; preds = %.lr.ph
@@ -71,20 +71,20 @@ define void @lv_draw_sw_blend_color_to_l8(ptr noundef readonly captures(none) %0
   %34 = add i32 %3, %33
   %35 = zext i32 %34 to i64
   %36 = add nuw nsw i64 %35, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 %19, i64 %36, i1 false), !tbaa !17
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 %19, i64 %36, i1 false), !tbaa !18
   br label %._crit_edge
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv205 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next206, %.lr.ph ]
   %indvars.iv.next206 = add nuw nsw i64 %indvars.iv205, 16
   %37 = icmp slt i64 %indvars.iv.next206, %29
-  br i1 %37, label %.lr.ph, label %.preheader.loopexit, !llvm.loop !18
+  br i1 %37, label %.lr.ph, label %.preheader.loopexit, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph181.preheader, %.preheader
   %38 = getelementptr i8, ptr %.0147182, i64 %24
   %39 = add nuw nsw i32 %.0143183, 1
   %exitcond211.not = icmp eq i32 %39, %5
-  br i1 %exitcond211.not, label %.loopexit, label %.preheader156, !llvm.loop !20
+  br i1 %exitcond211.not, label %.loopexit, label %.preheader156, !llvm.loop !21
 
 40:                                               ; preds = %1
   %41 = icmp ult i8 %7, -3
@@ -95,7 +95,7 @@ define void @lv_draw_sw_blend_color_to_l8(ptr noundef readonly captures(none) %0
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %.0.copyload18 = load i24, ptr %43, align 4
   %44 = tail call zeroext i8 @lv_color_luminance(i24 %.0.copyload18) #4
-  %45 = load ptr, ptr %0, align 8, !tbaa !16
+  %45 = load ptr, ptr %0, align 8, !tbaa !17
   %46 = icmp sgt i32 %5, 0
   br i1 %46, label %.preheader157.lr.ph, label %.loopexit
 
@@ -123,22 +123,22 @@ define void @lv_draw_sw_blend_color_to_l8(ptr noundef readonly captures(none) %0
 .sink.split.i.us:                                 ; preds = %.preheader157.us, %.sink.split.i.us
   %indvars.iv199 = phi i64 [ 0, %.preheader157.us ], [ %indvars.iv.next200, %.sink.split.i.us ]
   %55 = getelementptr inbounds nuw i8, ptr %.0148173.us, i64 %indvars.iv199
-  %56 = load i8, ptr %55, align 1, !tbaa !17
+  %56 = load i8, ptr %55, align 1, !tbaa !18
   %57 = zext i8 %56 to i32
   %58 = mul nuw nsw i32 %57, %52
   %59 = add nuw nsw i32 %58, %51
   %60 = lshr i32 %59, 8
   %61 = trunc i32 %60 to i8
-  store i8 %61, ptr %55, align 1, !tbaa !17
+  store i8 %61, ptr %55, align 1, !tbaa !18
   %indvars.iv.next200 = add nuw nsw i64 %indvars.iv199, 1
   %exitcond203.not = icmp eq i64 %indvars.iv.next200, %wide.trip.count202
-  br i1 %exitcond203.not, label %._crit_edge.split.us176, label %.sink.split.i.us, !llvm.loop !21
+  br i1 %exitcond203.not, label %._crit_edge.split.us176, label %.sink.split.i.us, !llvm.loop !22
 
 ._crit_edge.split.us176:                          ; preds = %.sink.split.i.us
   %62 = getelementptr inbounds nuw i8, ptr %.0148173.us, i64 %53
   %63 = add nuw nsw i32 %.1144174.us, 1
   %exitcond204.not = icmp eq i32 %63, %5
-  br i1 %exitcond204.not, label %.loopexit, label %.preheader157.us, !llvm.loop !22
+  br i1 %exitcond204.not, label %.loopexit, label %.preheader157.us, !llvm.loop !23
 
 64:                                               ; preds = %40
   %65 = icmp ne ptr %9, null
@@ -160,7 +160,7 @@ define void @lv_draw_sw_blend_color_to_l8(ptr noundef readonly captures(none) %0
   br i1 %70, label %.preheader159.us.preheader, label %.loopexit
 
 .preheader159.us.preheader:                       ; preds = %.preheader159.lr.ph
-  %74 = load ptr, ptr %0, align 8, !tbaa !16
+  %74 = load ptr, ptr %0, align 8, !tbaa !17
   %wide.trip.count196 = zext nneg i32 %3 to i64
   br label %.preheader159.us
 
@@ -174,7 +174,7 @@ define void @lv_draw_sw_blend_color_to_l8(ptr noundef readonly captures(none) %0
   %indvars.iv193 = phi i64 [ 0, %.preheader159.us ], [ %indvars.iv.next194, %lv_color_8_8_mix.exit152.us ]
   %76 = getelementptr inbounds nuw i8, ptr %.0142169.us, i64 %indvars.iv193
   %77 = getelementptr inbounds nuw i8, ptr %.0139170.us, i64 %indvars.iv193
-  %78 = load i8, ptr %77, align 1, !tbaa !17
+  %78 = load i8, ptr %77, align 1, !tbaa !18
   %79 = zext i8 %78 to i32
   %80 = icmp eq i8 %78, 0
   br i1 %80, label %lv_color_8_8_mix.exit152.us, label %81
@@ -186,7 +186,7 @@ define void @lv_draw_sw_blend_color_to_l8(ptr noundef readonly captures(none) %0
 83:                                               ; preds = %81
   %84 = xor i8 %78, -1
   %85 = mul nuw nsw i32 %79, %71
-  %86 = load i8, ptr %76, align 1, !tbaa !17
+  %86 = load i8, ptr %76, align 1, !tbaa !18
   %87 = zext i8 %86 to i32
   %88 = zext i8 %84 to i32
   %89 = mul nuw nsw i32 %87, %88
@@ -197,20 +197,20 @@ define void @lv_draw_sw_blend_color_to_l8(ptr noundef readonly captures(none) %0
 
 .sink.split.i150.us:                              ; preds = %83, %81
   %.sink.i151.us = phi i8 [ %92, %83 ], [ %67, %81 ]
-  store i8 %.sink.i151.us, ptr %76, align 1, !tbaa !17
+  store i8 %.sink.i151.us, ptr %76, align 1, !tbaa !18
   br label %lv_color_8_8_mix.exit152.us
 
 lv_color_8_8_mix.exit152.us:                      ; preds = %.sink.split.i150.us, %75
   %indvars.iv.next194 = add nuw nsw i64 %indvars.iv193, 1
   %exitcond197.not = icmp eq i64 %indvars.iv.next194, %wide.trip.count196
-  br i1 %exitcond197.not, label %._crit_edge.us171, label %75, !llvm.loop !23
+  br i1 %exitcond197.not, label %._crit_edge.us171, label %75, !llvm.loop !24
 
 ._crit_edge.us171:                                ; preds = %lv_color_8_8_mix.exit152.us
   %93 = getelementptr inbounds nuw i8, ptr %.0142169.us, i64 %72
   %94 = getelementptr inbounds i8, ptr %.0139170.us, i64 %73
   %95 = add nuw nsw i32 %.2145168.us, 1
   %exitcond198.not = icmp eq i32 %95, %5
-  br i1 %exitcond198.not, label %.loopexit, label %.preheader159.us, !llvm.loop !24
+  br i1 %exitcond198.not, label %.loopexit, label %.preheader159.us, !llvm.loop !25
 
 96:                                               ; preds = %64
   br i1 %68, label %.preheader161.lr.ph, label %.loopexit
@@ -223,7 +223,7 @@ lv_color_8_8_mix.exit152.us:                      ; preds = %.sink.split.i150.us
   br i1 %97, label %.preheader161.us.preheader, label %.loopexit
 
 .preheader161.us.preheader:                       ; preds = %.preheader161.lr.ph
-  %101 = load ptr, ptr %0, align 8, !tbaa !16
+  %101 = load ptr, ptr %0, align 8, !tbaa !17
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %.preheader161.us
 
@@ -237,7 +237,7 @@ lv_color_8_8_mix.exit152.us:                      ; preds = %.sink.split.i150.us
   %indvars.iv = phi i64 [ 0, %.preheader161.us ], [ %indvars.iv.next, %lv_color_8_8_mix.exit155.us ]
   %103 = getelementptr inbounds nuw i8, ptr %.0166.us, i64 %indvars.iv
   %104 = getelementptr inbounds nuw i8, ptr %.1165.us, i64 %indvars.iv
-  %105 = load i8, ptr %104, align 1, !tbaa !17
+  %105 = load i8, ptr %104, align 1, !tbaa !18
   %106 = zext i8 %105 to i16
   %107 = mul nuw i16 %106, %15
   %108 = lshr i16 %107, 8
@@ -253,7 +253,7 @@ lv_color_8_8_mix.exit152.us:                      ; preds = %.sink.split.i150.us
   %114 = xor i16 %108, 255
   %115 = zext nneg i16 %114 to i32
   %116 = mul nuw nsw i32 %109, %98
-  %117 = load i8, ptr %103, align 1, !tbaa !17
+  %117 = load i8, ptr %103, align 1, !tbaa !18
   %118 = zext i8 %117 to i32
   %119 = mul nuw nsw i32 %118, %115
   %120 = add nuw nsw i32 %119, %116
@@ -263,20 +263,20 @@ lv_color_8_8_mix.exit152.us:                      ; preds = %.sink.split.i150.us
 
 .sink.split.i153.us:                              ; preds = %113, %111
   %.sink.i154.us = phi i8 [ %122, %113 ], [ %67, %111 ]
-  store i8 %.sink.i154.us, ptr %103, align 1, !tbaa !17
+  store i8 %.sink.i154.us, ptr %103, align 1, !tbaa !18
   br label %lv_color_8_8_mix.exit155.us
 
 lv_color_8_8_mix.exit155.us:                      ; preds = %.sink.split.i153.us, %102
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %102, !llvm.loop !25
+  br i1 %exitcond.not, label %._crit_edge.us, label %102, !llvm.loop !26
 
 ._crit_edge.us:                                   ; preds = %lv_color_8_8_mix.exit155.us
   %123 = getelementptr inbounds nuw i8, ptr %.0166.us, i64 %99
   %124 = getelementptr inbounds i8, ptr %.1165.us, i64 %100
   %125 = add nuw nsw i32 %.3146164.us, 1
   %exitcond192.not = icmp eq i32 %125, %5
-  br i1 %exitcond192.not, label %.loopexit, label %.preheader161.us, !llvm.loop !26
+  br i1 %exitcond192.not, label %.loopexit, label %.preheader161.us, !llvm.loop !27
 
 .loopexit:                                        ; preds = %._crit_edge.us, %._crit_edge.us171, %._crit_edge.split.us176, %._crit_edge, %.preheader161.lr.ph, %.preheader159.lr.ph, %.preheader157.lr.ph, %96, %69, %42, %17
   ret void
@@ -287,7 +287,7 @@ declare zeroext i8 @lv_color_luminance(i24) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define void @lv_draw_sw_blend_image_to_l8(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %3 = load i32, ptr %2, align 4, !tbaa !27
+  %3 = load i32, ptr %2, align 4, !tbaa !28
   switch i32 %3, label %rgb565_image_blend.exit [
     i32 18, label %4
     i32 15, label %rgb565_image_blend.exit.sink.split
@@ -300,25 +300,25 @@ define void @lv_draw_sw_blend_image_to_l8(ptr noundef readonly %0) local_unnamed
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i32, ptr %5, align 8, !tbaa !29
+  %6 = load i32, ptr %5, align 8, !tbaa !30
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %8 = load i32, ptr %7, align 4, !tbaa !30
+  %8 = load i32, ptr %7, align 4, !tbaa !31
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %10 = load i8, ptr %9, align 8, !tbaa !31
+  %10 = load i8, ptr %9, align 8, !tbaa !32
   %.fr204.i = freeze i8 %10
-  %11 = load ptr, ptr %0, align 8, !tbaa !32
+  %11 = load ptr, ptr %0, align 8, !tbaa !33
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = load i32, ptr %12, align 8, !tbaa !33
+  %13 = load i32, ptr %12, align 8, !tbaa !34
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %15 = load ptr, ptr %14, align 8, !tbaa !34
+  %15 = load ptr, ptr %14, align 8, !tbaa !35
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %17 = load i32, ptr %16, align 8, !tbaa !35
+  %17 = load i32, ptr %16, align 8, !tbaa !36
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %19 = load ptr, ptr %18, align 8, !tbaa !36
+  %19 = load ptr, ptr %18, align 8, !tbaa !37
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %21 = load i32, ptr %20, align 8, !tbaa !37
+  %21 = load i32, ptr %20, align 8, !tbaa !38
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  %23 = load i32, ptr %22, align 4, !tbaa !38
+  %23 = load i32, ptr %22, align 4, !tbaa !39
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %86, label %.preheader165.i
 
@@ -365,7 +365,7 @@ define void @lv_draw_sw_blend_image_to_l8(ptr noundef readonly %0) local_unnamed
 
 42:                                               ; preds = %32
   %43 = getelementptr inbounds nuw i8, ptr %.2128170.us.i, i64 %indvars.iv.i
-  %44 = load i8, ptr %43, align 1, !tbaa !17
+  %44 = load i8, ptr %43, align 1, !tbaa !18
   %45 = zext i8 %44 to i16
   %46 = mul nuw i16 %45, %27
   %47 = lshr i16 %46, 8
@@ -375,7 +375,7 @@ define void @lv_draw_sw_blend_image_to_l8(ptr noundef readonly %0) local_unnamed
 49:                                               ; preds = %42, %32
   %.sroa.6.0.us.i = phi i8 [ %48, %42 ], [ %.fr204.i, %32 ]
   %50 = getelementptr inbounds nuw i8, ptr %.4172.us.i, i64 %indvars.iv.i
-  %51 = load i32, ptr %22, align 4, !tbaa !38
+  %51 = load i32, ptr %22, align 4, !tbaa !39
   %.sroa.6.0.insert.ext.us.i = zext i8 %.sroa.6.0.us.i to i32
   %.sroa.6.0.insert.shift.us.i = shl nuw i32 %.sroa.6.0.insert.ext.us.i, 24
   %.sroa.5.0.insert.shift.us.i = shl nuw nsw i32 %.sroa.5.0.insert.ext.us.i, 16
@@ -392,21 +392,21 @@ define void @lv_draw_sw_blend_image_to_l8(ptr noundef readonly %0) local_unnamed
   ]
 
 57:                                               ; preds = %49
-  %58 = load i8, ptr %50, align 1, !tbaa !17
+  %58 = load i8, ptr %50, align 1, !tbaa !18
   %59 = zext i8 %58 to i32
   %60 = mul nuw nsw i32 %59, %56
   %61 = lshr i32 %60, 8
   br label %70
 
 62:                                               ; preds = %49
-  %63 = load i8, ptr %50, align 1, !tbaa !17
+  %63 = load i8, ptr %50, align 1, !tbaa !18
   %64 = zext i8 %63 to i32
   %65 = sub nsw i32 %64, %56
   %spec.select1415.i.us.i = tail call i32 @llvm.smax.i32(i32 %65, i32 0)
   br label %70
 
 66:                                               ; preds = %49
-  %67 = load i8, ptr %50, align 1, !tbaa !17
+  %67 = load i8, ptr %50, align 1, !tbaa !18
   %68 = zext i8 %67 to i32
   %69 = add nuw nsw i32 %68, %56
   %spec.select16.i.us.i = tail call i32 @llvm.umin.i32(i32 %69, i32 255)
@@ -434,13 +434,13 @@ define void @lv_draw_sw_blend_image_to_l8(ptr noundef readonly %0) local_unnamed
 .sink.split.i.i.us.i:                             ; preds = %75, %73
   %.sink.i.in.i.us.i = phi i32 [ %81, %75 ], [ %.0.in.i.us.i, %73 ]
   %.sink.i.i.us.i = trunc i32 %.sink.i.in.i.us.i to i8
-  store i8 %.sink.i.i.us.i, ptr %50, align 1, !tbaa !17
+  store i8 %.sink.i.i.us.i, ptr %50, align 1, !tbaa !18
   br label %blend_non_normal_pixel.exit.us.i
 
 blend_non_normal_pixel.exit.us.i:                 ; preds = %.sink.split.i.i.us.i, %70, %49
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %32, !llvm.loop !39
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %32, !llvm.loop !40
 
 ._crit_edge.us.i:                                 ; preds = %blend_non_normal_pixel.exit.us.i
   %82 = getelementptr inbounds i8, ptr %.2128170.us.i, i64 %28
@@ -449,7 +449,7 @@ blend_non_normal_pixel.exit.us.i:                 ; preds = %.sink.split.i.i.us.
   %84 = getelementptr inbounds nuw i8, ptr %.4125171.us.i, i64 %30
   %85 = add nuw nsw i32 %.4134169.us.i, 1
   %exitcond218.not.i = icmp eq i32 %85, %8
-  br i1 %exitcond218.not.i, label %rgb565_image_blend.exit, label %.preheader164.us.i, !llvm.loop !40
+  br i1 %exitcond218.not.i, label %rgb565_image_blend.exit, label %.preheader164.us.i, !llvm.loop !41
 
 86:                                               ; preds = %4
   %87 = icmp eq ptr %19, null
@@ -484,17 +484,17 @@ blend_non_normal_pixel.exit.us.i:                 ; preds = %.sink.split.i.i.us.
   %96 = load i16, ptr %95, align 2
   %97 = tail call zeroext i8 @lv_color16_luminance(i16 %96) #4
   %98 = getelementptr inbounds nuw i8, ptr %.0202.us.i, i64 %indvars.iv249.i
-  store i8 %97, ptr %98, align 1, !tbaa !17
+  store i8 %97, ptr %98, align 1, !tbaa !18
   %indvars.iv.next250.i = add nuw nsw i64 %indvars.iv249.i, 1
   %exitcond255.not.i = icmp eq i64 %indvars.iv.next250.i, %wide.trip.count254.i
-  br i1 %exitcond255.not.i, label %._crit_edge.us203.i, label %94, !llvm.loop !41
+  br i1 %exitcond255.not.i, label %._crit_edge.us203.i, label %94, !llvm.loop !42
 
 ._crit_edge.us203.i:                              ; preds = %94
   %99 = getelementptr inbounds i8, ptr %.0202.us.i, i64 %92
   %100 = getelementptr inbounds nuw i8, ptr %.0121201.us.i, i64 %93
   %101 = add nuw nsw i32 %.0130200.us.i, 1
   %exitcond256.not.i = icmp eq i32 %101, %8
-  br i1 %exitcond256.not.i, label %rgb565_image_blend.exit, label %.preheader.us.i, !llvm.loop !42
+  br i1 %exitcond256.not.i, label %rgb565_image_blend.exit, label %.preheader.us.i, !llvm.loop !43
 
 102:                                              ; preds = %86
   %103 = icmp ult i8 %.fr204.i, -3
@@ -531,13 +531,13 @@ lv_color_8_8_mix.exit.us.us.us.i:                 ; preds = %lv_color_8_8_mix.ex
   %114 = tail call zeroext i8 @lv_color16_luminance(i16 %113) #4
   %indvars.iv.next244.i = add nuw nsw i64 %indvars.iv243.i, 1
   %exitcond247.not.i = icmp eq i64 %indvars.iv.next244.i, %wide.trip.count246.i
-  br i1 %exitcond247.not.i, label %._crit_edge.split.us.us.us.i, label %lv_color_8_8_mix.exit.us.us.us.i, !llvm.loop !43
+  br i1 %exitcond247.not.i, label %._crit_edge.split.us.us.us.i, label %lv_color_8_8_mix.exit.us.us.us.i, !llvm.loop !44
 
 ._crit_edge.split.us.us.us.i:                     ; preds = %lv_color_8_8_mix.exit.us.us.us.i
   %115 = getelementptr inbounds nuw i8, ptr %.1122190.us.us.i, i64 %110
   %116 = add nuw nsw i32 %.1131189.us.us.i, 1
   %exitcond248.not.i = icmp eq i32 %116, %8
-  br i1 %exitcond248.not.i, label %rgb565_image_blend.exit, label %.preheader155.us.us.i, !llvm.loop !44
+  br i1 %exitcond248.not.i, label %rgb565_image_blend.exit, label %.preheader155.us.us.i, !llvm.loop !45
 
 .preheader155.us.i:                               ; preds = %.preheader155.lr.ph.split.us.i, %._crit_edge.split.us195.i
   %.1192.us.i = phi ptr [ %129, %._crit_edge.split.us195.i ], [ %11, %.preheader155.lr.ph.split.us.i ]
@@ -553,23 +553,23 @@ lv_color_8_8_mix.exit.us.us.us.i:                 ; preds = %lv_color_8_8_mix.ex
   %120 = getelementptr inbounds nuw i8, ptr %.1192.us.i, i64 %indvars.iv235.i
   %121 = zext i8 %119 to i32
   %122 = mul nuw nsw i32 %121, %106
-  %123 = load i8, ptr %120, align 1, !tbaa !17
+  %123 = load i8, ptr %120, align 1, !tbaa !18
   %124 = zext i8 %123 to i32
   %125 = mul nuw nsw i32 %124, %108
   %126 = add nuw nsw i32 %125, %122
   %127 = lshr i32 %126, 8
   %128 = trunc i32 %127 to i8
-  store i8 %128, ptr %120, align 1, !tbaa !17
+  store i8 %128, ptr %120, align 1, !tbaa !18
   %indvars.iv.next236.i = add nuw nsw i64 %indvars.iv235.i, 1
   %exitcond241.not.i = icmp eq i64 %indvars.iv.next236.i, %wide.trip.count246.i
-  br i1 %exitcond241.not.i, label %._crit_edge.split.us195.i, label %.sink.split.i.us.i, !llvm.loop !43
+  br i1 %exitcond241.not.i, label %._crit_edge.split.us195.i, label %.sink.split.i.us.i, !llvm.loop !44
 
 ._crit_edge.split.us195.i:                        ; preds = %.sink.split.i.us.i
   %129 = getelementptr inbounds i8, ptr %.1192.us.i, i64 %109
   %130 = getelementptr inbounds nuw i8, ptr %.1122190.us.i, i64 %110
   %131 = add nuw nsw i32 %.1131189.us.i, 1
   %exitcond242.not.i = icmp eq i32 %131, %8
-  br i1 %exitcond242.not.i, label %rgb565_image_blend.exit, label %.preheader155.us.i, !llvm.loop !44
+  br i1 %exitcond242.not.i, label %rgb565_image_blend.exit, label %.preheader155.us.i, !llvm.loop !45
 
 132:                                              ; preds = %102
   %133 = icmp ne ptr %19, null
@@ -605,7 +605,7 @@ lv_color_8_8_mix.exit.us.us.us.i:                 ; preds = %lv_color_8_8_mix.ex
   %142 = tail call zeroext i8 @lv_color16_luminance(i16 %141) #4
   %143 = getelementptr inbounds nuw i8, ptr %.3178.us.i, i64 %indvars.iv219.i
   %144 = getelementptr inbounds nuw i8, ptr %.1127176.us.i, i64 %indvars.iv219.i
-  %145 = load i8, ptr %144, align 1, !tbaa !17
+  %145 = load i8, ptr %144, align 1, !tbaa !18
   %146 = zext i8 %145 to i16
   %147 = mul nuw i16 %146, %88
   %148 = lshr i16 %147, 8
@@ -622,7 +622,7 @@ lv_color_8_8_mix.exit.us.us.us.i:                 ; preds = %lv_color_8_8_mix.ex
   %155 = zext nneg i16 %154 to i32
   %156 = zext i8 %142 to i32
   %157 = mul nuw nsw i32 %149, %156
-  %158 = load i8, ptr %143, align 1, !tbaa !17
+  %158 = load i8, ptr %143, align 1, !tbaa !18
   %159 = zext i8 %158 to i32
   %160 = mul nuw nsw i32 %159, %155
   %161 = add nuw nsw i32 %160, %157
@@ -632,13 +632,13 @@ lv_color_8_8_mix.exit.us.us.us.i:                 ; preds = %lv_color_8_8_mix.ex
 
 .sink.split.i151.us.i:                            ; preds = %153, %151
   %.sink.i152.us.i = phi i8 [ %163, %153 ], [ %142, %151 ]
-  store i8 %.sink.i152.us.i, ptr %143, align 1, !tbaa !17
+  store i8 %.sink.i152.us.i, ptr %143, align 1, !tbaa !18
   br label %lv_color_8_8_mix.exit153.us.i
 
 lv_color_8_8_mix.exit153.us.i:                    ; preds = %.sink.split.i151.us.i, %139
   %indvars.iv.next220.i = add nuw nsw i64 %indvars.iv219.i, 1
   %exitcond225.not.i = icmp eq i64 %indvars.iv.next220.i, %wide.trip.count224.i
-  br i1 %exitcond225.not.i, label %._crit_edge.us179.i, label %139, !llvm.loop !45
+  br i1 %exitcond225.not.i, label %._crit_edge.us179.i, label %139, !llvm.loop !46
 
 ._crit_edge.us179.i:                              ; preds = %lv_color_8_8_mix.exit153.us.i
   %164 = getelementptr inbounds i8, ptr %.3178.us.i, i64 %136
@@ -646,7 +646,7 @@ lv_color_8_8_mix.exit153.us.i:                    ; preds = %.sink.split.i151.us
   %166 = getelementptr inbounds i8, ptr %.1127176.us.i, i64 %138
   %167 = add nuw nsw i32 %.3133175.us.i, 1
   %exitcond226.not.i = icmp eq i32 %167, %8
-  br i1 %exitcond226.not.i, label %rgb565_image_blend.exit, label %.preheader161.us.i, !llvm.loop !46
+  br i1 %exitcond226.not.i, label %rgb565_image_blend.exit, label %.preheader161.us.i, !llvm.loop !47
 
 .preheader159.i:                                  ; preds = %132
   br i1 %134, label %.preheader158.lr.ph.i, label %rgb565_image_blend.exit
@@ -676,7 +676,7 @@ lv_color_8_8_mix.exit153.us.i:                    ; preds = %.sink.split.i151.us
   %175 = tail call zeroext i8 @lv_color16_luminance(i16 %174) #4
   %176 = getelementptr inbounds nuw i8, ptr %.2185.us.i, i64 %indvars.iv227.i
   %177 = getelementptr inbounds nuw i8, ptr %.0126183.us.i, i64 %indvars.iv227.i
-  %178 = load i8, ptr %177, align 1, !tbaa !17
+  %178 = load i8, ptr %177, align 1, !tbaa !18
   %179 = zext i8 %178 to i32
   %180 = icmp eq i8 %178, 0
   br i1 %180, label %lv_color_8_8_mix.exit150.us.i, label %181
@@ -689,7 +689,7 @@ lv_color_8_8_mix.exit153.us.i:                    ; preds = %.sink.split.i151.us
   %184 = xor i8 %178, -1
   %185 = zext i8 %175 to i32
   %186 = mul nuw nsw i32 %179, %185
-  %187 = load i8, ptr %176, align 1, !tbaa !17
+  %187 = load i8, ptr %176, align 1, !tbaa !18
   %188 = zext i8 %187 to i32
   %189 = zext i8 %184 to i32
   %190 = mul nuw nsw i32 %188, %189
@@ -700,13 +700,13 @@ lv_color_8_8_mix.exit153.us.i:                    ; preds = %.sink.split.i151.us
 
 .sink.split.i148.us.i:                            ; preds = %183, %181
   %.sink.i149.us.i = phi i8 [ %193, %183 ], [ %175, %181 ]
-  store i8 %.sink.i149.us.i, ptr %176, align 1, !tbaa !17
+  store i8 %.sink.i149.us.i, ptr %176, align 1, !tbaa !18
   br label %lv_color_8_8_mix.exit150.us.i
 
 lv_color_8_8_mix.exit150.us.i:                    ; preds = %.sink.split.i148.us.i, %172
   %indvars.iv.next228.i = add nuw nsw i64 %indvars.iv227.i, 1
   %exitcond233.not.i = icmp eq i64 %indvars.iv.next228.i, %wide.trip.count232.i
-  br i1 %exitcond233.not.i, label %._crit_edge.us186.i, label %172, !llvm.loop !47
+  br i1 %exitcond233.not.i, label %._crit_edge.us186.i, label %172, !llvm.loop !48
 
 ._crit_edge.us186.i:                              ; preds = %lv_color_8_8_mix.exit150.us.i
   %194 = getelementptr inbounds i8, ptr %.2185.us.i, i64 %169
@@ -714,31 +714,31 @@ lv_color_8_8_mix.exit150.us.i:                    ; preds = %.sink.split.i148.us
   %196 = getelementptr inbounds i8, ptr %.0126183.us.i, i64 %171
   %197 = add nuw nsw i32 %.2132182.us.i, 1
   %exitcond234.not.i = icmp eq i32 %197, %8
-  br i1 %exitcond234.not.i, label %rgb565_image_blend.exit, label %.preheader158.us.i, !llvm.loop !48
+  br i1 %exitcond234.not.i, label %rgb565_image_blend.exit, label %.preheader158.us.i, !llvm.loop !49
 
 198:                                              ; preds = %1
   br label %rgb565_image_blend.exit.sink.split
 
 199:                                              ; preds = %1
   %200 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %201 = load i32, ptr %200, align 8, !tbaa !29
+  %201 = load i32, ptr %200, align 8, !tbaa !30
   %202 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %203 = load i32, ptr %202, align 4, !tbaa !30
+  %203 = load i32, ptr %202, align 4, !tbaa !31
   %204 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %205 = load i8, ptr %204, align 8, !tbaa !31
-  %206 = load ptr, ptr %0, align 8, !tbaa !32
+  %205 = load i8, ptr %204, align 8, !tbaa !32
+  %206 = load ptr, ptr %0, align 8, !tbaa !33
   %207 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %208 = load i32, ptr %207, align 8, !tbaa !33
+  %208 = load i32, ptr %207, align 8, !tbaa !34
   %209 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %210 = load ptr, ptr %209, align 8, !tbaa !34
+  %210 = load ptr, ptr %209, align 8, !tbaa !35
   %211 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %212 = load i32, ptr %211, align 8, !tbaa !35
+  %212 = load i32, ptr %211, align 8, !tbaa !36
   %213 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %214 = load ptr, ptr %213, align 8, !tbaa !36
+  %214 = load ptr, ptr %213, align 8, !tbaa !37
   %215 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %216 = load i32, ptr %215, align 8, !tbaa !37
+  %216 = load i32, ptr %215, align 8, !tbaa !38
   %217 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  %218 = load i32, ptr %217, align 4, !tbaa !38
+  %218 = load i32, ptr %217, align 4, !tbaa !39
   %219 = icmp eq i32 %218, 0
   br i1 %219, label %301, label %.preheader169.i
 
@@ -771,16 +771,16 @@ lv_color_8_8_mix.exit150.us.i:                    ; preds = %.sink.split.i148.us
   %227 = getelementptr inbounds nuw %struct.lv_color32_t, ptr %.4140173.us.i, i64 %indvars.iv.i9
   %.sroa.0.sroa.0.0.copyload.us179.i = load i24, ptr %227, align 1
   %.sroa.4.0..sroa_idx.us180.i = getelementptr inbounds nuw i8, ptr %227, i64 3
-  %.sroa.4.0.copyload.us181.i = load i8, ptr %.sroa.4.0..sroa_idx.us180.i, align 1, !tbaa !17
+  %.sroa.4.0.copyload.us181.i = load i8, ptr %.sroa.4.0..sroa_idx.us180.i, align 1, !tbaa !18
   %228 = zext i8 %.sroa.4.0.copyload.us181.i to i32
   %229 = getelementptr inbounds nuw i8, ptr %.2143172.us.i, i64 %indvars.iv.i9
-  %230 = load i8, ptr %229, align 1, !tbaa !17
+  %230 = load i8, ptr %229, align 1, !tbaa !18
   %231 = zext i8 %230 to i32
   %232 = mul nuw nsw i32 %228, %222
   %233 = mul nuw nsw i32 %232, %231
   %234 = lshr i32 %233, 16
   %235 = getelementptr inbounds nuw i8, ptr %.4176.us.i, i64 %indvars.iv.i9
-  %236 = load i32, ptr %217, align 4, !tbaa !38
+  %236 = load i32, ptr %217, align 4, !tbaa !39
   %.sroa.4.0.insert.ext.us182.i = shl nuw i32 %234, 24
   %.sroa.0.0.insert.ext.us183.i = zext i24 %.sroa.0.sroa.0.0.copyload.us179.i to i32
   %.sroa.0.0.insert.insert.us184.i = or disjoint i32 %.sroa.4.0.insert.ext.us182.i, %.sroa.0.0.insert.ext.us183.i
@@ -793,21 +793,21 @@ lv_color_8_8_mix.exit150.us.i:                    ; preds = %.sink.split.i148.us
   ]
 
 239:                                              ; preds = %.lr.ph.split.us193.i
-  %240 = load i8, ptr %235, align 1, !tbaa !17
+  %240 = load i8, ptr %235, align 1, !tbaa !18
   %241 = zext i8 %240 to i32
   %242 = mul nuw nsw i32 %241, %238
   %243 = lshr i32 %242, 8
   br label %252
 
 244:                                              ; preds = %.lr.ph.split.us193.i
-  %245 = load i8, ptr %235, align 1, !tbaa !17
+  %245 = load i8, ptr %235, align 1, !tbaa !18
   %246 = zext i8 %245 to i32
   %247 = sub nsw i32 %246, %238
   %spec.select1415.i.us185.i = tail call i32 @llvm.smax.i32(i32 %247, i32 0)
   br label %252
 
 248:                                              ; preds = %.lr.ph.split.us193.i
-  %249 = load i8, ptr %235, align 1, !tbaa !17
+  %249 = load i8, ptr %235, align 1, !tbaa !18
   %250 = zext i8 %249 to i32
   %251 = add nuw nsw i32 %250, %238
   %spec.select16.i.us186.i = tail call i32 @llvm.umin.i32(i32 %251, i32 255)
@@ -835,13 +835,13 @@ lv_color_8_8_mix.exit150.us.i:                    ; preds = %.sink.split.i148.us
 .sink.split.i.i.us188.i:                          ; preds = %257, %255
   %.sink.i.in.i.us189.i = phi i32 [ %263, %257 ], [ %.0.in.i.us187.i, %255 ]
   %.sink.i.i.us190.i = trunc i32 %.sink.i.in.i.us189.i to i8
-  store i8 %.sink.i.i.us190.i, ptr %235, align 1, !tbaa !17
+  store i8 %.sink.i.i.us190.i, ptr %235, align 1, !tbaa !18
   br label %blend_non_normal_pixel.exit.us191.i
 
 blend_non_normal_pixel.exit.us191.i:              ; preds = %.sink.split.i.i.us188.i, %252, %.lr.ph.split.us193.i
   %indvars.iv.next.i10 = add nuw nsw i64 %indvars.iv.i9, 1
   %exitcond.not.i11 = icmp eq i64 %indvars.iv.next.i10, %wide.trip.count.i8
-  br i1 %exitcond.not.i11, label %._crit_edge.us.i12, label %.lr.ph.split.us193.i, !llvm.loop !49
+  br i1 %exitcond.not.i11, label %._crit_edge.us.i12, label %.lr.ph.split.us193.i, !llvm.loop !50
 
 ._crit_edge.us.i12:                               ; preds = %blend_non_normal_pixel.exit.us191.i, %blend_non_normal_pixel.exit.us.us.i
   %264 = getelementptr inbounds i8, ptr %.2143172.us.i, i64 %223
@@ -850,19 +850,19 @@ blend_non_normal_pixel.exit.us191.i:              ; preds = %.sink.split.i.i.us1
   %266 = getelementptr inbounds nuw i8, ptr %.4140173.us.i, i64 %225
   %267 = add nuw nsw i32 %.4130175.us.i, 1
   %exitcond233.not.i13 = icmp eq i32 %267, %203
-  br i1 %exitcond233.not.i13, label %rgb565_image_blend.exit, label %.preheader168.us.i, !llvm.loop !50
+  br i1 %exitcond233.not.i13, label %rgb565_image_blend.exit, label %.preheader168.us.i, !llvm.loop !51
 
 .lr.ph.split.us.us.i:                             ; preds = %.preheader168.us.i, %blend_non_normal_pixel.exit.us.us.i
   %indvars.iv228.i = phi i64 [ %indvars.iv.next229.i, %blend_non_normal_pixel.exit.us.us.i ], [ 0, %.preheader168.us.i ]
   %268 = getelementptr inbounds nuw %struct.lv_color32_t, ptr %.4140173.us.i, i64 %indvars.iv228.i
   %.sroa.0.sroa.0.0.copyload.us.us.i = load i24, ptr %268, align 1
   %.sroa.4.0..sroa_idx.us.us.i = getelementptr inbounds nuw i8, ptr %268, i64 3
-  %.sroa.4.0.copyload.us.us.i = load i8, ptr %.sroa.4.0..sroa_idx.us.us.i, align 1, !tbaa !17
+  %.sroa.4.0.copyload.us.us.i = load i8, ptr %.sroa.4.0..sroa_idx.us.us.i, align 1, !tbaa !18
   %269 = zext i8 %.sroa.4.0.copyload.us.us.i to i32
   %270 = mul nuw nsw i32 %269, %222
   %271 = lshr i32 %270, 8
   %272 = getelementptr inbounds nuw i8, ptr %.4176.us.i, i64 %indvars.iv228.i
-  %273 = load i32, ptr %217, align 4, !tbaa !38
+  %273 = load i32, ptr %217, align 4, !tbaa !39
   %.sroa.4.0.insert.ext.us.us.i = shl nuw i32 %271, 24
   %.sroa.0.0.insert.ext.us.us.i = zext i24 %.sroa.0.sroa.0.0.copyload.us.us.i to i32
   %.sroa.0.0.insert.insert.us.us.i = or disjoint i32 %.sroa.4.0.insert.ext.us.us.i, %.sroa.0.0.insert.ext.us.us.i
@@ -875,21 +875,21 @@ blend_non_normal_pixel.exit.us191.i:              ; preds = %.sink.split.i.i.us1
   ]
 
 276:                                              ; preds = %.lr.ph.split.us.us.i
-  %277 = load i8, ptr %272, align 1, !tbaa !17
+  %277 = load i8, ptr %272, align 1, !tbaa !18
   %278 = zext i8 %277 to i32
   %279 = mul nuw nsw i32 %278, %275
   %280 = lshr i32 %279, 8
   br label %289
 
 281:                                              ; preds = %.lr.ph.split.us.us.i
-  %282 = load i8, ptr %272, align 1, !tbaa !17
+  %282 = load i8, ptr %272, align 1, !tbaa !18
   %283 = zext i8 %282 to i32
   %284 = sub nsw i32 %283, %275
   %spec.select1415.i.us.us.i = tail call i32 @llvm.smax.i32(i32 %284, i32 0)
   br label %289
 
 285:                                              ; preds = %.lr.ph.split.us.us.i
-  %286 = load i8, ptr %272, align 1, !tbaa !17
+  %286 = load i8, ptr %272, align 1, !tbaa !18
   %287 = zext i8 %286 to i32
   %288 = add nuw nsw i32 %287, %275
   %spec.select16.i.us.us.i = tail call i32 @llvm.umin.i32(i32 %288, i32 255)
@@ -917,13 +917,13 @@ blend_non_normal_pixel.exit.us191.i:              ; preds = %.sink.split.i.i.us1
 .sink.split.i.i.us.us.i:                          ; preds = %294, %292
   %.sink.i.in.i.us.us.i = phi i32 [ %300, %294 ], [ %.0.in.i.us.us.i, %292 ]
   %.sink.i.i.us.us.i = trunc i32 %.sink.i.in.i.us.us.i to i8
-  store i8 %.sink.i.i.us.us.i, ptr %272, align 1, !tbaa !17
+  store i8 %.sink.i.i.us.us.i, ptr %272, align 1, !tbaa !18
   br label %blend_non_normal_pixel.exit.us.us.i
 
 blend_non_normal_pixel.exit.us.us.i:              ; preds = %.sink.split.i.i.us.us.i, %289, %.lr.ph.split.us.us.i
   %indvars.iv.next229.i = add nuw nsw i64 %indvars.iv228.i, 1
   %exitcond232.not.i = icmp eq i64 %indvars.iv.next229.i, %wide.trip.count.i8
-  br i1 %exitcond232.not.i, label %._crit_edge.us.i12, label %.lr.ph.split.us.us.i, !llvm.loop !49
+  br i1 %exitcond232.not.i, label %._crit_edge.us.i12, label %.lr.ph.split.us.us.i, !llvm.loop !50
 
 301:                                              ; preds = %199
   %302 = icmp eq ptr %214, null
@@ -959,7 +959,7 @@ blend_non_normal_pixel.exit.us.us.i:              ; preds = %.sink.split.i.i.us.
   %312 = tail call zeroext i8 @lv_color32_luminance(i32 %311) #4
   %313 = getelementptr inbounds nuw i8, ptr %.0214.us.i, i64 %indvars.iv252.i
   %314 = getelementptr inbounds nuw i8, ptr %310, i64 3
-  %315 = load i8, ptr %314, align 1, !tbaa !51
+  %315 = load i8, ptr %314, align 1, !tbaa !52
   %316 = zext i8 %315 to i32
   %317 = icmp eq i8 %315, 0
   br i1 %317, label %lv_color_8_8_mix.exit.us.i, label %318
@@ -972,7 +972,7 @@ blend_non_normal_pixel.exit.us.us.i:              ; preds = %.sink.split.i.i.us.
   %321 = xor i8 %315, -1
   %322 = zext i8 %312 to i32
   %323 = mul nuw nsw i32 %316, %322
-  %324 = load i8, ptr %313, align 1, !tbaa !17
+  %324 = load i8, ptr %313, align 1, !tbaa !18
   %325 = zext i8 %324 to i32
   %326 = zext i8 %321 to i32
   %327 = mul nuw nsw i32 %325, %326
@@ -983,20 +983,20 @@ blend_non_normal_pixel.exit.us.us.i:              ; preds = %.sink.split.i.i.us.
 
 .sink.split.i.us.i20:                             ; preds = %320, %318
   %.sink.i.us.i = phi i8 [ %330, %320 ], [ %312, %318 ]
-  store i8 %.sink.i.us.i, ptr %313, align 1, !tbaa !17
+  store i8 %.sink.i.us.i, ptr %313, align 1, !tbaa !18
   br label %lv_color_8_8_mix.exit.us.i
 
 lv_color_8_8_mix.exit.us.i:                       ; preds = %.sink.split.i.us.i20, %309
   %indvars.iv.next253.i = add nuw nsw i64 %indvars.iv252.i, 1
   %exitcond256.not.i21 = icmp eq i64 %indvars.iv.next253.i, %wide.trip.count255.i
-  br i1 %exitcond256.not.i21, label %._crit_edge.us215.i, label %309, !llvm.loop !53
+  br i1 %exitcond256.not.i21, label %._crit_edge.us215.i, label %309, !llvm.loop !54
 
 ._crit_edge.us215.i:                              ; preds = %lv_color_8_8_mix.exit.us.i
   %331 = getelementptr inbounds nuw i8, ptr %.0214.us.i, i64 %307
   %332 = getelementptr inbounds nuw i8, ptr %.0136212.us.i, i64 %308
   %333 = add nuw nsw i32 %.0126213.us.i, 1
   %exitcond257.not.i = icmp eq i32 %333, %203
-  br i1 %exitcond257.not.i, label %rgb565_image_blend.exit, label %.preheader.us.i19, !llvm.loop !54
+  br i1 %exitcond257.not.i, label %rgb565_image_blend.exit, label %.preheader.us.i19, !llvm.loop !55
 
 334:                                              ; preds = %301
   %335 = icmp ult i8 %205, -3
@@ -1030,7 +1030,7 @@ lv_color_8_8_mix.exit.us.i:                       ; preds = %.sink.split.i.us.i2
   %343 = tail call zeroext i8 @lv_color32_luminance(i32 %342) #4
   %344 = getelementptr inbounds nuw i8, ptr %.1209.us.i, i64 %indvars.iv246.i
   %345 = getelementptr inbounds nuw i8, ptr %341, i64 3
-  %346 = load i8, ptr %345, align 1, !tbaa !51
+  %346 = load i8, ptr %345, align 1, !tbaa !52
   %347 = zext i8 %346 to i32
   %348 = mul nuw nsw i32 %347, %303
   %349 = lshr i32 %348, 8
@@ -1045,7 +1045,7 @@ lv_color_8_8_mix.exit.us.i:                       ; preds = %.sink.split.i.us.i2
   %354 = xor i32 %349, 255
   %355 = zext i8 %343 to i32
   %356 = mul nuw nsw i32 %349, %355
-  %357 = load i8, ptr %344, align 1, !tbaa !17
+  %357 = load i8, ptr %344, align 1, !tbaa !18
   %358 = zext i8 %357 to i32
   %359 = mul nuw nsw i32 %354, %358
   %360 = add nuw nsw i32 %359, %356
@@ -1055,20 +1055,20 @@ lv_color_8_8_mix.exit.us.i:                       ; preds = %.sink.split.i.us.i2
 
 .sink.split.i149.us.i:                            ; preds = %353, %351
   %.sink.i150.us.i = phi i8 [ %362, %353 ], [ %343, %351 ]
-  store i8 %.sink.i150.us.i, ptr %344, align 1, !tbaa !17
+  store i8 %.sink.i150.us.i, ptr %344, align 1, !tbaa !18
   br label %lv_color_8_8_mix.exit151.us.i
 
 lv_color_8_8_mix.exit151.us.i:                    ; preds = %.sink.split.i149.us.i, %340
   %indvars.iv.next247.i = add nuw nsw i64 %indvars.iv246.i, 1
   %exitcond250.not.i = icmp eq i64 %indvars.iv.next247.i, %wide.trip.count249.i
-  br i1 %exitcond250.not.i, label %._crit_edge.us210.i, label %340, !llvm.loop !55
+  br i1 %exitcond250.not.i, label %._crit_edge.us210.i, label %340, !llvm.loop !56
 
 ._crit_edge.us210.i:                              ; preds = %lv_color_8_8_mix.exit151.us.i
   %363 = getelementptr inbounds nuw i8, ptr %.1209.us.i, i64 %338
   %364 = getelementptr inbounds nuw i8, ptr %.1137207.us.i, i64 %339
   %365 = add nuw nsw i32 %.1127208.us.i, 1
   %exitcond251.not.i = icmp eq i32 %365, %203
-  br i1 %exitcond251.not.i, label %rgb565_image_blend.exit, label %.preheader159.us.i, !llvm.loop !56
+  br i1 %exitcond251.not.i, label %rgb565_image_blend.exit, label %.preheader159.us.i, !llvm.loop !57
 
 366:                                              ; preds = %334
   %367 = icmp ne ptr %214, null
@@ -1104,10 +1104,10 @@ lv_color_8_8_mix.exit151.us.i:                    ; preds = %.sink.split.i149.us
   %376 = tail call zeroext i8 @lv_color32_luminance(i32 %375) #4
   %377 = getelementptr inbounds nuw i8, ptr %.2204.us.i, i64 %indvars.iv240.i
   %378 = getelementptr inbounds nuw i8, ptr %374, i64 3
-  %379 = load i8, ptr %378, align 1, !tbaa !51
+  %379 = load i8, ptr %378, align 1, !tbaa !52
   %380 = zext i8 %379 to i16
   %381 = getelementptr inbounds nuw i8, ptr %.0141201.us.i, i64 %indvars.iv240.i
-  %382 = load i8, ptr %381, align 1, !tbaa !17
+  %382 = load i8, ptr %381, align 1, !tbaa !18
   %383 = zext i8 %382 to i16
   %384 = mul nuw i16 %383, %380
   %385 = lshr i16 %384, 8
@@ -1124,7 +1124,7 @@ lv_color_8_8_mix.exit151.us.i:                    ; preds = %.sink.split.i149.us
   %392 = zext nneg i16 %391 to i32
   %393 = zext i8 %376 to i32
   %394 = mul nuw nsw i32 %386, %393
-  %395 = load i8, ptr %377, align 1, !tbaa !17
+  %395 = load i8, ptr %377, align 1, !tbaa !18
   %396 = zext i8 %395 to i32
   %397 = mul nuw nsw i32 %396, %392
   %398 = add nuw nsw i32 %397, %394
@@ -1134,13 +1134,13 @@ lv_color_8_8_mix.exit151.us.i:                    ; preds = %.sink.split.i149.us
 
 .sink.split.i152.us.i:                            ; preds = %390, %388
   %.sink.i153.us.i = phi i8 [ %400, %390 ], [ %376, %388 ]
-  store i8 %.sink.i153.us.i, ptr %377, align 1, !tbaa !17
+  store i8 %.sink.i153.us.i, ptr %377, align 1, !tbaa !18
   br label %lv_color_8_8_mix.exit154.us.i
 
 lv_color_8_8_mix.exit154.us.i:                    ; preds = %.sink.split.i152.us.i, %373
   %indvars.iv.next241.i = add nuw nsw i64 %indvars.iv240.i, 1
   %exitcond244.not.i = icmp eq i64 %indvars.iv.next241.i, %wide.trip.count243.i
-  br i1 %exitcond244.not.i, label %._crit_edge.us205.i, label %373, !llvm.loop !57
+  br i1 %exitcond244.not.i, label %._crit_edge.us205.i, label %373, !llvm.loop !58
 
 ._crit_edge.us205.i:                              ; preds = %lv_color_8_8_mix.exit154.us.i
   %401 = getelementptr inbounds nuw i8, ptr %.2204.us.i, i64 %370
@@ -1148,7 +1148,7 @@ lv_color_8_8_mix.exit154.us.i:                    ; preds = %.sink.split.i152.us
   %403 = getelementptr inbounds i8, ptr %.0141201.us.i, i64 %372
   %404 = add nuw nsw i32 %.2128203.us.i, 1
   %exitcond245.not.i = icmp eq i32 %404, %203
-  br i1 %exitcond245.not.i, label %rgb565_image_blend.exit, label %.preheader162.us.i, !llvm.loop !58
+  br i1 %exitcond245.not.i, label %rgb565_image_blend.exit, label %.preheader162.us.i, !llvm.loop !59
 
 405:                                              ; preds = %366
   %or.cond11.i = select i1 %367, i1 %335, i1 false
@@ -1181,11 +1181,11 @@ lv_color_8_8_mix.exit154.us.i:                    ; preds = %.sink.split.i152.us
   %414 = tail call zeroext i8 @lv_color32_luminance(i32 %413) #4
   %415 = getelementptr inbounds nuw i8, ptr %.3198.us.i, i64 %indvars.iv234.i
   %416 = getelementptr inbounds nuw i8, ptr %412, i64 3
-  %417 = load i8, ptr %416, align 1, !tbaa !51
+  %417 = load i8, ptr %416, align 1, !tbaa !52
   %418 = zext i8 %417 to i32
   %419 = mul nuw nsw i32 %418, %303
   %420 = getelementptr inbounds nuw i8, ptr %.1142195.us.i, i64 %indvars.iv234.i
-  %421 = load i8, ptr %420, align 1, !tbaa !17
+  %421 = load i8, ptr %420, align 1, !tbaa !18
   %422 = zext i8 %421 to i32
   %423 = mul nuw nsw i32 %419, %422
   %424 = lshr i32 %423, 16
@@ -1200,7 +1200,7 @@ lv_color_8_8_mix.exit154.us.i:                    ; preds = %.sink.split.i152.us
   %429 = xor i32 %424, 255
   %430 = zext i8 %414 to i32
   %431 = mul nuw nsw i32 %424, %430
-  %432 = load i8, ptr %415, align 1, !tbaa !17
+  %432 = load i8, ptr %415, align 1, !tbaa !18
   %433 = zext i8 %432 to i32
   %434 = mul nuw nsw i32 %429, %433
   %435 = add nuw nsw i32 %434, %431
@@ -1210,13 +1210,13 @@ lv_color_8_8_mix.exit154.us.i:                    ; preds = %.sink.split.i152.us
 
 .sink.split.i155.us.i:                            ; preds = %428, %426
   %.sink.i156.us.i = phi i8 [ %437, %428 ], [ %414, %426 ]
-  store i8 %.sink.i156.us.i, ptr %415, align 1, !tbaa !17
+  store i8 %.sink.i156.us.i, ptr %415, align 1, !tbaa !18
   br label %lv_color_8_8_mix.exit157.us.i
 
 lv_color_8_8_mix.exit157.us.i:                    ; preds = %.sink.split.i155.us.i, %411
   %indvars.iv.next235.i = add nuw nsw i64 %indvars.iv234.i, 1
   %exitcond238.not.i = icmp eq i64 %indvars.iv.next235.i, %wide.trip.count237.i
-  br i1 %exitcond238.not.i, label %._crit_edge.us199.i, label %411, !llvm.loop !59
+  br i1 %exitcond238.not.i, label %._crit_edge.us199.i, label %411, !llvm.loop !60
 
 ._crit_edge.us199.i:                              ; preds = %lv_color_8_8_mix.exit157.us.i
   %438 = getelementptr inbounds nuw i8, ptr %.3198.us.i, i64 %408
@@ -1224,28 +1224,28 @@ lv_color_8_8_mix.exit157.us.i:                    ; preds = %.sink.split.i155.us
   %440 = getelementptr inbounds i8, ptr %.1142195.us.i, i64 %410
   %441 = add nuw nsw i32 %.3129197.us.i, 1
   %exitcond239.not.i = icmp eq i32 %441, %203
-  br i1 %exitcond239.not.i, label %rgb565_image_blend.exit, label %.preheader165.us.i, !llvm.loop !60
+  br i1 %exitcond239.not.i, label %rgb565_image_blend.exit, label %.preheader165.us.i, !llvm.loop !61
 
 442:                                              ; preds = %1
   %443 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %444 = load i32, ptr %443, align 8, !tbaa !29
+  %444 = load i32, ptr %443, align 8, !tbaa !30
   %445 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %446 = load i32, ptr %445, align 4, !tbaa !30
+  %446 = load i32, ptr %445, align 4, !tbaa !31
   %447 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %448 = load i8, ptr %447, align 8, !tbaa !31
-  %449 = load ptr, ptr %0, align 8, !tbaa !32
+  %448 = load i8, ptr %447, align 8, !tbaa !32
+  %449 = load ptr, ptr %0, align 8, !tbaa !33
   %450 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %451 = load i32, ptr %450, align 8, !tbaa !33
+  %451 = load i32, ptr %450, align 8, !tbaa !34
   %452 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %453 = load ptr, ptr %452, align 8, !tbaa !34
+  %453 = load ptr, ptr %452, align 8, !tbaa !35
   %454 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %455 = load i32, ptr %454, align 8, !tbaa !35
+  %455 = load i32, ptr %454, align 8, !tbaa !36
   %456 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %457 = load ptr, ptr %456, align 8, !tbaa !36
+  %457 = load ptr, ptr %456, align 8, !tbaa !37
   %458 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %459 = load i32, ptr %458, align 8, !tbaa !37
+  %459 = load i32, ptr %458, align 8, !tbaa !38
   %460 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  %461 = load i32, ptr %460, align 4, !tbaa !38
+  %461 = load i32, ptr %460, align 4, !tbaa !39
   %462 = icmp eq i32 %461, 0
   br i1 %462, label %544, label %.preheader162.i22
 
@@ -1281,14 +1281,14 @@ lv_color_8_8_mix.exit157.us.i:                    ; preds = %.sink.split.i155.us
 .lr.ph.split.us189.i:                             ; preds = %.preheader161.us.i28, %blend_non_normal_pixel.exit.us187.i
   %indvars.iv.i29 = phi i64 [ %indvars.iv.next.i30, %blend_non_normal_pixel.exit.us187.i ], [ 0, %.preheader161.us.i28 ]
   %473 = getelementptr inbounds nuw i8, ptr %.4125168.us.i, i64 %indvars.iv.i29
-  %474 = load i8, ptr %473, align 1, !tbaa !17
+  %474 = load i8, ptr %473, align 1, !tbaa !18
   %475 = getelementptr inbounds nuw i8, ptr %.2128167.us.i, i64 %indvars.iv.i29
-  %476 = load i8, ptr %475, align 1, !tbaa !17
+  %476 = load i8, ptr %475, align 1, !tbaa !18
   %477 = zext i8 %476 to i16
   %478 = mul nuw i16 %477, %465
   %479 = lshr i16 %478, 8
   %480 = getelementptr inbounds nuw i8, ptr %.4170.us.i, i64 %indvars.iv.i29
-  %481 = load i32, ptr %460, align 4, !tbaa !38
+  %481 = load i32, ptr %460, align 4, !tbaa !39
   %.sroa.6.0.insert.ext.us174.i = zext nneg i16 %479 to i32
   %.sroa.6.0.insert.shift.us175.i = shl nuw i32 %.sroa.6.0.insert.ext.us174.i, 24
   %.sroa.5.0.insert.ext.us176.i = zext i8 %474 to i32
@@ -1306,21 +1306,21 @@ lv_color_8_8_mix.exit157.us.i:                    ; preds = %.sink.split.i155.us
   ]
 
 485:                                              ; preds = %.lr.ph.split.us189.i
-  %486 = load i8, ptr %480, align 1, !tbaa !17
+  %486 = load i8, ptr %480, align 1, !tbaa !18
   %487 = zext i8 %486 to i32
   %488 = mul nuw nsw i32 %487, %484
   %489 = lshr i32 %488, 8
   br label %498
 
 490:                                              ; preds = %.lr.ph.split.us189.i
-  %491 = load i8, ptr %480, align 1, !tbaa !17
+  %491 = load i8, ptr %480, align 1, !tbaa !18
   %492 = zext i8 %491 to i32
   %493 = sub nsw i32 %492, %484
   %spec.select1415.i.us181.i = tail call i32 @llvm.smax.i32(i32 %493, i32 0)
   br label %498
 
 494:                                              ; preds = %.lr.ph.split.us189.i
-  %495 = load i8, ptr %480, align 1, !tbaa !17
+  %495 = load i8, ptr %480, align 1, !tbaa !18
   %496 = zext i8 %495 to i32
   %497 = add nuw nsw i32 %496, %484
   %spec.select16.i.us182.i = tail call i32 @llvm.umin.i32(i32 %497, i32 255)
@@ -1348,13 +1348,13 @@ lv_color_8_8_mix.exit157.us.i:                    ; preds = %.sink.split.i155.us
 .sink.split.i.i.us184.i:                          ; preds = %503, %501
   %.sink.i.in.i.us185.i = phi i32 [ %509, %503 ], [ %.0.in.i.us183.i, %501 ]
   %.sink.i.i.us186.i = trunc i32 %.sink.i.in.i.us185.i to i8
-  store i8 %.sink.i.i.us186.i, ptr %480, align 1, !tbaa !17
+  store i8 %.sink.i.i.us186.i, ptr %480, align 1, !tbaa !18
   br label %blend_non_normal_pixel.exit.us187.i
 
 blend_non_normal_pixel.exit.us187.i:              ; preds = %.sink.split.i.i.us184.i, %498, %.lr.ph.split.us189.i
   %indvars.iv.next.i30 = add nuw nsw i64 %indvars.iv.i29, 1
   %exitcond.not.i31 = icmp eq i64 %indvars.iv.next.i30, %wide.trip.count.i27
-  br i1 %exitcond.not.i31, label %._crit_edge.us.i32, label %.lr.ph.split.us189.i, !llvm.loop !61
+  br i1 %exitcond.not.i31, label %._crit_edge.us.i32, label %.lr.ph.split.us189.i, !llvm.loop !62
 
 ._crit_edge.us.i32:                               ; preds = %blend_non_normal_pixel.exit.us187.i, %blend_non_normal_pixel.exit.us.us.i40
   %510 = getelementptr inbounds i8, ptr %.2128167.us.i, i64 %469
@@ -1363,14 +1363,14 @@ blend_non_normal_pixel.exit.us187.i:              ; preds = %.sink.split.i.i.us1
   %512 = getelementptr inbounds nuw i8, ptr %.4125168.us.i, i64 %471
   %513 = add nuw nsw i32 %.4134166.us.i, 1
   %exitcond240.not.i = icmp eq i32 %513, %446
-  br i1 %exitcond240.not.i, label %rgb565_image_blend.exit, label %.preheader161.us.i28, !llvm.loop !62
+  br i1 %exitcond240.not.i, label %rgb565_image_blend.exit, label %.preheader161.us.i28, !llvm.loop !63
 
 .lr.ph.split.us.us.i34:                           ; preds = %.preheader161.us.i28, %blend_non_normal_pixel.exit.us.us.i40
   %indvars.iv233.i = phi i64 [ %indvars.iv.next234.i, %blend_non_normal_pixel.exit.us.us.i40 ], [ 0, %.preheader161.us.i28 ]
   %514 = getelementptr inbounds nuw i8, ptr %.4125168.us.i, i64 %indvars.iv233.i
-  %515 = load i8, ptr %514, align 1, !tbaa !17
+  %515 = load i8, ptr %514, align 1, !tbaa !18
   %516 = getelementptr inbounds nuw i8, ptr %.4170.us.i, i64 %indvars.iv233.i
-  %517 = load i32, ptr %460, align 4, !tbaa !38
+  %517 = load i32, ptr %460, align 4, !tbaa !39
   %.sroa.5.0.insert.ext.us.us.i = zext i8 %515 to i32
   %.sroa.5.0.insert.shift.us.us.i = shl nuw nsw i32 %.sroa.5.0.insert.ext.us.us.i, 16
   %.sroa.4.0.insert.shift.us.us.i = shl nuw nsw i32 %.sroa.5.0.insert.ext.us.us.i, 8
@@ -1386,21 +1386,21 @@ blend_non_normal_pixel.exit.us187.i:              ; preds = %.sink.split.i.i.us1
   ]
 
 522:                                              ; preds = %.lr.ph.split.us.us.i34
-  %523 = load i8, ptr %516, align 1, !tbaa !17
+  %523 = load i8, ptr %516, align 1, !tbaa !18
   %524 = zext i8 %523 to i32
   %525 = mul nuw nsw i32 %524, %521
   %526 = lshr i32 %525, 8
   br label %535
 
 527:                                              ; preds = %.lr.ph.split.us.us.i34
-  %528 = load i8, ptr %516, align 1, !tbaa !17
+  %528 = load i8, ptr %516, align 1, !tbaa !18
   %529 = zext i8 %528 to i32
   %530 = sub nsw i32 %529, %521
   %spec.select1415.i.us.us.i42 = tail call i32 @llvm.smax.i32(i32 %530, i32 0)
   br label %535
 
 531:                                              ; preds = %.lr.ph.split.us.us.i34
-  %532 = load i8, ptr %516, align 1, !tbaa !17
+  %532 = load i8, ptr %516, align 1, !tbaa !18
   %533 = zext i8 %532 to i32
   %534 = add nuw nsw i32 %533, %521
   %spec.select16.i.us.us.i43 = tail call i32 @llvm.umin.i32(i32 %534, i32 255)
@@ -1425,13 +1425,13 @@ blend_non_normal_pixel.exit.us187.i:              ; preds = %.sink.split.i.i.us1
 .sink.split.i.i.us.us.i37:                        ; preds = %538, %537
   %.sink.i.in.i.us.us.i38 = phi i32 [ %543, %538 ], [ %.0.in.i.us.us.i36, %537 ]
   %.sink.i.i.us.us.i39 = trunc i32 %.sink.i.in.i.us.us.i38 to i8
-  store i8 %.sink.i.i.us.us.i39, ptr %516, align 1, !tbaa !17
+  store i8 %.sink.i.i.us.us.i39, ptr %516, align 1, !tbaa !18
   br label %blend_non_normal_pixel.exit.us.us.i40
 
 blend_non_normal_pixel.exit.us.us.i40:            ; preds = %.sink.split.i.i.us.us.i37, %535, %.lr.ph.split.us.us.i34
   %indvars.iv.next234.i = add nuw nsw i64 %indvars.iv233.i, 1
   %exitcond239.not.i41 = icmp eq i64 %indvars.iv.next234.i, %wide.trip.count.i27
-  br i1 %exitcond239.not.i41, label %._crit_edge.us.i32, label %.lr.ph.split.us.us.i34, !llvm.loop !61
+  br i1 %exitcond239.not.i41, label %._crit_edge.us.i32, label %.lr.ph.split.us.us.i34, !llvm.loop !62
 
 544:                                              ; preds = %442
   %545 = icmp eq ptr %457, null
@@ -1459,7 +1459,7 @@ blend_non_normal_pixel.exit.us.us.i40:            ; preds = %.sink.split.i.i.us.
   %555 = getelementptr inbounds nuw i8, ptr %.0121217.i, i64 %551
   %556 = add nuw nsw i32 %.0130216.i, 1
   %exitcond265.not.i = icmp eq i32 %556, %446
-  br i1 %exitcond265.not.i, label %rgb565_image_blend.exit, label %552, !llvm.loop !63
+  br i1 %exitcond265.not.i, label %rgb565_image_blend.exit, label %552, !llvm.loop !64
 
 557:                                              ; preds = %544
   %558 = icmp ult i8 %448, -3
@@ -1494,27 +1494,27 @@ blend_non_normal_pixel.exit.us.us.i40:            ; preds = %.sink.split.i.i.us.
 .sink.split.i.us.i66:                             ; preds = %.sink.split.i.us.i66, %.preheader152.us.i
   %indvars.iv257.i = phi i64 [ 0, %.preheader152.us.i ], [ %indvars.iv.next258.i, %.sink.split.i.us.i66 ]
   %567 = getelementptr inbounds nuw i8, ptr %.1122207.us.i, i64 %indvars.iv257.i
-  %568 = load i8, ptr %567, align 1, !tbaa !17
+  %568 = load i8, ptr %567, align 1, !tbaa !18
   %569 = getelementptr inbounds nuw i8, ptr %.1208.us.i, i64 %indvars.iv257.i
   %570 = zext i8 %568 to i32
   %571 = mul nuw nsw i32 %570, %561
-  %572 = load i8, ptr %569, align 1, !tbaa !17
+  %572 = load i8, ptr %569, align 1, !tbaa !18
   %573 = zext i8 %572 to i32
   %574 = mul nuw nsw i32 %573, %563
   %575 = add nuw nsw i32 %574, %571
   %576 = lshr i32 %575, 8
   %577 = trunc i32 %576 to i8
-  store i8 %577, ptr %569, align 1, !tbaa !17
+  store i8 %577, ptr %569, align 1, !tbaa !18
   %indvars.iv.next258.i = add nuw nsw i64 %indvars.iv257.i, 1
   %exitcond263.not.i = icmp eq i64 %indvars.iv.next258.i, %wide.trip.count262.i
-  br i1 %exitcond263.not.i, label %._crit_edge.split.us211.i, label %.sink.split.i.us.i66, !llvm.loop !64
+  br i1 %exitcond263.not.i, label %._crit_edge.split.us211.i, label %.sink.split.i.us.i66, !llvm.loop !65
 
 ._crit_edge.split.us211.i:                        ; preds = %.sink.split.i.us.i66
   %578 = getelementptr inbounds nuw i8, ptr %.1208.us.i, i64 %564
   %579 = getelementptr inbounds nuw i8, ptr %.1122207.us.i, i64 %565
   %580 = add nuw nsw i32 %.1131206.us.i, 1
   %exitcond264.not.i = icmp eq i32 %580, %446
-  br i1 %exitcond264.not.i, label %rgb565_image_blend.exit, label %.preheader152.us.i, !llvm.loop !65
+  br i1 %exitcond264.not.i, label %rgb565_image_blend.exit, label %.preheader152.us.i, !llvm.loop !66
 
 581:                                              ; preds = %557
   %582 = icmp ne ptr %457, null
@@ -1546,10 +1546,10 @@ blend_non_normal_pixel.exit.us.us.i40:            ; preds = %.sink.split.i.i.us.
 588:                                              ; preds = %lv_color_8_8_mix.exit148.us.i, %.preheader155.us.i60
   %indvars.iv249.i61 = phi i64 [ 0, %.preheader155.us.i60 ], [ %indvars.iv.next250.i62, %lv_color_8_8_mix.exit148.us.i ]
   %589 = getelementptr inbounds nuw i8, ptr %.2123201.us.i, i64 %indvars.iv249.i61
-  %590 = load i8, ptr %589, align 1, !tbaa !17
+  %590 = load i8, ptr %589, align 1, !tbaa !18
   %591 = getelementptr inbounds nuw i8, ptr %.2202.us.i, i64 %indvars.iv249.i61
   %592 = getelementptr inbounds nuw i8, ptr %.0126200.us.i, i64 %indvars.iv249.i61
-  %593 = load i8, ptr %592, align 1, !tbaa !17
+  %593 = load i8, ptr %592, align 1, !tbaa !18
   %594 = zext i8 %593 to i32
   %595 = icmp eq i8 %593, 0
   br i1 %595, label %lv_color_8_8_mix.exit148.us.i, label %596
@@ -1562,7 +1562,7 @@ blend_non_normal_pixel.exit.us.us.i40:            ; preds = %.sink.split.i.i.us.
   %599 = xor i8 %593, -1
   %600 = zext i8 %590 to i32
   %601 = mul nuw nsw i32 %594, %600
-  %602 = load i8, ptr %591, align 1, !tbaa !17
+  %602 = load i8, ptr %591, align 1, !tbaa !18
   %603 = zext i8 %602 to i32
   %604 = zext i8 %599 to i32
   %605 = mul nuw nsw i32 %603, %604
@@ -1573,13 +1573,13 @@ blend_non_normal_pixel.exit.us.us.i40:            ; preds = %.sink.split.i.i.us.
 
 .sink.split.i146.us.i:                            ; preds = %598, %596
   %.sink.i147.us.i = phi i8 [ %608, %598 ], [ %590, %596 ]
-  store i8 %.sink.i147.us.i, ptr %591, align 1, !tbaa !17
+  store i8 %.sink.i147.us.i, ptr %591, align 1, !tbaa !18
   br label %lv_color_8_8_mix.exit148.us.i
 
 lv_color_8_8_mix.exit148.us.i:                    ; preds = %.sink.split.i146.us.i, %588
   %indvars.iv.next250.i62 = add nuw nsw i64 %indvars.iv249.i61, 1
   %exitcond255.not.i63 = icmp eq i64 %indvars.iv.next250.i62, %wide.trip.count254.i59
-  br i1 %exitcond255.not.i63, label %._crit_edge.us203.i64, label %588, !llvm.loop !66
+  br i1 %exitcond255.not.i63, label %._crit_edge.us203.i64, label %588, !llvm.loop !67
 
 ._crit_edge.us203.i64:                            ; preds = %lv_color_8_8_mix.exit148.us.i
   %609 = getelementptr inbounds nuw i8, ptr %.2202.us.i, i64 %585
@@ -1587,7 +1587,7 @@ lv_color_8_8_mix.exit148.us.i:                    ; preds = %.sink.split.i146.us
   %611 = getelementptr inbounds i8, ptr %.0126200.us.i, i64 %587
   %612 = add nuw nsw i32 %.2132199.us.i, 1
   %exitcond256.not.i65 = icmp eq i32 %612, %446
-  br i1 %exitcond256.not.i65, label %rgb565_image_blend.exit, label %.preheader155.us.i60, !llvm.loop !67
+  br i1 %exitcond256.not.i65, label %rgb565_image_blend.exit, label %.preheader155.us.i60, !llvm.loop !68
 
 613:                                              ; preds = %581
   %or.cond11.i47 = select i1 %582, i1 %558, i1 false
@@ -1616,10 +1616,10 @@ lv_color_8_8_mix.exit148.us.i:                    ; preds = %.sink.split.i146.us
 619:                                              ; preds = %lv_color_8_8_mix.exit151.us.i54, %.preheader158.us.i51
   %indvars.iv241.i = phi i64 [ 0, %.preheader158.us.i51 ], [ %indvars.iv.next242.i, %lv_color_8_8_mix.exit151.us.i54 ]
   %620 = getelementptr inbounds nuw i8, ptr %.3124194.us.i, i64 %indvars.iv241.i
-  %621 = load i8, ptr %620, align 1, !tbaa !17
+  %621 = load i8, ptr %620, align 1, !tbaa !18
   %622 = getelementptr inbounds nuw i8, ptr %.3195.us.i, i64 %indvars.iv241.i
   %623 = getelementptr inbounds nuw i8, ptr %.1127193.us.i, i64 %indvars.iv241.i
-  %624 = load i8, ptr %623, align 1, !tbaa !17
+  %624 = load i8, ptr %623, align 1, !tbaa !18
   %625 = zext i8 %624 to i16
   %626 = mul nuw i16 %625, %546
   %627 = lshr i16 %626, 8
@@ -1636,7 +1636,7 @@ lv_color_8_8_mix.exit148.us.i:                    ; preds = %.sink.split.i146.us
   %634 = zext nneg i16 %633 to i32
   %635 = zext i8 %621 to i32
   %636 = mul nuw nsw i32 %628, %635
-  %637 = load i8, ptr %622, align 1, !tbaa !17
+  %637 = load i8, ptr %622, align 1, !tbaa !18
   %638 = zext i8 %637 to i32
   %639 = mul nuw nsw i32 %638, %634
   %640 = add nuw nsw i32 %639, %636
@@ -1646,13 +1646,13 @@ lv_color_8_8_mix.exit148.us.i:                    ; preds = %.sink.split.i146.us
 
 .sink.split.i149.us.i52:                          ; preds = %632, %630
   %.sink.i150.us.i53 = phi i8 [ %642, %632 ], [ %621, %630 ]
-  store i8 %.sink.i150.us.i53, ptr %622, align 1, !tbaa !17
+  store i8 %.sink.i150.us.i53, ptr %622, align 1, !tbaa !18
   br label %lv_color_8_8_mix.exit151.us.i54
 
 lv_color_8_8_mix.exit151.us.i54:                  ; preds = %.sink.split.i149.us.i52, %619
   %indvars.iv.next242.i = add nuw nsw i64 %indvars.iv241.i, 1
   %exitcond247.not.i55 = icmp eq i64 %indvars.iv.next242.i, %wide.trip.count246.i50
-  br i1 %exitcond247.not.i55, label %._crit_edge.us196.i, label %619, !llvm.loop !68
+  br i1 %exitcond247.not.i55, label %._crit_edge.us196.i, label %619, !llvm.loop !69
 
 ._crit_edge.us196.i:                              ; preds = %lv_color_8_8_mix.exit151.us.i54
   %643 = getelementptr inbounds nuw i8, ptr %.3195.us.i, i64 %616
@@ -1660,28 +1660,28 @@ lv_color_8_8_mix.exit151.us.i54:                  ; preds = %.sink.split.i149.us
   %645 = getelementptr inbounds i8, ptr %.1127193.us.i, i64 %618
   %646 = add nuw nsw i32 %.3133192.us.i, 1
   %exitcond248.not.i56 = icmp eq i32 %646, %446
-  br i1 %exitcond248.not.i56, label %rgb565_image_blend.exit, label %.preheader158.us.i51, !llvm.loop !69
+  br i1 %exitcond248.not.i56, label %rgb565_image_blend.exit, label %.preheader158.us.i51, !llvm.loop !70
 
 647:                                              ; preds = %1
   %648 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %649 = load i32, ptr %648, align 8, !tbaa !29
+  %649 = load i32, ptr %648, align 8, !tbaa !30
   %650 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %651 = load i32, ptr %650, align 4, !tbaa !30
+  %651 = load i32, ptr %650, align 4, !tbaa !31
   %652 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %653 = load i8, ptr %652, align 8, !tbaa !31
-  %654 = load ptr, ptr %0, align 8, !tbaa !32
+  %653 = load i8, ptr %652, align 8, !tbaa !32
+  %654 = load ptr, ptr %0, align 8, !tbaa !33
   %655 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %656 = load i32, ptr %655, align 8, !tbaa !33
+  %656 = load i32, ptr %655, align 8, !tbaa !34
   %657 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %658 = load ptr, ptr %657, align 8, !tbaa !34
+  %658 = load ptr, ptr %657, align 8, !tbaa !35
   %659 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %660 = load i32, ptr %659, align 8, !tbaa !35
+  %660 = load i32, ptr %659, align 8, !tbaa !36
   %661 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %662 = load ptr, ptr %661, align 8, !tbaa !36
+  %662 = load ptr, ptr %661, align 8, !tbaa !37
   %663 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %664 = load i32, ptr %663, align 8, !tbaa !37
+  %664 = load i32, ptr %663, align 8, !tbaa !38
   %665 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  %666 = load i32, ptr %665, align 4, !tbaa !38
+  %666 = load i32, ptr %665, align 4, !tbaa !39
   %667 = icmp eq i32 %666, 0
   br i1 %667, label %749, label %.preheader182.i
 
@@ -1717,14 +1717,14 @@ lv_color_8_8_mix.exit151.us.i54:                  ; preds = %.sink.split.i149.us
 .lr.ph.split.us209.i:                             ; preds = %.preheader181.us.i, %blend_non_normal_pixel.exit.us207.i
   %indvars.iv.i71 = phi i64 [ %indvars.iv.next.i72, %blend_non_normal_pixel.exit.us207.i ], [ 0, %.preheader181.us.i ]
   %678 = getelementptr inbounds nuw %struct.lv_color16a_t, ptr %.4138188.us.i, i64 %indvars.iv.i71
-  %679 = load i8, ptr %678, align 1, !tbaa !70
+  %679 = load i8, ptr %678, align 1, !tbaa !71
   %680 = getelementptr inbounds nuw i8, ptr %.2141187.us.i, i64 %indvars.iv.i71
-  %681 = load i8, ptr %680, align 1, !tbaa !17
+  %681 = load i8, ptr %680, align 1, !tbaa !18
   %682 = zext i8 %681 to i16
   %683 = mul nuw i16 %682, %670
   %684 = lshr i16 %683, 8
   %685 = getelementptr inbounds nuw i8, ptr %.4190.us.i, i64 %indvars.iv.i71
-  %686 = load i32, ptr %665, align 4, !tbaa !38
+  %686 = load i32, ptr %665, align 4, !tbaa !39
   %.sroa.6.0.insert.ext.us194.i = zext nneg i16 %684 to i32
   %.sroa.6.0.insert.shift.us195.i = shl nuw i32 %.sroa.6.0.insert.ext.us194.i, 24
   %.sroa.5.0.insert.ext.us196.i = zext i8 %679 to i32
@@ -1742,21 +1742,21 @@ lv_color_8_8_mix.exit151.us.i54:                  ; preds = %.sink.split.i149.us
   ]
 
 690:                                              ; preds = %.lr.ph.split.us209.i
-  %691 = load i8, ptr %685, align 1, !tbaa !17
+  %691 = load i8, ptr %685, align 1, !tbaa !18
   %692 = zext i8 %691 to i32
   %693 = mul nuw nsw i32 %692, %689
   %694 = lshr i32 %693, 8
   br label %703
 
 695:                                              ; preds = %.lr.ph.split.us209.i
-  %696 = load i8, ptr %685, align 1, !tbaa !17
+  %696 = load i8, ptr %685, align 1, !tbaa !18
   %697 = zext i8 %696 to i32
   %698 = sub nsw i32 %697, %689
   %spec.select1415.i.us201.i = tail call i32 @llvm.smax.i32(i32 %698, i32 0)
   br label %703
 
 699:                                              ; preds = %.lr.ph.split.us209.i
-  %700 = load i8, ptr %685, align 1, !tbaa !17
+  %700 = load i8, ptr %685, align 1, !tbaa !18
   %701 = zext i8 %700 to i32
   %702 = add nuw nsw i32 %701, %689
   %spec.select16.i.us202.i = tail call i32 @llvm.umin.i32(i32 %702, i32 255)
@@ -1784,13 +1784,13 @@ lv_color_8_8_mix.exit151.us.i54:                  ; preds = %.sink.split.i149.us
 .sink.split.i.i.us204.i:                          ; preds = %708, %706
   %.sink.i.in.i.us205.i = phi i32 [ %714, %708 ], [ %.0.in.i.us203.i, %706 ]
   %.sink.i.i.us206.i = trunc i32 %.sink.i.in.i.us205.i to i8
-  store i8 %.sink.i.i.us206.i, ptr %685, align 1, !tbaa !17
+  store i8 %.sink.i.i.us206.i, ptr %685, align 1, !tbaa !18
   br label %blend_non_normal_pixel.exit.us207.i
 
 blend_non_normal_pixel.exit.us207.i:              ; preds = %.sink.split.i.i.us204.i, %703, %.lr.ph.split.us209.i
   %indvars.iv.next.i72 = add nuw nsw i64 %indvars.iv.i71, 1
   %exitcond.not.i73 = icmp eq i64 %indvars.iv.next.i72, %wide.trip.count.i69
-  br i1 %exitcond.not.i73, label %._crit_edge.us.i74, label %.lr.ph.split.us209.i, !llvm.loop !72
+  br i1 %exitcond.not.i73, label %._crit_edge.us.i74, label %.lr.ph.split.us209.i, !llvm.loop !73
 
 ._crit_edge.us.i74:                               ; preds = %blend_non_normal_pixel.exit.us207.i, %blend_non_normal_pixel.exit.us.us.i86
   %715 = getelementptr inbounds i8, ptr %.2141187.us.i, i64 %674
@@ -1799,14 +1799,14 @@ blend_non_normal_pixel.exit.us207.i:              ; preds = %.sink.split.i.i.us2
   %717 = getelementptr inbounds nuw i8, ptr %.4138188.us.i, i64 %676
   %718 = add nuw nsw i32 %.4147186.us.i, 1
   %exitcond257.not.i75 = icmp eq i32 %718, %651
-  br i1 %exitcond257.not.i75, label %rgb565_image_blend.exit, label %.preheader181.us.i, !llvm.loop !73
+  br i1 %exitcond257.not.i75, label %rgb565_image_blend.exit, label %.preheader181.us.i, !llvm.loop !74
 
 .lr.ph.split.us.us.i76:                           ; preds = %.preheader181.us.i, %blend_non_normal_pixel.exit.us.us.i86
   %indvars.iv250.i = phi i64 [ %indvars.iv.next251.i, %blend_non_normal_pixel.exit.us.us.i86 ], [ 0, %.preheader181.us.i ]
   %719 = getelementptr inbounds nuw %struct.lv_color16a_t, ptr %.4138188.us.i, i64 %indvars.iv250.i
-  %720 = load i8, ptr %719, align 1, !tbaa !70
+  %720 = load i8, ptr %719, align 1, !tbaa !71
   %721 = getelementptr inbounds nuw i8, ptr %.4190.us.i, i64 %indvars.iv250.i
-  %722 = load i32, ptr %665, align 4, !tbaa !38
+  %722 = load i32, ptr %665, align 4, !tbaa !39
   %.sroa.5.0.insert.ext.us.us.i77 = zext i8 %720 to i32
   %.sroa.5.0.insert.shift.us.us.i78 = shl nuw nsw i32 %.sroa.5.0.insert.ext.us.us.i77, 16
   %.sroa.4.0.insert.shift.us.us.i79 = shl nuw nsw i32 %.sroa.5.0.insert.ext.us.us.i77, 8
@@ -1822,21 +1822,21 @@ blend_non_normal_pixel.exit.us207.i:              ; preds = %.sink.split.i.i.us2
   ]
 
 727:                                              ; preds = %.lr.ph.split.us.us.i76
-  %728 = load i8, ptr %721, align 1, !tbaa !17
+  %728 = load i8, ptr %721, align 1, !tbaa !18
   %729 = zext i8 %728 to i32
   %730 = mul nuw nsw i32 %729, %726
   %731 = lshr i32 %730, 8
   br label %740
 
 732:                                              ; preds = %.lr.ph.split.us.us.i76
-  %733 = load i8, ptr %721, align 1, !tbaa !17
+  %733 = load i8, ptr %721, align 1, !tbaa !18
   %734 = zext i8 %733 to i32
   %735 = sub nsw i32 %734, %726
   %spec.select1415.i.us.us.i88 = tail call i32 @llvm.smax.i32(i32 %735, i32 0)
   br label %740
 
 736:                                              ; preds = %.lr.ph.split.us.us.i76
-  %737 = load i8, ptr %721, align 1, !tbaa !17
+  %737 = load i8, ptr %721, align 1, !tbaa !18
   %738 = zext i8 %737 to i32
   %739 = add nuw nsw i32 %738, %726
   %spec.select16.i.us.us.i89 = tail call i32 @llvm.umin.i32(i32 %739, i32 255)
@@ -1861,13 +1861,13 @@ blend_non_normal_pixel.exit.us207.i:              ; preds = %.sink.split.i.i.us2
 .sink.split.i.i.us.us.i83:                        ; preds = %743, %742
   %.sink.i.in.i.us.us.i84 = phi i32 [ %748, %743 ], [ %.0.in.i.us.us.i82, %742 ]
   %.sink.i.i.us.us.i85 = trunc i32 %.sink.i.in.i.us.us.i84 to i8
-  store i8 %.sink.i.i.us.us.i85, ptr %721, align 1, !tbaa !17
+  store i8 %.sink.i.i.us.us.i85, ptr %721, align 1, !tbaa !18
   br label %blend_non_normal_pixel.exit.us.us.i86
 
 blend_non_normal_pixel.exit.us.us.i86:            ; preds = %.sink.split.i.i.us.us.i83, %740, %.lr.ph.split.us.us.i76
   %indvars.iv.next251.i = add nuw nsw i64 %indvars.iv250.i, 1
   %exitcond256.not.i87 = icmp eq i64 %indvars.iv.next251.i, %wide.trip.count.i69
-  br i1 %exitcond256.not.i87, label %._crit_edge.us.i74, label %.lr.ph.split.us.us.i76, !llvm.loop !72
+  br i1 %exitcond256.not.i87, label %._crit_edge.us.i74, label %.lr.ph.split.us.us.i76, !llvm.loop !73
 
 749:                                              ; preds = %647
   %750 = icmp eq ptr %662, null
@@ -1899,10 +1899,10 @@ blend_non_normal_pixel.exit.us.us.i86:            ; preds = %.sink.split.i.i.us.
 757:                                              ; preds = %lv_color_8_8_mix.exit.us.i101, %.preheader.us.i98
   %indvars.iv282.i = phi i64 [ 0, %.preheader.us.i98 ], [ %indvars.iv.next283.i, %lv_color_8_8_mix.exit.us.i101 ]
   %758 = getelementptr inbounds nuw %struct.lv_color16a_t, ptr %.0134233.us.i, i64 %indvars.iv282.i
-  %759 = load i8, ptr %758, align 1, !tbaa !70
+  %759 = load i8, ptr %758, align 1, !tbaa !71
   %760 = getelementptr inbounds nuw i8, ptr %.0234.us.i, i64 %indvars.iv282.i
   %761 = getelementptr inbounds nuw i8, ptr %758, i64 1
-  %762 = load i8, ptr %761, align 1, !tbaa !74
+  %762 = load i8, ptr %761, align 1, !tbaa !75
   %763 = zext i8 %762 to i32
   %764 = icmp eq i8 %762, 0
   br i1 %764, label %lv_color_8_8_mix.exit.us.i101, label %765
@@ -1915,7 +1915,7 @@ blend_non_normal_pixel.exit.us.us.i86:            ; preds = %.sink.split.i.i.us.
   %768 = xor i8 %762, -1
   %769 = zext i8 %759 to i32
   %770 = mul nuw nsw i32 %763, %769
-  %771 = load i8, ptr %760, align 1, !tbaa !17
+  %771 = load i8, ptr %760, align 1, !tbaa !18
   %772 = zext i8 %771 to i32
   %773 = zext i8 %768 to i32
   %774 = mul nuw nsw i32 %772, %773
@@ -1926,20 +1926,20 @@ blend_non_normal_pixel.exit.us.us.i86:            ; preds = %.sink.split.i.i.us.
 
 .sink.split.i.us.i99:                             ; preds = %767, %765
   %.sink.i.us.i100 = phi i8 [ %777, %767 ], [ %759, %765 ]
-  store i8 %.sink.i.us.i100, ptr %760, align 1, !tbaa !17
+  store i8 %.sink.i.us.i100, ptr %760, align 1, !tbaa !18
   br label %lv_color_8_8_mix.exit.us.i101
 
 lv_color_8_8_mix.exit.us.i101:                    ; preds = %.sink.split.i.us.i99, %757
   %indvars.iv.next283.i = add nuw nsw i64 %indvars.iv282.i, 1
   %exitcond288.not.i = icmp eq i64 %indvars.iv.next283.i, %wide.trip.count287.i
-  br i1 %exitcond288.not.i, label %._crit_edge.us235.i, label %757, !llvm.loop !75
+  br i1 %exitcond288.not.i, label %._crit_edge.us235.i, label %757, !llvm.loop !76
 
 ._crit_edge.us235.i:                              ; preds = %lv_color_8_8_mix.exit.us.i101
   %778 = getelementptr inbounds nuw i8, ptr %.0234.us.i, i64 %755
   %779 = getelementptr inbounds nuw i8, ptr %.0134233.us.i, i64 %756
   %780 = add nuw nsw i32 %.0143232.us.i, 1
   %exitcond289.not.i = icmp eq i32 %780, %651
-  br i1 %exitcond289.not.i, label %rgb565_image_blend.exit, label %.preheader.us.i98, !llvm.loop !76
+  br i1 %exitcond289.not.i, label %rgb565_image_blend.exit, label %.preheader.us.i98, !llvm.loop !77
 
 781:                                              ; preds = %749
   %782 = icmp ult i8 %653, -3
@@ -1969,10 +1969,10 @@ lv_color_8_8_mix.exit.us.i101:                    ; preds = %.sink.split.i.us.i9
 787:                                              ; preds = %lv_color_8_8_mix.exit164.us.i, %.preheader172.us.i
   %indvars.iv274.i = phi i64 [ 0, %.preheader172.us.i ], [ %indvars.iv.next275.i, %lv_color_8_8_mix.exit164.us.i ]
   %788 = getelementptr inbounds nuw %struct.lv_color16a_t, ptr %.1135227.us.i, i64 %indvars.iv274.i
-  %789 = load i8, ptr %788, align 1, !tbaa !70
+  %789 = load i8, ptr %788, align 1, !tbaa !71
   %790 = getelementptr inbounds nuw i8, ptr %.1228.us.i, i64 %indvars.iv274.i
   %791 = getelementptr inbounds nuw i8, ptr %788, i64 1
-  %792 = load i8, ptr %791, align 1, !tbaa !74
+  %792 = load i8, ptr %791, align 1, !tbaa !75
   %793 = zext i8 %792 to i32
   %794 = mul nuw nsw i32 %793, %751
   %795 = lshr i32 %794, 8
@@ -1987,7 +1987,7 @@ lv_color_8_8_mix.exit.us.i101:                    ; preds = %.sink.split.i.us.i9
   %800 = xor i32 %795, 255
   %801 = zext i8 %789 to i32
   %802 = mul nuw nsw i32 %795, %801
-  %803 = load i8, ptr %790, align 1, !tbaa !17
+  %803 = load i8, ptr %790, align 1, !tbaa !18
   %804 = zext i8 %803 to i32
   %805 = mul nuw nsw i32 %800, %804
   %806 = add nuw nsw i32 %805, %802
@@ -1997,20 +1997,20 @@ lv_color_8_8_mix.exit.us.i101:                    ; preds = %.sink.split.i.us.i9
 
 .sink.split.i162.us.i:                            ; preds = %799, %797
   %.sink.i163.us.i = phi i8 [ %808, %799 ], [ %789, %797 ]
-  store i8 %.sink.i163.us.i, ptr %790, align 1, !tbaa !17
+  store i8 %.sink.i163.us.i, ptr %790, align 1, !tbaa !18
   br label %lv_color_8_8_mix.exit164.us.i
 
 lv_color_8_8_mix.exit164.us.i:                    ; preds = %.sink.split.i162.us.i, %787
   %indvars.iv.next275.i = add nuw nsw i64 %indvars.iv274.i, 1
   %exitcond280.not.i = icmp eq i64 %indvars.iv.next275.i, %wide.trip.count279.i
-  br i1 %exitcond280.not.i, label %._crit_edge.us229.i, label %787, !llvm.loop !77
+  br i1 %exitcond280.not.i, label %._crit_edge.us229.i, label %787, !llvm.loop !78
 
 ._crit_edge.us229.i:                              ; preds = %lv_color_8_8_mix.exit164.us.i
   %809 = getelementptr inbounds nuw i8, ptr %.1228.us.i, i64 %785
   %810 = getelementptr inbounds nuw i8, ptr %.1135227.us.i, i64 %786
   %811 = add nuw nsw i32 %.1144226.us.i, 1
   %exitcond281.not.i = icmp eq i32 %811, %651
-  br i1 %exitcond281.not.i, label %rgb565_image_blend.exit, label %.preheader172.us.i, !llvm.loop !78
+  br i1 %exitcond281.not.i, label %rgb565_image_blend.exit, label %.preheader172.us.i, !llvm.loop !79
 
 812:                                              ; preds = %781
   %813 = icmp ne ptr %662, null
@@ -2042,13 +2042,13 @@ lv_color_8_8_mix.exit164.us.i:                    ; preds = %.sink.split.i162.us
 819:                                              ; preds = %lv_color_8_8_mix.exit167.us.i, %.preheader175.us.i
   %indvars.iv266.i = phi i64 [ 0, %.preheader175.us.i ], [ %indvars.iv.next267.i, %lv_color_8_8_mix.exit167.us.i ]
   %820 = getelementptr inbounds nuw %struct.lv_color16a_t, ptr %.2136221.us.i, i64 %indvars.iv266.i
-  %821 = load i8, ptr %820, align 1, !tbaa !70
+  %821 = load i8, ptr %820, align 1, !tbaa !71
   %822 = getelementptr inbounds nuw i8, ptr %.2222.us.i, i64 %indvars.iv266.i
   %823 = getelementptr inbounds nuw i8, ptr %820, i64 1
-  %824 = load i8, ptr %823, align 1, !tbaa !74
+  %824 = load i8, ptr %823, align 1, !tbaa !75
   %825 = zext i8 %824 to i16
   %826 = getelementptr inbounds nuw i8, ptr %.0139220.us.i, i64 %indvars.iv266.i
-  %827 = load i8, ptr %826, align 1, !tbaa !17
+  %827 = load i8, ptr %826, align 1, !tbaa !18
   %828 = zext i8 %827 to i16
   %829 = mul nuw i16 %828, %825
   %830 = lshr i16 %829, 8
@@ -2065,7 +2065,7 @@ lv_color_8_8_mix.exit164.us.i:                    ; preds = %.sink.split.i162.us
   %837 = zext nneg i16 %836 to i32
   %838 = zext i8 %821 to i32
   %839 = mul nuw nsw i32 %831, %838
-  %840 = load i8, ptr %822, align 1, !tbaa !17
+  %840 = load i8, ptr %822, align 1, !tbaa !18
   %841 = zext i8 %840 to i32
   %842 = mul nuw nsw i32 %841, %837
   %843 = add nuw nsw i32 %842, %839
@@ -2075,13 +2075,13 @@ lv_color_8_8_mix.exit164.us.i:                    ; preds = %.sink.split.i162.us
 
 .sink.split.i165.us.i:                            ; preds = %835, %833
   %.sink.i166.us.i = phi i8 [ %845, %835 ], [ %821, %833 ]
-  store i8 %.sink.i166.us.i, ptr %822, align 1, !tbaa !17
+  store i8 %.sink.i166.us.i, ptr %822, align 1, !tbaa !18
   br label %lv_color_8_8_mix.exit167.us.i
 
 lv_color_8_8_mix.exit167.us.i:                    ; preds = %.sink.split.i165.us.i, %819
   %indvars.iv.next267.i = add nuw nsw i64 %indvars.iv266.i, 1
   %exitcond272.not.i = icmp eq i64 %indvars.iv.next267.i, %wide.trip.count271.i
-  br i1 %exitcond272.not.i, label %._crit_edge.us223.i, label %819, !llvm.loop !79
+  br i1 %exitcond272.not.i, label %._crit_edge.us223.i, label %819, !llvm.loop !80
 
 ._crit_edge.us223.i:                              ; preds = %lv_color_8_8_mix.exit167.us.i
   %846 = getelementptr inbounds nuw i8, ptr %.2222.us.i, i64 %816
@@ -2089,7 +2089,7 @@ lv_color_8_8_mix.exit167.us.i:                    ; preds = %.sink.split.i165.us
   %848 = getelementptr inbounds i8, ptr %.0139220.us.i, i64 %818
   %849 = add nuw nsw i32 %.2145219.us.i, 1
   %exitcond273.not.i = icmp eq i32 %849, %651
-  br i1 %exitcond273.not.i, label %rgb565_image_blend.exit, label %.preheader175.us.i, !llvm.loop !80
+  br i1 %exitcond273.not.i, label %rgb565_image_blend.exit, label %.preheader175.us.i, !llvm.loop !81
 
 850:                                              ; preds = %812
   %or.cond11.i93 = select i1 %813, i1 %782, i1 false
@@ -2118,13 +2118,13 @@ lv_color_8_8_mix.exit167.us.i:                    ; preds = %.sink.split.i165.us
 856:                                              ; preds = %lv_color_8_8_mix.exit170.us.i, %.preheader178.us.i
   %indvars.iv258.i = phi i64 [ 0, %.preheader178.us.i ], [ %indvars.iv.next259.i, %lv_color_8_8_mix.exit170.us.i ]
   %857 = getelementptr inbounds nuw %struct.lv_color16a_t, ptr %.3137214.us.i, i64 %indvars.iv258.i
-  %858 = load i8, ptr %857, align 1, !tbaa !70
+  %858 = load i8, ptr %857, align 1, !tbaa !71
   %859 = getelementptr inbounds nuw i8, ptr %.3215.us.i, i64 %indvars.iv258.i
   %860 = getelementptr inbounds nuw i8, ptr %857, i64 1
-  %861 = load i8, ptr %860, align 1, !tbaa !74
+  %861 = load i8, ptr %860, align 1, !tbaa !75
   %862 = zext i8 %861 to i32
   %863 = getelementptr inbounds nuw i8, ptr %.1140213.us.i, i64 %indvars.iv258.i
-  %864 = load i8, ptr %863, align 1, !tbaa !17
+  %864 = load i8, ptr %863, align 1, !tbaa !18
   %865 = zext i8 %864 to i32
   %866 = mul nuw nsw i32 %862, %751
   %867 = mul nuw nsw i32 %866, %865
@@ -2140,7 +2140,7 @@ lv_color_8_8_mix.exit167.us.i:                    ; preds = %.sink.split.i165.us
   %873 = xor i32 %868, 255
   %874 = zext i8 %858 to i32
   %875 = mul nuw nsw i32 %868, %874
-  %876 = load i8, ptr %859, align 1, !tbaa !17
+  %876 = load i8, ptr %859, align 1, !tbaa !18
   %877 = zext i8 %876 to i32
   %878 = mul nuw nsw i32 %873, %877
   %879 = add nuw nsw i32 %878, %875
@@ -2150,13 +2150,13 @@ lv_color_8_8_mix.exit167.us.i:                    ; preds = %.sink.split.i165.us
 
 .sink.split.i168.us.i:                            ; preds = %872, %870
   %.sink.i169.us.i = phi i8 [ %881, %872 ], [ %858, %870 ]
-  store i8 %.sink.i169.us.i, ptr %859, align 1, !tbaa !17
+  store i8 %.sink.i169.us.i, ptr %859, align 1, !tbaa !18
   br label %lv_color_8_8_mix.exit170.us.i
 
 lv_color_8_8_mix.exit170.us.i:                    ; preds = %.sink.split.i168.us.i, %856
   %indvars.iv.next259.i = add nuw nsw i64 %indvars.iv258.i, 1
   %exitcond264.not.i94 = icmp eq i64 %indvars.iv.next259.i, %wide.trip.count263.i
-  br i1 %exitcond264.not.i94, label %._crit_edge.us216.i, label %856, !llvm.loop !81
+  br i1 %exitcond264.not.i94, label %._crit_edge.us216.i, label %856, !llvm.loop !82
 
 ._crit_edge.us216.i:                              ; preds = %lv_color_8_8_mix.exit170.us.i
   %882 = getelementptr inbounds nuw i8, ptr %.3215.us.i, i64 %853
@@ -2164,28 +2164,28 @@ lv_color_8_8_mix.exit170.us.i:                    ; preds = %.sink.split.i168.us
   %884 = getelementptr inbounds i8, ptr %.1140213.us.i, i64 %855
   %885 = add nuw nsw i32 %.3146212.us.i, 1
   %exitcond265.not.i95 = icmp eq i32 %885, %651
-  br i1 %exitcond265.not.i95, label %rgb565_image_blend.exit, label %.preheader178.us.i, !llvm.loop !82
+  br i1 %exitcond265.not.i95, label %rgb565_image_blend.exit, label %.preheader178.us.i, !llvm.loop !83
 
 886:                                              ; preds = %1
   %887 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %888 = load i32, ptr %887, align 8, !tbaa !29
+  %888 = load i32, ptr %887, align 8, !tbaa !30
   %889 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %890 = load i32, ptr %889, align 4, !tbaa !30
+  %890 = load i32, ptr %889, align 4, !tbaa !31
   %891 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %892 = load i8, ptr %891, align 8, !tbaa !31
-  %893 = load ptr, ptr %0, align 8, !tbaa !32
+  %892 = load i8, ptr %891, align 8, !tbaa !32
+  %893 = load ptr, ptr %0, align 8, !tbaa !33
   %894 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %895 = load i32, ptr %894, align 8, !tbaa !33
+  %895 = load i32, ptr %894, align 8, !tbaa !34
   %896 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %897 = load ptr, ptr %896, align 8, !tbaa !34
+  %897 = load ptr, ptr %896, align 8, !tbaa !35
   %898 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %899 = load i32, ptr %898, align 8, !tbaa !35
+  %899 = load i32, ptr %898, align 8, !tbaa !36
   %900 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %901 = load ptr, ptr %900, align 8, !tbaa !36
+  %901 = load ptr, ptr %900, align 8, !tbaa !37
   %902 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %903 = load i32, ptr %902, align 8, !tbaa !37
+  %903 = load i32, ptr %902, align 8, !tbaa !38
   %904 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  %905 = load i32, ptr %904, align 4, !tbaa !38
+  %905 = load i32, ptr %904, align 4, !tbaa !39
   %906 = icmp eq i32 %905, 0
   br i1 %906, label %967, label %.preheader179.i
 
@@ -2219,7 +2219,7 @@ lv_color_8_8_mix.exit170.us.i:                    ; preds = %.sink.split.i168.us
   %915 = lshr i64 %indvars.iv.i106, 3
   %916 = and i64 %915, 536870911
   %917 = getelementptr inbounds nuw i8, ptr %.4132185.us.i, i64 %916
-  %918 = load i8, ptr %917, align 1, !tbaa !17
+  %918 = load i8, ptr %917, align 1, !tbaa !18
   %919 = zext i8 %918 to i32
   %920 = and i32 %indvars230.i, 7
   %921 = xor i32 %920, 7
@@ -2227,7 +2227,7 @@ lv_color_8_8_mix.exit170.us.i:                    ; preds = %.sink.split.i168.us
 
 922:                                              ; preds = %914
   %923 = getelementptr inbounds nuw i8, ptr %.2135184.us.i, i64 %indvars.iv.i106
-  %924 = load i8, ptr %923, align 1, !tbaa !17
+  %924 = load i8, ptr %923, align 1, !tbaa !18
   %925 = zext i8 %924 to i16
   %926 = mul nuw i16 %925, %909
   %927 = lshr i16 %926, 8
@@ -2237,7 +2237,7 @@ lv_color_8_8_mix.exit170.us.i:                    ; preds = %.sink.split.i168.us
 929:                                              ; preds = %922, %914
   %.sroa.8.0.us.i = phi i8 [ %928, %922 ], [ %892, %914 ]
   %930 = getelementptr inbounds nuw i8, ptr %.4186.us.i, i64 %indvars.iv.i106
-  %931 = load i32, ptr %904, align 4, !tbaa !38
+  %931 = load i32, ptr %904, align 4, !tbaa !39
   %.sroa.8.0.insert.ext.us.i = zext i8 %.sroa.8.0.us.i to i32
   %.sroa.8.0.insert.shift.us.i = shl nuw i32 %.sroa.8.0.insert.ext.us.i, 24
   %932 = shl nuw nsw i32 1, %921
@@ -2256,21 +2256,21 @@ lv_color_8_8_mix.exit170.us.i:                    ; preds = %.sink.split.i168.us
   ]
 
 938:                                              ; preds = %929
-  %939 = load i8, ptr %930, align 1, !tbaa !17
+  %939 = load i8, ptr %930, align 1, !tbaa !18
   %940 = zext i8 %939 to i32
   %941 = mul nuw nsw i32 %940, %937
   %942 = lshr i32 %941, 8
   br label %951
 
 943:                                              ; preds = %929
-  %944 = load i8, ptr %930, align 1, !tbaa !17
+  %944 = load i8, ptr %930, align 1, !tbaa !18
   %945 = zext i8 %944 to i32
   %946 = sub nsw i32 %945, %937
   %spec.select1415.i.us.i117 = tail call i32 @llvm.smax.i32(i32 %946, i32 0)
   br label %951
 
 947:                                              ; preds = %929
-  %948 = load i8, ptr %930, align 1, !tbaa !17
+  %948 = load i8, ptr %930, align 1, !tbaa !18
   %949 = zext i8 %948 to i32
   %950 = add nuw nsw i32 %949, %937
   %spec.select16.i.us.i118 = tail call i32 @llvm.umin.i32(i32 %950, i32 255)
@@ -2298,13 +2298,13 @@ lv_color_8_8_mix.exit170.us.i:                    ; preds = %.sink.split.i168.us
 .sink.split.i.i.us.i110:                          ; preds = %956, %954
   %.sink.i.in.i.us.i111 = phi i32 [ %962, %956 ], [ %.0.in.i.us.i109, %954 ]
   %.sink.i.i.us.i112 = trunc i32 %.sink.i.in.i.us.i111 to i8
-  store i8 %.sink.i.i.us.i112, ptr %930, align 1, !tbaa !17
+  store i8 %.sink.i.i.us.i112, ptr %930, align 1, !tbaa !18
   br label %blend_non_normal_pixel.exit.us.i113
 
 blend_non_normal_pixel.exit.us.i113:              ; preds = %.sink.split.i.i.us.i110, %951, %929
   %indvars.iv.next.i114 = add nuw nsw i64 %indvars.iv.i106, 1
   %exitcond.not.i115 = icmp eq i64 %indvars.iv.next.i114, %wide.trip.count.i104
-  br i1 %exitcond.not.i115, label %._crit_edge.us.i116, label %914, !llvm.loop !83
+  br i1 %exitcond.not.i115, label %._crit_edge.us.i116, label %914, !llvm.loop !84
 
 ._crit_edge.us.i116:                              ; preds = %blend_non_normal_pixel.exit.us.i113
   %963 = getelementptr inbounds i8, ptr %.2135184.us.i, i64 %910
@@ -2313,7 +2313,7 @@ blend_non_normal_pixel.exit.us.i113:              ; preds = %.sink.split.i.i.us.
   %965 = getelementptr inbounds nuw i8, ptr %.4132185.us.i, i64 %912
   %966 = add nuw nsw i32 %.4151183.us.i, 1
   %exitcond231.not.i = icmp eq i32 %966, %890
-  br i1 %exitcond231.not.i, label %rgb565_image_blend.exit, label %.preheader178.us.i105, !llvm.loop !84
+  br i1 %exitcond231.not.i, label %rgb565_image_blend.exit, label %.preheader178.us.i105, !llvm.loop !85
 
 967:                                              ; preds = %886
   %968 = icmp eq ptr %901, null
@@ -2348,24 +2348,24 @@ lv_color_8_8_mix.exit.us.i146:                    ; preds = %lv_color_8_8_mix.ex
   %975 = lshr i64 %indvars.iv256.i, 3
   %976 = and i64 %975, 536870911
   %977 = getelementptr inbounds nuw i8, ptr %.0128214.us.i, i64 %976
-  %978 = load i8, ptr %977, align 1, !tbaa !17
+  %978 = load i8, ptr %977, align 1, !tbaa !18
   %979 = and i8 %indvars260.i, 7
   %980 = xor i8 %979, 7
   %981 = lshr i8 %978, %980
   %982 = and i8 %981, 1
   %narrow158.us.i = sub nsw i8 0, %982
   %983 = getelementptr inbounds nuw i8, ptr %.0215.us.i, i64 %indvars.iv256.i
-  store i8 %narrow158.us.i, ptr %983, align 1, !tbaa !17
+  store i8 %narrow158.us.i, ptr %983, align 1, !tbaa !18
   %indvars.iv.next257.i = add nuw nsw i64 %indvars.iv256.i, 1
   %exitcond262.not.i = icmp eq i64 %indvars.iv.next257.i, %wide.trip.count261.i
-  br i1 %exitcond262.not.i, label %._crit_edge.us216.i147, label %lv_color_8_8_mix.exit.us.i146, !llvm.loop !85
+  br i1 %exitcond262.not.i, label %._crit_edge.us216.i147, label %lv_color_8_8_mix.exit.us.i146, !llvm.loop !86
 
 ._crit_edge.us216.i147:                           ; preds = %lv_color_8_8_mix.exit.us.i146
   %984 = getelementptr inbounds nuw i8, ptr %.0215.us.i, i64 %973
   %985 = getelementptr inbounds nuw i8, ptr %.0128214.us.i, i64 %974
   %986 = add nuw nsw i32 %.0147213.us.i, 1
   %exitcond263.not.i148 = icmp eq i32 %986, %890
-  br i1 %exitcond263.not.i148, label %rgb565_image_blend.exit, label %.preheader.us.i145, !llvm.loop !86
+  br i1 %exitcond263.not.i148, label %rgb565_image_blend.exit, label %.preheader.us.i145, !llvm.loop !87
 
 987:                                              ; preds = %967
   %988 = icmp ult i8 %892, -3
@@ -2403,7 +2403,7 @@ lv_color_8_8_mix.exit.us.i146:                    ; preds = %lv_color_8_8_mix.ex
   %997 = lshr i64 %indvars.iv248.i, 3
   %998 = and i64 %997, 536870911
   %999 = getelementptr inbounds nuw i8, ptr %.1129204.us.i, i64 %998
-  %1000 = load i8, ptr %999, align 1, !tbaa !17
+  %1000 = load i8, ptr %999, align 1, !tbaa !18
   %1001 = zext i8 %1000 to i32
   %1002 = and i32 %indvars252.i, 7
   %1003 = xor i32 %1002, 7
@@ -2413,23 +2413,23 @@ lv_color_8_8_mix.exit.us.i146:                    ; preds = %lv_color_8_8_mix.ex
   %1007 = icmp eq i32 %1006, 0
   %1008 = select i1 %1007, i32 0, i32 255
   %1009 = mul nuw nsw i32 %1008, %991
-  %1010 = load i8, ptr %1004, align 1, !tbaa !17
+  %1010 = load i8, ptr %1004, align 1, !tbaa !18
   %1011 = zext i8 %1010 to i32
   %1012 = mul nuw nsw i32 %1011, %993
   %1013 = add nuw nsw i32 %1009, %1012
   %1014 = lshr i32 %1013, 8
   %1015 = trunc i32 %1014 to i8
-  store i8 %1015, ptr %1004, align 1, !tbaa !17
+  store i8 %1015, ptr %1004, align 1, !tbaa !18
   %indvars.iv.next249.i = add nuw nsw i64 %indvars.iv248.i, 1
   %exitcond254.not.i = icmp eq i64 %indvars.iv.next249.i, %wide.trip.count253.i
-  br i1 %exitcond254.not.i, label %._crit_edge.split.us208.i, label %.sink.split.i159.us.i, !llvm.loop !87
+  br i1 %exitcond254.not.i, label %._crit_edge.split.us208.i, label %.sink.split.i159.us.i, !llvm.loop !88
 
 ._crit_edge.split.us208.i:                        ; preds = %.sink.split.i159.us.i
   %1016 = getelementptr inbounds nuw i8, ptr %.1205.us.i, i64 %994
   %1017 = getelementptr inbounds nuw i8, ptr %.1129204.us.i, i64 %995
   %1018 = add nuw nsw i32 %.1148203.us.i, 1
   %exitcond255.not.i142 = icmp eq i32 %1018, %890
-  br i1 %exitcond255.not.i142, label %rgb565_image_blend.exit, label %.preheader169.us.i, !llvm.loop !88
+  br i1 %exitcond255.not.i142, label %rgb565_image_blend.exit, label %.preheader169.us.i, !llvm.loop !89
 
 1019:                                             ; preds = %987
   %1020 = icmp ne ptr %901, null
@@ -2464,7 +2464,7 @@ lv_color_8_8_mix.exit.us.i146:                    ; preds = %lv_color_8_8_mix.ex
   %1028 = lshr i64 %indvars.iv240.i136, 3
   %1029 = and i64 %1028, 536870911
   %1030 = getelementptr inbounds nuw i8, ptr %.2130198.us.i, i64 %1029
-  %1031 = load i8, ptr %1030, align 1, !tbaa !17
+  %1031 = load i8, ptr %1030, align 1, !tbaa !18
   %1032 = and i8 %1027, 7
   %1033 = xor i8 %1032, 7
   %1034 = lshr i8 %1031, %1033
@@ -2472,7 +2472,7 @@ lv_color_8_8_mix.exit.us.i146:                    ; preds = %lv_color_8_8_mix.ex
   %narrow156.us.i = sub nsw i8 0, %1035
   %1036 = getelementptr inbounds nuw i8, ptr %.2199.us.i, i64 %indvars.iv240.i136
   %1037 = getelementptr inbounds nuw i8, ptr %.0133197.us.i, i64 %indvars.iv240.i136
-  %1038 = load i8, ptr %1037, align 1, !tbaa !17
+  %1038 = load i8, ptr %1037, align 1, !tbaa !18
   %1039 = zext i8 %1038 to i32
   %1040 = icmp eq i8 %1038, 0
   br i1 %1040, label %lv_color_8_8_mix.exit164.us.i139, label %1041
@@ -2485,7 +2485,7 @@ lv_color_8_8_mix.exit.us.i146:                    ; preds = %lv_color_8_8_mix.ex
   %1044 = xor i8 %1038, -1
   %1045 = zext i8 %narrow156.us.i to i32
   %1046 = mul nuw nsw i32 %1045, %1039
-  %1047 = load i8, ptr %1036, align 1, !tbaa !17
+  %1047 = load i8, ptr %1036, align 1, !tbaa !18
   %1048 = zext i8 %1047 to i32
   %1049 = zext i8 %1044 to i32
   %1050 = mul nuw nsw i32 %1048, %1049
@@ -2496,13 +2496,13 @@ lv_color_8_8_mix.exit.us.i146:                    ; preds = %lv_color_8_8_mix.ex
 
 .sink.split.i162.us.i137:                         ; preds = %1043, %1041
   %.sink.i163.us.i138 = phi i8 [ %1053, %1043 ], [ %narrow156.us.i, %1041 ]
-  store i8 %.sink.i163.us.i138, ptr %1036, align 1, !tbaa !17
+  store i8 %.sink.i163.us.i138, ptr %1036, align 1, !tbaa !18
   br label %lv_color_8_8_mix.exit164.us.i139
 
 lv_color_8_8_mix.exit164.us.i139:                 ; preds = %.sink.split.i162.us.i137, %1026
   %indvars.iv.next241.i140 = add nuw nsw i64 %indvars.iv240.i136, 1
   %exitcond246.not.i = icmp eq i64 %indvars.iv.next241.i140, %wide.trip.count245.i
-  br i1 %exitcond246.not.i, label %._crit_edge.us200.i, label %1026, !llvm.loop !89
+  br i1 %exitcond246.not.i, label %._crit_edge.us200.i, label %1026, !llvm.loop !90
 
 ._crit_edge.us200.i:                              ; preds = %lv_color_8_8_mix.exit164.us.i139
   %1054 = getelementptr inbounds nuw i8, ptr %.2199.us.i, i64 %1023
@@ -2510,7 +2510,7 @@ lv_color_8_8_mix.exit164.us.i139:                 ; preds = %.sink.split.i162.us
   %1056 = getelementptr inbounds i8, ptr %.0133197.us.i, i64 %1025
   %1057 = add nuw nsw i32 %.2149196.us.i, 1
   %exitcond247.not.i141 = icmp eq i32 %1057, %890
-  br i1 %exitcond247.not.i141, label %rgb565_image_blend.exit, label %.preheader172.us.i135, !llvm.loop !90
+  br i1 %exitcond247.not.i141, label %rgb565_image_blend.exit, label %.preheader172.us.i135, !llvm.loop !91
 
 1058:                                             ; preds = %1019
   %or.cond11.i122 = select i1 %1020, i1 %988, i1 false
@@ -2542,7 +2542,7 @@ lv_color_8_8_mix.exit164.us.i139:                 ; preds = %.sink.split.i162.us
   %1066 = lshr i64 %indvars.iv232.i, 3
   %1067 = and i64 %1066, 536870911
   %1068 = getelementptr inbounds nuw i8, ptr %.3131191.us.i, i64 %1067
-  %1069 = load i8, ptr %1068, align 1, !tbaa !17
+  %1069 = load i8, ptr %1068, align 1, !tbaa !18
   %1070 = and i8 %1065, 7
   %1071 = xor i8 %1070, 7
   %1072 = lshr i8 %1069, %1071
@@ -2550,7 +2550,7 @@ lv_color_8_8_mix.exit164.us.i139:                 ; preds = %.sink.split.i162.us
   %narrow155.us.i = sub nsw i8 0, %1073
   %1074 = getelementptr inbounds nuw i8, ptr %.3192.us.i, i64 %indvars.iv232.i
   %1075 = getelementptr inbounds nuw i8, ptr %.1134190.us.i, i64 %indvars.iv232.i
-  %1076 = load i8, ptr %1075, align 1, !tbaa !17
+  %1076 = load i8, ptr %1075, align 1, !tbaa !18
   %1077 = zext i8 %1076 to i16
   %1078 = mul nuw i16 %1077, %969
   %1079 = lshr i16 %1078, 8
@@ -2567,7 +2567,7 @@ lv_color_8_8_mix.exit164.us.i139:                 ; preds = %.sink.split.i162.us
   %1086 = zext nneg i16 %1085 to i32
   %1087 = zext i8 %narrow155.us.i to i32
   %1088 = mul nuw nsw i32 %1080, %1087
-  %1089 = load i8, ptr %1074, align 1, !tbaa !17
+  %1089 = load i8, ptr %1074, align 1, !tbaa !18
   %1090 = zext i8 %1089 to i32
   %1091 = mul nuw nsw i32 %1090, %1086
   %1092 = add nuw nsw i32 %1091, %1088
@@ -2577,13 +2577,13 @@ lv_color_8_8_mix.exit164.us.i139:                 ; preds = %.sink.split.i162.us
 
 .sink.split.i165.us.i127:                         ; preds = %1084, %1082
   %.sink.i166.us.i128 = phi i8 [ %1094, %1084 ], [ %narrow155.us.i, %1082 ]
-  store i8 %.sink.i166.us.i128, ptr %1074, align 1, !tbaa !17
+  store i8 %.sink.i166.us.i128, ptr %1074, align 1, !tbaa !18
   br label %lv_color_8_8_mix.exit167.us.i129
 
 lv_color_8_8_mix.exit167.us.i129:                 ; preds = %.sink.split.i165.us.i127, %1064
   %indvars.iv.next233.i = add nuw nsw i64 %indvars.iv232.i, 1
   %exitcond238.not.i130 = icmp eq i64 %indvars.iv.next233.i, %wide.trip.count237.i125
-  br i1 %exitcond238.not.i130, label %._crit_edge.us193.i, label %1064, !llvm.loop !91
+  br i1 %exitcond238.not.i130, label %._crit_edge.us193.i, label %1064, !llvm.loop !92
 
 ._crit_edge.us193.i:                              ; preds = %lv_color_8_8_mix.exit167.us.i129
   %1095 = getelementptr inbounds nuw i8, ptr %.3192.us.i, i64 %1061
@@ -2591,7 +2591,7 @@ lv_color_8_8_mix.exit167.us.i129:                 ; preds = %.sink.split.i165.us
   %1097 = getelementptr inbounds i8, ptr %.1134190.us.i, i64 %1063
   %1098 = add nuw nsw i32 %.3150189.us.i, 1
   %exitcond239.not.i131 = icmp eq i32 %1098, %890
-  br i1 %exitcond239.not.i131, label %rgb565_image_blend.exit, label %.preheader175.us.i126, !llvm.loop !92
+  br i1 %exitcond239.not.i131, label %rgb565_image_blend.exit, label %.preheader175.us.i126, !llvm.loop !93
 
 rgb565_image_blend.exit.sink.split:               ; preds = %1, %198
   %.sink = phi i8 [ 4, %198 ], [ 3, %1 ]
@@ -2605,25 +2605,25 @@ rgb565_image_blend.exit:                          ; preds = %._crit_edge.us.i116
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @rgb888_image_blend(ptr noundef readonly captures(none) %0, i8 noundef zeroext range(i8 3, 5) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load i32, ptr %3, align 8, !tbaa !29
+  %4 = load i32, ptr %3, align 8, !tbaa !30
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %6 = load i32, ptr %5, align 4, !tbaa !30
+  %6 = load i32, ptr %5, align 4, !tbaa !31
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %8 = load i8, ptr %7, align 8, !tbaa !31
+  %8 = load i8, ptr %7, align 8, !tbaa !32
   %.fr262 = freeze i8 %8
-  %9 = load ptr, ptr %0, align 8, !tbaa !32
+  %9 = load ptr, ptr %0, align 8, !tbaa !33
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = load i32, ptr %10, align 8, !tbaa !33
+  %11 = load i32, ptr %10, align 8, !tbaa !34
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %13 = load ptr, ptr %12, align 8, !tbaa !34
+  %13 = load ptr, ptr %12, align 8, !tbaa !35
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %15 = load i32, ptr %14, align 8, !tbaa !35
+  %15 = load i32, ptr %14, align 8, !tbaa !36
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %17 = load ptr, ptr %16, align 8, !tbaa !36
+  %17 = load ptr, ptr %16, align 8, !tbaa !37
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %19 = load i32, ptr %18, align 8, !tbaa !37
+  %19 = load i32, ptr %18, align 8, !tbaa !38
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  %21 = load i32, ptr %20, align 4, !tbaa !38
+  %21 = load i32, ptr %20, align 4, !tbaa !39
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %108, label %.preheader182
 
@@ -2663,16 +2663,16 @@ define internal fastcc void @rgb888_image_blend(ptr noundef readonly captures(no
   %indvars.iv = phi i64 [ %indvars.iv.next, %blend_non_normal_pixel.exit.us206 ], [ 0, %.preheader181.us ]
   %34 = getelementptr inbounds nuw i8, ptr %.7140188.us, i64 %indvars.iv
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 2
-  %36 = load i8, ptr %35, align 1, !tbaa !17
+  %36 = load i8, ptr %35, align 1, !tbaa !18
   %37 = load i16, ptr %34, align 1
   %38 = zext i16 %37 to i32
   %39 = getelementptr inbounds nuw i8, ptr %.3144187.us, i64 %indvars.iv286
-  %40 = load i8, ptr %39, align 1, !tbaa !17
+  %40 = load i8, ptr %39, align 1, !tbaa !18
   %41 = zext i8 %40 to i16
   %42 = mul nuw i16 %41, %25
   %43 = lshr i16 %42, 8
   %44 = getelementptr inbounds nuw i8, ptr %.7190.us, i64 %indvars.iv286
-  %45 = load i32, ptr %20, align 4, !tbaa !38
+  %45 = load i32, ptr %20, align 4, !tbaa !39
   %.sroa.6.0.insert.ext.us194 = zext nneg i16 %43 to i32
   %.sroa.6.0.insert.shift.us195 = shl nuw i32 %.sroa.6.0.insert.ext.us194, 24
   %.sroa.5.0.insert.ext.us196 = zext i8 %36 to i32
@@ -2688,21 +2688,21 @@ define internal fastcc void @rgb888_image_blend(ptr noundef readonly captures(no
   ]
 
 48:                                               ; preds = %.lr.ph.split.us208
-  %49 = load i8, ptr %44, align 1, !tbaa !17
+  %49 = load i8, ptr %44, align 1, !tbaa !18
   %50 = zext i8 %49 to i32
   %51 = mul nuw nsw i32 %50, %47
   %52 = lshr i32 %51, 8
   br label %61
 
 53:                                               ; preds = %.lr.ph.split.us208
-  %54 = load i8, ptr %44, align 1, !tbaa !17
+  %54 = load i8, ptr %44, align 1, !tbaa !18
   %55 = zext i8 %54 to i32
   %56 = sub nsw i32 %55, %47
   %spec.select1415.i.us200 = tail call i32 @llvm.smax.i32(i32 %56, i32 0)
   br label %61
 
 57:                                               ; preds = %.lr.ph.split.us208
-  %58 = load i8, ptr %44, align 1, !tbaa !17
+  %58 = load i8, ptr %44, align 1, !tbaa !18
   %59 = zext i8 %58 to i32
   %60 = add nuw nsw i32 %59, %47
   %spec.select16.i.us201 = tail call i32 @llvm.umin.i32(i32 %60, i32 255)
@@ -2730,14 +2730,14 @@ define internal fastcc void @rgb888_image_blend(ptr noundef readonly captures(no
 .sink.split.i.i.us203:                            ; preds = %66, %64
   %.sink.i.in.i.us204 = phi i32 [ %72, %66 ], [ %.0.in.i.us202, %64 ]
   %.sink.i.i.us205 = trunc i32 %.sink.i.in.i.us204 to i8
-  store i8 %.sink.i.i.us205, ptr %44, align 1, !tbaa !17
+  store i8 %.sink.i.i.us205, ptr %44, align 1, !tbaa !18
   br label %blend_non_normal_pixel.exit.us206
 
 blend_non_normal_pixel.exit.us206:                ; preds = %.sink.split.i.i.us203, %61, %.lr.ph.split.us208
   %indvars.iv.next287 = add nuw nsw i64 %indvars.iv286, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, %32
   %exitcond.not = icmp eq i64 %indvars.iv.next287, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %.lr.ph.split.us208, !llvm.loop !93
+  br i1 %exitcond.not, label %._crit_edge.us, label %.lr.ph.split.us208, !llvm.loop !94
 
 ._crit_edge.us:                                   ; preds = %blend_non_normal_pixel.exit.us206, %blend_non_normal_pixel.exit.us.us
   %73 = getelementptr inbounds i8, ptr %.3144187.us, i64 %29
@@ -2746,18 +2746,18 @@ blend_non_normal_pixel.exit.us206:                ; preds = %.sink.split.i.i.us2
   %75 = getelementptr inbounds i8, ptr %.7140188.us, i64 %31
   %76 = add nuw nsw i32 %.4152186.us, 1
   %exitcond300.not = icmp eq i32 %76, %6
-  br i1 %exitcond300.not, label %.loopexit, label %.preheader181.us, !llvm.loop !94
+  br i1 %exitcond300.not, label %.loopexit, label %.preheader181.us, !llvm.loop !95
 
 .lr.ph.split.us.us:                               ; preds = %.preheader181.us, %blend_non_normal_pixel.exit.us.us
   %indvars.iv293 = phi i64 [ %indvars.iv.next294, %blend_non_normal_pixel.exit.us.us ], [ 0, %.preheader181.us ]
   %indvars.iv291 = phi i64 [ %indvars.iv.next292, %blend_non_normal_pixel.exit.us.us ], [ 0, %.preheader181.us ]
   %77 = getelementptr inbounds nuw i8, ptr %.7140188.us, i64 %indvars.iv291
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 2
-  %79 = load i8, ptr %78, align 1, !tbaa !17
+  %79 = load i8, ptr %78, align 1, !tbaa !18
   %80 = load i16, ptr %77, align 1
   %81 = zext i16 %80 to i32
   %82 = getelementptr inbounds nuw i8, ptr %.7190.us, i64 %indvars.iv293
-  %83 = load i32, ptr %20, align 4, !tbaa !38
+  %83 = load i32, ptr %20, align 4, !tbaa !39
   %.sroa.5.0.insert.ext.us.us = zext i8 %79 to i32
   %.sroa.5.0.insert.shift.us.us = shl nuw nsw i32 %.sroa.5.0.insert.ext.us.us, 16
   %.sroa.5.0.insert.insert.us.us = or disjoint i32 %.sroa.6.0.insert.shift.us, %.sroa.5.0.insert.shift.us.us
@@ -2771,21 +2771,21 @@ blend_non_normal_pixel.exit.us206:                ; preds = %.sink.split.i.i.us2
   ]
 
 86:                                               ; preds = %.lr.ph.split.us.us
-  %87 = load i8, ptr %82, align 1, !tbaa !17
+  %87 = load i8, ptr %82, align 1, !tbaa !18
   %88 = zext i8 %87 to i32
   %89 = mul nuw nsw i32 %88, %85
   %90 = lshr i32 %89, 8
   br label %99
 
 91:                                               ; preds = %.lr.ph.split.us.us
-  %92 = load i8, ptr %82, align 1, !tbaa !17
+  %92 = load i8, ptr %82, align 1, !tbaa !18
   %93 = zext i8 %92 to i32
   %94 = sub nsw i32 %93, %85
   %spec.select1415.i.us.us = tail call i32 @llvm.smax.i32(i32 %94, i32 0)
   br label %99
 
 95:                                               ; preds = %.lr.ph.split.us.us
-  %96 = load i8, ptr %82, align 1, !tbaa !17
+  %96 = load i8, ptr %82, align 1, !tbaa !18
   %97 = zext i8 %96 to i32
   %98 = add nuw nsw i32 %97, %85
   %spec.select16.i.us.us = tail call i32 @llvm.umin.i32(i32 %98, i32 255)
@@ -2810,14 +2810,14 @@ blend_non_normal_pixel.exit.us206:                ; preds = %.sink.split.i.i.us2
 .sink.split.i.i.us.us:                            ; preds = %102, %101
   %.sink.i.in.i.us.us = phi i32 [ %107, %102 ], [ %.0.in.i.us.us, %101 ]
   %.sink.i.i.us.us = trunc i32 %.sink.i.in.i.us.us to i8
-  store i8 %.sink.i.i.us.us, ptr %82, align 1, !tbaa !17
+  store i8 %.sink.i.i.us.us, ptr %82, align 1, !tbaa !18
   br label %blend_non_normal_pixel.exit.us.us
 
 blend_non_normal_pixel.exit.us.us:                ; preds = %.sink.split.i.i.us.us, %99, %.lr.ph.split.us.us
   %indvars.iv.next294 = add nuw nsw i64 %indvars.iv293, 1
   %indvars.iv.next292 = add nuw nsw i64 %indvars.iv291, %32
   %exitcond299.not = icmp eq i64 %indvars.iv.next294, %wide.trip.count298
-  br i1 %exitcond299.not, label %._crit_edge.us, label %.lr.ph.split.us.us, !llvm.loop !93
+  br i1 %exitcond299.not, label %._crit_edge.us, label %.lr.ph.split.us.us, !llvm.loop !94
 
 108:                                              ; preds = %2
   %109 = icmp eq ptr %17, null
@@ -2851,18 +2851,18 @@ blend_non_normal_pixel.exit.us.us:                ; preds = %.sink.split.i.i.us.
   %118 = getelementptr inbounds nuw i8, ptr %.1134212.us, i64 %indvars.iv302
   %119 = tail call zeroext i8 @lv_color24_luminance(ptr noundef %118) #4
   %120 = getelementptr inbounds nuw i8, ptr %.1213.us, i64 %indvars.iv304
-  store i8 %119, ptr %120, align 1, !tbaa !17
+  store i8 %119, ptr %120, align 1, !tbaa !18
   %indvars.iv.next305 = add nuw nsw i64 %indvars.iv304, 1
   %indvars.iv.next303 = add nuw nsw i64 %indvars.iv302, %116
   %exitcond310.not = icmp eq i64 %indvars.iv.next305, %wide.trip.count309
-  br i1 %exitcond310.not, label %._crit_edge.us215, label %117, !llvm.loop !95
+  br i1 %exitcond310.not, label %._crit_edge.us215, label %117, !llvm.loop !96
 
 ._crit_edge.us215:                                ; preds = %117
   %121 = getelementptr inbounds i8, ptr %.1213.us, i64 %114
   %122 = getelementptr inbounds i8, ptr %.1134212.us, i64 %115
   %123 = add nuw nsw i32 %.0148211.us, 1
   %exitcond311.not = icmp eq i32 %123, %6
-  br i1 %exitcond311.not, label %.loopexit180, label %.preheader178.us, !llvm.loop !96
+  br i1 %exitcond311.not, label %.loopexit180, label %.preheader178.us, !llvm.loop !97
 
 .loopexit180:                                     ; preds = %._crit_edge.us215, %108
   %.0133 = phi ptr [ %13, %108 ], [ %122, %._crit_edge.us215 ]
@@ -2904,14 +2904,14 @@ lv_color_8_8_mix.exit.us.us.us:                   ; preds = %lv_color_8_8_mix.ex
   %135 = add nuw nsw i32 %.1159217.us.us.us, 1
   %indvars.iv.next325 = add nuw nsw i64 %indvars.iv324, %132
   %exitcond327.not = icmp eq i32 %135, %4
-  br i1 %exitcond327.not, label %._crit_edge.split.us.us231.us, label %lv_color_8_8_mix.exit.us.us.us, !llvm.loop !97
+  br i1 %exitcond327.not, label %._crit_edge.split.us.us231.us, label %lv_color_8_8_mix.exit.us.us.us, !llvm.loop !98
 
 ._crit_edge.split.us.us231.us:                    ; preds = %lv_color_8_8_mix.exit.us.us.us
   %136 = getelementptr inbounds i8, ptr %.3222.us.us, i64 %129
   %137 = getelementptr inbounds i8, ptr %.3136220.us.us, i64 %130
   %138 = add nuw nsw i32 %.1149219.us.us, 1
   %exitcond328.not = icmp eq i32 %138, %6
-  br i1 %exitcond328.not, label %.loopexit177, label %.preheader175.us.us, !llvm.loop !98
+  br i1 %exitcond328.not, label %.loopexit177, label %.preheader175.us.us, !llvm.loop !99
 
 .preheader175.us:                                 ; preds = %.preheader175.us.preheader, %._crit_edge.split.us227
   %.3222.us = phi ptr [ %150, %._crit_edge.split.us227 ], [ %.0, %.preheader175.us.preheader ]
@@ -2927,24 +2927,24 @@ lv_color_8_8_mix.exit.us.us.us:                   ; preds = %lv_color_8_8_mix.ex
   %141 = getelementptr inbounds nuw i8, ptr %.3222.us, i64 %indvars.iv316
   %142 = zext i8 %140 to i32
   %143 = mul nuw nsw i32 %142, %126
-  %144 = load i8, ptr %141, align 1, !tbaa !17
+  %144 = load i8, ptr %141, align 1, !tbaa !18
   %145 = zext i8 %144 to i32
   %146 = mul nuw nsw i32 %145, %128
   %147 = add nuw nsw i32 %146, %143
   %148 = lshr i32 %147, 8
   %149 = trunc i32 %148 to i8
-  store i8 %149, ptr %141, align 1, !tbaa !17
+  store i8 %149, ptr %141, align 1, !tbaa !18
   %indvars.iv.next317 = add nuw nsw i64 %indvars.iv316, 1
   %indvars.iv.next315 = add nuw nsw i64 %indvars.iv314, %132
   %exitcond322.not = icmp eq i64 %indvars.iv.next317, %wide.trip.count321
-  br i1 %exitcond322.not, label %._crit_edge.split.us227, label %.sink.split.i.us, !llvm.loop !97
+  br i1 %exitcond322.not, label %._crit_edge.split.us227, label %.sink.split.i.us, !llvm.loop !98
 
 ._crit_edge.split.us227:                          ; preds = %.sink.split.i.us
   %150 = getelementptr inbounds i8, ptr %.3222.us, i64 %129
   %151 = getelementptr inbounds i8, ptr %.3136220.us, i64 %130
   %152 = add nuw nsw i32 %.1149219.us, 1
   %exitcond323.not = icmp eq i32 %152, %6
-  br i1 %exitcond323.not, label %.loopexit177, label %.preheader175.us, !llvm.loop !98
+  br i1 %exitcond323.not, label %.loopexit177, label %.preheader175.us, !llvm.loop !99
 
 .loopexit177:                                     ; preds = %._crit_edge.split.us227, %._crit_edge.split.us.us231.us, %.loopexit180
   %.2135 = phi ptr [ %.0133, %.loopexit180 ], [ %137, %._crit_edge.split.us.us231.us ], [ %151, %._crit_edge.split.us227 ]
@@ -2990,7 +2990,7 @@ lv_color_8_8_mix.exit.us.us.us:                   ; preds = %lv_color_8_8_mix.ex
   %165 = tail call zeroext i8 @lv_color24_luminance(ptr noundef %164) #4
   %166 = getelementptr inbounds nuw i8, ptr %.5242.us, i64 %indvars.iv332
   %167 = getelementptr inbounds nuw i8, ptr %.1142240.us, i64 %indvars.iv332
-  %168 = load i8, ptr %167, align 1, !tbaa !17
+  %168 = load i8, ptr %167, align 1, !tbaa !18
   %169 = zext i8 %168 to i32
   %170 = icmp eq i8 %168, 0
   br i1 %170, label %lv_color_8_8_mix.exit167.us, label %171
@@ -3003,7 +3003,7 @@ lv_color_8_8_mix.exit.us.us.us:                   ; preds = %lv_color_8_8_mix.ex
   %174 = xor i8 %168, -1
   %175 = zext i8 %165 to i32
   %176 = mul nuw nsw i32 %169, %175
-  %177 = load i8, ptr %166, align 1, !tbaa !17
+  %177 = load i8, ptr %166, align 1, !tbaa !18
   %178 = zext i8 %177 to i32
   %179 = zext i8 %174 to i32
   %180 = mul nuw nsw i32 %178, %179
@@ -3014,14 +3014,14 @@ lv_color_8_8_mix.exit.us.us.us:                   ; preds = %lv_color_8_8_mix.ex
 
 .sink.split.i165.us:                              ; preds = %173, %171
   %.sink.i166.us = phi i8 [ %183, %173 ], [ %165, %171 ]
-  store i8 %.sink.i166.us, ptr %166, align 1, !tbaa !17
+  store i8 %.sink.i166.us, ptr %166, align 1, !tbaa !18
   br label %lv_color_8_8_mix.exit167.us
 
 lv_color_8_8_mix.exit167.us:                      ; preds = %.sink.split.i165.us, %163
   %indvars.iv.next333 = add nuw nsw i64 %indvars.iv332, 1
   %indvars.iv.next335 = add nuw nsw i64 %indvars.iv334, %162
   %exitcond342.not = icmp eq i64 %indvars.iv.next333, %wide.trip.count341
-  br i1 %exitcond342.not, label %._crit_edge.us246, label %163, !llvm.loop !99
+  br i1 %exitcond342.not, label %._crit_edge.us246, label %163, !llvm.loop !100
 
 ._crit_edge.us246:                                ; preds = %lv_color_8_8_mix.exit167.us
   %184 = getelementptr inbounds i8, ptr %.5242.us, i64 %155
@@ -3029,7 +3029,7 @@ lv_color_8_8_mix.exit167.us:                      ; preds = %.sink.split.i165.us
   %186 = getelementptr inbounds i8, ptr %.1142240.us, i64 %157
   %187 = add nuw nsw i32 %.2150239.us, 1
   %exitcond343.not = icmp eq i32 %187, %6
-  br i1 %exitcond343.not, label %.loopexit174, label %.preheader172.us, !llvm.loop !100
+  br i1 %exitcond343.not, label %.loopexit174, label %.preheader172.us, !llvm.loop !101
 
 .loopexit174:                                     ; preds = %._crit_edge.us246, %.preheader172.preheader, %.loopexit177
   %.0141 = phi ptr [ %17, %.loopexit177 ], [ %scevgep331, %.preheader172.preheader ], [ %186, %._crit_edge.us246 ]
@@ -3066,7 +3066,7 @@ lv_color_8_8_mix.exit167.us:                      ; preds = %.sink.split.i165.us
   %196 = tail call zeroext i8 @lv_color24_luminance(ptr noundef %195) #4
   %197 = getelementptr inbounds nuw i8, ptr %.6256.us, i64 %indvars.iv344
   %198 = getelementptr inbounds nuw i8, ptr %.2143254.us, i64 %indvars.iv344
-  %199 = load i8, ptr %198, align 1, !tbaa !17
+  %199 = load i8, ptr %198, align 1, !tbaa !18
   %200 = zext i8 %199 to i16
   %201 = mul nuw i16 %200, %110
   %202 = lshr i16 %201, 8
@@ -3083,7 +3083,7 @@ lv_color_8_8_mix.exit167.us:                      ; preds = %.sink.split.i165.us
   %209 = zext nneg i16 %208 to i32
   %210 = zext i8 %196 to i32
   %211 = mul nuw nsw i32 %203, %210
-  %212 = load i8, ptr %197, align 1, !tbaa !17
+  %212 = load i8, ptr %197, align 1, !tbaa !18
   %213 = zext i8 %212 to i32
   %214 = mul nuw nsw i32 %213, %209
   %215 = add nuw nsw i32 %214, %211
@@ -3093,14 +3093,14 @@ lv_color_8_8_mix.exit167.us:                      ; preds = %.sink.split.i165.us
 
 .sink.split.i168.us:                              ; preds = %207, %205
   %.sink.i169.us = phi i8 [ %217, %207 ], [ %196, %205 ]
-  store i8 %.sink.i169.us, ptr %197, align 1, !tbaa !17
+  store i8 %.sink.i169.us, ptr %197, align 1, !tbaa !18
   br label %lv_color_8_8_mix.exit170.us
 
 lv_color_8_8_mix.exit170.us:                      ; preds = %.sink.split.i168.us, %194
   %indvars.iv.next345 = add nuw nsw i64 %indvars.iv344, 1
   %indvars.iv.next347 = add nuw nsw i64 %indvars.iv346, %193
   %exitcond354.not = icmp eq i64 %indvars.iv.next345, %wide.trip.count353
-  br i1 %exitcond354.not, label %._crit_edge.us257, label %194, !llvm.loop !101
+  br i1 %exitcond354.not, label %._crit_edge.us257, label %194, !llvm.loop !102
 
 ._crit_edge.us257:                                ; preds = %lv_color_8_8_mix.exit170.us
   %218 = getelementptr inbounds i8, ptr %.6256.us, i64 %190
@@ -3108,7 +3108,7 @@ lv_color_8_8_mix.exit170.us:                      ; preds = %.sink.split.i168.us
   %220 = getelementptr inbounds i8, ptr %.2143254.us, i64 %192
   %221 = add nuw nsw i32 %.3151253.us, 1
   %exitcond355.not = icmp eq i32 %221, %6
-  br i1 %exitcond355.not, label %.loopexit, label %.preheader.us, !llvm.loop !102
+  br i1 %exitcond355.not, label %.loopexit, label %.preheader.us, !llvm.loop !103
 
 .loopexit:                                        ; preds = %._crit_edge.us, %._crit_edge.us257, %.preheader178.lr.ph, %.preheader175.lr.ph, %.preheader.lr.ph, %.preheader181.lr.ph, %.preheader182, %.loopexit174
   ret void
@@ -3143,102 +3143,103 @@ attributes #4 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{!4, !8, i64 8}
-!4 = !{!"_lv_draw_sw_blend_fill_dsc_t", !5, i64 0, !8, i64 8, !8, i64 12, !8, i64 16, !5, i64 24, !8, i64 32, !9, i64 36, !6, i64 39, !10, i64 40}
+!4 = !{!"_lv_draw_sw_blend_fill_dsc_t", !5, i64 0, !8, i64 8, !8, i64 12, !8, i64 16, !9, i64 24, !8, i64 32, !10, i64 36, !6, i64 39, !11, i64 40}
 !5 = !{!"any pointer", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
 !8 = !{!"int", !6, i64 0}
-!9 = !{!"", !6, i64 0, !6, i64 1, !6, i64 2}
-!10 = !{!"", !8, i64 0, !8, i64 4, !8, i64 8, !8, i64 12}
-!11 = !{!4, !8, i64 12}
-!12 = !{!4, !6, i64 39}
-!13 = !{!4, !5, i64 24}
-!14 = !{!4, !8, i64 32}
-!15 = !{!4, !8, i64 16}
-!16 = !{!4, !5, i64 0}
-!17 = !{!6, !6, i64 0}
-!18 = distinct !{!18, !19}
-!19 = !{!"llvm.loop.mustprogress"}
-!20 = distinct !{!20, !19}
-!21 = distinct !{!21, !19}
-!22 = distinct !{!22, !19}
-!23 = distinct !{!23, !19}
-!24 = distinct !{!24, !19}
-!25 = distinct !{!25, !19}
-!26 = distinct !{!26, !19}
-!27 = !{!28, !8, i64 52}
-!28 = !{!"_lv_draw_sw_blend_image_dsc_t", !5, i64 0, !8, i64 8, !8, i64 12, !8, i64 16, !5, i64 24, !8, i64 32, !5, i64 40, !8, i64 48, !8, i64 52, !6, i64 56, !8, i64 60, !10, i64 64, !10, i64 80}
-!29 = !{!28, !8, i64 8}
-!30 = !{!28, !8, i64 12}
-!31 = !{!28, !6, i64 56}
-!32 = !{!28, !5, i64 0}
-!33 = !{!28, !8, i64 16}
-!34 = !{!28, !5, i64 40}
-!35 = !{!28, !8, i64 48}
-!36 = !{!28, !5, i64 24}
-!37 = !{!28, !8, i64 32}
-!38 = !{!28, !8, i64 60}
-!39 = distinct !{!39, !19}
-!40 = distinct !{!40, !19}
-!41 = distinct !{!41, !19}
-!42 = distinct !{!42, !19}
-!43 = distinct !{!43, !19}
-!44 = distinct !{!44, !19}
-!45 = distinct !{!45, !19}
-!46 = distinct !{!46, !19}
-!47 = distinct !{!47, !19}
-!48 = distinct !{!48, !19}
-!49 = distinct !{!49, !19}
-!50 = distinct !{!50, !19}
-!51 = !{!52, !6, i64 3}
-!52 = !{!"", !6, i64 0, !6, i64 1, !6, i64 2, !6, i64 3}
-!53 = distinct !{!53, !19}
-!54 = distinct !{!54, !19}
-!55 = distinct !{!55, !19}
-!56 = distinct !{!56, !19}
-!57 = distinct !{!57, !19}
-!58 = distinct !{!58, !19}
-!59 = distinct !{!59, !19}
-!60 = distinct !{!60, !19}
-!61 = distinct !{!61, !19}
-!62 = distinct !{!62, !19}
-!63 = distinct !{!63, !19}
-!64 = distinct !{!64, !19}
-!65 = distinct !{!65, !19}
-!66 = distinct !{!66, !19}
-!67 = distinct !{!67, !19}
-!68 = distinct !{!68, !19}
-!69 = distinct !{!69, !19}
-!70 = !{!71, !6, i64 0}
-!71 = !{!"", !6, i64 0, !6, i64 1}
-!72 = distinct !{!72, !19}
-!73 = distinct !{!73, !19}
-!74 = !{!71, !6, i64 1}
-!75 = distinct !{!75, !19}
-!76 = distinct !{!76, !19}
-!77 = distinct !{!77, !19}
-!78 = distinct !{!78, !19}
-!79 = distinct !{!79, !19}
-!80 = distinct !{!80, !19}
-!81 = distinct !{!81, !19}
-!82 = distinct !{!82, !19}
-!83 = distinct !{!83, !19}
-!84 = distinct !{!84, !19}
-!85 = distinct !{!85, !19}
-!86 = distinct !{!86, !19}
-!87 = distinct !{!87, !19}
-!88 = distinct !{!88, !19}
-!89 = distinct !{!89, !19}
-!90 = distinct !{!90, !19}
-!91 = distinct !{!91, !19}
-!92 = distinct !{!92, !19}
-!93 = distinct !{!93, !19}
-!94 = distinct !{!94, !19}
-!95 = distinct !{!95, !19}
-!96 = distinct !{!96, !19}
-!97 = distinct !{!97, !19}
-!98 = distinct !{!98, !19}
-!99 = distinct !{!99, !19}
-!100 = distinct !{!100, !19}
-!101 = distinct !{!101, !19}
-!102 = distinct !{!102, !19}
+!9 = !{!"p1 omnipotent char", !5, i64 0}
+!10 = !{!"", !6, i64 0, !6, i64 1, !6, i64 2}
+!11 = !{!"", !8, i64 0, !8, i64 4, !8, i64 8, !8, i64 12}
+!12 = !{!4, !8, i64 12}
+!13 = !{!4, !6, i64 39}
+!14 = !{!4, !9, i64 24}
+!15 = !{!4, !8, i64 32}
+!16 = !{!4, !8, i64 16}
+!17 = !{!4, !5, i64 0}
+!18 = !{!6, !6, i64 0}
+!19 = distinct !{!19, !20}
+!20 = !{!"llvm.loop.mustprogress"}
+!21 = distinct !{!21, !20}
+!22 = distinct !{!22, !20}
+!23 = distinct !{!23, !20}
+!24 = distinct !{!24, !20}
+!25 = distinct !{!25, !20}
+!26 = distinct !{!26, !20}
+!27 = distinct !{!27, !20}
+!28 = !{!29, !8, i64 52}
+!29 = !{!"_lv_draw_sw_blend_image_dsc_t", !5, i64 0, !8, i64 8, !8, i64 12, !8, i64 16, !9, i64 24, !8, i64 32, !5, i64 40, !8, i64 48, !8, i64 52, !6, i64 56, !8, i64 60, !11, i64 64, !11, i64 80}
+!30 = !{!29, !8, i64 8}
+!31 = !{!29, !8, i64 12}
+!32 = !{!29, !6, i64 56}
+!33 = !{!29, !5, i64 0}
+!34 = !{!29, !8, i64 16}
+!35 = !{!29, !5, i64 40}
+!36 = !{!29, !8, i64 48}
+!37 = !{!29, !9, i64 24}
+!38 = !{!29, !8, i64 32}
+!39 = !{!29, !8, i64 60}
+!40 = distinct !{!40, !20}
+!41 = distinct !{!41, !20}
+!42 = distinct !{!42, !20}
+!43 = distinct !{!43, !20}
+!44 = distinct !{!44, !20}
+!45 = distinct !{!45, !20}
+!46 = distinct !{!46, !20}
+!47 = distinct !{!47, !20}
+!48 = distinct !{!48, !20}
+!49 = distinct !{!49, !20}
+!50 = distinct !{!50, !20}
+!51 = distinct !{!51, !20}
+!52 = !{!53, !6, i64 3}
+!53 = !{!"", !6, i64 0, !6, i64 1, !6, i64 2, !6, i64 3}
+!54 = distinct !{!54, !20}
+!55 = distinct !{!55, !20}
+!56 = distinct !{!56, !20}
+!57 = distinct !{!57, !20}
+!58 = distinct !{!58, !20}
+!59 = distinct !{!59, !20}
+!60 = distinct !{!60, !20}
+!61 = distinct !{!61, !20}
+!62 = distinct !{!62, !20}
+!63 = distinct !{!63, !20}
+!64 = distinct !{!64, !20}
+!65 = distinct !{!65, !20}
+!66 = distinct !{!66, !20}
+!67 = distinct !{!67, !20}
+!68 = distinct !{!68, !20}
+!69 = distinct !{!69, !20}
+!70 = distinct !{!70, !20}
+!71 = !{!72, !6, i64 0}
+!72 = !{!"", !6, i64 0, !6, i64 1}
+!73 = distinct !{!73, !20}
+!74 = distinct !{!74, !20}
+!75 = !{!72, !6, i64 1}
+!76 = distinct !{!76, !20}
+!77 = distinct !{!77, !20}
+!78 = distinct !{!78, !20}
+!79 = distinct !{!79, !20}
+!80 = distinct !{!80, !20}
+!81 = distinct !{!81, !20}
+!82 = distinct !{!82, !20}
+!83 = distinct !{!83, !20}
+!84 = distinct !{!84, !20}
+!85 = distinct !{!85, !20}
+!86 = distinct !{!86, !20}
+!87 = distinct !{!87, !20}
+!88 = distinct !{!88, !20}
+!89 = distinct !{!89, !20}
+!90 = distinct !{!90, !20}
+!91 = distinct !{!91, !20}
+!92 = distinct !{!92, !20}
+!93 = distinct !{!93, !20}
+!94 = distinct !{!94, !20}
+!95 = distinct !{!95, !20}
+!96 = distinct !{!96, !20}
+!97 = distinct !{!97, !20}
+!98 = distinct !{!98, !20}
+!99 = distinct !{!99, !20}
+!100 = distinct !{!100, !20}
+!101 = distinct !{!101, !20}
+!102 = distinct !{!102, !20}
+!103 = distinct !{!103, !20}

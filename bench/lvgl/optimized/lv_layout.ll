@@ -23,7 +23,7 @@ define void @lv_layout_init() local_unnamed_addr #0 {
   %2 = zext i32 %1 to i64
   %3 = shl nuw nsw i64 %2, 4
   %4 = tail call ptr @lv_malloc(i64 noundef %3) #2
-  store ptr %4, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 176), align 8, !tbaa !19
+  store ptr %4, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 176), align 8, !tbaa !30
   tail call void @lv_flex_init() #2
   tail call void @lv_grid_init() #2
   ret void
@@ -37,7 +37,7 @@ declare void @lv_grid_init() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @lv_layout_deinit() local_unnamed_addr #0 {
-  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 176), align 8, !tbaa !19
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 176), align 8, !tbaa !30
   tail call void @lv_free(ptr noundef %1) #2
   ret void
 }
@@ -46,13 +46,13 @@ declare void @lv_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @lv_layout_register(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 176), align 8, !tbaa !19
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 176), align 8, !tbaa !30
   %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 168), align 8, !tbaa !3
   %5 = add i32 %4, 1
   %6 = zext i32 %5 to i64
   %7 = shl nuw nsw i64 %6, 4
   %8 = tail call ptr @lv_realloc(ptr noundef %3, i64 noundef %7) #2
-  store ptr %8, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 176), align 8, !tbaa !19
+  store ptr %8, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 176), align 8, !tbaa !30
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %.preheader, label %9
 
@@ -63,9 +63,9 @@ define i32 @lv_layout_register(ptr noundef %0, ptr noundef %1) local_unnamed_add
   %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 168), align 8, !tbaa !3
   %11 = zext i32 %10 to i64
   %12 = getelementptr inbounds nuw %struct.lv_layout_dsc_t, ptr %8, i64 %11
-  store ptr %0, ptr %12, align 8, !tbaa !20
+  store ptr %0, ptr %12, align 8, !tbaa !31
   %13 = getelementptr inbounds nuw %struct.lv_layout_dsc_t, ptr %8, i64 %11, i32 1
-  store ptr %1, ptr %13, align 8, !tbaa !22
+  store ptr %1, ptr %13, align 8, !tbaa !33
   %14 = add i32 %10, 1
   store i32 %14, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 168), align 8, !tbaa !3
   ret i32 %10
@@ -89,11 +89,11 @@ define void @lv_layout_apply(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not6, label %15, label %9
 
 9:                                                ; preds = %5
-  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 176), align 8, !tbaa !19
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 176), align 8, !tbaa !30
   %11 = getelementptr inbounds nuw %struct.lv_layout_dsc_t, ptr %10, i64 %4
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !22
-  %14 = load ptr, ptr %11, align 8, !tbaa !20
+  %13 = load ptr, ptr %12, align 8, !tbaa !33
+  %14 = load ptr, ptr %11, align 8, !tbaa !31
   tail call void %14(ptr noundef %0, ptr noundef %13) #2
   br label %15
 
@@ -113,22 +113,33 @@ attributes #2 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{!4, !9, i64 168}
-!4 = !{!"_lv_global_t", !5, i64 0, !5, i64 1, !8, i64 8, !10, i64 32, !10, i64 40, !8, i64 48, !5, i64 72, !9, i64 76, !9, i64 80, !10, i64 88, !8, i64 96, !10, i64 120, !8, i64 128, !10, i64 152, !10, i64 160, !9, i64 168, !10, i64 176, !5, i64 184, !9, i64 188, !9, i64 192, !10, i64 200, !9, i64 208, !11, i64 216, !12, i64 288, !13, i64 328, !14, i64 352, !14, i64 400, !14, i64 448, !8, i64 496, !10, i64 520, !10, i64 528, !15, i64 536, !6, i64 568, !10, i64 760, !10, i64 768, !10, i64 776, !16, i64 784, !8, i64 832, !10, i64 856, !10, i64 864, !18, i64 872, !17, i64 888, !10, i64 896, !9, i64 904, !10, i64 912}
+!4 = !{!"_lv_global_t", !5, i64 0, !5, i64 1, !8, i64 8, !12, i64 32, !12, i64 40, !8, i64 48, !5, i64 72, !9, i64 76, !9, i64 80, !10, i64 88, !8, i64 96, !13, i64 120, !8, i64 128, !14, i64 152, !15, i64 160, !9, i64 168, !11, i64 176, !5, i64 184, !9, i64 188, !9, i64 192, !16, i64 200, !9, i64 208, !17, i64 216, !18, i64 288, !20, i64 328, !21, i64 352, !21, i64 400, !21, i64 448, !8, i64 496, !22, i64 520, !22, i64 528, !23, i64 536, !6, i64 568, !11, i64 760, !11, i64 768, !11, i64 776, !25, i64 784, !8, i64 832, !27, i64 856, !28, i64 864, !29, i64 872, !26, i64 888, !11, i64 896, !9, i64 904, !11, i64 912}
 !5 = !{!"_Bool", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
 !8 = !{!"", !9, i64 0, !10, i64 8, !10, i64 16}
 !9 = !{!"int", !6, i64 0}
-!10 = !{!"any pointer", !6, i64 0}
-!11 = !{!"", !8, i64 0, !5, i64 24, !6, i64 25, !5, i64 26, !5, i64 27, !9, i64 28, !5, i64 32, !9, i64 36, !9, i64 40, !9, i64 44, !9, i64 48, !10, i64 56, !10, i64 64}
-!12 = !{!"", !5, i64 0, !5, i64 1, !10, i64 8, !8, i64 16}
-!13 = !{!"", !9, i64 0, !6, i64 4, !10, i64 8, !10, i64 16}
-!14 = !{!"_lv_draw_buf_handlers_t", !10, i64 0, !10, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !10, i64 40}
-!15 = !{!"", !10, i64 0, !9, i64 8, !9, i64 12, !9, i64 16, !9, i64 20, !5, i64 24}
-!16 = !{!"", !10, i64 0, !17, i64 8, !17, i64 16, !8, i64 24}
-!17 = !{!"long", !6, i64 0}
-!18 = !{!"", !10, i64 0, !9, i64 8, !6, i64 12}
-!19 = !{!4, !10, i64 176}
-!20 = !{!21, !10, i64 0}
-!21 = !{!"", !10, i64 0, !10, i64 8}
-!22 = !{!21, !10, i64 8}
+!10 = !{!"p1 omnipotent char", !11, i64 0}
+!11 = !{!"any pointer", !6, i64 0}
+!12 = !{!"p1 _ZTS13_lv_display_t", !11, i64 0}
+!13 = !{!"p1 _ZTS11_lv_group_t", !11, i64 0}
+!14 = !{!"p1 _ZTS11_lv_indev_t", !11, i64 0}
+!15 = !{!"p1 _ZTS9_lv_obj_t", !11, i64 0}
+!16 = !{!"p1 _ZTS11_lv_event_t", !11, i64 0}
+!17 = !{!"", !8, i64 0, !5, i64 24, !6, i64 25, !5, i64 26, !5, i64 27, !9, i64 28, !5, i64 32, !9, i64 36, !9, i64 40, !9, i64 44, !9, i64 48, !11, i64 56, !11, i64 64}
+!18 = !{!"", !5, i64 0, !5, i64 1, !19, i64 8, !8, i64 16}
+!19 = !{!"p1 _ZTS11_lv_timer_t", !11, i64 0}
+!20 = !{!"", !9, i64 0, !6, i64 4, !11, i64 8, !11, i64 16}
+!21 = !{!"_lv_draw_buf_handlers_t", !11, i64 0, !11, i64 8, !11, i64 16, !11, i64 24, !11, i64 32, !11, i64 40}
+!22 = !{!"p1 _ZTS11_lv_cache_t", !11, i64 0}
+!23 = !{!"", !24, i64 0, !9, i64 8, !9, i64 12, !9, i64 16, !9, i64 20, !5, i64 24}
+!24 = !{!"p1 _ZTS15_lv_draw_unit_t", !11, i64 0}
+!25 = !{!"", !11, i64 0, !26, i64 8, !26, i64 16, !8, i64 24}
+!26 = !{!"long", !6, i64 0}
+!27 = !{!"p1 _ZTS22_lv_freetype_context_t", !11, i64 0}
+!28 = !{!"p1 _ZTS14_snippet_stack", !11, i64 0}
+!29 = !{!"", !11, i64 0, !9, i64 8, !6, i64 12}
+!30 = !{!4, !11, i64 176}
+!31 = !{!32, !11, i64 0}
+!32 = !{!"", !11, i64 0, !11, i64 8}
+!33 = !{!32, !11, i64 8}

@@ -7,8 +7,8 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._lv_fpoint_t = type { float, float }
 %struct.lv_image_dsc_t = type { %struct.lv_image_header_t, i32, ptr, ptr }
 %struct.lv_image_header_t = type <{ i64, i32 }>
-%struct._lv_layer_t = type { ptr, %struct.lv_area_t, i32, %struct.lv_area_t, %struct.lv_area_t, ptr, ptr, ptr, i8, ptr }
-%struct.lv_gradient_stop_t = type { %struct.lv_color_t, i8, i8 }
+%struct._lv_layer_t = type { ptr, %struct.lv_area_t, i32, %struct.lv_area_t, %struct.lv_area_t, i8, i32, ptr, ptr, ptr, i8, ptr }
+%struct.lv_grad_stop_t = type { %struct.lv_color_t, i8, i8 }
 %struct.lv_color_t = type { i8, i8, i8 }
 %struct._lv_matrix_t = type { [3 x [3 x float]] }
 %struct._lv_draw_image_dsc_t = type { %struct.lv_draw_dsc_base_t, ptr, %struct.lv_image_header_t, i32, i32, i32, i32, i32, %struct.lv_point_t, %struct.lv_color_t, i8, i8, i8, ptr, %struct.lv_area_t, i32, ptr }
@@ -55,11 +55,11 @@ define void @lv_demo_vector_graphic_buffered() local_unnamed_addr #0 {
   %4 = tail call ptr @lv_canvas_create(ptr noundef %3) #4
   tail call void @lv_canvas_set_draw_buf(ptr noundef %4, ptr noundef %2) #4
   %5 = tail call ptr @lv_obj_add_event_cb(ptr noundef %4, ptr noundef nonnull @delete_event_cb, i32 noundef 41, ptr noundef null) #4
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %1) #4
+  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %1) #4
   call void @lv_canvas_init_layer(ptr noundef %4, ptr noundef nonnull %1) #4
   call fastcc void @draw_vector(ptr noundef nonnull %1)
   call void @lv_canvas_finish_layer(ptr noundef %4, ptr noundef nonnull %1) #4
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %1) #4
+  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %1) #4
   ret void
 }
 
@@ -91,10 +91,10 @@ define internal fastcc void @draw_vector(ptr noundef %0) unnamed_addr #0 {
   %4 = alloca %struct._lv_fpoint_t, align 4
   %5 = alloca [4 x %struct._lv_fpoint_t], align 16
   %6 = alloca [3 x %struct._lv_fpoint_t], align 16
-  %7 = alloca [2 x %struct.lv_gradient_stop_t], align 4
+  %7 = alloca [2 x %struct.lv_grad_stop_t], align 4
   %8 = alloca %struct._lv_matrix_t, align 4
   %9 = alloca [4 x %struct._lv_fpoint_t], align 16
-  %10 = alloca [2 x %struct.lv_gradient_stop_t], align 4
+  %10 = alloca [2 x %struct.lv_grad_stop_t], align 4
   %11 = alloca [4 x %struct._lv_fpoint_t], align 16
   %12 = alloca %struct._lv_draw_image_dsc_t, align 8
   %13 = alloca [4 x %struct._lv_fpoint_t], align 16
@@ -216,16 +216,16 @@ define internal fastcc void @draw_vector(ptr noundef %0) unnamed_addr #0 {
   %42 = call i24 @lv_color_hex(i32 noundef 16711680) #4
   store i24 %42, ptr %10, align 4
   %43 = getelementptr inbounds nuw i8, ptr %10, i64 3
-  store i8 -1, ptr %43, align 1, !tbaa !18
+  store i8 -1, ptr %43, align 1, !tbaa !21
   %44 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  store i8 0, ptr %44, align 4, !tbaa !20
+  store i8 0, ptr %44, align 4, !tbaa !23
   %45 = getelementptr inbounds nuw i8, ptr %10, i64 5
   %46 = call i24 @lv_color_hex(i32 noundef 255) #4
   store i24 %46, ptr %45, align 1
   %47 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i8 -1, ptr %47, align 4, !tbaa !18
+  store i8 -1, ptr %47, align 4, !tbaa !21
   %48 = getelementptr inbounds nuw i8, ptr %10, i64 9
-  store i8 -1, ptr %48, align 1, !tbaa !20
+  store i8 -1, ptr %48, align 1, !tbaa !23
   call void @lv_vector_dsc_set_fill_radial_gradient(ptr noundef %20, float noundef 4.500000e+02, float noundef 1.000000e+02, float noundef 2.000000e+01) #4
   call void @lv_vector_dsc_set_fill_gradient_color_stops(ptr noundef %20, ptr noundef nonnull %10, i16 noundef zeroext 2) #4
   call void @lv_vector_dsc_set_fill_gradient_spread(ptr noundef %20, i32 noundef 2) #4
@@ -246,16 +246,16 @@ define internal fastcc void @draw_vector(ptr noundef %0) unnamed_addr #0 {
   %51 = call i24 @lv_color_hex(i32 noundef 16711680) #4
   store i24 %51, ptr %7, align 4
   %52 = getelementptr inbounds nuw i8, ptr %7, i64 3
-  store i8 -1, ptr %52, align 1, !tbaa !18
+  store i8 -1, ptr %52, align 1, !tbaa !21
   %53 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store i8 0, ptr %53, align 4, !tbaa !20
+  store i8 0, ptr %53, align 4, !tbaa !23
   %54 = getelementptr inbounds nuw i8, ptr %7, i64 5
   %55 = call i24 @lv_color_hex(i32 noundef 65280) #4
   store i24 %55, ptr %54, align 1
   %56 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i8 -1, ptr %56, align 4, !tbaa !18
+  store i8 -1, ptr %56, align 4, !tbaa !21
   %57 = getelementptr inbounds nuw i8, ptr %7, i64 9
-  store i8 -1, ptr %57, align 1, !tbaa !20
+  store i8 -1, ptr %57, align 1, !tbaa !23
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %8) #4
   call void @lv_matrix_identity(ptr noundef nonnull %8) #4
   call void @lv_matrix_rotate(ptr noundef nonnull %8, float noundef 3.000000e+01) #4
@@ -301,13 +301,13 @@ define internal fastcc void @draw_vector(ptr noundef %0) unnamed_addr #0 {
   call void @lv_vector_dsc_set_fill_color32(ptr noundef %20, i32 %65) #4
   call void @lv_vector_path_move_to(ptr noundef %23, ptr noundef nonnull %3) #4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #4
-  %66 = load float, ptr %3, align 8, !tbaa !21
+  %66 = load float, ptr %3, align 8, !tbaa !24
   %67 = fadd float %66, 5.000000e+01
-  store float %67, ptr %4, align 4, !tbaa !21
+  store float %67, ptr %4, align 4, !tbaa !24
   %68 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %69 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %70 = load float, ptr %69, align 4, !tbaa !24
-  store float %70, ptr %68, align 4, !tbaa !24
+  %70 = load float, ptr %69, align 4, !tbaa !27
+  store float %70, ptr %68, align 4, !tbaa !27
   call void @lv_vector_path_line_to(ptr noundef %23, ptr noundef nonnull %4) #4
   call void @lv_vector_path_append_arc(ptr noundef %23, ptr noundef nonnull %3, float noundef 5.000000e+01, float noundef 0.000000e+00, float noundef -9.000000e+01, i1 noundef zeroext false) #4
   call void @lv_vector_path_line_to(ptr noundef %23, ptr noundef nonnull %3) #4
@@ -447,21 +447,24 @@ attributes #4 = { nounwind }
 !4 = !{!5, !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = !{!8, !10, i64 48}
-!8 = !{!"_lv_draw_image_dsc_t", !9, i64 0, !10, i64 48, !13, i64 56, !11, i64 68, !11, i64 72, !11, i64 76, !11, i64 80, !11, i64 84, !14, i64 88, !15, i64 96, !5, i64 99, !5, i64 100, !11, i64 101, !16, i64 101, !16, i64 101, !10, i64 104, !17, i64 112, !11, i64 128, !10, i64 136}
-!9 = !{!"", !10, i64 0, !11, i64 8, !11, i64 12, !11, i64 16, !10, i64 24, !12, i64 32, !10, i64 40}
-!10 = !{!"any pointer", !5, i64 0}
-!11 = !{!"int", !5, i64 0}
-!12 = !{!"long", !5, i64 0}
-!13 = !{!"", !11, i64 0, !11, i64 1, !11, i64 2, !11, i64 4, !11, i64 6, !11, i64 8, !11, i64 10}
-!14 = !{!"", !11, i64 0, !11, i64 4}
-!15 = !{!"", !5, i64 0, !5, i64 1, !5, i64 2}
-!16 = !{!"short", !5, i64 0}
-!17 = !{!"", !11, i64 0, !11, i64 4, !11, i64 8, !11, i64 12}
-!18 = !{!19, !5, i64 3}
-!19 = !{!"", !15, i64 0, !5, i64 3, !5, i64 4}
-!20 = !{!19, !5, i64 4}
-!21 = !{!22, !23, i64 0}
-!22 = !{!"_lv_fpoint_t", !23, i64 0, !23, i64 4}
-!23 = !{!"float", !5, i64 0}
-!24 = !{!22, !23, i64 4}
+!7 = !{!8, !11, i64 48}
+!8 = !{!"_lv_draw_image_dsc_t", !9, i64 0, !11, i64 48, !15, i64 56, !12, i64 68, !12, i64 72, !12, i64 76, !12, i64 80, !12, i64 84, !16, i64 88, !17, i64 96, !5, i64 99, !5, i64 100, !12, i64 101, !18, i64 101, !18, i64 101, !19, i64 104, !20, i64 112, !12, i64 128, !11, i64 136}
+!9 = !{!"", !10, i64 0, !12, i64 8, !12, i64 12, !12, i64 16, !13, i64 24, !14, i64 32, !11, i64 40}
+!10 = !{!"p1 _ZTS9_lv_obj_t", !11, i64 0}
+!11 = !{!"any pointer", !5, i64 0}
+!12 = !{!"int", !5, i64 0}
+!13 = !{!"p1 _ZTS11_lv_layer_t", !11, i64 0}
+!14 = !{!"long", !5, i64 0}
+!15 = !{!"", !12, i64 0, !12, i64 1, !12, i64 2, !12, i64 4, !12, i64 6, !12, i64 8, !12, i64 10}
+!16 = !{!"", !12, i64 0, !12, i64 4}
+!17 = !{!"", !5, i64 0, !5, i64 1, !5, i64 2}
+!18 = !{!"short", !5, i64 0}
+!19 = !{!"p1 _ZTS20_lv_draw_image_sup_t", !11, i64 0}
+!20 = !{!"", !12, i64 0, !12, i64 4, !12, i64 8, !12, i64 12}
+!21 = !{!22, !5, i64 3}
+!22 = !{!"", !17, i64 0, !5, i64 3, !5, i64 4}
+!23 = !{!22, !5, i64 4}
+!24 = !{!25, !26, i64 0}
+!25 = !{!"_lv_fpoint_t", !26, i64 0, !26, i64 4}
+!26 = !{!"float", !5, i64 0}
+!27 = !{!25, !26, i64 4}

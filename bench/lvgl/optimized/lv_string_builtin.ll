@@ -3,7 +3,7 @@ source_filename = "bench/lvgl/original/lv_string_builtin.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define noundef ptr @lv_memcpy(ptr noundef returned %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = icmp ult i64 %2, 16
   br i1 %4, label %.preheader, label %9
@@ -17,7 +17,7 @@ define noundef ptr @lv_memcpy(ptr noundef returned %0, ptr noundef %1, i64 nound
   %.0211263 = phi ptr [ %6, %.lr.ph265 ], [ %0, %.preheader ]
   %.0217262 = phi i64 [ %8, %.lr.ph265 ], [ %2, %.preheader ]
   %5 = load i8, ptr %.0209264, align 1, !tbaa !3
-  store i8 %5, ptr %.0211263, align 1, !tbaa !3
+  store volatile i8 %5, ptr %.0211263, align 1, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %.0211263, i64 1
   %7 = getelementptr inbounds nuw i8, ptr %.0209264, i64 1
   %8 = add nsw i64 %.0217262, -1
@@ -41,131 +41,131 @@ define noundef ptr @lv_memcpy(ptr noundef returned %0, ptr noundef %1, i64 nound
   %.1212236 = phi ptr [ %109, %.lr.ph ], [ %0, %.preheader234 ]
   %.1218235 = phi i64 [ %111, %.lr.ph ], [ %2, %.preheader234 ]
   %15 = load i8, ptr %.1210237, align 1, !tbaa !3
-  store i8 %15, ptr %.1212236, align 1, !tbaa !3
+  store volatile i8 %15, ptr %.1212236, align 1, !tbaa !3
   %16 = getelementptr inbounds nuw i8, ptr %.1212236, i64 1
   %17 = getelementptr inbounds nuw i8, ptr %.1210237, i64 1
   %18 = load i8, ptr %17, align 1, !tbaa !3
-  store i8 %18, ptr %16, align 1, !tbaa !3
+  store volatile i8 %18, ptr %16, align 1, !tbaa !3
   %19 = getelementptr inbounds nuw i8, ptr %.1212236, i64 2
   %20 = getelementptr inbounds nuw i8, ptr %.1210237, i64 2
   %21 = load i8, ptr %20, align 1, !tbaa !3
-  store i8 %21, ptr %19, align 1, !tbaa !3
+  store volatile i8 %21, ptr %19, align 1, !tbaa !3
   %22 = getelementptr inbounds nuw i8, ptr %.1212236, i64 3
   %23 = getelementptr inbounds nuw i8, ptr %.1210237, i64 3
   %24 = load i8, ptr %23, align 1, !tbaa !3
-  store i8 %24, ptr %22, align 1, !tbaa !3
+  store volatile i8 %24, ptr %22, align 1, !tbaa !3
   %25 = getelementptr inbounds nuw i8, ptr %.1212236, i64 4
   %26 = getelementptr inbounds nuw i8, ptr %.1210237, i64 4
   %27 = load i8, ptr %26, align 1, !tbaa !3
-  store i8 %27, ptr %25, align 1, !tbaa !3
+  store volatile i8 %27, ptr %25, align 1, !tbaa !3
   %28 = getelementptr inbounds nuw i8, ptr %.1212236, i64 5
   %29 = getelementptr inbounds nuw i8, ptr %.1210237, i64 5
   %30 = load i8, ptr %29, align 1, !tbaa !3
-  store i8 %30, ptr %28, align 1, !tbaa !3
+  store volatile i8 %30, ptr %28, align 1, !tbaa !3
   %31 = getelementptr inbounds nuw i8, ptr %.1212236, i64 6
   %32 = getelementptr inbounds nuw i8, ptr %.1210237, i64 6
   %33 = load i8, ptr %32, align 1, !tbaa !3
-  store i8 %33, ptr %31, align 1, !tbaa !3
+  store volatile i8 %33, ptr %31, align 1, !tbaa !3
   %34 = getelementptr inbounds nuw i8, ptr %.1212236, i64 7
   %35 = getelementptr inbounds nuw i8, ptr %.1210237, i64 7
   %36 = load i8, ptr %35, align 1, !tbaa !3
-  store i8 %36, ptr %34, align 1, !tbaa !3
+  store volatile i8 %36, ptr %34, align 1, !tbaa !3
   %37 = getelementptr inbounds nuw i8, ptr %.1212236, i64 8
   %38 = getelementptr inbounds nuw i8, ptr %.1210237, i64 8
   %39 = load i8, ptr %38, align 1, !tbaa !3
-  store i8 %39, ptr %37, align 1, !tbaa !3
+  store volatile i8 %39, ptr %37, align 1, !tbaa !3
   %40 = getelementptr inbounds nuw i8, ptr %.1212236, i64 9
   %41 = getelementptr inbounds nuw i8, ptr %.1210237, i64 9
   %42 = load i8, ptr %41, align 1, !tbaa !3
-  store i8 %42, ptr %40, align 1, !tbaa !3
+  store volatile i8 %42, ptr %40, align 1, !tbaa !3
   %43 = getelementptr inbounds nuw i8, ptr %.1212236, i64 10
   %44 = getelementptr inbounds nuw i8, ptr %.1210237, i64 10
   %45 = load i8, ptr %44, align 1, !tbaa !3
-  store i8 %45, ptr %43, align 1, !tbaa !3
+  store volatile i8 %45, ptr %43, align 1, !tbaa !3
   %46 = getelementptr inbounds nuw i8, ptr %.1212236, i64 11
   %47 = getelementptr inbounds nuw i8, ptr %.1210237, i64 11
   %48 = load i8, ptr %47, align 1, !tbaa !3
-  store i8 %48, ptr %46, align 1, !tbaa !3
+  store volatile i8 %48, ptr %46, align 1, !tbaa !3
   %49 = getelementptr inbounds nuw i8, ptr %.1212236, i64 12
   %50 = getelementptr inbounds nuw i8, ptr %.1210237, i64 12
   %51 = load i8, ptr %50, align 1, !tbaa !3
-  store i8 %51, ptr %49, align 1, !tbaa !3
+  store volatile i8 %51, ptr %49, align 1, !tbaa !3
   %52 = getelementptr inbounds nuw i8, ptr %.1212236, i64 13
   %53 = getelementptr inbounds nuw i8, ptr %.1210237, i64 13
   %54 = load i8, ptr %53, align 1, !tbaa !3
-  store i8 %54, ptr %52, align 1, !tbaa !3
+  store volatile i8 %54, ptr %52, align 1, !tbaa !3
   %55 = getelementptr inbounds nuw i8, ptr %.1212236, i64 14
   %56 = getelementptr inbounds nuw i8, ptr %.1210237, i64 14
   %57 = load i8, ptr %56, align 1, !tbaa !3
-  store i8 %57, ptr %55, align 1, !tbaa !3
+  store volatile i8 %57, ptr %55, align 1, !tbaa !3
   %58 = getelementptr inbounds nuw i8, ptr %.1212236, i64 15
   %59 = getelementptr inbounds nuw i8, ptr %.1210237, i64 15
   %60 = load i8, ptr %59, align 1, !tbaa !3
-  store i8 %60, ptr %58, align 1, !tbaa !3
+  store volatile i8 %60, ptr %58, align 1, !tbaa !3
   %61 = getelementptr inbounds nuw i8, ptr %.1212236, i64 16
   %62 = getelementptr inbounds nuw i8, ptr %.1210237, i64 16
   %63 = load i8, ptr %62, align 1, !tbaa !3
-  store i8 %63, ptr %61, align 1, !tbaa !3
+  store volatile i8 %63, ptr %61, align 1, !tbaa !3
   %64 = getelementptr inbounds nuw i8, ptr %.1212236, i64 17
   %65 = getelementptr inbounds nuw i8, ptr %.1210237, i64 17
   %66 = load i8, ptr %65, align 1, !tbaa !3
-  store i8 %66, ptr %64, align 1, !tbaa !3
+  store volatile i8 %66, ptr %64, align 1, !tbaa !3
   %67 = getelementptr inbounds nuw i8, ptr %.1212236, i64 18
   %68 = getelementptr inbounds nuw i8, ptr %.1210237, i64 18
   %69 = load i8, ptr %68, align 1, !tbaa !3
-  store i8 %69, ptr %67, align 1, !tbaa !3
+  store volatile i8 %69, ptr %67, align 1, !tbaa !3
   %70 = getelementptr inbounds nuw i8, ptr %.1212236, i64 19
   %71 = getelementptr inbounds nuw i8, ptr %.1210237, i64 19
   %72 = load i8, ptr %71, align 1, !tbaa !3
-  store i8 %72, ptr %70, align 1, !tbaa !3
+  store volatile i8 %72, ptr %70, align 1, !tbaa !3
   %73 = getelementptr inbounds nuw i8, ptr %.1212236, i64 20
   %74 = getelementptr inbounds nuw i8, ptr %.1210237, i64 20
   %75 = load i8, ptr %74, align 1, !tbaa !3
-  store i8 %75, ptr %73, align 1, !tbaa !3
+  store volatile i8 %75, ptr %73, align 1, !tbaa !3
   %76 = getelementptr inbounds nuw i8, ptr %.1212236, i64 21
   %77 = getelementptr inbounds nuw i8, ptr %.1210237, i64 21
   %78 = load i8, ptr %77, align 1, !tbaa !3
-  store i8 %78, ptr %76, align 1, !tbaa !3
+  store volatile i8 %78, ptr %76, align 1, !tbaa !3
   %79 = getelementptr inbounds nuw i8, ptr %.1212236, i64 22
   %80 = getelementptr inbounds nuw i8, ptr %.1210237, i64 22
   %81 = load i8, ptr %80, align 1, !tbaa !3
-  store i8 %81, ptr %79, align 1, !tbaa !3
+  store volatile i8 %81, ptr %79, align 1, !tbaa !3
   %82 = getelementptr inbounds nuw i8, ptr %.1212236, i64 23
   %83 = getelementptr inbounds nuw i8, ptr %.1210237, i64 23
   %84 = load i8, ptr %83, align 1, !tbaa !3
-  store i8 %84, ptr %82, align 1, !tbaa !3
+  store volatile i8 %84, ptr %82, align 1, !tbaa !3
   %85 = getelementptr inbounds nuw i8, ptr %.1212236, i64 24
   %86 = getelementptr inbounds nuw i8, ptr %.1210237, i64 24
   %87 = load i8, ptr %86, align 1, !tbaa !3
-  store i8 %87, ptr %85, align 1, !tbaa !3
+  store volatile i8 %87, ptr %85, align 1, !tbaa !3
   %88 = getelementptr inbounds nuw i8, ptr %.1212236, i64 25
   %89 = getelementptr inbounds nuw i8, ptr %.1210237, i64 25
   %90 = load i8, ptr %89, align 1, !tbaa !3
-  store i8 %90, ptr %88, align 1, !tbaa !3
+  store volatile i8 %90, ptr %88, align 1, !tbaa !3
   %91 = getelementptr inbounds nuw i8, ptr %.1212236, i64 26
   %92 = getelementptr inbounds nuw i8, ptr %.1210237, i64 26
   %93 = load i8, ptr %92, align 1, !tbaa !3
-  store i8 %93, ptr %91, align 1, !tbaa !3
+  store volatile i8 %93, ptr %91, align 1, !tbaa !3
   %94 = getelementptr inbounds nuw i8, ptr %.1212236, i64 27
   %95 = getelementptr inbounds nuw i8, ptr %.1210237, i64 27
   %96 = load i8, ptr %95, align 1, !tbaa !3
-  store i8 %96, ptr %94, align 1, !tbaa !3
+  store volatile i8 %96, ptr %94, align 1, !tbaa !3
   %97 = getelementptr inbounds nuw i8, ptr %.1212236, i64 28
   %98 = getelementptr inbounds nuw i8, ptr %.1210237, i64 28
   %99 = load i8, ptr %98, align 1, !tbaa !3
-  store i8 %99, ptr %97, align 1, !tbaa !3
+  store volatile i8 %99, ptr %97, align 1, !tbaa !3
   %100 = getelementptr inbounds nuw i8, ptr %.1212236, i64 29
   %101 = getelementptr inbounds nuw i8, ptr %.1210237, i64 29
   %102 = load i8, ptr %101, align 1, !tbaa !3
-  store i8 %102, ptr %100, align 1, !tbaa !3
+  store volatile i8 %102, ptr %100, align 1, !tbaa !3
   %103 = getelementptr inbounds nuw i8, ptr %.1212236, i64 30
   %104 = getelementptr inbounds nuw i8, ptr %.1210237, i64 30
   %105 = load i8, ptr %104, align 1, !tbaa !3
-  store i8 %105, ptr %103, align 1, !tbaa !3
+  store volatile i8 %105, ptr %103, align 1, !tbaa !3
   %106 = getelementptr inbounds nuw i8, ptr %.1212236, i64 31
   %107 = getelementptr inbounds nuw i8, ptr %.1210237, i64 31
   %108 = load i8, ptr %107, align 1, !tbaa !3
-  store i8 %108, ptr %106, align 1, !tbaa !3
+  store volatile i8 %108, ptr %106, align 1, !tbaa !3
   %109 = getelementptr inbounds nuw i8, ptr %.1212236, i64 32
   %110 = getelementptr inbounds nuw i8, ptr %.1210237, i64 32
   %111 = add i64 %.1218235, -32
@@ -183,7 +183,7 @@ define noundef ptr @lv_memcpy(ptr noundef returned %0, ptr noundef %1, i64 nound
   %.2213242 = phi ptr [ %114, %.lr.ph244 ], [ %.2213242.ph, %.lr.ph244.preheader ]
   %.2219241 = phi i64 [ %116, %.lr.ph244 ], [ %.2219241.ph, %.lr.ph244.preheader ]
   %113 = load i8, ptr %.2243, align 1, !tbaa !3
-  store i8 %113, ptr %.2213242, align 1, !tbaa !3
+  store volatile i8 %113, ptr %.2213242, align 1, !tbaa !3
   %114 = getelementptr inbounds nuw i8, ptr %.2213242, i64 1
   %115 = getelementptr inbounds nuw i8, ptr %.2243, i64 1
   %116 = add i64 %.2219241, -1
@@ -204,7 +204,7 @@ define noundef ptr @lv_memcpy(ptr noundef returned %0, ptr noundef %1, i64 nound
   %.4215246 = phi ptr [ %0, %118 ], [ %122, %120 ]
   %.4221245 = phi i64 [ %2, %118 ], [ %125, %120 ]
   %121 = load i8, ptr %.4247, align 1, !tbaa !3
-  store i8 %121, ptr %.4215246, align 1, !tbaa !3
+  store volatile i8 %121, ptr %.4215246, align 1, !tbaa !3
   %122 = getelementptr inbounds nuw i8, ptr %.4215246, i64 1
   %123 = getelementptr inbounds nuw i8, ptr %.4247, i64 1
   %124 = add nsw i64 %.0208248, -1
@@ -276,7 +276,7 @@ define noundef ptr @lv_memcpy(ptr noundef returned %0, ptr noundef %1, i64 nound
   %.5216258 = phi ptr [ %157, %.lr.ph260 ], [ %.5216258.ph, %.lr.ph260.preheader ]
   %.6257 = phi i64 [ %159, %.lr.ph260 ], [ %.6257.ph, %.lr.ph260.preheader ]
   %156 = load i8, ptr %.5259, align 1, !tbaa !3
-  store i8 %156, ptr %.5216258, align 1, !tbaa !3
+  store volatile i8 %156, ptr %.5216258, align 1, !tbaa !3
   %157 = getelementptr inbounds nuw i8, ptr %.5216258, i64 1
   %158 = getelementptr inbounds nuw i8, ptr %.5259, i64 1
   %159 = add i64 %.6257, -1
@@ -351,7 +351,7 @@ define void @lv_memset(ptr noundef %0, i8 noundef zeroext %1, i64 noundef %2) lo
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define noundef ptr @lv_memmove(ptr noundef returned %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = icmp ult ptr %0, %1
   br i1 %4, label %8, label %5
@@ -463,7 +463,7 @@ define i64 @lv_strlen(ptr noundef readonly captures(none) %0) local_unnamed_addr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define i64 @lv_strlcpy(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
+define i64 @lv_strlcpy(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #3 {
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %.preheader21, label %.preheader
 
@@ -509,7 +509,7 @@ define i64 @lv_strlcpy(ptr noundef writeonly captures(none) %0, ptr noundef read
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef ptr @lv_strncpy(ptr noundef returned writeonly captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
+define noundef ptr @lv_strncpy(ptr noundef returned writeonly captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #3 {
   %.not19 = icmp eq i64 %2, 0
   br i1 %.not19, label %.critedge, label %.lr.ph
 
@@ -543,7 +543,7 @@ define noundef ptr @lv_strncpy(ptr noundef returned writeonly captures(ret: addr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef ptr @lv_strcpy(ptr noundef returned writeonly captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
+define noundef ptr @lv_strcpy(ptr noundef returned writeonly captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   br label %3
 
 3:                                                ; preds = %3, %2
@@ -596,8 +596,58 @@ define range(i32 -255, 256) i32 @lv_strcmp(ptr noundef readonly captures(none) %
   ret i32 %14
 }
 
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
+define range(i32 -255, 256) i32 @lv_strncmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #2 {
+  %4 = icmp eq i64 %2, 0
+  br i1 %4, label %.loopexit, label %.preheader
+
+.preheader:                                       ; preds = %3
+  %5 = load i8, ptr %0, align 1, !tbaa !3
+  %.not18 = icmp eq i8 %5, 0
+  br i1 %.not18, label %.critedge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %.preheader, %12
+  %6 = phi i8 [ %15, %12 ], [ %5, %.preheader ]
+  %.021 = phi i64 [ %10, %12 ], [ %2, %.preheader ]
+  %.01020 = phi ptr [ %14, %12 ], [ %1, %.preheader ]
+  %.01119 = phi ptr [ %13, %12 ], [ %0, %.preheader ]
+  %7 = load i8, ptr %.01020, align 1, !tbaa !3
+  %8 = icmp eq i8 %6, %7
+  br i1 %8, label %9, label %.critedge.loopexit
+
+9:                                                ; preds = %.lr.ph
+  %10 = add i64 %.021, -1
+  %11 = icmp eq i64 %10, 0
+  br i1 %11, label %.loopexit, label %12
+
+12:                                               ; preds = %9
+  %13 = getelementptr inbounds nuw i8, ptr %.01119, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %.01020, i64 1
+  %15 = load i8, ptr %13, align 1, !tbaa !3
+  %.not = icmp eq i8 %15, 0
+  br i1 %.not, label %.critedge.loopexit, label %.lr.ph, !llvm.loop !25
+
+.critedge.loopexit:                               ; preds = %12, %.lr.ph
+  %.010.lcssa.ph = phi ptr [ %.01020, %.lr.ph ], [ %14, %12 ]
+  %.lcssa.ph = phi i8 [ %6, %.lr.ph ], [ 0, %12 ]
+  %16 = zext i8 %.lcssa.ph to i32
+  br label %.critedge
+
+.critedge:                                        ; preds = %.critedge.loopexit, %.preheader
+  %.010.lcssa = phi ptr [ %1, %.preheader ], [ %.010.lcssa.ph, %.critedge.loopexit ]
+  %.lcssa = phi i32 [ 0, %.preheader ], [ %16, %.critedge.loopexit ]
+  %17 = load i8, ptr %.010.lcssa, align 1, !tbaa !3
+  %18 = zext i8 %17 to i32
+  %19 = sub nsw i32 %.lcssa, %18
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %9, %3, %.critedge
+  %.012 = phi i32 [ %19, %.critedge ], [ 0, %3 ], [ 0, %9 ]
+  ret i32 %.012
+}
+
 ; Function Attrs: nounwind uwtable
-define ptr @lv_strdup(ptr noundef %0) local_unnamed_addr #3 {
+define ptr @lv_strdup(ptr noundef %0) local_unnamed_addr #4 {
   br label %2
 
 2:                                                ; preds = %2, %1
@@ -609,7 +659,7 @@ define ptr @lv_strdup(ptr noundef %0) local_unnamed_addr #3 {
   br i1 %.not.i, label %lv_strlen.exit, label %2, !llvm.loop !19
 
 lv_strlen.exit:                                   ; preds = %2
-  %6 = tail call ptr @lv_malloc(i64 noundef %5) #7
+  %6 = tail call ptr @lv_malloc(i64 noundef %5) #8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %10, label %8
 
@@ -621,10 +671,10 @@ lv_strlen.exit:                                   ; preds = %2
   ret ptr %6
 }
 
-declare ptr @lv_malloc(i64 noundef) local_unnamed_addr #4
+declare ptr @lv_malloc(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef ptr @lv_strcat(ptr noundef returned captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
+define noundef ptr @lv_strcat(ptr noundef returned captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   br label %3
 
 3:                                                ; preds = %3, %2
@@ -654,7 +704,7 @@ lv_strcpy.exit:                                   ; preds = %lv_strlen.exit
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef ptr @lv_strncat(ptr noundef returned captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
+define noundef ptr @lv_strncat(ptr noundef returned captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #3 {
   br label %4
 
 4:                                                ; preds = %4, %3
@@ -662,7 +712,7 @@ define noundef ptr @lv_strncat(ptr noundef returned captures(ret: address, prove
   %5 = load i8, ptr %.0, align 1, !tbaa !3
   %.not = icmp eq i8 %5, 0
   %6 = getelementptr inbounds nuw i8, ptr %.0, i64 1
-  br i1 %.not, label %.preheader, label %4, !llvm.loop !25
+  br i1 %.not, label %.preheader, label %4, !llvm.loop !26
 
 .preheader:                                       ; preds = %4
   %.not1113 = icmp eq i64 %2, 0
@@ -682,7 +732,7 @@ define noundef ptr @lv_strncat(ptr noundef returned captures(ret: address, prove
   %11 = getelementptr inbounds nuw i8, ptr %.116, i64 1
   store i8 %7, ptr %.116, align 1, !tbaa !3
   %.not11 = icmp eq i64 %9, 0
-  br i1 %.not11, label %.critedge, label %.lr.ph, !llvm.loop !26
+  br i1 %.not11, label %.critedge, label %.lr.ph, !llvm.loop !27
 
 .critedge:                                        ; preds = %.lr.ph, %8, %.preheader
   %.1.lcssa = phi ptr [ %.0, %.preheader ], [ %11, %8 ], [ %.116, %.lr.ph ]
@@ -716,19 +766,20 @@ define noundef ptr @lv_strchr(ptr noundef readonly captures(ret: address, proven
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #5
+declare i64 @llvm.umin.i64(i64, i64) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
-attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { nounwind }
+attributes #3 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 
@@ -759,3 +810,4 @@ attributes #7 = { nounwind }
 !24 = distinct !{!24, !7}
 !25 = distinct !{!25, !7}
 !26 = distinct !{!26, !7}
+!27 = distinct !{!27, !7}

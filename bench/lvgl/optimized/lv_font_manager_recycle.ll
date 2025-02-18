@@ -40,12 +40,12 @@ define void @lv_font_manager_recycle_delete(ptr noundef %0) local_unnamed_addr #
   %.013 = phi ptr [ %4, %.lr.ph ], [ %3, %2 ]
   %4 = tail call ptr @lv_ll_get_next(ptr noundef nonnull %0, ptr noundef nonnull %.013) #3
   %5 = getelementptr inbounds nuw i8, ptr %.013, i64 56
-  %6 = load ptr, ptr %5, align 8, !tbaa !10
+  %6 = load ptr, ptr %5, align 8, !tbaa !11
   tail call void @lv_freetype_font_delete(ptr noundef %6) #3
   tail call void @lv_ll_remove(ptr noundef nonnull %0, ptr noundef nonnull %.013) #3
   tail call void @lv_free(ptr noundef nonnull %.013) #3
   %.not11 = icmp eq ptr %4, null
-  br i1 %.not11, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %.not11, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   tail call void @lv_free(ptr noundef nonnull %0) #3
@@ -85,7 +85,7 @@ define ptr @lv_font_manager_recycle_get_reuse(ptr noundef %0, ptr noundef %1) lo
 
 7:                                                ; preds = %.lr.ph
   %8 = getelementptr inbounds nuw i8, ptr %.01523, i64 56
-  %9 = load ptr, ptr %8, align 8, !tbaa !10
+  %9 = load ptr, ptr %8, align 8, !tbaa !11
   tail call void @lv_ll_remove(ptr noundef nonnull %0, ptr noundef nonnull %.01523) #3
   tail call void @lv_free(ptr noundef nonnull %.01523) #3
   br label %.loopexit
@@ -93,7 +93,7 @@ define ptr @lv_font_manager_recycle_get_reuse(ptr noundef %0, ptr noundef %1) lo
 10:                                               ; preds = %.lr.ph
   %11 = tail call ptr @lv_ll_get_next(ptr noundef nonnull %0, ptr noundef nonnull %.01523) #3
   %.not19 = icmp eq ptr %11, null
-  br i1 %.not19, label %.loopexit, label %.lr.ph, !llvm.loop !15
+  br i1 %.not19, label %.loopexit, label %.lr.ph, !llvm.loop !17
 
 .loopexit:                                        ; preds = %10, %4, %7
   %.0 = phi ptr [ %9, %7 ], [ null, %4 ], [ null, %10 ]
@@ -136,7 +136,7 @@ define void @lv_font_manager_recycle_set_reuse(ptr noundef %0, ptr noundef %1, p
 
 lv_font_manager_recycle_remove_tail.exit:         ; preds = %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 56
-  %12 = load ptr, ptr %11, align 8, !tbaa !10
+  %12 = load ptr, ptr %11, align 8, !tbaa !11
   tail call void @lv_freetype_font_delete(ptr noundef %12) #3
   tail call void @lv_ll_remove(ptr noundef nonnull %0, ptr noundef nonnull %10) #3
   tail call void @lv_free(ptr noundef nonnull %10) #3
@@ -153,14 +153,14 @@ lv_font_manager_recycle_remove_tail.exit:         ; preds = %9
 15:                                               ; preds = %13
   tail call void @lv_memset(ptr noundef nonnull %14, i8 noundef zeroext 0, i64 noundef 64) #3
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %17 = load ptr, ptr %2, align 8, !tbaa !16
+  %17 = load ptr, ptr %2, align 8, !tbaa !18
   %18 = tail call ptr @lv_strncpy(ptr noundef nonnull %16, ptr noundef %17, i64 noundef 32) #3
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 55
-  store i8 0, ptr %19, align 1, !tbaa !17
+  store i8 0, ptr %19, align 1, !tbaa !19
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 56
-  store ptr %1, ptr %20, align 8, !tbaa !10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false), !tbaa.struct !18
-  store ptr %16, ptr %14, align 8, !tbaa !21
+  store ptr %1, ptr %20, align 8, !tbaa !11
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false), !tbaa.struct !20
+  store ptr %16, ptr %14, align 8, !tbaa !23
   ret void
 }
 
@@ -195,16 +195,18 @@ attributes #3 = { nounwind }
 !6 = !{!"int", !7, i64 0}
 !7 = !{!"omnipotent char", !8, i64 0}
 !8 = !{!"Simple C/C++ TBAA"}
-!9 = !{!"any pointer", !7, i64 0}
-!10 = !{!11, !9, i64 56}
-!11 = !{!"", !12, i64 0, !7, i64 24, !9, i64 56}
-!12 = !{!"", !9, i64 0, !6, i64 8, !6, i64 12, !6, i64 16}
-!13 = distinct !{!13, !14}
-!14 = !{!"llvm.loop.mustprogress"}
-!15 = distinct !{!15, !14}
-!16 = !{!12, !9, i64 0}
-!17 = !{!7, !7, i64 0}
-!18 = !{i64 0, i64 8, !19, i64 8, i64 4, !20, i64 12, i64 4, !20, i64 16, i64 4, !20}
-!19 = !{!9, !9, i64 0}
-!20 = !{!6, !6, i64 0}
-!21 = !{!11, !9, i64 0}
+!9 = !{!"p1 omnipotent char", !10, i64 0}
+!10 = !{!"any pointer", !7, i64 0}
+!11 = !{!12, !14, i64 56}
+!12 = !{!"", !13, i64 0, !7, i64 24, !14, i64 56}
+!13 = !{!"", !9, i64 0, !6, i64 8, !6, i64 12, !6, i64 16}
+!14 = !{!"p1 _ZTS10_lv_font_t", !10, i64 0}
+!15 = distinct !{!15, !16}
+!16 = !{!"llvm.loop.mustprogress"}
+!17 = distinct !{!17, !16}
+!18 = !{!13, !9, i64 0}
+!19 = !{!7, !7, i64 0}
+!20 = !{i64 0, i64 8, !21, i64 8, i64 4, !22, i64 12, i64 4, !22, i64 16, i64 4, !22}
+!21 = !{!9, !9, i64 0}
+!22 = !{!6, !6, i64 0}
+!23 = !{!12, !9, i64 0}

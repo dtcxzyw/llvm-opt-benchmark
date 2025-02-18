@@ -69,30 +69,30 @@ define zeroext i1 @lv_freetype_info_is_equal(ptr noundef %0, ptr noundef %1) #0 
 31:                                               ; preds = %23
   %32 = load ptr, ptr %3, align 8, !tbaa !3
   %33 = getelementptr inbounds nuw %struct.lv_freetype_info_t, ptr %32, i32 0, i32 2
-  %34 = load i32, ptr %33, align 4, !tbaa !10
+  %34 = load i32, ptr %33, align 4, !tbaa !11
   %35 = load ptr, ptr %4, align 8, !tbaa !3
   %36 = getelementptr inbounds nuw %struct.lv_freetype_info_t, ptr %35, i32 0, i32 2
-  %37 = load i32, ptr %36, align 4, !tbaa !10
+  %37 = load i32, ptr %36, align 4, !tbaa !11
   %38 = icmp eq i32 %34, %37
   br i1 %38, label %39, label %56
 
 39:                                               ; preds = %31
   %40 = load ptr, ptr %3, align 8, !tbaa !3
   %41 = getelementptr inbounds nuw %struct.lv_freetype_info_t, ptr %40, i32 0, i32 1
-  %42 = load i32, ptr %41, align 8, !tbaa !11
+  %42 = load i32, ptr %41, align 8, !tbaa !12
   %43 = load ptr, ptr %4, align 8, !tbaa !3
   %44 = getelementptr inbounds nuw %struct.lv_freetype_info_t, ptr %43, i32 0, i32 1
-  %45 = load i32, ptr %44, align 8, !tbaa !11
+  %45 = load i32, ptr %44, align 8, !tbaa !12
   %46 = icmp eq i32 %42, %45
   br i1 %46, label %47, label %56
 
 47:                                               ; preds = %39
   %48 = load ptr, ptr %3, align 8, !tbaa !3
   %49 = getelementptr inbounds nuw %struct.lv_freetype_info_t, ptr %48, i32 0, i32 0
-  %50 = load ptr, ptr %49, align 8, !tbaa !12
+  %50 = load ptr, ptr %49, align 8, !tbaa !13
   %51 = load ptr, ptr %4, align 8, !tbaa !3
   %52 = getelementptr inbounds nuw %struct.lv_freetype_info_t, ptr %51, i32 0, i32 0
-  %53 = load ptr, ptr %52, align 8, !tbaa !12
+  %53 = load ptr, ptr %52, align 8, !tbaa !13
   %54 = call i32 @lv_strcmp(ptr noundef %50, ptr noundef %53)
   %55 = icmp eq i32 %54, 0
   br label %56
@@ -100,20 +100,20 @@ define zeroext i1 @lv_freetype_info_is_equal(ptr noundef %0, ptr noundef %1) #0 
 56:                                               ; preds = %47, %39, %31, %23
   %57 = phi i1 [ false, %39 ], [ false, %31 ], [ false, %23 ], [ %55, %47 ]
   %58 = zext i1 %57 to i8
-  store i8 %58, ptr %5, align 1, !tbaa !13
-  %59 = load i8, ptr %5, align 1, !tbaa !13, !range !15, !noundef !16
+  store i8 %58, ptr %5, align 1, !tbaa !14
+  %59 = load i8, ptr %5, align 1, !tbaa !14, !range !16, !noundef !17
   %60 = trunc i8 %59 to i1
   call void @llvm.lifetime.end.p0(i64 1, ptr %5) #3
   ret i1 %60
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 declare i32 @lv_strcmp(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
@@ -129,13 +129,14 @@ attributes #3 = { nounwind }
 !4 = !{!"any pointer", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = !{!8, !9, i64 16}
-!8 = !{!"", !4, i64 0, !9, i64 8, !9, i64 12, !9, i64 16}
-!9 = !{!"int", !5, i64 0}
-!10 = !{!8, !9, i64 12}
-!11 = !{!8, !9, i64 8}
-!12 = !{!8, !4, i64 0}
-!13 = !{!14, !14, i64 0}
-!14 = !{!"_Bool", !5, i64 0}
-!15 = !{i8 0, i8 2}
-!16 = !{}
+!7 = !{!8, !10, i64 16}
+!8 = !{!"", !9, i64 0, !10, i64 8, !10, i64 12, !10, i64 16}
+!9 = !{!"p1 omnipotent char", !4, i64 0}
+!10 = !{!"int", !5, i64 0}
+!11 = !{!8, !10, i64 12}
+!12 = !{!8, !10, i64 8}
+!13 = !{!8, !9, i64 0}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"_Bool", !5, i64 0}
+!16 = !{i8 0, i8 2}
+!17 = !{}

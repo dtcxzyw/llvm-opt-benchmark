@@ -221,106 +221,110 @@ define signext range(i8 -1, 5) i8 @lv_area_diff(ptr noundef writeonly captures(n
   %23 = sub i32 %9, %4
   %24 = sub i32 %18, %13
   %25 = icmp sgt i32 %20, %13
-  br i1 %25, label %26, label %27
+  br i1 %25, label %26, label %28
 
 26:                                               ; preds = %22
+  %27 = add nsw i32 %20, -1
   store i32 %4, ptr %0, align 4, !tbaa !11
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %13, ptr %.sroa.10.0..sroa_idx, align 4, !tbaa !11
   %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %9, ptr %.sroa.14.0..sroa_idx, align 4, !tbaa !11
   %.sroa.18.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %20, ptr %.sroa.18.0..sroa_idx, align 4, !tbaa !11
+  store i32 %27, ptr %.sroa.18.0..sroa_idx, align 4, !tbaa !11
   %.pre = load i32, ptr %14, align 4, !tbaa !10
   %.pre100 = load i32, ptr %12, align 4, !tbaa !8
   %.pre104.pre = load i32, ptr %17, align 4, !tbaa !10
-  br label %27
+  br label %28
 
-27:                                               ; preds = %26, %22
+28:                                               ; preds = %26, %22
   %.pre104 = phi i32 [ %.pre104.pre, %26 ], [ %18, %22 ]
-  %28 = phi i32 [ %.pre100, %26 ], [ %13, %22 ]
-  %29 = phi i32 [ %.pre, %26 ], [ %15, %22 ]
+  %29 = phi i32 [ %.pre100, %26 ], [ %13, %22 ]
+  %30 = phi i32 [ %.pre, %26 ], [ %15, %22 ]
   %.086 = phi i8 [ 1, %26 ], [ 0, %22 ]
-  %.neg = sub i32 %24, %29
-  %30 = add i32 %.neg, %28
-  %31 = icmp sgt i32 %30, 0
-  %32 = icmp slt i32 %29, %.pre104
-  %or.cond110 = select i1 %31, i1 %32, i1 false
-  br i1 %or.cond110, label %33, label %40
+  %.neg = sub i32 %24, %30
+  %31 = add i32 %.neg, %29
+  %32 = icmp sgt i32 %31, 0
+  %33 = icmp slt i32 %30, %.pre104
+  %or.cond110 = select i1 %32, i1 %33, i1 false
+  br i1 %or.cond110, label %34, label %42
 
-33:                                               ; preds = %27
-  %34 = load i32, ptr %1, align 4, !tbaa !3
-  %35 = load i32, ptr %8, align 4, !tbaa !9
-  %36 = add i32 %28, %24
-  %37 = add nuw nsw i8 %.086, 1
-  %38 = zext nneg i8 %.086 to i64
-  %39 = getelementptr inbounds nuw %struct.lv_area_t, ptr %0, i64 %38
-  store i32 %34, ptr %39, align 4, !tbaa !11
-  %.sroa.10.0..sroa_idx23 = getelementptr inbounds nuw i8, ptr %39, i64 4
-  store i32 %29, ptr %.sroa.10.0..sroa_idx23, align 4, !tbaa !11
-  %.sroa.14.0..sroa_idx29 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  store i32 %35, ptr %.sroa.14.0..sroa_idx29, align 4, !tbaa !11
-  %.sroa.18.0..sroa_idx35 = getelementptr inbounds nuw i8, ptr %39, i64 12
-  store i32 %36, ptr %.sroa.18.0..sroa_idx35, align 4, !tbaa !11
+34:                                               ; preds = %28
+  %35 = load i32, ptr %1, align 4, !tbaa !3
+  %36 = add nsw i32 %30, 1
+  %37 = load i32, ptr %8, align 4, !tbaa !9
+  %38 = add i32 %29, %24
+  %39 = add nuw nsw i8 %.086, 1
+  %40 = zext nneg i8 %.086 to i64
+  %41 = getelementptr inbounds nuw %struct.lv_area_t, ptr %0, i64 %40
+  store i32 %35, ptr %41, align 4, !tbaa !11
+  %.sroa.10.0..sroa_idx23 = getelementptr inbounds nuw i8, ptr %41, i64 4
+  store i32 %36, ptr %.sroa.10.0..sroa_idx23, align 4, !tbaa !11
+  %.sroa.14.0..sroa_idx29 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  store i32 %37, ptr %.sroa.14.0..sroa_idx29, align 4, !tbaa !11
+  %.sroa.18.0..sroa_idx35 = getelementptr inbounds nuw i8, ptr %41, i64 12
+  store i32 %38, ptr %.sroa.18.0..sroa_idx35, align 4, !tbaa !11
   %.pre101 = load i32, ptr %12, align 4, !tbaa !8
   %.pre102 = load i32, ptr %14, align 4, !tbaa !10
   %.pre103 = load i32, ptr %17, align 4, !tbaa !10
-  br label %40
+  br label %42
 
-40:                                               ; preds = %33, %27
-  %41 = phi i32 [ %.pre103, %33 ], [ %.pre104, %27 ]
-  %42 = phi i32 [ %.pre102, %33 ], [ %29, %27 ]
-  %43 = phi i32 [ %.pre101, %33 ], [ %28, %27 ]
-  %.1 = phi i8 [ %37, %33 ], [ %.086, %27 ]
-  %44 = load i32, ptr %19, align 4, !tbaa !8
-  %. = tail call i32 @llvm.smax.i32(i32 %44, i32 %43)
-  %45 = tail call i32 @llvm.smin.i32(i32 %42, i32 %41)
-  %46 = load i32, ptr %2, align 4, !tbaa !3
-  %47 = load i32, ptr %1, align 4, !tbaa !3
-  %48 = icmp sgt i32 %46, %47
-  %49 = icmp sgt i32 %45, %.
-  %or.cond = and i1 %49, %48
-  br i1 %or.cond, label %50, label %54
+42:                                               ; preds = %34, %28
+  %43 = phi i32 [ %.pre103, %34 ], [ %.pre104, %28 ]
+  %44 = phi i32 [ %.pre102, %34 ], [ %30, %28 ]
+  %45 = phi i32 [ %.pre101, %34 ], [ %29, %28 ]
+  %.1 = phi i8 [ %39, %34 ], [ %.086, %28 ]
+  %46 = load i32, ptr %19, align 4, !tbaa !8
+  %. = tail call i32 @llvm.smax.i32(i32 %46, i32 %45)
+  %47 = tail call i32 @llvm.smin.i32(i32 %44, i32 %43)
+  %48 = load i32, ptr %2, align 4, !tbaa !3
+  %49 = load i32, ptr %1, align 4, !tbaa !3
+  %50 = icmp sgt i32 %48, %49
+  %51 = icmp sgt i32 %47, %.
+  %or.cond = and i1 %51, %50
+  br i1 %or.cond, label %52, label %57
 
-50:                                               ; preds = %40
-  %51 = add nuw nsw i8 %.1, 1
-  %52 = zext nneg i8 %.1 to i64
-  %53 = getelementptr inbounds nuw %struct.lv_area_t, ptr %0, i64 %52
-  store i32 %47, ptr %53, align 4, !tbaa !11
-  %.sroa.10.0..sroa_idx25 = getelementptr inbounds nuw i8, ptr %53, i64 4
+52:                                               ; preds = %42
+  %53 = add nsw i32 %48, -1
+  %54 = add nuw nsw i8 %.1, 1
+  %55 = zext nneg i8 %.1 to i64
+  %56 = getelementptr inbounds nuw %struct.lv_area_t, ptr %0, i64 %55
+  store i32 %49, ptr %56, align 4, !tbaa !11
+  %.sroa.10.0..sroa_idx25 = getelementptr inbounds nuw i8, ptr %56, i64 4
   store i32 %., ptr %.sroa.10.0..sroa_idx25, align 4, !tbaa !11
-  %.sroa.14.0..sroa_idx31 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  store i32 %46, ptr %.sroa.14.0..sroa_idx31, align 4, !tbaa !11
-  %.sroa.18.0..sroa_idx37 = getelementptr inbounds nuw i8, ptr %53, i64 12
-  store i32 %45, ptr %.sroa.18.0..sroa_idx37, align 4, !tbaa !11
+  %.sroa.14.0..sroa_idx31 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  store i32 %53, ptr %.sroa.14.0..sroa_idx31, align 4, !tbaa !11
+  %.sroa.18.0..sroa_idx37 = getelementptr inbounds nuw i8, ptr %56, i64 12
+  store i32 %47, ptr %.sroa.18.0..sroa_idx37, align 4, !tbaa !11
   %.pre105 = load i32, ptr %1, align 4, !tbaa !3
-  br label %54
+  br label %57
 
-54:                                               ; preds = %50, %40
-  %55 = phi i32 [ %.pre105, %50 ], [ %47, %40 ]
-  %.2 = phi i8 [ %51, %50 ], [ %.1, %40 ]
-  %56 = load i32, ptr %5, align 4, !tbaa !9
-  %.neg94 = sub i32 %23, %56
-  %57 = add i32 %.neg94, %55
-  %58 = icmp sgt i32 %57, 0
-  br i1 %58, label %59, label %lv_area_is_on.exit
+57:                                               ; preds = %52, %42
+  %58 = phi i32 [ %.pre105, %52 ], [ %49, %42 ]
+  %.2 = phi i8 [ %54, %52 ], [ %.1, %42 ]
+  %59 = load i32, ptr %5, align 4, !tbaa !9
+  %.neg94 = sub i32 %23, %59
+  %60 = add i32 %.neg94, %58
+  %61 = icmp sgt i32 %60, 0
+  br i1 %61, label %62, label %lv_area_is_on.exit
 
-59:                                               ; preds = %54
-  %60 = add i32 %55, %23
-  %61 = add nuw nsw i8 %.2, 1
-  %62 = zext nneg i8 %.2 to i64
-  %63 = getelementptr inbounds nuw %struct.lv_area_t, ptr %0, i64 %62
-  store i32 %56, ptr %63, align 4, !tbaa !11
-  %.sroa.10.0..sroa_idx27 = getelementptr inbounds nuw i8, ptr %63, i64 4
+62:                                               ; preds = %57
+  %63 = add nsw i32 %59, 1
+  %64 = add i32 %58, %23
+  %65 = add nuw nsw i8 %.2, 1
+  %66 = zext nneg i8 %.2 to i64
+  %67 = getelementptr inbounds nuw %struct.lv_area_t, ptr %0, i64 %66
+  store i32 %63, ptr %67, align 4, !tbaa !11
+  %.sroa.10.0..sroa_idx27 = getelementptr inbounds nuw i8, ptr %67, i64 4
   store i32 %., ptr %.sroa.10.0..sroa_idx27, align 4, !tbaa !11
-  %.sroa.14.0..sroa_idx33 = getelementptr inbounds nuw i8, ptr %63, i64 8
-  store i32 %60, ptr %.sroa.14.0..sroa_idx33, align 4, !tbaa !11
-  %.sroa.18.0..sroa_idx39 = getelementptr inbounds nuw i8, ptr %63, i64 12
-  store i32 %45, ptr %.sroa.18.0..sroa_idx39, align 4, !tbaa !11
+  %.sroa.14.0..sroa_idx33 = getelementptr inbounds nuw i8, ptr %67, i64 8
+  store i32 %64, ptr %.sroa.14.0..sroa_idx33, align 4, !tbaa !11
+  %.sroa.18.0..sroa_idx39 = getelementptr inbounds nuw i8, ptr %67, i64 12
+  store i32 %47, ptr %.sroa.18.0..sroa_idx39, align 4, !tbaa !11
   br label %lv_area_is_on.exit
 
-lv_area_is_on.exit:                               ; preds = %21, %16, %11, %7, %3, %54, %59
-  %.0 = phi i8 [ %61, %59 ], [ %.2, %54 ], [ -1, %3 ], [ -1, %7 ], [ -1, %11 ], [ -1, %16 ], [ 0, %21 ]
+lv_area_is_on.exit:                               ; preds = %21, %16, %11, %7, %3, %57, %62
+  %.0 = phi i8 [ %65, %62 ], [ %.2, %57 ], [ -1, %3 ], [ -1, %7 ], [ -1, %11 ], [ -1, %16 ], [ 0, %21 ]
   ret i8 %.0
 }
 

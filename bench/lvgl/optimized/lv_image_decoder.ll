@@ -25,7 +25,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define void @lv_image_decoder_init(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  tail call void @lv_ll_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 496), i32 noundef 48) #6
+  tail call void @lv_ll_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 496), i32 noundef 56) #6
   %3 = tail call i32 @lv_image_cache_init(i32 noundef %0) #6
   %4 = tail call i32 @lv_image_header_cache_init(i32 noundef %1) #6
   ret void
@@ -41,7 +41,7 @@ declare i32 @lv_image_header_cache_init(i32 noundef) local_unnamed_addr #1
 define void @lv_image_decoder_deinit() local_unnamed_addr #0 {
   %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 520), align 8, !tbaa !3
   tail call void @lv_cache_destroy(ptr noundef %1, ptr noundef null) #6
-  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 528), align 8, !tbaa !19
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 528), align 8, !tbaa !30
   tail call void @lv_cache_destroy(ptr noundef %2, ptr noundef null) #6
   tail call void @lv_ll_clear(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 496)) #6
   ret void
@@ -57,10 +57,10 @@ define range(i32 0, 2) i32 @lv_image_decoder_get_info(ptr noundef %0, ptr nounde
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #6
   call void @lv_memset(ptr noundef nonnull %3, i8 noundef zeroext 0, i64 noundef 128) #6
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %0, ptr %4, align 8, !tbaa !20
+  store ptr %0, ptr %4, align 8, !tbaa !31
   %5 = call i32 @lv_image_src_get_type(ptr noundef %0) #6
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i32 %5, ptr %6, align 8, !tbaa !25
+  store i32 %5, ptr %6, align 8, !tbaa !41
   %7 = call fastcc ptr @image_decoder_get_info(ptr noundef nonnull %3, ptr noundef %1)
   %8 = icmp ne ptr %7, null
   %. = zext i1 %8 to i32
@@ -79,15 +79,15 @@ define internal fastcc ptr @image_decoder_get_info(ptr noundef %0, ptr noundef %
   %4 = alloca %struct._lv_image_header_cache_data_t, align 8
   tail call void @lv_memset(ptr noundef %1, i8 noundef zeroext 0, i64 noundef 12) #6
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !20
+  %6 = load ptr, ptr %5, align 8, !tbaa !31
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %8 = load i32, ptr %7, align 8, !tbaa !25
+  %8 = load i32, ptr %7, align 8, !tbaa !41
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !26
+  %12 = load ptr, ptr %11, align 8, !tbaa !42
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %87, label %.thread
 
@@ -104,9 +104,9 @@ define internal fastcc ptr @image_decoder_get_info(ptr noundef %0, ptr noundef %
 17:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #6
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 1, ptr %18, align 8, !tbaa !28
-  store ptr %6, ptr %3, align 8, !tbaa !30
-  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 528), align 8, !tbaa !19
+  store i32 1, ptr %18, align 8, !tbaa !44
+  store ptr %6, ptr %3, align 8, !tbaa !46
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 528), align 8, !tbaa !30
   %20 = call ptr @lv_cache_acquire(ptr noundef %19, ptr noundef nonnull %3, ptr noundef null) #6
   %.not75 = icmp eq ptr %20, null
   br i1 %.not75, label %.thread82, label %21
@@ -118,10 +118,10 @@ define internal fastcc ptr @image_decoder_get_info(ptr noundef %0, ptr noundef %
 21:                                               ; preds = %17
   %22 = call ptr @lv_cache_entry_get_data(ptr noundef nonnull %20) #6
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef nonnull align 4 dereferenceable(12) %23, i64 12, i1 false), !tbaa.struct !31
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef nonnull align 4 dereferenceable(12) %23, i64 12, i1 false), !tbaa.struct !47
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %25 = load ptr, ptr %24, align 8, !tbaa !33
-  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 528), align 8, !tbaa !19
+  %25 = load ptr, ptr %24, align 8, !tbaa !49
+  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 528), align 8, !tbaa !30
   call void @lv_cache_release(ptr noundef %26, ptr noundef nonnull %20, ptr noundef null) #6
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #6
   br label %87
@@ -148,19 +148,19 @@ define internal fastcc ptr @image_decoder_get_info(ptr noundef %0, ptr noundef %
 
 35:                                               ; preds = %.lr.ph, %70
   %.07294 = phi ptr [ %33, %.lr.ph ], [ %71, %70 ]
-  %36 = load ptr, ptr %.07294, align 8, !tbaa !34
+  %36 = load ptr, ptr %.07294, align 8, !tbaa !50
   %.not77 = icmp eq ptr %36, null
   br i1 %.not77, label %70, label %37
 
 37:                                               ; preds = %35
   %38 = getelementptr inbounds nuw i8, ptr %.07294, i64 8
-  %39 = load ptr, ptr %38, align 8, !tbaa !36
+  %39 = load ptr, ptr %38, align 8, !tbaa !52
   %.not78 = icmp eq ptr %39, null
   br i1 %.not78, label %70, label %40
 
 40:                                               ; preds = %37
   %41 = call i32 @lv_fs_seek(ptr noundef nonnull %34, i32 noundef 0, i32 noundef 0) #6
-  %42 = load ptr, ptr %.07294, align 8, !tbaa !34
+  %42 = load ptr, ptr %.07294, align 8, !tbaa !50
   %43 = call i32 %42(ptr noundef nonnull %.07294, ptr noundef %0, ptr noundef %1) #6
   %44 = icmp eq i32 %43, 1
   br i1 %44, label %45, label %70
@@ -210,7 +210,7 @@ img_width_to_stride.exit:                         ; preds = %55, %57
 70:                                               ; preds = %40, %35, %37
   %71 = call ptr @lv_ll_get_next(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 496), ptr noundef nonnull %.07294) #6
   %.not97 = icmp eq ptr %71, null
-  br i1 %.not97, label %.thread86, label %35, !llvm.loop !37
+  br i1 %.not97, label %.thread86, label %35, !llvm.loop !53
 
 .thread86:                                        ; preds = %70, %31, %45, %img_width_to_stride.exit
   %.07293 = phi ptr [ %.07294, %45 ], [ %.07294, %img_width_to_stride.exit ], [ null, %31 ], [ null, %70 ]
@@ -229,26 +229,26 @@ img_width_to_stride.exit:                         ; preds = %55, %57
 77:                                               ; preds = %76
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #6
   %78 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 1, ptr %78, align 8, !tbaa !28
+  store i32 1, ptr %78, align 8, !tbaa !44
   %79 = call ptr @lv_strdup(ptr noundef %6) #6
-  store ptr %79, ptr %4, align 8, !tbaa !30
+  store ptr %79, ptr %4, align 8, !tbaa !46
   %80 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr %.07293, ptr %80, align 8, !tbaa !33
+  store ptr %.07293, ptr %80, align 8, !tbaa !49
   %81 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %81, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false), !tbaa.struct !31
-  %82 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 528), align 8, !tbaa !19
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %81, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false), !tbaa.struct !47
+  %82 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 528), align 8, !tbaa !30
   %83 = call ptr @lv_cache_add(ptr noundef %82, ptr noundef nonnull %4, ptr noundef null) #6
   %.not79 = icmp eq ptr %83, null
   br i1 %.not79, label %.thread89, label %85
 
 .thread89:                                        ; preds = %77
-  %84 = load ptr, ptr %4, align 8, !tbaa !30
+  %84 = load ptr, ptr %4, align 8, !tbaa !46
   call void @lv_free(ptr noundef %84) #6
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #6
   br label %87
 
 85:                                               ; preds = %77
-  %86 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 528), align 8, !tbaa !19
+  %86 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 528), align 8, !tbaa !30
   call void @lv_cache_release(ptr noundef %86, ptr noundef nonnull %83, ptr noundef null) #6
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #6
   br label %87
@@ -270,34 +270,34 @@ define i32 @lv_image_decoder_open(ptr noundef %0, ptr noundef %1, ptr noundef re
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %1, ptr %7, align 8, !tbaa !20
+  store ptr %1, ptr %7, align 8, !tbaa !31
   %8 = tail call i32 @lv_image_src_get_type(ptr noundef nonnull %1) #6
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %8, ptr %9, align 8, !tbaa !25
+  store i32 %8, ptr %9, align 8, !tbaa !41
   %10 = tail call zeroext i1 @lv_image_cache_is_enabled() #6
   br i1 %10, label %11, label %31
 
 11:                                               ; preds = %6
   %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 520), align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store ptr %12, ptr %13, align 8, !tbaa !39
+  store ptr %12, ptr %13, align 8, !tbaa !55
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %18, label %14
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  %16 = load i8, ptr %15, align 1, !tbaa !40, !range !41, !noundef !42
+  %16 = load i8, ptr %15, align 1, !tbaa !56, !range !57, !noundef !58
   %17 = trunc nuw i8 %16 to i1
   br i1 %17, label %31, label %18
 
 18:                                               ; preds = %14, %11
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #6
-  %19 = load i32, ptr %9, align 8, !tbaa !25
+  %19 = load i32, ptr %9, align 8, !tbaa !41
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i32 %19, ptr %20, align 8, !tbaa !43
-  %21 = load ptr, ptr %7, align 8, !tbaa !20
+  store i32 %19, ptr %20, align 8, !tbaa !59
+  %21 = load ptr, ptr %7, align 8, !tbaa !31
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %21, ptr %22, align 8, !tbaa !46
+  store ptr %21, ptr %22, align 8, !tbaa !62
   %23 = call ptr @lv_cache_acquire(ptr noundef %12, ptr noundef nonnull %4, ptr noundef null) #6
   %.not.i = icmp eq ptr %23, null
   br i1 %.not.i, label %try_cache.exit.thread, label %try_cache.exit
@@ -309,21 +309,21 @@ try_cache.exit.thread:                            ; preds = %18
 try_cache.exit:                                   ; preds = %18
   %24 = call ptr @lv_cache_entry_get_data(ptr noundef nonnull %23) #6
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %26 = load ptr, ptr %25, align 8, !tbaa !47
+  %26 = load ptr, ptr %25, align 8, !tbaa !63
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store ptr %26, ptr %27, align 8, !tbaa !48
+  store ptr %26, ptr %27, align 8, !tbaa !64
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  %29 = load ptr, ptr %28, align 8, !tbaa !49
-  store ptr %29, ptr %0, align 8, !tbaa !50
+  %29 = load ptr, ptr %28, align 8, !tbaa !65
+  store ptr %29, ptr %0, align 8, !tbaa !66
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store ptr %23, ptr %30, align 8, !tbaa !51
+  store ptr %23, ptr %30, align 8, !tbaa !67
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #6
   br label %51
 
 31:                                               ; preds = %try_cache.exit.thread, %14, %6
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %33 = call fastcc ptr @image_decoder_get_info(ptr noundef nonnull %0, ptr noundef nonnull %32)
-  store ptr %33, ptr %0, align 8, !tbaa !50
+  store ptr %33, ptr %0, align 8, !tbaa !66
   %34 = icmp eq ptr %33, null
   br i1 %34, label %51, label %35
 
@@ -333,7 +333,7 @@ try_cache.exit:                                   ; preds = %18
   br i1 %.not30, label %38, label %37
 
 37:                                               ; preds = %35
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %36, ptr noundef nonnull align 1 dereferenceable(5) %2, i64 5, i1 false), !tbaa.struct !52
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %36, ptr noundef nonnull align 1 dereferenceable(5) %2, i64 5, i1 false), !tbaa.struct !68
   br label %39
 
 38:                                               ; preds = %35
@@ -342,10 +342,10 @@ try_cache.exit:                                   ; preds = %18
 
 39:                                               ; preds = %38, %37
   %40 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %41 = load ptr, ptr %40, align 8, !tbaa !36
+  %41 = load ptr, ptr %40, align 8, !tbaa !52
   %42 = call i32 %41(ptr noundef nonnull %33, ptr noundef nonnull %0) #6
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %44 = load i8, ptr %43, align 4, !tbaa !54, !range !41, !noundef !42
+  %44 = load i8, ptr %43, align 4, !tbaa !70, !range !57, !noundef !58
   %45 = trunc nuw i8 %44 to i1
   %46 = icmp eq i32 %42, 1
   %or.cond = select i1 %45, i1 %46, i1 false
@@ -353,7 +353,7 @@ try_cache.exit:                                   ; preds = %18
 
 47:                                               ; preds = %39
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %49 = load ptr, ptr %48, align 8, !tbaa !48
+  %49 = load ptr, ptr %48, align 8, !tbaa !64
   %.not31 = icmp eq ptr %49, null
   br i1 %.not31, label %51, label %50
 
@@ -375,9 +375,9 @@ declare void @lv_draw_buf_flush_cache(ptr noundef, ptr noundef) local_unnamed_ad
 
 ; Function Attrs: nounwind uwtable
 define i32 @lv_image_decoder_get_area(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = load ptr, ptr %0, align 8, !tbaa !50
+  %4 = load ptr, ptr %0, align 8, !tbaa !66
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !55
+  %6 = load ptr, ptr %5, align 8, !tbaa !71
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %9, label %7
 
@@ -392,13 +392,13 @@ define i32 @lv_image_decoder_get_area(ptr noundef %0, ptr noundef %1, ptr nounde
 
 ; Function Attrs: nounwind uwtable
 define void @lv_image_decoder_close(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !50
+  %2 = load ptr, ptr %0, align 8, !tbaa !66
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %16, label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !56
+  %5 = load ptr, ptr %4, align 8, !tbaa !72
   %.not12 = icmp eq ptr %5, null
   br i1 %.not12, label %7, label %6
 
@@ -412,13 +412,13 @@ define void @lv_image_decoder_close(ptr noundef %0) local_unnamed_addr #0 {
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %11 = load ptr, ptr %10, align 8, !tbaa !39
+  %11 = load ptr, ptr %10, align 8, !tbaa !55
   %.not13 = icmp eq ptr %11, null
   br i1 %.not13, label %16, label %12
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %14 = load ptr, ptr %13, align 8, !tbaa !51
+  %14 = load ptr, ptr %13, align 8, !tbaa !67
   %.not14 = icmp eq ptr %14, null
   br i1 %.not14, label %16, label %15
 
@@ -442,7 +442,7 @@ define nonnull ptr @lv_image_decoder_create() local_unnamed_addr #0 {
   br label %.preheader
 
 2:                                                ; preds = %0
-  tail call void @lv_memset(ptr noundef nonnull %1, i8 noundef zeroext 0, i64 noundef 48) #6
+  tail call void @lv_memset(ptr noundef nonnull %1, i8 noundef zeroext 0, i64 noundef 56) #6
   ret ptr %1
 }
 
@@ -483,28 +483,28 @@ declare ptr @lv_ll_get_next(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @lv_image_decoder_set_info_cb(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef %1) local_unnamed_addr #4 {
-  store ptr %1, ptr %0, align 8, !tbaa !34
+  store ptr %1, ptr %0, align 8, !tbaa !50
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @lv_image_decoder_set_open_cb(ptr noundef writeonly captures(none) initializes((8, 16)) %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %1, ptr %3, align 8, !tbaa !36
+  store ptr %1, ptr %3, align 8, !tbaa !52
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @lv_image_decoder_set_get_area_cb(ptr noundef writeonly captures(none) initializes((16, 24)) %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %1, ptr %3, align 8, !tbaa !55
+  store ptr %1, ptr %3, align 8, !tbaa !71
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @lv_image_decoder_set_close_cb(ptr noundef writeonly captures(none) initializes((24, 32)) %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %1, ptr %3, align 8, !tbaa !56
+  store ptr %1, ptr %3, align 8, !tbaa !72
   ret void
 }
 
@@ -518,24 +518,24 @@ define ptr @lv_image_decoder_add_to_cache(ptr noundef %0, ptr noundef %1, ptr no
 8:                                                ; preds = %4
   %9 = tail call ptr @lv_cache_entry_get_data(ptr noundef nonnull %6) #6
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store ptr %2, ptr %10, align 8, !tbaa !47
+  store ptr %2, ptr %10, align 8, !tbaa !63
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %12 = load i32, ptr %11, align 8, !tbaa !43
+  %12 = load i32, ptr %11, align 8, !tbaa !59
   %13 = icmp eq i32 %12, 1
   br i1 %13, label %14, label %18
 
 14:                                               ; preds = %8
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %16 = load ptr, ptr %15, align 8, !tbaa !46
+  %16 = load ptr, ptr %15, align 8, !tbaa !62
   %17 = tail call ptr @lv_strdup(ptr noundef %16) #6
-  store ptr %17, ptr %15, align 8, !tbaa !46
+  store ptr %17, ptr %15, align 8, !tbaa !62
   br label %18
 
 18:                                               ; preds = %14, %8
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  store ptr %3, ptr %19, align 8, !tbaa !57
+  store ptr %3, ptr %19, align 8, !tbaa !73
   %20 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store ptr %0, ptr %20, align 8, !tbaa !49
+  store ptr %0, ptr %20, align 8, !tbaa !65
   br label %21
 
 21:                                               ; preds = %4, %18
@@ -555,7 +555,7 @@ define ptr @lv_image_decoder_post_process(ptr noundef readonly captures(none) %0
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i8, ptr %5, align 1, !tbaa !58, !range !41, !noundef !42
+  %6 = load i8, ptr %5, align 1, !tbaa !74, !range !57, !noundef !58
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %.thread
 
@@ -604,7 +604,7 @@ define ptr @lv_image_decoder_post_process(ptr noundef readonly captures(none) %0
 .thread:                                          ; preds = %21, %13, %.thread57, %8, %4
   %.038 = phi ptr [ %1, %8 ], [ %1, %4 ], [ %33, %.thread57 ], [ %1, %13 ], [ %1, %21 ]
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %35 = load i8, ptr %34, align 1, !tbaa !59, !range !41, !noundef !42
+  %35 = load i8, ptr %34, align 1, !tbaa !75, !range !57, !noundef !58
   %36 = trunc nuw i8 %35 to i1
   br i1 %36, label %37, label %53
 
@@ -690,60 +690,76 @@ attributes #6 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{!4, !10, i64 520}
-!4 = !{!"_lv_global_t", !5, i64 0, !5, i64 1, !8, i64 8, !10, i64 32, !10, i64 40, !8, i64 48, !5, i64 72, !9, i64 76, !9, i64 80, !10, i64 88, !8, i64 96, !10, i64 120, !8, i64 128, !10, i64 152, !10, i64 160, !9, i64 168, !10, i64 176, !5, i64 184, !9, i64 188, !9, i64 192, !10, i64 200, !9, i64 208, !11, i64 216, !12, i64 288, !13, i64 328, !14, i64 352, !14, i64 400, !14, i64 448, !8, i64 496, !10, i64 520, !10, i64 528, !15, i64 536, !6, i64 568, !10, i64 760, !10, i64 768, !10, i64 776, !16, i64 784, !8, i64 832, !10, i64 856, !10, i64 864, !18, i64 872, !17, i64 888, !10, i64 896, !9, i64 904, !10, i64 912}
+!3 = !{!4, !22, i64 520}
+!4 = !{!"_lv_global_t", !5, i64 0, !5, i64 1, !8, i64 8, !12, i64 32, !12, i64 40, !8, i64 48, !5, i64 72, !9, i64 76, !9, i64 80, !10, i64 88, !8, i64 96, !13, i64 120, !8, i64 128, !14, i64 152, !15, i64 160, !9, i64 168, !11, i64 176, !5, i64 184, !9, i64 188, !9, i64 192, !16, i64 200, !9, i64 208, !17, i64 216, !18, i64 288, !20, i64 328, !21, i64 352, !21, i64 400, !21, i64 448, !8, i64 496, !22, i64 520, !22, i64 528, !23, i64 536, !6, i64 568, !11, i64 760, !11, i64 768, !11, i64 776, !25, i64 784, !8, i64 832, !27, i64 856, !28, i64 864, !29, i64 872, !26, i64 888, !11, i64 896, !9, i64 904, !11, i64 912}
 !5 = !{!"_Bool", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
 !8 = !{!"", !9, i64 0, !10, i64 8, !10, i64 16}
 !9 = !{!"int", !6, i64 0}
-!10 = !{!"any pointer", !6, i64 0}
-!11 = !{!"", !8, i64 0, !5, i64 24, !6, i64 25, !5, i64 26, !5, i64 27, !9, i64 28, !5, i64 32, !9, i64 36, !9, i64 40, !9, i64 44, !9, i64 48, !10, i64 56, !10, i64 64}
-!12 = !{!"", !5, i64 0, !5, i64 1, !10, i64 8, !8, i64 16}
-!13 = !{!"", !9, i64 0, !6, i64 4, !10, i64 8, !10, i64 16}
-!14 = !{!"_lv_draw_buf_handlers_t", !10, i64 0, !10, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !10, i64 40}
-!15 = !{!"", !10, i64 0, !9, i64 8, !9, i64 12, !9, i64 16, !9, i64 20, !5, i64 24}
-!16 = !{!"", !10, i64 0, !17, i64 8, !17, i64 16, !8, i64 24}
-!17 = !{!"long", !6, i64 0}
-!18 = !{!"", !10, i64 0, !9, i64 8, !6, i64 12}
-!19 = !{!4, !10, i64 528}
-!20 = !{!21, !10, i64 16}
-!21 = !{!"_lv_image_decoder_dsc_t", !10, i64 0, !22, i64 8, !10, i64 16, !9, i64 24, !23, i64 32, !24, i64 56, !10, i64 72, !10, i64 80, !9, i64 88, !9, i64 92, !10, i64 96, !10, i64 104, !10, i64 112, !10, i64 120}
-!22 = !{!"_lv_image_decoder_args_t", !5, i64 0, !5, i64 1, !5, i64 2, !5, i64 3, !5, i64 4}
-!23 = !{!"", !10, i64 0, !10, i64 8, !10, i64 16}
-!24 = !{!"", !9, i64 0, !9, i64 1, !9, i64 2, !9, i64 4, !9, i64 6, !9, i64 8, !9, i64 10}
-!25 = !{!21, !9, i64 24}
-!26 = !{!27, !10, i64 16}
-!27 = !{!"", !24, i64 0, !9, i64 12, !10, i64 16, !10, i64 24}
-!28 = !{!29, !9, i64 8}
-!29 = !{!"_lv_image_header_cache_data_t", !10, i64 0, !9, i64 8, !24, i64 12, !10, i64 24}
-!30 = !{!29, !10, i64 0}
-!31 = !{i64 0, i64 8, !32, i64 8, i64 4, !32}
-!32 = !{!6, !6, i64 0}
-!33 = !{!29, !10, i64 24}
-!34 = !{!35, !10, i64 0}
-!35 = !{!"_lv_image_decoder_t", !10, i64 0, !10, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !10, i64 40}
-!36 = !{!35, !10, i64 8}
-!37 = distinct !{!37, !38}
-!38 = !{!"llvm.loop.mustprogress"}
-!39 = !{!21, !10, i64 104}
-!40 = !{!22, !5, i64 2}
-!41 = !{i8 0, i8 2}
-!42 = !{}
-!43 = !{!44, !9, i64 16}
-!44 = !{!"_lv_image_cache_data_t", !45, i64 0, !10, i64 8, !9, i64 16, !10, i64 24, !10, i64 32, !10, i64 40}
-!45 = !{!"_lv_cache_slot_size_t", !17, i64 0}
-!46 = !{!44, !10, i64 8}
-!47 = !{!44, !10, i64 24}
-!48 = !{!21, !10, i64 72}
-!49 = !{!44, !10, i64 32}
-!50 = !{!21, !10, i64 0}
-!51 = !{!21, !10, i64 112}
-!52 = !{i64 0, i64 1, !53, i64 1, i64 1, !53, i64 2, i64 1, !53, i64 3, i64 1, !53, i64 4, i64 1, !53}
-!53 = !{!5, !5, i64 0}
-!54 = !{!21, !5, i64 12}
-!55 = !{!35, !10, i64 16}
-!56 = !{!35, !10, i64 24}
-!57 = !{!44, !10, i64 40}
-!58 = !{!22, !5, i64 0}
-!59 = !{!22, !5, i64 1}
+!10 = !{!"p1 omnipotent char", !11, i64 0}
+!11 = !{!"any pointer", !6, i64 0}
+!12 = !{!"p1 _ZTS13_lv_display_t", !11, i64 0}
+!13 = !{!"p1 _ZTS11_lv_group_t", !11, i64 0}
+!14 = !{!"p1 _ZTS11_lv_indev_t", !11, i64 0}
+!15 = !{!"p1 _ZTS9_lv_obj_t", !11, i64 0}
+!16 = !{!"p1 _ZTS11_lv_event_t", !11, i64 0}
+!17 = !{!"", !8, i64 0, !5, i64 24, !6, i64 25, !5, i64 26, !5, i64 27, !9, i64 28, !5, i64 32, !9, i64 36, !9, i64 40, !9, i64 44, !9, i64 48, !11, i64 56, !11, i64 64}
+!18 = !{!"", !5, i64 0, !5, i64 1, !19, i64 8, !8, i64 16}
+!19 = !{!"p1 _ZTS11_lv_timer_t", !11, i64 0}
+!20 = !{!"", !9, i64 0, !6, i64 4, !11, i64 8, !11, i64 16}
+!21 = !{!"_lv_draw_buf_handlers_t", !11, i64 0, !11, i64 8, !11, i64 16, !11, i64 24, !11, i64 32, !11, i64 40}
+!22 = !{!"p1 _ZTS11_lv_cache_t", !11, i64 0}
+!23 = !{!"", !24, i64 0, !9, i64 8, !9, i64 12, !9, i64 16, !9, i64 20, !5, i64 24}
+!24 = !{!"p1 _ZTS15_lv_draw_unit_t", !11, i64 0}
+!25 = !{!"", !11, i64 0, !26, i64 8, !26, i64 16, !8, i64 24}
+!26 = !{!"long", !6, i64 0}
+!27 = !{!"p1 _ZTS22_lv_freetype_context_t", !11, i64 0}
+!28 = !{!"p1 _ZTS14_snippet_stack", !11, i64 0}
+!29 = !{!"", !11, i64 0, !9, i64 8, !6, i64 12}
+!30 = !{!4, !22, i64 528}
+!31 = !{!32, !11, i64 16}
+!32 = !{!"_lv_image_decoder_dsc_t", !33, i64 0, !34, i64 8, !11, i64 16, !9, i64 24, !35, i64 32, !38, i64 56, !39, i64 72, !11, i64 80, !9, i64 88, !9, i64 92, !10, i64 96, !22, i64 104, !40, i64 112, !11, i64 120}
+!33 = !{!"p1 _ZTS19_lv_image_decoder_t", !11, i64 0}
+!34 = !{!"_lv_image_decoder_args_t", !5, i64 0, !5, i64 1, !5, i64 2, !5, i64 3, !5, i64 4}
+!35 = !{!"", !11, i64 0, !36, i64 8, !37, i64 16}
+!36 = !{!"p1 _ZTS12_lv_fs_drv_t", !11, i64 0}
+!37 = !{!"p1 _ZTS19_lv_fs_file_cache_t", !11, i64 0}
+!38 = !{!"", !9, i64 0, !9, i64 1, !9, i64 2, !9, i64 4, !9, i64 6, !9, i64 8, !9, i64 10}
+!39 = !{!"p1 _ZTS14_lv_draw_buf_t", !11, i64 0}
+!40 = !{!"p1 _ZTS17_lv_cache_entry_t", !11, i64 0}
+!41 = !{!32, !9, i64 24}
+!42 = !{!43, !10, i64 16}
+!43 = !{!"", !38, i64 0, !9, i64 12, !10, i64 16, !11, i64 24}
+!44 = !{!45, !9, i64 8}
+!45 = !{!"_lv_image_header_cache_data_t", !11, i64 0, !9, i64 8, !38, i64 12, !33, i64 24}
+!46 = !{!45, !11, i64 0}
+!47 = !{i64 0, i64 8, !48, i64 8, i64 4, !48}
+!48 = !{!6, !6, i64 0}
+!49 = !{!45, !33, i64 24}
+!50 = !{!51, !11, i64 0}
+!51 = !{!"_lv_image_decoder_t", !11, i64 0, !11, i64 8, !11, i64 16, !11, i64 24, !11, i64 32, !10, i64 40, !11, i64 48}
+!52 = !{!51, !11, i64 8}
+!53 = distinct !{!53, !54}
+!54 = !{!"llvm.loop.mustprogress"}
+!55 = !{!32, !22, i64 104}
+!56 = !{!34, !5, i64 2}
+!57 = !{i8 0, i8 2}
+!58 = !{}
+!59 = !{!60, !9, i64 16}
+!60 = !{!"_lv_image_cache_data_t", !61, i64 0, !11, i64 8, !9, i64 16, !39, i64 24, !33, i64 32, !11, i64 40}
+!61 = !{!"_lv_cache_slot_size_t", !26, i64 0}
+!62 = !{!60, !11, i64 8}
+!63 = !{!60, !39, i64 24}
+!64 = !{!32, !39, i64 72}
+!65 = !{!60, !33, i64 32}
+!66 = !{!32, !33, i64 0}
+!67 = !{!32, !40, i64 112}
+!68 = !{i64 0, i64 1, !69, i64 1, i64 1, !69, i64 2, i64 1, !69, i64 3, i64 1, !69, i64 4, i64 1, !69}
+!69 = !{!5, !5, i64 0}
+!70 = !{!32, !5, i64 12}
+!71 = !{!51, !11, i64 16}
+!72 = !{!51, !11, i64 24}
+!73 = !{!60, !11, i64 40}
+!74 = !{!34, !5, i64 0}
+!75 = !{!34, !5, i64 1}

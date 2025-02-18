@@ -17,9 +17,9 @@ define nonnull ptr @lv_circle_buf_create(i32 noundef %0, i32 noundef %1) local_u
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 0, ptr %5, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  store i32 0, ptr %6, align 4, !tbaa !11
+  store i32 0, ptr %6, align 4, !tbaa !12
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i8 1, ptr %7, align 8, !tbaa !12
+  store i8 1, ptr %7, align 8, !tbaa !13
   %8 = tail call i32 @lv_array_capacity(ptr noundef nonnull %3) #6
   %9 = tail call i32 @lv_array_size(ptr noundef nonnull %3) #6
   %10 = sub i32 %8, %9
@@ -31,7 +31,7 @@ define nonnull ptr @lv_circle_buf_create(i32 noundef %0, i32 noundef %1) local_u
   %11 = tail call i32 @lv_array_push_back(ptr noundef nonnull %3, ptr noundef null) #6
   %12 = add nuw i32 %.05.i, 1
   %exitcond.not.i = icmp eq i32 %12, %10
-  br i1 %exitcond.not.i, label %circle_buf_prepare_empty.exit, label %.lr.ph.i, !llvm.loop !13
+  br i1 %exitcond.not.i, label %circle_buf_prepare_empty.exit, label %.lr.ph.i, !llvm.loop !14
 
 circle_buf_prepare_empty.exit:                    ; preds = %.lr.ph.i, %4
   ret ptr %3
@@ -72,7 +72,7 @@ define nonnull ptr @lv_circle_buf_create_from_buf(ptr noundef %0, i32 noundef %1
   %11 = tail call i32 @lv_array_push_back(ptr noundef nonnull %5, ptr noundef null) #6
   %12 = add nuw i32 %.05.i, 1
   %exitcond.not.i = icmp eq i32 %12, %10
-  br i1 %exitcond.not.i, label %circle_buf_prepare_empty.exit, label %.lr.ph.i, !llvm.loop !13
+  br i1 %exitcond.not.i, label %circle_buf_prepare_empty.exit, label %.lr.ph.i, !llvm.loop !14
 
 circle_buf_prepare_empty.exit:                    ; preds = %.lr.ph.i, %6
   ret ptr %5
@@ -97,7 +97,7 @@ define nonnull ptr @lv_circle_buf_create_from_array(ptr noundef readonly capture
   br label %.preheader15
 
 4:                                                ; preds = %2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false), !tbaa.struct !15
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false), !tbaa.struct !16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %5, i8 0, i64 9, i1 false)
   %6 = tail call i32 @lv_array_capacity(ptr noundef nonnull %3) #6
@@ -111,7 +111,7 @@ define nonnull ptr @lv_circle_buf_create_from_array(ptr noundef readonly capture
   %9 = tail call i32 @lv_array_push_back(ptr noundef nonnull %3, ptr noundef null) #6
   %10 = add nuw i32 %.05.i, 1
   %exitcond.not.i = icmp eq i32 %10, %8
-  br i1 %exitcond.not.i, label %circle_buf_prepare_empty.exit, label %.lr.ph.i, !llvm.loop !13
+  br i1 %exitcond.not.i, label %circle_buf_prepare_empty.exit, label %.lr.ph.i, !llvm.loop !14
 
 circle_buf_prepare_empty.exit:                    ; preds = %.lr.ph.i, %4
   ret ptr %3
@@ -136,7 +136,7 @@ define range(i32 0, 2) i32 @lv_circle_buf_resize(ptr noundef %0, i32 noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %6, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 0, ptr %7, align 4, !tbaa !11
+  store i32 0, ptr %7, align 4, !tbaa !12
   %8 = tail call i32 @lv_array_capacity(ptr noundef nonnull %0) #6
   %9 = tail call i32 @lv_array_size(ptr noundef nonnull %0) #6
   %10 = sub i32 %8, %9
@@ -148,7 +148,7 @@ define range(i32 0, 2) i32 @lv_circle_buf_resize(ptr noundef %0, i32 noundef %1)
   %11 = tail call i32 @lv_array_push_back(ptr noundef nonnull %0, ptr noundef null) #6
   %12 = add nuw i32 %.05.i, 1
   %exitcond.not.i = icmp eq i32 %12, %10
-  br i1 %exitcond.not.i, label %circle_buf_prepare_empty.exit, label %.lr.ph.i, !llvm.loop !13
+  br i1 %exitcond.not.i, label %circle_buf_prepare_empty.exit, label %.lr.ph.i, !llvm.loop !14
 
 circle_buf_prepare_empty.exit:                    ; preds = %.lr.ph.i, %5, %3
   %.0 = phi i32 [ 0, %3 ], [ 1, %5 ], [ 1, %.lr.ph.i ]
@@ -185,7 +185,7 @@ define i32 @lv_circle_buf_size(ptr noundef readonly captures(address_is_null) %0
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %4 = load i32, ptr %3, align 4, !tbaa !11
+  %4 = load i32, ptr %3, align 4, !tbaa !12
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i32, ptr %5, align 8, !tbaa !3
   %7 = sub i32 %4, %6
@@ -218,7 +218,7 @@ define i32 @lv_circle_buf_remain(ptr noundef %0) local_unnamed_addr #0 {
 lv_circle_buf_size.exit:                          ; preds = %1
   %2 = tail call i32 @lv_array_capacity(ptr noundef nonnull %0) #6
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %4 = load i32, ptr %3, align 4, !tbaa !11
+  %4 = load i32, ptr %3, align 4, !tbaa !12
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i32, ptr %5, align 8, !tbaa !3
   %.neg = sub i32 %2, %4
@@ -236,7 +236,7 @@ define zeroext i1 @lv_circle_buf_is_empty(ptr noundef readonly captures(address_
 
 lv_circle_buf_size.exit:                          ; preds = %1
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %3 = load i32, ptr %2, align 4, !tbaa !11
+  %3 = load i32, ptr %2, align 4, !tbaa !12
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8, !tbaa !3
   %.not2 = icmp eq i32 %3, %5
@@ -254,7 +254,7 @@ define zeroext i1 @lv_circle_buf_is_full(ptr noundef %0) local_unnamed_addr #0 {
 lv_circle_buf_remain.exit:                        ; preds = %1
   %2 = tail call i32 @lv_array_capacity(ptr noundef nonnull %0) #6
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %4 = load i32, ptr %3, align 4, !tbaa !11
+  %4 = load i32, ptr %3, align 4, !tbaa !12
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i32, ptr %5, align 8, !tbaa !3
   %.neg.i = sub i32 %2, %4
@@ -276,7 +276,7 @@ define void @lv_circle_buf_reset(ptr noundef %0) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %3, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 0, ptr %4, align 4, !tbaa !11
+  store i32 0, ptr %4, align 4, !tbaa !12
   ret void
 }
 
@@ -311,7 +311,7 @@ define ptr @lv_circle_buf_tail(ptr noundef %0) local_unnamed_addr #0 {
 
 lv_circle_buf_capacity.exit:                      ; preds = %1
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %3 = load i32, ptr %2, align 4, !tbaa !11
+  %3 = load i32, ptr %2, align 4, !tbaa !12
   %4 = tail call i32 @lv_array_capacity(ptr noundef nonnull %0) #6
   %5 = urem i32 %3, %4
   %6 = tail call ptr @lv_array_at(ptr noundef nonnull %0, i32 noundef %5) #6
@@ -328,7 +328,7 @@ define range(i32 0, 2) i32 @lv_circle_buf_read(ptr noundef %0, ptr noundef %1) l
 
 lv_circle_buf_is_empty.exit:                      ; preds = %2
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %4 = load i32, ptr %3, align 4, !tbaa !11
+  %4 = load i32, ptr %3, align 4, !tbaa !12
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i32, ptr %5, align 8, !tbaa !3
   %.not2.i = icmp eq i32 %4, %6
@@ -336,7 +336,7 @@ lv_circle_buf_is_empty.exit:                      ; preds = %2
 
 7:                                                ; preds = %lv_circle_buf_is_empty.exit
   store i32 0, ptr %5, align 8, !tbaa !3
-  store i32 0, ptr %3, align 4, !tbaa !11
+  store i32 0, ptr %3, align 4, !tbaa !12
   br label %18
 
 8:                                                ; preds = %lv_circle_buf_is_empty.exit
@@ -351,7 +351,7 @@ lv_circle_buf_peek_at.exit:                       ; preds = %8
   %10 = urem i32 %6, %9
   %11 = tail call ptr @lv_array_at(ptr noundef nonnull %0, i32 noundef %10) #6
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = load i32, ptr %12, align 8, !tbaa !19
+  %13 = load i32, ptr %12, align 8, !tbaa !20
   %14 = zext i32 %13 to i64
   %15 = tail call ptr @lv_memcpy(ptr noundef nonnull %1, ptr noundef %11, i64 noundef %14) #6
   %16 = load i32, ptr %5, align 8, !tbaa !3
@@ -381,7 +381,7 @@ define noundef i32 @lv_circle_buf_peek_at(ptr noundef %0, i32 noundef %1, ptr no
 
 lv_circle_buf_capacity.exit:                      ; preds = %4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %6 = load i32, ptr %5, align 4, !tbaa !11
+  %6 = load i32, ptr %5, align 4, !tbaa !12
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load i32, ptr %7, align 8, !tbaa !3
   %9 = sub i32 %6, %8
@@ -391,7 +391,7 @@ lv_circle_buf_capacity.exit:                      ; preds = %4
   %13 = urem i32 %11, %12
   %14 = tail call ptr @lv_array_at(ptr noundef nonnull %0, i32 noundef %13) #6
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %16 = load i32, ptr %15, align 8, !tbaa !19
+  %16 = load i32, ptr %15, align 8, !tbaa !20
   %17 = zext i32 %16 to i64
   %18 = tail call ptr @lv_memcpy(ptr noundef nonnull %2, ptr noundef %14, i64 noundef %17) #6
   ret i32 1
@@ -408,7 +408,7 @@ define range(i32 0, 2) i32 @lv_circle_buf_write(ptr noundef %0, ptr noundef %1) 
 lv_circle_buf_is_full.exit:                       ; preds = %2
   %3 = tail call i32 @lv_array_capacity(ptr noundef nonnull %0) #6
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %5 = load i32, ptr %4, align 4, !tbaa !11
+  %5 = load i32, ptr %4, align 4, !tbaa !12
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i32, ptr %6, align 8, !tbaa !3
   %.neg.i.i = sub i32 %3, %5
@@ -420,9 +420,9 @@ lv_circle_buf_capacity.exit:                      ; preds = %lv_circle_buf_is_fu
   %9 = tail call i32 @lv_array_capacity(ptr noundef nonnull %0) #6
   %10 = urem i32 %5, %9
   %11 = tail call i32 @lv_array_assign(ptr noundef nonnull %0, i32 noundef %10, ptr noundef %1) #6
-  %12 = load i32, ptr %4, align 4, !tbaa !11
+  %12 = load i32, ptr %4, align 4, !tbaa !12
   %13 = add i32 %12, 1
-  store i32 %13, ptr %4, align 4, !tbaa !11
+  store i32 %13, ptr %4, align 4, !tbaa !12
   br label %14
 
 14:                                               ; preds = %lv_circle_buf_is_full.exit, %lv_circle_buf_capacity.exit
@@ -461,7 +461,7 @@ lv_circle_buf_is_full.exit:                       ; preds = %lv_circle_buf_is_fu
   %.01431 = phi i32 [ %1, %lv_circle_buf_is_full.exit.lr.ph ], [ %22, %18 ]
   %.01530 = phi i32 [ 0, %lv_circle_buf_is_full.exit.lr.ph ], [ %21, %18 ]
   %9 = tail call i32 @lv_array_capacity(ptr noundef nonnull %0) #6
-  %10 = load i32, ptr %6, align 4, !tbaa !11
+  %10 = load i32, ptr %6, align 4, !tbaa !12
   %11 = load i32, ptr %7, align 8, !tbaa !3
   %.neg.i.i = sub i32 %9, %10
   %12 = sub i32 0, %11
@@ -472,14 +472,14 @@ lv_circle_buf_tail.exit:                          ; preds = %lv_circle_buf_is_fu
   %13 = tail call i32 @lv_array_capacity(ptr noundef nonnull %0) #6
   %14 = urem i32 %10, %13
   %15 = tail call ptr @lv_array_at(ptr noundef nonnull %0, i32 noundef %14) #6
-  %16 = load i32, ptr %8, align 8, !tbaa !19
+  %16 = load i32, ptr %8, align 8, !tbaa !20
   %17 = tail call zeroext i1 %2(ptr noundef %15, i32 noundef %16, i32 noundef %.01530, ptr noundef %3) #6
   br i1 %17, label %18, label %.critedge
 
 18:                                               ; preds = %lv_circle_buf_tail.exit
-  %19 = load i32, ptr %6, align 4, !tbaa !11
+  %19 = load i32, ptr %6, align 4, !tbaa !12
   %20 = add i32 %19, 1
-  store i32 %20, ptr %6, align 4, !tbaa !11
+  store i32 %20, ptr %6, align 4, !tbaa !12
   %21 = add nuw i32 %.01530, 1
   %22 = add i32 %.01431, -1
   %.not20 = icmp eq i32 %22, 0
@@ -500,14 +500,14 @@ define range(i32 0, 2) i32 @lv_circle_buf_skip(ptr noundef captures(address_is_n
 
 lv_circle_buf_is_empty.exit:                      ; preds = %1
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %3 = load i32, ptr %2, align 4, !tbaa !11
+  %3 = load i32, ptr %2, align 4, !tbaa !12
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8, !tbaa !3
   %.not2.i = icmp eq i32 %3, %5
   br i1 %.not2.i, label %6, label %7
 
 6:                                                ; preds = %lv_circle_buf_is_empty.exit
-  store i32 0, ptr %2, align 4, !tbaa !11
+  store i32 0, ptr %2, align 4, !tbaa !12
   br label %9
 
 7:                                                ; preds = %lv_circle_buf_is_empty.exit
@@ -543,7 +543,7 @@ lv_circle_buf_peek_at.exit:                       ; preds = %3
   %7 = urem i32 %5, %6
   %8 = tail call ptr @lv_array_at(ptr noundef nonnull %0, i32 noundef %7) #6
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %10 = load i32, ptr %9, align 8, !tbaa !19
+  %10 = load i32, ptr %9, align 8, !tbaa !20
   %11 = zext i32 %10 to i64
   %12 = tail call ptr @lv_memcpy(ptr noundef nonnull %1, ptr noundef %8, i64 noundef %11) #6
   ret i32 1
@@ -571,20 +571,21 @@ attributes #6 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{!4, !9, i64 24}
-!4 = !{!"_lv_circle_buf_t", !5, i64 0, !9, i64 24, !9, i64 28, !10, i64 32}
-!5 = !{!"_lv_array_t", !6, i64 0, !9, i64 8, !9, i64 12, !9, i64 16, !10, i64 20}
-!6 = !{!"any pointer", !7, i64 0}
-!7 = !{!"omnipotent char", !8, i64 0}
-!8 = !{!"Simple C/C++ TBAA"}
-!9 = !{!"int", !7, i64 0}
-!10 = !{!"_Bool", !7, i64 0}
-!11 = !{!4, !9, i64 28}
-!12 = !{!4, !10, i64 32}
-!13 = distinct !{!13, !14}
-!14 = !{!"llvm.loop.mustprogress"}
-!15 = !{i64 0, i64 8, !16, i64 8, i64 4, !17, i64 12, i64 4, !17, i64 16, i64 4, !17, i64 20, i64 1, !18}
-!16 = !{!6, !6, i64 0}
-!17 = !{!9, !9, i64 0}
+!3 = !{!4, !10, i64 24}
+!4 = !{!"_lv_circle_buf_t", !5, i64 0, !10, i64 24, !10, i64 28, !11, i64 32}
+!5 = !{!"_lv_array_t", !6, i64 0, !10, i64 8, !10, i64 12, !10, i64 16, !11, i64 20}
+!6 = !{!"p1 omnipotent char", !7, i64 0}
+!7 = !{!"any pointer", !8, i64 0}
+!8 = !{!"omnipotent char", !9, i64 0}
+!9 = !{!"Simple C/C++ TBAA"}
+!10 = !{!"int", !8, i64 0}
+!11 = !{!"_Bool", !8, i64 0}
+!12 = !{!4, !10, i64 28}
+!13 = !{!4, !11, i64 32}
+!14 = distinct !{!14, !15}
+!15 = !{!"llvm.loop.mustprogress"}
+!16 = !{i64 0, i64 8, !17, i64 8, i64 4, !18, i64 12, i64 4, !18, i64 16, i64 4, !18, i64 20, i64 1, !19}
+!17 = !{!6, !6, i64 0}
 !18 = !{!10, !10, i64 0}
-!19 = !{!4, !9, i64 16}
+!19 = !{!11, !11, i64 0}
+!20 = !{!4, !10, i64 16}

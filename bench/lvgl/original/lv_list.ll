@@ -39,7 +39,7 @@ define ptr @lv_list_create(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 declare ptr @lv_obj_class_create_obj(ptr noundef, ptr noundef) #2
 
@@ -48,7 +48,7 @@ declare void @lv_obj_class_init_obj(ptr noundef) #2
 declare void @lv_obj_set_flex_flow(ptr noundef, i32 noundef) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @lv_list_add_text(ptr noundef %0, ptr noundef %1) #0 {
@@ -56,7 +56,7 @@ define ptr @lv_list_add_text(ptr noundef %0, ptr noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8, !tbaa !3
-  store ptr %1, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !8
   br label %6
 
 6:                                                ; preds = %2
@@ -70,7 +70,7 @@ define ptr @lv_list_add_text(ptr noundef %0, ptr noundef %1) #0 {
   %10 = load ptr, ptr %5, align 8, !tbaa !3
   call void @lv_obj_class_init_obj(ptr noundef %10)
   %11 = load ptr, ptr %5, align 8, !tbaa !3
-  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  %12 = load ptr, ptr %4, align 8, !tbaa !8
   call void @lv_label_set_text(ptr noundef %11, ptr noundef %12)
   %13 = load ptr, ptr %5, align 8, !tbaa !3
   call void @llvm.lifetime.end.p0(i64 8, ptr %5) #3
@@ -88,8 +88,8 @@ define ptr @lv_list_add_button(ptr noundef %0, ptr noundef %1, ptr noundef %2) #
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   store ptr %0, ptr %4, align 8, !tbaa !3
-  store ptr %1, ptr %5, align 8, !tbaa !3
-  store ptr %2, ptr %6, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !10
+  store ptr %2, ptr %6, align 8, !tbaa !8
   br label %10
 
 10:                                               ; preds = %3
@@ -104,7 +104,7 @@ define ptr @lv_list_add_button(ptr noundef %0, ptr noundef %1, ptr noundef %2) #
   call void @lv_obj_class_init_obj(ptr noundef %14)
   %15 = load ptr, ptr %7, align 8, !tbaa !3
   call void @lv_obj_set_flex_flow(ptr noundef %15, i32 noundef 0)
-  %16 = load ptr, ptr %5, align 8, !tbaa !3
+  %16 = load ptr, ptr %5, align 8, !tbaa !10
   %17 = icmp ne ptr %16, null
   br i1 %17, label %18, label %23
 
@@ -114,13 +114,13 @@ define ptr @lv_list_add_button(ptr noundef %0, ptr noundef %1, ptr noundef %2) #
   %20 = call ptr @lv_image_create(ptr noundef %19)
   store ptr %20, ptr %8, align 8, !tbaa !3
   %21 = load ptr, ptr %8, align 8, !tbaa !3
-  %22 = load ptr, ptr %5, align 8, !tbaa !3
+  %22 = load ptr, ptr %5, align 8, !tbaa !10
   call void @lv_image_set_src(ptr noundef %21, ptr noundef %22)
   call void @llvm.lifetime.end.p0(i64 8, ptr %8) #3
   br label %23
 
 23:                                               ; preds = %18, %11
-  %24 = load ptr, ptr %6, align 8, !tbaa !3
+  %24 = load ptr, ptr %6, align 8, !tbaa !8
   %25 = icmp ne ptr %24, null
   br i1 %25, label %26, label %33
 
@@ -130,7 +130,7 @@ define ptr @lv_list_add_button(ptr noundef %0, ptr noundef %1, ptr noundef %2) #
   %28 = call ptr @lv_label_create(ptr noundef %27)
   store ptr %28, ptr %9, align 8, !tbaa !3
   %29 = load ptr, ptr %9, align 8, !tbaa !3
-  %30 = load ptr, ptr %6, align 8, !tbaa !3
+  %30 = load ptr, ptr %6, align 8, !tbaa !8
   call void @lv_label_set_text(ptr noundef %29, ptr noundef %30)
   %31 = load ptr, ptr %9, align 8, !tbaa !3
   call void @lv_label_set_long_mode(ptr noundef %31, i32 noundef 3)
@@ -166,11 +166,11 @@ define ptr @lv_list_get_button_text(ptr noundef %0, ptr noundef %1) #0 {
   store ptr %0, ptr %4, align 8, !tbaa !3
   store ptr %1, ptr %5, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(i64 4, ptr %6) #3
-  store i32 0, ptr %6, align 4, !tbaa !7
+  store i32 0, ptr %6, align 4, !tbaa !11
   br label %9
 
 9:                                                ; preds = %27, %2
-  %10 = load i32, ptr %6, align 4, !tbaa !7
+  %10 = load i32, ptr %6, align 4, !tbaa !11
   %11 = load ptr, ptr %5, align 8, !tbaa !3
   %12 = call i32 @lv_obj_get_child_count(ptr noundef %11)
   %13 = icmp ult i32 %10, %12
@@ -179,7 +179,7 @@ define ptr @lv_list_get_button_text(ptr noundef %0, ptr noundef %1) #0 {
 14:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(i64 8, ptr %7) #3
   %15 = load ptr, ptr %5, align 8, !tbaa !3
-  %16 = load i32, ptr %6, align 4, !tbaa !7
+  %16 = load i32, ptr %6, align 4, !tbaa !11
   %17 = call ptr @lv_obj_get_child(ptr noundef %15, i32 noundef %16)
   store ptr %17, ptr %7, align 8, !tbaa !3
   %18 = load ptr, ptr %7, align 8, !tbaa !3
@@ -208,10 +208,10 @@ define ptr @lv_list_get_button_text(ptr noundef %0, ptr noundef %1) #0 {
   br label %27
 
 27:                                               ; preds = %26
-  %28 = load i32, ptr %6, align 4, !tbaa !7
+  %28 = load i32, ptr %6, align 4, !tbaa !11
   %29 = add i32 %28, 1
-  store i32 %29, ptr %6, align 4, !tbaa !7
-  br label %9, !llvm.loop !9
+  store i32 %29, ptr %6, align 4, !tbaa !11
+  br label %9, !llvm.loop !13
 
 30:                                               ; preds = %9
   store ptr @.str.3, ptr %3, align 8
@@ -242,13 +242,13 @@ define void @lv_list_set_button_text(ptr noundef %0, ptr noundef %1, ptr noundef
   %9 = alloca i32, align 4
   store ptr %0, ptr %4, align 8, !tbaa !3
   store ptr %1, ptr %5, align 8, !tbaa !3
-  store ptr %2, ptr %6, align 8, !tbaa !3
+  store ptr %2, ptr %6, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 4, ptr %7) #3
-  store i32 0, ptr %7, align 4, !tbaa !7
+  store i32 0, ptr %7, align 4, !tbaa !11
   br label %10
 
 10:                                               ; preds = %28, %3
-  %11 = load i32, ptr %7, align 4, !tbaa !7
+  %11 = load i32, ptr %7, align 4, !tbaa !11
   %12 = load ptr, ptr %5, align 8, !tbaa !3
   %13 = call i32 @lv_obj_get_child_count(ptr noundef %12)
   %14 = icmp ult i32 %11, %13
@@ -257,7 +257,7 @@ define void @lv_list_set_button_text(ptr noundef %0, ptr noundef %1, ptr noundef
 15:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(i64 8, ptr %8) #3
   %16 = load ptr, ptr %5, align 8, !tbaa !3
-  %17 = load i32, ptr %7, align 4, !tbaa !7
+  %17 = load i32, ptr %7, align 4, !tbaa !11
   %18 = call ptr @lv_obj_get_child(ptr noundef %16, i32 noundef %17)
   store ptr %18, ptr %8, align 8, !tbaa !3
   %19 = load ptr, ptr %8, align 8, !tbaa !3
@@ -266,7 +266,7 @@ define void @lv_list_set_button_text(ptr noundef %0, ptr noundef %1, ptr noundef
 
 21:                                               ; preds = %15
   %22 = load ptr, ptr %8, align 8, !tbaa !3
-  %23 = load ptr, ptr %6, align 8, !tbaa !3
+  %23 = load ptr, ptr %6, align 8, !tbaa !8
   call void @lv_label_set_text(ptr noundef %22, ptr noundef %23)
   store i32 1, ptr %9, align 4
   br label %25
@@ -286,10 +286,10 @@ define void @lv_list_set_button_text(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %28
 
 28:                                               ; preds = %27
-  %29 = load i32, ptr %7, align 4, !tbaa !7
+  %29 = load i32, ptr %7, align 4, !tbaa !11
   %30 = add i32 %29, 1
-  store i32 %30, ptr %7, align 4, !tbaa !7
-  br label %10, !llvm.loop !11
+  store i32 %30, ptr %7, align 4, !tbaa !11
+  br label %10, !llvm.loop !15
 
 31:                                               ; preds = %10
   store i32 0, ptr %9, align 4
@@ -321,11 +321,15 @@ attributes #3 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{!4, !4, i64 0}
-!4 = !{!"any pointer", !5, i64 0}
-!5 = !{!"omnipotent char", !6, i64 0}
-!6 = !{!"Simple C/C++ TBAA"}
-!7 = !{!8, !8, i64 0}
-!8 = !{!"int", !5, i64 0}
-!9 = distinct !{!9, !10}
-!10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
+!4 = !{!"p1 _ZTS9_lv_obj_t", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"p1 omnipotent char", !5, i64 0}
+!10 = !{!5, !5, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"int", !6, i64 0}
+!13 = distinct !{!13, !14}
+!14 = !{!"llvm.loop.mustprogress"}
+!15 = distinct !{!15, !14}

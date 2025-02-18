@@ -110,7 +110,7 @@ define internal void @year_event_cb(ptr noundef %0) #0 {
   %24 = add i32 %23, %20
   %25 = and i32 %24, 65535
   %26 = sext i8 %.sroa.5.0.copyload to i32
-  tail call void @lv_calendar_set_showed_date(ptr noundef %3, i32 noundef %25, i32 noundef %26) #2
+  tail call void @lv_calendar_set_month_shown(ptr noundef %3, i32 noundef %25, i32 noundef %26) #2
   ret void
 }
 
@@ -127,7 +127,7 @@ define internal void @month_event_cb(ptr noundef %0) #0 {
   %7 = shl i32 %4, 24
   %sext = add i32 %7, 16777216
   %8 = ashr exact i32 %sext, 24
-  tail call void @lv_calendar_set_showed_date(ptr noundef %3, i32 noundef %6, i32 noundef %8) #2
+  tail call void @lv_calendar_set_month_shown(ptr noundef %3, i32 noundef %6, i32 noundef %8) #2
   ret void
 }
 
@@ -159,13 +159,13 @@ define internal void @value_changed_event_cb(ptr noundef %0) #0 {
   %25 = add nsw i32 %24, %17
   %26 = add nsw i32 %25, %20
   %27 = sub nsw i32 %26, %22
-  tail call void @lv_dropdown_set_selected(ptr noundef %5, i32 noundef %27) #2
+  tail call void @lv_dropdown_set_selected(ptr noundef %5, i32 noundef %27, i1 noundef zeroext false) #2
   %28 = tail call ptr @lv_obj_get_child(ptr noundef %2, i32 noundef 1) #2
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 2
   %30 = load i8, ptr %29, align 2, !tbaa !10
   %31 = sext i8 %30 to i32
   %32 = add nsw i32 %31, -1
-  tail call void @lv_dropdown_set_selected(ptr noundef %28, i32 noundef %32) #2
+  tail call void @lv_dropdown_set_selected(ptr noundef %28, i32 noundef %32, i1 noundef zeroext false) #2
   ret void
 }
 
@@ -181,11 +181,11 @@ declare ptr @lv_calendar_get_showed_date(ptr noundef) local_unnamed_addr #1
 
 declare ptr @lv_dropdown_get_options(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_calendar_set_showed_date(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+declare void @lv_calendar_set_month_shown(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 declare ptr @lv_obj_get_child(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_dropdown_set_selected(ptr noundef, i32 noundef) local_unnamed_addr #1
+declare void @lv_dropdown_set_selected(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

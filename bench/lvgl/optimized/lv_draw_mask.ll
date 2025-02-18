@@ -13,12 +13,12 @@ define void @lv_draw_mask_rect_dsc_init(ptr noundef %0) local_unnamed_addr #0 {
 define ptr @lv_draw_task_get_mask_rect_dsc(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8, !tbaa !3
-  %4 = icmp eq i32 %3, 10
+  %4 = icmp eq i32 %3, 11
   br i1 %4, label %5, label %8
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %7 = load ptr, ptr %6, align 8, !tbaa !10
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %7 = load ptr, ptr %6, align 8, !tbaa !13
   br label %8
 
 8:                                                ; preds = %1, %5
@@ -29,44 +29,51 @@ define ptr @lv_draw_task_get_mask_rect_dsc(ptr noundef readonly captures(none) %
 ; Function Attrs: nounwind uwtable
 define void @lv_draw_mask_rect(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load i32, ptr %3, align 8, !tbaa !11
+  %4 = load i32, ptr %3, align 8, !tbaa !14
   %5 = tail call zeroext i1 @lv_color_format_has_alpha(i32 noundef %4) #3
-  br i1 %5, label %6, label %24
+  br i1 %5, label %6, label %25
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = tail call ptr @lv_draw_add_task(ptr noundef nonnull %0, ptr noundef nonnull %7) #3
   %9 = tail call ptr @lv_malloc(i64 noundef 72) #3
-  %10 = getelementptr inbounds nuw i8, ptr %8, i64 80
-  store ptr %9, ptr %10, align 8, !tbaa !10
-  %11 = tail call ptr @lv_memcpy(ptr noundef %9, ptr noundef %1, i64 noundef 72) #3
-  %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i32 10, ptr %12, align 8, !tbaa !3
-  %13 = load ptr, ptr %10, align 8, !tbaa !10
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  store ptr %0, ptr %14, align 8, !tbaa !14
-  %15 = load ptr, ptr %13, align 8, !tbaa !17
-  %.not = icmp eq ptr %15, null
-  br i1 %.not, label %23, label %16
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 104
+  store ptr %9, ptr %10, align 8, !tbaa !13
+  %.not = icmp eq ptr %9, null
+  br i1 %.not, label %.preheader, label %11
 
-16:                                               ; preds = %6
-  %17 = tail call zeroext i1 @lv_obj_has_flag(ptr noundef nonnull %15, i32 noundef 524288) #3
-  br i1 %17, label %18, label %23
+.preheader:                                       ; preds = %6, %.preheader
+  br label %.preheader
 
-18:                                               ; preds = %16
-  %19 = load ptr, ptr %13, align 8, !tbaa !17
-  tail call void @lv_obj_remove_flag(ptr noundef %19, i32 noundef 524288) #3
-  %20 = load ptr, ptr %1, align 8, !tbaa !18
-  %21 = tail call i32 @lv_obj_send_event(ptr noundef %20, i32 noundef 34, ptr noundef nonnull %8) #3
-  %22 = load ptr, ptr %13, align 8, !tbaa !17
-  tail call void @lv_obj_add_flag(ptr noundef %22, i32 noundef 524288) #3
-  br label %23
+11:                                               ; preds = %6
+  %12 = tail call ptr @lv_memcpy(ptr noundef nonnull %9, ptr noundef %1, i64 noundef 72) #3
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store i32 11, ptr %13, align 8, !tbaa !3
+  %14 = load ptr, ptr %10, align 8, !tbaa !13
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  store ptr %0, ptr %15, align 8, !tbaa !18
+  %16 = load ptr, ptr %14, align 8, !tbaa !22
+  %.not20 = icmp eq ptr %16, null
+  br i1 %.not20, label %24, label %17
 
-23:                                               ; preds = %18, %16, %6
-  tail call void @lv_draw_finalize_task_creation(ptr noundef nonnull %0, ptr noundef nonnull %8) #3
+17:                                               ; preds = %11
+  %18 = tail call zeroext i1 @lv_obj_has_flag(ptr noundef nonnull %16, i32 noundef 524288) #3
+  br i1 %18, label %19, label %24
+
+19:                                               ; preds = %17
+  %20 = load ptr, ptr %14, align 8, !tbaa !22
+  tail call void @lv_obj_remove_flag(ptr noundef %20, i32 noundef 524288) #3
+  %21 = load ptr, ptr %1, align 8, !tbaa !23
+  %22 = tail call i32 @lv_obj_send_event(ptr noundef %21, i32 noundef 34, ptr noundef nonnull %8) #3
+  %23 = load ptr, ptr %14, align 8, !tbaa !22
+  tail call void @lv_obj_add_flag(ptr noundef %23, i32 noundef 524288) #3
   br label %24
 
-24:                                               ; preds = %2, %23
+24:                                               ; preds = %19, %17, %11
+  tail call void @lv_draw_finalize_task_creation(ptr noundef nonnull %0, ptr noundef nonnull %8) #3
+  br label %25
+
+25:                                               ; preds = %2, %24
   ret void
 }
 
@@ -100,20 +107,25 @@ attributes #3 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{!4, !8, i64 8}
-!4 = !{!"_lv_draw_task_t", !5, i64 0, !8, i64 8, !9, i64 12, !9, i64 28, !9, i64 44, !9, i64 60, !8, i64 76, !5, i64 80, !6, i64 88, !6, i64 89}
-!5 = !{!"any pointer", !6, i64 0}
-!6 = !{!"omnipotent char", !7, i64 0}
-!7 = !{!"Simple C/C++ TBAA"}
-!8 = !{!"int", !6, i64 0}
-!9 = !{!"", !8, i64 0, !8, i64 4, !8, i64 8, !8, i64 12}
-!10 = !{!4, !5, i64 80}
-!11 = !{!12, !8, i64 24}
-!12 = !{!"_lv_layer_t", !5, i64 0, !9, i64 8, !8, i64 24, !9, i64 28, !9, i64 44, !5, i64 64, !5, i64 72, !5, i64 80, !13, i64 88, !5, i64 96}
-!13 = !{!"_Bool", !6, i64 0}
-!14 = !{!15, !5, i64 24}
-!15 = !{!"", !5, i64 0, !8, i64 8, !8, i64 12, !8, i64 16, !5, i64 24, !16, i64 32, !5, i64 40}
-!16 = !{!"long", !6, i64 0}
-!17 = !{!15, !5, i64 0}
-!18 = !{!19, !5, i64 0}
-!19 = !{!"_lv_draw_mask_rect_dsc_t", !15, i64 0, !9, i64 48, !8, i64 64}
+!3 = !{!4, !9, i64 8}
+!4 = !{!"_lv_draw_task_t", !5, i64 0, !9, i64 8, !10, i64 12, !10, i64 28, !10, i64 44, !10, i64 60, !11, i64 80, !12, i64 88, !9, i64 96, !6, i64 104, !7, i64 112, !7, i64 113}
+!5 = !{!"p1 _ZTS15_lv_draw_task_t", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!"int", !7, i64 0}
+!10 = !{!"", !9, i64 0, !9, i64 4, !9, i64 8, !9, i64 12}
+!11 = !{!"p1 _ZTS11_lv_layer_t", !6, i64 0}
+!12 = !{!"p1 _ZTS15_lv_draw_unit_t", !6, i64 0}
+!13 = !{!4, !6, i64 104}
+!14 = !{!15, !9, i64 24}
+!15 = !{!"_lv_layer_t", !16, i64 0, !10, i64 8, !9, i64 24, !10, i64 28, !10, i64 44, !7, i64 60, !9, i64 64, !5, i64 72, !11, i64 80, !11, i64 88, !17, i64 96, !6, i64 104}
+!16 = !{!"p1 _ZTS14_lv_draw_buf_t", !6, i64 0}
+!17 = !{!"_Bool", !7, i64 0}
+!18 = !{!19, !11, i64 24}
+!19 = !{!"", !20, i64 0, !9, i64 8, !9, i64 12, !9, i64 16, !11, i64 24, !21, i64 32, !6, i64 40}
+!20 = !{!"p1 _ZTS9_lv_obj_t", !6, i64 0}
+!21 = !{!"long", !7, i64 0}
+!22 = !{!19, !20, i64 0}
+!23 = !{!24, !20, i64 0}
+!24 = !{!"_lv_draw_mask_rect_dsc_t", !19, i64 0, !10, i64 48, !9, i64 64}

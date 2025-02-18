@@ -24,7 +24,7 @@ define ptr @lv_utils_bsearch(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64
   call void @llvm.lifetime.start.p0(i64 8, ptr %12) #3
   call void @llvm.lifetime.start.p0(i64 4, ptr %13) #3
   %15 = load ptr, ptr %8, align 8, !tbaa !3
-  store ptr %15, ptr %12, align 8, !tbaa !3
+  store ptr %15, ptr %12, align 8, !tbaa !9
   br label %16
 
 16:                                               ; preds = %53, %5
@@ -37,14 +37,14 @@ define ptr @lv_utils_bsearch(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64
   %21 = udiv i64 %20, 2
   %22 = load i64, ptr %10, align 8, !tbaa !7
   %23 = mul i64 %21, %22
-  %24 = load ptr, ptr %12, align 8, !tbaa !3
+  %24 = load ptr, ptr %12, align 8, !tbaa !9
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 %23
-  store ptr %25, ptr %12, align 8, !tbaa !3
+  store ptr %25, ptr %12, align 8, !tbaa !9
   %26 = load ptr, ptr %11, align 8, !tbaa !3
   %27 = load ptr, ptr %7, align 8, !tbaa !3
-  %28 = load ptr, ptr %12, align 8, !tbaa !3
+  %28 = load ptr, ptr %12, align 8, !tbaa !9
   %29 = call i32 %26(ptr noundef %27, ptr noundef %28)
-  store i32 %29, ptr %13, align 4, !tbaa !9
+  store i32 %29, ptr %13, align 4, !tbaa !11
   %30 = icmp sgt i32 %29, 0
   br i1 %30, label %31, label %43
 
@@ -59,14 +59,14 @@ define ptr @lv_utils_bsearch(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64
   %39 = sub i64 %33, %38
   store i64 %39, ptr %9, align 8, !tbaa !7
   %40 = load i64, ptr %10, align 8, !tbaa !7
-  %41 = load ptr, ptr %12, align 8, !tbaa !3
+  %41 = load ptr, ptr %12, align 8, !tbaa !9
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 %40
-  store ptr %42, ptr %12, align 8, !tbaa !3
+  store ptr %42, ptr %12, align 8, !tbaa !9
   store ptr %42, ptr %8, align 8, !tbaa !3
   br label %53
 
 43:                                               ; preds = %19
-  %44 = load i32, ptr %13, align 4, !tbaa !9
+  %44 = load i32, ptr %13, align 4, !tbaa !11
   %45 = icmp slt i32 %44, 0
   br i1 %45, label %46, label %50
 
@@ -75,11 +75,11 @@ define ptr @lv_utils_bsearch(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64
   %48 = udiv i64 %47, 2
   store i64 %48, ptr %9, align 8, !tbaa !7
   %49 = load ptr, ptr %8, align 8, !tbaa !3
-  store ptr %49, ptr %12, align 8, !tbaa !3
+  store ptr %49, ptr %12, align 8, !tbaa !9
   br label %52
 
 50:                                               ; preds = %43
-  %51 = load ptr, ptr %12, align 8, !tbaa !3
+  %51 = load ptr, ptr %12, align 8, !tbaa !9
   store ptr %51, ptr %6, align 8
   store i32 1, ptr %14, align 4
   br label %55
@@ -88,7 +88,7 @@ define ptr @lv_utils_bsearch(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64
   br label %53
 
 53:                                               ; preds = %52, %31
-  br label %16, !llvm.loop !11
+  br label %16, !llvm.loop !13
 
 54:                                               ; preds = %16
   store ptr null, ptr %6, align 8
@@ -103,10 +103,10 @@ define ptr @lv_utils_bsearch(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @lv_draw_buf_save_to_file(ptr noundef %0, ptr noundef %1) #0 {
@@ -117,14 +117,14 @@ define i32 @lv_draw_buf_save_to_file(ptr noundef %0, ptr noundef %1) #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8, !tbaa !3
-  store ptr %1, ptr %5, align 8, !tbaa !3
+  store ptr %0, ptr %4, align 8, !tbaa !15
+  store ptr %1, ptr %5, align 8, !tbaa !9
   call void @llvm.lifetime.start.p0(i64 24, ptr %6) #3
   call void @llvm.lifetime.start.p0(i64 4, ptr %7) #3
-  %10 = load ptr, ptr %5, align 8, !tbaa !3
+  %10 = load ptr, ptr %5, align 8, !tbaa !9
   %11 = call i32 @lv_fs_open(ptr noundef %6, ptr noundef %10, i32 noundef 1)
-  store i32 %11, ptr %7, align 4, !tbaa !9
-  %12 = load i32, ptr %7, align 4, !tbaa !9
+  store i32 %11, ptr %7, align 4, !tbaa !11
+  %12 = load i32, ptr %7, align 4, !tbaa !11
   %13 = icmp ne i32 %12, 0
   br i1 %13, label %14, label %18
 
@@ -143,19 +143,19 @@ define i32 @lv_draw_buf_save_to_file(ptr noundef %0, ptr noundef %1) #0 {
   br label %61
 
 18:                                               ; preds = %2
-  %19 = load ptr, ptr %5, align 8, !tbaa !3
+  %19 = load ptr, ptr %5, align 8, !tbaa !9
   call void @lv_image_cache_drop(ptr noundef %19)
   call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
-  %20 = load ptr, ptr %4, align 8, !tbaa !3
+  %20 = load ptr, ptr %4, align 8, !tbaa !15
   %21 = getelementptr inbounds nuw %struct._lv_draw_buf_t, ptr %20, i32 0, i32 0
   %22 = call i32 @lv_fs_write(ptr noundef %6, ptr noundef %21, i32 noundef 12, ptr noundef %9)
-  store i32 %22, ptr %7, align 4, !tbaa !9
-  %23 = load i32, ptr %7, align 4, !tbaa !9
+  store i32 %22, ptr %7, align 4, !tbaa !11
+  %23 = load i32, ptr %7, align 4, !tbaa !11
   %24 = icmp ne i32 %23, 0
   br i1 %24, label %29, label %25
 
 25:                                               ; preds = %18
-  %26 = load i32, ptr %9, align 4, !tbaa !9
+  %26 = load i32, ptr %9, align 4, !tbaa !11
   %27 = zext i32 %26 to i64
   %28 = icmp ne i64 %27, 12
   br i1 %28, label %29, label %34
@@ -176,23 +176,23 @@ define i32 @lv_draw_buf_save_to_file(ptr noundef %0, ptr noundef %1) #0 {
   br label %60
 
 34:                                               ; preds = %25
-  %35 = load ptr, ptr %4, align 8, !tbaa !3
+  %35 = load ptr, ptr %4, align 8, !tbaa !15
   %36 = getelementptr inbounds nuw %struct._lv_draw_buf_t, ptr %35, i32 0, i32 2
-  %37 = load ptr, ptr %36, align 8, !tbaa !13
-  %38 = load ptr, ptr %4, align 8, !tbaa !3
+  %37 = load ptr, ptr %36, align 8, !tbaa !17
+  %38 = load ptr, ptr %4, align 8, !tbaa !15
   %39 = getelementptr inbounds nuw %struct._lv_draw_buf_t, ptr %38, i32 0, i32 1
-  %40 = load i32, ptr %39, align 4, !tbaa !16
+  %40 = load i32, ptr %39, align 4, !tbaa !21
   %41 = call i32 @lv_fs_write(ptr noundef %6, ptr noundef %37, i32 noundef %40, ptr noundef %9)
-  store i32 %41, ptr %7, align 4, !tbaa !9
-  %42 = load i32, ptr %7, align 4, !tbaa !9
+  store i32 %41, ptr %7, align 4, !tbaa !11
+  %42 = load i32, ptr %7, align 4, !tbaa !11
   %43 = icmp ne i32 %42, 0
   br i1 %43, label %50, label %44
 
 44:                                               ; preds = %34
-  %45 = load i32, ptr %9, align 4, !tbaa !9
-  %46 = load ptr, ptr %4, align 8, !tbaa !3
+  %45 = load i32, ptr %9, align 4, !tbaa !11
+  %46 = load ptr, ptr %4, align 8, !tbaa !15
   %47 = getelementptr inbounds nuw %struct._lv_draw_buf_t, ptr %46, i32 0, i32 1
-  %48 = load i32, ptr %47, align 4, !tbaa !16
+  %48 = load i32, ptr %47, align 4, !tbaa !21
   %49 = icmp ne i32 %45, %48
   br i1 %49, label %50, label %55
 
@@ -262,10 +262,15 @@ attributes #3 = { nounwind }
 !7 = !{!8, !8, i64 0}
 !8 = !{!"long", !5, i64 0}
 !9 = !{!10, !10, i64 0}
-!10 = !{!"int", !5, i64 0}
-!11 = distinct !{!11, !12}
-!12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!14, !4, i64 16}
-!14 = !{!"_lv_draw_buf_t", !15, i64 0, !10, i64 12, !4, i64 16, !4, i64 24, !4, i64 32}
-!15 = !{!"", !10, i64 0, !10, i64 1, !10, i64 2, !10, i64 4, !10, i64 6, !10, i64 8, !10, i64 10}
-!16 = !{!14, !10, i64 12}
+!10 = !{!"p1 omnipotent char", !4, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"int", !5, i64 0}
+!13 = distinct !{!13, !14}
+!14 = !{!"llvm.loop.mustprogress"}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"p1 _ZTS14_lv_draw_buf_t", !4, i64 0}
+!17 = !{!18, !10, i64 16}
+!18 = !{!"_lv_draw_buf_t", !19, i64 0, !12, i64 12, !10, i64 16, !4, i64 24, !20, i64 32}
+!19 = !{!"", !12, i64 0, !12, i64 1, !12, i64 2, !12, i64 4, !12, i64 6, !12, i64 8, !12, i64 10}
+!20 = !{!"p1 _ZTS23_lv_draw_buf_handlers_t", !4, i64 0}
+!21 = !{!18, !12, i64 12}

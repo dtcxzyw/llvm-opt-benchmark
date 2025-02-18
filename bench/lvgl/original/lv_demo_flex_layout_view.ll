@@ -31,26 +31,26 @@ define void @view_create(ptr noundef %0, ptr noundef %1) #0 {
   %12 = alloca %struct.lv_color_t, align 1
   %13 = alloca i24, align 4
   store ptr %0, ptr %3, align 8, !tbaa !3
-  store ptr %1, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !8
   %14 = load ptr, ptr %3, align 8, !tbaa !3
   call void @lv_obj_set_flex_flow(ptr noundef %14, i32 noundef 0)
   %15 = load ptr, ptr %3, align 8, !tbaa !3
   call void @lv_obj_set_flex_align(ptr noundef %15, i32 noundef 4, i32 noundef 2, i32 noundef 4)
-  %16 = load ptr, ptr %4, align 8, !tbaa !3
+  %16 = load ptr, ptr %4, align 8, !tbaa !8
   %17 = getelementptr inbounds nuw %struct.view_t, ptr %16, i32 0, i32 2
   call void @obj_child_node_def_style_init(ptr noundef %17)
-  %18 = load ptr, ptr %4, align 8, !tbaa !3
+  %18 = load ptr, ptr %4, align 8, !tbaa !8
   %19 = getelementptr inbounds nuw %struct.view_t, ptr %18, i32 0, i32 3
   call void @obj_child_node_checked_style_init(ptr noundef %19)
   %20 = load ptr, ptr %3, align 8, !tbaa !3
-  %21 = load ptr, ptr %4, align 8, !tbaa !3
+  %21 = load ptr, ptr %4, align 8, !tbaa !8
   %22 = call ptr @obj_child_node_create(ptr noundef %20, ptr noundef %21)
-  %23 = load ptr, ptr %4, align 8, !tbaa !3
+  %23 = load ptr, ptr %4, align 8, !tbaa !8
   %24 = getelementptr inbounds nuw %struct.view_t, ptr %23, i32 0, i32 0
-  store ptr %22, ptr %24, align 8, !tbaa !7
-  %25 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %22, ptr %24, align 8, !tbaa !9
+  %25 = load ptr, ptr %4, align 8, !tbaa !8
   %26 = getelementptr inbounds nuw %struct.view_t, ptr %25, i32 0, i32 0
-  %27 = load ptr, ptr %26, align 8, !tbaa !7
+  %27 = load ptr, ptr %26, align 8, !tbaa !9
   %28 = call i32 @lv_pct(i32 noundef 50)
   %29 = call i32 @lv_pct(i32 noundef 80)
   call void @lv_obj_set_size(ptr noundef %27, i32 noundef %28, i32 noundef %29)
@@ -89,20 +89,20 @@ define void @view_create(ptr noundef %0, ptr noundef %1) #0 {
   %47 = load ptr, ptr %5, align 8, !tbaa !3
   call void @lv_obj_set_flex_align(ptr noundef %47, i32 noundef 2, i32 noundef 2, i32 noundef 2)
   %48 = load ptr, ptr %5, align 8, !tbaa !3
-  %49 = load ptr, ptr %4, align 8, !tbaa !3
+  %49 = load ptr, ptr %4, align 8, !tbaa !8
   %50 = getelementptr inbounds nuw %struct.view_t, ptr %49, i32 0, i32 4
   %51 = getelementptr inbounds nuw %struct.anon, ptr %50, i32 0, i32 0
-  store ptr %48, ptr %51, align 8, !tbaa !16
-  %52 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %48, ptr %51, align 8, !tbaa !18
+  %52 = load ptr, ptr %4, align 8, !tbaa !8
   %53 = getelementptr inbounds nuw %struct.view_t, ptr %52, i32 0, i32 4
   %54 = getelementptr inbounds nuw %struct.anon, ptr %53, i32 0, i32 0
-  %55 = load ptr, ptr %54, align 8, !tbaa !16
-  %56 = load ptr, ptr %4, align 8, !tbaa !3
+  %55 = load ptr, ptr %54, align 8, !tbaa !18
+  %56 = load ptr, ptr %4, align 8, !tbaa !8
   call void @view_ctrl_pad_create(ptr noundef %55, ptr noundef %56)
-  %57 = load ptr, ptr %4, align 8, !tbaa !3
+  %57 = load ptr, ptr %4, align 8, !tbaa !8
   %58 = getelementptr inbounds nuw %struct.view_t, ptr %57, i32 0, i32 4
   %59 = getelementptr inbounds nuw %struct.anon, ptr %58, i32 0, i32 0
-  %60 = load ptr, ptr %59, align 8, !tbaa !16
+  %60 = load ptr, ptr %59, align 8, !tbaa !18
   %61 = call ptr @lv_obj_create(ptr noundef %60)
   store ptr %61, ptr %5, align 8, !tbaa !3
   %62 = load ptr, ptr %5, align 8, !tbaa !3
@@ -126,45 +126,45 @@ define void @view_create(ptr noundef %0, ptr noundef %1) #0 {
   %71 = load ptr, ptr %5, align 8, !tbaa !3
   call void @lv_obj_set_flex_align(ptr noundef %71, i32 noundef 4, i32 noundef 2, i32 noundef 2)
   %72 = load ptr, ptr %5, align 8, !tbaa !3
-  %73 = load ptr, ptr %4, align 8, !tbaa !3
+  %73 = load ptr, ptr %4, align 8, !tbaa !8
   %74 = getelementptr inbounds nuw %struct.view_t, ptr %73, i32 0, i32 4
   %75 = getelementptr inbounds nuw %struct.anon, ptr %74, i32 0, i32 2
   %76 = getelementptr inbounds nuw %struct.anon.4, ptr %75, i32 0, i32 0
-  store ptr %72, ptr %76, align 8, !tbaa !17
+  store ptr %72, ptr %76, align 8, !tbaa !19
   %77 = load ptr, ptr %5, align 8, !tbaa !3
   %78 = call i24 @lv_palette_main(i32 noundef 17)
   store i24 %78, ptr %10, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %11, ptr align 1 %10, i64 3, i1 false)
   %79 = load i24, ptr %11, align 4
   %80 = call ptr @btn_create(ptr noundef %77, ptr noundef @.str, i24 %79)
-  %81 = load ptr, ptr %4, align 8, !tbaa !3
+  %81 = load ptr, ptr %4, align 8, !tbaa !8
   %82 = getelementptr inbounds nuw %struct.view_t, ptr %81, i32 0, i32 4
   %83 = getelementptr inbounds nuw %struct.anon, ptr %82, i32 0, i32 2
   %84 = getelementptr inbounds nuw %struct.anon.4, ptr %83, i32 0, i32 1
-  store ptr %80, ptr %84, align 8, !tbaa !18
+  store ptr %80, ptr %84, align 8, !tbaa !20
   %85 = load ptr, ptr %5, align 8, !tbaa !3
   %86 = call i24 @lv_palette_main(i32 noundef 0)
   store i24 %86, ptr %12, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %13, ptr align 1 %12, i64 3, i1 false)
   %87 = load i24, ptr %13, align 4
   %88 = call ptr @btn_create(ptr noundef %85, ptr noundef @.str.1, i24 %87)
-  %89 = load ptr, ptr %4, align 8, !tbaa !3
+  %89 = load ptr, ptr %4, align 8, !tbaa !8
   %90 = getelementptr inbounds nuw %struct.view_t, ptr %89, i32 0, i32 4
   %91 = getelementptr inbounds nuw %struct.anon, ptr %90, i32 0, i32 2
   %92 = getelementptr inbounds nuw %struct.anon.4, ptr %91, i32 0, i32 2
-  store ptr %88, ptr %92, align 8, !tbaa !19
-  %93 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %88, ptr %92, align 8, !tbaa !21
+  %93 = load ptr, ptr %4, align 8, !tbaa !8
   %94 = getelementptr inbounds nuw %struct.view_t, ptr %93, i32 0, i32 0
-  %95 = load ptr, ptr %94, align 8, !tbaa !7
+  %95 = load ptr, ptr %94, align 8, !tbaa !9
   %96 = call i32 @lv_obj_send_event(ptr noundef %95, i32 noundef 10, ptr noundef null)
-  %97 = load ptr, ptr %4, align 8, !tbaa !3
+  %97 = load ptr, ptr %4, align 8, !tbaa !8
   %98 = getelementptr inbounds nuw %struct.view_t, ptr %97, i32 0, i32 0
-  %99 = load ptr, ptr %98, align 8, !tbaa !7
+  %99 = load ptr, ptr %98, align 8, !tbaa !9
   call void @lv_obj_fade_in(ptr noundef %99, i32 noundef 600, i32 noundef 0)
-  %100 = load ptr, ptr %4, align 8, !tbaa !3
+  %100 = load ptr, ptr %4, align 8, !tbaa !8
   %101 = getelementptr inbounds nuw %struct.view_t, ptr %100, i32 0, i32 4
   %102 = getelementptr inbounds nuw %struct.anon, ptr %101, i32 0, i32 0
-  %103 = load ptr, ptr %102, align 8, !tbaa !16
+  %103 = load ptr, ptr %102, align 8, !tbaa !18
   call void @lv_obj_fade_in(ptr noundef %103, i32 noundef 600, i32 noundef 300)
   call void @llvm.lifetime.end.p0(i64 8, ptr %5) #5
   ret void
@@ -177,16 +177,16 @@ declare void @lv_obj_set_flex_align(ptr noundef, i32 noundef, i32 noundef, i32 n
 ; Function Attrs: nounwind uwtable
 define internal void @obj_child_node_def_style_init(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8, !tbaa !3
-  %3 = load ptr, ptr %2, align 8, !tbaa !3
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  %3 = load ptr, ptr %2, align 8, !tbaa !8
   call void @lv_style_init(ptr noundef %3)
-  %4 = load ptr, ptr %2, align 8, !tbaa !3
+  %4 = load ptr, ptr %2, align 8, !tbaa !8
   call void @lv_style_set_size(ptr noundef %4, i32 noundef 536870957, i32 noundef 536870957)
-  %5 = load ptr, ptr %2, align 8, !tbaa !3
+  %5 = load ptr, ptr %2, align 8, !tbaa !8
   call void @lv_style_set_flex_flow(ptr noundef %5, i32 noundef 0)
-  %6 = load ptr, ptr %2, align 8, !tbaa !3
+  %6 = load ptr, ptr %2, align 8, !tbaa !8
   call void @lv_style_set_layout(ptr noundef %6, i16 noundef zeroext 1)
-  %7 = load ptr, ptr %2, align 8, !tbaa !3
+  %7 = load ptr, ptr %2, align 8, !tbaa !8
   call void @lv_style_set_radius(ptr noundef %7, i32 noundef 0)
   ret void
 }
@@ -198,25 +198,25 @@ define internal void @obj_child_node_checked_style_init(ptr noundef %0) #0 {
   %4 = alloca i24, align 4
   %5 = alloca %struct.lv_color_t, align 1
   %6 = alloca i24, align 4
-  store ptr %0, ptr %2, align 8, !tbaa !3
-  %7 = load ptr, ptr %2, align 8, !tbaa !3
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  %7 = load ptr, ptr %2, align 8, !tbaa !8
   call void @lv_style_init(ptr noundef %7)
-  %8 = load ptr, ptr %2, align 8, !tbaa !3
+  %8 = load ptr, ptr %2, align 8, !tbaa !8
   %9 = call i24 @lv_palette_main(i32 noundef 5)
   store i24 %9, ptr %3, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %4, ptr align 1 %3, i64 3, i1 false)
   %10 = load i24, ptr %4, align 4
   call void @lv_style_set_border_color(ptr noundef %8, i24 %10)
-  %11 = load ptr, ptr %2, align 8, !tbaa !3
+  %11 = load ptr, ptr %2, align 8, !tbaa !8
   %12 = call i24 @lv_palette_main(i32 noundef 18)
   store i24 %12, ptr %5, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %6, ptr align 1 %5, i64 3, i1 false)
   %13 = load i24, ptr %6, align 4
   call void @lv_style_set_shadow_color(ptr noundef %11, i24 %13)
-  %14 = load ptr, ptr %2, align 8, !tbaa !3
+  %14 = load ptr, ptr %2, align 8, !tbaa !8
   call void @lv_style_set_shadow_width(ptr noundef %14, i32 noundef 20)
   call void @lv_style_transition_dsc_init(ptr noundef @obj_child_node_checked_style_init.tran, ptr noundef @obj_child_node_checked_style_init.prop, ptr noundef @lv_anim_path_ease_out, i32 noundef 300, i32 noundef 0, ptr noundef null)
-  %15 = load ptr, ptr %2, align 8, !tbaa !3
+  %15 = load ptr, ptr %2, align 8, !tbaa !8
   call void @lv_style_set_transition(ptr noundef %15, ptr noundef @obj_child_node_checked_style_init.tran)
   ret void
 }
@@ -228,7 +228,7 @@ declare void @lv_obj_set_size(ptr noundef, i32 noundef, i32 noundef) #1
 declare i32 @lv_pct(i32 noundef) #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare ptr @lv_obj_create(ptr noundef) #1
 
@@ -238,23 +238,23 @@ define internal void @lv_obj_set_style_pad_all(ptr noundef %0, i32 noundef %1, i
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   store ptr %0, ptr %4, align 8, !tbaa !3
-  store i32 %1, ptr %5, align 4, !tbaa !20
-  store i32 %2, ptr %6, align 4, !tbaa !20
+  store i32 %1, ptr %5, align 4, !tbaa !22
+  store i32 %2, ptr %6, align 4, !tbaa !22
   %7 = load ptr, ptr %4, align 8, !tbaa !3
-  %8 = load i32, ptr %5, align 4, !tbaa !20
-  %9 = load i32, ptr %6, align 4, !tbaa !20
+  %8 = load i32, ptr %5, align 4, !tbaa !22
+  %9 = load i32, ptr %6, align 4, !tbaa !22
   call void @lv_obj_set_style_pad_left(ptr noundef %7, i32 noundef %8, i32 noundef %9)
   %10 = load ptr, ptr %4, align 8, !tbaa !3
-  %11 = load i32, ptr %5, align 4, !tbaa !20
-  %12 = load i32, ptr %6, align 4, !tbaa !20
+  %11 = load i32, ptr %5, align 4, !tbaa !22
+  %12 = load i32, ptr %6, align 4, !tbaa !22
   call void @lv_obj_set_style_pad_right(ptr noundef %10, i32 noundef %11, i32 noundef %12)
   %13 = load ptr, ptr %4, align 8, !tbaa !3
-  %14 = load i32, ptr %5, align 4, !tbaa !20
-  %15 = load i32, ptr %6, align 4, !tbaa !20
+  %14 = load i32, ptr %5, align 4, !tbaa !22
+  %15 = load i32, ptr %6, align 4, !tbaa !22
   call void @lv_obj_set_style_pad_top(ptr noundef %13, i32 noundef %14, i32 noundef %15)
   %16 = load ptr, ptr %4, align 8, !tbaa !3
-  %17 = load i32, ptr %5, align 4, !tbaa !20
-  %18 = load i32, ptr %6, align 4, !tbaa !20
+  %17 = load i32, ptr %5, align 4, !tbaa !22
+  %18 = load i32, ptr %6, align 4, !tbaa !22
   call void @lv_obj_set_style_pad_bottom(ptr noundef %16, i32 noundef %17, i32 noundef %18)
   ret void
 }
@@ -265,15 +265,15 @@ define internal void @lv_obj_set_style_pad_gap(ptr noundef %0, i32 noundef %1, i
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   store ptr %0, ptr %4, align 8, !tbaa !3
-  store i32 %1, ptr %5, align 4, !tbaa !20
-  store i32 %2, ptr %6, align 4, !tbaa !20
+  store i32 %1, ptr %5, align 4, !tbaa !22
+  store i32 %2, ptr %6, align 4, !tbaa !22
   %7 = load ptr, ptr %4, align 8, !tbaa !3
-  %8 = load i32, ptr %5, align 4, !tbaa !20
-  %9 = load i32, ptr %6, align 4, !tbaa !20
+  %8 = load i32, ptr %5, align 4, !tbaa !22
+  %9 = load i32, ptr %6, align 4, !tbaa !22
   call void @lv_obj_set_style_pad_row(ptr noundef %7, i32 noundef %8, i32 noundef %9)
   %10 = load ptr, ptr %4, align 8, !tbaa !3
-  %11 = load i32, ptr %5, align 4, !tbaa !20
-  %12 = load i32, ptr %6, align 4, !tbaa !20
+  %11 = load i32, ptr %5, align 4, !tbaa !22
+  %12 = load i32, ptr %6, align 4, !tbaa !22
   call void @lv_obj_set_style_pad_column(ptr noundef %10, i32 noundef %11, i32 noundef %12)
   ret void
 }
@@ -289,7 +289,7 @@ declare void @lv_obj_set_style_shadow_color(ptr noundef, i24, i32 noundef) #1
 declare i24 @lv_color_hex3(i32 noundef) #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare void @lv_obj_set_style_shadow_width(ptr noundef, i32 noundef, i32 noundef) #1
 
@@ -313,15 +313,15 @@ define internal void @lv_obj_set_style_pad_ver(ptr noundef %0, i32 noundef %1, i
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   store ptr %0, ptr %4, align 8, !tbaa !3
-  store i32 %1, ptr %5, align 4, !tbaa !20
-  store i32 %2, ptr %6, align 4, !tbaa !20
+  store i32 %1, ptr %5, align 4, !tbaa !22
+  store i32 %2, ptr %6, align 4, !tbaa !22
   %7 = load ptr, ptr %4, align 8, !tbaa !3
-  %8 = load i32, ptr %5, align 4, !tbaa !20
-  %9 = load i32, ptr %6, align 4, !tbaa !20
+  %8 = load i32, ptr %5, align 4, !tbaa !22
+  %9 = load i32, ptr %6, align 4, !tbaa !22
   call void @lv_obj_set_style_pad_top(ptr noundef %7, i32 noundef %8, i32 noundef %9)
   %10 = load ptr, ptr %4, align 8, !tbaa !3
-  %11 = load i32, ptr %5, align 4, !tbaa !20
-  %12 = load i32, ptr %6, align 4, !tbaa !20
+  %11 = load i32, ptr %5, align 4, !tbaa !22
+  %12 = load i32, ptr %6, align 4, !tbaa !22
   call void @lv_obj_set_style_pad_bottom(ptr noundef %10, i32 noundef %11, i32 noundef %12)
   ret void
 }
@@ -336,7 +336,7 @@ define internal ptr @btn_create(ptr noundef %0, ptr noundef %1, i24 %2) #0 {
   %9 = alloca ptr, align 8
   store i24 %2, ptr %4, align 1
   store ptr %0, ptr %5, align 8, !tbaa !3
-  store ptr %1, ptr %6, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(i64 8, ptr %7) #5
   %10 = load ptr, ptr %5, align 8, !tbaa !3
   %11 = call ptr @lv_button_create(ptr noundef %10)
@@ -359,7 +359,7 @@ define internal ptr @btn_create(ptr noundef %0, ptr noundef %1, i24 %2) #0 {
   %20 = call ptr @lv_label_create(ptr noundef %19)
   store ptr %20, ptr %9, align 8, !tbaa !3
   %21 = load ptr, ptr %9, align 8, !tbaa !3
-  %22 = load ptr, ptr %6, align 8, !tbaa !3
+  %22 = load ptr, ptr %6, align 8, !tbaa !23
   call void @lv_label_set_text(ptr noundef %21, ptr noundef %22)
   %23 = load ptr, ptr %9, align 8, !tbaa !3
   call void @lv_obj_center(ptr noundef %23)
@@ -376,7 +376,7 @@ declare i32 @lv_obj_send_event(ptr noundef, i32 noundef, ptr noundef) #1
 declare void @lv_obj_fade_in(ptr noundef, i32 noundef, i32 noundef) #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare void @lv_obj_set_style_pad_left(ptr noundef, i32 noundef, i32 noundef) #1
 
@@ -411,14 +411,14 @@ define internal void @lv_style_set_size(ptr noundef %0, i32 noundef %1, i32 noun
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8, !tbaa !3
-  store i32 %1, ptr %5, align 4, !tbaa !20
-  store i32 %2, ptr %6, align 4, !tbaa !20
-  %7 = load ptr, ptr %4, align 8, !tbaa !3
-  %8 = load i32, ptr %5, align 4, !tbaa !20
+  store ptr %0, ptr %4, align 8, !tbaa !8
+  store i32 %1, ptr %5, align 4, !tbaa !22
+  store i32 %2, ptr %6, align 4, !tbaa !22
+  %7 = load ptr, ptr %4, align 8, !tbaa !8
+  %8 = load i32, ptr %5, align 4, !tbaa !22
   call void @lv_style_set_width(ptr noundef %7, i32 noundef %8)
-  %9 = load ptr, ptr %4, align 8, !tbaa !3
-  %10 = load i32, ptr %6, align 4, !tbaa !20
+  %9 = load ptr, ptr %4, align 8, !tbaa !8
+  %10 = load i32, ptr %6, align 4, !tbaa !22
   call void @lv_style_set_height(ptr noundef %9, i32 noundef %10)
   ret void
 }
@@ -458,20 +458,24 @@ attributes #5 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{!4, !4, i64 0}
-!4 = !{!"any pointer", !5, i64 0}
-!5 = !{!"omnipotent char", !6, i64 0}
-!6 = !{!"Simple C/C++ TBAA"}
-!7 = !{!8, !4, i64 0}
-!8 = !{!"", !4, i64 0, !4, i64 8, !9, i64 16, !9, i64 32, !11, i64 48}
-!9 = !{!"", !4, i64 0, !10, i64 8, !5, i64 12}
-!10 = !{!"int", !5, i64 0}
-!11 = !{!"", !4, i64 0, !12, i64 8, !13, i64 208}
-!12 = !{!"", !4, i64 0, !13, i64 8, !14, i64 32, !15, i64 64}
-!13 = !{!"", !4, i64 0, !4, i64 8, !4, i64 16}
-!14 = !{!"", !4, i64 0, !4, i64 8, !4, i64 16, !4, i64 24}
-!15 = !{!"", !4, i64 0, !4, i64 8, !4, i64 16, !4, i64 24, !4, i64 32, !4, i64 40, !4, i64 48, !4, i64 56, !4, i64 64, !4, i64 72, !4, i64 80, !4, i64 88, !4, i64 96, !4, i64 104, !4, i64 112, !4, i64 120, !4, i64 128}
-!16 = !{!8, !4, i64 48}
-!17 = !{!8, !4, i64 256}
-!18 = !{!8, !4, i64 264}
-!19 = !{!8, !4, i64 272}
-!20 = !{!10, !10, i64 0}
+!4 = !{!"p1 _ZTS9_lv_obj_t", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!5, !5, i64 0}
+!9 = !{!10, !4, i64 0}
+!10 = !{!"", !4, i64 0, !4, i64 8, !11, i64 16, !11, i64 32, !13, i64 48}
+!11 = !{!"", !5, i64 0, !12, i64 8, !6, i64 12}
+!12 = !{!"int", !6, i64 0}
+!13 = !{!"", !4, i64 0, !14, i64 8, !15, i64 208}
+!14 = !{!"", !4, i64 0, !15, i64 8, !16, i64 32, !17, i64 64}
+!15 = !{!"", !4, i64 0, !4, i64 8, !4, i64 16}
+!16 = !{!"", !4, i64 0, !4, i64 8, !4, i64 16, !4, i64 24}
+!17 = !{!"", !4, i64 0, !4, i64 8, !4, i64 16, !4, i64 24, !4, i64 32, !4, i64 40, !4, i64 48, !4, i64 56, !4, i64 64, !4, i64 72, !4, i64 80, !4, i64 88, !4, i64 96, !4, i64 104, !4, i64 112, !4, i64 120, !4, i64 128}
+!18 = !{!10, !4, i64 48}
+!19 = !{!10, !4, i64 256}
+!20 = !{!10, !4, i64 264}
+!21 = !{!10, !4, i64 272}
+!22 = !{!12, !12, i64 0}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"p1 omnipotent char", !5, i64 0}

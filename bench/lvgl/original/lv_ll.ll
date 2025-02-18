@@ -14,7 +14,7 @@ define void @lv_ll_init(ptr noundef %0, i32 noundef %1) #0 {
   store ptr null, ptr %6, align 8, !tbaa !9
   %7 = load ptr, ptr %3, align 8, !tbaa !3
   %8 = getelementptr inbounds nuw %struct.lv_ll_t, ptr %7, i32 0, i32 2
-  store ptr null, ptr %8, align 8, !tbaa !11
+  store ptr null, ptr %8, align 8, !tbaa !12
   %9 = load i32, ptr %4, align 4, !tbaa !7
   %10 = add i32 %9, 7
   %11 = and i32 %10, -8
@@ -22,7 +22,7 @@ define void @lv_ll_init(ptr noundef %0, i32 noundef %1) #0 {
   %12 = load i32, ptr %4, align 4, !tbaa !7
   %13 = load ptr, ptr %3, align 8, !tbaa !3
   %14 = getelementptr inbounds nuw %struct.lv_ll_t, ptr %13, i32 0, i32 0
-  store i32 %12, ptr %14, align 8, !tbaa !12
+  store i32 %12, ptr %14, align 8, !tbaa !13
   ret void
 }
 
@@ -34,21 +34,21 @@ define ptr @lv_ll_ins_head(ptr noundef %0) #0 {
   call void @llvm.lifetime.start.p0(i64 8, ptr %3) #3
   %4 = load ptr, ptr %2, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw %struct.lv_ll_t, ptr %4, i32 0, i32 0
-  %6 = load i32, ptr %5, align 8, !tbaa !12
+  %6 = load i32, ptr %5, align 8, !tbaa !13
   %7 = zext i32 %6 to i64
   %8 = add i64 %7, 16
   %9 = call ptr @lv_malloc(i64 noundef %8)
-  store ptr %9, ptr %3, align 8, !tbaa !3
-  %10 = load ptr, ptr %3, align 8, !tbaa !3
+  store ptr %9, ptr %3, align 8, !tbaa !14
+  %10 = load ptr, ptr %3, align 8, !tbaa !14
   %11 = icmp ne ptr %10, null
   br i1 %11, label %12, label %43
 
 12:                                               ; preds = %1
   %13 = load ptr, ptr %2, align 8, !tbaa !3
-  %14 = load ptr, ptr %3, align 8, !tbaa !3
+  %14 = load ptr, ptr %3, align 8, !tbaa !14
   call void @node_set_prev(ptr noundef %13, ptr noundef %14, ptr noundef null)
   %15 = load ptr, ptr %2, align 8, !tbaa !3
-  %16 = load ptr, ptr %3, align 8, !tbaa !3
+  %16 = load ptr, ptr %3, align 8, !tbaa !14
   %17 = load ptr, ptr %2, align 8, !tbaa !3
   %18 = getelementptr inbounds nuw %struct.lv_ll_t, ptr %17, i32 0, i32 1
   %19 = load ptr, ptr %18, align 8, !tbaa !9
@@ -64,39 +64,39 @@ define ptr @lv_ll_ins_head(ptr noundef %0) #0 {
   %26 = load ptr, ptr %2, align 8, !tbaa !3
   %27 = getelementptr inbounds nuw %struct.lv_ll_t, ptr %26, i32 0, i32 1
   %28 = load ptr, ptr %27, align 8, !tbaa !9
-  %29 = load ptr, ptr %3, align 8, !tbaa !3
+  %29 = load ptr, ptr %3, align 8, !tbaa !14
   call void @node_set_prev(ptr noundef %25, ptr noundef %28, ptr noundef %29)
   br label %30
 
 30:                                               ; preds = %24, %12
-  %31 = load ptr, ptr %3, align 8, !tbaa !3
+  %31 = load ptr, ptr %3, align 8, !tbaa !14
   %32 = load ptr, ptr %2, align 8, !tbaa !3
   %33 = getelementptr inbounds nuw %struct.lv_ll_t, ptr %32, i32 0, i32 1
   store ptr %31, ptr %33, align 8, !tbaa !9
   %34 = load ptr, ptr %2, align 8, !tbaa !3
   %35 = getelementptr inbounds nuw %struct.lv_ll_t, ptr %34, i32 0, i32 2
-  %36 = load ptr, ptr %35, align 8, !tbaa !11
+  %36 = load ptr, ptr %35, align 8, !tbaa !12
   %37 = icmp eq ptr %36, null
   br i1 %37, label %38, label %42
 
 38:                                               ; preds = %30
-  %39 = load ptr, ptr %3, align 8, !tbaa !3
+  %39 = load ptr, ptr %3, align 8, !tbaa !14
   %40 = load ptr, ptr %2, align 8, !tbaa !3
   %41 = getelementptr inbounds nuw %struct.lv_ll_t, ptr %40, i32 0, i32 2
-  store ptr %39, ptr %41, align 8, !tbaa !11
+  store ptr %39, ptr %41, align 8, !tbaa !12
   br label %42
 
 42:                                               ; preds = %38, %30
   br label %43
 
 43:                                               ; preds = %42, %1
-  %44 = load ptr, ptr %3, align 8, !tbaa !3
+  %44 = load ptr, ptr %3, align 8, !tbaa !14
   call void @llvm.lifetime.end.p0(i64 8, ptr %3) #3
   ret ptr %44
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 declare ptr @lv_malloc(i64 noundef) #2
 
@@ -109,9 +109,9 @@ define internal void @node_set_prev(ptr noundef %0, ptr noundef %1, ptr noundef 
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   store ptr %0, ptr %4, align 8, !tbaa !3
-  store ptr %1, ptr %5, align 8, !tbaa !3
-  store ptr %2, ptr %6, align 8, !tbaa !3
-  %10 = load ptr, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !14
+  store ptr %2, ptr %6, align 8, !tbaa !14
+  %10 = load ptr, ptr %5, align 8, !tbaa !14
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %13
 
@@ -120,24 +120,24 @@ define internal void @node_set_prev(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 13:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr %7) #3
-  %14 = load ptr, ptr %5, align 8, !tbaa !3
-  store ptr %14, ptr %7, align 8, !tbaa !3
+  %14 = load ptr, ptr %5, align 8, !tbaa !14
+  store ptr %14, ptr %7, align 8, !tbaa !14
   %15 = load ptr, ptr %4, align 8, !tbaa !3
   %16 = getelementptr inbounds nuw %struct.lv_ll_t, ptr %15, i32 0, i32 0
-  %17 = load i32, ptr %16, align 8, !tbaa !12
-  %18 = load ptr, ptr %7, align 8, !tbaa !3
+  %17 = load i32, ptr %16, align 8, !tbaa !13
+  %18 = load ptr, ptr %7, align 8, !tbaa !14
   %19 = zext i32 %17 to i64
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 %19
-  store ptr %20, ptr %7, align 8, !tbaa !3
+  store ptr %20, ptr %7, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(i64 8, ptr %8) #3
-  %21 = load ptr, ptr %7, align 8, !tbaa !3
-  store ptr %21, ptr %8, align 8, !tbaa !3
+  %21 = load ptr, ptr %7, align 8, !tbaa !14
+  store ptr %21, ptr %8, align 8, !tbaa !15
   call void @llvm.lifetime.start.p0(i64 8, ptr %9) #3
-  store ptr %6, ptr %9, align 8, !tbaa !3
-  %22 = load ptr, ptr %9, align 8, !tbaa !3
-  %23 = load ptr, ptr %22, align 8, !tbaa !3
-  %24 = load ptr, ptr %8, align 8, !tbaa !3
-  store ptr %23, ptr %24, align 8, !tbaa !3
+  store ptr %6, ptr %9, align 8, !tbaa !15
+  %22 = load ptr, ptr %9, align 8, !tbaa !15
+  %23 = load ptr, ptr %22, align 8, !tbaa !14
+  %24 = load ptr, ptr %8, align 8, !tbaa !15
+  store ptr %23, ptr %24, align 8, !tbaa !14
   call void @llvm.lifetime.end.p0(i64 8, ptr %9) #3
   call void @llvm.lifetime.end.p0(i64 8, ptr %8) #3
   call void @llvm.lifetime.end.p0(i64 8, ptr %7) #3
@@ -156,9 +156,9 @@ define internal void @node_set_next(ptr noundef %0, ptr noundef %1, ptr noundef 
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   store ptr %0, ptr %4, align 8, !tbaa !3
-  store ptr %1, ptr %5, align 8, !tbaa !3
-  store ptr %2, ptr %6, align 8, !tbaa !3
-  %10 = load ptr, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !14
+  store ptr %2, ptr %6, align 8, !tbaa !14
+  %10 = load ptr, ptr %5, align 8, !tbaa !14
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %13
 
@@ -167,25 +167,25 @@ define internal void @node_set_next(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 13:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr %7) #3
-  %14 = load ptr, ptr %5, align 8, !tbaa !3
-  store ptr %14, ptr %7, align 8, !tbaa !3
+  %14 = load ptr, ptr %5, align 8, !tbaa !14
+  store ptr %14, ptr %7, align 8, !tbaa !14
   %15 = load ptr, ptr %4, align 8, !tbaa !3
   %16 = getelementptr inbounds nuw %struct.lv_ll_t, ptr %15, i32 0, i32 0
-  %17 = load i32, ptr %16, align 8, !tbaa !12
+  %17 = load i32, ptr %16, align 8, !tbaa !13
   %18 = zext i32 %17 to i64
   %19 = add i64 %18, 8
-  %20 = load ptr, ptr %7, align 8, !tbaa !3
+  %20 = load ptr, ptr %7, align 8, !tbaa !14
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 %19
-  store ptr %21, ptr %7, align 8, !tbaa !3
+  store ptr %21, ptr %7, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(i64 8, ptr %8) #3
-  %22 = load ptr, ptr %7, align 8, !tbaa !3
-  store ptr %22, ptr %8, align 8, !tbaa !3
+  %22 = load ptr, ptr %7, align 8, !tbaa !14
+  store ptr %22, ptr %8, align 8, !tbaa !15
   call void @llvm.lifetime.start.p0(i64 8, ptr %9) #3
-  store ptr %6, ptr %9, align 8, !tbaa !3
-  %23 = load ptr, ptr %9, align 8, !tbaa !3
-  %24 = load ptr, ptr %23, align 8, !tbaa !3
-  %25 = load ptr, ptr %8, align 8, !tbaa !3
-  store ptr %24, ptr %25, align 8, !tbaa !3
+  store ptr %6, ptr %9, align 8, !tbaa !15
+  %23 = load ptr, ptr %9, align 8, !tbaa !15
+  %24 = load ptr, ptr %23, align 8, !tbaa !14
+  %25 = load ptr, ptr %8, align 8, !tbaa !15
+  store ptr %24, ptr %25, align 8, !tbaa !14
   call void @llvm.lifetime.end.p0(i64 8, ptr %9) #3
   call void @llvm.lifetime.end.p0(i64 8, ptr %8) #3
   call void @llvm.lifetime.end.p0(i64 8, ptr %7) #3
@@ -196,7 +196,7 @@ define internal void @node_set_next(ptr noundef %0, ptr noundef %1, ptr noundef 
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @lv_ll_ins_prev(ptr noundef %0, ptr noundef %1) #0 {
@@ -233,8 +233,8 @@ define ptr @lv_ll_ins_prev(ptr noundef %0, ptr noundef %1) #0 {
 20:                                               ; preds = %15
   %21 = load ptr, ptr %4, align 8, !tbaa !3
   %22 = call ptr @lv_ll_ins_head(ptr noundef %21)
-  store ptr %22, ptr %6, align 8, !tbaa !3
-  %23 = load ptr, ptr %6, align 8, !tbaa !3
+  store ptr %22, ptr %6, align 8, !tbaa !14
+  %23 = load ptr, ptr %6, align 8, !tbaa !14
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %26
 
@@ -249,12 +249,12 @@ define ptr @lv_ll_ins_prev(ptr noundef %0, ptr noundef %1) #0 {
 27:                                               ; preds = %15
   %28 = load ptr, ptr %4, align 8, !tbaa !3
   %29 = getelementptr inbounds nuw %struct.lv_ll_t, ptr %28, i32 0, i32 0
-  %30 = load i32, ptr %29, align 8, !tbaa !12
+  %30 = load i32, ptr %29, align 8, !tbaa !13
   %31 = zext i32 %30 to i64
   %32 = add i64 %31, 16
   %33 = call ptr @lv_malloc(i64 noundef %32)
-  store ptr %33, ptr %6, align 8, !tbaa !3
-  %34 = load ptr, ptr %6, align 8, !tbaa !3
+  store ptr %33, ptr %6, align 8, !tbaa !14
+  %34 = load ptr, ptr %6, align 8, !tbaa !14
   %35 = icmp eq ptr %34, null
   br i1 %35, label %36, label %37
 
@@ -268,28 +268,28 @@ define ptr @lv_ll_ins_prev(ptr noundef %0, ptr noundef %1) #0 {
   %38 = load ptr, ptr %4, align 8, !tbaa !3
   %39 = load ptr, ptr %5, align 8, !tbaa !3
   %40 = call ptr @lv_ll_get_prev(ptr noundef %38, ptr noundef %39)
-  store ptr %40, ptr %8, align 8, !tbaa !3
+  store ptr %40, ptr %8, align 8, !tbaa !14
   %41 = load ptr, ptr %4, align 8, !tbaa !3
-  %42 = load ptr, ptr %8, align 8, !tbaa !3
-  %43 = load ptr, ptr %6, align 8, !tbaa !3
+  %42 = load ptr, ptr %8, align 8, !tbaa !14
+  %43 = load ptr, ptr %6, align 8, !tbaa !14
   call void @node_set_next(ptr noundef %41, ptr noundef %42, ptr noundef %43)
   %44 = load ptr, ptr %4, align 8, !tbaa !3
-  %45 = load ptr, ptr %6, align 8, !tbaa !3
-  %46 = load ptr, ptr %8, align 8, !tbaa !3
+  %45 = load ptr, ptr %6, align 8, !tbaa !14
+  %46 = load ptr, ptr %8, align 8, !tbaa !14
   call void @node_set_prev(ptr noundef %44, ptr noundef %45, ptr noundef %46)
   %47 = load ptr, ptr %4, align 8, !tbaa !3
   %48 = load ptr, ptr %5, align 8, !tbaa !3
-  %49 = load ptr, ptr %6, align 8, !tbaa !3
+  %49 = load ptr, ptr %6, align 8, !tbaa !14
   call void @node_set_prev(ptr noundef %47, ptr noundef %48, ptr noundef %49)
   %50 = load ptr, ptr %4, align 8, !tbaa !3
-  %51 = load ptr, ptr %6, align 8, !tbaa !3
+  %51 = load ptr, ptr %6, align 8, !tbaa !14
   %52 = load ptr, ptr %5, align 8, !tbaa !3
   call void @node_set_next(ptr noundef %50, ptr noundef %51, ptr noundef %52)
   call void @llvm.lifetime.end.p0(i64 8, ptr %8) #3
   br label %53
 
 53:                                               ; preds = %37, %26
-  %54 = load ptr, ptr %6, align 8, !tbaa !3
+  %54 = load ptr, ptr %6, align 8, !tbaa !14
   store ptr %54, ptr %3, align 8
   store i32 1, ptr %7, align 4
   br label %55
@@ -334,16 +334,16 @@ define ptr @lv_ll_get_prev(ptr noundef %0, ptr noundef %1) #0 {
   store ptr %1, ptr %4, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(i64 8, ptr %5) #3
   %6 = load ptr, ptr %4, align 8, !tbaa !3
-  store ptr %6, ptr %5, align 8, !tbaa !3
+  store ptr %6, ptr %5, align 8, !tbaa !14
   %7 = load ptr, ptr %3, align 8, !tbaa !3
   %8 = getelementptr inbounds nuw %struct.lv_ll_t, ptr %7, i32 0, i32 0
-  %9 = load i32, ptr %8, align 8, !tbaa !12
-  %10 = load ptr, ptr %5, align 8, !tbaa !3
+  %9 = load i32, ptr %8, align 8, !tbaa !13
+  %10 = load ptr, ptr %5, align 8, !tbaa !14
   %11 = zext i32 %9 to i64
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 %11
-  store ptr %12, ptr %5, align 8, !tbaa !3
-  %13 = load ptr, ptr %5, align 8, !tbaa !3
-  %14 = load ptr, ptr %13, align 8, !tbaa !3
+  store ptr %12, ptr %5, align 8, !tbaa !14
+  %13 = load ptr, ptr %5, align 8, !tbaa !14
+  %14 = load ptr, ptr %13, align 8, !tbaa !14
   call void @llvm.lifetime.end.p0(i64 8, ptr %5) #3
   ret ptr %14
 }
@@ -356,28 +356,28 @@ define ptr @lv_ll_ins_tail(ptr noundef %0) #0 {
   call void @llvm.lifetime.start.p0(i64 8, ptr %3) #3
   %4 = load ptr, ptr %2, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw %struct.lv_ll_t, ptr %4, i32 0, i32 0
-  %6 = load i32, ptr %5, align 8, !tbaa !12
+  %6 = load i32, ptr %5, align 8, !tbaa !13
   %7 = zext i32 %6 to i64
   %8 = add i64 %7, 16
   %9 = call ptr @lv_malloc(i64 noundef %8)
-  store ptr %9, ptr %3, align 8, !tbaa !3
-  %10 = load ptr, ptr %3, align 8, !tbaa !3
+  store ptr %9, ptr %3, align 8, !tbaa !14
+  %10 = load ptr, ptr %3, align 8, !tbaa !14
   %11 = icmp ne ptr %10, null
   br i1 %11, label %12, label %43
 
 12:                                               ; preds = %1
   %13 = load ptr, ptr %2, align 8, !tbaa !3
-  %14 = load ptr, ptr %3, align 8, !tbaa !3
+  %14 = load ptr, ptr %3, align 8, !tbaa !14
   call void @node_set_next(ptr noundef %13, ptr noundef %14, ptr noundef null)
   %15 = load ptr, ptr %2, align 8, !tbaa !3
-  %16 = load ptr, ptr %3, align 8, !tbaa !3
+  %16 = load ptr, ptr %3, align 8, !tbaa !14
   %17 = load ptr, ptr %2, align 8, !tbaa !3
   %18 = getelementptr inbounds nuw %struct.lv_ll_t, ptr %17, i32 0, i32 2
-  %19 = load ptr, ptr %18, align 8, !tbaa !11
+  %19 = load ptr, ptr %18, align 8, !tbaa !12
   call void @node_set_prev(ptr noundef %15, ptr noundef %16, ptr noundef %19)
   %20 = load ptr, ptr %2, align 8, !tbaa !3
   %21 = getelementptr inbounds nuw %struct.lv_ll_t, ptr %20, i32 0, i32 2
-  %22 = load ptr, ptr %21, align 8, !tbaa !11
+  %22 = load ptr, ptr %21, align 8, !tbaa !12
   %23 = icmp ne ptr %22, null
   br i1 %23, label %24, label %30
 
@@ -385,16 +385,16 @@ define ptr @lv_ll_ins_tail(ptr noundef %0) #0 {
   %25 = load ptr, ptr %2, align 8, !tbaa !3
   %26 = load ptr, ptr %2, align 8, !tbaa !3
   %27 = getelementptr inbounds nuw %struct.lv_ll_t, ptr %26, i32 0, i32 2
-  %28 = load ptr, ptr %27, align 8, !tbaa !11
-  %29 = load ptr, ptr %3, align 8, !tbaa !3
+  %28 = load ptr, ptr %27, align 8, !tbaa !12
+  %29 = load ptr, ptr %3, align 8, !tbaa !14
   call void @node_set_next(ptr noundef %25, ptr noundef %28, ptr noundef %29)
   br label %30
 
 30:                                               ; preds = %24, %12
-  %31 = load ptr, ptr %3, align 8, !tbaa !3
+  %31 = load ptr, ptr %3, align 8, !tbaa !14
   %32 = load ptr, ptr %2, align 8, !tbaa !3
   %33 = getelementptr inbounds nuw %struct.lv_ll_t, ptr %32, i32 0, i32 2
-  store ptr %31, ptr %33, align 8, !tbaa !11
+  store ptr %31, ptr %33, align 8, !tbaa !12
   %34 = load ptr, ptr %2, align 8, !tbaa !3
   %35 = getelementptr inbounds nuw %struct.lv_ll_t, ptr %34, i32 0, i32 1
   %36 = load ptr, ptr %35, align 8, !tbaa !9
@@ -402,7 +402,7 @@ define ptr @lv_ll_ins_tail(ptr noundef %0) #0 {
   br i1 %37, label %38, label %42
 
 38:                                               ; preds = %30
-  %39 = load ptr, ptr %3, align 8, !tbaa !3
+  %39 = load ptr, ptr %3, align 8, !tbaa !14
   %40 = load ptr, ptr %2, align 8, !tbaa !3
   %41 = getelementptr inbounds nuw %struct.lv_ll_t, ptr %40, i32 0, i32 1
   store ptr %39, ptr %41, align 8, !tbaa !9
@@ -412,7 +412,7 @@ define ptr @lv_ll_ins_tail(ptr noundef %0) #0 {
   br label %43
 
 43:                                               ; preds = %42, %1
-  %44 = load ptr, ptr %3, align 8, !tbaa !3
+  %44 = load ptr, ptr %3, align 8, !tbaa !14
   call void @llvm.lifetime.end.p0(i64 8, ptr %3) #3
   ret ptr %44
 }
@@ -455,7 +455,7 @@ define void @lv_ll_remove(ptr noundef %0, ptr noundef %1) #0 {
 25:                                               ; preds = %15
   %26 = load ptr, ptr %3, align 8, !tbaa !3
   %27 = getelementptr inbounds nuw %struct.lv_ll_t, ptr %26, i32 0, i32 2
-  store ptr null, ptr %27, align 8, !tbaa !11
+  store ptr null, ptr %27, align 8, !tbaa !12
   br label %33
 
 28:                                               ; preds = %15
@@ -482,10 +482,10 @@ define void @lv_ll_remove(ptr noundef %0, ptr noundef %1) #0 {
   %42 = call ptr @lv_ll_get_prev(ptr noundef %40, ptr noundef %41)
   %43 = load ptr, ptr %3, align 8, !tbaa !3
   %44 = getelementptr inbounds nuw %struct.lv_ll_t, ptr %43, i32 0, i32 2
-  store ptr %42, ptr %44, align 8, !tbaa !11
+  store ptr %42, ptr %44, align 8, !tbaa !12
   %45 = load ptr, ptr %3, align 8, !tbaa !3
   %46 = getelementptr inbounds nuw %struct.lv_ll_t, ptr %45, i32 0, i32 2
-  %47 = load ptr, ptr %46, align 8, !tbaa !11
+  %47 = load ptr, ptr %46, align 8, !tbaa !12
   %48 = icmp eq ptr %47, null
   br i1 %48, label %49, label %52
 
@@ -499,7 +499,7 @@ define void @lv_ll_remove(ptr noundef %0, ptr noundef %1) #0 {
   %53 = load ptr, ptr %3, align 8, !tbaa !3
   %54 = load ptr, ptr %3, align 8, !tbaa !3
   %55 = getelementptr inbounds nuw %struct.lv_ll_t, ptr %54, i32 0, i32 2
-  %56 = load ptr, ptr %55, align 8, !tbaa !11
+  %56 = load ptr, ptr %55, align 8, !tbaa !12
   call void @node_set_next(ptr noundef %53, ptr noundef %56, ptr noundef null)
   br label %57
 
@@ -511,19 +511,19 @@ define void @lv_ll_remove(ptr noundef %0, ptr noundef %1) #0 {
   %59 = load ptr, ptr %3, align 8, !tbaa !3
   %60 = load ptr, ptr %4, align 8, !tbaa !3
   %61 = call ptr @lv_ll_get_prev(ptr noundef %59, ptr noundef %60)
-  store ptr %61, ptr %5, align 8, !tbaa !3
+  store ptr %61, ptr %5, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(i64 8, ptr %6) #3
   %62 = load ptr, ptr %3, align 8, !tbaa !3
   %63 = load ptr, ptr %4, align 8, !tbaa !3
   %64 = call ptr @lv_ll_get_next(ptr noundef %62, ptr noundef %63)
-  store ptr %64, ptr %6, align 8, !tbaa !3
+  store ptr %64, ptr %6, align 8, !tbaa !14
   %65 = load ptr, ptr %3, align 8, !tbaa !3
-  %66 = load ptr, ptr %5, align 8, !tbaa !3
-  %67 = load ptr, ptr %6, align 8, !tbaa !3
+  %66 = load ptr, ptr %5, align 8, !tbaa !14
+  %67 = load ptr, ptr %6, align 8, !tbaa !14
   call void @node_set_next(ptr noundef %65, ptr noundef %66, ptr noundef %67)
   %68 = load ptr, ptr %3, align 8, !tbaa !3
-  %69 = load ptr, ptr %6, align 8, !tbaa !3
-  %70 = load ptr, ptr %5, align 8, !tbaa !3
+  %69 = load ptr, ptr %6, align 8, !tbaa !14
+  %70 = load ptr, ptr %5, align 8, !tbaa !14
   call void @node_set_prev(ptr noundef %68, ptr noundef %69, ptr noundef %70)
   call void @llvm.lifetime.end.p0(i64 8, ptr %6) #3
   call void @llvm.lifetime.end.p0(i64 8, ptr %5) #3
@@ -545,17 +545,17 @@ define ptr @lv_ll_get_next(ptr noundef %0, ptr noundef %1) #0 {
   store ptr %1, ptr %4, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(i64 8, ptr %5) #3
   %6 = load ptr, ptr %4, align 8, !tbaa !3
-  store ptr %6, ptr %5, align 8, !tbaa !3
+  store ptr %6, ptr %5, align 8, !tbaa !14
   %7 = load ptr, ptr %3, align 8, !tbaa !3
   %8 = getelementptr inbounds nuw %struct.lv_ll_t, ptr %7, i32 0, i32 0
-  %9 = load i32, ptr %8, align 8, !tbaa !12
+  %9 = load i32, ptr %8, align 8, !tbaa !13
   %10 = zext i32 %9 to i64
   %11 = add i64 %10, 8
-  %12 = load ptr, ptr %5, align 8, !tbaa !3
+  %12 = load ptr, ptr %5, align 8, !tbaa !14
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 %11
-  store ptr %13, ptr %5, align 8, !tbaa !3
-  %14 = load ptr, ptr %5, align 8, !tbaa !3
-  %15 = load ptr, ptr %14, align 8, !tbaa !3
+  store ptr %13, ptr %5, align 8, !tbaa !14
+  %14 = load ptr, ptr %5, align 8, !tbaa !14
+  %15 = load ptr, ptr %14, align 8, !tbaa !14
   call void @llvm.lifetime.end.p0(i64 8, ptr %5) #3
   ret ptr %15
 }
@@ -576,7 +576,7 @@ define ptr @lv_ll_get_tail(ptr noundef %0) #0 {
 7:                                                ; preds = %1
   %8 = load ptr, ptr %3, align 8, !tbaa !3
   %9 = getelementptr inbounds nuw %struct.lv_ll_t, ptr %8, i32 0, i32 2
-  %10 = load ptr, ptr %9, align 8, !tbaa !11
+  %10 = load ptr, ptr %9, align 8, !tbaa !12
   store ptr %10, ptr %2, align 8
   br label %11
 
@@ -632,7 +632,7 @@ define void @lv_ll_clear_custom(ptr noundef %0, ptr noundef %1) #0 {
 25:                                               ; preds = %22, %18
   %26 = load ptr, ptr %6, align 8, !tbaa !3
   store ptr %26, ptr %5, align 8, !tbaa !3
-  br label %9, !llvm.loop !13
+  br label %9, !llvm.loop !17
 
 27:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(i64 8, ptr %6) #3
@@ -652,11 +652,11 @@ define void @lv_ll_chg_list(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 n
   store ptr %1, ptr %6, align 8, !tbaa !3
   store ptr %2, ptr %7, align 8, !tbaa !3
   %9 = zext i1 %3 to i8
-  store i8 %9, ptr %8, align 1, !tbaa !15
+  store i8 %9, ptr %8, align 1, !tbaa !19
   %10 = load ptr, ptr %5, align 8, !tbaa !3
   %11 = load ptr, ptr %7, align 8, !tbaa !3
   call void @lv_ll_remove(ptr noundef %10, ptr noundef %11)
-  %12 = load i8, ptr %8, align 1, !tbaa !15, !range !17, !noundef !18
+  %12 = load i8, ptr %8, align 1, !tbaa !19, !range !21, !noundef !22
   %13 = trunc i8 %12 to i1
   br i1 %13, label %14, label %45
 
@@ -692,7 +692,7 @@ define void @lv_ll_chg_list(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 n
   store ptr %33, ptr %35, align 8, !tbaa !9
   %36 = load ptr, ptr %6, align 8, !tbaa !3
   %37 = getelementptr inbounds nuw %struct.lv_ll_t, ptr %36, i32 0, i32 2
-  %38 = load ptr, ptr %37, align 8, !tbaa !11
+  %38 = load ptr, ptr %37, align 8, !tbaa !12
   %39 = icmp eq ptr %38, null
   br i1 %39, label %40, label %44
 
@@ -700,7 +700,7 @@ define void @lv_ll_chg_list(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 n
   %41 = load ptr, ptr %7, align 8, !tbaa !3
   %42 = load ptr, ptr %6, align 8, !tbaa !3
   %43 = getelementptr inbounds nuw %struct.lv_ll_t, ptr %42, i32 0, i32 2
-  store ptr %41, ptr %43, align 8, !tbaa !11
+  store ptr %41, ptr %43, align 8, !tbaa !12
   br label %44
 
 44:                                               ; preds = %40, %32
@@ -711,14 +711,14 @@ define void @lv_ll_chg_list(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 n
   %47 = load ptr, ptr %7, align 8, !tbaa !3
   %48 = load ptr, ptr %6, align 8, !tbaa !3
   %49 = getelementptr inbounds nuw %struct.lv_ll_t, ptr %48, i32 0, i32 2
-  %50 = load ptr, ptr %49, align 8, !tbaa !11
+  %50 = load ptr, ptr %49, align 8, !tbaa !12
   call void @node_set_prev(ptr noundef %46, ptr noundef %47, ptr noundef %50)
   %51 = load ptr, ptr %6, align 8, !tbaa !3
   %52 = load ptr, ptr %7, align 8, !tbaa !3
   call void @node_set_next(ptr noundef %51, ptr noundef %52, ptr noundef null)
   %53 = load ptr, ptr %6, align 8, !tbaa !3
   %54 = getelementptr inbounds nuw %struct.lv_ll_t, ptr %53, i32 0, i32 2
-  %55 = load ptr, ptr %54, align 8, !tbaa !11
+  %55 = load ptr, ptr %54, align 8, !tbaa !12
   %56 = icmp ne ptr %55, null
   br i1 %56, label %57, label %63
 
@@ -726,7 +726,7 @@ define void @lv_ll_chg_list(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 n
   %58 = load ptr, ptr %6, align 8, !tbaa !3
   %59 = load ptr, ptr %6, align 8, !tbaa !3
   %60 = getelementptr inbounds nuw %struct.lv_ll_t, ptr %59, i32 0, i32 2
-  %61 = load ptr, ptr %60, align 8, !tbaa !11
+  %61 = load ptr, ptr %60, align 8, !tbaa !12
   %62 = load ptr, ptr %7, align 8, !tbaa !3
   call void @node_set_next(ptr noundef %58, ptr noundef %61, ptr noundef %62)
   br label %63
@@ -735,7 +735,7 @@ define void @lv_ll_chg_list(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 n
   %64 = load ptr, ptr %7, align 8, !tbaa !3
   %65 = load ptr, ptr %6, align 8, !tbaa !3
   %66 = getelementptr inbounds nuw %struct.lv_ll_t, ptr %65, i32 0, i32 2
-  store ptr %64, ptr %66, align 8, !tbaa !11
+  store ptr %64, ptr %66, align 8, !tbaa !12
   %67 = load ptr, ptr %6, align 8, !tbaa !3
   %68 = getelementptr inbounds nuw %struct.lv_ll_t, ptr %67, i32 0, i32 1
   %69 = load ptr, ptr %68, align 8, !tbaa !9
@@ -786,7 +786,7 @@ define i32 @lv_ll_get_len(ptr noundef %0) #0 {
   %15 = load ptr, ptr %4, align 8, !tbaa !3
   %16 = call ptr @lv_ll_get_next(ptr noundef %14, ptr noundef %15)
   store ptr %16, ptr %4, align 8, !tbaa !3
-  br label %7, !llvm.loop !19
+  br label %7, !llvm.loop !23
 
 17:                                               ; preds = %7
   %18 = load i32, ptr %3, align 4, !tbaa !7
@@ -870,7 +870,7 @@ define void @lv_ll_move_before(ptr noundef %0, ptr noundef %1, ptr noundef %2) #
   %46 = load ptr, ptr %5, align 8, !tbaa !3
   %47 = load ptr, ptr %4, align 8, !tbaa !3
   %48 = getelementptr inbounds nuw %struct.lv_ll_t, ptr %47, i32 0, i32 2
-  store ptr %46, ptr %48, align 8, !tbaa !11
+  store ptr %46, ptr %48, align 8, !tbaa !12
   br label %49
 
 49:                                               ; preds = %45, %28
@@ -927,7 +927,7 @@ define zeroext i1 @lv_ll_is_empty(ptr noundef %0) #0 {
 12:                                               ; preds = %7
   %13 = load ptr, ptr %3, align 8, !tbaa !3
   %14 = getelementptr inbounds nuw %struct.lv_ll_t, ptr %13, i32 0, i32 2
-  %15 = load ptr, ptr %14, align 8, !tbaa !11
+  %15 = load ptr, ptr %14, align 8, !tbaa !12
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %18
 
@@ -969,14 +969,18 @@ attributes #3 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"int", !5, i64 0}
-!9 = !{!10, !4, i64 8}
-!10 = !{!"", !8, i64 0, !4, i64 8, !4, i64 16}
-!11 = !{!10, !4, i64 16}
-!12 = !{!10, !8, i64 0}
-!13 = distinct !{!13, !14}
-!14 = !{!"llvm.loop.mustprogress"}
+!9 = !{!10, !11, i64 8}
+!10 = !{!"", !8, i64 0, !11, i64 8, !11, i64 16}
+!11 = !{!"p1 omnipotent char", !4, i64 0}
+!12 = !{!10, !11, i64 16}
+!13 = !{!10, !8, i64 0}
+!14 = !{!11, !11, i64 0}
 !15 = !{!16, !16, i64 0}
-!16 = !{!"_Bool", !5, i64 0}
-!17 = !{i8 0, i8 2}
-!18 = !{}
-!19 = distinct !{!19, !14}
+!16 = !{!"p2 omnipotent char", !4, i64 0}
+!17 = distinct !{!17, !18}
+!18 = !{!"llvm.loop.mustprogress"}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"_Bool", !5, i64 0}
+!21 = !{i8 0, i8 2}
+!22 = !{}
+!23 = distinct !{!23, !18}

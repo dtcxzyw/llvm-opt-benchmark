@@ -56,9 +56,9 @@ define void @view_create(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @lv_obj_set_flex_flow(ptr noundef %10, i32 noundef 1) #2
   tail call void @lv_obj_set_flex_align(ptr noundef %10, i32 noundef 2, i32 noundef 2, i32 noundef 2) #2
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store ptr %10, ptr %14, align 8, !tbaa !15
+  store ptr %10, ptr %14, align 8, !tbaa !16
   tail call void @view_ctrl_pad_create(ptr noundef %10, ptr noundef nonnull %1) #2
-  %15 = load ptr, ptr %14, align 8, !tbaa !15
+  %15 = load ptr, ptr %14, align 8, !tbaa !16
   %16 = tail call ptr @lv_obj_create(ptr noundef %15) #2
   tail call void @lv_obj_remove_style_all(ptr noundef %16) #2
   tail call void @lv_obj_set_style_border_width(ptr noundef %16, i32 noundef 2, i32 noundef 0) #2
@@ -71,7 +71,7 @@ define void @view_create(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @lv_obj_set_flex_flow(ptr noundef %16, i32 noundef 0) #2
   tail call void @lv_obj_set_flex_align(ptr noundef %16, i32 noundef 4, i32 noundef 2, i32 noundef 2) #2
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 256
-  store ptr %16, ptr %18, align 8, !tbaa !16
+  store ptr %16, ptr %18, align 8, !tbaa !17
   %19 = tail call i24 @lv_palette_main(i32 noundef 17) #2
   %20 = tail call ptr @lv_button_create(ptr noundef %16) #2
   %21 = tail call i32 @lv_pct(i32 noundef 30) #2
@@ -84,7 +84,7 @@ define void @view_create(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @lv_label_set_text(ptr noundef %22, ptr noundef nonnull @.str) #2
   tail call void @lv_obj_center(ptr noundef %22) #2
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 264
-  store ptr %20, ptr %23, align 8, !tbaa !17
+  store ptr %20, ptr %23, align 8, !tbaa !18
   %24 = tail call i24 @lv_palette_main(i32 noundef 0) #2
   %25 = tail call ptr @lv_button_create(ptr noundef %16) #2
   %26 = tail call i32 @lv_pct(i32 noundef 30) #2
@@ -97,12 +97,12 @@ define void @view_create(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @lv_label_set_text(ptr noundef %27, ptr noundef nonnull @.str.1) #2
   tail call void @lv_obj_center(ptr noundef %27) #2
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 272
-  store ptr %25, ptr %28, align 8, !tbaa !18
+  store ptr %25, ptr %28, align 8, !tbaa !19
   %29 = load ptr, ptr %1, align 8, !tbaa !3
   %30 = tail call i32 @lv_obj_send_event(ptr noundef %29, i32 noundef 10, ptr noundef null) #2
   %31 = load ptr, ptr %1, align 8, !tbaa !3
   tail call void @lv_obj_fade_in(ptr noundef %31, i32 noundef 600, i32 noundef 0) #2
-  %32 = load ptr, ptr %14, align 8, !tbaa !15
+  %32 = load ptr, ptr %14, align 8, !tbaa !16
   tail call void @lv_obj_fade_in(ptr noundef %32, i32 noundef 600, i32 noundef 300) #2
   ret void
 }
@@ -211,18 +211,19 @@ attributes #2 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{!4, !5, i64 0}
-!4 = !{!"", !5, i64 0, !5, i64 8, !8, i64 16, !8, i64 32, !10, i64 48}
-!5 = !{!"any pointer", !6, i64 0}
-!6 = !{!"omnipotent char", !7, i64 0}
-!7 = !{!"Simple C/C++ TBAA"}
-!8 = !{!"", !5, i64 0, !9, i64 8, !6, i64 12}
-!9 = !{!"int", !6, i64 0}
-!10 = !{!"", !5, i64 0, !11, i64 8, !12, i64 208}
-!11 = !{!"", !5, i64 0, !12, i64 8, !13, i64 32, !14, i64 64}
-!12 = !{!"", !5, i64 0, !5, i64 8, !5, i64 16}
-!13 = !{!"", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24}
-!14 = !{!"", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !5, i64 40, !5, i64 48, !5, i64 56, !5, i64 64, !5, i64 72, !5, i64 80, !5, i64 88, !5, i64 96, !5, i64 104, !5, i64 112, !5, i64 120, !5, i64 128}
-!15 = !{!4, !5, i64 48}
-!16 = !{!4, !5, i64 256}
-!17 = !{!4, !5, i64 264}
-!18 = !{!4, !5, i64 272}
+!4 = !{!"", !5, i64 0, !5, i64 8, !9, i64 16, !9, i64 32, !11, i64 48}
+!5 = !{!"p1 _ZTS9_lv_obj_t", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!"", !6, i64 0, !10, i64 8, !7, i64 12}
+!10 = !{!"int", !7, i64 0}
+!11 = !{!"", !5, i64 0, !12, i64 8, !13, i64 208}
+!12 = !{!"", !5, i64 0, !13, i64 8, !14, i64 32, !15, i64 64}
+!13 = !{!"", !5, i64 0, !5, i64 8, !5, i64 16}
+!14 = !{!"", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24}
+!15 = !{!"", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !5, i64 40, !5, i64 48, !5, i64 56, !5, i64 64, !5, i64 72, !5, i64 80, !5, i64 88, !5, i64 96, !5, i64 104, !5, i64 112, !5, i64 120, !5, i64 128}
+!16 = !{!4, !5, i64 48}
+!17 = !{!4, !5, i64 256}
+!18 = !{!4, !5, i64 264}
+!19 = !{!4, !5, i64 272}

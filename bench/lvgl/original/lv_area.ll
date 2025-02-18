@@ -110,7 +110,7 @@ define void @lv_area_set_pos(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @lv_area_get_width(ptr noundef %0) #0 {
@@ -143,7 +143,7 @@ define i32 @lv_area_get_height(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @lv_area_get_size(ptr noundef %0) #0 {
@@ -416,7 +416,7 @@ define signext i8 @lv_area_diff(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
 
 22:                                               ; preds = %3
   store i8 -1, ptr %4, align 1
-  br label %220
+  br label %224
 
 23:                                               ; preds = %3
   %24 = load ptr, ptr %6, align 8, !tbaa !3
@@ -426,7 +426,7 @@ define signext i8 @lv_area_diff(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
 
 27:                                               ; preds = %23
   store i8 0, ptr %4, align 1
-  br label %220
+  br label %224
 
 28:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(i64 1, ptr %8) #5
@@ -453,7 +453,7 @@ define signext i8 @lv_area_diff(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   store i32 %41, ptr %12, align 4, !tbaa !7
   %42 = load i32, ptr %12, align 4, !tbaa !7
   %43 = icmp sgt i32 %42, 0
-  br i1 %43, label %44, label %68
+  br i1 %43, label %44, label %69
 
 44:                                               ; preds = %28
   %45 = load ptr, ptr %6, align 8, !tbaa !3
@@ -476,228 +476,232 @@ define signext i8 @lv_area_diff(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   %59 = load i32, ptr %58, align 4, !tbaa !11
   %60 = load i32, ptr %12, align 4, !tbaa !7
   %61 = add nsw i32 %59, %60
-  %62 = getelementptr inbounds nuw %struct.lv_area_t, ptr %9, i32 0, i32 3
-  store i32 %61, ptr %62, align 4, !tbaa !13
-  %63 = load ptr, ptr %5, align 8, !tbaa !3
-  %64 = load i8, ptr %8, align 1, !tbaa !18
-  %65 = add i8 %64, 1
-  store i8 %65, ptr %8, align 1, !tbaa !18
-  %66 = sext i8 %64 to i64
-  %67 = getelementptr inbounds %struct.lv_area_t, ptr %63, i64 %66
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %67, ptr align 4 %9, i64 16, i1 false), !tbaa.struct !19
-  br label %68
+  %62 = sub nsw i32 %61, 1
+  %63 = getelementptr inbounds nuw %struct.lv_area_t, ptr %9, i32 0, i32 3
+  store i32 %62, ptr %63, align 4, !tbaa !13
+  %64 = load ptr, ptr %5, align 8, !tbaa !3
+  %65 = load i8, ptr %8, align 1, !tbaa !18
+  %66 = add i8 %65, 1
+  store i8 %66, ptr %8, align 1, !tbaa !18
+  %67 = sext i8 %65 to i64
+  %68 = getelementptr inbounds %struct.lv_area_t, ptr %64, i64 %67
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %68, ptr align 4 %9, i64 16, i1 false), !tbaa.struct !19
+  br label %69
 
-68:                                               ; preds = %44, %28
+69:                                               ; preds = %44, %28
   call void @llvm.lifetime.start.p0(i64 4, ptr %13) #5
-  %69 = load i32, ptr %11, align 4, !tbaa !7
-  %70 = load ptr, ptr %7, align 8, !tbaa !3
-  %71 = getelementptr inbounds nuw %struct.lv_area_t, ptr %70, i32 0, i32 3
-  %72 = load i32, ptr %71, align 4, !tbaa !13
-  %73 = load ptr, ptr %6, align 8, !tbaa !3
-  %74 = getelementptr inbounds nuw %struct.lv_area_t, ptr %73, i32 0, i32 1
-  %75 = load i32, ptr %74, align 4, !tbaa !11
-  %76 = sub nsw i32 %72, %75
-  %77 = sub nsw i32 %69, %76
-  store i32 %77, ptr %13, align 4, !tbaa !7
-  %78 = load i32, ptr %13, align 4, !tbaa !7
-  %79 = icmp sgt i32 %78, 0
-  br i1 %79, label %80, label %112
+  %70 = load i32, ptr %11, align 4, !tbaa !7
+  %71 = load ptr, ptr %7, align 8, !tbaa !3
+  %72 = getelementptr inbounds nuw %struct.lv_area_t, ptr %71, i32 0, i32 3
+  %73 = load i32, ptr %72, align 4, !tbaa !13
+  %74 = load ptr, ptr %6, align 8, !tbaa !3
+  %75 = getelementptr inbounds nuw %struct.lv_area_t, ptr %74, i32 0, i32 1
+  %76 = load i32, ptr %75, align 4, !tbaa !11
+  %77 = sub nsw i32 %73, %76
+  %78 = sub nsw i32 %70, %77
+  store i32 %78, ptr %13, align 4, !tbaa !7
+  %79 = load i32, ptr %13, align 4, !tbaa !7
+  %80 = icmp sgt i32 %79, 0
+  br i1 %80, label %81, label %114
 
-80:                                               ; preds = %68
-  %81 = load ptr, ptr %7, align 8, !tbaa !3
-  %82 = getelementptr inbounds nuw %struct.lv_area_t, ptr %81, i32 0, i32 3
-  %83 = load i32, ptr %82, align 4, !tbaa !13
-  %84 = load ptr, ptr %6, align 8, !tbaa !3
-  %85 = getelementptr inbounds nuw %struct.lv_area_t, ptr %84, i32 0, i32 3
-  %86 = load i32, ptr %85, align 4, !tbaa !13
-  %87 = icmp slt i32 %83, %86
-  br i1 %87, label %88, label %112
+81:                                               ; preds = %69
+  %82 = load ptr, ptr %7, align 8, !tbaa !3
+  %83 = getelementptr inbounds nuw %struct.lv_area_t, ptr %82, i32 0, i32 3
+  %84 = load i32, ptr %83, align 4, !tbaa !13
+  %85 = load ptr, ptr %6, align 8, !tbaa !3
+  %86 = getelementptr inbounds nuw %struct.lv_area_t, ptr %85, i32 0, i32 3
+  %87 = load i32, ptr %86, align 4, !tbaa !13
+  %88 = icmp slt i32 %84, %87
+  br i1 %88, label %89, label %114
 
-88:                                               ; preds = %80
-  %89 = load ptr, ptr %6, align 8, !tbaa !3
-  %90 = getelementptr inbounds nuw %struct.lv_area_t, ptr %89, i32 0, i32 0
-  %91 = load i32, ptr %90, align 4, !tbaa !9
-  %92 = getelementptr inbounds nuw %struct.lv_area_t, ptr %9, i32 0, i32 0
-  store i32 %91, ptr %92, align 4, !tbaa !9
-  %93 = load ptr, ptr %7, align 8, !tbaa !3
-  %94 = getelementptr inbounds nuw %struct.lv_area_t, ptr %93, i32 0, i32 3
-  %95 = load i32, ptr %94, align 4, !tbaa !13
-  %96 = getelementptr inbounds nuw %struct.lv_area_t, ptr %9, i32 0, i32 1
-  store i32 %95, ptr %96, align 4, !tbaa !11
-  %97 = load ptr, ptr %6, align 8, !tbaa !3
-  %98 = getelementptr inbounds nuw %struct.lv_area_t, ptr %97, i32 0, i32 2
-  %99 = load i32, ptr %98, align 4, !tbaa !12
-  %100 = getelementptr inbounds nuw %struct.lv_area_t, ptr %9, i32 0, i32 2
-  store i32 %99, ptr %100, align 4, !tbaa !12
-  %101 = load ptr, ptr %7, align 8, !tbaa !3
-  %102 = getelementptr inbounds nuw %struct.lv_area_t, ptr %101, i32 0, i32 3
-  %103 = load i32, ptr %102, align 4, !tbaa !13
-  %104 = load i32, ptr %13, align 4, !tbaa !7
-  %105 = add nsw i32 %103, %104
-  %106 = getelementptr inbounds nuw %struct.lv_area_t, ptr %9, i32 0, i32 3
-  store i32 %105, ptr %106, align 4, !tbaa !13
-  %107 = load ptr, ptr %5, align 8, !tbaa !3
-  %108 = load i8, ptr %8, align 1, !tbaa !18
-  %109 = add i8 %108, 1
-  store i8 %109, ptr %8, align 1, !tbaa !18
-  %110 = sext i8 %108 to i64
-  %111 = getelementptr inbounds %struct.lv_area_t, ptr %107, i64 %110
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %111, ptr align 4 %9, i64 16, i1 false), !tbaa.struct !19
-  br label %112
+89:                                               ; preds = %81
+  %90 = load ptr, ptr %6, align 8, !tbaa !3
+  %91 = getelementptr inbounds nuw %struct.lv_area_t, ptr %90, i32 0, i32 0
+  %92 = load i32, ptr %91, align 4, !tbaa !9
+  %93 = getelementptr inbounds nuw %struct.lv_area_t, ptr %9, i32 0, i32 0
+  store i32 %92, ptr %93, align 4, !tbaa !9
+  %94 = load ptr, ptr %7, align 8, !tbaa !3
+  %95 = getelementptr inbounds nuw %struct.lv_area_t, ptr %94, i32 0, i32 3
+  %96 = load i32, ptr %95, align 4, !tbaa !13
+  %97 = add nsw i32 %96, 1
+  %98 = getelementptr inbounds nuw %struct.lv_area_t, ptr %9, i32 0, i32 1
+  store i32 %97, ptr %98, align 4, !tbaa !11
+  %99 = load ptr, ptr %6, align 8, !tbaa !3
+  %100 = getelementptr inbounds nuw %struct.lv_area_t, ptr %99, i32 0, i32 2
+  %101 = load i32, ptr %100, align 4, !tbaa !12
+  %102 = getelementptr inbounds nuw %struct.lv_area_t, ptr %9, i32 0, i32 2
+  store i32 %101, ptr %102, align 4, !tbaa !12
+  %103 = load ptr, ptr %7, align 8, !tbaa !3
+  %104 = getelementptr inbounds nuw %struct.lv_area_t, ptr %103, i32 0, i32 3
+  %105 = load i32, ptr %104, align 4, !tbaa !13
+  %106 = load i32, ptr %13, align 4, !tbaa !7
+  %107 = add nsw i32 %105, %106
+  %108 = getelementptr inbounds nuw %struct.lv_area_t, ptr %9, i32 0, i32 3
+  store i32 %107, ptr %108, align 4, !tbaa !13
+  %109 = load ptr, ptr %5, align 8, !tbaa !3
+  %110 = load i8, ptr %8, align 1, !tbaa !18
+  %111 = add i8 %110, 1
+  store i8 %111, ptr %8, align 1, !tbaa !18
+  %112 = sext i8 %110 to i64
+  %113 = getelementptr inbounds %struct.lv_area_t, ptr %109, i64 %112
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %113, ptr align 4 %9, i64 16, i1 false), !tbaa.struct !19
+  br label %114
 
-112:                                              ; preds = %88, %80, %68
+114:                                              ; preds = %89, %81, %69
   call void @llvm.lifetime.start.p0(i64 4, ptr %14) #5
-  %113 = load ptr, ptr %7, align 8, !tbaa !3
-  %114 = getelementptr inbounds nuw %struct.lv_area_t, ptr %113, i32 0, i32 1
-  %115 = load i32, ptr %114, align 4, !tbaa !11
-  %116 = load ptr, ptr %6, align 8, !tbaa !3
-  %117 = getelementptr inbounds nuw %struct.lv_area_t, ptr %116, i32 0, i32 1
-  %118 = load i32, ptr %117, align 4, !tbaa !11
-  %119 = icmp sgt i32 %115, %118
-  br i1 %119, label %120, label %124
+  %115 = load ptr, ptr %7, align 8, !tbaa !3
+  %116 = getelementptr inbounds nuw %struct.lv_area_t, ptr %115, i32 0, i32 1
+  %117 = load i32, ptr %116, align 4, !tbaa !11
+  %118 = load ptr, ptr %6, align 8, !tbaa !3
+  %119 = getelementptr inbounds nuw %struct.lv_area_t, ptr %118, i32 0, i32 1
+  %120 = load i32, ptr %119, align 4, !tbaa !11
+  %121 = icmp sgt i32 %117, %120
+  br i1 %121, label %122, label %126
 
-120:                                              ; preds = %112
-  %121 = load ptr, ptr %7, align 8, !tbaa !3
-  %122 = getelementptr inbounds nuw %struct.lv_area_t, ptr %121, i32 0, i32 1
-  %123 = load i32, ptr %122, align 4, !tbaa !11
-  br label %128
+122:                                              ; preds = %114
+  %123 = load ptr, ptr %7, align 8, !tbaa !3
+  %124 = getelementptr inbounds nuw %struct.lv_area_t, ptr %123, i32 0, i32 1
+  %125 = load i32, ptr %124, align 4, !tbaa !11
+  br label %130
 
-124:                                              ; preds = %112
-  %125 = load ptr, ptr %6, align 8, !tbaa !3
-  %126 = getelementptr inbounds nuw %struct.lv_area_t, ptr %125, i32 0, i32 1
-  %127 = load i32, ptr %126, align 4, !tbaa !11
-  br label %128
+126:                                              ; preds = %114
+  %127 = load ptr, ptr %6, align 8, !tbaa !3
+  %128 = getelementptr inbounds nuw %struct.lv_area_t, ptr %127, i32 0, i32 1
+  %129 = load i32, ptr %128, align 4, !tbaa !11
+  br label %130
 
-128:                                              ; preds = %124, %120
-  %129 = phi i32 [ %123, %120 ], [ %127, %124 ]
-  store i32 %129, ptr %14, align 4, !tbaa !7
+130:                                              ; preds = %126, %122
+  %131 = phi i32 [ %125, %122 ], [ %129, %126 ]
+  store i32 %131, ptr %14, align 4, !tbaa !7
   call void @llvm.lifetime.start.p0(i64 4, ptr %15) #5
-  %130 = load ptr, ptr %7, align 8, !tbaa !3
-  %131 = getelementptr inbounds nuw %struct.lv_area_t, ptr %130, i32 0, i32 3
-  %132 = load i32, ptr %131, align 4, !tbaa !13
-  %133 = load ptr, ptr %6, align 8, !tbaa !3
-  %134 = getelementptr inbounds nuw %struct.lv_area_t, ptr %133, i32 0, i32 3
-  %135 = load i32, ptr %134, align 4, !tbaa !13
-  %136 = icmp slt i32 %132, %135
-  br i1 %136, label %137, label %141
+  %132 = load ptr, ptr %7, align 8, !tbaa !3
+  %133 = getelementptr inbounds nuw %struct.lv_area_t, ptr %132, i32 0, i32 3
+  %134 = load i32, ptr %133, align 4, !tbaa !13
+  %135 = load ptr, ptr %6, align 8, !tbaa !3
+  %136 = getelementptr inbounds nuw %struct.lv_area_t, ptr %135, i32 0, i32 3
+  %137 = load i32, ptr %136, align 4, !tbaa !13
+  %138 = icmp slt i32 %134, %137
+  br i1 %138, label %139, label %143
 
-137:                                              ; preds = %128
-  %138 = load ptr, ptr %7, align 8, !tbaa !3
-  %139 = getelementptr inbounds nuw %struct.lv_area_t, ptr %138, i32 0, i32 3
-  %140 = load i32, ptr %139, align 4, !tbaa !13
-  br label %145
+139:                                              ; preds = %130
+  %140 = load ptr, ptr %7, align 8, !tbaa !3
+  %141 = getelementptr inbounds nuw %struct.lv_area_t, ptr %140, i32 0, i32 3
+  %142 = load i32, ptr %141, align 4, !tbaa !13
+  br label %147
 
-141:                                              ; preds = %128
-  %142 = load ptr, ptr %6, align 8, !tbaa !3
-  %143 = getelementptr inbounds nuw %struct.lv_area_t, ptr %142, i32 0, i32 3
-  %144 = load i32, ptr %143, align 4, !tbaa !13
-  br label %145
+143:                                              ; preds = %130
+  %144 = load ptr, ptr %6, align 8, !tbaa !3
+  %145 = getelementptr inbounds nuw %struct.lv_area_t, ptr %144, i32 0, i32 3
+  %146 = load i32, ptr %145, align 4, !tbaa !13
+  br label %147
 
-145:                                              ; preds = %141, %137
-  %146 = phi i32 [ %140, %137 ], [ %144, %141 ]
-  store i32 %146, ptr %15, align 4, !tbaa !7
+147:                                              ; preds = %143, %139
+  %148 = phi i32 [ %142, %139 ], [ %146, %143 ]
+  store i32 %148, ptr %15, align 4, !tbaa !7
   call void @llvm.lifetime.start.p0(i64 4, ptr %16) #5
-  %147 = load i32, ptr %15, align 4, !tbaa !7
-  %148 = load i32, ptr %14, align 4, !tbaa !7
-  %149 = sub nsw i32 %147, %148
-  store i32 %149, ptr %16, align 4, !tbaa !7
+  %149 = load i32, ptr %15, align 4, !tbaa !7
+  %150 = load i32, ptr %14, align 4, !tbaa !7
+  %151 = sub nsw i32 %149, %150
+  store i32 %151, ptr %16, align 4, !tbaa !7
   call void @llvm.lifetime.start.p0(i64 4, ptr %17) #5
-  %150 = load ptr, ptr %7, align 8, !tbaa !3
-  %151 = getelementptr inbounds nuw %struct.lv_area_t, ptr %150, i32 0, i32 0
-  %152 = load i32, ptr %151, align 4, !tbaa !9
-  %153 = load ptr, ptr %6, align 8, !tbaa !3
-  %154 = getelementptr inbounds nuw %struct.lv_area_t, ptr %153, i32 0, i32 0
-  %155 = load i32, ptr %154, align 4, !tbaa !9
-  %156 = sub nsw i32 %152, %155
-  store i32 %156, ptr %17, align 4, !tbaa !7
-  %157 = load i32, ptr %17, align 4, !tbaa !7
-  %158 = icmp sgt i32 %157, 0
-  br i1 %158, label %159, label %184
+  %152 = load ptr, ptr %7, align 8, !tbaa !3
+  %153 = getelementptr inbounds nuw %struct.lv_area_t, ptr %152, i32 0, i32 0
+  %154 = load i32, ptr %153, align 4, !tbaa !9
+  %155 = load ptr, ptr %6, align 8, !tbaa !3
+  %156 = getelementptr inbounds nuw %struct.lv_area_t, ptr %155, i32 0, i32 0
+  %157 = load i32, ptr %156, align 4, !tbaa !9
+  %158 = sub nsw i32 %154, %157
+  store i32 %158, ptr %17, align 4, !tbaa !7
+  %159 = load i32, ptr %17, align 4, !tbaa !7
+  %160 = icmp sgt i32 %159, 0
+  br i1 %160, label %161, label %187
 
-159:                                              ; preds = %145
-  %160 = load i32, ptr %16, align 4, !tbaa !7
-  %161 = icmp sgt i32 %160, 0
-  br i1 %161, label %162, label %184
+161:                                              ; preds = %147
+  %162 = load i32, ptr %16, align 4, !tbaa !7
+  %163 = icmp sgt i32 %162, 0
+  br i1 %163, label %164, label %187
 
-162:                                              ; preds = %159
-  %163 = load ptr, ptr %6, align 8, !tbaa !3
-  %164 = getelementptr inbounds nuw %struct.lv_area_t, ptr %163, i32 0, i32 0
-  %165 = load i32, ptr %164, align 4, !tbaa !9
-  %166 = getelementptr inbounds nuw %struct.lv_area_t, ptr %9, i32 0, i32 0
-  store i32 %165, ptr %166, align 4, !tbaa !9
-  %167 = load i32, ptr %14, align 4, !tbaa !7
-  %168 = getelementptr inbounds nuw %struct.lv_area_t, ptr %9, i32 0, i32 1
-  store i32 %167, ptr %168, align 4, !tbaa !11
-  %169 = load ptr, ptr %6, align 8, !tbaa !3
-  %170 = getelementptr inbounds nuw %struct.lv_area_t, ptr %169, i32 0, i32 0
-  %171 = load i32, ptr %170, align 4, !tbaa !9
-  %172 = load i32, ptr %17, align 4, !tbaa !7
-  %173 = add nsw i32 %171, %172
-  %174 = getelementptr inbounds nuw %struct.lv_area_t, ptr %9, i32 0, i32 2
-  store i32 %173, ptr %174, align 4, !tbaa !12
-  %175 = load i32, ptr %14, align 4, !tbaa !7
-  %176 = load i32, ptr %16, align 4, !tbaa !7
-  %177 = add nsw i32 %175, %176
-  %178 = getelementptr inbounds nuw %struct.lv_area_t, ptr %9, i32 0, i32 3
-  store i32 %177, ptr %178, align 4, !tbaa !13
-  %179 = load ptr, ptr %5, align 8, !tbaa !3
-  %180 = load i8, ptr %8, align 1, !tbaa !18
-  %181 = add i8 %180, 1
-  store i8 %181, ptr %8, align 1, !tbaa !18
-  %182 = sext i8 %180 to i64
-  %183 = getelementptr inbounds %struct.lv_area_t, ptr %179, i64 %182
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %183, ptr align 4 %9, i64 16, i1 false), !tbaa.struct !19
-  br label %184
+164:                                              ; preds = %161
+  %165 = load ptr, ptr %6, align 8, !tbaa !3
+  %166 = getelementptr inbounds nuw %struct.lv_area_t, ptr %165, i32 0, i32 0
+  %167 = load i32, ptr %166, align 4, !tbaa !9
+  %168 = getelementptr inbounds nuw %struct.lv_area_t, ptr %9, i32 0, i32 0
+  store i32 %167, ptr %168, align 4, !tbaa !9
+  %169 = load i32, ptr %14, align 4, !tbaa !7
+  %170 = getelementptr inbounds nuw %struct.lv_area_t, ptr %9, i32 0, i32 1
+  store i32 %169, ptr %170, align 4, !tbaa !11
+  %171 = load ptr, ptr %6, align 8, !tbaa !3
+  %172 = getelementptr inbounds nuw %struct.lv_area_t, ptr %171, i32 0, i32 0
+  %173 = load i32, ptr %172, align 4, !tbaa !9
+  %174 = load i32, ptr %17, align 4, !tbaa !7
+  %175 = add nsw i32 %173, %174
+  %176 = sub nsw i32 %175, 1
+  %177 = getelementptr inbounds nuw %struct.lv_area_t, ptr %9, i32 0, i32 2
+  store i32 %176, ptr %177, align 4, !tbaa !12
+  %178 = load i32, ptr %14, align 4, !tbaa !7
+  %179 = load i32, ptr %16, align 4, !tbaa !7
+  %180 = add nsw i32 %178, %179
+  %181 = getelementptr inbounds nuw %struct.lv_area_t, ptr %9, i32 0, i32 3
+  store i32 %180, ptr %181, align 4, !tbaa !13
+  %182 = load ptr, ptr %5, align 8, !tbaa !3
+  %183 = load i8, ptr %8, align 1, !tbaa !18
+  %184 = add i8 %183, 1
+  store i8 %184, ptr %8, align 1, !tbaa !18
+  %185 = sext i8 %183 to i64
+  %186 = getelementptr inbounds %struct.lv_area_t, ptr %182, i64 %185
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %186, ptr align 4 %9, i64 16, i1 false), !tbaa.struct !19
+  br label %187
 
-184:                                              ; preds = %162, %159, %145
+187:                                              ; preds = %164, %161, %147
   call void @llvm.lifetime.start.p0(i64 4, ptr %18) #5
-  %185 = load i32, ptr %10, align 4, !tbaa !7
-  %186 = load ptr, ptr %7, align 8, !tbaa !3
-  %187 = getelementptr inbounds nuw %struct.lv_area_t, ptr %186, i32 0, i32 2
-  %188 = load i32, ptr %187, align 4, !tbaa !12
-  %189 = load ptr, ptr %6, align 8, !tbaa !3
-  %190 = getelementptr inbounds nuw %struct.lv_area_t, ptr %189, i32 0, i32 0
-  %191 = load i32, ptr %190, align 4, !tbaa !9
-  %192 = sub nsw i32 %188, %191
-  %193 = sub nsw i32 %185, %192
-  store i32 %193, ptr %18, align 4, !tbaa !7
-  %194 = load i32, ptr %18, align 4, !tbaa !7
-  %195 = icmp sgt i32 %194, 0
-  br i1 %195, label %196, label %218
+  %188 = load i32, ptr %10, align 4, !tbaa !7
+  %189 = load ptr, ptr %7, align 8, !tbaa !3
+  %190 = getelementptr inbounds nuw %struct.lv_area_t, ptr %189, i32 0, i32 2
+  %191 = load i32, ptr %190, align 4, !tbaa !12
+  %192 = load ptr, ptr %6, align 8, !tbaa !3
+  %193 = getelementptr inbounds nuw %struct.lv_area_t, ptr %192, i32 0, i32 0
+  %194 = load i32, ptr %193, align 4, !tbaa !9
+  %195 = sub nsw i32 %191, %194
+  %196 = sub nsw i32 %188, %195
+  store i32 %196, ptr %18, align 4, !tbaa !7
+  %197 = load i32, ptr %18, align 4, !tbaa !7
+  %198 = icmp sgt i32 %197, 0
+  br i1 %198, label %199, label %222
 
-196:                                              ; preds = %184
-  %197 = load ptr, ptr %7, align 8, !tbaa !3
-  %198 = getelementptr inbounds nuw %struct.lv_area_t, ptr %197, i32 0, i32 2
-  %199 = load i32, ptr %198, align 4, !tbaa !12
-  %200 = getelementptr inbounds nuw %struct.lv_area_t, ptr %9, i32 0, i32 0
-  store i32 %199, ptr %200, align 4, !tbaa !9
-  %201 = load i32, ptr %14, align 4, !tbaa !7
-  %202 = getelementptr inbounds nuw %struct.lv_area_t, ptr %9, i32 0, i32 1
-  store i32 %201, ptr %202, align 4, !tbaa !11
-  %203 = load ptr, ptr %7, align 8, !tbaa !3
-  %204 = getelementptr inbounds nuw %struct.lv_area_t, ptr %203, i32 0, i32 2
-  %205 = load i32, ptr %204, align 4, !tbaa !12
-  %206 = load i32, ptr %18, align 4, !tbaa !7
-  %207 = add nsw i32 %205, %206
-  %208 = getelementptr inbounds nuw %struct.lv_area_t, ptr %9, i32 0, i32 2
-  store i32 %207, ptr %208, align 4, !tbaa !12
-  %209 = load i32, ptr %14, align 4, !tbaa !7
-  %210 = load i32, ptr %16, align 4, !tbaa !7
+199:                                              ; preds = %187
+  %200 = load ptr, ptr %7, align 8, !tbaa !3
+  %201 = getelementptr inbounds nuw %struct.lv_area_t, ptr %200, i32 0, i32 2
+  %202 = load i32, ptr %201, align 4, !tbaa !12
+  %203 = add nsw i32 %202, 1
+  %204 = getelementptr inbounds nuw %struct.lv_area_t, ptr %9, i32 0, i32 0
+  store i32 %203, ptr %204, align 4, !tbaa !9
+  %205 = load i32, ptr %14, align 4, !tbaa !7
+  %206 = getelementptr inbounds nuw %struct.lv_area_t, ptr %9, i32 0, i32 1
+  store i32 %205, ptr %206, align 4, !tbaa !11
+  %207 = load ptr, ptr %7, align 8, !tbaa !3
+  %208 = getelementptr inbounds nuw %struct.lv_area_t, ptr %207, i32 0, i32 2
+  %209 = load i32, ptr %208, align 4, !tbaa !12
+  %210 = load i32, ptr %18, align 4, !tbaa !7
   %211 = add nsw i32 %209, %210
-  %212 = getelementptr inbounds nuw %struct.lv_area_t, ptr %9, i32 0, i32 3
-  store i32 %211, ptr %212, align 4, !tbaa !13
-  %213 = load ptr, ptr %5, align 8, !tbaa !3
-  %214 = load i8, ptr %8, align 1, !tbaa !18
-  %215 = add i8 %214, 1
-  store i8 %215, ptr %8, align 1, !tbaa !18
-  %216 = sext i8 %214 to i64
-  %217 = getelementptr inbounds %struct.lv_area_t, ptr %213, i64 %216
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %217, ptr align 4 %9, i64 16, i1 false), !tbaa.struct !19
-  br label %218
+  %212 = getelementptr inbounds nuw %struct.lv_area_t, ptr %9, i32 0, i32 2
+  store i32 %211, ptr %212, align 4, !tbaa !12
+  %213 = load i32, ptr %14, align 4, !tbaa !7
+  %214 = load i32, ptr %16, align 4, !tbaa !7
+  %215 = add nsw i32 %213, %214
+  %216 = getelementptr inbounds nuw %struct.lv_area_t, ptr %9, i32 0, i32 3
+  store i32 %215, ptr %216, align 4, !tbaa !13
+  %217 = load ptr, ptr %5, align 8, !tbaa !3
+  %218 = load i8, ptr %8, align 1, !tbaa !18
+  %219 = add i8 %218, 1
+  store i8 %219, ptr %8, align 1, !tbaa !18
+  %220 = sext i8 %218 to i64
+  %221 = getelementptr inbounds %struct.lv_area_t, ptr %217, i64 %220
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %221, ptr align 4 %9, i64 16, i1 false), !tbaa.struct !19
+  br label %222
 
-218:                                              ; preds = %196, %184
-  %219 = load i8, ptr %8, align 1, !tbaa !18
-  store i8 %219, ptr %4, align 1
+222:                                              ; preds = %199, %187
+  %223 = load i8, ptr %8, align 1, !tbaa !18
+  store i8 %223, ptr %4, align 1
   call void @llvm.lifetime.end.p0(i64 4, ptr %18) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr %17) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr %16) #5
@@ -709,11 +713,11 @@ define signext i8 @lv_area_diff(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   call void @llvm.lifetime.end.p0(i64 4, ptr %10) #5
   call void @llvm.lifetime.end.p0(i64 16, ptr %9) #5
   call void @llvm.lifetime.end.p0(i64 1, ptr %8) #5
-  br label %220
+  br label %224
 
-220:                                              ; preds = %218, %27, %22
-  %221 = load i8, ptr %4, align 1
-  ret i8 %221
+224:                                              ; preds = %222, %27, %22
+  %225 = load i8, ptr %4, align 1
+  ret i8 %225
 }
 
 ; Function Attrs: nounwind uwtable
@@ -949,7 +953,7 @@ define zeroext i1 @lv_area_is_in(ptr noundef %0, ptr noundef %1, i32 noundef %2)
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define void @lv_area_join(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {

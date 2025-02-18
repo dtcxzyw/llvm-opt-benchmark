@@ -18,26 +18,26 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define zeroext i1 @lv_is_initialized() local_unnamed_addr #0 {
-  %1 = load i8, ptr @lv_global, align 8, !tbaa !3, !range !19, !noundef !20
+  %1 = load i8, ptr @lv_global, align 8, !tbaa !3, !range !30, !noundef !31
   %2 = trunc nuw i8 %1 to i1
   ret i1 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define void @lv_init() local_unnamed_addr #1 {
-  %1 = load i8, ptr @lv_global, align 8, !tbaa !3, !range !19, !noundef !20
+  %1 = load i8, ptr @lv_global, align 8, !tbaa !3, !range !30, !noundef !31
   %2 = trunc nuw i8 %1 to i1
   br i1 %2, label %5, label %3
 
 3:                                                ; preds = %0
   tail call void @lv_memset(ptr noundef nonnull @lv_global, i8 noundef zeroext 0, i64 noundef 920) #3
   tail call void @lv_ll_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 8), i32 noundef 936) #3
-  tail call void @lv_ll_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 128), i32 noundef 304) #3
-  store i32 -1582119980, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 188), align 4, !tbaa !21
-  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 72), align 8, !tbaa !22
-  store i32 3, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 168), align 8, !tbaa !23
-  store i32 140, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 80), align 8, !tbaa !24
-  store i32 66, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 208), align 8, !tbaa !25
+  tail call void @lv_ll_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 128), i32 noundef 320) #3
+  store i32 -1582119980, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 188), align 4, !tbaa !32
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 72), align 8, !tbaa !33
+  store i32 3, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 168), align 8, !tbaa !34
+  store i32 140, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 80), align 8, !tbaa !35
+  store i32 66, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 208), align 8, !tbaa !36
   tail call void @lv_rand_set_seed(i32 noundef 305441741) #3
   tail call void @lv_mem_init() #3
   tail call void @lv_draw_buf_init_handlers() #3
@@ -48,13 +48,14 @@ define void @lv_init() local_unnamed_addr #1 {
   tail call void @lv_layout_init() #3
   tail call void @lv_anim_core_init() #3
   tail call void @lv_group_init() #3
+  %4 = tail call i32 @lv_freetype_init(i32 noundef 256) #3
   tail call void @lv_draw_init() #3
   tail call void @lv_draw_sw_init() #3
   tail call void @lv_obj_style_init() #3
   tail call void @lv_refr_init() #3
   tail call void @lv_image_decoder_init(i32 noundef 0, i32 noundef 0) #3
   tail call void @lv_bin_decoder_init() #3
-  %4 = tail call i32 @lv_freetype_init(i32 noundef 256) #3
+  tail call void @lv_svg_decoder_init() #3
   store i8 1, ptr @lv_global, align 8, !tbaa !3
   br label %5
 
@@ -80,6 +81,8 @@ declare void @lv_anim_core_init() local_unnamed_addr #2
 
 declare void @lv_group_init() local_unnamed_addr #2
 
+declare i32 @lv_freetype_init(i32 noundef) local_unnamed_addr #2
+
 declare void @lv_draw_init() local_unnamed_addr #2
 
 declare void @lv_draw_sw_init() local_unnamed_addr #2
@@ -92,26 +95,25 @@ declare void @lv_image_decoder_init(i32 noundef, i32 noundef) local_unnamed_addr
 
 declare void @lv_bin_decoder_init() local_unnamed_addr #2
 
-declare i32 @lv_freetype_init(i32 noundef) local_unnamed_addr #2
+declare void @lv_svg_decoder_init() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define void @lv_deinit() local_unnamed_addr #1 {
-  %1 = load i8, ptr @lv_global, align 8, !tbaa !3, !range !19, !noundef !20
+  %1 = load i8, ptr @lv_global, align 8, !tbaa !3, !range !30, !noundef !31
   %2 = trunc nuw i8 %1 to i1
   br i1 %2, label %3, label %7
 
 3:                                                ; preds = %0
-  %4 = load i8, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 1), align 1, !tbaa !26, !range !19, !noundef !20
+  %4 = load i8, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 1), align 1, !tbaa !37, !range !30, !noundef !31
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %7, label %6
 
 6:                                                ; preds = %3
-  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 1), align 1, !tbaa !26
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 1), align 1, !tbaa !37
   tail call void @lv_display_set_default(ptr noundef null) #3
   tail call void @lv_ll_clear_custom(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 128), ptr noundef nonnull @lv_indev_delete) #3
   tail call void @lv_ll_clear_custom(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 8), ptr noundef nonnull @lv_display_delete) #3
   tail call void @lv_span_stack_deinit() #3
-  tail call void @lv_draw_sw_deinit() #3
   tail call void @lv_freetype_uninit() #3
   tail call void @lv_theme_default_deinit() #3
   tail call void @lv_theme_simple_deinit() #3
@@ -138,8 +140,6 @@ declare void @lv_display_set_default(ptr noundef) local_unnamed_addr #2
 
 declare void @lv_span_stack_deinit() local_unnamed_addr #2
 
-declare void @lv_draw_sw_deinit() local_unnamed_addr #2
-
 declare void @lv_freetype_uninit() local_unnamed_addr #2
 
 declare void @lv_theme_default_deinit() local_unnamed_addr #2
@@ -153,6 +153,8 @@ declare void @lv_image_decoder_deinit() local_unnamed_addr #2
 declare void @lv_refr_deinit() local_unnamed_addr #2
 
 declare void @lv_obj_style_deinit() local_unnamed_addr #2
+
+declare void @lv_draw_sw_deinit() local_unnamed_addr #2
 
 declare void @lv_draw_deinit() local_unnamed_addr #2
 
@@ -191,26 +193,37 @@ attributes #3 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{!4, !5, i64 0}
-!4 = !{!"_lv_global_t", !5, i64 0, !5, i64 1, !8, i64 8, !10, i64 32, !10, i64 40, !8, i64 48, !5, i64 72, !9, i64 76, !9, i64 80, !10, i64 88, !8, i64 96, !10, i64 120, !8, i64 128, !10, i64 152, !10, i64 160, !9, i64 168, !10, i64 176, !5, i64 184, !9, i64 188, !9, i64 192, !10, i64 200, !9, i64 208, !11, i64 216, !12, i64 288, !13, i64 328, !14, i64 352, !14, i64 400, !14, i64 448, !8, i64 496, !10, i64 520, !10, i64 528, !15, i64 536, !6, i64 568, !10, i64 760, !10, i64 768, !10, i64 776, !16, i64 784, !8, i64 832, !10, i64 856, !10, i64 864, !18, i64 872, !17, i64 888, !10, i64 896, !9, i64 904, !10, i64 912}
+!4 = !{!"_lv_global_t", !5, i64 0, !5, i64 1, !8, i64 8, !12, i64 32, !12, i64 40, !8, i64 48, !5, i64 72, !9, i64 76, !9, i64 80, !10, i64 88, !8, i64 96, !13, i64 120, !8, i64 128, !14, i64 152, !15, i64 160, !9, i64 168, !11, i64 176, !5, i64 184, !9, i64 188, !9, i64 192, !16, i64 200, !9, i64 208, !17, i64 216, !18, i64 288, !20, i64 328, !21, i64 352, !21, i64 400, !21, i64 448, !8, i64 496, !22, i64 520, !22, i64 528, !23, i64 536, !6, i64 568, !11, i64 760, !11, i64 768, !11, i64 776, !25, i64 784, !8, i64 832, !27, i64 856, !28, i64 864, !29, i64 872, !26, i64 888, !11, i64 896, !9, i64 904, !11, i64 912}
 !5 = !{!"_Bool", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
 !8 = !{!"", !9, i64 0, !10, i64 8, !10, i64 16}
 !9 = !{!"int", !6, i64 0}
-!10 = !{!"any pointer", !6, i64 0}
-!11 = !{!"", !8, i64 0, !5, i64 24, !6, i64 25, !5, i64 26, !5, i64 27, !9, i64 28, !5, i64 32, !9, i64 36, !9, i64 40, !9, i64 44, !9, i64 48, !10, i64 56, !10, i64 64}
-!12 = !{!"", !5, i64 0, !5, i64 1, !10, i64 8, !8, i64 16}
-!13 = !{!"", !9, i64 0, !6, i64 4, !10, i64 8, !10, i64 16}
-!14 = !{!"_lv_draw_buf_handlers_t", !10, i64 0, !10, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !10, i64 40}
-!15 = !{!"", !10, i64 0, !9, i64 8, !9, i64 12, !9, i64 16, !9, i64 20, !5, i64 24}
-!16 = !{!"", !10, i64 0, !17, i64 8, !17, i64 16, !8, i64 24}
-!17 = !{!"long", !6, i64 0}
-!18 = !{!"", !10, i64 0, !9, i64 8, !6, i64 12}
-!19 = !{i8 0, i8 2}
-!20 = !{}
-!21 = !{!4, !9, i64 188}
-!22 = !{!4, !5, i64 72}
-!23 = !{!4, !9, i64 168}
-!24 = !{!4, !9, i64 80}
-!25 = !{!4, !9, i64 208}
-!26 = !{!4, !5, i64 1}
+!10 = !{!"p1 omnipotent char", !11, i64 0}
+!11 = !{!"any pointer", !6, i64 0}
+!12 = !{!"p1 _ZTS13_lv_display_t", !11, i64 0}
+!13 = !{!"p1 _ZTS11_lv_group_t", !11, i64 0}
+!14 = !{!"p1 _ZTS11_lv_indev_t", !11, i64 0}
+!15 = !{!"p1 _ZTS9_lv_obj_t", !11, i64 0}
+!16 = !{!"p1 _ZTS11_lv_event_t", !11, i64 0}
+!17 = !{!"", !8, i64 0, !5, i64 24, !6, i64 25, !5, i64 26, !5, i64 27, !9, i64 28, !5, i64 32, !9, i64 36, !9, i64 40, !9, i64 44, !9, i64 48, !11, i64 56, !11, i64 64}
+!18 = !{!"", !5, i64 0, !5, i64 1, !19, i64 8, !8, i64 16}
+!19 = !{!"p1 _ZTS11_lv_timer_t", !11, i64 0}
+!20 = !{!"", !9, i64 0, !6, i64 4, !11, i64 8, !11, i64 16}
+!21 = !{!"_lv_draw_buf_handlers_t", !11, i64 0, !11, i64 8, !11, i64 16, !11, i64 24, !11, i64 32, !11, i64 40}
+!22 = !{!"p1 _ZTS11_lv_cache_t", !11, i64 0}
+!23 = !{!"", !24, i64 0, !9, i64 8, !9, i64 12, !9, i64 16, !9, i64 20, !5, i64 24}
+!24 = !{!"p1 _ZTS15_lv_draw_unit_t", !11, i64 0}
+!25 = !{!"", !11, i64 0, !26, i64 8, !26, i64 16, !8, i64 24}
+!26 = !{!"long", !6, i64 0}
+!27 = !{!"p1 _ZTS22_lv_freetype_context_t", !11, i64 0}
+!28 = !{!"p1 _ZTS14_snippet_stack", !11, i64 0}
+!29 = !{!"", !11, i64 0, !9, i64 8, !6, i64 12}
+!30 = !{i8 0, i8 2}
+!31 = !{}
+!32 = !{!4, !9, i64 188}
+!33 = !{!4, !5, i64 72}
+!34 = !{!4, !9, i64 168}
+!35 = !{!4, !9, i64 80}
+!36 = !{!4, !9, i64 208}
+!37 = !{!4, !5, i64 1}

@@ -21,42 +21,42 @@ define internal void @my_constructor(ptr noundef %0, ptr noundef %1) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8, !tbaa !3
-  store ptr %1, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 8, ptr %5) #4
-  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %8 = load ptr, ptr %4, align 8, !tbaa !8
   %9 = call ptr @lv_obj_get_parent(ptr noundef %8)
-  store ptr %9, ptr %5, align 8, !tbaa !3
-  %10 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %9, ptr %5, align 8, !tbaa !8
+  %10 = load ptr, ptr %4, align 8, !tbaa !8
   call void @lv_obj_move_to_index(ptr noundef %10, i32 noundef 0)
-  %11 = load ptr, ptr %4, align 8, !tbaa !3
+  %11 = load ptr, ptr %4, align 8, !tbaa !8
   call void @lv_obj_set_flex_flow(ptr noundef %11, i32 noundef 0)
   call void @llvm.lifetime.start.p0(i64 8, ptr %6) #4
-  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  %12 = load ptr, ptr %4, align 8, !tbaa !8
   %13 = call ptr @lv_dropdown_create(ptr noundef %12)
-  store ptr %13, ptr %6, align 8, !tbaa !3
-  %14 = load ptr, ptr %6, align 8, !tbaa !3
-  %15 = load ptr, ptr @year_list, align 8, !tbaa !3
+  store ptr %13, ptr %6, align 8, !tbaa !8
+  %14 = load ptr, ptr %6, align 8, !tbaa !8
+  %15 = load ptr, ptr @year_list, align 8, !tbaa !10
   call void @lv_dropdown_set_options(ptr noundef %14, ptr noundef %15)
-  %16 = load ptr, ptr %6, align 8, !tbaa !3
-  %17 = load ptr, ptr %5, align 8, !tbaa !3
+  %16 = load ptr, ptr %6, align 8, !tbaa !8
+  %17 = load ptr, ptr %5, align 8, !tbaa !8
   %18 = call ptr @lv_obj_add_event_cb(ptr noundef %16, ptr noundef @year_event_cb, i32 noundef 35, ptr noundef %17)
-  %19 = load ptr, ptr %6, align 8, !tbaa !3
+  %19 = load ptr, ptr %6, align 8, !tbaa !8
   call void @lv_obj_set_flex_grow(ptr noundef %19, i8 noundef zeroext 1)
   call void @llvm.lifetime.start.p0(i64 8, ptr %7) #4
-  %20 = load ptr, ptr %4, align 8, !tbaa !3
+  %20 = load ptr, ptr %4, align 8, !tbaa !8
   %21 = call ptr @lv_dropdown_create(ptr noundef %20)
-  store ptr %21, ptr %7, align 8, !tbaa !3
-  %22 = load ptr, ptr %7, align 8, !tbaa !3
-  %23 = load ptr, ptr @month_list, align 8, !tbaa !3
+  store ptr %21, ptr %7, align 8, !tbaa !8
+  %22 = load ptr, ptr %7, align 8, !tbaa !8
+  %23 = load ptr, ptr @month_list, align 8, !tbaa !10
   call void @lv_dropdown_set_options(ptr noundef %22, ptr noundef %23)
-  %24 = load ptr, ptr %7, align 8, !tbaa !3
-  %25 = load ptr, ptr %5, align 8, !tbaa !3
+  %24 = load ptr, ptr %7, align 8, !tbaa !8
+  %25 = load ptr, ptr %5, align 8, !tbaa !8
   %26 = call ptr @lv_obj_add_event_cb(ptr noundef %24, ptr noundef @month_event_cb, i32 noundef 35, ptr noundef %25)
-  %27 = load ptr, ptr %7, align 8, !tbaa !3
+  %27 = load ptr, ptr %7, align 8, !tbaa !8
   call void @lv_obj_set_flex_grow(ptr noundef %27, i8 noundef zeroext 1)
-  %28 = load ptr, ptr %4, align 8, !tbaa !3
+  %28 = load ptr, ptr %4, align 8, !tbaa !8
   %29 = call ptr @lv_obj_add_event_cb(ptr noundef %28, ptr noundef @value_changed_event_cb, i32 noundef 35, ptr noundef null)
-  %30 = load ptr, ptr %4, align 8, !tbaa !3
+  %30 = load ptr, ptr %4, align 8, !tbaa !8
   %31 = call i32 @lv_obj_send_event(ptr noundef %30, i32 noundef 35, ptr noundef null)
   call void @llvm.lifetime.end.p0(i64 8, ptr %7) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr %6) #4
@@ -68,27 +68,27 @@ define internal void @my_constructor(ptr noundef %0, ptr noundef %1) #0 {
 define ptr @lv_calendar_header_dropdown_create(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8, !tbaa !3
+  store ptr %0, ptr %2, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 8, ptr %3) #4
-  %4 = load ptr, ptr %2, align 8, !tbaa !3
+  %4 = load ptr, ptr %2, align 8, !tbaa !8
   %5 = call ptr @lv_obj_class_create_obj(ptr noundef @lv_calendar_header_dropdown_class, ptr noundef %4)
-  store ptr %5, ptr %3, align 8, !tbaa !3
-  %6 = load ptr, ptr %3, align 8, !tbaa !3
+  store ptr %5, ptr %3, align 8, !tbaa !8
+  %6 = load ptr, ptr %3, align 8, !tbaa !8
   call void @lv_obj_class_init_obj(ptr noundef %6)
-  %7 = load ptr, ptr %3, align 8, !tbaa !3
+  %7 = load ptr, ptr %3, align 8, !tbaa !8
   call void @llvm.lifetime.end.p0(i64 8, ptr %3) #4
   ret ptr %7
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 declare ptr @lv_obj_class_create_obj(ptr noundef, ptr noundef) #2
 
 declare void @lv_obj_class_init_obj(ptr noundef) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define void @lv_calendar_header_dropdown_set_year_list(ptr noundef %0, ptr noundef %1) #0 {
@@ -98,13 +98,13 @@ define void @lv_calendar_header_dropdown_set_year_list(ptr noundef %0, ptr nound
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8, !tbaa !3
-  store ptr %1, ptr %4, align 8, !tbaa !3
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store ptr %1, ptr %4, align 8, !tbaa !10
   call void @llvm.lifetime.start.p0(i64 8, ptr %5) #4
-  %9 = load ptr, ptr %3, align 8, !tbaa !3
+  %9 = load ptr, ptr %3, align 8, !tbaa !8
   %10 = call ptr @lv_obj_get_child_by_type(ptr noundef %9, i32 noundef 0, ptr noundef @lv_calendar_header_dropdown_class)
-  store ptr %10, ptr %5, align 8, !tbaa !3
-  %11 = load ptr, ptr %5, align 8, !tbaa !3
+  store ptr %10, ptr %5, align 8, !tbaa !8
+  %11 = load ptr, ptr %5, align 8, !tbaa !8
   %12 = icmp eq ptr null, %11
   br i1 %12, label %13, label %14
 
@@ -114,12 +114,12 @@ define void @lv_calendar_header_dropdown_set_year_list(ptr noundef %0, ptr nound
 
 14:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 4, ptr %7) #4
-  store i32 0, ptr %7, align 4, !tbaa !7
+  store i32 0, ptr %7, align 4, !tbaa !12
   call void @llvm.lifetime.start.p0(i64 8, ptr %8) #4
-  %15 = load ptr, ptr %5, align 8, !tbaa !3
+  %15 = load ptr, ptr %5, align 8, !tbaa !8
   %16 = call ptr @lv_obj_get_child_by_type(ptr noundef %15, i32 noundef 0, ptr noundef @lv_dropdown_class)
-  store ptr %16, ptr %8, align 8, !tbaa !3
-  %17 = load ptr, ptr %8, align 8, !tbaa !3
+  store ptr %16, ptr %8, align 8, !tbaa !8
+  %17 = load ptr, ptr %8, align 8, !tbaa !8
   %18 = icmp eq ptr null, %17
   br i1 %18, label %19, label %20
 
@@ -128,12 +128,12 @@ define void @lv_calendar_header_dropdown_set_year_list(ptr noundef %0, ptr nound
   br label %25
 
 20:                                               ; preds = %14
-  %21 = load ptr, ptr %8, align 8, !tbaa !3
+  %21 = load ptr, ptr %8, align 8, !tbaa !8
   call void @lv_dropdown_clear_options(ptr noundef %21)
-  %22 = load ptr, ptr %8, align 8, !tbaa !3
-  %23 = load ptr, ptr %4, align 8, !tbaa !3
+  %22 = load ptr, ptr %8, align 8, !tbaa !8
+  %23 = load ptr, ptr %4, align 8, !tbaa !10
   call void @lv_dropdown_set_options(ptr noundef %22, ptr noundef %23)
-  %24 = load ptr, ptr %3, align 8, !tbaa !3
+  %24 = load ptr, ptr %3, align 8, !tbaa !8
   call void @lv_obj_invalidate(ptr noundef %24)
   store i32 0, ptr %6, align 4
   br label %25
@@ -186,72 +186,72 @@ define internal void @year_event_cb(ptr noundef %0) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca %struct.lv_calendar_date_t, align 2
-  store ptr %0, ptr %2, align 8, !tbaa !3
+  store ptr %0, ptr %2, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(i64 8, ptr %3) #4
-  %10 = load ptr, ptr %2, align 8, !tbaa !3
+  %10 = load ptr, ptr %2, align 8, !tbaa !14
   %11 = call ptr @lv_event_get_current_target(ptr noundef %10)
-  store ptr %11, ptr %3, align 8, !tbaa !3
+  store ptr %11, ptr %3, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 8, ptr %4) #4
-  %12 = load ptr, ptr %2, align 8, !tbaa !3
+  %12 = load ptr, ptr %2, align 8, !tbaa !14
   %13 = call ptr @lv_event_get_user_data(ptr noundef %12)
-  store ptr %13, ptr %4, align 8, !tbaa !3
+  store ptr %13, ptr %4, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 4, ptr %5) #4
-  %14 = load ptr, ptr %3, align 8, !tbaa !3
+  %14 = load ptr, ptr %3, align 8, !tbaa !8
   %15 = call i32 @lv_dropdown_get_selected(ptr noundef %14)
-  store i32 %15, ptr %5, align 4, !tbaa !7
+  store i32 %15, ptr %5, align 4, !tbaa !12
   call void @llvm.lifetime.start.p0(i64 8, ptr %6) #4
-  %16 = load ptr, ptr %4, align 8, !tbaa !3
+  %16 = load ptr, ptr %4, align 8, !tbaa !8
   %17 = call ptr @lv_calendar_get_showed_date(ptr noundef %16)
-  store ptr %17, ptr %6, align 8, !tbaa !3
+  store ptr %17, ptr %6, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 8, ptr %7) #4
-  %18 = load ptr, ptr %3, align 8, !tbaa !3
+  %18 = load ptr, ptr %3, align 8, !tbaa !8
   %19 = call ptr @lv_dropdown_get_options(ptr noundef %18)
-  store ptr %19, ptr %7, align 8, !tbaa !3
+  store ptr %19, ptr %7, align 8, !tbaa !10
   call void @llvm.lifetime.start.p0(i64 4, ptr %8) #4
-  %20 = load ptr, ptr %7, align 8, !tbaa !3
+  %20 = load ptr, ptr %7, align 8, !tbaa !10
   %21 = getelementptr inbounds i8, ptr %20, i64 0
-  %22 = load i8, ptr %21, align 1, !tbaa !9
+  %22 = load i8, ptr %21, align 1, !tbaa !17
   %23 = sext i8 %22 to i32
   %24 = sub nsw i32 %23, 48
   %25 = mul nsw i32 %24, 1000
-  %26 = load ptr, ptr %7, align 8, !tbaa !3
+  %26 = load ptr, ptr %7, align 8, !tbaa !10
   %27 = getelementptr inbounds i8, ptr %26, i64 1
-  %28 = load i8, ptr %27, align 1, !tbaa !9
+  %28 = load i8, ptr %27, align 1, !tbaa !17
   %29 = sext i8 %28 to i32
   %30 = sub nsw i32 %29, 48
   %31 = mul nsw i32 %30, 100
   %32 = add nsw i32 %25, %31
-  %33 = load ptr, ptr %7, align 8, !tbaa !3
+  %33 = load ptr, ptr %7, align 8, !tbaa !10
   %34 = getelementptr inbounds i8, ptr %33, i64 2
-  %35 = load i8, ptr %34, align 1, !tbaa !9
+  %35 = load i8, ptr %34, align 1, !tbaa !17
   %36 = sext i8 %35 to i32
   %37 = sub nsw i32 %36, 48
   %38 = mul nsw i32 %37, 10
   %39 = add nsw i32 %32, %38
-  %40 = load ptr, ptr %7, align 8, !tbaa !3
+  %40 = load ptr, ptr %7, align 8, !tbaa !10
   %41 = getelementptr inbounds i8, ptr %40, i64 3
-  %42 = load i8, ptr %41, align 1, !tbaa !9
+  %42 = load i8, ptr %41, align 1, !tbaa !17
   %43 = sext i8 %42 to i32
   %44 = sub nsw i32 %43, 48
   %45 = add nsw i32 %39, %44
-  store i32 %45, ptr %8, align 4, !tbaa !7
+  store i32 %45, ptr %8, align 4, !tbaa !12
   call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
-  %46 = load ptr, ptr %6, align 8, !tbaa !3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %9, ptr align 2 %46, i64 4, i1 false), !tbaa.struct !10
-  %47 = load i32, ptr %8, align 4, !tbaa !7
-  %48 = load i32, ptr %5, align 4, !tbaa !7
+  %46 = load ptr, ptr %6, align 8, !tbaa !16
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %9, ptr align 2 %46, i64 4, i1 false), !tbaa.struct !18
+  %47 = load i32, ptr %8, align 4, !tbaa !12
+  %48 = load i32, ptr %5, align 4, !tbaa !12
   %49 = sub i32 %47, %48
   %50 = trunc i32 %49 to i16
   %51 = getelementptr inbounds nuw %struct.lv_calendar_date_t, ptr %9, i32 0, i32 0
-  store i16 %50, ptr %51, align 2, !tbaa !13
-  %52 = load ptr, ptr %4, align 8, !tbaa !3
+  store i16 %50, ptr %51, align 2, !tbaa !21
+  %52 = load ptr, ptr %4, align 8, !tbaa !8
   %53 = getelementptr inbounds nuw %struct.lv_calendar_date_t, ptr %9, i32 0, i32 0
-  %54 = load i16, ptr %53, align 2, !tbaa !13
+  %54 = load i16, ptr %53, align 2, !tbaa !21
   %55 = zext i16 %54 to i32
   %56 = getelementptr inbounds nuw %struct.lv_calendar_date_t, ptr %9, i32 0, i32 1
-  %57 = load i8, ptr %56, align 2, !tbaa !15
+  %57 = load i8, ptr %56, align 2, !tbaa !23
   %58 = sext i8 %57 to i32
-  call void @lv_calendar_set_showed_date(ptr noundef %52, i32 noundef %55, i32 noundef %58)
+  call void @lv_calendar_set_month_shown(ptr noundef %52, i32 noundef %55, i32 noundef %58)
   call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr %8) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr %7) #4
@@ -272,39 +272,39 @@ define internal void @month_event_cb(ptr noundef %0) #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = alloca %struct.lv_calendar_date_t, align 2
-  store ptr %0, ptr %2, align 8, !tbaa !3
+  store ptr %0, ptr %2, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(i64 8, ptr %3) #4
-  %8 = load ptr, ptr %2, align 8, !tbaa !3
+  %8 = load ptr, ptr %2, align 8, !tbaa !14
   %9 = call ptr @lv_event_get_current_target(ptr noundef %8)
-  store ptr %9, ptr %3, align 8, !tbaa !3
+  store ptr %9, ptr %3, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 8, ptr %4) #4
-  %10 = load ptr, ptr %2, align 8, !tbaa !3
+  %10 = load ptr, ptr %2, align 8, !tbaa !14
   %11 = call ptr @lv_event_get_user_data(ptr noundef %10)
-  store ptr %11, ptr %4, align 8, !tbaa !3
+  store ptr %11, ptr %4, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 4, ptr %5) #4
-  %12 = load ptr, ptr %3, align 8, !tbaa !3
+  %12 = load ptr, ptr %3, align 8, !tbaa !8
   %13 = call i32 @lv_dropdown_get_selected(ptr noundef %12)
-  store i32 %13, ptr %5, align 4, !tbaa !7
+  store i32 %13, ptr %5, align 4, !tbaa !12
   call void @llvm.lifetime.start.p0(i64 8, ptr %6) #4
-  %14 = load ptr, ptr %4, align 8, !tbaa !3
+  %14 = load ptr, ptr %4, align 8, !tbaa !8
   %15 = call ptr @lv_calendar_get_showed_date(ptr noundef %14)
-  store ptr %15, ptr %6, align 8, !tbaa !3
+  store ptr %15, ptr %6, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 4, ptr %7) #4
-  %16 = load ptr, ptr %6, align 8, !tbaa !3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %7, ptr align 2 %16, i64 4, i1 false), !tbaa.struct !10
-  %17 = load i32, ptr %5, align 4, !tbaa !7
+  %16 = load ptr, ptr %6, align 8, !tbaa !16
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %7, ptr align 2 %16, i64 4, i1 false), !tbaa.struct !18
+  %17 = load i32, ptr %5, align 4, !tbaa !12
   %18 = add i32 %17, 1
   %19 = trunc i32 %18 to i8
   %20 = getelementptr inbounds nuw %struct.lv_calendar_date_t, ptr %7, i32 0, i32 1
-  store i8 %19, ptr %20, align 2, !tbaa !15
-  %21 = load ptr, ptr %4, align 8, !tbaa !3
+  store i8 %19, ptr %20, align 2, !tbaa !23
+  %21 = load ptr, ptr %4, align 8, !tbaa !8
   %22 = getelementptr inbounds nuw %struct.lv_calendar_date_t, ptr %7, i32 0, i32 0
-  %23 = load i16, ptr %22, align 2, !tbaa !13
+  %23 = load i16, ptr %22, align 2, !tbaa !21
   %24 = zext i16 %23 to i32
   %25 = getelementptr inbounds nuw %struct.lv_calendar_date_t, ptr %7, i32 0, i32 1
-  %26 = load i8, ptr %25, align 2, !tbaa !15
+  %26 = load i8, ptr %25, align 2, !tbaa !23
   %27 = sext i8 %26 to i32
-  call void @lv_calendar_set_showed_date(ptr noundef %21, i32 noundef %24, i32 noundef %27)
+  call void @lv_calendar_set_month_shown(ptr noundef %21, i32 noundef %24, i32 noundef %27)
   call void @llvm.lifetime.end.p0(i64 4, ptr %7) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr %6) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr %5) #4
@@ -323,74 +323,74 @@ define internal void @value_changed_event_cb(ptr noundef %0) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8, !tbaa !3
+  store ptr %0, ptr %2, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(i64 8, ptr %3) #4
-  %10 = load ptr, ptr %2, align 8, !tbaa !3
+  %10 = load ptr, ptr %2, align 8, !tbaa !14
   %11 = call ptr @lv_event_get_current_target(ptr noundef %10)
-  store ptr %11, ptr %3, align 8, !tbaa !3
+  store ptr %11, ptr %3, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 8, ptr %4) #4
-  %12 = load ptr, ptr %3, align 8, !tbaa !3
+  %12 = load ptr, ptr %3, align 8, !tbaa !8
   %13 = call ptr @lv_obj_get_parent(ptr noundef %12)
-  store ptr %13, ptr %4, align 8, !tbaa !3
+  store ptr %13, ptr %4, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 8, ptr %5) #4
-  %14 = load ptr, ptr %4, align 8, !tbaa !3
+  %14 = load ptr, ptr %4, align 8, !tbaa !8
   %15 = call ptr @lv_calendar_get_showed_date(ptr noundef %14)
-  store ptr %15, ptr %5, align 8, !tbaa !3
+  store ptr %15, ptr %5, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 8, ptr %6) #4
-  %16 = load ptr, ptr %3, align 8, !tbaa !3
+  %16 = load ptr, ptr %3, align 8, !tbaa !8
   %17 = call ptr @lv_obj_get_child(ptr noundef %16, i32 noundef 0)
-  store ptr %17, ptr %6, align 8, !tbaa !3
+  store ptr %17, ptr %6, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 8, ptr %7) #4
-  %18 = load ptr, ptr %6, align 8, !tbaa !3
+  %18 = load ptr, ptr %6, align 8, !tbaa !8
   %19 = call ptr @lv_dropdown_get_options(ptr noundef %18)
-  store ptr %19, ptr %7, align 8, !tbaa !3
+  store ptr %19, ptr %7, align 8, !tbaa !10
   call void @llvm.lifetime.start.p0(i64 4, ptr %8) #4
-  %20 = load ptr, ptr %7, align 8, !tbaa !3
+  %20 = load ptr, ptr %7, align 8, !tbaa !10
   %21 = getelementptr inbounds i8, ptr %20, i64 0
-  %22 = load i8, ptr %21, align 1, !tbaa !9
+  %22 = load i8, ptr %21, align 1, !tbaa !17
   %23 = sext i8 %22 to i32
   %24 = sub nsw i32 %23, 48
   %25 = mul nsw i32 %24, 1000
-  %26 = load ptr, ptr %7, align 8, !tbaa !3
+  %26 = load ptr, ptr %7, align 8, !tbaa !10
   %27 = getelementptr inbounds i8, ptr %26, i64 1
-  %28 = load i8, ptr %27, align 1, !tbaa !9
+  %28 = load i8, ptr %27, align 1, !tbaa !17
   %29 = sext i8 %28 to i32
   %30 = sub nsw i32 %29, 48
   %31 = mul nsw i32 %30, 100
   %32 = add nsw i32 %25, %31
-  %33 = load ptr, ptr %7, align 8, !tbaa !3
+  %33 = load ptr, ptr %7, align 8, !tbaa !10
   %34 = getelementptr inbounds i8, ptr %33, i64 2
-  %35 = load i8, ptr %34, align 1, !tbaa !9
+  %35 = load i8, ptr %34, align 1, !tbaa !17
   %36 = sext i8 %35 to i32
   %37 = sub nsw i32 %36, 48
   %38 = mul nsw i32 %37, 10
   %39 = add nsw i32 %32, %38
-  %40 = load ptr, ptr %7, align 8, !tbaa !3
+  %40 = load ptr, ptr %7, align 8, !tbaa !10
   %41 = getelementptr inbounds i8, ptr %40, i64 3
-  %42 = load i8, ptr %41, align 1, !tbaa !9
+  %42 = load i8, ptr %41, align 1, !tbaa !17
   %43 = sext i8 %42 to i32
   %44 = sub nsw i32 %43, 48
   %45 = add nsw i32 %39, %44
-  store i32 %45, ptr %8, align 4, !tbaa !7
-  %46 = load ptr, ptr %6, align 8, !tbaa !3
-  %47 = load i32, ptr %8, align 4, !tbaa !7
-  %48 = load ptr, ptr %5, align 8, !tbaa !3
+  store i32 %45, ptr %8, align 4, !tbaa !12
+  %46 = load ptr, ptr %6, align 8, !tbaa !8
+  %47 = load i32, ptr %8, align 4, !tbaa !12
+  %48 = load ptr, ptr %5, align 8, !tbaa !16
   %49 = getelementptr inbounds nuw %struct.lv_calendar_date_t, ptr %48, i32 0, i32 0
-  %50 = load i16, ptr %49, align 2, !tbaa !13
+  %50 = load i16, ptr %49, align 2, !tbaa !21
   %51 = zext i16 %50 to i32
   %52 = sub i32 %47, %51
-  call void @lv_dropdown_set_selected(ptr noundef %46, i32 noundef %52)
+  call void @lv_dropdown_set_selected(ptr noundef %46, i32 noundef %52, i1 noundef zeroext false)
   call void @llvm.lifetime.start.p0(i64 8, ptr %9) #4
-  %53 = load ptr, ptr %3, align 8, !tbaa !3
+  %53 = load ptr, ptr %3, align 8, !tbaa !8
   %54 = call ptr @lv_obj_get_child(ptr noundef %53, i32 noundef 1)
-  store ptr %54, ptr %9, align 8, !tbaa !3
-  %55 = load ptr, ptr %9, align 8, !tbaa !3
-  %56 = load ptr, ptr %5, align 8, !tbaa !3
+  store ptr %54, ptr %9, align 8, !tbaa !8
+  %55 = load ptr, ptr %9, align 8, !tbaa !8
+  %56 = load ptr, ptr %5, align 8, !tbaa !16
   %57 = getelementptr inbounds nuw %struct.lv_calendar_date_t, ptr %56, i32 0, i32 1
-  %58 = load i8, ptr %57, align 2, !tbaa !15
+  %58 = load i8, ptr %57, align 2, !tbaa !23
   %59 = sext i8 %58 to i32
   %60 = sub nsw i32 %59, 1
-  call void @lv_dropdown_set_selected(ptr noundef %55, i32 noundef %60)
+  call void @lv_dropdown_set_selected(ptr noundef %55, i32 noundef %60, i1 noundef zeroext false)
   call void @llvm.lifetime.end.p0(i64 8, ptr %9) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr %8) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr %7) #4
@@ -414,13 +414,13 @@ declare ptr @lv_calendar_get_showed_date(ptr noundef) #2
 declare ptr @lv_dropdown_get_options(ptr noundef) #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
-declare void @lv_calendar_set_showed_date(ptr noundef, i32 noundef, i32 noundef) #2
+declare void @lv_calendar_set_month_shown(ptr noundef, i32 noundef, i32 noundef) #2
 
 declare ptr @lv_obj_get_child(ptr noundef, i32 noundef) #2
 
-declare void @lv_dropdown_set_selected(ptr noundef, i32 noundef) #2
+declare void @lv_dropdown_set_selected(ptr noundef, i32 noundef, i1 noundef zeroext) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
@@ -434,15 +434,23 @@ attributes #4 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{!4, !4, i64 0}
-!4 = !{!"any pointer", !5, i64 0}
-!5 = !{!"omnipotent char", !6, i64 0}
-!6 = !{!"Simple C/C++ TBAA"}
-!7 = !{!8, !8, i64 0}
-!8 = !{!"int", !5, i64 0}
-!9 = !{!5, !5, i64 0}
-!10 = !{i64 0, i64 2, !11, i64 2, i64 1, !9, i64 3, i64 1, !9}
-!11 = !{!12, !12, i64 0}
-!12 = !{!"short", !5, i64 0}
-!13 = !{!14, !12, i64 0}
-!14 = !{!"", !12, i64 0, !5, i64 2, !5, i64 3}
-!15 = !{!14, !5, i64 2}
+!4 = !{!"p1 _ZTS15_lv_obj_class_t", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"p1 _ZTS9_lv_obj_t", !5, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"p1 omnipotent char", !5, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"int", !6, i64 0}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"p1 _ZTS11_lv_event_t", !5, i64 0}
+!16 = !{!5, !5, i64 0}
+!17 = !{!6, !6, i64 0}
+!18 = !{i64 0, i64 2, !19, i64 2, i64 1, !17, i64 3, i64 1, !17}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"short", !6, i64 0}
+!21 = !{!22, !20, i64 0}
+!22 = !{!"", !20, i64 0, !6, i64 2, !6, i64 3}
+!23 = !{!22, !6, i64 2}

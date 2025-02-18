@@ -35,6 +35,7 @@ supported_project = [
     "libwebp",
     "lua",
     "luajit",
+    "lvgl",
 ]
 
 modify_only = [

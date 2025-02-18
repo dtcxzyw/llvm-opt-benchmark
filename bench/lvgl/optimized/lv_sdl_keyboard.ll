@@ -62,10 +62,10 @@ define internal void @sdl_keyboard_read(ptr noundef %0, ptr noundef writeonly ca
   store i8 1, ptr %5, align 1, !tbaa !3
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 20
   store i32 1, ptr %12, align 4, !tbaa !10
-  %13 = load i8, ptr %3, align 1, !tbaa !15
+  %13 = load i8, ptr %3, align 1, !tbaa !16
   %14 = sext i8 %13 to i32
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %14, ptr %15, align 4, !tbaa !16
+  store i32 %14, ptr %15, align 8, !tbaa !17
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %17 = tail call ptr @lv_memmove(ptr noundef nonnull %3, ptr noundef nonnull %16, i64 noundef %4) #3
   br label %18
@@ -99,7 +99,7 @@ define internal void @release_indev_cb(ptr noundef %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define void @lv_sdl_keyboard_handler(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = load i32, ptr %0, align 8, !tbaa !15
+  %2 = load i32, ptr %0, align 8, !tbaa !16
   switch i32 %2, label %.critedge [
     i32 768, label %3
     i32 771, label %3
@@ -107,7 +107,7 @@ define void @lv_sdl_keyboard_handler(ptr noundef %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %1, %1
   %.032.in = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.032 = load i32, ptr %.032.in, align 8, !tbaa !15
+  %.032 = load i32, ptr %.032.in, align 8, !tbaa !16
   %4 = tail call ptr @lv_sdl_get_disp_from_win_id(i32 noundef %.032) #3
   %.fr51 = freeze ptr %4
   %5 = tail call ptr @lv_indev_get_next(ptr noundef null) #3
@@ -120,19 +120,19 @@ define void @lv_sdl_keyboard_handler(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %9
   %.03446.us = phi ptr [ %10, %9 ], [ %5, %.lr.ph ]
-  %7 = tail call i32 @lv_indev_get_type(ptr noundef nonnull %.03446.us) #3
-  %8 = icmp eq i32 %7, 2
+  %7 = tail call ptr @lv_indev_get_read_cb(ptr noundef nonnull %.03446.us) #3
+  %8 = icmp eq ptr %7, @sdl_keyboard_read
   br i1 %8, label %.split.us, label %9
 
 9:                                                ; preds = %.lr.ph.split.us
   %10 = tail call ptr @lv_indev_get_next(ptr noundef nonnull %.03446.us) #3
   %cond.us = icmp eq ptr %10, null
-  br i1 %cond.us, label %.critedge, label %.lr.ph.split.us, !llvm.loop !17
+  br i1 %cond.us, label %.critedge, label %.lr.ph.split.us, !llvm.loop !18
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %16
   %.03446 = phi ptr [ %17, %16 ], [ %5, %.lr.ph ]
-  %11 = tail call i32 @lv_indev_get_type(ptr noundef nonnull %.03446) #3
-  %12 = icmp eq i32 %11, 2
+  %11 = tail call ptr @lv_indev_get_read_cb(ptr noundef nonnull %.03446) #3
+  %12 = icmp eq ptr %11, @sdl_keyboard_read
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %.lr.ph.split
@@ -143,12 +143,12 @@ define void @lv_sdl_keyboard_handler(ptr noundef %0) local_unnamed_addr #0 {
 16:                                               ; preds = %13, %.lr.ph.split
   %17 = tail call ptr @lv_indev_get_next(ptr noundef nonnull %.03446) #3
   %cond = icmp eq ptr %17, null
-  br i1 %cond, label %.critedge, label %.lr.ph.split, !llvm.loop !17
+  br i1 %cond, label %.critedge, label %.lr.ph.split, !llvm.loop !18
 
 .split.us:                                        ; preds = %13, %.lr.ph.split.us
   %.us-phi = phi ptr [ %.03446.us, %.lr.ph.split.us ], [ %.03446, %13 ]
   %18 = tail call ptr @lv_indev_get_driver_data(ptr noundef nonnull %.us-phi) #3
-  %19 = load i32, ptr %0, align 8, !tbaa !15
+  %19 = load i32, ptr %0, align 8, !tbaa !16
   switch i32 %19, label %49 [
     i32 768, label %20
     i32 771, label %41
@@ -156,7 +156,7 @@ define void @lv_sdl_keyboard_handler(ptr noundef %0) local_unnamed_addr #0 {
 
 20:                                               ; preds = %.split.us
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %22 = load i32, ptr %21, align 4, !tbaa !15
+  %22 = load i32, ptr %21, align 4, !tbaa !16
   switch i32 %22, label %.critedge [
     i32 1073741903, label %34
     i32 1073741911, label %34
@@ -217,10 +217,10 @@ define void @lv_sdl_keyboard_handler(ptr noundef %0) local_unnamed_addr #0 {
 
 37:                                               ; preds = %34
   %38 = getelementptr inbounds nuw [32 x i8], ptr %18, i64 0, i64 %35
-  store i8 %.0.i.ph, ptr %38, align 1, !tbaa !15
+  store i8 %.0.i.ph, ptr %38, align 1, !tbaa !16
   %39 = add nuw nsw i64 %35, 1
   %40 = getelementptr inbounds nuw [32 x i8], ptr %18, i64 0, i64 %39
-  store i8 0, ptr %40, align 1, !tbaa !15
+  store i8 0, ptr %40, align 1, !tbaa !16
   br label %49
 
 41:                                               ; preds = %.split.us
@@ -246,7 +246,7 @@ define void @lv_sdl_keyboard_handler(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @lv_indev_read(ptr noundef nonnull %.us-phi) #3
   %51 = add i64 %.049, -1
   %.not39 = icmp eq i64 %51, 0
-  br i1 %.not39, label %.critedge, label %.lr.ph50, !llvm.loop !19
+  br i1 %.not39, label %.critedge, label %.lr.ph50, !llvm.loop !20
 
 .critedge:                                        ; preds = %16, %9, %.lr.ph50, %3, %49, %20, %1
   ret void
@@ -256,7 +256,7 @@ declare ptr @lv_sdl_get_disp_from_win_id(i32 noundef) local_unnamed_addr #1
 
 declare ptr @lv_indev_get_next(ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_indev_get_type(ptr noundef) local_unnamed_addr #1
+declare ptr @lv_indev_get_read_cb(ptr noundef) local_unnamed_addr #1
 
 declare ptr @lv_indev_get_display(ptr noundef) local_unnamed_addr #1
 
@@ -291,12 +291,13 @@ attributes #3 = { nounwind }
 !8 = !{i8 0, i8 2}
 !9 = !{}
 !10 = !{!11, !13, i64 20}
-!11 = !{!"", !12, i64 0, !13, i64 8, !13, i64 12, !14, i64 16, !13, i64 20, !7, i64 24}
+!11 = !{!"", !12, i64 0, !13, i64 8, !13, i64 12, !14, i64 16, !13, i64 20, !7, i64 24, !13, i64 28, !15, i64 32}
 !12 = !{!"", !13, i64 0, !13, i64 4}
 !13 = !{!"int", !5, i64 0}
 !14 = !{!"short", !5, i64 0}
-!15 = !{!5, !5, i64 0}
-!16 = !{!11, !13, i64 8}
-!17 = distinct !{!17, !18}
-!18 = !{!"llvm.loop.mustprogress"}
-!19 = distinct !{!19, !18}
+!15 = !{!"any pointer", !5, i64 0}
+!16 = !{!5, !5, i64 0}
+!17 = !{!11, !13, i64 8}
+!18 = distinct !{!18, !19}
+!19 = !{!"llvm.loop.mustprogress"}
+!20 = distinct !{!20, !19}

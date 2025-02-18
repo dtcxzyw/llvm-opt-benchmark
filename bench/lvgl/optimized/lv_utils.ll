@@ -71,14 +71,14 @@ define range(i32 0, 2) i32 @lv_draw_buf_save_to_file(ptr noundef %0, ptr noundef
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8, !tbaa !5
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %15 = load i32, ptr %14, align 4, !tbaa !12
+  %15 = load i32, ptr %14, align 4, !tbaa !14
   %16 = call i32 @lv_fs_write(ptr noundef nonnull %3, ptr noundef %13, i32 noundef %15, ptr noundef nonnull %4) #3
   %.not11 = icmp eq i32 %16, 0
   br i1 %.not11, label %17, label %20
 
 17:                                               ; preds = %11
-  %18 = load i32, ptr %4, align 4, !tbaa !13
-  %19 = load i32, ptr %14, align 4, !tbaa !12
+  %18 = load i32, ptr %4, align 4, !tbaa !15
+  %19 = load i32, ptr %14, align 4, !tbaa !14
   %.not12 = icmp eq i32 %18, %19
   %spec.select = zext i1 %.not12 to i32
   br label %20
@@ -116,11 +116,13 @@ attributes #3 = { nounwind }
 !3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
 !5 = !{!6, !11, i64 16}
-!6 = !{!"_lv_draw_buf_t", !7, i64 0, !8, i64 12, !11, i64 16, !11, i64 24, !11, i64 32}
+!6 = !{!"_lv_draw_buf_t", !7, i64 0, !8, i64 12, !11, i64 16, !12, i64 24, !13, i64 32}
 !7 = !{!"", !8, i64 0, !8, i64 1, !8, i64 2, !8, i64 4, !8, i64 6, !8, i64 8, !8, i64 10}
 !8 = !{!"int", !9, i64 0}
 !9 = !{!"omnipotent char", !10, i64 0}
 !10 = !{!"Simple C/C++ TBAA"}
-!11 = !{!"any pointer", !9, i64 0}
-!12 = !{!6, !8, i64 12}
-!13 = !{!8, !8, i64 0}
+!11 = !{!"p1 omnipotent char", !12, i64 0}
+!12 = !{!"any pointer", !9, i64 0}
+!13 = !{!"p1 _ZTS23_lv_draw_buf_handlers_t", !12, i64 0}
+!14 = !{!6, !8, i64 12}
+!15 = !{!8, !8, i64 0}

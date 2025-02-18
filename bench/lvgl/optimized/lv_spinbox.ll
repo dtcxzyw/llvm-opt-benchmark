@@ -17,11 +17,11 @@ define internal void @lv_spinbox_constructor(ptr readnone captures(none) %0, ptr
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %5 = load i16, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 172
-  store i32 1, ptr %6, align 4, !tbaa !14
+  store i32 1, ptr %6, align 4, !tbaa !19
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 164
-  store i32 99999, ptr %7, align 4, !tbaa !15
+  store i32 99999, ptr %7, align 4, !tbaa !20
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 168
-  store i32 -99999, ptr %8, align 8, !tbaa !16
+  store i32 -99999, ptr %8, align 8, !tbaa !21
   %9 = and i16 %5, -2048
   %10 = or disjoint i16 %9, 1029
   store i16 %10, ptr %4, align 8
@@ -42,19 +42,19 @@ define internal void @lv_spinbox_event(ptr readnone captures(none) %0, ptr nound
   %6 = tail call ptr @lv_event_get_current_target(ptr noundef %1) #7
   switch i32 %5, label %lv_spinbox_increment.exit [
     i32 11, label %7
-    i32 17, label %85
+    i32 17, label %83
   ]
 
 7:                                                ; preds = %4
   %8 = tail call ptr @lv_indev_active() #7
   %9 = tail call i32 @lv_indev_get_type(ptr noundef %8) #7
   %10 = icmp eq i32 %9, 4
-  br i1 %10, label %11, label %42
+  br i1 %10, label %11, label %40
 
 11:                                               ; preds = %7
   %12 = tail call ptr @lv_obj_get_group(ptr noundef %6) #7
   %13 = tail call zeroext i1 @lv_group_get_editing(ptr noundef %12) #7
-  br i1 %13, label %14, label %42
+  br i1 %13, label %14, label %40
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 176
@@ -68,254 +68,275 @@ define internal void @lv_spinbox_event(ptr readnone captures(none) %0, ptr nound
   %21 = and i16 %16, 1536
   %22 = icmp eq i16 %21, 1024
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 172
-  %24 = load i32, ptr %23, align 4, !tbaa !14
-  br i1 %22, label %25, label %35
+  %24 = load i32, ptr %23, align 4, !tbaa !19
+  br i1 %22, label %25, label %34
 
 25:                                               ; preds = %20
   %26 = icmp sgt i32 %24, 1
-  br i1 %26, label %27, label %31
+  br i1 %26, label %lv_spinbox_step_next.exit, label %30
 
-27:                                               ; preds = %25
-  %28 = udiv i32 %24, 10
-  %29 = icmp samesign ugt i32 %24, 9
-  %30 = select i1 %29, i32 %28, i32 1
-  store i32 %30, ptr %23, align 4, !tbaa !14
+lv_spinbox_step_next.exit:                        ; preds = %25
+  %27 = udiv i32 %24, 10
+  %28 = icmp samesign ugt i32 %24, 9
+  %29 = select i1 %28, i32 %27, i32 1
+  store i32 %29, ptr %23, align 4, !tbaa !19
   tail call fastcc void @lv_spinbox_updatevalue(ptr noundef nonnull %6)
   br label %lv_spinbox_increment.exit
 
-31:                                               ; preds = %25
-  %32 = add nsw i8 %18, -2
-  %33 = tail call i64 @lv_pow(i64 noundef 10, i8 noundef signext %32) #7
-  %34 = trunc i64 %33 to i32
-  store i32 %34, ptr %23, align 4, !tbaa !14
+30:                                               ; preds = %25
+  %31 = add nsw i8 %18, -2
+  %32 = tail call i64 @lv_pow(i64 noundef 10, i8 noundef signext %31) #7
+  %33 = trunc i64 %32 to i32
+  store i32 %33, ptr %23, align 4, !tbaa !19
   tail call void @lv_spinbox_step_prev(ptr noundef nonnull %6)
   br label %lv_spinbox_increment.exit
 
-35:                                               ; preds = %20
-  %36 = sext i32 %24 to i64
-  %37 = add nsw i8 %18, -1
-  %38 = tail call i64 @lv_pow(i64 noundef 10, i8 noundef signext %37) #7
-  %39 = icmp sgt i64 %38, %36
-  br i1 %39, label %40, label %41
+34:                                               ; preds = %20
+  %35 = sext i32 %24 to i64
+  %36 = add nsw i8 %18, -1
+  %37 = tail call i64 @lv_pow(i64 noundef 10, i8 noundef signext %36) #7
+  %38 = icmp sgt i64 %37, %35
+  br i1 %38, label %39, label %lv_spinbox_step_next.exit74
 
-40:                                               ; preds = %35
+39:                                               ; preds = %34
   tail call void @lv_spinbox_step_prev(ptr noundef nonnull %6)
   br label %lv_spinbox_increment.exit
 
-41:                                               ; preds = %35
-  store i32 1, ptr %23, align 4, !tbaa !14
+lv_spinbox_step_next.exit74:                      ; preds = %34
+  store i32 1, ptr %23, align 4, !tbaa !19
   tail call fastcc void @lv_spinbox_updatevalue(ptr noundef nonnull %6)
   br label %lv_spinbox_increment.exit
 
-42:                                               ; preds = %11, %7
-  %43 = tail call ptr @lv_textarea_get_text(ptr noundef %6) #7
-  %44 = tail call i64 @lv_strlen(ptr noundef %43) #7
-  %45 = getelementptr inbounds nuw i8, ptr %6, i64 116
-  %46 = load i32, ptr %45, align 4, !tbaa !17
-  %47 = zext i32 %46 to i64
-  %48 = getelementptr inbounds nuw i8, ptr %43, i64 %47
-  %49 = load i8, ptr %48, align 1, !tbaa !18
-  %50 = icmp eq i8 %49, 46
-  br i1 %50, label %51, label %52
+40:                                               ; preds = %11, %7
+  %41 = tail call ptr @lv_textarea_get_text(ptr noundef %6) #7
+  %42 = tail call i64 @lv_strlen(ptr noundef %41) #7
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 116
+  %44 = load i32, ptr %43, align 4, !tbaa !22
+  %45 = zext i32 %44 to i64
+  %46 = getelementptr inbounds nuw i8, ptr %41, i64 %45
+  %47 = load i8, ptr %46, align 1, !tbaa !23
+  %48 = icmp eq i8 %47, 46
+  br i1 %48, label %49, label %50
 
-51:                                               ; preds = %42
+49:                                               ; preds = %40
   tail call void @lv_textarea_cursor_left(ptr noundef nonnull %6) #7
-  br label %64
+  br label %62
 
-52:                                               ; preds = %42
-  %53 = trunc i64 %44 to i32
-  %54 = icmp eq i32 %46, %53
-  br i1 %54, label %55, label %57
+50:                                               ; preds = %40
+  %51 = trunc i64 %42 to i32
+  %52 = icmp eq i32 %44, %51
+  br i1 %52, label %53, label %55
 
-55:                                               ; preds = %52
-  %56 = add i32 %46, -1
-  tail call void @lv_textarea_set_cursor_pos(ptr noundef nonnull %6, i32 noundef %56) #7
-  br label %64
+53:                                               ; preds = %50
+  %54 = add i32 %44, -1
+  tail call void @lv_textarea_set_cursor_pos(ptr noundef nonnull %6, i32 noundef %54) #7
+  br label %62
 
-57:                                               ; preds = %52
-  %58 = icmp eq i32 %46, 0
-  br i1 %58, label %59, label %64
+55:                                               ; preds = %50
+  %56 = icmp eq i32 %44, 0
+  br i1 %56, label %57, label %62
 
-59:                                               ; preds = %57
-  %60 = getelementptr inbounds nuw i8, ptr %6, i64 168
-  %61 = load i32, ptr %60, align 8, !tbaa !16
-  %62 = icmp slt i32 %61, 0
-  br i1 %62, label %63, label %64
+57:                                               ; preds = %55
+  %58 = getelementptr inbounds nuw i8, ptr %6, i64 168
+  %59 = load i32, ptr %58, align 8, !tbaa !21
+  %60 = icmp slt i32 %59, 0
+  br i1 %60, label %61, label %62
 
-63:                                               ; preds = %59
+61:                                               ; preds = %57
   tail call void @lv_textarea_set_cursor_pos(ptr noundef nonnull %6, i32 noundef 1) #7
-  br label %64
+  br label %62
 
-64:                                               ; preds = %55, %63, %59, %57, %51
-  %65 = load i32, ptr %45, align 4, !tbaa !17
-  %66 = getelementptr inbounds nuw i8, ptr %6, i64 176
-  %67 = load i16, ptr %66, align 8
-  %68 = lshr i16 %67, 4
-  %69 = and i16 %68, 15
-  %70 = zext nneg i16 %69 to i32
-  %71 = icmp ugt i32 %65, %70
-  %.not71 = icmp ne i16 %69, 0
-  %or.cond.not = and i1 %.not71, %71
-  %72 = sext i1 %or.cond.not to i32
-  %.0 = add i32 %65, %72
-  %73 = and i16 %67, 15
-  %74 = zext nneg i16 %73 to i32
-  %75 = xor i32 %.0, -1
-  %76 = getelementptr inbounds nuw i8, ptr %6, i64 168
-  %77 = load i32, ptr %76, align 8, !tbaa !16
-  %78 = icmp slt i32 %77, 0
-  %79 = sub i32 0, %.0
-  %.064.p = select i1 %78, i32 %79, i32 %75
-  %.064 = add i32 %.064.p, %74
-  %80 = getelementptr inbounds nuw i8, ptr %6, i64 172
-  store i32 1, ptr %80, align 4, !tbaa !14
-  %.not79 = icmp eq i32 %.064, 0
-  br i1 %.not79, label %84, label %.lr.ph
+62:                                               ; preds = %53, %61, %57, %55, %49
+  %63 = load i32, ptr %43, align 4, !tbaa !22
+  %64 = getelementptr inbounds nuw i8, ptr %6, i64 176
+  %65 = load i16, ptr %64, align 8
+  %66 = lshr i16 %65, 4
+  %67 = and i16 %66, 15
+  %68 = zext nneg i16 %67 to i32
+  %69 = icmp ugt i32 %63, %68
+  %.not71 = icmp ne i16 %67, 0
+  %or.cond.not = and i1 %.not71, %69
+  %70 = sext i1 %or.cond.not to i32
+  %.0 = add i32 %63, %70
+  %71 = and i16 %65, 15
+  %72 = zext nneg i16 %71 to i32
+  %73 = xor i32 %.0, -1
+  %74 = getelementptr inbounds nuw i8, ptr %6, i64 168
+  %75 = load i32, ptr %74, align 8, !tbaa !21
+  %76 = icmp slt i32 %75, 0
+  %77 = sub i32 0, %.0
+  %.064.p = select i1 %76, i32 %77, i32 %73
+  %.064 = add i32 %.064.p, %72
+  %78 = getelementptr inbounds nuw i8, ptr %6, i64 172
+  store i32 1, ptr %78, align 4, !tbaa !19
+  %.not90 = icmp eq i32 %.064, 0
+  br i1 %.not90, label %82, label %.lr.ph
 
-.lr.ph:                                           ; preds = %64, %.lr.ph
-  %81 = phi i32 [ %82, %.lr.ph ], [ 1, %64 ]
-  %.06378 = phi i32 [ %83, %.lr.ph ], [ 0, %64 ]
-  %82 = mul nuw nsw i32 %81, 10
-  %83 = add nuw i32 %.06378, 1
-  %exitcond.not = icmp eq i32 %83, %.064
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
+.lr.ph:                                           ; preds = %62, %.lr.ph
+  %79 = phi i32 [ %80, %.lr.ph ], [ 1, %62 ]
+  %.06389 = phi i32 [ %81, %.lr.ph ], [ 0, %62 ]
+  %80 = mul nuw nsw i32 %79, 10
+  %81 = add nuw i32 %.06389, 1
+  %exitcond.not = icmp eq i32 %81, %.064
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  store i32 %82, ptr %80, align 4, !tbaa !14
-  br label %84
+  store i32 %80, ptr %78, align 4, !tbaa !19
+  br label %82
 
-84:                                               ; preds = %._crit_edge, %64
+82:                                               ; preds = %._crit_edge, %62
   tail call fastcc void @lv_spinbox_updatevalue(ptr noundef nonnull %6)
   br label %lv_spinbox_increment.exit
 
-85:                                               ; preds = %4
-  %86 = tail call ptr @lv_indev_active() #7
-  %87 = tail call i32 @lv_indev_get_type(ptr noundef %86) #7
-  %88 = tail call ptr @lv_event_get_param(ptr noundef %1) #7
-  %89 = load i32, ptr %88, align 4, !tbaa !21
-  switch i32 %89, label %148 [
-    i32 19, label %90
-    i32 20, label %99
-    i32 17, label %103
-    i32 18, label %126
+83:                                               ; preds = %4
+  %84 = tail call ptr @lv_indev_active() #7
+  %85 = tail call i32 @lv_indev_get_type(ptr noundef %84) #7
+  %86 = tail call ptr @lv_event_get_param(ptr noundef %1) #7
+  %87 = load i32, ptr %86, align 4, !tbaa !26
+  switch i32 %87, label %146 [
+    i32 19, label %88
+    i32 20, label %97
+    i32 17, label %101
+    i32 18, label %124
   ]
 
-90:                                               ; preds = %85
-  %91 = icmp eq i32 %87, 4
-  br i1 %91, label %92, label %93
+88:                                               ; preds = %83
+  %89 = icmp eq i32 %85, 4
+  br i1 %89, label %90, label %91
 
-92:                                               ; preds = %90
+90:                                               ; preds = %88
   tail call void @lv_spinbox_increment(ptr noundef %6)
   br label %lv_spinbox_increment.exit
 
-93:                                               ; preds = %90
-  %94 = getelementptr inbounds nuw i8, ptr %6, i64 172
-  %95 = load i32, ptr %94, align 4, !tbaa !14
-  %96 = sdiv i32 %95, 10
-  %97 = icmp sgt i32 %95, 9
-  %98 = select i1 %97, i32 %96, i32 1
-  store i32 %98, ptr %94, align 4, !tbaa !14
-  tail call fastcc void @lv_spinbox_updatevalue(ptr noundef %6)
+91:                                               ; preds = %88
+  %.not.i75 = icmp eq ptr %6, null
+  br i1 %.not.i75, label %.preheader.i76, label %lv_spinbox_step_next.exit77
+
+.preheader.i76:                                   ; preds = %91, %.preheader.i76
+  br label %.preheader.i76
+
+lv_spinbox_step_next.exit77:                      ; preds = %91
+  %92 = getelementptr inbounds nuw i8, ptr %6, i64 172
+  %93 = load i32, ptr %92, align 4, !tbaa !19
+  %94 = sdiv i32 %93, 10
+  %95 = icmp sgt i32 %93, 9
+  %96 = select i1 %95, i32 %94, i32 1
+  store i32 %96, ptr %92, align 4, !tbaa !19
+  tail call fastcc void @lv_spinbox_updatevalue(ptr noundef nonnull %6)
   br label %lv_spinbox_increment.exit
 
-99:                                               ; preds = %85
-  %100 = icmp eq i32 %87, 4
-  br i1 %100, label %101, label %102
+97:                                               ; preds = %83
+  %98 = icmp eq i32 %85, 4
+  br i1 %98, label %99, label %100
 
-101:                                              ; preds = %99
+99:                                               ; preds = %97
   tail call void @lv_spinbox_decrement(ptr noundef %6)
   br label %lv_spinbox_increment.exit
 
-102:                                              ; preds = %99
+100:                                              ; preds = %97
   tail call void @lv_spinbox_step_prev(ptr noundef %6)
   br label %lv_spinbox_increment.exit
 
-103:                                              ; preds = %85
-  %104 = getelementptr inbounds nuw i8, ptr %6, i64 160
-  %105 = load i32, ptr %104, align 8, !tbaa !3
-  %106 = icmp slt i32 %105, 0
-  %107 = getelementptr inbounds nuw i8, ptr %6, i64 172
-  %108 = load i32, ptr %107, align 4, !tbaa !14
-  %109 = add nsw i32 %108, %105
-  %110 = icmp sgt i32 %109, 0
-  %111 = sub nsw i32 0, %109
-  %112 = select i1 %106, i1 %110, i1 false
-  %.0.i = select i1 %112, i32 %111, i32 %105
-  %113 = add nsw i32 %.0.i, %108
-  %114 = getelementptr inbounds nuw i8, ptr %6, i64 164
-  %115 = load i32, ptr %114, align 4, !tbaa !15
-  %.not.i = icmp sgt i32 %113, %115
-  br i1 %.not.i, label %116, label %124
+101:                                              ; preds = %83
+  %.not.i78 = icmp eq ptr %6, null
+  br i1 %.not.i78, label %.preheader.i79, label %._crit_edge.i
 
-116:                                              ; preds = %103
-  %117 = getelementptr inbounds nuw i8, ptr %6, i64 176
-  %118 = load i16, ptr %117, align 8
-  %119 = and i16 %118, 256
-  %.not26.i = icmp ne i16 %119, 0
-  %120 = icmp eq i32 %105, %115
-  %or.cond.i = and i1 %120, %.not26.i
-  br i1 %or.cond.i, label %121, label %124
+.preheader.i79:                                   ; preds = %101, %.preheader.i79
+  br label %.preheader.i79
 
-121:                                              ; preds = %116
-  %122 = getelementptr inbounds nuw i8, ptr %6, i64 168
-  %123 = load i32, ptr %122, align 8, !tbaa !16
-  br label %124
+._crit_edge.i:                                    ; preds = %101
+  %102 = getelementptr inbounds nuw i8, ptr %6, i64 160
+  %103 = load i32, ptr %102, align 8, !tbaa !3
+  %104 = icmp slt i32 %103, 0
+  %105 = getelementptr inbounds nuw i8, ptr %6, i64 172
+  %106 = load i32, ptr %105, align 4, !tbaa !19
+  %107 = add nsw i32 %106, %103
+  %108 = icmp sgt i32 %107, 0
+  %109 = sub nsw i32 0, %107
+  %110 = select i1 %104, i1 %108, i1 false
+  %.0.i = select i1 %110, i32 %109, i32 %103
+  %111 = add nsw i32 %.0.i, %106
+  %112 = getelementptr inbounds nuw i8, ptr %6, i64 164
+  %113 = load i32, ptr %112, align 4, !tbaa !20
+  %.not28.i = icmp sgt i32 %111, %113
+  br i1 %.not28.i, label %114, label %122
 
-124:                                              ; preds = %121, %116, %103
-  %.1.i = phi i32 [ %123, %121 ], [ %113, %103 ], [ %115, %116 ]
-  %.not27.i = icmp eq i32 %.1.i, %105
-  br i1 %.not27.i, label %lv_spinbox_increment.exit, label %125
+114:                                              ; preds = %._crit_edge.i
+  %115 = getelementptr inbounds nuw i8, ptr %6, i64 176
+  %116 = load i16, ptr %115, align 8
+  %117 = and i16 %116, 256
+  %.not29.i = icmp ne i16 %117, 0
+  %118 = icmp eq i32 %103, %113
+  %or.cond.i = and i1 %118, %.not29.i
+  br i1 %or.cond.i, label %119, label %122
 
-125:                                              ; preds = %124
-  store i32 %.1.i, ptr %104, align 8, !tbaa !3
+119:                                              ; preds = %114
+  %120 = getelementptr inbounds nuw i8, ptr %6, i64 168
+  %121 = load i32, ptr %120, align 8, !tbaa !21
+  br label %122
+
+122:                                              ; preds = %119, %114, %._crit_edge.i
+  %.1.i = phi i32 [ %121, %119 ], [ %111, %._crit_edge.i ], [ %113, %114 ]
+  %.not30.i = icmp eq i32 %.1.i, %103
+  br i1 %.not30.i, label %lv_spinbox_increment.exit, label %123
+
+123:                                              ; preds = %122
+  store i32 %.1.i, ptr %102, align 8, !tbaa !3
   tail call fastcc void @lv_spinbox_updatevalue(ptr noundef nonnull %6)
   br label %lv_spinbox_increment.exit
 
-126:                                              ; preds = %85
-  %127 = getelementptr inbounds nuw i8, ptr %6, i64 160
-  %128 = load i32, ptr %127, align 8, !tbaa !3
-  %129 = icmp sgt i32 %128, 0
-  %130 = getelementptr inbounds nuw i8, ptr %6, i64 172
-  %131 = load i32, ptr %130, align 4, !tbaa !14
-  %132 = icmp slt i32 %128, %131
-  %133 = sub nsw i32 %131, %128
-  %134 = and i1 %129, %132
-  %.0.i72 = select i1 %134, i32 %133, i32 %128
-  %135 = sub nsw i32 %.0.i72, %131
-  %136 = getelementptr inbounds nuw i8, ptr %6, i64 168
-  %137 = load i32, ptr %136, align 8, !tbaa !16
-  %.not.i73 = icmp slt i32 %135, %137
-  br i1 %.not.i73, label %138, label %146
+124:                                              ; preds = %83
+  %.not.i80 = icmp eq ptr %6, null
+  br i1 %.not.i80, label %.preheader.i87, label %._crit_edge.i81
 
-138:                                              ; preds = %126
-  %139 = getelementptr inbounds nuw i8, ptr %6, i64 176
-  %140 = load i16, ptr %139, align 8
-  %141 = and i16 %140, 256
-  %.not25.i = icmp ne i16 %141, 0
-  %142 = icmp eq i32 %128, %137
-  %or.cond.i76 = and i1 %142, %.not25.i
-  br i1 %or.cond.i76, label %143, label %146
+.preheader.i87:                                   ; preds = %124, %.preheader.i87
+  br label %.preheader.i87
 
-143:                                              ; preds = %138
-  %144 = getelementptr inbounds nuw i8, ptr %6, i64 164
-  %145 = load i32, ptr %144, align 4, !tbaa !15
-  br label %146
+._crit_edge.i81:                                  ; preds = %124
+  %125 = getelementptr inbounds nuw i8, ptr %6, i64 160
+  %126 = load i32, ptr %125, align 8, !tbaa !3
+  %127 = icmp sgt i32 %126, 0
+  %128 = getelementptr inbounds nuw i8, ptr %6, i64 172
+  %129 = load i32, ptr %128, align 4, !tbaa !19
+  %130 = icmp slt i32 %126, %129
+  %131 = sub nsw i32 %129, %126
+  %132 = and i1 %127, %130
+  %.0.i82 = select i1 %132, i32 %131, i32 %126
+  %133 = sub nsw i32 %.0.i82, %129
+  %134 = getelementptr inbounds nuw i8, ptr %6, i64 168
+  %135 = load i32, ptr %134, align 8, !tbaa !21
+  %.not27.i = icmp slt i32 %133, %135
+  br i1 %.not27.i, label %136, label %144
 
-146:                                              ; preds = %143, %138, %126
-  %.1.i74 = phi i32 [ %145, %143 ], [ %135, %126 ], [ %137, %138 ]
-  %.not26.i75 = icmp eq i32 %.1.i74, %128
-  br i1 %.not26.i75, label %lv_spinbox_increment.exit, label %147
+136:                                              ; preds = %._crit_edge.i81
+  %137 = getelementptr inbounds nuw i8, ptr %6, i64 176
+  %138 = load i16, ptr %137, align 8
+  %139 = and i16 %138, 256
+  %.not28.i85 = icmp ne i16 %139, 0
+  %140 = icmp eq i32 %126, %135
+  %or.cond.i86 = and i1 %140, %.not28.i85
+  br i1 %or.cond.i86, label %141, label %144
 
-147:                                              ; preds = %146
-  store i32 %.1.i74, ptr %127, align 8, !tbaa !3
+141:                                              ; preds = %136
+  %142 = getelementptr inbounds nuw i8, ptr %6, i64 164
+  %143 = load i32, ptr %142, align 4, !tbaa !20
+  br label %144
+
+144:                                              ; preds = %141, %136, %._crit_edge.i81
+  %.1.i83 = phi i32 [ %143, %141 ], [ %133, %._crit_edge.i81 ], [ %135, %136 ]
+  %.not29.i84 = icmp eq i32 %.1.i83, %126
+  br i1 %.not29.i84, label %lv_spinbox_increment.exit, label %145
+
+145:                                              ; preds = %144
+  store i32 %.1.i83, ptr %125, align 8, !tbaa !3
   tail call fastcc void @lv_spinbox_updatevalue(ptr noundef nonnull %6)
   br label %lv_spinbox_increment.exit
 
-148:                                              ; preds = %85
-  tail call void @lv_textarea_add_char(ptr noundef %6, i32 noundef %89) #7
+146:                                              ; preds = %83
+  tail call void @lv_textarea_add_char(ptr noundef %6, i32 noundef %87) #7
   br label %lv_spinbox_increment.exit
 
-lv_spinbox_increment.exit:                        ; preds = %147, %146, %125, %124, %14, %40, %41, %27, %31, %84, %4, %102, %101, %148, %92, %93, %2
+lv_spinbox_increment.exit:                        ; preds = %145, %144, %123, %122, %14, %39, %lv_spinbox_step_next.exit74, %lv_spinbox_step_next.exit, %30, %82, %4, %100, %99, %146, %90, %lv_spinbox_step_next.exit77, %2
   ret void
 }
 
@@ -337,16 +358,23 @@ declare void @lv_obj_class_init_obj(ptr noundef) local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define void @lv_spinbox_set_value(ptr noundef initializes((160, 164)) %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 164
-  %4 = load i32, ptr %3, align 4, !tbaa !15
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %1, i32 %4)
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %6 = load i32, ptr %5, align 8, !tbaa !16
-  %.1 = tail call i32 @llvm.smax.i32(i32 %spec.select, i32 %6)
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  store i32 %.1, ptr %7, align 8, !tbaa !3
-  tail call fastcc void @lv_spinbox_updatevalue(ptr noundef %0)
+define void @lv_spinbox_set_value(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+  %.not = icmp eq ptr %0, null
+  br i1 %.not, label %.preheader, label %3
+
+.preheader:                                       ; preds = %2, %.preheader
+  br label %.preheader
+
+3:                                                ; preds = %2
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 164
+  %5 = load i32, ptr %4, align 4, !tbaa !20
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %1, i32 %5)
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %7 = load i32, ptr %6, align 8, !tbaa !21
+  %.1 = tail call i32 @llvm.smax.i32(i32 %spec.select, i32 %7)
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  store i32 %.1, ptr %8, align 8, !tbaa !3
+  tail call fastcc void @lv_spinbox_updatevalue(ptr noundef nonnull %0)
   ret void
 }
 
@@ -357,7 +385,7 @@ define internal fastcc void @lv_spinbox_updatevalue(ptr noundef %0) unnamed_addr
   call void @llvm.lifetime.start.p0(i64 18, ptr nonnull %2) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(18) %2, i8 0, i64 18, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %5 = load i32, ptr %4, align 8, !tbaa !16
+  %5 = load i32, ptr %4, align 8, !tbaa !21
   %6 = icmp slt i32 %5, 0
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %8 = load i32, ptr %7, align 8, !tbaa !3
@@ -366,7 +394,7 @@ define internal fastcc void @lv_spinbox_updatevalue(ptr noundef %0) unnamed_addr
 9:                                                ; preds = %1
   %10 = icmp sgt i32 %8, -1
   %11 = select i1 %10, i8 43, i8 45
-  store i8 %11, ptr %2, align 16, !tbaa !18
+  store i8 %11, ptr %2, align 16, !tbaa !23
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 1
   br label %._crit_edge102
 
@@ -403,19 +431,19 @@ define internal fastcc void @lv_spinbox_updatevalue(ptr noundef %0) unnamed_addr
 
 .lr.ph72.preheader:                               ; preds = %.preheader
   %28 = and i64 %20, 2147483647
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %3, i8 48, i64 %28, i1 false), !tbaa !18
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %3, i8 48, i64 %28, i1 false), !tbaa !23
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %25, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %29 = getelementptr inbounds nuw [14 x i8], ptr %3, i64 0, i64 %indvars.iv
-  %30 = load i8, ptr %29, align 1, !tbaa !18
+  %30 = load i8, ptr %29, align 1, !tbaa !23
   %31 = add nsw i64 %indvars.iv, %26
   %32 = getelementptr inbounds [14 x i8], ptr %3, i64 0, i64 %31
-  store i8 %30, ptr %32, align 1, !tbaa !18
+  store i8 %30, ptr %32, align 1, !tbaa !23
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not106 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not106, label %.preheader, label %.lr.ph, !llvm.loop !22
+  br i1 %.not106, label %.preheader, label %.lr.ph, !llvm.loop !27
 
 .loopexit:                                        ; preds = %.lr.ph72.preheader, %.preheader, %._crit_edge102
   %33 = lshr i16 %17, 4
@@ -434,16 +462,16 @@ define internal fastcc void @lv_spinbox_updatevalue(ptr noundef %0) unnamed_addr
   %indvars.iv94 = phi i64 [ 0, %.lr.ph75.preheader ], [ %indvars.iv.next95, %39 ]
   %.15874 = phi ptr [ %.057, %.lr.ph75.preheader ], [ %40, %39 ]
   %37 = getelementptr inbounds nuw [14 x i8], ptr %3, i64 0, i64 %indvars.iv94
-  %38 = load i8, ptr %37, align 1, !tbaa !18
+  %38 = load i8, ptr %37, align 1, !tbaa !23
   %.not67 = icmp eq i8 %38, 0
   br i1 %.not67, label %.critedge.loopexit.split.loop.exit103, label %39
 
 39:                                               ; preds = %.lr.ph75
-  store i8 %38, ptr %.15874, align 1, !tbaa !18
+  store i8 %38, ptr %.15874, align 1, !tbaa !23
   %40 = getelementptr inbounds nuw i8, ptr %.15874, i64 1
   %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next95, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph75, !llvm.loop !23
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph75, !llvm.loop !28
 
 .critedge.loopexit.split.loop.exit103:            ; preds = %.lr.ph75
   %41 = trunc nuw nsw i64 %indvars.iv94 to i32
@@ -457,7 +485,7 @@ define internal fastcc void @lv_spinbox_updatevalue(ptr noundef %0) unnamed_addr
   br i1 %.not68, label %.critedge2, label %43
 
 43:                                               ; preds = %.critedge
-  store i8 46, ptr %.158.lcssa, align 1, !tbaa !18
+  store i8 46, ptr %.158.lcssa, align 1, !tbaa !23
   %44 = zext nneg i16 %18 to i32
   %45 = icmp samesign ult i32 %.262.lcssa, %44
   br i1 %45, label %.lr.ph83.preheader, label %.critedge2
@@ -471,21 +499,21 @@ define internal fastcc void @lv_spinbox_updatevalue(ptr noundef %0) unnamed_addr
   %indvars.iv97 = phi i64 [ %46, %.lr.ph83.preheader ], [ %indvars.iv.next98, %49 ]
   %.282.pn = phi ptr [ %.158.lcssa, %.lr.ph83.preheader ], [ %.282, %49 ]
   %47 = getelementptr inbounds nuw [14 x i8], ptr %3, i64 0, i64 %indvars.iv97
-  %48 = load i8, ptr %47, align 1, !tbaa !18
+  %48 = load i8, ptr %47, align 1, !tbaa !23
   %.not69 = icmp eq i8 %48, 0
   br i1 %.not69, label %.critedge2, label %49
 
 49:                                               ; preds = %.lr.ph83
   %.282 = getelementptr inbounds nuw i8, ptr %.282.pn, i64 1
-  store i8 %48, ptr %.282, align 1, !tbaa !18
+  store i8 %48, ptr %.282, align 1, !tbaa !23
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
   %exitcond101.not = icmp eq i64 %indvars.iv.next98, %wide.trip.count100
-  br i1 %exitcond101.not, label %.critedge2, label %.lr.ph83, !llvm.loop !24
+  br i1 %exitcond101.not, label %.critedge2, label %.lr.ph83, !llvm.loop !29
 
 .critedge2:                                       ; preds = %49, %.lr.ph83, %43, %.critedge
   call void @lv_textarea_set_text(ptr noundef %0, ptr noundef nonnull %2) #7
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 172
-  %51 = load i32, ptr %50, align 4, !tbaa !14
+  %51 = load i32, ptr %50, align 4, !tbaa !19
   %52 = load i16, ptr %16, align 8
   %53 = and i16 %52, 15
   %54 = zext nneg i16 %53 to i32
@@ -498,7 +526,7 @@ define internal fastcc void @lv_spinbox_updatevalue(ptr noundef %0) unnamed_addr
   %56 = udiv i32 %.05685, 10
   %57 = add i32 %.086, -1
   %58 = icmp samesign ugt i32 %.05685, 99
-  br i1 %58, label %.lr.ph87, label %._crit_edge, !llvm.loop !25
+  br i1 %58, label %.lr.ph87, label %._crit_edge, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %.lr.ph87, %.critedge2
   %.0.lcssa = phi i32 [ %54, %.critedge2 ], [ %57, %.lr.ph87 ]
@@ -512,293 +540,382 @@ define internal fastcc void @lv_spinbox_updatevalue(ptr noundef %0) unnamed_addr
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @lv_spinbox_set_rollover(ptr noundef captures(none) %0, i1 noundef zeroext %1) local_unnamed_addr #3 {
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %4 = load i16, ptr %3, align 8
-  %5 = select i1 %1, i16 256, i16 0
-  %6 = and i16 %4, -257
-  %7 = or disjoint i16 %6, %5
-  store i16 %7, ptr %3, align 8
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define void @lv_spinbox_set_rollover(ptr noundef captures(address_is_null) %0, i1 noundef zeroext %1) local_unnamed_addr #3 {
+  %.not = icmp eq ptr %0, null
+  br i1 %.not, label %.preheader, label %3
+
+.preheader:                                       ; preds = %2, %.preheader
+  br label %.preheader
+
+3:                                                ; preds = %2
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %5 = load i16, ptr %4, align 8
+  %6 = select i1 %1, i16 256, i16 0
+  %7 = and i16 %5, -257
+  %8 = or disjoint i16 %7, %6
+  store i16 %8, ptr %4, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define void @lv_spinbox_set_digit_format(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %spec.store.select1 = tail call i32 @llvm.umin.i32(i32 %1, i32 10)
-  %4 = icmp ult i32 %1, 10
-  br i1 %4, label %5, label %22
+  %.not = icmp eq ptr %0, null
+  br i1 %.not, label %.preheader, label %4
 
-5:                                                ; preds = %3
-  %6 = trunc nuw nsw i32 %spec.store.select1 to i8
-  %7 = tail call i64 @lv_pow(i64 noundef 10, i8 noundef signext %6) #7
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 164
-  %9 = load i32, ptr %8, align 4, !tbaa !15
-  %10 = sext i32 %9 to i64
-  %.not20 = icmp sgt i64 %7, %10
-  br i1 %.not20, label %14, label %11
+.preheader:                                       ; preds = %3, %.preheader
+  br label %.preheader
 
-11:                                               ; preds = %5
-  %12 = trunc i64 %7 to i32
-  %13 = add i32 %12, -1
-  store i32 %13, ptr %8, align 4, !tbaa !15
-  br label %14
+4:                                                ; preds = %3
+  %spec.store.select = tail call i32 @llvm.umin.i32(i32 %1, i32 10)
+  %5 = icmp ult i32 %1, 10
+  br i1 %5, label %6, label %23
 
-14:                                               ; preds = %11, %5
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %16 = load i32, ptr %15, align 8, !tbaa !16
-  %17 = sext i32 %16 to i64
-  %18 = sub i64 1, %7
-  %19 = icmp sgt i64 %18, %17
-  br i1 %19, label %20, label %22
+6:                                                ; preds = %4
+  %7 = trunc nuw nsw i32 %spec.store.select to i8
+  %8 = tail call i64 @lv_pow(i64 noundef 10, i8 noundef signext %7) #7
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 164
+  %10 = load i32, ptr %9, align 4, !tbaa !20
+  %11 = sext i32 %10 to i64
+  %.not23 = icmp sgt i64 %8, %11
+  br i1 %.not23, label %15, label %12
 
-20:                                               ; preds = %14
-  %21 = trunc i64 %18 to i32
-  store i32 %21, ptr %15, align 8, !tbaa !16
-  br label %22
+12:                                               ; preds = %6
+  %13 = trunc i64 %8 to i32
+  %14 = add i32 %13, -1
+  store i32 %14, ptr %9, align 4, !tbaa !20
+  br label %15
 
-22:                                               ; preds = %14, %20, %3
-  %.not = icmp ult i32 %2, %spec.store.select1
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %24 = trunc nuw nsw i32 %spec.store.select1 to i16
-  %25 = load i16, ptr %23, align 8
-  %26 = and i16 %25, -256
-  %27 = trunc i32 %2 to i16
-  %28 = shl i16 %27, 4
-  %29 = and i16 %28, 240
-  %30 = select i1 %.not, i16 %29, i16 0
-  %31 = or disjoint i16 %30, %24
-  %32 = or disjoint i16 %31, %26
-  store i16 %32, ptr %23, align 8
-  tail call fastcc void @lv_spinbox_updatevalue(ptr noundef %0)
+15:                                               ; preds = %12, %6
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %17 = load i32, ptr %16, align 8, !tbaa !21
+  %18 = sext i32 %17 to i64
+  %19 = sub i64 1, %8
+  %20 = icmp sgt i64 %19, %18
+  br i1 %20, label %21, label %23
+
+21:                                               ; preds = %15
+  %22 = trunc i64 %19 to i32
+  store i32 %22, ptr %16, align 8, !tbaa !21
+  br label %23
+
+23:                                               ; preds = %15, %21, %4
+  %.not22 = icmp ult i32 %2, %spec.store.select
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %25 = trunc nuw nsw i32 %spec.store.select to i16
+  %26 = load i16, ptr %24, align 8
+  %27 = and i16 %26, -256
+  %28 = trunc i32 %2 to i16
+  %29 = shl i16 %28, 4
+  %30 = and i16 %29, 240
+  %31 = select i1 %.not22, i16 %30, i16 0
+  %32 = or disjoint i16 %31, %25
+  %33 = or disjoint i16 %32, %27
+  store i16 %33, ptr %24, align 8
+  tail call fastcc void @lv_spinbox_updatevalue(ptr noundef nonnull %0)
   ret void
 }
 
 declare i64 @lv_pow(i64 noundef, i8 noundef signext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @lv_spinbox_set_step(ptr noundef initializes((172, 176)) %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 172
-  store i32 %1, ptr %3, align 4, !tbaa !14
-  tail call fastcc void @lv_spinbox_updatevalue(ptr noundef %0)
+define void @lv_spinbox_set_step(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+  %.not = icmp eq ptr %0, null
+  br i1 %.not, label %.preheader, label %3
+
+.preheader:                                       ; preds = %2, %.preheader
+  br label %.preheader
+
+3:                                                ; preds = %2
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 172
+  store i32 %1, ptr %4, align 4, !tbaa !19
+  tail call fastcc void @lv_spinbox_updatevalue(ptr noundef nonnull %0)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_spinbox_set_range(ptr noundef initializes((164, 172)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 164
-  store i32 %2, ptr %4, align 4, !tbaa !15
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  store i32 %1, ptr %5, align 8, !tbaa !16
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %7 = load i32, ptr %6, align 8, !tbaa !3
-  %.not = icmp sgt i32 %7, %2
-  %8 = tail call i32 @llvm.smin.i32(i32 %7, i32 %2)
-  %.not14 = icmp slt i32 %8, %1
-  %9 = or i1 %.not, %.not14
-  br i1 %9, label %10, label %11
+define void @lv_spinbox_set_range(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+  %.not = icmp eq ptr %0, null
+  br i1 %.not, label %.preheader, label %4
 
-10:                                               ; preds = %3
-  %simplifycfg.merge = tail call i32 @llvm.smax.i32(i32 %8, i32 %1)
-  store i32 %simplifycfg.merge, ptr %6, align 8, !tbaa !3
-  br label %11
+.preheader:                                       ; preds = %3, %.preheader
+  br label %.preheader
 
-11:                                               ; preds = %3, %10
+4:                                                ; preds = %3
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 164
+  store i32 %2, ptr %5, align 4, !tbaa !20
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  store i32 %1, ptr %6, align 8, !tbaa !21
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %8 = load i32, ptr %7, align 8, !tbaa !3
+  %.not16 = icmp sgt i32 %8, %2
+  %9 = tail call i32 @llvm.smin.i32(i32 %8, i32 %2)
+  %.not17 = icmp slt i32 %9, %1
+  %10 = or i1 %.not16, %.not17
+  br i1 %10, label %11, label %12
+
+11:                                               ; preds = %4
+  %simplifycfg.merge = tail call i32 @llvm.smax.i32(i32 %9, i32 %1)
+  store i32 %simplifycfg.merge, ptr %7, align 8, !tbaa !3
+  br label %12
+
+12:                                               ; preds = %4, %11
   tail call fastcc void @lv_spinbox_updatevalue(ptr noundef nonnull %0)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define void @lv_spinbox_set_cursor_pos(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 164
-  %4 = load i32, ptr %3, align 4, !tbaa !15
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %6 = load i32, ptr %5, align 8, !tbaa !16
-  %7 = trunc i32 %1 to i8
-  %8 = tail call i64 @lv_pow(i64 noundef 10, i8 noundef signext %7) #7
-  %9 = icmp eq i32 %1, 0
-  br i1 %9, label %.sink.split, label %10
+  %.not = icmp eq ptr %0, null
+  br i1 %.not, label %.preheader, label %3
 
-10:                                               ; preds = %2
-  %11 = trunc i64 %8 to i32
-  %12 = tail call i32 @llvm.abs.i32(i32 %6, i1 true)
-  %spec.select = tail call i32 @llvm.smax.i32(i32 %4, i32 %12)
-  %.not = icmp slt i32 %spec.select, %11
-  br i1 %.not, label %14, label %.sink.split
+.preheader:                                       ; preds = %2, %.preheader
+  br label %.preheader
 
-.sink.split:                                      ; preds = %10, %2
-  %.sink = phi i32 [ 1, %2 ], [ %11, %10 ]
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 172
-  store i32 %.sink, ptr %13, align 4, !tbaa !14
-  br label %14
+3:                                                ; preds = %2
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 164
+  %5 = load i32, ptr %4, align 4, !tbaa !20
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %7 = load i32, ptr %6, align 8, !tbaa !21
+  %8 = trunc i32 %1 to i8
+  %9 = tail call i64 @lv_pow(i64 noundef 10, i8 noundef signext %8) #7
+  %10 = icmp eq i32 %1, 0
+  br i1 %10, label %.sink.split, label %11
 
-14:                                               ; preds = %.sink.split, %10
+11:                                               ; preds = %3
+  %12 = trunc i64 %9 to i32
+  %13 = tail call i32 @llvm.abs.i32(i32 %7, i1 true)
+  %spec.select = tail call i32 @llvm.smax.i32(i32 %5, i32 %13)
+  %.not21 = icmp slt i32 %spec.select, %12
+  br i1 %.not21, label %15, label %.sink.split
+
+.sink.split:                                      ; preds = %11, %3
+  %.sink = phi i32 [ 1, %3 ], [ %12, %11 ]
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 172
+  store i32 %.sink, ptr %14, align 4, !tbaa !19
+  br label %15
+
+15:                                               ; preds = %.sink.split, %11
   tail call fastcc void @lv_spinbox_updatevalue(ptr noundef nonnull %0)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define void @lv_spinbox_set_digit_step_direction(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %4 = trunc i32 %1 to i16
-  %5 = load i16, ptr %3, align 8
-  %6 = shl i16 %4, 9
-  %7 = and i16 %6, 1536
-  %8 = and i16 %5, -1537
-  %9 = or disjoint i16 %8, %7
-  store i16 %9, ptr %3, align 8
-  tail call fastcc void @lv_spinbox_updatevalue(ptr noundef %0)
+  %.not = icmp eq ptr %0, null
+  br i1 %.not, label %.preheader, label %3
+
+.preheader:                                       ; preds = %2, %.preheader
+  br label %.preheader
+
+3:                                                ; preds = %2
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %5 = trunc i32 %1 to i16
+  %6 = load i16, ptr %4, align 8
+  %7 = shl i16 %5, 9
+  %8 = and i16 %7, 1536
+  %9 = and i16 %6, -1537
+  %10 = or disjoint i16 %9, %8
+  store i16 %10, ptr %4, align 8
+  tail call fastcc void @lv_spinbox_updatevalue(ptr noundef nonnull %0)
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @lv_spinbox_get_value(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %3 = load i32, ptr %2, align 8, !tbaa !3
-  ret i32 %3
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
+define i32 @lv_spinbox_get_value(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
+  %.not = icmp eq ptr %0, null
+  br i1 %.not, label %.preheader, label %2
+
+.preheader:                                       ; preds = %1, %.preheader
+  br label %.preheader
+
+2:                                                ; preds = %1
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %4 = load i32, ptr %3, align 8, !tbaa !3
+  ret i32 %4
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @lv_spinbox_get_step(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 172
-  %3 = load i32, ptr %2, align 4, !tbaa !14
-  ret i32 %3
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
+define i32 @lv_spinbox_get_step(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
+  %.not = icmp eq ptr %0, null
+  br i1 %.not, label %.preheader, label %2
+
+.preheader:                                       ; preds = %1, %.preheader
+  br label %.preheader
+
+2:                                                ; preds = %1
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 172
+  %4 = load i32, ptr %3, align 4, !tbaa !19
+  ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
 define void @lv_spinbox_step_next(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 172
-  %3 = load i32, ptr %2, align 4, !tbaa !14
-  %4 = sdiv i32 %3, 10
-  %5 = icmp sgt i32 %3, 9
-  %6 = select i1 %5, i32 %4, i32 1
-  store i32 %6, ptr %2, align 4, !tbaa !14
-  tail call fastcc void @lv_spinbox_updatevalue(ptr noundef %0)
+  %.not = icmp eq ptr %0, null
+  br i1 %.not, label %.preheader, label %2
+
+.preheader:                                       ; preds = %1, %.preheader
+  br label %.preheader
+
+2:                                                ; preds = %1
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 172
+  %4 = load i32, ptr %3, align 4, !tbaa !19
+  %5 = sdiv i32 %4, 10
+  %6 = icmp sgt i32 %4, 9
+  %7 = select i1 %6, i32 %5, i32 1
+  store i32 %7, ptr %3, align 4, !tbaa !19
+  tail call fastcc void @lv_spinbox_updatevalue(ptr noundef nonnull %0)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define void @lv_spinbox_step_prev(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 164
-  %3 = load i32, ptr %2, align 4, !tbaa !15
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %5 = load i32, ptr %4, align 8, !tbaa !16
-  %6 = tail call i32 @llvm.abs.i32(i32 %5, i1 true)
-  %spec.select = tail call i32 @llvm.smax.i32(i32 %3, i32 %6)
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 172
-  %8 = load i32, ptr %7, align 4, !tbaa !14
-  %9 = mul nsw i32 %8, 10
-  %.not = icmp sgt i32 %9, %spec.select
-  br i1 %.not, label %11, label %10
+  %.not = icmp eq ptr %0, null
+  br i1 %.not, label %.preheader, label %2
 
-10:                                               ; preds = %1
-  store i32 %9, ptr %7, align 4, !tbaa !14
-  br label %11
+.preheader:                                       ; preds = %1, %.preheader
+  br label %.preheader
 
-11:                                               ; preds = %10, %1
+2:                                                ; preds = %1
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 164
+  %4 = load i32, ptr %3, align 4, !tbaa !20
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %6 = load i32, ptr %5, align 8, !tbaa !21
+  %7 = tail call i32 @llvm.abs.i32(i32 %6, i1 true)
+  %spec.select = tail call i32 @llvm.smax.i32(i32 %4, i32 %7)
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 172
+  %9 = load i32, ptr %8, align 4, !tbaa !19
+  %10 = mul nsw i32 %9, 10
+  %.not19 = icmp sgt i32 %10, %spec.select
+  br i1 %.not19, label %12, label %11
+
+11:                                               ; preds = %2
+  store i32 %10, ptr %8, align 4, !tbaa !19
+  br label %12
+
+12:                                               ; preds = %11, %2
   tail call fastcc void @lv_spinbox_updatevalue(ptr noundef nonnull %0)
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i1 @lv_spinbox_get_rollover(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %3 = load i16, ptr %2, align 8
-  %4 = and i16 %3, 256
-  %5 = icmp ne i16 %4, 0
-  ret i1 %5
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
+define zeroext i1 @lv_spinbox_get_rollover(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
+  %.not = icmp eq ptr %0, null
+  br i1 %.not, label %.preheader, label %2
+
+.preheader:                                       ; preds = %1, %.preheader
+  br label %.preheader
+
+2:                                                ; preds = %1
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %4 = load i16, ptr %3, align 8
+  %5 = and i16 %4, 256
+  %6 = icmp ne i16 %5, 0
+  ret i1 %6
 }
 
 ; Function Attrs: nounwind uwtable
 define void @lv_spinbox_increment(ptr noundef %0) local_unnamed_addr #0 {
-._crit_edge:
-  %1 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %2 = load i32, ptr %1, align 8, !tbaa !3
-  %3 = icmp slt i32 %2, 0
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 172
-  %5 = load i32, ptr %4, align 4, !tbaa !14
-  %6 = add nsw i32 %5, %2
-  %7 = icmp sgt i32 %6, 0
-  %8 = sub nsw i32 0, %6
-  %9 = select i1 %3, i1 %7, i1 false
-  %.0 = select i1 %9, i32 %8, i32 %2
-  %10 = add nsw i32 %5, %.0
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 164
-  %12 = load i32, ptr %11, align 4, !tbaa !15
-  %.not = icmp sgt i32 %10, %12
-  br i1 %.not, label %13, label %21
+  %.not = icmp eq ptr %0, null
+  br i1 %.not, label %.preheader, label %._crit_edge
 
-13:                                               ; preds = %._crit_edge
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %15 = load i16, ptr %14, align 8
-  %16 = and i16 %15, 256
-  %.not26 = icmp ne i16 %16, 0
-  %17 = icmp eq i32 %2, %12
-  %or.cond = and i1 %17, %.not26
-  br i1 %or.cond, label %18, label %21
+.preheader:                                       ; preds = %1, %.preheader
+  br label %.preheader
 
-18:                                               ; preds = %13
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %20 = load i32, ptr %19, align 8, !tbaa !16
-  br label %21
+._crit_edge:                                      ; preds = %1
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %3 = load i32, ptr %2, align 8, !tbaa !3
+  %4 = icmp slt i32 %3, 0
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 172
+  %6 = load i32, ptr %5, align 4, !tbaa !19
+  %7 = add nsw i32 %6, %3
+  %8 = icmp sgt i32 %7, 0
+  %9 = sub nsw i32 0, %7
+  %10 = select i1 %4, i1 %8, i1 false
+  %.0 = select i1 %10, i32 %9, i32 %3
+  %11 = add nsw i32 %6, %.0
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 164
+  %13 = load i32, ptr %12, align 4, !tbaa !20
+  %.not28 = icmp sgt i32 %11, %13
+  br i1 %.not28, label %14, label %22
 
-21:                                               ; preds = %13, %._crit_edge, %18
-  %.1 = phi i32 [ %20, %18 ], [ %10, %._crit_edge ], [ %12, %13 ]
-  %.not27 = icmp eq i32 %.1, %2
-  br i1 %.not27, label %23, label %22
+14:                                               ; preds = %._crit_edge
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %16 = load i16, ptr %15, align 8
+  %17 = and i16 %16, 256
+  %.not29 = icmp ne i16 %17, 0
+  %18 = icmp eq i32 %3, %13
+  %or.cond = and i1 %18, %.not29
+  br i1 %or.cond, label %19, label %22
 
-22:                                               ; preds = %21
-  store i32 %.1, ptr %1, align 8, !tbaa !3
+19:                                               ; preds = %14
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %21 = load i32, ptr %20, align 8, !tbaa !21
+  br label %22
+
+22:                                               ; preds = %14, %._crit_edge, %19
+  %.1 = phi i32 [ %21, %19 ], [ %11, %._crit_edge ], [ %13, %14 ]
+  %.not30 = icmp eq i32 %.1, %3
+  br i1 %.not30, label %24, label %23
+
+23:                                               ; preds = %22
+  store i32 %.1, ptr %2, align 8, !tbaa !3
   tail call fastcc void @lv_spinbox_updatevalue(ptr noundef nonnull %0)
-  br label %23
+  br label %24
 
-23:                                               ; preds = %22, %21
+24:                                               ; preds = %23, %22
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define void @lv_spinbox_decrement(ptr noundef %0) local_unnamed_addr #0 {
-._crit_edge:
-  %1 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %2 = load i32, ptr %1, align 8, !tbaa !3
-  %3 = icmp sgt i32 %2, 0
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 172
-  %5 = load i32, ptr %4, align 4, !tbaa !14
-  %6 = icmp slt i32 %2, %5
-  %7 = sub nsw i32 %5, %2
-  %8 = and i1 %3, %6
-  %.0 = select i1 %8, i32 %7, i32 %2
-  %9 = sub nsw i32 %.0, %5
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %11 = load i32, ptr %10, align 8, !tbaa !16
-  %.not = icmp slt i32 %9, %11
-  br i1 %.not, label %12, label %20
+  %.not = icmp eq ptr %0, null
+  br i1 %.not, label %.preheader, label %._crit_edge
 
-12:                                               ; preds = %._crit_edge
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %14 = load i16, ptr %13, align 8
-  %15 = and i16 %14, 256
-  %.not25 = icmp ne i16 %15, 0
-  %16 = icmp eq i32 %2, %11
-  %or.cond = and i1 %16, %.not25
-  br i1 %or.cond, label %17, label %20
+.preheader:                                       ; preds = %1, %.preheader
+  br label %.preheader
 
-17:                                               ; preds = %12
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 164
-  %19 = load i32, ptr %18, align 4, !tbaa !15
-  br label %20
+._crit_edge:                                      ; preds = %1
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %3 = load i32, ptr %2, align 8, !tbaa !3
+  %4 = icmp sgt i32 %3, 0
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 172
+  %6 = load i32, ptr %5, align 4, !tbaa !19
+  %7 = icmp slt i32 %3, %6
+  %8 = sub nsw i32 %6, %3
+  %9 = and i1 %4, %7
+  %.0 = select i1 %9, i32 %8, i32 %3
+  %10 = sub nsw i32 %.0, %6
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %12 = load i32, ptr %11, align 8, !tbaa !21
+  %.not27 = icmp slt i32 %10, %12
+  br i1 %.not27, label %13, label %21
 
-20:                                               ; preds = %12, %._crit_edge, %17
-  %.1 = phi i32 [ %19, %17 ], [ %9, %._crit_edge ], [ %11, %12 ]
-  %.not26 = icmp eq i32 %.1, %2
-  br i1 %.not26, label %22, label %21
+13:                                               ; preds = %._crit_edge
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %15 = load i16, ptr %14, align 8
+  %16 = and i16 %15, 256
+  %.not28 = icmp ne i16 %16, 0
+  %17 = icmp eq i32 %3, %12
+  %or.cond = and i1 %17, %.not28
+  br i1 %or.cond, label %18, label %21
 
-21:                                               ; preds = %20
-  store i32 %.1, ptr %1, align 8, !tbaa !3
+18:                                               ; preds = %13
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 164
+  %20 = load i32, ptr %19, align 4, !tbaa !20
+  br label %21
+
+21:                                               ; preds = %13, %._crit_edge, %18
+  %.1 = phi i32 [ %20, %18 ], [ %10, %._crit_edge ], [ %12, %13 ]
+  %.not29 = icmp eq i32 %.1, %3
+  br i1 %.not29, label %23, label %22
+
+22:                                               ; preds = %21
+  store i32 %.1, ptr %2, align 8, !tbaa !3
   tail call fastcc void @lv_spinbox_updatevalue(ptr noundef nonnull %0)
-  br label %22
+  br label %23
 
-22:                                               ; preds = %21, %20
+23:                                               ; preds = %22, %21
   ret void
 }
 
@@ -854,8 +971,8 @@ declare i32 @llvm.smin.i32(i32, i32) #6
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { nounwind }
@@ -865,26 +982,31 @@ attributes #7 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{!4, !11, i64 160}
-!4 = !{!"_lv_spinbox_t", !5, i64 0, !11, i64 160, !11, i64 164, !11, i64 168, !11, i64 172, !11, i64 176, !11, i64 176, !11, i64 177, !11, i64 177}
-!5 = !{!"_lv_textarea_t", !6, i64 0, !7, i64 64, !7, i64 72, !7, i64 80, !7, i64 88, !7, i64 96, !11, i64 104, !11, i64 108, !13, i64 112, !11, i64 144, !11, i64 148, !8, i64 152, !8, i64 152, !8, i64 152, !8, i64 152}
-!6 = !{!"_lv_obj_t", !7, i64 0, !7, i64 8, !7, i64 16, !7, i64 24, !7, i64 32, !10, i64 40, !11, i64 56, !12, i64 60, !12, i64 62, !12, i64 62, !12, i64 62, !12, i64 62, !12, i64 62, !12, i64 63, !12, i64 63, !12, i64 63}
-!7 = !{!"any pointer", !8, i64 0}
-!8 = !{!"omnipotent char", !9, i64 0}
-!9 = !{!"Simple C/C++ TBAA"}
-!10 = !{!"", !11, i64 0, !11, i64 4, !11, i64 8, !11, i64 12}
-!11 = !{!"int", !8, i64 0}
-!12 = !{!"short", !8, i64 0}
-!13 = !{!"", !11, i64 0, !11, i64 4, !10, i64 8, !11, i64 24, !8, i64 28, !8, i64 28}
-!14 = !{!4, !11, i64 172}
-!15 = !{!4, !11, i64 164}
-!16 = !{!4, !11, i64 168}
-!17 = !{!4, !11, i64 116}
-!18 = !{!8, !8, i64 0}
-!19 = distinct !{!19, !20}
-!20 = !{!"llvm.loop.mustprogress"}
-!21 = !{!11, !11, i64 0}
-!22 = distinct !{!22, !20}
-!23 = distinct !{!23, !20}
-!24 = distinct !{!24, !20}
-!25 = distinct !{!25, !20}
+!3 = !{!4, !15, i64 160}
+!4 = !{!"_lv_spinbox_t", !5, i64 0, !15, i64 160, !15, i64 164, !15, i64 168, !15, i64 172, !15, i64 176, !15, i64 176, !15, i64 177, !15, i64 177}
+!5 = !{!"_lv_textarea_t", !6, i64 0, !11, i64 64, !17, i64 72, !17, i64 80, !17, i64 88, !17, i64 96, !15, i64 104, !15, i64 108, !18, i64 112, !15, i64 144, !15, i64 148, !9, i64 152, !9, i64 152, !9, i64 152, !9, i64 152}
+!6 = !{!"_lv_obj_t", !7, i64 0, !11, i64 8, !12, i64 16, !13, i64 24, !8, i64 32, !14, i64 40, !15, i64 56, !16, i64 60, !16, i64 62, !16, i64 62, !16, i64 62, !16, i64 62, !16, i64 62, !16, i64 63, !16, i64 63, !16, i64 63}
+!7 = !{!"p1 _ZTS15_lv_obj_class_t", !8, i64 0}
+!8 = !{!"any pointer", !9, i64 0}
+!9 = !{!"omnipotent char", !10, i64 0}
+!10 = !{!"Simple C/C++ TBAA"}
+!11 = !{!"p1 _ZTS9_lv_obj_t", !8, i64 0}
+!12 = !{!"p1 _ZTS19_lv_obj_spec_attr_t", !8, i64 0}
+!13 = !{!"p1 _ZTS15_lv_obj_style_t", !8, i64 0}
+!14 = !{!"", !15, i64 0, !15, i64 4, !15, i64 8, !15, i64 12}
+!15 = !{!"int", !9, i64 0}
+!16 = !{!"short", !9, i64 0}
+!17 = !{!"p1 omnipotent char", !8, i64 0}
+!18 = !{!"", !15, i64 0, !15, i64 4, !14, i64 8, !15, i64 24, !9, i64 28, !9, i64 28}
+!19 = !{!4, !15, i64 172}
+!20 = !{!4, !15, i64 164}
+!21 = !{!4, !15, i64 168}
+!22 = !{!4, !15, i64 116}
+!23 = !{!9, !9, i64 0}
+!24 = distinct !{!24, !25}
+!25 = !{!"llvm.loop.mustprogress"}
+!26 = !{!15, !15, i64 0}
+!27 = distinct !{!27, !25}
+!28 = distinct !{!28, !25}
+!29 = distinct !{!29, !25}
+!30 = distinct !{!30, !25}

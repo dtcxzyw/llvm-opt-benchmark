@@ -42,11 +42,11 @@ define i32 @lv_image_header_cache_init(i32 noundef %0) #0 {
   %9 = load i32, ptr %3, align 4, !tbaa !3
   %10 = zext i32 %9 to i64
   %11 = getelementptr inbounds nuw %struct._lv_cache_ops_t, ptr %4, i32 0, i32 0
-  store ptr @image_header_cache_compare_cb, ptr %11, align 8, !tbaa !20
+  store ptr @image_header_cache_compare_cb, ptr %11, align 8, !tbaa !31
   %12 = getelementptr inbounds nuw %struct._lv_cache_ops_t, ptr %4, i32 0, i32 1
-  store ptr null, ptr %12, align 8, !tbaa !22
+  store ptr null, ptr %12, align 8, !tbaa !33
   %13 = getelementptr inbounds nuw %struct._lv_cache_ops_t, ptr %4, i32 0, i32 2
-  store ptr @image_header_cache_free_cb, ptr %13, align 8, !tbaa !23
+  store ptr @image_header_cache_free_cb, ptr %13, align 8, !tbaa !34
   %14 = call ptr @lv_cache_create(ptr noundef @lv_cache_class_lru_rb_count, i64 noundef 32, i64 noundef %10, ptr noundef byval(%struct._lv_cache_ops_t) align 8 %4)
   store ptr %14, ptr getelementptr inbounds nuw (%struct._lv_global_t, ptr @lv_global, i32 0, i32 30), align 8, !tbaa !7
   %15 = load ptr, ptr getelementptr inbounds nuw (%struct._lv_global_t, ptr @lv_global, i32 0, i32 30), align 8, !tbaa !7
@@ -68,20 +68,20 @@ declare ptr @lv_cache_create(ptr noundef, i64 noundef, i64 noundef, ptr noundef 
 define internal signext i8 @image_header_cache_compare_cb(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8, !tbaa !24
-  store ptr %1, ptr %4, align 8, !tbaa !24
-  %5 = load ptr, ptr %3, align 8, !tbaa !24
+  store ptr %0, ptr %3, align 8, !tbaa !35
+  store ptr %1, ptr %4, align 8, !tbaa !35
+  %5 = load ptr, ptr %3, align 8, !tbaa !35
   %6 = getelementptr inbounds nuw %struct._lv_image_header_cache_data_t, ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %6, align 8, !tbaa !25
-  %8 = load ptr, ptr %3, align 8, !tbaa !24
+  %7 = load ptr, ptr %6, align 8, !tbaa !37
+  %8 = load ptr, ptr %3, align 8, !tbaa !35
   %9 = getelementptr inbounds nuw %struct._lv_image_header_cache_data_t, ptr %8, i32 0, i32 1
-  %10 = load i32, ptr %9, align 8, !tbaa !28
-  %11 = load ptr, ptr %4, align 8, !tbaa !24
+  %10 = load i32, ptr %9, align 8, !tbaa !41
+  %11 = load ptr, ptr %4, align 8, !tbaa !35
   %12 = getelementptr inbounds nuw %struct._lv_image_header_cache_data_t, ptr %11, i32 0, i32 0
-  %13 = load ptr, ptr %12, align 8, !tbaa !25
-  %14 = load ptr, ptr %4, align 8, !tbaa !24
+  %13 = load ptr, ptr %12, align 8, !tbaa !37
+  %14 = load ptr, ptr %4, align 8, !tbaa !35
   %15 = getelementptr inbounds nuw %struct._lv_image_header_cache_data_t, ptr %14, i32 0, i32 1
-  %16 = load i32, ptr %15, align 8, !tbaa !28
+  %16 = load i32, ptr %15, align 8, !tbaa !41
   %17 = call signext i8 @image_cache_common_compare(ptr noundef %7, i32 noundef %10, ptr noundef %13, i32 noundef %16)
   ret i8 %17
 }
@@ -90,18 +90,18 @@ define internal signext i8 @image_header_cache_compare_cb(ptr noundef %0, ptr no
 define internal void @image_header_cache_free_cb(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8, !tbaa !24
-  store ptr %1, ptr %4, align 8, !tbaa !24
-  %5 = load ptr, ptr %3, align 8, !tbaa !24
+  store ptr %0, ptr %3, align 8, !tbaa !35
+  store ptr %1, ptr %4, align 8, !tbaa !42
+  %5 = load ptr, ptr %3, align 8, !tbaa !35
   %6 = getelementptr inbounds nuw %struct._lv_image_header_cache_data_t, ptr %5, i32 0, i32 1
-  %7 = load i32, ptr %6, align 8, !tbaa !28
+  %7 = load i32, ptr %6, align 8, !tbaa !41
   %8 = icmp eq i32 %7, 1
   br i1 %8, label %9, label %13
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr %3, align 8, !tbaa !24
+  %10 = load ptr, ptr %3, align 8, !tbaa !35
   %11 = getelementptr inbounds nuw %struct._lv_image_header_cache_data_t, ptr %10, i32 0, i32 0
-  %12 = load ptr, ptr %11, align 8, !tbaa !25
+  %12 = load ptr, ptr %11, align 8, !tbaa !37
   call void @lv_free(ptr noundef %12)
   br label %13
 
@@ -117,12 +117,12 @@ define void @lv_image_header_cache_resize(i32 noundef %0, i1 noundef zeroext %1)
   %4 = alloca i8, align 1
   store i32 %0, ptr %3, align 4, !tbaa !3
   %5 = zext i1 %1 to i8
-  store i8 %5, ptr %4, align 1, !tbaa !29
+  store i8 %5, ptr %4, align 1, !tbaa !43
   %6 = load ptr, ptr getelementptr inbounds nuw (%struct._lv_global_t, ptr @lv_global, i32 0, i32 30), align 8, !tbaa !7
   %7 = load i32, ptr %3, align 4, !tbaa !3
   %8 = zext i32 %7 to i64
   call void @lv_cache_set_max_size(ptr noundef %6, i64 noundef %8, ptr noundef null)
-  %9 = load i8, ptr %4, align 1, !tbaa !29, !range !30, !noundef !31
+  %9 = load i8, ptr %4, align 1, !tbaa !43, !range !44, !noundef !45
   %10 = trunc i8 %9 to i1
   br i1 %10, label %11, label %14
 
@@ -144,8 +144,8 @@ declare void @lv_cache_reserve(ptr noundef, i32 noundef, ptr noundef) #1
 define void @lv_image_header_cache_drop(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca %struct._lv_image_header_cache_data_t, align 8
-  store ptr %0, ptr %2, align 8, !tbaa !24
-  %4 = load ptr, ptr %2, align 8, !tbaa !24
+  store ptr %0, ptr %2, align 8, !tbaa !42
+  %4 = load ptr, ptr %2, align 8, !tbaa !42
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %8
 
@@ -157,16 +157,16 @@ define void @lv_image_header_cache_drop(ptr noundef %0) #0 {
 8:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 32, ptr %3) #5
   %9 = getelementptr inbounds nuw %struct._lv_image_header_cache_data_t, ptr %3, i32 0, i32 0
-  %10 = load ptr, ptr %2, align 8, !tbaa !24
-  store ptr %10, ptr %9, align 8, !tbaa !25
+  %10 = load ptr, ptr %2, align 8, !tbaa !42
+  store ptr %10, ptr %9, align 8, !tbaa !37
   %11 = getelementptr inbounds nuw %struct._lv_image_header_cache_data_t, ptr %3, i32 0, i32 1
-  %12 = load ptr, ptr %2, align 8, !tbaa !24
+  %12 = load ptr, ptr %2, align 8, !tbaa !42
   %13 = call i32 @lv_image_src_get_type(ptr noundef %12)
-  store i32 %13, ptr %11, align 8, !tbaa !28
+  store i32 %13, ptr %11, align 8, !tbaa !41
   %14 = getelementptr inbounds nuw %struct._lv_image_header_cache_data_t, ptr %3, i32 0, i32 2
   call void @llvm.memset.p0.i64(ptr align 4 %14, i8 0, i64 12, i1 false)
   %15 = getelementptr inbounds nuw %struct._lv_image_header_cache_data_t, ptr %3, i32 0, i32 3
-  store ptr null, ptr %15, align 8, !tbaa !32
+  store ptr null, ptr %15, align 8, !tbaa !46
   %16 = load ptr, ptr getelementptr inbounds nuw (%struct._lv_global_t, ptr @lv_global, i32 0, i32 30), align 8, !tbaa !7
   call void @lv_cache_drop(ptr noundef %16, ptr noundef %3, ptr noundef null)
   call void @llvm.lifetime.end.p0(i64 32, ptr %3) #5
@@ -179,17 +179,17 @@ define void @lv_image_header_cache_drop(ptr noundef %0) #0 {
 declare void @lv_cache_drop_all(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare i32 @lv_image_src_get_type(ptr noundef) #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare void @lv_cache_drop(ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define zeroext i1 @lv_image_header_cache_is_enabled() #0 {
@@ -215,8 +215,8 @@ define void @lv_image_header_cache_dump() #0 {
   %2 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr %1) #5
   %3 = call ptr @lv_image_cache_iter_create()
-  store ptr %3, ptr %1, align 8, !tbaa !24
-  %4 = load ptr, ptr %1, align 8, !tbaa !24
+  store ptr %3, ptr %1, align 8, !tbaa !47
+  %4 = load ptr, ptr %1, align 8, !tbaa !47
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %7
 
@@ -243,7 +243,7 @@ define void @lv_image_header_cache_dump() #0 {
   br label %13
 
 13:                                               ; preds = %12
-  %14 = load ptr, ptr %1, align 8, !tbaa !24
+  %14 = load ptr, ptr %1, align 8, !tbaa !47
   call void @lv_iter_inspect(ptr noundef %14, ptr noundef @iter_inspect_cb)
   store i32 0, ptr %2, align 4
   br label %15
@@ -274,29 +274,29 @@ define internal void @iter_inspect_cb(ptr noundef %0) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8, !tbaa !24
+  store ptr %0, ptr %2, align 8, !tbaa !42
   call void @llvm.lifetime.start.p0(i64 8, ptr %3) #5
-  %7 = load ptr, ptr %2, align 8, !tbaa !24
-  store ptr %7, ptr %3, align 8, !tbaa !24
+  %7 = load ptr, ptr %2, align 8, !tbaa !42
+  store ptr %7, ptr %3, align 8, !tbaa !49
   call void @llvm.lifetime.start.p0(i64 8, ptr %4) #5
-  %8 = load ptr, ptr %3, align 8, !tbaa !24
+  %8 = load ptr, ptr %3, align 8, !tbaa !49
   %9 = getelementptr inbounds nuw %struct._lv_image_cache_data_t, ptr %8, i32 0, i32 3
-  %10 = load ptr, ptr %9, align 8, !tbaa !33
-  store ptr %10, ptr %4, align 8, !tbaa !24
+  %10 = load ptr, ptr %9, align 8, !tbaa !51
+  store ptr %10, ptr %4, align 8, !tbaa !55
   call void @llvm.lifetime.start.p0(i64 8, ptr %5) #5
-  %11 = load ptr, ptr %4, align 8, !tbaa !24
+  %11 = load ptr, ptr %4, align 8, !tbaa !55
   %12 = getelementptr inbounds nuw %struct._lv_draw_buf_t, ptr %11, i32 0, i32 0
-  store ptr %12, ptr %5, align 8, !tbaa !24
+  store ptr %12, ptr %5, align 8, !tbaa !42
   call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
-  %13 = load ptr, ptr %3, align 8, !tbaa !24
+  %13 = load ptr, ptr %3, align 8, !tbaa !49
   %14 = load ptr, ptr getelementptr inbounds nuw (%struct._lv_global_t, ptr @lv_global, i32 0, i32 30), align 8, !tbaa !7
   %15 = getelementptr inbounds nuw %struct._lv_cache_t, ptr %14, i32 0, i32 1
-  %16 = load i32, ptr %15, align 8, !tbaa !36
+  %16 = load i32, ptr %15, align 8, !tbaa !56
   %17 = call ptr @lv_cache_entry_get_entry(ptr noundef %13, i32 noundef %16)
-  store ptr %17, ptr %6, align 8, !tbaa !24
-  %18 = load ptr, ptr %3, align 8, !tbaa !24
+  store ptr %17, ptr %6, align 8, !tbaa !59
+  %18 = load ptr, ptr %3, align 8, !tbaa !49
   %19 = getelementptr inbounds nuw %struct._lv_image_cache_data_t, ptr %18, i32 0, i32 2
-  %20 = load i32, ptr %19, align 8, !tbaa !38
+  %20 = load i32, ptr %19, align 8, !tbaa !61
   switch i32 %20, label %29 [
     i32 1, label %21
     i32 0, label %25
@@ -355,9 +355,9 @@ define internal signext i8 @image_cache_common_compare(ptr noundef %0, i32 nound
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
-  store ptr %0, ptr %6, align 8, !tbaa !24
+  store ptr %0, ptr %6, align 8, !tbaa !42
   store i32 %1, ptr %7, align 4, !tbaa !3
-  store ptr %2, ptr %8, align 8, !tbaa !24
+  store ptr %2, ptr %8, align 8, !tbaa !42
   store i32 %3, ptr %9, align 4, !tbaa !3
   %12 = load i32, ptr %7, align 4, !tbaa !3
   %13 = load i32, ptr %9, align 4, !tbaa !3
@@ -371,8 +371,8 @@ define internal signext i8 @image_cache_common_compare(ptr noundef %0, i32 nound
 
 18:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(i64 4, ptr %10) #5
-  %19 = load ptr, ptr %6, align 8, !tbaa !24
-  %20 = load ptr, ptr %8, align 8, !tbaa !24
+  %19 = load ptr, ptr %6, align 8, !tbaa !42
+  %20 = load ptr, ptr %8, align 8, !tbaa !42
   %21 = call i32 @lv_strcmp(ptr noundef %19, ptr noundef %20)
   store i32 %21, ptr %10, align 4, !tbaa !3
   %22 = load i32, ptr %10, align 4, !tbaa !3
@@ -409,14 +409,14 @@ define internal signext i8 @image_cache_common_compare(ptr noundef %0, i32 nound
   br i1 %35, label %36, label %47
 
 36:                                               ; preds = %33
-  %37 = load ptr, ptr %6, align 8, !tbaa !24
-  %38 = load ptr, ptr %8, align 8, !tbaa !24
+  %37 = load ptr, ptr %6, align 8, !tbaa !42
+  %38 = load ptr, ptr %8, align 8, !tbaa !42
   %39 = icmp ne ptr %37, %38
   br i1 %39, label %40, label %46
 
 40:                                               ; preds = %36
-  %41 = load ptr, ptr %6, align 8, !tbaa !24
-  %42 = load ptr, ptr %8, align 8, !tbaa !24
+  %41 = load ptr, ptr %6, align 8, !tbaa !42
+  %42 = load ptr, ptr %8, align 8, !tbaa !42
   %43 = icmp ugt ptr %41, %42
   %44 = select i1 %43, i32 1, i32 -1
   %45 = trunc i32 %44 to i8
@@ -472,35 +472,58 @@ attributes #5 = { nounwind }
 !4 = !{!"int", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = !{!8, !11, i64 528}
-!8 = !{!"_lv_global_t", !9, i64 0, !9, i64 1, !10, i64 8, !11, i64 32, !11, i64 40, !10, i64 48, !9, i64 72, !4, i64 76, !4, i64 80, !11, i64 88, !10, i64 96, !11, i64 120, !10, i64 128, !11, i64 152, !11, i64 160, !4, i64 168, !11, i64 176, !9, i64 184, !4, i64 188, !4, i64 192, !11, i64 200, !4, i64 208, !12, i64 216, !13, i64 288, !14, i64 328, !15, i64 352, !15, i64 400, !15, i64 448, !10, i64 496, !11, i64 520, !11, i64 528, !16, i64 536, !5, i64 568, !11, i64 760, !11, i64 768, !11, i64 776, !17, i64 784, !10, i64 832, !11, i64 856, !11, i64 864, !19, i64 872, !18, i64 888, !11, i64 896, !4, i64 904, !11, i64 912}
+!7 = !{!8, !23, i64 528}
+!8 = !{!"_lv_global_t", !9, i64 0, !9, i64 1, !10, i64 8, !13, i64 32, !13, i64 40, !10, i64 48, !9, i64 72, !4, i64 76, !4, i64 80, !11, i64 88, !10, i64 96, !14, i64 120, !10, i64 128, !15, i64 152, !16, i64 160, !4, i64 168, !12, i64 176, !9, i64 184, !4, i64 188, !4, i64 192, !17, i64 200, !4, i64 208, !18, i64 216, !19, i64 288, !21, i64 328, !22, i64 352, !22, i64 400, !22, i64 448, !10, i64 496, !23, i64 520, !23, i64 528, !24, i64 536, !5, i64 568, !12, i64 760, !12, i64 768, !12, i64 776, !26, i64 784, !10, i64 832, !28, i64 856, !29, i64 864, !30, i64 872, !27, i64 888, !12, i64 896, !4, i64 904, !12, i64 912}
 !9 = !{!"_Bool", !5, i64 0}
 !10 = !{!"", !4, i64 0, !11, i64 8, !11, i64 16}
-!11 = !{!"any pointer", !5, i64 0}
-!12 = !{!"", !10, i64 0, !9, i64 24, !5, i64 25, !9, i64 26, !9, i64 27, !4, i64 28, !9, i64 32, !4, i64 36, !4, i64 40, !4, i64 44, !4, i64 48, !11, i64 56, !11, i64 64}
-!13 = !{!"", !9, i64 0, !9, i64 1, !11, i64 8, !10, i64 16}
-!14 = !{!"", !4, i64 0, !5, i64 4, !11, i64 8, !11, i64 16}
-!15 = !{!"_lv_draw_buf_handlers_t", !11, i64 0, !11, i64 8, !11, i64 16, !11, i64 24, !11, i64 32, !11, i64 40}
-!16 = !{!"", !11, i64 0, !4, i64 8, !4, i64 12, !4, i64 16, !4, i64 20, !9, i64 24}
-!17 = !{!"", !11, i64 0, !18, i64 8, !18, i64 16, !10, i64 24}
-!18 = !{!"long", !5, i64 0}
-!19 = !{!"", !11, i64 0, !4, i64 8, !5, i64 12}
-!20 = !{!21, !11, i64 0}
-!21 = !{!"_lv_cache_ops_t", !11, i64 0, !11, i64 8, !11, i64 16}
-!22 = !{!21, !11, i64 8}
-!23 = !{!21, !11, i64 16}
-!24 = !{!11, !11, i64 0}
-!25 = !{!26, !11, i64 0}
-!26 = !{!"_lv_image_header_cache_data_t", !11, i64 0, !4, i64 8, !27, i64 12, !11, i64 24}
-!27 = !{!"", !4, i64 0, !4, i64 1, !4, i64 2, !4, i64 4, !4, i64 6, !4, i64 8, !4, i64 10}
-!28 = !{!26, !4, i64 8}
-!29 = !{!9, !9, i64 0}
-!30 = !{i8 0, i8 2}
-!31 = !{}
-!32 = !{!26, !11, i64 24}
-!33 = !{!34, !11, i64 24}
-!34 = !{!"_lv_image_cache_data_t", !35, i64 0, !11, i64 8, !4, i64 16, !11, i64 24, !11, i64 32, !11, i64 40}
-!35 = !{!"_lv_cache_slot_size_t", !18, i64 0}
-!36 = !{!37, !4, i64 8}
-!37 = !{!"_lv_cache_t", !11, i64 0, !4, i64 8, !4, i64 12, !4, i64 16, !21, i64 24, !4, i64 48, !11, i64 56}
-!38 = !{!34, !4, i64 16}
+!11 = !{!"p1 omnipotent char", !12, i64 0}
+!12 = !{!"any pointer", !5, i64 0}
+!13 = !{!"p1 _ZTS13_lv_display_t", !12, i64 0}
+!14 = !{!"p1 _ZTS11_lv_group_t", !12, i64 0}
+!15 = !{!"p1 _ZTS11_lv_indev_t", !12, i64 0}
+!16 = !{!"p1 _ZTS9_lv_obj_t", !12, i64 0}
+!17 = !{!"p1 _ZTS11_lv_event_t", !12, i64 0}
+!18 = !{!"", !10, i64 0, !9, i64 24, !5, i64 25, !9, i64 26, !9, i64 27, !4, i64 28, !9, i64 32, !4, i64 36, !4, i64 40, !4, i64 44, !4, i64 48, !12, i64 56, !12, i64 64}
+!19 = !{!"", !9, i64 0, !9, i64 1, !20, i64 8, !10, i64 16}
+!20 = !{!"p1 _ZTS11_lv_timer_t", !12, i64 0}
+!21 = !{!"", !4, i64 0, !5, i64 4, !12, i64 8, !12, i64 16}
+!22 = !{!"_lv_draw_buf_handlers_t", !12, i64 0, !12, i64 8, !12, i64 16, !12, i64 24, !12, i64 32, !12, i64 40}
+!23 = !{!"p1 _ZTS11_lv_cache_t", !12, i64 0}
+!24 = !{!"", !25, i64 0, !4, i64 8, !4, i64 12, !4, i64 16, !4, i64 20, !9, i64 24}
+!25 = !{!"p1 _ZTS15_lv_draw_unit_t", !12, i64 0}
+!26 = !{!"", !12, i64 0, !27, i64 8, !27, i64 16, !10, i64 24}
+!27 = !{!"long", !5, i64 0}
+!28 = !{!"p1 _ZTS22_lv_freetype_context_t", !12, i64 0}
+!29 = !{!"p1 _ZTS14_snippet_stack", !12, i64 0}
+!30 = !{!"", !12, i64 0, !4, i64 8, !5, i64 12}
+!31 = !{!32, !12, i64 0}
+!32 = !{!"_lv_cache_ops_t", !12, i64 0, !12, i64 8, !12, i64 16}
+!33 = !{!32, !12, i64 8}
+!34 = !{!32, !12, i64 16}
+!35 = !{!36, !36, i64 0}
+!36 = !{!"p1 _ZTS29_lv_image_header_cache_data_t", !12, i64 0}
+!37 = !{!38, !12, i64 0}
+!38 = !{!"_lv_image_header_cache_data_t", !12, i64 0, !4, i64 8, !39, i64 12, !40, i64 24}
+!39 = !{!"", !4, i64 0, !4, i64 1, !4, i64 2, !4, i64 4, !4, i64 6, !4, i64 8, !4, i64 10}
+!40 = !{!"p1 _ZTS19_lv_image_decoder_t", !12, i64 0}
+!41 = !{!38, !4, i64 8}
+!42 = !{!12, !12, i64 0}
+!43 = !{!9, !9, i64 0}
+!44 = !{i8 0, i8 2}
+!45 = !{}
+!46 = !{!38, !40, i64 24}
+!47 = !{!48, !48, i64 0}
+!48 = !{!"p1 _ZTS10_lv_iter_t", !12, i64 0}
+!49 = !{!50, !50, i64 0}
+!50 = !{!"p1 _ZTS22_lv_image_cache_data_t", !12, i64 0}
+!51 = !{!52, !54, i64 24}
+!52 = !{!"_lv_image_cache_data_t", !53, i64 0, !12, i64 8, !4, i64 16, !54, i64 24, !40, i64 32, !12, i64 40}
+!53 = !{!"_lv_cache_slot_size_t", !27, i64 0}
+!54 = !{!"p1 _ZTS14_lv_draw_buf_t", !12, i64 0}
+!55 = !{!54, !54, i64 0}
+!56 = !{!57, !4, i64 8}
+!57 = !{!"_lv_cache_t", !58, i64 0, !4, i64 8, !4, i64 12, !4, i64 16, !32, i64 24, !4, i64 48, !11, i64 56}
+!58 = !{!"p1 _ZTS17_lv_cache_class_t", !12, i64 0}
+!59 = !{!60, !60, i64 0}
+!60 = !{!"p1 _ZTS17_lv_cache_entry_t", !12, i64 0}
+!61 = !{!52, !4, i64 16}

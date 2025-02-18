@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct._lv_obj_class_t = type { ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32 }
-%struct._lv_anim_t = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, %union._lv_anim_path_para_t, i32, i8 }
+%struct._lv_anim_t = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, %union._lv_anim_path_para_t, i32, i32, i32, i8 }
 %union._lv_anim_path_para_t = type { %struct.lv_anim_bezier3_para_t }
 %struct.lv_anim_bezier3_para_t = type { i16, i16, i16, i16 }
 
@@ -40,7 +40,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 define void @lv_spinner_set_anim_params(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct._lv_anim_t, align 8
   %5 = tail call zeroext i1 @lv_anim_delete(ptr noundef %0, ptr noundef null) #3
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %4) #3
   call void @lv_anim_init(ptr noundef nonnull %4) #3
   call void @lv_anim_set_var(ptr noundef nonnull %4, ptr noundef %0) #3
   call void @lv_anim_set_exec_cb(ptr noundef nonnull %4, ptr noundef nonnull @arc_anim_end_angle) #3
@@ -56,7 +56,7 @@ define void @lv_spinner_set_anim_params(ptr noundef %0, i32 noundef %1, i32 noun
   %8 = call ptr @lv_anim_start(ptr noundef nonnull %4) #3
   call void @lv_arc_set_bg_angles(ptr noundef %0, float noundef 0.000000e+00, float noundef 3.600000e+02) #3
   call void @lv_arc_set_rotation(ptr noundef %0, i32 noundef 270) #3
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %4) #3
   ret void
 }
 

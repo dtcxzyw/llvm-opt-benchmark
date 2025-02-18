@@ -30,20 +30,20 @@ define void @lv_draw_deinit() local_unnamed_addr #1 {
 
 .lr.ph:                                           ; preds = %0, %7
   %.010 = phi ptr [ %2, %7 ], [ %1, %0 ]
-  %2 = load ptr, ptr %.010, align 8, !tbaa !19
-  %3 = getelementptr inbounds nuw i8, ptr %.010, i64 56
-  %4 = load ptr, ptr %3, align 8, !tbaa !21
+  %2 = load ptr, ptr %.010, align 8, !tbaa !30
+  %3 = getelementptr inbounds nuw i8, ptr %.010, i64 48
+  %4 = load ptr, ptr %3, align 8, !tbaa !32
   %.not8 = icmp eq ptr %4, null
   br i1 %.not8, label %7, label %5
 
 5:                                                ; preds = %.lr.ph
-  %6 = tail call i32 %4(ptr noundef nonnull %.010) #10
+  %6 = tail call i32 %4(ptr noundef nonnull %.010) #11
   br label %7
 
 7:                                                ; preds = %5, %.lr.ph
-  tail call void @lv_free(ptr noundef nonnull %.010) #10
+  tail call void @lv_free(ptr noundef nonnull %.010) #11
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %7, %0
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 536), align 8, !tbaa !3
@@ -59,51 +59,69 @@ declare void @lv_free(ptr noundef) local_unnamed_addr #3
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @lv_draw_create_unit(i64 noundef %0) local_unnamed_addr #1 {
-  %2 = tail call ptr @lv_malloc_zeroed(i64 noundef %0) #10
-  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 536), align 8, !tbaa !3
-  store ptr %3, ptr %2, align 8, !tbaa !19
+define nonnull ptr @lv_draw_create_unit(i64 noundef %0) local_unnamed_addr #1 {
+  %2 = tail call ptr @lv_malloc_zeroed(i64 noundef %0) #11
+  %.not = icmp eq ptr %2, null
+  br i1 %.not, label %.preheader, label %3
+
+.preheader:                                       ; preds = %1, %.preheader
+  br label %.preheader
+
+3:                                                ; preds = %1
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 536), align 8, !tbaa !3
+  store ptr %4, ptr %2, align 8, !tbaa !30
   store ptr %2, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 536), align 8, !tbaa !3
-  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 544), align 8, !tbaa !24
-  %5 = add i32 %4, 1
-  store i32 %5, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 544), align 8, !tbaa !24
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 544), align 8, !tbaa !35
+  %6 = add i32 %5, 1
+  store i32 %6, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 544), align 8, !tbaa !35
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store i32 %6, ptr %7, align 8, !tbaa !36
   ret ptr %2
 }
 
 declare ptr @lv_malloc_zeroed(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define ptr @lv_draw_add_task(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
-  %3 = tail call ptr @lv_malloc_zeroed(i64 noundef 96) #10
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !25
-  %5 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !25
-  %6 = getelementptr inbounds nuw i8, ptr %3, i64 60
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !25
-  %8 = getelementptr inbounds nuw i8, ptr %3, i64 76
-  store volatile i32 1, ptr %8, align 4, !tbaa !27
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %10 = load ptr, ptr %9, align 8, !tbaa !30
-  %11 = icmp eq ptr %10, null
-  br i1 %11, label %12, label %.preheader
-
-12:                                               ; preds = %2
-  store ptr %3, ptr %9, align 8, !tbaa !30
-  br label %15
+define nonnull ptr @lv_draw_add_task(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
+  %3 = tail call ptr @lv_malloc_zeroed(i64 noundef 120) #11
+  %.not = icmp eq ptr %3, null
+  br i1 %.not, label %.preheader, label %4
 
 .preheader:                                       ; preds = %2, %.preheader
-  %.0 = phi ptr [ %13, %.preheader ], [ %10, %2 ]
-  %13 = load ptr, ptr %.0, align 8, !tbaa !32
-  %.not = icmp eq ptr %13, null
-  br i1 %.not, label %14, label %.preheader, !llvm.loop !33
+  br label %.preheader
 
-14:                                               ; preds = %.preheader
-  store ptr %3, ptr %.0, align 8, !tbaa !32
-  br label %15
+4:                                                ; preds = %2
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !37
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !37
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 80
+  store ptr %0, ptr %7, align 8, !tbaa !39
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 60
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(16) %9, i64 16, i1 false), !tbaa.struct !37
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 96
+  store volatile i32 1, ptr %10, align 8, !tbaa !44
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %12 = load ptr, ptr %11, align 8, !tbaa !45
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %14, label %.preheader23
 
-15:                                               ; preds = %14, %12
+14:                                               ; preds = %4
+  store ptr %3, ptr %11, align 8, !tbaa !45
+  br label %17
+
+.preheader23:                                     ; preds = %4, %.preheader23
+  %.0 = phi ptr [ %15, %.preheader23 ], [ %12, %4 ]
+  %15 = load ptr, ptr %.0, align 8, !tbaa !48
+  %.not22 = icmp eq ptr %15, null
+  br i1 %.not22, label %16, label %.preheader23, !llvm.loop !49
+
+16:                                               ; preds = %.preheader23
+  store ptr %3, ptr %.0, align 8, !tbaa !48
+  br label %17
+
+17:                                               ; preds = %16, %14
   ret ptr %3
 }
 
@@ -112,67 +130,67 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 
 ; Function Attrs: nounwind uwtable
 define void @lv_draw_finalize_task_creation(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %4 = load ptr, ptr %3, align 8, !tbaa !34
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %4 = load ptr, ptr %3, align 8, !tbaa !50
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr %0, ptr %5, align 8, !tbaa !35
-  %6 = load i8, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 560), align 8, !tbaa !37, !range !38, !noundef !39
+  store ptr %0, ptr %5, align 8, !tbaa !51
+  %6 = load i8, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 560), align 8, !tbaa !53, !range !54, !noundef !55
   %7 = icmp eq i8 %6, 0
   br i1 %7, label %8, label %33
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr %4, align 8, !tbaa !40
+  %9 = load ptr, ptr %4, align 8, !tbaa !56
   %.not35 = icmp eq ptr %9, null
   br i1 %.not35, label %15, label %10
 
 10:                                               ; preds = %8
-  %11 = tail call zeroext i1 @lv_obj_has_flag(ptr noundef nonnull %9, i32 noundef 524288) #10
+  %11 = tail call zeroext i1 @lv_obj_has_flag(ptr noundef nonnull %9, i32 noundef 524288) #11
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %10
-  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 560), align 8, !tbaa !37
-  %13 = load ptr, ptr %4, align 8, !tbaa !40
-  %14 = tail call i32 @lv_obj_send_event(ptr noundef %13, i32 noundef 34, ptr noundef nonnull %1) #10
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 560), align 8, !tbaa !37
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 560), align 8, !tbaa !53
+  %13 = load ptr, ptr %4, align 8, !tbaa !56
+  %14 = tail call i32 @lv_obj_send_event(ptr noundef %13, i32 noundef 34, ptr noundef nonnull %1) #11
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 560), align 8, !tbaa !53
   br label %15
 
 15:                                               ; preds = %12, %10, %8
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 89
-  store i8 100, ptr %16, align 1, !tbaa !41
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  store i8 0, ptr %17, align 8, !tbaa !42
-  %.03042 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 536), align 8, !tbaa !43
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 113
+  store i8 100, ptr %16, align 1, !tbaa !57
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  store i8 0, ptr %17, align 8, !tbaa !58
+  %.03042 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 536), align 8, !tbaa !59
   %.not3643 = icmp eq ptr %.03042, null
   br i1 %.not3643, label %._crit_edge.thread, label %.lr.ph45
 
 .lr.ph45:                                         ; preds = %15, %22
   %.03044 = phi ptr [ %.030, %22 ], [ %.03042, %15 ]
-  %18 = getelementptr inbounds nuw i8, ptr %.03044, i64 40
-  %19 = load ptr, ptr %18, align 8, !tbaa !44
+  %18 = getelementptr inbounds nuw i8, ptr %.03044, i64 32
+  %19 = load ptr, ptr %18, align 8, !tbaa !60
   %.not37 = icmp eq ptr %19, null
   br i1 %.not37, label %22, label %20
 
 20:                                               ; preds = %.lr.ph45
-  %21 = tail call i32 %19(ptr noundef nonnull %.03044, ptr noundef %1) #10
+  %21 = tail call i32 %19(ptr noundef nonnull %.03044, ptr noundef %1) #11
   br label %22
 
 22:                                               ; preds = %20, %.lr.ph45
-  %.030 = load ptr, ptr %.03044, align 8, !tbaa !43
+  %.030 = load ptr, ptr %.03044, align 8, !tbaa !59
   %.not36 = icmp eq ptr %.030, null
-  br i1 %.not36, label %._crit_edge, label %.lr.ph45, !llvm.loop !45
+  br i1 %.not36, label %._crit_edge, label %.lr.ph45, !llvm.loop !61
 
 ._crit_edge:                                      ; preds = %22
-  %.pre = load i8, ptr %17, align 8, !tbaa !42
+  %.pre = load i8, ptr %17, align 8, !tbaa !58
   %23 = icmp eq i8 %.pre, 0
   br i1 %23, label %._crit_edge.thread, label %25
 
 ._crit_edge.thread:                               ; preds = %15, %._crit_edge
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 76
-  store volatile i32 3, ptr %24, align 4, !tbaa !27
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  store volatile i32 3, ptr %24, align 8, !tbaa !44
   br label %lv_draw_dispatch.exit
 
 25:                                               ; preds = %._crit_edge
-  %26 = tail call ptr @lv_display_get_next(ptr noundef null) #10
+  %26 = tail call ptr @lv_display_get_next(ptr noundef null) #11
   %.not14.i = icmp eq ptr %26, null
   br i1 %.not14.i, label %lv_draw_dispatch.exit, label %.lr.ph18.i
 
@@ -180,7 +198,7 @@ define void @lv_draw_finalize_task_creation(ptr noundef %0, ptr noundef %1) loca
   %.0716.i = phi ptr [ %32, %31 ], [ %26, %25 ]
   %.0815.i = phi i1 [ %.1.lcssa.i, %31 ], [ false, %25 ]
   %27 = getelementptr inbounds nuw i8, ptr %.0716.i, i64 752
-  %.010.i = load ptr, ptr %27, align 8, !tbaa !43
+  %.010.i = load ptr, ptr %27, align 8, !tbaa !62
   %.not911.i = icmp eq ptr %.010.i, null
   br i1 %.not911.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -189,48 +207,48 @@ define void @lv_draw_finalize_task_creation(ptr noundef %0, ptr noundef %1) loca
   %.112.i = phi i1 [ %spec.select.i, %.lr.ph.i ], [ %.0815.i, %.lr.ph18.i ]
   %28 = tail call zeroext i1 @lv_draw_dispatch_layer(ptr noundef nonnull %.0716.i, ptr noundef nonnull %.013.i)
   %spec.select.i = select i1 %28, i1 true, i1 %.112.i
-  %29 = getelementptr inbounds nuw i8, ptr %.013.i, i64 80
-  %.0.i = load ptr, ptr %29, align 8, !tbaa !43
+  %29 = getelementptr inbounds nuw i8, ptr %.013.i, i64 88
+  %.0.i = load ptr, ptr %29, align 8, !tbaa !62
   %.not9.i = icmp eq ptr %.0.i, null
-  br i1 %.not9.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !46
+  br i1 %.not9.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !63
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.lr.ph18.i
   %.1.lcssa.i = phi i1 [ %.0815.i, %.lr.ph18.i ], [ %spec.select.i, %.lr.ph.i ]
   br i1 %.1.lcssa.i, label %31, label %30
 
 30:                                               ; preds = %._crit_edge.i
-  store volatile i32 1, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 552), align 8, !tbaa !47
+  store volatile i32 1, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 552), align 8, !tbaa !64
   br label %31
 
 31:                                               ; preds = %30, %._crit_edge.i
-  %32 = tail call ptr @lv_display_get_next(ptr noundef nonnull %.0716.i) #10
+  %32 = tail call ptr @lv_display_get_next(ptr noundef nonnull %.0716.i) #11
   %.not.i = icmp eq ptr %32, null
-  br i1 %.not.i, label %lv_draw_dispatch.exit, label %.lr.ph18.i, !llvm.loop !48
+  br i1 %.not.i, label %lv_draw_dispatch.exit, label %.lr.ph18.i, !llvm.loop !65
 
 33:                                               ; preds = %2
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 89
-  store i8 100, ptr %34, align 1, !tbaa !41
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  store i8 0, ptr %35, align 8, !tbaa !42
-  %.039 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 536), align 8, !tbaa !43
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 113
+  store i8 100, ptr %34, align 1, !tbaa !57
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  store i8 0, ptr %35, align 8, !tbaa !58
+  %.039 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 536), align 8, !tbaa !59
   %.not40 = icmp eq ptr %.039, null
   br i1 %.not40, label %lv_draw_dispatch.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %33, %40
   %.041 = phi ptr [ %.0, %40 ], [ %.039, %33 ]
-  %36 = getelementptr inbounds nuw i8, ptr %.041, i64 40
-  %37 = load ptr, ptr %36, align 8, !tbaa !44
+  %36 = getelementptr inbounds nuw i8, ptr %.041, i64 32
+  %37 = load ptr, ptr %36, align 8, !tbaa !60
   %.not34 = icmp eq ptr %37, null
   br i1 %.not34, label %40, label %38
 
 38:                                               ; preds = %.lr.ph
-  %39 = tail call i32 %37(ptr noundef nonnull %.041, ptr noundef %1) #10
+  %39 = tail call i32 %37(ptr noundef nonnull %.041, ptr noundef %1) #11
   br label %40
 
 40:                                               ; preds = %38, %.lr.ph
-  %.0 = load ptr, ptr %.041, align 8, !tbaa !43
+  %.0 = load ptr, ptr %.041, align 8, !tbaa !59
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %lv_draw_dispatch.exit, label %.lr.ph, !llvm.loop !49
+  br i1 %.not, label %lv_draw_dispatch.exit, label %.lr.ph, !llvm.loop !66
 
 lv_draw_dispatch.exit:                            ; preds = %40, %31, %33, %25, %._crit_edge.thread
   ret void
@@ -242,7 +260,7 @@ declare i32 @lv_obj_send_event(ptr noundef, i32 noundef, ptr noundef) local_unna
 
 ; Function Attrs: nounwind uwtable
 define void @lv_draw_dispatch() local_unnamed_addr #1 {
-  %1 = tail call ptr @lv_display_get_next(ptr noundef null) #10
+  %1 = tail call ptr @lv_display_get_next(ptr noundef null) #11
   %.not14 = icmp eq ptr %1, null
   br i1 %.not14, label %._crit_edge19, label %.lr.ph18
 
@@ -250,7 +268,7 @@ define void @lv_draw_dispatch() local_unnamed_addr #1 {
   %.0716 = phi ptr [ %7, %6 ], [ %1, %0 ]
   %.0815 = phi i1 [ %.1.lcssa, %6 ], [ false, %0 ]
   %2 = getelementptr inbounds nuw i8, ptr %.0716, i64 752
-  %.010 = load ptr, ptr %2, align 8, !tbaa !43
+  %.010 = load ptr, ptr %2, align 8, !tbaa !62
   %.not911 = icmp eq ptr %.010, null
   br i1 %.not911, label %._crit_edge, label %.lr.ph
 
@@ -259,23 +277,23 @@ define void @lv_draw_dispatch() local_unnamed_addr #1 {
   %.112 = phi i1 [ %spec.select, %.lr.ph ], [ %.0815, %.lr.ph18 ]
   %3 = tail call zeroext i1 @lv_draw_dispatch_layer(ptr noundef nonnull %.0716, ptr noundef nonnull %.013)
   %spec.select = select i1 %3, i1 true, i1 %.112
-  %4 = getelementptr inbounds nuw i8, ptr %.013, i64 80
-  %.0 = load ptr, ptr %4, align 8, !tbaa !43
+  %4 = getelementptr inbounds nuw i8, ptr %.013, i64 88
+  %.0 = load ptr, ptr %4, align 8, !tbaa !62
   %.not9 = icmp eq ptr %.0, null
-  br i1 %.not9, label %._crit_edge, label %.lr.ph, !llvm.loop !46
+  br i1 %.not9, label %._crit_edge, label %.lr.ph, !llvm.loop !63
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph18
   %.1.lcssa = phi i1 [ %.0815, %.lr.ph18 ], [ %spec.select, %.lr.ph ]
   br i1 %.1.lcssa, label %6, label %5
 
 5:                                                ; preds = %._crit_edge
-  store volatile i32 1, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 552), align 8, !tbaa !47
+  store volatile i32 1, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 552), align 8, !tbaa !64
   br label %6
 
 6:                                                ; preds = %5, %._crit_edge
-  %7 = tail call ptr @lv_display_get_next(ptr noundef nonnull %.0716) #10
+  %7 = tail call ptr @lv_display_get_next(ptr noundef nonnull %.0716) #11
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %._crit_edge19, label %.lr.ph18, !llvm.loop !48
+  br i1 %.not, label %._crit_edge19, label %.lr.ph18, !llvm.loop !65
 
 ._crit_edge19:                                    ; preds = %6, %0
   ret void
@@ -290,255 +308,244 @@ declare ptr @lv_display_get_next(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define zeroext i1 @lv_draw_dispatch_layer(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %4 = load ptr, ptr %3, align 8, !tbaa !30
-  %.not89 = icmp eq ptr %4, null
-  br i1 %.not89, label %._crit_edge, label %.lr.ph
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %4 = load ptr, ptr %3, align 8, !tbaa !45
+  %.not48 = icmp eq ptr %4, null
+  br i1 %.not48, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %.not79 = icmp eq ptr %0, null
+  %.not38.i = icmp eq ptr %0, null
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 752
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 768
   br label %7
 
-7:                                                ; preds = %.lr.ph, %64
-  %.091 = phi ptr [ null, %.lr.ph ], [ %.1, %64 ]
-  %.06290 = phi ptr [ %4, %.lr.ph ], [ %8, %64 ]
-  %8 = load ptr, ptr %.06290, align 8, !tbaa !32
-  %9 = getelementptr inbounds nuw i8, ptr %.06290, i64 76
-  %10 = load volatile i32, ptr %9, align 4, !tbaa !27
+7:                                                ; preds = %.lr.ph, %59
+  %.050 = phi ptr [ null, %.lr.ph ], [ %.1, %59 ]
+  %.03449 = phi ptr [ %4, %.lr.ph ], [ %8, %59 ]
+  %8 = load ptr, ptr %.03449, align 8, !tbaa !48
+  %9 = getelementptr inbounds nuw i8, ptr %.03449, i64 96
+  %10 = load volatile i32, ptr %9, align 8, !tbaa !44
   %11 = icmp eq i32 %10, 3
-  br i1 %11, label %12, label %64
+  br i1 %11, label %12, label %59
 
 12:                                               ; preds = %7
-  %.not77 = icmp eq ptr %.091, null
-  br i1 %.not77, label %14, label %13
+  %13 = getelementptr inbounds nuw i8, ptr %.03449, i64 8
+  %14 = load i32, ptr %13, align 8, !tbaa !67
+  %15 = icmp eq i32 %14, 7
+  br i1 %15, label %16, label %46
 
-13:                                               ; preds = %12
-  store ptr %8, ptr %.091, align 8, !tbaa !32
-  br label %15
+16:                                               ; preds = %12
+  %17 = getelementptr inbounds nuw i8, ptr %.03449, i64 104
+  %18 = load ptr, ptr %17, align 8, !tbaa !50
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 48
+  %20 = load ptr, ptr %19, align 8, !tbaa !68
+  %21 = load ptr, ptr %20, align 8, !tbaa !75
+  %.not.i = icmp eq ptr %21, null
+  br i1 %.not.i, label %31, label %22
 
-14:                                               ; preds = %12
-  store ptr %8, ptr %3, align 8, !tbaa !30
-  br label %15
+22:                                               ; preds = %16
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %24 = tail call i32 @lv_area_get_height(ptr noundef nonnull %23) #11
+  %25 = load ptr, ptr %20, align 8, !tbaa !75
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %27 = load i32, ptr %26, align 8
+  %28 = and i32 %27, 65535
+  %29 = mul nsw i32 %28, %24
+  %30 = load i32, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 548), align 4, !tbaa !76
+  %storemerge.i = tail call i32 @llvm.usub.sat.i32(i32 %30, i32 %29)
+  store i32 %storemerge.i, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 548), align 4, !tbaa !76
+  tail call void @lv_draw_buf_destroy(ptr noundef %25) #11
+  store ptr null, ptr %20, align 8, !tbaa !75
+  br label %31
 
-15:                                               ; preds = %14, %13
-  %16 = getelementptr inbounds nuw i8, ptr %.06290, i64 8
-  %17 = load i32, ptr %16, align 8, !tbaa !50
-  %18 = icmp eq i32 %17, 6
-  br i1 %18, label %19, label %52
+31:                                               ; preds = %22, %16
+  br i1 %.not38.i, label %46, label %32
 
-19:                                               ; preds = %15
-  %20 = getelementptr inbounds nuw i8, ptr %.06290, i64 80
-  %21 = load ptr, ptr %20, align 8, !tbaa !34
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 48
-  %23 = load ptr, ptr %22, align 8, !tbaa !51
-  %24 = load ptr, ptr %23, align 8, !tbaa !57
-  %.not78 = icmp eq ptr %24, null
-  br i1 %.not78, label %37, label %25
+32:                                               ; preds = %31
+  %33 = load ptr, ptr %5, align 8, !tbaa !77
+  br label %34
 
-25:                                               ; preds = %19
-  %26 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %27 = tail call i32 @lv_area_get_height(ptr noundef nonnull %26) #10
-  %28 = load ptr, ptr %23, align 8, !tbaa !57
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %30 = load i32, ptr %29, align 8
-  %31 = and i32 %30, 65535
-  %32 = mul nsw i32 %31, %27
-  %33 = tail call i32 @llvm.umax.i32(i32 %32, i32 1024)
-  %34 = lshr i32 %33, 10
-  %35 = load i32, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 548), align 4, !tbaa !58
-  %36 = sub i32 %35, %34
-  store i32 %36, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 548), align 4, !tbaa !58
-  tail call void @lv_draw_buf_destroy(ptr noundef %28) #10
-  store ptr null, ptr %23, align 8, !tbaa !57
-  br label %37
+34:                                               ; preds = %35, %32
+  %.0.i = phi ptr [ %33, %32 ], [ %37, %35 ]
+  %.not39.i = icmp eq ptr %.0.i, null
+  br i1 %.not39.i, label %.loopexit.i, label %35
 
-37:                                               ; preds = %25, %19
-  br i1 %.not79, label %52, label %38
+35:                                               ; preds = %34
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i, i64 88
+  %37 = load ptr, ptr %36, align 8, !tbaa !85
+  %38 = icmp eq ptr %37, %20
+  br i1 %38, label %39, label %34, !llvm.loop !86
 
-38:                                               ; preds = %37
-  %39 = load ptr, ptr %5, align 8, !tbaa !59
-  br label %40
+39:                                               ; preds = %35
+  %40 = getelementptr inbounds nuw i8, ptr %.0.i, i64 88
+  %41 = getelementptr inbounds nuw i8, ptr %20, i64 88
+  %42 = load ptr, ptr %41, align 8, !tbaa !85
+  store ptr %42, ptr %40, align 8, !tbaa !85
+  br label %.loopexit.i
 
-40:                                               ; preds = %41, %38
-  %.066 = phi ptr [ %39, %38 ], [ %43, %41 ]
-  %.not80 = icmp eq ptr %.066, null
-  br i1 %.not80, label %.loopexit87, label %41
+.loopexit.i:                                      ; preds = %34, %39
+  %43 = load ptr, ptr %6, align 8, !tbaa !87
+  %.not40.i = icmp eq ptr %43, null
+  br i1 %.not40.i, label %45, label %44
 
-41:                                               ; preds = %40
-  %42 = getelementptr inbounds nuw i8, ptr %.066, i64 80
-  %43 = load ptr, ptr %42, align 8, !tbaa !64
-  %44 = icmp eq ptr %43, %23
-  br i1 %44, label %45, label %40, !llvm.loop !65
+44:                                               ; preds = %.loopexit.i
+  tail call void %43(ptr noundef nonnull %0, ptr noundef nonnull %20) #11
+  br label %45
 
-45:                                               ; preds = %41
-  %46 = getelementptr inbounds nuw i8, ptr %.066, i64 80
-  %47 = getelementptr inbounds nuw i8, ptr %23, i64 80
-  %48 = load ptr, ptr %47, align 8, !tbaa !64
-  store ptr %48, ptr %46, align 8, !tbaa !64
-  br label %.loopexit87
+45:                                               ; preds = %44, %.loopexit.i
+  tail call void @lv_free(ptr noundef nonnull %20) #11
+  br label %46
 
-.loopexit87:                                      ; preds = %40, %45
-  %49 = load ptr, ptr %6, align 8, !tbaa !66
-  %.not81 = icmp eq ptr %49, null
-  br i1 %.not81, label %51, label %50
+46:                                               ; preds = %45, %31, %12
+  %47 = tail call ptr @lv_draw_task_get_label_dsc(ptr noundef nonnull %.03449) #11
+  %.not41.i = icmp eq ptr %47, null
+  br i1 %.not41.i, label %lv_cleanup_task.exit, label %48
 
-50:                                               ; preds = %.loopexit87
-  tail call void %49(ptr noundef nonnull %0, ptr noundef nonnull %23) #10
-  br label %51
+48:                                               ; preds = %46
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 128
+  %50 = load i8, ptr %49, align 8
+  %51 = and i8 %50, 64
+  %.not42.i = icmp eq i8 %51, 0
+  br i1 %.not42.i, label %lv_cleanup_task.exit, label %52
 
-51:                                               ; preds = %50, %.loopexit87
-  tail call void @lv_free(ptr noundef nonnull %23) #10
-  br label %52
+52:                                               ; preds = %48
+  %53 = getelementptr inbounds nuw i8, ptr %47, i64 48
+  %54 = load ptr, ptr %53, align 8, !tbaa !88
+  tail call void @lv_free(ptr noundef %54) #11
+  store ptr null, ptr %53, align 8, !tbaa !88
+  br label %lv_cleanup_task.exit
 
-52:                                               ; preds = %37, %51, %15
-  %53 = tail call ptr @lv_draw_task_get_label_dsc(ptr noundef nonnull %.06290) #10
-  %.not82 = icmp eq ptr %53, null
-  br i1 %.not82, label %61, label %54
+lv_cleanup_task.exit:                             ; preds = %46, %48, %52
+  %55 = getelementptr inbounds nuw i8, ptr %.03449, i64 104
+  %56 = load ptr, ptr %55, align 8, !tbaa !50
+  tail call void @lv_free(ptr noundef %56) #11
+  tail call void @lv_free(ptr noundef nonnull %.03449) #11
+  %.not43 = icmp eq ptr %.050, null
+  br i1 %.not43, label %58, label %57
 
-54:                                               ; preds = %52
-  %55 = getelementptr inbounds nuw i8, ptr %53, i64 116
-  %56 = load i8, ptr %55, align 4
-  %57 = and i8 %56, 64
-  %.not83 = icmp eq i8 %57, 0
-  br i1 %.not83, label %61, label %58
+57:                                               ; preds = %lv_cleanup_task.exit
+  store ptr %8, ptr %.050, align 8, !tbaa !48
+  br label %59
 
-58:                                               ; preds = %54
-  %59 = getelementptr inbounds nuw i8, ptr %53, i64 48
-  %60 = load ptr, ptr %59, align 8, !tbaa !67
-  tail call void @lv_free(ptr noundef %60) #10
-  store ptr null, ptr %59, align 8, !tbaa !67
-  br label %61
+58:                                               ; preds = %lv_cleanup_task.exit
+  store ptr %8, ptr %3, align 8, !tbaa !45
+  br label %59
 
-61:                                               ; preds = %58, %54, %52
-  %62 = getelementptr inbounds nuw i8, ptr %.06290, i64 80
-  %63 = load ptr, ptr %62, align 8, !tbaa !34
-  tail call void @lv_free(ptr noundef %63) #10
-  tail call void @lv_free(ptr noundef nonnull %.06290) #10
-  br label %64
-
-64:                                               ; preds = %7, %61
-  %.1 = phi ptr [ %.091, %61 ], [ %.06290, %7 ]
+59:                                               ; preds = %7, %57, %58
+  %.1 = phi ptr [ %.050, %57 ], [ null, %58 ], [ %.03449, %7 ]
   %.not = icmp eq ptr %8, null
-  br i1 %.not, label %._crit_edge, label %7, !llvm.loop !69
+  br i1 %.not, label %._crit_edge, label %7, !llvm.loop !92
 
-._crit_edge:                                      ; preds = %64, %2
-  %65 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %66 = load ptr, ptr %65, align 8, !tbaa !70
-  %.not73 = icmp eq ptr %66, null
-  br i1 %.not73, label %91, label %67
+._crit_edge:                                      ; preds = %59, %2
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %61 = load ptr, ptr %60, align 8, !tbaa !93
+  %.not39 = icmp eq ptr %61, null
+  br i1 %.not39, label %86, label %62
 
-67:                                               ; preds = %._crit_edge
-  %68 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %69 = load i8, ptr %68, align 8, !tbaa !71, !range !38, !noundef !39
-  %70 = trunc nuw i8 %69 to i1
-  br i1 %70, label %71, label %91
+62:                                               ; preds = %._crit_edge
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %64 = load i8, ptr %63, align 8, !tbaa !94, !range !54, !noundef !55
+  %65 = trunc nuw i8 %64 to i1
+  br i1 %65, label %66, label %86
 
-71:                                               ; preds = %67
-  %72 = load ptr, ptr %3, align 8, !tbaa !30
-  %73 = icmp eq ptr %72, null
-  br i1 %73, label %74, label %91
+66:                                               ; preds = %62
+  %67 = load ptr, ptr %3, align 8, !tbaa !45
+  %68 = icmp eq ptr %67, null
+  br i1 %68, label %69, label %86
 
-74:                                               ; preds = %71
-  %75 = getelementptr inbounds nuw i8, ptr %66, i64 64
-  %.06392 = load ptr, ptr %75, align 8, !tbaa !43
-  %.not7693 = icmp eq ptr %.06392, null
-  br i1 %.not7693, label %.loopexit, label %.lr.ph96
+69:                                               ; preds = %66
+  %70 = getelementptr inbounds nuw i8, ptr %61, i64 72
+  %.03551 = load ptr, ptr %70, align 8, !tbaa !95
+  %.not4252 = icmp eq ptr %.03551, null
+  br i1 %.not4252, label %.loopexit, label %.lr.ph55
 
-.lr.ph96:                                         ; preds = %74, %.thread
-  %.06394 = phi ptr [ %.063, %.thread ], [ %.06392, %74 ]
-  %76 = getelementptr inbounds nuw i8, ptr %.06394, i64 8
-  %77 = load i32, ptr %76, align 8, !tbaa !50
-  %78 = icmp eq i32 %77, 6
-  br i1 %78, label %79, label %.thread
+.lr.ph55:                                         ; preds = %69, %.thread
+  %.03553 = phi ptr [ %.035, %.thread ], [ %.03551, %69 ]
+  %71 = getelementptr inbounds nuw i8, ptr %.03553, i64 8
+  %72 = load i32, ptr %71, align 8, !tbaa !67
+  %73 = icmp eq i32 %72, 7
+  br i1 %73, label %74, label %.thread
 
-79:                                               ; preds = %.lr.ph96
-  %80 = getelementptr inbounds nuw i8, ptr %.06394, i64 76
-  %81 = load volatile i32, ptr %80, align 4, !tbaa !27
-  %82 = icmp eq i32 %81, 0
-  br i1 %82, label %83, label %.thread
+74:                                               ; preds = %.lr.ph55
+  %75 = getelementptr inbounds nuw i8, ptr %.03553, i64 96
+  %76 = load volatile i32, ptr %75, align 8, !tbaa !44
+  %77 = icmp eq i32 %76, 0
+  br i1 %77, label %78, label %.thread
 
-83:                                               ; preds = %79
-  %84 = getelementptr inbounds nuw i8, ptr %.06394, i64 80
-  %85 = load ptr, ptr %84, align 8, !tbaa !34
-  %86 = getelementptr inbounds nuw i8, ptr %85, i64 48
-  %87 = load ptr, ptr %86, align 8, !tbaa !51
-  %88 = icmp eq ptr %87, %1
-  br i1 %88, label %89, label %.thread
+78:                                               ; preds = %74
+  %79 = getelementptr inbounds nuw i8, ptr %.03553, i64 104
+  %80 = load ptr, ptr %79, align 8, !tbaa !50
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 48
+  %82 = load ptr, ptr %81, align 8, !tbaa !68
+  %83 = icmp eq ptr %82, %1
+  br i1 %83, label %84, label %.thread
 
-89:                                               ; preds = %83
-  %90 = getelementptr inbounds nuw i8, ptr %.06394, i64 76
-  store volatile i32 1, ptr %90, align 4, !tbaa !27
-  store volatile i32 1, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 552), align 8, !tbaa !47
+84:                                               ; preds = %78
+  %85 = getelementptr inbounds nuw i8, ptr %.03553, i64 96
+  store volatile i32 1, ptr %85, align 8, !tbaa !44
+  store volatile i32 1, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 552), align 8, !tbaa !64
   br label %.loopexit
 
-.thread:                                          ; preds = %83, %79, %.lr.ph96
-  %.063 = load ptr, ptr %.06394, align 8, !tbaa !43
-  %.not76 = icmp eq ptr %.063, null
-  br i1 %.not76, label %.loopexit, label %.lr.ph96, !llvm.loop !72
+.thread:                                          ; preds = %78, %74, %.lr.ph55
+  %.035 = load ptr, ptr %.03553, align 8, !tbaa !95
+  %.not42 = icmp eq ptr %.035, null
+  br i1 %.not42, label %.loopexit, label %.lr.ph55, !llvm.loop !96
 
-91:                                               ; preds = %71, %67, %._crit_edge
-  %.06097 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 536), align 8, !tbaa !43
-  %.not7498 = icmp eq ptr %.06097, null
-  br i1 %.not7498, label %.loopexit, label %.lr.ph102
+86:                                               ; preds = %66, %62, %._crit_edge
+  %.03256 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 536), align 8, !tbaa !59
+  %.not4057 = icmp eq ptr %.03256, null
+  br i1 %.not4057, label %.loopexit, label %.lr.ph61
 
-.lr.ph102:                                        ; preds = %91, %.lr.ph102
-  %.060100 = phi ptr [ %.060, %.lr.ph102 ], [ %.06097, %91 ]
-  %.16599 = phi i1 [ %spec.select, %.lr.ph102 ], [ false, %91 ]
-  %92 = getelementptr inbounds nuw i8, ptr %.060100, i64 32
-  %93 = load ptr, ptr %92, align 8, !tbaa !73
-  %94 = tail call i32 %93(ptr noundef nonnull %.060100, ptr noundef %1) #10
-  %.not75 = icmp ne i32 %94, -1
-  %spec.select = select i1 %.not75, i1 true, i1 %.16599
-  %.060 = load ptr, ptr %.060100, align 8, !tbaa !43
-  %.not74 = icmp eq ptr %.060, null
-  br i1 %.not74, label %.loopexit, label %.lr.ph102, !llvm.loop !74
+.lr.ph61:                                         ; preds = %86, %.lr.ph61
+  %.03259 = phi ptr [ %.032, %.lr.ph61 ], [ %.03256, %86 ]
+  %.13758 = phi i1 [ %spec.select, %.lr.ph61 ], [ false, %86 ]
+  %87 = getelementptr inbounds nuw i8, ptr %.03259, i64 24
+  %88 = load ptr, ptr %87, align 8, !tbaa !97
+  %89 = tail call i32 %88(ptr noundef nonnull %.03259, ptr noundef %1) #11
+  %.not41 = icmp ne i32 %89, -1
+  %spec.select = select i1 %.not41, i1 true, i1 %.13758
+  %.032 = load ptr, ptr %.03259, align 8, !tbaa !59
+  %.not40 = icmp eq ptr %.032, null
+  br i1 %.not40, label %.loopexit, label %.lr.ph61, !llvm.loop !98
 
-.loopexit:                                        ; preds = %.thread, %.lr.ph102, %74, %91, %89
-  %.064 = phi i1 [ false, %89 ], [ false, %91 ], [ false, %74 ], [ %spec.select, %.lr.ph102 ], [ false, %.thread ]
-  ret i1 %.064
+.loopexit:                                        ; preds = %.thread, %.lr.ph61, %69, %86, %84
+  %.036 = phi i1 [ false, %84 ], [ false, %86 ], [ false, %69 ], [ %spec.select, %.lr.ph61 ], [ false, %.thread ]
+  ret i1 %.036
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(readwrite, argmem: none) uwtable
 define void @lv_draw_dispatch_request() local_unnamed_addr #5 {
-  store volatile i32 1, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 552), align 8, !tbaa !47
+  store volatile i32 1, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 552), align 8, !tbaa !64
   ret void
 }
-
-declare i32 @lv_area_get_height(ptr noundef) local_unnamed_addr #3
-
-declare void @lv_draw_buf_destroy(ptr noundef) local_unnamed_addr #3
-
-declare ptr @lv_draw_task_get_label_dsc(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nounwind memory(readwrite, argmem: none) uwtable
 define void @lv_draw_dispatch_wait_for_request() local_unnamed_addr #5 {
   br label %1
 
 1:                                                ; preds = %1, %0
-  %2 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 552), align 8, !tbaa !47
+  %2 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 552), align 8, !tbaa !64
   %.not = icmp eq i32 %2, 0
-  br i1 %.not, label %1, label %3, !llvm.loop !75
+  br i1 %.not, label %1, label %3, !llvm.loop !99
 
 3:                                                ; preds = %1
-  store volatile i32 0, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 552), align 8, !tbaa !47
+  store volatile i32 0, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 552), align 8, !tbaa !64
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define i32 @lv_draw_get_unit_count() local_unnamed_addr #6 {
-  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 544), align 8, !tbaa !24
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 544), align 8, !tbaa !35
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
 define ptr @lv_draw_get_next_available_task(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i8 noundef zeroext %2) local_unnamed_addr #1 {
   %4 = alloca %struct.lv_area_t, align 4
-  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 544), align 8, !tbaa !24
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 544), align 8, !tbaa !35
   %6 = icmp ult i32 %5, 2
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %8 = load ptr, ptr %7, align 8, !tbaa !30
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %8 = load ptr, ptr %7, align 8, !tbaa !45
   %.not37 = icmp eq ptr %8, null
   br i1 %6, label %9, label %13
 
@@ -546,8 +553,8 @@ define ptr @lv_draw_get_next_available_task(ptr noundef readonly captures(none) 
   br i1 %.not37, label %is_independent.exit.thread, label %10
 
 10:                                               ; preds = %9
-  %11 = getelementptr inbounds nuw i8, ptr %8, i64 76
-  %12 = load volatile i32, ptr %11, align 4, !tbaa !27
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 96
+  %12 = load volatile i32, ptr %11, align 8, !tbaa !44
   %.not38 = icmp eq i32 %12, 1
   %spec.select = select i1 %.not38, ptr %8, ptr null
   br label %is_independent.exit.thread
@@ -556,38 +563,38 @@ define ptr @lv_draw_get_next_available_task(ptr noundef readonly captures(none) 
   br i1 %.not37, label %.thread, label %14
 
 14:                                               ; preds = %13
-  %15 = tail call ptr @lv_refr_get_disp_refreshing() #10
-  %16 = tail call i32 @lv_display_get_horizontal_resolution(ptr noundef %15) #10
-  %17 = tail call ptr @lv_refr_get_disp_refreshing() #10
-  %18 = tail call i32 @lv_display_get_vertical_resolution(ptr noundef %17) #10
-  %19 = load ptr, ptr %7, align 8, !tbaa !30
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 76
-  %21 = load volatile i32, ptr %20, align 4, !tbaa !27
+  %15 = tail call ptr @lv_refr_get_disp_refreshing() #11
+  %16 = tail call i32 @lv_display_get_horizontal_resolution(ptr noundef %15) #11
+  %17 = tail call ptr @lv_refr_get_disp_refreshing() #11
+  %18 = tail call i32 @lv_display_get_vertical_resolution(ptr noundef %17) #11
+  %19 = load ptr, ptr %7, align 8, !tbaa !45
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 96
+  %21 = load volatile i32, ptr %20, align 8, !tbaa !44
   %.not32 = icmp eq i32 %21, 1
   br i1 %.not32, label %.thread, label %22
 
 22:                                               ; preds = %14
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 12
-  %24 = load i32, ptr %23, align 4, !tbaa !76
+  %24 = load i32, ptr %23, align 4, !tbaa !100
   %25 = icmp slt i32 %24, 1
   br i1 %25, label %26, label %.thread
 
 26:                                               ; preds = %22
   %27 = getelementptr inbounds nuw i8, ptr %19, i64 20
-  %28 = load i32, ptr %27, align 4, !tbaa !77
+  %28 = load i32, ptr %27, align 4, !tbaa !101
   %29 = add nsw i32 %16, -1
   %.not33 = icmp slt i32 %28, %29
   br i1 %.not33, label %.thread, label %30
 
 30:                                               ; preds = %26
   %31 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %32 = load i32, ptr %31, align 4, !tbaa !78
+  %32 = load i32, ptr %31, align 4, !tbaa !102
   %33 = icmp slt i32 %32, 1
   br i1 %33, label %34, label %.thread
 
 34:                                               ; preds = %30
   %35 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  %36 = load i32, ptr %35, align 4, !tbaa !79
+  %36 = load i32, ptr %35, align 4, !tbaa !103
   %37 = add nsw i32 %18, -1
   %.not34 = icmp slt i32 %36, %37
   br i1 %.not34, label %.thread, label %is_independent.exit.thread
@@ -595,27 +602,27 @@ define ptr @lv_draw_get_next_available_task(ptr noundef readonly captures(none) 
 .thread:                                          ; preds = %34, %30, %26, %22, %14, %13
   %.not35 = icmp eq ptr %1, null
   %. = select i1 %.not35, ptr %7, ptr %1
-  %.044 = load ptr, ptr %., align 8, !tbaa !43
+  %.044 = load ptr, ptr %., align 8, !tbaa !95
   %.not3645 = icmp eq ptr %.044, null
   br i1 %.not3645, label %is_independent.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.thread, %is_independent.exit
   %.046 = phi ptr [ %.0, %is_independent.exit ], [ %.044, %.thread ]
-  %38 = getelementptr inbounds nuw i8, ptr %.046, i64 76
-  %39 = load volatile i32, ptr %38, align 4, !tbaa !27
+  %38 = getelementptr inbounds nuw i8, ptr %.046, i64 96
+  %39 = load volatile i32, ptr %38, align 8, !tbaa !44
   %40 = icmp eq i32 %39, 1
   br i1 %40, label %41, label %is_independent.exit
 
 41:                                               ; preds = %.lr.ph
-  %42 = getelementptr inbounds nuw i8, ptr %.046, i64 88
-  %43 = load i8, ptr %42, align 8, !tbaa !42
+  %42 = getelementptr inbounds nuw i8, ptr %.046, i64 112
+  %43 = load i8, ptr %42, align 8, !tbaa !58
   %44 = icmp eq i8 %43, 0
   %45 = icmp eq i8 %43, %2
   %or.cond = or i1 %44, %45
   br i1 %or.cond, label %46, label %is_independent.exit
 
 46:                                               ; preds = %41
-  %.0915.i = load ptr, ptr %7, align 8, !tbaa !43
+  %.0915.i = load ptr, ptr %7, align 8, !tbaa !95
   %47 = icmp eq ptr %.0915.i, null
   %48 = icmp eq ptr %.0915.i, %.046
   %.not1416.i = or i1 %47, %48
@@ -627,29 +634,29 @@ define ptr @lv_draw_get_next_available_task(ptr noundef readonly captures(none) 
 
 50:                                               ; preds = %56, %.lr.ph.i
   %.0917.i = phi ptr [ %.0915.i, %.lr.ph.i ], [ %.09.i, %56 ]
-  %51 = getelementptr inbounds nuw i8, ptr %.0917.i, i64 76
-  %52 = load volatile i32, ptr %51, align 4, !tbaa !27
+  %51 = getelementptr inbounds nuw i8, ptr %.0917.i, i64 96
+  %52 = load volatile i32, ptr %51, align 8, !tbaa !44
   %.not.i = icmp eq i32 %52, 3
   br i1 %.not.i, label %56, label %53
 
 53:                                               ; preds = %50
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
   %54 = getelementptr inbounds nuw i8, ptr %.0917.i, i64 28
-  %55 = call zeroext i1 @lv_area_intersect(ptr noundef nonnull %4, ptr noundef nonnull %54, ptr noundef nonnull %49) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
+  %55 = call zeroext i1 @lv_area_intersect(ptr noundef nonnull %4, ptr noundef nonnull %54, ptr noundef nonnull %49) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
   br i1 %55, label %is_independent.exit, label %56
 
 56:                                               ; preds = %53, %50
-  %.09.i = load ptr, ptr %.0917.i, align 8, !tbaa !43
+  %.09.i = load ptr, ptr %.0917.i, align 8, !tbaa !95
   %57 = icmp eq ptr %.09.i, null
   %58 = icmp eq ptr %.09.i, %.046
   %.not14.i = or i1 %57, %58
-  br i1 %.not14.i, label %is_independent.exit.thread, label %50, !llvm.loop !80
+  br i1 %.not14.i, label %is_independent.exit.thread, label %50, !llvm.loop !104
 
 is_independent.exit:                              ; preds = %53, %41, %.lr.ph
-  %.0 = load ptr, ptr %.046, align 8, !tbaa !43
+  %.0 = load ptr, ptr %.046, align 8, !tbaa !95
   %.not36 = icmp eq ptr %.0, null
-  br i1 %.not36, label %is_independent.exit.thread, label %.lr.ph, !llvm.loop !81
+  br i1 %.not36, label %is_independent.exit.thread, label %.lr.ph, !llvm.loop !105
 
 is_independent.exit.thread:                       ; preds = %is_independent.exit, %46, %56, %.thread, %34, %10, %9
   %.027 = phi ptr [ null, %9 ], [ %spec.select, %10 ], [ null, %34 ], [ null, %.thread ], [ %.046, %56 ], [ null, %is_independent.exit ], [ %.046, %46 ]
@@ -668,7 +675,7 @@ define i32 @lv_draw_get_dependent_count(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %2, label %.loopexit, label %3
 
 3:                                                ; preds = %1
-  %4 = load ptr, ptr %0, align 8, !tbaa !32
+  %4 = load ptr, ptr %0, align 8, !tbaa !48
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.loopexit, label %.preheader
 
@@ -679,28 +686,28 @@ define i32 @lv_draw_get_dependent_count(ptr noundef %0) local_unnamed_addr #1 {
 7:                                                ; preds = %.preheader, %18
   %.016 = phi ptr [ %4, %.preheader ], [ %19, %18 ]
   %.01115 = phi i32 [ 0, %.preheader ], [ %.1, %18 ]
-  %8 = getelementptr inbounds nuw i8, ptr %.016, i64 76
-  %9 = load volatile i32, ptr %8, align 4, !tbaa !27
+  %8 = getelementptr inbounds nuw i8, ptr %.016, i64 96
+  %9 = load volatile i32, ptr %8, align 8, !tbaa !44
   %10 = icmp eq i32 %9, 1
   br i1 %10, label %14, label %11
 
 11:                                               ; preds = %7
-  %12 = load volatile i32, ptr %8, align 4, !tbaa !27
+  %12 = load volatile i32, ptr %8, align 8, !tbaa !44
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %14, label %18
 
 14:                                               ; preds = %11, %7
   %15 = getelementptr inbounds nuw i8, ptr %.016, i64 12
-  %16 = tail call zeroext i1 @lv_area_is_on(ptr noundef nonnull %6, ptr noundef nonnull %15) #10
+  %16 = tail call zeroext i1 @lv_area_is_on(ptr noundef nonnull %6, ptr noundef nonnull %15) #11
   %17 = zext i1 %16 to i32
   %spec.select = add i32 %.01115, %17
   br label %18
 
 18:                                               ; preds = %14, %11
   %.1 = phi i32 [ %.01115, %11 ], [ %spec.select, %14 ]
-  %19 = load ptr, ptr %.016, align 8, !tbaa !32
+  %19 = load ptr, ptr %.016, align 8, !tbaa !48
   %.not = icmp eq ptr %19, null
-  br i1 %.not, label %.loopexit, label %7, !llvm.loop !82
+  br i1 %.not, label %.loopexit, label %7, !llvm.loop !106
 
 .loopexit:                                        ; preds = %18, %3, %1
   %.012 = phi i32 [ 0, %1 ], [ 0, %3 ], [ %.1, %18 ]
@@ -710,112 +717,155 @@ define i32 @lv_draw_get_dependent_count(ptr noundef %0) local_unnamed_addr #1 {
 declare zeroext i1 @lv_area_is_on(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
+define void @lv_layer_init(ptr noundef %0) local_unnamed_addr #1 {
+  %.not = icmp eq ptr %0, null
+  br i1 %.not, label %.preheader, label %lv_layer_reset.exit
+
+.preheader:                                       ; preds = %1, %.preheader
+  br label %.preheader
+
+lv_layer_reset.exit:                              ; preds = %1
+  tail call void @lv_memset(ptr noundef nonnull %0, i8 noundef zeroext 0, i64 noundef 112) #11
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  store i8 -1, ptr %2, align 4, !tbaa !107
+  ret void
+}
+
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
+define void @lv_layer_reset(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #7 {
+  %.not = icmp eq ptr %0, null
+  br i1 %.not, label %.preheader, label %2
+
+.preheader:                                       ; preds = %1, %.preheader
+  br label %.preheader
+
+2:                                                ; preds = %1
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  store i8 -1, ptr %3, align 4, !tbaa !107
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
 define nonnull ptr @lv_draw_layer_create(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 {
-  %4 = tail call ptr @lv_malloc_zeroed(i64 noundef 104) #10
+  %4 = tail call ptr @lv_malloc_zeroed(i64 noundef 112) #11
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %.preheader, label %5
+  br i1 %.not, label %.preheader, label %lv_layer_init.exit.i
 
 .preheader:                                       ; preds = %3, %.preheader
   br label %.preheader
 
-5:                                                ; preds = %3
-  tail call void @lv_memset(ptr noundef nonnull %4, i8 noundef zeroext 0, i64 noundef 104) #10
-  %6 = tail call ptr @lv_refr_get_disp_refreshing() #10
-  %7 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  store ptr %0, ptr %7, align 8, !tbaa !70
+lv_layer_init.exit.i:                             ; preds = %3
+  tail call void @lv_memset(ptr noundef nonnull %4, i8 noundef zeroext 0, i64 noundef 112) #11
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 60
+  store i8 -1, ptr %5, align 4, !tbaa !107
+  %6 = tail call ptr @lv_refr_get_disp_refreshing() #11
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
+  store ptr %0, ptr %7, align 8, !tbaa !93
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 28
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %8, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !25
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %8, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !37
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !25
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !37
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 44
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %10, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !25
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %10, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !37
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i32 %1, ptr %11, align 8, !tbaa !83
+  store i32 %1, ptr %11, align 8, !tbaa !108
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 760
-  %13 = load ptr, ptr %12, align 8, !tbaa !84
-  %.not27.i = icmp eq ptr %13, null
-  br i1 %.not27.i, label %15, label %14
+  %13 = load ptr, ptr %12, align 8, !tbaa !109
+  %.not.i = icmp eq ptr %13, null
+  br i1 %.not.i, label %15, label %14
 
-14:                                               ; preds = %5
-  tail call void %13(ptr noundef nonnull %6, ptr noundef nonnull %4) #10
+14:                                               ; preds = %lv_layer_init.exit.i
+  tail call void %13(ptr noundef nonnull %6, ptr noundef nonnull %4) #11
   br label %15
 
-15:                                               ; preds = %14, %5
+15:                                               ; preds = %14, %lv_layer_init.exit.i
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 752
-  %17 = load ptr, ptr %16, align 8, !tbaa !59
-  %.not28.i = icmp eq ptr %17, null
-  br i1 %.not28.i, label %22, label %.preheader30.i
+  %17 = load ptr, ptr %16, align 8, !tbaa !77
+  %.not25.i = icmp eq ptr %17, null
+  br i1 %.not25.i, label %22, label %.preheader.i
 
-.preheader30.i:                                   ; preds = %15, %.preheader30.i
-  %.0.i = phi ptr [ %19, %.preheader30.i ], [ %17, %15 ]
-  %18 = getelementptr inbounds nuw i8, ptr %.0.i, i64 80
-  %19 = load ptr, ptr %18, align 8, !tbaa !64
-  %.not29.i = icmp eq ptr %19, null
-  br i1 %.not29.i, label %20, label %.preheader30.i, !llvm.loop !85
+.preheader.i:                                     ; preds = %15, %.preheader.i
+  %.0.i = phi ptr [ %19, %.preheader.i ], [ %17, %15 ]
+  %18 = getelementptr inbounds nuw i8, ptr %.0.i, i64 88
+  %19 = load ptr, ptr %18, align 8, !tbaa !85
+  %.not26.i = icmp eq ptr %19, null
+  br i1 %.not26.i, label %20, label %.preheader.i, !llvm.loop !110
 
-20:                                               ; preds = %.preheader30.i
-  %21 = getelementptr inbounds nuw i8, ptr %.0.i, i64 80
-  store ptr %4, ptr %21, align 8, !tbaa !64
+20:                                               ; preds = %.preheader.i
+  %21 = getelementptr inbounds nuw i8, ptr %.0.i, i64 88
+  store ptr %4, ptr %21, align 8, !tbaa !85
   br label %lv_draw_layer_init.exit
 
 22:                                               ; preds = %15
-  store ptr %4, ptr %16, align 8, !tbaa !59
+  store ptr %4, ptr %16, align 8, !tbaa !77
   br label %lv_draw_layer_init.exit
 
 lv_draw_layer_init.exit:                          ; preds = %20, %22
+  %.not12 = icmp eq ptr %0, null
+  br i1 %.not12, label %26, label %23
+
+23:                                               ; preds = %lv_draw_layer_init.exit
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  %25 = load i8, ptr %24, align 4, !tbaa !107
+  store i8 %25, ptr %5, align 4, !tbaa !107
+  br label %26
+
+26:                                               ; preds = %lv_draw_layer_init.exit, %23
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
 define void @lv_draw_layer_init(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #1 {
-  %.not = icmp eq ptr %0, null
-  br i1 %.not, label %.preheader, label %5
+  %.not.i = icmp eq ptr %0, null
+  br i1 %.not.i, label %.preheader.i, label %lv_layer_init.exit
 
-.preheader:                                       ; preds = %4, %.preheader
-  br label %.preheader
+.preheader.i:                                     ; preds = %4, %.preheader.i
+  br label %.preheader.i
 
-5:                                                ; preds = %4
-  tail call void @lv_memset(ptr noundef nonnull %0, i8 noundef zeroext 0, i64 noundef 104) #10
-  %6 = tail call ptr @lv_refr_get_disp_refreshing() #10
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store ptr %1, ptr %7, align 8, !tbaa !70
+lv_layer_init.exit:                               ; preds = %4
+  tail call void @lv_memset(ptr noundef nonnull %0, i8 noundef zeroext 0, i64 noundef 112) #11
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  store i8 -1, ptr %5, align 4, !tbaa !107
+  %6 = tail call ptr @lv_refr_get_disp_refreshing() #11
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store ptr %1, ptr %7, align 8, !tbaa !93
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !25
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !37
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !25
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !37
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %10, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !25
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %10, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !37
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %2, ptr %11, align 8, !tbaa !83
+  store i32 %2, ptr %11, align 8, !tbaa !108
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 760
-  %13 = load ptr, ptr %12, align 8, !tbaa !84
-  %.not27 = icmp eq ptr %13, null
-  br i1 %.not27, label %15, label %14
+  %13 = load ptr, ptr %12, align 8, !tbaa !109
+  %.not = icmp eq ptr %13, null
+  br i1 %.not, label %15, label %14
 
-14:                                               ; preds = %5
-  tail call void %13(ptr noundef nonnull %6, ptr noundef nonnull %0) #10
+14:                                               ; preds = %lv_layer_init.exit
+  tail call void %13(ptr noundef nonnull %6, ptr noundef nonnull %0) #11
   br label %15
 
-15:                                               ; preds = %14, %5
+15:                                               ; preds = %14, %lv_layer_init.exit
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 752
-  %17 = load ptr, ptr %16, align 8, !tbaa !59
-  %.not28 = icmp eq ptr %17, null
-  br i1 %.not28, label %22, label %.preheader30
+  %17 = load ptr, ptr %16, align 8, !tbaa !77
+  %.not25 = icmp eq ptr %17, null
+  br i1 %.not25, label %22, label %.preheader
 
-.preheader30:                                     ; preds = %15, %.preheader30
-  %.0 = phi ptr [ %19, %.preheader30 ], [ %17, %15 ]
-  %18 = getelementptr inbounds nuw i8, ptr %.0, i64 80
-  %19 = load ptr, ptr %18, align 8, !tbaa !64
-  %.not29 = icmp eq ptr %19, null
-  br i1 %.not29, label %20, label %.preheader30, !llvm.loop !85
+.preheader:                                       ; preds = %15, %.preheader
+  %.0 = phi ptr [ %19, %.preheader ], [ %17, %15 ]
+  %18 = getelementptr inbounds nuw i8, ptr %.0, i64 88
+  %19 = load ptr, ptr %18, align 8, !tbaa !85
+  %.not26 = icmp eq ptr %19, null
+  br i1 %.not26, label %20, label %.preheader, !llvm.loop !110
 
-20:                                               ; preds = %.preheader30
-  %21 = getelementptr inbounds nuw i8, ptr %.0, i64 80
-  store ptr %0, ptr %21, align 8, !tbaa !64
+20:                                               ; preds = %.preheader
+  %21 = getelementptr inbounds nuw i8, ptr %.0, i64 88
+  store ptr %0, ptr %21, align 8, !tbaa !85
   br label %23
 
 22:                                               ; preds = %15
-  store ptr %0, ptr %16, align 8, !tbaa !59
+  store ptr %0, ptr %16, align 8, !tbaa !77
   br label %23
 
 23:                                               ; preds = %22, %20
@@ -824,55 +874,55 @@ define void @lv_draw_layer_init(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
 
 ; Function Attrs: nounwind uwtable
 define ptr @lv_draw_layer_alloc_buf(ptr noundef %0) local_unnamed_addr #1 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !57
+  %2 = load ptr, ptr %0, align 8, !tbaa !75
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %.sink.split
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = tail call i32 @lv_area_get_width(ptr noundef nonnull %4) #10
-  %6 = tail call i32 @lv_area_get_height(ptr noundef nonnull %4) #10
+  %5 = tail call i32 @lv_area_get_width(ptr noundef nonnull %4) #11
+  %6 = tail call i32 @lv_area_get_height(ptr noundef nonnull %4) #11
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %8 = load i32, ptr %7, align 8, !tbaa !83
-  %9 = tail call i32 @lv_draw_buf_width_to_stride(i32 noundef %5, i32 noundef %8) #10
-  %10 = load i32, ptr %7, align 8, !tbaa !83
-  %11 = tail call ptr @lv_draw_buf_create(i32 noundef %5, i32 noundef %6, i32 noundef %10, i32 noundef 0) #10
-  store ptr %11, ptr %0, align 8, !tbaa !57
+  %8 = load i32, ptr %7, align 8, !tbaa !108
+  %9 = tail call i32 @lv_draw_buf_width_to_stride(i32 noundef %5, i32 noundef %8) #11
+  %10 = load i32, ptr %7, align 8, !tbaa !108
+  %11 = tail call ptr @lv_draw_buf_create(i32 noundef %5, i32 noundef %6, i32 noundef %10, i32 noundef 0) #11
+  store ptr %11, ptr %0, align 8, !tbaa !75
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %27, label %13
+  br i1 %12, label %25, label %13
 
 13:                                               ; preds = %3
   %14 = mul i32 %9, %6
-  %15 = tail call i32 @llvm.umax.i32(i32 %14, i32 1024)
-  %16 = lshr i32 %15, 10
-  %17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 548), align 4, !tbaa !58
-  %18 = add i32 %17, %16
-  store i32 %18, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 548), align 4, !tbaa !58
-  %19 = load i32, ptr %7, align 8, !tbaa !83
-  %20 = tail call zeroext i1 @lv_color_format_has_alpha(i32 noundef %19) #10
-  br i1 %20, label %21, label %23
+  %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 548), align 4, !tbaa !76
+  %16 = add i32 %15, %14
+  store i32 %16, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 548), align 4, !tbaa !76
+  %17 = load i32, ptr %7, align 8, !tbaa !108
+  %18 = tail call zeroext i1 @lv_color_format_has_alpha(i32 noundef %17) #11
+  br i1 %18, label %19, label %21
 
-21:                                               ; preds = %13
-  %22 = load ptr, ptr %0, align 8, !tbaa !57
-  tail call void @lv_draw_buf_clear(ptr noundef %22, ptr noundef null) #10
-  br label %23
+19:                                               ; preds = %13
+  %20 = load ptr, ptr %0, align 8, !tbaa !75
+  tail call void @lv_draw_buf_clear(ptr noundef %20, ptr noundef null) #11
+  br label %21
 
-23:                                               ; preds = %21, %13
-  %24 = load ptr, ptr %0, align 8, !tbaa !57
+21:                                               ; preds = %19, %13
+  %22 = load ptr, ptr %0, align 8, !tbaa !75
   br label %.sink.split
 
-.sink.split:                                      ; preds = %1, %23
-  %.sink17 = phi ptr [ %24, %23 ], [ %2, %1 ]
-  %25 = getelementptr inbounds nuw i8, ptr %.sink17, i64 16
-  %26 = load ptr, ptr %25, align 8, !tbaa !86
-  br label %27
+.sink.split:                                      ; preds = %1, %21
+  %.sink17 = phi ptr [ %22, %21 ], [ %2, %1 ]
+  %23 = getelementptr inbounds nuw i8, ptr %.sink17, i64 16
+  %24 = load ptr, ptr %23, align 8, !tbaa !111
+  br label %25
 
-27:                                               ; preds = %.sink.split, %3
-  %.0 = phi ptr [ null, %3 ], [ %26, %.sink.split ]
+25:                                               ; preds = %.sink.split, %3
+  %.0 = phi ptr [ null, %3 ], [ %24, %.sink.split ]
   ret ptr %.0
 }
 
 declare i32 @lv_area_get_width(ptr noundef) local_unnamed_addr #3
+
+declare i32 @lv_area_get_height(ptr noundef) local_unnamed_addr #3
 
 declare i32 @lv_draw_buf_width_to_stride(i32 noundef, i32 noundef) local_unnamed_addr #3
 
@@ -884,31 +934,31 @@ declare void @lv_draw_buf_clear(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define ptr @lv_draw_layer_go_to_xy(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
-  %4 = load ptr, ptr %0, align 8, !tbaa !57
-  %5 = tail call ptr @lv_draw_buf_goto_xy(ptr noundef %4, i32 noundef %1, i32 noundef %2) #10
+  %4 = load ptr, ptr %0, align 8, !tbaa !75
+  %5 = tail call ptr @lv_draw_buf_goto_xy(ptr noundef %4, i32 noundef %1, i32 noundef %2) #11
   ret ptr %5
 }
 
 declare ptr @lv_draw_buf_goto_xy(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @lv_draw_task_get_type(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
+define i32 @lv_draw_task_get_type(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i32, ptr %2, align 8, !tbaa !50
+  %3 = load i32, ptr %2, align 8, !tbaa !67
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @lv_draw_task_get_draw_dsc(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %3 = load ptr, ptr %2, align 8, !tbaa !34
+define ptr @lv_draw_task_get_draw_dsc(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %3 = load ptr, ptr %2, align 8, !tbaa !50
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @lv_draw_task_get_area(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 16)) %1) local_unnamed_addr #8 {
+define void @lv_draw_task_get_area(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 16)) %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !25
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !37
   ret void
 }
 
@@ -916,8 +966,12 @@ declare void @lv_memset(ptr noundef, i8 noundef zeroext, i64 noundef) local_unna
 
 declare zeroext i1 @lv_area_intersect(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
+declare void @lv_draw_buf_destroy(ptr noundef) local_unnamed_addr #3
+
+declare ptr @lv_draw_task_get_label_dsc(ptr noundef) local_unnamed_addr #3
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #9
+declare i32 @llvm.usub.sat.i32(i32, i32) #10
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -926,97 +980,123 @@ attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "t
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nofree norecurse nounwind memory(readwrite, argmem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nounwind }
+attributes #7 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{!4, !10, i64 536}
-!4 = !{!"_lv_global_t", !5, i64 0, !5, i64 1, !8, i64 8, !10, i64 32, !10, i64 40, !8, i64 48, !5, i64 72, !9, i64 76, !9, i64 80, !10, i64 88, !8, i64 96, !10, i64 120, !8, i64 128, !10, i64 152, !10, i64 160, !9, i64 168, !10, i64 176, !5, i64 184, !9, i64 188, !9, i64 192, !10, i64 200, !9, i64 208, !11, i64 216, !12, i64 288, !13, i64 328, !14, i64 352, !14, i64 400, !14, i64 448, !8, i64 496, !10, i64 520, !10, i64 528, !15, i64 536, !6, i64 568, !10, i64 760, !10, i64 768, !10, i64 776, !16, i64 784, !8, i64 832, !10, i64 856, !10, i64 864, !18, i64 872, !17, i64 888, !10, i64 896, !9, i64 904, !10, i64 912}
+!3 = !{!4, !24, i64 536}
+!4 = !{!"_lv_global_t", !5, i64 0, !5, i64 1, !8, i64 8, !12, i64 32, !12, i64 40, !8, i64 48, !5, i64 72, !9, i64 76, !9, i64 80, !10, i64 88, !8, i64 96, !13, i64 120, !8, i64 128, !14, i64 152, !15, i64 160, !9, i64 168, !11, i64 176, !5, i64 184, !9, i64 188, !9, i64 192, !16, i64 200, !9, i64 208, !17, i64 216, !18, i64 288, !20, i64 328, !21, i64 352, !21, i64 400, !21, i64 448, !8, i64 496, !22, i64 520, !22, i64 528, !23, i64 536, !6, i64 568, !11, i64 760, !11, i64 768, !11, i64 776, !25, i64 784, !8, i64 832, !27, i64 856, !28, i64 864, !29, i64 872, !26, i64 888, !11, i64 896, !9, i64 904, !11, i64 912}
 !5 = !{!"_Bool", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
 !8 = !{!"", !9, i64 0, !10, i64 8, !10, i64 16}
 !9 = !{!"int", !6, i64 0}
-!10 = !{!"any pointer", !6, i64 0}
-!11 = !{!"", !8, i64 0, !5, i64 24, !6, i64 25, !5, i64 26, !5, i64 27, !9, i64 28, !5, i64 32, !9, i64 36, !9, i64 40, !9, i64 44, !9, i64 48, !10, i64 56, !10, i64 64}
-!12 = !{!"", !5, i64 0, !5, i64 1, !10, i64 8, !8, i64 16}
-!13 = !{!"", !9, i64 0, !6, i64 4, !10, i64 8, !10, i64 16}
-!14 = !{!"_lv_draw_buf_handlers_t", !10, i64 0, !10, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !10, i64 40}
-!15 = !{!"", !10, i64 0, !9, i64 8, !9, i64 12, !9, i64 16, !9, i64 20, !5, i64 24}
-!16 = !{!"", !10, i64 0, !17, i64 8, !17, i64 16, !8, i64 24}
-!17 = !{!"long", !6, i64 0}
-!18 = !{!"", !10, i64 0, !9, i64 8, !6, i64 12}
-!19 = !{!20, !10, i64 0}
-!20 = !{!"_lv_draw_unit_t", !10, i64 0, !10, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !10, i64 40, !10, i64 48, !10, i64 56}
-!21 = !{!20, !10, i64 56}
-!22 = distinct !{!22, !23}
-!23 = !{!"llvm.loop.mustprogress"}
-!24 = !{!4, !9, i64 544}
-!25 = !{i64 0, i64 4, !26, i64 4, i64 4, !26, i64 8, i64 4, !26, i64 12, i64 4, !26}
-!26 = !{!9, !9, i64 0}
-!27 = !{!28, !9, i64 76}
-!28 = !{!"_lv_draw_task_t", !10, i64 0, !9, i64 8, !29, i64 12, !29, i64 28, !29, i64 44, !29, i64 60, !9, i64 76, !10, i64 80, !6, i64 88, !6, i64 89}
-!29 = !{!"", !9, i64 0, !9, i64 4, !9, i64 8, !9, i64 12}
-!30 = !{!31, !10, i64 64}
-!31 = !{!"_lv_layer_t", !10, i64 0, !29, i64 8, !9, i64 24, !29, i64 28, !29, i64 44, !10, i64 64, !10, i64 72, !10, i64 80, !5, i64 88, !10, i64 96}
-!32 = !{!28, !10, i64 0}
-!33 = distinct !{!33, !23}
-!34 = !{!28, !10, i64 80}
-!35 = !{!36, !10, i64 24}
-!36 = !{!"", !10, i64 0, !9, i64 8, !9, i64 12, !9, i64 16, !10, i64 24, !17, i64 32, !10, i64 40}
-!37 = !{!15, !5, i64 24}
-!38 = !{i8 0, i8 2}
-!39 = !{}
-!40 = !{!36, !10, i64 0}
-!41 = !{!28, !6, i64 89}
-!42 = !{!28, !6, i64 88}
-!43 = !{!10, !10, i64 0}
-!44 = !{!20, !10, i64 40}
-!45 = distinct !{!45, !23}
-!46 = distinct !{!46, !23}
-!47 = !{!4, !9, i64 552}
-!48 = distinct !{!48, !23}
-!49 = distinct !{!49, !23}
-!50 = !{!28, !9, i64 8}
-!51 = !{!52, !10, i64 48}
-!52 = !{!"_lv_draw_image_dsc_t", !36, i64 0, !10, i64 48, !53, i64 56, !9, i64 68, !9, i64 72, !9, i64 76, !9, i64 80, !9, i64 84, !54, i64 88, !55, i64 96, !6, i64 99, !6, i64 100, !9, i64 101, !56, i64 101, !56, i64 101, !10, i64 104, !29, i64 112, !9, i64 128, !10, i64 136}
-!53 = !{!"", !9, i64 0, !9, i64 1, !9, i64 2, !9, i64 4, !9, i64 6, !9, i64 8, !9, i64 10}
-!54 = !{!"", !9, i64 0, !9, i64 4}
-!55 = !{!"", !6, i64 0, !6, i64 1, !6, i64 2}
-!56 = !{!"short", !6, i64 0}
-!57 = !{!31, !10, i64 0}
-!58 = !{!4, !9, i64 548}
-!59 = !{!60, !10, i64 752}
-!60 = !{!"_lv_display_t", !9, i64 0, !9, i64 4, !9, i64 8, !9, i64 12, !9, i64 16, !9, i64 20, !9, i64 24, !10, i64 32, !10, i64 40, !10, i64 48, !10, i64 56, !10, i64 64, !9, i64 72, !9, i64 76, !9, i64 80, !9, i64 80, !9, i64 84, !9, i64 88, !9, i64 88, !9, i64 89, !9, i64 92, !6, i64 96, !6, i64 608, !9, i64 640, !9, i64 644, !8, i64 648, !61, i64 672, !61, i64 712, !10, i64 752, !10, i64 760, !10, i64 768, !10, i64 776, !10, i64 784, !10, i64 792, !10, i64 800, !10, i64 808, !10, i64 816, !10, i64 824, !9, i64 832, !6, i64 836, !6, i64 836, !10, i64 840, !10, i64 848, !62, i64 856, !9, i64 888, !10, i64 896, !10, i64 904, !9, i64 912, !29, i64 916}
-!61 = !{!"_lv_draw_buf_t", !53, i64 0, !9, i64 12, !10, i64 16, !10, i64 24, !10, i64 32}
-!62 = !{!"", !63, i64 0, !6, i64 24, !6, i64 24}
-!63 = !{!"_lv_array_t", !10, i64 0, !9, i64 8, !9, i64 12, !9, i64 16, !5, i64 20}
-!64 = !{!31, !10, i64 80}
-!65 = distinct !{!65, !23}
-!66 = !{!60, !10, i64 768}
-!67 = !{!68, !10, i64 48}
-!68 = !{!"", !36, i64 0, !10, i64 48, !10, i64 56, !9, i64 64, !9, i64 68, !55, i64 72, !55, i64 75, !55, i64 78, !9, i64 84, !9, i64 88, !9, i64 92, !9, i64 96, !6, i64 100, !9, i64 104, !9, i64 108, !9, i64 112, !9, i64 116, !9, i64 116, !6, i64 116, !6, i64 116, !10, i64 120}
-!69 = distinct !{!69, !23}
-!70 = !{!31, !10, i64 72}
-!71 = !{!31, !5, i64 88}
-!72 = distinct !{!72, !23}
-!73 = !{!20, !10, i64 32}
-!74 = distinct !{!74, !23}
-!75 = distinct !{!75, !23}
-!76 = !{!28, !9, i64 12}
-!77 = !{!28, !9, i64 20}
-!78 = !{!28, !9, i64 16}
-!79 = !{!28, !9, i64 24}
-!80 = distinct !{!80, !23}
-!81 = distinct !{!81, !23}
-!82 = distinct !{!82, !23}
-!83 = !{!31, !9, i64 24}
-!84 = !{!60, !10, i64 760}
-!85 = distinct !{!85, !23}
-!86 = !{!61, !10, i64 16}
+!10 = !{!"p1 omnipotent char", !11, i64 0}
+!11 = !{!"any pointer", !6, i64 0}
+!12 = !{!"p1 _ZTS13_lv_display_t", !11, i64 0}
+!13 = !{!"p1 _ZTS11_lv_group_t", !11, i64 0}
+!14 = !{!"p1 _ZTS11_lv_indev_t", !11, i64 0}
+!15 = !{!"p1 _ZTS9_lv_obj_t", !11, i64 0}
+!16 = !{!"p1 _ZTS11_lv_event_t", !11, i64 0}
+!17 = !{!"", !8, i64 0, !5, i64 24, !6, i64 25, !5, i64 26, !5, i64 27, !9, i64 28, !5, i64 32, !9, i64 36, !9, i64 40, !9, i64 44, !9, i64 48, !11, i64 56, !11, i64 64}
+!18 = !{!"", !5, i64 0, !5, i64 1, !19, i64 8, !8, i64 16}
+!19 = !{!"p1 _ZTS11_lv_timer_t", !11, i64 0}
+!20 = !{!"", !9, i64 0, !6, i64 4, !11, i64 8, !11, i64 16}
+!21 = !{!"_lv_draw_buf_handlers_t", !11, i64 0, !11, i64 8, !11, i64 16, !11, i64 24, !11, i64 32, !11, i64 40}
+!22 = !{!"p1 _ZTS11_lv_cache_t", !11, i64 0}
+!23 = !{!"", !24, i64 0, !9, i64 8, !9, i64 12, !9, i64 16, !9, i64 20, !5, i64 24}
+!24 = !{!"p1 _ZTS15_lv_draw_unit_t", !11, i64 0}
+!25 = !{!"", !11, i64 0, !26, i64 8, !26, i64 16, !8, i64 24}
+!26 = !{!"long", !6, i64 0}
+!27 = !{!"p1 _ZTS22_lv_freetype_context_t", !11, i64 0}
+!28 = !{!"p1 _ZTS14_snippet_stack", !11, i64 0}
+!29 = !{!"", !11, i64 0, !9, i64 8, !6, i64 12}
+!30 = !{!31, !24, i64 0}
+!31 = !{!"_lv_draw_unit_t", !24, i64 0, !10, i64 8, !9, i64 16, !11, i64 24, !11, i64 32, !11, i64 40, !11, i64 48}
+!32 = !{!31, !11, i64 48}
+!33 = distinct !{!33, !34}
+!34 = !{!"llvm.loop.mustprogress"}
+!35 = !{!4, !9, i64 544}
+!36 = !{!31, !9, i64 16}
+!37 = !{i64 0, i64 4, !38, i64 4, i64 4, !38, i64 8, i64 4, !38, i64 12, i64 4, !38}
+!38 = !{!9, !9, i64 0}
+!39 = !{!40, !43, i64 80}
+!40 = !{!"_lv_draw_task_t", !41, i64 0, !9, i64 8, !42, i64 12, !42, i64 28, !42, i64 44, !42, i64 60, !43, i64 80, !24, i64 88, !9, i64 96, !11, i64 104, !6, i64 112, !6, i64 113}
+!41 = !{!"p1 _ZTS15_lv_draw_task_t", !11, i64 0}
+!42 = !{!"", !9, i64 0, !9, i64 4, !9, i64 8, !9, i64 12}
+!43 = !{!"p1 _ZTS11_lv_layer_t", !11, i64 0}
+!44 = !{!40, !9, i64 96}
+!45 = !{!46, !41, i64 72}
+!46 = !{!"_lv_layer_t", !47, i64 0, !42, i64 8, !9, i64 24, !42, i64 28, !42, i64 44, !6, i64 60, !9, i64 64, !41, i64 72, !43, i64 80, !43, i64 88, !5, i64 96, !11, i64 104}
+!47 = !{!"p1 _ZTS14_lv_draw_buf_t", !11, i64 0}
+!48 = !{!40, !41, i64 0}
+!49 = distinct !{!49, !34}
+!50 = !{!40, !11, i64 104}
+!51 = !{!52, !43, i64 24}
+!52 = !{!"", !15, i64 0, !9, i64 8, !9, i64 12, !9, i64 16, !43, i64 24, !26, i64 32, !11, i64 40}
+!53 = !{!23, !5, i64 24}
+!54 = !{i8 0, i8 2}
+!55 = !{}
+!56 = !{!52, !15, i64 0}
+!57 = !{!40, !6, i64 113}
+!58 = !{!40, !6, i64 112}
+!59 = !{!24, !24, i64 0}
+!60 = !{!31, !11, i64 32}
+!61 = distinct !{!61, !34}
+!62 = !{!43, !43, i64 0}
+!63 = distinct !{!63, !34}
+!64 = !{!4, !9, i64 552}
+!65 = distinct !{!65, !34}
+!66 = distinct !{!66, !34}
+!67 = !{!40, !9, i64 8}
+!68 = !{!69, !11, i64 48}
+!69 = !{!"_lv_draw_image_dsc_t", !52, i64 0, !11, i64 48, !70, i64 56, !9, i64 68, !9, i64 72, !9, i64 76, !9, i64 80, !9, i64 84, !71, i64 88, !72, i64 96, !6, i64 99, !6, i64 100, !9, i64 101, !73, i64 101, !73, i64 101, !74, i64 104, !42, i64 112, !9, i64 128, !11, i64 136}
+!70 = !{!"", !9, i64 0, !9, i64 1, !9, i64 2, !9, i64 4, !9, i64 6, !9, i64 8, !9, i64 10}
+!71 = !{!"", !9, i64 0, !9, i64 4}
+!72 = !{!"", !6, i64 0, !6, i64 1, !6, i64 2}
+!73 = !{!"short", !6, i64 0}
+!74 = !{!"p1 _ZTS20_lv_draw_image_sup_t", !11, i64 0}
+!75 = !{!46, !47, i64 0}
+!76 = !{!4, !9, i64 548}
+!77 = !{!78, !43, i64 752}
+!78 = !{!"_lv_display_t", !9, i64 0, !9, i64 4, !9, i64 8, !9, i64 12, !9, i64 16, !9, i64 20, !9, i64 24, !47, i64 32, !47, i64 40, !47, i64 48, !11, i64 56, !11, i64 64, !9, i64 72, !9, i64 76, !9, i64 80, !9, i64 80, !9, i64 84, !9, i64 88, !9, i64 88, !9, i64 89, !9, i64 92, !6, i64 96, !6, i64 608, !9, i64 640, !9, i64 644, !8, i64 648, !79, i64 672, !79, i64 712, !43, i64 752, !11, i64 760, !11, i64 768, !81, i64 776, !15, i64 784, !15, i64 792, !15, i64 800, !15, i64 808, !15, i64 816, !15, i64 824, !9, i64 832, !6, i64 836, !6, i64 836, !11, i64 840, !11, i64 848, !82, i64 856, !9, i64 888, !84, i64 896, !19, i64 904, !9, i64 912, !42, i64 916}
+!79 = !{!"_lv_draw_buf_t", !70, i64 0, !9, i64 12, !10, i64 16, !11, i64 24, !80, i64 32}
+!80 = !{!"p1 _ZTS23_lv_draw_buf_handlers_t", !11, i64 0}
+!81 = !{!"p2 _ZTS9_lv_obj_t", !11, i64 0}
+!82 = !{!"", !83, i64 0, !6, i64 24, !6, i64 24}
+!83 = !{!"_lv_array_t", !10, i64 0, !9, i64 8, !9, i64 12, !9, i64 16, !5, i64 20}
+!84 = !{!"p1 _ZTS11_lv_theme_t", !11, i64 0}
+!85 = !{!46, !43, i64 88}
+!86 = distinct !{!86, !34}
+!87 = !{!78, !11, i64 768}
+!88 = !{!89, !10, i64 48}
+!89 = !{!"", !52, i64 0, !10, i64 48, !9, i64 56, !90, i64 64, !9, i64 72, !9, i64 76, !72, i64 80, !72, i64 83, !72, i64 86, !9, i64 92, !9, i64 96, !9, i64 100, !9, i64 104, !9, i64 108, !6, i64 112, !9, i64 116, !9, i64 120, !9, i64 124, !9, i64 128, !9, i64 128, !6, i64 128, !6, i64 128, !91, i64 136}
+!90 = !{!"p1 _ZTS10_lv_font_t", !11, i64 0}
+!91 = !{!"p1 _ZTS21_lv_draw_label_hint_t", !11, i64 0}
+!92 = distinct !{!92, !34}
+!93 = !{!46, !43, i64 80}
+!94 = !{!46, !5, i64 96}
+!95 = !{!41, !41, i64 0}
+!96 = distinct !{!96, !34}
+!97 = !{!31, !11, i64 24}
+!98 = distinct !{!98, !34}
+!99 = distinct !{!99, !34}
+!100 = !{!40, !9, i64 12}
+!101 = !{!40, !9, i64 20}
+!102 = !{!40, !9, i64 16}
+!103 = !{!40, !9, i64 24}
+!104 = distinct !{!104, !34}
+!105 = distinct !{!105, !34}
+!106 = distinct !{!106, !34}
+!107 = !{!46, !6, i64 60}
+!108 = !{!46, !9, i64 24}
+!109 = !{!78, !11, i64 760}
+!110 = distinct !{!110, !34}
+!111 = !{!79, !10, i64 16}

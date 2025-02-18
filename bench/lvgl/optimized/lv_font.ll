@@ -8,6 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon = type { ptr }
 
 @lv_font_montserrat_14 = external constant %struct._lv_font_t, align 8
+@lv_font_default = local_unnamed_addr constant ptr @lv_font_montserrat_14, align 8
 
 ; Function Attrs: nounwind uwtable
 define ptr @lv_font_get_glyph_bitmap(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -20,7 +21,7 @@ define ptr @lv_font_get_glyph_bitmap(ptr noundef %0, ptr noundef %1) local_unnam
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !10
+  %6 = load ptr, ptr %5, align 8, !tbaa !12
   %7 = tail call ptr %6(ptr noundef nonnull %0, ptr noundef %1) #5
   ret ptr %7
 }
@@ -39,7 +40,7 @@ define void @lv_font_glyph_release_draw_data(ptr noundef %0) local_unnamed_addr 
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %4, align 8, !tbaa !14
   %.not7 = icmp eq ptr %5, null
   br i1 %.not7, label %7, label %6
 
@@ -60,93 +61,96 @@ define noundef zeroext i1 @lv_font_get_glyph_dsc(ptr noundef %0, ptr noundef %1,
   br label %.preheader
 
 5:                                                ; preds = %4
-  %.not47 = icmp eq ptr %1, null
-  br i1 %.not47, label %.preheader56, label %6
+  %.not48 = icmp eq ptr %1, null
+  br i1 %.not48, label %.preheader57, label %6
 
-.preheader56:                                     ; preds = %5, %.preheader56
-  br label %.preheader56
+.preheader57:                                     ; preds = %5, %.preheader57
+  br label %.preheader57
 
 6:                                                ; preds = %5
   store ptr null, ptr %1, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  br label %8
+  %8 = load i8, ptr %7, align 8
+  %9 = and i8 %8, -3
+  store i8 %9, ptr %7, align 8
+  br label %10
 
-8:                                                ; preds = %6, %20
-  %.04060 = phi ptr [ %0, %6 ], [ %22, %20 ]
-  %.04259 = phi ptr [ null, %6 ], [ %.143, %20 ]
-  %9 = load ptr, ptr %.04060, align 8, !tbaa !13
-  %10 = getelementptr inbounds nuw i8, ptr %.04060, i64 32
-  %11 = load i8, ptr %10, align 8
-  %12 = and i8 %11, 4
-  %.not51 = icmp eq i8 %12, 0
-  %13 = select i1 %.not51, i32 %3, i32 0
-  %14 = tail call zeroext i1 %9(ptr noundef nonnull %.04060, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %13) #5
-  br i1 %14, label %15, label %20
+10:                                               ; preds = %6, %22
+  %.04161 = phi ptr [ %0, %6 ], [ %24, %22 ]
+  %.04360 = phi ptr [ null, %6 ], [ %.144, %22 ]
+  %11 = load ptr, ptr %.04161, align 8, !tbaa !15
+  %12 = getelementptr inbounds nuw i8, ptr %.04161, i64 32
+  %13 = load i8, ptr %12, align 8
+  %14 = and i8 %13, 4
+  %.not52 = icmp eq i8 %14, 0
+  %15 = select i1 %.not52, i32 %3, i32 0
+  %16 = tail call zeroext i1 %11(ptr noundef nonnull %.04161, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %15) #5
+  br i1 %16, label %17, label %22
 
-15:                                               ; preds = %8
-  %16 = load i8, ptr %7, align 8
-  %17 = and i8 %16, 1
-  %.not52 = icmp eq i8 %17, 0
-  br i1 %.not52, label %.thread, label %18
+17:                                               ; preds = %10
+  %18 = load i8, ptr %7, align 8
+  %19 = and i8 %18, 1
+  %.not53 = icmp eq i8 %19, 0
+  br i1 %.not53, label %.thread, label %20
 
-.thread:                                          ; preds = %15
-  store ptr %.04060, ptr %1, align 8, !tbaa !3
-  br label %46
+.thread:                                          ; preds = %17
+  store ptr %.04161, ptr %1, align 8, !tbaa !3
+  br label %48
 
-18:                                               ; preds = %15
-  %19 = icmp eq ptr %.04259, null
-  %spec.select = select i1 %19, ptr %.04060, ptr %.04259
-  br label %20
+20:                                               ; preds = %17
+  %21 = icmp eq ptr %.04360, null
+  %spec.select = select i1 %21, ptr %.04161, ptr %.04360
+  br label %22
 
-20:                                               ; preds = %8, %18
-  %.143 = phi ptr [ %.04259, %8 ], [ %spec.select, %18 ]
-  %21 = getelementptr inbounds nuw i8, ptr %.04060, i64 48
-  %22 = load ptr, ptr %21, align 8, !tbaa !14
-  %.not48 = icmp eq ptr %22, null
-  br i1 %.not48, label %23, label %8, !llvm.loop !15
+22:                                               ; preds = %10, %20
+  %.144 = phi ptr [ %.04360, %10 ], [ %spec.select, %20 ]
+  %23 = getelementptr inbounds nuw i8, ptr %.04161, i64 48
+  %24 = load ptr, ptr %23, align 8, !tbaa !16
+  %.not49 = icmp eq ptr %24, null
+  br i1 %.not49, label %25, label %10, !llvm.loop !17
 
-23:                                               ; preds = %20
-  %.not49 = icmp eq ptr %.143, null
-  br i1 %.not49, label %31, label %24
+25:                                               ; preds = %22
+  %.not50 = icmp eq ptr %.144, null
+  br i1 %.not50, label %33, label %26
 
-24:                                               ; preds = %23
-  %25 = load ptr, ptr %.143, align 8, !tbaa !13
-  %26 = getelementptr inbounds nuw i8, ptr %.143, i64 32
-  %27 = load i8, ptr %26, align 8
-  %28 = and i8 %27, 4
-  %.not50 = icmp eq i8 %28, 0
-  %29 = select i1 %.not50, i32 %3, i32 0
-  %30 = tail call zeroext i1 %25(ptr noundef nonnull %.143, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %29) #5
-  store ptr %.143, ptr %1, align 8, !tbaa !3
-  br label %46
+26:                                               ; preds = %25
+  %27 = load ptr, ptr %.144, align 8, !tbaa !15
+  %28 = getelementptr inbounds nuw i8, ptr %.144, i64 32
+  %29 = load i8, ptr %28, align 8
+  %30 = and i8 %29, 4
+  %.not51 = icmp eq i8 %30, 0
+  %31 = select i1 %.not51, i32 %3, i32 0
+  %32 = tail call zeroext i1 %27(ptr noundef nonnull %.144, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %31) #5
+  store ptr %.144, ptr %1, align 8, !tbaa !3
+  br label %48
 
-31:                                               ; preds = %23
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %33 = load i32, ptr %32, align 8, !tbaa !17
-  %34 = sdiv i32 %33, 2
-  %35 = trunc i32 %34 to i16
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 10
-  store i16 %35, ptr %36, align 2, !tbaa !18
-  %37 = add i16 %35, 2
-  %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i16 %37, ptr %38, align 8, !tbaa !19
+33:                                               ; preds = %25
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %35 = load i32, ptr %34, align 8, !tbaa !19
+  %36 = sdiv i32 %35, 2
+  %37 = trunc i32 %36 to i16
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 10
+  store i16 %37, ptr %38, align 2, !tbaa !20
+  %39 = add i16 %37, 2
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i16 %39, ptr %40, align 8, !tbaa !21
   store ptr null, ptr %1, align 8, !tbaa !3
-  %39 = trunc i32 %33 to i16
-  %40 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  store i16 %39, ptr %40, align 4, !tbaa !20
-  %41 = getelementptr inbounds nuw i8, ptr %1, i64 14
-  store i16 0, ptr %41, align 2, !tbaa !21
-  %42 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i16 0, ptr %42, align 8, !tbaa !22
-  %43 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  store i32 1, ptr %43, align 4, !tbaa !23
-  %44 = load i8, ptr %7, align 8
-  %45 = or i8 %44, 1
-  store i8 %45, ptr %7, align 8
-  br label %46
+  %41 = trunc i32 %35 to i16
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  store i16 %41, ptr %42, align 4, !tbaa !22
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 14
+  store i16 0, ptr %43, align 2, !tbaa !23
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store i16 0, ptr %44, align 8, !tbaa !24
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  store i32 1, ptr %45, align 4, !tbaa !25
+  %46 = load i8, ptr %7, align 8
+  %47 = or i8 %46, 1
+  store i8 %47, ptr %7, align 8
+  br label %48
 
-46:                                               ; preds = %.thread, %31, %24
-  %.2 = phi i1 [ true, %24 ], [ false, %31 ], [ true, %.thread ]
+48:                                               ; preds = %.thread, %33, %26
+  %.2 = phi i1 [ true, %26 ], [ false, %33 ], [ true, %.thread ]
   ret i1 %.2
 }
 
@@ -194,65 +198,66 @@ lv_text_is_marker.exit:                           ; preds = %8
 13:                                               ; preds = %lv_text_is_marker.exit
   store ptr null, ptr %4, align 8, !tbaa !3
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store i8 0, ptr %14, align 8
   br label %15
 
 15:                                               ; preds = %27, %13
-  %.04060.i = phi ptr [ %0, %13 ], [ %29, %27 ]
-  %.04259.i = phi ptr [ null, %13 ], [ %.143.i, %27 ]
-  %16 = load ptr, ptr %.04060.i, align 8, !tbaa !13
-  %17 = getelementptr inbounds nuw i8, ptr %.04060.i, i64 32
+  %.04161.i = phi ptr [ %0, %13 ], [ %29, %27 ]
+  %.04360.i = phi ptr [ null, %13 ], [ %.144.i, %27 ]
+  %16 = load ptr, ptr %.04161.i, align 8, !tbaa !15
+  %17 = getelementptr inbounds nuw i8, ptr %.04161.i, i64 32
   %18 = load i8, ptr %17, align 8
   %19 = and i8 %18, 4
-  %.not51.i = icmp eq i8 %19, 0
-  %20 = select i1 %.not51.i, i32 %2, i32 0
-  %21 = call zeroext i1 %16(ptr noundef nonnull %.04060.i, ptr noundef nonnull %4, i32 noundef %1, i32 noundef %20) #5
+  %.not52.i = icmp eq i8 %19, 0
+  %20 = select i1 %.not52.i, i32 %2, i32 0
+  %21 = call zeroext i1 %16(ptr noundef nonnull %.04161.i, ptr noundef nonnull %4, i32 noundef %1, i32 noundef %20) #5
   br i1 %21, label %22, label %27
 
 22:                                               ; preds = %15
   %23 = load i8, ptr %14, align 8
   %24 = and i8 %23, 1
-  %.not52.i = icmp eq i8 %24, 0
-  br i1 %.not52.i, label %lv_font_get_glyph_dsc.exit, label %25
+  %.not53.i = icmp eq i8 %24, 0
+  br i1 %.not53.i, label %lv_font_get_glyph_dsc.exit, label %25
 
 25:                                               ; preds = %22
-  %26 = icmp eq ptr %.04259.i, null
-  %spec.select.i = select i1 %26, ptr %.04060.i, ptr %.04259.i
+  %26 = icmp eq ptr %.04360.i, null
+  %spec.select.i = select i1 %26, ptr %.04161.i, ptr %.04360.i
   br label %27
 
 27:                                               ; preds = %25, %15
-  %.143.i = phi ptr [ %.04259.i, %15 ], [ %spec.select.i, %25 ]
-  %28 = getelementptr inbounds nuw i8, ptr %.04060.i, i64 48
-  %29 = load ptr, ptr %28, align 8, !tbaa !14
-  %.not48.i = icmp eq ptr %29, null
-  br i1 %.not48.i, label %30, label %15, !llvm.loop !15
+  %.144.i = phi ptr [ %.04360.i, %15 ], [ %spec.select.i, %25 ]
+  %28 = getelementptr inbounds nuw i8, ptr %.04161.i, i64 48
+  %29 = load ptr, ptr %28, align 8, !tbaa !16
+  %.not49.i = icmp eq ptr %29, null
+  br i1 %.not49.i, label %30, label %15, !llvm.loop !17
 
 30:                                               ; preds = %27
-  %.not49.i = icmp eq ptr %.143.i, null
-  br i1 %.not49.i, label %38, label %31
+  %.not50.i = icmp eq ptr %.144.i, null
+  br i1 %.not50.i, label %38, label %31
 
 31:                                               ; preds = %30
-  %32 = load ptr, ptr %.143.i, align 8, !tbaa !13
-  %33 = getelementptr inbounds nuw i8, ptr %.143.i, i64 32
+  %32 = load ptr, ptr %.144.i, align 8, !tbaa !15
+  %33 = getelementptr inbounds nuw i8, ptr %.144.i, i64 32
   %34 = load i8, ptr %33, align 8
   %35 = and i8 %34, 4
-  %.not50.i = icmp eq i8 %35, 0
-  %36 = select i1 %.not50.i, i32 %2, i32 0
-  %37 = call zeroext i1 %32(ptr noundef nonnull %.143.i, ptr noundef nonnull %4, i32 noundef %1, i32 noundef %36) #5
+  %.not51.i = icmp eq i8 %35, 0
+  %36 = select i1 %.not51.i, i32 %2, i32 0
+  %37 = call zeroext i1 %32(ptr noundef nonnull %.144.i, ptr noundef nonnull %4, i32 noundef %1, i32 noundef %36) #5
   br label %lv_font_get_glyph_dsc.exit
 
 38:                                               ; preds = %30
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %40 = load i32, ptr %39, align 8, !tbaa !17
+  %40 = load i32, ptr %39, align 8, !tbaa !19
   %41 = sdiv i32 %40, 2
   %42 = trunc i32 %41 to i16
   %43 = add i16 %42, 2
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i16 %43, ptr %44, align 8, !tbaa !19
+  store i16 %43, ptr %44, align 8, !tbaa !21
   br label %lv_font_get_glyph_dsc.exit
 
 lv_font_get_glyph_dsc.exit:                       ; preds = %22, %31, %38
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %46 = load i16, ptr %45, align 8, !tbaa !19
+  %46 = load i16, ptr %45, align 8, !tbaa !21
   br label %lv_text_is_marker.exit.thread
 
 lv_text_is_marker.exit.thread:                    ; preds = %lv_text_is_marker.exit, %lv_text_is_marker.exit, %8, %7, %7, %7, %5, %lv_font_get_glyph_dsc.exit
@@ -284,12 +289,12 @@ define void @lv_font_set_kerning(ptr noundef captures(address_is_null) %0, i32 n
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @lv_font_get_line_height(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load i32, ptr %2, align 8, !tbaa !17
+  %3 = load i32, ptr %2, align 8, !tbaa !19
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @lv_font_default() local_unnamed_addr #4 {
+define noundef nonnull ptr @lv_font_get_default() local_unnamed_addr #4 {
   ret ptr @lv_font_montserrat_14
 }
 
@@ -306,23 +311,25 @@ attributes #5 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{!4, !5, i64 0}
-!4 = !{!"", !5, i64 0, !8, i64 8, !8, i64 10, !8, i64 12, !8, i64 14, !8, i64 16, !9, i64 20, !6, i64 24, !6, i64 32, !5, i64 40}
-!5 = !{!"any pointer", !6, i64 0}
-!6 = !{!"omnipotent char", !7, i64 0}
-!7 = !{!"Simple C/C++ TBAA"}
-!8 = !{!"short", !6, i64 0}
-!9 = !{!"int", !6, i64 0}
-!10 = !{!11, !5, i64 8}
-!11 = !{!"_lv_font_t", !5, i64 0, !5, i64 8, !5, i64 16, !9, i64 24, !9, i64 28, !6, i64 32, !6, i64 32, !6, i64 33, !6, i64 34, !5, i64 40, !5, i64 48, !5, i64 56}
-!12 = !{!11, !5, i64 16}
-!13 = !{!11, !5, i64 0}
-!14 = !{!11, !5, i64 48}
-!15 = distinct !{!15, !16}
-!16 = !{!"llvm.loop.mustprogress"}
-!17 = !{!11, !9, i64 24}
-!18 = !{!4, !8, i64 10}
-!19 = !{!4, !8, i64 8}
-!20 = !{!4, !8, i64 12}
-!21 = !{!4, !8, i64 14}
-!22 = !{!4, !8, i64 16}
-!23 = !{!4, !9, i64 20}
+!4 = !{!"", !5, i64 0, !9, i64 8, !9, i64 10, !9, i64 12, !9, i64 14, !9, i64 16, !10, i64 20, !7, i64 24, !7, i64 24, !7, i64 32, !11, i64 40}
+!5 = !{!"p1 _ZTS10_lv_font_t", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!"short", !7, i64 0}
+!10 = !{!"int", !7, i64 0}
+!11 = !{!"p1 _ZTS17_lv_cache_entry_t", !6, i64 0}
+!12 = !{!13, !6, i64 8}
+!13 = !{!"_lv_font_t", !6, i64 0, !6, i64 8, !6, i64 16, !10, i64 24, !10, i64 28, !7, i64 32, !7, i64 32, !7, i64 33, !7, i64 34, !6, i64 40, !5, i64 48, !6, i64 56}
+!14 = !{!13, !6, i64 16}
+!15 = !{!13, !6, i64 0}
+!16 = !{!13, !5, i64 48}
+!17 = distinct !{!17, !18}
+!18 = !{!"llvm.loop.mustprogress"}
+!19 = !{!13, !10, i64 24}
+!20 = !{!4, !9, i64 10}
+!21 = !{!4, !9, i64 8}
+!22 = !{!4, !9, i64 12}
+!23 = !{!4, !9, i64 14}
+!24 = !{!4, !9, i64 16}
+!25 = !{!4, !10, i64 20}

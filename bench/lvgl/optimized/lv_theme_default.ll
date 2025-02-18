@@ -42,6 +42,7 @@ target triple = "x86_64-pc-linux-gnu"
 @lv_calendar_header_arrow_class = external constant %struct._lv_obj_class_t, align 1
 @lv_calendar_header_dropdown_class = external constant %struct._lv_obj_class_t, align 1
 @lv_keyboard_class = external constant %struct._lv_obj_class_t, align 1
+@lv_label_class = external constant %struct._lv_obj_class_t, align 1
 @lv_list_class = external constant %struct._lv_obj_class_t, align 1
 @lv_list_text_class = external constant %struct._lv_obj_class_t, align 1
 @lv_list_button_class = external constant %struct._lv_obj_class_t, align 1
@@ -73,7 +74,7 @@ define ptr @lv_theme_default_init(ptr noundef %0, i24 %1, i24 %2, i1 noundef zer
 
 lv_theme_default_is_inited.exit:                  ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 92
-  %9 = load i8, ptr %8, align 4, !tbaa !7, !range !17, !noundef !18
+  %9 = load i8, ptr %8, align 4, !tbaa !8, !range !22, !noundef !23
   %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %12, label %lv_theme_default_is_inited.exit.thread
 
@@ -100,19 +101,19 @@ lv_theme_default_is_inited.exit.thread:           ; preds = %5, %lv_theme_defaul
   %. = select i1 %22, i32 2, i32 1
   %.049 = select i1 %21, i32 3, i32 %.
   %23 = getelementptr inbounds nuw i8, ptr %13, i64 92
-  %24 = load i8, ptr %23, align 4, !tbaa !7, !range !17, !noundef !18
+  %24 = load i8, ptr %23, align 4, !tbaa !8, !range !22, !noundef !23
   %25 = trunc nuw i8 %24 to i1
   br i1 %25, label %26, label %49
 
 26:                                               ; preds = %17
   %27 = getelementptr inbounds nuw i8, ptr %13, i64 76
-  %28 = load i32, ptr %27, align 4, !tbaa !19
+  %28 = load i32, ptr %27, align 4, !tbaa !24
   %29 = icmp eq i32 %28, %19
   br i1 %29, label %30, label %49
 
 30:                                               ; preds = %26
   %31 = getelementptr inbounds nuw i8, ptr %13, i64 72
-  %32 = load i32, ptr %31, align 8, !tbaa !20
+  %32 = load i32, ptr %31, align 8, !tbaa !25
   %33 = icmp eq i32 %32, %.049
   br i1 %33, label %34, label %49
 
@@ -130,38 +131,38 @@ lv_theme_default_is_inited.exit.thread:           ; preds = %5, %lv_theme_defaul
 
 40:                                               ; preds = %37
   %41 = getelementptr inbounds nuw i8, ptr %13, i64 64
-  %42 = load i32, ptr %41, align 8, !tbaa !21
+  %42 = load i32, ptr %41, align 8, !tbaa !26
   %43 = zext i1 %3 to i32
   %44 = icmp eq i32 %42, %43
   br i1 %44, label %45, label %49
 
 45:                                               ; preds = %40
   %46 = getelementptr inbounds nuw i8, ptr %13, i64 40
-  %47 = load ptr, ptr %46, align 8, !tbaa !22
+  %47 = load ptr, ptr %46, align 8, !tbaa !27
   %48 = icmp eq ptr %47, %4
   br i1 %48, label %65, label %49
 
 49:                                               ; preds = %40, %45, %37, %34, %30, %26, %17
   %50 = getelementptr inbounds nuw i8, ptr %13, i64 72
-  store i32 %.049, ptr %50, align 8, !tbaa !20
+  store i32 %.049, ptr %50, align 8, !tbaa !25
   %51 = getelementptr inbounds nuw i8, ptr %13, i64 76
-  store i32 %19, ptr %51, align 4, !tbaa !19
+  store i32 %19, ptr %51, align 4, !tbaa !24
   %52 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  store ptr %18, ptr %52, align 8, !tbaa !23
+  store ptr %18, ptr %52, align 8, !tbaa !28
   %53 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store i24 %1, ptr %53, align 8
   %54 = getelementptr inbounds nuw i8, ptr %13, i64 35
   store i24 %2, ptr %54, align 1
   %55 = getelementptr inbounds nuw i8, ptr %13, i64 40
-  store ptr %4, ptr %55, align 8, !tbaa !22
+  store ptr %4, ptr %55, align 8, !tbaa !27
   %56 = getelementptr inbounds nuw i8, ptr %13, i64 48
-  store ptr %4, ptr %56, align 8, !tbaa !24
+  store ptr %4, ptr %56, align 8, !tbaa !29
   %57 = getelementptr inbounds nuw i8, ptr %13, i64 56
-  store ptr %4, ptr %57, align 8, !tbaa !25
-  store ptr @theme_apply, ptr %13, align 8, !tbaa !26
+  store ptr %4, ptr %57, align 8, !tbaa !30
+  store ptr @theme_apply, ptr %13, align 8, !tbaa !31
   %58 = zext i1 %3 to i32
   %59 = getelementptr inbounds nuw i8, ptr %13, i64 64
-  store i32 %58, ptr %59, align 8, !tbaa !21
+  store i32 %58, ptr %59, align 8, !tbaa !26
   tail call fastcc void @style_init(ptr noundef nonnull %13)
   br i1 %14, label %63, label %60
 
@@ -175,7 +176,7 @@ lv_theme_default_is_inited.exit.thread:           ; preds = %5, %lv_theme_defaul
   br label %64
 
 64:                                               ; preds = %63, %60
-  store i8 1, ptr %23, align 4, !tbaa !7
+  store i8 1, ptr %23, align 4, !tbaa !8
   br label %65
 
 65:                                               ; preds = %45, %64
@@ -190,7 +191,7 @@ define zeroext i1 @lv_theme_default_is_inited() local_unnamed_addr #1 {
 
 3:                                                ; preds = %0
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 92
-  %5 = load i8, ptr %4, align 4, !tbaa !7, !range !17, !noundef !18
+  %5 = load i8, ptr %4, align 4, !tbaa !8, !range !22, !noundef !23
   %6 = trunc nuw i8 %5 to i1
   br label %7
 
@@ -223,7 +224,7 @@ define internal void @theme_apply(ptr readnone captures(none) %0, ptr noundef %1
   tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %8, i32 noundef 65536) #3
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 128
   tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %9, i32 noundef 65600) #3
-  br label %407
+  br label %413
 
 10:                                               ; preds = %2
   %11 = tail call zeroext i1 @lv_obj_check_type(ptr noundef %1, ptr noundef nonnull @lv_obj_class) #3
@@ -236,7 +237,7 @@ define internal void @theme_apply(ptr readnone captures(none) %0, ptr noundef %1
 14:                                               ; preds = %12
   %15 = tail call ptr @lv_obj_get_child(ptr noundef nonnull %4, i32 noundef 1) #3
   %16 = icmp eq ptr %15, %1
-  br i1 %16, label %407, label %17
+  br i1 %16, label %413, label %17
 
 17:                                               ; preds = %14, %12
   %18 = tail call zeroext i1 @lv_obj_check_type(ptr noundef nonnull %4, ptr noundef nonnull @lv_tabview_class) #3
@@ -254,7 +255,7 @@ define internal void @theme_apply(ptr readnone captures(none) %0, ptr noundef %1
   tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %24, i32 noundef 4) #3
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 1104
   tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %25, i32 noundef 4) #3
-  br label %407
+  br label %413
 
 26:                                               ; preds = %19, %17
   %27 = tail call ptr @lv_obj_get_parent(ptr noundef nonnull %4) #3
@@ -270,7 +271,7 @@ define internal void @theme_apply(ptr readnone captures(none) %0, ptr noundef %1
   tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %32, i32 noundef 65536) #3
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 128
   tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %33, i32 noundef 65600) #3
-  br label %407
+  br label %413
 
 34:                                               ; preds = %26
   %35 = tail call zeroext i1 @lv_obj_check_type(ptr noundef nonnull %4, ptr noundef nonnull @lv_win_class) #3
@@ -286,7 +287,7 @@ define internal void @theme_apply(ptr readnone captures(none) %0, ptr noundef %1
   tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %40, i32 noundef 0) #3
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 320
   tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %41, i32 noundef 0) #3
-  br label %407
+  br label %413
 
 42:                                               ; preds = %36, %34
   %43 = tail call zeroext i1 @lv_obj_check_type(ptr noundef nonnull %4, ptr noundef nonnull @lv_win_class) #3
@@ -306,11 +307,11 @@ define internal void @theme_apply(ptr readnone captures(none) %0, ptr noundef %1
   tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %50, i32 noundef 65536) #3
   %51 = getelementptr inbounds nuw i8, ptr %3, i64 128
   tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %51, i32 noundef 65600) #3
-  br label %407
+  br label %413
 
 52:                                               ; preds = %42, %44
   %53 = tail call zeroext i1 @lv_obj_check_type(ptr noundef nonnull %4, ptr noundef nonnull @lv_calendar_class) #3
-  br i1 %53, label %407, label %54
+  br i1 %53, label %413, label %54
 
 54:                                               ; preds = %52
   %55 = getelementptr inbounds nuw i8, ptr %3, i64 144
@@ -319,7 +320,7 @@ define internal void @theme_apply(ptr readnone captures(none) %0, ptr noundef %1
   tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %56, i32 noundef 65536) #3
   %57 = getelementptr inbounds nuw i8, ptr %3, i64 128
   tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %57, i32 noundef 65600) #3
-  br label %407
+  br label %413
 
 58:                                               ; preds = %10
   %59 = tail call zeroext i1 @lv_obj_check_type(ptr noundef %1, ptr noundef nonnull @lv_button_class) #3
@@ -352,7 +353,7 @@ define internal void @theme_apply(ptr readnone captures(none) %0, ptr noundef %1
   tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %71, i32 noundef 8) #3
   %72 = getelementptr inbounds nuw i8, ptr %3, i64 1104
   tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %72, i32 noundef 4) #3
-  br label %407
+  br label %413
 
 73:                                               ; preds = %65, %62, %60
   %74 = getelementptr inbounds nuw i8, ptr %3, i64 160
@@ -378,14 +379,14 @@ define internal void @theme_apply(ptr readnone captures(none) %0, ptr noundef %1
 
 84:                                               ; preds = %73
   %85 = tail call zeroext i1 @lv_obj_check_type(ptr noundef nonnull %4, ptr noundef nonnull @lv_menu_main_header_cont_class) #3
-  br i1 %85, label %86, label %407
+  br i1 %85, label %86, label %413
 
 86:                                               ; preds = %84, %73
   %87 = getelementptr inbounds nuw i8, ptr %3, i64 960
   tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %87, i32 noundef 0) #3
   %88 = getelementptr inbounds nuw i8, ptr %3, i64 992
   tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %88, i32 noundef 32) #3
-  br label %407
+  br label %413
 
 89:                                               ; preds = %58
   %90 = tail call zeroext i1 @lv_obj_check_type(ptr noundef %1, ptr noundef nonnull @lv_line_class) #3
@@ -394,7 +395,7 @@ define internal void @theme_apply(ptr readnone captures(none) %0, ptr noundef %1
 91:                                               ; preds = %89
   %92 = getelementptr inbounds nuw i8, ptr %3, i64 752
   tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %92, i32 noundef 0) #3
-  br label %407
+  br label %413
 
 93:                                               ; preds = %89
   %94 = tail call zeroext i1 @lv_obj_check_type(ptr noundef %1, ptr noundef nonnull @lv_buttonmatrix_class) #3
@@ -419,7 +420,7 @@ define internal void @theme_apply(ptr readnone captures(none) %0, ptr noundef %1
   tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %103, i32 noundef 327808) #3
   tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %97, i32 noundef 327684) #3
   tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %98, i32 noundef 327688) #3
-  br label %407
+  br label %413
 
 104:                                              ; preds = %95
   %105 = getelementptr inbounds nuw i8, ptr %3, i64 144
@@ -436,7 +437,7 @@ define internal void @theme_apply(ptr readnone captures(none) %0, ptr noundef %1
   tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %109, i32 noundef 327681) #3
   tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %97, i32 noundef 327684) #3
   tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %98, i32 noundef 327688) #3
-  br label %407
+  br label %413
 
 110:                                              ; preds = %93
   %111 = tail call zeroext i1 @lv_obj_check_type(ptr noundef %1, ptr noundef nonnull @lv_bar_class) #3
@@ -454,7 +455,7 @@ define internal void @theme_apply(ptr readnone captures(none) %0, ptr noundef %1
   %117 = getelementptr inbounds nuw i8, ptr %3, i64 176
   tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %117, i32 noundef 131072) #3
   tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %114, i32 noundef 131072) #3
-  br label %407
+  br label %413
 
 118:                                              ; preds = %110
   %119 = tail call zeroext i1 @lv_obj_check_type(ptr noundef %1, ptr noundef nonnull @lv_slider_class) #3
@@ -480,7 +481,7 @@ define internal void @theme_apply(ptr readnone captures(none) %0, ptr noundef %1
   tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %128, i32 noundef 196608) #3
   %129 = getelementptr inbounds nuw i8, ptr %3, i64 544
   tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %129, i32 noundef 196640) #3
-  br label %407
+  br label %413
 
 130:                                              ; preds = %118
   %131 = tail call zeroext i1 @lv_obj_check_type(ptr noundef %1, ptr noundef nonnull @lv_table_class) #3
@@ -513,7 +514,7 @@ define internal void @theme_apply(ptr readnone captures(none) %0, ptr noundef %1
   tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %144, i32 noundef 327684) #3
   %145 = getelementptr inbounds nuw i8, ptr %3, i64 208
   tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %145, i32 noundef 327688) #3
-  br label %407
+  br label %413
 
 146:                                              ; preds = %130
   %147 = tail call zeroext i1 @lv_obj_check_type(ptr noundef %1, ptr noundef nonnull @lv_checkbox_class) #3
@@ -540,7 +541,7 @@ define internal void @theme_apply(ptr readnone captures(none) %0, ptr noundef %1
   tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %157, i32 noundef 131104) #3
   %158 = getelementptr inbounds nuw i8, ptr %3, i64 528
   tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %158, i32 noundef 131072) #3
-  br label %407
+  br label %413
 
 159:                                              ; preds = %146
   %160 = tail call zeroext i1 @lv_obj_check_type(ptr noundef %1, ptr noundef nonnull @lv_switch_class) #3
@@ -571,7 +572,7 @@ define internal void @theme_apply(ptr readnone captures(none) %0, ptr noundef %1
   %171 = getelementptr inbounds nuw i8, ptr %3, i64 544
   tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %171, i32 noundef 131073) #3
   tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %171, i32 noundef 131072) #3
-  br label %407
+  br label %413
 
 172:                                              ; preds = %159
   %173 = tail call zeroext i1 @lv_obj_check_type(ptr noundef %1, ptr noundef nonnull @lv_chart_class) #3
@@ -593,7 +594,7 @@ define internal void @theme_apply(ptr readnone captures(none) %0, ptr noundef %1
   %181 = getelementptr inbounds nuw i8, ptr %3, i64 656
   tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %181, i32 noundef 131072) #3
   tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %180, i32 noundef 393216) #3
-  br label %407
+  br label %413
 
 182:                                              ; preds = %172
   %183 = tail call zeroext i1 @lv_obj_check_type(ptr noundef %1, ptr noundef nonnull @lv_roller_class) #3
@@ -614,7 +615,7 @@ define internal void @theme_apply(ptr readnone captures(none) %0, ptr noundef %1
   tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %190, i32 noundef 8) #3
   %191 = getelementptr inbounds nuw i8, ptr %3, i64 176
   tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %191, i32 noundef 262144) #3
-  br label %407
+  br label %413
 
 192:                                              ; preds = %182
   %193 = tail call zeroext i1 @lv_obj_check_type(ptr noundef %1, ptr noundef nonnull @lv_dropdown_class) #3
@@ -638,7 +639,7 @@ define internal void @theme_apply(ptr readnone captures(none) %0, ptr noundef %1
   tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %198, i32 noundef 131072) #3
   %202 = getelementptr inbounds nuw i8, ptr %3, i64 288
   tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %202, i32 noundef 128) #3
-  br label %407
+  br label %413
 
 203:                                              ; preds = %192
   %204 = tail call zeroext i1 @lv_obj_check_type(ptr noundef %1, ptr noundef nonnull @lv_dropdownlist_class) #3
@@ -663,7 +664,7 @@ define internal void @theme_apply(ptr readnone captures(none) %0, ptr noundef %1
   tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %213, i32 noundef 262145) #3
   %214 = getelementptr inbounds nuw i8, ptr %3, i64 272
   tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %214, i32 noundef 262176) #3
-  br label %407
+  br label %413
 
 215:                                              ; preds = %203
   %216 = tail call zeroext i1 @lv_obj_check_type(ptr noundef %1, ptr noundef nonnull @lv_arc_class) #3
@@ -677,7 +678,7 @@ define internal void @theme_apply(ptr readnone captures(none) %0, ptr noundef %1
   tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %219, i32 noundef 131072) #3
   %220 = getelementptr inbounds nuw i8, ptr %3, i64 592
   tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %220, i32 noundef 196608) #3
-  br label %407
+  br label %413
 
 221:                                              ; preds = %215
   %222 = tail call zeroext i1 @lv_obj_check_type(ptr noundef %1, ptr noundef nonnull @lv_spinner_class) #3
@@ -689,7 +690,7 @@ define internal void @theme_apply(ptr readnone captures(none) %0, ptr noundef %1
   tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %224, i32 noundef 131072) #3
   %225 = getelementptr inbounds nuw i8, ptr %3, i64 624
   tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %225, i32 noundef 131072) #3
-  br label %407
+  br label %413
 
 226:                                              ; preds = %221
   %227 = tail call zeroext i1 @lv_obj_check_type(ptr noundef %1, ptr noundef nonnull @lv_textarea_class) #3
@@ -714,7 +715,7 @@ define internal void @theme_apply(ptr readnone captures(none) %0, ptr noundef %1
   tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %236, i32 noundef 393218) #3
   %237 = getelementptr inbounds nuw i8, ptr %3, i64 800
   tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %237, i32 noundef 524288) #3
-  br label %407
+  br label %413
 
 238:                                              ; preds = %226
   %239 = tail call zeroext i1 @lv_obj_check_type(ptr noundef %1, ptr noundef nonnull @lv_calendar_class) #3
@@ -725,7 +726,7 @@ define internal void @theme_apply(ptr readnone captures(none) %0, ptr noundef %1
   tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %241, i32 noundef 0) #3
   %242 = getelementptr inbounds nuw i8, ptr %3, i64 304
   tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %242, i32 noundef 0) #3
-  br label %407
+  br label %413
 
 243:                                              ; preds = %238
   %244 = tail call zeroext i1 @lv_obj_check_type(ptr noundef %1, ptr noundef nonnull @lv_calendar_header_arrow_class) #3
@@ -734,7 +735,7 @@ define internal void @theme_apply(ptr readnone captures(none) %0, ptr noundef %1
 245:                                              ; preds = %243
   %246 = getelementptr inbounds nuw i8, ptr %3, i64 848
   tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %246, i32 noundef 0) #3
-  br label %407
+  br label %413
 
 247:                                              ; preds = %243
   %248 = tail call zeroext i1 @lv_obj_check_type(ptr noundef %1, ptr noundef nonnull @lv_calendar_header_dropdown_class) #3
@@ -743,7 +744,7 @@ define internal void @theme_apply(ptr readnone captures(none) %0, ptr noundef %1
 249:                                              ; preds = %247
   %250 = getelementptr inbounds nuw i8, ptr %3, i64 848
   tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %250, i32 noundef 0) #3
-  br label %407
+  br label %413
 
 251:                                              ; preds = %247
   %252 = tail call zeroext i1 @lv_obj_check_type(ptr noundef %1, ptr noundef nonnull @lv_keyboard_class) #3
@@ -753,7 +754,7 @@ define internal void @theme_apply(ptr readnone captures(none) %0, ptr noundef %1
   %254 = getelementptr inbounds nuw i8, ptr %3, i64 96
   tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %254, i32 noundef 0) #3
   %255 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  %256 = load i32, ptr %255, align 8, !tbaa !20
+  %256 = load i32, ptr %255, align 8, !tbaa !25
   %257 = icmp eq i32 %256, 1
   %.v = select i1 %257, i64 336, i64 320
   %258 = getelementptr inbounds nuw i8, ptr %3, i64 %.v
@@ -778,313 +779,326 @@ define internal void @theme_apply(ptr readnone captures(none) %0, ptr noundef %1
   tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %267, i32 noundef 327684) #3
   %268 = getelementptr inbounds nuw i8, ptr %3, i64 224
   tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %268, i32 noundef 327688) #3
-  br label %407
+  br label %413
 
 269:                                              ; preds = %251
-  %270 = tail call zeroext i1 @lv_obj_check_type(ptr noundef %1, ptr noundef nonnull @lv_list_class) #3
-  br i1 %270, label %271, label %276
+  %270 = tail call zeroext i1 @lv_obj_check_type(ptr noundef %1, ptr noundef nonnull @lv_label_class) #3
+  br i1 %270, label %271, label %275
 
 271:                                              ; preds = %269
-  %272 = getelementptr inbounds nuw i8, ptr %3, i64 144
-  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %272, i32 noundef 0) #3
-  %273 = getelementptr inbounds nuw i8, ptr %3, i64 1056
-  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %273, i32 noundef 0) #3
-  %274 = getelementptr inbounds nuw i8, ptr %3, i64 112
-  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %274, i32 noundef 65536) #3
-  %275 = getelementptr inbounds nuw i8, ptr %3, i64 128
-  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %275, i32 noundef 65600) #3
-  br label %407
+  %272 = tail call zeroext i1 @lv_obj_check_type(ptr noundef nonnull %4, ptr noundef nonnull @lv_textarea_class) #3
+  br i1 %272, label %273, label %275
 
-276:                                              ; preds = %269
-  %277 = tail call zeroext i1 @lv_obj_check_type(ptr noundef %1, ptr noundef nonnull @lv_list_text_class) #3
-  br i1 %277, label %278, label %281
+273:                                              ; preds = %271
+  %274 = getelementptr inbounds nuw i8, ptr %3, i64 176
+  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %274, i32 noundef 262144) #3
+  br label %413
 
-278:                                              ; preds = %276
-  %279 = getelementptr inbounds nuw i8, ptr %3, i64 240
+275:                                              ; preds = %271, %269
+  %276 = tail call zeroext i1 @lv_obj_check_type(ptr noundef %1, ptr noundef nonnull @lv_list_class) #3
+  br i1 %276, label %277, label %282
+
+277:                                              ; preds = %275
+  %278 = getelementptr inbounds nuw i8, ptr %3, i64 144
+  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %278, i32 noundef 0) #3
+  %279 = getelementptr inbounds nuw i8, ptr %3, i64 1056
   tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %279, i32 noundef 0) #3
-  %280 = getelementptr inbounds nuw i8, ptr %3, i64 1088
-  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %280, i32 noundef 0) #3
-  br label %407
+  %280 = getelementptr inbounds nuw i8, ptr %3, i64 112
+  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %280, i32 noundef 65536) #3
+  %281 = getelementptr inbounds nuw i8, ptr %3, i64 128
+  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %281, i32 noundef 65600) #3
+  br label %413
 
-281:                                              ; preds = %276
-  %282 = tail call zeroext i1 @lv_obj_check_type(ptr noundef %1, ptr noundef nonnull @lv_list_button_class) #3
-  br i1 %282, label %283, label %289
+282:                                              ; preds = %275
+  %283 = tail call zeroext i1 @lv_obj_check_type(ptr noundef %1, ptr noundef nonnull @lv_list_text_class) #3
+  br i1 %283, label %284, label %287
 
-283:                                              ; preds = %281
-  %284 = getelementptr inbounds nuw i8, ptr %3, i64 256
-  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %284, i32 noundef 0) #3
-  %285 = getelementptr inbounds nuw i8, ptr %3, i64 1072
+284:                                              ; preds = %282
+  %285 = getelementptr inbounds nuw i8, ptr %3, i64 240
   tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %285, i32 noundef 0) #3
-  %286 = getelementptr inbounds nuw i8, ptr %3, i64 176
-  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %286, i32 noundef 4) #3
-  %287 = getelementptr inbounds nuw i8, ptr %3, i64 1088
-  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %287, i32 noundef 4) #3
-  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %287, i32 noundef 32) #3
-  %288 = getelementptr inbounds nuw i8, ptr %3, i64 272
-  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %288, i32 noundef 32) #3
-  br label %407
+  %286 = getelementptr inbounds nuw i8, ptr %3, i64 1088
+  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %286, i32 noundef 0) #3
+  br label %413
 
-289:                                              ; preds = %281
-  %290 = tail call zeroext i1 @lv_obj_check_type(ptr noundef %1, ptr noundef nonnull @lv_menu_class) #3
-  br i1 %290, label %291, label %294
+287:                                              ; preds = %282
+  %288 = tail call zeroext i1 @lv_obj_check_type(ptr noundef %1, ptr noundef nonnull @lv_list_button_class) #3
+  br i1 %288, label %289, label %295
 
-291:                                              ; preds = %289
-  %292 = getelementptr inbounds nuw i8, ptr %3, i64 144
-  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %292, i32 noundef 0) #3
-  %293 = getelementptr inbounds nuw i8, ptr %3, i64 864
-  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %293, i32 noundef 0) #3
-  br label %407
+289:                                              ; preds = %287
+  %290 = getelementptr inbounds nuw i8, ptr %3, i64 256
+  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %290, i32 noundef 0) #3
+  %291 = getelementptr inbounds nuw i8, ptr %3, i64 1072
+  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %291, i32 noundef 0) #3
+  %292 = getelementptr inbounds nuw i8, ptr %3, i64 176
+  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %292, i32 noundef 4) #3
+  %293 = getelementptr inbounds nuw i8, ptr %3, i64 1088
+  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %293, i32 noundef 4) #3
+  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %293, i32 noundef 32) #3
+  %294 = getelementptr inbounds nuw i8, ptr %3, i64 272
+  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %294, i32 noundef 32) #3
+  br label %413
 
-294:                                              ; preds = %289
-  %295 = tail call zeroext i1 @lv_obj_check_type(ptr noundef %1, ptr noundef nonnull @lv_menu_sidebar_cont_class) #3
-  br i1 %295, label %296, label %300
+295:                                              ; preds = %287
+  %296 = tail call zeroext i1 @lv_obj_check_type(ptr noundef %1, ptr noundef nonnull @lv_menu_class) #3
+  br i1 %296, label %297, label %300
 
-296:                                              ; preds = %294
-  %297 = getelementptr inbounds nuw i8, ptr %3, i64 896
-  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %297, i32 noundef 0) #3
-  %298 = getelementptr inbounds nuw i8, ptr %3, i64 112
-  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %298, i32 noundef 65536) #3
-  %299 = getelementptr inbounds nuw i8, ptr %3, i64 128
-  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %299, i32 noundef 65600) #3
-  br label %407
+297:                                              ; preds = %295
+  %298 = getelementptr inbounds nuw i8, ptr %3, i64 144
+  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %298, i32 noundef 0) #3
+  %299 = getelementptr inbounds nuw i8, ptr %3, i64 864
+  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %299, i32 noundef 0) #3
+  br label %413
 
-300:                                              ; preds = %294
-  %301 = tail call zeroext i1 @lv_obj_check_type(ptr noundef %1, ptr noundef nonnull @lv_menu_main_cont_class) #3
+300:                                              ; preds = %295
+  %301 = tail call zeroext i1 @lv_obj_check_type(ptr noundef %1, ptr noundef nonnull @lv_menu_sidebar_cont_class) #3
   br i1 %301, label %302, label %306
 
 302:                                              ; preds = %300
-  %303 = getelementptr inbounds nuw i8, ptr %3, i64 912
+  %303 = getelementptr inbounds nuw i8, ptr %3, i64 896
   tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %303, i32 noundef 0) #3
   %304 = getelementptr inbounds nuw i8, ptr %3, i64 112
   tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %304, i32 noundef 65536) #3
   %305 = getelementptr inbounds nuw i8, ptr %3, i64 128
   tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %305, i32 noundef 65600) #3
-  br label %407
+  br label %413
 
 306:                                              ; preds = %300
-  %307 = tail call zeroext i1 @lv_obj_check_type(ptr noundef %1, ptr noundef nonnull @lv_menu_cont_class) #3
-  br i1 %307, label %308, label %313
+  %307 = tail call zeroext i1 @lv_obj_check_type(ptr noundef %1, ptr noundef nonnull @lv_menu_main_cont_class) #3
+  br i1 %307, label %308, label %312
 
 308:                                              ; preds = %306
-  %309 = getelementptr inbounds nuw i8, ptr %3, i64 880
+  %309 = getelementptr inbounds nuw i8, ptr %3, i64 912
   tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %309, i32 noundef 0) #3
-  %310 = getelementptr inbounds nuw i8, ptr %3, i64 992
-  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %310, i32 noundef 32) #3
-  %311 = getelementptr inbounds nuw i8, ptr %3, i64 192
-  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %311, i32 noundef 33) #3
-  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %311, i32 noundef 1) #3
-  %312 = getelementptr inbounds nuw i8, ptr %3, i64 176
-  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %312, i32 noundef 4) #3
-  br label %407
+  %310 = getelementptr inbounds nuw i8, ptr %3, i64 112
+  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %310, i32 noundef 65536) #3
+  %311 = getelementptr inbounds nuw i8, ptr %3, i64 128
+  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %311, i32 noundef 65600) #3
+  br label %413
 
-313:                                              ; preds = %306
-  %314 = tail call zeroext i1 @lv_obj_check_type(ptr noundef %1, ptr noundef nonnull @lv_menu_sidebar_header_cont_class) #3
-  br i1 %314, label %317, label %315
+312:                                              ; preds = %306
+  %313 = tail call zeroext i1 @lv_obj_check_type(ptr noundef %1, ptr noundef nonnull @lv_menu_cont_class) #3
+  br i1 %313, label %314, label %319
 
-315:                                              ; preds = %313
-  %316 = tail call zeroext i1 @lv_obj_check_type(ptr noundef %1, ptr noundef nonnull @lv_menu_main_header_cont_class) #3
-  br i1 %316, label %317, label %319
+314:                                              ; preds = %312
+  %315 = getelementptr inbounds nuw i8, ptr %3, i64 880
+  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %315, i32 noundef 0) #3
+  %316 = getelementptr inbounds nuw i8, ptr %3, i64 992
+  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %316, i32 noundef 32) #3
+  %317 = getelementptr inbounds nuw i8, ptr %3, i64 192
+  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %317, i32 noundef 33) #3
+  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %317, i32 noundef 1) #3
+  %318 = getelementptr inbounds nuw i8, ptr %3, i64 176
+  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %318, i32 noundef 4) #3
+  br label %413
 
-317:                                              ; preds = %315, %313
-  %318 = getelementptr inbounds nuw i8, ptr %3, i64 944
-  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %318, i32 noundef 0) #3
-  br label %407
-
-319:                                              ; preds = %315
-  %320 = tail call zeroext i1 @lv_obj_check_type(ptr noundef %1, ptr noundef nonnull @lv_menu_page_class) #3
-  br i1 %320, label %321, label %325
+319:                                              ; preds = %312
+  %320 = tail call zeroext i1 @lv_obj_check_type(ptr noundef %1, ptr noundef nonnull @lv_menu_sidebar_header_cont_class) #3
+  br i1 %320, label %323, label %321
 
 321:                                              ; preds = %319
-  %322 = getelementptr inbounds nuw i8, ptr %3, i64 928
-  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %322, i32 noundef 0) #3
-  %323 = getelementptr inbounds nuw i8, ptr %3, i64 112
-  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %323, i32 noundef 65536) #3
-  %324 = getelementptr inbounds nuw i8, ptr %3, i64 128
-  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %324, i32 noundef 65600) #3
-  br label %407
+  %322 = tail call zeroext i1 @lv_obj_check_type(ptr noundef %1, ptr noundef nonnull @lv_menu_main_header_cont_class) #3
+  br i1 %322, label %323, label %325
 
-325:                                              ; preds = %319
-  %326 = tail call zeroext i1 @lv_obj_check_type(ptr noundef %1, ptr noundef nonnull @lv_menu_section_class) #3
-  br i1 %326, label %327, label %329
+323:                                              ; preds = %321, %319
+  %324 = getelementptr inbounds nuw i8, ptr %3, i64 944
+  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %324, i32 noundef 0) #3
+  br label %413
+
+325:                                              ; preds = %321
+  %326 = tail call zeroext i1 @lv_obj_check_type(ptr noundef %1, ptr noundef nonnull @lv_menu_page_class) #3
+  br i1 %326, label %327, label %331
 
 327:                                              ; preds = %325
-  %328 = getelementptr inbounds nuw i8, ptr %3, i64 976
+  %328 = getelementptr inbounds nuw i8, ptr %3, i64 928
   tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %328, i32 noundef 0) #3
-  br label %407
+  %329 = getelementptr inbounds nuw i8, ptr %3, i64 112
+  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %329, i32 noundef 65536) #3
+  %330 = getelementptr inbounds nuw i8, ptr %3, i64 128
+  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %330, i32 noundef 65600) #3
+  br label %413
 
-329:                                              ; preds = %325
-  %330 = tail call zeroext i1 @lv_obj_check_type(ptr noundef %1, ptr noundef nonnull @lv_menu_separator_class) #3
-  br i1 %330, label %331, label %333
+331:                                              ; preds = %325
+  %332 = tail call zeroext i1 @lv_obj_check_type(ptr noundef %1, ptr noundef nonnull @lv_menu_section_class) #3
+  br i1 %332, label %333, label %335
 
-331:                                              ; preds = %329
-  %332 = getelementptr inbounds nuw i8, ptr %3, i64 1008
-  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %332, i32 noundef 0) #3
-  br label %407
+333:                                              ; preds = %331
+  %334 = getelementptr inbounds nuw i8, ptr %3, i64 976
+  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %334, i32 noundef 0) #3
+  br label %413
 
-333:                                              ; preds = %329
-  %334 = tail call zeroext i1 @lv_obj_check_type(ptr noundef %1, ptr noundef nonnull @lv_msgbox_class) #3
-  br i1 %334, label %335, label %339
+335:                                              ; preds = %331
+  %336 = tail call zeroext i1 @lv_obj_check_type(ptr noundef %1, ptr noundef nonnull @lv_menu_separator_class) #3
+  br i1 %336, label %337, label %339
 
-335:                                              ; preds = %333
-  %336 = getelementptr inbounds nuw i8, ptr %3, i64 144
-  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %336, i32 noundef 0) #3
-  %337 = getelementptr inbounds nuw i8, ptr %3, i64 304
-  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %337, i32 noundef 0) #3
-  %338 = getelementptr inbounds nuw i8, ptr %3, i64 480
+337:                                              ; preds = %335
+  %338 = getelementptr inbounds nuw i8, ptr %3, i64 1008
   tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %338, i32 noundef 0) #3
-  br label %407
+  br label %413
 
-339:                                              ; preds = %333
-  %340 = tail call zeroext i1 @lv_obj_check_type(ptr noundef %1, ptr noundef nonnull @lv_msgbox_backdrop_class) #3
-  br i1 %340, label %341, label %343
+339:                                              ; preds = %335
+  %340 = tail call zeroext i1 @lv_obj_check_type(ptr noundef %1, ptr noundef nonnull @lv_msgbox_class) #3
+  br i1 %340, label %341, label %345
 
 341:                                              ; preds = %339
-  %342 = getelementptr inbounds nuw i8, ptr %3, i64 1024
+  %342 = getelementptr inbounds nuw i8, ptr %3, i64 144
   tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %342, i32 noundef 0) #3
-  br label %407
+  %343 = getelementptr inbounds nuw i8, ptr %3, i64 304
+  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %343, i32 noundef 0) #3
+  %344 = getelementptr inbounds nuw i8, ptr %3, i64 480
+  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %344, i32 noundef 0) #3
+  br label %413
 
-343:                                              ; preds = %339
-  %344 = tail call zeroext i1 @lv_obj_check_type(ptr noundef %1, ptr noundef nonnull @lv_msgbox_header_class) #3
-  br i1 %344, label %345, label %348
+345:                                              ; preds = %339
+  %346 = tail call zeroext i1 @lv_obj_check_type(ptr noundef %1, ptr noundef nonnull @lv_msgbox_backdrop_class) #3
+  br i1 %346, label %347, label %349
 
-345:                                              ; preds = %343
-  %346 = getelementptr inbounds nuw i8, ptr %3, i64 320
-  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %346, i32 noundef 0) #3
-  %347 = getelementptr inbounds nuw i8, ptr %3, i64 240
-  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %347, i32 noundef 0) #3
-  br label %407
+347:                                              ; preds = %345
+  %348 = getelementptr inbounds nuw i8, ptr %3, i64 1024
+  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %348, i32 noundef 0) #3
+  br label %413
 
-348:                                              ; preds = %343
-  %349 = tail call zeroext i1 @lv_obj_check_type(ptr noundef %1, ptr noundef nonnull @lv_msgbox_footer_class) #3
-  br i1 %349, label %350, label %352
+349:                                              ; preds = %345
+  %350 = tail call zeroext i1 @lv_obj_check_type(ptr noundef %1, ptr noundef nonnull @lv_msgbox_header_class) #3
+  br i1 %350, label %351, label %354
 
-350:                                              ; preds = %348
-  %351 = getelementptr inbounds nuw i8, ptr %3, i64 320
-  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %351, i32 noundef 0) #3
-  br label %407
+351:                                              ; preds = %349
+  %352 = getelementptr inbounds nuw i8, ptr %3, i64 320
+  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %352, i32 noundef 0) #3
+  %353 = getelementptr inbounds nuw i8, ptr %3, i64 240
+  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %353, i32 noundef 0) #3
+  br label %413
 
-352:                                              ; preds = %348
-  %353 = tail call zeroext i1 @lv_obj_check_type(ptr noundef %1, ptr noundef nonnull @lv_msgbox_content_class) #3
-  br i1 %353, label %354, label %358
+354:                                              ; preds = %349
+  %355 = tail call zeroext i1 @lv_obj_check_type(ptr noundef %1, ptr noundef nonnull @lv_msgbox_footer_class) #3
+  br i1 %355, label %356, label %358
 
-354:                                              ; preds = %352
-  %355 = getelementptr inbounds nuw i8, ptr %3, i64 112
-  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %355, i32 noundef 65536) #3
-  %356 = getelementptr inbounds nuw i8, ptr %3, i64 128
-  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %356, i32 noundef 65600) #3
+356:                                              ; preds = %354
   %357 = getelementptr inbounds nuw i8, ptr %3, i64 320
   tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %357, i32 noundef 0) #3
-  br label %407
+  br label %413
 
-358:                                              ; preds = %352
-  %359 = tail call zeroext i1 @lv_obj_check_type(ptr noundef %1, ptr noundef nonnull @lv_msgbox_header_button_class) #3
-  br i1 %359, label %362, label %360
+358:                                              ; preds = %354
+  %359 = tail call zeroext i1 @lv_obj_check_type(ptr noundef %1, ptr noundef nonnull @lv_msgbox_content_class) #3
+  br i1 %359, label %360, label %364
 
 360:                                              ; preds = %358
-  %361 = tail call zeroext i1 @lv_obj_check_type(ptr noundef %1, ptr noundef nonnull @lv_msgbox_footer_button_class) #3
-  br i1 %361, label %362, label %371
-
-362:                                              ; preds = %360, %358
-  %363 = getelementptr inbounds nuw i8, ptr %3, i64 160
+  %361 = getelementptr inbounds nuw i8, ptr %3, i64 112
+  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %361, i32 noundef 65536) #3
+  %362 = getelementptr inbounds nuw i8, ptr %3, i64 128
+  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %362, i32 noundef 65600) #3
+  %363 = getelementptr inbounds nuw i8, ptr %3, i64 320
   tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %363, i32 noundef 0) #3
-  %364 = getelementptr inbounds nuw i8, ptr %3, i64 176
-  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %364, i32 noundef 0) #3
-  %365 = getelementptr inbounds nuw i8, ptr %3, i64 528
-  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %365, i32 noundef 0) #3
-  %366 = getelementptr inbounds nuw i8, ptr %3, i64 272
-  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %366, i32 noundef 32) #3
-  %367 = getelementptr inbounds nuw i8, ptr %3, i64 544
-  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %367, i32 noundef 32) #3
-  %368 = getelementptr inbounds nuw i8, ptr %3, i64 416
-  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %368, i32 noundef 4) #3
-  %369 = getelementptr inbounds nuw i8, ptr %3, i64 208
-  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %369, i32 noundef 1) #3
-  %370 = getelementptr inbounds nuw i8, ptr %3, i64 288
-  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %370, i32 noundef 128) #3
-  br label %407
+  br label %413
 
-371:                                              ; preds = %360
-  %372 = tail call zeroext i1 @lv_obj_check_type(ptr noundef %1, ptr noundef nonnull @lv_spinbox_class) #3
-  br i1 %372, label %373, label %379
+364:                                              ; preds = %358
+  %365 = tail call zeroext i1 @lv_obj_check_type(ptr noundef %1, ptr noundef nonnull @lv_msgbox_header_button_class) #3
+  br i1 %365, label %368, label %366
 
-373:                                              ; preds = %371
-  %374 = getelementptr inbounds nuw i8, ptr %3, i64 144
-  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %374, i32 noundef 0) #3
-  %375 = getelementptr inbounds nuw i8, ptr %3, i64 336
-  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %375, i32 noundef 0) #3
-  %376 = getelementptr inbounds nuw i8, ptr %3, i64 416
-  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %376, i32 noundef 4) #3
-  %377 = getelementptr inbounds nuw i8, ptr %3, i64 432
-  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %377, i32 noundef 8) #3
-  %378 = getelementptr inbounds nuw i8, ptr %3, i64 176
-  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %378, i32 noundef 393216) #3
-  br label %407
+366:                                              ; preds = %364
+  %367 = tail call zeroext i1 @lv_obj_check_type(ptr noundef %1, ptr noundef nonnull @lv_msgbox_footer_button_class) #3
+  br i1 %367, label %368, label %377
 
-379:                                              ; preds = %371
-  %380 = tail call zeroext i1 @lv_obj_check_type(ptr noundef %1, ptr noundef nonnull @lv_tileview_class) #3
-  br i1 %380, label %381, label %385
+368:                                              ; preds = %366, %364
+  %369 = getelementptr inbounds nuw i8, ptr %3, i64 160
+  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %369, i32 noundef 0) #3
+  %370 = getelementptr inbounds nuw i8, ptr %3, i64 176
+  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %370, i32 noundef 0) #3
+  %371 = getelementptr inbounds nuw i8, ptr %3, i64 528
+  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %371, i32 noundef 0) #3
+  %372 = getelementptr inbounds nuw i8, ptr %3, i64 272
+  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %372, i32 noundef 32) #3
+  %373 = getelementptr inbounds nuw i8, ptr %3, i64 544
+  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %373, i32 noundef 32) #3
+  %374 = getelementptr inbounds nuw i8, ptr %3, i64 416
+  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %374, i32 noundef 4) #3
+  %375 = getelementptr inbounds nuw i8, ptr %3, i64 208
+  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %375, i32 noundef 1) #3
+  %376 = getelementptr inbounds nuw i8, ptr %3, i64 288
+  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %376, i32 noundef 128) #3
+  br label %413
 
-381:                                              ; preds = %379
-  %382 = getelementptr inbounds nuw i8, ptr %3, i64 96
-  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %382, i32 noundef 0) #3
-  %383 = getelementptr inbounds nuw i8, ptr %3, i64 112
-  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %383, i32 noundef 65536) #3
-  %384 = getelementptr inbounds nuw i8, ptr %3, i64 128
-  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %384, i32 noundef 65600) #3
-  br label %407
+377:                                              ; preds = %366
+  %378 = tail call zeroext i1 @lv_obj_check_type(ptr noundef %1, ptr noundef nonnull @lv_spinbox_class) #3
+  br i1 %378, label %379, label %385
 
-385:                                              ; preds = %379
-  %386 = tail call zeroext i1 @lv_obj_check_type(ptr noundef %1, ptr noundef nonnull @lv_tileview_tile_class) #3
-  br i1 %386, label %387, label %390
+379:                                              ; preds = %377
+  %380 = getelementptr inbounds nuw i8, ptr %3, i64 144
+  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %380, i32 noundef 0) #3
+  %381 = getelementptr inbounds nuw i8, ptr %3, i64 336
+  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %381, i32 noundef 0) #3
+  %382 = getelementptr inbounds nuw i8, ptr %3, i64 416
+  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %382, i32 noundef 4) #3
+  %383 = getelementptr inbounds nuw i8, ptr %3, i64 432
+  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %383, i32 noundef 8) #3
+  %384 = getelementptr inbounds nuw i8, ptr %3, i64 176
+  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %384, i32 noundef 393216) #3
+  br label %413
+
+385:                                              ; preds = %377
+  %386 = tail call zeroext i1 @lv_obj_check_type(ptr noundef %1, ptr noundef nonnull @lv_tileview_class) #3
+  br i1 %386, label %387, label %391
 
 387:                                              ; preds = %385
-  %388 = getelementptr inbounds nuw i8, ptr %3, i64 112
-  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %388, i32 noundef 65536) #3
-  %389 = getelementptr inbounds nuw i8, ptr %3, i64 128
-  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %389, i32 noundef 65600) #3
-  br label %407
+  %388 = getelementptr inbounds nuw i8, ptr %3, i64 96
+  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %388, i32 noundef 0) #3
+  %389 = getelementptr inbounds nuw i8, ptr %3, i64 112
+  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %389, i32 noundef 65536) #3
+  %390 = getelementptr inbounds nuw i8, ptr %3, i64 128
+  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %390, i32 noundef 65600) #3
+  br label %413
 
-390:                                              ; preds = %385
-  %391 = tail call zeroext i1 @lv_obj_check_type(ptr noundef %1, ptr noundef nonnull @lv_tabview_class) #3
-  br i1 %391, label %392, label %395
+391:                                              ; preds = %385
+  %392 = tail call zeroext i1 @lv_obj_check_type(ptr noundef %1, ptr noundef nonnull @lv_tileview_tile_class) #3
+  br i1 %392, label %393, label %396
 
-392:                                              ; preds = %390
-  %393 = getelementptr inbounds nuw i8, ptr %3, i64 96
-  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %393, i32 noundef 0) #3
-  %394 = getelementptr inbounds nuw i8, ptr %3, i64 304
-  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %394, i32 noundef 0) #3
-  br label %407
+393:                                              ; preds = %391
+  %394 = getelementptr inbounds nuw i8, ptr %3, i64 112
+  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %394, i32 noundef 65536) #3
+  %395 = getelementptr inbounds nuw i8, ptr %3, i64 128
+  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %395, i32 noundef 65600) #3
+  br label %413
 
-395:                                              ; preds = %390
-  %396 = tail call zeroext i1 @lv_obj_check_type(ptr noundef %1, ptr noundef nonnull @lv_win_class) #3
-  br i1 %396, label %397, label %399
+396:                                              ; preds = %391
+  %397 = tail call zeroext i1 @lv_obj_check_type(ptr noundef %1, ptr noundef nonnull @lv_tabview_class) #3
+  br i1 %397, label %398, label %401
 
-397:                                              ; preds = %395
-  %398 = getelementptr inbounds nuw i8, ptr %3, i64 480
-  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %398, i32 noundef 0) #3
-  br label %407
+398:                                              ; preds = %396
+  %399 = getelementptr inbounds nuw i8, ptr %3, i64 96
+  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %399, i32 noundef 0) #3
+  %400 = getelementptr inbounds nuw i8, ptr %3, i64 304
+  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %400, i32 noundef 0) #3
+  br label %413
 
-399:                                              ; preds = %395
-  %400 = tail call zeroext i1 @lv_obj_check_type(ptr noundef %1, ptr noundef nonnull @lv_led_class) #3
-  br i1 %400, label %401, label %403
+401:                                              ; preds = %396
+  %402 = tail call zeroext i1 @lv_obj_check_type(ptr noundef %1, ptr noundef nonnull @lv_win_class) #3
+  br i1 %402, label %403, label %405
 
-401:                                              ; preds = %399
-  %402 = getelementptr inbounds nuw i8, ptr %3, i64 1136
-  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %402, i32 noundef 0) #3
-  br label %407
+403:                                              ; preds = %401
+  %404 = getelementptr inbounds nuw i8, ptr %3, i64 480
+  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %404, i32 noundef 0) #3
+  br label %413
 
-403:                                              ; preds = %399
-  %404 = tail call zeroext i1 @lv_obj_check_type(ptr noundef %1, ptr noundef nonnull @lv_scale_class) #3
-  br i1 %404, label %405, label %407
+405:                                              ; preds = %401
+  %406 = tail call zeroext i1 @lv_obj_check_type(ptr noundef %1, ptr noundef nonnull @lv_led_class) #3
+  br i1 %406, label %407, label %409
 
-405:                                              ; preds = %403
-  %406 = getelementptr inbounds nuw i8, ptr %3, i64 1152
-  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %406, i32 noundef 0) #3
-  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %406, i32 noundef 131072) #3
-  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %406, i32 noundef 327680) #3
-  br label %407
+407:                                              ; preds = %405
+  %408 = getelementptr inbounds nuw i8, ptr %3, i64 1136
+  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %408, i32 noundef 0) #3
+  br label %413
 
-407:                                              ; preds = %54, %91, %112, %132, %161, %184, %205, %223, %240, %249, %283, %296, %308, %321, %331, %381, %392, %401, %405, %403, %397, %387, %373, %327, %317, %302, %291, %278, %253, %245, %228, %217, %194, %174, %148, %120, %104, %84, %86, %.critedge, %52, %14, %362, %354, %350, %345, %341, %335, %271, %99, %47, %39, %29, %22, %6
+409:                                              ; preds = %405
+  %410 = tail call zeroext i1 @lv_obj_check_type(ptr noundef %1, ptr noundef nonnull @lv_scale_class) #3
+  br i1 %410, label %411, label %413
+
+411:                                              ; preds = %409
+  %412 = getelementptr inbounds nuw i8, ptr %3, i64 1152
+  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %412, i32 noundef 0) #3
+  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %412, i32 noundef 131072) #3
+  tail call void @lv_obj_add_style(ptr noundef %1, ptr noundef nonnull %412, i32 noundef 327680) #3
+  br label %413
+
+413:                                              ; preds = %54, %91, %112, %132, %161, %184, %205, %223, %240, %249, %273, %284, %297, %308, %323, %333, %379, %393, %403, %409, %411, %407, %398, %387, %337, %327, %314, %302, %289, %253, %245, %228, %217, %194, %174, %148, %120, %104, %84, %86, %.critedge, %52, %14, %368, %360, %356, %351, %347, %341, %277, %99, %47, %39, %29, %22, %6
   ret void
 }
 
@@ -1092,7 +1106,7 @@ define internal void @theme_apply(ptr readnone captures(none) %0, ptr noundef %1
 define internal fastcc void @style_init(ptr noundef initializes((80, 92)) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %4 = load i32, ptr %3, align 8, !tbaa !21
+  %4 = load i32, ptr %3, align 8, !tbaa !26
   %5 = and i32 %4, 1
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %8, label %6
@@ -1109,7 +1123,7 @@ define internal fastcc void @style_init(ptr noundef initializes((80, 92)) %0) un
   %storemerge = phi i24 [ %9, %8 ], [ %7, %6 ]
   store i24 %storemerge, ptr %2, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 83
-  %12 = load i32, ptr %3, align 8, !tbaa !21
+  %12 = load i32, ptr %3, align 8, !tbaa !26
   %13 = and i32 %12, 1
   %.not1000 = icmp eq i32 %13, 0
   br i1 %.not1000, label %16, label %14
@@ -1126,7 +1140,7 @@ define internal fastcc void @style_init(ptr noundef initializes((80, 92)) %0) un
   %storemerge1001 = phi i24 [ %17, %16 ], [ %15, %14 ]
   store i24 %storemerge1001, ptr %11, align 1
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 86
-  %20 = load i32, ptr %3, align 8, !tbaa !21
+  %20 = load i32, ptr %3, align 8, !tbaa !26
   %21 = and i32 %20, 1
   %.not1002 = icmp eq i32 %21, 0
   br i1 %.not1002, label %24, label %22
@@ -1143,7 +1157,7 @@ define internal fastcc void @style_init(ptr noundef initializes((80, 92)) %0) un
   %storemerge1003 = phi i24 [ %25, %24 ], [ %23, %22 ]
   store i24 %storemerge1003, ptr %19, align 2
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 89
-  %28 = load i32, ptr %3, align 8, !tbaa !21
+  %28 = load i32, ptr %3, align 8, !tbaa !26
   %29 = and i32 %28, 1
   %.not1004 = icmp eq i32 %29, 0
   br i1 %.not1004, label %32, label %30
@@ -1163,7 +1177,7 @@ define internal fastcc void @style_init(ptr noundef initializes((80, 92)) %0) un
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 768), align 8, !tbaa !3
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 92
-  %39 = load i8, ptr %38, align 4, !tbaa !7, !range !17, !noundef !18
+  %39 = load i8, ptr %38, align 4, !tbaa !8, !range !22, !noundef !23
   %40 = trunc nuw i8 %39 to i1
   br i1 %40, label %41, label %42
 
@@ -1179,7 +1193,7 @@ style_init_reset.exit:                            ; preds = %41, %42
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 768), align 8, !tbaa !3
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 92
-  %46 = load i8, ptr %45, align 4, !tbaa !7, !range !17, !noundef !18
+  %46 = load i8, ptr %45, align 4, !tbaa !8, !range !22, !noundef !23
   %47 = trunc nuw i8 %46 to i1
   br i1 %47, label %48, label %49
 
@@ -1201,7 +1215,7 @@ style_init_reset.exit1014:                        ; preds = %48, %49
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %53 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 768), align 8, !tbaa !3
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 92
-  %55 = load i8, ptr %54, align 4, !tbaa !7, !range !17, !noundef !18
+  %55 = load i8, ptr %54, align 4, !tbaa !8, !range !22, !noundef !23
   %56 = trunc nuw i8 %55 to i1
   br i1 %56, label %57, label %58
 
@@ -1214,7 +1228,7 @@ style_init_reset.exit1014:                        ; preds = %48, %49
   br label %style_init_reset.exit1015
 
 style_init_reset.exit1015:                        ; preds = %57, %58
-  %59 = load i32, ptr %3, align 8, !tbaa !21
+  %59 = load i32, ptr %3, align 8, !tbaa !26
   %60 = and i32 %59, 1
   %.not1006 = icmp eq i32 %60, 0
   br i1 %.not1006, label %63, label %61
@@ -1232,7 +1246,7 @@ style_init_reset.exit1015:                        ; preds = %57, %58
   tail call void @lv_style_set_bg_color(ptr noundef nonnull %52, i24 %.sroa.0120.0) #3
   tail call void @lv_style_set_radius(ptr noundef nonnull %52, i32 noundef 32767) #3
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %67 = load i32, ptr %66, align 4, !tbaa !19
+  %67 = load i32, ptr %66, align 4, !tbaa !24
   %68 = icmp sgt i32 %67, 34
   br i1 %68, label %69, label %73
 
@@ -1248,7 +1262,7 @@ style_init_reset.exit1015:                        ; preds = %57, %58
   tail call void @lv_style_set_pad_right(ptr noundef nonnull %52, i32 noundef range(i32 -13421772, 13421773) %74) #3
   tail call void @lv_style_set_pad_top(ptr noundef nonnull %52, i32 noundef range(i32 -13421772, 13421773) %74) #3
   tail call void @lv_style_set_pad_bottom(ptr noundef nonnull %52, i32 noundef range(i32 -13421772, 13421773) %74) #3
-  %75 = load i32, ptr %66, align 4, !tbaa !19
+  %75 = load i32, ptr %66, align 4, !tbaa !24
   %76 = icmp sgt i32 %75, 47
   br i1 %76, label %77, label %81
 
@@ -1266,7 +1280,7 @@ style_init_reset.exit1015:                        ; preds = %57, %58
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %84 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 768), align 8, !tbaa !3
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 92
-  %86 = load i8, ptr %85, align 4, !tbaa !7, !range !17, !noundef !18
+  %86 = load i8, ptr %85, align 4, !tbaa !8, !range !22, !noundef !23
   %87 = trunc nuw i8 %86 to i1
   br i1 %87, label %88, label %89
 
@@ -1282,7 +1296,7 @@ style_init_reset.exit1016:                        ; preds = %88, %89
   tail call void @lv_style_set_bg_opa(ptr noundef nonnull %83, i8 noundef zeroext -1) #3
   %90 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 768), align 8, !tbaa !3
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 92
-  %92 = load i8, ptr %91, align 4, !tbaa !7, !range !17, !noundef !18
+  %92 = load i8, ptr %91, align 4, !tbaa !8, !range !22, !noundef !23
   %93 = trunc nuw i8 %92 to i1
   br i1 %93, label %94, label %95
 
@@ -1301,11 +1315,11 @@ style_init_reset.exit1017:                        ; preds = %94, %95
   %.0.copyload114 = load i24, ptr %11, align 1
   tail call void @lv_style_set_text_color(ptr noundef nonnull %35, i24 %.0.copyload114) #3
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %97 = load ptr, ptr %96, align 8, !tbaa !24
+  %97 = load ptr, ptr %96, align 8, !tbaa !29
   tail call void @lv_style_set_text_font(ptr noundef nonnull %35, ptr noundef %97) #3
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %99 = load i32, ptr %98, align 8, !tbaa !20
-  %100 = load i32, ptr %66, align 4, !tbaa !19
+  %99 = load i32, ptr %98, align 8, !tbaa !25
+  %100 = load i32, ptr %66, align 4, !tbaa !24
   %101 = icmp eq i32 %99, 1
   %102 = icmp eq i32 %99, 2
   %103 = select i1 %102, i32 12, i32 10
@@ -1322,8 +1336,8 @@ style_init_reset.exit1017:                        ; preds = %94, %95
 110:                                              ; preds = %107, %style_init_reset.exit1017
   %111 = phi i32 [ %109, %107 ], [ 1, %style_init_reset.exit1017 ]
   tail call void @lv_style_set_pad_row(ptr noundef nonnull %35, i32 noundef %111) #3
-  %112 = load i32, ptr %98, align 8, !tbaa !20
-  %113 = load i32, ptr %66, align 4, !tbaa !19
+  %112 = load i32, ptr %98, align 8, !tbaa !25
+  %113 = load i32, ptr %66, align 4, !tbaa !24
   %114 = icmp eq i32 %112, 1
   %115 = icmp eq i32 %112, 2
   %116 = select i1 %115, i32 12, i32 10
@@ -1340,14 +1354,14 @@ style_init_reset.exit1017:                        ; preds = %94, %95
 123:                                              ; preds = %120, %110
   %124 = phi i32 [ %122, %120 ], [ 1, %110 ]
   tail call void @lv_style_set_pad_column(ptr noundef nonnull %35, i32 noundef %124) #3
-  %125 = load i32, ptr %66, align 4, !tbaa !19
+  %125 = load i32, ptr %66, align 4, !tbaa !24
   %126 = sdiv i32 %125, 4
   %127 = shl nsw i32 %126, 8
   tail call void @lv_style_set_rotary_sensitivity(ptr noundef nonnull %35, i32 noundef %127) #3
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %129 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 768), align 8, !tbaa !3
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 92
-  %131 = load i8, ptr %130, align 4, !tbaa !7, !range !17, !noundef !18
+  %131 = load i8, ptr %130, align 4, !tbaa !8, !range !22, !noundef !23
   %132 = trunc nuw i8 %131 to i1
   br i1 %132, label %133, label %134
 
@@ -1360,10 +1374,10 @@ style_init_reset.exit1017:                        ; preds = %94, %95
   br label %style_init_reset.exit1018
 
 style_init_reset.exit1018:                        ; preds = %133, %134
-  %135 = load i32, ptr %98, align 8, !tbaa !20
+  %135 = load i32, ptr %98, align 8, !tbaa !25
   %136 = icmp eq i32 %135, 1
   %137 = select i1 %136, i32 12, i32 8
-  %138 = load i32, ptr %66, align 4, !tbaa !19
+  %138 = load i32, ptr %66, align 4, !tbaa !24
   %139 = mul nsw i32 %137, %138
   %140 = icmp sgt i32 %139, 239
   br i1 %140, label %141, label %144
@@ -1381,7 +1395,7 @@ style_init_reset.exit1018:                        ; preds = %133, %134
   tail call void @lv_style_set_bg_color(ptr noundef nonnull %128, i24 %.0.copyload112) #3
   %.0.copyload110 = load i24, ptr %27, align 1
   tail call void @lv_style_set_border_color(ptr noundef nonnull %128, i24 %.0.copyload110) #3
-  %146 = load i32, ptr %66, align 4, !tbaa !19
+  %146 = load i32, ptr %66, align 4, !tbaa !24
   %147 = icmp sgt i32 %146, 119
   br i1 %147, label %148, label %152
 
@@ -1397,8 +1411,8 @@ style_init_reset.exit1018:                        ; preds = %133, %134
   tail call void @lv_style_set_border_post(ptr noundef nonnull %128, i1 noundef zeroext true) #3
   %.0.copyload108 = load i24, ptr %11, align 1
   tail call void @lv_style_set_text_color(ptr noundef nonnull %128, i24 %.0.copyload108) #3
-  %154 = load i32, ptr %98, align 8, !tbaa !20
-  %155 = load i32, ptr %66, align 4, !tbaa !19
+  %154 = load i32, ptr %98, align 8, !tbaa !25
+  %155 = load i32, ptr %66, align 4, !tbaa !24
   %156 = icmp eq i32 %154, 1
   %157 = icmp eq i32 %154, 2
   %158 = select i1 %157, i32 20, i32 16
@@ -1418,8 +1432,8 @@ style_init_reset.exit1018:                        ; preds = %133, %134
   tail call void @lv_style_set_pad_right(ptr noundef nonnull %128, i32 noundef range(i32 -13421772, 13421773) %166) #3
   tail call void @lv_style_set_pad_top(ptr noundef nonnull %128, i32 noundef range(i32 -13421772, 13421773) %166) #3
   tail call void @lv_style_set_pad_bottom(ptr noundef nonnull %128, i32 noundef range(i32 -13421772, 13421773) %166) #3
-  %167 = load i32, ptr %98, align 8, !tbaa !20
-  %168 = load i32, ptr %66, align 4, !tbaa !19
+  %167 = load i32, ptr %98, align 8, !tbaa !25
+  %168 = load i32, ptr %66, align 4, !tbaa !24
   %169 = icmp eq i32 %167, 1
   %170 = icmp eq i32 %167, 2
   %171 = select i1 %170, i32 12, i32 10
@@ -1436,8 +1450,8 @@ style_init_reset.exit1018:                        ; preds = %133, %134
 178:                                              ; preds = %175, %165
   %179 = phi i32 [ %177, %175 ], [ 1, %165 ]
   tail call void @lv_style_set_pad_row(ptr noundef nonnull %128, i32 noundef %179) #3
-  %180 = load i32, ptr %98, align 8, !tbaa !20
-  %181 = load i32, ptr %66, align 4, !tbaa !19
+  %180 = load i32, ptr %98, align 8, !tbaa !25
+  %181 = load i32, ptr %66, align 4, !tbaa !24
   %182 = icmp eq i32 %180, 1
   %183 = icmp eq i32 %180, 2
   %184 = select i1 %183, i32 12, i32 10
@@ -1456,7 +1470,7 @@ style_init_reset.exit1018:                        ; preds = %133, %134
   tail call void @lv_style_set_pad_column(ptr noundef nonnull %128, i32 noundef %192) #3
   %193 = tail call i24 @lv_palette_main(i32 noundef 18) #3
   tail call void @lv_style_set_line_color(ptr noundef nonnull %128, i24 %193) #3
-  %194 = load i32, ptr %66, align 4, !tbaa !19
+  %194 = load i32, ptr %66, align 4, !tbaa !24
   %195 = icmp sgt i32 %194, 239
   br i1 %195, label %196, label %199
 
@@ -1471,7 +1485,7 @@ style_init_reset.exit1018:                        ; preds = %133, %134
   %201 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %202 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 768), align 8, !tbaa !3
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 92
-  %204 = load i8, ptr %203, align 4, !tbaa !7, !range !17, !noundef !18
+  %204 = load i8, ptr %203, align 4, !tbaa !8, !range !22, !noundef !23
   %205 = trunc nuw i8 %204 to i1
   br i1 %205, label %206, label %207
 
@@ -1487,7 +1501,7 @@ style_init_reset.exit1019:                        ; preds = %206, %207
   %208 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.0.copyload103 = load i24, ptr %208, align 8
   tail call void @lv_style_set_outline_color(ptr noundef nonnull %201, i24 %.0.copyload103) #3
-  %209 = load i32, ptr %66, align 4, !tbaa !19
+  %209 = load i32, ptr %66, align 4, !tbaa !24
   %210 = icmp sgt i32 %209, 79
   br i1 %210, label %211, label %215
 
@@ -1500,7 +1514,7 @@ style_init_reset.exit1019:                        ; preds = %206, %207
 215:                                              ; preds = %style_init_reset.exit1019, %211
   %216 = phi i32 [ %214, %211 ], [ 1, %style_init_reset.exit1019 ]
   tail call void @lv_style_set_outline_width(ptr noundef nonnull %201, i32 noundef %216) #3
-  %217 = load i32, ptr %66, align 4, !tbaa !19
+  %217 = load i32, ptr %66, align 4, !tbaa !24
   %218 = icmp sgt i32 %217, 79
   br i1 %218, label %219, label %223
 
@@ -1517,7 +1531,7 @@ style_init_reset.exit1019:                        ; preds = %206, %207
   %225 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %226 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 768), align 8, !tbaa !3
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 92
-  %228 = load i8, ptr %227, align 4, !tbaa !7, !range !17, !noundef !18
+  %228 = load i8, ptr %227, align 4, !tbaa !8, !range !22, !noundef !23
   %229 = trunc nuw i8 %228 to i1
   br i1 %229, label %230, label %231
 
@@ -1533,7 +1547,7 @@ style_init_reset.exit1020:                        ; preds = %230, %231
   %232 = getelementptr inbounds nuw i8, ptr %0, i64 35
   %.0.copyload101 = load i24, ptr %232, align 1
   tail call void @lv_style_set_outline_color(ptr noundef nonnull %225, i24 %.0.copyload101) #3
-  %233 = load i32, ptr %66, align 4, !tbaa !19
+  %233 = load i32, ptr %66, align 4, !tbaa !24
   %234 = icmp sgt i32 %233, 79
   br i1 %234, label %235, label %239
 
@@ -1550,7 +1564,7 @@ style_init_reset.exit1020:                        ; preds = %230, %231
   %241 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %242 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 768), align 8, !tbaa !3
   %243 = getelementptr inbounds nuw i8, ptr %242, i64 92
-  %244 = load i8, ptr %243, align 4, !tbaa !7, !range !17, !noundef !18
+  %244 = load i8, ptr %243, align 4, !tbaa !8, !range !22, !noundef !23
   %245 = trunc nuw i8 %244 to i1
   br i1 %245, label %246, label %247
 
@@ -1563,8 +1577,8 @@ style_init_reset.exit1020:                        ; preds = %230, %231
   br label %style_init_reset.exit1021
 
 style_init_reset.exit1021:                        ; preds = %246, %247
-  %248 = load i32, ptr %98, align 8, !tbaa !20
-  %249 = load i32, ptr %66, align 4, !tbaa !19
+  %248 = load i32, ptr %98, align 8, !tbaa !25
+  %249 = load i32, ptr %66, align 4, !tbaa !24
   %250 = icmp eq i32 %248, 1
   %251 = icmp eq i32 %248, 2
   %252 = select i1 %251, i32 12, i32 8
@@ -1584,7 +1598,7 @@ style_init_reset.exit1021:                        ; preds = %246, %247
   tail call void @lv_style_set_bg_opa(ptr noundef nonnull %241, i8 noundef zeroext -1) #3
   %.0.copyload99 = load i24, ptr %27, align 1
   tail call void @lv_style_set_bg_color(ptr noundef nonnull %241, i24 %.0.copyload99) #3
-  %261 = load i32, ptr %3, align 8, !tbaa !21
+  %261 = load i32, ptr %3, align 8, !tbaa !26
   %262 = and i32 %261, 1
   %.not1007 = icmp eq i32 %262, 0
   br i1 %.not1007, label %263, label %308
@@ -1619,7 +1633,7 @@ style_init_reset.exit1021:                        ; preds = %246, %247
   br i1 %279, label %306, label %.critedge
 
 .critedge:                                        ; preds = %272, %276
-  %280 = load i32, ptr %66, align 4, !tbaa !19
+  %280 = load i32, ptr %66, align 4, !tbaa !24
   %281 = tail call i32 @lv_display_get_dpi(ptr noundef null) #3
   %282 = icmp sgt i32 %281, 59
   br i1 %282, label %283, label %288
@@ -1638,7 +1652,7 @@ style_init_reset.exit1021:                        ; preds = %246, %247
   br i1 %291, label %292, label %306
 
 292:                                              ; preds = %288
-  %293 = load i32, ptr %66, align 4, !tbaa !19
+  %293 = load i32, ptr %66, align 4, !tbaa !24
   %294 = tail call i32 @lv_display_get_dpi(ptr noundef null) #3
   %295 = icmp sgt i32 %294, 59
   br i1 %295, label %296, label %301
@@ -1665,8 +1679,8 @@ style_init_reset.exit1021:                        ; preds = %246, %247
 308:                                              ; preds = %306, %259
   %.0.copyload94 = load i24, ptr %11, align 1
   tail call void @lv_style_set_text_color(ptr noundef nonnull %241, i24 %.0.copyload94) #3
-  %309 = load i32, ptr %98, align 8, !tbaa !20
-  %310 = load i32, ptr %66, align 4, !tbaa !19
+  %309 = load i32, ptr %98, align 8, !tbaa !25
+  %310 = load i32, ptr %66, align 4, !tbaa !24
   %311 = icmp eq i32 %309, 1
   %312 = icmp eq i32 %309, 2
   %313 = select i1 %312, i32 20, i32 16
@@ -1684,8 +1698,8 @@ style_init_reset.exit1021:                        ; preds = %246, %247
   %321 = phi i32 [ %319, %317 ], [ 1, %308 ]
   tail call void @lv_style_set_pad_left(ptr noundef nonnull %241, i32 noundef range(i32 -13421772, 13421773) %321) #3
   tail call void @lv_style_set_pad_right(ptr noundef nonnull %241, i32 noundef range(i32 -13421772, 13421773) %321) #3
-  %322 = load i32, ptr %98, align 8, !tbaa !20
-  %323 = load i32, ptr %66, align 4, !tbaa !19
+  %322 = load i32, ptr %98, align 8, !tbaa !25
+  %323 = load i32, ptr %66, align 4, !tbaa !24
   %324 = icmp eq i32 %322, 1
   %325 = icmp eq i32 %322, 2
   %326 = select i1 %325, i32 12, i32 10
@@ -1703,7 +1717,7 @@ style_init_reset.exit1021:                        ; preds = %246, %247
   %334 = phi i32 [ %332, %330 ], [ 1, %320 ]
   tail call void @lv_style_set_pad_top(ptr noundef nonnull %241, i32 noundef range(i32 -13421772, 13421773) %334) #3
   tail call void @lv_style_set_pad_bottom(ptr noundef nonnull %241, i32 noundef range(i32 -13421772, 13421773) %334) #3
-  %335 = load i32, ptr %66, align 4, !tbaa !19
+  %335 = load i32, ptr %66, align 4, !tbaa !24
   %336 = icmp sgt i32 %335, 47
   br i1 %336, label %337, label %341
 
@@ -1716,7 +1730,7 @@ style_init_reset.exit1021:                        ; preds = %246, %247
 341:                                              ; preds = %333, %337
   %342 = phi i32 [ %340, %337 ], [ 1, %333 ]
   tail call void @lv_style_set_pad_column(ptr noundef nonnull %241, i32 noundef %342) #3
-  %343 = load i32, ptr %66, align 4, !tbaa !19
+  %343 = load i32, ptr %66, align 4, !tbaa !24
   %344 = icmp sgt i32 %343, 47
   br i1 %344, label %345, label %349
 
@@ -1736,7 +1750,7 @@ style_init_reset.exit1021:                        ; preds = %246, %247
   %353 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %354 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 768), align 8, !tbaa !3
   %355 = getelementptr inbounds nuw i8, ptr %354, i64 92
-  %356 = load i8, ptr %355, align 4, !tbaa !7, !range !17, !noundef !18
+  %356 = load i8, ptr %355, align 4, !tbaa !8, !range !22, !noundef !23
   %357 = trunc nuw i8 %356 to i1
   br i1 %357, label %358, label %359
 
@@ -1754,7 +1768,7 @@ style_init_reset.exit1022:                        ; preds = %358, %359
   %360 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %361 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 768), align 8, !tbaa !3
   %362 = getelementptr inbounds nuw i8, ptr %361, i64 92
-  %363 = load i8, ptr %362, align 4, !tbaa !7, !range !17, !noundef !18
+  %363 = load i8, ptr %362, align 4, !tbaa !8, !range !22, !noundef !23
   %364 = trunc nuw i8 %363 to i1
   br i1 %364, label %365, label %366
 
@@ -1772,7 +1786,7 @@ style_init_reset.exit1023:                        ; preds = %365, %366
   %367 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %368 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 768), align 8, !tbaa !3
   %369 = getelementptr inbounds nuw i8, ptr %368, i64 92
-  %370 = load i8, ptr %369, align 4, !tbaa !7, !range !17, !noundef !18
+  %370 = load i8, ptr %369, align 4, !tbaa !8, !range !22, !noundef !23
   %371 = trunc nuw i8 %370 to i1
   br i1 %371, label %372, label %373
 
@@ -1790,7 +1804,7 @@ style_init_reset.exit1024:                        ; preds = %372, %373
   %374 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %375 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 768), align 8, !tbaa !3
   %376 = getelementptr inbounds nuw i8, ptr %375, i64 92
-  %377 = load i8, ptr %376, align 4, !tbaa !7, !range !17, !noundef !18
+  %377 = load i8, ptr %376, align 4, !tbaa !8, !range !22, !noundef !23
   %378 = trunc nuw i8 %377 to i1
   br i1 %378, label %379, label %380
 
@@ -1803,8 +1817,8 @@ style_init_reset.exit1024:                        ; preds = %372, %373
   br label %style_init_reset.exit1025
 
 style_init_reset.exit1025:                        ; preds = %379, %380
-  %381 = load i32, ptr %98, align 8, !tbaa !20
-  %382 = load i32, ptr %66, align 4, !tbaa !19
+  %381 = load i32, ptr %98, align 8, !tbaa !25
+  %382 = load i32, ptr %66, align 4, !tbaa !24
   %383 = icmp eq i32 %381, 1
   %384 = icmp eq i32 %381, 2
   %385 = select i1 %384, i32 20, i32 16
@@ -1824,8 +1838,8 @@ style_init_reset.exit1025:                        ; preds = %379, %380
   tail call void @lv_style_set_pad_right(ptr noundef nonnull %374, i32 noundef range(i32 -13421772, 13421773) %393) #3
   tail call void @lv_style_set_pad_top(ptr noundef nonnull %374, i32 noundef range(i32 -13421772, 13421773) %393) #3
   tail call void @lv_style_set_pad_bottom(ptr noundef nonnull %374, i32 noundef range(i32 -13421772, 13421773) %393) #3
-  %394 = load i32, ptr %98, align 8, !tbaa !20
-  %395 = load i32, ptr %66, align 4, !tbaa !19
+  %394 = load i32, ptr %98, align 8, !tbaa !25
+  %395 = load i32, ptr %66, align 4, !tbaa !24
   %396 = icmp eq i32 %394, 1
   %397 = icmp eq i32 %394, 2
   %398 = select i1 %397, i32 20, i32 16
@@ -1842,8 +1856,8 @@ style_init_reset.exit1025:                        ; preds = %379, %380
 405:                                              ; preds = %402, %392
   %406 = phi i32 [ %404, %402 ], [ 1, %392 ]
   tail call void @lv_style_set_pad_row(ptr noundef nonnull %374, i32 noundef %406) #3
-  %407 = load i32, ptr %98, align 8, !tbaa !20
-  %408 = load i32, ptr %66, align 4, !tbaa !19
+  %407 = load i32, ptr %98, align 8, !tbaa !25
+  %408 = load i32, ptr %66, align 4, !tbaa !24
   %409 = icmp eq i32 %407, 1
   %410 = icmp eq i32 %407, 2
   %411 = select i1 %410, i32 20, i32 16
@@ -1863,7 +1877,7 @@ style_init_reset.exit1025:                        ; preds = %379, %380
   %420 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %421 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 768), align 8, !tbaa !3
   %422 = getelementptr inbounds nuw i8, ptr %421, i64 92
-  %423 = load i8, ptr %422, align 4, !tbaa !7, !range !17, !noundef !18
+  %423 = load i8, ptr %422, align 4, !tbaa !8, !range !22, !noundef !23
   %424 = trunc nuw i8 %423 to i1
   br i1 %424, label %425, label %426
 
@@ -1876,8 +1890,8 @@ style_init_reset.exit1025:                        ; preds = %379, %380
   br label %style_init_reset.exit1026
 
 style_init_reset.exit1026:                        ; preds = %425, %426
-  %427 = load i32, ptr %98, align 8, !tbaa !20
-  %428 = load i32, ptr %66, align 4, !tbaa !19
+  %427 = load i32, ptr %98, align 8, !tbaa !25
+  %428 = load i32, ptr %66, align 4, !tbaa !24
   %429 = icmp eq i32 %427, 1
   %430 = icmp eq i32 %427, 2
   %431 = select i1 %430, i32 12, i32 10
@@ -1897,8 +1911,8 @@ style_init_reset.exit1026:                        ; preds = %425, %426
   tail call void @lv_style_set_pad_right(ptr noundef nonnull %420, i32 noundef range(i32 -13421772, 13421773) %439) #3
   tail call void @lv_style_set_pad_top(ptr noundef nonnull %420, i32 noundef range(i32 -13421772, 13421773) %439) #3
   tail call void @lv_style_set_pad_bottom(ptr noundef nonnull %420, i32 noundef range(i32 -13421772, 13421773) %439) #3
-  %440 = load i32, ptr %98, align 8, !tbaa !20
-  %441 = load i32, ptr %66, align 4, !tbaa !19
+  %440 = load i32, ptr %98, align 8, !tbaa !25
+  %441 = load i32, ptr %66, align 4, !tbaa !24
   %442 = icmp eq i32 %440, 1
   %443 = icmp eq i32 %440, 2
   %444 = select i1 %443, i32 12, i32 10
@@ -1919,7 +1933,7 @@ style_init_reset.exit1026:                        ; preds = %425, %426
   %453 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %454 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 768), align 8, !tbaa !3
   %455 = getelementptr inbounds nuw i8, ptr %454, i64 92
-  %456 = load i8, ptr %455, align 4, !tbaa !7, !range !17, !noundef !18
+  %456 = load i8, ptr %455, align 4, !tbaa !8, !range !22, !noundef !23
   %457 = trunc nuw i8 %456 to i1
   br i1 %457, label %458, label %459
 
@@ -1932,7 +1946,7 @@ style_init_reset.exit1026:                        ; preds = %425, %426
   br label %style_init_reset.exit1027
 
 style_init_reset.exit1027:                        ; preds = %458, %459
-  %460 = load i32, ptr %66, align 4, !tbaa !19
+  %460 = load i32, ptr %66, align 4, !tbaa !24
   %461 = icmp sgt i32 %460, 23
   br i1 %461, label %462, label %466
 
@@ -1945,7 +1959,7 @@ style_init_reset.exit1027:                        ; preds = %458, %459
 466:                                              ; preds = %style_init_reset.exit1027, %462
   %467 = phi i32 [ %465, %462 ], [ 1, %style_init_reset.exit1027 ]
   tail call void @lv_style_set_pad_row(ptr noundef nonnull %453, i32 noundef %467) #3
-  %468 = load i32, ptr %66, align 4, !tbaa !19
+  %468 = load i32, ptr %66, align 4, !tbaa !24
   %469 = icmp sgt i32 %468, 23
   br i1 %469, label %470, label %474
 
@@ -1961,7 +1975,7 @@ style_init_reset.exit1027:                        ; preds = %458, %459
   %476 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %477 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 768), align 8, !tbaa !3
   %478 = getelementptr inbounds nuw i8, ptr %477, i64 92
-  %479 = load i8, ptr %478, align 4, !tbaa !7, !range !17, !noundef !18
+  %479 = load i8, ptr %478, align 4, !tbaa !8, !range !22, !noundef !23
   %480 = trunc nuw i8 %479 to i1
   br i1 %480, label %481, label %482
 
@@ -1974,7 +1988,7 @@ style_init_reset.exit1027:                        ; preds = %458, %459
   br label %style_init_reset.exit1028
 
 style_init_reset.exit1028:                        ; preds = %481, %482
-  %483 = load i32, ptr %66, align 4, !tbaa !19
+  %483 = load i32, ptr %66, align 4, !tbaa !24
   %484 = icmp sgt i32 %483, 11
   br i1 %484, label %485, label %489
 
@@ -1990,7 +2004,7 @@ style_init_reset.exit1028:                        ; preds = %481, %482
   %491 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %492 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 768), align 8, !tbaa !3
   %493 = getelementptr inbounds nuw i8, ptr %492, i64 92
-  %494 = load i8, ptr %493, align 4, !tbaa !7, !range !17, !noundef !18
+  %494 = load i8, ptr %493, align 4, !tbaa !8, !range !22, !noundef !23
   %495 = trunc nuw i8 %494 to i1
   br i1 %495, label %496, label %497
 
@@ -2007,7 +2021,7 @@ style_init_reset.exit1029:                        ; preds = %496, %497
   %498 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %499 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 768), align 8, !tbaa !3
   %500 = getelementptr inbounds nuw i8, ptr %499, i64 92
-  %501 = load i8, ptr %500, align 4, !tbaa !7, !range !17, !noundef !18
+  %501 = load i8, ptr %500, align 4, !tbaa !8, !range !22, !noundef !23
   %502 = trunc nuw i8 %501 to i1
   br i1 %502, label %503, label %504
 
@@ -2029,7 +2043,7 @@ style_init_reset.exit1030:                        ; preds = %503, %504
   %505 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %506 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 768), align 8, !tbaa !3
   %507 = getelementptr inbounds nuw i8, ptr %506, i64 92
-  %508 = load i8, ptr %507, align 4, !tbaa !7, !range !17, !noundef !18
+  %508 = load i8, ptr %507, align 4, !tbaa !8, !range !22, !noundef !23
   %509 = trunc nuw i8 %508 to i1
   br i1 %509, label %510, label %511
 
@@ -2042,8 +2056,8 @@ style_init_reset.exit1030:                        ; preds = %503, %504
   br label %style_init_reset.exit1031
 
 style_init_reset.exit1031:                        ; preds = %510, %511
-  %512 = load i32, ptr %98, align 8, !tbaa !20
-  %513 = load i32, ptr %66, align 4, !tbaa !19
+  %512 = load i32, ptr %98, align 8, !tbaa !25
+  %513 = load i32, ptr %66, align 4, !tbaa !24
   %514 = icmp eq i32 %512, 1
   %515 = icmp eq i32 %512, 2
   %516 = select i1 %515, i32 6, i32 2
@@ -2063,8 +2077,8 @@ style_init_reset.exit1031:                        ; preds = %510, %511
   tail call void @lv_style_set_pad_right(ptr noundef nonnull %505, i32 noundef range(i32 -13421772, 13421773) %524) #3
   tail call void @lv_style_set_pad_top(ptr noundef nonnull %505, i32 noundef range(i32 -13421772, 13421773) %524) #3
   tail call void @lv_style_set_pad_bottom(ptr noundef nonnull %505, i32 noundef range(i32 -13421772, 13421773) %524) #3
-  %525 = load i32, ptr %98, align 8, !tbaa !20
-  %526 = load i32, ptr %66, align 4, !tbaa !19
+  %525 = load i32, ptr %98, align 8, !tbaa !25
+  %526 = load i32, ptr %66, align 4, !tbaa !24
   %527 = icmp eq i32 %525, 1
   %528 = icmp eq i32 %525, 2
   %529 = select i1 %528, i32 6, i32 2
@@ -2081,8 +2095,8 @@ style_init_reset.exit1031:                        ; preds = %510, %511
 536:                                              ; preds = %533, %523
   %537 = phi i32 [ %535, %533 ], [ 1, %523 ]
   tail call void @lv_style_set_pad_row(ptr noundef nonnull %505, i32 noundef %537) #3
-  %538 = load i32, ptr %98, align 8, !tbaa !20
-  %539 = load i32, ptr %66, align 4, !tbaa !19
+  %538 = load i32, ptr %98, align 8, !tbaa !25
+  %539 = load i32, ptr %66, align 4, !tbaa !24
   %540 = icmp eq i32 %538, 1
   %541 = icmp eq i32 %538, 2
   %542 = select i1 %541, i32 6, i32 2
@@ -2102,7 +2116,7 @@ style_init_reset.exit1031:                        ; preds = %510, %511
   %551 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %552 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 768), align 8, !tbaa !3
   %553 = getelementptr inbounds nuw i8, ptr %552, i64 92
-  %554 = load i8, ptr %553, align 4, !tbaa !7, !range !17, !noundef !18
+  %554 = load i8, ptr %553, align 4, !tbaa !8, !range !22, !noundef !23
   %555 = trunc nuw i8 %554 to i1
   br i1 %555, label %556, label %557
 
@@ -2123,7 +2137,7 @@ style_init_reset.exit1032:                        ; preds = %556, %557
   %559 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %560 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 768), align 8, !tbaa !3
   %561 = getelementptr inbounds nuw i8, ptr %560, i64 92
-  %562 = load i8, ptr %561, align 4, !tbaa !7, !range !17, !noundef !18
+  %562 = load i8, ptr %561, align 4, !tbaa !8, !range !22, !noundef !23
   %563 = trunc nuw i8 %562 to i1
   br i1 %563, label %564, label %565
 
@@ -2144,7 +2158,7 @@ style_init_reset.exit1033:                        ; preds = %564, %565
   %566 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %567 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 768), align 8, !tbaa !3
   %568 = getelementptr inbounds nuw i8, ptr %567, i64 92
-  %569 = load i8, ptr %568, align 4, !tbaa !7, !range !17, !noundef !18
+  %569 = load i8, ptr %568, align 4, !tbaa !8, !range !22, !noundef !23
   %570 = trunc nuw i8 %569 to i1
   br i1 %570, label %571, label %572
 
@@ -2165,7 +2179,7 @@ style_init_reset.exit1034:                        ; preds = %571, %572
   %574 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %575 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 768), align 8, !tbaa !3
   %576 = getelementptr inbounds nuw i8, ptr %575, i64 92
-  %577 = load i8, ptr %576, align 4, !tbaa !7, !range !17, !noundef !18
+  %577 = load i8, ptr %576, align 4, !tbaa !8, !range !22, !noundef !23
   %578 = trunc nuw i8 %577 to i1
   br i1 %578, label %579, label %580
 
@@ -2186,7 +2200,7 @@ style_init_reset.exit1035:                        ; preds = %579, %580
   %581 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %582 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 768), align 8, !tbaa !3
   %583 = getelementptr inbounds nuw i8, ptr %582, i64 92
-  %584 = load i8, ptr %583, align 4, !tbaa !7, !range !17, !noundef !18
+  %584 = load i8, ptr %583, align 4, !tbaa !8, !range !22, !noundef !23
   %585 = trunc nuw i8 %584 to i1
   br i1 %585, label %586, label %587
 
@@ -2207,7 +2221,7 @@ style_init_reset.exit1036:                        ; preds = %586, %587
   %588 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %589 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 768), align 8, !tbaa !3
   %590 = getelementptr inbounds nuw i8, ptr %589, i64 92
-  %591 = load i8, ptr %590, align 4, !tbaa !7, !range !17, !noundef !18
+  %591 = load i8, ptr %590, align 4, !tbaa !8, !range !22, !noundef !23
   %592 = trunc nuw i8 %591 to i1
   br i1 %592, label %593, label %594
 
@@ -2228,7 +2242,7 @@ style_init_reset.exit1037:                        ; preds = %593, %594
   %595 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %596 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 768), align 8, !tbaa !3
   %597 = getelementptr inbounds nuw i8, ptr %596, i64 92
-  %598 = load i8, ptr %597, align 4, !tbaa !7, !range !17, !noundef !18
+  %598 = load i8, ptr %597, align 4, !tbaa !8, !range !22, !noundef !23
   %599 = trunc nuw i8 %598 to i1
   br i1 %599, label %600, label %601
 
@@ -2245,7 +2259,7 @@ style_init_reset.exit1038:                        ; preds = %600, %601
   %602 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %603 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 768), align 8, !tbaa !3
   %604 = getelementptr inbounds nuw i8, ptr %603, i64 92
-  %605 = load i8, ptr %604, align 4, !tbaa !7, !range !17, !noundef !18
+  %605 = load i8, ptr %604, align 4, !tbaa !8, !range !22, !noundef !23
   %606 = trunc nuw i8 %605 to i1
   br i1 %606, label %607, label %608
 
@@ -2262,7 +2276,7 @@ style_init_reset.exit1039:                        ; preds = %607, %608
   %609 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %610 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 768), align 8, !tbaa !3
   %611 = getelementptr inbounds nuw i8, ptr %610, i64 92
-  %612 = load i8, ptr %611, align 4, !tbaa !7, !range !17, !noundef !18
+  %612 = load i8, ptr %611, align 4, !tbaa !8, !range !22, !noundef !23
   %613 = trunc nuw i8 %612 to i1
   br i1 %613, label %614, label %615
 
@@ -2275,14 +2289,14 @@ style_init_reset.exit1039:                        ; preds = %607, %608
   br label %style_init_reset.exit1040
 
 style_init_reset.exit1040:                        ; preds = %614, %615
-  %616 = load i32, ptr %66, align 4, !tbaa !19
+  %616 = load i32, ptr %66, align 4, !tbaa !24
   %617 = sdiv i32 %616, 4
   %618 = shl nsw i32 %617, 8
   tail call void @lv_style_set_rotary_sensitivity(ptr noundef nonnull %609, i32 noundef %618) #3
   %619 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %620 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 768), align 8, !tbaa !3
   %621 = getelementptr inbounds nuw i8, ptr %620, i64 92
-  %622 = load i8, ptr %621, align 4, !tbaa !7, !range !17, !noundef !18
+  %622 = load i8, ptr %621, align 4, !tbaa !8, !range !22, !noundef !23
   %623 = trunc nuw i8 %622 to i1
   br i1 %623, label %624, label %625
 
@@ -2295,7 +2309,7 @@ style_init_reset.exit1040:                        ; preds = %614, %615
   br label %style_init_reset.exit1041
 
 style_init_reset.exit1041:                        ; preds = %624, %625
-  %626 = load i32, ptr %66, align 4, !tbaa !19
+  %626 = load i32, ptr %66, align 4, !tbaa !24
   %627 = icmp sgt i32 %626, 79
   br i1 %627, label %628, label %632
 
@@ -2308,7 +2322,7 @@ style_init_reset.exit1041:                        ; preds = %624, %625
 632:                                              ; preds = %style_init_reset.exit1041, %628
   %633 = phi i32 [ %631, %628 ], [ 1, %style_init_reset.exit1041 ]
   tail call void @lv_style_set_transform_width(ptr noundef nonnull %619, i32 noundef %633) #3
-  %634 = load i32, ptr %66, align 4, !tbaa !19
+  %634 = load i32, ptr %66, align 4, !tbaa !24
   %635 = icmp sgt i32 %634, 79
   br i1 %635, label %636, label %640
 
@@ -2324,7 +2338,7 @@ style_init_reset.exit1041:                        ; preds = %624, %625
   %642 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %643 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 768), align 8, !tbaa !3
   %644 = getelementptr inbounds nuw i8, ptr %643, i64 92
-  %645 = load i8, ptr %644, align 4, !tbaa !7, !range !17, !noundef !18
+  %645 = load i8, ptr %644, align 4, !tbaa !8, !range !22, !noundef !23
   %646 = trunc nuw i8 %645 to i1
   br i1 %646, label %647, label %648
 
@@ -2340,7 +2354,7 @@ style_init_reset.exit1042:                        ; preds = %647, %648
   %.0.copyload66 = load i24, ptr %208, align 8
   tail call void @lv_style_set_bg_color(ptr noundef nonnull %642, i24 %.0.copyload66) #3
   tail call void @lv_style_set_bg_opa(ptr noundef nonnull %642, i8 noundef zeroext -1) #3
-  %649 = load i32, ptr %66, align 4, !tbaa !19
+  %649 = load i32, ptr %66, align 4, !tbaa !24
   %650 = icmp sgt i32 %649, 39
   br i1 %650, label %651, label %655
 
@@ -2360,7 +2374,7 @@ style_init_reset.exit1042:                        ; preds = %647, %648
   %657 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %658 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 768), align 8, !tbaa !3
   %659 = getelementptr inbounds nuw i8, ptr %658, i64 92
-  %660 = load i8, ptr %659, align 4, !tbaa !7, !range !17, !noundef !18
+  %660 = load i8, ptr %659, align 4, !tbaa !8, !range !22, !noundef !23
   %661 = trunc nuw i8 %660 to i1
   br i1 %661, label %662, label %663
 
@@ -2377,7 +2391,7 @@ style_init_reset.exit1043:                        ; preds = %662, %663
   %664 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %665 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 768), align 8, !tbaa !3
   %666 = getelementptr inbounds nuw i8, ptr %665, i64 92
-  %667 = load i8, ptr %666, align 4, !tbaa !7, !range !17, !noundef !18
+  %667 = load i8, ptr %666, align 4, !tbaa !8, !range !22, !noundef !23
   %668 = trunc nuw i8 %667 to i1
   br i1 %668, label %669, label %670
 
@@ -2394,7 +2408,7 @@ style_init_reset.exit1044:                        ; preds = %669, %670
   %671 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %672 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 768), align 8, !tbaa !3
   %673 = getelementptr inbounds nuw i8, ptr %672, i64 92
-  %674 = load i8, ptr %673, align 4, !tbaa !7, !range !17, !noundef !18
+  %674 = load i8, ptr %673, align 4, !tbaa !8, !range !22, !noundef !23
   %675 = trunc nuw i8 %674 to i1
   br i1 %675, label %676, label %677
 
@@ -2409,7 +2423,7 @@ style_init_reset.exit1044:                        ; preds = %669, %670
 style_init_reset.exit1045:                        ; preds = %676, %677
   %.0.copyload64 = load i24, ptr %27, align 1
   tail call void @lv_style_set_arc_color(ptr noundef nonnull %671, i24 %.0.copyload64) #3
-  %678 = load i32, ptr %66, align 4, !tbaa !19
+  %678 = load i32, ptr %66, align 4, !tbaa !24
   %679 = icmp sgt i32 %678, 15
   br i1 %679, label %680, label %684
 
@@ -2426,7 +2440,7 @@ style_init_reset.exit1045:                        ; preds = %676, %677
   %686 = getelementptr inbounds nuw i8, ptr %0, i64 624
   %687 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 768), align 8, !tbaa !3
   %688 = getelementptr inbounds nuw i8, ptr %687, i64 92
-  %689 = load i8, ptr %688, align 4, !tbaa !7, !range !17, !noundef !18
+  %689 = load i8, ptr %688, align 4, !tbaa !8, !range !22, !noundef !23
   %690 = trunc nuw i8 %689 to i1
   br i1 %690, label %691, label %692
 
@@ -2444,7 +2458,7 @@ style_init_reset.exit1046:                        ; preds = %691, %692
   %693 = getelementptr inbounds nuw i8, ptr %0, i64 688
   %694 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 768), align 8, !tbaa !3
   %695 = getelementptr inbounds nuw i8, ptr %694, i64 92
-  %696 = load i8, ptr %695, align 4, !tbaa !7, !range !17, !noundef !18
+  %696 = load i8, ptr %695, align 4, !tbaa !8, !range !22, !noundef !23
   %697 = trunc nuw i8 %696 to i1
   br i1 %697, label %698, label %699
 
@@ -2461,7 +2475,7 @@ style_init_reset.exit1047:                        ; preds = %698, %699
   %700 = getelementptr inbounds nuw i8, ptr %0, i64 704
   %701 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 768), align 8, !tbaa !3
   %702 = getelementptr inbounds nuw i8, ptr %701, i64 92
-  %703 = load i8, ptr %702, align 4, !tbaa !7, !range !17, !noundef !18
+  %703 = load i8, ptr %702, align 4, !tbaa !8, !range !22, !noundef !23
   %704 = trunc nuw i8 %703 to i1
   br i1 %704, label %705, label %706
 
@@ -2474,7 +2488,7 @@ style_init_reset.exit1047:                        ; preds = %698, %699
   br label %style_init_reset.exit1048
 
 style_init_reset.exit1048:                        ; preds = %705, %706
-  %707 = load i32, ptr %66, align 4, !tbaa !19
+  %707 = load i32, ptr %66, align 4, !tbaa !24
   %708 = icmp sgt i32 %707, 79
   br i1 %708, label %709, label %713
 
@@ -2490,7 +2504,7 @@ style_init_reset.exit1048:                        ; preds = %705, %706
   tail call void @lv_style_set_pad_right(ptr noundef nonnull %700, i32 noundef range(i32 -13421772, 13421773) %714) #3
   tail call void @lv_style_set_pad_top(ptr noundef nonnull %700, i32 noundef range(i32 -13421772, 13421773) %714) #3
   tail call void @lv_style_set_pad_bottom(ptr noundef nonnull %700, i32 noundef range(i32 -13421772, 13421773) %714) #3
-  %715 = load i32, ptr %66, align 4, !tbaa !19
+  %715 = load i32, ptr %66, align 4, !tbaa !24
   %716 = icmp sgt i32 %715, 119
   br i1 %716, label %717, label %721
 
@@ -2508,10 +2522,10 @@ style_init_reset.exit1048:                        ; preds = %705, %706
   %.0.copyload58 = load i24, ptr %19, align 2
   tail call void @lv_style_set_bg_color(ptr noundef nonnull %700, i24 %.0.copyload58) #3
   tail call void @lv_style_set_bg_opa(ptr noundef nonnull %700, i8 noundef zeroext -1) #3
-  %723 = load i32, ptr %98, align 8, !tbaa !20
+  %723 = load i32, ptr %98, align 8, !tbaa !25
   %724 = icmp eq i32 %723, 1
   %725 = select i1 %724, i32 12, i32 8
-  %726 = load i32, ptr %66, align 4, !tbaa !19
+  %726 = load i32, ptr %66, align 4, !tbaa !24
   %727 = mul nsw i32 %725, %726
   %728 = icmp sgt i32 %727, 239
   br i1 %728, label %729, label %733
@@ -2526,14 +2540,14 @@ style_init_reset.exit1048:                        ; preds = %705, %706
   %734 = phi i32 [ %732, %729 ], [ 0, %721 ]
   tail call void @lv_style_set_radius(ptr noundef nonnull %700, i32 noundef %734) #3
   %735 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %736 = load ptr, ptr %735, align 8, !tbaa !22
+  %736 = load ptr, ptr %735, align 8, !tbaa !27
   tail call void @lv_style_set_text_font(ptr noundef nonnull %700, ptr noundef %736) #3
   %737 = tail call i24 @lv_color_white() #3
   tail call void @lv_style_set_text_color(ptr noundef nonnull %700, i24 %737) #3
   %738 = getelementptr inbounds nuw i8, ptr %0, i64 720
   %739 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 768), align 8, !tbaa !3
   %740 = getelementptr inbounds nuw i8, ptr %739, i64 92
-  %741 = load i8, ptr %740, align 4, !tbaa !7, !range !17, !noundef !18
+  %741 = load i8, ptr %740, align 4, !tbaa !8, !range !22, !noundef !23
   %742 = trunc nuw i8 %741 to i1
   br i1 %742, label %743, label %744
 
@@ -2550,7 +2564,7 @@ style_init_reset.exit1049:                        ; preds = %743, %744
   %745 = getelementptr inbounds nuw i8, ptr %0, i64 736
   %746 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 768), align 8, !tbaa !3
   %747 = getelementptr inbounds nuw i8, ptr %746, i64 92
-  %748 = load i8, ptr %747, align 4, !tbaa !7, !range !17, !noundef !18
+  %748 = load i8, ptr %747, align 4, !tbaa !8, !range !22, !noundef !23
   %749 = trunc nuw i8 %748 to i1
   br i1 %749, label %750, label %751
 
@@ -2563,7 +2577,7 @@ style_init_reset.exit1049:                        ; preds = %743, %744
   br label %style_init_reset.exit1050
 
 style_init_reset.exit1050:                        ; preds = %750, %751
-  %752 = load i32, ptr %66, align 4, !tbaa !19
+  %752 = load i32, ptr %66, align 4, !tbaa !24
   %753 = icmp sgt i32 %752, 59
   br i1 %753, label %754, label %757
 
@@ -2585,7 +2599,7 @@ style_init_reset.exit1050:                        ; preds = %750, %751
   %759 = getelementptr inbounds nuw i8, ptr %0, i64 752
   %760 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 768), align 8, !tbaa !3
   %761 = getelementptr inbounds nuw i8, ptr %760, i64 92
-  %762 = load i8, ptr %761, align 4, !tbaa !7, !range !17, !noundef !18
+  %762 = load i8, ptr %761, align 4, !tbaa !8, !range !22, !noundef !23
   %763 = trunc nuw i8 %762 to i1
   br i1 %763, label %764, label %765
 
@@ -2604,7 +2618,7 @@ style_init_reset.exit1051:                        ; preds = %764, %765
   %766 = getelementptr inbounds nuw i8, ptr %0, i64 672
   %767 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 768), align 8, !tbaa !3
   %768 = getelementptr inbounds nuw i8, ptr %767, i64 92
-  %769 = load i8, ptr %768, align 4, !tbaa !7, !range !17, !noundef !18
+  %769 = load i8, ptr %768, align 4, !tbaa !8, !range !22, !noundef !23
   %770 = trunc nuw i8 %769 to i1
   br i1 %770, label %771, label %772
 
@@ -2618,7 +2632,7 @@ style_init_reset.exit1051:                        ; preds = %764, %765
 
 style_init_reset.exit1052:                        ; preds = %771, %772
   tail call void @lv_style_set_border_post(ptr noundef nonnull %766, i1 noundef zeroext false) #3
-  %773 = load i32, ptr %66, align 4, !tbaa !19
+  %773 = load i32, ptr %66, align 4, !tbaa !24
   %774 = icmp sgt i32 %773, 23
   br i1 %774, label %775, label %779
 
@@ -2636,7 +2650,7 @@ style_init_reset.exit1052:                        ; preds = %771, %772
   %781 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %782 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 768), align 8, !tbaa !3
   %783 = getelementptr inbounds nuw i8, ptr %782, i64 92
-  %784 = load i8, ptr %783, align 4, !tbaa !7, !range !17, !noundef !18
+  %784 = load i8, ptr %783, align 4, !tbaa !8, !range !22, !noundef !23
   %785 = trunc nuw i8 %784 to i1
   br i1 %785, label %786, label %787
 
@@ -2649,7 +2663,7 @@ style_init_reset.exit1052:                        ; preds = %771, %772
   br label %style_init_reset.exit1053
 
 style_init_reset.exit1053:                        ; preds = %786, %787
-  %788 = load i32, ptr %66, align 4, !tbaa !19
+  %788 = load i32, ptr %66, align 4, !tbaa !24
   %789 = icmp sgt i32 %788, 79
   br i1 %789, label %790, label %794
 
@@ -2662,7 +2676,7 @@ style_init_reset.exit1053:                        ; preds = %786, %787
 794:                                              ; preds = %style_init_reset.exit1053, %790
   %795 = phi i32 [ %793, %790 ], [ 1, %style_init_reset.exit1053 ]
   tail call void @lv_style_set_line_width(ptr noundef nonnull %781, i32 noundef %795) #3
-  %796 = load i32, ptr %66, align 4, !tbaa !19
+  %796 = load i32, ptr %66, align 4, !tbaa !24
   %797 = icmp sgt i32 %796, 79
   br i1 %797, label %798, label %802
 
@@ -2675,7 +2689,7 @@ style_init_reset.exit1053:                        ; preds = %786, %787
 802:                                              ; preds = %794, %798
   %803 = phi i32 [ %801, %798 ], [ 1, %794 ]
   tail call void @lv_style_set_radius(ptr noundef nonnull %781, i32 noundef %803) #3
-  %804 = load i32, ptr %66, align 4, !tbaa !19
+  %804 = load i32, ptr %66, align 4, !tbaa !24
   %805 = icmp sgt i32 %804, 29
   br i1 %805, label %806, label %810
 
@@ -2689,7 +2703,7 @@ style_init_reset.exit1053:                        ; preds = %786, %787
   %811 = phi i32 [ %809, %806 ], [ 1, %802 ]
   tail call void @lv_style_set_width(ptr noundef nonnull %781, i32 noundef range(i32 1, 13421773) %811) #3
   tail call void @lv_style_set_height(ptr noundef nonnull %781, i32 noundef range(i32 1, 13421773) %811) #3
-  %812 = load i32, ptr %66, align 4, !tbaa !19
+  %812 = load i32, ptr %66, align 4, !tbaa !24
   %813 = icmp sgt i32 %812, 119
   br i1 %813, label %814, label %818
 
@@ -2705,7 +2719,7 @@ style_init_reset.exit1053:                        ; preds = %786, %787
   %820 = getelementptr inbounds nuw i8, ptr %0, i64 656
   %821 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 768), align 8, !tbaa !3
   %822 = getelementptr inbounds nuw i8, ptr %821, i64 92
-  %823 = load i8, ptr %822, align 4, !tbaa !7, !range !17, !noundef !18
+  %823 = load i8, ptr %822, align 4, !tbaa !8, !range !22, !noundef !23
   %824 = trunc nuw i8 %823 to i1
   br i1 %824, label %825, label %826
 
@@ -2727,7 +2741,7 @@ style_init_reset.exit1054:                        ; preds = %825, %826
   %827 = getelementptr inbounds nuw i8, ptr %0, i64 864
   %828 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 768), align 8, !tbaa !3
   %829 = getelementptr inbounds nuw i8, ptr %828, i64 92
-  %830 = load i8, ptr %829, align 4, !tbaa !7, !range !17, !noundef !18
+  %830 = load i8, ptr %829, align 4, !tbaa !8, !range !22, !noundef !23
   %831 = trunc nuw i8 %830 to i1
   br i1 %831, label %832, label %833
 
@@ -2752,7 +2766,7 @@ style_init_reset.exit1055:                        ; preds = %832, %833
   %834 = getelementptr inbounds nuw i8, ptr %0, i64 976
   %835 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 768), align 8, !tbaa !3
   %836 = getelementptr inbounds nuw i8, ptr %835, i64 92
-  %837 = load i8, ptr %836, align 4, !tbaa !7, !range !17, !noundef !18
+  %837 = load i8, ptr %836, align 4, !tbaa !8, !range !22, !noundef !23
   %838 = trunc nuw i8 %837 to i1
   br i1 %838, label %839, label %840
 
@@ -2765,10 +2779,10 @@ style_init_reset.exit1055:                        ; preds = %832, %833
   br label %style_init_reset.exit1056
 
 style_init_reset.exit1056:                        ; preds = %839, %840
-  %841 = load i32, ptr %98, align 8, !tbaa !20
+  %841 = load i32, ptr %98, align 8, !tbaa !25
   %842 = icmp eq i32 %841, 1
   %843 = select i1 %842, i32 12, i32 8
-  %844 = load i32, ptr %66, align 4, !tbaa !19
+  %844 = load i32, ptr %66, align 4, !tbaa !24
   %845 = mul nsw i32 %843, %844
   %846 = icmp sgt i32 %845, 239
   br i1 %846, label %847, label %850
@@ -2790,7 +2804,7 @@ style_init_reset.exit1056:                        ; preds = %839, %840
   %852 = getelementptr inbounds nuw i8, ptr %0, i64 880
   %853 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 768), align 8, !tbaa !3
   %854 = getelementptr inbounds nuw i8, ptr %853, i64 92
-  %855 = load i8, ptr %854, align 4, !tbaa !7, !range !17, !noundef !18
+  %855 = load i8, ptr %854, align 4, !tbaa !8, !range !22, !noundef !23
   %856 = trunc nuw i8 %855 to i1
   br i1 %856, label %857, label %858
 
@@ -2803,8 +2817,8 @@ style_init_reset.exit1056:                        ; preds = %839, %840
   br label %style_init_reset.exit1057
 
 style_init_reset.exit1057:                        ; preds = %857, %858
-  %859 = load i32, ptr %98, align 8, !tbaa !20
-  %860 = load i32, ptr %66, align 4, !tbaa !19
+  %859 = load i32, ptr %98, align 8, !tbaa !25
+  %860 = load i32, ptr %66, align 4, !tbaa !24
   %861 = icmp eq i32 %859, 1
   %862 = icmp eq i32 %859, 2
   %863 = select i1 %862, i32 12, i32 10
@@ -2822,8 +2836,8 @@ style_init_reset.exit1057:                        ; preds = %857, %858
   %871 = phi i32 [ %869, %867 ], [ 1, %style_init_reset.exit1057 ]
   tail call void @lv_style_set_pad_left(ptr noundef nonnull %852, i32 noundef range(i32 -13421772, 13421773) %871) #3
   tail call void @lv_style_set_pad_right(ptr noundef nonnull %852, i32 noundef range(i32 -13421772, 13421773) %871) #3
-  %872 = load i32, ptr %98, align 8, !tbaa !20
-  %873 = load i32, ptr %66, align 4, !tbaa !19
+  %872 = load i32, ptr %98, align 8, !tbaa !25
+  %873 = load i32, ptr %66, align 4, !tbaa !24
   %874 = icmp eq i32 %872, 1
   %875 = icmp eq i32 %872, 2
   %876 = select i1 %875, i32 12, i32 10
@@ -2841,8 +2855,8 @@ style_init_reset.exit1057:                        ; preds = %857, %858
   %884 = phi i32 [ %882, %880 ], [ 1, %870 ]
   tail call void @lv_style_set_pad_top(ptr noundef nonnull %852, i32 noundef range(i32 -13421772, 13421773) %884) #3
   tail call void @lv_style_set_pad_bottom(ptr noundef nonnull %852, i32 noundef range(i32 -13421772, 13421773) %884) #3
-  %885 = load i32, ptr %98, align 8, !tbaa !20
-  %886 = load i32, ptr %66, align 4, !tbaa !19
+  %885 = load i32, ptr %98, align 8, !tbaa !25
+  %886 = load i32, ptr %66, align 4, !tbaa !24
   %887 = icmp eq i32 %885, 1
   %888 = icmp eq i32 %885, 2
   %889 = select i1 %888, i32 12, i32 10
@@ -2860,7 +2874,7 @@ style_init_reset.exit1057:                        ; preds = %857, %858
   %897 = phi i32 [ %895, %893 ], [ 1, %883 ]
   tail call void @lv_style_set_pad_row(ptr noundef nonnull %852, i32 noundef range(i32 -13421772, 13421773) %897) #3
   tail call void @lv_style_set_pad_column(ptr noundef nonnull %852, i32 noundef range(i32 -13421772, 13421773) %897) #3
-  %898 = load i32, ptr %66, align 4, !tbaa !19
+  %898 = load i32, ptr %66, align 4, !tbaa !24
   %899 = icmp sgt i32 %898, 239
   br i1 %899, label %900, label %903
 
@@ -2879,7 +2893,7 @@ style_init_reset.exit1057:                        ; preds = %857, %858
   %905 = getelementptr inbounds nuw i8, ptr %0, i64 896
   %906 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 768), align 8, !tbaa !3
   %907 = getelementptr inbounds nuw i8, ptr %906, i64 92
-  %908 = load i8, ptr %907, align 4, !tbaa !7, !range !17, !noundef !18
+  %908 = load i8, ptr %907, align 4, !tbaa !8, !range !22, !noundef !23
   %909 = trunc nuw i8 %908 to i1
   br i1 %909, label %910, label %911
 
@@ -2898,7 +2912,7 @@ style_init_reset.exit1058:                        ; preds = %910, %911
   tail call void @lv_style_set_pad_bottom(ptr noundef nonnull %905, i32 noundef 0) #3
   tail call void @lv_style_set_pad_row(ptr noundef nonnull %905, i32 noundef 0) #3
   tail call void @lv_style_set_pad_column(ptr noundef nonnull %905, i32 noundef 0) #3
-  %912 = load i32, ptr %66, align 4, !tbaa !19
+  %912 = load i32, ptr %66, align 4, !tbaa !24
   %913 = icmp sgt i32 %912, 239
   br i1 %913, label %914, label %917
 
@@ -2917,7 +2931,7 @@ style_init_reset.exit1058:                        ; preds = %910, %911
   %919 = getelementptr inbounds nuw i8, ptr %0, i64 912
   %920 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 768), align 8, !tbaa !3
   %921 = getelementptr inbounds nuw i8, ptr %920, i64 92
-  %922 = load i8, ptr %921, align 4, !tbaa !7, !range !17, !noundef !18
+  %922 = load i8, ptr %921, align 4, !tbaa !8, !range !22, !noundef !23
   %923 = trunc nuw i8 %922 to i1
   br i1 %923, label %924, label %925
 
@@ -2939,7 +2953,7 @@ style_init_reset.exit1059:                        ; preds = %924, %925
   %926 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %927 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 768), align 8, !tbaa !3
   %928 = getelementptr inbounds nuw i8, ptr %927, i64 92
-  %929 = load i8, ptr %928, align 4, !tbaa !7, !range !17, !noundef !18
+  %929 = load i8, ptr %928, align 4, !tbaa !8, !range !22, !noundef !23
   %930 = trunc nuw i8 %929 to i1
   br i1 %930, label %931, label %932
 
@@ -2952,8 +2966,8 @@ style_init_reset.exit1059:                        ; preds = %924, %925
   br label %style_init_reset.exit1060
 
 style_init_reset.exit1060:                        ; preds = %931, %932
-  %933 = load i32, ptr %98, align 8, !tbaa !20
-  %934 = load i32, ptr %66, align 4, !tbaa !19
+  %933 = load i32, ptr %98, align 8, !tbaa !25
+  %934 = load i32, ptr %66, align 4, !tbaa !24
   %935 = icmp eq i32 %933, 1
   %936 = icmp eq i32 %933, 2
   %937 = select i1 %936, i32 12, i32 10
@@ -2971,8 +2985,8 @@ style_init_reset.exit1060:                        ; preds = %931, %932
   %945 = phi i32 [ %943, %941 ], [ 1, %style_init_reset.exit1060 ]
   tail call void @lv_style_set_pad_left(ptr noundef nonnull %926, i32 noundef range(i32 -13421772, 13421773) %945) #3
   tail call void @lv_style_set_pad_right(ptr noundef nonnull %926, i32 noundef range(i32 -13421772, 13421773) %945) #3
-  %946 = load i32, ptr %98, align 8, !tbaa !20
-  %947 = load i32, ptr %66, align 4, !tbaa !19
+  %946 = load i32, ptr %98, align 8, !tbaa !25
+  %947 = load i32, ptr %66, align 4, !tbaa !24
   %948 = icmp eq i32 %946, 1
   %949 = icmp eq i32 %946, 2
   %950 = select i1 %949, i32 6, i32 2
@@ -2990,8 +3004,8 @@ style_init_reset.exit1060:                        ; preds = %931, %932
   %958 = phi i32 [ %956, %954 ], [ 1, %944 ]
   tail call void @lv_style_set_pad_top(ptr noundef nonnull %926, i32 noundef range(i32 -13421772, 13421773) %958) #3
   tail call void @lv_style_set_pad_bottom(ptr noundef nonnull %926, i32 noundef range(i32 -13421772, 13421773) %958) #3
-  %959 = load i32, ptr %98, align 8, !tbaa !20
-  %960 = load i32, ptr %66, align 4, !tbaa !19
+  %959 = load i32, ptr %98, align 8, !tbaa !25
+  %960 = load i32, ptr %66, align 4, !tbaa !24
   %961 = icmp eq i32 %959, 1
   %962 = icmp eq i32 %959, 2
   %963 = select i1 %962, i32 12, i32 10
@@ -3012,7 +3026,7 @@ style_init_reset.exit1060:                        ; preds = %931, %932
   %972 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %973 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 768), align 8, !tbaa !3
   %974 = getelementptr inbounds nuw i8, ptr %973, i64 92
-  %975 = load i8, ptr %974, align 4, !tbaa !7, !range !17, !noundef !18
+  %975 = load i8, ptr %974, align 4, !tbaa !8, !range !22, !noundef !23
   %976 = trunc nuw i8 %975 to i1
   br i1 %976, label %977, label %978
 
@@ -3025,8 +3039,8 @@ style_init_reset.exit1060:                        ; preds = %931, %932
   br label %style_init_reset.exit1061
 
 style_init_reset.exit1061:                        ; preds = %977, %978
-  %979 = load i32, ptr %98, align 8, !tbaa !20
-  %980 = load i32, ptr %66, align 4, !tbaa !19
+  %979 = load i32, ptr %98, align 8, !tbaa !25
+  %980 = load i32, ptr %66, align 4, !tbaa !24
   %981 = icmp eq i32 %979, 1
   %982 = icmp eq i32 %979, 2
   %983 = select i1 %982, i32 6, i32 2
@@ -3044,8 +3058,8 @@ style_init_reset.exit1061:                        ; preds = %977, %978
   %991 = phi i32 [ %989, %987 ], [ 1, %style_init_reset.exit1061 ]
   tail call void @lv_style_set_pad_left(ptr noundef nonnull %972, i32 noundef range(i32 -13421772, 13421773) %991) #3
   tail call void @lv_style_set_pad_right(ptr noundef nonnull %972, i32 noundef range(i32 -13421772, 13421773) %991) #3
-  %992 = load i32, ptr %98, align 8, !tbaa !20
-  %993 = load i32, ptr %66, align 4, !tbaa !19
+  %992 = load i32, ptr %98, align 8, !tbaa !25
+  %993 = load i32, ptr %66, align 4, !tbaa !24
   %994 = icmp eq i32 %992, 1
   %995 = icmp eq i32 %992, 2
   %996 = select i1 %995, i32 6, i32 2
@@ -3070,7 +3084,7 @@ style_init_reset.exit1061:                        ; preds = %977, %978
   %1005 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %1006 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 768), align 8, !tbaa !3
   %1007 = getelementptr inbounds nuw i8, ptr %1006, i64 92
-  %1008 = load i8, ptr %1007, align 4, !tbaa !7, !range !17, !noundef !18
+  %1008 = load i8, ptr %1007, align 4, !tbaa !8, !range !22, !noundef !23
   %1009 = trunc nuw i8 %1008 to i1
   br i1 %1009, label %1010, label %1011
 
@@ -3090,7 +3104,7 @@ style_init_reset.exit1062:                        ; preds = %1010, %1011
   %1012 = getelementptr inbounds nuw i8, ptr %0, i64 992
   %1013 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 768), align 8, !tbaa !3
   %1014 = getelementptr inbounds nuw i8, ptr %1013, i64 92
-  %1015 = load i8, ptr %1014, align 4, !tbaa !7, !range !17, !noundef !18
+  %1015 = load i8, ptr %1014, align 4, !tbaa !8, !range !22, !noundef !23
   %1016 = trunc nuw i8 %1015 to i1
   br i1 %1016, label %1017, label %1018
 
@@ -3109,7 +3123,7 @@ style_init_reset.exit1063:                        ; preds = %1017, %1018
   %1020 = getelementptr inbounds nuw i8, ptr %0, i64 1008
   %1021 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 768), align 8, !tbaa !3
   %1022 = getelementptr inbounds nuw i8, ptr %1021, i64 92
-  %1023 = load i8, ptr %1022, align 4, !tbaa !7, !range !17, !noundef !18
+  %1023 = load i8, ptr %1022, align 4, !tbaa !8, !range !22, !noundef !23
   %1024 = trunc nuw i8 %1023 to i1
   br i1 %1024, label %1025, label %1026
 
@@ -3123,8 +3137,8 @@ style_init_reset.exit1063:                        ; preds = %1017, %1018
 
 style_init_reset.exit1064:                        ; preds = %1025, %1026
   tail call void @lv_style_set_bg_opa(ptr noundef nonnull %1020, i8 noundef zeroext 0) #3
-  %1027 = load i32, ptr %98, align 8, !tbaa !20
-  %1028 = load i32, ptr %66, align 4, !tbaa !19
+  %1027 = load i32, ptr %98, align 8, !tbaa !25
+  %1028 = load i32, ptr %66, align 4, !tbaa !24
   %1029 = icmp eq i32 %1027, 1
   %1030 = icmp eq i32 %1027, 2
   %1031 = select i1 %1030, i32 6, i32 2
@@ -3145,7 +3159,7 @@ style_init_reset.exit1064:                        ; preds = %1025, %1026
   %1040 = getelementptr inbounds nuw i8, ptr %0, i64 768
   %1041 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 768), align 8, !tbaa !3
   %1042 = getelementptr inbounds nuw i8, ptr %1041, i64 92
-  %1043 = load i8, ptr %1042, align 4, !tbaa !7, !range !17, !noundef !18
+  %1043 = load i8, ptr %1042, align 4, !tbaa !8, !range !22, !noundef !23
   %1044 = trunc nuw i8 %1043 to i1
   br i1 %1044, label %1045, label %1046
 
@@ -3158,7 +3172,7 @@ style_init_reset.exit1064:                        ; preds = %1025, %1026
   br label %style_init_reset.exit1065
 
 style_init_reset.exit1065:                        ; preds = %1045, %1046
-  %1047 = load i32, ptr %66, align 4, !tbaa !19
+  %1047 = load i32, ptr %66, align 4, !tbaa !24
   %1048 = icmp sgt i32 %1047, 239
   br i1 %1048, label %1049, label %1052
 
@@ -3176,7 +3190,7 @@ style_init_reset.exit1065:                        ; preds = %1045, %1046
   %1054 = getelementptr inbounds nuw i8, ptr %0, i64 784
   %1055 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 768), align 8, !tbaa !3
   %1056 = getelementptr inbounds nuw i8, ptr %1055, i64 92
-  %1057 = load i8, ptr %1056, align 4, !tbaa !7, !range !17, !noundef !18
+  %1057 = load i8, ptr %1056, align 4, !tbaa !8, !range !22, !noundef !23
   %1058 = trunc nuw i8 %1057 to i1
   br i1 %1058, label %1059, label %1060
 
@@ -3191,7 +3205,7 @@ style_init_reset.exit1065:                        ; preds = %1045, %1046
 style_init_reset.exit1066:                        ; preds = %1059, %1060
   %.0.copyload25 = load i24, ptr %11, align 1
   tail call void @lv_style_set_border_color(ptr noundef nonnull %1054, i24 %.0.copyload25) #3
-  %1061 = load i32, ptr %66, align 4, !tbaa !19
+  %1061 = load i32, ptr %66, align 4, !tbaa !24
   %1062 = icmp sgt i32 %1061, 119
   br i1 %1062, label %1063, label %1067
 
@@ -3204,7 +3218,7 @@ style_init_reset.exit1066:                        ; preds = %1059, %1060
 1067:                                             ; preds = %style_init_reset.exit1066, %1063
   %1068 = phi i32 [ %1066, %1063 ], [ 1, %style_init_reset.exit1066 ]
   tail call void @lv_style_set_border_width(ptr noundef nonnull %1054, i32 noundef %1068) #3
-  %1069 = load i32, ptr %66, align 4, !tbaa !19
+  %1069 = load i32, ptr %66, align 4, !tbaa !24
   %1070 = icmp sgt i32 %1069, 239
   br i1 %1070, label %1071, label %1073
 
@@ -3222,7 +3236,7 @@ style_init_reset.exit1066:                        ; preds = %1059, %1060
   %1074 = getelementptr inbounds nuw i8, ptr %0, i64 800
   %1075 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 768), align 8, !tbaa !3
   %1076 = getelementptr inbounds nuw i8, ptr %1075, i64 92
-  %1077 = load i8, ptr %1076, align 4, !tbaa !7, !range !17, !noundef !18
+  %1077 = load i8, ptr %1076, align 4, !tbaa !8, !range !22, !noundef !23
   %1078 = trunc nuw i8 %1077 to i1
   br i1 %1078, label %1079, label %1080
 
@@ -3235,7 +3249,7 @@ style_init_reset.exit1066:                        ; preds = %1059, %1060
   br label %style_init_reset.exit1067
 
 style_init_reset.exit1067:                        ; preds = %1079, %1080
-  %1081 = load i32, ptr %3, align 8, !tbaa !21
+  %1081 = load i32, ptr %3, align 8, !tbaa !26
   %1082 = and i32 %1081, 1
   %.not1011 = icmp eq i32 %1082, 0
   br i1 %.not1011, label %1085, label %1083
@@ -3254,7 +3268,7 @@ style_init_reset.exit1067:                        ; preds = %1079, %1080
   %1088 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %1089 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 768), align 8, !tbaa !3
   %1090 = getelementptr inbounds nuw i8, ptr %1089, i64 92
-  %1091 = load i8, ptr %1090, align 4, !tbaa !7, !range !17, !noundef !18
+  %1091 = load i8, ptr %1090, align 4, !tbaa !8, !range !22, !noundef !23
   %1092 = trunc nuw i8 %1091 to i1
   br i1 %1092, label %1093, label %1094
 
@@ -3267,8 +3281,8 @@ style_init_reset.exit1067:                        ; preds = %1079, %1080
   br label %style_init_reset.exit1068
 
 style_init_reset.exit1068:                        ; preds = %1093, %1094
-  %1095 = load i32, ptr %98, align 8, !tbaa !20
-  %1096 = load i32, ptr %66, align 4, !tbaa !19
+  %1095 = load i32, ptr %98, align 8, !tbaa !25
+  %1096 = load i32, ptr %66, align 4, !tbaa !24
   %1097 = icmp eq i32 %1095, 1
   %1098 = icmp eq i32 %1095, 2
   %1099 = select i1 %1098, i32 12, i32 10
@@ -3288,8 +3302,8 @@ style_init_reset.exit1068:                        ; preds = %1093, %1094
   tail call void @lv_style_set_pad_right(ptr noundef nonnull %1088, i32 noundef range(i32 -13421772, 13421773) %1107) #3
   tail call void @lv_style_set_pad_top(ptr noundef nonnull %1088, i32 noundef range(i32 -13421772, 13421773) %1107) #3
   tail call void @lv_style_set_pad_bottom(ptr noundef nonnull %1088, i32 noundef range(i32 -13421772, 13421773) %1107) #3
-  %1108 = load i32, ptr %98, align 8, !tbaa !20
-  %1109 = load i32, ptr %66, align 4, !tbaa !19
+  %1108 = load i32, ptr %98, align 8, !tbaa !25
+  %1109 = load i32, ptr %66, align 4, !tbaa !24
   %1110 = icmp eq i32 %1108, 1
   %1111 = icmp eq i32 %1108, 2
   %1112 = select i1 %1111, i32 12, i32 10
@@ -3310,7 +3324,7 @@ style_init_reset.exit1068:                        ; preds = %1093, %1094
   %1121 = getelementptr inbounds nuw i8, ptr %0, i64 832
   %1122 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 768), align 8, !tbaa !3
   %1123 = getelementptr inbounds nuw i8, ptr %1122, i64 92
-  %1124 = load i8, ptr %1123, align 4, !tbaa !7, !range !17, !noundef !18
+  %1124 = load i8, ptr %1123, align 4, !tbaa !8, !range !22, !noundef !23
   %1125 = trunc nuw i8 %1124 to i1
   br i1 %1125, label %1126, label %1127
 
@@ -3323,7 +3337,7 @@ style_init_reset.exit1068:                        ; preds = %1093, %1094
   br label %style_init_reset.exit1069
 
 style_init_reset.exit1069:                        ; preds = %1126, %1127
-  %1128 = load i32, ptr %66, align 4, !tbaa !19
+  %1128 = load i32, ptr %66, align 4, !tbaa !24
   %1129 = icmp sgt i32 %1128, 239
   br i1 %1129, label %1130, label %1133
 
@@ -3343,7 +3357,7 @@ style_init_reset.exit1069:                        ; preds = %1126, %1127
   %1135 = getelementptr inbounds nuw i8, ptr %0, i64 848
   %1136 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 768), align 8, !tbaa !3
   %1137 = getelementptr inbounds nuw i8, ptr %1136, i64 92
-  %1138 = load i8, ptr %1137, align 4, !tbaa !7, !range !17, !noundef !18
+  %1138 = load i8, ptr %1137, align 4, !tbaa !8, !range !22, !noundef !23
   %1139 = trunc nuw i8 %1138 to i1
   br i1 %1139, label %1140, label %1141
 
@@ -3356,8 +3370,8 @@ style_init_reset.exit1069:                        ; preds = %1126, %1127
   br label %style_init_reset.exit1070
 
 style_init_reset.exit1070:                        ; preds = %1140, %1141
-  %1142 = load i32, ptr %98, align 8, !tbaa !20
-  %1143 = load i32, ptr %66, align 4, !tbaa !19
+  %1142 = load i32, ptr %98, align 8, !tbaa !25
+  %1143 = load i32, ptr %66, align 4, !tbaa !24
   %1144 = icmp eq i32 %1142, 1
   %1145 = icmp eq i32 %1142, 2
   %1146 = select i1 %1145, i32 12, i32 10
@@ -3375,8 +3389,8 @@ style_init_reset.exit1070:                        ; preds = %1140, %1141
   %1154 = phi i32 [ %1152, %1150 ], [ 1, %style_init_reset.exit1070 ]
   tail call void @lv_style_set_pad_left(ptr noundef nonnull %1135, i32 noundef range(i32 -13421772, 13421773) %1154) #3
   tail call void @lv_style_set_pad_right(ptr noundef nonnull %1135, i32 noundef range(i32 -13421772, 13421773) %1154) #3
-  %1155 = load i32, ptr %98, align 8, !tbaa !20
-  %1156 = load i32, ptr %66, align 4, !tbaa !19
+  %1155 = load i32, ptr %98, align 8, !tbaa !25
+  %1156 = load i32, ptr %66, align 4, !tbaa !24
   %1157 = icmp eq i32 %1155, 1
   %1158 = icmp eq i32 %1155, 2
   %1159 = select i1 %1158, i32 12, i32 10
@@ -3393,8 +3407,8 @@ style_init_reset.exit1070:                        ; preds = %1140, %1141
 1166:                                             ; preds = %1163, %1153
   %1167 = phi i32 [ %1165, %1163 ], [ 1, %1153 ]
   tail call void @lv_style_set_pad_top(ptr noundef nonnull %1135, i32 noundef %1167) #3
-  %1168 = load i32, ptr %98, align 8, !tbaa !20
-  %1169 = load i32, ptr %66, align 4, !tbaa !19
+  %1168 = load i32, ptr %98, align 8, !tbaa !25
+  %1169 = load i32, ptr %66, align 4, !tbaa !24
   %1170 = icmp eq i32 %1168, 1
   %1171 = icmp eq i32 %1168, 2
   %1172 = select i1 %1171, i32 6, i32 2
@@ -3411,8 +3425,8 @@ style_init_reset.exit1070:                        ; preds = %1140, %1141
 1179:                                             ; preds = %1176, %1166
   %1180 = phi i32 [ %1178, %1176 ], [ 1, %1166 ]
   tail call void @lv_style_set_pad_bottom(ptr noundef nonnull %1135, i32 noundef %1180) #3
-  %1181 = load i32, ptr %98, align 8, !tbaa !20
-  %1182 = load i32, ptr %66, align 4, !tbaa !19
+  %1181 = load i32, ptr %98, align 8, !tbaa !25
+  %1182 = load i32, ptr %66, align 4, !tbaa !24
   %1183 = icmp eq i32 %1181, 1
   %1184 = icmp eq i32 %1181, 2
   %1185 = select i1 %1184, i32 12, i32 10
@@ -3433,7 +3447,7 @@ style_init_reset.exit1070:                        ; preds = %1140, %1141
   %1194 = getelementptr inbounds nuw i8, ptr %0, i64 1024
   %1195 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 768), align 8, !tbaa !3
   %1196 = getelementptr inbounds nuw i8, ptr %1195, i64 92
-  %1197 = load i8, ptr %1196, align 4, !tbaa !7, !range !17, !noundef !18
+  %1197 = load i8, ptr %1196, align 4, !tbaa !8, !range !22, !noundef !23
   %1198 = trunc nuw i8 %1197 to i1
   br i1 %1198, label %1199, label %1200
 
@@ -3452,7 +3466,7 @@ style_init_reset.exit1071:                        ; preds = %1199, %1200
   %1202 = getelementptr inbounds nuw i8, ptr %0, i64 1040
   %1203 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 768), align 8, !tbaa !3
   %1204 = getelementptr inbounds nuw i8, ptr %1203, i64 92
-  %1205 = load i8, ptr %1204, align 4, !tbaa !7, !range !17, !noundef !18
+  %1205 = load i8, ptr %1204, align 4, !tbaa !8, !range !22, !noundef !23
   %1206 = trunc nuw i8 %1205 to i1
   br i1 %1206, label %1207, label %1208
 
@@ -3466,12 +3480,12 @@ style_init_reset.exit1071:                        ; preds = %1199, %1200
 
 style_init_reset.exit1072:                        ; preds = %1207, %1208
   tail call void @lv_style_set_shadow_width(ptr noundef nonnull %1202, i32 noundef 0) #3
-  %1209 = load i32, ptr %98, align 8, !tbaa !20
+  %1209 = load i32, ptr %98, align 8, !tbaa !25
   %1210 = icmp eq i32 %1209, 3
   br i1 %1210, label %1211, label %1219
 
 1211:                                             ; preds = %style_init_reset.exit1072
-  %1212 = load i32, ptr %66, align 4, !tbaa !19
+  %1212 = load i32, ptr %66, align 4, !tbaa !24
   %1213 = icmp sgt i32 %1212, 29
   br i1 %1213, label %1214, label %1228
 
@@ -3485,7 +3499,7 @@ style_init_reset.exit1072:                        ; preds = %1207, %1208
 1219:                                             ; preds = %style_init_reset.exit1072
   %1220 = icmp eq i32 %1209, 1
   %1221 = select i1 %1220, i32 12, i32 8
-  %1222 = load i32, ptr %66, align 4, !tbaa !19
+  %1222 = load i32, ptr %66, align 4, !tbaa !24
   %1223 = mul nsw i32 %1222, %1221
   %1224 = icmp sgt i32 %1223, 239
   br i1 %1224, label %1225, label %1228
@@ -3501,7 +3515,7 @@ style_init_reset.exit1072:                        ; preds = %1207, %1208
   %1230 = getelementptr inbounds nuw i8, ptr %0, i64 1120
   %1231 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 768), align 8, !tbaa !3
   %1232 = getelementptr inbounds nuw i8, ptr %1231, i64 92
-  %1233 = load i8, ptr %1232, align 4, !tbaa !7, !range !17, !noundef !18
+  %1233 = load i8, ptr %1232, align 4, !tbaa !8, !range !22, !noundef !23
   %1234 = trunc nuw i8 %1233 to i1
   br i1 %1234, label %1235, label %1236
 
@@ -3516,7 +3530,7 @@ style_init_reset.exit1072:                        ; preds = %1207, %1208
 style_init_reset.exit1073:                        ; preds = %1235, %1236
   %.0.copyload13 = load i24, ptr %208, align 8
   tail call void @lv_style_set_border_color(ptr noundef nonnull %1230, i24 %.0.copyload13) #3
-  %1237 = load i32, ptr %66, align 4, !tbaa !19
+  %1237 = load i32, ptr %66, align 4, !tbaa !24
   %1238 = icmp sgt i32 %1237, 119
   br i1 %1238, label %1239, label %1244
 
@@ -3531,7 +3545,7 @@ style_init_reset.exit1073:                        ; preds = %1235, %1236
   %1245 = phi i32 [ %1243, %1239 ], [ 2, %style_init_reset.exit1073 ]
   tail call void @lv_style_set_border_width(ptr noundef nonnull %1230, i32 noundef %1245) #3
   tail call void @lv_style_set_border_side(ptr noundef nonnull %1230, i32 noundef 1) #3
-  %1246 = load i32, ptr %66, align 4, !tbaa !19
+  %1246 = load i32, ptr %66, align 4, !tbaa !24
   %1247 = icmp sgt i32 %1246, 119
   br i1 %1247, label %1248, label %1253
 
@@ -3548,7 +3562,7 @@ style_init_reset.exit1073:                        ; preds = %1235, %1236
   %1255 = getelementptr inbounds nuw i8, ptr %0, i64 1104
   %1256 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 768), align 8, !tbaa !3
   %1257 = getelementptr inbounds nuw i8, ptr %1256, i64 92
-  %1258 = load i8, ptr %1257, align 4, !tbaa !7, !range !17, !noundef !18
+  %1258 = load i8, ptr %1257, align 4, !tbaa !8, !range !22, !noundef !23
   %1259 = trunc nuw i8 %1258 to i1
   br i1 %1259, label %1260, label %1261
 
@@ -3561,7 +3575,7 @@ style_init_reset.exit1073:                        ; preds = %1235, %1236
   br label %style_init_reset.exit1074
 
 style_init_reset.exit1074:                        ; preds = %1260, %1261
-  %1262 = load i32, ptr %66, align 4, !tbaa !19
+  %1262 = load i32, ptr %66, align 4, !tbaa !24
   %1263 = icmp sgt i32 %1262, 119
   br i1 %1263, label %1264, label %1267
 
@@ -3578,7 +3592,7 @@ style_init_reset.exit1074:                        ; preds = %1260, %1261
   %1268 = getelementptr inbounds nuw i8, ptr %0, i64 1056
   %1269 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 768), align 8, !tbaa !3
   %1270 = getelementptr inbounds nuw i8, ptr %1269, i64 92
-  %1271 = load i8, ptr %1270, align 4, !tbaa !7, !range !17, !noundef !18
+  %1271 = load i8, ptr %1270, align 4, !tbaa !8, !range !22, !noundef !23
   %1272 = trunc nuw i8 %1271 to i1
   br i1 %1272, label %1273, label %1274
 
@@ -3591,8 +3605,8 @@ style_init_reset.exit1074:                        ; preds = %1260, %1261
   br label %style_init_reset.exit1075
 
 style_init_reset.exit1075:                        ; preds = %1273, %1274
-  %1275 = load i32, ptr %98, align 8, !tbaa !20
-  %1276 = load i32, ptr %66, align 4, !tbaa !19
+  %1275 = load i32, ptr %98, align 8, !tbaa !25
+  %1276 = load i32, ptr %66, align 4, !tbaa !24
   %1277 = icmp eq i32 %1275, 1
   %1278 = icmp eq i32 %1275, 2
   %1279 = select i1 %1278, i32 20, i32 16
@@ -3618,7 +3632,7 @@ style_init_reset.exit1075:                        ; preds = %1273, %1274
   %1288 = getelementptr inbounds nuw i8, ptr %0, i64 1072
   %1289 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 768), align 8, !tbaa !3
   %1290 = getelementptr inbounds nuw i8, ptr %1289, i64 92
-  %1291 = load i8, ptr %1290, align 4, !tbaa !7, !range !17, !noundef !18
+  %1291 = load i8, ptr %1290, align 4, !tbaa !8, !range !22, !noundef !23
   %1292 = trunc nuw i8 %1291 to i1
   br i1 %1292, label %1293, label %1294
 
@@ -3631,7 +3645,7 @@ style_init_reset.exit1075:                        ; preds = %1273, %1274
   br label %style_init_reset.exit1076
 
 style_init_reset.exit1076:                        ; preds = %1293, %1294
-  %1295 = load i32, ptr %66, align 4, !tbaa !19
+  %1295 = load i32, ptr %66, align 4, !tbaa !24
   %1296 = icmp sgt i32 %1295, 239
   br i1 %1296, label %1297, label %1300
 
@@ -3646,8 +3660,8 @@ style_init_reset.exit1076:                        ; preds = %1293, %1294
   %.0.copyload11 = load i24, ptr %27, align 1
   tail call void @lv_style_set_border_color(ptr noundef nonnull %1288, i24 %.0.copyload11) #3
   tail call void @lv_style_set_border_side(ptr noundef nonnull %1288, i32 noundef 1) #3
-  %1302 = load i32, ptr %98, align 8, !tbaa !20
-  %1303 = load i32, ptr %66, align 4, !tbaa !19
+  %1302 = load i32, ptr %98, align 8, !tbaa !25
+  %1303 = load i32, ptr %66, align 4, !tbaa !24
   %1304 = icmp eq i32 %1302, 1
   %1305 = icmp eq i32 %1302, 2
   %1306 = select i1 %1305, i32 12, i32 10
@@ -3667,8 +3681,8 @@ style_init_reset.exit1076:                        ; preds = %1293, %1294
   tail call void @lv_style_set_pad_right(ptr noundef nonnull %1288, i32 noundef range(i32 -13421772, 13421773) %1314) #3
   tail call void @lv_style_set_pad_top(ptr noundef nonnull %1288, i32 noundef range(i32 -13421772, 13421773) %1314) #3
   tail call void @lv_style_set_pad_bottom(ptr noundef nonnull %1288, i32 noundef range(i32 -13421772, 13421773) %1314) #3
-  %1315 = load i32, ptr %98, align 8, !tbaa !20
-  %1316 = load i32, ptr %66, align 4, !tbaa !19
+  %1315 = load i32, ptr %98, align 8, !tbaa !25
+  %1316 = load i32, ptr %66, align 4, !tbaa !24
   %1317 = icmp eq i32 %1315, 1
   %1318 = icmp eq i32 %1315, 2
   %1319 = select i1 %1318, i32 12, i32 10
@@ -3688,7 +3702,7 @@ style_init_reset.exit1076:                        ; preds = %1293, %1294
   %1328 = getelementptr inbounds nuw i8, ptr %0, i64 1088
   %1329 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 768), align 8, !tbaa !3
   %1330 = getelementptr inbounds nuw i8, ptr %1329, i64 92
-  %1331 = load i8, ptr %1330, align 4, !tbaa !7, !range !17, !noundef !18
+  %1331 = load i8, ptr %1330, align 4, !tbaa !8, !range !22, !noundef !23
   %1332 = trunc nuw i8 %1331 to i1
   br i1 %1332, label %1333, label %1334
 
@@ -3701,8 +3715,8 @@ style_init_reset.exit1076:                        ; preds = %1293, %1294
   br label %style_init_reset.exit1077
 
 style_init_reset.exit1077:                        ; preds = %1333, %1334
-  %1335 = load i32, ptr %98, align 8, !tbaa !20
-  %1336 = load i32, ptr %66, align 4, !tbaa !19
+  %1335 = load i32, ptr %98, align 8, !tbaa !25
+  %1336 = load i32, ptr %66, align 4, !tbaa !24
   %1337 = icmp eq i32 %1335, 1
   %1338 = icmp eq i32 %1335, 2
   %1339 = select i1 %1338, i32 20, i32 16
@@ -3722,7 +3736,7 @@ style_init_reset.exit1077:                        ; preds = %1333, %1334
   %1348 = getelementptr inbounds nuw i8, ptr %0, i64 1136
   %1349 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 768), align 8, !tbaa !3
   %1350 = getelementptr inbounds nuw i8, ptr %1349, i64 92
-  %1351 = load i8, ptr %1350, align 4, !tbaa !7, !range !17, !noundef !18
+  %1351 = load i8, ptr %1350, align 4, !tbaa !8, !range !22, !noundef !23
   %1352 = trunc nuw i8 %1351 to i1
   br i1 %1352, label %1353, label %1354
 
@@ -3741,7 +3755,7 @@ style_init_reset.exit1078:                        ; preds = %1353, %1354
   %1356 = tail call i24 @lv_palette_main(i32 noundef 18) #3
   tail call void @lv_style_set_bg_grad_color(ptr noundef nonnull %1348, i24 %1356) #3
   tail call void @lv_style_set_radius(ptr noundef nonnull %1348, i32 noundef 32767) #3
-  %1357 = load i32, ptr %66, align 4, !tbaa !19
+  %1357 = load i32, ptr %66, align 4, !tbaa !24
   %1358 = icmp sgt i32 %1357, 15
   br i1 %1358, label %1359, label %1363
 
@@ -3756,7 +3770,7 @@ style_init_reset.exit1078:                        ; preds = %1353, %1354
   tail call void @lv_style_set_shadow_width(ptr noundef nonnull %1348, i32 noundef %1364) #3
   %1365 = tail call i24 @lv_color_white() #3
   tail call void @lv_style_set_shadow_color(ptr noundef nonnull %1348, i24 %1365) #3
-  %1366 = load i32, ptr %66, align 4, !tbaa !19
+  %1366 = load i32, ptr %66, align 4, !tbaa !24
   %1367 = icmp sgt i32 %1366, 47
   br i1 %1367, label %1368, label %1372
 
@@ -3772,7 +3786,7 @@ style_init_reset.exit1078:                        ; preds = %1353, %1354
   %1374 = getelementptr inbounds nuw i8, ptr %0, i64 1152
   %1375 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 768), align 8, !tbaa !3
   %1376 = getelementptr inbounds nuw i8, ptr %1375, i64 92
-  %1377 = load i8, ptr %1376, align 4, !tbaa !7, !range !17, !noundef !18
+  %1377 = load i8, ptr %1376, align 4, !tbaa !8, !range !22, !noundef !23
   %1378 = trunc nuw i8 %1377 to i1
   br i1 %1378, label %1379, label %1380
 
@@ -3846,7 +3860,7 @@ define void @lv_theme_default_deinit() local_unnamed_addr #0 {
 
 2:                                                ; preds = %0
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 92
-  %4 = load i8, ptr %3, align 4, !tbaa !7, !range !17, !noundef !18
+  %4 = load i8, ptr %3, align 4, !tbaa !8, !range !22, !noundef !23
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %6, label %.loopexit
 
@@ -3860,7 +3874,7 @@ define void @lv_theme_default_deinit() local_unnamed_addr #0 {
   tail call void @lv_style_reset(ptr noundef nonnull %9) #3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 67
-  br i1 %exitcond.not, label %.loopexit.loopexit, label %8, !llvm.loop !27
+  br i1 %exitcond.not, label %.loopexit.loopexit, label %8, !llvm.loop !32
 
 .loopexit.loopexit:                               ; preds = %8
   %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 768), align 8, !tbaa !3
@@ -3888,7 +3902,7 @@ define ptr @lv_theme_default_get() local_unnamed_addr #1 {
 
 lv_theme_default_is_inited.exit:                  ; preds = %0
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 92
-  %4 = load i8, ptr %3, align 4, !tbaa !7, !range !17, !noundef !18
+  %4 = load i8, ptr %3, align 4, !tbaa !8, !range !22, !noundef !23
   %5 = trunc nuw i8 %4 to i1
   %spec.select = select i1 %5, ptr %1, ptr null
   br label %lv_theme_default_is_inited.exit.thread
@@ -3970,7 +3984,7 @@ define internal i24 @dark_color_filter_cb(ptr readnone captures(none) %0, i24 %1
 define internal i24 @grey_filter_cb(ptr readnone captures(none) %0, i24 %1, i8 noundef zeroext %2) #0 {
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 768), align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  %6 = load i32, ptr %5, align 8, !tbaa !21
+  %6 = load i32, ptr %5, align 8, !tbaa !26
   %7 = and i32 %6, 1
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %10, label %8
@@ -4060,28 +4074,33 @@ attributes #3 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{!4, !4, i64 0}
-!4 = !{!"any pointer", !5, i64 0}
-!5 = !{!"omnipotent char", !6, i64 0}
-!6 = !{!"Simple C/C++ TBAA"}
-!7 = !{!8, !12, i64 92}
-!8 = !{!"_my_theme_t", !9, i64 0, !11, i64 72, !11, i64 76, !10, i64 80, !10, i64 83, !10, i64 86, !10, i64 89, !12, i64 92, !13, i64 96, !15, i64 1168, !15, i64 1184, !16, i64 1200, !16, i64 1232}
-!9 = !{!"_lv_theme_t", !4, i64 0, !4, i64 8, !4, i64 16, !4, i64 24, !10, i64 32, !10, i64 35, !4, i64 40, !4, i64 48, !4, i64 56, !11, i64 64}
-!10 = !{!"", !5, i64 0, !5, i64 1, !5, i64 2}
-!11 = !{!"int", !5, i64 0}
-!12 = !{!"_Bool", !5, i64 0}
-!13 = !{!"", !14, i64 0, !14, i64 16, !14, i64 32, !14, i64 48, !14, i64 64, !14, i64 80, !14, i64 96, !14, i64 112, !14, i64 128, !14, i64 144, !14, i64 160, !14, i64 176, !14, i64 192, !14, i64 208, !14, i64 224, !14, i64 240, !14, i64 256, !14, i64 272, !14, i64 288, !14, i64 304, !14, i64 320, !14, i64 336, !14, i64 352, !14, i64 368, !14, i64 384, !14, i64 400, !14, i64 416, !14, i64 432, !14, i64 448, !14, i64 464, !14, i64 480, !14, i64 496, !14, i64 512, !14, i64 528, !14, i64 544, !14, i64 560, !14, i64 576, !14, i64 592, !14, i64 608, !14, i64 624, !14, i64 640, !14, i64 656, !14, i64 672, !14, i64 688, !14, i64 704, !14, i64 720, !14, i64 736, !14, i64 752, !14, i64 768, !14, i64 784, !14, i64 800, !14, i64 816, !14, i64 832, !14, i64 848, !14, i64 864, !14, i64 880, !14, i64 896, !14, i64 912, !14, i64 928, !14, i64 944, !14, i64 960, !14, i64 976, !14, i64 992, !14, i64 1008, !14, i64 1024, !14, i64 1040, !14, i64 1056}
-!14 = !{!"", !4, i64 0, !11, i64 8, !5, i64 12}
-!15 = !{!"_lv_color_filter_dsc_t", !4, i64 0, !4, i64 8}
-!16 = !{!"", !4, i64 0, !4, i64 8, !4, i64 16, !11, i64 24, !11, i64 28}
-!17 = !{i8 0, i8 2}
-!18 = !{}
-!19 = !{!8, !11, i64 76}
-!20 = !{!8, !11, i64 72}
-!21 = !{!8, !11, i64 64}
-!22 = !{!8, !4, i64 40}
-!23 = !{!8, !4, i64 24}
-!24 = !{!8, !4, i64 48}
-!25 = !{!8, !4, i64 56}
-!26 = !{!8, !4, i64 0}
-!27 = distinct !{!27, !28}
-!28 = !{!"llvm.loop.mustprogress"}
+!4 = !{!"p1 _ZTS11_my_theme_t", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !16, i64 92}
+!9 = !{!"_my_theme_t", !10, i64 0, !15, i64 72, !15, i64 76, !13, i64 80, !13, i64 83, !13, i64 86, !13, i64 89, !16, i64 92, !17, i64 96, !19, i64 1168, !19, i64 1184, !20, i64 1200, !20, i64 1232}
+!10 = !{!"_lv_theme_t", !5, i64 0, !11, i64 8, !5, i64 16, !12, i64 24, !13, i64 32, !13, i64 35, !14, i64 40, !14, i64 48, !14, i64 56, !15, i64 64}
+!11 = !{!"p1 _ZTS11_lv_theme_t", !5, i64 0}
+!12 = !{!"p1 _ZTS13_lv_display_t", !5, i64 0}
+!13 = !{!"", !6, i64 0, !6, i64 1, !6, i64 2}
+!14 = !{!"p1 _ZTS10_lv_font_t", !5, i64 0}
+!15 = !{!"int", !6, i64 0}
+!16 = !{!"_Bool", !6, i64 0}
+!17 = !{!"", !18, i64 0, !18, i64 16, !18, i64 32, !18, i64 48, !18, i64 64, !18, i64 80, !18, i64 96, !18, i64 112, !18, i64 128, !18, i64 144, !18, i64 160, !18, i64 176, !18, i64 192, !18, i64 208, !18, i64 224, !18, i64 240, !18, i64 256, !18, i64 272, !18, i64 288, !18, i64 304, !18, i64 320, !18, i64 336, !18, i64 352, !18, i64 368, !18, i64 384, !18, i64 400, !18, i64 416, !18, i64 432, !18, i64 448, !18, i64 464, !18, i64 480, !18, i64 496, !18, i64 512, !18, i64 528, !18, i64 544, !18, i64 560, !18, i64 576, !18, i64 592, !18, i64 608, !18, i64 624, !18, i64 640, !18, i64 656, !18, i64 672, !18, i64 688, !18, i64 704, !18, i64 720, !18, i64 736, !18, i64 752, !18, i64 768, !18, i64 784, !18, i64 800, !18, i64 816, !18, i64 832, !18, i64 848, !18, i64 864, !18, i64 880, !18, i64 896, !18, i64 912, !18, i64 928, !18, i64 944, !18, i64 960, !18, i64 976, !18, i64 992, !18, i64 1008, !18, i64 1024, !18, i64 1040, !18, i64 1056}
+!18 = !{!"", !5, i64 0, !15, i64 8, !6, i64 12}
+!19 = !{!"_lv_color_filter_dsc_t", !5, i64 0, !5, i64 8}
+!20 = !{!"", !21, i64 0, !5, i64 8, !5, i64 16, !15, i64 24, !15, i64 28}
+!21 = !{!"p1 omnipotent char", !5, i64 0}
+!22 = !{i8 0, i8 2}
+!23 = !{}
+!24 = !{!9, !15, i64 76}
+!25 = !{!9, !15, i64 72}
+!26 = !{!9, !15, i64 64}
+!27 = !{!9, !14, i64 40}
+!28 = !{!9, !12, i64 24}
+!29 = !{!9, !14, i64 48}
+!30 = !{!9, !14, i64 56}
+!31 = !{!9, !5, i64 0}
+!32 = distinct !{!32, !33}
+!33 = !{!"llvm.loop.mustprogress"}

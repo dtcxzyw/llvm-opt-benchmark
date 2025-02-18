@@ -53,7 +53,7 @@ define zeroext i1 @lv_theme_mono_is_inited() local_unnamed_addr #0 {
 
 3:                                                ; preds = %0
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 344
-  %5 = load i8, ptr %4, align 8, !tbaa !7, !range !15, !noundef !16
+  %5 = load i8, ptr %4, align 8, !tbaa !8, !range !19, !noundef !20
   %6 = trunc nuw i8 %5 to i1
   br label %7
 
@@ -70,7 +70,7 @@ define void @lv_theme_mono_deinit() local_unnamed_addr #1 {
 
 2:                                                ; preds = %0
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 344
-  %4 = load i8, ptr %3, align 8, !tbaa !7, !range !15, !noundef !16
+  %4 = load i8, ptr %3, align 8, !tbaa !8, !range !19, !noundef !20
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %6, label %.loopexit
 
@@ -84,7 +84,7 @@ define void @lv_theme_mono_deinit() local_unnamed_addr #1 {
   tail call void @lv_style_reset(ptr noundef nonnull %9) #3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 17
-  br i1 %exitcond.not, label %.loopexit.loopexit, label %8, !llvm.loop !17
+  br i1 %exitcond.not, label %.loopexit.loopexit, label %8, !llvm.loop !21
 
 .loopexit.loopexit:                               ; preds = %8
   %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 776), align 8, !tbaa !3
@@ -108,585 +108,598 @@ declare void @lv_free(ptr noundef) local_unnamed_addr #2
 define ptr @lv_theme_mono_init(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 776), align 8, !tbaa !3
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %lv_theme_mono_is_inited.exit.thread, label %lv_theme_mono_is_inited.exit
+  br i1 %5, label %lv_theme_mono_is_inited.exit.i.i, label %lv_theme_mono_is_inited.exit
 
 lv_theme_mono_is_inited.exit:                     ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 344
-  %7 = load i8, ptr %6, align 8, !tbaa !7, !range !15, !noundef !16
+  %7 = load i8, ptr %6, align 8, !tbaa !8, !range !19, !noundef !20
   %8 = trunc nuw i8 %7 to i1
-  br i1 %8, label %10, label %lv_theme_mono_is_inited.exit.thread
+  br i1 %8, label %lv_theme_mono_is_inited.exit.i.i.thread, label %lv_theme_mono_is_inited.exit.i.i
 
-lv_theme_mono_is_inited.exit.thread:              ; preds = %3, %lv_theme_mono_is_inited.exit
-  %9 = tail call ptr @lv_malloc_zeroed(i64 noundef 352) #3
-  store ptr %9, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 776), align 8, !tbaa !3
-  br label %10
+lv_theme_mono_is_inited.exit.i.i.thread:          ; preds = %lv_theme_mono_is_inited.exit
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store ptr %0, ptr %9, align 8, !tbaa !23
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  store ptr @lv_font_montserrat_14, ptr %10, align 8, !tbaa !24
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  store ptr @lv_font_montserrat_14, ptr %11, align 8, !tbaa !25
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 56
+  store ptr @lv_font_montserrat_14, ptr %12, align 8, !tbaa !26
+  store ptr @theme_apply, ptr %4, align 8, !tbaa !27
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 104
+  br label %23
 
-10:                                               ; preds = %lv_theme_mono_is_inited.exit.thread, %lv_theme_mono_is_inited.exit
-  %11 = phi ptr [ %9, %lv_theme_mono_is_inited.exit.thread ], [ %4, %lv_theme_mono_is_inited.exit ]
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  store ptr %0, ptr %12, align 8, !tbaa !19
-  %13 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  store ptr @lv_font_montserrat_14, ptr %13, align 8, !tbaa !20
-  %14 = getelementptr inbounds nuw i8, ptr %11, i64 48
-  store ptr @lv_font_montserrat_14, ptr %14, align 8, !tbaa !21
-  %15 = getelementptr inbounds nuw i8, ptr %11, i64 56
-  store ptr @lv_font_montserrat_14, ptr %15, align 8, !tbaa !22
-  store ptr @theme_apply, ptr %11, align 8, !tbaa !23
-  %16 = getelementptr inbounds nuw i8, ptr %11, i64 72
-  %17 = getelementptr inbounds nuw i8, ptr %11, i64 104
-  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 776), align 8, !tbaa !3
-  %19 = icmp eq ptr %18, null
-  br i1 %19, label %lv_theme_mono_is_inited.exit.thread.i.i, label %lv_theme_mono_is_inited.exit.i.i
-
-lv_theme_mono_is_inited.exit.i.i:                 ; preds = %10
-  %20 = getelementptr inbounds nuw i8, ptr %18, i64 344
-  %21 = load i8, ptr %20, align 8, !tbaa !7, !range !15, !noundef !16
-  %22 = trunc nuw i8 %21 to i1
+lv_theme_mono_is_inited.exit.i.i:                 ; preds = %lv_theme_mono_is_inited.exit, %3
+  %15 = tail call ptr @lv_malloc_zeroed(i64 noundef 352) #3
+  store ptr %15, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 776), align 8, !tbaa !3
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 344
+  %.pre = load i8, ptr %.phi.trans.insert, align 8, !tbaa !8, !range !19
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
+  store ptr %0, ptr %16, align 8, !tbaa !23
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 40
+  store ptr @lv_font_montserrat_14, ptr %17, align 8, !tbaa !24
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 48
+  store ptr @lv_font_montserrat_14, ptr %18, align 8, !tbaa !25
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 56
+  store ptr @lv_font_montserrat_14, ptr %19, align 8, !tbaa !26
+  store ptr @theme_apply, ptr %15, align 8, !tbaa !27
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 72
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 104
+  %22 = trunc nuw i8 %.pre to i1
   br i1 %22, label %23, label %lv_theme_mono_is_inited.exit.thread.i.i
 
-23:                                               ; preds = %lv_theme_mono_is_inited.exit.i.i
-  tail call void @lv_style_reset(ptr noundef nonnull %17) #3
+23:                                               ; preds = %lv_theme_mono_is_inited.exit.i.i.thread, %lv_theme_mono_is_inited.exit.i.i
+  %24 = phi ptr [ %14, %lv_theme_mono_is_inited.exit.i.i.thread ], [ %21, %lv_theme_mono_is_inited.exit.i.i ]
+  %25 = phi ptr [ %13, %lv_theme_mono_is_inited.exit.i.i.thread ], [ %20, %lv_theme_mono_is_inited.exit.i.i ]
+  %26 = phi ptr [ %9, %lv_theme_mono_is_inited.exit.i.i.thread ], [ %16, %lv_theme_mono_is_inited.exit.i.i ]
+  %27 = phi ptr [ %4, %lv_theme_mono_is_inited.exit.i.i.thread ], [ %15, %lv_theme_mono_is_inited.exit.i.i ]
+  tail call void @lv_style_reset(ptr noundef nonnull %24) #3
   br label %style_init_reset.exit.i
 
-lv_theme_mono_is_inited.exit.thread.i.i:          ; preds = %lv_theme_mono_is_inited.exit.i.i, %10
-  tail call void @lv_style_init(ptr noundef nonnull %17) #3
+lv_theme_mono_is_inited.exit.thread.i.i:          ; preds = %lv_theme_mono_is_inited.exit.i.i
+  tail call void @lv_style_init(ptr noundef nonnull %21) #3
   br label %style_init_reset.exit.i
 
 style_init_reset.exit.i:                          ; preds = %lv_theme_mono_is_inited.exit.thread.i.i, %23
-  tail call void @lv_style_set_bg_opa(ptr noundef nonnull %17, i8 noundef zeroext -1) #3
-  br i1 %1, label %24, label %26
+  %28 = phi ptr [ %21, %lv_theme_mono_is_inited.exit.thread.i.i ], [ %24, %23 ]
+  %29 = phi ptr [ %20, %lv_theme_mono_is_inited.exit.thread.i.i ], [ %25, %23 ]
+  %30 = phi ptr [ %16, %lv_theme_mono_is_inited.exit.thread.i.i ], [ %26, %23 ]
+  %31 = phi ptr [ %15, %lv_theme_mono_is_inited.exit.thread.i.i ], [ %27, %23 ]
+  tail call void @lv_style_set_bg_opa(ptr noundef nonnull %28, i8 noundef zeroext -1) #3
+  br i1 %1, label %32, label %34
 
-24:                                               ; preds = %style_init_reset.exit.i
-  %25 = tail call i24 @lv_color_white() #3
-  br label %28
+32:                                               ; preds = %style_init_reset.exit.i
+  %33 = tail call i24 @lv_color_white() #3
+  br label %36
 
-26:                                               ; preds = %style_init_reset.exit.i
-  %27 = tail call i24 @lv_color_black() #3
-  br label %28
+34:                                               ; preds = %style_init_reset.exit.i
+  %35 = tail call i24 @lv_color_black() #3
+  br label %36
 
-28:                                               ; preds = %26, %24
-  %.sroa.032.0.i = phi i24 [ %25, %24 ], [ %27, %26 ]
-  tail call void @lv_style_set_bg_color(ptr noundef nonnull %17, i24 %.sroa.032.0.i) #3
-  tail call void @lv_style_set_width(ptr noundef nonnull %17, i32 noundef 4) #3
-  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 776), align 8, !tbaa !3
-  %30 = icmp eq ptr %29, null
-  br i1 %30, label %lv_theme_mono_is_inited.exit.thread.i122.i, label %lv_theme_mono_is_inited.exit.i121.i
+36:                                               ; preds = %34, %32
+  %.sroa.032.0.i = phi i24 [ %33, %32 ], [ %35, %34 ]
+  tail call void @lv_style_set_bg_color(ptr noundef nonnull %28, i24 %.sroa.032.0.i) #3
+  tail call void @lv_style_set_width(ptr noundef nonnull %28, i32 noundef 4) #3
+  %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 776), align 8, !tbaa !3
+  %38 = icmp eq ptr %37, null
+  br i1 %38, label %lv_theme_mono_is_inited.exit.thread.i122.i, label %lv_theme_mono_is_inited.exit.i121.i
 
-lv_theme_mono_is_inited.exit.i121.i:              ; preds = %28
-  %31 = getelementptr inbounds nuw i8, ptr %29, i64 344
-  %32 = load i8, ptr %31, align 8, !tbaa !7, !range !15, !noundef !16
-  %33 = trunc nuw i8 %32 to i1
-  br i1 %33, label %34, label %lv_theme_mono_is_inited.exit.thread.i122.i
+lv_theme_mono_is_inited.exit.i121.i:              ; preds = %36
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 344
+  %40 = load i8, ptr %39, align 8, !tbaa !8, !range !19, !noundef !20
+  %41 = trunc nuw i8 %40 to i1
+  br i1 %41, label %42, label %lv_theme_mono_is_inited.exit.thread.i122.i
 
-34:                                               ; preds = %lv_theme_mono_is_inited.exit.i121.i
-  tail call void @lv_style_reset(ptr noundef nonnull %16) #3
+42:                                               ; preds = %lv_theme_mono_is_inited.exit.i121.i
+  tail call void @lv_style_reset(ptr noundef nonnull %29) #3
   br label %style_init_reset.exit123.i
 
-lv_theme_mono_is_inited.exit.thread.i122.i:       ; preds = %lv_theme_mono_is_inited.exit.i121.i, %28
-  tail call void @lv_style_init(ptr noundef nonnull %16) #3
+lv_theme_mono_is_inited.exit.thread.i122.i:       ; preds = %lv_theme_mono_is_inited.exit.i121.i, %36
+  tail call void @lv_style_init(ptr noundef nonnull %29) #3
   br label %style_init_reset.exit123.i
 
-style_init_reset.exit123.i:                       ; preds = %lv_theme_mono_is_inited.exit.thread.i122.i, %34
-  tail call void @lv_style_set_bg_opa(ptr noundef nonnull %16, i8 noundef zeroext -1) #3
-  br i1 %1, label %35, label %38
+style_init_reset.exit123.i:                       ; preds = %lv_theme_mono_is_inited.exit.thread.i122.i, %42
+  tail call void @lv_style_set_bg_opa(ptr noundef nonnull %29, i8 noundef zeroext -1) #3
+  br i1 %1, label %43, label %46
 
-35:                                               ; preds = %style_init_reset.exit123.i
-  %36 = tail call i24 @lv_color_black() #3
-  tail call void @lv_style_set_bg_color(ptr noundef nonnull %16, i24 %36) #3
-  %37 = tail call i24 @lv_color_white() #3
-  br label %41
+43:                                               ; preds = %style_init_reset.exit123.i
+  %44 = tail call i24 @lv_color_black() #3
+  tail call void @lv_style_set_bg_color(ptr noundef nonnull %29, i24 %44) #3
+  %45 = tail call i24 @lv_color_white() #3
+  br label %49
 
-38:                                               ; preds = %style_init_reset.exit123.i
-  %39 = tail call i24 @lv_color_white() #3
-  tail call void @lv_style_set_bg_color(ptr noundef nonnull %16, i24 %39) #3
-  %40 = tail call i24 @lv_color_black() #3
-  br label %41
+46:                                               ; preds = %style_init_reset.exit123.i
+  %47 = tail call i24 @lv_color_white() #3
+  tail call void @lv_style_set_bg_color(ptr noundef nonnull %29, i24 %47) #3
+  %48 = tail call i24 @lv_color_black() #3
+  br label %49
 
-41:                                               ; preds = %38, %35
-  %.sroa.028.0.i = phi i24 [ %37, %35 ], [ %40, %38 ]
-  tail call void @lv_style_set_text_color(ptr noundef nonnull %16, i24 %.sroa.028.0.i) #3
-  tail call void @lv_style_set_pad_row(ptr noundef nonnull %16, i32 noundef 4) #3
-  tail call void @lv_style_set_pad_column(ptr noundef nonnull %16, i32 noundef 4) #3
-  tail call void @lv_style_set_text_font(ptr noundef nonnull %16, ptr noundef %2) #3
-  %42 = getelementptr inbounds nuw i8, ptr %11, i64 88
-  %43 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 776), align 8, !tbaa !3
-  %44 = icmp eq ptr %43, null
-  br i1 %44, label %lv_theme_mono_is_inited.exit.thread.i125.i, label %lv_theme_mono_is_inited.exit.i124.i
+49:                                               ; preds = %46, %43
+  %.sroa.028.0.i = phi i24 [ %45, %43 ], [ %48, %46 ]
+  tail call void @lv_style_set_text_color(ptr noundef nonnull %29, i24 %.sroa.028.0.i) #3
+  tail call void @lv_style_set_pad_row(ptr noundef nonnull %29, i32 noundef 4) #3
+  tail call void @lv_style_set_pad_column(ptr noundef nonnull %29, i32 noundef 4) #3
+  tail call void @lv_style_set_text_font(ptr noundef nonnull %29, ptr noundef %2) #3
+  %50 = getelementptr inbounds nuw i8, ptr %31, i64 88
+  %51 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 776), align 8, !tbaa !3
+  %52 = icmp eq ptr %51, null
+  br i1 %52, label %lv_theme_mono_is_inited.exit.thread.i125.i, label %lv_theme_mono_is_inited.exit.i124.i
 
-lv_theme_mono_is_inited.exit.i124.i:              ; preds = %41
-  %45 = getelementptr inbounds nuw i8, ptr %43, i64 344
-  %46 = load i8, ptr %45, align 8, !tbaa !7, !range !15, !noundef !16
-  %47 = trunc nuw i8 %46 to i1
-  br i1 %47, label %48, label %lv_theme_mono_is_inited.exit.thread.i125.i
+lv_theme_mono_is_inited.exit.i124.i:              ; preds = %49
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 344
+  %54 = load i8, ptr %53, align 8, !tbaa !8, !range !19, !noundef !20
+  %55 = trunc nuw i8 %54 to i1
+  br i1 %55, label %56, label %lv_theme_mono_is_inited.exit.thread.i125.i
 
-48:                                               ; preds = %lv_theme_mono_is_inited.exit.i124.i
-  tail call void @lv_style_reset(ptr noundef nonnull %42) #3
+56:                                               ; preds = %lv_theme_mono_is_inited.exit.i124.i
+  tail call void @lv_style_reset(ptr noundef nonnull %50) #3
   br label %style_init_reset.exit126.i
 
-lv_theme_mono_is_inited.exit.thread.i125.i:       ; preds = %lv_theme_mono_is_inited.exit.i124.i, %41
-  tail call void @lv_style_init(ptr noundef nonnull %42) #3
+lv_theme_mono_is_inited.exit.thread.i125.i:       ; preds = %lv_theme_mono_is_inited.exit.i124.i, %49
+  tail call void @lv_style_init(ptr noundef nonnull %50) #3
   br label %style_init_reset.exit126.i
 
-style_init_reset.exit126.i:                       ; preds = %lv_theme_mono_is_inited.exit.thread.i125.i, %48
-  tail call void @lv_style_set_bg_opa(ptr noundef nonnull %42, i8 noundef zeroext -1) #3
-  br i1 %1, label %49, label %52
+style_init_reset.exit126.i:                       ; preds = %lv_theme_mono_is_inited.exit.thread.i125.i, %56
+  tail call void @lv_style_set_bg_opa(ptr noundef nonnull %50, i8 noundef zeroext -1) #3
+  br i1 %1, label %57, label %60
 
-49:                                               ; preds = %style_init_reset.exit126.i
-  %50 = tail call i24 @lv_color_black() #3
-  tail call void @lv_style_set_bg_color(ptr noundef nonnull %42, i24 %50) #3
-  %51 = tail call i24 @lv_color_white() #3
-  br label %55
+57:                                               ; preds = %style_init_reset.exit126.i
+  %58 = tail call i24 @lv_color_black() #3
+  tail call void @lv_style_set_bg_color(ptr noundef nonnull %50, i24 %58) #3
+  %59 = tail call i24 @lv_color_white() #3
+  br label %63
 
-52:                                               ; preds = %style_init_reset.exit126.i
-  %53 = tail call i24 @lv_color_white() #3
-  tail call void @lv_style_set_bg_color(ptr noundef nonnull %42, i24 %53) #3
-  %54 = tail call i24 @lv_color_black() #3
-  br label %55
+60:                                               ; preds = %style_init_reset.exit126.i
+  %61 = tail call i24 @lv_color_white() #3
+  tail call void @lv_style_set_bg_color(ptr noundef nonnull %50, i24 %61) #3
+  %62 = tail call i24 @lv_color_black() #3
+  br label %63
 
-55:                                               ; preds = %52, %49
-  %.sroa.024.0.i = phi i24 [ %51, %49 ], [ %54, %52 ]
-  tail call void @lv_style_set_border_color(ptr noundef nonnull %42, i24 %.sroa.024.0.i) #3
-  tail call void @lv_style_set_radius(ptr noundef nonnull %42, i32 noundef 2) #3
-  tail call void @lv_style_set_border_width(ptr noundef nonnull %42, i32 noundef 1) #3
-  tail call void @lv_style_set_pad_left(ptr noundef nonnull %42, i32 noundef 4) #3
-  tail call void @lv_style_set_pad_right(ptr noundef nonnull %42, i32 noundef 4) #3
-  tail call void @lv_style_set_pad_top(ptr noundef nonnull %42, i32 noundef 4) #3
-  tail call void @lv_style_set_pad_bottom(ptr noundef nonnull %42, i32 noundef 4) #3
-  tail call void @lv_style_set_pad_row(ptr noundef nonnull %42, i32 noundef 4) #3
-  tail call void @lv_style_set_pad_column(ptr noundef nonnull %42, i32 noundef 4) #3
-  br i1 %1, label %56, label %58
+63:                                               ; preds = %60, %57
+  %.sroa.024.0.i = phi i24 [ %59, %57 ], [ %62, %60 ]
+  tail call void @lv_style_set_border_color(ptr noundef nonnull %50, i24 %.sroa.024.0.i) #3
+  tail call void @lv_style_set_radius(ptr noundef nonnull %50, i32 noundef 2) #3
+  tail call void @lv_style_set_border_width(ptr noundef nonnull %50, i32 noundef 1) #3
+  tail call void @lv_style_set_pad_left(ptr noundef nonnull %50, i32 noundef 4) #3
+  tail call void @lv_style_set_pad_right(ptr noundef nonnull %50, i32 noundef 4) #3
+  tail call void @lv_style_set_pad_top(ptr noundef nonnull %50, i32 noundef 4) #3
+  tail call void @lv_style_set_pad_bottom(ptr noundef nonnull %50, i32 noundef 4) #3
+  tail call void @lv_style_set_pad_row(ptr noundef nonnull %50, i32 noundef 4) #3
+  tail call void @lv_style_set_pad_column(ptr noundef nonnull %50, i32 noundef 4) #3
+  br i1 %1, label %64, label %66
 
-56:                                               ; preds = %55
-  %57 = tail call i24 @lv_color_white() #3
-  br label %60
+64:                                               ; preds = %63
+  %65 = tail call i24 @lv_color_white() #3
+  br label %68
 
-58:                                               ; preds = %55
-  %59 = tail call i24 @lv_color_black() #3
-  br label %60
+66:                                               ; preds = %63
+  %67 = tail call i24 @lv_color_black() #3
+  br label %68
 
-60:                                               ; preds = %58, %56
-  %.sroa.022.0.i = phi i24 [ %57, %56 ], [ %59, %58 ]
-  tail call void @lv_style_set_text_color(ptr noundef nonnull %42, i24 %.sroa.022.0.i) #3
-  tail call void @lv_style_set_line_width(ptr noundef nonnull %42, i32 noundef 2) #3
-  br i1 %1, label %61, label %63
+68:                                               ; preds = %66, %64
+  %.sroa.022.0.i = phi i24 [ %65, %64 ], [ %67, %66 ]
+  tail call void @lv_style_set_text_color(ptr noundef nonnull %50, i24 %.sroa.022.0.i) #3
+  tail call void @lv_style_set_line_width(ptr noundef nonnull %50, i32 noundef 2) #3
+  br i1 %1, label %69, label %71
 
-61:                                               ; preds = %60
-  %62 = tail call i24 @lv_color_white() #3
-  br label %65
+69:                                               ; preds = %68
+  %70 = tail call i24 @lv_color_white() #3
+  br label %73
 
-63:                                               ; preds = %60
-  %64 = tail call i24 @lv_color_black() #3
-  br label %65
+71:                                               ; preds = %68
+  %72 = tail call i24 @lv_color_black() #3
+  br label %73
 
-65:                                               ; preds = %63, %61
-  %.sroa.020.0.i = phi i24 [ %62, %61 ], [ %64, %63 ]
-  tail call void @lv_style_set_line_color(ptr noundef nonnull %42, i24 %.sroa.020.0.i) #3
-  tail call void @lv_style_set_arc_width(ptr noundef nonnull %42, i32 noundef 2) #3
-  br i1 %1, label %66, label %69
+73:                                               ; preds = %71, %69
+  %.sroa.020.0.i = phi i24 [ %70, %69 ], [ %72, %71 ]
+  tail call void @lv_style_set_line_color(ptr noundef nonnull %50, i24 %.sroa.020.0.i) #3
+  tail call void @lv_style_set_arc_width(ptr noundef nonnull %50, i32 noundef 2) #3
+  br i1 %1, label %74, label %77
 
-66:                                               ; preds = %65
-  %67 = tail call i24 @lv_color_white() #3
-  tail call void @lv_style_set_arc_color(ptr noundef nonnull %42, i24 %67) #3
-  %68 = tail call i24 @lv_color_white() #3
-  br label %72
+74:                                               ; preds = %73
+  %75 = tail call i24 @lv_color_white() #3
+  tail call void @lv_style_set_arc_color(ptr noundef nonnull %50, i24 %75) #3
+  %76 = tail call i24 @lv_color_white() #3
+  br label %80
 
-69:                                               ; preds = %65
-  %70 = tail call i24 @lv_color_black() #3
-  tail call void @lv_style_set_arc_color(ptr noundef nonnull %42, i24 %70) #3
-  %71 = tail call i24 @lv_color_black() #3
-  br label %72
+77:                                               ; preds = %73
+  %78 = tail call i24 @lv_color_black() #3
+  tail call void @lv_style_set_arc_color(ptr noundef nonnull %50, i24 %78) #3
+  %79 = tail call i24 @lv_color_black() #3
+  br label %80
 
-72:                                               ; preds = %69, %66
-  %.sroa.016.0.i = phi i24 [ %68, %66 ], [ %71, %69 ]
-  tail call void @lv_style_set_outline_color(ptr noundef nonnull %42, i24 %.sroa.016.0.i) #3
-  tail call void @lv_style_set_anim_duration(ptr noundef nonnull %42, i32 noundef 300) #3
-  %73 = getelementptr inbounds nuw i8, ptr %11, i64 120
-  %74 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 776), align 8, !tbaa !3
-  %75 = icmp eq ptr %74, null
-  br i1 %75, label %lv_theme_mono_is_inited.exit.thread.i128.i, label %lv_theme_mono_is_inited.exit.i127.i
+80:                                               ; preds = %77, %74
+  %.sroa.016.0.i = phi i24 [ %76, %74 ], [ %79, %77 ]
+  tail call void @lv_style_set_outline_color(ptr noundef nonnull %50, i24 %.sroa.016.0.i) #3
+  tail call void @lv_style_set_anim_duration(ptr noundef nonnull %50, i32 noundef 300) #3
+  %81 = getelementptr inbounds nuw i8, ptr %31, i64 120
+  %82 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 776), align 8, !tbaa !3
+  %83 = icmp eq ptr %82, null
+  br i1 %83, label %lv_theme_mono_is_inited.exit.thread.i128.i, label %lv_theme_mono_is_inited.exit.i127.i
 
-lv_theme_mono_is_inited.exit.i127.i:              ; preds = %72
-  %76 = getelementptr inbounds nuw i8, ptr %74, i64 344
-  %77 = load i8, ptr %76, align 8, !tbaa !7, !range !15, !noundef !16
-  %78 = trunc nuw i8 %77 to i1
-  br i1 %78, label %79, label %lv_theme_mono_is_inited.exit.thread.i128.i
+lv_theme_mono_is_inited.exit.i127.i:              ; preds = %80
+  %84 = getelementptr inbounds nuw i8, ptr %82, i64 344
+  %85 = load i8, ptr %84, align 8, !tbaa !8, !range !19, !noundef !20
+  %86 = trunc nuw i8 %85 to i1
+  br i1 %86, label %87, label %lv_theme_mono_is_inited.exit.thread.i128.i
 
-79:                                               ; preds = %lv_theme_mono_is_inited.exit.i127.i
-  tail call void @lv_style_reset(ptr noundef nonnull %73) #3
+87:                                               ; preds = %lv_theme_mono_is_inited.exit.i127.i
+  tail call void @lv_style_reset(ptr noundef nonnull %81) #3
   br label %style_init_reset.exit129.i
 
-lv_theme_mono_is_inited.exit.thread.i128.i:       ; preds = %lv_theme_mono_is_inited.exit.i127.i, %72
-  tail call void @lv_style_init(ptr noundef nonnull %73) #3
+lv_theme_mono_is_inited.exit.thread.i128.i:       ; preds = %lv_theme_mono_is_inited.exit.i127.i, %80
+  tail call void @lv_style_init(ptr noundef nonnull %81) #3
   br label %style_init_reset.exit129.i
 
-style_init_reset.exit129.i:                       ; preds = %lv_theme_mono_is_inited.exit.thread.i128.i, %79
-  tail call void @lv_style_set_border_width(ptr noundef nonnull %73, i32 noundef 3) #3
-  %80 = getelementptr inbounds nuw i8, ptr %11, i64 136
-  %81 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 776), align 8, !tbaa !3
-  %82 = icmp eq ptr %81, null
-  br i1 %82, label %lv_theme_mono_is_inited.exit.thread.i131.i, label %lv_theme_mono_is_inited.exit.i130.i
+style_init_reset.exit129.i:                       ; preds = %lv_theme_mono_is_inited.exit.thread.i128.i, %87
+  tail call void @lv_style_set_border_width(ptr noundef nonnull %81, i32 noundef 3) #3
+  %88 = getelementptr inbounds nuw i8, ptr %31, i64 136
+  %89 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 776), align 8, !tbaa !3
+  %90 = icmp eq ptr %89, null
+  br i1 %90, label %lv_theme_mono_is_inited.exit.thread.i131.i, label %lv_theme_mono_is_inited.exit.i130.i
 
 lv_theme_mono_is_inited.exit.i130.i:              ; preds = %style_init_reset.exit129.i
-  %83 = getelementptr inbounds nuw i8, ptr %81, i64 344
-  %84 = load i8, ptr %83, align 8, !tbaa !7, !range !15, !noundef !16
-  %85 = trunc nuw i8 %84 to i1
-  br i1 %85, label %86, label %lv_theme_mono_is_inited.exit.thread.i131.i
+  %91 = getelementptr inbounds nuw i8, ptr %89, i64 344
+  %92 = load i8, ptr %91, align 8, !tbaa !8, !range !19, !noundef !20
+  %93 = trunc nuw i8 %92 to i1
+  br i1 %93, label %94, label %lv_theme_mono_is_inited.exit.thread.i131.i
 
-86:                                               ; preds = %lv_theme_mono_is_inited.exit.i130.i
-  tail call void @lv_style_reset(ptr noundef nonnull %80) #3
+94:                                               ; preds = %lv_theme_mono_is_inited.exit.i130.i
+  tail call void @lv_style_reset(ptr noundef nonnull %88) #3
   br label %style_init_reset.exit132.i
 
 lv_theme_mono_is_inited.exit.thread.i131.i:       ; preds = %lv_theme_mono_is_inited.exit.i130.i, %style_init_reset.exit129.i
-  tail call void @lv_style_init(ptr noundef nonnull %80) #3
+  tail call void @lv_style_init(ptr noundef nonnull %88) #3
   br label %style_init_reset.exit132.i
 
-style_init_reset.exit132.i:                       ; preds = %lv_theme_mono_is_inited.exit.thread.i131.i, %86
-  tail call void @lv_style_set_bg_opa(ptr noundef nonnull %80, i8 noundef zeroext -1) #3
-  br i1 %1, label %87, label %94
+style_init_reset.exit132.i:                       ; preds = %lv_theme_mono_is_inited.exit.thread.i131.i, %94
+  tail call void @lv_style_set_bg_opa(ptr noundef nonnull %88, i8 noundef zeroext -1) #3
+  br i1 %1, label %95, label %102
 
-87:                                               ; preds = %style_init_reset.exit132.i
-  %88 = tail call i24 @lv_color_white() #3
-  tail call void @lv_style_set_bg_color(ptr noundef nonnull %80, i24 %88) #3
-  %89 = tail call i24 @lv_color_black() #3
-  tail call void @lv_style_set_border_color(ptr noundef nonnull %80, i24 %89) #3
-  %90 = tail call i24 @lv_color_black() #3
-  tail call void @lv_style_set_line_color(ptr noundef nonnull %80, i24 %90) #3
-  %91 = tail call i24 @lv_color_black() #3
-  tail call void @lv_style_set_arc_color(ptr noundef nonnull %80, i24 %91) #3
-  %92 = tail call i24 @lv_color_black() #3
-  tail call void @lv_style_set_text_color(ptr noundef nonnull %80, i24 %92) #3
-  %93 = tail call i24 @lv_color_black() #3
-  br label %101
-
-94:                                               ; preds = %style_init_reset.exit132.i
-  %95 = tail call i24 @lv_color_black() #3
-  tail call void @lv_style_set_bg_color(ptr noundef nonnull %80, i24 %95) #3
+95:                                               ; preds = %style_init_reset.exit132.i
   %96 = tail call i24 @lv_color_white() #3
-  tail call void @lv_style_set_border_color(ptr noundef nonnull %80, i24 %96) #3
-  %97 = tail call i24 @lv_color_white() #3
-  tail call void @lv_style_set_line_color(ptr noundef nonnull %80, i24 %97) #3
-  %98 = tail call i24 @lv_color_white() #3
-  tail call void @lv_style_set_arc_color(ptr noundef nonnull %80, i24 %98) #3
-  %99 = tail call i24 @lv_color_white() #3
-  tail call void @lv_style_set_text_color(ptr noundef nonnull %80, i24 %99) #3
-  %100 = tail call i24 @lv_color_white() #3
-  br label %101
+  tail call void @lv_style_set_bg_color(ptr noundef nonnull %88, i24 %96) #3
+  %97 = tail call i24 @lv_color_black() #3
+  tail call void @lv_style_set_border_color(ptr noundef nonnull %88, i24 %97) #3
+  %98 = tail call i24 @lv_color_black() #3
+  tail call void @lv_style_set_line_color(ptr noundef nonnull %88, i24 %98) #3
+  %99 = tail call i24 @lv_color_black() #3
+  tail call void @lv_style_set_arc_color(ptr noundef nonnull %88, i24 %99) #3
+  %100 = tail call i24 @lv_color_black() #3
+  tail call void @lv_style_set_text_color(ptr noundef nonnull %88, i24 %100) #3
+  %101 = tail call i24 @lv_color_black() #3
+  br label %109
 
-101:                                              ; preds = %94, %87
-  %.sroa.04.0.i = phi i24 [ %93, %87 ], [ %100, %94 ]
-  tail call void @lv_style_set_outline_color(ptr noundef nonnull %80, i24 %.sroa.04.0.i) #3
-  %102 = getelementptr inbounds nuw i8, ptr %11, i64 152
-  %103 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 776), align 8, !tbaa !3
-  %104 = icmp eq ptr %103, null
-  br i1 %104, label %lv_theme_mono_is_inited.exit.thread.i134.i, label %lv_theme_mono_is_inited.exit.i133.i
+102:                                              ; preds = %style_init_reset.exit132.i
+  %103 = tail call i24 @lv_color_black() #3
+  tail call void @lv_style_set_bg_color(ptr noundef nonnull %88, i24 %103) #3
+  %104 = tail call i24 @lv_color_white() #3
+  tail call void @lv_style_set_border_color(ptr noundef nonnull %88, i24 %104) #3
+  %105 = tail call i24 @lv_color_white() #3
+  tail call void @lv_style_set_line_color(ptr noundef nonnull %88, i24 %105) #3
+  %106 = tail call i24 @lv_color_white() #3
+  tail call void @lv_style_set_arc_color(ptr noundef nonnull %88, i24 %106) #3
+  %107 = tail call i24 @lv_color_white() #3
+  tail call void @lv_style_set_text_color(ptr noundef nonnull %88, i24 %107) #3
+  %108 = tail call i24 @lv_color_white() #3
+  br label %109
 
-lv_theme_mono_is_inited.exit.i133.i:              ; preds = %101
-  %105 = getelementptr inbounds nuw i8, ptr %103, i64 344
-  %106 = load i8, ptr %105, align 8, !tbaa !7, !range !15, !noundef !16
-  %107 = trunc nuw i8 %106 to i1
-  br i1 %107, label %108, label %lv_theme_mono_is_inited.exit.thread.i134.i
+109:                                              ; preds = %102, %95
+  %.sroa.04.0.i = phi i24 [ %101, %95 ], [ %108, %102 ]
+  tail call void @lv_style_set_outline_color(ptr noundef nonnull %88, i24 %.sroa.04.0.i) #3
+  %110 = getelementptr inbounds nuw i8, ptr %31, i64 152
+  %111 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 776), align 8, !tbaa !3
+  %112 = icmp eq ptr %111, null
+  br i1 %112, label %lv_theme_mono_is_inited.exit.thread.i134.i, label %lv_theme_mono_is_inited.exit.i133.i
 
-108:                                              ; preds = %lv_theme_mono_is_inited.exit.i133.i
-  tail call void @lv_style_reset(ptr noundef nonnull %102) #3
+lv_theme_mono_is_inited.exit.i133.i:              ; preds = %109
+  %113 = getelementptr inbounds nuw i8, ptr %111, i64 344
+  %114 = load i8, ptr %113, align 8, !tbaa !8, !range !19, !noundef !20
+  %115 = trunc nuw i8 %114 to i1
+  br i1 %115, label %116, label %lv_theme_mono_is_inited.exit.thread.i134.i
+
+116:                                              ; preds = %lv_theme_mono_is_inited.exit.i133.i
+  tail call void @lv_style_reset(ptr noundef nonnull %110) #3
   br label %style_init_reset.exit135.i
 
-lv_theme_mono_is_inited.exit.thread.i134.i:       ; preds = %lv_theme_mono_is_inited.exit.i133.i, %101
-  tail call void @lv_style_init(ptr noundef nonnull %102) #3
+lv_theme_mono_is_inited.exit.thread.i134.i:       ; preds = %lv_theme_mono_is_inited.exit.i133.i, %109
+  tail call void @lv_style_init(ptr noundef nonnull %110) #3
   br label %style_init_reset.exit135.i
 
-style_init_reset.exit135.i:                       ; preds = %lv_theme_mono_is_inited.exit.thread.i134.i, %108
-  tail call void @lv_style_set_border_width(ptr noundef nonnull %102, i32 noundef 0) #3
-  %109 = getelementptr inbounds nuw i8, ptr %11, i64 168
-  %110 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 776), align 8, !tbaa !3
-  %111 = icmp eq ptr %110, null
-  br i1 %111, label %lv_theme_mono_is_inited.exit.thread.i137.i, label %lv_theme_mono_is_inited.exit.i136.i
+style_init_reset.exit135.i:                       ; preds = %lv_theme_mono_is_inited.exit.thread.i134.i, %116
+  tail call void @lv_style_set_border_width(ptr noundef nonnull %110, i32 noundef 0) #3
+  %117 = getelementptr inbounds nuw i8, ptr %31, i64 168
+  %118 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 776), align 8, !tbaa !3
+  %119 = icmp eq ptr %118, null
+  br i1 %119, label %lv_theme_mono_is_inited.exit.thread.i137.i, label %lv_theme_mono_is_inited.exit.i136.i
 
 lv_theme_mono_is_inited.exit.i136.i:              ; preds = %style_init_reset.exit135.i
-  %112 = getelementptr inbounds nuw i8, ptr %110, i64 344
-  %113 = load i8, ptr %112, align 8, !tbaa !7, !range !15, !noundef !16
-  %114 = trunc nuw i8 %113 to i1
-  br i1 %114, label %115, label %lv_theme_mono_is_inited.exit.thread.i137.i
+  %120 = getelementptr inbounds nuw i8, ptr %118, i64 344
+  %121 = load i8, ptr %120, align 8, !tbaa !8, !range !19, !noundef !20
+  %122 = trunc nuw i8 %121 to i1
+  br i1 %122, label %123, label %lv_theme_mono_is_inited.exit.thread.i137.i
 
-115:                                              ; preds = %lv_theme_mono_is_inited.exit.i136.i
-  tail call void @lv_style_reset(ptr noundef nonnull %109) #3
+123:                                              ; preds = %lv_theme_mono_is_inited.exit.i136.i
+  tail call void @lv_style_reset(ptr noundef nonnull %117) #3
   br label %style_init_reset.exit138.i
 
 lv_theme_mono_is_inited.exit.thread.i137.i:       ; preds = %lv_theme_mono_is_inited.exit.i136.i, %style_init_reset.exit135.i
-  tail call void @lv_style_init(ptr noundef nonnull %109) #3
+  tail call void @lv_style_init(ptr noundef nonnull %117) #3
   br label %style_init_reset.exit138.i
 
-style_init_reset.exit138.i:                       ; preds = %lv_theme_mono_is_inited.exit.thread.i137.i, %115
-  tail call void @lv_style_set_outline_width(ptr noundef nonnull %109, i32 noundef 1) #3
-  tail call void @lv_style_set_outline_pad(ptr noundef nonnull %109, i32 noundef 1) #3
-  %116 = getelementptr inbounds nuw i8, ptr %11, i64 184
-  %117 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 776), align 8, !tbaa !3
-  %118 = icmp eq ptr %117, null
-  br i1 %118, label %lv_theme_mono_is_inited.exit.thread.i140.i, label %lv_theme_mono_is_inited.exit.i139.i
+style_init_reset.exit138.i:                       ; preds = %lv_theme_mono_is_inited.exit.thread.i137.i, %123
+  tail call void @lv_style_set_outline_width(ptr noundef nonnull %117, i32 noundef 1) #3
+  tail call void @lv_style_set_outline_pad(ptr noundef nonnull %117, i32 noundef 1) #3
+  %124 = getelementptr inbounds nuw i8, ptr %31, i64 184
+  %125 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 776), align 8, !tbaa !3
+  %126 = icmp eq ptr %125, null
+  br i1 %126, label %lv_theme_mono_is_inited.exit.thread.i140.i, label %lv_theme_mono_is_inited.exit.i139.i
 
 lv_theme_mono_is_inited.exit.i139.i:              ; preds = %style_init_reset.exit138.i
-  %119 = getelementptr inbounds nuw i8, ptr %117, i64 344
-  %120 = load i8, ptr %119, align 8, !tbaa !7, !range !15, !noundef !16
-  %121 = trunc nuw i8 %120 to i1
-  br i1 %121, label %122, label %lv_theme_mono_is_inited.exit.thread.i140.i
+  %127 = getelementptr inbounds nuw i8, ptr %125, i64 344
+  %128 = load i8, ptr %127, align 8, !tbaa !8, !range !19, !noundef !20
+  %129 = trunc nuw i8 %128 to i1
+  br i1 %129, label %130, label %lv_theme_mono_is_inited.exit.thread.i140.i
 
-122:                                              ; preds = %lv_theme_mono_is_inited.exit.i139.i
-  tail call void @lv_style_reset(ptr noundef nonnull %116) #3
+130:                                              ; preds = %lv_theme_mono_is_inited.exit.i139.i
+  tail call void @lv_style_reset(ptr noundef nonnull %124) #3
   br label %style_init_reset.exit141.i
 
 lv_theme_mono_is_inited.exit.thread.i140.i:       ; preds = %lv_theme_mono_is_inited.exit.i139.i, %style_init_reset.exit138.i
-  tail call void @lv_style_init(ptr noundef nonnull %116) #3
+  tail call void @lv_style_init(ptr noundef nonnull %124) #3
   br label %style_init_reset.exit141.i
 
-style_init_reset.exit141.i:                       ; preds = %lv_theme_mono_is_inited.exit.thread.i140.i, %122
-  tail call void @lv_style_set_outline_width(ptr noundef nonnull %116, i32 noundef 2) #3
-  %123 = getelementptr inbounds nuw i8, ptr %11, i64 264
-  %124 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 776), align 8, !tbaa !3
-  %125 = icmp eq ptr %124, null
-  br i1 %125, label %lv_theme_mono_is_inited.exit.thread.i143.i, label %lv_theme_mono_is_inited.exit.i142.i
+style_init_reset.exit141.i:                       ; preds = %lv_theme_mono_is_inited.exit.thread.i140.i, %130
+  tail call void @lv_style_set_outline_width(ptr noundef nonnull %124, i32 noundef 2) #3
+  %131 = getelementptr inbounds nuw i8, ptr %31, i64 264
+  %132 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 776), align 8, !tbaa !3
+  %133 = icmp eq ptr %132, null
+  br i1 %133, label %lv_theme_mono_is_inited.exit.thread.i143.i, label %lv_theme_mono_is_inited.exit.i142.i
 
 lv_theme_mono_is_inited.exit.i142.i:              ; preds = %style_init_reset.exit141.i
-  %126 = getelementptr inbounds nuw i8, ptr %124, i64 344
-  %127 = load i8, ptr %126, align 8, !tbaa !7, !range !15, !noundef !16
-  %128 = trunc nuw i8 %127 to i1
-  br i1 %128, label %129, label %lv_theme_mono_is_inited.exit.thread.i143.i
+  %134 = getelementptr inbounds nuw i8, ptr %132, i64 344
+  %135 = load i8, ptr %134, align 8, !tbaa !8, !range !19, !noundef !20
+  %136 = trunc nuw i8 %135 to i1
+  br i1 %136, label %137, label %lv_theme_mono_is_inited.exit.thread.i143.i
 
-129:                                              ; preds = %lv_theme_mono_is_inited.exit.i142.i
-  tail call void @lv_style_reset(ptr noundef nonnull %123) #3
+137:                                              ; preds = %lv_theme_mono_is_inited.exit.i142.i
+  tail call void @lv_style_reset(ptr noundef nonnull %131) #3
   br label %style_init_reset.exit144.i
 
 lv_theme_mono_is_inited.exit.thread.i143.i:       ; preds = %lv_theme_mono_is_inited.exit.i142.i, %style_init_reset.exit141.i
-  tail call void @lv_style_init(ptr noundef nonnull %123) #3
+  tail call void @lv_style_init(ptr noundef nonnull %131) #3
   br label %style_init_reset.exit144.i
 
-style_init_reset.exit144.i:                       ; preds = %lv_theme_mono_is_inited.exit.thread.i143.i, %129
-  tail call void @lv_style_set_border_width(ptr noundef nonnull %123, i32 noundef 2) #3
-  %130 = getelementptr inbounds nuw i8, ptr %11, i64 200
-  %131 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 776), align 8, !tbaa !3
-  %132 = icmp eq ptr %131, null
-  br i1 %132, label %lv_theme_mono_is_inited.exit.thread.i146.i, label %lv_theme_mono_is_inited.exit.i145.i
+style_init_reset.exit144.i:                       ; preds = %lv_theme_mono_is_inited.exit.thread.i143.i, %137
+  tail call void @lv_style_set_border_width(ptr noundef nonnull %131, i32 noundef 2) #3
+  %138 = getelementptr inbounds nuw i8, ptr %31, i64 200
+  %139 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 776), align 8, !tbaa !3
+  %140 = icmp eq ptr %139, null
+  br i1 %140, label %lv_theme_mono_is_inited.exit.thread.i146.i, label %lv_theme_mono_is_inited.exit.i145.i
 
 lv_theme_mono_is_inited.exit.i145.i:              ; preds = %style_init_reset.exit144.i
-  %133 = getelementptr inbounds nuw i8, ptr %131, i64 344
-  %134 = load i8, ptr %133, align 8, !tbaa !7, !range !15, !noundef !16
-  %135 = trunc nuw i8 %134 to i1
-  br i1 %135, label %136, label %lv_theme_mono_is_inited.exit.thread.i146.i
+  %141 = getelementptr inbounds nuw i8, ptr %139, i64 344
+  %142 = load i8, ptr %141, align 8, !tbaa !8, !range !19, !noundef !20
+  %143 = trunc nuw i8 %142 to i1
+  br i1 %143, label %144, label %lv_theme_mono_is_inited.exit.thread.i146.i
 
-136:                                              ; preds = %lv_theme_mono_is_inited.exit.i145.i
-  tail call void @lv_style_reset(ptr noundef nonnull %130) #3
+144:                                              ; preds = %lv_theme_mono_is_inited.exit.i145.i
+  tail call void @lv_style_reset(ptr noundef nonnull %138) #3
   br label %style_init_reset.exit147.i
 
 lv_theme_mono_is_inited.exit.thread.i146.i:       ; preds = %lv_theme_mono_is_inited.exit.i145.i, %style_init_reset.exit144.i
-  tail call void @lv_style_init(ptr noundef nonnull %130) #3
+  tail call void @lv_style_init(ptr noundef nonnull %138) #3
   br label %style_init_reset.exit147.i
 
-style_init_reset.exit147.i:                       ; preds = %lv_theme_mono_is_inited.exit.thread.i146.i, %136
-  tail call void @lv_style_set_pad_row(ptr noundef nonnull %130, i32 noundef 4) #3
-  tail call void @lv_style_set_pad_column(ptr noundef nonnull %130, i32 noundef 4) #3
-  %137 = getelementptr inbounds nuw i8, ptr %11, i64 216
-  %138 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 776), align 8, !tbaa !3
-  %139 = icmp eq ptr %138, null
-  br i1 %139, label %lv_theme_mono_is_inited.exit.thread.i149.i, label %lv_theme_mono_is_inited.exit.i148.i
+style_init_reset.exit147.i:                       ; preds = %lv_theme_mono_is_inited.exit.thread.i146.i, %144
+  tail call void @lv_style_set_pad_row(ptr noundef nonnull %138, i32 noundef 4) #3
+  tail call void @lv_style_set_pad_column(ptr noundef nonnull %138, i32 noundef 4) #3
+  %145 = getelementptr inbounds nuw i8, ptr %31, i64 216
+  %146 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 776), align 8, !tbaa !3
+  %147 = icmp eq ptr %146, null
+  br i1 %147, label %lv_theme_mono_is_inited.exit.thread.i149.i, label %lv_theme_mono_is_inited.exit.i148.i
 
 lv_theme_mono_is_inited.exit.i148.i:              ; preds = %style_init_reset.exit147.i
-  %140 = getelementptr inbounds nuw i8, ptr %138, i64 344
-  %141 = load i8, ptr %140, align 8, !tbaa !7, !range !15, !noundef !16
-  %142 = trunc nuw i8 %141 to i1
-  br i1 %142, label %143, label %lv_theme_mono_is_inited.exit.thread.i149.i
+  %148 = getelementptr inbounds nuw i8, ptr %146, i64 344
+  %149 = load i8, ptr %148, align 8, !tbaa !8, !range !19, !noundef !20
+  %150 = trunc nuw i8 %149 to i1
+  br i1 %150, label %151, label %lv_theme_mono_is_inited.exit.thread.i149.i
 
-143:                                              ; preds = %lv_theme_mono_is_inited.exit.i148.i
-  tail call void @lv_style_reset(ptr noundef nonnull %137) #3
+151:                                              ; preds = %lv_theme_mono_is_inited.exit.i148.i
+  tail call void @lv_style_reset(ptr noundef nonnull %145) #3
   br label %style_init_reset.exit150.i
 
 lv_theme_mono_is_inited.exit.thread.i149.i:       ; preds = %lv_theme_mono_is_inited.exit.i148.i, %style_init_reset.exit147.i
-  tail call void @lv_style_init(ptr noundef nonnull %137) #3
+  tail call void @lv_style_init(ptr noundef nonnull %145) #3
   br label %style_init_reset.exit150.i
 
-style_init_reset.exit150.i:                       ; preds = %lv_theme_mono_is_inited.exit.thread.i149.i, %143
-  tail call void @lv_style_set_pad_left(ptr noundef nonnull %137, i32 noundef 0) #3
-  tail call void @lv_style_set_pad_right(ptr noundef nonnull %137, i32 noundef 0) #3
-  tail call void @lv_style_set_pad_top(ptr noundef nonnull %137, i32 noundef 0) #3
-  tail call void @lv_style_set_pad_bottom(ptr noundef nonnull %137, i32 noundef 0) #3
-  tail call void @lv_style_set_pad_row(ptr noundef nonnull %137, i32 noundef 0) #3
-  tail call void @lv_style_set_pad_column(ptr noundef nonnull %137, i32 noundef 0) #3
-  %144 = getelementptr inbounds nuw i8, ptr %11, i64 232
-  %145 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 776), align 8, !tbaa !3
-  %146 = icmp eq ptr %145, null
-  br i1 %146, label %lv_theme_mono_is_inited.exit.thread.i152.i, label %lv_theme_mono_is_inited.exit.i151.i
+style_init_reset.exit150.i:                       ; preds = %lv_theme_mono_is_inited.exit.thread.i149.i, %151
+  tail call void @lv_style_set_pad_left(ptr noundef nonnull %145, i32 noundef 0) #3
+  tail call void @lv_style_set_pad_right(ptr noundef nonnull %145, i32 noundef 0) #3
+  tail call void @lv_style_set_pad_top(ptr noundef nonnull %145, i32 noundef 0) #3
+  tail call void @lv_style_set_pad_bottom(ptr noundef nonnull %145, i32 noundef 0) #3
+  tail call void @lv_style_set_pad_row(ptr noundef nonnull %145, i32 noundef 0) #3
+  tail call void @lv_style_set_pad_column(ptr noundef nonnull %145, i32 noundef 0) #3
+  %152 = getelementptr inbounds nuw i8, ptr %31, i64 232
+  %153 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 776), align 8, !tbaa !3
+  %154 = icmp eq ptr %153, null
+  br i1 %154, label %lv_theme_mono_is_inited.exit.thread.i152.i, label %lv_theme_mono_is_inited.exit.i151.i
 
 lv_theme_mono_is_inited.exit.i151.i:              ; preds = %style_init_reset.exit150.i
-  %147 = getelementptr inbounds nuw i8, ptr %145, i64 344
-  %148 = load i8, ptr %147, align 8, !tbaa !7, !range !15, !noundef !16
-  %149 = trunc nuw i8 %148 to i1
-  br i1 %149, label %150, label %lv_theme_mono_is_inited.exit.thread.i152.i
+  %155 = getelementptr inbounds nuw i8, ptr %153, i64 344
+  %156 = load i8, ptr %155, align 8, !tbaa !8, !range !19, !noundef !20
+  %157 = trunc nuw i8 %156 to i1
+  br i1 %157, label %158, label %lv_theme_mono_is_inited.exit.thread.i152.i
 
-150:                                              ; preds = %lv_theme_mono_is_inited.exit.i151.i
-  tail call void @lv_style_reset(ptr noundef nonnull %144) #3
+158:                                              ; preds = %lv_theme_mono_is_inited.exit.i151.i
+  tail call void @lv_style_reset(ptr noundef nonnull %152) #3
   br label %style_init_reset.exit153.i
 
 lv_theme_mono_is_inited.exit.thread.i152.i:       ; preds = %lv_theme_mono_is_inited.exit.i151.i, %style_init_reset.exit150.i
-  tail call void @lv_style_init(ptr noundef nonnull %144) #3
+  tail call void @lv_style_init(ptr noundef nonnull %152) #3
   br label %style_init_reset.exit153.i
 
-style_init_reset.exit153.i:                       ; preds = %lv_theme_mono_is_inited.exit.thread.i152.i, %150
-  tail call void @lv_style_set_radius(ptr noundef nonnull %144, i32 noundef 0) #3
-  %151 = getelementptr inbounds nuw i8, ptr %11, i64 248
-  %152 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 776), align 8, !tbaa !3
-  %153 = icmp eq ptr %152, null
-  br i1 %153, label %lv_theme_mono_is_inited.exit.thread.i155.i, label %lv_theme_mono_is_inited.exit.i154.i
+style_init_reset.exit153.i:                       ; preds = %lv_theme_mono_is_inited.exit.thread.i152.i, %158
+  tail call void @lv_style_set_radius(ptr noundef nonnull %152, i32 noundef 0) #3
+  %159 = getelementptr inbounds nuw i8, ptr %31, i64 248
+  %160 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 776), align 8, !tbaa !3
+  %161 = icmp eq ptr %160, null
+  br i1 %161, label %lv_theme_mono_is_inited.exit.thread.i155.i, label %lv_theme_mono_is_inited.exit.i154.i
 
 lv_theme_mono_is_inited.exit.i154.i:              ; preds = %style_init_reset.exit153.i
-  %154 = getelementptr inbounds nuw i8, ptr %152, i64 344
-  %155 = load i8, ptr %154, align 8, !tbaa !7, !range !15, !noundef !16
-  %156 = trunc nuw i8 %155 to i1
-  br i1 %156, label %157, label %lv_theme_mono_is_inited.exit.thread.i155.i
+  %162 = getelementptr inbounds nuw i8, ptr %160, i64 344
+  %163 = load i8, ptr %162, align 8, !tbaa !8, !range !19, !noundef !20
+  %164 = trunc nuw i8 %163 to i1
+  br i1 %164, label %165, label %lv_theme_mono_is_inited.exit.thread.i155.i
 
-157:                                              ; preds = %lv_theme_mono_is_inited.exit.i154.i
-  tail call void @lv_style_reset(ptr noundef nonnull %151) #3
+165:                                              ; preds = %lv_theme_mono_is_inited.exit.i154.i
+  tail call void @lv_style_reset(ptr noundef nonnull %159) #3
   br label %style_init_reset.exit156.i
 
 lv_theme_mono_is_inited.exit.thread.i155.i:       ; preds = %lv_theme_mono_is_inited.exit.i154.i, %style_init_reset.exit153.i
-  tail call void @lv_style_init(ptr noundef nonnull %151) #3
+  tail call void @lv_style_init(ptr noundef nonnull %159) #3
   br label %style_init_reset.exit156.i
 
-style_init_reset.exit156.i:                       ; preds = %lv_theme_mono_is_inited.exit.thread.i155.i, %157
-  tail call void @lv_style_set_radius(ptr noundef nonnull %151, i32 noundef 32767) #3
-  %158 = getelementptr inbounds nuw i8, ptr %11, i64 280
-  %159 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 776), align 8, !tbaa !3
-  %160 = icmp eq ptr %159, null
-  br i1 %160, label %lv_theme_mono_is_inited.exit.thread.i158.i, label %lv_theme_mono_is_inited.exit.i157.i
+style_init_reset.exit156.i:                       ; preds = %lv_theme_mono_is_inited.exit.thread.i155.i, %165
+  tail call void @lv_style_set_radius(ptr noundef nonnull %159, i32 noundef 32767) #3
+  %166 = getelementptr inbounds nuw i8, ptr %31, i64 280
+  %167 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 776), align 8, !tbaa !3
+  %168 = icmp eq ptr %167, null
+  br i1 %168, label %lv_theme_mono_is_inited.exit.thread.i158.i, label %lv_theme_mono_is_inited.exit.i157.i
 
 lv_theme_mono_is_inited.exit.i157.i:              ; preds = %style_init_reset.exit156.i
-  %161 = getelementptr inbounds nuw i8, ptr %159, i64 344
-  %162 = load i8, ptr %161, align 8, !tbaa !7, !range !15, !noundef !16
-  %163 = trunc nuw i8 %162 to i1
-  br i1 %163, label %164, label %lv_theme_mono_is_inited.exit.thread.i158.i
+  %169 = getelementptr inbounds nuw i8, ptr %167, i64 344
+  %170 = load i8, ptr %169, align 8, !tbaa !8, !range !19, !noundef !20
+  %171 = trunc nuw i8 %170 to i1
+  br i1 %171, label %172, label %lv_theme_mono_is_inited.exit.thread.i158.i
 
-164:                                              ; preds = %lv_theme_mono_is_inited.exit.i157.i
-  tail call void @lv_style_reset(ptr noundef nonnull %158) #3
+172:                                              ; preds = %lv_theme_mono_is_inited.exit.i157.i
+  tail call void @lv_style_reset(ptr noundef nonnull %166) #3
   br label %style_init_reset.exit159.i
 
 lv_theme_mono_is_inited.exit.thread.i158.i:       ; preds = %lv_theme_mono_is_inited.exit.i157.i, %style_init_reset.exit156.i
-  tail call void @lv_style_init(ptr noundef nonnull %158) #3
+  tail call void @lv_style_init(ptr noundef nonnull %166) #3
   br label %style_init_reset.exit159.i
 
-style_init_reset.exit159.i:                       ; preds = %lv_theme_mono_is_inited.exit.thread.i158.i, %164
-  tail call void @lv_style_set_text_line_space(ptr noundef nonnull %158, i32 noundef 6) #3
-  %165 = getelementptr inbounds nuw i8, ptr %11, i64 296
-  %166 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 776), align 8, !tbaa !3
-  %167 = icmp eq ptr %166, null
-  br i1 %167, label %lv_theme_mono_is_inited.exit.thread.i161.i, label %lv_theme_mono_is_inited.exit.i160.i
+style_init_reset.exit159.i:                       ; preds = %lv_theme_mono_is_inited.exit.thread.i158.i, %172
+  tail call void @lv_style_set_text_line_space(ptr noundef nonnull %166, i32 noundef 6) #3
+  %173 = getelementptr inbounds nuw i8, ptr %31, i64 296
+  %174 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 776), align 8, !tbaa !3
+  %175 = icmp eq ptr %174, null
+  br i1 %175, label %lv_theme_mono_is_inited.exit.thread.i161.i, label %lv_theme_mono_is_inited.exit.i160.i
 
 lv_theme_mono_is_inited.exit.i160.i:              ; preds = %style_init_reset.exit159.i
-  %168 = getelementptr inbounds nuw i8, ptr %166, i64 344
-  %169 = load i8, ptr %168, align 8, !tbaa !7, !range !15, !noundef !16
-  %170 = trunc nuw i8 %169 to i1
-  br i1 %170, label %171, label %lv_theme_mono_is_inited.exit.thread.i161.i
+  %176 = getelementptr inbounds nuw i8, ptr %174, i64 344
+  %177 = load i8, ptr %176, align 8, !tbaa !8, !range !19, !noundef !20
+  %178 = trunc nuw i8 %177 to i1
+  br i1 %178, label %179, label %lv_theme_mono_is_inited.exit.thread.i161.i
 
-171:                                              ; preds = %lv_theme_mono_is_inited.exit.i160.i
-  tail call void @lv_style_reset(ptr noundef nonnull %165) #3
+179:                                              ; preds = %lv_theme_mono_is_inited.exit.i160.i
+  tail call void @lv_style_reset(ptr noundef nonnull %173) #3
   br label %style_init_reset.exit162.i
 
 lv_theme_mono_is_inited.exit.thread.i161.i:       ; preds = %lv_theme_mono_is_inited.exit.i160.i, %style_init_reset.exit159.i
-  tail call void @lv_style_init(ptr noundef nonnull %165) #3
+  tail call void @lv_style_init(ptr noundef nonnull %173) #3
   br label %style_init_reset.exit162.i
 
-style_init_reset.exit162.i:                       ; preds = %lv_theme_mono_is_inited.exit.thread.i161.i, %171
-  tail call void @lv_style_set_text_decor(ptr noundef nonnull %165, i32 noundef 1) #3
-  %172 = getelementptr inbounds nuw i8, ptr %11, i64 312
-  %173 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 776), align 8, !tbaa !3
-  %174 = icmp eq ptr %173, null
-  br i1 %174, label %lv_theme_mono_is_inited.exit.thread.i164.i, label %lv_theme_mono_is_inited.exit.i163.i
+style_init_reset.exit162.i:                       ; preds = %lv_theme_mono_is_inited.exit.thread.i161.i, %179
+  tail call void @lv_style_set_text_decor(ptr noundef nonnull %173, i32 noundef 1) #3
+  %180 = getelementptr inbounds nuw i8, ptr %31, i64 312
+  %181 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 776), align 8, !tbaa !3
+  %182 = icmp eq ptr %181, null
+  br i1 %182, label %lv_theme_mono_is_inited.exit.thread.i164.i, label %lv_theme_mono_is_inited.exit.i163.i
 
 lv_theme_mono_is_inited.exit.i163.i:              ; preds = %style_init_reset.exit162.i
-  %175 = getelementptr inbounds nuw i8, ptr %173, i64 344
-  %176 = load i8, ptr %175, align 8, !tbaa !7, !range !15, !noundef !16
-  %177 = trunc nuw i8 %176 to i1
-  br i1 %177, label %178, label %lv_theme_mono_is_inited.exit.thread.i164.i
+  %183 = getelementptr inbounds nuw i8, ptr %181, i64 344
+  %184 = load i8, ptr %183, align 8, !tbaa !8, !range !19, !noundef !20
+  %185 = trunc nuw i8 %184 to i1
+  br i1 %185, label %186, label %lv_theme_mono_is_inited.exit.thread.i164.i
 
-178:                                              ; preds = %lv_theme_mono_is_inited.exit.i163.i
-  tail call void @lv_style_reset(ptr noundef nonnull %172) #3
+186:                                              ; preds = %lv_theme_mono_is_inited.exit.i163.i
+  tail call void @lv_style_reset(ptr noundef nonnull %180) #3
   br label %style_init_reset.exit165.i
 
 lv_theme_mono_is_inited.exit.thread.i164.i:       ; preds = %lv_theme_mono_is_inited.exit.i163.i, %style_init_reset.exit162.i
-  tail call void @lv_style_init(ptr noundef nonnull %172) #3
+  tail call void @lv_style_init(ptr noundef nonnull %180) #3
   br label %style_init_reset.exit165.i
 
-style_init_reset.exit165.i:                       ; preds = %lv_theme_mono_is_inited.exit.thread.i164.i, %178
-  tail call void @lv_style_set_border_side(ptr noundef nonnull %172, i32 noundef 4) #3
-  br i1 %1, label %179, label %181
+style_init_reset.exit165.i:                       ; preds = %lv_theme_mono_is_inited.exit.thread.i164.i, %186
+  tail call void @lv_style_set_border_side(ptr noundef nonnull %180, i32 noundef 4) #3
+  br i1 %1, label %187, label %189
 
-179:                                              ; preds = %style_init_reset.exit165.i
-  %180 = tail call i24 @lv_color_white() #3
-  br label %183
+187:                                              ; preds = %style_init_reset.exit165.i
+  %188 = tail call i24 @lv_color_white() #3
+  br label %191
 
-181:                                              ; preds = %style_init_reset.exit165.i
-  %182 = tail call i24 @lv_color_black() #3
-  br label %183
+189:                                              ; preds = %style_init_reset.exit165.i
+  %190 = tail call i24 @lv_color_black() #3
+  br label %191
 
-183:                                              ; preds = %181, %179
-  %.sroa.02.0.i = phi i24 [ %180, %179 ], [ %182, %181 ]
-  tail call void @lv_style_set_border_color(ptr noundef nonnull %172, i24 %.sroa.02.0.i) #3
-  tail call void @lv_style_set_border_width(ptr noundef nonnull %172, i32 noundef 2) #3
-  tail call void @lv_style_set_bg_opa(ptr noundef nonnull %172, i8 noundef zeroext 0) #3
-  tail call void @lv_style_set_anim_duration(ptr noundef nonnull %172, i32 noundef 500) #3
-  %184 = getelementptr inbounds nuw i8, ptr %11, i64 328
-  %185 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 776), align 8, !tbaa !3
-  %186 = icmp eq ptr %185, null
-  br i1 %186, label %lv_theme_mono_is_inited.exit.thread.i167.i, label %lv_theme_mono_is_inited.exit.i166.i
+191:                                              ; preds = %189, %187
+  %.sroa.02.0.i = phi i24 [ %188, %187 ], [ %190, %189 ]
+  tail call void @lv_style_set_border_color(ptr noundef nonnull %180, i24 %.sroa.02.0.i) #3
+  tail call void @lv_style_set_border_width(ptr noundef nonnull %180, i32 noundef 2) #3
+  tail call void @lv_style_set_bg_opa(ptr noundef nonnull %180, i8 noundef zeroext 0) #3
+  tail call void @lv_style_set_anim_duration(ptr noundef nonnull %180, i32 noundef 500) #3
+  %192 = getelementptr inbounds nuw i8, ptr %31, i64 328
+  %193 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 776), align 8, !tbaa !3
+  %194 = icmp eq ptr %193, null
+  br i1 %194, label %lv_theme_mono_is_inited.exit.thread.i167.i, label %lv_theme_mono_is_inited.exit.i166.i
 
-lv_theme_mono_is_inited.exit.i166.i:              ; preds = %183
-  %187 = getelementptr inbounds nuw i8, ptr %185, i64 344
-  %188 = load i8, ptr %187, align 8, !tbaa !7, !range !15, !noundef !16
-  %189 = trunc nuw i8 %188 to i1
-  br i1 %189, label %190, label %lv_theme_mono_is_inited.exit.thread.i167.i
+lv_theme_mono_is_inited.exit.i166.i:              ; preds = %191
+  %195 = getelementptr inbounds nuw i8, ptr %193, i64 344
+  %196 = load i8, ptr %195, align 8, !tbaa !8, !range !19, !noundef !20
+  %197 = trunc nuw i8 %196 to i1
+  br i1 %197, label %198, label %lv_theme_mono_is_inited.exit.thread.i167.i
 
-190:                                              ; preds = %lv_theme_mono_is_inited.exit.i166.i
-  tail call void @lv_style_reset(ptr noundef nonnull %184) #3
+198:                                              ; preds = %lv_theme_mono_is_inited.exit.i166.i
+  tail call void @lv_style_reset(ptr noundef nonnull %192) #3
   br label %style_init_reset.exit168.i
 
-lv_theme_mono_is_inited.exit.thread.i167.i:       ; preds = %lv_theme_mono_is_inited.exit.i166.i, %183
-  tail call void @lv_style_init(ptr noundef nonnull %184) #3
+lv_theme_mono_is_inited.exit.thread.i167.i:       ; preds = %lv_theme_mono_is_inited.exit.i166.i, %191
+  tail call void @lv_style_init(ptr noundef nonnull %192) #3
   br label %style_init_reset.exit168.i
 
-style_init_reset.exit168.i:                       ; preds = %lv_theme_mono_is_inited.exit.thread.i167.i, %190
-  tail call void @lv_style_set_radius(ptr noundef nonnull %184, i32 noundef 32767) #3
-  %191 = load ptr, ptr %12, align 8, !tbaa !19
-  %192 = tail call i32 @lv_display_dpx(ptr noundef %191, i32 noundef 8) #3
-  %193 = load ptr, ptr %12, align 8, !tbaa !19
-  %194 = tail call i32 @lv_display_dpx(ptr noundef %193, i32 noundef 8) #3
-  tail call void @lv_style_set_width(ptr noundef nonnull %184, i32 noundef %192) #3
-  tail call void @lv_style_set_height(ptr noundef nonnull %184, i32 noundef %194) #3
-  br i1 %1, label %195, label %197
+style_init_reset.exit168.i:                       ; preds = %lv_theme_mono_is_inited.exit.thread.i167.i, %198
+  tail call void @lv_style_set_radius(ptr noundef nonnull %192, i32 noundef 32767) #3
+  %199 = load ptr, ptr %30, align 8, !tbaa !23
+  %200 = tail call i32 @lv_display_dpx(ptr noundef %199, i32 noundef 8) #3
+  %201 = load ptr, ptr %30, align 8, !tbaa !23
+  %202 = tail call i32 @lv_display_dpx(ptr noundef %201, i32 noundef 8) #3
+  tail call void @lv_style_set_width(ptr noundef nonnull %192, i32 noundef %200) #3
+  tail call void @lv_style_set_height(ptr noundef nonnull %192, i32 noundef %202) #3
+  br i1 %1, label %203, label %205
 
-195:                                              ; preds = %style_init_reset.exit168.i
-  %196 = tail call i24 @lv_color_white() #3
+203:                                              ; preds = %style_init_reset.exit168.i
+  %204 = tail call i24 @lv_color_white() #3
   br label %style_init.exit
 
-197:                                              ; preds = %style_init_reset.exit168.i
-  %198 = tail call i24 @lv_color_black() #3
+205:                                              ; preds = %style_init_reset.exit168.i
+  %206 = tail call i24 @lv_color_black() #3
   br label %style_init.exit
 
-style_init.exit:                                  ; preds = %195, %197
-  %.sroa.0.0.i = phi i24 [ %196, %195 ], [ %198, %197 ]
-  tail call void @lv_style_set_bg_color(ptr noundef nonnull %184, i24 %.sroa.0.0.i) #3
-  tail call void @lv_style_set_bg_opa(ptr noundef nonnull %184, i8 noundef zeroext -1) #3
-  %199 = icmp eq ptr %0, null
-  br i1 %199, label %203, label %200
+style_init.exit:                                  ; preds = %203, %205
+  %.sroa.0.0.i = phi i24 [ %204, %203 ], [ %206, %205 ]
+  tail call void @lv_style_set_bg_color(ptr noundef nonnull %192, i24 %.sroa.0.0.i) #3
+  tail call void @lv_style_set_bg_opa(ptr noundef nonnull %192, i8 noundef zeroext -1) #3
+  %207 = icmp eq ptr %0, null
+  br i1 %207, label %211, label %208
 
-200:                                              ; preds = %style_init.exit
-  %201 = tail call ptr @lv_display_get_theme(ptr noundef nonnull %0) #3
-  %202 = icmp eq ptr %201, %11
-  br i1 %202, label %203, label %204
+208:                                              ; preds = %style_init.exit
+  %209 = tail call ptr @lv_display_get_theme(ptr noundef nonnull %0) #3
+  %210 = icmp eq ptr %209, %31
+  br i1 %210, label %211, label %212
 
-203:                                              ; preds = %200, %style_init.exit
+211:                                              ; preds = %208, %style_init.exit
   tail call void @lv_obj_report_style_change(ptr noundef null) #3
-  br label %204
+  br label %212
 
-204:                                              ; preds = %203, %200
-  %205 = getelementptr inbounds nuw i8, ptr %11, i64 344
-  store i8 1, ptr %205, align 8, !tbaa !7
-  %206 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 776), align 8, !tbaa !3
-  ret ptr %206
+212:                                              ; preds = %211, %208
+  %213 = getelementptr inbounds nuw i8, ptr %31, i64 344
+  store i8 1, ptr %213, align 8, !tbaa !8
+  %214 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 776), align 8, !tbaa !3
+  ret ptr %214
 }
 
 declare ptr @lv_malloc_zeroed(i64 noundef) local_unnamed_addr #2
@@ -1209,23 +1222,27 @@ attributes #3 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{!4, !4, i64 0}
-!4 = !{!"any pointer", !5, i64 0}
-!5 = !{!"omnipotent char", !6, i64 0}
-!6 = !{!"Simple C/C++ TBAA"}
-!7 = !{!8, !14, i64 344}
-!8 = !{!"_my_theme_t", !9, i64 0, !12, i64 72, !14, i64 344}
-!9 = !{!"_lv_theme_t", !4, i64 0, !4, i64 8, !4, i64 16, !4, i64 24, !10, i64 32, !10, i64 35, !4, i64 40, !4, i64 48, !4, i64 56, !11, i64 64}
-!10 = !{!"", !5, i64 0, !5, i64 1, !5, i64 2}
-!11 = !{!"int", !5, i64 0}
-!12 = !{!"", !13, i64 0, !13, i64 16, !13, i64 32, !13, i64 48, !13, i64 64, !13, i64 80, !13, i64 96, !13, i64 112, !13, i64 128, !13, i64 144, !13, i64 160, !13, i64 176, !13, i64 192, !13, i64 208, !13, i64 224, !13, i64 240, !13, i64 256}
-!13 = !{!"", !4, i64 0, !11, i64 8, !5, i64 12}
-!14 = !{!"_Bool", !5, i64 0}
-!15 = !{i8 0, i8 2}
-!16 = !{}
-!17 = distinct !{!17, !18}
-!18 = !{!"llvm.loop.mustprogress"}
-!19 = !{!8, !4, i64 24}
-!20 = !{!8, !4, i64 40}
-!21 = !{!8, !4, i64 48}
-!22 = !{!8, !4, i64 56}
-!23 = !{!8, !4, i64 0}
+!4 = !{!"p1 _ZTS11_my_theme_t", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !18, i64 344}
+!9 = !{!"_my_theme_t", !10, i64 0, !16, i64 72, !18, i64 344}
+!10 = !{!"_lv_theme_t", !5, i64 0, !11, i64 8, !5, i64 16, !12, i64 24, !13, i64 32, !13, i64 35, !14, i64 40, !14, i64 48, !14, i64 56, !15, i64 64}
+!11 = !{!"p1 _ZTS11_lv_theme_t", !5, i64 0}
+!12 = !{!"p1 _ZTS13_lv_display_t", !5, i64 0}
+!13 = !{!"", !6, i64 0, !6, i64 1, !6, i64 2}
+!14 = !{!"p1 _ZTS10_lv_font_t", !5, i64 0}
+!15 = !{!"int", !6, i64 0}
+!16 = !{!"", !17, i64 0, !17, i64 16, !17, i64 32, !17, i64 48, !17, i64 64, !17, i64 80, !17, i64 96, !17, i64 112, !17, i64 128, !17, i64 144, !17, i64 160, !17, i64 176, !17, i64 192, !17, i64 208, !17, i64 224, !17, i64 240, !17, i64 256}
+!17 = !{!"", !5, i64 0, !15, i64 8, !6, i64 12}
+!18 = !{!"_Bool", !6, i64 0}
+!19 = !{i8 0, i8 2}
+!20 = !{}
+!21 = distinct !{!21, !22}
+!22 = !{!"llvm.loop.mustprogress"}
+!23 = !{!9, !12, i64 24}
+!24 = !{!9, !14, i64 40}
+!25 = !{!9, !14, i64 48}
+!26 = !{!9, !14, i64 56}
+!27 = !{!9, !5, i64 0}

@@ -73,7 +73,7 @@ define ptr @lv_font_manager_recycle_create(i32 noundef %0) #0 {
   %28 = load i32, ptr %3, align 4, !tbaa !3
   %29 = load ptr, ptr %4, align 8, !tbaa !7
   %30 = getelementptr inbounds nuw %struct._lv_font_manager_recycle_t, ptr %29, i32 0, i32 1
-  store i32 %28, ptr %30, align 8, !tbaa !9
+  store i32 %28, ptr %30, align 8, !tbaa !10
   br label %31
 
 31:                                               ; preds = %25
@@ -95,14 +95,14 @@ define ptr @lv_font_manager_recycle_create(i32 noundef %0) #0 {
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 declare ptr @lv_malloc_zeroed(i64 noundef) #2
 
 declare void @lv_ll_init(ptr noundef, i32 noundef) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define void @lv_font_manager_recycle_delete(ptr noundef %0) #0 {
@@ -137,31 +137,31 @@ define void @lv_font_manager_recycle_delete(ptr noundef %0) #0 {
   call void @llvm.lifetime.start.p0(i64 8, ptr %3) #5
   %15 = load ptr, ptr %2, align 8, !tbaa !7
   %16 = getelementptr inbounds nuw %struct._lv_font_manager_recycle_t, ptr %15, i32 0, i32 0
-  store ptr %16, ptr %3, align 8, !tbaa !7
+  store ptr %16, ptr %3, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(i64 8, ptr %4) #5
-  %17 = load ptr, ptr %3, align 8, !tbaa !7
+  %17 = load ptr, ptr %3, align 8, !tbaa !14
   %18 = call ptr @lv_ll_get_head(ptr noundef %17)
-  store ptr %18, ptr %4, align 8, !tbaa !7
+  store ptr %18, ptr %4, align 8, !tbaa !14
   br label %19
 
 19:                                               ; preds = %22, %14
-  %20 = load ptr, ptr %4, align 8, !tbaa !7
+  %20 = load ptr, ptr %4, align 8, !tbaa !14
   %21 = icmp ne ptr %20, null
   br i1 %21, label %22, label %29
 
 22:                                               ; preds = %19
   call void @llvm.lifetime.start.p0(i64 8, ptr %5) #5
-  %23 = load ptr, ptr %3, align 8, !tbaa !7
-  %24 = load ptr, ptr %4, align 8, !tbaa !7
+  %23 = load ptr, ptr %3, align 8, !tbaa !14
+  %24 = load ptr, ptr %4, align 8, !tbaa !14
   %25 = call ptr @lv_ll_get_next(ptr noundef %23, ptr noundef %24)
-  store ptr %25, ptr %5, align 8, !tbaa !7
+  store ptr %25, ptr %5, align 8, !tbaa !14
   %26 = load ptr, ptr %2, align 8, !tbaa !7
-  %27 = load ptr, ptr %4, align 8, !tbaa !7
+  %27 = load ptr, ptr %4, align 8, !tbaa !14
   call void @lv_font_recycle_close(ptr noundef %26, ptr noundef %27)
-  %28 = load ptr, ptr %5, align 8, !tbaa !7
-  store ptr %28, ptr %4, align 8, !tbaa !7
+  %28 = load ptr, ptr %5, align 8, !tbaa !14
+  store ptr %28, ptr %4, align 8, !tbaa !14
   call void @llvm.lifetime.end.p0(i64 8, ptr %5) #5
-  br label %19, !llvm.loop !12
+  br label %19, !llvm.loop !15
 
 29:                                               ; preds = %19
   %30 = load ptr, ptr %2, align 8, !tbaa !7
@@ -189,7 +189,7 @@ define internal void @lv_font_recycle_close(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8, !tbaa !7
-  store ptr %1, ptr %4, align 8, !tbaa !7
+  store ptr %1, ptr %4, align 8, !tbaa !14
   br label %5
 
 5:                                                ; preds = %2
@@ -216,7 +216,7 @@ define internal void @lv_font_recycle_close(ptr noundef %0, ptr noundef %1) #0 {
   br label %14
 
 14:                                               ; preds = %13
-  %15 = load ptr, ptr %4, align 8, !tbaa !7
+  %15 = load ptr, ptr %4, align 8, !tbaa !14
   %16 = icmp ne ptr %15, null
   br i1 %16, label %21, label %17
 
@@ -242,15 +242,15 @@ define internal void @lv_font_recycle_close(ptr noundef %0, ptr noundef %1) #0 {
   br label %24
 
 24:                                               ; preds = %23
-  %25 = load ptr, ptr %4, align 8, !tbaa !7
+  %25 = load ptr, ptr %4, align 8, !tbaa !14
   %26 = getelementptr inbounds nuw %struct.lv_font_recycle_t, ptr %25, i32 0, i32 2
-  %27 = load ptr, ptr %26, align 8, !tbaa !14
+  %27 = load ptr, ptr %26, align 8, !tbaa !17
   call void @lv_freetype_font_delete(ptr noundef %27)
   %28 = load ptr, ptr %3, align 8, !tbaa !7
   %29 = getelementptr inbounds nuw %struct._lv_font_manager_recycle_t, ptr %28, i32 0, i32 0
-  %30 = load ptr, ptr %4, align 8, !tbaa !7
+  %30 = load ptr, ptr %4, align 8, !tbaa !14
   call void @lv_ll_remove(ptr noundef %29, ptr noundef %30)
-  %31 = load ptr, ptr %4, align 8, !tbaa !7
+  %31 = load ptr, ptr %4, align 8, !tbaa !14
   call void @lv_free(ptr noundef %31)
   ret void
 }
@@ -267,7 +267,7 @@ define ptr @lv_font_manager_recycle_get_reuse(ptr noundef %0, ptr noundef %1) #0
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
   store ptr %0, ptr %4, align 8, !tbaa !7
-  store ptr %1, ptr %5, align 8, !tbaa !7
+  store ptr %1, ptr %5, align 8, !tbaa !14
   br label %10
 
 10:                                               ; preds = %2
@@ -294,7 +294,7 @@ define ptr @lv_font_manager_recycle_get_reuse(ptr noundef %0, ptr noundef %1) #0
   br label %19
 
 19:                                               ; preds = %18
-  %20 = load ptr, ptr %5, align 8, !tbaa !7
+  %20 = load ptr, ptr %5, align 8, !tbaa !14
   %21 = icmp ne ptr %20, null
   br i1 %21, label %26, label %22
 
@@ -317,7 +317,7 @@ define ptr @lv_font_manager_recycle_get_reuse(ptr noundef %0, ptr noundef %1) #0
   call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
   %28 = load ptr, ptr %4, align 8, !tbaa !7
   %29 = getelementptr inbounds nuw %struct._lv_font_manager_recycle_t, ptr %28, i32 0, i32 0
-  store ptr %29, ptr %6, align 8, !tbaa !7
+  store ptr %29, ptr %6, align 8, !tbaa !14
   br label %30
 
 30:                                               ; preds = %27
@@ -328,29 +328,29 @@ define ptr @lv_font_manager_recycle_get_reuse(ptr noundef %0, ptr noundef %1) #0
 
 32:                                               ; preds = %31
   call void @llvm.lifetime.start.p0(i64 8, ptr %7) #5
-  %33 = load ptr, ptr %6, align 8, !tbaa !7
+  %33 = load ptr, ptr %6, align 8, !tbaa !14
   %34 = call ptr @lv_ll_get_head(ptr noundef %33)
-  store ptr %34, ptr %7, align 8, !tbaa !7
+  store ptr %34, ptr %7, align 8, !tbaa !14
   br label %35
 
 35:                                               ; preds = %55, %32
-  %36 = load ptr, ptr %7, align 8, !tbaa !7
+  %36 = load ptr, ptr %7, align 8, !tbaa !14
   %37 = icmp ne ptr %36, null
   br i1 %37, label %38, label %59
 
 38:                                               ; preds = %35
-  %39 = load ptr, ptr %5, align 8, !tbaa !7
-  %40 = load ptr, ptr %7, align 8, !tbaa !7
+  %39 = load ptr, ptr %5, align 8, !tbaa !14
+  %40 = load ptr, ptr %7, align 8, !tbaa !14
   %41 = getelementptr inbounds nuw %struct.lv_font_recycle_t, ptr %40, i32 0, i32 0
   %42 = call zeroext i1 @lv_freetype_info_is_equal(ptr noundef %39, ptr noundef %41)
   br i1 %42, label %43, label %54
 
 43:                                               ; preds = %38
   call void @llvm.lifetime.start.p0(i64 8, ptr %8) #5
-  %44 = load ptr, ptr %7, align 8, !tbaa !7
+  %44 = load ptr, ptr %7, align 8, !tbaa !14
   %45 = getelementptr inbounds nuw %struct.lv_font_recycle_t, ptr %44, i32 0, i32 2
-  %46 = load ptr, ptr %45, align 8, !tbaa !14
-  store ptr %46, ptr %8, align 8, !tbaa !7
+  %46 = load ptr, ptr %45, align 8, !tbaa !17
+  store ptr %46, ptr %8, align 8, !tbaa !21
   br label %47
 
 47:                                               ; preds = %43
@@ -360,12 +360,12 @@ define ptr @lv_font_manager_recycle_get_reuse(ptr noundef %0, ptr noundef %1) #0
   br label %49
 
 49:                                               ; preds = %48
-  %50 = load ptr, ptr %6, align 8, !tbaa !7
-  %51 = load ptr, ptr %7, align 8, !tbaa !7
+  %50 = load ptr, ptr %6, align 8, !tbaa !14
+  %51 = load ptr, ptr %7, align 8, !tbaa !14
   call void @lv_ll_remove(ptr noundef %50, ptr noundef %51)
-  %52 = load ptr, ptr %7, align 8, !tbaa !7
+  %52 = load ptr, ptr %7, align 8, !tbaa !14
   call void @lv_free(ptr noundef %52)
-  %53 = load ptr, ptr %8, align 8, !tbaa !7
+  %53 = load ptr, ptr %8, align 8, !tbaa !21
   store ptr %53, ptr %3, align 8
   store i32 1, ptr %9, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr %8) #5
@@ -375,11 +375,11 @@ define ptr @lv_font_manager_recycle_get_reuse(ptr noundef %0, ptr noundef %1) #0
   br label %55
 
 55:                                               ; preds = %54
-  %56 = load ptr, ptr %6, align 8, !tbaa !7
-  %57 = load ptr, ptr %7, align 8, !tbaa !7
+  %56 = load ptr, ptr %6, align 8, !tbaa !14
+  %57 = load ptr, ptr %7, align 8, !tbaa !14
   %58 = call ptr @lv_ll_get_next(ptr noundef %56, ptr noundef %57)
-  store ptr %58, ptr %7, align 8, !tbaa !7
-  br label %35, !llvm.loop !17
+  store ptr %58, ptr %7, align 8, !tbaa !14
+  br label %35, !llvm.loop !22
 
 59:                                               ; preds = %35
   br label %60
@@ -414,8 +414,8 @@ define void @lv_font_manager_recycle_set_reuse(ptr noundef %0, ptr noundef %1, p
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   store ptr %0, ptr %4, align 8, !tbaa !7
-  store ptr %1, ptr %5, align 8, !tbaa !7
-  store ptr %2, ptr %6, align 8, !tbaa !7
+  store ptr %1, ptr %5, align 8, !tbaa !21
+  store ptr %2, ptr %6, align 8, !tbaa !14
   br label %9
 
 9:                                                ; preds = %3
@@ -442,7 +442,7 @@ define void @lv_font_manager_recycle_set_reuse(ptr noundef %0, ptr noundef %1, p
   br label %18
 
 18:                                               ; preds = %17
-  %19 = load ptr, ptr %6, align 8, !tbaa !7
+  %19 = load ptr, ptr %6, align 8, !tbaa !14
   %20 = icmp ne ptr %19, null
   br i1 %20, label %25, label %21
 
@@ -465,12 +465,12 @@ define void @lv_font_manager_recycle_set_reuse(ptr noundef %0, ptr noundef %1, p
   call void @llvm.lifetime.start.p0(i64 8, ptr %7) #5
   %27 = load ptr, ptr %4, align 8, !tbaa !7
   %28 = getelementptr inbounds nuw %struct._lv_font_manager_recycle_t, ptr %27, i32 0, i32 0
-  store ptr %28, ptr %7, align 8, !tbaa !7
-  %29 = load ptr, ptr %7, align 8, !tbaa !7
+  store ptr %28, ptr %7, align 8, !tbaa !14
+  %29 = load ptr, ptr %7, align 8, !tbaa !14
   %30 = call i32 @lv_ll_get_len(ptr noundef %29)
   %31 = load ptr, ptr %4, align 8, !tbaa !7
   %32 = getelementptr inbounds nuw %struct._lv_font_manager_recycle_t, ptr %31, i32 0, i32 1
-  %33 = load i32, ptr %32, align 8, !tbaa !9
+  %33 = load i32, ptr %32, align 8, !tbaa !10
   %34 = icmp uge i32 %30, %33
   br i1 %34, label %35, label %40
 
@@ -490,13 +490,13 @@ define void @lv_font_manager_recycle_set_reuse(ptr noundef %0, ptr noundef %1, p
 
 40:                                               ; preds = %38, %26
   call void @llvm.lifetime.start.p0(i64 8, ptr %8) #5
-  %41 = load ptr, ptr %7, align 8, !tbaa !7
+  %41 = load ptr, ptr %7, align 8, !tbaa !14
   %42 = call ptr @lv_ll_ins_head(ptr noundef %41)
-  store ptr %42, ptr %8, align 8, !tbaa !7
+  store ptr %42, ptr %8, align 8, !tbaa !14
   br label %43
 
 43:                                               ; preds = %40
-  %44 = load ptr, ptr %8, align 8, !tbaa !7
+  %44 = load ptr, ptr %8, align 8, !tbaa !14
   %45 = icmp ne ptr %44, null
   br i1 %45, label %52, label %46
 
@@ -525,34 +525,34 @@ define void @lv_font_manager_recycle_set_reuse(ptr noundef %0, ptr noundef %1, p
   br label %54
 
 54:                                               ; preds = %53
-  %55 = load ptr, ptr %8, align 8, !tbaa !7
+  %55 = load ptr, ptr %8, align 8, !tbaa !14
   call void @lv_memzero(ptr noundef %55, i64 noundef 64)
-  %56 = load ptr, ptr %8, align 8, !tbaa !7
+  %56 = load ptr, ptr %8, align 8, !tbaa !14
   %57 = getelementptr inbounds nuw %struct.lv_font_recycle_t, ptr %56, i32 0, i32 1
   %58 = getelementptr inbounds [32 x i8], ptr %57, i64 0, i64 0
-  %59 = load ptr, ptr %6, align 8, !tbaa !7
+  %59 = load ptr, ptr %6, align 8, !tbaa !14
   %60 = getelementptr inbounds nuw %struct.lv_freetype_info_t, ptr %59, i32 0, i32 0
-  %61 = load ptr, ptr %60, align 8, !tbaa !18
+  %61 = load ptr, ptr %60, align 8, !tbaa !23
   %62 = call ptr @lv_strncpy(ptr noundef %58, ptr noundef %61, i64 noundef 32)
-  %63 = load ptr, ptr %8, align 8, !tbaa !7
+  %63 = load ptr, ptr %8, align 8, !tbaa !14
   %64 = getelementptr inbounds nuw %struct.lv_font_recycle_t, ptr %63, i32 0, i32 1
   %65 = getelementptr inbounds nuw [32 x i8], ptr %64, i64 0, i64 31
-  store i8 0, ptr %65, align 1, !tbaa !19
-  %66 = load ptr, ptr %5, align 8, !tbaa !7
-  %67 = load ptr, ptr %8, align 8, !tbaa !7
+  store i8 0, ptr %65, align 1, !tbaa !24
+  %66 = load ptr, ptr %5, align 8, !tbaa !21
+  %67 = load ptr, ptr %8, align 8, !tbaa !14
   %68 = getelementptr inbounds nuw %struct.lv_font_recycle_t, ptr %67, i32 0, i32 2
-  store ptr %66, ptr %68, align 8, !tbaa !14
-  %69 = load ptr, ptr %8, align 8, !tbaa !7
+  store ptr %66, ptr %68, align 8, !tbaa !17
+  %69 = load ptr, ptr %8, align 8, !tbaa !14
   %70 = getelementptr inbounds nuw %struct.lv_font_recycle_t, ptr %69, i32 0, i32 0
-  %71 = load ptr, ptr %6, align 8, !tbaa !7
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %70, ptr align 8 %71, i64 24, i1 false), !tbaa.struct !20
-  %72 = load ptr, ptr %8, align 8, !tbaa !7
+  %71 = load ptr, ptr %6, align 8, !tbaa !14
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %70, ptr align 8 %71, i64 24, i1 false), !tbaa.struct !25
+  %72 = load ptr, ptr %8, align 8, !tbaa !14
   %73 = getelementptr inbounds nuw %struct.lv_font_recycle_t, ptr %72, i32 0, i32 1
   %74 = getelementptr inbounds [32 x i8], ptr %73, i64 0, i64 0
-  %75 = load ptr, ptr %8, align 8, !tbaa !7
+  %75 = load ptr, ptr %8, align 8, !tbaa !14
   %76 = getelementptr inbounds nuw %struct.lv_font_recycle_t, ptr %75, i32 0, i32 0
   %77 = getelementptr inbounds nuw %struct.lv_freetype_info_t, ptr %76, i32 0, i32 0
-  store ptr %74, ptr %77, align 8, !tbaa !21
+  store ptr %74, ptr %77, align 8, !tbaa !27
   br label %78
 
 78:                                               ; preds = %54
@@ -578,11 +578,11 @@ define internal void @lv_font_manager_recycle_remove_tail(ptr noundef %0) #0 {
   %4 = load ptr, ptr %2, align 8, !tbaa !7
   %5 = getelementptr inbounds nuw %struct._lv_font_manager_recycle_t, ptr %4, i32 0, i32 0
   %6 = call ptr @lv_ll_get_tail(ptr noundef %5)
-  store ptr %6, ptr %3, align 8, !tbaa !7
+  store ptr %6, ptr %3, align 8, !tbaa !14
   br label %7
 
 7:                                                ; preds = %1
-  %8 = load ptr, ptr %3, align 8, !tbaa !7
+  %8 = load ptr, ptr %3, align 8, !tbaa !14
   %9 = icmp ne ptr %8, null
   br i1 %9, label %16, label %10
 
@@ -612,7 +612,7 @@ define internal void @lv_font_manager_recycle_remove_tail(ptr noundef %0) #0 {
 
 18:                                               ; preds = %17
   %19 = load ptr, ptr %2, align 8, !tbaa !7
-  %20 = load ptr, ptr %3, align 8, !tbaa !7
+  %20 = load ptr, ptr %3, align 8, !tbaa !14
   call void @lv_font_recycle_close(ptr noundef %19, ptr noundef %20)
   call void @llvm.lifetime.end.p0(i64 8, ptr %3) #5
   ret void
@@ -624,10 +624,10 @@ declare ptr @lv_ll_ins_head(ptr noundef) #2
 define internal void @lv_memzero(ptr noundef %0, i64 noundef %1) #3 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8, !tbaa !7
-  store i64 %1, ptr %4, align 8, !tbaa !22
-  %5 = load ptr, ptr %3, align 8, !tbaa !7
-  %6 = load i64, ptr %4, align 8, !tbaa !22
+  store ptr %0, ptr %3, align 8, !tbaa !14
+  store i64 %1, ptr %4, align 8, !tbaa !28
+  %5 = load ptr, ptr %3, align 8, !tbaa !14
+  %6 = load i64, ptr %4, align 8, !tbaa !28
   call void @lv_memset(ptr noundef %5, i8 noundef zeroext 0, i64 noundef %6)
   ret void
 }
@@ -635,7 +635,7 @@ define internal void @lv_memzero(ptr noundef %0, i64 noundef %1) #3 {
 declare ptr @lv_strncpy(ptr noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare void @lv_memset(ptr noundef, i8 noundef zeroext, i64 noundef) #2
 
@@ -660,19 +660,25 @@ attributes #5 = { nounwind }
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
-!8 = !{!"any pointer", !5, i64 0}
-!9 = !{!10, !4, i64 24}
-!10 = !{!"_lv_font_manager_recycle_t", !11, i64 0, !4, i64 24}
-!11 = !{!"", !4, i64 0, !8, i64 8, !8, i64 16}
-!12 = distinct !{!12, !13}
-!13 = !{!"llvm.loop.mustprogress"}
-!14 = !{!15, !8, i64 56}
-!15 = !{!"", !16, i64 0, !5, i64 24, !8, i64 56}
-!16 = !{!"", !8, i64 0, !4, i64 8, !4, i64 12, !4, i64 16}
-!17 = distinct !{!17, !13}
-!18 = !{!16, !8, i64 0}
-!19 = !{!5, !5, i64 0}
-!20 = !{i64 0, i64 8, !7, i64 8, i64 4, !3, i64 12, i64 4, !3, i64 16, i64 4, !3}
-!21 = !{!15, !8, i64 0}
-!22 = !{!23, !23, i64 0}
-!23 = !{!"long", !5, i64 0}
+!8 = !{!"p1 _ZTS26_lv_font_manager_recycle_t", !9, i64 0}
+!9 = !{!"any pointer", !5, i64 0}
+!10 = !{!11, !4, i64 24}
+!11 = !{!"_lv_font_manager_recycle_t", !12, i64 0, !4, i64 24}
+!12 = !{!"", !4, i64 0, !13, i64 8, !13, i64 16}
+!13 = !{!"p1 omnipotent char", !9, i64 0}
+!14 = !{!9, !9, i64 0}
+!15 = distinct !{!15, !16}
+!16 = !{!"llvm.loop.mustprogress"}
+!17 = !{!18, !20, i64 56}
+!18 = !{!"", !19, i64 0, !5, i64 24, !20, i64 56}
+!19 = !{!"", !13, i64 0, !4, i64 8, !4, i64 12, !4, i64 16}
+!20 = !{!"p1 _ZTS10_lv_font_t", !9, i64 0}
+!21 = !{!20, !20, i64 0}
+!22 = distinct !{!22, !16}
+!23 = !{!19, !13, i64 0}
+!24 = !{!5, !5, i64 0}
+!25 = !{i64 0, i64 8, !26, i64 8, i64 4, !3, i64 12, i64 4, !3, i64 16, i64 4, !3}
+!26 = !{!13, !13, i64 0}
+!27 = !{!18, !13, i64 0}
+!28 = !{!29, !29, i64 0}
+!29 = !{!"long", !5, i64 0}

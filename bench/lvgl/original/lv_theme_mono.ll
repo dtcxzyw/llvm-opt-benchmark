@@ -67,7 +67,7 @@ define zeroext i1 @lv_theme_mono_is_inited() #0 {
 8:                                                ; preds = %0
   %9 = load ptr, ptr %2, align 8, !tbaa !3
   %10 = getelementptr inbounds nuw %struct._my_theme_t, ptr %9, i32 0, i32 2
-  %11 = load i8, ptr %10, align 8, !tbaa !7, !range !15, !noundef !16
+  %11 = load i8, ptr %10, align 8, !tbaa !8, !range !19, !noundef !20
   %12 = trunc i8 %11 to i1
   store i1 %12, ptr %1, align 1
   store i32 1, ptr %3, align 4
@@ -80,10 +80,10 @@ define zeroext i1 @lv_theme_mono_is_inited() #0 {
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define void @lv_theme_mono_deinit() #0 {
@@ -100,7 +100,7 @@ define void @lv_theme_mono_deinit() #0 {
 7:                                                ; preds = %0
   %8 = load ptr, ptr %1, align 8, !tbaa !3
   %9 = getelementptr inbounds nuw %struct._my_theme_t, ptr %8, i32 0, i32 2
-  %10 = load i8, ptr %9, align 8, !tbaa !7, !range !15, !noundef !16
+  %10 = load i8, ptr %9, align 8, !tbaa !8, !range !19, !noundef !20
   %11 = trunc i8 %10 to i1
   br i1 %11, label %12, label %28
 
@@ -108,30 +108,30 @@ define void @lv_theme_mono_deinit() #0 {
   call void @llvm.lifetime.start.p0(i64 8, ptr %2) #5
   %13 = load ptr, ptr %1, align 8, !tbaa !3
   %14 = getelementptr inbounds nuw %struct._my_theme_t, ptr %13, i32 0, i32 1
-  store ptr %14, ptr %2, align 8, !tbaa !3
+  store ptr %14, ptr %2, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(i64 4, ptr %3) #5
-  store i32 0, ptr %3, align 4, !tbaa !17
+  store i32 0, ptr %3, align 4, !tbaa !22
   br label %15
 
 15:                                               ; preds = %24, %12
-  %16 = load i32, ptr %3, align 4, !tbaa !17
+  %16 = load i32, ptr %3, align 4, !tbaa !22
   %17 = zext i32 %16 to i64
   %18 = icmp ult i64 %17, 17
   br i1 %18, label %19, label %27
 
 19:                                               ; preds = %15
-  %20 = load ptr, ptr %2, align 8, !tbaa !3
-  %21 = load i32, ptr %3, align 4, !tbaa !17
+  %20 = load ptr, ptr %2, align 8, !tbaa !21
+  %21 = load i32, ptr %3, align 4, !tbaa !22
   %22 = zext i32 %21 to i64
   %23 = getelementptr inbounds nuw %struct.lv_style_t, ptr %20, i64 %22
   call void @lv_style_reset(ptr noundef %23)
   br label %24
 
 24:                                               ; preds = %19
-  %25 = load i32, ptr %3, align 4, !tbaa !17
+  %25 = load i32, ptr %3, align 4, !tbaa !22
   %26 = add i32 %25, 1
-  store i32 %26, ptr %3, align 4, !tbaa !17
-  br label %15, !llvm.loop !18
+  store i32 %26, ptr %3, align 4, !tbaa !22
+  br label %15, !llvm.loop !23
 
 27:                                               ; preds = %15
   call void @llvm.lifetime.end.p0(i64 4, ptr %3) #5
@@ -159,10 +159,10 @@ define ptr @lv_theme_mono_init(ptr noundef %0, i1 noundef zeroext %1, ptr nounde
   %5 = alloca i8, align 1
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %0, ptr %4, align 8, !tbaa !25
   %8 = zext i1 %1 to i8
-  store i8 %8, ptr %5, align 1, !tbaa !20
-  store ptr %2, ptr %6, align 8, !tbaa !3
+  store i8 %8, ptr %5, align 1, !tbaa !26
+  store ptr %2, ptr %6, align 8, !tbaa !27
   %9 = call zeroext i1 @lv_theme_mono_is_inited()
   br i1 %9, label %12, label %10
 
@@ -175,38 +175,38 @@ define ptr @lv_theme_mono_init(ptr noundef %0, i1 noundef zeroext %1, ptr nounde
   call void @llvm.lifetime.start.p0(i64 8, ptr %7) #5
   %13 = load ptr, ptr getelementptr inbounds nuw (%struct._lv_global_t, ptr @lv_global, i32 0, i32 35), align 8, !tbaa !3
   store ptr %13, ptr %7, align 8, !tbaa !3
-  %14 = load ptr, ptr %4, align 8, !tbaa !3
+  %14 = load ptr, ptr %4, align 8, !tbaa !25
   %15 = load ptr, ptr %7, align 8, !tbaa !3
   %16 = getelementptr inbounds nuw %struct._my_theme_t, ptr %15, i32 0, i32 0
   %17 = getelementptr inbounds nuw %struct._lv_theme_t, ptr %16, i32 0, i32 3
-  store ptr %14, ptr %17, align 8, !tbaa !21
+  store ptr %14, ptr %17, align 8, !tbaa !28
   %18 = load ptr, ptr %7, align 8, !tbaa !3
   %19 = getelementptr inbounds nuw %struct._my_theme_t, ptr %18, i32 0, i32 0
   %20 = getelementptr inbounds nuw %struct._lv_theme_t, ptr %19, i32 0, i32 6
-  store ptr @lv_font_montserrat_14, ptr %20, align 8, !tbaa !22
+  store ptr @lv_font_montserrat_14, ptr %20, align 8, !tbaa !29
   %21 = load ptr, ptr %7, align 8, !tbaa !3
   %22 = getelementptr inbounds nuw %struct._my_theme_t, ptr %21, i32 0, i32 0
   %23 = getelementptr inbounds nuw %struct._lv_theme_t, ptr %22, i32 0, i32 7
-  store ptr @lv_font_montserrat_14, ptr %23, align 8, !tbaa !23
+  store ptr @lv_font_montserrat_14, ptr %23, align 8, !tbaa !30
   %24 = load ptr, ptr %7, align 8, !tbaa !3
   %25 = getelementptr inbounds nuw %struct._my_theme_t, ptr %24, i32 0, i32 0
   %26 = getelementptr inbounds nuw %struct._lv_theme_t, ptr %25, i32 0, i32 8
-  store ptr @lv_font_montserrat_14, ptr %26, align 8, !tbaa !24
+  store ptr @lv_font_montserrat_14, ptr %26, align 8, !tbaa !31
   %27 = load ptr, ptr %7, align 8, !tbaa !3
   %28 = getelementptr inbounds nuw %struct._my_theme_t, ptr %27, i32 0, i32 0
   %29 = getelementptr inbounds nuw %struct._lv_theme_t, ptr %28, i32 0, i32 0
-  store ptr @theme_apply, ptr %29, align 8, !tbaa !25
+  store ptr @theme_apply, ptr %29, align 8, !tbaa !32
   %30 = load ptr, ptr %7, align 8, !tbaa !3
-  %31 = load i8, ptr %5, align 1, !tbaa !20, !range !15, !noundef !16
+  %31 = load i8, ptr %5, align 1, !tbaa !26, !range !19, !noundef !20
   %32 = trunc i8 %31 to i1
-  %33 = load ptr, ptr %6, align 8, !tbaa !3
+  %33 = load ptr, ptr %6, align 8, !tbaa !27
   call void @style_init(ptr noundef %30, i1 noundef zeroext %32, ptr noundef %33)
-  %34 = load ptr, ptr %4, align 8, !tbaa !3
+  %34 = load ptr, ptr %4, align 8, !tbaa !25
   %35 = icmp eq ptr %34, null
   br i1 %35, label %41, label %36
 
 36:                                               ; preds = %12
-  %37 = load ptr, ptr %4, align 8, !tbaa !3
+  %37 = load ptr, ptr %4, align 8, !tbaa !25
   %38 = call ptr @lv_display_get_theme(ptr noundef %37)
   %39 = load ptr, ptr %7, align 8, !tbaa !3
   %40 = icmp eq ptr %38, %39
@@ -219,7 +219,7 @@ define ptr @lv_theme_mono_init(ptr noundef %0, i1 noundef zeroext %1, ptr nounde
 42:                                               ; preds = %41, %36
   %43 = load ptr, ptr %7, align 8, !tbaa !3
   %44 = getelementptr inbounds nuw %struct._my_theme_t, ptr %43, i32 0, i32 2
-  store i8 1, ptr %44, align 8, !tbaa !7
+  store i8 1, ptr %44, align 8, !tbaa !8
   %45 = load ptr, ptr getelementptr inbounds nuw (%struct._lv_global_t, ptr @lv_global, i32 0, i32 35), align 8, !tbaa !3
   call void @llvm.lifetime.end.p0(i64 8, ptr %7) #5
   ret ptr %45
@@ -234,26 +234,26 @@ define internal void @theme_apply(ptr noundef %0, ptr noundef %1) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8, !tbaa !3
-  store ptr %1, ptr %4, align 8, !tbaa !3
+  store ptr %0, ptr %3, align 8, !tbaa !33
+  store ptr %1, ptr %4, align 8, !tbaa !34
   call void @llvm.lifetime.start.p0(i64 8, ptr %5) #5
   %8 = load ptr, ptr getelementptr inbounds nuw (%struct._lv_global_t, ptr @lv_global, i32 0, i32 35), align 8, !tbaa !3
   store ptr %8, ptr %5, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
-  %9 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = load ptr, ptr %4, align 8, !tbaa !34
   %10 = call ptr @lv_obj_get_parent(ptr noundef %9)
-  store ptr %10, ptr %6, align 8, !tbaa !3
-  %11 = load ptr, ptr %6, align 8, !tbaa !3
+  store ptr %10, ptr %6, align 8, !tbaa !34
+  %11 = load ptr, ptr %6, align 8, !tbaa !34
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %22
 
 13:                                               ; preds = %2
-  %14 = load ptr, ptr %4, align 8, !tbaa !3
+  %14 = load ptr, ptr %4, align 8, !tbaa !34
   %15 = load ptr, ptr %5, align 8, !tbaa !3
   %16 = getelementptr inbounds nuw %struct._my_theme_t, ptr %15, i32 0, i32 1
   %17 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %16, i32 0, i32 0
   call void @lv_obj_add_style(ptr noundef %14, ptr noundef %17, i32 noundef 0)
-  %18 = load ptr, ptr %4, align 8, !tbaa !3
+  %18 = load ptr, ptr %4, align 8, !tbaa !34
   %19 = load ptr, ptr %5, align 8, !tbaa !3
   %20 = getelementptr inbounds nuw %struct._my_theme_t, ptr %19, i32 0, i32 1
   %21 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %20, i32 0, i32 2
@@ -262,12 +262,12 @@ define internal void @theme_apply(ptr noundef %0, ptr noundef %1) #0 {
   br label %722
 
 22:                                               ; preds = %2
-  %23 = load ptr, ptr %4, align 8, !tbaa !3
+  %23 = load ptr, ptr %4, align 8, !tbaa !34
   %24 = call zeroext i1 @lv_obj_check_type(ptr noundef %23, ptr noundef @lv_obj_class)
   br i1 %24, label %25, label %94
 
 25:                                               ; preds = %22
-  %26 = load ptr, ptr %6, align 8, !tbaa !3
+  %26 = load ptr, ptr %6, align 8, !tbaa !34
   %27 = call zeroext i1 @lv_obj_check_type(ptr noundef %26, ptr noundef @lv_tabview_class)
   br i1 %27, label %28, label %29
 
@@ -276,23 +276,23 @@ define internal void @theme_apply(ptr noundef %0, ptr noundef %1) #0 {
   br label %722
 
 29:                                               ; preds = %25
-  %30 = load ptr, ptr %6, align 8, !tbaa !3
+  %30 = load ptr, ptr %6, align 8, !tbaa !34
   %31 = call ptr @lv_obj_get_parent(ptr noundef %30)
   %32 = call zeroext i1 @lv_obj_check_type(ptr noundef %31, ptr noundef @lv_tabview_class)
   br i1 %32, label %33, label %46
 
 33:                                               ; preds = %29
-  %34 = load ptr, ptr %4, align 8, !tbaa !3
+  %34 = load ptr, ptr %4, align 8, !tbaa !34
   %35 = load ptr, ptr %5, align 8, !tbaa !3
   %36 = getelementptr inbounds nuw %struct._my_theme_t, ptr %35, i32 0, i32 1
   %37 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %36, i32 0, i32 1
   call void @lv_obj_add_style(ptr noundef %34, ptr noundef %37, i32 noundef 0)
-  %38 = load ptr, ptr %4, align 8, !tbaa !3
+  %38 = load ptr, ptr %4, align 8, !tbaa !34
   %39 = load ptr, ptr %5, align 8, !tbaa !3
   %40 = getelementptr inbounds nuw %struct._my_theme_t, ptr %39, i32 0, i32 1
   %41 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %40, i32 0, i32 10
   call void @lv_obj_add_style(ptr noundef %38, ptr noundef %41, i32 noundef 0)
-  %42 = load ptr, ptr %4, align 8, !tbaa !3
+  %42 = load ptr, ptr %4, align 8, !tbaa !34
   %43 = load ptr, ptr %5, align 8, !tbaa !3
   %44 = getelementptr inbounds nuw %struct._my_theme_t, ptr %43, i32 0, i32 1
   %45 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %44, i32 0, i32 2
@@ -304,23 +304,23 @@ define internal void @theme_apply(ptr noundef %0, ptr noundef %1) #0 {
   br label %47
 
 47:                                               ; preds = %46
-  %48 = load ptr, ptr %6, align 8, !tbaa !3
+  %48 = load ptr, ptr %6, align 8, !tbaa !34
   %49 = call zeroext i1 @lv_obj_check_type(ptr noundef %48, ptr noundef @lv_win_class)
   br i1 %49, label %50, label %63
 
 50:                                               ; preds = %47
-  %51 = load ptr, ptr %6, align 8, !tbaa !3
+  %51 = load ptr, ptr %6, align 8, !tbaa !34
   %52 = call ptr @lv_obj_get_child(ptr noundef %51, i32 noundef 0)
   %53 = icmp eq ptr %52, null
   br i1 %53, label %54, label %63
 
 54:                                               ; preds = %50
-  %55 = load ptr, ptr %4, align 8, !tbaa !3
+  %55 = load ptr, ptr %4, align 8, !tbaa !34
   %56 = load ptr, ptr %5, align 8, !tbaa !3
   %57 = getelementptr inbounds nuw %struct._my_theme_t, ptr %56, i32 0, i32 1
   %58 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %57, i32 0, i32 1
   call void @lv_obj_add_style(ptr noundef %55, ptr noundef %58, i32 noundef 0)
-  %59 = load ptr, ptr %4, align 8, !tbaa !3
+  %59 = load ptr, ptr %4, align 8, !tbaa !34
   %60 = load ptr, ptr %5, align 8, !tbaa !3
   %61 = getelementptr inbounds nuw %struct._my_theme_t, ptr %60, i32 0, i32 1
   %62 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %61, i32 0, i32 10
@@ -329,29 +329,29 @@ define internal void @theme_apply(ptr noundef %0, ptr noundef %1) #0 {
   br label %722
 
 63:                                               ; preds = %50, %47
-  %64 = load ptr, ptr %6, align 8, !tbaa !3
+  %64 = load ptr, ptr %6, align 8, !tbaa !34
   %65 = call zeroext i1 @lv_obj_check_type(ptr noundef %64, ptr noundef @lv_win_class)
   br i1 %65, label %66, label %84
 
 66:                                               ; preds = %63
-  %67 = load ptr, ptr %6, align 8, !tbaa !3
+  %67 = load ptr, ptr %6, align 8, !tbaa !34
   %68 = call ptr @lv_obj_get_child(ptr noundef %67, i32 noundef 1)
-  %69 = load ptr, ptr %4, align 8, !tbaa !3
+  %69 = load ptr, ptr %4, align 8, !tbaa !34
   %70 = icmp eq ptr %68, %69
   br i1 %70, label %71, label %84
 
 71:                                               ; preds = %66
-  %72 = load ptr, ptr %4, align 8, !tbaa !3
+  %72 = load ptr, ptr %4, align 8, !tbaa !34
   %73 = load ptr, ptr %5, align 8, !tbaa !3
   %74 = getelementptr inbounds nuw %struct._my_theme_t, ptr %73, i32 0, i32 1
   %75 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %74, i32 0, i32 1
   call void @lv_obj_add_style(ptr noundef %72, ptr noundef %75, i32 noundef 0)
-  %76 = load ptr, ptr %4, align 8, !tbaa !3
+  %76 = load ptr, ptr %4, align 8, !tbaa !34
   %77 = load ptr, ptr %5, align 8, !tbaa !3
   %78 = getelementptr inbounds nuw %struct._my_theme_t, ptr %77, i32 0, i32 1
   %79 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %78, i32 0, i32 10
   call void @lv_obj_add_style(ptr noundef %76, ptr noundef %79, i32 noundef 0)
-  %80 = load ptr, ptr %4, align 8, !tbaa !3
+  %80 = load ptr, ptr %4, align 8, !tbaa !34
   %81 = load ptr, ptr %5, align 8, !tbaa !3
   %82 = getelementptr inbounds nuw %struct._my_theme_t, ptr %81, i32 0, i32 1
   %83 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %82, i32 0, i32 2
@@ -363,12 +363,12 @@ define internal void @theme_apply(ptr noundef %0, ptr noundef %1) #0 {
   br label %85
 
 85:                                               ; preds = %84
-  %86 = load ptr, ptr %4, align 8, !tbaa !3
+  %86 = load ptr, ptr %4, align 8, !tbaa !34
   %87 = load ptr, ptr %5, align 8, !tbaa !3
   %88 = getelementptr inbounds nuw %struct._my_theme_t, ptr %87, i32 0, i32 1
   %89 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %88, i32 0, i32 1
   call void @lv_obj_add_style(ptr noundef %86, ptr noundef %89, i32 noundef 0)
-  %90 = load ptr, ptr %4, align 8, !tbaa !3
+  %90 = load ptr, ptr %4, align 8, !tbaa !34
   %91 = load ptr, ptr %5, align 8, !tbaa !3
   %92 = getelementptr inbounds nuw %struct._my_theme_t, ptr %91, i32 0, i32 1
   %93 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %92, i32 0, i32 2
@@ -376,37 +376,37 @@ define internal void @theme_apply(ptr noundef %0, ptr noundef %1) #0 {
   br label %721
 
 94:                                               ; preds = %22
-  %95 = load ptr, ptr %4, align 8, !tbaa !3
+  %95 = load ptr, ptr %4, align 8, !tbaa !34
   %96 = call zeroext i1 @lv_obj_check_type(ptr noundef %95, ptr noundef @lv_button_class)
   br i1 %96, label %97, label %122
 
 97:                                               ; preds = %94
-  %98 = load ptr, ptr %4, align 8, !tbaa !3
+  %98 = load ptr, ptr %4, align 8, !tbaa !34
   %99 = load ptr, ptr %5, align 8, !tbaa !3
   %100 = getelementptr inbounds nuw %struct._my_theme_t, ptr %99, i32 0, i32 1
   %101 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %100, i32 0, i32 1
   call void @lv_obj_add_style(ptr noundef %98, ptr noundef %101, i32 noundef 0)
-  %102 = load ptr, ptr %4, align 8, !tbaa !3
+  %102 = load ptr, ptr %4, align 8, !tbaa !34
   %103 = load ptr, ptr %5, align 8, !tbaa !3
   %104 = getelementptr inbounds nuw %struct._my_theme_t, ptr %103, i32 0, i32 1
   %105 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %104, i32 0, i32 3
   call void @lv_obj_add_style(ptr noundef %102, ptr noundef %105, i32 noundef 32)
-  %106 = load ptr, ptr %4, align 8, !tbaa !3
+  %106 = load ptr, ptr %4, align 8, !tbaa !34
   %107 = load ptr, ptr %5, align 8, !tbaa !3
   %108 = getelementptr inbounds nuw %struct._my_theme_t, ptr %107, i32 0, i32 1
   %109 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %108, i32 0, i32 4
   call void @lv_obj_add_style(ptr noundef %106, ptr noundef %109, i32 noundef 1)
-  %110 = load ptr, ptr %4, align 8, !tbaa !3
+  %110 = load ptr, ptr %4, align 8, !tbaa !34
   %111 = load ptr, ptr %5, align 8, !tbaa !3
   %112 = getelementptr inbounds nuw %struct._my_theme_t, ptr %111, i32 0, i32 1
   %113 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %112, i32 0, i32 5
   call void @lv_obj_add_style(ptr noundef %110, ptr noundef %113, i32 noundef 128)
-  %114 = load ptr, ptr %4, align 8, !tbaa !3
+  %114 = load ptr, ptr %4, align 8, !tbaa !34
   %115 = load ptr, ptr %5, align 8, !tbaa !3
   %116 = getelementptr inbounds nuw %struct._my_theme_t, ptr %115, i32 0, i32 1
   %117 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %116, i32 0, i32 6
   call void @lv_obj_add_style(ptr noundef %114, ptr noundef %117, i32 noundef 4)
-  %118 = load ptr, ptr %4, align 8, !tbaa !3
+  %118 = load ptr, ptr %4, align 8, !tbaa !34
   %119 = load ptr, ptr %5, align 8, !tbaa !3
   %120 = getelementptr inbounds nuw %struct._my_theme_t, ptr %119, i32 0, i32 1
   %121 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %120, i32 0, i32 7
@@ -414,42 +414,42 @@ define internal void @theme_apply(ptr noundef %0, ptr noundef %1) #0 {
   br label %720
 
 122:                                              ; preds = %94
-  %123 = load ptr, ptr %4, align 8, !tbaa !3
+  %123 = load ptr, ptr %4, align 8, !tbaa !34
   %124 = call zeroext i1 @lv_obj_check_type(ptr noundef %123, ptr noundef @lv_buttonmatrix_class)
   br i1 %124, label %125, label %222
 
 125:                                              ; preds = %122
-  %126 = load ptr, ptr %6, align 8, !tbaa !3
+  %126 = load ptr, ptr %6, align 8, !tbaa !34
   %127 = call zeroext i1 @lv_obj_check_type(ptr noundef %126, ptr noundef @lv_msgbox_class)
   br i1 %127, label %128, label %153
 
 128:                                              ; preds = %125
-  %129 = load ptr, ptr %4, align 8, !tbaa !3
+  %129 = load ptr, ptr %4, align 8, !tbaa !34
   %130 = load ptr, ptr %5, align 8, !tbaa !3
   %131 = getelementptr inbounds nuw %struct._my_theme_t, ptr %130, i32 0, i32 1
   %132 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %131, i32 0, i32 8
   call void @lv_obj_add_style(ptr noundef %129, ptr noundef %132, i32 noundef 0)
-  %133 = load ptr, ptr %4, align 8, !tbaa !3
+  %133 = load ptr, ptr %4, align 8, !tbaa !34
   %134 = load ptr, ptr %5, align 8, !tbaa !3
   %135 = getelementptr inbounds nuw %struct._my_theme_t, ptr %134, i32 0, i32 1
   %136 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %135, i32 0, i32 1
   call void @lv_obj_add_style(ptr noundef %133, ptr noundef %136, i32 noundef 327680)
-  %137 = load ptr, ptr %4, align 8, !tbaa !3
+  %137 = load ptr, ptr %4, align 8, !tbaa !34
   %138 = load ptr, ptr %5, align 8, !tbaa !3
   %139 = getelementptr inbounds nuw %struct._my_theme_t, ptr %138, i32 0, i32 1
   %140 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %139, i32 0, i32 3
   call void @lv_obj_add_style(ptr noundef %137, ptr noundef %140, i32 noundef 327712)
-  %141 = load ptr, ptr %4, align 8, !tbaa !3
+  %141 = load ptr, ptr %4, align 8, !tbaa !34
   %142 = load ptr, ptr %5, align 8, !tbaa !3
   %143 = getelementptr inbounds nuw %struct._my_theme_t, ptr %142, i32 0, i32 1
   %144 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %143, i32 0, i32 5
   call void @lv_obj_add_style(ptr noundef %141, ptr noundef %144, i32 noundef 327808)
-  %145 = load ptr, ptr %4, align 8, !tbaa !3
+  %145 = load ptr, ptr %4, align 8, !tbaa !34
   %146 = load ptr, ptr %5, align 8, !tbaa !3
   %147 = getelementptr inbounds nuw %struct._my_theme_t, ptr %146, i32 0, i32 1
   %148 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %147, i32 0, i32 14
   call void @lv_obj_add_style(ptr noundef %145, ptr noundef %148, i32 noundef 327684)
-  %149 = load ptr, ptr %4, align 8, !tbaa !3
+  %149 = load ptr, ptr %4, align 8, !tbaa !34
   %150 = load ptr, ptr %5, align 8, !tbaa !3
   %151 = getelementptr inbounds nuw %struct._my_theme_t, ptr %150, i32 0, i32 1
   %152 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %151, i32 0, i32 12
@@ -458,47 +458,47 @@ define internal void @theme_apply(ptr noundef %0, ptr noundef %1) #0 {
   br label %722
 
 153:                                              ; preds = %125
-  %154 = load ptr, ptr %6, align 8, !tbaa !3
+  %154 = load ptr, ptr %6, align 8, !tbaa !34
   %155 = call zeroext i1 @lv_obj_check_type(ptr noundef %154, ptr noundef @lv_tabview_class)
   br i1 %155, label %156, label %189
 
 156:                                              ; preds = %153
-  %157 = load ptr, ptr %4, align 8, !tbaa !3
+  %157 = load ptr, ptr %4, align 8, !tbaa !34
   %158 = load ptr, ptr %5, align 8, !tbaa !3
   %159 = getelementptr inbounds nuw %struct._my_theme_t, ptr %158, i32 0, i32 1
   %160 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %159, i32 0, i32 8
   call void @lv_obj_add_style(ptr noundef %157, ptr noundef %160, i32 noundef 0)
-  %161 = load ptr, ptr %4, align 8, !tbaa !3
+  %161 = load ptr, ptr %4, align 8, !tbaa !34
   %162 = load ptr, ptr %5, align 8, !tbaa !3
   %163 = getelementptr inbounds nuw %struct._my_theme_t, ptr %162, i32 0, i32 1
   %164 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %163, i32 0, i32 1
   call void @lv_obj_add_style(ptr noundef %161, ptr noundef %164, i32 noundef 327680)
-  %165 = load ptr, ptr %4, align 8, !tbaa !3
+  %165 = load ptr, ptr %4, align 8, !tbaa !34
   %166 = load ptr, ptr %5, align 8, !tbaa !3
   %167 = getelementptr inbounds nuw %struct._my_theme_t, ptr %166, i32 0, i32 1
   %168 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %167, i32 0, i32 3
   call void @lv_obj_add_style(ptr noundef %165, ptr noundef %168, i32 noundef 327712)
-  %169 = load ptr, ptr %4, align 8, !tbaa !3
+  %169 = load ptr, ptr %4, align 8, !tbaa !34
   %170 = load ptr, ptr %5, align 8, !tbaa !3
   %171 = getelementptr inbounds nuw %struct._my_theme_t, ptr %170, i32 0, i32 1
   %172 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %171, i32 0, i32 4
   call void @lv_obj_add_style(ptr noundef %169, ptr noundef %172, i32 noundef 327681)
-  %173 = load ptr, ptr %4, align 8, !tbaa !3
+  %173 = load ptr, ptr %4, align 8, !tbaa !34
   %174 = load ptr, ptr %5, align 8, !tbaa !3
   %175 = getelementptr inbounds nuw %struct._my_theme_t, ptr %174, i32 0, i32 1
   %176 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %175, i32 0, i32 5
   call void @lv_obj_add_style(ptr noundef %173, ptr noundef %176, i32 noundef 327808)
-  %177 = load ptr, ptr %4, align 8, !tbaa !3
+  %177 = load ptr, ptr %4, align 8, !tbaa !34
   %178 = load ptr, ptr %5, align 8, !tbaa !3
   %179 = getelementptr inbounds nuw %struct._my_theme_t, ptr %178, i32 0, i32 1
   %180 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %179, i32 0, i32 6
   call void @lv_obj_add_style(ptr noundef %177, ptr noundef %180, i32 noundef 4)
-  %181 = load ptr, ptr %4, align 8, !tbaa !3
+  %181 = load ptr, ptr %4, align 8, !tbaa !34
   %182 = load ptr, ptr %5, align 8, !tbaa !3
   %183 = getelementptr inbounds nuw %struct._my_theme_t, ptr %182, i32 0, i32 1
   %184 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %183, i32 0, i32 14
   call void @lv_obj_add_style(ptr noundef %181, ptr noundef %184, i32 noundef 327684)
-  %185 = load ptr, ptr %4, align 8, !tbaa !3
+  %185 = load ptr, ptr %4, align 8, !tbaa !34
   %186 = load ptr, ptr %5, align 8, !tbaa !3
   %187 = getelementptr inbounds nuw %struct._my_theme_t, ptr %186, i32 0, i32 1
   %188 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %187, i32 0, i32 12
@@ -507,42 +507,42 @@ define internal void @theme_apply(ptr noundef %0, ptr noundef %1) #0 {
   br label %722
 
 189:                                              ; preds = %153
-  %190 = load ptr, ptr %4, align 8, !tbaa !3
+  %190 = load ptr, ptr %4, align 8, !tbaa !34
   %191 = load ptr, ptr %5, align 8, !tbaa !3
   %192 = getelementptr inbounds nuw %struct._my_theme_t, ptr %191, i32 0, i32 1
   %193 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %192, i32 0, i32 1
   call void @lv_obj_add_style(ptr noundef %190, ptr noundef %193, i32 noundef 0)
-  %194 = load ptr, ptr %4, align 8, !tbaa !3
+  %194 = load ptr, ptr %4, align 8, !tbaa !34
   %195 = load ptr, ptr %5, align 8, !tbaa !3
   %196 = getelementptr inbounds nuw %struct._my_theme_t, ptr %195, i32 0, i32 1
   %197 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %196, i32 0, i32 6
   call void @lv_obj_add_style(ptr noundef %194, ptr noundef %197, i32 noundef 4)
-  %198 = load ptr, ptr %4, align 8, !tbaa !3
+  %198 = load ptr, ptr %4, align 8, !tbaa !34
   %199 = load ptr, ptr %5, align 8, !tbaa !3
   %200 = getelementptr inbounds nuw %struct._my_theme_t, ptr %199, i32 0, i32 1
   %201 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %200, i32 0, i32 1
   call void @lv_obj_add_style(ptr noundef %198, ptr noundef %201, i32 noundef 327680)
-  %202 = load ptr, ptr %4, align 8, !tbaa !3
+  %202 = load ptr, ptr %4, align 8, !tbaa !34
   %203 = load ptr, ptr %5, align 8, !tbaa !3
   %204 = getelementptr inbounds nuw %struct._my_theme_t, ptr %203, i32 0, i32 1
   %205 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %204, i32 0, i32 3
   call void @lv_obj_add_style(ptr noundef %202, ptr noundef %205, i32 noundef 327712)
-  %206 = load ptr, ptr %4, align 8, !tbaa !3
+  %206 = load ptr, ptr %4, align 8, !tbaa !34
   %207 = load ptr, ptr %5, align 8, !tbaa !3
   %208 = getelementptr inbounds nuw %struct._my_theme_t, ptr %207, i32 0, i32 1
   %209 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %208, i32 0, i32 4
   call void @lv_obj_add_style(ptr noundef %206, ptr noundef %209, i32 noundef 327681)
-  %210 = load ptr, ptr %4, align 8, !tbaa !3
+  %210 = load ptr, ptr %4, align 8, !tbaa !34
   %211 = load ptr, ptr %5, align 8, !tbaa !3
   %212 = getelementptr inbounds nuw %struct._my_theme_t, ptr %211, i32 0, i32 1
   %213 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %212, i32 0, i32 5
   call void @lv_obj_add_style(ptr noundef %210, ptr noundef %213, i32 noundef 327808)
-  %214 = load ptr, ptr %4, align 8, !tbaa !3
+  %214 = load ptr, ptr %4, align 8, !tbaa !34
   %215 = load ptr, ptr %5, align 8, !tbaa !3
   %216 = getelementptr inbounds nuw %struct._my_theme_t, ptr %215, i32 0, i32 1
   %217 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %216, i32 0, i32 14
   call void @lv_obj_add_style(ptr noundef %214, ptr noundef %217, i32 noundef 327684)
-  %218 = load ptr, ptr %4, align 8, !tbaa !3
+  %218 = load ptr, ptr %4, align 8, !tbaa !34
   %219 = load ptr, ptr %5, align 8, !tbaa !3
   %220 = getelementptr inbounds nuw %struct._my_theme_t, ptr %219, i32 0, i32 1
   %221 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %220, i32 0, i32 12
@@ -550,27 +550,27 @@ define internal void @theme_apply(ptr noundef %0, ptr noundef %1) #0 {
   br label %719
 
 222:                                              ; preds = %122
-  %223 = load ptr, ptr %4, align 8, !tbaa !3
+  %223 = load ptr, ptr %4, align 8, !tbaa !34
   %224 = call zeroext i1 @lv_obj_check_type(ptr noundef %223, ptr noundef @lv_bar_class)
   br i1 %224, label %225, label %242
 
 225:                                              ; preds = %222
-  %226 = load ptr, ptr %4, align 8, !tbaa !3
+  %226 = load ptr, ptr %4, align 8, !tbaa !34
   %227 = load ptr, ptr %5, align 8, !tbaa !3
   %228 = getelementptr inbounds nuw %struct._my_theme_t, ptr %227, i32 0, i32 1
   %229 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %228, i32 0, i32 1
   call void @lv_obj_add_style(ptr noundef %226, ptr noundef %229, i32 noundef 0)
-  %230 = load ptr, ptr %4, align 8, !tbaa !3
+  %230 = load ptr, ptr %4, align 8, !tbaa !34
   %231 = load ptr, ptr %5, align 8, !tbaa !3
   %232 = getelementptr inbounds nuw %struct._my_theme_t, ptr %231, i32 0, i32 1
   %233 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %232, i32 0, i32 9
   call void @lv_obj_add_style(ptr noundef %230, ptr noundef %233, i32 noundef 0)
-  %234 = load ptr, ptr %4, align 8, !tbaa !3
+  %234 = load ptr, ptr %4, align 8, !tbaa !34
   %235 = load ptr, ptr %5, align 8, !tbaa !3
   %236 = getelementptr inbounds nuw %struct._my_theme_t, ptr %235, i32 0, i32 1
   %237 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %236, i32 0, i32 4
   call void @lv_obj_add_style(ptr noundef %234, ptr noundef %237, i32 noundef 131072)
-  %238 = load ptr, ptr %4, align 8, !tbaa !3
+  %238 = load ptr, ptr %4, align 8, !tbaa !34
   %239 = load ptr, ptr %5, align 8, !tbaa !3
   %240 = getelementptr inbounds nuw %struct._my_theme_t, ptr %239, i32 0, i32 1
   %241 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %240, i32 0, i32 6
@@ -578,42 +578,42 @@ define internal void @theme_apply(ptr noundef %0, ptr noundef %1) #0 {
   br label %718
 
 242:                                              ; preds = %222
-  %243 = load ptr, ptr %4, align 8, !tbaa !3
+  %243 = load ptr, ptr %4, align 8, !tbaa !34
   %244 = call zeroext i1 @lv_obj_check_type(ptr noundef %243, ptr noundef @lv_slider_class)
   br i1 %244, label %245, label %274
 
 245:                                              ; preds = %242
-  %246 = load ptr, ptr %4, align 8, !tbaa !3
+  %246 = load ptr, ptr %4, align 8, !tbaa !34
   %247 = load ptr, ptr %5, align 8, !tbaa !3
   %248 = getelementptr inbounds nuw %struct._my_theme_t, ptr %247, i32 0, i32 1
   %249 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %248, i32 0, i32 1
   call void @lv_obj_add_style(ptr noundef %246, ptr noundef %249, i32 noundef 0)
-  %250 = load ptr, ptr %4, align 8, !tbaa !3
+  %250 = load ptr, ptr %4, align 8, !tbaa !34
   %251 = load ptr, ptr %5, align 8, !tbaa !3
   %252 = getelementptr inbounds nuw %struct._my_theme_t, ptr %251, i32 0, i32 1
   %253 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %252, i32 0, i32 9
   call void @lv_obj_add_style(ptr noundef %250, ptr noundef %253, i32 noundef 0)
-  %254 = load ptr, ptr %4, align 8, !tbaa !3
+  %254 = load ptr, ptr %4, align 8, !tbaa !34
   %255 = load ptr, ptr %5, align 8, !tbaa !3
   %256 = getelementptr inbounds nuw %struct._my_theme_t, ptr %255, i32 0, i32 1
   %257 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %256, i32 0, i32 4
   call void @lv_obj_add_style(ptr noundef %254, ptr noundef %257, i32 noundef 131072)
-  %258 = load ptr, ptr %4, align 8, !tbaa !3
+  %258 = load ptr, ptr %4, align 8, !tbaa !34
   %259 = load ptr, ptr %5, align 8, !tbaa !3
   %260 = getelementptr inbounds nuw %struct._my_theme_t, ptr %259, i32 0, i32 1
   %261 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %260, i32 0, i32 1
   call void @lv_obj_add_style(ptr noundef %258, ptr noundef %261, i32 noundef 196608)
-  %262 = load ptr, ptr %4, align 8, !tbaa !3
+  %262 = load ptr, ptr %4, align 8, !tbaa !34
   %263 = load ptr, ptr %5, align 8, !tbaa !3
   %264 = getelementptr inbounds nuw %struct._my_theme_t, ptr %263, i32 0, i32 1
   %265 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %264, i32 0, i32 11
   call void @lv_obj_add_style(ptr noundef %262, ptr noundef %265, i32 noundef 196608)
-  %266 = load ptr, ptr %4, align 8, !tbaa !3
+  %266 = load ptr, ptr %4, align 8, !tbaa !34
   %267 = load ptr, ptr %5, align 8, !tbaa !3
   %268 = getelementptr inbounds nuw %struct._my_theme_t, ptr %267, i32 0, i32 1
   %269 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %268, i32 0, i32 6
   call void @lv_obj_add_style(ptr noundef %266, ptr noundef %269, i32 noundef 4)
-  %270 = load ptr, ptr %4, align 8, !tbaa !3
+  %270 = load ptr, ptr %4, align 8, !tbaa !34
   %271 = load ptr, ptr %5, align 8, !tbaa !3
   %272 = getelementptr inbounds nuw %struct._my_theme_t, ptr %271, i32 0, i32 1
   %273 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %272, i32 0, i32 7
@@ -621,42 +621,42 @@ define internal void @theme_apply(ptr noundef %0, ptr noundef %1) #0 {
   br label %717
 
 274:                                              ; preds = %242
-  %275 = load ptr, ptr %4, align 8, !tbaa !3
+  %275 = load ptr, ptr %4, align 8, !tbaa !34
   %276 = call zeroext i1 @lv_obj_check_type(ptr noundef %275, ptr noundef @lv_table_class)
   br i1 %276, label %277, label %306
 
 277:                                              ; preds = %274
-  %278 = load ptr, ptr %4, align 8, !tbaa !3
+  %278 = load ptr, ptr %4, align 8, !tbaa !34
   %279 = load ptr, ptr %5, align 8, !tbaa !3
   %280 = getelementptr inbounds nuw %struct._my_theme_t, ptr %279, i32 0, i32 1
   %281 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %280, i32 0, i32 2
   call void @lv_obj_add_style(ptr noundef %278, ptr noundef %281, i32 noundef 65536)
-  %282 = load ptr, ptr %4, align 8, !tbaa !3
+  %282 = load ptr, ptr %4, align 8, !tbaa !34
   %283 = load ptr, ptr %5, align 8, !tbaa !3
   %284 = getelementptr inbounds nuw %struct._my_theme_t, ptr %283, i32 0, i32 1
   %285 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %284, i32 0, i32 1
   call void @lv_obj_add_style(ptr noundef %282, ptr noundef %285, i32 noundef 327680)
-  %286 = load ptr, ptr %4, align 8, !tbaa !3
+  %286 = load ptr, ptr %4, align 8, !tbaa !34
   %287 = load ptr, ptr %5, align 8, !tbaa !3
   %288 = getelementptr inbounds nuw %struct._my_theme_t, ptr %287, i32 0, i32 1
   %289 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %288, i32 0, i32 10
   call void @lv_obj_add_style(ptr noundef %286, ptr noundef %289, i32 noundef 327680)
-  %290 = load ptr, ptr %4, align 8, !tbaa !3
+  %290 = load ptr, ptr %4, align 8, !tbaa !34
   %291 = load ptr, ptr %5, align 8, !tbaa !3
   %292 = getelementptr inbounds nuw %struct._my_theme_t, ptr %291, i32 0, i32 1
   %293 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %292, i32 0, i32 3
   call void @lv_obj_add_style(ptr noundef %290, ptr noundef %293, i32 noundef 327712)
-  %294 = load ptr, ptr %4, align 8, !tbaa !3
+  %294 = load ptr, ptr %4, align 8, !tbaa !34
   %295 = load ptr, ptr %5, align 8, !tbaa !3
   %296 = getelementptr inbounds nuw %struct._my_theme_t, ptr %295, i32 0, i32 1
   %297 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %296, i32 0, i32 6
   call void @lv_obj_add_style(ptr noundef %294, ptr noundef %297, i32 noundef 4)
-  %298 = load ptr, ptr %4, align 8, !tbaa !3
+  %298 = load ptr, ptr %4, align 8, !tbaa !34
   %299 = load ptr, ptr %5, align 8, !tbaa !3
   %300 = getelementptr inbounds nuw %struct._my_theme_t, ptr %299, i32 0, i32 1
   %301 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %300, i32 0, i32 4
   call void @lv_obj_add_style(ptr noundef %298, ptr noundef %301, i32 noundef 327684)
-  %302 = load ptr, ptr %4, align 8, !tbaa !3
+  %302 = load ptr, ptr %4, align 8, !tbaa !34
   %303 = load ptr, ptr %5, align 8, !tbaa !3
   %304 = getelementptr inbounds nuw %struct._my_theme_t, ptr %303, i32 0, i32 1
   %305 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %304, i32 0, i32 7
@@ -664,42 +664,42 @@ define internal void @theme_apply(ptr noundef %0, ptr noundef %1) #0 {
   br label %716
 
 306:                                              ; preds = %274
-  %307 = load ptr, ptr %4, align 8, !tbaa !3
+  %307 = load ptr, ptr %4, align 8, !tbaa !34
   %308 = call zeroext i1 @lv_obj_check_type(ptr noundef %307, ptr noundef @lv_checkbox_class)
   br i1 %308, label %309, label %338
 
 309:                                              ; preds = %306
-  %310 = load ptr, ptr %4, align 8, !tbaa !3
+  %310 = load ptr, ptr %4, align 8, !tbaa !34
   %311 = load ptr, ptr %5, align 8, !tbaa !3
   %312 = getelementptr inbounds nuw %struct._my_theme_t, ptr %311, i32 0, i32 1
   %313 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %312, i32 0, i32 8
   call void @lv_obj_add_style(ptr noundef %310, ptr noundef %313, i32 noundef 0)
-  %314 = load ptr, ptr %4, align 8, !tbaa !3
+  %314 = load ptr, ptr %4, align 8, !tbaa !34
   %315 = load ptr, ptr %5, align 8, !tbaa !3
   %316 = getelementptr inbounds nuw %struct._my_theme_t, ptr %315, i32 0, i32 1
   %317 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %316, i32 0, i32 1
   call void @lv_obj_add_style(ptr noundef %314, ptr noundef %317, i32 noundef 131072)
-  %318 = load ptr, ptr %4, align 8, !tbaa !3
+  %318 = load ptr, ptr %4, align 8, !tbaa !34
   %319 = load ptr, ptr %5, align 8, !tbaa !3
   %320 = getelementptr inbounds nuw %struct._my_theme_t, ptr %319, i32 0, i32 1
   %321 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %320, i32 0, i32 5
   call void @lv_obj_add_style(ptr noundef %318, ptr noundef %321, i32 noundef 131200)
-  %322 = load ptr, ptr %4, align 8, !tbaa !3
+  %322 = load ptr, ptr %4, align 8, !tbaa !34
   %323 = load ptr, ptr %5, align 8, !tbaa !3
   %324 = getelementptr inbounds nuw %struct._my_theme_t, ptr %323, i32 0, i32 1
   %325 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %324, i32 0, i32 4
   call void @lv_obj_add_style(ptr noundef %322, ptr noundef %325, i32 noundef 131073)
-  %326 = load ptr, ptr %4, align 8, !tbaa !3
+  %326 = load ptr, ptr %4, align 8, !tbaa !34
   %327 = load ptr, ptr %5, align 8, !tbaa !3
   %328 = getelementptr inbounds nuw %struct._my_theme_t, ptr %327, i32 0, i32 1
   %329 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %328, i32 0, i32 3
   call void @lv_obj_add_style(ptr noundef %326, ptr noundef %329, i32 noundef 131104)
-  %330 = load ptr, ptr %4, align 8, !tbaa !3
+  %330 = load ptr, ptr %4, align 8, !tbaa !34
   %331 = load ptr, ptr %5, align 8, !tbaa !3
   %332 = getelementptr inbounds nuw %struct._my_theme_t, ptr %331, i32 0, i32 1
   %333 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %332, i32 0, i32 6
   call void @lv_obj_add_style(ptr noundef %330, ptr noundef %333, i32 noundef 4)
-  %334 = load ptr, ptr %4, align 8, !tbaa !3
+  %334 = load ptr, ptr %4, align 8, !tbaa !34
   %335 = load ptr, ptr %5, align 8, !tbaa !3
   %336 = getelementptr inbounds nuw %struct._my_theme_t, ptr %335, i32 0, i32 1
   %337 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %336, i32 0, i32 7
@@ -707,57 +707,57 @@ define internal void @theme_apply(ptr noundef %0, ptr noundef %1) #0 {
   br label %715
 
 338:                                              ; preds = %306
-  %339 = load ptr, ptr %4, align 8, !tbaa !3
+  %339 = load ptr, ptr %4, align 8, !tbaa !34
   %340 = call zeroext i1 @lv_obj_check_type(ptr noundef %339, ptr noundef @lv_switch_class)
   br i1 %340, label %341, label %382
 
 341:                                              ; preds = %338
-  %342 = load ptr, ptr %4, align 8, !tbaa !3
+  %342 = load ptr, ptr %4, align 8, !tbaa !34
   %343 = load ptr, ptr %5, align 8, !tbaa !3
   %344 = getelementptr inbounds nuw %struct._my_theme_t, ptr %343, i32 0, i32 1
   %345 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %344, i32 0, i32 1
   call void @lv_obj_add_style(ptr noundef %342, ptr noundef %345, i32 noundef 0)
-  %346 = load ptr, ptr %4, align 8, !tbaa !3
+  %346 = load ptr, ptr %4, align 8, !tbaa !34
   %347 = load ptr, ptr %5, align 8, !tbaa !3
   %348 = getelementptr inbounds nuw %struct._my_theme_t, ptr %347, i32 0, i32 1
   %349 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %348, i32 0, i32 11
   call void @lv_obj_add_style(ptr noundef %346, ptr noundef %349, i32 noundef 0)
-  %350 = load ptr, ptr %4, align 8, !tbaa !3
+  %350 = load ptr, ptr %4, align 8, !tbaa !34
   %351 = load ptr, ptr %5, align 8, !tbaa !3
   %352 = getelementptr inbounds nuw %struct._my_theme_t, ptr %351, i32 0, i32 1
   %353 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %352, i32 0, i32 9
   call void @lv_obj_add_style(ptr noundef %350, ptr noundef %353, i32 noundef 0)
-  %354 = load ptr, ptr %4, align 8, !tbaa !3
+  %354 = load ptr, ptr %4, align 8, !tbaa !34
   %355 = load ptr, ptr %5, align 8, !tbaa !3
   %356 = getelementptr inbounds nuw %struct._my_theme_t, ptr %355, i32 0, i32 1
   %357 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %356, i32 0, i32 4
   call void @lv_obj_add_style(ptr noundef %354, ptr noundef %357, i32 noundef 131072)
-  %358 = load ptr, ptr %4, align 8, !tbaa !3
+  %358 = load ptr, ptr %4, align 8, !tbaa !34
   %359 = load ptr, ptr %5, align 8, !tbaa !3
   %360 = getelementptr inbounds nuw %struct._my_theme_t, ptr %359, i32 0, i32 1
   %361 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %360, i32 0, i32 11
   call void @lv_obj_add_style(ptr noundef %358, ptr noundef %361, i32 noundef 131072)
-  %362 = load ptr, ptr %4, align 8, !tbaa !3
+  %362 = load ptr, ptr %4, align 8, !tbaa !34
   %363 = load ptr, ptr %5, align 8, !tbaa !3
   %364 = getelementptr inbounds nuw %struct._my_theme_t, ptr %363, i32 0, i32 1
   %365 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %364, i32 0, i32 1
   call void @lv_obj_add_style(ptr noundef %362, ptr noundef %365, i32 noundef 196608)
-  %366 = load ptr, ptr %4, align 8, !tbaa !3
+  %366 = load ptr, ptr %4, align 8, !tbaa !34
   %367 = load ptr, ptr %5, align 8, !tbaa !3
   %368 = getelementptr inbounds nuw %struct._my_theme_t, ptr %367, i32 0, i32 1
   %369 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %368, i32 0, i32 11
   call void @lv_obj_add_style(ptr noundef %366, ptr noundef %369, i32 noundef 196608)
-  %370 = load ptr, ptr %4, align 8, !tbaa !3
+  %370 = load ptr, ptr %4, align 8, !tbaa !34
   %371 = load ptr, ptr %5, align 8, !tbaa !3
   %372 = getelementptr inbounds nuw %struct._my_theme_t, ptr %371, i32 0, i32 1
   %373 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %372, i32 0, i32 9
   call void @lv_obj_add_style(ptr noundef %370, ptr noundef %373, i32 noundef 196608)
-  %374 = load ptr, ptr %4, align 8, !tbaa !3
+  %374 = load ptr, ptr %4, align 8, !tbaa !34
   %375 = load ptr, ptr %5, align 8, !tbaa !3
   %376 = getelementptr inbounds nuw %struct._my_theme_t, ptr %375, i32 0, i32 1
   %377 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %376, i32 0, i32 6
   call void @lv_obj_add_style(ptr noundef %374, ptr noundef %377, i32 noundef 4)
-  %378 = load ptr, ptr %4, align 8, !tbaa !3
+  %378 = load ptr, ptr %4, align 8, !tbaa !34
   %379 = load ptr, ptr %5, align 8, !tbaa !3
   %380 = getelementptr inbounds nuw %struct._my_theme_t, ptr %379, i32 0, i32 1
   %381 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %380, i32 0, i32 7
@@ -765,37 +765,37 @@ define internal void @theme_apply(ptr noundef %0, ptr noundef %1) #0 {
   br label %714
 
 382:                                              ; preds = %338
-  %383 = load ptr, ptr %4, align 8, !tbaa !3
+  %383 = load ptr, ptr %4, align 8, !tbaa !34
   %384 = call zeroext i1 @lv_obj_check_type(ptr noundef %383, ptr noundef @lv_chart_class)
   br i1 %384, label %385, label %410
 
 385:                                              ; preds = %382
-  %386 = load ptr, ptr %4, align 8, !tbaa !3
+  %386 = load ptr, ptr %4, align 8, !tbaa !34
   %387 = load ptr, ptr %5, align 8, !tbaa !3
   %388 = getelementptr inbounds nuw %struct._my_theme_t, ptr %387, i32 0, i32 1
   %389 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %388, i32 0, i32 1
   call void @lv_obj_add_style(ptr noundef %386, ptr noundef %389, i32 noundef 0)
-  %390 = load ptr, ptr %4, align 8, !tbaa !3
+  %390 = load ptr, ptr %4, align 8, !tbaa !34
   %391 = load ptr, ptr %5, align 8, !tbaa !3
   %392 = getelementptr inbounds nuw %struct._my_theme_t, ptr %391, i32 0, i32 1
   %393 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %392, i32 0, i32 2
   call void @lv_obj_add_style(ptr noundef %390, ptr noundef %393, i32 noundef 65536)
-  %394 = load ptr, ptr %4, align 8, !tbaa !3
+  %394 = load ptr, ptr %4, align 8, !tbaa !34
   %395 = load ptr, ptr %5, align 8, !tbaa !3
   %396 = getelementptr inbounds nuw %struct._my_theme_t, ptr %395, i32 0, i32 1
   %397 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %396, i32 0, i32 16
   call void @lv_obj_add_style(ptr noundef %394, ptr noundef %397, i32 noundef 131072)
-  %398 = load ptr, ptr %4, align 8, !tbaa !3
+  %398 = load ptr, ptr %4, align 8, !tbaa !34
   %399 = load ptr, ptr %5, align 8, !tbaa !3
   %400 = getelementptr inbounds nuw %struct._my_theme_t, ptr %399, i32 0, i32 1
   %401 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %400, i32 0, i32 1
   call void @lv_obj_add_style(ptr noundef %398, ptr noundef %401, i32 noundef 327680)
-  %402 = load ptr, ptr %4, align 8, !tbaa !3
+  %402 = load ptr, ptr %4, align 8, !tbaa !34
   %403 = load ptr, ptr %5, align 8, !tbaa !3
   %404 = getelementptr inbounds nuw %struct._my_theme_t, ptr %403, i32 0, i32 1
   %405 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %404, i32 0, i32 1
   call void @lv_obj_add_style(ptr noundef %402, ptr noundef %405, i32 noundef 393216)
-  %406 = load ptr, ptr %4, align 8, !tbaa !3
+  %406 = load ptr, ptr %4, align 8, !tbaa !34
   %407 = load ptr, ptr %5, align 8, !tbaa !3
   %408 = getelementptr inbounds nuw %struct._my_theme_t, ptr %407, i32 0, i32 1
   %409 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %408, i32 0, i32 6
@@ -803,32 +803,32 @@ define internal void @theme_apply(ptr noundef %0, ptr noundef %1) #0 {
   br label %713
 
 410:                                              ; preds = %382
-  %411 = load ptr, ptr %4, align 8, !tbaa !3
+  %411 = load ptr, ptr %4, align 8, !tbaa !34
   %412 = call zeroext i1 @lv_obj_check_type(ptr noundef %411, ptr noundef @lv_roller_class)
   br i1 %412, label %413, label %434
 
 413:                                              ; preds = %410
-  %414 = load ptr, ptr %4, align 8, !tbaa !3
+  %414 = load ptr, ptr %4, align 8, !tbaa !34
   %415 = load ptr, ptr %5, align 8, !tbaa !3
   %416 = getelementptr inbounds nuw %struct._my_theme_t, ptr %415, i32 0, i32 1
   %417 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %416, i32 0, i32 1
   call void @lv_obj_add_style(ptr noundef %414, ptr noundef %417, i32 noundef 0)
-  %418 = load ptr, ptr %4, align 8, !tbaa !3
+  %418 = load ptr, ptr %4, align 8, !tbaa !34
   %419 = load ptr, ptr %5, align 8, !tbaa !3
   %420 = getelementptr inbounds nuw %struct._my_theme_t, ptr %419, i32 0, i32 1
   %421 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %420, i32 0, i32 13
   call void @lv_obj_add_style(ptr noundef %418, ptr noundef %421, i32 noundef 0)
-  %422 = load ptr, ptr %4, align 8, !tbaa !3
+  %422 = load ptr, ptr %4, align 8, !tbaa !34
   %423 = load ptr, ptr %5, align 8, !tbaa !3
   %424 = getelementptr inbounds nuw %struct._my_theme_t, ptr %423, i32 0, i32 1
   %425 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %424, i32 0, i32 4
   call void @lv_obj_add_style(ptr noundef %422, ptr noundef %425, i32 noundef 262144)
-  %426 = load ptr, ptr %4, align 8, !tbaa !3
+  %426 = load ptr, ptr %4, align 8, !tbaa !34
   %427 = load ptr, ptr %5, align 8, !tbaa !3
   %428 = getelementptr inbounds nuw %struct._my_theme_t, ptr %427, i32 0, i32 1
   %429 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %428, i32 0, i32 6
   call void @lv_obj_add_style(ptr noundef %426, ptr noundef %429, i32 noundef 4)
-  %430 = load ptr, ptr %4, align 8, !tbaa !3
+  %430 = load ptr, ptr %4, align 8, !tbaa !34
   %431 = load ptr, ptr %5, align 8, !tbaa !3
   %432 = getelementptr inbounds nuw %struct._my_theme_t, ptr %431, i32 0, i32 1
   %433 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %432, i32 0, i32 7
@@ -836,27 +836,27 @@ define internal void @theme_apply(ptr noundef %0, ptr noundef %1) #0 {
   br label %712
 
 434:                                              ; preds = %410
-  %435 = load ptr, ptr %4, align 8, !tbaa !3
+  %435 = load ptr, ptr %4, align 8, !tbaa !34
   %436 = call zeroext i1 @lv_obj_check_type(ptr noundef %435, ptr noundef @lv_dropdown_class)
   br i1 %436, label %437, label %454
 
 437:                                              ; preds = %434
-  %438 = load ptr, ptr %4, align 8, !tbaa !3
+  %438 = load ptr, ptr %4, align 8, !tbaa !34
   %439 = load ptr, ptr %5, align 8, !tbaa !3
   %440 = getelementptr inbounds nuw %struct._my_theme_t, ptr %439, i32 0, i32 1
   %441 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %440, i32 0, i32 1
   call void @lv_obj_add_style(ptr noundef %438, ptr noundef %441, i32 noundef 0)
-  %442 = load ptr, ptr %4, align 8, !tbaa !3
+  %442 = load ptr, ptr %4, align 8, !tbaa !34
   %443 = load ptr, ptr %5, align 8, !tbaa !3
   %444 = getelementptr inbounds nuw %struct._my_theme_t, ptr %443, i32 0, i32 1
   %445 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %444, i32 0, i32 3
   call void @lv_obj_add_style(ptr noundef %442, ptr noundef %445, i32 noundef 32)
-  %446 = load ptr, ptr %4, align 8, !tbaa !3
+  %446 = load ptr, ptr %4, align 8, !tbaa !34
   %447 = load ptr, ptr %5, align 8, !tbaa !3
   %448 = getelementptr inbounds nuw %struct._my_theme_t, ptr %447, i32 0, i32 1
   %449 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %448, i32 0, i32 6
   call void @lv_obj_add_style(ptr noundef %446, ptr noundef %449, i32 noundef 4)
-  %450 = load ptr, ptr %4, align 8, !tbaa !3
+  %450 = load ptr, ptr %4, align 8, !tbaa !34
   %451 = load ptr, ptr %5, align 8, !tbaa !3
   %452 = getelementptr inbounds nuw %struct._my_theme_t, ptr %451, i32 0, i32 1
   %453 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %452, i32 0, i32 7
@@ -864,42 +864,42 @@ define internal void @theme_apply(ptr noundef %0, ptr noundef %1) #0 {
   br label %711
 
 454:                                              ; preds = %434
-  %455 = load ptr, ptr %4, align 8, !tbaa !3
+  %455 = load ptr, ptr %4, align 8, !tbaa !34
   %456 = call zeroext i1 @lv_obj_check_type(ptr noundef %455, ptr noundef @lv_dropdownlist_class)
   br i1 %456, label %457, label %486
 
 457:                                              ; preds = %454
-  %458 = load ptr, ptr %4, align 8, !tbaa !3
+  %458 = load ptr, ptr %4, align 8, !tbaa !34
   %459 = load ptr, ptr %5, align 8, !tbaa !3
   %460 = getelementptr inbounds nuw %struct._my_theme_t, ptr %459, i32 0, i32 1
   %461 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %460, i32 0, i32 1
   call void @lv_obj_add_style(ptr noundef %458, ptr noundef %461, i32 noundef 0)
-  %462 = load ptr, ptr %4, align 8, !tbaa !3
+  %462 = load ptr, ptr %4, align 8, !tbaa !34
   %463 = load ptr, ptr %5, align 8, !tbaa !3
   %464 = getelementptr inbounds nuw %struct._my_theme_t, ptr %463, i32 0, i32 1
   %465 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %464, i32 0, i32 13
   call void @lv_obj_add_style(ptr noundef %462, ptr noundef %465, i32 noundef 0)
-  %466 = load ptr, ptr %4, align 8, !tbaa !3
+  %466 = load ptr, ptr %4, align 8, !tbaa !34
   %467 = load ptr, ptr %5, align 8, !tbaa !3
   %468 = getelementptr inbounds nuw %struct._my_theme_t, ptr %467, i32 0, i32 1
   %469 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %468, i32 0, i32 2
   call void @lv_obj_add_style(ptr noundef %466, ptr noundef %469, i32 noundef 65536)
-  %470 = load ptr, ptr %4, align 8, !tbaa !3
+  %470 = load ptr, ptr %4, align 8, !tbaa !34
   %471 = load ptr, ptr %5, align 8, !tbaa !3
   %472 = getelementptr inbounds nuw %struct._my_theme_t, ptr %471, i32 0, i32 1
   %473 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %472, i32 0, i32 4
   call void @lv_obj_add_style(ptr noundef %470, ptr noundef %473, i32 noundef 262145)
-  %474 = load ptr, ptr %4, align 8, !tbaa !3
+  %474 = load ptr, ptr %4, align 8, !tbaa !34
   %475 = load ptr, ptr %5, align 8, !tbaa !3
   %476 = getelementptr inbounds nuw %struct._my_theme_t, ptr %475, i32 0, i32 1
   %477 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %476, i32 0, i32 3
   call void @lv_obj_add_style(ptr noundef %474, ptr noundef %477, i32 noundef 262176)
-  %478 = load ptr, ptr %4, align 8, !tbaa !3
+  %478 = load ptr, ptr %4, align 8, !tbaa !34
   %479 = load ptr, ptr %5, align 8, !tbaa !3
   %480 = getelementptr inbounds nuw %struct._my_theme_t, ptr %479, i32 0, i32 1
   %481 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %480, i32 0, i32 6
   call void @lv_obj_add_style(ptr noundef %478, ptr noundef %481, i32 noundef 4)
-  %482 = load ptr, ptr %4, align 8, !tbaa !3
+  %482 = load ptr, ptr %4, align 8, !tbaa !34
   %483 = load ptr, ptr %5, align 8, !tbaa !3
   %484 = getelementptr inbounds nuw %struct._my_theme_t, ptr %483, i32 0, i32 1
   %485 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %484, i32 0, i32 7
@@ -907,42 +907,42 @@ define internal void @theme_apply(ptr noundef %0, ptr noundef %1) #0 {
   br label %710
 
 486:                                              ; preds = %454
-  %487 = load ptr, ptr %4, align 8, !tbaa !3
+  %487 = load ptr, ptr %4, align 8, !tbaa !34
   %488 = call zeroext i1 @lv_obj_check_type(ptr noundef %487, ptr noundef @lv_arc_class)
   br i1 %488, label %489, label %518
 
 489:                                              ; preds = %486
-  %490 = load ptr, ptr %4, align 8, !tbaa !3
+  %490 = load ptr, ptr %4, align 8, !tbaa !34
   %491 = load ptr, ptr %5, align 8, !tbaa !3
   %492 = getelementptr inbounds nuw %struct._my_theme_t, ptr %491, i32 0, i32 1
   %493 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %492, i32 0, i32 1
   call void @lv_obj_add_style(ptr noundef %490, ptr noundef %493, i32 noundef 0)
-  %494 = load ptr, ptr %4, align 8, !tbaa !3
+  %494 = load ptr, ptr %4, align 8, !tbaa !34
   %495 = load ptr, ptr %5, align 8, !tbaa !3
   %496 = getelementptr inbounds nuw %struct._my_theme_t, ptr %495, i32 0, i32 1
   %497 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %496, i32 0, i32 4
   call void @lv_obj_add_style(ptr noundef %494, ptr noundef %497, i32 noundef 131072)
-  %498 = load ptr, ptr %4, align 8, !tbaa !3
+  %498 = load ptr, ptr %4, align 8, !tbaa !34
   %499 = load ptr, ptr %5, align 8, !tbaa !3
   %500 = getelementptr inbounds nuw %struct._my_theme_t, ptr %499, i32 0, i32 1
   %501 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %500, i32 0, i32 9
   call void @lv_obj_add_style(ptr noundef %498, ptr noundef %501, i32 noundef 131072)
-  %502 = load ptr, ptr %4, align 8, !tbaa !3
+  %502 = load ptr, ptr %4, align 8, !tbaa !34
   %503 = load ptr, ptr %5, align 8, !tbaa !3
   %504 = getelementptr inbounds nuw %struct._my_theme_t, ptr %503, i32 0, i32 1
   %505 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %504, i32 0, i32 1
   call void @lv_obj_add_style(ptr noundef %502, ptr noundef %505, i32 noundef 196608)
-  %506 = load ptr, ptr %4, align 8, !tbaa !3
+  %506 = load ptr, ptr %4, align 8, !tbaa !34
   %507 = load ptr, ptr %5, align 8, !tbaa !3
   %508 = getelementptr inbounds nuw %struct._my_theme_t, ptr %507, i32 0, i32 1
   %509 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %508, i32 0, i32 11
   call void @lv_obj_add_style(ptr noundef %506, ptr noundef %509, i32 noundef 196608)
-  %510 = load ptr, ptr %4, align 8, !tbaa !3
+  %510 = load ptr, ptr %4, align 8, !tbaa !34
   %511 = load ptr, ptr %5, align 8, !tbaa !3
   %512 = getelementptr inbounds nuw %struct._my_theme_t, ptr %511, i32 0, i32 1
   %513 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %512, i32 0, i32 6
   call void @lv_obj_add_style(ptr noundef %510, ptr noundef %513, i32 noundef 4)
-  %514 = load ptr, ptr %4, align 8, !tbaa !3
+  %514 = load ptr, ptr %4, align 8, !tbaa !34
   %515 = load ptr, ptr %5, align 8, !tbaa !3
   %516 = getelementptr inbounds nuw %struct._my_theme_t, ptr %515, i32 0, i32 1
   %517 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %516, i32 0, i32 7
@@ -950,32 +950,32 @@ define internal void @theme_apply(ptr noundef %0, ptr noundef %1) #0 {
   br label %709
 
 518:                                              ; preds = %486
-  %519 = load ptr, ptr %4, align 8, !tbaa !3
+  %519 = load ptr, ptr %4, align 8, !tbaa !34
   %520 = call zeroext i1 @lv_obj_check_type(ptr noundef %519, ptr noundef @lv_textarea_class)
   br i1 %520, label %521, label %542
 
 521:                                              ; preds = %518
-  %522 = load ptr, ptr %4, align 8, !tbaa !3
+  %522 = load ptr, ptr %4, align 8, !tbaa !34
   %523 = load ptr, ptr %5, align 8, !tbaa !3
   %524 = getelementptr inbounds nuw %struct._my_theme_t, ptr %523, i32 0, i32 1
   %525 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %524, i32 0, i32 1
   call void @lv_obj_add_style(ptr noundef %522, ptr noundef %525, i32 noundef 0)
-  %526 = load ptr, ptr %4, align 8, !tbaa !3
+  %526 = load ptr, ptr %4, align 8, !tbaa !34
   %527 = load ptr, ptr %5, align 8, !tbaa !3
   %528 = getelementptr inbounds nuw %struct._my_theme_t, ptr %527, i32 0, i32 1
   %529 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %528, i32 0, i32 2
   call void @lv_obj_add_style(ptr noundef %526, ptr noundef %529, i32 noundef 65536)
-  %530 = load ptr, ptr %4, align 8, !tbaa !3
+  %530 = load ptr, ptr %4, align 8, !tbaa !34
   %531 = load ptr, ptr %5, align 8, !tbaa !3
   %532 = getelementptr inbounds nuw %struct._my_theme_t, ptr %531, i32 0, i32 1
   %533 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %532, i32 0, i32 15
   call void @lv_obj_add_style(ptr noundef %530, ptr noundef %533, i32 noundef 393218)
-  %534 = load ptr, ptr %4, align 8, !tbaa !3
+  %534 = load ptr, ptr %4, align 8, !tbaa !34
   %535 = load ptr, ptr %5, align 8, !tbaa !3
   %536 = getelementptr inbounds nuw %struct._my_theme_t, ptr %535, i32 0, i32 1
   %537 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %536, i32 0, i32 6
   call void @lv_obj_add_style(ptr noundef %534, ptr noundef %537, i32 noundef 2)
-  %538 = load ptr, ptr %4, align 8, !tbaa !3
+  %538 = load ptr, ptr %4, align 8, !tbaa !34
   %539 = load ptr, ptr %5, align 8, !tbaa !3
   %540 = getelementptr inbounds nuw %struct._my_theme_t, ptr %539, i32 0, i32 1
   %541 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %540, i32 0, i32 7
@@ -983,42 +983,42 @@ define internal void @theme_apply(ptr noundef %0, ptr noundef %1) #0 {
   br label %708
 
 542:                                              ; preds = %518
-  %543 = load ptr, ptr %4, align 8, !tbaa !3
+  %543 = load ptr, ptr %4, align 8, !tbaa !34
   %544 = call zeroext i1 @lv_obj_check_type(ptr noundef %543, ptr noundef @lv_calendar_class)
   br i1 %544, label %545, label %574
 
 545:                                              ; preds = %542
-  %546 = load ptr, ptr %4, align 8, !tbaa !3
+  %546 = load ptr, ptr %4, align 8, !tbaa !34
   %547 = load ptr, ptr %5, align 8, !tbaa !3
   %548 = getelementptr inbounds nuw %struct._my_theme_t, ptr %547, i32 0, i32 1
   %549 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %548, i32 0, i32 1
   call void @lv_obj_add_style(ptr noundef %546, ptr noundef %549, i32 noundef 0)
-  %550 = load ptr, ptr %4, align 8, !tbaa !3
+  %550 = load ptr, ptr %4, align 8, !tbaa !34
   %551 = load ptr, ptr %5, align 8, !tbaa !3
   %552 = getelementptr inbounds nuw %struct._my_theme_t, ptr %551, i32 0, i32 1
   %553 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %552, i32 0, i32 10
   call void @lv_obj_add_style(ptr noundef %550, ptr noundef %553, i32 noundef 0)
-  %554 = load ptr, ptr %4, align 8, !tbaa !3
+  %554 = load ptr, ptr %4, align 8, !tbaa !34
   %555 = load ptr, ptr %5, align 8, !tbaa !3
   %556 = getelementptr inbounds nuw %struct._my_theme_t, ptr %555, i32 0, i32 1
   %557 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %556, i32 0, i32 3
   call void @lv_obj_add_style(ptr noundef %554, ptr noundef %557, i32 noundef 327712)
-  %558 = load ptr, ptr %4, align 8, !tbaa !3
+  %558 = load ptr, ptr %4, align 8, !tbaa !34
   %559 = load ptr, ptr %5, align 8, !tbaa !3
   %560 = getelementptr inbounds nuw %struct._my_theme_t, ptr %559, i32 0, i32 1
   %561 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %560, i32 0, i32 5
   call void @lv_obj_add_style(ptr noundef %558, ptr noundef %561, i32 noundef 327808)
-  %562 = load ptr, ptr %4, align 8, !tbaa !3
+  %562 = load ptr, ptr %4, align 8, !tbaa !34
   %563 = load ptr, ptr %5, align 8, !tbaa !3
   %564 = getelementptr inbounds nuw %struct._my_theme_t, ptr %563, i32 0, i32 1
   %565 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %564, i32 0, i32 6
   call void @lv_obj_add_style(ptr noundef %562, ptr noundef %565, i32 noundef 4)
-  %566 = load ptr, ptr %4, align 8, !tbaa !3
+  %566 = load ptr, ptr %4, align 8, !tbaa !34
   %567 = load ptr, ptr %5, align 8, !tbaa !3
   %568 = getelementptr inbounds nuw %struct._my_theme_t, ptr %567, i32 0, i32 1
   %569 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %568, i32 0, i32 7
   call void @lv_obj_add_style(ptr noundef %566, ptr noundef %569, i32 noundef 8)
-  %570 = load ptr, ptr %4, align 8, !tbaa !3
+  %570 = load ptr, ptr %4, align 8, !tbaa !34
   %571 = load ptr, ptr %5, align 8, !tbaa !3
   %572 = getelementptr inbounds nuw %struct._my_theme_t, ptr %571, i32 0, i32 1
   %573 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %572, i32 0, i32 12
@@ -1026,42 +1026,42 @@ define internal void @theme_apply(ptr noundef %0, ptr noundef %1) #0 {
   br label %707
 
 574:                                              ; preds = %542
-  %575 = load ptr, ptr %4, align 8, !tbaa !3
+  %575 = load ptr, ptr %4, align 8, !tbaa !34
   %576 = call zeroext i1 @lv_obj_check_type(ptr noundef %575, ptr noundef @lv_keyboard_class)
   br i1 %576, label %577, label %606
 
 577:                                              ; preds = %574
-  %578 = load ptr, ptr %4, align 8, !tbaa !3
+  %578 = load ptr, ptr %4, align 8, !tbaa !34
   %579 = load ptr, ptr %5, align 8, !tbaa !3
   %580 = getelementptr inbounds nuw %struct._my_theme_t, ptr %579, i32 0, i32 1
   %581 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %580, i32 0, i32 1
   call void @lv_obj_add_style(ptr noundef %578, ptr noundef %581, i32 noundef 0)
-  %582 = load ptr, ptr %4, align 8, !tbaa !3
+  %582 = load ptr, ptr %4, align 8, !tbaa !34
   %583 = load ptr, ptr %5, align 8, !tbaa !3
   %584 = getelementptr inbounds nuw %struct._my_theme_t, ptr %583, i32 0, i32 1
   %585 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %584, i32 0, i32 1
   call void @lv_obj_add_style(ptr noundef %582, ptr noundef %585, i32 noundef 327680)
-  %586 = load ptr, ptr %4, align 8, !tbaa !3
+  %586 = load ptr, ptr %4, align 8, !tbaa !34
   %587 = load ptr, ptr %5, align 8, !tbaa !3
   %588 = getelementptr inbounds nuw %struct._my_theme_t, ptr %587, i32 0, i32 1
   %589 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %588, i32 0, i32 3
   call void @lv_obj_add_style(ptr noundef %586, ptr noundef %589, i32 noundef 327712)
-  %590 = load ptr, ptr %4, align 8, !tbaa !3
+  %590 = load ptr, ptr %4, align 8, !tbaa !34
   %591 = load ptr, ptr %5, align 8, !tbaa !3
   %592 = getelementptr inbounds nuw %struct._my_theme_t, ptr %591, i32 0, i32 1
   %593 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %592, i32 0, i32 4
   call void @lv_obj_add_style(ptr noundef %590, ptr noundef %593, i32 noundef 327681)
-  %594 = load ptr, ptr %4, align 8, !tbaa !3
+  %594 = load ptr, ptr %4, align 8, !tbaa !34
   %595 = load ptr, ptr %5, align 8, !tbaa !3
   %596 = getelementptr inbounds nuw %struct._my_theme_t, ptr %595, i32 0, i32 1
   %597 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %596, i32 0, i32 6
   call void @lv_obj_add_style(ptr noundef %594, ptr noundef %597, i32 noundef 4)
-  %598 = load ptr, ptr %4, align 8, !tbaa !3
+  %598 = load ptr, ptr %4, align 8, !tbaa !34
   %599 = load ptr, ptr %5, align 8, !tbaa !3
   %600 = getelementptr inbounds nuw %struct._my_theme_t, ptr %599, i32 0, i32 1
   %601 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %600, i32 0, i32 7
   call void @lv_obj_add_style(ptr noundef %598, ptr noundef %601, i32 noundef 8)
-  %602 = load ptr, ptr %4, align 8, !tbaa !3
+  %602 = load ptr, ptr %4, align 8, !tbaa !34
   %603 = load ptr, ptr %5, align 8, !tbaa !3
   %604 = getelementptr inbounds nuw %struct._my_theme_t, ptr %603, i32 0, i32 1
   %605 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %604, i32 0, i32 12
@@ -1069,17 +1069,17 @@ define internal void @theme_apply(ptr noundef %0, ptr noundef %1) #0 {
   br label %706
 
 606:                                              ; preds = %574
-  %607 = load ptr, ptr %4, align 8, !tbaa !3
+  %607 = load ptr, ptr %4, align 8, !tbaa !34
   %608 = call zeroext i1 @lv_obj_check_type(ptr noundef %607, ptr noundef @lv_list_class)
   br i1 %608, label %609, label %618
 
 609:                                              ; preds = %606
-  %610 = load ptr, ptr %4, align 8, !tbaa !3
+  %610 = load ptr, ptr %4, align 8, !tbaa !34
   %611 = load ptr, ptr %5, align 8, !tbaa !3
   %612 = getelementptr inbounds nuw %struct._my_theme_t, ptr %611, i32 0, i32 1
   %613 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %612, i32 0, i32 1
   call void @lv_obj_add_style(ptr noundef %610, ptr noundef %613, i32 noundef 0)
-  %614 = load ptr, ptr %4, align 8, !tbaa !3
+  %614 = load ptr, ptr %4, align 8, !tbaa !34
   %615 = load ptr, ptr %5, align 8, !tbaa !3
   %616 = getelementptr inbounds nuw %struct._my_theme_t, ptr %615, i32 0, i32 1
   %617 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %616, i32 0, i32 2
@@ -1088,7 +1088,7 @@ define internal void @theme_apply(ptr noundef %0, ptr noundef %1) #0 {
   br label %722
 
 618:                                              ; preds = %606
-  %619 = load ptr, ptr %4, align 8, !tbaa !3
+  %619 = load ptr, ptr %4, align 8, !tbaa !34
   %620 = call zeroext i1 @lv_obj_check_type(ptr noundef %619, ptr noundef @lv_list_text_class)
   br i1 %620, label %621, label %622
 
@@ -1096,27 +1096,27 @@ define internal void @theme_apply(ptr noundef %0, ptr noundef %1) #0 {
   br label %704
 
 622:                                              ; preds = %618
-  %623 = load ptr, ptr %4, align 8, !tbaa !3
+  %623 = load ptr, ptr %4, align 8, !tbaa !34
   %624 = call zeroext i1 @lv_obj_check_type(ptr noundef %623, ptr noundef @lv_list_button_class)
   br i1 %624, label %625, label %642
 
 625:                                              ; preds = %622
-  %626 = load ptr, ptr %4, align 8, !tbaa !3
+  %626 = load ptr, ptr %4, align 8, !tbaa !34
   %627 = load ptr, ptr %5, align 8, !tbaa !3
   %628 = getelementptr inbounds nuw %struct._my_theme_t, ptr %627, i32 0, i32 1
   %629 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %628, i32 0, i32 1
   call void @lv_obj_add_style(ptr noundef %626, ptr noundef %629, i32 noundef 0)
-  %630 = load ptr, ptr %4, align 8, !tbaa !3
+  %630 = load ptr, ptr %4, align 8, !tbaa !34
   %631 = load ptr, ptr %5, align 8, !tbaa !3
   %632 = getelementptr inbounds nuw %struct._my_theme_t, ptr %631, i32 0, i32 1
   %633 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %632, i32 0, i32 3
   call void @lv_obj_add_style(ptr noundef %630, ptr noundef %633, i32 noundef 32)
-  %634 = load ptr, ptr %4, align 8, !tbaa !3
+  %634 = load ptr, ptr %4, align 8, !tbaa !34
   %635 = load ptr, ptr %5, align 8, !tbaa !3
   %636 = getelementptr inbounds nuw %struct._my_theme_t, ptr %635, i32 0, i32 1
   %637 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %636, i32 0, i32 6
   call void @lv_obj_add_style(ptr noundef %634, ptr noundef %637, i32 noundef 4)
-  %638 = load ptr, ptr %4, align 8, !tbaa !3
+  %638 = load ptr, ptr %4, align 8, !tbaa !34
   %639 = load ptr, ptr %5, align 8, !tbaa !3
   %640 = getelementptr inbounds nuw %struct._my_theme_t, ptr %639, i32 0, i32 1
   %641 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %640, i32 0, i32 12
@@ -1124,12 +1124,12 @@ define internal void @theme_apply(ptr noundef %0, ptr noundef %1) #0 {
   br label %703
 
 642:                                              ; preds = %622
-  %643 = load ptr, ptr %4, align 8, !tbaa !3
+  %643 = load ptr, ptr %4, align 8, !tbaa !34
   %644 = call zeroext i1 @lv_obj_check_type(ptr noundef %643, ptr noundef @lv_msgbox_class)
   br i1 %644, label %645, label %650
 
 645:                                              ; preds = %642
-  %646 = load ptr, ptr %4, align 8, !tbaa !3
+  %646 = load ptr, ptr %4, align 8, !tbaa !34
   %647 = load ptr, ptr %5, align 8, !tbaa !3
   %648 = getelementptr inbounds nuw %struct._my_theme_t, ptr %647, i32 0, i32 1
   %649 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %648, i32 0, i32 1
@@ -1138,27 +1138,27 @@ define internal void @theme_apply(ptr noundef %0, ptr noundef %1) #0 {
   br label %722
 
 650:                                              ; preds = %642
-  %651 = load ptr, ptr %4, align 8, !tbaa !3
+  %651 = load ptr, ptr %4, align 8, !tbaa !34
   %652 = call zeroext i1 @lv_obj_check_type(ptr noundef %651, ptr noundef @lv_spinbox_class)
   br i1 %652, label %653, label %670
 
 653:                                              ; preds = %650
-  %654 = load ptr, ptr %4, align 8, !tbaa !3
+  %654 = load ptr, ptr %4, align 8, !tbaa !34
   %655 = load ptr, ptr %5, align 8, !tbaa !3
   %656 = getelementptr inbounds nuw %struct._my_theme_t, ptr %655, i32 0, i32 1
   %657 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %656, i32 0, i32 1
   call void @lv_obj_add_style(ptr noundef %654, ptr noundef %657, i32 noundef 0)
-  %658 = load ptr, ptr %4, align 8, !tbaa !3
+  %658 = load ptr, ptr %4, align 8, !tbaa !34
   %659 = load ptr, ptr %5, align 8, !tbaa !3
   %660 = getelementptr inbounds nuw %struct._my_theme_t, ptr %659, i32 0, i32 1
   %661 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %660, i32 0, i32 4
   call void @lv_obj_add_style(ptr noundef %658, ptr noundef %661, i32 noundef 393216)
-  %662 = load ptr, ptr %4, align 8, !tbaa !3
+  %662 = load ptr, ptr %4, align 8, !tbaa !34
   %663 = load ptr, ptr %5, align 8, !tbaa !3
   %664 = getelementptr inbounds nuw %struct._my_theme_t, ptr %663, i32 0, i32 1
   %665 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %664, i32 0, i32 6
   call void @lv_obj_add_style(ptr noundef %662, ptr noundef %665, i32 noundef 4)
-  %666 = load ptr, ptr %4, align 8, !tbaa !3
+  %666 = load ptr, ptr %4, align 8, !tbaa !34
   %667 = load ptr, ptr %5, align 8, !tbaa !3
   %668 = getelementptr inbounds nuw %struct._my_theme_t, ptr %667, i32 0, i32 1
   %669 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %668, i32 0, i32 7
@@ -1166,17 +1166,17 @@ define internal void @theme_apply(ptr noundef %0, ptr noundef %1) #0 {
   br label %701
 
 670:                                              ; preds = %650
-  %671 = load ptr, ptr %4, align 8, !tbaa !3
+  %671 = load ptr, ptr %4, align 8, !tbaa !34
   %672 = call zeroext i1 @lv_obj_check_type(ptr noundef %671, ptr noundef @lv_tileview_class)
   br i1 %672, label %673, label %682
 
 673:                                              ; preds = %670
-  %674 = load ptr, ptr %4, align 8, !tbaa !3
+  %674 = load ptr, ptr %4, align 8, !tbaa !34
   %675 = load ptr, ptr %5, align 8, !tbaa !3
   %676 = getelementptr inbounds nuw %struct._my_theme_t, ptr %675, i32 0, i32 1
   %677 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %676, i32 0, i32 0
   call void @lv_obj_add_style(ptr noundef %674, ptr noundef %677, i32 noundef 0)
-  %678 = load ptr, ptr %4, align 8, !tbaa !3
+  %678 = load ptr, ptr %4, align 8, !tbaa !34
   %679 = load ptr, ptr %5, align 8, !tbaa !3
   %680 = getelementptr inbounds nuw %struct._my_theme_t, ptr %679, i32 0, i32 1
   %681 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %680, i32 0, i32 2
@@ -1184,12 +1184,12 @@ define internal void @theme_apply(ptr noundef %0, ptr noundef %1) #0 {
   br label %700
 
 682:                                              ; preds = %670
-  %683 = load ptr, ptr %4, align 8, !tbaa !3
+  %683 = load ptr, ptr %4, align 8, !tbaa !34
   %684 = call zeroext i1 @lv_obj_check_type(ptr noundef %683, ptr noundef @lv_tileview_tile_class)
   br i1 %684, label %685, label %690
 
 685:                                              ; preds = %682
-  %686 = load ptr, ptr %4, align 8, !tbaa !3
+  %686 = load ptr, ptr %4, align 8, !tbaa !34
   %687 = load ptr, ptr %5, align 8, !tbaa !3
   %688 = getelementptr inbounds nuw %struct._my_theme_t, ptr %687, i32 0, i32 1
   %689 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %688, i32 0, i32 2
@@ -1197,12 +1197,12 @@ define internal void @theme_apply(ptr noundef %0, ptr noundef %1) #0 {
   br label %699
 
 690:                                              ; preds = %682
-  %691 = load ptr, ptr %4, align 8, !tbaa !3
+  %691 = load ptr, ptr %4, align 8, !tbaa !34
   %692 = call zeroext i1 @lv_obj_check_type(ptr noundef %691, ptr noundef @lv_led_class)
   br i1 %692, label %693, label %698
 
 693:                                              ; preds = %690
-  %694 = load ptr, ptr %4, align 8, !tbaa !3
+  %694 = load ptr, ptr %4, align 8, !tbaa !34
   %695 = load ptr, ptr %5, align 8, !tbaa !3
   %696 = getelementptr inbounds nuw %struct._my_theme_t, ptr %695, i32 0, i32 1
   %697 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %696, i32 0, i32 1
@@ -1339,8 +1339,8 @@ define internal void @style_init(ptr noundef %0, i1 noundef zeroext %1, ptr noun
   %40 = alloca i24, align 4
   store ptr %0, ptr %4, align 8, !tbaa !3
   %41 = zext i1 %1 to i8
-  store i8 %41, ptr %5, align 1, !tbaa !20
-  store ptr %2, ptr %6, align 8, !tbaa !3
+  store i8 %41, ptr %5, align 1, !tbaa !26
+  store ptr %2, ptr %6, align 8, !tbaa !27
   %42 = load ptr, ptr %4, align 8, !tbaa !3
   %43 = getelementptr inbounds nuw %struct._my_theme_t, ptr %42, i32 0, i32 1
   %44 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %43, i32 0, i32 2
@@ -1352,7 +1352,7 @@ define internal void @style_init(ptr noundef %0, i1 noundef zeroext %1, ptr noun
   %48 = load ptr, ptr %4, align 8, !tbaa !3
   %49 = getelementptr inbounds nuw %struct._my_theme_t, ptr %48, i32 0, i32 1
   %50 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %49, i32 0, i32 2
-  %51 = load i8, ptr %5, align 1, !tbaa !20, !range !15, !noundef !16
+  %51 = load i8, ptr %5, align 1, !tbaa !26, !range !19, !noundef !20
   %52 = trunc i8 %51 to i1
   br i1 %52, label %53, label %55
 
@@ -1385,7 +1385,7 @@ define internal void @style_init(ptr noundef %0, i1 noundef zeroext %1, ptr noun
   %68 = load ptr, ptr %4, align 8, !tbaa !3
   %69 = getelementptr inbounds nuw %struct._my_theme_t, ptr %68, i32 0, i32 1
   %70 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %69, i32 0, i32 0
-  %71 = load i8, ptr %5, align 1, !tbaa !20, !range !15, !noundef !16
+  %71 = load i8, ptr %5, align 1, !tbaa !26, !range !19, !noundef !20
   %72 = trunc i8 %71 to i1
   br i1 %72, label %73, label %75
 
@@ -1406,7 +1406,7 @@ define internal void @style_init(ptr noundef %0, i1 noundef zeroext %1, ptr noun
   %79 = load ptr, ptr %4, align 8, !tbaa !3
   %80 = getelementptr inbounds nuw %struct._my_theme_t, ptr %79, i32 0, i32 1
   %81 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %80, i32 0, i32 0
-  %82 = load i8, ptr %5, align 1, !tbaa !20, !range !15, !noundef !16
+  %82 = load i8, ptr %5, align 1, !tbaa !26, !range !19, !noundef !20
   %83 = trunc i8 %82 to i1
   br i1 %83, label %84, label %86
 
@@ -1435,7 +1435,7 @@ define internal void @style_init(ptr noundef %0, i1 noundef zeroext %1, ptr noun
   %96 = load ptr, ptr %4, align 8, !tbaa !3
   %97 = getelementptr inbounds nuw %struct._my_theme_t, ptr %96, i32 0, i32 1
   %98 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %97, i32 0, i32 0
-  %99 = load ptr, ptr %6, align 8, !tbaa !3
+  %99 = load ptr, ptr %6, align 8, !tbaa !27
   call void @lv_style_set_text_font(ptr noundef %98, ptr noundef %99)
   %100 = load ptr, ptr %4, align 8, !tbaa !3
   %101 = getelementptr inbounds nuw %struct._my_theme_t, ptr %100, i32 0, i32 1
@@ -1448,7 +1448,7 @@ define internal void @style_init(ptr noundef %0, i1 noundef zeroext %1, ptr noun
   %106 = load ptr, ptr %4, align 8, !tbaa !3
   %107 = getelementptr inbounds nuw %struct._my_theme_t, ptr %106, i32 0, i32 1
   %108 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %107, i32 0, i32 1
-  %109 = load i8, ptr %5, align 1, !tbaa !20, !range !15, !noundef !16
+  %109 = load i8, ptr %5, align 1, !tbaa !26, !range !19, !noundef !20
   %110 = trunc i8 %109 to i1
   br i1 %110, label %111, label %113
 
@@ -1469,7 +1469,7 @@ define internal void @style_init(ptr noundef %0, i1 noundef zeroext %1, ptr noun
   %117 = load ptr, ptr %4, align 8, !tbaa !3
   %118 = getelementptr inbounds nuw %struct._my_theme_t, ptr %117, i32 0, i32 1
   %119 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %118, i32 0, i32 1
-  %120 = load i8, ptr %5, align 1, !tbaa !20, !range !15, !noundef !16
+  %120 = load i8, ptr %5, align 1, !tbaa !26, !range !19, !noundef !20
   %121 = trunc i8 %120 to i1
   br i1 %121, label %122, label %124
 
@@ -1506,7 +1506,7 @@ define internal void @style_init(ptr noundef %0, i1 noundef zeroext %1, ptr noun
   %140 = load ptr, ptr %4, align 8, !tbaa !3
   %141 = getelementptr inbounds nuw %struct._my_theme_t, ptr %140, i32 0, i32 1
   %142 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %141, i32 0, i32 1
-  %143 = load i8, ptr %5, align 1, !tbaa !20, !range !15, !noundef !16
+  %143 = load i8, ptr %5, align 1, !tbaa !26, !range !19, !noundef !20
   %144 = trunc i8 %143 to i1
   br i1 %144, label %145, label %147
 
@@ -1531,7 +1531,7 @@ define internal void @style_init(ptr noundef %0, i1 noundef zeroext %1, ptr noun
   %154 = load ptr, ptr %4, align 8, !tbaa !3
   %155 = getelementptr inbounds nuw %struct._my_theme_t, ptr %154, i32 0, i32 1
   %156 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %155, i32 0, i32 1
-  %157 = load i8, ptr %5, align 1, !tbaa !20, !range !15, !noundef !16
+  %157 = load i8, ptr %5, align 1, !tbaa !26, !range !19, !noundef !20
   %158 = trunc i8 %157 to i1
   br i1 %158, label %159, label %161
 
@@ -1556,7 +1556,7 @@ define internal void @style_init(ptr noundef %0, i1 noundef zeroext %1, ptr noun
   %168 = load ptr, ptr %4, align 8, !tbaa !3
   %169 = getelementptr inbounds nuw %struct._my_theme_t, ptr %168, i32 0, i32 1
   %170 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %169, i32 0, i32 1
-  %171 = load i8, ptr %5, align 1, !tbaa !20, !range !15, !noundef !16
+  %171 = load i8, ptr %5, align 1, !tbaa !26, !range !19, !noundef !20
   %172 = trunc i8 %171 to i1
   br i1 %172, label %173, label %175
 
@@ -1577,7 +1577,7 @@ define internal void @style_init(ptr noundef %0, i1 noundef zeroext %1, ptr noun
   %179 = load ptr, ptr %4, align 8, !tbaa !3
   %180 = getelementptr inbounds nuw %struct._my_theme_t, ptr %179, i32 0, i32 1
   %181 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %180, i32 0, i32 1
-  %182 = load i8, ptr %5, align 1, !tbaa !20, !range !15, !noundef !16
+  %182 = load i8, ptr %5, align 1, !tbaa !26, !range !19, !noundef !20
   %183 = trunc i8 %182 to i1
   br i1 %183, label %184, label %186
 
@@ -1618,7 +1618,7 @@ define internal void @style_init(ptr noundef %0, i1 noundef zeroext %1, ptr noun
   %205 = load ptr, ptr %4, align 8, !tbaa !3
   %206 = getelementptr inbounds nuw %struct._my_theme_t, ptr %205, i32 0, i32 1
   %207 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %206, i32 0, i32 4
-  %208 = load i8, ptr %5, align 1, !tbaa !20, !range !15, !noundef !16
+  %208 = load i8, ptr %5, align 1, !tbaa !26, !range !19, !noundef !20
   %209 = trunc i8 %208 to i1
   br i1 %209, label %210, label %212
 
@@ -1639,7 +1639,7 @@ define internal void @style_init(ptr noundef %0, i1 noundef zeroext %1, ptr noun
   %216 = load ptr, ptr %4, align 8, !tbaa !3
   %217 = getelementptr inbounds nuw %struct._my_theme_t, ptr %216, i32 0, i32 1
   %218 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %217, i32 0, i32 4
-  %219 = load i8, ptr %5, align 1, !tbaa !20, !range !15, !noundef !16
+  %219 = load i8, ptr %5, align 1, !tbaa !26, !range !19, !noundef !20
   %220 = trunc i8 %219 to i1
   br i1 %220, label %221, label %223
 
@@ -1660,7 +1660,7 @@ define internal void @style_init(ptr noundef %0, i1 noundef zeroext %1, ptr noun
   %227 = load ptr, ptr %4, align 8, !tbaa !3
   %228 = getelementptr inbounds nuw %struct._my_theme_t, ptr %227, i32 0, i32 1
   %229 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %228, i32 0, i32 4
-  %230 = load i8, ptr %5, align 1, !tbaa !20, !range !15, !noundef !16
+  %230 = load i8, ptr %5, align 1, !tbaa !26, !range !19, !noundef !20
   %231 = trunc i8 %230 to i1
   br i1 %231, label %232, label %234
 
@@ -1681,7 +1681,7 @@ define internal void @style_init(ptr noundef %0, i1 noundef zeroext %1, ptr noun
   %238 = load ptr, ptr %4, align 8, !tbaa !3
   %239 = getelementptr inbounds nuw %struct._my_theme_t, ptr %238, i32 0, i32 1
   %240 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %239, i32 0, i32 4
-  %241 = load i8, ptr %5, align 1, !tbaa !20, !range !15, !noundef !16
+  %241 = load i8, ptr %5, align 1, !tbaa !26, !range !19, !noundef !20
   %242 = trunc i8 %241 to i1
   br i1 %242, label %243, label %245
 
@@ -1702,7 +1702,7 @@ define internal void @style_init(ptr noundef %0, i1 noundef zeroext %1, ptr noun
   %249 = load ptr, ptr %4, align 8, !tbaa !3
   %250 = getelementptr inbounds nuw %struct._my_theme_t, ptr %249, i32 0, i32 1
   %251 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %250, i32 0, i32 4
-  %252 = load i8, ptr %5, align 1, !tbaa !20, !range !15, !noundef !16
+  %252 = load i8, ptr %5, align 1, !tbaa !26, !range !19, !noundef !20
   %253 = trunc i8 %252 to i1
   br i1 %253, label %254, label %256
 
@@ -1723,7 +1723,7 @@ define internal void @style_init(ptr noundef %0, i1 noundef zeroext %1, ptr noun
   %260 = load ptr, ptr %4, align 8, !tbaa !3
   %261 = getelementptr inbounds nuw %struct._my_theme_t, ptr %260, i32 0, i32 1
   %262 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %261, i32 0, i32 4
-  %263 = load i8, ptr %5, align 1, !tbaa !20, !range !15, !noundef !16
+  %263 = load i8, ptr %5, align 1, !tbaa !26, !range !19, !noundef !20
   %264 = trunc i8 %263 to i1
   br i1 %264, label %265, label %267
 
@@ -1840,7 +1840,7 @@ define internal void @style_init(ptr noundef %0, i1 noundef zeroext %1, ptr noun
   %343 = load ptr, ptr %4, align 8, !tbaa !3
   %344 = getelementptr inbounds nuw %struct._my_theme_t, ptr %343, i32 0, i32 1
   %345 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %344, i32 0, i32 15
-  %346 = load i8, ptr %5, align 1, !tbaa !20, !range !15, !noundef !16
+  %346 = load i8, ptr %5, align 1, !tbaa !26, !range !19, !noundef !20
   %347 = trunc i8 %346 to i1
   br i1 %347, label %348, label %350
 
@@ -1884,18 +1884,18 @@ define internal void @style_init(ptr noundef %0, i1 noundef zeroext %1, ptr noun
   %372 = load ptr, ptr %4, align 8, !tbaa !3
   %373 = getelementptr inbounds nuw %struct._my_theme_t, ptr %372, i32 0, i32 0
   %374 = getelementptr inbounds nuw %struct._lv_theme_t, ptr %373, i32 0, i32 3
-  %375 = load ptr, ptr %374, align 8, !tbaa !21
+  %375 = load ptr, ptr %374, align 8, !tbaa !28
   %376 = call i32 @lv_display_dpx(ptr noundef %375, i32 noundef 8)
   %377 = load ptr, ptr %4, align 8, !tbaa !3
   %378 = getelementptr inbounds nuw %struct._my_theme_t, ptr %377, i32 0, i32 0
   %379 = getelementptr inbounds nuw %struct._lv_theme_t, ptr %378, i32 0, i32 3
-  %380 = load ptr, ptr %379, align 8, !tbaa !21
+  %380 = load ptr, ptr %379, align 8, !tbaa !28
   %381 = call i32 @lv_display_dpx(ptr noundef %380, i32 noundef 8)
   call void @lv_style_set_size(ptr noundef %371, i32 noundef %376, i32 noundef %381)
   %382 = load ptr, ptr %4, align 8, !tbaa !3
   %383 = getelementptr inbounds nuw %struct._my_theme_t, ptr %382, i32 0, i32 1
   %384 = getelementptr inbounds nuw %struct.my_theme_styles_t, ptr %383, i32 0, i32 16
-  %385 = load i8, ptr %5, align 1, !tbaa !20, !range !15, !noundef !16
+  %385 = load i8, ptr %5, align 1, !tbaa !26, !range !19, !noundef !20
   %386 = trunc i8 %385 to i1
   br i1 %386, label %387, label %389
 
@@ -1927,17 +1927,17 @@ declare void @lv_obj_report_style_change(ptr noundef) #2
 ; Function Attrs: nounwind uwtable
 define internal void @style_init_reset(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8, !tbaa !3
+  store ptr %0, ptr %2, align 8, !tbaa !21
   %3 = call zeroext i1 @lv_theme_mono_is_inited()
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %1
-  %5 = load ptr, ptr %2, align 8, !tbaa !3
+  %5 = load ptr, ptr %2, align 8, !tbaa !21
   call void @lv_style_reset(ptr noundef %5)
   br label %8
 
 6:                                                ; preds = %1
-  %7 = load ptr, ptr %2, align 8, !tbaa !3
+  %7 = load ptr, ptr %2, align 8, !tbaa !21
   call void @lv_style_init(ptr noundef %7)
   br label %8
 
@@ -1954,7 +1954,7 @@ declare i24 @lv_color_white() #2
 declare i24 @lv_color_black() #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare void @lv_style_set_width(ptr noundef, i32 noundef) #2
 
@@ -1976,19 +1976,19 @@ declare void @lv_style_set_border_width(ptr noundef, i32 noundef) #2
 define internal void @lv_style_set_pad_all(ptr noundef %0, i32 noundef %1) #4 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8, !tbaa !3
-  store i32 %1, ptr %4, align 4, !tbaa !17
-  %5 = load ptr, ptr %3, align 8, !tbaa !3
-  %6 = load i32, ptr %4, align 4, !tbaa !17
+  store ptr %0, ptr %3, align 8, !tbaa !21
+  store i32 %1, ptr %4, align 4, !tbaa !22
+  %5 = load ptr, ptr %3, align 8, !tbaa !21
+  %6 = load i32, ptr %4, align 4, !tbaa !22
   call void @lv_style_set_pad_left(ptr noundef %5, i32 noundef %6)
-  %7 = load ptr, ptr %3, align 8, !tbaa !3
-  %8 = load i32, ptr %4, align 4, !tbaa !17
+  %7 = load ptr, ptr %3, align 8, !tbaa !21
+  %8 = load i32, ptr %4, align 4, !tbaa !22
   call void @lv_style_set_pad_right(ptr noundef %7, i32 noundef %8)
-  %9 = load ptr, ptr %3, align 8, !tbaa !3
-  %10 = load i32, ptr %4, align 4, !tbaa !17
+  %9 = load ptr, ptr %3, align 8, !tbaa !21
+  %10 = load i32, ptr %4, align 4, !tbaa !22
   call void @lv_style_set_pad_top(ptr noundef %9, i32 noundef %10)
-  %11 = load ptr, ptr %3, align 8, !tbaa !3
-  %12 = load i32, ptr %4, align 4, !tbaa !17
+  %11 = load ptr, ptr %3, align 8, !tbaa !21
+  %12 = load i32, ptr %4, align 4, !tbaa !22
   call void @lv_style_set_pad_bottom(ptr noundef %11, i32 noundef %12)
   ret void
 }
@@ -1997,13 +1997,13 @@ define internal void @lv_style_set_pad_all(ptr noundef %0, i32 noundef %1) #4 {
 define internal void @lv_style_set_pad_gap(ptr noundef %0, i32 noundef %1) #4 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8, !tbaa !3
-  store i32 %1, ptr %4, align 4, !tbaa !17
-  %5 = load ptr, ptr %3, align 8, !tbaa !3
-  %6 = load i32, ptr %4, align 4, !tbaa !17
+  store ptr %0, ptr %3, align 8, !tbaa !21
+  store i32 %1, ptr %4, align 4, !tbaa !22
+  %5 = load ptr, ptr %3, align 8, !tbaa !21
+  %6 = load i32, ptr %4, align 4, !tbaa !22
   call void @lv_style_set_pad_row(ptr noundef %5, i32 noundef %6)
-  %7 = load ptr, ptr %3, align 8, !tbaa !3
-  %8 = load i32, ptr %4, align 4, !tbaa !17
+  %7 = load ptr, ptr %3, align 8, !tbaa !21
+  %8 = load i32, ptr %4, align 4, !tbaa !22
   call void @lv_style_set_pad_column(ptr noundef %7, i32 noundef %8)
   ret void
 }
@@ -2035,14 +2035,14 @@ define internal void @lv_style_set_size(ptr noundef %0, i32 noundef %1, i32 noun
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8, !tbaa !3
-  store i32 %1, ptr %5, align 4, !tbaa !17
-  store i32 %2, ptr %6, align 4, !tbaa !17
-  %7 = load ptr, ptr %4, align 8, !tbaa !3
-  %8 = load i32, ptr %5, align 4, !tbaa !17
+  store ptr %0, ptr %4, align 8, !tbaa !21
+  store i32 %1, ptr %5, align 4, !tbaa !22
+  store i32 %2, ptr %6, align 4, !tbaa !22
+  %7 = load ptr, ptr %4, align 8, !tbaa !21
+  %8 = load i32, ptr %5, align 4, !tbaa !22
   call void @lv_style_set_width(ptr noundef %7, i32 noundef %8)
-  %9 = load ptr, ptr %4, align 8, !tbaa !3
-  %10 = load i32, ptr %6, align 4, !tbaa !17
+  %9 = load ptr, ptr %4, align 8, !tbaa !21
+  %10 = load i32, ptr %6, align 4, !tbaa !22
   call void @lv_style_set_height(ptr noundef %9, i32 noundef %10)
   ret void
 }
@@ -2082,25 +2082,35 @@ attributes #5 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{!4, !4, i64 0}
-!4 = !{!"any pointer", !5, i64 0}
-!5 = !{!"omnipotent char", !6, i64 0}
-!6 = !{!"Simple C/C++ TBAA"}
-!7 = !{!8, !14, i64 344}
-!8 = !{!"_my_theme_t", !9, i64 0, !12, i64 72, !14, i64 344}
-!9 = !{!"_lv_theme_t", !4, i64 0, !4, i64 8, !4, i64 16, !4, i64 24, !10, i64 32, !10, i64 35, !4, i64 40, !4, i64 48, !4, i64 56, !11, i64 64}
-!10 = !{!"", !5, i64 0, !5, i64 1, !5, i64 2}
-!11 = !{!"int", !5, i64 0}
-!12 = !{!"", !13, i64 0, !13, i64 16, !13, i64 32, !13, i64 48, !13, i64 64, !13, i64 80, !13, i64 96, !13, i64 112, !13, i64 128, !13, i64 144, !13, i64 160, !13, i64 176, !13, i64 192, !13, i64 208, !13, i64 224, !13, i64 240, !13, i64 256}
-!13 = !{!"", !4, i64 0, !11, i64 8, !5, i64 12}
-!14 = !{!"_Bool", !5, i64 0}
-!15 = !{i8 0, i8 2}
-!16 = !{}
-!17 = !{!11, !11, i64 0}
-!18 = distinct !{!18, !19}
-!19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!14, !14, i64 0}
-!21 = !{!8, !4, i64 24}
-!22 = !{!8, !4, i64 40}
-!23 = !{!8, !4, i64 48}
-!24 = !{!8, !4, i64 56}
-!25 = !{!8, !4, i64 0}
+!4 = !{!"p1 _ZTS11_my_theme_t", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !18, i64 344}
+!9 = !{!"_my_theme_t", !10, i64 0, !16, i64 72, !18, i64 344}
+!10 = !{!"_lv_theme_t", !5, i64 0, !11, i64 8, !5, i64 16, !12, i64 24, !13, i64 32, !13, i64 35, !14, i64 40, !14, i64 48, !14, i64 56, !15, i64 64}
+!11 = !{!"p1 _ZTS11_lv_theme_t", !5, i64 0}
+!12 = !{!"p1 _ZTS13_lv_display_t", !5, i64 0}
+!13 = !{!"", !6, i64 0, !6, i64 1, !6, i64 2}
+!14 = !{!"p1 _ZTS10_lv_font_t", !5, i64 0}
+!15 = !{!"int", !6, i64 0}
+!16 = !{!"", !17, i64 0, !17, i64 16, !17, i64 32, !17, i64 48, !17, i64 64, !17, i64 80, !17, i64 96, !17, i64 112, !17, i64 128, !17, i64 144, !17, i64 160, !17, i64 176, !17, i64 192, !17, i64 208, !17, i64 224, !17, i64 240, !17, i64 256}
+!17 = !{!"", !5, i64 0, !15, i64 8, !6, i64 12}
+!18 = !{!"_Bool", !6, i64 0}
+!19 = !{i8 0, i8 2}
+!20 = !{}
+!21 = !{!5, !5, i64 0}
+!22 = !{!15, !15, i64 0}
+!23 = distinct !{!23, !24}
+!24 = !{!"llvm.loop.mustprogress"}
+!25 = !{!12, !12, i64 0}
+!26 = !{!18, !18, i64 0}
+!27 = !{!14, !14, i64 0}
+!28 = !{!9, !12, i64 24}
+!29 = !{!9, !14, i64 40}
+!30 = !{!9, !14, i64 48}
+!31 = !{!9, !14, i64 56}
+!32 = !{!9, !5, i64 0}
+!33 = !{!11, !11, i64 0}
+!34 = !{!35, !35, i64 0}
+!35 = !{!"p1 _ZTS9_lv_obj_t", !5, i64 0}

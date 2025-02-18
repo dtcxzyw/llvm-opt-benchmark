@@ -34,8 +34,8 @@ define noundef ptr @lv_fragment_create(ptr noundef %0, ptr noundef %1) local_unn
   store ptr %0, ptr %11, align 8, !tbaa !10
   %12 = tail call ptr @lv_fragment_manager_create(ptr noundef nonnull %11) #4
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store ptr %12, ptr %13, align 8, !tbaa !12
-  %14 = load ptr, ptr %0, align 8, !tbaa !13
+  store ptr %12, ptr %13, align 8, !tbaa !16
+  %14 = load ptr, ptr %0, align 8, !tbaa !17
   %.not16 = icmp eq ptr %14, null
   br i1 %.not16, label %16, label %15
 
@@ -61,19 +61,19 @@ define void @lv_fragment_delete(ptr noundef %0) local_unnamed_addr #0 {
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !14
+  %4 = load ptr, ptr %3, align 8, !tbaa !18
   %.not14 = icmp eq ptr %4, null
   br i1 %.not14, label %8, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !15
+  %7 = load ptr, ptr %6, align 8, !tbaa !19
   tail call void @lv_fragment_manager_remove(ptr noundef %7, ptr noundef nonnull %0) #4
   br label %20
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %10 = load ptr, ptr %9, align 8, !tbaa !18
+  %10 = load ptr, ptr %9, align 8, !tbaa !24
   %.not15 = icmp eq ptr %10, null
   br i1 %.not15, label %12, label %11
 
@@ -84,7 +84,7 @@ define void @lv_fragment_delete(ptr noundef %0) local_unnamed_addr #0 {
 12:                                               ; preds = %11, %8
   %13 = load ptr, ptr %0, align 8, !tbaa !10
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !19
+  %15 = load ptr, ptr %14, align 8, !tbaa !25
   %.not16 = icmp eq ptr %15, null
   br i1 %.not16, label %17, label %16
 
@@ -94,7 +94,7 @@ define void @lv_fragment_delete(ptr noundef %0) local_unnamed_addr #0 {
 
 17:                                               ; preds = %16, %12
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %19 = load ptr, ptr %18, align 8, !tbaa !12
+  %19 = load ptr, ptr %18, align 8, !tbaa !16
   tail call void @lv_fragment_manager_delete(ptr noundef %19) #4
   tail call void @lv_free(ptr noundef nonnull %0) #4
   br label %20
@@ -115,45 +115,45 @@ define void @lv_fragment_delete_obj(ptr noundef %0) local_unnamed_addr #0 {
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !12
+  %4 = load ptr, ptr %3, align 8, !tbaa !16
   tail call void @lv_fragment_manager_delete_obj(ptr noundef %4) #4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !14
+  %6 = load ptr, ptr %5, align 8, !tbaa !18
   %.not38 = icmp eq ptr %6, null
   br i1 %.not38, label %25, label %7
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %9 = load i8, ptr %8, align 8, !tbaa !20, !range !21, !noundef !22
+  %9 = load i8, ptr %8, align 8, !tbaa !26, !range !27, !noundef !28
   %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %11, label %43
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 33
-  store i8 1, ptr %12, align 1, !tbaa !23
+  store i8 1, ptr %12, align 1, !tbaa !29
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %14 = load ptr, ptr %13, align 8, !tbaa !18
+  %14 = load ptr, ptr %13, align 8, !tbaa !24
   %15 = tail call i32 @lv_obj_get_event_count(ptr noundef %14) #4
   %.not49 = icmp eq i32 %15, 0
   br i1 %.not49, label %.critedge.preheader, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11, %23
   %.03048 = phi i32 [ %24, %23 ], [ 0, %11 ]
-  %16 = load ptr, ptr %13, align 8, !tbaa !18
+  %16 = load ptr, ptr %13, align 8, !tbaa !24
   %17 = tail call ptr @lv_obj_get_event_dsc(ptr noundef %16, i32 noundef %.03048) #4
   %18 = tail call ptr @lv_event_dsc_get_cb(ptr noundef %17) #4
   %19 = icmp eq ptr %18, @cb_delete_assertion
   br i1 %19, label %20, label %23
 
 20:                                               ; preds = %.lr.ph
-  %21 = load ptr, ptr %13, align 8, !tbaa !18
+  %21 = load ptr, ptr %13, align 8, !tbaa !24
   %22 = tail call zeroext i1 @lv_obj_remove_event(ptr noundef %21, i32 noundef %.03048) #4
   br i1 %22, label %25, label %.critedge.preheader
 
 23:                                               ; preds = %.lr.ph
   %24 = add nuw i32 %.03048, 1
   %exitcond.not = icmp eq i32 %24, %15
-  br i1 %exitcond.not, label %.critedge.preheader, label %.lr.ph, !llvm.loop !24
+  br i1 %exitcond.not, label %.critedge.preheader, label %.lr.ph, !llvm.loop !30
 
 .critedge.preheader:                              ; preds = %23, %11, %20
   br label %.critedge
@@ -163,7 +163,7 @@ define void @lv_fragment_delete_obj(ptr noundef %0) local_unnamed_addr #0 {
 
 25:                                               ; preds = %20, %2
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %27 = load ptr, ptr %26, align 8, !tbaa !18
+  %27 = load ptr, ptr %26, align 8, !tbaa !24
   %.not39 = icmp eq ptr %27, null
   br i1 %.not39, label %.preheader46, label %28
 
@@ -173,25 +173,25 @@ define void @lv_fragment_delete_obj(ptr noundef %0) local_unnamed_addr #0 {
 28:                                               ; preds = %25
   %29 = load ptr, ptr %0, align 8, !tbaa !10
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 48
-  %31 = load ptr, ptr %30, align 8, !tbaa !26
+  %31 = load ptr, ptr %30, align 8, !tbaa !32
   %.not40 = icmp eq ptr %31, null
   br i1 %.not40, label %33, label %32
 
 32:                                               ; preds = %28
   tail call void %31(ptr noundef nonnull %0, ptr noundef nonnull %27) #4
-  %.pre = load ptr, ptr %26, align 8, !tbaa !18
+  %.pre = load ptr, ptr %26, align 8, !tbaa !24
   br label %33
 
 33:                                               ; preds = %32, %28
   %34 = phi ptr [ %.pre, %32 ], [ %27, %28 ]
   tail call void @lv_obj_delete(ptr noundef %34) #4
   %35 = getelementptr inbounds nuw i8, ptr %29, i64 56
-  %36 = load ptr, ptr %35, align 8, !tbaa !27
+  %36 = load ptr, ptr %35, align 8, !tbaa !33
   %.not41 = icmp eq ptr %36, null
   br i1 %.not41, label %39, label %37
 
 37:                                               ; preds = %33
-  %38 = load ptr, ptr %26, align 8, !tbaa !18
+  %38 = load ptr, ptr %26, align 8, !tbaa !24
   tail call void %36(ptr noundef nonnull %0, ptr noundef %38) #4
   br label %39
 
@@ -200,11 +200,11 @@ define void @lv_fragment_delete_obj(ptr noundef %0) local_unnamed_addr #0 {
 
 40:                                               ; preds = %39
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store i8 0, ptr %41, align 8, !tbaa !20
+  store i8 0, ptr %41, align 8, !tbaa !26
   br label %42
 
 42:                                               ; preds = %40, %39
-  store ptr null, ptr %26, align 8, !tbaa !18
+  store ptr null, ptr %26, align 8, !tbaa !24
   br label %43
 
 43:                                               ; preds = %7, %42
@@ -225,7 +225,7 @@ define ptr @lv_fragment_get_manager(ptr noundef readonly captures(address_is_nul
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !14
+  %4 = load ptr, ptr %3, align 8, !tbaa !18
   %.not4 = icmp eq ptr %4, null
   br i1 %.not4, label %.preheader5, label %5
 
@@ -234,7 +234,7 @@ define ptr @lv_fragment_get_manager(ptr noundef readonly captures(address_is_nul
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !15
+  %7 = load ptr, ptr %6, align 8, !tbaa !19
   ret ptr %7
 }
 
@@ -248,7 +248,7 @@ define ptr @lv_fragment_get_container(ptr noundef readonly captures(address_is_n
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !14
+  %4 = load ptr, ptr %3, align 8, !tbaa !18
   %.not4 = icmp eq ptr %4, null
   br i1 %.not4, label %.preheader5, label %5
 
@@ -257,7 +257,7 @@ define ptr @lv_fragment_get_container(ptr noundef readonly captures(address_is_n
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !28
+  %7 = load ptr, ptr %6, align 8, !tbaa !34
   ret ptr %7
 }
 
@@ -271,7 +271,7 @@ define ptr @lv_fragment_get_parent(ptr noundef readonly captures(address_is_null
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !14
+  %4 = load ptr, ptr %3, align 8, !tbaa !18
   %.not4 = icmp eq ptr %4, null
   br i1 %.not4, label %.preheader5, label %5
 
@@ -280,7 +280,7 @@ define ptr @lv_fragment_get_parent(ptr noundef readonly captures(address_is_null
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !15
+  %7 = load ptr, ptr %6, align 8, !tbaa !19
   %8 = tail call ptr @lv_fragment_manager_get_parent_fragment(ptr noundef %7) #4
   ret ptr %8
 }
@@ -290,13 +290,13 @@ declare ptr @lv_fragment_manager_get_parent_fragment(ptr noundef) local_unnamed_
 ; Function Attrs: nounwind uwtable
 define nonnull ptr @lv_fragment_create_obj(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !14
+  %4 = load ptr, ptr %3, align 8, !tbaa !18
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %7, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 33
-  store i8 0, ptr %6, align 1, !tbaa !23
+  store i8 0, ptr %6, align 1, !tbaa !29
   br label %7
 
 7:                                                ; preds = %5, %2
@@ -312,21 +312,21 @@ define nonnull ptr @lv_fragment_create_obj(ptr noundef %0, ptr noundef %1) local
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %11, ptr %13, align 8, !tbaa !18
+  store ptr %11, ptr %13, align 8, !tbaa !24
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %15 = load ptr, ptr %14, align 8, !tbaa !12
+  %15 = load ptr, ptr %14, align 8, !tbaa !16
   tail call void @lv_fragment_manager_create_obj(ptr noundef %15) #4
   br i1 %.not, label %19, label %16
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store i8 1, ptr %17, align 8, !tbaa !20
+  store i8 1, ptr %17, align 8, !tbaa !26
   %18 = tail call ptr @lv_obj_add_event_cb(ptr noundef nonnull %11, ptr noundef nonnull @cb_delete_assertion, i32 noundef 41, ptr noundef null) #4
   br label %19
 
 19:                                               ; preds = %16, %12
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %21 = load ptr, ptr %20, align 8, !tbaa !29
+  %21 = load ptr, ptr %20, align 8, !tbaa !35
   %.not22 = icmp eq ptr %21, null
   br i1 %.not22, label %23, label %22
 
@@ -372,7 +372,7 @@ define void @lv_fragment_recreate_obj(ptr noundef %0) local_unnamed_addr #0 {
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !14
+  %4 = load ptr, ptr %3, align 8, !tbaa !18
   %.not5 = icmp eq ptr %4, null
   br i1 %.not5, label %.preheader6, label %5
 
@@ -381,12 +381,12 @@ define void @lv_fragment_recreate_obj(ptr noundef %0) local_unnamed_addr #0 {
 
 5:                                                ; preds = %2
   tail call void @lv_fragment_delete_obj(ptr noundef nonnull %0)
-  %6 = load ptr, ptr %3, align 8, !tbaa !14
+  %6 = load ptr, ptr %3, align 8, !tbaa !18
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !28
-  %9 = load ptr, ptr %8, align 8, !tbaa !30
+  %8 = load ptr, ptr %7, align 8, !tbaa !34
+  %9 = load ptr, ptr %8, align 8, !tbaa !36
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 33
-  store i8 0, ptr %10, align 1, !tbaa !23
+  store i8 0, ptr %10, align 1, !tbaa !29
   %11 = load ptr, ptr %0, align 8, !tbaa !10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %13 = load ptr, ptr %12, align 8, !tbaa !3
@@ -399,15 +399,15 @@ define void @lv_fragment_recreate_obj(ptr noundef %0) local_unnamed_addr #0 {
 
 15:                                               ; preds = %5
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %14, ptr %16, align 8, !tbaa !18
+  store ptr %14, ptr %16, align 8, !tbaa !24
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %18 = load ptr, ptr %17, align 8, !tbaa !12
+  %18 = load ptr, ptr %17, align 8, !tbaa !16
   tail call void @lv_fragment_manager_create_obj(ptr noundef %18) #4
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store i8 1, ptr %19, align 8, !tbaa !20
+  store i8 1, ptr %19, align 8, !tbaa !26
   %20 = tail call ptr @lv_obj_add_event_cb(ptr noundef nonnull %14, ptr noundef nonnull @cb_delete_assertion, i32 noundef 41, ptr noundef null) #4
   %21 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  %22 = load ptr, ptr %21, align 8, !tbaa !29
+  %22 = load ptr, ptr %21, align 8, !tbaa !35
   %.not22.i = icmp eq ptr %22, null
   br i1 %.not22.i, label %lv_fragment_create_obj.exit, label %23
 
@@ -437,24 +437,30 @@ attributes #4 = { nounwind }
 !7 = !{!"Simple C/C++ TBAA"}
 !8 = !{!"long", !6, i64 0}
 !9 = !{!4, !8, i64 72}
-!10 = !{!11, !5, i64 0}
-!11 = !{!"_lv_fragment_t", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24}
-!12 = !{!11, !5, i64 16}
-!13 = !{!4, !5, i64 0}
-!14 = !{!11, !5, i64 8}
-!15 = !{!16, !5, i64 8}
-!16 = !{!"_lv_fragment_managed_states_t", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !17, i64 32, !17, i64 33, !17, i64 34}
-!17 = !{!"_Bool", !6, i64 0}
-!18 = !{!11, !5, i64 24}
-!19 = !{!4, !5, i64 8}
-!20 = !{!16, !17, i64 32}
-!21 = !{i8 0, i8 2}
-!22 = !{}
-!23 = !{!16, !17, i64 33}
-!24 = distinct !{!24, !25}
-!25 = !{!"llvm.loop.mustprogress"}
-!26 = !{!4, !5, i64 48}
-!27 = !{!4, !5, i64 56}
-!28 = !{!16, !5, i64 16}
-!29 = !{!4, !5, i64 40}
-!30 = !{!5, !5, i64 0}
+!10 = !{!11, !12, i64 0}
+!11 = !{!"_lv_fragment_t", !12, i64 0, !13, i64 8, !14, i64 16, !15, i64 24}
+!12 = !{!"p1 _ZTS20_lv_fragment_class_t", !5, i64 0}
+!13 = !{!"p1 _ZTS29_lv_fragment_managed_states_t", !5, i64 0}
+!14 = !{!"p1 _ZTS22_lv_fragment_manager_t", !5, i64 0}
+!15 = !{!"p1 _ZTS9_lv_obj_t", !5, i64 0}
+!16 = !{!11, !14, i64 16}
+!17 = !{!4, !5, i64 0}
+!18 = !{!11, !13, i64 8}
+!19 = !{!20, !14, i64 8}
+!20 = !{!"_lv_fragment_managed_states_t", !12, i64 0, !14, i64 8, !21, i64 16, !22, i64 24, !23, i64 32, !23, i64 33, !23, i64 34}
+!21 = !{!"p2 _ZTS9_lv_obj_t", !5, i64 0}
+!22 = !{!"p1 _ZTS14_lv_fragment_t", !5, i64 0}
+!23 = !{!"_Bool", !6, i64 0}
+!24 = !{!11, !15, i64 24}
+!25 = !{!4, !5, i64 8}
+!26 = !{!20, !23, i64 32}
+!27 = !{i8 0, i8 2}
+!28 = !{}
+!29 = !{!20, !23, i64 33}
+!30 = distinct !{!30, !31}
+!31 = !{!"llvm.loop.mustprogress"}
+!32 = !{!4, !5, i64 48}
+!33 = !{!4, !5, i64 56}
+!34 = !{!20, !21, i64 16}
+!35 = !{!4, !5, i64 40}
+!36 = !{!15, !15, i64 0}

@@ -108,7 +108,7 @@ define ptr @lv_font_manager_create(i32 noundef %0) #0 {
   %42 = call ptr @lv_font_manager_recycle_create(i32 noundef %41)
   %43 = load ptr, ptr %4, align 8, !tbaa !7
   %44 = getelementptr inbounds nuw %struct._lv_font_manager_t, ptr %43, i32 0, i32 3
-  store ptr %42, ptr %44, align 8, !tbaa !9
+  store ptr %42, ptr %44, align 8, !tbaa !10
   br label %45
 
 45:                                               ; preds = %34
@@ -130,7 +130,7 @@ define ptr @lv_font_manager_create(i32 noundef %0) #0 {
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 declare ptr @lv_malloc_zeroed(i64 noundef) #2
 
@@ -139,7 +139,7 @@ declare void @lv_ll_init(ptr noundef, i32 noundef) #2
 declare ptr @lv_font_manager_recycle_create(i32 noundef) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define zeroext i1 @lv_font_manager_delete(ptr noundef %0) #0 {
@@ -187,54 +187,54 @@ define zeroext i1 @lv_font_manager_delete(ptr noundef %0) #0 {
 19:                                               ; preds = %13
   %20 = load ptr, ptr %3, align 8, !tbaa !7
   %21 = getelementptr inbounds nuw %struct._lv_font_manager_t, ptr %20, i32 0, i32 3
-  %22 = load ptr, ptr %21, align 8, !tbaa !9
+  %22 = load ptr, ptr %21, align 8, !tbaa !10
   call void @lv_font_manager_recycle_delete(ptr noundef %22)
   call void @llvm.lifetime.start.p0(i64 8, ptr %4) #6
   %23 = load ptr, ptr %3, align 8, !tbaa !7
   %24 = getelementptr inbounds nuw %struct._lv_font_manager_t, ptr %23, i32 0, i32 2
   %25 = call ptr @lv_ll_get_head(ptr noundef %24)
-  store ptr %25, ptr %4, align 8, !tbaa !7
+  store ptr %25, ptr %4, align 8, !tbaa !15
   br label %26
 
 26:                                               ; preds = %46, %19
-  %27 = load ptr, ptr %4, align 8, !tbaa !7
+  %27 = load ptr, ptr %4, align 8, !tbaa !15
   %28 = icmp ne ptr %27, null
   br i1 %28, label %29, label %51
 
 29:                                               ; preds = %26
-  %30 = load ptr, ptr %4, align 8, !tbaa !7
+  %30 = load ptr, ptr %4, align 8, !tbaa !15
   %31 = getelementptr inbounds nuw %struct._lv_font_path_t, ptr %30, i32 0, i32 2
-  %32 = load i8, ptr %31, align 8, !tbaa !12, !range !15, !noundef !16
+  %32 = load i8, ptr %31, align 8, !tbaa !17, !range !20, !noundef !21
   %33 = trunc i8 %32 to i1
   br i1 %33, label %41, label %34
 
 34:                                               ; preds = %29
-  %35 = load ptr, ptr %4, align 8, !tbaa !7
+  %35 = load ptr, ptr %4, align 8, !tbaa !15
   %36 = getelementptr inbounds nuw %struct._lv_font_path_t, ptr %35, i32 0, i32 0
-  %37 = load ptr, ptr %36, align 8, !tbaa !17
+  %37 = load ptr, ptr %36, align 8, !tbaa !22
   call void @lv_free(ptr noundef %37)
-  %38 = load ptr, ptr %4, align 8, !tbaa !7
+  %38 = load ptr, ptr %4, align 8, !tbaa !15
   %39 = getelementptr inbounds nuw %struct._lv_font_path_t, ptr %38, i32 0, i32 1
-  %40 = load ptr, ptr %39, align 8, !tbaa !18
+  %40 = load ptr, ptr %39, align 8, !tbaa !23
   call void @lv_free(ptr noundef %40)
   br label %41
 
 41:                                               ; preds = %34, %29
-  %42 = load ptr, ptr %4, align 8, !tbaa !7
+  %42 = load ptr, ptr %4, align 8, !tbaa !15
   %43 = getelementptr inbounds nuw %struct._lv_font_path_t, ptr %42, i32 0, i32 0
-  store ptr null, ptr %43, align 8, !tbaa !17
-  %44 = load ptr, ptr %4, align 8, !tbaa !7
+  store ptr null, ptr %43, align 8, !tbaa !22
+  %44 = load ptr, ptr %4, align 8, !tbaa !15
   %45 = getelementptr inbounds nuw %struct._lv_font_path_t, ptr %44, i32 0, i32 1
-  store ptr null, ptr %45, align 8, !tbaa !18
+  store ptr null, ptr %45, align 8, !tbaa !23
   br label %46
 
 46:                                               ; preds = %41
   %47 = load ptr, ptr %3, align 8, !tbaa !7
   %48 = getelementptr inbounds nuw %struct._lv_font_manager_t, ptr %47, i32 0, i32 2
-  %49 = load ptr, ptr %4, align 8, !tbaa !7
+  %49 = load ptr, ptr %4, align 8, !tbaa !15
   %50 = call ptr @lv_ll_get_next(ptr noundef %48, ptr noundef %49)
-  store ptr %50, ptr %4, align 8, !tbaa !7
-  br label %26, !llvm.loop !19
+  store ptr %50, ptr %4, align 8, !tbaa !15
+  br label %26, !llvm.loop !24
 
 51:                                               ; preds = %26
   %52 = load ptr, ptr %3, align 8, !tbaa !7
@@ -297,9 +297,9 @@ define internal zeroext i1 @lv_font_manager_check_resource(ptr noundef %0) #0 {
   call void @llvm.lifetime.start.p0(i64 8, ptr %3) #6
   %19 = load ptr, ptr %2, align 8, !tbaa !7
   %20 = getelementptr inbounds nuw %struct._lv_font_manager_t, ptr %19, i32 0, i32 1
-  store ptr %20, ptr %3, align 8, !tbaa !7
+  store ptr %20, ptr %3, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 4, ptr %4) #6
-  %21 = load ptr, ptr %3, align 8, !tbaa !7
+  %21 = load ptr, ptr %3, align 8, !tbaa !26
   %22 = call i32 @lv_ll_get_len(ptr noundef %21)
   store i32 %22, ptr %4, align 4, !tbaa !3
   %23 = load i32, ptr %4, align 4, !tbaa !3
@@ -317,13 +317,13 @@ define internal zeroext i1 @lv_font_manager_check_resource(ptr noundef %0) #0 {
 
 28:                                               ; preds = %27
   call void @llvm.lifetime.start.p0(i64 8, ptr %5) #6
-  %29 = load ptr, ptr %3, align 8, !tbaa !7
+  %29 = load ptr, ptr %3, align 8, !tbaa !26
   %30 = call ptr @lv_ll_get_head(ptr noundef %29)
-  store ptr %30, ptr %5, align 8, !tbaa !7
+  store ptr %30, ptr %5, align 8, !tbaa !27
   br label %31
 
 31:                                               ; preds = %38, %28
-  %32 = load ptr, ptr %5, align 8, !tbaa !7
+  %32 = load ptr, ptr %5, align 8, !tbaa !27
   %33 = icmp ne ptr %32, null
   br i1 %33, label %34, label %42
 
@@ -340,11 +340,11 @@ define internal zeroext i1 @lv_font_manager_check_resource(ptr noundef %0) #0 {
   br label %38
 
 38:                                               ; preds = %37
-  %39 = load ptr, ptr %3, align 8, !tbaa !7
-  %40 = load ptr, ptr %5, align 8, !tbaa !7
+  %39 = load ptr, ptr %3, align 8, !tbaa !26
+  %40 = load ptr, ptr %5, align 8, !tbaa !27
   %41 = call ptr @lv_ll_get_next(ptr noundef %39, ptr noundef %40)
-  store ptr %41, ptr %5, align 8, !tbaa !7
-  br label %31, !llvm.loop !21
+  store ptr %41, ptr %5, align 8, !tbaa !27
+  br label %31, !llvm.loop !29
 
 42:                                               ; preds = %31
   call void @llvm.lifetime.end.p0(i64 8, ptr %5) #6
@@ -354,9 +354,9 @@ define internal zeroext i1 @lv_font_manager_check_resource(ptr noundef %0) #0 {
   call void @llvm.lifetime.start.p0(i64 8, ptr %6) #6
   %44 = load ptr, ptr %2, align 8, !tbaa !7
   %45 = getelementptr inbounds nuw %struct._lv_font_manager_t, ptr %44, i32 0, i32 0
-  store ptr %45, ptr %6, align 8, !tbaa !7
+  store ptr %45, ptr %6, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 4, ptr %7) #6
-  %46 = load ptr, ptr %6, align 8, !tbaa !7
+  %46 = load ptr, ptr %6, align 8, !tbaa !26
   %47 = call i32 @lv_ll_get_len(ptr noundef %46)
   store i32 %47, ptr %7, align 4, !tbaa !3
   %48 = load i32, ptr %7, align 4, !tbaa !3
@@ -374,13 +374,13 @@ define internal zeroext i1 @lv_font_manager_check_resource(ptr noundef %0) #0 {
 
 53:                                               ; preds = %52
   call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
-  %54 = load ptr, ptr %6, align 8, !tbaa !7
+  %54 = load ptr, ptr %6, align 8, !tbaa !26
   %55 = call ptr @lv_ll_get_head(ptr noundef %54)
-  store ptr %55, ptr %8, align 8, !tbaa !7
+  store ptr %55, ptr %8, align 8, !tbaa !30
   br label %56
 
 56:                                               ; preds = %63, %53
-  %57 = load ptr, ptr %8, align 8, !tbaa !7
+  %57 = load ptr, ptr %8, align 8, !tbaa !30
   %58 = icmp ne ptr %57, null
   br i1 %58, label %59, label %67
 
@@ -397,11 +397,11 @@ define internal zeroext i1 @lv_font_manager_check_resource(ptr noundef %0) #0 {
   br label %63
 
 63:                                               ; preds = %62
-  %64 = load ptr, ptr %6, align 8, !tbaa !7
-  %65 = load ptr, ptr %8, align 8, !tbaa !7
+  %64 = load ptr, ptr %6, align 8, !tbaa !26
+  %65 = load ptr, ptr %8, align 8, !tbaa !30
   %66 = call ptr @lv_ll_get_next(ptr noundef %64, ptr noundef %65)
-  store ptr %66, ptr %8, align 8, !tbaa !7
-  br label %56, !llvm.loop !22
+  store ptr %66, ptr %8, align 8, !tbaa !30
+  br label %56, !llvm.loop !32
 
 67:                                               ; preds = %56
   call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
@@ -421,8 +421,8 @@ define internal zeroext i1 @lv_font_manager_check_resource(ptr noundef %0) #0 {
 74:                                               ; preds = %71, %68
   %75 = phi i1 [ true, %68 ], [ %73, %71 ]
   %76 = zext i1 %75 to i8
-  store i8 %76, ptr %9, align 1, !tbaa !23
-  %77 = load i8, ptr %9, align 1, !tbaa !23, !range !15, !noundef !16
+  store i8 %76, ptr %9, align 1, !tbaa !33
+  %77 = load i8, ptr %9, align 1, !tbaa !33, !range !20, !noundef !21
   %78 = trunc i8 %77 to i1
   call void @llvm.lifetime.end.p0(i64 1, ptr %9) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr %7) #6
@@ -448,11 +448,11 @@ define void @lv_font_manager_add_path(ptr noundef %0, ptr noundef %1, ptr nounde
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   store ptr %0, ptr %4, align 8, !tbaa !7
-  store ptr %1, ptr %5, align 8, !tbaa !7
-  store ptr %2, ptr %6, align 8, !tbaa !7
+  store ptr %1, ptr %5, align 8, !tbaa !34
+  store ptr %2, ptr %6, align 8, !tbaa !34
   %7 = load ptr, ptr %4, align 8, !tbaa !7
-  %8 = load ptr, ptr %5, align 8, !tbaa !7
-  %9 = load ptr, ptr %6, align 8, !tbaa !7
+  %8 = load ptr, ptr %5, align 8, !tbaa !34
+  %9 = load ptr, ptr %6, align 8, !tbaa !34
   call void @lv_font_manager_add_path_core(ptr noundef %7, ptr noundef %8, ptr noundef %9, i1 noundef zeroext false)
   ret void
 }
@@ -469,10 +469,10 @@ define internal void @lv_font_manager_add_path_core(ptr noundef %0, ptr noundef 
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
   store ptr %0, ptr %5, align 8, !tbaa !7
-  store ptr %1, ptr %6, align 8, !tbaa !7
-  store ptr %2, ptr %7, align 8, !tbaa !7
+  store ptr %1, ptr %6, align 8, !tbaa !34
+  store ptr %2, ptr %7, align 8, !tbaa !34
   %14 = zext i1 %3 to i8
-  store i8 %14, ptr %8, align 1, !tbaa !23
+  store i8 %14, ptr %8, align 1, !tbaa !33
   br label %15
 
 15:                                               ; preds = %4
@@ -499,7 +499,7 @@ define internal void @lv_font_manager_add_path_core(ptr noundef %0, ptr noundef 
   br label %24
 
 24:                                               ; preds = %23
-  %25 = load ptr, ptr %6, align 8, !tbaa !7
+  %25 = load ptr, ptr %6, align 8, !tbaa !34
   %26 = icmp ne ptr %25, null
   br i1 %26, label %31, label %27
 
@@ -522,7 +522,7 @@ define internal void @lv_font_manager_add_path_core(ptr noundef %0, ptr noundef 
   br label %33
 
 33:                                               ; preds = %32
-  %34 = load ptr, ptr %7, align 8, !tbaa !7
+  %34 = load ptr, ptr %7, align 8, !tbaa !34
   %35 = icmp ne ptr %34, null
   br i1 %35, label %40, label %36
 
@@ -544,10 +544,10 @@ define internal void @lv_font_manager_add_path_core(ptr noundef %0, ptr noundef 
 41:                                               ; preds = %40
   call void @llvm.lifetime.start.p0(i64 8, ptr %9) #6
   %42 = load ptr, ptr %5, align 8, !tbaa !7
-  %43 = load ptr, ptr %6, align 8, !tbaa !7
+  %43 = load ptr, ptr %6, align 8, !tbaa !34
   %44 = call ptr @lv_font_manager_get_path(ptr noundef %42, ptr noundef %43)
-  store ptr %44, ptr %9, align 8, !tbaa !7
-  %45 = load ptr, ptr %9, align 8, !tbaa !7
+  store ptr %44, ptr %9, align 8, !tbaa !34
+  %45 = load ptr, ptr %9, align 8, !tbaa !34
   %46 = icmp ne ptr %45, null
   br i1 %46, label %47, label %51
 
@@ -569,11 +569,11 @@ define internal void @lv_font_manager_add_path_core(ptr noundef %0, ptr noundef 
   %52 = load ptr, ptr %5, align 8, !tbaa !7
   %53 = getelementptr inbounds nuw %struct._lv_font_manager_t, ptr %52, i32 0, i32 2
   %54 = call ptr @lv_ll_ins_tail(ptr noundef %53)
-  store ptr %54, ptr %11, align 8, !tbaa !7
+  store ptr %54, ptr %11, align 8, !tbaa !15
   br label %55
 
 55:                                               ; preds = %51
-  %56 = load ptr, ptr %11, align 8, !tbaa !7
+  %56 = load ptr, ptr %11, align 8, !tbaa !15
   %57 = icmp ne ptr %56, null
   br i1 %57, label %64, label %58
 
@@ -602,30 +602,30 @@ define internal void @lv_font_manager_add_path_core(ptr noundef %0, ptr noundef 
   br label %66
 
 66:                                               ; preds = %65
-  %67 = load i8, ptr %8, align 1, !tbaa !23, !range !15, !noundef !16
+  %67 = load i8, ptr %8, align 1, !tbaa !33, !range !20, !noundef !21
   %68 = trunc i8 %67 to i1
-  %69 = load ptr, ptr %11, align 8, !tbaa !7
+  %69 = load ptr, ptr %11, align 8, !tbaa !15
   %70 = getelementptr inbounds nuw %struct._lv_font_path_t, ptr %69, i32 0, i32 2
   %71 = zext i1 %68 to i8
-  store i8 %71, ptr %70, align 8, !tbaa !12
-  %72 = load i8, ptr %8, align 1, !tbaa !23, !range !15, !noundef !16
+  store i8 %71, ptr %70, align 8, !tbaa !17
+  %72 = load i8, ptr %8, align 1, !tbaa !33, !range !20, !noundef !21
   %73 = trunc i8 %72 to i1
   br i1 %73, label %74, label %81
 
 74:                                               ; preds = %66
-  %75 = load ptr, ptr %6, align 8, !tbaa !7
-  %76 = load ptr, ptr %11, align 8, !tbaa !7
+  %75 = load ptr, ptr %6, align 8, !tbaa !34
+  %76 = load ptr, ptr %11, align 8, !tbaa !15
   %77 = getelementptr inbounds nuw %struct._lv_font_path_t, ptr %76, i32 0, i32 0
-  store ptr %75, ptr %77, align 8, !tbaa !17
-  %78 = load ptr, ptr %7, align 8, !tbaa !7
-  %79 = load ptr, ptr %11, align 8, !tbaa !7
+  store ptr %75, ptr %77, align 8, !tbaa !22
+  %78 = load ptr, ptr %7, align 8, !tbaa !34
+  %79 = load ptr, ptr %11, align 8, !tbaa !15
   %80 = getelementptr inbounds nuw %struct._lv_font_path_t, ptr %79, i32 0, i32 1
-  store ptr %78, ptr %80, align 8, !tbaa !18
+  store ptr %78, ptr %80, align 8, !tbaa !23
   br label %142
 
 81:                                               ; preds = %66
   call void @llvm.lifetime.start.p0(i64 4, ptr %12) #6
-  %82 = load ptr, ptr %6, align 8, !tbaa !7
+  %82 = load ptr, ptr %6, align 8, !tbaa !34
   %83 = call i64 @lv_strlen(ptr noundef %82)
   %84 = add i64 %83, 1
   %85 = trunc i64 %84 to i32
@@ -633,15 +633,15 @@ define internal void @lv_font_manager_add_path_core(ptr noundef %0, ptr noundef 
   %86 = load i32, ptr %12, align 4, !tbaa !3
   %87 = zext i32 %86 to i64
   %88 = call ptr @lv_malloc(i64 noundef %87)
-  %89 = load ptr, ptr %11, align 8, !tbaa !7
+  %89 = load ptr, ptr %11, align 8, !tbaa !15
   %90 = getelementptr inbounds nuw %struct._lv_font_path_t, ptr %89, i32 0, i32 0
-  store ptr %88, ptr %90, align 8, !tbaa !17
+  store ptr %88, ptr %90, align 8, !tbaa !22
   br label %91
 
 91:                                               ; preds = %81
-  %92 = load ptr, ptr %11, align 8, !tbaa !7
+  %92 = load ptr, ptr %11, align 8, !tbaa !15
   %93 = getelementptr inbounds nuw %struct._lv_font_path_t, ptr %92, i32 0, i32 0
-  %94 = load ptr, ptr %93, align 8, !tbaa !17
+  %94 = load ptr, ptr %93, align 8, !tbaa !22
   %95 = icmp ne ptr %94, null
   br i1 %95, label %102, label %96
 
@@ -670,15 +670,15 @@ define internal void @lv_font_manager_add_path_core(ptr noundef %0, ptr noundef 
   br label %104
 
 104:                                              ; preds = %103
-  %105 = load ptr, ptr %11, align 8, !tbaa !7
+  %105 = load ptr, ptr %11, align 8, !tbaa !15
   %106 = getelementptr inbounds nuw %struct._lv_font_path_t, ptr %105, i32 0, i32 0
-  %107 = load ptr, ptr %106, align 8, !tbaa !17
-  %108 = load ptr, ptr %6, align 8, !tbaa !7
+  %107 = load ptr, ptr %106, align 8, !tbaa !22
+  %108 = load ptr, ptr %6, align 8, !tbaa !34
   %109 = load i32, ptr %12, align 4, !tbaa !3
   %110 = zext i32 %109 to i64
   %111 = call ptr @lv_memcpy(ptr noundef %107, ptr noundef %108, i64 noundef %110)
   call void @llvm.lifetime.start.p0(i64 4, ptr %13) #6
-  %112 = load ptr, ptr %7, align 8, !tbaa !7
+  %112 = load ptr, ptr %7, align 8, !tbaa !34
   %113 = call i64 @lv_strlen(ptr noundef %112)
   %114 = add i64 %113, 1
   %115 = trunc i64 %114 to i32
@@ -686,15 +686,15 @@ define internal void @lv_font_manager_add_path_core(ptr noundef %0, ptr noundef 
   %116 = load i32, ptr %13, align 4, !tbaa !3
   %117 = zext i32 %116 to i64
   %118 = call ptr @lv_malloc(i64 noundef %117)
-  %119 = load ptr, ptr %11, align 8, !tbaa !7
+  %119 = load ptr, ptr %11, align 8, !tbaa !15
   %120 = getelementptr inbounds nuw %struct._lv_font_path_t, ptr %119, i32 0, i32 1
-  store ptr %118, ptr %120, align 8, !tbaa !18
+  store ptr %118, ptr %120, align 8, !tbaa !23
   br label %121
 
 121:                                              ; preds = %104
-  %122 = load ptr, ptr %11, align 8, !tbaa !7
+  %122 = load ptr, ptr %11, align 8, !tbaa !15
   %123 = getelementptr inbounds nuw %struct._lv_font_path_t, ptr %122, i32 0, i32 1
-  %124 = load ptr, ptr %123, align 8, !tbaa !18
+  %124 = load ptr, ptr %123, align 8, !tbaa !23
   %125 = icmp ne ptr %124, null
   br i1 %125, label %132, label %126
 
@@ -723,10 +723,10 @@ define internal void @lv_font_manager_add_path_core(ptr noundef %0, ptr noundef 
   br label %134
 
 134:                                              ; preds = %133
-  %135 = load ptr, ptr %11, align 8, !tbaa !7
+  %135 = load ptr, ptr %11, align 8, !tbaa !15
   %136 = getelementptr inbounds nuw %struct._lv_font_path_t, ptr %135, i32 0, i32 1
-  %137 = load ptr, ptr %136, align 8, !tbaa !18
-  %138 = load ptr, ptr %7, align 8, !tbaa !7
+  %137 = load ptr, ptr %136, align 8, !tbaa !23
+  %138 = load ptr, ptr %7, align 8, !tbaa !34
   %139 = load i32, ptr %13, align 4, !tbaa !3
   %140 = zext i32 %139 to i64
   %141 = call ptr @lv_memcpy(ptr noundef %137, ptr noundef %138, i64 noundef %140)
@@ -769,11 +769,11 @@ define void @lv_font_manager_add_path_static(ptr noundef %0, ptr noundef %1, ptr
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   store ptr %0, ptr %4, align 8, !tbaa !7
-  store ptr %1, ptr %5, align 8, !tbaa !7
-  store ptr %2, ptr %6, align 8, !tbaa !7
+  store ptr %1, ptr %5, align 8, !tbaa !34
+  store ptr %2, ptr %6, align 8, !tbaa !34
   %7 = load ptr, ptr %4, align 8, !tbaa !7
-  %8 = load ptr, ptr %5, align 8, !tbaa !7
-  %9 = load ptr, ptr %6, align 8, !tbaa !7
+  %8 = load ptr, ptr %5, align 8, !tbaa !34
+  %9 = load ptr, ptr %6, align 8, !tbaa !34
   call void @lv_font_manager_add_path_core(ptr noundef %7, ptr noundef %8, ptr noundef %9, i1 noundef zeroext true)
   ret void
 }
@@ -786,24 +786,24 @@ define zeroext i1 @lv_font_manager_remove_path(ptr noundef %0, ptr noundef %1) #
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   store ptr %0, ptr %4, align 8, !tbaa !7
-  store ptr %1, ptr %5, align 8, !tbaa !7
+  store ptr %1, ptr %5, align 8, !tbaa !34
   call void @llvm.lifetime.start.p0(i64 8, ptr %6) #6
   %8 = load ptr, ptr %4, align 8, !tbaa !7
   %9 = getelementptr inbounds nuw %struct._lv_font_manager_t, ptr %8, i32 0, i32 2
   %10 = call ptr @lv_ll_get_head(ptr noundef %9)
-  store ptr %10, ptr %6, align 8, !tbaa !7
+  store ptr %10, ptr %6, align 8, !tbaa !15
   br label %11
 
 11:                                               ; preds = %23, %2
-  %12 = load ptr, ptr %6, align 8, !tbaa !7
+  %12 = load ptr, ptr %6, align 8, !tbaa !15
   %13 = icmp ne ptr %12, null
   br i1 %13, label %14, label %28
 
 14:                                               ; preds = %11
-  %15 = load ptr, ptr %5, align 8, !tbaa !7
-  %16 = load ptr, ptr %6, align 8, !tbaa !7
+  %15 = load ptr, ptr %5, align 8, !tbaa !34
+  %16 = load ptr, ptr %6, align 8, !tbaa !15
   %17 = getelementptr inbounds nuw %struct._lv_font_path_t, ptr %16, i32 0, i32 0
-  %18 = load ptr, ptr %17, align 8, !tbaa !17
+  %18 = load ptr, ptr %17, align 8, !tbaa !22
   %19 = call i32 @lv_strcmp(ptr noundef %15, ptr noundef %18)
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %21, label %22
@@ -817,13 +817,13 @@ define zeroext i1 @lv_font_manager_remove_path(ptr noundef %0, ptr noundef %1) #
 23:                                               ; preds = %22
   %24 = load ptr, ptr %4, align 8, !tbaa !7
   %25 = getelementptr inbounds nuw %struct._lv_font_manager_t, ptr %24, i32 0, i32 2
-  %26 = load ptr, ptr %6, align 8, !tbaa !7
+  %26 = load ptr, ptr %6, align 8, !tbaa !15
   %27 = call ptr @lv_ll_get_next(ptr noundef %25, ptr noundef %26)
-  store ptr %27, ptr %6, align 8, !tbaa !7
-  br label %11, !llvm.loop !24
+  store ptr %27, ptr %6, align 8, !tbaa !15
+  br label %11, !llvm.loop !35
 
 28:                                               ; preds = %21, %11
-  %29 = load ptr, ptr %6, align 8, !tbaa !7
+  %29 = load ptr, ptr %6, align 8, !tbaa !15
   %30 = icmp ne ptr %29, null
   br i1 %30, label %35, label %31
 
@@ -844,33 +844,33 @@ define zeroext i1 @lv_font_manager_remove_path(ptr noundef %0, ptr noundef %1) #
 35:                                               ; preds = %28
   %36 = load ptr, ptr %4, align 8, !tbaa !7
   %37 = getelementptr inbounds nuw %struct._lv_font_manager_t, ptr %36, i32 0, i32 2
-  %38 = load ptr, ptr %6, align 8, !tbaa !7
+  %38 = load ptr, ptr %6, align 8, !tbaa !15
   call void @lv_ll_remove(ptr noundef %37, ptr noundef %38)
-  %39 = load ptr, ptr %6, align 8, !tbaa !7
+  %39 = load ptr, ptr %6, align 8, !tbaa !15
   %40 = getelementptr inbounds nuw %struct._lv_font_path_t, ptr %39, i32 0, i32 2
-  %41 = load i8, ptr %40, align 8, !tbaa !12, !range !15, !noundef !16
+  %41 = load i8, ptr %40, align 8, !tbaa !17, !range !20, !noundef !21
   %42 = trunc i8 %41 to i1
   br i1 %42, label %50, label %43
 
 43:                                               ; preds = %35
-  %44 = load ptr, ptr %6, align 8, !tbaa !7
+  %44 = load ptr, ptr %6, align 8, !tbaa !15
   %45 = getelementptr inbounds nuw %struct._lv_font_path_t, ptr %44, i32 0, i32 0
-  %46 = load ptr, ptr %45, align 8, !tbaa !17
+  %46 = load ptr, ptr %45, align 8, !tbaa !22
   call void @lv_free(ptr noundef %46)
-  %47 = load ptr, ptr %6, align 8, !tbaa !7
+  %47 = load ptr, ptr %6, align 8, !tbaa !15
   %48 = getelementptr inbounds nuw %struct._lv_font_path_t, ptr %47, i32 0, i32 1
-  %49 = load ptr, ptr %48, align 8, !tbaa !18
+  %49 = load ptr, ptr %48, align 8, !tbaa !23
   call void @lv_free(ptr noundef %49)
   br label %50
 
 50:                                               ; preds = %43, %35
-  %51 = load ptr, ptr %6, align 8, !tbaa !7
+  %51 = load ptr, ptr %6, align 8, !tbaa !15
   %52 = getelementptr inbounds nuw %struct._lv_font_path_t, ptr %51, i32 0, i32 0
-  store ptr null, ptr %52, align 8, !tbaa !17
-  %53 = load ptr, ptr %6, align 8, !tbaa !7
+  store ptr null, ptr %52, align 8, !tbaa !22
+  %53 = load ptr, ptr %6, align 8, !tbaa !15
   %54 = getelementptr inbounds nuw %struct._lv_font_path_t, ptr %53, i32 0, i32 1
-  store ptr null, ptr %54, align 8, !tbaa !18
-  %55 = load ptr, ptr %6, align 8, !tbaa !7
+  store ptr null, ptr %54, align 8, !tbaa !23
+  %55 = load ptr, ptr %6, align 8, !tbaa !15
   call void @lv_free(ptr noundef %55)
   br label %56
 
@@ -906,10 +906,10 @@ define ptr @lv_font_manager_create_font(ptr noundef %0, ptr noundef %1, i16 noun
   %12 = alloca ptr, align 8
   %13 = alloca ptr, align 8
   store ptr %0, ptr %6, align 8, !tbaa !7
-  store ptr %1, ptr %7, align 8, !tbaa !7
-  store i16 %2, ptr %8, align 2, !tbaa !25
+  store ptr %1, ptr %7, align 8, !tbaa !34
+  store i16 %2, ptr %8, align 2, !tbaa !36
   store i32 %3, ptr %9, align 4, !tbaa !3
-  store i16 %4, ptr %10, align 2, !tbaa !25
+  store i16 %4, ptr %10, align 2, !tbaa !36
   br label %14
 
 14:                                               ; preds = %5
@@ -936,7 +936,7 @@ define ptr @lv_font_manager_create_font(ptr noundef %0, ptr noundef %1, i16 noun
   br label %23
 
 23:                                               ; preds = %22
-  %24 = load ptr, ptr %7, align 8, !tbaa !7
+  %24 = load ptr, ptr %7, align 8, !tbaa !34
   %25 = icmp ne ptr %24, null
   br i1 %25, label %30, label %26
 
@@ -958,23 +958,23 @@ define ptr @lv_font_manager_create_font(ptr noundef %0, ptr noundef %1, i16 noun
 31:                                               ; preds = %30
   call void @llvm.lifetime.start.p0(i64 24, ptr %11) #6
   call void @lv_memzero(ptr noundef %11, i64 noundef 24)
-  %32 = load ptr, ptr %7, align 8, !tbaa !7
+  %32 = load ptr, ptr %7, align 8, !tbaa !34
   %33 = getelementptr inbounds nuw %struct.lv_freetype_info_t, ptr %11, i32 0, i32 0
-  store ptr %32, ptr %33, align 8, !tbaa !27
-  %34 = load i16, ptr %8, align 2, !tbaa !25
+  store ptr %32, ptr %33, align 8, !tbaa !38
+  %34 = load i16, ptr %8, align 2, !tbaa !36
   %35 = zext i16 %34 to i32
   %36 = getelementptr inbounds nuw %struct.lv_freetype_info_t, ptr %11, i32 0, i32 1
-  store i32 %35, ptr %36, align 8, !tbaa !29
+  store i32 %35, ptr %36, align 8, !tbaa !40
   %37 = load i32, ptr %9, align 4, !tbaa !3
   %38 = getelementptr inbounds nuw %struct.lv_freetype_info_t, ptr %11, i32 0, i32 3
-  store i32 %37, ptr %38, align 8, !tbaa !30
-  %39 = load i16, ptr %10, align 2, !tbaa !25
+  store i32 %37, ptr %38, align 8, !tbaa !41
+  %39 = load i16, ptr %10, align 2, !tbaa !36
   %40 = zext i16 %39 to i32
   %41 = getelementptr inbounds nuw %struct.lv_freetype_info_t, ptr %11, i32 0, i32 2
-  store i32 %40, ptr %41, align 4, !tbaa !31
+  store i32 %40, ptr %41, align 4, !tbaa !42
   call void @llvm.lifetime.start.p0(i64 8, ptr %12) #6
   %42 = getelementptr inbounds nuw %struct.lv_freetype_info_t, ptr %11, i32 0, i32 0
-  %43 = load ptr, ptr %42, align 8, !tbaa !27
+  %43 = load ptr, ptr %42, align 8, !tbaa !38
   %44 = call ptr @lv_strchr(ptr noundef %43, i32 noundef 44)
   %45 = icmp ne ptr %44, null
   br i1 %45, label %46, label %49
@@ -982,48 +982,48 @@ define ptr @lv_font_manager_create_font(ptr noundef %0, ptr noundef %1, i16 noun
 46:                                               ; preds = %31
   %47 = load ptr, ptr %6, align 8, !tbaa !7
   %48 = call ptr @lv_font_manager_create_font_family(ptr noundef %47, ptr noundef %11)
-  store ptr %48, ptr %12, align 8, !tbaa !7
+  store ptr %48, ptr %12, align 8, !tbaa !43
   br label %52
 
 49:                                               ; preds = %31
   %50 = load ptr, ptr %6, align 8, !tbaa !7
   %51 = call ptr @lv_font_manager_create_font_single(ptr noundef %50, ptr noundef %11)
-  store ptr %51, ptr %12, align 8, !tbaa !7
+  store ptr %51, ptr %12, align 8, !tbaa !43
   br label %52
 
 52:                                               ; preds = %49, %46
   call void @llvm.lifetime.start.p0(i64 8, ptr %13) #6
-  %53 = load ptr, ptr %12, align 8, !tbaa !7
-  store ptr %53, ptr %13, align 8, !tbaa !7
+  %53 = load ptr, ptr %12, align 8, !tbaa !43
+  store ptr %53, ptr %13, align 8, !tbaa !43
   br label %54
 
 54:                                               ; preds = %65, %52
-  %55 = load ptr, ptr %13, align 8, !tbaa !7
+  %55 = load ptr, ptr %13, align 8, !tbaa !43
   %56 = icmp ne ptr %55, null
   br i1 %56, label %57, label %69
 
 57:                                               ; preds = %54
-  %58 = load ptr, ptr %13, align 8, !tbaa !7
+  %58 = load ptr, ptr %13, align 8, !tbaa !43
   %59 = getelementptr inbounds nuw %struct._lv_font_t, ptr %58, i32 0, i32 9
-  %60 = load ptr, ptr %59, align 8, !tbaa !32
+  %60 = load ptr, ptr %59, align 8, !tbaa !45
   %61 = icmp eq ptr %60, null
   br i1 %61, label %62, label %65
 
 62:                                               ; preds = %57
-  %63 = load ptr, ptr %13, align 8, !tbaa !7
+  %63 = load ptr, ptr %13, align 8, !tbaa !43
   %64 = getelementptr inbounds nuw %struct._lv_font_t, ptr %63, i32 0, i32 9
-  store ptr @lv_font_montserrat_14, ptr %64, align 8, !tbaa !32
+  store ptr @lv_font_montserrat_14, ptr %64, align 8, !tbaa !45
   br label %69
 
 65:                                               ; preds = %57
-  %66 = load ptr, ptr %13, align 8, !tbaa !7
+  %66 = load ptr, ptr %13, align 8, !tbaa !43
   %67 = getelementptr inbounds nuw %struct._lv_font_t, ptr %66, i32 0, i32 9
-  %68 = load ptr, ptr %67, align 8, !tbaa !32
-  store ptr %68, ptr %13, align 8, !tbaa !7
-  br label %54, !llvm.loop !34
+  %68 = load ptr, ptr %67, align 8, !tbaa !45
+  store ptr %68, ptr %13, align 8, !tbaa !43
+  br label %54, !llvm.loop !47
 
 69:                                               ; preds = %62, %54
-  %70 = load ptr, ptr %12, align 8, !tbaa !7
+  %70 = load ptr, ptr %12, align 8, !tbaa !43
   call void @llvm.lifetime.end.p0(i64 8, ptr %13) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr %12) #6
   call void @llvm.lifetime.end.p0(i64 24, ptr %11) #6
@@ -1034,10 +1034,10 @@ define ptr @lv_font_manager_create_font(ptr noundef %0, ptr noundef %1, i16 noun
 define internal void @lv_memzero(ptr noundef %0, i64 noundef %1) #3 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8, !tbaa !7
-  store i64 %1, ptr %4, align 8, !tbaa !35
-  %5 = load ptr, ptr %3, align 8, !tbaa !7
-  %6 = load i64, ptr %4, align 8, !tbaa !35
+  store ptr %0, ptr %3, align 8, !tbaa !26
+  store i64 %1, ptr %4, align 8, !tbaa !48
+  %5 = load ptr, ptr %3, align 8, !tbaa !26
+  %6 = load i64, ptr %4, align 8, !tbaa !48
   call void @lv_memset(ptr noundef %5, i8 noundef zeroext 0, i64 noundef %6)
   ret void
 }
@@ -1056,7 +1056,7 @@ define internal ptr @lv_font_manager_create_font_family(ptr noundef %0, ptr noun
   %10 = alloca ptr, align 8
   %11 = alloca i32, align 4
   store ptr %0, ptr %3, align 8, !tbaa !7
-  store ptr %1, ptr %4, align 8, !tbaa !7
+  store ptr %1, ptr %4, align 8, !tbaa !26
   br label %12
 
 12:                                               ; preds = %2
@@ -1083,7 +1083,7 @@ define internal ptr @lv_font_manager_create_font_family(ptr noundef %0, ptr noun
   br label %21
 
 21:                                               ; preds = %20
-  %22 = load ptr, ptr %4, align 8, !tbaa !7
+  %22 = load ptr, ptr %4, align 8, !tbaa !26
   %23 = icmp ne ptr %22, null
   br i1 %23, label %28, label %24
 
@@ -1104,14 +1104,14 @@ define internal ptr @lv_font_manager_create_font_family(ptr noundef %0, ptr noun
 
 29:                                               ; preds = %28
   call void @llvm.lifetime.start.p0(i64 8, ptr %5) #6
-  store ptr null, ptr %5, align 8, !tbaa !7
+  store ptr null, ptr %5, align 8, !tbaa !43
   call void @llvm.lifetime.start.p0(i64 8, ptr %6) #6
-  store ptr null, ptr %6, align 8, !tbaa !7
+  store ptr null, ptr %6, align 8, !tbaa !43
   call void @llvm.lifetime.start.p0(i64 8, ptr %7) #6
-  %30 = load ptr, ptr %4, align 8, !tbaa !7
+  %30 = load ptr, ptr %4, align 8, !tbaa !26
   %31 = getelementptr inbounds nuw %struct.lv_freetype_info_t, ptr %30, i32 0, i32 0
-  %32 = load ptr, ptr %31, align 8, !tbaa !27
-  store ptr %32, ptr %7, align 8, !tbaa !7
+  %32 = load ptr, ptr %31, align 8, !tbaa !38
+  store ptr %32, ptr %7, align 8, !tbaa !34
   br label %33
 
 33:                                               ; preds = %29
@@ -1124,11 +1124,11 @@ define internal ptr @lv_font_manager_create_font_family(ptr noundef %0, ptr noun
   call void @llvm.lifetime.start.p0(i64 32, ptr %8) #6
   call void @llvm.memset.p0.i64(ptr align 16 %8, i8 0, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr %9) #6
-  %36 = load ptr, ptr %4, align 8, !tbaa !7
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %36, i64 24, i1 false), !tbaa.struct !37
+  %36 = load ptr, ptr %4, align 8, !tbaa !26
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %36, i64 24, i1 false), !tbaa.struct !50
   %37 = getelementptr inbounds [32 x i8], ptr %8, i64 0, i64 0
   %38 = getelementptr inbounds nuw %struct.lv_freetype_info_t, ptr %9, i32 0, i32 0
-  store ptr %37, ptr %38, align 8, !tbaa !27
+  store ptr %37, ptr %38, align 8, !tbaa !38
   br label %39
 
 39:                                               ; preds = %82, %35
@@ -1136,47 +1136,47 @@ define internal ptr @lv_font_manager_create_font_family(ptr noundef %0, ptr noun
 
 40:                                               ; preds = %39
   %41 = getelementptr inbounds [32 x i8], ptr %8, i64 0, i64 0
-  %42 = load ptr, ptr %7, align 8, !tbaa !7
+  %42 = load ptr, ptr %7, align 8, !tbaa !34
   %43 = call ptr @strncpy_until(ptr noundef %41, ptr noundef %42, i64 noundef 31, i8 noundef signext 44)
-  store ptr %43, ptr %7, align 8, !tbaa !7
+  store ptr %43, ptr %7, align 8, !tbaa !34
   call void @llvm.lifetime.start.p0(i64 8, ptr %10) #6
   %44 = load ptr, ptr %3, align 8, !tbaa !7
   %45 = call ptr @lv_font_manager_create_font_single(ptr noundef %44, ptr noundef %9)
-  store ptr %45, ptr %10, align 8, !tbaa !7
-  %46 = load ptr, ptr %10, align 8, !tbaa !7
+  store ptr %45, ptr %10, align 8, !tbaa !43
+  %46 = load ptr, ptr %10, align 8, !tbaa !43
   %47 = icmp ne ptr %46, null
   br i1 %47, label %48, label %62
 
 48:                                               ; preds = %40
-  %49 = load ptr, ptr %5, align 8, !tbaa !7
+  %49 = load ptr, ptr %5, align 8, !tbaa !43
   %50 = icmp ne ptr %49, null
   br i1 %50, label %53, label %51
 
 51:                                               ; preds = %48
-  %52 = load ptr, ptr %10, align 8, !tbaa !7
-  store ptr %52, ptr %5, align 8, !tbaa !7
+  %52 = load ptr, ptr %10, align 8, !tbaa !43
+  store ptr %52, ptr %5, align 8, !tbaa !43
   br label %53
 
 53:                                               ; preds = %51, %48
-  %54 = load ptr, ptr %6, align 8, !tbaa !7
+  %54 = load ptr, ptr %6, align 8, !tbaa !43
   %55 = icmp ne ptr %54, null
   br i1 %55, label %56, label %60
 
 56:                                               ; preds = %53
-  %57 = load ptr, ptr %10, align 8, !tbaa !7
-  %58 = load ptr, ptr %6, align 8, !tbaa !7
+  %57 = load ptr, ptr %10, align 8, !tbaa !43
+  %58 = load ptr, ptr %6, align 8, !tbaa !43
   %59 = getelementptr inbounds nuw %struct._lv_font_t, ptr %58, i32 0, i32 9
-  store ptr %57, ptr %59, align 8, !tbaa !32
+  store ptr %57, ptr %59, align 8, !tbaa !45
   br label %60
 
 60:                                               ; preds = %56, %53
-  %61 = load ptr, ptr %10, align 8, !tbaa !7
-  store ptr %61, ptr %6, align 8, !tbaa !7
+  %61 = load ptr, ptr %10, align 8, !tbaa !43
+  store ptr %61, ptr %6, align 8, !tbaa !43
   br label %62
 
 62:                                               ; preds = %60, %40
-  %63 = load ptr, ptr %7, align 8, !tbaa !7
-  %64 = load i8, ptr %63, align 1, !tbaa !38
+  %63 = load ptr, ptr %7, align 8, !tbaa !34
+  %64 = load i8, ptr %63, align 1, !tbaa !51
   %65 = sext i8 %64 to i32
   %66 = icmp eq i32 %65, 0
   br i1 %66, label %67, label %68
@@ -1186,8 +1186,8 @@ define internal ptr @lv_font_manager_create_font_family(ptr noundef %0, ptr noun
   br label %80
 
 68:                                               ; preds = %62
-  %69 = load ptr, ptr %7, align 8, !tbaa !7
-  %70 = load i8, ptr %69, align 1, !tbaa !38
+  %69 = load ptr, ptr %7, align 8, !tbaa !34
+  %70 = load i8, ptr %69, align 1, !tbaa !51
   %71 = sext i8 %70 to i32
   %72 = icmp ne i32 %71, 44
   br i1 %72, label %73, label %77
@@ -1206,9 +1206,9 @@ define internal ptr @lv_font_manager_create_font_family(ptr noundef %0, ptr noun
   br label %80
 
 77:                                               ; preds = %68
-  %78 = load ptr, ptr %7, align 8, !tbaa !7
+  %78 = load ptr, ptr %7, align 8, !tbaa !34
   %79 = getelementptr inbounds nuw i8, ptr %78, i32 1
-  store ptr %79, ptr %7, align 8, !tbaa !7
+  store ptr %79, ptr %7, align 8, !tbaa !34
   store i32 0, ptr %11, align 4
   br label %80
 
@@ -1224,7 +1224,7 @@ define internal ptr @lv_font_manager_create_font_family(ptr noundef %0, ptr noun
   br label %39
 
 83:                                               ; preds = %80
-  %84 = load ptr, ptr %5, align 8, !tbaa !7
+  %84 = load ptr, ptr %5, align 8, !tbaa !43
   store i32 1, ptr %11, align 4
   call void @llvm.lifetime.end.p0(i64 24, ptr %9) #6
   call void @llvm.lifetime.end.p0(i64 32, ptr %8) #6
@@ -1246,7 +1246,7 @@ define internal ptr @lv_font_manager_create_font_single(ptr noundef %0, ptr noun
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
   store ptr %0, ptr %4, align 8, !tbaa !7
-  store ptr %1, ptr %5, align 8, !tbaa !7
+  store ptr %1, ptr %5, align 8, !tbaa !26
   br label %9
 
 9:                                                ; preds = %2
@@ -1273,7 +1273,7 @@ define internal ptr @lv_font_manager_create_font_single(ptr noundef %0, ptr noun
   br label %18
 
 18:                                               ; preds = %17
-  %19 = load ptr, ptr %5, align 8, !tbaa !7
+  %19 = load ptr, ptr %5, align 8, !tbaa !26
   %20 = icmp ne ptr %19, null
   br i1 %20, label %25, label %21
 
@@ -1295,10 +1295,10 @@ define internal ptr @lv_font_manager_create_font_single(ptr noundef %0, ptr noun
 26:                                               ; preds = %25
   call void @llvm.lifetime.start.p0(i64 8, ptr %6) #6
   %27 = load ptr, ptr %4, align 8, !tbaa !7
-  %28 = load ptr, ptr %5, align 8, !tbaa !7
+  %28 = load ptr, ptr %5, align 8, !tbaa !26
   %29 = call ptr @lv_font_manager_get_freetype_font(ptr noundef %27, ptr noundef %28)
-  store ptr %29, ptr %6, align 8, !tbaa !7
-  %30 = load ptr, ptr %6, align 8, !tbaa !7
+  store ptr %29, ptr %6, align 8, !tbaa !30
+  %30 = load ptr, ptr %6, align 8, !tbaa !30
   %31 = icmp ne ptr %30, null
   br i1 %31, label %33, label %32
 
@@ -1312,11 +1312,11 @@ define internal ptr @lv_font_manager_create_font_single(ptr noundef %0, ptr noun
   %34 = load ptr, ptr %4, align 8, !tbaa !7
   %35 = getelementptr inbounds nuw %struct._lv_font_manager_t, ptr %34, i32 0, i32 1
   %36 = call ptr @lv_ll_ins_head(ptr noundef %35)
-  store ptr %36, ptr %8, align 8, !tbaa !7
+  store ptr %36, ptr %8, align 8, !tbaa !27
   br label %37
 
 37:                                               ; preds = %33
-  %38 = load ptr, ptr %8, align 8, !tbaa !7
+  %38 = load ptr, ptr %8, align 8, !tbaa !27
   %39 = icmp ne ptr %38, null
   br i1 %39, label %46, label %40
 
@@ -1345,18 +1345,18 @@ define internal ptr @lv_font_manager_create_font_single(ptr noundef %0, ptr noun
   br label %48
 
 48:                                               ; preds = %47
-  %49 = load ptr, ptr %8, align 8, !tbaa !7
+  %49 = load ptr, ptr %8, align 8, !tbaa !27
   call void @lv_memzero(ptr noundef %49, i64 noundef 72)
-  %50 = load ptr, ptr %8, align 8, !tbaa !7
+  %50 = load ptr, ptr %8, align 8, !tbaa !27
   %51 = getelementptr inbounds nuw %struct._lv_font_rec_node_t, ptr %50, i32 0, i32 0
-  %52 = load ptr, ptr %6, align 8, !tbaa !7
+  %52 = load ptr, ptr %6, align 8, !tbaa !30
   %53 = getelementptr inbounds nuw %struct._lv_font_refer_node_t, ptr %52, i32 0, i32 0
-  %54 = load ptr, ptr %53, align 8, !tbaa !39
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %51, ptr align 8 %54, i64 64, i1 false), !tbaa.struct !41
-  %55 = load ptr, ptr %6, align 8, !tbaa !7
-  %56 = load ptr, ptr %8, align 8, !tbaa !7
+  %54 = load ptr, ptr %53, align 8, !tbaa !52
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %51, ptr align 8 %54, i64 64, i1 false), !tbaa.struct !54
+  %55 = load ptr, ptr %6, align 8, !tbaa !30
+  %56 = load ptr, ptr %8, align 8, !tbaa !27
   %57 = getelementptr inbounds nuw %struct._lv_font_rec_node_t, ptr %56, i32 0, i32 1
-  store ptr %55, ptr %57, align 8, !tbaa !42
+  store ptr %55, ptr %57, align 8, !tbaa !55
   br label %58
 
 58:                                               ; preds = %48
@@ -1366,7 +1366,7 @@ define internal ptr @lv_font_manager_create_font_single(ptr noundef %0, ptr noun
   br label %60
 
 60:                                               ; preds = %59
-  %61 = load ptr, ptr %8, align 8, !tbaa !7
+  %61 = load ptr, ptr %8, align 8, !tbaa !27
   %62 = getelementptr inbounds nuw %struct._lv_font_rec_node_t, ptr %61, i32 0, i32 0
   store ptr %62, ptr %3, align 8
   store i32 1, ptr %7, align 4
@@ -1384,7 +1384,7 @@ define void @lv_font_manager_delete_font(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8, !tbaa !7
-  store ptr %1, ptr %4, align 8, !tbaa !7
+  store ptr %1, ptr %4, align 8, !tbaa !43
   br label %5
 
 5:                                                ; preds = %2
@@ -1411,7 +1411,7 @@ define void @lv_font_manager_delete_font(ptr noundef %0, ptr noundef %1) #0 {
   br label %14
 
 14:                                               ; preds = %13
-  %15 = load ptr, ptr %4, align 8, !tbaa !7
+  %15 = load ptr, ptr %4, align 8, !tbaa !43
   %16 = icmp ne ptr %15, null
   br i1 %16, label %21, label %17
 
@@ -1431,21 +1431,21 @@ define void @lv_font_manager_delete_font(ptr noundef %0, ptr noundef %1) #0 {
   br label %22
 
 22:                                               ; preds = %21
-  %23 = load ptr, ptr %4, align 8, !tbaa !7
+  %23 = load ptr, ptr %4, align 8, !tbaa !43
   %24 = getelementptr inbounds nuw %struct._lv_font_t, ptr %23, i32 0, i32 9
-  %25 = load ptr, ptr %24, align 8, !tbaa !32
+  %25 = load ptr, ptr %24, align 8, !tbaa !45
   %26 = icmp ne ptr %25, null
   br i1 %26, label %27, label %30
 
 27:                                               ; preds = %22
   %28 = load ptr, ptr %3, align 8, !tbaa !7
-  %29 = load ptr, ptr %4, align 8, !tbaa !7
+  %29 = load ptr, ptr %4, align 8, !tbaa !43
   call void @lv_font_manager_delete_font_family(ptr noundef %28, ptr noundef %29)
   br label %34
 
 30:                                               ; preds = %22
   %31 = load ptr, ptr %3, align 8, !tbaa !7
-  %32 = load ptr, ptr %4, align 8, !tbaa !7
+  %32 = load ptr, ptr %4, align 8, !tbaa !43
   %33 = call zeroext i1 @lv_font_manager_delete_font_single(ptr noundef %31, ptr noundef %32)
   br label %34
 
@@ -1460,7 +1460,7 @@ define internal void @lv_font_manager_delete_font_family(ptr noundef %0, ptr nou
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8, !tbaa !7
-  store ptr %1, ptr %4, align 8, !tbaa !7
+  store ptr %1, ptr %4, align 8, !tbaa !43
   br label %7
 
 7:                                                ; preds = %2
@@ -1487,7 +1487,7 @@ define internal void @lv_font_manager_delete_font_family(ptr noundef %0, ptr nou
   br label %16
 
 16:                                               ; preds = %15
-  %17 = load ptr, ptr %4, align 8, !tbaa !7
+  %17 = load ptr, ptr %4, align 8, !tbaa !43
   %18 = icmp ne ptr %17, null
   br i1 %18, label %23, label %19
 
@@ -1508,28 +1508,28 @@ define internal void @lv_font_manager_delete_font_family(ptr noundef %0, ptr nou
 
 24:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(i64 8, ptr %5) #6
-  %25 = load ptr, ptr %4, align 8, !tbaa !7
-  store ptr %25, ptr %5, align 8, !tbaa !7
+  %25 = load ptr, ptr %4, align 8, !tbaa !43
+  store ptr %25, ptr %5, align 8, !tbaa !43
   br label %26
 
 26:                                               ; preds = %29, %24
-  %27 = load ptr, ptr %5, align 8, !tbaa !7
+  %27 = load ptr, ptr %5, align 8, !tbaa !43
   %28 = icmp ne ptr %27, null
   br i1 %28, label %29, label %37
 
 29:                                               ; preds = %26
   call void @llvm.lifetime.start.p0(i64 8, ptr %6) #6
-  %30 = load ptr, ptr %5, align 8, !tbaa !7
+  %30 = load ptr, ptr %5, align 8, !tbaa !43
   %31 = getelementptr inbounds nuw %struct._lv_font_t, ptr %30, i32 0, i32 9
-  %32 = load ptr, ptr %31, align 8, !tbaa !32
-  store ptr %32, ptr %6, align 8, !tbaa !7
+  %32 = load ptr, ptr %31, align 8, !tbaa !45
+  store ptr %32, ptr %6, align 8, !tbaa !43
   %33 = load ptr, ptr %3, align 8, !tbaa !7
-  %34 = load ptr, ptr %5, align 8, !tbaa !7
+  %34 = load ptr, ptr %5, align 8, !tbaa !43
   %35 = call zeroext i1 @lv_font_manager_delete_font_single(ptr noundef %33, ptr noundef %34)
-  %36 = load ptr, ptr %6, align 8, !tbaa !7
-  store ptr %36, ptr %5, align 8, !tbaa !7
+  %36 = load ptr, ptr %6, align 8, !tbaa !43
+  store ptr %36, ptr %5, align 8, !tbaa !43
   call void @llvm.lifetime.end.p0(i64 8, ptr %6) #6
-  br label %26, !llvm.loop !44
+  br label %26, !llvm.loop !57
 
 37:                                               ; preds = %26
   call void @llvm.lifetime.end.p0(i64 8, ptr %5) #6
@@ -1545,7 +1545,7 @@ define internal zeroext i1 @lv_font_manager_delete_font_single(ptr noundef %0, p
   %7 = alloca i32, align 4
   %8 = alloca i8, align 1
   store ptr %0, ptr %4, align 8, !tbaa !7
-  store ptr %1, ptr %5, align 8, !tbaa !7
+  store ptr %1, ptr %5, align 8, !tbaa !43
   br label %9
 
 9:                                                ; preds = %2
@@ -1572,7 +1572,7 @@ define internal zeroext i1 @lv_font_manager_delete_font_single(ptr noundef %0, p
   br label %18
 
 18:                                               ; preds = %17
-  %19 = load ptr, ptr %5, align 8, !tbaa !7
+  %19 = load ptr, ptr %5, align 8, !tbaa !43
   %20 = icmp ne ptr %19, null
   br i1 %20, label %25, label %21
 
@@ -1592,7 +1592,7 @@ define internal zeroext i1 @lv_font_manager_delete_font_single(ptr noundef %0, p
   br label %26
 
 26:                                               ; preds = %25
-  %27 = load ptr, ptr %5, align 8, !tbaa !7
+  %27 = load ptr, ptr %5, align 8, !tbaa !43
   %28 = icmp eq ptr %27, @lv_font_montserrat_14
   br i1 %28, label %29, label %32
 
@@ -1609,10 +1609,10 @@ define internal zeroext i1 @lv_font_manager_delete_font_single(ptr noundef %0, p
 32:                                               ; preds = %26
   call void @llvm.lifetime.start.p0(i64 8, ptr %6) #6
   %33 = load ptr, ptr %4, align 8, !tbaa !7
-  %34 = load ptr, ptr %5, align 8, !tbaa !7
+  %34 = load ptr, ptr %5, align 8, !tbaa !43
   %35 = call ptr @lv_font_manager_search_rec_node(ptr noundef %33, ptr noundef %34)
-  store ptr %35, ptr %6, align 8, !tbaa !7
-  %36 = load ptr, ptr %6, align 8, !tbaa !7
+  store ptr %35, ptr %6, align 8, !tbaa !27
+  %36 = load ptr, ptr %6, align 8, !tbaa !27
   %37 = icmp ne ptr %36, null
   br i1 %37, label %42, label %38
 
@@ -1633,16 +1633,16 @@ define internal zeroext i1 @lv_font_manager_delete_font_single(ptr noundef %0, p
 42:                                               ; preds = %32
   call void @llvm.lifetime.start.p0(i64 1, ptr %8) #6
   %43 = load ptr, ptr %4, align 8, !tbaa !7
-  %44 = load ptr, ptr %6, align 8, !tbaa !7
+  %44 = load ptr, ptr %6, align 8, !tbaa !27
   %45 = getelementptr inbounds nuw %struct._lv_font_rec_node_t, ptr %44, i32 0, i32 1
-  %46 = load ptr, ptr %45, align 8, !tbaa !42
+  %46 = load ptr, ptr %45, align 8, !tbaa !55
   %47 = call zeroext i1 @lv_font_manager_reset_freetype_font(ptr noundef %43, ptr noundef %46)
   %48 = zext i1 %47 to i8
-  store i8 %48, ptr %8, align 1, !tbaa !23
+  store i8 %48, ptr %8, align 1, !tbaa !33
   br label %49
 
 49:                                               ; preds = %42
-  %50 = load i8, ptr %8, align 1, !tbaa !23, !range !15, !noundef !16
+  %50 = load i8, ptr %8, align 1, !tbaa !33, !range !20, !noundef !21
   %51 = trunc i8 %50 to i1
   br i1 %51, label %58, label %52
 
@@ -1673,9 +1673,9 @@ define internal zeroext i1 @lv_font_manager_delete_font_single(ptr noundef %0, p
 60:                                               ; preds = %59
   %61 = load ptr, ptr %4, align 8, !tbaa !7
   %62 = getelementptr inbounds nuw %struct._lv_font_manager_t, ptr %61, i32 0, i32 1
-  %63 = load ptr, ptr %6, align 8, !tbaa !7
+  %63 = load ptr, ptr %6, align 8, !tbaa !27
   call void @lv_ll_remove(ptr noundef %62, ptr noundef %63)
-  %64 = load ptr, ptr %6, align 8, !tbaa !7
+  %64 = load ptr, ptr %6, align 8, !tbaa !27
   call void @lv_free(ptr noundef %64)
   br label %65
 
@@ -1686,7 +1686,7 @@ define internal zeroext i1 @lv_font_manager_delete_font_single(ptr noundef %0, p
   br label %67
 
 67:                                               ; preds = %66
-  %68 = load i8, ptr %8, align 1, !tbaa !23, !range !15, !noundef !16
+  %68 = load i8, ptr %8, align 1, !tbaa !33, !range !20, !noundef !21
   %69 = trunc i8 %68 to i1
   store i1 %69, ptr %3, align 1
   store i32 1, ptr %7, align 4
@@ -1713,7 +1713,7 @@ define internal ptr @lv_font_manager_get_freetype_font(ptr noundef %0, ptr nound
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
   store ptr %0, ptr %4, align 8, !tbaa !7
-  store ptr %1, ptr %5, align 8, !tbaa !7
+  store ptr %1, ptr %5, align 8, !tbaa !26
   br label %9
 
 9:                                                ; preds = %2
@@ -1740,7 +1740,7 @@ define internal ptr @lv_font_manager_get_freetype_font(ptr noundef %0, ptr nound
   br label %18
 
 18:                                               ; preds = %17
-  %19 = load ptr, ptr %5, align 8, !tbaa !7
+  %19 = load ptr, ptr %5, align 8, !tbaa !26
   %20 = icmp ne ptr %19, null
   br i1 %20, label %25, label %21
 
@@ -1762,19 +1762,19 @@ define internal ptr @lv_font_manager_get_freetype_font(ptr noundef %0, ptr nound
 26:                                               ; preds = %25
   call void @llvm.lifetime.start.p0(i64 8, ptr %6) #6
   %27 = load ptr, ptr %4, align 8, !tbaa !7
-  %28 = load ptr, ptr %5, align 8, !tbaa !7
+  %28 = load ptr, ptr %5, align 8, !tbaa !26
   %29 = call ptr @lv_font_manager_search_refer_node(ptr noundef %27, ptr noundef %28)
-  store ptr %29, ptr %6, align 8, !tbaa !7
-  %30 = load ptr, ptr %6, align 8, !tbaa !7
+  store ptr %29, ptr %6, align 8, !tbaa !30
+  %30 = load ptr, ptr %6, align 8, !tbaa !30
   %31 = icmp ne ptr %30, null
   br i1 %31, label %32, label %41
 
 32:                                               ; preds = %26
-  %33 = load ptr, ptr %6, align 8, !tbaa !7
+  %33 = load ptr, ptr %6, align 8, !tbaa !30
   %34 = getelementptr inbounds nuw %struct._lv_font_refer_node_t, ptr %33, i32 0, i32 3
-  %35 = load i32, ptr %34, align 8, !tbaa !45
+  %35 = load i32, ptr %34, align 8, !tbaa !58
   %36 = add nsw i32 %35, 1
-  store i32 %36, ptr %34, align 8, !tbaa !45
+  store i32 %36, ptr %34, align 8, !tbaa !58
   br label %37
 
 37:                                               ; preds = %32
@@ -1784,7 +1784,7 @@ define internal ptr @lv_font_manager_get_freetype_font(ptr noundef %0, ptr nound
   br label %39
 
 39:                                               ; preds = %38
-  %40 = load ptr, ptr %6, align 8, !tbaa !7
+  %40 = load ptr, ptr %6, align 8, !tbaa !30
   store ptr %40, ptr %3, align 8
   store i32 1, ptr %7, align 4
   br label %91
@@ -1792,10 +1792,10 @@ define internal ptr @lv_font_manager_get_freetype_font(ptr noundef %0, ptr nound
 41:                                               ; preds = %26
   call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
   %42 = load ptr, ptr %4, align 8, !tbaa !7
-  %43 = load ptr, ptr %5, align 8, !tbaa !7
+  %43 = load ptr, ptr %5, align 8, !tbaa !26
   %44 = call ptr @lv_font_manager_create_font_warpper(ptr noundef %42, ptr noundef %43)
-  store ptr %44, ptr %8, align 8, !tbaa !7
-  %45 = load ptr, ptr %8, align 8, !tbaa !7
+  store ptr %44, ptr %8, align 8, !tbaa !43
+  %45 = load ptr, ptr %8, align 8, !tbaa !43
   %46 = icmp ne ptr %45, null
   br i1 %46, label %48, label %47
 
@@ -1808,11 +1808,11 @@ define internal ptr @lv_font_manager_get_freetype_font(ptr noundef %0, ptr nound
   %49 = load ptr, ptr %4, align 8, !tbaa !7
   %50 = getelementptr inbounds nuw %struct._lv_font_manager_t, ptr %49, i32 0, i32 0
   %51 = call ptr @lv_ll_ins_head(ptr noundef %50)
-  store ptr %51, ptr %6, align 8, !tbaa !7
+  store ptr %51, ptr %6, align 8, !tbaa !30
   br label %52
 
 52:                                               ; preds = %48
-  %53 = load ptr, ptr %6, align 8, !tbaa !7
+  %53 = load ptr, ptr %6, align 8, !tbaa !30
   %54 = icmp ne ptr %53, null
   br i1 %54, label %61, label %55
 
@@ -1841,33 +1841,33 @@ define internal ptr @lv_font_manager_get_freetype_font(ptr noundef %0, ptr nound
   br label %63
 
 63:                                               ; preds = %62
-  %64 = load ptr, ptr %6, align 8, !tbaa !7
+  %64 = load ptr, ptr %6, align 8, !tbaa !30
   call void @lv_memzero(ptr noundef %64, i64 noundef 72)
-  %65 = load ptr, ptr %6, align 8, !tbaa !7
+  %65 = load ptr, ptr %6, align 8, !tbaa !30
   %66 = getelementptr inbounds nuw %struct._lv_font_refer_node_t, ptr %65, i32 0, i32 2
   %67 = getelementptr inbounds [32 x i8], ptr %66, i64 0, i64 0
-  %68 = load ptr, ptr %5, align 8, !tbaa !7
+  %68 = load ptr, ptr %5, align 8, !tbaa !26
   %69 = getelementptr inbounds nuw %struct.lv_freetype_info_t, ptr %68, i32 0, i32 0
-  %70 = load ptr, ptr %69, align 8, !tbaa !27
+  %70 = load ptr, ptr %69, align 8, !tbaa !38
   %71 = call ptr @lv_strncpy(ptr noundef %67, ptr noundef %70, i64 noundef 31)
-  %72 = load ptr, ptr %8, align 8, !tbaa !7
-  %73 = load ptr, ptr %6, align 8, !tbaa !7
+  %72 = load ptr, ptr %8, align 8, !tbaa !43
+  %73 = load ptr, ptr %6, align 8, !tbaa !30
   %74 = getelementptr inbounds nuw %struct._lv_font_refer_node_t, ptr %73, i32 0, i32 0
-  store ptr %72, ptr %74, align 8, !tbaa !39
-  %75 = load ptr, ptr %6, align 8, !tbaa !7
+  store ptr %72, ptr %74, align 8, !tbaa !52
+  %75 = load ptr, ptr %6, align 8, !tbaa !30
   %76 = getelementptr inbounds nuw %struct._lv_font_refer_node_t, ptr %75, i32 0, i32 1
-  %77 = load ptr, ptr %5, align 8, !tbaa !7
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %76, ptr align 8 %77, i64 24, i1 false), !tbaa.struct !37
-  %78 = load ptr, ptr %6, align 8, !tbaa !7
+  %77 = load ptr, ptr %5, align 8, !tbaa !26
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %76, ptr align 8 %77, i64 24, i1 false), !tbaa.struct !50
+  %78 = load ptr, ptr %6, align 8, !tbaa !30
   %79 = getelementptr inbounds nuw %struct._lv_font_refer_node_t, ptr %78, i32 0, i32 2
   %80 = getelementptr inbounds [32 x i8], ptr %79, i64 0, i64 0
-  %81 = load ptr, ptr %6, align 8, !tbaa !7
+  %81 = load ptr, ptr %6, align 8, !tbaa !30
   %82 = getelementptr inbounds nuw %struct._lv_font_refer_node_t, ptr %81, i32 0, i32 1
   %83 = getelementptr inbounds nuw %struct.lv_freetype_info_t, ptr %82, i32 0, i32 0
-  store ptr %80, ptr %83, align 8, !tbaa !46
-  %84 = load ptr, ptr %6, align 8, !tbaa !7
+  store ptr %80, ptr %83, align 8, !tbaa !59
+  %84 = load ptr, ptr %6, align 8, !tbaa !30
   %85 = getelementptr inbounds nuw %struct._lv_font_refer_node_t, ptr %84, i32 0, i32 3
-  store i32 1, ptr %85, align 8, !tbaa !45
+  store i32 1, ptr %85, align 8, !tbaa !58
   br label %86
 
 86:                                               ; preds = %63
@@ -1877,7 +1877,7 @@ define internal ptr @lv_font_manager_get_freetype_font(ptr noundef %0, ptr nound
   br label %88
 
 88:                                               ; preds = %87
-  %89 = load ptr, ptr %6, align 8, !tbaa !7
+  %89 = load ptr, ptr %6, align 8, !tbaa !30
   store ptr %89, ptr %3, align 8
   store i32 1, ptr %7, align 4
   br label %90
@@ -1895,7 +1895,7 @@ define internal ptr @lv_font_manager_get_freetype_font(ptr noundef %0, ptr nound
 declare ptr @lv_ll_ins_head(ptr noundef) #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @lv_font_manager_search_refer_node(ptr noundef %0, ptr noundef %1) #0 {
@@ -1905,7 +1905,7 @@ define internal ptr @lv_font_manager_search_refer_node(ptr noundef %0, ptr nound
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   store ptr %0, ptr %4, align 8, !tbaa !7
-  store ptr %1, ptr %5, align 8, !tbaa !7
+  store ptr %1, ptr %5, align 8, !tbaa !26
   br label %8
 
 8:                                                ; preds = %2
@@ -1932,7 +1932,7 @@ define internal ptr @lv_font_manager_search_refer_node(ptr noundef %0, ptr nound
   br label %17
 
 17:                                               ; preds = %16
-  %18 = load ptr, ptr %5, align 8, !tbaa !7
+  %18 = load ptr, ptr %5, align 8, !tbaa !26
   %19 = icmp ne ptr %18, null
   br i1 %19, label %24, label %20
 
@@ -1956,17 +1956,17 @@ define internal ptr @lv_font_manager_search_refer_node(ptr noundef %0, ptr nound
   %26 = load ptr, ptr %4, align 8, !tbaa !7
   %27 = getelementptr inbounds nuw %struct._lv_font_manager_t, ptr %26, i32 0, i32 0
   %28 = call ptr @lv_ll_get_head(ptr noundef %27)
-  store ptr %28, ptr %6, align 8, !tbaa !7
+  store ptr %28, ptr %6, align 8, !tbaa !30
   br label %29
 
 29:                                               ; preds = %43, %25
-  %30 = load ptr, ptr %6, align 8, !tbaa !7
+  %30 = load ptr, ptr %6, align 8, !tbaa !30
   %31 = icmp ne ptr %30, null
   br i1 %31, label %32, label %48
 
 32:                                               ; preds = %29
-  %33 = load ptr, ptr %5, align 8, !tbaa !7
-  %34 = load ptr, ptr %6, align 8, !tbaa !7
+  %33 = load ptr, ptr %5, align 8, !tbaa !26
+  %34 = load ptr, ptr %6, align 8, !tbaa !30
   %35 = getelementptr inbounds nuw %struct._lv_font_refer_node_t, ptr %34, i32 0, i32 1
   %36 = call zeroext i1 @lv_freetype_info_is_equal(ptr noundef %33, ptr noundef %35)
   br i1 %36, label %37, label %42
@@ -1981,7 +1981,7 @@ define internal ptr @lv_font_manager_search_refer_node(ptr noundef %0, ptr nound
   br label %40
 
 40:                                               ; preds = %39
-  %41 = load ptr, ptr %6, align 8, !tbaa !7
+  %41 = load ptr, ptr %6, align 8, !tbaa !30
   store ptr %41, ptr %3, align 8
   store i32 1, ptr %7, align 4
   br label %49
@@ -1992,10 +1992,10 @@ define internal ptr @lv_font_manager_search_refer_node(ptr noundef %0, ptr nound
 43:                                               ; preds = %42
   %44 = load ptr, ptr %4, align 8, !tbaa !7
   %45 = getelementptr inbounds nuw %struct._lv_font_manager_t, ptr %44, i32 0, i32 0
-  %46 = load ptr, ptr %6, align 8, !tbaa !7
+  %46 = load ptr, ptr %6, align 8, !tbaa !30
   %47 = call ptr @lv_ll_get_next(ptr noundef %45, ptr noundef %46)
-  store ptr %47, ptr %6, align 8, !tbaa !7
-  br label %29, !llvm.loop !47
+  store ptr %47, ptr %6, align 8, !tbaa !30
+  br label %29, !llvm.loop !60
 
 48:                                               ; preds = %29
   store ptr null, ptr %3, align 8
@@ -2017,7 +2017,7 @@ define internal ptr @lv_font_manager_create_font_warpper(ptr noundef %0, ptr nou
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
   store ptr %0, ptr %4, align 8, !tbaa !7
-  store ptr %1, ptr %5, align 8, !tbaa !7
+  store ptr %1, ptr %5, align 8, !tbaa !26
   br label %9
 
 9:                                                ; preds = %2
@@ -2044,7 +2044,7 @@ define internal ptr @lv_font_manager_create_font_warpper(ptr noundef %0, ptr nou
   br label %18
 
 18:                                               ; preds = %17
-  %19 = load ptr, ptr %5, align 8, !tbaa !7
+  %19 = load ptr, ptr %5, align 8, !tbaa !26
   %20 = icmp ne ptr %19, null
   br i1 %20, label %25, label %21
 
@@ -2067,16 +2067,16 @@ define internal ptr @lv_font_manager_create_font_warpper(ptr noundef %0, ptr nou
   call void @llvm.lifetime.start.p0(i64 8, ptr %6) #6
   %27 = load ptr, ptr %4, align 8, !tbaa !7
   %28 = getelementptr inbounds nuw %struct._lv_font_manager_t, ptr %27, i32 0, i32 3
-  %29 = load ptr, ptr %28, align 8, !tbaa !9
-  %30 = load ptr, ptr %5, align 8, !tbaa !7
+  %29 = load ptr, ptr %28, align 8, !tbaa !10
+  %30 = load ptr, ptr %5, align 8, !tbaa !26
   %31 = call ptr @lv_font_manager_recycle_get_reuse(ptr noundef %29, ptr noundef %30)
-  store ptr %31, ptr %6, align 8, !tbaa !7
-  %32 = load ptr, ptr %6, align 8, !tbaa !7
+  store ptr %31, ptr %6, align 8, !tbaa !43
+  %32 = load ptr, ptr %6, align 8, !tbaa !43
   %33 = icmp ne ptr %32, null
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %26
-  %35 = load ptr, ptr %6, align 8, !tbaa !7
+  %35 = load ptr, ptr %6, align 8, !tbaa !43
   store ptr %35, ptr %3, align 8
   store i32 1, ptr %7, align 4
   br label %69
@@ -2084,12 +2084,12 @@ define internal ptr @lv_font_manager_create_font_warpper(ptr noundef %0, ptr nou
 36:                                               ; preds = %26
   call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
   %37 = load ptr, ptr %4, align 8, !tbaa !7
-  %38 = load ptr, ptr %5, align 8, !tbaa !7
+  %38 = load ptr, ptr %5, align 8, !tbaa !26
   %39 = getelementptr inbounds nuw %struct.lv_freetype_info_t, ptr %38, i32 0, i32 0
-  %40 = load ptr, ptr %39, align 8, !tbaa !27
+  %40 = load ptr, ptr %39, align 8, !tbaa !38
   %41 = call ptr @lv_font_manager_get_path(ptr noundef %37, ptr noundef %40)
-  store ptr %41, ptr %8, align 8, !tbaa !7
-  %42 = load ptr, ptr %8, align 8, !tbaa !7
+  store ptr %41, ptr %8, align 8, !tbaa !34
+  %42 = load ptr, ptr %8, align 8, !tbaa !34
   %43 = icmp ne ptr %42, null
   br i1 %43, label %48, label %44
 
@@ -2108,19 +2108,19 @@ define internal ptr @lv_font_manager_create_font_warpper(ptr noundef %0, ptr nou
   br label %68
 
 48:                                               ; preds = %36
-  %49 = load ptr, ptr %8, align 8, !tbaa !7
-  %50 = load ptr, ptr %5, align 8, !tbaa !7
+  %49 = load ptr, ptr %8, align 8, !tbaa !34
+  %50 = load ptr, ptr %5, align 8, !tbaa !26
   %51 = getelementptr inbounds nuw %struct.lv_freetype_info_t, ptr %50, i32 0, i32 1
-  %52 = load i32, ptr %51, align 8, !tbaa !29
-  %53 = load ptr, ptr %5, align 8, !tbaa !7
+  %52 = load i32, ptr %51, align 8, !tbaa !40
+  %53 = load ptr, ptr %5, align 8, !tbaa !26
   %54 = getelementptr inbounds nuw %struct.lv_freetype_info_t, ptr %53, i32 0, i32 3
-  %55 = load i32, ptr %54, align 8, !tbaa !30
-  %56 = load ptr, ptr %5, align 8, !tbaa !7
+  %55 = load i32, ptr %54, align 8, !tbaa !41
+  %56 = load ptr, ptr %5, align 8, !tbaa !26
   %57 = getelementptr inbounds nuw %struct.lv_freetype_info_t, ptr %56, i32 0, i32 2
-  %58 = load i32, ptr %57, align 4, !tbaa !31
+  %58 = load i32, ptr %57, align 4, !tbaa !42
   %59 = call ptr @lv_freetype_font_create(ptr noundef %49, i32 noundef %52, i32 noundef %55, i32 noundef %58)
-  store ptr %59, ptr %6, align 8, !tbaa !7
-  %60 = load ptr, ptr %6, align 8, !tbaa !7
+  store ptr %59, ptr %6, align 8, !tbaa !43
+  %60 = load ptr, ptr %6, align 8, !tbaa !43
   %61 = icmp ne ptr %60, null
   br i1 %61, label %66, label %62
 
@@ -2139,7 +2139,7 @@ define internal ptr @lv_font_manager_create_font_warpper(ptr noundef %0, ptr nou
   br label %68
 
 66:                                               ; preds = %48
-  %67 = load ptr, ptr %6, align 8, !tbaa !7
+  %67 = load ptr, ptr %6, align 8, !tbaa !43
   store ptr %67, ptr %3, align 8
   store i32 1, ptr %7, align 4
   br label %68
@@ -2168,32 +2168,32 @@ define internal ptr @lv_font_manager_get_path(ptr noundef %0, ptr noundef %1) #0
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   store ptr %0, ptr %4, align 8, !tbaa !7
-  store ptr %1, ptr %5, align 8, !tbaa !7
+  store ptr %1, ptr %5, align 8, !tbaa !34
   call void @llvm.lifetime.start.p0(i64 8, ptr %6) #6
   %8 = load ptr, ptr %4, align 8, !tbaa !7
   %9 = getelementptr inbounds nuw %struct._lv_font_manager_t, ptr %8, i32 0, i32 2
   %10 = call ptr @lv_ll_get_head(ptr noundef %9)
-  store ptr %10, ptr %6, align 8, !tbaa !7
+  store ptr %10, ptr %6, align 8, !tbaa !15
   br label %11
 
 11:                                               ; preds = %26, %2
-  %12 = load ptr, ptr %6, align 8, !tbaa !7
+  %12 = load ptr, ptr %6, align 8, !tbaa !15
   %13 = icmp ne ptr %12, null
   br i1 %13, label %14, label %31
 
 14:                                               ; preds = %11
-  %15 = load ptr, ptr %5, align 8, !tbaa !7
-  %16 = load ptr, ptr %6, align 8, !tbaa !7
+  %15 = load ptr, ptr %5, align 8, !tbaa !34
+  %16 = load ptr, ptr %6, align 8, !tbaa !15
   %17 = getelementptr inbounds nuw %struct._lv_font_path_t, ptr %16, i32 0, i32 0
-  %18 = load ptr, ptr %17, align 8, !tbaa !17
+  %18 = load ptr, ptr %17, align 8, !tbaa !22
   %19 = call i32 @lv_strcmp(ptr noundef %15, ptr noundef %18)
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %21, label %25
 
 21:                                               ; preds = %14
-  %22 = load ptr, ptr %6, align 8, !tbaa !7
+  %22 = load ptr, ptr %6, align 8, !tbaa !15
   %23 = getelementptr inbounds nuw %struct._lv_font_path_t, ptr %22, i32 0, i32 1
-  %24 = load ptr, ptr %23, align 8, !tbaa !18
+  %24 = load ptr, ptr %23, align 8, !tbaa !23
   store ptr %24, ptr %3, align 8
   store i32 1, ptr %7, align 4
   br label %32
@@ -2204,10 +2204,10 @@ define internal ptr @lv_font_manager_get_path(ptr noundef %0, ptr noundef %1) #0
 26:                                               ; preds = %25
   %27 = load ptr, ptr %4, align 8, !tbaa !7
   %28 = getelementptr inbounds nuw %struct._lv_font_manager_t, ptr %27, i32 0, i32 2
-  %29 = load ptr, ptr %6, align 8, !tbaa !7
+  %29 = load ptr, ptr %6, align 8, !tbaa !15
   %30 = call ptr @lv_ll_get_next(ptr noundef %28, ptr noundef %29)
-  store ptr %30, ptr %6, align 8, !tbaa !7
-  br label %11, !llvm.loop !48
+  store ptr %30, ptr %6, align 8, !tbaa !15
+  br label %11, !llvm.loop !61
 
 31:                                               ; preds = %11
   store ptr null, ptr %3, align 8
@@ -2230,7 +2230,7 @@ define internal ptr @lv_font_manager_search_rec_node(ptr noundef %0, ptr noundef
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   store ptr %0, ptr %4, align 8, !tbaa !7
-  store ptr %1, ptr %5, align 8, !tbaa !7
+  store ptr %1, ptr %5, align 8, !tbaa !43
   br label %8
 
 8:                                                ; preds = %2
@@ -2257,7 +2257,7 @@ define internal ptr @lv_font_manager_search_rec_node(ptr noundef %0, ptr noundef
   br label %17
 
 17:                                               ; preds = %16
-  %18 = load ptr, ptr %5, align 8, !tbaa !7
+  %18 = load ptr, ptr %5, align 8, !tbaa !43
   %19 = icmp ne ptr %18, null
   br i1 %19, label %24, label %20
 
@@ -2281,17 +2281,17 @@ define internal ptr @lv_font_manager_search_rec_node(ptr noundef %0, ptr noundef
   %26 = load ptr, ptr %4, align 8, !tbaa !7
   %27 = getelementptr inbounds nuw %struct._lv_font_manager_t, ptr %26, i32 0, i32 1
   %28 = call ptr @lv_ll_get_head(ptr noundef %27)
-  store ptr %28, ptr %6, align 8, !tbaa !7
+  store ptr %28, ptr %6, align 8, !tbaa !27
   br label %29
 
 29:                                               ; preds = %43, %25
-  %30 = load ptr, ptr %6, align 8, !tbaa !7
+  %30 = load ptr, ptr %6, align 8, !tbaa !27
   %31 = icmp ne ptr %30, null
   br i1 %31, label %32, label %48
 
 32:                                               ; preds = %29
-  %33 = load ptr, ptr %5, align 8, !tbaa !7
-  %34 = load ptr, ptr %6, align 8, !tbaa !7
+  %33 = load ptr, ptr %5, align 8, !tbaa !43
+  %34 = load ptr, ptr %6, align 8, !tbaa !27
   %35 = getelementptr inbounds nuw %struct._lv_font_rec_node_t, ptr %34, i32 0, i32 0
   %36 = icmp eq ptr %33, %35
   br i1 %36, label %37, label %42
@@ -2306,7 +2306,7 @@ define internal ptr @lv_font_manager_search_rec_node(ptr noundef %0, ptr noundef
   br label %40
 
 40:                                               ; preds = %39
-  %41 = load ptr, ptr %6, align 8, !tbaa !7
+  %41 = load ptr, ptr %6, align 8, !tbaa !27
   store ptr %41, ptr %3, align 8
   store i32 1, ptr %7, align 4
   br label %49
@@ -2317,10 +2317,10 @@ define internal ptr @lv_font_manager_search_rec_node(ptr noundef %0, ptr noundef
 43:                                               ; preds = %42
   %44 = load ptr, ptr %4, align 8, !tbaa !7
   %45 = getelementptr inbounds nuw %struct._lv_font_manager_t, ptr %44, i32 0, i32 1
-  %46 = load ptr, ptr %6, align 8, !tbaa !7
+  %46 = load ptr, ptr %6, align 8, !tbaa !27
   %47 = call ptr @lv_ll_get_next(ptr noundef %45, ptr noundef %46)
-  store ptr %47, ptr %6, align 8, !tbaa !7
-  br label %29, !llvm.loop !49
+  store ptr %47, ptr %6, align 8, !tbaa !27
+  br label %29, !llvm.loop !62
 
 48:                                               ; preds = %29
   store ptr null, ptr %3, align 8
@@ -2341,7 +2341,7 @@ define internal zeroext i1 @lv_font_manager_reset_freetype_font(ptr noundef %0, 
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   store ptr %0, ptr %4, align 8, !tbaa !7
-  store ptr %1, ptr %5, align 8, !tbaa !7
+  store ptr %1, ptr %5, align 8, !tbaa !30
   br label %8
 
 8:                                                ; preds = %2
@@ -2368,7 +2368,7 @@ define internal zeroext i1 @lv_font_manager_reset_freetype_font(ptr noundef %0, 
   br label %17
 
 17:                                               ; preds = %16
-  %18 = load ptr, ptr %5, align 8, !tbaa !7
+  %18 = load ptr, ptr %5, align 8, !tbaa !30
   %19 = icmp ne ptr %18, null
   br i1 %19, label %24, label %20
 
@@ -2390,11 +2390,11 @@ define internal zeroext i1 @lv_font_manager_reset_freetype_font(ptr noundef %0, 
 25:                                               ; preds = %24
   call void @llvm.lifetime.start.p0(i64 8, ptr %6) #6
   %26 = load ptr, ptr %4, align 8, !tbaa !7
-  %27 = load ptr, ptr %5, align 8, !tbaa !7
+  %27 = load ptr, ptr %5, align 8, !tbaa !30
   %28 = getelementptr inbounds nuw %struct._lv_font_refer_node_t, ptr %27, i32 0, i32 1
   %29 = call ptr @lv_font_manager_search_refer_node(ptr noundef %26, ptr noundef %28)
-  store ptr %29, ptr %6, align 8, !tbaa !7
-  %30 = load ptr, ptr %6, align 8, !tbaa !7
+  store ptr %29, ptr %6, align 8, !tbaa !30
+  %30 = load ptr, ptr %6, align 8, !tbaa !30
   %31 = icmp ne ptr %30, null
   br i1 %31, label %36, label %32
 
@@ -2413,14 +2413,14 @@ define internal zeroext i1 @lv_font_manager_reset_freetype_font(ptr noundef %0, 
   br label %59
 
 36:                                               ; preds = %25
-  %37 = load ptr, ptr %6, align 8, !tbaa !7
+  %37 = load ptr, ptr %6, align 8, !tbaa !30
   %38 = getelementptr inbounds nuw %struct._lv_font_refer_node_t, ptr %37, i32 0, i32 3
-  %39 = load i32, ptr %38, align 8, !tbaa !45
+  %39 = load i32, ptr %38, align 8, !tbaa !58
   %40 = add nsw i32 %39, -1
-  store i32 %40, ptr %38, align 8, !tbaa !45
-  %41 = load ptr, ptr %6, align 8, !tbaa !7
+  store i32 %40, ptr %38, align 8, !tbaa !58
+  %41 = load ptr, ptr %6, align 8, !tbaa !30
   %42 = getelementptr inbounds nuw %struct._lv_font_refer_node_t, ptr %41, i32 0, i32 3
-  %43 = load i32, ptr %42, align 8, !tbaa !45
+  %43 = load i32, ptr %42, align 8, !tbaa !58
   %44 = icmp sgt i32 %43, 0
   br i1 %44, label %45, label %49
 
@@ -2440,13 +2440,13 @@ define internal zeroext i1 @lv_font_manager_reset_freetype_font(ptr noundef %0, 
 
 49:                                               ; preds = %36
   %50 = load ptr, ptr %4, align 8, !tbaa !7
-  %51 = load ptr, ptr %6, align 8, !tbaa !7
+  %51 = load ptr, ptr %6, align 8, !tbaa !30
   call void @lv_font_manager_delete_font_warpper(ptr noundef %50, ptr noundef %51)
   %52 = load ptr, ptr %4, align 8, !tbaa !7
   %53 = getelementptr inbounds nuw %struct._lv_font_manager_t, ptr %52, i32 0, i32 0
-  %54 = load ptr, ptr %6, align 8, !tbaa !7
+  %54 = load ptr, ptr %6, align 8, !tbaa !30
   call void @lv_ll_remove(ptr noundef %53, ptr noundef %54)
-  %55 = load ptr, ptr %6, align 8, !tbaa !7
+  %55 = load ptr, ptr %6, align 8, !tbaa !30
   call void @lv_free(ptr noundef %55)
   br label %56
 
@@ -2472,7 +2472,7 @@ define internal void @lv_font_manager_delete_font_warpper(ptr noundef %0, ptr no
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8, !tbaa !7
-  store ptr %1, ptr %4, align 8, !tbaa !7
+  store ptr %1, ptr %4, align 8, !tbaa !30
   br label %5
 
 5:                                                ; preds = %2
@@ -2499,7 +2499,7 @@ define internal void @lv_font_manager_delete_font_warpper(ptr noundef %0, ptr no
   br label %14
 
 14:                                               ; preds = %13
-  %15 = load ptr, ptr %4, align 8, !tbaa !7
+  %15 = load ptr, ptr %4, align 8, !tbaa !30
   %16 = icmp ne ptr %15, null
   br i1 %16, label %21, label %17
 
@@ -2521,11 +2521,11 @@ define internal void @lv_font_manager_delete_font_warpper(ptr noundef %0, ptr no
 22:                                               ; preds = %21
   %23 = load ptr, ptr %3, align 8, !tbaa !7
   %24 = getelementptr inbounds nuw %struct._lv_font_manager_t, ptr %23, i32 0, i32 3
-  %25 = load ptr, ptr %24, align 8, !tbaa !9
-  %26 = load ptr, ptr %4, align 8, !tbaa !7
+  %25 = load ptr, ptr %24, align 8, !tbaa !10
+  %26 = load ptr, ptr %4, align 8, !tbaa !30
   %27 = getelementptr inbounds nuw %struct._lv_font_refer_node_t, ptr %26, i32 0, i32 0
-  %28 = load ptr, ptr %27, align 8, !tbaa !39
-  %29 = load ptr, ptr %4, align 8, !tbaa !7
+  %28 = load ptr, ptr %27, align 8, !tbaa !52
+  %29 = load ptr, ptr %4, align 8, !tbaa !30
   %30 = getelementptr inbounds nuw %struct._lv_font_refer_node_t, ptr %29, i32 0, i32 1
   call void @lv_font_manager_recycle_set_reuse(ptr noundef %25, ptr noundef %28, ptr noundef %30)
   ret void
@@ -2534,7 +2534,7 @@ define internal void @lv_font_manager_delete_font_warpper(ptr noundef %0, ptr no
 declare void @lv_font_manager_recycle_set_reuse(ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @strncpy_until(ptr noundef %0, ptr noundef %1, i64 noundef %2, i8 noundef signext %3) #0 {
@@ -2543,14 +2543,14 @@ define internal ptr @strncpy_until(ptr noundef %0, ptr noundef %1, i64 noundef %
   %7 = alloca i64, align 8
   %8 = alloca i8, align 1
   %9 = alloca i64, align 8
-  store ptr %0, ptr %5, align 8, !tbaa !7
-  store ptr %1, ptr %6, align 8, !tbaa !7
-  store i64 %2, ptr %7, align 8, !tbaa !35
-  store i8 %3, ptr %8, align 1, !tbaa !38
+  store ptr %0, ptr %5, align 8, !tbaa !34
+  store ptr %1, ptr %6, align 8, !tbaa !34
+  store i64 %2, ptr %7, align 8, !tbaa !48
+  store i8 %3, ptr %8, align 1, !tbaa !51
   br label %10
 
 10:                                               ; preds = %4
-  %11 = load ptr, ptr %5, align 8, !tbaa !7
+  %11 = load ptr, ptr %5, align 8, !tbaa !34
   %12 = icmp ne ptr %11, null
   br i1 %12, label %17, label %13
 
@@ -2573,7 +2573,7 @@ define internal ptr @strncpy_until(ptr noundef %0, ptr noundef %1, i64 noundef %
   br label %19
 
 19:                                               ; preds = %18
-  %20 = load ptr, ptr %6, align 8, !tbaa !7
+  %20 = load ptr, ptr %6, align 8, !tbaa !34
   %21 = icmp ne ptr %20, null
   br i1 %21, label %26, label %22
 
@@ -2594,27 +2594,27 @@ define internal ptr @strncpy_until(ptr noundef %0, ptr noundef %1, i64 noundef %
 
 27:                                               ; preds = %26
   call void @llvm.lifetime.start.p0(i64 8, ptr %9) #6
-  store i64 0, ptr %9, align 8, !tbaa !35
+  store i64 0, ptr %9, align 8, !tbaa !48
   br label %28
 
 28:                                               ; preds = %46, %27
-  %29 = load i64, ptr %9, align 8, !tbaa !35
-  %30 = load i64, ptr %7, align 8, !tbaa !35
+  %29 = load i64, ptr %9, align 8, !tbaa !48
+  %30 = load i64, ptr %7, align 8, !tbaa !48
   %31 = icmp ult i64 %29, %30
   br i1 %31, label %32, label %44
 
 32:                                               ; preds = %28
-  %33 = load ptr, ptr %6, align 8, !tbaa !7
-  %34 = load i8, ptr %33, align 1, !tbaa !38
+  %33 = load ptr, ptr %6, align 8, !tbaa !34
+  %34 = load i8, ptr %33, align 1, !tbaa !51
   %35 = sext i8 %34 to i32
   %36 = icmp ne i32 %35, 0
   br i1 %36, label %37, label %44
 
 37:                                               ; preds = %32
-  %38 = load ptr, ptr %6, align 8, !tbaa !7
-  %39 = load i8, ptr %38, align 1, !tbaa !38
+  %38 = load ptr, ptr %6, align 8, !tbaa !34
+  %39 = load i8, ptr %38, align 1, !tbaa !51
   %40 = sext i8 %39 to i32
-  %41 = load i8, ptr %8, align 1, !tbaa !38
+  %41 = load i8, ptr %8, align 1, !tbaa !51
   %42 = sext i8 %41 to i32
   %43 = icmp ne i32 %40, %42
   br label %44
@@ -2624,32 +2624,32 @@ define internal ptr @strncpy_until(ptr noundef %0, ptr noundef %1, i64 noundef %
   br i1 %45, label %46, label %54
 
 46:                                               ; preds = %44
-  %47 = load ptr, ptr %6, align 8, !tbaa !7
+  %47 = load ptr, ptr %6, align 8, !tbaa !34
   %48 = getelementptr inbounds nuw i8, ptr %47, i32 1
-  store ptr %48, ptr %6, align 8, !tbaa !7
-  %49 = load i8, ptr %47, align 1, !tbaa !38
-  %50 = load ptr, ptr %5, align 8, !tbaa !7
+  store ptr %48, ptr %6, align 8, !tbaa !34
+  %49 = load i8, ptr %47, align 1, !tbaa !51
+  %50 = load ptr, ptr %5, align 8, !tbaa !34
   %51 = getelementptr inbounds nuw i8, ptr %50, i32 1
-  store ptr %51, ptr %5, align 8, !tbaa !7
-  store i8 %49, ptr %50, align 1, !tbaa !38
-  %52 = load i64, ptr %9, align 8, !tbaa !35
+  store ptr %51, ptr %5, align 8, !tbaa !34
+  store i8 %49, ptr %50, align 1, !tbaa !51
+  %52 = load i64, ptr %9, align 8, !tbaa !48
   %53 = add i64 %52, 1
-  store i64 %53, ptr %9, align 8, !tbaa !35
-  br label %28, !llvm.loop !50
+  store i64 %53, ptr %9, align 8, !tbaa !48
+  br label %28, !llvm.loop !63
 
 54:                                               ; preds = %44
-  %55 = load i64, ptr %9, align 8, !tbaa !35
-  %56 = load i64, ptr %7, align 8, !tbaa !35
+  %55 = load i64, ptr %9, align 8, !tbaa !48
+  %56 = load i64, ptr %7, align 8, !tbaa !48
   %57 = icmp ult i64 %55, %56
   br i1 %57, label %58, label %60
 
 58:                                               ; preds = %54
-  %59 = load ptr, ptr %5, align 8, !tbaa !7
-  store i8 0, ptr %59, align 1, !tbaa !38
+  %59 = load ptr, ptr %5, align 8, !tbaa !34
+  store i8 0, ptr %59, align 1, !tbaa !51
   br label %60
 
 60:                                               ; preds = %58, %54
-  %61 = load ptr, ptr %6, align 8, !tbaa !7
+  %61 = load ptr, ptr %6, align 8, !tbaa !34
   call void @llvm.lifetime.end.p0(i64 8, ptr %9) #6
   ret ptr %61
 }
@@ -2682,46 +2682,59 @@ attributes #6 = { nounwind }
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
-!8 = !{!"any pointer", !5, i64 0}
-!9 = !{!10, !8, i64 72}
-!10 = !{!"_lv_font_manager_t", !11, i64 0, !11, i64 24, !11, i64 48, !8, i64 72}
-!11 = !{!"", !4, i64 0, !8, i64 8, !8, i64 16}
-!12 = !{!13, !14, i64 16}
-!13 = !{!"_lv_font_path_t", !8, i64 0, !8, i64 8, !14, i64 16}
-!14 = !{!"_Bool", !5, i64 0}
-!15 = !{i8 0, i8 2}
-!16 = !{}
-!17 = !{!13, !8, i64 0}
-!18 = !{!13, !8, i64 8}
-!19 = distinct !{!19, !20}
-!20 = !{!"llvm.loop.mustprogress"}
-!21 = distinct !{!21, !20}
-!22 = distinct !{!22, !20}
-!23 = !{!14, !14, i64 0}
-!24 = distinct !{!24, !20}
-!25 = !{!26, !26, i64 0}
-!26 = !{!"short", !5, i64 0}
-!27 = !{!28, !8, i64 0}
-!28 = !{!"", !8, i64 0, !4, i64 8, !4, i64 12, !4, i64 16}
-!29 = !{!28, !4, i64 8}
-!30 = !{!28, !4, i64 16}
-!31 = !{!28, !4, i64 12}
-!32 = !{!33, !8, i64 48}
-!33 = !{!"_lv_font_t", !8, i64 0, !8, i64 8, !8, i64 16, !4, i64 24, !4, i64 28, !5, i64 32, !5, i64 32, !5, i64 33, !5, i64 34, !8, i64 40, !8, i64 48, !8, i64 56}
-!34 = distinct !{!34, !20}
-!35 = !{!36, !36, i64 0}
-!36 = !{!"long", !5, i64 0}
-!37 = !{i64 0, i64 8, !7, i64 8, i64 4, !3, i64 12, i64 4, !3, i64 16, i64 4, !3}
-!38 = !{!5, !5, i64 0}
-!39 = !{!40, !8, i64 0}
-!40 = !{!"_lv_font_refer_node_t", !8, i64 0, !28, i64 8, !5, i64 32, !4, i64 64}
-!41 = !{i64 0, i64 8, !7, i64 8, i64 8, !7, i64 16, i64 8, !7, i64 24, i64 4, !3, i64 28, i64 4, !3, i64 32, i64 1, !38, i64 33, i64 1, !38, i64 34, i64 1, !38, i64 40, i64 8, !7, i64 48, i64 8, !7, i64 56, i64 8, !7}
-!42 = !{!43, !8, i64 64}
-!43 = !{!"_lv_font_rec_node_t", !33, i64 0, !8, i64 64}
-!44 = distinct !{!44, !20}
-!45 = !{!40, !4, i64 64}
-!46 = !{!40, !8, i64 8}
-!47 = distinct !{!47, !20}
-!48 = distinct !{!48, !20}
-!49 = distinct !{!49, !20}
-!50 = distinct !{!50, !20}
+!8 = !{!"p1 _ZTS18_lv_font_manager_t", !9, i64 0}
+!9 = !{!"any pointer", !5, i64 0}
+!10 = !{!11, !14, i64 72}
+!11 = !{!"_lv_font_manager_t", !12, i64 0, !12, i64 24, !12, i64 48, !14, i64 72}
+!12 = !{!"", !4, i64 0, !13, i64 8, !13, i64 16}
+!13 = !{!"p1 omnipotent char", !9, i64 0}
+!14 = !{!"p1 _ZTS26_lv_font_manager_recycle_t", !9, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"p1 _ZTS15_lv_font_path_t", !9, i64 0}
+!17 = !{!18, !19, i64 16}
+!18 = !{!"_lv_font_path_t", !13, i64 0, !13, i64 8, !19, i64 16}
+!19 = !{!"_Bool", !5, i64 0}
+!20 = !{i8 0, i8 2}
+!21 = !{}
+!22 = !{!18, !13, i64 0}
+!23 = !{!18, !13, i64 8}
+!24 = distinct !{!24, !25}
+!25 = !{!"llvm.loop.mustprogress"}
+!26 = !{!9, !9, i64 0}
+!27 = !{!28, !28, i64 0}
+!28 = !{!"p1 _ZTS19_lv_font_rec_node_t", !9, i64 0}
+!29 = distinct !{!29, !25}
+!30 = !{!31, !31, i64 0}
+!31 = !{!"p1 _ZTS21_lv_font_refer_node_t", !9, i64 0}
+!32 = distinct !{!32, !25}
+!33 = !{!19, !19, i64 0}
+!34 = !{!13, !13, i64 0}
+!35 = distinct !{!35, !25}
+!36 = !{!37, !37, i64 0}
+!37 = !{!"short", !5, i64 0}
+!38 = !{!39, !13, i64 0}
+!39 = !{!"", !13, i64 0, !4, i64 8, !4, i64 12, !4, i64 16}
+!40 = !{!39, !4, i64 8}
+!41 = !{!39, !4, i64 16}
+!42 = !{!39, !4, i64 12}
+!43 = !{!44, !44, i64 0}
+!44 = !{!"p1 _ZTS10_lv_font_t", !9, i64 0}
+!45 = !{!46, !44, i64 48}
+!46 = !{!"_lv_font_t", !9, i64 0, !9, i64 8, !9, i64 16, !4, i64 24, !4, i64 28, !5, i64 32, !5, i64 32, !5, i64 33, !5, i64 34, !9, i64 40, !44, i64 48, !9, i64 56}
+!47 = distinct !{!47, !25}
+!48 = !{!49, !49, i64 0}
+!49 = !{!"long", !5, i64 0}
+!50 = !{i64 0, i64 8, !34, i64 8, i64 4, !3, i64 12, i64 4, !3, i64 16, i64 4, !3}
+!51 = !{!5, !5, i64 0}
+!52 = !{!53, !44, i64 0}
+!53 = !{!"_lv_font_refer_node_t", !44, i64 0, !39, i64 8, !5, i64 32, !4, i64 64}
+!54 = !{i64 0, i64 8, !26, i64 8, i64 8, !26, i64 16, i64 8, !26, i64 24, i64 4, !3, i64 28, i64 4, !3, i64 32, i64 1, !51, i64 33, i64 1, !51, i64 34, i64 1, !51, i64 40, i64 8, !26, i64 48, i64 8, !43, i64 56, i64 8, !26}
+!55 = !{!56, !31, i64 64}
+!56 = !{!"_lv_font_rec_node_t", !46, i64 0, !31, i64 64}
+!57 = distinct !{!57, !25}
+!58 = !{!53, !4, i64 64}
+!59 = !{!53, !13, i64 8}
+!60 = distinct !{!60, !25}
+!61 = distinct !{!61, !25}
+!62 = distinct !{!62, !25}
+!63 = distinct !{!63, !25}

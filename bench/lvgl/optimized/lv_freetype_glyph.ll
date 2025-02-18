@@ -38,9 +38,9 @@ define internal signext range(i8 -1, 2) i8 @freetype_glyph_compare_cb(ptr nounde
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %10 = load i32, ptr %9, align 4, !tbaa !11
+  %10 = load i32, ptr %9, align 4, !tbaa !13
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %12 = load i32, ptr %11, align 4, !tbaa !11
+  %12 = load i32, ptr %11, align 4, !tbaa !13
   %.not12 = icmp eq i32 %10, %12
   br i1 %.not12, label %16, label %13
 
@@ -57,175 +57,169 @@ define internal signext range(i8 -1, 2) i8 @freetype_glyph_compare_cb(ptr nounde
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @freetype_glyph_create_cb(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %4 = load ptr, ptr %3, align 8, !tbaa !12
-  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %6 = tail call i32 @lv_mutex_lock(ptr noundef nonnull %5) #8
-  %7 = load ptr, ptr %3, align 8, !tbaa !12
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %9 = load ptr, ptr %8, align 8, !tbaa !15
-  %10 = load i32, ptr %0, align 8, !tbaa !3
-  %11 = zext i32 %10 to i64
-  %12 = tail call i32 @FT_Get_Char_Index(ptr noundef %9, i64 noundef %11) #8
-  %13 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %14 = load i64, ptr %13, align 8, !tbaa !17
-  %15 = and i64 %14, 1
-  %.not = icmp eq i64 %15, 0
-  br i1 %.not, label %20, label %16
+  %4 = load ptr, ptr %3, align 8, !tbaa !14
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %6 = load ptr, ptr %5, align 8, !tbaa !19
+  %7 = load i32, ptr %0, align 8, !tbaa !3
+  %8 = zext i32 %7 to i64
+  %9 = tail call i32 @FT_Get_Char_Index(ptr noundef %6, i64 noundef %8) #8
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %11 = load i64, ptr %10, align 8, !tbaa !24
+  %12 = and i64 %11, 1
+  %.not = icmp eq i64 %12, 0
+  br i1 %.not, label %17, label %13
 
-16:                                               ; preds = %2
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %18 = load i32, ptr %17, align 8, !tbaa !23
-  %19 = tail call i32 @FT_Set_Pixel_Sizes(ptr noundef nonnull %9, i32 noundef 0, i32 noundef %18) #8
-  br label %22
+13:                                               ; preds = %2
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %15 = load i32, ptr %14, align 8, !tbaa !40
+  %16 = tail call i32 @FT_Set_Pixel_Sizes(ptr noundef nonnull %6, i32 noundef 0, i32 noundef %15) #8
+  br label %19
 
-20:                                               ; preds = %2
-  %21 = tail call i32 @FT_Select_Size(ptr noundef nonnull %9, i32 noundef 0) #8
-  br label %22
+17:                                               ; preds = %2
+  %18 = tail call i32 @FT_Select_Size(ptr noundef nonnull %6, i32 noundef 0) #8
+  br label %19
 
-22:                                               ; preds = %20, %16
-  %.059 = phi i32 [ %19, %16 ], [ %21, %20 ]
+19:                                               ; preds = %17, %13
+  %.059 = phi i32 [ %16, %13 ], [ %18, %17 ]
   %.not62 = icmp eq i32 %.059, 0
-  br i1 %.not62, label %23, label %103
+  br i1 %.not62, label %20, label %100
 
-23:                                               ; preds = %22
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %25 = load i32, ptr %24, align 8, !tbaa !24
-  switch i32 %25, label %.thread [
-    i32 1, label %27
-    i32 0, label %26
+20:                                               ; preds = %19
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %22 = load i32, ptr %21, align 8, !tbaa !41
+  switch i32 %22, label %.thread [
+    i32 1, label %24
+    i32 0, label %23
   ]
 
-26:                                               ; preds = %23
-  br label %27
+23:                                               ; preds = %20
+  br label %24
 
-27:                                               ; preds = %23, %26
-  %.sink = phi i32 [ 2129920, %26 ], [ 2129928, %23 ]
-  %28 = tail call i32 @FT_Load_Glyph(ptr noundef nonnull %9, i32 noundef %12, i32 noundef %.sink) #8
-  %.not63 = icmp eq i32 %28, 0
-  br i1 %.not63, label %thread-pre-split, label %103
+24:                                               ; preds = %20, %23
+  %.sink = phi i32 [ 2129920, %23 ], [ 2129928, %20 ]
+  %25 = tail call i32 @FT_Load_Glyph(ptr noundef nonnull %6, i32 noundef %9, i32 noundef %.sink) #8
+  %.not63 = icmp eq i32 %25, 0
+  br i1 %.not63, label %thread-pre-split, label %100
 
-thread-pre-split:                                 ; preds = %27
-  %.pr = load i32, ptr %24, align 8, !tbaa !24
+thread-pre-split:                                 ; preds = %24
+  %.pr = load i32, ptr %21, align 8, !tbaa !41
   br label %.thread
 
-.thread:                                          ; preds = %23, %thread-pre-split
-  %29 = phi i32 [ %.pr, %thread-pre-split ], [ %25, %23 ]
-  %30 = getelementptr inbounds nuw i8, ptr %9, i64 152
-  %31 = load ptr, ptr %30, align 8, !tbaa !25
-  switch i32 %29, label %95 [
-    i32 1, label %32
-    i32 0, label %66
+.thread:                                          ; preds = %20, %thread-pre-split
+  %26 = phi i32 [ %.pr, %thread-pre-split ], [ %22, %20 ]
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 152
+  %28 = load ptr, ptr %27, align 8, !tbaa !42
+  switch i32 %26, label %92 [
+    i32 1, label %29
+    i32 0, label %63
   ]
 
-32:                                               ; preds = %.thread
-  %33 = getelementptr inbounds nuw i8, ptr %31, i64 48
-  %34 = getelementptr inbounds nuw i8, ptr %31, i64 80
-  %35 = load i64, ptr %34, align 8, !tbaa !26
-  %36 = lshr i64 %35, 6
-  %37 = trunc i64 %36 to i16
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i16 %37, ptr %38, align 8, !tbaa !32
-  %39 = getelementptr inbounds nuw i8, ptr %31, i64 56
-  %40 = load i64, ptr %39, align 8, !tbaa !33
-  %41 = lshr i64 %40, 6
-  %42 = trunc i64 %41 to i16
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i16 %42, ptr %43, align 4, !tbaa !34
-  %44 = load i64, ptr %33, align 8, !tbaa !35
-  %45 = lshr i64 %44, 6
-  %46 = trunc i64 %45 to i16
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 18
-  store i16 %46, ptr %47, align 2, !tbaa !36
-  %48 = getelementptr inbounds nuw i8, ptr %31, i64 64
-  %49 = load i64, ptr %48, align 8, !tbaa !37
-  %50 = lshr i64 %49, 6
-  %51 = trunc i64 %50 to i16
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 22
-  store i16 %51, ptr %52, align 2, !tbaa !38
-  %53 = getelementptr inbounds nuw i8, ptr %31, i64 72
-  %54 = load i64, ptr %53, align 8, !tbaa !39
-  %55 = sub nsw i64 %54, %40
-  %56 = lshr i64 %55, 6
-  %57 = trunc i64 %56 to i16
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i16 %57, ptr %58, align 8, !tbaa !40
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 10, ptr %59, align 4, !tbaa !41
-  %60 = getelementptr inbounds nuw i8, ptr %1, i64 76
-  %61 = load i32, ptr %60, align 4, !tbaa !42
-  %62 = and i32 %61, 1
-  %.not64 = icmp eq i32 %62, 0
-  br i1 %.not64, label %95, label %63
+29:                                               ; preds = %.thread
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 80
+  %32 = load i64, ptr %31, align 8, !tbaa !43
+  %33 = lshr i64 %32, 6
+  %34 = trunc i64 %33 to i16
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i16 %34, ptr %35, align 8, !tbaa !54
+  %36 = getelementptr inbounds nuw i8, ptr %28, i64 56
+  %37 = load i64, ptr %36, align 8, !tbaa !55
+  %38 = lshr i64 %37, 6
+  %39 = trunc i64 %38 to i16
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i16 %39, ptr %40, align 4, !tbaa !56
+  %41 = load i64, ptr %30, align 8, !tbaa !57
+  %42 = lshr i64 %41, 6
+  %43 = trunc i64 %42 to i16
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 18
+  store i16 %43, ptr %44, align 2, !tbaa !58
+  %45 = getelementptr inbounds nuw i8, ptr %28, i64 64
+  %46 = load i64, ptr %45, align 8, !tbaa !59
+  %47 = lshr i64 %46, 6
+  %48 = trunc i64 %47 to i16
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 22
+  store i16 %48, ptr %49, align 2, !tbaa !60
+  %50 = getelementptr inbounds nuw i8, ptr %28, i64 72
+  %51 = load i64, ptr %50, align 8, !tbaa !61
+  %52 = sub nsw i64 %51, %37
+  %53 = lshr i64 %52, 6
+  %54 = trunc i64 %53 to i16
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i16 %54, ptr %55, align 8, !tbaa !62
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store i32 26, ptr %56, align 4, !tbaa !63
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 76
+  %58 = load i32, ptr %57, align 4, !tbaa !64
+  %59 = and i32 %58, 1
+  %.not64 = icmp eq i32 %59, 0
+  br i1 %.not64, label %92, label %60
 
-63:                                               ; preds = %32
-  %.sroa.2.0.insert.ext = shl i64 %41, 32
+60:                                               ; preds = %29
+  %.sroa.2.0.insert.ext = shl i64 %38, 32
   %.sroa.2.0.insert.shift = and i64 %.sroa.2.0.insert.ext, 281470681743360
-  %.sroa.0.0.insert.ext = and i64 %45, 65535
+  %.sroa.0.0.insert.ext = and i64 %42, 65535
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.0.0.insert.ext, %.sroa.2.0.insert.shift
-  %64 = tail call i32 @lv_freetype_italic_transform_on_pos(i64 %.sroa.0.0.insert.insert) #8
-  %65 = trunc i32 %64 to i16
-  store i16 %65, ptr %47, align 2, !tbaa !36
-  br label %95
+  %61 = tail call i32 @lv_freetype_italic_transform_on_pos(i64 %.sroa.0.0.insert.insert) #8
+  %62 = trunc i32 %61 to i16
+  store i16 %62, ptr %44, align 2, !tbaa !58
+  br label %92
 
-66:                                               ; preds = %.thread
-  %67 = getelementptr inbounds nuw i8, ptr %31, i64 152
-  %68 = getelementptr inbounds nuw i8, ptr %31, i64 128
-  %69 = load i64, ptr %68, align 8, !tbaa !43
-  %70 = lshr i64 %69, 6
-  %71 = trunc i64 %70 to i16
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i16 %71, ptr %72, align 8, !tbaa !32
-  %73 = load i32, ptr %67, align 8, !tbaa !44
-  %74 = trunc i32 %73 to i16
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i16 %74, ptr %75, align 4, !tbaa !34
-  %76 = getelementptr inbounds nuw i8, ptr %31, i64 156
-  %77 = load i32, ptr %76, align 4, !tbaa !45
-  %78 = trunc i32 %77 to i16
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 18
-  store i16 %78, ptr %79, align 2, !tbaa !36
-  %80 = getelementptr inbounds nuw i8, ptr %31, i64 192
-  %81 = load i32, ptr %80, align 8, !tbaa !46
-  %82 = trunc i32 %81 to i16
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 22
-  store i16 %82, ptr %83, align 2, !tbaa !38
-  %84 = getelementptr inbounds nuw i8, ptr %31, i64 196
-  %85 = load i32, ptr %84, align 4, !tbaa !47
-  %86 = trunc i32 %85 to i16
-  %87 = sub i16 %86, %74
-  %88 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i16 %87, ptr %88, align 8, !tbaa !40
-  %89 = getelementptr inbounds nuw i8, ptr %31, i64 144
-  %90 = load i32, ptr %89, align 8, !tbaa !48
-  %91 = icmp eq i32 %90, 1651078259
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  br i1 %91, label %93, label %94
+63:                                               ; preds = %.thread
+  %64 = getelementptr inbounds nuw i8, ptr %28, i64 152
+  %65 = getelementptr inbounds nuw i8, ptr %28, i64 128
+  %66 = load i64, ptr %65, align 8, !tbaa !65
+  %67 = lshr i64 %66, 6
+  %68 = trunc i64 %67 to i16
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i16 %68, ptr %69, align 8, !tbaa !54
+  %70 = load i32, ptr %64, align 8, !tbaa !66
+  %71 = trunc i32 %70 to i16
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i16 %71, ptr %72, align 4, !tbaa !56
+  %73 = getelementptr inbounds nuw i8, ptr %28, i64 156
+  %74 = load i32, ptr %73, align 4, !tbaa !67
+  %75 = trunc i32 %74 to i16
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 18
+  store i16 %75, ptr %76, align 2, !tbaa !58
+  %77 = getelementptr inbounds nuw i8, ptr %28, i64 192
+  %78 = load i32, ptr %77, align 8, !tbaa !68
+  %79 = trunc i32 %78 to i16
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 22
+  store i16 %79, ptr %80, align 2, !tbaa !60
+  %81 = getelementptr inbounds nuw i8, ptr %28, i64 196
+  %82 = load i32, ptr %81, align 4, !tbaa !69
+  %83 = trunc i32 %82 to i16
+  %84 = sub i16 %83, %71
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i16 %84, ptr %85, align 8, !tbaa !62
+  %86 = getelementptr inbounds nuw i8, ptr %28, i64 144
+  %87 = load i32, ptr %86, align 8, !tbaa !70
+  %88 = icmp eq i32 %87, 1651078259
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  br i1 %88, label %90, label %91
 
-93:                                               ; preds = %66
-  store i32 9, ptr %92, align 4, !tbaa !41
-  br label %95
+90:                                               ; preds = %63
+  store i32 25, ptr %89, align 4, !tbaa !63
+  br label %92
 
-94:                                               ; preds = %66
-  store i32 8, ptr %92, align 4, !tbaa !41
-  br label %95
+91:                                               ; preds = %63
+  store i32 8, ptr %89, align 4, !tbaa !63
+  br label %92
 
-95:                                               ; preds = %93, %94, %.thread, %32, %63
-  %96 = icmp eq i32 %12, 0
-  %97 = zext i1 %96 to i8
-  %98 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %99 = load i8, ptr %98, align 8
-  %100 = and i8 %99, -2
-  %101 = or disjoint i8 %100, %97
-  store i8 %101, ptr %98, align 8
-  %102 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %12, ptr %102, align 8, !tbaa !49
-  br label %103
+92:                                               ; preds = %90, %91, %.thread, %29, %60
+  %93 = icmp eq i32 %9, 0
+  %94 = zext i1 %93 to i8
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %96 = load i8, ptr %95, align 8
+  %97 = and i8 %96, -2
+  %98 = or disjoint i8 %97, %94
+  store i8 %98, ptr %95, align 8
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i32 %9, ptr %99, align 8, !tbaa !71
+  br label %100
 
-103:                                              ; preds = %27, %22, %95
-  %.0 = phi i1 [ true, %95 ], [ false, %22 ], [ false, %27 ]
-  %104 = load ptr, ptr %3, align 8, !tbaa !12
-  %105 = getelementptr inbounds nuw i8, ptr %104, i64 32
-  %106 = tail call i32 @lv_mutex_unlock(ptr noundef nonnull %105) #8
+100:                                              ; preds = %24, %19, %92
+  %.0 = phi i1 [ true, %92 ], [ false, %19 ], [ false, %24 ]
   ret i1 %.0
 }
 
@@ -253,7 +247,7 @@ define void @lv_freetype_set_cbs_glyph(ptr noundef captures(address_is_null) %0)
   br label %.preheader
 
 2:                                                ; preds = %1
-  %3 = load i32, ptr %0, align 8, !tbaa !50
+  %3 = load i32, ptr %0, align 8, !tbaa !72
   %4 = icmp eq i32 %3, 1600079444
   br i1 %4, label %5, label %.preheader3
 
@@ -262,7 +256,7 @@ define void @lv_freetype_set_cbs_glyph(ptr noundef captures(address_is_null) %0)
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr @freetype_get_glyph_dsc_cb, ptr %6, align 8, !tbaa !51
+  store ptr @freetype_get_glyph_dsc_cb, ptr %6, align 8, !tbaa !73
   ret void
 }
 
@@ -289,13 +283,13 @@ define internal noundef zeroext i1 @freetype_get_glyph_dsc_cb(ptr noundef readon
 9:                                                ; preds = %7
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  store i32 0, ptr %11, align 4, !tbaa !41
+  store i32 0, ptr %11, align 4, !tbaa !63
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %10, i8 0, i64 10, i1 false)
   br label %47
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %14 = load ptr, ptr %13, align 8, !tbaa !52
+  %14 = load ptr, ptr %13, align 8, !tbaa !74
   %.not36 = icmp eq ptr %14, null
   br i1 %.not36, label %.preheader38, label %15
 
@@ -303,7 +297,7 @@ define internal noundef zeroext i1 @freetype_get_glyph_dsc_cb(ptr noundef readon
   br label %.preheader38
 
 15:                                               ; preds = %12
-  %16 = load i32, ptr %14, align 8, !tbaa !50
+  %16 = load i32, ptr %14, align 8, !tbaa !72
   %17 = icmp eq i32 %16, 1600079444
   br i1 %17, label %18, label %.preheader39
 
@@ -317,12 +311,12 @@ define internal noundef zeroext i1 @freetype_get_glyph_dsc_cb(ptr noundef readon
   store i32 %2, ptr %5, align 8, !tbaa !3
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 72
-  %22 = load i32, ptr %21, align 8, !tbaa !23
-  store i32 %22, ptr %20, align 4, !tbaa !11
+  %22 = load i32, ptr %21, align 8, !tbaa !40
+  store i32 %22, ptr %20, align 4, !tbaa !13
   %23 = getelementptr inbounds nuw i8, ptr %14, i64 96
-  %24 = load ptr, ptr %23, align 8, !tbaa !12
+  %24 = load ptr, ptr %23, align 8, !tbaa !14
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 40
-  %26 = load ptr, ptr %25, align 8, !tbaa !53
+  %26 = load ptr, ptr %25, align 8, !tbaa !75
   %27 = call ptr @lv_cache_acquire_or_create(ptr noundef %26, ptr noundef nonnull %5, ptr noundef nonnull %14) #8
   %28 = icmp ne ptr %27, null
   br i1 %28, label %29, label %46
@@ -330,9 +324,9 @@ define internal noundef zeroext i1 @freetype_get_glyph_dsc_cb(ptr noundef readon
 29:                                               ; preds = %18
   %30 = call ptr @lv_cache_entry_get_data(ptr noundef nonnull %27) #8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(48) %31, i64 48, i1 false), !tbaa.struct !54
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(48) %31, i64 48, i1 false), !tbaa.struct !76
   %32 = getelementptr inbounds nuw i8, ptr %14, i64 76
-  %33 = load i32, ptr %32, align 4, !tbaa !42
+  %33 = load i32, ptr %32, align 4, !tbaa !64
   %34 = and i32 %33, 1
   %35 = icmp ne i32 %34, 0
   %36 = icmp eq i32 %3, 0
@@ -341,17 +335,17 @@ define internal noundef zeroext i1 @freetype_get_glyph_dsc_cb(ptr noundef readon
 
 37:                                               ; preds = %29
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 10
-  %39 = load i16, ptr %38, align 2, !tbaa !36
+  %39 = load i16, ptr %38, align 2, !tbaa !58
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 14
-  %41 = load i16, ptr %40, align 2, !tbaa !38
+  %41 = load i16, ptr %40, align 2, !tbaa !60
   %42 = add i16 %41, %39
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i16 %42, ptr %43, align 8, !tbaa !32
+  store i16 %42, ptr %43, align 8, !tbaa !54
   br label %44
 
 44:                                               ; preds = %37, %29
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  store ptr null, ptr %45, align 8, !tbaa !58
+  store ptr null, ptr %45, align 8, !tbaa !81
   call void @lv_cache_release(ptr noundef %26, ptr noundef nonnull %27, ptr noundef null) #8
   br label %46
 
@@ -373,15 +367,11 @@ declare ptr @lv_cache_entry_get_data(ptr noundef) local_unnamed_addr #5
 
 declare void @lv_cache_release(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare i32 @lv_mutex_lock(ptr noundef) local_unnamed_addr #5
-
 declare i32 @FT_Get_Char_Index(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 declare i32 @FT_Set_Pixel_Sizes(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
 
 declare i32 @FT_Select_Size(ptr noundef, i32 noundef) local_unnamed_addr #5
-
-declare i32 @lv_mutex_unlock(ptr noundef) local_unnamed_addr #5
 
 declare i32 @FT_Load_Glyph(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
 
@@ -407,54 +397,77 @@ attributes #8 = { nounwind }
 !5 = !{!"int", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
-!8 = !{!"", !9, i64 0, !10, i64 8, !10, i64 10, !10, i64 12, !10, i64 14, !10, i64 16, !5, i64 20, !6, i64 24, !6, i64 32, !9, i64 40}
-!9 = !{!"any pointer", !6, i64 0}
-!10 = !{!"short", !6, i64 0}
-!11 = !{!4, !5, i64 4}
-!12 = !{!13, !9, i64 96}
-!13 = !{!"_lv_freetype_font_dsc_t", !5, i64 0, !14, i64 8, !5, i64 72, !5, i64 76, !5, i64 80, !9, i64 88, !9, i64 96, !9, i64 104, !9, i64 112}
-!14 = !{!"_lv_font_t", !9, i64 0, !9, i64 8, !9, i64 16, !5, i64 24, !5, i64 28, !6, i64 32, !6, i64 32, !6, i64 33, !6, i64 34, !9, i64 40, !9, i64 48, !9, i64 56}
-!15 = !{!16, !9, i64 24}
-!16 = !{!"_lv_freetype_cache_node_t", !9, i64 0, !5, i64 8, !5, i64 12, !5, i64 16, !9, i64 24, !5, i64 32, !9, i64 40, !9, i64 48}
-!17 = !{!18, !19, i64 16}
-!18 = !{!"FT_FaceRec_", !19, i64 0, !19, i64 8, !19, i64 16, !19, i64 24, !19, i64 32, !9, i64 40, !9, i64 48, !5, i64 56, !9, i64 64, !5, i64 72, !9, i64 80, !20, i64 88, !21, i64 104, !10, i64 136, !10, i64 138, !10, i64 140, !10, i64 142, !10, i64 144, !10, i64 146, !10, i64 148, !10, i64 150, !9, i64 152, !9, i64 160, !9, i64 168, !9, i64 176, !9, i64 184, !9, i64 192, !22, i64 200, !20, i64 216, !9, i64 232, !9, i64 240}
-!19 = !{!"long", !6, i64 0}
-!20 = !{!"FT_Generic_", !9, i64 0, !9, i64 8}
-!21 = !{!"FT_BBox_", !19, i64 0, !19, i64 8, !19, i64 16, !19, i64 24}
-!22 = !{!"FT_ListRec_", !9, i64 0, !9, i64 8}
-!23 = !{!13, !5, i64 72}
-!24 = !{!13, !5, i64 80}
-!25 = !{!18, !9, i64 152}
-!26 = !{!27, !19, i64 80}
-!27 = !{!"FT_GlyphSlotRec_", !9, i64 0, !9, i64 8, !9, i64 16, !5, i64 24, !20, i64 32, !28, i64 48, !19, i64 112, !19, i64 120, !29, i64 128, !5, i64 144, !30, i64 152, !5, i64 192, !5, i64 196, !31, i64 200, !5, i64 240, !9, i64 248, !9, i64 256, !19, i64 264, !19, i64 272, !19, i64 280, !9, i64 288, !9, i64 296}
-!28 = !{!"FT_Glyph_Metrics_", !19, i64 0, !19, i64 8, !19, i64 16, !19, i64 24, !19, i64 32, !19, i64 40, !19, i64 48, !19, i64 56}
-!29 = !{!"FT_Vector_", !19, i64 0, !19, i64 8}
-!30 = !{!"FT_Bitmap_", !5, i64 0, !5, i64 4, !5, i64 8, !9, i64 16, !10, i64 24, !6, i64 26, !6, i64 27, !9, i64 32}
-!31 = !{!"FT_Outline_", !10, i64 0, !10, i64 2, !9, i64 8, !9, i64 16, !9, i64 24, !5, i64 32}
-!32 = !{!8, !10, i64 8}
-!33 = !{!27, !19, i64 56}
-!34 = !{!8, !10, i64 12}
-!35 = !{!27, !19, i64 48}
-!36 = !{!8, !10, i64 10}
-!37 = !{!27, !19, i64 64}
-!38 = !{!8, !10, i64 14}
-!39 = !{!27, !19, i64 72}
-!40 = !{!8, !10, i64 16}
-!41 = !{!8, !5, i64 20}
-!42 = !{!13, !5, i64 76}
-!43 = !{!27, !19, i64 128}
-!44 = !{!30, !5, i64 0}
-!45 = !{!30, !5, i64 4}
-!46 = !{!27, !5, i64 192}
-!47 = !{!27, !5, i64 196}
-!48 = !{!27, !5, i64 144}
-!49 = !{!6, !6, i64 0}
-!50 = !{!13, !5, i64 0}
-!51 = !{!13, !9, i64 8}
-!52 = !{!14, !9, i64 40}
-!53 = !{!16, !9, i64 40}
-!54 = !{i64 0, i64 8, !55, i64 8, i64 2, !56, i64 10, i64 2, !56, i64 12, i64 2, !56, i64 14, i64 2, !56, i64 16, i64 2, !56, i64 20, i64 4, !57, i64 24, i64 1, !49, i64 32, i64 8, !49, i64 40, i64 8, !55}
-!55 = !{!9, !9, i64 0}
-!56 = !{!10, !10, i64 0}
-!57 = !{!5, !5, i64 0}
-!58 = !{!8, !9, i64 40}
+!8 = !{!"", !9, i64 0, !11, i64 8, !11, i64 10, !11, i64 12, !11, i64 14, !11, i64 16, !5, i64 20, !6, i64 24, !6, i64 24, !6, i64 32, !12, i64 40}
+!9 = !{!"p1 _ZTS10_lv_font_t", !10, i64 0}
+!10 = !{!"any pointer", !6, i64 0}
+!11 = !{!"short", !6, i64 0}
+!12 = !{!"p1 _ZTS17_lv_cache_entry_t", !10, i64 0}
+!13 = !{!4, !5, i64 4}
+!14 = !{!15, !18, i64 96}
+!15 = !{!"_lv_freetype_font_dsc_t", !5, i64 0, !16, i64 8, !5, i64 72, !5, i64 76, !5, i64 80, !17, i64 88, !18, i64 96, !12, i64 104, !10, i64 112}
+!16 = !{!"_lv_font_t", !10, i64 0, !10, i64 8, !10, i64 16, !5, i64 24, !5, i64 28, !6, i64 32, !6, i64 32, !6, i64 33, !6, i64 34, !10, i64 40, !9, i64 48, !10, i64 56}
+!17 = !{!"p1 _ZTS22_lv_freetype_context_t", !10, i64 0}
+!18 = !{!"p1 _ZTS25_lv_freetype_cache_node_t", !10, i64 0}
+!19 = !{!20, !22, i64 24}
+!20 = !{!"_lv_freetype_cache_node_t", !21, i64 0, !5, i64 8, !5, i64 12, !5, i64 16, !22, i64 24, !5, i64 32, !23, i64 40, !23, i64 48}
+!21 = !{!"p1 omnipotent char", !10, i64 0}
+!22 = !{!"p1 _ZTS11FT_FaceRec_", !10, i64 0}
+!23 = !{!"p1 _ZTS11_lv_cache_t", !10, i64 0}
+!24 = !{!25, !26, i64 16}
+!25 = !{!"FT_FaceRec_", !26, i64 0, !26, i64 8, !26, i64 16, !26, i64 24, !26, i64 32, !21, i64 40, !21, i64 48, !5, i64 56, !27, i64 64, !5, i64 72, !28, i64 80, !29, i64 88, !30, i64 104, !11, i64 136, !11, i64 138, !11, i64 140, !11, i64 142, !11, i64 144, !11, i64 146, !11, i64 148, !11, i64 150, !31, i64 152, !32, i64 160, !33, i64 168, !34, i64 176, !35, i64 184, !36, i64 192, !37, i64 200, !29, i64 216, !10, i64 232, !39, i64 240}
+!26 = !{!"long", !6, i64 0}
+!27 = !{!"p1 _ZTS15FT_Bitmap_Size_", !10, i64 0}
+!28 = !{!"p2 _ZTS14FT_CharMapRec_", !10, i64 0}
+!29 = !{!"FT_Generic_", !10, i64 0, !10, i64 8}
+!30 = !{!"FT_BBox_", !26, i64 0, !26, i64 8, !26, i64 16, !26, i64 24}
+!31 = !{!"p1 _ZTS16FT_GlyphSlotRec_", !10, i64 0}
+!32 = !{!"p1 _ZTS11FT_SizeRec_", !10, i64 0}
+!33 = !{!"p1 _ZTS14FT_CharMapRec_", !10, i64 0}
+!34 = !{!"p1 _ZTS13FT_DriverRec_", !10, i64 0}
+!35 = !{!"p1 _ZTS13FT_MemoryRec_", !10, i64 0}
+!36 = !{!"p1 _ZTS13FT_StreamRec_", !10, i64 0}
+!37 = !{!"FT_ListRec_", !38, i64 0, !38, i64 8}
+!38 = !{!"p1 _ZTS15FT_ListNodeRec_", !10, i64 0}
+!39 = !{!"p1 _ZTS20FT_Face_InternalRec_", !10, i64 0}
+!40 = !{!15, !5, i64 72}
+!41 = !{!15, !5, i64 80}
+!42 = !{!25, !31, i64 152}
+!43 = !{!44, !26, i64 80}
+!44 = !{!"FT_GlyphSlotRec_", !45, i64 0, !22, i64 8, !31, i64 16, !5, i64 24, !29, i64 32, !46, i64 48, !26, i64 112, !26, i64 120, !47, i64 128, !5, i64 144, !48, i64 152, !5, i64 192, !5, i64 196, !49, i64 200, !5, i64 240, !52, i64 248, !10, i64 256, !26, i64 264, !26, i64 272, !26, i64 280, !10, i64 288, !53, i64 296}
+!45 = !{!"p1 _ZTS14FT_LibraryRec_", !10, i64 0}
+!46 = !{!"FT_Glyph_Metrics_", !26, i64 0, !26, i64 8, !26, i64 16, !26, i64 24, !26, i64 32, !26, i64 40, !26, i64 48, !26, i64 56}
+!47 = !{!"FT_Vector_", !26, i64 0, !26, i64 8}
+!48 = !{!"FT_Bitmap_", !5, i64 0, !5, i64 4, !5, i64 8, !21, i64 16, !11, i64 24, !6, i64 26, !6, i64 27, !10, i64 32}
+!49 = !{!"FT_Outline_", !11, i64 0, !11, i64 2, !50, i64 8, !21, i64 16, !51, i64 24, !5, i64 32}
+!50 = !{!"p1 _ZTS10FT_Vector_", !10, i64 0}
+!51 = !{!"p1 short", !10, i64 0}
+!52 = !{!"p1 _ZTS15FT_SubGlyphRec_", !10, i64 0}
+!53 = !{!"p1 _ZTS20FT_Slot_InternalRec_", !10, i64 0}
+!54 = !{!8, !11, i64 8}
+!55 = !{!44, !26, i64 56}
+!56 = !{!8, !11, i64 12}
+!57 = !{!44, !26, i64 48}
+!58 = !{!8, !11, i64 10}
+!59 = !{!44, !26, i64 64}
+!60 = !{!8, !11, i64 14}
+!61 = !{!44, !26, i64 72}
+!62 = !{!8, !11, i64 16}
+!63 = !{!8, !5, i64 20}
+!64 = !{!15, !5, i64 76}
+!65 = !{!44, !26, i64 128}
+!66 = !{!48, !5, i64 0}
+!67 = !{!48, !5, i64 4}
+!68 = !{!44, !5, i64 192}
+!69 = !{!44, !5, i64 196}
+!70 = !{!44, !5, i64 144}
+!71 = !{!6, !6, i64 0}
+!72 = !{!15, !5, i64 0}
+!73 = !{!15, !10, i64 8}
+!74 = !{!16, !10, i64 40}
+!75 = !{!20, !23, i64 40}
+!76 = !{i64 0, i64 8, !77, i64 8, i64 2, !78, i64 10, i64 2, !78, i64 12, i64 2, !78, i64 14, i64 2, !78, i64 16, i64 2, !78, i64 20, i64 4, !79, i64 24, i64 1, !71, i64 32, i64 8, !71, i64 40, i64 8, !80}
+!77 = !{!9, !9, i64 0}
+!78 = !{!11, !11, i64 0}
+!79 = !{!5, !5, i64 0}
+!80 = !{!12, !12, i64 0}
+!81 = !{!8, !12, i64 40}

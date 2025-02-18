@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.lv_anim_timeline_dsc_t = type { %struct._lv_anim_t, i32, i8 }
-%struct._lv_anim_t = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, %union._lv_anim_path_para_t, i32, i8 }
+%struct._lv_anim_t = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, %union._lv_anim_path_para_t, i32, i32, i32, i8 }
 %union._lv_anim_path_para_t = type { %struct.lv_anim_bezier3_para_t }
 %struct.lv_anim_bezier3_para_t = type { i16, i16, i16, i16 }
 
@@ -75,7 +75,7 @@ define void @lv_anim_timeline_add(ptr noundef captures(address_is_null) %0, i32 
   store i32 %7, ptr %5, align 8, !tbaa !10
   %8 = load ptr, ptr %0, align 8, !tbaa !3
   %9 = zext i32 %7 to i64
-  %10 = mul nuw nsw i64 %9, 136
+  %10 = mul nuw nsw i64 %9, 144
   %11 = tail call ptr @lv_realloc(ptr noundef %8, i64 noundef %10) #7
   store ptr %11, ptr %0, align 8, !tbaa !3
   %.not12 = icmp eq ptr %11, null
@@ -89,7 +89,7 @@ define void @lv_anim_timeline_add(ptr noundef captures(address_is_null) %0, i32 
   %14 = add i32 %13, -1
   %15 = zext i32 %14 to i64
   %16 = getelementptr inbounds nuw %struct.lv_anim_timeline_dsc_t, ptr %11, i64 %15
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %16, ptr noundef nonnull align 8 dereferenceable(128) %2, i64 128, i1 false), !tbaa.struct !11
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %16, ptr noundef nonnull align 8 dereferenceable(136) %2, i64 136, i1 false), !tbaa.struct !11
   %17 = load ptr, ptr %0, align 8, !tbaa !3
   %18 = load i32, ptr %5, align 8, !tbaa !10
   %19 = add i32 %18, -1
@@ -194,17 +194,17 @@ lv_anim_timeline_get_playtime.exit:               ; preds = %.lr.ph.i, %8, %.pre
   %43 = sub nuw i32 %41, %20
   %44 = sub nuw i32 %20, %41
   %45 = select i1 %42, i32 %43, i32 %44
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2) #7
+  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %2) #7
   call void @lv_anim_init(ptr noundef nonnull %2) #7
   call void @lv_anim_set_var(ptr noundef nonnull %2, ptr noundef nonnull %0) #7
   call void @lv_anim_set_exec_cb(ptr noundef nonnull %2, ptr noundef nonnull @anim_timeline_exec_cb) #7
   call void @lv_anim_set_values(ptr noundef nonnull %2, i32 noundef %20, i32 noundef %41) #7
-  call void @lv_anim_set_time(ptr noundef nonnull %2, i32 noundef %45) #7
+  call void @lv_anim_set_duration(ptr noundef nonnull %2, i32 noundef %45) #7
   call void @lv_anim_set_path_cb(ptr noundef nonnull %2, ptr noundef nonnull @anim_timeline_path_cb) #7
   call void @lv_anim_set_repeat_count(ptr noundef nonnull %2, i32 noundef %16) #7
   call void @lv_anim_set_repeat_delay(ptr noundef nonnull %2, i32 noundef %18) #7
   %46 = call ptr @lv_anim_start(ptr noundef nonnull %2) #7
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %2) #7
   ret i32 %spec.select31.i
 }
 
@@ -266,7 +266,7 @@ define internal void @anim_timeline_exec_cb(ptr noundef initializes((12, 16)) %0
 
 declare void @lv_anim_set_values(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @lv_anim_set_time(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_anim_set_duration(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 declare void @lv_anim_set_path_cb(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -406,15 +406,15 @@ define internal fastcc void @anim_timeline_set_act_time(ptr noundef initializes(
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %175 ]
   %9 = load ptr, ptr %0, align 8, !tbaa !3
   %10 = getelementptr inbounds nuw %struct.lv_anim_timeline_dsc_t, ptr %9, i64 %indvars.iv
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 128
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 136
   %12 = load i32, ptr %11, align 8, !tbaa !15
   %13 = icmp ult i32 %1, %12
   br i1 %13, label %14, label %63
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds nuw i8, ptr %10, i64 120
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 128
   %16 = load i8, ptr %15, align 8
-  %17 = and i8 %16, 8
+  %17 = and i8 %16, 16
   %.not123 = icmp eq i8 %17, 0
   br i1 %.not123, label %..thread_crit_edge, label %18
 
@@ -430,7 +430,7 @@ define internal fastcc void @anim_timeline_set_act_time(ptr noundef initializes(
 19:                                               ; preds = %18
   %20 = load i8, ptr %7, align 8, !tbaa !23, !range !24, !noundef !25
   %21 = trunc nuw i8 %20 to i1
-  %22 = getelementptr inbounds nuw i8, ptr %10, i64 132
+  %22 = getelementptr inbounds nuw i8, ptr %10, i64 140
   %23 = load i8, ptr %22, align 4
   br i1 %21, label %24, label %33
 
@@ -493,7 +493,7 @@ define internal fastcc void @anim_timeline_set_act_time(ptr noundef initializes(
 47:                                               ; preds = %46
   %48 = load i8, ptr %7, align 8, !tbaa !23, !range !24, !noundef !25
   %49 = trunc nuw i8 %48 to i1
-  %50 = getelementptr inbounds nuw i8, ptr %10, i64 132
+  %50 = getelementptr inbounds nuw i8, ptr %10, i64 140
   %51 = load i8, ptr %50, align 4
   br i1 %49, label %52, label %61
 
@@ -535,7 +535,7 @@ define internal fastcc void @anim_timeline_set_act_time(ptr noundef initializes(
   br i1 %.not, label %79, label %68
 
 68:                                               ; preds = %67
-  %69 = getelementptr inbounds nuw i8, ptr %10, i64 132
+  %69 = getelementptr inbounds nuw i8, ptr %10, i64 140
   %70 = load i8, ptr %69, align 4
   %71 = and i8 %70, 1
   %.not132 = icmp eq i8 %71, 0
@@ -595,7 +595,7 @@ define internal fastcc void @anim_timeline_set_act_time(ptr noundef initializes(
 
 97:                                               ; preds = %94
   %98 = icmp eq i32 %1, %12
-  %99 = getelementptr inbounds nuw i8, ptr %10, i64 132
+  %99 = getelementptr inbounds nuw i8, ptr %10, i64 140
   %100 = load i8, ptr %99, align 4
   br i1 %98, label %101, label %110
 
@@ -630,7 +630,7 @@ define internal fastcc void @anim_timeline_set_act_time(ptr noundef initializes(
   %113 = load i32, ptr %64, align 4, !tbaa !28
   %114 = add i32 %113, %12
   %115 = icmp eq i32 %1, %114
-  %116 = getelementptr inbounds nuw i8, ptr %10, i64 132
+  %116 = getelementptr inbounds nuw i8, ptr %10, i64 140
   %117 = load i8, ptr %116, align 4
   br i1 %115, label %118, label %127
 
@@ -672,7 +672,7 @@ define internal fastcc void @anim_timeline_set_act_time(ptr noundef initializes(
 131:                                              ; preds = %130
   %132 = load i8, ptr %7, align 8, !tbaa !23, !range !24, !noundef !25
   %133 = trunc nuw i8 %132 to i1
-  %134 = getelementptr inbounds nuw i8, ptr %10, i64 132
+  %134 = getelementptr inbounds nuw i8, ptr %10, i64 140
   %135 = load i8, ptr %134, align 4
   br i1 %133, label %136, label %138
 
@@ -735,7 +735,7 @@ define internal fastcc void @anim_timeline_set_act_time(ptr noundef initializes(
 159:                                              ; preds = %158
   %160 = load i8, ptr %7, align 8, !tbaa !23, !range !24, !noundef !25
   %161 = trunc nuw i8 %160 to i1
-  %162 = getelementptr inbounds nuw i8, ptr %10, i64 132
+  %162 = getelementptr inbounds nuw i8, ptr %10, i64 140
   %163 = load i8, ptr %162, align 4
   br i1 %161, label %164, label %166
 
@@ -894,13 +894,13 @@ attributes #7 = { nounwind }
 !8 = !{!"int", !6, i64 0}
 !9 = !{!"_Bool", !6, i64 0}
 !10 = !{!4, !8, i64 8}
-!11 = !{i64 0, i64 8, !12, i64 8, i64 8, !12, i64 16, i64 8, !12, i64 24, i64 8, !12, i64 32, i64 8, !12, i64 40, i64 8, !12, i64 48, i64 8, !12, i64 56, i64 8, !12, i64 64, i64 8, !12, i64 72, i64 4, !13, i64 76, i64 4, !13, i64 80, i64 4, !13, i64 84, i64 4, !13, i64 88, i64 4, !13, i64 92, i64 4, !13, i64 96, i64 4, !13, i64 100, i64 4, !13, i64 104, i64 4, !13, i64 108, i64 8, !14, i64 116, i64 4, !13, i64 120, i64 1, !14}
+!11 = !{i64 0, i64 8, !12, i64 8, i64 8, !12, i64 16, i64 8, !12, i64 24, i64 8, !12, i64 32, i64 8, !12, i64 40, i64 8, !12, i64 48, i64 8, !12, i64 56, i64 8, !12, i64 64, i64 8, !12, i64 72, i64 4, !13, i64 76, i64 4, !13, i64 80, i64 4, !13, i64 84, i64 4, !13, i64 88, i64 4, !13, i64 92, i64 4, !13, i64 96, i64 4, !13, i64 100, i64 4, !13, i64 104, i64 4, !13, i64 108, i64 8, !14, i64 116, i64 4, !13, i64 120, i64 4, !13, i64 124, i64 4, !13, i64 128, i64 1, !14}
 !12 = !{!5, !5, i64 0}
 !13 = !{!8, !8, i64 0}
 !14 = !{!6, !6, i64 0}
-!15 = !{!16, !8, i64 128}
-!16 = !{!"", !17, i64 0, !8, i64 128, !6, i64 132, !6, i64 132}
-!17 = !{!"_lv_anim_t", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !5, i64 40, !5, i64 48, !5, i64 56, !5, i64 64, !8, i64 72, !8, i64 76, !8, i64 80, !8, i64 84, !8, i64 88, !8, i64 92, !8, i64 96, !8, i64 100, !8, i64 104, !6, i64 108, !8, i64 116, !6, i64 120, !6, i64 120, !6, i64 120, !6, i64 120}
+!15 = !{!16, !8, i64 136}
+!16 = !{!"", !17, i64 0, !8, i64 136, !6, i64 140, !6, i64 140}
+!17 = !{!"_lv_anim_t", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !5, i64 40, !5, i64 48, !5, i64 56, !5, i64 64, !8, i64 72, !8, i64 76, !8, i64 80, !8, i64 84, !8, i64 88, !8, i64 92, !8, i64 96, !8, i64 100, !8, i64 104, !6, i64 108, !8, i64 116, !8, i64 120, !8, i64 124, !6, i64 128, !6, i64 128, !6, i64 128, !6, i64 128, !6, i64 128}
 !18 = distinct !{!18, !19}
 !19 = !{!"llvm.loop.mustprogress"}
 !20 = !{!4, !8, i64 20}

@@ -131,7 +131,7 @@ define internal void @month_event_cb(ptr noundef %0) #0 {
   %.sroa.10.0 = phi i8 [ 1, %15 ], [ %18, %17 ], [ %spec.select28, %10 ]
   %20 = zext i16 %.sroa.0.0 to i32
   %21 = zext nneg i8 %.sroa.10.0 to i32
-  tail call void @lv_calendar_set_showed_date(ptr noundef %4, i32 noundef %20, i32 noundef %21) #2
+  tail call void @lv_calendar_set_month_shown(ptr noundef %4, i32 noundef %20, i32 noundef %21) #2
   %22 = tail call ptr @lv_obj_get_child(ptr noundef %3, i32 noundef 1) #2
   %23 = add nsw i32 %21, -1
   %24 = zext nneg i32 %23 to i64
@@ -159,7 +159,7 @@ define internal void @value_changed_event_cb(ptr noundef %0) #0 {
   %3 = tail call ptr @lv_obj_get_parent(ptr noundef %2) #2
   %4 = tail call ptr @lv_calendar_get_showed_date(ptr noundef %3) #2
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  %6 = load i8, ptr %5, align 2, !tbaa !10
+  %6 = load i8, ptr %5, align 2, !tbaa !11
   %7 = add i8 %6, -1
   %or.cond = icmp ult i8 %7, 12
   br i1 %or.cond, label %8, label %.preheader
@@ -169,9 +169,9 @@ define internal void @value_changed_event_cb(ptr noundef %0) #0 {
 
 8:                                                ; preds = %1
   %9 = tail call ptr @lv_obj_get_child(ptr noundef %2, i32 noundef 1) #2
-  %10 = load i16, ptr %4, align 2, !tbaa !12
+  %10 = load i16, ptr %4, align 2, !tbaa !13
   %11 = zext i16 %10 to i32
-  %12 = load i8, ptr %5, align 2, !tbaa !10
+  %12 = load i8, ptr %5, align 2, !tbaa !11
   %13 = sext i8 %12 to i64
   %14 = add nsw i64 %13, -1
   %15 = getelementptr inbounds [12 x ptr], ptr @month_names_def, i64 0, i64 %14
@@ -190,7 +190,7 @@ declare ptr @lv_calendar_get_showed_date(ptr noundef) local_unnamed_addr #1
 
 declare ptr @lv_obj_get_child(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_calendar_set_showed_date(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+declare void @lv_calendar_set_month_shown(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 declare void @lv_label_set_text_fmt(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
@@ -209,7 +209,8 @@ attributes #2 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!5, !5, i64 0}
 !8 = !{!9, !9, i64 0}
-!9 = !{!"any pointer", !5, i64 0}
-!10 = !{!11, !5, i64 2}
-!11 = !{!"", !4, i64 0, !5, i64 2, !5, i64 3}
-!12 = !{!11, !4, i64 0}
+!9 = !{!"p1 omnipotent char", !10, i64 0}
+!10 = !{!"any pointer", !5, i64 0}
+!11 = !{!12, !5, i64 2}
+!12 = !{!"", !4, i64 0, !5, i64 2, !5, i64 3}
+!13 = !{!12, !4, i64 0}

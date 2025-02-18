@@ -84,7 +84,7 @@ define i24 @lv_color_mix(i24 %0, i24 %1, i8 noundef zeroext %2) #0 {
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @lv_color_mix32(i32 %0, i32 %1) #0 {
@@ -217,21 +217,21 @@ define zeroext i8 @lv_color_brightness(i24 %0) #0 {
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define void @lv_color_filter_dsc_init(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8, !tbaa !18
-  store ptr %1, ptr %4, align 8, !tbaa !18
-  %5 = load ptr, ptr %4, align 8, !tbaa !18
+  store ptr %1, ptr %4, align 8, !tbaa !21
+  %5 = load ptr, ptr %4, align 8, !tbaa !21
   %6 = load ptr, ptr %3, align 8, !tbaa !18
   %7 = getelementptr inbounds nuw %struct._lv_color_filter_dsc_t, ptr %6, i32 0, i32 0
-  store ptr %5, ptr %7, align 8, !tbaa !20
+  store ptr %5, ptr %7, align 8, !tbaa !22
   ret void
 }
 
@@ -261,6 +261,8 @@ attributes #3 = { nounwind }
 !16 = !{!17, !17, i64 0}
 !17 = !{!"short", !4, i64 0}
 !18 = !{!19, !19, i64 0}
-!19 = !{!"any pointer", !4, i64 0}
-!20 = !{!21, !19, i64 0}
-!21 = !{!"_lv_color_filter_dsc_t", !19, i64 0, !19, i64 8}
+!19 = !{!"p1 _ZTS22_lv_color_filter_dsc_t", !20, i64 0}
+!20 = !{!"any pointer", !4, i64 0}
+!21 = !{!20, !20, i64 0}
+!22 = !{!23, !20, i64 0}
+!23 = !{!"_lv_color_filter_dsc_t", !20, i64 0, !20, i64 8}

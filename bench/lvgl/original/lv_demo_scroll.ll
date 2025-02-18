@@ -81,7 +81,7 @@ define void @lv_demo_scroll() #0 {
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 declare ptr @lv_obj_create(ptr noundef) #2
 
@@ -119,10 +119,10 @@ define internal ptr @switch_create(ptr noundef %0, ptr noundef %1, i32 noundef %
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
   store ptr %0, ptr %5, align 8, !tbaa !3
-  store ptr %1, ptr %6, align 8, !tbaa !3
-  store i32 %2, ptr %7, align 4, !tbaa !7
+  store ptr %1, ptr %6, align 8, !tbaa !8
+  store i32 %2, ptr %7, align 4, !tbaa !10
   %12 = zext i1 %3 to i8
-  store i8 %12, ptr %8, align 1, !tbaa !9
+  store i8 %12, ptr %8, align 1, !tbaa !12
   call void @llvm.lifetime.start.p0(i64 8, ptr %9) #4
   %13 = load ptr, ptr %5, align 8, !tbaa !3
   %14 = call ptr @lv_obj_create(ptr noundef %13)
@@ -141,7 +141,7 @@ define internal ptr @switch_create(ptr noundef %0, ptr noundef %1, i32 noundef %
   %21 = call ptr @lv_label_create(ptr noundef %20)
   store ptr %21, ptr %10, align 8, !tbaa !3
   %22 = load ptr, ptr %10, align 8, !tbaa !3
-  %23 = load ptr, ptr %6, align 8, !tbaa !3
+  %23 = load ptr, ptr %6, align 8, !tbaa !8
   call void @lv_label_set_text(ptr noundef %22, ptr noundef %23)
   %24 = load ptr, ptr %10, align 8, !tbaa !3
   call void @lv_obj_set_flex_grow(ptr noundef %24, i8 noundef zeroext 1)
@@ -150,11 +150,11 @@ define internal ptr @switch_create(ptr noundef %0, ptr noundef %1, i32 noundef %
   %26 = call ptr @lv_switch_create(ptr noundef %25)
   store ptr %26, ptr %11, align 8, !tbaa !3
   %27 = load ptr, ptr %11, align 8, !tbaa !3
-  %28 = load i32, ptr %7, align 4, !tbaa !7
+  %28 = load i32, ptr %7, align 4, !tbaa !10
   %29 = zext i32 %28 to i64
   %30 = inttoptr i64 %29 to ptr
   %31 = call ptr @lv_obj_add_event_cb(ptr noundef %27, ptr noundef @generic_switch_event_cb, i32 noundef 35, ptr noundef %30)
-  %32 = load i8, ptr %8, align 1, !tbaa !9, !range !11, !noundef !12
+  %32 = load i8, ptr %8, align 1, !tbaa !12, !range !14, !noundef !15
   %33 = trunc i8 %32 to i1
   br i1 %33, label %34, label %38
 
@@ -162,7 +162,7 @@ define internal ptr @switch_create(ptr noundef %0, ptr noundef %1, i32 noundef %
   %35 = load ptr, ptr %11, align 8, !tbaa !3
   call void @lv_obj_add_state(ptr noundef %35, i16 noundef zeroext 1)
   %36 = load ptr, ptr @list, align 8, !tbaa !3
-  %37 = load i32, ptr %7, align 4, !tbaa !7
+  %37 = load i32, ptr %7, align 4, !tbaa !10
   call void @lv_obj_add_flag(ptr noundef %36, i32 noundef %37)
   br label %42
 
@@ -170,7 +170,7 @@ define internal ptr @switch_create(ptr noundef %0, ptr noundef %1, i32 noundef %
   %39 = load ptr, ptr %11, align 8, !tbaa !3
   call void @lv_obj_remove_state(ptr noundef %39, i16 noundef zeroext 1)
   %40 = load ptr, ptr @list, align 8, !tbaa !3
-  %41 = load i32, ptr %7, align 4, !tbaa !7
+  %41 = load i32, ptr %7, align 4, !tbaa !10
   call void @lv_obj_remove_flag(ptr noundef %40, i32 noundef %41)
   br label %42
 
@@ -234,7 +234,7 @@ define internal void @lv_obj_move_foreground(ptr noundef %0) #3 {
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 declare ptr @lv_obj_get_parent(ptr noundef) #2
 
@@ -259,30 +259,30 @@ define internal void @generic_switch_event_cb(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8, !tbaa !3
+  store ptr %0, ptr %2, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 8, ptr %3) #4
-  %5 = load ptr, ptr %2, align 8, !tbaa !3
+  %5 = load ptr, ptr %2, align 8, !tbaa !16
   %6 = call ptr @lv_event_get_target(ptr noundef %5)
   store ptr %6, ptr %3, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(i64 4, ptr %4) #4
-  %7 = load ptr, ptr %2, align 8, !tbaa !3
+  %7 = load ptr, ptr %2, align 8, !tbaa !16
   %8 = call ptr @lv_event_get_user_data(ptr noundef %7)
   %9 = ptrtoint ptr %8 to i64
   %10 = trunc i64 %9 to i32
-  store i32 %10, ptr %4, align 4, !tbaa !7
+  store i32 %10, ptr %4, align 4, !tbaa !10
   %11 = load ptr, ptr %3, align 8, !tbaa !3
   %12 = call zeroext i1 @lv_obj_has_state(ptr noundef %11, i16 noundef zeroext 1)
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %1
   %14 = load ptr, ptr @list, align 8, !tbaa !3
-  %15 = load i32, ptr %4, align 4, !tbaa !7
+  %15 = load i32, ptr %4, align 4, !tbaa !10
   call void @lv_obj_add_flag(ptr noundef %14, i32 noundef %15)
   br label %19
 
 16:                                               ; preds = %1
   %17 = load ptr, ptr @list, align 8, !tbaa !3
-  %18 = load i32, ptr %4, align 4, !tbaa !7
+  %18 = load i32, ptr %4, align 4, !tbaa !10
   call void @lv_obj_remove_flag(ptr noundef %17, i32 noundef %18)
   br label %19
 
@@ -318,12 +318,17 @@ attributes #4 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{!4, !4, i64 0}
-!4 = !{!"any pointer", !5, i64 0}
-!5 = !{!"omnipotent char", !6, i64 0}
-!6 = !{!"Simple C/C++ TBAA"}
-!7 = !{!8, !8, i64 0}
-!8 = !{!"int", !5, i64 0}
-!9 = !{!10, !10, i64 0}
-!10 = !{!"_Bool", !5, i64 0}
-!11 = !{i8 0, i8 2}
-!12 = !{}
+!4 = !{!"p1 _ZTS9_lv_obj_t", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"p1 omnipotent char", !5, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"int", !6, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"_Bool", !6, i64 0}
+!14 = !{i8 0, i8 2}
+!15 = !{}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p1 _ZTS11_lv_event_t", !5, i64 0}

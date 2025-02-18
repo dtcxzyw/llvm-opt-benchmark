@@ -130,7 +130,7 @@ lv_tick_get.exit.split.us:                        ; preds = %9, %lv_tick_get.exi
   br i1 %.not7.i.i.us.us, label %.preheader.i.i.us.us.backedge, label %lv_tick_elaps.exit.loopexit.us.us
 
 .preheader.i.i.us.us.backedge:                    ; preds = %.preheader.i.i.us.us, %._crit_edge.us.us
-  br label %.preheader.i.i.us.us, !llvm.loop !24
+  br label %.preheader.i.i.us.us, !llvm.loop !35
 
 ._crit_edge.us.us:                                ; preds = %.lr.ph.us.us, %lv_tick_elaps.exit.loopexit.us.us
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
@@ -138,22 +138,22 @@ lv_tick_get.exit.split.us:                        ; preds = %9, %lv_tick_get.exi
   br label %.preheader.i.i.us.us.backedge
 
 .lr.ph.us.us:                                     ; preds = %lv_tick_elaps.exit.loopexit.us.us, %.lr.ph.us.us
-  %.0..0..0..0..us.us = load volatile i32, ptr %3, align 4, !tbaa !25
+  %.0..0..0..0..us.us = load volatile i32, ptr %3, align 4, !tbaa !36
   %16 = mul i32 %.0..0..0..0..us.us, 3
-  store volatile i32 %16, ptr %3, align 4, !tbaa !25
-  %.0..0..0..0.2.us.us = load volatile i32, ptr %2, align 4, !tbaa !25
+  store volatile i32 %16, ptr %3, align 4, !tbaa !36
+  %.0..0..0..0.2.us.us = load volatile i32, ptr %2, align 4, !tbaa !36
   %17 = add i32 %.0..0..0..0.2.us.us, 1
-  store volatile i32 %17, ptr %2, align 4, !tbaa !25
-  %.0..0..0..0.1.us.us = load volatile i32, ptr %2, align 4, !tbaa !25
+  store volatile i32 %17, ptr %2, align 4, !tbaa !36
+  %.0..0..0..0.1.us.us = load volatile i32, ptr %2, align 4, !tbaa !36
   %18 = icmp ult i32 %.0..0..0..0.1.us.us, 100
-  br i1 %18, label %.lr.ph.us.us, label %._crit_edge.us.us, !llvm.loop !26
+  br i1 %18, label %.lr.ph.us.us, label %._crit_edge.us.us, !llvm.loop !37
 
 lv_tick_elaps.exit.loopexit.us.us:                ; preds = %.preheader.i.i.us.us
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
-  store volatile i32 %0, ptr %3, align 4, !tbaa !25
-  store volatile i32 0, ptr %2, align 4, !tbaa !25
-  %.0..0..0..0.18.us.us = load volatile i32, ptr %2, align 4, !tbaa !25
+  store volatile i32 %0, ptr %3, align 4, !tbaa !36
+  store volatile i32 0, ptr %2, align 4, !tbaa !36
+  %.0..0..0..0.18.us.us = load volatile i32, ptr %2, align 4, !tbaa !36
   %19 = icmp ult i32 %.0..0..0..0.18.us.us, 100
   br i1 %19, label %.lr.ph.us.us, label %._crit_edge.us.us
 
@@ -193,27 +193,27 @@ lv_tick_elaps.exit:                               ; preds = %25, %23
 29:                                               ; preds = %lv_tick_elaps.exit
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
-  store volatile i32 %0, ptr %3, align 4, !tbaa !25
-  store volatile i32 0, ptr %2, align 4, !tbaa !25
-  %.0..0..0..0.18 = load volatile i32, ptr %2, align 4, !tbaa !25
+  store volatile i32 %0, ptr %3, align 4, !tbaa !36
+  store volatile i32 0, ptr %2, align 4, !tbaa !36
+  %.0..0..0..0.18 = load volatile i32, ptr %2, align 4, !tbaa !36
   %30 = icmp ult i32 %.0..0..0..0.18, 100
   br i1 %30, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %29, %.lr.ph
-  %.0..0..0..0. = load volatile i32, ptr %3, align 4, !tbaa !25
+  %.0..0..0..0. = load volatile i32, ptr %3, align 4, !tbaa !36
   %31 = mul i32 %.0..0..0..0., 3
-  store volatile i32 %31, ptr %3, align 4, !tbaa !25
-  %.0..0..0..0.2 = load volatile i32, ptr %2, align 4, !tbaa !25
+  store volatile i32 %31, ptr %3, align 4, !tbaa !36
+  %.0..0..0..0.2 = load volatile i32, ptr %2, align 4, !tbaa !36
   %32 = add i32 %.0..0..0..0.2, 1
-  store volatile i32 %32, ptr %2, align 4, !tbaa !25
-  %.0..0..0..0.1 = load volatile i32, ptr %2, align 4, !tbaa !25
+  store volatile i32 %32, ptr %2, align 4, !tbaa !36
+  %.0..0..0..0.1 = load volatile i32, ptr %2, align 4, !tbaa !36
   %33 = icmp ult i32 %.0..0..0..0.1, 100
-  br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !26
+  br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %.lr.ph, %29
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
-  br label %lv_tick_get.exit.split, !llvm.loop !27
+  br label %lv_tick_get.exit.split, !llvm.loop !38
 
 .loopexit:                                        ; preds = %lv_tick_elaps.exit, %.preheader.i.i.us, %5
   ret void
@@ -221,7 +221,7 @@ lv_tick_elaps.exit:                               ; preds = %25, %23
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define void @lv_tick_set_cb(ptr noundef %0) local_unnamed_addr #3 {
-  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 336), align 8, !tbaa !29
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 336), align 8, !tbaa !40
   ret void
 }
 
@@ -253,19 +253,30 @@ attributes #4 = { nounwind }
 !11 = distinct !{!11, !12}
 !12 = !{!"llvm.loop.mustprogress"}
 !13 = !{!14, !8, i64 344}
-!14 = !{!"_lv_global_t", !15, i64 0, !15, i64 1, !16, i64 8, !8, i64 32, !8, i64 40, !16, i64 48, !15, i64 72, !5, i64 76, !5, i64 80, !8, i64 88, !16, i64 96, !8, i64 120, !16, i64 128, !8, i64 152, !8, i64 160, !5, i64 168, !8, i64 176, !15, i64 184, !5, i64 188, !5, i64 192, !8, i64 200, !5, i64 208, !17, i64 216, !18, i64 288, !4, i64 328, !19, i64 352, !19, i64 400, !19, i64 448, !16, i64 496, !8, i64 520, !8, i64 528, !20, i64 536, !6, i64 568, !8, i64 760, !8, i64 768, !8, i64 776, !21, i64 784, !16, i64 832, !8, i64 856, !8, i64 864, !23, i64 872, !22, i64 888, !8, i64 896, !5, i64 904, !8, i64 912}
+!14 = !{!"_lv_global_t", !15, i64 0, !15, i64 1, !16, i64 8, !18, i64 32, !18, i64 40, !16, i64 48, !15, i64 72, !5, i64 76, !5, i64 80, !17, i64 88, !16, i64 96, !19, i64 120, !16, i64 128, !20, i64 152, !21, i64 160, !5, i64 168, !8, i64 176, !15, i64 184, !5, i64 188, !5, i64 192, !22, i64 200, !5, i64 208, !23, i64 216, !24, i64 288, !4, i64 328, !26, i64 352, !26, i64 400, !26, i64 448, !16, i64 496, !27, i64 520, !27, i64 528, !28, i64 536, !6, i64 568, !8, i64 760, !8, i64 768, !8, i64 776, !30, i64 784, !16, i64 832, !32, i64 856, !33, i64 864, !34, i64 872, !31, i64 888, !8, i64 896, !5, i64 904, !8, i64 912}
 !15 = !{!"_Bool", !6, i64 0}
-!16 = !{!"", !5, i64 0, !8, i64 8, !8, i64 16}
-!17 = !{!"", !16, i64 0, !15, i64 24, !6, i64 25, !15, i64 26, !15, i64 27, !5, i64 28, !15, i64 32, !5, i64 36, !5, i64 40, !5, i64 44, !5, i64 48, !8, i64 56, !8, i64 64}
-!18 = !{!"", !15, i64 0, !15, i64 1, !8, i64 8, !16, i64 16}
-!19 = !{!"_lv_draw_buf_handlers_t", !8, i64 0, !8, i64 8, !8, i64 16, !8, i64 24, !8, i64 32, !8, i64 40}
-!20 = !{!"", !8, i64 0, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !15, i64 24}
-!21 = !{!"", !8, i64 0, !22, i64 8, !22, i64 16, !16, i64 24}
-!22 = !{!"long", !6, i64 0}
-!23 = !{!"", !8, i64 0, !5, i64 8, !6, i64 12}
-!24 = distinct !{!24, !12}
-!25 = !{!5, !5, i64 0}
-!26 = distinct !{!26, !12}
-!27 = distinct !{!27, !12, !28}
-!28 = !{!"llvm.loop.unswitch.partial.disable"}
-!29 = !{!14, !8, i64 336}
+!16 = !{!"", !5, i64 0, !17, i64 8, !17, i64 16}
+!17 = !{!"p1 omnipotent char", !8, i64 0}
+!18 = !{!"p1 _ZTS13_lv_display_t", !8, i64 0}
+!19 = !{!"p1 _ZTS11_lv_group_t", !8, i64 0}
+!20 = !{!"p1 _ZTS11_lv_indev_t", !8, i64 0}
+!21 = !{!"p1 _ZTS9_lv_obj_t", !8, i64 0}
+!22 = !{!"p1 _ZTS11_lv_event_t", !8, i64 0}
+!23 = !{!"", !16, i64 0, !15, i64 24, !6, i64 25, !15, i64 26, !15, i64 27, !5, i64 28, !15, i64 32, !5, i64 36, !5, i64 40, !5, i64 44, !5, i64 48, !8, i64 56, !8, i64 64}
+!24 = !{!"", !15, i64 0, !15, i64 1, !25, i64 8, !16, i64 16}
+!25 = !{!"p1 _ZTS11_lv_timer_t", !8, i64 0}
+!26 = !{!"_lv_draw_buf_handlers_t", !8, i64 0, !8, i64 8, !8, i64 16, !8, i64 24, !8, i64 32, !8, i64 40}
+!27 = !{!"p1 _ZTS11_lv_cache_t", !8, i64 0}
+!28 = !{!"", !29, i64 0, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !15, i64 24}
+!29 = !{!"p1 _ZTS15_lv_draw_unit_t", !8, i64 0}
+!30 = !{!"", !8, i64 0, !31, i64 8, !31, i64 16, !16, i64 24}
+!31 = !{!"long", !6, i64 0}
+!32 = !{!"p1 _ZTS22_lv_freetype_context_t", !8, i64 0}
+!33 = !{!"p1 _ZTS14_snippet_stack", !8, i64 0}
+!34 = !{!"", !8, i64 0, !5, i64 8, !6, i64 12}
+!35 = distinct !{!35, !12}
+!36 = !{!5, !5, i64 0}
+!37 = distinct !{!37, !12}
+!38 = distinct !{!38, !12, !39}
+!39 = !{!"llvm.loop.unswitch.partial.disable"}
+!40 = !{!14, !8, i64 336}

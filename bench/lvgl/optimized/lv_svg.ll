@@ -14,11 +14,11 @@ define internal void @lv_svg_node_constructor(ptr readnone captures(none) %0, pt
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store ptr null, ptr %3, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  store i8 -1, ptr %4, align 8, !tbaa !12
+  store i8 -1, ptr %4, align 8, !tbaa !17
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
   tail call void @lv_array_init(ptr noundef nonnull %5, i32 noundef 4, i32 noundef 16) #3
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  store ptr null, ptr %6, align 8, !tbaa !13
+  store ptr null, ptr %6, align 8, !tbaa !18
   ret void
 }
 
@@ -47,13 +47,13 @@ define internal void @lv_svg_node_destructor(ptr readnone captures(none) %0, ptr
   %.011 = phi i32 [ %17, %16 ], [ 0, %6 ]
   %9 = tail call ptr @lv_array_at(ptr noundef nonnull %7, i32 noundef %.011) #3
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 1
-  %11 = load i8, ptr %10, align 1, !tbaa !14
+  %11 = load i8, ptr %10, align 1, !tbaa !19
   %12 = icmp eq i8 %11, 1
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %.lr.ph
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !16
+  %15 = load ptr, ptr %14, align 8, !tbaa !21
   tail call void @lv_free(ptr noundef %15) #3
   br label %16
 
@@ -61,7 +61,7 @@ define internal void @lv_svg_node_destructor(ptr readnone captures(none) %0, ptr
   %17 = add nuw i32 %.011, 1
   %18 = tail call i32 @lv_array_size(ptr noundef nonnull %7) #3
   %19 = icmp ult i32 %17, %18
-  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !17
+  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !22
 }
 
 ; Function Attrs: nounwind uwtable
@@ -92,8 +92,8 @@ define ptr @lv_svg_load_data(ptr noundef %0, i32 noundef %1) local_unnamed_addr 
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %11 = load ptr, ptr %10, align 8, !tbaa !19
-  store ptr null, ptr %10, align 8, !tbaa !19
+  %11 = load ptr, ptr %10, align 8, !tbaa !24
+  store ptr null, ptr %10, align 8, !tbaa !24
   br label %12
 
 12:                                               ; preds = %5, %7, %9
@@ -161,22 +161,27 @@ attributes #3 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{!4, !6, i64 32}
-!4 = !{!"", !5, i64 0, !6, i64 32, !7, i64 40, !10, i64 48, !6, i64 72}
-!5 = !{!"_lv_tree_node_t", !6, i64 0, !6, i64 8, !9, i64 16, !9, i64 20, !6, i64 24}
-!6 = !{!"any pointer", !7, i64 0}
-!7 = !{!"omnipotent char", !8, i64 0}
-!8 = !{!"Simple C/C++ TBAA"}
-!9 = !{!"int", !7, i64 0}
-!10 = !{!"_lv_array_t", !6, i64 0, !9, i64 8, !9, i64 12, !9, i64 16, !11, i64 20}
-!11 = !{!"_Bool", !7, i64 0}
-!12 = !{!4, !7, i64 40}
-!13 = !{!4, !6, i64 72}
-!14 = !{!15, !7, i64 1}
-!15 = !{!"", !7, i64 0, !7, i64 1, !7, i64 2, !7, i64 8}
-!16 = !{!7, !7, i64 0}
-!17 = distinct !{!17, !18}
-!18 = !{!"llvm.loop.mustprogress"}
-!19 = !{!20, !6, i64 24}
-!20 = !{!"", !21, i64 0, !6, i64 8, !9, i64 16, !9, i64 20, !6, i64 24, !6, i64 32}
-!21 = !{!"short", !7, i64 0}
+!3 = !{!4, !13, i64 32}
+!4 = !{!"", !5, i64 0, !13, i64 32, !8, i64 40, !14, i64 48, !16, i64 72}
+!5 = !{!"_lv_tree_node_t", !6, i64 0, !10, i64 8, !11, i64 16, !11, i64 20, !12, i64 24}
+!6 = !{!"p1 _ZTS15_lv_tree_node_t", !7, i64 0}
+!7 = !{!"any pointer", !8, i64 0}
+!8 = !{!"omnipotent char", !9, i64 0}
+!9 = !{!"Simple C/C++ TBAA"}
+!10 = !{!"p2 _ZTS15_lv_tree_node_t", !7, i64 0}
+!11 = !{!"int", !8, i64 0}
+!12 = !{!"p1 _ZTS16_lv_tree_class_t", !7, i64 0}
+!13 = !{!"p1 omnipotent char", !7, i64 0}
+!14 = !{!"_lv_array_t", !13, i64 0, !11, i64 8, !11, i64 12, !11, i64 16, !15, i64 20}
+!15 = !{!"_Bool", !8, i64 0}
+!16 = !{!"p1 _ZTS18_lv_svg_render_obj", !7, i64 0}
+!17 = !{!4, !8, i64 40}
+!18 = !{!4, !16, i64 72}
+!19 = !{!20, !8, i64 1}
+!20 = !{!"", !8, i64 0, !8, i64 1, !8, i64 2, !8, i64 8}
+!21 = !{!8, !8, i64 0}
+!22 = distinct !{!22, !23}
+!23 = !{!"llvm.loop.mustprogress"}
+!24 = !{!25, !7, i64 24}
+!25 = !{!"", !26, i64 0, !13, i64 8, !11, i64 16, !11, i64 20, !7, i64 24, !7, i64 32}
+!26 = !{!"short", !8, i64 0}

@@ -28,23 +28,23 @@ define zeroext i1 @lv_freetype_info_is_equal(ptr noundef readonly captures(addre
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %12 = load i32, ptr %11, align 4, !tbaa !9
+  %12 = load i32, ptr %11, align 4, !tbaa !10
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %14 = load i32, ptr %13, align 4, !tbaa !9
+  %14 = load i32, ptr %13, align 4, !tbaa !10
   %15 = icmp eq i32 %12, %14
   br i1 %15, label %16, label %27
 
 16:                                               ; preds = %10
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %18 = load i32, ptr %17, align 8, !tbaa !10
+  %18 = load i32, ptr %17, align 8, !tbaa !11
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %20 = load i32, ptr %19, align 8, !tbaa !10
+  %20 = load i32, ptr %19, align 8, !tbaa !11
   %21 = icmp eq i32 %18, %20
   br i1 %21, label %22, label %27
 
 22:                                               ; preds = %16
-  %23 = load ptr, ptr %0, align 8, !tbaa !11
-  %24 = load ptr, ptr %1, align 8, !tbaa !11
+  %23 = load ptr, ptr %0, align 8, !tbaa !12
+  %24 = load ptr, ptr %1, align 8, !tbaa !12
   %25 = tail call i32 @lv_strcmp(ptr noundef %23, ptr noundef %24) #2
   %26 = icmp eq i32 %25, 0
   br label %27
@@ -65,12 +65,13 @@ attributes #2 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{!4, !8, i64 16}
-!4 = !{!"", !5, i64 0, !8, i64 8, !8, i64 12, !8, i64 16}
-!5 = !{!"any pointer", !6, i64 0}
-!6 = !{!"omnipotent char", !7, i64 0}
-!7 = !{!"Simple C/C++ TBAA"}
-!8 = !{!"int", !6, i64 0}
-!9 = !{!4, !8, i64 12}
-!10 = !{!4, !8, i64 8}
-!11 = !{!4, !5, i64 0}
+!3 = !{!4, !9, i64 16}
+!4 = !{!"", !5, i64 0, !9, i64 8, !9, i64 12, !9, i64 16}
+!5 = !{!"p1 omnipotent char", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!"int", !7, i64 0}
+!10 = !{!4, !9, i64 12}
+!11 = !{!4, !9, i64 8}
+!12 = !{!4, !5, i64 0}

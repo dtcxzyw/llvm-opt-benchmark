@@ -6,21 +6,6 @@ define void @lv_os_init() #0 {
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define void @lv_lock() #0 {
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define i32 @lv_lock_isr() #0 {
-  ret i32 1
-}
-
-; Function Attrs: nounwind uwtable
-define void @lv_unlock() #0 {
-  ret void
-}
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 
 !llvm.module.flags = !{!0, !1, !2}

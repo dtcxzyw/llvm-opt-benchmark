@@ -2,7 +2,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.lv_sdl_keyboard_t = type { [32 x i8], i8 }
-%struct.lv_indev_data_t = type { %struct.lv_point_t, i32, i32, i16, i32, i8 }
+%struct.lv_indev_data_t = type { %struct.lv_point_t, i32, i32, i16, i32, i8, i32, ptr }
 %struct.lv_point_t = type { i32, i32 }
 %struct.SDL_KeyboardEvent = type { i32, i32, i32, i8, i8, i8, i8, %struct.SDL_Keysym }
 %struct.SDL_Keysym = type { i32, i32, i16, i32 }
@@ -61,11 +61,11 @@ define ptr @lv_sdl_keyboard_create() #0 {
 21:                                               ; preds = %17
   call void @llvm.lifetime.start.p0(i64 8, ptr %4) #4
   %22 = call ptr @lv_indev_create()
-  store ptr %22, ptr %4, align 8, !tbaa !3
+  store ptr %22, ptr %4, align 8, !tbaa !7
   br label %23
 
 23:                                               ; preds = %21
-  %24 = load ptr, ptr %4, align 8, !tbaa !3
+  %24 = load ptr, ptr %4, align 8, !tbaa !7
   %25 = icmp ne ptr %24, null
   br i1 %25, label %32, label %26
 
@@ -94,7 +94,7 @@ define ptr @lv_sdl_keyboard_create() #0 {
   br label %34
 
 34:                                               ; preds = %33
-  %35 = load ptr, ptr %4, align 8, !tbaa !3
+  %35 = load ptr, ptr %4, align 8, !tbaa !7
   %36 = icmp eq ptr %35, null
   br i1 %36, label %37, label %39
 
@@ -106,19 +106,19 @@ define ptr @lv_sdl_keyboard_create() #0 {
   br label %48
 
 39:                                               ; preds = %34
-  %40 = load ptr, ptr %4, align 8, !tbaa !3
+  %40 = load ptr, ptr %4, align 8, !tbaa !7
   call void @lv_indev_set_type(ptr noundef %40, i32 noundef 2)
-  %41 = load ptr, ptr %4, align 8, !tbaa !3
+  %41 = load ptr, ptr %4, align 8, !tbaa !7
   call void @lv_indev_set_read_cb(ptr noundef %41, ptr noundef @sdl_keyboard_read)
-  %42 = load ptr, ptr %4, align 8, !tbaa !3
+  %42 = load ptr, ptr %4, align 8, !tbaa !7
   %43 = load ptr, ptr %2, align 8, !tbaa !3
   call void @lv_indev_set_driver_data(ptr noundef %42, ptr noundef %43)
-  %44 = load ptr, ptr %4, align 8, !tbaa !3
+  %44 = load ptr, ptr %4, align 8, !tbaa !7
   call void @lv_indev_set_mode(ptr noundef %44, i32 noundef 2)
-  %45 = load ptr, ptr %4, align 8, !tbaa !3
-  %46 = load ptr, ptr %4, align 8, !tbaa !3
+  %45 = load ptr, ptr %4, align 8, !tbaa !7
+  %46 = load ptr, ptr %4, align 8, !tbaa !7
   call void @lv_indev_add_event_cb(ptr noundef %45, ptr noundef @release_indev_cb, i32 noundef 41, ptr noundef %46)
-  %47 = load ptr, ptr %4, align 8, !tbaa !3
+  %47 = load ptr, ptr %4, align 8, !tbaa !7
   store ptr %47, ptr %1, align 8
   store i32 1, ptr %3, align 4
   br label %48
@@ -134,7 +134,7 @@ define ptr @lv_sdl_keyboard_create() #0 {
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 declare ptr @lv_malloc_zeroed(i64 noundef) #2
 
@@ -152,10 +152,10 @@ define internal void @sdl_keyboard_read(ptr noundef %0, ptr noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %0, ptr %3, align 8, !tbaa !7
   store ptr %1, ptr %4, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(i64 8, ptr %5) #4
-  %7 = load ptr, ptr %3, align 8, !tbaa !3
+  %7 = load ptr, ptr %3, align 8, !tbaa !7
   %8 = call ptr @lv_indev_get_driver_data(ptr noundef %7)
   store ptr %8, ptr %5, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(i64 8, ptr %6) #4
@@ -163,42 +163,42 @@ define internal void @sdl_keyboard_read(ptr noundef %0, ptr noundef %1) #0 {
   %10 = getelementptr inbounds nuw %struct.lv_sdl_keyboard_t, ptr %9, i32 0, i32 0
   %11 = getelementptr inbounds [32 x i8], ptr %10, i64 0, i64 0
   %12 = call i64 @lv_strlen(ptr noundef %11)
-  store i64 %12, ptr %6, align 8, !tbaa !7
+  store i64 %12, ptr %6, align 8, !tbaa !9
   %13 = load ptr, ptr %5, align 8, !tbaa !3
   %14 = getelementptr inbounds nuw %struct.lv_sdl_keyboard_t, ptr %13, i32 0, i32 1
-  %15 = load i8, ptr %14, align 1, !tbaa !9, !range !12, !noundef !13
+  %15 = load i8, ptr %14, align 1, !tbaa !11, !range !14, !noundef !15
   %16 = trunc i8 %15 to i1
   br i1 %16, label %17, label %22
 
 17:                                               ; preds = %2
   %18 = load ptr, ptr %5, align 8, !tbaa !3
   %19 = getelementptr inbounds nuw %struct.lv_sdl_keyboard_t, ptr %18, i32 0, i32 1
-  store i8 0, ptr %19, align 1, !tbaa !9
+  store i8 0, ptr %19, align 1, !tbaa !11
   %20 = load ptr, ptr %4, align 8, !tbaa !3
   %21 = getelementptr inbounds nuw %struct.lv_indev_data_t, ptr %20, i32 0, i32 4
-  store i32 0, ptr %21, align 4, !tbaa !14
+  store i32 0, ptr %21, align 4, !tbaa !16
   br label %47
 
 22:                                               ; preds = %2
-  %23 = load i64, ptr %6, align 8, !tbaa !7
+  %23 = load i64, ptr %6, align 8, !tbaa !9
   %24 = icmp ugt i64 %23, 0
   br i1 %24, label %25, label %46
 
 25:                                               ; preds = %22
   %26 = load ptr, ptr %5, align 8, !tbaa !3
   %27 = getelementptr inbounds nuw %struct.lv_sdl_keyboard_t, ptr %26, i32 0, i32 1
-  store i8 1, ptr %27, align 1, !tbaa !9
+  store i8 1, ptr %27, align 1, !tbaa !11
   %28 = load ptr, ptr %4, align 8, !tbaa !3
   %29 = getelementptr inbounds nuw %struct.lv_indev_data_t, ptr %28, i32 0, i32 4
-  store i32 1, ptr %29, align 4, !tbaa !14
+  store i32 1, ptr %29, align 4, !tbaa !16
   %30 = load ptr, ptr %5, align 8, !tbaa !3
   %31 = getelementptr inbounds nuw %struct.lv_sdl_keyboard_t, ptr %30, i32 0, i32 0
   %32 = getelementptr inbounds [32 x i8], ptr %31, i64 0, i64 0
-  %33 = load i8, ptr %32, align 1, !tbaa !19
+  %33 = load i8, ptr %32, align 1, !tbaa !21
   %34 = sext i8 %33 to i32
   %35 = load ptr, ptr %4, align 8, !tbaa !3
   %36 = getelementptr inbounds nuw %struct.lv_indev_data_t, ptr %35, i32 0, i32 1
-  store i32 %34, ptr %36, align 4, !tbaa !20
+  store i32 %34, ptr %36, align 8, !tbaa !22
   %37 = load ptr, ptr %5, align 8, !tbaa !3
   %38 = getelementptr inbounds nuw %struct.lv_sdl_keyboard_t, ptr %37, i32 0, i32 0
   %39 = getelementptr inbounds [32 x i8], ptr %38, i64 0, i64 0
@@ -206,7 +206,7 @@ define internal void @sdl_keyboard_read(ptr noundef %0, ptr noundef %1) #0 {
   %41 = getelementptr inbounds nuw %struct.lv_sdl_keyboard_t, ptr %40, i32 0, i32 0
   %42 = getelementptr inbounds [32 x i8], ptr %41, i64 0, i64 0
   %43 = getelementptr inbounds i8, ptr %42, i64 1
-  %44 = load i64, ptr %6, align 8, !tbaa !7
+  %44 = load i64, ptr %6, align 8, !tbaa !9
   %45 = call ptr @lv_memmove(ptr noundef %39, ptr noundef %43, i64 noundef %44)
   br label %46
 
@@ -230,13 +230,13 @@ define internal void @release_indev_cb(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8, !tbaa !3
+  store ptr %0, ptr %2, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(i64 8, ptr %3) #4
-  %5 = load ptr, ptr %2, align 8, !tbaa !3
+  %5 = load ptr, ptr %2, align 8, !tbaa !23
   %6 = call ptr @lv_event_get_user_data(ptr noundef %5)
-  store ptr %6, ptr %3, align 8, !tbaa !3
+  store ptr %6, ptr %3, align 8, !tbaa !7
   call void @llvm.lifetime.start.p0(i64 8, ptr %4) #4
-  %7 = load ptr, ptr %3, align 8, !tbaa !3
+  %7 = load ptr, ptr %3, align 8, !tbaa !7
   %8 = call ptr @lv_indev_get_driver_data(ptr noundef %7)
   store ptr %8, ptr %4, align 8, !tbaa !3
   %9 = load ptr, ptr %4, align 8, !tbaa !3
@@ -244,9 +244,9 @@ define internal void @release_indev_cb(ptr noundef %0) #0 {
   br i1 %10, label %11, label %18
 
 11:                                               ; preds = %1
-  %12 = load ptr, ptr %3, align 8, !tbaa !3
+  %12 = load ptr, ptr %3, align 8, !tbaa !7
   call void @lv_indev_set_driver_data(ptr noundef %12, ptr noundef null)
-  %13 = load ptr, ptr %3, align 8, !tbaa !3
+  %13 = load ptr, ptr %3, align 8, !tbaa !7
   call void @lv_indev_set_read_cb(ptr noundef %13, ptr noundef null)
   %14 = load ptr, ptr %4, align 8, !tbaa !3
   call void @lv_free(ptr noundef %14)
@@ -268,7 +268,7 @@ define internal void @release_indev_cb(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define void @lv_sdl_keyboard_handler(ptr noundef %0) #0 {
@@ -282,28 +282,28 @@ define void @lv_sdl_keyboard_handler(ptr noundef %0) #0 {
   %9 = alloca i64, align 8
   %10 = alloca i64, align 8
   %11 = alloca i64, align 8
-  store ptr %0, ptr %2, align 8, !tbaa !3
+  store ptr %0, ptr %2, align 8, !tbaa !25
   call void @llvm.lifetime.start.p0(i64 4, ptr %3) #4
-  store i32 -1, ptr %3, align 4, !tbaa !21
-  %12 = load ptr, ptr %2, align 8, !tbaa !3
-  %13 = load i32, ptr %12, align 8, !tbaa !19
+  store i32 -1, ptr %3, align 4, !tbaa !27
+  %12 = load ptr, ptr %2, align 8, !tbaa !25
+  %13 = load i32, ptr %12, align 8, !tbaa !21
   switch i32 %13, label %22 [
     i32 768, label %14
     i32 771, label %18
   ]
 
 14:                                               ; preds = %1
-  %15 = load ptr, ptr %2, align 8, !tbaa !3
+  %15 = load ptr, ptr %2, align 8, !tbaa !25
   %16 = getelementptr inbounds nuw %struct.SDL_KeyboardEvent, ptr %15, i32 0, i32 2
-  %17 = load i32, ptr %16, align 8, !tbaa !19
-  store i32 %17, ptr %3, align 4, !tbaa !21
+  %17 = load i32, ptr %16, align 8, !tbaa !21
+  store i32 %17, ptr %3, align 4, !tbaa !27
   br label %23
 
 18:                                               ; preds = %1
-  %19 = load ptr, ptr %2, align 8, !tbaa !3
+  %19 = load ptr, ptr %2, align 8, !tbaa !25
   %20 = getelementptr inbounds nuw %struct.SDL_TextInputEvent, ptr %19, i32 0, i32 2
-  %21 = load i32, ptr %20, align 8, !tbaa !19
-  store i32 %21, ptr %3, align 4, !tbaa !21
+  %21 = load i32, ptr %20, align 8, !tbaa !21
+  store i32 %21, ptr %3, align 4, !tbaa !27
   br label %23
 
 22:                                               ; preds = %1
@@ -312,34 +312,34 @@ define void @lv_sdl_keyboard_handler(ptr noundef %0) #0 {
 
 23:                                               ; preds = %18, %14
   call void @llvm.lifetime.start.p0(i64 8, ptr %5) #4
-  %24 = load i32, ptr %3, align 4, !tbaa !21
+  %24 = load i32, ptr %3, align 4, !tbaa !27
   %25 = call ptr @lv_sdl_get_disp_from_win_id(i32 noundef %24)
-  store ptr %25, ptr %5, align 8, !tbaa !3
+  store ptr %25, ptr %5, align 8, !tbaa !28
   call void @llvm.lifetime.start.p0(i64 8, ptr %6) #4
   %26 = call ptr @lv_indev_get_next(ptr noundef null)
-  store ptr %26, ptr %6, align 8, !tbaa !3
+  store ptr %26, ptr %6, align 8, !tbaa !7
   br label %27
 
 27:                                               ; preds = %44, %23
-  %28 = load ptr, ptr %6, align 8, !tbaa !3
+  %28 = load ptr, ptr %6, align 8, !tbaa !7
   %29 = icmp ne ptr %28, null
   br i1 %29, label %30, label %47
 
 30:                                               ; preds = %27
-  %31 = load ptr, ptr %6, align 8, !tbaa !3
-  %32 = call i32 @lv_indev_get_type(ptr noundef %31)
-  %33 = icmp eq i32 %32, 2
+  %31 = load ptr, ptr %6, align 8, !tbaa !7
+  %32 = call ptr @lv_indev_get_read_cb(ptr noundef %31)
+  %33 = icmp eq ptr %32, @sdl_keyboard_read
   br i1 %33, label %34, label %44
 
 34:                                               ; preds = %30
-  %35 = load ptr, ptr %5, align 8, !tbaa !3
+  %35 = load ptr, ptr %5, align 8, !tbaa !28
   %36 = icmp eq ptr %35, null
   br i1 %36, label %42, label %37
 
 37:                                               ; preds = %34
-  %38 = load ptr, ptr %6, align 8, !tbaa !3
+  %38 = load ptr, ptr %6, align 8, !tbaa !7
   %39 = call ptr @lv_indev_get_display(ptr noundef %38)
-  %40 = load ptr, ptr %5, align 8, !tbaa !3
+  %40 = load ptr, ptr %5, align 8, !tbaa !28
   %41 = icmp eq ptr %39, %40
   br i1 %41, label %42, label %43
 
@@ -350,13 +350,13 @@ define void @lv_sdl_keyboard_handler(ptr noundef %0) #0 {
   br label %44
 
 44:                                               ; preds = %43, %30
-  %45 = load ptr, ptr %6, align 8, !tbaa !3
+  %45 = load ptr, ptr %6, align 8, !tbaa !7
   %46 = call ptr @lv_indev_get_next(ptr noundef %45)
-  store ptr %46, ptr %6, align 8, !tbaa !3
-  br label %27, !llvm.loop !22
+  store ptr %46, ptr %6, align 8, !tbaa !7
+  br label %27, !llvm.loop !30
 
 47:                                               ; preds = %42, %27
-  %48 = load ptr, ptr %6, align 8, !tbaa !3
+  %48 = load ptr, ptr %6, align 8, !tbaa !7
   %49 = icmp eq ptr %48, null
   br i1 %49, label %50, label %51
 
@@ -366,11 +366,11 @@ define void @lv_sdl_keyboard_handler(ptr noundef %0) #0 {
 
 51:                                               ; preds = %47
   call void @llvm.lifetime.start.p0(i64 8, ptr %7) #4
-  %52 = load ptr, ptr %6, align 8, !tbaa !3
+  %52 = load ptr, ptr %6, align 8, !tbaa !7
   %53 = call ptr @lv_indev_get_driver_data(ptr noundef %52)
   store ptr %53, ptr %7, align 8, !tbaa !3
-  %54 = load ptr, ptr %2, align 8, !tbaa !3
-  %55 = load i32, ptr %54, align 8, !tbaa !19
+  %54 = load ptr, ptr %2, align 8, !tbaa !25
+  %55 = load i32, ptr %54, align 8, !tbaa !21
   switch i32 %55, label %108 [
     i32 768, label %56
     i32 771, label %87
@@ -378,13 +378,13 @@ define void @lv_sdl_keyboard_handler(ptr noundef %0) #0 {
 
 56:                                               ; preds = %51
   call void @llvm.lifetime.start.p0(i64 4, ptr %8) #4
-  %57 = load ptr, ptr %2, align 8, !tbaa !3
+  %57 = load ptr, ptr %2, align 8, !tbaa !25
   %58 = getelementptr inbounds nuw %struct.SDL_KeyboardEvent, ptr %57, i32 0, i32 7
   %59 = getelementptr inbounds nuw %struct.SDL_Keysym, ptr %58, i32 0, i32 1
-  %60 = load i32, ptr %59, align 4, !tbaa !19
+  %60 = load i32, ptr %59, align 4, !tbaa !21
   %61 = call i32 @keycode_to_ctrl_key(i32 noundef %60)
-  store i32 %61, ptr %8, align 4, !tbaa !21
-  %62 = load i32, ptr %8, align 4, !tbaa !21
+  store i32 %61, ptr %8, align 4, !tbaa !27
+  %62 = load i32, ptr %8, align 4, !tbaa !27
   %63 = icmp eq i32 %62, 0
   br i1 %63, label %64, label %65
 
@@ -398,25 +398,25 @@ define void @lv_sdl_keyboard_handler(ptr noundef %0) #0 {
   %67 = getelementptr inbounds nuw %struct.lv_sdl_keyboard_t, ptr %66, i32 0, i32 0
   %68 = getelementptr inbounds [32 x i8], ptr %67, i64 0, i64 0
   %69 = call i64 @lv_strlen(ptr noundef %68)
-  store i64 %69, ptr %9, align 8, !tbaa !7
-  %70 = load i64, ptr %9, align 8, !tbaa !7
+  store i64 %69, ptr %9, align 8, !tbaa !9
+  %70 = load i64, ptr %9, align 8, !tbaa !9
   %71 = icmp ult i64 %70, 31
   br i1 %71, label %72, label %84
 
 72:                                               ; preds = %65
-  %73 = load i32, ptr %8, align 4, !tbaa !21
+  %73 = load i32, ptr %8, align 4, !tbaa !27
   %74 = trunc i32 %73 to i8
   %75 = load ptr, ptr %7, align 8, !tbaa !3
   %76 = getelementptr inbounds nuw %struct.lv_sdl_keyboard_t, ptr %75, i32 0, i32 0
-  %77 = load i64, ptr %9, align 8, !tbaa !7
+  %77 = load i64, ptr %9, align 8, !tbaa !9
   %78 = getelementptr inbounds nuw [32 x i8], ptr %76, i64 0, i64 %77
-  store i8 %74, ptr %78, align 1, !tbaa !19
+  store i8 %74, ptr %78, align 1, !tbaa !21
   %79 = load ptr, ptr %7, align 8, !tbaa !3
   %80 = getelementptr inbounds nuw %struct.lv_sdl_keyboard_t, ptr %79, i32 0, i32 0
-  %81 = load i64, ptr %9, align 8, !tbaa !7
+  %81 = load i64, ptr %9, align 8, !tbaa !9
   %82 = add i64 %81, 1
   %83 = getelementptr inbounds nuw [32 x i8], ptr %80, i64 0, i64 %82
-  store i8 0, ptr %83, align 1, !tbaa !19
+  store i8 0, ptr %83, align 1, !tbaa !21
   br label %84
 
 84:                                               ; preds = %72, %65
@@ -437,13 +437,13 @@ define void @lv_sdl_keyboard_handler(ptr noundef %0) #0 {
   %89 = getelementptr inbounds nuw %struct.lv_sdl_keyboard_t, ptr %88, i32 0, i32 0
   %90 = getelementptr inbounds [32 x i8], ptr %89, i64 0, i64 0
   %91 = call i64 @lv_strlen(ptr noundef %90)
-  %92 = load ptr, ptr %2, align 8, !tbaa !3
+  %92 = load ptr, ptr %2, align 8, !tbaa !25
   %93 = getelementptr inbounds nuw %struct.SDL_TextInputEvent, ptr %92, i32 0, i32 3
   %94 = getelementptr inbounds [32 x i8], ptr %93, i64 0, i64 0
   %95 = call i64 @lv_strlen(ptr noundef %94)
   %96 = add i64 %91, %95
-  store i64 %96, ptr %10, align 8, !tbaa !7
-  %97 = load i64, ptr %10, align 8, !tbaa !7
+  store i64 %96, ptr %10, align 8, !tbaa !9
+  %97 = load i64, ptr %10, align 8, !tbaa !9
   %98 = icmp ult i64 %97, 31
   br i1 %98, label %99, label %107
 
@@ -451,7 +451,7 @@ define void @lv_sdl_keyboard_handler(ptr noundef %0) #0 {
   %100 = load ptr, ptr %7, align 8, !tbaa !3
   %101 = getelementptr inbounds nuw %struct.lv_sdl_keyboard_t, ptr %100, i32 0, i32 0
   %102 = getelementptr inbounds [32 x i8], ptr %101, i64 0, i64 0
-  %103 = load ptr, ptr %2, align 8, !tbaa !3
+  %103 = load ptr, ptr %2, align 8, !tbaa !25
   %104 = getelementptr inbounds nuw %struct.SDL_TextInputEvent, ptr %103, i32 0, i32 3
   %105 = getelementptr inbounds [32 x i8], ptr %104, i64 0, i64 0
   %106 = call ptr @strcat(ptr noundef %102, ptr noundef %105) #4
@@ -470,23 +470,23 @@ define void @lv_sdl_keyboard_handler(ptr noundef %0) #0 {
   %111 = getelementptr inbounds nuw %struct.lv_sdl_keyboard_t, ptr %110, i32 0, i32 0
   %112 = getelementptr inbounds [32 x i8], ptr %111, i64 0, i64 0
   %113 = call i64 @lv_strlen(ptr noundef %112)
-  store i64 %113, ptr %11, align 8, !tbaa !7
+  store i64 %113, ptr %11, align 8, !tbaa !9
   br label %114
 
 114:                                              ; preds = %117, %109
-  %115 = load i64, ptr %11, align 8, !tbaa !7
+  %115 = load i64, ptr %11, align 8, !tbaa !9
   %116 = icmp ne i64 %115, 0
   br i1 %116, label %117, label %122
 
 117:                                              ; preds = %114
-  %118 = load ptr, ptr %6, align 8, !tbaa !3
+  %118 = load ptr, ptr %6, align 8, !tbaa !7
   call void @lv_indev_read(ptr noundef %118)
-  %119 = load ptr, ptr %6, align 8, !tbaa !3
+  %119 = load ptr, ptr %6, align 8, !tbaa !7
   call void @lv_indev_read(ptr noundef %119)
-  %120 = load i64, ptr %11, align 8, !tbaa !7
+  %120 = load i64, ptr %11, align 8, !tbaa !9
   %121 = add i64 %120, -1
-  store i64 %121, ptr %11, align 8, !tbaa !7
-  br label %114, !llvm.loop !24
+  store i64 %121, ptr %11, align 8, !tbaa !9
+  br label %114, !llvm.loop !32
 
 122:                                              ; preds = %114
   call void @llvm.lifetime.end.p0(i64 8, ptr %11) #4
@@ -521,7 +521,7 @@ declare ptr @lv_sdl_get_disp_from_win_id(i32 noundef) #2
 
 declare ptr @lv_indev_get_next(ptr noundef) #2
 
-declare i32 @lv_indev_get_type(ptr noundef) #2
+declare ptr @lv_indev_get_read_cb(ptr noundef) #2
 
 declare ptr @lv_indev_get_display(ptr noundef) #2
 
@@ -531,8 +531,8 @@ declare ptr @lv_indev_get_driver_data(ptr noundef) #2
 define internal i32 @keycode_to_ctrl_key(i32 noundef %0) #0 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
-  store i32 %0, ptr %3, align 4, !tbaa !21
-  %4 = load i32, ptr %3, align 4, !tbaa !21
+  store i32 %0, ptr %3, align 4, !tbaa !27
+  %4 = load i32, ptr %3, align 4, !tbaa !27
   switch i32 %4, label %17 [
     i32 1073741903, label %5
     i32 1073741911, label %5
@@ -636,20 +636,28 @@ attributes #4 = { nounwind }
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
-!8 = !{!"long", !5, i64 0}
-!9 = !{!10, !11, i64 32}
-!10 = !{!"", !5, i64 0, !11, i64 32}
-!11 = !{!"_Bool", !5, i64 0}
-!12 = !{i8 0, i8 2}
-!13 = !{}
-!14 = !{!15, !17, i64 20}
-!15 = !{!"", !16, i64 0, !17, i64 8, !17, i64 12, !18, i64 16, !17, i64 20, !11, i64 24}
-!16 = !{!"", !17, i64 0, !17, i64 4}
-!17 = !{!"int", !5, i64 0}
-!18 = !{!"short", !5, i64 0}
-!19 = !{!5, !5, i64 0}
-!20 = !{!15, !17, i64 8}
-!21 = !{!17, !17, i64 0}
-!22 = distinct !{!22, !23}
-!23 = !{!"llvm.loop.mustprogress"}
-!24 = distinct !{!24, !23}
+!8 = !{!"p1 _ZTS11_lv_indev_t", !4, i64 0}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"long", !5, i64 0}
+!11 = !{!12, !13, i64 32}
+!12 = !{!"", !5, i64 0, !13, i64 32}
+!13 = !{!"_Bool", !5, i64 0}
+!14 = !{i8 0, i8 2}
+!15 = !{}
+!16 = !{!17, !19, i64 20}
+!17 = !{!"", !18, i64 0, !19, i64 8, !19, i64 12, !20, i64 16, !19, i64 20, !13, i64 24, !19, i64 28, !4, i64 32}
+!18 = !{!"", !19, i64 0, !19, i64 4}
+!19 = !{!"int", !5, i64 0}
+!20 = !{!"short", !5, i64 0}
+!21 = !{!5, !5, i64 0}
+!22 = !{!17, !19, i64 8}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"p1 _ZTS11_lv_event_t", !4, i64 0}
+!25 = !{!26, !26, i64 0}
+!26 = !{!"p1 _ZTS9SDL_Event", !4, i64 0}
+!27 = !{!19, !19, i64 0}
+!28 = !{!29, !29, i64 0}
+!29 = !{!"p1 _ZTS13_lv_display_t", !4, i64 0}
+!30 = distinct !{!30, !31}
+!31 = !{!"llvm.loop.mustprogress"}
+!32 = distinct !{!32, !31}

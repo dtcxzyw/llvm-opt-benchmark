@@ -26,15 +26,15 @@ define internal void @lv_calendar_constructor(ptr readnone captures(none) %0, pt
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store i16 2024, ptr %3, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 74
-  store i8 1, ptr %4, align 2, !tbaa !15
+  store i8 1, ptr %4, align 2, !tbaa !19
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 75
-  store i8 1, ptr %5, align 1, !tbaa !16
+  store i8 1, ptr %5, align 1, !tbaa !20
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 76
-  store i16 2024, ptr %6, align 4, !tbaa !17
+  store i16 2024, ptr %6, align 4, !tbaa !21
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 78
-  store i8 1, ptr %7, align 2, !tbaa !18
+  store i8 1, ptr %7, align 2, !tbaa !22
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 79
-  store i8 1, ptr %8, align 1, !tbaa !19
+  store i8 1, ptr %8, align 1, !tbaa !23
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 545
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
@@ -51,7 +51,7 @@ define internal void @lv_calendar_constructor(ptr readnone captures(none) %0, pt
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw [56 x ptr], ptr %11, i64 0, i64 %indvars.iv
-  store ptr @.str.2, ptr %16, align 8, !tbaa !20
+  store ptr @.str.2, ptr %16, align 8, !tbaa !24
   br label %28
 
 17:                                               ; preds = %12
@@ -60,17 +60,17 @@ define internal void @lv_calendar_constructor(ptr readnone captures(none) %0, pt
 
 19:                                               ; preds = %17
   %20 = getelementptr inbounds nuw [7 x ptr], ptr @day_names_def, i64 0, i64 %indvars.iv
-  %21 = load ptr, ptr %20, align 8, !tbaa !20
+  %21 = load ptr, ptr %20, align 8, !tbaa !24
   %22 = getelementptr inbounds nuw [56 x ptr], ptr %11, i64 0, i64 %indvars.iv
-  store ptr %21, ptr %22, align 8, !tbaa !20
+  store ptr %21, ptr %22, align 8, !tbaa !24
   br label %28
 
 23:                                               ; preds = %17
   %24 = zext i8 %.049 to i64
   %25 = getelementptr inbounds nuw [42 x [20 x i8]], ptr %10, i64 0, i64 %24
-  store i8 120, ptr %25, align 1, !tbaa !21
+  store i8 120, ptr %25, align 1, !tbaa !26
   %26 = getelementptr inbounds nuw [56 x ptr], ptr %11, i64 0, i64 %indvars.iv
-  store ptr %25, ptr %26, align 8, !tbaa !20
+  store ptr %25, ptr %26, align 8, !tbaa !24
   %27 = add i8 %.049, 1
   br label %28
 
@@ -78,34 +78,34 @@ define internal void @lv_calendar_constructor(ptr readnone captures(none) %0, pt
   %.1 = phi i8 [ %.049, %15 ], [ %.049, %19 ], [ %27, %23 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 56
-  br i1 %exitcond.not, label %29, label %12, !llvm.loop !22
+  br i1 %exitcond.not, label %lv_calendar_set_today_date.exit, label %12, !llvm.loop !27
 
-29:                                               ; preds = %28
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 536
-  store ptr @.str.3, ptr %30, align 8, !tbaa !20
-  %31 = tail call ptr @lv_buttonmatrix_create(ptr noundef nonnull %1) #5
-  %32 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  store ptr %31, ptr %32, align 8, !tbaa !24
-  tail call void @lv_buttonmatrix_set_map(ptr noundef %31, ptr noundef nonnull %11) #5
-  %33 = load ptr, ptr %32, align 8, !tbaa !24
-  tail call void @lv_buttonmatrix_set_button_ctrl_all(ptr noundef %33, i32 noundef 544) #5
-  %34 = load ptr, ptr %32, align 8, !tbaa !24
-  %35 = tail call ptr @lv_obj_add_event_cb(ptr noundef %34, ptr noundef nonnull @draw_task_added_event_cb, i32 noundef 34, ptr noundef null) #5
-  %36 = load ptr, ptr %32, align 8, !tbaa !24
-  %37 = tail call i32 @lv_pct(i32 noundef 100) #5
-  tail call void @lv_obj_set_width(ptr noundef %36, i32 noundef %37) #5
-  %38 = load ptr, ptr %32, align 8, !tbaa !24
-  tail call void @lv_obj_add_flag(ptr noundef %38, i32 noundef 540672) #5
+lv_calendar_set_today_date.exit:                  ; preds = %28
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 536
+  store ptr @.str.3, ptr %29, align 8, !tbaa !24
+  %30 = tail call ptr @lv_buttonmatrix_create(ptr noundef nonnull %1) #5
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  store ptr %30, ptr %31, align 8, !tbaa !29
+  tail call void @lv_buttonmatrix_set_map(ptr noundef %30, ptr noundef nonnull %11) #5
+  %32 = load ptr, ptr %31, align 8, !tbaa !29
+  tail call void @lv_buttonmatrix_set_button_ctrl_all(ptr noundef %32, i32 noundef 544) #5
+  %33 = load ptr, ptr %31, align 8, !tbaa !29
+  %34 = tail call ptr @lv_obj_add_event_cb(ptr noundef %33, ptr noundef nonnull @draw_task_added_event_cb, i32 noundef 34, ptr noundef null) #5
+  %35 = load ptr, ptr %31, align 8, !tbaa !29
+  %36 = tail call i32 @lv_pct(i32 noundef 100) #5
+  tail call void @lv_obj_set_width(ptr noundef %35, i32 noundef %36) #5
+  %37 = load ptr, ptr %31, align 8, !tbaa !29
+  tail call void @lv_obj_add_flag(ptr noundef %37, i32 noundef 540672) #5
   tail call void @lv_obj_set_flex_flow(ptr noundef nonnull %1, i32 noundef 1) #5
-  %39 = load ptr, ptr %32, align 8, !tbaa !24
-  tail call void @lv_obj_set_flex_grow(ptr noundef %39, i8 noundef zeroext 1) #5
+  %38 = load ptr, ptr %31, align 8, !tbaa !29
+  tail call void @lv_obj_set_flex_grow(ptr noundef %38, i8 noundef zeroext 1) #5
   tail call void @lv_obj_set_style_text_align(ptr noundef nonnull %1, i32 noundef 2, i32 noundef 0) #5
-  %40 = load i16, ptr %6, align 4, !tbaa !17
-  %41 = zext i16 %40 to i32
-  %42 = load i8, ptr %7, align 2, !tbaa !18
-  %43 = sext i8 %42 to i32
-  tail call void @lv_calendar_set_showed_date(ptr noundef nonnull %1, i32 noundef %41, i32 noundef %43)
-  tail call fastcc void @highlight_update(ptr noundef nonnull %1)
+  %39 = load i16, ptr %6, align 4, !tbaa !21
+  %40 = zext i16 %39 to i32
+  %41 = load i8, ptr %7, align 2, !tbaa !22
+  %42 = sext i8 %41 to i32
+  tail call void @lv_calendar_set_month_shown(ptr noundef nonnull %1, i32 noundef %40, i32 noundef %42)
+  tail call fastcc void @highlight_update(ptr noundef %1)
   ret void
 }
 
@@ -122,18 +122,25 @@ declare void @lv_obj_class_init_obj(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @lv_calendar_set_day_names(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
+  %.not = icmp eq ptr %0, null
+  br i1 %.not, label %.preheader, label %.preheader9
+
+.preheader9:                                      ; preds = %2
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   br label %4
 
-4:                                                ; preds = %2, %4
-  %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %4 ]
+.preheader:                                       ; preds = %2, %.preheader
+  br label %.preheader
+
+4:                                                ; preds = %.preheader9, %4
+  %indvars.iv = phi i64 [ 0, %.preheader9 ], [ %indvars.iv.next, %4 ]
   %5 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
-  %6 = load ptr, ptr %5, align 8, !tbaa !20
+  %6 = load ptr, ptr %5, align 8, !tbaa !24
   %7 = getelementptr inbounds nuw [56 x ptr], ptr %3, i64 0, i64 %indvars.iv
-  store ptr %6, ptr %7, align 8, !tbaa !20
+  store ptr %6, ptr %7, align 8, !tbaa !24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
-  br i1 %exitcond.not, label %8, label %4, !llvm.loop !25
+  br i1 %exitcond.not, label %8, label %4, !llvm.loop !30
 
 8:                                                ; preds = %4
   tail call void @lv_obj_invalidate(ptr noundef nonnull %0) #5
@@ -143,30 +150,37 @@ define void @lv_calendar_set_day_names(ptr noundef %0, ptr noundef readonly capt
 declare void @lv_obj_invalidate(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @lv_calendar_set_today_date(ptr noundef captures(none) initializes((72, 76)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = trunc i32 %1 to i16
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i16 %5, ptr %6, align 8, !tbaa !3
-  %7 = trunc i32 %2 to i8
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 74
-  store i8 %7, ptr %8, align 2, !tbaa !15
-  %9 = trunc i32 %3 to i8
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 75
-  store i8 %9, ptr %10, align 1, !tbaa !16
+define void @lv_calendar_set_today_date(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+  %.not = icmp eq ptr %0, null
+  br i1 %.not, label %.preheader, label %5
+
+.preheader:                                       ; preds = %4, %.preheader
+  br label %.preheader
+
+5:                                                ; preds = %4
+  %6 = trunc i32 %1 to i16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store i16 %6, ptr %7, align 8, !tbaa !3
+  %8 = trunc i32 %2 to i8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 74
+  store i8 %8, ptr %9, align 2, !tbaa !19
+  %10 = trunc i32 %3 to i8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 75
+  store i8 %10, ptr %11, align 1, !tbaa !20
   tail call fastcc void @highlight_update(ptr noundef %0)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @highlight_update(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
+define internal fastcc void @highlight_update(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %3 = load ptr, ptr %2, align 8, !tbaa !24
+  %3 = load ptr, ptr %2, align 8, !tbaa !29
   tail call void @lv_buttonmatrix_clear_button_ctrl_all(ptr noundef %3, i32 noundef 49152) #5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %5 = load i16, ptr %4, align 4, !tbaa !17
+  %5 = load i16, ptr %4, align 4, !tbaa !21
   %6 = zext i16 %5 to i32
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 78
-  %8 = load i8, ptr %7, align 2, !tbaa !18
+  %8 = load i8, ptr %7, align 2, !tbaa !22
   %9 = sext i8 %8 to i32
   %10 = icmp ult i8 %8, 3
   %.neg.i = sext i1 %10 to i32
@@ -186,13 +200,13 @@ define internal fastcc void @highlight_update(ptr noundef readonly captures(none
   %24 = add nsw i32 %23, %16
   %25 = urem i32 %24, 7
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %27 = load ptr, ptr %26, align 8, !tbaa !26
+  %27 = load ptr, ptr %26, align 8, !tbaa !31
   %.not = icmp eq ptr %27, null
   br i1 %.not, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %1
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %29 = load i64, ptr %28, align 8, !tbaa !27
+  %29 = load i64, ptr %28, align 8, !tbaa !32
   %.not26 = icmp eq i64 %29, 0
   br i1 %.not26, label %.loopexit, label %.lr.ph
 
@@ -204,28 +218,28 @@ define internal fastcc void @highlight_update(ptr noundef readonly captures(none
   %32 = phi i64 [ %29, %.lr.ph ], [ %51, %50 ]
   %33 = phi i64 [ 0, %.lr.ph ], [ %53, %50 ]
   %.025 = phi i32 [ 0, %.lr.ph ], [ %52, %50 ]
-  %34 = load ptr, ptr %26, align 8, !tbaa !26
+  %34 = load ptr, ptr %26, align 8, !tbaa !31
   %35 = getelementptr inbounds nuw %struct.lv_calendar_date_t, ptr %34, i64 %33
-  %36 = load i16, ptr %35, align 2, !tbaa !28
-  %37 = load i16, ptr %4, align 4, !tbaa !17
+  %36 = load i16, ptr %35, align 2, !tbaa !33
+  %37 = load i16, ptr %4, align 4, !tbaa !21
   %38 = icmp eq i16 %36, %37
   br i1 %38, label %39, label %50
 
 39:                                               ; preds = %31
   %40 = getelementptr inbounds nuw i8, ptr %35, i64 2
-  %41 = load i8, ptr %40, align 2, !tbaa !29
-  %42 = load i8, ptr %7, align 2, !tbaa !18
+  %41 = load i8, ptr %40, align 2, !tbaa !34
+  %42 = load i8, ptr %7, align 2, !tbaa !22
   %43 = icmp eq i8 %41, %42
   br i1 %43, label %44, label %50
 
 44:                                               ; preds = %39
-  %45 = load ptr, ptr %2, align 8, !tbaa !24
+  %45 = load ptr, ptr %2, align 8, !tbaa !29
   %46 = getelementptr inbounds nuw i8, ptr %35, i64 3
-  %47 = load i8, ptr %46, align 1, !tbaa !30
+  %47 = load i8, ptr %46, align 1, !tbaa !35
   %48 = sext i8 %47 to i32
   %49 = add nsw i32 %30, %48
   tail call void @lv_buttonmatrix_set_button_ctrl(ptr noundef %45, i32 noundef %49, i32 noundef 32768) #5
-  %.pre = load i64, ptr %28, align 8, !tbaa !27
+  %.pre = load i64, ptr %28, align 8, !tbaa !32
   br label %50
 
 50:                                               ; preds = %31, %39, %44
@@ -233,10 +247,10 @@ define internal fastcc void @highlight_update(ptr noundef readonly captures(none
   %52 = add i32 %.025, 1
   %53 = zext i32 %52 to i64
   %54 = icmp ugt i64 %51, %53
-  br i1 %54, label %31, label %.loopexit.loopexit, !llvm.loop !31
+  br i1 %54, label %31, label %.loopexit.loopexit, !llvm.loop !36
 
 .loopexit.loopexit:                               ; preds = %50
-  %.pre27 = load i16, ptr %4, align 4, !tbaa !17
+  %.pre27 = load i16, ptr %4, align 4, !tbaa !21
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %.preheader, %1
@@ -247,16 +261,16 @@ define internal fastcc void @highlight_update(ptr noundef readonly captures(none
   br i1 %58, label %59, label %71
 
 59:                                               ; preds = %.loopexit
-  %60 = load i8, ptr %7, align 2, !tbaa !18
+  %60 = load i8, ptr %7, align 2, !tbaa !22
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 74
-  %62 = load i8, ptr %61, align 2, !tbaa !15
+  %62 = load i8, ptr %61, align 2, !tbaa !19
   %63 = icmp eq i8 %60, %62
   br i1 %63, label %64, label %71
 
 64:                                               ; preds = %59
-  %65 = load ptr, ptr %2, align 8, !tbaa !24
+  %65 = load ptr, ptr %2, align 8, !tbaa !29
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 75
-  %67 = load i8, ptr %66, align 1, !tbaa !16
+  %67 = load i8, ptr %66, align 1, !tbaa !20
   %68 = sext i8 %67 to i32
   %69 = add nuw nsw i32 %25, 6
   %70 = add nsw i32 %69, %68
@@ -268,7 +282,7 @@ define internal fastcc void @highlight_update(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_calendar_set_highlighted_dates(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define void @lv_calendar_set_highlighted_dates(ptr noundef captures(address_is_null) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.preheader, label %4
 
@@ -276,258 +290,272 @@ define void @lv_calendar_set_highlighted_dates(ptr noundef captures(none) %0, pt
   br label %.preheader
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store ptr %1, ptr %5, align 8, !tbaa !26
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i64 %2, ptr %6, align 8, !tbaa !27
+  %.not8 = icmp eq ptr %0, null
+  br i1 %.not8, label %.preheader9, label %5
+
+.preheader9:                                      ; preds = %4, %.preheader9
+  br label %.preheader9
+
+5:                                                ; preds = %4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store ptr %1, ptr %6, align 8, !tbaa !31
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i64 %2, ptr %7, align 8, !tbaa !32
   tail call fastcc void @highlight_update(ptr noundef %0)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_calendar_set_showed_date(ptr noundef initializes((76, 80)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = trunc i32 %1 to i16
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  store i16 %4, ptr %5, align 4, !tbaa !17
-  %6 = trunc i32 %2 to i8
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 78
-  store i8 %6, ptr %7, align 2, !tbaa !18
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 79
-  store i8 1, ptr %8, align 1, !tbaa !19
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %10 = load ptr, ptr %9, align 8, !tbaa !24
-  tail call void @lv_buttonmatrix_clear_button_ctrl_all(ptr noundef %10, i32 noundef 64) #5
-  br label %11
+define void @lv_calendar_set_month_shown(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+  %.not = icmp eq ptr %0, null
+  br i1 %.not, label %.preheader, label %4
 
-11:                                               ; preds = %3, %11
-  %.076 = phi i32 [ 0, %3 ], [ %13, %11 ]
-  %12 = load ptr, ptr %9, align 8, !tbaa !24
-  tail call void @lv_buttonmatrix_set_button_ctrl(ptr noundef %12, i32 noundef %.076, i32 noundef 64) #5
-  %13 = add nuw nsw i32 %.076, 1
-  %exitcond.not = icmp eq i32 %13, 7
-  br i1 %exitcond.not, label %14, label %11, !llvm.loop !32
+.preheader:                                       ; preds = %3, %.preheader
+  br label %.preheader
 
-14:                                               ; preds = %11
-  %15 = and i32 %1, 65535
+4:                                                ; preds = %3
+  %5 = trunc i32 %1 to i16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  store i16 %5, ptr %6, align 4, !tbaa !21
+  %7 = trunc i32 %2 to i8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 78
+  store i8 %7, ptr %8, align 2, !tbaa !22
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 79
+  store i8 1, ptr %9, align 1, !tbaa !23
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %11 = load ptr, ptr %10, align 8, !tbaa !29
+  tail call void @lv_buttonmatrix_clear_button_ctrl_all(ptr noundef %11, i32 noundef 64) #5
+  br label %12
+
+12:                                               ; preds = %4, %12
+  %.080 = phi i32 [ 0, %4 ], [ %14, %12 ]
+  %13 = load ptr, ptr %10, align 8, !tbaa !29
+  tail call void @lv_buttonmatrix_set_button_ctrl(ptr noundef %13, i32 noundef %.080, i32 noundef 64) #5
+  %14 = add nuw nsw i32 %.080, 1
+  %exitcond.not = icmp eq i32 %14, 7
+  br i1 %exitcond.not, label %15, label %12, !llvm.loop !37
+
+15:                                               ; preds = %12
+  %16 = and i32 %1, 65535
   %sext = shl i32 %2, 24
-  %16 = ashr exact i32 %sext, 24
-  %17 = icmp slt i32 %16, 1
-  %18 = sext i1 %17 to i32
-  %.010.i = add nsw i32 %15, %18
-  %.0.v.i = select i1 %17, i32 11, i32 -1
-  %.0.i = add nsw i32 %.0.v.i, %16
-  %19 = icmp sgt i32 %.0.i, 11
-  %20 = add nsw i32 %.0.i, -12
-  %21 = zext i1 %19 to i32
-  %.111.i = add nsw i32 %.010.i, %21
-  %.1.i = select i1 %19, i32 %20, i32 %.0.i
-  %22 = icmp eq i32 %.1.i, 1
-  br i1 %22, label %23, label %33
+  %17 = ashr exact i32 %sext, 24
+  %18 = icmp slt i32 %17, 1
+  %19 = sext i1 %18 to i32
+  %.010.i = add nsw i32 %16, %19
+  %.0.v.i = select i1 %18, i32 11, i32 -1
+  %.0.i = add nsw i32 %.0.v.i, %17
+  %20 = icmp sgt i32 %.0.i, 11
+  %21 = add nsw i32 %.0.i, -12
+  %22 = zext i1 %20 to i32
+  %.111.i = add nsw i32 %.010.i, %22
+  %.1.i = select i1 %20, i32 %21, i32 %.0.i
+  %23 = icmp eq i32 %.1.i, 1
+  br i1 %23, label %24, label %34
 
-23:                                               ; preds = %14
-  %24 = and i32 %.111.i, 3
-  %.not.i.i = icmp eq i32 %24, 0
-  br i1 %.not.i.i, label %25, label %.lr.ph
+24:                                               ; preds = %15
+  %25 = and i32 %.111.i, 3
+  %.not.i.i = icmp eq i32 %25, 0
+  br i1 %.not.i.i, label %26, label %.lr.ph
 
-25:                                               ; preds = %23
-  %26 = urem i32 %.111.i, 100
-  %27 = icmp eq i32 %26, 0
-  br i1 %27, label %28, label %.lr.ph
+26:                                               ; preds = %24
+  %27 = urem i32 %.111.i, 100
+  %28 = icmp eq i32 %27, 0
+  br i1 %28, label %29, label %.lr.ph
 
-28:                                               ; preds = %25
-  %29 = urem i32 %.111.i, 400
-  %30 = icmp eq i32 %29, 0
-  %31 = zext i1 %30 to i8
-  %32 = or disjoint i8 %31, 28
+29:                                               ; preds = %26
+  %30 = urem i32 %.111.i, 400
+  %31 = icmp eq i32 %30, 0
+  %32 = zext i1 %31 to i8
+  %33 = or disjoint i8 %32, 28
   br label %.lr.ph
 
-33:                                               ; preds = %14
+34:                                               ; preds = %15
   %.lhs.trunc.i = trunc i32 %.1.i to i8
-  %34 = srem i8 %.lhs.trunc.i, 7
-  %35 = srem i8 %34, 2
-  %36 = sub nsw i8 31, %35
+  %35 = srem i8 %.lhs.trunc.i, 7
+  %36 = srem i8 %35, 2
+  %37 = sub nsw i8 31, %36
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %33, %28, %25, %23
-  %37 = phi i8 [ %36, %33 ], [ 28, %23 ], [ 29, %25 ], [ %32, %28 ]
-  %38 = icmp ult i32 %16, 3
-  %.neg.i = sext i1 %38 to i32
-  %39 = add nsw i32 %15, %.neg.i
-  %40 = add nsw i32 %16, -2
-  %41 = select i1 %38, i32 12, i32 0
-  %42 = add nsw i32 %40, %41
-  %43 = mul nsw i32 %42, 31
-  %44 = udiv i32 %43, 12
-  %45 = lshr i32 %39, 2
-  %46 = udiv i32 %39, 100
-  %47 = udiv i32 %39, 400
-  %48 = add nsw i32 %39, 1
-  %49 = add nuw nsw i32 %48, %45
-  %50 = sub nsw i32 %49, %46
-  %51 = add nsw i32 %50, %47
-  %52 = add nsw i32 %51, %44
-  %53 = urem i32 %52, 7
-  %54 = trunc nuw nsw i32 %53 to i8
-  %55 = zext nneg i8 %37 to i32
-  %56 = add nuw nsw i32 %53, %55
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 545
-  %58 = add nuw nsw i32 %44, %47
-  %59 = add nuw nsw i32 %58, %45
-  %60 = add nsw i32 %59, %.neg.i
-  %61 = add nsw i32 %60, %15
-  %62 = add nsw i32 %61, 1
-  %63 = sub nsw i32 %62, %46
-  %.fr = freeze i32 %63
-  %64 = urem i32 %.fr, 7
-  %65 = zext nneg i32 %64 to i64
-  %66 = zext nneg i32 %56 to i64
-  br label %67
+.lr.ph:                                           ; preds = %34, %29, %26, %24
+  %38 = phi i8 [ %37, %34 ], [ 28, %24 ], [ 29, %26 ], [ %33, %29 ]
+  %39 = icmp ult i32 %17, 3
+  %.neg.i = sext i1 %39 to i32
+  %40 = add nsw i32 %16, %.neg.i
+  %41 = add nsw i32 %17, -2
+  %42 = select i1 %39, i32 12, i32 0
+  %43 = add nsw i32 %41, %42
+  %44 = mul nsw i32 %43, 31
+  %45 = udiv i32 %44, 12
+  %46 = lshr i32 %40, 2
+  %47 = udiv i32 %40, 100
+  %48 = udiv i32 %40, 400
+  %49 = add nsw i32 %40, 1
+  %50 = add nuw nsw i32 %49, %46
+  %51 = sub nsw i32 %50, %47
+  %52 = add nsw i32 %51, %48
+  %53 = add nsw i32 %52, %45
+  %54 = urem i32 %53, 7
+  %55 = trunc nuw nsw i32 %54 to i8
+  %56 = zext nneg i8 %38 to i32
+  %57 = add nuw nsw i32 %54, %56
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 545
+  %59 = add nuw nsw i32 %45, %48
+  %60 = add nuw nsw i32 %59, %46
+  %61 = add nsw i32 %60, %.neg.i
+  %62 = add nsw i32 %61, %16
+  %63 = add nsw i32 %62, 1
+  %64 = sub nsw i32 %63, %47
+  %.fr = freeze i32 %64
+  %65 = urem i32 %.fr, 7
+  %66 = zext nneg i32 %65 to i64
+  %67 = zext nneg i32 %57 to i64
+  br label %68
 
-67:                                               ; preds = %.lr.ph, %67
-  %indvars.iv = phi i64 [ %65, %.lr.ph ], [ %indvars.iv.next, %67 ]
-  %.06277 = phi i8 [ 1, %.lr.ph ], [ %71, %67 ]
-  %68 = getelementptr inbounds nuw [42 x [20 x i8]], ptr %57, i64 0, i64 %indvars.iv
-  %69 = zext i8 %.06277 to i32
-  %70 = tail call i32 (ptr, i64, ptr, ...) @lv_snprintf(ptr noundef nonnull %68, i64 noundef 20, ptr noundef nonnull @.str.1, i32 noundef %69) #5
+68:                                               ; preds = %.lr.ph, %68
+  %indvars.iv = phi i64 [ %66, %.lr.ph ], [ %indvars.iv.next, %68 ]
+  %.06381 = phi i8 [ 1, %.lr.ph ], [ %72, %68 ]
+  %69 = getelementptr inbounds nuw [42 x [20 x i8]], ptr %58, i64 0, i64 %indvars.iv
+  %70 = zext i8 %.06381 to i32
+  %71 = tail call i32 (ptr, i64, ptr, ...) @lv_snprintf(ptr noundef nonnull %69, i64 noundef 20, ptr noundef nonnull @.str.1, i32 noundef %70) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %71 = add i8 %.06277, 1
-  %72 = icmp samesign ult i64 %indvars.iv.next, %66
-  br i1 %72, label %67, label %._crit_edge, !llvm.loop !33
+  %72 = add i8 %.06381, 1
+  %73 = icmp samesign ult i64 %indvars.iv.next, %67
+  br i1 %73, label %68, label %._crit_edge, !llvm.loop !38
 
-._crit_edge:                                      ; preds = %67
-  %73 = add nsw i32 %16, -1
-  %74 = icmp slt i32 %16, 2
-  %75 = sext i1 %74 to i32
-  %.010.i68 = add nsw i32 %15, %75
-  %.0.v.i69 = select i1 %74, i32 11, i32 -1
-  %.0.i70 = add nsw i32 %73, %.0.v.i69
-  %76 = icmp sgt i32 %.0.i70, 11
-  %77 = add nsw i32 %.0.i70, -12
-  %78 = zext i1 %76 to i32
-  %.111.i71 = add nsw i32 %.010.i68, %78
-  %.1.i72 = select i1 %76, i32 %77, i32 %.0.i70
-  %79 = icmp eq i32 %.1.i72, 1
-  br i1 %79, label %80, label %90
+._crit_edge:                                      ; preds = %68
+  %74 = add nsw i32 %17, -1
+  %75 = icmp slt i32 %17, 2
+  %76 = sext i1 %75 to i32
+  %.010.i71 = add nsw i32 %16, %76
+  %.0.v.i72 = select i1 %75, i32 11, i32 -1
+  %.0.i73 = add nsw i32 %74, %.0.v.i72
+  %77 = icmp sgt i32 %.0.i73, 11
+  %78 = add nsw i32 %.0.i73, -12
+  %79 = zext i1 %77 to i32
+  %.111.i74 = add nsw i32 %.010.i71, %79
+  %.1.i75 = select i1 %77, i32 %78, i32 %.0.i73
+  %80 = icmp eq i32 %.1.i75, 1
+  br i1 %80, label %81, label %91
 
-80:                                               ; preds = %._crit_edge
-  %81 = and i32 %.111.i71, 3
-  %.not.i.i74 = icmp eq i32 %81, 0
-  br i1 %.not.i.i74, label %82, label %get_month_length.exit75
+81:                                               ; preds = %._crit_edge
+  %82 = and i32 %.111.i74, 3
+  %.not.i.i77 = icmp eq i32 %82, 0
+  br i1 %.not.i.i77, label %83, label %get_month_length.exit78
 
-82:                                               ; preds = %80
-  %83 = urem i32 %.111.i71, 100
-  %84 = icmp eq i32 %83, 0
-  br i1 %84, label %85, label %get_month_length.exit75
+83:                                               ; preds = %81
+  %84 = urem i32 %.111.i74, 100
+  %85 = icmp eq i32 %84, 0
+  br i1 %85, label %86, label %get_month_length.exit78
 
-85:                                               ; preds = %82
-  %86 = urem i32 %.111.i71, 400
-  %87 = icmp eq i32 %86, 0
-  %88 = zext i1 %87 to i8
-  %89 = or disjoint i8 %88, 28
-  br label %get_month_length.exit75
+86:                                               ; preds = %83
+  %87 = urem i32 %.111.i74, 400
+  %88 = icmp eq i32 %87, 0
+  %89 = zext i1 %88 to i8
+  %90 = or disjoint i8 %89, 28
+  br label %get_month_length.exit78
 
-90:                                               ; preds = %._crit_edge
-  %.lhs.trunc.i73 = trunc i32 %.1.i72 to i8
-  %91 = srem i8 %.lhs.trunc.i73, 7
-  %92 = srem i8 %91, 2
-  %93 = sub nsw i8 31, %92
-  br label %get_month_length.exit75
+91:                                               ; preds = %._crit_edge
+  %.lhs.trunc.i76 = trunc i32 %.1.i75 to i8
+  %92 = srem i8 %.lhs.trunc.i76, 7
+  %93 = srem i8 %92, 2
+  %94 = sub nsw i8 31, %93
+  br label %get_month_length.exit78
 
-get_month_length.exit75:                          ; preds = %80, %82, %85, %90
-  %94 = phi i8 [ %93, %90 ], [ 28, %80 ], [ 29, %82 ], [ %89, %85 ]
-  %.not91 = icmp eq i32 %53, 0
-  br i1 %.not91, label %.lr.ph84, label %.lr.ph81
+get_month_length.exit78:                          ; preds = %81, %83, %86, %91
+  %95 = phi i8 [ %94, %91 ], [ 28, %81 ], [ 29, %83 ], [ %90, %86 ]
+  %.not95 = icmp eq i32 %54, 0
+  br i1 %.not95, label %.lr.ph88, label %.lr.ph85
 
-.lr.ph81:                                         ; preds = %get_month_length.exit75
-  %95 = sub nuw nsw i8 %94, %54
-  %96 = getelementptr inbounds nuw i8, ptr %0, i64 545
-  %97 = zext nneg i32 %53 to i64
-  br label %112
+.lr.ph85:                                         ; preds = %get_month_length.exit78
+  %96 = sub nuw nsw i8 %95, %55
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 545
+  %98 = zext nneg i32 %54 to i64
+  br label %113
 
-.lr.ph84:                                         ; preds = %112, %get_month_length.exit75
-  %98 = getelementptr inbounds nuw i8, ptr %0, i64 545
-  %99 = add nuw nsw i32 %44, %47
-  %100 = add nuw nsw i32 %99, %45
-  %101 = add nsw i32 %100, %.neg.i
-  %102 = add nsw i32 %101, %55
-  %103 = add nuw nsw i32 %102, %15
-  %104 = add nuw nsw i32 %103, 1
-  %105 = sub nsw i32 %104, %46
-  %106 = add nsw i32 %101, %15
-  %107 = add nsw i32 %106, 1
-  %108 = sub nsw i32 %107, %46
-  %.fr101 = freeze i32 %108
-  %109 = urem i32 %.fr101, 7
-  %.neg = sub i32 %109, %.fr101
-  %110 = add i32 %.neg, %105
-  %111 = zext i32 %110 to i64
-  br label %120
+.lr.ph88:                                         ; preds = %113, %get_month_length.exit78
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 545
+  %100 = add nuw nsw i32 %45, %48
+  %101 = add nuw nsw i32 %100, %46
+  %102 = add nsw i32 %101, %.neg.i
+  %103 = add nsw i32 %102, %56
+  %104 = add nuw nsw i32 %103, %16
+  %105 = add nuw nsw i32 %104, 1
+  %106 = sub nsw i32 %105, %47
+  %107 = add nsw i32 %102, %16
+  %108 = add nsw i32 %107, 1
+  %109 = sub nsw i32 %108, %47
+  %.fr105 = freeze i32 %109
+  %110 = urem i32 %.fr105, 7
+  %.neg = sub i32 %110, %.fr105
+  %111 = add i32 %.neg, %106
+  %112 = zext i32 %111 to i64
+  br label %121
 
-112:                                              ; preds = %.lr.ph81, %112
-  %indvars.iv93 = phi i64 [ 0, %.lr.ph81 ], [ %indvars.iv.next94, %112 ]
-  %.163.in79 = phi i8 [ %95, %.lr.ph81 ], [ %.163, %112 ]
-  %.163 = add i8 %.163.in79, 1
-  %113 = getelementptr inbounds nuw [42 x [20 x i8]], ptr %96, i64 0, i64 %indvars.iv93
-  %114 = zext i8 %.163 to i32
-  %115 = tail call i32 (ptr, i64, ptr, ...) @lv_snprintf(ptr noundef nonnull %113, i64 noundef 20, ptr noundef nonnull @.str.1, i32 noundef %114) #5
-  %116 = load ptr, ptr %9, align 8, !tbaa !24
-  %117 = trunc i64 %indvars.iv93 to i32
-  %118 = add i32 %117, 7
-  tail call void @lv_buttonmatrix_set_button_ctrl(ptr noundef %116, i32 noundef %118, i32 noundef 64) #5
-  %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
-  %119 = icmp samesign ult i64 %indvars.iv.next94, %97
-  br i1 %119, label %112, label %.lr.ph84, !llvm.loop !34
+113:                                              ; preds = %.lr.ph85, %113
+  %indvars.iv97 = phi i64 [ 0, %.lr.ph85 ], [ %indvars.iv.next98, %113 ]
+  %.164.in83 = phi i8 [ %96, %.lr.ph85 ], [ %.164, %113 ]
+  %.164 = add i8 %.164.in83, 1
+  %114 = getelementptr inbounds nuw [42 x [20 x i8]], ptr %97, i64 0, i64 %indvars.iv97
+  %115 = zext i8 %.164 to i32
+  %116 = tail call i32 (ptr, i64, ptr, ...) @lv_snprintf(ptr noundef nonnull %114, i64 noundef 20, ptr noundef nonnull @.str.1, i32 noundef %115) #5
+  %117 = load ptr, ptr %10, align 8, !tbaa !29
+  %118 = trunc i64 %indvars.iv97 to i32
+  %119 = add i32 %118, 7
+  tail call void @lv_buttonmatrix_set_button_ctrl(ptr noundef %117, i32 noundef %119, i32 noundef 64) #5
+  %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
+  %120 = icmp samesign ult i64 %indvars.iv.next98, %98
+  br i1 %120, label %113, label %.lr.ph88, !llvm.loop !39
 
-120:                                              ; preds = %.lr.ph84, %120
-  %indvars.iv97 = phi i32 [ 1, %.lr.ph84 ], [ %indvars.iv.next98, %120 ]
-  %indvars.iv95 = phi i64 [ %111, %.lr.ph84 ], [ %indvars.iv.next96, %120 ]
-  %121 = getelementptr inbounds nuw [42 x [20 x i8]], ptr %98, i64 0, i64 %indvars.iv95
-  %122 = tail call i32 (ptr, i64, ptr, ...) @lv_snprintf(ptr noundef nonnull %121, i64 noundef 20, ptr noundef nonnull @.str.1, i32 noundef %indvars.iv97) #5
-  %123 = load ptr, ptr %9, align 8, !tbaa !24
-  %124 = trunc i64 %indvars.iv95 to i32
-  %125 = add i32 %124, 7
-  tail call void @lv_buttonmatrix_set_button_ctrl(ptr noundef %123, i32 noundef %125, i32 noundef 64) #5
-  %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
-  %indvars.iv.next98 = add nuw nsw i32 %indvars.iv97, 1
-  %126 = icmp samesign ult i64 %indvars.iv95, 41
-  br i1 %126, label %120, label %._crit_edge85, !llvm.loop !35
+121:                                              ; preds = %.lr.ph88, %121
+  %indvars.iv101 = phi i32 [ 1, %.lr.ph88 ], [ %indvars.iv.next102, %121 ]
+  %indvars.iv99 = phi i64 [ %112, %.lr.ph88 ], [ %indvars.iv.next100, %121 ]
+  %122 = getelementptr inbounds nuw [42 x [20 x i8]], ptr %99, i64 0, i64 %indvars.iv99
+  %123 = tail call i32 (ptr, i64, ptr, ...) @lv_snprintf(ptr noundef nonnull %122, i64 noundef 20, ptr noundef nonnull @.str.1, i32 noundef %indvars.iv101) #5
+  %124 = load ptr, ptr %10, align 8, !tbaa !29
+  %125 = trunc i64 %indvars.iv99 to i32
+  %126 = add i32 %125, 7
+  tail call void @lv_buttonmatrix_set_button_ctrl(ptr noundef %124, i32 noundef %126, i32 noundef 64) #5
+  %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
+  %indvars.iv.next102 = add nuw nsw i32 %indvars.iv101, 1
+  %127 = icmp samesign ult i64 %indvars.iv99, 41
+  br i1 %127, label %121, label %._crit_edge89, !llvm.loop !40
 
-._crit_edge85:                                    ; preds = %120
-  tail call fastcc void @highlight_update(ptr noundef nonnull %0)
-  %127 = load ptr, ptr %9, align 8, !tbaa !24
-  %128 = tail call i32 @lv_buttonmatrix_get_selected_button(ptr noundef %127) #5
-  %.not = icmp eq i32 %128, 65535
-  br i1 %.not, label %132, label %129
+._crit_edge89:                                    ; preds = %121
+  tail call fastcc void @highlight_update(ptr noundef %0)
+  %128 = load ptr, ptr %10, align 8, !tbaa !29
+  %129 = tail call i32 @lv_buttonmatrix_get_selected_button(ptr noundef %128) #5
+  %.not70 = icmp eq i32 %129, 65535
+  br i1 %.not70, label %133, label %130
 
-129:                                              ; preds = %._crit_edge85
-  %130 = load ptr, ptr %9, align 8, !tbaa !24
-  %131 = add nuw nsw i32 %53, 7
-  tail call void @lv_buttonmatrix_set_selected_button(ptr noundef %130, i32 noundef %131) #5
-  br label %132
+130:                                              ; preds = %._crit_edge89
+  %131 = load ptr, ptr %10, align 8, !tbaa !29
+  %132 = add nuw nsw i32 %54, 7
+  tail call void @lv_buttonmatrix_set_selected_button(ptr noundef %131, i32 noundef %132) #5
+  br label %133
 
-132:                                              ; preds = %129, %._crit_edge85
+133:                                              ; preds = %130, %._crit_edge89
   tail call void @lv_obj_invalidate(ptr noundef nonnull %0) #5
-  %133 = tail call i32 @lv_obj_get_child_count(ptr noundef nonnull %0) #5
-  %.not92 = icmp eq i32 %133, 0
-  br i1 %.not92, label %._crit_edge89, label %.lr.ph88
+  %134 = tail call i32 @lv_obj_get_child_count(ptr noundef nonnull %0) #5
+  %.not96 = icmp eq i32 %134, 0
+  br i1 %.not96, label %._crit_edge93, label %.lr.ph92
 
-.lr.ph88:                                         ; preds = %132, %139
-  %.486 = phi i32 [ %140, %139 ], [ 0, %132 ]
-  %134 = tail call ptr @lv_obj_get_child(ptr noundef nonnull %0, i32 noundef %.486) #5
-  %135 = load ptr, ptr %9, align 8, !tbaa !24
-  %136 = icmp eq ptr %134, %135
-  br i1 %136, label %139, label %137
+.lr.ph92:                                         ; preds = %133, %140
+  %.490 = phi i32 [ %141, %140 ], [ 0, %133 ]
+  %135 = tail call ptr @lv_obj_get_child(ptr noundef nonnull %0, i32 noundef %.490) #5
+  %136 = load ptr, ptr %10, align 8, !tbaa !29
+  %137 = icmp eq ptr %135, %136
+  br i1 %137, label %140, label %138
 
-137:                                              ; preds = %.lr.ph88
-  %138 = tail call i32 @lv_obj_send_event(ptr noundef %134, i32 noundef 35, ptr noundef nonnull %0) #5
-  br label %139
+138:                                              ; preds = %.lr.ph92
+  %139 = tail call i32 @lv_obj_send_event(ptr noundef %135, i32 noundef 35, ptr noundef nonnull %0) #5
+  br label %140
 
-139:                                              ; preds = %.lr.ph88, %137
-  %140 = add nuw i32 %.486, 1
-  %exitcond100.not = icmp eq i32 %140, %133
-  br i1 %exitcond100.not, label %._crit_edge89, label %.lr.ph88, !llvm.loop !36
+140:                                              ; preds = %.lr.ph92, %138
+  %141 = add nuw i32 %.490, 1
+  %exitcond104.not = icmp eq i32 %141, %134
+  br i1 %exitcond104.not, label %._crit_edge93, label %.lr.ph92, !llvm.loop !41
 
-._crit_edge89:                                    ; preds = %139, %132
+._crit_edge93:                                    ; preds = %140, %133
   ret void
 }
 
@@ -547,81 +575,123 @@ declare ptr @lv_obj_get_child(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 declare i32 @lv_obj_send_event(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @lv_calendar_get_btnmatrix(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %3 = load ptr, ptr %2, align 8, !tbaa !24
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
+define ptr @lv_calendar_get_btnmatrix(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
+  %.not = icmp eq ptr %0, null
+  br i1 %.not, label %.preheader, label %2
+
+.preheader:                                       ; preds = %1, %.preheader
+  br label %.preheader
+
+2:                                                ; preds = %1
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %4 = load ptr, ptr %3, align 8, !tbaa !29
+  ret ptr %4
+}
+
+; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
+define nonnull ptr @lv_calendar_get_today_date(ptr noundef readnone captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #3 {
+  %.not = icmp eq ptr %0, null
+  br i1 %.not, label %.preheader, label %2
+
+.preheader:                                       ; preds = %1, %.preheader
+  br label %.preheader
+
+2:                                                ; preds = %1
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   ret ptr %3
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @lv_calendar_get_today_date(ptr noundef readnone captures(ret: address, provenance) %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  ret ptr %2
-}
+; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
+define nonnull ptr @lv_calendar_get_showed_date(ptr noundef readnone captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #3 {
+  %.not = icmp eq ptr %0, null
+  br i1 %.not, label %.preheader, label %2
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @lv_calendar_get_showed_date(ptr noundef readnone captures(ret: address, provenance) %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  ret ptr %2
-}
+.preheader:                                       ; preds = %1, %.preheader
+  br label %.preheader
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @lv_calendar_get_highlighted_dates(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %3 = load ptr, ptr %2, align 8, !tbaa !26
+2:                                                ; preds = %1
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 76
   ret ptr %3
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @lv_calendar_get_highlighted_dates_num(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %3 = load i64, ptr %2, align 8, !tbaa !27
-  ret i64 %3
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
+define ptr @lv_calendar_get_highlighted_dates(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
+  %.not = icmp eq ptr %0, null
+  br i1 %.not, label %.preheader, label %2
+
+.preheader:                                       ; preds = %1, %.preheader
+  br label %.preheader
+
+2:                                                ; preds = %1
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %4 = load ptr, ptr %3, align 8, !tbaa !31
+  ret ptr %4
+}
+
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
+define i64 @lv_calendar_get_highlighted_dates_num(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
+  %.not = icmp eq ptr %0, null
+  br i1 %.not, label %.preheader, label %2
+
+.preheader:                                       ; preds = %1, %.preheader
+  br label %.preheader
+
+2:                                                ; preds = %1
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %4 = load i64, ptr %3, align 8, !tbaa !32
+  ret i64 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @lv_calendar_get_pressed_date(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %4 = load ptr, ptr %3, align 8, !tbaa !24
-  %5 = tail call i32 @lv_buttonmatrix_get_selected_button(ptr noundef %4) #5
-  %6 = icmp eq i32 %5, 65535
-  br i1 %6, label %7, label %10
+define range(i32 0, 2) i32 @lv_calendar_get_pressed_date(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
+  %.not = icmp eq ptr %0, null
+  br i1 %.not, label %.preheader, label %3
 
-7:                                                ; preds = %2
-  store i16 0, ptr %1, align 2, !tbaa !28
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  store i8 0, ptr %8, align 2, !tbaa !29
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 3
-  store i8 0, ptr %9, align 1, !tbaa !30
-  br label %28
+.preheader:                                       ; preds = %2, %.preheader
+  br label %.preheader
 
-10:                                               ; preds = %2
-  %11 = load ptr, ptr %3, align 8, !tbaa !24
-  %12 = tail call i32 @lv_buttonmatrix_get_selected_button(ptr noundef %11) #5
-  %13 = tail call ptr @lv_buttonmatrix_get_button_text(ptr noundef %11, i32 noundef %12) #5
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 1
-  %15 = load i8, ptr %14, align 1, !tbaa !21
-  %16 = icmp eq i8 %15, 0
-  %17 = load i8, ptr %13, align 1, !tbaa !21
-  %18 = add i8 %17, -48
-  %19 = mul i8 %17, 10
-  %20 = add i8 %15, -16
-  %21 = add i8 %20, %19
-  %.sink = select i1 %16, i8 %18, i8 %21
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 3
-  store i8 %.sink, ptr %22, align 1, !tbaa !30
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %24 = load i16, ptr %23, align 4, !tbaa !17
-  store i16 %24, ptr %1, align 2, !tbaa !28
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 78
-  %26 = load i8, ptr %25, align 2, !tbaa !18
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  store i8 %26, ptr %27, align 2, !tbaa !29
-  br label %28
+3:                                                ; preds = %2
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %5 = load ptr, ptr %4, align 8, !tbaa !29
+  %6 = tail call i32 @lv_buttonmatrix_get_selected_button(ptr noundef %5) #5
+  %7 = icmp eq i32 %6, 65535
+  br i1 %7, label %8, label %11
 
-28:                                               ; preds = %10, %7
-  %.0 = phi i32 [ 0, %7 ], [ 1, %10 ]
+8:                                                ; preds = %3
+  store i16 0, ptr %1, align 2, !tbaa !33
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  store i8 0, ptr %9, align 2, !tbaa !34
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 3
+  store i8 0, ptr %10, align 1, !tbaa !35
+  br label %29
+
+11:                                               ; preds = %3
+  %12 = load ptr, ptr %4, align 8, !tbaa !29
+  %13 = tail call i32 @lv_buttonmatrix_get_selected_button(ptr noundef %12) #5
+  %14 = tail call ptr @lv_buttonmatrix_get_button_text(ptr noundef %12, i32 noundef %13) #5
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 1
+  %16 = load i8, ptr %15, align 1, !tbaa !26
+  %17 = icmp eq i8 %16, 0
+  %18 = load i8, ptr %14, align 1, !tbaa !26
+  %19 = add i8 %18, -48
+  %20 = mul i8 %18, 10
+  %21 = add i8 %16, -16
+  %22 = add i8 %21, %20
+  %.sink = select i1 %17, i8 %19, i8 %22
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 3
+  store i8 %.sink, ptr %23, align 1, !tbaa !35
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  %25 = load i16, ptr %24, align 4, !tbaa !21
+  store i16 %25, ptr %1, align 2, !tbaa !33
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 78
+  %27 = load i8, ptr %26, align 2, !tbaa !22
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  store i8 %27, ptr %28, align 2, !tbaa !34
+  br label %29
+
+29:                                               ; preds = %11, %8
+  %.0 = phi i32 [ 0, %8 ], [ 1, %11 ]
   ret i32 %.0
 }
 
@@ -639,10 +709,10 @@ declare ptr @lv_obj_add_event_cb(ptr noundef, ptr noundef, i32 noundef, ptr noun
 define internal void @draw_task_added_event_cb(ptr noundef %0) #0 {
   %2 = tail call ptr @lv_event_get_current_target(ptr noundef %0) #5
   %3 = tail call ptr @lv_event_get_param(ptr noundef %0) #5
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  %5 = load ptr, ptr %4, align 8, !tbaa !37
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 104
+  %5 = load ptr, ptr %4, align 8, !tbaa !42
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %7 = load i32, ptr %6, align 8, !tbaa !39
+  %7 = load i32, ptr %6, align 8, !tbaa !47
   %.not = icmp eq i32 %7, 327680
   br i1 %.not, label %8, label %.critedge54
 
@@ -655,9 +725,9 @@ define internal void @draw_task_added_event_cb(ptr noundef %0) #0 {
   br i1 %or.cond, label %13, label %.critedge54
 
 13:                                               ; preds = %8
-  %14 = load ptr, ptr %4, align 8, !tbaa !37
+  %14 = load ptr, ptr %4, align 8, !tbaa !42
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 12
-  %16 = load i32, ptr %15, align 4, !tbaa !41
+  %16 = load i32, ptr %15, align 4, !tbaa !49
   %17 = icmp slt i32 %16, 7
   br i1 %17, label %18, label %22
 
@@ -666,7 +736,7 @@ define internal void @draw_task_added_event_cb(ptr noundef %0) #0 {
 
 19:                                               ; preds = %18
   %20 = getelementptr inbounds nuw i8, ptr %9, i64 52
-  store i8 0, ptr %20, align 4, !tbaa !42
+  store i8 0, ptr %20, align 4, !tbaa !50
   br label %21
 
 21:                                               ; preds = %19, %18
@@ -681,7 +751,7 @@ define internal void @draw_task_added_event_cb(ptr noundef %0) #0 {
 
 25:                                               ; preds = %24
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 52
-  store i8 0, ptr %26, align 4, !tbaa !42
+  store i8 0, ptr %26, align 4, !tbaa !50
   br label %27
 
 27:                                               ; preds = %25, %24
@@ -689,7 +759,7 @@ define internal void @draw_task_added_event_cb(ptr noundef %0) #0 {
 
 .sink.split:                                      ; preds = %27, %21
   %28 = getelementptr inbounds nuw i8, ptr %10, i64 60
-  store i8 0, ptr %28, align 4, !tbaa !46
+  store i8 0, ptr %28, align 4, !tbaa !54
   br label %29
 
 29:                                               ; preds = %.sink.split, %22, %27, %21
@@ -714,7 +784,7 @@ define internal void @draw_task_added_event_cb(ptr noundef %0) #0 {
 
 .critedge:                                        ; preds = %35
   %37 = getelementptr inbounds nuw i8, ptr %9, i64 52
-  store i8 102, ptr %37, align 4, !tbaa !42
+  store i8 102, ptr %37, align 4, !tbaa !50
   %38 = getelementptr inbounds nuw i8, ptr %9, i64 53
   %39 = tail call i24 @lv_theme_get_color_primary(ptr noundef %2) #5
   store i24 %39, ptr %38, align 1
@@ -723,7 +793,7 @@ define internal void @draw_task_added_event_cb(ptr noundef %0) #0 {
   br i1 %41, label %42, label %43
 
 42:                                               ; preds = %.critedge
-  store i8 -78, ptr %37, align 4, !tbaa !42
+  store i8 -78, ptr %37, align 4, !tbaa !50
   br label %43
 
 43:                                               ; preds = %.critedge.thread, %.critedge, %42, %29
@@ -733,14 +803,14 @@ define internal void @draw_task_added_event_cb(ptr noundef %0) #0 {
 
 .critedge53:                                      ; preds = %43
   %46 = getelementptr inbounds nuw i8, ptr %10, i64 60
-  store i8 -1, ptr %46, align 4, !tbaa !46
+  store i8 -1, ptr %46, align 4, !tbaa !54
   %47 = getelementptr inbounds nuw i8, ptr %10, i64 52
   %48 = tail call i24 @lv_theme_get_color_primary(ptr noundef %2) #5
   store i24 %48, ptr %47, align 4
   %49 = getelementptr inbounds nuw i8, ptr %10, i64 56
-  %50 = load i32, ptr %49, align 8, !tbaa !48
+  %50 = load i32, ptr %49, align 8, !tbaa !56
   %51 = add nsw i32 %50, 1
-  store i32 %51, ptr %49, align 8, !tbaa !48
+  store i32 %51, ptr %49, align 8, !tbaa !56
   br label %.critedge54
 
 .critedge54:                                      ; preds = %43, %8, %.critedge53, %1
@@ -778,8 +848,8 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree norecurse nosync nounwind memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #5 = { nounwind }
 
@@ -788,49 +858,57 @@ attributes #5 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{!4, !11, i64 72}
-!4 = !{!"_lv_calendar_t", !5, i64 0, !6, i64 64, !12, i64 72, !12, i64 76, !6, i64 80, !13, i64 88, !7, i64 96, !14, i64 544, !7, i64 545}
-!5 = !{!"_lv_obj_t", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !9, i64 40, !10, i64 56, !11, i64 60, !11, i64 62, !11, i64 62, !11, i64 62, !11, i64 62, !11, i64 62, !11, i64 63, !11, i64 63, !11, i64 63}
-!6 = !{!"any pointer", !7, i64 0}
-!7 = !{!"omnipotent char", !8, i64 0}
-!8 = !{!"Simple C/C++ TBAA"}
-!9 = !{!"", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12}
-!10 = !{!"int", !7, i64 0}
-!11 = !{!"short", !7, i64 0}
-!12 = !{!"", !11, i64 0, !7, i64 2, !7, i64 3}
-!13 = !{!"long", !7, i64 0}
-!14 = !{!"_Bool", !7, i64 0}
-!15 = !{!4, !7, i64 74}
-!16 = !{!4, !7, i64 75}
-!17 = !{!4, !11, i64 76}
-!18 = !{!4, !7, i64 78}
-!19 = !{!4, !7, i64 79}
-!20 = !{!6, !6, i64 0}
-!21 = !{!7, !7, i64 0}
-!22 = distinct !{!22, !23}
-!23 = !{!"llvm.loop.mustprogress"}
-!24 = !{!4, !6, i64 64}
-!25 = distinct !{!25, !23}
-!26 = !{!4, !6, i64 80}
-!27 = !{!4, !13, i64 88}
-!28 = !{!12, !11, i64 0}
-!29 = !{!12, !7, i64 2}
-!30 = !{!12, !7, i64 3}
-!31 = distinct !{!31, !23}
-!32 = distinct !{!32, !23}
-!33 = distinct !{!33, !23}
-!34 = distinct !{!34, !23}
-!35 = distinct !{!35, !23}
-!36 = distinct !{!36, !23}
-!37 = !{!38, !6, i64 80}
-!38 = !{!"_lv_draw_task_t", !6, i64 0, !10, i64 8, !9, i64 12, !9, i64 28, !9, i64 44, !9, i64 60, !10, i64 76, !6, i64 80, !7, i64 88, !7, i64 89}
-!39 = !{!40, !10, i64 8}
-!40 = !{!"", !6, i64 0, !10, i64 8, !10, i64 12, !10, i64 16, !6, i64 24, !13, i64 32, !6, i64 40}
-!41 = !{!40, !10, i64 12}
-!42 = !{!43, !7, i64 52}
-!43 = !{!"", !40, i64 0, !10, i64 48, !7, i64 52, !44, i64 53, !45, i64 56}
-!44 = !{!"", !7, i64 0, !7, i64 1, !7, i64 2}
-!45 = !{!"", !7, i64 0, !7, i64 10, !10, i64 11, !10, i64 11}
-!46 = !{!47, !7, i64 60}
-!47 = !{!"", !40, i64 0, !10, i64 48, !44, i64 52, !10, i64 56, !7, i64 60, !10, i64 61}
-!48 = !{!47, !10, i64 56}
+!3 = !{!4, !15, i64 72}
+!4 = !{!"_lv_calendar_t", !5, i64 0, !10, i64 64, !16, i64 72, !16, i64 76, !7, i64 80, !17, i64 88, !8, i64 96, !18, i64 544, !8, i64 545}
+!5 = !{!"_lv_obj_t", !6, i64 0, !10, i64 8, !11, i64 16, !12, i64 24, !7, i64 32, !13, i64 40, !14, i64 56, !15, i64 60, !15, i64 62, !15, i64 62, !15, i64 62, !15, i64 62, !15, i64 62, !15, i64 63, !15, i64 63, !15, i64 63}
+!6 = !{!"p1 _ZTS15_lv_obj_class_t", !7, i64 0}
+!7 = !{!"any pointer", !8, i64 0}
+!8 = !{!"omnipotent char", !9, i64 0}
+!9 = !{!"Simple C/C++ TBAA"}
+!10 = !{!"p1 _ZTS9_lv_obj_t", !7, i64 0}
+!11 = !{!"p1 _ZTS19_lv_obj_spec_attr_t", !7, i64 0}
+!12 = !{!"p1 _ZTS15_lv_obj_style_t", !7, i64 0}
+!13 = !{!"", !14, i64 0, !14, i64 4, !14, i64 8, !14, i64 12}
+!14 = !{!"int", !8, i64 0}
+!15 = !{!"short", !8, i64 0}
+!16 = !{!"", !15, i64 0, !8, i64 2, !8, i64 3}
+!17 = !{!"long", !8, i64 0}
+!18 = !{!"_Bool", !8, i64 0}
+!19 = !{!4, !8, i64 74}
+!20 = !{!4, !8, i64 75}
+!21 = !{!4, !15, i64 76}
+!22 = !{!4, !8, i64 78}
+!23 = !{!4, !8, i64 79}
+!24 = !{!25, !25, i64 0}
+!25 = !{!"p1 omnipotent char", !7, i64 0}
+!26 = !{!8, !8, i64 0}
+!27 = distinct !{!27, !28}
+!28 = !{!"llvm.loop.mustprogress"}
+!29 = !{!4, !10, i64 64}
+!30 = distinct !{!30, !28}
+!31 = !{!4, !7, i64 80}
+!32 = !{!4, !17, i64 88}
+!33 = !{!16, !15, i64 0}
+!34 = !{!16, !8, i64 2}
+!35 = !{!16, !8, i64 3}
+!36 = distinct !{!36, !28}
+!37 = distinct !{!37, !28}
+!38 = distinct !{!38, !28}
+!39 = distinct !{!39, !28}
+!40 = distinct !{!40, !28}
+!41 = distinct !{!41, !28}
+!42 = !{!43, !7, i64 104}
+!43 = !{!"_lv_draw_task_t", !44, i64 0, !14, i64 8, !13, i64 12, !13, i64 28, !13, i64 44, !13, i64 60, !45, i64 80, !46, i64 88, !14, i64 96, !7, i64 104, !8, i64 112, !8, i64 113}
+!44 = !{!"p1 _ZTS15_lv_draw_task_t", !7, i64 0}
+!45 = !{!"p1 _ZTS11_lv_layer_t", !7, i64 0}
+!46 = !{!"p1 _ZTS15_lv_draw_unit_t", !7, i64 0}
+!47 = !{!48, !14, i64 8}
+!48 = !{!"", !10, i64 0, !14, i64 8, !14, i64 12, !14, i64 16, !45, i64 24, !17, i64 32, !7, i64 40}
+!49 = !{!48, !14, i64 12}
+!50 = !{!51, !8, i64 52}
+!51 = !{!"", !48, i64 0, !14, i64 48, !8, i64 52, !52, i64 53, !53, i64 56}
+!52 = !{!"", !8, i64 0, !8, i64 1, !8, i64 2}
+!53 = !{!"", !8, i64 0, !8, i64 10, !14, i64 11, !14, i64 11}
+!54 = !{!55, !8, i64 60}
+!55 = !{!"", !48, i64 0, !14, i64 48, !52, i64 52, !14, i64 56, !8, i64 60, !14, i64 61}
+!56 = !{!55, !14, i64 56}

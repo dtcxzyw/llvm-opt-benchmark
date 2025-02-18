@@ -30,9 +30,9 @@ define ptr @lv_freetype_create_glyph_cache(i32 noundef %0) #0 {
   %3 = alloca %struct._lv_cache_ops_t, align 8
   %4 = alloca ptr, align 8
   store i32 %0, ptr %2, align 4, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 24, ptr %3) #5
+  call void @llvm.lifetime.start.p0(i64 24, ptr %3) #6
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 @__const.lv_freetype_create_glyph_cache.ops, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #6
   %5 = load i32, ptr %2, align 4, !tbaa !3
   %6 = zext i32 %5 to i64
   %7 = call ptr @lv_cache_create(ptr noundef @lv_cache_class_lru_rb_count, i64 noundef 56, i64 noundef %6, ptr noundef byval(%struct._lv_cache_ops_t) align 8 %3)
@@ -40,37 +40,37 @@ define ptr @lv_freetype_create_glyph_cache(i32 noundef %0) #0 {
   %8 = load ptr, ptr %4, align 8, !tbaa !7
   call void @lv_cache_set_name(ptr noundef %8, ptr noundef @.str)
   %9 = load ptr, ptr %4, align 8, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr %3) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #6
+  call void @llvm.lifetime.end.p0(i64 24, ptr %3) #6
   ret ptr %9
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define internal signext i8 @freetype_glyph_compare_cb(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca i8, align 1
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8, !tbaa !7
-  store ptr %1, ptr %5, align 8, !tbaa !7
-  %6 = load ptr, ptr %4, align 8, !tbaa !7
+  store ptr %0, ptr %4, align 8, !tbaa !10
+  store ptr %1, ptr %5, align 8, !tbaa !10
+  %6 = load ptr, ptr %4, align 8, !tbaa !10
   %7 = getelementptr inbounds nuw %struct._lv_freetype_glyph_cache_data_t, ptr %6, i32 0, i32 0
-  %8 = load i32, ptr %7, align 8, !tbaa !9
-  %9 = load ptr, ptr %5, align 8, !tbaa !7
+  %8 = load i32, ptr %7, align 8, !tbaa !12
+  %9 = load ptr, ptr %5, align 8, !tbaa !10
   %10 = getelementptr inbounds nuw %struct._lv_freetype_glyph_cache_data_t, ptr %9, i32 0, i32 0
-  %11 = load i32, ptr %10, align 8, !tbaa !9
+  %11 = load i32, ptr %10, align 8, !tbaa !12
   %12 = icmp ne i32 %8, %11
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %2
-  %14 = load ptr, ptr %4, align 8, !tbaa !7
+  %14 = load ptr, ptr %4, align 8, !tbaa !10
   %15 = getelementptr inbounds nuw %struct._lv_freetype_glyph_cache_data_t, ptr %14, i32 0, i32 0
-  %16 = load i32, ptr %15, align 8, !tbaa !9
-  %17 = load ptr, ptr %5, align 8, !tbaa !7
+  %16 = load i32, ptr %15, align 8, !tbaa !12
+  %17 = load ptr, ptr %5, align 8, !tbaa !10
   %18 = getelementptr inbounds nuw %struct._lv_freetype_glyph_cache_data_t, ptr %17, i32 0, i32 0
-  %19 = load i32, ptr %18, align 8, !tbaa !9
+  %19 = load i32, ptr %18, align 8, !tbaa !12
   %20 = icmp ugt i32 %16, %19
   %21 = select i1 %20, i32 1, i32 -1
   %22 = trunc i32 %21 to i8
@@ -78,22 +78,22 @@ define internal signext i8 @freetype_glyph_compare_cb(ptr noundef %0, ptr nounde
   br label %42
 
 23:                                               ; preds = %2
-  %24 = load ptr, ptr %4, align 8, !tbaa !7
+  %24 = load ptr, ptr %4, align 8, !tbaa !10
   %25 = getelementptr inbounds nuw %struct._lv_freetype_glyph_cache_data_t, ptr %24, i32 0, i32 1
-  %26 = load i32, ptr %25, align 4, !tbaa !13
-  %27 = load ptr, ptr %5, align 8, !tbaa !7
+  %26 = load i32, ptr %25, align 4, !tbaa !18
+  %27 = load ptr, ptr %5, align 8, !tbaa !10
   %28 = getelementptr inbounds nuw %struct._lv_freetype_glyph_cache_data_t, ptr %27, i32 0, i32 1
-  %29 = load i32, ptr %28, align 4, !tbaa !13
+  %29 = load i32, ptr %28, align 4, !tbaa !18
   %30 = icmp ne i32 %26, %29
   br i1 %30, label %31, label %41
 
 31:                                               ; preds = %23
-  %32 = load ptr, ptr %4, align 8, !tbaa !7
+  %32 = load ptr, ptr %4, align 8, !tbaa !10
   %33 = getelementptr inbounds nuw %struct._lv_freetype_glyph_cache_data_t, ptr %32, i32 0, i32 1
-  %34 = load i32, ptr %33, align 4, !tbaa !13
-  %35 = load ptr, ptr %5, align 8, !tbaa !7
+  %34 = load i32, ptr %33, align 4, !tbaa !18
+  %35 = load ptr, ptr %5, align 8, !tbaa !10
   %36 = getelementptr inbounds nuw %struct._lv_freetype_glyph_cache_data_t, ptr %35, i32 0, i32 1
-  %37 = load i32, ptr %36, align 4, !tbaa !13
+  %37 = load i32, ptr %36, align 4, !tbaa !18
   %38 = icmp ugt i32 %34, %37
   %39 = select i1 %38, i32 1, i32 -1
   %40 = trunc i32 %39 to i8
@@ -123,54 +123,54 @@ define internal zeroext i1 @freetype_glyph_create_cb(ptr noundef %0, ptr noundef
   %12 = alloca ptr, align 8
   %13 = alloca %struct.lv_point_t, align 4
   %14 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8, !tbaa !7
-  store ptr %1, ptr %5, align 8, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
-  %15 = load ptr, ptr %5, align 8, !tbaa !7
-  store ptr %15, ptr %6, align 8, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #5
-  %16 = load ptr, ptr %4, align 8, !tbaa !7
+  store ptr %0, ptr %4, align 8, !tbaa !10
+  store ptr %1, ptr %5, align 8, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #6
+  %15 = load ptr, ptr %5, align 8, !tbaa !19
+  store ptr %15, ptr %6, align 8, !tbaa !20
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
+  %16 = load ptr, ptr %4, align 8, !tbaa !10
   %17 = getelementptr inbounds nuw %struct._lv_freetype_glyph_cache_data_t, ptr %16, i32 0, i32 2
-  store ptr %17, ptr %8, align 8, !tbaa !7
-  %18 = load ptr, ptr %6, align 8, !tbaa !7
+  store ptr %17, ptr %8, align 8, !tbaa !19
+  %18 = load ptr, ptr %6, align 8, !tbaa !20
   %19 = getelementptr inbounds nuw %struct._lv_freetype_font_dsc_t, ptr %18, i32 0, i32 6
-  %20 = load ptr, ptr %19, align 8, !tbaa !14
+  %20 = load ptr, ptr %19, align 8, !tbaa !22
   %21 = getelementptr inbounds nuw %struct._lv_freetype_cache_node_t, ptr %20, i32 0, i32 5
   %22 = call i32 @lv_mutex_lock(ptr noundef %21)
-  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
-  %23 = load ptr, ptr %6, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #6
+  %23 = load ptr, ptr %6, align 8, !tbaa !20
   %24 = getelementptr inbounds nuw %struct._lv_freetype_font_dsc_t, ptr %23, i32 0, i32 6
-  %25 = load ptr, ptr %24, align 8, !tbaa !14
+  %25 = load ptr, ptr %24, align 8, !tbaa !22
   %26 = getelementptr inbounds nuw %struct._lv_freetype_cache_node_t, ptr %25, i32 0, i32 4
-  %27 = load ptr, ptr %26, align 8, !tbaa !17
-  store ptr %27, ptr %9, align 8, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #5
-  %28 = load ptr, ptr %9, align 8, !tbaa !7
-  %29 = load ptr, ptr %4, align 8, !tbaa !7
+  %27 = load ptr, ptr %26, align 8, !tbaa !27
+  store ptr %27, ptr %9, align 8, !tbaa !31
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #6
+  %28 = load ptr, ptr %9, align 8, !tbaa !31
+  %29 = load ptr, ptr %4, align 8, !tbaa !10
   %30 = getelementptr inbounds nuw %struct._lv_freetype_glyph_cache_data_t, ptr %29, i32 0, i32 0
-  %31 = load i32, ptr %30, align 8, !tbaa !9
+  %31 = load i32, ptr %30, align 8, !tbaa !12
   %32 = zext i32 %31 to i64
   %33 = call i32 @FT_Get_Char_Index(ptr noundef %28, i64 noundef %32)
   store i32 %33, ptr %10, align 4, !tbaa !3
-  %34 = load ptr, ptr %9, align 8, !tbaa !7
+  %34 = load ptr, ptr %9, align 8, !tbaa !31
   %35 = getelementptr inbounds nuw %struct.FT_FaceRec_, ptr %34, i32 0, i32 2
-  %36 = load i64, ptr %35, align 8, !tbaa !19
+  %36 = load i64, ptr %35, align 8, !tbaa !32
   %37 = and i64 %36, 1
   %38 = icmp ne i64 %37, 0
   br i1 %38, label %39, label %45
 
 39:                                               ; preds = %2
-  %40 = load ptr, ptr %9, align 8, !tbaa !7
-  %41 = load ptr, ptr %6, align 8, !tbaa !7
+  %40 = load ptr, ptr %9, align 8, !tbaa !31
+  %41 = load ptr, ptr %6, align 8, !tbaa !20
   %42 = getelementptr inbounds nuw %struct._lv_freetype_font_dsc_t, ptr %41, i32 0, i32 2
-  %43 = load i32, ptr %42, align 8, !tbaa !25
+  %43 = load i32, ptr %42, align 8, !tbaa !48
   %44 = call i32 @FT_Set_Pixel_Sizes(ptr noundef %40, i32 noundef 0, i32 noundef %43)
   store i32 %44, ptr %7, align 4, !tbaa !3
   br label %48
 
 45:                                               ; preds = %2
-  %46 = load ptr, ptr %9, align 8, !tbaa !7
+  %46 = load ptr, ptr %9, align 8, !tbaa !31
   %47 = call i32 @FT_Select_Size(ptr noundef %46, i32 noundef 0)
   store i32 %47, ptr %7, align 4, !tbaa !3
   br label %48
@@ -190,9 +190,9 @@ define internal zeroext i1 @freetype_glyph_create_cb(ptr noundef %0, ptr noundef
   br label %54
 
 54:                                               ; preds = %53
-  %55 = load ptr, ptr %6, align 8, !tbaa !7
+  %55 = load ptr, ptr %6, align 8, !tbaa !20
   %56 = getelementptr inbounds nuw %struct._lv_freetype_font_dsc_t, ptr %55, i32 0, i32 6
-  %57 = load ptr, ptr %56, align 8, !tbaa !14
+  %57 = load ptr, ptr %56, align 8, !tbaa !22
   %58 = getelementptr inbounds nuw %struct._lv_freetype_cache_node_t, ptr %57, i32 0, i32 5
   %59 = call i32 @lv_mutex_unlock(ptr noundef %58)
   store i1 false, ptr %3, align 1
@@ -200,28 +200,28 @@ define internal zeroext i1 @freetype_glyph_create_cb(ptr noundef %0, ptr noundef
   br label %247
 
 60:                                               ; preds = %48
-  %61 = load ptr, ptr %6, align 8, !tbaa !7
+  %61 = load ptr, ptr %6, align 8, !tbaa !20
   %62 = getelementptr inbounds nuw %struct._lv_freetype_font_dsc_t, ptr %61, i32 0, i32 4
-  %63 = load i32, ptr %62, align 8, !tbaa !26
+  %63 = load i32, ptr %62, align 8, !tbaa !49
   %64 = icmp eq i32 %63, 1
   br i1 %64, label %65, label %69
 
 65:                                               ; preds = %60
-  %66 = load ptr, ptr %9, align 8, !tbaa !7
+  %66 = load ptr, ptr %9, align 8, !tbaa !31
   %67 = load i32, ptr %10, align 4, !tbaa !3
   %68 = call i32 @FT_Load_Glyph(ptr noundef %66, i32 noundef %67, i32 noundef 2129928)
   store i32 %68, ptr %7, align 4, !tbaa !3
   br label %79
 
 69:                                               ; preds = %60
-  %70 = load ptr, ptr %6, align 8, !tbaa !7
+  %70 = load ptr, ptr %6, align 8, !tbaa !20
   %71 = getelementptr inbounds nuw %struct._lv_freetype_font_dsc_t, ptr %70, i32 0, i32 4
-  %72 = load i32, ptr %71, align 8, !tbaa !26
+  %72 = load i32, ptr %71, align 8, !tbaa !49
   %73 = icmp eq i32 %72, 0
   br i1 %73, label %74, label %78
 
 74:                                               ; preds = %69
-  %75 = load ptr, ptr %9, align 8, !tbaa !7
+  %75 = load ptr, ptr %9, align 8, !tbaa !31
   %76 = load i32, ptr %10, align 4, !tbaa !3
   %77 = call i32 @FT_Load_Glyph(ptr noundef %75, i32 noundef %76, i32 noundef 2129920)
   store i32 %77, ptr %7, align 4, !tbaa !3
@@ -245,9 +245,9 @@ define internal zeroext i1 @freetype_glyph_create_cb(ptr noundef %0, ptr noundef
   br label %85
 
 85:                                               ; preds = %84
-  %86 = load ptr, ptr %6, align 8, !tbaa !7
+  %86 = load ptr, ptr %6, align 8, !tbaa !20
   %87 = getelementptr inbounds nuw %struct._lv_freetype_font_dsc_t, ptr %86, i32 0, i32 6
-  %88 = load ptr, ptr %87, align 8, !tbaa !14
+  %88 = load ptr, ptr %87, align 8, !tbaa !22
   %89 = getelementptr inbounds nuw %struct._lv_freetype_cache_node_t, ptr %88, i32 0, i32 5
   %90 = call i32 @lv_mutex_unlock(ptr noundef %89)
   store i1 false, ptr %3, align 1
@@ -255,178 +255,178 @@ define internal zeroext i1 @freetype_glyph_create_cb(ptr noundef %0, ptr noundef
   br label %247
 
 91:                                               ; preds = %79
-  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
-  %92 = load ptr, ptr %9, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #6
+  %92 = load ptr, ptr %9, align 8, !tbaa !31
   %93 = getelementptr inbounds nuw %struct.FT_FaceRec_, ptr %92, i32 0, i32 21
-  %94 = load ptr, ptr %93, align 8, !tbaa !27
-  store ptr %94, ptr %12, align 8, !tbaa !7
-  %95 = load ptr, ptr %6, align 8, !tbaa !7
+  %94 = load ptr, ptr %93, align 8, !tbaa !50
+  store ptr %94, ptr %12, align 8, !tbaa !51
+  %95 = load ptr, ptr %6, align 8, !tbaa !20
   %96 = getelementptr inbounds nuw %struct._lv_freetype_font_dsc_t, ptr %95, i32 0, i32 4
-  %97 = load i32, ptr %96, align 8, !tbaa !26
+  %97 = load i32, ptr %96, align 8, !tbaa !49
   %98 = icmp eq i32 %97, 1
   br i1 %98, label %99, label %169
 
 99:                                               ; preds = %91
-  %100 = load ptr, ptr %12, align 8, !tbaa !7
+  %100 = load ptr, ptr %12, align 8, !tbaa !51
   %101 = getelementptr inbounds nuw %struct.FT_GlyphSlotRec_, ptr %100, i32 0, i32 5
   %102 = getelementptr inbounds nuw %struct.FT_Glyph_Metrics_, ptr %101, i32 0, i32 4
-  %103 = load i64, ptr %102, align 8, !tbaa !28
+  %103 = load i64, ptr %102, align 8, !tbaa !52
   %104 = ashr i64 %103, 6
   %105 = trunc i64 %104 to i16
-  %106 = load ptr, ptr %8, align 8, !tbaa !7
+  %106 = load ptr, ptr %8, align 8, !tbaa !19
   %107 = getelementptr inbounds nuw %struct.lv_font_glyph_dsc_t, ptr %106, i32 0, i32 1
-  store i16 %105, ptr %107, align 8, !tbaa !34
-  %108 = load ptr, ptr %12, align 8, !tbaa !7
+  store i16 %105, ptr %107, align 8, !tbaa !63
+  %108 = load ptr, ptr %12, align 8, !tbaa !51
   %109 = getelementptr inbounds nuw %struct.FT_GlyphSlotRec_, ptr %108, i32 0, i32 5
   %110 = getelementptr inbounds nuw %struct.FT_Glyph_Metrics_, ptr %109, i32 0, i32 1
-  %111 = load i64, ptr %110, align 8, !tbaa !35
+  %111 = load i64, ptr %110, align 8, !tbaa !64
   %112 = ashr i64 %111, 6
   %113 = trunc i64 %112 to i16
-  %114 = load ptr, ptr %8, align 8, !tbaa !7
+  %114 = load ptr, ptr %8, align 8, !tbaa !19
   %115 = getelementptr inbounds nuw %struct.lv_font_glyph_dsc_t, ptr %114, i32 0, i32 3
-  store i16 %113, ptr %115, align 4, !tbaa !36
-  %116 = load ptr, ptr %12, align 8, !tbaa !7
+  store i16 %113, ptr %115, align 4, !tbaa !65
+  %116 = load ptr, ptr %12, align 8, !tbaa !51
   %117 = getelementptr inbounds nuw %struct.FT_GlyphSlotRec_, ptr %116, i32 0, i32 5
   %118 = getelementptr inbounds nuw %struct.FT_Glyph_Metrics_, ptr %117, i32 0, i32 0
-  %119 = load i64, ptr %118, align 8, !tbaa !37
+  %119 = load i64, ptr %118, align 8, !tbaa !66
   %120 = ashr i64 %119, 6
   %121 = trunc i64 %120 to i16
-  %122 = load ptr, ptr %8, align 8, !tbaa !7
+  %122 = load ptr, ptr %8, align 8, !tbaa !19
   %123 = getelementptr inbounds nuw %struct.lv_font_glyph_dsc_t, ptr %122, i32 0, i32 2
-  store i16 %121, ptr %123, align 2, !tbaa !38
-  %124 = load ptr, ptr %12, align 8, !tbaa !7
+  store i16 %121, ptr %123, align 2, !tbaa !67
+  %124 = load ptr, ptr %12, align 8, !tbaa !51
   %125 = getelementptr inbounds nuw %struct.FT_GlyphSlotRec_, ptr %124, i32 0, i32 5
   %126 = getelementptr inbounds nuw %struct.FT_Glyph_Metrics_, ptr %125, i32 0, i32 2
-  %127 = load i64, ptr %126, align 8, !tbaa !39
+  %127 = load i64, ptr %126, align 8, !tbaa !68
   %128 = ashr i64 %127, 6
   %129 = trunc i64 %128 to i16
-  %130 = load ptr, ptr %8, align 8, !tbaa !7
+  %130 = load ptr, ptr %8, align 8, !tbaa !19
   %131 = getelementptr inbounds nuw %struct.lv_font_glyph_dsc_t, ptr %130, i32 0, i32 4
-  store i16 %129, ptr %131, align 2, !tbaa !40
-  %132 = load ptr, ptr %12, align 8, !tbaa !7
+  store i16 %129, ptr %131, align 2, !tbaa !69
+  %132 = load ptr, ptr %12, align 8, !tbaa !51
   %133 = getelementptr inbounds nuw %struct.FT_GlyphSlotRec_, ptr %132, i32 0, i32 5
   %134 = getelementptr inbounds nuw %struct.FT_Glyph_Metrics_, ptr %133, i32 0, i32 3
-  %135 = load i64, ptr %134, align 8, !tbaa !41
-  %136 = load ptr, ptr %12, align 8, !tbaa !7
+  %135 = load i64, ptr %134, align 8, !tbaa !70
+  %136 = load ptr, ptr %12, align 8, !tbaa !51
   %137 = getelementptr inbounds nuw %struct.FT_GlyphSlotRec_, ptr %136, i32 0, i32 5
   %138 = getelementptr inbounds nuw %struct.FT_Glyph_Metrics_, ptr %137, i32 0, i32 1
-  %139 = load i64, ptr %138, align 8, !tbaa !35
+  %139 = load i64, ptr %138, align 8, !tbaa !64
   %140 = sub nsw i64 %135, %139
   %141 = ashr i64 %140, 6
   %142 = trunc i64 %141 to i16
-  %143 = load ptr, ptr %8, align 8, !tbaa !7
+  %143 = load ptr, ptr %8, align 8, !tbaa !19
   %144 = getelementptr inbounds nuw %struct.lv_font_glyph_dsc_t, ptr %143, i32 0, i32 5
-  store i16 %142, ptr %144, align 8, !tbaa !42
-  %145 = load ptr, ptr %8, align 8, !tbaa !7
+  store i16 %142, ptr %144, align 8, !tbaa !71
+  %145 = load ptr, ptr %8, align 8, !tbaa !19
   %146 = getelementptr inbounds nuw %struct.lv_font_glyph_dsc_t, ptr %145, i32 0, i32 6
-  store i32 10, ptr %146, align 4, !tbaa !43
-  %147 = load ptr, ptr %6, align 8, !tbaa !7
+  store i32 26, ptr %146, align 4, !tbaa !72
+  %147 = load ptr, ptr %6, align 8, !tbaa !20
   %148 = getelementptr inbounds nuw %struct._lv_freetype_font_dsc_t, ptr %147, i32 0, i32 3
-  %149 = load i32, ptr %148, align 4, !tbaa !44
+  %149 = load i32, ptr %148, align 4, !tbaa !73
   %150 = and i32 %149, 1
   %151 = icmp ne i32 %150, 0
   br i1 %151, label %152, label %168
 
 152:                                              ; preds = %99
   %153 = getelementptr inbounds nuw %struct.lv_point_t, ptr %13, i32 0, i32 0
-  %154 = load ptr, ptr %8, align 8, !tbaa !7
+  %154 = load ptr, ptr %8, align 8, !tbaa !19
   %155 = getelementptr inbounds nuw %struct.lv_font_glyph_dsc_t, ptr %154, i32 0, i32 2
-  %156 = load i16, ptr %155, align 2, !tbaa !38
+  %156 = load i16, ptr %155, align 2, !tbaa !67
   %157 = zext i16 %156 to i32
-  store i32 %157, ptr %153, align 4, !tbaa !45
+  store i32 %157, ptr %153, align 4, !tbaa !74
   %158 = getelementptr inbounds nuw %struct.lv_point_t, ptr %13, i32 0, i32 1
-  %159 = load ptr, ptr %8, align 8, !tbaa !7
+  %159 = load ptr, ptr %8, align 8, !tbaa !19
   %160 = getelementptr inbounds nuw %struct.lv_font_glyph_dsc_t, ptr %159, i32 0, i32 3
-  %161 = load i16, ptr %160, align 4, !tbaa !36
+  %161 = load i16, ptr %160, align 4, !tbaa !65
   %162 = zext i16 %161 to i32
-  store i32 %162, ptr %158, align 4, !tbaa !47
+  store i32 %162, ptr %158, align 4, !tbaa !76
   %163 = load i64, ptr %13, align 4
   %164 = call i32 @lv_freetype_italic_transform_on_pos(i64 %163)
   %165 = trunc i32 %164 to i16
-  %166 = load ptr, ptr %8, align 8, !tbaa !7
+  %166 = load ptr, ptr %8, align 8, !tbaa !19
   %167 = getelementptr inbounds nuw %struct.lv_font_glyph_dsc_t, ptr %166, i32 0, i32 2
-  store i16 %165, ptr %167, align 2, !tbaa !38
+  store i16 %165, ptr %167, align 2, !tbaa !67
   br label %168
 
 168:                                              ; preds = %152, %99
   br label %228
 
 169:                                              ; preds = %91
-  %170 = load ptr, ptr %6, align 8, !tbaa !7
+  %170 = load ptr, ptr %6, align 8, !tbaa !20
   %171 = getelementptr inbounds nuw %struct._lv_freetype_font_dsc_t, ptr %170, i32 0, i32 4
-  %172 = load i32, ptr %171, align 8, !tbaa !26
+  %172 = load i32, ptr %171, align 8, !tbaa !49
   %173 = icmp eq i32 %172, 0
   br i1 %173, label %174, label %227
 
 174:                                              ; preds = %169
-  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #5
-  %175 = load ptr, ptr %9, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #6
+  %175 = load ptr, ptr %9, align 8, !tbaa !31
   %176 = getelementptr inbounds nuw %struct.FT_FaceRec_, ptr %175, i32 0, i32 21
-  %177 = load ptr, ptr %176, align 8, !tbaa !27
+  %177 = load ptr, ptr %176, align 8, !tbaa !50
   %178 = getelementptr inbounds nuw %struct.FT_GlyphSlotRec_, ptr %177, i32 0, i32 10
-  store ptr %178, ptr %14, align 8, !tbaa !7
-  %179 = load ptr, ptr %12, align 8, !tbaa !7
+  store ptr %178, ptr %14, align 8, !tbaa !77
+  %179 = load ptr, ptr %12, align 8, !tbaa !51
   %180 = getelementptr inbounds nuw %struct.FT_GlyphSlotRec_, ptr %179, i32 0, i32 8
   %181 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %180, i32 0, i32 0
-  %182 = load i64, ptr %181, align 8, !tbaa !48
+  %182 = load i64, ptr %181, align 8, !tbaa !79
   %183 = ashr i64 %182, 6
   %184 = trunc i64 %183 to i16
-  %185 = load ptr, ptr %8, align 8, !tbaa !7
+  %185 = load ptr, ptr %8, align 8, !tbaa !19
   %186 = getelementptr inbounds nuw %struct.lv_font_glyph_dsc_t, ptr %185, i32 0, i32 1
-  store i16 %184, ptr %186, align 8, !tbaa !34
-  %187 = load ptr, ptr %14, align 8, !tbaa !7
+  store i16 %184, ptr %186, align 8, !tbaa !63
+  %187 = load ptr, ptr %14, align 8, !tbaa !77
   %188 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %187, i32 0, i32 0
-  %189 = load i32, ptr %188, align 8, !tbaa !49
+  %189 = load i32, ptr %188, align 8, !tbaa !80
   %190 = trunc i32 %189 to i16
-  %191 = load ptr, ptr %8, align 8, !tbaa !7
+  %191 = load ptr, ptr %8, align 8, !tbaa !19
   %192 = getelementptr inbounds nuw %struct.lv_font_glyph_dsc_t, ptr %191, i32 0, i32 3
-  store i16 %190, ptr %192, align 4, !tbaa !36
-  %193 = load ptr, ptr %14, align 8, !tbaa !7
+  store i16 %190, ptr %192, align 4, !tbaa !65
+  %193 = load ptr, ptr %14, align 8, !tbaa !77
   %194 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %193, i32 0, i32 1
-  %195 = load i32, ptr %194, align 4, !tbaa !50
+  %195 = load i32, ptr %194, align 4, !tbaa !81
   %196 = trunc i32 %195 to i16
-  %197 = load ptr, ptr %8, align 8, !tbaa !7
+  %197 = load ptr, ptr %8, align 8, !tbaa !19
   %198 = getelementptr inbounds nuw %struct.lv_font_glyph_dsc_t, ptr %197, i32 0, i32 2
-  store i16 %196, ptr %198, align 2, !tbaa !38
-  %199 = load ptr, ptr %12, align 8, !tbaa !7
+  store i16 %196, ptr %198, align 2, !tbaa !67
+  %199 = load ptr, ptr %12, align 8, !tbaa !51
   %200 = getelementptr inbounds nuw %struct.FT_GlyphSlotRec_, ptr %199, i32 0, i32 11
-  %201 = load i32, ptr %200, align 8, !tbaa !51
+  %201 = load i32, ptr %200, align 8, !tbaa !82
   %202 = trunc i32 %201 to i16
-  %203 = load ptr, ptr %8, align 8, !tbaa !7
+  %203 = load ptr, ptr %8, align 8, !tbaa !19
   %204 = getelementptr inbounds nuw %struct.lv_font_glyph_dsc_t, ptr %203, i32 0, i32 4
-  store i16 %202, ptr %204, align 2, !tbaa !40
-  %205 = load ptr, ptr %12, align 8, !tbaa !7
+  store i16 %202, ptr %204, align 2, !tbaa !69
+  %205 = load ptr, ptr %12, align 8, !tbaa !51
   %206 = getelementptr inbounds nuw %struct.FT_GlyphSlotRec_, ptr %205, i32 0, i32 12
-  %207 = load i32, ptr %206, align 4, !tbaa !52
-  %208 = load ptr, ptr %8, align 8, !tbaa !7
+  %207 = load i32, ptr %206, align 4, !tbaa !83
+  %208 = load ptr, ptr %8, align 8, !tbaa !19
   %209 = getelementptr inbounds nuw %struct.lv_font_glyph_dsc_t, ptr %208, i32 0, i32 3
-  %210 = load i16, ptr %209, align 4, !tbaa !36
+  %210 = load i16, ptr %209, align 4, !tbaa !65
   %211 = zext i16 %210 to i32
   %212 = sub nsw i32 %207, %211
   %213 = trunc i32 %212 to i16
-  %214 = load ptr, ptr %8, align 8, !tbaa !7
+  %214 = load ptr, ptr %8, align 8, !tbaa !19
   %215 = getelementptr inbounds nuw %struct.lv_font_glyph_dsc_t, ptr %214, i32 0, i32 5
-  store i16 %213, ptr %215, align 8, !tbaa !42
-  %216 = load ptr, ptr %12, align 8, !tbaa !7
+  store i16 %213, ptr %215, align 8, !tbaa !71
+  %216 = load ptr, ptr %12, align 8, !tbaa !51
   %217 = getelementptr inbounds nuw %struct.FT_GlyphSlotRec_, ptr %216, i32 0, i32 9
-  %218 = load i32, ptr %217, align 8, !tbaa !53
+  %218 = load i32, ptr %217, align 8, !tbaa !84
   %219 = icmp eq i32 %218, 1651078259
   br i1 %219, label %220, label %223
 
 220:                                              ; preds = %174
-  %221 = load ptr, ptr %8, align 8, !tbaa !7
+  %221 = load ptr, ptr %8, align 8, !tbaa !19
   %222 = getelementptr inbounds nuw %struct.lv_font_glyph_dsc_t, ptr %221, i32 0, i32 6
-  store i32 9, ptr %222, align 4, !tbaa !43
+  store i32 25, ptr %222, align 4, !tbaa !72
   br label %226
 
 223:                                              ; preds = %174
-  %224 = load ptr, ptr %8, align 8, !tbaa !7
+  %224 = load ptr, ptr %8, align 8, !tbaa !19
   %225 = getelementptr inbounds nuw %struct.lv_font_glyph_dsc_t, ptr %224, i32 0, i32 6
-  store i32 8, ptr %225, align 4, !tbaa !43
+  store i32 8, ptr %225, align 4, !tbaa !72
   br label %226
 
 226:                                              ; preds = %223, %220
-  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #6
   br label %227
 
 227:                                              ; preds = %226, %169
@@ -437,7 +437,7 @@ define internal zeroext i1 @freetype_glyph_create_cb(ptr noundef %0, ptr noundef
   %230 = icmp eq i32 %229, 0
   %231 = zext i1 %230 to i32
   %232 = trunc i32 %231 to i8
-  %233 = load ptr, ptr %8, align 8, !tbaa !7
+  %233 = load ptr, ptr %8, align 8, !tbaa !19
   %234 = getelementptr inbounds nuw %struct.lv_font_glyph_dsc_t, ptr %233, i32 0, i32 7
   %235 = load i8, ptr %234, align 8
   %236 = and i8 %232, 1
@@ -445,25 +445,25 @@ define internal zeroext i1 @freetype_glyph_create_cb(ptr noundef %0, ptr noundef
   %238 = or i8 %237, %236
   store i8 %238, ptr %234, align 8
   %239 = load i32, ptr %10, align 4, !tbaa !3
-  %240 = load ptr, ptr %8, align 8, !tbaa !7
+  %240 = load ptr, ptr %8, align 8, !tbaa !19
   %241 = getelementptr inbounds nuw %struct.lv_font_glyph_dsc_t, ptr %240, i32 0, i32 8
-  store i32 %239, ptr %241, align 8, !tbaa !54
-  %242 = load ptr, ptr %6, align 8, !tbaa !7
+  store i32 %239, ptr %241, align 8, !tbaa !85
+  %242 = load ptr, ptr %6, align 8, !tbaa !20
   %243 = getelementptr inbounds nuw %struct._lv_freetype_font_dsc_t, ptr %242, i32 0, i32 6
-  %244 = load ptr, ptr %243, align 8, !tbaa !14
+  %244 = load ptr, ptr %243, align 8, !tbaa !22
   %245 = getelementptr inbounds nuw %struct._lv_freetype_cache_node_t, ptr %244, i32 0, i32 5
   %246 = call i32 @lv_mutex_unlock(ptr noundef %245)
   store i1 true, ptr %3, align 1
   store i32 1, ptr %11, align 4
-  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #6
   br label %247
 
 247:                                              ; preds = %228, %85, %54
-  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #6
   %248 = load i1, ptr %3, align 1
   ret i1 %248
 }
@@ -472,32 +472,32 @@ define internal zeroext i1 @freetype_glyph_create_cb(ptr noundef %0, ptr noundef
 define internal void @freetype_glyph_free_cb(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8, !tbaa !7
-  store ptr %1, ptr %4, align 8, !tbaa !7
+  store ptr %0, ptr %3, align 8, !tbaa !10
+  store ptr %1, ptr %4, align 8, !tbaa !19
   ret void
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare ptr @lv_cache_create(ptr noundef, i64 noundef, i64 noundef, ptr noundef byval(%struct._lv_cache_ops_t) align 8) #3
 
 declare void @lv_cache_set_name(ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define void @lv_freetype_set_cbs_glyph(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8, !tbaa !7
+  store ptr %0, ptr %2, align 8, !tbaa !20
   br label %3
 
 3:                                                ; preds = %1
   br label %4
 
 4:                                                ; preds = %3
-  %5 = load ptr, ptr %2, align 8, !tbaa !7
+  %5 = load ptr, ptr %2, align 8, !tbaa !20
   %6 = icmp ne ptr %5, null
   br i1 %6, label %11, label %7
 
@@ -520,9 +520,9 @@ define void @lv_freetype_set_cbs_glyph(ptr noundef %0) #0 {
   br label %13
 
 13:                                               ; preds = %12
-  %14 = load ptr, ptr %2, align 8, !tbaa !7
+  %14 = load ptr, ptr %2, align 8, !tbaa !20
   %15 = getelementptr inbounds nuw %struct._lv_freetype_font_dsc_t, ptr %14, i32 0, i32 0
-  %16 = load i32, ptr %15, align 8, !tbaa !55
+  %16 = load i32, ptr %15, align 8, !tbaa !86
   %17 = icmp eq i32 %16, 1600079444
   br i1 %17, label %22, label %18
 
@@ -545,10 +545,10 @@ define void @lv_freetype_set_cbs_glyph(ptr noundef %0) #0 {
   br label %24
 
 24:                                               ; preds = %23
-  %25 = load ptr, ptr %2, align 8, !tbaa !7
+  %25 = load ptr, ptr %2, align 8, !tbaa !20
   %26 = getelementptr inbounds nuw %struct._lv_freetype_font_dsc_t, ptr %25, i32 0, i32 1
   %27 = getelementptr inbounds nuw %struct._lv_font_t, ptr %26, i32 0, i32 0
-  store ptr @freetype_get_glyph_dsc_cb, ptr %27, align 8, !tbaa !56
+  store ptr @freetype_get_glyph_dsc_cb, ptr %27, align 8, !tbaa !87
   ret void
 }
 
@@ -565,14 +565,14 @@ define internal zeroext i1 @freetype_get_glyph_dsc_cb(ptr noundef %0, ptr nounde
   %13 = alloca ptr, align 8
   %14 = alloca i32, align 4
   %15 = alloca ptr, align 8
-  store ptr %0, ptr %6, align 8, !tbaa !7
-  store ptr %1, ptr %7, align 8, !tbaa !7
+  store ptr %0, ptr %6, align 8, !tbaa !88
+  store ptr %1, ptr %7, align 8, !tbaa !19
   store i32 %2, ptr %8, align 4, !tbaa !3
   store i32 %3, ptr %9, align 4, !tbaa !3
   br label %16
 
 16:                                               ; preds = %4
-  %17 = load ptr, ptr %6, align 8, !tbaa !7
+  %17 = load ptr, ptr %6, align 8, !tbaa !88
   %18 = icmp ne ptr %17, null
   br i1 %18, label %23, label %19
 
@@ -595,7 +595,7 @@ define internal zeroext i1 @freetype_get_glyph_dsc_cb(ptr noundef %0, ptr nounde
   br label %25
 
 25:                                               ; preds = %24
-  %26 = load ptr, ptr %7, align 8, !tbaa !7
+  %26 = load ptr, ptr %7, align 8, !tbaa !19
   %27 = icmp ne ptr %26, null
   br i1 %27, label %32, label %28
 
@@ -620,40 +620,40 @@ define internal zeroext i1 @freetype_get_glyph_dsc_cb(ptr noundef %0, ptr nounde
   br i1 %35, label %36, label %49
 
 36:                                               ; preds = %33
-  %37 = load ptr, ptr %7, align 8, !tbaa !7
+  %37 = load ptr, ptr %7, align 8, !tbaa !19
   %38 = getelementptr inbounds nuw %struct.lv_font_glyph_dsc_t, ptr %37, i32 0, i32 1
-  store i16 0, ptr %38, align 8, !tbaa !34
-  %39 = load ptr, ptr %7, align 8, !tbaa !7
+  store i16 0, ptr %38, align 8, !tbaa !63
+  %39 = load ptr, ptr %7, align 8, !tbaa !19
   %40 = getelementptr inbounds nuw %struct.lv_font_glyph_dsc_t, ptr %39, i32 0, i32 3
-  store i16 0, ptr %40, align 4, !tbaa !36
-  %41 = load ptr, ptr %7, align 8, !tbaa !7
+  store i16 0, ptr %40, align 4, !tbaa !65
+  %41 = load ptr, ptr %7, align 8, !tbaa !19
   %42 = getelementptr inbounds nuw %struct.lv_font_glyph_dsc_t, ptr %41, i32 0, i32 2
-  store i16 0, ptr %42, align 2, !tbaa !38
-  %43 = load ptr, ptr %7, align 8, !tbaa !7
+  store i16 0, ptr %42, align 2, !tbaa !67
+  %43 = load ptr, ptr %7, align 8, !tbaa !19
   %44 = getelementptr inbounds nuw %struct.lv_font_glyph_dsc_t, ptr %43, i32 0, i32 4
-  store i16 0, ptr %44, align 2, !tbaa !40
-  %45 = load ptr, ptr %7, align 8, !tbaa !7
+  store i16 0, ptr %44, align 2, !tbaa !69
+  %45 = load ptr, ptr %7, align 8, !tbaa !19
   %46 = getelementptr inbounds nuw %struct.lv_font_glyph_dsc_t, ptr %45, i32 0, i32 5
-  store i16 0, ptr %46, align 8, !tbaa !42
-  %47 = load ptr, ptr %7, align 8, !tbaa !7
+  store i16 0, ptr %46, align 8, !tbaa !71
+  %47 = load ptr, ptr %7, align 8, !tbaa !19
   %48 = getelementptr inbounds nuw %struct.lv_font_glyph_dsc_t, ptr %47, i32 0, i32 6
-  store i32 0, ptr %48, align 4, !tbaa !43
+  store i32 0, ptr %48, align 4, !tbaa !72
   store i1 true, ptr %5, align 1
   br label %135
 
 49:                                               ; preds = %33
-  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
-  %50 = load ptr, ptr %6, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #6
+  %50 = load ptr, ptr %6, align 8, !tbaa !88
   %51 = getelementptr inbounds nuw %struct._lv_font_t, ptr %50, i32 0, i32 8
-  %52 = load ptr, ptr %51, align 8, !tbaa !57
-  store ptr %52, ptr %10, align 8, !tbaa !7
+  %52 = load ptr, ptr %51, align 8, !tbaa !89
+  store ptr %52, ptr %10, align 8, !tbaa !20
   br label %53
 
 53:                                               ; preds = %49
   br label %54
 
 54:                                               ; preds = %53
-  %55 = load ptr, ptr %10, align 8, !tbaa !7
+  %55 = load ptr, ptr %10, align 8, !tbaa !20
   %56 = icmp ne ptr %55, null
   br i1 %56, label %63, label %57
 
@@ -685,9 +685,9 @@ define internal zeroext i1 @freetype_get_glyph_dsc_cb(ptr noundef %0, ptr nounde
   br label %66
 
 66:                                               ; preds = %65
-  %67 = load ptr, ptr %10, align 8, !tbaa !7
+  %67 = load ptr, ptr %10, align 8, !tbaa !20
   %68 = getelementptr inbounds nuw %struct._lv_freetype_font_dsc_t, ptr %67, i32 0, i32 0
-  %69 = load i32, ptr %68, align 8, !tbaa !55
+  %69 = load i32, ptr %68, align 8, !tbaa !86
   %70 = icmp eq i32 %69, 1600079444
   br i1 %70, label %77, label %71
 
@@ -722,29 +722,29 @@ define internal zeroext i1 @freetype_get_glyph_dsc_cb(ptr noundef %0, ptr nounde
   br label %81
 
 81:                                               ; preds = %80
-  call void @llvm.lifetime.start.p0(i64 56, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 56, ptr %11) #6
   call void @llvm.memset.p0.i64(ptr align 8 %11, i8 0, i64 56, i1 false)
   %82 = getelementptr inbounds nuw %struct._lv_freetype_glyph_cache_data_t, ptr %11, i32 0, i32 0
   %83 = load i32, ptr %8, align 4, !tbaa !3
-  store i32 %83, ptr %82, align 8, !tbaa !9
+  store i32 %83, ptr %82, align 8, !tbaa !12
   %84 = getelementptr inbounds nuw %struct._lv_freetype_glyph_cache_data_t, ptr %11, i32 0, i32 1
-  %85 = load ptr, ptr %10, align 8, !tbaa !7
+  %85 = load ptr, ptr %10, align 8, !tbaa !20
   %86 = getelementptr inbounds nuw %struct._lv_freetype_font_dsc_t, ptr %85, i32 0, i32 2
-  %87 = load i32, ptr %86, align 8, !tbaa !25
-  store i32 %87, ptr %84, align 4, !tbaa !13
-  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
-  %88 = load ptr, ptr %10, align 8, !tbaa !7
+  %87 = load i32, ptr %86, align 8, !tbaa !48
+  store i32 %87, ptr %84, align 4, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #6
+  %88 = load ptr, ptr %10, align 8, !tbaa !20
   %89 = getelementptr inbounds nuw %struct._lv_freetype_font_dsc_t, ptr %88, i32 0, i32 6
-  %90 = load ptr, ptr %89, align 8, !tbaa !14
+  %90 = load ptr, ptr %89, align 8, !tbaa !22
   %91 = getelementptr inbounds nuw %struct._lv_freetype_cache_node_t, ptr %90, i32 0, i32 6
-  %92 = load ptr, ptr %91, align 8, !tbaa !58
+  %92 = load ptr, ptr %91, align 8, !tbaa !90
   store ptr %92, ptr %12, align 8, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #6
   %93 = load ptr, ptr %12, align 8, !tbaa !7
-  %94 = load ptr, ptr %10, align 8, !tbaa !7
+  %94 = load ptr, ptr %10, align 8, !tbaa !20
   %95 = call ptr @lv_cache_acquire_or_create(ptr noundef %93, ptr noundef %11, ptr noundef %94)
-  store ptr %95, ptr %13, align 8, !tbaa !7
-  %96 = load ptr, ptr %13, align 8, !tbaa !7
+  store ptr %95, ptr %13, align 8, !tbaa !91
+  %96 = load ptr, ptr %13, align 8, !tbaa !91
   %97 = icmp eq ptr %96, null
   br i1 %97, label %98, label %102
 
@@ -763,17 +763,17 @@ define internal zeroext i1 @freetype_get_glyph_dsc_cb(ptr noundef %0, ptr nounde
   br label %134
 
 102:                                              ; preds = %81
-  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #5
-  %103 = load ptr, ptr %13, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #6
+  %103 = load ptr, ptr %13, align 8, !tbaa !91
   %104 = call ptr @lv_cache_entry_get_data(ptr noundef %103)
-  store ptr %104, ptr %15, align 8, !tbaa !7
-  %105 = load ptr, ptr %7, align 8, !tbaa !7
-  %106 = load ptr, ptr %15, align 8, !tbaa !7
+  store ptr %104, ptr %15, align 8, !tbaa !10
+  %105 = load ptr, ptr %7, align 8, !tbaa !19
+  %106 = load ptr, ptr %15, align 8, !tbaa !10
   %107 = getelementptr inbounds nuw %struct._lv_freetype_glyph_cache_data_t, ptr %106, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %105, ptr align 8 %107, i64 48, i1 false), !tbaa.struct !59
-  %108 = load ptr, ptr %10, align 8, !tbaa !7
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %105, ptr align 8 %107, i64 48, i1 false), !tbaa.struct !92
+  %108 = load ptr, ptr %10, align 8, !tbaa !20
   %109 = getelementptr inbounds nuw %struct._lv_freetype_font_dsc_t, ptr %108, i32 0, i32 3
-  %110 = load i32, ptr %109, align 4, !tbaa !44
+  %110 = load i32, ptr %109, align 4, !tbaa !73
   %111 = and i32 %110, 1
   %112 = icmp ne i32 %111, 0
   br i1 %112, label %113, label %129
@@ -784,38 +784,38 @@ define internal zeroext i1 @freetype_get_glyph_dsc_cb(ptr noundef %0, ptr nounde
   br i1 %115, label %116, label %129
 
 116:                                              ; preds = %113
-  %117 = load ptr, ptr %7, align 8, !tbaa !7
+  %117 = load ptr, ptr %7, align 8, !tbaa !19
   %118 = getelementptr inbounds nuw %struct.lv_font_glyph_dsc_t, ptr %117, i32 0, i32 2
-  %119 = load i16, ptr %118, align 2, !tbaa !38
+  %119 = load i16, ptr %118, align 2, !tbaa !67
   %120 = zext i16 %119 to i32
-  %121 = load ptr, ptr %7, align 8, !tbaa !7
+  %121 = load ptr, ptr %7, align 8, !tbaa !19
   %122 = getelementptr inbounds nuw %struct.lv_font_glyph_dsc_t, ptr %121, i32 0, i32 4
-  %123 = load i16, ptr %122, align 2, !tbaa !40
+  %123 = load i16, ptr %122, align 2, !tbaa !69
   %124 = sext i16 %123 to i32
   %125 = add nsw i32 %120, %124
   %126 = trunc i32 %125 to i16
-  %127 = load ptr, ptr %7, align 8, !tbaa !7
+  %127 = load ptr, ptr %7, align 8, !tbaa !19
   %128 = getelementptr inbounds nuw %struct.lv_font_glyph_dsc_t, ptr %127, i32 0, i32 1
-  store i16 %126, ptr %128, align 8, !tbaa !34
+  store i16 %126, ptr %128, align 8, !tbaa !63
   br label %129
 
 129:                                              ; preds = %116, %113, %102
-  %130 = load ptr, ptr %7, align 8, !tbaa !7
+  %130 = load ptr, ptr %7, align 8, !tbaa !19
   %131 = getelementptr inbounds nuw %struct.lv_font_glyph_dsc_t, ptr %130, i32 0, i32 9
-  store ptr null, ptr %131, align 8, !tbaa !61
+  store ptr null, ptr %131, align 8, !tbaa !94
   %132 = load ptr, ptr %12, align 8, !tbaa !7
-  %133 = load ptr, ptr %13, align 8, !tbaa !7
+  %133 = load ptr, ptr %13, align 8, !tbaa !91
   call void @lv_cache_release(ptr noundef %132, ptr noundef %133, ptr noundef null)
   store i1 true, ptr %5, align 1
   store i32 1, ptr %14, align 4
-  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #6
   br label %134
 
 134:                                              ; preds = %129, %101
-  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
-  call void @llvm.lifetime.end.p0(i64 56, ptr %11) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #6
+  call void @llvm.lifetime.end.p0(i64 56, ptr %11) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #6
   br label %135
 
 135:                                              ; preds = %134, %36
@@ -824,7 +824,7 @@ define internal zeroext i1 @freetype_get_glyph_dsc_cb(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare ptr @lv_cache_acquire_or_create(ptr noundef, ptr noundef, ptr noundef) #3
 
@@ -832,7 +832,12 @@ declare ptr @lv_cache_entry_get_data(ptr noundef) #3
 
 declare void @lv_cache_release(ptr noundef, ptr noundef, ptr noundef) #3
 
-declare i32 @lv_mutex_lock(ptr noundef) #3
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @lv_mutex_lock(ptr noundef %0) #5 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !95
+  ret i32 1
+}
 
 declare i32 @FT_Get_Char_Index(ptr noundef, i64 noundef) #3
 
@@ -840,7 +845,12 @@ declare i32 @FT_Set_Pixel_Sizes(ptr noundef, i32 noundef, i32 noundef) #3
 
 declare i32 @FT_Select_Size(ptr noundef, i32 noundef) #3
 
-declare i32 @lv_mutex_unlock(ptr noundef) #3
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @lv_mutex_unlock(ptr noundef %0) #5 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !95
+  ret i32 1
+}
 
 declare i32 @FT_Load_Glyph(ptr noundef, i32 noundef, i32 noundef) #3
 
@@ -851,7 +861,8 @@ attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: re
 attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { nounwind }
+attributes #5 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 
@@ -863,57 +874,92 @@ attributes #5 = { nounwind }
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
-!8 = !{!"any pointer", !5, i64 0}
-!9 = !{!10, !4, i64 0}
-!10 = !{!"_lv_freetype_glyph_cache_data_t", !4, i64 0, !4, i64 4, !11, i64 8}
-!11 = !{!"", !8, i64 0, !12, i64 8, !12, i64 10, !12, i64 12, !12, i64 14, !12, i64 16, !4, i64 20, !5, i64 24, !5, i64 32, !8, i64 40}
-!12 = !{!"short", !5, i64 0}
-!13 = !{!10, !4, i64 4}
-!14 = !{!15, !8, i64 96}
-!15 = !{!"_lv_freetype_font_dsc_t", !4, i64 0, !16, i64 8, !4, i64 72, !4, i64 76, !4, i64 80, !8, i64 88, !8, i64 96, !8, i64 104, !8, i64 112}
-!16 = !{!"_lv_font_t", !8, i64 0, !8, i64 8, !8, i64 16, !4, i64 24, !4, i64 28, !5, i64 32, !5, i64 32, !5, i64 33, !5, i64 34, !8, i64 40, !8, i64 48, !8, i64 56}
-!17 = !{!18, !8, i64 24}
-!18 = !{!"_lv_freetype_cache_node_t", !8, i64 0, !4, i64 8, !4, i64 12, !4, i64 16, !8, i64 24, !4, i64 32, !8, i64 40, !8, i64 48}
-!19 = !{!20, !21, i64 16}
-!20 = !{!"FT_FaceRec_", !21, i64 0, !21, i64 8, !21, i64 16, !21, i64 24, !21, i64 32, !8, i64 40, !8, i64 48, !4, i64 56, !8, i64 64, !4, i64 72, !8, i64 80, !22, i64 88, !23, i64 104, !12, i64 136, !12, i64 138, !12, i64 140, !12, i64 142, !12, i64 144, !12, i64 146, !12, i64 148, !12, i64 150, !8, i64 152, !8, i64 160, !8, i64 168, !8, i64 176, !8, i64 184, !8, i64 192, !24, i64 200, !22, i64 216, !8, i64 232, !8, i64 240}
-!21 = !{!"long", !5, i64 0}
-!22 = !{!"FT_Generic_", !8, i64 0, !8, i64 8}
-!23 = !{!"FT_BBox_", !21, i64 0, !21, i64 8, !21, i64 16, !21, i64 24}
-!24 = !{!"FT_ListRec_", !8, i64 0, !8, i64 8}
-!25 = !{!15, !4, i64 72}
-!26 = !{!15, !4, i64 80}
-!27 = !{!20, !8, i64 152}
-!28 = !{!29, !21, i64 80}
-!29 = !{!"FT_GlyphSlotRec_", !8, i64 0, !8, i64 8, !8, i64 16, !4, i64 24, !22, i64 32, !30, i64 48, !21, i64 112, !21, i64 120, !31, i64 128, !4, i64 144, !32, i64 152, !4, i64 192, !4, i64 196, !33, i64 200, !4, i64 240, !8, i64 248, !8, i64 256, !21, i64 264, !21, i64 272, !21, i64 280, !8, i64 288, !8, i64 296}
-!30 = !{!"FT_Glyph_Metrics_", !21, i64 0, !21, i64 8, !21, i64 16, !21, i64 24, !21, i64 32, !21, i64 40, !21, i64 48, !21, i64 56}
-!31 = !{!"FT_Vector_", !21, i64 0, !21, i64 8}
-!32 = !{!"FT_Bitmap_", !4, i64 0, !4, i64 4, !4, i64 8, !8, i64 16, !12, i64 24, !5, i64 26, !5, i64 27, !8, i64 32}
-!33 = !{!"FT_Outline_", !12, i64 0, !12, i64 2, !8, i64 8, !8, i64 16, !8, i64 24, !4, i64 32}
-!34 = !{!11, !12, i64 8}
-!35 = !{!29, !21, i64 56}
-!36 = !{!11, !12, i64 12}
-!37 = !{!29, !21, i64 48}
-!38 = !{!11, !12, i64 10}
-!39 = !{!29, !21, i64 64}
-!40 = !{!11, !12, i64 14}
-!41 = !{!29, !21, i64 72}
-!42 = !{!11, !12, i64 16}
-!43 = !{!11, !4, i64 20}
-!44 = !{!15, !4, i64 76}
-!45 = !{!46, !4, i64 0}
-!46 = !{!"", !4, i64 0, !4, i64 4}
-!47 = !{!46, !4, i64 4}
-!48 = !{!29, !21, i64 128}
-!49 = !{!32, !4, i64 0}
-!50 = !{!32, !4, i64 4}
-!51 = !{!29, !4, i64 192}
-!52 = !{!29, !4, i64 196}
-!53 = !{!29, !4, i64 144}
-!54 = !{!5, !5, i64 0}
-!55 = !{!15, !4, i64 0}
-!56 = !{!15, !8, i64 8}
-!57 = !{!16, !8, i64 40}
-!58 = !{!18, !8, i64 40}
-!59 = !{i64 0, i64 8, !7, i64 8, i64 2, !60, i64 10, i64 2, !60, i64 12, i64 2, !60, i64 14, i64 2, !60, i64 16, i64 2, !60, i64 20, i64 4, !3, i64 24, i64 1, !54, i64 32, i64 8, !54, i64 40, i64 8, !7}
-!60 = !{!12, !12, i64 0}
-!61 = !{!11, !8, i64 40}
+!8 = !{!"p1 _ZTS11_lv_cache_t", !9, i64 0}
+!9 = !{!"any pointer", !5, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"p1 _ZTS31_lv_freetype_glyph_cache_data_t", !9, i64 0}
+!12 = !{!13, !4, i64 0}
+!13 = !{!"_lv_freetype_glyph_cache_data_t", !4, i64 0, !4, i64 4, !14, i64 8}
+!14 = !{!"", !15, i64 0, !16, i64 8, !16, i64 10, !16, i64 12, !16, i64 14, !16, i64 16, !4, i64 20, !5, i64 24, !5, i64 24, !5, i64 32, !17, i64 40}
+!15 = !{!"p1 _ZTS10_lv_font_t", !9, i64 0}
+!16 = !{!"short", !5, i64 0}
+!17 = !{!"p1 _ZTS17_lv_cache_entry_t", !9, i64 0}
+!18 = !{!13, !4, i64 4}
+!19 = !{!9, !9, i64 0}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"p1 _ZTS23_lv_freetype_font_dsc_t", !9, i64 0}
+!22 = !{!23, !26, i64 96}
+!23 = !{!"_lv_freetype_font_dsc_t", !4, i64 0, !24, i64 8, !4, i64 72, !4, i64 76, !4, i64 80, !25, i64 88, !26, i64 96, !17, i64 104, !9, i64 112}
+!24 = !{!"_lv_font_t", !9, i64 0, !9, i64 8, !9, i64 16, !4, i64 24, !4, i64 28, !5, i64 32, !5, i64 32, !5, i64 33, !5, i64 34, !9, i64 40, !15, i64 48, !9, i64 56}
+!25 = !{!"p1 _ZTS22_lv_freetype_context_t", !9, i64 0}
+!26 = !{!"p1 _ZTS25_lv_freetype_cache_node_t", !9, i64 0}
+!27 = !{!28, !30, i64 24}
+!28 = !{!"_lv_freetype_cache_node_t", !29, i64 0, !4, i64 8, !4, i64 12, !4, i64 16, !30, i64 24, !4, i64 32, !8, i64 40, !8, i64 48}
+!29 = !{!"p1 omnipotent char", !9, i64 0}
+!30 = !{!"p1 _ZTS11FT_FaceRec_", !9, i64 0}
+!31 = !{!30, !30, i64 0}
+!32 = !{!33, !34, i64 16}
+!33 = !{!"FT_FaceRec_", !34, i64 0, !34, i64 8, !34, i64 16, !34, i64 24, !34, i64 32, !29, i64 40, !29, i64 48, !4, i64 56, !35, i64 64, !4, i64 72, !36, i64 80, !37, i64 88, !38, i64 104, !16, i64 136, !16, i64 138, !16, i64 140, !16, i64 142, !16, i64 144, !16, i64 146, !16, i64 148, !16, i64 150, !39, i64 152, !40, i64 160, !41, i64 168, !42, i64 176, !43, i64 184, !44, i64 192, !45, i64 200, !37, i64 216, !9, i64 232, !47, i64 240}
+!34 = !{!"long", !5, i64 0}
+!35 = !{!"p1 _ZTS15FT_Bitmap_Size_", !9, i64 0}
+!36 = !{!"p2 _ZTS14FT_CharMapRec_", !9, i64 0}
+!37 = !{!"FT_Generic_", !9, i64 0, !9, i64 8}
+!38 = !{!"FT_BBox_", !34, i64 0, !34, i64 8, !34, i64 16, !34, i64 24}
+!39 = !{!"p1 _ZTS16FT_GlyphSlotRec_", !9, i64 0}
+!40 = !{!"p1 _ZTS11FT_SizeRec_", !9, i64 0}
+!41 = !{!"p1 _ZTS14FT_CharMapRec_", !9, i64 0}
+!42 = !{!"p1 _ZTS13FT_DriverRec_", !9, i64 0}
+!43 = !{!"p1 _ZTS13FT_MemoryRec_", !9, i64 0}
+!44 = !{!"p1 _ZTS13FT_StreamRec_", !9, i64 0}
+!45 = !{!"FT_ListRec_", !46, i64 0, !46, i64 8}
+!46 = !{!"p1 _ZTS15FT_ListNodeRec_", !9, i64 0}
+!47 = !{!"p1 _ZTS20FT_Face_InternalRec_", !9, i64 0}
+!48 = !{!23, !4, i64 72}
+!49 = !{!23, !4, i64 80}
+!50 = !{!33, !39, i64 152}
+!51 = !{!39, !39, i64 0}
+!52 = !{!53, !34, i64 80}
+!53 = !{!"FT_GlyphSlotRec_", !54, i64 0, !30, i64 8, !39, i64 16, !4, i64 24, !37, i64 32, !55, i64 48, !34, i64 112, !34, i64 120, !56, i64 128, !4, i64 144, !57, i64 152, !4, i64 192, !4, i64 196, !58, i64 200, !4, i64 240, !61, i64 248, !9, i64 256, !34, i64 264, !34, i64 272, !34, i64 280, !9, i64 288, !62, i64 296}
+!54 = !{!"p1 _ZTS14FT_LibraryRec_", !9, i64 0}
+!55 = !{!"FT_Glyph_Metrics_", !34, i64 0, !34, i64 8, !34, i64 16, !34, i64 24, !34, i64 32, !34, i64 40, !34, i64 48, !34, i64 56}
+!56 = !{!"FT_Vector_", !34, i64 0, !34, i64 8}
+!57 = !{!"FT_Bitmap_", !4, i64 0, !4, i64 4, !4, i64 8, !29, i64 16, !16, i64 24, !5, i64 26, !5, i64 27, !9, i64 32}
+!58 = !{!"FT_Outline_", !16, i64 0, !16, i64 2, !59, i64 8, !29, i64 16, !60, i64 24, !4, i64 32}
+!59 = !{!"p1 _ZTS10FT_Vector_", !9, i64 0}
+!60 = !{!"p1 short", !9, i64 0}
+!61 = !{!"p1 _ZTS15FT_SubGlyphRec_", !9, i64 0}
+!62 = !{!"p1 _ZTS20FT_Slot_InternalRec_", !9, i64 0}
+!63 = !{!14, !16, i64 8}
+!64 = !{!53, !34, i64 56}
+!65 = !{!14, !16, i64 12}
+!66 = !{!53, !34, i64 48}
+!67 = !{!14, !16, i64 10}
+!68 = !{!53, !34, i64 64}
+!69 = !{!14, !16, i64 14}
+!70 = !{!53, !34, i64 72}
+!71 = !{!14, !16, i64 16}
+!72 = !{!14, !4, i64 20}
+!73 = !{!23, !4, i64 76}
+!74 = !{!75, !4, i64 0}
+!75 = !{!"", !4, i64 0, !4, i64 4}
+!76 = !{!75, !4, i64 4}
+!77 = !{!78, !78, i64 0}
+!78 = !{!"p1 _ZTS10FT_Bitmap_", !9, i64 0}
+!79 = !{!53, !34, i64 128}
+!80 = !{!57, !4, i64 0}
+!81 = !{!57, !4, i64 4}
+!82 = !{!53, !4, i64 192}
+!83 = !{!53, !4, i64 196}
+!84 = !{!53, !4, i64 144}
+!85 = !{!5, !5, i64 0}
+!86 = !{!23, !4, i64 0}
+!87 = !{!23, !9, i64 8}
+!88 = !{!15, !15, i64 0}
+!89 = !{!24, !9, i64 40}
+!90 = !{!28, !8, i64 40}
+!91 = !{!17, !17, i64 0}
+!92 = !{i64 0, i64 8, !88, i64 8, i64 2, !93, i64 10, i64 2, !93, i64 12, i64 2, !93, i64 14, i64 2, !93, i64 16, i64 2, !93, i64 20, i64 4, !3, i64 24, i64 1, !85, i64 32, i64 8, !85, i64 40, i64 8, !91}
+!93 = !{!16, !16, i64 0}
+!94 = !{!14, !17, i64 40}
+!95 = !{!96, !96, i64 0}
+!96 = !{!"p1 int", !9, i64 0}

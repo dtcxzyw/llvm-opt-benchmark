@@ -12,14 +12,14 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.lv_event_list_t = type { %struct._lv_array_t, i8 }
 %struct._lv_array_t = type { ptr, i32, i32, i32, i8 }
 %struct._lv_hit_test_info_t = type { ptr, i8 }
-%struct._lv_indev_t = type { i32, ptr, i32, i32, i8, i32, i32, ptr, ptr, ptr, ptr, i8, i8, i8, i8, i16, i16, i32, %struct.anon, %struct.anon.0, ptr, ptr, ptr, %struct.lv_event_list_t, ptr }
+%struct._lv_indev_t = type { i32, ptr, i32, i32, i32, i8, i32, i32, ptr, ptr, ptr, ptr, i8, i8, i8, i8, i16, i16, i32, %struct.anon, %struct.anon.0, ptr, ptr, ptr, %struct.lv_event_list_t, ptr, i32, ptr }
 %struct.anon = type { %struct.lv_point_t, %struct.lv_point_t, %struct.lv_point_t, %struct.lv_point_t, %struct.lv_point_t, %struct.lv_point_t, %struct.lv_point_t, ptr, ptr, ptr, ptr, ptr, %struct.lv_area_t, %struct.lv_point_t, i32, i8, %struct.lv_point_t, i32, i16 }
 %struct.anon.0 = type { i32, i32 }
 %union.lv_style_value_t = type { ptr }
 %struct.lv_draw_rect_dsc_t = type { %struct.lv_draw_dsc_base_t, i32, i8, %struct.lv_color_t, %struct.lv_grad_dsc_t, ptr, ptr, %struct.lv_color_t, i8, i8, i8, %struct.lv_color_t, i32, i8, i8, %struct.lv_color_t, i32, i32, i8, %struct.lv_color_t, i32, i32, i32, i32, i8 }
 %struct.lv_draw_dsc_base_t = type { ptr, i32, i32, i32, ptr, i64, ptr }
-%struct.lv_grad_dsc_t = type { [2 x %struct.lv_gradient_stop_t], i8, i8 }
-%struct.lv_gradient_stop_t = type { %struct.lv_color_t, i8, i8 }
+%struct.lv_grad_dsc_t = type { [2 x %struct.lv_grad_stop_t], i8, i8 }
+%struct.lv_grad_stop_t = type { %struct.lv_color_t, i8, i8 }
 %struct.lv_color_t = type { i8, i8, i8 }
 
 @lv_bar_class = external constant %struct._lv_obj_class_t, align 8
@@ -32,32 +32,32 @@ define internal void @lv_slider_constructor(ptr noundef %0, ptr noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8, !tbaa !3
-  store ptr %1, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 8, ptr %5) #4
-  %6 = load ptr, ptr %4, align 8, !tbaa !3
-  store ptr %6, ptr %5, align 8, !tbaa !3
-  %7 = load ptr, ptr %5, align 8, !tbaa !3
+  %6 = load ptr, ptr %4, align 8, !tbaa !8
+  store ptr %6, ptr %5, align 8, !tbaa !10
+  %7 = load ptr, ptr %5, align 8, !tbaa !10
   %8 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %7, i32 0, i32 4
-  store ptr null, ptr %8, align 8, !tbaa !7
-  %9 = load ptr, ptr %5, align 8, !tbaa !3
+  store ptr null, ptr %8, align 8, !tbaa !12
+  %9 = load ptr, ptr %5, align 8, !tbaa !10
   %10 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %9, i32 0, i32 5
   %11 = load i8, ptr %10, align 8
   %12 = and i8 %11, -2
   %13 = or i8 %12, 0
   store i8 %13, ptr %10, align 8
-  %14 = load ptr, ptr %5, align 8, !tbaa !3
+  %14 = load ptr, ptr %5, align 8, !tbaa !10
   %15 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %14, i32 0, i32 5
   %16 = load i8, ptr %15, align 8
   %17 = and i8 %16, -3
   %18 = or i8 %17, 0
   store i8 %18, ptr %15, align 8
-  %19 = load ptr, ptr %4, align 8, !tbaa !3
+  %19 = load ptr, ptr %4, align 8, !tbaa !8
   call void @lv_obj_remove_flag(ptr noundef %19, i32 noundef 256)
-  %20 = load ptr, ptr %4, align 8, !tbaa !3
+  %20 = load ptr, ptr %4, align 8, !tbaa !8
   call void @lv_obj_remove_flag(ptr noundef %20, i32 noundef 16)
-  %21 = load ptr, ptr %4, align 8, !tbaa !3
+  %21 = load ptr, ptr %4, align 8, !tbaa !8
   call void @lv_obj_add_flag(ptr noundef %21, i32 noundef 1024)
-  %22 = load ptr, ptr %4, align 8, !tbaa !3
+  %22 = load ptr, ptr %4, align 8, !tbaa !8
   %23 = call i32 @lv_display_get_dpi(ptr noundef null)
   %24 = mul nsw i32 %23, 8
   %25 = add nsw i32 %24, 80
@@ -110,12 +110,12 @@ define internal void @lv_slider_event(ptr noundef %0, ptr noundef %1) #0 {
   %26 = alloca i32, align 4
   %27 = alloca i32, align 4
   store ptr %0, ptr %3, align 8, !tbaa !3
-  store ptr %1, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !25
   call void @llvm.lifetime.start.p0(i64 4, ptr %5) #4
-  %28 = load ptr, ptr %4, align 8, !tbaa !3
+  %28 = load ptr, ptr %4, align 8, !tbaa !25
   %29 = call i32 @lv_obj_event_base(ptr noundef @lv_slider_class, ptr noundef %28)
-  store i32 %29, ptr %5, align 4, !tbaa !17
-  %30 = load i32, ptr %5, align 4, !tbaa !17
+  store i32 %29, ptr %5, align 4, !tbaa !27
+  %30 = load i32, ptr %5, align 4, !tbaa !27
   %31 = icmp ne i32 %30, 1
   br i1 %31, label %32, label %33
 
@@ -125,42 +125,42 @@ define internal void @lv_slider_event(ptr noundef %0, ptr noundef %1) #0 {
 
 33:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 4, ptr %7) #4
-  %34 = load ptr, ptr %4, align 8, !tbaa !3
+  %34 = load ptr, ptr %4, align 8, !tbaa !25
   %35 = call i32 @lv_event_get_code(ptr noundef %34)
-  store i32 %35, ptr %7, align 4, !tbaa !17
+  store i32 %35, ptr %7, align 4, !tbaa !27
   call void @llvm.lifetime.start.p0(i64 8, ptr %8) #4
-  %36 = load ptr, ptr %4, align 8, !tbaa !3
+  %36 = load ptr, ptr %4, align 8, !tbaa !25
   %37 = call ptr @lv_event_get_current_target(ptr noundef %36)
-  store ptr %37, ptr %8, align 8, !tbaa !3
+  store ptr %37, ptr %8, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 8, ptr %9) #4
-  %38 = load ptr, ptr %8, align 8, !tbaa !3
-  store ptr %38, ptr %9, align 8, !tbaa !3
+  %38 = load ptr, ptr %8, align 8, !tbaa !8
+  store ptr %38, ptr %9, align 8, !tbaa !10
   call void @llvm.lifetime.start.p0(i64 4, ptr %10) #4
-  %39 = load ptr, ptr %8, align 8, !tbaa !3
+  %39 = load ptr, ptr %8, align 8, !tbaa !8
   %40 = call i32 @lv_slider_get_mode(ptr noundef %39)
-  store i32 %40, ptr %10, align 4, !tbaa !17
-  %41 = load i32, ptr %7, align 4, !tbaa !17
+  store i32 %40, ptr %10, align 4, !tbaa !27
+  %41 = load i32, ptr %7, align 4, !tbaa !27
   %42 = icmp eq i32 %41, 22
   br i1 %42, label %43, label %92
 
 43:                                               ; preds = %33
   call void @llvm.lifetime.start.p0(i64 8, ptr %11) #4
-  %44 = load ptr, ptr %4, align 8, !tbaa !3
+  %44 = load ptr, ptr %4, align 8, !tbaa !25
   %45 = call ptr @lv_event_get_param(ptr noundef %44)
-  store ptr %45, ptr %11, align 8, !tbaa !3
+  store ptr %45, ptr %11, align 8, !tbaa !28
   call void @llvm.lifetime.start.p0(i64 4, ptr %12) #4
-  %46 = load ptr, ptr %8, align 8, !tbaa !3
+  %46 = load ptr, ptr %8, align 8, !tbaa !8
   %47 = getelementptr inbounds nuw %struct._lv_obj_t, ptr %46, i32 0, i32 2
-  %48 = load ptr, ptr %47, align 8, !tbaa !18
+  %48 = load ptr, ptr %47, align 8, !tbaa !30
   %49 = icmp ne ptr %48, null
   br i1 %49, label %50, label %56
 
 50:                                               ; preds = %43
-  %51 = load ptr, ptr %8, align 8, !tbaa !3
+  %51 = load ptr, ptr %8, align 8, !tbaa !8
   %52 = getelementptr inbounds nuw %struct._lv_obj_t, ptr %51, i32 0, i32 2
-  %53 = load ptr, ptr %52, align 8, !tbaa !18
+  %53 = load ptr, ptr %52, align 8, !tbaa !30
   %54 = getelementptr inbounds nuw %struct._lv_obj_spec_attr_t, ptr %53, i32 0, i32 4
-  %55 = load i32, ptr %54, align 8, !tbaa !19
+  %55 = load i32, ptr %54, align 8, !tbaa !31
   br label %57
 
 56:                                               ; preds = %43
@@ -168,50 +168,50 @@ define internal void @lv_slider_event(ptr noundef %0, ptr noundef %1) #0 {
 
 57:                                               ; preds = %56, %50
   %58 = phi i32 [ %55, %50 ], [ 0, %56 ]
-  store i32 %58, ptr %12, align 4, !tbaa !17
+  store i32 %58, ptr %12, align 4, !tbaa !27
   call void @llvm.lifetime.start.p0(i64 16, ptr %13) #4
-  %59 = load ptr, ptr %9, align 8, !tbaa !3
+  %59 = load ptr, ptr %9, align 8, !tbaa !10
   %60 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %59, i32 0, i32 2
   call void @lv_area_copy(ptr noundef %13, ptr noundef %60)
-  %61 = load i32, ptr %12, align 4, !tbaa !17
-  %62 = load i32, ptr %12, align 4, !tbaa !17
+  %61 = load i32, ptr %12, align 4, !tbaa !27
+  %62 = load i32, ptr %12, align 4, !tbaa !27
   call void @lv_area_increase(ptr noundef %13, i32 noundef %61, i32 noundef %62)
-  %63 = load ptr, ptr %11, align 8, !tbaa !3
+  %63 = load ptr, ptr %11, align 8, !tbaa !28
   %64 = getelementptr inbounds nuw %struct._lv_hit_test_info_t, ptr %63, i32 0, i32 0
-  %65 = load ptr, ptr %64, align 8, !tbaa !23
+  %65 = load ptr, ptr %64, align 8, !tbaa !38
   %66 = call zeroext i1 @lv_area_is_point_on(ptr noundef %13, ptr noundef %65, i32 noundef 0)
-  %67 = load ptr, ptr %11, align 8, !tbaa !3
+  %67 = load ptr, ptr %11, align 8, !tbaa !28
   %68 = getelementptr inbounds nuw %struct._lv_hit_test_info_t, ptr %67, i32 0, i32 1
   %69 = zext i1 %66 to i8
-  store i8 %69, ptr %68, align 8, !tbaa !25
-  %70 = load ptr, ptr %11, align 8, !tbaa !3
+  store i8 %69, ptr %68, align 8, !tbaa !40
+  %70 = load ptr, ptr %11, align 8, !tbaa !28
   %71 = getelementptr inbounds nuw %struct._lv_hit_test_info_t, ptr %70, i32 0, i32 1
-  %72 = load i8, ptr %71, align 8, !tbaa !25, !range !26, !noundef !27
+  %72 = load i8, ptr %71, align 8, !tbaa !40, !range !41, !noundef !42
   %73 = trunc i8 %72 to i1
   %74 = zext i1 %73 to i32
   %75 = icmp eq i32 %74, 0
   br i1 %75, label %76, label %91
 
 76:                                               ; preds = %57
-  %77 = load i32, ptr %10, align 4, !tbaa !17
+  %77 = load i32, ptr %10, align 4, !tbaa !27
   %78 = icmp eq i32 %77, 2
   br i1 %78, label %79, label %91
 
 79:                                               ; preds = %76
-  %80 = load ptr, ptr %9, align 8, !tbaa !3
+  %80 = load ptr, ptr %9, align 8, !tbaa !10
   %81 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %80, i32 0, i32 1
   call void @lv_area_copy(ptr noundef %13, ptr noundef %81)
-  %82 = load i32, ptr %12, align 4, !tbaa !17
-  %83 = load i32, ptr %12, align 4, !tbaa !17
+  %82 = load i32, ptr %12, align 4, !tbaa !27
+  %83 = load i32, ptr %12, align 4, !tbaa !27
   call void @lv_area_increase(ptr noundef %13, i32 noundef %82, i32 noundef %83)
-  %84 = load ptr, ptr %11, align 8, !tbaa !3
+  %84 = load ptr, ptr %11, align 8, !tbaa !28
   %85 = getelementptr inbounds nuw %struct._lv_hit_test_info_t, ptr %84, i32 0, i32 0
-  %86 = load ptr, ptr %85, align 8, !tbaa !23
+  %86 = load ptr, ptr %85, align 8, !tbaa !38
   %87 = call zeroext i1 @lv_area_is_point_on(ptr noundef %13, ptr noundef %86, i32 noundef 0)
-  %88 = load ptr, ptr %11, align 8, !tbaa !3
+  %88 = load ptr, ptr %11, align 8, !tbaa !28
   %89 = getelementptr inbounds nuw %struct._lv_hit_test_info_t, ptr %88, i32 0, i32 1
   %90 = zext i1 %87 to i8
-  store i8 %90, ptr %89, align 8, !tbaa !25
+  store i8 %90, ptr %89, align 8, !tbaa !40
   br label %91
 
 91:                                               ; preds = %79, %76, %57
@@ -221,85 +221,85 @@ define internal void @lv_slider_event(ptr noundef %0, ptr noundef %1) #0 {
   br label %427
 
 92:                                               ; preds = %33
-  %93 = load i32, ptr %7, align 4, !tbaa !17
+  %93 = load i32, ptr %7, align 4, !tbaa !27
   %94 = icmp eq i32 %93, 1
   br i1 %94, label %95, label %102
 
 95:                                               ; preds = %92
   %96 = call ptr @lv_indev_active()
-  %97 = load ptr, ptr %9, align 8, !tbaa !3
+  %97 = load ptr, ptr %9, align 8, !tbaa !10
   %98 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %97, i32 0, i32 3
   call void @lv_indev_get_point(ptr noundef %96, ptr noundef %98)
-  %99 = load ptr, ptr %8, align 8, !tbaa !3
-  %100 = load ptr, ptr %9, align 8, !tbaa !3
+  %99 = load ptr, ptr %8, align 8, !tbaa !8
+  %100 = load ptr, ptr %9, align 8, !tbaa !10
   %101 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %100, i32 0, i32 3
   call void @lv_obj_transform_point(ptr noundef %99, ptr noundef %101, i32 noundef 3)
   br label %426
 
 102:                                              ; preds = %92
-  %103 = load i32, ptr %7, align 4, !tbaa !17
+  %103 = load i32, ptr %7, align 4, !tbaa !27
   %104 = icmp eq i32 %103, 2
   br i1 %104, label %105, label %107
 
 105:                                              ; preds = %102
-  %106 = load ptr, ptr %8, align 8, !tbaa !3
+  %106 = load ptr, ptr %8, align 8, !tbaa !8
   call void @update_knob_pos(ptr noundef %106, i1 noundef zeroext true)
   br label %425
 
 107:                                              ; preds = %102
-  %108 = load i32, ptr %7, align 4, !tbaa !17
+  %108 = load i32, ptr %7, align 4, !tbaa !27
   %109 = icmp eq i32 %108, 11
   br i1 %109, label %113, label %110
 
 110:                                              ; preds = %107
-  %111 = load i32, ptr %7, align 4, !tbaa !17
+  %111 = load i32, ptr %7, align 4, !tbaa !27
   %112 = icmp eq i32 %111, 3
   br i1 %112, label %113, label %178
 
 113:                                              ; preds = %110, %107
-  %114 = load ptr, ptr %8, align 8, !tbaa !3
+  %114 = load ptr, ptr %8, align 8, !tbaa !8
   call void @update_knob_pos(ptr noundef %114, i1 noundef zeroext false)
-  %115 = load ptr, ptr %9, align 8, !tbaa !3
+  %115 = load ptr, ptr %9, align 8, !tbaa !10
   %116 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %115, i32 0, i32 5
   %117 = load i8, ptr %116, align 8
   %118 = and i8 %117, -2
   %119 = or i8 %118, 0
   store i8 %119, ptr %116, align 8
-  %120 = load ptr, ptr %9, align 8, !tbaa !3
+  %120 = load ptr, ptr %9, align 8, !tbaa !10
   %121 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %120, i32 0, i32 4
-  store ptr null, ptr %121, align 8, !tbaa !7
-  %122 = load ptr, ptr %8, align 8, !tbaa !3
+  store ptr null, ptr %121, align 8, !tbaa !12
+  %122 = load ptr, ptr %8, align 8, !tbaa !8
   call void @lv_obj_invalidate(ptr noundef %122)
   call void @llvm.lifetime.start.p0(i64 8, ptr %14) #4
-  %123 = load ptr, ptr %8, align 8, !tbaa !3
+  %123 = load ptr, ptr %8, align 8, !tbaa !8
   %124 = call ptr @lv_obj_get_group(ptr noundef %123)
-  store ptr %124, ptr %14, align 8, !tbaa !3
+  store ptr %124, ptr %14, align 8, !tbaa !43
   call void @llvm.lifetime.start.p0(i64 1, ptr %15) #4
-  %125 = load ptr, ptr %14, align 8, !tbaa !3
+  %125 = load ptr, ptr %14, align 8, !tbaa !43
   %126 = call zeroext i1 @lv_group_get_editing(ptr noundef %125)
   %127 = zext i1 %126 to i8
-  store i8 %127, ptr %15, align 1, !tbaa !28
+  store i8 %127, ptr %15, align 1, !tbaa !44
   call void @llvm.lifetime.start.p0(i64 4, ptr %16) #4
   %128 = call ptr @lv_indev_active()
   %129 = call i32 @lv_indev_get_type(ptr noundef %128)
-  store i32 %129, ptr %16, align 4, !tbaa !17
-  %130 = load i32, ptr %16, align 4, !tbaa !17
+  store i32 %129, ptr %16, align 4, !tbaa !27
+  %130 = load i32, ptr %16, align 4, !tbaa !27
   %131 = icmp eq i32 %130, 4
   br i1 %131, label %132, label %165
 
 132:                                              ; preds = %113
-  %133 = load i8, ptr %15, align 1, !tbaa !28, !range !26, !noundef !27
+  %133 = load i8, ptr %15, align 1, !tbaa !44, !range !41, !noundef !42
   %134 = trunc i8 %133 to i1
   br i1 %134, label %135, label %164
 
 135:                                              ; preds = %132
-  %136 = load ptr, ptr %8, align 8, !tbaa !3
+  %136 = load ptr, ptr %8, align 8, !tbaa !8
   %137 = call i32 @lv_slider_get_mode(ptr noundef %136)
   %138 = icmp eq i32 %137, 2
   br i1 %138, label %139, label %161
 
 139:                                              ; preds = %135
-  %140 = load ptr, ptr %9, align 8, !tbaa !3
+  %140 = load ptr, ptr %9, align 8, !tbaa !10
   %141 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %140, i32 0, i32 5
   %142 = load i8, ptr %141, align 8
   %143 = lshr i8 %142, 1
@@ -309,7 +309,7 @@ define internal void @lv_slider_event(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %146, label %147, label %153
 
 147:                                              ; preds = %139
-  %148 = load ptr, ptr %9, align 8, !tbaa !3
+  %148 = load ptr, ptr %9, align 8, !tbaa !10
   %149 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %148, i32 0, i32 5
   %150 = load i8, ptr %149, align 8
   %151 = and i8 %150, -3
@@ -318,13 +318,13 @@ define internal void @lv_slider_event(ptr noundef %0, ptr noundef %1) #0 {
   br label %160
 
 153:                                              ; preds = %139
-  %154 = load ptr, ptr %9, align 8, !tbaa !3
+  %154 = load ptr, ptr %9, align 8, !tbaa !10
   %155 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %154, i32 0, i32 5
   %156 = load i8, ptr %155, align 8
   %157 = and i8 %156, -3
   %158 = or i8 %157, 0
   store i8 %158, ptr %155, align 8
-  %159 = load ptr, ptr %14, align 8, !tbaa !3
+  %159 = load ptr, ptr %14, align 8, !tbaa !43
   call void @lv_group_set_editing(ptr noundef %159, i1 noundef zeroext false)
   br label %160
 
@@ -332,7 +332,7 @@ define internal void @lv_slider_event(ptr noundef %0, ptr noundef %1) #0 {
   br label %163
 
 161:                                              ; preds = %135
-  %162 = load ptr, ptr %14, align 8, !tbaa !3
+  %162 = load ptr, ptr %14, align 8, !tbaa !43
   call void @lv_group_set_editing(ptr noundef %162, i1 noundef zeroext false)
   br label %163
 
@@ -343,22 +343,22 @@ define internal void @lv_slider_event(ptr noundef %0, ptr noundef %1) #0 {
   br label %177
 
 165:                                              ; preds = %113
-  %166 = load i32, ptr %16, align 4, !tbaa !17
+  %166 = load i32, ptr %16, align 4, !tbaa !27
   %167 = icmp eq i32 %166, 1
   br i1 %167, label %168, label %176
 
 168:                                              ; preds = %165
-  %169 = load ptr, ptr %8, align 8, !tbaa !3
+  %169 = load ptr, ptr %8, align 8, !tbaa !8
   %170 = call zeroext i1 @is_slider_horizontal(ptr noundef %169)
   br i1 %170, label %171, label %173
 
 171:                                              ; preds = %168
-  %172 = load ptr, ptr %8, align 8, !tbaa !3
+  %172 = load ptr, ptr %8, align 8, !tbaa !8
   call void @lv_obj_add_flag(ptr noundef %172, i32 noundef 512)
   br label %175
 
 173:                                              ; preds = %168
-  %174 = load ptr, ptr %8, align 8, !tbaa !3
+  %174 = load ptr, ptr %8, align 8, !tbaa !8
   call void @lv_obj_add_flag(ptr noundef %174, i32 noundef 256)
   br label %175
 
@@ -375,7 +375,7 @@ define internal void @lv_slider_event(ptr noundef %0, ptr noundef %1) #0 {
   br label %424
 
 178:                                              ; preds = %110
-  %179 = load i32, ptr %7, align 4, !tbaa !17
+  %179 = load i32, ptr %7, align 4, !tbaa !27
   %180 = icmp eq i32 %179, 19
   br i1 %180, label %181, label %196
 
@@ -383,18 +383,18 @@ define internal void @lv_slider_event(ptr noundef %0, ptr noundef %1) #0 {
   call void @llvm.lifetime.start.p0(i64 4, ptr %17) #4
   %182 = call ptr @lv_indev_active()
   %183 = call i32 @lv_indev_get_type(ptr noundef %182)
-  store i32 %183, ptr %17, align 4, !tbaa !17
-  %184 = load i32, ptr %17, align 4, !tbaa !17
+  store i32 %183, ptr %17, align 4, !tbaa !27
+  %184 = load i32, ptr %17, align 4, !tbaa !27
   %185 = icmp eq i32 %184, 4
   br i1 %185, label %189, label %186
 
 186:                                              ; preds = %181
-  %187 = load i32, ptr %17, align 4, !tbaa !17
+  %187 = load i32, ptr %17, align 4, !tbaa !27
   %188 = icmp eq i32 %187, 2
   br i1 %188, label %189, label %195
 
 189:                                              ; preds = %186, %181
-  %190 = load ptr, ptr %9, align 8, !tbaa !3
+  %190 = load ptr, ptr %9, align 8, !tbaa !10
   %191 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %190, i32 0, i32 5
   %192 = load i8, ptr %191, align 8
   %193 = and i8 %192, -3
@@ -407,90 +407,90 @@ define internal void @lv_slider_event(ptr noundef %0, ptr noundef %1) #0 {
   br label %423
 
 196:                                              ; preds = %178
-  %197 = load i32, ptr %7, align 4, !tbaa !17
+  %197 = load i32, ptr %7, align 4, !tbaa !27
   %198 = icmp eq i32 %197, 49
   br i1 %198, label %199, label %210
 
 199:                                              ; preds = %196
-  %200 = load ptr, ptr %8, align 8, !tbaa !3
+  %200 = load ptr, ptr %8, align 8, !tbaa !8
   %201 = call zeroext i1 @is_slider_horizontal(ptr noundef %200)
   br i1 %201, label %202, label %205
 
 202:                                              ; preds = %199
-  %203 = load ptr, ptr %8, align 8, !tbaa !3
+  %203 = load ptr, ptr %8, align 8, !tbaa !8
   call void @lv_obj_add_flag(ptr noundef %203, i32 noundef 512)
-  %204 = load ptr, ptr %8, align 8, !tbaa !3
+  %204 = load ptr, ptr %8, align 8, !tbaa !8
   call void @lv_obj_remove_flag(ptr noundef %204, i32 noundef 256)
   br label %208
 
 205:                                              ; preds = %199
-  %206 = load ptr, ptr %8, align 8, !tbaa !3
+  %206 = load ptr, ptr %8, align 8, !tbaa !8
   call void @lv_obj_add_flag(ptr noundef %206, i32 noundef 256)
-  %207 = load ptr, ptr %8, align 8, !tbaa !3
+  %207 = load ptr, ptr %8, align 8, !tbaa !8
   call void @lv_obj_remove_flag(ptr noundef %207, i32 noundef 512)
   br label %208
 
 208:                                              ; preds = %205, %202
-  %209 = load ptr, ptr %8, align 8, !tbaa !3
+  %209 = load ptr, ptr %8, align 8, !tbaa !8
   call void @lv_obj_refresh_ext_draw_size(ptr noundef %209)
   br label %422
 
 210:                                              ; preds = %196
-  %211 = load i32, ptr %7, align 4, !tbaa !17
+  %211 = load i32, ptr %7, align 4, !tbaa !27
   %212 = icmp eq i32 %211, 27
   br i1 %212, label %213, label %315
 
 213:                                              ; preds = %210
   call void @llvm.lifetime.start.p0(i64 4, ptr %18) #4
-  %214 = load ptr, ptr %8, align 8, !tbaa !3
+  %214 = load ptr, ptr %8, align 8, !tbaa !8
   %215 = call i32 @lv_obj_get_style_pad_left(ptr noundef %214, i32 noundef 196608)
-  store i32 %215, ptr %18, align 4, !tbaa !17
+  store i32 %215, ptr %18, align 4, !tbaa !27
   call void @llvm.lifetime.start.p0(i64 4, ptr %19) #4
-  %216 = load ptr, ptr %8, align 8, !tbaa !3
+  %216 = load ptr, ptr %8, align 8, !tbaa !8
   %217 = call i32 @lv_obj_get_style_pad_right(ptr noundef %216, i32 noundef 196608)
-  store i32 %217, ptr %19, align 4, !tbaa !17
+  store i32 %217, ptr %19, align 4, !tbaa !27
   call void @llvm.lifetime.start.p0(i64 4, ptr %20) #4
-  %218 = load ptr, ptr %8, align 8, !tbaa !3
+  %218 = load ptr, ptr %8, align 8, !tbaa !8
   %219 = call i32 @lv_obj_get_style_pad_top(ptr noundef %218, i32 noundef 196608)
-  store i32 %219, ptr %20, align 4, !tbaa !17
+  store i32 %219, ptr %20, align 4, !tbaa !27
   call void @llvm.lifetime.start.p0(i64 4, ptr %21) #4
-  %220 = load ptr, ptr %8, align 8, !tbaa !3
+  %220 = load ptr, ptr %8, align 8, !tbaa !8
   %221 = call i32 @lv_obj_get_style_pad_bottom(ptr noundef %220, i32 noundef 196608)
-  store i32 %221, ptr %21, align 4, !tbaa !17
+  store i32 %221, ptr %21, align 4, !tbaa !27
   call void @llvm.lifetime.start.p0(i64 4, ptr %22) #4
-  %222 = load ptr, ptr %8, align 8, !tbaa !3
+  %222 = load ptr, ptr %8, align 8, !tbaa !8
   %223 = call i32 @lv_obj_get_style_transform_width(ptr noundef %222, i32 noundef 196608)
-  store i32 %223, ptr %22, align 4, !tbaa !17
+  store i32 %223, ptr %22, align 4, !tbaa !27
   call void @llvm.lifetime.start.p0(i64 4, ptr %23) #4
-  %224 = load ptr, ptr %8, align 8, !tbaa !3
+  %224 = load ptr, ptr %8, align 8, !tbaa !8
   %225 = call i32 @lv_obj_get_style_transform_height(ptr noundef %224, i32 noundef 196608)
-  store i32 %225, ptr %23, align 4, !tbaa !17
+  store i32 %225, ptr %23, align 4, !tbaa !27
   call void @llvm.lifetime.start.p0(i64 4, ptr %24) #4
-  %226 = load ptr, ptr %8, align 8, !tbaa !3
+  %226 = load ptr, ptr %8, align 8, !tbaa !8
   %227 = call i32 @lv_obj_get_width(ptr noundef %226)
-  %228 = load i32, ptr %22, align 4, !tbaa !17
+  %228 = load i32, ptr %22, align 4, !tbaa !27
   %229 = mul nsw i32 2, %228
   %230 = add nsw i32 %227, %229
-  %231 = load ptr, ptr %8, align 8, !tbaa !3
+  %231 = load ptr, ptr %8, align 8, !tbaa !8
   %232 = call i32 @lv_obj_get_height(ptr noundef %231)
-  %233 = load i32, ptr %23, align 4, !tbaa !17
+  %233 = load i32, ptr %23, align 4, !tbaa !27
   %234 = mul nsw i32 2, %233
   %235 = add nsw i32 %232, %234
   %236 = icmp slt i32 %230, %235
   br i1 %236, label %237, label %243
 
 237:                                              ; preds = %213
-  %238 = load ptr, ptr %8, align 8, !tbaa !3
+  %238 = load ptr, ptr %8, align 8, !tbaa !8
   %239 = call i32 @lv_obj_get_width(ptr noundef %238)
-  %240 = load i32, ptr %22, align 4, !tbaa !17
+  %240 = load i32, ptr %22, align 4, !tbaa !27
   %241 = mul nsw i32 2, %240
   %242 = add nsw i32 %239, %241
   br label %249
 
 243:                                              ; preds = %213
-  %244 = load ptr, ptr %8, align 8, !tbaa !3
+  %244 = load ptr, ptr %8, align 8, !tbaa !8
   %245 = call i32 @lv_obj_get_height(ptr noundef %244)
-  %246 = load i32, ptr %23, align 4, !tbaa !17
+  %246 = load i32, ptr %23, align 4, !tbaa !27
   %247 = mul nsw i32 2, %246
   %248 = add nsw i32 %245, %247
   br label %249
@@ -498,33 +498,33 @@ define internal void @lv_slider_event(ptr noundef %0, ptr noundef %1) #0 {
 249:                                              ; preds = %243, %237
   %250 = phi i32 [ %242, %237 ], [ %248, %243 ]
   %251 = ashr i32 %250, 1
-  store i32 %251, ptr %24, align 4, !tbaa !17
-  %252 = load i32, ptr %18, align 4, !tbaa !17
-  %253 = load i32, ptr %19, align 4, !tbaa !17
+  store i32 %251, ptr %24, align 4, !tbaa !27
+  %252 = load i32, ptr %18, align 4, !tbaa !27
+  %253 = load i32, ptr %19, align 4, !tbaa !27
   %254 = icmp sgt i32 %252, %253
   br i1 %254, label %255, label %257
 
 255:                                              ; preds = %249
-  %256 = load i32, ptr %18, align 4, !tbaa !17
+  %256 = load i32, ptr %18, align 4, !tbaa !27
   br label %259
 
 257:                                              ; preds = %249
-  %258 = load i32, ptr %19, align 4, !tbaa !17
+  %258 = load i32, ptr %19, align 4, !tbaa !27
   br label %259
 
 259:                                              ; preds = %257, %255
   %260 = phi i32 [ %256, %255 ], [ %258, %257 ]
-  %261 = load i32, ptr %21, align 4, !tbaa !17
-  %262 = load i32, ptr %20, align 4, !tbaa !17
+  %261 = load i32, ptr %21, align 4, !tbaa !27
+  %262 = load i32, ptr %20, align 4, !tbaa !27
   %263 = icmp sgt i32 %261, %262
   br i1 %263, label %264, label %266
 
 264:                                              ; preds = %259
-  %265 = load i32, ptr %21, align 4, !tbaa !17
+  %265 = load i32, ptr %21, align 4, !tbaa !27
   br label %268
 
 266:                                              ; preds = %259
-  %267 = load i32, ptr %20, align 4, !tbaa !17
+  %267 = load i32, ptr %20, align 4, !tbaa !27
   br label %268
 
 268:                                              ; preds = %266, %264
@@ -533,17 +533,17 @@ define internal void @lv_slider_event(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %270, label %271, label %281
 
 271:                                              ; preds = %268
-  %272 = load i32, ptr %18, align 4, !tbaa !17
-  %273 = load i32, ptr %19, align 4, !tbaa !17
+  %272 = load i32, ptr %18, align 4, !tbaa !27
+  %273 = load i32, ptr %19, align 4, !tbaa !27
   %274 = icmp sgt i32 %272, %273
   br i1 %274, label %275, label %277
 
 275:                                              ; preds = %271
-  %276 = load i32, ptr %18, align 4, !tbaa !17
+  %276 = load i32, ptr %18, align 4, !tbaa !27
   br label %279
 
 277:                                              ; preds = %271
-  %278 = load i32, ptr %19, align 4, !tbaa !17
+  %278 = load i32, ptr %19, align 4, !tbaa !27
   br label %279
 
 279:                                              ; preds = %277, %275
@@ -551,17 +551,17 @@ define internal void @lv_slider_event(ptr noundef %0, ptr noundef %1) #0 {
   br label %291
 
 281:                                              ; preds = %268
-  %282 = load i32, ptr %21, align 4, !tbaa !17
-  %283 = load i32, ptr %20, align 4, !tbaa !17
+  %282 = load i32, ptr %21, align 4, !tbaa !27
+  %283 = load i32, ptr %20, align 4, !tbaa !27
   %284 = icmp sgt i32 %282, %283
   br i1 %284, label %285, label %287
 
 285:                                              ; preds = %281
-  %286 = load i32, ptr %21, align 4, !tbaa !17
+  %286 = load i32, ptr %21, align 4, !tbaa !27
   br label %289
 
 287:                                              ; preds = %281
-  %288 = load i32, ptr %20, align 4, !tbaa !17
+  %288 = load i32, ptr %20, align 4, !tbaa !27
   br label %289
 
 289:                                              ; preds = %287, %285
@@ -570,40 +570,40 @@ define internal void @lv_slider_event(ptr noundef %0, ptr noundef %1) #0 {
 
 291:                                              ; preds = %289, %279
   %292 = phi i32 [ %280, %279 ], [ %290, %289 ]
-  %293 = load i32, ptr %24, align 4, !tbaa !17
+  %293 = load i32, ptr %24, align 4, !tbaa !27
   %294 = add nsw i32 %293, %292
-  store i32 %294, ptr %24, align 4, !tbaa !17
-  %295 = load i32, ptr %24, align 4, !tbaa !17
+  store i32 %294, ptr %24, align 4, !tbaa !27
+  %295 = load i32, ptr %24, align 4, !tbaa !27
   %296 = add nsw i32 %295, 2
-  store i32 %296, ptr %24, align 4, !tbaa !17
-  %297 = load ptr, ptr %8, align 8, !tbaa !3
+  store i32 %296, ptr %24, align 4, !tbaa !27
+  %297 = load ptr, ptr %8, align 8, !tbaa !8
   %298 = call i32 @lv_obj_calculate_ext_draw_size(ptr noundef %297, i32 noundef 196608)
-  %299 = load i32, ptr %24, align 4, !tbaa !17
+  %299 = load i32, ptr %24, align 4, !tbaa !27
   %300 = add nsw i32 %299, %298
-  store i32 %300, ptr %24, align 4, !tbaa !17
+  store i32 %300, ptr %24, align 4, !tbaa !27
   call void @llvm.lifetime.start.p0(i64 8, ptr %25) #4
-  %301 = load ptr, ptr %4, align 8, !tbaa !3
+  %301 = load ptr, ptr %4, align 8, !tbaa !25
   %302 = call ptr @lv_event_get_param(ptr noundef %301)
-  store ptr %302, ptr %25, align 8, !tbaa !3
-  %303 = load ptr, ptr %25, align 8, !tbaa !3
-  %304 = load i32, ptr %303, align 4, !tbaa !17
-  %305 = load i32, ptr %24, align 4, !tbaa !17
+  store ptr %302, ptr %25, align 8, !tbaa !45
+  %303 = load ptr, ptr %25, align 8, !tbaa !45
+  %304 = load i32, ptr %303, align 4, !tbaa !27
+  %305 = load i32, ptr %24, align 4, !tbaa !27
   %306 = icmp sgt i32 %304, %305
   br i1 %306, label %307, label %310
 
 307:                                              ; preds = %291
-  %308 = load ptr, ptr %25, align 8, !tbaa !3
-  %309 = load i32, ptr %308, align 4, !tbaa !17
+  %308 = load ptr, ptr %25, align 8, !tbaa !45
+  %309 = load i32, ptr %308, align 4, !tbaa !27
   br label %312
 
 310:                                              ; preds = %291
-  %311 = load i32, ptr %24, align 4, !tbaa !17
+  %311 = load i32, ptr %24, align 4, !tbaa !27
   br label %312
 
 312:                                              ; preds = %310, %307
   %313 = phi i32 [ %309, %307 ], [ %311, %310 ]
-  %314 = load ptr, ptr %25, align 8, !tbaa !3
-  store i32 %313, ptr %314, align 4, !tbaa !17
+  %314 = load ptr, ptr %25, align 8, !tbaa !45
+  store i32 %313, ptr %314, align 4, !tbaa !27
   call void @llvm.lifetime.end.p0(i64 8, ptr %25) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr %24) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr %23) #4
@@ -615,26 +615,26 @@ define internal void @lv_slider_event(ptr noundef %0, ptr noundef %1) #0 {
   br label %421
 
 315:                                              ; preds = %210
-  %316 = load i32, ptr %7, align 4, !tbaa !17
+  %316 = load i32, ptr %7, align 4, !tbaa !27
   %317 = icmp eq i32 %316, 17
   br i1 %317, label %318, label %380
 
 318:                                              ; preds = %315
   call void @llvm.lifetime.start.p0(i64 4, ptr %26) #4
-  %319 = load ptr, ptr %4, align 8, !tbaa !3
+  %319 = load ptr, ptr %4, align 8, !tbaa !25
   %320 = call i32 @lv_event_get_key(ptr noundef %319)
-  store i32 %320, ptr %26, align 4, !tbaa !17
-  %321 = load i32, ptr %26, align 4, !tbaa !17
+  store i32 %320, ptr %26, align 4, !tbaa !27
+  %321 = load i32, ptr %26, align 4, !tbaa !27
   %322 = icmp eq i32 %321, 19
   br i1 %322, label %326, label %323
 
 323:                                              ; preds = %318
-  %324 = load i32, ptr %26, align 4, !tbaa !17
+  %324 = load i32, ptr %26, align 4, !tbaa !27
   %325 = icmp eq i32 %324, 17
   br i1 %325, label %326, label %344
 
 326:                                              ; preds = %323, %318
-  %327 = load ptr, ptr %9, align 8, !tbaa !3
+  %327 = load ptr, ptr %9, align 8, !tbaa !10
   %328 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %327, i32 0, i32 5
   %329 = load i8, ptr %328, align 8
   %330 = lshr i8 %329, 1
@@ -643,36 +643,36 @@ define internal void @lv_slider_event(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %332, label %338, label %333
 
 333:                                              ; preds = %326
-  %334 = load ptr, ptr %8, align 8, !tbaa !3
-  %335 = load ptr, ptr %8, align 8, !tbaa !3
+  %334 = load ptr, ptr %8, align 8, !tbaa !8
+  %335 = load ptr, ptr %8, align 8, !tbaa !8
   %336 = call i32 @lv_slider_get_value(ptr noundef %335)
   %337 = add nsw i32 %336, 1
-  call void @lv_slider_set_value(ptr noundef %334, i32 noundef %337, i32 noundef 1)
+  call void @lv_slider_set_value(ptr noundef %334, i32 noundef %337, i1 noundef zeroext true)
   br label %343
 
 338:                                              ; preds = %326
-  %339 = load ptr, ptr %8, align 8, !tbaa !3
-  %340 = load ptr, ptr %8, align 8, !tbaa !3
+  %339 = load ptr, ptr %8, align 8, !tbaa !8
+  %340 = load ptr, ptr %8, align 8, !tbaa !8
   %341 = call i32 @lv_slider_get_left_value(ptr noundef %340)
   %342 = add nsw i32 %341, 1
-  call void @lv_slider_set_left_value(ptr noundef %339, i32 noundef %342, i32 noundef 1)
+  call void @lv_slider_set_start_value(ptr noundef %339, i32 noundef %342, i1 noundef zeroext true)
   br label %343
 
 343:                                              ; preds = %338, %333
   br label %370
 
 344:                                              ; preds = %323
-  %345 = load i32, ptr %26, align 4, !tbaa !17
+  %345 = load i32, ptr %26, align 4, !tbaa !27
   %346 = icmp eq i32 %345, 20
   br i1 %346, label %350, label %347
 
 347:                                              ; preds = %344
-  %348 = load i32, ptr %26, align 4, !tbaa !17
+  %348 = load i32, ptr %26, align 4, !tbaa !27
   %349 = icmp eq i32 %348, 18
   br i1 %349, label %350, label %368
 
 350:                                              ; preds = %347, %344
-  %351 = load ptr, ptr %9, align 8, !tbaa !3
+  %351 = load ptr, ptr %9, align 8, !tbaa !10
   %352 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %351, i32 0, i32 5
   %353 = load i8, ptr %352, align 8
   %354 = lshr i8 %353, 1
@@ -681,19 +681,19 @@ define internal void @lv_slider_event(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %356, label %362, label %357
 
 357:                                              ; preds = %350
-  %358 = load ptr, ptr %8, align 8, !tbaa !3
-  %359 = load ptr, ptr %8, align 8, !tbaa !3
+  %358 = load ptr, ptr %8, align 8, !tbaa !8
+  %359 = load ptr, ptr %8, align 8, !tbaa !8
   %360 = call i32 @lv_slider_get_value(ptr noundef %359)
   %361 = sub nsw i32 %360, 1
-  call void @lv_slider_set_value(ptr noundef %358, i32 noundef %361, i32 noundef 1)
+  call void @lv_slider_set_value(ptr noundef %358, i32 noundef %361, i1 noundef zeroext true)
   br label %367
 
 362:                                              ; preds = %350
-  %363 = load ptr, ptr %8, align 8, !tbaa !3
-  %364 = load ptr, ptr %8, align 8, !tbaa !3
+  %363 = load ptr, ptr %8, align 8, !tbaa !8
+  %364 = load ptr, ptr %8, align 8, !tbaa !8
   %365 = call i32 @lv_slider_get_left_value(ptr noundef %364)
   %366 = sub nsw i32 %365, 1
-  call void @lv_slider_set_left_value(ptr noundef %363, i32 noundef %366, i32 noundef 1)
+  call void @lv_slider_set_start_value(ptr noundef %363, i32 noundef %366, i1 noundef zeroext true)
   br label %367
 
 367:                                              ; preds = %362, %357
@@ -707,10 +707,10 @@ define internal void @lv_slider_event(ptr noundef %0, ptr noundef %1) #0 {
   br label %370
 
 370:                                              ; preds = %369, %343
-  %371 = load ptr, ptr %8, align 8, !tbaa !3
+  %371 = load ptr, ptr %8, align 8, !tbaa !8
   %372 = call i32 @lv_obj_send_event(ptr noundef %371, i32 noundef 35, ptr noundef null)
-  store i32 %372, ptr %5, align 4, !tbaa !17
-  %373 = load i32, ptr %5, align 4, !tbaa !17
+  store i32 %372, ptr %5, align 4, !tbaa !27
+  %373 = load i32, ptr %5, align 4, !tbaa !27
   %374 = icmp ne i32 %373, 1
   br i1 %374, label %375, label %376
 
@@ -733,16 +733,16 @@ define internal void @lv_slider_event(ptr noundef %0, ptr noundef %1) #0 {
   br label %420
 
 380:                                              ; preds = %315
-  %381 = load i32, ptr %7, align 4, !tbaa !17
+  %381 = load i32, ptr %7, align 4, !tbaa !27
   %382 = icmp eq i32 %381, 18
   br i1 %382, label %383, label %413
 
 383:                                              ; preds = %380
   call void @llvm.lifetime.start.p0(i64 4, ptr %27) #4
-  %384 = load ptr, ptr %4, align 8, !tbaa !3
+  %384 = load ptr, ptr %4, align 8, !tbaa !25
   %385 = call i32 @lv_event_get_rotary_diff(ptr noundef %384)
-  store i32 %385, ptr %27, align 4, !tbaa !17
-  %386 = load ptr, ptr %9, align 8, !tbaa !3
+  store i32 %385, ptr %27, align 4, !tbaa !27
+  %386 = load ptr, ptr %9, align 8, !tbaa !10
   %387 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %386, i32 0, i32 5
   %388 = load i8, ptr %387, align 8
   %389 = lshr i8 %388, 1
@@ -751,27 +751,27 @@ define internal void @lv_slider_event(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %391, label %398, label %392
 
 392:                                              ; preds = %383
-  %393 = load ptr, ptr %8, align 8, !tbaa !3
-  %394 = load ptr, ptr %8, align 8, !tbaa !3
+  %393 = load ptr, ptr %8, align 8, !tbaa !8
+  %394 = load ptr, ptr %8, align 8, !tbaa !8
   %395 = call i32 @lv_slider_get_value(ptr noundef %394)
-  %396 = load i32, ptr %27, align 4, !tbaa !17
+  %396 = load i32, ptr %27, align 4, !tbaa !27
   %397 = add nsw i32 %395, %396
-  call void @lv_slider_set_value(ptr noundef %393, i32 noundef %397, i32 noundef 1)
+  call void @lv_slider_set_value(ptr noundef %393, i32 noundef %397, i1 noundef zeroext true)
   br label %403
 
 398:                                              ; preds = %383
-  %399 = load ptr, ptr %8, align 8, !tbaa !3
-  %400 = load ptr, ptr %8, align 8, !tbaa !3
+  %399 = load ptr, ptr %8, align 8, !tbaa !8
+  %400 = load ptr, ptr %8, align 8, !tbaa !8
   %401 = call i32 @lv_slider_get_left_value(ptr noundef %400)
   %402 = add nsw i32 %401, 1
-  call void @lv_slider_set_left_value(ptr noundef %399, i32 noundef %402, i32 noundef 1)
+  call void @lv_slider_set_start_value(ptr noundef %399, i32 noundef %402, i1 noundef zeroext true)
   br label %403
 
 403:                                              ; preds = %398, %392
-  %404 = load ptr, ptr %8, align 8, !tbaa !3
+  %404 = load ptr, ptr %8, align 8, !tbaa !8
   %405 = call i32 @lv_obj_send_event(ptr noundef %404, i32 noundef 35, ptr noundef null)
-  store i32 %405, ptr %5, align 4, !tbaa !17
-  %406 = load i32, ptr %5, align 4, !tbaa !17
+  store i32 %405, ptr %5, align 4, !tbaa !27
+  %406 = load i32, ptr %5, align 4, !tbaa !27
   %407 = icmp ne i32 %406, 1
   br i1 %407, label %408, label %409
 
@@ -794,12 +794,12 @@ define internal void @lv_slider_event(ptr noundef %0, ptr noundef %1) #0 {
   br label %419
 
 413:                                              ; preds = %380
-  %414 = load i32, ptr %7, align 4, !tbaa !17
+  %414 = load i32, ptr %7, align 4, !tbaa !27
   %415 = icmp eq i32 %414, 29
   br i1 %415, label %416, label %418
 
 416:                                              ; preds = %413
-  %417 = load ptr, ptr %4, align 8, !tbaa !3
+  %417 = load ptr, ptr %4, align 8, !tbaa !25
   call void @draw_knob(ptr noundef %417)
   br label %418
 
@@ -860,7 +860,7 @@ define internal void @lv_slider_event(ptr noundef %0, ptr noundef %1) #0 {
 define ptr @lv_slider_create(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8, !tbaa !3
+  store ptr %0, ptr %2, align 8, !tbaa !8
   br label %4
 
 4:                                                ; preds = %1
@@ -868,94 +868,115 @@ define ptr @lv_slider_create(ptr noundef %0) #0 {
 
 5:                                                ; preds = %4
   call void @llvm.lifetime.start.p0(i64 8, ptr %3) #4
-  %6 = load ptr, ptr %2, align 8, !tbaa !3
+  %6 = load ptr, ptr %2, align 8, !tbaa !8
   %7 = call ptr @lv_obj_class_create_obj(ptr noundef @lv_slider_class, ptr noundef %6)
-  store ptr %7, ptr %3, align 8, !tbaa !3
-  %8 = load ptr, ptr %3, align 8, !tbaa !3
+  store ptr %7, ptr %3, align 8, !tbaa !8
+  %8 = load ptr, ptr %3, align 8, !tbaa !8
   call void @lv_obj_class_init_obj(ptr noundef %8)
-  %9 = load ptr, ptr %3, align 8, !tbaa !3
+  %9 = load ptr, ptr %3, align 8, !tbaa !8
   call void @llvm.lifetime.end.p0(i64 8, ptr %3) #4
   ret ptr %9
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 declare ptr @lv_obj_class_create_obj(ptr noundef, ptr noundef) #2
 
 declare void @lv_obj_class_init_obj(ptr noundef) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define zeroext i1 @lv_slider_is_dragged(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8, !tbaa !3
+  store ptr %0, ptr %2, align 8, !tbaa !8
   br label %4
 
 4:                                                ; preds = %1
-  br label %5
+  %5 = load ptr, ptr %2, align 8, !tbaa !8
+  %6 = icmp ne ptr %5, null
+  br i1 %6, label %11, label %7
 
-5:                                                ; preds = %4
+7:                                                ; preds = %4
+  br label %8
+
+8:                                                ; preds = %7
+  br label %9
+
+9:                                                ; preds = %8
+  br label %10
+
+10:                                               ; preds = %9, %10
+  br label %10
+
+11:                                               ; preds = %4
+  br label %12
+
+12:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(i64 8, ptr %3) #4
-  %6 = load ptr, ptr %2, align 8, !tbaa !3
-  store ptr %6, ptr %3, align 8, !tbaa !3
-  %7 = load ptr, ptr %3, align 8, !tbaa !3
-  %8 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %7, i32 0, i32 5
-  %9 = load i8, ptr %8, align 8
-  %10 = and i8 %9, 1
-  %11 = icmp ne i8 %10, 0
+  %13 = load ptr, ptr %2, align 8, !tbaa !8
+  store ptr %13, ptr %3, align 8, !tbaa !10
+  %14 = load ptr, ptr %3, align 8, !tbaa !10
+  %15 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %14, i32 0, i32 5
+  %16 = load i8, ptr %15, align 8
+  %17 = and i8 %16, 1
+  %18 = icmp ne i8 %17, 0
   call void @llvm.lifetime.end.p0(i64 8, ptr %3) #4
-  ret i1 %11
+  ret i1 %18
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_slider_set_value(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 {
+define void @lv_slider_set_value(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
-  %6 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8, !tbaa !3
-  store i32 %1, ptr %5, align 4, !tbaa !17
-  store i32 %2, ptr %6, align 4, !tbaa !17
-  %7 = load ptr, ptr %4, align 8, !tbaa !3
-  %8 = load i32, ptr %5, align 4, !tbaa !17
-  %9 = load i32, ptr %6, align 4, !tbaa !17
-  call void @lv_bar_set_value(ptr noundef %7, i32 noundef %8, i32 noundef %9)
+  %6 = alloca i8, align 1
+  store ptr %0, ptr %4, align 8, !tbaa !8
+  store i32 %1, ptr %5, align 4, !tbaa !27
+  %7 = zext i1 %2 to i8
+  store i8 %7, ptr %6, align 1, !tbaa !44
+  %8 = load ptr, ptr %4, align 8, !tbaa !8
+  %9 = load i32, ptr %5, align 4, !tbaa !27
+  %10 = load i8, ptr %6, align 1, !tbaa !44, !range !41, !noundef !42
+  %11 = trunc i8 %10 to i1
+  call void @lv_bar_set_value(ptr noundef %8, i32 noundef %9, i1 noundef zeroext %11)
   ret void
 }
 
-declare void @lv_bar_set_value(ptr noundef, i32 noundef, i32 noundef) #2
+declare void @lv_bar_set_value(ptr noundef, i32 noundef, i1 noundef zeroext) #2
 
 ; Function Attrs: nounwind uwtable
-define void @lv_slider_set_left_value(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 {
+define void @lv_slider_set_start_value(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
-  %6 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8, !tbaa !3
-  store i32 %1, ptr %5, align 4, !tbaa !17
-  store i32 %2, ptr %6, align 4, !tbaa !17
-  %7 = load ptr, ptr %4, align 8, !tbaa !3
-  %8 = load i32, ptr %5, align 4, !tbaa !17
-  %9 = load i32, ptr %6, align 4, !tbaa !17
-  call void @lv_bar_set_start_value(ptr noundef %7, i32 noundef %8, i32 noundef %9)
+  %6 = alloca i8, align 1
+  store ptr %0, ptr %4, align 8, !tbaa !8
+  store i32 %1, ptr %5, align 4, !tbaa !27
+  %7 = zext i1 %2 to i8
+  store i8 %7, ptr %6, align 1, !tbaa !44
+  %8 = load ptr, ptr %4, align 8, !tbaa !8
+  %9 = load i32, ptr %5, align 4, !tbaa !27
+  %10 = load i8, ptr %6, align 1, !tbaa !44, !range !41, !noundef !42
+  %11 = trunc i8 %10 to i1
+  call void @lv_bar_set_start_value(ptr noundef %8, i32 noundef %9, i1 noundef zeroext %11)
   ret void
 }
 
-declare void @lv_bar_set_start_value(ptr noundef, i32 noundef, i32 noundef) #2
+declare void @lv_bar_set_start_value(ptr noundef, i32 noundef, i1 noundef zeroext) #2
 
 ; Function Attrs: nounwind uwtable
 define void @lv_slider_set_range(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8, !tbaa !3
-  store i32 %1, ptr %5, align 4, !tbaa !17
-  store i32 %2, ptr %6, align 4, !tbaa !17
-  %7 = load ptr, ptr %4, align 8, !tbaa !3
-  %8 = load i32, ptr %5, align 4, !tbaa !17
-  %9 = load i32, ptr %6, align 4, !tbaa !17
+  store ptr %0, ptr %4, align 8, !tbaa !8
+  store i32 %1, ptr %5, align 4, !tbaa !27
+  store i32 %2, ptr %6, align 4, !tbaa !27
+  %7 = load ptr, ptr %4, align 8, !tbaa !8
+  %8 = load i32, ptr %5, align 4, !tbaa !27
+  %9 = load i32, ptr %6, align 4, !tbaa !27
   call void @lv_bar_set_range(ptr noundef %7, i32 noundef %8, i32 noundef %9)
   ret void
 }
@@ -966,10 +987,10 @@ declare void @lv_bar_set_range(ptr noundef, i32 noundef, i32 noundef) #2
 define void @lv_slider_set_mode(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8, !tbaa !3
-  store i32 %1, ptr %4, align 4, !tbaa !17
-  %5 = load ptr, ptr %3, align 8, !tbaa !3
-  %6 = load i32, ptr %4, align 4, !tbaa !17
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store i32 %1, ptr %4, align 4, !tbaa !27
+  %5 = load ptr, ptr %3, align 8, !tbaa !8
+  %6 = load i32, ptr %4, align 4, !tbaa !27
   call void @lv_bar_set_mode(ptr noundef %5, i32 noundef %6)
   ret void
 }
@@ -977,10 +998,24 @@ define void @lv_slider_set_mode(ptr noundef %0, i32 noundef %1) #0 {
 declare void @lv_bar_set_mode(ptr noundef, i32 noundef) #2
 
 ; Function Attrs: nounwind uwtable
+define void @lv_slider_set_orientation(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store i32 %1, ptr %4, align 4, !tbaa !27
+  %5 = load ptr, ptr %3, align 8, !tbaa !8
+  %6 = load i32, ptr %4, align 4, !tbaa !27
+  call void @lv_bar_set_orientation(ptr noundef %5, i32 noundef %6)
+  ret void
+}
+
+declare void @lv_bar_set_orientation(ptr noundef, i32 noundef) #2
+
+; Function Attrs: nounwind uwtable
 define i32 @lv_slider_get_value(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8, !tbaa !3
-  %3 = load ptr, ptr %2, align 8, !tbaa !3
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  %3 = load ptr, ptr %2, align 8, !tbaa !8
   %4 = call i32 @lv_bar_get_value(ptr noundef %3)
   ret i32 %4
 }
@@ -990,8 +1025,8 @@ declare i32 @lv_bar_get_value(ptr noundef) #2
 ; Function Attrs: nounwind uwtable
 define i32 @lv_slider_get_left_value(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8, !tbaa !3
-  %3 = load ptr, ptr %2, align 8, !tbaa !3
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  %3 = load ptr, ptr %2, align 8, !tbaa !8
   %4 = call i32 @lv_bar_get_start_value(ptr noundef %3)
   ret i32 %4
 }
@@ -1001,8 +1036,8 @@ declare i32 @lv_bar_get_start_value(ptr noundef) #2
 ; Function Attrs: nounwind uwtable
 define i32 @lv_slider_get_min_value(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8, !tbaa !3
-  %3 = load ptr, ptr %2, align 8, !tbaa !3
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  %3 = load ptr, ptr %2, align 8, !tbaa !8
   %4 = call i32 @lv_bar_get_min_value(ptr noundef %3)
   ret i32 %4
 }
@@ -1012,8 +1047,8 @@ declare i32 @lv_bar_get_min_value(ptr noundef) #2
 ; Function Attrs: nounwind uwtable
 define i32 @lv_slider_get_max_value(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8, !tbaa !3
-  %3 = load ptr, ptr %2, align 8, !tbaa !3
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  %3 = load ptr, ptr %2, align 8, !tbaa !8
   %4 = call i32 @lv_bar_get_max_value(ptr noundef %3)
   ret i32 %4
 }
@@ -1026,12 +1061,12 @@ define i32 @lv_slider_get_mode(ptr noundef %0) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %0, ptr %3, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 4, ptr %4) #4
-  %6 = load ptr, ptr %3, align 8, !tbaa !3
+  %6 = load ptr, ptr %3, align 8, !tbaa !8
   %7 = call i32 @lv_bar_get_mode(ptr noundef %6)
-  store i32 %7, ptr %4, align 4, !tbaa !17
-  %8 = load i32, ptr %4, align 4, !tbaa !17
+  store i32 %7, ptr %4, align 4, !tbaa !27
+  %8 = load i32, ptr %4, align 4, !tbaa !27
   %9 = icmp eq i32 %8, 1
   br i1 %9, label %10, label %11
 
@@ -1041,7 +1076,7 @@ define i32 @lv_slider_get_mode(ptr noundef %0) #0 {
   br label %16
 
 11:                                               ; preds = %1
-  %12 = load i32, ptr %4, align 4, !tbaa !17
+  %12 = load i32, ptr %4, align 4, !tbaa !27
   %13 = icmp eq i32 %12, 2
   br i1 %13, label %14, label %15
 
@@ -1064,10 +1099,53 @@ define i32 @lv_slider_get_mode(ptr noundef %0) #0 {
 declare i32 @lv_bar_get_mode(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
+define i32 @lv_slider_get_orientation(ptr noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #4
+  %6 = load ptr, ptr %3, align 8, !tbaa !8
+  %7 = call i32 @lv_bar_get_orientation(ptr noundef %6)
+  store i32 %7, ptr %4, align 4, !tbaa !27
+  %8 = load i32, ptr %4, align 4, !tbaa !27
+  %9 = icmp eq i32 %8, 1
+  br i1 %9, label %10, label %11
+
+10:                                               ; preds = %1
+  store i32 1, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %16
+
+11:                                               ; preds = %1
+  %12 = load i32, ptr %4, align 4, !tbaa !27
+  %13 = icmp eq i32 %12, 2
+  br i1 %13, label %14, label %15
+
+14:                                               ; preds = %11
+  store i32 2, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %16
+
+15:                                               ; preds = %11
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %16
+
+16:                                               ; preds = %15, %14, %10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #4
+  %17 = load i32, ptr %2, align 4
+  ret i32 %17
+}
+
+declare i32 @lv_bar_get_orientation(ptr noundef) #2
+
+; Function Attrs: nounwind uwtable
 define zeroext i1 @lv_slider_is_symmetrical(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8, !tbaa !3
-  %3 = load ptr, ptr %2, align 8, !tbaa !3
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  %3 = load ptr, ptr %2, align 8, !tbaa !8
   %4 = call zeroext i1 @lv_bar_is_symmetrical(ptr noundef %3)
   ret i1 %4
 }
@@ -1094,32 +1172,32 @@ declare ptr @lv_event_get_param(ptr noundef) #2
 define internal void @lv_area_copy(ptr noundef %0, ptr noundef %1) #3 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8, !tbaa !3
-  store ptr %1, ptr %4, align 8, !tbaa !3
-  %5 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %0, ptr %3, align 8, !tbaa !46
+  store ptr %1, ptr %4, align 8, !tbaa !46
+  %5 = load ptr, ptr %4, align 8, !tbaa !46
   %6 = getelementptr inbounds nuw %struct.lv_area_t, ptr %5, i32 0, i32 0
-  %7 = load i32, ptr %6, align 4, !tbaa !29
-  %8 = load ptr, ptr %3, align 8, !tbaa !3
+  %7 = load i32, ptr %6, align 4, !tbaa !47
+  %8 = load ptr, ptr %3, align 8, !tbaa !46
   %9 = getelementptr inbounds nuw %struct.lv_area_t, ptr %8, i32 0, i32 0
-  store i32 %7, ptr %9, align 4, !tbaa !29
-  %10 = load ptr, ptr %4, align 8, !tbaa !3
+  store i32 %7, ptr %9, align 4, !tbaa !47
+  %10 = load ptr, ptr %4, align 8, !tbaa !46
   %11 = getelementptr inbounds nuw %struct.lv_area_t, ptr %10, i32 0, i32 1
-  %12 = load i32, ptr %11, align 4, !tbaa !30
-  %13 = load ptr, ptr %3, align 8, !tbaa !3
+  %12 = load i32, ptr %11, align 4, !tbaa !48
+  %13 = load ptr, ptr %3, align 8, !tbaa !46
   %14 = getelementptr inbounds nuw %struct.lv_area_t, ptr %13, i32 0, i32 1
-  store i32 %12, ptr %14, align 4, !tbaa !30
-  %15 = load ptr, ptr %4, align 8, !tbaa !3
+  store i32 %12, ptr %14, align 4, !tbaa !48
+  %15 = load ptr, ptr %4, align 8, !tbaa !46
   %16 = getelementptr inbounds nuw %struct.lv_area_t, ptr %15, i32 0, i32 2
-  %17 = load i32, ptr %16, align 4, !tbaa !31
-  %18 = load ptr, ptr %3, align 8, !tbaa !3
+  %17 = load i32, ptr %16, align 4, !tbaa !49
+  %18 = load ptr, ptr %3, align 8, !tbaa !46
   %19 = getelementptr inbounds nuw %struct.lv_area_t, ptr %18, i32 0, i32 2
-  store i32 %17, ptr %19, align 4, !tbaa !31
-  %20 = load ptr, ptr %4, align 8, !tbaa !3
+  store i32 %17, ptr %19, align 4, !tbaa !49
+  %20 = load ptr, ptr %4, align 8, !tbaa !46
   %21 = getelementptr inbounds nuw %struct.lv_area_t, ptr %20, i32 0, i32 3
-  %22 = load i32, ptr %21, align 4, !tbaa !32
-  %23 = load ptr, ptr %3, align 8, !tbaa !3
+  %22 = load i32, ptr %21, align 4, !tbaa !50
+  %23 = load ptr, ptr %3, align 8, !tbaa !46
   %24 = getelementptr inbounds nuw %struct.lv_area_t, ptr %23, i32 0, i32 3
-  store i32 %22, ptr %24, align 4, !tbaa !32
+  store i32 %22, ptr %24, align 4, !tbaa !50
   ret void
 }
 
@@ -1159,16 +1237,16 @@ define internal void @update_knob_pos(ptr noundef %0, i1 noundef zeroext %1) #0 
   %24 = alloca i32, align 4
   %25 = alloca i32, align 4
   %26 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %0, ptr %3, align 8, !tbaa !8
   %27 = zext i1 %1 to i8
-  store i8 %27, ptr %4, align 1, !tbaa !28
+  store i8 %27, ptr %4, align 1, !tbaa !44
   call void @llvm.lifetime.start.p0(i64 8, ptr %5) #4
-  %28 = load ptr, ptr %3, align 8, !tbaa !3
-  store ptr %28, ptr %5, align 8, !tbaa !3
+  %28 = load ptr, ptr %3, align 8, !tbaa !8
+  store ptr %28, ptr %5, align 8, !tbaa !10
   call void @llvm.lifetime.start.p0(i64 8, ptr %6) #4
   %29 = call ptr @lv_indev_active()
-  store ptr %29, ptr %6, align 8, !tbaa !3
-  %30 = load ptr, ptr %6, align 8, !tbaa !3
+  store ptr %29, ptr %6, align 8, !tbaa !51
+  %30 = load ptr, ptr %6, align 8, !tbaa !51
   %31 = call i32 @lv_indev_get_type(ptr noundef %30)
   %32 = icmp ne i32 %31, 1
   br i1 %32, label %33, label %34
@@ -1178,7 +1256,7 @@ define internal void @update_knob_pos(ptr noundef %0, i1 noundef zeroext %1) #0 
   br label %323
 
 34:                                               ; preds = %2
-  %35 = load ptr, ptr %6, align 8, !tbaa !3
+  %35 = load ptr, ptr %6, align 8, !tbaa !51
   %36 = call ptr @lv_indev_get_scroll_obj(ptr noundef %35)
   %37 = icmp ne ptr %36, null
   br i1 %37, label %38, label %39
@@ -1189,21 +1267,21 @@ define internal void @update_knob_pos(ptr noundef %0, i1 noundef zeroext %1) #0 
 
 39:                                               ; preds = %34
   call void @llvm.lifetime.start.p0(i64 8, ptr %8) #4
-  %40 = load ptr, ptr %6, align 8, !tbaa !3
+  %40 = load ptr, ptr %6, align 8, !tbaa !51
   call void @lv_indev_get_point(ptr noundef %40, ptr noundef %8)
-  %41 = load ptr, ptr %3, align 8, !tbaa !3
+  %41 = load ptr, ptr %3, align 8, !tbaa !8
   call void @lv_obj_transform_point(ptr noundef %41, ptr noundef %8, i32 noundef 3)
   call void @llvm.lifetime.start.p0(i64 1, ptr %9) #4
-  %42 = load ptr, ptr %3, align 8, !tbaa !3
+  %42 = load ptr, ptr %3, align 8, !tbaa !8
   %43 = call zeroext i1 @is_slider_horizontal(ptr noundef %42)
   %44 = zext i1 %43 to i8
-  store i8 %44, ptr %9, align 1, !tbaa !28
-  %45 = load i8, ptr %4, align 1, !tbaa !28, !range !26, !noundef !27
+  store i8 %44, ptr %9, align 1, !tbaa !44
+  %45 = load i8, ptr %4, align 1, !tbaa !44, !range !41, !noundef !42
   %46 = trunc i8 %45 to i1
   br i1 %46, label %47, label %93
 
 47:                                               ; preds = %39
-  %48 = load ptr, ptr %5, align 8, !tbaa !3
+  %48 = load ptr, ptr %5, align 8, !tbaa !10
   %49 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %48, i32 0, i32 5
   %50 = load i8, ptr %49, align 8
   %51 = and i8 %50, 1
@@ -1212,51 +1290,51 @@ define internal void @update_knob_pos(ptr noundef %0, i1 noundef zeroext %1) #0 
 
 53:                                               ; preds = %47
   call void @llvm.lifetime.start.p0(i64 4, ptr %10) #4
-  %54 = load i8, ptr %9, align 1, !tbaa !28, !range !26, !noundef !27
+  %54 = load i8, ptr %9, align 1, !tbaa !44, !range !41, !noundef !42
   %55 = trunc i8 %54 to i1
   br i1 %55, label %56, label %64
 
 56:                                               ; preds = %53
   %57 = getelementptr inbounds nuw %struct.lv_point_t, ptr %8, i32 0, i32 0
-  %58 = load i32, ptr %57, align 4, !tbaa !33
-  %59 = load ptr, ptr %5, align 8, !tbaa !3
+  %58 = load i32, ptr %57, align 4, !tbaa !53
+  %59 = load ptr, ptr %5, align 8, !tbaa !10
   %60 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %59, i32 0, i32 3
   %61 = getelementptr inbounds nuw %struct.lv_point_t, ptr %60, i32 0, i32 0
-  %62 = load i32, ptr %61, align 8, !tbaa !34
+  %62 = load i32, ptr %61, align 8, !tbaa !54
   %63 = sub nsw i32 %58, %62
   br label %72
 
 64:                                               ; preds = %53
   %65 = getelementptr inbounds nuw %struct.lv_point_t, ptr %8, i32 0, i32 1
-  %66 = load i32, ptr %65, align 4, !tbaa !35
-  %67 = load ptr, ptr %5, align 8, !tbaa !3
+  %66 = load i32, ptr %65, align 4, !tbaa !55
+  %67 = load ptr, ptr %5, align 8, !tbaa !10
   %68 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %67, i32 0, i32 3
   %69 = getelementptr inbounds nuw %struct.lv_point_t, ptr %68, i32 0, i32 1
-  %70 = load i32, ptr %69, align 4, !tbaa !36
+  %70 = load i32, ptr %69, align 4, !tbaa !56
   %71 = sub nsw i32 %66, %70
   br label %72
 
 72:                                               ; preds = %64, %56
   %73 = phi i32 [ %63, %56 ], [ %71, %64 ]
-  store i32 %73, ptr %10, align 4, !tbaa !17
-  %74 = load i32, ptr %10, align 4, !tbaa !17
+  store i32 %73, ptr %10, align 4, !tbaa !27
+  %74 = load i32, ptr %10, align 4, !tbaa !27
   %75 = icmp sgt i32 %74, 0
   br i1 %75, label %76, label %78
 
 76:                                               ; preds = %72
-  %77 = load i32, ptr %10, align 4, !tbaa !17
+  %77 = load i32, ptr %10, align 4, !tbaa !27
   br label %81
 
 78:                                               ; preds = %72
-  %79 = load i32, ptr %10, align 4, !tbaa !17
+  %79 = load i32, ptr %10, align 4, !tbaa !27
   %80 = sub nsw i32 0, %79
   br label %81
 
 81:                                               ; preds = %78, %76
   %82 = phi i32 [ %77, %76 ], [ %80, %78 ]
-  %83 = load ptr, ptr %6, align 8, !tbaa !3
-  %84 = getelementptr inbounds nuw %struct._lv_indev_t, ptr %83, i32 0, i32 11
-  %85 = load i8, ptr %84, align 8, !tbaa !37
+  %83 = load ptr, ptr %6, align 8, !tbaa !51
+  %84 = getelementptr inbounds nuw %struct._lv_indev_t, ptr %83, i32 0, i32 12
+  %85 = load i8, ptr %84, align 8, !tbaa !57
   %86 = zext i8 %85 to i32
   %87 = icmp slt i32 %82, %86
   br i1 %87, label %88, label %89
@@ -1280,55 +1358,55 @@ define internal void @update_knob_pos(ptr noundef %0, i1 noundef zeroext %1) #0 
   br label %93
 
 93:                                               ; preds = %92, %47, %39
-  %94 = load ptr, ptr %5, align 8, !tbaa !3
+  %94 = load ptr, ptr %5, align 8, !tbaa !10
   %95 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %94, i32 0, i32 4
-  %96 = load ptr, ptr %95, align 8, !tbaa !7
+  %96 = load ptr, ptr %95, align 8, !tbaa !12
   %97 = icmp ne ptr %96, null
   br i1 %97, label %100, label %98
 
 98:                                               ; preds = %93
-  %99 = load ptr, ptr %3, align 8, !tbaa !3
+  %99 = load ptr, ptr %3, align 8, !tbaa !8
   call void @drag_start(ptr noundef %99)
   br label %100
 
 100:                                              ; preds = %98, %93
   call void @llvm.lifetime.start.p0(i64 4, ptr %11) #4
-  store i32 0, ptr %11, align 4, !tbaa !17
+  store i32 0, ptr %11, align 4, !tbaa !27
   call void @llvm.lifetime.start.p0(i64 4, ptr %12) #4
-  %101 = load ptr, ptr %5, align 8, !tbaa !3
+  %101 = load ptr, ptr %5, align 8, !tbaa !10
   %102 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %101, i32 0, i32 0
   %103 = getelementptr inbounds nuw %struct._lv_bar_t, ptr %102, i32 0, i32 3
-  %104 = load i32, ptr %103, align 8, !tbaa !40
-  %105 = load ptr, ptr %5, align 8, !tbaa !3
+  %104 = load i32, ptr %103, align 8, !tbaa !63
+  %105 = load ptr, ptr %5, align 8, !tbaa !10
   %106 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %105, i32 0, i32 0
   %107 = getelementptr inbounds nuw %struct._lv_bar_t, ptr %106, i32 0, i32 2
-  %108 = load i32, ptr %107, align 4, !tbaa !41
+  %108 = load i32, ptr %107, align 4, !tbaa !64
   %109 = sub nsw i32 %104, %108
-  store i32 %109, ptr %12, align 4, !tbaa !17
+  store i32 %109, ptr %12, align 4, !tbaa !27
   call void @llvm.lifetime.start.p0(i64 1, ptr %13) #4
-  %110 = load ptr, ptr %3, align 8, !tbaa !3
+  %110 = load ptr, ptr %3, align 8, !tbaa !8
   %111 = call i32 @lv_obj_get_style_base_dir(ptr noundef %110, i32 noundef 0)
   %112 = icmp eq i32 1, %111
   %113 = zext i1 %112 to i8
-  store i8 %113, ptr %13, align 1, !tbaa !28
+  store i8 %113, ptr %13, align 1, !tbaa !44
   call void @llvm.lifetime.start.p0(i64 1, ptr %14) #4
-  %114 = load ptr, ptr %3, align 8, !tbaa !3
+  %114 = load ptr, ptr %3, align 8, !tbaa !8
   %115 = call zeroext i1 @is_slider_horizontal(ptr noundef %114)
   %116 = zext i1 %115 to i8
-  store i8 %116, ptr %14, align 1, !tbaa !28
+  store i8 %116, ptr %14, align 1, !tbaa !44
   call void @llvm.lifetime.start.p0(i64 1, ptr %15) #4
-  %117 = load ptr, ptr %5, align 8, !tbaa !3
+  %117 = load ptr, ptr %5, align 8, !tbaa !10
   %118 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %117, i32 0, i32 0
   %119 = getelementptr inbounds nuw %struct._lv_bar_t, ptr %118, i32 0, i32 6
-  %120 = load i8, ptr %119, align 8, !tbaa !42, !range !26, !noundef !27
+  %120 = load i8, ptr %119, align 8, !tbaa !65, !range !41, !noundef !42
   %121 = trunc i8 %120 to i1
   %122 = zext i1 %121 to i32
-  %123 = load i8, ptr %13, align 1, !tbaa !28, !range !26, !noundef !27
+  %123 = load i8, ptr %13, align 1, !tbaa !44, !range !41, !noundef !42
   %124 = trunc i8 %123 to i1
   br i1 %124, label %125, label %128
 
 125:                                              ; preds = %100
-  %126 = load i8, ptr %14, align 1, !tbaa !28, !range !26, !noundef !27
+  %126 = load i8, ptr %14, align 1, !tbaa !44, !range !41, !noundef !42
   %127 = trunc i8 %126 to i1
   br label %128
 
@@ -1338,83 +1416,83 @@ define internal void @update_knob_pos(ptr noundef %0, i1 noundef zeroext %1) #0 
   %131 = xor i32 %122, %130
   %132 = icmp ne i32 %131, 0
   %133 = zext i1 %132 to i8
-  store i8 %133, ptr %15, align 1, !tbaa !28
-  %134 = load i8, ptr %9, align 1, !tbaa !28, !range !26, !noundef !27
+  store i8 %133, ptr %15, align 1, !tbaa !44
+  %134 = load i8, ptr %9, align 1, !tbaa !44, !range !41, !noundef !42
   %135 = trunc i8 %134 to i1
   br i1 %135, label %136, label %189
 
 136:                                              ; preds = %128
   call void @llvm.lifetime.start.p0(i64 4, ptr %16) #4
-  %137 = load ptr, ptr %3, align 8, !tbaa !3
+  %137 = load ptr, ptr %3, align 8, !tbaa !8
   %138 = call i32 @lv_obj_get_style_pad_left(ptr noundef %137, i32 noundef 0)
-  store i32 %138, ptr %16, align 4, !tbaa !17
+  store i32 %138, ptr %16, align 4, !tbaa !27
   call void @llvm.lifetime.start.p0(i64 4, ptr %17) #4
-  %139 = load ptr, ptr %3, align 8, !tbaa !3
+  %139 = load ptr, ptr %3, align 8, !tbaa !8
   %140 = call i32 @lv_obj_get_style_pad_right(ptr noundef %139, i32 noundef 0)
-  store i32 %140, ptr %17, align 4, !tbaa !17
+  store i32 %140, ptr %17, align 4, !tbaa !27
   call void @llvm.lifetime.start.p0(i64 4, ptr %18) #4
-  %141 = load ptr, ptr %3, align 8, !tbaa !3
+  %141 = load ptr, ptr %3, align 8, !tbaa !8
   %142 = call i32 @lv_obj_get_width(ptr noundef %141)
-  store i32 %142, ptr %18, align 4, !tbaa !17
+  store i32 %142, ptr %18, align 4, !tbaa !27
   call void @llvm.lifetime.start.p0(i64 4, ptr %19) #4
-  %143 = load i32, ptr %18, align 4, !tbaa !17
-  %144 = load i32, ptr %16, align 4, !tbaa !17
+  %143 = load i32, ptr %18, align 4, !tbaa !27
+  %144 = load i32, ptr %16, align 4, !tbaa !27
   %145 = sub nsw i32 %143, %144
-  %146 = load i32, ptr %17, align 4, !tbaa !17
+  %146 = load i32, ptr %17, align 4, !tbaa !27
   %147 = sub nsw i32 %145, %146
-  store i32 %147, ptr %19, align 4, !tbaa !17
-  %148 = load i8, ptr %15, align 1, !tbaa !28, !range !26, !noundef !27
+  store i32 %147, ptr %19, align 4, !tbaa !27
+  %148 = load i8, ptr %15, align 1, !tbaa !44, !range !41, !noundef !42
   %149 = trunc i8 %148 to i1
   br i1 %149, label %150, label %160
 
 150:                                              ; preds = %136
-  %151 = load ptr, ptr %3, align 8, !tbaa !3
+  %151 = load ptr, ptr %3, align 8, !tbaa !8
   %152 = getelementptr inbounds nuw %struct._lv_obj_t, ptr %151, i32 0, i32 5
   %153 = getelementptr inbounds nuw %struct.lv_area_t, ptr %152, i32 0, i32 2
-  %154 = load i32, ptr %153, align 8, !tbaa !43
-  %155 = load i32, ptr %17, align 4, !tbaa !17
+  %154 = load i32, ptr %153, align 8, !tbaa !66
+  %155 = load i32, ptr %17, align 4, !tbaa !27
   %156 = sub nsw i32 %154, %155
   %157 = getelementptr inbounds nuw %struct.lv_point_t, ptr %8, i32 0, i32 0
-  %158 = load i32, ptr %157, align 4, !tbaa !33
+  %158 = load i32, ptr %157, align 4, !tbaa !53
   %159 = sub nsw i32 %156, %158
-  store i32 %159, ptr %11, align 4, !tbaa !17
+  store i32 %159, ptr %11, align 4, !tbaa !27
   br label %170
 
 160:                                              ; preds = %136
   %161 = getelementptr inbounds nuw %struct.lv_point_t, ptr %8, i32 0, i32 0
-  %162 = load i32, ptr %161, align 4, !tbaa !33
-  %163 = load ptr, ptr %3, align 8, !tbaa !3
+  %162 = load i32, ptr %161, align 4, !tbaa !53
+  %163 = load ptr, ptr %3, align 8, !tbaa !8
   %164 = getelementptr inbounds nuw %struct._lv_obj_t, ptr %163, i32 0, i32 5
   %165 = getelementptr inbounds nuw %struct.lv_area_t, ptr %164, i32 0, i32 0
-  %166 = load i32, ptr %165, align 8, !tbaa !44
-  %167 = load i32, ptr %16, align 4, !tbaa !17
+  %166 = load i32, ptr %165, align 8, !tbaa !67
+  %167 = load i32, ptr %16, align 4, !tbaa !27
   %168 = add nsw i32 %166, %167
   %169 = sub nsw i32 %162, %168
-  store i32 %169, ptr %11, align 4, !tbaa !17
+  store i32 %169, ptr %11, align 4, !tbaa !27
   br label %170
 
 170:                                              ; preds = %160, %150
-  %171 = load i32, ptr %19, align 4, !tbaa !17
+  %171 = load i32, ptr %19, align 4, !tbaa !27
   %172 = icmp ne i32 %171, 0
   br i1 %172, label %173, label %188
 
 173:                                              ; preds = %170
-  %174 = load i32, ptr %11, align 4, !tbaa !17
-  %175 = load i32, ptr %12, align 4, !tbaa !17
+  %174 = load i32, ptr %11, align 4, !tbaa !27
+  %175 = load i32, ptr %12, align 4, !tbaa !27
   %176 = mul nsw i32 %174, %175
-  %177 = load i32, ptr %19, align 4, !tbaa !17
+  %177 = load i32, ptr %19, align 4, !tbaa !27
   %178 = sdiv i32 %177, 2
   %179 = add nsw i32 %176, %178
-  %180 = load i32, ptr %19, align 4, !tbaa !17
+  %180 = load i32, ptr %19, align 4, !tbaa !27
   %181 = sdiv i32 %179, %180
-  store i32 %181, ptr %11, align 4, !tbaa !17
-  %182 = load ptr, ptr %5, align 8, !tbaa !3
+  store i32 %181, ptr %11, align 4, !tbaa !27
+  %182 = load ptr, ptr %5, align 8, !tbaa !10
   %183 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %182, i32 0, i32 0
   %184 = getelementptr inbounds nuw %struct._lv_bar_t, ptr %183, i32 0, i32 2
-  %185 = load i32, ptr %184, align 4, !tbaa !41
-  %186 = load i32, ptr %11, align 4, !tbaa !17
+  %185 = load i32, ptr %184, align 4, !tbaa !64
+  %186 = load i32, ptr %11, align 4, !tbaa !27
   %187 = add nsw i32 %186, %185
-  store i32 %187, ptr %11, align 4, !tbaa !17
+  store i32 %187, ptr %11, align 4, !tbaa !27
   br label %188
 
 188:                                              ; preds = %173, %170
@@ -1426,74 +1504,74 @@ define internal void @update_knob_pos(ptr noundef %0, i1 noundef zeroext %1) #0 
 
 189:                                              ; preds = %128
   call void @llvm.lifetime.start.p0(i64 4, ptr %20) #4
-  %190 = load ptr, ptr %3, align 8, !tbaa !3
+  %190 = load ptr, ptr %3, align 8, !tbaa !8
   %191 = call i32 @lv_obj_get_style_pad_top(ptr noundef %190, i32 noundef 0)
-  store i32 %191, ptr %20, align 4, !tbaa !17
+  store i32 %191, ptr %20, align 4, !tbaa !27
   call void @llvm.lifetime.start.p0(i64 4, ptr %21) #4
-  %192 = load ptr, ptr %3, align 8, !tbaa !3
+  %192 = load ptr, ptr %3, align 8, !tbaa !8
   %193 = call i32 @lv_obj_get_style_pad_bottom(ptr noundef %192, i32 noundef 0)
-  store i32 %193, ptr %21, align 4, !tbaa !17
+  store i32 %193, ptr %21, align 4, !tbaa !27
   call void @llvm.lifetime.start.p0(i64 4, ptr %22) #4
-  %194 = load ptr, ptr %3, align 8, !tbaa !3
+  %194 = load ptr, ptr %3, align 8, !tbaa !8
   %195 = call i32 @lv_obj_get_height(ptr noundef %194)
-  store i32 %195, ptr %22, align 4, !tbaa !17
+  store i32 %195, ptr %22, align 4, !tbaa !27
   call void @llvm.lifetime.start.p0(i64 4, ptr %23) #4
-  %196 = load i32, ptr %22, align 4, !tbaa !17
-  %197 = load i32, ptr %21, align 4, !tbaa !17
+  %196 = load i32, ptr %22, align 4, !tbaa !27
+  %197 = load i32, ptr %21, align 4, !tbaa !27
   %198 = sub nsw i32 %196, %197
-  %199 = load i32, ptr %20, align 4, !tbaa !17
+  %199 = load i32, ptr %20, align 4, !tbaa !27
   %200 = sub nsw i32 %198, %199
-  store i32 %200, ptr %23, align 4, !tbaa !17
-  %201 = load i8, ptr %15, align 1, !tbaa !28, !range !26, !noundef !27
+  store i32 %200, ptr %23, align 4, !tbaa !27
+  %201 = load i8, ptr %15, align 1, !tbaa !44, !range !41, !noundef !42
   %202 = trunc i8 %201 to i1
   br i1 %202, label %203, label %213
 
 203:                                              ; preds = %189
   %204 = getelementptr inbounds nuw %struct.lv_point_t, ptr %8, i32 0, i32 1
-  %205 = load i32, ptr %204, align 4, !tbaa !35
-  %206 = load ptr, ptr %3, align 8, !tbaa !3
+  %205 = load i32, ptr %204, align 4, !tbaa !55
+  %206 = load ptr, ptr %3, align 8, !tbaa !8
   %207 = getelementptr inbounds nuw %struct._lv_obj_t, ptr %206, i32 0, i32 5
   %208 = getelementptr inbounds nuw %struct.lv_area_t, ptr %207, i32 0, i32 1
-  %209 = load i32, ptr %208, align 4, !tbaa !45
-  %210 = load i32, ptr %20, align 4, !tbaa !17
+  %209 = load i32, ptr %208, align 4, !tbaa !68
+  %210 = load i32, ptr %20, align 4, !tbaa !27
   %211 = add nsw i32 %209, %210
   %212 = sub nsw i32 %205, %211
-  store i32 %212, ptr %11, align 4, !tbaa !17
+  store i32 %212, ptr %11, align 4, !tbaa !27
   br label %225
 
 213:                                              ; preds = %189
   %214 = getelementptr inbounds nuw %struct.lv_point_t, ptr %8, i32 0, i32 1
-  %215 = load i32, ptr %214, align 4, !tbaa !35
-  %216 = load ptr, ptr %3, align 8, !tbaa !3
+  %215 = load i32, ptr %214, align 4, !tbaa !55
+  %216 = load ptr, ptr %3, align 8, !tbaa !8
   %217 = getelementptr inbounds nuw %struct._lv_obj_t, ptr %216, i32 0, i32 5
   %218 = getelementptr inbounds nuw %struct.lv_area_t, ptr %217, i32 0, i32 3
-  %219 = load i32, ptr %218, align 4, !tbaa !46
-  %220 = load i32, ptr %21, align 4, !tbaa !17
+  %219 = load i32, ptr %218, align 4, !tbaa !69
+  %220 = load i32, ptr %21, align 4, !tbaa !27
   %221 = add nsw i32 %219, %220
   %222 = sub nsw i32 %215, %221
-  store i32 %222, ptr %11, align 4, !tbaa !17
-  %223 = load i32, ptr %11, align 4, !tbaa !17
+  store i32 %222, ptr %11, align 4, !tbaa !27
+  %223 = load i32, ptr %11, align 4, !tbaa !27
   %224 = sub nsw i32 0, %223
-  store i32 %224, ptr %11, align 4, !tbaa !17
+  store i32 %224, ptr %11, align 4, !tbaa !27
   br label %225
 
 225:                                              ; preds = %213, %203
-  %226 = load i32, ptr %11, align 4, !tbaa !17
-  %227 = load i32, ptr %12, align 4, !tbaa !17
+  %226 = load i32, ptr %11, align 4, !tbaa !27
+  %227 = load i32, ptr %12, align 4, !tbaa !27
   %228 = mul nsw i32 %226, %227
-  %229 = load i32, ptr %23, align 4, !tbaa !17
+  %229 = load i32, ptr %23, align 4, !tbaa !27
   %230 = sdiv i32 %229, 2
   %231 = add nsw i32 %228, %230
-  %232 = load i32, ptr %23, align 4, !tbaa !17
+  %232 = load i32, ptr %23, align 4, !tbaa !27
   %233 = sdiv i32 %231, %232
-  store i32 %233, ptr %11, align 4, !tbaa !17
-  %234 = load ptr, ptr %5, align 8, !tbaa !3
+  store i32 %233, ptr %11, align 4, !tbaa !27
+  %234 = load ptr, ptr %5, align 8, !tbaa !10
   %235 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %234, i32 0, i32 0
   %236 = getelementptr inbounds nuw %struct._lv_bar_t, ptr %235, i32 0, i32 2
-  %237 = load i32, ptr %236, align 4, !tbaa !41
-  %238 = load i32, ptr %11, align 4, !tbaa !17
+  %237 = load i32, ptr %236, align 4, !tbaa !64
+  %238 = load i32, ptr %11, align 4, !tbaa !27
   %239 = add nsw i32 %238, %237
-  store i32 %239, ptr %11, align 4, !tbaa !17
+  store i32 %239, ptr %11, align 4, !tbaa !27
   call void @llvm.lifetime.end.p0(i64 4, ptr %23) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr %22) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr %21) #4
@@ -1502,55 +1580,55 @@ define internal void @update_knob_pos(ptr noundef %0, i1 noundef zeroext %1) #0 
 
 240:                                              ; preds = %225, %188
   call void @llvm.lifetime.start.p0(i64 4, ptr %24) #4
-  %241 = load ptr, ptr %5, align 8, !tbaa !3
+  %241 = load ptr, ptr %5, align 8, !tbaa !10
   %242 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %241, i32 0, i32 0
   %243 = getelementptr inbounds nuw %struct._lv_bar_t, ptr %242, i32 0, i32 3
-  %244 = load i32, ptr %243, align 8, !tbaa !40
-  store i32 %244, ptr %24, align 4, !tbaa !17
+  %244 = load i32, ptr %243, align 8, !tbaa !63
+  store i32 %244, ptr %24, align 4, !tbaa !27
   call void @llvm.lifetime.start.p0(i64 4, ptr %25) #4
-  %245 = load ptr, ptr %5, align 8, !tbaa !3
+  %245 = load ptr, ptr %5, align 8, !tbaa !10
   %246 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %245, i32 0, i32 0
   %247 = getelementptr inbounds nuw %struct._lv_bar_t, ptr %246, i32 0, i32 2
-  %248 = load i32, ptr %247, align 4, !tbaa !41
-  store i32 %248, ptr %25, align 4, !tbaa !17
-  %249 = load ptr, ptr %5, align 8, !tbaa !3
+  %248 = load i32, ptr %247, align 4, !tbaa !64
+  store i32 %248, ptr %25, align 4, !tbaa !27
+  %249 = load ptr, ptr %5, align 8, !tbaa !10
   %250 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %249, i32 0, i32 4
-  %251 = load ptr, ptr %250, align 8, !tbaa !7
-  %252 = load ptr, ptr %5, align 8, !tbaa !3
+  %251 = load ptr, ptr %250, align 8, !tbaa !12
+  %252 = load ptr, ptr %5, align 8, !tbaa !10
   %253 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %252, i32 0, i32 0
   %254 = getelementptr inbounds nuw %struct._lv_bar_t, ptr %253, i32 0, i32 4
   %255 = icmp eq ptr %251, %254
   br i1 %255, label %256, label %261
 
 256:                                              ; preds = %240
-  %257 = load ptr, ptr %5, align 8, !tbaa !3
+  %257 = load ptr, ptr %5, align 8, !tbaa !10
   %258 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %257, i32 0, i32 0
   %259 = getelementptr inbounds nuw %struct._lv_bar_t, ptr %258, i32 0, i32 1
-  %260 = load i32, ptr %259, align 8, !tbaa !47
-  store i32 %260, ptr %24, align 4, !tbaa !17
+  %260 = load i32, ptr %259, align 8, !tbaa !70
+  store i32 %260, ptr %24, align 4, !tbaa !27
   br label %266
 
 261:                                              ; preds = %240
-  %262 = load ptr, ptr %5, align 8, !tbaa !3
+  %262 = load ptr, ptr %5, align 8, !tbaa !10
   %263 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %262, i32 0, i32 0
   %264 = getelementptr inbounds nuw %struct._lv_bar_t, ptr %263, i32 0, i32 4
-  %265 = load i32, ptr %264, align 4, !tbaa !48
-  store i32 %265, ptr %25, align 4, !tbaa !17
+  %265 = load i32, ptr %264, align 4, !tbaa !71
+  store i32 %265, ptr %25, align 4, !tbaa !27
   br label %266
 
 266:                                              ; preds = %261, %256
-  %267 = load i32, ptr %25, align 4, !tbaa !17
-  %268 = load i32, ptr %11, align 4, !tbaa !17
-  %269 = load i32, ptr %24, align 4, !tbaa !17
+  %267 = load i32, ptr %25, align 4, !tbaa !27
+  %268 = load i32, ptr %11, align 4, !tbaa !27
+  %269 = load i32, ptr %24, align 4, !tbaa !27
   %270 = icmp slt i32 %268, %269
   br i1 %270, label %271, label %273
 
 271:                                              ; preds = %266
-  %272 = load i32, ptr %11, align 4, !tbaa !17
+  %272 = load i32, ptr %11, align 4, !tbaa !27
   br label %275
 
 273:                                              ; preds = %266
-  %274 = load i32, ptr %24, align 4, !tbaa !17
+  %274 = load i32, ptr %24, align 4, !tbaa !27
   br label %275
 
 275:                                              ; preds = %273, %271
@@ -1559,21 +1637,21 @@ define internal void @update_knob_pos(ptr noundef %0, i1 noundef zeroext %1) #0 
   br i1 %277, label %278, label %280
 
 278:                                              ; preds = %275
-  %279 = load i32, ptr %25, align 4, !tbaa !17
+  %279 = load i32, ptr %25, align 4, !tbaa !27
   br label %290
 
 280:                                              ; preds = %275
-  %281 = load i32, ptr %11, align 4, !tbaa !17
-  %282 = load i32, ptr %24, align 4, !tbaa !17
+  %281 = load i32, ptr %11, align 4, !tbaa !27
+  %282 = load i32, ptr %24, align 4, !tbaa !27
   %283 = icmp slt i32 %281, %282
   br i1 %283, label %284, label %286
 
 284:                                              ; preds = %280
-  %285 = load i32, ptr %11, align 4, !tbaa !17
+  %285 = load i32, ptr %11, align 4, !tbaa !27
   br label %288
 
 286:                                              ; preds = %280
-  %287 = load i32, ptr %24, align 4, !tbaa !17
+  %287 = load i32, ptr %24, align 4, !tbaa !27
   br label %288
 
 288:                                              ; preds = %286, %284
@@ -1582,43 +1660,43 @@ define internal void @update_knob_pos(ptr noundef %0, i1 noundef zeroext %1) #0 
 
 290:                                              ; preds = %288, %278
   %291 = phi i32 [ %279, %278 ], [ %289, %288 ]
-  store i32 %291, ptr %11, align 4, !tbaa !17
-  %292 = load ptr, ptr %5, align 8, !tbaa !3
+  store i32 %291, ptr %11, align 4, !tbaa !27
+  %292 = load ptr, ptr %5, align 8, !tbaa !10
   %293 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %292, i32 0, i32 4
-  %294 = load ptr, ptr %293, align 8, !tbaa !7
-  %295 = load i32, ptr %294, align 4, !tbaa !17
-  %296 = load i32, ptr %11, align 4, !tbaa !17
+  %294 = load ptr, ptr %293, align 8, !tbaa !12
+  %295 = load i32, ptr %294, align 4, !tbaa !27
+  %296 = load i32, ptr %11, align 4, !tbaa !27
   %297 = icmp ne i32 %295, %296
   br i1 %297, label %298, label %320
 
 298:                                              ; preds = %290
-  %299 = load i32, ptr %11, align 4, !tbaa !17
-  %300 = load ptr, ptr %5, align 8, !tbaa !3
+  %299 = load i32, ptr %11, align 4, !tbaa !27
+  %300 = load ptr, ptr %5, align 8, !tbaa !10
   %301 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %300, i32 0, i32 4
-  %302 = load ptr, ptr %301, align 8, !tbaa !7
-  store i32 %299, ptr %302, align 4, !tbaa !17
-  %303 = load i8, ptr %9, align 1, !tbaa !28, !range !26, !noundef !27
+  %302 = load ptr, ptr %301, align 8, !tbaa !12
+  store i32 %299, ptr %302, align 4, !tbaa !27
+  %303 = load i8, ptr %9, align 1, !tbaa !44, !range !41, !noundef !42
   %304 = trunc i8 %303 to i1
   br i1 %304, label %305, label %307
 
 305:                                              ; preds = %298
-  %306 = load ptr, ptr %3, align 8, !tbaa !3
+  %306 = load ptr, ptr %3, align 8, !tbaa !8
   call void @lv_obj_remove_flag(ptr noundef %306, i32 noundef 512)
   br label %309
 
 307:                                              ; preds = %298
-  %308 = load ptr, ptr %3, align 8, !tbaa !3
+  %308 = load ptr, ptr %3, align 8, !tbaa !8
   call void @lv_obj_remove_flag(ptr noundef %308, i32 noundef 256)
   br label %309
 
 309:                                              ; preds = %307, %305
-  %310 = load ptr, ptr %3, align 8, !tbaa !3
+  %310 = load ptr, ptr %3, align 8, !tbaa !8
   call void @lv_obj_invalidate(ptr noundef %310)
   call void @llvm.lifetime.start.p0(i64 4, ptr %26) #4
-  %311 = load ptr, ptr %3, align 8, !tbaa !3
+  %311 = load ptr, ptr %3, align 8, !tbaa !8
   %312 = call i32 @lv_obj_send_event(ptr noundef %311, i32 noundef 35, ptr noundef null)
-  store i32 %312, ptr %26, align 4, !tbaa !17
-  %313 = load i32, ptr %26, align 4, !tbaa !17
+  store i32 %312, ptr %26, align 4, !tbaa !27
+  %313 = load i32, ptr %26, align 4, !tbaa !27
   %314 = icmp ne i32 %313, 1
   br i1 %314, label %315, label %316
 
@@ -1687,14 +1765,59 @@ declare void @lv_group_set_editing(ptr noundef, i1 noundef zeroext) #2
 
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @is_slider_horizontal(ptr noundef %0) #0 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8, !tbaa !3
-  %3 = load ptr, ptr %2, align 8, !tbaa !3
-  %4 = call i32 @lv_obj_get_width(ptr noundef %3)
-  %5 = load ptr, ptr %2, align 8, !tbaa !3
-  %6 = call i32 @lv_obj_get_height(ptr noundef %5)
-  %7 = icmp sge i32 %4, %6
-  ret i1 %7
+  %2 = alloca i1, align 1
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #4
+  %6 = load ptr, ptr %3, align 8, !tbaa !8
+  store ptr %6, ptr %4, align 8, !tbaa !10
+  %7 = load ptr, ptr %4, align 8, !tbaa !10
+  %8 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %7, i32 0, i32 0
+  %9 = getelementptr inbounds nuw %struct._lv_bar_t, ptr %8, i32 0, i32 9
+  %10 = load i8, ptr %9, align 8
+  %11 = lshr i8 %10, 3
+  %12 = and i8 %11, 7
+  %13 = zext i8 %12 to i32
+  %14 = icmp eq i32 %13, 0
+  br i1 %14, label %15, label %21
+
+15:                                               ; preds = %1
+  %16 = load ptr, ptr %3, align 8, !tbaa !8
+  %17 = call i32 @lv_obj_get_width(ptr noundef %16)
+  %18 = load ptr, ptr %3, align 8, !tbaa !8
+  %19 = call i32 @lv_obj_get_height(ptr noundef %18)
+  %20 = icmp sge i32 %17, %19
+  store i1 %20, ptr %2, align 1
+  store i32 1, ptr %5, align 4
+  br label %32
+
+21:                                               ; preds = %1
+  %22 = load ptr, ptr %4, align 8, !tbaa !10
+  %23 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %22, i32 0, i32 0
+  %24 = getelementptr inbounds nuw %struct._lv_bar_t, ptr %23, i32 0, i32 9
+  %25 = load i8, ptr %24, align 8
+  %26 = lshr i8 %25, 3
+  %27 = and i8 %26, 7
+  %28 = zext i8 %27 to i32
+  %29 = icmp eq i32 %28, 1
+  br i1 %29, label %30, label %31
+
+30:                                               ; preds = %21
+  store i1 true, ptr %2, align 1
+  store i32 1, ptr %5, align 4
+  br label %32
+
+31:                                               ; preds = %21
+  store i1 false, ptr %2, align 1
+  store i32 1, ptr %5, align 4
+  br label %32
+
+32:                                               ; preds = %31, %30, %15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #4
+  %33 = load i1, ptr %2, align 1
+  ret i1 %33
 }
 
 declare void @lv_obj_refresh_ext_draw_size(ptr noundef) #2
@@ -1704,15 +1827,15 @@ define internal i32 @lv_obj_get_style_pad_left(ptr noundef %0, i32 noundef %1) #
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca %union.lv_style_value_t, align 8
-  store ptr %0, ptr %3, align 8, !tbaa !3
-  store i32 %1, ptr %4, align 4, !tbaa !17
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store i32 %1, ptr %4, align 4, !tbaa !27
   call void @llvm.lifetime.start.p0(i64 8, ptr %5) #4
-  %6 = load ptr, ptr %3, align 8, !tbaa !3
-  %7 = load i32, ptr %4, align 4, !tbaa !17
+  %6 = load ptr, ptr %3, align 8, !tbaa !8
+  %7 = load i32, ptr %4, align 4, !tbaa !27
   %8 = call ptr @lv_obj_get_style_prop(ptr noundef %6, i32 noundef %7, i8 noundef zeroext 18)
   %9 = getelementptr inbounds nuw %union.lv_style_value_t, ptr %5, i32 0, i32 0
   store ptr %8, ptr %9, align 8
-  %10 = load i32, ptr %5, align 8, !tbaa !49
+  %10 = load i32, ptr %5, align 8, !tbaa !72
   call void @llvm.lifetime.end.p0(i64 8, ptr %5) #4
   ret i32 %10
 }
@@ -1722,15 +1845,15 @@ define internal i32 @lv_obj_get_style_pad_right(ptr noundef %0, i32 noundef %1) 
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca %union.lv_style_value_t, align 8
-  store ptr %0, ptr %3, align 8, !tbaa !3
-  store i32 %1, ptr %4, align 4, !tbaa !17
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store i32 %1, ptr %4, align 4, !tbaa !27
   call void @llvm.lifetime.start.p0(i64 8, ptr %5) #4
-  %6 = load ptr, ptr %3, align 8, !tbaa !3
-  %7 = load i32, ptr %4, align 4, !tbaa !17
+  %6 = load ptr, ptr %3, align 8, !tbaa !8
+  %7 = load i32, ptr %4, align 4, !tbaa !27
   %8 = call ptr @lv_obj_get_style_prop(ptr noundef %6, i32 noundef %7, i8 noundef zeroext 19)
   %9 = getelementptr inbounds nuw %union.lv_style_value_t, ptr %5, i32 0, i32 0
   store ptr %8, ptr %9, align 8
-  %10 = load i32, ptr %5, align 8, !tbaa !49
+  %10 = load i32, ptr %5, align 8, !tbaa !72
   call void @llvm.lifetime.end.p0(i64 8, ptr %5) #4
   ret i32 %10
 }
@@ -1740,15 +1863,15 @@ define internal i32 @lv_obj_get_style_pad_top(ptr noundef %0, i32 noundef %1) #3
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca %union.lv_style_value_t, align 8
-  store ptr %0, ptr %3, align 8, !tbaa !3
-  store i32 %1, ptr %4, align 4, !tbaa !17
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store i32 %1, ptr %4, align 4, !tbaa !27
   call void @llvm.lifetime.start.p0(i64 8, ptr %5) #4
-  %6 = load ptr, ptr %3, align 8, !tbaa !3
-  %7 = load i32, ptr %4, align 4, !tbaa !17
+  %6 = load ptr, ptr %3, align 8, !tbaa !8
+  %7 = load i32, ptr %4, align 4, !tbaa !27
   %8 = call ptr @lv_obj_get_style_prop(ptr noundef %6, i32 noundef %7, i8 noundef zeroext 16)
   %9 = getelementptr inbounds nuw %union.lv_style_value_t, ptr %5, i32 0, i32 0
   store ptr %8, ptr %9, align 8
-  %10 = load i32, ptr %5, align 8, !tbaa !49
+  %10 = load i32, ptr %5, align 8, !tbaa !72
   call void @llvm.lifetime.end.p0(i64 8, ptr %5) #4
   ret i32 %10
 }
@@ -1758,15 +1881,15 @@ define internal i32 @lv_obj_get_style_pad_bottom(ptr noundef %0, i32 noundef %1)
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca %union.lv_style_value_t, align 8
-  store ptr %0, ptr %3, align 8, !tbaa !3
-  store i32 %1, ptr %4, align 4, !tbaa !17
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store i32 %1, ptr %4, align 4, !tbaa !27
   call void @llvm.lifetime.start.p0(i64 8, ptr %5) #4
-  %6 = load ptr, ptr %3, align 8, !tbaa !3
-  %7 = load i32, ptr %4, align 4, !tbaa !17
+  %6 = load ptr, ptr %3, align 8, !tbaa !8
+  %7 = load i32, ptr %4, align 4, !tbaa !27
   %8 = call ptr @lv_obj_get_style_prop(ptr noundef %6, i32 noundef %7, i8 noundef zeroext 17)
   %9 = getelementptr inbounds nuw %union.lv_style_value_t, ptr %5, i32 0, i32 0
   store ptr %8, ptr %9, align 8
-  %10 = load i32, ptr %5, align 8, !tbaa !49
+  %10 = load i32, ptr %5, align 8, !tbaa !72
   call void @llvm.lifetime.end.p0(i64 8, ptr %5) #4
   ret i32 %10
 }
@@ -1776,15 +1899,15 @@ define internal i32 @lv_obj_get_style_transform_width(ptr noundef %0, i32 nounde
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca %union.lv_style_value_t, align 8
-  store ptr %0, ptr %3, align 8, !tbaa !3
-  store i32 %1, ptr %4, align 4, !tbaa !17
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store i32 %1, ptr %4, align 4, !tbaa !27
   call void @llvm.lifetime.start.p0(i64 8, ptr %5) #4
-  %6 = load ptr, ptr %3, align 8, !tbaa !3
-  %7 = load i32, ptr %4, align 4, !tbaa !17
+  %6 = load ptr, ptr %3, align 8, !tbaa !8
+  %7 = load i32, ptr %4, align 4, !tbaa !27
   %8 = call ptr @lv_obj_get_style_prop(ptr noundef %6, i32 noundef %7, i8 noundef zeroext 104)
   %9 = getelementptr inbounds nuw %union.lv_style_value_t, ptr %5, i32 0, i32 0
   store ptr %8, ptr %9, align 8
-  %10 = load i32, ptr %5, align 8, !tbaa !49
+  %10 = load i32, ptr %5, align 8, !tbaa !72
   call void @llvm.lifetime.end.p0(i64 8, ptr %5) #4
   ret i32 %10
 }
@@ -1794,15 +1917,15 @@ define internal i32 @lv_obj_get_style_transform_height(ptr noundef %0, i32 nound
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca %union.lv_style_value_t, align 8
-  store ptr %0, ptr %3, align 8, !tbaa !3
-  store i32 %1, ptr %4, align 4, !tbaa !17
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store i32 %1, ptr %4, align 4, !tbaa !27
   call void @llvm.lifetime.start.p0(i64 8, ptr %5) #4
-  %6 = load ptr, ptr %3, align 8, !tbaa !3
-  %7 = load i32, ptr %4, align 4, !tbaa !17
+  %6 = load ptr, ptr %3, align 8, !tbaa !8
+  %7 = load i32, ptr %4, align 4, !tbaa !27
   %8 = call ptr @lv_obj_get_style_prop(ptr noundef %6, i32 noundef %7, i8 noundef zeroext 105)
   %9 = getelementptr inbounds nuw %union.lv_style_value_t, ptr %5, i32 0, i32 0
   store ptr %8, ptr %9, align 8
-  %10 = load i32, ptr %5, align 8, !tbaa !49
+  %10 = load i32, ptr %5, align 8, !tbaa !72
   call void @llvm.lifetime.end.p0(i64 8, ptr %5) #4
   ret i32 %10
 }
@@ -1833,42 +1956,42 @@ define internal void @draw_knob(ptr noundef %0) #0 {
   %11 = alloca i8, align 1
   %12 = alloca %struct.lv_draw_rect_dsc_t, align 8
   %13 = alloca %struct.lv_draw_rect_dsc_t, align 8
-  store ptr %0, ptr %2, align 8, !tbaa !3
+  store ptr %0, ptr %2, align 8, !tbaa !25
   call void @llvm.lifetime.start.p0(i64 8, ptr %3) #4
-  %14 = load ptr, ptr %2, align 8, !tbaa !3
+  %14 = load ptr, ptr %2, align 8, !tbaa !25
   %15 = call ptr @lv_event_get_current_target(ptr noundef %14)
-  store ptr %15, ptr %3, align 8, !tbaa !3
+  store ptr %15, ptr %3, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 8, ptr %4) #4
-  %16 = load ptr, ptr %3, align 8, !tbaa !3
-  store ptr %16, ptr %4, align 8, !tbaa !3
+  %16 = load ptr, ptr %3, align 8, !tbaa !8
+  store ptr %16, ptr %4, align 8, !tbaa !10
   call void @llvm.lifetime.start.p0(i64 8, ptr %5) #4
-  %17 = load ptr, ptr %2, align 8, !tbaa !3
+  %17 = load ptr, ptr %2, align 8, !tbaa !25
   %18 = call ptr @lv_event_get_layer(ptr noundef %17)
-  store ptr %18, ptr %5, align 8, !tbaa !3
+  store ptr %18, ptr %5, align 8, !tbaa !73
   call void @llvm.lifetime.start.p0(i64 1, ptr %6) #4
-  %19 = load ptr, ptr %3, align 8, !tbaa !3
+  %19 = load ptr, ptr %3, align 8, !tbaa !8
   %20 = call i32 @lv_obj_get_style_base_dir(ptr noundef %19, i32 noundef 0)
   %21 = icmp eq i32 1, %20
   %22 = zext i1 %21 to i8
-  store i8 %22, ptr %6, align 1, !tbaa !28
+  store i8 %22, ptr %6, align 1, !tbaa !44
   call void @llvm.lifetime.start.p0(i64 1, ptr %7) #4
-  %23 = load ptr, ptr %3, align 8, !tbaa !3
+  %23 = load ptr, ptr %3, align 8, !tbaa !8
   %24 = call zeroext i1 @is_slider_horizontal(ptr noundef %23)
   %25 = zext i1 %24 to i8
-  store i8 %25, ptr %7, align 1, !tbaa !28
+  store i8 %25, ptr %7, align 1, !tbaa !44
   call void @llvm.lifetime.start.p0(i64 1, ptr %8) #4
-  %26 = load ptr, ptr %4, align 8, !tbaa !3
+  %26 = load ptr, ptr %4, align 8, !tbaa !10
   %27 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %26, i32 0, i32 0
   %28 = getelementptr inbounds nuw %struct._lv_bar_t, ptr %27, i32 0, i32 6
-  %29 = load i8, ptr %28, align 8, !tbaa !42, !range !26, !noundef !27
+  %29 = load i8, ptr %28, align 8, !tbaa !65, !range !41, !noundef !42
   %30 = trunc i8 %29 to i1
   %31 = zext i1 %30 to i32
-  %32 = load i8, ptr %6, align 1, !tbaa !28, !range !26, !noundef !27
+  %32 = load i8, ptr %6, align 1, !tbaa !44, !range !41, !noundef !42
   %33 = trunc i8 %32 to i1
   br i1 %33, label %34, label %37
 
 34:                                               ; preds = %1
-  %35 = load i8, ptr %7, align 1, !tbaa !28, !range !26, !noundef !27
+  %35 = load i8, ptr %7, align 1, !tbaa !44, !range !41, !noundef !42
   %36 = trunc i8 %35 to i1
   br label %37
 
@@ -1878,159 +2001,159 @@ define internal void @draw_knob(ptr noundef %0) #0 {
   %40 = xor i32 %31, %39
   %41 = icmp ne i32 %40, 0
   %42 = zext i1 %41 to i8
-  store i8 %42, ptr %8, align 1, !tbaa !28
+  store i8 %42, ptr %8, align 1, !tbaa !44
   call void @llvm.lifetime.start.p0(i64 16, ptr %9) #4
   call void @llvm.lifetime.start.p0(i64 4, ptr %10) #4
   call void @llvm.lifetime.start.p0(i64 1, ptr %11) #4
-  %43 = load ptr, ptr %3, align 8, !tbaa !3
+  %43 = load ptr, ptr %3, align 8, !tbaa !8
   %44 = call zeroext i1 @lv_slider_is_symmetrical(ptr noundef %43)
   %45 = zext i1 %44 to i8
-  store i8 %45, ptr %11, align 1, !tbaa !28
-  %46 = load i8, ptr %7, align 1, !tbaa !28, !range !26, !noundef !27
+  store i8 %45, ptr %11, align 1, !tbaa !44
+  %46 = load i8, ptr %7, align 1, !tbaa !44, !range !41, !noundef !42
   %47 = trunc i8 %46 to i1
   br i1 %47, label %48, label %96
 
 48:                                               ; preds = %37
-  %49 = load ptr, ptr %3, align 8, !tbaa !3
+  %49 = load ptr, ptr %3, align 8, !tbaa !8
   %50 = call i32 @lv_obj_get_height(ptr noundef %49)
-  store i32 %50, ptr %10, align 4, !tbaa !17
-  %51 = load i8, ptr %11, align 1, !tbaa !28, !range !26, !noundef !27
+  store i32 %50, ptr %10, align 4, !tbaa !27
+  %51 = load i8, ptr %11, align 1, !tbaa !44, !range !41, !noundef !42
   %52 = trunc i8 %51 to i1
   br i1 %52, label %53, label %77
 
 53:                                               ; preds = %48
-  %54 = load ptr, ptr %4, align 8, !tbaa !3
+  %54 = load ptr, ptr %4, align 8, !tbaa !10
   %55 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %54, i32 0, i32 0
   %56 = getelementptr inbounds nuw %struct._lv_bar_t, ptr %55, i32 0, i32 1
-  %57 = load i32, ptr %56, align 8, !tbaa !47
+  %57 = load i32, ptr %56, align 8, !tbaa !70
   %58 = icmp slt i32 %57, 0
   br i1 %58, label %59, label %77
 
 59:                                               ; preds = %53
-  %60 = load i8, ptr %8, align 1, !tbaa !28, !range !26, !noundef !27
+  %60 = load i8, ptr %8, align 1, !tbaa !44, !range !41, !noundef !42
   %61 = trunc i8 %60 to i1
   br i1 %61, label %68, label %62
 
 62:                                               ; preds = %59
-  %63 = load ptr, ptr %4, align 8, !tbaa !3
+  %63 = load ptr, ptr %4, align 8, !tbaa !10
   %64 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %63, i32 0, i32 0
   %65 = getelementptr inbounds nuw %struct._lv_bar_t, ptr %64, i32 0, i32 5
   %66 = getelementptr inbounds nuw %struct.lv_area_t, ptr %65, i32 0, i32 0
-  %67 = load i32, ptr %66, align 8, !tbaa !50
+  %67 = load i32, ptr %66, align 8, !tbaa !75
   br label %74
 
 68:                                               ; preds = %59
-  %69 = load ptr, ptr %4, align 8, !tbaa !3
+  %69 = load ptr, ptr %4, align 8, !tbaa !10
   %70 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %69, i32 0, i32 0
   %71 = getelementptr inbounds nuw %struct._lv_bar_t, ptr %70, i32 0, i32 5
   %72 = getelementptr inbounds nuw %struct.lv_area_t, ptr %71, i32 0, i32 2
-  %73 = load i32, ptr %72, align 8, !tbaa !51
+  %73 = load i32, ptr %72, align 8, !tbaa !76
   br label %74
 
 74:                                               ; preds = %68, %62
   %75 = phi i32 [ %67, %62 ], [ %73, %68 ]
   %76 = getelementptr inbounds nuw %struct.lv_area_t, ptr %9, i32 0, i32 0
-  store i32 %75, ptr %76, align 4, !tbaa !29
+  store i32 %75, ptr %76, align 4, !tbaa !47
   br label %95
 
 77:                                               ; preds = %53, %48
-  %78 = load i8, ptr %8, align 1, !tbaa !28, !range !26, !noundef !27
+  %78 = load i8, ptr %8, align 1, !tbaa !44, !range !41, !noundef !42
   %79 = trunc i8 %78 to i1
   br i1 %79, label %80, label %86
 
 80:                                               ; preds = %77
-  %81 = load ptr, ptr %4, align 8, !tbaa !3
+  %81 = load ptr, ptr %4, align 8, !tbaa !10
   %82 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %81, i32 0, i32 0
   %83 = getelementptr inbounds nuw %struct._lv_bar_t, ptr %82, i32 0, i32 5
   %84 = getelementptr inbounds nuw %struct.lv_area_t, ptr %83, i32 0, i32 0
-  %85 = load i32, ptr %84, align 8, !tbaa !50
+  %85 = load i32, ptr %84, align 8, !tbaa !75
   br label %92
 
 86:                                               ; preds = %77
-  %87 = load ptr, ptr %4, align 8, !tbaa !3
+  %87 = load ptr, ptr %4, align 8, !tbaa !10
   %88 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %87, i32 0, i32 0
   %89 = getelementptr inbounds nuw %struct._lv_bar_t, ptr %88, i32 0, i32 5
   %90 = getelementptr inbounds nuw %struct.lv_area_t, ptr %89, i32 0, i32 2
-  %91 = load i32, ptr %90, align 8, !tbaa !51
+  %91 = load i32, ptr %90, align 8, !tbaa !76
   br label %92
 
 92:                                               ; preds = %86, %80
   %93 = phi i32 [ %85, %80 ], [ %91, %86 ]
   %94 = getelementptr inbounds nuw %struct.lv_area_t, ptr %9, i32 0, i32 0
-  store i32 %93, ptr %94, align 4, !tbaa !29
+  store i32 %93, ptr %94, align 4, !tbaa !47
   br label %95
 
 95:                                               ; preds = %92, %74
   br label %144
 
 96:                                               ; preds = %37
-  %97 = load ptr, ptr %3, align 8, !tbaa !3
+  %97 = load ptr, ptr %3, align 8, !tbaa !8
   %98 = call i32 @lv_obj_get_width(ptr noundef %97)
-  store i32 %98, ptr %10, align 4, !tbaa !17
-  %99 = load i8, ptr %11, align 1, !tbaa !28, !range !26, !noundef !27
+  store i32 %98, ptr %10, align 4, !tbaa !27
+  %99 = load i8, ptr %11, align 1, !tbaa !44, !range !41, !noundef !42
   %100 = trunc i8 %99 to i1
   br i1 %100, label %101, label %125
 
 101:                                              ; preds = %96
-  %102 = load ptr, ptr %4, align 8, !tbaa !3
+  %102 = load ptr, ptr %4, align 8, !tbaa !10
   %103 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %102, i32 0, i32 0
   %104 = getelementptr inbounds nuw %struct._lv_bar_t, ptr %103, i32 0, i32 1
-  %105 = load i32, ptr %104, align 8, !tbaa !47
+  %105 = load i32, ptr %104, align 8, !tbaa !70
   %106 = icmp slt i32 %105, 0
   br i1 %106, label %107, label %125
 
 107:                                              ; preds = %101
-  %108 = load i8, ptr %8, align 1, !tbaa !28, !range !26, !noundef !27
+  %108 = load i8, ptr %8, align 1, !tbaa !44, !range !41, !noundef !42
   %109 = trunc i8 %108 to i1
   br i1 %109, label %116, label %110
 
 110:                                              ; preds = %107
-  %111 = load ptr, ptr %4, align 8, !tbaa !3
+  %111 = load ptr, ptr %4, align 8, !tbaa !10
   %112 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %111, i32 0, i32 0
   %113 = getelementptr inbounds nuw %struct._lv_bar_t, ptr %112, i32 0, i32 5
   %114 = getelementptr inbounds nuw %struct.lv_area_t, ptr %113, i32 0, i32 3
-  %115 = load i32, ptr %114, align 4, !tbaa !52
+  %115 = load i32, ptr %114, align 4, !tbaa !77
   br label %122
 
 116:                                              ; preds = %107
-  %117 = load ptr, ptr %4, align 8, !tbaa !3
+  %117 = load ptr, ptr %4, align 8, !tbaa !10
   %118 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %117, i32 0, i32 0
   %119 = getelementptr inbounds nuw %struct._lv_bar_t, ptr %118, i32 0, i32 5
   %120 = getelementptr inbounds nuw %struct.lv_area_t, ptr %119, i32 0, i32 1
-  %121 = load i32, ptr %120, align 4, !tbaa !53
+  %121 = load i32, ptr %120, align 4, !tbaa !78
   br label %122
 
 122:                                              ; preds = %116, %110
   %123 = phi i32 [ %115, %110 ], [ %121, %116 ]
   %124 = getelementptr inbounds nuw %struct.lv_area_t, ptr %9, i32 0, i32 1
-  store i32 %123, ptr %124, align 4, !tbaa !30
+  store i32 %123, ptr %124, align 4, !tbaa !48
   br label %143
 
 125:                                              ; preds = %101, %96
-  %126 = load i8, ptr %8, align 1, !tbaa !28, !range !26, !noundef !27
+  %126 = load i8, ptr %8, align 1, !tbaa !44, !range !41, !noundef !42
   %127 = trunc i8 %126 to i1
   br i1 %127, label %128, label %134
 
 128:                                              ; preds = %125
-  %129 = load ptr, ptr %4, align 8, !tbaa !3
+  %129 = load ptr, ptr %4, align 8, !tbaa !10
   %130 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %129, i32 0, i32 0
   %131 = getelementptr inbounds nuw %struct._lv_bar_t, ptr %130, i32 0, i32 5
   %132 = getelementptr inbounds nuw %struct.lv_area_t, ptr %131, i32 0, i32 3
-  %133 = load i32, ptr %132, align 4, !tbaa !52
+  %133 = load i32, ptr %132, align 4, !tbaa !77
   br label %140
 
 134:                                              ; preds = %125
-  %135 = load ptr, ptr %4, align 8, !tbaa !3
+  %135 = load ptr, ptr %4, align 8, !tbaa !10
   %136 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %135, i32 0, i32 0
   %137 = getelementptr inbounds nuw %struct._lv_bar_t, ptr %136, i32 0, i32 5
   %138 = getelementptr inbounds nuw %struct.lv_area_t, ptr %137, i32 0, i32 1
-  %139 = load i32, ptr %138, align 4, !tbaa !53
+  %139 = load i32, ptr %138, align 4, !tbaa !78
   br label %140
 
 140:                                              ; preds = %134, %128
   %141 = phi i32 [ %133, %128 ], [ %139, %134 ]
   %142 = getelementptr inbounds nuw %struct.lv_area_t, ptr %9, i32 0, i32 1
-  store i32 %141, ptr %142, align 4, !tbaa !30
+  store i32 %141, ptr %142, align 4, !tbaa !48
   br label %143
 
 143:                                              ; preds = %140, %122
@@ -2039,111 +2162,115 @@ define internal void @draw_knob(ptr noundef %0) #0 {
 144:                                              ; preds = %143, %95
   call void @llvm.lifetime.start.p0(i64 144, ptr %12) #4
   call void @lv_draw_rect_dsc_init(ptr noundef %12)
-  %145 = load ptr, ptr %3, align 8, !tbaa !3
-  call void @lv_obj_init_draw_rect_dsc(ptr noundef %145, i32 noundef 196608, ptr noundef %12)
-  %146 = load ptr, ptr %3, align 8, !tbaa !3
-  %147 = load i32, ptr %10, align 4, !tbaa !17
-  %148 = load i8, ptr %7, align 1, !tbaa !28, !range !26, !noundef !27
-  %149 = trunc i8 %148 to i1
-  call void @position_knob(ptr noundef %146, ptr noundef %9, i32 noundef %147, i1 noundef zeroext %149)
-  %150 = load ptr, ptr %4, align 8, !tbaa !3
-  %151 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %150, i32 0, i32 2
-  call void @lv_area_copy(ptr noundef %151, ptr noundef %9)
-  %152 = load ptr, ptr %3, align 8, !tbaa !3
-  %153 = call i32 @lv_slider_get_mode(ptr noundef %152)
-  %154 = icmp ne i32 %153, 2
-  br i1 %154, label %155, label %159
+  %145 = load ptr, ptr %5, align 8, !tbaa !73
+  %146 = getelementptr inbounds nuw %struct.lv_draw_rect_dsc_t, ptr %12, i32 0, i32 0
+  %147 = getelementptr inbounds nuw %struct.lv_draw_dsc_base_t, ptr %146, i32 0, i32 4
+  store ptr %145, ptr %147, align 8, !tbaa !79
+  %148 = load ptr, ptr %3, align 8, !tbaa !8
+  call void @lv_obj_init_draw_rect_dsc(ptr noundef %148, i32 noundef 196608, ptr noundef %12)
+  %149 = load ptr, ptr %3, align 8, !tbaa !8
+  %150 = load i32, ptr %10, align 4, !tbaa !27
+  %151 = load i8, ptr %7, align 1, !tbaa !44, !range !41, !noundef !42
+  %152 = trunc i8 %151 to i1
+  call void @position_knob(ptr noundef %149, ptr noundef %9, i32 noundef %150, i1 noundef zeroext %152)
+  %153 = load ptr, ptr %4, align 8, !tbaa !10
+  %154 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %153, i32 0, i32 2
+  call void @lv_area_copy(ptr noundef %154, ptr noundef %9)
+  %155 = load ptr, ptr %3, align 8, !tbaa !8
+  %156 = call i32 @lv_slider_get_mode(ptr noundef %155)
+  %157 = icmp ne i32 %156, 2
+  br i1 %157, label %158, label %162
 
-155:                                              ; preds = %144
-  %156 = load ptr, ptr %5, align 8, !tbaa !3
-  %157 = load ptr, ptr %4, align 8, !tbaa !3
-  %158 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %157, i32 0, i32 2
-  call void @lv_draw_rect(ptr noundef %156, ptr noundef %12, ptr noundef %158)
-  br label %213
+158:                                              ; preds = %144
+  %159 = load ptr, ptr %5, align 8, !tbaa !73
+  %160 = load ptr, ptr %4, align 8, !tbaa !10
+  %161 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %160, i32 0, i32 2
+  call void @lv_draw_rect(ptr noundef %159, ptr noundef %12, ptr noundef %161)
+  br label %216
 
-159:                                              ; preds = %144
+162:                                              ; preds = %144
   call void @llvm.lifetime.start.p0(i64 144, ptr %13) #4
-  %160 = call ptr @lv_memcpy(ptr noundef %13, ptr noundef %12, i64 noundef 144)
-  %161 = load ptr, ptr %5, align 8, !tbaa !3
-  %162 = load ptr, ptr %4, align 8, !tbaa !3
-  %163 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %162, i32 0, i32 2
-  call void @lv_draw_rect(ptr noundef %161, ptr noundef %12, ptr noundef %163)
-  %164 = load i8, ptr %7, align 1, !tbaa !28, !range !26, !noundef !27
-  %165 = trunc i8 %164 to i1
-  br i1 %165, label %166, label %184
-
-166:                                              ; preds = %159
-  %167 = load i8, ptr %8, align 1, !tbaa !28, !range !26, !noundef !27
+  %163 = call ptr @lv_memcpy(ptr noundef %13, ptr noundef %12, i64 noundef 144)
+  %164 = load ptr, ptr %5, align 8, !tbaa !73
+  %165 = load ptr, ptr %4, align 8, !tbaa !10
+  %166 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %165, i32 0, i32 2
+  call void @lv_draw_rect(ptr noundef %164, ptr noundef %12, ptr noundef %166)
+  %167 = load i8, ptr %7, align 1, !tbaa !44, !range !41, !noundef !42
   %168 = trunc i8 %167 to i1
-  br i1 %168, label %175, label %169
+  br i1 %168, label %169, label %187
 
-169:                                              ; preds = %166
-  %170 = load ptr, ptr %4, align 8, !tbaa !3
-  %171 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %170, i32 0, i32 0
-  %172 = getelementptr inbounds nuw %struct._lv_bar_t, ptr %171, i32 0, i32 5
-  %173 = getelementptr inbounds nuw %struct.lv_area_t, ptr %172, i32 0, i32 0
-  %174 = load i32, ptr %173, align 8, !tbaa !50
-  br label %181
+169:                                              ; preds = %162
+  %170 = load i8, ptr %8, align 1, !tbaa !44, !range !41, !noundef !42
+  %171 = trunc i8 %170 to i1
+  br i1 %171, label %178, label %172
 
-175:                                              ; preds = %166
-  %176 = load ptr, ptr %4, align 8, !tbaa !3
-  %177 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %176, i32 0, i32 0
-  %178 = getelementptr inbounds nuw %struct._lv_bar_t, ptr %177, i32 0, i32 5
-  %179 = getelementptr inbounds nuw %struct.lv_area_t, ptr %178, i32 0, i32 2
-  %180 = load i32, ptr %179, align 8, !tbaa !51
-  br label %181
+172:                                              ; preds = %169
+  %173 = load ptr, ptr %4, align 8, !tbaa !10
+  %174 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %173, i32 0, i32 0
+  %175 = getelementptr inbounds nuw %struct._lv_bar_t, ptr %174, i32 0, i32 5
+  %176 = getelementptr inbounds nuw %struct.lv_area_t, ptr %175, i32 0, i32 0
+  %177 = load i32, ptr %176, align 8, !tbaa !75
+  br label %184
 
-181:                                              ; preds = %175, %169
-  %182 = phi i32 [ %174, %169 ], [ %180, %175 ]
-  %183 = getelementptr inbounds nuw %struct.lv_area_t, ptr %9, i32 0, i32 0
-  store i32 %182, ptr %183, align 4, !tbaa !29
+178:                                              ; preds = %169
+  %179 = load ptr, ptr %4, align 8, !tbaa !10
+  %180 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %179, i32 0, i32 0
+  %181 = getelementptr inbounds nuw %struct._lv_bar_t, ptr %180, i32 0, i32 5
+  %182 = getelementptr inbounds nuw %struct.lv_area_t, ptr %181, i32 0, i32 2
+  %183 = load i32, ptr %182, align 8, !tbaa !76
+  br label %184
+
+184:                                              ; preds = %178, %172
+  %185 = phi i32 [ %177, %172 ], [ %183, %178 ]
+  %186 = getelementptr inbounds nuw %struct.lv_area_t, ptr %9, i32 0, i32 0
+  store i32 %185, ptr %186, align 4, !tbaa !47
+  br label %205
+
+187:                                              ; preds = %162
+  %188 = load i8, ptr %8, align 1, !tbaa !44, !range !41, !noundef !42
+  %189 = trunc i8 %188 to i1
+  br i1 %189, label %196, label %190
+
+190:                                              ; preds = %187
+  %191 = load ptr, ptr %4, align 8, !tbaa !10
+  %192 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %191, i32 0, i32 0
+  %193 = getelementptr inbounds nuw %struct._lv_bar_t, ptr %192, i32 0, i32 5
+  %194 = getelementptr inbounds nuw %struct.lv_area_t, ptr %193, i32 0, i32 3
+  %195 = load i32, ptr %194, align 4, !tbaa !77
   br label %202
 
-184:                                              ; preds = %159
-  %185 = load i8, ptr %8, align 1, !tbaa !28, !range !26, !noundef !27
-  %186 = trunc i8 %185 to i1
-  br i1 %186, label %193, label %187
-
-187:                                              ; preds = %184
-  %188 = load ptr, ptr %4, align 8, !tbaa !3
-  %189 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %188, i32 0, i32 0
-  %190 = getelementptr inbounds nuw %struct._lv_bar_t, ptr %189, i32 0, i32 5
-  %191 = getelementptr inbounds nuw %struct.lv_area_t, ptr %190, i32 0, i32 3
-  %192 = load i32, ptr %191, align 4, !tbaa !52
-  br label %199
-
-193:                                              ; preds = %184
-  %194 = load ptr, ptr %4, align 8, !tbaa !3
-  %195 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %194, i32 0, i32 0
-  %196 = getelementptr inbounds nuw %struct._lv_bar_t, ptr %195, i32 0, i32 5
-  %197 = getelementptr inbounds nuw %struct.lv_area_t, ptr %196, i32 0, i32 1
-  %198 = load i32, ptr %197, align 4, !tbaa !53
-  br label %199
-
-199:                                              ; preds = %193, %187
-  %200 = phi i32 [ %192, %187 ], [ %198, %193 ]
-  %201 = getelementptr inbounds nuw %struct.lv_area_t, ptr %9, i32 0, i32 1
-  store i32 %200, ptr %201, align 4, !tbaa !30
+196:                                              ; preds = %187
+  %197 = load ptr, ptr %4, align 8, !tbaa !10
+  %198 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %197, i32 0, i32 0
+  %199 = getelementptr inbounds nuw %struct._lv_bar_t, ptr %198, i32 0, i32 5
+  %200 = getelementptr inbounds nuw %struct.lv_area_t, ptr %199, i32 0, i32 1
+  %201 = load i32, ptr %200, align 4, !tbaa !78
   br label %202
 
-202:                                              ; preds = %199, %181
-  %203 = load ptr, ptr %3, align 8, !tbaa !3
-  %204 = load i32, ptr %10, align 4, !tbaa !17
-  %205 = load i8, ptr %7, align 1, !tbaa !28, !range !26, !noundef !27
-  %206 = trunc i8 %205 to i1
-  call void @position_knob(ptr noundef %203, ptr noundef %9, i32 noundef %204, i1 noundef zeroext %206)
-  %207 = load ptr, ptr %4, align 8, !tbaa !3
-  %208 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %207, i32 0, i32 1
-  call void @lv_area_copy(ptr noundef %208, ptr noundef %9)
-  %209 = call ptr @lv_memcpy(ptr noundef %12, ptr noundef %13, i64 noundef 144)
-  %210 = load ptr, ptr %5, align 8, !tbaa !3
-  %211 = load ptr, ptr %4, align 8, !tbaa !3
-  %212 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %211, i32 0, i32 1
-  call void @lv_draw_rect(ptr noundef %210, ptr noundef %12, ptr noundef %212)
+202:                                              ; preds = %196, %190
+  %203 = phi i32 [ %195, %190 ], [ %201, %196 ]
+  %204 = getelementptr inbounds nuw %struct.lv_area_t, ptr %9, i32 0, i32 1
+  store i32 %203, ptr %204, align 4, !tbaa !48
+  br label %205
+
+205:                                              ; preds = %202, %184
+  %206 = load ptr, ptr %3, align 8, !tbaa !8
+  %207 = load i32, ptr %10, align 4, !tbaa !27
+  %208 = load i8, ptr %7, align 1, !tbaa !44, !range !41, !noundef !42
+  %209 = trunc i8 %208 to i1
+  call void @position_knob(ptr noundef %206, ptr noundef %9, i32 noundef %207, i1 noundef zeroext %209)
+  %210 = load ptr, ptr %4, align 8, !tbaa !10
+  %211 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %210, i32 0, i32 1
+  call void @lv_area_copy(ptr noundef %211, ptr noundef %9)
+  %212 = call ptr @lv_memcpy(ptr noundef %12, ptr noundef %13, i64 noundef 144)
+  %213 = load ptr, ptr %5, align 8, !tbaa !73
+  %214 = load ptr, ptr %4, align 8, !tbaa !10
+  %215 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %214, i32 0, i32 1
+  call void @lv_draw_rect(ptr noundef %213, ptr noundef %12, ptr noundef %215)
   call void @llvm.lifetime.end.p0(i64 144, ptr %13) #4
-  br label %213
+  br label %216
 
-213:                                              ; preds = %202, %155
+216:                                              ; preds = %205, %158
   call void @llvm.lifetime.end.p0(i64 144, ptr %12) #4
   call void @llvm.lifetime.end.p0(i64 1, ptr %11) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr %10) #4
@@ -2170,73 +2297,73 @@ define internal void @drag_start(ptr noundef %0) #0 {
   %8 = alloca i8, align 1
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8, !tbaa !3
+  store ptr %0, ptr %2, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 8, ptr %3) #4
-  %11 = load ptr, ptr %2, align 8, !tbaa !3
-  store ptr %11, ptr %3, align 8, !tbaa !3
+  %11 = load ptr, ptr %2, align 8, !tbaa !8
+  store ptr %11, ptr %3, align 8, !tbaa !10
   call void @llvm.lifetime.start.p0(i64 4, ptr %4) #4
-  %12 = load ptr, ptr %2, align 8, !tbaa !3
+  %12 = load ptr, ptr %2, align 8, !tbaa !8
   %13 = call i32 @lv_slider_get_mode(ptr noundef %12)
-  store i32 %13, ptr %4, align 4, !tbaa !17
+  store i32 %13, ptr %4, align 4, !tbaa !27
   call void @llvm.lifetime.start.p0(i64 8, ptr %5) #4
-  %14 = load ptr, ptr %3, align 8, !tbaa !3
+  %14 = load ptr, ptr %3, align 8, !tbaa !10
   %15 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %14, i32 0, i32 5
   %16 = load i8, ptr %15, align 8
   %17 = and i8 %16, -2
   %18 = or i8 %17, 1
   store i8 %18, ptr %15, align 8
-  %19 = load i32, ptr %4, align 4, !tbaa !17
+  %19 = load i32, ptr %4, align 4, !tbaa !27
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %24, label %21
 
 21:                                               ; preds = %1
-  %22 = load i32, ptr %4, align 4, !tbaa !17
+  %22 = load i32, ptr %4, align 4, !tbaa !27
   %23 = icmp eq i32 %22, 1
   br i1 %23, label %24, label %30
 
 24:                                               ; preds = %21, %1
-  %25 = load ptr, ptr %3, align 8, !tbaa !3
+  %25 = load ptr, ptr %3, align 8, !tbaa !10
   %26 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %25, i32 0, i32 0
   %27 = getelementptr inbounds nuw %struct._lv_bar_t, ptr %26, i32 0, i32 1
-  %28 = load ptr, ptr %3, align 8, !tbaa !3
+  %28 = load ptr, ptr %3, align 8, !tbaa !10
   %29 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %28, i32 0, i32 4
-  store ptr %27, ptr %29, align 8, !tbaa !7
+  store ptr %27, ptr %29, align 8, !tbaa !12
   br label %474
 
 30:                                               ; preds = %21
-  %31 = load i32, ptr %4, align 4, !tbaa !17
+  %31 = load i32, ptr %4, align 4, !tbaa !27
   %32 = icmp eq i32 %31, 2
   br i1 %32, label %33, label %473
 
 33:                                               ; preds = %30
   %34 = call ptr @lv_indev_active()
   call void @lv_indev_get_point(ptr noundef %34, ptr noundef %5)
-  %35 = load ptr, ptr %2, align 8, !tbaa !3
+  %35 = load ptr, ptr %2, align 8, !tbaa !8
   call void @lv_obj_transform_point(ptr noundef %35, ptr noundef %5, i32 noundef 3)
   call void @llvm.lifetime.start.p0(i64 1, ptr %6) #4
-  %36 = load ptr, ptr %2, align 8, !tbaa !3
+  %36 = load ptr, ptr %2, align 8, !tbaa !8
   %37 = call i32 @lv_obj_get_style_base_dir(ptr noundef %36, i32 noundef 0)
   %38 = icmp eq i32 1, %37
   %39 = zext i1 %38 to i8
-  store i8 %39, ptr %6, align 1, !tbaa !28
+  store i8 %39, ptr %6, align 1, !tbaa !44
   call void @llvm.lifetime.start.p0(i64 1, ptr %7) #4
-  %40 = load ptr, ptr %2, align 8, !tbaa !3
+  %40 = load ptr, ptr %2, align 8, !tbaa !8
   %41 = call zeroext i1 @is_slider_horizontal(ptr noundef %40)
   %42 = zext i1 %41 to i8
-  store i8 %42, ptr %7, align 1, !tbaa !28
+  store i8 %42, ptr %7, align 1, !tbaa !44
   call void @llvm.lifetime.start.p0(i64 1, ptr %8) #4
-  %43 = load ptr, ptr %3, align 8, !tbaa !3
+  %43 = load ptr, ptr %3, align 8, !tbaa !10
   %44 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %43, i32 0, i32 0
   %45 = getelementptr inbounds nuw %struct._lv_bar_t, ptr %44, i32 0, i32 6
-  %46 = load i8, ptr %45, align 8, !tbaa !42, !range !26, !noundef !27
+  %46 = load i8, ptr %45, align 8, !tbaa !65, !range !41, !noundef !42
   %47 = trunc i8 %46 to i1
   %48 = zext i1 %47 to i32
-  %49 = load i8, ptr %6, align 1, !tbaa !28, !range !26, !noundef !27
+  %49 = load i8, ptr %6, align 1, !tbaa !44, !range !41, !noundef !42
   %50 = trunc i8 %49 to i1
   br i1 %50, label %51, label %54
 
 51:                                               ; preds = %33
-  %52 = load i8, ptr %7, align 1, !tbaa !28, !range !26, !noundef !27
+  %52 = load i8, ptr %7, align 1, !tbaa !44, !range !41, !noundef !42
   %53 = trunc i8 %52 to i1
   br label %54
 
@@ -2246,239 +2373,239 @@ define internal void @drag_start(ptr noundef %0) #0 {
   %57 = xor i32 %48, %56
   %58 = icmp ne i32 %57, 0
   %59 = zext i1 %58 to i8
-  store i8 %59, ptr %8, align 1, !tbaa !28
+  store i8 %59, ptr %8, align 1, !tbaa !44
   call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
   call void @llvm.lifetime.start.p0(i64 4, ptr %10) #4
-  %60 = load i8, ptr %7, align 1, !tbaa !28, !range !26, !noundef !27
+  %60 = load i8, ptr %7, align 1, !tbaa !44, !range !41, !noundef !42
   %61 = trunc i8 %60 to i1
   br i1 %61, label %62, label %267
 
 62:                                               ; preds = %54
-  %63 = load i8, ptr %8, align 1, !tbaa !28, !range !26, !noundef !27
+  %63 = load i8, ptr %8, align 1, !tbaa !44, !range !41, !noundef !42
   %64 = trunc i8 %63 to i1
   br i1 %64, label %73, label %65
 
 65:                                               ; preds = %62
   %66 = getelementptr inbounds nuw %struct.lv_point_t, ptr %5, i32 0, i32 0
-  %67 = load i32, ptr %66, align 4, !tbaa !33
-  %68 = load ptr, ptr %3, align 8, !tbaa !3
+  %67 = load i32, ptr %66, align 4, !tbaa !53
+  %68 = load ptr, ptr %3, align 8, !tbaa !10
   %69 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %68, i32 0, i32 2
   %70 = getelementptr inbounds nuw %struct.lv_area_t, ptr %69, i32 0, i32 2
-  %71 = load i32, ptr %70, align 8, !tbaa !54
+  %71 = load i32, ptr %70, align 8, !tbaa !85
   %72 = icmp sgt i32 %67, %71
   br i1 %72, label %84, label %73
 
 73:                                               ; preds = %65, %62
-  %74 = load i8, ptr %8, align 1, !tbaa !28, !range !26, !noundef !27
+  %74 = load i8, ptr %8, align 1, !tbaa !44, !range !41, !noundef !42
   %75 = trunc i8 %74 to i1
   br i1 %75, label %76, label %90
 
 76:                                               ; preds = %73
   %77 = getelementptr inbounds nuw %struct.lv_point_t, ptr %5, i32 0, i32 0
-  %78 = load i32, ptr %77, align 4, !tbaa !33
-  %79 = load ptr, ptr %3, align 8, !tbaa !3
+  %78 = load i32, ptr %77, align 4, !tbaa !53
+  %79 = load ptr, ptr %3, align 8, !tbaa !10
   %80 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %79, i32 0, i32 2
   %81 = getelementptr inbounds nuw %struct.lv_area_t, ptr %80, i32 0, i32 0
-  %82 = load i32, ptr %81, align 8, !tbaa !55
+  %82 = load i32, ptr %81, align 8, !tbaa !86
   %83 = icmp slt i32 %78, %82
   br i1 %83, label %84, label %90
 
 84:                                               ; preds = %76, %65
-  %85 = load ptr, ptr %3, align 8, !tbaa !3
+  %85 = load ptr, ptr %3, align 8, !tbaa !10
   %86 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %85, i32 0, i32 0
   %87 = getelementptr inbounds nuw %struct._lv_bar_t, ptr %86, i32 0, i32 1
-  %88 = load ptr, ptr %3, align 8, !tbaa !3
+  %88 = load ptr, ptr %3, align 8, !tbaa !10
   %89 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %88, i32 0, i32 4
-  store ptr %87, ptr %89, align 8, !tbaa !7
+  store ptr %87, ptr %89, align 8, !tbaa !12
   br label %266
 
 90:                                               ; preds = %76, %73
-  %91 = load i8, ptr %8, align 1, !tbaa !28, !range !26, !noundef !27
+  %91 = load i8, ptr %8, align 1, !tbaa !44, !range !41, !noundef !42
   %92 = trunc i8 %91 to i1
   br i1 %92, label %101, label %93
 
 93:                                               ; preds = %90
   %94 = getelementptr inbounds nuw %struct.lv_point_t, ptr %5, i32 0, i32 0
-  %95 = load i32, ptr %94, align 4, !tbaa !33
-  %96 = load ptr, ptr %3, align 8, !tbaa !3
+  %95 = load i32, ptr %94, align 4, !tbaa !53
+  %96 = load ptr, ptr %3, align 8, !tbaa !10
   %97 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %96, i32 0, i32 1
   %98 = getelementptr inbounds nuw %struct.lv_area_t, ptr %97, i32 0, i32 0
-  %99 = load i32, ptr %98, align 8, !tbaa !56
+  %99 = load i32, ptr %98, align 8, !tbaa !87
   %100 = icmp slt i32 %95, %99
   br i1 %100, label %112, label %101
 
 101:                                              ; preds = %93, %90
-  %102 = load i8, ptr %8, align 1, !tbaa !28, !range !26, !noundef !27
+  %102 = load i8, ptr %8, align 1, !tbaa !44, !range !41, !noundef !42
   %103 = trunc i8 %102 to i1
   br i1 %103, label %104, label %118
 
 104:                                              ; preds = %101
   %105 = getelementptr inbounds nuw %struct.lv_point_t, ptr %5, i32 0, i32 0
-  %106 = load i32, ptr %105, align 4, !tbaa !33
-  %107 = load ptr, ptr %3, align 8, !tbaa !3
+  %106 = load i32, ptr %105, align 4, !tbaa !53
+  %107 = load ptr, ptr %3, align 8, !tbaa !10
   %108 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %107, i32 0, i32 1
   %109 = getelementptr inbounds nuw %struct.lv_area_t, ptr %108, i32 0, i32 2
-  %110 = load i32, ptr %109, align 8, !tbaa !57
+  %110 = load i32, ptr %109, align 8, !tbaa !88
   %111 = icmp sgt i32 %106, %110
   br i1 %111, label %112, label %118
 
 112:                                              ; preds = %104, %93
-  %113 = load ptr, ptr %3, align 8, !tbaa !3
+  %113 = load ptr, ptr %3, align 8, !tbaa !10
   %114 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %113, i32 0, i32 0
   %115 = getelementptr inbounds nuw %struct._lv_bar_t, ptr %114, i32 0, i32 4
-  %116 = load ptr, ptr %3, align 8, !tbaa !3
+  %116 = load ptr, ptr %3, align 8, !tbaa !10
   %117 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %116, i32 0, i32 4
-  store ptr %115, ptr %117, align 8, !tbaa !7
+  store ptr %115, ptr %117, align 8, !tbaa !12
   br label %265
 
 118:                                              ; preds = %104, %101
-  %119 = load ptr, ptr %3, align 8, !tbaa !3
+  %119 = load ptr, ptr %3, align 8, !tbaa !10
   %120 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %119, i32 0, i32 1
   %121 = getelementptr inbounds nuw %struct.lv_area_t, ptr %120, i32 0, i32 0
-  %122 = load i32, ptr %121, align 8, !tbaa !56
-  %123 = load ptr, ptr %3, align 8, !tbaa !3
+  %122 = load i32, ptr %121, align 8, !tbaa !87
+  %123 = load ptr, ptr %3, align 8, !tbaa !10
   %124 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %123, i32 0, i32 1
   %125 = getelementptr inbounds nuw %struct.lv_area_t, ptr %124, i32 0, i32 2
-  %126 = load i32, ptr %125, align 8, !tbaa !57
-  %127 = load ptr, ptr %3, align 8, !tbaa !3
+  %126 = load i32, ptr %125, align 8, !tbaa !88
+  %127 = load ptr, ptr %3, align 8, !tbaa !10
   %128 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %127, i32 0, i32 1
   %129 = getelementptr inbounds nuw %struct.lv_area_t, ptr %128, i32 0, i32 0
-  %130 = load i32, ptr %129, align 8, !tbaa !56
+  %130 = load i32, ptr %129, align 8, !tbaa !87
   %131 = sub nsw i32 %126, %130
   %132 = sdiv i32 %131, 2
   %133 = add nsw i32 %122, %132
   %134 = getelementptr inbounds nuw %struct.lv_point_t, ptr %5, i32 0, i32 0
-  %135 = load i32, ptr %134, align 4, !tbaa !33
+  %135 = load i32, ptr %134, align 4, !tbaa !53
   %136 = sub nsw i32 %133, %135
   %137 = icmp sgt i32 %136, 0
   br i1 %137, label %138, label %157
 
 138:                                              ; preds = %118
-  %139 = load ptr, ptr %3, align 8, !tbaa !3
+  %139 = load ptr, ptr %3, align 8, !tbaa !10
   %140 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %139, i32 0, i32 1
   %141 = getelementptr inbounds nuw %struct.lv_area_t, ptr %140, i32 0, i32 0
-  %142 = load i32, ptr %141, align 8, !tbaa !56
-  %143 = load ptr, ptr %3, align 8, !tbaa !3
+  %142 = load i32, ptr %141, align 8, !tbaa !87
+  %143 = load ptr, ptr %3, align 8, !tbaa !10
   %144 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %143, i32 0, i32 1
   %145 = getelementptr inbounds nuw %struct.lv_area_t, ptr %144, i32 0, i32 2
-  %146 = load i32, ptr %145, align 8, !tbaa !57
-  %147 = load ptr, ptr %3, align 8, !tbaa !3
+  %146 = load i32, ptr %145, align 8, !tbaa !88
+  %147 = load ptr, ptr %3, align 8, !tbaa !10
   %148 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %147, i32 0, i32 1
   %149 = getelementptr inbounds nuw %struct.lv_area_t, ptr %148, i32 0, i32 0
-  %150 = load i32, ptr %149, align 8, !tbaa !56
+  %150 = load i32, ptr %149, align 8, !tbaa !87
   %151 = sub nsw i32 %146, %150
   %152 = sdiv i32 %151, 2
   %153 = add nsw i32 %142, %152
   %154 = getelementptr inbounds nuw %struct.lv_point_t, ptr %5, i32 0, i32 0
-  %155 = load i32, ptr %154, align 4, !tbaa !33
+  %155 = load i32, ptr %154, align 4, !tbaa !53
   %156 = sub nsw i32 %153, %155
   br label %177
 
 157:                                              ; preds = %118
-  %158 = load ptr, ptr %3, align 8, !tbaa !3
+  %158 = load ptr, ptr %3, align 8, !tbaa !10
   %159 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %158, i32 0, i32 1
   %160 = getelementptr inbounds nuw %struct.lv_area_t, ptr %159, i32 0, i32 0
-  %161 = load i32, ptr %160, align 8, !tbaa !56
-  %162 = load ptr, ptr %3, align 8, !tbaa !3
+  %161 = load i32, ptr %160, align 8, !tbaa !87
+  %162 = load ptr, ptr %3, align 8, !tbaa !10
   %163 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %162, i32 0, i32 1
   %164 = getelementptr inbounds nuw %struct.lv_area_t, ptr %163, i32 0, i32 2
-  %165 = load i32, ptr %164, align 8, !tbaa !57
-  %166 = load ptr, ptr %3, align 8, !tbaa !3
+  %165 = load i32, ptr %164, align 8, !tbaa !88
+  %166 = load ptr, ptr %3, align 8, !tbaa !10
   %167 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %166, i32 0, i32 1
   %168 = getelementptr inbounds nuw %struct.lv_area_t, ptr %167, i32 0, i32 0
-  %169 = load i32, ptr %168, align 8, !tbaa !56
+  %169 = load i32, ptr %168, align 8, !tbaa !87
   %170 = sub nsw i32 %165, %169
   %171 = sdiv i32 %170, 2
   %172 = add nsw i32 %161, %171
   %173 = getelementptr inbounds nuw %struct.lv_point_t, ptr %5, i32 0, i32 0
-  %174 = load i32, ptr %173, align 4, !tbaa !33
+  %174 = load i32, ptr %173, align 4, !tbaa !53
   %175 = sub nsw i32 %172, %174
   %176 = sub nsw i32 0, %175
   br label %177
 
 177:                                              ; preds = %157, %138
   %178 = phi i32 [ %156, %138 ], [ %176, %157 ]
-  store i32 %178, ptr %9, align 4, !tbaa !17
-  %179 = load ptr, ptr %3, align 8, !tbaa !3
+  store i32 %178, ptr %9, align 4, !tbaa !27
+  %179 = load ptr, ptr %3, align 8, !tbaa !10
   %180 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %179, i32 0, i32 2
   %181 = getelementptr inbounds nuw %struct.lv_area_t, ptr %180, i32 0, i32 0
-  %182 = load i32, ptr %181, align 8, !tbaa !55
-  %183 = load ptr, ptr %3, align 8, !tbaa !3
+  %182 = load i32, ptr %181, align 8, !tbaa !86
+  %183 = load ptr, ptr %3, align 8, !tbaa !10
   %184 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %183, i32 0, i32 2
   %185 = getelementptr inbounds nuw %struct.lv_area_t, ptr %184, i32 0, i32 2
-  %186 = load i32, ptr %185, align 8, !tbaa !54
-  %187 = load ptr, ptr %3, align 8, !tbaa !3
+  %186 = load i32, ptr %185, align 8, !tbaa !85
+  %187 = load ptr, ptr %3, align 8, !tbaa !10
   %188 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %187, i32 0, i32 2
   %189 = getelementptr inbounds nuw %struct.lv_area_t, ptr %188, i32 0, i32 0
-  %190 = load i32, ptr %189, align 8, !tbaa !55
+  %190 = load i32, ptr %189, align 8, !tbaa !86
   %191 = sub nsw i32 %186, %190
   %192 = sdiv i32 %191, 2
   %193 = add nsw i32 %182, %192
   %194 = getelementptr inbounds nuw %struct.lv_point_t, ptr %5, i32 0, i32 0
-  %195 = load i32, ptr %194, align 4, !tbaa !33
+  %195 = load i32, ptr %194, align 4, !tbaa !53
   %196 = sub nsw i32 %193, %195
   %197 = icmp sgt i32 %196, 0
   br i1 %197, label %198, label %217
 
 198:                                              ; preds = %177
-  %199 = load ptr, ptr %3, align 8, !tbaa !3
+  %199 = load ptr, ptr %3, align 8, !tbaa !10
   %200 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %199, i32 0, i32 2
   %201 = getelementptr inbounds nuw %struct.lv_area_t, ptr %200, i32 0, i32 0
-  %202 = load i32, ptr %201, align 8, !tbaa !55
-  %203 = load ptr, ptr %3, align 8, !tbaa !3
+  %202 = load i32, ptr %201, align 8, !tbaa !86
+  %203 = load ptr, ptr %3, align 8, !tbaa !10
   %204 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %203, i32 0, i32 2
   %205 = getelementptr inbounds nuw %struct.lv_area_t, ptr %204, i32 0, i32 2
-  %206 = load i32, ptr %205, align 8, !tbaa !54
-  %207 = load ptr, ptr %3, align 8, !tbaa !3
+  %206 = load i32, ptr %205, align 8, !tbaa !85
+  %207 = load ptr, ptr %3, align 8, !tbaa !10
   %208 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %207, i32 0, i32 2
   %209 = getelementptr inbounds nuw %struct.lv_area_t, ptr %208, i32 0, i32 0
-  %210 = load i32, ptr %209, align 8, !tbaa !55
+  %210 = load i32, ptr %209, align 8, !tbaa !86
   %211 = sub nsw i32 %206, %210
   %212 = sdiv i32 %211, 2
   %213 = add nsw i32 %202, %212
   %214 = getelementptr inbounds nuw %struct.lv_point_t, ptr %5, i32 0, i32 0
-  %215 = load i32, ptr %214, align 4, !tbaa !33
+  %215 = load i32, ptr %214, align 4, !tbaa !53
   %216 = sub nsw i32 %213, %215
   br label %237
 
 217:                                              ; preds = %177
-  %218 = load ptr, ptr %3, align 8, !tbaa !3
+  %218 = load ptr, ptr %3, align 8, !tbaa !10
   %219 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %218, i32 0, i32 2
   %220 = getelementptr inbounds nuw %struct.lv_area_t, ptr %219, i32 0, i32 0
-  %221 = load i32, ptr %220, align 8, !tbaa !55
-  %222 = load ptr, ptr %3, align 8, !tbaa !3
+  %221 = load i32, ptr %220, align 8, !tbaa !86
+  %222 = load ptr, ptr %3, align 8, !tbaa !10
   %223 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %222, i32 0, i32 2
   %224 = getelementptr inbounds nuw %struct.lv_area_t, ptr %223, i32 0, i32 2
-  %225 = load i32, ptr %224, align 8, !tbaa !54
-  %226 = load ptr, ptr %3, align 8, !tbaa !3
+  %225 = load i32, ptr %224, align 8, !tbaa !85
+  %226 = load ptr, ptr %3, align 8, !tbaa !10
   %227 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %226, i32 0, i32 2
   %228 = getelementptr inbounds nuw %struct.lv_area_t, ptr %227, i32 0, i32 0
-  %229 = load i32, ptr %228, align 8, !tbaa !55
+  %229 = load i32, ptr %228, align 8, !tbaa !86
   %230 = sub nsw i32 %225, %229
   %231 = sdiv i32 %230, 2
   %232 = add nsw i32 %221, %231
   %233 = getelementptr inbounds nuw %struct.lv_point_t, ptr %5, i32 0, i32 0
-  %234 = load i32, ptr %233, align 4, !tbaa !33
+  %234 = load i32, ptr %233, align 4, !tbaa !53
   %235 = sub nsw i32 %232, %234
   %236 = sub nsw i32 0, %235
   br label %237
 
 237:                                              ; preds = %217, %198
   %238 = phi i32 [ %216, %198 ], [ %236, %217 ]
-  store i32 %238, ptr %10, align 4, !tbaa !17
-  %239 = load i32, ptr %10, align 4, !tbaa !17
-  %240 = load i32, ptr %9, align 4, !tbaa !17
+  store i32 %238, ptr %10, align 4, !tbaa !27
+  %239 = load i32, ptr %10, align 4, !tbaa !27
+  %240 = load i32, ptr %9, align 4, !tbaa !27
   %241 = icmp slt i32 %239, %240
   br i1 %241, label %242, label %253
 
 242:                                              ; preds = %237
-  %243 = load ptr, ptr %3, align 8, !tbaa !3
+  %243 = load ptr, ptr %3, align 8, !tbaa !10
   %244 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %243, i32 0, i32 0
   %245 = getelementptr inbounds nuw %struct._lv_bar_t, ptr %244, i32 0, i32 1
-  %246 = load ptr, ptr %3, align 8, !tbaa !3
+  %246 = load ptr, ptr %3, align 8, !tbaa !10
   %247 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %246, i32 0, i32 4
-  store ptr %245, ptr %247, align 8, !tbaa !7
-  %248 = load ptr, ptr %3, align 8, !tbaa !3
+  store ptr %245, ptr %247, align 8, !tbaa !12
+  %248 = load ptr, ptr %3, align 8, !tbaa !10
   %249 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %248, i32 0, i32 5
   %250 = load i8, ptr %249, align 8
   %251 = and i8 %250, -3
@@ -2487,13 +2614,13 @@ define internal void @drag_start(ptr noundef %0) #0 {
   br label %264
 
 253:                                              ; preds = %237
-  %254 = load ptr, ptr %3, align 8, !tbaa !3
+  %254 = load ptr, ptr %3, align 8, !tbaa !10
   %255 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %254, i32 0, i32 0
   %256 = getelementptr inbounds nuw %struct._lv_bar_t, ptr %255, i32 0, i32 4
-  %257 = load ptr, ptr %3, align 8, !tbaa !3
+  %257 = load ptr, ptr %3, align 8, !tbaa !10
   %258 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %257, i32 0, i32 4
-  store ptr %256, ptr %258, align 8, !tbaa !7
-  %259 = load ptr, ptr %3, align 8, !tbaa !3
+  store ptr %256, ptr %258, align 8, !tbaa !12
+  %259 = load ptr, ptr %3, align 8, !tbaa !10
   %260 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %259, i32 0, i32 5
   %261 = load i8, ptr %260, align 8
   %262 = and i8 %261, -3
@@ -2511,231 +2638,231 @@ define internal void @drag_start(ptr noundef %0) #0 {
   br label %472
 
 267:                                              ; preds = %54
-  %268 = load i8, ptr %8, align 1, !tbaa !28, !range !26, !noundef !27
+  %268 = load i8, ptr %8, align 1, !tbaa !44, !range !41, !noundef !42
   %269 = trunc i8 %268 to i1
   br i1 %269, label %278, label %270
 
 270:                                              ; preds = %267
   %271 = getelementptr inbounds nuw %struct.lv_point_t, ptr %5, i32 0, i32 1
-  %272 = load i32, ptr %271, align 4, !tbaa !35
-  %273 = load ptr, ptr %3, align 8, !tbaa !3
+  %272 = load i32, ptr %271, align 4, !tbaa !55
+  %273 = load ptr, ptr %3, align 8, !tbaa !10
   %274 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %273, i32 0, i32 2
   %275 = getelementptr inbounds nuw %struct.lv_area_t, ptr %274, i32 0, i32 1
-  %276 = load i32, ptr %275, align 4, !tbaa !58
+  %276 = load i32, ptr %275, align 4, !tbaa !89
   %277 = icmp slt i32 %272, %276
   br i1 %277, label %289, label %278
 
 278:                                              ; preds = %270, %267
-  %279 = load i8, ptr %8, align 1, !tbaa !28, !range !26, !noundef !27
+  %279 = load i8, ptr %8, align 1, !tbaa !44, !range !41, !noundef !42
   %280 = trunc i8 %279 to i1
   br i1 %280, label %281, label %295
 
 281:                                              ; preds = %278
   %282 = getelementptr inbounds nuw %struct.lv_point_t, ptr %5, i32 0, i32 1
-  %283 = load i32, ptr %282, align 4, !tbaa !35
-  %284 = load ptr, ptr %3, align 8, !tbaa !3
+  %283 = load i32, ptr %282, align 4, !tbaa !55
+  %284 = load ptr, ptr %3, align 8, !tbaa !10
   %285 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %284, i32 0, i32 2
   %286 = getelementptr inbounds nuw %struct.lv_area_t, ptr %285, i32 0, i32 3
-  %287 = load i32, ptr %286, align 4, !tbaa !59
+  %287 = load i32, ptr %286, align 4, !tbaa !90
   %288 = icmp sgt i32 %283, %287
   br i1 %288, label %289, label %295
 
 289:                                              ; preds = %281, %270
-  %290 = load ptr, ptr %3, align 8, !tbaa !3
+  %290 = load ptr, ptr %3, align 8, !tbaa !10
   %291 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %290, i32 0, i32 0
   %292 = getelementptr inbounds nuw %struct._lv_bar_t, ptr %291, i32 0, i32 1
-  %293 = load ptr, ptr %3, align 8, !tbaa !3
+  %293 = load ptr, ptr %3, align 8, !tbaa !10
   %294 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %293, i32 0, i32 4
-  store ptr %292, ptr %294, align 8, !tbaa !7
+  store ptr %292, ptr %294, align 8, !tbaa !12
   br label %471
 
 295:                                              ; preds = %281, %278
-  %296 = load i8, ptr %8, align 1, !tbaa !28, !range !26, !noundef !27
+  %296 = load i8, ptr %8, align 1, !tbaa !44, !range !41, !noundef !42
   %297 = trunc i8 %296 to i1
   br i1 %297, label %306, label %298
 
 298:                                              ; preds = %295
   %299 = getelementptr inbounds nuw %struct.lv_point_t, ptr %5, i32 0, i32 1
-  %300 = load i32, ptr %299, align 4, !tbaa !35
-  %301 = load ptr, ptr %3, align 8, !tbaa !3
+  %300 = load i32, ptr %299, align 4, !tbaa !55
+  %301 = load ptr, ptr %3, align 8, !tbaa !10
   %302 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %301, i32 0, i32 1
   %303 = getelementptr inbounds nuw %struct.lv_area_t, ptr %302, i32 0, i32 3
-  %304 = load i32, ptr %303, align 4, !tbaa !60
+  %304 = load i32, ptr %303, align 4, !tbaa !91
   %305 = icmp sgt i32 %300, %304
   br i1 %305, label %317, label %306
 
 306:                                              ; preds = %298, %295
-  %307 = load i8, ptr %8, align 1, !tbaa !28, !range !26, !noundef !27
+  %307 = load i8, ptr %8, align 1, !tbaa !44, !range !41, !noundef !42
   %308 = trunc i8 %307 to i1
   br i1 %308, label %309, label %323
 
 309:                                              ; preds = %306
   %310 = getelementptr inbounds nuw %struct.lv_point_t, ptr %5, i32 0, i32 1
-  %311 = load i32, ptr %310, align 4, !tbaa !35
-  %312 = load ptr, ptr %3, align 8, !tbaa !3
+  %311 = load i32, ptr %310, align 4, !tbaa !55
+  %312 = load ptr, ptr %3, align 8, !tbaa !10
   %313 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %312, i32 0, i32 1
   %314 = getelementptr inbounds nuw %struct.lv_area_t, ptr %313, i32 0, i32 1
-  %315 = load i32, ptr %314, align 4, !tbaa !61
+  %315 = load i32, ptr %314, align 4, !tbaa !92
   %316 = icmp slt i32 %311, %315
   br i1 %316, label %317, label %323
 
 317:                                              ; preds = %309, %298
-  %318 = load ptr, ptr %3, align 8, !tbaa !3
+  %318 = load ptr, ptr %3, align 8, !tbaa !10
   %319 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %318, i32 0, i32 0
   %320 = getelementptr inbounds nuw %struct._lv_bar_t, ptr %319, i32 0, i32 4
-  %321 = load ptr, ptr %3, align 8, !tbaa !3
+  %321 = load ptr, ptr %3, align 8, !tbaa !10
   %322 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %321, i32 0, i32 4
-  store ptr %320, ptr %322, align 8, !tbaa !7
+  store ptr %320, ptr %322, align 8, !tbaa !12
   br label %470
 
 323:                                              ; preds = %309, %306
-  %324 = load ptr, ptr %3, align 8, !tbaa !3
+  %324 = load ptr, ptr %3, align 8, !tbaa !10
   %325 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %324, i32 0, i32 1
   %326 = getelementptr inbounds nuw %struct.lv_area_t, ptr %325, i32 0, i32 1
-  %327 = load i32, ptr %326, align 4, !tbaa !61
-  %328 = load ptr, ptr %3, align 8, !tbaa !3
+  %327 = load i32, ptr %326, align 4, !tbaa !92
+  %328 = load ptr, ptr %3, align 8, !tbaa !10
   %329 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %328, i32 0, i32 1
   %330 = getelementptr inbounds nuw %struct.lv_area_t, ptr %329, i32 0, i32 3
-  %331 = load i32, ptr %330, align 4, !tbaa !60
-  %332 = load ptr, ptr %3, align 8, !tbaa !3
+  %331 = load i32, ptr %330, align 4, !tbaa !91
+  %332 = load ptr, ptr %3, align 8, !tbaa !10
   %333 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %332, i32 0, i32 1
   %334 = getelementptr inbounds nuw %struct.lv_area_t, ptr %333, i32 0, i32 1
-  %335 = load i32, ptr %334, align 4, !tbaa !61
+  %335 = load i32, ptr %334, align 4, !tbaa !92
   %336 = sub nsw i32 %331, %335
   %337 = sdiv i32 %336, 2
   %338 = add nsw i32 %327, %337
   %339 = getelementptr inbounds nuw %struct.lv_point_t, ptr %5, i32 0, i32 1
-  %340 = load i32, ptr %339, align 4, !tbaa !35
+  %340 = load i32, ptr %339, align 4, !tbaa !55
   %341 = sub nsw i32 %338, %340
   %342 = icmp sgt i32 %341, 0
   br i1 %342, label %343, label %362
 
 343:                                              ; preds = %323
-  %344 = load ptr, ptr %3, align 8, !tbaa !3
+  %344 = load ptr, ptr %3, align 8, !tbaa !10
   %345 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %344, i32 0, i32 1
   %346 = getelementptr inbounds nuw %struct.lv_area_t, ptr %345, i32 0, i32 1
-  %347 = load i32, ptr %346, align 4, !tbaa !61
-  %348 = load ptr, ptr %3, align 8, !tbaa !3
+  %347 = load i32, ptr %346, align 4, !tbaa !92
+  %348 = load ptr, ptr %3, align 8, !tbaa !10
   %349 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %348, i32 0, i32 1
   %350 = getelementptr inbounds nuw %struct.lv_area_t, ptr %349, i32 0, i32 3
-  %351 = load i32, ptr %350, align 4, !tbaa !60
-  %352 = load ptr, ptr %3, align 8, !tbaa !3
+  %351 = load i32, ptr %350, align 4, !tbaa !91
+  %352 = load ptr, ptr %3, align 8, !tbaa !10
   %353 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %352, i32 0, i32 1
   %354 = getelementptr inbounds nuw %struct.lv_area_t, ptr %353, i32 0, i32 1
-  %355 = load i32, ptr %354, align 4, !tbaa !61
+  %355 = load i32, ptr %354, align 4, !tbaa !92
   %356 = sub nsw i32 %351, %355
   %357 = sdiv i32 %356, 2
   %358 = add nsw i32 %347, %357
   %359 = getelementptr inbounds nuw %struct.lv_point_t, ptr %5, i32 0, i32 1
-  %360 = load i32, ptr %359, align 4, !tbaa !35
+  %360 = load i32, ptr %359, align 4, !tbaa !55
   %361 = sub nsw i32 %358, %360
   br label %382
 
 362:                                              ; preds = %323
-  %363 = load ptr, ptr %3, align 8, !tbaa !3
+  %363 = load ptr, ptr %3, align 8, !tbaa !10
   %364 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %363, i32 0, i32 1
   %365 = getelementptr inbounds nuw %struct.lv_area_t, ptr %364, i32 0, i32 1
-  %366 = load i32, ptr %365, align 4, !tbaa !61
-  %367 = load ptr, ptr %3, align 8, !tbaa !3
+  %366 = load i32, ptr %365, align 4, !tbaa !92
+  %367 = load ptr, ptr %3, align 8, !tbaa !10
   %368 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %367, i32 0, i32 1
   %369 = getelementptr inbounds nuw %struct.lv_area_t, ptr %368, i32 0, i32 3
-  %370 = load i32, ptr %369, align 4, !tbaa !60
-  %371 = load ptr, ptr %3, align 8, !tbaa !3
+  %370 = load i32, ptr %369, align 4, !tbaa !91
+  %371 = load ptr, ptr %3, align 8, !tbaa !10
   %372 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %371, i32 0, i32 1
   %373 = getelementptr inbounds nuw %struct.lv_area_t, ptr %372, i32 0, i32 1
-  %374 = load i32, ptr %373, align 4, !tbaa !61
+  %374 = load i32, ptr %373, align 4, !tbaa !92
   %375 = sub nsw i32 %370, %374
   %376 = sdiv i32 %375, 2
   %377 = add nsw i32 %366, %376
   %378 = getelementptr inbounds nuw %struct.lv_point_t, ptr %5, i32 0, i32 1
-  %379 = load i32, ptr %378, align 4, !tbaa !35
+  %379 = load i32, ptr %378, align 4, !tbaa !55
   %380 = sub nsw i32 %377, %379
   %381 = sub nsw i32 0, %380
   br label %382
 
 382:                                              ; preds = %362, %343
   %383 = phi i32 [ %361, %343 ], [ %381, %362 ]
-  store i32 %383, ptr %9, align 4, !tbaa !17
-  %384 = load ptr, ptr %3, align 8, !tbaa !3
+  store i32 %383, ptr %9, align 4, !tbaa !27
+  %384 = load ptr, ptr %3, align 8, !tbaa !10
   %385 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %384, i32 0, i32 2
   %386 = getelementptr inbounds nuw %struct.lv_area_t, ptr %385, i32 0, i32 1
-  %387 = load i32, ptr %386, align 4, !tbaa !58
-  %388 = load ptr, ptr %3, align 8, !tbaa !3
+  %387 = load i32, ptr %386, align 4, !tbaa !89
+  %388 = load ptr, ptr %3, align 8, !tbaa !10
   %389 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %388, i32 0, i32 2
   %390 = getelementptr inbounds nuw %struct.lv_area_t, ptr %389, i32 0, i32 3
-  %391 = load i32, ptr %390, align 4, !tbaa !59
-  %392 = load ptr, ptr %3, align 8, !tbaa !3
+  %391 = load i32, ptr %390, align 4, !tbaa !90
+  %392 = load ptr, ptr %3, align 8, !tbaa !10
   %393 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %392, i32 0, i32 2
   %394 = getelementptr inbounds nuw %struct.lv_area_t, ptr %393, i32 0, i32 1
-  %395 = load i32, ptr %394, align 4, !tbaa !58
+  %395 = load i32, ptr %394, align 4, !tbaa !89
   %396 = sub nsw i32 %391, %395
   %397 = sdiv i32 %396, 2
   %398 = add nsw i32 %387, %397
   %399 = getelementptr inbounds nuw %struct.lv_point_t, ptr %5, i32 0, i32 1
-  %400 = load i32, ptr %399, align 4, !tbaa !35
+  %400 = load i32, ptr %399, align 4, !tbaa !55
   %401 = sub nsw i32 %398, %400
   %402 = icmp sgt i32 %401, 0
   br i1 %402, label %403, label %422
 
 403:                                              ; preds = %382
-  %404 = load ptr, ptr %3, align 8, !tbaa !3
+  %404 = load ptr, ptr %3, align 8, !tbaa !10
   %405 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %404, i32 0, i32 2
   %406 = getelementptr inbounds nuw %struct.lv_area_t, ptr %405, i32 0, i32 1
-  %407 = load i32, ptr %406, align 4, !tbaa !58
-  %408 = load ptr, ptr %3, align 8, !tbaa !3
+  %407 = load i32, ptr %406, align 4, !tbaa !89
+  %408 = load ptr, ptr %3, align 8, !tbaa !10
   %409 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %408, i32 0, i32 2
   %410 = getelementptr inbounds nuw %struct.lv_area_t, ptr %409, i32 0, i32 3
-  %411 = load i32, ptr %410, align 4, !tbaa !59
-  %412 = load ptr, ptr %3, align 8, !tbaa !3
+  %411 = load i32, ptr %410, align 4, !tbaa !90
+  %412 = load ptr, ptr %3, align 8, !tbaa !10
   %413 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %412, i32 0, i32 2
   %414 = getelementptr inbounds nuw %struct.lv_area_t, ptr %413, i32 0, i32 1
-  %415 = load i32, ptr %414, align 4, !tbaa !58
+  %415 = load i32, ptr %414, align 4, !tbaa !89
   %416 = sub nsw i32 %411, %415
   %417 = sdiv i32 %416, 2
   %418 = add nsw i32 %407, %417
   %419 = getelementptr inbounds nuw %struct.lv_point_t, ptr %5, i32 0, i32 1
-  %420 = load i32, ptr %419, align 4, !tbaa !35
+  %420 = load i32, ptr %419, align 4, !tbaa !55
   %421 = sub nsw i32 %418, %420
   br label %442
 
 422:                                              ; preds = %382
-  %423 = load ptr, ptr %3, align 8, !tbaa !3
+  %423 = load ptr, ptr %3, align 8, !tbaa !10
   %424 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %423, i32 0, i32 2
   %425 = getelementptr inbounds nuw %struct.lv_area_t, ptr %424, i32 0, i32 1
-  %426 = load i32, ptr %425, align 4, !tbaa !58
-  %427 = load ptr, ptr %3, align 8, !tbaa !3
+  %426 = load i32, ptr %425, align 4, !tbaa !89
+  %427 = load ptr, ptr %3, align 8, !tbaa !10
   %428 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %427, i32 0, i32 2
   %429 = getelementptr inbounds nuw %struct.lv_area_t, ptr %428, i32 0, i32 3
-  %430 = load i32, ptr %429, align 4, !tbaa !59
-  %431 = load ptr, ptr %3, align 8, !tbaa !3
+  %430 = load i32, ptr %429, align 4, !tbaa !90
+  %431 = load ptr, ptr %3, align 8, !tbaa !10
   %432 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %431, i32 0, i32 2
   %433 = getelementptr inbounds nuw %struct.lv_area_t, ptr %432, i32 0, i32 1
-  %434 = load i32, ptr %433, align 4, !tbaa !58
+  %434 = load i32, ptr %433, align 4, !tbaa !89
   %435 = sub nsw i32 %430, %434
   %436 = sdiv i32 %435, 2
   %437 = add nsw i32 %426, %436
   %438 = getelementptr inbounds nuw %struct.lv_point_t, ptr %5, i32 0, i32 1
-  %439 = load i32, ptr %438, align 4, !tbaa !35
+  %439 = load i32, ptr %438, align 4, !tbaa !55
   %440 = sub nsw i32 %437, %439
   %441 = sub nsw i32 0, %440
   br label %442
 
 442:                                              ; preds = %422, %403
   %443 = phi i32 [ %421, %403 ], [ %441, %422 ]
-  store i32 %443, ptr %10, align 4, !tbaa !17
-  %444 = load i32, ptr %10, align 4, !tbaa !17
-  %445 = load i32, ptr %9, align 4, !tbaa !17
+  store i32 %443, ptr %10, align 4, !tbaa !27
+  %444 = load i32, ptr %10, align 4, !tbaa !27
+  %445 = load i32, ptr %9, align 4, !tbaa !27
   %446 = icmp slt i32 %444, %445
   br i1 %446, label %447, label %458
 
 447:                                              ; preds = %442
-  %448 = load ptr, ptr %3, align 8, !tbaa !3
+  %448 = load ptr, ptr %3, align 8, !tbaa !10
   %449 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %448, i32 0, i32 0
   %450 = getelementptr inbounds nuw %struct._lv_bar_t, ptr %449, i32 0, i32 1
-  %451 = load ptr, ptr %3, align 8, !tbaa !3
+  %451 = load ptr, ptr %3, align 8, !tbaa !10
   %452 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %451, i32 0, i32 4
-  store ptr %450, ptr %452, align 8, !tbaa !7
-  %453 = load ptr, ptr %3, align 8, !tbaa !3
+  store ptr %450, ptr %452, align 8, !tbaa !12
+  %453 = load ptr, ptr %3, align 8, !tbaa !10
   %454 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %453, i32 0, i32 5
   %455 = load i8, ptr %454, align 8
   %456 = and i8 %455, -3
@@ -2744,13 +2871,13 @@ define internal void @drag_start(ptr noundef %0) #0 {
   br label %469
 
 458:                                              ; preds = %442
-  %459 = load ptr, ptr %3, align 8, !tbaa !3
+  %459 = load ptr, ptr %3, align 8, !tbaa !10
   %460 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %459, i32 0, i32 0
   %461 = getelementptr inbounds nuw %struct._lv_bar_t, ptr %460, i32 0, i32 4
-  %462 = load ptr, ptr %3, align 8, !tbaa !3
+  %462 = load ptr, ptr %3, align 8, !tbaa !10
   %463 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %462, i32 0, i32 4
-  store ptr %461, ptr %463, align 8, !tbaa !7
-  %464 = load ptr, ptr %3, align 8, !tbaa !3
+  store ptr %461, ptr %463, align 8, !tbaa !12
+  %464 = load ptr, ptr %3, align 8, !tbaa !10
   %465 = getelementptr inbounds nuw %struct._lv_slider_t, ptr %464, i32 0, i32 5
   %466 = load i8, ptr %465, align 8
   %467 = and i8 %466, -3
@@ -2790,15 +2917,15 @@ define internal i32 @lv_obj_get_style_base_dir(ptr noundef %0, i32 noundef %1) #
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca %union.lv_style_value_t, align 8
-  store ptr %0, ptr %3, align 8, !tbaa !3
-  store i32 %1, ptr %4, align 4, !tbaa !17
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store i32 %1, ptr %4, align 4, !tbaa !27
   call void @llvm.lifetime.start.p0(i64 8, ptr %5) #4
-  %6 = load ptr, ptr %3, align 8, !tbaa !3
-  %7 = load i32, ptr %4, align 4, !tbaa !17
+  %6 = load ptr, ptr %3, align 8, !tbaa !8
+  %7 = load i32, ptr %4, align 4, !tbaa !27
   %8 = call ptr @lv_obj_get_style_prop(ptr noundef %6, i32 noundef %7, i8 noundef zeroext 39)
   %9 = getelementptr inbounds nuw %union.lv_style_value_t, ptr %5, i32 0, i32 0
   store ptr %8, ptr %9, align 8
-  %10 = load i32, ptr %5, align 8, !tbaa !49
+  %10 = load i32, ptr %5, align 8, !tbaa !72
   call void @llvm.lifetime.end.p0(i64 8, ptr %5) #4
   ret i32 %10
 }
@@ -2823,138 +2950,138 @@ define internal void @position_knob(ptr noundef %0, ptr noundef %1, i32 noundef 
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8, !tbaa !3
-  store ptr %1, ptr %6, align 8, !tbaa !3
-  store i32 %2, ptr %7, align 4, !tbaa !17
+  store ptr %0, ptr %5, align 8, !tbaa !8
+  store ptr %1, ptr %6, align 8, !tbaa !46
+  store i32 %2, ptr %7, align 4, !tbaa !27
   %15 = zext i1 %3 to i8
-  store i8 %15, ptr %8, align 1, !tbaa !28
-  %16 = load i8, ptr %8, align 1, !tbaa !28, !range !26, !noundef !27
+  store i8 %15, ptr %8, align 1, !tbaa !44
+  %16 = load i8, ptr %8, align 1, !tbaa !44, !range !41, !noundef !42
   %17 = trunc i8 %16 to i1
   br i1 %17, label %18, label %45
 
 18:                                               ; preds = %4
-  %19 = load i32, ptr %7, align 4, !tbaa !17
+  %19 = load i32, ptr %7, align 4, !tbaa !27
   %20 = ashr i32 %19, 1
-  %21 = load ptr, ptr %6, align 8, !tbaa !3
+  %21 = load ptr, ptr %6, align 8, !tbaa !46
   %22 = getelementptr inbounds nuw %struct.lv_area_t, ptr %21, i32 0, i32 0
-  %23 = load i32, ptr %22, align 4, !tbaa !29
+  %23 = load i32, ptr %22, align 4, !tbaa !47
   %24 = sub nsw i32 %23, %20
-  store i32 %24, ptr %22, align 4, !tbaa !29
-  %25 = load ptr, ptr %6, align 8, !tbaa !3
+  store i32 %24, ptr %22, align 4, !tbaa !47
+  %25 = load ptr, ptr %6, align 8, !tbaa !46
   %26 = getelementptr inbounds nuw %struct.lv_area_t, ptr %25, i32 0, i32 0
-  %27 = load i32, ptr %26, align 4, !tbaa !29
-  %28 = load i32, ptr %7, align 4, !tbaa !17
+  %27 = load i32, ptr %26, align 4, !tbaa !47
+  %28 = load i32, ptr %7, align 4, !tbaa !27
   %29 = add nsw i32 %27, %28
   %30 = sub nsw i32 %29, 1
-  %31 = load ptr, ptr %6, align 8, !tbaa !3
+  %31 = load ptr, ptr %6, align 8, !tbaa !46
   %32 = getelementptr inbounds nuw %struct.lv_area_t, ptr %31, i32 0, i32 2
-  store i32 %30, ptr %32, align 4, !tbaa !31
-  %33 = load ptr, ptr %5, align 8, !tbaa !3
+  store i32 %30, ptr %32, align 4, !tbaa !49
+  %33 = load ptr, ptr %5, align 8, !tbaa !8
   %34 = getelementptr inbounds nuw %struct._lv_obj_t, ptr %33, i32 0, i32 5
   %35 = getelementptr inbounds nuw %struct.lv_area_t, ptr %34, i32 0, i32 1
-  %36 = load i32, ptr %35, align 4, !tbaa !45
-  %37 = load ptr, ptr %6, align 8, !tbaa !3
+  %36 = load i32, ptr %35, align 4, !tbaa !68
+  %37 = load ptr, ptr %6, align 8, !tbaa !46
   %38 = getelementptr inbounds nuw %struct.lv_area_t, ptr %37, i32 0, i32 1
-  store i32 %36, ptr %38, align 4, !tbaa !30
-  %39 = load ptr, ptr %5, align 8, !tbaa !3
+  store i32 %36, ptr %38, align 4, !tbaa !48
+  %39 = load ptr, ptr %5, align 8, !tbaa !8
   %40 = getelementptr inbounds nuw %struct._lv_obj_t, ptr %39, i32 0, i32 5
   %41 = getelementptr inbounds nuw %struct.lv_area_t, ptr %40, i32 0, i32 3
-  %42 = load i32, ptr %41, align 4, !tbaa !46
-  %43 = load ptr, ptr %6, align 8, !tbaa !3
+  %42 = load i32, ptr %41, align 4, !tbaa !69
+  %43 = load ptr, ptr %6, align 8, !tbaa !46
   %44 = getelementptr inbounds nuw %struct.lv_area_t, ptr %43, i32 0, i32 3
-  store i32 %42, ptr %44, align 4, !tbaa !32
+  store i32 %42, ptr %44, align 4, !tbaa !50
   br label %72
 
 45:                                               ; preds = %4
-  %46 = load i32, ptr %7, align 4, !tbaa !17
+  %46 = load i32, ptr %7, align 4, !tbaa !27
   %47 = ashr i32 %46, 1
-  %48 = load ptr, ptr %6, align 8, !tbaa !3
+  %48 = load ptr, ptr %6, align 8, !tbaa !46
   %49 = getelementptr inbounds nuw %struct.lv_area_t, ptr %48, i32 0, i32 1
-  %50 = load i32, ptr %49, align 4, !tbaa !30
+  %50 = load i32, ptr %49, align 4, !tbaa !48
   %51 = sub nsw i32 %50, %47
-  store i32 %51, ptr %49, align 4, !tbaa !30
-  %52 = load ptr, ptr %6, align 8, !tbaa !3
+  store i32 %51, ptr %49, align 4, !tbaa !48
+  %52 = load ptr, ptr %6, align 8, !tbaa !46
   %53 = getelementptr inbounds nuw %struct.lv_area_t, ptr %52, i32 0, i32 1
-  %54 = load i32, ptr %53, align 4, !tbaa !30
-  %55 = load i32, ptr %7, align 4, !tbaa !17
+  %54 = load i32, ptr %53, align 4, !tbaa !48
+  %55 = load i32, ptr %7, align 4, !tbaa !27
   %56 = add nsw i32 %54, %55
   %57 = sub nsw i32 %56, 1
-  %58 = load ptr, ptr %6, align 8, !tbaa !3
+  %58 = load ptr, ptr %6, align 8, !tbaa !46
   %59 = getelementptr inbounds nuw %struct.lv_area_t, ptr %58, i32 0, i32 3
-  store i32 %57, ptr %59, align 4, !tbaa !32
-  %60 = load ptr, ptr %5, align 8, !tbaa !3
+  store i32 %57, ptr %59, align 4, !tbaa !50
+  %60 = load ptr, ptr %5, align 8, !tbaa !8
   %61 = getelementptr inbounds nuw %struct._lv_obj_t, ptr %60, i32 0, i32 5
   %62 = getelementptr inbounds nuw %struct.lv_area_t, ptr %61, i32 0, i32 0
-  %63 = load i32, ptr %62, align 8, !tbaa !44
-  %64 = load ptr, ptr %6, align 8, !tbaa !3
+  %63 = load i32, ptr %62, align 8, !tbaa !67
+  %64 = load ptr, ptr %6, align 8, !tbaa !46
   %65 = getelementptr inbounds nuw %struct.lv_area_t, ptr %64, i32 0, i32 0
-  store i32 %63, ptr %65, align 4, !tbaa !29
-  %66 = load ptr, ptr %5, align 8, !tbaa !3
+  store i32 %63, ptr %65, align 4, !tbaa !47
+  %66 = load ptr, ptr %5, align 8, !tbaa !8
   %67 = getelementptr inbounds nuw %struct._lv_obj_t, ptr %66, i32 0, i32 5
   %68 = getelementptr inbounds nuw %struct.lv_area_t, ptr %67, i32 0, i32 2
-  %69 = load i32, ptr %68, align 8, !tbaa !43
-  %70 = load ptr, ptr %6, align 8, !tbaa !3
+  %69 = load i32, ptr %68, align 8, !tbaa !66
+  %70 = load ptr, ptr %6, align 8, !tbaa !46
   %71 = getelementptr inbounds nuw %struct.lv_area_t, ptr %70, i32 0, i32 2
-  store i32 %69, ptr %71, align 4, !tbaa !31
+  store i32 %69, ptr %71, align 4, !tbaa !49
   br label %72
 
 72:                                               ; preds = %45, %18
   call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
-  %73 = load ptr, ptr %5, align 8, !tbaa !3
+  %73 = load ptr, ptr %5, align 8, !tbaa !8
   %74 = call i32 @lv_obj_get_style_pad_left(ptr noundef %73, i32 noundef 196608)
-  store i32 %74, ptr %9, align 4, !tbaa !17
+  store i32 %74, ptr %9, align 4, !tbaa !27
   call void @llvm.lifetime.start.p0(i64 4, ptr %10) #4
-  %75 = load ptr, ptr %5, align 8, !tbaa !3
+  %75 = load ptr, ptr %5, align 8, !tbaa !8
   %76 = call i32 @lv_obj_get_style_pad_right(ptr noundef %75, i32 noundef 196608)
-  store i32 %76, ptr %10, align 4, !tbaa !17
+  store i32 %76, ptr %10, align 4, !tbaa !27
   call void @llvm.lifetime.start.p0(i64 4, ptr %11) #4
-  %77 = load ptr, ptr %5, align 8, !tbaa !3
+  %77 = load ptr, ptr %5, align 8, !tbaa !8
   %78 = call i32 @lv_obj_get_style_pad_top(ptr noundef %77, i32 noundef 196608)
-  store i32 %78, ptr %11, align 4, !tbaa !17
+  store i32 %78, ptr %11, align 4, !tbaa !27
   call void @llvm.lifetime.start.p0(i64 4, ptr %12) #4
-  %79 = load ptr, ptr %5, align 8, !tbaa !3
+  %79 = load ptr, ptr %5, align 8, !tbaa !8
   %80 = call i32 @lv_obj_get_style_pad_bottom(ptr noundef %79, i32 noundef 196608)
-  store i32 %80, ptr %12, align 4, !tbaa !17
+  store i32 %80, ptr %12, align 4, !tbaa !27
   call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
-  %81 = load ptr, ptr %5, align 8, !tbaa !3
+  %81 = load ptr, ptr %5, align 8, !tbaa !8
   %82 = call i32 @lv_obj_get_style_transform_width(ptr noundef %81, i32 noundef 196608)
-  store i32 %82, ptr %13, align 4, !tbaa !17
+  store i32 %82, ptr %13, align 4, !tbaa !27
   call void @llvm.lifetime.start.p0(i64 4, ptr %14) #4
-  %83 = load ptr, ptr %5, align 8, !tbaa !3
+  %83 = load ptr, ptr %5, align 8, !tbaa !8
   %84 = call i32 @lv_obj_get_style_transform_height(ptr noundef %83, i32 noundef 196608)
-  store i32 %84, ptr %14, align 4, !tbaa !17
-  %85 = load i32, ptr %9, align 4, !tbaa !17
-  %86 = load i32, ptr %13, align 4, !tbaa !17
+  store i32 %84, ptr %14, align 4, !tbaa !27
+  %85 = load i32, ptr %9, align 4, !tbaa !27
+  %86 = load i32, ptr %13, align 4, !tbaa !27
   %87 = add nsw i32 %85, %86
-  %88 = load ptr, ptr %6, align 8, !tbaa !3
+  %88 = load ptr, ptr %6, align 8, !tbaa !46
   %89 = getelementptr inbounds nuw %struct.lv_area_t, ptr %88, i32 0, i32 0
-  %90 = load i32, ptr %89, align 4, !tbaa !29
+  %90 = load i32, ptr %89, align 4, !tbaa !47
   %91 = sub nsw i32 %90, %87
-  store i32 %91, ptr %89, align 4, !tbaa !29
-  %92 = load i32, ptr %10, align 4, !tbaa !17
-  %93 = load i32, ptr %13, align 4, !tbaa !17
+  store i32 %91, ptr %89, align 4, !tbaa !47
+  %92 = load i32, ptr %10, align 4, !tbaa !27
+  %93 = load i32, ptr %13, align 4, !tbaa !27
   %94 = add nsw i32 %92, %93
-  %95 = load ptr, ptr %6, align 8, !tbaa !3
+  %95 = load ptr, ptr %6, align 8, !tbaa !46
   %96 = getelementptr inbounds nuw %struct.lv_area_t, ptr %95, i32 0, i32 2
-  %97 = load i32, ptr %96, align 4, !tbaa !31
+  %97 = load i32, ptr %96, align 4, !tbaa !49
   %98 = add nsw i32 %97, %94
-  store i32 %98, ptr %96, align 4, !tbaa !31
-  %99 = load i32, ptr %11, align 4, !tbaa !17
-  %100 = load i32, ptr %14, align 4, !tbaa !17
+  store i32 %98, ptr %96, align 4, !tbaa !49
+  %99 = load i32, ptr %11, align 4, !tbaa !27
+  %100 = load i32, ptr %14, align 4, !tbaa !27
   %101 = add nsw i32 %99, %100
-  %102 = load ptr, ptr %6, align 8, !tbaa !3
+  %102 = load ptr, ptr %6, align 8, !tbaa !46
   %103 = getelementptr inbounds nuw %struct.lv_area_t, ptr %102, i32 0, i32 1
-  %104 = load i32, ptr %103, align 4, !tbaa !30
+  %104 = load i32, ptr %103, align 4, !tbaa !48
   %105 = sub nsw i32 %104, %101
-  store i32 %105, ptr %103, align 4, !tbaa !30
-  %106 = load i32, ptr %12, align 4, !tbaa !17
-  %107 = load i32, ptr %14, align 4, !tbaa !17
+  store i32 %105, ptr %103, align 4, !tbaa !48
+  %106 = load i32, ptr %12, align 4, !tbaa !27
+  %107 = load i32, ptr %14, align 4, !tbaa !27
   %108 = add nsw i32 %106, %107
-  %109 = load ptr, ptr %6, align 8, !tbaa !3
+  %109 = load ptr, ptr %6, align 8, !tbaa !46
   %110 = getelementptr inbounds nuw %struct.lv_area_t, ptr %109, i32 0, i32 3
-  %111 = load i32, ptr %110, align 4, !tbaa !32
+  %111 = load i32, ptr %110, align 4, !tbaa !50
   %112 = add nsw i32 %111, %108
-  store i32 %112, ptr %110, align 4, !tbaa !32
+  store i32 %112, ptr %110, align 4, !tbaa !50
   call void @llvm.lifetime.end.p0(i64 4, ptr %14) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr %12) #4
@@ -2980,61 +3107,92 @@ attributes #4 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{!4, !4, i64 0}
-!4 = !{!"any pointer", !5, i64 0}
-!5 = !{!"omnipotent char", !6, i64 0}
-!6 = !{!"Simple C/C++ TBAA"}
-!7 = !{!8, !4, i64 200}
-!8 = !{!"_lv_slider_t", !9, i64 0, !11, i64 160, !11, i64 176, !16, i64 192, !4, i64 200, !5, i64 208, !5, i64 208}
-!9 = !{!"_lv_bar_t", !10, i64 0, !12, i64 64, !12, i64 68, !12, i64 72, !12, i64 76, !11, i64 80, !14, i64 96, !15, i64 104, !15, i64 128, !12, i64 152, !12, i64 152}
-!10 = !{!"_lv_obj_t", !4, i64 0, !4, i64 8, !4, i64 16, !4, i64 24, !4, i64 32, !11, i64 40, !12, i64 56, !13, i64 60, !13, i64 62, !13, i64 62, !13, i64 62, !13, i64 62, !13, i64 62, !13, i64 63, !13, i64 63, !13, i64 63}
-!11 = !{!"", !12, i64 0, !12, i64 4, !12, i64 8, !12, i64 12}
-!12 = !{!"int", !5, i64 0}
-!13 = !{!"short", !5, i64 0}
-!14 = !{!"_Bool", !5, i64 0}
-!15 = !{!"_lv_bar_anim_t", !4, i64 0, !12, i64 8, !12, i64 12, !12, i64 16}
-!16 = !{!"", !12, i64 0, !12, i64 4}
-!17 = !{!12, !12, i64 0}
-!18 = !{!10, !4, i64 16}
-!19 = !{!20, !12, i64 56}
-!20 = !{!"_lv_obj_spec_attr_t", !4, i64 0, !4, i64 8, !21, i64 16, !16, i64 48, !12, i64 56, !12, i64 60, !13, i64 64, !13, i64 66, !13, i64 66, !13, i64 66, !13, i64 66, !13, i64 67}
-!21 = !{!"", !22, i64 0, !5, i64 24, !5, i64 24}
-!22 = !{!"_lv_array_t", !4, i64 0, !12, i64 8, !12, i64 12, !12, i64 16, !14, i64 20}
-!23 = !{!24, !4, i64 0}
-!24 = !{!"_lv_hit_test_info_t", !4, i64 0, !14, i64 8}
-!25 = !{!24, !14, i64 8}
-!26 = !{i8 0, i8 2}
-!27 = !{}
-!28 = !{!14, !14, i64 0}
-!29 = !{!11, !12, i64 0}
-!30 = !{!11, !12, i64 4}
-!31 = !{!11, !12, i64 8}
-!32 = !{!11, !12, i64 12}
-!33 = !{!16, !12, i64 0}
-!34 = !{!8, !12, i64 192}
-!35 = !{!16, !12, i64 4}
-!36 = !{!8, !12, i64 196}
-!37 = !{!38, !5, i64 72}
-!38 = !{!"_lv_indev_t", !12, i64 0, !4, i64 8, !12, i64 16, !12, i64 20, !5, i64 24, !5, i64 24, !5, i64 24, !5, i64 24, !5, i64 24, !12, i64 28, !12, i64 32, !4, i64 40, !4, i64 48, !4, i64 56, !4, i64 64, !5, i64 72, !5, i64 73, !5, i64 74, !5, i64 75, !13, i64 76, !13, i64 78, !12, i64 80, !39, i64 88, !16, i64 232, !4, i64 240, !4, i64 248, !4, i64 256, !21, i64 264, !4, i64 296}
-!39 = !{!"", !16, i64 0, !16, i64 8, !16, i64 16, !16, i64 24, !16, i64 32, !16, i64 40, !16, i64 48, !4, i64 56, !4, i64 64, !4, i64 72, !4, i64 80, !4, i64 88, !11, i64 96, !16, i64 112, !12, i64 120, !5, i64 124, !16, i64 128, !12, i64 136, !5, i64 140, !5, i64 140, !5, i64 141, !5, i64 141}
-!40 = !{!8, !12, i64 72}
-!41 = !{!8, !12, i64 68}
-!42 = !{!8, !14, i64 96}
-!43 = !{!10, !12, i64 48}
-!44 = !{!10, !12, i64 40}
-!45 = !{!10, !12, i64 44}
-!46 = !{!10, !12, i64 52}
-!47 = !{!8, !12, i64 64}
-!48 = !{!8, !12, i64 76}
-!49 = !{!5, !5, i64 0}
-!50 = !{!8, !12, i64 80}
-!51 = !{!8, !12, i64 88}
-!52 = !{!8, !12, i64 92}
-!53 = !{!8, !12, i64 84}
-!54 = !{!8, !12, i64 184}
-!55 = !{!8, !12, i64 176}
-!56 = !{!8, !12, i64 160}
-!57 = !{!8, !12, i64 168}
-!58 = !{!8, !12, i64 180}
-!59 = !{!8, !12, i64 188}
-!60 = !{!8, !12, i64 172}
-!61 = !{!8, !12, i64 164}
+!4 = !{!"p1 _ZTS15_lv_obj_class_t", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"p1 _ZTS9_lv_obj_t", !5, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"p1 _ZTS12_lv_slider_t", !5, i64 0}
+!12 = !{!13, !24, i64 200}
+!13 = !{!"_lv_slider_t", !14, i64 0, !18, i64 160, !18, i64 176, !23, i64 192, !24, i64 200, !6, i64 208, !6, i64 208}
+!14 = !{!"_lv_bar_t", !15, i64 0, !19, i64 64, !19, i64 68, !19, i64 72, !19, i64 76, !18, i64 80, !21, i64 96, !22, i64 104, !22, i64 128, !19, i64 152, !19, i64 152}
+!15 = !{!"_lv_obj_t", !4, i64 0, !9, i64 8, !16, i64 16, !17, i64 24, !5, i64 32, !18, i64 40, !19, i64 56, !20, i64 60, !20, i64 62, !20, i64 62, !20, i64 62, !20, i64 62, !20, i64 62, !20, i64 63, !20, i64 63, !20, i64 63}
+!16 = !{!"p1 _ZTS19_lv_obj_spec_attr_t", !5, i64 0}
+!17 = !{!"p1 _ZTS15_lv_obj_style_t", !5, i64 0}
+!18 = !{!"", !19, i64 0, !19, i64 4, !19, i64 8, !19, i64 12}
+!19 = !{!"int", !6, i64 0}
+!20 = !{!"short", !6, i64 0}
+!21 = !{!"_Bool", !6, i64 0}
+!22 = !{!"_lv_bar_anim_t", !9, i64 0, !19, i64 8, !19, i64 12, !19, i64 16}
+!23 = !{!"", !19, i64 0, !19, i64 4}
+!24 = !{!"p1 int", !5, i64 0}
+!25 = !{!26, !26, i64 0}
+!26 = !{!"p1 _ZTS11_lv_event_t", !5, i64 0}
+!27 = !{!19, !19, i64 0}
+!28 = !{!29, !29, i64 0}
+!29 = !{!"p1 _ZTS19_lv_hit_test_info_t", !5, i64 0}
+!30 = !{!15, !16, i64 16}
+!31 = !{!32, !19, i64 56}
+!32 = !{!"_lv_obj_spec_attr_t", !33, i64 0, !34, i64 8, !35, i64 16, !23, i64 48, !19, i64 56, !19, i64 60, !20, i64 64, !20, i64 66, !20, i64 66, !20, i64 66, !20, i64 66, !20, i64 67}
+!33 = !{!"p2 _ZTS9_lv_obj_t", !5, i64 0}
+!34 = !{!"p1 _ZTS11_lv_group_t", !5, i64 0}
+!35 = !{!"", !36, i64 0, !6, i64 24, !6, i64 24}
+!36 = !{!"_lv_array_t", !37, i64 0, !19, i64 8, !19, i64 12, !19, i64 16, !21, i64 20}
+!37 = !{!"p1 omnipotent char", !5, i64 0}
+!38 = !{!39, !5, i64 0}
+!39 = !{!"_lv_hit_test_info_t", !5, i64 0, !21, i64 8}
+!40 = !{!39, !21, i64 8}
+!41 = !{i8 0, i8 2}
+!42 = !{}
+!43 = !{!34, !34, i64 0}
+!44 = !{!21, !21, i64 0}
+!45 = !{!24, !24, i64 0}
+!46 = !{!5, !5, i64 0}
+!47 = !{!18, !19, i64 0}
+!48 = !{!18, !19, i64 4}
+!49 = !{!18, !19, i64 8}
+!50 = !{!18, !19, i64 12}
+!51 = !{!52, !52, i64 0}
+!52 = !{!"p1 _ZTS11_lv_indev_t", !5, i64 0}
+!53 = !{!23, !19, i64 0}
+!54 = !{!13, !19, i64 192}
+!55 = !{!23, !19, i64 4}
+!56 = !{!13, !19, i64 196}
+!57 = !{!58, !6, i64 72}
+!58 = !{!"_lv_indev_t", !19, i64 0, !5, i64 8, !19, i64 16, !19, i64 20, !19, i64 24, !6, i64 28, !6, i64 28, !6, i64 28, !6, i64 28, !6, i64 28, !19, i64 32, !19, i64 36, !5, i64 40, !5, i64 48, !59, i64 56, !60, i64 64, !6, i64 72, !6, i64 73, !6, i64 74, !6, i64 75, !20, i64 76, !20, i64 78, !19, i64 80, !61, i64 88, !23, i64 232, !9, i64 240, !34, i64 248, !5, i64 256, !35, i64 264, !62, i64 296, !19, i64 304, !5, i64 312}
+!59 = !{!"p1 _ZTS13_lv_display_t", !5, i64 0}
+!60 = !{!"p1 _ZTS11_lv_timer_t", !5, i64 0}
+!61 = !{!"", !23, i64 0, !23, i64 8, !23, i64 16, !23, i64 24, !23, i64 32, !23, i64 40, !23, i64 48, !9, i64 56, !9, i64 64, !9, i64 72, !9, i64 80, !9, i64 88, !18, i64 96, !23, i64 112, !19, i64 120, !6, i64 124, !23, i64 128, !19, i64 136, !6, i64 140, !6, i64 140, !6, i64 141, !6, i64 141, !6, i64 141}
+!62 = !{!"p1 _ZTS10_lv_anim_t", !5, i64 0}
+!63 = !{!13, !19, i64 72}
+!64 = !{!13, !19, i64 68}
+!65 = !{!13, !21, i64 96}
+!66 = !{!15, !19, i64 48}
+!67 = !{!15, !19, i64 40}
+!68 = !{!15, !19, i64 44}
+!69 = !{!15, !19, i64 52}
+!70 = !{!13, !19, i64 64}
+!71 = !{!13, !19, i64 76}
+!72 = !{!6, !6, i64 0}
+!73 = !{!74, !74, i64 0}
+!74 = !{!"p1 _ZTS11_lv_layer_t", !5, i64 0}
+!75 = !{!13, !19, i64 80}
+!76 = !{!13, !19, i64 88}
+!77 = !{!13, !19, i64 92}
+!78 = !{!13, !19, i64 84}
+!79 = !{!80, !74, i64 24}
+!80 = !{!"", !81, i64 0, !19, i64 48, !6, i64 52, !83, i64 53, !84, i64 56, !5, i64 72, !5, i64 80, !83, i64 88, !6, i64 91, !6, i64 92, !6, i64 93, !83, i64 94, !19, i64 100, !6, i64 104, !19, i64 105, !6, i64 105, !83, i64 106, !19, i64 112, !19, i64 116, !6, i64 120, !83, i64 121, !19, i64 124, !19, i64 128, !19, i64 132, !19, i64 136, !6, i64 140}
+!81 = !{!"", !9, i64 0, !19, i64 8, !19, i64 12, !19, i64 16, !74, i64 24, !82, i64 32, !5, i64 40}
+!82 = !{!"long", !6, i64 0}
+!83 = !{!"", !6, i64 0, !6, i64 1, !6, i64 2}
+!84 = !{!"", !6, i64 0, !6, i64 10, !19, i64 11, !19, i64 11}
+!85 = !{!13, !19, i64 184}
+!86 = !{!13, !19, i64 176}
+!87 = !{!13, !19, i64 160}
+!88 = !{!13, !19, i64 168}
+!89 = !{!13, !19, i64 180}
+!90 = !{!13, !19, i64 188}
+!91 = !{!13, !19, i64 172}
+!92 = !{!13, !19, i64 164}
