@@ -1,219 +1,274 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @MurmurHash3_x86_32(ptr noundef %key, i64 noundef %length) #0 {
-entry:
-  %h.addr.i = alloca i32, align 4
-  %p.addr.i = alloca ptr, align 8
-  %i.addr.i = alloca i32, align 4
-  %key.addr = alloca ptr, align 8
-  %length.addr = alloca i64, align 8
-  %data = alloca ptr, align 8
-  %nblocks = alloca i32, align 4
-  %h1 = alloca i32, align 4
-  %c1 = alloca i32, align 4
-  %c2 = alloca i32, align 4
-  %blocks = alloca ptr, align 8
-  %i = alloca i32, align 4
-  %k1 = alloca i32, align 4
-  %tail = alloca ptr, align 8
-  %k19 = alloca i32, align 4
-  store ptr %key, ptr %key.addr, align 8
-  store i64 %length, ptr %length.addr, align 8
-  %0 = load ptr, ptr %key.addr, align 8
-  store ptr %0, ptr %data, align 8
-  %1 = load i64, ptr %length.addr, align 8
-  %div = udiv i64 %1, 4
-  %conv = trunc i64 %div to i32
-  store i32 %conv, ptr %nblocks, align 4
-  store i32 0, ptr %h1, align 4
-  store i32 -862048943, ptr %c1, align 4
-  store i32 461845907, ptr %c2, align 4
-  %2 = load ptr, ptr %data, align 8
-  %3 = load i32, ptr %nblocks, align 4
-  %mul = mul nsw i32 %3, 4
-  %idx.ext = sext i32 %mul to i64
-  %add.ptr = getelementptr inbounds i8, ptr %2, i64 %idx.ext
-  store ptr %add.ptr, ptr %blocks, align 8
-  %4 = load i32, ptr %nblocks, align 4
-  %sub = sub nsw i32 0, %4
-  store i32 %sub, ptr %i, align 4
-  br label %for.cond
+define dso_local i32 @MurmurHash3_x86_32(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store i64 %1, ptr %4, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #4
+  %15 = load ptr, ptr %3, align 8, !tbaa !4
+  store ptr %15, ptr %5, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #4
+  %16 = load i64, ptr %4, align 8, !tbaa !8
+  %17 = udiv i64 %16, 4
+  %18 = trunc i64 %17 to i32
+  store i32 %18, ptr %6, align 4, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #4
+  store i32 0, ptr %7, align 4, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #4
+  store i32 -862048943, ptr %8, align 4, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
+  store i32 461845907, ptr %9, align 4, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #4
+  %19 = load ptr, ptr %5, align 8, !tbaa !10
+  %20 = load i32, ptr %6, align 4, !tbaa !12
+  %21 = mul nsw i32 %20, 4
+  %22 = sext i32 %21 to i64
+  %23 = getelementptr inbounds i8, ptr %19, i64 %22
+  store ptr %23, ptr %10, align 8, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #4
+  %24 = load i32, ptr %6, align 4, !tbaa !12
+  %25 = sub nsw i32 0, %24
+  store i32 %25, ptr %11, align 4, !tbaa !12
+  br label %26
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %5 = load i32, ptr %i, align 4
-  %tobool = icmp ne i32 %5, 0
-  br i1 %tobool, label %for.body, label %for.end
+26:                                               ; preds = %50, %2
+  %27 = load i32, ptr %11, align 4, !tbaa !12
+  %28 = icmp ne i32 %27, 0
+  br i1 %28, label %30, label %29
 
-for.body:                                         ; preds = %for.cond
-  %6 = load ptr, ptr %blocks, align 8
-  %7 = load i32, ptr %i, align 4
-  store ptr %6, ptr %p.addr.i, align 8
-  store i32 %7, ptr %i.addr.i, align 4
-  %8 = load ptr, ptr %p.addr.i, align 8
-  %9 = load i32, ptr %i.addr.i, align 4
-  %idxprom.i = sext i32 %9 to i64
-  %arrayidx.i = getelementptr inbounds i32, ptr %8, i64 %idxprom.i
-  %10 = load i32, ptr %arrayidx.i, align 4
-  store i32 %10, ptr %k1, align 4
-  %11 = load i32, ptr %c1, align 4
-  %12 = load i32, ptr %k1, align 4
-  %mul1 = mul i32 %12, %11
-  store i32 %mul1, ptr %k1, align 4
-  %13 = load i32, ptr %k1, align 4
-  %call2 = call i32 @rotl32(i32 noundef %13, i8 noundef signext 15)
-  store i32 %call2, ptr %k1, align 4
-  %14 = load i32, ptr %c2, align 4
-  %15 = load i32, ptr %k1, align 4
-  %mul3 = mul i32 %15, %14
-  store i32 %mul3, ptr %k1, align 4
-  %16 = load i32, ptr %k1, align 4
-  %17 = load i32, ptr %h1, align 4
-  %xor = xor i32 %17, %16
-  store i32 %xor, ptr %h1, align 4
-  %18 = load i32, ptr %h1, align 4
-  %call4 = call i32 @rotl32(i32 noundef %18, i8 noundef signext 13)
-  store i32 %call4, ptr %h1, align 4
-  %19 = load i32, ptr %h1, align 4
-  %mul5 = mul i32 %19, 5
-  %add = add i32 %mul5, -430675100
-  store i32 %add, ptr %h1, align 4
-  br label %for.inc
+29:                                               ; preds = %26
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #4
+  br label %53
 
-for.inc:                                          ; preds = %for.body
-  %20 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %20, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !5
+30:                                               ; preds = %26
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #4
+  %31 = load ptr, ptr %10, align 8, !tbaa !14
+  %32 = load i32, ptr %11, align 4, !tbaa !12
+  %33 = call i32 @getblock32(ptr noundef %31, i32 noundef %32)
+  store i32 %33, ptr %12, align 4, !tbaa !12
+  %34 = load i32, ptr %8, align 4, !tbaa !12
+  %35 = load i32, ptr %12, align 4, !tbaa !12
+  %36 = mul i32 %35, %34
+  store i32 %36, ptr %12, align 4, !tbaa !12
+  %37 = load i32, ptr %12, align 4, !tbaa !12
+  %38 = call i32 @rotl32(i32 noundef %37, i8 noundef signext 15)
+  store i32 %38, ptr %12, align 4, !tbaa !12
+  %39 = load i32, ptr %9, align 4, !tbaa !12
+  %40 = load i32, ptr %12, align 4, !tbaa !12
+  %41 = mul i32 %40, %39
+  store i32 %41, ptr %12, align 4, !tbaa !12
+  %42 = load i32, ptr %12, align 4, !tbaa !12
+  %43 = load i32, ptr %7, align 4, !tbaa !12
+  %44 = xor i32 %43, %42
+  store i32 %44, ptr %7, align 4, !tbaa !12
+  %45 = load i32, ptr %7, align 4, !tbaa !12
+  %46 = call i32 @rotl32(i32 noundef %45, i8 noundef signext 13)
+  store i32 %46, ptr %7, align 4, !tbaa !12
+  %47 = load i32, ptr %7, align 4, !tbaa !12
+  %48 = mul i32 %47, 5
+  %49 = add i32 %48, -430675100
+  store i32 %49, ptr %7, align 4, !tbaa !12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #4
+  br label %50
 
-for.end:                                          ; preds = %for.cond
-  %21 = load ptr, ptr %data, align 8
-  %22 = load i32, ptr %nblocks, align 4
-  %mul6 = mul nsw i32 %22, 4
-  %idx.ext7 = sext i32 %mul6 to i64
-  %add.ptr8 = getelementptr inbounds i8, ptr %21, i64 %idx.ext7
-  store ptr %add.ptr8, ptr %tail, align 8
-  store i32 0, ptr %k19, align 4
-  %23 = load i64, ptr %length.addr, align 8
-  %and = and i64 %23, 3
-  switch i64 %and, label %sw.epilog [
-    i64 3, label %sw.bb
-    i64 2, label %sw.bb12
-    i64 1, label %sw.bb17
+50:                                               ; preds = %30
+  %51 = load i32, ptr %11, align 4, !tbaa !12
+  %52 = add nsw i32 %51, 1
+  store i32 %52, ptr %11, align 4, !tbaa !12
+  br label %26, !llvm.loop !16
+
+53:                                               ; preds = %29
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #4
+  %54 = load ptr, ptr %5, align 8, !tbaa !10
+  %55 = load i32, ptr %6, align 4, !tbaa !12
+  %56 = mul nsw i32 %55, 4
+  %57 = sext i32 %56 to i64
+  %58 = getelementptr inbounds i8, ptr %54, i64 %57
+  store ptr %58, ptr %13, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #4
+  store i32 0, ptr %14, align 4, !tbaa !12
+  %59 = load i64, ptr %4, align 8, !tbaa !8
+  %60 = and i64 %59, 3
+  switch i64 %60, label %95 [
+    i64 3, label %61
+    i64 2, label %69
+    i64 1, label %77
   ]
 
-sw.bb:                                            ; preds = %for.end
-  %24 = load ptr, ptr %tail, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %24, i64 2
-  %25 = load i8, ptr %arrayidx, align 1
-  %conv10 = zext i8 %25 to i32
-  %shl = shl i32 %conv10, 16
-  %26 = load i32, ptr %k19, align 4
-  %xor11 = xor i32 %26, %shl
-  store i32 %xor11, ptr %k19, align 4
-  br label %sw.bb12
+61:                                               ; preds = %53
+  %62 = load ptr, ptr %13, align 8, !tbaa !10
+  %63 = getelementptr inbounds i8, ptr %62, i64 2
+  %64 = load i8, ptr %63, align 1, !tbaa !18
+  %65 = zext i8 %64 to i32
+  %66 = shl i32 %65, 16
+  %67 = load i32, ptr %14, align 4, !tbaa !12
+  %68 = xor i32 %67, %66
+  store i32 %68, ptr %14, align 4, !tbaa !12
+  br label %69
 
-sw.bb12:                                          ; preds = %sw.bb, %for.end
-  %27 = load ptr, ptr %tail, align 8
-  %arrayidx13 = getelementptr inbounds i8, ptr %27, i64 1
-  %28 = load i8, ptr %arrayidx13, align 1
-  %conv14 = zext i8 %28 to i32
-  %shl15 = shl i32 %conv14, 8
-  %29 = load i32, ptr %k19, align 4
-  %xor16 = xor i32 %29, %shl15
-  store i32 %xor16, ptr %k19, align 4
-  br label %sw.bb17
+69:                                               ; preds = %53, %61
+  %70 = load ptr, ptr %13, align 8, !tbaa !10
+  %71 = getelementptr inbounds i8, ptr %70, i64 1
+  %72 = load i8, ptr %71, align 1, !tbaa !18
+  %73 = zext i8 %72 to i32
+  %74 = shl i32 %73, 8
+  %75 = load i32, ptr %14, align 4, !tbaa !12
+  %76 = xor i32 %75, %74
+  store i32 %76, ptr %14, align 4, !tbaa !12
+  br label %77
 
-sw.bb17:                                          ; preds = %sw.bb12, %for.end
-  %30 = load ptr, ptr %tail, align 8
-  %arrayidx18 = getelementptr inbounds i8, ptr %30, i64 0
-  %31 = load i8, ptr %arrayidx18, align 1
-  %conv19 = zext i8 %31 to i32
-  %32 = load i32, ptr %k19, align 4
-  %xor20 = xor i32 %32, %conv19
-  store i32 %xor20, ptr %k19, align 4
-  %33 = load i32, ptr %c1, align 4
-  %34 = load i32, ptr %k19, align 4
-  %mul21 = mul i32 %34, %33
-  store i32 %mul21, ptr %k19, align 4
-  %35 = load i32, ptr %k19, align 4
-  %call22 = call i32 @rotl32(i32 noundef %35, i8 noundef signext 15)
-  store i32 %call22, ptr %k19, align 4
-  %36 = load i32, ptr %c2, align 4
-  %37 = load i32, ptr %k19, align 4
-  %mul23 = mul i32 %37, %36
-  store i32 %mul23, ptr %k19, align 4
-  %38 = load i32, ptr %k19, align 4
-  %39 = load i32, ptr %h1, align 4
-  %xor24 = xor i32 %39, %38
-  store i32 %xor24, ptr %h1, align 4
-  br label %sw.epilog
+77:                                               ; preds = %53, %69
+  %78 = load ptr, ptr %13, align 8, !tbaa !10
+  %79 = getelementptr inbounds i8, ptr %78, i64 0
+  %80 = load i8, ptr %79, align 1, !tbaa !18
+  %81 = zext i8 %80 to i32
+  %82 = load i32, ptr %14, align 4, !tbaa !12
+  %83 = xor i32 %82, %81
+  store i32 %83, ptr %14, align 4, !tbaa !12
+  %84 = load i32, ptr %8, align 4, !tbaa !12
+  %85 = load i32, ptr %14, align 4, !tbaa !12
+  %86 = mul i32 %85, %84
+  store i32 %86, ptr %14, align 4, !tbaa !12
+  %87 = load i32, ptr %14, align 4, !tbaa !12
+  %88 = call i32 @rotl32(i32 noundef %87, i8 noundef signext 15)
+  store i32 %88, ptr %14, align 4, !tbaa !12
+  %89 = load i32, ptr %9, align 4, !tbaa !12
+  %90 = load i32, ptr %14, align 4, !tbaa !12
+  %91 = mul i32 %90, %89
+  store i32 %91, ptr %14, align 4, !tbaa !12
+  %92 = load i32, ptr %14, align 4, !tbaa !12
+  %93 = load i32, ptr %7, align 4, !tbaa !12
+  %94 = xor i32 %93, %92
+  store i32 %94, ptr %7, align 4, !tbaa !12
+  br label %95
 
-sw.epilog:                                        ; preds = %sw.bb17, %for.end
-  %40 = load i64, ptr %length.addr, align 8
-  %41 = load i32, ptr %h1, align 4
-  %conv25 = zext i32 %41 to i64
-  %xor26 = xor i64 %conv25, %40
-  %conv27 = trunc i64 %xor26 to i32
-  store i32 %conv27, ptr %h1, align 4
-  %42 = load i32, ptr %h1, align 4
-  store i32 %42, ptr %h.addr.i, align 4
-  %43 = load i32, ptr %h.addr.i, align 4
-  %shr.i = lshr i32 %43, 16
-  %44 = load i32, ptr %h.addr.i, align 4
-  %xor.i = xor i32 %44, %shr.i
-  store i32 %xor.i, ptr %h.addr.i, align 4
-  %45 = load i32, ptr %h.addr.i, align 4
-  %mul.i = mul i32 %45, -2048144789
-  store i32 %mul.i, ptr %h.addr.i, align 4
-  %46 = load i32, ptr %h.addr.i, align 4
-  %shr1.i = lshr i32 %46, 13
-  %47 = load i32, ptr %h.addr.i, align 4
-  %xor2.i = xor i32 %47, %shr1.i
-  store i32 %xor2.i, ptr %h.addr.i, align 4
-  %48 = load i32, ptr %h.addr.i, align 4
-  %mul3.i = mul i32 %48, -1028477387
-  store i32 %mul3.i, ptr %h.addr.i, align 4
-  %49 = load i32, ptr %h.addr.i, align 4
-  %shr4.i = lshr i32 %49, 16
-  %50 = load i32, ptr %h.addr.i, align 4
-  %xor5.i = xor i32 %50, %shr4.i
-  store i32 %xor5.i, ptr %h.addr.i, align 4
-  %51 = load i32, ptr %h.addr.i, align 4
-  store i32 %51, ptr %h1, align 4
-  %52 = load i32, ptr %h1, align 4
-  ret i32 %52
+95:                                               ; preds = %77, %53
+  %96 = load i64, ptr %4, align 8, !tbaa !8
+  %97 = load i32, ptr %7, align 4, !tbaa !12
+  %98 = zext i32 %97 to i64
+  %99 = xor i64 %98, %96
+  %100 = trunc i64 %99 to i32
+  store i32 %100, ptr %7, align 4, !tbaa !12
+  %101 = load i32, ptr %7, align 4, !tbaa !12
+  %102 = call i32 @fmix32(i32 noundef %101)
+  store i32 %102, ptr %7, align 4, !tbaa !12
+  %103 = load i32, ptr %7, align 4, !tbaa !12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #4
+  ret i32 %103
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @rotl32(i32 noundef %x, i8 noundef signext %r) #0 {
-entry:
-  %x.addr = alloca i32, align 4
-  %r.addr = alloca i8, align 1
-  store i32 %x, ptr %x.addr, align 4
-  store i8 %r, ptr %r.addr, align 1
-  %0 = load i32, ptr %x.addr, align 4
-  %1 = load i8, ptr %r.addr, align 1
-  %conv = sext i8 %1 to i32
-  %shl = shl i32 %0, %conv
-  %2 = load i32, ptr %x.addr, align 4
-  %3 = load i8, ptr %r.addr, align 1
-  %conv1 = sext i8 %3 to i32
-  %sub = sub nsw i32 32, %conv1
-  %shr = lshr i32 %2, %sub
-  %or = or i32 %shl, %shr
-  ret i32 %or
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal i32 @getblock32(ptr noundef %0, i32 noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !14
+  store i32 %1, ptr %4, align 4, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !14
+  %6 = load i32, ptr %4, align 4, !tbaa !12
+  %7 = sext i32 %6 to i64
+  %8 = getelementptr inbounds i32, ptr %5, i64 %7
+  %9 = load i32, ptr %8, align 4, !tbaa !12
+  ret i32 %9
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @rotl32(i32 noundef %0, i8 noundef signext %1) #3 {
+  %3 = alloca i32, align 4
+  %4 = alloca i8, align 1
+  store i32 %0, ptr %3, align 4, !tbaa !12
+  store i8 %1, ptr %4, align 1, !tbaa !18
+  %5 = load i32, ptr %3, align 4, !tbaa !12
+  %6 = load i8, ptr %4, align 1, !tbaa !18
+  %7 = sext i8 %6 to i32
+  %8 = shl i32 %5, %7
+  %9 = load i32, ptr %3, align 4, !tbaa !12
+  %10 = load i8, ptr %4, align 1, !tbaa !18
+  %11 = sext i8 %10 to i32
+  %12 = sub nsw i32 32, %11
+  %13 = lshr i32 %9, %12
+  %14 = or i32 %8, %13
+  ret i32 %14
+}
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal i32 @fmix32(i32 noundef %0) #2 {
+  %2 = alloca i32, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !12
+  %3 = load i32, ptr %2, align 4, !tbaa !12
+  %4 = lshr i32 %3, 16
+  %5 = load i32, ptr %2, align 4, !tbaa !12
+  %6 = xor i32 %5, %4
+  store i32 %6, ptr %2, align 4, !tbaa !12
+  %7 = load i32, ptr %2, align 4, !tbaa !12
+  %8 = mul i32 %7, -2048144789
+  store i32 %8, ptr %2, align 4, !tbaa !12
+  %9 = load i32, ptr %2, align 4, !tbaa !12
+  %10 = lshr i32 %9, 13
+  %11 = load i32, ptr %2, align 4, !tbaa !12
+  %12 = xor i32 %11, %10
+  store i32 %12, ptr %2, align 4, !tbaa !12
+  %13 = load i32, ptr %2, align 4, !tbaa !12
+  %14 = mul i32 %13, -1028477387
+  store i32 %14, ptr %2, align 4, !tbaa !12
+  %15 = load i32, ptr %2, align 4, !tbaa !12
+  %16 = lshr i32 %15, 16
+  %17 = load i32, ptr %2, align 4, !tbaa !12
+  %18 = xor i32 %17, %16
+  store i32 %18, ptr %2, align 4, !tbaa !12
+  %19 = load i32, ptr %2, align 4, !tbaa !12
+  ret i32 %19
+}
+
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { alwaysinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind }
+
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"long", !6, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"p1 omnipotent char", !5, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"int", !6, i64 0}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"p1 int", !5, i64 0}
+!16 = distinct !{!16, !17}
+!17 = !{!"llvm.loop.mustprogress"}
+!18 = !{!6, !6, i64 0}
